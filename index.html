@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ACS Learn | Social Media Master</title>
 
-<meta name="description" content="Learn Social Media using mobile.">
-
 <style>
 body{
   margin:0;
@@ -125,8 +123,12 @@ body{
   <div class="hero-text" id="heroText"></div>
 </div>
 
-<a href="https://acslearn.com" class="cta" id="btn"></a>
+<!-- START BUTTON (FIXED TO HINDI COURSE) -->
+<a href="https://acs-aidigitalmaster.org/L001.html" class="cta">
+🚀 Start Learning
+</a>
 
+<!-- ABOUT -->
 <div class="section">
   <h3 id="aboutTitle"></h3>
   <p id="aboutText"></p>
@@ -135,38 +137,35 @@ body{
 </div>
 
 <script>
+
 const LANG = {
-hi:{title:"सोशल मीडिया मास्टर",tagline:"मोबाइल से सीखो",hero:"हर बच्चे को अवसर",btn:"🚀 शुरू करें",aboutTitle:"हम क्या सिखाते हैं",aboutText:"हम सोशल मीडिया सिखाते हैं।"},
-en:{title:"Social Media Master",tagline:"Learn with mobile",hero:"Digital opportunity",btn:"🚀 Start",aboutTitle:"What We Teach",aboutText:"We teach social media."},
-ar:{title:"خبير التواصل",tagline:"تعلم بالهاتف",hero:"فرصة رقمية",btn:"🚀 ابدأ",aboutTitle:"ماذا نعلم",aboutText:"نحن نعلم وسائل التواصل."},
-bn:{title:"সোশ্যাল মিডিয়া",tagline:"মোবাইলে শিখুন",hero:"ডিজিটাল সুযোগ",btn:"🚀 শুরু",aboutTitle:"আমরা শেখাই",aboutText:"আমরা সোশ্যাল মিডিয়া শেখাই।"},
-fr:{title:"Médias sociaux",tagline:"Apprendre mobile",hero:"Opportunité",btn:"🚀 Commencer",aboutTitle:"Nous enseignons",aboutText:"Réseaux sociaux."},
-de:{title:"Social Media",tagline:"Mit Handy lernen",hero:"Digitale Chance",btn:"🚀 Start",aboutTitle:"Was wir lehren",aboutText:"Social Media."},
-id:{title:"Media Sosial",tagline:"Belajar mobile",hero:"Peluang digital",btn:"🚀 Mulai",aboutTitle:"Kami ajarkan",aboutText:"Media sosial."},
-ja:{title:"ソーシャルメディア",tagline:"モバイル学習",hero:"デジタル機会",btn:"🚀 開始",aboutTitle:"教える内容",aboutText:"SNSです。"},
-zh:{title:"社交媒体",tagline:"手机学习",hero:"数字机会",btn:"🚀 开始",aboutTitle:"我们教",aboutText:"社交媒体。"},
-pt:{title:"Mídias sociais",tagline:"Aprender mobile",hero:"Oportunidade",btn:"🚀 Começar",aboutTitle:"Ensinamos",aboutText:"Redes sociais."},
-ru:{title:"Соцсети",tagline:"Учись с телефона",hero:"Цифровая возможность",btn:"🚀 Начать",aboutTitle:"Мы учим",aboutText:"Соцсети."},
-es:{title:"Redes sociales",tagline:"Aprender móvil",hero:"Oportunidad",btn:"🚀 Empezar",aboutTitle:"Enseñamos",aboutText:"Redes sociales."},
-ur:{title:"سوشل میڈیا",tagline:"موبائل سے سیکھیں",hero:"ڈیجیٹل موقع",btn:"🚀 شروع",aboutTitle:"ہم سکھاتے ہیں",aboutText:"سوشل میڈیا۔"}
+hi:{title:"सोशल मीडिया मास्टर",tagline:"मोबाइल से सीखो",hero:"हर बच्चे को सीखने का अवसर",aboutTitle:"हम क्या सिखाते हैं",aboutText:"हम सोशल मीडिया सिखाते हैं।"},
+en:{title:"Social Media Master",tagline:"Learn with mobile",hero:"Digital learning opportunity",aboutTitle:"What We Teach",aboutText:"We teach social media."},
+ar:{title:"خبير التواصل",tagline:"تعلم بالهاتف",hero:"فرصة رقمية",aboutTitle:"ماذا نعلم",aboutText:"نحن نعلم وسائل التواصل."},
+bn:{title:"সোশ্যাল মিডিয়া",tagline:"মোবাইলে শিখুন",hero:"ডিজিটাল সুযোগ",aboutTitle:"আমরা শেখাই",aboutText:"আমরা সোশ্যাল মিডিয়া শেখাই।"},
+fr:{title:"Médias sociaux",tagline:"Apprendre mobile",hero:"Opportunité",aboutTitle:"Nous enseignons",aboutText:"Réseaux sociaux."},
+de:{title:"Social Media",tagline:"Mit Handy lernen",hero:"Digitale Chance",aboutTitle:"Was wir lehren",aboutText:"Social Media."},
+id:{title:"Media Sosial",tagline:"Belajar mobile",hero:"Peluang digital",aboutTitle:"Kami ajarkan",aboutText:"Media sosial."},
+ja:{title:"ソーシャルメディア",tagline:"モバイル学習",hero:"デジタル機会",aboutTitle:"教える内容",aboutText:"SNSです。"},
+zh:{title:"社交媒体",tagline:"手机学习",hero:"数字机会",aboutTitle:"我们教",aboutText:"社交媒体。"},
+pt:{title:"Mídias sociais",tagline:"Aprender mobile",hero:"Oportunidade",aboutTitle:"Ensinamos",aboutText:"Redes sociais."},
+ru:{title:"Соцсети",tagline:"Учись с телефона",hero:"Цифровая возможность",aboutTitle:"Мы учим",aboutText:"Соцсети."},
+es:{title:"Redes sociales",tagline:"Aprender móvil",hero:"Oportunidad",aboutTitle:"Enseñamos",aboutText:"Redes sociales."},
+ur:{title:"سوشل میڈیا",tagline:"موبائل سے سیکھیں",hero:"ڈیجیٹل موقع",aboutTitle:"ہم سکھاتے ہیں",aboutText:"سوشل میڈیا۔"}
 };
 
-/* APPLY LANGUAGE */
 function applyLang(code){
   let L = LANG[code];
 
   document.getElementById("title").innerText=L.title;
   document.getElementById("tagline").innerText=L.tagline;
   document.getElementById("heroText").innerText=L.hero;
-  document.getElementById("btn").innerText=L.btn;
   document.getElementById("aboutTitle").innerText=L.aboutTitle;
   document.getElementById("aboutText").innerText=L.aboutText;
 
-  // highlight active
   document.querySelectorAll(".lang span").forEach(el=>el.classList.remove("active"));
   document.getElementById("l_"+code).classList.add("active");
 
-  // RTL support
   if(code==="ar" || code==="ur"){
     document.body.style.direction="rtl";
   } else {
@@ -174,13 +173,11 @@ function applyLang(code){
   }
 }
 
-/* CLICK */
 function setLang(code){
   localStorage.setItem("lang",code);
   applyLang(code);
 }
 
-/* AUTO LOAD */
 let saved = localStorage.getItem("lang") || "hi";
 applyLang(saved);
 
