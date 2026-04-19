@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ACS Learn | Social Media Master</title>
 
-<!-- SEO -->
-<meta name="description" content="Learn Social Media using mobile. Create, grow and succeed with ACS Learn.">
-<meta name="keywords" content="ACS Learn, Social Media Course, Digital Skills, Mobile Learning">
-<meta name="author" content="ACS Learn">
+<meta name="description" content="Learn Social Media using mobile.">
 
 <style>
 body{
@@ -28,7 +25,6 @@ body{
   border-radius:18px;
   text-align:center;
   padding:16px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.15);
 }
 .logo{
   width:70px;
@@ -37,16 +33,9 @@ body{
   border-radius:50%;
   background:white;
   padding:6px;
-  margin-bottom:8px;
 }
-.title{
-  font-size:18px;
-  font-weight:700;
-}
-.tagline{
-  font-size:14px;
-  color:#333;
-}
+.title{font-size:18px;font-weight:700;}
+.tagline{font-size:14px;color:#333;}
 
 /* LANGUAGE */
 .lang{
@@ -58,18 +47,17 @@ body{
   margin:4px 6px;
   cursor:pointer;
   color:#0b57d0;
-  font-weight:500;
+  padding:4px 6px;
+  border-radius:6px;
+}
+.lang span.active{
+  background:#0b57d0;
+  color:white;
 }
 
 /* HERO */
-.hero{
-  margin-top:14px;
-  position:relative;
-}
-.hero img{
-  width:100%;
-  border-radius:16px;
-}
+.hero{margin-top:14px;position:relative;}
+.hero img{width:100%;border-radius:16px;}
 .hero-text{
   position:absolute;
   bottom:14px;
@@ -80,7 +68,6 @@ body{
   padding:10px;
   border-radius:10px;
   text-align:center;
-  font-size:14px;
 }
 
 /* CTA */
@@ -92,15 +79,12 @@ body{
   padding:14px;
   border-radius:14px;
   margin-top:12px;
-  font-size:16px;
   font-weight:bold;
   text-decoration:none;
 }
 
 /* SECTION */
-.section{
-  margin-top:18px;
-}
+.section{margin-top:18px;}
 </style>
 </head>
 
@@ -117,9 +101,21 @@ body{
   <div class="lang">
     🌐 Language:<br>
 
-    हिंदी | English | العربية | বাংলা | Français<br>
-    Deutsch | Bahasa | 日本語 | 中文<br>
-    Português | Русский | Español | اردو
+    <span onclick="setLang('hi')" id="l_hi">हिंदी</span>
+    <span onclick="setLang('en')" id="l_en">English</span>
+    <span onclick="setLang('ar')" id="l_ar">العربية</span>
+    <span onclick="setLang('bn')" id="l_bn">বাংলা</span>
+    <span onclick="setLang('fr')" id="l_fr">Français</span><br>
+
+    <span onclick="setLang('de')" id="l_de">Deutsch</span>
+    <span onclick="setLang('id')" id="l_id">Bahasa</span>
+    <span onclick="setLang('ja')" id="l_ja">日本語</span>
+    <span onclick="setLang('zh')" id="l_zh">中文</span><br>
+
+    <span onclick="setLang('pt')" id="l_pt">Português</span>
+    <span onclick="setLang('ru')" id="l_ru">Русский</span>
+    <span onclick="setLang('es')" id="l_es">Español</span>
+    <span onclick="setLang('ur')" id="l_ur">اردو</span>
   </div>
 </div>
 
@@ -129,10 +125,8 @@ body{
   <div class="hero-text" id="heroText"></div>
 </div>
 
-<!-- CTA -->
 <a href="https://acslearn.com" class="cta" id="btn"></a>
 
-<!-- ABOUT -->
 <div class="section">
   <h3 id="aboutTitle"></h3>
   <p id="aboutText"></p>
@@ -141,87 +135,54 @@ body{
 </div>
 
 <script>
-
-/* ===== 13 LANGUAGE DATA ===== */
 const LANG = {
-
-hi:{
-title:"सोशल मीडिया मास्टर",
-tagline:"मोबाइल से सीखो, बनाओ, आगे बढ़ो",
-hero:"हर बच्चे को डिजिटल स्किल सीखने का अवसर",
-btn:"🚀 अभी सीखना शुरू करें",
-aboutTitle:"हम क्या सिखाते हैं",
-aboutText:"हम आपको मोबाइल से सोशल मीडिया का सही उपयोग, कंटेंट बनाना और ग्रो करना सिखाते हैं।"
-},
-
-en:{
-title:"Social Media Master",
-tagline:"Learn, create and grow using mobile",
-hero:"Digital skill opportunity for every learner",
-btn:"🚀 Start Learning Now",
-aboutTitle:"What We Teach",
-aboutText:"We teach social media usage, content creation and growth using mobile."
-},
-
-ar:{
-title:"خبير وسائل التواصل الاجتماعي",
-tagline:"تعلم واصنع وتقدم باستخدام الهاتف",
-hero:"فرصة تعلم المهارات الرقمية للجميع",
-btn:"🚀 ابدأ الآن",
-aboutTitle:"ماذا نعلم",
-aboutText:"نحن نعلمك استخدام وسائل التواصل الاجتماعي وصناعة المحتوى والنمو."
-},
-
-bn:{title:"সোশ্যাল মিডিয়া মাস্টার",tagline:"মোবাইল দিয়ে শিখুন",hero:"ডিজিটাল শেখার সুযোগ",btn:"🚀 শুরু করুন",aboutTitle:"আমরা কী শিখাই",aboutText:"আমরা সোশ্যাল মিডিয়া শেখাই।"},
-fr:{title:"Maîtrise des médias sociaux",tagline:"Apprenez avec mobile",hero:"Opportunité digitale",btn:"🚀 Commencer",aboutTitle:"Nous enseignons",aboutText:"Nous enseignons les réseaux sociaux."},
-de:{title:"Social Media Meister",tagline:"Lernen mit Handy",hero:"Digitale Chance",btn:"🚀 Starten",aboutTitle:"Was wir lehren",aboutText:"Wir lehren soziale Medien."},
-id:{title:"Master Media Sosial",tagline:"Belajar dengan mobile",hero:"Kesempatan digital",btn:"🚀 Mulai",aboutTitle:"Apa yang kami ajarkan",aboutText:"Kami mengajarkan media sosial."},
-ja:{title:"ソーシャルメディアマスター",tagline:"モバイルで学ぶ",hero:"デジタル学習の機会",btn:"🚀 始める",aboutTitle:"私たちが教えること",aboutText:"SNSの使い方を教えます。"},
-zh:{title:"社交媒体大师",tagline:"用手机学习",hero:"数字学习机会",btn:"🚀 开始",aboutTitle:"我们教授",aboutText:"我们教授社交媒体。"},
-pt:{title:"Mestre de Mídias Sociais",tagline:"Aprenda com celular",hero:"Oportunidade digital",btn:"🚀 Começar",aboutTitle:"O que ensinamos",aboutText:"Ensinamos mídias sociais."},
-ru:{title:"Мастер соцсетей",tagline:"Учитесь с телефона",hero:"Цифровая возможность",btn:"🚀 Начать",aboutTitle:"Чему учим",aboutText:"Мы обучаем соцсетям."},
-es:{title:"Maestro de redes sociales",tagline:"Aprende con móvil",hero:"Oportunidad digital",btn:"🚀 Empezar",aboutTitle:"Qué enseñamos",aboutText:"Enseñamos redes sociales."},
-ur:{title:"سوشل میڈیا ماسٹر",tagline:"موبائل سے سیکھیں",hero:"ڈیجیٹل سیکھنے کا موقع",btn:"🚀 شروع کریں",aboutTitle:"ہم کیا سکھاتے ہیں",aboutText:"ہم سوشل میڈیا سکھاتے ہیں۔"}
-
+hi:{title:"सोशल मीडिया मास्टर",tagline:"मोबाइल से सीखो",hero:"हर बच्चे को अवसर",btn:"🚀 शुरू करें",aboutTitle:"हम क्या सिखाते हैं",aboutText:"हम सोशल मीडिया सिखाते हैं।"},
+en:{title:"Social Media Master",tagline:"Learn with mobile",hero:"Digital opportunity",btn:"🚀 Start",aboutTitle:"What We Teach",aboutText:"We teach social media."},
+ar:{title:"خبير التواصل",tagline:"تعلم بالهاتف",hero:"فرصة رقمية",btn:"🚀 ابدأ",aboutTitle:"ماذا نعلم",aboutText:"نحن نعلم وسائل التواصل."},
+bn:{title:"সোশ্যাল মিডিয়া",tagline:"মোবাইলে শিখুন",hero:"ডিজিটাল সুযোগ",btn:"🚀 শুরু",aboutTitle:"আমরা শেখাই",aboutText:"আমরা সোশ্যাল মিডিয়া শেখাই।"},
+fr:{title:"Médias sociaux",tagline:"Apprendre mobile",hero:"Opportunité",btn:"🚀 Commencer",aboutTitle:"Nous enseignons",aboutText:"Réseaux sociaux."},
+de:{title:"Social Media",tagline:"Mit Handy lernen",hero:"Digitale Chance",btn:"🚀 Start",aboutTitle:"Was wir lehren",aboutText:"Social Media."},
+id:{title:"Media Sosial",tagline:"Belajar mobile",hero:"Peluang digital",btn:"🚀 Mulai",aboutTitle:"Kami ajarkan",aboutText:"Media sosial."},
+ja:{title:"ソーシャルメディア",tagline:"モバイル学習",hero:"デジタル機会",btn:"🚀 開始",aboutTitle:"教える内容",aboutText:"SNSです。"},
+zh:{title:"社交媒体",tagline:"手机学习",hero:"数字机会",btn:"🚀 开始",aboutTitle:"我们教",aboutText:"社交媒体。"},
+pt:{title:"Mídias sociais",tagline:"Aprender mobile",hero:"Oportunidade",btn:"🚀 Começar",aboutTitle:"Ensinamos",aboutText:"Redes sociais."},
+ru:{title:"Соцсети",tagline:"Учись с телефона",hero:"Цифровая возможность",btn:"🚀 Начать",aboutTitle:"Мы учим",aboutText:"Соцсети."},
+es:{title:"Redes sociales",tagline:"Aprender móvil",hero:"Oportunidad",btn:"🚀 Empezar",aboutTitle:"Enseñamos",aboutText:"Redes sociales."},
+ur:{title:"سوشل میڈیا",tagline:"موبائل سے سیکھیں",hero:"ڈیجیٹل موقع",btn:"🚀 شروع",aboutTitle:"ہم سکھاتے ہیں",aboutText:"سوشل میڈیا۔"}
 };
 
-/* ===== AUTO DETECT ===== */
-function detectLang(){
-  let lang = navigator.language || "en";
-
-  if(lang.includes("hi")) return "hi";
-  if(lang.includes("ar")) return "ar";
-  if(lang.includes("bn")) return "bn";
-  if(lang.includes("fr")) return "fr";
-  if(lang.includes("de")) return "de";
-  if(lang.includes("id")) return "id";
-  if(lang.includes("ja")) return "ja";
-  if(lang.includes("zh")) return "zh";
-  if(lang.includes("pt")) return "pt";
-  if(lang.includes("ru")) return "ru";
-  if(lang.includes("es")) return "es";
-  if(lang.includes("ur")) return "ur";
-
-  return "en";
-}
-
-/* ===== APPLY ===== */
+/* APPLY LANGUAGE */
 function applyLang(code){
   let L = LANG[code];
 
-  document.getElementById("title").innerText = L.title;
-  document.getElementById("tagline").innerText = L.tagline;
-  document.getElementById("heroText").innerText = L.hero;
-  document.getElementById("btn").innerText = L.btn;
-  document.getElementById("aboutTitle").innerText = L.aboutTitle;
-  document.getElementById("aboutText").innerText = L.aboutText;
+  document.getElementById("title").innerText=L.title;
+  document.getElementById("tagline").innerText=L.tagline;
+  document.getElementById("heroText").innerText=L.hero;
+  document.getElementById("btn").innerText=L.btn;
+  document.getElementById("aboutTitle").innerText=L.aboutTitle;
+  document.getElementById("aboutText").innerText=L.aboutText;
+
+  // highlight active
+  document.querySelectorAll(".lang span").forEach(el=>el.classList.remove("active"));
+  document.getElementById("l_"+code).classList.add("active");
+
+  // RTL support
+  if(code==="ar" || code==="ur"){
+    document.body.style.direction="rtl";
+  } else {
+    document.body.style.direction="ltr";
+  }
 }
 
-/* INIT */
-let saved = localStorage.getItem("lang");
-let finalLang = saved || detectLang();
+/* CLICK */
+function setLang(code){
+  localStorage.setItem("lang",code);
+  applyLang(code);
+}
 
-applyLang(finalLang);
+/* AUTO LOAD */
+let saved = localStorage.getItem("lang") || "hi";
+applyLang(saved);
 
 </script>
 
