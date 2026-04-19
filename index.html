@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACS Learn | Social Media Master</title>
+<title>Applied Computer School | ACS Learn</title>
 
 <style>
 body{
@@ -81,7 +81,14 @@ body{
   text-decoration:none;
 }
 
-/* SECTION */
+/* COURSES */
+.card{
+  background:white;
+  padding:12px;
+  border-radius:12px;
+  margin-top:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
 .section{margin-top:18px;}
 </style>
 </head>
@@ -123,10 +130,19 @@ body{
   <div class="hero-text" id="heroText"></div>
 </div>
 
-<!-- START BUTTON (FIXED TO HINDI COURSE) -->
+<!-- START BUTTON -->
 <a href="https://acs-aidigitalmaster.org/L001.html" class="cta">
 🚀 Start Learning
 </a>
+
+<!-- COURSES -->
+<div class="section">
+  <h3 id="courseTitle"></h3>
+
+  <div class="card">📱 Social Media Master</div>
+  <div class="card">💻 Basic Computer Course</div>
+  <div class="card">🤖 AI Digital Skills</div>
+</div>
 
 <!-- ABOUT -->
 <div class="section">
@@ -139,32 +155,46 @@ body{
 <script>
 
 const LANG = {
-hi:{title:"सोशल मीडिया मास्टर",tagline:"मोबाइल से सीखो",hero:"हर बच्चे को सीखने का अवसर",aboutTitle:"हम क्या सिखाते हैं",aboutText:"हम सोशल मीडिया सिखाते हैं।"},
-en:{title:"Social Media Master",tagline:"Learn with mobile",hero:"Digital learning opportunity",aboutTitle:"What We Teach",aboutText:"We teach social media."},
-ar:{title:"خبير التواصل",tagline:"تعلم بالهاتف",hero:"فرصة رقمية",aboutTitle:"ماذا نعلم",aboutText:"نحن نعلم وسائل التواصل."},
-bn:{title:"সোশ্যাল মিডিয়া",tagline:"মোবাইলে শিখুন",hero:"ডিজিটাল সুযোগ",aboutTitle:"আমরা শেখাই",aboutText:"আমরা সোশ্যাল মিডিয়া শেখাই।"},
-fr:{title:"Médias sociaux",tagline:"Apprendre mobile",hero:"Opportunité",aboutTitle:"Nous enseignons",aboutText:"Réseaux sociaux."},
-de:{title:"Social Media",tagline:"Mit Handy lernen",hero:"Digitale Chance",aboutTitle:"Was wir lehren",aboutText:"Social Media."},
-id:{title:"Media Sosial",tagline:"Belajar mobile",hero:"Peluang digital",aboutTitle:"Kami ajarkan",aboutText:"Media sosial."},
-ja:{title:"ソーシャルメディア",tagline:"モバイル学習",hero:"デジタル機会",aboutTitle:"教える内容",aboutText:"SNSです。"},
-zh:{title:"社交媒体",tagline:"手机学习",hero:"数字机会",aboutTitle:"我们教",aboutText:"社交媒体。"},
-pt:{title:"Mídias sociais",tagline:"Aprender mobile",hero:"Oportunidade",aboutTitle:"Ensinamos",aboutText:"Redes sociais."},
-ru:{title:"Соцсети",tagline:"Учись с телефона",hero:"Цифровая возможность",aboutTitle:"Мы учим",aboutText:"Соцсети."},
-es:{title:"Redes sociales",tagline:"Aprender móvil",hero:"Oportunidad",aboutTitle:"Enseñamos",aboutText:"Redes sociales."},
-ur:{title:"سوشل میڈیا",tagline:"موبائل سے سیکھیں",hero:"ڈیجیٹل موقع",aboutTitle:"ہم سکھاتے ہیں",aboutText:"سوشل میڈیا۔"}
+hi:{
+title:"Applied Computer School",
+tagline:"2011 से डिजिटल शिक्षा",
+hero:"बच्चों और युवाओं को मोबाइल से स्किल सिखाते हैं",
+courseTitle:"हमारे कोर्स",
+aboutTitle:"हम कौन हैं",
+aboutText:"Applied Computer School खगड़िया में 2011 से कंप्यूटर और डिजिटल शिक्षा दे रहा है।"
+},
+
+en:{
+title:"Applied Computer School",
+tagline:"Digital Education Since 2011",
+hero:"We teach digital skills using mobile",
+courseTitle:"Our Courses",
+aboutTitle:"About Us",
+aboutText:"ACS provides computer and digital education since 2011."
+},
+
+ar:{
+title:"مدرسة الكمبيوتر التطبيقية",
+tagline:"تعليم رقمي منذ 2011",
+hero:"نقوم بتعليم المهارات الرقمية",
+courseTitle:"الدورات",
+aboutTitle:"من نحن",
+aboutText:"نقدم التعليم الرقمي منذ 2011."
+}
 };
 
 function applyLang(code){
-  let L = LANG[code];
+  let L = LANG[code] || LANG["en"];
 
   document.getElementById("title").innerText=L.title;
   document.getElementById("tagline").innerText=L.tagline;
   document.getElementById("heroText").innerText=L.hero;
+  document.getElementById("courseTitle").innerText=L.courseTitle;
   document.getElementById("aboutTitle").innerText=L.aboutTitle;
   document.getElementById("aboutText").innerText=L.aboutText;
 
   document.querySelectorAll(".lang span").forEach(el=>el.classList.remove("active"));
-  document.getElementById("l_"+code).classList.add("active");
+  document.getElementById("l_"+code)?.classList.add("active");
 
   if(code==="ar" || code==="ur"){
     document.body.style.direction="rtl";
