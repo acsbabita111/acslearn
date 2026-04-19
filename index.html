@@ -1,79 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACS Learn</title>
+<title>ACS Learn | Social Media Master</title>
+
+<!-- SEO -->
+<meta name="description" content="मोबाइल से सोशल मीडिया सीखें—बनाएं, बढ़ें और आगे बढ़ें। ACS Learn का Social Media Course।">
+<meta name="keywords" content="ACS Learn, Social Media Course, Digital Skills, Mobile Learning">
+<meta name="author" content="ACS Learn">
+
+<!-- Hreflang (basic 3) -->
+<link rel="alternate" href="/" hreflang="hi">
+<link rel="alternate" href="/?lang=en" hreflang="en">
+<link rel="alternate" href="/?lang=ar" hreflang="ar">
 
 <style>
-body {
-    font-family: Arial;
-    margin: 0;
-    text-align: center;
+body{
+  margin:0;
+  font-family:"Hind","Noto Sans Devanagari",sans-serif;
+  background:#f4f6fb;
+}
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:12px;
 }
 
-.header {
-  padding: 25px 15px;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 0 20px 20px;
-
-  background: linear-gradient(
-    to bottom,
-    #ff9933,
-    #ffffff,
-    #138808
-  );
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+/* HEADER */
+.header{
+  background:linear-gradient(180deg,#ff9933,#ffffff,#138808);
+  border-radius:18px;
+  text-align:center;
+  padding:16px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
+}
+.logo{
+  width:70px;
+  border-radius:50%;
+}
+.title{
+  font-size:18px;
+  font-weight:700;
+  margin-top:6px;
+}
+.tagline{
+  font-size:14px;
+  color:#333;
+  margin-top:4px;
 }
 
-h2 {
-    margin: 10px 0;
+/* LANGUAGE */
+.lang{
+  margin-top:10px;
+  font-size:14px;
+}
+.lang button{
+  margin:4px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  background:#e5e7eb;
+  cursor:pointer;
 }
 
-p {
-    margin: 5px 0;
-    font-size: 14px;
+/* HERO */
+.hero{
+  margin-top:14px;
+  position:relative;
+}
+.hero img{
+  width:100%;
+  border-radius:16px;
+}
+.hero-text{
+  position:absolute;
+  bottom:12px;
+  left:10px;
+  right:10px;
+  background:rgba(0,0,0,0.4);
+  color:white;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+  font-size:14px;
 }
 
-.btn {
-    background: green;
-    color: white;
-    padding: 12px;
-    border: none;
-    font-size: 16px;
-    margin-top: 12px;
-    width: 80%;
+/* CTA */
+.cta{
+  display:block;
+  text-align:center;
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  color:white;
+  padding:14px;
+  border-radius:14px;
+  margin-top:12px;
+  font-size:16px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* SECTION */
+.section{
+  margin-top:18px;
+}
+.section h3{
+  margin-bottom:6px;
 }
 </style>
+
 </head>
 
 <body>
 
+<div class="container">
+
+<!-- HEADER -->
 <div class="header">
-ACS Learn Platform
+  <img src="logo.png" class="logo">
+
+  <div class="title" id="title"></div>
+  <div class="tagline" id="tagline"></div>
+
+  <!-- LANGUAGE SWITCH -->
+  <div class="lang">
+    🌐 Language:<br>
+    <button onclick="setLang('hi')">हिंदी</button>
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('ar')">العربية</button>
+  </div>
 </div>
 
+<!-- HERO -->
+<div class="hero">
+  <img src="hero.jpg">
+  <div class="hero-text" id="heroText"></div>
+</div>
+
+<!-- CTA -->
+<a href="https://acslearn.com" class="cta" id="btn"></a>
+
+<!-- ABOUT -->
 <div class="section">
-<h2>सिर्फ मोबाइल से सीखें</h2>
-<p>डिजिटल स्किल + कमाई + आत्मनिर्भरता</p>
-
-<h2>ACS-AI Digital Master™</h2>
-<p>80+ भाषाओं में सीखें और कमाई करें</p>
-
-<a href="https://acs-aidigitalmaster.org">
-<button class="btn">Course शुरू करें</button>
-</a>
-
-<br><br>
-
-<a href="https://forms.gle/9D6H4PFxB4G8kj7TA" target="_blank">
-<button class="btn">Register करें</button>
-</a>
+  <h3 id="aboutTitle"></h3>
+  <p id="aboutText"></p>
+</div>
 
 </div>
+
+<!-- LANGUAGE SYSTEM -->
+<script>
+const LANG = {
+
+  hi:{
+    title:"सोशल मीडिया मास्टर",
+    tagline:"मोबाइल से सीखो, बनाओ, आगे बढ़ो",
+    hero:"हर बच्चे को डिजिटल स्किल सीखने का अवसर",
+    btn:"🚀 अभी सीखना शुरू करें",
+    aboutTitle:"हम क्या सिखाते हैं",
+    aboutText:"हम आपको मोबाइल से सोशल मीडिया का सही उपयोग, कंटेंट बनाना और ग्रो करना सिखाते हैं।"
+  },
+
+  en:{
+    title:"Social Media Master",
+    tagline:"Learn, create and grow using mobile",
+    hero:"Digital skill opportunity for every learner",
+    btn:"🚀 Start Learning Now",
+    aboutTitle:"What We Teach",
+    aboutText:"We teach you how to use social media, create content and grow using your mobile."
+  },
+
+  ar:{
+    title:"خبير وسائل التواصل الاجتماعي",
+    tagline:"تعلم واصنع وتقدم باستخدام الهاتف",
+    hero:"فرصة تعلم المهارات الرقمية لكل طالب",
+    btn:"🚀 ابدأ التعلم الآن",
+    aboutTitle:"ماذا نعلم",
+    aboutText:"نحن نعلمك كيفية استخدام وسائل التواصل الاجتماعي وإنشاء المحتوى والنمو باستخدام الهاتف."
+  }
+
+};
+
+function setLang(code){
+  localStorage.setItem("lang",code);
+  applyLang(code);
+}
+
+function applyLang(code){
+  document.getElementById("title").innerText = LANG[code].title;
+  document.getElementById("tagline").innerText = LANG[code].tagline;
+  document.getElementById("heroText").innerText = LANG[code].hero;
+  document.getElementById("btn").innerText = LANG[code].btn;
+  document.getElementById("aboutTitle").innerText = LANG[code].aboutTitle;
+  document.getElementById("aboutText").innerText = LANG[code].aboutText;
+}
+
+// load saved language
+let saved = localStorage.getItem("lang") || "hi";
+applyLang(saved);
+</script>
 
 </body>
 </html>
