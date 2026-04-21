@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Applied Computer School | ACS Learn</title>
+<title>Applied Computer School</title>
 
 <style>
 body{
@@ -27,7 +27,6 @@ body{
 .logo{
   width:70px;
   height:70px;
-  object-fit:contain;
   border-radius:50%;
   background:white;
   padding:6px;
@@ -36,82 +35,69 @@ body{
 .tagline{font-size:14px;color:#333;}
 
 /* LANGUAGE */
-.lang{
-  margin-top:10px;
-  font-size:14px;
-}
 .lang span{
   display:inline-block;
-  margin:4px 6px;
+  margin:4px;
   cursor:pointer;
   color:#0b57d0;
-  padding:4px 6px;
-  border-radius:6px;
 }
 .lang span.active{
   background:#0b57d0;
   color:white;
+  padding:4px 6px;
+  border-radius:6px;
+}
+
+/* COURSE NAV */
+.nav{
+  display:flex;
+  overflow-x:auto;
+  gap:8px;
+  margin-top:10px;
+}
+.nav span{
+  background:white;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:13px;
+}
+.nav span.active{
+  background:#16a34a;
+  color:white;
 }
 
 /* HERO */
-.hero{margin-top:14px;position:relative;}
-.hero img{width:100%;border-radius:16px;}
-.hero-text{
-  position:absolute;
-  bottom:14px;
-  left:10px;
-  right:10px;
-  background:rgba(0,0,0,0.45);
-  color:white;
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-}
+.hero{margin-top:12px;}
+.hero img{width:100%;border-radius:12px;}
 
-/* CTA */
+/* BUTTON */
 .cta{
   display:block;
   text-align:center;
-  background:linear-gradient(135deg,#16a34a,#22c55e);
+  background:#16a34a;
   color:white;
   padding:14px;
-  border-radius:14px;
-  margin-top:12px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-/* COURSES */
-.card{
-  background:white;
-  padding:12px;
   border-radius:12px;
-  margin-top:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  margin-top:12px;
   text-decoration:none;
-  color:black;
-  display:block;
+  font-weight:bold;
 }
-.card:active{
-  transform:scale(0.98);
-}
-.section{margin-top:18px;}
 </style>
 </head>
 
 <body>
 <div class="container">
 
-<!-- HEADER -->
 <div class="header">
-  <img src="./logo.png" class="logo">
+  <img src="logo.png" class="logo">
 
   <div class="title" id="title"></div>
   <div class="tagline" id="tagline"></div>
 
+  <!-- LANGUAGE -->
   <div class="lang">
     🌐 Language:<br>
-
     <span onclick="setLang('hi')" id="l_hi">हिंदी</span>
     <span onclick="setLang('en')" id="l_en">English</span>
     <span onclick="setLang('ar')" id="l_ar">العربية</span>
@@ -128,102 +114,67 @@ body{
     <span onclick="setLang('es')" id="l_es">Español</span>
     <span onclick="setLang('ur')" id="l_ur">اردو</span>
   </div>
+
+  <!-- COURSE SWITCH -->
+  <div class="nav">
+    <span onclick="setCourse('ai')">AI</span>
+    <span onclick="setCourse('social')">Social</span>
+    <span onclick="setCourse('700')">700</span>
+    <span onclick="setCourse('shayari')">Shayari</span>
+    <span onclick="setCourse('sanskrit')">Sanskrit</span>
+    <span onclick="setCourse('typing')">Typing</span>
+  </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
   <img src="hero.jpg">
-  <div class="hero-text" id="heroText"></div>
 </div>
 
-<!-- START BUTTON -->
-<a href="https://acs-aidigitalmaster.org/L001.html" class="cta">
+<!-- START -->
+<a id="startBtn" href="https://acs-aidigitalmaster.org/L001.html" class="cta">
 🚀 Start Learning
 </a>
-
-<!-- COURSES -->
-<div class="section">
-  <h3 id="courseTitle"></h3>
-
-  <a href="https://acs-aidigitalmaster.org/L001.html" class="card">
-    📱 Social Media Master
-  </a>
-
-  <a href="https://acs-aidigitalmaster.org/L001.html" class="card">
-    💻 Basic Computer Course
-  </a>
-
-  <a href="https://acs-aidigitalmaster.org/L001.html" class="card">
-    🤖 AI Digital Skills
-  </a>
-</div>
-
-<!-- ABOUT -->
-<div class="section">
-  <h3 id="aboutTitle"></h3>
-  <p id="aboutText"></p>
-</div>
 
 </div>
 
 <script>
 
 const LANG = {
-hi:{
-title:"Applied Computer School",
-tagline:"2011 से डिजिटल शिक्षा",
-hero:"बच्चों और युवाओं को मोबाइल से स्किल सिखाते हैं",
-courseTitle:"हमारे कोर्स",
-aboutTitle:"हम कौन हैं",
-aboutText:"Applied Computer School खगड़िया में 2011 से कंप्यूटर और डिजिटल शिक्षा दे रहा है।"
-},
-
-en:{
-title:"Applied Computer School",
-tagline:"Digital Education Since 2011",
-hero:"We teach digital skills using mobile",
-courseTitle:"Our Courses",
-aboutTitle:"About Us",
-aboutText:"ACS provides computer and digital education since 2011."
-},
-
-ar:{
-title:"مدرسة الكمبيوتر التطبيقية",
-tagline:"تعليم رقمي منذ 2011",
-hero:"نقوم بتعليم المهارات الرقمية",
-courseTitle:"الدورات",
-aboutTitle:"من نحن",
-aboutText:"نقدم التعليم الرقمي منذ 2011."
-}
+hi:{title:"Applied Computer School",tagline:"2011 से डिजिटल शिक्षा"},
+en:{title:"Applied Computer School",tagline:"Digital Education Since 2011"},
+ar:{title:"مدرسة الكمبيوتر التطبيقية",tagline:"تعليم رقمي منذ 2011"}
 };
 
-function applyLang(code){
+function setLang(code){
+  localStorage.setItem("lang",code);
   let L = LANG[code] || LANG["en"];
 
   document.getElementById("title").innerText=L.title;
   document.getElementById("tagline").innerText=L.tagline;
-  document.getElementById("heroText").innerText=L.hero;
-  document.getElementById("courseTitle").innerText=L.courseTitle;
-  document.getElementById("aboutTitle").innerText=L.aboutTitle;
-  document.getElementById("aboutText").innerText=L.aboutText;
 
-  document.querySelectorAll(".lang span").forEach(el=>el.classList.remove("active"));
+  document.querySelectorAll(".lang span").forEach(e=>e.classList.remove("active"));
   document.getElementById("l_"+code)?.classList.add("active");
 
   if(code==="ar" || code==="ur"){
     document.body.style.direction="rtl";
-  } else {
+  }else{
     document.body.style.direction="ltr";
   }
 }
 
-function setLang(code){
-  localStorage.setItem("lang",code);
-  applyLang(code);
+function setCourse(c){
+  localStorage.setItem("course",c);
+
+  document.querySelectorAll(".nav span").forEach(e=>e.classList.remove("active"));
+  event.target.classList.add("active");
+
+  // अभी सभी Hindi course पर ही जाएंगे
+  document.getElementById("startBtn").href = "https://acs-aidigitalmaster.org/L001.html";
 }
 
-let saved = localStorage.getItem("lang") || "hi";
-applyLang(saved);
+// LOAD DEFAULT
+setLang(localStorage.getItem("lang") || "hi");
 
 </script>
 
