@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1</title>
 
+<style>
+body{
+  margin:0;
+  font-family:"Hind","Noto Sans Devanagari",sans-serif;
+  background:#f4f6fb;
+}
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:12px;
+}
+.card{
+  background:white;
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+}
+h1{
+  font-size:18px;
+}
+p{
+  font-size:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+  <h1 id="title">Loading...</h1>
+  <p id="intro1"></p>
+  <p id="intro2"></p>
+  <p><b id="goal"></b></p>
+</div>
+
+</div>
+
+<script>
+
+fetch("L001_hi.json")
+.then(res => res.json())
+.then(data => {
+
+  document.getElementById("title").innerText = data.title;
+  document.getElementById("intro1").innerText = data.intro1;
+  document.getElementById("intro2").innerText = data.intro2;
+  document.getElementById("goal").innerText = data.goal;
+
+});
+
+</script>
+
+</body>
+</html>
