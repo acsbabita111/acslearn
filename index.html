@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applied Computer School</title>
 
+<style>
+body{
+  margin:0;
+  font-family:"Hind","Noto Sans Devanagari",sans-serif;
+  background:#f4f6fb;
+}
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:12px;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(180deg,#ff9933,#ffffff,#138808);
+  border-radius:18px;
+  text-align:center;
+  padding:16px;
+}
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:white;
+  padding:6px;
+}
+.title{font-size:18px;font-weight:700;}
+.tagline{font-size:14px;color:#333;}
+
+/* LANGUAGE */
+.lang span{
+  display:inline-block;
+  margin:4px;
+  cursor:pointer;
+  color:#0b57d0;
+}
+.lang span.active{
+  background:#0b57d0;
+  color:white;
+  padding:4px 6px;
+  border-radius:6px;
+}
+
+/* HERO */
+.hero{margin-top:12px;}
+.hero img{width:100%;border-radius:12px;}
+
+/* BUTTON */
+.cta{
+  display:block;
+  text-align:center;
+  background:#16a34a;
+  color:white;
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* COURSE CARDS */
+.section{margin-top:18px;}
+.card{
+  display:block;
+  background:white;
+  padding:12px;
+  border-radius:12px;
+  margin-top:10px;
+  text-decoration:none;
+  color:black;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.card:active{
+  transform:scale(0.98);
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="header">
+  <img src="logo.png" class="logo">
+
+  <div class="title" id="title"></div>
+  <div class="tagline" id="tagline"></div>
+
+  <!-- LANGUAGE -->
+  <div class="lang">
+    🌐 Language:<br>
+    <span onclick="setLang('hi')" id="l_hi">हिंदी</span>
+    <span onclick="setLang('en')" id="l_en">English</span>
+    <span onclick="setLang('ar')" id="l_ar">العربية</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="hero.jpg">
+</div>
+
+<!-- START -->
+<a href="L001.html" class="cta">
+🚀 Start Learning
+</a>
+
+<!-- COURSES -->
+<div class="section">
+  <a href="L001.html" class="card">📱 Social Media Master</a>
+  <a href="L001.html" class="card">🤖 AI Digital Master</a>
+  <a href="L001.html" class="card">🎬 The 700 Protocol</a>
+  <a href="L001.html" class="card">📝 Shayari Ki Duniya</a>
+  <a href="L001.html" class="card">📜 Sanskrit Sahitya</a>
+  <a href="L001.html" class="card">⌨️ Typing Course</a>
+</div>
+
+</div>
+
+<script>
+
+const LANG = {
+hi:{title:"Applied Computer School",tagline:"2011 से डिजिटल शिक्षा"},
+en:{title:"Applied Computer School",tagline:"Digital Education Since 2011"},
+ar:{title:"مدرسة الكمبيوتر التطبيقية",tagline:"تعليم رقمي منذ 2011"}
+};
+
+function setLang(code){
+  localStorage.setItem("lang",code);
+  let L = LANG[code] || LANG["en"];
+
+  document.getElementById("title").innerText=L.title;
+  document.getElementById("tagline").innerText=L.tagline;
+
+  document.querySelectorAll(".lang span").forEach(e=>e.classList.remove("active"));
+  document.getElementById("l_"+code)?.classList.add("active");
+
+  if(code==="ar"){
+    document.body.style.direction="rtl";
+  }else{
+    document.body.style.direction="ltr";
+  }
+}
+
+setLang(localStorage.getItem("lang") || "hi");
+
+</script>
+
+</body>
+</html>
