@@ -10,6 +10,7 @@ body{
   margin:0;
   font-family:"Hind","Noto Sans Devanagari",sans-serif;
   background:#f4f6fb;
+  padding-bottom:70px; /* IMPORTANT */
 }
 .container{
   max-width:430px;
@@ -28,6 +29,31 @@ h1{
 p{
   font-size:15px;
 }
+
+/* NAV BAR */
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  max-width:430px;
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  background:white;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+.btn{
+  padding:8px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+.back{ background:#16a34a; color:white; }
+.home{ background:#f59e0b; color:black; }
+.next{ background:#2563eb; color:white; }
+
 </style>
 </head>
 
@@ -46,8 +72,8 @@ p{
 
 <script>
 
+// LANGUAGE SYSTEM
 let lang = localStorage.getItem("lang");
-if(!lang){ lang = "hi"; }
 
 if(!lang){
   let browserLang = navigator.language;
@@ -65,7 +91,8 @@ if(!lang){
   localStorage.setItem("lang", lang);
 }
 
-fetch("L002_" + lang + ".json")
+// LOAD JSON
+fetch("L001_" + lang + ".json")
 .then(res => res.json())
 .then(data => {
 
@@ -76,92 +103,23 @@ fetch("L002_" + lang + ".json")
 
 });
 
+// RTL SUPPORT
 if(lang === "ar" || lang === "ur"){
   document.body.style.direction = "rtl";
-} else {
-  document.body.style.direction = "ltr";
 }
 
-<script>
-// AUTO NAVIGATION (MOBILE FIRST FIXED)
-
-let path = window.location.pathname;
-let file = path.substring(path.lastIndexOf("/") + 1);
-let num = file.match(/\d+/)[0];
-let current = parseInt(num);
-
-let next = current + 1;
-let prev = current - 1;
-
-let nextStr = String(next).padStart(3,"0");
-let prevStr = String(prev).padStart(3,"0");
-
-// DETECT RTL
-let lang = localStorage.getItem("lang") || "hi";
-let isRTL = (lang === "ar" || lang === "ur");
-
-// NAV CONTAINER
-let nav = document.createElement("div");
-nav.style.display = "flex";
-nav.style.justifyContent = "space-between";
-nav.style.alignItems = "center";
-nav.style.position = "fixed";
-nav.style.bottom = "0";
-nav.style.left = "0";
-nav.style.width = "100%";
-nav.style.maxWidth = "430px";
-nav.style.margin = "0 auto";
-nav.style.padding = "10px";
-nav.style.background = "white";
-nav.style.boxShadow = "0 -2px 10px rgba(0,0,0,0.1)";
-
-// BACK
-let back = document.createElement("a");
-if(current === 1){
-  back.href = "/index.html";
-}else{
-  back.href = "L" + prevStr + ".html";
-}
-back.innerText = "⬅ Back";
-back.style.background="#16a34a";
-back.style.color="white";
-back.style.padding="8px 12px";
-back.style.borderRadius="8px";
-back.style.textDecoration="none";
-
-// HOME
-let home = document.createElement("a");
-home.href = "/index.html";
-home.innerText = "🏠 Home";
-home.style.background="#f59e0b";
-home.style.color="black";
-home.style.padding="8px 12px";
-home.style.borderRadius="8px";
-home.style.textDecoration="none";
-home.style.fontWeight="bold";
-
-// NEXT
-let nextBtn = document.createElement("a");
-nextBtn.href = "L" + nextStr + ".html";
-nextBtn.innerText = "Next ➡";
-nextBtn.style.background="#2563eb";
-nextBtn.style.color="white";
-nextBtn.style.padding="8px 12px";
-nextBtn.style.borderRadius="8px";
-nextBtn.style.textDecoration="none";
-
-// ORDER CONTROL
-if(isRTL){
-  nav.appendChild(nextBtn);
-  nav.appendChild(home);
-  nav.appendChild(back);
-}else{
-  nav.appendChild(back);
-  nav.appendChild(home);
-  nav.appendChild(nextBtn);
-}
-
-document.body.appendChild(nav);
 </script>
+
+<!-- NAVIGATION BAR -->
+<div class="nav">
+
+<a href="/index.html" class="btn back">⬅ Back</a>
+
+<a href="/index.html" class="btn home">🏠 Home</a>
+
+<a href="L002.html" class="btn next">Next ➡</a>
+
+</div>
+
 </body>
 </html>
