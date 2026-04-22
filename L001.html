@@ -46,7 +46,23 @@ p{
 
 <script>
 
-let lang = localStorage.getItem("lang") || "hi";
+let lang = localStorage.getItem("lang");
+
+if(!lang){
+  let browserLang = navigator.language;
+
+  if(browserLang.includes("hi")){
+    lang = "hi";
+  }
+  else if(browserLang.includes("ar")){
+    lang = "ar";
+  }
+  else{
+    lang = "en";
+  }
+
+  localStorage.setItem("lang", lang);
+}
 
 fetch("L001_" + lang + ".json")
 .then(res => res.json())
