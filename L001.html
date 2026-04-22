@@ -47,6 +47,7 @@ p{
 <script>
 
 let lang = localStorage.getItem("lang");
+if(!lang){ lang = "hi"; }
 
 if(!lang){
   let browserLang = navigator.language;
