@@ -86,43 +86,57 @@ if(lang === "ar" || lang === "ur"){
 
 <script>
 
-// AUTO NEXT LESSON SYSTEM
+// LESSON AUTO SYSTEM (FINAL)
 
 let path = window.location.pathname;
-
-// lesson number निकालो (L001, L002…)
 let match = path.match(/L(\d+)/);
 
 if(match){
+
   let current = parseInt(match[1]);
 
   let next = current + 1;
+  let prev = current - 1;
 
-  // 3 digit format (001, 002…)
   let nextStr = next.toString().padStart(3,'0');
+  let prevStr = prev.toString().padStart(3,'0');
 
-  // next URL
-  let nextURL = "L" + nextStr + ".html";
+  // container बनाओ (card के अंदर)
+  let box = document.createElement("div");
+  box.style.display="flex";
+  box.style.justifyContent="space-between";
+  box.style.marginTop="20px";
 
-  // button बनाओ
-  let btn = document.createElement("a");
-  btn.href = nextURL;
-  btn.innerText = "➡ Next Lesson";
-  
-  btn.style.display="block";
-  btn.style.textAlign="center";
-  btn.style.background="#2563eb";
-  btn.style.color="white";
-  btn.style.padding="12px";
-  btn.style.borderRadius="10px";
-  btn.style.marginTop="12px";
-  btn.style.textDecoration="none";
-  btn.style.fontWeight="bold";
+  // PREVIOUS BUTTON
+  if(current > 1){
+    let prevBtn = document.createElement("a");
+    prevBtn.href = "L" + prevStr + ".html";
+    prevBtn.innerText = "⬅ Previous";
+    prevBtn.style.background="#16a34a";
+    prevBtn.style.color="white";
+    prevBtn.style.padding="10px";
+    prevBtn.style.borderRadius="8px";
+    prevBtn.style.textDecoration="none";
 
-  document.body.appendChild(btn);
+    box.appendChild(prevBtn);
+  }
+
+  // NEXT BUTTON
+  let nextBtn = document.createElement("a");
+  nextBtn.href = "L" + nextStr + ".html";
+  nextBtn.innerText = "Next ➡";
+  nextBtn.style.background="#2563eb";
+  nextBtn.style.color="white";
+  nextBtn.style.padding="10px";
+  nextBtn.style.borderRadius="8px";
+  nextBtn.style.textDecoration="none";
+
+  box.appendChild(nextBtn);
+
+  // CARD के अंदर डालो (important fix)
+  document.querySelector(".card").appendChild(box);
 }
 
-</script>
-  
+</script>  
 </body>
 </html>
