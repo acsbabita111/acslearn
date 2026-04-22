@@ -10,6 +10,7 @@ body{
   margin:0;
   font-family:"Hind","Noto Sans Devanagari",sans-serif;
   background:#f4f6fb;
+  padding-bottom:70px; /* IMPORTANT */
 }
 .container{
   max-width:430px;
@@ -28,6 +29,31 @@ h1{
 p{
   font-size:15px;
 }
+
+/* NAV BAR */
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  max-width:430px;
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+  background:white;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+.btn{
+  padding:8px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+.back{ background:#16a34a; color:white; }
+.home{ background:#f59e0b; color:black; }
+.next{ background:#2563eb; color:white; }
+
 </style>
 </head>
 
@@ -46,8 +72,8 @@ p{
 
 <script>
 
+// LANGUAGE SYSTEM
 let lang = localStorage.getItem("lang");
-if(!lang){ lang = "hi"; }
 
 if(!lang){
   let browserLang = navigator.language;
@@ -65,6 +91,7 @@ if(!lang){
   localStorage.setItem("lang", lang);
 }
 
+// LOAD JSON
 fetch("L001_" + lang + ".json")
 .then(res => res.json())
 .then(data => {
@@ -76,13 +103,23 @@ fetch("L001_" + lang + ".json")
 
 });
 
+// RTL SUPPORT
 if(lang === "ar" || lang === "ur"){
   document.body.style.direction = "rtl";
-} else {
-  document.body.style.direction = "ltr";
 }
 
 </script>
+
+<!-- NAVIGATION BAR -->
+<div class="nav">
+
+<a href="/index.html" class="btn back">⬅ Back</a>
+
+<a href="/index.html" class="btn home">🏠 Home</a>
+
+<a href="L002.html" class="btn next">Next ➡</a>
+
+</div>
 
 </body>
 </html>
