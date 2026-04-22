@@ -85,58 +85,72 @@ if(lang === "ar" || lang === "ur"){
 </script>
 
 <script>
-
-// LESSON AUTO SYSTEM (FINAL)
+// AUTO NAVIGATION SYSTEM (FINAL)
 
 let path = window.location.pathname;
-let match = path.match(/L(\d+)/);
+let file = path.substring(path.lastIndexOf("/") + 1);
+let num = file.match(/\d+/)[0];
+let current = parseInt(num);
 
-if(match){
+let next = current + 1;
+let prev = current - 1;
 
-  let current = parseInt(match[1]);
+let nextStr = String(next).padStart(3,"0");
+let prevStr = String(prev).padStart(3,"0");
 
-  let next = current + 1;
-  let prev = current - 1;
+let box = document.createElement("div");
+box.style.display="flex";
+box.style.justifyContent="space-between";
+box.style.alignItems="center";
+box.style.marginTop="30px";
 
-  let nextStr = next.toString().padStart(3,'0');
-  let prevStr = prev.toString().padStart(3,'0');
+// HOME
+let homeBtn = document.createElement("a");
+homeBtn.href = "/index.html";
+homeBtn.innerText = "🏠 Home";
+homeBtn.style.background="#f59e0b";
+homeBtn.style.color="black";
+homeBtn.style.padding="10px";
+homeBtn.style.borderRadius="8px";
+homeBtn.style.textDecoration="none";
+homeBtn.style.fontWeight="bold";
 
-  // container बनाओ (card के अंदर)
-  let box = document.createElement("div");
-  box.style.display="flex";
-  box.style.justifyContent="space-between";
-  box.style.marginTop="20px";
+// PREVIOUS
+let prevBtn = document.createElement("a");
 
-  // PREVIOUS BUTTON
-  if(current > 1){
-    let prevBtn = document.createElement("a");
-    prevBtn.href = "L" + prevStr + ".html";
-    prevBtn.innerText = "⬅ Previous";
-    prevBtn.style.background="#16a34a";
-    prevBtn.style.color="white";
-    prevBtn.style.padding="10px";
-    prevBtn.style.borderRadius="8px";
-    prevBtn.style.textDecoration="none";
-
-    box.appendChild(prevBtn);
-  }
-
-  // NEXT BUTTON
-  let nextBtn = document.createElement("a");
-  nextBtn.href = "L" + nextStr + ".html";
-  nextBtn.innerText = "Next ➡";
-  nextBtn.style.background="#2563eb";
-  nextBtn.style.color="white";
-  nextBtn.style.padding="10px";
-  nextBtn.style.borderRadius="8px";
-  nextBtn.style.textDecoration="none";
-
-  box.appendChild(nextBtn);
-
-  // CARD के अंदर डालो (important fix)
-  document.querySelector(".card").appendChild(box);
+if(current === 1){
+  prevBtn.href = "/index.html";
+}else{
+  prevBtn.href = "L" + prevStr + ".html";
 }
 
-</script>  
+prevBtn.innerText = "⬅ Back";
+prevBtn.style.background="#16a34a";
+prevBtn.style.color="white";
+prevBtn.style.padding="10px";
+prevBtn.style.borderRadius="8px";
+prevBtn.style.textDecoration="none";
+prevBtn.style.fontWeight="bold";
+
+// NEXT
+let nextBtn = document.createElement("a");
+nextBtn.href = "L" + nextStr + ".html";
+nextBtn.innerText = "Next ➡";
+nextBtn.style.background="#2563eb";
+nextBtn.style.color="white";
+nextBtn.style.padding="10px";
+nextBtn.style.borderRadius="8px";
+nextBtn.style.textDecoration="none";
+nextBtn.style.fontWeight="bold";
+
+// ADD
+box.appendChild(homeBtn);
+box.appendChild(prevBtn);
+box.appendChild(nextBtn);
+
+document.body.appendChild(box);
+
+</script>
+
 </body>
 </html>
