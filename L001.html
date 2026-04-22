@@ -46,7 +46,9 @@ p{
 
 <script>
 
-fetch("L001_hi.json")
+let lang = localStorage.getItem("lang") || "hi";
+
+fetch("L001_" + lang + ".json")
 .then(res => res.json())
 .then(data => {
 
