@@ -85,7 +85,7 @@ if(lang === "ar" || lang === "ur"){
 </script>
 
 <script>
-// AUTO NAVIGATION (MOBILE FIRST FIXED)
+// AUTO NAVIGATION SYSTEM (FINAL)
 
 let path = window.location.pathname;
 let file = path.substring(path.lastIndexOf("/") + 1);
@@ -98,49 +98,39 @@ let prev = current - 1;
 let nextStr = String(next).padStart(3,"0");
 let prevStr = String(prev).padStart(3,"0");
 
-// DETECT RTL
-let lang = localStorage.getItem("lang") || "hi";
-let isRTL = (lang === "ar" || lang === "ur");
-
-// NAV CONTAINER
-let nav = document.createElement("div");
-nav.style.display = "flex";
-nav.style.justifyContent = "space-between";
-nav.style.alignItems = "center";
-nav.style.position = "fixed";
-nav.style.bottom = "0";
-nav.style.left = "0";
-nav.style.width = "100%";
-nav.style.maxWidth = "430px";
-nav.style.margin = "0 auto";
-nav.style.padding = "10px";
-nav.style.background = "white";
-nav.style.boxShadow = "0 -2px 10px rgba(0,0,0,0.1)";
-
-// BACK
-let back = document.createElement("a");
-if(current === 1){
-  back.href = "/index.html";
-}else{
-  back.href = "L" + prevStr + ".html";
-}
-back.innerText = "⬅ Back";
-back.style.background="#16a34a";
-back.style.color="white";
-back.style.padding="8px 12px";
-back.style.borderRadius="8px";
-back.style.textDecoration="none";
+let box = document.createElement("div");
+box.style.display="flex";
+box.style.justifyContent="space-between";
+box.style.alignItems="center";
+box.style.marginTop="30px";
 
 // HOME
-let home = document.createElement("a");
-home.href = "/index.html";
-home.innerText = "🏠 Home";
-home.style.background="#f59e0b";
-home.style.color="black";
-home.style.padding="8px 12px";
-home.style.borderRadius="8px";
-home.style.textDecoration="none";
-home.style.fontWeight="bold";
+let homeBtn = document.createElement("a");
+homeBtn.href = "/index.html";
+homeBtn.innerText = "🏠 Home";
+homeBtn.style.background="#f59e0b";
+homeBtn.style.color="black";
+homeBtn.style.padding="10px";
+homeBtn.style.borderRadius="8px";
+homeBtn.style.textDecoration="none";
+homeBtn.style.fontWeight="bold";
+
+// PREVIOUS
+let prevBtn = document.createElement("a");
+
+if(current === 1){
+  prevBtn.href = "/index.html";
+}else{
+  prevBtn.href = "L" + prevStr + ".html";
+}
+
+prevBtn.innerText = "⬅ Back";
+prevBtn.style.background="#16a34a";
+prevBtn.style.color="white";
+prevBtn.style.padding="10px";
+prevBtn.style.borderRadius="8px";
+prevBtn.style.textDecoration="none";
+prevBtn.style.fontWeight="bold";
 
 // NEXT
 let nextBtn = document.createElement("a");
@@ -148,22 +138,18 @@ nextBtn.href = "L" + nextStr + ".html";
 nextBtn.innerText = "Next ➡";
 nextBtn.style.background="#2563eb";
 nextBtn.style.color="white";
-nextBtn.style.padding="8px 12px";
+nextBtn.style.padding="10px";
 nextBtn.style.borderRadius="8px";
 nextBtn.style.textDecoration="none";
+nextBtn.style.fontWeight="bold";
 
-// ORDER CONTROL
-if(isRTL){
-  nav.appendChild(nextBtn);
-  nav.appendChild(home);
-  nav.appendChild(back);
-}else{
-  nav.appendChild(back);
-  nav.appendChild(home);
-  nav.appendChild(nextBtn);
-}
+// ADD
+box.appendChild(homeBtn);
+box.appendChild(prevBtn);
+box.appendChild(nextBtn);
 
-document.body.appendChild(nav);
+document.body.appendChild(box);
+
 </script>
   
 </body>
