@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Hind","Noto Sans Devanagari",sans-serif;
+  background:#f4f6fb;
+}
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:12px;
+}
+.card{
+  background:white;
+  padding:14px;
+  border-radius:12px;
+  margin-top:12px;
+}
+h1{
+  font-size:18px;
+}
+p{
+  font-size:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+  <h1 id="title">Loading...</h1>
+  <p id="intro1"></p>
+  <p id="intro2"></p>
+  <p><b id="goal"></b></p>
+</div>
+
+</div>
+
+<script>
+
+let lang = localStorage.getItem("lang");
+if(!lang){ lang = "hi"; }
+
+if(!lang){
+  let browserLang = navigator.language;
+
+  if(browserLang.includes("hi")){
+    lang = "hi";
+  }
+  else if(browserLang.includes("ar")){
+    lang = "ar";
+  }
+  else{
+    lang = "en";
+  }
+
+  localStorage.setItem("lang", lang);
+}
+
+fetch("L002_" + lang + ".json")
+.then(res => res.json())
+.then(data => {
+
+  document.getElementById("title").innerText = data.title;
+  document.getElementById("intro1").innerText = data.intro1;
+  document.getElementById("intro2").innerText = data.intro2;
+  document.getElementById("goal").innerText = data.goal;
+
+});
+
+if(lang === "ar" || lang === "ur"){
+  document.body.style.direction = "rtl";
+} else {
+  document.body.style.direction = "ltr";
+}
+
+</script>
+
+<script>
+
+// LESSON AUTO SYSTEM (FINAL)
+
+let path = window.location.pathname;
+let match = path.match(/L(\d+)/);
+
+if(match){
+
+  let current = parseInt(match[1]);
+
+  let next = current + 1;
+  let prev = current - 1;
+
+  let nextStr = next.toString().padStart(3,'0');
+  let prevStr = prev.toString().padStart(3,'0');
+
+  // container बनाओ (card के अंदर)
+  let box = document.createElement("div");
+  box.style.display="flex";
+  box.style.justifyContent="space-between";
+  box.style.marginTop="20px";
+
+  // PREVIOUS BUTTON
+  if(current > 1){
+    let prevBtn = document.createElement("a");
+    prevBtn.href = "L" + prevStr + ".html";
+    prevBtn.innerText = "⬅ Previous";
+    prevBtn.style.background="#16a34a";
+    prevBtn.style.color="white";
+    prevBtn.style.padding="10px";
+    prevBtn.style.borderRadius="8px";
+    prevBtn.style.textDecoration="none";
+
+    box.appendChild(prevBtn);
+  }
+
+  // NEXT BUTTON
+  let nextBtn = document.createElement("a");
+  nextBtn.href = "L" + nextStr + ".html";
+  nextBtn.innerText = "Next ➡";
+  nextBtn.style.background="#2563eb";
+  nextBtn.style.color="white";
+  nextBtn.style.padding="10px";
+  nextBtn.style.borderRadius="8px";
+  nextBtn.style.textDecoration="none";
+
+  box.appendChild(nextBtn);
+
+  // CARD के अंदर डालो (important fix)
+  document.querySelector(".card").appendChild(box);
+}
+
+</script>  
+</body>
+</html>
