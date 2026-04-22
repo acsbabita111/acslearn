@@ -59,6 +59,12 @@ fetch("L001_" + lang + ".json")
 
 });
 
+if(lang === "ar" || lang === "ur"){
+  document.body.style.direction = "rtl";
+} else {
+  document.body.style.direction = "ltr";
+}
+
 </script>
 
 </body>
