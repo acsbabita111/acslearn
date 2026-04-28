@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Creator - Lessons</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Hind","Noto Sans Devanagari",sans-serif;
+  background:#f4f6fb;
+}
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:12px;
+}
+
+/* TITLE */
+.title{
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* GO BOX */
+.box{
+  background:white;
+  padding:12px;
+  border-radius:12px;
+  margin-top:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+input{
+  width:60%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button{
+  padding:10px 14px;
+  background:#16a34a;
+  color:white;
+  border:none;
+  border-radius:8px;
+  margin-left:5px;
+}
+
+/* LIST */
+.list{
+  margin-top:15px;
+}
+
+a{
+  display:block;
+  background:white;
+  padding:12px;
+  border-radius:10px;
+  margin-top:8px;
+  text-decoration:none;
+  color:black;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">
+🎬 Video Creator Lessons
+</div>
+
+<div class="box">
+📌 1 से 150 तक lesson नंबर डालें और GO दबाएँ
+<br><br>
+
+<input id="num" type="number" min="1" max="150" placeholder="जैसे 30">
+<button onclick="go()">GO</button>
+
+<div id="msg" style="color:red;margin-top:6px;"></div>
+</div>
+
+<div class="list">
+<a href="L001.html">Lesson 1</a>
+<a href="L002.html">Lesson 2</a>
+<a href="L003.html">Lesson 3</a>
+<a href="L004.html">Lesson 4</a>
+<a href="L005.html">Lesson 5</a>
+<a href="L006.html">Lesson 6</a>
+<a href="L007.html">Lesson 7</a>
+<a href="L008.html">Lesson 8</a>
+<a href="L009.html">Lesson 9</a>
+<a href="L010.html">Lesson 10</a>
+</div>
+
+</div>
+
+<script>
+function go(){
+  let n = document.getElementById("num").value;
+  let msg = document.getElementById("msg");
+
+  if(!n || n < 1 || n > 150){
+    msg.innerText = "1 से 150 के बीच डालें";
+    return;
+  }
+
+  let num = String(n).padStart(3,'0');
+  window.location = "L" + num + ".html";
+}
+</script>
+
+</body>
+</html>
