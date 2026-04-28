@@ -86,7 +86,7 @@ a{
 
 <div id="msg" style="color:red;margin-top:6px;"></div>
 </div>
-
+<div id="resumeBox"></div>
 <div class="list">
 <a href="L001.html">Lesson 1</a>
 <a href="L002.html">Lesson 2</a>
@@ -116,6 +116,26 @@ function go(){
   window.location = "L" + num + ".html";
 }
 </script>
+ <script>
+let last = localStorage.getItem("lastLesson");
 
+if(last){
+  let num = String(last).padStart(3, '0');
+
+  document.getElementById("resumeBox").innerHTML =
+  `<a href="L${num}.html" style="
+    display:block;
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    border-radius:10px;
+    margin-top:10px;
+    text-align:center;
+    text-decoration:none;
+    font-weight:bold;">
+    ▶ Continue Lesson ${last}
+  </a>`;
+}
+</script>
 </body>
 </html>
