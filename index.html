@@ -104,6 +104,45 @@ body{
     <img src="hero.jpg" alt="Applied Computer School">
   </div>
 
+  <div style="display:flex; gap:10px; margin:15px 0;">
+  <select id="langSelect" style="flex:1; padding:12px; border-radius:10px; font-weight:bold;">
+    <option value="hi">🇮🇳 हिंदी</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="bn">🇧🇩 বাংলা</option>
+    <option value="ar">🇸🇦 العربية</option>
+  </select>
+
+  <select id="courseSelect" style="flex:1; padding:12px; border-radius:10px; font-weight:bold;">
+    <option value="vc">🎬 Video Creator</option>
+    <option value="social">📱 Social Media Master</option>
+    <option value="shayari">📝 Shayari Ki Duniya</option>
+    <option value="sanskrit">📜 Sanskrit Sahitya</option>
+    <option value="typing">⌨️ Typing Course</option>
+    <option value="protocol">🎞️ The 700 Protocol</option>
+  </select>
+</div>
+
+<a href="#" onclick="startLearning()" style="
+  display:block;
+  background:#16a34a;
+  color:white;
+  padding:14px;
+  border-radius:12px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:bold;">
+  🚀 Start Learning
+</a>
+
+<script>
+function startLearning(){
+  const lang = document.getElementById("langSelect").value;
+  const course = document.getElementById("courseSelect").value;
+
+  window.location.href = course + "/" + lang + "/index.html";
+}
+</script>
+  
   <a href="vc/hi/index.html" class="cta">
     🚀 Start Learning
   </a>
