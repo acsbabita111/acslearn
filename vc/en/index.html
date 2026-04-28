@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎬 Video Creator Lessons</title>
+<meta name="description" content="This course teaches safe, useful and educational video creation using mobile phones and AI tools.">
+<link rel="canonical" href="https://acslearn.com/vc/en/index.html">
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#111}
+.container{max-width:430px;margin:auto;padding:12px}
+.box{background:white;padding:14px;border-radius:14px;margin-top:14px;box-shadow:0 4px 12px rgba(0,0,0,.1);line-height:1.7}
+a{display:block;background:white;padding:12px;border-radius:10px;margin-top:8px;text-decoration:none;color:black;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.home{background:#111;color:white;text-align:center}
+button{padding:10px 14px;background:#16a34a;color:white;border:none;border-radius:8px;font-weight:bold}
+input{width:60%;padding:10px;border-radius:8px;border:1px solid #ccc}
+.resume a{background:#2563eb;color:white;text-align:center;font-weight:bold}
+</style></head>
+<body><div class="container">
+<a href="../../index.html" class="home">🏠 Home</a>
+<h2 style="text-align:center">🎬 Video Creator Lessons</h2>
+<div class="box"><h3>🎬 Video Creator Course Introduction</h3><p>This course teaches safe, useful and educational video creation using mobile phones and AI tools.</p><h3>📌 Rules to Complete the Course</h3><ul><li>Study Lesson 1 to 150 in sequence.</li><li>Write the Activity and DIEM practice in your notebook.</li></ul></div>
+<div class="box">📌 Enter lesson number from 1 to 150 and press GO<br><br><input id="num" type="number" min="1" max="150" placeholder="Example: 30"><button onclick="go()">GO</button><div id="msg" style="color:red;margin-top:6px"></div></div>
+<div id="resumeBox" class="resume"></div>
+<div class="box"><b>Lesson List</b></div><a href="L001.html">L001 — AI Video Creation: Why?</a>
+<a href="L002.html">L002 — Video Type System</a>
+<a href="L003.html">L003 — Short Videos 0–60 seconds</a>
+<a href="L004.html">L004 — Short video 60–180 seconds</a>
+<a href="L005.html">L005 — Long video above 3 minutes</a>
+<a href="L006.html">L006 — Live Stream Video</a>
+<a href="L007.html">L007 — Faceless Video</a>
+<a href="L008.html">L008 — Watch Time Basics</a>
+<a href="L009.html">L009 — 14 content types and mix systems</a>
+<a href="L010.html">L010 — Niche Selection</a>
+<a href="L011.html">L011 — Personal Brand Basics</a>
+<a href="L012.html">L012 — Local Content Advantage</a>
+<a href="L013.html">L013 — Multi-Language Basics</a>
+<a href="L014.html">L014 — Audience Psychology</a>
+<a href="L015.html">L015 — 3 second hook</a>
+<a href="L016.html">L016 — Curiosity Gap</a>
+<a href="L017.html">L017 — Emotion triggers</a>
+<a href="L018.html">L018 — Story Pattern</a>
+<a href="L019.html">L019 — Trust Building</a>
+<a href="L020.html">L020 — Call to Action</a>
+<a href="L021.html">L021 — Basic Retention</a>
+<a href="L022.html">L022 — Re-watch Basics</a>
+<a href="L023.html">L023 — Feedback Basics</a>
+<a href="L024.html">L024 — Watch Time Basics</a>
+<a href="L025.html">L025 — CTR Basics</a>
+<a href="L026.html">L026 — Video Length Basics</a>
+<a href="L027.html">L027 — AIDS Introduction</a>
+<a href="L028.html">L028 — Starting at ₹0</a>
+<a href="L029.html">L029 — Start earning locally</a>
+<a href="L030.html">L030 — Tool Overview</a>
+</div>
+<script>
+function go(){let n=document.getElementById("num").value;let msg=document.getElementById("msg");if(!n||n<1||n>150){msg.innerText="Please enter a number between 1 and 150";return}let num=String(n).padStart(3,'0');window.location="L"+num+".html"}
+let last=localStorage.getItem("lastLesson_en");if(last){let num=String(last).padStart(3,'0');document.getElementById("resumeBox").innerHTML=`<a href="L${num}.html">▶ Continue Lesson ${last}</a>`}
+</script></body></html>
