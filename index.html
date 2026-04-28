@@ -8,7 +8,7 @@
 <style>
 body{
   margin:0;
-  font-family:"Hind","Noto Sans Devanagari",sans-serif;
+  font-family:"Hind","Noto Sans Devanagari",Arial,sans-serif;
   background:#f4f6fb;
 }
 .container{
@@ -16,69 +16,77 @@ body{
   margin:auto;
   padding:12px;
 }
-
-/* HEADER */
 .header{
   background:linear-gradient(180deg,#ff9933,#ffffff,#138808);
   border-radius:18px;
   text-align:center;
-  padding:16px;
+  padding:18px 14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
 }
 .logo{
-  width:70px;
-  height:70px;
+  width:72px;
+  height:72px;
   border-radius:50%;
   background:white;
   padding:6px;
 }
-.title{font-size:18px;font-weight:700;}
-.tagline{font-size:14px;color:#333;}
-
-/* LANGUAGE */
-.lang span{
-  display:inline-block;
-  margin:4px;
-  cursor:pointer;
-  color:#0b57d0;
+.title{
+  font-size:20px;
+  font-weight:800;
+  margin-top:8px;
 }
-.lang span.active{
-  background:#0b57d0;
-  color:white;
-  padding:4px 6px;
-  border-radius:6px;
+.tagline{
+  font-size:14px;
+  color:#333;
 }
-
-/* HERO */
-.hero{margin-top:12px;}
-.hero img{width:100%;border-radius:12px;}
-
-/* BUTTON */
+.hero{
+  margin-top:12px;
+}
+.hero img{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 8px 22px rgba(0,0,0,.14);
+}
 .cta{
   display:block;
   text-align:center;
   background:#16a34a;
   color:white;
-  padding:14px;
-  border-radius:12px;
-  margin-top:12px;
+  padding:15px;
+  border-radius:14px;
+  margin-top:14px;
   text-decoration:none;
-  font-weight:bold;
+  font-weight:800;
+  box-shadow:0 6px 16px rgba(22,163,74,.35);
 }
-
-/* COURSE CARDS */
-.section{margin-top:18px;}
+.section{
+  margin-top:18px;
+}
 .card{
   display:block;
   background:white;
-  padding:12px;
-  border-radius:12px;
-  margin-top:10px;
+  padding:15px;
+  border-radius:14px;
+  margin-top:12px;
   text-decoration:none;
-  color:black;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  color:#111;
+  font-weight:700;
+  box-shadow:0 5px 15px rgba(0,0,0,.10);
 }
-.card:active{
-  transform:scale(0.98);
+.card small{
+  display:block;
+  font-weight:500;
+  color:#555;
+  margin-top:4px;
+}
+.coming{
+  opacity:.65;
+}
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#555;
+  margin:20px 0 8px;
 }
 </style>
 </head>
@@ -86,81 +94,59 @@ body{
 <body>
 <div class="container">
 
-<div class="header">
-  <img src="logo.png" class="logo">
-
-  <div class="title" id="title"></div>
-  <div class="tagline" id="tagline"></div>
-
-  <!-- LANGUAGE -->
-  <div class="lang">
-    🌐 Language:<br>
-    <span onclick="setLang('hi')" id="l_hi">हिंदी</span>
-    <span onclick="setLang('en')" id="l_en">English</span>
-    <span onclick="setLang('ar')" id="l_ar">العربية</span>
+  <div class="header">
+    <img src="logo.png" class="logo" alt="Applied Computer School Logo">
+    <div class="title">Applied Computer School</div>
+    <div class="tagline">2011 से डिजिटल शिक्षा</div>
   </div>
+
+  <div class="hero">
+    <img src="hero.jpg" alt="Applied Computer School">
+  </div>
+
+  <a href="video-creator/hi/L001.html" class="cta">
+    🚀 Start Learning
+  </a>
+
+  <div class="section">
+
+    <a href="video-creator/hi/L001.html" class="card">
+      🎬 Video Creator
+      <small>AI और मोबाइल से वीडियो बनाना सीखें</small>
+    </a>
+
+    <a href="social-media-master/hi/L001.html" class="card">
+      📱 Social Media Master
+      <small>सोशल मीडिया कंटेंट और ग्रोथ सीखें</small>
+    </a>
+
+    <div class="card coming">
+      📝 Shayari Ki Duniya
+      <small>Coming Soon</small>
+    </div>
+
+    <div class="card coming">
+      📜 Sanskrit Sahitya
+      <small>Coming Soon</small>
+    </div>
+
+    <div class="card coming">
+      🎯 The 700 Protocol
+      <small>Coming Soon</small>
+    </div>
+
+    <div class="card coming">
+      ⌨️ Typing Course
+      <small>Coming Soon</small>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © Applied Computer School<br>
+    Freedom Fighter Gangadhar Prasad Memorial Trust
+  </div>
+
 </div>
-
-<!-- HERO -->
-<div class="hero">
-  <img src="hero.jpg">
-</div>
-
-<!-- START -->
-<a href="social/L001.html"
-href="ai/L001.html"
-href="protocol/L001.html"
-href="shayari/L001.html"
-href="sanskrit/L001.html"
-href="typing/L001.html" class="cta">
-🚀 Start Learning
-</a>
-
-<!-- COURSES -->
-<div class="section">
-  <a href="social/L001.html" class="card">📱 Social Media Master</a>
-
- <a href="ai/L001.html" class="card">🤖 AI Digital Master</a>
-
- <a href="protocol/L001.html" class="card">🎬 The 700 Protocol</a>
-
- <a href="shayari/L001.html" class="card">📝 Shayari Ki Duniya</a>
-
- <a href="sanskrit/L001.html" class="card">📜 Sanskrit Sahitya</a>
-
- <a href="typing/L001.html" class="card">⌨️ Typing Course</a>
-</div>
-
-</div>
-
-<script>
-
-const LANG = {
-hi:{title:"Applied Computer School",tagline:"2011 से डिजिटल शिक्षा"},
-en:{title:"Applied Computer School",tagline:"Digital Education Since 2011"},
-ar:{title:"مدرسة الكمبيوتر التطبيقية",tagline:"تعليم رقمي منذ 2011"}
-};
-
-function setLang(code){
-  localStorage.setItem("lang",code);
-  let L = LANG[code] || LANG["en"];
-
-  document.getElementById("title").innerText=L.title;
-  document.getElementById("tagline").innerText=L.tagline;
-
-  document.querySelectorAll(".lang span").forEach(e=>e.classList.remove("active"));
-  document.getElementById("l_"+code)?.classList.add("active");
-
-  if(code==="ar"){
-    document.body.style.direction="rtl";
-  }else{
-    document.body.style.direction="ltr";
-  }
-}
-
-setLang(localStorage.getItem("lang") || "hi");
-
-</script>
-
 </body>
 </html>
