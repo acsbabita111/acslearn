@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applied Computer School</title>
+<style>
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f4f6fb;text-align:center;color:#111}
+.container{max-width:430px;margin:auto;padding:12px}
+.header{background:linear-gradient(180deg,#ff9933,#fff,#138808);border-radius:18px;padding:18px 12px}
+.logo{width:78px;height:78px;border-radius:50%;background:#fff;padding:6px}
+h1{margin:8px 0 2px;font-size:24px}
+.tagline{font-size:15px;font-weight:600;color:#222}
+.hero img{width:100%;border-radius:16px;margin-top:14px}
+.select-box{display:flex;gap:10px;margin:16px 0}
+select{width:50%;padding:12px;border-radius:12px;border:1px solid #ccc;font-weight:700;background:#fff}
+.cta{width:100%;padding:15px;border:0;border-radius:14px;background:#16a34a;color:#fff;font-size:18px;font-weight:800}
+.note{font-size:13px;color:#555;margin-top:10px}
+footer{margin-top:25px;font-size:12px;color:#555;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="container">
 
+  <div class="header">
+    <img src="logo.png" class="logo" alt="Applied Computer School Logo">
+    <h1 id="schoolName">Applied Computer School</h1>
+    <div class="tagline" id="tagline">Digital Education Since 2011</div>
+  </div>
+
+  <div class="hero">
+    <img src="hero.jpg" alt="Applied Computer School Digital Learning">
+  </div>
+
+  <div class="select-box">
+    <select id="langSelect" onchange="changeLanguage()">
+      <option value="en">🇬🇧 English</option>
+      <option value="hi">🇮🇳 हिंदी</option>
+      <option value="bn">🇧🇩 বাংলা</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="ur">🇵🇰 اردو</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="pt">🇵🇹 Português</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="zh">🇨🇳 中文</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="id">🇮🇩 Indonesia</option>
+      <option value="ta">🇮🇳 தமிழ்</option>
+      <option value="te">🇮🇳 తెలుగు</option>
+      <option value="mr">🇮🇳 मराठी</option>
+      <option value="gu">🇮🇳 ગુજરાતી</option>
+      <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+      <option value="ml">🇮🇳 മലയാളം</option>
+      <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+      <option value="or">🇮🇳 ଓଡ଼ିଆ</option>
+      <option value="ne">🇳🇵 नेपाली</option>
+    </select>
+
+    <select id="courseSelect">
+      <option value="vc">🎬 Video Creator</option>
+      <option value="social">📱 Social Media Master</option>
+      <option value="ai">🤖 AI Digital Master</option>
+      <option value="typing">⌨️ Typing Course</option>
+      <option value="sanskrit">📜 Sanskrit Sahitya</option>
+      <option value="shayari">📝 Shayari Ki Duniya</option>
+      <option value="protocol">🎞️ The 700 Protocol</option>
+    </select>
+  </div>
+
+  <button class="cta" id="startBtn" onclick="startLearning()">🚀 Start Learning</button>
+  <div class="note" id="note">Choose your language and course to begin.</div>
+
+  <footer>
+    © Applied Computer School<br>
+    Digital Education Since 2011<br>
+    Freedom Fighter Gangadhar Prasad Memorial Trust
+  </footer>
+
+</div>
+
+<script>
+const langData = {
+en:{school:"Applied Computer School",tag:"Digital Education Since 2011",start:"🚀 Start Learning",note:"Choose your language and course to begin.",dir:"ltr"},
+hi:{school:"अप्लाइड कंप्यूटर स्कूल",tag:"2011 से डिजिटल शिक्षा",start:"🚀 सीखना शुरू करें",note:"भाषा और कोर्स चुनकर शुरू करें।",dir:"ltr"},
+bn:{school:"অ্যাপ্লাইড কম্পিউটার স্কুল",tag:"২০১১ সাল থেকে ডিজিটাল শিক্ষা",start:"🚀 শেখা শুরু করুন",note:"ভাষা ও কোর্স নির্বাচন করুন।",dir:"ltr"},
+ar:{school:"مدرسة الكمبيوتر التطبيقية",tag:"تعليم رقمي منذ 2011",start:"🚀 ابدأ التعلم",note:"اختر اللغة والدورة للبدء.",dir:"rtl"},
+ur:{school:"اپلائیڈ کمپیوٹر اسکول",tag:"2011 سے ڈیجیٹل تعلیم",start:"🚀 سیکھنا شروع کریں",note:"زبان اور کورس منتخب کریں۔",dir:"rtl"},
+es:{school:"Applied Computer School",tag:"Educación digital desde 2011",start:"🚀 Comenzar",note:"Elige idioma y curso.",dir:"ltr"},
+fr:{school:"Applied Computer School",tag:"Éducation numérique depuis 2011",start:"🚀 Commencer",note:"Choisissez la langue et le cours.",dir:"ltr"},
+de:{school:"Applied Computer School",tag:"Digitale Bildung seit 2011",start:"🚀 Starten",note:"Sprache und Kurs auswählen.",dir:"ltr"},
+pt:{school:"Applied Computer School",tag:"Educação digital desde 2011",start:"🚀 Começar",note:"Escolha idioma e curso.",dir:"ltr"},
+ru:{school:"Applied Computer School",tag:"Цифровое образование с 2011 года",start:"🚀 Начать",note:"Выберите язык и курс.",dir:"ltr"},
+zh:{school:"Applied Computer School",tag:"自2011年以来的数字教育",start:"🚀 开始学习",note:"选择语言和课程。",dir:"ltr"},
+ja:{school:"Applied Computer School",tag:"2011年からのデジタル教育",start:"🚀 学習を開始",note:"言語とコースを選択してください。",dir:"ltr"},
+id:{school:"Applied Computer School",tag:"Pendidikan digital sejak 2011",start:"🚀 Mulai Belajar",note:"Pilih bahasa dan kursus.",dir:"ltr"},
+ta:{school:"Applied Computer School",tag:"2011 முதல் டிஜிட்டல் கல்வி",start:"🚀 கற்றலை தொடங்குங்கள்",note:"மொழி மற்றும் பாடத்தை தேர்வு செய்யவும்.",dir:"ltr"},
+te:{school:"Applied Computer School",tag:"2011 నుండి డిజిటల్ విద్య",start:"🚀 నేర్చుకోవడం ప్రారంభించండి",note:"భాష మరియు కోర్సును ఎంచుకోండి.",dir:"ltr"},
+mr:{school:"अप्लाइड कंप्यूटर स्कूल",tag:"2011 पासून डिजिटल शिक्षण",start:"🚀 शिकणे सुरू करा",note:"भाषा आणि कोर्स निवडा.",dir:"ltr"},
+gu:{school:"Applied Computer School",tag:"2011 થી ડિજિટલ શિક્ષણ",start:"🚀 શીખવાનું શરૂ કરો",note:"ભાષા અને કોર્સ પસંદ કરો.",dir:"ltr"},
+kn:{school:"Applied Computer School",tag:"2011 ರಿಂದ ಡಿಜಿಟಲ್ ಶಿಕ್ಷಣ",start:"🚀 ಕಲಿಕೆ ಆರಂಭಿಸಿ",note:"ಭಾಷೆ ಮತ್ತು ಕೋರ್ಸ್ ಆಯ್ಕೆಮಾಡಿ.",dir:"ltr"},
+ml:{school:"Applied Computer School",tag:"2011 മുതൽ ഡിജിറ്റൽ വിദ്യാഭ്യാസം",start:"🚀 പഠനം ആരംഭിക്കുക",note:"ഭാഷയും കോഴ്സും തിരഞ്ഞെടുക്കുക.",dir:"ltr"},
+pa:{school:"Applied Computer School",tag:"2011 ਤੋਂ ਡਿਜ਼ਿਟਲ ਸਿੱਖਿਆ",start:"🚀 ਸਿੱਖਣਾ ਸ਼ੁਰੂ ਕਰੋ",note:"ਭਾਸ਼ਾ ਅਤੇ ਕੋਰਸ ਚੁਣੋ.",dir:"ltr"},
+or:{school:"Applied Computer School",tag:"2011 ଠାରୁ ଡିଜିଟାଲ୍ ଶିକ୍ଷା",start:"🚀 ଶିଖିବା ଆରମ୍ଭ କରନ୍ତୁ",note:"ଭାଷା ଏବଂ କୋର୍ସ ବାଛନ୍ତୁ।",dir:"ltr"},
+ne:{school:"Applied Computer School",tag:"2011 देखि डिजिटल शिक्षा",start:"🚀 सिक्न सुरु गर्नुहोस्",note:"भाषा र कोर्स छान्नुहोस्।",dir:"ltr"}
+};
+
+function changeLanguage(){
+  const lang = document.getElementById("langSelect").value;
+  const L = langData[lang] || langData.en;
+  document.documentElement.lang = lang;
+  document.body.dir = L.dir;
+  document.getElementById("schoolName").innerText = L.school;
+  document.getElementById("tagline").innerText = L.tag;
+  document.getElementById("startBtn").innerText = L.start;
+  document.getElementById("note").innerText = L.note;
+  localStorage.setItem("acs_lang", lang);
+}
+
+function startLearning(){
+  const lang = document.getElementById("langSelect").value;
+  const course = document.getElementById("courseSelect").value;
+  window.location.href = course + "/" + lang + "/index.html";
+}
+
+const saved = localStorage.getItem("acs_lang");
+if(saved && langData[saved]){
+  document.getElementById("langSelect").value = saved;
+}
+changeLanguage();
+</script>
+</body>
+</html>
