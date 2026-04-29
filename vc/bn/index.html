@@ -1,1 +1,58 @@
-
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎬 Video Creator Lessons</title>
+<meta name="description" content="এই কোর্সে মোবাইল এবং AI tools ব্যবহার করে video creation শেখানো হয়।">
+<link rel="canonical" href="https://acslearn.com/vc/bn/index.html">
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#111}
+.container{max-width:430px;margin:auto;padding:12px}
+.box{background:white;padding:14px;border-radius:14px;margin-top:14px;box-shadow:0 4px 12px rgba(0,0,0,.1);line-height:1.7}
+a{display:block;background:white;padding:12px;border-radius:10px;margin-top:8px;text-decoration:none;color:black;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.home{background:#111;color:white;text-align:center}
+button{padding:10px 14px;background:#16a34a;color:white;border:none;border-radius:8px;font-weight:bold}
+input{width:60%;padding:10px;border-radius:8px;border:1px solid #ccc}
+.resume a{background:#2563eb;color:white;text-align:center;font-weight:bold}
+</style></head>
+<body><div class="container">
+<a href="../../index.html" class="home">🏠 Home</a>
+<h2 style="text-align:center">🎬 Video Creator Lessons</h2>
+<div class="box"><h3>🎬 Video Creator Course Introduction</h3><p>এই কোর্সে মোবাইল এবং AI tools ব্যবহার করে video creation শেখানো হয়।</p><h3>📌 Course Rules</h3><ul><li>Lesson 1 থেকে 150 পর্যন্ত পড়ুন।</li></ul></div>
+<div class="box">📌 ১ থেকে ১৫০ পর্যন্ত lesson number লিখে GO চাপুন<br><br><input id="num" type="number" min="1" max="150" placeholder="যেমন 30"><button onclick="go()">GO</button><div id="msg" style="color:red;margin-top:6px"></div></div>
+<div id="resumeBox" class="resume"></div>
+<div class="box"><b>Lesson List</b></div><a href="L001.html">L001 — L001</a>
+<a href="L002.html">L002 — L002</a>
+<a href="L003.html">L003 — L003</a>
+<a href="L004.html">L004 — L004</a>
+<a href="L005.html">L005 — L005</a>
+<a href="L006.html">L006 — L006</a>
+<a href="L007.html">L007 — L007</a>
+<a href="L008.html">L008 — L008</a>
+<a href="L009.html">L009 — L009</a>
+<a href="L010.html">L010 — L010</a>
+<a href="L011.html">L011 — L011</a>
+<a href="L012.html">L012 — L012</a>
+<a href="L013.html">L013 — L013</a>
+<a href="L014.html">L014 — L014</a>
+<a href="L015.html">L015 — L015</a>
+<a href="L016.html">L016 — L016</a>
+<a href="L017.html">L017 — L017</a>
+<a href="L018.html">L018 — L018</a>
+<a href="L019.html">L019 — L019</a>
+<a href="L020.html">L020 — L020</a>
+<a href="L021.html">L021 — L021</a>
+<a href="L022.html">L022 — L022</a>
+<a href="L023.html">L023 — L023</a>
+<a href="L024.html">L024 — L024</a>
+<a href="L025.html">L025 — L025</a>
+<a href="L026.html">L026 — L026</a>
+<a href="L027.html">L027 — L027</a>
+<a href="L028.html">L028 — L028</a>
+<a href="L029.html">L029 — L029</a>
+<a href="L030.html">L030 — L030</a>
+</div>
+<script>
+function go(){let n=document.getElementById("num").value;let msg=document.getElementById("msg");if(!n||n<1||n>150){msg.innerText="১ থেকে ১৫০ এর মধ্যে সংখ্যা লিখুন";return}let num=String(n).padStart(3,'0');window.location="L"+num+".html"}
+let last=localStorage.getItem("lastLesson_bn");if(last){let num=String(last).padStart(3,'0');document.getElementById("resumeBox").innerHTML=`<a href="L${num}.html">▶ Continue Lesson ${last}</a>`}
+</script></body></html>
