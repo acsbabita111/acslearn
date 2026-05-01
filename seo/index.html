@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ACS AI SEO MASTER™ | Mobile First AI Search Skill Course</title>
+  <meta name="description" content="ACS AI SEO MASTER™ ग्लोबल साउथ के learners के लिए mobile-first, class 6 simple language और 80+ language ready AI SEO course है।" />
+  <meta name="keywords" content="ACS AI SEO Master, AI SEO Course, Hindi SEO Course, Mobile First SEO, AI Search Course, Global South Digital Course" />
+  <meta name="author" content="Applied Computer School" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f4f7ff;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --blue:#2563eb;
+      --blue-dark:#1e40af;
+      --green:#16a34a;
+      --green-dark:#15803d;
+      --orange:#f97316;
+      --yellow:#facc15;
+      --red:#ef4444;
+      --purple:#7c3aed;
+      --dark:#0f172a;
+      --soft:#e8efff;
+      --border:#dbe4ff;
+      --shadow:0 18px 45px rgba(15,23,42,.16);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:"Hind", "Noto Sans Devanagari", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.22), transparent 36%),
+        radial-gradient(circle at top right, rgba(22,163,74,.18), transparent 30%),
+        linear-gradient(180deg,#f8fbff 0%,#eef4ff 45%,#f7f9ff 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:14px;
+    }
+
+    .mobile-shell{
+      max-width:430px;
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(219,228,255,.9);
+      border-radius:0 0 22px 22px;
+      box-shadow:0 10px 24px rgba(15,23,42,.08);
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .brand-mini{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      min-width:0;
+    }
+
+    .logo-dot{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--blue),var(--green));
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:800;
+      box-shadow:0 10px 20px rgba(37,99,235,.25);
+      flex:0 0 auto;
+    }
+
+    .brand-mini b{font-size:15px;line-height:1.1;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .brand-mini span{font-size:11px;color:var(--muted);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+    .nav-cta{
+      background:linear-gradient(135deg,var(--green),var(--green-dark));
+      color:white;
+      border:none;
+      border-radius:999px;
+      padding:9px 13px;
+      font-weight:800;
+      font-size:13px;
+      box-shadow:0 10px 18px rgba(22,163,74,.25);
+      white-space:nowrap;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      margin-top:16px;
+      background:
+        linear-gradient(160deg,rgba(15,23,42,.96),rgba(30,64,175,.94) 55%,rgba(22,163,74,.9));
+      color:white;
+      border-radius:32px;
+      padding:26px 18px 20px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-80px -120px auto auto;
+      width:240px;
+      height:240px;
+      background:radial-gradient(circle,rgba(250,204,21,.35),transparent 60%);
+      border-radius:50%;
+    }
+
+    .hero:after{
+      content:"SEO + AI";
+      position:absolute;
+      right:-18px;
+      bottom:20px;
+      font-size:44px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:rgba(255,255,255,.07);
+      transform:rotate(-10deg);
+    }
+
+    .badge-row{
+      position:relative;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:16px;
+      z-index:1;
+    }
+
+    .badge{
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .hero h1{
+      position:relative;
+      z-index:1;
+      font-size:34px;
+      line-height:1.05;
+      letter-spacing:-1px;
+      margin-bottom:12px;
+      font-weight:900;
+    }
+
+    .hero .tm{font-size:20px;vertical-align:top;}
+    .hero p{
+      position:relative;
+      z-index:1;
+      font-size:16px;
+      color:#eef4ff;
+      margin-bottom:16px;
+    }
+
+    .hero-line{
+      position:relative;
+      z-index:1;
+      background:rgba(250,204,21,.98);
+      color:#1f2937;
+      border-radius:18px;
+      padding:12px;
+      font-weight:800;
+      margin:14px 0;
+      box-shadow:0 12px 24px rgba(0,0,0,.15);
+    }
+
+    .cta-wrap{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .btn{
+      min-height:48px;
+      border-radius:16px;
+      border:none;
+      padding:13px 14px;
+      font-size:15px;
+      font-weight:900;
+      text-align:center;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+
+    .btn-primary{background:linear-gradient(135deg,var(--green),var(--green-dark));color:white;box-shadow:0 14px 25px rgba(22,163,74,.28);}
+    .btn-secondary{background:white;color:var(--blue-dark);}
+    .btn-blue{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:white;}
+
+    .section{margin:22px 0;}
+    .section-title{margin-bottom:12px;}
+    .section-title .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      background:#eaf2ff;
+      color:var(--blue-dark);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:7px 11px;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:9px;
+    }
+    .section-title h2{font-size:24px;line-height:1.15;color:var(--dark);letter-spacing:-.4px;}
+    .section-title p{font-size:15px;color:var(--muted);margin-top:6px;}
+
+    .card{
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 14px 35px rgba(15,23,42,.08);
+      padding:16px;
+      overflow:hidden;
+    }
+
+    .usp-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+    .usp-card{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:linear-gradient(180deg,#fff,#f8fbff);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:14px;
+    }
+
+    .icon{
+      width:42px;
+      height:42px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      font-size:22px;
+      flex:0 0 auto;
+      background:var(--soft);
+    }
+    .usp-card h3{font-size:17px;margin-bottom:3px;}
+    .usp-card p{font-size:14px;color:var(--muted);}
+
+    .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+    .stat{
+      background:linear-gradient(145deg,#ffffff,#eef4ff);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:14px;
+      text-align:center;
+    }
+    .stat b{display:block;font-size:26px;color:var(--blue-dark);line-height:1;}
+    .stat span{font-size:12px;color:var(--muted);font-weight:700;}
+
+    .path-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+    .path-card{
+      border-radius:22px;
+      padding:16px;
+      border:1px solid var(--border);
+      background:white;
+      position:relative;
+      overflow:hidden;
+    }
+    .path-card:after{
+      content:"";
+      position:absolute;
+      right:-24px;
+      top:-24px;
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:rgba(37,99,235,.08);
+    }
+    .path-card b{font-size:18px;color:var(--dark);display:block;margin-bottom:5px;position:relative;z-index:1;}
+    .path-card p{font-size:14px;color:var(--muted);position:relative;z-index:1;}
+    .path-tag{
+      display:inline-block;
+      margin-bottom:8px;
+      border-radius:999px;
+      padding:5px 10px;
+      font-size:12px;
+      font-weight:800;
+      color:white;
+      position:relative;
+      z-index:1;
+    }
+    .tag-beginner{background:var(--green);}
+    .tag-intermediate{background:var(--blue);}
+    .tag-advanced{background:var(--purple);}
+    .tag-pro{background:var(--orange);}
+
+    .level-list{display:grid;grid-template-columns:1fr;gap:10px;}
+    details.level{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 22px rgba(15,23,42,.05);
+    }
+    details.level summary{
+      list-style:none;
+      cursor:pointer;
+      padding:14px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:8px;
+      align-items:center;
+      font-weight:900;
+      color:var(--dark);
+    }
+    details.level summary::-webkit-details-marker{display:none;}
+    .level small{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-top:2px;}
+    .plus{
+      width:32px;
+      height:32px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:#eef4ff;
+      color:var(--blue-dark);
+      font-weight:900;
+    }
+    details[open] .plus{background:var(--blue);color:white;}
+    .lesson-box{padding:0 14px 14px;}
+    .lesson-grid{display:grid;grid-template-columns:1fr;gap:8px;}
+    .lesson{
+      background:#f8fbff;
+      border:1px solid #e6edff;
+      border-radius:14px;
+      padding:10px 11px;
+      font-size:13.5px;
+      color:#1f2937;
+    }
+    .lesson b{color:var(--blue-dark);}
+
+    .proof-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+    .proof{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px dashed #b7c7ff;
+      background:#f8fbff;
+      border-radius:18px;
+      padding:12px;
+    }
+    .proof span:first-child{font-size:22px;line-height:1;}
+    .proof b{font-size:15px;display:block;}
+    .proof small{font-size:13px;color:var(--muted);display:block;margin-top:2px;}
+
+    .global-card{
+      background:linear-gradient(135deg,#111827,#1e3a8a 55%,#15803d);
+      color:white;
+      border-radius:28px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .global-card:before{
+      content:"80+";
+      position:absolute;
+      right:-6px;
+      top:4px;
+      font-size:72px;
+      line-height:1;
+      font-weight:900;
+      color:rgba(255,255,255,.08);
+    }
+    .global-card h2{font-size:24px;line-height:1.12;margin-bottom:8px;position:relative;}
+    .global-card p{font-size:15px;color:#eaf2ff;position:relative;}
+    .lang-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;position:relative;}
+    .lang-pills span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800;}
+
+    .final-project{
+      background:linear-gradient(180deg,#fff,#fff7ed);
+      border:1px solid #fed7aa;
+      border-radius:26px;
+      padding:16px;
+    }
+    .check-list{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px;}
+    .check{
+      background:white;
+      border:1px solid #ffedd5;
+      border-radius:14px;
+      padding:9px 10px;
+      font-size:14px;
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+    }
+    .check:before{content:"✓";color:var(--green);font-weight:900;}
+
+    .certificate{
+      background:white;
+      border-radius:24px;
+      padding:16px;
+      border:2px solid #facc15;
+      box-shadow:0 14px 32px rgba(250,204,21,.16);
+      text-align:center;
+    }
+    .certificate .seal{font-size:42px;line-height:1;margin-bottom:6px;}
+    .certificate h3{font-size:22px;line-height:1.15;color:var(--dark);}
+    .certificate p{font-size:14px;color:var(--muted);margin-top:6px;}
+
+    .footer-cta{
+      background:linear-gradient(135deg,var(--dark),#1e3a8a);
+      color:white;
+      border-radius:30px 30px 0 0;
+      padding:22px 16px calc(22px + env(safe-area-inset-bottom));
+      text-align:center;
+      margin-top:24px;
+    }
+    .footer-cta h2{font-size:25px;line-height:1.12;margin-bottom:8px;}
+    .footer-cta p{color:#dbeafe;font-size:15px;margin-bottom:14px;}
+    .credit{font-size:12px;color:#cbd5e1;margin-top:16px;}
+
+    .floating-actions{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:10px;
+      width:min(410px,calc(100% - 22px));
+      z-index:50;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:9px;
+      pointer-events:none;
+    }
+    .floating-actions a{
+      pointer-events:auto;
+      border-radius:16px;
+      padding:12px 10px;
+      font-size:13px;
+      font-weight:900;
+      text-align:center;
+      box-shadow:0 12px 25px rgba(15,23,42,.18);
+    }
+    .float-green{background:var(--green);color:white;}
+    .float-blue{background:var(--blue);color:white;}
+
+    @media(min-width:760px){
+      .page{padding:24px;}
+      .mobile-shell{max-width:980px;}
+      .hero{padding:42px 42px 34px;}
+      .hero h1{font-size:58px;max-width:760px;}
+      .hero p{font-size:20px;max-width:720px;}
+      .cta-wrap{grid-template-columns:260px 260px;}
+      .usp-grid{grid-template-columns:repeat(3,1fr);}
+      .path-grid{grid-template-columns:repeat(4,1fr);}
+      .level-list{grid-template-columns:repeat(2,1fr);}
+      .proof-grid{grid-template-columns:repeat(3,1fr);}
+      .lesson-grid{grid-template-columns:1fr;}
+      .stat-grid{grid-template-columns:repeat(4,1fr);}
+      .floating-actions{display:none;}
+    }
+
+
+    /* ===== ACS UPDATE PATCH v1.1 START ===== */
+    body{ padding-bottom:82px; }
+
+    .hero-kpi{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:9px;
+      margin-top:14px;
+    }
+    .hero-kpi div{
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:16px;
+      padding:10px;
+      text-align:center;
+    }
+    .hero-kpi b{display:block;font-size:20px;line-height:1;color:#ffffff;}
+    .hero-kpi span{display:block;font-size:11px;color:#dbeafe;font-weight:700;margin-top:4px;}
+
+    .admission-card{
+      background:linear-gradient(135deg,#ffffff,#fff7ed);
+      border:2px solid #fed7aa;
+      border-radius:26px;
+      padding:16px;
+      box-shadow:0 14px 34px rgba(249,115,22,.13);
+    }
+    .admission-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+    .admission-item{background:white;border:1px solid #ffedd5;border-radius:16px;padding:12px;}
+    .admission-item b{display:block;font-size:15px;color:var(--dark);}
+    .admission-item span{display:block;font-size:13px;color:var(--muted);margin-top:3px;}
+    .course-note{
+      background:#ecfdf5;
+      border:1px solid #bbf7d0;
+      color:#14532d;
+      border-radius:18px;
+      padding:12px;
+      font-weight:800;
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    .timeline{display:grid;grid-template-columns:1fr;gap:10px;}
+    .timeline-step{
+      position:relative;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:14px 14px 14px 54px;
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+    }
+    .timeline-step .num{
+      position:absolute;left:12px;top:14px;width:30px;height:30px;border-radius:12px;
+      background:linear-gradient(135deg,var(--blue),var(--green));color:white;display:grid;place-items:center;
+      font-weight:900;font-size:14px;
+    }
+    .timeline-step b{display:block;font-size:16px;color:var(--dark);}
+    .timeline-step p{color:var(--muted);font-size:14px;margin-top:3px;}
+
+    .faq-list{display:grid;grid-template-columns:1fr;gap:10px;}
+    .faq-item{background:white;border:1px solid var(--border);border-radius:18px;padding:13px;}
+    .faq-item b{display:block;font-size:15px;color:var(--dark);margin-bottom:4px;}
+    .faq-item p{font-size:14px;color:var(--muted);}
+
+    .whatsapp-cta{
+      background:linear-gradient(135deg,#22c55e,#15803d);
+      color:white;
+      border-radius:24px;
+      padding:18px;
+      text-align:center;
+      box-shadow:0 18px 38px rgba(22,163,74,.25);
+    }
+    .whatsapp-cta h2{font-size:24px;line-height:1.15;margin-bottom:6px;}
+    .whatsapp-cta p{font-size:15px;color:#ecfdf5;margin-bottom:14px;}
+    .whatsapp-cta .btn{background:white;color:#14532d;}
+
+    .quick-menu{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .quick-menu a{
+      background:#ffffff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:12px 10px;
+      font-size:13px;
+      font-weight:900;
+      color:var(--blue-dark);
+      text-align:center;
+      box-shadow:0 10px 22px rgba(15,23,42,.06);
+    }
+
+    @media(min-width:760px){
+      body{padding-bottom:0;}
+      .hero-kpi{grid-template-columns:repeat(4,1fr);max-width:760px;}
+      .admission-grid{grid-template-columns:repeat(3,1fr);}
+      .timeline{grid-template-columns:repeat(3,1fr);}
+      .faq-list{grid-template-columns:repeat(2,1fr);}
+      .quick-menu{grid-template-columns:repeat(4,1fr);}
+    }
+    /* ===== ACS UPDATE PATCH v1.1 END ===== */
+
+  </style>
+</head>
+<body>
+  <div class="topbar mobile-shell">
+    <div class="brand-mini">
+      <div class="logo-dot">ACS</div>
+      <div>
+        <b>ACS AI SEO MASTER™</b>
+        <span>Mobile First • 80+ Language Ready</span>
+      </div>
+    </div>
+    <a class="nav-cta" href="#syllabus">Syllabus</a>
+  </div>
+
+  <main class="page mobile-shell">
+    <section class="hero" id="top">
+      <div class="badge-row">
+        <span class="badge">📱 Mobile First</span>
+        <span class="badge">🎓 Class 6 Language</span>
+        <span class="badge">🌍 80+ Languages</span>
+      </div>
+      <h1>ACS AI SEO MASTER<span class="tm">™</span></h1>
+      <p>Search, AI Visibility, Agent Optimization और Global South Digital Growth का Vision 2036 Ready Practical Course.</p>
+      <div class="hero-line">मोबाइल से SEO सीखें, AI से काम करवाएँ, और अपनी local पहचान को global search दुनिया तक पहुँचाएँ।</div>
+      <div class="hero-kpi">
+        <div><b>15</b><span>Future Levels</span></div>
+        <div><b>150</b><span>Practical Lessons</span></div>
+        <div><b>80+</b><span>Language Ready</span></div>
+        <div><b>2036</b><span>Vision Ready</span></div>
+      </div>
+      <div class="cta-wrap">
+        <a class="btn btn-primary" href="#syllabus">पूरा पाठ्यक्रम देखें</a>
+        <a class="btn btn-secondary" href="#project">Final Project देखें</a>
+      </div>
+    </section>
+
+    <section class="section card">
+      <div class="section-title">
+        <span class="eyebrow">⚡ Quick Access</span>
+        <h2>सीधे जरूरी भाग पर जाएँ</h2>
+        <p>नए visitor को जल्दी से course की पूरी तस्वीर मिल जाएगी।</p>
+      </div>
+      <div class="quick-menu">
+        <a href="#admission">🎯 किसके लिए?</a>
+        <a href="#syllabus">📚 Syllabus</a>
+        <a href="#project">🏆 Project</a>
+        <a href="#contact">☎️ Contact</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">🚀 Course Vision</span>
+        <h2>यह केवल SEO course नहीं है</h2>
+        <p>यह AI-era Search Skill Course है, जो आज के learner को 2036 की AI search दुनिया के लिए तैयार करता है।</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><b>15</b><span>Levels</span></div>
+        <div class="stat"><b>150</b><span>Lessons</span></div>
+        <div class="stat"><b>80+</b><span>Language Ready</span></div>
+        <div class="stat"><b>100%</b><span>Mobile First</span></div>
+      </div>
+    </section>
+
+    <section class="section admission-card" id="admission">
+      <div class="section-title">
+        <span class="eyebrow">🎯 Course Launch</span>
+        <h2>ACS AI SEO MASTER™ किसके लिए है?</h2>
+        <p>यह course students, teachers, creators और local business learners के लिए बनाया गया है।</p>
+      </div>
+
+      <div class="admission-grid">
+        <div class="admission-item">
+          <b>Beginner Learner</b>
+          <span>Search, keyword और basic SEO सीखना चाहता है।</span>
+        </div>
+        <div class="admission-item">
+          <b>Local Business Learner</b>
+          <span>Shop, school, coaching या service को online दिखाना चाहता है।</span>
+        </div>
+        <div class="admission-item">
+          <b>Future AI Learner</b>
+          <span>AI Search, AI agents और 80+ language world के लिए तैयार होना चाहता है।</span>
+        </div>
+      </div>
+
+      <div class="course-note">
+        ✅ Course का पहला उद्देश्य: mobile से real SEO project बनाना, केवल theory पढ़ना नहीं।
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">✅ ACS USP</span>
+        <h2>तीन चीजें जो हर जगह common रहेंगी</h2>
+      </div>
+      <div class="usp-grid">
+        <div class="usp-card">
+          <div class="icon">📱</div>
+          <div><h3>Mobile First</h3><p>हर lesson mobile पर सीखने, करने और proof जमा करने योग्य होगा।</p></div>
+        </div>
+        <div class="usp-card">
+          <div class="icon">🎓</div>
+          <div><h3>Class 6 Language</h3><p>कठिन SEO और AI concepts भी सरल, साफ और डर-रहित भाषा में रहेंगे।</p></div>
+        </div>
+        <div class="usp-card">
+          <div class="icon">🌍</div>
+          <div><h3>80+ Language Ready</h3><p>Course structure translation नहीं, cultural adaptation के लिए तैयार रहेगा।</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">🧭 Learning Flow</span>
+        <h2>कौन किस level से सीखेगा?</h2>
+        <p>Class-based label हटाकर इसे learner level के आधार पर रखा गया है।</p>
+      </div>
+      <div class="path-grid">
+        <div class="path-card">
+          <span class="path-tag tag-beginner">Beginner Learner</span>
+          <b>Level 1–3</b>
+          <p>Search, keyword और on-page SEO की मजबूत शुरुआत।</p>
+        </div>
+        <div class="path-card">
+          <span class="path-tag tag-intermediate">Intermediate Learner</span>
+          <b>Level 4–7</b>
+          <p>Structured data, technical SEO, Search Console और local SEO practice।</p>
+        </div>
+        <div class="path-card">
+          <span class="path-tag tag-advanced">Advanced Learner</span>
+          <b>Level 8–12</b>
+          <p>AI search visibility, agent optimization, workflow और future search।</p>
+        </div>
+        <div class="path-card">
+          <span class="path-tag tag-pro">Pro Learner</span>
+          <b>Level 13–15</b>
+          <p>80+ language SEO, ethics, trust और final master portfolio।</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">🛣️ Learning Journey</span>
+        <h2>Student कैसे आगे बढ़ेगा?</h2>
+        <p>Course को आसान रास्ते में बांटा गया है, ताकि learner धीरे-धीरे beginner से pro level तक पहुँचे।</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <span class="num">1</span>
+          <b>सीखना</b>
+          <p>Search, keyword, SEO और AI concepts को सरल भाषा में समझना।</p>
+        </div>
+        <div class="timeline-step">
+          <span class="num">2</span>
+          <b>करना</b>
+          <p>Mobile से title, meta, keyword, audit और local SEO task करना।</p>
+        </div>
+        <div class="timeline-step">
+          <span class="num">3</span>
+          <b>Proof बनाना</b>
+          <p>Project report, screenshot, before-after और final portfolio बनाना।</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section global-card">
+      <h2>Global South के लिए बना course</h2>
+      <p>यह course laptop-first या English-first नहीं है। यह mobile-first, local example और सरल भाषा के साथ उन learners के लिए है जिनके पास talent है, लेकिन सही digital path नहीं है।</p>
+      <div class="lang-pills">
+        <span>Hindi</span><span>English</span><span>Bhojpuri</span><span>Bengali</span><span>Urdu</span><span>Arabic</span><span>French</span><span>Spanish</span><span>Swahili</span><span>80+ Ready</span>
+      </div>
+    </section>
+
+    <section class="section" id="syllabus">
+      <div class="section-title">
+        <span class="eyebrow">📚 Master Syllabus</span>
+        <h2>Vision 2036 Ready — 15 Levels, 150 Lessons</h2>
+        <p>हर level में 10 lessons, एक practical output और project proof रहेगा।</p>
+      </div>
+
+      <div class="level-list">
+        <details class="level" open>
+          <summary><span>Level 1: Search और AI Foundation<small>Search engine, AI answer और सही information की basic समझ</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L001</b> Search Engine क्या है?</div><div class="lesson"><b>L002</b> Google internet को कैसे पढ़ता है?</div><div class="lesson"><b>L003</b> Indexing क्या है?</div><div class="lesson"><b>L004</b> Ranking क्या है?</div><div class="lesson"><b>L005</b> Mobile Search Result पढ़ना</div><div class="lesson"><b>L006</b> AI Answer क्या है?</div><div class="lesson"><b>L007</b> Helpful Content क्या है?</div><div class="lesson"><b>L008</b> सही और गलत जानकारी</div><div class="lesson"><b>L009</b> Voice Search की शुरुआत</div><div class="lesson"><b>L010</b> Search Notebook Project</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 2: Keyword, Intent और Language Thinking<small>लोग search में क्या पूछते हैं और क्यों पूछते हैं</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L011</b> Keyword क्या है?</div><div class="lesson"><b>L012</b> Search Intent क्या है?</div><div class="lesson"><b>L013</b> Informational Keyword</div><div class="lesson"><b>L014</b> Local Keyword</div><div class="lesson"><b>L015</b> Commercial Keyword</div><div class="lesson"><b>L016</b> Hindi + English Keyword</div><div class="lesson"><b>L017</b> Hinglish Search</div><div class="lesson"><b>L018</b> AI से Keyword Ideas</div><div class="lesson"><b>L019</b> Keyword Cluster</div><div class="lesson"><b>L020</b> Local Keyword Map</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 3: On-Page SEO और Content Structure<small>Page को search-ready बनाना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L021</b> Title Tag</div><div class="lesson"><b>L022</b> Meta Description</div><div class="lesson"><b>L023</b> H1 क्या है?</div><div class="lesson"><b>L024</b> H2 और H3</div><div class="lesson"><b>L025</b> First Paragraph SEO</div><div class="lesson"><b>L026</b> Image File Name</div><div class="lesson"><b>L027</b> Alt Text</div><div class="lesson"><b>L028</b> Internal Link</div><div class="lesson"><b>L029</b> AI Draft + Human Review</div><div class="lesson"><b>L030</b> On-Page SEO Project</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 4: Structured Data और AI-Readable Content<small>Content को machine-readable बनाना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L031</b> Structured Data क्या है?</div><div class="lesson"><b>L032</b> Schema Markup क्या है?</div><div class="lesson"><b>L033</b> JSON-LD की पहचान</div><div class="lesson"><b>L034</b> Article Schema</div><div class="lesson"><b>L035</b> FAQ Schema</div><div class="lesson"><b>L036</b> Course Schema</div><div class="lesson"><b>L037</b> LocalBusiness Schema</div><div class="lesson"><b>L038</b> Rich Results Test</div><div class="lesson"><b>L039</b> Schema Error सुधार</div><div class="lesson"><b>L040</b> FAQ Schema Draft</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 5: Mobile Technical SEO<small>Mobile-first website की health check करना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L041</b> Mobile-First Indexing</div><div class="lesson"><b>L042</b> Page Speed</div><div class="lesson"><b>L043</b> Core Web Vitals</div><div class="lesson"><b>L044</b> Low Internet Test</div><div class="lesson"><b>L045</b> Broken Links</div><div class="lesson"><b>L046</b> Sitemap</div><div class="lesson"><b>L047</b> Robots.txt</div><div class="lesson"><b>L048</b> Canonical URL</div><div class="lesson"><b>L049</b> Mobile Audit Checklist</div><div class="lesson"><b>L050</b> Mobile SEO Audit Report</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 6: Google Search Console और Data Reading<small>SEO result पढ़ना और decision लेना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L051</b> GSC क्या है?</div><div class="lesson"><b>L052</b> Clicks क्या हैं?</div><div class="lesson"><b>L053</b> Impressions क्या हैं?</div><div class="lesson"><b>L054</b> CTR क्या है?</div><div class="lesson"><b>L055</b> Average Position</div><div class="lesson"><b>L056</b> Query Report</div><div class="lesson"><b>L057</b> Page Report</div><div class="lesson"><b>L058</b> Country और Device Data</div><div class="lesson"><b>L059</b> Before-After Tracking</div><div class="lesson"><b>L060</b> GSC Basic Report</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 7: Local SEO for Global South<small>Local business, school, shop और service को online दिखाना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L061</b> Local SEO क्या है?</div><div class="lesson"><b>L062</b> Google Business Profile</div><div class="lesson"><b>L063</b> NAP Data</div><div class="lesson"><b>L064</b> Near Me Search</div><div class="lesson"><b>L065</b> Local Reviews</div><div class="lesson"><b>L066</b> Local Photos</div><div class="lesson"><b>L067</b> Local Landing Page</div><div class="lesson"><b>L068</b> LocalBusiness Schema</div><div class="lesson"><b>L069</b> Local Trust Signals</div><div class="lesson"><b>L070</b> Local Business Online Audit</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 8: AI Search Visibility<small>AI answers में दिखने लायक content बनाना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L071</b> AI Overviews क्या है?</div><div class="lesson"><b>L072</b> AI Mode क्या है?</div><div class="lesson"><b>L073</b> AI Answer में Links</div><div class="lesson"><b>L074</b> Clear Answer Block</div><div class="lesson"><b>L075</b> FAQ Format</div><div class="lesson"><b>L076</b> Entity-Based SEO</div><div class="lesson"><b>L077</b> Source और Evidence</div><div class="lesson"><b>L078</b> AI Confusion हटाना</div><div class="lesson"><b>L079</b> Helpful Content Audit</div><div class="lesson"><b>L080</b> AI Overview-ready Page Outline</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 9: AEO, GEO और Agent Optimization<small>AI agents के लिए trust-ready information</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L081</b> AEO क्या है?</div><div class="lesson"><b>L082</b> GEO क्या है?</div><div class="lesson"><b>L083</b> LLM Visibility</div><div class="lesson"><b>L084</b> AI Agent क्या है?</div><div class="lesson"><b>L085</b> Agent-ready Information</div><div class="lesson"><b>L086</b> Brand Entity</div><div class="lesson"><b>L087</b> Trust Proof Block</div><div class="lesson"><b>L088</b> Decision Content</div><div class="lesson"><b>L089</b> Conflicting Info Fix</div><div class="lesson"><b>L090</b> Agent-ready Business Profile</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 10: AI Workflow और Swarm Management<small>एक AI नहीं, AI team से काम करवाना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L091</b> AI Workflow क्या है?</div><div class="lesson"><b>L092</b> Research Agent</div><div class="lesson"><b>L093</b> Keyword Agent</div><div class="lesson"><b>L094</b> Content Agent</div><div class="lesson"><b>L095</b> Design Agent</div><div class="lesson"><b>L096</b> SEO Audit Agent</div><div class="lesson"><b>L097</b> Translation Agent</div><div class="lesson"><b>L098</b> Fact-check Agent</div><div class="lesson"><b>L099</b> Human Approval System</div><div class="lesson"><b>L100</b> 5-Agent SEO Workflow</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 11: Voice, Camera और Wearable Search<small>Typing के बाद voice, camera और wearable search</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L101</b> Voice Search क्या है?</div><div class="lesson"><b>L102</b> Conversational Query</div><div class="lesson"><b>L103</b> Camera Search क्या है?</div><div class="lesson"><b>L104</b> Visual SEO</div><div class="lesson"><b>L105</b> Short Spoken Answer</div><div class="lesson"><b>L106</b> Location-based Answer</div><div class="lesson"><b>L107</b> Smart Glasses Future</div><div class="lesson"><b>L108</b> Live Translation Content</div><div class="lesson"><b>L109</b> Screenless Learning</div><div class="lesson"><b>L110</b> Voice/Camera-ready FAQ</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 12: Human Intent और Emotion-Aware Content<small>User के मन, डर, जरूरत और भाषा को समझना</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L111</b> User का असली सवाल</div><div class="lesson"><b>L112</b> डर और confusion</div><div class="lesson"><b>L113</b> Trust Language</div><div class="lesson"><b>L114</b> Child Learner Content</div><div class="lesson"><b>L115</b> Parent-facing Content</div><div class="lesson"><b>L116</b> Farmer/Shopkeeper Content</div><div class="lesson"><b>L117</b> Teacher-facing Content</div><div class="lesson"><b>L118</b> Hope और Action</div><div class="lesson"><b>L119</b> Cultural Respect</div><div class="lesson"><b>L120</b> Audience-wise Content</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 13: 80+ Language और Cultural SEO<small>Translation नहीं, cultural adaptation</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L121</b> Multilingual SEO क्या है?</div><div class="lesson"><b>L122</b> Translation vs Adaptation</div><div class="lesson"><b>L123</b> 80+ Language Planning</div><div class="lesson"><b>L124</b> URL Structure</div><div class="lesson"><b>L125</b> hreflang Basic</div><div class="lesson"><b>L126</b> Language-wise Title</div><div class="lesson"><b>L127</b> Language-wise Meta</div><div class="lesson"><b>L128</b> RTL Basics</div><div class="lesson"><b>L129</b> Cultural Example Change</div><div class="lesson"><b>L130</b> 3-Language SEO Page Plan</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 14: Ethics, Safety और Trust<small>AI और SEO का सुरक्षित, ईमानदार उपयोग</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L131</b> AI गलती कर सकता है</div><div class="lesson"><b>L132</b> Source Checking</div><div class="lesson"><b>L133</b> Copyright Basic</div><div class="lesson"><b>L134</b> Fake Review से बचना</div><div class="lesson"><b>L135</b> Black Hat SEO</div><div class="lesson"><b>L136</b> Privacy और Data Safety</div><div class="lesson"><b>L137</b> Student Safety</div><div class="lesson"><b>L138</b> Local Business Honesty</div><div class="lesson"><b>L139</b> AI Disclosure</div><div class="lesson"><b>L140</b> Ethical SEO Checklist</div>
+          </div></div>
+        </details>
+
+        <details class="level">
+          <summary><span>Level 15: Vision 2036 Final Master Project<small>Real-world SEO + AI Search + multilingual portfolio</small></span><span class="plus">+</span></summary>
+          <div class="lesson-box"><div class="lesson-grid">
+            <div class="lesson"><b>L141</b> Project Selection</div><div class="lesson"><b>L142</b> Keyword Research</div><div class="lesson"><b>L143</b> Local SEO Plan</div><div class="lesson"><b>L144</b> On-Page SEO Fix</div><div class="lesson"><b>L145</b> Mobile Audit</div><div class="lesson"><b>L146</b> Structured Data Plan</div><div class="lesson"><b>L147</b> GSC Data Reading</div><div class="lesson"><b>L148</b> AI Search Content</div><div class="lesson"><b>L149</b> 80+ Language Template</div><div class="lesson"><b>L150</b> Final Presentation</div>
+          </div></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">📌 Practical Proof</span>
+        <h2>हर level में काम का proof बनेगा</h2>
+        <p>Course केवल पढ़ने के लिए नहीं, real output बनाने के लिए है।</p>
+      </div>
+      <div class="proof-grid">
+        <div class="proof"><span>🔎</span><div><b>Search Notebook</b><small>Student search result पढ़कर सही information चुनेगा।</small></div></div>
+        <div class="proof"><span>🧩</span><div><b>Keyword Map</b><small>Local business या school के लिए keyword list बनेगी।</small></div></div>
+        <div class="proof"><span>📝</span><div><b>On-Page Before/After</b><small>Title, meta, heading और image SEO सुधरेगा।</small></div></div>
+        <div class="proof"><span>📱</span><div><b>Mobile SEO Audit</b><small>Mobile speed, readability और broken link check होगा।</small></div></div>
+        <div class="proof"><span>🤖</span><div><b>AI Workflow Sheet</b><small>Research, content, SEO और fact-check agents का workflow बनेगा।</small></div></div>
+        <div class="proof"><span>🌍</span><div><b>3-Language SEO Plan</b><small>Hindi, English और एक अन्य भाषा का SEO plan बनेगा।</small></div></div>
+      </div>
+    </section>
+
+    <section class="section final-project" id="project">
+      <div class="section-title">
+        <span class="eyebrow">🏆 Final Master Project</span>
+        <h2>Vision 2036 Portfolio</h2>
+        <p>Student एक real project पूरा करेगा और proof के साथ presentation देगा।</p>
+      </div>
+      <div class="check-list">
+        <div class="check">Project topic और target user चुनना</div>
+        <div class="check">50 keywords और local keyword list बनाना</div>
+        <div class="check">SEO title, meta description और heading structure तैयार करना</div>
+        <div class="check">Mobile SEO audit और improvement report बनाना</div>
+        <div class="check">AI Overview-ready FAQ और clear answer block बनाना</div>
+        <div class="check">Agent-ready information card बनाना</div>
+        <div class="check">80+ language-ready content template बनाना</div>
+        <div class="check">Final before-after report और viva presentation देना</div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">❓ FAQ</span>
+        <h2>अक्सर पूछे जाने वाले सवाल</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <b>क्या यह course केवल computer students के लिए है?</b>
+          <p>नहीं। यह course students, teachers, creators और local business learners के लिए है।</p>
+        </div>
+        <div class="faq-item">
+          <b>क्या laptop जरूरी है?</b>
+          <p>नहीं। ACS rule के अनुसार यह course mobile-first है। Basic learning और tasks mobile से होंगे।</p>
+        </div>
+        <div class="faq-item">
+          <b>क्या इसमें AI tools का use होगा?</b>
+          <p>हाँ। ChatGPT, Gemini, Claude जैसे AI tools को helper की तरह use करना सिखाया जाएगा।</p>
+        </div>
+        <div class="faq-item">
+          <b>क्या यह 80+ languages के लिए ready है?</b>
+          <p>हाँ। इसका structure future में Hindi, English और 80+ languages में बदलने योग्य रहेगा।</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section certificate">
+      <div class="seal">🏅</div>
+      <h3>ACS Vision 2036 Master Certificate</h3>
+      <p>Certificate केवल course देखने पर नहीं, बल्कि practical project, report और human review के बाद मिलेगा।</p>
+    </section>
+
+
+    <section class="section whatsapp-cta" id="contact">
+      <h2>ACS AI SEO MASTER™ में रुचि है?</h2>
+      <p>Course detail, admission update या demo lesson के लिए ACS से संपर्क करें।</p>
+      <a class="btn" href="https://wa.me/919999999999?text=Namaste%20ACS%2C%20mujhe%20ACS%20AI%20SEO%20MASTER%20course%20ke%20baare%20mein%20jankari%20chahiye.">
+        WhatsApp पर जानकारी लें
+      </a>
+    </section>
+
+    <section class="footer-cta">
+      <h2>Future AI Search दुनिया के लिए आज से तैयारी</h2>
+      <p>ACS AI SEO MASTER™ student को search समझना, AI से काम करवाना, local market को online लाना और 80+ languages में बढ़ना सिखाता है।</p>
+      <a class="btn btn-primary" href="#top">ऊपर जाएँ</a>
+      <div class="credit">© Applied Computer School • Designed & Developed by Rambharosh Vidyarthi</div>
+    </section>
+  </main>
+
+  <div class="floating-actions">
+    <a class="float-green" href="#admission">🎯 Admission</a>
+    <a class="float-blue" href="#syllabus">📚 Syllabus</a>
+  </div>
+
+  <script>
+    document.querySelectorAll("details.level").forEach((item) => {
+      const plus = item.querySelector(".plus");
+      if (plus) plus.textContent = item.open ? "−" : "+";
+      item.addEventListener("toggle", () => {
+        if (plus) plus.textContent = item.open ? "−" : "+";
+      });
+    });
+  </script>
+
+</body>
+</html>
