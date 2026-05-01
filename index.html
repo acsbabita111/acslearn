@@ -99,23 +99,44 @@ select{
   color:#555;
   margin-top:10px;
 }
+
+/* Compact Course Links */
 .quick-links{
-  margin-top:16px;
+  margin-top:14px;
   background:#fff;
   border-radius:16px;
-  padding:12px;
   border:1px solid #e5e7eb;
+  overflow:hidden;
   text-align:left;
 }
-.quick-links h2{
-  margin:0 0 8px;
-  font-size:17px;
+.quick-links summary{
+  list-style:none;
+  cursor:pointer;
+  padding:13px 14px;
+  font-size:15px;
+  font-weight:800;
   color:#111827;
-  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.quick-links summary::-webkit-details-marker{
+  display:none;
+}
+.quick-links summary::after{
+  content:"▼";
+  font-size:12px;
+  color:#2563eb;
+}
+.quick-links[open] summary::after{
+  content:"▲";
+}
+.quick-links .links-inner{
+  padding:0 12px 12px;
 }
 .quick-links a{
   display:block;
-  padding:8px 10px;
+  padding:9px 10px;
   margin:6px 0;
   border-radius:10px;
   background:#f3f7ff;
@@ -124,16 +145,9 @@ select{
   text-decoration:none;
   font-size:14px;
 }
-.hidden-seo-links{
-  position:absolute;
-  left:-9999px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
+
 footer{
-  margin-top:25px;
+  margin-top:18px;
   font-size:12px;
   color:#555;
   line-height:1.6;
@@ -240,29 +254,20 @@ footer{
   <button class="cta" id="startBtn" onclick="startLearning()">🚀 Start Learning</button>
   <div class="note" id="note">Choose your language and course to begin.</div>
 
-  <section class="quick-links" aria-label="Important course links">
-    <h2>मुख्य कोर्स लिंक</h2>
-    <a href="seo/">🔎 ACS AI SEO MASTER™ — Vision 2036 Course</a>
-    <a href="vc/hi/">🎬 Video Creator — हिंदी</a>
-    <a href="vc/en/">🎬 Video Creator — English</a>
-    <a href="vc/bn/">🎬 Video Creator — বাংলা</a>
-    <a href="social/">📱 Social Media Master</a>
-    <a href="sanskrit/">📜 Sanskrit Sahitya</a>
-    <a href="shayari/">📝 Shayari Ki Duniya</a>
-    <a href="protocol/">🎞️ The 700 Protocol</a>
-  </section>
-
-  <div class="hidden-seo-links" aria-hidden="true">
-    <a href="https://acslearn.com/">Applied Computer School Home</a>
-    <a href="https://acslearn.com/seo/">ACS AI SEO MASTER</a>
-    <a href="https://acslearn.com/seo/hi/">ACS AI SEO MASTER Hindi</a>
-    <a href="https://acslearn.com/seo/en/">ACS AI SEO MASTER English</a>
-    <a href="https://acslearn.com/seo/bn/">ACS AI SEO MASTER Bengali</a>
-    <a href="https://acslearn.com/seo/ar/">ACS AI SEO MASTER Arabic</a>
-    <a href="https://acslearn.com/vc/hi/">Video Creator Hindi</a>
-    <a href="https://acslearn.com/vc/en/">Video Creator English</a>
-    <a href="https://acslearn.com/vc/bn/">Video Creator Bengali</a>
-  </div>
+  <details class="quick-links">
+    <summary>🔗 मुख्य कोर्स लिंक खोलें</summary>
+    <div class="links-inner">
+      <a href="seo/">🔎 ACS AI SEO MASTER™ — Vision 2036 Course</a>
+      <a href="vc/hi/">🎬 Video Creator — हिंदी</a>
+      <a href="vc/en/">🎬 Video Creator — English</a>
+      <a href="vc/bn/">🎬 Video Creator — বাংলা</a>
+      <a href="vc/ar/">🎬 Video Creator — العربية</a>
+      <a href="social/">📱 Social Media Master</a>
+      <a href="sanskrit/">📜 Sanskrit Sahitya</a>
+      <a href="shayari/">📝 Shayari Ki Duniya</a>
+      <a href="protocol/">🎞️ The 700 Protocol</a>
+    </div>
+  </details>
 
   <footer>
     <div class="footer-title">From Village to World — Free Digital Education for the Global South</div>
