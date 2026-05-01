@@ -485,6 +485,113 @@
       .stat-grid{grid-template-columns:repeat(4,1fr);}
       .floating-actions{display:none;}
     }
+
+
+    /* ===== ACS UPDATE PATCH v1.1 START ===== */
+    body{ padding-bottom:82px; }
+
+    .hero-kpi{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:9px;
+      margin-top:14px;
+    }
+    .hero-kpi div{
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:16px;
+      padding:10px;
+      text-align:center;
+    }
+    .hero-kpi b{display:block;font-size:20px;line-height:1;color:#ffffff;}
+    .hero-kpi span{display:block;font-size:11px;color:#dbeafe;font-weight:700;margin-top:4px;}
+
+    .admission-card{
+      background:linear-gradient(135deg,#ffffff,#fff7ed);
+      border:2px solid #fed7aa;
+      border-radius:26px;
+      padding:16px;
+      box-shadow:0 14px 34px rgba(249,115,22,.13);
+    }
+    .admission-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+    .admission-item{background:white;border:1px solid #ffedd5;border-radius:16px;padding:12px;}
+    .admission-item b{display:block;font-size:15px;color:var(--dark);}
+    .admission-item span{display:block;font-size:13px;color:var(--muted);margin-top:3px;}
+    .course-note{
+      background:#ecfdf5;
+      border:1px solid #bbf7d0;
+      color:#14532d;
+      border-radius:18px;
+      padding:12px;
+      font-weight:800;
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    .timeline{display:grid;grid-template-columns:1fr;gap:10px;}
+    .timeline-step{
+      position:relative;
+      background:white;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:14px 14px 14px 54px;
+      box-shadow:0 10px 24px rgba(15,23,42,.06);
+    }
+    .timeline-step .num{
+      position:absolute;left:12px;top:14px;width:30px;height:30px;border-radius:12px;
+      background:linear-gradient(135deg,var(--blue),var(--green));color:white;display:grid;place-items:center;
+      font-weight:900;font-size:14px;
+    }
+    .timeline-step b{display:block;font-size:16px;color:var(--dark);}
+    .timeline-step p{color:var(--muted);font-size:14px;margin-top:3px;}
+
+    .faq-list{display:grid;grid-template-columns:1fr;gap:10px;}
+    .faq-item{background:white;border:1px solid var(--border);border-radius:18px;padding:13px;}
+    .faq-item b{display:block;font-size:15px;color:var(--dark);margin-bottom:4px;}
+    .faq-item p{font-size:14px;color:var(--muted);}
+
+    .whatsapp-cta{
+      background:linear-gradient(135deg,#22c55e,#15803d);
+      color:white;
+      border-radius:24px;
+      padding:18px;
+      text-align:center;
+      box-shadow:0 18px 38px rgba(22,163,74,.25);
+    }
+    .whatsapp-cta h2{font-size:24px;line-height:1.15;margin-bottom:6px;}
+    .whatsapp-cta p{font-size:15px;color:#ecfdf5;margin-bottom:14px;}
+    .whatsapp-cta .btn{background:white;color:#14532d;}
+
+    .quick-menu{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .quick-menu a{
+      background:#ffffff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:12px 10px;
+      font-size:13px;
+      font-weight:900;
+      color:var(--blue-dark);
+      text-align:center;
+      box-shadow:0 10px 22px rgba(15,23,42,.06);
+    }
+
+    @media(min-width:760px){
+      body{padding-bottom:0;}
+      .hero-kpi{grid-template-columns:repeat(4,1fr);max-width:760px;}
+      .admission-grid{grid-template-columns:repeat(3,1fr);}
+      .timeline{grid-template-columns:repeat(3,1fr);}
+      .faq-list{grid-template-columns:repeat(2,1fr);}
+      .quick-menu{grid-template-columns:repeat(4,1fr);}
+    }
+    /* ===== ACS UPDATE PATCH v1.1 END ===== */
+
   </style>
 </head>
 <body>
@@ -509,9 +616,29 @@
       <h1>ACS AI SEO MASTER<span class="tm">™</span></h1>
       <p>Search, AI Visibility, Agent Optimization और Global South Digital Growth का Vision 2036 Ready Practical Course.</p>
       <div class="hero-line">मोबाइल से SEO सीखें, AI से काम करवाएँ, और अपनी local पहचान को global search दुनिया तक पहुँचाएँ।</div>
+      <div class="hero-kpi">
+        <div><b>15</b><span>Future Levels</span></div>
+        <div><b>150</b><span>Practical Lessons</span></div>
+        <div><b>80+</b><span>Language Ready</span></div>
+        <div><b>2036</b><span>Vision Ready</span></div>
+      </div>
       <div class="cta-wrap">
         <a class="btn btn-primary" href="#syllabus">पूरा पाठ्यक्रम देखें</a>
         <a class="btn btn-secondary" href="#project">Final Project देखें</a>
+      </div>
+    </section>
+
+    <section class="section card">
+      <div class="section-title">
+        <span class="eyebrow">⚡ Quick Access</span>
+        <h2>सीधे जरूरी भाग पर जाएँ</h2>
+        <p>नए visitor को जल्दी से course की पूरी तस्वीर मिल जाएगी।</p>
+      </div>
+      <div class="quick-menu">
+        <a href="#admission">🎯 किसके लिए?</a>
+        <a href="#syllabus">📚 Syllabus</a>
+        <a href="#project">🏆 Project</a>
+        <a href="#contact">☎️ Contact</a>
       </div>
     </section>
 
@@ -526,6 +653,33 @@
         <div class="stat"><b>150</b><span>Lessons</span></div>
         <div class="stat"><b>80+</b><span>Language Ready</span></div>
         <div class="stat"><b>100%</b><span>Mobile First</span></div>
+      </div>
+    </section>
+
+    <section class="section admission-card" id="admission">
+      <div class="section-title">
+        <span class="eyebrow">🎯 Course Launch</span>
+        <h2>ACS AI SEO MASTER™ किसके लिए है?</h2>
+        <p>यह course students, teachers, creators और local business learners के लिए बनाया गया है।</p>
+      </div>
+
+      <div class="admission-grid">
+        <div class="admission-item">
+          <b>Beginner Learner</b>
+          <span>Search, keyword और basic SEO सीखना चाहता है।</span>
+        </div>
+        <div class="admission-item">
+          <b>Local Business Learner</b>
+          <span>Shop, school, coaching या service को online दिखाना चाहता है।</span>
+        </div>
+        <div class="admission-item">
+          <b>Future AI Learner</b>
+          <span>AI Search, AI agents और 80+ language world के लिए तैयार होना चाहता है।</span>
+        </div>
+      </div>
+
+      <div class="course-note">
+        ✅ Course का पहला उद्देश्य: mobile से real SEO project बनाना, केवल theory पढ़ना नहीं।
       </div>
     </section>
 
@@ -576,6 +730,32 @@
           <span class="path-tag tag-pro">Pro Learner</span>
           <b>Level 13–15</b>
           <p>80+ language SEO, ethics, trust और final master portfolio।</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">🛣️ Learning Journey</span>
+        <h2>Student कैसे आगे बढ़ेगा?</h2>
+        <p>Course को आसान रास्ते में बांटा गया है, ताकि learner धीरे-धीरे beginner से pro level तक पहुँचे।</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <span class="num">1</span>
+          <b>सीखना</b>
+          <p>Search, keyword, SEO और AI concepts को सरल भाषा में समझना।</p>
+        </div>
+        <div class="timeline-step">
+          <span class="num">2</span>
+          <b>करना</b>
+          <p>Mobile से title, meta, keyword, audit और local SEO task करना।</p>
+        </div>
+        <div class="timeline-step">
+          <span class="num">3</span>
+          <b>Proof बनाना</b>
+          <p>Project report, screenshot, before-after और final portfolio बनाना।</p>
         </div>
       </div>
     </section>
@@ -737,10 +917,46 @@
       </div>
     </section>
 
+
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">❓ FAQ</span>
+        <h2>अक्सर पूछे जाने वाले सवाल</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <b>क्या यह course केवल computer students के लिए है?</b>
+          <p>नहीं। यह course students, teachers, creators और local business learners के लिए है।</p>
+        </div>
+        <div class="faq-item">
+          <b>क्या laptop जरूरी है?</b>
+          <p>नहीं। ACS rule के अनुसार यह course mobile-first है। Basic learning और tasks mobile से होंगे।</p>
+        </div>
+        <div class="faq-item">
+          <b>क्या इसमें AI tools का use होगा?</b>
+          <p>हाँ। ChatGPT, Gemini, Claude जैसे AI tools को helper की तरह use करना सिखाया जाएगा।</p>
+        </div>
+        <div class="faq-item">
+          <b>क्या यह 80+ languages के लिए ready है?</b>
+          <p>हाँ। इसका structure future में Hindi, English और 80+ languages में बदलने योग्य रहेगा।</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section certificate">
       <div class="seal">🏅</div>
       <h3>ACS Vision 2036 Master Certificate</h3>
       <p>Certificate केवल course देखने पर नहीं, बल्कि practical project, report और human review के बाद मिलेगा।</p>
+    </section>
+
+
+    <section class="section whatsapp-cta" id="contact">
+      <h2>ACS AI SEO MASTER™ में रुचि है?</h2>
+      <p>Course detail, admission update या demo lesson के लिए ACS से संपर्क करें।</p>
+      <a class="btn" href="https://wa.me/919999999999?text=Namaste%20ACS%2C%20mujhe%20ACS%20AI%20SEO%20MASTER%20course%20ke%20baare%20mein%20jankari%20chahiye.">
+        WhatsApp पर जानकारी लें
+      </a>
     </section>
 
     <section class="footer-cta">
@@ -752,8 +968,19 @@
   </main>
 
   <div class="floating-actions">
-    <a class="float-green" href="#syllabus">📚 Syllabus</a>
-    <a class="float-blue" href="#project">🏆 Project</a>
+    <a class="float-green" href="#admission">🎯 Admission</a>
+    <a class="float-blue" href="#syllabus">📚 Syllabus</a>
   </div>
+
+  <script>
+    document.querySelectorAll("details.level").forEach((item) => {
+      const plus = item.querySelector(".plus");
+      if (plus) plus.textContent = item.open ? "−" : "+";
+      item.addEventListener("toggle", () => {
+        if (plus) plus.textContent = item.open ? "−" : "+";
+      });
+    });
+  </script>
+
 </body>
 </html>
