@@ -385,6 +385,70 @@ body{
   .share-action{font-size:10px;min-height:82px}
   .share-action span{width:38px;height:38px;font-size:21px}
 }
+
+/* ===== V8.3 Bottom Nav Safe Reading Fix ===== */
+:root{
+  --bottom-nav-height:72px;
+  --bottom-nav-safe:98px;
+}
+html{
+  scroll-padding-bottom:calc(var(--bottom-nav-safe) + env(safe-area-inset-bottom, 0px));
+}
+.app{
+  padding-bottom:260px!important;
+}
+.hero,
+.section,
+.goal-card,
+.next-hook{
+  scroll-margin-bottom:calc(var(--bottom-nav-safe) + 18px)!important;
+}
+.hero{
+  padding-bottom:124px!important;
+}
+.section{
+  padding-bottom:78px!important;
+  margin-bottom:26px!important;
+}
+.goal-card,
+.next-hook{
+  padding-bottom:72px!important;
+  margin-bottom:26px!important;
+}
+.share-card{
+  margin-bottom:62px!important;
+}
+.footer{
+  margin-bottom:230px!important;
+}
+.bottom-nav{
+  min-height:var(--bottom-nav-height)!important;
+  padding:7px 10px calc(7px + env(safe-area-inset-bottom, 0px))!important;
+  gap:7px!important;
+}
+.nav-btn{
+  border-radius:16px!important;
+  padding:9px 5px!important;
+  font-size:15px!important;
+  line-height:1.18!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:48px!important;
+}
+@media(max-height:720px){
+  .bottom-nav{
+    padding-top:6px!important;
+    padding-bottom:calc(6px + env(safe-area-inset-bottom, 0px))!important;
+  }
+  .nav-btn{
+    min-height:44px!important;
+    font-size:14px!important;
+  }
+  .hero{padding-bottom:112px!important;}
+  .section{padding-bottom:84px!important;}
+}
+
 </style>
 
 </head>
