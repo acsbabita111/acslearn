@@ -11,45 +11,57 @@
 
 <style>
 :root{
-  --bg:#eef3ff;
-  --dark:#061129;
-  --text:#0f172a;
+  --bg1:#f3f0ff;
+  --bg2:#e0f2fe;
+  --ink:#0f172a;
   --muted:#64748b;
-  --blue:#2563eb;
+  --deep:#061129;
+  --panel:#ffffff;
   --green:#16a34a;
+  --blue:#2563eb;
   --red:#ef4444;
   --purple:#7c3aed;
   --orange:#f97316;
   --yellow:#facc15;
-  --shadow:0 14px 34px rgba(0,0,0,.28);
+  --cyan:#06b6d4;
+  --shadow:0 14px 34px rgba(15,23,42,.22);
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);direction:rtl;text-align:right}
+html,body{
+  margin:0;
+  padding:0;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  direction:rtl;
+  text-align:right;
+}
 body{
   min-height:100vh;
   display:flex;
   justify-content:center;
+  color:var(--ink);
   font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",Arial,sans-serif;
-  color:var(--text);
 }
 .app{
   width:100%;
   max-width:430px;
   min-height:100vh;
-  padding:18px 14px 116px;
-  background:
-    linear-gradient(180deg,#8b4f08 0 9%,#cbd5e1 9% 39%,#07551d 39% 62%,#0b1025 62% 100%);
+  padding:18px 14px 190px;
   overflow:hidden;
+  background:
+    radial-gradient(circle at 14% 4%,rgba(250,204,21,.34),transparent 25%),
+    radial-gradient(circle at 88% 9%,rgba(37,99,235,.20),transparent 30%),
+    linear-gradient(180deg,#f7f3ff 0%,#eef6ff 32%,#eef2ff 100%);
 }
 .brand{
   max-width:350px;
-  margin:0 auto 20px;
+  margin:0 auto 18px;
   padding:18px 14px;
   border-radius:28px;
-  background:#061129;
+  background:linear-gradient(135deg,#061129,#0b1f4a 58%,#111827);
   color:#fff;
   text-align:center;
   box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.12);
 }
 .brand-name{
   direction:ltr;
@@ -70,32 +82,31 @@ body{
   letter-spacing:2px;
 }
 .lesson-badge{
-  max-width:360px;
-  margin:14px auto 18px;
+  max-width:355px;
+  margin:14px auto 16px;
   padding:12px 16px;
-  border-radius:24px;
-  background:rgba(255,255,255,.24);
-  color:#fff;
-  border:1px solid rgba(255,255,255,.55);
+  border-radius:999px;
+  background:linear-gradient(90deg,#f97316,#facc15);
+  color:#111827;
   text-align:center;
   font-weight:900;
-  box-shadow:inset 0 0 16px rgba(255,255,255,.18);
+  box-shadow:0 10px 22px rgba(249,115,22,.26);
 }
 .top-actions{
   max-width:390px;
-  margin:16px auto 24px;
+  margin:16px auto 22px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
   direction:ltr;
 }
 .top-actions button{
-  min-height:68px;
+  min-height:66px;
   border:0;
-  border-radius:26px;
+  border-radius:24px;
   padding:12px 8px;
   color:white;
-  font-size:18px;
+  font-size:17px;
   font-weight:900;
   cursor:pointer;
   box-shadow:var(--shadow);
@@ -107,13 +118,13 @@ body{
 .btn-jump{background:linear-gradient(135deg,#a855f7,#5b21b6)}
 .hero{
   max-width:390px;
-  margin:0 auto 20px;
-  padding:28px 20px;
-  border-radius:34px;
+  margin:0 auto 18px;
+  padding:26px 18px;
+  border-radius:32px;
   color:#fff;
   background:
-    radial-gradient(circle at top left,rgba(249,115,22,.34),transparent 34%),
-    radial-gradient(circle at bottom right,rgba(37,99,235,.40),transparent 42%),
+    radial-gradient(circle at top left,rgba(249,115,22,.38),transparent 34%),
+    radial-gradient(circle at bottom right,rgba(37,99,235,.46),transparent 42%),
     linear-gradient(135deg,#111827,#0f172a 58%,#1e1b4b);
   box-shadow:var(--shadow);
   text-align:center;
@@ -143,9 +154,9 @@ body{
   font-weight:900;
 }
 .hero h1{
-  margin:12px 0 16px;
-  font-size:34px;
-  line-height:1.42;
+  margin:12px 0 14px;
+  font-size:30px;
+  line-height:1.45;
   font-weight:900;
   color:#fff;
   text-align:center;
@@ -154,7 +165,7 @@ body{
 .hero p{
   margin:0;
   color:#f1f5f9;
-  font-size:18px;
+  font-size:17px;
   line-height:2.0;
   font-weight:700;
   text-align:center;
@@ -167,23 +178,24 @@ body{
   background:#dcfce7;
   border-right:6px solid #22c55e;
   color:#052e16;
-  font-size:18px;
+  font-size:17px;
   line-height:2.05;
   font-weight:700;
-  box-shadow:0 8px 22px rgba(0,0,0,.15);
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
 }
 .section{
   max-width:390px;
   margin:16px auto;
   padding:20px 18px;
   border-radius:26px;
-  background:#fff;
-  color:var(--text);
+  background:var(--panel);
+  color:var(--ink);
   box-shadow:var(--shadow);
+  border:1px solid rgba(15,23,42,.06);
 }
 .section h2{
   margin:0 0 12px;
-  font-size:24px;
+  font-size:22px;
   line-height:1.55;
   font-weight:900;
   text-align:right;
@@ -192,8 +204,8 @@ body{
 .section p,.list-text{
   margin:0;
   color:#1e293b;
-  font-size:18px;
-  line-height:2.15;
+  font-size:17px;
+  line-height:2.05;
   font-weight:600;
 }
 .diagram{
@@ -213,7 +225,7 @@ body{
   align-items:center;
   justify-content:center;
   text-align:center;
-  font-size:13px;
+  font-size:12.5px;
   font-weight:900;
   line-height:1.5;
 }
@@ -222,14 +234,14 @@ body{
   padding:10px 0;
   border-bottom:1px solid #e2e8f0;
   line-height:2.0;
-  font-size:17px;
+  font-size:16px;
   font-weight:600;
 }
 .check-list li:last-child,.qa-list li:last-child,.reels-list li:last-child,.safety-list li:last-child{border-bottom:0}
 .faq-item{padding:12px 0;border-bottom:1px solid #e2e8f0}
 .faq-item:last-child{border-bottom:0}
-.faq-q{font-weight:900;color:#111827;font-size:18px;line-height:1.9}
-.faq-a{font-weight:600;color:#334155;font-size:17px;line-height:2.0}
+.faq-q{font-weight:900;color:#111827;font-size:17px;line-height:1.9}
+.faq-a{font-weight:600;color:#334155;font-size:16px;line-height:2.0}
 .share-card{
   max-width:390px;
   margin:34px auto 32px;
@@ -257,8 +269,8 @@ body{
 .share-title{
   margin:0 0 16px;
   color:#fff;
-  font-size:28px;
-  line-height:1.18;
+  font-size:26px;
+  line-height:1.22;
   font-weight:900;
   text-shadow:0 3px 10px rgba(0,0,0,.35);
 }
@@ -302,7 +314,7 @@ body{
 .share-copy{background:linear-gradient(135deg,#64748b,#1f2937)}
 .footer{
   max-width:390px;
-  margin:36px auto 145px;
+  margin:36px auto 190px;
   padding:22px 14px;
   text-align:center;
   direction:ltr;
@@ -310,7 +322,7 @@ body{
   font-family:Arial,sans-serif;
   line-height:1.55;
 }
-.footer-title{color:#0f172a;font-weight:900;font-size:20px;letter-spacing:.3px;margin-bottom:8px}
+.footer-title{color:#111827;font-weight:900;font-size:20px;letter-spacing:.3px;margin-bottom:8px;opacity:1}
 .footer-tagline{color:#2563eb;font-weight:900;font-size:18px;line-height:1.35;margin:8px 0 16px}
 .footer-links{font-size:14px;font-weight:700;color:#475569}
 .footer-links a{color:#2563eb;text-decoration:underline;font-weight:900}
@@ -366,9 +378,9 @@ body{
 .ai-output{background:#f8fafc;color:#0f172a;border-radius:18px;padding:12px;margin-top:12px;min-height:70px;line-height:2;text-align:right;font-size:16px}
 @media(max-width:360px){
   .brand-name{font-size:19px}
-  .hero h1{font-size:28px}
+  .hero h1{font-size:27px}
   .hero p,.section p,.list-text{font-size:16px}
-  .share-title{font-size:24px}
+  .share-title{font-size:23px}
   .share-text{font-size:16px}
   .share-action{font-size:10px;min-height:82px}
   .share-action span{width:38px;height:38px;font-size:21px}
@@ -536,7 +548,7 @@ body{
   <div class="share-inner">
     <div class="share-pill">ACS AI VIDEO CREATOR™</div>
     <h2 class="share-title">L047 — آواز کی بنیادی باتیں</h2>
-    <p class="share-text">I completed this lesson today! 🚀<br>I am learning AI video creation. You can learn too — completely FREE!</p>
+    <p class="share-text">میں نے آج یہ سبق مکمل کیا! 🚀<br>میں AI ویڈیو بنانا سیکھ رہا/رہی ہوں۔<br>آپ بھی بالکل مفت سیکھ سکتے ہیں!</p>
     <div class="share-progress">
       <div class="share-bar"><span class="share-fill" style="width:31.33%"></span></div>
       <div class="share-count">47/150 Lessons</div>
@@ -544,9 +556,9 @@ body{
     <a class="share-url" href="https://acslearn.com/vc/ur/L047.html" target="_blank" rel="noopener">🔗 https://acslearn.com/vc/ur/L047.html</a>
   </div>
   <div class="share-actions">
-    <a class="share-action share-wa" href="https://wa.me/?text=L047%20%E2%80%94%20%D8%A2%D9%88%D8%A7%D8%B2%20%DA%A9%DB%8C%20%D8%A8%D9%86%DB%8C%D8%A7%D8%AF%DB%8C%20%D8%A8%D8%A7%D8%AA%DB%8C%DA%BA%0A%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D8%A2%D8%AC%20%DB%8C%DB%81%20%D8%B3%D8%A8%D9%82%20%D9%85%DA%A9%D9%85%D9%84%20%DA%A9%DB%8C%D8%A7%21%20%F0%9F%9A%80%0A%D9%85%DB%8C%DA%BA%20AI%20%D9%88%DB%8C%DA%88%DB%8C%D9%88%20%DA%A9%D8%B1%DB%8C%20%D8%A7%DB%8C%D8%B4%D9%86%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B1%DB%81%D8%A7%2F%D8%B1%DB%81%DB%8C%20%DB%81%D9%88%DA%BA%DB%94%0A%D8%A2%D9%BE%20%D8%A8%DA%BE%DB%8C%20%D8%A8%D8%A7%D9%84%DA%A9%D9%84%20%D9%85%D9%81%D8%AA%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B3%DA%A9%D8%AA%DB%92%20%DB%81%DB%8C%DA%BA%21%0Ahttps%3A%2F%2Facslearn.com%2Fvc%2Fur%2FL047.html" target="_blank" rel="noopener"><span>🟢</span>WHATSAPP</a>
+    <a class="share-action share-wa" href="https://wa.me/?text=L047%20%E2%80%94%20%D8%A2%D9%88%D8%A7%D8%B2%20%DA%A9%DB%8C%20%D8%A8%D9%86%DB%8C%D8%A7%D8%AF%DB%8C%20%D8%A8%D8%A7%D8%AA%DB%8C%DA%BA%0A%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D8%A2%D8%AC%20%DB%8C%DB%81%20%D8%B3%D8%A8%D9%82%20%D9%85%DA%A9%D9%85%D9%84%20%DA%A9%DB%8C%D8%A7%21%20%F0%9F%9A%80%0A%D9%85%DB%8C%DA%BA%20AI%20%D9%88%DB%8C%DA%88%DB%8C%D9%88%20%D8%A8%D9%86%D8%A7%D9%86%D8%A7%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B1%DB%81%D8%A7%2F%D8%B1%DB%81%DB%8C%20%DB%81%D9%88%DA%BA%DB%94%0A%D8%A2%D9%BE%20%D8%A8%DA%BE%DB%8C%20%D8%A8%D8%A7%D9%84%DA%A9%D9%84%20%D9%85%D9%81%D8%AA%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B3%DA%A9%D8%AA%DB%92%20%DB%81%DB%8C%DA%BA%21%0Ahttps%3A%2F%2Facslearn.com%2Fvc%2Fur%2FL047.html" target="_blank" rel="noopener"><span>🟢</span>WHATSAPP</a>
     <a class="share-action share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Facslearn.com%2Fvc%2Fur%2FL047.html" target="_blank" rel="noopener"><span>f</span>FACEBOOK</a>
-    <a class="share-action share-tg" href="https://t.me/share/url?url=https%3A%2F%2Facslearn.com%2Fvc%2Fur%2FL047.html&text=L047%20%E2%80%94%20%D8%A2%D9%88%D8%A7%D8%B2%20%DA%A9%DB%8C%20%D8%A8%D9%86%DB%8C%D8%A7%D8%AF%DB%8C%20%D8%A8%D8%A7%D8%AA%DB%8C%DA%BA%0A%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D8%A2%D8%AC%20%DB%8C%DB%81%20%D8%B3%D8%A8%D9%82%20%D9%85%DA%A9%D9%85%D9%84%20%DA%A9%DB%8C%D8%A7%21%20%F0%9F%9A%80%0A%D9%85%DB%8C%DA%BA%20AI%20%D9%88%DB%8C%DA%88%DB%8C%D9%88%20%DA%A9%D8%B1%DB%8C%20%D8%A7%DB%8C%D8%B4%D9%86%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B1%DB%81%D8%A7%2F%D8%B1%DB%81%DB%8C%20%DB%81%D9%88%DA%BA%DB%94%0A%D8%A2%D9%BE%20%D8%A8%DA%BE%DB%8C%20%D8%A8%D8%A7%D9%84%DA%A9%D9%84%20%D9%85%D9%81%D8%AA%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B3%DA%A9%D8%AA%DB%92%20%DB%81%DB%8C%DA%BA%21%0Ahttps%3A%2F%2Facslearn.com%2Fvc%2Fur%2FL047.html" target="_blank" rel="noopener"><span>✈️</span>TELEGRAM</a>
+    <a class="share-action share-tg" href="https://t.me/share/url?url=https%3A%2F%2Facslearn.com%2Fvc%2Fur%2FL047.html&text=L047%20%E2%80%94%20%D8%A2%D9%88%D8%A7%D8%B2%20%DA%A9%DB%8C%20%D8%A8%D9%86%DB%8C%D8%A7%D8%AF%DB%8C%20%D8%A8%D8%A7%D8%AA%DB%8C%DA%BA%0A%D9%85%DB%8C%DA%BA%20%D9%86%DB%92%20%D8%A2%D8%AC%20%DB%8C%DB%81%20%D8%B3%D8%A8%D9%82%20%D9%85%DA%A9%D9%85%D9%84%20%DA%A9%DB%8C%D8%A7%21%20%F0%9F%9A%80%0A%D9%85%DB%8C%DA%BA%20AI%20%D9%88%DB%8C%DA%88%DB%8C%D9%88%20%D8%A8%D9%86%D8%A7%D9%86%D8%A7%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B1%DB%81%D8%A7%2F%D8%B1%DB%81%DB%8C%20%DB%81%D9%88%DA%BA%DB%94%0A%D8%A2%D9%BE%20%D8%A8%DA%BE%DB%8C%20%D8%A8%D8%A7%D9%84%DA%A9%D9%84%20%D9%85%D9%81%D8%AA%20%D8%B3%DB%8C%DA%A9%DA%BE%20%D8%B3%DA%A9%D8%AA%DB%92%20%DB%81%DB%8C%DA%BA%21%0Ahttps%3A%2F%2Facslearn.com%2Fvc%2Fur%2FL047.html" target="_blank" rel="noopener"><span>✈️</span>TELEGRAM</a>
     <button class="share-action share-copy" type="button" onclick="copyShareLink('https://acslearn.com/vc/ur/L047.html')"><span>⧉</span>COPY LINK</button>
   </div>
 </section>
