@@ -49,6 +49,173 @@
 <link rel="stylesheet" href="assets/v7_same_design.min.css">
 <script src="assets/L041_data.js" defer></script>
 <script src="assets/v7_core.min.js" defer></script>
+
+<style id="acs-social-footer-style">
+  .acs-social-footer{
+    margin:42px auto 135px;
+    max-width:390px;
+    padding:22px 14px;
+    text-align:center;
+    direction:ltr;
+    color:#334155;
+    font-family:Arial, sans-serif;
+    line-height:1.55;
+  }
+  .acs-social-title{
+    color:#0f172a;
+    font-weight:900;
+    font-size:20px;
+    letter-spacing:.3px;
+    margin-bottom:8px;
+  }
+  .acs-social-tagline{
+    color:#2563eb;
+    font-weight:900;
+    font-size:18px;
+    line-height:1.35;
+    margin:8px 0 16px;
+  }
+  .acs-social-links{
+    font-size:14px;
+    font-weight:700;
+    color:#475569;
+  }
+  .acs-social-links a{
+    color:#2563eb;
+    text-decoration:underline;
+    font-weight:900;
+  }
+  .acs-social-credit{
+    margin-top:16px;
+    color:#64748b;
+    font-size:13px;
+    font-weight:700;
+  }
+  body{padding-bottom:120px;}
+</style>
+
+
+<style id="acs-share-card-style">
+  .acs-share-card{
+    max-width:390px;
+    margin:34px auto 34px;
+    overflow:hidden;
+    border-radius:28px;
+    background:radial-gradient(circle at top left,#123c5c 0,#081225 48%,#050816 100%);
+    color:#fff;
+    box-shadow:0 18px 42px rgba(0,0,0,.35);
+    direction:ltr;
+    text-align:left;
+    font-family:Arial, sans-serif;
+  }
+  .acs-share-card-inner{
+    padding:26px 22px 22px;
+  }
+  .acs-share-pill{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#f97316,#facc15);
+    color:#111827;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:2px;
+    margin-bottom:18px;
+  }
+  .acs-share-title{
+    margin:0 0 16px;
+    color:#fff;
+    font-size:28px;
+    line-height:1.18;
+    font-weight:900;
+    text-shadow:0 3px 10px rgba(0,0,0,.35);
+  }
+  .acs-share-text{
+    margin:0 0 22px;
+    color:#e5eefc;
+    font-size:18px;
+    line-height:1.55;
+    font-weight:800;
+  }
+  .acs-share-progress{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:12px;
+    margin:16px 0 18px;
+  }
+  .acs-share-bar{
+    height:12px;
+    background:#334155;
+    border-radius:99px;
+    overflow:hidden;
+    box-shadow:inset 0 1px 4px rgba(0,0,0,.45);
+  }
+  .acs-share-fill{
+    height:100%;
+    display:block;
+    border-radius:99px;
+    background:linear-gradient(90deg,#f97316,#facc15,#22c55e);
+  }
+  .acs-share-count{
+    color:#dbeafe;
+    font-weight:900;
+    white-space:nowrap;
+    font-size:15px;
+  }
+  .acs-share-url{
+    display:block;
+    margin:16px 0 8px;
+    color:#38bdf8;
+    font-weight:900;
+    font-size:17px;
+    line-height:1.35;
+    text-decoration:none;
+    word-break:break-word;
+  }
+  .acs-share-actions{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-top:22px;
+  }
+  .acs-share-action{
+    min-height:92px;
+    border:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    color:white;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.5px;
+    text-decoration:none;
+    cursor:pointer;
+    font-family:Arial, sans-serif;
+  }
+  .acs-share-action span{
+    width:44px;
+    height:44px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.18);
+    font-size:25px;
+  }
+  .acs-wa{background:linear-gradient(135deg,#22c55e,#15803d);}
+  .acs-fb{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+  .acs-tg{background:linear-gradient(135deg,#06b6d4,#0284c7);}
+  .acs-copy{background:linear-gradient(135deg,#64748b,#1f2937);}
+  @media(max-width:360px){
+    .acs-share-title{font-size:24px}
+    .acs-share-text{font-size:16px}
+    .acs-share-action{font-size:10px;min-height:82px}
+    .acs-share-action span{width:38px;height:38px;font-size:21px}
+  }
+</style>
+
 </head>
 <body>
 <div class="page">
@@ -97,6 +264,26 @@
   <section class="sec-reflection"><h2>🤔 التأمل</h2><div class="section-body">لقد تعلمت اليوم أن الفيديو الفيروسي لا يتم إنشاؤه أمام الكاميرا، بل يولد على طاولة بحث دقيق لا مثيل له عن الموضوع.</div></section>
   <div class="next-hook">👉 في الدرس التالي سنتعلم كيفية إنشاء مخطط عالمي المستوى لمقاطع الفيديو الخاصة بك والعلم الكامن وراء &quot;L042: أساسيات البرمجة السحرية&quot;.</div>
 </main>
+
+<section class="acs-share-card" aria-label="ACS social share card" dir="ltr">
+  <div class="acs-share-card-inner">
+    <div class="acs-share-pill">ACS AI VIDEO CREATOR™</div>
+    <h2 class="acs-share-title">L041 — اختيار الموضوع</h2>
+    <p class="acs-share-text">I completed this lesson today! 🚀<br>I am learning AI video creation. You can learn too — completely FREE!</p>
+    <div class="acs-share-progress">
+      <div class="acs-share-bar"><span class="acs-share-fill" style="width:27.33%"></span></div>
+      <div class="acs-share-count">41/150 Lessons</div>
+    </div>
+    <a class="acs-share-url" href="https://acslearn.com/vc/ar/L041.html" target="_blank" rel="noopener">🔗 https://acslearn.com/vc/ar/L041.html</a>
+  </div>
+  <div class="acs-share-actions">
+    <a class="acs-share-action acs-wa" href="https://wa.me/?text=L041%20%E2%80%94%20%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%0A%D8%A3%D9%83%D9%85%D9%84%D8%AA%20%D9%87%D8%B0%D8%A7%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D9%8A%D9%88%D9%85%21%20%F0%9F%9A%80%0A%D8%A3%D9%86%D8%A7%20%D8%A3%D8%AA%D8%B9%D9%84%D9%85%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%A7%D9%84%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D8%A8%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A.%0A%D9%8A%D9%85%D9%83%D9%86%D9%83%20%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%85%20%D8%A3%D9%8A%D8%B6%D9%8B%D8%A7%20%E2%80%94%20%D9%85%D8%AC%D8%A7%D9%86%D9%8B%D8%A7%20%D8%AA%D9%85%D8%A7%D9%85%D9%8B%D8%A7%21%0Ahttps%3A%2F%2Facslearn.com%2Fvc%2Far%2FL041.html" target="_blank" rel="noopener"><span>🟢</span>WHATSAPP</a>
+    <a class="acs-share-action acs-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Facslearn.com%2Fvc%2Far%2FL041.html" target="_blank" rel="noopener"><span>f</span>FACEBOOK</a>
+    <a class="acs-share-action acs-tg" href="https://t.me/share/url?url=https%3A%2F%2Facslearn.com%2Fvc%2Far%2FL041.html&text=L041%20%E2%80%94%20%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1%20%D8%A7%D9%84%D9%85%D9%88%D8%B6%D9%88%D8%B9%0A%D8%A3%D9%83%D9%85%D9%84%D8%AA%20%D9%87%D8%B0%D8%A7%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D9%8A%D9%88%D9%85%21%20%F0%9F%9A%80%0A%D8%A3%D9%86%D8%A7%20%D8%A3%D8%AA%D8%B9%D9%84%D9%85%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%A7%D9%84%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D8%A8%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A.%0A%D9%8A%D9%85%D9%83%D9%86%D9%83%20%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%85%20%D8%A3%D9%8A%D8%B6%D9%8B%D8%A7%20%E2%80%94%20%D9%85%D8%AC%D8%A7%D9%86%D9%8B%D8%A7%20%D8%AA%D9%85%D8%A7%D9%85%D9%8B%D8%A7%21%0Ahttps%3A%2F%2Facslearn.com%2Fvc%2Far%2FL041.html" target="_blank" rel="noopener"><span>✈️</span>TELEGRAM</a>
+    <button class="acs-share-action acs-copy" type="button" onclick="acsCopyShareLink('https://acslearn.com/vc/ar/L041.html')"><span>⧉</span>COPY LINK</button>
+  </div>
+</section>
+
 <footer>
   <div class="footer-brand">ACS AI VIDEO CREATOR™</div>
   <div class="footer-tagline">From Village to World —<br>Free Digital Education for the Global South</div>
@@ -115,5 +302,22 @@
 <div class="modal" id="quickModal"><div class="dialog"><h3>إلى أي درس تريد الانتقال؟ 🔢</h3><p>اكتب رقمًا من 1 إلى 150</p><input type="number" id="jumpInput" min="1" max="150" placeholder="مثال: 30، 70، 130"><div class="dialog-row"><button class="btn-green" id="quickGoBtn">انتقل ←</button><button class="btn-blue" data-close="quickModal">إغلاق ✖</button></div><p class="quick-presets-title">انتقال سريع</p><div class="quick-list"><a href="L001.html">L001</a><a href="L010.html">L010</a><a href="L025.html">L025</a><a href="L050.html">L050</a><a href="L100.html">L100</a><a href="L150.html">L150</a></div></div></div>
 <div class="modal" id="aiModal"><div class="dialog"><h3>مساعدة AI 🤖</h3><div class="ai-actions"><button data-ai-mode="explain">اشرح لي</button><button data-ai-mode="simplify">بسّط الشرح</button><button data-ai-mode="repeat">اشرح مرة أخرى</button></div><div class="ai-output" id="aiOutput"></div><button class="btn-blue" data-close="aiModal">إغلاق ✖</button></div></div>
 </div>
+
+<script id="acs-share-card-script">
+function acsCopyShareLink(url){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(function(){ alert("تم نسخ الرابط"); });
+  }else{
+    var t=document.createElement("textarea");
+    t.value=url;
+    document.body.appendChild(t);
+    t.select();
+    document.execCommand("copy");
+    document.body.removeChild(t);
+    alert("تم نسخ الرابط");
+  }
+}
+</script>
+
 </body>
 </html>
