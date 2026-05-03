@@ -3,199 +3,1097 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>मोबाइल से वीडियो बनाना सीखो | ACS AI VIDEO CREATOR</title>
-
-<!-- SEO -->
-<link rel="canonical" href="https://acslearn.com/vc/hi/index.html">
-
-<link rel="alternate" hreflang="hi" href="https://acslearn.com/vc/hi/index.html">
-<link rel="alternate" hreflang="en" href="https://acslearn.com/vc/en/index.html">
-<link rel="alternate" hreflang="bn" href="https://acslearn.com/vc/bn/index.html">
-<link rel="alternate" hreflang="ta" href="https://acslearn.com/vc/ta/index.html">
-<link rel="alternate" hreflang="ur" href="https://acslearn.com/vc/ur/index.html">
-<link rel="alternate" hreflang="x-default" href="https://acslearn.com/vc/index.html">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Course",
- "name": "ACS AI VIDEO CREATOR",
- "description": "Mobile se video banana seekhein",
- "provider": {
-   "@type": "Organization",
-   "name": "ACS Learn",
-   "url": "https://acslearn.com"
- }
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&display=swap" rel="stylesheet">
-
+<title>ACS AI Video Creator™ — 150 Lessons</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-body{
- margin:0;
- font-family:'Hind',sans-serif;
- background:#0b1220;
- color:#fff;
+:root {
+  --bg: #0D0008;
+  --surface: #180010;
+  --surface2: #220018;
+  --border: #3a0028;
+  --text: #FFE8F5;
+  --muted: #AA7090;
+  --pink: #FF2D78;
+  --rose: #FF6BA8;
+  --soft: #FFB3D4;
+  --gold: #FFD740;
+  --green: #00E676;
+  --blue: #448AFF;
+  --white: #fff;
+  --radius: 14px;
 }
 
-.container{
- max-width:430px;
- margin:auto;
- padding:12px;
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  overflow-x: hidden;
 }
 
-@media(min-width:1024px){
- .container{max-width:1100px;}
- .layout{display:flex;gap:20px;}
+/* FLOATING HEARTS BG */
+.hearts-bg {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
 }
 
-.hero{
- background:linear-gradient(135deg,#2563eb,#1e40af);
- padding:20px;
- border-radius:14px;
- text-align:center;
+.hrt {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: floatUp linear infinite;
+  filter: blur(0.5px);
 }
 
-.hero h1{font-size:22px;margin:0;}
-.hero p{font-size:14px;margin-top:8px;}
-
-.start{
- background:#22c55e;
- padding:12px;
- border-radius:10px;
- display:block;
- text-decoration:none;
- color:#000;
- font-weight:bold;
- margin-top:10px;
+@keyframes floatUp {
+  0%   { opacity:0; transform: translateY(0) rotate(0deg) scale(0.8); }
+  10%  { opacity: 0.15; }
+  90%  { opacity: 0.1; }
+  100% { opacity:0; transform: translateY(-110vh) rotate(30deg) scale(1.2); }
 }
 
-.card{
- background:#1e293b;
- margin:8px 0;
- padding:12px;
- border-radius:10px;
- transition:.3s;
-}
-.card:hover{
- background:#334155;
- transform:scale(1.02);
+/* PROGRESS */
+.progress {
+  position: fixed; top:0; left:0;
+  height: 3px;
+  background: linear-gradient(to right, #FF2D78, #FF6BA8, #FFD740);
+  width: 0%;
+  z-index: 1000;
 }
 
-.card a{
- text-decoration:none;
- color:#fff;
- display:block;
+/* NAV */
+nav {
+  position: fixed; top:3px; left:0; right:0;
+  z-index: 999;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13,0,8,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
 
-.side{
- display:none;
+.nav-logo {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--pink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-@media(min-width:1024px){
- .side{
-   display:block;
-   width:300px;
- }
- .box{
-   background:#12254a;
-   padding:12px;
-   border-radius:10px;
-   margin-bottom:10px;
- }
+
+.nav-logo span { color: var(--soft); font-size: 0.85rem; }
+
+.nav-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.nav-pill strong { color: var(--pink); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 110px 20px 80px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,45,120,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 70%, rgba(255,107,168,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(255,45,120,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-rose {
+  font-size: clamp(3rem, 12vw, 6rem);
+  margin-bottom: 16px;
+  animation: roseFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255,45,120,0.5));
+}
+
+@keyframes roseFloat {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,45,120,0.12);
+  border: 1px solid rgba(255,45,120,0.3);
+  color: var(--rose);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 99px;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(2.2rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  animation: fadeUp 0.7s ease 0.1s both;
+}
+
+.hero h1 .l1 { color: var(--white); display: block; }
+.hero h1 .l2 {
+  display: block;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  margin-top: 18px;
+  font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 480px;
+  animation: fadeUp 0.7s ease 0.2s both;
+}
+
+.hero-sub strong { color: var(--soft); }
+
+.hero-hearts {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  justify-content: center;
+  animation: fadeUp 0.7s ease 0.3s both;
+  font-size: 1.4rem;
+}
+
+.hero-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
+  animation: fadeUp 0.7s ease 0.35s both;
+}
+
+.hpill {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 7px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hpill .dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.hpill.g .dot { background:var(--green); }
+.hpill.b .dot { background:var(--blue); }
+.hpill.r .dot { background:var(--pink); }
+.hpill.gold .dot { background:var(--gold); }
+
+.scroll-hint {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeUp 0.7s ease 0.5s both;
+}
+
+.scroll-arrow {
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pink);
+  animation: bounce 1.8s ease infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+/* LEVEL STRIP */
+.level-strip {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.lsi {
+  background: var(--surface);
+  padding: 24px 12px;
+  text-align: center;
+  position: relative;
+}
+
+.lsi::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:3px;
+}
+
+.lsi.g::before { background: var(--green); }
+.lsi.b::before { background: var(--blue); }
+.lsi.p::before { background: var(--pink); }
+
+.lsi-num {
+  font-family: 'Baloo 2', cursive;
+  font-size: 2rem; font-weight: 900;
+  line-height: 1;
+}
+
+.lsi.g .lsi-num { color: var(--green); }
+.lsi.b .lsi-num { color: var(--blue); }
+.lsi.p .lsi-num { color: var(--pink); }
+
+.lsi-label { font-size: 0.72rem; color: var(--muted); margin-top: 4px; font-weight: 600; }
+
+/* MAIN */
+.main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 14px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* LEVEL HEADER */
+.level-hdr {
+  padding: 56px 0 28px;
+}
+
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.badge-g { background: rgba(0,230,118,0.1); color:var(--green); border:1px solid rgba(0,230,118,0.25); }
+.badge-b { background: rgba(68,138,255,0.1); color:var(--blue);  border:1px solid rgba(68,138,255,0.25); }
+.badge-p { background: rgba(255,45,120,0.1); color:var(--pink);  border:1px solid rgba(255,45,120,0.3); }
+
+.level-hdr h2 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.level-hdr p {
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.level-line {
+  height: 1px; margin-bottom: 20px;
+}
+.ll-g { background: linear-gradient(to right, var(--green), transparent); }
+.ll-b { background: linear-gradient(to right, var(--blue), transparent); }
+.ll-p { background: linear-gradient(to right, var(--pink), transparent); }
+
+/* CHAPTER */
+.chapter {
+  margin-bottom: 10px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.chapter:hover {
+  border-color: rgba(255,45,120,0.3);
+  box-shadow: 0 0 20px rgba(255,45,120,0.06);
+}
+
+.ch-header {
+  padding: 16px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  transition: background 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.chapter.green-ch .ch-header { border-left-color: var(--green); }
+.chapter.blue-ch  .ch-header { border-left-color: var(--blue); }
+.chapter.pink-ch  .ch-header { border-left-color: var(--pink); }
+
+.ch-header:hover { background: rgba(255,255,255,0.02); }
+
+.ch-num-badge {
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--muted);
+  background: var(--surface2);
+  border-radius: 6px;
+  padding: 3px 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ch-title-text {
+  flex: 1;
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(0.88rem, 3vw, 1rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.ch-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ch-count { font-size: 0.68rem; color: var(--muted); font-weight: 600; }
+
+.ch-toggle {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.65rem;
+  transition: transform 0.3s, background 0.2s, color 0.2s;
+}
+
+.chapter.open .ch-toggle {
+  transform: rotate(180deg);
+  background: rgba(255,45,120,0.15);
+  color: var(--pink);
+}
+
+/* LESSON BODY */
+.lesson-body {
+  display: none;
+  padding: 4px 14px 14px;
+}
+
+.chapter.open .lesson-body { display: block; }
+
+.lesson-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+
+/* LESSON ROW = LINK */
+.lesson-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 13px;
+  background: var(--bg);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s, background 0.18s, transform 0.15s;
+  cursor: pointer;
+}
+
+.lesson-row:hover {
+  border-color: rgba(255,45,120,0.35);
+  background: #150010;
+  transform: translateX(3px);
+}
+
+.lesson-row:hover .l-icon { opacity: 1; color: var(--pink); }
+.lesson-row:hover .l-num { color: var(--pink); }
+
+.l-num {
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--muted);
+  min-width: 22px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  transition: color 0.18s;
+}
+
+.l-content { flex: 1; }
+
+.l-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.l-result {
+  font-size: 0.74rem;
+  color: var(--rose);
+  margin-top: 3px;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.l-result::before { content: '♡'; font-size: 0.7rem; }
+
+.l-icon {
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  opacity: 0.3;
+  color: var(--muted);
+  transition: opacity 0.18s, color 0.18s;
+}
+
+/* ROSE DIVIDER */
+.rose-divider {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.2rem;
+  opacity: 0.25;
+  letter-spacing: 8px;
+}
+
+/* BOTTOM CTA */
+.bottom-cta {
+  margin: 56px 0 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 48px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bottom-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,45,120,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.bottom-cta .big-rose {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 14px;
+  animation: roseFloat 3s ease-in-out infinite;
+}
+
+.bottom-cta h2 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(1.5rem, 5vw, 2.3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.bottom-cta h2 span {
+  background: linear-gradient(135deg, var(--pink), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bottom-cta p {
+  color: var(--muted);
+  font-size: 0.93rem;
+  margin-bottom: 26px;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--pink), #c2005a);
+  color: #fff;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 15px 38px;
+  border-radius: 99px;
+  text-decoration: none;
+  animation: glowpink 2s ease infinite;
+  transition: transform 0.15s;
+  box-shadow: 0 4px 20px rgba(255,45,120,0.4);
+}
+
+.cta-btn:hover { transform: translateY(-2px); }
+
+@keyframes glowpink {
+  0%,100% { box-shadow: 0 4px 20px rgba(255,45,120,0.4); }
+  50%      { box-shadow: 0 4px 40px rgba(255,45,120,0.7); }
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 28px 20px;
+  color: #3a1028;
+  font-size: 0.78rem;
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+footer span { color: #5a2040; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:none; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.vis { opacity:1; transform:none; }
+
+@media(max-width:580px) {
+  .nav-pills { display:none; }
+  .bottom-cta { padding: 32px 18px; }
 }
 </style>
-
 </head>
-
 <body>
 
-<div class="container">
+<!-- FLOATING HEARTS -->
+<div class="hearts-bg" id="heartsContainer"></div>
 
-<div class="hero">
-<h1>🎬 मोबाइल से वीडियो बनाना सीखो</h1>
-<p>
-यार, अगर तुमने यह पूरा कर लिया —  
-👉 अपना वीडियो बना पाओगे  
-👉 अपना चैनल चला पाओगे  
-👉 कमाई शुरू करने का रास्ता खुल जाएगा  
-</p>
+<div class="progress" id="prog"></div>
 
-<a class="start" href="#L001">🚀 अभी शुरू करो</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    🌹 ACS <span>AI VIDEO CREATOR™</span>
+  </div>
+  <div class="nav-pills">
+    <span class="nav-pill"><strong>150</strong> Lessons</span>
+    <span class="nav-pill"><strong>15</strong> Chapters</span>
+    <span class="nav-pill"><strong>Free</strong> शुरू करो</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-rose">🌹</div>
+  <div class="hero-tag">💗 ACS AI VIDEO CREATOR™ — सभी 150 Lessons</div>
+  <h1>
+    <span class="l1">मोबाइल है हाथ में?</span>
+    <span class="l2">तो शुरू करो — आज से।</span>
+  </h1>
+  <p class="hero-sub">
+    कोई पढ़ाई नहीं। कोई डिग्री नहीं।<br>
+    <strong>बस मोबाइल + यह कोर्स = नई ज़िंदगी।</strong>
+  </p>
+  <div class="hero-hearts">💗 🌹 💗 🌹 💗</div>
+  <div class="hero-pills-row">
+    <div class="hpill g"><span class="dot"></span>Level 1 — देखो और करो</div>
+    <div class="hpill b"><span class="dot"></span>Level 2 — Creator बनो</div>
+    <div class="hpill r"><span class="dot"></span>Level 3 — कमाई शुरू</div>
+    <div class="hpill gold"><span class="dot"></span>Age 13–25 के लिए</div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-arrow">▼</div>
+    नीचे देखो — सब lessons यहाँ हैं
+  </div>
+</section>
+
+<!-- LEVEL STRIP -->
+<div class="level-strip">
+  <div class="lsi g"><div class="lsi-num">50</div><div class="lsi-label">🟢 LEVEL 1</div></div>
+  <div class="lsi b"><div class="lsi-num">50</div><div class="lsi-label">🔵 LEVEL 2</div></div>
+  <div class="lsi p"><div class="lsi-num">50</div><div class="lsi-label">💗 LEVEL 3</div></div>
 </div>
 
-<div class="layout">
-
+<!-- MAIN -->
 <div class="main">
 
+<!-- ══════════════════ LEVEL 1 ══════════════════ -->
+<div class="level-hdr reveal">
+  <span class="level-badge badge-g">🟢 LEVEL 1 — Lessons 1–50</span>
+  <h2>पहले देखो 👀 — फिर करो</h2>
+  <p>कुछ नहीं जानते? कोई बात नहीं। यहीं से शुरू करो। Lesson 5 तक पहला video बन जाएगा।</p>
+</div>
+<div class="level-line ll-g reveal"></div>
+
+<!-- CH 1 -->
+<div class="chapter green-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 01</span>
+    <span class="ch-title-text">🎬 वीडियो क्या बला है — पहले यह समझो</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L001.html"><span class="l-num">01</span><div class="l-content"><div class="l-name">वीडियो कितने तरह का होता है?</div><div class="l-result">कौन सा बनाना है — आज decide होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L002.html"><span class="l-num">02</span><div class="l-content"><div class="l-name">30 सेकंड का वीडियो — बस इतना काफी है</div><div class="l-result">आज ही पहला वीडियो बन सकता है</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L003.html"><span class="l-num">03</span><div class="l-content"><div class="l-name">1 से 3 मिनट — सबसे ज्यादा कमाऊ वीडियो</div><div class="l-result">इसी से पैसा आता है</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L004.html"><span class="l-num">04</span><div class="l-content"><div class="l-name">लंबा वीडियो — कब बनाओ, कब नहीं</div><div class="l-result">गलत type चुनने की गलती नहीं होगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L005.html"><span class="l-num">05</span><div class="l-content"><div class="l-name">Live कैसे जाते हैं — मोबाइल से</div><div class="l-result">Live का डर खत्म होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L006.html"><span class="l-num">06</span><div class="l-content"><div class="l-name">चेहरा नहीं दिखाना? — यह trick सीखो</div><div class="l-result">शर्मीले हो तो भी वीडियो बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L007.html"><span class="l-num">07</span><div class="l-content"><div class="l-name">खुद सामने आओ — डरो मत</div><div class="l-result">लोग तुम्हें देखेंगे, पहचानेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L008.html"><span class="l-num">08</span><div class="l-content"><div class="l-name">कौन सा content चलता है — असली list</div><div class="l-result">बेकार topic पर time बर्बाद नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L009.html"><span class="l-num">09</span><div class="l-content"><div class="l-name">दो चीज़ें मिलाकर नया वीडियो बनाओ</div><div class="l-result">एक idea से 5 वीडियो बनाना सीखोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L010.html"><span class="l-num">10</span><div class="l-content"><div class="l-name">तुम्हारा topic क्या होगा — 5 मिनट में</div><div class="l-result">आज ही decide हो जाएगा</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 2 -->
+<div class="chapter green-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 02</span>
+    <span class="ch-title-text">💗 लोग वीडियो क्यों देखते हैं — असली बात</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L011.html"><span class="l-num">11</span><div class="l-content"><div class="l-name">तुम्हारा creator वाला नाम क्या होगा</div><div class="l-result">लोग तुम्हें याद रखेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L012.html"><span class="l-num">12</span><div class="l-content"><div class="l-name">अपने गांव/मोहल्ले का वीडियो बनाओ</div><div class="l-result">सबसे आसान — सब कुछ सामने है</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L013.html"><span class="l-num">13</span><div class="l-content"><div class="l-name">एक वीडियो — 3 भाषा में — कैसे?</div><div class="l-result">3 गुना लोगों तक पहुंचोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L014.html"><span class="l-num">14</span><div class="l-content"><div class="l-name">लोग क्या देखना चाहते हैं — यह जानो</div><div class="l-result">बेकार वीडियो बनाना बंद होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L015.html"><span class="l-num">15</span><div class="l-content"><div class="l-name">पहले 3 सेकंड में पकड़ लो — वरना गए</div><div class="l-result">लोग skip नहीं करेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L016.html"><span class="l-num">16</span><div class="l-content"><div class="l-name">"आगे क्या होगा?" — यह feeling कैसे बनाओ</div><div class="l-result">लोग पूरा वीडियो देखेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L017.html"><span class="l-num">17</span><div class="l-content"><div class="l-name">दिल छूने वाला वीडियो कैसे बनाओ</div><div class="l-result">लोग share करेंगे, comment करेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L018.html"><span class="l-num">18</span><div class="l-content"><div class="l-name">कहानी जोड़ो — वीडियो जादुई बन जाता है</div><div class="l-result">views बढ़ने लगेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L019.html"><span class="l-num">19</span><div class="l-content"><div class="l-name">लोग तुम पर भरोसा कैसे करें</div><div class="l-result">subscribers बढ़ेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L020.html"><span class="l-num">20</span><div class="l-content"><div class="l-name">वीडियो के अंत में क्या बोलो — यह trick</div><div class="l-result">लोग वो करेंगे जो तुम चाहते हो</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 3 -->
+<div class="chapter green-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 03</span>
+    <span class="ch-title-text">🌹 वीडियो को अच्छा बनाने के असली राज़</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L021.html"><span class="l-num">21</span><div class="l-content"><div class="l-name">लोग बीच में क्यों छोड़ते हैं — और कैसे रोकें</div><div class="l-result">watch time बढ़ेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L022.html"><span class="l-num">22</span><div class="l-content"><div class="l-name">वीडियो ऐसा बनाओ — लोग दोबारा देखें</div><div class="l-result">YouTube खुद promote करेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L023.html"><span class="l-num">23</span><div class="l-content"><div class="l-name">पहला वीडियो बेकार गया? — यह normal है</div><div class="l-result">अगला बेहतर बनाना सीखोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L024.html"><span class="l-num">24</span><div class="l-content"><div class="l-name">10 सेकंड ज्यादा देखें — इसी से पैसा आता है</div><div class="l-result">algorithm तुम्हें push करेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L025.html"><span class="l-num">25</span><div class="l-content"><div class="l-name">Title लिखो ऐसा — लोग click करें बिना सोचे</div><div class="l-result">views बढ़ने लगेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L026.html"><span class="l-num">26</span><div class="l-content"><div class="l-name">कितना लंबा वीडियो बनाओ — असली जवाब</div><div class="l-result">time बर्बाद नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L027.html"><span class="l-num">27</span><div class="l-content"><div class="l-name">Ads क्या होता है — पैसा कैसे मिलता है</div><div class="l-result">कमाई का चक्कर पहली बार समझोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L028.html"><span class="l-num">28</span><div class="l-content"><div class="l-name">एक रुपया नहीं है? — फिर भी शुरू करो</div><div class="l-result">आज ही शुरू हो सकते हो</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L029.html"><span class="l-num">29</span><div class="l-content"><div class="l-name">गांव में बैठे-बैठे — पहला रास्ता</div><div class="l-result">कमाई शुरू होने का रास्ता खुलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L030.html"><span class="l-num">30</span><div class="l-content"><div class="l-name">कौन से app काम आते हैं — पूरी list</div><div class="l-result">बेकार app download करना बंद</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 4 -->
+<div class="chapter green-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 04</span>
+    <span class="ch-title-text">📱 यह 10 app सीखो — बस यही काफी है</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L031.html"><span class="l-num">31</span><div class="l-content"><div class="l-name">WhatsApp से ही business — कैसे?</div><div class="l-result">WhatsApp आज से काम का बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L032.html"><span class="l-num">32</span><div class="l-content"><div class="l-name">ChatGPT से script लिखवाओ — free में</div><div class="l-result">10 मिनट में script ready</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L033.html"><span class="l-num">33</span><div class="l-content"><div class="l-name">Leonardo AI से photo बनाओ — बिना camera</div><div class="l-result">बढ़िया thumbnail बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L034.html"><span class="l-num">34</span><div class="l-content"><div class="l-name">Runway से video बनाओ — AI से</div><div class="l-result">बिना camera वीडियो बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L035.html"><span class="l-num">35</span><div class="l-content"><div class="l-name">ElevenLabs से आवाज बनाओ — AI की</div><div class="l-result">voice over ready होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L036.html"><span class="l-num">36</span><div class="l-content"><div class="l-name">VN Editor से edit करो — एकदम आसान</div><div class="l-result">पहली edited video तैयार</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L037.html"><span class="l-num">37</span><div class="l-content"><div class="l-name">PDF खोलना सीखो — काम आएगा</div><div class="l-result">notes और content access होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L038.html"><span class="l-num">38</span><div class="l-content"><div class="l-name">YouTube channel बनाओ — आज ही</div><div class="l-result">तुम्हारा घर तैयार</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L039.html"><span class="l-num">39</span><div class="l-content"><div class="l-name">Instagram account बनाओ — सही तरीके से</div><div class="l-result">दूसरा platform ready</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L040.html"><span class="l-num">40</span><div class="l-content"><div class="l-name">Facebook Page बनाओ — गांव के लिए best</div><div class="l-result">तीसरा platform ready</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 5 -->
+<div class="chapter green-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 05</span>
+    <span class="ch-title-text">🎥 पहला वीडियो बनाओ — आज ही, अभी</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L041.html"><span class="l-num">41</span><div class="l-content"><div class="l-name">आज का topic — 2 मिनट में decide करो</div><div class="l-result">कल तक नहीं टालोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L042.html"><span class="l-num">42</span><div class="l-content"><div class="l-name">नया idea कहाँ से आता है — असली जगह</div><div class="l-result">ideas कभी खत्म नहीं होंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L043.html"><span class="l-num">43</span><div class="l-content"><div class="l-name">Script मतलब — बस यह 3 लाइन लिखो</div><div class="l-result">बोलते वक्त अटकोगे नहीं</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L044.html"><span class="l-num">44</span><div class="l-content"><div class="l-name">शुरुआत-बीच-अंत — इतना ही काफी है</div><div class="l-result">वीडियो complete लगेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L045.html"><span class="l-num">45</span><div class="l-content"><div class="l-name">मोबाइल कैमरा — यह 5 चीज़ें करो बस</div><div class="l-result">वीडियो साफ आएगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L046.html"><span class="l-num">46</span><div class="l-content"><div class="l-name">रोशनी के लिए पैसा नहीं चाहिए</div><div class="l-result">चेहरा bright दिखेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L047.html"><span class="l-num">47</span><div class="l-content"><div class="l-name">आवाज साफ कैसे आए — मोबाइल से ही</div><div class="l-result">लोग सुनेंगे, बंद नहीं करेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L048.html"><span class="l-num">48</span><div class="l-content"><div class="l-name">बोलने की आवाज सुधारो — 3 दिन में</div><div class="l-result">confidence आएगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L049.html"><span class="l-num">49</span><div class="l-content"><div class="l-name">Thumbnail — वो photo जो click कराए</div><div class="l-result">views बढ़ने लगेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L050.html"><span class="l-num">50</span><div class="l-content"><div class="l-name">Title का formula — याद करो एक बार</div><div class="l-result">पहला वीडियो upload ready 🎉</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="rose-divider reveal">🌹 💗 🌹 💗 🌹</div>
+
+<!-- ══════════════════ LEVEL 2 ══════════════════ -->
+<div class="level-hdr reveal">
+  <span class="level-badge badge-b">🔵 LEVEL 2 — Lessons 51–100</span>
+  <h2>अब Creator बनो 🎬 — रोज बनाओ</h2>
+  <p>सीखना बंद — अब करना शुरू। रोज video बनाओ, grow करो।</p>
+</div>
+<div class="level-line ll-b reveal"></div>
+
+<!-- CH 6 -->
+<div class="chapter blue-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 06</span>
+    <span class="ch-title-text">🚀 वीडियो डालो और बढ़ाओ</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L051.html"><span class="l-num">51</span><div class="l-content"><div class="l-name">Description क्या लिखें — copy-paste formula</div><div class="l-result">हर video का description 5 मिनट में</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L052.html"><span class="l-num">52</span><div class="l-content"><div class="l-name">Hashtag कैसे लगाएं — गलती मत करो</div><div class="l-result">सही लोगों तक पहुंचोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L053.html"><span class="l-num">53</span><div class="l-content"><div class="l-name">कौन सा video चला — test कैसे करें</div><div class="l-result">बेकार topic छोड़ोगे, अच्छा पकड़ोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L054.html"><span class="l-num">54</span><div class="l-content"><div class="l-name">Hook मजबूत करो — पहले 3 सेकंड</div><div class="l-result">skip rate कम होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L055.html"><span class="l-num">55</span><div class="l-content"><div class="l-name">कहानी में punch डालो</div><div class="l-result">लोग share करेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L056.html"><span class="l-num">56</span><div class="l-content"><div class="l-name">बीच में छोड़ें नहीं — यह trick लगाओ</div><div class="l-result">watch time बढ़ेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L057.html"><span class="l-num">57</span><div class="l-content"><div class="l-name">ज्यादा देर देखें — यह secret</div><div class="l-result">YouTube promote करेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L058.html"><span class="l-num">58</span><div class="l-content"><div class="l-name">Series बनाओ — लोग वापस आते रहें</div><div class="l-result">regular viewers बनेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L059.html"><span class="l-num">59</span><div class="l-content"><div class="l-name">100 वीडियो कैसे पूरे करें — बिना थके</div><div class="l-result">बड़ा channel बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L060.html"><span class="l-num">60</span><div class="l-content"><div class="l-name">Plan बनाओ — कब क्या बनाना है</div><div class="l-result">रोज का confusion खत्म</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 7 -->
+<div class="chapter blue-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 07</span>
+    <span class="ch-title-text">⚙️ रोज का system बनाओ</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L061.html"><span class="l-num">61</span><div class="l-content"><div class="l-name">रोज वीडियो बनाने की आदत — 21 दिन में</div><div class="l-result">बिना सोचे बनाओगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L062.html"><span class="l-num">62</span><div class="l-content"><div class="l-name">एक दिन में 3 वीडियो — यह possible है</div><div class="l-result">हफ्ते भर का काम एक दिन में</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L063.html"><span class="l-num">63</span><div class="l-content"><div class="l-name">Files कहाँ रखें — mobile में system</div><div class="l-result">कुछ भी गुम नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L064.html"><span class="l-num">64</span><div class="l-content"><div class="l-name">पुराना वीडियो — नए तरीके से दोबारा</div><div class="l-result">double content, half मेहनत</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L065.html"><span class="l-num">65</span><div class="l-content"><div class="l-name">Upload से पहले — यह checklist देखो</div><div class="l-result">गलती से बचोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L066.html"><span class="l-num">66</span><div class="l-content"><div class="l-name">Hook सही है या नहीं — खुद check करो</div><div class="l-result">पहले 5 second perfect होंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L067.html"><span class="l-num">67</span><div class="l-content"><div class="l-name">आवाज और picture साफ है? — check करो</div><div class="l-result">professional लगेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L068.html"><span class="l-num">68</span><div class="l-content"><div class="l-name">YouTube का data — क्या देखें, क्या छोड़ें</div><div class="l-result">confusion नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L069.html"><span class="l-num">69</span><div class="l-content"><div class="l-name">कौन सा video ज्यादा click हो रहा है</div><div class="l-result">वैसा ज्यादा बनाओ</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L070.html"><span class="l-num">70</span><div class="l-content"><div class="l-name">लोग कहाँ छोड़ रहे हैं — यह जानो</div><div class="l-result">वहीं सुधारो</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 8 -->
+<div class="chapter blue-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 08</span>
+    <span class="ch-title-text">💡 आगे बढ़ो — slow नहीं, smart चलो</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L071.html"><span class="l-num">71</span><div class="l-content"><div class="l-name">Viral video पहचानो — copy नहीं, सीखो</div><div class="l-result">तुम्हारा भी viral होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L072.html"><span class="l-num">72</span><div class="l-content"><div class="l-name">दूसरे creator से सीखो — जलो मत</div><div class="l-result">shortcuts मिलेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L073.html"><span class="l-num">73</span><div class="l-content"><div class="l-name">हर हफ्ते एक चीज़ सुधारो — बस एक</div><div class="l-result">6 महीने में professional</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L074.html"><span class="l-num">74</span><div class="l-content"><div class="l-name">Playlist बनाओ — videos को group करो</div><div class="l-result">लोग एक के बाद एक देखेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L075.html"><span class="l-num">75</span><div class="l-content"><div class="l-name">वीडियो के अंत में अगला दिखाओ</div><div class="l-result">watch time double होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L076.html"><span class="l-num">76</span><div class="l-content"><div class="l-name">बीच में link लगाओ — कमाई का रास्ता</div><div class="l-result">direct sale होगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L077.html"><span class="l-num">77</span><div class="l-content"><div class="l-name">कब upload करें — सही time पता करो</div><div class="l-result">ज्यादा लोग देखेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L078.html"><span class="l-num">78</span><div class="l-content"><div class="l-name">Community post करो — लोगों से बात करो</div><div class="l-result">loyal fan बनेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L079.html"><span class="l-num">79</span><div class="l-content"><div class="l-name">Poll डालो — लोग खुद बताएंगे</div><div class="l-result">next video idea मिलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L080.html"><span class="l-num">80</span><div class="l-content"><div class="l-name">Search में आओ — SEO वाली trick</div><div class="l-result">बिना promote किए views बढ़ेंगे</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 9 -->
+<div class="chapter blue-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 09</span>
+    <span class="ch-title-text">🔒 मोबाइल और account संभालो</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L081.html"><span class="l-num">81</span><div class="l-content"><div class="l-name">लोग क्या search करते हैं — free में पता करो</div><div class="l-result">सही topic मिलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L082.html"><span class="l-num">82</span><div class="l-content"><div class="l-name">Files को folder में रखो — simple system</div><div class="l-result">काम fast होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L083.html"><span class="l-num">83</span><div class="l-content"><div class="l-name">File का नाम सही रखो — यह भी SEO है</div><div class="l-result">video ढूंढना आसान होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L084.html"><span class="l-num">84</span><div class="l-content"><div class="l-name">पुराना mobile है? — इन tricks से काम चलाओ</div><div class="l-result">mobile बदलने की ज़रूरत नहीं</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L085.html"><span class="l-num">85</span><div class="l-content"><div class="l-name">2G/3G में भी काम करो — यह settings</div><div class="l-result">slow internet में भी upload होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L086.html"><span class="l-num">86</span><div class="l-content"><div class="l-name">Account hack से बचो — यह 3 काम करो</div><div class="l-result">मेहनत सुरक्षित रहेगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L087.html"><span class="l-num">87</span><div class="l-content"><div class="l-name">कौन सा video नहीं बनाना — list याद करो</div><div class="l-result">account ban नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L088.html"><span class="l-num">88</span><div class="l-content"><div class="l-name">Video को और जगह फैलाओ</div><div class="l-result">ज्यादा लोगों तक पहुंचोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L089.html"><span class="l-num">89</span><div class="l-content"><div class="l-name">WhatsApp group से फैलाओ — step by step</div><div class="l-result">पहले 100 views यहीं से</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L090.html"><span class="l-num">90</span><div class="l-content"><div class="l-name">Comment का जवाब दो — कैसे और क्या</div><div class="l-result">लोग loyal बनेंगे</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 10 -->
+<div class="chapter blue-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 10</span>
+    <span class="ch-title-text">⭐ अपना नाम बनाओ — लोग पहचानें</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L091.html"><span class="l-num">91</span><div class="l-content"><div class="l-name">अपने fans का group बनाओ</div><div class="l-result">direct connection होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L092.html"><span class="l-num">92</span><div class="l-content"><div class="l-name">नाम फैलाओ — offline भी, online भी</div><div class="l-result">गांव में भी जानेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L093.html"><span class="l-num">93</span><div class="l-content"><div class="l-name">एक video — 3 platform पर डालो</div><div class="l-result">तीन जगह से views</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L094.html"><span class="l-num">94</span><div class="l-content"><div class="l-name">Editing में एक नई चीज़ सीखो हर हफ्ते</div><div class="l-result">videos बेहतर होते जाएंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L095.html"><span class="l-num">95</span><div class="l-content"><div class="l-name">आवाज पर control — louder, clearer</div><div class="l-result">professional sound आएगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L096.html"><span class="l-num">96</span><div class="l-content"><div class="l-name">Camera का डर — एक बार में खत्म करो</div><div class="l-result">naturally बोलोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L097.html"><span class="l-num">97</span><div class="l-content"><div class="l-name">Thumbnail — 5 rules जो हमेशा काम करते हैं</div><div class="l-result">click-through rate बढ़ेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L098.html"><span class="l-num">98</span><div class="l-content"><div class="l-name">Title का formula — 3 तरीके याद करो</div><div class="l-result">title लिखना 2 मिनट का काम</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L099.html"><span class="l-num">99</span><div class="l-content"><div class="l-name">Description template बनाओ — एक बार</div><div class="l-result">हर बार copy-paste</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L100.html"><span class="l-num">100</span><div class="l-content"><div class="l-name">Hashtag की सही list बनाओ — एक बार</div><div class="l-result">हमेशा काम आएगी 🎉</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="rose-divider reveal">💗 🌹 💗 🌹 💗</div>
+
+<!-- ══════════════════ LEVEL 3 ══════════════════ -->
+<div class="level-hdr reveal">
+  <span class="level-badge badge-p">💗 LEVEL 3 — Lessons 101–150</span>
+  <h2>अब असली खेल 💰 — पैसा और नाम</h2>
+  <p>तुम तैयार हो। अब कमाई शुरू होती है। यह तुम्हारी ज़िंदगी है।</p>
+</div>
+<div class="level-line ll-p reveal"></div>
+
+<!-- CH 11 -->
+<div class="chapter pink-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 11</span>
+    <span class="ch-title-text">🔥 Video को बड़ा बनाओ</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L101.html"><span class="l-num">101</span><div class="l-content"><div class="l-name">5 मिनट का video — लोग पूरा देखें</div><div class="l-result">watch time record बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L102.html"><span class="l-num">102</span><div class="l-content"><div class="l-name">Script को मजबूत बनाओ — 1 trick से</div><div class="l-result">boring video नहीं बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L103.html"><span class="l-num">103</span><div class="l-content"><div class="l-name">Click 2 गुना कैसे बढ़ाएं</div><div class="l-result">views बिना नया video बनाए</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L104.html"><span class="l-num">104</span><div class="l-content"><div class="l-name">एक video देखा — अगला automatically चले</div><div class="l-result">लोग घंटों देखेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L105.html"><span class="l-num">105</span><div class="l-content"><div class="l-name">Series को बड़ा करो — Season 2 कैसे</div><div class="l-result">loyal audience बनेगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L106.html"><span class="l-num">106</span><div class="l-content"><div class="l-name">Hindi video को दूसरी भाषा में बनाओ</div><div class="l-result">नया market मिलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L107.html"><span class="l-num">107</span><div class="l-content"><div class="l-name">दूसरे देश के लोग देखें — यह possible है</div><div class="l-result">global views बढ़ेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L108.html"><span class="l-num">108</span><div class="l-content"><div class="l-name">लोग तुम्हें नाम से जानें — यह level</div><div class="l-result">brand बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L109.html"><span class="l-num">109</span><div class="l-content"><div class="l-name">तुम्हारा अपना style — copy नहीं होगा</div><div class="l-result">unique creator बनोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L110.html"><span class="l-num">110</span><div class="l-content"><div class="l-name">दूसरे creator के साथ video बनाओ</div><div class="l-result">दोनों के viewers मिलेंगे</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 12 -->
+<div class="chapter pink-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 12</span>
+    <span class="ch-title-text">💗 लोगों को जोड़ो — community बनाओ</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L111.html"><span class="l-num">111</span><div class="l-content"><div class="l-name">बड़े creators को message करो — कैसे?</div><div class="l-result">collab मिलने लगेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L112.html"><span class="l-num">112</span><div class="l-content"><div class="l-name">लोगों को channel से जोड़े रखो</div><div class="l-result">subscribers कभी नहीं जाएंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L113.html"><span class="l-num">113</span><div class="l-content"><div class="l-name">Fan बनाओ — follower नहीं</div><div class="l-result">वो तुम्हारे लिए काम करेंगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L114.html"><span class="l-num">114</span><div class="l-content"><div class="l-name">अपने group का नाम रखो — जैसे army</div><div class="l-result">identity बनेगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L115.html"><span class="l-num">115</span><div class="l-content"><div class="l-name">Video फैलाने का system — automatic</div><div class="l-result">तुम सोओ, video चले</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L116.html"><span class="l-num">116</span><div class="l-content"><div class="l-name">Account का backup रखो</div><div class="l-result">सब कुछ गुम नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L117.html"><span class="l-num">117</span><div class="l-content"><div class="l-name">Account बंद हो गया? — वापस पाओ</div><div class="l-result">घबराओगे नहीं</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L118.html"><span class="l-num">118</span><div class="l-content"><div class="l-name">तुम्हारा video — कोई चुरा न सके</div><div class="l-result">rights समझोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L119.html"><span class="l-num">119</span><div class="l-content"><div class="l-name">Free music, free photos कहाँ से लें</div><div class="l-result">copyright का झंझट नहीं</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L120.html"><span class="l-num">120</span><div class="l-content"><div class="l-name">गाना लगाकर video — यह गलती मत करो</div><div class="l-result">account safe रहेगा</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 13 -->
+<div class="chapter pink-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 13</span>
+    <span class="ch-title-text">💰 पैसा आना शुरू करो</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L121.html"><span class="l-num">121</span><div class="l-content"><div class="l-name">पहली कमाई कब होगी — सच बताते हैं</div><div class="l-result">realistic plan बनेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L122.html"><span class="l-num">122</span><div class="l-content"><div class="l-name">YouTube Ads से कमाई — कैसे शुरू होती है</div><div class="l-result">monetization समझोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L123.html"><span class="l-num">123</span><div class="l-content"><div class="l-name">दूसरे का सामान बेचो — commission लो</div><div class="l-result">बिना product के कमाई शुरू होगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L124.html"><span class="l-num">124</span><div class="l-content"><div class="l-name">Brand deal कैसे मिले — छोटे channel को भी</div><div class="l-result">पहली deal मिलने लगेगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L125.html"><span class="l-num">125</span><div class="l-content"><div class="l-name">Service दो — editing, script, thumbnail</div><div class="l-result">skill बेचना शुरू होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L126.html"><span class="l-num">126</span><div class="l-content"><div class="l-name">एक channel — 5 तरीके से कमाओ</div><div class="l-result">एक से ज्यादा income</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L127.html"><span class="l-num">127</span><div class="l-content"><div class="l-name">Client ढूंढो — कहाँ मिलते हैं</div><div class="l-result">पहला काम मिलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L128.html"><span class="l-num">128</span><div class="l-content"><div class="l-name">काम का दाम बताओ — डरो मत</div><div class="l-result">सही पैसा मिलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L129.html"><span class="l-num">129</span><div class="l-content"><div class="l-name">Agreement क्या होता है — simple version</div><div class="l-result">धोखा नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L130.html"><span class="l-num">130</span><div class="l-content"><div class="l-name">पैसा safe लो — UPI, bank सब</div><div class="l-result">payment सुरक्षित होगी</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 14 -->
+<div class="chapter pink-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 14</span>
+    <span class="ch-title-text">🏆 Pro बनो — अब तुम business हो</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L131.html"><span class="l-num">131</span><div class="l-content"><div class="l-name">अपना काम दिखाओ — portfolio बनाओ</div><div class="l-result">client खुद आएगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L132.html"><span class="l-num">132</span><div class="l-content"><div class="l-name">60 सेकंड का showreel — तुम्हारा visiting card</div><div class="l-result">पहली नज़र में impress</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L133.html"><span class="l-num">133</span><div class="l-content"><div class="l-name">काम time पर दो — professional बनो</div><div class="l-result">repeat client मिलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L134.html"><span class="l-num">134</span><div class="l-content"><div class="l-name">Team बनाओ — अकेले सब नहीं होता</div><div class="l-result">बड़ा काम होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L135.html"><span class="l-num">135</span><div class="l-content"><div class="l-name">काम बांटो — editor, writer अलग</div><div class="l-result">तुम सिर्फ strategy करो</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L136.html"><span class="l-num">136</span><div class="l-content"><div class="l-name">System बनाओ — routine नहीं, machine</div><div class="l-result">बिना थके चलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L137.html"><span class="l-num">137</span><div class="l-content"><div class="l-name">Time संभालो — 24 घंटे में सब होगा</div><div class="l-result">productive दिन होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L138.html"><span class="l-num">138</span><div class="l-content"><div class="l-name">रोज करते रहो — motivation नहीं, habit</div><div class="l-result">1 साल में अलग level</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L139.html"><span class="l-num">139</span><div class="l-content"><div class="l-name">थकान आए — यह करो</div><div class="l-result">burnout नहीं होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L140.html"><span class="l-num">140</span><div class="l-content"><div class="l-name">सोच बदलो — मज़दूर नहीं, owner</div><div class="l-result">अपना खुद का boss बनोगे</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH 15 -->
+<div class="chapter pink-ch reveal">
+  <div class="ch-header" onclick="tog(this)">
+    <span class="ch-num-badge">CH 15</span>
+    <span class="ch-title-text">🌹 ज़िंदगी बदलो — यही final game है</span>
+    <div class="ch-meta"><span class="ch-count">10 lessons</span><span class="ch-toggle">▼</span></div>
+  </div>
+  <div class="lesson-body">
+    <ul class="lesson-list">
+      <li><a class="lesson-row" href="L141.html"><span class="l-num">141</span><div class="l-content"><div class="l-name">आँखें, कमर, हाथ — mobile से बचाओ</div><div class="l-result">साल भर काम कर सकोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L142.html"><span class="l-num">142</span><div class="l-content"><div class="l-name">Mobile कम चलाओ — creator बनना है</div><div class="l-result">focus बढ़ेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L143.html"><span class="l-num">143</span><div class="l-content"><div class="l-name">बैठने का तरीका — नहीं सीखा तो बाद में रोओगे</div><div class="l-result">body ठीक रहेगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L144.html"><span class="l-num">144</span><div class="l-content"><div class="l-name">घर वाले नहीं समझते? — यह बोलो उनसे</div><div class="l-result">support मिलेगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L145.html"><span class="l-num">145</span><div class="l-content"><div class="l-name">Video flop गया — तुम flop नहीं हो</div><div class="l-result">फिर उठोगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L146.html"><span class="l-num">146</span><div class="l-content"><div class="l-name">फिर से शुरू करना — सबसे बड़ी skill</div><div class="l-result">कोई भी रोक नहीं सकता</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L147.html"><span class="l-num">147</span><div class="l-content"><div class="l-name">अगले 6 महीने का plan — कागज़ पर लिखो</div><div class="l-result">direction clear होगा</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L148.html"><span class="l-num">148</span><div class="l-content"><div class="l-name">₹10,000 से ₹1 लाख — यह road map</div><div class="l-result">step by step जाओगे</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L149.html"><span class="l-num">149</span><div class="l-content"><div class="l-name">बड़ा सोचो — गांव से global</div><div class="l-result">सोच बदलेगी, life बदलेगी</div></div><span class="l-icon">→</span></a></li>
+      <li><a class="lesson-row" href="L150.html"><span class="l-num">150</span><div class="l-content"><div class="l-name">आखिरी काम — सबसे बड़ा video बनाओ 🎉</div><div class="l-result">तुम creator बन गए 🌹💗</div></div><span class="l-icon">→</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta reveal">
+  <span class="big-rose">🌹</span>
+  <h2>रुको मत।<br><span>शुरू करो — Lesson 1 से।</span></h2>
+  <p>मोबाइल है। Data है। यह कोर्स है।<br>तुम्हारी ज़िंदगी बदलने वाली है। 💗</p>
+  <a href="L001.html" class="cta-btn">💗 Lesson 1 से शुरू करो</a>
+</div>
+
+</div><!-- /main -->
+
+<footer>
+  © 2026 <span>ACS AI Video Creator™</span> &nbsp;·&nbsp; acslearn.com &nbsp;·&nbsp; 🌹 सबके लिए, सब कुछ
+</footer>
+
 <script>
-const titles = [
-"यार, वीडियो कितने तरह के होते हैं",
-"छोटा वीडियो कैसे बनाना शुरू करो",
-"1–3 मिनट का वीडियो कैसे बनाओ",
-"लंबा वीडियो कब बनाना सही रहेगा",
-"मोबाइल से लाइव कैसे जाना सीखो",
-"बिना चेहरा वीडियो कैसे बनाना सीखो",
-"कैमरे के सामने बोलना कैसे शुरू करो",
-"कौन सा कंटेंट सही चलता है समझो",
-"एक idea से कई वीडियो कैसे बनाओ",
-"अपना सही topic कैसे चुनना सीखो",
-"अपना creator नाम कैसे तय करना सीखो",
-"अपने इलाके से वीडियो कैसे बनाओ",
-"एक वीडियो कई भाषा में कैसे बनाओ",
-"लोग क्या देखना चाहते हैं समझना सीखो",
-"पहले 3 सेकंड में ध्यान कैसे पकड़ो",
-"जिज्ञासा कैसे बनाओ कि लोग देखें",
-"भावना जोड़कर वीडियो मजबूत कैसे बनाओ",
-"कहानी जोड़कर वीडियो बेहतर कैसे बनाओ",
-"लोगों का भरोसा कैसे जीतना सीखो",
-"अंत में क्या बोलना है सही समझो",
-"लोग बीच में क्यों छोड़ते हैं समझो",
-"वीडियो दोबारा देखने लायक कैसे बनाओ",
-"गलती से सीखकर आगे कैसे बढ़ो",
-"वॉच टाइम धीरे-धीरे कैसे बढ़ाओ",
-"ऐसा title लिखो कि लोग क्लिक करें",
-"वीडियो लंबाई सही कैसे चुनना सीखो",
-"Ads क्या होता है सही समझो",
-"बिना पैसे शुरुआत कैसे करना सीखो",
-"गांव से काम शुरू करने का तरीका समझो",
-"काम के जरूरी tools पहले समझो"
-];
-
-// AUTO GENERATE 150 LINKS
-for(let i=1;i<=150;i++){
- let num = String(i).padStart(3,'0');
- let title = titles[i-1] || "Lesson " + num;
- document.write(`<div class="card"><a href="/vc/hi/L${num}.html">L${num}: ${title}</a></div>`);
+// FLOATING HEARTS
+const emojis = ['💗','🌹','💕','🌸','💖','🏵️','💓'];
+const container = document.getElementById('heartsContainer');
+for(let i=0; i<22; i++) {
+  const h = document.createElement('div');
+  h.className = 'hrt';
+  h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+  h.style.left = Math.random()*100 + 'vw';
+  h.style.bottom = '-60px';
+  h.style.fontSize = (0.8 + Math.random()*1.2) + 'rem';
+  h.style.animationDuration = (12 + Math.random()*18) + 's';
+  h.style.animationDelay = (Math.random()*20) + 's';
+  container.appendChild(h);
 }
+
+// PROGRESS
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  document.getElementById('prog').style.width = p+'%';
+});
+
+// TOGGLE
+function tog(hdr) {
+  hdr.parentElement.classList.toggle('open');
+}
+
+// REVEAL
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting) {
+      setTimeout(()=>e.target.classList.add('vis'), i*50);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// OPEN FIRST
+document.querySelector('.chapter').classList.add('open');
 </script>
-
-</div>
-
-<div class="side">
-
-<div class="box">
-<h3>📌 कैसे पढ़ना है</h3>
-<p>एक lesson खोलो → करके देखो → आगे बढ़ो</p>
-</div>
-
-<div class="box">
-<h3>⚠️ गलती मत करना</h3>
-<p>बीच में मत छोड़ना — पूरा करना</p>
-</div>
-
-<div class="box">
-<h3>🎯 आखिर में क्या मिलेगा</h3>
-<p>अपना वीडियो + चैनल + काम शुरू</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </body>
 </html>
