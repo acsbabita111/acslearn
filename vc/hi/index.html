@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>मोबाइल से वीडियो बनाना सीखें | ACS AI VIDEO CREATOR</title>
+<title>मोबाइल से वीडियो बनाना सीखो | ACS AI VIDEO CREATOR</title>
 
-<!-- Canonical -->
+<!-- SEO -->
 <link rel="canonical" href="https://acslearn.com/vc/hi/index.html">
 
-<!-- Hreflang -->
 <link rel="alternate" hreflang="hi" href="https://acslearn.com/vc/hi/index.html">
 <link rel="alternate" hreflang="en" href="https://acslearn.com/vc/en/index.html">
 <link rel="alternate" hreflang="bn" href="https://acslearn.com/vc/bn/index.html">
@@ -32,11 +31,81 @@
 }
 </script>
 
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:'Hind',sans-serif;background:#0b1220;color:#fff;margin:0}
-.container{max-width:430px;margin:auto;padding:10px}
-.card{background:#1e293b;padding:12px;border-radius:10px;margin-bottom:8px}
-.card a{color:#fff;text-decoration:none}
+body{
+ margin:0;
+ font-family:'Hind',sans-serif;
+ background:#0b1220;
+ color:#fff;
+}
+
+.container{
+ max-width:430px;
+ margin:auto;
+ padding:12px;
+}
+
+@media(min-width:1024px){
+ .container{max-width:1100px;}
+ .layout{display:flex;gap:20px;}
+}
+
+.hero{
+ background:linear-gradient(135deg,#2563eb,#1e40af);
+ padding:20px;
+ border-radius:14px;
+ text-align:center;
+}
+
+.hero h1{font-size:22px;margin:0;}
+.hero p{font-size:14px;margin-top:8px;}
+
+.start{
+ background:#22c55e;
+ padding:12px;
+ border-radius:10px;
+ display:block;
+ text-decoration:none;
+ color:#000;
+ font-weight:bold;
+ margin-top:10px;
+}
+
+.card{
+ background:#1e293b;
+ margin:8px 0;
+ padding:12px;
+ border-radius:10px;
+ transition:.3s;
+}
+.card:hover{
+ background:#334155;
+ transform:scale(1.02);
+}
+
+.card a{
+ text-decoration:none;
+ color:#fff;
+ display:block;
+}
+
+.side{
+ display:none;
+}
+@media(min-width:1024px){
+ .side{
+   display:block;
+   width:300px;
+ }
+ .box{
+   background:#12254a;
+   padding:12px;
+   border-radius:10px;
+   margin-bottom:10px;
+ }
+}
 </style>
 
 </head>
@@ -45,16 +114,86 @@ body{font-family:'Hind',sans-serif;background:#0b1220;color:#fff;margin:0}
 
 <div class="container">
 
+<div class="hero">
 <h1>🎬 मोबाइल से वीडियो बनाना सीखो</h1>
-<p>यह कोर्स पूरा करने के बाद आप अपना वीडियो और चैनल बना सकते हैं</p>
+<p>
+यार, अगर तुमने यह पूरा कर लिया —  
+👉 अपना वीडियो बना पाओगे  
+👉 अपना चैनल चला पाओगे  
+👉 कमाई शुरू करने का रास्ता खुल जाएगा  
+</p>
 
-<!-- LESSON LOOP -->
+<a class="start" href="#L001">🚀 अभी शुरू करो</a>
+</div>
+
+<div class="layout">
+
+<div class="main">
+
 <script>
+const titles = [
+"यार, वीडियो कितने तरह के होते हैं",
+"छोटा वीडियो कैसे बनाना शुरू करो",
+"1–3 मिनट का वीडियो कैसे बनाओ",
+"लंबा वीडियो कब बनाना सही रहेगा",
+"मोबाइल से लाइव कैसे जाना सीखो",
+"बिना चेहरा वीडियो कैसे बनाना सीखो",
+"कैमरे के सामने बोलना कैसे शुरू करो",
+"कौन सा कंटेंट सही चलता है समझो",
+"एक idea से कई वीडियो कैसे बनाओ",
+"अपना सही topic कैसे चुनना सीखो",
+"अपना creator नाम कैसे तय करना सीखो",
+"अपने इलाके से वीडियो कैसे बनाओ",
+"एक वीडियो कई भाषा में कैसे बनाओ",
+"लोग क्या देखना चाहते हैं समझना सीखो",
+"पहले 3 सेकंड में ध्यान कैसे पकड़ो",
+"जिज्ञासा कैसे बनाओ कि लोग देखें",
+"भावना जोड़कर वीडियो मजबूत कैसे बनाओ",
+"कहानी जोड़कर वीडियो बेहतर कैसे बनाओ",
+"लोगों का भरोसा कैसे जीतना सीखो",
+"अंत में क्या बोलना है सही समझो",
+"लोग बीच में क्यों छोड़ते हैं समझो",
+"वीडियो दोबारा देखने लायक कैसे बनाओ",
+"गलती से सीखकर आगे कैसे बढ़ो",
+"वॉच टाइम धीरे-धीरे कैसे बढ़ाओ",
+"ऐसा title लिखो कि लोग क्लिक करें",
+"वीडियो लंबाई सही कैसे चुनना सीखो",
+"Ads क्या होता है सही समझो",
+"बिना पैसे शुरुआत कैसे करना सीखो",
+"गांव से काम शुरू करने का तरीका समझो",
+"काम के जरूरी tools पहले समझो"
+];
+
+// AUTO GENERATE 150 LINKS
 for(let i=1;i<=150;i++){
-  let num=String(i).padStart(3,'0');
-  document.write(`<div class="card"><a href="/vc/hi/L${num}.html">Lesson ${num}</a></div>`);
+ let num = String(i).padStart(3,'0');
+ let title = titles[i-1] || "Lesson " + num;
+ document.write(`<div class="card"><a href="/vc/hi/L${num}.html">L${num}: ${title}</a></div>`);
 }
 </script>
+
+</div>
+
+<div class="side">
+
+<div class="box">
+<h3>📌 कैसे पढ़ना है</h3>
+<p>एक lesson खोलो → करके देखो → आगे बढ़ो</p>
+</div>
+
+<div class="box">
+<h3>⚠️ गलती मत करना</h3>
+<p>बीच में मत छोड़ना — पूरा करना</p>
+</div>
+
+<div class="box">
+<h3>🎯 आखिर में क्या मिलेगा</h3>
+<p>अपना वीडियो + चैनल + काम शुरू</p>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
