@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" role="img" aria-label="Comparison diagram template">
+  <rect x="24" y="24" width="872" height="252" rx="24" fill="#fff"/>
+  <rect x="54" y="58" width="380" height="184" rx="24" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="244" y="100" text-anchor="middle" font-family="Hind, Arial" font-size="30" font-weight="700" fill="#111827">Concept A</text>
+  <text x="244" y="140" text-anchor="middle" font-family="Hind, Arial" font-size="18" fill="#4b5563">Meaning / Features</text>
+  <rect x="486" y="58" width="380" height="184" rx="24" fill="#faf5ff" stroke="#d8b4fe"/>
+  <text x="676" y="100" text-anchor="middle" font-family="Hind, Arial" font-size="30" font-weight="700" fill="#111827">Concept B</text>
+  <text x="676" y="140" text-anchor="middle" font-family="Hind, Arial" font-size="18" fill="#4b5563">Meaning / Features</text>
+</svg>

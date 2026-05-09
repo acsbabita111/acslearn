@@ -1,0 +1,122 @@
+[
+  {
+    "id": "L001",
+    "title_hi": "इंटरनेट क्या है?",
+    "slug": "level-0/l001-internet-kya-hai",
+    "status": "complete"
+  },
+  {
+    "id": "L002",
+    "title_hi": "Browser vs App: फर्क क्या है?",
+    "slug": "level-0/l002-browser-vs-app",
+    "status": "pending"
+  },
+  {
+    "id": "L003",
+    "title_hi": "Safe Browsing और Online Safety",
+    "slug": "level-0/l003-safe-browsing-online-safety",
+    "status": "pending"
+  },
+  {
+    "id": "L004",
+    "title_hi": "Spam, Scam और Phishing पहचानना",
+    "slug": "level-0/l004-spam-scam-phishing",
+    "status": "pending"
+  },
+  {
+    "id": "L005",
+    "title_hi": "Digital Footprint क्या है?",
+    "slug": "level-0/l005-digital-footprint-kya-hai",
+    "status": "pending"
+  },
+  {
+    "id": "L006",
+    "title_hi": "Google Drive Mobile पर कैसे इस्तेमाल करें",
+    "slug": "level-0/l006-google-drive-mobile",
+    "status": "pending"
+  },
+  {
+    "id": "L007",
+    "title_hi": "Google Docs Mobile पर काम करना",
+    "slug": "level-0/l007-google-docs-mobile",
+    "status": "pending"
+  },
+  {
+    "id": "L008",
+    "title_hi": "Google Sheets Mobile Basics",
+    "slug": "level-0/l008-google-sheets-mobile-basics",
+    "status": "pending"
+  },
+  {
+    "id": "L009",
+    "title_hi": "WhatsApp Business Setup",
+    "slug": "level-0/l009-whatsapp-business-setup",
+    "status": "pending"
+  },
+  {
+    "id": "L010",
+    "title_hi": "Professional Email कैसे लिखें",
+    "slug": "level-0/l010-professional-email",
+    "status": "pending"
+  },
+  {
+    "id": "L011",
+    "title_hi": "ChatGPT क्या है?",
+    "slug": "level-0/l011-chatgpt-kya-hai",
+    "status": "pending"
+  },
+  {
+    "id": "L012",
+    "title_hi": "Claude AI क्या है?",
+    "slug": "level-0/l012-claude-ai-kya-hai",
+    "status": "pending"
+  },
+  {
+    "id": "L013",
+    "title_hi": "Gemini क्या है?",
+    "slug": "level-0/l013-gemini-kya-hai",
+    "status": "pending"
+  },
+  {
+    "id": "L014",
+    "title_hi": "Prompt क्या होता है?",
+    "slug": "level-0/l014-prompt-kya-hota-hai",
+    "status": "pending"
+  },
+  {
+    "id": "L015",
+    "title_hi": "AI से काम कैसे करवाएं",
+    "slug": "level-0/l015-ai-se-kaam-kaise-karwaye",
+    "status": "pending"
+  },
+  {
+    "id": "L016",
+    "title_hi": "Hindi में AI Prompting",
+    "slug": "level-0/l016-hindi-ai-prompting",
+    "status": "pending"
+  },
+  {
+    "id": "L017",
+    "title_hi": "Maithili और Bhojpuri में AI Prompting",
+    "slug": "level-0/l017-local-language-ai-prompting",
+    "status": "pending"
+  },
+  {
+    "id": "L018",
+    "title_hi": "AI को Local Context कैसे दें",
+    "slug": "level-0/l018-ai-local-context",
+    "status": "pending"
+  },
+  {
+    "id": "L019",
+    "title_hi": "अपनी भाषा में Content Generate करना",
+    "slug": "level-0/l019-local-language-content-generation",
+    "status": "pending"
+  },
+  {
+    "id": "L020",
+    "title_hi": "Local Knowledge को Global Format में बदलना",
+    "slug": "level-0/l020-local-knowledge-global-format",
+    "status": "pending"
+  }
+]

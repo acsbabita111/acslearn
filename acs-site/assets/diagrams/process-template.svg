@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 260" role="img" aria-label="Process diagram template">
+  <rect x="20" y="20" width="900" height="220" rx="24" fill="#fff"/>
+  <rect x="48" y="78" width="164" height="100" rx="24" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="130" y="136" text-anchor="middle" font-family="Hind, Arial" font-size="24" font-weight="700" fill="#111827">Input</text>
+  <path d="M215 128 H325" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"/><polygon points="325,128 308,118 308,138" fill="#7c3aed"/>
+  <rect x="340" y="78" width="230" height="100" rx="24" fill="#faf5ff" stroke="#d8b4fe"/>
+  <text x="455" y="136" text-anchor="middle" font-family="Hind, Arial" font-size="24" font-weight="700" fill="#111827">Process</text>
+  <path d="M573 128 H683" stroke="#ec4899" stroke-width="5" stroke-linecap="round"/><polygon points="683,128 666,118 666,138" fill="#ec4899"/>
+  <rect x="698" y="78" width="182" height="100" rx="24" fill="#ecfdf5" stroke="#86efac"/>
+  <text x="789" y="136" text-anchor="middle" font-family="Hind, Arial" font-size="24" font-weight="700" fill="#111827">Output</text>
+</svg>

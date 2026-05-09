@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 260" role="img" aria-label="Timeline diagram template">
+  <rect x="20" y="20" width="880" height="220" rx="24" fill="#fff"/>
+  <line x1="100" y1="130" x2="820" y2="130" stroke="#ddd6fe" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Hind, Arial" fill="#111827" font-weight="700">
+    <circle cx="140" cy="130" r="24" fill="#7c3aed"/><text x="140" y="138" text-anchor="middle" font-size="18" fill="#fff">1</text><text x="140" y="186" text-anchor="middle" font-size="18">Start</text>
+    <circle cx="340" cy="130" r="24" fill="#8b5cf6"/><text x="340" y="138" text-anchor="middle" font-size="18" fill="#fff">2</text><text x="340" y="186" text-anchor="middle" font-size="18">Learn</text>
+    <circle cx="540" cy="130" r="24" fill="#ec4899"/><text x="540" y="138" text-anchor="middle" font-size="18" fill="#fff">3</text><text x="540" y="186" text-anchor="middle" font-size="18">Build</text>
+    <circle cx="740" cy="130" r="24" fill="#16a34a"/><text x="740" y="138" text-anchor="middle" font-size="18" fill="#fff">4</text><text x="740" y="186" text-anchor="middle" font-size="18">Deploy</text>
+  </g>
+</svg>
