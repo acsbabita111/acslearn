@@ -1,0 +1,76 @@
+# ACS SEO Super Final Patch
+
+{
+  "package": "ACS_Website_Next_Level_v2_SEO_Super_Final",
+  "created_at": "2026-05-11T06:31:05",
+  "source_zip": "ACS_Website_Next_Level_v2_SEO_Final_Patched.zip",
+  "total_html_pages": 360,
+  "title_changes": 360,
+  "description_changes": 2,
+  "pages_with_non_hi_hreflang_removed": 332,
+  "og_images_generated": 22,
+  "og_image_tags_updated": 360,
+  "audit": {
+    "long_titles_over_60": 0,
+    "short_titles_under_30": 15,
+    "non_hi_hreflang_left": 0,
+    "duplicate_descriptions": 0,
+    "unique_og_images_used": 22,
+    "sitemap_exists": true,
+    "robots_exists": true
+  },
+  "sample_long_titles": [],
+  "sample_short_titles": [
+    [
+      "layer-b-cybersecurity/index.html",
+      27,
+      "Layer B Cybersecurity | ACS"
+    ],
+    [
+      "layer-c-data-literacy/index.html",
+      27,
+      "Layer C डेटा Literacy | ACS"
+    ],
+    [
+      "layer-d-human-skills/index.html",
+      26,
+      "Layer D Human Skills | ACS"
+    ],
+    [
+      "layer-g-offline-first/index.html",
+      27,
+      "Layer G Offline First | ACS"
+    ],
+    [
+      "layer-h-apprenticeship/index.html",
+      28,
+      "Layer H Apprenticeship | ACS"
+    ],
+    [
+      "layer-j-agriculture-ai/index.html",
+      28,
+      "Layer J Agriculture Ai | ACS"
+    ],
+    [
+      "layer-m-environment-climate/index.html",
+      29,
+      "Layer M पर्यावरण जलवायु | ACS"
+    ],
+    [
+      "layer-m-internship-track/index.html",
+      29,
+      "Layer M इंटर्नशिप Track | ACS"
+    ],
+    [
+      "level-0/index.html",
+      13,
+      "Level 0 | ACS"
+    ],
+    [
+      "level-1/index.html",
+      13,
+      "Level 1 | ACS"
+    ]
+  ],
+  "duplicate_description_samples": []
+}

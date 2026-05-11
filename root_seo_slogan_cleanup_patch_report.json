@@ -1,0 +1,22 @@
+{
+  "package": "ACS_Website_Next_Level_v2_SEO_Audit_Ready",
+  "created_at": "2026-05-11T05:10:33",
+  "source_zip": "ACS_Website_Next_Level_v2_Upload_Ready.zip",
+  "total_html_pages": 360,
+  "root_pages_expected": 7,
+  "root_pages_patched": 7,
+  "slogan_replacements": 21,
+  "future_language_links_disabled": 0,
+  "checks": {
+    "root_missing_canonical": 0,
+    "root_missing_schema": 0,
+    "old_slogan_left": 0,
+    "lesson_missing_canonical": 0,
+    "lesson_missing_schema": 0,
+    "knowledge_box_missing": 0,
+    "social_share_missing": 0,
+    "bottom_nav_missing": 0,
+    "reinforcement_missing": 0,
+    "progress_lock_missing": 0
+  }
+}

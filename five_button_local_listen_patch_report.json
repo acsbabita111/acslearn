@@ -1,0 +1,22 @@
+{
+  "package": "ACS_332_Lessons_5_Button_Local_Listen_Patched",
+  "created_at": "2026-05-10T05:36:17",
+  "lesson_pages": 332,
+  "pages_patched": 332,
+  "missing_bottom_nav": 0,
+  "missing_goto_modal": 0,
+  "missing_page_listen": 0,
+  "missing_local_listen_script": 0,
+  "missing_nav_css": 0,
+  "footer_rule": "Footer content was not modified. Navigation is inserted before body end, and local listen buttons are added client-side to section.block only.",
+  "features": [
+    "Previous button works",
+    "Home button works",
+    "Go to Lesson search popup works",
+    "Page Listen works with clean Roman+Devanagari rule",
+    "Next button works",
+    "Local Listen buttons are created near every learning section/card",
+    "Footer/share/navigation/diagram labels are skipped from listen text"
+  ],
+  "lesson_index_count_embedded_per_page": 332
+}

@@ -1,0 +1,1662 @@
+{
+  "layer-a-ai-governance/gx001-ai-hallucination.html": {
+    "title": "GX001 — AI (एआई) Hallucination पहचानना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-a-ai-governance/gx002-deepfake-detection.html": {
+    "title": "GX002 — Deepfake Video पहचानना",
+    "core_concept": "डीपफेक",
+    "high_trust": false
+  },
+  "layer-a-ai-governance/gx003-responsible-ai-content.html": {
+    "title": "GX003 — जिम्मेदार AI (एआई) Content बनाना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-a-ai-governance/gx004-ai-copyright.html": {
+    "title": "GX004 — AI (एआई) कॉपीright और Ownership",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "layer-a-ai-governance/gx005-synthetic-media-ethics.html": {
+    "title": "GX005 — Synthetic Media Ethics",
+    "core_concept": "AI शासन",
+    "high_trust": false
+  },
+  "layer-b-cybersecurity/cy001-strong-password.html": {
+    "title": "CY001 — Strong Password System",
+    "core_concept": "पासवर्ड",
+    "high_trust": true
+  },
+  "layer-b-cybersecurity/cy002-two-factor-auth.html": {
+    "title": "CY002 — Two-Factor Authentication (2FA (टू-एफए))",
+    "core_concept": "साइबर सुरक्षा",
+    "high_trust": true
+  },
+  "layer-b-cybersecurity/cy003-whatsapp-scam.html": {
+    "title": "CY003 — WhatsApp (व्हाट्सऐप) Scam पहचानना",
+    "core_concept": "व्हाट्सऐप",
+    "high_trust": true
+  },
+  "layer-b-cybersecurity/cy004-youtube-protection.html": {
+    "title": "CY004 — YouTube (यूट्यूब) Channel Protection",
+    "core_concept": "साइबर सुरक्षा",
+    "high_trust": true
+  },
+  "layer-b-cybersecurity/cy005-cloud-backup.html": {
+    "title": "CY005 — Cloud Backup Strategy",
+    "core_concept": "साइबर सुरक्षा",
+    "high_trust": true
+  },
+  "layer-b-cybersecurity/cy006-freelancer-safety.html": {
+    "title": "CY006 — Freelancer Cyber सुरक्षा",
+    "core_concept": "साइबर सुरक्षा",
+    "high_trust": true
+  },
+  "layer-c-data-literacy/dl001-data-kya-hai.html": {
+    "title": "DL001 — डेटा क्या है और क्यों जरूरी है",
+    "core_concept": "डेटा क्या है",
+    "high_trust": false
+  },
+  "layer-c-data-literacy/dl002-spreadsheet-reasoning.html": {
+    "title": "DL002 — Spreadsheet Reasoning",
+    "core_concept": "डेटा साक्षरता",
+    "high_trust": false
+  },
+  "layer-c-data-literacy/dl003-analytics-dashboard.html": {
+    "title": "DL003 — एनालिटिक्स डैशबोर्ड पढ़ना",
+    "core_concept": "एनालिटिक्स डैशबोर्ड पढ़ना",
+    "high_trust": false
+  },
+  "layer-c-data-literacy/dl004-seo-metrics.html": {
+    "title": "DL004 — SEO (एसईओ) माप Interpret करना",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": true
+  },
+  "layer-c-data-literacy/dl005-ai-data.html": {
+    "title": "DL005 — AI (एआई) डेटा Interpretation",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-c-data-literacy/dl006-business-forecasting.html": {
+    "title": "DL006 — Business Forecasting with AI (एआई)",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-d-human-skills/hm001-digital-communication.html": {
+    "title": "HM001 — डिजिटल Communication Skills",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "layer-d-human-skills/hm002-online-teaching.html": {
+    "title": "HM002 — Online Teaching Skills",
+    "core_concept": "संचार कौशल",
+    "high_trust": false
+  },
+  "layer-d-human-skills/hm003-community-leadership.html": {
+    "title": "HM003 — समुदाय नेतृत्व Online",
+    "core_concept": "समुदाय नेतृत्व",
+    "high_trust": false
+  },
+  "layer-d-human-skills/hm004-negotiation.html": {
+    "title": "HM004 — Online Negotiation Basics",
+    "core_concept": "संचार कौशल",
+    "high_trust": false
+  },
+  "layer-d-human-skills/hm005-conflict-resolution.html": {
+    "title": "HM005 — Online Conflict Resolution",
+    "core_concept": "संचार कौशल",
+    "high_trust": false
+  },
+  "layer-d-human-skills/hm006-public-speaking.html": {
+    "title": "HM006 — Public Speaking for निर्माताs",
+    "core_concept": "जन वक्तृत्व",
+    "high_trust": false
+  },
+  "layer-e-local-commerce/lc001-whatsapp-commerce.html": {
+    "title": "LC001 — WhatsApp (व्हाट्सऐप) Commerce Setup",
+    "core_concept": "व्हाट्सऐप",
+    "high_trust": false
+  },
+  "layer-e-local-commerce/lc002-ai-flyers.html": {
+    "title": "LC002 — AI (एआई) Flyers और Posters बनाना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-e-local-commerce/lc003-digital-catalog.html": {
+    "title": "LC003 — डिजिटल Product Catalog बनाना",
+    "core_concept": "डिजिटल बनाना",
+    "high_trust": false
+  },
+  "layer-e-local-commerce/lc004-local-service-pages.html": {
+    "title": "LC004 — स्थानीय Service Pages बनाना",
+    "core_concept": "स्थानीय बनाना",
+    "high_trust": false
+  },
+  "layer-e-local-commerce/lc005-hyperlocal-seo.html": {
+    "title": "LC005 — Hyperस्थानीय SEO (एसईओ) — अपना शहर rank करो",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": true
+  },
+  "layer-f-public-sector-ai/ps001-ai-lesson-planning.html": {
+    "title": "PS001 — AI (एआई) से Lesson Planning करना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "layer-f-public-sector-ai/ps002-health-posters.html": {
+    "title": "PS002 — Health Awareness Posters AI (एआई) से",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "layer-f-public-sector-ai/ps003-govt-form-ai.html": {
+    "title": "PS003 — Government Form AI (एआई) Assistance",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "layer-f-public-sector-ai/ps004-ngo-storytelling.html": {
+    "title": "PS004 — NGO Storytelling with AI (एआई)",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-g-offline-first/of001-offline-setup.html": {
+    "title": "OF001 — Offline Learning Setup",
+    "core_concept": "ऑफलाइन शिक्षा",
+    "high_trust": false
+  },
+  "layer-g-offline-first/of002-text-only-mode.html": {
+    "title": "OF002 — Text-Only Mode का उपयोग",
+    "core_concept": "का उपयोग",
+    "high_trust": false
+  },
+  "layer-g-offline-first/of003-printable-guides.html": {
+    "title": "OF003 — Printable Guides से समुदाय Teaching",
+    "core_concept": "से समुदाय",
+    "high_trust": false
+  },
+  "layer-h-apprenticeship/ap001-village-project.html": {
+    "title": "AP001 — Village-Level डिजिटल प्रोजेक्ट",
+    "core_concept": "डिजिटल प्रोजेक्ट",
+    "high_trust": false
+  },
+  "layer-h-apprenticeship/ap002-business-audit.html": {
+    "title": "AP002 — Real Business डिजिटल जांच",
+    "core_concept": "डिजिटल जांच",
+    "high_trust": false
+  },
+  "layer-h-apprenticeship/ap003-peer-review.html": {
+    "title": "AP003 — साथियों की समीक्षा Circle",
+    "core_concept": "साथियों की समीक्षा",
+    "high_trust": false
+  },
+  "layer-h-apprenticeship/ap004-local-internship.html": {
+    "title": "AP004 — स्थानीय इंटर्नशिप Program",
+    "core_concept": "स्थानीय इंटर्नशिप",
+    "high_trust": false
+  },
+  "layer-i-product-building/pb001-no-code-app.html": {
+    "title": "PB001 — No-Code App बनाना",
+    "core_concept": "मोबाइल ऐप",
+    "high_trust": false
+  },
+  "layer-i-product-building/pb002-ai-chatbot.html": {
+    "title": "PB002 — AI (एआई) Chatbot बनाना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-i-product-building/pb003-automation-workflow.html": {
+    "title": "PB003 — Automation काम की प्रक्रिया System",
+    "core_concept": "की प्रक्रिया",
+    "high_trust": false
+  },
+  "layer-i-product-building/pb004-ai-utility.html": {
+    "title": "PB004 — AI (एआई) Utility टूल बनाना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "layer-i-product-building/pb005-local-saas.html": {
+    "title": "PB005 — स्थानीय SaaS Product Launch",
+    "core_concept": "स्थानीय",
+    "high_trust": false
+  },
+  "layer-j-agriculture-ai/ag001-ai-farmer.html": {
+    "title": "AG001 — AI (एआई) से किसान की मदद",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "layer-j-agriculture-ai/ag002-farmer-catalog.html": {
+    "title": "AG002 — डिजिटल Farmer Catalog बनाना",
+    "core_concept": "किसान",
+    "high_trust": true
+  },
+  "layer-j-agriculture-ai/ag003-ai-crop-info.html": {
+    "title": "AG003 — AI (एआई) Crop Information System",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "layer-k-financial-literacy/fl001-pricing-strategy.html": {
+    "title": "FL001 — Freelance Pricing Strategy",
+    "core_concept": "वित्तीय साक्षरता",
+    "high_trust": true
+  },
+  "layer-k-financial-literacy/fl002-tax-basics.html": {
+    "title": "FL002 — Tax Basics for डिजिटल Workers",
+    "core_concept": "कर",
+    "high_trust": true
+  },
+  "layer-k-financial-literacy/fl003-client-contracts.html": {
+    "title": "FL003 — Client Contracts बनाना",
+    "core_concept": "अनुबंध",
+    "high_trust": true
+  },
+  "layer-l-mental-resilience/mr001-focus-system.html": {
+    "title": "MR001 — डिजिटल निर्माता का Focus System",
+    "core_concept": "डिजिटल निर्माता का",
+    "high_trust": false
+  },
+  "layer-l-mental-resilience/mr002-burnout-prevention.html": {
+    "title": "MR002 — Burnout Prevention for निर्माताs",
+    "core_concept": "निर्माताs",
+    "high_trust": false
+  },
+  "layer-l-mental-resilience/mr003-creator-mindset.html": {
+    "title": "MR003 — Long-Term निर्माता Mindset",
+    "core_concept": "निर्माता",
+    "high_trust": false
+  },
+  "layer-m-environment-climate/em001-climate-change-bihar-context.html": {
+    "title": "EM001 — जलवायु Change — Bihar का स्थिति",
+    "core_concept": "जलवायु का स्थिति",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em002-flood-data-analysis-ai.html": {
+    "title": "EM002 — Flood डेटा Analysis with AI (एआई)",
+    "core_concept": "बाढ़",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em003-kosi-bagmati-environmental-audit.html": {
+    "title": "EM003 — कोसी-बागमती पर्यावरण जांच",
+    "core_concept": "कोसी-बागमती ्यावरण जांच",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em004-makhana-farming-climate-risk.html": {
+    "title": "EM004 — Makhana Farming + जलवायु खतरा",
+    "core_concept": "जलवायु खतरा",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em005-ai-water-quality-report.html": {
+    "title": "EM005 — AI (एआई) से Water Quality रिपोर्ट",
+    "core_concept": "जल गुणवत्ता",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em006-carbon-footprint-calculator.html": {
+    "title": "EM006 — कार्बन फुटप्रिंट Calculator बनाना",
+    "core_concept": "र्बन फुटप्रिंट बनाना",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em007-environmental-storytelling-youtube.html": {
+    "title": "EM007 — पर्यावरण Storytelling for YouTube (यूट्यूब)",
+    "core_concept": "्यावरण",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em008-green-business-plan.html": {
+    "title": "EM008 — Green Business Plan",
+    "core_concept": "जलवायु परिवर्तन",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em009-esg-report-kaise-likhen.html": {
+    "title": "EM009 — ESG (ईएसजी) रिपोर्ट कैसे लिखें",
+    "core_concept": "रिपोर्ट कैसे लिखें",
+    "high_trust": true
+  },
+  "layer-m-environment-climate/em010-government-environmental-schemes.html": {
+    "title": "EM010 — Government पर्यावरण Schemes — Apply कैसे करें",
+    "core_concept": "मोबाइल ऐप",
+    "high_trust": true
+  },
+  "layer-m-internship-track/in001-field-data-collection-setup.html": {
+    "title": "IN001 — Field डेटा Collection Setup",
+    "core_concept": "डेटा",
+    "high_trust": false
+  },
+  "layer-m-internship-track/in002-village-environmental-audit.html": {
+    "title": "IN002 — Village पर्यावरण जांच",
+    "core_concept": "्यावरण जांच",
+    "high_trust": true
+  },
+  "layer-m-internship-track/in003-water-soil-sample-documentation.html": {
+    "title": "IN003 — Water/Soil Sample Documentation",
+    "core_concept": "जल गुणवत्ता",
+    "high_trust": true
+  },
+  "layer-m-internship-track/in004-local-pollution-mapping.html": {
+    "title": "IN004 — स्थानीय Pollution नक्शे पर दिखाना",
+    "core_concept": "स्थानीय नक्शे दिखाना",
+    "high_trust": true
+  },
+  "layer-m-internship-track/in005-community-awareness-session.html": {
+    "title": "IN005 — समुदाय Awareness Session",
+    "core_concept": "समुदाय",
+    "high_trust": false
+  },
+  "layer-m-internship-track/in006-ngo-report-submission.html": {
+    "title": "IN006 — NGO को रिपोर्ट Submit करना",
+    "core_concept": "को रिपोर्ट करना",
+    "high_trust": true
+  },
+  "layer-m-internship-track/in007-government-portal-data-upload.html": {
+    "title": "IN007 — Government Portal पर डेटा Upload",
+    "core_concept": "डेटा",
+    "high_trust": true
+  },
+  "layer-m-internship-track/in008-environmental-project-presentation.html": {
+    "title": "IN008 — पर्यावरण प्रोजेक्ट प्रस्तुति",
+    "core_concept": "्यावरण प्रोजेक्ट प्रस्तुति",
+    "high_trust": true
+  },
+  "layer-m-internship-track/in009-peer-review-mentor-feedback.html": {
+    "title": "IN009 — साथियों की समीक्षा + मार्गदर्शक की राय",
+    "core_concept": "साथियों की समीक्षा",
+    "high_trust": false
+  },
+  "layer-m-internship-track/in010-ffgpmt-internship-certificate.html": {
+    "title": "IN010 — FFGPMT इंटर्नशिप प्रमाणपत्र",
+    "core_concept": "इंटर्नशिप प्रमाणपत्र",
+    "high_trust": false
+  },
+  "level-0/l001-internet-kya-hai.html": {
+    "title": "L001 — इंटरनेट क्या है?",
+    "core_concept": "इंटरनेट क्या है?",
+    "high_trust": false
+  },
+  "level-0/l002-browser-vs-app.html": {
+    "title": "L002 — Browser vs App: फर्क क्या है?",
+    "core_concept": "वेब ब्राउज़र",
+    "high_trust": false
+  },
+  "level-0/l003-safe-browsing-online-safety.html": {
+    "title": "L003 — सुरक्षित Browsing और Online सुरक्षा",
+    "core_concept": "सुरक्षित सुरक्षा",
+    "high_trust": false
+  },
+  "level-0/l004-spam-scam-phishing.html": {
+    "title": "L004 — Spam, Scam और Phishing पहचानना",
+    "core_concept": "फ़िशिंग",
+    "high_trust": false
+  },
+  "level-0/l005-digital-footprint-kya-hai.html": {
+    "title": "L005 — डिजिटल Footprint क्या है?",
+    "core_concept": "डिजिटल क्या है?",
+    "high_trust": false
+  },
+  "level-0/l006-google-drive-mobile.html": {
+    "title": "L006 — Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) Mobile पर कैसे इस्तेमाल करें",
+    "core_concept": "कैसे इस्तेमाल करें",
+    "high_trust": true
+  },
+  "level-0/l007-google-docs-mobile.html": {
+    "title": "L007 — Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) Mobile पर काम करना",
+    "core_concept": "करना",
+    "high_trust": true
+  },
+  "level-0/l008-google-sheets-mobile-basics.html": {
+    "title": "L008 — Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) Mobile Basics",
+    "core_concept": "डिजिटल साक्षरता",
+    "high_trust": false
+  },
+  "level-0/l009-whatsapp-business-setup.html": {
+    "title": "L009 — WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) Setup",
+    "core_concept": "व्हाट्सऐप",
+    "high_trust": false
+  },
+  "level-0/l010-professional-email.html": {
+    "title": "L010 — काम के लायक Email कैसे लिखें",
+    "core_concept": "ईमेल",
+    "high_trust": false
+  },
+  "level-0/l011-chatgpt-kya-hai.html": {
+    "title": "L011 — ChatGPT (चैटजीपीटी) क्या है?",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-0/l012-claude-ai-kya-hai.html": {
+    "title": "L012 — Claude (क्लॉड) AI (एआई) क्या है?",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-0/l013-gemini-kya-hai.html": {
+    "title": "L013 — Gemini (जेमिनी) क्या है?",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-0/l014-prompt-kya-hota-hai.html": {
+    "title": "L014 — Prompt (प्रॉम्प्ट) क्या होता है?",
+    "core_concept": "प्रॉम्प्ट इंजीनियरिंग",
+    "high_trust": false
+  },
+  "level-0/l015-ai-se-kaam-kaise-karwaye.html": {
+    "title": "L015 — AI (एआई) से काम कैसे करवाएं",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "level-0/l016-hindi-ai-prompting.html": {
+    "title": "L016 — Hindi में AI (एआई) Prompting",
+    "core_concept": "प्रॉम्प्ट इंजीनियरिंग",
+    "high_trust": false
+  },
+  "level-0/l017-local-language-ai-prompting.html": {
+    "title": "L017 — Maithili और Bhojpuri में AI (एआई) Prompting",
+    "core_concept": "प्रॉम्प्ट इंजीनियरिंग",
+    "high_trust": false
+  },
+  "level-0/l018-ai-local-context.html": {
+    "title": "L018 — AI (एआई) को स्थानीय स्थिति कैसे दें",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-0/l019-local-language-content-generation.html": {
+    "title": "L019 — अपनी भाषा में Content Generate करना",
+    "core_concept": "अपनी भाषा में",
+    "high_trust": true
+  },
+  "level-0/l020-local-knowledge-global-format.html": {
+    "title": "L020 — स्थानीय Knowledge को Global Format में बदलना",
+    "core_concept": "स्थानीय को में",
+    "high_trust": false
+  },
+  "level-1/l021-visual-storytelling-ka-parichay.html": {
+    "title": "L021 — Visual Storytelling का परिचय",
+    "core_concept": "का िचय",
+    "high_trust": false
+  },
+  "level-1/l022-hook-theory-pehle-3-seconds.html": {
+    "title": "L022 — Hook Theory — पहले 3 Seconds",
+    "core_concept": "पहले",
+    "high_trust": false
+  },
+  "level-1/l023-story-arc-shuruaat-madhya-ant.html": {
+    "title": "L023 — Story Arc — शुरुआत मध्य अंत",
+    "core_concept": "शुरुआत मध्य अंत",
+    "high_trust": false
+  },
+  "level-1/l024-ai-se-script-writing.html": {
+    "title": "L024 — AI (एआई) से Script Writing",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-1/l025-storyboard-kaise-banaye.html": {
+    "title": "L025 — Storyboard कैसे बनाएं",
+    "core_concept": "कैसे बनाएं",
+    "high_trust": false
+  },
+  "level-1/l026-local-audience-psychology.html": {
+    "title": "L026 — स्थानीय Audience Psychology",
+    "core_concept": "स्थानीय",
+    "high_trust": false
+  },
+  "level-1/l027-vertical-vs-horizontal-video.html": {
+    "title": "L027 — Vertical vs Horizontal Video",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l028-trending-content-analysis.html": {
+    "title": "L028 — Trending Content Analysis",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l029-emotional-triggers-in-video.html": {
+    "title": "L029 — Emotional Triggers in Video",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l030-content-series-planning.html": {
+    "title": "L030 — Content Series Planning",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l031-smartphone-camera-mastery.html": {
+    "title": "L031 — Smartphone Camera Mastery",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l032-natural-lighting-techniques.html": {
+    "title": "L032 — Natural Lighting Techniques",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l033-audio-quality-bina-mic-ke.html": {
+    "title": "L033 — Audio Quality — बिना Mic के",
+    "core_concept": "बिना के",
+    "high_trust": false
+  },
+  "level-1/l034-b-roll-footage-kya-hai.html": {
+    "title": "L034 — B-Roll Footage क्या है",
+    "core_concept": "क्या है",
+    "high_trust": false
+  },
+  "level-1/l035-framing-aur-composition.html": {
+    "title": "L035 — Framing और Composition",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l036-shooting-in-rural-settings.html": {
+    "title": "L036 — Shooting in Rural Settings",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l037-interview-style-shooting.html": {
+    "title": "L037 — Interview Style Shooting",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l038-action-and-movement-shots.html": {
+    "title": "L038 — काम and Movement Shots",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l039-thumbnail-planning-during-shoot.html": {
+    "title": "L039 — Thumbnail Planning During Shoot",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-1/l040-production-checklist.html": {
+    "title": "L040 — Production जांच सूची",
+    "core_concept": "जांच सूची",
+    "high_trust": false
+  },
+  "level-1/l041-capcut-mobile-editing-master.html": {
+    "title": "L041 — CapCut (कैपकट) — Mobile Editing Master",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l042-capcut-auto-captions.html": {
+    "title": "L042 — CapCut (कैपकट) Auto Captions",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l043-capcut-templates-and-effects.html": {
+    "title": "L043 — CapCut (कैपकट) नमूना फॉर्मs and Effects",
+    "core_concept": "नमूना फॉर्मs",
+    "high_trust": false
+  },
+  "level-1/l044-invideo-ai-text-to-video.html": {
+    "title": "L044 — InVideo (इनवीडियो) AI (एआई) — Text to Video",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l045-descript-text-based-editing.html": {
+    "title": "L045 — Descript (डिस्क्रिप्ट) — Text-Based Editing",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l046-opusclip-long-to-short.html": {
+    "title": "L046 — OpusClip (ओपसक्लिप) — Long to Short",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l047-google-veo-3-free-ai-video.html": {
+    "title": "L047 — Google (गूगल) Veo 3 — Free AI (एआई) Video",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l048-heygen-ai-avatar-videos.html": {
+    "title": "L048 — HeyGen (हेजेन) — AI (एआई) Avatar Videos",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l049-runway-gen-4-cinematic-ai.html": {
+    "title": "L049 — Runway (रनवे) Gen-4 — Cinematic AI (एआई)",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-1/l050-canva-video-quick-graphics.html": {
+    "title": "L050 — Canva (कैनवा) Video — Quick Graphics",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l051-youtube-channel-setup.html": {
+    "title": "L051 — YouTube (यूट्यूब) Channel Setup",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l052-youtube-seo-video-ranking.html": {
+    "title": "L052 — YouTube (यूट्यूब) SEO (एसईओ) — Video Ranking",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l053-shorts-strategy-2026.html": {
+    "title": "L053 — Shorts Strategy 2026",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l054-instagram-reels-optimization.html": {
+    "title": "L054 — Instagram (इंस्टाग्राम) Reels Optimization",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l055-global-audience-strategy.html": {
+    "title": "L055 — Global Audience Strategy",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l056-adsense-setup-monetization.html": {
+    "title": "L056 — AdSense Setup और कमाई का रास्ता",
+    "core_concept": "कमाई का रास्ता",
+    "high_trust": false
+  },
+  "level-1/l057-brand-deals-sponsorship-kaise-paye.html": {
+    "title": "L057 — Brand Deals — Sponsorship कैसे पाएं",
+    "core_concept": "कैसे पाएं",
+    "high_trust": false
+  },
+  "level-1/l058-digital-course-selling.html": {
+    "title": "L058 — डिजिटल Course Selling",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-1/l059-video-analytics-data-padhna.html": {
+    "title": "L059 — Video एनालिटिक्स — डेटा पढ़ना",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l060-video-creator-career-roadmap.html": {
+    "title": "L060 — Video निर्माता Career Roadmap",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l061-faceless-channel-strategy.html": {
+    "title": "L061 — Faceless Channel Strategy",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l062-educational-content-creation.html": {
+    "title": "L062 — Educational Content Creation",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l063-news-current-affairs-content.html": {
+    "title": "L063 — News/Current Affairs Content",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-1/l064-agriculture-farming-content.html": {
+    "title": "L064 — Agriculture/Farming Content",
+    "core_concept": "कृषि",
+    "high_trust": true
+  },
+  "level-1/l065-health-and-wellness-content.html": {
+    "title": "L065 — Health and Wellness Content",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": true
+  },
+  "level-1/l066-culture-and-tradition-content.html": {
+    "title": "L066 — Culture and Tradition Content",
+    "core_concept": "वीडियो निर्माण",
+    "high_trust": false
+  },
+  "level-1/l067-business-review-content.html": {
+    "title": "L067 — Business समीक्षा Content",
+    "core_concept": "समीक्षा",
+    "high_trust": false
+  },
+  "level-1/l068-podcast-to-video.html": {
+    "title": "L068 — Podcast to Video",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-1/l069-video-collaboration-strategy.html": {
+    "title": "L069 — Video मिलकर काम Strategy",
+    "core_concept": "वीडियो",
+    "high_trust": true
+  },
+  "level-1/l070-level-1-capstone-channel-launch.html": {
+    "title": "L070 — Level 1 अंतिम प्रोजेक्ट — अपना Channel Launch",
+    "core_concept": "अंतिम प्रोजेक्ट अपना",
+    "high_trust": false
+  },
+  "level-2/l071-facebook-algorithm-2026.html": {
+    "title": "L071 — Facebook (फेसबुक) Algorithm 2026",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l072-instagram-reels-vs-stories-strategy.html": {
+    "title": "L072 — Instagram (इंस्टाग्राम) Reels vs Stories Strategy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l073-whatsapp-channel-community-building.html": {
+    "title": "L073 — WhatsApp (व्हाट्सऐप) Channel — समुदाय Building",
+    "core_concept": "व्हाट्सऐप",
+    "high_trust": false
+  },
+  "level-2/l074-youtube-community-tab.html": {
+    "title": "L074 — YouTube (यूट्यूब) समुदाय Tab",
+    "core_concept": "समुदाय",
+    "high_trust": false
+  },
+  "level-2/l075-linkedin-for-global-south.html": {
+    "title": "L075 — LinkedIn (लिंक्डइन) for ग्लोबल साउथ",
+    "core_concept": "ग्लोबल साउथ",
+    "high_trust": false
+  },
+  "level-2/l076-telegram-channel-strategy.html": {
+    "title": "L076 — Telegram (टेलीग्राम) Channel Strategy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l077-thread-x-strategy.html": {
+    "title": "L077 — Thread/X Strategy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l078-pinterest-for-content-creators.html": {
+    "title": "L078 — Pinterest for Content निर्माताs",
+    "core_concept": "निर्माताs",
+    "high_trust": false
+  },
+  "level-2/l079-multi-platform-presence-strategy.html": {
+    "title": "L079 — Multi-Platform Presence Strategy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l080-platform-analytics-comparison.html": {
+    "title": "L080 — Platform एनालिटिक्स Comparison",
+    "core_concept": "एनालिटिक्स",
+    "high_trust": false
+  },
+  "level-2/l081-content-pillars-brand-foundation.html": {
+    "title": "L081 — Content Pillars — Brand Foundation",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l082-30-day-content-calendar.html": {
+    "title": "L082 — 30-Day Content Calendar",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l083-trending-topics-real-time-research.html": {
+    "title": "L083 — Trending Topics — Real-time Research",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l084-local-events-viral.html": {
+    "title": "L084 — स्थानीय Events को Viral बनाना",
+    "core_concept": "स्थानीय को बनाना",
+    "high_trust": false
+  },
+  "level-2/l085-engagement-psychology.html": {
+    "title": "L085 — Engagement Psychology",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l086-viral-post-anatomy.html": {
+    "title": "L086 — Viral Post Anatomy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l087-storytelling-for-social-media.html": {
+    "title": "L087 — Storytelling for Social Media",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l088-user-generated-content-strategy.html": {
+    "title": "L088 — User-Generated Content Strategy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l089-educational-content-for-social-media.html": {
+    "title": "L089 — Educational Content for Social Media",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l090-content-repurposing-system.html": {
+    "title": "L090 — Content Repurposing System",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l091-predis-ai-auto-social-posts.html": {
+    "title": "L091 — Predis.ai — Auto Social Posts",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-2/l092-canva-magic-studio-ai-design.html": {
+    "title": "L092 — Canva (कैनवा) Magic Studio — AI (एआई) Design",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-2/l093-hootsuite-multi-platform-scheduling.html": {
+    "title": "L093 — Hootsuite — Multi-Platform Scheduling",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l094-meta-ai-suite-facebook-ads.html": {
+    "title": "L094 — Meta AI (एआई) Suite — Facebook (फेसबुक) Ads",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-2/l095-buffer-analytics-scheduling.html": {
+    "title": "L095 — Buffer — एनालिटिक्स और Scheduling",
+    "core_concept": "एनालिटिक्स",
+    "high_trust": false
+  },
+  "level-2/l096-captions-ai-mobile-video.html": {
+    "title": "L096 — Captions.ai — Mobile Video",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-2/l097-jasper-brand-voice-consistency.html": {
+    "title": "L097 — Jasper — Brand Voice Consistency",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l098-midjourney-dall-e-ai-images.html": {
+    "title": "L098 — Midjourney/DALL-E — AI (एआई) Images",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-2/l099-canva-ai-presentations.html": {
+    "title": "L099 — Canva (कैनवा) AI (एआई) — प्रस्तुतिs",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-2/l100-ai-chatbot-for-customer-service.html": {
+    "title": "L100 — AI (एआई) Chatbot for Customer Service",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-2/l101-whatsapp-community-management.html": {
+    "title": "L101 — WhatsApp (व्हाट्सऐप) समुदाय Management",
+    "core_concept": "व्हाट्सऐप",
+    "high_trust": false
+  },
+  "level-2/l102-facebook-group-monetization.html": {
+    "title": "L102 — Facebook (फेसबुक) Group कमाई का रास्ता",
+    "core_concept": "कमाई का रास्ता",
+    "high_trust": false
+  },
+  "level-2/l103-micro-influencer-strategy.html": {
+    "title": "L103 — Micro-Influencer Strategy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l104-collaboration-with-local-brands.html": {
+    "title": "L104 — मिलकर काम with स्थानीय Brands",
+    "core_concept": "मिलकर स्थानीय",
+    "high_trust": true
+  },
+  "level-2/l105-paid-ads-500.html": {
+    "title": "L105 — Paid Ads — ₹500 से शुरू",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-2/l106-analytics.html": {
+    "title": "L106 — एनालिटिक्स — क्या काम कर रहा है",
+    "core_concept": "एनालिटिक्स क्या कर",
+    "high_trust": true
+  },
+  "level-2/l107-crisis-management-negative-comments.html": {
+    "title": "L107 — Crisis Management — Negative Comments",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l108-south-south-network-building.html": {
+    "title": "L108 — South-South जुड़ाव Building",
+    "core_concept": "जुड़ाव",
+    "high_trust": false
+  },
+  "level-2/l109-social-media-manager.html": {
+    "title": "L109 — Social Media Manager बनना",
+    "core_concept": "बनना",
+    "high_trust": false
+  },
+  "level-2/l110-paid-collaboration-strategy.html": {
+    "title": "L110 — Paid मिलकर काम Strategy",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "level-2/l111-affiliate-marketing-on-social.html": {
+    "title": "L111 — Affiliate Marketing on Social",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l112-digital-products-via-social-media.html": {
+    "title": "L112 — डिजिटल Products via Social Media",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-2/l113-local-business-online.html": {
+    "title": "L113 — स्थानीय Business को Online लाना",
+    "core_concept": "स्थानीय को लाना",
+    "high_trust": false
+  },
+  "level-2/l114-social-selling-strategy.html": {
+    "title": "L114 — Social Selling Strategy",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l115-content-agency-model.html": {
+    "title": "L115 — Content Agency Model",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l116-regional-language-content-advantage.html": {
+    "title": "L116 — Regional Language Content Advantage",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l117-rural-urban-content-bridge.html": {
+    "title": "L117 — Rural-Urban Content Bridge",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l118-festival-marketing-calendar.html": {
+    "title": "L118 — Festival Marketing Calendar",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l119-social-media-for-education.html": {
+    "title": "L119 — Social Media for Education",
+    "core_concept": "सोशल मीडिया",
+    "high_trust": false
+  },
+  "level-2/l120-level-2-capstone-social-campaign-launch.html": {
+    "title": "L120 — Level 2 अंतिम प्रोजेक्ट — Social Campaign Launch",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-3/l121-search-engine-kaise-kaam-karta-hai.html": {
+    "title": "L121 — Search Engine कैसे काम करता है",
+    "core_concept": "कैसे करता है",
+    "high_trust": true
+  },
+  "level-3/l122-keywords-vs-search-intent.html": {
+    "title": "L122 — Keywords vs Search Intent",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l123-on-page-vs-off-page-seo.html": {
+    "title": "L123 — On-Page vs Off-Page SEO (एसईओ)",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l124-technical-seo-basics.html": {
+    "title": "L124 — Technical SEO (एसईओ) Basics",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l125-mobile-seo-global-south-priority.html": {
+    "title": "L125 — Mobile SEO (एसईओ) — ग्लोबल साउथ Priority",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l126-core-web-vitals.html": {
+    "title": "L126 — Core Web Vitals",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l127-local-seo-bihar-ko-map-par.html": {
+    "title": "L127 — स्थानीय SEO (एसईओ) — Bihar को Map पर",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l128-seo-audit-website-ki-health-check.html": {
+    "title": "L128 — SEO (एसईओ) जांच — Website की Health Check",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": true
+  },
+  "level-3/l129-backlinks-kya-hai-aur-kyon-jaruri-hai.html": {
+    "title": "L129 — Backlinks क्या हैं और क्यों जरूरी हैं",
+    "core_concept": "क्या हैं क्यों",
+    "high_trust": false
+  },
+  "level-3/l130-seo-vs-geo-ai-search-optimization.html": {
+    "title": "L130 — SEO (एसईओ) vs GEO (जीईओ) — AI (एआई) Search Optimization",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l131-semrush-free-tier-complete-guide.html": {
+    "title": "L131 — Semrush (सेमरश) Free Tier — Complete Guide",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l132-surfer-seo-content-optimization.html": {
+    "title": "L132 — Surfer SEO (एसईओ) — Content Optimization",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l133-ahrefs-free-tools.html": {
+    "title": "L133 — Ahrefs (एहरेफ्स) Free टूलs",
+    "core_concept": "टूलs",
+    "high_trust": false
+  },
+  "level-3/l134-keyword-insights-topic-clustering.html": {
+    "title": "L134 — Keyword Insights — Topic Clustering",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l135-rankmath-wordpress-seo.html": {
+    "title": "L135 — RankMath (रैंकमैथ) — WordPress SEO (एसईओ)",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l136-google-search-console-master.html": {
+    "title": "L136 — Google (गूगल) Search Console (गूगल सर्च कंसोल) Master",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l137-sparktoro-audience-research.html": {
+    "title": "L137 — SparkToro — Audience Research",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l138-bing-webmaster-tools.html": {
+    "title": "L138 — Bing Webmaster टूलs",
+    "core_concept": "टूलs",
+    "high_trust": false
+  },
+  "level-3/l139-google-analytics-4.html": {
+    "title": "L139 — Google (गूगल) एनालिटिक्स 4",
+    "core_concept": "एनालिटिक्स",
+    "high_trust": false
+  },
+  "level-3/l140-perplexity-ai-seo-research.html": {
+    "title": "L140 — Perplexity (परप्लेक्सिटी) AI (एआई) — SEO (एसईओ) Research",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l141-ai-se-seo-content-likhna.html": {
+    "title": "L141 — AI (एआई) से SEO (एसईओ) Content लिखना",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l142-schema-markup-rich-results.html": {
+    "title": "L142 — स्कीमा Markup — Rich Results",
+    "core_concept": "स् मा",
+    "high_trust": false
+  },
+  "level-3/l143-featured-snippets-strategy.html": {
+    "title": "L143 — Featured Snippets Strategy",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l144-internal-linking-strategy.html": {
+    "title": "L144 — Internal Linking Strategy",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l145-ai-visibility-chatgpt-mein-dikhna.html": {
+    "title": "L145 — AI (एआई) Visibility — ChatGPT (चैटजीपीटी) में दिखना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-3/l146-content-cluster-strategy.html": {
+    "title": "L146 — Content Cluster Strategy",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l147-hindi-seo-local-language-ranking.html": {
+    "title": "L147 — Hindi SEO (एसईओ) — स्थानीय Language Ranking",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l148-youtube-seo-video-search.html": {
+    "title": "L148 — YouTube (यूट्यूब) SEO (एसईओ) — Video Search",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-3/l149-e-e-a-t-google-trust-signals.html": {
+    "title": "L149 — E-E-A-T — Google (गूगल) Trust Signals",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l150-voice-search-optimization.html": {
+    "title": "L150 — Voice Search Optimization",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l151-seo-freelancing-first-client.html": {
+    "title": "L151 — SEO (एसईओ) फ्रीलांस काम — First Client",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l152-seo-audit-service.html": {
+    "title": "L152 — SEO (एसईओ) जांच Service",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l153-niche-website-se-income.html": {
+    "title": "L153 — Niche Website से Income",
+    "core_concept": "से",
+    "high_trust": false
+  },
+  "level-3/l154-affiliate-seo.html": {
+    "title": "L154 — Affiliate SEO (एसईओ)",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l155-local-business-seo-service.html": {
+    "title": "L155 — स्थानीय Business SEO (एसईओ) Service",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l156-programmatic-seo.html": {
+    "title": "L156 — Programmatic SEO (एसईओ)",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l157-international-seo-global-south.html": {
+    "title": "L157 — International SEO (एसईओ) — ग्लोबल साउथ",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l158-e-commerce-seo.html": {
+    "title": "L158 — E-commerce SEO (एसईओ)",
+    "core_concept": "इलेक्ट्रॉनिक वाणिज्य",
+    "high_trust": false
+  },
+  "level-3/l159-seo-reporting-client-reports.html": {
+    "title": "L159 — SEO (एसईओ) रिपोर्टing — Client रिपोर्टs",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l160-seo-agency-building.html": {
+    "title": "L160 — SEO (एसईओ) Agency Building",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l161-news-seo-google-discover.html": {
+    "title": "L161 — News SEO (एसईओ) — Google (गूगल) Discover",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l162-image-seo.html": {
+    "title": "L162 — Image SEO (एसईओ)",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l163-podcast-seo.html": {
+    "title": "L163 — Podcast SEO (एसईओ)",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l164-seo-for-social-media-profiles.html": {
+    "title": "L164 — SEO (एसईओ) for Social Media Profiles",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l165-ai-content-detection-aur-seo.html": {
+    "title": "L165 — AI (एआई) Content Detection और SEO (एसईओ)",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l166-zero-click-search-strategy.html": {
+    "title": "L166 — Zero-Click Search Strategy",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l167-mobile-page-speed-mastery.html": {
+    "title": "L167 — Mobile Page Speed Mastery",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l168-reddit-forum-seo-strategy.html": {
+    "title": "L168 — Reddit/Forum SEO (एसईओ) Strategy",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l169-acs-website-seo-live-project.html": {
+    "title": "L169 — ACS Website SEO (एसईओ) — Live प्रोजेक्ट",
+    "core_concept": "सर्च इंजन अनुकूलन",
+    "high_trust": false
+  },
+  "level-3/l170-level-3-capstone-site-rank-karo.html": {
+    "title": "L170 — Level 3 अंतिम प्रोजेक्ट — Site Rank करो",
+    "core_concept": "अंतिम प्रोजेक्ट करो",
+    "high_trust": true
+  },
+  "level-4/l171-ai-tools-ko-workflow-mein.html": {
+    "title": "L171 — AI (एआई) टूलs को काम की प्रक्रिया में जोड़ना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l172-zapier-no-code-automation.html": {
+    "title": "L172 — Zapier — No-Code Automation",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l173-n8n-free-open-source-automation.html": {
+    "title": "L173 — n8n — Free Open-Source Automation",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l174-ai-agents-kya-hai.html": {
+    "title": "L174 — AI (एआई) Agents क्या हैं",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l175-human-ai-collaboration-model.html": {
+    "title": "L175 — Human + AI (एआई) मिलकर काम Model",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "level-4/l176-prompt-engineering-advanced.html": {
+    "title": "L176 — Prompt (प्रॉम्प्ट) Engineering — थोड़ा आगे",
+    "core_concept": "प्रॉम्प्ट इंजीनियरिंग",
+    "high_trust": false
+  },
+  "level-4/l177-ai-for-research-perplexity-master.html": {
+    "title": "L177 — AI (एआई) for Research — Perplexity (परप्लेक्सिटी) Master",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l178-notebooklm-document-intelligence.html": {
+    "title": "L178 — NotebookLM — Document Intelligence",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l179-ai-ethics-aur-responsible-use.html": {
+    "title": "L179 — AI (एआई) Ethics और Responsible Use",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l180-ai-news-constantly-update.html": {
+    "title": "L180 — AI (एआई) News — Constantly Update रहना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l181-claude-ai-long-form-intelligence.html": {
+    "title": "L181 — Claude (क्लॉड) AI (एआई) — Long-form Intelligence",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l182-jasper-campaign-manager.html": {
+    "title": "L182 — Jasper — Campaign Manager",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l183-midjourney-brand-visuals.html": {
+    "title": "L183 — Midjourney — Brand Visuals",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l184-sora-advanced-video-generation.html": {
+    "title": "L184 — Sora — थोड़ा आगे Video Generation",
+    "core_concept": "वीडियो",
+    "high_trust": false
+  },
+  "level-4/l185-google-gemini-advanced.html": {
+    "title": "L185 — Google (गूगल) Gemini (जेमिनी) थोड़ा आगे",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l186-canva-ai-full-suite.html": {
+    "title": "L186 — Canva (कैनवा) AI (एआई) — Full Suite",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l187-dall-e-3-advanced-prompting.html": {
+    "title": "L187 — DALL-E 3 (डॉल-ई थ्री) — थोड़ा आगे Prompting",
+    "core_concept": "प्रॉम्प्ट इंजीनियरिंग",
+    "high_trust": false
+  },
+  "level-4/l188-elevenlabs-ai-voice.html": {
+    "title": "L188 — ElevenLabs — AI (एआई) Voice",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l189-gamma-app-ai-presentations.html": {
+    "title": "L189 — Gamma.app — AI (एआई) प्रस्तुतिs",
+    "core_concept": "मोबाइल ऐप",
+    "high_trust": false
+  },
+  "level-4/l190-claude-code-vibe-coding.html": {
+    "title": "L190 — Claude (क्लॉड) Code (Vibe Coding)",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l191-personal-brand-architecture.html": {
+    "title": "L191 — Personal Brand Architecture",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l192-online-course-design.html": {
+    "title": "L192 — Online Course — Design करना",
+    "core_concept": "करना",
+    "high_trust": true
+  },
+  "level-4/l193-digital-product-suite.html": {
+    "title": "L193 — डिजिटल Product Suite",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-4/l194-freelancing-global-clients.html": {
+    "title": "L194 — फ्रीलांस काम — Global Clients",
+    "core_concept": "फ्रीलांस",
+    "high_trust": false
+  },
+  "level-4/l195-ai-agency-model.html": {
+    "title": "L195 — AI (एआई) Agency Model",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l196-email-marketing-ai-se.html": {
+    "title": "L196 — Email Marketing — AI (एआई) से",
+    "core_concept": "ईमेल",
+    "high_trust": false
+  },
+  "level-4/l197-sales-funnel-design.html": {
+    "title": "L197 — Sales Funnel Design",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l198-analytics-dashboard-business-intel.html": {
+    "title": "L198 — एनालिटिक्स डैशबोर्ड — Business Intel",
+    "core_concept": "एनालिटिक्स डैशबोर्ड",
+    "high_trust": false
+  },
+  "level-4/l199-pricing-strategy-for-digital-services.html": {
+    "title": "L199 — Pricing Strategy for डिजिटल Services",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-4/l200-digital-business-plan.html": {
+    "title": "L200 — डिजिटल Business Plan",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-4/l201-ai-agents-ka.html": {
+    "title": "L201 — AI (एआई) Agents का भविष्य",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l202-local-language-ai-models.html": {
+    "title": "L202 — स्थानीय Language AI (एआई) Models",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l203-blockchain-aur-digital-identity.html": {
+    "title": "L203 — Blockchain और डिजिटल Identity",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l204-global-south-competitive-advantage.html": {
+    "title": "L204 — ग्लोबल साउथ Competitive Advantage",
+    "core_concept": "ग्लोबल साउथ",
+    "high_trust": false
+  },
+  "level-4/l205-ar-vr-for-education.html": {
+    "title": "L205 — AR/VR for Education",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l206-gig-economy-strategy.html": {
+    "title": "L206 — Gig Economy Strategy",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l207-creator-economy-2036.html": {
+    "title": "L207 — निर्माता Economy 2036",
+    "core_concept": "निर्माता",
+    "high_trust": false
+  },
+  "level-4/l208-digital-citizenship-ethics.html": {
+    "title": "L208 — डिजिटल Citizenship — Ethics",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-4/l209-continuous-learning-system.html": {
+    "title": "L209 — Continuous Learning System",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l210-ai-digital-master-final-review.html": {
+    "title": "L210 — AI (एआई) डिजिटल Master — Final समीक्षा",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l211-local-business-digital-transformation.html": {
+    "title": "L211 — स्थानीय Business डिजिटल Transformation",
+    "core_concept": "स्थानीय डिजिटल",
+    "high_trust": false
+  },
+  "level-4/l212-education-content-empire.html": {
+    "title": "L212 — Education Content Empire",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l213-ai-powered-news-channel.html": {
+    "title": "L213 — AI-Powered News Channel",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l214-agricultural-tech-content.html": {
+    "title": "L214 — Agricultural Tech Content",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l215-health-and-wellness-creator.html": {
+    "title": "L215 — Health and Wellness निर्माता",
+    "core_concept": "निर्माता",
+    "high_trust": true
+  },
+  "level-4/l216-e-commerce-business-with-ai.html": {
+    "title": "L216 — E-Commerce Business with AI (एआई)",
+    "core_concept": "इलेक्ट्रॉनिक वाणिज्य",
+    "high_trust": false
+  },
+  "level-4/l217-south-south-knowledge-exchange.html": {
+    "title": "L217 — South-South Knowledge Exchange",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l218-acs-style-mini-school.html": {
+    "title": "L218 — ACS-Style Mini School",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l219-digital-income-portfolio.html": {
+    "title": "L219 — डिजिटल Income Portfolio",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-4/l220-level-4-capstone-global-entrepreneur.html": {
+    "title": "L220 — Level 4 अंतिम प्रोजेक्ट — Global Entrepreneur",
+    "core_concept": "अंतिम प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-4/l220a-ai-compliance-workflow.html": {
+    "title": "L220A — AI (एआई) Compliance काम की प्रक्रिया बनाना",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l220b-ai-agent-system.html": {
+    "title": "L220B — AI (एआई) Agent System Design",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l220c-regional-ai-training.html": {
+    "title": "L220C — Regional AI (एआई) Model Training",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-4/l220d-digital-infrastructure.html": {
+    "title": "L220D — डिजिटल Civilization Infrastructure",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-5/l221-local-business-complete-digital-setup.html": {
+    "title": "L221 — स्थानीय Business — Complete डिजिटल Setup",
+    "core_concept": "स्थानीय डिजिटल",
+    "high_trust": false
+  },
+  "level-5/l222-youtube-channel-zero-to-1000-subs.html": {
+    "title": "L222 — YouTube (यूट्यूब) Channel — Zero to 1000 Subs",
+    "core_concept": "डिजिटल प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l223-website-page-1-ranking-project.html": {
+    "title": "L223 — Website — Page 1 Ranking प्रोजेक्ट",
+    "core_concept": "प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l224-social-campaign-measurable-results.html": {
+    "title": "L224 — Social Campaign — Measurable Results",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-5/l225-ai-automation-real-business.html": {
+    "title": "L225 — AI (एआई) Automation — Real Business",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-5/l226-online-course-launch-and-sell.html": {
+    "title": "L226 — Online Course — Launch and Sell",
+    "core_concept": "डिजिटल प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l227-freelance-first-10-000-online.html": {
+    "title": "L227 — Freelance — First ₹10,000 Online",
+    "core_concept": "डिजिटल प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l228-personal-brand-thought-leader.html": {
+    "title": "L228 — Personal Brand — Thought Leader",
+    "core_concept": "डिजिटल प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l229-community-of-500-members.html": {
+    "title": "L229 — समुदाय of 500 Members",
+    "core_concept": "समुदाय",
+    "high_trust": false
+  },
+  "level-5/l230-complete-portfolio-showcase.html": {
+    "title": "L230 — Complete Portfolio — Showcase करो",
+    "core_concept": "करो",
+    "high_trust": true
+  },
+  "level-5/l231-bihar-se-bangladesh-ko-sikhao.html": {
+    "title": "L231 — Bihar से Bangladesh को सिखाओ",
+    "core_concept": "से को सिखाओ",
+    "high_trust": false
+  },
+  "level-5/l232-nepal-ke-knowledge-sharing.html": {
+    "title": "L232 — Nepal के साथ Knowledge Sharing",
+    "core_concept": "के साथ",
+    "high_trust": false
+  },
+  "level-5/l233-africa-ke-creator-se-connect.html": {
+    "title": "L233 — Africa के निर्माता से Connect करो",
+    "core_concept": "के निर्माता से",
+    "high_trust": true
+  },
+  "level-5/l234-latin-america-digital-bridge.html": {
+    "title": "L234 — Latin America डिजिटल Bridge",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-5/l235-multilingual-content-strategy.html": {
+    "title": "L235 — Multilingual Content Strategy",
+    "core_concept": "डिजिटल प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l236-global-client-first-international-project.html": {
+    "title": "L236 — Global Client — First International प्रोजेक्ट",
+    "core_concept": "प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l237-hindi-internet-ko-grow.html": {
+    "title": "L237 — Hindi Internet को Grow करना",
+    "core_concept": "इंटरनेट",
+    "high_trust": true
+  },
+  "level-5/l238-rural-digital-ambassador.html": {
+    "title": "L238 — Rural डिजिटल Ambassador",
+    "core_concept": "डिजिटल",
+    "high_trust": false
+  },
+  "level-5/l239-acs-ka-mini-version-banao.html": {
+    "title": "L239 — ACS का Mini Version बनाओ",
+    "core_concept": "का बनाओ",
+    "high_trust": false
+  },
+  "level-5/l240-your-global-south-story-share.html": {
+    "title": "L240 — Your ग्लोबल साउथ Story — Share करो",
+    "core_concept": "ग्लोबल साउथ करो",
+    "high_trust": true
+  },
+  "level-5/l241-next-10-years-ka-plan.html": {
+    "title": "L241 — Next 10 Years का Plan",
+    "core_concept": "का",
+    "high_trust": false
+  },
+  "level-5/l242-income-diversification-5-streams.html": {
+    "title": "L242 — Income Diversification — 5 Streams",
+    "core_concept": "डिजिटल प्रोजेक्ट",
+    "high_trust": false
+  },
+  "level-5/l243-ai-changes-kaise-adapt.html": {
+    "title": "L243 — AI (एआई) Changes — कैसे Adapt करें",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": true
+  },
+  "level-5/l244-community-leadership.html": {
+    "title": "L244 — समुदाय नेतृत्व",
+    "core_concept": "समुदाय नेतृत्व",
+    "high_trust": false
+  },
+  "level-5/l245-apna-ka-acs-banao.html": {
+    "title": "L245 — अपना खुद का ACS बनाओ",
+    "core_concept": "अपना खुद का",
+    "high_trust": false
+  },
+  "level-5/l246-digital-legacy-identity-banao.html": {
+    "title": "L246 — डिजिटल Legacy — अपनी पहचान बनाओ",
+    "core_concept": "डिजिटल अपनी पहचान",
+    "high_trust": false
+  },
+  "level-5/l247-mentorship-give-back.html": {
+    "title": "L247 — Mentorship — Give Back करो",
+    "core_concept": "करो",
+    "high_trust": true
+  },
+  "level-5/l248-final-assessment-360-review.html": {
+    "title": "L248 — Final सीखने की जांच — 360° समीक्षा",
+    "core_concept": "सीखने की जांच",
+    "high_trust": false
+  },
+  "level-5/l249-certificate-of-completion.html": {
+    "title": "L249 — प्रमाणपत्र of Completion",
+    "core_concept": "प्रमाणपत्र",
+    "high_trust": false
+  },
+  "level-5/l250-village-to-world-aage-kya.html": {
+    "title": "L250 — Village to World — आगे क्या",
+    "core_concept": "आगे क्या",
+    "high_trust": false
+  },
+  "level-5-final-extensions/l250a-ai-governance-cert.html": {
+    "title": "L250A — AI (एआई) नियम और जिम्मेदारी Certification",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-5-final-extensions/l250b-regional-creator-network.html": {
+    "title": "L250B — Regional निर्माता जुड़ाव बनाओ",
+    "core_concept": "निर्माता जुड़ाव बनाओ",
+    "high_trust": false
+  },
+  "level-5-final-extensions/l250c-global-south-system.html": {
+    "title": "L250C — ग्लोबल साउथ मिलकर काम System",
+    "core_concept": "ग्लोबल साउथ मिलकर",
+    "high_trust": true
+  },
+  "level-5-final-extensions/l250d-local-ai-ecosystem.html": {
+    "title": "L250D — स्थानीय AI (एआई) पूरा तंत्र बनाओ",
+    "core_concept": "कृत्रिम बुद्धिमत्ता",
+    "high_trust": false
+  },
+  "level-5-final-extensions/l250e-acs-master-graduation.html": {
+    "title": "L250E — ACS MASTER GRADUATION",
+    "core_concept": "डिजिटल नेतृत्व",
+    "high_trust": false
+  }
+}

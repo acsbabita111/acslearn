@@ -1,0 +1,14 @@
+{
+  "package": "ACS_332_Lessons_Diagram_Text_Safe_Patched",
+  "created_at": "2026-05-10T04:54:38",
+  "lesson_pages": 332,
+  "pages_with_svg_diagrams": 332,
+  "svg_diagrams_scanned": 1992,
+  "svg_text_elements_seen": 10258,
+  "tiny_label_fix_pages": 6,
+  "tiny_label_fixes": 12,
+  "unsafe_text_estimate_remaining": 0,
+  "footer_rule": "No footer content changed. Patch only touched SVG <text> elements.",
+  "method": "All SVG text labels were fitted inside nearest boxes/circles. Long labels were wrapped or shortened only inside diagram boxes where space was too small.",
+  "sample_remaining": []
+}
