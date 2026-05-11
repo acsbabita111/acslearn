@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-<title>L020 — स्थानीय Knowledge को Global Format में बदलना | ACS</title>
+<title>स्थानीय Knowledge को Global Format में बदलना | ACS-AI DIGITAL MASTER L020</title>
 <meta content="ACS का mission है Village to World. इस lesson में सीखेंगे कि स्थानीय knowledge को global audience के लिए कैसे present करें।" name="description"/>
 <meta content="Local Knowledge को Global Format में बदलना, Village to World, ACS AI Digital Master, Digital Foundation Hindi, Applied Computer School" name="keywords"/>
 <meta content="#7c3aed" name="theme-color"/>
@@ -13,6 +13,10 @@
 <meta content="true" name="acs:global-south-ready"/>
 <!-- Future multilingual SEO: enable hreflang links after translated pages are live.
 <link rel="alternate" hreflang="hi-IN" href="https://acslearn.com/level-0/l020-local-knowledge-global-format.html">
+<link rel="alternate" hreflang="en" href="./en/l020-local-knowledge-global-format.html">
+<link rel="alternate" hreflang="bn" href="./bn/l020-local-knowledge-global-format.html">
+<link rel="alternate" hreflang="ur" href="./ur/l020-local-knowledge-global-format.html">
+<link rel="alternate" hreflang="ar" href="./ar/l020-local-knowledge-global-format.html">
 <link rel="alternate" hreflang="x-default" href="https://acslearn.com/level-0/l020-local-knowledge-global-format.html">
 -->
 <style>
@@ -584,6 +588,69 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 .acs-share-btn.copy .ico{background:linear-gradient(135deg,#7c3aed,#ec4899)!important}
 @media(max-width:600px){.diagram svg{min-height:320px!important}}
 
+
+/* ACS Immediate Course Fix Patch v1 */
+.acs-top-home-btn{
+  position:fixed;
+  left:16px;
+  top:14px;
+  z-index:9999;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:42px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  color:#fff!important;
+  font-weight:900;
+  text-decoration:none!important;
+  box-shadow:0 12px 30px rgba(124,58,237,.28);
+  border:1px solid rgba(255,255,255,.35);
+}
+.acs-diagram-focus{
+  margin:34px 0!important;
+  padding:22px!important;
+  border-radius:32px!important;
+  background:linear-gradient(180deg,#ffffff,#f8fbff)!important;
+  border:2px solid #dbeafe!important;
+  box-shadow:0 24px 70px rgba(15,23,42,.16)!important;
+}
+.acs-diagram-focus::before{
+  content:"डायग्राम से समझें";
+  display:block;
+  margin:0 0 14px;
+  font-size:clamp(1.35rem,3vw,2rem);
+  font-weight:900;
+  color:#111827;
+}
+.acs-diagram-focus::after{
+  content:"इस चित्र को देखकर मुख्य बात तुरंत समझने की कोशिश करें।";
+  display:block;
+  margin:12px 0 0;
+  font-weight:800;
+  color:#475569;
+}
+.acs-diagram-focus svg{
+  width:100%!important;
+  max-width:100%!important;
+  height:auto!important;
+  min-height:520px!important;
+  display:block!important;
+}
+.acs-diagram-focus svg text{
+  font-weight:900!important;
+  paint-order:stroke!important;
+  stroke:#ffffff!important;
+  stroke-width:2px!important;
+}
+@media(max-width:720px){
+  .acs-top-home-btn{left:10px;top:10px;min-height:38px;padding:8px 11px;font-size:.9rem}
+  .acs-diagram-focus{padding:16px!important;margin:26px 0!important}
+  .acs-diagram-focus svg{min-height:360px!important}
+}
+
 </style>
 <!-- ACS TECHNICAL SEO PATCH START -->
 <link href="https://acslearn.com/vc/hi/level-0/l020-local-knowledge-global-format.html" rel="canonical"/>
@@ -595,7 +662,7 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://acslearn.com/#organization",
+      "@id": "https://acslearn.com/vc/hi/#organization",
       "name": "Applied Computer School",
       "url": "https://acslearn.com",
       "email": "ffgpmp@gmail.com",
@@ -643,14 +710,14 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
       "learningResourceType": "Lesson",
       "educationalLevel": "Beginner to Professional",
       "provider": {
-        "@id": "https://acslearn.com/#organization"
+        "@id": "https://acslearn.com/vc/hi/#organization"
       },
       "isPartOf": {
         "@type": "Course",
         "name": "ACS-AI DIGITAL MASTER",
         "url": "https://acslearn.com/vc/hi/index.html",
         "provider": {
-          "@id": "https://acslearn.com/#organization"
+          "@id": "https://acslearn.com/vc/hi/#organization"
         }
       }
     }
@@ -659,19 +726,19 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 </script>
 <!-- ACS TECHNICAL SEO PATCH END -->
 <meta content="Class 6 Hindi readability" name="acs:language-level"/>
-<meta name="description" content="L020 Local Knowledge — स्थानीय जानकारी को साफ डिजिटल रूप में बदलने और दुनिया तक पहुँचाने का हिंदी लेसन।">
+<meta name="description" content="स्थानीय Knowledge को Global Format में बदलना — ACS-AI DIGITAL MASTER का हिंदी मोबाइल-फर्स्ट लेसन। डिजिटल नींव, सुरक्षित इंटरनेट, एआई परिचय और 2036 की तैयारी के लिए सरल अभ्यास।">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://acslearn.com/level-0/l020-local-knowledge-global-format.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Applied Computer School">
-<meta property="og:title" content="L020 — स्थानीय Knowledge को Global Format में बदलना | ACS">
-<meta property="og:description" content="L020 Local Knowledge — स्थानीय जानकारी को साफ डिजिटल रूप में बदलने और दुनिया तक पहुँचाने का हिंदी लेसन।">
+<meta property="og:title" content="स्थानीय Knowledge को Global Format में बदलना | ACS-AI DIGITAL MASTER L020">
+<meta property="og:description" content="स्थानीय Knowledge को Global Format में बदलना — ACS-AI DIGITAL MASTER का हिंदी मोबाइल-फर्स्ट लेसन। डिजिटल नींव, सुरक्षित इंटरनेट, एआई परिचय और 2036 की तैयारी के लिए सरल अभ्यास।">
 <meta property="og:url" content="https://acslearn.com/level-0/l020-local-knowledge-global-format.html">
-<meta property="og:image" content="https://acslearn.com/og/level-0.png">
+<meta property="og:image" content="https://acslearn.com/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="L020 — स्थानीय Knowledge को Global Format में बदलना | ACS">
-<meta name="twitter:description" content="L020 Local Knowledge — स्थानीय जानकारी को साफ डिजिटल रूप में बदलने और दुनिया तक पहुँचाने का हिंदी लेसन।">
-<meta name="twitter:image" content="https://acslearn.com/og/level-0.png">
+<meta name="twitter:title" content="स्थानीय Knowledge को Global Format में बदलना | ACS-AI DIGITAL MASTER L020">
+<meta name="twitter:description" content="स्थानीय Knowledge को Global Format में बदलना — ACS-AI DIGITAL MASTER का हिंदी मोबाइल-फर्स्ट लेसन। डिजिटल नींव, सुरक्षित इंटरनेट, एआई परिचय और 2036 की तैयारी के लिए सरल अभ्यास।">
+<meta name="twitter:image" content="https://acslearn.com/logo.png">
 </head>
 <body data-acs-lesson-path="level-0/l020-local-knowledge-global-format.html">
 <div class="top-progress" id="progressBar"></div>
@@ -732,7 +799,7 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 </div>
 <p class="lead">गाँव, खेती, स्थानीय business, लोककथा, craft, flood experience और समुदाय solutions स्थानीय knowledge हैं।</p>
 <p>यह knowledge valuable है अगर इसे सही format में present किया जाए।</p>
-<div class="diagram">
+<div class="acs-diagram-focus diagram">
 <svg aria-label="Local Knowledge को Global Format में बदलना" role="img" style="overflow:visible" viewbox="0 0 920 260">
 <rect fill="#fff" height="220" rx="24" width="880" x="20" y="20"></rect>
 <defs><lineargradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7c3aed"></stop><stop offset="1" stop-color="#ec4899"></stop></lineargradient></defs>
@@ -755,7 +822,7 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 </div>
 <p class="lead">Global format का मतलब है clear title, स्थिति, problem, solution, steps और visuals के साथ content बनाना।</p>
 <p>स्थानीय अनुभव article, video script, case study या रिपोर्ट बन सकता है।</p>
-<div class="diagram">
+<div class="acs-diagram-focus diagram">
 <svg aria-label="Global Format" role="img" style="overflow:visible" viewbox="0 0 920 300">
 <rect fill="#fff" height="260" rx="24" width="880" x="20" y="20"></rect>
 <defs><lineargradient id="hub" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7c3aed"></stop><stop offset="1" stop-color="#ec4899"></stop></lineargradient></defs>
@@ -775,7 +842,7 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 </div>
 <p class="lead">Observe → Document → AI (एआई) Structure → Translate → Publish.</p>
 <p>यह काम की प्रक्रिया स्थानीय wisdom को global learning reस्रोत बना सकता है।</p>
-<div class="diagram">
+<div class="acs-diagram-focus diagram">
 <svg aria-label="Village to World Workflow" role="img" style="overflow:visible" viewbox="0 0 920 300">
 <rect fill="#fff" height="260" rx="24" width="880" x="20" y="20"></rect>
 <defs><lineargradient id="hub" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7c3aed"></stop><stop offset="1" stop-color="#ec4899"></stop></lineargradient></defs>
@@ -823,7 +890,7 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 <section class="block" id="practice">
 <div class="section-head"><h2>अभ्यास का काम</h2><span class="section-tag">काम</span></div>
 <div class="checklist"><div class="check"><div class="badge">1</div><div>एक स्थानीय skill/topic चुनें</div></div><div class="check"><div class="badge">2</div><div>उस पर 5 points लिखें</div></div><div class="check"><div class="badge">3</div><div>AI (एआई) से उसे article outline में बदलवाएँ।</div></div></div>
-<div class="diagram"><svg aria-label="Practice Workflow" role="img" style="overflow:visible" viewbox="0 0 920 260">
+<div class="acs-diagram-focus diagram"><svg aria-label="Practice Workflow" role="img" style="overflow:visible" viewbox="0 0 920 260">
 <rect fill="#fff" height="220" rx="24" width="880" x="20" y="20"></rect>
 <defs><lineargradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7c3aed"></stop><stop offset="1" stop-color="#ec4899"></stop></lineargradient></defs>
 <rect fill="#eef2ff" height="66" rx="18" stroke="#c7d2fe" width="150" x="50" y="96"></rect><text fill="#111827" font-size="14" font-weight="700" text-anchor="middle" x="125" y="137">Open</text>
@@ -840,7 +907,7 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 <div class="section-head"><h2>AI (एआई) से अभ्यास</h2><span class="section-tag">AI (एआई) Skill</span></div>
 <p>इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।</p>
 <div class="prompt">मेरे स्थानीय knowledge को global audience के लिए article format में बदल दीजिए। Topic: [LOCAL TOPIC]. Structure: title, स्थिति, problem, solution, steps, conclusion.<button class="copy-btn" onclick="copyPrompt(this)">कॉपी</button></div>
-<div class="diagram"><svg aria-label="AI Prompt Workflow" role="img" style="overflow:visible" viewbox="0 0 920 260">
+<div class="acs-diagram-focus diagram"><svg aria-label="AI Prompt Workflow" role="img" style="overflow:visible" viewbox="0 0 920 260">
 <rect fill="#fff" height="220" rx="24" width="880" x="20" y="20"></rect>
 <defs><lineargradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7c3aed"></stop><stop offset="1" stop-color="#ec4899"></stop></lineargradient></defs>
 <rect fill="#eef2ff" height="66" rx="18" stroke="#c7d2fe" width="150" x="50" y="96"></rect><text fill="#111827" font-size="14" font-weight="700" text-anchor="middle" x="125" y="137">Prompt</text>
@@ -859,7 +926,7 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 <div class="card"><h3>गलती से बचें</h3><p>बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।</p></div>
 <div class="card"><h3>सुरक्षित Rule</h3><p>OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।</p></div>
 </div>
-<div class="diagram"><svg aria-label="Safety" role="img" style="overflow:visible" viewbox="0 0 920 300">
+<div class="acs-diagram-focus diagram"><svg aria-label="Safety" role="img" style="overflow:visible" viewbox="0 0 920 300">
 <rect fill="#fff" height="260" rx="24" width="880" x="20" y="20"></rect>
 <defs><lineargradient id="s" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7c3aed"></stop><stop offset="1" stop-color="#ec4899"></stop></lineargradient></defs>
 <path d="M460 64 L592 112 V174 C592 215 556 246 460 270 C364 246 328 215 328 174 V112 Z" fill="#f3f4f6" stroke="#d1d5db" stroke-width="3"></path>
@@ -958,8 +1025,8 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
   </div>
 
   <div class="acs-note-panel locked">
-    <h3 class="acs-note-title" style="margin:0 0 8px;font-weight:900;">🎉 Shareable Note</h3>
-    <p class="acs-note-status" style="margin:0 0 10px;color:#4b5563;font-weight:900;">Locked</p>
+    <h3 class="acs-note-title" style="margin:0 0 8px;font-weight:900;">🎉 लेवल / लेयर पूर्णता नोट</h3>
+    <p class="acs-note-status" style="margin:0 0 10px;color:#4b5563;font-weight:900;">Locked — इस भाग के सभी लेसन पूरे होने पर खुलेगा</p>
     <div class="acs-note-text">Progress check हो रहा है...</div>
     <div class="acs-reward-actions">
       <button class="acs-reward-btn" type="button" data-note-action="copy">📋 Copy Note</button>
@@ -967,25 +1034,6 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
     </div>
   </div>
 
-  <div class="acs-final-cert-panel locked">
-    <h3 style="margin:0 0 8px;font-weight:900;">🎓 Grand Certificate</h3>
-    <p class="acs-cert-status" style="margin:0 0 12px;color:#4b5563;font-weight:900;">Locked — सभी 332 lesson badges complete होने पर unlock होगा।</p>
-    <input class="acs-student-input" type="text" placeholder="Student Name लिखें" aria-label="Student Name">
-    <div class="acs-cert-preview">
-      <div style="font-weight:900;color:#7c3aed;">APPLIED COMPUTER SCHOOL</div>
-      <div class="acs-cert-title">Certificate of Completion</div>
-      <div>ACS-AI DIGITAL MASTER</div>
-      <div class="acs-cert-name">Student Name</div>
-      <div>Completed: 332 Lessons • Mode: Mobile-First Learning</div>
-      <div style="margin-top:8px;">Certificate ID: <strong class="acs-cert-id">ACS-MASTER-332</strong></div>
-      <div>Issue Date: <strong class="acs-cert-date"></strong></div>
-    </div>
-    <div class="acs-reward-actions">
-      <button class="acs-reward-btn" type="button" data-cert-action="print">🖨 Print / Save PDF</button>
-      <button class="acs-reward-btn" type="button" data-cert-action="copy">📋 Copy Certificate Text</button>
-      <button class="acs-reward-btn" type="button" data-cert-action="share">📣 Share Certificate</button>
-    </div>
-  </div>
 </section>
 
 <section class="acs-share-card" id="share-this-lesson" data-title="L020 — स्थानीय Knowledge को Global Format में बदलना" data-url="https://acslearn.com/vc/hi/level-0/l020-local-knowledge-global-format.html">
@@ -1359,7 +1407,7 @@ window.ACS_REINFORCEMENT_DATA = {"lessons": [{"id": "L001", "title": "L001 — �
     var title = panel.querySelector(".acs-note-title");
     var status = panel.querySelector(".acs-note-status");
     if(title) title.textContent = "🎉 " + section.name + " — Shareable Note";
-    if(status) status.textContent = complete ? "Unlocked ✅" : "Locked — पहले इस भाग के सभी lessons complete करें।";
+    if(status) status.textContent = complete ? "Unlocked ✅" : "Locked — इस भाग के सभी लेसन पूरे होने पर खुलेगा — पहले इस भाग के सभी lessons complete करें।";
     panel.classList.toggle("locked", !complete);
     var note = buildSectionNote(section);
     if(textBox) textBox.textContent = complete ? note : "Progress: " + completedCount(sec) + " / " + section.lessonIds.length + "\nपूरा होने पर आपका progressive written note यहाँ unlock होगा।";
@@ -1371,7 +1419,7 @@ window.ACS_REINFORCEMENT_DATA = {"lessons": [{"id": "L001", "title": "L001 — �
     var complete = allComplete();
     panel.classList.toggle("locked", !complete);
     var st = panel.querySelector(".acs-cert-status");
-    if(st) st.textContent = complete ? "Grand Certificate Unlocked ✅" : "Locked — सभी 332 lesson badges complete होने पर unlock होगा।";
+    if(st) st.textContent = complete ? "Grand Certificate Unlocked ✅" : "Locked — इस भाग के सभी लेसन पूरे होने पर खुलेगा — सभी 332 lesson badges complete होने पर unlock होगा।";
     panel.querySelectorAll("[data-cert-action], .acs-student-input").forEach(function(el){ el.disabled = !complete; el.style.opacity = complete ? "1" : ".55"; });
   }
   function initReinforcement(){
@@ -1479,7 +1527,7 @@ window.ACS_PROGRESS_LOCK_DATA = {"sectionOrder": ["level-0", "level-1", "level-2
       a.classList.remove("locked","completed","open");
       if(done){status.textContent="🏅 Completed"; status.className="acs-lock-status done"; a.classList.add("completed");}
       else if(open){status.textContent="✅ Open"; status.className="acs-lock-status open"; a.classList.add("open");}
-      else{status.textContent="🔒 Locked"; status.className="acs-lock-status locked"; a.classList.add("locked");}
+      else{status.textContent="🔒 Locked — इस भाग के सभी लेसन पूरे होने पर खुलेगा"; status.className="acs-lock-status locked"; a.classList.add("locked");}
       if(!a.dataset.lockBound){
         a.dataset.lockBound="1";
         a.addEventListener("click",function(e){
