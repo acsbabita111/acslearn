@@ -1,227 +1,93 @@
 <!DOCTYPE html>
-<html lang="hi-IN">
+<html lang="hi" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ACS-AI DIGITAL MASTER — Next Level</title>
-<meta name="description" content="ACS-AI DIGITAL MASTER का 2036-ready dashboard। देहात से दुनिया तक डिजिटल शिक्षा, 332 लेसन, चुनौती पथ, भरोसेमंद ACS अनुभव और मोबाइल-आधारित सीख।">
-<style>
-:root{
-  --bg:#070b18;--paper:#ffffff;--ink:#101827;--muted:#526078;--line:#e7eaf1;
-  --purple:#7c3aed;--pink:#ec4899;--blue:#2563eb;--green:#16a34a;--gold:#f59e0b;--red:#ef4444;
-  --shadow:0 24px 70px rgba(15,23,42,.14);--soft:0 12px 34px rgba(15,23,42,.10);--radius:28px;--max:1180px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Hind,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:#f6f7fb;color:var(--ink);line-height:1.65}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:var(--max);margin:auto;padding:18px}
-.acs-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.acs-nav-in{max-width:var(--max);margin:auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-.acs-brand{font-weight:900;letter-spacing:-.02em;color:#111827}
-.acs-menu{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-.acs-menu a{padding:9px 12px;border-radius:999px;font-weight:900;color:#1f2937}
-.acs-menu a:hover,.acs-menu a.active{background:#f3f4f6;color:var(--purple)}
-.hero{color:#fff;min-height:84vh;display:grid;align-items:center;padding:44px 0;background:radial-gradient(circle at 18% 18%,rgba(124,58,237,.42),transparent 32%),radial-gradient(circle at 88% 12%,rgba(236,72,153,.34),transparent 30%),linear-gradient(135deg,#060914,#111936 68%,#21113e)}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-weight:900}
-h1{font-size:clamp(2.4rem,7.5vw,5.6rem);line-height:.96;margin:16px 0 12px;letter-spacing:-.055em}
-.lead{font-size:clamp(1.2rem,3.3vw,2.45rem);font-weight:900;line-height:1.18;margin:0 0 12px;color:#fff}
-.hero p{font-size:clamp(1.02rem,2vw,1.25rem);max-width:900px;color:#e9ecff;font-weight:700}
-.hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:30px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.28)}
-.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 16px;border-radius:16px;font-weight:900;border:1px solid var(--line);background:#fff;color:#111827;box-shadow:0 8px 20px rgba(15,23,42,.06)}
-.btn.primary{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;border:0}
-.btn.dark{background:#111827;color:#fff;border:0}
-.section{padding:40px 0}
-.section h2{font-size:clamp(1.75rem,4vw,3rem);line-height:1.08;margin:0 0 10px;letter-spacing:-.035em}
-.sub{color:var(--muted);font-weight:700;margin:0 0 20px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-.card h3{margin:0 0 8px;font-size:1.28rem;line-height:1.25}
-.card p{margin:0 0 12px;color:var(--muted);font-weight:700}
-.notice{border-left:6px solid var(--gold);background:#fff7ed}
-.kpi{font-size:2.1rem;font-weight:900;color:var(--purple)}
-.trust-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.trust{background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px;text-align:center;box-shadow:var(--soft);font-weight:900}
-.path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.path .card{position:relative;overflow:hidden}
-.path .card:before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,var(--purple),var(--pink))}
-.level-tag{display:inline-flex;padding:7px 10px;border-radius:999px;background:#ecfdf5;color:#166534;font-weight:900;margin:4px 0 10px}
-.big-diagram{border-radius:32px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);padding:18px;margin:20px 0}
-.big-diagram svg{width:100%;height:auto;min-height:420px;display:block}
-.form-card{max-width:720px;margin:26px auto;background:#fff;border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:var(--shadow)}
-.input{width:100%;min-height:48px;border:1px solid #d1d5db;border-radius:16px;padding:0 14px;font-size:1rem;font-weight:700;margin:8px 0 14px}
-.footer{padding:28px;text-align:center;font-weight:900;color:#4b5563}
-@media(max-width:960px){.hero-grid,.grid2{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.trust-grid,.path{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.wrap{padding:14px}.grid,.trust-grid,.path{grid-template-columns:1fr}.hero{min-height:auto}.card{padding:18px}.acs-nav-in{align-items:flex-start;flex-direction:column}.acs-menu{justify-content:flex-start}.big-diagram svg{min-height:300px}}
-</style>
-
-<!-- ACS ROOT SEO PATCH START -->
-<link rel="canonical" href="https://acslearn.com/">
-<link rel="alternate" hreflang="hi-IN" href="https://acslearn.com/">
-<link rel="alternate" hreflang="x-default" href="https://acslearn.com/">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://acslearn.com/#organization",
-      "name": "Applied Computer School",
-      "url": "https://acslearn.com",
-      "email": "ffgpmp@gmail.com",
-      "telephone": "+91-9431061111",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ACS Building, Vidyarthinagar, Chautham",
-        "addressLocality": "Khagaria",
-        "addressRegion": "Bihar",
-        "postalCode": "851201",
-        "addressCountry": "IN"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://acslearn.com/#webpage",
-      "name": "ACS-AI DIGITAL MASTER — Next Level",
-      "description": "ACS 2036-ready digital education platform.",
-      "url": "https://acslearn.com/",
-      "inLanguage": "hi-IN",
-      "publisher": {
-        "@id": "https://acslearn.com/#organization"
-      },
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://acslearn.com/#website",
-        "name": "ACS-AI DIGITAL MASTER",
-        "url": "https://acslearn.com"
-      }
-    }
-  ]
-}
-</script>
-<!-- ACS ROOT SEO PATCH END -->
-
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Applied Computer School">
-<meta property="og:title" content="ACS-AI DIGITAL MASTER — Next Level">
-<meta property="og:description" content="ACS-AI DIGITAL MASTER का 2036-ready dashboard। देहात से दुनिया तक डिजिटल शिक्षा, 332 लेसन, चुनौती पथ, भरोसेमंद ACS अनुभव और मोबाइल-आधारित सीख।">
-<meta property="og:url" content="https://acslearn.com/">
-<meta property="og:image" content="https://acslearn.com/logo.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ACS-AI DIGITAL MASTER — Next Level">
-<meta name="twitter:description" content="ACS-AI DIGITAL MASTER का 2036-ready dashboard। देहात से दुनिया तक डिजिटल शिक्षा, 332 लेसन, चुनौती पथ, भरोसेमंद ACS अनुभव और मोबाइल-आधारित सीख।">
-<meta name="twitter:image" content="https://acslearn.com/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Applied Computer School | Mobile-First AI Digital Education for Global South</title>
+  <meta name="description" content="Applied Computer School offers a 332-lesson mobile-first AI digital education path with 150 Hindi lessons live, registration, Razorpay payment, certificate system, offline courses and teacher network.">
+  <link rel="canonical" href="https://acslearn.com/">
+  <meta property="og:title" content="Applied Computer School | Mobile-First AI Digital Education for Global South">
+  <meta property="og:description" content="Applied Computer School offers a 332-lesson mobile-first AI digital education path with 150 Hindi lessons live, registration, Razorpay payment, certificate system, offline courses and teacher network.">
+  <meta property="og:url" content="https://acslearn.com/">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1456d9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  
 </head>
 <body>
-
-<nav class="acs-nav">
-  <div class="acs-nav-in">
-    <div class="acs-brand">APPLIED COMPUTER SCHOOL</div>
-    <div class="acs-menu">
-      <a class="active" href="index.html">होम</a>
-      <a href="about.html">हमारे बारे में</a>
-      <a href="dashboard.html">कोर्स डैशबोर्ड</a>
-      <a href="certificate-info.html">प्रमाणपत्र</a>
-      <a href="login.html">लॉगिन</a>
-      <a href="register.html">रजिस्ट्रेशन</a>
-      <a href="contact.html">संपर्क</a>
-    </div>
+<a href="#main" class="skip">मुख्य सामग्री पर जाएँ</a>
+<div class="topbar"><div class="container"><span><strong>ACS v1.1</strong> — 332-Lesson Digital Education Path</span><span class="pill-mini">Razorpay Enabled • Teacher Network Open • 80+ Language Vision</span></div></div>
+<header class="header" role="banner"><div class="container nav">
+  <a class="brand" href="index.html" aria-label="Applied Computer School Home"><span class="logo">ACS</span><span>Applied Computer School<small>Village to World: Digital Education</small></span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">Menu</button>
+  <nav class="menu" id="main-menu" aria-label="Primary navigation"><a class="active" href="index.html">Home</a>
+<a class="" href="courses.html">Courses</a>
+<a class="" href="dashboard.html">Dashboard</a>
+<a class="" href="register.html">Register</a>
+<a class="" href="certificate-info.html">Certificate</a>
+<a class="" href="payment.html">Payment</a>
+<a class="" href="join-acs.html">हमसे जुड़िए</a>
+<a class="" href="language-mission.html">Languages</a>
+<a class="" href="contact.html">Contact</a><a class="cta-small" href="vc/hi/">Start Learning</a></nav>
+</div></header>
+<main id="main">
+<section class="hero"><div class="container hero-grid">
+  <div>
+    <span class="eyebrow">🌍 Global South Mission • Mobile-First AI Education</span>
+    <h1>देहात से दुनिया तक — मोबाइल-फर्स्ट AI डिजिटल शिक्षा</h1>
+    <p>Applied Computer School rural India और Global South learners के लिए smartphone-based AI और digital skill education platform बना रहा है। यहाँ learner mobile से video creation, social media, AI SEO, office work, cybersecurity, data literacy, local commerce और future-ready skills सीखता है।</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="vc/hi/">Hindi Course शुरू करें</a><a class="btn btn-secondary" href="register.html">Register as Student</a><a class="btn btn-secondary" href="payment.html">Razorpay Payment</a><a class="btn btn-secondary" href="join-acs.html">हमसे जुड़िए</a></div>
   </div>
-</nav>
-
-
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="badge">देहात से दुनिया तक: डिजिटल शिक्षा</div>
-      <h1>2036 की तैयारी आज से</h1>
-      <p class="lead">भाषा आपकी। मोबाइल आपका। सीख अपनी भाषा में। भविष्य आपके हाथ में।</p>
-      <p>यह केवल कोर्स नहीं है। यह Global South के शिक्षार्थियों के लिए डर का जवाब और भविष्य की तैयारी है। अगर आज शुरुआत नहीं की, तो कल वही दुनिया आगे निकल जाएगी जो आज सीख रही है।</p>
-      <div class="btn-row">
-        <a class="btn primary" href="level-0/l001-internet-kya-hai.html">अभी पहला लेसन शुरू करें</a>
-        <a class="btn" href="#paths">अपना रास्ता चुनें</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h2 style="margin:0 0 8px">यही वह जगह है जिसकी तलाश थी</h2>
-      <p>मोबाइल आपके पास है। भाषा आपकी है। अब सही रास्ता ACS देगा — छोटे कदम, साफ परिणाम और काम का सबूत।</p>
-      <div class="grid2" style="margin-top:14px">
-        <div class="card" style="box-shadow:none"><div class="kpi">4.8</div><p>Google Rating</p></div>
-        <div class="card" style="box-shadow:none"><div class="kpi">300+</div><p>Reviews</p></div>
-      </div>
-    </div>
+  <aside class="proof-panel" aria-label="ACS proof summary">
+    <div class="stat"><span class="dot"></span><div><strong>332-Lesson Digital Education Path</strong><span>ACS-AI DIGITAL MASTER का master learning system.</span></div></div>
+    <div class="stat"><span class="dot"></span><div><strong>150 Hindi Video Creator Lessons Live</strong><span>Current strongest public proof.</span></div></div>
+    <div class="stat"><span class="dot"></span><div><strong>English, Arabic, Urdu, Bengali Started</strong><span>Multilingual expansion now visible.</span></div></div>
+    <div class="stat"><span class="dot"></span><div><strong>Razorpay + Registration + Teacher Network</strong><span>Learning से certificate और collaboration तक पूरा flow.</span></div></div>
+  </aside>
+</div></section>
+<section class="section"><div class="container">
+  <div class="section-title"><h2>अब ACS केवल computer course नहीं — पूरा learning ecosystem है</h2><p>Online master course, offline vocational courses, 5-level school/youth path, certificate system, Razorpay payment, teacher network और 80+ language mission — सब एक जगह।</p></div>
+  <div class="grid grid-4">
+    <div class="card"><div class="icon">1</div><h3>Student Gateway</h3><p>Free lessons देखें, registration करें, project submit करें और certificate के लिए apply करें।</p><a class="btn btn-blue" href="register.html">Register</a></div>
+    <div class="card"><div class="icon">2</div><h3>Course Gateway</h3><p>ACS-AI DIGITAL MASTER और offline courses को dashboard से खोलें।</p><a class="btn btn-blue" href="dashboard.html">Dashboard</a></div>
+    <div class="card"><div class="icon">3</div><h3>Payment Gateway</h3><p>Certificate fee, project review और mission support के लिए official Razorpay page।</p><a class="btn btn-green" href="payment.html">Pay Fee</a></div>
+    <div class="card"><div class="icon">4</div><h3>Teacher Network</h3><p>Teachers, trainers, translators, mentors और centers ACS mission से जुड़ सकते हैं।</p><a class="btn btn-warm" href="join-acs.html">हमसे जुड़िए</a></div>
   </div>
-</header>
-<main class="wrap">
-<section class="section">
-<div class="big-diagram" aria-label="2036 preparation diagram">
-<svg viewBox="0 0 1000 520" role="img">
-<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs>
-<rect x="20" y="20" width="960" height="480" rx="36" fill="#f8fafc"/>
-<text x="500" y="78" text-anchor="middle" font-size="34" font-weight="900" fill="#111827">देहात से दुनिया तक: डिजिटल शिक्षा</text>
-<circle cx="160" cy="260" r="82" fill="#ecfdf5" stroke="#86efac" stroke-width="4"/>
-<text x="160" y="252" text-anchor="middle" font-size="24" font-weight="900" fill="#166534">मोबाइल</text>
-<text x="160" y="282" text-anchor="middle" font-size="18" font-weight="800" fill="#166534">आपका साधन</text>
-<path d="M245 260 H365" stroke="#7c3aed" stroke-width="10" stroke-linecap="round"/><polygon points="365,260 340,244 340,276" fill="#7c3aed"/>
-<circle cx="500" cy="260" r="92" fill="url(#g1)"/>
-<text x="500" y="248" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">कौशल</text>
-<text x="500" y="282" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">AI + Digital</text>
-<path d="M596 260 H720" stroke="#ec4899" stroke-width="10" stroke-linecap="round"/><polygon points="720,260 695,244 695,276" fill="#ec4899"/>
-<circle cx="840" cy="260" r="82" fill="#eff6ff" stroke="#93c5fd" stroke-width="4"/>
-<text x="840" y="252" text-anchor="middle" font-size="24" font-weight="900" fill="#1d4ed8">2036</text>
-<text x="840" y="282" text-anchor="middle" font-size="18" font-weight="800" fill="#1d4ed8">तैयारी</text>
-<rect x="140" y="405" width="720" height="58" rx="18" fill="#fff" stroke="#e5e7eb"/>
-<text x="500" y="442" text-anchor="middle" font-size="24" font-weight="900" fill="#111827">आज शुरुआत नहीं की, तो कल मौका छूट सकता है।</text>
-</svg>
-</div>
-</section>
-<section class="section">
-  <h2>डर नहीं, तैयारी</h2>
-  <p class="sub">काम बदल रहा है। AI पुरानी आदतों को पीछे छोड़ रहा है। ACS का रास्ता है — सीखो, करो, दिखाओ।</p>
-  <div class="grid">
-    <div class="card notice"><h3>⚠️ अगर अभी नहीं सीखा</h3><p>मोबाइल रहेगा, लेकिन काम की कौशल नहीं रहेगी। वीडियो बनेगा, लेकिन करियर का रास्ता कमजोर रहेगा।</p></div>
-    <div class="card"><h3>✅ ACS समाधान</h3><p>मोबाइल से एआई, वीडियो, सोशल मीडिया, एसईओ, डेटा, साइबर सुरक्षा, लोकल व्यापार और हरित कौशल सीखें।</p></div>
-    <div class="card"><h3>🚀 साफ परिणाम</h3><p>15 दिन शुरुआत। 90 दिन पोर्टफोलियो। 332 लेसन से 2036-तैयार मास्टर पथ।</p></div>
+</div></section>
+<section class="section highlight"><div class="container">
+  <div class="section-title"><h2>Current Online Master Course</h2><p>ACS-AI DIGITAL MASTER — video creation, social media, AI digital skills और AI SEO को एक 332-lesson mobile-first learning system में जोड़ता है।</p></div>
+  <div class="grid grid-2">
+    <div class="card"><h3>Internal Tracks, Not Separate Main Courses</h3><p>Video Creator, Social Media Master, AI Digital Master और AI SEO Master को अब एक master learning system के internal tracks के रूप में present करें। इससे public confusion नहीं होगा और course ecosystem मजबूत दिखेगा।</p><div class="tag-row"><span class="tag green">Video Creator</span><span class="tag green">Social Media</span><span class="tag green">AI Digital</span><span class="tag green">AI SEO</span></div></div>
+    <div class="card"><h3>Fast Entry. Deep Mastery. 2036 Ready.</h3><p>Short challenge tracks से learner जल्दी शुरू करता है, और 332-lesson path से deep mastery तक जाता है।</p><div class="tag-row"><span class="tag">15-Day Start</span><span class="tag">30-Day Creator</span><span class="tag">90-Day Portfolio</span><span class="tag warm">332-Lesson Master Path</span></div></div>
   </div>
-</section>
-<section class="section">
-  <h2>Trust & Proof</h2>
-  <p class="sub">ACS कोई नया हवा-हवाई कोर्स नहीं है। यह जमीन पर चले अनुभव का डिजिटल रूप है।</p>
-  <div class="trust-grid">
-    <div class="trust">2011 से सेवा</div>
-    <div class="trust">Google 4.8 Rating</div>
-    <div class="trust">300+ Reviews</div>
-    <div class="trust">ISO 9001:2015</div>
-    <div class="trust">Audit Records 2017–2022</div>
+</div></section>
+<section class="section"><div class="container"><div class="section-title"><h2>5-Level Preparation Path</h2><p>Class 6 से youth और skill worker तक — अलग learner के लिए अलग entry path।</p></div><div class="grid grid-5"></div>
+  <div class="grid grid-3">
+    <div class="card"><h3>Foundation Level</h3><p>Class 6–8 • Preparation 2036 • Safe mobile use, first AI exposure, digital thinking, mini projects.</p></div>
+    <div class="card"><h3>Junior Level</h3><p>Class 9–10 • Preparation 2033 • Cyber safety, AI use, project, no-code/block logic.</p></div>
+    <div class="card"><h3>Senior Level</h3><p>Class 11–12 • Preparation 2030 • Portfolio, digital work, office/video/social/SEO/data basics.</p></div>
+    <div class="card"><h3>Professional Level</h3><p>12+ / college / youth • 2027 • Job readiness, freelance, digital service, client work.</p></div>
+    <div class="card"><h3>Skill Worker Level</h3><p>Vocational / migrant worker / job seeker • 2027 • Typing, forms, email, data entry, online services.</p></div>
+    <div class="card"><h3>Future Skills Zone</h3><p>Coding thinking, app making, Python, AI projects, robotics, semiconductor awareness — phased upgrades.</p></div>
   </div>
-</section>
-<section class="section" id="paths">
-  <h2>अपना रास्ता चुनें</h2>
-  <p class="sub">Syllabus आगे विस्तार से आएगा। लेकिन तैयारी-स्तर आज से साफ है।</p>
-  <div class="grid">
-    <div class="card"><h3>Foundation Level</h3><div class="level-tag">कक्षा 6–8 • 2036</div><p>मोबाइल, सुरक्षित डिजिटल आदत, एआई परिचय और सोच की नींव।</p></div>
-    <div class="card"><h3>Junior Level</h3><div class="level-tag">कक्षा 9–10 • 2033</div><p>डिजिटल कौशल, छोटे प्रोजेक्ट और करियर की शुरुआती नींव।</p></div>
-    <div class="card"><h3>Senior Level</h3><div class="level-tag">कक्षा 11–12 • 2030</div><p>काम-काज, पोर्टफोलियो, एआई उपयोग और फ्रीलांस तैयारी।</p></div>
-    <div class="card"><h3>Professional Level</h3><div class="level-tag">12+ • 2027</div><p>नौकरी, डिजिटल सर्विस, ऑनलाइन काम और प्रमाणपत्र आधारित पहचान।</p></div>
-    <div class="card"><h3>Skill Worker Level</h3><div class="level-tag">Vocational • 2027</div><p>तुरंत काम में आने वाला डिजिटल, ऑफिस, टाइपिंग और रोजगार-परक कौशल।</p></div>
-    <div class="card notice"><h3>अभी लाइव कोर्स</h3><p>ACS-AI DIGITAL MASTER का 332 लेसन वाला ऑनलाइन कोर्स अभी शुरू किया जा सकता है।</p><a class="btn primary" href="level-0/l001-internet-kya-hai.html">पहला लेसन शुरू करें</a></div>
-  </div>
-</section>
-<section class="section">
-  <h2>भविष्य कौशल के लिए जगह</h2>
-  <p class="sub">कोर्स समय के साथ बढ़ेगा। Coding सोच, मोबाइल ऐप, पाइथन और AI project के लिए जगह रखी गई है।</p>
-  <div class="grid">
-    <div class="card"><h3>कोडिंग सोच</h3><p>कोड से पहले सोच और क्रम बनाना।</p></div>
-    <div class="card"><h3>मोबाइल ऐप बनाना</h3><p>Block-based app और no-code tools से शुरुआत।</p></div>
-    <div class="card"><h3>पाइथन की शुरुआत</h3><p>कक्षा 6 स्तर से आसान logic-based path।</p></div>
-  </div>
-</section>
+</div></section>
+<section class="section highlight"><div class="container"><div class="section-title"><h2>Language Mission Status</h2><p>Fake claim नहीं। जितना live है, उतना साफ लिखा जाएगा।</p></div><div class="table-wrap"><table><thead><tr><th>Language</th><th>Current Public Status</th><th>Best Label</th></tr></thead><tbody><tr><td>Hindi</td><td>150 Video Creator lessons live</td><td>Full 150 Hindi Course Live</td></tr><tr><td>English</td><td>60 lessons started</td><td>60 Lessons Started</td></tr><tr><td>Arabic</td><td>60 ready / 150 target</td><td>60 Ready, 150 Target</td></tr><tr><td>Urdu</td><td>60 lessons started</td><td>60 Lessons Started</td></tr><tr><td>Bengali</td><td>30 lessons started</td><td>30 Lessons Started</td></tr><tr><td>80+ Languages</td><td>Roadmap</td><td>Global Language Mission</td></tr></tbody></table></div><div class="hero-actions" style="justify-content:center"><a class="btn btn-blue" href="language-mission.html">Language Mission देखें</a></div></div></section>
+<section class="section"><div class="container"><div class="section-title"><h2>Offline Courses + Center Code System</h2><p>DCA, ADCA, PGDCA, Typing Hindi और Typing English को अलग offline training system में रखा गया है।</p></div><div class="grid grid-3"><div class="card"><h3>DCA</h3><p>Diploma in Computer Applications • 9 माह • ₹2999 • Digital Office Assistant Course.</p></div><div class="card"><h3>ADCA</h3><p>Advanced Diploma in Computer Applications • 12 माह • ₹3999 • Advanced Digital Office & Data Assistant.</p></div><div class="card"><h3>PGDCA</h3><p>Post Graduate Diploma in Computer Applications • 12 माह • ₹4999 • AI + Data + Web + Digital Service Professional.</p></div></div><div class="hero-actions" style="justify-content:center"><a class="btn btn-outline" href="courses.html#offline">Offline Catalog देखें</a></div></div></section>
+<section class="section highlight"><div class="container"><div class="section-title"><h2>Certificate + Razorpay + Verification</h2><p>Lesson badge, level/layer note और full course grand certificate — payment और verification rules के साथ।</p></div><div class="grid grid-3"><div class="card"><h3>Badge</h3><p>Lesson complete होने पर learner को progress recognition मिलता है।</p></div><div class="card"><h3>Progressive Note</h3><p>Level/Layer complete होने पर written achievement note मिलता है।</p></div><div class="card"><h3>Grand Certificate</h3><p>Full completion, project, payment और admin/teacher approval के बाद QR-verifiable certificate.</p></div></div></div></section>
 </main>
-
-<footer class="footer">Village to World: Digital Education.</footer>
+<div class="sticky-mobile"><a href="vc/hi/">Start</a><a href="register.html">Register</a><a href="payment.html">Pay</a></div>
+<footer class="footer"><div class="container">
+  <div class="grid grid-4">
+    <div><h3>Applied Computer School</h3><p>देहात से दुनिया तक — मोबाइल-फर्स्ट AI डिजिटल शिक्षा। ACS rural India और Global South learners के लिए 2036-ready skill ecosystem बना रहा है।</p></div>
+    <div><h4>Learning</h4><a href="courses.html">Course Ecosystem</a><a href="dashboard.html">Dashboard</a><a href="vc/hi/">150 Hindi Lessons</a><a href="language-mission.html">Language Mission</a></div>
+    <div><h4>Student System</h4><a href="register.html">Registration</a><a href="certificate-info.html">Certificate</a><a href="project-submit.html">Project Submit</a><a href="payment.html">Razorpay Payment</a></div>
+    <div><h4>Network & Legal</h4><a href="join-acs.html">हमसे जुड़िए</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="refund-policy.html">Refund Policy</a><a href="contact.html">Contact</a></div>
+  </div>
+  <div class="credit">© <span data-year></span> Applied Computer School — Designed & Developed by Rambharosh Vidyarthi</div>
+</div></footer>
+<script src="assets/script.js"></script>
 </body>
 </html>
