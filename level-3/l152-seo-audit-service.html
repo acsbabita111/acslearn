@@ -639,6 +639,275 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
   .acs-diagram-focus svg{min-height:360px!important}
 }
 
+
+/* ACS Lesson Header Patch v1 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 12px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  color:#111827!important;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+.acs-lesson-nav a.primary{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+}
+.acs-lesson-nav a:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(15,23,42,.10);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:6px}
+  .acs-lesson-nav a{min-height:34px;padding:7px 10px;font-size:.88rem}
+}
+
+
+/* ACS Top Home + Go To Lesson Header Patch v2 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.18;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a,.acs-lesson-nav button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:9px 13px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  font-size:.95rem;
+  cursor:pointer;
+}
+.acs-lesson-nav .home-btn{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+  box-shadow:0 10px 24px rgba(124,58,237,.24);
+}
+.acs-lesson-nav .goto-btn{
+  color:#111827!important;
+  background:#ffffff;
+  border:1px solid #c7d2fe;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+}
+.acs-lesson-nav a:hover,.acs-lesson-nav button:hover{
+  transform:translateY(-1px);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:7px}
+  .acs-lesson-nav a,.acs-lesson-nav button{min-height:36px;padding:8px 11px;font-size:.9rem}
+}
+
+
+/* ACS Section Go To Lesson Popup Patch v3 */
+.acs-section-goto-modal{
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(15,23,42,.62);
+  backdrop-filter:blur(10px);
+}
+.acs-section-goto-modal.open{display:flex}
+.acs-section-goto-panel{
+  width:min(94vw,860px);
+  max-height:86vh;
+  overflow:hidden;
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  box-shadow:0 28px 80px rgba(15,23,42,.34);
+  display:flex;
+  flex-direction:column;
+}
+.acs-section-goto-head{
+  padding:18px;
+  border-bottom:1px solid #e5e7eb;
+  background:
+    radial-gradient(circle at top left,rgba(124,58,237,.14),transparent 34%),
+    radial-gradient(circle at top right,rgba(236,72,153,.12),transparent 30%),
+    #fff;
+}
+.acs-section-goto-head h2{
+  margin:0 0 6px;
+  font-size:clamp(1.25rem,3vw,1.8rem);
+  line-height:1.18;
+  font-weight:900;
+  color:#111827;
+}
+.acs-section-goto-head p{
+  margin:0;
+  color:#4b5563;
+  font-weight:800;
+}
+.acs-section-goto-actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.acs-section-goto-search{
+  flex:1;
+  min-height:46px;
+  border:1px solid #d1d5db;
+  border-radius:16px;
+  padding:0 14px;
+  font-weight:800;
+  font-size:1rem;
+}
+.acs-section-goto-close{
+  min-width:46px;
+  border:0;
+  border-radius:16px;
+  background:#111827;
+  color:#fff;
+  font-weight:900;
+  font-size:1.1rem;
+  cursor:pointer;
+}
+.acs-section-goto-list{
+  overflow:auto;
+  padding:14px 16px 18px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.acs-section-goto-item{
+  display:block;
+  padding:12px 13px;
+  border-radius:16px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  color:#111827!important;
+  text-decoration:none!important;
+  font-weight:850;
+  line-height:1.35;
+}
+.acs-section-goto-item:hover{
+  background:#f5f3ff;
+  border-color:#ddd6fe;
+}
+.acs-section-goto-item.current{
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  color:#fff!important;
+  border-color:transparent;
+}
+.acs-section-goto-id{
+  display:inline-flex;
+  margin-right:6px;
+  color:#7c3aed;
+  font-weight:900;
+}
+.acs-section-goto-item.current .acs-section-goto-id{color:#fff}
+@media(max-width:720px){
+  .acs-section-goto-list{grid-template-columns:1fr}
+  .acs-section-goto-panel{max-height:88vh}
+}
+
 </style>
 <!-- ACS TECHNICAL SEO PATCH START -->
 <link href="https://acslearn.com/vc/hi/level-3/l152-seo-audit-service.html" rel="canonical"/>
@@ -729,6 +998,21 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 <meta name="twitter:image" content="https://acslearn.com/logo.png">
 </head>
 <body data-acs-lesson-path="level-3/l152-seo-audit-service.html">
+
+<header class="acs-lesson-top-header no-listen" id="acs-lesson-top-header">
+  <div class="acs-lesson-top-header-inner">
+    <div class="acs-lesson-brand">
+      <strong>APPLIED COMPUTER SCHOOL</strong>
+      <span>देहात से दुनिया तक: डिजिटल शिक्षा</span>
+    </div>
+    <nav class="acs-lesson-nav" aria-label="Lesson top navigation">
+      <a class="home-btn" href="../dashboard.html">🏠 होम</a>
+      <button class="goto-btn" type="button" onclick="acsOpenGoToLesson()">🧭 Go to Lesson</button>
+    </nav>
+  </div>
+</header>
+
+
 <div class="top-progress" id="progressBar"></div>
 <header class="topbar">
 <div class="topbar-inner">
@@ -1640,6 +1924,60 @@ window.ACS_PROGRESS_LOCK_DATA = {"sectionOrder": ["level-0", "level-1", "level-2
     document.addEventListener("click", function(e){ if(e.target.closest("[data-acs-mark-complete]")) setTimeout(updateCertStyle, 300); });
   });
 })();
+</script>
+
+<div class="acs-section-goto-modal no-listen" id="acs-section-goto-modal" role="dialog" aria-modal="true" aria-label="Go to Lesson">
+  <div class="acs-section-goto-panel">
+    <div class="acs-section-goto-head">
+      <h2>🧭 लेवल 3 — एआई एसईओ मास्टर के सभी लेसन</h2>
+      <p>इसी लेवल / लेयर के किसी भी लेसन पर तुरंत जाएँ।</p>
+      <div class="acs-section-goto-actions">
+        <input class="acs-section-goto-search" type="search" placeholder="Search: L001, AI, सुरक्षा, डेटा..." aria-label="Search lessons in this section">
+        <button class="acs-section-goto-close" type="button" aria-label="Close">×</button>
+      </div>
+    </div>
+    <div class="acs-section-goto-list">
+      <a class="acs-section-goto-item" href="l121-search-engine-kaise-kaam-karta-hai.html" data-search="L121 L121 — Search Engine कैसे काम करता है"><span class="acs-section-goto-id">L121</span>L121 — Search Engine कैसे काम करता है</a><a class="acs-section-goto-item" href="l122-keywords-vs-search-intent.html" data-search="L122 L122 — Keywords vs Search Intent"><span class="acs-section-goto-id">L122</span>L122 — Keywords vs Search Intent</a><a class="acs-section-goto-item" href="l123-on-page-vs-off-page-seo.html" data-search="L123 L123 — On-Page vs Off-Page SEO (एसईओ)"><span class="acs-section-goto-id">L123</span>L123 — On-Page vs Off-Page SEO (एसईओ)</a><a class="acs-section-goto-item" href="l124-technical-seo-basics.html" data-search="L124 L124 — Technical SEO (एसईओ) Basics"><span class="acs-section-goto-id">L124</span>L124 — Technical SEO (एसईओ) Basics</a><a class="acs-section-goto-item" href="l125-mobile-seo-global-south-priority.html" data-search="L125 L125 — Mobile SEO (एसईओ) — ग्लोबल साउथ Priority"><span class="acs-section-goto-id">L125</span>L125 — Mobile SEO (एसईओ) — ग्लोबल साउथ Priority</a><a class="acs-section-goto-item" href="l126-core-web-vitals.html" data-search="L126 L126 — Core Web Vitals"><span class="acs-section-goto-id">L126</span>L126 — Core Web Vitals</a><a class="acs-section-goto-item" href="l127-local-seo-bihar-ko-map-par.html" data-search="L127 L127 — स्थानीय SEO (एसईओ) — Bihar को Map पर"><span class="acs-section-goto-id">L127</span>L127 — स्थानीय SEO (एसईओ) — Bihar को Map पर</a><a class="acs-section-goto-item" href="l128-seo-audit-website-ki-health-check.html" data-search="L128 L128 — SEO (एसईओ) जांच — Website की Health Check"><span class="acs-section-goto-id">L128</span>L128 — SEO (एसईओ) जांच — Website की Health Check</a><a class="acs-section-goto-item" href="l129-backlinks-kya-hai-aur-kyon-jaruri-hai.html" data-search="L129 L129 — Backlinks क्या हैं और क्यों जरूरी हैं"><span class="acs-section-goto-id">L129</span>L129 — Backlinks क्या हैं और क्यों जरूरी हैं</a><a class="acs-section-goto-item" href="l130-seo-vs-geo-ai-search-optimization.html" data-search="L130 L130 — SEO (एसईओ) vs GEO (जीईओ) — AI (एआई) Search Optimization"><span class="acs-section-goto-id">L130</span>L130 — SEO (एसईओ) vs GEO (जीईओ) — AI (एआई) Search Optimization</a><a class="acs-section-goto-item" href="l131-semrush-free-tier-complete-guide.html" data-search="L131 L131 — Semrush (सेमरश) Free Tier — Complete Guide"><span class="acs-section-goto-id">L131</span>L131 — Semrush (सेमरश) Free Tier — Complete Guide</a><a class="acs-section-goto-item" href="l132-surfer-seo-content-optimization.html" data-search="L132 L132 — Surfer SEO (एसईओ) — Content Optimization"><span class="acs-section-goto-id">L132</span>L132 — Surfer SEO (एसईओ) — Content Optimization</a><a class="acs-section-goto-item" href="l133-ahrefs-free-tools.html" data-search="L133 L133 — Ahrefs (एहरेफ्स) Free टूलs"><span class="acs-section-goto-id">L133</span>L133 — Ahrefs (एहरेफ्स) Free टूलs</a><a class="acs-section-goto-item" href="l134-keyword-insights-topic-clustering.html" data-search="L134 L134 — Keyword Insights — Topic Clustering"><span class="acs-section-goto-id">L134</span>L134 — Keyword Insights — Topic Clustering</a><a class="acs-section-goto-item" href="l135-rankmath-wordpress-seo.html" data-search="L135 L135 — RankMath (रैंकमैथ) — WordPress SEO (एसईओ)"><span class="acs-section-goto-id">L135</span>L135 — RankMath (रैंकमैथ) — WordPress SEO (एसईओ)</a><a class="acs-section-goto-item" href="l136-google-search-console-master.html" data-search="L136 L136 — Google (गूगल) Search Console (गूगल सर्च कंसोल) Master"><span class="acs-section-goto-id">L136</span>L136 — Google (गूगल) Search Console (गूगल सर्च कंसोल) Master</a><a class="acs-section-goto-item" href="l137-sparktoro-audience-research.html" data-search="L137 L137 — SparkToro — Audience Research"><span class="acs-section-goto-id">L137</span>L137 — SparkToro — Audience Research</a><a class="acs-section-goto-item" href="l138-bing-webmaster-tools.html" data-search="L138 L138 — Bing Webmaster टूलs"><span class="acs-section-goto-id">L138</span>L138 — Bing Webmaster टूलs</a><a class="acs-section-goto-item" href="l139-google-analytics-4.html" data-search="L139 L139 — Google (गूगल) एनालिटिक्स 4"><span class="acs-section-goto-id">L139</span>L139 — Google (गूगल) एनालिटिक्स 4</a><a class="acs-section-goto-item" href="l140-perplexity-ai-seo-research.html" data-search="L140 L140 — Perplexity (परप्लेक्सिटी) AI (एआई) — SEO (एसईओ) Research"><span class="acs-section-goto-id">L140</span>L140 — Perplexity (परप्लेक्सिटी) AI (एआई) — SEO (एसईओ) Research</a><a class="acs-section-goto-item" href="l141-ai-se-seo-content-likhna.html" data-search="L141 L141 — AI (एआई) से SEO (एसईओ) Content लिखना"><span class="acs-section-goto-id">L141</span>L141 — AI (एआई) से SEO (एसईओ) Content लिखना</a><a class="acs-section-goto-item" href="l142-schema-markup-rich-results.html" data-search="L142 L142 — स्कीमा Markup — Rich Results"><span class="acs-section-goto-id">L142</span>L142 — स्कीमा Markup — Rich Results</a><a class="acs-section-goto-item" href="l143-featured-snippets-strategy.html" data-search="L143 L143 — Featured Snippets Strategy"><span class="acs-section-goto-id">L143</span>L143 — Featured Snippets Strategy</a><a class="acs-section-goto-item" href="l144-internal-linking-strategy.html" data-search="L144 L144 — Internal Linking Strategy"><span class="acs-section-goto-id">L144</span>L144 — Internal Linking Strategy</a><a class="acs-section-goto-item" href="l145-ai-visibility-chatgpt-mein-dikhna.html" data-search="L145 L145 — AI (एआई) Visibility — ChatGPT (चैटजीपीटी) में दिखना"><span class="acs-section-goto-id">L145</span>L145 — AI (एआई) Visibility — ChatGPT (चैटजीपीटी) में दिखना</a><a class="acs-section-goto-item" href="l146-content-cluster-strategy.html" data-search="L146 L146 — Content Cluster Strategy"><span class="acs-section-goto-id">L146</span>L146 — Content Cluster Strategy</a><a class="acs-section-goto-item" href="l147-hindi-seo-local-language-ranking.html" data-search="L147 L147 — Hindi SEO (एसईओ) — स्थानीय Language Ranking"><span class="acs-section-goto-id">L147</span>L147 — Hindi SEO (एसईओ) — स्थानीय Language Ranking</a><a class="acs-section-goto-item" href="l148-youtube-seo-video-search.html" data-search="L148 L148 — YouTube (यूट्यूब) SEO (एसईओ) — Video Search"><span class="acs-section-goto-id">L148</span>L148 — YouTube (यूट्यूब) SEO (एसईओ) — Video Search</a><a class="acs-section-goto-item" href="l149-e-e-a-t-google-trust-signals.html" data-search="L149 L149 — E-E-A-T — Google (गूगल) Trust Signals"><span class="acs-section-goto-id">L149</span>L149 — E-E-A-T — Google (गूगल) Trust Signals</a><a class="acs-section-goto-item" href="l150-voice-search-optimization.html" data-search="L150 L150 — Voice Search Optimization"><span class="acs-section-goto-id">L150</span>L150 — Voice Search Optimization</a><a class="acs-section-goto-item" href="l151-seo-freelancing-first-client.html" data-search="L151 L151 — SEO (एसईओ) फ्रीलांस काम — First Client"><span class="acs-section-goto-id">L151</span>L151 — SEO (एसईओ) फ्रीलांस काम — First Client</a><a class="acs-section-goto-item current" href="l152-seo-audit-service.html" data-search="L152 L152 — SEO (एसईओ) जांच Service"><span class="acs-section-goto-id">L152</span>L152 — SEO (एसईओ) जांच Service</a><a class="acs-section-goto-item" href="l153-niche-website-se-income.html" data-search="L153 L153 — Niche Website से Income"><span class="acs-section-goto-id">L153</span>L153 — Niche Website से Income</a><a class="acs-section-goto-item" href="l154-affiliate-seo.html" data-search="L154 L154 — Affiliate SEO (एसईओ)"><span class="acs-section-goto-id">L154</span>L154 — Affiliate SEO (एसईओ)</a><a class="acs-section-goto-item" href="l155-local-business-seo-service.html" data-search="L155 L155 — स्थानीय Business SEO (एसईओ) Service"><span class="acs-section-goto-id">L155</span>L155 — स्थानीय Business SEO (एसईओ) Service</a><a class="acs-section-goto-item" href="l156-programmatic-seo.html" data-search="L156 L156 — Programmatic SEO (एसईओ)"><span class="acs-section-goto-id">L156</span>L156 — Programmatic SEO (एसईओ)</a><a class="acs-section-goto-item" href="l157-international-seo-global-south.html" data-search="L157 L157 — International SEO (एसईओ) — ग्लोबल साउथ"><span class="acs-section-goto-id">L157</span>L157 — International SEO (एसईओ) — ग्लोबल साउथ</a><a class="acs-section-goto-item" href="l158-e-commerce-seo.html" data-search="L158 L158 — E-commerce SEO (एसईओ)"><span class="acs-section-goto-id">L158</span>L158 — E-commerce SEO (एसईओ)</a><a class="acs-section-goto-item" href="l159-seo-reporting-client-reports.html" data-search="L159 L159 — SEO (एसईओ) रिपोर्टing — Client रिपोर्टs"><span class="acs-section-goto-id">L159</span>L159 — SEO (एसईओ) रिपोर्टing — Client रिपोर्टs</a><a class="acs-section-goto-item" href="l160-seo-agency-building.html" data-search="L160 L160 — SEO (एसईओ) Agency Building"><span class="acs-section-goto-id">L160</span>L160 — SEO (एसईओ) Agency Building</a><a class="acs-section-goto-item" href="l161-news-seo-google-discover.html" data-search="L161 L161 — News SEO (एसईओ) — Google (गूगल) Discover"><span class="acs-section-goto-id">L161</span>L161 — News SEO (एसईओ) — Google (गूगल) Discover</a><a class="acs-section-goto-item" href="l162-image-seo.html" data-search="L162 L162 — Image SEO (एसईओ)"><span class="acs-section-goto-id">L162</span>L162 — Image SEO (एसईओ)</a><a class="acs-section-goto-item" href="l163-podcast-seo.html" data-search="L163 L163 — Podcast SEO (एसईओ)"><span class="acs-section-goto-id">L163</span>L163 — Podcast SEO (एसईओ)</a><a class="acs-section-goto-item" href="l164-seo-for-social-media-profiles.html" data-search="L164 L164 — SEO (एसईओ) for Social Media Profiles"><span class="acs-section-goto-id">L164</span>L164 — SEO (एसईओ) for Social Media Profiles</a><a class="acs-section-goto-item" href="l165-ai-content-detection-aur-seo.html" data-search="L165 L165 — AI (एआई) Content Detection और SEO (एसईओ)"><span class="acs-section-goto-id">L165</span>L165 — AI (एआई) Content Detection और SEO (एसईओ)</a><a class="acs-section-goto-item" href="l166-zero-click-search-strategy.html" data-search="L166 L166 — Zero-Click Search Strategy"><span class="acs-section-goto-id">L166</span>L166 — Zero-Click Search Strategy</a><a class="acs-section-goto-item" href="l167-mobile-page-speed-mastery.html" data-search="L167 L167 — Mobile Page Speed Mastery"><span class="acs-section-goto-id">L167</span>L167 — Mobile Page Speed Mastery</a><a class="acs-section-goto-item" href="l168-reddit-forum-seo-strategy.html" data-search="L168 L168 — Reddit/Forum SEO (एसईओ) Strategy"><span class="acs-section-goto-id">L168</span>L168 — Reddit/Forum SEO (एसईओ) Strategy</a><a class="acs-section-goto-item" href="l169-acs-website-seo-live-project.html" data-search="L169 L169 — ACS Website SEO (एसईओ) — Live प्रोजेक्ट"><span class="acs-section-goto-id">L169</span>L169 — ACS Website SEO (एसईओ) — Live प्रोजेक्ट</a><a class="acs-section-goto-item" href="l170-level-3-capstone-site-rank-karo.html" data-search="L170 L170 — Level 3 अंतिम प्रोजेक्ट — Site Rank करो"><span class="acs-section-goto-id">L170</span>L170 — Level 3 अंतिम प्रोजेक्ट — Site Rank करो</a>
+    </div>
+  </div>
+</div>
+
+
+<script id="ACS_SECTION_GOTO_POPUP_PATCH">
+function acsOpenGoToLesson(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){
+    modal.classList.add('open');
+    var input = modal.querySelector('.acs-section-goto-search');
+    setTimeout(function(){ if(input) input.focus(); }, 80);
+  }
+}
+function acsCloseSectionGoTo(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){ modal.classList.remove('open'); }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(!modal) return;
+  var close = modal.querySelector('.acs-section-goto-close');
+  var search = modal.querySelector('.acs-section-goto-search');
+  if(close) close.addEventListener('click', acsCloseSectionGoTo);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) acsCloseSectionGoTo();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') acsCloseSectionGoTo();
+  });
+  if(search){
+    search.addEventListener('input', function(){
+      var q = search.value.trim().toLowerCase();
+      modal.querySelectorAll('.acs-section-goto-item').forEach(function(a){
+        var s = (a.getAttribute('data-search') || '').toLowerCase();
+        a.style.display = (!q || s.indexOf(q) !== -1) ? 'block' : 'none';
+      });
+    });
+  }
+});
 </script>
 
 </body>
