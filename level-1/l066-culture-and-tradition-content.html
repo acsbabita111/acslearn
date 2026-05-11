@@ -639,6 +639,275 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
   .acs-diagram-focus svg{min-height:360px!important}
 }
 
+
+/* ACS Lesson Header Patch v1 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 12px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  color:#111827!important;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+.acs-lesson-nav a.primary{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+}
+.acs-lesson-nav a:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(15,23,42,.10);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:6px}
+  .acs-lesson-nav a{min-height:34px;padding:7px 10px;font-size:.88rem}
+}
+
+
+/* ACS Top Home + Go To Lesson Header Patch v2 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.18;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a,.acs-lesson-nav button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:9px 13px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  font-size:.95rem;
+  cursor:pointer;
+}
+.acs-lesson-nav .home-btn{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+  box-shadow:0 10px 24px rgba(124,58,237,.24);
+}
+.acs-lesson-nav .goto-btn{
+  color:#111827!important;
+  background:#ffffff;
+  border:1px solid #c7d2fe;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+}
+.acs-lesson-nav a:hover,.acs-lesson-nav button:hover{
+  transform:translateY(-1px);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:7px}
+  .acs-lesson-nav a,.acs-lesson-nav button{min-height:36px;padding:8px 11px;font-size:.9rem}
+}
+
+
+/* ACS Section Go To Lesson Popup Patch v3 */
+.acs-section-goto-modal{
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(15,23,42,.62);
+  backdrop-filter:blur(10px);
+}
+.acs-section-goto-modal.open{display:flex}
+.acs-section-goto-panel{
+  width:min(94vw,860px);
+  max-height:86vh;
+  overflow:hidden;
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  box-shadow:0 28px 80px rgba(15,23,42,.34);
+  display:flex;
+  flex-direction:column;
+}
+.acs-section-goto-head{
+  padding:18px;
+  border-bottom:1px solid #e5e7eb;
+  background:
+    radial-gradient(circle at top left,rgba(124,58,237,.14),transparent 34%),
+    radial-gradient(circle at top right,rgba(236,72,153,.12),transparent 30%),
+    #fff;
+}
+.acs-section-goto-head h2{
+  margin:0 0 6px;
+  font-size:clamp(1.25rem,3vw,1.8rem);
+  line-height:1.18;
+  font-weight:900;
+  color:#111827;
+}
+.acs-section-goto-head p{
+  margin:0;
+  color:#4b5563;
+  font-weight:800;
+}
+.acs-section-goto-actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.acs-section-goto-search{
+  flex:1;
+  min-height:46px;
+  border:1px solid #d1d5db;
+  border-radius:16px;
+  padding:0 14px;
+  font-weight:800;
+  font-size:1rem;
+}
+.acs-section-goto-close{
+  min-width:46px;
+  border:0;
+  border-radius:16px;
+  background:#111827;
+  color:#fff;
+  font-weight:900;
+  font-size:1.1rem;
+  cursor:pointer;
+}
+.acs-section-goto-list{
+  overflow:auto;
+  padding:14px 16px 18px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.acs-section-goto-item{
+  display:block;
+  padding:12px 13px;
+  border-radius:16px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  color:#111827!important;
+  text-decoration:none!important;
+  font-weight:850;
+  line-height:1.35;
+}
+.acs-section-goto-item:hover{
+  background:#f5f3ff;
+  border-color:#ddd6fe;
+}
+.acs-section-goto-item.current{
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  color:#fff!important;
+  border-color:transparent;
+}
+.acs-section-goto-id{
+  display:inline-flex;
+  margin-right:6px;
+  color:#7c3aed;
+  font-weight:900;
+}
+.acs-section-goto-item.current .acs-section-goto-id{color:#fff}
+@media(max-width:720px){
+  .acs-section-goto-list{grid-template-columns:1fr}
+  .acs-section-goto-panel{max-height:88vh}
+}
+
 </style>
 <!-- ACS TECHNICAL SEO PATCH START -->
 <link href="https://acslearn.com/vc/hi/level-1/l066-culture-and-tradition-content.html" rel="canonical"/>
@@ -729,6 +998,21 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 <meta name="twitter:image" content="https://acslearn.com/logo.png">
 </head>
 <body data-acs-lesson-path="level-1/l066-culture-and-tradition-content.html">
+
+<header class="acs-lesson-top-header no-listen" id="acs-lesson-top-header">
+  <div class="acs-lesson-top-header-inner">
+    <div class="acs-lesson-brand">
+      <strong>APPLIED COMPUTER SCHOOL</strong>
+      <span>देहात से दुनिया तक: डिजिटल शिक्षा</span>
+    </div>
+    <nav class="acs-lesson-nav" aria-label="Lesson top navigation">
+      <a class="home-btn" href="../dashboard.html">🏠 होम</a>
+      <button class="goto-btn" type="button" onclick="acsOpenGoToLesson()">🧭 Go to Lesson</button>
+    </nav>
+  </div>
+</header>
+
+
 <div class="top-progress" id="progressBar"></div>
 <header class="topbar">
 <div class="topbar-inner">
@@ -1637,6 +1921,60 @@ window.ACS_PROGRESS_LOCK_DATA = {"sectionOrder": ["level-0", "level-1", "level-2
     document.addEventListener("click", function(e){ if(e.target.closest("[data-acs-mark-complete]")) setTimeout(updateCertStyle, 300); });
   });
 })();
+</script>
+
+<div class="acs-section-goto-modal no-listen" id="acs-section-goto-modal" role="dialog" aria-modal="true" aria-label="Go to Lesson">
+  <div class="acs-section-goto-panel">
+    <div class="acs-section-goto-head">
+      <h2>🧭 लेवल 1 — वीडियो क्रिएटर के सभी लेसन</h2>
+      <p>इसी लेवल / लेयर के किसी भी लेसन पर तुरंत जाएँ।</p>
+      <div class="acs-section-goto-actions">
+        <input class="acs-section-goto-search" type="search" placeholder="Search: L001, AI, सुरक्षा, डेटा..." aria-label="Search lessons in this section">
+        <button class="acs-section-goto-close" type="button" aria-label="Close">×</button>
+      </div>
+    </div>
+    <div class="acs-section-goto-list">
+      <a class="acs-section-goto-item" href="l021-visual-storytelling-ka-parichay.html" data-search="L021 L021 — Visual Storytelling का परिचय"><span class="acs-section-goto-id">L021</span>L021 — Visual Storytelling का परिचय</a><a class="acs-section-goto-item" href="l022-hook-theory-pehle-3-seconds.html" data-search="L022 L022 — Hook Theory — पहले 3 Seconds"><span class="acs-section-goto-id">L022</span>L022 — Hook Theory — पहले 3 Seconds</a><a class="acs-section-goto-item" href="l023-story-arc-shuruaat-madhya-ant.html" data-search="L023 L023 — Story Arc — शुरुआत मध्य अंत"><span class="acs-section-goto-id">L023</span>L023 — Story Arc — शुरुआत मध्य अंत</a><a class="acs-section-goto-item" href="l024-ai-se-script-writing.html" data-search="L024 L024 — AI (एआई) से Script Writing"><span class="acs-section-goto-id">L024</span>L024 — AI (एआई) से Script Writing</a><a class="acs-section-goto-item" href="l025-storyboard-kaise-banaye.html" data-search="L025 L025 — Storyboard कैसे बनाएं"><span class="acs-section-goto-id">L025</span>L025 — Storyboard कैसे बनाएं</a><a class="acs-section-goto-item" href="l026-local-audience-psychology.html" data-search="L026 L026 — स्थानीय Audience Psychology"><span class="acs-section-goto-id">L026</span>L026 — स्थानीय Audience Psychology</a><a class="acs-section-goto-item" href="l027-vertical-vs-horizontal-video.html" data-search="L027 L027 — Vertical vs Horizontal Video"><span class="acs-section-goto-id">L027</span>L027 — Vertical vs Horizontal Video</a><a class="acs-section-goto-item" href="l028-trending-content-analysis.html" data-search="L028 L028 — Trending Content Analysis"><span class="acs-section-goto-id">L028</span>L028 — Trending Content Analysis</a><a class="acs-section-goto-item" href="l029-emotional-triggers-in-video.html" data-search="L029 L029 — Emotional Triggers in Video"><span class="acs-section-goto-id">L029</span>L029 — Emotional Triggers in Video</a><a class="acs-section-goto-item" href="l030-content-series-planning.html" data-search="L030 L030 — Content Series Planning"><span class="acs-section-goto-id">L030</span>L030 — Content Series Planning</a><a class="acs-section-goto-item" href="l031-smartphone-camera-mastery.html" data-search="L031 L031 — Smartphone Camera Mastery"><span class="acs-section-goto-id">L031</span>L031 — Smartphone Camera Mastery</a><a class="acs-section-goto-item" href="l032-natural-lighting-techniques.html" data-search="L032 L032 — Natural Lighting Techniques"><span class="acs-section-goto-id">L032</span>L032 — Natural Lighting Techniques</a><a class="acs-section-goto-item" href="l033-audio-quality-bina-mic-ke.html" data-search="L033 L033 — Audio Quality — बिना Mic के"><span class="acs-section-goto-id">L033</span>L033 — Audio Quality — बिना Mic के</a><a class="acs-section-goto-item" href="l034-b-roll-footage-kya-hai.html" data-search="L034 L034 — B-Roll Footage क्या है"><span class="acs-section-goto-id">L034</span>L034 — B-Roll Footage क्या है</a><a class="acs-section-goto-item" href="l035-framing-aur-composition.html" data-search="L035 L035 — Framing और Composition"><span class="acs-section-goto-id">L035</span>L035 — Framing और Composition</a><a class="acs-section-goto-item" href="l036-shooting-in-rural-settings.html" data-search="L036 L036 — Shooting in Rural Settings"><span class="acs-section-goto-id">L036</span>L036 — Shooting in Rural Settings</a><a class="acs-section-goto-item" href="l037-interview-style-shooting.html" data-search="L037 L037 — Interview Style Shooting"><span class="acs-section-goto-id">L037</span>L037 — Interview Style Shooting</a><a class="acs-section-goto-item" href="l038-action-and-movement-shots.html" data-search="L038 L038 — काम and Movement Shots"><span class="acs-section-goto-id">L038</span>L038 — काम and Movement Shots</a><a class="acs-section-goto-item" href="l039-thumbnail-planning-during-shoot.html" data-search="L039 L039 — Thumbnail Planning During Shoot"><span class="acs-section-goto-id">L039</span>L039 — Thumbnail Planning During Shoot</a><a class="acs-section-goto-item" href="l040-production-checklist.html" data-search="L040 L040 — Production जांच सूची"><span class="acs-section-goto-id">L040</span>L040 — Production जांच सूची</a><a class="acs-section-goto-item" href="l041-capcut-mobile-editing-master.html" data-search="L041 L041 — CapCut (कैपकट) — Mobile Editing Master"><span class="acs-section-goto-id">L041</span>L041 — CapCut (कैपकट) — Mobile Editing Master</a><a class="acs-section-goto-item" href="l042-capcut-auto-captions.html" data-search="L042 L042 — CapCut (कैपकट) Auto Captions"><span class="acs-section-goto-id">L042</span>L042 — CapCut (कैपकट) Auto Captions</a><a class="acs-section-goto-item" href="l043-capcut-templates-and-effects.html" data-search="L043 L043 — CapCut (कैपकट) नमूना फॉर्मs and Effects"><span class="acs-section-goto-id">L043</span>L043 — CapCut (कैपकट) नमूना फॉर्मs and Effects</a><a class="acs-section-goto-item" href="l044-invideo-ai-text-to-video.html" data-search="L044 L044 — InVideo (इनवीडियो) AI (एआई) — Text to Video"><span class="acs-section-goto-id">L044</span>L044 — InVideo (इनवीडियो) AI (एआई) — Text to Video</a><a class="acs-section-goto-item" href="l045-descript-text-based-editing.html" data-search="L045 L045 — Descript (डिस्क्रिप्ट) — Text-Based Editing"><span class="acs-section-goto-id">L045</span>L045 — Descript (डिस्क्रिप्ट) — Text-Based Editing</a><a class="acs-section-goto-item" href="l046-opusclip-long-to-short.html" data-search="L046 L046 — OpusClip (ओपसक्लिप) — Long to Short"><span class="acs-section-goto-id">L046</span>L046 — OpusClip (ओपसक्लिप) — Long to Short</a><a class="acs-section-goto-item" href="l047-google-veo-3-free-ai-video.html" data-search="L047 L047 — Google (गूगल) Veo 3 — Free AI (एआई) Video"><span class="acs-section-goto-id">L047</span>L047 — Google (गूगल) Veo 3 — Free AI (एआई) Video</a><a class="acs-section-goto-item" href="l048-heygen-ai-avatar-videos.html" data-search="L048 L048 — HeyGen (हेजेन) — AI (एआई) Avatar Videos"><span class="acs-section-goto-id">L048</span>L048 — HeyGen (हेजेन) — AI (एआई) Avatar Videos</a><a class="acs-section-goto-item" href="l049-runway-gen-4-cinematic-ai.html" data-search="L049 L049 — Runway (रनवे) Gen-4 — Cinematic AI (एआई)"><span class="acs-section-goto-id">L049</span>L049 — Runway (रनवे) Gen-4 — Cinematic AI (एआई)</a><a class="acs-section-goto-item" href="l050-canva-video-quick-graphics.html" data-search="L050 L050 — Canva (कैनवा) Video — Quick Graphics"><span class="acs-section-goto-id">L050</span>L050 — Canva (कैनवा) Video — Quick Graphics</a><a class="acs-section-goto-item" href="l051-youtube-channel-setup.html" data-search="L051 L051 — YouTube (यूट्यूब) Channel Setup"><span class="acs-section-goto-id">L051</span>L051 — YouTube (यूट्यूब) Channel Setup</a><a class="acs-section-goto-item" href="l052-youtube-seo-video-ranking.html" data-search="L052 L052 — YouTube (यूट्यूब) SEO (एसईओ) — Video Ranking"><span class="acs-section-goto-id">L052</span>L052 — YouTube (यूट्यूब) SEO (एसईओ) — Video Ranking</a><a class="acs-section-goto-item" href="l053-shorts-strategy-2026.html" data-search="L053 L053 — Shorts Strategy 2026"><span class="acs-section-goto-id">L053</span>L053 — Shorts Strategy 2026</a><a class="acs-section-goto-item" href="l054-instagram-reels-optimization.html" data-search="L054 L054 — Instagram (इंस्टाग्राम) Reels Optimization"><span class="acs-section-goto-id">L054</span>L054 — Instagram (इंस्टाग्राम) Reels Optimization</a><a class="acs-section-goto-item" href="l055-global-audience-strategy.html" data-search="L055 L055 — Global Audience Strategy"><span class="acs-section-goto-id">L055</span>L055 — Global Audience Strategy</a><a class="acs-section-goto-item" href="l056-adsense-setup-monetization.html" data-search="L056 L056 — AdSense Setup और कमाई का रास्ता"><span class="acs-section-goto-id">L056</span>L056 — AdSense Setup और कमाई का रास्ता</a><a class="acs-section-goto-item" href="l057-brand-deals-sponsorship-kaise-paye.html" data-search="L057 L057 — Brand Deals — Sponsorship कैसे पाएं"><span class="acs-section-goto-id">L057</span>L057 — Brand Deals — Sponsorship कैसे पाएं</a><a class="acs-section-goto-item" href="l058-digital-course-selling.html" data-search="L058 L058 — डिजिटल Course Selling"><span class="acs-section-goto-id">L058</span>L058 — डिजिटल Course Selling</a><a class="acs-section-goto-item" href="l059-video-analytics-data-padhna.html" data-search="L059 L059 — Video एनालिटिक्स — डेटा पढ़ना"><span class="acs-section-goto-id">L059</span>L059 — Video एनालिटिक्स — डेटा पढ़ना</a><a class="acs-section-goto-item" href="l060-video-creator-career-roadmap.html" data-search="L060 L060 — Video निर्माता Career Roadmap"><span class="acs-section-goto-id">L060</span>L060 — Video निर्माता Career Roadmap</a><a class="acs-section-goto-item" href="l061-faceless-channel-strategy.html" data-search="L061 L061 — Faceless Channel Strategy"><span class="acs-section-goto-id">L061</span>L061 — Faceless Channel Strategy</a><a class="acs-section-goto-item" href="l062-educational-content-creation.html" data-search="L062 L062 — Educational Content Creation"><span class="acs-section-goto-id">L062</span>L062 — Educational Content Creation</a><a class="acs-section-goto-item" href="l063-news-current-affairs-content.html" data-search="L063 L063 — News/Current Affairs Content"><span class="acs-section-goto-id">L063</span>L063 — News/Current Affairs Content</a><a class="acs-section-goto-item" href="l064-agriculture-farming-content.html" data-search="L064 L064 — Agriculture/Farming Content"><span class="acs-section-goto-id">L064</span>L064 — Agriculture/Farming Content</a><a class="acs-section-goto-item" href="l065-health-and-wellness-content.html" data-search="L065 L065 — Health and Wellness Content"><span class="acs-section-goto-id">L065</span>L065 — Health and Wellness Content</a><a class="acs-section-goto-item current" href="l066-culture-and-tradition-content.html" data-search="L066 L066 — Culture and Tradition Content"><span class="acs-section-goto-id">L066</span>L066 — Culture and Tradition Content</a><a class="acs-section-goto-item" href="l067-business-review-content.html" data-search="L067 L067 — Business समीक्षा Content"><span class="acs-section-goto-id">L067</span>L067 — Business समीक्षा Content</a><a class="acs-section-goto-item" href="l068-podcast-to-video.html" data-search="L068 L068 — Podcast to Video"><span class="acs-section-goto-id">L068</span>L068 — Podcast to Video</a><a class="acs-section-goto-item" href="l069-video-collaboration-strategy.html" data-search="L069 L069 — Video मिलकर काम Strategy"><span class="acs-section-goto-id">L069</span>L069 — Video मिलकर काम Strategy</a><a class="acs-section-goto-item" href="l070-level-1-capstone-channel-launch.html" data-search="L070 L070 — Level 1 अंतिम प्रोजेक्ट — अपना Channel Launch"><span class="acs-section-goto-id">L070</span>L070 — Level 1 अंतिम प्रोजेक्ट — अपना Channel Launch</a>
+    </div>
+  </div>
+</div>
+
+
+<script id="ACS_SECTION_GOTO_POPUP_PATCH">
+function acsOpenGoToLesson(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){
+    modal.classList.add('open');
+    var input = modal.querySelector('.acs-section-goto-search');
+    setTimeout(function(){ if(input) input.focus(); }, 80);
+  }
+}
+function acsCloseSectionGoTo(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){ modal.classList.remove('open'); }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(!modal) return;
+  var close = modal.querySelector('.acs-section-goto-close');
+  var search = modal.querySelector('.acs-section-goto-search');
+  if(close) close.addEventListener('click', acsCloseSectionGoTo);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) acsCloseSectionGoTo();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') acsCloseSectionGoTo();
+  });
+  if(search){
+    search.addEventListener('input', function(){
+      var q = search.value.trim().toLowerCase();
+      modal.querySelectorAll('.acs-section-goto-item').forEach(function(a){
+        var s = (a.getAttribute('data-search') || '').toLowerCase();
+        a.style.display = (!q || s.indexOf(q) !== -1) ? 'block' : 'none';
+      });
+    });
+  }
+});
 </script>
 
 </body>
