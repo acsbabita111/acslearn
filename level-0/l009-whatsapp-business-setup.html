@@ -651,6 +651,275 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
   .acs-diagram-focus svg{min-height:360px!important}
 }
 
+
+/* ACS Lesson Header Patch v1 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 12px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  color:#111827!important;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+.acs-lesson-nav a.primary{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+}
+.acs-lesson-nav a:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(15,23,42,.10);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:6px}
+  .acs-lesson-nav a{min-height:34px;padding:7px 10px;font-size:.88rem}
+}
+
+
+/* ACS Top Home + Go To Lesson Header Patch v2 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.18;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a,.acs-lesson-nav button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:9px 13px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  font-size:.95rem;
+  cursor:pointer;
+}
+.acs-lesson-nav .home-btn{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+  box-shadow:0 10px 24px rgba(124,58,237,.24);
+}
+.acs-lesson-nav .goto-btn{
+  color:#111827!important;
+  background:#ffffff;
+  border:1px solid #c7d2fe;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+}
+.acs-lesson-nav a:hover,.acs-lesson-nav button:hover{
+  transform:translateY(-1px);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:7px}
+  .acs-lesson-nav a,.acs-lesson-nav button{min-height:36px;padding:8px 11px;font-size:.9rem}
+}
+
+
+/* ACS Section Go To Lesson Popup Patch v3 */
+.acs-section-goto-modal{
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(15,23,42,.62);
+  backdrop-filter:blur(10px);
+}
+.acs-section-goto-modal.open{display:flex}
+.acs-section-goto-panel{
+  width:min(94vw,860px);
+  max-height:86vh;
+  overflow:hidden;
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  box-shadow:0 28px 80px rgba(15,23,42,.34);
+  display:flex;
+  flex-direction:column;
+}
+.acs-section-goto-head{
+  padding:18px;
+  border-bottom:1px solid #e5e7eb;
+  background:
+    radial-gradient(circle at top left,rgba(124,58,237,.14),transparent 34%),
+    radial-gradient(circle at top right,rgba(236,72,153,.12),transparent 30%),
+    #fff;
+}
+.acs-section-goto-head h2{
+  margin:0 0 6px;
+  font-size:clamp(1.25rem,3vw,1.8rem);
+  line-height:1.18;
+  font-weight:900;
+  color:#111827;
+}
+.acs-section-goto-head p{
+  margin:0;
+  color:#4b5563;
+  font-weight:800;
+}
+.acs-section-goto-actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.acs-section-goto-search{
+  flex:1;
+  min-height:46px;
+  border:1px solid #d1d5db;
+  border-radius:16px;
+  padding:0 14px;
+  font-weight:800;
+  font-size:1rem;
+}
+.acs-section-goto-close{
+  min-width:46px;
+  border:0;
+  border-radius:16px;
+  background:#111827;
+  color:#fff;
+  font-weight:900;
+  font-size:1.1rem;
+  cursor:pointer;
+}
+.acs-section-goto-list{
+  overflow:auto;
+  padding:14px 16px 18px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.acs-section-goto-item{
+  display:block;
+  padding:12px 13px;
+  border-radius:16px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  color:#111827!important;
+  text-decoration:none!important;
+  font-weight:850;
+  line-height:1.35;
+}
+.acs-section-goto-item:hover{
+  background:#f5f3ff;
+  border-color:#ddd6fe;
+}
+.acs-section-goto-item.current{
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  color:#fff!important;
+  border-color:transparent;
+}
+.acs-section-goto-id{
+  display:inline-flex;
+  margin-right:6px;
+  color:#7c3aed;
+  font-weight:900;
+}
+.acs-section-goto-item.current .acs-section-goto-id{color:#fff}
+@media(max-width:720px){
+  .acs-section-goto-list{grid-template-columns:1fr}
+  .acs-section-goto-panel{max-height:88vh}
+}
+
 </style>
 <!-- ACS TECHNICAL SEO PATCH START -->
 <link href="https://acslearn.com/vc/hi/level-0/l009-whatsapp-business-setup.html" rel="canonical"/>
@@ -741,6 +1010,21 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 <meta name="twitter:image" content="https://acslearn.com/logo.png">
 </head>
 <body data-acs-lesson-path="level-0/l009-whatsapp-business-setup.html">
+
+<header class="acs-lesson-top-header no-listen" id="acs-lesson-top-header">
+  <div class="acs-lesson-top-header-inner">
+    <div class="acs-lesson-brand">
+      <strong>APPLIED COMPUTER SCHOOL</strong>
+      <span>देहात से दुनिया तक: डिजिटल शिक्षा</span>
+    </div>
+    <nav class="acs-lesson-nav" aria-label="Lesson top navigation">
+      <a class="home-btn" href="../dashboard.html">🏠 होम</a>
+      <button class="goto-btn" type="button" onclick="acsOpenGoToLesson()">🧭 Go to Lesson</button>
+    </nav>
+  </div>
+</header>
+
+
 <div class="top-progress" id="progressBar"></div>
 <header class="topbar">
 <div class="topbar-inner">
@@ -1690,6 +1974,60 @@ window.ACS_PROGRESS_LOCK_DATA = {"sectionOrder": ["level-0", "level-1", "level-2
     document.addEventListener("click", function(e){ if(e.target.closest("[data-acs-mark-complete]")) setTimeout(updateCertStyle, 300); });
   });
 })();
+</script>
+
+<div class="acs-section-goto-modal no-listen" id="acs-section-goto-modal" role="dialog" aria-modal="true" aria-label="Go to Lesson">
+  <div class="acs-section-goto-panel">
+    <div class="acs-section-goto-head">
+      <h2>🧭 लेवल 0 — डिजिटल नींव के सभी लेसन</h2>
+      <p>इसी लेवल / लेयर के किसी भी लेसन पर तुरंत जाएँ।</p>
+      <div class="acs-section-goto-actions">
+        <input class="acs-section-goto-search" type="search" placeholder="Search: L001, AI, सुरक्षा, डेटा..." aria-label="Search lessons in this section">
+        <button class="acs-section-goto-close" type="button" aria-label="Close">×</button>
+      </div>
+    </div>
+    <div class="acs-section-goto-list">
+      <a class="acs-section-goto-item" href="l001-internet-kya-hai.html" data-search="L001 L001 — इंटरनेट क्या है?"><span class="acs-section-goto-id">L001</span>L001 — इंटरनेट क्या है?</a><a class="acs-section-goto-item" href="l002-browser-vs-app.html" data-search="L002 L002 — Browser vs App: फर्क क्या है?"><span class="acs-section-goto-id">L002</span>L002 — Browser vs App: फर्क क्या है?</a><a class="acs-section-goto-item" href="l003-safe-browsing-online-safety.html" data-search="L003 L003 — सुरक्षित Browsing और Online सुरक्षा"><span class="acs-section-goto-id">L003</span>L003 — सुरक्षित Browsing और Online सुरक्षा</a><a class="acs-section-goto-item" href="l004-spam-scam-phishing.html" data-search="L004 L004 — Spam, Scam और Phishing पहचानना"><span class="acs-section-goto-id">L004</span>L004 — Spam, Scam और Phishing पहचानना</a><a class="acs-section-goto-item" href="l005-digital-footprint-kya-hai.html" data-search="L005 L005 — डिजिटल Footprint क्या है?"><span class="acs-section-goto-id">L005</span>L005 — डिजिटल Footprint क्या है?</a><a class="acs-section-goto-item" href="l006-google-drive-mobile.html" data-search="L006 L006 — Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) Mobile पर कैसे इस्तेमाल करें"><span class="acs-section-goto-id">L006</span>L006 — Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) Mobile पर कैसे इस्तेमाल करें</a><a class="acs-section-goto-item" href="l007-google-docs-mobile.html" data-search="L007 L007 — Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) Mobile पर काम करना"><span class="acs-section-goto-id">L007</span>L007 — Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) Mobile पर काम करना</a><a class="acs-section-goto-item" href="l008-google-sheets-mobile-basics.html" data-search="L008 L008 — Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) Mobile Basics"><span class="acs-section-goto-id">L008</span>L008 — Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) Mobile Basics</a><a class="acs-section-goto-item current" href="l009-whatsapp-business-setup.html" data-search="L009 L009 — WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) Setup"><span class="acs-section-goto-id">L009</span>L009 — WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) Setup</a><a class="acs-section-goto-item" href="l010-professional-email.html" data-search="L010 L010 — काम के लायक Email कैसे लिखें"><span class="acs-section-goto-id">L010</span>L010 — काम के लायक Email कैसे लिखें</a><a class="acs-section-goto-item" href="l011-chatgpt-kya-hai.html" data-search="L011 L011 — ChatGPT (चैटजीपीटी) क्या है?"><span class="acs-section-goto-id">L011</span>L011 — ChatGPT (चैटजीपीटी) क्या है?</a><a class="acs-section-goto-item" href="l012-claude-ai-kya-hai.html" data-search="L012 L012 — Claude (क्लॉड) AI (एआई) क्या है?"><span class="acs-section-goto-id">L012</span>L012 — Claude (क्लॉड) AI (एआई) क्या है?</a><a class="acs-section-goto-item" href="l013-gemini-kya-hai.html" data-search="L013 L013 — Gemini (जेमिनी) क्या है?"><span class="acs-section-goto-id">L013</span>L013 — Gemini (जेमिनी) क्या है?</a><a class="acs-section-goto-item" href="l014-prompt-kya-hota-hai.html" data-search="L014 L014 — Prompt (प्रॉम्प्ट) क्या होता है?"><span class="acs-section-goto-id">L014</span>L014 — Prompt (प्रॉम्प्ट) क्या होता है?</a><a class="acs-section-goto-item" href="l015-ai-se-kaam-kaise-karwaye.html" data-search="L015 L015 — AI (एआई) से काम कैसे करवाएं"><span class="acs-section-goto-id">L015</span>L015 — AI (एआई) से काम कैसे करवाएं</a><a class="acs-section-goto-item" href="l016-hindi-ai-prompting.html" data-search="L016 L016 — Hindi में AI (एआई) Prompting"><span class="acs-section-goto-id">L016</span>L016 — Hindi में AI (एआई) Prompting</a><a class="acs-section-goto-item" href="l017-local-language-ai-prompting.html" data-search="L017 L017 — Maithili और Bhojpuri में AI (एआई) Prompting"><span class="acs-section-goto-id">L017</span>L017 — Maithili और Bhojpuri में AI (एआई) Prompting</a><a class="acs-section-goto-item" href="l018-ai-local-context.html" data-search="L018 L018 — AI (एआई) को स्थानीय स्थिति कैसे दें"><span class="acs-section-goto-id">L018</span>L018 — AI (एआई) को स्थानीय स्थिति कैसे दें</a><a class="acs-section-goto-item" href="l019-local-language-content-generation.html" data-search="L019 L019 — अपनी भाषा में Content Generate करना"><span class="acs-section-goto-id">L019</span>L019 — अपनी भाषा में Content Generate करना</a><a class="acs-section-goto-item" href="l020-local-knowledge-global-format.html" data-search="L020 L020 — स्थानीय Knowledge को Global Format में बदलना"><span class="acs-section-goto-id">L020</span>L020 — स्थानीय Knowledge को Global Format में बदलना</a>
+    </div>
+  </div>
+</div>
+
+
+<script id="ACS_SECTION_GOTO_POPUP_PATCH">
+function acsOpenGoToLesson(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){
+    modal.classList.add('open');
+    var input = modal.querySelector('.acs-section-goto-search');
+    setTimeout(function(){ if(input) input.focus(); }, 80);
+  }
+}
+function acsCloseSectionGoTo(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){ modal.classList.remove('open'); }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(!modal) return;
+  var close = modal.querySelector('.acs-section-goto-close');
+  var search = modal.querySelector('.acs-section-goto-search');
+  if(close) close.addEventListener('click', acsCloseSectionGoTo);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) acsCloseSectionGoTo();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') acsCloseSectionGoTo();
+  });
+  if(search){
+    search.addEventListener('input', function(){
+      var q = search.value.trim().toLowerCase();
+      modal.querySelectorAll('.acs-section-goto-item').forEach(function(a){
+        var s = (a.getAttribute('data-search') || '').toLowerCase();
+        a.style.display = (!q || s.indexOf(q) !== -1) ? 'block' : 'none';
+      });
+    });
+  }
+});
 </script>
 
 </body>
