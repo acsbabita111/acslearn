@@ -639,6 +639,275 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
   .acs-diagram-focus svg{min-height:360px!important}
 }
 
+
+/* ACS Lesson Header Patch v1 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 12px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  color:#111827!important;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+.acs-lesson-nav a.primary{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+}
+.acs-lesson-nav a:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(15,23,42,.10);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:6px}
+  .acs-lesson-nav a{min-height:34px;padding:7px 10px;font-size:.88rem}
+}
+
+
+/* ACS Top Home + Go To Lesson Header Patch v2 */
+.acs-lesson-top-header{
+  position:sticky;
+  top:0;
+  z-index:9998;
+  width:100%;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 10px 26px rgba(15,23,42,.08);
+}
+.acs-lesson-top-header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.acs-lesson-brand{
+  display:flex;
+  flex-direction:column;
+  line-height:1.18;
+}
+.acs-lesson-brand strong{
+  font-size:1rem;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.02em;
+}
+.acs-lesson-brand span{
+  font-size:.88rem;
+  font-weight:800;
+  color:#7c3aed;
+}
+.acs-lesson-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.acs-lesson-nav a,.acs-lesson-nav button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:9px 13px;
+  border-radius:999px;
+  text-decoration:none!important;
+  font-weight:900;
+  font-size:.95rem;
+  cursor:pointer;
+}
+.acs-lesson-nav .home-btn{
+  color:#fff!important;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  border:0;
+  box-shadow:0 10px 24px rgba(124,58,237,.24);
+}
+.acs-lesson-nav .goto-btn{
+  color:#111827!important;
+  background:#ffffff;
+  border:1px solid #c7d2fe;
+  box-shadow:0 8px 18px rgba(15,23,42,.08);
+}
+.acs-lesson-nav a:hover,.acs-lesson-nav button:hover{
+  transform:translateY(-1px);
+}
+@media(max-width:720px){
+  .acs-lesson-top-header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:9px 10px;
+  }
+  .acs-lesson-brand strong{font-size:.95rem}
+  .acs-lesson-brand span{font-size:.82rem}
+  .acs-lesson-nav{width:100%;justify-content:flex-start;gap:7px}
+  .acs-lesson-nav a,.acs-lesson-nav button{min-height:36px;padding:8px 11px;font-size:.9rem}
+}
+
+
+/* ACS Section Go To Lesson Popup Patch v3 */
+.acs-section-goto-modal{
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(15,23,42,.62);
+  backdrop-filter:blur(10px);
+}
+.acs-section-goto-modal.open{display:flex}
+.acs-section-goto-panel{
+  width:min(94vw,860px);
+  max-height:86vh;
+  overflow:hidden;
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  box-shadow:0 28px 80px rgba(15,23,42,.34);
+  display:flex;
+  flex-direction:column;
+}
+.acs-section-goto-head{
+  padding:18px;
+  border-bottom:1px solid #e5e7eb;
+  background:
+    radial-gradient(circle at top left,rgba(124,58,237,.14),transparent 34%),
+    radial-gradient(circle at top right,rgba(236,72,153,.12),transparent 30%),
+    #fff;
+}
+.acs-section-goto-head h2{
+  margin:0 0 6px;
+  font-size:clamp(1.25rem,3vw,1.8rem);
+  line-height:1.18;
+  font-weight:900;
+  color:#111827;
+}
+.acs-section-goto-head p{
+  margin:0;
+  color:#4b5563;
+  font-weight:800;
+}
+.acs-section-goto-actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.acs-section-goto-search{
+  flex:1;
+  min-height:46px;
+  border:1px solid #d1d5db;
+  border-radius:16px;
+  padding:0 14px;
+  font-weight:800;
+  font-size:1rem;
+}
+.acs-section-goto-close{
+  min-width:46px;
+  border:0;
+  border-radius:16px;
+  background:#111827;
+  color:#fff;
+  font-weight:900;
+  font-size:1.1rem;
+  cursor:pointer;
+}
+.acs-section-goto-list{
+  overflow:auto;
+  padding:14px 16px 18px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.acs-section-goto-item{
+  display:block;
+  padding:12px 13px;
+  border-radius:16px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  color:#111827!important;
+  text-decoration:none!important;
+  font-weight:850;
+  line-height:1.35;
+}
+.acs-section-goto-item:hover{
+  background:#f5f3ff;
+  border-color:#ddd6fe;
+}
+.acs-section-goto-item.current{
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  color:#fff!important;
+  border-color:transparent;
+}
+.acs-section-goto-id{
+  display:inline-flex;
+  margin-right:6px;
+  color:#7c3aed;
+  font-weight:900;
+}
+.acs-section-goto-item.current .acs-section-goto-id{color:#fff}
+@media(max-width:720px){
+  .acs-section-goto-list{grid-template-columns:1fr}
+  .acs-section-goto-panel{max-height:88vh}
+}
+
 </style>
 <!-- ACS TECHNICAL SEO PATCH START -->
 <link href="https://acslearn.com/vc/hi/level-4/l171-ai-tools-ko-workflow-mein.html" rel="canonical"/>
@@ -729,6 +998,21 @@ body{padding-bottom:calc(var(--acs-nav-h) + env(safe-area-inset-bottom,0px))}
 <meta name="twitter:image" content="https://acslearn.com/logo.png">
 </head>
 <body data-acs-lesson-path="level-4/l171-ai-tools-ko-workflow-mein.html">
+
+<header class="acs-lesson-top-header no-listen" id="acs-lesson-top-header">
+  <div class="acs-lesson-top-header-inner">
+    <div class="acs-lesson-brand">
+      <strong>APPLIED COMPUTER SCHOOL</strong>
+      <span>देहात से दुनिया तक: डिजिटल शिक्षा</span>
+    </div>
+    <nav class="acs-lesson-nav" aria-label="Lesson top navigation">
+      <a class="home-btn" href="../dashboard.html">🏠 होम</a>
+      <button class="goto-btn" type="button" onclick="acsOpenGoToLesson()">🧭 Go to Lesson</button>
+    </nav>
+  </div>
+</header>
+
+
 <div class="top-progress" id="progressBar"></div>
 <header class="topbar">
 <div class="topbar-inner">
@@ -1638,6 +1922,60 @@ window.ACS_PROGRESS_LOCK_DATA = {"sectionOrder": ["level-0", "level-1", "level-2
     document.addEventListener("click", function(e){ if(e.target.closest("[data-acs-mark-complete]")) setTimeout(updateCertStyle, 300); });
   });
 })();
+</script>
+
+<div class="acs-section-goto-modal no-listen" id="acs-section-goto-modal" role="dialog" aria-modal="true" aria-label="Go to Lesson">
+  <div class="acs-section-goto-panel">
+    <div class="acs-section-goto-head">
+      <h2>🧭 लेवल 4 — एआई डिजिटल मास्टर के सभी लेसन</h2>
+      <p>इसी लेवल / लेयर के किसी भी लेसन पर तुरंत जाएँ।</p>
+      <div class="acs-section-goto-actions">
+        <input class="acs-section-goto-search" type="search" placeholder="Search: L001, AI, सुरक्षा, डेटा..." aria-label="Search lessons in this section">
+        <button class="acs-section-goto-close" type="button" aria-label="Close">×</button>
+      </div>
+    </div>
+    <div class="acs-section-goto-list">
+      <a class="acs-section-goto-item current" href="l171-ai-tools-ko-workflow-mein.html" data-search="L171 L171 — AI (एआई) टूलs को काम की प्रक्रिया में जोड़ना"><span class="acs-section-goto-id">L171</span>L171 — AI (एआई) टूलs को काम की प्रक्रिया में जोड़ना</a><a class="acs-section-goto-item" href="l172-zapier-no-code-automation.html" data-search="L172 L172 — Zapier — No-Code Automation"><span class="acs-section-goto-id">L172</span>L172 — Zapier — No-Code Automation</a><a class="acs-section-goto-item" href="l173-n8n-free-open-source-automation.html" data-search="L173 L173 — n8n — Free Open-Source Automation"><span class="acs-section-goto-id">L173</span>L173 — n8n — Free Open-Source Automation</a><a class="acs-section-goto-item" href="l174-ai-agents-kya-hai.html" data-search="L174 L174 — AI (एआई) Agents क्या हैं"><span class="acs-section-goto-id">L174</span>L174 — AI (एआई) Agents क्या हैं</a><a class="acs-section-goto-item" href="l175-human-ai-collaboration-model.html" data-search="L175 L175 — Human + AI (एआई) मिलकर काम Model"><span class="acs-section-goto-id">L175</span>L175 — Human + AI (एआई) मिलकर काम Model</a><a class="acs-section-goto-item" href="l176-prompt-engineering-advanced.html" data-search="L176 L176 — Prompt (प्रॉम्प्ट) Engineering — थोड़ा आगे"><span class="acs-section-goto-id">L176</span>L176 — Prompt (प्रॉम्प्ट) Engineering — थोड़ा आगे</a><a class="acs-section-goto-item" href="l177-ai-for-research-perplexity-master.html" data-search="L177 L177 — AI (एआई) for Research — Perplexity (परप्लेक्सिटी) Master"><span class="acs-section-goto-id">L177</span>L177 — AI (एआई) for Research — Perplexity (परप्लेक्सिटी) Master</a><a class="acs-section-goto-item" href="l178-notebooklm-document-intelligence.html" data-search="L178 L178 — NotebookLM — Document Intelligence"><span class="acs-section-goto-id">L178</span>L178 — NotebookLM — Document Intelligence</a><a class="acs-section-goto-item" href="l179-ai-ethics-aur-responsible-use.html" data-search="L179 L179 — AI (एआई) Ethics और Responsible Use"><span class="acs-section-goto-id">L179</span>L179 — AI (एआई) Ethics और Responsible Use</a><a class="acs-section-goto-item" href="l180-ai-news-constantly-update.html" data-search="L180 L180 — AI (एआई) News — Constantly Update रहना"><span class="acs-section-goto-id">L180</span>L180 — AI (एआई) News — Constantly Update रहना</a><a class="acs-section-goto-item" href="l181-claude-ai-long-form-intelligence.html" data-search="L181 L181 — Claude (क्लॉड) AI (एआई) — Long-form Intelligence"><span class="acs-section-goto-id">L181</span>L181 — Claude (क्लॉड) AI (एआई) — Long-form Intelligence</a><a class="acs-section-goto-item" href="l182-jasper-campaign-manager.html" data-search="L182 L182 — Jasper — Campaign Manager"><span class="acs-section-goto-id">L182</span>L182 — Jasper — Campaign Manager</a><a class="acs-section-goto-item" href="l183-midjourney-brand-visuals.html" data-search="L183 L183 — Midjourney — Brand Visuals"><span class="acs-section-goto-id">L183</span>L183 — Midjourney — Brand Visuals</a><a class="acs-section-goto-item" href="l184-sora-advanced-video-generation.html" data-search="L184 L184 — Sora — थोड़ा आगे Video Generation"><span class="acs-section-goto-id">L184</span>L184 — Sora — थोड़ा आगे Video Generation</a><a class="acs-section-goto-item" href="l185-google-gemini-advanced.html" data-search="L185 L185 — Google (गूगल) Gemini (जेमिनी) थोड़ा आगे"><span class="acs-section-goto-id">L185</span>L185 — Google (गूगल) Gemini (जेमिनी) थोड़ा आगे</a><a class="acs-section-goto-item" href="l186-canva-ai-full-suite.html" data-search="L186 L186 — Canva (कैनवा) AI (एआई) — Full Suite"><span class="acs-section-goto-id">L186</span>L186 — Canva (कैनवा) AI (एआई) — Full Suite</a><a class="acs-section-goto-item" href="l187-dall-e-3-advanced-prompting.html" data-search="L187 L187 — DALL-E 3 (डॉल-ई थ्री) — थोड़ा आगे Prompting"><span class="acs-section-goto-id">L187</span>L187 — DALL-E 3 (डॉल-ई थ्री) — थोड़ा आगे Prompting</a><a class="acs-section-goto-item" href="l188-elevenlabs-ai-voice.html" data-search="L188 L188 — ElevenLabs — AI (एआई) Voice"><span class="acs-section-goto-id">L188</span>L188 — ElevenLabs — AI (एआई) Voice</a><a class="acs-section-goto-item" href="l189-gamma-app-ai-presentations.html" data-search="L189 L189 — Gamma.app — AI (एआई) प्रस्तुतिs"><span class="acs-section-goto-id">L189</span>L189 — Gamma.app — AI (एआई) प्रस्तुतिs</a><a class="acs-section-goto-item" href="l190-claude-code-vibe-coding.html" data-search="L190 L190 — Claude (क्लॉड) Code (Vibe Coding)"><span class="acs-section-goto-id">L190</span>L190 — Claude (क्लॉड) Code (Vibe Coding)</a><a class="acs-section-goto-item" href="l191-personal-brand-architecture.html" data-search="L191 L191 — Personal Brand Architecture"><span class="acs-section-goto-id">L191</span>L191 — Personal Brand Architecture</a><a class="acs-section-goto-item" href="l192-online-course-design.html" data-search="L192 L192 — Online Course — Design करना"><span class="acs-section-goto-id">L192</span>L192 — Online Course — Design करना</a><a class="acs-section-goto-item" href="l193-digital-product-suite.html" data-search="L193 L193 — डिजिटल Product Suite"><span class="acs-section-goto-id">L193</span>L193 — डिजिटल Product Suite</a><a class="acs-section-goto-item" href="l194-freelancing-global-clients.html" data-search="L194 L194 — फ्रीलांस काम — Global Clients"><span class="acs-section-goto-id">L194</span>L194 — फ्रीलांस काम — Global Clients</a><a class="acs-section-goto-item" href="l195-ai-agency-model.html" data-search="L195 L195 — AI (एआई) Agency Model"><span class="acs-section-goto-id">L195</span>L195 — AI (एआई) Agency Model</a><a class="acs-section-goto-item" href="l196-email-marketing-ai-se.html" data-search="L196 L196 — Email Marketing — AI (एआई) से"><span class="acs-section-goto-id">L196</span>L196 — Email Marketing — AI (एआई) से</a><a class="acs-section-goto-item" href="l197-sales-funnel-design.html" data-search="L197 L197 — Sales Funnel Design"><span class="acs-section-goto-id">L197</span>L197 — Sales Funnel Design</a><a class="acs-section-goto-item" href="l198-analytics-dashboard-business-intel.html" data-search="L198 L198 — एनालिटिक्स डैशबोर्ड — Business Intel"><span class="acs-section-goto-id">L198</span>L198 — एनालिटिक्स डैशबोर्ड — Business Intel</a><a class="acs-section-goto-item" href="l199-pricing-strategy-for-digital-services.html" data-search="L199 L199 — Pricing Strategy for डिजिटल Services"><span class="acs-section-goto-id">L199</span>L199 — Pricing Strategy for डिजिटल Services</a><a class="acs-section-goto-item" href="l200-digital-business-plan.html" data-search="L200 L200 — डिजिटल Business Plan"><span class="acs-section-goto-id">L200</span>L200 — डिजिटल Business Plan</a><a class="acs-section-goto-item" href="l201-ai-agents-ka.html" data-search="L201 L201 — AI (एआई) Agents का भविष्य"><span class="acs-section-goto-id">L201</span>L201 — AI (एआई) Agents का भविष्य</a><a class="acs-section-goto-item" href="l202-local-language-ai-models.html" data-search="L202 L202 — स्थानीय Language AI (एआई) Models"><span class="acs-section-goto-id">L202</span>L202 — स्थानीय Language AI (एआई) Models</a><a class="acs-section-goto-item" href="l203-blockchain-aur-digital-identity.html" data-search="L203 L203 — Blockchain और डिजिटल Identity"><span class="acs-section-goto-id">L203</span>L203 — Blockchain और डिजिटल Identity</a><a class="acs-section-goto-item" href="l204-global-south-competitive-advantage.html" data-search="L204 L204 — ग्लोबल साउथ Competitive Advantage"><span class="acs-section-goto-id">L204</span>L204 — ग्लोबल साउथ Competitive Advantage</a><a class="acs-section-goto-item" href="l205-ar-vr-for-education.html" data-search="L205 L205 — AR/VR for Education"><span class="acs-section-goto-id">L205</span>L205 — AR/VR for Education</a><a class="acs-section-goto-item" href="l206-gig-economy-strategy.html" data-search="L206 L206 — Gig Economy Strategy"><span class="acs-section-goto-id">L206</span>L206 — Gig Economy Strategy</a><a class="acs-section-goto-item" href="l207-creator-economy-2036.html" data-search="L207 L207 — निर्माता Economy 2036"><span class="acs-section-goto-id">L207</span>L207 — निर्माता Economy 2036</a><a class="acs-section-goto-item" href="l208-digital-citizenship-ethics.html" data-search="L208 L208 — डिजिटल Citizenship — Ethics"><span class="acs-section-goto-id">L208</span>L208 — डिजिटल Citizenship — Ethics</a><a class="acs-section-goto-item" href="l209-continuous-learning-system.html" data-search="L209 L209 — Continuous Learning System"><span class="acs-section-goto-id">L209</span>L209 — Continuous Learning System</a><a class="acs-section-goto-item" href="l210-ai-digital-master-final-review.html" data-search="L210 L210 — AI (एआई) डिजिटल Master — Final समीक्षा"><span class="acs-section-goto-id">L210</span>L210 — AI (एआई) डिजिटल Master — Final समीक्षा</a><a class="acs-section-goto-item" href="l211-local-business-digital-transformation.html" data-search="L211 L211 — स्थानीय Business डिजिटल Transformation"><span class="acs-section-goto-id">L211</span>L211 — स्थानीय Business डिजिटल Transformation</a><a class="acs-section-goto-item" href="l212-education-content-empire.html" data-search="L212 L212 — Education Content Empire"><span class="acs-section-goto-id">L212</span>L212 — Education Content Empire</a><a class="acs-section-goto-item" href="l213-ai-powered-news-channel.html" data-search="L213 L213 — AI-Powered News Channel"><span class="acs-section-goto-id">L213</span>L213 — AI-Powered News Channel</a><a class="acs-section-goto-item" href="l214-agricultural-tech-content.html" data-search="L214 L214 — Agricultural Tech Content"><span class="acs-section-goto-id">L214</span>L214 — Agricultural Tech Content</a><a class="acs-section-goto-item" href="l215-health-and-wellness-creator.html" data-search="L215 L215 — Health and Wellness निर्माता"><span class="acs-section-goto-id">L215</span>L215 — Health and Wellness निर्माता</a><a class="acs-section-goto-item" href="l216-e-commerce-business-with-ai.html" data-search="L216 L216 — E-Commerce Business with AI (एआई)"><span class="acs-section-goto-id">L216</span>L216 — E-Commerce Business with AI (एआई)</a><a class="acs-section-goto-item" href="l217-south-south-knowledge-exchange.html" data-search="L217 L217 — South-South Knowledge Exchange"><span class="acs-section-goto-id">L217</span>L217 — South-South Knowledge Exchange</a><a class="acs-section-goto-item" href="l218-acs-style-mini-school.html" data-search="L218 L218 — ACS-Style Mini School"><span class="acs-section-goto-id">L218</span>L218 — ACS-Style Mini School</a><a class="acs-section-goto-item" href="l219-digital-income-portfolio.html" data-search="L219 L219 — डिजिटल Income Portfolio"><span class="acs-section-goto-id">L219</span>L219 — डिजिटल Income Portfolio</a><a class="acs-section-goto-item" href="l220-level-4-capstone-global-entrepreneur.html" data-search="L220 L220 — Level 4 अंतिम प्रोजेक्ट — Global Entrepreneur"><span class="acs-section-goto-id">L220</span>L220 — Level 4 अंतिम प्रोजेक्ट — Global Entrepreneur</a><a class="acs-section-goto-item" href="l220a-ai-compliance-workflow.html" data-search="L220A L220A — AI (एआई) Compliance काम की प्रक्रिया बनाना"><span class="acs-section-goto-id">L220A</span>L220A — AI (एआई) Compliance काम की प्रक्रिया बनाना</a><a class="acs-section-goto-item" href="l220b-ai-agent-system.html" data-search="L220B L220B — AI (एआई) Agent System Design"><span class="acs-section-goto-id">L220B</span>L220B — AI (एआई) Agent System Design</a><a class="acs-section-goto-item" href="l220c-regional-ai-training.html" data-search="L220C L220C — Regional AI (एआई) Model Training"><span class="acs-section-goto-id">L220C</span>L220C — Regional AI (एआई) Model Training</a><a class="acs-section-goto-item" href="l220d-digital-infrastructure.html" data-search="L220D L220D — डिजिटल Civilization Infrastructure"><span class="acs-section-goto-id">L220D</span>L220D — डिजिटल Civilization Infrastructure</a>
+    </div>
+  </div>
+</div>
+
+
+<script id="ACS_SECTION_GOTO_POPUP_PATCH">
+function acsOpenGoToLesson(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){
+    modal.classList.add('open');
+    var input = modal.querySelector('.acs-section-goto-search');
+    setTimeout(function(){ if(input) input.focus(); }, 80);
+  }
+}
+function acsCloseSectionGoTo(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(modal){ modal.classList.remove('open'); }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var modal = document.getElementById('acs-section-goto-modal');
+  if(!modal) return;
+  var close = modal.querySelector('.acs-section-goto-close');
+  var search = modal.querySelector('.acs-section-goto-search');
+  if(close) close.addEventListener('click', acsCloseSectionGoTo);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) acsCloseSectionGoTo();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') acsCloseSectionGoTo();
+  });
+  if(search){
+    search.addEventListener('input', function(){
+      var q = search.value.trim().toLowerCase();
+      modal.querySelectorAll('.acs-section-goto-item').forEach(function(a){
+        var s = (a.getAttribute('data-search') || '').toLowerCase();
+        a.style.display = (!q || s.indexOf(q) !== -1) ? 'block' : 'none';
+      });
+    });
+  }
+});
 </script>
 
 </body>
