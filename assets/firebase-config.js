@@ -1,2 +1,1 @@
-// Paste Firebase web config here. Never paste private keys.
-export const firebaseConfig={apiKey:"",authDomain:"",projectId:"",storageBucket:"",messagingSenderId:"",appId:""};
+// फायरबेस कॉन्फिगरेशन स्थान — निजी कुंजी कभी नहीं।

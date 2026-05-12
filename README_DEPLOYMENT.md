@@ -1,7 +1,13 @@
-# ACS Clean Ecosystem Website v2
+# ACS Clean Ecosystem Website v2.2 Full Rebuild
 
-Upload-ready static website.
-
-Main slogan: रील से स्किल — अपनी भाषा में
-
-Upload root files and folders to the clean GitHub repository. Add Razorpay Payment Button script to payment.html. Add Firebase config to assets/firebase-config.js.
+- No patch work: full rebuild.
+- Hindi pages Devanagari-first.
+- English page Roman/English.
+- Mobile hamburger menu included.
+- Footer sitemap included.
+- Social links section included.
+- About ACS page included.
+- Logo system included:
+  - assets/logos/acs-logo.svg
+  - assets/logos/aidm-logo.svg
+Replace these SVG files with official logos using the same filenames if required.
