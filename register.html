@@ -47,16 +47,18 @@
          <section class="section">
             <div class="container">
                <h1>पंजीकरण</h1>
-               <form class="form" data-static-form>
+               <form id="registerForm" class="form" data-static-form>
                   <fieldset>
                      <legend>चरण 1: व्यक्तिगत जानकारी</legend>
-                     <label>मोबाइल / व्हाट्सऐप<input required></label><label>नाम<input required></label><label>पता / केंद्र / फर्म / कंपनी<input></label>
+                     <label>मोबाइल / व्हाट्सऐप<input id="mobile" required inputmode="numeric" maxlength="10" pattern="[0-9]{10}"></label>
+                     <label>नाम<input id="name" required style="text-transform:uppercase"></label>
+                     <label>पता / केंद्र / फर्म / कंपनी<input id="address" required style="text-transform:uppercase"></label>
                   </fieldset>
                   <fieldset>
                      <legend>चरण 2: पंजीकरण का प्रकार </legend>
                      <label>
                         प्रकार 
-                        <select>
+                        <select id="role">
                            <option>स्टूडेंट /  ट्रेनिज  /  प्रशिक्षु / वर्कर</option>
                            <option>शिक्षक / ट्रेनर / मेन्टर / टीचिंग स्टाफ</option>
                            <option>नियोक्ता / उद्योग साझेदार / ह्यूमन रिसोर्सेज हायरिंग</option>
@@ -66,7 +68,7 @@
                   </fieldset>
                   <fieldset>
                      <legend>चरण 3: कोर्स चयन/जॉब रोल का विवरण</legend>
-                     <label>कोर्स / जॉब रोल का विवरण <input required></label>
+                     <label>कोर्स / जॉब रोल का विवरण <input id="course" required style="text-transform:uppercase"></label>
                      </label>
                      <button class="btn" type="submit">पंजीकरण भेजें</button>
                   </fieldset>
@@ -109,5 +111,69 @@
             <div class="bottom">© Applied Computer School™ — डिजाइन और विकास: Rambharosh Vidyarthi</div>
          </div>
       </footer>
+            <script type="module" src="firebase-config.js"></script>
+      <script type="module">
+
+import { getFirestore, collection, addDoc }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
+  authDomain: "acslearn-platform.firebaseapp.com",
+  projectId: "acslearn-platform",
+  storageBucket: "acslearn-platform.firebasestorage.app",
+  messagingSenderId: "435395814481",
+  appId: "1:435395814481:web:655f99452a90f8efbc4470"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const form = document.getElementById("registerForm");
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  const mobile = document.getElementById("mobile").value;
+  const name = document.getElementById("name").value;
+  const address = document.getElementById("address").value;
+  const role = document.getElementById("role").value;
+  const course = document.getElementById("course").value;
+
+  let collectionName = "students";
+
+  if (role.includes("शिक्षक")) {
+    collectionName = "mentors";
+  }
+
+  else if (role.includes("नियोक्ता")) {
+    collectionName = "employers";
+  }
+
+  else if (role.includes("सेंटर")) {
+    collectionName = "center_admins";
+  }
+
+  await addDoc(collection(db, collectionName), {
+    mobile,
+    name,
+    address,
+    role,
+    course,
+    created_at: new Date()
+  });
+
+  alert("पंजीकरण सफल हुआ। अब कोर्स शुरू करें।");
+window.location.href = "vc/hi/index.html";
+
+  form.reset();
+
+});
+
+    </script>
    </body>
 </html>
