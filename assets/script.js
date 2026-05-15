@@ -1,1 +1,0 @@
-const menuBtn=document.querySelector("[data-menu-btn]");const mob=document.querySelector("[data-mobile-menu]");const closeBtn=document.querySelector("[data-close-menu]");if(menuBtn&&mob){menuBtn.addEventListener("click",()=>mob.classList.toggle("open"));}if(closeBtn&&mob){closeBtn.addEventListener("click",()=>mob.classList.remove("open"));}
