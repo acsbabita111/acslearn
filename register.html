@@ -1,39 +1,77 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>अभी जुड़िए — Coming Soon | Applied Computer School™</title>
-  <meta name="robots" content="noindex, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="coming-soon.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अभी जुड़िए — Applied Computer School™</title>
+    <meta name="description" content="अभी जुड़िए — Applied Computer School™">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <div class="top">
-      <div class="brand">
-        <div class="logo">ACS</div>
-        <div>Applied Computer School™</div>
-      </div>
-      <div class="badge">निर्माण जारी है</div>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="brand">
+            <img src="logo.png" class="brand-logo-img" alt="Applied Computer School™ लोगो">
+            <span class="brand-name">Applied Computer School™</span>
+        </div>
+        <div class="nav-controls">
+            <a href="index.html" class="lang-btn">🏠 होम</a>
+            <a href="menu.html" class="menu-btn" aria-label="मेन्यू">☰</a>
+        </div>
     </div>
+</nav>
 
-    <section class="hero">
-      <div class="kicker">अभी जुड़िए</div>
-      <h1>COMING<br>SOON</h1>
-      <div class="title">यह पेज जल्द उपलब्ध होगा।</div>
-      <p class="desc">एसीएस इस भाग को बेहतर, सरल और मोबाइल-फर्स्ट अनुभव के साथ तैयार कर रहा है। कृपया मुख्य पेज पर लौटें या सीधे संपर्क करें।</p>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="index.html">🏠 मुख्य पेज</a>
-        <a class="btn btn-dark" href="https://wa.me/919431210092">💬 WhatsApp</a>
-        <a class="btn btn-gold" href="mailto:acs.chautham@gmail.com">✉️ ईमेल</a>
-      </div>
+<main class="inner-page">
+    <section class="inner-hero">
+        <div class="section-label">एसीएस से जुड़ें</div>
+        <h1>अपना रास्ता चुनें</h1>
+        <p>ऑनलाइन कोर्स फ्री हैं। ऑनलाइन WhatsApp सपोर्ट, ऑफलाइन प्रशिक्षण, इंटर्नशिप, सर्टिफिकेशन और जॉब प्लेसमेंट पेड सेवाएँ हो सकती हैं।</p>
+        <div class="mode-strip">
+            <span class="mode-badge free">✅ ऑनलाइन कोर्स फ्री</span>
+            <span class="mode-badge paid">💬 WhatsApp सपोर्ट पेड</span>
+            <span class="mode-badge paid">🏫 ऑफलाइन प्रशिक्षण पेड</span>
+        </div>
     </section>
 
-    <div class="footer">©2026 Applied Computer School™, सर्वाधिकार सुरक्षित।</div>
-  </main>
+    <section class="role-grid">
+        <a class="role-card" href="https://wa.me/919431210092?text=मैं%20ACS%20में%20विद्यार्थी%20के%20रूप%20में%20जुड़ना%20चाहता/चाहती%20हूँ।">
+            <h3>🎓 विद्यार्थी के रूप में जुड़ें</h3>
+            <p>ऑनलाइन फ्री कोर्स शुरू करें या ऑफलाइन बैच/सपोर्ट के बारे में पूछें।</p>
+        </a>
+
+        <a class="role-card" href="https://wa.me/919431210092?text=मैं%20ACS%20में%20प्रशिक्षक%20के%20रूप%20में%20जुड़ना%20चाहता/चाहती%20हूँ।">
+            <h3>👨‍🏫 प्रशिक्षक बनें</h3>
+            <p>अपना हूनर, कोर्स या प्रैक्टिकल प्रशिक्षण ACS से जोड़ें।</p>
+        </a>
+
+        <a class="role-card" href="https://wa.me/919431210092?text=मैं%20ACS%20सहयोगी%20केंद्र%20बनना%20चाहता/चाहती%20हूँ।">
+            <h3>🏫 सहयोगी केंद्र बनें</h3>
+            <p>कोचिंग, स्कूल, आईटीआई, दुकान, गैरेज या वर्कशॉप को दरसगाह बनाएं।</p>
+        </a>
+
+        <a class="role-card" href="https://wa.me/919431210092?text=मैं%20ACS%20से%20नियोक्ता%20के%20रूप%20में%20जुड़ना%20चाहता/चाहती%20हूँ।">
+            <h3>🏢 नियोक्ता के रूप में जुड़ें</h3>
+            <p>सत्यापित प्रशिक्षु, हूनर और स्थानीय प्रतिभा से जुड़ें।</p>
+        </a>
+
+        <a class="role-card" href="course-proposal.html">
+            <h3>📚 नया कोर्स जोड़ें</h3>
+            <p>अपना कोर्स, सिलेबस या प्रशिक्षण प्रस्ताव भेजें।</p>
+        </a>
+
+        <a class="role-card" href="contact.html">
+            <h3>📞 संपर्क करें</h3>
+            <p>सीधे फोन, ईमेल या WhatsApp के माध्यम से ACS से जुड़ें।</p>
+        </a>
+    </section>
+
+    <div class="info-note">
+        <strong>भुगतान नियम:</strong> ऑनलाइन कोर्स फ्री रहेंगे। ऑनलाइन WhatsApp सपोर्ट, ऑफलाइन प्रशिक्षण, इंटर्नशिप, सर्टिफिकेशन और जॉब प्लेसमेंट पेड सेवाएँ हो सकती हैं।
+    </div>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -40,6 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 languageDropdown.setAttribute('hidden', '');
                 languageToggle.setAttribute('aria-expanded', 'false');
+
+                if (selectedLang === 'hi') {
+                    window.location.href = './';
+                } else if (selectedLang === 'en') {
+                    window.location.href = '../en/';
+                }
             });
         });
 
