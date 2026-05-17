@@ -1,0 +1,2167 @@
+{
+  "course_id": "acs-2036-job-ready-digital-career-path",
+  "language": "hi",
+  "total_lessons": 332,
+  "chunks": [
+    {
+      "chunk_id": "level-0",
+      "title": "Level 0",
+      "track": "Digital Foundation",
+      "lesson_count": 20,
+      "lessons": [
+        {
+          "lesson_id": "L001",
+          "title": "Internet क्या है और कैसे काम करता है",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L001"
+        },
+        {
+          "lesson_id": "L002",
+          "title": "Browser vs App — फर्क क्या है",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L002"
+        },
+        {
+          "lesson_id": "L003",
+          "title": "Safe Browsing — Online सुरक्षा",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L003"
+        },
+        {
+          "lesson_id": "L004",
+          "title": "Spam और Phishing से बचाव",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L004"
+        },
+        {
+          "lesson_id": "L005",
+          "title": "Digital Footprint क्या है",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L005"
+        },
+        {
+          "lesson_id": "L006",
+          "title": "Google Drive Setup",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L006"
+        },
+        {
+          "lesson_id": "L007",
+          "title": "Google Docs — मोबाइल पर",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L007"
+        },
+        {
+          "lesson_id": "L008",
+          "title": "Google Sheets Basic",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L008"
+        },
+        {
+          "lesson_id": "L009",
+          "title": "WhatsApp Business Setup",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L009"
+        },
+        {
+          "lesson_id": "L010",
+          "title": "Email Professionalism",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L010"
+        },
+        {
+          "lesson_id": "L011",
+          "title": "ChatGPT क्या है — Free में कैसे use करें",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L011"
+        },
+        {
+          "lesson_id": "L012",
+          "title": "Claude AI — समझदार AI असिस्टेंट",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L012"
+        },
+        {
+          "lesson_id": "L013",
+          "title": "Google Gemini — मोबाइल पर AI",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L013"
+        },
+        {
+          "lesson_id": "L014",
+          "title": "Prompt क्या होता है — पहली समझ",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L014"
+        },
+        {
+          "lesson_id": "L015",
+          "title": "AI से काम कैसे करवाएं",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L015"
+        },
+        {
+          "lesson_id": "L016",
+          "title": "Hindi में AI Prompting",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L016"
+        },
+        {
+          "lesson_id": "L017",
+          "title": "Maithili/Bhojpuri में AI",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L017"
+        },
+        {
+          "lesson_id": "L018",
+          "title": "AI को Local Context देना",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L018"
+        },
+        {
+          "lesson_id": "L019",
+          "title": "Local Knowledge को Global Format में बदलना",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L019"
+        },
+        {
+          "lesson_id": "L020",
+          "title": "Foundation Review — आगे की तैयारी",
+          "chunk_id": "level-0",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L020"
+        }
+      ]
+    },
+    {
+      "chunk_id": "level-1",
+      "title": "Level 1",
+      "track": "Video Creator",
+      "lesson_count": 50,
+      "lessons": [
+        {
+          "lesson_id": "L021",
+          "title": "Visual Storytelling का परिचय",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L021"
+        },
+        {
+          "lesson_id": "L022",
+          "title": "Hook Theory — पहले 3 Seconds",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L022"
+        },
+        {
+          "lesson_id": "L023",
+          "title": "Story Arc — शुरुआत मध्य अंत",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L023"
+        },
+        {
+          "lesson_id": "L024",
+          "title": "AI से Script Writing",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L024"
+        },
+        {
+          "lesson_id": "L025",
+          "title": "Storyboard कैसे बनाएं",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L025"
+        },
+        {
+          "lesson_id": "L026",
+          "title": "Local Audience Psychology",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L026"
+        },
+        {
+          "lesson_id": "L027",
+          "title": "Vertical vs Horizontal Video",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L027"
+        },
+        {
+          "lesson_id": "L028",
+          "title": "Trending Content Analysis",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L028"
+        },
+        {
+          "lesson_id": "L029",
+          "title": "Emotional Triggers in Video",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L029"
+        },
+        {
+          "lesson_id": "L030",
+          "title": "Content Series Planning",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L030"
+        },
+        {
+          "lesson_id": "L031",
+          "title": "Smartphone Camera Mastery",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L031"
+        },
+        {
+          "lesson_id": "L032",
+          "title": "Natural Lighting Techniques",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L032"
+        },
+        {
+          "lesson_id": "L033",
+          "title": "Audio Quality — बिना Mic के",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L033"
+        },
+        {
+          "lesson_id": "L034",
+          "title": "B-Roll Footage क्या है",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L034"
+        },
+        {
+          "lesson_id": "L035",
+          "title": "Framing और Composition",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L035"
+        },
+        {
+          "lesson_id": "L036",
+          "title": "Shooting in Rural Settings",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L036"
+        },
+        {
+          "lesson_id": "L037",
+          "title": "Interview Style Shooting",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L037"
+        },
+        {
+          "lesson_id": "L038",
+          "title": "Action and Movement Shots",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L038"
+        },
+        {
+          "lesson_id": "L039",
+          "title": "Thumbnail Planning During Shoot",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L039"
+        },
+        {
+          "lesson_id": "L040",
+          "title": "Production Checklist",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L040"
+        },
+        {
+          "lesson_id": "L041",
+          "title": "CapCut — Mobile Editing Master",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L041"
+        },
+        {
+          "lesson_id": "L042",
+          "title": "CapCut Auto Captions",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L042"
+        },
+        {
+          "lesson_id": "L043",
+          "title": "CapCut Templates and Effects",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L043"
+        },
+        {
+          "lesson_id": "L044",
+          "title": "InVideo AI — Text to Video",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L044"
+        },
+        {
+          "lesson_id": "L045",
+          "title": "Descript — Text-Based Editing",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L045"
+        },
+        {
+          "lesson_id": "L046",
+          "title": "OpusClip — Long to Short",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L046"
+        },
+        {
+          "lesson_id": "L047",
+          "title": "Google Veo 3 — Free AI Video",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L047"
+        },
+        {
+          "lesson_id": "L048",
+          "title": "HeyGen — AI Avatar Videos",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L048"
+        },
+        {
+          "lesson_id": "L049",
+          "title": "Runway Gen-4 — Cinematic AI",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L049"
+        },
+        {
+          "lesson_id": "L050",
+          "title": "Canva Video — Quick Graphics",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L050"
+        },
+        {
+          "lesson_id": "L051",
+          "title": "YouTube Channel Setup",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L051"
+        },
+        {
+          "lesson_id": "L052",
+          "title": "YouTube SEO — Video Ranking",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L052"
+        },
+        {
+          "lesson_id": "L053",
+          "title": "Shorts Strategy 2026",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L053"
+        },
+        {
+          "lesson_id": "L054",
+          "title": "Instagram Reels Optimization",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L054"
+        },
+        {
+          "lesson_id": "L055",
+          "title": "Global Audience Strategy",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L055"
+        },
+        {
+          "lesson_id": "L056",
+          "title": "AdSense Setup और Monetization",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L056"
+        },
+        {
+          "lesson_id": "L057",
+          "title": "Brand Deals — Sponsorship कैसे पाएं",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L057"
+        },
+        {
+          "lesson_id": "L058",
+          "title": "Digital Course Selling",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L058"
+        },
+        {
+          "lesson_id": "L059",
+          "title": "Video Analytics — Data पढ़ना",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L059"
+        },
+        {
+          "lesson_id": "L060",
+          "title": "Video Creator Career Roadmap",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L060"
+        },
+        {
+          "lesson_id": "L061",
+          "title": "Faceless Channel Strategy",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L061"
+        },
+        {
+          "lesson_id": "L062",
+          "title": "Educational Content Creation",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L062"
+        },
+        {
+          "lesson_id": "L063",
+          "title": "News/Current Affairs Content",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L063"
+        },
+        {
+          "lesson_id": "L064",
+          "title": "Agriculture/Farming Content",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L064"
+        },
+        {
+          "lesson_id": "L065",
+          "title": "Health and Wellness Content",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L065"
+        },
+        {
+          "lesson_id": "L066",
+          "title": "Culture and Tradition Content",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L066"
+        },
+        {
+          "lesson_id": "L067",
+          "title": "Business Review Content",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L067"
+        },
+        {
+          "lesson_id": "L068",
+          "title": "Podcast to Video",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L068"
+        },
+        {
+          "lesson_id": "L069",
+          "title": "Video Collaboration Strategy",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L069"
+        },
+        {
+          "lesson_id": "L070",
+          "title": "Level 1 Capstone — अपना Channel Launch",
+          "chunk_id": "level-1",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L070"
+        }
+      ]
+    },
+    {
+      "chunk_id": "level-2",
+      "title": "Level 2",
+      "track": "Social Media Master",
+      "lesson_count": 50,
+      "lessons": [
+        {
+          "lesson_id": "L071",
+          "title": "Facebook Algorithm 2026",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L071"
+        },
+        {
+          "lesson_id": "L072",
+          "title": "Instagram Reels vs Stories Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L072"
+        },
+        {
+          "lesson_id": "L073",
+          "title": "WhatsApp Channel — Community Building",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L073"
+        },
+        {
+          "lesson_id": "L074",
+          "title": "YouTube Community Tab",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L074"
+        },
+        {
+          "lesson_id": "L075",
+          "title": "LinkedIn for Global South",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L075"
+        },
+        {
+          "lesson_id": "L076",
+          "title": "Telegram Channel Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L076"
+        },
+        {
+          "lesson_id": "L077",
+          "title": "Thread/X Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L077"
+        },
+        {
+          "lesson_id": "L078",
+          "title": "Pinterest for Content Creators",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L078"
+        },
+        {
+          "lesson_id": "L079",
+          "title": "Multi-Platform Presence Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L079"
+        },
+        {
+          "lesson_id": "L080",
+          "title": "Platform Analytics Comparison",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L080"
+        },
+        {
+          "lesson_id": "L081",
+          "title": "Content Pillars — Brand Foundation",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L081"
+        },
+        {
+          "lesson_id": "L082",
+          "title": "30-Day Content Calendar",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L082"
+        },
+        {
+          "lesson_id": "L083",
+          "title": "Trending Topics — Real-time Research",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L083"
+        },
+        {
+          "lesson_id": "L084",
+          "title": "Local Events को Viral बनाना",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L084"
+        },
+        {
+          "lesson_id": "L085",
+          "title": "Engagement Psychology",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L085"
+        },
+        {
+          "lesson_id": "L086",
+          "title": "Viral Post Anatomy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L086"
+        },
+        {
+          "lesson_id": "L087",
+          "title": "Storytelling for Social Media",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L087"
+        },
+        {
+          "lesson_id": "L088",
+          "title": "User-Generated Content Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L088"
+        },
+        {
+          "lesson_id": "L089",
+          "title": "Educational Content for Social Media",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L089"
+        },
+        {
+          "lesson_id": "L090",
+          "title": "Content Repurposing System",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L090"
+        },
+        {
+          "lesson_id": "L091",
+          "title": "Predis.ai — Auto Social Posts",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L091"
+        },
+        {
+          "lesson_id": "L092",
+          "title": "Canva Magic Studio — AI Design",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L092"
+        },
+        {
+          "lesson_id": "L093",
+          "title": "Hootsuite — Multi-Platform Scheduling",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L093"
+        },
+        {
+          "lesson_id": "L094",
+          "title": "Meta AI Suite — Facebook Ads",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L094"
+        },
+        {
+          "lesson_id": "L095",
+          "title": "Buffer — Analytics और Scheduling",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L095"
+        },
+        {
+          "lesson_id": "L096",
+          "title": "Captions.ai — Mobile Video",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L096"
+        },
+        {
+          "lesson_id": "L097",
+          "title": "Jasper — Brand Voice Consistency",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L097"
+        },
+        {
+          "lesson_id": "L098",
+          "title": "Midjourney/DALL-E — AI Images",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L098"
+        },
+        {
+          "lesson_id": "L099",
+          "title": "Canva AI — Presentations",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L099"
+        },
+        {
+          "lesson_id": "L100",
+          "title": "AI Chatbot for Customer Service",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L100"
+        },
+        {
+          "lesson_id": "L101",
+          "title": "WhatsApp Community Management",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L101"
+        },
+        {
+          "lesson_id": "L102",
+          "title": "Facebook Group Monetization",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L102"
+        },
+        {
+          "lesson_id": "L103",
+          "title": "Micro-Influencer Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L103"
+        },
+        {
+          "lesson_id": "L104",
+          "title": "Collaboration with Local Brands",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L104"
+        },
+        {
+          "lesson_id": "L105",
+          "title": "Paid Ads — ₹500 से शुरू",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L105"
+        },
+        {
+          "lesson_id": "L106",
+          "title": "Analytics — क्या काम कर रहा है",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L106"
+        },
+        {
+          "lesson_id": "L107",
+          "title": "Crisis Management — Negative Comments",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L107"
+        },
+        {
+          "lesson_id": "L108",
+          "title": "South-South Network Building",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L108"
+        },
+        {
+          "lesson_id": "L109",
+          "title": "Social Media Manager बनना",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L109"
+        },
+        {
+          "lesson_id": "L110",
+          "title": "Paid Collaboration Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L110"
+        },
+        {
+          "lesson_id": "L111",
+          "title": "Affiliate Marketing on Social",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L111"
+        },
+        {
+          "lesson_id": "L112",
+          "title": "Digital Products via Social Media",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L112"
+        },
+        {
+          "lesson_id": "L113",
+          "title": "Local Business को Online लाना",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L113"
+        },
+        {
+          "lesson_id": "L114",
+          "title": "Social Selling Strategy",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L114"
+        },
+        {
+          "lesson_id": "L115",
+          "title": "Content Agency Model",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L115"
+        },
+        {
+          "lesson_id": "L116",
+          "title": "Regional Language Content Advantage",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L116"
+        },
+        {
+          "lesson_id": "L117",
+          "title": "Rural-Urban Content Bridge",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L117"
+        },
+        {
+          "lesson_id": "L118",
+          "title": "Festival Marketing Calendar",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L118"
+        },
+        {
+          "lesson_id": "L119",
+          "title": "Social Media for Education",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L119"
+        },
+        {
+          "lesson_id": "L120",
+          "title": "Level 2 Capstone — Social Campaign Launch",
+          "chunk_id": "level-2",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L120"
+        }
+      ]
+    },
+    {
+      "chunk_id": "level-3",
+      "title": "Level 3",
+      "track": "AI SEO Master",
+      "lesson_count": 50,
+      "lessons": [
+        {
+          "lesson_id": "L121",
+          "title": "Search Engine कैसे काम करता है",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L121"
+        },
+        {
+          "lesson_id": "L122",
+          "title": "Keywords vs Search Intent",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L122"
+        },
+        {
+          "lesson_id": "L123",
+          "title": "On-Page vs Off-Page SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L123"
+        },
+        {
+          "lesson_id": "L124",
+          "title": "Technical SEO Basics",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L124"
+        },
+        {
+          "lesson_id": "L125",
+          "title": "Mobile SEO — Global South Priority",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L125"
+        },
+        {
+          "lesson_id": "L126",
+          "title": "Core Web Vitals",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L126"
+        },
+        {
+          "lesson_id": "L127",
+          "title": "Local SEO — Bihar को Map पर",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L127"
+        },
+        {
+          "lesson_id": "L128",
+          "title": "SEO Audit — Website की Health Check",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L128"
+        },
+        {
+          "lesson_id": "L129",
+          "title": "Backlinks क्या हैं और क्यों जरूरी हैं",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L129"
+        },
+        {
+          "lesson_id": "L130",
+          "title": "SEO vs GEO — AI Search Optimization",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L130"
+        },
+        {
+          "lesson_id": "L131",
+          "title": "Semrush Free Tier — Complete Guide",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L131"
+        },
+        {
+          "lesson_id": "L132",
+          "title": "Surfer SEO — Content Optimization",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L132"
+        },
+        {
+          "lesson_id": "L133",
+          "title": "Ahrefs Free Tools",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L133"
+        },
+        {
+          "lesson_id": "L134",
+          "title": "Keyword Insights — Topic Clustering",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L134"
+        },
+        {
+          "lesson_id": "L135",
+          "title": "RankMath — WordPress SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L135"
+        },
+        {
+          "lesson_id": "L136",
+          "title": "Google Search Console Master",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L136"
+        },
+        {
+          "lesson_id": "L137",
+          "title": "SparkToro — Audience Research",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L137"
+        },
+        {
+          "lesson_id": "L138",
+          "title": "Bing Webmaster Tools",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L138"
+        },
+        {
+          "lesson_id": "L139",
+          "title": "Google Analytics 4",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L139"
+        },
+        {
+          "lesson_id": "L140",
+          "title": "Perplexity AI — SEO Research",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L140"
+        },
+        {
+          "lesson_id": "L141",
+          "title": "AI से SEO Content लिखना",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L141"
+        },
+        {
+          "lesson_id": "L142",
+          "title": "Schema Markup — Rich Results",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L142"
+        },
+        {
+          "lesson_id": "L143",
+          "title": "Featured Snippets Strategy",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L143"
+        },
+        {
+          "lesson_id": "L144",
+          "title": "Internal Linking Strategy",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L144"
+        },
+        {
+          "lesson_id": "L145",
+          "title": "AI Visibility — ChatGPT में दिखना",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L145"
+        },
+        {
+          "lesson_id": "L146",
+          "title": "Content Cluster Strategy",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L146"
+        },
+        {
+          "lesson_id": "L147",
+          "title": "Hindi SEO — Local Language Ranking",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L147"
+        },
+        {
+          "lesson_id": "L148",
+          "title": "YouTube SEO — Video Search",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L148"
+        },
+        {
+          "lesson_id": "L149",
+          "title": "E-E-A-T — Google Trust Signals",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L149"
+        },
+        {
+          "lesson_id": "L150",
+          "title": "Voice Search Optimization",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L150"
+        },
+        {
+          "lesson_id": "L151",
+          "title": "SEO Freelancing — First Client",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L151"
+        },
+        {
+          "lesson_id": "L152",
+          "title": "SEO Audit Service",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L152"
+        },
+        {
+          "lesson_id": "L153",
+          "title": "Niche Website से Income",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L153"
+        },
+        {
+          "lesson_id": "L154",
+          "title": "Affiliate SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L154"
+        },
+        {
+          "lesson_id": "L155",
+          "title": "Local Business SEO Service",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L155"
+        },
+        {
+          "lesson_id": "L156",
+          "title": "Programmatic SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L156"
+        },
+        {
+          "lesson_id": "L157",
+          "title": "International SEO — Global South",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L157"
+        },
+        {
+          "lesson_id": "L158",
+          "title": "E-commerce SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L158"
+        },
+        {
+          "lesson_id": "L159",
+          "title": "SEO Reporting — Client Reports",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L159"
+        },
+        {
+          "lesson_id": "L160",
+          "title": "SEO Agency Building",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L160"
+        },
+        {
+          "lesson_id": "L161",
+          "title": "News SEO — Google Discover",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L161"
+        },
+        {
+          "lesson_id": "L162",
+          "title": "Image SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L162"
+        },
+        {
+          "lesson_id": "L163",
+          "title": "Podcast SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L163"
+        },
+        {
+          "lesson_id": "L164",
+          "title": "SEO for Social Media Profiles",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L164"
+        },
+        {
+          "lesson_id": "L165",
+          "title": "AI Content Detection और SEO",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L165"
+        },
+        {
+          "lesson_id": "L166",
+          "title": "Zero-Click Search Strategy",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L166"
+        },
+        {
+          "lesson_id": "L167",
+          "title": "Mobile Page Speed Mastery",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L167"
+        },
+        {
+          "lesson_id": "L168",
+          "title": "Reddit/Forum SEO Strategy",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L168"
+        },
+        {
+          "lesson_id": "L169",
+          "title": "ACS Website SEO — Live Project",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L169"
+        },
+        {
+          "lesson_id": "L170",
+          "title": "Level 3 Capstone — Site Rank करो",
+          "chunk_id": "level-3",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L170"
+        }
+      ]
+    },
+    {
+      "chunk_id": "level-4",
+      "title": "Level 4",
+      "track": "AI Digital Master",
+      "lesson_count": 54,
+      "lessons": [
+        {
+          "lesson_id": "L171",
+          "title": "AI Tools को Workflow में जोड़ना",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L171"
+        },
+        {
+          "lesson_id": "L172",
+          "title": "Zapier — No-Code Automation",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L172"
+        },
+        {
+          "lesson_id": "L173",
+          "title": "n8n — Free Open-Source Automation",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L173"
+        },
+        {
+          "lesson_id": "L174",
+          "title": "AI Agents क्या हैं",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L174"
+        },
+        {
+          "lesson_id": "L175",
+          "title": "Human + AI Collaboration Model",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L175"
+        },
+        {
+          "lesson_id": "L176",
+          "title": "Prompt Engineering — Advanced",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L176"
+        },
+        {
+          "lesson_id": "L177",
+          "title": "AI for Research — Perplexity Master",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L177"
+        },
+        {
+          "lesson_id": "L178",
+          "title": "NotebookLM — Document Intelligence",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L178"
+        },
+        {
+          "lesson_id": "L179",
+          "title": "AI Ethics और Responsible Use",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L179"
+        },
+        {
+          "lesson_id": "L180",
+          "title": "AI News — Constantly Update रहना",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L180"
+        },
+        {
+          "lesson_id": "L181",
+          "title": "Claude AI — Long-form Intelligence",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L181"
+        },
+        {
+          "lesson_id": "L182",
+          "title": "Jasper — Campaign Manager",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L182"
+        },
+        {
+          "lesson_id": "L183",
+          "title": "Midjourney — Brand Visuals",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L183"
+        },
+        {
+          "lesson_id": "L184",
+          "title": "Sora — Advanced Video Generation",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L184"
+        },
+        {
+          "lesson_id": "L185",
+          "title": "Google Gemini Advanced",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L185"
+        },
+        {
+          "lesson_id": "L186",
+          "title": "Canva AI — Full Suite",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L186"
+        },
+        {
+          "lesson_id": "L187",
+          "title": "DALL-E 3 — Advanced Prompting",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L187"
+        },
+        {
+          "lesson_id": "L188",
+          "title": "ElevenLabs — AI Voice",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L188"
+        },
+        {
+          "lesson_id": "L189",
+          "title": "Gamma.app — AI Presentations",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L189"
+        },
+        {
+          "lesson_id": "L190",
+          "title": "Claude Code (Vibe Coding)",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L190"
+        },
+        {
+          "lesson_id": "L191",
+          "title": "Personal Brand Architecture",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L191"
+        },
+        {
+          "lesson_id": "L192",
+          "title": "Online Course — Design करना",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L192"
+        },
+        {
+          "lesson_id": "L193",
+          "title": "Digital Product Suite",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L193"
+        },
+        {
+          "lesson_id": "L194",
+          "title": "Freelancing — Global Clients",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L194"
+        },
+        {
+          "lesson_id": "L195",
+          "title": "AI Agency Model",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L195"
+        },
+        {
+          "lesson_id": "L196",
+          "title": "Email Marketing — AI से",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L196"
+        },
+        {
+          "lesson_id": "L197",
+          "title": "Sales Funnel Design",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L197"
+        },
+        {
+          "lesson_id": "L198",
+          "title": "Analytics Dashboard — Business Intel",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L198"
+        },
+        {
+          "lesson_id": "L199",
+          "title": "Pricing Strategy for Digital Services",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L199"
+        },
+        {
+          "lesson_id": "L200",
+          "title": "Digital Business Plan",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L200"
+        },
+        {
+          "lesson_id": "L201",
+          "title": "AI Agents का भविष्य",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L201"
+        },
+        {
+          "lesson_id": "L202",
+          "title": "Local Language AI Models",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L202"
+        },
+        {
+          "lesson_id": "L203",
+          "title": "Blockchain और Digital Identity",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L203"
+        },
+        {
+          "lesson_id": "L204",
+          "title": "Global South Competitive Advantage",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L204"
+        },
+        {
+          "lesson_id": "L205",
+          "title": "AR/VR for Education",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L205"
+        },
+        {
+          "lesson_id": "L206",
+          "title": "Gig Economy Strategy",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L206"
+        },
+        {
+          "lesson_id": "L207",
+          "title": "Creator Economy 2036",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L207"
+        },
+        {
+          "lesson_id": "L208",
+          "title": "Digital Citizenship — Ethics",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L208"
+        },
+        {
+          "lesson_id": "L209",
+          "title": "Continuous Learning System",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L209"
+        },
+        {
+          "lesson_id": "L210",
+          "title": "AI Digital Master — Final Review",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L210"
+        },
+        {
+          "lesson_id": "L211",
+          "title": "Local Business Digital Transformation",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L211"
+        },
+        {
+          "lesson_id": "L212",
+          "title": "Education Content Empire",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L212"
+        },
+        {
+          "lesson_id": "L213",
+          "title": "AI-Powered News Channel",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L213"
+        },
+        {
+          "lesson_id": "L214",
+          "title": "Agricultural Tech Content",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L214"
+        },
+        {
+          "lesson_id": "L215",
+          "title": "Health and Wellness Creator",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L215"
+        },
+        {
+          "lesson_id": "L216",
+          "title": "E-Commerce Business with AI",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L216"
+        },
+        {
+          "lesson_id": "L217",
+          "title": "South-South Knowledge Exchange",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L217"
+        },
+        {
+          "lesson_id": "L218",
+          "title": "ACS-Style Mini School",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L218"
+        },
+        {
+          "lesson_id": "L219",
+          "title": "Digital Income Portfolio",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L219"
+        },
+        {
+          "lesson_id": "L220",
+          "title": "Level 4 Capstone — Global Entrepreneur",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L220"
+        },
+        {
+          "lesson_id": "L220A",
+          "title": "AI Compliance Workflow बनाना",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L220A"
+        },
+        {
+          "lesson_id": "L220B",
+          "title": "AI Agent System Design",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L220B"
+        },
+        {
+          "lesson_id": "L220C",
+          "title": "Regional AI Model Training",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L220C"
+        },
+        {
+          "lesson_id": "L220D",
+          "title": "Digital Civilization Infrastructure",
+          "chunk_id": "level-4",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L220D"
+        }
+      ]
+    },
+    {
+      "chunk_id": "level-5",
+      "title": "Level 5",
+      "track": "Integration Capstone",
+      "lesson_count": 30,
+      "lessons": [
+        {
+          "lesson_id": "L221",
+          "title": "Local Business — Complete Digital Setup",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L221"
+        },
+        {
+          "lesson_id": "L222",
+          "title": "YouTube Channel — Zero to 1000 Subs",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L222"
+        },
+        {
+          "lesson_id": "L223",
+          "title": "Website — Page 1 Ranking Project",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L223"
+        },
+        {
+          "lesson_id": "L224",
+          "title": "Social Campaign — Measurable Results",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L224"
+        },
+        {
+          "lesson_id": "L225",
+          "title": "AI Automation — Real Business",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L225"
+        },
+        {
+          "lesson_id": "L226",
+          "title": "Online Course — Launch and Sell",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L226"
+        },
+        {
+          "lesson_id": "L227",
+          "title": "Freelance — First ₹10,000 Online",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L227"
+        },
+        {
+          "lesson_id": "L228",
+          "title": "Personal Brand — Thought Leader",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L228"
+        },
+        {
+          "lesson_id": "L229",
+          "title": "Community of 500 Members",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L229"
+        },
+        {
+          "lesson_id": "L230",
+          "title": "Complete Portfolio — Showcase करो",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L230"
+        },
+        {
+          "lesson_id": "L231",
+          "title": "Bihar से Bangladesh को सिखाओ",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L231"
+        },
+        {
+          "lesson_id": "L232",
+          "title": "Nepal के साथ Knowledge Sharing",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L232"
+        },
+        {
+          "lesson_id": "L233",
+          "title": "Africa के Creator से Connect करो",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L233"
+        },
+        {
+          "lesson_id": "L234",
+          "title": "Latin America Digital Bridge",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L234"
+        },
+        {
+          "lesson_id": "L235",
+          "title": "Multilingual Content Strategy",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L235"
+        },
+        {
+          "lesson_id": "L236",
+          "title": "Global Client — First International Project",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L236"
+        },
+        {
+          "lesson_id": "L237",
+          "title": "Hindi Internet को Grow करना",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L237"
+        },
+        {
+          "lesson_id": "L238",
+          "title": "Rural Digital Ambassador",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L238"
+        },
+        {
+          "lesson_id": "L239",
+          "title": "ACS का Mini Version बनाओ",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L239"
+        },
+        {
+          "lesson_id": "L240",
+          "title": "Your Global South Story — Share करो",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L240"
+        },
+        {
+          "lesson_id": "L241",
+          "title": "Next 10 Years का Plan",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L241"
+        },
+        {
+          "lesson_id": "L242",
+          "title": "Income Diversification — 5 Streams",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L242"
+        },
+        {
+          "lesson_id": "L243",
+          "title": "AI Changes — कैसे Adapt करें",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L243"
+        },
+        {
+          "lesson_id": "L244",
+          "title": "Community Leadership",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L244"
+        },
+        {
+          "lesson_id": "L245",
+          "title": "अपना खुद का ACS बनाओ",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L245"
+        },
+        {
+          "lesson_id": "L246",
+          "title": "Digital Legacy — अपनी पहचान बनाओ",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L246"
+        },
+        {
+          "lesson_id": "L247",
+          "title": "Mentorship — Give Back करो",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L247"
+        },
+        {
+          "lesson_id": "L248",
+          "title": "Final Assessment — 360° Review",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L248"
+        },
+        {
+          "lesson_id": "L249",
+          "title": "Certificate of Completion",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L249"
+        },
+        {
+          "lesson_id": "L250",
+          "title": "Village to World — आगे क्या",
+          "chunk_id": "level-5",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L250"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-a-ai-governance",
+      "title": "Layer A - AI Governance",
+      "track": "AI Governance",
+      "lesson_count": 5,
+      "lessons": [
+        {
+          "lesson_id": "GX001",
+          "title": "AI Hallucination पहचानना",
+          "chunk_id": "layer-a-ai-governance",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=GX001"
+        },
+        {
+          "lesson_id": "GX002",
+          "title": "Deepfake Video पहचानना",
+          "chunk_id": "layer-a-ai-governance",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=GX002"
+        },
+        {
+          "lesson_id": "GX003",
+          "title": "Responsible AI Content बनाना",
+          "chunk_id": "layer-a-ai-governance",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=GX003"
+        },
+        {
+          "lesson_id": "GX004",
+          "title": "AI Copyright और Ownership",
+          "chunk_id": "layer-a-ai-governance",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=GX004"
+        },
+        {
+          "lesson_id": "GX005",
+          "title": "Synthetic Media Ethics",
+          "chunk_id": "layer-a-ai-governance",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=GX005"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-b-cybersecurity",
+      "title": "Layer B - Cybersecurity",
+      "track": "Cybersecurity",
+      "lesson_count": 6,
+      "lessons": [
+        {
+          "lesson_id": "CY001",
+          "title": "Strong Password System",
+          "chunk_id": "layer-b-cybersecurity",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=CY001"
+        },
+        {
+          "lesson_id": "CY002",
+          "title": "Two-Factor Authentication (2FA)",
+          "chunk_id": "layer-b-cybersecurity",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=CY002"
+        },
+        {
+          "lesson_id": "CY003",
+          "title": "WhatsApp Scam पहचानना",
+          "chunk_id": "layer-b-cybersecurity",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=CY003"
+        },
+        {
+          "lesson_id": "CY004",
+          "title": "YouTube Channel Protection",
+          "chunk_id": "layer-b-cybersecurity",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=CY004"
+        },
+        {
+          "lesson_id": "CY005",
+          "title": "Cloud Backup Strategy",
+          "chunk_id": "layer-b-cybersecurity",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=CY005"
+        },
+        {
+          "lesson_id": "CY006",
+          "title": "Freelancer Cyber Safety",
+          "chunk_id": "layer-b-cybersecurity",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=CY006"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-c-data-literacy",
+      "title": "Layer C - Data Literacy",
+      "track": "Data Literacy",
+      "lesson_count": 6,
+      "lessons": [
+        {
+          "lesson_id": "DL001",
+          "title": "Data क्या है और क्यों जरूरी है",
+          "chunk_id": "layer-c-data-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL001"
+        },
+        {
+          "lesson_id": "DL002",
+          "title": "Spreadsheet Reasoning",
+          "chunk_id": "layer-c-data-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL002"
+        },
+        {
+          "lesson_id": "DL003",
+          "title": "Analytics Dashboard पढ़ना",
+          "chunk_id": "layer-c-data-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL003"
+        },
+        {
+          "lesson_id": "DL004",
+          "title": "SEO Metrics Interpret करना",
+          "chunk_id": "layer-c-data-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL004"
+        },
+        {
+          "lesson_id": "DL005",
+          "title": "AI Data Interpretation",
+          "chunk_id": "layer-c-data-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL005"
+        },
+        {
+          "lesson_id": "DL006",
+          "title": "Business Forecasting with AI",
+          "chunk_id": "layer-c-data-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL006"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-d-human-skills",
+      "title": "Layer D - Human Skills",
+      "track": "Human Skills",
+      "lesson_count": 6,
+      "lessons": [
+        {
+          "lesson_id": "HM001",
+          "title": "Digital Communication Skills",
+          "chunk_id": "layer-d-human-skills",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=HM001"
+        },
+        {
+          "lesson_id": "HM002",
+          "title": "Online Teaching Skills",
+          "chunk_id": "layer-d-human-skills",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=HM002"
+        },
+        {
+          "lesson_id": "HM003",
+          "title": "Community Leadership Online",
+          "chunk_id": "layer-d-human-skills",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=HM003"
+        },
+        {
+          "lesson_id": "HM004",
+          "title": "Online Negotiation Basics",
+          "chunk_id": "layer-d-human-skills",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=HM004"
+        },
+        {
+          "lesson_id": "HM005",
+          "title": "Online Conflict Resolution",
+          "chunk_id": "layer-d-human-skills",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=HM005"
+        },
+        {
+          "lesson_id": "HM006",
+          "title": "Public Speaking for Creators",
+          "chunk_id": "layer-d-human-skills",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=HM006"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-e-local-commerce",
+      "title": "Layer E - Local Commerce",
+      "track": "Local Commerce",
+      "lesson_count": 5,
+      "lessons": [
+        {
+          "lesson_id": "LC001",
+          "title": "WhatsApp Commerce Setup",
+          "chunk_id": "layer-e-local-commerce",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=LC001"
+        },
+        {
+          "lesson_id": "LC002",
+          "title": "AI Flyers और Posters बनाना",
+          "chunk_id": "layer-e-local-commerce",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=LC002"
+        },
+        {
+          "lesson_id": "LC003",
+          "title": "Digital Product Catalog बनाना",
+          "chunk_id": "layer-e-local-commerce",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=LC003"
+        },
+        {
+          "lesson_id": "LC004",
+          "title": "Local Service Pages बनाना",
+          "chunk_id": "layer-e-local-commerce",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=LC004"
+        },
+        {
+          "lesson_id": "LC005",
+          "title": "Hyperlocal SEO — अपना शहर rank करो",
+          "chunk_id": "layer-e-local-commerce",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=LC005"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-f-public-sector-ai",
+      "title": "Layer F - Public Sector AI",
+      "track": "Public Sector AI",
+      "lesson_count": 4,
+      "lessons": [
+        {
+          "lesson_id": "PS001",
+          "title": "AI से Lesson Planning करना",
+          "chunk_id": "layer-f-public-sector-ai",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PS001"
+        },
+        {
+          "lesson_id": "PS002",
+          "title": "Health Awareness Posters AI से",
+          "chunk_id": "layer-f-public-sector-ai",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PS002"
+        },
+        {
+          "lesson_id": "PS003",
+          "title": "Government Form AI Assistance",
+          "chunk_id": "layer-f-public-sector-ai",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PS003"
+        },
+        {
+          "lesson_id": "PS004",
+          "title": "NGO Storytelling with AI",
+          "chunk_id": "layer-f-public-sector-ai",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PS004"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-g-offline-first",
+      "title": "Layer G - Offline First",
+      "track": "Offline First",
+      "lesson_count": 3,
+      "lessons": [
+        {
+          "lesson_id": "OF001",
+          "title": "Offline Learning Setup",
+          "chunk_id": "layer-g-offline-first",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=OF001"
+        },
+        {
+          "lesson_id": "OF002",
+          "title": "Text-Only Mode का उपयोग",
+          "chunk_id": "layer-g-offline-first",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=OF002"
+        },
+        {
+          "lesson_id": "OF003",
+          "title": "Printable Guides से Community Teaching",
+          "chunk_id": "layer-g-offline-first",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=OF003"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-h-apprenticeship",
+      "title": "Layer H - Apprenticeship",
+      "track": "Apprenticeship",
+      "lesson_count": 4,
+      "lessons": [
+        {
+          "lesson_id": "AP001",
+          "title": "Village-Level Digital Project",
+          "chunk_id": "layer-h-apprenticeship",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=AP001"
+        },
+        {
+          "lesson_id": "AP002",
+          "title": "Real Business Digital Audit",
+          "chunk_id": "layer-h-apprenticeship",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=AP002"
+        },
+        {
+          "lesson_id": "AP003",
+          "title": "Peer Review Circle",
+          "chunk_id": "layer-h-apprenticeship",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=AP003"
+        },
+        {
+          "lesson_id": "AP004",
+          "title": "Local Internship Program",
+          "chunk_id": "layer-h-apprenticeship",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=AP004"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-i-product-building",
+      "title": "Layer I - Product Building",
+      "track": "Product Building",
+      "lesson_count": 5,
+      "lessons": [
+        {
+          "lesson_id": "PB001",
+          "title": "No-Code App बनाना",
+          "chunk_id": "layer-i-product-building",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB001"
+        },
+        {
+          "lesson_id": "PB002",
+          "title": "AI Chatbot बनाना",
+          "chunk_id": "layer-i-product-building",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB002"
+        },
+        {
+          "lesson_id": "PB003",
+          "title": "Automation Workflow System",
+          "chunk_id": "layer-i-product-building",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB003"
+        },
+        {
+          "lesson_id": "PB004",
+          "title": "AI Utility Tool बनाना",
+          "chunk_id": "layer-i-product-building",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB004"
+        },
+        {
+          "lesson_id": "PB005",
+          "title": "Local SaaS Product Launch",
+          "chunk_id": "layer-i-product-building",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB005"
+        }
+      ]
+    },
+    {
+      "chunk_id": "level-5-final-extensions",
+      "title": "Level 5",
+      "track": "Integration Capstone",
+      "lesson_count": 5,
+      "lessons": [
+        {
+          "lesson_id": "L250A",
+          "title": "AI Governance Certification",
+          "chunk_id": "level-5-final-extensions",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L250A"
+        },
+        {
+          "lesson_id": "L250B",
+          "title": "Regional Creator Network बनाओ",
+          "chunk_id": "level-5-final-extensions",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L250B"
+        },
+        {
+          "lesson_id": "L250C",
+          "title": "Global South Collaboration System",
+          "chunk_id": "level-5-final-extensions",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L250C"
+        },
+        {
+          "lesson_id": "L250D",
+          "title": "Local AI Ecosystem बनाओ",
+          "chunk_id": "level-5-final-extensions",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L250D"
+        },
+        {
+          "lesson_id": "L250E",
+          "title": "ACS MASTER GRADUATION",
+          "chunk_id": "level-5-final-extensions",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L250E"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-j-agriculture-ai",
+      "title": "Layer J - Agriculture AI",
+      "track": "Agriculture AI",
+      "lesson_count": 3,
+      "lessons": [
+        {
+          "lesson_id": "AG001",
+          "title": "AI से किसान की मदद",
+          "chunk_id": "layer-j-agriculture-ai",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=AG001"
+        },
+        {
+          "lesson_id": "AG002",
+          "title": "Digital Farmer Catalog बनाना",
+          "chunk_id": "layer-j-agriculture-ai",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=AG002"
+        },
+        {
+          "lesson_id": "AG003",
+          "title": "AI Crop Information System",
+          "chunk_id": "layer-j-agriculture-ai",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=AG003"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-k-financial-literacy",
+      "title": "Layer K - Financial Literacy",
+      "track": "Financial Literacy",
+      "lesson_count": 3,
+      "lessons": [
+        {
+          "lesson_id": "FL001",
+          "title": "Freelance Pricing Strategy",
+          "chunk_id": "layer-k-financial-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=FL001"
+        },
+        {
+          "lesson_id": "FL002",
+          "title": "Tax Basics for Digital Workers",
+          "chunk_id": "layer-k-financial-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=FL002"
+        },
+        {
+          "lesson_id": "FL003",
+          "title": "Client Contracts बनाना",
+          "chunk_id": "layer-k-financial-literacy",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=FL003"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-l-mental-resilience",
+      "title": "Layer L - Mental Resilience",
+      "track": "Mental Resilience",
+      "lesson_count": 3,
+      "lessons": [
+        {
+          "lesson_id": "MR001",
+          "title": "Digital Creator का Focus System",
+          "chunk_id": "layer-l-mental-resilience",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=MR001"
+        },
+        {
+          "lesson_id": "MR002",
+          "title": "Burnout Prevention for Creators",
+          "chunk_id": "layer-l-mental-resilience",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=MR002"
+        },
+        {
+          "lesson_id": "MR003",
+          "title": "Long-Term Creator Mindset",
+          "chunk_id": "layer-l-mental-resilience",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=MR003"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-m-environment-climate",
+      "title": "Layer M - Environment & Climate",
+      "track": "Environment & Climate Intelligence",
+      "lesson_count": 10,
+      "lessons": [
+        {
+          "lesson_id": "EM001",
+          "title": "Climate Change — Bihar का context",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM001"
+        },
+        {
+          "lesson_id": "EM002",
+          "title": "Flood Data Analysis with AI",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM002"
+        },
+        {
+          "lesson_id": "EM003",
+          "title": "कोसी-बागमती Environmental Audit",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM003"
+        },
+        {
+          "lesson_id": "EM004",
+          "title": "Makhana Farming + Climate Risk",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM004"
+        },
+        {
+          "lesson_id": "EM005",
+          "title": "AI से Water Quality Report",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM005"
+        },
+        {
+          "lesson_id": "EM006",
+          "title": "Carbon Footprint Calculator बनाना",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM006"
+        },
+        {
+          "lesson_id": "EM007",
+          "title": "Environmental Storytelling for YouTube",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM007"
+        },
+        {
+          "lesson_id": "EM008",
+          "title": "Green Business Plan",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM008"
+        },
+        {
+          "lesson_id": "EM009",
+          "title": "ESG Report कैसे लिखें",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM009"
+        },
+        {
+          "lesson_id": "EM010",
+          "title": "Government Environmental Schemes — Apply कैसे करें",
+          "chunk_id": "layer-m-environment-climate",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=EM010"
+        }
+      ]
+    },
+    {
+      "chunk_id": "layer-m-internship-track",
+      "title": "Layer M - Environment & Climate",
+      "track": "Environment & Climate Intelligence",
+      "lesson_count": 10,
+      "lessons": [
+        {
+          "lesson_id": "IN001",
+          "title": "Field Data Collection Setup",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN001"
+        },
+        {
+          "lesson_id": "IN002",
+          "title": "Village Environmental Audit",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN002"
+        },
+        {
+          "lesson_id": "IN003",
+          "title": "Water/Soil Sample Documentation",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN003"
+        },
+        {
+          "lesson_id": "IN004",
+          "title": "Local Pollution Mapping",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN004"
+        },
+        {
+          "lesson_id": "IN005",
+          "title": "Community Awareness Session",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN005"
+        },
+        {
+          "lesson_id": "IN006",
+          "title": "NGO को Report Submit करना",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN006"
+        },
+        {
+          "lesson_id": "IN007",
+          "title": "Government Portal पर Data Upload",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN007"
+        },
+        {
+          "lesson_id": "IN008",
+          "title": "Environmental Project Presentation",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN008"
+        },
+        {
+          "lesson_id": "IN009",
+          "title": "Peer Review + Mentor Feedback",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN009"
+        },
+        {
+          "lesson_id": "IN010",
+          "title": "FFGPMT Internship Certificate",
+          "chunk_id": "layer-m-internship-track",
+          "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=IN010"
+        }
+      ]
+    }
+  ]
+}

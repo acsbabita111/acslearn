@@ -1,0 +1,14 @@
+{
+  "course_id": "dca",
+  "slug": "dca",
+  "category": "digital",
+  "status": "coming_soon",
+  "default_language": "hi",
+  "available_languages": [
+    "hi"
+  ],
+  "online_free": true,
+  "offline_paid": true,
+  "total_lessons": 0,
+  "data_rule": "course.html?c={course_id}&lang={lang}"
+}

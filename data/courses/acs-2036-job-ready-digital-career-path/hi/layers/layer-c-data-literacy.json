@@ -1,0 +1,607 @@
+{
+  "chunk_id": "layer-c-data-literacy",
+  "title": "Layer C - Data Literacy",
+  "lessons": [
+    {
+      "lesson_id": "DL001",
+      "order": 1,
+      "title": "Data क्या है और क्यों जरूरी है",
+      "title_en": "What is Data and Why It Matters",
+      "level_layer": "Layer C - Data Literacy",
+      "course_track": "Data Literacy",
+      "difficulty": "Beginner",
+      "primary_keyword": "डेटा क्या है",
+      "secondary_keyword": "what is data hindi",
+      "youtube_keyword": "Data = पैसा! यह कैसे? 📊",
+      "shorts_hook": "Data की basic understanding",
+      "legacy_slug": "layer-c/dl001-data-kya-hai",
+      "chunk_id": "layer-c-data-literacy",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL001",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL001",
+      "content": {
+        "html_title": "डेटा क्या है और क्यों जरूरी है | ACS-AI DIGITAL MASTER DL001",
+        "meta_description": "Layer C डेटा Literacy lesson: डेटा क्या है और क्यों जरूरी है. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "DL001 — डेटा क्या है और क्यों जरूरी है",
+        "blocks": [
+          {
+            "heading": "1. डेटा क्या है और क्यों जरूरी है क्यों जरूरी है?",
+            "paragraphs": [
+              "डेटा क्या है और क्यों जरूरी है Layer-C डेटा Literacy का decision-making skill है।",
+              "इससे सीखने वाला डेटा की basic understanding सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है।"
+            ],
+            "bullets": [],
+            "text": "1. डेटा क्या है और क्यों जरूरी है क्यों जरूरी है? मुख्य बात डेटा क्या है और क्यों जरूरी है Layer-C डेटा Literacy का decision-making skill है। इससे सीखने वाला डेटा की basic understanding सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है। डेटा क्या है और क्यों जरूरी है क्यों जरूरी है? DATA Decision Collect Analyze Visualize Decide Diagram: डेटा क्या है और क्यों जरूरी है क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) का role",
+            "paragraphs": [
+              "Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) इस lesson का मुख्य tool/platform है।",
+              "टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Personal डेटा map."
+            ],
+            "bullets": [],
+            "text": "2. Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) का role मुख्य बात Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) इस lesson का मुख्य tool/platform है। टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Personal डेटा map. Sheets D1 D2 D3 D4 D5 Diagram: Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ डेटा Advantage",
+            "paragraphs": [
+              "ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ डेटा Advantage मुख्य बात ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं। डेटा Skill Hindi English বাংলা اردو Diagram: ग्लोबल साउथ डेटा Advantage को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: डेटा क्या है 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे डेटा क्या है आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student डेटा क्या है और क्यों जरूरी है को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student डेटा क्या है और क्यों जरूरी है को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) खोलें या इसका free/mobile-friendly option देखें। 2 डेटा क्या है और क्यों जरूरी है के लिए एक छोटा डेटाset चुनें — खर्च, views, sales, attendance, keywords या social media numbers. 3 आज का नतीजा बनाइए: Personal डेटा map. 4 सबूत सुरक्षित रखें: sheet, chart, screenshot, रिपोर्ट या insight summary. डेटा अभ्यास काम की प्रक्रिया Collect Analyze Insight काम Diagram: डेटा literacy में हर सीखने वाला को numbers से action निकालना सीखना चाहिए।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें। आप एक expert Hindi डेटा literacy और business एनालिटिक्स mentor हैं। मुझे \"डेटा क्या है और क्यों जरूरी है\" बहुत आसान Hindi में step-by-step समझाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first सीखने वालाs हैं। टूल focus: Google (गूगल) Sheets. मुझे 5-step डेटा process, 3 common mistakes, 3 decision tips, 1 स्थानीय example, और 1 अभ्यास काम दीजिए। अंतिम नतीजा यह होना चाहिए: Personal डेटा map. कॉपी AI डेटा Prompt काम की प्रक्रिया Prompt Analyze Insight Decision Diagram: AI (एआई) से insight मिल सकता है, लेकिन decision स्थिति देखकर human लेता है।"
+          },
+          {
+            "heading": "डेटा Decision Rules",
+            "paragraphs": [
+              "Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए।",
+              "डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है।"
+            ],
+            "bullets": [],
+            "text": "डेटा Decision Rules Decision Economy स्थिति Rule Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए। काम Rule डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है। डेटा D6 D7 D8 D9 D10 Diagram: 2036 में डेटा-aware निर्माताs, freelancers और operators ज्यादा valuable होंगे।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "DL002",
+      "order": 2,
+      "title": "Spreadsheet Reasoning",
+      "title_en": "Spreadsheet Reasoning Skills",
+      "level_layer": "Layer C - Data Literacy",
+      "course_track": "Data Literacy",
+      "difficulty": "Beginner",
+      "primary_keyword": "स्प्रेडशीट सोच",
+      "secondary_keyword": "spreadsheet reasoning hindi",
+      "youtube_keyword": "इस number का क्या मतलब है? Data पढ़ना सीखो!",
+      "shorts_hook": "Spreadsheet data interpret करना",
+      "legacy_slug": "layer-c/dl002-spreadsheet-reasoning",
+      "chunk_id": "layer-c-data-literacy",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL002",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL002",
+      "content": {
+        "html_title": "Spreadsheet Reasoning | ACS-AI DIGITAL MASTER DL002",
+        "meta_description": "Layer C डेटा Literacy lesson: Spreadsheet Reasoning. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "DL002 — Spreadsheet Reasoning",
+        "blocks": [
+          {
+            "heading": "1. Spreadsheet Reasoning क्यों जरूरी है?",
+            "paragraphs": [
+              "Spreadsheet Reasoning Layer-C डेटा Literacy का decision-making skill है।",
+              "इससे सीखने वाला Spreadsheet डेटा interpret करना सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है।"
+            ],
+            "bullets": [],
+            "text": "1. Spreadsheet Reasoning क्यों जरूरी है? मुख्य बात Spreadsheet Reasoning Layer-C डेटा Literacy का decision-making skill है। इससे सीखने वाला Spreadsheet डेटा interpret करना सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है। Spreadsheet Reasoning क्यों जरूरी है? DATA Decision Collect Analyze Visualize Decide Diagram: Spreadsheet Reasoning क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) का role",
+            "paragraphs": [
+              "Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) इस lesson का मुख्य tool/platform है।",
+              "टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Monthly रिपोर्ट from own डेटा."
+            ],
+            "bullets": [],
+            "text": "2. Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) का role मुख्य बात Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) इस lesson का मुख्य tool/platform है। टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Monthly रिपोर्ट from own डेटा. Sheets D1 D2 D3 D4 D5 Diagram: Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ डेटा Advantage",
+            "paragraphs": [
+              "ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ डेटा Advantage मुख्य बात ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं। डेटा Skill Hindi English বাংলা اردو Diagram: ग्लोबल साउथ डेटा Advantage को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: डेटा साक्षरता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे डेटा साक्षरता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Spreadsheet Reasoning को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Spreadsheet Reasoning को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) खोलें या इसका free/mobile-friendly option देखें। 2 Spreadsheet Reasoning के लिए एक छोटा डेटाset चुनें — खर्च, views, sales, attendance, keywords या social media numbers. 3 आज का नतीजा बनाइए: Monthly रिपोर्ट from own डेटा. 4 सबूत सुरक्षित रखें: sheet, chart, screenshot, रिपोर्ट या insight summary. डेटा अभ्यास काम की प्रक्रिया Collect Analyze Insight काम Diagram: डेटा literacy में हर सीखने वाला को numbers से action निकालना सीखना चाहिए।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें। आप एक expert Hindi डेटा literacy और business एनालिटिक्स mentor हैं। मुझे \"Spreadsheet Reasoning\" बहुत आसान Hindi में step-by-step समझाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first सीखने वालाs हैं। टूल focus: Google (गूगल) Sheets. मुझे 5-step डेटा process, 3 common mistakes, 3 decision tips, 1 स्थानीय example, और 1 अभ्यास काम दीजिए। अंतिम नतीजा यह होना चाहिए: Monthly रिपोर्ट from own डेटा. कॉपी AI डेटा Prompt काम की प्रक्रिया Prompt Analyze Insight Decision Diagram: AI (एआई) से insight मिल सकता है, लेकिन decision स्थिति देखकर human लेता है।"
+          },
+          {
+            "heading": "डेटा Decision Rules",
+            "paragraphs": [
+              "Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए।",
+              "डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है।"
+            ],
+            "bullets": [],
+            "text": "डेटा Decision Rules Decision Economy स्थिति Rule Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए। काम Rule डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है। डेटा D6 D7 D8 D9 D10 Diagram: 2036 में डेटा-aware निर्माताs, freelancers और operators ज्यादा valuable होंगे।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "DL003",
+      "order": 3,
+      "title": "Analytics Dashboard पढ़ना",
+      "title_en": "Reading Analytics Dashboards",
+      "level_layer": "Layer C - Data Literacy",
+      "course_track": "Data Literacy",
+      "difficulty": "Intermediate",
+      "primary_keyword": "एनालिटिक्स डैशबोर्ड",
+      "secondary_keyword": "analytics dashboard hindi",
+      "youtube_keyword": "Numbers देखो — सही decision लो! 📈",
+      "shorts_hook": "Social media analytics समझना",
+      "legacy_slug": "layer-c/dl003-analytics-dashboard",
+      "chunk_id": "layer-c-data-literacy",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL003",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL003",
+      "content": {
+        "html_title": "एनालिटिक्स डैशबोर्ड पढ़ना | ACS-AI DIGITAL MASTER DL003",
+        "meta_description": "Layer C डेटा Literacy lesson: एनालिटिक्स डैशबोर्ड पढ़ना. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "DL003 — एनालिटिक्स डैशबोर्ड पढ़ना",
+        "blocks": [
+          {
+            "heading": "1. एनालिटिक्स डैशबोर्ड पढ़ना क्यों जरूरी है?",
+            "paragraphs": [
+              "एनालिटिक्स डैशबोर्ड पढ़ना Layer-C डेटा Literacy का decision-making skill है।",
+              "इससे सीखने वाला Social media एनालिटिक्स समझना सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है।"
+            ],
+            "bullets": [],
+            "text": "1. एनालिटिक्स डैशबोर्ड पढ़ना क्यों जरूरी है? मुख्य बात एनालिटिक्स डैशबोर्ड पढ़ना Layer-C डेटा Literacy का decision-making skill है। इससे सीखने वाला Social media एनालिटिक्स समझना सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है। एनालिटिक्स डैशबोर्ड पढ़ना क्यों जरूरी है? DATA Decision Collect Analyze Visualize Decide Diagram: एनालिटिक्स डैशबोर्ड पढ़ना क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Meta Business Suite (मेटा बिजनेस सूट) + Google (गूगल) एनालिटिक्स का role",
+            "paragraphs": [
+              "Meta Business Suite (मेटा बिजनेस सूट) + Google (गूगल) एनालिटिक्स इस lesson का मुख्य tool/platform है।",
+              "टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Weekly एनालिटिक्स रिपोर्ट."
+            ],
+            "bullets": [],
+            "text": "2. Meta Business Suite (मेटा बिजनेस सूट) + Google (गूगल) एनालिटिक्स का role मुख्य बात Meta Business Suite (मेटा बिजनेस सूट) + Google (गूगल) एनालिटिक्स इस lesson का मुख्य tool/platform है। टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Weekly एनालिटिक्स रिपोर्ट. Meta D1 D2 D3 D4 D5 Diagram: Meta Business Suite (मेटा बिजनेस सूट) + Google (गूगल) एनालिटिक्स का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ डेटा Advantage",
+            "paragraphs": [
+              "ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ डेटा Advantage मुख्य बात ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं। डेटा Skill Hindi English বাংলা اردو Diagram: ग्लोबल साउथ डेटा Advantage को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: एनालिटिक्स डैशबोर्ड पढ़ना 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे एनालिटिक्स डैशबोर्ड पढ़ना आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student एनालिटिक्स डैशबोर्ड पढ़ना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student एनालिटिक्स डैशबोर्ड पढ़ना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Meta Business Suite (मेटा बिजनेस सूट) + Google (गूगल) एनालिटिक्स खोलें या इसका free/mobile-friendly option देखें। 2 एनालिटिक्स डैशबोर्ड पढ़ना के लिए एक छोटा डेटाset चुनें — खर्च, views, sales, attendance, keywords या social media numbers. 3 आज का नतीजा बनाइए: Weekly एनालिटिक्स रिपोर्ट. 4 सबूत सुरक्षित रखें: sheet, chart, screenshot, रिपोर्ट या insight summary. डेटा अभ्यास काम की प्रक्रिया Collect Analyze Insight काम Diagram: डेटा literacy में हर सीखने वाला को numbers से action निकालना सीखना चाहिए।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें। आप एक expert Hindi डेटा literacy और business एनालिटिक्स mentor हैं। मुझे \"एनालिटिक्स डैशबोर्ड पढ़ना\" बहुत आसान Hindi में step-by-step समझाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first सीखने वालाs हैं। टूल focus: Meta Business Suite (मेटा बिजनेस सूट) + Google (गूगल) एनालिटिक्स. मुझे 5-step डेटा process, 3 common mistakes, 3 decision tips, 1 स्थानीय example, और 1 अभ्यास काम दीजिए। अंतिम नतीजा यह होना चाहिए: Weekly एनालिटिक्स रिपोर्ट. कॉपी AI डेटा Prompt काम की प्रक्रिया Prompt Analyze Insight Decision Diagram: AI (एआई) से insight मिल सकता है, लेकिन decision स्थिति देखकर human लेता है।"
+          },
+          {
+            "heading": "डेटा Decision Rules",
+            "paragraphs": [
+              "Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए।",
+              "डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है।"
+            ],
+            "bullets": [],
+            "text": "डेटा Decision Rules Decision Economy स्थिति Rule Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए। काम Rule डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है। डेटा D6 D7 D8 D9 D10 Diagram: 2036 में डेटा-aware निर्माताs, freelancers और operators ज्यादा valuable होंगे।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "DL004",
+      "order": 4,
+      "title": "SEO Metrics Interpret करना",
+      "title_en": "SEO Metrics Interpretation",
+      "level_layer": "Layer C - Data Literacy",
+      "course_track": "Data Literacy",
+      "difficulty": "Intermediate-Advanced",
+      "primary_keyword": "एसईओ मेट्रिक्स",
+      "secondary_keyword": "seo metrics hindi",
+      "youtube_keyword": "DA, PA, DR — इनका मतलब क्या? SEO data समझो!",
+      "shorts_hook": "SEO metrics की understanding",
+      "legacy_slug": "layer-c/dl004-seo-metrics",
+      "chunk_id": "layer-c-data-literacy",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL004",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL004",
+      "content": {
+        "html_title": "SEO माप Interpret करना | ACS-AI DIGITAL MASTER DL004",
+        "meta_description": "Layer C डेटा Literacy lesson: SEO माप Interpret करना. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "DL004 — SEO (एसईओ) माप Interpret करना",
+        "blocks": [
+          {
+            "heading": "1. SEO (एसईओ) माप Interpret करना क्यों जरूरी है?",
+            "paragraphs": [
+              "SEO (एसईओ) माप Interpret करना Layer-C डेटा Literacy का decision-making skill है।",
+              "इससे सीखने वाला SEO (एसईओ) माप की understanding सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है।"
+            ],
+            "bullets": [],
+            "text": "1. SEO (एसईओ) माप Interpret करना क्यों जरूरी है? मुख्य बात SEO (एसईओ) माप Interpret करना Layer-C डेटा Literacy का decision-making skill है। इससे सीखने वाला SEO (एसईओ) माप की understanding सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है। SEO माप Interpret करना क्यों जरूरी है? DATA Decision Collect Analyze Visualize Decide Diagram: SEO (एसईओ) माप Interpret करना क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Semrush (सेमरश) + Ahrefs (एहरेफ्स) + Google (गूगल) Search Console (गूगल सर्च कंसोल) का role",
+            "paragraphs": [
+              "Semrush (सेमरश) + Ahrefs (एहरेफ्स) + Google (गूगल) Search Console (गूगल सर्च कंसोल) इस lesson का मुख्य tool/platform है।",
+              "टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: SEO (एसईओ) जांच रिपोर्ट."
+            ],
+            "bullets": [],
+            "text": "2. Semrush (सेमरश) + Ahrefs (एहरेफ्स) + Google (गूगल) Search Console (गूगल सर्च कंसोल) का role मुख्य बात Semrush (सेमरश) + Ahrefs (एहरेफ्स) + Google (गूगल) Search Console (गूगल सर्च कंसोल) इस lesson का मुख्य tool/platform है। टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: SEO (एसईओ) जांच रिपोर्ट. SEO D1 D2 D3 D4 D5 Diagram: Semrush (सेमरश) + Ahrefs (एहरेफ्स) + Google (गूगल) Search Console (गूगल सर्च कंसोल) का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ डेटा Advantage",
+            "paragraphs": [
+              "ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ डेटा Advantage मुख्य बात ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं। डेटा Skill Hindi English বাংলা اردو Diagram: ग्लोबल साउथ डेटा Advantage को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: सर्च इंजन अनुकूलन 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे सर्च इंजन अनुकूलन आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student SEO (एसईओ) माप Interpret करना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student SEO (एसईओ) माप Interpret करना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Semrush (सेमरश) + Ahrefs (एहरेफ्स) + Google (गूगल) Search Console (गूगल सर्च कंसोल) खोलें या इसका free/mobile-friendly option देखें। 2 SEO (एसईओ) माप Interpret करना के लिए एक छोटा डेटाset चुनें — खर्च, views, sales, attendance, keywords या social media numbers. 3 आज का नतीजा बनाइए: SEO (एसईओ) जांच रिपोर्ट. 4 सबूत सुरक्षित रखें: sheet, chart, screenshot, रिपोर्ट या insight summary. डेटा अभ्यास काम की प्रक्रिया Collect Analyze Insight काम Diagram: डेटा literacy में हर सीखने वाला को numbers से action निकालना सीखना चाहिए।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें। आप एक expert Hindi डेटा literacy और business एनालिटिक्स mentor हैं। मुझे \"SEO (एसईओ) माप Interpret करना\" बहुत आसान Hindi में step-by-step समझाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first सीखने वालाs हैं। टूल focus: Semrush (सेमरश) + Ahrefs (एहरेफ्स) + Google (गूगल) Search Console. मुझे 5-step डेटा process, 3 common mistakes, 3 decision tips, 1 स्थानीय example, और 1 अभ्यास काम दीजिए। अंतिम नतीजा यह होना चाहिए: SEO (एसईओ) जांच रिपोर्ट. कॉपी AI डेटा Prompt काम की प्रक्रिया Prompt Analyze Insight Decision Diagram: AI (एआई) से insight मिल सकता है, लेकिन decision स्थिति देखकर human लेता है।"
+          },
+          {
+            "heading": "डेटा Decision Rules",
+            "paragraphs": [
+              "Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए।",
+              "डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है।"
+            ],
+            "bullets": [],
+            "text": "डेटा Decision Rules Decision Economy स्थिति Rule Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए। काम Rule डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है। डेटा D6 D7 D8 D9 D10 Diagram: 2036 में डेटा-aware निर्माताs, freelancers और operators ज्यादा valuable होंगे।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "DL005",
+      "order": 5,
+      "title": "AI Data Interpretation",
+      "title_en": "AI-Powered Data Interpretation",
+      "level_layer": "Layer C - Data Literacy",
+      "course_track": "Data Literacy",
+      "difficulty": "Advanced",
+      "primary_keyword": "एआई डेटा विश्लेषण",
+      "secondary_keyword": "ai data analysis hindi",
+      "youtube_keyword": "AI से data पढ़ो — 10x smart decisions!",
+      "shorts_hook": "AI से data analyze करना",
+      "legacy_slug": "layer-c/dl005-ai-data",
+      "chunk_id": "layer-c-data-literacy",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL005",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL005",
+      "content": {
+        "html_title": "AI डेटा Interpretation | ACS-AI DIGITAL MASTER DL005",
+        "meta_description": "Layer C डेटा Literacy lesson: AI डेटा Interpretation. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "DL005 — AI (एआई) डेटा Interpretation",
+        "blocks": [
+          {
+            "heading": "1. AI (एआई) डेटा Interpretation क्यों जरूरी है?",
+            "paragraphs": [
+              "AI (एआई) डेटा Interpretation Layer-C डेटा Literacy का decision-making skill है।",
+              "इससे सीखने वाला AI (एआई) से डेटा analyze करना सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है।"
+            ],
+            "bullets": [],
+            "text": "1. AI (एआई) डेटा Interpretation क्यों जरूरी है? मुख्य बात AI (एआई) डेटा Interpretation Layer-C डेटा Literacy का decision-making skill है। इससे सीखने वाला AI (एआई) से डेटा analyze करना सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है। AI डेटा Interpretation क्यों जरूरी है? DATA Decision Collect Analyze Visualize Decide Diagram: AI (एआई) डेटा Interpretation क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Looker Studio का role",
+            "paragraphs": [
+              "ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Looker Studio इस lesson का मुख्य tool/platform है।",
+              "टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: AI-generated business insight रिपोर्ट."
+            ],
+            "bullets": [],
+            "text": "2. ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Looker Studio का role मुख्य बात ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Looker Studio इस lesson का मुख्य tool/platform है। टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: AI-generated business insight रिपोर्ट. AI D1 D2 D3 D4 D5 Diagram: ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Looker Studio का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ डेटा Advantage",
+            "paragraphs": [
+              "ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ डेटा Advantage मुख्य बात ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं। डेटा Skill Hindi English বাংলা اردو Diagram: ग्लोबल साउथ डेटा Advantage को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Looker Studio खोलें या इसका free/mobile-friendly option देखें। 2 AI (एआई) डेटा Interpretation के लिए एक छोटा डेटाset चुनें — खर्च, views, sales, attendance, keywords या social media numbers. 3 आज का नतीजा बनाइए: AI-generated business insight रिपोर्ट. 4 सबूत सुरक्षित रखें: sheet, chart, screenshot, रिपोर्ट या insight summary. डेटा अभ्यास काम की प्रक्रिया Collect Analyze Insight काम Diagram: डेटा literacy में हर सीखने वाला को numbers से action निकालना सीखना चाहिए।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें। आप एक expert Hindi डेटा literacy और business एनालिटिक्स mentor हैं। मुझे \"AI (एआई) डेटा Interpretation\" बहुत आसान Hindi में step-by-step समझाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first सीखने वालाs हैं। टूल focus: ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Looker Studio. मुझे 5-step डेटा process, 3 common mistakes, 3 decision tips, 1 स्थानीय example, और 1 अभ्यास काम दीजिए। अंतिम नतीजा यह होना चाहिए: AI-generated business insight रिपोर्ट. कॉपी AI डेटा Prompt काम की प्रक्रिया Prompt Analyze Insight Decision Diagram: AI (एआई) से insight मिल सकता है, लेकिन decision स्थिति देखकर human लेता है।"
+          },
+          {
+            "heading": "डेटा Decision Rules",
+            "paragraphs": [
+              "Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए।",
+              "डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है।"
+            ],
+            "bullets": [],
+            "text": "डेटा Decision Rules Decision Economy स्थिति Rule Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए। काम Rule डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है। डेटा D6 D7 D8 D9 D10 Diagram: 2036 में डेटा-aware निर्माताs, freelancers और operators ज्यादा valuable होंगे।"
+          },
+          {
+            "heading": "वर्ग 6 भाषा फिल्टर",
+            "paragraphs": [
+              "यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+            ],
+            "bullets": [],
+            "text": "वर्ग 6 भाषा फिल्टर सरल भाषा यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "DL006",
+      "order": 6,
+      "title": "Business Forecasting with AI",
+      "title_en": "Business Forecasting",
+      "level_layer": "Layer C - Data Literacy",
+      "course_track": "Data Literacy",
+      "difficulty": "Professional",
+      "primary_keyword": "बिज़नेस फोरकास्टिंग",
+      "secondary_keyword": "business forecasting hindi",
+      "youtube_keyword": "2036 में business कैसा होगा? AI से predict करो!",
+      "shorts_hook": "AI से business forecasting",
+      "legacy_slug": "layer-c/dl006-business-forecasting",
+      "chunk_id": "layer-c-data-literacy",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL006",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=DL006",
+      "content": {
+        "html_title": "Business Forecasting with AI | ACS-AI DIGITAL MASTER DL006",
+        "meta_description": "Layer C डेटा Literacy lesson: Business Forecasting with AI. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "DL006 — Business Forecasting with AI (एआई)",
+        "blocks": [
+          {
+            "heading": "1. Business Forecasting with AI (एआई) क्यों जरूरी है?",
+            "paragraphs": [
+              "Business Forecasting with AI (एआई) Layer-C डेटा Literacy का decision-making skill है।",
+              "इससे सीखने वाला AI (एआई) से business forecasting सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है।"
+            ],
+            "bullets": [],
+            "text": "1. Business Forecasting with AI (एआई) क्यों जरूरी है? मुख्य बात Business Forecasting with AI (एआई) Layer-C डेटा Literacy का decision-making skill है। इससे सीखने वाला AI (एआई) से business forecasting सीखता है और numbers, charts, रिपोर्टs और AI (एआई) insights को practical decision में बदलता है। Business Forecasting with AI क्यों जरूरी है? DATA Decision Collect Analyze Visualize Decide Diagram: Business Forecasting with AI (एआई) क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Perplexity (परप्लेक्सिटी) का role",
+            "paragraphs": [
+              "ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Perplexity (परप्लेक्सिटी) इस lesson का मुख्य tool/platform है।",
+              "टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Business forecast रिपोर्ट 6 months."
+            ],
+            "bullets": [],
+            "text": "2. ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Perplexity (परप्लेक्सिटी) का role मुख्य बात ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Perplexity (परप्लेक्सिटी) इस lesson का मुख्य tool/platform है। टूल का उपयोग डेटा collect, organize, analyze और रिपोर्ट बनाने के लिए होगा। Final नतीजा: Business forecast रिपोर्ट 6 months. AI D1 D2 D3 D4 D5 Diagram: ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Perplexity (परप्लेक्सिटी) का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ डेटा Advantage",
+            "paragraphs": [
+              "ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ डेटा Advantage मुख्य बात ACS का डेटा Literacy model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और अन्य ग्लोबल साउथ communities में छोटे business, निर्माताs, NGOs और विद्यार्थीs डेटा देखकर बेहतर decision ले सकते हैं। डेटा Skill Hindi English বাংলা اردو Diagram: ग्लोबल साउथ डेटा Advantage को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Perplexity (परप्लेक्सिटी) खोलें या इसका free/mobile-friendly option देखें। 2 Business Forecasting with AI (एआई) के लिए एक छोटा डेटाset चुनें — खर्च, views, sales, attendance, keywords या social media numbers. 3 आज का नतीजा बनाइए: Business forecast रिपोर्ट 6 months. 4 सबूत सुरक्षित रखें: sheet, chart, screenshot, रिपोर्ट या insight summary. डेटा अभ्यास काम की प्रक्रिया Collect Analyze Insight काम Diagram: डेटा literacy में हर सीखने वाला को numbers से action निकालना सीखना चाहिए।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना डेटा analysis improve करें। आप एक expert Hindi डेटा literacy और business एनालिटिक्स mentor हैं। मुझे \"Business Forecasting with AI (एआई)\" बहुत आसान Hindi में step-by-step समझाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first सीखने वालाs हैं। टूल focus: ChatGPT (चैटजीपीटी) + Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) + Perplexity. मुझे 5-step डेटा process, 3 common mistakes, 3 decision tips, 1 स्थानीय example, और 1 अभ्यास काम दीजिए। अंतिम नतीजा यह होना चाहिए: Business forecast रिपोर्ट 6 months. कॉपी AI डेटा Prompt काम की प्रक्रिया Prompt Analyze Insight Decision Diagram: AI (एआई) से insight मिल सकता है, लेकिन decision स्थिति देखकर human लेता है।"
+          },
+          {
+            "heading": "डेटा Decision Rules",
+            "paragraphs": [
+              "Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए।",
+              "डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है।"
+            ],
+            "bullets": [],
+            "text": "डेटा Decision Rules Decision Economy स्थिति Rule Number अकेला सच नहीं बताता। उसे time, place, audience और goal के स्थिति में पढ़ना चाहिए। काम Rule डेटा देखने के बाद next action लिखना जरूरी है। Insight बिना action के केवल information है। डेटा D6 D7 D8 D9 D10 Diagram: 2036 में डेटा-aware निर्माताs, freelancers और operators ज्यादा valuable होंगे।"
+          },
+          {
+            "heading": "वर्ग 6 भाषा फिल्टर",
+            "paragraphs": [
+              "यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+            ],
+            "bullets": [],
+            "text": "वर्ग 6 भाषा फिल्टर सरल भाषा यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+          }
+        ],
+        "source_missing": false
+      }
+    }
+  ],
+  "track": "Data Literacy"
+}

@@ -1,0 +1,467 @@
+{
+  "chunk_id": "layer-i-product-building",
+  "title": "Layer I - Product Building",
+  "lessons": [
+    {
+      "lesson_id": "PB001",
+      "order": 1,
+      "title": "No-Code App बनाना",
+      "title_en": "No-Code App Development",
+      "level_layer": "Layer I - Product Building",
+      "course_track": "Product Building",
+      "difficulty": "Advanced",
+      "primary_keyword": "नो-कोड ऐप",
+      "secondary_keyword": "no code app hindi",
+      "youtube_keyword": "Coding नहीं आती? फिर भी app बनाओ! 📱",
+      "shorts_hook": "No-code app development basics",
+      "legacy_slug": "layer-i/pb001-no-code-app",
+      "chunk_id": "layer-i-product-building",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB001",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB001",
+      "content": {
+        "html_title": "No-Code App बनाना | ACS-AI DIGITAL MASTER PB001",
+        "meta_description": "Layer I Product Building lesson: No-Code App बनाना. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "PB001 — No-Code App बनाना",
+        "blocks": [
+          {
+            "heading": "1. No-Code App बनाना क्यों जरूरी है?",
+            "paragraphs": [
+              "No-Code App बनाना Layer-I Product Building का ownership-economy skill है।",
+              "इससे सीखने वाला No-code app development basics सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है।"
+            ],
+            "bullets": [],
+            "text": "1. No-Code App बनाना क्यों जरूरी है? मुख्य बात No-Code App बनाना Layer-I Product Building का ownership-economy skill है। इससे सीखने वाला No-code app development basics सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है। No-Code App बनाना क्यों जरूरी है? BUILD PRODUCT Problem Prototype User Test Launch Diagram: No-Code App बनाना क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. FlutterFlow / Bolt.new का role",
+            "paragraphs": [
+              "FlutterFlow / Bolt.new इस lesson का मुख्य tool/system है।",
+              "टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Basic app prototype live."
+            ],
+            "bullets": [],
+            "text": "2. FlutterFlow / Bolt.new का role मुख्य बात FlutterFlow / Bolt.new इस lesson का मुख्य tool/system है। टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Basic app prototype live. FlutterFlow / Bolt.new का role Problem Screen App Test Diagram: FlutterFlow / Bolt.new का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ Product Opportunity",
+            "paragraphs": [
+              "ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ Product Opportunity मुख्य बात ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं। Builder Problem MVP राय Launch Diagram: ग्लोबल साउथ Product Opportunity को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: मोबाइल ऐप 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे मोबाइल ऐप आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 FlutterFlow / Bolt.new खोलें या relevant no-code/AI builder का setup करें। 2 No-Code App बनाना के लिए एक real स्थानीय problem चुनें — विद्यार्थी help, shop काम की प्रक्रिया, village service, NGO काम या निर्माता automation. 3 आज का नतीजा बनाइए: Basic app prototype live. 4 सबूत सुरक्षित रखें: live link, screenshot, test result, user राय या demo video. Product Building अभ्यास काम की प्रक्रिया Problem MVP राय Launch Diagram: Product building में छोटा working MVP (एमवीपी) बड़ा पहला step है।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें। आप एक expert Hindi product building और no-code/AI startup mentor हैं। मुझे \"No-Code App बनाना\" बहुत आसान Hindi में step-by-step build करना सिखाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first ACS सीखने वालाs हैं। टूल focus: FlutterFlow / Bolt.new. मुझे 5-step build plan, 3 MVP (एमवीपी) features, 3 common mistakes, 1 user राय method, और 1 portfolio description दीजिए। अंतिम नतीजा यह होना चाहिए: Basic app prototype live. कॉपी AI Product Prompt काम की प्रक्रिया Prompt Feature Prototype Test Diagram: AI (एआई) planning और prototyping में मदद करता है, लेकिन user राय से product सही बनता है।"
+          },
+          {
+            "heading": "MVP (एमवीपी), User राय और Launch Rules",
+            "paragraphs": [
+              "पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके।",
+              "Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें।"
+            ],
+            "bullets": [],
+            "text": "MVP (एमवीपी), User राय और Launch Rules Ownership Economy Small MVP (एमवीपी) Rule पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके। User राय Rule Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें। MVP PROOF User Problem Working Demo राय Launch Link Diagram: 2036 ownership economy में small useful products और live proof बहुत valuable होंगे।"
+          },
+          {
+            "heading": "वर्ग 6 भाषा फिल्टर",
+            "paragraphs": [
+              "यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+            ],
+            "bullets": [],
+            "text": "वर्ग 6 भाषा फिल्टर सरल भाषा यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "PB002",
+      "order": 2,
+      "title": "AI Chatbot बनाना",
+      "title_en": "AI Chatbot Creation",
+      "level_layer": "Layer I - Product Building",
+      "course_track": "Product Building",
+      "difficulty": "Advanced",
+      "primary_keyword": "एआई चैटबॉट",
+      "secondary_keyword": "ai chatbot hindi",
+      "youtube_keyword": "अपना खुद का AI chatbot बनाओ! 🤖",
+      "shorts_hook": "Custom AI chatbot creation",
+      "legacy_slug": "layer-i/pb002-ai-chatbot",
+      "chunk_id": "layer-i-product-building",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB002",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB002",
+      "content": {
+        "html_title": "AI Chatbot बनाना | ACS-AI DIGITAL MASTER PB002",
+        "meta_description": "Layer I Product Building lesson: AI Chatbot बनाना. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "PB002 — AI (एआई) Chatbot बनाना",
+        "blocks": [
+          {
+            "heading": "1. AI (एआई) Chatbot बनाना क्यों जरूरी है?",
+            "paragraphs": [
+              "AI (एआई) Chatbot बनाना Layer-I Product Building का ownership-economy skill है।",
+              "इससे सीखने वाला Custom AI (एआई) chatbot creation सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है।"
+            ],
+            "bullets": [],
+            "text": "1. AI (एआई) Chatbot बनाना क्यों जरूरी है? मुख्य बात AI (एआई) Chatbot बनाना Layer-I Product Building का ownership-economy skill है। इससे सीखने वाला Custom AI (एआई) chatbot creation सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है। AI Chatbot बनाना क्यों जरूरी है? BUILD PRODUCT Problem Prototype User Test Launch Diagram: AI (एआई) Chatbot बनाना क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. GPT APIs + Replit का role",
+            "paragraphs": [
+              "GPT APIs + Replit इस lesson का मुख्य tool/system है।",
+              "टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Working Hindi chatbot live."
+            ],
+            "bullets": [],
+            "text": "2. GPT APIs + Replit का role मुख्य बात GPT APIs + Replit इस lesson का मुख्य tool/system है। टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Working Hindi chatbot live. GPT APIs + Replit का role Question Bot Answer Improve Diagram: GPT APIs + Replit का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ Product Opportunity",
+            "paragraphs": [
+              "ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ Product Opportunity मुख्य बात ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं। Builder Problem MVP राय Launch Diagram: ग्लोबल साउथ Product Opportunity को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 GPT APIs + Replit खोलें या relevant no-code/AI builder का setup करें। 2 AI (एआई) Chatbot बनाना के लिए एक real स्थानीय problem चुनें — विद्यार्थी help, shop काम की प्रक्रिया, village service, NGO काम या निर्माता automation. 3 आज का नतीजा बनाइए: Working Hindi chatbot live. 4 सबूत सुरक्षित रखें: live link, screenshot, test result, user राय या demo video. Product Building अभ्यास काम की प्रक्रिया Problem MVP राय Launch Diagram: Product building में छोटा working MVP (एमवीपी) बड़ा पहला step है।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें। आप एक expert Hindi product building और no-code/AI startup mentor हैं। मुझे \"AI (एआई) Chatbot बनाना\" बहुत आसान Hindi में step-by-step build करना सिखाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first ACS सीखने वालाs हैं। टूल focus: GPT APIs + Replit. मुझे 5-step build plan, 3 MVP (एमवीपी) features, 3 common mistakes, 1 user राय method, और 1 portfolio description दीजिए। अंतिम नतीजा यह होना चाहिए: Working Hindi chatbot live. कॉपी AI Product Prompt काम की प्रक्रिया Prompt Feature Prototype Test Diagram: AI (एआई) planning और prototyping में मदद करता है, लेकिन user राय से product सही बनता है।"
+          },
+          {
+            "heading": "MVP (एमवीपी), User राय और Launch Rules",
+            "paragraphs": [
+              "पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके।",
+              "Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें।"
+            ],
+            "bullets": [],
+            "text": "MVP (एमवीपी), User राय और Launch Rules Ownership Economy Small MVP (एमवीपी) Rule पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके। User राय Rule Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें। MVP PROOF User Problem Working Demo राय Launch Link Diagram: 2036 ownership economy में small useful products और live proof बहुत valuable होंगे।"
+          },
+          {
+            "heading": "वर्ग 6 भाषा फिल्टर",
+            "paragraphs": [
+              "यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+            ],
+            "bullets": [],
+            "text": "वर्ग 6 भाषा फिल्टर सरल भाषा यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "PB003",
+      "order": 3,
+      "title": "Automation Workflow System",
+      "title_en": "Business Automation Systems",
+      "level_layer": "Layer I - Product Building",
+      "course_track": "Product Building",
+      "difficulty": "Advanced",
+      "primary_keyword": "ऑटोमेशन वर्कफ्लो",
+      "secondary_keyword": "automation workflow hindi",
+      "youtube_keyword": "Repetitive काम AI से automate करो! ⚡",
+      "shorts_hook": "Business automation system design",
+      "legacy_slug": "layer-i/pb003-automation-workflow",
+      "chunk_id": "layer-i-product-building",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB003",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB003",
+      "content": {
+        "html_title": "Automation काम की प्रक्रिया System | ACS-AI DIGITAL MASTER PB003",
+        "meta_description": "Layer I Product Building lesson: Automation काम की प्रक्रिया System. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "PB003 — Automation काम की प्रक्रिया System",
+        "blocks": [
+          {
+            "heading": "1. Automation काम की प्रक्रिया System क्यों जरूरी है?",
+            "paragraphs": [
+              "Automation काम की प्रक्रिया System Layer-I Product Building का ownership-economy skill है।",
+              "इससे सीखने वाला Business automation system design सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है।"
+            ],
+            "bullets": [],
+            "text": "1. Automation काम की प्रक्रिया System क्यों जरूरी है? मुख्य बात Automation काम की प्रक्रिया System Layer-I Product Building का ownership-economy skill है। इससे सीखने वाला Business automation system design सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है। Automation काम की प्रक्रिया System क्यों जरूरी है? BUILD PRODUCT Problem Prototype User Test Launch Diagram: Automation काम की प्रक्रिया System क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. n8n + Zapier + Make का role",
+            "paragraphs": [
+              "n8n + Zapier + Make इस lesson का मुख्य tool/system है।",
+              "टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Full automation काम की प्रक्रिया running."
+            ],
+            "bullets": [],
+            "text": "2. n8n + Zapier + Make का role मुख्य बात n8n + Zapier + Make इस lesson का मुख्य tool/system है। टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Full automation काम की प्रक्रिया running. n8n + Zapier + Make का role काम Trigger काम Log Diagram: n8n + Zapier + Make का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ Product Opportunity",
+            "paragraphs": [
+              "ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ Product Opportunity मुख्य बात ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं। Builder Problem MVP राय Launch Diagram: ग्लोबल साउथ Product Opportunity को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: की प्रक्रिया 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे की प्रक्रिया आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 n8n + Zapier + Make खोलें या relevant no-code/AI builder का setup करें। 2 Automation काम की प्रक्रिया System के लिए एक real स्थानीय problem चुनें — विद्यार्थी help, shop काम की प्रक्रिया, village service, NGO काम या निर्माता automation. 3 आज का नतीजा बनाइए: Full automation काम की प्रक्रिया running. 4 सबूत सुरक्षित रखें: live link, screenshot, test result, user राय या demo video. Product Building अभ्यास काम की प्रक्रिया Problem MVP राय Launch Diagram: Product building में छोटा working MVP (एमवीपी) बड़ा पहला step है।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें। आप एक expert Hindi product building और no-code/AI startup mentor हैं। मुझे \"Automation काम की प्रक्रिया System\" बहुत आसान Hindi में step-by-step build करना सिखाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first ACS सीखने वालाs हैं। टूल focus: n8n + Zapier + Make. मुझे 5-step build plan, 3 MVP (एमवीपी) features, 3 common mistakes, 1 user राय method, और 1 portfolio description दीजिए। अंतिम नतीजा यह होना चाहिए: Full automation काम की प्रक्रिया running. कॉपी AI Product Prompt काम की प्रक्रिया Prompt Feature Prototype Test Diagram: AI (एआई) planning और prototyping में मदद करता है, लेकिन user राय से product सही बनता है।"
+          },
+          {
+            "heading": "MVP (एमवीपी), User राय और Launch Rules",
+            "paragraphs": [
+              "पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके।",
+              "Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें।"
+            ],
+            "bullets": [],
+            "text": "MVP (एमवीपी), User राय और Launch Rules Ownership Economy Small MVP (एमवीपी) Rule पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके। User राय Rule Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें। MVP PROOF User Problem Working Demo राय Launch Link Diagram: 2036 ownership economy में small useful products और live proof बहुत valuable होंगे।"
+          },
+          {
+            "heading": "वर्ग 6 भाषा फिल्टर",
+            "paragraphs": [
+              "यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+            ],
+            "bullets": [],
+            "text": "वर्ग 6 भाषा फिल्टर सरल भाषा यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "PB004",
+      "order": 4,
+      "title": "AI Utility Tool बनाना",
+      "title_en": "Building AI Utility Tools",
+      "level_layer": "Layer I - Product Building",
+      "course_track": "Product Building",
+      "difficulty": "Advanced",
+      "primary_keyword": "एआई यूटिलिटी टूल",
+      "secondary_keyword": "ai utility tool hindi",
+      "youtube_keyword": "अपना AI tool बनाओ — दुनिया को बेचो! 🌍",
+      "shorts_hook": "AI utility tool development",
+      "legacy_slug": "layer-i/pb004-ai-utility",
+      "chunk_id": "layer-i-product-building",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB004",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB004",
+      "content": {
+        "html_title": "AI Utility टूल बनाना | ACS-AI DIGITAL MASTER PB004",
+        "meta_description": "Layer I Product Building lesson: AI Utility टूल बनाना. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "PB004 — AI (एआई) Utility टूल बनाना",
+        "blocks": [
+          {
+            "heading": "1. AI (एआई) Utility टूल बनाना क्यों जरूरी है?",
+            "paragraphs": [
+              "AI (एआई) Utility टूल बनाना Layer-I Product Building का ownership-economy skill है।",
+              "इससे सीखने वाला AI (एआई) utility tool development सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है।"
+            ],
+            "bullets": [],
+            "text": "1. AI (एआई) Utility टूल बनाना क्यों जरूरी है? मुख्य बात AI (एआई) Utility टूल बनाना Layer-I Product Building का ownership-economy skill है। इससे सीखने वाला AI (एआई) utility tool development सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है। AI Utility टूल बनाना क्यों जरूरी है? BUILD PRODUCT Problem Prototype User Test Launch Diagram: AI (एआई) Utility टूल बनाना क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Replit + OpenAI API (एपीआई) का role",
+            "paragraphs": [
+              "Replit + OpenAI API (एपीआई) इस lesson का मुख्य tool/system है।",
+              "टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Working AI (एआई) tool prototype."
+            ],
+            "bullets": [],
+            "text": "2. Replit + OpenAI API (एपीआई) का role मुख्य बात Replit + OpenAI API (एपीआई) इस lesson का मुख्य tool/system है। टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Working AI (एआई) tool prototype. Replit + OpenAI API का role Idea Code Utility Share Diagram: Replit + OpenAI API (एपीआई) का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ Product Opportunity",
+            "paragraphs": [
+              "ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ Product Opportunity मुख्य बात ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं। Builder Problem MVP राय Launch Diagram: ग्लोबल साउथ Product Opportunity को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Replit + OpenAI API (एपीआई) खोलें या relevant no-code/AI builder का setup करें। 2 AI (एआई) Utility टूल बनाना के लिए एक real स्थानीय problem चुनें — विद्यार्थी help, shop काम की प्रक्रिया, village service, NGO काम या निर्माता automation. 3 आज का नतीजा बनाइए: Working AI (एआई) tool prototype. 4 सबूत सुरक्षित रखें: live link, screenshot, test result, user राय या demo video. Product Building अभ्यास काम की प्रक्रिया Problem MVP राय Launch Diagram: Product building में छोटा working MVP (एमवीपी) बड़ा पहला step है।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें। आप एक expert Hindi product building और no-code/AI startup mentor हैं। मुझे \"AI (एआई) Utility टूल बनाना\" बहुत आसान Hindi में step-by-step build करना सिखाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first ACS सीखने वालाs हैं। टूल focus: Replit + OpenAI API. मुझे 5-step build plan, 3 MVP (एमवीपी) features, 3 common mistakes, 1 user राय method, और 1 portfolio description दीजिए। अंतिम नतीजा यह होना चाहिए: Working AI (एआई) tool prototype. कॉपी AI Product Prompt काम की प्रक्रिया Prompt Feature Prototype Test Diagram: AI (एआई) planning और prototyping में मदद करता है, लेकिन user राय से product सही बनता है।"
+          },
+          {
+            "heading": "MVP (एमवीपी), User राय और Launch Rules",
+            "paragraphs": [
+              "पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके।",
+              "Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें।"
+            ],
+            "bullets": [],
+            "text": "MVP (एमवीपी), User राय और Launch Rules Ownership Economy Small MVP (एमवीपी) Rule पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके। User राय Rule Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें। MVP PROOF User Problem Working Demo राय Launch Link Diagram: 2036 ownership economy में small useful products और live proof बहुत valuable होंगे।"
+          },
+          {
+            "heading": "वर्ग 6 भाषा फिल्टर",
+            "paragraphs": [
+              "यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+            ],
+            "bullets": [],
+            "text": "वर्ग 6 भाषा फिल्टर सरल भाषा यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "PB005",
+      "order": 5,
+      "title": "Local SaaS Product Launch",
+      "title_en": "Local SaaS Product for Bihar Market",
+      "level_layer": "Layer I - Product Building",
+      "course_track": "Product Building",
+      "difficulty": "Professional",
+      "primary_keyword": "लोकल सास प्रोडक्ट",
+      "secondary_keyword": "local saas hindi",
+      "youtube_keyword": "Bihar के लिए SaaS — यही 2036 का business है! 🚀",
+      "shorts_hook": "Local SaaS product development and launch",
+      "legacy_slug": "layer-i/pb005-local-saas",
+      "chunk_id": "layer-i-product-building",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB005",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=PB005",
+      "content": {
+        "html_title": "स्थानीय SaaS Product Launch | ACS-AI DIGITAL MASTER PB005",
+        "meta_description": "Layer I Product Building lesson: स्थानीय SaaS Product Launch. पहले हिंदी, ग्लोबल साउथ, कई भाषाओं के लिए तैयार ACS lesson page.",
+        "h1": "PB005 — स्थानीय SaaS Product Launch",
+        "blocks": [
+          {
+            "heading": "1. स्थानीय SaaS Product Launch क्यों जरूरी है?",
+            "paragraphs": [
+              "स्थानीय SaaS Product Launch Layer-I Product Building का ownership-economy skill है।",
+              "इससे सीखने वाला स्थानीय SaaS product development and launch सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है।"
+            ],
+            "bullets": [],
+            "text": "1. स्थानीय SaaS Product Launch क्यों जरूरी है? मुख्य बात स्थानीय SaaS Product Launch Layer-I Product Building का ownership-economy skill है। इससे सीखने वाला स्थानीय SaaS product development and launch सीखता है और सिर्फ service provider नहीं, बल्कि useful डिजिटल product/tool बनाने वाला builder बनता है। स्थानीय SaaS Product Launch क्यों जरूरी है? BUILD PRODUCT Problem Prototype User Test Launch Diagram: स्थानीय SaaS Product Launch क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Bolt.new / v0 + Supabase का role",
+            "paragraphs": [
+              "Bolt.new / v0 + Supabase इस lesson का मुख्य tool/system है।",
+              "टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Live SaaS product with first user."
+            ],
+            "bullets": [],
+            "text": "2. Bolt.new / v0 + Supabase का role मुख्य बात Bolt.new / v0 + Supabase इस lesson का मुख्य tool/system है। टूल का उपयोग prototype, chatbot, automation, utility या MVP (एमवीपी) बनाने और test करने के लिए होगा। Final नतीजा: Live SaaS product with first user. Bolt.new / v0 + Supabase का role Client Feature MVP Launch Diagram: Bolt.new / v0 + Supabase का role को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. ग्लोबल साउथ Product Opportunity",
+            "paragraphs": [
+              "ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है।",
+              "Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. ग्लोबल साउथ Product Opportunity मुख्य बात ACS का Product Building model पहले हिंदी है, लेकिन ग्लोबल साउथ और multilingual सीखने वालाs के लिए ready है। Bihar, Bangladesh, Nepal और Africa जैसे क्षेत्रों में स्थानीय problems के लिए small apps, AI (एआई) bots, automations और micro-SaaS products बड़ा opportunity बन सकते हैं। Builder Problem MVP राय Launch Diagram: ग्लोबल साउथ Product Opportunity को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: स्थानीय 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे स्थानीय आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Bolt.new / v0 + Supabase खोलें या relevant no-code/AI builder का setup करें। 2 स्थानीय SaaS Product Launch के लिए एक real स्थानीय problem चुनें — विद्यार्थी help, shop काम की प्रक्रिया, village service, NGO काम या निर्माता automation. 3 आज का नतीजा बनाइए: Live SaaS product with first user. 4 सबूत सुरक्षित रखें: live link, screenshot, test result, user राय या demo video. Product Building अभ्यास काम की प्रक्रिया Problem MVP राय Launch Diagram: Product building में छोटा working MVP (एमवीपी) बड़ा पहला step है।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अपना product/MVP plan improve करें। आप एक expert Hindi product building और no-code/AI startup mentor हैं। मुझे \"स्थानीय SaaS Product Launch\" बहुत आसान Hindi में step-by-step build करना सिखाइए। मेरी audience Bihar और ग्लोबल साउथ के smartphone-first ACS सीखने वालाs हैं। टूल focus: Bolt.new / v0 + Supabase. मुझे 5-step build plan, 3 MVP (एमवीपी) features, 3 common mistakes, 1 user राय method, और 1 portfolio description दीजिए। अंतिम नतीजा यह होना चाहिए: Live SaaS product with first user. कॉपी AI Product Prompt काम की प्रक्रिया Prompt Feature Prototype Test Diagram: AI (एआई) planning और prototyping में मदद करता है, लेकिन user राय से product सही बनता है।"
+          },
+          {
+            "heading": "MVP (एमवीपी), User राय और Launch Rules",
+            "paragraphs": [
+              "पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके।",
+              "Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें।"
+            ],
+            "bullets": [],
+            "text": "MVP (एमवीपी), User राय और Launch Rules Ownership Economy Small MVP (एमवीपी) Rule पहला product छोटा रखें। एक clear problem solve करे और जल्दी test हो सके। User राय Rule Product को अपने हिसाब से नहीं, user के राय से improve करें। सबूत सुरक्षित रखें। MVP PROOF User Problem Working Demo राय Launch Link Diagram: 2036 ownership economy में small useful products और live proof बहुत valuable होंगे।"
+          },
+          {
+            "heading": "वर्ग 6 भाषा फिल्टर",
+            "paragraphs": [
+              "यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+            ],
+            "bullets": [],
+            "text": "वर्ग 6 भाषा फिल्टर सरल भाषा यह पेज आसान हिंदी में रखा गया है। जहाँ तकनीकी शब्द जरूरी हैं, वहाँ उन्हें छोटे वाक्यों और उदाहरणों के साथ समझाया गया है।"
+          }
+        ],
+        "source_missing": false
+      }
+    }
+  ],
+  "track": "Product Building"
+}

@@ -1,0 +1,14 @@
+{
+  "course_id": "dca",
+  "language": "hi",
+  "title": "Diploma in Computer Applications",
+  "subtitle": "DCA",
+  "description": "डिजिटल और कंप्यूटर आधारभूत कौशल के लिए DCA कोर्स।",
+  "status": "coming_soon",
+  "badges": [
+    "जल्द उपलब्ध",
+    "ऑनलाइन फ्री",
+    "ऑफलाइन पेड"
+  ],
+  "message": "यह कोर्स जल्द उपलब्ध होगा।"
+}

@@ -1,0 +1,20 @@
+{
+  "course_id": "acs-2036-job-ready-digital-career-path",
+  "slug": "acs-2036-job-ready-digital-career-path",
+  "category": "digital",
+  "status": "active",
+  "default_language": "hi",
+  "available_languages": [
+    "hi"
+  ],
+  "online_free": true,
+  "offline_paid": true,
+  "total_lessons": 332,
+  "data_rule": "course.html?c={course_id}&lang={lang}&lesson={lesson_id}",
+  "content_files": {
+    "manifest": "manifest.json",
+    "course": "hi/course.json",
+    "outline": "hi/outline.json",
+    "chunks": "hi/layers/{chunk_id}.json"
+  }
+}

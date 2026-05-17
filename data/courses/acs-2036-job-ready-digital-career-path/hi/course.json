@@ -1,0 +1,25 @@
+{
+  "course_id": "acs-2036-job-ready-digital-career-path",
+  "language": "hi",
+  "title": "एसीएस-एआई डिजिटल मास्टर™",
+  "subtitle": "2036 रोजगार-केंद्रित डिजिटल करियर पाथ",
+  "description": "मोबाइल, एआई, इंटरनेट, सोशल मीडिया, ऑनलाइन काम, डिजिटल सुरक्षा और 2036 तक बदलते रोजगार की तैयारी के लिए यह मुख्य डिजिटल कोर्स बनाया गया है।",
+  "online_free": true,
+  "offline_paid": true,
+  "whatsapp_support_paid": true,
+  "certification_paid": true,
+  "internship_paid": true,
+  "job_placement_paid": true,
+  "total_lessons": 332,
+  "badges": [
+    "ऑनलाइन फ्री",
+    "ऑफलाइन पेड",
+    "WhatsApp सपोर्ट पेड",
+    "सर्टिफिकेशन पेड"
+  ],
+  "cta": {
+    "start_online": "ऑनलाइन शुरू करें",
+    "offline_batch": "ऑफलाइन बैच पूछें",
+    "teacher_join": "प्रशिक्षक बनें"
+  }
+}

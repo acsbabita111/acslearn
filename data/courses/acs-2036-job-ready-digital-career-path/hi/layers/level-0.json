@@ -1,0 +1,2087 @@
+{
+  "chunk_id": "level-0",
+  "title": "Level 0",
+  "lessons": [
+    {
+      "lesson_id": "L001",
+      "order": 1,
+      "title": "Internet क्या है और कैसे काम करता है",
+      "title_en": "Internet क्या है और कैसे काम करता है",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "इंटरनेट क्या है",
+      "secondary_keyword": "what is internet",
+      "youtube_keyword": "internet basics hindi",
+      "shorts_hook": "क्या आप जानते हैं Internet कैसे काम करता है? 🤯",
+      "legacy_slug": "level-0/l001-internet-kya-hai",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L001",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L001",
+      "content": {
+        "html_title": "इंटरनेट क्या है? | ACS-AI DIGITAL MASTER L001",
+        "meta_description": "आज से आपका डिजिटल सफर शुरू होता है। इस lesson में आप internet, website, browser, search engine और URL जैसे सबसे ज़रूरी concepts को आसान भाषा में समझेंगे।",
+        "h1": "L001 — इंटरनेट क्या है?",
+        "blocks": [
+          {
+            "heading": "1. Internet क्या है?",
+            "paragraphs": [
+              "Internet दुनिया भर के computers, servers, websites, apps और लोगों को जोड़ने वाला जुड़ाव है।",
+              "जब आप Google (गूगल) पर search करते हैं, YouTube (यूट्यूब) देखते हैं या WhatsApp (व्हाट्सऐप) चलाते हैं, तब आप internet का उपयोग कर रहे होते हैं।"
+            ],
+            "bullets": [],
+            "text": "1. Internet क्या है? मुख्य बात Internet दुनिया भर के computers, servers, websites, apps और लोगों को जोड़ने वाला जुड़ाव है। जब आप Google (गूगल) पर search करते हैं, YouTube (यूट्यूब) देखते हैं या WhatsApp (व्हाट्सऐप) चलाते हैं, तब आप internet का उपयोग कर रहे होते हैं। Internet Website Browser Search इंटरनेट क्या है? Diagram: Internet क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Website, Browser और Search Engine",
+            "paragraphs": [
+              "Browser website खोलता है, search engine जानकारी खोजता है और website actual डिजिटल page होती है।",
+              "Chrome (क्रोम) browser है, Google (गूगल) search engine है और acslearn.com एक website है।"
+            ],
+            "bullets": [],
+            "text": "2. Website, Browser और Search Engine मुख्य बात Browser website खोलता है, search engine जानकारी खोजता है और website actual डिजिटल page होती है। Chrome (क्रोम) browser है, Google (गूगल) search engine है और acslearn.com एक website है। Website, Browser और Search Engine Website, Browser समझें • तुलना करें • लागू करें Search Engine Use case • Decision • अभ्यास Diagram: Website, Browser और Search Engine को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. URL (यूआरएल) क्या होता है?",
+            "paragraphs": [
+              "URL (यूआरएल) किसी website का online address होता है।",
+              "जैसे घर का पता होता है, वैसे ही website का address होता है: https://acslearn.com"
+            ],
+            "bullets": [],
+            "text": "3. URL (यूआरएल) क्या होता है? मुख्य बात URL (यूआरएल) किसी website का online address होता है। जैसे घर का पता होता है, वैसे ही website का address होता है: https://acslearn.com Internet Basics Internet Website, URL Info Diagram: URL (यूआरएल) क्या होता है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: इंटरनेट क्या है? 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे इंटरनेट क्या है? आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student इंटरनेट क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student इंटरनेट क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Chrome (क्रोम) खोलें और search करें: internet kya hai 2 पहले 3 results देखें और article/video/ad पहचानें 3 Notebook में लिखें कि कौन-सा result useful लगा। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे इंटरनेट बहुत आसान भाषा में समझाइए। मैं पहली बार डिजिटल skills सीख रहा/रही हूं। मुझे Bihar के एक विद्यार्थी के example से समझाइए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L002",
+      "order": 2,
+      "title": "Browser vs App — फर्क क्या है",
+      "title_en": "Browser vs App — फर्क क्या है",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "ब्राउज़र और ऐप",
+      "secondary_keyword": "browser vs app",
+      "youtube_keyword": "browser vs app hindi",
+      "shorts_hook": "Browser vs App — फर्क क्या है... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l002-browser-vs-app",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L002",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L002",
+      "content": {
+        "html_title": "Browser vs App: फर्क क्या है? | ACS-AI DIGITAL MASTER L002",
+        "meta_description": "इस lesson में आप समझेंगे कि browser और app में क्या फर्क है, कब browser use करना चाहिए और कब app use करना चाहिए।",
+        "h1": "L002 — Browser vs App: फर्क क्या है?",
+        "blocks": [
+          {
+            "heading": "1. Browser क्या है?",
+            "paragraphs": [
+              "Browser वह app है जिससे आप websites खोलते हैं।",
+              "Chrome (क्रोम), Safari, Firefox और Edge browser के examples हैं।"
+            ],
+            "bullets": [],
+            "text": "1. Browser क्या है? मुख्य बात Browser वह app है जिससे आप websites खोलते हैं। Chrome (क्रोम), Safari, Firefox और Edge browser के examples हैं। Browser App Difference अभ्यास Browser vs App: फर्क क्या है? Diagram: Browser क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. App क्या है?",
+            "paragraphs": [
+              "App phone में install होता है और आमतौर पर किसी specific काम के लिए बना होता है।",
+              "WhatsApp (व्हाट्सऐप) messaging के लिए, Camera photo के लिए और YouTube (यूट्यूब) app video देखने के लिए है।"
+            ],
+            "bullets": [],
+            "text": "2. App क्या है? मुख्य बात App phone में install होता है और आमतौर पर किसी specific काम के लिए बना होता है। WhatsApp (व्हाट्सऐप) messaging के लिए, Camera photo के लिए और YouTube (यूट्यूब) app video देखने के लिए है। Browser vs App Browser App Browser Info Diagram: App क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Browser vs App Decision",
+            "paragraphs": [
+              "अगर आपको कई websites खोलनी हैं तो browser बेहतर है। अगर specific service चाहिए तो app बेहतर है।",
+              "डिजिटल learning में browser बहुत जरूरी है क्योंकि courses, forms और tools browser से access होते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. Browser vs App Decision मुख्य बात अगर आपको कई websites खोलनी हैं तो browser बेहतर है। अगर specific service चाहिए तो app बेहतर है। डिजिटल learning में browser बहुत जरूरी है क्योंकि courses, forms और tools browser से access होते हैं। Browser vs App Browser App Browser Info Diagram: Browser vs App Decision को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: वेब ब्राउज़र 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे वेब ब्राउज़र आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Browser vs App: फर्क क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Browser vs App: फर्क क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Chrome (क्रोम) खोलें और youtube.com type करें 2 अब YouTube (यूट्यूब) app खोलें 3 दोनों experience compare करके 3 फर्क लिखें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे Browser और App का फर्क आसान भाषा में समझाइए। Chrome (क्रोम) और WhatsApp (व्हाट्सऐप) के example से समझाइए। अंत में एक simple table दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L003",
+      "order": 3,
+      "title": "Safe Browsing — Online सुरक्षा",
+      "title_en": "Safe Browsing — Online सुरक्षा",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "सेफ ब्राउज़िंग",
+      "secondary_keyword": "safe browsing tips",
+      "youtube_keyword": "safe internet hindi",
+      "shorts_hook": "Safe Browsing — Online सुरक्षा... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l003-safe-browsing",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L003",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L003",
+      "content": {
+        "html_title": "सुरक्षित Browsing और Online सुरक्षा | ACS-AI DIGITAL MASTER L003",
+        "meta_description": "Internet powerful है, लेकिन बिना सुरक्षा के खतरा भी हो सकता है। इस lesson में सुरक्षित browsing के basic rules सीखेंगे।",
+        "h1": "L003 — सुरक्षित Browsing और Online सुरक्षा",
+        "blocks": [
+          {
+            "heading": "1. सुरक्षित Browsing क्या है?",
+            "paragraphs": [
+              "सुरक्षित browsing का मतलब है internet पर सावधानी से search करना, trusted websites खोलना और खतराy links से बचना।",
+              "हर search result सही नहीं होता, इसलिए सोचकर click करना जरूरी है।"
+            ],
+            "bullets": [],
+            "text": "1. सुरक्षित Browsing क्या है? मुख्य बात सुरक्षित browsing का मतलब है internet पर सावधानी से search करना, trusted websites खोलना और खतराy links से बचना। हर search result सही नहीं होता, इसलिए सोचकर click करना जरूरी है। Trust Check Avoid Protect सुरक्षित Browsing और Online सुरक्षा Diagram: सुरक्षित Browsing क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Trusted Website कैसे पहचानें?",
+            "paragraphs": [
+              "Official domain, सही spelling, secure address और clear contact information trusted website की निशानी हैं।",
+              "Government websites में अक्सर .gov.in होता है, banks की official websites carefully check करनी चाहिए।"
+            ],
+            "bullets": [],
+            "text": "2. Trusted Website कैसे पहचानें? मुख्य बात Official domain, सही spelling, secure address और clear contact information trusted website की निशानी हैं। Government websites में अक्सर .gov.in होता है, banks की official websites carefully check करनी चाहिए। सुरक्षित Browsing सुरक्षित Trusted खतराy Info Diagram: Trusted Website कैसे पहचानें? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. खतराy Link से बचाव",
+            "paragraphs": [
+              "Unknown messages, lottery links, fake job links और urgent payment links अक्सर scam हो सकते हैं।",
+              "किसी भी link पर click करने से पहले sender और URL (यूआरएल) check करें।"
+            ],
+            "bullets": [],
+            "text": "3. खतराy Link से बचाव मुख्य बात Unknown messages, lottery links, fake job links और urgent payment links अक्सर scam हो सकते हैं। किसी भी link पर click करने से पहले sender और URL (यूआरएल) check करें। सुरक्षित Browsing सुरक्षित Trusted खतराy Info Diagram: खतराy Link से बचाव को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: सुरक्षित सुरक्षा 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे सुरक्षित सुरक्षा आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student सुरक्षित Browsing और Online सुरक्षा को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student सुरक्षित Browsing और Online सुरक्षा को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Google (गूगल) पर किसी government scheme को search करें 2 Official website और random blog में फर्क देखें 3 Unknown link मिलने पर उसे खोलने से पहले URL (यूआरएल) पढ़ें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे सुरक्षित browsing के 10 आसान rules बताइए। Examples rural Bihar के विद्यार्थी के हिसाब से दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L004",
+      "order": 4,
+      "title": "Spam और Phishing से बचाव",
+      "title_en": "Spam और Phishing से बचाव",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "स्पैम से बचाव",
+      "secondary_keyword": "how to avoid spam",
+      "youtube_keyword": "phishing protection hindi",
+      "shorts_hook": "Spam और Phishing से बचाव... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l004-spam-phishing",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L004",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L004",
+      "content": {
+        "html_title": "Spam, Scam और Phishing पहचानना | ACS-AI DIGITAL MASTER L004",
+        "meta_description": "डिजिटल दुनिया में scams बहुत आम हैं। इस lesson में आप spam, scam और phishing को पहचानना सीखेंगे।",
+        "h1": "L004 — Spam, Scam और Phishing पहचानना",
+        "blocks": [
+          {
+            "heading": "1. Spam क्या है?",
+            "paragraphs": [
+              "Spam बेकार या unwanted message होता है जो अक्सर बहुत लोगों को एक साथ भेजा जाता है।",
+              "Lottery, fake offer और repeated promotional messages spam हो सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "1. Spam क्या है? मुख्य बात Spam बेकार या unwanted message होता है जो अक्सर बहुत लोगों को एक साथ भेजा जाता है। Lottery, fake offer और repeated promotional messages spam हो सकते हैं। Spam Scam Phishing काम Spam, Scam और Phishing पहचानना Diagram: Spam क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Scam क्या है?",
+            "paragraphs": [
+              "Scam धोखा है जिसमें आपका पैसा, डेटा या account चुराने की कोशिश होती है।",
+              "Fake job registration fee, fake loan और fake reward common scams हैं।"
+            ],
+            "bullets": [],
+            "text": "2. Scam क्या है? मुख्य बात Scam धोखा है जिसमें आपका पैसा, डेटा या account चुराने की कोशिश होती है। Fake job registration fee, fake loan और fake reward common scams हैं। Scam सुरक्षा Spam Scam Phishing Safe Diagram: Scam क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Phishing क्या है?",
+            "paragraphs": [
+              "Phishing में fake website या message के जरिए password, OTP (ओटीपी) या bank details मांगे जाते हैं।",
+              "Fake bank page दिखाकर login details मांगना phishing है।"
+            ],
+            "bullets": [],
+            "text": "3. Phishing क्या है? मुख्य बात Phishing में fake website या message के जरिए password, OTP (ओटीपी) या bank details मांगे जाते हैं। Fake bank page दिखाकर login details मांगना phishing है। Scam सुरक्षा Spam Scam Phishing Safe Diagram: Phishing क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: फ़िशिंग 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे फ़िशिंग आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Spam, Scam और Phishing पहचानना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Spam, Scam और Phishing पहचानना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 एक fake offer message की पहचान करें 2 उसमें urgency, spelling mistake और link check करें 3 Notebook में लिखें: यह सुरक्षित है या unसुरक्षित? Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे spam, scam और phishing में फर्क समझाइए। WhatsApp (व्हाट्सऐप) और email के examples देकर बताइए कि इनसे कैसे बचें। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L005",
+      "order": 5,
+      "title": "Digital Footprint क्या है",
+      "title_en": "Digital Footprint क्या है",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "डिजिटल फुटप्रिंट",
+      "secondary_keyword": "digital footprint",
+      "youtube_keyword": "digital identity hindi",
+      "shorts_hook": "Digital Footprint क्या है... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l005-digital-footprint",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L005",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L005",
+      "content": {
+        "html_title": "डिजिटल Footprint क्या है? | ACS-AI DIGITAL MASTER L005",
+        "meta_description": "आप internet पर जो देखते, लिखते और share करते हैं, उसका एक डिजिटल निशान बनता है। इसे डिजिटल footprint कहते हैं।",
+        "h1": "L005 — डिजिटल Footprint क्या है?",
+        "blocks": [
+          {
+            "heading": "1. डिजिटल Footprint क्या है?",
+            "paragraphs": [
+              "डिजिटल footprint आपके online actions का record या निशान है।",
+              "Comments, posts, photos, likes, searches और profiles आपकी डिजिटल identity बनाते हैं।"
+            ],
+            "bullets": [],
+            "text": "1. डिजिटल Footprint क्या है? मुख्य बात डिजिटल footprint आपके online actions का record या निशान है। Comments, posts, photos, likes, searches और profiles आपकी डिजिटल identity बनाते हैं। Post Search Record Reputation डिजिटल Footprint क्या है? Diagram: डिजिटल Footprint क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Positive Footprint",
+            "paragraphs": [
+              "अच्छे posts, learning certificates, portfolio और helpful content आपकी credibility बढ़ाते हैं।",
+              "एक विद्यार्थी अपना प्रोजेक्ट LinkedIn (लिंक्डइन) या website पर share करके positive footprint बना सकता है।"
+            ],
+            "bullets": [],
+            "text": "2. Positive Footprint मुख्य बात अच्छे posts, learning certificates, portfolio और helpful content आपकी credibility बढ़ाते हैं। एक विद्यार्थी अपना प्रोजेक्ट LinkedIn (लिंक्डइन) या website पर share करके positive footprint बना सकता है। डिजिटल Footprint डिजिटल Positive Negative Info Diagram: Positive Footprint को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Negative Footprint",
+            "paragraphs": [
+              "गलत comments, fake information, unसुरक्षित photos या abusive posts future में problem बन सकते हैं।",
+              "Employer या client आपकी online profile देख सकता है।"
+            ],
+            "bullets": [],
+            "text": "3. Negative Footprint मुख्य बात गलत comments, fake information, unसुरक्षित photos या abusive posts future में problem बन सकते हैं। Employer या client आपकी online profile देख सकता है। डिजिटल Footprint डिजिटल Positive Negative Info Diagram: Negative Footprint को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: डिजिटल क्या है? 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे डिजिटल क्या है? आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student डिजिटल Footprint क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student डिजिटल Footprint क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 अपने नाम को Google (गूगल) पर search करें 2 अपनी social profile की निजता settings देखें 3 एक positive डिजिटल post का idea लिखें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। डिजिटल footprint क्या है? मुझे बताइए कि एक विद्यार्थी positive डिजिटल footprint कैसे बना सकता है। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L006",
+      "order": 6,
+      "title": "Google Drive Setup",
+      "title_en": "Google Drive Setup",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "गूगल ड्राइव",
+      "secondary_keyword": "google drive tutorial",
+      "youtube_keyword": "google drive hindi",
+      "shorts_hook": "Google Drive Setup... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l006-google-drive",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L006",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L006",
+      "content": {
+        "html_title": "Google Drive Mobile पर कैसे इस्तेमाल करें | ACS-AI DIGITAL MASTER L006",
+        "meta_description": "Google Drive आपके files को cloud में सुरक्षित रखने का आसान tool है। इसे mobile से भी इस्तेमाल किया जा सकता है।",
+        "h1": "L006 — Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) Mobile पर कैसे इस्तेमाल करें",
+        "blocks": [
+          {
+            "heading": "1. Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) क्या है?",
+            "paragraphs": [
+              "Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) cloud storage है जहाँ आप documents, photos और files online save कर सकते हैं।",
+              "Phone खो जाए तब भी Drive (ड्राइव) में saved files मिल सकती हैं।"
+            ],
+            "bullets": [],
+            "text": "1. Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) क्या है? मुख्य बात Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) cloud storage है जहाँ आप documents, photos और files online save कर सकते हैं। Phone खो जाए तब भी Drive (ड्राइव) में saved files मिल सकती हैं। Upload Organize Share Backup Google Drive Mobile पर कैसे इस्तेमाल करें Diagram: Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Folder बनाना",
+            "paragraphs": [
+              "Folders से files organized रहती हैं।",
+              "ACS Course, प्रमाणपत्रs और Documents जैसे folders बना सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "2. Folder बनाना मुख्य बात Folders से files organized रहती हैं। ACS Course, प्रमाणपत्रs और Documents जैसे folders बना सकते हैं। Google Drive Google Folder File Info Diagram: Folder बनाना को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. File Share करना",
+            "paragraphs": [
+              "Drive (ड्राइव) link के जरिए file share की जा सकती है।",
+              "Client या teacher को file भेजने में Drive (ड्राइव) useful है।"
+            ],
+            "bullets": [],
+            "text": "3. File Share करना मुख्य बात Drive (ड्राइव) link के जरिए file share की जा सकती है। Client या teacher को file भेजने में Drive (ड्राइव) useful है। Google Drive Google Folder File Info Diagram: File Share करना को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कैसे इस्तेमाल करें 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कैसे इस्तेमाल करें आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) Mobile पर कैसे इस्तेमाल करें को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) Mobile पर कैसे इस्तेमाल करें को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) app खोलें 2 ACS Learning नाम से folder बनाएं 3 एक photo upload करें और link copy करें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) mobile पर step-by-step सिखाइए। Folder बनाना, file upload करना और share करना समझाइए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L007",
+      "order": 7,
+      "title": "Google Docs — मोबाइल पर",
+      "title_en": "Google Docs — मोबाइल पर",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "गूगल डॉक्स",
+      "secondary_keyword": "google docs mobile",
+      "youtube_keyword": "google docs hindi tutorial",
+      "shorts_hook": "Google Docs — मोबाइल पर... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l007-google-docs",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L007",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L007",
+      "content": {
+        "html_title": "Google Docs Mobile पर काम करना | ACS-AI DIGITAL MASTER L007",
+        "meta_description": "Google Docs से आप mobile पर notes, letters, resume और रिपोर्टs बना सकते हैं।",
+        "h1": "L007 — Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) Mobile पर काम करना",
+        "blocks": [
+          {
+            "heading": "1. Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) क्या है?",
+            "paragraphs": [
+              "Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) एक online document editor है।",
+              "इससे आप बिना computer के mobile पर काम के लायक document बना सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "1. Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) क्या है? मुख्य बात Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) एक online document editor है। इससे आप बिना computer के mobile पर काम के लायक document बना सकते हैं। Create Write Format Share Google Docs Mobile पर काम करना Diagram: Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Formatting क्यों जरूरी है?",
+            "paragraphs": [
+              "Heading, bold, spacing और bullets document को readable बनाते हैं।",
+              "काम के लायक email draft या रिपोर्ट में formatting जरूरी होती है।"
+            ],
+            "bullets": [],
+            "text": "2. Formatting क्यों जरूरी है? मुख्य बात Heading, bold, spacing और bullets document को readable बनाते हैं। काम के लायक email draft या रिपोर्ट में formatting जरूरी होती है। Google Docs Google Formatting मिलकर काम Info Diagram: Formatting क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. मिलकर काम",
+            "paragraphs": [
+              "Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) में दूसरे लोग भी same document पर काम कर सकते हैं।",
+              "Teacher राय, team प्रोजेक्ट और client समीक्षा में यह useful है।"
+            ],
+            "bullets": [],
+            "text": "3. मिलकर काम मुख्य बात Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) में दूसरे लोग भी same document पर काम कर सकते हैं। Teacher राय, team प्रोजेक्ट और client समीक्षा में यह useful है। Google Docs Google Formatting मिलकर काम Info Diagram: मिलकर काम को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: करना 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे करना आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) Mobile पर काम करना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) Mobile पर काम करना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) app खोलें 2 एक नया document बनाएं: My डिजिटल Journey 3 3 lines लिखें और title bold करें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स) mobile पर beginner के लिए समझाइए। एक छोटा resume draft बनाने का example दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L008",
+      "order": 8,
+      "title": "Google Sheets Basic",
+      "title_en": "Google Sheets Basic",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "गूगल शीट्स",
+      "secondary_keyword": "google sheets basics",
+      "youtube_keyword": "google sheets hindi",
+      "shorts_hook": "Google Sheets Basic... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l008-google-sheets",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L008",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L008",
+      "content": {
+        "html_title": "Google Sheets Mobile Basics | ACS-AI DIGITAL MASTER L008",
+        "meta_description": "Google Sheets डेटा को table में रखने, calculate करने और track करने का powerful tool है।",
+        "h1": "L008 — Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) Mobile Basics",
+        "blocks": [
+          {
+            "heading": "1. Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) क्या है?",
+            "paragraphs": [
+              "Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) एक online spreadsheet tool है।",
+              "इसमें rows और columns में डेटा रखा जाता है।"
+            ],
+            "bullets": [],
+            "text": "1. Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) क्या है? मुख्य बात Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) एक online spreadsheet tool है। इसमें rows और columns में डेटा रखा जाता है। Rows Columns डेटा Total Google Sheets Mobile Basics Diagram: Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Rows और Columns",
+            "paragraphs": [
+              "Rows horizontal lines होती हैं और columns vertical lines होती हैं।",
+              "विद्यार्थी list, expense list और attendance table Sheets (शीट्स) में बनाया जा सकता है।"
+            ],
+            "bullets": [],
+            "text": "2. Rows और Columns मुख्य बात Rows horizontal lines होती हैं और columns vertical lines होती हैं। विद्यार्थी list, expense list और attendance table Sheets (शीट्स) में बनाया जा सकता है। Rows और Columns Rows समझें • तुलना करें • लागू करें Columns Use case • Decision • अभ्यास Diagram: Rows और Columns को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Simple Calculation",
+            "paragraphs": [
+              "Sheets (शीट्स) में numbers जोड़ना, average निकालना और total करना आसान है।",
+              "Small business income-expense track करने में Sheets (शीट्स) काम आता है।"
+            ],
+            "bullets": [],
+            "text": "3. Simple Calculation मुख्य बात Sheets (शीट्स) में numbers जोड़ना, average निकालना और total करना आसान है। Small business income-expense track करने में Sheets (शीट्स) काम आता है। Google Sheets Google Rows Simple Info Diagram: Simple Calculation को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: डिजिटल साक्षरता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे डिजिटल साक्षरता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) Mobile Basics को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) Mobile Basics को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) app खोलें 2 एक table बनाएं: Name, Mobile, Skill 3 3 लोगों का डेटा भरें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे Google (गूगल) Sheets (शीट्स) (गूगल शीट्स) mobile basics समझाइए। Rows, columns और simple total का example दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L009",
+      "order": 9,
+      "title": "WhatsApp Business Setup",
+      "title_en": "WhatsApp Business Setup",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "व्हाट्सएप बिज़नेस",
+      "secondary_keyword": "whatsapp business setup",
+      "youtube_keyword": "whatsapp business hindi",
+      "shorts_hook": "WhatsApp Business Setup... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l009-whatsapp-business",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L009",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L009",
+      "content": {
+        "html_title": "WhatsApp Business Setup | ACS-AI DIGITAL MASTER L009",
+        "meta_description": "WhatsApp Business छोटे दुकानदार, निर्माता और service provider के लिए बहुत useful tool है।",
+        "h1": "L009 — WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) Setup",
+        "blocks": [
+          {
+            "heading": "1. WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) क्या है?",
+            "paragraphs": [
+              "यह WhatsApp (व्हाट्सऐप) का business version है जिसमें profile, catalog और quick replies जैसे features होते हैं।",
+              "स्थानीय shop, coaching, freelancer और NGO इसे use कर सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "1. WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) क्या है? मुख्य बात यह WhatsApp (व्हाट्सऐप) का business version है जिसमें profile, catalog और quick replies जैसे features होते हैं। स्थानीय shop, coaching, freelancer और NGO इसे use कर सकते हैं। Profile Catalog Message Customer WhatsApp Business Setup Diagram: WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Business Profile",
+            "paragraphs": [
+              "Profile में नाम, address, timing, website और description डालते हैं।",
+              "Clear profile customer trust बढ़ाती है।"
+            ],
+            "bullets": [],
+            "text": "2. Business Profile मुख्य बात Profile में नाम, address, timing, website और description डालते हैं। Clear profile customer trust बढ़ाती है। WhatsApp Business WhatsApp Business Catalog Info Diagram: Business Profile को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Catalog और Quick Reply",
+            "paragraphs": [
+              "Catalog से products/services दिखते हैं और quick reply से fast response होता है।",
+              "Small business को काम के लायक बनाता है।"
+            ],
+            "bullets": [],
+            "text": "3. Catalog और Quick Reply मुख्य बात Catalog से products/services दिखते हैं और quick reply से fast response होता है। Small business को काम के लायक बनाता है। WhatsApp Business WhatsApp Business Catalog Info Diagram: Catalog और Quick Reply को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: व्हाट्सऐप 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे व्हाट्सऐप आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) Setup को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) Setup को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) install करें 2 Business name और description भरें 3 एक product/service catalog में add करें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) setup step-by-step बताइए। एक स्थानीय shop के example से profile description लिखिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L010",
+      "order": 10,
+      "title": "Email Professionalism",
+      "title_en": "Email Professionalism",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "प्रोफेशनल ईमेल",
+      "secondary_keyword": "how to write professional email",
+      "youtube_keyword": "email likhna hindi",
+      "shorts_hook": "Email Professionalism... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l010-email-professionalism",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L010",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L010",
+      "content": {
+        "html_title": "काम के लायक Email कैसे लिखें | ACS-AI DIGITAL MASTER L010",
+        "meta_description": "काम के लायक email नौकरी, इंटर्नशिप, client और teacher communication के लिए जरूरी skill है।",
+        "h1": "L010 — काम के लायक Email कैसे लिखें",
+        "blocks": [
+          {
+            "heading": "1. काम के लायक Email क्या है?",
+            "paragraphs": [
+              "यह साफ, विनम्र और purpose-focused message होता है।",
+              "Job application, इंटर्नशिप request और प्रोजेक्ट submission में यह जरूरी है।"
+            ],
+            "bullets": [],
+            "text": "1. काम के लायक Email क्या है? मुख्य बात यह साफ, विनम्र और purpose-focused message होता है। Job application, इंटर्नशिप request और प्रोजेक्ट submission में यह जरूरी है। Subject Greeting Message CTA काम के लायक Email कैसे लिखें Diagram: काम के लायक Email क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Email Structure",
+            "paragraphs": [
+              "Subject, greeting, main message, closing और signature email के मुख्य parts हैं।",
+              "Structure से email काम के लायक दिखता है।"
+            ],
+            "bullets": [],
+            "text": "2. Email Structure मुख्य बात Subject, greeting, main message, closing और signature email के मुख्य parts हैं। Structure से email काम के लायक दिखता है। काम के लायक Email काम के लायक Email Common Info Diagram: Email Structure को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Common Mistakes",
+            "paragraphs": [
+              "Empty subject, unclear request, spelling mistakes और rude tone avoid करें।",
+              "Email भेजने से पहले proofread जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "3. Common Mistakes मुख्य बात Empty subject, unclear request, spelling mistakes और rude tone avoid करें। Email भेजने से पहले proofread जरूर करें। काम के लायक Email काम के लायक Email Common Info Diagram: Common Mistakes को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: ईमेल 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे ईमेल आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student काम के लायक Email कैसे लिखें को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student काम के लायक Email कैसे लिखें को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Gmail (जीमेल) खोलें 2 Subject लिखें: इंटर्नशिप Request 3 एक 5-line काम के लायक email draft करें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे एक काम के लायक email लिखकर दीजिए जिसमें मैं इंटर्नशिप के लिए request कर रहा/रही हूं। भाषा simple Hindi-English काम के लायक हो। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L011",
+      "order": 11,
+      "title": "ChatGPT क्या है — Free में कैसे use करें",
+      "title_en": "ChatGPT क्या है — Free में कैसे use करें",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "चैटजीपीटी",
+      "secondary_keyword": "chatgpt free hindi",
+      "youtube_keyword": "chatgpt tutorial hindi",
+      "shorts_hook": "ChatGPT क्या है — Free में कैस... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l011-chatgpt-intro",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L011",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L011",
+      "content": {
+        "html_title": "ChatGPT क्या है? | ACS-AI DIGITAL MASTER L011",
+        "meta_description": "ChatGPT एक AI chatbot है जो आपके सवालों का जवाब दे सकता है, ideas दे सकता है और text बनाने में मदद कर सकता है।",
+        "h1": "L011 — ChatGPT (चैटजीपीटी) क्या है?",
+        "blocks": [
+          {
+            "heading": "1. ChatGPT (चैटजीपीटी) क्या है?",
+            "paragraphs": [
+              "ChatGPT (चैटजीपीटी) एक AI (एआई) assistant है जिससे आप natural language में बात कर सकते हैं।",
+              "यह explanation, writing, planning और learning में मदद कर सकता है।"
+            ],
+            "bullets": [],
+            "text": "1. ChatGPT (चैटजीपीटी) क्या है? मुख्य बात ChatGPT (चैटजीपीटी) एक AI (एआई) assistant है जिससे आप natural language में बात कर सकते हैं। यह explanation, writing, planning और learning में मदद कर सकता है। Ask Explain Create Improve ChatGPT क्या है? Diagram: ChatGPT (चैटजीपीटी) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. ChatGPT (चैटजीपीटी) क्या कर सकता है?",
+            "paragraphs": [
+              "यह concepts समझा सकता है, email लिख सकता है, ideas दे सकता है और अभ्यास questions बना सकता है।",
+              "लेकिन हर answer को जांच करें करना जरूरी है।"
+            ],
+            "bullets": [],
+            "text": "2. ChatGPT (चैटजीपीटी) क्या कर सकता है? मुख्य बात यह concepts समझा सकता है, email लिख सकता है, ideas दे सकता है और अभ्यास questions बना सकता है। लेकिन हर answer को जांच करें करना जरूरी है। ChatGPT ChatGPT ChatGPT Responsible Info Diagram: ChatGPT (चैटजीपीटी) क्या कर सकता है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Responsible Use",
+            "paragraphs": [
+              "AI (एआई) को helper की तरह use करें, blind trust न करें।",
+              "AI (एआई) mistake कर सकता है, इसलिए important facts double-check करें।"
+            ],
+            "bullets": [],
+            "text": "3. Responsible Use मुख्य बात AI (एआई) को helper की तरह use करें, blind trust न करें। AI (एआई) mistake कर सकता है, इसलिए important facts double-check करें। ChatGPT ChatGPT ChatGPT Responsible Info Diagram: Responsible Use को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student ChatGPT (चैटजीपीटी) क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student ChatGPT (चैटजीपीटी) क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 ChatGPT (चैटजीपीटी) खोलें 2 पूछें: मुझे internet आसान भाषा में समझाओ 3 Answer को पढ़कर 3 points notebook में लिखें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मैं beginner हूं। मुझे ChatGPT (चैटजीपीटी) का उपयोग पढ़ाई और डिजिटल skills सीखने के लिए कैसे करना चाहिए? 10 examples दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L012",
+      "order": 12,
+      "title": "Claude AI — समझदार AI असिस्टेंट",
+      "title_en": "Claude AI — समझदार AI असिस्टेंट",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "क्लॉड एआई",
+      "secondary_keyword": "claude ai hindi",
+      "youtube_keyword": "claude ai tutorial",
+      "shorts_hook": "Claude AI — समझदार AI असिस्टें... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l012-claude-ai",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L012",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L012",
+      "content": {
+        "html_title": "Claude AI क्या है? | ACS-AI DIGITAL MASTER L012",
+        "meta_description": "Claude AI एक AI assistant है जो long text, documents, summaries और thoughtful answers में मदद कर सकता है।",
+        "h1": "L012 — Claude (क्लॉड) AI (एआई) क्या है?",
+        "blocks": [
+          {
+            "heading": "1. Claude (क्लॉड) AI (एआई) क्या है?",
+            "paragraphs": [
+              "Claude (क्लॉड) एक AI (एआई) assistant है जिसे आप explanation, writing और analysis के लिए use कर सकते हैं।",
+              "यह long documents को समझने और summarize करने में useful हो सकता है।"
+            ],
+            "bullets": [],
+            "text": "1. Claude (क्लॉड) AI (एआई) क्या है? मुख्य बात Claude (क्लॉड) एक AI (एआई) assistant है जिसे आप explanation, writing और analysis के लिए use कर सकते हैं। यह long documents को समझने और summarize करने में useful हो सकता है। Read Summarize Plan Write Claude AI क्या है? Diagram: Claude (क्लॉड) AI (एआई) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. कब use करें?",
+            "paragraphs": [
+              "जब आपको long text समझना हो, plan बनाना हो या किसी topic पर structured answer चाहिए।",
+              "Course notes, रिपोर्टs और article drafts में Claude (क्लॉड) helpful है।"
+            ],
+            "bullets": [],
+            "text": "2. कब use करें? मुख्य बात जब आपको long text समझना हो, plan बनाना हो या किसी topic पर structured answer चाहिए। Course notes, रिपोर्टs और article drafts में Claude (क्लॉड) helpful है। Claude AI Claude कब Limitations Info Diagram: कब use करें? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Limitations",
+            "paragraphs": [
+              "Claude (क्लॉड) भी गलती कर सकता है, इसलिए facts जांच करें करें।",
+              "Personal/private डेटा blindly share न करें।"
+            ],
+            "bullets": [],
+            "text": "3. Limitations मुख्य बात Claude (क्लॉड) भी गलती कर सकता है, इसलिए facts जांच करें करें। Personal/private डेटा blindly share न करें। Claude AI Claude कब Limitations Info Diagram: Limitations को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Claude (क्लॉड) AI (एआई) क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Claude (क्लॉड) AI (एआई) क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Claude (क्लॉड) या किसी AI (एआई) tool में एक paragraph paste करें 2 उससे summary माँगें 3 फिर उससे 5 key points माँगें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। इस text को easy Hindi में summarize करें। फिर 5 key points और 3 action steps दें। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L013",
+      "order": 13,
+      "title": "Google Gemini — मोबाइल पर AI",
+      "title_en": "Google Gemini — मोबाइल पर AI",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "गूगल जेमिनी",
+      "secondary_keyword": "gemini ai hindi",
+      "youtube_keyword": "google gemini tutorial hindi",
+      "shorts_hook": "Google Gemini — मोबाइल पर AI... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l013-google-gemini",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L013",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L013",
+      "content": {
+        "html_title": "Gemini क्या है? | ACS-AI DIGITAL MASTER L013",
+        "meta_description": "Gemini Google का AI assistant है जो search, explanation, writing और productivity में मदद कर सकता है।",
+        "h1": "L013 — Gemini (जेमिनी) क्या है?",
+        "blocks": [
+          {
+            "heading": "1. Gemini (जेमिनी) क्या है?",
+            "paragraphs": [
+              "Gemini (जेमिनी) Google (गूगल) का AI (एआई) assistant है।",
+              "आप इससे सवाल पूछ सकते हैं, ideas ले सकते हैं और writing में मदद ले सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "1. Gemini (जेमिनी) क्या है? मुख्य बात Gemini (जेमिनी) Google (गूगल) का AI (एआई) assistant है। आप इससे सवाल पूछ सकते हैं, ideas ले सकते हैं और writing में मदद ले सकते हैं। Question Answer Google टूलs अभ्यास Gemini क्या है? Diagram: Gemini (जेमिनी) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Google (गूगल) पूरा तंत्र में उपयोग",
+            "paragraphs": [
+              "Gemini (जेमिनी) Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स), Sheets (शीट्स) और search जैसे tools के साथ useful हो सकता है।",
+              "डिजिटल learning में यह quick explanation और draft बनाने में मदद करता है।"
+            ],
+            "bullets": [],
+            "text": "2. Google (गूगल) पूरा तंत्र में उपयोग मुख्य बात Gemini (जेमिनी) Google (गूगल) Docs (डॉक्स) (गूगल डॉक्स), Sheets (शीट्स) और search जैसे tools के साथ useful हो सकता है। डिजिटल learning में यह quick explanation और draft बनाने में मदद करता है। Gemini Gemini Google Best Info Diagram: Google (गूगल) पूरा तंत्र में उपयोग को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Best अभ्यास",
+            "paragraphs": [
+              "Clear prompt (प्रॉम्प्ट) दें, स्थानीय स्थिति बताएं और answer को check करें।",
+              "Prompt (प्रॉम्प्ट) जितना स्पष्ट होगा, नतीजा उतना बेहतर होगा।"
+            ],
+            "bullets": [],
+            "text": "3. Best अभ्यास मुख्य बात Clear prompt (प्रॉम्प्ट) दें, स्थानीय स्थिति बताएं और answer को check करें। Prompt (प्रॉम्प्ट) जितना स्पष्ट होगा, नतीजा उतना बेहतर होगा। Gemini Gemini Google Best Info Diagram: Best अभ्यास को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Gemini (जेमिनी) क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Gemini (जेमिनी) क्या है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 Gemini (जेमिनी) खोलें 2 पूछें: Google (गूगल) Drive (ड्राइव) (गूगल ड्राइव) mobile पर कैसे use करें? 3 Answer से 5 steps लिखें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मैं Bihar का beginner सीखने वाला हूं। मुझे Gemini (जेमिनी) AI (एआई) से पढ़ाई, email और Google (गूगल) tools सीखने के 10 तरीके बताइए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L014",
+      "order": 14,
+      "title": "Prompt क्या होता है — पहली समझ",
+      "title_en": "Prompt क्या होता है — पहली समझ",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "प्रॉम्प्ट लिखना",
+      "secondary_keyword": "what is prompt ai",
+      "youtube_keyword": "ai prompt hindi",
+      "shorts_hook": "Prompt क्या होता है — पहली समझ... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l014-prompt-kya-hai",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L014",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L014",
+      "content": {
+        "html_title": "Prompt क्या होता है? | ACS-AI DIGITAL MASTER L014",
+        "meta_description": "Prompt वह instruction है जो आप AI को देते हैं। अच्छा prompt बेहतर answer देता है।",
+        "h1": "L014 — Prompt (प्रॉम्प्ट) क्या होता है?",
+        "blocks": [
+          {
+            "heading": "1. Prompt (प्रॉम्प्ट) क्या है?",
+            "paragraphs": [
+              "Prompt (प्रॉम्प्ट) AI (एआई) को दिया गया सवाल या instruction है।",
+              "जैसे: मुझे email लिखकर दो, या इस topic को आसान भाषा में समझाओ।"
+            ],
+            "bullets": [],
+            "text": "1. Prompt (प्रॉम्प्ट) क्या है? मुख्य बात Prompt (प्रॉम्प्ट) AI (एआई) को दिया गया सवाल या instruction है। जैसे: मुझे email लिखकर दो, या इस topic को आसान भाषा में समझाओ। Role काम स्थिति नतीजा Prompt क्या होता है? Diagram: Prompt (प्रॉम्प्ट) क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Good Prompt (प्रॉम्प्ट) Formula",
+            "paragraphs": [
+              "Role + काम + स्थिति + नतीजा format = बेहतर prompt (प्रॉम्प्ट)।",
+              "Example: आप Hindi tutor हैं, मुझे internet आसान भाषा में table के साथ समझाइए।"
+            ],
+            "bullets": [],
+            "text": "2. Good Prompt (प्रॉम्प्ट) Formula मुख्य बात Role + काम + स्थिति + नतीजा format = बेहतर prompt (प्रॉम्प्ट)। Example: आप Hindi tutor हैं, मुझे internet आसान भाषा में table के साथ समझाइए। Prompting Prompt Good Weak AI Diagram: Good Prompt (प्रॉम्प्ट) Formula को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Weak vs Strong Prompt (प्रॉम्प्ट)",
+            "paragraphs": [
+              "Weak prompt (प्रॉम्प्ट) अस्पष्ट होता है, strong prompt (प्रॉम्प्ट) clear होता है।",
+              "जितना clear instruction, उतना useful answer।"
+            ],
+            "bullets": [],
+            "text": "3. Weak vs Strong Prompt (प्रॉम्प्ट) मुख्य बात Weak prompt (प्रॉम्प्ट) अस्पष्ट होता है, strong prompt (प्रॉम्प्ट) clear होता है। जितना clear instruction, उतना useful answer। Prompting Prompt Good Weak AI Diagram: Weak vs Strong Prompt (प्रॉम्प्ट) को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: प्रॉम्प्ट इंजीनियरिंग 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे प्रॉम्प्ट इंजीनियरिंग आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Prompt (प्रॉम्प्ट) क्या होता है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Prompt (प्रॉम्प्ट) क्या होता है? को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 AI (एआई) में लिखें: Email लिखो 2 फिर लिखें: इंटर्नशिप के लिए polite email लिखो 3 दोनों नतीजाs compare करें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे prompt (प्रॉम्प्ट) engineering का beginner formula समझाइए: Role, काम, स्थिति, नतीजा. 5 examples दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L015",
+      "order": 15,
+      "title": "AI से काम कैसे करवाएं",
+      "title_en": "AI से काम कैसे करवाएं",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "एआई से काम",
+      "secondary_keyword": "how to use ai for work",
+      "youtube_keyword": "ai se kaam hindi",
+      "shorts_hook": "AI से काम कैसे करवाएं... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l015-ai-se-kaam",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L015",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L015",
+      "content": {
+        "html_title": "AI से काम कैसे करवाएं | ACS-AI DIGITAL MASTER L015",
+        "meta_description": "AI सिर्फ सवाल-जवाब के लिए नहीं है। आप इससे planning, writing, checking और improvement जैसे काम करवा सकते हैं।",
+        "h1": "L015 — AI (एआई) से काम कैसे करवाएं",
+        "blocks": [
+          {
+            "heading": "1. काम को define करना",
+            "paragraphs": [
+              "AI (एआई) से काम करवाने से पहले काम साफ लिखें।",
+              "Example: मुझे 5-line business description चाहिए, audience स्थानीय customers हैं।"
+            ],
+            "bullets": [],
+            "text": "1. काम को define करना मुख्य बात AI (एआई) से काम करवाने से पहले काम साफ लिखें। Example: मुझे 5-line business description चाहिए, audience स्थानीय customers हैं। Define Prompt समीक्षा Improve AI से काम कैसे करवाएं Diagram: काम को define करना को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. नतीजा check करना",
+            "paragraphs": [
+              "AI (एआई) नतीजा को पढ़ें, गलती देखें और improve करने को कहें।",
+              "पहला answer final नहीं होता; iteration जरूरी है।"
+            ],
+            "bullets": [],
+            "text": "2. नतीजा check करना मुख्य बात AI (एआई) नतीजा को पढ़ें, गलती देखें और improve करने को कहें। पहला answer final नहीं होता; iteration जरूरी है। AI काम की प्रक्रिया काम नतीजा AI Step Diagram: नतीजा check करना को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. AI (एआई) काम की प्रक्रिया",
+            "paragraphs": [
+              "काम को छोटे steps में बाँटकर AI (एआई) से करवाएँ।",
+              "Research → Draft → Edit → Final यह basic काम की प्रक्रिया है।"
+            ],
+            "bullets": [],
+            "text": "3. AI (एआई) काम की प्रक्रिया मुख्य बात काम को छोटे steps में बाँटकर AI (एआई) से करवाएँ। Research → Draft → Edit → Final यह basic काम की प्रक्रिया है। AI काम की प्रक्रिया काम नतीजा AI Step Diagram: AI (एआई) काम की प्रक्रिया को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student AI (एआई) से काम कैसे करवाएं को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student AI (एआई) से काम कैसे करवाएं को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 AI (एआई) से एक WhatsApp (व्हाट्सऐप) business description बनवाएँ 2 उससे shorter version माँगें 3 फिर काम के लायक tone में rewrite करवाएँ। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। आप मेरे डिजिटल assistant हैं। मुझे एक स्थानीय shop के लिए WhatsApp (व्हाट्सऐप) Business (व्हाट्सऐप बिजनेस) description, 5 social media captions और एक poster headline बनाकर दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L016",
+      "order": 16,
+      "title": "Hindi में AI Prompting",
+      "title_en": "Hindi में AI Prompting",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "हिंदी में एआई",
+      "secondary_keyword": "hindi ai prompting",
+      "youtube_keyword": "hindi chatgpt prompts",
+      "shorts_hook": "Hindi में AI Prompting... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l016-hindi-prompting",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L016",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L016",
+      "content": {
+        "html_title": "Hindi में AI Prompting | ACS-AI DIGITAL MASTER L016",
+        "meta_description": "AI को Hindi में भी अच्छे prompts दिए जा सकते हैं। सही structure से Hindi नतीजा बहुत बेहतर हो सकता है।",
+        "h1": "L016 — Hindi में AI (एआई) Prompting",
+        "blocks": [
+          {
+            "heading": "1. Hindi Prompting क्यों जरूरी है?",
+            "paragraphs": [
+              "स्थानीय सीखने वालाs के लिए अपनी भाषा में AI (एआई) use करना आसान और powerful है।",
+              "Hindi में learning, email, content और explanation बन सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "1. Hindi Prompting क्यों जरूरी है? मुख्य बात स्थानीय सीखने वालाs के लिए अपनी भाषा में AI (एआई) use करना आसान और powerful है। Hindi में learning, email, content और explanation बन सकते हैं। Hindi स्थिति Format समीक्षा Hindi में AI Prompting Diagram: Hindi Prompting क्यों जरूरी है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Simple Hindi Prompt (प्रॉम्प्ट) Formula",
+            "paragraphs": [
+              "मुझे + Topic + Audience + Style + Format बताइए।",
+              "Example: मुझे internet class 8 विद्यार्थी के लिए आसान Hindi में समझाइए।"
+            ],
+            "bullets": [],
+            "text": "2. Simple Hindi Prompt (प्रॉम्प्ट) Formula मुख्य बात मुझे + Topic + Audience + Style + Format बताइए। Example: मुझे internet class 8 विद्यार्थी के लिए आसान Hindi में समझाइए। Hindi Prompting Hindi Simple नतीजा AI Diagram: Simple Hindi Prompt (प्रॉम्प्ट) Formula को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. नतीजा Improve करना",
+            "paragraphs": [
+              "AI (एआई) से कहें: और आसान करो, table बनाओ, example दो।",
+              "Hindi नतीजा को स्थानीय और practical बना सकते हैं।"
+            ],
+            "bullets": [],
+            "text": "3. नतीजा Improve करना मुख्य बात AI (एआई) से कहें: और आसान करो, table बनाओ, example दो। Hindi नतीजा को स्थानीय और practical बना सकते हैं। Hindi Prompting Hindi Simple नतीजा AI Diagram: नतीजा Improve करना को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: प्रॉम्प्ट इंजीनियरिंग 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे प्रॉम्प्ट इंजीनियरिंग आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Hindi में AI (एआई) Prompting को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Hindi में AI (एआई) Prompting को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 AI (एआई) से Hindi में internet समझाने को कहें 2 फिर कहें: इसे और आसान बनाओ 3 फिर कहें: Bihar example जोड़ो। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे [TOPIC] आसान Hindi में समझाइए। मैं beginner हूं। Bihar के example दीजिए और अंत में 5-point summary दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L017",
+      "order": 17,
+      "title": "Maithili/Bhojpuri में AI",
+      "title_en": "Maithili/Bhojpuri में AI",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "मैथिली भोजपुरी एआई",
+      "secondary_keyword": "maithili ai content",
+      "youtube_keyword": "bhojpuri ai content creation",
+      "shorts_hook": "Maithili/Bhojpuri में AI... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l017-maithili-bhojpuri-ai",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L017",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L017",
+      "content": {
+        "html_title": "Maithili और Bhojpuri में AI Prompting | ACS-AI DIGITAL MASTER L017",
+        "meta_description": "स्थानीय भाषा में AI का उपयोग ACS की सबसे बड़ी ताकत है। Maithili, Bhojpuri और Hindi स्थिति से नतीजा ज़्यादा relatable बनता है।",
+        "h1": "L017 — Maithili और Bhojpuri में AI (एआई) Prompting",
+        "blocks": [
+          {
+            "heading": "1. स्थानीय Language Prompting",
+            "paragraphs": [
+              "AI (एआई) को बता सकते हैं कि answer Maithili/Bhojpuri tone में चाहिए।",
+              "यह rural सीखने वालाs और स्थानीय content निर्माताs के लिए useful है।"
+            ],
+            "bullets": [],
+            "text": "1. स्थानीय Language Prompting मुख्य बात AI (एआई) को बता सकते हैं कि answer Maithili/Bhojpuri tone में चाहिए। यह rural सीखने वालाs और स्थानीय content निर्माताs के लिए useful है। Language स्थिति Example नतीजा Maithili और Bhojpuri में AI Prompting Diagram: स्थानीय Language Prompting को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Language + स्थिति",
+            "paragraphs": [
+              "सिर्फ भाषा नहीं, audience और location भी बताएं।",
+              "Example: Bhojpuri बोलने वाले village सीखने वालाs के लिए समझाइए।"
+            ],
+            "bullets": [],
+            "text": "2. Language + स्थिति मुख्य बात सिर्फ भाषा नहीं, audience और location भी बताएं। Example: Bhojpuri बोलने वाले village सीखने वालाs के लिए समझाइए। स्थानीय Language AI स्थानीय Language Translation Info Diagram: Language + स्थिति को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Translation vs स्थानीयization",
+            "paragraphs": [
+              "Translation सिर्फ भाषा बदलता है; स्थानीयization स्थिति बदलता है।",
+              "स्थानीय example, स्थानीय शब्द और स्थानीय problem जोड़ना स्थानीयization है।"
+            ],
+            "bullets": [],
+            "text": "3. Translation vs स्थानीयization मुख्य बात Translation सिर्फ भाषा बदलता है; स्थानीयization स्थिति बदलता है। स्थानीय example, स्थानीय शब्द और स्थानीय problem जोड़ना स्थानीयization है। स्थानीय Language AI स्थानीय Language Translation Info Diagram: Translation vs स्थानीयization को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: प्रॉम्प्ट इंजीनियरिंग 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे प्रॉम्प्ट इंजीनियरिंग आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student Maithili और Bhojpuri में AI (एआई) Prompting को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student Maithili और Bhojpuri में AI (एआई) Prompting को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 AI (एआई) से एक Hindi paragraph लिखवाएँ 2 उससे Bhojpuri tone में simple version माँगें 3 फिर Maithili audience के लिए example जोड़ने को कहें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। इस topic को Bhojpuri speaking village सीखने वालाs के लिए बहुत आसान भाषा में समझाइए। स्थानीय example और practical काम भी दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L018",
+      "order": 18,
+      "title": "AI को Local Context देना",
+      "title_en": "AI को Local Context देना",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "लोकल कंटेंट एआई",
+      "secondary_keyword": "ai local language india",
+      "youtube_keyword": "regional language ai hindi",
+      "shorts_hook": "AI को Local Context देना... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l018-local-context-ai",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L018",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L018",
+      "content": {
+        "html_title": "AI को स्थानीय स्थिति कैसे दें | ACS-AI DIGITAL MASTER L018",
+        "meta_description": "AI को स्थानीय स्थिति देने से answer generic नहीं रहता, बल्कि आपके गाँव, शहर और audience के लिए useful बनता है।",
+        "h1": "L018 — AI (एआई) को स्थानीय स्थिति कैसे दें",
+        "blocks": [
+          {
+            "heading": "1. स्थानीय स्थिति क्या है?",
+            "paragraphs": [
+              "स्थानीय स्थिति में जगह, भाषा, audience, समस्या और available reस्रोतs शामिल होते हैं।",
+              "Bihar के rural सीखने वाला के लिए answer Delhi startup founder से अलग होना चाहिए।"
+            ],
+            "bullets": [],
+            "text": "1. स्थानीय स्थिति क्या है? मुख्य बात स्थानीय स्थिति में जगह, भाषा, audience, समस्या और available reस्रोतs शामिल होते हैं। Bihar के rural सीखने वाला के लिए answer Delhi startup founder से अलग होना चाहिए। Place Audience Problem नतीजा AI को स्थानीय स्थिति कैसे दें Diagram: स्थानीय स्थिति क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. स्थिति Blocks",
+            "paragraphs": [
+              "Prompt (प्रॉम्प्ट) में 4 blocks दें: मैं कौन हूं, मेरी audience कौन है, problem क्या है, नतीजा कैसा चाहिए।",
+              "इससे AI (एआई) practical answer देता है।"
+            ],
+            "bullets": [],
+            "text": "2. स्थिति Blocks मुख्य बात Prompt (प्रॉम्प्ट) में 4 blocks दें: मैं कौन हूं, मेरी audience कौन है, problem क्या है, नतीजा कैसा चाहिए। इससे AI (एआई) practical answer देता है। स्थानीय स्थिति स्थानीय स्थिति Generic Info Diagram: स्थिति Blocks को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Generic vs स्थानीय Answer",
+            "paragraphs": [
+              "Generic answer broad होता है; स्थानीय answer actionable होता है।",
+              "Example: flood-prone Bihar के लिए डिजिटल सुरक्षा tips अलग होंगे।"
+            ],
+            "bullets": [],
+            "text": "3. Generic vs स्थानीय Answer मुख्य बात Generic answer broad होता है; स्थानीय answer actionable होता है। Example: flood-prone Bihar के लिए डिजिटल सुरक्षा tips अलग होंगे। स्थानीय स्थिति स्थानीय स्थिति Generic Info Diagram: Generic vs स्थानीय Answer को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: कृत्रिम बुद्धिमत्ता 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे कृत्रिम बुद्धिमत्ता आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student AI (एआई) को स्थानीय स्थिति कैसे दें को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student AI (एआई) को स्थानीय स्थिति कैसे दें को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 AI (एआई) से पूछें: business idea दो 2 फिर स्थानीय स्थिति जोड़ें: Khagaria village, low budget, mobile-first 3 दोनों answers compare करें। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मैं Khagaria, Bihar का beginner सीखने वाला हूं। मेरे पास smartphone है, laptop नहीं। मुझे [TOPIC] सीखने के लिए स्थानीय, low-cost और practical plan दीजिए। कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L019",
+      "order": 19,
+      "title": "Local Knowledge को Global Format में बदलना",
+      "title_en": "Local Knowledge को Global Format में बदलना",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "लोकल से ग्लोबल",
+      "secondary_keyword": "local to global content",
+      "youtube_keyword": "local knowledge digital",
+      "shorts_hook": "Local Knowledge को Global Form... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l019-local-to-global",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L019",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L019",
+      "content": {
+        "html_title": "अपनी भाषा में Content Generate करना | ACS-AI DIGITAL MASTER L019",
+        "meta_description": "अपनी भाषा में content बनाना internet पर पहचान और trust बनाने का सबसे आसान रास्ता है।",
+        "h1": "L019 — अपनी भाषा में Content Generate करना",
+        "blocks": [
+          {
+            "heading": "1. स्थानीय Language Content",
+            "paragraphs": [
+              "Hindi, Maithili, Bhojpuri या Urdu में बनाया गया content स्थानीय audience से जल्दी connect करता है।",
+              "स्थानीय भाषा में डिजिटल education, खेती, business और सुरक्षा content बनाया जा सकता है।"
+            ],
+            "bullets": [],
+            "text": "1. स्थानीय Language Content मुख्य बात Hindi, Maithili, Bhojpuri या Urdu में बनाया गया content स्थानीय audience से जल्दी connect करता है। स्थानीय भाषा में डिजिटल education, खेती, business और सुरक्षा content बनाया जा सकता है। Idea Prompt Draft Publish अपनी भाषा में Content Generate करना Diagram: स्थानीय Language Content को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Content Types",
+            "paragraphs": [
+              "Post, caption, script, poster text, WhatsApp (व्हाट्सऐप) message और YouTube (यूट्यूब) description बना सकते हैं।",
+              "AI (एआई) draft देता है, final touch human देता है।"
+            ],
+            "bullets": [],
+            "text": "2. Content Types मुख्य बात Post, caption, script, poster text, WhatsApp (व्हाट्सऐप) message और YouTube (यूट्यूब) description बना सकते हैं। AI (एआई) draft देता है, final touch human देता है। स्थानीय Content स्थानीय Content Quality Info Diagram: Content Types को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Quality Check",
+            "paragraphs": [
+              "Content सही, सरल, respectful और useful होना चाहिए।",
+              "गलत जानकारी या overclaim avoid करें।"
+            ],
+            "bullets": [],
+            "text": "3. Quality Check मुख्य बात Content सही, सरल, respectful और useful होना चाहिए। गलत जानकारी या overclaim avoid करें। स्थानीय Content स्थानीय Content Quality Info Diagram: Quality Check को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: अपनी भाषा में 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे अपनी भाषा में आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें। Health, finance, law, government scheme, water/soil, agriculture और cybersecurity जैसे विषयों में final decision से पहले official source, teacher, mentor या expert से जांच करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student अपनी भाषा में Content Generate करना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student अपनी भाषा में Content Generate करना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 AI (एआई) से एक Hindi caption बनवाएँ 2 उसी caption को Bhojpuri tone में बदलवाएँ 3 एक 30-second reel script बनवाएँ। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मुझे स्थानीय language में 5 social media captions बनाकर दीजिए। Topic: डिजिटल skills सीखना। Audience: Bihar के beginner सीखने वालाs. Tone: simple, motivational. कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    },
+    {
+      "lesson_id": "L020",
+      "order": 20,
+      "title": "Foundation Review — आगे की तैयारी",
+      "title_en": "Foundation Review — आगे की तैयारी",
+      "level_layer": "Level 0",
+      "course_track": "Digital Foundation",
+      "difficulty": "Beginner",
+      "primary_keyword": "डिजिटल फाउंडेशन",
+      "secondary_keyword": "digital foundation course",
+      "youtube_keyword": "digital basics hindi",
+      "shorts_hook": "Foundation Review — आगे की तैय... जानना चाहते हो? 👇",
+      "legacy_slug": "level-0/l020-foundation-review",
+      "chunk_id": "level-0",
+      "url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L020",
+      "facia_url": "course.html?c=acs-2036-job-ready-digital-career-path&lang=hi&lesson=L020",
+      "content": {
+        "html_title": "स्थानीय Knowledge को Global Format में बदलना | ACS-AI DIGITAL MASTER L020",
+        "meta_description": "ACS का mission है Village to World. इस lesson में सीखेंगे कि स्थानीय knowledge को global audience के लिए कैसे present करें।",
+        "h1": "L020 — स्थानीय Knowledge को Global Format में बदलना",
+        "blocks": [
+          {
+            "heading": "1. स्थानीय Knowledge क्या है?",
+            "paragraphs": [
+              "गाँव, खेती, स्थानीय business, लोककथा, craft, flood experience और समुदाय solutions स्थानीय knowledge हैं।",
+              "यह knowledge valuable है अगर इसे सही format में present किया जाए।"
+            ],
+            "bullets": [],
+            "text": "1. स्थानीय Knowledge क्या है? मुख्य बात गाँव, खेती, स्थानीय business, लोककथा, craft, flood experience और समुदाय solutions स्थानीय knowledge हैं। यह knowledge valuable है अगर इसे सही format में present किया जाए। स्थानीय Idea Structure Translate Share स्थानीय Knowledge को Global Format में बदलना Diagram: स्थानीय Knowledge क्या है? को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "2. Global Format",
+            "paragraphs": [
+              "Global format का मतलब है clear title, स्थिति, problem, solution, steps और visuals के साथ content बनाना।",
+              "स्थानीय अनुभव article, video script, case study या रिपोर्ट बन सकता है।"
+            ],
+            "bullets": [],
+            "text": "2. Global Format मुख्य बात Global format का मतलब है clear title, स्थिति, problem, solution, steps और visuals के साथ content बनाना। स्थानीय अनुभव article, video script, case study या रिपोर्ट बन सकता है। Village to World स्थानीय Global Village Info Diagram: Global Format को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "3. Village to World काम की प्रक्रिया",
+            "paragraphs": [
+              "Observe → Document → AI (एआई) Structure → Translate → Publish.",
+              "यह काम की प्रक्रिया स्थानीय wisdom को global learning reस्रोत बना सकता है।"
+            ],
+            "bullets": [],
+            "text": "3. Village to World काम की प्रक्रिया मुख्य बात Observe → Document → AI (एआई) Structure → Translate → Publish. यह काम की प्रक्रिया स्थानीय wisdom को global learning reस्रोत बना सकता है। Village to World स्थानीय Global Village Info Diagram: Village to World काम की प्रक्रिया को visual तरीके से समझाया गया है।"
+          },
+          {
+            "heading": "📚 और जानें — खुले ज्ञान और AI स्रोत",
+            "paragraphs": [
+              "इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं।",
+              "ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+            ],
+            "bullets": [],
+            "text": "📚 और जानें — खुले ज्ञान और AI स्रोत Open Knowledge इस lesson के core concept को और समझने के लिए आप नीचे दिए गए स्रोतों से मदद ले सकते हैं। मुख्य concept: स्थानीय को में 📖 हिंदी विकिपीडिया खोलें 🤖 ChatGPT से पूछें ✨ Gemini से पूछें 🔎 Official Source Search Prompt: मुझे स्थानीय को में आसान हिंदी में समझाइए, कक्षा 6 के स्तर पर, उदाहरण के साथ। 📋 Copy Prompt ध्यान रखें: Wikipedia और AI tools सीखने में मदद करते हैं। Project, report या final decision से पहले source, teacher, mentor या official website से जांच जरूर करें।"
+          },
+          {
+            "heading": "🧠 गहराई से समझें — Example, गलती और खुद जांच",
+            "paragraphs": [
+              "मान लीजिए एक student स्थानीय Knowledge को Global Format में बदलना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है।",
+              "पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें।",
+              "इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा।"
+            ],
+            "bullets": [
+              "बिना समझे केवल button दबाना।",
+              "AI या internet की बात को बिना जांचे final मान लेना।",
+              "अपना proof या screenshot save न करना।",
+              "क्या यह mobile पर होगा? — हाँ।",
+              "क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है।",
+              "क्या AI answer final है? — नहीं, जांच जरूरी है।",
+              "मैंने concept अपने शब्दों में समझा।",
+              "मैंने practice output बनाया।",
+              "मैंने proof save किया।"
+            ],
+            "text": "🧠 गहराई से समझें — Example, गलती और खुद जांच Top EdTech Practice 1. असली उदाहरण मान लीजिए एक student स्थानीय Knowledge को Global Format में बदलना को अपने घर, स्कूल या गाँव के काम में use करना चाहता है। वह पहले छोटी जानकारी पढ़ता है, फिर एक छोटा output बनाता है। 2. सामान्य गलतियाँ बिना समझे केवल button दबाना। AI या internet की बात को बिना जांचे final मान लेना। अपना proof या screenshot save न करना। 3. करके समझें पहले concept पढ़ें। फिर 3 line में अपना example लिखें। उसके बाद एक छोटा काम करें और उसका proof save करें। 4. विद्यार्थी output इस lesson के अंत में student एक छोटा note, checklist, screenshot, report, idea या practice output दिखा सकेगा। 5. Mini FAQ क्या यह mobile पर होगा? — हाँ। क्या internet जरूरी है? — कई काम में हाँ, पर offline note भी बन सकता है। क्या AI answer final है? — नहीं, जांच जरूरी है। 6. खुद जांचें मैंने concept अपने शब्दों में समझा। मैंने practice output बनाया। मैंने proof save किया।"
+          },
+          {
+            "heading": "अभ्यास का काम",
+            "paragraphs": [],
+            "bullets": [],
+            "text": "अभ्यास का काम काम 1 एक स्थानीय skill/topic चुनें 2 उस पर 5 points लिखें 3 AI (एआई) से उसे article outline में बदलवाएँ। Open Do Write समीक्षा अभ्यास काम की प्रक्रिया Diagram: अभ्यास को छोटे steps में complete करें।"
+          },
+          {
+            "heading": "AI (एआई) से अभ्यास",
+            "paragraphs": [
+              "इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें।"
+            ],
+            "bullets": [],
+            "text": "AI (एआई) से अभ्यास AI (एआई) Skill इस prompt (प्रॉम्प्ट) को ChatGPT (चैटजीपीटी) / Gemini (जेमिनी) / Claude (क्लॉड) में डालकर अभ्यास करें। मेरे स्थानीय knowledge को global audience के लिए article format में बदल दीजिए। Topic: [LOCAL TOPIC]. Structure: title, स्थिति, problem, solution, steps, conclusion. कॉपी Prompt AI Answer Improve AI Prompt काम की प्रक्रिया Diagram: Clear prompt (प्रॉम्प्ट) देने से AI (एआई) बेहतर answer देता है।"
+          },
+          {
+            "heading": "Common Mistakes और सुरक्षा",
+            "paragraphs": [
+              "बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें।",
+              "OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें।"
+            ],
+            "bullets": [],
+            "text": "Common Mistakes और सुरक्षा सुरक्षा गलती से बचें बिना समझे click, copy या share न करें। हर tool और answer को सोचकर use करें। सुरक्षित Rule OTP (ओटीपी), password, bank details और private documents किसी unknown व्यक्ति या website को न दें। SAFE खतरा Check Protect Diagram: डिजिटल learning के साथ डिजिटल सुरक्षा भी जरूरी है।"
+          }
+        ],
+        "source_missing": false
+      }
+    }
+  ],
+  "track": "Digital Foundation"
+}
