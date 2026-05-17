@@ -1,196 +1,144 @@
 <!DOCTYPE html>
+
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2036 फ्यूचर रेडी रोजगार डिजिटल कोर्स — Applied Computer School™</title>
+<meta content="2036 के लिए डिजिटल कोर्स — Applied Computer School™" name="description"/>
+<link href="style.css" rel="stylesheet"/>
 
-  <title>2036 फ्यूचर रेडी रोजगार के लिए डिजिटल कोर्स — ACS</title>
-
-  <meta name="description" content="Applied Computer School™ के 2036 फ्यूचर रेडी रोजगार डिजिटल कोर्स। ऑनलाइन कोर्स फ्री हैं। WhatsApp सपोर्ट, ऑफलाइन प्रशिक्षण, इंटर्नशिप, सर्टिफिकेशन और जॉब प्लेसमेंट पेड सेवाएँ हो सकती हैं।">
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="course.css">
-
-  <style>
-    .fee-link{
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
-      color:#1C2B4A;
-      background:rgba(28,43,74,0.06);
-      border:1px solid rgba(28,43,74,0.14);
-      transition:.22s ease;
+<style>
+/* ACS Premium Fee Chips — online/offline/fee policy */
+.course-fee-chips{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:22px;
+    margin-bottom:6px;
+}
+.inner-hero .course-fee-chips{
+    justify-content:center;
+}
+.fee-chip{
+    min-width:158px;
+    min-height:50px;
+    padding:12px 18px;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:0.95rem;
+    font-weight:900;
+    line-height:1;
+    text-decoration:none;
+    border:1px solid transparent;
+    box-shadow:
+        0 10px 24px rgba(28,43,74,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.45);
+    transition:0.22s ease;
+    white-space:nowrap;
+}
+.fee-chip:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 16px 34px rgba(28,43,74,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.45);
+}
+.fee-chip-free{
+    color:#0f5f32;
+    background:linear-gradient(180deg,#ECFDF3,#DDF7E7);
+    border-color:rgba(26,107,58,0.18);
+}
+.fee-chip-paid{
+    color:#9A5F00;
+    background:linear-gradient(180deg,#FFF7DC,#FBE8A8);
+    border-color:rgba(200,135,10,0.22);
+}
+.fee-chip-policy{
+    color:#1C2B4A;
+    background:linear-gradient(180deg,#FFFFFF,#F3F4F8);
+    border-color:rgba(28,43,74,0.14);
+}
+.fee-chip-policy:hover{
+    color:#FFFFFF;
+    background:linear-gradient(180deg,#243459,#111C32);
+    border-color:#1C2B4A;
+}
+@media(max-width:640px){
+    .course-fee-chips{
+        justify-content:center;
     }
-
-    .fee-link:hover{
-      background:#1C2B4A;
-      color:#fff;
-      transform:translateY(-1px);
+    .fee-chip{
+        width:100%;
+        max-width:320px;
+        min-height:54px;
+        font-size:1rem;
     }
-
-    .hero .fee-link{
-      padding:8px 13px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:.85rem;
-    }
-
-    .course-card-top .fee-link{
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:.78rem;
-      font-weight:800;
-      white-space:nowrap;
-    }
-  </style>
+}
+</style>
 </head>
-
 <body>
-
-<header class="topbar">
-  <a href="index.html" class="brand">Applied Computer School™</a>
-  <a class="navlink" href="register.html">अभी जुड़िए</a>
-</header>
-
-<main class="course-shell">
-
-  <section class="hero">
-    <span class="label">कोर्स कैटेगरी</span>
-
-    <h1>
-      2036 फ्यूचर रेडी रोजगार के लिए <br>
-      एआई डिजिटल कोर्स
-    </h1>
-
-    <p>
-      ऑनलाइन कोर्स फ्री हैं। WhatsApp सपोर्ट, ऑफलाइन प्रशिक्षण, इंटर्नशिप,
-      सर्टिफिकेशन और जॉब प्लेसमेंट पेड सेवाएँ हो सकती हैं।
-    </p>
-
-    <div class="badges">
-      <span class="badge">ऑनलाइन फ्री</span>
-      <span class="badge paid">ऑफलाइन पेड</span>
-      <a href="fee-policy.html" class="badge fee-link">📋 शुल्क नीति</a>
-    </div>
-  </section>
-
-  <section class="course-list-grid">
-
-    <article class="real-course-card">
-      <div class="course-card-top">
-        <span class="mode-badge free">ऑनलाइन फ्री</span>
-        <span class="mode-badge paid">ऑफलाइन पेड</span>
-        <a href="fee-policy.html" class="mode-badge fee-link">📋 शुल्क नीति</a>
-      </div>
-
-      <h3>एसीएस-एआई डिजिटल मास्टर™</h3>
-      <p>2036 फ्यूचर रेडी रोजगार-केंद्रित डिजिटल करियर पाथ</p>
-
-      <div class="course-actions">
-        <a class="btn btn-course" href="course.html?c=acs-2036-job-ready-digital-career-path&lang=hi">
-          🎓 ऑनलाइन शुरू करें
-        </a>
-        <a class="btn btn-register" href="offline-batch.html?c=acs-2036-job-ready-digital-career-path">
-          🏫 ऑफलाइन बैच पूछें
-        </a>
-      </div>
-    </article>
-
-    <article class="real-course-card">
-      <div class="course-card-top">
-        <span class="mode-badge paid">जल्द उपलब्ध</span>
-        <a href="fee-policy.html" class="mode-badge fee-link">📋 शुल्क नीति</a>
-      </div>
-
-      <h3>Diploma in Computer Applications</h3>
-      <p>DCA</p>
-
-      <div class="course-actions">
-        <a class="btn btn-course" href="coming-soon.html">🎓 ऑनलाइन शुरू करें</a>
-        <a class="btn btn-register" href="offline-batch.html?c=dca">🏫 ऑफलाइन बैच पूछें</a>
-      </div>
-    </article>
-
-    <article class="real-course-card">
-      <div class="course-card-top">
-        <span class="mode-badge paid">जल्द उपलब्ध</span>
-        <a href="fee-policy.html" class="mode-badge fee-link">📋 शुल्क नीति</a>
-      </div>
-
-      <h3>Advanced Diploma in Computer Applications</h3>
-      <p>ADCA</p>
-
-      <div class="course-actions">
-        <a class="btn btn-course" href="coming-soon.html">🎓 ऑनलाइन शुरू करें</a>
-        <a class="btn btn-register" href="offline-batch.html?c=adca">🏫 ऑफलाइन बैच पूछें</a>
-      </div>
-    </article>
-
-    <article class="real-course-card">
-      <div class="course-card-top">
-        <span class="mode-badge paid">जल्द उपलब्ध</span>
-        <a href="fee-policy.html" class="mode-badge fee-link">📋 शुल्क नीति</a>
-      </div>
-
-      <h3>Post Graduate Diploma in Computer Applications</h3>
-      <p>PGDCA</p>
-
-      <div class="course-actions">
-        <a class="btn btn-course" href="coming-soon.html">🎓 ऑनलाइन शुरू करें</a>
-        <a class="btn btn-register" href="offline-batch.html?c=pgdca">🏫 ऑफलाइन बैच पूछें</a>
-      </div>
-    </article>
-
-    <article class="real-course-card">
-      <div class="course-card-top">
-        <span class="mode-badge paid">जल्द उपलब्ध</span>
-        <a href="fee-policy.html" class="mode-badge fee-link">📋 शुल्क नीति</a>
-      </div>
-
-      <h3>Python Programming</h3>
-      <p>PYTHON</p>
-
-      <div class="course-actions">
-        <a class="btn btn-course" href="coming-soon.html">🎓 ऑनलाइन शुरू करें</a>
-        <a class="btn btn-register" href="offline-batch.html?c=python">🏫 ऑफलाइन बैच पूछें</a>
-      </div>
-    </article>
-
-    <article class="real-course-card">
-      <div class="course-card-top">
-        <span class="mode-badge paid">जल्द उपलब्ध</span>
-        <a href="fee-policy.html" class="mode-badge fee-link">📋 शुल्क नीति</a>
-      </div>
-
-      <h3>AI Robotics</h3>
-      <p>AI ROBOTICS</p>
-
-      <div class="course-actions">
-        <a class="btn btn-course" href="coming-soon.html">🎓 ऑनलाइन शुरू करें</a>
-        <a class="btn btn-register" href="offline-batch.html?c=ai-robotics">🏫 ऑफलाइन बैच पूछें</a>
-      </div>
-    </article>
-
-    <article class="real-course-card">
-      <div class="course-card-top">
-        <span class="mode-badge paid">जल्द उपलब्ध</span>
-        <a href="fee-policy.html" class="mode-badge fee-link">📋 शुल्क नीति</a>
-      </div>
-
-      <h3>Internet of Things</h3>
-      <p>IoT</p>
-
-      <div class="course-actions">
-        <a class="btn btn-course" href="coming-soon.html">🎓 ऑनलाइन शुरू करें</a>
-        <a class="btn btn-register" href="offline-batch.html?c=iot">🏫 ऑफलाइन बैच पूछें</a>
-      </div>
-    </article>
-
-  </section>
-
+<nav class="navbar">
+<div class="nav-container">
+<div class="brand">
+<img alt="Applied Computer School™ लोगो" class="brand-logo-img" src="logo.png"/>
+<span class="brand-name">Applied Computer School™</span>
+</div>
+<div class="nav-controls">
+<a class="lang-btn" href="index.html">🏠 होम</a>
+<a aria-label="मेन्यू" class="menu-btn" href="menu.html">☰</a>
+</div>
+</div>
+</nav>
+<main class="inner-page">
+<section class="inner-hero">
+<div class="section-label">कोर्स कैटेगरी</div>
+<h1>2036 के लिए डिजिटल कोर्स</h1>
+<p>डिजिटल कोर्स मोबाइल, एआई, इंटरनेट, सोशल मीडिया, वीडियो निर्माण और ऑनलाइन काम की तैयारी के लिए बनाए जा रहे हैं।</p>
+<div class="course-fee-chips">
+<span class="fee-chip fee-chip-free">✅ ऑनलाइन फ्री</span>
+<span class="fee-chip fee-chip-paid">🏫 ऑफलाइन पेड</span>
+<a class="fee-chip fee-chip-policy" href="fee-policy.html">📋 शुल्क नीति</a>
+</div>
+</section>
+<section class="course-list-grid">
+<article class="real-course-card">
+<div class="course-card-top"><div class="course-fee-chips">
+<span class="fee-chip fee-chip-free">✅ ऑनलाइन फ्री</span>
+<span class="fee-chip fee-chip-paid">🏫 ऑफलाइन पेड</span>
+<a class="fee-chip fee-chip-policy" href="fee-policy.html">📋 शुल्क नीति</a>
+</div></div>
+<h3>एसीएस-एआई डिजिटल मास्टर™</h3>
+<p>मोबाइल, एआई, इंटरनेट, सोशल मीडिया, ऑनलाइन काम, डिजिटल सुरक्षा और रोजगार-केंद्रित डिजिटल समझ का पहला मुख्य कोर्स।</p>
+<div class="course-actions">
+<a class="btn btn-course" href="course.html?c=acs-2036-job-ready-digital-career-path&amp;lang=hi">🎓 ऑनलाइन शुरू करें</a>
+<a class="btn btn-register" href="acs-ai-digital-master-lessons.html">📖 332 Lesson Index</a>
+<a class="btn btn-register" href="https://wa.me/919431210092?text=मैं%20ACS-AI%20Digital%20Master%20के%20ऑफलाइन%20बैच%20के%20बारे%20में%20जानना%20चाहता/चाहती%20हूँ।">🏫 ऑफलाइन बैच पूछें</a>
+<a class="btn btn-teacher" href="register.html?role=teacher">👨‍🏫 प्रशिक्षक बनें</a>
+</div>
+</article>
+<article class="real-course-card">
+<div class="course-card-top"><div class="course-fee-chips">
+<span class="fee-chip fee-chip-free">✅ ऑनलाइन फ्री</span>
+<span class="fee-chip fee-chip-paid">🏫 ऑफलाइन पेड</span>
+<a class="fee-chip fee-chip-policy" href="fee-policy.html">📋 शुल्क नीति</a>
+</div></div>
+<h3>मोबाइल डिजिटल बेसिक्स</h3>
+<p>मोबाइल का सुरक्षित उपयोग, ऑनलाइन फॉर्म, डिजिटल पेमेंट, इंटरनेट खोज और जरूरी डिजिटल व्यवहार की तैयारी।</p>
+<div class="course-actions">
+<a class="btn btn-course" href="coming-soon.html">🎓 ऑनलाइन शुरू करें</a>
+<a class="btn btn-register" href="https://wa.me/919431210092?text=मैं%20मोबाइल%20डिजिटल%20बेसिक्स%20कोर्स%20के%20बारे%20में%20जानना%20चाहता/चाहती%20हूँ।">🏫 ऑफलाइन बैच पूछें</a>
+</div>
+</article>
+</section>
+<div class="info-note">
+<strong>याद रखें:</strong> ऑनलाइन सीखना फ्री रहेगा। अगर learner को WhatsApp सपोर्ट, ऑफलाइन practical, workshop, certificate या placement support चाहिए, तो वह पेड सेवा हो सकती है।
+    <div class="course-actions"><a class="btn btn-register" href="fee-policy.html">📋 शुल्क नीति देखें</a></div></div>
 </main>
-
+<script src="script.js"></script>
 </body>
 </html>
