@@ -134,9 +134,30 @@ function contentIntro(){
     </div>
 
     <section class="block">
-      <div class="block-title">ACS Payment Rule</div>
-      <p>ऑनलाइन self-study content फ्री रहेगा। WhatsApp सपोर्ट, ऑफलाइन practical training, इंटर्नशिप, सर्टिफिकेशन और जॉब प्लेसमेंट पेड सेवाएँ हो सकती हैं।</p>
-    </section>
+      <section class="block">
+  <div class="block-title">ACS Payment Rule</div>
+  <p>
+    <strong>ऑनलाइन कोर्स:</strong> ffgpmt.org द्वारा नि:शुल्क रहेगा। विद्यार्थी online self-study lessons बिना शुल्क पढ़ सकते हैं।
+  </p>
+  <p>
+    <strong>ऑनलाइन WhatsApp सपोर्ट:</strong> पेड सेवा हो सकती है। Basic WhatsApp support ₹99 से शुरू हो सकता है।
+  </p>
+  <p>
+    <strong>ऑफलाइन दरसगाह / वर्कशॉप / कोचिंग प्रशिक्षण:</strong> पेड सेवा होगी। शुल्क कोर्स, अवधि, सेंटर और practical training level के अनुसार अलग हो सकता है।
+  </p>
+  <p>
+    <strong>सर्टिफिकेशन:</strong> पेड और वैकल्पिक होगा। डिजिटल प्रमाण-पत्र ₹199 से शुरू हो सकता है। Assessment + Certificate ₹299 से शुरू हो सकता है।
+  </p>
+  <p>
+    <strong>इंटर्नशिप / प्रोजेक्ट सपोर्ट:</strong> पेड सेवा हो सकती है। Mini internship guidance ₹499 से शुरू हो सकती है।
+  </p>
+  <p>
+    <strong>जॉब प्लेसमेंट सपोर्ट:</strong> पेड सेवा हो सकती है। ACS नौकरी की गारंटी नहीं देता; यह support profile, resume, interview तैयारी और employer connect के लिए होगा।
+  </p>
+  <p>
+    <a href="fee-policy.html" class="fee-policy-link">📋 पूरी शुल्क नीति देखें</a>
+  </p>
+     </section>    
   </section>`;
 }
 
