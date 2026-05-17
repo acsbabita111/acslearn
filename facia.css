@@ -241,3 +241,21 @@
     grid-template-columns:1fr;
   }
 }
+.fee-policy-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  margin-top:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:#FBF0DC;
+  color:#C8870A;
+  font-weight:900;
+  border:1px solid rgba(200,135,10,.22);
+}
+
+.fee-policy-link:hover{
+  background:#C8870A;
+  color:#fff;
+}
