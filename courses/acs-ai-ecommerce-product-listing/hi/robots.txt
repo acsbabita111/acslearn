@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://acslearn.com/courses/acs-ai-ecommerce-product-listing/hi/sitemap.xml
