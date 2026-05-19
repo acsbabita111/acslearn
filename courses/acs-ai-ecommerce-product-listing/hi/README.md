@@ -25,3 +25,11 @@ Important:
 
 Version: 4.0 unified-theme
 Date: 2026-05-19
+
+
+## Version 6.0 update
+- सभी lesson pages में course से बाहर निकलने के लिए ACS होम, सभी कोर्स, शुल्क नीति और AI Digital Master links जोड़े गए।
+- सभी 120 lesson pages में विस्तृत अध्ययन नोट जोड़ा गया ताकि प्रत्येक page लगभग 1200-1500 words के learning depth zone में रहे।
+- Root fee-policy.html को "शुल्क नीति" नाम से link किया गया: ../../../fee-policy.html
+- Bottom navigation में बाहर link जोड़ा गया।
+- Footer में शुल्क नीति और site-level links जोड़े गए।
