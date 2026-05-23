@@ -1,417 +1,468 @@
 <!DOCTYPE html>
-
 <html lang="hi">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Applied Computer School™ — रील से रोजगार तक</title>
-<meta content="Applied Computer School™ — रील से रोजगार तक: अपनी भाषा में। नि:शुल्क ऑनलाइन व्यवसायिक शिक्षा, डिजिटल कोर्स, अकादमी कोर्स, एसीएस वाणी, दुकान ही दरसगाह और रोजगार-केंद्रित प्रशिक्षण।" name="description"/>
-<meta content="Applied Computer School, ACS, डिजिटल कोर्स, व्यवसायिक कोर्स, नि:शुल्क ऑनलाइन शिक्षा, रोजगार कोर्स, एसीएस वाणी, दुकान ही दरसगाह, कौशल प्रशिक्षण, अपनी भाषा में" name="keywords"/>
-<meta content="रामभरोस विद्यार्थी" name="author"/>
-<link href="https://acslearn.com/" rel="canonical"/>
-<meta content="Applied Computer School™ — रील से रोजगार तक" property="og:title"/>
-<meta content="अपनी भाषा में हुनर सीखो, प्रमाण-पत्र लो और रोजगार की दिशा में आगे बढ़ो।" property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://acslearn.com/" property="og:url"/>
-<meta content="https://acslearn.com/assets/logo.png" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Applied Computer School™ — रील से रोजगार तक" name="twitter:title"/>
-<meta content="अपनी भाषा में नि:शुल्क ऑनलाइन व्यवसायिक शिक्षा कार्यक्रम।" name="twitter:description"/>
-<meta content="https://acslearn.com/assets/logo.png" name="twitter:image"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Applied Computer School™ — रील से रोजगार तक</title>
+    <meta content="Applied Computer School™ — रील से रोजगार तक: अपनी भाषा में। निःशुल्क ऑनलाइन व्यावसायिक शिक्षा, डिजिटल कोर्स, अकादमी कोर्स, एसीएस वाणी, दुकान ही दरसगाह और रोजगार-केंद्रित प्रशिक्षण।" name="description"/>
+    <meta content="Applied Computer School, ACS, डिजिटल कोर्स, व्यावसायिक कोर्स, निःशुल्क ऑनलाइन शिक्षा, रोजगार कोर्स, एसीएस वाणी, दुकान ही दरसगाह, कौशल प्रशिक्षण, अपनी भाषा में" name="keywords"/>
+    <meta content="रामभरोस विद्यार्थी" name="author"/>
+    <link href="https://acslearn.com/" rel="canonical"/>
+    
+    <meta content="Applied Computer School™ — रील से रोजगार तक" property="og:title"/>
+    <meta name="twitter:description" content="अपनी भाषा में मोबाइल से ट्रेनिंग लो, काबिल बनो और रोजगार का रास्ता चुनो।"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://acslearn.com/" property="og:url"/>
+    <meta content="https://acslearn.com/logo.png" property="og:image"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="Applied Computer School™ — रील से रोजगार तक" name="twitter:title"/>
+    <meta content="अपनी भाषा में मोबाइल से ट्रेनिंग लो, काबिल बनो और रोजगार का रास्ता चुनो।" property="og:description"/>
+    <meta content="https://acslearn.com/logo.png" name="twitter:image"/>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar">
-<div class="nav-container">
-<div class="brand">
-<img alt="Applied Computer School™ लोगो" class="brand-logo-img" src="logo.png"/>
-<span class="brand-name">Applied Computer School™</span>
-</div>
-<div class="nav-controls">
-<button aria-expanded="false" aria-label="भाषा चुनें" class="lang-btn" id="languageToggle" type="button">🌐 भाषा</button>
-<a aria-label="मेन्यू" class="menu-btn" href="menu.html">☰</a>
-<div class="language-dropdown" hidden="" id="languageDropdown">
-<div class="language-dropdown-head">
-<span>भाषा चुनें</span>
-<small>Powered by ACS Vani</small>
-</div>
-<button class="language-option active" data-lang="hi" type="button">Hindi (हिंदी) ✓</button>
-<button class="language-option" data-lang="en" type="button">English (English)</button>
-<div class="language-divider">भारतीय भाषा सूची</div>
-<button class="language-option" data-lang="as" type="button">Assamese (অসমীয়া)</button>
-<button class="language-option" data-lang="bn" type="button">Bengali (বাংলা)</button>
-<button class="language-option" data-lang="brx" type="button">Bodo (बड़ो)</button>
-<button class="language-option" data-lang="doi" type="button">Dogri (डोगरी)</button>
-<button class="language-option" data-lang="gu" type="button">Gujarati (ગુજરાતી)</button>
-<button class="language-option" data-lang="kn" type="button">Kannada (ಕನ್ನಡ)</button>
-<button class="language-option" data-lang="ks" type="button">Kashmiri (कश्मीरी)</button>
-<button class="language-option" data-lang="kok" type="button">Goan Konkani (गोवा कोंकणी)</button>
-<button class="language-option" data-lang="mai" type="button">Maithili (मैथिली)</button>
-<button class="language-option" data-lang="ml" type="button">Malayalam (മലയാളം)</button>
-<button class="language-option" data-lang="mni" type="button">Manipuri (মণিপুরী)</button>
-<button class="language-option" data-lang="mr" type="button">Marathi (मराठी)</button>
-<button class="language-option" data-lang="ne" type="button">Nepali (नेपाली)</button>
-<button class="language-option" data-lang="or" type="button">Odia (ଓଡ଼ିଆ)</button>
-<button class="language-option" data-lang="pa" type="button">Punjabi (ਪੰਜਾਬੀ)</button>
-<button class="language-option" data-lang="sa" type="button">Sanskrit (संस्कृत)</button>
-<button class="language-option" data-lang="sat" type="button">Santali (संताली)</button>
-<button class="language-option" data-lang="sd" type="button">Sindhi (سنڌي)</button>
-<button class="language-option" data-lang="ta" type="button">Tamil (தமிழ்)</button>
-<button class="language-option" data-lang="te" type="button">Telugu (తెలుగు)</button>
-<button class="language-option" data-lang="ur" type="button">Urdu (اُردُو)</button>
-<div class="language-divider">ACS विस्तार भाषा</div>
-<button class="language-option" data-lang="awa" type="button">Awadhi (अवधी)</button>
-<button class="language-option" data-lang="bho" type="button">Bhojpuri (भोजपुरी)</button>
-<button class="language-option" data-lang="brj" type="button">Braj (ब्रज)</button>
-<button class="language-option" data-lang="gon" type="button">Gondi (गोंडी)</button>
-<button class="language-option" data-lang="ho" type="button">Ho (𑢹𑣉𑣉)</button>
-<button class="language-option" data-lang="xnr" type="button">Kangri (कांगड़ी)</button>
-<button class="language-option" data-lang="kha" type="button">Khasi (खासी)</button>
-<button class="language-option" data-lang="mag" type="button">Magahi (मगही)</button>
-<button class="language-option" data-lang="lus" type="button">Mizo</button>
-<button class="language-option" data-lang="si" type="button">Sinhala (සිංහල)</button>
-<button class="language-option" data-lang="tcy" type="button">Tulu (ತುಳು)</button>
-<div class="language-dropdown-foot">
-                        Powered by <strong>ACS Vani</strong>
-</div>
-</div>
-</div>
-</div>
-</nav>
-<div class="trust-strip">
-<span class="trust-strip__inner">
-<span class="trust-dot"></span>
-            फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट द्वारा प्रायोजित नि:शुल्क व्यवसायिक शिक्षा कार्यक्रम
-        </span>
-</div>
-<main>
-<section class="hero">
-<div class="hero-content">
-<h1>क्या बेरोजगार हो?:<br/><em>अपने रोजगार का रास्ता चुनो!</em></h1> <div class="hero-message">
-<div class="hero-line hero-line-1">
-                  मोबाइल से ट्रेनिंग लो,
+
+    <nav class="navbar" aria-label="मुख्य नेविगेशन">
+        <div class="nav-container">
+            <div class="brand">
+                <img alt="Applied Computer School™ लोगो" class="brand-logo-img" src="logo.png"/>
+                <span class="brand-name">Applied Computer School™</span>
             </div>
-<div class="hero-line hero-line-2">
-                 काबिल बनो,
+            <div class="nav-controls">
+                <button aria-expanded="false" aria-label="भाषा पैनल खोलें" class="lang-btn" id="languageToggle" type="button">🌐 भाषा</button>
+                <button aria-expanded="false" aria-label="मेन्यू खोलें" class="menu-btn" id="menuToggle" type="button">☰</button>
             </div>
-<div class="hero-line hero-line-3">
-                 काम की शुरुआत करो।
+        </div>
+    </nav>
+
+    <div class="menu-panel" id="menuPanel" hidden>
+        <div class="menu-panel-header">
+            <h3>एसीएस मेन्यू</h3>
+            <button id="closeMenuPanel" type="button" aria-label="मेन्यू बंद करें">✕</button>
+        </div>
+        <ul class="menu-panel-links">
+            <li><a href="/index.html">होम</a></li>
+            <li><a href="/courses/hi/index.html">कोर्स</a></li>
+            <li><a href="/students/hi/index.html">विद्यार्थी</a></li>
+            <li><a href="/mentors/hi/index.html">प्रशिक्षक</a></li>
+            <li><a href="/partners/hi/index.html">पार्टनर</a></li>
+            <li><a href="/workshops/hi/index.html">दुकान-वर्कशॉप</a></li>
+            <li><a href="/counselors/hi/index.html">सलाह लें</a></li>
+            <li><a href="/employers/hi/index.html">नियोक्ता</a></li>
+            <li><a href="/career/hi/self-employment.html">रोजगार रास्ते</a></li>
+            <li><a href="/gallery/hi/index.html">गैलरी</a></li>
+            <li><a href="/payment/hi/index.html">भुगतान</a></li>
+            <li><a href="/contact/hi/index.html">संपर्क</a></li>
+        </ul>
+    </div>
+
+    <div class="trust-strip">
+        <div class="trust-strip__inner">
+            <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट द्वारा</p>
+            <p>निःशुल्क व्यावसायिक शिक्षा कार्यक्रम</p>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-heading">क्या बेरोजगार हो?</h1>
+            <h2 class="hero-subheading"><span class="highlight-gold">अपने रोजगार का रास्ता चुनो</span></h2>
+            
+            <div class="hero-message">
+                <p class="hero-line">मोबाइल से ट्रेनिंग लो,</p>
+                <p class="hero-line">काबिल बनो,</p>
+                <p class="hero-line">और काम की शुरुआत करो।</p>
             </div>
-</div>
-<div class="hero-buttons"><a class="btn btn-course" href="digital-courses.html">📚 कोर्स देखें</a><a class="btn btn-register" href="register.html?role=student">🎓 अभी शुरू करें</a><a class="btn btn-teacher" href="register.html?role=teacher">👨‍🏫 प्रशिक्षक बनें</a></div>
-</div>
-</section>
-<!-- ===== SAMPLE TESTIMONIALS — असली प्रशिक्षुओं के नाम/फोटो/details से बदलें ===== -->
-<section class="testimonials">
-<div class="section-intro">
-<div class="section-label">सच्ची कहानियाँ</div>
-<h2>एसीएस से बदली जिंदगी</h2>
-<button aria-label="प्रशिक्षु कहानियाँ हिंदी में सुनें" class="audio-section-btn" data-audio-section="testimonials">🔊 सुनें</button>
-<p>आपके जैसे ही लोगों ने एसीएस से सीखकर अपना रोजगार शुरू किया है। ये उनकी कहानियाँ हैं।</p>
-</div>
-<div class="testimonial-grid">
-<article class="testimonial-card">
-<div aria-hidden="true" class="testimonial-avatar avatar-rl">ध</div>
-<p class="testimonial-quote">अप्लायड कंप्यूटर स्कूल से डिजिटल ट्रैनिंग लिया। अब अपनी दुकान खोलकर रोज हजारों कमाता हूँ। तीन स्टाफ भी है। एसीएस ने सच में जिंदगी बदल दी।</p>
-<div class="testimonial-meta">
-<strong>धर्मेन्द्र कुमार</strong>
-<span>खगड़िया · डिजिटल मास्टर कोर्स</span>
-</div>
-</article>
-<article class="testimonial-card">
-<div aria-hidden="true" class="testimonial-avatar avatar-sd">रे</div>
-<p class="testimonial-quote">अप्लायड कंप्यूटर स्कूल से ट्रैनिंग ली। अभी गाँव में सरकारी डीलर हूँ। ठीक ठाक कमा लेती हूँ।</p>
-<div class="testimonial-meta">
-<strong>रेशमी कुमारी</strong>
-<span>सहरसा · डिजिटल मास्टर कोर्स</span>
-</div>
-</article>
-<article class="testimonial-card">
-<div aria-hidden="true" class="testimonial-avatar avatar-ma">स</div>
-<p class="testimonial-quote">12वीं के बाद बेरोजगार था। अभी बिजली बिभाग मे कार्यरत हूँ। समय से ऑफिस जाता हूँ, घर आता हूँ, सब कुछ ठीक है, सुखी जीवन के लिए एसीएस को धन्यबाद।</p>
-<div class="testimonial-meta">
-<strong>संजीव कुमार</strong>
-<span>खगरिया · डिजिटल मास्टर कोर्स</span>
-</div>
-</article>
-</div>
-</section>
-<section class="course-categories">
-<div class="section-intro">
-<div class="section-label">कोर्स कैटेगरी</div>
-<h2>2036 फ्यूचर रेडी रोजगार-केंद्रित कोर्स</h2>
-<button aria-label="कोर्स कैटेगरी हिंदी में सुनें" class="audio-section-btn" data-audio-section="course">🔊 सुनें</button>
-<p>एसीएस का लक्ष्य केवल एक कोर्स चलाना नहीं है, बल्कि भविष्य के काम, हुनर, प्रमाण-पत्र और रोजगार से जुड़ा पूरा कोर्स सिस्टम बनाना है।</p>
-</div>
-<div class="course-category-grid">
-<a class="course-category-card" href="digital-courses.html">
-<span class="category-number">01</span>
-<h3>2036 फ्यूचर रेडी डिजिटल कोर्स</h3>
-<p>मोबाइल, एआई, इंटरनेट, सोशल मीडिया, वीडियो निर्माण, ऑनलाइन काम, डिजिटल मार्केटिंग और डिजिटल सुरक्षा से जुड़े कोर्स।</p>
-</a>
-<a class="course-category-card" href="vocational-courses.html">
-<span class="category-number">02</span>
-<h3>2036 फ्यूचर रेडी व्यावसायिक कोर्स</h3>
-<p>मरम्मत, सेवा, दुकान, काम-धंधा और स्वरोजगार से जुड़े कोर्स।</p>
-</a>
-<a class="course-category-card" href="agriculture-allied-courses.html">
-<span class="category-number">03</span>
-<h3>2036 फ्यूचर रेडी कृषि सहयोगी कोर्स</h3>
-<p>खेती, पशुपालन, बागवानी, खाद्य प्रसंस्करण और ग्रामीण रोजगार से जुड़े कोर्स।</p>
-</a>
-<a class="course-category-card" href="arts-culture-courses.html">
-<span class="category-number">04</span>
-<h3>2036 कला-संस्कृति कोर्स</h3>
-<p>संगीत, लोककला, बांस शिल्प, वीडियो, डिजाइन, हस्तकला और रचनात्मक रोजगार से जुड़े कोर्स।</p>
-</a>
-</div>
-<div class="category-actions"><a class="btn btn-course" href="digital-courses.html">📚 कोर्स देखें</a><a class="btn btn-register" href="register.html?role=student">🎓 अभी जुड़िए</a><a class="btn btn-teacher" href="course-proposal.html">👨‍🏫 नया कोर्स जोड़ें</a></div>
-</section>
-<section class="academy-courses">
-<div class="section-intro">
-<div class="section-label">ऑनलाइन अकेडमिक कोर्स</div>
-<h2>हमारे ऑनलाइन अकेडमिक कोर्स</h2>
-<button aria-label="अकादमी कोर्स हिंदी में सुनें" class="audio-section-btn" data-audio-section="academy">🔊 सुनें</button>
-<p>स्कूल से रोजगार तक — उम्र और कक्षा के अनुसार सीखने का रास्ता। वर्ग 6 से लेकर 12वीं के ऊपर तक हर विद्यार्थी के लिए अलग तैयारी।</p>
-</div>
-<div class="course-category-grid">
-<a class="course-category-card" href="academy-class-6-8.html">
-<span class="category-number">01</span>
-<h3>वर्ग 6–8 के लिए</h3>
-<p>बुनियादी डिजिटल समझ, सुरक्षित मोबाइल उपयोग, भाषा, सोच, सीखने की आदत और शुरुआती हुनर।</p>
-</a>
-<a class="course-category-card" href="academy-class-9-10.html">
-<span class="category-number">02</span>
-<h3>वर्ग 9–10 के लिए</h3>
-<p>डिजिटल पढ़ाई, प्रोजेक्ट, अभ्यास, करियर समझ और भविष्य के कौशल की तैयारी।</p>
-</a>
-<a class="course-category-card" href="academy-class-11-12.html">
-<span class="category-number">03</span>
-<h3>वर्ग 11–12 के लिए</h3>
-<p>करियर दिशा, एआई परिचय, डिजिटल काम, प्रमाण-पत्र तैयारी और रोजगार की शुरुआती समझ।</p>
-</a>
-<a class="course-category-card" href="academy-above-12.html">
-<span class="category-number">04</span>
-<h3>वर्ग 12 से ऊपर के लिए</h3>
-<p>रोजगार, स्वरोजगार, व्यावसायिक कौशल, डिजिटल काम और 2036 के लिए भविष्य-तैयार कोर्स।</p>
-</a>
-</div>
-<div class="category-actions"><a class="btn btn-course" href="academy-class-6-8.html">📚 कोर्स देखें</a><a class="btn btn-register" href="register.html?role=student">🎓 अभी जुड़िए</a><a class="btn btn-teacher" href="register.html?role=teacher">👨‍🏫 प्रशिक्षक बनें</a></div>
-</section>
-<section class="vani-category">
-<div class="section-intro">
-<div class="section-label">ग्लोबल साउथ कैटेगरी</div>
-<h2>एसीएस वाणी</h2>
-<button aria-label="एसीएस वाणी हिंदी में सुनें" class="audio-section-btn" data-audio-section="vani">🔊 सुनें</button>
-<p>एक भाषा में तैयार ज्ञान को दुनिया की अनेक भाषाओं में पहुँचाने की योजना। पहले देवनागरी, फिर रोमन, उर्दू-अरबी और पूर्वी एशियाई लिपि समूह।</p>
-</div>
-<div class="course-category-grid">
-<a class="course-category-card" href="vani-devanagari.html">
-<span class="category-number">01</span>
-<h3>देवनागरी लिपि समूह</h3>
-<p>हिन्दी, भोजपुरी, मैथिली, मगही, अंगिका, संस्कृत, नेपाली और मराठी जैसी भाषाओं के लिए।</p>
-</a>
-<a class="course-category-card" href="vani-roman.html">
-<span class="category-number">02</span>
-<h3>रोमन लिपि समूह</h3>
-<p>अंग्रेजी, स्पेनिश, पुर्तगाली, इंडोनेशियाई, स्वाहिली, हौसा और अन्य भाषाओं के लिए।</p>
-</a>
-<a class="course-category-card" href="vani-urdu-arabic.html">
-<span class="category-number">03</span>
-<h3>उर्दू-अरबी लिपि समूह</h3>
-<p>उर्दू, अरबी, फारसी, पश्तो और दाएँ से बाएँ लिखी जाने वाली भाषाओं के लिए।</p>
-</a>
-<a class="course-category-card" href="vani-east-asia.html">
-<span class="category-number">04</span>
-<h3>चीन-कोरिया-जापान समूह</h3>
-<p>चीनी, जापानी और कोरियाई भाषाओं के लिए अलग लेआउट, फॉन्ट और पढ़ने की सुविधा।</p>
-</a>
-</div>
-<div class="category-actions"><a class="btn btn-course" href="vani-devanagari.html">📚 कोर्स देखें</a><a class="btn btn-register" href="register.html?role=student">🎓 अभी जुड़िए</a><a class="btn btn-teacher" href="register.html?role=teacher">👨‍🏫 प्रशिक्षक बनें</a></div>
-</section>
-<section class="skill-hub">
-<div class="content-wrapper">
-<div class="section-intro">
-<div class="section-label">दरसगाह कैटेगरी</div>
-<h2>दुकान ही दरसगाह</h2>
-<button aria-label="दुकान ही दरसगाह हिंदी में सुनें" class="audio-section-btn" data-audio-section="darasgah">🔊 सुनें</button>
-<p>जहाँ काम होता है, वहीं सीखने की जगह भी बन सकती है। अनुभवी कामगार को डिजिटल प्रशिक्षक बनाकर नई पीढ़ी को रोजगार योग्य बनाया जा सकता है।</p>
-</div>
-<div class="course-category-grid darasgah-grid">
-<a class="course-category-card" href="digital-darasgah.html">
-<span class="category-number">01</span>
-<h3>डिजिटल दरसगाह</h3>
-<p>वीडियो लैब, मोबाइल दुकान, साइबर कैफे, ऑनलाइन सेवा केंद्र और डिजिटल काम सिखाने वाली जगहें।</p>
-</a>
-<a class="course-category-card" href="vocational-darasgah.html">
-<span class="category-number">02</span>
-<h3>व्यावसायिक दरसगाह</h3>
-<p>पंचर दुकान, मोबाइल रिपेयर दुकान, बिजली मिस्त्री, प्लंबर, एसी-फ्रिज मिस्त्री और सेवा आधारित काम।</p>
-</a>
-<a class="course-category-card" href="agriculture-darasgah.html">
-<span class="category-number">03</span>
-<h3>कृषि दरसगाह</h3>
-<p>खेत, बागवानी केंद्र, पशुपालन स्थल, मछली पालन केंद्र और ग्रामीण उत्पादन की जगहें।</p>
-</a>
-<a class="course-category-card" href="arts-culture-darasgah.html">
-<span class="category-number">04</span>
-<h3>कला-संस्कृति दरसगाह</h3>
-<p>हारमोनियम, कैसियो, ढोलक, लोककला, बांस शिल्प, डिजाइन और वीडियो मिक्सिंग की जगहें।</p>
-</a>
-</div>
-<div class="category-actions"><a class="btn btn-course" href="digital-darasgah.html">📚 कोर्स देखें</a><a class="btn btn-register" href="center-partner.html">🏫 सहयोगी केंद्र बनें</a><a class="btn btn-teacher" href="course-proposal.html">👨‍🏫 नया कोर्स जोड़ें</a></div>
-</div>
-</section>
-<section class="employer-section">
-<div class="section-intro">
-<div class="section-label">नियोक्ता कैटेगरी</div>
-<h2>हमारे सम्मानित नियोक्ता</h2>
-<button aria-label="नियोक्ता विवरण हिंदी में सुनें" class="audio-section-btn" data-audio-section="employer">🔊 सुनें</button>
-<p>सीखने के बाद काम से जुड़ने का रास्ता। सत्यापित नियोक्ता, दुकान, कंपनी, सेवा केंद्र और संस्था एसीएस से जुड़ सकेंगे।</p>
-</div>
-<div class="course-category-grid">
-<a class="course-category-card" href="digital-employers.html">
-<span class="category-number">01</span>
-<h3>डिजिटल नियोक्ता</h3>
-<p>डिजिटल सेवा केंद्र, वीडियो स्टूडियो, सोशल मीडिया एजेंसी और स्थानीय डिजिटल व्यवसाय।</p>
-</a>
-<a class="course-category-card" href="vocational-employers.html">
-<span class="category-number">02</span>
-<h3>व्यावसायिक नियोक्ता</h3>
-<p>वर्कशॉप, रिपेयर सेंटर, मोबाइल दुकान, एसी-फ्रिज सेवा केंद्र और स्थानीय सेवा व्यवसाय।</p>
-</a>
-<a class="course-category-card" href="agriculture-employers.html">
-<span class="category-number">03</span>
-<h3>कृषि नियोक्ता</h3>
-<p>कृषि उद्यम, पशुपालन केंद्र, खाद्य प्रसंस्करण इकाई और ग्रामीण उत्पाद समूह।</p>
-</a>
-<a class="course-category-card" href="arts-culture-employers.html">
-<span class="category-number">04</span>
-<h3>कला-संस्कृति नियोक्ता</h3>
-<p>संगीत समूह, कार्यक्रम प्रबंधन, वीडियो लैब, डिजाइन स्टूडियो और शिल्प केंद्र।</p>
-</a>
-</div>
-<div class="category-actions"><a class="btn btn-course" href="digital-employers.html">📚 नियोक्ता देखें</a><a class="btn btn-register" href="register.html?role=employer">🎓 अभी जुड़िए</a><a class="btn btn-teacher" href="contact.html">📞 संपर्क करें</a></div>
-</section>
-<section class="about-section">
-<div class="section-intro">
-<div class="section-label">हमारे बारे में</div>
-<h2>विश्वास की बुनियाद</h2>
-<button aria-label="हमारे बारे में हिंदी में सुनें" class="audio-section-btn" data-audio-section="about">🔊 सुनें</button>
-<p>एसीएस केवल कोर्स दिखाने वाला पेज नहीं है। इसके पीछे वर्षों का अनुभव, ट्रस्ट का सहयोग, सत्यापित प्रशिक्षक और सत्यापित प्रशिक्षु व्यवस्था है।</p>
-</div>
-<div class="course-category-grid">
-<a class="course-category-card" href="about-acs.html">
-<span class="category-number">01</span>
-<h3>15 साल का एसीएस अनुभव</h3>
-<p>Applied Computer School™ ने डिजिटल शिक्षा, प्रशिक्षण और प्रमाण-पत्र कार्य में लंबे समय से काम किया है।</p>
-</a>
-<a class="course-category-card" href="ffgpmt-trust.html">
-<span class="category-number">02</span>
-<h3>पंजीकृत ट्रस्ट का सहयोग</h3>
-<p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट शिक्षा, समाजहित और डिजिटल अवसरों के लिए एसीएस को सहयोग देता है।</p>
-</a>
-<a class="course-category-card" href="verified-teachers.html">
-<span class="category-number">03</span>
-<h3>सत्यापित प्रशिक्षक व्यवस्था</h3>
-<p>पहचान, अनुभव और कार्य-क्षमता की जांच के बाद प्रशिक्षक को एसीएस प्लेटफॉर्म से जोड़ा जाएगा।</p>
-</a>
-<a class="course-category-card" href="verified-trainees.html">
-<span class="category-number">04</span>
-<h3>सत्यापित प्रशिक्षु व्यवस्था</h3>
-<p>सीखने, अभ्यास, मूल्यांकन और प्रमाण-पत्र के आधार पर प्रशिक्षु की विश्वसनीय पहचान बनाई जाएगी।</p>
-</a>
-</div>
-<div class="category-actions"><a class="btn btn-course" href="about-acs.html">📚 हमारे बारे में</a><a class="btn btn-register" href="register.html?role=student">🎓 अभी जुड़िए</a><a class="btn btn-teacher" href="verified-teachers.html">👨‍🏫 प्रशिक्षक देखें</a></div>
-</section>
-<section class="safety">
-<button aria-label="विश्वास संदेश हिंदी में सुनें" class="audio-section-btn" data-audio-section="trust">🔊 सुनें</button>
-<div class="card-grid three-col">
-<div class="trust-card">
-<span class="icon">🛡️</span>
-<h3>सत्यापित प्रशिक्षक</h3>
-</div>
-<div class="trust-card">
-<span class="icon">✅</span>
-<h3>सत्यापित प्रमाण-पत्र</h3>
-</div>
-<div class="trust-card">
-<span class="icon">👁️</span>
-<h3>सत्यापित प्रशिक्षु</h3>
-</div>
-</div>
-</section>
-</main>
-<footer>
-<button aria-label="फुटर विवरण हिंदी में सुनें" class="audio-section-btn footer-audio-btn" data-audio-section="footer">🔊 सुनें</button>
-<div class="footer-content">
-<div class="footer-brand-block">
-<img alt="Applied Computer School™ लोगो" class="footer-logo-img" src="logo.png"/>
-<h3>Applied Computer School™</h3>
-<div class="footer-iso-proof">
-<strong>ISO 9001:2015 प्रमाणित</strong>
-<small>प्रमाणपत्र संख्या: INQ/BI-91567/1023 · वैधता: 29.10.2026 तक</small>
-</div>
-<p class="footer-sponsor footer-trust">
-                    फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (ffgpmt.org) द्वारा प्रायोजित एवं अप्लाइड कंप्यूटर स्कूल (acslearn.com) द्वारा संचालित नि:शुल्क ऑनलाइन व्यवसायिक शिक्षा कार्यक्रम
-                </p>
-</div>
-<div class="contact">
-<p><a class="contact-link" href="tel:+919431210092">📞 +91-9431210092</a></p>
-<p><a class="contact-link" href="mailto:acs.chautham@gmail.com">✉️ acs.chautham@gmail.com</a></p>
-  <p>
-  <a href="fee-policy.html" class="contact-link">📋 शुल्क नीति</a>
-</p>
-<p><a class="contact-link" href="https://ffgpmt.org" rel="noopener" target="_blank">🌐 ffgpmt.org</a></p>
-<div class="social-links">
-<a aria-label="WhatsApp पर हमसे जुड़ें" class="social-item social-whatsapp" href="https://wa.me/919431210092" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"></path></svg>
-<span>WhatsApp</span>
-</a>
-<a aria-label="YouTube चैनल देखें" class="social-item social-youtube" href="https://www.youtube.com/@ACS-AIDigitalMaster" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-<span>@ACS-AIDigitalMaster</span>
-</a>
-<a aria-label="X (Twitter) पर फॉलो करें" class="social-item social-x" href="https://x.com/ACS_AIDigitalMr" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-<span>@ACS_AIDigitalMr</span>
-</a>
-<a aria-label="Instagram पर हमें फॉलो करें" class="social-item social-instagram" href="https://www.instagram.com/acs_aidigitalmaster" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"></path></svg>
-<span>@acs_aidigitalmaster</span>
-</a>
-<a aria-label="Telegram पर हमसे जुड़ें" class="social-item social-telegram" href="https://t.me/acs_aidigitalmaster" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
-<span>@acs_aidigitalmaster</span>
-</a>
-<a aria-label="Threads पर हमें फॉलो करें" class="social-item social-threads" href="https://www.threads.net/@acs_aidigitalmaster" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717-1.34 1.667-2.03 4.078-2.058 7.166.028 3.087.717 5.498 2.057 7.165 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.74-1.757-.504-.582-1.288-.876-2.326-.882h-.041c-.84 0-1.965.222-2.681 1.92l-1.847-.732c.792-1.875 2.318-3.018 4.535-3.018h.082c3.232.024 4.984 1.969 5.395 4.516.235.1.461.21.679.327 1.519.788 2.65 1.998 3.214 3.355.913 2.146.766 5.247-1.595 7.566-1.882 1.865-4.117 2.764-6.985 2.78Zm1.36-10.288c-.36 0-.722.01-1.085.034-1.844.105-2.991.95-2.928 2.15.067 1.257 1.453 1.84 2.79 1.767 1.23-.067 2.831-.546 3.103-3.71a10.5 10.5 0 0 0-1.88-.241z"></path></svg>
-<span>@acs_aidigitalmaster</span>
-</a>
-<a aria-label="Facebook पेज देखें" class="social-item social-facebook" href="https://www.facebook.com/ACS-AI-Digital-Master" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"></path></svg>
-<span>ACS-AI Digital Master</span>
-</a>
-<a aria-label="LinkedIn पर हमसे जुड़ें" class="social-item social-linkedin" href="https://linkedin.com/company/acs-ai-digital-master" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
-<span>LinkedIn</span>
-</a>
-</div>
-</div>
-<div class="copyright">
-<p>©2026 Applied Computer School™, सर्वाधिकार सुरक्षित।</p>
-<p class="footer-love">डिजाइन एवं निर्माण: रामभरोस विद्यार्थी</p>
-</div>
-</div>
-</footer>
-<!-- ===== STICKY WHATSAPP CONTACT BUTTON ===== -->
-<a aria-label="WhatsApp पर तुरंत संपर्क करें" class="fab-whatsapp" href="https://wa.me/919431210092?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Applied%20Computer%20School%20%E0%A4%95%E0%A5%87%20%E0%A4%95%E0%A5%8B%E0%A4%B0%E0%A5%8D%E0%A4%B8%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F" rel="noopener" target="_blank">
-<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"></path></svg>
-<span class="fab-label">WhatsApp पर बात करें</span>
-</a>
-<script src="script.js"></script>
+            
+            <p class="hero-brand-footer">अप्लाइड कंप्यूटर स्कूल™</p>
+            
+            <div class="hero-audience-tags">
+                <a href="/students/hi/index.html">विद्यार्थी</a> | 
+                <a href="/mentors/hi/index.html">शिक्षक</a> | 
+                <a href="/mentors/hi/index.html">कुशल कामगार</a> | 
+                <a href="/workshops/hi/index.html">दुकान-वर्कशॉप</a> | 
+                <a href="/counselors/hi/index.html">सलाह लें</a> | 
+                <a href="/employers/hi/index.html">नियोक्ता</a> | 
+                <a href="/partners/hi/index.html">नेटवर्क</a>
+            </div>
+            
+            <div class="hero-buttons">
+                <a class="btn btn-primary" href="#job-path">💼 नौकरी करना है</a>
+                <a class="btn btn-accent" href="#self-work-path">🚀 अपना काम शुरू करना है</a>
+            </div>
+            
+            <div class="hero-secondary-links">
+                <a class="sub-link" href="/courses/hi/index.html">📚 कोर्स देखें</a>
+                <a class="sub-link" href="/counselors/hi/index.html">🧭 सलाह लें</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="language-panel" id="languagePanel" hidden>
+        <div class="lang-panel-header">
+            <h3>भाषा चुनें / Select Language</h3>
+            <button id="closeLangPanel" type="button" aria-label="भाषा पैनल बंद करें">✕</button>
+        </div>
+        <div class="lang-panel-content">
+            <div class="lang-group">
+                <button class="lang-opt active" data-url="/index.html" type="button">Hindi (हिंदी) ✓</button>
+                <button class="lang-opt" data-url="/en/index.html" type="button">English (English)</button>
+            </div>
+            <div class="lang-divider">भारतीय भाषा सूची</div>
+            <div class="lang-grid">
+                <button class="lang-opt" data-url="/bn/index.html" type="button">Bengali (বাংলা)</button>
+                <button class="lang-opt" data-url="/as/index.html" type="button">Assamese (অসমীয়া)</button>
+                <button class="lang-opt" data-url="/brx/index.html" type="button">Bodo (बड़ो)</button>
+                <button class="lang-opt" data-url="/doi/index.html" type="button">Dogri (डोगरी)</button>
+                <button class="lang-opt" data-url="/gu/index.html" type="button">Gujarati (ગુજરાતી)</button>
+                <button class="lang-opt" data-url="/kn/index.html" type="button">Kannada (ಕನ್ನಡ)</button>
+                <button class="lang-opt" data-url="/ks/index.html" type="button">Kashmiri (कश्मीरी)</button>
+                <button class="lang-opt" data-url="/kok/index.html" type="button">Goan Konkani (गोवा कोंकणी)</button>
+                <button class="lang-opt" data-url="/mai/index.html" type="button">Maithili (मैथिली)</button>
+                <button class="lang-opt" data-url="/ml/index.html" type="button">Malayalam (മലയാളം)</button>
+                <button class="lang-opt" data-url="/mni/index.html" type="button">Manipuri (মণিপুরী)</button>
+                <button class="lang-opt" data-url="/mr/index.html" type="button">Marathi (मराठी)</button>
+                <button class="lang-opt" data-url="/ne/index.html" type="button">Nepali (नेपाली)</button>
+                <button class="lang-opt" data-url="/or/index.html" type="button">Odia (ଓଡ଼ିଆ)</button>
+                <button class="lang-opt" data-url="/pa/index.html" type="button">Punjabi (ਪੰਜਾਬੀ)</button>
+                <button class="lang-opt" data-url="/sa/index.html" type="button">Sanskrit (संस्कृत)</button>
+                <button class="lang-opt" data-url="/sat/index.html" type="button">Santali (संताली)</button>
+                <button class="lang-opt" data-url="/sd/index.html" type="button">Sindhi (سنڌي)</button>
+                <button class="lang-opt" data-url="/ta/index.html" type="button">Tamil (தமிழ்)</button>
+                <button class="lang-opt" data-url="/te/index.html" type="button">Telugu (తెలుగు)</button>
+                <button class="lang-opt" data-url="/ur/index.html" type="button">Urdu (اُردُو)</button>
+            </div>
+            <div class="lang-divider">ACS विस्तार भाषा समूह</div>
+            <div class="lang-grid">
+                <button class="lang-opt" data-url="/awa/index.html" type="button">Awadhi (अवधी)</button>
+                <button class="lang-opt" data-url="/bho/index.html" type="button">Bhojpuri (भोजपुरी)</button>
+                <button class="lang-opt" data-url="/brj/index.html" type="button">Braj (ब्रज)</button>
+                <button class="lang-opt" data-url="/gon/index.html" type="button">Gondi (गोंडी)</button>
+                <button class="lang-opt" data-url="/ho/index.html" type="button">Ho (𑢹𑣉𑣉)</button>
+                <button class="lang-opt" data-url="/xnr/index.html" type="button">Kangri (कांगड़ी)</button>
+                <button class="lang-opt" data-url="/kha/index.html" type="button">Khasi (खासी)</button>
+                <button class="lang-opt" data-url="/mag/index.html" type="button">Magahi (मगही)</button>
+                <button class="lang-opt" data-url="/lus/index.html" type="button">Mizo</button>
+                <button class="lang-opt" data-url="/si/index.html" type="button">Sinhala (සිංහල)</button>
+                <button class="lang-opt" data-url="/tcy/index.html" type="button">Tulu (ತುಳು)</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="section-container" id="goal-choose-panel">
+            <div class="section-title-block">
+                <span class="badge">प्रथम चरण</span>
+                <h2>पहले अपना लक्ष्य चुनिए</h2>
+                <p class="subtext">सही लक्ष्य चुनने से ही भविष्य का मार्ग स्पष्ट और सुलभ होता है। अपना मुख्य विकल्प चुनें।</p>
+            </div>
+            <div class="cards-grid target-split-grid">
+                <div class="goal-card-box" id="job-path">
+                    <div class="goal-card-header">
+                        <span class="goal-icon-label">💼</span>
+                        <h3>नौकरी करना है</h3>
+                    </div>
+                    <p>सरकारी रोजगार, प्राइवेट कंपनी या स्थानीय दुकान-वर्कशॉप में काम के लिए अपना रास्ता चुनें।</p>
+                    <div class="goal-buttons-stack">
+                        <a class="goal-route-btn" href="/career/hi/government-employment.html">सरकारी रोजगार ➔</a>
+                        <a class="goal-route-btn" href="/career/hi/private-employment.html">प्राइवेट रोजगार ➔</a>
+                        <a class="goal-route-btn" href="/career/hi/local-employment.html">स्थानीय रोजगार ➔</a>
+                    </div>
+                </div>
+                <div class="goal-card-box" id="self-work-path">
+                    <div class="goal-card-header">
+                        <span class="goal-icon-label">🚀</span>
+                        <h3>अपना काम शुरू करना है</h3>
+                    </div>
+                    <p>स्वरोजगार, प्रोजेक्ट रिपोर्ट, रजिस्ट्रेशन, फाइनेंस और मार्केटप्लेस की तैयारी के साथ अपना काम शुरू करें।</p>
+                    <div class="goal-buttons-stack">
+                        <a class="goal-route-btn project-btn" href="/career/hi/self-employment.html">स्वरोजगार मार्ग ➔</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container bg-light" id="workflow-section">
+            <div class="section-title-block">
+                <span class="badge">लाइफ-साइकिल फ्रेमवर्क</span>
+                <h2>यहाँ आपका सफर कैसे चलेगा?</h2>
+                <p class="subtext">पहले लक्ष्य चुनिए, फिर रास्ता साफ होगा, फिर ट्रेनिंग शुरू होगी।</p>
+            </div>
+            
+            <div class="tabs-control-wrapper">
+                <button class="tab-toggle-btn active" id="btn-wf-job" type="button">💼 नौकरी रास्ता</button>
+                <button class="tab-toggle-btn" id="btn-wf-self" type="button">🚀 अपना काम रास्ता</button>
+            </div>
+
+            <div class="workflow-matrix-view" id="workflow-job-panel">
+                <div class="step-flow-wrapper">
+                    <a href="/students/hi/index.html" class="step-node-item" style="--step-index: 1;">
+                        <div class="step-circle">👤</div>
+                        <h4>स्टूडेंट</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/counselors/hi/index.html" class="step-node-item" style="--step-index: 2;">
+                        <div class="step-circle">🧭</div>
+                        <h4>सलाह लें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/courses/hi/index.html" class="step-node-item" style="--step-index: 3;">
+                        <div class="step-circle">🎯</div>
+                        <h4>जॉब रोल चुनें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/students/hi/register.html" class="step-node-item" style="--step-index: 4;">
+                        <div class="step-circle">📝</div>
+                        <h4>इनरोलमेंट करें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/courses/hi/digital.html" class="step-node-item" style="--step-index: 5;">
+                        <div class="step-circle">📱</div>
+                        <h4>ट्रेनिंग लें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/students/hi/resume-builder.html" class="step-node-item" style="--step-index: 6;">
+                        <div class="step-circle">📄</div>
+                        <h4>बायोडाटा बनाएं</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/students/hi/job-application.html" class="step-node-item" style="--step-index: 7;">
+                        <div class="step-circle">📤</div>
+                        <h4>आवेदन करें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/career/hi/local-employment.html" class="step-node-item" style="--step-index: 8;">
+                        <div class="step-circle">🛠️</div>
+                        <h4>काम शुरू करें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/career/hi/local-employment.html" class="step-node-item" style="--step-index: 9;">
+                        <div class="step-circle">🌱</div>
+                        <h4>कमाई शुरू करें</h4>
+                    </a>
+                </div>
+            </div>
+
+            <div class="workflow-matrix-view" id="workflow-self-panel" hidden>
+                <div class="step-flow-wrapper">
+                    <a href="/students/hi/index.html" class="step-node-item" style="--step-index: 1;">
+                        <div class="step-circle">👤</div>
+                        <h4>स्टूडेंट</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/counselors/hi/index.html" class="step-node-item" style="--step-index: 2;">
+                        <div class="step-circle">🧭</div>
+                        <h4>सलाह लें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/career/hi/self-employment.html" class="step-node-item" style="--step-index: 3;">
+                        <div class="step-circle">🎯</div>
+                        <h4>धंधा चुनें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/students/hi/register.html" class="step-node-item" style="--step-index: 4;">
+                        <div class="step-circle">📝</div>
+                        <h4>इनरोलमेंट करें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/courses/hi/vocational.html" class="step-node-item" style="--step-index: 5;">
+                        <div class="step-circle">📱</div>
+                        <h4>ट्रेनिंग लें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/career/hi/self-employment.html" class="step-node-item" style="--step-index: 6;">
+                        <div class="step-circle">📄</div>
+                        <h4>प्रोजेक्ट रिपोर्ट बनाएं</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/career/hi/self-employment.html" class="step-node-item" style="--step-index: 7;">
+                        <div class="step-circle">📤</div>
+                        <h4>रजिस्ट्रेशन/फाइनेंस</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/career/hi/self-employment.html" class="step-node-item" style="--step-index: 8;">
+                        <div class="step-circle">🛠️</div>
+                        <h4>काम शुरू करें</h4>
+                    </a>
+                    <div class="step-flow-arrow" aria-hidden="true">➔</div>
+                    <a href="/career/hi/self-employment.html" class="step-node-item" style="--step-index: 9;">
+                        <div class="step-circle">🌱</div>
+                        <h4>कमाई शुरू करें</h4>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container" id="career-pathways">
+            <div class="section-title-block">
+                <span class="badge">करियर विकास</span>
+                <h2>कोर्स पूरा करने के बाद चार रास्ते</h2>
+                <p class="subtext">रोजगार के चार साफ रास्ते, जहाँ आप अपनी योग्यता के अनुसार स्वतंत्र दिशा निर्धारित कर सकते हैं।</p>
+            </div>
+            <div class="cards-grid layout-two-col">
+                <div class="premium-career-card">
+                    <div class="card-num-indicator">01</div>
+                    <h3>स्वरोजगार</h3>
+                    <p>अपना काम शुरू करने के लिए प्रोजेक्ट रिपोर्ट, पूंजी, जगह, टूल, जिला उद्योग केंद्र, उद्यम/MSME और मार्केटप्लेस की तैयारी।</p>
+                    <a class="pathway-link" href="/career/hi/self-employment.html">स्वरोजगार मार्ग देखें ➔</a>
+                </div>
+                <div class="premium-career-card">
+                    <div class="card-num-indicator">02</div>
+                    <h3>सरकारी रोजगार</h3>
+                    <p>सरकारी रोजगार पोर्टल रजिस्ट्रेशन, बायोडाटा, दस्तावेज चेकलिस्ट, स्किल स्लिप और सरकार का आधिकारिक लिंक</p>
+                    <a class="pathway-link" href="/career/hi/government-employment.html">सरकारी रोजगार मार्ग देखें ➔</a>
+                </div>
+                <div class="premium-career-card">
+                    <div class="card-num-indicator">03</div>
+                    <h3>प्राइवेट लिमिटेड रोजगार</h3>
+                    <p>प्राइवेट कंपनी में आवेदन, रिज्यूमे/बायोडाटा, ईमेल आवेदन, कौशल पर्ची, दस्तावेज और जॉब पोर्टल लिंक।</p>
+                    <a class="pathway-link" href="/career/hi/private-employment.html">प्राइवेट रोजगार मार्ग देखें ➔</a>
+                </div>
+                <div class="premium-career-card">
+                    <div class="card-num-indicator">04</div>
+                    <h3>स्थानीय रोजगार</h3>
+                    <p>दुकान, गैरेज, वर्कशॉप, सर्विस सेंटर, साइबर कैफे और स्थानीय काम/ट्रेनिंग आवेदन।</p>
+                    <a class="pathway-link" href="/career/hi/local-employment.html">स्थानीय रोजगार मार्ग देखें ➔</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container bg-light" id="student-tools">
+            <div class="section-title-block">
+                <span class="badge">उपकरण व सेवाएं</span>
+                <h2>आत्मनिर्भर विद्यार्थी व्यवस्था</h2>
+                <p class="subtext">चार रोजगार रास्ते + चार विद्यार्थी उपकरण। ये डिजिटल टूल्स आपको सशक्त बनाएंगे।</p>
+            </div>
+            <div class="cards-grid layout-four-col text-center">
+                <a class="tool-action-card" href="/students/hi/resume-builder.html">
+                    <div class="tool-box-icon">📝</div>
+                    <h3>बायोडाटा बनाएं</h3>
+                    <p class="tool-btn-anchor">टूल खोलें ➔</p>
+                </a>
+                <a class="tool-action-card" href="/students/hi/skill-slip.html">
+                    <div class="tool-box-icon">📄</div>
+                    <h3>एसीएस प्रशिक्षु कौशल पर्ची</h3>
+                    <p class="tool-btn-anchor">विवरण देखें ➔</p>
+                </a>
+                <a class="tool-action-card" href="/students/hi/job-application.html">
+                    <div class="tool-box-icon">📨</div>
+                    <h3>आवेदन-पत्र तैयार करें</h3>
+                    <p class="tool-btn-anchor">फॉर्म भरें ➔</p>
+                </a>
+                <a class="tool-action-card" href="/students/hi/document-checklist.html">
+                    <div class="tool-icon-label">✅</div>
+                    <h3>दस्तावेज checklist</h3>
+                    <p class="tool-btn-anchor">सूची देखें ➔</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="section-container" id="acs-network">
+            <div class="section-title-block">
+                <span class="badge">इकोसिस्टम</span>
+                <h2>एसीएस नेटवर्क से जुड़ें</h2>
+                <p class="subtext">हुनर व रोजगार के इस साझा मिशन में समाज के हर वर्ग की भागीदारी आवश्यक है।</p>
+            </div>
+            <div class="network-links-block-grid">
+                <a class="network-route-item" href="/students/hi/register.html"><span>🎓 विद्यार्थी</span><span class="arrow-indicator">➔</span></a>
+                <a class="network-route-item" href="/mentors/hi/register.html"><span>👨‍🏫 शिक्षक / होम ट्यूटर</span><span class="arrow-indicator">➔</span></a>
+                <a class="network-route-item" href="/mentors/hi/register.html"><span>🛠️ कुशल कामगार / मिस्त्री</span><span class="arrow-indicator">➔</span></a>
+                <a class="network-route-item" href="/workshops/hi/register.html"><span>🏪 दुकान / गैरेज / वर्कशॉप</span><span class="arrow-indicator">➔</span></a>
+                <a class="network-route-item" href="/partners/hi/register.html"><span>🏫 कोचिंग / स्कूल / आईटीआई / फ्रेंचाइजी</span><span class="arrow-indicator">➔</span></a>
+                <a class="network-route-item" href="/employers/hi/register.html"><span>💼 नियोक्ता (Employer)</span><span class="arrow-indicator">➔</span></a>
+                <a class="network-route-item" href="/counselors/hi/register.html"><span>🧭 सलाहकार बनें</span><span class="arrow-indicator">➔</span></a>
+            </div>
+        </section>
+        
+        <section class="section-container bg-light" id="trust-and-safety">
+            <div class="trust-labels-container">
+                <div class="trust-label-card">
+                    <span class="trust-icon">🛡️</span>
+                    <div class="trust-lbl-txt">
+                        <h3>सत्यापित प्रशिक्षक</h3>
+                        <p>अनुभव, तकनीकी कार्य-क्षमता और बुनियादी पहचान मानदंडों की सघन जांच के बाद स्वीकृत मेंटर्स।</p>
+                    </div>
+                </div>
+                <div class="trust-label-card">
+                    <span class="trust-icon">✅</span>
+                    <div class="trust-lbl-txt">
+                        <h3>सत्यापित प्रमाण-पत्र</h3>
+                        <p>क्यूआर-कोड तकनीक द्वारा संस्थान के डिजिटल डेटाबेस से किसी भी समय ऑनलाइन जांचने योग्य सुरक्षित प्रमाण-पत्र।</p>
+                    </div>
+                </div>
+                <div class="trust-label-card">
+                    <span class="trust-icon">👁️</span>
+                    <div class="trust-lbl-txt">
+                        <h3>सत्यापित प्रशिक्षु</h3>
+                        <p>नियमित उपस्थिति, कड़े मूल्यांकन मानदंडों और सफल व्यावहारिक परीक्षा उत्तीर्ण करने के आधार पर प्रमाणित छात्र।</p>
+                    </div>
+                </div>
+            </div>
+            <div class="guarantee-disclaimer">
+                <p>📌 <strong>आवश्यक विधिक घोषणा:</strong> Applied Computer School™ केवल प्रशिक्षण, दस्तावेज सुगमता, करियर मार्गदर्शन और नियोक्ताओं व वित्तीय संस्थाओं के साथ कनेक्शन सपोर्ट प्रदान करता है। हम किसी भी प्रकार की सरकारी या निजी नौकरी, बैंक लोन स्वीकृति, निश्चित आय, सरकारी योजनाओं में पंजीकरण या ऑनलाइन मार्केटप्लेस अप्रूवल की कोई कानूनी या वित्तीय गारंटी नहीं देते हैं। अंतिम चयन या अप्रूवल संबंधित नियोक्ताओं, वित्तीय संस्थानों, सरकारी विभागों या मार्केटप्लेस के नियमों और छात्र की वास्तविक प्रतिभा पर निर्भर करेगा।</p>
+            </div>
+        </section>
+    </main>
+
+    <a alt="WhatsApp संपर्क" class="whatsapp-float" href="https://wa.me/919431210092" rel="noopener" target="_blank" title="WhatsApp पर हमसे जुड़ें">
+        <span class="wa-icon">💬</span> <span class="wa-text">मदद चाहिए?</span>
+    </a>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand-info">
+                <h2>Applied Computer School™</h2>
+                <p class="sponsor-org">फ़्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का एक उपक्रम</p>
+                <p class="tagline">"From Village to World: Free Digital Education for the Global South"</p>
+                <div class="iso-box">
+                    <strong>ISO 9001:2015 प्रमाणित संस्थान</strong>
+                </div>
+            </div>
+            
+            <div class="footer-sitemap">
+                <h3>साइट मैप (Sitemap)</h3>
+                <ul class="sitemap-links">
+                    <li><a href="/index.html">होम</a></li>
+                    <li><a href="/courses/hi/index.html">कोर्स</a></li>
+                    <li><a href="/academy/hi/class-6-8.html">अकादमी</a></li>
+                    <li><a href="/students/hi/index.html">विद्यार्थी</a></li>
+                    <li><a href="/mentors/hi/index.html">प्रशिक्षक</a></li>
+                    <li><a href="/partners/hi/index.html">ट्रेनिंग पार्टनर</a></li>
+                    <li><a href="/workshops/hi/index.html">दुकान-वर्कशॉप</a></li>
+                    <li><a href="/counselors/hi/index.html">सलाह लें</a></li>
+                    <li><a href="/employers/hi/index.html">नियोक्ता</a></li>
+                    <li><a href="/career/hi/self-employment.html">स्वरोजगार</a></li>
+                    <li><a href="/career/hi/government-employment.html">सरकारी रोजगार</a></li>
+                    <li><a href="/career/hi/private-employment.html">प्राइवेट रोजगार</a></li>
+                    <li><a href="/career/hi/local-employment.html">स्थानीय रोजगार</a></li>
+                    <li><a href="/gallery/hi/index.html">गैलरी</a></li>
+                    <li><a href="/payment/hi/index.html">भुगतान</a></li>
+                    <li><a href="/contact/hi/index.html">संपर्क</a></li>
+                    <li><a href="/help/hi/index.html">सहायता</a></li>
+                    <li><a href="/sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>आधिकारिक संपर्क विवरण</h3>
+                <p class="contact-item"><strong>फ़ोन / WhatsApp:</strong> <a href="tel:+919431210092">+91-9431210092</a></p>
+                <p class="contact-item"><strong>ईमेल:</strong> <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+                
+                <div class="archive-notice">
+                    <p>⚠️ <strong>महत्वपूर्ण विधिक सूचना:</strong> हमारी पुरानी वेबसाइटें acsbihar.com और acs1.in अब पूर्णतः स्थायी रूप से बंद हैं। केवल acslearn.com ही हमारा एकमात्र आधिकारिक और वैध वेब पोर्टल है।</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Applied Computer School™. सर्वाधिकार सुरक्षित।</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

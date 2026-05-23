@@ -1,149 +1,106 @@
-/* assets/script.js
-   Applied Computer School™ — Polished Interactions
-   v1.5 · Cleaned & refined · Low-end Android safe
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* ── LANGUAGE DROPDOWN ── */
+    // --- LANGUAGE TRIGGER REDIRECT CORES ---
     const languageToggle = document.getElementById('languageToggle');
-    const languageDropdown = document.getElementById('languageDropdown');
+    const languagePanel = document.getElementById('languagePanel');
+    const closeLangPanel = document.getElementById('closeLangPanel');
+    const langOptions = document.querySelectorAll('.lang-opt');
 
-    if (languageToggle && languageDropdown) {
+    if (languageToggle && languagePanel) {
         languageToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isOpen = !languageDropdown.hasAttribute('hidden');
-
-            if (isOpen) {
-                languageDropdown.setAttribute('hidden', '');
-                languageToggle.setAttribute('aria-expanded', 'false');
-            } else {
-                languageDropdown.removeAttribute('hidden');
-                languageToggle.setAttribute('aria-expanded', 'true');
-            }
-        });
-
-        languageDropdown.querySelectorAll('.language-option').forEach((option) => {
-            option.addEventListener('click', () => {
-                const selectedLang = option.dataset.lang || 'hi';
-                localStorage.setItem('acs_lang', selectedLang);
-
-                languageDropdown.querySelectorAll('.language-option').forEach((item) => {
-                    item.classList.remove('active');
-                    item.textContent = item.textContent.replace(' ✓', '');
-                });
-
-                option.classList.add('active');
-                if (!option.textContent.includes('✓')) {
-                    option.textContent = option.textContent.trim() + ' ✓';
-                }
-
-                languageDropdown.setAttribute('hidden', '');
-                languageToggle.setAttribute('aria-expanded', 'false');
-
-                if (selectedLang === 'hi') {
-                    window.location.href = './';
-                } else if (selectedLang === 'en') {
-                    window.location.href = '../en/';
-                }
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
-                languageDropdown.setAttribute('hidden', '');
-                languageToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                languageDropdown.setAttribute('hidden', '');
-                languageToggle.setAttribute('aria-expanded', 'false');
+            e.stopPropagation();
+            const isPanelOpen = languageToggle.getAttribute('aria-expanded') === 'true';
+            languageToggle.setAttribute('aria-expanded', !isPanelOpen);
+            languagePanel.hidden = isPanelOpen;
+            if (!isPanelOpen) {
+                languagePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     }
 
-
-    /* ── SECTION AUDIO BUTTONS ──
-       (Bhashini APK integration pending — placeholder behavior) */
-    document.querySelectorAll('.audio-section-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            if (btn.disabled) return;
-
-            const originalText = btn.dataset.originalText || btn.textContent.trim();
-            btn.dataset.originalText = originalText;
-
-            btn.disabled = true;
-            btn.classList.add('active');
-            btn.textContent = '🔊 चल रहा है...';
-
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.classList.remove('active');
-                btn.disabled = false;
-            }, 2000);
+    if (closeLangPanel && languagePanel && languageToggle) {
+        closeLangPanel.addEventListener('click', () => {
+            languagePanel.hidden = true;
+            languageToggle.setAttribute('aria-expanded', 'false');
         });
-    });
-
-    /* ── NAV: Scroll shadow (rAF-throttled for smoothness) ── */
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        let ticking = false;
-        const onScroll = () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    if (window.scrollY > 8) {
-                        navbar.classList.add('scrolled');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
     }
 
-    /* ── SMOOTH SCROLL for in-page anchors ── */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (!href || href === '#') return;
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                const offset = 70;
-                const top = target.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
+    langOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+            
+            const dynamicUrl = option.getAttribute('data-url');
+            if (dynamicUrl) {
+                setTimeout(() => {
+                    window.location.href = dynamicUrl;
+                }, 150);
             }
         });
     });
 
-    /* ── INTERSECTION OBSERVER: Fade-in on scroll ──
-       .in-view rule अब style.css में है — यहाँ सिर्फ class add होती है */
-    const fadeEls = document.querySelectorAll(
-        '.hero-content, .course-categories, .testimonials, .academy-courses, .vani-category, .skill-hub, .employer-section, .about-section, .premium-card, .course-category-card, .testimonial-card, .trust-card'
-    );
+    // --- SIDE NAVIGATION DRAWER PANEL ---
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    const closeMenuPanel = document.getElementById('closeMenuPanel');
 
-    if ('IntersectionObserver' in window && fadeEls.length) {
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
-
-        fadeEls.forEach((el, i) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(18px)';
-            el.style.transitionDelay = (i % 4 * 60) + 'ms';
-            io.observe(el);
+    if (menuToggle && menuPanel) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isOpen);
+            menuPanel.hidden = isOpen;
         });
     }
 
+    if (closeMenuPanel && menuPanel && menuToggle) {
+        closeMenuPanel.addEventListener('click', () => {
+            menuPanel.hidden = true;
+            menuToggle.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (languagePanel && !languagePanel.hidden && !languagePanel.contains(e.target)) {
+            languagePanel.hidden = true;
+            if(languageToggle) languageToggle.setAttribute('aria-expanded', 'false');
+        }
+        if (menuPanel && !menuPanel.hidden && !menuPanel.contains(e.target)) {
+            menuPanel.hidden = true;
+            if(menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // --- INTERACTIVE TIMELINE STEP MODULATION SWITCHER ---
+    const btnWfJob = document.getElementById('btn-wf-job');
+    const btnWfSelf = document.getElementById('btn-wf-self');
+    const panelWfJob = document.getElementById('workflow-job-panel');
+    const panelWfSelf = document.getElementById('workflow-self-panel');
+
+    function restartTimelineSequence(containerPanel) {
+        const stepItems = containerPanel.querySelectorAll('.step-node-item');
+        stepItems.forEach(node => {
+            const preservedAnimation = node.style.animation;
+            node.style.animation = 'none';
+            node.offsetHeight; 
+            node.style.animation = preservedAnimation;
+        });
+    }
+
+    if (btnWfJob && btnWfSelf && panelWfJob && panelWfSelf) {
+        btnWfJob.addEventListener('click', () => {
+            btnWfSelf.classList.remove('active');
+            btnWfJob.classList.add('active');
+            panelWfSelf.hidden = true;
+            panelWfJob.hidden = false;
+            restartTimelineSequence(panelWfJob);
+        });
+
+        btnWfSelf.addEventListener('click', () => {
+            btnWfJob.classList.remove('active');
+            btnWfSelf.classList.add('active');
+            panelWfJob.hidden = true;
+            panelWfSelf.hidden = false;
+            restartTimelineSequence(panelWfSelf);
+        });
+    }
 });
