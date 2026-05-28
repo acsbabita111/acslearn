@@ -25,3 +25,171 @@ a{text-decoration:none;color:inherit}
 .main-footer{background:var(--navy);color:#cbd5e1;padding:44px 16px 20px;border-top:4px solid var(--primary)}.footer-grid{display:grid;gap:28px;max-width:1200px;margin:auto}.footer-brand-info h2,.footer-sitemap h3,.footer-contact h3{color:white}.sponsor-org{color:#f59e0b;font-weight:900}.tagline{font-size:.85rem;color:#94a3b8}.iso-box{background:#1e293b;border-left:3px solid var(--primary);padding:10px;border-radius:8px}.sitemap-links{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.sitemap-links a{color:#94a3b8;font-size:.85rem}.contact-item a{color:white}.archive-notice{margin-top:14px;background:#ef444414;border:1px solid #ef444433;padding:10px;border-radius:8px;font-size:.82rem}.footer-bottom{text-align:center;color:#64748b;border-top:1px solid #334155;margin-top:28px;padding-top:14px}
 @media(min-width:768px){.content-grid.two{grid-template-columns:repeat(2,1fr)}.content-grid.three{grid-template-columns:repeat(3,1fr)}.content-grid.four{grid-template-columns:repeat(4,1fr)}.footer-grid{grid-template-columns:repeat(3,1fr)}.gallery-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:640px){.brand-logo-img{height:42px}.brand-name{font-size:1.05rem}.lang-btn,.menu-btn{min-width:54px;min-height:54px}.hero{min-height:auto;padding:34px 14px 22px}.hero-heading{font-size:2.2rem}.highlight-gold{font-size:1.7rem}.hero-line{font-size:1.3rem}body{padding-bottom:76px}}
+
+
+/* ACS Smart Internal Backlinks */
+.auto-backlink {
+  color: #0d6efd;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auto-backlink:hover {
+  color: #0a58ca;
+}
+
+
+/* ACS Full Footer Restoration */
+.footer-brand-info .mini-note {
+  margin-top: 10px;
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.footer-sitemap .sitemap-links {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+}
+
+.footer-contact .archive-notice + .archive-notice {
+  margin-top: 10px;
+}
+
+
+/* ACS Footer Address */
+.footer-contact .contact-item {
+  line-height: 1.55;
+}
+
+.footer-contact .contact-item strong {
+  color: #ffffff;
+}
+
+
+/* ACS Full Menu Restoration */
+.menu-panel {
+  width: min(340px, 92vw);
+}
+
+.menu-panel-links {
+  max-height: calc(100vh - 86px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.menu-panel-links li {
+  margin-bottom: 4px;
+}
+
+.menu-panel-links a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-weight: 800;
+  color: #334155;
+  border: 1px solid transparent;
+}
+
+.menu-panel-links a:hover {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #0d6efd;
+}
+
+
+/* ACS Component Navigation Repair */
+.menu-panel {
+  width: min(340px, 92vw);
+}
+
+.menu-panel-links {
+  max-height: calc(100vh - 86px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.menu-panel-links li {
+  margin-bottom: 4px;
+}
+
+.menu-panel-links a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-weight: 800;
+  color: #334155;
+  border: 1px solid transparent;
+}
+
+.menu-panel-links a:hover {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #0d6efd;
+}
+
+.language-panel {
+  background: #ffffff;
+  border-bottom: 3px solid #0d6efd;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lang-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.lang-opt {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lang-opt.active {
+  background: #0d6efd;
+  color: #ffffff;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 12px;
+  bottom: 72px;
+  background: #25D366;
+  color: #ffffff;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 1500;
+  text-decoration: none;
+}
+
+.wa-svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
