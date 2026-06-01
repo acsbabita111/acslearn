@@ -13,17 +13,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="../../style.css" rel="stylesheet"/>
     <style>
-        /* गैलरी ग्रिड और इमेजेज को और अधिक आकर्षक बनाने के लिए अतिरिक्त स्टाइल */
+        /* Mobile me 1 Photo ka line karne aur Zoom feature ke liye CSS */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Desktop/Tablet ke liye 3 columns */
+            gap: 16px;
+        }
+
         .gallery-tile {
             padding: 0 !important;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
         }
+
         .gallery-img {
             width: 100%;
             height: 100%;
@@ -31,8 +40,66 @@
             display: block;
             transition: transform 0.3s ease;
         }
+
         .gallery-tile:hover .gallery-img {
-            transform: scale(1.05);
+            transform: scale(1.03);
+        }
+
+        /* Responsive: Mobile screen par sirf 1 photo dikhegi */
+        @media(max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr !important; /* Ek line me 1 photo */
+                gap: 20px;
+            }
+        }
+
+        /* Touch karne par Zoom (Lightbox Modal) ki CSS */
+        .zoom-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .zoom-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .zoom-content {
+            max-width: 95%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transform: scale(0.95);
+            transition: transform 0.25s ease;
+        }
+
+        .zoom-overlay.active .zoom-content {
+            transform: scale(1);
+        }
+
+        .close-zoom {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -92,51 +159,56 @@
 <main>
 <section class="section-container">
     <div class="gallery-grid">
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_01.jpg" alt="ACS Gallery Photo 01" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_02.jpg" alt="ACS Gallery Photo 02" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_03.jpg" alt="ACS Gallery Photo 03" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_04.jpg" alt="ACS Gallery Photo 04" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_05.jpg" alt="ACS Gallery Photo 05" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_06.jpg" alt="ACS Gallery Photo 06" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_07.jpg" alt="ACS Gallery Photo 07" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_08.jpg" alt="ACS Gallery Photo 08" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_09.jpg" alt="ACS Gallery Photo 09" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_10.jpg" alt="ACS Gallery Photo 10" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_11.jpg" alt="ACS Gallery Photo 11" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_12.jpg" alt="ACS Gallery Photo 12" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_13.jpg" alt="ACS Gallery Photo 13" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_14.jpg" alt="ACS Gallery Photo 14" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_15.jpg" alt="ACS Gallery Photo 15" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_16.jpg" alt="ACS Gallery Photo 16" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_17.jpg" alt="ACS Gallery Photo 17" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_18.jpg" alt="ACS Gallery Photo 18" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_19.jpg" alt="ACS Gallery Photo 19" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_20.jpg" alt="ACS Gallery Photo 20" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_21.jpg" alt="ACS Gallery Photo 21" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_22.jpg" alt="ACS Gallery Photo 22" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_23.jpg" alt="ACS Gallery Photo 23" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_24.jpg" alt="ACS Gallery Photo 24" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_25.jpg" alt="ACS Gallery Photo 25" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_26.jpg" alt="ACS Gallery Photo 26" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_27.jpg" alt="ACS Gallery Photo 27" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_28.jpg" alt="ACS Gallery Photo 28" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_29.jpg" alt="ACS Gallery Photo 29" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_30.jpg" alt="ACS Gallery Photo 30" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_31.jpg" alt="ACS Gallery Photo 31" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_32.jpg" alt="ACS Gallery Photo 32" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_33.jpg" alt="ACS Gallery Photo 33" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_34.jpg" alt="ACS Gallery Photo 34" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_35.jpg" alt="ACS Gallery Photo 35" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_36.jpg" alt="ACS Gallery Photo 36" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_37.jpg" alt="ACS Gallery Photo 37" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_38.jpg" alt="ACS Gallery Photo 38" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_39.jpg" alt="ACS Gallery Photo 39" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_40.jpg" alt="ACS Gallery Photo 40" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_41.jpg" alt="ACS Gallery Photo 41" loading="lazy"/></div>
-        <div class="gallery-tile"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_42.jpg" alt="ACS Gallery Photo 42" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_01.jpg" alt="ACS Gallery Photo 01" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_02.jpg" alt="ACS Gallery Photo 02" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_03.jpg" alt="ACS Gallery Photo 03" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_04.jpg" alt="ACS Gallery Photo 04" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_05.jpg" alt="ACS Gallery Photo 05" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_06.jpg" alt="ACS Gallery Photo 06" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_07.jpg" alt="ACS Gallery Photo 07" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_08.jpg" alt="ACS Gallery Photo 08" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_09.jpg" alt="ACS Gallery Photo 09" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_10.jpg" alt="ACS Gallery Photo 10" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_11.jpg" alt="ACS Gallery Photo 11" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_12.jpg" alt="ACS Gallery Photo 12" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_13.jpg" alt="ACS Gallery Photo 13" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_14.jpg" alt="ACS Gallery Photo 14" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_15.jpg" alt="ACS Gallery Photo 15" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_16.jpg" alt="ACS Gallery Photo 16" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_17.jpg" alt="ACS Gallery Photo 17" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_18.jpg" alt="ACS Gallery Photo 18" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_19.jpg" alt="ACS Gallery Photo 19" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_20.jpg" alt="ACS Gallery Photo 20" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_21.jpg" alt="ACS Gallery Photo 21" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_22.jpg" alt="ACS Gallery Photo 22" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_23.jpg" alt="ACS Gallery Photo 23" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_24.jpg" alt="ACS Gallery Photo 24" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_25.jpg" alt="ACS Gallery Photo 25" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_26.jpg" alt="ACS Gallery Photo 26" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_27.jpg" alt="ACS Gallery Photo 27" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_28.jpg" alt="ACS Gallery Photo 28" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_29.jpg" alt="ACS Gallery Photo 29" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_30.jpg" alt="ACS Gallery Photo 30" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_31.jpg" alt="ACS Gallery Photo 31" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_32.jpg" alt="ACS Gallery Photo 32" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_33.jpg" alt="ACS Gallery Photo 33" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_34.jpg" alt="ACS Gallery Photo 34" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_35.jpg" alt="ACS Gallery Photo 35" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_36.jpg" alt="ACS Gallery Photo 36" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_37.jpg" alt="ACS Gallery Photo 37" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_38.jpg" alt="ACS Gallery Photo 38" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_39.jpg" alt="ACS Gallery Photo 39" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_40.jpg" alt="ACS Gallery Photo 40" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_41.jpg" alt="ACS Gallery Photo 41" loading="lazy"/></div>
+        <div class="gallery-tile" onclick="zoomImage(this)"><img class="gallery-img" src="https://acslearn.com/gallery/applied_computer_school_42.jpg" alt="ACS Gallery Photo 42" loading="lazy"/></div>
     </div>
 </section>
 </main>
+
+<div class="zoom-overlay" id="imageLightbox" onclick="closeZoom()">
+    <button class="close-zoom">✕</button>
+    <img class="zoom-content" id="zoomedImg" src="" alt="Zoomed Photo"/>
+</div>
 
 <section class="section-container" id="acs-fee-policy">
     <div class="content-card">
@@ -168,7 +240,7 @@
   <div class="footer-grid">
     <div class="footer-brand-info">
       <h2>Applied Computer School™</h2>
-      <p class="sponsor-org">फ़्रीडम फाइटर गंगाधर传递 मेमोरियल ट्रस्ट का एक उपक्रम</p>
+      <p class="sponsor-org">फ़्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का एक उपक्रम</p>
       <p class="tagline">"From Village to World: Free Digital Education for the Global South"</p>
       <div class="iso-box">
         <strong>ISO 9001:2015 प्रमाणित संस्थान</strong>
@@ -210,7 +282,7 @@ Chautham, Khagaria, Bihar - 851201, India
       <p class="contact-item"><strong>फ़ोन / WhatsApp:</strong> <a href="tel:+919431210092">+91-9431210092</a></p>
       <p class="contact-item"><strong>ईमेल:</strong> <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
       <div class="archive-notice">
-        <p>⚠️ <strong>महत्वपूर्ण सूचना:</strong> हमारी पुरानी वेबसाइटें acsbihar.com and acs1.in अब बंद हैं। केवल acslearn.com हमारा आधिकारिक वैभव पोर्टल है।</p>
+        <p>⚠️ <strong>महत्वपूर्ण सूचना:</strong> हमारी पुरानी वेबसाइटें acsbihar.com और acs1.in अब बंद हैं। केवल acslearn.com हमारा आधिकारिक वेब पोर्टल है।</p>
       </div>
       <div class="archive-notice">
         <p><strong>शुल्क सुरक्षा:</strong> ऑनलाइन पढ़ाई नि:शुल्क है। भुगतान केवल official online payment link से होगा। ACS cash, personal account transfer या agent collection स्वीकार नहीं करता।</p>
@@ -223,5 +295,32 @@ Chautham, Khagaria, Bihar - 851201, India
 </footer>
 
 <script src="../../script.js"></script>
+<script>
+    // JS Logic for Click to Zoom Feature
+    function zoomImage(tile) {
+        const imgSrc = tile.querySelector('.gallery-img').src;
+        const lightbox = document.getElementById('imageLightbox');
+        const zoomedImg = document.getElementById('zoomedImg');
+        
+        zoomedImg.src = imgSrc;
+        lightbox.style.display = 'flex';
+        setTimeout(() => {
+            lightbox.classList.add('active');
+        }, 10);
+    }
+
+    function closeZoom() {
+        const lightbox = document.getElementById('imageLightbox');
+        lightbox.classList.remove('active');
+        setTimeout(() => {
+            lightbox.style.display = 'none';
+        }, 250);
+    }
+
+    // Esc key daba kar bhi image zoom band ho jayegi
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeZoom();
+    });
+</script>
 </body>
 </html>
