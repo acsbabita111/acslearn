@@ -312,3 +312,27 @@ function bindACSControls() {
     }
   });
 }
+const acsGalleryImages = [
+  "gallery/applied_computer_school_45.png",
+  "gallery/applied_computer_school_46.png",
+  "gallery/applied_computer_school_47.png",
+  "gallery/applied_computer_school_48.png",
+  "gallery/applied_computer_school_49.png",
+  "gallery/applied_computer_school_50.png"
+];
+
+let acsGalleryIndex = 0;
+const acsGalleryMainImage = document.getElementById("galleryMainImage");
+
+if (acsGalleryMainImage) {
+  setInterval(() => {
+    acsGalleryIndex = (acsGalleryIndex + 1) % acsGalleryImages.length;
+
+    acsGalleryMainImage.style.opacity = "0";
+
+    setTimeout(() => {
+      acsGalleryMainImage.src = acsGalleryImages[acsGalleryIndex];
+      acsGalleryMainImage.style.opacity = "1";
+    }, 250);
+  }, 3000);
+}
