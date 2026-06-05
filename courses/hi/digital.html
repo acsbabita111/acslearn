@@ -12,6 +12,70 @@
     <meta content="summary_large_image" name="twitter:card"/>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="../../style.css" rel="stylesheet"/>
+
+    <style>
+        /* बड़ी स्क्रीन (लैपटॉप और डेस्कटॉप) पर 4 कॉलम लेआउट */
+        @media (min-width: 992px) {
+            .content-grid.three {
+                display: grid !important;
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                gap: 20px !important; /* कार्ड्स के बीच की सुंदर दूरी */
+            }
+        }
+
+        /* कार्ड्स को और ज्यादा आधुनिक और प्रीमियम बनाने के लिए अतिरिक्त स्टाइल */
+        .tool-card.course-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tool-card.course-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card h3 {
+            font-size: 1.15rem;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            color: #1a202c;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .tool-card p {
+            font-size: 0.92rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1; /* यह सभी कार्ड के टेक्स्ट को बराबर ऊंचाई देगा */
+        }
+
+        .tool-link.btn {
+            display: block;
+            text-align: center;
+            background: #e11d48; /* आकर्षक पिंक-रेड बटन */
+            color: #ffffff !important;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .tool-link.btn:hover {
+            background: #be123c;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -74,12 +138,10 @@
 
     <main>
         <section class="section-container">
-            <!-- सुंदर कार्ड ग्रिड लेआउट (सुसंगत CSS क्लासेस के साथ) -->
             <div class="content-grid three">
                 
-                <!-- कोर्स 1: डीसीए -->
                 <div class="tool-card course-card">
-                    <div class="tool-icon">🖥️</div>
+                    <div class="tool-icon" style="font-size: 2.5rem;">🖥️</div>
                     <h3>डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन एण्ड डिजिटल ऑफिस स्किल्स</h3>
                     <p>
                         कंप्यूटर फाउंडेशन, टाइपिंग, फाइल मैनेजमेंट, Word, Excel, Presentation,
@@ -89,9 +151,8 @@
                     <a href="/courses/hi/digital/dca/index.html" class="btn tool-link">Course ➔</a>
                 </div>
                 
-                <!-- कोर्स 2: एसीएस-एआई डिजिटल मास्टर -->
                 <div class="tool-card course-card">   
-                    <div class="tool-icon">🤖</div>
+                    <div class="tool-icon" style="font-size: 2.5rem;">🤖</div>
                     <h3>एसीएस-एआई डिजिटल मास्टर™</h3>
                     <p>
                         आधुनिक जनरेटिव एआई टूल्स, चैटबॉट्स और प्रॉमप्ट इंजीनियरिंग की मदद से अपने मोबाइल द्वारा डिजिटल कंटेंट क्रिएशन और ऑटोमेशन की कला सीखें। Mobile-first digital mastery।
@@ -99,9 +160,8 @@
                     <a class="btn tool-link" href="digital/acs-ai-digital-master.html">Course ➔</a>
                 </div>
 
-                <!-- कोर्स 3: AI ई-कॉमर्स प्रोडक्ट लिस्टिंग -->
                 <div class="tool-card course-card">
-                    <div class="tool-icon">🛒</div>
+                    <div class="tool-icon" style="font-size: 2.5rem;">🛒</div>
                     <h3>AI ई-कॉमर्स प्रोडक्ट लिस्टिंग</h3>
                     <p>
                         स्थानीय और वैश्विक ई-कॉमर्स प्लेटफॉर्म्स पर एआई टूल्स का उपयोग करके उत्पादों का विवरण लिखना, एसईओ करना और प्रोफेशनल लिस्टिंग सर्विस देना सीखें। Product listing service path।
@@ -109,10 +169,9 @@
                     <a class="btn tool-link" href="digital/acs-ai-ecommerce-product-listing.html">Course ➔</a>
                 </div> 
 
-                <!-- कोर्स 4: सोशल मीडिया मास्टर कोर्स -->
                 <div class="tool-card course-card">
-                    <div class="tool-icon">📱</div>
-                    <h3>सोशल media मास्टर कोर्स</h3>
+                    <div class="tool-icon" style="font-size: 2.5rem;">📱</div>
+                    <h3>सोशल मीडिया मास्टर कोर्स</h3>
                     <p>
                         मोबाइल से प्रोफेशनल पोस्ट, वायरल रील, कैची कैप्शन, WhatsApp business promotion और स्थानीय दुकानों के लिए सोशल मीडिया मैनेजमेंट सेवा सीखें।
                     </p>
@@ -194,7 +253,7 @@
                 <p class="contact-item"><strong>फ़ोन / WhatsApp:</strong> <a href="tel:+919431210092">+91-9431210092</a></p>
                 <p class="contact-item"><strong>ईमेल:</strong> <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
                 <div class="archive-notice">
-                    <p>⚠️ <strong>महत्वपूर्ण सूचना:</strong> हमारी पुरानी वेबसाइटें acsbihar.com and acs1.in अब बंद हैं। केवल acslearn.com हमारा आधिकारिक वेब पोर्टल है।</p>
+                    <p>⚠️ <strong>महत्वपूर्ण सूचना:</strong> हमारी पुरानी वेबसाइटें acsbihar.com और acs1.in अब बंद हैं। केवल acslearn.com हमारा आधिकारिक वेब पोर्टल है।</p>
                 </div>
                 <div class="archive-notice">
                     <p><strong>शुल्क सुरक्षा:</strong> ऑनलाइन पढ़ाई नि:शुल्क है। भुगतान केवल official online payment link से होगा। ACS cash, personal account transfer या agent collection स्वीकार नहीं करता।</p>
