@@ -16,192 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../../../style.css" />
-  <style>
-    :root {
-      --acs-bg: #f7f9fc;
-      --acs-card: #ffffff;
-      --acs-text: #172033;
-      --acs-muted: #526179;
-      --acs-primary: #0f766e;
-      --acs-primary-dark: #115e59;
-      --acs-accent: #f59e0b;
-      --acs-blue: #1d4ed8;
-      --acs-line: #d9e2ef;
-      --acs-soft: #ecfdf5;
-      --acs-danger: #991b1b;
-      --acs-radius: 18px;
-      --acs-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Noto Sans Devanagari", system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans", Arial, sans-serif;
-      background: var(--acs-bg);
-      color: var(--acs-text);
-      line-height: 1.75;
-    }
-    a { color: var(--acs-primary-dark); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .page-wrap { max-width: 1180px; margin: 0 auto; padding: 18px; }
-    .topbar {
-      background: #0f172a;
-      color: white;
-      padding: 10px 18px;
-      font-size: 14px;
-    }
-    .topbar-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
-    .site-header {
-      background: rgba(255,255,255,0.94);
-      border-bottom: 1px solid var(--acs-line);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(10px);
-    }
-    .nav {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .brand { font-weight: 900; color: var(--acs-text); font-size: 18px; }
-    .nav-links { display: flex; gap: 10px; flex-wrap: wrap; font-size: 14px; }
-    .nav-links a { padding: 8px 10px; border-radius: 999px; background: #f1f5f9; }
-    .hero {
-      margin: 22px 0;
-      padding: 34px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, #ecfeff 0%, #ffffff 45%, #fff7ed 100%);
-      box-shadow: var(--acs-shadow);
-      border: 1px solid var(--acs-line);
-    }
-    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--acs-soft);
-      color: #065f46;
-      font-weight: 800;
-      font-size: 13px;
-      border: 1px solid #bbf7d0;
-    }
-    .badge.gold { background: #fffbeb; color: #92400e; border-color: #fde68a; }
-    .badge.blue { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
-    h1 { margin: 0 0 12px; font-size: clamp(28px, 5vw, 48px); line-height: 1.15; letter-spacing: -0.02em; }
-    h2 { margin-top: 0; font-size: clamp(22px, 3vw, 32px); line-height: 1.25; }
-    h3 { margin-top: 0; font-size: 20px; }
-    .lead { font-size: 18px; color: var(--acs-muted); max-width: 920px; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-weight: 900;
-      border: 1px solid transparent;
-      text-decoration: none;
-    }
-    .btn-primary { background: var(--acs-primary); color: white; }
-    .btn-secondary { background: white; color: var(--acs-primary-dark); border-color: var(--acs-line); }
-    .btn-warning { background: #fef3c7; color: #92400e; border-color: #fde68a; }
-    .grid { display: grid; gap: 18px; }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .card {
-      background: var(--acs-card);
-      border: 1px solid var(--acs-line);
-      border-radius: var(--acs-radius);
-      padding: 22px;
-      box-shadow: var(--acs-shadow);
-    }
-    .muted { color: var(--acs-muted); }
-    .section { margin: 26px 0; }
-    .stat {
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--acs-primary-dark);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .table-wrap { overflow-x: auto; border-radius: var(--acs-radius); border: 1px solid var(--acs-line); background: white; }
-    table { width: 100%; border-collapse: collapse; min-width: 760px; }
-    th, td { padding: 12px 14px; border-bottom: 1px solid var(--acs-line); text-align: left; vertical-align: top; }
-    th { background: #f8fafc; font-weight: 900; color: #0f172a; }
-    tr:last-child td { border-bottom: 0; }
-    .note {
-      border-left: 5px solid var(--acs-accent);
-      background: #fffbeb;
-      padding: 16px 18px;
-      border-radius: 12px;
-    }
-    .success {
-      border-left: 5px solid var(--acs-primary);
-      background: #ecfdf5;
-      padding: 16px 18px;
-      border-radius: 12px;
-    }
-    .warning {
-      border-left: 5px solid var(--acs-danger);
-      background: #fef2f2;
-      color: #7f1d1d;
-      padding: 16px 18px;
-      border-radius: 12px;
-    }
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(140px, 1fr));
-      gap: 10px;
-      align-items: stretch;
-    }
-    .flow-step {
-      background: #f8fafc;
-      border: 1px solid var(--acs-line);
-      border-radius: 16px;
-      padding: 14px;
-      position: relative;
-      min-height: 130px;
-    }
-    .flow-step strong { display: block; color: var(--acs-primary-dark); margin-bottom: 6px; }
-    .flow-step:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      right: -14px;
-      top: 40%;
-      font-weight: 900;
-      color: var(--acs-primary);
-      background: white;
-      border-radius: 999px;
-      padding: 0 4px;
-    }
-    .module-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; padding: 0; list-style: none; }
-    .module-list li { background: #f8fafc; border: 1px solid var(--acs-line); padding: 12px; border-radius: 12px; }
-    .faq details { background: white; border: 1px solid var(--acs-line); border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; }
-    .faq summary { cursor: pointer; font-weight: 800; }
-    .site-footer { margin-top: 38px; padding: 28px 18px; background: #0f172a; color: #e2e8f0; }
-    .footer-inner { max-width: 1180px; margin: 0 auto; display: grid; gap: 14px; }
-    .small { font-size: 13px; }
-    .pill-list { display: flex; gap: 10px; flex-wrap: wrap; padding: 0; margin: 12px 0 0; list-style: none; }
-    .pill-list li { padding: 8px 11px; background: #f1f5f9; border: 1px solid var(--acs-line); border-radius: 999px; font-weight: 700; font-size: 14px; }
-    @media (max-width: 900px) {
-      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-      .hero { padding: 22px; border-radius: 20px; }
-      .flow { grid-template-columns: 1fr; }
-      .flow-step:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -20px; transform: translateX(50%); }
-      .module-list { grid-template-columns: 1fr; }
-      .nav { align-items: flex-start; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -218,18 +33,433 @@
     "inLanguage": "hi-IN"
   }
   </script>
+  <style>
+    :root {
+      --ink: #0d1117;
+      --ink-soft: #1c2433;
+      --paper: #faf8f4;
+      --cream: #f2ede4;
+      --teal: #0b6e63;
+      --teal-bright: #0d9488;
+      --teal-glow: #5eead4;
+      --gold: #c9920a;
+      --gold-light: #fde68a;
+      --red: #9b1c1c;
+      --muted: #5a6a7e;
+      --line: #ddd8cf;
+      --card-bg: #ffffff;
+      --mono: 'Space Mono', monospace;
+      --serif: 'Playfair Display', Georgia, serif;
+      --hindi: 'Noto Sans Devanagari', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--hindi);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      background: var(--ink);
+      color: #94a3b8;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .topbar span { display: flex; align-items: center; gap: 6px; }
+    .topbar .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal-glow); display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    /* ─── NAV ─── */
+    .site-header {
+      background: rgba(250,248,244,0.92);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+    }
+    .nav {
+      max-width: 1200px; margin: 0 auto;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .brand {
+      font-family: var(--mono);
+      font-size: 13px; font-weight: 700;
+      color: var(--ink); letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .brand em { color: var(--teal); font-style: normal; }
+    .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+    .nav-links a {
+      font-size: 13px; color: var(--muted);
+      padding: 6px 12px; border-radius: 6px;
+      text-decoration: none; transition: all 0.2s;
+      font-family: var(--hindi);
+    }
+    .nav-links a:hover, .nav-links a[aria-current] {
+      background: var(--ink); color: white;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; overflow: hidden;
+      background: var(--ink);
+      padding: 80px 24px 60px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 20%, rgba(11,110,99,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,146,10,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+      background-image:
+        linear-gradient(to right, #fff 1px, transparent 1px),
+        linear-gradient(to bottom, #fff 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+    .hero-label {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
+      color: var(--teal-glow); text-transform: uppercase; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-label::before { content:''; display:block; width:32px; height:1px; background:var(--teal-glow); }
+    .hero h1 {
+      font-family: var(--hindi);
+      font-size: clamp(32px, 5.5vw, 60px);
+      font-weight: 900; line-height: 1.12;
+      color: #ffffff; letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .hero h1 .accent { color: var(--teal-glow); }
+    .hero .lead {
+      font-size: clamp(15px, 2vw, 18px);
+      color: #94a3b8; max-width: 780px;
+      margin-bottom: 36px; line-height: 1.75;
+    }
+    .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 6px;
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .badge-teal { background: rgba(13,148,136,0.2); color: var(--teal-glow); border: 1px solid rgba(94,234,212,0.3); }
+    .badge-gold { background: rgba(201,146,10,0.15); color: #fbbf24; border: 1px solid rgba(253,230,138,0.3); }
+    .badge-white { background: rgba(255,255,255,0.08); color: #e2e8f0; border: 1px solid rgba(255,255,255,0.15); }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 22px; border-radius: 8px;
+      font-weight: 700; font-size: 14px; text-decoration: none;
+      transition: all 0.2s; cursor: pointer; border: none;
+      font-family: var(--hindi);
+    }
+    .btn-primary { background: var(--teal); color: white; }
+    .btn-primary:hover { background: var(--teal-bright); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(11,110,99,0.4); }
+    .btn-outline { background: transparent; color: #e2e8f0; border: 1px solid rgba(255,255,255,0.25); }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
+    .btn-gold { background: var(--gold); color: white; }
+    .btn-gold:hover { background: #a87808; transform: translateY(-1px); }
+
+    /* ─── STATS ROW ─── */
+    .stats-row {
+      background: var(--ink-soft);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 28px 24px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 42px; font-weight: 700;
+      color: var(--teal-glow); line-height: 1;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .stat-label { font-size: 13px; color: #64748b; line-height: 1.4; }
+
+    /* ─── PAGE WRAPPER ─── */
+    .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
+
+    /* ─── SECTIONS ─── */
+    .section { margin: 48px 0; }
+    .section-label {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::after { content:''; flex:1; height:1px; background: var(--line); }
+    h2 {
+      font-family: var(--hindi); font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800; line-height: 1.25; color: var(--ink);
+      margin-bottom: 16px;
+    }
+    h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    p { color: var(--muted); margin-bottom: 14px; }
+
+    /* ─── CARDS ─── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--teal-glow) 100%);
+    }
+    .card-gold::before { background: linear-gradient(90deg, var(--gold) 0%, #fbbf24 100%); }
+    .card-red::before { background: linear-gradient(90deg, var(--red) 0%, #ef4444 100%); }
+    .card-plain::before { display: none; }
+
+    /* ─── GRID ─── */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    /* ─── LADDER TABLE ─── */
+    .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--line); background: white; }
+    table { width: 100%; border-collapse: collapse; min-width: 680px; }
+    th {
+      background: var(--ink); color: white;
+      padding: 13px 16px; text-align: left;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+    }
+    td { padding: 13px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 14px; vertical-align: top; }
+    td strong { color: var(--ink); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+    .tfoot td { background: var(--ink-soft); color: white; font-weight: 700; }
+
+    /* ─── FLOW ─── */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0; position: relative;
+    }
+    .flow-step {
+      background: white; border: 1px solid var(--line);
+      padding: 22px 18px; position: relative;
+      transition: all 0.25s;
+    }
+    .flow-step:first-child { border-radius: 12px 0 0 12px; }
+    .flow-step:last-child { border-radius: 0 12px 12px 0; }
+    .flow-step:not(:last-child) { border-right: none; }
+    .flow-step:hover { background: #f0fdfa; border-color: var(--teal); z-index: 2; }
+    .flow-num {
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      color: var(--teal); letter-spacing: 0.1em;
+      margin-bottom: 8px; display: block;
+    }
+    .flow-step strong { display: block; font-size: 14px; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+    .flow-step span { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+    .flow-arrow {
+      position: absolute; right: -14px; top: 50%;
+      transform: translateY(-50%);
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--teal); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; z-index: 3;
+      box-shadow: 0 2px 8px rgba(11,110,99,0.3);
+    }
+
+    /* ─── MODULE LIST ─── */
+    .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; list-style: none; }
+    .module-grid li {
+      background: #f8fafc; border: 1px solid var(--line);
+      border-radius: 10px; padding: 14px 16px;
+      display: flex; gap: 12px; align-items: flex-start;
+      transition: all 0.2s;
+    }
+    .module-grid li:hover { border-color: var(--teal); background: #f0fdfa; }
+    .module-code {
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      color: white; background: var(--teal);
+      padding: 3px 8px; border-radius: 4px;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .module-code.adv { background: var(--gold); }
+    .module-text { font-size: 14px; color: var(--ink); font-weight: 500; line-height: 1.4; }
+    .module-hrs { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* ─── CALLOUTS ─── */
+    .callout {
+      border-radius: 12px; padding: 18px 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+      margin-top: 18px;
+    }
+    .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .callout-body { flex: 1; }
+    .callout-body strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .callout-body p { font-size: 14px; margin: 0; }
+    .callout-teal { background: #ecfdf5; border: 1px solid #a7f3d0; }
+    .callout-teal .callout-body strong { color: #065f46; }
+    .callout-teal .callout-body p { color: #064e3b; }
+    .callout-gold { background: #fffbeb; border: 1px solid #fde68a; }
+    .callout-gold .callout-body strong { color: #78350f; }
+    .callout-gold .callout-body p { color: #92400e; }
+    .callout-red { background: #fef2f2; border: 1px solid #fecaca; }
+    .callout-red .callout-body strong { color: #7f1d1d; }
+    .callout-red .callout-body p { color: #991b1b; }
+
+    /* ─── PILL LIST ─── */
+    .pill-list { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; margin-top: 14px; }
+    .pill-list li {
+      padding: 7px 13px;
+      background: var(--cream); border: 1px solid var(--line);
+      border-radius: 999px; font-size: 13px; font-weight: 600;
+      color: var(--ink-soft); transition: all 0.2s;
+    }
+    .pill-list li:hover { background: var(--teal); color: white; border-color: var(--teal); }
+
+    /* ─── ASSESSMENT ─── */
+    .assess-table th { background: var(--teal); }
+
+    /* ─── CERT BLOCK ─── */
+    .cert-block {
+      background: linear-gradient(135deg, #0d1117 0%, #1c2433 100%);
+      border-radius: 16px; padding: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative; overflow: hidden;
+    }
+    .cert-block::before {
+      content: '📜';
+      position: absolute; right: 24px; top: 24px;
+      font-size: 48px; opacity: 0.15;
+    }
+    .cert-block h3 { color: var(--teal-glow); font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+    .cert-block .cert-title { color: white; font-size: 17px; font-weight: 800; margin-bottom: 12px; line-height: 1.35; }
+    .cert-block p { color: #94a3b8; font-size: 13.5px; line-height: 1.75; margin: 0; }
+
+    /* ─── FAQ ─── */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-list details {
+      background: white; border: 1px solid var(--line);
+      border-radius: 12px; overflow: hidden;
+      transition: all 0.2s;
+    }
+    .faq-list details[open] { border-color: var(--teal); box-shadow: 0 4px 20px rgba(11,110,99,0.1); }
+    .faq-list summary {
+      cursor: pointer; padding: 18px 20px;
+      font-weight: 700; font-size: 15px; color: var(--ink);
+      display: flex; align-items: center; justify-content: space-between;
+      list-style: none; gap: 12px;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after {
+      content: '+'; font-family: var(--mono); font-size: 20px;
+      color: var(--teal); flex-shrink: 0; transition: transform 0.2s;
+    }
+    .faq-list details[open] summary::after { transform: rotate(45deg); }
+    .faq-list .faq-body { padding: 0 20px 18px; color: var(--muted); font-size: 14.5px; line-height: 1.75; }
+
+    /* ─── LAB MACHINE LIST ─── */
+    .machine-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; }
+    .machine-list li {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; background: #f8fafc;
+      border-radius: 8px; border: 1px solid var(--line);
+      font-size: 14px; color: var(--ink-soft);
+    }
+    .machine-list li::before { content: '🖨'; font-size: 16px; flex-shrink: 0; }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      background: linear-gradient(135deg, #0b6e63 0%, #0d9488 50%, #0e7490 100%);
+      border-radius: 24px; padding: 48px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-final::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cta-final h2 { color: white; font-size: clamp(24px, 3vw, 36px); position: relative; }
+    .cta-final p { color: rgba(255,255,255,0.8); max-width: 560px; margin: 0 auto 28px; position: relative; }
+    .cta-row-center { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; position: relative; }
+    .btn-white { background: white; color: var(--teal); font-weight: 800; }
+    .btn-white:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.2); transform: translateY(-2px); }
+    .btn-wa { background: #25d366; color: white; }
+    .btn-wa:hover { background: #1da851; transform: translateY(-1px); }
+
+    /* ─── FOOTER ─── */
+    .site-footer { background: var(--ink); color: #64748b; padding: 40px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; gap: 8px; }
+    .footer-brand { font-family: var(--mono); color: white; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .footer-tagline { color: var(--teal-glow); font-size: 13px; margin-bottom: 12px; }
+    .footer-info { font-size: 12.5px; line-height: 1.8; }
+    .footer-info a { color: var(--teal-glow); text-decoration: none; }
+
+    /* ─── SCROLL ANIMATION ─── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .flow { grid-template-columns: 1fr; }
+      .flow-step:first-child { border-radius: 12px 12px 0 0; }
+      .flow-step:last-child { border-radius: 0 0 12px 12px; }
+      .flow-step:not(:last-child) { border-right: 1px solid var(--line); border-bottom: none; }
+      .flow-arrow { right: 50%; bottom: -14px; top: auto; transform: translateX(50%) rotate(90deg); }
+      .module-grid { grid-template-columns: 1fr; }
+      .machine-list { grid-template-columns: 1fr; }
+      .hero { padding: 48px 20px 40px; }
+    }
+    @media (max-width: 560px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-num { font-size: 32px; }
+      .cta-final { padding: 32px 20px; }
+      .topbar { font-size: 10px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- TOPBAR -->
   <div class="topbar">
-    <div class="topbar-inner">
-      <span>Applied Computer School™ — Complete Printer Technology Program</span>
-      <span>900 घंटे | Diploma + Advanced Diploma | Practical Repair Training</span>
-    </div>
+    <span><span class="dot"></span> Applied Computer School™ — Complete Printer Technology Program</span>
+    <span>900 घंटे | Diploma + Advanced Diploma | Practical Repair Training</span>
   </div>
 
+  <!-- NAV -->
   <header class="site-header">
     <nav class="nav" aria-label="मुख्य नेविगेशन">
-      <a class="brand" href="/index.html">Applied Computer School™</a>
+      <a class="brand" href="/index.html">ACS<em>™</em></a>
       <div class="nav-links">
         <a href="index.html">प्रिंटर कोर्स</a>
         <a href="course-details.html" aria-current="page">कोर्स डिटेल्स</a>
@@ -239,266 +469,480 @@
     </nav>
   </header>
 
-  <main class="page-wrap">
-    <section class="hero">
-      <div class="badge-row">
-        <span class="badge">900 घंटे</span>
-        <span class="badge">900 लेसन</span>
-        <span class="badge blue">2-Part Ladder Model</span>
-        <span class="badge gold">70% Practical Training</span>
-      </div>
-      <h1>Complete Printer Technology Program — डिप्लोमा से एडवांस डिप्लोमा तक</h1>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-lines"></div>
+    <div class="hero-inner">
+      <div class="hero-label">Complete Printer Technology Program</div>
+      <h1>डिप्लोमा से <span class="accent">एडवांस डिप्लोमा</span> तक —<br>900 घंटे की पूरी ट्रेनिंग</h1>
       <p class="lead">यह 900 घंटे का व्यावसायिक कोर्स विद्यार्थी को Printer, Inkjet, Ink Tank, Laser, Photocopier, A3 MFP, A2/A1 Plotter, POS Thermal, Label/Barcode, Dot Matrix, 3D FDM, DTF/UV introduction और Smart/Cloud Printing service market के लिए job-ready और self-employment-ready बनाता है।</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="index.html">प्रिंटर कोर्स शुरू करें</a>
-        <a class="btn btn-secondary" href="#syllabus">पूरा सिलेबस देखें</a>
-        <a class="btn btn-warning" href="#ladder">Diploma + Advanced Diploma नियम</a>
+      <div class="badge-row">
+        <span class="badge badge-teal">900 घंटे</span>
+        <span class="badge badge-teal">900 लेसन</span>
+        <span class="badge badge-white">2-Part Ladder Model</span>
+        <span class="badge badge-gold">70% Practical Training</span>
       </div>
-    </section>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="index.html">प्रिंटर कोर्स शुरू करें →</a>
+        <a class="btn btn-outline" href="#syllabus">पूरा सिलेबस देखें</a>
+        <a class="btn btn-gold" href="#ladder">Diploma + Adv. Diploma नियम</a>
+      </div>
+    </div>
+  </section>
 
-    <section class="section grid grid-4" aria-label="कोर्स सारांश">
-      <div class="card"><div class="stat">900</div><strong>कुल घंटे</strong><p class="muted">1 lesson = 1 hour practical learning block.</p></div>
-      <div class="card"><div class="stat">450</div><strong>Diploma Level</strong><p class="muted">Printer repairing और smart printing की strong foundation.</p></div>
-      <div class="card"><div class="stat">450</div><strong>Advanced Level</strong><p class="muted">Copier, plotter, 3D FDM, DTF/UV और service mode.</p></div>
-      <div class="card"><div class="stat">16</div><strong>Training Areas</strong><p class="muted">Hardware, software, networking, business और final project.</p></div>
-    </section>
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stats-inner">
+      <div class="stat-item reveal"><span class="stat-num">900</span><span class="stat-label">कुल घंटे<br>1 lesson = 1 hour practical block</span></div>
+      <div class="stat-item reveal"><span class="stat-num">450</span><span class="stat-label">Diploma Level<br>Printer repairing strong foundation</span></div>
+      <div class="stat-item reveal"><span class="stat-num">450</span><span class="stat-label">Advanced Level<br>Copier, plotter, 3D FDM, firmware</span></div>
+      <div class="stat-item reveal"><span class="stat-num">16</span><span class="stat-label">Training Areas<br>Hardware, software, networking, business</span></div>
+    </div>
+  </div>
 
-    <section class="section card" id="ladder">
+  <main class="page-wrap">
+
+    <!-- LADDER MODEL -->
+    <section class="section reveal" id="ladder">
+      <div class="section-label">Ladder Model</div>
       <h2>2-Part Ladder Model: पहले Diploma, फिर Advanced Diploma</h2>
-      <p>Student पहले 6 महीने का Diploma पूरा करके printer service market में basic काम शुरू कर सकता है। बाद में वही student अगले 6 महीने जारी रखकर Advanced Diploma पूरा कर सकता है। Part 1 के 450 hours को carry forward माना जाएगा, इसलिए उसे फिर से शुरुआत नहीं करनी होगी।</p>
+      <p>Student पहले 6 महीने का Diploma पूरा करके printer service market में basic काम शुरू कर सकता है। बाद में वही student अगले 6 महीने जारी रखकर Advanced Diploma पूरा कर सकता है। Part 1 के 450 hours को carry forward माना जाएगा।</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Level</th><th>Duration</th><th>Hours</th><th>Certificate</th><th>Main Focus</th></tr></thead>
+          <thead>
+            <tr><th>Level</th><th>Duration</th><th>Hours</th><th>Certificate</th><th>Main Focus</th></tr>
+          </thead>
           <tbody>
-            <tr><td><strong>Part 1</strong></td><td>6 महीने</td><td>450 घंटे</td><td>Diploma in Printer Repairing, Maintenance & Smart Printing</td><td>Inkjet, Laser, POS, Label, Dot Matrix, Wi-Fi/Mobile printing</td></tr>
-            <tr><td><strong>Part 2</strong></td><td>अगले 6 महीने</td><td>450 घंटे</td><td>Advanced Diploma in Complete Printer, Photocopier, Wide-Format & Smart Printing Machine Repairing</td><td>A3 Copier, A2/A1 Plotter, Service Mode, Firmware, 3D FDM, DTF/UV intro</td></tr>
-            <tr><td><strong>Total</strong></td><td>12 महीने</td><td>900 घंटे</td><td>Complete Advanced Diploma Pathway</td><td>Complete print technology service engineer pathway</td></tr>
+            <tr>
+              <td><strong>Part 1</strong></td>
+              <td>6 महीने</td>
+              <td><strong>450 घंटे</strong></td>
+              <td>Diploma in Printer Repairing, Maintenance & Smart Printing</td>
+              <td>Inkjet, Laser, POS, Label, Dot Matrix, Wi-Fi/Mobile printing</td>
+            </tr>
+            <tr>
+              <td><strong>Part 2</strong></td>
+              <td>अगले 6 महीने</td>
+              <td><strong>450 घंटे</strong></td>
+              <td>Advanced Diploma in Complete Printer, Photocopier, Wide-Format & Smart Printing Machine Repairing</td>
+              <td>A3 Copier, A2/A1 Plotter, Service Mode, Firmware, 3D FDM, DTF/UV intro</td>
+            </tr>
+            <tr class="tfoot">
+              <td><strong>Total</strong></td>
+              <td>12 महीने</td>
+              <td><strong>900 घंटे</strong></td>
+              <td>Complete Advanced Diploma Pathway</td>
+              <td>Complete print technology service engineer pathway</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <p class="success"><strong>Exit और Re-entry सुविधा:</strong> Student 450 घंटे के बाद Diploma लेकर रुक सकता है और बाद में Part 2 continue कर सकता है। Direct Part 2 entry केवल skill test, safety test और multimeter handling test पास करने के बाद होगी।</p>
-    </section>
-
-    <section class="section card">
-      <h2>Training Flow</h2>
-      <p class="muted">यह flow दिखाता है कि learner basic safety से professional printer/copier service project तक कैसे आगे बढ़ेगा।</p>
-      <div class="flow" role="img" aria-label="Complete Printer Technology Program learning flow">
-        <div class="flow-step"><strong>1. Safety + Tools</strong><span>Workshop safety, ESD, multimeter, power-off procedure और service discipline.</span></div>
-        <div class="flow-step"><strong>2. Printer Foundation</strong><span>Inkjet, ink tank, laser, thermal, label और dot matrix printer service.</span></div>
-        <div class="flow-step"><strong>3. Smart Printing</strong><span>Driver, Wi-Fi Direct, mobile app, cloud print, page scale और Fit-to-Page settings.</span></div>
-        <div class="flow-step"><strong>4. Advanced Machines</strong><span>Photocopier, A3 MFP, A2/A1 plotter, firmware, service mode और counter diagnosis.</span></div>
-        <div class="flow-step"><strong>5. Live Project</strong><span>Live repair, customer report, AMC proposal, final capstone और viva.</span></div>
+      <div class="callout callout-teal">
+        <span class="callout-icon">✅</span>
+        <div class="callout-body">
+          <strong>Exit और Re-entry सुविधा</strong>
+          <p>Student 450 घंटे के बाद Diploma लेकर रुक सकता है और बाद में Part 2 continue कर सकता है। Direct Part 2 entry केवल skill test, safety test और multimeter handling test पास करने के बाद होगी।</p>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="benefits">
-      <div class="grid grid-2">
+    <!-- TRAINING FLOW -->
+    <section class="section reveal">
+      <div class="section-label">Learning Path</div>
+      <h2>Training Flow</h2>
+      <p style="margin-bottom:20px;">यह flow दिखाता है कि learner basic safety से professional printer/copier service project तक कैसे आगे बढ़ेगा।</p>
+      <div class="flow" role="img" aria-label="Complete Printer Technology Program learning flow">
+        <div class="flow-step">
+          <span class="flow-num">STEP 01</span>
+          <strong>Safety + Tools</strong>
+          <span>Workshop safety, ESD, multimeter, power-off procedure और service discipline.</span>
+          <div class="flow-arrow">→</div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">STEP 02</span>
+          <strong>Printer Foundation</strong>
+          <span>Inkjet, ink tank, laser, thermal, label और dot matrix printer service.</span>
+          <div class="flow-arrow">→</div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">STEP 03</span>
+          <strong>Smart Printing</strong>
+          <span>Driver, Wi-Fi Direct, mobile app, cloud print, page scale और Fit-to-Page settings.</span>
+          <div class="flow-arrow">→</div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">STEP 04</span>
+          <strong>Advanced Machines</strong>
+          <span>Photocopier, A3 MFP, A2/A1 plotter, firmware, service mode और counter diagnosis.</span>
+          <div class="flow-arrow">→</div>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">STEP 05</span>
+          <strong>Live Project</strong>
+          <span>Live repair, customer report, AMC proposal, final capstone और viva.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO + OUTCOME -->
+    <section class="section reveal" id="benefits">
+      <div class="section-label">Eligibility & Outcomes</div>
+      <div class="grid-2">
         <div class="card">
           <h2>कौन जुड़ सकता है?</h2>
-          <ul>
-            <li>10वीं/12वीं विद्यार्थी और ITI/technical interest वाले learner</li>
-            <li>Computer hardware, cyber café, CSC या print-shop से जुड़े युवा</li>
-            <li>Mobile/computer repair shop owner जो printer service जोड़ना चाहते हैं</li>
-            <li>School, office, bank, hospital या coaching printer maintenance सीखने वाले</li>
-            <li>Self-employment और doorstep printer service शुरू करने वाले learner</li>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--teal);font-weight:700;flex-shrink:0;">▸</span>10वीं/12वीं विद्यार्थी और ITI/technical interest वाले learner</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--teal);font-weight:700;flex-shrink:0;">▸</span>Computer hardware, cyber café, CSC या print-shop से जुड़े युवा</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--teal);font-weight:700;flex-shrink:0;">▸</span>Mobile/computer repair shop owner जो printer service जोड़ना चाहते हैं</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--teal);font-weight:700;flex-shrink:0;">▸</span>School, office, bank, hospital या coaching printer maintenance सीखने वाले</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--teal);font-weight:700;flex-shrink:0;">▸</span>Self-employment और doorstep printer service शुरू करने वाले learner</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="card card-gold">
           <h2>कोर्स के बाद विद्यार्थी क्या कर सकेगा?</h2>
-          <ul>
-            <li>Inkjet, ink tank और laser printer की common faults diagnose कर सकेगा।</li>
-            <li>Paper jam, double paper feed, print quality, toner, drum और fuser issues समझ सकेगा।</li>
-            <li>Photocopier, A3 MFP और A2/A1 plotter की basic-to-advanced servicing कर सकेगा।</li>
-            <li>POS, Bluetooth thermal, label/barcode और dot matrix printers setup/repair कर सकेगा।</li>
-            <li>Customer estimate, service report, AMC और local service business plan बना सकेगा।</li>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Inkjet, ink tank और laser printer की common faults diagnose कर सकेगा।</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Paper jam, double paper feed, print quality, toner, drum और fuser issues समझ सकेगा।</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Photocopier, A3 MFP और A2/A1 plotter की basic-to-advanced servicing कर सकेगा।</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>POS, Bluetooth thermal, label/barcode और dot matrix printers setup/repair कर सकेगा।</li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700;flex-shrink:0;">✓</span>Customer estimate, service report, AMC और local service business plan बना सकेगा।</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="section card" id="syllabus">
-      <h2>Part 1 — Diploma Syllabus: 450 घंटे</h2>
-      <ol class="module-list">
-        <li><strong>D1:</strong> Workshop Safety, Tools & Service Discipline — 30 घंटे</li>
-        <li><strong>D2:</strong> Basic Electronics, Sensors, Motors & Multimeter Diagnosis — 40 घंटे</li>
-        <li><strong>D3:</strong> Printing Technology, Paper, Media & Consumables — 25 घंटे</li>
-        <li><strong>D4:</strong> Inkjet, Ink Tank, Photo & PVC/Heavy Media Printer Repair — 70 घंटे</li>
-        <li><strong>D5:</strong> Laser Printer Repair — Mono, Color & Laser Tank Basics — 80 घंटे</li>
-        <li><strong>D6:</strong> POS, Bluetooth Thermal, Label, Barcode & Dot Matrix Printer — 55 घंटे</li>
-        <li><strong>D7:</strong> Mobile App, Wi-Fi, Driver & Basic Network Printing — 30 घंटे</li>
-        <li><strong>D8:</strong> Refilling, Waste Ink/Toner & Preventive Maintenance Basics — 20 घंटे</li>
-        <li><strong>D9:</strong> Diploma Live Repair Practice + Mini Project — 100 घंटे</li>
+    <!-- DIPLOMA SYLLABUS -->
+    <section class="section reveal" id="syllabus">
+      <div class="section-label">Part 1 — Diploma</div>
+      <h2>Diploma Syllabus: 450 घंटे</h2>
+      <ol class="module-grid">
+        <li><span class="module-code">D1</span><div><div class="module-text">Workshop Safety, Tools & Service Discipline</div><div class="module-hrs">30 घंटे</div></div></li>
+        <li><span class="module-code">D2</span><div><div class="module-text">Basic Electronics, Sensors, Motors & Multimeter Diagnosis</div><div class="module-hrs">40 घंटे</div></div></li>
+        <li><span class="module-code">D3</span><div><div class="module-text">Printing Technology, Paper, Media & Consumables</div><div class="module-hrs">25 घंटे</div></div></li>
+        <li><span class="module-code">D4</span><div><div class="module-text">Inkjet, Ink Tank, Photo & PVC/Heavy Media Printer Repair</div><div class="module-hrs">70 घंटे</div></div></li>
+        <li><span class="module-code">D5</span><div><div class="module-text">Laser Printer Repair — Mono, Color & Laser Tank Basics</div><div class="module-hrs">80 घंटे</div></div></li>
+        <li><span class="module-code">D6</span><div><div class="module-text">POS, Bluetooth Thermal, Label, Barcode & Dot Matrix Printer</div><div class="module-hrs">55 घंटे</div></div></li>
+        <li><span class="module-code">D7</span><div><div class="module-text">Mobile App, Wi-Fi, Driver & Basic Network Printing</div><div class="module-hrs">30 घंटे</div></div></li>
+        <li><span class="module-code">D8</span><div><div class="module-text">Refilling, Waste Ink/Toner & Preventive Maintenance Basics</div><div class="module-hrs">20 घंटे</div></div></li>
+        <li><span class="module-code">D9</span><div><div class="module-text">Diploma Live Repair Practice + Mini Project</div><div class="module-hrs">100 घंटे</div></div></li>
       </ol>
-      <p class="note"><strong>Diploma level outcome:</strong> Student market में सबसे ज्यादा आने वाले A4 printers, ink tank, laser, POS, label, dot matrix और mobile/Wi-Fi printing faults पर काम करने लायक foundation प्राप्त करेगा।</p>
+      <div class="callout callout-gold" style="margin-top:18px;">
+        <span class="callout-icon">📌</span>
+        <div class="callout-body">
+          <strong>Diploma level outcome</strong>
+          <p>Student market में सबसे ज्यादा आने वाले A4 printers, ink tank, laser, POS, label, dot matrix और mobile/Wi-Fi printing faults पर काम करने लायक foundation प्राप्त करेगा।</p>
+        </div>
+      </div>
     </section>
 
-    <section class="section card">
-      <h2>Part 2 — Advanced Diploma Syllabus: 450 घंटे</h2>
-      <ol class="module-list">
-        <li><strong>A1:</strong> Photocopier / Xerox / A3 MFP Repair — 100 घंटे</li>
-        <li><strong>A2:</strong> Scanner, ADF, Duplex & Finisher Units — 40 घंटे</li>
-        <li><strong>A3:</strong> Wide-Format / A2 / A1 / Plotter Repair — 70 घंटे</li>
-        <li><strong>A4:</strong> Advanced Mobile, Cloud, Network & Scan-to-Folder — 35 घंटे</li>
-        <li><strong>A5:</strong> Firmware, Service Mode, Reset & Chip Error Diagnosis — 40 घंटे</li>
-        <li><strong>A6:</strong> DTF / UV / Commercial Inkjet Printer Introduction — 35 घंटे</li>
-        <li><strong>A7:</strong> 3D FDM Printer Basics & Maintenance — 40 घंटे</li>
-        <li><strong>A8:</strong> Advanced Refilling, Consumables, Waste Ink/Toner & PM — 15 घंटे</li>
-        <li><strong>A9:</strong> Customer Handling, AMC, Business & Compliance — 35 घंटे</li>
-        <li><strong>A10:</strong> Advanced Live Repair Internship + Final Capstone — 40 घंटे</li>
+    <!-- ADVANCED DIPLOMA SYLLABUS -->
+    <section class="section reveal">
+      <div class="section-label">Part 2 — Advanced Diploma</div>
+      <h2>Advanced Diploma Syllabus: 450 घंटे</h2>
+      <ol class="module-grid">
+        <li><span class="module-code adv">A1</span><div><div class="module-text">Photocopier / Xerox / A3 MFP Repair</div><div class="module-hrs">100 घंटे</div></div></li>
+        <li><span class="module-code adv">A2</span><div><div class="module-text">Scanner, ADF, Duplex & Finisher Units</div><div class="module-hrs">40 घंटे</div></div></li>
+        <li><span class="module-code adv">A3</span><div><div class="module-text">Wide-Format / A2 / A1 / Plotter Repair</div><div class="module-hrs">70 घंटे</div></div></li>
+        <li><span class="module-code adv">A4</span><div><div class="module-text">Advanced Mobile, Cloud, Network & Scan-to-Folder</div><div class="module-hrs">35 घंटे</div></div></li>
+        <li><span class="module-code adv">A5</span><div><div class="module-text">Firmware, Service Mode, Reset & Chip Error Diagnosis</div><div class="module-hrs">40 घंटे</div></div></li>
+        <li><span class="module-code adv">A6</span><div><div class="module-text">DTF / UV / Commercial Inkjet Printer Introduction</div><div class="module-hrs">35 घंटे</div></div></li>
+        <li><span class="module-code adv">A7</span><div><div class="module-text">3D FDM Printer Basics & Maintenance</div><div class="module-hrs">40 घंटे</div></div></li>
+        <li><span class="module-code adv">A8</span><div><div class="module-text">Advanced Refilling, Consumables, Waste Ink/Toner & PM</div><div class="module-hrs">15 घंटे</div></div></li>
+        <li><span class="module-code adv">A9</span><div><div class="module-text">Customer Handling, AMC, Business & Compliance</div><div class="module-hrs">35 घंटे</div></div></li>
+        <li><span class="module-code adv">A10</span><div><div class="module-text">Advanced Live Repair Internship + Final Capstone</div><div class="module-hrs">40 घंटे</div></div></li>
       </ol>
-      <p class="note"><strong>Advanced level outcome:</strong> Student photocopier, plotter, firmware/service mode, cloud printing, 3D printer, DTF/UV workflow, AMC और corporate client handling की advanced practical समझ विकसित करेगा।</p>
-    </section>
-
-    <section class="section card">
-      <h2>Special Refinements जो इस course में शामिल हैं</h2>
-      <ul class="pill-list">
-        <li>Manual Ink Purging</li>
-        <li>Double Paper Feed Fault</li>
-        <li>Fit-to-Page / Scale Settings</li>
-        <li>Laser Scanner Unit Diagnosis</li>
-        <li>Polygon Motor Awareness</li>
-        <li>USB Firmware Flash Safety</li>
-        <li>3D Bed Adhesion Failure</li>
-        <li>IPA Bed Cleaning</li>
-        <li>DTF White Ink Maintenance</li>
-        <li>Chip Error Ethics</li>
-        <li>Counter Reset Documentation</li>
-        <li>Data Privacy for ID Documents</li>
-      </ul>
-    </section>
-
-    <section class="section card" id="assessment">
-      <h2>Diploma Exam — 100 Marks</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Assessment Area</th><th>Marks</th></tr></thead>
-          <tbody>
-            <tr><td>Safety and tool handling</td><td>10</td></tr>
-            <tr><td>Electronics and sensor basics</td><td>10</td></tr>
-            <tr><td>Inkjet / Ink Tank practical</td><td>20</td></tr>
-            <tr><td>Laser printer practical</td><td>20</td></tr>
-            <tr><td>POS / Label / Dot Matrix practical</td><td>10</td></tr>
-            <tr><td>Mobile / Wi-Fi / Driver setup</td><td>10</td></tr>
-            <tr><td>Refilling and preventive maintenance</td><td>10</td></tr>
-            <tr><td>Mini project + service report</td><td>10</td></tr>
-            <tr><th>कुल</th><th>100</th></tr>
-          </tbody>
-        </table>
+      <div class="callout callout-gold" style="margin-top:18px;">
+        <span class="callout-icon">📌</span>
+        <div class="callout-body">
+          <strong>Advanced level outcome</strong>
+          <p>Student photocopier, plotter, firmware/service mode, cloud printing, 3D printer, DTF/UV workflow, AMC और corporate client handling की advanced practical समझ विकसित करेगा।</p>
+        </div>
       </div>
     </section>
 
-    <section class="section card">
-      <h2>Advanced Diploma Exam — 100 Marks</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Assessment Area</th><th>Marks</th></tr></thead>
-          <tbody>
-            <tr><td>Photocopier / A3 MFP practical</td><td>20</td></tr>
-            <tr><td>Scanner / ADF / Duplex</td><td>10</td></tr>
-            <tr><td>Wide-format / A2-A1 plotter</td><td>15</td></tr>
-            <tr><td>Firmware / service mode / reset diagnosis</td><td>10</td></tr>
-            <tr><td>Advanced network / cloud printing</td><td>8</td></tr>
-            <tr><td>DTF / UV introduction practical</td><td>8</td></tr>
-            <tr><td>3D FDM printer maintenance</td><td>8</td></tr>
-            <tr><td>Business / AMC / documentation</td><td>6</td></tr>
-            <tr><td>Final capstone project</td><td>15</td></tr>
-            <tr><th>कुल</th><th>100</th></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="warning"><strong>Safety passing rule:</strong> Copier, plotter, fuser unit, firmware flash और electrical diagnosis पर practical तभी मिलेगा जब learner D1 safety और D2 multimeter handling test पास करे।</p>
-    </section>
-
-    <section class="section card">
-      <h2>Direct Entry Guardrail</h2>
-      <p>अगर कोई learner सीधे Part 2 Advanced Diploma में admission लेना चाहता है, तो उसे printer repairing का prior practical knowledge proof करना होगा। महंगी A3 copier, A2/A1 plotter और firmware-related मशीनों की safety के लिए यह rule अनिवार्य रहेगा।</p>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Mandatory Test</th><th>क्या check होगा?</th><th>Fail होने पर नियम</th></tr></thead>
-          <tbody>
-            <tr><td>D1 Workshop Safety Test</td><td>ESD, power-off, hot fuser safety, ribbon cable, chemical/toner handling</td><td>Student को advanced machine touch करने की अनुमति नहीं होगी।</td></tr>
-            <tr><td>D2 Multimeter Handling Test</td><td>Voltage, continuity, fuse, adapter/SMPS output, sensor और cable inspection</td><td>Student को electronics और copier/plotter practical से पहले bridge training करनी होगी।</td></tr>
-          </tbody>
-        </table>
+    <!-- SPECIAL REFINEMENTS -->
+    <section class="section reveal">
+      <div class="section-label">Specializations</div>
+      <div class="card card-plain" style="background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%); border-color:#a7f3d0;">
+        <h2>Special Refinements — इस course में शामिल हैं</h2>
+        <ul class="pill-list">
+          <li>Manual Ink Purging</li>
+          <li>Double Paper Feed Fault</li>
+          <li>Fit-to-Page / Scale Settings</li>
+          <li>Laser Scanner Unit Diagnosis</li>
+          <li>Polygon Motor Awareness</li>
+          <li>USB Firmware Flash Safety</li>
+          <li>3D Bed Adhesion Failure</li>
+          <li>IPA Bed Cleaning</li>
+          <li>DTF White Ink Maintenance</li>
+          <li>Chip Error Ethics</li>
+          <li>Counter Reset Documentation</li>
+          <li>Data Privacy for ID Documents</li>
+        </ul>
       </div>
     </section>
 
-    <section class="section card">
-      <h2>Lab Setup और Practice Machines</h2>
-      <p>इस course को सही ढंग से चलाने के लिए institute में working और faulty दोनों तरह की machines रहनी चाहिए। Student को केवल theory नहीं, बल्कि live machines पर diagnosis और service report बनाना सीखना होगा।</p>
-      <ul>
-        <li>Inkjet / Ink Tank Printer — 4 से 6 machines</li>
-        <li>Photo Printer / PVC Tray Supported Printer — 1 से 2 machines</li>
-        <li>Mono Laser Printer — 2 machines</li>
-        <li>Color Laser Printer — 1 machine</li>
-        <li>HP Neverstop / Laser Tank Printer — 1 machine</li>
-        <li>A3 Photocopier / Xerox MFP — 1 से 2 machines</li>
-        <li>A2/A1 Wide-Format Printer / Plotter — 1 machine</li>
-        <li>POS 80mm Thermal Printer और 58mm Bluetooth Thermal Printer</li>
-        <li>Label / Barcode Printer और Dot Matrix Printer</li>
-        <li>FDM 3D Printer और DTF/UV demo kit, यदि उपलब्ध हो</li>
-      </ul>
-    </section>
-
-    <section class="section card">
-      <h2>Final Capstone Project</h2>
-      <p>Advanced Diploma final में student को कम से कम 3 live machines पर project करना होगा: एक office machine, एक ink-based machine और एक modern/special machine. Final report में customer complaint, model, serial number, visual inspection, error code, test print/copy/scan, diagnosis, parts estimate, repair action, safety check और final proof शामिल रहेगा।</p>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Project Type</th><th>Machine Example</th><th>Expected Output</th></tr></thead>
-          <tbody>
-            <tr><td>Office Machine</td><td>Laser Printer / A3 Photocopier</td><td>Fault diagnosis, repair, test print/copy और service report</td></tr>
-            <tr><td>Ink-Based Machine</td><td>Inkjet / Ink Tank / Photo / Wide-Format</td><td>Nozzle check, print quality diagnosis, ink system service</td></tr>
-            <tr><td>Modern/Special Machine</td><td>POS Bluetooth / Label / 3D FDM / DTF-UV Demo</td><td>Setup, calibration, troubleshooting और customer explanation</td></tr>
-          </tbody>
-        </table>
+    <!-- ASSESSMENT -->
+    <section class="section reveal" id="assessment">
+      <div class="section-label">Assessment</div>
+      <div class="grid-2">
+        <div class="card">
+          <h2>Diploma Exam — 100 Marks</h2>
+          <div class="table-wrap" style="margin-top:12px;">
+            <table class="assess-table">
+              <thead><tr><th>Assessment Area</th><th style="text-align:right;">Marks</th></tr></thead>
+              <tbody>
+                <tr><td>Safety and tool handling</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr><td>Electronics and sensor basics</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr><td>Inkjet / Ink Tank practical</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">20</td></tr>
+                <tr><td>Laser printer practical</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">20</td></tr>
+                <tr><td>POS / Label / Dot Matrix practical</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr><td>Mobile / Wi-Fi / Driver setup</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr><td>Refilling and preventive maintenance</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr><td>Mini project + service report</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr class="tfoot"><td><strong>कुल</strong></td><td style="text-align:right;font-family:var(--mono);"><strong>100</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card card-gold">
+          <h2>Advanced Diploma Exam — 100 Marks</h2>
+          <div class="table-wrap" style="margin-top:12px;">
+            <table>
+              <thead style=""><tr><th style="background:var(--gold);">Assessment Area</th><th style="background:var(--gold);text-align:right;">Marks</th></tr></thead>
+              <tbody>
+                <tr><td>Photocopier / A3 MFP practical</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">20</td></tr>
+                <tr><td>Scanner / ADF / Duplex</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr><td>Wide-format / A2-A1 plotter</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">15</td></tr>
+                <tr><td>Firmware / service mode / reset</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">10</td></tr>
+                <tr><td>Advanced network / cloud printing</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">8</td></tr>
+                <tr><td>DTF / UV introduction practical</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">8</td></tr>
+                <tr><td>3D FDM printer maintenance</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">8</td></tr>
+                <tr><td>Business / AMC / documentation</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">6</td></tr>
+                <tr><td>Final capstone project</td><td style="text-align:right;font-family:var(--mono);font-weight:700;">15</td></tr>
+                <tr class="tfoot"><td><strong>कुल</strong></td><td style="text-align:right;font-family:var(--mono);"><strong>100</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-red" style="margin-top:14px;">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-body">
+              <strong>Safety passing rule</strong>
+              <p>Copier, plotter, fuser unit, firmware flash और electrical diagnosis पर practical तभी मिलेगा जब learner D1 safety और D2 multimeter handling test पास करे।</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section card">
+    <!-- DIRECT ENTRY GUARDRAIL -->
+    <section class="section reveal">
+      <div class="section-label">Entry Rules</div>
+      <div class="card card-red">
+        <h2>Direct Entry Guardrail</h2>
+        <p>अगर कोई learner सीधे Part 2 Advanced Diploma में admission लेना चाहता है, तो उसे printer repairing का prior practical knowledge proof करना होगा। महंगी A3 copier, A2/A1 plotter और firmware-related मशीनों की safety के लिए यह rule अनिवार्य रहेगा।</p>
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <thead><tr><th>Mandatory Test</th><th>क्या check होगा?</th><th>Fail होने पर नियम</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>D1 Workshop Safety Test</strong></td>
+                <td>ESD, power-off, hot fuser safety, ribbon cable, chemical/toner handling</td>
+                <td>Student को advanced machine touch करने की अनुमति नहीं होगी।</td>
+              </tr>
+              <tr>
+                <td><strong>D2 Multimeter Handling Test</strong></td>
+                <td>Voltage, continuity, fuse, adapter/SMPS output, sensor और cable inspection</td>
+                <td>Student को electronics और copier/plotter practical से पहले bridge training करनी होगी।</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAB SETUP -->
+    <section class="section reveal">
+      <div class="section-label">Lab Infrastructure</div>
+      <div class="card">
+        <h2>Lab Setup और Practice Machines</h2>
+        <p>इस course को सही ढंग से चलाने के लिए institute में working और faulty दोनों तरह की machines रहनी चाहिए। Student को live machines पर diagnosis और service report बनाना सीखना होगा।</p>
+        <ul class="machine-list">
+          <li>Inkjet / Ink Tank Printer — 4 से 6 machines</li>
+          <li>Photo Printer / PVC Tray Supported Printer — 1 से 2 machines</li>
+          <li>Mono Laser Printer — 2 machines</li>
+          <li>Color Laser Printer — 1 machine</li>
+          <li>HP Neverstop / Laser Tank Printer — 1 machine</li>
+          <li>A3 Photocopier / Xerox MFP — 1 से 2 machines</li>
+          <li>A2/A1 Wide-Format Printer / Plotter — 1 machine</li>
+          <li>POS 80mm Thermal Printer + 58mm Bluetooth Thermal</li>
+          <li>Label / Barcode Printer + Dot Matrix Printer</li>
+          <li>FDM 3D Printer + DTF/UV demo kit (यदि उपलब्ध)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FINAL CAPSTONE -->
+    <section class="section reveal">
+      <div class="section-label">Capstone Project</div>
+      <div class="card">
+        <h2>Final Capstone Project</h2>
+        <p>Advanced Diploma final में student को कम से कम 3 live machines पर project करना होगा: एक office machine, एक ink-based machine और एक modern/special machine. Final report में customer complaint, model, serial number, visual inspection, error code, test print/copy/scan, diagnosis, parts estimate, repair action, safety check और final proof शामिल रहेगा।</p>
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <thead><tr><th>Project Type</th><th>Machine Example</th><th>Expected Output</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Office Machine</strong></td>
+                <td>Laser Printer / A3 Photocopier</td>
+                <td>Fault diagnosis, repair, test print/copy और service report</td>
+              </tr>
+              <tr>
+                <td><strong>Ink-Based Machine</strong></td>
+                <td>Inkjet / Ink Tank / Photo / Wide-Format</td>
+                <td>Nozzle check, print quality diagnosis, ink system service</td>
+              </tr>
+              <tr>
+                <td><strong>Modern/Special Machine</strong></td>
+                <td>POS Bluetooth / Label / 3D FDM / DTF-UV Demo</td>
+                <td>Setup, calibration, troubleshooting और customer explanation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section class="section reveal">
+      <div class="section-label">Certification</div>
       <h2>Certificate Text</h2>
-      <h3>Level 1: Diploma Certificate</h3>
-      <p><strong>Diploma in Printer Repairing, Maintenance & Smart Printing</strong></p>
-      <p>This is to certify that [Student Name] has successfully completed the Diploma level training covering Printer Disassembly, Multimeter Diagnosis, Inkjet/Ink Tank Maintenance, Manual Ink Purging, Photo & Heavy Media Printing, Mono & Color Laser Systems, HP Neverstop/Laser Tank Technology, POS Thermal & Bluetooth Printing, Label/Barcode Calibration, Dot Matrix Service, Wi-Fi Direct/Mobile App Configuration, Driver Installation, Page Scaling/Fit-to-Page Settings, Refilling and Preventive Maintenance.</p>
-      <h3>Level 2: Advanced Diploma Certificate</h3>
-      <p><strong>Advanced Diploma in Complete Printer, Photocopier, Wide-Format & Smart Printing Machine Repairing</strong></p>
-      <p>This is to certify that [Student Name] has successfully mastered the Advanced level training covering A3 Digital Photocopiers/MFPs, Laser Scanner Unit & Polygon Motor Diagnosis, ADF & Duplex Scanners, A2/A1 Wide-Format Plotters, Scan-to-Folder & Advanced Cloud Networking, Firmware Flash & Service Mode Diagnosis, Counter Reset Systems, Chip Error Diagnosis, 3D FDM Printer Calibration, Bed Adhesion Troubleshooting, DTF/UV Commercial Print Workflows, Advanced Preventive Maintenance, AMC Documentation, Spare-Parts Sourcing and Corporate Client Management.</p>
-    </section>
-
-    <section class="section card">
-      <h2>महत्वपूर्ण सुरक्षा और कानूनी नोट</h2>
-      <p>यह course practical printer service, repair diagnosis, preventive maintenance और customer documentation के लिए बनाया गया है। Chip error, firmware, reset utility, service mode और identity document printing जैसे topics में केवल legal, ethical, safety-first और manufacturer-compliant approach पढ़ाई जाएगी। Unauthorized bypassing, counterfeit cartridge enabling, unsafe firmware cracking या customer document misuse नहीं सिखाया जाएगा।</p>
-    </section>
-
-    <section class="section faq" id="faq">
-      <h2>अक्सर पूछे जाने वाले सवाल</h2>
-      <details open><summary>क्या यह 900 घंटे का complete course है?</summary><p>हाँ। यह 900 घंटे का Complete Printer Technology Program है, जिसमें 450 घंटे Diploma और 450 घंटे Advanced Diploma pathway है।</p></details>
-      <details><summary>क्या 450 घंटे के बाद certificate मिलेगा?</summary><p>हाँ। Part 1 पूरा करने पर Diploma in Printer Repairing, Maintenance & Smart Printing certificate दिया जा सकता है।</p></details>
-      <details><summary>क्या Advanced Diploma के लिए फिर से शुरुआत करनी होगी?</summary><p>नहीं। ACS Diploma पूरा करने वाले learner के 450 hours carry forward होंगे और वह सीधे Part 2 continue कर सकता है।</p></details>
-      <details><summary>क्या इसमें photocopier और A2/A1 plotter भी शामिल है?</summary><p>हाँ। Advanced Diploma में A3 photocopier, A3 MFP, scanner, ADF, duplex और A2/A1 wide-format plotter शामिल हैं।</p></details>
-      <details><summary>क्या यह job guarantee course है?</summary><p>नहीं। यह job guarantee course नहीं है। यह learner को printer, copier और smart printing service market के लिए job-ready और self-employment-ready practical skills देता है।</p></details>
-    </section>
-
-    <section class="section card">
-      <h2>अगला कदम</h2>
-      <p>अगर आप यह course शुरू करना चाहते हैं, तो printer course home page खोलकर lesson list से शुरुआत करें। पहले safety और tools module को ध्यान से पूरा करें, क्योंकि वही पूरी repairing training की foundation है।</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="index.html">प्रिंटर कोर्स शुरू करें</a>
-        <a class="btn btn-secondary" href="/courses/hi/vocational.html">व्यावसायिक कोर्स पर लौटें</a>
-        <a class="btn btn-warning" href="https://wa.me/919431210092" target="_blank" rel="noopener">WhatsApp पर जानकारी लें</a>
+      <div class="grid-2">
+        <div class="cert-block">
+          <h3>Level 1 — Diploma</h3>
+          <div class="cert-title">Diploma in Printer Repairing, Maintenance & Smart Printing</div>
+          <p>This is to certify that [Student Name] has successfully completed the Diploma level training covering Printer Disassembly, Multimeter Diagnosis, Inkjet/Ink Tank Maintenance, Manual Ink Purging, Photo & Heavy Media Printing, Mono & Color Laser Systems, HP Neverstop/Laser Tank Technology, POS Thermal & Bluetooth Printing, Label/Barcode Calibration, Dot Matrix Service, Wi-Fi Direct/Mobile App Configuration, Driver Installation, Page Scaling/Fit-to-Page Settings, Refilling and Preventive Maintenance.</p>
+        </div>
+        <div class="cert-block" style="background: linear-gradient(135deg, #1c0d00 0%, #2d1a04 100%); border-color: rgba(201,146,10,0.25);">
+          <h3 style="color:#fbbf24;">Level 2 — Advanced Diploma</h3>
+          <div class="cert-title">Advanced Diploma in Complete Printer, Photocopier, Wide-Format & Smart Printing Machine Repairing</div>
+          <p>This is to certify that [Student Name] has successfully mastered the Advanced level training covering A3 Digital Photocopiers/MFPs, Laser Scanner Unit & Polygon Motor Diagnosis, ADF & Duplex Scanners, A2/A1 Wide-Format Plotters, Scan-to-Folder & Advanced Cloud Networking, Firmware Flash & Service Mode Diagnosis, Counter Reset Systems, Chip Error Diagnosis, 3D FDM Printer Calibration, Bed Adhesion Troubleshooting, DTF/UV Commercial Print Workflows, Advanced Preventive Maintenance, AMC Documentation, Spare-Parts Sourcing and Corporate Client Management.</p>
+        </div>
       </div>
     </section>
+
+    <!-- SAFETY & LEGAL -->
+    <section class="section reveal">
+      <div class="section-label">Important Notice</div>
+      <div class="callout callout-red" style="font-size:14.5px;">
+        <span class="callout-icon">⚖️</span>
+        <div class="callout-body">
+          <strong>महत्वपूर्ण सुरक्षा और कानूनी नोट</strong>
+          <p>यह course practical printer service, repair diagnosis, preventive maintenance और customer documentation के लिए बनाया गया है। Chip error, firmware, reset utility, service mode और identity document printing जैसे topics में केवल legal, ethical, safety-first और manufacturer-compliant approach पढ़ाई जाएगी। Unauthorized bypassing, counterfeit cartridge enabling, unsafe firmware cracking या customer document misuse नहीं सिखाया जाएगा।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section reveal" id="faq">
+      <div class="section-label">FAQ</div>
+      <h2>अक्सर पूछे जाने वाले सवाल</h2>
+      <div class="faq-list" style="margin-top:16px;">
+        <details open>
+          <summary>क्या यह 900 घंटे का complete course है?</summary>
+          <div class="faq-body">हाँ। यह 900 घंटे का Complete Printer Technology Program है, जिसमें 450 घंटे Diploma और 450 घंटे Advanced Diploma pathway है।</div>
+        </details>
+        <details>
+          <summary>क्या 450 घंटे के बाद certificate मिलेगा?</summary>
+          <div class="faq-body">हाँ। Part 1 पूरा करने पर Diploma in Printer Repairing, Maintenance & Smart Printing certificate दिया जा सकता है।</div>
+        </details>
+        <details>
+          <summary>क्या Advanced Diploma के लिए फिर से शुरुआत करनी होगी?</summary>
+          <div class="faq-body">नहीं। ACS Diploma पूरा करने वाले learner के 450 hours carry forward होंगे और वह सीधे Part 2 continue कर सकता है।</div>
+        </details>
+        <details>
+          <summary>क्या इसमें photocopier और A2/A1 plotter भी शामिल है?</summary>
+          <div class="faq-body">हाँ। Advanced Diploma में A3 photocopier, A3 MFP, scanner, ADF, duplex और A2/A1 wide-format plotter शामिल हैं।</div>
+        </details>
+        <details>
+          <summary>क्या यह job guarantee course है?</summary>
+          <div class="faq-body">नहीं। यह job guarantee course नहीं है। यह learner को printer, copier और smart printing service market के लिए job-ready और self-employment-ready practical skills देता है।</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section reveal">
+      <div class="cta-final">
+        <h2>अगला कदम — अभी शुरू करें</h2>
+        <p>अगर आप यह course शुरू करना चाहते हैं, तो printer course home page खोलकर lesson list से शुरुआत करें। पहले safety और tools module को ध्यान से पूरा करें।</p>
+        <div class="cta-row-center">
+          <a class="btn btn-white" href="index.html">प्रिंटर कोर्स शुरू करें →</a>
+          <a class="btn btn-outline" href="/courses/hi/vocational.html" style="border-color:rgba(255,255,255,0.35);color:white;">व्यावसायिक कोर्स पर लौटें</a>
+          <a class="btn btn-wa" href="https://wa.me/919431210092" target="_blank" rel="noopener">💬 WhatsApp पर जानकारी लें</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <strong>Applied Computer School™</strong>
-      <span>रील से रोजगार तक — अपनी भाषा में</span>
-      <span class="small">ऑनलाइन कोर्स ffgpmt.org द्वारा नि:शुल्क। ऑफलाइन/practical/center services अलग नीति के अनुसार शुल्क योग्य हो सकती हैं।</span>
-      <span class="small">संपर्क: +91-9431210092 | acs.chautham@gmail.com</span>
-      <span class="small">पुरानी वेबसाइटें acsbihar.com और acs1.in अब बंद हैं। केवल acslearn.com आधिकारिक पोर्टल है।</span>
+      <div class="footer-brand">Applied Computer School™</div>
+      <div class="footer-tagline">रील से रोजगार तक — अपनी भाषा में</div>
+      <div class="footer-info">
+        ऑनलाइन कोर्स ffgpmt.org द्वारा नि:शुल्क। ऑफलाइन/practical/center services अलग नीति के अनुसार शुल्क योग्य हो सकती हैं।<br>
+        संपर्क: <a href="tel:+919431210092">+91-9431210092</a> | <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a><br>
+        पुरानी वेबसाइटें acsbihar.com और acs1.in अब बंद हैं। केवल <a href="https://acslearn.com">acslearn.com</a> आधिकारिक पोर्टल है।
+      </div>
     </div>
   </footer>
-  <script src="../../../../script.js"></script>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Stagger stats
+    document.querySelectorAll('.stat-item').forEach((el, i) => {
+      el.style.transitionDelay = (i * 80) + 'ms';
+    });
+
+    // Animated counters
+    function animateCounter(el, target) {
+      let start = 0;
+      const duration = 1200;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    const statNums = document.querySelectorAll('.stat-num');
+    const statTargets = [900, 450, 450, 16];
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(statNums).indexOf(e.target);
+          animateCounter(e.target, statTargets[idx]);
+          statObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => statObs.observe(el));
+  </script>
 </body>
 </html>
