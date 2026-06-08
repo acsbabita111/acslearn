@@ -1,0 +1,30 @@
+{
+  "generator": "ACS Master Course Generator v2.0",
+  "generated_at": "2026-06-08T06:29:28",
+  "site_base_url": "https://acslearn.com",
+  "courses": [
+    {
+      "course_id": "ACS ADPRM-hi",
+      "language": "hi",
+      "category": "vocational",
+      "course_slug": "advanced-diploma-in-inkjet-printer-repairing-maintenance",
+      "lessons": 900,
+      "course_index": "courses/hi/vocational/advanced-diploma-in-inkjet-printer-repairing-maintenance/index.html",
+      "input": "E:\\printer\\gen\\sample.xlsx",
+      "sheet": "hi"
+    }
+  ],
+  "total_html_files": 904,
+  "features": [
+    "language-category-course-lesson structure",
+    "go to page no",
+    "digital progress meter",
+    "suno text-to-speech",
+    "light premium design",
+    "inline SVG social icons",
+    "SEO meta",
+    "JSON-LD",
+    "sitemap",
+    "RTL ready"
+  ]
+}
