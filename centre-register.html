@@ -400,13 +400,13 @@
           <div class="alert alert-warn">⚠️ सभी photos 35-50 KB के बीच होनी चाहिए। Compress करें: <a href="https://iloveimg.com" target="_blank" style="color:var(--blue);font-weight:600">iloveimg.com</a></div>
         </div>
 
-        <div class="chk-row" id="docChkRow" style="cursor:pointer" onclick="docChkToggle()">
-          <input type="checkbox" id="docChk" onclick="event.stopPropagation();docChkToggle()"/>
-          <label for="docChk" onclick="event.stopPropagation();docChkToggle()">✅ हाँ, उपरोक्त सभी दस्तावेज़ मेरे सामने उपलब्ध हैं। मैं अभी form भरना शुरू करना चाहता/चाहती हूँ।</label>
+        <div class="chk-row" id="docChkRow" style="cursor:pointer">
+          <input type="checkbox" id="docChk" onchange="docChkToggle()"/>
+          <label for="docChk">✅ हाँ, उपरोक्त सभी दस्तावेज़ मेरे सामने उपलब्ध हैं। मैं अभी form भरना शुरू करना चाहता/चाहती हूँ।</label>
         </div>
 
         <div class="btn-row">
-          <button class="btn-next" id="docChkBtn" onclick="if(document.getElementById('docChk').checked){goTo(1)}" style="opacity:0.4;background:#90A4AE;cursor:not-allowed;box-shadow:none">आगे बढ़ें — Account बनाएं →</button>
+          <button class="btn-next" id="docChkBtn" onclick="goTo(1)" style="opacity:0.4;background:#90A4AE;cursor:not-allowed;box-shadow:none;pointer-events:none">आगे बढ़ें — Account बनाएं →</button>
         </div>
       </div>
 
@@ -1053,28 +1053,7 @@
   </main>
 </div>
 
-<script>
-// ── GLOBAL: Doc Checklist Button ──
-function docChkToggle(){
-  var cb=document.getElementById('docChk');
-  var btn=document.getElementById('docChkBtn');
-  var row=document.getElementById('docChkRow');
-  // checkbox की state toggle करें
-  cb.checked=!cb.checked;
-  row.classList.toggle('on',cb.checked);
-  if(cb.checked){
-    btn.style.opacity='1';
-    btn.style.background='linear-gradient(135deg,#1565C0,#1E88E5)';
-    btn.style.cursor='pointer';
-    btn.style.boxShadow='0 4px 12px rgba(21,101,192,0.35)';
-  }else{
-    btn.style.opacity='0.4';
-    btn.style.background='#90A4AE';
-    btn.style.cursor='not-allowed';
-    btn.style.boxShadow='none';
-  }
-}
-</script>
+
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -1086,6 +1065,28 @@ function docChkToggle(){
 </script>
 
 <script>
+// ── DOC CHECKBOX ──
+function docChkToggle(){
+  var cb=document.getElementById('docChk');
+  var btn=document.getElementById('docChkBtn');
+  var row=document.getElementById('docChkRow');
+  var checked=cb.checked;
+  if(row)row.classList.toggle('on',checked);
+  if(checked){
+    btn.style.opacity='1';
+    btn.style.background='linear-gradient(135deg,#1565C0,#1E88E5)';
+    btn.style.cursor='pointer';
+    btn.style.boxShadow='0 4px 12px rgba(21,101,192,0.35)';
+    btn.style.pointerEvents='auto';
+  }else{
+    btn.style.opacity='0.4';
+    btn.style.background='#90A4AE';
+    btn.style.cursor='not-allowed';
+    btn.style.boxShadow='none';
+    btn.style.pointerEvents='none';
+  }
+}
+
 // ── DATA ──
 const STEPS=['दस्तावेज़ सूची','Account बनाएं','OTP Verify','Centre Info','Owner Info','KYC Documents','Bank Details','Facilities','Social Media','Courses','Review','शपथ पत्र'];
 const FAC1=['अपना मकान / किराए का कमरा','बैठने की व्यवस्था (min 10 students)','पीने का पानी','शौचालय','बिजली कनेक्शन','Inverter / Generator backup'];
@@ -1178,26 +1179,6 @@ window.nextStep=function(from,to){
 };
 
 // ── CHECKBOX ──
-window.toggleDocChk=function(row){
-  const cb=document.getElementById('docChk');
-  cb.checked=!cb.checked;
-  row.classList.toggle('on',cb.checked);
-  const btn=document.getElementById('docChkBtn');
-  if(cb.checked){
-    btn.disabled=false;
-    btn.style.opacity='1';
-    btn.style.cursor='pointer';
-    btn.style.background='linear-gradient(135deg,#1565C0,#1E88E5)';
-    btn.style.boxShadow='0 4px 12px rgba(21,101,192,0.4)';
-  }else{
-    btn.disabled=true;
-    btn.style.opacity='0.45';
-    btn.style.cursor='not-allowed';
-    btn.style.background='#B0BEC5';
-    btn.style.boxShadow='none';
-  }
-};
-
 window.toggleChk=function(row,id){
   const cb=document.getElementById(id);
   cb.checked=!cb.checked;
@@ -1375,7 +1356,7 @@ window.fetchIFSC=async function(ifsc){
 window.updateAddrProof=function(){
   const id1=document.getElementById('id1Type').value,id2=document.getElementById('id2Type').value;
   const used=[id1,id2].filter(Boolean);
-  const all=['Driving Licence','Passport','Voter ID','Domicile Certificate (निवास प्रमाण पत्र)','Bank Passbook'];
+  const all=['Driving Licence','Passport','Voter ID','Domicile Certificate (निवास प्रमाण पत्र)'];
   const sel=document.getElementById('addrType');
   const cur=sel.value;
   sel.innerHTML='<option value="">— चुनें —</option>';
@@ -1449,7 +1430,6 @@ function validate(step){
     if(!document.getElementById('bankDecl').checked){alert('Bank declaration confirm करें');ok=false}
   }
   if(step===8){
-    // अगर किसी social media पर "हाँ" किया है तो link जरूरी है
     let socOk=true;
     SOCIAL.forEach(s=>{
       const fields=document.getElementById(s.k+'Fields');
@@ -1464,8 +1444,8 @@ function validate(step){
     });
     if(!socOk){alert('जिस Social Media के लिए "हाँ" किया है, उसका Link जरूरी है।');ok=false;}
   }
+  if(step===9){
     if(!gv('lang')){markBad('lang');ok=false}else clearBad('lang');
-    // कम से कम 5 courses भरे हों
     const filledCourses=[];
     for(let i=1;i<=10;i++){const v=document.getElementById('course'+i)?.value.trim();if(v)filledCourses.push(v.toUpperCase())}
     if(filledCourses.length<5){document.getElementById('courseErr').style.display='block';ok=false}
