@@ -400,13 +400,13 @@
           <div class="alert alert-warn">⚠️ सभी photos 35-50 KB के बीच होनी चाहिए। Compress करें: <a href="https://iloveimg.com" target="_blank" style="color:var(--blue);font-weight:600">iloveimg.com</a></div>
         </div>
 
-        <div class="chk-row" id="docChkRow" onclick="toggleChk(this,'docChk')">
+        <div class="chk-row" id="docChkRow" onclick="toggleDocChk(this)">
           <input type="checkbox" id="docChk"/>
           <label for="docChk">✅ हाँ, उपरोक्त सभी दस्तावेज़ मेरे सामने उपलब्ध हैं। मैं अभी form भरना शुरू करना चाहता/चाहती हूँ।</label>
         </div>
 
         <div class="btn-row">
-          <button class="btn-next" id="docChkBtn" onclick="goTo(1)" disabled>आगे बढ़ें — Account बनाएं →</button>
+          <button class="btn-next" id="docChkBtn" onclick="if(document.getElementById('docChk').checked)goTo(1)" disabled style="opacity:0.45;cursor:not-allowed">आगे बढ़ें — Account बनाएं →</button>
         </div>
       </div>
 
@@ -1157,11 +1157,30 @@ window.nextStep=function(from,to){
 };
 
 // ── CHECKBOX ──
+window.toggleDocChk=function(row){
+  const cb=document.getElementById('docChk');
+  cb.checked=!cb.checked;
+  row.classList.toggle('on',cb.checked);
+  const btn=document.getElementById('docChkBtn');
+  if(cb.checked){
+    btn.disabled=false;
+    btn.style.opacity='1';
+    btn.style.cursor='pointer';
+    btn.style.background='linear-gradient(135deg,#1565C0,#1E88E5)';
+    btn.style.boxShadow='0 4px 12px rgba(21,101,192,0.4)';
+  }else{
+    btn.disabled=true;
+    btn.style.opacity='0.45';
+    btn.style.cursor='not-allowed';
+    btn.style.background='#B0BEC5';
+    btn.style.boxShadow='none';
+  }
+};
+
 window.toggleChk=function(row,id){
   const cb=document.getElementById(id);
   cb.checked=!cb.checked;
   row.classList.toggle('on',cb.checked);
-  if(id==='docChk')document.getElementById('docChkBtn').disabled=!cb.checked;
 };
 
 // ── YES/NO ──
