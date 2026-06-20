@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Applied Computer School™ — From Village to World. Free Digital Education for the Global South."/>
+  <title>Applied Computer School™ — From Village to World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+      --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
+      --saffron:#FF8C00;--white:#FFFFFF;--offwhite:#F5F7FA;
+      --gray:#607D8B;--text:#1A2B3C;--r:10px;
+    }
+    body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    /* ══ TIRANGA HEADER (compact - like aidigitalmaster) ══ */
+    .tiranga-header{
+      background:linear-gradient(180deg,
+        #FF8C00 0%,#FF8C00 33%,
+        #FFFFFF 33%,#FFFFFF 66%,
+        #2E7D32 66%,#2E7D32 100%
+      );
+      padding:10px 16px;
+      text-align:center;
+    }
+    .tiranga-card{
+      display:inline-block;
+      background:rgba(255,255,255,0.95);
+      border-radius:12px;
+      padding:10px 20px;
+      box-shadow:0 2px 12px rgba(0,0,0,0.15);
+    }
+    .tiranga-card-top{
+      font-size:15px;
+      font-weight:800;
+      color:var(--navy);
+      line-height:1.2;
+    }
+    .tiranga-card-top span{color:var(--saffron)}
+    .tiranga-card-sub{
+      font-size:11px;
+      color:var(--gray);
+      margin-top:2px;
+    }
+
+    /* ══ NAVBAR ══ */
+    .navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
+    .nav-brand{display:flex;align-items:center;gap:8px}
+    .nav-brand img{height:30px;width:auto}
+    .nav-brand-text{color:var(--white);font-size:13px;font-weight:700;line-height:1.2}
+    .nav-brand-text small{display:block;color:var(--gold);font-size:10px;font-weight:400}
+    .nav-controls{display:flex;align-items:center;gap:6px}
+    .btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:var(--white);padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;min-height:40px}
+    .btn-menu{background:none;border:none;color:var(--white);font-size:24px;cursor:pointer;padding:4px 6px;line-height:1;min-height:40px;min-width:40px}
+
+    /* Google Translate */
+    .translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
+    .translate-panel.open{display:block}
+    #google_translate_element .goog-te-gadget{color:white!important;font-family:'Noto Sans Devanagari',sans-serif!important}
+    #google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
+
+    /* ══ SLIDE MENU ══ */
+    .menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
+    .menu-overlay.open{display:block}
+    .menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:var(--white);z-index:400;transition:right .3s ease;overflow-y:auto}
+    .menu-panel.open{right:0}
+    .menu-head{background:var(--navy);color:var(--white);padding:16px;display:flex;justify-content:space-between;align-items:center}
+    .menu-head h3{font-size:15px}
+    .menu-close{background:none;border:none;color:var(--white);font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+    .menu-links{list-style:none;padding:6px 0}
+    .menu-links li a{display:block;padding:13px 20px;color:var(--text);font-size:14px;font-weight:500;border-bottom:1px solid #F0F0F0;min-height:48px;display:flex;align-items:center}
+    .menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
+    .menu-section{padding:8px 20px 6px;font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;background:#F8F9FA;border-bottom:1px solid #eee;border-top:1px solid #eee}
+    .menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);text-align:center;padding:14px;border-radius:var(--r);font-weight:700;font-size:15px;min-height:52px}
+
+    /* ══ HERO ══ */
+    .hero{background:linear-gradient(160deg,var(--navy) 0%,#1565C0 65%,#0D47A1 100%);color:var(--white);padding:32px 20px 56px;text-align:center}
+    .hero-en{font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:8px}
+    .hero-h1{font-size:clamp(22px,6vw,40px);font-weight:800;line-height:1.22;margin-bottom:8px}
+    .hero-h1 em{color:var(--gold);font-style:normal}
+    .hero-mission{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px;font-style:italic}
+    .hero-motto{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:18px}
+    .motto-item{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:var(--white);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px}
+    .hero-free{display:inline-block;background:rgba(46,125,50,.35);border:1px solid rgba(67,160,71,.5);color:#A5D6A7;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px}
+
+    /* ══ 3 CARDS ══ */
+    .paths-wrap{max-width:1000px;margin:-28px auto 0;padding:0 14px;position:relative;z-index:10}
+    .paths-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:640px){.paths-grid{grid-template-columns:repeat(3,1fr)}}
+    .path-card{background:var(--white);border-radius:var(--r);padding:22px 18px;box-shadow:0 4px 20px rgba(0,0,0,.10);border-top:4px solid transparent;display:flex;flex-direction:column;gap:10px}
+    .path-card.c-blue{border-top-color:var(--blue-lt)}
+    .path-card.c-gold{border-top-color:var(--gold)}
+    .path-card.c-green{border-top-color:var(--green-lt)}
+    .path-icon{font-size:34px;line-height:1}
+    .path-tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px}
+    .tag-free{background:#E8F5E9;color:var(--green)}
+    .tag-paid{background:#FFF8E1;color:#E65100}
+    .tag-earn{background:#E3F2FD;color:var(--blue)}
+    .path-card h2{font-size:17px;font-weight:800;color:var(--navy)}
+    .path-card p{font-size:13px;color:var(--gray);line-height:1.55;flex:1}
+    .path-btns{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+    .pbtn{display:flex;align-items:center;gap:8px;padding:11px 14px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:opacity .15s;width:100%;text-align:left;min-height:48px}
+    .pbtn:hover{opacity:.88}
+    .pbtn-blue{background:var(--blue);color:var(--white)}
+    .pbtn-ghost{background:var(--offwhite);color:var(--navy)}
+    .pbtn-gold{background:var(--gold);color:var(--navy)}
+    .pbtn-green{background:var(--green);color:var(--white)}
+
+    /* ══ PAYMENT STRIP ══ */
+    .payment-strip{background:var(--navy);color:var(--white);padding:28px 20px;margin:36px 0 0;text-align:center}
+    .payment-strip h3{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:16px}
+    .payment-table{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:560px;margin:0 auto}
+    .pt-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 12px;text-align:center;min-width:88px}
+    .pt-amount{font-size:22px;font-weight:800;color:var(--gold);display:block}
+    .pt-label{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
+    .payment-note{font-size:12px;color:rgba(255,255,255,.45);margin-top:14px;max-width:460px;margin-left:auto;margin-right:auto}
+
+    /* ══ STATS ══ */
+    .stats-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 32px;padding:36px 20px;max-width:700px;margin:0 auto}
+    .stat{text-align:center}
+    .stat-num{font-size:26px;font-weight:800;color:var(--navy);display:block}
+    .stat-lbl{font-size:12px;color:var(--gray)}
+
+    /* ══ FOOTER ══ */
+    .footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
+    .footer-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
+    @media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+    .footer-brand h2{color:var(--white);font-size:15px;margin-bottom:6px}
+    .footer-brand p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.6)}
+    .footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
+    .footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+    .sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+    .sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}
+    .sitemap-grid a:hover{color:var(--gold)}
+    .footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.6}
+    .footer-col a{color:var(--gold)}
+    
+    .footer-warning{margin-top:12px;padding:10px;background:rgba(255,255,255,.05);border-radius:6px;font-size:11px;color:rgba(255,255,255,.45)}
+    .footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
+
+    /* ══ MODAL ══ */
+    .modal-bg{display:none;position:fixed;inset:0;background:rgba(11,31,58,.78);z-index:500;align-items:center;justify-content:center;padding:16px}
+    .modal-bg.open{display:flex}
+    .modal{background:var(--white);border-radius:14px;width:100%;max-width:400px;max-height:90vh;overflow-y:auto;padding:28px 24px;position:relative}
+    .modal-x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--gray);min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+    .modal h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:4px}
+    .modal-sub{font-size:13px;color:var(--gray);margin-bottom:20px}
+    .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+    .role-btn{padding:14px 10px;border:2px solid #E0E0E0;border-radius:10px;background:var(--offwhite);cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:var(--navy);text-align:center;transition:all .15s;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+    .role-btn:hover,.role-btn.sel{border-color:var(--blue);background:#E3F2FD;color:var(--blue)}
+    .role-icon{font-size:26px}
+    .login-form{display:none}
+    .login-form.show{display:block}
+    .back-btn{background:none;border:none;color:var(--blue);font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:14px;padding:0;min-height:40px}
+    .fgroup{margin-bottom:14px}
+    .fgroup label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
+    .fgroup input{width:100%;padding:11px 14px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;outline:none;min-height:48px}
+    .fgroup input:focus{border-color:var(--blue)}
+    .submit-btn{width:100%;padding:13px;background:var(--blue);color:var(--white);border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;min-height:52px}
+    .err{color:#C62828;font-size:13px;margin-top:10px;text-align:center}
+
+    /* ══ WELCOME ══ */
+    .welcome{display:none;text-align:center;padding:60px 20px}
+    .welcome.show{display:block}
+    .welcome-icon{font-size:56px;margin-bottom:14px}
+    .welcome h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+    .welcome p{color:var(--gray);margin-bottom:24px}
+    .logout-btn{padding:12px 28px;background:#FFEBEE;color:#C62828;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;min-height:48px}
+  </style>
+</head>
+<body>
+
+<!-- ══ TIRANGA HEADER (compact like aidigitalmaster) ══ -->
+<div class="tiranga-header">
+  <div class="tiranga-card">
+    <div class="tiranga-card-top">
+      Applied Computer School™<br/>
+      <span>From Village to World</span>
+    </div>
+    <div class="tiranga-card-sub">Powered by FFGPMTrust | Rambharosh Vidyarthi</div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="https://acslearn.com" class="nav-brand">
+      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+      <div class="nav-brand-text">
+        Applied Computer School™
+        <small>Free Digital Education for the Global South</small>
+      </div>
+    </a>
+    <div class="nav-controls">
+      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
+      <button class="btn-menu" onclick="openMenu()">☰</button>
+    </div>
+  </div>
+  <div class="translate-panel" id="translatePanel">
+    <div id="google_translate_element"></div>
+  </div>
+</nav>
+
+<!-- ══ SLIDE MENU ══ -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-head">
+    <h3>एसीएस मेन्यू</h3>
+    <button class="menu-close" onclick="closeMenu()">✕</button>
+  </div>
+  <ul class="menu-links">
+    <li><a href="https://acslearn.com">🏠 होम</a></li>
+    <li><a href="https://acslearn.com/courses/hi/index.html">📚 कोर्स</a></li>
+    <li><a href="https://acslearn.com/students/hi/index.html">🎓 विद्यार्थी</a></li>
+    <li><a href="https://acslearn.com/mentors/hi/index.html">👨‍🏫 प्रशिक्षक</a></li>
+    <li><a href="https://acslearn.com/partners/hi/index.html">🏫 पार्टनर</a></li>
+    <li><a href="https://acslearn.com/workshops/hi/index.html">🛠️ दुकान-वर्कशॉप</a></li>
+    <li><a href="https://acslearn.com/counselors/hi/index.html">🧭 सलाह लें</a></li>
+    <li><a href="https://acslearn.com/employers/hi/index.html">💼 नियोक्ता</a></li>
+    <li><a href="https://acslearn.com/payment/hi/index.html">💳 भुगतान</a></li>
+    <li><a href="https://acslearn.com/contact/hi/index.html">📞 संपर्क</a></li>
+  </ul>
+  <a href="#" class="menu-login-btn" onclick="openModal();closeMenu();return false;">🔑 Login / Dashboard</a>
+</div>
+
+<!-- ══ MAIN CONTENT ══ -->
+<div id="mainContent">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-en">From Village to World</div>
+    <h1 class="hero-h1">
+      मोबाइल से ट्रेनिंग लो,<br/>
+      काबिल बनो,<br/>
+      <em>और काम की शुरुआत करो।</em>
+    </h1>
+    <p class="hero-mission">Free Digital Education for the Global South</p>
+    <div class="hero-motto">
+      <span class="motto-item">📖 Learn</span>
+      <span class="motto-item">🔨 Build</span>
+      <span class="motto-item">🤝 Contribute</span>
+      <span class="motto-item">🌱 Grow</span>
+    </div>
+    <span class="hero-free">✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क — बिना login, बिना payment</span>
+  </section>
+
+  <!-- 3 CARDS -->
+  <div class="paths-wrap">
+    <div class="paths-grid">
+
+      <div class="path-card c-blue">
+        <div class="path-icon">📚</div>
+        <span class="path-tag tag-free">✅ पूर्णतः निःशुल्क</span>
+        <h2>कोर्स देखें</h2>
+        <p>बिना login, बिना payment — सीधे पढ़ाई शुरू करें। Computer, Mobile, AI, Digital Marketing — सभी कोर्स फ्री।</p>
+        <div class="path-btns">
+          <a href="https://acslearn.com/courses/hi/index.html" class="pbtn pbtn-blue">📖 अभी कोर्स खोलें</a>
+          <a href="https://acslearn.com/career/hi/local-employment.html" class="pbtn pbtn-ghost">💼 रोजगार रास्ते देखें</a>
+          <a href="https://acslearn.com/career/hi/self-employment.html" class="pbtn pbtn-ghost">🚀 स्वरोजगार देखें</a>
+          <a href="https://acslearn.com/career/hi/government-employment.html" class="pbtn pbtn-ghost">🏛️ सरकारी रोजगार</a>
+        </div>
+      </div>
+
+      <div class="path-card c-gold">
+        <div class="path-icon">🔑</div>
+        <span class="path-tag tag-paid">💳 Login आवश्यक</span>
+        <h2>लॉगिन करें</h2>
+        <p>Student, Centre, Teacher, Counselor, Employer — सभी के लिए अलग dashboard। Progress, Certificate और Payment यहाँ।</p>
+        <div class="path-btns">
+          <button class="pbtn pbtn-gold" onclick="openModal()">🔑 अभी Login करें</button>
+          <button class="pbtn pbtn-ghost" onclick="openModal()">🎓 Student Login</button>
+          <button class="pbtn pbtn-ghost" onclick="openModal()">🏫 Centre / Workshop Login</button>
+          <button class="pbtn pbtn-ghost" onclick="openModal()">🔐 Admin / Head Login</button>
+        </div>
+      </div>
+
+      <div class="path-card c-green">
+        <div class="path-icon">🤝</div>
+        <span class="path-tag tag-earn">💰 कमाई का मौका</span>
+        <h2>हमसे जुड़िए</h2>
+        <p>Centre/Workshop, Teacher, Niyokta, Counselor — ACS Network से जुड़कर कमाई करें। हर student की fees में आपका हिस्सा।</p>
+        <div class="path-btns">
+          <a href="https://acslearn.com/centre-register.html" class="pbtn pbtn-green">🏫 Centre / Workshop जोड़ें</a>
+          <a href="https://acslearn.com/mentors/hi/register.html" class="pbtn pbtn-ghost">👨‍🏫 Teacher / Mentor बनें</a>
+          <a href="https://acslearn.com/employers/hi/register.html" class="pbtn pbtn-ghost">💼 Niyokta / Employer बनें</a>
+          <a href="https://acslearn.com/counselors/hi/register.html" class="pbtn pbtn-ghost">🧭 Counselor बनें</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAYMENT -->
+  <div class="payment-strip">
+    <h3>💰 पूरी पारदर्शिता — हर ₹100 में किसका कितना हिस्सा?</h3>
+    <div class="payment-table">
+      <div class="pt-item"><span class="pt-amount">₹80</span><div class="pt-label">Centre / Franchise</div></div>
+      <div class="pt-item"><span class="pt-amount">₹7</span><div class="pt-label">Content Creator</div></div>
+      <div class="pt-item"><span class="pt-amount">₹3</span><div class="pt-label">Translator</div></div>
+      <div class="pt-item"><span class="pt-amount">₹5</span><div class="pt-label">ACS Platform</div></div>
+      <div class="pt-item"><span class="pt-amount">₹5</span><div class="pt-label">State Office</div></div>
+    </div>
+    <p class="payment-note">Assignment complete होने पर Razorpay द्वारा automatically PAN card से payment। कोई छुपा commission नहीं।</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-wrap">
+    <div class="stat"><span class="stat-num">500+</span><div class="stat-lbl">Courses (जल्द)</div></div>
+    <div class="stat"><span class="stat-num">निःशुल्क</span><div class="stat-lbl">Online Courses</div></div>
+    <div class="stat"><span class="stat-num">ISO</span><div class="stat-lbl">9001:2015 Certified</div></div>
+    <div class="stat"><span class="stat-num">70+</span><div class="stat-lbl">Active Apprentice</div></div>
+    <div class="stat"><span class="stat-num">Global</span><div class="stat-lbl">South Vision</div></div>
+  </div>
+
+</div><!-- /mainContent -->
+
+<!-- WELCOME (after login) -->
+<div class="welcome" id="welcomeScreen">
+  <div class="welcome-icon">🎉</div>
+  <h2 id="welcomeText">स्वागत है!</h2>
+  <p id="welcomeSub">आपका Dashboard तैयार हो रहा है।</p>
+  <button class="logout-btn" onclick="doLogout()">🚪 Logout करें</button>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer-main">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <h2>Applied Computer School™</h2>
+      <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
+      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का उपक्रम</p>
+      <p style="margin-top:8px;color:#F9A825;font-weight:700;">Learn. Build. Contribute. Grow.</p>
+      <p style="margin-top:6px;">ISO 9001:2015 प्रमाणित</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>साइट मैप (Sitemap)</h3>
+      <div class="sitemap-grid">
+        <a href="https://acslearn.com">होम</a>
+        <a href="https://acslearn.com/courses/hi/index.html">कोर्स</a>
+        <a href="https://acslearn.com/academy/hi/class-6-8.html">अकादमी</a>
+        <a href="https://acslearn.com/students/hi/index.html">विद्यार्थी</a>
+        <a href="https://acslearn.com/mentors/hi/index.html">प्रशिक्षक</a>
+        <a href="https://acslearn.com/partners/hi/index.html">ट्रेनिंग पार्टनर</a>
+        <a href="https://acslearn.com/workshops/hi/index.html">दुकान-वर्कशॉप</a>
+        <a href="https://acslearn.com/counselors/hi/index.html">सलाह लें</a>
+        <a href="https://acslearn.com/employers/hi/index.html">नियोक्ता</a>
+        <a href="https://acslearn.com/career/hi/self-employment.html">स्वरोजगार</a>
+        <a href="https://acslearn.com/career/hi/government-employment.html">सरकारी रोजगार</a>
+        <a href="https://acslearn.com/career/hi/private-employment.html">प्राइवेट रोजगार</a>
+        <a href="https://acslearn.com/career/hi/local-employment.html">स्थानीय रोजगार</a>
+        <a href="https://acslearn.com/gallery/hi/index.html">गैलरी</a>
+        <a href="https://acslearn.com/payment/hi/index.html">भुगतान</a>
+        <a href="https://acslearn.com/contact/hi/index.html">संपर्क</a>
+        <a href="https://acslearn.com/help/hi/index.html">सहायता</a>
+        <a href="https://acslearn.com/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>आधिकारिक संपर्क</h3>
+      <p><strong style="color:rgba(255,255,255,.85);">पता:</strong><br/>ACS Building, Vidyarthi Nagar,<br/>Karua Javahartola Road,<br/>Chautham, Khagaria, Bihar — 851201</p>
+      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
+      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p>💬 <a href="https://wa.me/919431210092">WhatsApp: +91-9431210092</a></p>
+      <p style="margin-top:10px;">🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
+      <div class="footer-warning">⚠️ भुगतान केवल official Razorpay link से। Cash या personal transfer स्वीकार नहीं।</div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    © 2026 Applied Computer School™ — सर्वाधिकार सुरक्षित |
+    <a href="https://ffgpmt.org">ffgpmt.org</a> |
+    <a href="https://acslearn.com">acslearn.com</a>
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal-bg" id="modalBg" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div id="roleStep">
+      <h3>🔑 Login करें</h3>
+      <p class="modal-sub">पहले अपना role चुनें</p>
+      <div class="role-grid">
+        <button class="role-btn" onclick="pickRole('Student','🎓')"><span class="role-icon">🎓</span>Student</button>
+        <button class="role-btn" onclick="pickRole('Centre','🏫')"><span class="role-icon">🏫</span>Centre</button>
+        <button class="role-btn" onclick="pickRole('Teacher','👨‍🏫')"><span class="role-icon">👨‍🏫</span>Teacher</button>
+        <button class="role-btn" onclick="pickRole('Counselor','🧭')"><span class="role-icon">🧭</span>Counselor</button>
+        <button class="role-btn" onclick="pickRole('Employer','💼')"><span class="role-icon">💼</span>Employer</button>
+        <button class="role-btn" onclick="pickRole('Admin','🔐')"><span class="role-icon">🔐</span>Admin/Head</button>
+      </div>
+    </div>
+    <div class="login-form" id="loginStep">
+      <button class="back-btn" onclick="goBack()">← वापस जाएं</button>
+      <h3 id="loginTitle">Login</h3>
+      <p class="modal-sub" id="loginSub">Email और Password डालें</p>
+      <div class="fgroup"><label>Email</label><input type="email" id="emailInput" placeholder="आपका email"/></div>
+      <div class="fgroup"><label>Password</label><input type="password" id="passInput" placeholder="Password"/></div>
+      <button class="submit-btn" onclick="doLogin()">Login करें →</button>
+      <p class="err" id="errMsg"></p>
+    </div>
+  </div>
+</div>
+
+<!-- FIREBASE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+  const auth=getAuth(app),db=getFirestore(app);
+  window.doLogin=async function(){
+    const e=document.getElementById('emailInput').value,p=document.getElementById('passInput').value;
+    const errEl=document.getElementById('errMsg');
+    errEl.innerText='';
+    try{
+      const cred=await signInWithEmailAndPassword(auth,e,p);
+      const snap=await getDoc(doc(db,'users',cred.user.uid));
+      if(!snap.exists()){
+        await signOut(auth);
+        errEl.innerText='❌ आपका account Dashboard में नहीं मिला। Admin से संपर्क करें।';
+        return;
+      }
+      const actualRole=snap.data().role;
+      const selectedRole=window._selectedRole||'';
+      // Role matching logic
+      const roleMap={
+        'Student':['Student'],
+        'Centre':['Centre'],
+        'Teacher':['Teacher'],
+        'Counselor':['Counselor'],
+        'Employer':['Employer'],
+        'Admin':['Founder','Head','Admin']
+      };
+      const allowed=roleMap[selectedRole]||[];
+      if(!allowed.includes(actualRole)){
+        await signOut(auth);
+        errEl.innerText='❌ गलत role चुना है। आपका actual role है: '+actualRole+'. कृपया सही role से login करें।';
+        return;
+      }
+      closeModal();
+    }catch(err){
+      errEl.innerText='❌ Email या Password गलत है।';
+    }
+  };
+  window.doLogout=function(){signOut(auth);};
+  onAuthStateChanged(auth,async(user)=>{
+    const main=document.getElementById('mainContent'),w=document.getElementById('welcomeScreen');
+    if(user){
+      main.style.display='none';w.classList.add('show');
+      const snap=await getDoc(doc(db,'users',user.uid));
+      if(snap.exists()){
+        const d=snap.data();
+        document.getElementById('welcomeText').innerText='स्वागत है, '+d.name+' 🙏';
+        document.getElementById('welcomeSub').innerText='Dashboard खुल रहा है...';
+        const redirectMap={
+          'Founder':'founder/index.html',
+          'Head':'hq/head/index.html',
+          'Legal_Head':'hq/legal/index.html',
+          'Finance_Head':'hq/finance/index.html',
+          'Establishment_Head':'hq/establishment/index.html',
+          'State_Head':'state/index.html',
+          'Regional_Manager':'regional/index.html',
+          'Centre':'centre/index.html',
+          'Teacher':'teacher/index.html',
+          'Student':'student/index.html',
+        };
+        const url=redirectMap[d.role];
+        if(url){setTimeout(()=>{window.location.href=url;},1200);}
+        else{document.getElementById('welcomeSub').innerText='Role: '+d.role+' | Dashboard जल्द तैयार होगा।';}
+      }
+    }else{main.style.display='block';w.classList.remove('show');}
+  });
+</script>
+
+<!-- GOOGLE TRANSLATE -->
+<script>
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({
+      pageLanguage:'hi',
+      includedLanguages:'en,hi,kn,mr,bn,te,ta,gu,pa,ur,or,as,ml,ne,si,sw,ha,fr,es,pt,ar,zh,id,ms',
+      layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay:false
+    },'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- UI -->
+<script>
+  function toggleTranslate(){
+    const p=document.getElementById('translatePanel');
+    const e=document.getElementById('google_translate_element');
+    p.classList.toggle('open');
+    e.style.display=p.classList.contains('open')?'block':'none';
+  }
+  function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
+  function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
+  function openModal(){document.getElementById('modalBg').classList.add('open');document.getElementById('roleStep').style.display='block';document.getElementById('loginStep').classList.remove('show');}
+  function closeModal(){document.getElementById('modalBg').classList.remove('open');}
+  function closeModalOutside(e){if(e.target===document.getElementById('modalBg'))closeModal();}
+  function pickRole(role,icon){
+    window._selectedRole=role;
+    document.getElementById('roleStep').style.display='none';
+    document.getElementById('loginStep').classList.add('show');
+    document.getElementById('loginTitle').innerText=icon+' '+role+' Login';
+    document.getElementById('loginSub').innerText=role+' का Email और Password डालें';
+    document.getElementById('errMsg').innerText='';
+  }
+  function goBack(){document.getElementById('loginStep').classList.remove('show');document.getElementById('roleStep').style.display='block';}
+</script>
+
+</body>
+</html>
