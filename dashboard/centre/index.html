@@ -1,581 +1,994 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Applied Computer School™ — From Village to World. Free Digital Education for the Global South."/>
-  <title>Applied Computer School™ — From Village to World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
-      --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
-      --saffron:#FF8C00;--white:#FFFFFF;--offwhite:#F5F7FA;
-      --gray:#607D8B;--text:#1A2B3C;--r:10px;
-    }
-    body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6}
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Centre Dashboard — ACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--navy2:#0D2748;
+  --blue:#1565C0;--blue-lt:#1E88E5;--blue-glow:rgba(33,150,243,0.3);
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
+  --red:#E53935;--orange:#E65100;
+  --white:#fff;--offwhite:#F8FAFF;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+  --sidebar:260px;
+}
+html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
 
-    /* ══ TIRANGA HEADER (compact - like aidigitalmaster) ══ */
-    .tiranga-header{
-      background:linear-gradient(180deg,
-        #FF8C00 0%,#FF8C00 33%,
-        #FFFFFF 33%,#FFFFFF 66%,
-        #2E7D32 66%,#2E7D32 100%
-      );
-      padding:10px 16px;
-      text-align:center;
-    }
-    .tiranga-card{
-      display:inline-block;
-      background:rgba(255,255,255,0.95);
-      border-radius:12px;
-      padding:10px 20px;
-      box-shadow:0 2px 12px rgba(0,0,0,0.15);
-    }
-    .tiranga-card-top{
-      font-size:15px;
-      font-weight:800;
-      color:var(--navy);
-      line-height:1.2;
-    }
-    .tiranga-card-top span{color:var(--saffron)}
-    .tiranga-card-sub{
-      font-size:11px;
-      color:var(--gray);
-      margin-top:2px;
-    }
+/* ── LAYOUT ── */
+.app{display:flex;min-height:100vh}
+.sidebar{width:var(--sidebar);background:linear-gradient(180deg,#1B5E20 0%,#2E7D32 100%);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform .3s}
+.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column;min-height:100vh}
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+}
 
-    /* ══ NAVBAR ══ */
-    .navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
-    .nav-brand{display:flex;align-items:center;gap:8px}
-    .nav-brand img{height:30px;width:auto}
-    .nav-brand-text{color:var(--white);font-size:13px;font-weight:700;line-height:1.2}
-    .nav-brand-text small{display:block;color:var(--gold);font-size:10px;font-weight:400}
-    .nav-controls{display:flex;align-items:center;gap:6px}
-    .btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:var(--white);padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;min-height:40px}
-    .btn-menu{background:none;border:none;color:var(--white);font-size:24px;cursor:pointer;padding:4px 6px;line-height:1;min-height:40px;min-width:40px}
+/* ── SIDEBAR ── */
+.sb-logo{padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
+.sb-logo img{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.3)}
+.sb-logo-txt strong{display:block;font-size:12px;font-weight:700;color:var(--white)}
+.sb-logo-txt span{font-size:10px;color:#A5D6A7}
 
-    /* Google Translate */
-    .translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
-    .translate-panel.open{display:block}
-    #google_translate_element .goog-te-gadget{color:white!important;font-family:'Noto Sans Devanagari',sans-serif!important}
-    #google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
+.sb-user{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
+.sb-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1B5E20,#43A047);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:var(--white);flex-shrink:0;border:2px solid rgba(255,255,255,0.3)}
+.sb-user-info strong{display:block;font-size:12px;color:var(--white);font-weight:700}
+.sb-user-info span{font-size:10px;color:#A5D6A7;font-weight:600}
+.sb-centre-id{font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px;font-family:monospace}
 
-    /* ══ SLIDE MENU ══ */
-    .menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
-    .menu-overlay.open{display:block}
-    .menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:var(--white);z-index:400;transition:right .3s ease;overflow-y:auto}
-    .menu-panel.open{right:0}
-    .menu-head{background:var(--navy);color:var(--white);padding:16px;display:flex;justify-content:space-between;align-items:center}
-    .menu-head h3{font-size:15px}
-    .menu-close{background:none;border:none;color:var(--white);font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
-    .menu-links{list-style:none;padding:6px 0}
-    .menu-links li a{display:block;padding:13px 20px;color:var(--text);font-size:14px;font-weight:500;border-bottom:1px solid #F0F0F0;min-height:48px;display:flex;align-items:center}
-    .menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
-    .menu-section{padding:8px 20px 6px;font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.8px;background:#F8F9FA;border-bottom:1px solid #eee;border-top:1px solid #eee}
-    .menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);text-align:center;padding:14px;border-radius:var(--r);font-weight:700;font-size:15px;min-height:52px}
+.status-banner{padding:10px 20px;background:rgba(0,0,0,0.2);border-bottom:1px solid rgba(255,255,255,0.1)}
+.status-banner-inner{display:flex;align-items:center;gap:8px}
+.status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.status-dot.provisional{background:#FFD54F;animation:pulse 2s infinite}
+.status-dot.approved{background:var(--green-lt);animation:pulse 2s infinite}
+.status-dot.pending{background:#FF8A80}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.status-text{font-size:11px;color:rgba(255,255,255,0.8);font-weight:600}
 
-    /* ══ HERO ══ */
-    .hero{background:linear-gradient(160deg,var(--navy) 0%,#1565C0 65%,#0D47A1 100%);color:var(--white);padding:32px 20px 56px;text-align:center}
-    .hero-en{font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:8px}
-    .hero-h1{font-size:clamp(22px,6vw,40px);font-weight:800;line-height:1.22;margin-bottom:8px}
-    .hero-h1 em{color:var(--gold);font-style:normal}
-    .hero-mission{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px;font-style:italic}
-    .hero-motto{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:18px}
-    .motto-item{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:var(--white);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px}
-    .hero-free{
-      display:inline-block;
-      background:linear-gradient(135deg,#1B5E20,#2E7D32);
-      border:none;
-      color:#fff;
-      font-size:18px;
-      font-weight:900;
-      padding:14px 32px;
-      border-radius:50px;
-      letter-spacing:.5px;
-      box-shadow:0 6px 24px rgba(0,0,0,0.3);
-      margin-top:8px;
-    }
+.sb-nav{flex:1;padding:12px 0;overflow-y:auto}
+.nav-section{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,0.08);border-left-color:rgba(255,255,255,0.3)}
+.nav-item.active{background:rgba(255,255,255,0.15);border-left-color:#A5D6A7}
+.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0}
+.nav-label{font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
+.nav-item.active .nav-label{color:var(--white);font-weight:700}
+.nav-badge{margin-left:auto;background:var(--red);color:var(--white);font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
+.nav-locked{margin-left:auto;font-size:10px;color:rgba(255,255,255,0.3)}
 
-    /* ══ 3 CARDS ══ */
-    .paths-wrap{max-width:1100px;margin:-40px auto 0;padding:0 16px;position:relative;z-index:10}
-    .paths-grid{display:grid;grid-template-columns:1fr;gap:20px}
-    @media(min-width:640px){.paths-grid{grid-template-columns:repeat(3,1fr)}}
+.sb-bottom{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.12)}
+.logout-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;width:100%;font-family:inherit;color:rgba(255,255,255,0.8);font-size:12px;font-weight:600;transition:all .2s}
+.logout-btn:hover{background:rgba(255,255,255,0.2)}
 
-    .path-card{
-      background:var(--white);
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 8px 32px rgba(0,0,0,.12);
-      display:flex;flex-direction:column;
-      transition:transform .2s,box-shadow .2s;
-    }
-    .path-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.18)}
+/* ── TOPBAR ── */
+.topbar{background:var(--white);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer}
+@media(max-width:768px){.menu-btn{display:block}}
+.topbar-title{font-size:15px;font-weight:700;color:var(--navy);flex:1}
+.topbar-actions{display:flex;gap:8px}
+.icon-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:var(--white);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
 
-    /* Card Header Band */
-    .path-card-header{
-      padding:28px 20px 24px;
-      text-align:center;
-      position:relative;
-    }
-    .path-card.c-blue .path-card-header{background:linear-gradient(135deg,#0B1F3A,#1565C0)}
-    .path-card.c-gold .path-card-header{background:linear-gradient(135deg,#7B4F00,#F9A825)}
-    .path-card.c-green .path-card-header{background:linear-gradient(135deg,#1B5E20,#2E7D32)}
+/* ── CONTENT ── */
+.content{padding:20px 24px;flex:1}
+@media(max-width:600px){.content{padding:12px 14px}}
+.page{display:none}
+.page.active{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.page-header{margin-bottom:20px}
+.page-header h2{font-size:20px;font-weight:800;color:var(--navy)}
+.page-header p{font-size:13px;color:var(--gray);margin-top:2px}
 
-    /* Big Icon */
-    .path-icon{font-size:42px;line-height:1;margin-bottom:10px;display:block}
+/* ── STATS GRID ── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
+.stat-card:hover{transform:translateY(-2px)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.stat-card.blue::before{background:linear-gradient(90deg,var(--blue),var(--blue-lt))}
+.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#FFD54F)}
+.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--green-lt))}
+.stat-card.red::before{background:linear-gradient(90deg,var(--red),#FF8A80)}
+.stat-icon{font-size:22px;margin-bottom:8px}
+.stat-num{font-size:24px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--gray)}
+.stat-sub{font-size:10px;margin-top:4px;font-weight:600;color:var(--orange)}
 
-    /* TAG — बड़ा, बोल्ड, केंद्र में */
-    .path-tag{
-      display:block;
-      text-align:center;
-      font-size:20px;
-      font-weight:900;
-      letter-spacing:1px;
-      padding:12px 28px;
-      border-radius:40px;
-      margin:0 auto 4px;
-      width:fit-content;
-      text-transform:uppercase;
-      box-shadow:0 4px 16px rgba(0,0,0,0.2);
-    }
-    .tag-free{background:#fff;color:#1B5E20;border:3px solid #A5D6A7}
-    .tag-paid{background:#fff;color:#7B4F00;border:3px solid #FFD54F}
-    .tag-earn{background:#fff;color:#0B1F3A;border:3px solid #A5D6A7}
+/* ── APPLICATION TRACKER ── */
+.tracker-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.tracker-head{padding:16px 20px;background:linear-gradient(135deg,var(--navy),var(--navy2));color:var(--white)}
+.tracker-head h3{font-size:14px;font-weight:700;margin-bottom:2px}
+.tracker-head p{font-size:11px;color:rgba(255,255,255,0.6)}
+.tracker-body{padding:20px}
+.tracker-steps{display:flex;flex-direction:column;gap:0}
+.tracker-step{display:flex;align-items:flex-start;gap:14px;padding:12px 0;position:relative}
+.tracker-step:not(:last-child)::after{content:'';position:absolute;left:15px;top:44px;width:2px;height:calc(100% - 20px);background:var(--border)}
+.tracker-step.done::after{background:var(--green-lt)}
+.tracker-step.active::after{background:var(--blue)}
+.step-circle{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;border:2px solid var(--border);background:var(--white);z-index:1}
+.tracker-step.done .step-circle{background:var(--green-lt);border-color:var(--green-lt);color:var(--white)}
+.tracker-step.active .step-circle{background:var(--blue);border-color:var(--blue);color:var(--white);animation:pulse 2s infinite}
+.tracker-step.stuck .step-circle{background:var(--orange);border-color:var(--orange);color:var(--white)}
+.tracker-step.pending .step-circle{background:#F0F4F8;color:var(--gray)}
+.step-info{flex:1}
+.step-info strong{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.step-info span{font-size:11px;color:var(--gray)}
+.step-info .step-date{font-size:10px;color:var(--green);font-weight:600;margin-top:2px}
+.step-info .step-wait{font-size:10px;color:var(--orange);font-weight:600;margin-top:2px}
+.step-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;flex-shrink:0;margin-top:4px}
+.step-badge.done{background:#E8F5E9;color:var(--green)}
+.step-badge.active{background:#EEF4FF;color:var(--blue)}
+.step-badge.pending{background:#F0F4F8;color:var(--gray)}
+.step-badge.stuck{background:#FFF3E0;color:var(--orange)}
 
-    /* Card Body */
-    .path-card-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
-    .path-card h2{font-size:26px;font-weight:900;color:var(--navy);text-align:center;margin-bottom:4px}
-    .path-card p{font-size:13px;color:var(--gray);line-height:1.6;flex:1;text-align:center}
-    .path-btns{display:flex;flex-direction:column;gap:8px;margin-top:8px}
-    .pbtn{display:flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:all .2s;width:100%;text-align:left;min-height:48px;text-decoration:none}
-    .pbtn:hover{opacity:.88;transform:translateX(2px)}
-    .pbtn-blue{background:var(--blue);color:var(--white)}
-    .pbtn-ghost{background:#F0F4F8;color:var(--navy)}
-    .pbtn-gold{background:var(--gold);color:var(--navy)}
-    .pbtn-green{background:var(--green);color:var(--white)}
+/* ── PROVISONAL BANNER ── */
+.provisional-banner{background:linear-gradient(135deg,#FFF8E1,#FFFBEA);border:2px solid var(--gold);border-radius:12px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:flex-start;gap:12px}
+.provisional-banner .pb-icon{font-size:28px;flex-shrink:0}
+.provisional-banner strong{display:block;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.provisional-banner p{font-size:12px;color:var(--gray);line-height:1.6}
+.pb-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pb-chip{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px}
+.pb-chip.yes{background:#E8F5E9;color:var(--green)}
+.pb-chip.no{background:#FFEBEE;color:var(--red)}
 
-    /* ══ PAYMENT STRIP ══ */
-    .payment-strip{background:var(--navy);color:var(--white);padding:28px 20px;margin:36px 0 0;text-align:center}
-    .payment-strip h3{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:16px}
-    .payment-table{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:560px;margin:0 auto}
-    .pt-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:10px 12px;text-align:center;min-width:88px}
-    .pt-amount{font-size:22px;font-weight:800;color:var(--gold);display:block}
-    .pt-label{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
-    .payment-note{font-size:12px;color:rgba(255,255,255,.45);margin-top:14px;max-width:460px;margin-left:auto;margin-right:auto}
+/* ── CARD ── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-head h3{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px}
+.card-body{padding:16px 18px}
+.card-head-action{font-size:11px;color:var(--blue);font-weight:600;cursor:pointer;border:none;background:none;font-family:inherit;padding:4px 10px;border-radius:6px;border:1px solid rgba(21,101,192,0.2)}
 
-    /* ══ STATS ══ */
-    .stats-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 32px;padding:36px 20px;max-width:700px;margin:0 auto}
-    .stat{text-align:center}
-    .stat-num{font-size:26px;font-weight:800;color:var(--navy);display:block}
-    .stat-lbl{font-size:12px;color:var(--gray)}
+/* ── FORM ── */
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;background:var(--white);color:var(--text);transition:border .2s;min-height:44px;text-transform:uppercase}
+.fg input[type=email],.fg input[type=number],.fg select,.fg textarea{text-transform:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
+.fg textarea{min-height:70px;resize:vertical}
+.fg .hint{font-size:10px;color:var(--gray);margin-top:4px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.fg-row{grid-template-columns:1fr}}
 
-    /* ══ FOOTER ══ */
-    .footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
-    .footer-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
-    @media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
-    .footer-brand h2{color:var(--white);font-size:15px;margin-bottom:6px}
-    .footer-brand p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.6)}
-    .footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
-    .footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
-    .sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-    .sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}
-    .sitemap-grid a:hover{color:var(--gold)}
-    .footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.6}
-    .footer-col a{color:var(--gold)}
-    
-    .footer-warning{margin-top:12px;padding:10px;background:rgba(255,255,255,.05);border-radius:6px;font-size:11px;color:rgba(255,255,255,.45)}
-    .footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
+/* ── BUTTONS ── */
+.btn-row{display:flex;gap:10px;margin-top:16px}
+.btn-primary{flex:1;padding:12px;background:linear-gradient(135deg,var(--green),#43A047);color:var(--white);border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 4px 12px rgba(46,125,50,0.3)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(46,125,50,0.4)}
+.btn-secondary{padding:12px 16px;background:var(--white);color:var(--navy);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
 
-    /* ══ MODAL ══ */
-    .modal-bg{display:none;position:fixed;inset:0;background:rgba(11,31,58,.78);z-index:500;align-items:center;justify-content:center;padding:16px}
-    .modal-bg.open{display:flex}
-    .modal{background:var(--white);border-radius:14px;width:100%;max-width:400px;max-height:90vh;overflow-y:auto;padding:28px 24px;position:relative}
-    .modal-x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--gray);min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
-    .modal h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:4px}
-    .modal-sub{font-size:13px;color:var(--gray);margin-bottom:20px}
-    .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-    .role-btn{padding:14px 10px;border:2px solid #E0E0E0;border-radius:10px;background:var(--offwhite);cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:var(--navy);text-align:center;transition:all .15s;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
-    .role-btn:hover,.role-btn.sel{border-color:var(--blue);background:#E3F2FD;color:var(--blue)}
-    .role-icon{font-size:26px}
-    .login-form{display:none}
-    .login-form.show{display:block}
-    .back-btn{background:none;border:none;color:var(--blue);font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:14px;padding:0;min-height:40px}
-    .fgroup{margin-bottom:14px}
-    .fgroup label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
-    .fgroup input{width:100%;padding:11px 14px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;outline:none;min-height:48px}
-    .fgroup input:focus{border-color:var(--blue)}
-    .submit-btn{width:100%;padding:13px;background:var(--blue);color:var(--white);border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;min-height:52px}
-    .err{color:#C62828;font-size:13px;margin-top:10px;text-align:center}
+/* ── TABLE ── */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);border-bottom:1px solid var(--border);background:#F8FAFF}
+td{padding:10px 12px;border-bottom:1px solid #F0F4F8;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#F8FAFF}
+.status-pill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block}
+.status-pill.enrolled{background:#EEF4FF;color:var(--blue)}
+.status-pill.training{background:#E8F5E9;color:var(--green)}
+.status-pill.exam{background:#FFF3E0;color:var(--orange)}
+.status-pill.certified{background:#E8F5E9;color:var(--green)}
 
-    /* ══ WELCOME ══ */
-    .welcome{display:none;text-align:center;padding:60px 20px}
-    .welcome.show{display:block}
-    .welcome-icon{font-size:56px;margin-bottom:14px}
-    .welcome h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
-    .welcome p{color:var(--gray);margin-bottom:24px}
-    .logout-btn{padding:12px 28px;background:#FFEBEE;color:#C62828;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;min-height:48px}
-  </style>
+/* ── ALERT ── */
+.alert{padding:12px 16px;border-radius:8px;font-size:12px;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.alert-info{background:#EEF4FF;color:var(--blue);border:1px solid #C7D9F9}
+.alert-warn{background:#FFF3E0;color:#E65100;border:1px solid #FFE0B2}
+.alert-ok{background:#E8F5E9;color:var(--green);border:1px solid #C8E6C9}
+.alert-err{background:#FFEBEE;color:var(--red);border:1px solid #FFCDD2}
+
+/* ── EMPTY ── */
+.empty{text-align:center;padding:32px 20px;color:var(--gray)}
+.empty-icon{font-size:36px;margin-bottom:8px}
+.empty p{font-size:12px;line-height:1.6}
+
+/* ── LOCKED OVERLAY ── */
+.locked-wrap{position:relative}
+.locked-overlay{position:absolute;inset:0;background:rgba(248,250,255,0.92);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:12px;z-index:10;text-align:center;padding:20px}
+.locked-overlay .lock-icon{font-size:40px;margin-bottom:10px}
+.locked-overlay p{font-size:12px;color:var(--gray);line-height:1.6}
+.locked-overlay strong{display:block;font-size:14px;font-weight:800;color:var(--navy);margin-bottom:6px}
+
+/* ── REVENUE ── */
+.rev-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.rev-row:last-child{border:none}
+.rev-label{color:var(--gray);font-weight:500}
+.rev-val{font-weight:700;color:var(--navy)}
+.rev-val.hold{color:var(--orange)}
+.rev-val.available{color:var(--green)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:var(--white);padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-left:4px solid var(--green-lt)}
+.toast.err{border-left:4px solid var(--red)}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:14px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto}
+.modal-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--white)}
+.modal-head h3{font-size:15px;font-weight:700;color:var(--navy)}
+.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray)}
+.modal-body{padding:20px}
+.modal-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;gap:10px}
+
+/* Overlay mobile */
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
+@media(max-width:768px){.sb-overlay.open{display:block}}
+</style>
 </head>
 <body>
 
-<!-- ══ TIRANGA HEADER (compact like aidigitalmaster) ══ -->
-<div class="tiranga-header">
-  <div class="tiranga-card">
-    <div class="tiranga-card-top">
-      Applied Computer School™<br/>
-      <span>From Village to World</span>
-    </div>
-    <div class="tiranga-card-sub">Powered by FFGPMTrust | Rambharosh Vidyarthi</div>
-  </div>
-</div>
+<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
 
-<!-- ══ NAVBAR ══ -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="https://acslearn.com" class="nav-brand">
-      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-      <div class="nav-brand-text">
-        Applied Computer School™
-        <small>Free Digital Education for the Global South</small>
-      </div>
-    </a>
-    <div class="nav-controls">
-      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
-      <button class="btn-menu" onclick="openMenu()">☰</button>
+<div class="app">
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+    <div class="sb-logo-txt">
+      <strong>Applied Computer School™</strong>
+      <span>Centre Dashboard</span>
     </div>
   </div>
-  <div class="translate-panel" id="translatePanel">
-    <div id="google_translate_element"></div>
-  </div>
-</nav>
 
-<!-- ══ SLIDE MENU ══ -->
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-<div class="menu-panel" id="menuPanel">
-  <div class="menu-head">
-    <h3>एसीएस मेन्यू</h3>
-    <button class="menu-close" onclick="closeMenu()">✕</button>
-  </div>
-  <ul class="menu-links">
-    <li><a href="https://acslearn.com">🏠 होम</a></li>
-    <li><a href="https://acslearn.com/courses/hi/index.html">📚 कोर्स</a></li>
-    <li><a href="https://acslearn.com/students/hi/index.html">🎓 विद्यार्थी</a></li>
-    <li><a href="https://acslearn.com/mentors/hi/index.html">👨‍🏫 प्रशिक्षक</a></li>
-    <li><a href="https://acslearn.com/partners/hi/index.html">🏫 पार्टनर</a></li>
-    <li><a href="https://acslearn.com/workshops/hi/index.html">🛠️ दुकान-वर्कशॉप</a></li>
-    <li><a href="https://acslearn.com/counselors/hi/index.html">🧭 सलाह लें</a></li>
-    <li><a href="https://acslearn.com/employers/hi/index.html">💼 नियोक्ता</a></li>
-    <li><a href="https://acslearn.com/payment/hi/index.html">💳 भुगतान</a></li>
-    <li><a href="https://acslearn.com/contact/hi/index.html">📞 संपर्क</a></li>
-  </ul>
-  <a href="#" class="menu-login-btn" onclick="openModal();closeMenu();return false;">🔑 Login / Dashboard</a>
-</div>
-
-<!-- ══ MAIN CONTENT ══ -->
-<div id="mainContent">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-en">From Village to World</div>
-    <h1 class="hero-h1">
-      मोबाइल से ट्रेनिंग लो,<br/>
-      काबिल बनो,<br/>
-      <em>और काम की शुरुआत करो।</em>
-    </h1>
-    <p class="hero-mission">Free Digital Education for the Global South</p>
-    <div class="hero-motto">
-      <span class="motto-item">📖 Learn</span>
-      <span class="motto-item">🔨 Build</span>
-      <span class="motto-item">🤝 Contribute</span>
-      <span class="motto-item">🌱 Grow</span>
+  <div class="sb-user">
+    <div class="sb-avatar" id="sbAvatar">C</div>
+    <div class="sb-user-info">
+      <strong id="sbName">Centre Owner</strong>
+      <span>🏫 Centre</span>
+      <div class="sb-centre-id" id="sbCentreId">ID: —</div>
     </div>
-    <span class="hero-free">✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क — बिना login, बिना payment</span>
-  </section>
+  </div>
 
-  <!-- 3 CARDS -->
-  <div class="paths-wrap">
-    <div class="paths-grid">
+  <div class="status-banner">
+    <div class="status-banner-inner">
+      <div class="status-dot" id="statusDot"></div>
+      <span class="status-text" id="statusText">Status check...</span>
+    </div>
+  </div>
 
-      <div class="path-card c-blue">
-        <div class="path-card-header">
-          <span class="path-icon">📚</span>
-          <span class="path-tag tag-free">✅ पूर्णतः निःशुल्क</span>
+  <nav class="sb-nav">
+    <div class="nav-section">Overview</div>
+    <div class="nav-item active" onclick="showPage('overview',this)">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="showPage('tracker',this)">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">Application Status</span>
+    </div>
+
+    <div class="nav-section">Students</div>
+    <div class="nav-item" id="nav-students" onclick="showPage('students',this)">
+      <span class="nav-icon">👨‍🎓</span>
+      <span class="nav-label">Students</span>
+      <span class="nav-badge" id="studentCount">0</span>
+    </div>
+    <div class="nav-item" id="nav-addstudent" onclick="showPage('add-student',this)">
+      <span class="nav-icon">➕</span>
+      <span class="nav-label">Student जोड़ें</span>
+    </div>
+
+    <div class="nav-section">Courses & Revenue</div>
+    <div class="nav-item" onclick="showPage('courses',this)">
+      <span class="nav-icon">📚</span>
+      <span class="nav-label">Courses</span>
+    </div>
+    <div class="nav-item" onclick="showPage('revenue',this)">
+      <span class="nav-icon">💰</span>
+      <span class="nav-label">Revenue & Fund</span>
+    </div>
+
+    <div class="nav-section">Marketing</div>
+    <div class="nav-item" onclick="showPage('marketing',this)">
+      <span class="nav-icon">📢</span>
+      <span class="nav-label">Marketing Tools</span>
+    </div>
+
+    <div class="nav-section">Jobs</div>
+    <div class="nav-item" onclick="showPage('jobs',this)">
+      <span class="nav-icon">💼</span>
+      <span class="nav-label">Job Demands</span>
+    </div>
+  </nav>
+
+  <div class="sb-bottom">
+    <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+  <div class="topbar">
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="topbar-title" id="topbarTitle">Dashboard</div>
+    <div class="topbar-actions">
+      <button class="icon-btn" onclick="loadData()">🔄</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+  <!-- ═══ PAGE: OVERVIEW ═══ -->
+  <div class="page active" id="page-overview">
+    <div class="page-header">
+      <h2 id="welcomeText">नमस्ते! 🙏</h2>
+      <p id="welcomeSub">आपके Centre का Overview</p>
+    </div>
+
+    <!-- Provisional Banner -->
+    <div class="provisional-banner" id="provisionalBanner" style="display:none">
+      <div class="pb-icon">🎉</div>
+      <div>
+        <strong>Provisional Approval मिल गया! Admission शुरू करें।</strong>
+        <p>State Head ने आपके Centre को Provisional Approval दे दिया है। आप अभी Students admit कर सकते हैं। HQ Final Approval के बाद Exam और Fund Transfer शुरू होगा।</p>
+        <div class="pb-chips">
+          <span class="pb-chip yes">✅ Admission Open</span>
+          <span class="pb-chip yes">✅ Fee Collect</span>
+          <span class="pb-chip yes">✅ Fund दिखेगा</span>
+          <span class="pb-chip no">❌ Exam — HQ बाद में</span>
+          <span class="pb-chip no">❌ Fund Transfer — Hold</span>
         </div>
-        <div class="path-card-body">
-          <h2>कोर्स देखें</h2>
-          <p>बिना login, बिना payment — सीधे पढ़ाई शुरू करें। Computer, Mobile, AI, Digital Marketing — सभी कोर्स फ्री।</p>
-          <div class="path-btns">
-            <a href="https://acslearn.com/courses/hi/index.html" class="pbtn pbtn-blue">📖 अभी कोर्स खोलें</a>
-            <a href="https://acslearn.com/career/hi/local-employment.html" class="pbtn pbtn-ghost">💼 रोजगार रास्ते देखें</a>
-            <a href="https://acslearn.com/career/hi/self-employment.html" class="pbtn pbtn-ghost">🚀 स्वरोजगार देखें</a>
-            <a href="https://acslearn.com/career/hi/government-employment.html" class="pbtn pbtn-ghost">🏛️ सरकारी रोजगार</a>
+      </div>
+    </div>
+
+    <!-- Pending Banner -->
+    <div class="alert alert-warn" id="pendingBanner" style="display:none">
+      <span>⏳</span>
+      <div>
+        <strong>Application Review में है।</strong>
+        आपका application अभी approval process में है। Status track करने के लिए "Application Status" देखें।
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card blue">
+        <div class="stat-icon">👨‍🎓</div>
+        <div class="stat-num" id="st-students">0</div>
+        <div class="stat-label">Total Students</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">💰</div>
+        <div class="stat-num" id="st-revenue">₹0</div>
+        <div class="stat-label">Total Fees Collected</div>
+        <div class="stat-sub" id="st-revenue-sub"></div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon">📊</div>
+        <div class="stat-num" id="st-share">₹0</div>
+        <div class="stat-label">मेरा हिस्सा (80%)</div>
+        <div class="stat-sub">Hold — HQ approval बाद</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon">🎓</div>
+        <div class="stat-num" id="st-certs">0</div>
+        <div class="stat-label">Certificates</div>
+      </div>
+    </div>
+
+    <!-- Application Tracker Mini -->
+    <div class="card">
+      <div class="card-head">
+        <h3>📋 Application Status</h3>
+        <button class="card-head-action" onclick="showPage('tracker',document.querySelector('[onclick*=tracker]'))">पूरा देखें →</button>
+      </div>
+      <div class="card-body" id="miniTracker">
+        <div class="empty"><div class="empty-icon">⏳</div><p>Loading...</p></div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card">
+      <div class="card-head"><h3>⚡ Quick Actions</h3></div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <button class="btn-primary" onclick="showPage('add-student',document.querySelector('[onclick*=add-student]'))" id="addStudentBtn" style="font-size:13px">➕ Student जोड़ें</button>
+          <button class="btn-secondary" onclick="showPage('marketing',document.querySelector('[onclick*=marketing]'))" style="font-size:13px">📢 Marketing</button>
+          <button class="btn-secondary" onclick="showPage('courses',document.querySelector('[onclick*=courses]'))" style="font-size:13px">📚 Courses देखें</button>
+          <button class="btn-secondary" onclick="showPage('jobs',document.querySelector('[onclick*=jobs]'))" style="font-size:13px">💼 Job Demands</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: APPLICATION TRACKER ═══ -->
+  <div class="page" id="page-tracker">
+    <div class="page-header">
+      <h2>📋 Application Status Tracker</h2>
+      <p>आपका application किस stage पर है</p>
+    </div>
+    <div class="tracker-card">
+      <div class="tracker-head">
+        <h3 id="trackerAppId">Application ID: —</h3>
+        <p>Applied Computer School™ Centre Registration</p>
+      </div>
+      <div class="tracker-body">
+        <div class="tracker-steps" id="trackerSteps">
+          <div class="empty"><div class="empty-icon">⏳</div><p>Loading...</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <span>ℹ️</span>
+      <div>कोई stage पर 7 दिन से ज्यादा रुकने पर ACS automatically alert भेजेगा। किसी problem के लिए: acs.chautham@gmail.com</div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: STUDENTS ═══ -->
+  <div class="page" id="page-students">
+    <div class="page-header">
+      <h2>👨‍🎓 Students</h2>
+      <p>आपके Centre में enrolled students</p>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <h3>Students List</h3>
+        <button class="card-head-action" onclick="showPage('add-student',document.querySelector('[onclick*=add-student]'))">➕ नया Student</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>नाम</th>
+              <th>Mobile</th>
+              <th>Course</th>
+              <th>Fee</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTable">
+            <tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">
+              <div style="font-size:24px">👨‍🎓</div>
+              अभी कोई Student enrolled नहीं है।<br/>
+              <button onclick="showPage('add-student',document.querySelector('[onclick*=add-student]'))" style="margin-top:10px;padding:8px 16px;background:var(--green);color:white;border:none;border-radius:6px;font-family:inherit;cursor:pointer;font-size:12px">➕ पहला Student जोड़ें</button>
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: ADD STUDENT ═══ -->
+  <div class="page" id="page-add-student">
+    <div class="page-header">
+      <h2>➕ Student जोड़ें</h2>
+      <p>नए Student का Admission</p>
+    </div>
+
+    <div class="alert alert-info" id="admissionAlert">
+      <span>ℹ️</span>
+      <div>Provisional Approval के बाद Admission शुरू हो सकता है।</div>
+    </div>
+
+    <div class="card" id="addStudentForm">
+      <div class="card-head"><h3>Student Details</h3></div>
+      <div class="card-body">
+        <div class="fg-row">
+          <div class="fg">
+            <label>Student का नाम <span style="color:var(--red)">*</span></label>
+            <input type="text" id="stuName" placeholder="पूरा नाम"/>
+          </div>
+          <div class="fg">
+            <label>Mobile Number <span style="color:var(--red)">*</span></label>
+            <input type="tel" id="stuMobile" placeholder="10 digit" maxlength="10"/>
           </div>
         </div>
-      </div>
-
-      <div class="path-card c-gold">
-        <div class="path-card-header">
-          <span class="path-icon">🔑</span>
-          <span class="path-tag tag-paid">💳 Login आवश्यक</span>
-        </div>
-        <div class="path-card-body">
-          <h2>लॉगिन करें</h2>
-          <p>Student, Centre, Teacher, Counselor, Employer — सभी के लिए अलग dashboard। Progress, Certificate और Payment यहाँ।</p>
-          <div class="path-btns">
-            <button class="pbtn pbtn-gold" onclick="openModal()">🔑 अभी Login करें</button>
-            <button class="pbtn pbtn-ghost" onclick="openModal()">🎓 Student Login</button>
-            <button class="pbtn pbtn-ghost" onclick="openModal()">🏫 Centre / Workshop Login</button>
-            <button class="pbtn pbtn-ghost" onclick="openModal()">🔐 Admin / Head Login</button>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Email ID</label>
+            <input type="email" id="stuEmail" placeholder="student@gmail.com (optional)"/>
+          </div>
+          <div class="fg">
+            <label>Date of Birth</label>
+            <input type="date" id="stuDob"/>
           </div>
         </div>
-      </div>
-
-      <div class="path-card c-green">
-        <div class="path-card-header">
-          <span class="path-icon">🤝</span>
-          <span class="path-tag tag-earn">💰 कमाई का मौका</span>
-        </div>
-        <div class="path-card-body">
-          <h2>हमसे जुड़िए</h2>
-          <p>Centre/Workshop, Teacher, Niyokta, Counselor — ACS Network से जुड़कर कमाई करें। हर student की fees में आपका हिस्सा।</p>
-          <div class="path-btns">
-            <a href="https://acslearn.com/centre-register.html" class="pbtn pbtn-green">🏫 Centre / Workshop जोड़ें</a>
-            <a href="https://acslearn.com/mentors/hi/register.html" class="pbtn pbtn-ghost">👨‍🏫 Teacher / Mentor बनें</a>
-            <a href="https://acslearn.com/employers/hi/register.html" class="pbtn pbtn-ghost">💼 Niyokta / Employer बनें</a>
-            <a href="https://acslearn.com/counselors/hi/register.html" class="pbtn pbtn-ghost">🧭 Counselor बनें</a>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Course <span style="color:var(--red)">*</span></label>
+            <select id="stuCourse">
+              <option value="">— Course चुनें —</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Course Fee (₹) <span style="color:var(--red)">*</span></label>
+            <input type="number" id="stuFee" placeholder="जैसे: 1000"/>
           </div>
         </div>
-      </div>
+        <div class="fg">
+          <label>पता</label>
+          <textarea id="stuAddress" placeholder="गाँव, कस्बा, जिला"></textarea>
+        </div>
 
-    </div>
-  </div>
+        <div class="alert alert-warn" id="stuErr" style="display:none">
+          <span>⚠️</span><span id="stuErrMsg"></span>
+        </div>
 
-  <!-- PAYMENT -->
-  <div class="payment-strip">
-    <h3>💰 पूरी पारदर्शिता — हर ₹100 में किसका कितना हिस्सा?</h3>
-    <div class="payment-table">
-      <div class="pt-item"><span class="pt-amount">₹80</span><div class="pt-label">Centre / Franchise</div></div>
-      <div class="pt-item"><span class="pt-amount">₹7</span><div class="pt-label">Content Creator</div></div>
-      <div class="pt-item"><span class="pt-amount">₹3</span><div class="pt-label">Translator</div></div>
-      <div class="pt-item"><span class="pt-amount">₹5</span><div class="pt-label">ACS Platform</div></div>
-      <div class="pt-item"><span class="pt-amount">₹5</span><div class="pt-label">State Office</div></div>
-    </div>
-    <p class="payment-note">Assignment complete होने पर Razorpay द्वारा automatically PAN card से payment। कोई छुपा commission नहीं।</p>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats-wrap">
-    <div class="stat"><span class="stat-num">500+</span><div class="stat-lbl">Courses (जल्द)</div></div>
-    <div class="stat"><span class="stat-num">निःशुल्क</span><div class="stat-lbl">Online Courses</div></div>
-    <div class="stat"><span class="stat-num">ISO</span><div class="stat-lbl">9001:2015 Certified</div></div>
-    <div class="stat"><span class="stat-num">70+</span><div class="stat-lbl">Active Apprentice</div></div>
-    <div class="stat"><span class="stat-num">Global</span><div class="stat-lbl">South Vision</div></div>
-  </div>
-
-</div><!-- /mainContent -->
-
-<!-- WELCOME (after login) -->
-<div class="welcome" id="welcomeScreen">
-  <div class="welcome-icon">🎉</div>
-  <h2 id="welcomeText">स्वागत है!</h2>
-  <p id="welcomeSub">आपका Dashboard तैयार हो रहा है।</p>
-  <button class="logout-btn" onclick="doLogout()">🚪 Logout करें</button>
-</div>
-
-<!-- ══ FOOTER ══ -->
-<footer class="footer-main">
-  <div class="footer-grid">
-
-    <div class="footer-brand">
-      <h2>Applied Computer School™</h2>
-      <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
-      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का उपक्रम</p>
-      <p style="margin-top:8px;color:#F9A825;font-weight:700;">Learn. Build. Contribute. Grow.</p>
-      <p style="margin-top:6px;">ISO 9001:2015 प्रमाणित</p>
-    </div>
-
-    <div class="footer-col">
-      <h3>साइट मैप (Sitemap)</h3>
-      <div class="sitemap-grid">
-        <a href="https://acslearn.com">होम</a>
-        <a href="https://acslearn.com/courses/hi/index.html">कोर्स</a>
-        <a href="https://acslearn.com/academy/hi/class-6-8.html">अकादमी</a>
-        <a href="https://acslearn.com/students/hi/index.html">विद्यार्थी</a>
-        <a href="https://acslearn.com/mentors/hi/index.html">प्रशिक्षक</a>
-        <a href="https://acslearn.com/partners/hi/index.html">ट्रेनिंग पार्टनर</a>
-        <a href="https://acslearn.com/workshops/hi/index.html">दुकान-वर्कशॉप</a>
-        <a href="https://acslearn.com/counselors/hi/index.html">सलाह लें</a>
-        <a href="https://acslearn.com/employers/hi/index.html">नियोक्ता</a>
-        <a href="https://acslearn.com/career/hi/self-employment.html">स्वरोजगार</a>
-        <a href="https://acslearn.com/career/hi/government-employment.html">सरकारी रोजगार</a>
-        <a href="https://acslearn.com/career/hi/private-employment.html">प्राइवेट रोजगार</a>
-        <a href="https://acslearn.com/career/hi/local-employment.html">स्थानीय रोजगार</a>
-        <a href="https://acslearn.com/gallery/hi/index.html">गैलरी</a>
-        <a href="https://acslearn.com/payment/hi/index.html">भुगतान</a>
-        <a href="https://acslearn.com/contact/hi/index.html">संपर्क</a>
-        <a href="https://acslearn.com/help/hi/index.html">सहायता</a>
-        <a href="https://acslearn.com/sitemap.xml">Sitemap</a>
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="showPage('students',document.querySelector('[onclick*=students]'))">← वापस</button>
+          <button class="btn-primary" onclick="addStudent()">✅ Student Add करें</button>
+        </div>
       </div>
     </div>
 
-    <div class="footer-col">
-      <h3>आधिकारिक संपर्क</h3>
-      <p><strong style="color:rgba(255,255,255,.85);">पता:</strong><br/>ACS Building, Vidyarthi Nagar,<br/>Karua Javahartola Road,<br/>Chautham, Khagaria, Bihar — 851201</p>
-      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
-      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
-      <p>💬 <a href="https://wa.me/919431210092">WhatsApp: +91-9431210092</a></p>
-      <p style="margin-top:10px;">🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
-      <div class="footer-warning">⚠️ भुगतान केवल official Razorpay link से। Cash या personal transfer स्वीकार नहीं।</div>
+    <!-- Lock if not provisional -->
+    <div class="locked-overlay" id="studentLock" style="display:none;position:fixed;inset:0;background:rgba(248,250,255,0.95);z-index:50;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px">
+      <div class="lock-icon">🔒</div>
+      <strong style="font-size:16px;color:var(--navy);margin-bottom:8px">Admission अभी बंद है</strong>
+      <p style="color:var(--gray);font-size:13px;max-width:300px">State Head का Provisional Approval मिलने के बाद Admission शुरू होगा।<br/>अभी आपका application review में है।</p>
+      <button onclick="showPage('tracker',document.querySelector('[onclick*=tracker]'))" style="margin-top:16px;padding:10px 24px;background:var(--blue);color:white;border:none;border-radius:8px;font-family:inherit;cursor:pointer;font-size:13px;font-weight:600">📋 Status देखें</button>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: COURSES ═══ -->
+  <div class="page" id="page-courses">
+    <div class="page-header">
+      <h2>📚 Courses</h2>
+      <p>आपके Centre पर available courses</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>Registered Courses</h3></div>
+      <div class="card-body" id="coursesList">
+        <div class="empty"><div class="empty-icon">📚</div><p>Loading...</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>💡 ACS पर Available Courses</h3></div>
+      <div class="card-body">
+        <div class="alert alert-info"><span>ℹ️</span><div>Establishment Head द्वारा approve होने के बाद courses आपके Centre पर live होंगे।</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px" id="allCoursesList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: REVENUE ═══ -->
+  <div class="page" id="page-revenue">
+    <div class="page-header">
+      <h2>💰 Revenue & Fund</h2>
+      <p>आपके Centre का Financial Overview</p>
     </div>
 
-  </div>
-  <div class="footer-bottom">
-    © 2026 Applied Computer School™ — सर्वाधिकार सुरक्षित |
-    <a href="https://ffgpmt.org">ffgpmt.org</a> |
-    <a href="https://acslearn.com">acslearn.com</a>
-  </div>
-</footer>
+    <div class="stats-grid">
+      <div class="stat-card green">
+        <div class="stat-icon">💰</div>
+        <div class="stat-num" id="rev-total">₹0</div>
+        <div class="stat-label">Total Collected</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon">🔒</div>
+        <div class="stat-num" id="rev-hold">₹0</div>
+        <div class="stat-label">Hold (HQ approval बाद)</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon">✅</div>
+        <div class="stat-num" id="rev-available">₹0</div>
+        <div class="stat-label">Available</div>
+      </div>
+    </div>
 
-<!-- LOGIN MODAL -->
-<div class="modal-bg" id="modalBg" onclick="closeModalOutside(event)">
+    <div class="card">
+      <div class="card-head"><h3>💳 Payment Split</h3></div>
+      <div class="card-body">
+        <div class="rev-row"><span class="rev-label">आपका हिस्सा (80%)</span><span class="rev-val available" id="rev-share">₹0</span></div>
+        <div class="rev-row"><span class="rev-label">Content Creator (7%)</span><span class="rev-val">₹0</span></div>
+        <div class="rev-row"><span class="rev-label">Translator (3%)</span><span class="rev-val">₹0</span></div>
+        <div class="rev-row"><span class="rev-label">ACS Platform (5%)</span><span class="rev-val">₹0</span></div>
+        <div class="rev-row"><span class="rev-label">State Office (5%)</span><span class="rev-val">₹0</span></div>
+        <div class="alert alert-warn" style="margin-top:12px"><span>⚠️</span><div>HQ Final Approval से पहले सभी fund <strong>Hold</strong> पर रहेगा। Razorpay Phase 4 में integrate होगा।</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>🏦 Withdrawal</h3></div>
+      <div class="card-body">
+        <div class="empty"><div class="empty-icon">🏦</div><p>HQ Final Approval के बाद और minimum threshold पूरा होने पर withdrawal available होगा।<br/>Bank: <strong id="revBankName">—</strong></p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: MARKETING ═══ -->
+  <div class="page" id="page-marketing">
+    <div class="page-header">
+      <h2>📢 Marketing Tools</h2>
+      <p>Students को attract करें</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>💬 WhatsApp Message</h3></div>
+      <div class="card-body">
+        <div class="fg">
+          <label>Message</label>
+          <textarea id="waMsg" placeholder="Message लिखें..." style="min-height:100px">🎓 ACS Centre में Admission शुरू!
+
+Computer, Mobile Repair, Digital Marketing और बहुत कुछ सीखें।
+
+📍 Centre: 
+📞 Contact: 
+
+बिल्कुल affordable fees में। Certificate मिलेगा।
+
+अभी Register करें! 🚀</textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="sendWhatsApp()" style="font-size:13px">📱 WhatsApp पर भेजें</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📱 Social Media Post</h3></div>
+      <div class="card-body">
+        <div class="fg">
+          <label>Post Text</label>
+          <textarea id="socialPost" placeholder="Social media post लिखें..." style="min-height:100px">🎓 ACS Centre में Admission Open!
+
+✅ Computer Courses
+✅ Mobile Repair
+✅ Digital Marketing
+✅ Certificate मिलेगा
+
+💰 Affordable Fees
+📍 [आपका पता]
+
+#ACS #Education #SkillDevelopment</textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="copyPost()">📋 Copy करें</button>
+          <button class="btn-primary" onclick="sharePost()" style="font-size:13px">📤 Share करें</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>🔗 Centre Registration Link</h3></div>
+      <div class="card-body">
+        <div class="alert alert-info"><span>ℹ️</span><div>यह link share करें — students directly आपके Centre में register करेंगे।</div></div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <input type="text" id="centreLink" readonly style="flex:1;padding:10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;background:#F8FAFF;font-family:monospace" value="https://acslearn.com/student-register.html"/>
+          <button onclick="copyLink()" style="padding:10px 16px;background:var(--blue);color:white;border:none;border-radius:8px;cursor:pointer;font-size:12px;font-weight:600">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: JOBS ═══ -->
+  <div class="page" id="page-jobs">
+    <div class="page-header">
+      <h2>💼 Job Demands</h2>
+      <p>Area में किस skill की demand है</p>
+    </div>
+    <div class="alert alert-info"><span>💡</span><div><strong>ACS का unique feature:</strong> Job demand देखकर course decide करें। जिस skill की demand है — उसी की training दें।</div></div>
+    <div class="card">
+      <div class="card-body">
+        <div class="empty"><div class="empty-icon">💼</div><p>Employer Dashboard Phase 3 में आएगा।<br/>Regional Manager के Market Survey के आधार पर यहाँ job demands दिखेंगी।</p></div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<!-- Student Detail Modal -->
+<div class="modal-overlay" id="stuModal">
   <div class="modal">
-    <button class="modal-x" onclick="closeModal()">✕</button>
-    <div id="roleStep">
-      <h3>🔑 Login करें</h3>
-      <p class="modal-sub">पहले अपना role चुनें</p>
-      <div class="role-grid">
-        <button class="role-btn" onclick="pickRole('Student','🎓')"><span class="role-icon">🎓</span>Student</button>
-        <button class="role-btn" onclick="pickRole('Centre','🏫')"><span class="role-icon">🏫</span>Centre</button>
-        <button class="role-btn" onclick="pickRole('Teacher','👨‍🏫')"><span class="role-icon">👨‍🏫</span>Teacher</button>
-        <button class="role-btn" onclick="pickRole('Counselor','🧭')"><span class="role-icon">🧭</span>Counselor</button>
-        <button class="role-btn" onclick="pickRole('Employer','💼')"><span class="role-icon">💼</span>Employer</button>
-        <button class="role-btn" onclick="pickRole('Admin','🔐')"><span class="role-icon">🔐</span>Admin/Head</button>
-      </div>
+    <div class="modal-head">
+      <h3>Student Details</h3>
+      <button class="modal-close" onclick="document.getElementById('stuModal').classList.remove('open')">✕</button>
     </div>
-    <div class="login-form" id="loginStep">
-      <button class="back-btn" onclick="goBack()">← वापस जाएं</button>
-      <h3 id="loginTitle">Login</h3>
-      <p class="modal-sub" id="loginSub">Email और Password डालें</p>
-      <div class="fgroup"><label>Email</label><input type="email" id="emailInput" placeholder="आपका email"/></div>
-      <div class="fgroup"><label>Password</label><input type="password" id="passInput" placeholder="Password"/></div>
-      <button class="submit-btn" onclick="doLogin()">Login करें →</button>
-      <p class="err" id="errMsg"></p>
-    </div>
+    <div class="modal-body" id="stuModalBody"></div>
   </div>
 </div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
 
 <!-- FIREBASE -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-  const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
-  const auth=getAuth(app),db=getFirestore(app);
-  window.doLogin=async function(){
-    const e=document.getElementById('emailInput').value,p=document.getElementById('passInput').value;
-    const errEl=document.getElementById('errMsg');
-    errEl.innerText='';
-    try{
-      const cred=await signInWithEmailAndPassword(auth,e,p);
-      const snap=await getDoc(doc(db,'users',cred.user.uid));
-      if(!snap.exists()){
-        await signOut(auth);
-        errEl.innerText='❌ आपका account Dashboard में नहीं मिला। Admin से संपर्क करें।';
-        return;
-      }
-      const actualRole=snap.data().role;
-      const selectedRole=window._selectedRole||'';
-      // Role matching logic
-      const roleMap={
-        'Student':['Student'],
-        'Centre':['Centre'],
-        'Teacher':['Teacher'],
-        'Counselor':['Counselor'],
-        'Employer':['Employer'],
-        'Admin':['Founder','Head','Admin']
-      };
-      const allowed=roleMap[selectedRole]||[];
-      if(!allowed.includes(actualRole)){
-        await signOut(auth);
-        errEl.innerText='❌ गलत role चुना है। आपका actual role है: '+actualRole+'. कृपया सही role से login करें।';
-        return;
-      }
-      closeModal();
-    }catch(err){
-      errEl.innerText='❌ Email या Password गलत है।';
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getAuth,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import{getFirestore,collection,getDocs,doc,getDoc,addDoc,updateDoc,query,where,orderBy,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth=getAuth(app),db=getFirestore(app);
+
+let currentUser=null,centreData=null,centreRegData=null;
+
+onAuthStateChanged(auth,async user=>{
+  if(!user){window.location.href='/dashboard/index.html';return}
+  currentUser=user;
+  
+  // पहले UID से try करें
+  try{
+    const q=query(collection(db,'centre_registrations'),where('uid','==',user.uid));
+    const snap=await getDocs(q);
+    if(!snap.empty){
+      const d=snap.docs[0];
+      centreRegData={id:d.id,...d.data()};
+      window.centreRegData=centreRegData;
+      initDashboard();
+      return;
     }
-  };
-  window.doLogout=function(){signOut(auth);};
-  onAuthStateChanged(auth,async(user)=>{
-    const main=document.getElementById('mainContent'),w=document.getElementById('welcomeScreen');
-    if(user){
-      main.style.display='none';w.classList.add('show');
-      const snap=await getDoc(doc(db,'users',user.uid));
-      if(snap.exists()){
-        const d=snap.data();
-        document.getElementById('welcomeText').innerText='स्वागत है, '+d.name+' 🙏';
-        document.getElementById('welcomeSub').innerText='Dashboard खुल रहा है...';
-        const redirectMap={
-          'Founder':'/dashboard/founder/index.html',
-          'Head':'/dashboard/hq/head/index.html',
-          'Legal_Head':'/dashboard/hq/legal/index.html',
-          'Finance_Head':'/dashboard/hq/finance/index.html',
-          'Establishment_Head':'/dashboard/hq/establishment/index.html',
-          'State_Head':'/dashboard/state/index.html',
-          'Regional_Manager':'/dashboard/regional/index.html',
-          'Centre':'/dashboard/centre/index.html',
-          'Teacher':'/dashboard/teacher/index.html',
-          'Student':'/dashboard/student/index.html',
-        };
-        const url=redirectMap[d.role];
-        if(url){setTimeout(()=>{window.location.href=url;},1200);}
-        else{document.getElementById('welcomeSub').innerText='Role: '+d.role+' | Dashboard जल्द तैयार होगा।';}
-      }
-    }else{main.style.display='block';w.classList.remove('show');}
-  });
+  }catch(e){console.log('UID search error:',e)}
+
+  // फिर email से try करें
+  try{
+    const q2=query(collection(db,'centre_registrations'),where('owner.email','==',user.email));
+    const snap2=await getDocs(q2);
+    if(!snap2.empty){
+      const d=snap2.docs[0];
+      centreRegData={id:d.id,...d.data()};
+      window.centreRegData=centreRegData;
+      initDashboard();
+      return;
+    }
+  }catch(e){console.log('Email search error:',e)}
+
+  // दोनों से नहीं मिला — फिर भी dashboard दिखाएं
+  document.getElementById('welcomeText').textContent='नमस्ते! 🙏';
+  document.getElementById('welcomeSub').textContent='Centre data load हो रहा है...';
+  document.getElementById('pendingBanner').style.display='flex';
+  document.getElementById('pendingBanner').innerHTML='<span>⚠️</span><div>Centre data नहीं मिला। कृपया ACS से संपर्क करें: acs.chautham@gmail.com</div>';
+});
+
+function initDashboard(){
+  const c=centreRegData;
+  // Sidebar update
+  document.getElementById('sbName').textContent=c.centre?.name||c.owner?.name||'Centre';
+  document.getElementById('sbAvatar').textContent=(c.centre?.name||'C')[0].toUpperCase();
+  document.getElementById('sbCentreId').textContent='ID: ACS-CR-'+c.id.substring(0,6).toUpperCase();
+  document.getElementById('welcomeText').textContent='नमस्ते, '+c.owner?.name+' जी 🙏';
+  document.getElementById('welcomeSub').textContent=c.centre?.name+' — Centre Dashboard';
+  document.getElementById('revBankName').textContent=(c.bank?.bankName||'—')+' | '+( c.bank?.ifsc||'—');
+
+  // Status
+  const status=c.status||'pending';
+  const dot=document.getElementById('statusDot');
+  const txt=document.getElementById('statusText');
+  if(status==='approved'){dot.className='status-dot approved';txt.textContent='✅ Fully Approved'}
+  else if(status==='state_provisional'){dot.className='status-dot provisional';txt.textContent='🟡 Provisional — Admission Open'}
+  else{dot.className='status-dot pending';txt.textContent='⏳ Review में है'}
+
+  // Banners
+  if(status==='state_provisional'||status==='approved'){
+    document.getElementById('provisionalBanner').style.display='flex';
+    document.getElementById('pendingBanner').style.display='none';
+    document.getElementById('studentLock').style.display='none';
+  }else{
+    document.getElementById('provisionalBanner').style.display='none';
+    document.getElementById('pendingBanner').style.display='flex';
+    document.getElementById('studentLock').style.display='flex';
+  }
+
+  // Tracker
+  buildTracker(c);
+  buildMiniTracker(c);
+  buildCoursesList(c);
+  loadStudents();
+}
+
+function buildTracker(c){
+  const appId='ACS-CR-'+c.id.substring(0,6).toUpperCase();
+  document.getElementById('trackerAppId').textContent='Application ID: '+appId;
+
+  const stages=[
+    {key:'pending',label:'Application Submit',desc:'आपने form भरा और submit किया',icon:'📋'},
+    {key:'regional_recommended',label:'Regional Manager Visit',desc:'Regional Manager ने Centre visit किया और recommend किया',icon:'🗺️'},
+    {key:'state_provisional',label:'State Head — Provisional Approval',desc:'State Head ने Provisional Approval दिया। Admission शुरू!',icon:'🌐'},
+    {key:'hq_legal',label:'HQ Legal — CR Verification',desc:'Police Character Certificate verify हो रहा है',icon:'⚖️'},
+    {key:'hq_finance',label:'HQ Finance — Bank Verification',desc:'Bank Account, PAN, CIBIL verify हो रहा है',icon:'💰'},
+    {key:'hq_establishment',label:'HQ Establishment — Final Approval',desc:'Final Approval Letter जारी होगा',icon:'🏫'},
+    {key:'approved',label:'Centre Fully Active!',desc:'Exam, Certificate, Fund Transfer — सब शुरू!',icon:'✅'},
+  ];
+
+  const statusOrder=['pending','regional_recommended','state_provisional','hq_legal','hq_finance','hq_establishment','approved'];
+  const curIdx=statusOrder.indexOf(c.status||'pending');
+
+  const html=stages.map((s,i)=>{
+    let cls='pending',badge='⬜ Pending',badgeCls='pending';
+    if(i<curIdx){cls='done';badge='✅ Done';badgeCls='done'}
+    else if(i===curIdx){cls='active';badge='⏳ In Progress';badgeCls='active'}
+    const days=i===curIdx&&c.submittedAt?daysSince(c.submittedAt):0;
+    return`<div class="tracker-step ${cls}">
+      <div class="step-circle">${cls==='done'?'✓':s.icon}</div>
+      <div class="step-info">
+        <strong>${s.label}</strong>
+        <span>${s.desc}</span>
+        ${cls==='active'&&days>0?`<div class="step-wait">⏱️ ${days} दिन से इस stage पर</div>`:''}
+        ${cls==='done'?`<div class="step-date">✅ Complete</div>`:''}
+      </div>
+      <span class="step-badge ${badgeCls}">${badge}</span>
+    </div>`;
+  }).join('');
+  document.getElementById('trackerSteps').innerHTML=html;
+}
+
+function buildMiniTracker(c){
+  const status=c.status||'pending';
+  const labels={pending:'⏳ Applied',regional_recommended:'🗺️ Regional Visit Done',state_provisional:'🌐 State Provisional ✅',hq_legal:'⚖️ HQ Legal',hq_finance:'💰 HQ Finance',hq_establishment:'🏫 HQ Establishment',approved:'✅ Fully Active'};
+  document.getElementById('miniTracker').innerHTML=`
+    <div style="font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px">Current Status:</div>
+    <div style="font-size:16px;font-weight:800;color:var(--blue);padding:12px;background:#EEF4FF;border-radius:8px;text-align:center">${labels[status]||status}</div>
+    <div style="font-size:11px;color:var(--gray);margin-top:8px;text-align:center">Application ID: ACS-CR-${c.id.substring(0,6).toUpperCase()}</div>`;
+}
+
+function buildCoursesList(c){
+  const courses=c.courses||[];
+  const el=document.getElementById('coursesList');
+  if(!courses.length){el.innerHTML='<div class="empty"><div class="empty-icon">📚</div><p>Courses नहीं मिले</p></div>';return}
+  el.innerHTML=courses.map(course=>`
+    <div style="display:flex;align-items:center;gap:8px;padding:10px;background:#F8FAFF;border-radius:8px;margin-bottom:6px;font-size:13px">
+      <span style="font-size:16px">📖</span>
+      <span style="font-weight:600;color:var(--navy)">${course}</span>
+    </div>`).join('');
+
+  // Course select में भी add करें
+  const sel=document.getElementById('stuCourse');
+  sel.innerHTML='<option value="">— Course चुनें —</option>';
+  courses.forEach(c=>{const o=document.createElement('option');o.value=o.textContent=c;sel.appendChild(o)});
+
+  // All courses list
+  const allEl=document.getElementById('allCoursesList');
+  const allCourses=['DCA','ADCA','MS Office','Tally','Digital Marketing','Mobile Repair','Hardware','AI Tools','Graphic Design','Video Editing'];
+  allEl.innerHTML=allCourses.map(c=>`
+    <div style="padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:500;color:var(--navy);background:var(--white)">${courses.includes(c)?'✅':'⏳'} ${c}</div>`).join('');
+}
+
+async function loadStudents(){
+  if(!currentUser||!centreRegData)return;
+  try{
+    const centreId=centreRegData.id;
+    const snap=await getDocs(collection(db,'centres',centreId,'students'));
+    const students=[];
+    snap.forEach(d=>students.push({id:d.id,...d.data()}));
+    document.getElementById('studentCount').textContent=students.length;
+    document.getElementById('st-students').textContent=students.length;
+
+    // Revenue calc
+    const totalFee=students.reduce((s,st)=>s+(parseInt(st.fee)||0),0);
+    document.getElementById('st-revenue').textContent='₹'+totalFee.toLocaleString('hi-IN');
+    document.getElementById('st-share').textContent='₹'+Math.round(totalFee*.8).toLocaleString('hi-IN');
+    document.getElementById('rev-total').textContent='₹'+totalFee.toLocaleString('hi-IN');
+    document.getElementById('rev-hold').textContent='₹'+Math.round(totalFee*.8).toLocaleString('hi-IN');
+    document.getElementById('rev-share').textContent='₹'+Math.round(totalFee*.8).toLocaleString('hi-IN');
+
+    if(!students.length)return;
+    const tbody=document.getElementById('studentsTable');
+    tbody.innerHTML=students.map(s=>`<tr>
+      <td style="font-family:monospace;font-size:11px;color:var(--blue)">${s.studentId||'—'}</td>
+      <td><strong>${s.name||'—'}</strong></td>
+      <td>${s.mobile||'—'}</td>
+      <td>${s.course||'—'}</td>
+      <td>₹${(s.fee||0).toLocaleString('hi-IN')}</td>
+      <td><span class="status-pill enrolled">Enrolled</span></td>
+      <td style="font-size:11px;color:var(--gray)">${fmtDate(s.enrolledAt)}</td>
+    </tr>`).join('');
+  }catch(e){console.log(e)}
+}
+
+window._addStudentToDb=async function(data){
+  const centreId=centreRegData.id;
+  const ref=await addDoc(collection(db,'centres',centreId,'students'),{...data,enrolledAt:serverTimestamp(),status:'enrolled',centreId});
+  return ref.id;
+};
+
+window._signOut=()=>signOut(auth);
+window._db=db;
+window._currentUser=()=>currentUser;
+window._centreRegData=()=>centreRegData;
 </script>
 
-<!-- GOOGLE TRANSLATE -->
 <script>
-  function googleTranslateElementInit(){
-    new google.translate.TranslateElement({
-      pageLanguage:'hi',
-      includedLanguages:'en,hi,kn,mr,bn,te,ta,gu,pa,ur,or,as,ml,ne,si,sw,ha,fr,es,pt,ar,zh,id,ms',
-      layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay:false
-    },'google_translate_element');
-  }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+let studentSeq=1;
 
-<!-- UI -->
-<script>
-  function toggleTranslate(){
-    const p=document.getElementById('translatePanel');
-    const e=document.getElementById('google_translate_element');
-    p.classList.toggle('open');
-    e.style.display=p.classList.contains('open')?'block':'none';
-  }
-  function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
-  function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
-  function openModal(){document.getElementById('modalBg').classList.add('open');document.getElementById('roleStep').style.display='block';document.getElementById('loginStep').classList.remove('show');}
-  function closeModal(){document.getElementById('modalBg').classList.remove('open');}
-  function closeModalOutside(e){if(e.target===document.getElementById('modalBg'))closeModal();}
-  function pickRole(role,icon){
-    window._selectedRole=role;
-    document.getElementById('roleStep').style.display='none';
-    document.getElementById('loginStep').classList.add('show');
-    document.getElementById('loginTitle').innerText=icon+' '+role+' Login';
-    document.getElementById('loginSub').innerText=role+' का Email और Password डालें';
-    document.getElementById('errMsg').innerText='';
-  }
-  function goBack(){document.getElementById('loginStep').classList.remove('show');document.getElementById('roleStep').style.display='block';}
-</script>
+// ── SIDEBAR ──
+window.toggleSidebar=function(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sbOverlay').classList.toggle('open');
+};
 
+// ── PAGE NAV ──
+window.showPage=function(name,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const pg=document.getElementById('page-'+name);
+  if(pg)pg.classList.add('active');
+  if(el)el.classList.add('active');
+  const titles={overview:'Dashboard',tracker:'Application Status',students:'Students',
+    'add-student':'Student जोड़ें',courses:'Courses',revenue:'Revenue',marketing:'Marketing',jobs:'Job Demands'};
+  document.getElementById('topbarTitle').textContent=titles[name]||name;
+  if(window.innerWidth<=768)toggleSidebar();
+};
+
+// ── ADD STUDENT ──
+window.addStudent=async function(){
+  const name=document.getElementById('stuName').value.trim();
+  const mobile=document.getElementById('stuMobile').value.trim();
+  const course=document.getElementById('stuCourse').value;
+  const fee=parseInt(document.getElementById('stuFee').value)||0;
+  const email=document.getElementById('stuEmail').value.trim();
+  const dob=document.getElementById('stuDob').value;
+  const address=document.getElementById('stuAddress').value.trim();
+  const err=document.getElementById('stuErr');
+
+  if(!name){err.style.display='flex';document.getElementById('stuErrMsg').textContent='Student का नाम जरूरी है';return}
+  if(!mobile||mobile.length!==10){err.style.display='flex';document.getElementById('stuErrMsg').textContent='10 digit Mobile Number जरूरी है';return}
+  if(!course){err.style.display='flex';document.getElementById('stuErrMsg').textContent='Course चुनना जरूरी है';return}
+  if(!fee){err.style.display='flex';document.getElementById('stuErrMsg').textContent='Fee amount जरूरी है';return}
+  err.style.display='none';
+
+  // Check provisional
+  const status=window.centreRegData?.status||'pending';
+  if(status!=='state_provisional'&&status!=='approved'){
+    showToast('❌ Provisional Approval के बाद ही Admission होगा','err');return;
+  }
+
+  const btn=document.querySelector('#addStudentForm .btn-primary');
+  btn.textContent='⏳ Adding...';btn.disabled=true;
+
+  const centreId=window.centreRegData?.id||'unknown';
+  const studentId='ACS-'+centreId.substring(0,4).toUpperCase()+'-'+String(Date.now()).slice(-4);
+
+  try{
+    await window._addStudentToDb({name:name.toUpperCase(),mobile,email,dob,course,fee,address:address.toUpperCase(),studentId,centreName:window.centreRegData?.centre?.name||''});
+    showToast('✅ Student Add हो गया! ID: '+studentId,'ok');
+    // Clear form
+    ['stuName','stuMobile','stuEmail','stuDob','stuFee','stuAddress'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('stuCourse').value='';
+    showPage('students',document.querySelector('[onclick*="students"]'));
+  }catch(e){showToast('Error: '+e.message,'err')}
+  finally{btn.textContent='✅ Student Add करें';btn.disabled=false}
+};
+
+// ── MARKETING ──
+window.sendWhatsApp=function(){
+  const msg=encodeURIComponent(document.getElementById('waMsg').value);
+  window.open('https://wa.me/?text='+msg,'_blank');
+};
+window.copyPost=function(){
+  navigator.clipboard.writeText(document.getElementById('socialPost').value);
+  showToast('✅ Copy हो गया!','ok');
+};
+window.sharePost=function(){
+  if(navigator.share){navigator.share({text:document.getElementById('socialPost').value})}
+  else{copyPost()}
+};
+window.copyLink=function(){
+  navigator.clipboard.writeText(document.getElementById('centreLink').value);
+  showToast('✅ Link Copy हो गया!','ok');
+};
+
+// ── LOGOUT ──
+window.doLogout=async function(){
+  if(!confirm('Logout करना चाहते हैं?'))return;
+  await window._signOut();
+  window.location.href='/dashboard/index.html';
+};
+
+// ── UTILS ──
+function daysSince(ts){
+  if(!ts)return 0;
+  const d=ts.toDate?ts.toDate():new Date(ts);
+  return Math.floor((Date.now()-d.getTime())/(1000*60*60*24));
+}
+function fmtDate(ts){
+  if(!ts)return'—';
+  try{const d=ts.toDate?ts.toDate():new Date(ts);return d.toLocaleDateString('hi-IN',{day:'2-digit',month:'short',year:'numeric'})}catch(e){return'—'}
+}
+function showToast(msg,type='ok'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+window.loadData=function(){window.location.reload()};
+</script>
 </body>
 </html>
