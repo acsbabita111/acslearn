@@ -447,7 +447,8 @@
           </div>
           <div class="fg">
             <label>Confirm Password <span class="req">*</span></label>
-            <input type="password" id="regPassConf" placeholder="Password दोबारा लिखें"/>
+            <input type="password" id="regPassConf" placeholder="Password दोबारा लिखें" oninput="checkPassMatch()"/>
+            <div id="pasMatchMsg" style="font-size:12px;margin-top:5px;display:none"></div>
             <div class="err-txt">Password match नहीं कर रहा</div>
           </div>
           <div class="alert-err alert" id="accErr"></div>
@@ -611,13 +612,36 @@
             <div class="err-txt">Udyog Aadhaar जरूरी है</div>
           </div>
           <hr class="divider"/>
-          <div class="divider-label">इस field में आपका अनुभव</div>
+          <div style="background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:10px;padding:14px 18px;margin-bottom:14px">
+            <div style="font-size:16px;font-weight:800;color:var(--gold);margin-bottom:4px">📅 इस Field में आपका अनुभव</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.6)">शिक्षा / प्रशिक्षण / व्यवसाय के क्षेत्र में कुल वर्षों का अनुभव चुनें</div>
+          </div>
           <div class="radio-group" id="expGrp">
-            <div class="radio-item" onclick="pickR('exp','new',this)"><input type="radio" name="exp" value="new"/><label>पहली बार शुरू कर रहे हैं</label><span class="exp-badge" style="background:#78909C">Trainee</span></div>
-            <div class="radio-item" onclick="pickR('exp','1-3',this)"><input type="radio" name="exp" value="1-3"/><label>1–3 साल का अनुभव</label><span class="exp-badge" style="background:#1565C0">Block Committee</span></div>
-            <div class="radio-item" onclick="pickR('exp','4-9',this)"><input type="radio" name="exp" value="4-9"/><label>4–9 साल का अनुभव</label><span class="exp-badge" style="background:#6A1B9A">District Committee</span></div>
-            <div class="radio-item" onclick="pickR('exp','10-15',this)"><input type="radio" name="exp" value="10-15"/><label>10–15 साल का अनुभव</label><span class="exp-badge" style="background:#E65100">State Committee</span></div>
-            <div class="radio-item" onclick="pickR('exp','16+',this)"><input type="radio" name="exp" value="16+"/><label>16 साल से अधिक</label><span class="exp-badge" style="background:#2E7D32">HQ Committee</span></div>
+            <div class="radio-item" onclick="pickR('exp','new',this)">
+              <input type="radio" name="exp" value="new"/>
+              <label><strong>पहली बार शुरू कर रहे हैं</strong><br/><span style="font-size:11px;color:var(--gray)">नए उद्यमी — ACS के साथ शुरुआत</span></label>
+              <span class="exp-badge" style="background:#78909C">Trainee</span>
+            </div>
+            <div class="radio-item" onclick="pickR('exp','1-5',this)">
+              <input type="radio" name="exp" value="1-5"/>
+              <label><strong>1–5 साल का अनुभव</strong><br/><span style="font-size:11px;color:var(--gray)">स्थानीय स्तर पर काम का अनुभव</span></label>
+              <span class="exp-badge" style="background:#1565C0">Local Committee</span>
+            </div>
+            <div class="radio-item" onclick="pickR('exp','6-14',this)">
+              <input type="radio" name="exp" value="6-14"/>
+              <label><strong>6–14 साल का अनुभव</strong><br/><span style="font-size:11px;color:var(--gray)">क्षेत्रीय / जिला स्तर की पहचान</span></label>
+              <span class="exp-badge" style="background:#6A1B9A">Regional Committee</span>
+            </div>
+            <div class="radio-item" onclick="pickR('exp','15-19',this)">
+              <input type="radio" name="exp" value="15-19"/>
+              <label><strong>15–19 साल का अनुभव</strong><br/><span style="font-size:11px;color:var(--gray)">राज्य स्तर का नेतृत्व अनुभव</span></label>
+              <span class="exp-badge" style="background:#E65100">State Committee</span>
+            </div>
+            <div class="radio-item" onclick="pickR('exp','20+',this)">
+              <input type="radio" name="exp" value="20+"/>
+              <label><strong>20 साल या इससे अधिक</strong><br/><span style="font-size:11px;color:var(--gray)">राष्ट्रीय / मुख्यालय स्तर का अनुभव</span></label>
+              <span class="exp-badge" style="background:#2E7D32">HQ Committee</span>
+            </div>
           </div>
           <div class="err-txt" id="expErr" style="display:none;margin-top:6px">अनुभव चुनना जरूरी है</div>
         </div>
@@ -640,7 +664,7 @@
           <div class="sec-hdr">🪪 Photo ID 1</div>
           <div class="fg">
             <label>ID का प्रकार <span class="req">*</span></label>
-            <select id="id1Type" onchange="updateAddrProof();showIdNum(1)">
+            <select id="id1Type" onchange="updateAddrProof();showIdNum(1);updateId2Opts()">
               <option value="">— चुनें —</option>
               <option>PAN Card</option>
               <option>Aadhar Card</option>
@@ -677,7 +701,7 @@
               <option>Driving Licence</option>
               <option>Passport</option>
             </select>
-            <div class="hint">Photo ID 1 से अलग ID चुनें</div>
+            <div class="hint" id="id2Hint2" style="color:var(--blue)"></div>
           </div>
           <div class="fg" id="id2NumWrap" style="display:none">
             <label>ID Number <span class="req">*</span></label>
@@ -701,15 +725,19 @@
           <div class="sec-hdr">🏠 Address Proof</div>
           <div class="fg">
             <label>Proof का प्रकार <span class="req">*</span></label>
-            <select id="addrType">
+            <select id="addrType" onchange="showAddrNum()">
               <option value="">— चुनें —</option>
               <option>Driving Licence</option>
               <option>Passport</option>
               <option>Voter ID</option>
               <option>Domicile Certificate (निवास प्रमाण पत्र)</option>
-              <option>Bank Passbook</option>
             </select>
             <div class="hint" id="addrProofHint" style="display:none;color:var(--blue)"></div>
+          </div>
+          <div class="fg" id="addrNumWrap" style="display:none">
+            <label>Document Number <span class="req">*</span></label>
+            <input type="text" id="addrNum" placeholder="" style="text-transform:uppercase"/>
+            <div class="hint" id="addrNumHint"></div>
           </div>
           <div class="fg">
             <div class="file-drop">
@@ -987,7 +1015,7 @@
           <p><strong>2. परिणाम:</strong> गलत जानकारी पाए जाने पर मेरा Centre पंजीकरण निरस्त किया जा सकता है।</p>
           <p><strong>3. राष्ट्रीय निष्ठा:</strong> मैं किसी भी राष्ट्र विरोधी गतिविधि में नहीं रहा/रही और न भविष्य में रहूँगा/रहूँगी।</p>
           <p><strong>4. पुलिस रिकॉर्ड:</strong> मेरे विरुद्ध भारत के किसी पुलिस थाने में कोई आपराधिक मामला दर्ज नहीं है।</p>
-          <p><strong>5. बाल सुरक्षा:</strong> मेरे Centre पर किसी बच्चे के साथ भेदभाव या यौन शोषण नहीं होगा। ऐसा होने पर पूर्ण जिम्मेदारी मेरी होगी।</p>
+          <p><strong>5. बाल सुरक्षा की प्रतिबद्धता:</strong> मेरे Centre पर किसी भी बच्चे के साथ किसी भी प्रकार का भेदभाव या यौन शोषण न हो — इसके लिए मैं हर संभव सावधानी और पूर्ण तैयारी रखूँगा/रखूँगी। यदि मेरी किसी भी लापरवाही से या मेरे Centre पर ऐसी कोई दुर्भाग्यपूर्ण घटना होती है, तो उसकी नैतिक एवं विधिक रूप से पूर्ण जिम्मेदारी मेरी होगी और मेरे विरुद्ध विधि सम्मत कार्रवाई की जाए।</p>
           <p><strong>6. निवेदन:</strong> मेरे Centre को ACS में पंजीकृत किया जाए और ACS course चलाने की अनुमति दी जाए।</p>
           <div class="shapath-sign">
             — <strong id="sName2">[नाम]</strong> | Centre: <span id="sCentre">[Centre]</span><br/>
@@ -1008,7 +1036,7 @@
           <h4>📊 Submit के बाद क्या होगा?</h4>
           <div class="tracking-step"><div class="t-dot">1</div><span><strong>Application ID</strong> मिलेगा (ACS-CR-XXXXXX)</span></div>
           <div class="tracking-step"><div class="t-dot">2</div><span>Application <strong>Pending Review</strong> में जाएगा</span></div>
-          <div class="tracking-step"><div class="t-dot">3</div><span>ACS Head <strong>2-3 कार्य दिवसों</strong> में review करेगा</span></div>
+          <div class="tracking-step"><div class="t-dot">3</div><span>ACS Personnel <strong>2-3 कार्य दिवसों</strong> में review करेंगे</span></div>
           <div class="tracking-step"><div class="t-dot">4</div><span>Approve होने पर <strong>Email पर सूचना</strong> मिलेगी</span></div>
           <div class="tracking-step"><div class="t-dot">5</div><span><strong>Centre Dashboard</strong> activate होगा</span></div>
         </div>
@@ -1146,7 +1174,54 @@ window.socYN=function(key,val,btn){
   btn.closest('.yn-row').querySelectorAll('.yn-btn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   const f=document.getElementById(key+'Fields');
-  if(f)f.style.display=val?'block':'none';
+  if(f){
+    f.style.display=val?'block':'none';
+    // Mark link field as required if yes
+    const linkInput=document.getElementById(key+'Link');
+    if(linkInput){
+      linkInput.required=val;
+      linkInput.placeholder=val?`${key==='ws'?'Website URL':'Link paste करें — जरूरी है'}`:'';
+      if(val)linkInput.style.borderColor='var(--blue)';
+      else linkInput.style.borderColor='';
+    }
+  }
+};
+
+// ── PASSWORD CONFIRM MATCH ──
+window.checkPassMatch=function(){
+  const pass=document.getElementById('regPass').value;
+  const conf=document.getElementById('regPassConf').value;
+  const msg=document.getElementById('pasMatchMsg');
+  if(!conf){msg.style.display='none';return}
+  msg.style.display='block';
+  if(pass===conf){msg.style.color='var(--green-dk)';msg.innerHTML='✅ Password match कर रहा है'}
+  else{msg.style.color='#E53935';msg.innerHTML='❌ Password match नहीं कर रहा'}
+};
+
+// ── ADDRESS PROOF NUMBER ──
+const ADDR_CFG={'Driving Licence':{ph:'UP1420110012345',hint:'Format: State Code + Number'},'Passport':{ph:'A1234567',hint:'Format: 1 letter + 7 digits'},'Voter ID':{ph:'XYZ1234567',hint:'Format: 3 letters + 7 digits'},'Domicile Certificate (निवास प्रमाण पत्र)':{ph:'Certificate Number',hint:'Certificate पर लिखा number'}};
+window.showAddrNum=function(){
+  const type=document.getElementById('addrType').value;
+  const wrap=document.getElementById('addrNumWrap');
+  const inp=document.getElementById('addrNum');
+  const hint=document.getElementById('addrNumHint');
+  if(!type||!ADDR_CFG[type]){wrap.style.display='none';return}
+  const cfg=ADDR_CFG[type];
+  inp.placeholder=cfg.ph;hint.innerText='💡 '+cfg.hint;inp.value='';
+  wrap.style.display='block';
+};
+
+// ── ID2 DROPDOWN - hide ID1 selection ──
+window.updateId2Opts=function(){
+  const id1=document.getElementById('id1Type').value;
+  const sel=document.getElementById('id2Type');
+  const cur=sel.value;
+  const all=['PAN Card','Aadhar Card','Driving Licence','Passport'];
+  sel.innerHTML='<option value="">— चुनें —</option>';
+  all.forEach(o=>{if(o!==id1){const op=document.createElement('option');op.value=op.textContent=o;if(cur===o)op.selected=true;sel.appendChild(op)}});
+  if(cur===id1){sel.value='';document.getElementById('id2NumWrap').style.display='none'}
+  const hint=document.getElementById('id2Hint2');
+  if(hint)hint.innerText=id1?`ℹ️ ${id1} Photo ID 1 में चुना है — यहाँ उपलब्ध नहीं`:'Photo ID 1 से अलग ID चुनें';
 };
 
 // ── RADIO ──
@@ -1333,7 +1408,22 @@ function validate(step){
     req('accNum');req('ifsc');
     if(!document.getElementById('bankDecl').checked){alert('Bank declaration confirm करें');ok=false}
   }
-  if(step===9){
+  if(step===8){
+    // अगर किसी social media पर "हाँ" किया है तो link जरूरी है
+    let socOk=true;
+    SOCIAL.forEach(s=>{
+      const fields=document.getElementById(s.k+'Fields');
+      if(fields&&fields.style.display==='block'){
+        const link=document.getElementById(s.k+'Link');
+        if(link&&!link.value.trim()){
+          link.style.borderColor='#E53935';
+          link.placeholder='⚠️ हाँ किया है — Link जरूरी है!';
+          socOk=false;
+        }
+      }
+    });
+    if(!socOk){alert('जिस Social Media के लिए "हाँ" किया है, उसका Link जरूरी है।');ok=false;}
+  }
     if(!gv('lang')){markBad('lang');ok=false}else clearBad('lang');
     // कम से कम 5 courses भरे हों
     const filledCourses=[];
