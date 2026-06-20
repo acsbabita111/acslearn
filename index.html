@@ -457,7 +457,26 @@
     if(user){
       main.style.display='none';w.classList.add('show');
       const snap=await getDoc(doc(db,'users',user.uid));
-      if(snap.exists()){const d=snap.data();document.getElementById('welcomeText').innerText='स्वागत है, '+d.name+' ('+d.role+')';document.getElementById('welcomeSub').innerText='आपका '+d.role+' Dashboard जल्द तैयार हो रहा है।';}
+      if(snap.exists()){
+        const d=snap.data();
+        document.getElementById('welcomeText').innerText='स्वागत है, '+d.name+' 🙏';
+        document.getElementById('welcomeSub').innerText='Dashboard खुल रहा है...';
+        const redirectMap={
+          'Founder':'founder/index.html',
+          'Head':'hq/head/index.html',
+          'Legal_Head':'hq/legal/index.html',
+          'Finance_Head':'hq/finance/index.html',
+          'Establishment_Head':'hq/establishment/index.html',
+          'State_Head':'state/index.html',
+          'Regional_Manager':'regional/index.html',
+          'Centre':'centre/index.html',
+          'Teacher':'teacher/index.html',
+          'Student':'student/index.html',
+        };
+        const url=redirectMap[d.role];
+        if(url){setTimeout(()=>{window.location.href=url;},1200);}
+        else{document.getElementById('welcomeSub').innerText='Role: '+d.role+' | Dashboard जल्द तैयार होगा।';}
+      }
     }else{main.style.display='block';w.classList.remove('show');}
   });
 </script>
