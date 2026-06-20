@@ -87,28 +87,75 @@
     .hero-mission{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px;font-style:italic}
     .hero-motto{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:18px}
     .motto-item{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:var(--white);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px}
-    .hero-free{display:inline-block;background:rgba(46,125,50,.35);border:1px solid rgba(67,160,71,.5);color:#A5D6A7;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px}
+    .hero-free{
+      display:inline-block;
+      background:linear-gradient(135deg,#1B5E20,#2E7D32);
+      border:none;
+      color:#fff;
+      font-size:18px;
+      font-weight:900;
+      padding:14px 32px;
+      border-radius:50px;
+      letter-spacing:.5px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.3);
+      margin-top:8px;
+    }
 
     /* ══ 3 CARDS ══ */
-    .paths-wrap{max-width:1000px;margin:-28px auto 0;padding:0 14px;position:relative;z-index:10}
-    .paths-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    .paths-wrap{max-width:1100px;margin:-40px auto 0;padding:0 16px;position:relative;z-index:10}
+    .paths-grid{display:grid;grid-template-columns:1fr;gap:20px}
     @media(min-width:640px){.paths-grid{grid-template-columns:repeat(3,1fr)}}
-    .path-card{background:var(--white);border-radius:var(--r);padding:22px 18px;box-shadow:0 4px 20px rgba(0,0,0,.10);border-top:4px solid transparent;display:flex;flex-direction:column;gap:10px}
-    .path-card.c-blue{border-top-color:var(--blue-lt)}
-    .path-card.c-gold{border-top-color:var(--gold)}
-    .path-card.c-green{border-top-color:var(--green-lt)}
-    .path-icon{font-size:34px;line-height:1}
-    .path-tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px}
-    .tag-free{background:#E8F5E9;color:var(--green)}
-    .tag-paid{background:#FFF8E1;color:#E65100}
-    .tag-earn{background:#E3F2FD;color:var(--blue)}
-    .path-card h2{font-size:17px;font-weight:800;color:var(--navy)}
-    .path-card p{font-size:13px;color:var(--gray);line-height:1.55;flex:1}
-    .path-btns{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-    .pbtn{display:flex;align-items:center;gap:8px;padding:11px 14px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:opacity .15s;width:100%;text-align:left;min-height:48px}
-    .pbtn:hover{opacity:.88}
+
+    .path-card{
+      background:var(--white);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 32px rgba(0,0,0,.12);
+      display:flex;flex-direction:column;
+      transition:transform .2s,box-shadow .2s;
+    }
+    .path-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.18)}
+
+    /* Card Header Band */
+    .path-card-header{
+      padding:28px 20px 24px;
+      text-align:center;
+      position:relative;
+    }
+    .path-card.c-blue .path-card-header{background:linear-gradient(135deg,#0B1F3A,#1565C0)}
+    .path-card.c-gold .path-card-header{background:linear-gradient(135deg,#7B4F00,#F9A825)}
+    .path-card.c-green .path-card-header{background:linear-gradient(135deg,#1B5E20,#2E7D32)}
+
+    /* Big Icon */
+    .path-icon{font-size:42px;line-height:1;margin-bottom:10px;display:block}
+
+    /* TAG — बड़ा, बोल्ड, केंद्र में */
+    .path-tag{
+      display:block;
+      text-align:center;
+      font-size:20px;
+      font-weight:900;
+      letter-spacing:1px;
+      padding:12px 28px;
+      border-radius:40px;
+      margin:0 auto 4px;
+      width:fit-content;
+      text-transform:uppercase;
+      box-shadow:0 4px 16px rgba(0,0,0,0.2);
+    }
+    .tag-free{background:#fff;color:#1B5E20;border:3px solid #A5D6A7}
+    .tag-paid{background:#fff;color:#7B4F00;border:3px solid #FFD54F}
+    .tag-earn{background:#fff;color:#0B1F3A;border:3px solid #A5D6A7}
+
+    /* Card Body */
+    .path-card-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .path-card h2{font-size:26px;font-weight:900;color:var(--navy);text-align:center;margin-bottom:4px}
+    .path-card p{font-size:13px;color:var(--gray);line-height:1.6;flex:1;text-align:center}
+    .path-btns{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+    .pbtn{display:flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:all .2s;width:100%;text-align:left;min-height:48px;text-decoration:none}
+    .pbtn:hover{opacity:.88;transform:translateX(2px)}
     .pbtn-blue{background:var(--blue);color:var(--white)}
-    .pbtn-ghost{background:var(--offwhite);color:var(--navy)}
+    .pbtn-ghost{background:#F0F4F8;color:var(--navy)}
     .pbtn-gold{background:var(--gold);color:var(--navy)}
     .pbtn-green{background:var(--green);color:var(--white)}
 
@@ -238,7 +285,7 @@
     <h1 class="hero-h1">
       मोबाइल से ट्रेनिंग लो,<br/>
       काबिल बनो,<br/>
-      <em>और काम की शुरुआत करो।</em>
+      <em>और पैसा कमाना शुरू करो!</em>
     </h1>
     <p class="hero-mission">Free Digital Education for the Global South</p>
     <div class="hero-motto">
@@ -255,41 +302,53 @@
     <div class="paths-grid">
 
       <div class="path-card c-blue">
-        <div class="path-icon">📚</div>
-        <span class="path-tag tag-free">✅ पूर्णतः निःशुल्क</span>
-        <h2>कोर्स देखें</h2>
-        <p>बिना login, बिना payment — सीधे पढ़ाई शुरू करें। Computer, Mobile, AI, Digital Marketing — सभी कोर्स फ्री।</p>
-        <div class="path-btns">
-          <a href="https://acslearn.com/courses/hi/index.html" class="pbtn pbtn-blue">📖 अभी कोर्स खोलें</a>
-          <a href="https://acslearn.com/career/hi/local-employment.html" class="pbtn pbtn-ghost">💼 रोजगार रास्ते देखें</a>
-          <a href="https://acslearn.com/career/hi/self-employment.html" class="pbtn pbtn-ghost">🚀 स्वरोजगार देखें</a>
-          <a href="https://acslearn.com/career/hi/government-employment.html" class="pbtn pbtn-ghost">🏛️ सरकारी रोजगार</a>
+        <div class="path-card-header">
+          <span class="path-icon">📚</span>
+          <span class="path-tag tag-free">✅ पूर्णतः निःशुल्क</span>
+        </div>
+        <div class="path-card-body">
+          <h2>कोर्स देखें</h2>
+          <p>बिना login, बिना payment — सीधे पढ़ाई शुरू करें। Computer, Mobile, AI, Digital Marketing — सभी कोर्स फ्री।</p>
+          <div class="path-btns">
+            <a href="https://acslearn.com/courses/hi/index.html" class="pbtn pbtn-blue">📖 अभी कोर्स खोलें</a>
+            <a href="https://acslearn.com/career/hi/local-employment.html" class="pbtn pbtn-ghost">💼 रोजगार रास्ते देखें</a>
+            <a href="https://acslearn.com/career/hi/self-employment.html" class="pbtn pbtn-ghost">🚀 स्वरोजगार देखें</a>
+            <a href="https://acslearn.com/career/hi/government-employment.html" class="pbtn pbtn-ghost">🏛️ सरकारी रोजगार</a>
+          </div>
         </div>
       </div>
 
       <div class="path-card c-gold">
-        <div class="path-icon">🔑</div>
-        <span class="path-tag tag-paid">💳 Login आवश्यक</span>
-        <h2>लॉगिन करें</h2>
-        <p>Student, Centre, Teacher, Counselor, Employer — सभी के लिए अलग dashboard। Progress, Certificate और Payment यहाँ।</p>
-        <div class="path-btns">
-          <button class="pbtn pbtn-gold" onclick="openModal()">🔑 अभी Login करें</button>
-          <button class="pbtn pbtn-ghost" onclick="openModal()">🎓 Student Login</button>
-          <button class="pbtn pbtn-ghost" onclick="openModal()">🏫 Centre / Workshop Login</button>
-          <button class="pbtn pbtn-ghost" onclick="openModal()">🔐 Admin / Head Login</button>
+        <div class="path-card-header">
+          <span class="path-icon">🔑</span>
+          <span class="path-tag tag-paid">💳 Login आवश्यक</span>
+        </div>
+        <div class="path-card-body">
+          <h2>लॉगिन करें</h2>
+          <p>Student, Centre, Teacher, Counselor, Employer — सभी के लिए अलग dashboard। Progress, Certificate और Payment यहाँ।</p>
+          <div class="path-btns">
+            <button class="pbtn pbtn-gold" onclick="openModal()">🔑 अभी Login करें</button>
+            <button class="pbtn pbtn-ghost" onclick="openModal()">🎓 Student Login</button>
+            <button class="pbtn pbtn-ghost" onclick="openModal()">🏫 Centre / Workshop Login</button>
+            <button class="pbtn pbtn-ghost" onclick="openModal()">🔐 Admin / Head Login</button>
+          </div>
         </div>
       </div>
 
       <div class="path-card c-green">
-        <div class="path-icon">🤝</div>
-        <span class="path-tag tag-earn">💰 कमाई का मौका</span>
-        <h2>हमसे जुड़िए</h2>
-        <p>Centre/Workshop, Teacher, Niyokta, Counselor — ACS Network से जुड़कर कमाई करें। हर student की fees में आपका हिस्सा।</p>
-        <div class="path-btns">
-          <a href="https://acslearn.com/centre-register.html" class="pbtn pbtn-green">🏫 Centre / Workshop जोड़ें</a>
-          <a href="https://acslearn.com/mentors/hi/register.html" class="pbtn pbtn-ghost">👨‍🏫 Teacher / Mentor बनें</a>
-          <a href="https://acslearn.com/employers/hi/register.html" class="pbtn pbtn-ghost">💼 Niyokta / Employer बनें</a>
-          <a href="https://acslearn.com/counselors/hi/register.html" class="pbtn pbtn-ghost">🧭 Counselor बनें</a>
+        <div class="path-card-header">
+          <span class="path-icon">🤝</span>
+          <span class="path-tag tag-earn">💰 कमाई का मौका</span>
+        </div>
+        <div class="path-card-body">
+          <h2>हमसे जुड़िए</h2>
+          <p>Centre/Workshop, Teacher, Niyokta, Counselor — ACS Network से जुड़कर कमाई करें। हर student की fees में आपका हिस्सा।</p>
+          <div class="path-btns">
+            <a href="https://acslearn.com/centre-register.html" class="pbtn pbtn-green">🏫 Centre / Workshop जोड़ें</a>
+            <a href="https://acslearn.com/mentors/hi/register.html" class="pbtn pbtn-ghost">👨‍🏫 Teacher / Mentor बनें</a>
+            <a href="https://acslearn.com/employers/hi/register.html" class="pbtn pbtn-ghost">💼 Niyokta / Employer बनें</a>
+            <a href="https://acslearn.com/counselors/hi/register.html" class="pbtn pbtn-ghost">🧭 Counselor बनें</a>
+          </div>
         </div>
       </div>
 
@@ -298,13 +357,13 @@
 
   <!-- PAYMENT -->
   <div class="payment-strip">
-    <h3>💰 पूरी पारदर्शिता — हर ₹100 में किसका कितना हिस्सा?</h3>
+    <h3>💰 पूरी पारदर्शिता — हर Fee का कितना % किसको मिलेगा?</h3>
     <div class="payment-table">
-      <div class="pt-item"><span class="pt-amount">₹80</span><div class="pt-label">Centre / Franchise</div></div>
-      <div class="pt-item"><span class="pt-amount">₹7</span><div class="pt-label">Content Creator</div></div>
-      <div class="pt-item"><span class="pt-amount">₹3</span><div class="pt-label">Translator</div></div>
-      <div class="pt-item"><span class="pt-amount">₹5</span><div class="pt-label">ACS Platform</div></div>
-      <div class="pt-item"><span class="pt-amount">₹5</span><div class="pt-label">State Office</div></div>
+      <div class="pt-item"><span class="pt-amount">80%</span><div class="pt-label">Centre / Franchise</div></div>
+      <div class="pt-item"><span class="pt-amount">7%</span><div class="pt-label">Content Creator</div></div>
+      <div class="pt-item"><span class="pt-amount">3%</span><div class="pt-label">Translator</div></div>
+      <div class="pt-item"><span class="pt-amount">5%</span><div class="pt-label">ACS Platform</div></div>
+      <div class="pt-item"><span class="pt-amount">5%</span><div class="pt-label">State Office</div></div>
     </div>
     <p class="payment-note">Assignment complete होने पर Razorpay द्वारा automatically PAN card से payment। कोई छुपा commission नहीं।</p>
   </div>
@@ -438,7 +497,7 @@
         'Teacher':['Teacher'],
         'Counselor':['Counselor'],
         'Employer':['Employer'],
-        'Admin':['Founder','Head','Admin']
+        'Admin':['Founder','Head','Admin','Regional_Manager','State_Head','Legal_Head','Finance_Head','Establishment_Head','HQ_Staff','Zonal','RM']
       };
       const allowed=roleMap[selectedRole]||[];
       if(!allowed.includes(actualRole)){
@@ -464,14 +523,17 @@
         const redirectMap={
           'Founder':'/dashboard/founder/index.html',
           'Head':'/dashboard/hq/head/index.html',
+          'Admin':'/dashboard/hq/index.html',
+          'HQ_Staff':'/dashboard/hq/index.html',
           'Legal_Head':'/dashboard/hq/legal/index.html',
           'Finance_Head':'/dashboard/hq/finance/index.html',
           'Establishment_Head':'/dashboard/hq/establishment/index.html',
-          'State_Head':'/dashboard/state/index.html',
-          'Regional_Manager':'/dashboard/regional/index.html',
+          'Zonal':'/dashboard/zonal/index.html',
+          'RM':'/dashboard/regional/index.html',
           'Centre':'/dashboard/centre/index.html',
           'Teacher':'/dashboard/teacher/index.html',
           'Student':'/dashboard/student/index.html',
+          'Employer':'/dashboard/employer/index.html',
         };
         const url=redirectMap[d.role];
         if(url){setTimeout(()=>{window.location.href=url;},1200);}
