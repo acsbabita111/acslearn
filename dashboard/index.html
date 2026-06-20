@@ -462,16 +462,16 @@
         document.getElementById('welcomeText').innerText='स्वागत है, '+d.name+' 🙏';
         document.getElementById('welcomeSub').innerText='Dashboard खुल रहा है...';
         const redirectMap={
-          'Founder':'founder/index.html',
-          'Head':'hq/head/index.html',
-          'Legal_Head':'hq/legal/index.html',
-          'Finance_Head':'hq/finance/index.html',
-          'Establishment_Head':'hq/establishment/index.html',
-          'State_Head':'state/index.html',
-          'Regional_Manager':'regional/index.html',
-          'Centre':'centre/index.html',
-          'Teacher':'teacher/index.html',
-          'Student':'student/index.html',
+          'Founder':'/dashboard/founder/index.html',
+          'Head':'/dashboard/hq/head/index.html',
+          'Legal_Head':'/dashboard/hq/legal/index.html',
+          'Finance_Head':'/dashboard/hq/finance/index.html',
+          'Establishment_Head':'/dashboard/hq/establishment/index.html',
+          'State_Head':'/dashboard/state/index.html',
+          'Regional_Manager':'/dashboard/regional/index.html',
+          'Centre':'/dashboard/centre/index.html',
+          'Teacher':'/dashboard/teacher/index.html',
+          'Student':'/dashboard/student/index.html',
         };
         const url=redirectMap[d.role];
         if(url){setTimeout(()=>{window.location.href=url;},1200);}
