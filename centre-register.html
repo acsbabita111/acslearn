@@ -389,10 +389,10 @@
           <div class="alert alert-info">ℹ️ बीच में form छोड़ने पर data save नहीं होगा। सभी documents एक साथ तैयार रखें।</div>
           <ul class="doc-list">
             <li><span class="di">📸</span><span><strong>Profile Photo</strong> — सामने का साफ फोटो, White background (35-50 KB)</span></li>
-            <li><span class="di">🪪</span><span><strong>Photo ID (any one)</strong> — PAN / Aadhar / Driving Licence / Passport (35-50 KB each)</span></li>
+            <li><span class="di">🪪</span><span><strong>Photo ID (2 अलग)</strong> — PAN / Aadhar / Driving Licence / Passport (35-50 KB each)</span></li>
             <li><span class="di">🏭</span><span><strong>Udyog Aadhaar / MSME Number</strong> — <a href="https://udyamregistration.gov.in" target="_blank">udyamregistration.gov.in</a> से (Free)</span></li>
-            <li><span class="di">🏠</span><span><strong>Address Proof(any one)</strong> — DL / Passport / Voter ID / Domicile / Bank Passbook (35-50 KB)</span></li>
-            <li><span class="di">📍</span><span><strong>Centre की 2 पीस GeoTagged Photos</strong> — GPS Map Camera App से खींची (35-50 KB) <a href="https://play.google.com/store/apps/details?id=com.geotagphotos" target="_blank">App →</a></span></li>
+            <li><span class="di">🏠</span><span><strong>Address Proof</strong> — DL / Passport / Voter ID / Domicile / Bank Passbook (35-50 KB)</span></li>
+            <li><span class="di">📍</span><span><strong>Centre की 2 GeoTagged Photos</strong> — GPS Map Camera App से खींची (35-50 KB) <a href="https://play.google.com/store/apps/details?id=com.geotagphotos" target="_blank">App →</a></span></li>
             <li><span class="di">🏦</span><span><strong>Bank Passbook / Cheque</strong> — Owner या Centre के नाम का (35-50 KB)</span></li>
             <li><span class="di">🗺️</span><span><strong>Google Maps Link</strong> — Centre की exact location (<a href="https://maps.google.com" target="_blank">maps.google.com →</a>)</span></li>
             <li><span class="di">📧</span><span><strong>Active Email ID</strong> — जिस पर OTP आ सके (Gmail best)</span></li>
@@ -892,16 +892,62 @@
             <label>Teaching Language <span class="req">*</span></label>
             <select id="lang">
               <option value="">— भाषा चुनें —</option>
-              <option>Hindi</option><option>Kannada</option><option>Marathi</option>
-              <option>English</option><option>Bengali</option><option>Telugu</option>
-              <option>Tamil</option><option>Gujarati</option><option>Other</option>
+              <optgroup label="🇮🇳 भारतीय भाषाएँ (Indian Languages)">
+                <option>Hindi (हिन्दी)</option>
+                <option>Bengali (বাংলা)</option>
+                <option>Telugu (తెలుగు)</option>
+                <option>Marathi (मराठी)</option>
+                <option>Tamil (தமிழ்)</option>
+                <option>Urdu (اردو)</option>
+                <option>Gujarati (ગુજરાતી)</option>
+                <option>Kannada (ಕನ್ನಡ)</option>
+                <option>Odia (ଓଡ଼ିଆ)</option>
+                <option>Malayalam (മലയാളം)</option>
+                <option>Punjabi (ਪੰਜਾਬੀ)</option>
+                <option>Assamese (অসমীয়া)</option>
+                <option>Maithili (मैथिली)</option>
+                <option>Santali (ᱥᱟᱱᱛᱟᱲᱤ)</option>
+                <option>Kashmiri (کٲشُر)</option>
+                <option>Nepali (नेपाली)</option>
+                <option>Sindhi (سنڌي)</option>
+                <option>Konkani (कोंकणी)</option>
+                <option>Dogri (डोगरी)</option>
+                <option>Manipuri (মৈতৈলোন্)</option>
+                <option>Bodo (बड़ो)</option>
+                <option>Sanskrit (संस्कृत)</option>
+              </optgroup>
+              <optgroup label="🌍 Global South Languages">
+                <option>English</option>
+                <option>Swahili (East Africa)</option>
+                <option>Hausa (West Africa)</option>
+                <option>Amharic (Ethiopia)</option>
+                <option>Yoruba (Nigeria)</option>
+                <option>Igbo (Nigeria)</option>
+                <option>Zulu (South Africa)</option>
+                <option>Somali</option>
+                <option>Arabic (العربية)</option>
+                <option>French (Français)</option>
+                <option>Portuguese (Português)</option>
+                <option>Spanish (Español)</option>
+                <option>Indonesian (Bahasa)</option>
+                <option>Malay (Bahasa Melayu)</option>
+                <option>Burmese (မြန်မာ)</option>
+                <option>Khmer (ខ្មែរ)</option>
+                <option>Sinhala (සිංහල)</option>
+                <option>Bangla (Bangladesh)</option>
+                <option>Nepali (Nepal)</option>
+              </optgroup>
+              <optgroup label="🌐 Other">
+                <option>Other / अन्य</option>
+              </optgroup>
             </select>
             <div class="err-txt">भाषा चुनें</div>
           </div>
           <div class="fg">
-            <label>Courses (एक से अधिक चुनें) <span class="req">*</span></label>
-            <div class="course-grid" id="courseGrid"></div>
-            <div class="err-txt" id="courseErr">कम से कम एक course चुनें</div>
+            <label>Courses — कम से कम 5, अधिकतम 10 <span class="req">*</span></label>
+            <div class="alert alert-info" style="margin-bottom:12px">📝 आप जो courses चलाना चाहते हैं वो नीचे लिखें। ACS आपके लिए वो course तैयार करेगा। कम से कम 5 courses भरना जरूरी है।</div>
+            <div id="courseInputs"></div>
+            <div class="err-txt" id="courseErr">कम से कम 5 courses भरना जरूरी है</div>
           </div>
         </div>
         <div class="btn-row">
@@ -997,7 +1043,6 @@ const FAC1=['अपना मकान / किराए का कमरा','�
 const FAC2=['Computer / Laptop (min 1)','Printer','Internet (Broadband/4G/5G)','Projector / Smart TV','Mobile charging point','CCTV Camera'];
 const FAC3=['Whiteboard / Blackboard','Study material देने की व्यवस्था','Library / Reference books','Practical training'];
 const FAC4=['महिला students के लिए सुरक्षित','Divyang accessible','Public transport accessible','Parking'];
-const COURSES=['DCA','ADCA','MS Office','Tally / Accounting','Digital Marketing','Mobile Repair','Hardware & Networking','AI Tools','Graphic Design','Video Editing','English Speaking','Typing','Spoken Hindi','Other'];
 const SOCIAL=[{k:'yt',icon:'📺',lbl:'YouTube Channel',ph:'YouTube Channel Link',cnt:'Subscribers'},{k:'ig',icon:'📸',lbl:'Instagram',ph:'Instagram Profile Link',cnt:'Followers'},{k:'fb',icon:'👤',lbl:'Facebook Page',ph:'Facebook Page Link',cnt:'Followers'},{k:'li',icon:'💼',lbl:'LinkedIn',ph:'LinkedIn Profile Link',cnt:'Connections'},{k:'tw',icon:'🐦',lbl:'Twitter / X',ph:'Twitter/X Profile Link',cnt:'Followers'},{k:'wa',icon:'💬',lbl:'WhatsApp Channel',ph:'WhatsApp Channel Link',cnt:'Members'},{k:'tg',icon:'✈️',lbl:'Telegram Channel',ph:'Telegram Channel Link',cnt:'Members'},{k:'ws',icon:'🌐',lbl:'Website',ph:'Website URL',cnt:''}];
 const ID_CFG={'PAN Card':{ph:'ABCDE1234F',hint:'Format: 5 letters + 4 numbers + 1 letter',rx:/^[A-Z]{5}[0-9]{4}[A-Z]$/,err:'गलत PAN — ABCDE1234F जैसा होना चाहिए'},'Aadhar Card':{ph:'12 digit Aadhar Number',hint:'Format: 12 digits',rx:/^[0-9]{12}$/,err:'Aadhar 12 digit का होना चाहिए'},'Driving Licence':{ph:'UP1420110012345',hint:'Format: State Code + Number',rx:/^[A-Z]{2}[0-9]{11,13}$/,err:'सही DL Number डालें'},'Passport':{ph:'A1234567',hint:'Format: 1 letter + 7 digits',rx:/^[A-Z][0-9]{7}$/,err:'गलत Passport — A1234567 जैसा होना चाहिए'}};
 
@@ -1015,13 +1060,17 @@ function buildFac(items,id,pre){
   });
 }
 function buildCourses(){
-  const g=document.getElementById('courseGrid');
-  COURSES.forEach((c,i)=>{
-    const d=document.createElement('div');d.className='course-item';
-    d.innerHTML=`<input type="checkbox" id="c${i}" value="${c}"/><label for="c${i}">${c}</label>`;
-    d.onclick=()=>{const cb=d.querySelector('input');cb.checked=!cb.checked;d.classList.toggle('on',cb.checked)};
-    g.appendChild(d);
-  });
+  const w=document.getElementById('courseInputs');
+  for(let i=1;i<=10;i++){
+    const req=i<=5?'<span style="color:#E53935">*</span>':'<span style="color:var(--gray);font-size:11px">(optional)</span>';
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;align-items:center;gap:10px;margin-bottom:8px';
+    d.innerHTML=`
+      <div style="width:28px;height:28px;border-radius:50%;background:${i<=5?'var(--blue)':'#B0BEC5'};color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">${i}</div>
+      <input type="text" id="course${i}" placeholder="Course ${i} का नाम लिखें ${req.includes('optional')?'(optional)':''}" style="flex:1;padding:10px 14px;border:1.5px solid var(--form-border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;min-height:44px;text-transform:uppercase" oninput="this.value=this.value.toUpperCase()"/>
+      <span style="font-size:11px;color:${i<=5?'#E53935':'var(--gray)'};">${i<=5?'जरूरी':'वैकल्पिक'}</span>`;
+    w.appendChild(d);
+  }
 }
 function buildSocial(){
   const w=document.getElementById('socialWrap');
@@ -1164,11 +1213,39 @@ function startResend(){
 // ── PIN & IFSC ──
 window.fetchPin=async function(pin){
   if(pin.length!==6)return;
-  document.getElementById('pinLdr').style.display='block';
-  try{const r=await fetch(`https://api.postalpincode.in/pincode/${pin}`),d=await r.json();
-    document.getElementById('pinLdr').style.display='none';
-    if(d[0].Status==='Success'){const p=d[0].PostOffice[0];document.getElementById('district').value=p.District;document.getElementById('state').value=p.State}
-  }catch(e){document.getElementById('pinLdr').style.display='none'}
+  const ldr=document.getElementById('pinLdr');
+  ldr.style.display='block';ldr.innerText='⏳ जानकारी खोज रहे हैं...';
+  document.getElementById('district').value='';
+  document.getElementById('state').value='';
+  try{
+    const r=await fetch(`https://api.postalpincode.in/pincode/${pin}`);
+    const d=await r.json();
+    ldr.style.display='none';
+    if(d&&d[0]&&d[0].Status==='Success'&&d[0].PostOffice?.length>0){
+      const po=d[0].PostOffice[0];
+      document.getElementById('district').value=po.District;
+      document.getElementById('state').value=po.State;
+    }else{
+      ldr.style.display='block';
+      ldr.innerText='⚠️ Pin Code नहीं मिला — जिला और राज्य खुद भरें';
+      ldr.style.color='#E65100';
+      // Manual input enable करें
+      document.getElementById('district').removeAttribute('readonly');
+      document.getElementById('state').removeAttribute('readonly');
+      document.getElementById('district').style.background='white';
+      document.getElementById('state').style.background='white';
+      document.getElementById('district').placeholder='जिला खुद लिखें';
+      document.getElementById('state').placeholder='राज्य खुद लिखें';
+    }
+  }catch(e){
+    ldr.style.display='block';
+    ldr.innerText='⚠️ Network error — जिला और राज्य खुद भरें';
+    ldr.style.color='#E65100';
+    document.getElementById('district').removeAttribute('readonly');
+    document.getElementById('state').removeAttribute('readonly');
+    document.getElementById('district').style.background='white';
+    document.getElementById('state').style.background='white';
+  }
 };
 window.fetchIFSC=async function(ifsc){
   if(ifsc.length!==11)return;
@@ -1230,7 +1307,15 @@ window.chkFile=function(inp,okId,errId,mn,mx){
 };
 
 // ── VALIDATION ──
-function gv(id){const el=document.getElementById(id);return el?el.value.trim():''}
+// email/password/url fields जो uppercase नहीं होने चाहिए
+const NO_UPPER=['regEmail','regPass','regPassC','regPassConf','mapsLink','ytLink','igLink','fbLink','liLink','twLink','waLink','tgLink','wsLink'];
+function gv(id){
+  const el=document.getElementById(id);
+  if(!el)return'';
+  const val=el.value.trim();
+  if(NO_UPPER.includes(id)||el.type==='email'||el.type==='password'||el.type==='url'||el.type==='number')return val;
+  return val.toUpperCase();
+}
 function markBad(id,msg){const el=document.getElementById(id);const fg=el?.closest('.fg');if(fg){fg.classList.add('bad');const e=fg.querySelector('.err-txt');if(e&&msg)e.innerText=msg}}
 function clearBad(id){document.getElementById(id)?.closest('.fg')?.classList.remove('bad')}
 function validate(step){
@@ -1250,7 +1335,10 @@ function validate(step){
   }
   if(step===9){
     if(!gv('lang')){markBad('lang');ok=false}else clearBad('lang');
-    if(!document.querySelectorAll('#courseGrid input:checked').length){document.getElementById('courseErr').style.display='block';ok=false}
+    // कम से कम 5 courses भरे हों
+    const filledCourses=[];
+    for(let i=1;i<=10;i++){const v=document.getElementById('course'+i)?.value.trim();if(v)filledCourses.push(v.toUpperCase())}
+    if(filledCourses.length<5){document.getElementById('courseErr').style.display='block';ok=false}
     else document.getElementById('courseErr').style.display='none';
   }
   if(!ok)window.scrollTo(0,0);
@@ -1259,7 +1347,9 @@ function validate(step){
 
 // ── REVIEW ──
 function buildReview(){
-  const courses=[...document.querySelectorAll('#courseGrid input:checked')].map(c=>c.value).join(', ');
+  const filledCourses=[];
+  for(let i=1;i<=10;i++){const v=document.getElementById('course'+i)?.value.trim();if(v)filledCourses.push(v.toUpperCase())}
+  const courses=filledCourses.join(', ');
   const exp=document.querySelector('input[name="exp"]:checked')?.value||'-';
   document.getElementById('reviewContent').innerHTML=`
     ${rCard('🏫 Centre Info',[['Centre नाम',gv('centreName')],['प्रकार',gv('centreType')],['Pin Code',gv('pinCode')],['जिला',gv('district')],['राज्य',gv('state')],['पता',gv('address')]])}
@@ -1289,8 +1379,8 @@ window.submitForm=async function(){
   const btn=document.querySelector('.btn-submit');
   btn.innerText='⏳ Submit हो रहा है...';btn.disabled=true;
   const result=await window._fbCreate(gv('regEmail'),document.getElementById('regPass').value);
-  const courses=[...document.querySelectorAll('#courseGrid input:checked')].map(c=>c.value);
-  const data={uid:result.uid||'',centre:{name:gv('centreName'),type:gv('centreType'),mapsLink:gv('mapsLink'),pinCode:gv('pinCode'),district:gv('district'),state:gv('state'),address:gv('address')},owner:{name:gv('regName'),email:gv('regEmail'),mobile:gv('mobile'),whatsapp:gv('whatsapp'),udyog:gv('udyog'),experience:document.querySelector('input[name="exp"]:checked')?.value},bank:{ownerType:document.querySelector('input[name="bOwner"]:checked')?.value,name:gv('accName'),number:gv('accNum'),ifsc:gv('ifsc'),bankName:gv('bankNm'),branch:gv('bankBr')},social:Object.fromEntries(SOCIAL.map(s=>[s.k,{link:gv(s.k+'Link'),count:gv(s.k+'Cnt')}])),courses,language:gv('lang'),facilities:facData,role:'Centre'};
+  const courses2=[];for(let i=1;i<=10;i++){const v=document.getElementById('course'+i)?.value.trim();if(v)courses2.push(v.toUpperCase())}
+  const data={uid:result.uid||'',centre:{name:gv('centreName'),type:gv('centreType'),mapsLink:gv('mapsLink'),pinCode:gv('pinCode'),district:gv('district'),state:gv('state'),address:gv('address')},owner:{name:gv('regName'),email:gv('regEmail'),mobile:gv('mobile'),whatsapp:gv('whatsapp'),udyog:gv('udyog'),experience:document.querySelector('input[name="exp"]:checked')?.value},bank:{ownerType:document.querySelector('input[name="bOwner"]:checked')?.value,name:gv('accName'),number:gv('accNum'),ifsc:gv('ifsc'),bankName:gv('bankNm'),branch:gv('bankBr')},social:Object.fromEntries(SOCIAL.map(s=>[s.k,{link:gv(s.k+'Link'),count:gv(s.k+'Cnt')}])),courses:courses2,language:gv('lang'),facilities:facData,role:'Centre'};
   const docId=await window._fbSave(data);
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   document.getElementById('progressWrap')?.remove();
