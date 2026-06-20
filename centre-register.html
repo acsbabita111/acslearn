@@ -400,13 +400,13 @@
           <div class="alert alert-warn">⚠️ सभी photos 35-50 KB के बीच होनी चाहिए। Compress करें: <a href="https://iloveimg.com" target="_blank" style="color:var(--blue);font-weight:600">iloveimg.com</a></div>
         </div>
 
-        <div class="chk-row" id="docChkRow" onclick="toggleDocChk(this)">
-          <input type="checkbox" id="docChk"/>
-          <label for="docChk">✅ हाँ, उपरोक्त सभी दस्तावेज़ मेरे सामने उपलब्ध हैं। मैं अभी form भरना शुरू करना चाहता/चाहती हूँ।</label>
+        <div class="chk-row" id="docChkRow" style="cursor:pointer" onclick="docChkToggle()">
+          <input type="checkbox" id="docChk" onclick="event.stopPropagation();docChkToggle()"/>
+          <label for="docChk" onclick="event.stopPropagation();docChkToggle()">✅ हाँ, उपरोक्त सभी दस्तावेज़ मेरे सामने उपलब्ध हैं। मैं अभी form भरना शुरू करना चाहता/चाहती हूँ।</label>
         </div>
 
         <div class="btn-row">
-          <button class="btn-next" id="docChkBtn" onclick="if(document.getElementById('docChk').checked)goTo(1)" disabled style="opacity:0.45;cursor:not-allowed">आगे बढ़ें — Account बनाएं →</button>
+          <button class="btn-next" id="docChkBtn" onclick="if(document.getElementById('docChk').checked){goTo(1)}" style="opacity:0.4;background:#90A4AE;cursor:not-allowed;box-shadow:none">आगे बढ़ें — Account बनाएं →</button>
         </div>
       </div>
 
@@ -1053,7 +1053,28 @@
   </main>
 </div>
 
-<!-- FIREBASE -->
+<script>
+// ── GLOBAL: Doc Checklist Button ──
+function docChkToggle(){
+  var cb=document.getElementById('docChk');
+  var btn=document.getElementById('docChkBtn');
+  var row=document.getElementById('docChkRow');
+  // checkbox की state toggle करें
+  cb.checked=!cb.checked;
+  row.classList.toggle('on',cb.checked);
+  if(cb.checked){
+    btn.style.opacity='1';
+    btn.style.background='linear-gradient(135deg,#1565C0,#1E88E5)';
+    btn.style.cursor='pointer';
+    btn.style.boxShadow='0 4px 12px rgba(21,101,192,0.35)';
+  }else{
+    btn.style.opacity='0.4';
+    btn.style.background='#90A4AE';
+    btn.style.cursor='not-allowed';
+    btn.style.boxShadow='none';
+  }
+}
+</script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
