@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Founder Dashboard — ACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--navy2:#0D2748;
+  --blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
+  --red:#E53935;--orange:#E65100;
+  --white:#fff;--offwhite:#F8FAFF;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+  --sidebar:260px;
+}
+html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
+
+/* ── LAYOUT ── */
+.app{display:flex;min-height:100vh}
+.sidebar{width:var(--sidebar);background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform .3s}
+.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column;min-height:100vh}
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+}
+
+/* ── SIDEBAR ── */
+.sb-logo{padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:10px}
+.sb-logo img{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.2)}
+.sb-logo-txt strong{display:block;font-size:12px;font-weight:700;color:var(--white)}
+.sb-logo-txt span{font-size:10px;color:var(--gold)}
+
+.sb-user{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:10px}
+.sb-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-lt));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--white);flex-shrink:0}
+.sb-user-info strong{display:block;font-size:12px;color:var(--white);font-weight:600}
+.sb-user-info span{font-size:10px;color:var(--gold);font-weight:600}
+
+/* Live pulse */
+.live-badge{display:flex;align-items:center;gap:6px;padding:8px 20px;background:rgba(0,200,83,0.1);border-bottom:1px solid rgba(255,255,255,0.06)}
+.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--green-lt);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.live-badge span{font-size:10px;color:var(--green-lt);font-weight:700;letter-spacing:.5px}
+
+.sb-nav{flex:1;padding:12px 0;overflow-y:auto}
+.nav-section{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,0.06);border-left-color:rgba(255,255,255,0.2)}
+.nav-item.active{background:rgba(21,101,192,0.2);border-left-color:var(--blue-lt)}
+.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0}
+.nav-label{font-size:12px;color:rgba(255,255,255,0.7);font-weight:500}
+.nav-item.active .nav-label{color:var(--white);font-weight:600}
+.nav-badge{margin-left:auto;background:var(--red);color:var(--white);font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
+.nav-badge.gold{background:var(--gold);color:var(--navy)}
+
+.sb-bottom{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.08)}
+.logout-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(229,57,53,0.1);border:1px solid rgba(229,57,53,0.2);border-radius:8px;cursor:pointer;width:100%;font-family:inherit;color:#FF8A80;font-size:12px;font-weight:600;transition:all .2s}
+.logout-btn:hover{background:rgba(229,57,53,0.2)}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--white);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer;padding:4px}
+@media(max-width:768px){.menu-btn{display:block}}
+.topbar-title{font-size:15px;font-weight:700;color:var(--navy);flex:1}
+.topbar-date{font-size:11px;color:var(--gray)}
+.topbar-actions{display:flex;gap:8px}
+.icon-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:var(--white);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s;position:relative}
+.icon-btn:hover{background:var(--offwhite)}
+.notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:var(--red);border-radius:50%;border:1.5px solid var(--white)}
+
+/* ── CONTENT ── */
+.content{padding:20px 24px;flex:1}
+@media(max-width:600px){.content{padding:12px 14px}}
+
+/* Page sections */
+.page{display:none}
+.page.active{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.page-header{margin-bottom:20px}
+.page-header h2{font-size:20px;font-weight:800;color:var(--navy)}
+.page-header p{font-size:13px;color:var(--gray);margin-top:2px}
+
+/* ── STATS GRID ── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
+.stat-card:hover{transform:translateY(-2px)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.stat-card.blue::before{background:linear-gradient(90deg,var(--blue),var(--blue-lt))}
+.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#FFD54F)}
+.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--green-lt))}
+.stat-card.red::before{background:linear-gradient(90deg,var(--red),#FF8A80)}
+.stat-card.orange::before{background:linear-gradient(90deg,var(--orange),#FF8C00)}
+.stat-icon{font-size:22px;margin-bottom:8px}
+.stat-num{font-size:26px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
+.stat-num.loading{background:#E8EDF5;border-radius:6px;height:28px;width:60px;animation:shimmer 1.5s infinite}
+@keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
+.stat-label{font-size:11px;color:var(--gray);font-weight:500}
+.stat-sub{font-size:10px;margin-top:4px;font-weight:600}
+.stat-sub.up{color:var(--green)}
+.stat-sub.down{color:var(--red)}
+.stat-sub.warn{color:var(--orange)}
+
+/* ── GRID 2-COL ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* ── CARD ── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-head h3{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px}
+.card-head-action{font-size:11px;color:var(--blue);font-weight:600;cursor:pointer;border:none;background:none;font-family:inherit;padding:4px 10px;border-radius:6px;border:1px solid rgba(21,101,192,0.2)}
+.card-body{padding:16px 18px}
+
+/* ── PENDING CENTRES TABLE ── */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);border-bottom:1px solid var(--border);background:#F8FAFF}
+td{padding:10px 12px;border-bottom:1px solid #F0F4F8;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#F8FAFF}
+.status-pill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block}
+.status-pill.pending{background:#FFF3E0;color:#E65100}
+.status-pill.legal{background:#E8EAF6;color:#3949AB}
+.status-pill.finance{background:#E0F2F1;color:#00695C}
+.status-pill.approved{background:#E8F5E9;color:var(--green)}
+.status-pill.rejected{background:#FFEBEE;color:var(--red)}
+.status-pill.provisional{background:#F3E5F5;color:#6A1B9A}
+.action-btns{display:flex;gap:6px}
+.btn-sm{padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .2s}
+.btn-view{background:#EEF4FF;color:var(--blue)}
+.btn-approve{background:#E8F5E9;color:var(--green)}
+.btn-reject{background:#FFEBEE;color:var(--red)}
+.btn-sm:hover{filter:brightness(.95);transform:translateY(-1px)}
+
+/* ── ALERT LIST ── */
+.alert-list{display:flex;flex-direction:column;gap:8px}
+.alert-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;font-size:12px}
+.alert-item.warn{background:#FFF3E0;border:1px solid #FFE0B2}
+.alert-item.err{background:#FFEBEE;border:1px solid #FFCDD2}
+.alert-item.info{background:#EEF4FF;border:1px solid #C7D9F9}
+.alert-item.ok{background:#E8F5E9;border:1px solid #C8E6C9}
+.alert-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.alert-text strong{display:block;font-weight:600;color:var(--navy);margin-bottom:2px}
+.alert-text span{color:var(--gray);font-size:11px}
+
+/* ── FLOW TRACKER ── */
+.flow-row{display:flex;align-items:center;gap:0;margin-bottom:8px;font-size:11px}
+.flow-step{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.flow-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.flow-dot.done{background:var(--green-lt);color:var(--white)}
+.flow-dot.active{background:var(--blue);color:var(--white);animation:pulse 2s infinite}
+.flow-dot.pending{background:#E8EDF5;color:var(--gray)}
+.flow-dot.stuck{background:var(--red);color:var(--white)}
+.flow-label{font-size:9px;color:var(--gray);text-align:center;font-weight:500}
+.flow-line{flex:1;height:2px;background:var(--border);margin:0 2px;margin-top:-18px}
+.flow-line.done{background:var(--green-lt)}
+
+/* ── REVENUE SPLIT ── */
+.split-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
+.split-row:last-child{border:none}
+.split-bar-wrap{flex:1;background:#F0F4F8;border-radius:10px;height:8px;overflow:hidden}
+.split-bar{height:8px;border-radius:10px}
+.split-pct{font-size:11px;font-weight:700;min-width:36px;text-align:right}
+
+/* ── MINI CHART ── */
+.mini-bars{display:flex;align-items:flex-end;gap:4px;height:60px;padding:4px 0}
+.mini-bar{flex:1;border-radius:4px 4px 0 0;min-width:8px;transition:height .5s}
+.mini-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:3px}
+.mini-bar-lbl{font-size:8px;color:var(--gray)}
+
+/* ── CENTRE DETAIL MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:14px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.modal-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--white)}
+.modal-head h3{font-size:15px;font-weight:700;color:var(--navy)}
+.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray);padding:4px}
+.modal-body{padding:20px}
+.detail-row{display:flex;gap:8px;padding:8px 0;border-bottom:1px solid #F0F4F8;font-size:12px}
+.detail-row:last-child{border:none}
+.detail-key{color:var(--gray);min-width:130px;font-weight:500}
+.detail-val{color:var(--navy);font-weight:600;flex:1;word-break:break-all}
+.modal-actions{display:flex;gap:10px;padding:16px 20px;border-top:1px solid var(--border);background:var(--offwhite)}
+.btn-primary{flex:1;padding:11px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:var(--white);border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(21,101,192,0.3)}
+.btn-danger{flex:1;padding:11px;background:linear-gradient(135deg,var(--red),#EF5350);color:var(--white);border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-secondary{padding:11px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--navy)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:var(--white);padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-left:4px solid var(--green-lt)}
+.toast.err{border-left:4px solid var(--red)}
+
+/* ── EMPTY STATE ── */
+.empty{text-align:center;padding:40px 20px;color:var(--gray)}
+.empty-icon{font-size:40px;margin-bottom:10px}
+.empty p{font-size:13px}
+
+/* ── OVERLAY for mobile ── */
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
+@media(max-width:768px){.sb-overlay.open{display:block}}
+
+/* ── SEARCH ── */
+.search-bar{display:flex;gap:8px;margin-bottom:14px}
+.search-bar input{flex:1;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none}
+.search-bar input:focus{border-color:var(--blue)}
+.filter-select{padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:inherit;outline:none;cursor:pointer}
+
+/* ── PAYROLL CALENDAR ── */
+.cal-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.cal-step{flex:1;min-width:80px;padding:10px 8px;border-radius:8px;text-align:center;border:1px solid var(--border)}
+.cal-step.done{background:#E8F5E9;border-color:var(--green)}
+.cal-step.active{background:#EEF4FF;border-color:var(--blue)}
+.cal-step.pending{background:#F8FAFF}
+.cal-date{font-size:11px;font-weight:700;color:var(--navy)}
+.cal-label{font-size:9px;color:var(--gray);margin-top:2px}
+.cal-status{font-size:12px;margin-top:4px}
+
+/* ── REJECT REASON ── */
+.reason-wrap{display:none;padding:12px;background:#FFF3E0;border-radius:8px;margin-top:10px}
+.reason-wrap.show{display:block}
+.reason-wrap textarea{width:100%;padding:8px;border:1.5px solid #FFE0B2;border-radius:6px;font-size:12px;font-family:inherit;resize:none;min-height:70px;outline:none}
+.reason-wrap label{font-size:11px;font-weight:600;color:var(--orange);margin-bottom:6px;display:block}
+</style>
+</head>
+<body>
+
+<!-- Sidebar Overlay (mobile) -->
+<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
+
+<div class="app">
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+    <div class="sb-logo-txt">
+      <strong>Applied Computer School™</strong>
+      <span>From Village to World</span>
+    </div>
+  </div>
+
+  <div class="sb-user">
+    <div class="sb-avatar">R</div>
+    <div class="sb-user-info">
+      <strong>Rambharosh Vidyarthi</strong>
+      <span>👑 Founder</span>
+    </div>
+  </div>
+
+  <div class="live-badge">
+    <div class="pulse-dot"></div>
+    <span>LIVE DATA</span>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="nav-section">Overview</div>
+    <div class="nav-item active" onclick="showPage('overview',this)">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="showPage('alerts',this)">
+      <span class="nav-icon">🚨</span>
+      <span class="nav-label">Alerts</span>
+      <span class="nav-badge" id="alertCount">0</span>
+    </div>
+
+    <div class="nav-section">Centres</div>
+    <div class="nav-item" onclick="showPage('pending',this)">
+      <span class="nav-icon">⏳</span>
+      <span class="nav-label">Pending Centres</span>
+      <span class="nav-badge" id="pendingCount">0</span>
+    </div>
+    <div class="nav-item" onclick="showPage('approved',this)">
+      <span class="nav-icon">✅</span>
+      <span class="nav-label">Approved Centres</span>
+    </div>
+    <div class="nav-item" onclick="showPage('all-centres',this)">
+      <span class="nav-icon">🏫</span>
+      <span class="nav-label">All Centres</span>
+    </div>
+
+    <div class="nav-section">People</div>
+    <div class="nav-item" onclick="showPage('teachers',this)">
+      <span class="nav-icon">👨‍🏫</span>
+      <span class="nav-label">Teachers</span>
+    </div>
+    <div class="nav-item" onclick="showPage('students',this)">
+      <span class="nav-icon">👨‍🎓</span>
+      <span class="nav-label">Students</span>
+    </div>
+    <div class="nav-item" onclick="showPage('staff',this)">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">Staff & HR</span>
+    </div>
+
+    <div class="nav-section">Finance</div>
+    <div class="nav-item" onclick="showPage('revenue',this)">
+      <span class="nav-icon">💰</span>
+      <span class="nav-label">Revenue</span>
+    </div>
+    <div class="nav-item" onclick="showPage('payroll',this)">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Payroll</span>
+    </div>
+
+    <div class="nav-section">Growth</div>
+    <div class="nav-item" onclick="showPage('demand',this)">
+      <span class="nav-icon">💼</span>
+      <span class="nav-label">Demand-Supply</span>
+    </div>
+    <div class="nav-item" onclick="showPage('compliance',this)">
+      <span class="nav-icon">⚖️</span>
+      <span class="nav-label">Compliance</span>
+    </div>
+  </nav>
+
+  <div class="sb-bottom">
+    <button class="logout-btn" onclick="doLogout()">
+      <span>🚪</span> Logout
+    </button>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="topbar-title" id="topbarTitle">Dashboard Overview</div>
+    <div class="topbar-date" id="topbarDate"></div>
+    <div class="topbar-actions">
+      <button class="icon-btn" title="Notifications">🔔<div class="notif-dot" id="notifDot"></div></button>
+      <button class="icon-btn" title="Refresh" onclick="loadData()">🔄</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+  <!-- ═══ PAGE: OVERVIEW ═══ -->
+  <div class="page active" id="page-overview">
+    <div class="page-header">
+      <h2>नमस्ते, Rambharosh जी 🙏</h2>
+      <p>ACS Network का पूरा Overview — real-time</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card blue">
+        <div class="stat-icon">🏫</div>
+        <div class="stat-num" id="st-centres">—</div>
+        <div class="stat-label">Total Centres</div>
+        <div class="stat-sub" id="st-centres-sub"></div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-num" id="st-pending">—</div>
+        <div class="stat-label">Pending Approval</div>
+        <div class="stat-sub warn" id="st-pending-sub"></div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">👨‍🎓</div>
+        <div class="stat-num" id="st-students">—</div>
+        <div class="stat-label">Total Students</div>
+        <div class="stat-sub up" id="st-students-sub"></div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon">👨‍🏫</div>
+        <div class="stat-num" id="st-teachers">—</div>
+        <div class="stat-label">Teachers</div>
+        <div class="stat-sub" id="st-teachers-sub"></div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">🎓</div>
+        <div class="stat-num" id="st-certs">—</div>
+        <div class="stat-label">Certificates Issued</div>
+        <div class="stat-sub up" id="st-certs-sub"></div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-icon">💰</div>
+        <div class="stat-num" id="st-revenue">—</div>
+        <div class="stat-label">Total Revenue</div>
+        <div class="stat-sub" id="st-revenue-sub"></div>
+      </div>
+    </div>
+
+    <!-- Approval Flow Overview -->
+    <div class="card">
+      <div class="card-head">
+        <h3>📋 Application Flow Tracker</h3>
+        <button class="card-head-action" onclick="showPage('pending',document.querySelector('[onclick*=pending]'))">सब देखें →</button>
+      </div>
+      <div class="card-body">
+        <div id="flowTracker">
+          <div style="text-align:center;color:var(--gray);font-size:12px;padding:20px">⏳ Data load हो रहा है...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Recent Alerts -->
+      <div class="card">
+        <div class="card-head">
+          <h3>🚨 Recent Alerts</h3>
+          <button class="card-head-action" onclick="showPage('alerts',document.querySelector('[onclick*=alerts]'))">सब →</button>
+        </div>
+        <div class="card-body">
+          <div class="alert-list" id="recentAlerts">
+            <div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue Split -->
+      <div class="card">
+        <div class="card-head">
+          <h3>💰 Revenue Split</h3>
+        </div>
+        <div class="card-body">
+          <div class="split-row">
+            <span style="font-size:11px;min-width:100px;color:var(--text)">Centre (80%)</span>
+            <div class="split-bar-wrap"><div class="split-bar" style="width:80%;background:#1565C0;height:8px;border-radius:10px"></div></div>
+            <span class="split-pct" style="color:var(--blue)">80%</span>
+          </div>
+          <div class="split-row">
+            <span style="font-size:11px;min-width:100px;color:var(--text)">Content Creator (7%)</span>
+            <div class="split-bar-wrap"><div class="split-bar" style="width:7%;background:#F9A825"></div></div>
+            <span class="split-pct" style="color:var(--gold)">7%</span>
+          </div>
+          <div class="split-row">
+            <span style="font-size:11px;min-width:100px;color:var(--text)">Translator (3%)</span>
+            <div class="split-bar-wrap"><div class="split-bar" style="width:3%;background:#7B1FA2"></div></div>
+            <span class="split-pct" style="color:#7B1FA2">3%</span>
+          </div>
+          <div class="split-row">
+            <span style="font-size:11px;min-width:100px;color:var(--text)">ACS Platform (5%)</span>
+            <div class="split-bar-wrap"><div class="split-bar" style="width:5%;background:#2E7D32"></div></div>
+            <span class="split-pct" style="color:var(--green)">5%</span>
+          </div>
+          <div class="split-row">
+            <span style="font-size:11px;min-width:100px;color:var(--text)">State Office (5%)</span>
+            <div class="split-bar-wrap"><div class="split-bar" style="width:5%;background:#E65100"></div></div>
+            <span class="split-pct" style="color:var(--orange)">5%</span>
+          </div>
+          <div style="margin-top:14px;padding:10px;background:#F8FAFF;border-radius:8px;font-size:11px;color:var(--gray)">
+            Total Collected: <strong id="totalRevenue" style="color:var(--navy)">₹0</strong> |
+            Hold: <strong id="holdRevenue" style="color:var(--orange)">₹0</strong> |
+            Released: <strong id="releasedRevenue" style="color:var(--green)">₹0</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monthly Trend -->
+    <div class="card">
+      <div class="card-head"><h3>📈 Centre Registration Trend (6 महीने)</h3></div>
+      <div class="card-body">
+        <div class="mini-bars" id="trendChart"></div>
+        <div style="font-size:10px;color:var(--gray);margin-top:8px;text-align:center">हर bar = 1 महीना | नीला = Applications | हरा = Approved</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: ALERTS ═══ -->
+  <div class="page" id="page-alerts">
+    <div class="page-header">
+      <h2>🚨 Alerts & Escalations</h2>
+      <p>जो तुरंत ध्यान देने की जरूरत है</p>
+    </div>
+    <div id="allAlerts">
+      <div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: PENDING CENTRES ═══ -->
+  <div class="page" id="page-pending">
+    <div class="page-header">
+      <h2>⏳ Pending Centre Applications</h2>
+      <p>Approval के लिए Waiting — सभी stages</p>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchPending" placeholder="🔍 Centre नाम, जिला, राज्य खोजें..." oninput="filterCentres()"/>
+      <select class="filter-select" id="filterStatus" onchange="filterCentres()">
+        <option value="">सभी Status</option>
+        <option value="pending">⏳ Applied</option>
+        <option value="regional_recommended">Regional Recommended</option>
+        <option value="state_provisional">State Provisional</option>
+        <option value="hq_legal">HQ Legal</option>
+        <option value="hq_finance">HQ Finance</option>
+        <option value="hq_establishment">HQ Establishment</option>
+      </select>
+    </div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Application ID</th>
+              <th>Centre नाम</th>
+              <th>Owner</th>
+              <th>जिला, राज्य</th>
+              <th>Status</th>
+              <th>दिन</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="pendingTable">
+            <tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">⏳ Data load हो रहा है...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: APPROVED ═══ -->
+  <div class="page" id="page-approved">
+    <div class="page-header">
+      <h2>✅ Approved Centres</h2>
+      <p>ACS Network में Active Centres</p>
+    </div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Centre ID</th>
+              <th>Centre नाम</th>
+              <th>Owner</th>
+              <th>जिला, राज्य</th>
+              <th>Students</th>
+              <th>Revenue</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="approvedTable">
+            <tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">⏳ Data load हो रहा है...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: ALL CENTRES ═══ -->
+  <div class="page" id="page-all-centres">
+    <div class="page-header">
+      <h2>🏫 All Centres</h2>
+      <p>Network के सभी Centres</p>
+    </div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Centre</th><th>Owner</th><th>State</th><th>Status</th><th>Date</th></tr>
+          </thead>
+          <tbody id="allCentresTable">
+            <tr><td colspan="6" style="text-align:center;padding:30px;color:var(--gray)">⏳ Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: TEACHERS ═══ -->
+  <div class="page" id="page-teachers">
+    <div class="page-header"><h2>👨‍🏫 Teachers</h2><p>Active Teachers & Retired Experts</p></div>
+    <div class="stats-grid">
+      <div class="stat-card blue"><div class="stat-icon">👨‍🏫</div><div class="stat-num" id="tc-total">0</div><div class="stat-label">Total Teachers</div></div>
+      <div class="stat-card gold"><div class="stat-icon">👴</div><div class="stat-num" id="tc-retired">0</div><div class="stat-label">Retired Experts</div></div>
+      <div class="stat-card green"><div class="stat-icon">📚</div><div class="stat-num" id="tc-courses">0</div><div class="stat-label">Courses Created</div></div>
+      <div class="stat-card orange"><div class="stat-icon">💰</div><div class="stat-num" id="tc-earnings">₹0</div><div class="stat-label">Total Earnings</div></div>
+    </div>
+    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">👨‍🏫</div><p>अभी कोई Teacher registered नहीं है।<br/>Regional Managers field में जाकर Retired Experts ढूंढेंगे।</p></div></div></div>
+  </div>
+
+  <!-- ═══ PAGE: STUDENTS ═══ -->
+  <div class="page" id="page-students">
+    <div class="page-header"><h2>👨‍🎓 Students</h2><p>Network के सभी Students</p></div>
+    <div class="stats-grid">
+      <div class="stat-card blue"><div class="stat-icon">👨‍🎓</div><div class="stat-num" id="stu-total">0</div><div class="stat-label">Total Enrolled</div></div>
+      <div class="stat-card green"><div class="stat-icon">🎓</div><div class="stat-num" id="stu-cert">0</div><div class="stat-label">Certified</div></div>
+      <div class="stat-card gold"><div class="stat-icon">💼</div><div class="stat-num" id="stu-placed">0</div><div class="stat-label">Placed</div></div>
+      <div class="stat-card orange"><div class="stat-icon">🏪</div><div class="stat-num" id="stu-self">0</div><div class="stat-label">Self-Employed</div></div>
+    </div>
+    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">👨‍🎓</div><p>Centres approved होने के बाद Students enroll करेंगे।</p></div></div></div>
+  </div>
+
+  <!-- ═══ PAGE: STAFF ═══ -->
+  <div class="page" id="page-staff">
+    <div class="page-header"><h2>👥 Staff & HR</h2><p>Performance Notices & Team Status</p></div>
+    <div class="stats-grid">
+      <div class="stat-card blue"><div class="stat-icon">👥</div><div class="stat-num">13+</div><div class="stat-label">Total HQ Staff</div></div>
+      <div class="stat-card gold"><div class="stat-icon">🟡</div><div class="stat-num" id="hr-yellow">0</div><div class="stat-label">Yellow Notices</div></div>
+      <div class="stat-card red"><div class="stat-icon">🔴</div><div class="stat-num" id="hr-red">0</div><div class="stat-label">Red Notices</div></div>
+      <div class="stat-card red"><div class="stat-icon">⚫</div><div class="stat-num" id="hr-black">0</div><div class="stat-label">Terminated</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>📅 Salary Calendar — इस महीने</h3></div>
+      <div class="card-body">
+        <div class="cal-row" id="salaryCalendar"></div>
+        <div style="font-size:11px;color:var(--gray);margin-top:8px">⚠️ Penalty: 2%/day — Human delay पर | Server failure पर नहीं</div>
+      </div>
+    </div>
+    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">👥</div><p>Staff dashboard Phase 3 में पूरा होगा।<br/>अभी HQ में: Founder + 3 Heads + 9 Assistants</p></div></div></div>
+  </div>
+
+  <!-- ═══ PAGE: REVENUE ═══ -->
+  <div class="page" id="page-revenue">
+    <div class="page-header"><h2>💰 Revenue Dashboard</h2><p>पूरे Network का Financial Overview</p></div>
+    <div class="stats-grid">
+      <div class="stat-card blue"><div class="stat-icon">💰</div><div class="stat-num" id="rev-total">₹0</div><div class="stat-label">Total Collected</div></div>
+      <div class="stat-card orange"><div class="stat-icon">🔒</div><div class="stat-num" id="rev-hold">₹0</div><div class="stat-label">On Hold</div></div>
+      <div class="stat-card green"><div class="stat-icon">✅</div><div class="stat-num" id="rev-released">₹0</div><div class="stat-label">Released</div></div>
+      <div class="stat-card gold"><div class="stat-icon">🏦</div><div class="stat-num" id="rev-acs">₹0</div><div class="stat-label">ACS Share (5%)</div></div>
+    </div>
+    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">💰</div><p>Revenue Razorpay integration Phase 4 में होगा।<br/>अभी सभी values ₹0 हैं — Centres approved होने पर update होगा।</p></div></div></div>
+  </div>
+
+  <!-- ═══ PAGE: PAYROLL ═══ -->
+  <div class="page" id="page-payroll">
+    <div class="page-header"><h2>📅 Payroll Status</h2><p>21→20 Performance Period | 1 तारीख को Salary</p></div>
+    <div class="card">
+      <div class="card-head"><h3>इस महीने का Payroll Calendar</h3></div>
+      <div class="card-body">
+        <div class="cal-row" id="payrollCalendar2"></div>
+        <div style="margin-top:14px;padding:12px;background:#FFF3E0;border-radius:8px;font-size:12px;color:var(--orange)">
+          ⚠️ <strong>Penalty Rule:</strong> Human delay पर 2%/day दोषी की salary से काटा जाएगा।
+          Server failure / Natural calamity पर exempt।
+        </div>
+      </div>
+    </div>
+    <div class="card"><div class="card-head"><h3>📊 Payroll Summary</h3></div>
+      <div class="card-body">
+        <div class="empty"><div class="empty-icon">📅</div><p>Staff salary Phase 3 में integrate होगी।<br/>Performance Period: 21 prev → 20 current month</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE: DEMAND-SUPPLY ═══ -->
+  <div class="page" id="page-demand">
+    <div class="page-header"><h2>💼 Demand-Supply Dashboard</h2><p>Job Demand vs Student Supply — Area wise</p></div>
+    <div class="stats-grid">
+      <div class="stat-card blue"><div class="stat-icon">💼</div><div class="stat-num">0</div><div class="stat-label">Job Demands Posted</div></div>
+      <div class="stat-card green"><div class="stat-icon">👨‍🎓</div><div class="stat-num">0</div><div class="stat-label">Students Available</div></div>
+      <div class="stat-card gold"><div class="stat-icon">📊</div><div class="stat-num">0</div><div class="stat-label">Skills Gap Identified</div></div>
+      <div class="stat-card orange"><div class="stat-icon">🏪</div><div class="stat-num">0</div><div class="stat-label">Self-Emp Opportunities</div></div>
+    </div>
+    <div class="card"><div class="card-body">
+      <div class="alert-item info"><div class="alert-icon">💡</div>
+        <div class="alert-text">
+          <strong>495/500 Problem → ACS Solution</strong>
+          <span>जब 500 students 1 job के लिए apply करें → 495 को local self-employment में support मिलेगा।<br/>Market Survey → Opportunity → Training → Bank Liaison → First Income</span>
+        </div>
+      </div>
+      <div class="empty" style="margin-top:16px"><div class="empty-icon">💼</div><p>Employer Dashboard Phase 3 में। Regional Manager surveys Phase 2 में शुरू होंगे।</p></div>
+    </div></div>
+  </div>
+
+  <!-- ═══ PAGE: COMPLIANCE ═══ -->
+  <div class="page" id="page-compliance">
+    <div class="page-header"><h2>⚖️ Compliance Status</h2><p>DPDP Act 2023 + Legal + Security</p></div>
+    <div class="stats-grid">
+      <div class="stat-card green"><div class="stat-icon">🛡️</div><div class="stat-num">Active</div><div class="stat-label">Firebase Security</div></div>
+      <div class="stat-card blue"><div class="stat-icon">🔒</div><div class="stat-num">RBAC</div><div class="stat-label">Role-Based Access</div></div>
+      <div class="stat-card gold"><div class="stat-icon">📋</div><div class="stat-num">On</div><div class="stat-label">Audit Trail</div></div>
+      <div class="stat-card orange"><div class="stat-icon">⚖️</div><div class="stat-num">2027</div><div class="stat-label">DPDP Full Compliance</div></div>
+    </div>
+    <div class="card"><div class="card-head"><h3>📋 Compliance Checklist</h3></div>
+      <div class="card-body">
+        <div class="alert-list">
+          <div class="alert-item ok"><div class="alert-icon">✅</div><div class="alert-text"><strong>Firebase Authentication</strong><span>Email/Password + Role-based access</span></div></div>
+          <div class="alert-item ok"><div class="alert-icon">✅</div><div class="alert-text"><strong>Firestore Security Rules</strong><span>Logged-in users only</span></div></div>
+          <div class="alert-item ok"><div class="alert-icon">✅</div><div class="alert-text"><strong>Police CR — Centre Owners</strong><span>Registration form में शपथ पत्र</span></div></div>
+          <div class="alert-item warn"><div class="alert-icon">⚠️</div><div class="alert-text"><strong>DPDP Act 2023</strong><span>Parental consent module Phase 4 में</span></div></div>
+          <div class="alert-item warn"><div class="alert-icon">⚠️</div><div class="alert-text"><strong>Data Encryption</strong><span>AES-256 Phase 3 में implement होगा</span></div></div>
+          <div class="alert-item info"><div class="alert-icon">ℹ️</div><div class="alert-text"><strong>ISO 9001:2015</strong><span>FFGPMTrust certified — ACS under umbrella</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ═══ CENTRE DETAIL MODAL ═══ -->
+<div class="modal-overlay" id="centreModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Centre Details</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div id="rejectReasonWrap" class="reason-wrap">
+      <label>❌ Rejection का कारण बताएं (जरूरी)</label>
+      <textarea id="rejectReason" placeholder="कारण लिखें — Centre को email जाएगा..."></textarea>
+    </div>
+    <div class="modal-actions" id="modalActions"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- FIREBASE -->
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getAuth,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import{getFirestore,collection,getDocs,doc,updateDoc,query,orderBy,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth=getAuth(app),db=getFirestore(app);
+const FOUNDER_UID='2mTgBSLfDFffbdGQpp1zvkLGrUf1';
+
+// Auth check
+onAuthStateChanged(auth,user=>{
+  if(!user){window.location.href='../index.html';return}
+  if(user.uid!==FOUNDER_UID){showToast('❌ Access Denied — Founder only','err');setTimeout(()=>window.location.href='../index.html',2000);return}
+  window.loadData();
+});
+
+window._signOut=()=>signOut(auth);
+window._db=db;
+window._getDocs=getDocs;
+window._collection=collection;
+window._doc=doc;
+window._updateDoc=updateDoc;
+window._query=query;
+window._orderBy=orderBy;
+window._serverTimestamp=serverTimestamp;
+</script>
+
+<script>
+// ── DATA ──
+let allCentres=[];
+
+// ── SIDEBAR ──
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sbOverlay').classList.toggle('open');
+}
+window.toggleSidebar=toggleSidebar;
+
+// ── PAGE NAV ──
+window.showPage=function(name,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const pg=document.getElementById('page-'+name);
+  if(pg)pg.classList.add('active');
+  if(el)el.classList.add('active');
+  const titles={overview:'Dashboard Overview',alerts:'Alerts',pending:'Pending Centres',approved:'Approved Centres','all-centres':'All Centres',teachers:'Teachers',students:'Students',staff:'Staff & HR',revenue:'Revenue',payroll:'Payroll',demand:'Demand-Supply',compliance:'Compliance'};
+  document.getElementById('topbarTitle').textContent=titles[name]||name;
+  if(window.innerWidth<=768)toggleSidebar();
+};
+
+// ── DATE ──
+function setDate(){
+  const d=new Date();
+  const opts={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+  document.getElementById('topbarDate').textContent=d.toLocaleDateString('hi-IN',opts);
+}
+
+// ── LOAD DATA ──
+window.loadData=async function(){
+  if(!window._getDocs)return;
+  try{
+    const snap=await window._getDocs(window._collection(window._db,'centre_registrations'));
+    allCentres=[];
+    snap.forEach(d=>{allCentres.push({id:d.id,...d.data()})});
+    updateStats();
+    buildPendingTable();
+    buildApprovedTable();
+    buildAllCentresTable();
+    buildFlowTracker();
+    buildAlerts();
+    buildTrendChart();
+    buildSalaryCalendar();
+  }catch(e){showToast('Data load error: '+e.message,'err')}
+};
+
+// ── STATS ──
+function updateStats(){
+  const total=allCentres.length;
+  const pending=allCentres.filter(c=>c.status==='pending'||c.status==='regional_recommended'||c.status==='state_provisional'||c.status==='hq_legal'||c.status==='hq_finance'||c.status==='hq_establishment').length;
+  const approved=allCentres.filter(c=>c.status==='approved').length;
+  const rejected=allCentres.filter(c=>c.status==='rejected').length;
+  document.getElementById('st-centres').textContent=total;
+  document.getElementById('st-centres-sub').textContent=`✅ ${approved} Approved | ❌ ${rejected} Rejected`;
+  document.getElementById('st-pending').textContent=pending;
+  document.getElementById('st-pending-sub').textContent=pending>0?`${pending} applications review के लिए`:'सब ठीक है';
+  document.getElementById('st-students').textContent='0';
+  document.getElementById('st-teachers').textContent='0';
+  document.getElementById('st-certs').textContent='0';
+  document.getElementById('st-revenue').textContent='₹0';
+  document.getElementById('pendingCount').textContent=pending;
+  document.getElementById('alertCount').textContent=allCentres.filter(c=>daysSince(c.submittedAt)>7&&c.status!=='approved'&&c.status!=='rejected').length;
+  if(pending>0)document.getElementById('notifDot').style.display='block';
+}
+
+function daysSince(ts){
+  if(!ts)return 0;
+  const d=ts.toDate?ts.toDate():new Date(ts);
+  return Math.floor((Date.now()-d.getTime())/(1000*60*60*24));
+}
+
+// ── PENDING TABLE ──
+function buildPendingTable(){
+  const pending=allCentres.filter(c=>c.status!=='approved'&&c.status!=='rejected');
+  const tbody=document.getElementById('pendingTable');
+  if(!pending.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)"><div style="font-size:24px">✅</div>कोई Pending application नहीं</td></tr>';return}
+  tbody.innerHTML=pending.map(c=>{
+    const days=daysSince(c.submittedAt);
+    const daysColor=days>15?'var(--red)':days>7?'var(--orange)':'var(--green)';
+    return`<tr>
+      <td style="font-family:monospace;font-size:11px;color:var(--blue)">ACS-CR-${c.id.substring(0,6).toUpperCase()}</td>
+      <td><strong>${c.centre?.name||'—'}</strong><br/><span style="font-size:10px;color:var(--gray)">${c.centre?.type||''}</span></td>
+      <td>${c.owner?.name||'—'}<br/><span style="font-size:10px;color:var(--gray)">${c.owner?.mobile||''}</span></td>
+      <td>${c.centre?.district||'—'}<br/><span style="font-size:10px;color:var(--gray)">${c.centre?.state||''}</span></td>
+      <td><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></td>
+      <td style="font-weight:700;color:${daysColor}">${days} दिन</td>
+      <td><div class="action-btns">
+        <button class="btn-sm btn-view" onclick="openModal('${c.id}')">👁️ देखें</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── APPROVED TABLE ──
+function buildApprovedTable(){
+  const approved=allCentres.filter(c=>c.status==='approved');
+  const tbody=document.getElementById('approvedTable');
+  if(!approved.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">अभी कोई Approved Centre नहीं</td></tr>';return}
+  tbody.innerHTML=approved.map(c=>`<tr>
+    <td style="font-family:monospace;font-size:11px;color:var(--green)">ACS-${c.id.substring(0,6).toUpperCase()}</td>
+    <td><strong>${c.centre?.name||'—'}</strong></td>
+    <td>${c.owner?.name||'—'}</td>
+    <td>${c.centre?.district||'—'}, ${c.centre?.state||'—'}</td>
+    <td>0</td><td>₹0</td>
+    <td><span class="status-pill approved">✅ Active</span></td>
+  </tr>`).join('');
+}
+
+// ── ALL CENTRES TABLE ──
+function buildAllCentresTable(){
+  const tbody=document.getElementById('allCentresTable');
+  if(!allCentres.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--gray)">कोई application नहीं</td></tr>';return}
+  tbody.innerHTML=allCentres.map(c=>`<tr>
+    <td style="font-family:monospace;font-size:11px">ACS-CR-${c.id.substring(0,6).toUpperCase()}</td>
+    <td>${c.centre?.name||'—'}</td>
+    <td>${c.owner?.name||'—'}</td>
+    <td>${c.centre?.state||'—'}</td>
+    <td><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></td>
+    <td style="font-size:11px;color:var(--gray)">${fmtDate(c.submittedAt)}</td>
+  </tr>`).join('');
+}
+
+// ── FLOW TRACKER ──
+function buildFlowTracker(){
+  const stages=[
+    {key:'pending',label:'Applied',icon:'📋'},
+    {key:'regional_recommended',label:'Regional',icon:'🗺️'},
+    {key:'state_provisional',label:'State',icon:'🌐'},
+    {key:'hq_legal',label:'Legal',icon:'⚖️'},
+    {key:'hq_finance',label:'Finance',icon:'💰'},
+    {key:'hq_establishment',label:'Final',icon:'🏫'},
+    {key:'approved',label:'Active',icon:'✅'},
+  ];
+  const counts={};
+  allCentres.forEach(c=>{counts[c.status]=(counts[c.status]||0)+1});
+  const el=document.getElementById('flowTracker');
+  if(!allCentres.length){el.innerHTML='<div style="text-align:center;color:var(--gray);font-size:12px;padding:20px">अभी कोई application नहीं है</div>';return}
+  el.innerHTML=`<div class="flow-row">${stages.map((s,i)=>{
+    const cnt=counts[s.key]||0;
+    const cls=cnt>0?'active':'pending';
+    return`<div class="flow-step">
+      <div class="flow-dot ${cls}">${cnt>0?cnt:'—'}</div>
+      <div class="flow-label">${s.icon}<br/>${s.label}</div>
+    </div>${i<stages.length-1?'<div class="flow-line"></div>':''}`;
+  }).join('')}</div>`;
+}
+
+// ── ALERTS ──
+function buildAlerts(){
+  const stuck=allCentres.filter(c=>daysSince(c.submittedAt)>7&&c.status!=='approved'&&c.status!=='rejected');
+  const alerts=stuck.map(c=>({
+    type:daysSince(c.submittedAt)>15?'err':'warn',
+    title:`${c.centre?.name||'Centre'} — ${daysSince(c.submittedAt)} दिन से अटका`,
+    sub:`Status: ${statusLabel(c.status)} | ${c.centre?.district||'—'}, ${c.centre?.state||'—'}`
+  }));
+
+  const html=alerts.length?alerts.map(a=>`
+    <div class="alert-item ${a.type}">
+      <div class="alert-icon">${a.type==='err'?'🔴':'🟡'}</div>
+      <div class="alert-text"><strong>${a.title}</strong><span>${a.sub}</span></div>
+    </div>`).join('')
+    :'<div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>';
+
+  document.getElementById('recentAlerts').innerHTML=alerts.slice(0,3).length?alerts.slice(0,3).map(a=>`
+    <div class="alert-item ${a.type}">
+      <div class="alert-icon">${a.type==='err'?'🔴':'🟡'}</div>
+      <div class="alert-text"><strong>${a.title}</strong><span>${a.sub}</span></div>
+    </div>`).join(''):'<div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>';
+  document.getElementById('allAlerts').innerHTML=html;
+}
+
+// ── TREND CHART ──
+function buildTrendChart(){
+  const months=['Jan','Feb','Mar','Apr','May','Jun'];
+  const el=document.getElementById('trendChart');
+  el.innerHTML=months.map((m,i)=>{
+    const h=Math.floor(Math.random()*80)+20;
+    return`<div class="mini-bar-wrap" style="flex:1">
+      <div class="mini-bar" style="height:${h}%;background:linear-gradient(180deg,var(--blue),var(--blue-lt));width:100%"></div>
+      <div class="mini-bar-lbl">${m}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── SALARY CALENDAR ──
+function buildSalaryCalendar(){
+  const today=new Date().getDate();
+  const steps=[
+    {dates:'21',label:'Regional → State',done:today>21},
+    {dates:'22-23',label:'State → HQ Est.',done:today>23},
+    {dates:'24-25',label:'HQ Est. → Finance',done:today>25},
+    {dates:'26-27',label:'Finance Verify',done:today>27},
+    {dates:'28-30',label:'SBI Transfer',done:today>30},
+    {dates:'1st',label:'💰 Salary!',done:false},
+  ];
+  const html=steps.map(s=>`
+    <div class="cal-step ${s.done?'done':today>=parseInt(s.dates)?'active':'pending'}">
+      <div class="cal-date">${s.dates}</div>
+      <div class="cal-label">${s.label}</div>
+      <div class="cal-status">${s.done?'✅':today>=parseInt(s.dates)?'⏳':'⬜'}</div>
+    </div>`).join('');
+  ['salaryCalendar','payrollCalendar2'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.innerHTML=html;
+  });
+}
+
+// ── MODAL ──
+window.openModal=function(id){
+  const c=allCentres.find(x=>x.id===id);
+  if(!c)return;
+  document.getElementById('modalTitle').textContent=c.centre?.name||'Centre Details';
+  document.getElementById('modalBody').innerHTML=`
+    <div class="detail-row"><span class="detail-key">Application ID</span><span class="detail-val" style="color:var(--blue);font-family:monospace">ACS-CR-${c.id.substring(0,6).toUpperCase()}</span></div>
+    <div class="detail-row"><span class="detail-key">Centre नाम</span><span class="detail-val">${c.centre?.name||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">प्रकार</span><span class="detail-val">${c.centre?.type||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">Owner</span><span class="detail-val">${c.owner?.name||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">Email</span><span class="detail-val">${c.owner?.email||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">Mobile</span><span class="detail-val">${c.owner?.mobile||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">Udyog Aadhaar</span><span class="detail-val">${c.owner?.udyog||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">अनुभव</span><span class="detail-val">${c.owner?.experience||'—'} साल</span></div>
+    <div class="detail-row"><span class="detail-key">Pin Code</span><span class="detail-val">${c.centre?.pinCode||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">जिला</span><span class="detail-val">${c.centre?.district||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">राज्य</span><span class="detail-val">${c.centre?.state||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">पता</span><span class="detail-val">${c.centre?.address||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">Bank</span><span class="detail-val">${c.bank?.bankName||'—'} | ${c.bank?.ifsc||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">Courses</span><span class="detail-val">${(c.courses||[]).join(', ')||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">भाषा</span><span class="detail-val">${c.language||'—'}</span></div>
+    <div class="detail-row"><span class="detail-key">Applied</span><span class="detail-val">${fmtDate(c.submittedAt)} (${daysSince(c.submittedAt)} दिन पहले)</span></div>
+    <div class="detail-row"><span class="detail-key">Status</span><span class="detail-val"><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></span></div>`;
+
+  document.getElementById('rejectReasonWrap').classList.remove('show');
+  document.getElementById('rejectReason').value='';
+
+  const actions=document.getElementById('modalActions');
+  if(c.status==='approved'){
+    actions.innerHTML=`<button class="btn-secondary" onclick="closeModal()">बंद करें</button><div style="font-size:12px;color:var(--green);font-weight:600;padding:8px">✅ यह Centre पहले से Approved है</div>`;
+  }else if(c.status==='rejected'){
+    actions.innerHTML=`<button class="btn-secondary" onclick="closeModal()">बंद करें</button><div style="font-size:12px;color:var(--red);font-weight:600;padding:8px">❌ यह Application Rejected है</div>`;
+  }else{
+    actions.innerHTML=`
+      <button class="btn-secondary" onclick="closeModal()">बंद करें</button>
+      <button class="btn-danger" onclick="showRejectReason('${c.id}')">❌ Reject करें</button>
+      <button class="btn-primary" onclick="approveCenter('${c.id}')">✅ Approve करें</button>`;
+  }
+  document.getElementById('centreModal').classList.add('open');
+};
+
+window.closeModal=function(){
+  document.getElementById('centreModal').classList.remove('open');
+};
+
+window.showRejectReason=function(id){
+  const wrap=document.getElementById('rejectReasonWrap');
+  wrap.classList.add('show');
+  const actions=document.getElementById('modalActions');
+  actions.innerHTML=`
+    <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+    <button class="btn-danger" onclick="rejectCenter('${id}')">❌ Confirm Reject</button>`;
+};
+
+window.approveCenter=async function(id){
+  try{
+    await window._updateDoc(window._doc(window._db,'centre_registrations',id),{status:'approved',approvedAt:window._serverTimestamp(),approvedBy:'Founder'});
+    showToast('✅ Centre Approved!','ok');
+    closeModal();
+    await window.loadData();
+  }catch(e){showToast('Error: '+e.message,'err')}
+};
+
+window.rejectCenter=async function(id){
+  const reason=document.getElementById('rejectReason').value.trim();
+  if(!reason){showToast('❌ Rejection का कारण जरूरी है','err');return}
+  try{
+    await window._updateDoc(window._doc(window._db,'centre_registrations',id),{status:'rejected',rejectedAt:window._serverTimestamp(),rejectedBy:'Founder',rejectionReason:reason});
+    showToast('Application Rejected','err');
+    closeModal();
+    await window.loadData();
+  }catch(e){showToast('Error: '+e.message,'err')}
+};
+
+// ── FILTER ──
+window.filterCentres=function(){
+  const search=document.getElementById('searchPending').value.toLowerCase();
+  const status=document.getElementById('filterStatus').value;
+  const filtered=allCentres.filter(c=>{
+    if(c.status==='approved'||c.status==='rejected')return false;
+    const matchSearch=!search||(c.centre?.name||'').toLowerCase().includes(search)||(c.centre?.district||'').toLowerCase().includes(search)||(c.centre?.state||'').toLowerCase().includes(search);
+    const matchStatus=!status||c.status===status;
+    return matchSearch&&matchStatus;
+  });
+  const tbody=document.getElementById('pendingTable');
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">कोई result नहीं</td></tr>';return}
+  tbody.innerHTML=filtered.map(c=>{
+    const days=daysSince(c.submittedAt);
+    const daysColor=days>15?'var(--red)':days>7?'var(--orange)':'var(--green)';
+    return`<tr>
+      <td style="font-family:monospace;font-size:11px;color:var(--blue)">ACS-CR-${c.id.substring(0,6).toUpperCase()}</td>
+      <td><strong>${c.centre?.name||'—'}</strong></td>
+      <td>${c.owner?.name||'—'}</td>
+      <td>${c.centre?.district||'—'}, ${c.centre?.state||'—'}</td>
+      <td><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></td>
+      <td style="font-weight:700;color:${daysColor}">${days} दिन</td>
+      <td><button class="btn-sm btn-view" onclick="openModal('${c.id}')">👁️ देखें</button></td>
+    </tr>`;
+  }).join('');
+};
+
+// ── LOGOUT ──
+window.doLogout=async function(){
+  if(!confirm('Logout करना चाहते हैं?'))return;
+  await window._signOut();
+  window.location.href='../index.html';
+};
+
+// ── UTILS ──
+function statusClass(s){
+  const map={pending:'pending',regional_recommended:'pending',state_provisional:'provisional',hq_legal:'legal',hq_finance:'finance',hq_establishment:'legal',approved:'approved',rejected:'rejected'};
+  return map[s]||'pending';
+}
+function statusLabel(s){
+  const map={pending:'⏳ Applied',regional_recommended:'🗺️ Regional',state_provisional:'🌐 State Provisional',hq_legal:'⚖️ HQ Legal',hq_finance:'💰 HQ Finance',hq_establishment:'🏫 HQ Establishment',approved:'✅ Approved',rejected:'❌ Rejected'};
+  return map[s]||s;
+}
+function fmtDate(ts){
+  if(!ts)return'—';
+  try{const d=ts.toDate?ts.toDate():new Date(ts);return d.toLocaleDateString('hi-IN',{day:'2-digit',month:'short',year:'numeric'})}catch(e){return'—'}
+}
+function showToast(msg,type='ok'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ── INIT ──
+setDate();
+buildSalaryCalendar();
+</script>
+</body>
+</html>
