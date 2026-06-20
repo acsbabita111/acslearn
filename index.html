@@ -419,9 +419,37 @@
   const auth=getAuth(app),db=getFirestore(app);
   window.doLogin=async function(){
     const e=document.getElementById('emailInput').value,p=document.getElementById('passInput').value;
-    document.getElementById('errMsg').innerText='';
-    try{await signInWithEmailAndPassword(auth,e,p);closeModal();}
-    catch(err){document.getElementById('errMsg').innerText='❌ Email या Password गलत है।';}
+    const errEl=document.getElementById('errMsg');
+    errEl.innerText='';
+    try{
+      const cred=await signInWithEmailAndPassword(auth,e,p);
+      const snap=await getDoc(doc(db,'users',cred.user.uid));
+      if(!snap.exists()){
+        await signOut(auth);
+        errEl.innerText='❌ आपका account Dashboard में नहीं मिला। Admin से संपर्क करें।';
+        return;
+      }
+      const actualRole=snap.data().role;
+      const selectedRole=window._selectedRole||'';
+      // Role matching logic
+      const roleMap={
+        'Student':['Student'],
+        'Centre':['Centre'],
+        'Teacher':['Teacher'],
+        'Counselor':['Counselor'],
+        'Employer':['Employer'],
+        'Admin':['Founder','Head','Admin']
+      };
+      const allowed=roleMap[selectedRole]||[];
+      if(!allowed.includes(actualRole)){
+        await signOut(auth);
+        errEl.innerText='❌ गलत role चुना है। आपका actual role है: '+actualRole+'. कृपया सही role से login करें।';
+        return;
+      }
+      closeModal();
+    }catch(err){
+      errEl.innerText='❌ Email या Password गलत है।';
+    }
   };
   window.doLogout=function(){signOut(auth);};
   onAuthStateChanged(auth,async(user)=>{
@@ -461,6 +489,7 @@
   function closeModal(){document.getElementById('modalBg').classList.remove('open');}
   function closeModalOutside(e){if(e.target===document.getElementById('modalBg'))closeModal();}
   function pickRole(role,icon){
+    window._selectedRole=role;
     document.getElementById('roleStep').style.display='none';
     document.getElementById('loginStep').classList.add('show');
     document.getElementById('loginTitle').innerText=icon+' '+role+' Login';
