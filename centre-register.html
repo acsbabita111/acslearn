@@ -4,1340 +4,1305 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Centre Registration — Applied Computer School™</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
-      --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
-      --red:#C62828;--white:#fff;--offwhite:#F5F7FA;
-      --gray:#607D8B;--text:#1A2B3C;--r:10px;
+      --navy:#0B1F3A;--navy2:#0D2748;--navy3:#112d52;
+      --blue:#1565C0;--blue-lt:#1E88E5;--blue-glow:rgba(33,150,243,0.3);
+      --gold:#F9A825;--gold-lt:#FFD54F;
+      --green:#00C853;--green-dk:#2E7D32;
+      --saffron:#FF8C00;
+      --white:#FFFFFF;--offwhite:#F8FAFF;
+      --gray:#607D8B;--text:#1A2B3C;
+      --glass:rgba(255,255,255,0.06);--glass-border:rgba(255,255,255,0.12);
+      --form-bg:#F8FAFF;--form-border:#E8EDF5;
+      --r:12px;--r-sm:8px;
     }
-    body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6}
-    a{text-decoration:none;color:inherit}
+    html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--navy);color:var(--text);font-size:15px;line-height:1.6}
 
-    /* HEADER */
-    .top-header{background:linear-gradient(180deg,#FF8C00 0%,#FF8C00 33%,#fff 33%,#fff 66%,#2E7D32 66%,#2E7D32 100%);padding:8px 16px;text-align:center}
-    .top-card{display:inline-block;background:rgba(255,255,255,.95);border-radius:10px;padding:8px 20px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
-    .top-card h1{font-size:14px;font-weight:800;color:var(--navy)}
-    .top-card h1 span{color:#FF8C00}
-    .top-card p{font-size:10px;color:var(--gray)}
+    /* ══ LAYOUT ══ */
+    .layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}}
 
-    /* NAVBAR */
-    .navbar{background:var(--navy);padding:0 16px;height:50px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-    .navbar a{color:var(--white);font-size:13px;font-weight:600}
-    .navbar span{color:var(--gold);font-size:12px}
+    /* ══ LEFT PANEL ══ */
+    .left{
+      background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 50%,#0a1929 100%);
+      position:sticky;top:0;height:100vh;overflow:hidden;
+      display:flex;flex-direction:column;padding:36px 32px;
+      border-right:1px solid rgba(255,255,255,0.06);
+    }
+    @media(max-width:900px){.left{position:relative;height:auto;padding:24px 20px}}
 
-    /* PROGRESS */
-    .progress-wrap{background:var(--white);padding:12px 16px;border-bottom:1px solid #E0E0E0;position:sticky;top:50px;z-index:99}
-    .progress-bar-outer{background:#E0E0E0;border-radius:10px;height:6px;max-width:600px;margin:0 auto}
-    .progress-bar-inner{background:var(--blue);height:6px;border-radius:10px;transition:width .4s}
-    .progress-label{text-align:center;font-size:12px;color:var(--gray);margin-top:6px;font-weight:600}
+    /* Animated orbs */
+    .orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+    .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.18;animation:float 8s ease-in-out infinite}
+    .orb1{width:280px;height:280px;background:#1565C0;top:-60px;right:-80px;animation-delay:0s}
+    .orb2{width:200px;height:200px;background:#F9A825;bottom:80px;left:-60px;animation-delay:3s}
+    .orb3{width:150px;height:150px;background:#00C853;top:40%;right:10px;animation-delay:5s}
+    @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
 
-    /* WRAP */
-    .form-wrap{max-width:600px;margin:0 auto;padding:16px}
+    /* Grid dots */
+    .grid-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.08) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
 
-    /* SECTION CARD */
-    .sec{background:var(--white);border-radius:var(--r);padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.08);display:none}
+    /* Left content */
+    .left-content{position:relative;z-index:1;display:flex;flex-direction:column;height:100%}
+
+    /* Logo */
+    .logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+    .logo-img{width:44px;height:44px;border-radius:10px;border:2px solid rgba(255,255,255,0.15);object-fit:cover}
+    .logo-text{color:var(--white)}
+    .logo-text strong{display:block;font-size:14px;font-weight:700;line-height:1.2}
+    .logo-text span{font-size:11px;color:var(--gold);font-weight:500}
+
+    /* Headline */
+    .left-headline{margin-bottom:28px}
+    .left-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+    .left-h1{font-size:26px;font-weight:800;color:var(--white);line-height:1.2;margin-bottom:10px}
+    .left-h1 em{color:var(--gold);font-style:normal}
+    .left-sub{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6}
+
+    /* Stats */
+    .stats-row{display:flex;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+    .stat-pill{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:8px 14px;text-align:center}
+    .stat-pill strong{display:block;font-size:16px;font-weight:800;color:var(--gold)}
+    .stat-pill span{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:.5px}
+
+    /* Step Navigator */
+    .step-nav{flex:1;display:flex;flex-direction:column;gap:6px}
+    .step-nav-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:var(--r-sm);transition:all .3s;cursor:default}
+    .step-nav-item.done{opacity:0.6}
+    .step-nav-item.active{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1)}
+    .step-nav-item.pending{opacity:0.3}
+    .step-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;border:1.5px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.4)}
+    .step-nav-item.done .step-num{background:var(--green);border-color:var(--green);color:var(--white)}
+    .step-nav-item.active .step-num{background:var(--blue);border-color:var(--blue);color:var(--white)}
+    .step-nav-label{font-size:12px;color:rgba(255,255,255,0.5)}
+    .step-nav-item.active .step-nav-label{color:var(--white);font-weight:600}
+    .step-nav-item.done .step-nav-label{color:rgba(255,255,255,0.6)}
+
+    /* Trust badges */
+    .trust-row{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+    .trust-badge{background:var(--glass);border:1px solid var(--glass-border);border-radius:6px;padding:5px 10px;font-size:10px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:4px}
+
+    @media(max-width:900px){.step-nav,.stats-row,.trust-row{display:none}}
+
+    /* ══ RIGHT PANEL ══ */
+    .right{background:var(--offwhite);overflow-y:auto}
+
+    /* Progress bar (mobile/desktop) */
+    .prog-bar-wrap{background:var(--white);padding:14px 32px;border-bottom:1px solid var(--form-border);position:sticky;top:0;z-index:50;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+    .prog-bar-inner-wrap{max-width:560px;margin:0 auto}
+    .prog-track{background:#E8EDF5;border-radius:10px;height:5px;margin-bottom:6px}
+    .prog-fill{background:linear-gradient(90deg,var(--blue),var(--blue-lt));height:5px;border-radius:10px;transition:width .5s ease}
+    .prog-label{font-size:12px;color:var(--gray);font-weight:500}
+    .prog-label strong{color:var(--navy)}
+
+    /* Form sections */
+    .form-area{padding:32px;max-width:620px;margin:0 auto}
+    @media(max-width:600px){.form-area{padding:16px}}
+
+    .sec{display:none;animation:fadeIn .3s ease}
     .sec.active{display:block}
-    .sec-title{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:4px}
-    .sec-sub{font-size:12px;color:var(--gray);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #F0F0F0}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-    /* FORM ELEMENTS */
-    .fg{margin-bottom:14px}
-    .fg label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:5px}
-    .fg label .req{color:var(--red)}
-    .fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;outline:none;min-height:48px;background:var(--white);transition:border .15s}
-    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
-    .fg textarea{min-height:80px;resize:vertical}
-    .fg input[readonly]{background:#F8F9FA;color:var(--gray)}
-    .fg .hint{font-size:11px;color:var(--gray);margin-top:4px}
-    .fg .err{font-size:12px;color:var(--red);margin-top:4px;display:none}
-    .fg.bad input,.fg.bad select,.fg.bad textarea{border-color:var(--red)}
-    .fg.bad .err{display:block}
+    .sec-header{margin-bottom:24px}
+    .sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+    .sec-title{font-size:22px;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:4px}
+    .sec-sub{font-size:13px;color:var(--gray)}
 
-    /* BUTTONS */
-    .btn-row{display:flex;gap:10px;margin-top:20px}
-    .btn-next{flex:1;padding:14px;background:var(--blue);color:var(--white);border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;min-height:52px;transition:background .2s}
-    .btn-next:hover{background:var(--blue-lt)}
-    .btn-next:disabled{background:#B0BEC5;cursor:not-allowed}
-    .btn-prev{padding:14px 20px;background:var(--offwhite);color:var(--navy);border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;min-height:52px}
-    .btn-green{flex:1;padding:14px;background:var(--green);color:var(--white);border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;min-height:52px}
+    /* Cards */
+    .form-card{background:var(--white);border:1px solid var(--form-border);border-radius:var(--r);padding:20px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
 
-    /* DOCUMENT CHECKLIST */
-    .doc-list{list-style:none;margin:12px 0}
-    .doc-list li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #F0F0F0;font-size:13px}
-    .doc-list li:last-child{border-bottom:none}
-    .doc-icon{font-size:18px;flex-shrink:0;width:24px}
+    /* Form fields */
+    .fg{margin-bottom:16px}
+    .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:500px){.fg-row{grid-template-columns:1fr}}
+    .fg label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
+    .req{color:#E53935}
+    .fg input,.fg select,.fg textarea{
+      width:100%;padding:11px 14px;
+      border:1.5px solid var(--form-border);
+      border-radius:var(--r-sm);
+      font-size:14px;font-family:inherit;
+      outline:none;background:var(--white);
+      color:var(--text);transition:border .2s,box-shadow .2s;
+      min-height:48px;text-transform:uppercase
+    }
+    .fg input[type=email],.fg input[type=password],.fg input[type=url],.fg input[type=number]{text-transform:none}
+    .fg select{text-transform:none;cursor:pointer}
+    .fg textarea{min-height:88px;resize:vertical;text-transform:uppercase}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px var(--blue-glow)
+    }
+    .fg input[readonly]{background:#F0F4F8;color:var(--gray);cursor:not-allowed}
+    .fg .hint{font-size:11px;color:var(--gray);margin-top:4px;line-height:1.5}
+    .fg .err-txt{font-size:12px;color:#E53935;margin-top:4px;display:none}
+    .fg.bad input,.fg.bad select,.fg.bad textarea{border-color:#E53935}
+    .fg.bad .err-txt{display:block}
 
-    /* CHECKBOX */
-    .chk-item{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:2px solid #E0E0E0;border-radius:8px;cursor:pointer;margin-bottom:8px;min-height:48px}
-    .chk-item.checked{border-color:var(--green);background:#E8F5E9}
-    .chk-item input{width:20px;height:20px;margin-top:2px;flex-shrink:0;cursor:pointer}
-    .chk-item label{font-size:13px;font-weight:500;cursor:pointer;line-height:1.5}
+    /* Help */
+    .help-btn{width:18px;height:18px;border-radius:50%;background:var(--blue);color:var(--white);font-size:10px;font-weight:700;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+    .help-box{display:none;background:#EEF4FF;border:1px solid #C7D9F9;border-radius:var(--r-sm);padding:12px;font-size:12px;color:var(--navy);margin-top:6px;line-height:1.7}
+    .help-box.show{display:block}
+    .help-box a{color:var(--blue);font-weight:600}
 
-    /* RADIO */
-    .radio-grp{display:flex;flex-direction:column;gap:8px}
-    .radio-item{display:flex;align-items:center;gap:10px;padding:12px 14px;border:2px solid #E0E0E0;border-radius:8px;cursor:pointer;min-height:52px}
-    .radio-item:hover,.radio-item.sel{border-color:var(--blue);background:#E3F2FD}
-    .radio-item input{width:18px;height:18px;cursor:pointer;flex-shrink:0}
-    .radio-item label{cursor:pointer;font-size:14px;font-weight:500;flex:1}
-    .badge{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:700;color:var(--white)}
+    /* File upload */
+    .file-drop{border:1.5px dashed #B8C8E0;border-radius:var(--r-sm);padding:16px;text-align:center;cursor:pointer;position:relative;transition:border .2s,background .2s;background:var(--white)}
+    .file-drop:hover{border-color:var(--blue);background:#F0F6FF}
+    .file-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+    .file-drop-icon{font-size:24px;margin-bottom:4px}
+    .file-drop p{font-size:13px;color:var(--gray);margin-bottom:2px}
+    .file-drop .sz{font-size:11px;color:var(--blue);font-weight:600}
+    .file-ok{font-size:12px;color:var(--green-dk);margin-top:6px;display:none;font-weight:500}
+    .file-err-msg{font-size:12px;color:#E53935;margin-top:6px;display:none}
 
-    /* YES/NO */
-    .yn-row{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid #E0E0E0;border-radius:8px;margin-bottom:6px}
-    .yn-lbl{font-size:13px;flex:1}
-    .yn-btns{display:flex;gap:6px}
-    .yn-btn{padding:6px 14px;border-radius:6px;border:2px solid #E0E0E0;background:var(--white);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;min-height:36px}
-    .yn-btn.yes.on{background:var(--green);border-color:var(--green);color:var(--white)}
-    .yn-btn.no.on{background:var(--red);border-color:var(--red);color:var(--white)}
+    /* Radio */
+    .radio-group{display:flex;flex-direction:column;gap:8px}
+    .radio-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border:1.5px solid var(--form-border);border-radius:var(--r-sm);cursor:pointer;transition:all .2s;background:var(--white)}
+    .radio-item:hover{border-color:var(--blue);background:#F0F6FF}
+    .radio-item.sel{border-color:var(--blue);background:#EEF4FF}
+    .radio-item input[type=radio]{width:18px;height:18px;cursor:pointer;flex-shrink:0;accent-color:var(--blue)}
+    .radio-item label{cursor:pointer;font-size:14px;font-weight:500;color:var(--text);flex:1}
+    .exp-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;color:var(--white);flex-shrink:0}
 
-    /* COURSES */
+    /* Checkbox */
+    .chk-row{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border:1.5px solid var(--form-border);border-radius:var(--r-sm);cursor:pointer;transition:all .2s;background:var(--white);margin-bottom:8px}
+    .chk-row:hover{border-color:var(--green-dk);background:#F0FFF4}
+    .chk-row.on{border-color:var(--green-dk);background:#F0FFF4}
+    .chk-row input[type=checkbox]{width:20px;height:20px;cursor:pointer;flex-shrink:0;margin-top:2px;accent-color:var(--green-dk)}
+    .chk-row label{cursor:pointer;font-size:13px;font-weight:500;line-height:1.5}
+
+    /* Yes/No */
+    .yn-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--form-border);border-radius:var(--r-sm);margin-bottom:6px;background:var(--white)}
+    .yn-lbl{font-size:13px;color:var(--text);flex:1;padding-right:10px}
+    .yn-pair{display:flex;gap:6px}
+    .yn-btn{padding:6px 16px;border-radius:6px;border:1.5px solid var(--form-border);background:var(--white);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;min-height:36px}
+    .yn-btn.yes.on{background:var(--green-dk);border-color:var(--green-dk);color:var(--white)}
+    .yn-btn.no.on{background:#E53935;border-color:#E53935;color:var(--white)}
+
+    /* Courses */
     .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .course-item{display:flex;align-items:center;gap:8px;padding:10px 12px;border:2px solid #E0E0E0;border-radius:8px;cursor:pointer;min-height:48px}
-    .course-item:hover,.course-item.on{border-color:var(--green);background:#E8F5E9}
-    .course-item input{width:18px;height:18px;cursor:pointer;flex-shrink:0}
-    .course-item label{cursor:pointer;font-size:12px;font-weight:500}
+    @media(max-width:500px){.course-grid{grid-template-columns:1fr}}
+    .course-item{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1.5px solid var(--form-border);border-radius:var(--r-sm);cursor:pointer;background:var(--white);transition:all .2s}
+    .course-item:hover,.course-item.on{border-color:var(--green-dk);background:#F0FFF4}
+    .course-item input{width:17px;height:17px;cursor:pointer;flex-shrink:0;accent-color:var(--green-dk)}
+    .course-item label{cursor:pointer;font-size:12px;font-weight:500;color:var(--text)}
 
-    /* FILE */
-    .file-box{border:2px dashed #B0BEC5;border-radius:8px;padding:14px;text-align:center;cursor:pointer;position:relative}
-    .file-box:hover{border-color:var(--blue)}
-    .file-box input{position:absolute;inset:0;opacity:0;cursor:pointer}
-    .file-box p{font-size:13px;color:var(--gray)}
-    .file-box .sz{font-size:11px;color:var(--blue);margin-top:3px}
-    .file-ok{font-size:12px;color:var(--green);margin-top:5px;display:none}
-    .file-err{font-size:12px;color:var(--red);margin-top:5px;display:none}
+    /* Social */
+    .soc-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .soc-icon{font-size:20px;width:30px;text-align:center;flex-shrink:0}
+    .soc-fields-wrap{display:none;margin-bottom:10px;padding:12px;background:var(--form-bg);border-radius:var(--r-sm);border:1px solid var(--form-border)}
+    .soc-fields-wrap input{width:100%;padding:10px 12px;border:1.5px solid var(--form-border);border-radius:var(--r-sm);font-size:13px;font-family:inherit;outline:none;background:var(--white);min-height:44px;margin-bottom:8px}
+    .soc-fields-wrap input:last-child{margin-bottom:0}
+    .soc-fields-wrap input:focus{border-color:var(--blue)}
 
-    /* SOCIAL */
-    .soc-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-    .soc-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0}
-    .soc-row input:first-of-type{flex:1;min-height:44px}
-    .soc-cnt{width:100px;flex-shrink:0;min-height:44px}
+    /* OTP */
+    .otp-wrap{display:flex;gap:10px;justify-content:center;margin:20px 0}
+    .otp-wrap input{width:50px;height:56px;text-align:center;font-size:22px;font-weight:800;border:1.5px solid var(--form-border);border-radius:var(--r-sm);outline:none;font-family:inherit;background:var(--white);color:var(--navy);transition:border .2s}
+    .otp-wrap input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow)}
 
-    /* OTP BOX */
-    .otp-wrap{display:flex;gap:8px;justify-content:center;margin:16px 0}
-    .otp-wrap input{width:46px;height:52px;text-align:center;font-size:22px;font-weight:700;border:2px solid #E0E0E0;border-radius:8px;outline:none;font-family:inherit}
-    .otp-wrap input:focus{border-color:var(--blue)}
+    /* Password strength */
+    .pass-strength-wrap{margin-top:10px;background:#F8FAFF;border:1px solid var(--form-border);border-radius:var(--r-sm);padding:12px 14px}
+    .strength-bar-wrap{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .strength-track{flex:1;background:#E0E6F0;border-radius:10px;height:6px;overflow:hidden}
+    .strength-fill{height:6px;border-radius:10px;transition:all .4s}
+    .strength-lbl{font-size:12px;font-weight:700;min-width:64px;text-align:right}
+    .pc{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--gray);padding:2px 0;transition:color .2s}
+    .pc.ok{color:var(--green-dk)}
+    .pc-dot{width:14px;height:14px;border-radius:50%;border:1.5px solid #CBD5E0;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:all .2s}
+    .pc.ok .pc-dot{background:var(--green-dk);border-color:var(--green-dk);color:var(--white)}
 
-    /* REVIEW */
-    .review-section{background:#F8F9FA;border-radius:8px;padding:14px;margin-bottom:12px}
-    .review-section h3{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:8px}
-    .review-row{display:flex;gap:8px;margin-bottom:4px;font-size:12px}
-    .review-key{color:var(--gray);min-width:120px;flex-shrink:0}
-    .review-val{color:var(--text);font-weight:500;flex:1;word-break:break-all}
+    /* Buttons */
+    .btn-row{display:flex;gap:10px;margin-top:24px}
+    .btn-next{flex:1;padding:14px 20px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:var(--white);border:none;border-radius:var(--r-sm);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;min-height:52px;transition:all .2s;box-shadow:0 4px 12px rgba(21,101,192,0.3)}
+    .btn-next:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(21,101,192,0.4)}
+    .btn-next:disabled{background:#B0BEC5;cursor:not-allowed;transform:none;box-shadow:none}
+    .btn-prev{padding:14px 20px;background:var(--white);color:var(--navy);border:1.5px solid var(--form-border);border-radius:var(--r-sm);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;min-height:52px;transition:all .2s}
+    .btn-prev:hover{background:var(--form-bg);border-color:#B8C8E0}
+    .btn-submit{flex:1;padding:14px 20px;background:linear-gradient(135deg,var(--green-dk),#1B5E20);color:var(--white);border:none;border-radius:var(--r-sm);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;min-height:52px;transition:all .2s;box-shadow:0 4px 12px rgba(46,125,50,0.3)}
+    .btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(46,125,50,0.4)}
 
-    /* SHAPATH */
-    .shapath-box{background:#FFF8E1;border:2px solid var(--gold);border-radius:8px;padding:16px;margin-bottom:14px}
-    .shapath-box h3{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:10px}
-    .shapath-box p{font-size:12px;color:var(--text);line-height:1.8;margin-bottom:6px}
-    .shapath-sign{background:var(--navy);color:var(--white);border-radius:8px;padding:12px;margin-top:12px;font-size:12px;font-style:italic;line-height:1.7}
+    /* Alert */
+    .alert{padding:12px 16px;border-radius:var(--r-sm);font-size:13px;margin-bottom:14px;line-height:1.5}
+    .alert-info{background:#EEF4FF;color:var(--blue);border:1px solid #C7D9F9}
+    .alert-warn{background:#FFFBEA;color:#92400E;border:1px solid #FDE68A}
+    .alert-err{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA;display:none}
+    .alert-ok{background:#F0FFF4;color:var(--green-dk);border:1px solid #A7F3D0;display:none}
 
-    /* ALERT */
-    .alert{padding:12px 14px;border-radius:8px;font-size:13px;margin-bottom:12px}
-    .alert.info{background:#E3F2FD;color:var(--blue);border:1px solid #90CAF9}
-    .alert.warn{background:#FFF8E1;color:#E65100;border:1px solid #FFCC02}
-    .alert.err{background:#FFEBEE;color:var(--red);border:1px solid #EF9A9A}
-    .alert.ok{background:#E8F5E9;color:var(--green);border:1px solid #A5D6A7}
+    /* Doc list */
+    .doc-list{list-style:none;margin:14px 0}
+    .doc-list li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #F0F4F8;font-size:13px;align-items:flex-start}
+    .doc-list li:last-child{border:none}
+    .doc-list .di{font-size:18px;flex-shrink:0;margin-top:1px}
+    .doc-list a{color:var(--blue);font-weight:600}
 
-    /* SUCCESS */
-    .success-sc{display:none;text-align:center;padding:40px 20px}
+    /* Timer badge */
+    .timer-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#EEF4FF,#F0F6FF);border:1px solid #C7D9F9;border-radius:20px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--blue);margin-bottom:16px}
+
+    /* Review */
+    .review-card{background:var(--white);border:1px solid var(--form-border);border-radius:var(--r-sm);overflow:hidden;margin-bottom:12px}
+    .review-card-head{background:#F0F6FF;padding:10px 16px;font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+    .review-row{display:flex;gap:10px;padding:8px 16px;border-bottom:1px solid #F8FAFF;font-size:13px}
+    .review-row:last-child{border:none}
+    .rv-key{color:var(--gray);min-width:130px;flex-shrink:0;font-weight:500}
+    .rv-val{color:var(--text);font-weight:600;word-break:break-all}
+
+    /* Shapath */
+    .shapath-box{background:linear-gradient(135deg,#FFFBEA,#FFF8DC);border:1.5px solid var(--gold);border-radius:var(--r);padding:20px;margin-bottom:16px}
+    .shapath-box h3{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .shapath-box p{font-size:12.5px;color:var(--text);line-height:1.85;margin-bottom:8px}
+    .shapath-sign{background:var(--navy);color:var(--white);border-radius:var(--r-sm);padding:14px 16px;margin-top:14px;font-size:12px;font-style:italic;line-height:1.8}
+
+    /* Tracking */
+    .tracking-box{background:linear-gradient(135deg,#F0FFF4,#E8F5E9);border:1px solid #A7F3D0;border-radius:var(--r-sm);padding:16px;margin-top:14px}
+    .tracking-box h4{font-size:13px;font-weight:700;color:var(--green-dk);margin-bottom:10px}
+    .tracking-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;font-size:12px}
+    .tracking-step:last-child{margin-bottom:0}
+    .t-dot{width:22px;height:22px;border-radius:50%;background:var(--green-dk);color:var(--white);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+    /* Success */
+    .success-sc{display:none;text-align:center;padding:60px 20px}
     .success-sc.show{display:block}
-    .app-id{font-size:20px;font-weight:800;color:var(--blue);background:#E3F2FD;padding:12px 24px;border-radius:8px;display:inline-block;margin:12px 0}
+    .success-icon-wrap{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--green-dk),#1B5E20);display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 20px;box-shadow:0 8px 24px rgba(46,125,50,0.3)}
+    .app-id-box{display:inline-block;background:linear-gradient(135deg,#EEF4FF,#E0ECFF);border:2px solid var(--blue);border-radius:var(--r);padding:14px 28px;margin:12px 0}
+    .app-id-box strong{display:block;font-size:22px;font-weight:800;color:var(--blue);letter-spacing:1px}
+    .app-id-box span{font-size:11px;color:var(--gray)}
 
-    /* LOADER */
-    .loader{display:none;font-size:12px;color:var(--blue);margin-top:4px}
+    /* Loader */
+    .field-loader{display:none;font-size:11px;color:var(--blue);margin-top:4px;font-weight:500}
 
-    /* DIVIDER */
-    hr{border:none;border-top:1px solid #F0F0F0;margin:12px 0}
+    /* Divider */
+    .divider{border:none;border-top:1px solid var(--form-border);margin:16px 0}
+    .divider-label{text-align:center;font-size:12px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin:14px 0 10px}
 
-    /* RESEND */
-    .resend-btn{background:none;border:none;color:var(--blue);font-size:13px;cursor:pointer;font-family:inherit;padding:0;text-decoration:underline}
-    .resend-btn:disabled{color:var(--gray);cursor:not-allowed;text-decoration:none}
+    /* Sec header */
+    .sec-hdr{font-size:13px;font-weight:700;color:var(--navy);margin:14px 0 8px;display:flex;align-items:center;gap:6px}
 
-    /* SECTION HEADER */
-    .sec-hdr{font-size:13px;font-weight:700;color:var(--navy);margin:12px 0 8px}
+    /* Resend */
+    .resend-btn{background:none;border:none;color:var(--blue);font-size:13px;cursor:pointer;font-family:inherit;font-weight:600;padding:0}
+    .resend-btn:disabled{color:var(--gray);cursor:not-allowed}
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="top-header">
-  <div class="top-card">
-    <h1>Applied Computer School™ — <span>Centre Registration</span></h1>
-    <p>FFGPMTrust का उपक्रम | From Village to World</p>
-  </div>
-</div>
+<div class="layout">
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <a href="https://acslearn.com">← वापस जाएं</a>
-  <span>Centre / Workshop Registration</span>
-</nav>
-
-<!-- PROGRESS -->
-<div class="progress-wrap" id="progressWrap">
-  <div class="progress-bar-outer">
-    <div class="progress-bar-inner" id="progressBar" style="width:8%"></div>
-  </div>
-  <div class="progress-label" id="progressLabel">Step 1 of 12 — जरूरी दस्तावेज़</div>
-</div>
-
-<div class="form-wrap">
-
-<!-- ══════════════════════════════
-     STEP 0 — DOCUMENT CHECKLIST
-══════════════════════════════ -->
-<div class="sec active" id="s0">
-  <div class="sec-title">📋 जरूरी दस्तावेज़ों की सूची</div>
-  <div class="sec-sub">Form भरने से पहले ये सब तैयार रखें</div>
-
-  <div class="alert info">
-    ℹ️ Form शुरू करने से पहले नीचे दिए सभी documents तैयार रखें। बीच में form छोड़ने पर data save नहीं होगा।
-  </div>
-
-  <ul class="doc-list">
-    <li><span class="doc-icon">📸</span><span><strong>Profile Photo</strong> — Owner/Manager का सामने का साफ फोटो (White background, 35-50 KB)</span></li>
-    <li><span class="doc-icon">🪪</span><span><strong>Photo ID (2 अलग)</strong> — Aadhar/PAN/Voter ID/Passport/Driving Licence (35-50 KB each)</span></li>
-    <li><span class="doc-icon">🏭</span><span><strong>Udyog Aadhaar / MSME Number</strong> — udyamregistration.gov.in से प्राप्त करें</span></li>
-    <li><span class="doc-icon">🏠</span><span><strong>Address Proof</strong> — बिजली बिल / Rent Agreement / MSME Certificate (35-50 KB)</span></li>
-    <li><span class="doc-icon">📍</span><span><strong>Centre की 2 GeoTagged Photos</strong> — GPS Map Camera App से खींची (35-50 KB each)</span></li>
-    <li><span class="doc-icon">🏦</span><span><strong>Bank Passbook / Cheque</strong> — Owner/Centre के नाम का (35-50 KB)</span></li>
-    <li><span class="doc-icon">🗺️</span><span><strong>Google Maps Location Link</strong> — Centre की exact location का link</span></li>
-    <li><span class="doc-icon">📱</span><span><strong>Active Email ID</strong> — जिस पर OTP आ सके (Gmail recommended)</span></li>
-  </ul>
-
-  <div class="alert warn">
-    ⚠️ सभी photos की size 35-50 KB के बीच होनी चाहिए। Compress करने के लिए: iloveimg.com या imagecompressor.com use करें।
-  </div>
-
-  <div class="chk-item" id="docChkItem" onclick="toggleChk(this,'docChk')">
-    <input type="checkbox" id="docChk"/>
-    <label for="docChk">✅ हाँ, उपरोक्त सभी दस्तावेज़ मेरे सामने उपलब्ध हैं। मैं अभी form भरना शुरू करना चाहता/चाहती हूँ।</label>
-  </div>
-
-  <div class="btn-row">
-    <button class="btn-next" id="docChkBtn" onclick="startForm()" disabled>आगे बढ़ें — Account बनाएं →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 1 — CREATE ACCOUNT
-══════════════════════════════ -->
-<div class="sec" id="s1">
-  <div class="sec-title">🔑 Step 1 — Account बनाएं</div>
-  <div class="sec-sub">यह Login ID आपका Dashboard access देगा</div>
-
-  <div class="fg">
-    <label>आपका पूरा नाम <span class="req">*</span></label>
-    <input type="text" id="regName" placeholder="Owner / Manager का नाम"/>
-    <div class="err">नाम जरूरी है</div>
-  </div>
-  <div class="fg">
-    <label>Email ID <span class="req">*</span></label>
-    <input type="email" id="regEmail" placeholder="active Gmail ID"/>
-    <div class="hint">इस email पर OTP आएगा</div>
-    <div class="err">Valid email जरूरी है</div>
-  </div>
-  <div class="fg">
-    <label>Password <span class="req">*</span></label>
-    <input type="password" id="regPass" placeholder="कम से कम 8 characters"/>
-    <div class="hint">Letters + Numbers + Special characters रखें</div>
-    <div class="err">Password कम से कम 8 characters का होना चाहिए</div>
-  </div>
-  <div class="fg">
-    <label>Confirm Password <span class="req">*</span></label>
-    <input type="password" id="regPassConf" placeholder="Password दोबारा लिखें"/>
-    <div class="err">Password match नहीं कर रहा</div>
-  </div>
-
-  <div id="accountErr" class="alert err" style="display:none"></div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(0)">← वापस</button>
-    <button class="btn-next" onclick="createAccount()">OTP भेजें →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 2 — OTP VERIFY
-══════════════════════════════ -->
-<div class="sec" id="s2">
-  <div class="sec-title">📧 Step 2 — Email Verify करें</div>
-  <div class="sec-sub" id="otpSub">आपके email पर 6-digit OTP भेजा गया है</div>
-
-  <div class="alert info">
-    📬 OTP आपके email पर भेजा गया है। Spam folder भी check करें।
-  </div>
-
-  <div style="text-align:center;margin-bottom:8px;font-size:13px;color:var(--gray)">OTP डालें</div>
-  <div class="otp-wrap">
-    <input type="number" id="otp1" maxlength="1" oninput="otpMove(this,'otp2')" onkeydown="otpBack(event,'','otp1')"/>
-    <input type="number" id="otp2" maxlength="1" oninput="otpMove(this,'otp3')" onkeydown="otpBack(event,'otp1','otp2')"/>
-    <input type="number" id="otp3" maxlength="1" oninput="otpMove(this,'otp4')" onkeydown="otpBack(event,'otp2','otp3')"/>
-    <input type="number" id="otp4" maxlength="1" oninput="otpMove(this,'otp5')" onkeydown="otpBack(event,'otp3','otp4')"/>
-    <input type="number" id="otp5" maxlength="1" oninput="otpMove(this,'otp6')" onkeydown="otpBack(event,'otp4','otp5')"/>
-    <input type="number" id="otp6" maxlength="1" oninput="otpMove(this,null)" onkeydown="otpBack(event,'otp5','otp6')"/>
-  </div>
-
-  <div id="otpErr" class="alert err" style="display:none"></div>
-  <div id="otpOk" class="alert ok" style="display:none">✅ Email verify हो गया!</div>
-
-  <div style="text-align:center;margin-top:8px;font-size:13px;color:var(--gray)">
-    OTP नहीं आया? <button class="resend-btn" id="resendBtn" onclick="resendOTP()">Resend करें</button>
-    <span id="resendTimer" style="display:none;color:var(--gray)">30 सेकंड में Resend कर सकते हैं</span>
-  </div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(1)">← वापस</button>
-    <button class="btn-next" onclick="verifyOTP()">Verify करें →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 3 — CENTRE INFO
-══════════════════════════════ -->
-<div class="sec" id="s3">
-  <div class="sec-title">🏫 Step 3 — Centre की जानकारी</div>
-  <div class="sec-sub">आपके Centre/Workshop की basic information</div>
-
-  <div class="fg">
-    <label>Centre / Workshop का नाम <span class="req">*</span></label>
-    <input type="text" id="centreName" placeholder="जैसे: Vidyarthi Computer Centre"/>
-    <div class="err">Centre का नाम जरूरी है</div>
-  </div>
-  <div class="fg">
-    <label>Centre का प्रकार <span class="req">*</span></label>
-    <select id="centreType">
-      <option value="">— चुनें —</option>
-      <option>Computer Centre</option>
-      <option>Coaching Institute</option>
-      <option>School</option>
-      <option>Workshop / Garage</option>
-      <option>Mobile Repair Shop</option>
-      <option>Tailoring / Handicraft Centre</option>
-      <option>Other</option>
-    </select>
-    <div class="err">प्रकार चुनें</div>
-  </div>
-  <div class="fg">
-    <label>Google Maps Location Link <span class="req">*</span></label>
-    <input type="url" id="mapsLink" placeholder="https://maps.google.com/..."/>
-    <div class="hint">📍 Google Maps → Location → Share → Copy Link</div>
-    <div class="err">Google Maps link जरूरी है</div>
-  </div>
-  <div class="fg">
-    <label>Pin Code <span class="req">*</span></label>
-    <input type="number" id="pinCode" placeholder="6 digit Pin Code" oninput="fetchPin(this.value)"/>
-    <div class="loader" id="pinLoader">⏳ जानकारी खोज रहे हैं...</div>
-    <div class="err">सही Pin Code डालें</div>
-  </div>
-  <div class="fg">
-    <label>जिला (District)</label>
-    <input type="text" id="district" readonly placeholder="Pin Code से auto-fill"/>
-  </div>
-  <div class="fg">
-    <label>राज्य (State)</label>
-    <input type="text" id="state" readonly placeholder="Pin Code से auto-fill"/>
-  </div>
-  <div class="fg">
-    <label>पूरा पता <span class="req">*</span></label>
-    <textarea id="address" placeholder="गली, मोहल्ला, गाँव, कस्बा — पूरा पता"></textarea>
-    <div class="err">पूरा पता जरूरी है</div>
-  </div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(2)">← वापस</button>
-    <button class="btn-next" onclick="goNext(3,4)">अगला →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 4 — OWNER INFO
-══════════════════════════════ -->
-<div class="sec" id="s4">
-  <div class="sec-title">👤 Step 4 — Owner / Manager की जानकारी</div>
-  <div class="sec-sub">Centre चलाने वाले व्यक्ति की जानकारी</div>
-
-  <div class="fg">
-    <label>Mobile Number <span class="req">*</span></label>
-    <input type="tel" id="mobile" placeholder="10 digit" maxlength="10"/>
-    <div class="err">सही Mobile Number डालें</div>
-  </div>
-  <div class="fg">
-    <label>WhatsApp Number</label>
-    <input type="tel" id="whatsapp" placeholder="अलग हो तो डालें"/>
-    <div class="hint">Mobile जैसा हो तो खाली छोड़ें</div>
-  </div>
-  <div class="fg">
-    <label>Profile Photo (Students को दिखेगा) <span class="req">*</span></label>
-    <div class="file-box">
-      <input type="file" id="profilePhoto" accept="image/*" onchange="checkFile(this,'ppOk','ppErr',35,50)"/>
-      <p>📸 सामने का साफ फोटो — White background</p>
-      <div class="sz">Size: 35-50 KB | JPG/PNG</div>
+  <!-- ══════════ LEFT PANEL ══════════ -->
+  <aside class="left">
+    <div class="orbs">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
     </div>
-    <div class="file-ok" id="ppOk"></div>
-    <div class="file-err" id="ppErr"></div>
-    <div class="err">Profile photo जरूरी है</div>
-  </div>
-  <div class="fg">
-    <label>Udyog Aadhaar / MSME Number <span class="req">*</span></label>
-    <input type="text" id="udyog" placeholder="UAM Number"/>
-    <div class="hint">udyamregistration.gov.in से प्राप्त करें</div>
-    <div class="err">Udyog Aadhaar जरूरी है</div>
-  </div>
+    <div class="grid-dots"></div>
 
-  <hr/>
-  <div class="sec-hdr">📅 इस field में आपका अनुभव <span class="req">*</span></div>
-  <div class="radio-grp" id="expGrp">
-    <div class="radio-item" onclick="pickRadio('exp','new',this)">
-      <input type="radio" name="exp" value="new"/>
-      <label>पहली बार शुरू कर रहे हैं</label>
-      <span class="badge" style="background:#607D8B">Trainee</span>
-    </div>
-    <div class="radio-item" onclick="pickRadio('exp','1-3',this)">
-      <input type="radio" name="exp" value="1-3"/>
-      <label>1–3 साल का अनुभव</label>
-      <span class="badge" style="background:#1565C0">Block Committee</span>
-    </div>
-    <div class="radio-item" onclick="pickRadio('exp','4-9',this)">
-      <input type="radio" name="exp" value="4-9"/>
-      <label>4–9 साल का अनुभव</label>
-      <span class="badge" style="background:#7B1FA2">District Committee</span>
-    </div>
-    <div class="radio-item" onclick="pickRadio('exp','10-15',this)">
-      <input type="radio" name="exp" value="10-15"/>
-      <label>10–15 साल का अनुभव</label>
-      <span class="badge" style="background:#E65100">State Committee</span>
-    </div>
-    <div class="radio-item" onclick="pickRadio('exp','16+',this)">
-      <input type="radio" name="exp" value="16+"/>
-      <label>16 साल से अधिक</label>
-      <span class="badge" style="background:#2E7D32">HQ Committee</span>
-    </div>
-  </div>
-  <div class="err" id="expErr" style="display:none;margin-top:6px">अनुभव चुनना जरूरी है</div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(3)">← वापस</button>
-    <button class="btn-next" onclick="goNext(4,5)">अगला →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 5 — KYC DOCUMENTS
-══════════════════════════════ -->
-<div class="sec" id="s5">
-  <div class="sec-title">📄 Step 5 — KYC Documents</div>
-  <div class="sec-sub">सभी 35-50 KB के बीच होने चाहिए</div>
-
-  <div class="fg">
-    <label>Photo ID 1 <span class="req">*</span></label>
-    <select id="id1Type" style="margin-bottom:8px" onchange="updateAddrProof();showIdNum(1)">
-      <option value="">— ID प्रकार चुनें —</option>
-      <option>PAN Card</option>
-      <option>Aadhar Card</option>
-      <option>Driving Licence</option>
-      <option>Passport</option>
-    </select>
-    <div id="id1NumWrap" style="display:none;margin-bottom:8px">
-      <input type="text" id="id1Num" placeholder="" oninput="validateIdNum(1)" style="text-transform:uppercase"/>
-      <div class="hint" id="id1NumHint"></div>
-      <div class="err" id="id1NumErr" style="display:none"></div>
-    </div>
-    <div class="file-box">
-      <input type="file" id="id1" accept="image/*" onchange="checkFile(this,'id1Ok','id1Err',35,50)"/>
-      <p>📎 Photo ID 1 Upload करें</p><div class="sz">35-50 KB</div>
-    </div>
-    <div class="file-ok" id="id1Ok"></div><div class="file-err" id="id1Err"></div>
-    <div class="err">Photo ID 1 जरूरी है</div>
-  </div>
-
-  <div class="fg">
-    <label>Photo ID 2 (अलग ID) <span class="req">*</span></label>
-    <select id="id2Type" style="margin-bottom:8px" onchange="updateAddrProof();showIdNum(2)">
-      <option value="">— ID प्रकार चुनें —</option>
-      <option>PAN Card</option>
-      <option>Aadhar Card</option>
-      <option>Driving Licence</option>
-      <option>Passport</option>
-    </select>
-    <div class="hint">Photo ID 1 से अलग ID चुनें</div>
-    <div id="id2NumWrap" style="display:none;margin-top:8px;margin-bottom:8px">
-      <input type="text" id="id2Num" placeholder="" oninput="validateIdNum(2)" style="text-transform:uppercase"/>
-      <div class="hint" id="id2NumHint"></div>
-      <div class="err" id="id2NumErr" style="display:none"></div>
-    </div>
-    <div class="file-box" style="margin-top:6px">
-      <input type="file" id="id2" accept="image/*" onchange="checkFile(this,'id2Ok','id2Err',35,50)"/>
-      <p>📎 Photo ID 2 Upload करें</p><div class="sz">35-50 KB</div>
-    </div>
-    <div class="file-ok" id="id2Ok"></div><div class="file-err" id="id2Err"></div>
-    <div class="err">Photo ID 2 जरूरी है</div>
-  </div>
-
-  <div class="fg">
-    <label>Address Proof <span class="req">*</span></label>
-    <select id="addrType" style="margin-bottom:8px">
-      <option value="">— Proof प्रकार चुनें —</option>
-      <option>Driving Licence</option>
-      <option>Passport</option>
-      <option>Domicile Certificate (निवास प्रमाण पत्र)</option>
-      <option>Bank Passbook</option>
-    </select>
-    <div id="addrProofHint" class="hint" style="display:none;color:var(--blue)"></div>
-    <div class="file-box" style="margin-top:6px">
-      <input type="file" id="addrProof" accept="image/*" onchange="checkFile(this,'apOk','apErr',35,50)"/>
-      <p>📎 Address Proof Upload करें</p><div class="sz">35-50 KB</div>
-    </div>
-    <div class="file-ok" id="apOk"></div><div class="file-err" id="apErr"></div>
-    <div class="err">Address Proof जरूरी है</div>
-  </div>
-
-  <div class="fg">
-    <label>Centre Photo 1 — GeoTagged <span class="req">*</span></label>
-    <div class="file-box">
-      <input type="file" id="cp1" accept="image/*" onchange="checkFile(this,'cp1Ok','cp1Err',35,50)"/>
-      <p>📍 GPS Map Camera App से खींची फोटो</p><div class="sz">35-50 KB | GPS location दिखना चाहिए</div>
-    </div>
-    <div class="file-ok" id="cp1Ok"></div><div class="file-err" id="cp1Err"></div>
-    <div class="err">Centre Photo 1 जरूरी है</div>
-  </div>
-
-  <div class="fg">
-    <label>Centre Photo 2 — GeoTagged <span class="req">*</span></label>
-    <div class="file-box">
-      <input type="file" id="cp2" accept="image/*" onchange="checkFile(this,'cp2Ok','cp2Err',35,50)"/>
-      <p>📍 Centre की दूसरी GeoTagged फोटो</p><div class="sz">35-50 KB</div>
-    </div>
-    <div class="file-ok" id="cp2Ok"></div><div class="file-err" id="cp2Err"></div>
-    <div class="err">Centre Photo 2 जरूरी है</div>
-  </div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(4)">← वापस</button>
-    <button class="btn-next" onclick="goNext(5,6)">अगला →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 6 — BANK DETAILS
-══════════════════════════════ -->
-<div class="sec" id="s6">
-  <div class="sec-title">🏦 Step 6 — Bank Details</div>
-  <div class="sec-sub">Revenue transfer के लिए — Third party account मान्य नहीं</div>
-
-  <div class="fg">
-    <label>Account किसके नाम पर है? <span class="req">*</span></label>
-    <div class="radio-grp">
-      <div class="radio-item" onclick="setBankOwner('centre',this)">
-        <input type="radio" name="bOwner" value="centre"/>
-        <label>Centre के नाम पर</label>
+    <div class="left-content">
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="logo-img"/>
+        <div class="logo-text">
+          <strong>Applied Computer School™</strong>
+          <span>From Village to World</span>
+        </div>
       </div>
-      <div class="radio-item" onclick="setBankOwner('owner',this)">
-        <input type="radio" name="bOwner" value="owner"/>
-        <label>Owner / Manager के नाम पर</label>
+
+      <!-- Headline -->
+      <div class="left-headline">
+        <div class="left-eyebrow">Centre Registration</div>
+        <h1 class="left-h1">अपना Centre खोलें,<br/><em>80% कमाएं।</em></h1>
+        <p class="left-sub">Zero investment. हर student की fees का 80% सीधे आपके account में। ACS network से जुड़ें।</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-pill">
+          <strong>₹80</strong>
+          <span>हर ₹100 में</span>
+        </div>
+        <div class="stat-pill">
+          <strong>Zero</strong>
+          <span>Investment</span>
+        </div>
+        <div class="stat-pill">
+          <strong>2-3 दिन</strong>
+          <span>Approval</span>
+        </div>
+      </div>
+
+      <!-- Step Navigator -->
+      <div class="step-nav" id="stepNav">
+        <!-- built by JS -->
+      </div>
+
+      <!-- Trust -->
+      <div class="trust-row">
+        <div class="trust-badge">🏆 ISO 9001:2015</div>
+        <div class="trust-badge">🛡️ FFGPMTrust</div>
+        <div class="trust-badge">🔒 Secure</div>
+        <div class="trust-badge">🌐 acslearn.com</div>
       </div>
     </div>
-    <div class="err" id="bOwnerErr" style="display:none">Account type चुनें</div>
-  </div>
-  <div class="fg">
-    <label>Account Holder नाम</label>
-    <input type="text" id="accName" readonly/>
-    <div class="hint">ऊपर से automatically आएगा</div>
-  </div>
-  <div class="fg">
-    <label>Account Number <span class="req">*</span></label>
-    <input type="number" id="accNum" placeholder="Bank Account Number"/>
-    <div class="err">Account Number जरूरी है</div>
-  </div>
-  <div class="fg">
-    <label>IFSC Code <span class="req">*</span></label>
-    <input type="text" id="ifsc" placeholder="जैसे: SBIN0001234" oninput="fetchIFSC(this.value)" style="text-transform:uppercase"/>
-    <div class="loader" id="ifscLoader">⏳ Bank खोज रहे हैं...</div>
-    <div class="err">IFSC Code जरूरी है</div>
-  </div>
-  <div class="fg">
-    <label>Bank का नाम</label>
-    <input type="text" id="bankNm" readonly placeholder="IFSC से auto-fill"/>
-  </div>
-  <div class="fg">
-    <label>Branch</label>
-    <input type="text" id="bankBr" readonly placeholder="IFSC से auto-fill"/>
-  </div>
-  <div class="fg">
-    <label>Bank Passbook Photo <span class="req">*</span></label>
-    <div class="file-box">
-      <input type="file" id="passbook" accept="image/*" onchange="checkFile(this,'pbOk','pbErr',35,50)"/>
-      <p>🏦 Passbook के पहले पेज की फोटो</p><div class="sz">35-50 KB</div>
+  </aside>
+
+  <!-- ══════════ RIGHT PANEL ══════════ -->
+  <main class="right">
+
+    <!-- Progress bar -->
+    <div class="prog-bar-wrap">
+      <div class="prog-bar-inner-wrap">
+        <div class="prog-track">
+          <div class="prog-fill" id="progFill" style="width:0%"></div>
+        </div>
+        <div class="prog-label" id="progLabel">शुरू करें</div>
+      </div>
     </div>
-    <div class="file-ok" id="pbOk"></div><div class="file-err" id="pbErr"></div>
-    <div class="err">Bank Passbook जरूरी है</div>
-  </div>
 
-  <div class="chk-item" id="bankDeclItem" onclick="toggleChk(this,'bankDecl')">
-    <input type="checkbox" id="bankDecl"/>
-    <label>मैं confirm करता/करती हूँ कि यह account मेरा (Owner/Manager) या Centre का है। Third party account नहीं है।</label>
-  </div>
+    <div class="form-area">
 
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(5)">← वापस</button>
-    <button class="btn-next" onclick="goNext(6,7)">अगला →</button>
-  </div>
+      <!-- SUCCESS SCREEN -->
+      <div class="success-sc" id="successSc">
+        <div class="success-icon-wrap">🎉</div>
+        <h2 style="font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px">Registration Submit हुआ!</h2>
+        <p style="color:var(--gray);margin-bottom:4px">आपका Application ID:</p>
+        <div class="app-id-box">
+          <strong id="appId">ACS-CR-000000</strong>
+          <span>Application Reference Number</span>
+        </div>
+        <p style="color:var(--gray);font-size:13px;margin-bottom:6px">आपका application <strong>pending review</strong> में है।</p>
+        <p style="color:var(--gray);font-size:13px;margin-bottom:24px">2-3 कार्य दिवसों में आपके email पर सूचना मिलेगी।</p>
+        <a href="https://acslearn.com" style="display:inline-block;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:white;padding:14px 32px;border-radius:var(--r-sm);font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 12px rgba(21,101,192,0.3)">← होम पर जाएं</a>
+      </div>
+
+      <!-- ── STEP 0: DOCUMENT CHECKLIST ── -->
+      <div class="sec active" id="s0">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 1 of 12</div>
+          <h2 class="sec-title">📋 जरूरी दस्तावेज़</h2>
+          <p class="sec-sub">Form भरने से पहले ये सब तैयार रखें</p>
+        </div>
+
+        <div class="timer-badge">⏱️ इस form को भरने में लगभग <strong style="margin:0 4px">15-20 मिनट</strong> लगेंगे</div>
+
+        <div class="form-card">
+          <div class="alert alert-info">ℹ️ बीच में form छोड़ने पर data save नहीं होगा। सभी documents एक साथ तैयार रखें।</div>
+          <ul class="doc-list">
+            <li><span class="di">📸</span><span><strong>Profile Photo</strong> — सामने का साफ फोटो, White background (35-50 KB)</span></li>
+            <li><span class="di">🪪</span><span><strong>Photo ID (2 अलग)</strong> — PAN / Aadhar / Driving Licence / Passport (35-50 KB each)</span></li>
+            <li><span class="di">🏭</span><span><strong>Udyog Aadhaar / MSME Number</strong> — <a href="https://udyamregistration.gov.in" target="_blank">udyamregistration.gov.in</a> से (Free)</span></li>
+            <li><span class="di">🏠</span><span><strong>Address Proof</strong> — DL / Passport / Voter ID / Domicile / Bank Passbook (35-50 KB)</span></li>
+            <li><span class="di">📍</span><span><strong>Centre की 2 GeoTagged Photos</strong> — GPS Map Camera App से खींची (35-50 KB) <a href="https://play.google.com/store/apps/details?id=com.geotagphotos" target="_blank">App →</a></span></li>
+            <li><span class="di">🏦</span><span><strong>Bank Passbook / Cheque</strong> — Owner या Centre के नाम का (35-50 KB)</span></li>
+            <li><span class="di">🗺️</span><span><strong>Google Maps Link</strong> — Centre की exact location (<a href="https://maps.google.com" target="_blank">maps.google.com →</a>)</span></li>
+            <li><span class="di">📧</span><span><strong>Active Email ID</strong> — जिस पर OTP आ सके (Gmail best)</span></li>
+          </ul>
+          <div class="alert alert-warn">⚠️ सभी photos 35-50 KB के बीच होनी चाहिए। Compress करें: <a href="https://iloveimg.com" target="_blank" style="color:var(--blue);font-weight:600">iloveimg.com</a></div>
+        </div>
+
+        <div class="chk-row" id="docChkRow" onclick="toggleChk(this,'docChk')">
+          <input type="checkbox" id="docChk"/>
+          <label for="docChk">✅ हाँ, उपरोक्त सभी दस्तावेज़ मेरे सामने उपलब्ध हैं। मैं अभी form भरना शुरू करना चाहता/चाहती हूँ।</label>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-next" id="docChkBtn" onclick="goTo(1)" disabled>आगे बढ़ें — Account बनाएं →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 1: CREATE ACCOUNT ── -->
+      <div class="sec" id="s1">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 2 of 12</div>
+          <h2 class="sec-title">🔑 Account बनाएं</h2>
+          <p class="sec-sub">यह Login ID आपका Dashboard access देगा</p>
+        </div>
+        <div class="form-card">
+          <div class="fg">
+            <label>आपका पूरा नाम <span class="req">*</span></label>
+            <input type="text" id="regName" placeholder="Owner / Manager का नाम"/>
+            <div class="err-txt">नाम जरूरी है</div>
+          </div>
+          <div class="fg">
+            <label>Email ID <span class="req">*</span></label>
+            <input type="email" id="regEmail" placeholder="active Gmail ID"/>
+            <div class="hint">📧 इस email पर OTP आएगा — active होनी चाहिए</div>
+            <div class="err-txt">Valid email जरूरी है</div>
+          </div>
+          <div class="fg">
+            <label>Password <span class="req">*</span></label>
+            <input type="password" id="regPass" placeholder="कम से कम 8 characters" oninput="checkPass(this.value)"/>
+            <div class="err-txt">Password कम से कम 8 characters का होना चाहिए</div>
+            <div class="pass-strength-wrap">
+              <div class="strength-bar-wrap">
+                <div class="strength-track"><div class="strength-fill" id="sFill" style="width:0%"></div></div>
+                <span class="strength-lbl" id="sLbl"></span>
+              </div>
+              <div class="pc" id="pc-len"><div class="pc-dot">✓</div><span>कम से कम 8 characters</span></div>
+              <div class="pc" id="pc-up"><div class="pc-dot">✓</div><span>Capital Letter (A-Z)</span></div>
+              <div class="pc" id="pc-lo"><div class="pc-dot">✓</div><span>Small Letter (a-z)</span></div>
+              <div class="pc" id="pc-num"><div class="pc-dot">✓</div><span>Number (0-9)</span></div>
+              <div class="pc" id="pc-sp"><div class="pc-dot">✓</div><span>Special Character (!@#$%)</span></div>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Confirm Password <span class="req">*</span></label>
+            <input type="password" id="regPassConf" placeholder="Password दोबारा लिखें"/>
+            <div class="err-txt">Password match नहीं कर रहा</div>
+          </div>
+          <div class="alert-err alert" id="accErr"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(0)">← वापस</button>
+          <button class="btn-next" onclick="createAccount()">OTP भेजें →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 2: OTP ── -->
+      <div class="sec" id="s2">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 3 of 12</div>
+          <h2 class="sec-title">📧 Email Verify करें</h2>
+          <p class="sec-sub" id="otpSub">OTP आपके email पर भेजा गया है</p>
+        </div>
+        <div class="form-card" style="text-align:center">
+          <div class="alert alert-info" style="text-align:left">📬 OTP आपके email पर भेजा गया है। Spam folder भी check करें।</div>
+          <p style="font-size:13px;color:var(--gray);margin-bottom:4px">6-digit OTP डालें</p>
+          <div class="otp-wrap">
+            <input type="number" id="o1" maxlength="1" oninput="oMove(this,'o2')" onkeydown="oBk(event,'','o1')"/>
+            <input type="number" id="o2" maxlength="1" oninput="oMove(this,'o3')" onkeydown="oBk(event,'o1','o2')"/>
+            <input type="number" id="o3" maxlength="1" oninput="oMove(this,'o4')" onkeydown="oBk(event,'o2','o3')"/>
+            <input type="number" id="o4" maxlength="1" oninput="oMove(this,'o5')" onkeydown="oBk(event,'o3','o4')"/>
+            <input type="number" id="o5" maxlength="1" oninput="oMove(this,'o6')" onkeydown="oBk(event,'o4','o5')"/>
+            <input type="number" id="o6" maxlength="1" oninput="oMove(this,null)" onkeydown="oBk(event,'o5','o6')"/>
+          </div>
+          <div class="alert-err alert" id="otpErr" style="text-align:left"></div>
+          <div class="alert-ok alert" id="otpOk" style="text-align:left">✅ Email verify हो गया!</div>
+          <p style="font-size:13px;color:var(--gray);margin-top:8px">
+            OTP नहीं आया? <button class="resend-btn" id="resendBtn" onclick="resendOTP()">Resend करें</button>
+            <span id="resendTimer" style="display:none;color:var(--gray);font-size:12px"></span>
+          </p>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(1)">← वापस</button>
+          <button class="btn-next" onclick="verifyOTP()">Verify करें →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 3: CENTRE INFO ── -->
+      <div class="sec" id="s3">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 4 of 12</div>
+          <h2 class="sec-title">🏫 Centre की जानकारी</h2>
+          <p class="sec-sub">आपके Centre/Workshop की basic information</p>
+        </div>
+        <div class="form-card">
+          <div class="fg">
+            <label>Centre / Workshop का नाम <span class="req">*</span></label>
+            <input type="text" id="centreName" placeholder="जैसे: VIDYARTHI COMPUTER CENTRE"/>
+            <div class="err-txt">Centre का नाम जरूरी है</div>
+          </div>
+          <div class="fg">
+            <label>Centre का प्रकार <span class="req">*</span></label>
+            <select id="centreType">
+              <option value="">— चुनें —</option>
+              <option>Computer Centre</option>
+              <option>Coaching Institute</option>
+              <option>School</option>
+              <option>Workshop / Garage</option>
+              <option>Mobile Repair Shop</option>
+              <option>Tailoring / Handicraft Centre</option>
+              <option>Other</option>
+            </select>
+            <div class="err-txt">प्रकार चुनें</div>
+          </div>
+          <div class="fg">
+            <label>Google Maps Location Link <span class="req">*</span>
+              <button class="help-btn" onclick="toggleHelp('hMaps')">?</button>
+            </label>
+            <div class="help-box" id="hMaps">
+              📍 <strong>कैसे करें:</strong><br/>
+              1. Google Maps App खोलें → अपनी location search करें<br/>
+              2. Location pin पर click करें → नीचे "Share" दबाएं<br/>
+              3. "Copy Link" करें और यहाँ paste करें
+            </div>
+            <input type="url" id="mapsLink" placeholder="https://maps.google.com/..."/>
+            <div class="err-txt">Google Maps link जरूरी है</div>
+          </div>
+          <div class="fg">
+            <label>Pin Code <span class="req">*</span>
+              <button class="help-btn" onclick="toggleHelp('hPin')">?</button>
+            </label>
+            <div class="help-box" id="hPin">📮 अपने Post Office का 6 digit Pin Code डालें। जिला और राज्य automatically भर जाएंगे।</div>
+            <input type="number" id="pinCode" placeholder="6 digit Pin Code" oninput="fetchPin(this.value)"/>
+            <div class="field-loader" id="pinLdr">⏳ जानकारी खोज रहे हैं...</div>
+            <div class="err-txt">सही Pin Code डालें</div>
+          </div>
+          <div class="fg-row">
+            <div class="fg" style="margin-bottom:0">
+              <label>जिला (District)</label>
+              <input type="text" id="district" readonly placeholder="Auto-fill"/>
+            </div>
+            <div class="fg" style="margin-bottom:0">
+              <label>राज्य (State)</label>
+              <input type="text" id="state" readonly placeholder="Auto-fill"/>
+            </div>
+          </div>
+          <div class="fg" style="margin-top:16px">
+            <label>पूरा पता <span class="req">*</span></label>
+            <textarea id="address" placeholder="गली, मोहल्ला, गाँव, कस्बा — पूरा पता"></textarea>
+            <div class="err-txt">पूरा पता जरूरी है</div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(2)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(3,4)">अगला →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 4: OWNER INFO ── -->
+      <div class="sec" id="s4">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 5 of 12</div>
+          <h2 class="sec-title">👤 Owner / Manager</h2>
+          <p class="sec-sub">Centre चलाने वाले व्यक्ति की जानकारी</p>
+        </div>
+        <div class="form-card">
+          <div class="fg-row">
+            <div class="fg">
+              <label>Mobile Number <span class="req">*</span></label>
+              <input type="tel" id="mobile" placeholder="10 digit" maxlength="10"/>
+              <div class="err-txt">सही Mobile Number डालें</div>
+            </div>
+            <div class="fg">
+              <label>WhatsApp Number</label>
+              <input type="tel" id="whatsapp" placeholder="अलग हो तो डालें"/>
+              <div class="hint">Same हो तो खाली छोड़ें</div>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Profile Photo <span class="req">*</span>
+              <button class="help-btn" onclick="toggleHelp('hPhoto')">?</button>
+            </label>
+            <div class="help-box" id="hPhoto">📸 <strong>Profile Photo guidelines:</strong><br/>• सामने का साफ फोटो<br/>• White या light background<br/>• Professional dress<br/>• Size: 35-50 KB<br/>यह photo Students को Centre page पर दिखेगी।</div>
+            <div class="file-drop">
+              <input type="file" id="profilePhoto" accept="image/*" onchange="chkFile(this,'ppOk','ppErr',35,50)"/>
+              <div class="file-drop-icon">📸</div>
+              <p>Profile Photo — White background</p>
+              <div class="sz">35-50 KB | JPG/PNG</div>
+            </div>
+            <div class="file-ok" id="ppOk"></div>
+            <div class="file-err-msg" id="ppErr"></div>
+            <div class="err-txt">Profile photo जरूरी है</div>
+          </div>
+          <div class="fg">
+            <label>Udyog Aadhaar / MSME Number <span class="req">*</span>
+              <button class="help-btn" onclick="toggleHelp('hUdyog')">?</button>
+            </label>
+            <div class="help-box" id="hUdyog">
+              🏭 <strong>Free में कैसे पाएं:</strong><br/>
+              1. <a href="https://udyamregistration.gov.in" target="_blank">udyamregistration.gov.in</a> पर जाएं<br/>
+              2. "New Entrepreneurs" → Aadhar OTP verify<br/>
+              3. Business details भरें → Submit<br/>
+              4. UAM Number तुरंत मिलेगा (UP00A0000001)<br/>
+              <strong style="color:var(--green-dk)">बिल्कुल Free है!</strong>
+            </div>
+            <input type="text" id="udyog" placeholder="UAM Number (जैसे: UP00A0000001)"/>
+            <div class="err-txt">Udyog Aadhaar जरूरी है</div>
+          </div>
+          <hr class="divider"/>
+          <div class="divider-label">इस field में आपका अनुभव</div>
+          <div class="radio-group" id="expGrp">
+            <div class="radio-item" onclick="pickR('exp','new',this)"><input type="radio" name="exp" value="new"/><label>पहली बार शुरू कर रहे हैं</label><span class="exp-badge" style="background:#78909C">Trainee</span></div>
+            <div class="radio-item" onclick="pickR('exp','1-3',this)"><input type="radio" name="exp" value="1-3"/><label>1–3 साल का अनुभव</label><span class="exp-badge" style="background:#1565C0">Block Committee</span></div>
+            <div class="radio-item" onclick="pickR('exp','4-9',this)"><input type="radio" name="exp" value="4-9"/><label>4–9 साल का अनुभव</label><span class="exp-badge" style="background:#6A1B9A">District Committee</span></div>
+            <div class="radio-item" onclick="pickR('exp','10-15',this)"><input type="radio" name="exp" value="10-15"/><label>10–15 साल का अनुभव</label><span class="exp-badge" style="background:#E65100">State Committee</span></div>
+            <div class="radio-item" onclick="pickR('exp','16+',this)"><input type="radio" name="exp" value="16+"/><label>16 साल से अधिक</label><span class="exp-badge" style="background:#2E7D32">HQ Committee</span></div>
+          </div>
+          <div class="err-txt" id="expErr" style="display:none;margin-top:6px">अनुभव चुनना जरूरी है</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(3)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(4,5)">अगला →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 5: KYC DOCUMENTS ── -->
+      <div class="sec" id="s5">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 6 of 12</div>
+          <h2 class="sec-title">📄 KYC Documents</h2>
+          <p class="sec-sub">सभी files 35-50 KB के बीच होनी चाहिए</p>
+        </div>
+
+        <!-- Photo ID 1 -->
+        <div class="form-card">
+          <div class="sec-hdr">🪪 Photo ID 1</div>
+          <div class="fg">
+            <label>ID का प्रकार <span class="req">*</span></label>
+            <select id="id1Type" onchange="updateAddrProof();showIdNum(1)">
+              <option value="">— चुनें —</option>
+              <option>PAN Card</option>
+              <option>Aadhar Card</option>
+              <option>Driving Licence</option>
+              <option>Passport</option>
+            </select>
+          </div>
+          <div class="fg" id="id1NumWrap" style="display:none">
+            <label>ID Number <span class="req">*</span></label>
+            <input type="text" id="id1Num" placeholder="" oninput="valIdNum(1)" style="text-transform:uppercase"/>
+            <div class="hint" id="id1NumHint"></div>
+            <div class="err-txt" id="id1NumErr"></div>
+          </div>
+          <div class="fg">
+            <div class="file-drop">
+              <input type="file" id="id1" accept="image/*" onchange="chkFile(this,'id1Ok','id1Err',35,50)"/>
+              <div class="file-drop-icon">📎</div>
+              <p>Photo ID 1 Upload करें</p><div class="sz">35-50 KB</div>
+            </div>
+            <div class="file-ok" id="id1Ok"></div><div class="file-err-msg" id="id1Err"></div>
+            <div class="err-txt">Photo ID 1 जरूरी है</div>
+          </div>
+        </div>
+
+        <!-- Photo ID 2 -->
+        <div class="form-card">
+          <div class="sec-hdr">🪪 Photo ID 2 (अलग ID)</div>
+          <div class="fg">
+            <label>ID का प्रकार <span class="req">*</span></label>
+            <select id="id2Type" onchange="updateAddrProof();showIdNum(2)">
+              <option value="">— चुनें —</option>
+              <option>PAN Card</option>
+              <option>Aadhar Card</option>
+              <option>Driving Licence</option>
+              <option>Passport</option>
+            </select>
+            <div class="hint">Photo ID 1 से अलग ID चुनें</div>
+          </div>
+          <div class="fg" id="id2NumWrap" style="display:none">
+            <label>ID Number <span class="req">*</span></label>
+            <input type="text" id="id2Num" placeholder="" oninput="valIdNum(2)" style="text-transform:uppercase"/>
+            <div class="hint" id="id2NumHint"></div>
+            <div class="err-txt" id="id2NumErr"></div>
+          </div>
+          <div class="fg">
+            <div class="file-drop">
+              <input type="file" id="id2" accept="image/*" onchange="chkFile(this,'id2Ok','id2Err',35,50)"/>
+              <div class="file-drop-icon">📎</div>
+              <p>Photo ID 2 Upload करें</p><div class="sz">35-50 KB</div>
+            </div>
+            <div class="file-ok" id="id2Ok"></div><div class="file-err-msg" id="id2Err"></div>
+            <div class="err-txt">Photo ID 2 जरूरी है</div>
+          </div>
+        </div>
+
+        <!-- Address Proof -->
+        <div class="form-card">
+          <div class="sec-hdr">🏠 Address Proof</div>
+          <div class="fg">
+            <label>Proof का प्रकार <span class="req">*</span></label>
+            <select id="addrType">
+              <option value="">— चुनें —</option>
+              <option>Driving Licence</option>
+              <option>Passport</option>
+              <option>Voter ID</option>
+              <option>Domicile Certificate (निवास प्रमाण पत्र)</option>
+              <option>Bank Passbook</option>
+            </select>
+            <div class="hint" id="addrProofHint" style="display:none;color:var(--blue)"></div>
+          </div>
+          <div class="fg">
+            <div class="file-drop">
+              <input type="file" id="addrProof" accept="image/*" onchange="chkFile(this,'apOk','apErr',35,50)"/>
+              <div class="file-drop-icon">📎</div>
+              <p>Address Proof Upload करें</p><div class="sz">35-50 KB</div>
+            </div>
+            <div class="file-ok" id="apOk"></div><div class="file-err-msg" id="apErr"></div>
+            <div class="err-txt">Address Proof जरूरी है</div>
+          </div>
+        </div>
+
+        <!-- Centre Photos -->
+        <div class="form-card">
+          <div class="sec-hdr">📍 Centre GeoTagged Photos
+            <button class="help-btn" onclick="toggleHelp('hGeo')">?</button>
+          </div>
+          <div class="help-box" id="hGeo" style="margin-bottom:12px">
+            📍 <strong>GeoTagged Photo कैसे खींचें:</strong><br/>
+            1. "GPS Map Camera" App download करें (<a href="https://play.google.com/store/apps/details?id=com.geotagphotos" target="_blank">Download →</a>)<br/>
+            2. Centre के सामने खड़े होकर photo खींचें<br/>
+            3. Photo में date, time और GPS location दिखना चाहिए
+          </div>
+          <div class="fg">
+            <label>Centre Photo 1 <span class="req">*</span></label>
+            <div class="file-drop">
+              <input type="file" id="cp1" accept="image/*" onchange="chkFile(this,'cp1Ok','cp1Err',35,50)"/>
+              <div class="file-drop-icon">📍</div>
+              <p>GeoTagged Photo 1</p><div class="sz">35-50 KB | GPS location दिखनी चाहिए</div>
+            </div>
+            <div class="file-ok" id="cp1Ok"></div><div class="file-err-msg" id="cp1Err"></div>
+            <div class="err-txt">Centre Photo 1 जरूरी है</div>
+          </div>
+          <div class="fg">
+            <label>Centre Photo 2 <span class="req">*</span></label>
+            <div class="file-drop">
+              <input type="file" id="cp2" accept="image/*" onchange="chkFile(this,'cp2Ok','cp2Err',35,50)"/>
+              <div class="file-drop-icon">📍</div>
+              <p>GeoTagged Photo 2</p><div class="sz">35-50 KB</div>
+            </div>
+            <div class="file-ok" id="cp2Ok"></div><div class="file-err-msg" id="cp2Err"></div>
+            <div class="err-txt">Centre Photo 2 जरूरी है</div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(4)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(5,6)">अगला →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 6: BANK DETAILS ── -->
+      <div class="sec" id="s6">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 7 of 12</div>
+          <h2 class="sec-title">🏦 Bank Details</h2>
+          <p class="sec-sub">Revenue transfer के लिए — Third party account मान्य नहीं</p>
+        </div>
+        <div class="form-card">
+          <div class="fg">
+            <label>Account किसके नाम पर है? <span class="req">*</span></label>
+            <div class="radio-group">
+              <div class="radio-item" onclick="setBankOwner('centre',this)"><input type="radio" name="bOwner" value="centre"/><label>🏫 Centre के नाम पर</label></div>
+              <div class="radio-item" onclick="setBankOwner('owner',this)"><input type="radio" name="bOwner" value="owner"/><label>👤 Owner / Manager के नाम पर</label></div>
+            </div>
+            <div class="hint" style="margin-top:6px">⚠️ Third party account मान्य नहीं होगा</div>
+            <div class="err-txt" id="bOwnerErr">Account type चुनें</div>
+          </div>
+          <div class="fg">
+            <label>Account Holder का नाम</label>
+            <input type="text" id="accName" readonly style="background:#F0F4F8;color:var(--gray)"/>
+            <div class="hint">ऊपर के selection से automatically आएगा</div>
+          </div>
+          <div class="fg">
+            <label>Account Number <span class="req">*</span></label>
+            <input type="number" id="accNum" placeholder="Bank Account Number"/>
+            <div class="err-txt">Account Number जरूरी है</div>
+          </div>
+          <div class="fg">
+            <label>IFSC Code <span class="req">*</span>
+              <button class="help-btn" onclick="toggleHelp('hIfsc')">?</button>
+            </label>
+            <div class="help-box" id="hIfsc">
+              🏦 IFSC Code कहाँ मिलेगा:<br/>
+              • Bank Passbook के पहले पेज पर<br/>
+              • Cheque book पर<br/>
+              Format: SBIN0001234<br/>
+              IFSC डालते ही Bank का नाम आ जाएगा।
+            </div>
+            <input type="text" id="ifsc" placeholder="जैसे: SBIN0001234" oninput="fetchIFSC(this.value)" style="text-transform:uppercase"/>
+            <div class="field-loader" id="ifscLdr">⏳ Bank खोज रहे हैं...</div>
+            <div class="err-txt">IFSC Code जरूरी है</div>
+          </div>
+          <div class="fg-row">
+            <div class="fg" style="margin-bottom:0">
+              <label>Bank का नाम</label>
+              <input type="text" id="bankNm" readonly placeholder="Auto-fill"/>
+            </div>
+            <div class="fg" style="margin-bottom:0">
+              <label>Branch</label>
+              <input type="text" id="bankBr" readonly placeholder="Auto-fill"/>
+            </div>
+          </div>
+          <div class="fg" style="margin-top:16px">
+            <label>Bank Passbook Photo <span class="req">*</span></label>
+            <div class="file-drop">
+              <input type="file" id="passbook" accept="image/*" onchange="chkFile(this,'pbOk','pbErr',35,50)"/>
+              <div class="file-drop-icon">🏦</div>
+              <p>Passbook के पहले पेज की फोटो</p><div class="sz">35-50 KB | Account Number साफ दिखे</div>
+            </div>
+            <div class="file-ok" id="pbOk"></div><div class="file-err-msg" id="pbErr"></div>
+            <div class="err-txt">Bank Passbook जरूरी है</div>
+          </div>
+          <div class="chk-row" id="bankDeclRow" onclick="toggleChk(this,'bankDecl')">
+            <input type="checkbox" id="bankDecl"/>
+            <label>मैं confirm करता/करती हूँ कि यह Bank Account मेरा (Owner/Centre का) है। Third party account नहीं है।</label>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(5)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(6,7)">अगला →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 7: FACILITIES ── -->
+      <div class="sec" id="s7">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 8 of 12</div>
+          <h2 class="sec-title">🏢 Centre की सुविधाएँ</h2>
+          <p class="sec-sub">हाँ / नहीं में जवाब दें</p>
+        </div>
+        <div class="form-card">
+          <div class="sec-hdr">🏢 Building & Space</div>
+          <div id="fac1"></div>
+        </div>
+        <div class="form-card">
+          <div class="sec-hdr">💻 Technology</div>
+          <div id="fac2"></div>
+        </div>
+        <div class="form-card">
+          <div class="sec-hdr">📚 Teaching</div>
+          <div id="fac3"></div>
+        </div>
+        <div class="form-card">
+          <div class="sec-hdr">♿ Accessibility</div>
+          <div id="fac4"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(6)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(7,8)">अगला →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 8: SOCIAL MEDIA ── -->
+      <div class="sec" id="s8">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 9 of 12</div>
+          <h2 class="sec-title">📱 Social Media</h2>
+          <p class="sec-sub">जो हो वो भरें — सब optional</p>
+        </div>
+        <div class="form-card">
+          <div class="alert alert-info">💡 Social Media से आपकी Centre ranking बेहतर होगी और ज्यादा Students मिलेंगे।</div>
+          <div id="socialWrap"></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(7)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(8,9)">अगला →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 9: COURSES ── -->
+      <div class="sec" id="s9">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 10 of 12</div>
+          <h2 class="sec-title">📚 Courses & Language</h2>
+          <p class="sec-sub">आप कौन से courses पढ़ाएंगे?</p>
+        </div>
+        <div class="form-card">
+          <div class="fg">
+            <label>Teaching Language <span class="req">*</span></label>
+            <select id="lang">
+              <option value="">— भाषा चुनें —</option>
+              <option>Hindi</option><option>Kannada</option><option>Marathi</option>
+              <option>English</option><option>Bengali</option><option>Telugu</option>
+              <option>Tamil</option><option>Gujarati</option><option>Other</option>
+            </select>
+            <div class="err-txt">भाषा चुनें</div>
+          </div>
+          <div class="fg">
+            <label>Courses (एक से अधिक चुनें) <span class="req">*</span></label>
+            <div class="course-grid" id="courseGrid"></div>
+            <div class="err-txt" id="courseErr">कम से कम एक course चुनें</div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(8)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(9,10)">Review करें →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 10: REVIEW ── -->
+      <div class="sec" id="s10">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 11 of 12</div>
+          <h2 class="sec-title">🔍 Review करें</h2>
+          <p class="sec-sub">Submit करने से पहले एक बार देखें</p>
+        </div>
+        <div class="alert alert-warn">⚠️ कोई जानकारी गलत हो तो वापस जाकर ठीक करें</div>
+        <div id="reviewContent"></div>
+        <div class="btn-row">
+          <button class="btn-prev" onclick="goTo(9)">← Edit करें</button>
+          <button class="btn-next" onclick="goTo(11);fillShapath()">शपथ पत्र की ओर →</button>
+        </div>
+      </div>
+
+      <!-- ── STEP 11: SHAPATH PATRA ── -->
+      <div class="sec" id="s11">
+        <div class="sec-header">
+          <div class="sec-eyebrow">Step 12 of 12</div>
+          <h2 class="sec-title">📜 शपथ पत्र</h2>
+          <p class="sec-sub">Submit करने से पहले ध्यान से पढ़ें</p>
+        </div>
+
+        <div class="shapath-box">
+          <h3>🙏 शपथ पत्र / Declaration</h3>
+          <p>मैं <strong id="sName">[नाम]</strong>, Centre Owner/Manager, Applied Computer School™ में Centre Registration के संदर्भ में निम्नलिखित शपथ लेता/लेती हूँ:</p>
+          <hr style="border-color:rgba(249,168,37,0.3);margin:10px 0"/>
+          <p><strong>1. सत्यता:</strong> उपरोक्त सभी सूचनाएं मेरे ज्ञान में पूर्णतः सही हैं। कोई भी जानकारी जानबूझकर गलत नहीं डाली गई है।</p>
+          <p><strong>2. परिणाम:</strong> गलत जानकारी पाए जाने पर मेरा Centre पंजीकरण निरस्त किया जा सकता है।</p>
+          <p><strong>3. राष्ट्रीय निष्ठा:</strong> मैं किसी भी राष्ट्र विरोधी गतिविधि में नहीं रहा/रही और न भविष्य में रहूँगा/रहूँगी।</p>
+          <p><strong>4. पुलिस रिकॉर्ड:</strong> मेरे विरुद्ध भारत के किसी पुलिस थाने में कोई आपराधिक मामला दर्ज नहीं है।</p>
+          <p><strong>5. बाल सुरक्षा:</strong> मेरे Centre पर किसी बच्चे के साथ भेदभाव या यौन शोषण नहीं होगा। ऐसा होने पर पूर्ण जिम्मेदारी मेरी होगी।</p>
+          <p><strong>6. निवेदन:</strong> मेरे Centre को ACS में पंजीकृत किया जाए और ACS course चलाने की अनुमति दी जाए।</p>
+          <div class="shapath-sign">
+            — <strong id="sName2">[नाम]</strong> | Centre: <span id="sCentre">[Centre]</span><br/>
+            Email: <span id="sEmail">[Email]</span> | दिनांक: <span id="sDate"></span>
+          </div>
+        </div>
+
+        <div class="chk-row" id="shapathRow" onclick="toggleChk(this,'shapathChk')">
+          <input type="checkbox" id="shapathChk"/>
+          <label>✅ मैंने शपथ पत्र ध्यान से पढ़ा है और सभी शर्तें स्वीकार करता/करती हूँ।</label>
+        </div>
+        <div class="chk-row" id="privacyRow" onclick="toggleChk(this,'privacyChk')">
+          <input type="checkbox" id="privacyChk"/>
+          <label>✅ मैं ACS की <a href="https://acslearn.com/help/hi/index.html" target="_blank" style="color:var(--blue)">Privacy Policy</a> और Terms of Service से सहमत हूँ।</label>
+        </div>
+
+        <div class="tracking-box">
+          <h4>📊 Submit के बाद क्या होगा?</h4>
+          <div class="tracking-step"><div class="t-dot">1</div><span><strong>Application ID</strong> मिलेगा (ACS-CR-XXXXXX)</span></div>
+          <div class="tracking-step"><div class="t-dot">2</div><span>Application <strong>Pending Review</strong> में जाएगा</span></div>
+          <div class="tracking-step"><div class="t-dot">3</div><span>ACS Head <strong>2-3 कार्य दिवसों</strong> में review करेगा</span></div>
+          <div class="tracking-step"><div class="t-dot">4</div><span>Approve होने पर <strong>Email पर सूचना</strong> मिलेगी</span></div>
+          <div class="tracking-step"><div class="t-dot">5</div><span><strong>Centre Dashboard</strong> activate होगा</span></div>
+        </div>
+
+        <div class="alert-err alert" id="submitErr"></div>
+
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn-prev" onclick="goTo(10)">← Review पर जाएं</button>
+          <button class="btn-submit" onclick="submitForm()">📤 Registration Submit करें</button>
+        </div>
+      </div>
+
+    </div><!-- /form-area -->
+  </main>
 </div>
-
-<!-- ══════════════════════════════
-     STEP 7 — FACILITIES
-══════════════════════════════ -->
-<div class="sec" id="s7">
-  <div class="sec-title">🏢 Step 7 — Centre की सुविधाएँ</div>
-  <div class="sec-sub">हाँ / नहीं में जवाब दें</div>
-
-  <div class="sec-hdr">🏢 Building & Space</div>
-  <div id="fac1"></div>
-  <hr/>
-  <div class="sec-hdr">💻 Technology</div>
-  <div id="fac2"></div>
-  <hr/>
-  <div class="sec-hdr">📚 Teaching</div>
-  <div id="fac3"></div>
-  <hr/>
-  <div class="sec-hdr">♿ Accessibility</div>
-  <div id="fac4"></div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(6)">← वापस</button>
-    <button class="btn-next" onclick="goNext(7,8)">अगला →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 8 — SOCIAL MEDIA
-══════════════════════════════ -->
-<div class="sec" id="s8">
-  <div class="sec-title">📱 Step 8 — Social Media</div>
-  <div class="sec-sub">जो हो वो भरें — सब optional</div>
-  <div class="alert info" style="display:block">💡 जिस platform पर हैं, वहाँ "हाँ" करें और Link डालें। इससे आपकी ranking बेहतर होगी।</div>
-
-  <!-- YouTube -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">📺 YouTube Channel है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('yt',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('yt',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="ytFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="url" id="yt" placeholder="YouTube Channel Link paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:6px;min-height:44px"/>
-    <input type="number" id="ytS" placeholder="Subscribers की संख्या" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <!-- Instagram -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">📸 Instagram Account है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('ig',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('ig',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="igFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="text" id="ig" placeholder="Instagram Profile Link paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:6px;min-height:44px"/>
-    <input type="number" id="igF" placeholder="Followers की संख्या" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <!-- Facebook -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">👤 Facebook Page है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('fb',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('fb',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="fbFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="url" id="fb" placeholder="Facebook Page Link paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:6px;min-height:44px"/>
-    <input type="number" id="fbF" placeholder="Followers की संख्या" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <!-- LinkedIn -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">💼 LinkedIn Profile है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('li',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('li',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="liFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="url" id="li" placeholder="LinkedIn Profile Link paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:6px;min-height:44px"/>
-    <input type="number" id="liC" placeholder="Connections की संख्या" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <!-- Twitter/X -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">🐦 Twitter / X Account है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('tw',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('tw',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="twFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="url" id="tw" placeholder="Twitter/X Profile Link paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:6px;min-height:44px"/>
-    <input type="number" id="twF" placeholder="Followers की संख्या" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <!-- WhatsApp Channel -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">💬 WhatsApp Channel है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('wa',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('wa',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="waFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="url" id="wa" placeholder="WhatsApp Channel Link paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:6px;min-height:44px"/>
-    <input type="number" id="waM" placeholder="Members की संख्या" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <!-- Telegram -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">✈️ Telegram Channel है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('tg',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('tg',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="tgFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="url" id="tg" placeholder="Telegram Channel Link paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:6px;min-height:44px"/>
-    <input type="number" id="tgM" placeholder="Members की संख्या" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <!-- Website -->
-  <div class="yn-row" style="margin-bottom:6px">
-    <span class="yn-lbl">🌐 अपनी Website है?</span>
-    <div class="yn-btns">
-      <button class="yn-btn yes" onclick="socYN('ws',true,this)">हाँ</button>
-      <button class="yn-btn no" onclick="socYN('ws',false,this)">नहीं</button>
-    </div>
-  </div>
-  <div class="soc-fields" id="wsFields" style="display:none;margin-bottom:10px;padding:10px;background:#F5F7FA;border-radius:8px">
-    <input type="url" id="ws" placeholder="Website URL paste करें" style="width:100%;padding:10px;border:2px solid #E0E0E0;border-radius:8px;font-size:14px;font-family:inherit;min-height:44px"/>
-  </div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(7)">← वापस</button>
-    <button class="btn-next" onclick="goNext(8,9)">अगला →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 9 — COURSES & LANGUAGE
-══════════════════════════════ -->
-<div class="sec" id="s9">
-  <div class="sec-title">📚 Step 9 — Courses & Language</div>
-  <div class="sec-sub">आप कौन से courses पढ़ाएंगे?</div>
-
-  <div class="fg">
-    <label>Teaching Language <span class="req">*</span></label>
-    <select id="lang">
-      <option value="">— भाषा चुनें —</option>
-      <option>Hindi</option><option>Kannada</option><option>Marathi</option>
-      <option>English</option><option>Bengali</option><option>Telugu</option>
-      <option>Tamil</option><option>Gujarati</option><option>Other</option>
-    </select>
-    <div class="err">भाषा चुनें</div>
-  </div>
-
-  <div class="fg">
-    <label>Courses (एक से अधिक चुनें) <span class="req">*</span></label>
-    <div class="course-grid" id="courseGrid"></div>
-    <div class="err" id="courseErr">कम से कम एक course चुनें</div>
-  </div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(8)">← वापस</button>
-    <button class="btn-next" onclick="goNext(9,10)">Review करें →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 10 — REVIEW
-══════════════════════════════ -->
-<div class="sec" id="s10">
-  <div class="sec-title">🔍 Step 10 — Review करें</div>
-  <div class="sec-sub">Submit करने से पहले सब एक बार देखें</div>
-
-  <div class="alert warn" style="display:block">⚠️ अगर कोई जानकारी गलत हो तो वापस जाकर ठीक करें</div>
-
-  <div id="reviewContent"></div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(9)">← वापस जाएं / Edit करें</button>
-    <button class="btn-next" onclick="goTo(11)">शपथ पत्र की ओर →</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════
-     STEP 11 — SHAPATH PATRA
-══════════════════════════════ -->
-<div class="sec" id="s11">
-  <div class="sec-title">📜 Step 11 — शपथ पत्र</div>
-  <div class="sec-sub">Submit करने से पहले यह शपथ पत्र ध्यान से पढ़ें</div>
-
-  <div class="shapath-box">
-    <h3>🙏 शपथ पत्र / Declaration</h3>
-    <p>मैं <strong id="shapathName">[आपका नाम]</strong>, Centre Owner/Manager,</p>
-    <p><strong>Applied Computer School™ (ACS)</strong> में Centre Registration के संदर्भ में निम्नलिखित शपथ लेता/लेती हूँ:</p>
-    <hr style="border-color:#F9A825;margin:10px 0"/>
-    <p><strong>1. सत्यता की शपथ:</strong> उपरोक्त सभी सूचनाएं मेरे ज्ञान एवं जानकारी में पूर्णतः सही हैं। मेरे द्वारा किसी भी जानकारी को जानबूझकर गलत नहीं डाला गया है।</p>
-    <p><strong>2. परिणाम स्वीकृति:</strong> भविष्य में अगर किसी भी तरह की सूचना गलत होने की बात सामने आती है, तो मेरे Centre का पंजीकरण निरस्त कर दिया जाए — यह मुझे स्वीकार है।</p>
-    <p><strong>3. राष्ट्रीय निष्ठा:</strong> मैं भारतीय संविधान के अनुसार किसी भी राष्ट्र विरोधी गतिविधि में अभी तक नहीं रहा/रही हूँ और न भविष्य में रहूँगा/रहूँगी।</p>
-    <p><strong>4. पुलिस रिकॉर्ड:</strong> मेरे विरुद्ध भारत के किसी भी पुलिस थाने में कोई आपराधिक मामला दर्ज नहीं है।</p>
-    <p><strong>5. बाल सुरक्षा की गारंटी:</strong> मेरे Centre पर किसी भी बच्चे के साथ किसी भी प्रकार का भेदभाव या यौन शोषण नहीं किया जाएगा। यदि ऐसा कुछ होता है तो उसकी पूर्ण जिम्मेदारी मेरी होगी और मेरे विरुद्ध विधि सम्मत कार्रवाई की जाए।</p>
-    <p><strong>6. निवेदन:</strong> अंततः मैं निवेदन करता/करती हूँ कि मेरे Centre को ACS में पंजीकृत किया जाए और ACS का course चलाने की अनुमति दी जाए।</p>
-    <div class="shapath-sign">
-      — <strong id="shapathName2">[आपका नाम]</strong><br/>
-      Centre: <span id="shapathCentre">[Centre नाम]</span><br/>
-      Email: <span id="shapathEmail">[Email]</span><br/>
-      दिनांक: <span id="shapathDate"></span>
-    </div>
-  </div>
-
-  <div class="chk-item" id="shapathChkItem" onclick="toggleChk(this,'shapathChk')">
-    <input type="checkbox" id="shapathChk"/>
-    <label>✅ मैंने उपरोक्त शपथ पत्र ध्यान से पढ़ा है और इसकी सभी शर्तें स्वीकार करता/करती हूँ।</label>
-  </div>
-
-  <div id="submitErr" class="alert err" style="display:none"></div>
-
-  <div class="btn-row">
-    <button class="btn-prev" onclick="goTo(10)">← Review पर जाएं</button>
-    <button class="btn-green" onclick="submitForm()">📤 Registration Submit करें</button>
-  </div>
-</div>
-
-<!-- SUCCESS -->
-<div class="success-sc" id="successSc">
-  <div style="font-size:64px;margin-bottom:16px">🎉</div>
-  <h2 style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:8px">Registration Submit हुआ!</h2>
-  <p style="color:var(--gray)">आपका Application ID:</p>
-  <div class="app-id" id="appId">ACS-CR-000000</div>
-  <p style="color:var(--gray);margin-bottom:6px">आपका registration <strong>pending review</strong> में है।</p>
-  <p style="color:var(--gray);margin-bottom:6px">Head/Founder approve करने के बाद आपको Email पर सूचित किया जाएगा।</p>
-  <p style="font-size:12px;color:var(--gray);margin-top:8px">सामान्यतः 2-3 कार्य दिवसों में जवाब मिलेगा।</p>
-  <div style="margin-top:24px">
-    <a href="https://acslearn.com" style="background:var(--blue);color:white;padding:14px 28px;border-radius:8px;font-weight:700;font-size:15px">← होम पर जाएं</a>
-  </div>
-</div>
-
-</div><!-- /form-wrap -->
 
 <!-- FIREBASE -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-  const app = initializeApp({
-    apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
-    authDomain:"acslearn-platform.firebaseapp.com",
-    projectId:"acslearn-platform",
-    storageBucket:"acslearn-platform.firebasestorage.app",
-    messagingSenderId:"435395814481",
-    appId:"1:435395814481:web:655f99452a90f8efbc4470"
-  });
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  window._fbAuth = auth;
-  window._fbDb = db;
-
-  window.createFirebaseAccount = async function(email, password) {
-    try {
-      const cred = await createUserWithEmailAndPassword(auth, email, password);
-      return { ok: true, uid: cred.user.uid };
-    } catch(e) {
-      return { ok: false, msg: e.message };
-    }
-  };
-
-  window.saveToFirestore = async function(data) {
-    try {
-      const ref = await addDoc(collection(db, "centre_registrations"), {
-        ...data,
-        status: "pending",
-        submittedAt: serverTimestamp()
-      });
-      return ref.id;
-    } catch(e) {
-      return null;
-    }
-  };
+  const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+  const auth=getAuth(app),db=getFirestore(app);
+  window._fbCreate=async(e,p)=>{try{const c=await createUserWithEmailAndPassword(auth,e,p);return{ok:true,uid:c.user.uid}}catch(err){return{ok:false,msg:err.message}}};
+  window._fbSave=async(data)=>{try{const r=await addDoc(collection(db,'centre_registrations'),{...data,status:'pending',submittedAt:serverTimestamp()});return r.id}catch(e){return null}};
 </script>
 
 <script>
 // ── DATA ──
-const FAC1 = ['अपना मकान / किराए का कमरा उपलब्ध','बैठने की व्यवस्था (min 10 students)','पीने का पानी उपलब्ध','शौचालय की सुविधा','बिजली कनेक्शन','Inverter / Generator backup'];
-const FAC2 = ['Computer / Laptop (min 1)','Printer उपलब्ध','Internet connection','Projector / Smart TV','Mobile charging point','CCTV Camera'];
-const FAC3 = ['Whiteboard / Blackboard','Study material देने की व्यवस्था','Library / Reference books','Practical training की सुविधा'];
-const FAC4 = ['महिला students के लिए सुरक्षित','Divyang accessible','Public transport accessible','Parking की सुविधा'];
-const COURSES = ['DCA','ADCA','MS Office','Tally / Accounting','Digital Marketing','Mobile Repair','Hardware & Networking','AI Tools','Graphic Design','Video Editing','English Speaking','Typing (Hindi/English)','Spoken Hindi','Other'];
+const STEPS=['दस्तावेज़ सूची','Account बनाएं','OTP Verify','Centre Info','Owner Info','KYC Documents','Bank Details','Facilities','Social Media','Courses','Review','शपथ पत्र'];
+const FAC1=['अपना मकान / किराए का कमरा','बैठने की व्यवस्था (min 10 students)','पीने का पानी','शौचालय','बिजली कनेक्शन','Inverter / Generator backup'];
+const FAC2=['Computer / Laptop (min 1)','Printer','Internet (Broadband/4G/5G)','Projector / Smart TV','Mobile charging point','CCTV Camera'];
+const FAC3=['Whiteboard / Blackboard','Study material देने की व्यवस्था','Library / Reference books','Practical training'];
+const FAC4=['महिला students के लिए सुरक्षित','Divyang accessible','Public transport accessible','Parking'];
+const COURSES=['DCA','ADCA','MS Office','Tally / Accounting','Digital Marketing','Mobile Repair','Hardware & Networking','AI Tools','Graphic Design','Video Editing','English Speaking','Typing','Spoken Hindi','Other'];
+const SOCIAL=[{k:'yt',icon:'📺',lbl:'YouTube Channel',ph:'YouTube Channel Link',cnt:'Subscribers'},{k:'ig',icon:'📸',lbl:'Instagram',ph:'Instagram Profile Link',cnt:'Followers'},{k:'fb',icon:'👤',lbl:'Facebook Page',ph:'Facebook Page Link',cnt:'Followers'},{k:'li',icon:'💼',lbl:'LinkedIn',ph:'LinkedIn Profile Link',cnt:'Connections'},{k:'tw',icon:'🐦',lbl:'Twitter / X',ph:'Twitter/X Profile Link',cnt:'Followers'},{k:'wa',icon:'💬',lbl:'WhatsApp Channel',ph:'WhatsApp Channel Link',cnt:'Members'},{k:'tg',icon:'✈️',lbl:'Telegram Channel',ph:'Telegram Channel Link',cnt:'Members'},{k:'ws',icon:'🌐',lbl:'Website',ph:'Website URL',cnt:''}];
+const ID_CFG={'PAN Card':{ph:'ABCDE1234F',hint:'Format: 5 letters + 4 numbers + 1 letter',rx:/^[A-Z]{5}[0-9]{4}[A-Z]$/,err:'गलत PAN — ABCDE1234F जैसा होना चाहिए'},'Aadhar Card':{ph:'12 digit Aadhar Number',hint:'Format: 12 digits',rx:/^[0-9]{12}$/,err:'Aadhar 12 digit का होना चाहिए'},'Driving Licence':{ph:'UP1420110012345',hint:'Format: State Code + Number',rx:/^[A-Z]{2}[0-9]{11,13}$/,err:'सही DL Number डालें'},'Passport':{ph:'A1234567',hint:'Format: 1 letter + 7 digits',rx:/^[A-Z][0-9]{7}$/,err:'गलत Passport — A1234567 जैसा होना चाहिए'}};
 
-const STEPS = ['दस्तावेज़ सूची','Account बनाएं','OTP Verify','Centre Info','Owner Info','KYC Documents','Bank Details','Facilities','Social Media','Courses','Review','शपथ पत्र'];
-let currentStep = 0;
-let generatedOTP = '';
-let userUID = '';
-window._facData = {};
+let curStep=0,genOTP='';
+const facData={};
 
 // ── INIT ──
-function buildFac(items, elId, prefix) {
-  const el = document.getElementById(elId);
-  items.forEach((item, i) => {
-    const d = document.createElement('div');
-    d.className = 'yn-row';
-    d.innerHTML = `<span class="yn-lbl">${item}</span>
-      <div class="yn-btns">
-        <button class="yn-btn yes" onclick="setYN('${prefix}${i}','yes',this)">हाँ</button>
-        <button class="yn-btn no" onclick="setYN('${prefix}${i}','no',this)">नहीं</button>
-      </div>`;
+function buildFac(items,id,pre){
+  const el=document.getElementById(id);
+  items.forEach((it,i)=>{
+    const d=document.createElement('div');
+    d.className='yn-row';
+    d.innerHTML=`<span class="yn-lbl">${it}</span><div class="yn-pair"><button class="yn-btn yes" onclick="setYN('${pre}${i}','yes',this)">हाँ</button><button class="yn-btn no" onclick="setYN('${pre}${i}','no',this)">नहीं</button></div>`;
     el.appendChild(d);
   });
 }
-
-function buildCourses() {
-  const g = document.getElementById('courseGrid');
-  COURSES.forEach((c, i) => {
-    const d = document.createElement('div');
-    d.className = 'course-item';
-    d.innerHTML = `<input type="checkbox" id="c${i}" value="${c}"/><label for="c${i}">${c}</label>`;
-    d.onclick = () => { const cb = d.querySelector('input'); cb.checked = !cb.checked; d.classList.toggle('on', cb.checked); };
+function buildCourses(){
+  const g=document.getElementById('courseGrid');
+  COURSES.forEach((c,i)=>{
+    const d=document.createElement('div');d.className='course-item';
+    d.innerHTML=`<input type="checkbox" id="c${i}" value="${c}"/><label for="c${i}">${c}</label>`;
+    d.onclick=()=>{const cb=d.querySelector('input');cb.checked=!cb.checked;d.classList.toggle('on',cb.checked)};
     g.appendChild(d);
   });
 }
-
-window.setYN = function(key, val, btn) {
-  btn.closest('.yn-row').querySelectorAll('.yn-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  window._facData[key] = val;
-};
+function buildSocial(){
+  const w=document.getElementById('socialWrap');
+  SOCIAL.forEach(s=>{
+    const d=document.createElement('div');
+    d.innerHTML=`
+      <div class="yn-row">
+        <span class="yn-lbl">${s.icon} ${s.lbl} है?</span>
+        <div class="yn-pair">
+          <button class="yn-btn yes" onclick="socYN('${s.k}',true,this)">हाँ</button>
+          <button class="yn-btn no" onclick="socYN('${s.k}',false,this)">नहीं</button>
+        </div>
+      </div>
+      <div class="soc-fields-wrap" id="${s.k}Fields">
+        <input type="url" id="${s.k}Link" placeholder="${s.ph}"/>
+        ${s.cnt?`<input type="number" id="${s.k}Cnt" placeholder="${s.cnt} की संख्या"/>`:''}
+      </div>`;
+    w.appendChild(d);
+  });
+}
+function buildStepNav(){
+  const nav=document.getElementById('stepNav');
+  STEPS.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.className=`step-nav-item ${i===0?'active':'pending'}`;
+    d.id=`sn${i}`;
+    d.innerHTML=`<div class="step-num">${i+1}</div><div class="step-nav-label">${s}</div>`;
+    nav.appendChild(d);
+  });
+}
 
 // ── PROGRESS ──
-function setProgress(step) {
-  currentStep = step;
-  const pct = Math.round((step / 11) * 100);
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('progressLabel').innerText = `Step ${step + 1} of 12 — ${STEPS[step]}`;
+function setProgress(step){
+  curStep=step;
+  const pct=Math.round((step/11)*100);
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('progLabel').innerHTML=`<strong>${STEPS[step]}</strong> — Step ${step+1} of 12`;
+  document.querySelectorAll('.step-nav-item').forEach((el,i)=>{
+    el.className='step-nav-item '+(i<step?'done':i===step?'active':'pending');
+    const dot=el.querySelector('.step-num');
+    dot.innerText=i<step?'✓':(i+1);
+  });
 }
 
 // ── NAVIGATION ──
-window.goTo = function(step) {
-  document.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
+window.goTo=function(step){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   document.getElementById(`s${step}`).classList.add('active');
   setProgress(step);
-  window.scrollTo(0, 0);
+  window.scrollTo(0,0);
+  if(step===10)buildReview();
 };
-
-window.goNext = function(from, to) {
-  if (!validateStep(from)) return;
-  if (to === 10) buildReview();
-  if (to === 11) fillShapath();
+window.nextStep=function(from,to){
+  if(!validate(from))return;
   goTo(to);
 };
 
-// ── CHECKBOX TOGGLE ──
-window.toggleChk = function(item, id) {
-  const cb = document.getElementById(id);
-  cb.checked = !cb.checked;
-  item.classList.toggle('checked', cb.checked);
-  if (id === 'docChk') {
-    document.getElementById('docChkBtn').disabled = !cb.checked;
-  }
+// ── CHECKBOX ──
+window.toggleChk=function(row,id){
+  const cb=document.getElementById(id);
+  cb.checked=!cb.checked;
+  row.classList.toggle('on',cb.checked);
+  if(id==='docChk')document.getElementById('docChkBtn').disabled=!cb.checked;
 };
 
-// ── START FORM ──
-window.startForm = function() {
-  if (!document.getElementById('docChk').checked) return;
-  goTo(1);
+// ── YES/NO ──
+window.setYN=function(key,val,btn){
+  btn.closest('.yn-row').querySelectorAll('.yn-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  facData[key]=val;
 };
-
-// ── CREATE ACCOUNT + OTP ──
-window.createAccount = async function() {
-  const name = document.getElementById('regName').value.trim();
-  const email = document.getElementById('regEmail').value.trim();
-  const pass = document.getElementById('regPass').value;
-  const conf = document.getElementById('regPassConf').value;
-  const errEl = document.getElementById('accountErr');
-  errEl.style.display = 'none';
-
-  if (!name) { showFgErr('regName', 'नाम जरूरी है'); return; }
-  if (!email || !email.includes('@')) { showFgErr('regEmail', 'Valid email जरूरी है'); return; }
-  if (pass.length < 8) { showFgErr('regPass', 'Password कम से कम 8 characters'); return; }
-  if (pass !== conf) { showFgErr('regPassConf', 'Password match नहीं कर रहा'); return; }
-
-  // Generate OTP (6 digit)
-  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-
-  // In real implementation, send via email service
-  // For now, we show OTP in console and alert for testing
-  console.log('OTP:', generatedOTP);
-
-  document.getElementById('otpSub').innerText = `OTP भेजा गया: ${email} पर`;
-  goTo(2);
-  startResendTimer();
-
-  // Alert for testing (remove in production)
-  setTimeout(() => {
-    alert(`📧 Testing Mode: OTP है — ${generatedOTP}\n\n(Production में यह Email पर जाएगा)`);
-  }, 500);
+window.socYN=function(key,val,btn){
+  btn.closest('.yn-row').querySelectorAll('.yn-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const f=document.getElementById(key+'Fields');
+  if(f)f.style.display=val?'block':'none';
 };
-
-// ── OTP VERIFY ──
-window.verifyOTP = function() {
-  const otp = ['otp1','otp2','otp3','otp4','otp5','otp6'].map(id => document.getElementById(id).value).join('');
-  const errEl = document.getElementById('otpErr');
-  const okEl = document.getElementById('otpOk');
-  if (otp.length < 6) { errEl.style.display='block'; errEl.innerText='❌ 6 digit OTP डालें'; okEl.style.display='none'; return; }
-  if (otp !== generatedOTP) { errEl.style.display='block'; errEl.innerText='❌ OTP गलत है। दोबारा try करें।'; okEl.style.display='none'; return; }
-  errEl.style.display='none';
-  okEl.style.display='block';
-  setTimeout(() => goTo(3), 1000);
-};
-
-window.otpMove = function(el, nextId) {
-  el.value = el.value.slice(-1);
-  if (el.value && nextId) document.getElementById(nextId).focus();
-};
-
-window.otpBack = function(e, prevId, curId) {
-  if (e.key === 'Backspace' && !document.getElementById(curId).value && prevId) {
-    document.getElementById(prevId).focus();
-  }
-};
-
-window.resendOTP = function() {
-  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-  console.log('New OTP:', generatedOTP);
-  alert(`📧 New OTP: ${generatedOTP}`);
-  startResendTimer();
-};
-
-function startResendTimer() {
-  const btn = document.getElementById('resendBtn');
-  const timer = document.getElementById('resendTimer');
-  btn.disabled = true; btn.style.display = 'none';
-  timer.style.display = 'inline'; let s = 30;
-  const iv = setInterval(() => {
-    s--;
-    timer.innerText = `${s} सेकंड में Resend कर सकते हैं`;
-    if (s <= 0) { clearInterval(iv); btn.disabled=false; btn.style.display='inline'; timer.style.display='none'; }
-  }, 1000);
-}
 
 // ── RADIO ──
-// ── ID NUMBER FIELD SHOW/HIDE ──
-const ID_CONFIG = {
-  'PAN Card':         { placeholder:'जैसे: ABCDE1234F', hint:'PAN: 10 characters (5 letters + 4 numbers + 1 letter)', regex:/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, errMsg:'गलत PAN format — ABCDE1234F जैसा होना चाहिए' },
-  'Aadhar Card':      { placeholder:'12 digit Aadhar Number', hint:'Aadhar: 12 digit number', regex:/^[0-9]{12}$/, errMsg:'Aadhar 12 digit का होना चाहिए' },
-  'Driving Licence':  { placeholder:'जैसे: UP14 20110012345', hint:'DL: State Code + Number', regex:/^[A-Z]{2}[0-9]{2}[0-9]{11}$|^[A-Z]{2}[0-9]{2} [0-9]{4}[0-9]{7}$/, errMsg:'सही DL Number डालें (जैसे: UP1420110012345)' },
-  'Passport':         { placeholder:'जैसे: A1234567', hint:'Passport: 1 letter + 7 digits', regex:/^[A-Z]{1}[0-9]{7}$/, errMsg:'गलत Passport Number — A1234567 जैसा होना चाहिए' },
+window.pickR=function(name,val,item){
+  document.querySelectorAll(`input[name="${name}"]`).forEach(r=>r.closest('.radio-item').classList.remove('sel'));
+  item.classList.add('sel');
+  item.querySelector('input').checked=true;
+};
+window.setBankOwner=function(type,item){
+  document.querySelectorAll('input[name="bOwner"]').forEach(r=>r.closest('.radio-item').classList.remove('sel'));
+  item.classList.add('sel');item.querySelector('input').checked=true;
+  document.getElementById('accName').value=type==='centre'?(gv('centreName')||'Centre का नाम'):(gv('regName')||'Owner का नाम');
 };
 
-window.showIdNum = function(n) {
-  const type = document.getElementById(`id${n}Type`).value;
-  const wrap = document.getElementById(`id${n}NumWrap`);
-  const inp = document.getElementById(`id${n}Num`);
-  const hint = document.getElementById(`id${n}NumHint`);
-  const err = document.getElementById(`id${n}NumErr`);
-  if (!type || !ID_CONFIG[type]) { wrap.style.display='none'; return; }
-  const cfg = ID_CONFIG[type];
-  inp.placeholder = cfg.placeholder;
-  hint.innerText = '💡 ' + cfg.hint;
-  inp.value = '';
-  err.style.display = 'none';
-  wrap.style.display = 'block';
-};
+// ── HELP ──
+window.toggleHelp=function(id){document.getElementById(id)?.classList.toggle('show')};
 
-window.validateIdNum = function(n) {
-  const type = document.getElementById(`id${n}Type`).value;
-  const val = document.getElementById(`id${n}Num`).value.trim().toUpperCase();
-  const err = document.getElementById(`id${n}NumErr`);
-  if (!type || !ID_CONFIG[type]) return;
-  const cfg = ID_CONFIG[type];
-  // Remove spaces for Aadhar
-  const cleanVal = val.replace(/\s/g,'');
-  if (cleanVal && !cfg.regex.test(cleanVal)) {
-    err.style.display='block'; err.innerText='❌ ' + cfg.errMsg;
-  } else {
-    err.style.display='none';
-  }
-};
-
-// ── SMART ADDRESS PROOF VALIDATION ──
-window.updateAddrProof = function() {
-  const id1 = document.getElementById('id1Type').value;
-  const id2 = document.getElementById('id2Type').value;
-
-  // जो IDs चुनी गई हैं उनकी list
-  const usedInIds = [id1, id2].filter(Boolean);
-
-  // Address Proof के सभी options
-  const allAddrOptions = [
-    { value: 'Driving Licence', label: 'Driving Licence' },
-    { value: 'Passport', label: 'Passport' },
-    { value: 'Domicile Certificate (निवास प्रमाण पत्र)', label: 'Domicile Certificate (निवास प्रमाण पत्र)' },
-    { value: 'Bank Passbook', label: 'Bank Passbook' },
-  ];
-
-  const addrSel = document.getElementById('addrType');
-  const currentVal = addrSel.value;
-
-  // Rebuild dropdown — used IDs को exclude करें
-  addrSel.innerHTML = '<option value="">— Proof प्रकार चुनें —</option>';
-  allAddrOptions.forEach(opt => {
-    // DL और Passport को check करें — अगर ID में use हो तो skip
-    const isUsed = usedInIds.includes(opt.value);
-    if (!isUsed) {
-      const o = document.createElement('option');
-      o.value = opt.value;
-      o.textContent = opt.label;
-      if (currentVal === opt.value) o.selected = true;
-      addrSel.appendChild(o);
-    }
+// ── PASSWORD ──
+window.checkPass=function(p){
+  const checks={len:p.length>=8,up:/[A-Z]/.test(p),lo:/[a-z]/.test(p),num:/[0-9]/.test(p),sp:/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(p)};
+  const ids={len:'pc-len',up:'pc-up',lo:'pc-lo',num:'pc-num',sp:'pc-sp'};
+  Object.keys(checks).forEach(k=>{
+    const el=document.getElementById(ids[k]);
+    if(el)el.classList.toggle('ok',checks[k]);
   });
-
-  // अगर पहले selected value अब available नहीं है तो reset करें
-  if (usedInIds.includes(currentVal)) {
-    addrSel.value = '';
-  }
-
-  // User को hint दें
-  const hint = document.getElementById('addrProofHint');
-  const excluded = usedInIds.filter(id => ['Driving Licence','Passport'].includes(id));
-  if (hint) {
-    if (excluded.length > 0) {
-      hint.innerText = `ℹ️ ${excluded.join(' और ')} पहले से Photo ID में use हुआ है — Address Proof में available नहीं है।`;
-      hint.style.display = 'block';
-    } else {
-      hint.style.display = 'none';
-    }
-  }
+  const score=Object.values(checks).filter(Boolean).length;
+  const bar=document.getElementById('sFill'),lbl=document.getElementById('sLbl');
+  if(!p){bar.style.width='0%';lbl.innerText='';return}
+  const levels=[{w:'20%',c:'#E53935',t:'Weak ❌'},{w:'40%',c:'#E53935',t:'Weak ❌'},{w:'60%',c:'#FF8C00',t:'Fair ⚠️'},{w:'80%',c:'#F9A825',t:'Good 👍'},{w:'100%',c:'#2E7D32',t:'Strong 💪'}];
+  const l=levels[score-1]||levels[0];
+  bar.style.width=l.w;bar.style.background=l.c;lbl.style.color=l.c;lbl.innerText=l.t;
 };
 
-// ── SOCIAL MEDIA YES/NO ──
-window.socYN = function(key, val, btn) {
-  btn.closest('.yn-row').querySelectorAll('.yn-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  const fields = document.getElementById(key + 'Fields');
-  if (fields) fields.style.display = val ? 'block' : 'none';
+// ── OTP ──
+window.createAccount=async function(){
+  const name=gv('regName'),email=gv('regEmail'),pass=document.getElementById('regPass').value,conf=document.getElementById('regPassConf').value;
+  const err=document.getElementById('accErr');err.style.display='none';
+  if(!name){markBad('regName','नाम जरूरी है');return}
+  if(!email||!email.includes('@')){markBad('regEmail','Valid email जरूरी है');return}
+  if(pass.length<8){markBad('regPass','कम से कम 8 characters');return}
+  if(pass!==conf){markBad('regPassConf','Password match नहीं कर रहा');return}
+  genOTP=Math.floor(100000+Math.random()*900000).toString();
+  document.getElementById('otpSub').innerText=`OTP भेजा गया: ${email} पर`;
+  goTo(2);startResend();
+  setTimeout(()=>alert(`📧 Testing Mode\nOTP है: ${genOTP}\n\n(Production में यह Email पर जाएगा)`),500);
+};
+window.verifyOTP=function(){
+  const otp=['o1','o2','o3','o4','o5','o6'].map(id=>document.getElementById(id).value).join('');
+  const e=document.getElementById('otpErr'),ok=document.getElementById('otpOk');
+  if(otp.length<6){e.style.display='block';e.innerText='❌ 6 digit OTP डालें';return}
+  if(otp!==genOTP){e.style.display='block';e.innerText='❌ OTP गलत है';ok.style.display='none';return}
+  e.style.display='none';ok.style.display='block';
+  setTimeout(()=>goTo(3),900);
+};
+window.oMove=function(el,nId){el.value=el.value.slice(-1);if(el.value&&nId)document.getElementById(nId).focus()};
+window.oBk=function(e,pId,cId){if(e.key==='Backspace'&&!document.getElementById(cId).value&&pId)document.getElementById(pId).focus()};
+window.resendOTP=function(){genOTP=Math.floor(100000+Math.random()*900000).toString();alert(`📧 New OTP: ${genOTP}`);startResend()};
+function startResend(){
+  const btn=document.getElementById('resendBtn'),tmr=document.getElementById('resendTimer');
+  btn.disabled=true;btn.style.display='none';tmr.style.display='inline';let s=30;
+  const iv=setInterval(()=>{s--;tmr.innerText=`${s}s में Resend`;if(s<=0){clearInterval(iv);btn.disabled=false;btn.style.display='inline';tmr.style.display='none'}},1000);
+}
+
+// ── PIN & IFSC ──
+window.fetchPin=async function(pin){
+  if(pin.length!==6)return;
+  document.getElementById('pinLdr').style.display='block';
+  try{const r=await fetch(`https://api.postalpincode.in/pincode/${pin}`),d=await r.json();
+    document.getElementById('pinLdr').style.display='none';
+    if(d[0].Status==='Success'){const p=d[0].PostOffice[0];document.getElementById('district').value=p.District;document.getElementById('state').value=p.State}
+  }catch(e){document.getElementById('pinLdr').style.display='none'}
+};
+window.fetchIFSC=async function(ifsc){
+  if(ifsc.length!==11)return;
+  document.getElementById('ifscLdr').style.display='block';
+  try{const r=await fetch(`https://ifsc.razorpay.com/${ifsc.toUpperCase()}`),d=await r.json();
+    document.getElementById('ifscLdr').style.display='none';
+    if(d.BANK){document.getElementById('bankNm').value=d.BANK;document.getElementById('bankBr').value=d.BRANCH||''}
+  }catch(e){document.getElementById('ifscLdr').style.display='none'}
 };
 
-window.pickRadio = function(name, val, item) {
-  document.querySelectorAll(`input[name="${name}"]`).forEach(r => r.closest('.radio-item').classList.remove('sel'));
-  item.classList.add('sel');
-  item.querySelector('input').checked = true;
+// ── ADDRESS PROOF SMART ──
+window.updateAddrProof=function(){
+  const id1=document.getElementById('id1Type').value,id2=document.getElementById('id2Type').value;
+  const used=[id1,id2].filter(Boolean);
+  const all=['Driving Licence','Passport','Voter ID','Domicile Certificate (निवास प्रमाण पत्र)','Bank Passbook'];
+  const sel=document.getElementById('addrType');
+  const cur=sel.value;
+  sel.innerHTML='<option value="">— चुनें —</option>';
+  all.forEach(o=>{
+    if(!used.includes(o)){const op=document.createElement('option');op.value=op.textContent=o;if(cur===o)op.selected=true;sel.appendChild(op)}
+  });
+  if(used.includes(cur))sel.value='';
+  const hint=document.getElementById('addrProofHint');
+  const excl=used.filter(id=>['Driving Licence','Passport'].includes(id));
+  hint.style.display=excl.length?'block':'none';
+  hint.innerText=excl.length?`ℹ️ ${excl.join(' और ')} Photo ID में use हुआ — Address Proof में उपलब्ध नहीं`:'';
 };
 
-// ── BANK OWNER ──
-window.setBankOwner = function(type, item) {
-  document.querySelectorAll('input[name="bOwner"]').forEach(r => r.closest('.radio-item').classList.remove('sel'));
-  item.classList.add('sel');
-  item.querySelector('input').checked = true;
-  document.getElementById('accName').value = type === 'centre'
-    ? (document.getElementById('centreName').value || 'Centre नाम')
-    : (document.getElementById('regName').value || 'Owner नाम');
+// ── ID NUMBER ──
+window.showIdNum=function(n){
+  const type=document.getElementById(`id${n}Type`).value;
+  const wrap=document.getElementById(`id${n}NumWrap`);
+  const inp=document.getElementById(`id${n}Num`);
+  const hint=document.getElementById(`id${n}NumHint`);
+  if(!type||!ID_CFG[type]){wrap.style.display='none';return}
+  const cfg=ID_CFG[type];inp.placeholder=cfg.ph;hint.innerText='💡 '+cfg.hint;inp.value='';
+  document.getElementById(`id${n}NumErr`).style.display='none';
+  wrap.style.display='block';
+};
+window.valIdNum=function(n){
+  const type=document.getElementById(`id${n}Type`).value;
+  const val=document.getElementById(`id${n}Num`).value.trim().toUpperCase();
+  const err=document.getElementById(`id${n}NumErr`);
+  if(!type||!ID_CFG[type]||!val)return;
+  const ok=ID_CFG[type].rx.test(val.replace(/\s/g,''));
+  err.style.display=ok?'none':'block';
+  err.innerText=ok?'':('❌ '+ID_CFG[type].err);
 };
 
-// ── PIN CODE ──
-window.fetchPin = async function(pin) {
-  if (pin.length !== 6) return;
-  document.getElementById('pinLoader').style.display = 'block';
-  try {
-    const res = await fetch(`https://api.postalpincode.in/pincode/${pin}`);
-    const data = await res.json();
-    document.getElementById('pinLoader').style.display = 'none';
-    if (data[0].Status === 'Success') {
-      const po = data[0].PostOffice[0];
-      document.getElementById('district').value = po.District;
-      document.getElementById('state').value = po.State;
-    }
-  } catch(e) { document.getElementById('pinLoader').style.display = 'none'; }
-};
-
-// ── IFSC ──
-window.fetchIFSC = async function(ifsc) {
-  if (ifsc.length !== 11) return;
-  document.getElementById('ifscLoader').style.display = 'block';
-  try {
-    const res = await fetch(`https://ifsc.razorpay.com/${ifsc.toUpperCase()}`);
-    const data = await res.json();
-    document.getElementById('ifscLoader').style.display = 'none';
-    if (data.BANK) { document.getElementById('bankNm').value = data.BANK; document.getElementById('bankBr').value = data.BRANCH || ''; }
-  } catch(e) { document.getElementById('ifscLoader').style.display = 'none'; }
-};
-
-// ── FILE SIZE CHECK ──
-window.checkFile = function(input, okId, errId, min, max) {
-  const file = input.files[0];
-  const ok = document.getElementById(okId);
-  const err = document.getElementById(errId);
-  if (!file) return;
-  const kb = file.size / 1024;
-  if (kb < min) {
-    ok.style.display='none'; err.style.display='block';
-    err.innerText = `❌ File बहुत छोटी (${kb.toFixed(1)} KB) — min ${min} KB चाहिए`;
-    input.value = '';
-  } else if (kb > max) {
-    ok.style.display='none'; err.style.display='block';
-    err.innerText = `❌ File बहुत बड़ी (${kb.toFixed(1)} KB) — max ${max} KB। Compress करें`;
-    input.value = '';
-  } else {
-    err.style.display='none'; ok.style.display='block';
-    ok.innerText = `✅ ${file.name} (${kb.toFixed(1)} KB)`;
-  }
+// ── FILE SIZE ──
+window.chkFile=function(inp,okId,errId,mn,mx){
+  const f=inp.files[0];
+  const ok=document.getElementById(okId),err=document.getElementById(errId);
+  if(!f)return;
+  const kb=f.size/1024;
+  if(kb<mn){ok.style.display='none';err.style.display='block';err.innerText=`❌ File बहुत छोटी (${kb.toFixed(1)}KB) — min ${mn}KB`;inp.value=''}
+  else if(kb>mx){ok.style.display='none';err.style.display='block';err.innerText=`❌ File बहुत बड़ी (${kb.toFixed(1)}KB) — max ${mx}KB। Compress करें: iloveimg.com`;inp.value=''}
+  else{err.style.display='none';ok.style.display='block';ok.innerText=`✅ ${f.name} (${kb.toFixed(1)}KB)`}
 };
 
 // ── VALIDATION ──
-function showFgErr(id, msg) {
-  const el = document.getElementById(id);
-  const fg = el.closest('.fg');
-  if (fg) { fg.classList.add('bad'); const e = fg.querySelector('.err'); if(e && msg) e.innerText = msg; }
-}
-function clearFgErr(id) {
-  const el = document.getElementById(id);
-  const fg = el ? el.closest('.fg') : null;
-  if (fg) fg.classList.remove('bad');
-}
-
-function validateStep(step) {
-  let ok = true;
-  const req = (id) => {
-    const el = document.getElementById(id);
-    if (!el || !el.value.trim()) { showFgErr(id); ok = false; }
-    else clearFgErr(id);
-  };
-
-  if (step === 3) { req('centreName'); req('centreType'); req('mapsLink'); req('pinCode'); req('address'); }
-  if (step === 4) {
-    req('mobile');
-    if (!document.getElementById('udyog').value.trim()) { showFgErr('udyog'); ok = false; }
-    if (!document.querySelector('input[name="exp"]:checked')) {
-      document.getElementById('expErr').style.display = 'block'; ok = false;
-    } else { document.getElementById('expErr').style.display = 'none'; }
+function gv(id){const el=document.getElementById(id);return el?el.value.trim():''}
+function markBad(id,msg){const el=document.getElementById(id);const fg=el?.closest('.fg');if(fg){fg.classList.add('bad');const e=fg.querySelector('.err-txt');if(e&&msg)e.innerText=msg}}
+function clearBad(id){document.getElementById(id)?.closest('.fg')?.classList.remove('bad')}
+function validate(step){
+  let ok=true;
+  const req=id=>{if(!gv(id)){markBad(id);ok=false}else clearBad(id)};
+  if(step===3){req('centreName');req('centreType');req('mapsLink');req('pinCode');req('address')}
+  if(step===4){
+    req('mobile');req('udyog');
+    if(!document.querySelector('input[name="exp"]:checked')){document.getElementById('expErr').style.display='block';ok=false}
+    else document.getElementById('expErr').style.display='none';
   }
-  if (step === 6) {
-    if (!document.querySelector('input[name="bOwner"]:checked')) {
-      document.getElementById('bOwnerErr').style.display = 'block'; ok = false;
-    } else { document.getElementById('bOwnerErr').style.display = 'none'; }
-    req('accNum'); req('ifsc');
-    if (!document.getElementById('bankDecl').checked) { alert('Bank declaration confirm करें'); ok = false; }
+  if(step===6){
+    if(!document.querySelector('input[name="bOwner"]:checked')){document.getElementById('bOwnerErr').style.display='block';ok=false}
+    else document.getElementById('bOwnerErr').style.display='none';
+    req('accNum');req('ifsc');
+    if(!document.getElementById('bankDecl').checked){alert('Bank declaration confirm करें');ok=false}
   }
-  if (step === 9) {
-    req('lang');
-    if (!document.querySelectorAll('#courseGrid input:checked').length) {
-      document.getElementById('courseErr').style.display = 'block'; ok = false;
-    } else { document.getElementById('courseErr').style.display = 'none'; }
+  if(step===9){
+    if(!gv('lang')){markBad('lang');ok=false}else clearBad('lang');
+    if(!document.querySelectorAll('#courseGrid input:checked').length){document.getElementById('courseErr').style.display='block';ok=false}
+    else document.getElementById('courseErr').style.display='none';
   }
-
-  if (!ok) window.scrollTo(0, 0);
+  if(!ok)window.scrollTo(0,0);
   return ok;
 }
 
-// ── BUILD REVIEW ──
-function buildReview() {
-  const courses = [...document.querySelectorAll('#courseGrid input:checked')].map(c => c.value).join(', ');
-  const exp = document.querySelector('input[name="exp"]:checked')?.value || '-';
-
-  document.getElementById('reviewContent').innerHTML = `
-    <div class="review-section">
-      <h3>🏫 Centre की जानकारी</h3>
-      <div class="review-row"><span class="review-key">नाम:</span><span class="review-val">${v('centreName')}</span></div>
-      <div class="review-row"><span class="review-key">प्रकार:</span><span class="review-val">${v('centreType')}</span></div>
-      <div class="review-row"><span class="review-key">Pin Code:</span><span class="review-val">${v('pinCode')}</span></div>
-      <div class="review-row"><span class="review-key">जिला:</span><span class="review-val">${v('district')}</span></div>
-      <div class="review-row"><span class="review-key">राज्य:</span><span class="review-val">${v('state')}</span></div>
-      <div class="review-row"><span class="review-key">पता:</span><span class="review-val">${v('address')}</span></div>
-    </div>
-    <div class="review-section">
-      <h3>👤 Owner / Manager</h3>
-      <div class="review-row"><span class="review-key">नाम:</span><span class="review-val">${v('regName')}</span></div>
-      <div class="review-row"><span class="review-key">Email:</span><span class="review-val">${v('regEmail')}</span></div>
-      <div class="review-row"><span class="review-key">Mobile:</span><span class="review-val">${v('mobile')}</span></div>
-      <div class="review-row"><span class="review-key">Udyog Aadhaar:</span><span class="review-val">${v('udyog')}</span></div>
-      <div class="review-row"><span class="review-key">अनुभव:</span><span class="review-val">${exp} साल</span></div>
-    </div>
-    <div class="review-section">
-      <h3>🏦 Bank Details</h3>
-      <div class="review-row"><span class="review-key">Account:</span><span class="review-val">${v('accName')}</span></div>
-      <div class="review-row"><span class="review-key">Account No:</span><span class="review-val">${v('accNum')}</span></div>
-      <div class="review-row"><span class="review-key">IFSC:</span><span class="review-val">${v('ifsc')}</span></div>
-      <div class="review-row"><span class="review-key">Bank:</span><span class="review-val">${v('bankNm')}</span></div>
-    </div>
-    <div class="review-section">
-      <h3>📚 Courses & Language</h3>
-      <div class="review-row"><span class="review-key">भाषा:</span><span class="review-val">${v('lang')}</span></div>
-      <div class="review-row"><span class="review-key">Courses:</span><span class="review-val">${courses}</span></div>
-    </div>
-  `;
+// ── REVIEW ──
+function buildReview(){
+  const courses=[...document.querySelectorAll('#courseGrid input:checked')].map(c=>c.value).join(', ');
+  const exp=document.querySelector('input[name="exp"]:checked')?.value||'-';
+  document.getElementById('reviewContent').innerHTML=`
+    ${rCard('🏫 Centre Info',[['Centre नाम',gv('centreName')],['प्रकार',gv('centreType')],['Pin Code',gv('pinCode')],['जिला',gv('district')],['राज्य',gv('state')],['पता',gv('address')]])}
+    ${rCard('👤 Owner / Manager',[['नाम',gv('regName')],['Email',gv('regEmail')],['Mobile',gv('mobile')],['Udyog Aadhaar',gv('udyog')],['अनुभव',exp+' साल']])}
+    ${rCard('🏦 Bank Details',[['Account',gv('accName')],['Account No',gv('accNum')],['IFSC',gv('ifsc')],['Bank',gv('bankNm')],['Branch',gv('bankBr')]])}
+    ${rCard('📚 Courses',[['भाषा',gv('lang')],['Courses',courses]])}`;
+}
+function rCard(title,rows){
+  return`<div class="review-card"><div class="review-card-head">${title}</div>${rows.map(([k,v])=>`<div class="review-row"><span class="rv-key">${k}</span><span class="rv-val">${v||'-'}</span></div>`).join('')}</div>`;
 }
 
-function v(id) { const el = document.getElementById(id); return el ? (el.value || '-') : '-'; }
-
-// ── FILL SHAPATH ──
-function fillShapath() {
-  const name = v('regName');
-  const date = new Date().toLocaleDateString('hi-IN', {day:'2-digit', month:'long', year:'numeric'});
-  document.getElementById('shapathName').innerText = name;
-  document.getElementById('shapathName2').innerText = name;
-  document.getElementById('shapathCentre').innerText = v('centreName');
-  document.getElementById('shapathEmail').innerText = v('regEmail');
-  document.getElementById('shapathDate').innerText = date;
-}
-
-// ── SUBMIT ──
-window.submitForm = async function() {
-  const errEl = document.getElementById('submitErr');
-  if (!document.getElementById('shapathChk').checked) {
-    errEl.style.display='block';
-    errEl.innerText='❌ शपथ पत्र की शर्तें accept करें';
-    return;
-  }
-
-  const btn = document.querySelector('.btn-green');
-  btn.innerText = '⏳ Submit हो रहा है...';
-  btn.disabled = true;
-
-  // Create Firebase account
-  const result = await window.createFirebaseAccount(v('regEmail'), document.getElementById('regPass').value);
-
-  const courses = [...document.querySelectorAll('#courseGrid input:checked')].map(c => c.value);
-
-  const data = {
-    uid: result.uid || '',
-    centre: { name:v('centreName'), type:v('centreType'), mapsLink:v('mapsLink'), pinCode:v('pinCode'), district:v('district'), state:v('state'), address:v('address') },
-    owner: { name:v('regName'), email:v('regEmail'), mobile:v('mobile'), whatsapp:v('whatsapp'), udyog:v('udyog'), experience:document.querySelector('input[name="exp"]:checked')?.value },
-    bank: { ownerType:document.querySelector('input[name="bOwner"]:checked')?.value, name:v('accName'), number:v('accNum'), ifsc:v('ifsc'), bankName:v('bankNm'), branch:v('bankBr') },
-    social: { youtube:v('yt'), instagram:v('ig'), facebook:v('fb'), linkedin:v('li'), twitter:v('tw'), whatsappChannel:v('wa'), telegram:v('tg'), website:v('ws') },
-    courses, language:v('lang'),
-    facilities: window._facData,
-    role: 'Centre'
-  };
-
-  const docId = await window.saveToFirestore(data);
-
-  // Show success
-  document.getElementById('s11').classList.remove('active');
-  document.getElementById('progressWrap').style.display = 'none';
-  const sc = document.getElementById('successSc');
-  sc.classList.add('show');
-  const id = docId ? `ACS-CR-${docId.substring(0,6).toUpperCase()}` : `ACS-CR-${Date.now().toString().slice(-6)}`;
-  document.getElementById('appId').innerText = id;
-  window.scrollTo(0, 0);
+// ── SHAPATH ──
+window.fillShapath=function(){
+  const dt=new Date().toLocaleDateString('hi-IN',{day:'2-digit',month:'long',year:'numeric'});
+  document.getElementById('sName').innerText=gv('regName');
+  document.getElementById('sName2').innerText=gv('regName');
+  document.getElementById('sCentre').innerText=gv('centreName');
+  document.getElementById('sEmail').innerText=gv('regEmail');
+  document.getElementById('sDate').innerText=dt;
 };
 
-// ── INIT ──
-buildFac(FAC1, 'fac1', 'f1_');
-buildFac(FAC2, 'fac2', 'f2_');
-buildFac(FAC3, 'fac3', 'f3_');
-buildFac(FAC4, 'fac4', 'f4_');
-buildCourses();
-setProgress(0);
+// ── SUBMIT ──
+window.submitForm=async function(){
+  const err=document.getElementById('submitErr');
+  if(!document.getElementById('shapathChk').checked){err.style.display='block';err.innerText='❌ शपथ पत्र की शर्तें accept करें';return}
+  if(!document.getElementById('privacyChk').checked){err.style.display='block';err.innerText='❌ Privacy Policy से सहमति जरूरी है';return}
+  const btn=document.querySelector('.btn-submit');
+  btn.innerText='⏳ Submit हो रहा है...';btn.disabled=true;
+  const result=await window._fbCreate(gv('regEmail'),document.getElementById('regPass').value);
+  const courses=[...document.querySelectorAll('#courseGrid input:checked')].map(c=>c.value);
+  const data={uid:result.uid||'',centre:{name:gv('centreName'),type:gv('centreType'),mapsLink:gv('mapsLink'),pinCode:gv('pinCode'),district:gv('district'),state:gv('state'),address:gv('address')},owner:{name:gv('regName'),email:gv('regEmail'),mobile:gv('mobile'),whatsapp:gv('whatsapp'),udyog:gv('udyog'),experience:document.querySelector('input[name="exp"]:checked')?.value},bank:{ownerType:document.querySelector('input[name="bOwner"]:checked')?.value,name:gv('accName'),number:gv('accNum'),ifsc:gv('ifsc'),bankName:gv('bankNm'),branch:gv('bankBr')},social:Object.fromEntries(SOCIAL.map(s=>[s.k,{link:gv(s.k+'Link'),count:gv(s.k+'Cnt')}])),courses,language:gv('lang'),facilities:facData,role:'Centre'};
+  const docId=await window._fbSave(data);
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.getElementById('progressWrap')?.remove();
+  document.querySelector('.prog-bar-wrap')?.remove();
+  const sc=document.getElementById('successSc');sc.style.display='block';
+  document.getElementById('appId').innerText=docId?`ACS-CR-${docId.substring(0,6).toUpperCase()}`:`ACS-CR-${Date.now().toString().slice(-6)}`;
+  window.scrollTo(0,0);
+};
+
+// ── START ──
+buildFac(FAC1,'fac1','f1_');buildFac(FAC2,'fac2','f2_');buildFac(FAC3,'fac3','f3_');buildFac(FAC4,'fac4','f4_');
+buildCourses();buildSocial();buildStepNav();setProgress(0);
 </script>
 </body>
 </html>
