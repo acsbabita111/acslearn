@@ -1,1 +1,1249 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Student Dashboard — ACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--navy2:#0D2748;
+  --blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
+  --red:#E53935;--orange:#E65100;
+  --cyan:#00838F;--cyan-lt:#00ACC1;
+  --white:#fff;--offwhite:#F0F9FF;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+  --sidebar:260px;
+}
+html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
+.app{display:flex;min-height:100vh}
+.sidebar{width:var(--sidebar);background:linear-gradient(180deg,#006064 0%,#00838F 100%);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform .3s}
+.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column}
+@media(max-width:768px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}}
 
+/* SIDEBAR */
+.sb-logo{padding:20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
+.sb-logo img{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.3)}
+.sb-logo-txt strong{display:block;font-size:12px;font-weight:700;color:#fff}
+.sb-logo-txt span{font-size:10px;color:#80DEEA}
+.sb-user{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
+.sb-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#006064,#00ACC1);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;flex-shrink:0;border:2px solid rgba(255,255,255,0.3)}
+.sb-user-info strong{display:block;font-size:12px;color:#fff;font-weight:700}
+.sb-user-info span{font-size:10px;color:#80DEEA;font-weight:600}
+.sb-id{font-size:9px;color:rgba(255,255,255,0.5);margin-top:2px;font-family:monospace}
+
+/* STREAK */
+.streak-bar{padding:10px 20px;background:rgba(255,200,0,0.15);border-bottom:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:8px}
+.streak-bar span{font-size:11px;color:#FFD54F;font-weight:700}
+
+.sb-nav{flex:1;padding:12px 0;overflow-y:auto}
+.nav-section{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,0.08);border-left-color:rgba(255,255,255,0.3)}
+.nav-item.active{background:rgba(255,255,255,0.15);border-left-color:#80DEEA}
+.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0}
+.nav-label{font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
+.nav-item.active .nav-label{color:#fff;font-weight:700}
+.nav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
+.nav-badge.gold{background:var(--gold);color:var(--navy)}
+.sb-bottom{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.12)}
+.logout-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;width:100%;font-family:inherit;color:rgba(255,255,255,0.8);font-size:12px;font-weight:600}
+
+/* TOPBAR */
+.topbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer}
+@media(max-width:768px){.menu-btn{display:block}}
+.topbar-title{font-size:15px;font-weight:700;color:var(--navy);flex:1}
+.icon-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+
+/* CONTENT */
+.content{padding:20px 24px;flex:1}
+@media(max-width:600px){.content{padding:12px 14px}}
+.page{display:none}
+.page.active{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.page-header{margin-bottom:20px}
+.page-header h2{font-size:20px;font-weight:800;color:var(--navy)}
+.page-header p{font-size:13px;color:var(--gray);margin-top:2px}
+
+/* JOURNEY MAP */
+.journey{display:flex;align-items:center;gap:0;margin-bottom:20px;overflow-x:auto;padding:4px 0}
+.journey-step{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:80px}
+.journey-dot{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;flex-shrink:0;border:3px solid var(--border)}
+.journey-dot.done{background:var(--green-lt);border-color:var(--green-lt);color:#fff}
+.journey-dot.active{background:var(--cyan);border-color:var(--cyan);color:#fff;animation:pulse 2s infinite}
+.journey-dot.pending{background:#fff;color:var(--gray)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,131,143,0.4)}50%{box-shadow:0 0 0 8px rgba(0,131,143,0)}}
+.journey-label{font-size:10px;color:var(--gray);text-align:center;font-weight:500}
+.journey-step.done .journey-label{color:var(--green)}
+.journey-step.active .journey-label{color:var(--cyan);font-weight:700}
+.journey-line{flex:1;height:3px;background:var(--border);margin-top:-26px}
+.journey-line.done{background:var(--green-lt)}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
+.stat-card:hover{transform:translateY(-2px)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.stat-card.cyan::before{background:linear-gradient(90deg,var(--cyan),var(--cyan-lt))}
+.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#FFD54F)}
+.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--green-lt))}
+.stat-card.blue::before{background:linear-gradient(90deg,var(--blue),var(--blue-lt))}
+.stat-icon{font-size:22px;margin-bottom:8px}
+.stat-num{font-size:22px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--gray)}
+.stat-sub{font-size:10px;margin-top:4px;font-weight:600}
+
+/* CARD */
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-head h3{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px}
+.card-body{padding:16px 18px}
+.card-head-action{font-size:11px;color:var(--cyan);font-weight:600;cursor:pointer;border:1px solid rgba(0,131,143,0.2);background:none;font-family:inherit;padding:4px 10px;border-radius:6px}
+
+/* GAMIFICATION */
+.badge-grid{display:flex;flex-wrap:wrap;gap:10px}
+.badge{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px;background:#F0FDFF;border:1px solid #B2EBF2;border-radius:10px;min-width:70px;text-align:center}
+.badge.locked{opacity:.4;filter:grayscale(1)}
+.badge-icon{font-size:24px}
+.badge-label{font-size:10px;color:var(--cyan);font-weight:600}
+
+/* PROGRESS */
+.progress-wrap{background:#E0F7FA;border-radius:10px;height:10px;overflow:hidden;margin-top:6px}
+.progress-fill{height:10px;border-radius:10px;background:linear-gradient(90deg,var(--cyan),var(--cyan-lt));transition:width .5s}
+
+/* COURSE CARD */
+.course-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;transition:all .2s}
+.course-card:hover{border-color:var(--cyan);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.course-card-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.course-meta{display:flex;gap:12px;font-size:11px;color:var(--gray);margin-bottom:10px;flex-wrap:wrap}
+.course-progress-label{display:flex;justify-content:space-between;font-size:11px;color:var(--gray);margin-bottom:4px}
+
+/* ATTENDANCE */
+.att-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:8px}
+.att-day{aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
+.att-day.present{background:var(--green-lt);color:#fff}
+.att-day.absent{background:#FFEBEE;color:var(--red)}
+.att-day.today{background:var(--cyan);color:#fff;border:2px solid var(--navy)}
+.att-day.future{background:#F0F4F8;color:var(--gray)}
+.att-day.header{background:none;color:var(--gray);font-size:9px}
+
+/* QUIZ */
+.quiz-card{background:#F0FDFF;border:1px solid #B2EBF2;border-radius:10px;padding:14px;margin-bottom:10px}
+.quiz-q{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px}
+.quiz-opts{display:flex;flex-direction:column;gap:6px}
+.quiz-opt{padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;transition:all .2s;background:#fff}
+.quiz-opt:hover{border-color:var(--cyan);background:#E0F7FA}
+.quiz-opt.selected{border-color:var(--cyan);background:#E0F7FA;font-weight:600}
+.quiz-opt.correct{border-color:var(--green);background:#E8F5E9;color:var(--green);font-weight:600}
+.quiz-opt.wrong{border-color:var(--red);background:#FFEBEE;color:var(--red);font-weight:600}
+
+/* JOB CARD */
+.job-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;transition:all .2s}
+.job-card:hover{border-color:var(--green);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.job-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.job-meta{font-size:11px;color:var(--gray);margin-bottom:8px}
+.match-bar{display:flex;align-items:center;gap:8px;font-size:11px}
+.match-pct{font-weight:700;color:var(--green)}
+
+/* FORM */
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:5px}
+.req{color:var(--red)}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s;min-height:44px}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,131,143,0.1)}
+.fg textarea{min-height:80px;resize:vertical}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:10px;margin-top:16px}
+.btn-primary{flex:1;padding:12px;background:linear-gradient(135deg,var(--cyan),var(--cyan-lt));color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 4px 12px rgba(0,131,143,0.3)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-secondary{padding:12px 16px;background:#fff;color:var(--navy);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+
+/* CERTIFICATE */
+.cert-card{background:linear-gradient(135deg,#1A237E,#283593);border-radius:16px;padding:24px;text-align:center;color:#fff;margin-bottom:16px;position:relative;overflow:hidden}
+.cert-card::before{content:'🎓';position:absolute;top:-10px;right:-10px;font-size:80px;opacity:.1}
+.cert-num{font-size:11px;color:#9FA8DA;margin-bottom:4px;font-family:monospace}
+.cert-name{font-size:20px;font-weight:800;margin-bottom:4px}
+.cert-course{font-size:13px;color:#C5CAE9;margin-bottom:12px}
+.cert-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.cert-badge{font-size:10px;background:rgba(255,255,255,0.15);padding:4px 12px;border-radius:20px;font-weight:600}
+
+/* ALERT */
+.alert{padding:12px 16px;border-radius:8px;font-size:12px;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.alert-info{background:#E0F7FA;color:var(--cyan);border:1px solid #80DEEA}
+.alert-warn{background:#FFF3E0;color:var(--orange);border:1px solid #FFE0B2}
+.alert-ok{background:#E8F5E9;color:var(--green);border:1px solid #C8E6C9}
+
+/* EMPTY */
+.empty{text-align:center;padding:32px;color:var(--gray)}
+.empty-icon{font-size:36px;margin-bottom:8px}
+.empty p{font-size:12px;line-height:1.6}
+
+/* APTITUDE */
+.apt-section{background:#F0FDFF;border:1px solid #B2EBF2;border-radius:12px;padding:16px;margin-bottom:12px}
+.apt-section h4{font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:12px}
+.apt-q{margin-bottom:14px}
+.apt-q p{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:8px}
+.apt-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.apt-opt{padding:8px 12px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;font-size:12px;transition:all .2s;background:#fff;text-align:center}
+.apt-opt:hover,.apt-opt.sel{border-color:var(--cyan);background:#E0F7FA;color:var(--cyan);font-weight:600}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-left:4px solid var(--green-lt)}
+.toast.err{border-left:4px solid var(--red)}
+
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
+@media(max-width:768px){.sb-overlay.open{display:block}}
+</style>
+</head>
+<body>
+
+<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+    <div class="sb-logo-txt">
+      <strong>Applied Computer School™</strong>
+      <span>Student Dashboard</span>
+    </div>
+  </div>
+  <div class="sb-user">
+    <div class="sb-avatar" id="sbAvatar">S</div>
+    <div class="sb-user-info">
+      <strong id="sbName">Student</strong>
+      <span>👨‍🎓 Student</span>
+      <div class="sb-id" id="sbStudentId">ID: —</div>
+    </div>
+  </div>
+  <div class="streak-bar">
+    <span>🔥</span>
+    <span id="streakText">0 Day Streak</span>
+    <span style="margin-left:auto;font-size:16px" id="streakEmoji">⬜</span>
+  </div>
+  <nav class="sb-nav">
+    <div class="nav-section">मेरी पढ़ाई</div>
+    <div class="nav-item active" onclick="showPage('overview',this)">
+      <span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="showPage('aptitude',this)">
+      <span class="nav-icon">🧠</span><span class="nav-label">Aptitude Test</span>
+      <span class="nav-badge gold" id="aptBadge">New</span>
+    </div>
+    <div class="nav-item" onclick="showPage('courses',this)">
+      <span class="nav-icon">📚</span><span class="nav-label">My Courses</span>
+    </div>
+    <div class="nav-item" onclick="showPage('attendance',this)">
+      <span class="nav-icon">📅</span><span class="nav-label">Attendance</span>
+    </div>
+    <div class="nav-item" onclick="showPage('quiz',this)">
+      <span class="nav-icon">❓</span><span class="nav-label">Quiz & Practice</span>
+    </div>
+
+    <div class="nav-section">Certificate & Jobs</div>
+    <div class="nav-item" onclick="showPage('exam',this)">
+      <span class="nav-icon">📝</span><span class="nav-label">Exam & Certificate</span>
+    </div>
+    <div class="nav-item" onclick="showPage('jobs',this)">
+      <span class="nav-icon">💼</span><span class="nav-label">Job Opportunities</span>
+    </div>
+    <div class="nav-item" onclick="showPage('self-emp',this)">
+      <span class="nav-icon">🏪</span><span class="nav-label">Self-Employment</span>
+    </div>
+
+    <div class="nav-section">Account</div>
+    <div class="nav-item" onclick="showPage('fees',this)">
+      <span class="nav-icon">💰</span><span class="nav-label">My Fees</span>
+    </div>
+    <div class="nav-item" onclick="showPage('badges',this)">
+      <span class="nav-icon">🏆</span><span class="nav-label">Badges & Points</span>
+    </div>
+    <div class="nav-item" onclick="showPage('grievance',this)">
+      <span class="nav-icon">📮</span><span class="nav-label">Grievance</span>
+    </div>
+    <div class="nav-item" onclick="showPage('privacy',this)">
+      <span class="nav-icon">🔒</span><span class="nav-label">Privacy</span>
+    </div>
+  </nav>
+  <div class="sb-bottom">
+    <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="topbar">
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="topbar-title" id="topbarTitle">Dashboard</div>
+    <div style="display:flex;gap:8px">
+      <button class="icon-btn" title="Points">⭐</button>
+      <button class="icon-btn" onclick="loadData()">🔄</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+  <!-- PAGE: OVERVIEW -->
+  <div class="page active" id="page-overview">
+    <div class="page-header">
+      <h2 id="welcomeText">नमस्ते! 🙏</h2>
+      <p id="welcomeSub">आपकी ACS Journey</p>
+    </div>
+
+    <!-- Journey Map -->
+    <div class="card">
+      <div class="card-head"><h3>🗺️ मेरी Journey</h3></div>
+      <div class="card-body">
+        <div class="journey" id="journeyMap">
+          <!-- Built dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card cyan">
+        <div class="stat-icon">📚</div>
+        <div class="stat-num" id="st-courses">0</div>
+        <div class="stat-label">Enrolled Courses</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon">📅</div>
+        <div class="stat-num" id="st-attendance">0%</div>
+        <div class="stat-label">Attendance</div>
+        <div class="stat-sub" style="color:var(--orange)">75% minimum</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-num" id="st-points">0</div>
+        <div class="stat-label">Points Earned</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-num" id="st-badges">0</div>
+        <div class="stat-label">Badges</div>
+      </div>
+    </div>
+
+    <!-- Today's Task -->
+    <div class="card">
+      <div class="card-head"><h3>📌 आज का काम</h3></div>
+      <div class="card-body">
+        <div id="todayTask">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#F0FDFF;border-radius:8px;cursor:pointer" onclick="showPage('aptitude',document.querySelector('[onclick*=aptitude]'))">
+              <span style="font-size:20px">🧠</span>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--navy)">Aptitude Test दें</div>
+                <div style="font-size:11px;color:var(--gray)">सबसे पहले यह करें — सही course पता चलेगा</div>
+              </div>
+              <span style="margin-left:auto;font-size:16px">→</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#F0FFF4;border-radius:8px;cursor:pointer" onclick="showPage('courses',document.querySelector('[onclick*=courses]'))">
+              <span style="font-size:20px">📚</span>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--navy)">Course शुरू करें</div>
+                <div style="font-size:11px;color:var(--gray)">आपका enrolled course यहाँ है</div>
+              </div>
+              <span style="margin-left:auto;font-size:16px">→</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#FFFDE7;border-radius:8px;cursor:pointer" onclick="showPage('quiz',document.querySelector('[onclick*=quiz]'))">
+              <span style="font-size:20px">❓</span>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--navy)">Daily Quiz</div>
+                <div style="font-size:11px;color:var(--gray)">+10 points मिलेंगे</div>
+              </div>
+              <span style="margin-left:auto;font-size:16px;color:var(--gold)">+10 ⭐</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course Progress -->
+    <div class="card">
+      <div class="card-head">
+        <h3>📚 Course Progress</h3>
+        <button class="card-head-action" onclick="showPage('courses',document.querySelector('[onclick*=courses]'))">सब →</button>
+      </div>
+      <div class="card-body" id="courseProgress">
+        <div class="empty"><div class="empty-icon">📚</div><p>अभी कोई course enrolled नहीं।<br/>Aptitude Test दें — सही course पता चलेगा।</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: APTITUDE TEST -->
+  <div class="page" id="page-aptitude">
+    <div class="page-header">
+      <h2>🧠 Aptitude Test</h2>
+      <p>आपके लिए सबसे सही course पता करें</p>
+    </div>
+
+    <div id="aptitudeIntro">
+      <div class="alert alert-info">
+        <span>💡</span>
+        <div><strong>यह test क्यों?</strong> IIT/TISS validated questions से आपकी strengths पता चलेंगी और सबसे suitable course suggest होगा। 15-20 minutes लगेंगे। अपनी भाषा में जवाब दें।</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>📊 Test में क्या है?</h3></div>
+        <div class="card-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="padding:12px;background:#F0FDFF;border-radius:8px;text-align:center">
+              <div style="font-size:20px">🔢</div>
+              <div style="font-size:12px;font-weight:600;color:var(--navy);margin-top:4px">Numerical</div>
+              <div style="font-size:10px;color:var(--gray)">5 Questions</div>
+            </div>
+            <div style="padding:12px;background:#F0FFF4;border-radius:8px;text-align:center">
+              <div style="font-size:20px">🧩</div>
+              <div style="font-size:12px;font-weight:600;color:var(--navy);margin-top:4px">Logical</div>
+              <div style="font-size:10px;color:var(--gray)">5 Questions</div>
+            </div>
+            <div style="padding:12px;background:#FFF8E1;border-radius:8px;text-align:center">
+              <div style="font-size:20px">📖</div>
+              <div style="font-size:12px;font-weight:600;color:var(--navy);margin-top:4px">Verbal</div>
+              <div style="font-size:10px;color:var(--gray)">5 Questions</div>
+            </div>
+            <div style="padding:12px;background:#F3E5F5;border-radius:8px;text-align:center">
+              <div style="font-size:20px">❤️</div>
+              <div style="font-size:12px;font-weight:600;color:var(--navy);margin-top:4px">Interest</div>
+              <div style="font-size:10px;color:var(--gray)">5 Questions</div>
+            </div>
+          </div>
+          <button class="btn-primary" style="margin-top:16px;width:100%" onclick="startAptitude()">🧠 Test शुरू करें</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="aptitudeTest" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div style="font-size:13px;font-weight:600;color:var(--navy)">Question <span id="aptQ">1</span>/20</div>
+        <div style="font-size:13px;color:var(--cyan);font-weight:600" id="aptTimer">⏱️ 20:00</div>
+      </div>
+      <div class="progress-wrap" style="margin-bottom:16px"><div class="progress-fill" id="aptProgress" style="width:5%"></div></div>
+      <div id="aptQuestion"></div>
+      <div class="btn-row">
+        <button class="btn-secondary" id="aptPrev" onclick="aptNav(-1)" style="display:none">← पिछला</button>
+        <button class="btn-primary" id="aptNext" onclick="aptNav(1)">अगला →</button>
+      </div>
+    </div>
+
+    <div id="aptitudeResult" style="display:none">
+      <div class="card">
+        <div class="card-head"><h3>🎯 आपका Result</h3></div>
+        <div class="card-body">
+          <div style="text-align:center;padding:20px">
+            <div style="font-size:48px;margin-bottom:12px">🎯</div>
+            <div style="font-size:18px;font-weight:800;color:var(--navy);margin-bottom:6px" id="aptResultTitle">आपके लिए सबसे सही Course:</div>
+            <div style="font-size:24px;font-weight:800;color:var(--cyan);margin-bottom:12px" id="aptResultCourse">—</div>
+            <div style="font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:16px" id="aptResultReason">—</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center" id="aptResultStrengths"></div>
+          </div>
+          <button class="btn-primary" style="width:100%;margin-top:12px" onclick="showPage('courses',document.querySelector('[onclick*=courses]'))">📚 Course देखें →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: COURSES -->
+  <div class="page" id="page-courses">
+    <div class="page-header">
+      <h2>📚 My Courses</h2>
+      <p>आपके enrolled courses — offline भी पढ़ सकते हैं</p>
+    </div>
+
+    <div class="alert alert-info">
+      <span>📱</span>
+      <div><strong>Offline Mode:</strong> Internet नहीं है तो भी पढ़ाई होगी। Content पहले download करें — फिर बिना internet के खोलें।</div>
+    </div>
+
+    <div id="coursesList">
+      <div class="course-card">
+        <div class="course-card-title">DCA — Diploma in Computer Applications</div>
+        <div class="course-meta">
+          <span>⏱️ 6 महीने</span>
+          <span>📊 Beginner</span>
+          <span>🌐 Hindi</span>
+          <span>👨‍🏫 ACS Teacher</span>
+        </div>
+        <div class="course-progress-label">
+          <span>Progress</span><span>35%</span>
+        </div>
+        <div class="progress-wrap"><div class="progress-fill" style="width:35%"></div></div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button style="flex:1;padding:8px;background:var(--cyan);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">▶️ Continue</button>
+          <button style="padding:8px 12px;background:#F0FDFF;color:var(--cyan);border:1px solid #B2EBF2;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">📥 Download</button>
+        </div>
+      </div>
+
+      <div class="empty" style="margin-top:8px">
+        <div class="empty-icon">📚</div>
+        <p style="font-size:12px;color:var(--gray)">Centre द्वारा और courses assign होने पर यहाँ दिखेंगे।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: ATTENDANCE -->
+  <div class="page" id="page-attendance">
+    <div class="page-header">
+      <h2>📅 Attendance</h2>
+      <p>Exam के लिए 75% attendance जरूरी है</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card cyan">
+        <div class="stat-icon">✅</div>
+        <div class="stat-num" id="att-present">0</div>
+        <div class="stat-label">Present Days</div>
+      </div>
+      <div class="stat-card" style="--card-color:var(--red)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),#FF8A80)"></div>
+        <div class="stat-icon">❌</div>
+        <div class="stat-num" id="att-absent">0</div>
+        <div class="stat-label">Absent Days</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon">📊</div>
+        <div class="stat-num" id="att-pct">0%</div>
+        <div class="stat-label">Attendance %</div>
+        <div class="stat-sub" id="att-status" style="color:var(--orange)">Minimum 75%</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📅 इस महीने</h3></div>
+      <div class="card-body">
+        <div class="att-grid" id="attGrid">
+          <div class="att-day header">रवि</div>
+          <div class="att-day header">सोम</div>
+          <div class="att-day header">मंगल</div>
+          <div class="att-day header">बुध</div>
+          <div class="att-day header">गुरु</div>
+          <div class="att-day header">शुक्र</div>
+          <div class="att-day header">शनि</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-warn">
+      <span>⚠️</span>
+      <div>Attendance 75% से कम होने पर Exam नहीं दे सकते। Centre से संपर्क करें।</div>
+    </div>
+  </div>
+
+  <!-- PAGE: QUIZ -->
+  <div class="page" id="page-quiz">
+    <div class="page-header">
+      <h2>❓ Quiz & Practice</h2>
+      <p>Daily quiz दें — points और badges कमाएं</p>
+    </div>
+
+    <div style="background:linear-gradient(135deg,var(--cyan),var(--cyan-lt));border-radius:12px;padding:16px;margin-bottom:16px;color:#fff;display:flex;align-items:center;gap:14px">
+      <span style="font-size:36px">⭐</span>
+      <div>
+        <div style="font-size:16px;font-weight:800">आज का Daily Quiz!</div>
+        <div style="font-size:12px;opacity:.8">सही जवाब दें → +10 points मिलेंगे 🎯</div>
+      </div>
+    </div>
+
+    <div id="quizContainer">
+      <div class="quiz-card">
+        <div class="quiz-q">1. Computer में CPU का पूरा नाम क्या है?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="selectOpt(this,0)">A. Central Processing Unit</div>
+          <div class="quiz-opt" onclick="selectOpt(this,1)">B. Computer Processing Unit</div>
+          <div class="quiz-opt" onclick="selectOpt(this,2)">C. Central Program Unit</div>
+          <div class="quiz-opt" onclick="selectOpt(this,3)">D. Control Processing Unit</div>
+        </div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-q">2. MS Word में नई file बनाने का shortcut क्या है?</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="selectOpt(this,0)">A. Ctrl+N</div>
+          <div class="quiz-opt" onclick="selectOpt(this,1)">B. Ctrl+O</div>
+          <div class="quiz-opt" onclick="selectOpt(this,2)">C. Ctrl+S</div>
+          <div class="quiz-opt" onclick="selectOpt(this,3)">D. Ctrl+P</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" style="width:100%;margin-top:8px" onclick="submitQuiz()">✅ Submit Quiz — +10 ⭐ पाएं</button>
+    </div>
+  </div>
+
+  <!-- PAGE: EXAM -->
+  <div class="page" id="page-exam">
+    <div class="page-header">
+      <h2>📝 Exam & Certificate</h2>
+      <p>Exam → Result → Certificate</p>
+    </div>
+
+    <!-- Exam Eligibility -->
+    <div class="card">
+      <div class="card-head"><h3>✅ Exam Eligibility</h3></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px;background:#F8FAFF;border-radius:8px;font-size:12px">
+            <span>📅 Attendance ≥ 75%</span>
+            <span id="eligAtt" style="font-weight:700;color:var(--orange)">0% ❌</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px;background:#F8FAFF;border-radius:8px;font-size:12px">
+            <span>📚 Course Progress ≥ 80%</span>
+            <span id="eligProg" style="font-weight:700;color:var(--orange)">35% ❌</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px;background:#F8FAFF;border-radius:8px;font-size:12px">
+            <span>💰 Fees Paid</span>
+            <span id="eligFee" style="font-weight:700;color:var(--orange)">⏳ Pending</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:10px;background:#F8FAFF;border-radius:8px;font-size:12px">
+            <span>✅ Centre Approval</span>
+            <span style="font-weight:700;color:var(--orange)">⏳ Phase 4 में</span>
+          </div>
+        </div>
+        <div class="alert alert-warn" style="margin-top:12px">
+          <span>⚠️</span>
+          <div>Exam system Phase 4 में आएगा। अभी सभी conditions check करें।</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificate Preview -->
+    <div class="card">
+      <div class="card-head"><h3>🎓 Certificate Preview</h3></div>
+      <div class="card-body">
+        <div class="cert-card">
+          <div class="cert-num">ACS-2026-XXXXX</div>
+          <div style="font-size:13px;color:#9FA8DA;margin-bottom:8px">Certificate of Completion</div>
+          <div class="cert-name" id="certName">—</div>
+          <div class="cert-course">DCA — Diploma in Computer Applications</div>
+          <div class="cert-badges">
+            <span class="cert-badge">🏛️ FFGPMTrust</span>
+            <span class="cert-badge">🏫 ACS</span>
+            <span class="cert-badge">✅ ISO 9001:2015</span>
+          </div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:12px">Exam pass करने के बाद यह certificate मिलेगा</div>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn-secondary" style="flex:1;opacity:.5;cursor:not-allowed" disabled>📥 Download (Exam बाद)</button>
+          <button class="btn-secondary" style="flex:1;opacity:.5;cursor:not-allowed" disabled>🔗 Verify करें</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: JOBS -->
+  <div class="page" id="page-jobs">
+    <div class="page-header">
+      <h2>💼 Job Opportunities</h2>
+      <p>आपकी skills से match होने वाली jobs</p>
+    </div>
+
+    <div class="alert alert-ok">
+      <span>✅</span>
+      <div><strong>ACS Verified:</strong> यहाँ सिर्फ verified employers की jobs दिखेंगी। Background check (CR) के बाद placement confirm होगी।</div>
+    </div>
+
+    <div id="jobsList">
+      <div class="job-card">
+        <div class="job-title">Computer Operator</div>
+        <div class="job-meta">📍 Khagaria, Bihar | 💰 ₹8,000-12,000/month | 🏢 Local NGO</div>
+        <div class="match-bar">
+          <div class="progress-wrap" style="flex:1"><div class="progress-fill" style="width:80%"></div></div>
+          <span class="match-pct">80% Match</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button style="flex:1;padding:8px;background:var(--green);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="showToast('Phase 3 में Apply button आएगा','ok')">Apply करें</button>
+          <button style="padding:8px 12px;background:#F0FFF4;color:var(--green);border:1px solid #C8E6C9;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Details</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-title">Mobile Repair Technician</div>
+        <div class="job-meta">📍 Saharsa, Bihar | 💰 ₹10,000-15,000/month | 🏪 Mobile Shop</div>
+        <div class="match-bar">
+          <div class="progress-wrap" style="flex:1"><div class="progress-fill" style="width:65%"></div></div>
+          <span class="match-pct">65% Match</span>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button style="flex:1;padding:8px;background:var(--green);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="showToast('Phase 3 में Apply button आएगा','ok')">Apply करें</button>
+          <button style="padding:8px 12px;background:#F0FFF4;color:var(--green);border:1px solid #C8E6C9;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Details</button>
+        </div>
+      </div>
+
+      <div class="empty" style="margin-top:8px">
+        <div class="empty-icon">💼</div>
+        <p>Employer Dashboard Phase 3 में। और jobs जल्द आएंगी।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: SELF EMPLOYMENT -->
+  <div class="page" id="page-self-emp">
+    <div class="page-header">
+      <h2>🏪 Self-Employment</h2>
+      <p>ACS का 495/500 Solution — अपना काम शुरू करें</p>
+    </div>
+
+    <div class="alert alert-info">
+      <span>💡</span>
+      <div><strong>ACS का unique support:</strong> Job नहीं मिली? अपना business शुरू करें! Bank loan, raw material, market — सब में ACS मदद करेगा।</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="padding:14px;background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border:1px solid #C8E6C9;border-radius:10px;text-align:center">
+        <div style="font-size:28px;margin-bottom:6px">🏦</div>
+        <div style="font-size:12px;font-weight:700;color:var(--navy)">Bank Loan</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:2px">ACS bank liaison करेगा</div>
+      </div>
+      <div style="padding:14px;background:linear-gradient(135deg,#E8EAF6,#EDE7F6);border:1px solid #C5CAE9;border-radius:10px;text-align:center">
+        <div style="font-size:28px;margin-bottom:6px">📦</div>
+        <div style="font-size:12px;font-weight:700;color:var(--navy)">Raw Material</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:2px">Local suppliers से connect</div>
+      </div>
+      <div style="padding:14px;background:linear-gradient(135deg,#FFF3E0,#FFF8E1);border:1px solid #FFE0B2;border-radius:10px;text-align:center">
+        <div style="font-size:28px;margin-bottom:6px">🛒</div>
+        <div style="font-size:12px;font-weight:700;color:var(--navy)">Market</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:2px">Local market connections</div>
+      </div>
+      <div style="padding:14px;background:linear-gradient(135deg,#E0F2F1,#E0F7FA);border:1px solid #80CBC4;border-radius:10px;text-align:center">
+        <div style="font-size:28px;margin-bottom:6px">🤝</div>
+        <div style="font-size:12px;font-weight:700;color:var(--navy)">Mentorship</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:2px">Experienced teachers से</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>💡 Local Opportunities</h3></div>
+      <div class="card-body">
+        <div class="empty"><div class="empty-icon">🔍</div><p>Regional Manager के survey के आधार पर<br/>यहाँ local opportunities दिखेंगी।</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📝 Self-Employment Interest Form</h3></div>
+      <div class="card-body">
+        <div class="fg">
+          <label>आप क्या करना चाहते हैं?</label>
+          <select>
+            <option value="">— चुनें —</option>
+            <option>Mobile Repair Shop</option>
+            <option>Computer Center</option>
+            <option>Digital Marketing Service</option>
+            <option>Agriculture (Smart Farming)</option>
+            <option>Tailoring Business</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>कितनी investment कर सकते हैं?</label>
+          <select>
+            <option value="">— चुनें —</option>
+            <option>₹0 (ACS loan help चाहिए)</option>
+            <option>₹5,000 - ₹20,000</option>
+            <option>₹20,000 - ₹50,000</option>
+            <option>₹50,000+</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>कोई और information</label>
+          <textarea placeholder="आपका plan क्या है..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%" onclick="showToast('Form submit हो गया! ACS counselor जल्द संपर्क करेगा।','ok')">📤 Submit करें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: FEES -->
+  <div class="page" id="page-fees">
+    <div class="page-header">
+      <h2>💰 My Fees</h2>
+      <p>Payment details और receipts</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card cyan">
+        <div class="stat-icon">💰</div>
+        <div class="stat-num" id="fee-total">₹0</div>
+        <div class="stat-label">Total Fee</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">✅</div>
+        <div class="stat-num" id="fee-paid">₹0</div>
+        <div class="stat-label">Paid</div>
+      </div>
+      <div class="stat-card" style="">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),#FF8C00)"></div>
+        <div class="stat-icon">⏳</div>
+        <div class="stat-num" id="fee-pending">₹0</div>
+        <div class="stat-label">Pending</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📋 Payment History</h3></div>
+      <div class="card-body">
+        <div class="empty"><div class="empty-icon">💰</div><p>Payment Razorpay Phase 4 में integrate होगा।<br/>Centre पर fee जमा करें और receipt लें।</p></div>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <span>⚠️</span>
+      <div>Payment सिर्फ Centre के official Razorpay link से करें। Cash payment की receipt जरूर लें।</div>
+    </div>
+  </div>
+
+  <!-- PAGE: BADGES -->
+  <div class="page" id="page-badges">
+    <div class="page-header">
+      <h2>🏆 Badges & Points</h2>
+      <p>आपकी achievements</p>
+    </div>
+
+    <div style="background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:14px;padding:20px;margin-bottom:16px;color:#fff;text-align:center">
+      <div style="font-size:40px;font-weight:800;color:var(--gold)" id="totalPoints">0</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px">Total Points</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:8px">🔥 <span id="streakPoints">0</span> Day Streak | 🏆 <span id="badgeCount">0</span> Badges</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>🏆 My Badges</h3></div>
+      <div class="card-body">
+        <div class="badge-grid" id="badgeGrid">
+          <div class="badge">
+            <div class="badge-icon">🎯</div>
+            <div class="badge-label">First Login</div>
+          </div>
+          <div class="badge locked">
+            <div class="badge-icon">🔥</div>
+            <div class="badge-label">7 Day Streak</div>
+          </div>
+          <div class="badge locked">
+            <div class="badge-icon">📚</div>
+            <div class="badge-label">Course Done</div>
+          </div>
+          <div class="badge locked">
+            <div class="badge-icon">🎓</div>
+            <div class="badge-label">Certified</div>
+          </div>
+          <div class="badge locked">
+            <div class="badge-icon">💼</div>
+            <div class="badge-label">Placed</div>
+          </div>
+          <div class="badge locked">
+            <div class="badge-icon">🏪</div>
+            <div class="badge-label">Self-Employed</div>
+          </div>
+          <div class="badge locked">
+            <div class="badge-icon">⭐</div>
+            <div class="badge-label">Top Scorer</div>
+          </div>
+          <div class="badge locked">
+            <div class="badge-icon">🤝</div>
+            <div class="badge-label">Referred 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>⭐ Points कैसे कमाएं?</h3></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Daily Login</span><span style="font-weight:700;color:var(--cyan)">+5 ⭐</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Daily Quiz Complete</span><span style="font-weight:700;color:var(--cyan)">+10 ⭐</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Chapter Complete</span><span style="font-weight:700;color:var(--cyan)">+20 ⭐</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Course Complete</span><span style="font-weight:700;color:var(--cyan)">+100 ⭐</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Exam Pass</span><span style="font-weight:700;color:var(--gold)">+200 ⭐</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Friend Refer करें</span><span style="font-weight:700;color:var(--green)">+50 ⭐</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: GRIEVANCE -->
+  <div class="page" id="page-grievance">
+    <div class="page-header">
+      <h2>📮 Grievance</h2>
+      <p>कोई problem? यहाँ बताएं</p>
+    </div>
+
+    <div class="alert alert-info">
+      <span>ℹ️</span>
+      <div>आपकी complaint 72 hours में address होगी। Anonymous complaint का option भी है।</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📝 Complaint Submit करें</h3></div>
+      <div class="card-body">
+        <div class="fg">
+          <label>Category</label>
+          <select id="grievCat">
+            <option value="">— चुनें —</option>
+            <option>Course related</option>
+            <option>Certificate issue</option>
+            <option>Fee dispute</option>
+            <option>Teacher complaint</option>
+            <option>Centre complaint</option>
+            <option>Job placement issue</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Complaint <span class="req">*</span></label>
+          <textarea id="grievText" placeholder="आपकी problem क्या है? विस्तार से बताएं..." style="min-height:100px"></textarea>
+        </div>
+        <div class="fg">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <input type="checkbox" id="grievAnon" style="accent-color:var(--cyan);width:16px;height:16px"/>
+            Anonymous complaint (नाम नहीं बताएंगे)
+          </label>
+        </div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="submitGrievance()">📤 Submit करें</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📋 My Complaints</h3></div>
+      <div class="card-body">
+        <div class="empty"><div class="empty-icon">✅</div><p>कोई complaint नहीं</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE: PRIVACY -->
+  <div class="page" id="page-privacy">
+    <div class="page-header">
+      <h2>🔒 Privacy</h2>
+      <p>DPDP Act 2023 — आपके data के अधिकार</p>
+    </div>
+
+    <div class="alert alert-info">
+      <span>🛡️</span>
+      <div><strong>DPDP Act 2023:</strong> आपका data सुरक्षित है। ACS सिर्फ जरूरी data रखता है। आप कभी भी अपना data देख सकते हैं, download कर सकते हैं या delete करवा सकते हैं।</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📊 ACS के पास आपका Data</h3></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>नाम, Mobile, Email</span><span style="color:var(--cyan);font-weight:600">✅ Stored</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Course Enrollment</span><span style="color:var(--cyan);font-weight:600">✅ Stored</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Attendance Record</span><span style="color:var(--cyan);font-weight:600">✅ Stored</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Exam Results</span><span style="color:var(--cyan);font-weight:600">✅ Stored</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Payment Info</span><span style="color:var(--cyan);font-weight:600">✅ Encrypted</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#FFEBEE;border-radius:6px"><span>Behavioral Tracking</span><span style="color:var(--green);font-weight:600">❌ Collect नहीं करते</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px;background:#FFEBEE;border-radius:6px"><span>Targeted Advertising</span><span style="color:var(--green);font-weight:600">❌ Never</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>⚙️ Data Controls</h3></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button class="btn-secondary" style="width:100%;text-align:left" onclick="showToast('Data download Phase 4 में available होगा','ok')">📥 अपना Data Download करें</button>
+          <button class="btn-secondary" style="width:100%;text-align:left" onclick="showToast('Delete request submit हो गई। Team 30 days में process करेगी।','ok')">🗑️ Data Delete करवाएं</button>
+          <button class="btn-secondary" style="width:100%;text-align:left" onclick="showToast('Privacy policy email पर भेज दी गई।','ok')">📄 Privacy Policy देखें</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- FIREBASE -->
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getAuth,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import{getFirestore,collection,getDocs,doc,getDoc,addDoc,updateDoc,setDoc,query,where,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth=getAuth(app),db=getFirestore(app);
+let currentUser=null,studentData=null,points=5,streak=1;
+
+onAuthStateChanged(auth,async user=>{
+  if(!user){window.location.href='/dashboard/index.html';return}
+  currentUser=user;
+  // Student data ढूंढें
+  // पहले users collection में
+  const uSnap=await getDoc(doc(db,'users',user.uid));
+  if(uSnap.exists()){
+    studentData={uid:user.uid,email:user.email,...uSnap.data()};
+    // फिर centre students में ढूंढें
+    initDashboard();
+  }else{
+    // Centre students collection में ढूंढें
+    try{
+      const q=query(collection(db,'students'),where('email','==',user.email));
+      const snap=await getDocs(q);
+      if(!snap.empty){
+        studentData={uid:user.uid,...snap.docs[0].data()};
+        initDashboard();
+      }else{
+        document.getElementById('welcomeText').textContent='नमस्ते! 🙏';
+        showToast('Student profile नहीं मिला','err');
+      }
+    }catch(e){console.log(e)}
+  }
+});
+
+function initDashboard(){
+  const name=studentData.name||'Student';
+  document.getElementById('sbName').textContent=name;
+  document.getElementById('sbAvatar').textContent=name[0].toUpperCase();
+  document.getElementById('welcomeText').textContent='नमस्ते, '+name.split(' ')[0]+' जी! 🙏';
+  document.getElementById('welcomeSub').textContent='आज भी पढ़ाई करें — '+new Date().toLocaleDateString('hi-IN',{weekday:'long'});
+  document.getElementById('sbStudentId').textContent='ID: '+(studentData.studentId||'—');
+  document.getElementById('certName').textContent=name;
+  document.getElementById('fee-total').textContent='₹'+(studentData.fee||0).toLocaleString('hi-IN');
+  document.getElementById('fee-paid').textContent='₹'+(studentData.fee||0).toLocaleString('hi-IN');
+  document.getElementById('fee-pending').textContent='₹0';
+
+  // Streak
+  document.getElementById('streakText').textContent=streak+' Day Streak';
+  document.getElementById('streakEmoji').textContent=streak>=7?'🔥':streak>=3?'⭐':'⬜';
+  document.getElementById('totalPoints').textContent=points;
+  document.getElementById('streakPoints').textContent=streak;
+
+  // Stats
+  document.getElementById('st-points').textContent=points;
+
+  buildJourney();
+  buildAttendance();
+}
+
+function buildJourney(){
+  const steps=[
+    {label:'Enrolled',icon:'📋',status:'done'},
+    {label:'Aptitude Test',icon:'🧠',status:'active'},
+    {label:'Training',icon:'📚',status:'pending'},
+    {label:'Exam',icon:'📝',status:'pending'},
+    {label:'Certificate',icon:'🎓',status:'pending'},
+    {label:'Job/Self-Emp',icon:'💼',status:'pending'},
+  ];
+  document.getElementById('journeyMap').innerHTML=steps.map((s,i)=>`
+    <div class="journey-step ${s.status}">
+      <div class="journey-dot ${s.status}">${s.status==='done'?'✓':s.icon}</div>
+      <div class="journey-label">${s.label}</div>
+    </div>
+    ${i<steps.length-1?`<div class="journey-line ${s.status==='done'?'done':''}"></div>`:''}`).join('');
+}
+
+function buildAttendance(){
+  const today=new Date().getDate();
+  const grid=document.getElementById('attGrid');
+  const days=['रवि','सोम','मंगल','बुध','गुरु','शुक्र','शनि'];
+  let html=days.map(d=>`<div class="att-day header">${d}</div>`).join('');
+  // First day offset
+  const firstDay=new Date(new Date().getFullYear(),new Date().getMonth(),1).getDay();
+  for(let i=0;i<firstDay;i++)html+=`<div class="att-day future"></div>`;
+  const daysInMonth=new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate();
+  for(let d=1;d<=daysInMonth;d++){
+    const cls=d===today?'today':d<today?Math.random()>0.3?'present':'absent':'future';
+    html+=`<div class="att-day ${cls}">${d}</div>`;
+  }
+  grid.innerHTML=html;
+  // Calculate
+  const present=document.querySelectorAll('.att-day.present').length+1;
+  const absent=document.querySelectorAll('.att-day.absent').length;
+  const pct=Math.round(present/(present+absent)*100)||0;
+  document.getElementById('att-present').textContent=present;
+  document.getElementById('att-absent').textContent=absent;
+  document.getElementById('att-pct').textContent=pct+'%';
+  document.getElementById('att-status').textContent=pct>=75?'✅ Eligible for Exam':'❌ 75% चाहिए';
+  document.getElementById('att-status').style.color=pct>=75?'var(--green)':'var(--red)';
+  document.getElementById('st-attendance').textContent=pct+'%';
+  document.getElementById('eligAtt').textContent=pct+'% '+(pct>=75?'✅':'❌');
+  document.getElementById('eligAtt').style.color=pct>=75?'var(--green)':'var(--red)';
+}
+
+window._signOut=()=>signOut(auth);
+window._currentUser=()=>currentUser;
+window._studentData=()=>studentData;
+window._addDoc=async(col,data)=>addDoc(collection(db,col),{...data,createdAt:serverTimestamp()});
+</script>
+
+<script>
+// SIDEBAR
+window.toggleSidebar=function(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sbOverlay').classList.toggle('open');
+};
+
+// PAGE NAV
+window.showPage=function(name,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+name)?.classList.add('active');
+  el?.classList.add('active');
+  const titles={overview:'Dashboard',aptitude:'Aptitude Test',courses:'My Courses',attendance:'Attendance',quiz:'Quiz & Practice',exam:'Exam & Certificate',jobs:'Job Opportunities','self-emp':'Self-Employment',fees:'My Fees',badges:'Badges & Points',grievance:'Grievance',privacy:'Privacy'};
+  document.getElementById('topbarTitle').textContent=titles[name]||name;
+  if(window.innerWidth<=768)toggleSidebar();
+};
+
+// APTITUDE TEST
+const aptQuestions=[
+  {q:'अगर 5 items की कीमत ₹250 है तो 8 items की कीमत क्या होगी?',opts:['₹350','₹400','₹450','₹380'],ans:1,type:'Numerical'},
+  {q:'Series: 2, 4, 8, 16, ?',opts:['24','32','28','20'],ans:1,type:'Logical'},
+  {q:'"Computer" शब्द का हिन्दी अर्थ क्या है?',opts:['गणक','लिखक','पाठक','खेलक'],ans:0,type:'Verbal'},
+  {q:'आप क्या काम करना ज्यादा पसंद करेंगे?',opts:['Machine repair करना','Accounts manage करना','लोगों को सिखाना','Design बनाना'],ans:-1,type:'Interest'},
+  {q:'एक triangle के तीनों angle का योग कितना होता है?',opts:['90°','180°','270°','360°'],ans:1,type:'Numerical'},
+  {q:'अगर BOOK को DQQM लिखें तो LIFE को क्या लिखेंगे?',opts:['NKHG','MJHD','NKHE','OLIHE'],ans:0,type:'Logical'},
+  {q:'Antonym of "Strong" is?',opts:['Weak','Hard','Tough','Firm'],ans:0,type:'Verbal'},
+  {q:'आप किसमें ज्यादा comfortable हैं?',opts:['Hands-on technical work','Number crunching','Creative work','Helping others'],ans:-1,type:'Interest'},
+];
+let aptAnswers={},aptCurrent=0,aptTimer=null;
+
+window.startAptitude=function(){
+  document.getElementById('aptitudeIntro').style.display='none';
+  document.getElementById('aptitudeTest').style.display='block';
+  renderAptQ(0);
+  startAptTimer();
+};
+
+function renderAptQ(idx){
+  aptCurrent=idx;
+  const q=aptQuestions[idx];
+  const pct=Math.round((idx/aptQuestions.length)*100);
+  document.getElementById('aptQ').textContent=idx+1;
+  document.getElementById('aptProgress').style.width=pct+'%';
+  document.getElementById('aptPrev').style.display=idx>0?'block':'none';
+  document.getElementById('aptNext').textContent=idx===aptQuestions.length-1?'Submit ✅':'अगला →';
+  document.getElementById('aptQuestion').innerHTML=`
+    <div class="apt-section">
+      <h4>${q.type} — Question ${idx+1}</h4>
+      <div class="apt-q">
+        <p>${q.q}</p>
+        <div class="apt-opts">
+          ${q.opts.map((o,i)=>`<div class="apt-opt ${aptAnswers[idx]===i?'sel':''}" onclick="pickApt(${idx},${i},this)">${o}</div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+}
+
+window.pickApt=function(qIdx,oIdx,el){
+  el.closest('.apt-opts').querySelectorAll('.apt-opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  aptAnswers[qIdx]=oIdx;
+};
+
+window.aptNav=function(dir){
+  if(dir===1&&aptCurrent===aptQuestions.length-1){submitAptitude();return}
+  const next=aptCurrent+dir;
+  if(next>=0&&next<aptQuestions.length)renderAptQ(next);
+};
+
+function submitAptitude(){
+  clearInterval(aptTimer);
+  document.getElementById('aptitudeTest').style.display='none';
+  document.getElementById('aptitudeResult').style.display='block';
+  document.getElementById('aptBadge').style.display='none';
+
+  // Score calculate
+  let score={Numerical:0,Logical:0,Verbal:0,Interest:[]};
+  aptQuestions.forEach((q,i)=>{
+    if(q.ans>=0&&aptAnswers[i]===q.ans)score[q.type]=(score[q.type]||0)+1;
+    if(q.type==='Interest'&&aptAnswers[i]!==undefined)score.Interest.push(q.opts[aptAnswers[i]]);
+  });
+
+  const max=Math.max(score.Numerical||0,score.Logical||0,score.Verbal||0);
+  let course='DCA',reason='';
+  if(score.Numerical>=score.Logical&&score.Numerical>=score.Verbal){
+    course='Tally & Accounting';reason='आपकी Numerical strength बहुत अच्छी है।';
+  }else if(score.Logical>=score.Verbal){
+    course='DCA / Mobile Repair';reason='आपकी Logical thinking strong है।';
+  }else{
+    course='Digital Marketing';reason='आपकी Verbal skills अच्छी हैं।';
+  }
+
+  document.getElementById('aptResultCourse').textContent=course;
+  document.getElementById('aptResultReason').textContent=reason+' ACS में यह course सबसे अच्छा रहेगा।';
+  document.getElementById('aptResultStrengths').innerHTML=
+    `<span style="padding:6px 14px;border-radius:20px;background:#E0F7FA;color:var(--cyan);font-size:12px;font-weight:600">🔢 Numerical: ${score.Numerical||0}/2</span>
+     <span style="padding:6px 14px;border-radius:20px;background:#E8EAF6;color:#3949AB;font-size:12px;font-weight:600">🧩 Logical: ${score.Logical||0}/2</span>
+     <span style="padding:6px 14px;border-radius:20px;background:#E8F5E9;color:var(--green);font-size:12px;font-weight:600">📖 Verbal: ${score.Verbal||0}/2</span>`;
+}
+
+function startAptTimer(){
+  let secs=20*60;
+  aptTimer=setInterval(()=>{
+    secs--;
+    const m=Math.floor(secs/60),s=secs%60;
+    document.getElementById('aptTimer').textContent=`⏱️ ${m}:${s.toString().padStart(2,'0')}`;
+    if(secs<=0){clearInterval(aptTimer);submitAptitude()}
+  },1000);
+}
+
+// QUIZ
+let selectedOpts={};
+window.selectOpt=function(el,idx){
+  el.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  const qIdx=[...document.querySelectorAll('.quiz-card')].indexOf(el.closest('.quiz-card'));
+  selectedOpts[qIdx]=idx;
+};
+
+window.submitQuiz=function(){
+  const correct=[0,0]; // CPU=A, Ctrl+N=A
+  let score=0;
+  document.querySelectorAll('.quiz-card').forEach((card,qi)=>{
+    const opts=card.querySelectorAll('.quiz-opt');
+    opts.forEach((o,oi)=>{
+      if(oi===correct[qi])o.classList.add('correct');
+      else if(selectedOpts[qi]===oi&&oi!==correct[qi])o.classList.add('wrong');
+    });
+    if(selectedOpts[qi]===correct[qi])score++;
+  });
+  showToast('✅ Quiz done! Score: '+score+'/2 | +'+score*10+' ⭐ earned!','ok');
+};
+
+// GRIEVANCE
+window.submitGrievance=async function(){
+  const cat=document.getElementById('grievCat').value;
+  const text=document.getElementById('grievText').value.trim();
+  const anon=document.getElementById('grievAnon').checked;
+  if(!cat||!text){showToast('Category और Complaint जरूरी है','err');return}
+  try{
+    await window._addDoc('grievances',{
+      category:cat,text,anonymous:anon,
+      studentUid:anon?'anonymous':window._currentUser()?.uid,
+      studentName:anon?'Anonymous':window._studentData()?.name||'',
+      status:'submitted',
+    });
+    showToast('✅ Complaint Submit हो गई! Ticket #ACS-'+Date.now().toString().slice(-6),'ok');
+    document.getElementById('grievText').value='';
+  }catch(e){showToast('Error: '+e.message,'err')}
+};
+
+// LOGOUT
+window.doLogout=async function(){
+  if(!confirm('Logout करना चाहते हैं?'))return;
+  await window._signOut();
+  window.location.href='/dashboard/index.html';
+};
+
+// TOAST
+function showToast(msg,type='ok'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
+}
+window.showToast=showToast;
+window.loadData=function(){window.location.reload()};
+</script>
+</body>
+</html>
