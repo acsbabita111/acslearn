@@ -4,6 +4,11 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Applied Computer School™ — From Village to World. Free Digital Education for the Global South."/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#0B1F3A"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="ACS Vani"/>
   <title>Applied Computer School™ — From Village to World</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
@@ -224,16 +229,6 @@
 <body>
 
 <!-- ══ TIRANGA HEADER (compact like aidigitalmaster) ══ -->
-<div class="tiranga-header">
-  <div class="tiranga-card">
-    <div class="tiranga-card-top">
-      Applied Computer School™<br/>
-      <span>From Village to World</span>
-    </div>
-    <div class="tiranga-card-sub">Powered by FFGPMTrust | Rambharosh Vidyarthi</div>
-  </div>
-</div>
-
 <!-- ══ NAVBAR ══ -->
 <nav class="navbar">
   <div class="nav-inner">
@@ -283,77 +278,24 @@
   <section class="hero">
     <div class="hero-en">From Village to World</div>
     <h1 class="hero-h1">
-      मोबाइल से ट्रेनिंग लो,<br/>
+      ट्रेनिंग लो,<br/>
       काबिल बनो,<br/>
-      <em>और पैसा कमाना शुरू करो!</em>
+      <em>पैसा कमाओ!!</em>
     </h1>
-    <p class="hero-mission">Free Digital Education for the Global South</p>
-    <div class="hero-motto">
-      <span class="motto-item">📖 Learn</span>
-      <span class="motto-item">🔨 Build</span>
-      <span class="motto-item">🤝 Contribute</span>
-      <span class="motto-item">🌱 Grow</span>
+    <p class="hero-mission" style="font-size:15px;color:rgba(255,255,255,.85);font-style:normal;line-height:1.7;margin-bottom:20px">
+      अपने घर, परिवार, समाज और देश का<br/>
+      <strong style="color:var(--gold)">सम्मानित नागरिक बनने के लिए हमसे जुड़िए...</strong>
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px">
+      <a href="https://acslearn.com/courses/hi/index.html" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#fff;color:var(--navy);border-radius:10px;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all .2s">
+        📚 Courses देखें
+      </a>
+      <a href="/join.html" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--gold);color:var(--navy);border-radius:10px;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 4px 16px rgba(249,168,37,0.4);transition:all .2s">
+        🤝 हमसे जुड़ें
+      </a>
     </div>
     <span class="hero-free">✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क — बिना login, बिना payment</span>
   </section>
-
-  <!-- 3 CARDS -->
-  <div class="paths-wrap">
-    <div class="paths-grid">
-
-      <div class="path-card c-blue">
-        <div class="path-card-header">
-          <span class="path-icon">📚</span>
-          <span class="path-tag tag-free">✅ पूर्णतः निःशुल्क</span>
-        </div>
-        <div class="path-card-body">
-          <h2>कोर्स देखें</h2>
-          <p>बिना login, बिना payment — सीधे पढ़ाई शुरू करें। Computer, Mobile, AI, Digital Marketing — सभी कोर्स फ्री।</p>
-          <div class="path-btns">
-            <a href="https://acslearn.com/courses/hi/index.html" class="pbtn pbtn-blue">📖 अभी कोर्स खोलें</a>
-            <a href="https://acslearn.com/career/hi/local-employment.html" class="pbtn pbtn-ghost">💼 रोजगार रास्ते देखें</a>
-            <a href="https://acslearn.com/career/hi/self-employment.html" class="pbtn pbtn-ghost">🚀 स्वरोजगार देखें</a>
-            <a href="https://acslearn.com/career/hi/government-employment.html" class="pbtn pbtn-ghost">🏛️ सरकारी रोजगार</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="path-card c-gold">
-        <div class="path-card-header">
-          <span class="path-icon">🔑</span>
-          <span class="path-tag tag-paid">💳 Login आवश्यक</span>
-        </div>
-        <div class="path-card-body">
-          <h2>लॉगिन करें</h2>
-          <p>Student, Centre, Teacher, Counselor, Employer — सभी के लिए अलग dashboard। Progress, Certificate और Payment यहाँ।</p>
-          <div class="path-btns">
-            <button class="pbtn pbtn-gold" onclick="openModal()">🔑 अभी Login करें</button>
-            <button class="pbtn pbtn-ghost" onclick="openModal()">🎓 Student Login</button>
-            <button class="pbtn pbtn-ghost" onclick="openModal()">🏫 Centre / Workshop Login</button>
-            <button class="pbtn pbtn-ghost" onclick="openModal()">🔐 Admin / Head Login</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="path-card c-green">
-        <div class="path-card-header">
-          <span class="path-icon">🤝</span>
-          <span class="path-tag tag-earn">💰 कमाई का मौका</span>
-        </div>
-        <div class="path-card-body">
-          <h2>हमसे जुड़िए</h2>
-          <p>Centre/Workshop, Teacher, Niyokta, Counselor — ACS Network से जुड़कर कमाई करें। हर student की fees में आपका हिस्सा।</p>
-          <div class="path-btns">
-            <a href="https://acslearn.com/centre-register.html" class="pbtn pbtn-green">🏫 Centre / Workshop जोड़ें</a>
-            <a href="https://acslearn.com/mentors/hi/register.html" class="pbtn pbtn-ghost">👨‍🏫 Teacher / Mentor बनें</a>
-            <a href="https://acslearn.com/employers/hi/register.html" class="pbtn pbtn-ghost">💼 Niyokta / Employer बनें</a>
-            <a href="https://acslearn.com/counselors/hi/register.html" class="pbtn pbtn-ghost">🧭 Counselor बनें</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
   <!-- PAYMENT -->
   <div class="payment-strip">
@@ -497,7 +439,7 @@
         'Teacher':['Teacher'],
         'Counselor':['Counselor'],
         'Employer':['Employer'],
-        'Admin':['Founder','Head','Admin']
+        'Admin':['Founder','Head','Admin','Regional_Manager','State_Head','Legal_Head','Finance_Head','Establishment_Head','HQ_Staff','Zonal','RM','Call_Center']
       };
       const allowed=roleMap[selectedRole]||[];
       if(!allowed.includes(actualRole)){
@@ -523,14 +465,19 @@
         const redirectMap={
           'Founder':'/dashboard/founder/index.html',
           'Head':'/dashboard/hq/head/index.html',
+          'Admin':'/dashboard/hq/index.html',
+          'HQ_Staff':'/dashboard/hq/staff/index.html',
           'Legal_Head':'/dashboard/hq/legal/index.html',
           'Finance_Head':'/dashboard/hq/finance/index.html',
           'Establishment_Head':'/dashboard/hq/establishment/index.html',
-          'State_Head':'/dashboard/state/index.html',
-          'Regional_Manager':'/dashboard/regional/index.html',
+          'Zonal':'/dashboard/zonal/index.html',
+          'RM':'/dashboard/regional/index.html',
           'Centre':'/dashboard/centre/index.html',
           'Teacher':'/dashboard/teacher/index.html',
           'Student':'/dashboard/student/index.html',
+          'Counselor':'/dashboard/counselor/index.html',
+          'Employer':'/dashboard/employer/index.html',
+          'Call_Center':'/dashboard/callcenter/index.html',
         };
         const url=redirectMap[d.role];
         if(url){setTimeout(()=>{window.location.href=url;},1200);}
