@@ -1,0 +1,43 @@
+{
+  "name": "ACS Vani — Applied Computer School",
+  "short_name": "ACS Vani",
+  "description": "Free Digital Education & Calling — From Village to World",
+  "start_url": "/dashboard/index.html",
+  "display": "standalone",
+  "background_color": "#0B1F3A",
+  "theme_color": "#0B1F3A",
+  "orientation": "portrait-primary",
+  "lang": "hi",
+  "icons": [
+    {
+      "src": "https://acsbabita111.github.io/acslearn/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://acsbabita111.github.io/acslearn/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Login",
+      "url": "/dashboard/index.html",
+      "description": "ACS Dashboard Login"
+    },
+    {
+      "name": "Call Center",
+      "url": "/dashboard/callcenter/index.html",
+      "description": "Call Center"
+    },
+    {
+      "name": "Courses",
+      "url": "/courses.html",
+      "description": "Free Courses"
+    }
+  ]
+}
