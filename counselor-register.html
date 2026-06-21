@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Counselor Registration — ACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
+  --red:#E53935;--orange:#E65100;
+  --brown:#4E342E;--amber:#FF6F00;--amber-lt:#FF8F00;
+  --white:#fff;--offwhite:#FFF8F0;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+}
+html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,var(--brown),var(--amber));padding:20px 24px;display:flex;align-items:center;gap:14px;color:#fff}
+.header img{width:44px;height:44px;border-radius:10px;border:2px solid rgba(255,255,255,0.4)}
+.header-txt strong{display:block;font-size:16px;font-weight:800}
+.header-txt span{font-size:12px;opacity:.8}
+
+/* PROGRESS */
+.progress-bar{background:rgba(255,255,255,0.2);height:4px}
+.progress-fill{height:4px;background:#fff;transition:width .4s}
+
+/* CONTAINER */
+.container{max-width:680px;margin:0 auto;padding:20px 16px 40px}
+
+/* STEP INDICATOR */
+.steps{display:flex;justify-content:center;gap:0;margin-bottom:24px;overflow-x:auto;padding:4px 0}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:60px}
+.step-circle{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gray);transition:all .3s}
+.step-circle.active{background:var(--brown);border-color:var(--brown);color:#fff}
+.step-circle.done{background:var(--green);border-color:var(--green);color:#fff}
+.step-label{font-size:9px;color:var(--gray);text-align:center;font-weight:500}
+.step-item.active .step-label{color:var(--brown);font-weight:700}
+.step-line{flex:1;height:2px;background:var(--border);margin-top:-20px}
+.step-line.done{background:var(--green)}
+
+/* CARD */
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,0.08);overflow:hidden;margin-bottom:16px}
+.card-head{padding:16px 20px;background:linear-gradient(135deg,var(--brown),var(--amber));color:#fff}
+.card-head h2{font-size:16px;font-weight:800;margin-bottom:2px}
+.card-head p{font-size:12px;opacity:.8}
+.card-body{padding:20px}
+
+/* FORM */
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.req{color:var(--red)}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:13px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s;min-height:46px}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--brown);box-shadow:0 0 0 3px rgba(78,52,46,0.1)}
+.fg textarea{min-height:90px;resize:vertical}
+.fg .hint{font-size:10px;color:var(--gray);margin-top:5px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.fg-row{grid-template-columns:1fr}}
+
+/* TYPE GRID */
+.type-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:400px){.type-grid{grid-template-columns:repeat(2,1fr)}}
+.type-btn{padding:12px 6px;border:2px solid var(--border);border-radius:10px;text-align:center;cursor:pointer;transition:all .2s;background:#fff}
+.type-btn:hover{border-color:var(--amber)}
+.type-btn.sel{border-color:var(--brown);background:#FFF8F0}
+.type-icon{font-size:22px;margin-bottom:4px}
+.type-label{font-size:10px;font-weight:600;color:var(--navy)}
+
+/* FEE ROW */
+.fee-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.fee-item{background:#FFF8F0;border:1px solid #FFE0B2;border-radius:8px;padding:10px}
+.fee-item label{font-size:11px;font-weight:600;color:var(--brown);display:block;margin-bottom:4px}
+.fee-item input{width:100%;padding:7px 10px;border:1.5px solid #FFE0B2;border-radius:6px;font-size:13px;font-family:inherit;outline:none}
+.fee-item input:focus{border-color:var(--brown)}
+
+/* FREE TOGGLE */
+.free-toggle{display:flex;align-items:center;gap:10px;padding:12px;background:#E8F5E9;border:1px solid #C8E6C9;border-radius:10px;cursor:pointer;margin-bottom:12px}
+.free-toggle input{width:18px;height:18px;accent-color:var(--green)}
+.free-toggle label{font-size:13px;font-weight:600;color:var(--green);cursor:pointer}
+
+/* SECTOR TAGS */
+.sector-wrap{display:flex;flex-wrap:wrap;gap:8px}
+.sector-tag{padding:7px 14px;border:1.5px solid var(--border);border-radius:20px;font-size:12px;cursor:pointer;transition:all .2s;background:#fff;font-family:inherit;font-weight:500}
+.sector-tag.sel{border-color:var(--brown);background:#FFF8F0;color:var(--brown);font-weight:700}
+
+/* SHAPATH */
+.shapath-box{background:linear-gradient(135deg,#FFF8F0,#FFF3E0);border:2px solid #FFE0B2;border-radius:12px;padding:16px;font-size:12px;line-height:1.8;color:var(--navy);margin-bottom:14px}
+.shapath-box h4{font-size:14px;font-weight:800;color:var(--brown);margin-bottom:10px;text-align:center}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:10px;margin-top:20px}
+.btn-next{flex:1;padding:13px;background:linear-gradient(135deg,var(--brown),var(--amber));color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px rgba(78,52,46,0.3);transition:all .2s}
+.btn-next:hover{transform:translateY(-1px)}
+.btn-back{padding:13px 20px;background:#fff;color:var(--navy);border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+
+/* ALERT */
+.alert{padding:12px 16px;border-radius:8px;font-size:12px;margin-bottom:14px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.alert-info{background:#FFF3E0;color:var(--amber);border:1px solid #FFE0B2}
+.alert-ok{background:#E8F5E9;color:var(--green);border:1px solid #C8E6C9}
+.alert-err{background:#FFEBEE;color:var(--red);border:1px solid #FFCDD2}
+
+/* SUCCESS */
+.success-screen{display:none;text-align:center;padding:40px 20px}
+.success-icon{font-size:64px;margin-bottom:16px}
+.success-title{font-size:24px;font-weight:800;color:var(--brown);margin-bottom:8px}
+.success-sub{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:20px}
+.success-id{font-size:13px;font-family:monospace;background:#FFF8F0;padding:10px 20px;border-radius:8px;border:1px solid #FFE0B2;display:inline-block;color:var(--brown);font-weight:700}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:12px 24px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;opacity:0;transition:all .3s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast.ok{border-left:4px solid var(--green-lt)}
+.toast.err{border-left:4px solid var(--red)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+  <div class="header-txt">
+    <strong>Counselor Registration — ACS</strong>
+    <span>Student की जिंदगी बदलें — पहली कमाई तक साथ रहें</span>
+  </div>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:14%"></div></div>
+
+<div class="container">
+
+  <!-- STEP INDICATOR -->
+  <div class="steps" id="stepIndicator">
+    <div class="step-item active" id="si1"><div class="step-circle active" id="sc1">1</div><div class="step-label">Personal</div></div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-item" id="si2"><div class="step-circle" id="sc2">2</div><div class="step-label">Type</div></div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-item" id="si3"><div class="step-circle" id="sc3">3</div><div class="step-label">Qualification</div></div>
+    <div class="step-line" id="sl3"></div>
+    <div class="step-item" id="si4"><div class="step-circle" id="sc4">4</div><div class="step-label">Fee</div></div>
+    <div class="step-line" id="sl4"></div>
+    <div class="step-item" id="si5"><div class="step-circle" id="sc5">5</div><div class="step-label">Specialization</div></div>
+    <div class="step-line" id="sl5"></div>
+    <div class="step-item" id="si6"><div class="step-circle" id="sc6">6</div><div class="step-label">Bank</div></div>
+    <div class="step-line" id="sl6"></div>
+    <div class="step-item" id="si7"><div class="step-circle" id="sc7">7</div><div class="step-label">Shapath</div></div>
+  </div>
+
+  <!-- FORM -->
+  <div id="formArea">
+
+  <!-- STEP 1: PERSONAL INFO -->
+  <div class="step-content" id="step1">
+    <div class="card">
+      <div class="card-head">
+        <h2>👤 Personal Information</h2>
+        <p>आपकी basic details</p>
+      </div>
+      <div class="card-body">
+        <div class="fg-row">
+          <div class="fg">
+            <label>पूरा नाम <span class="req">*</span></label>
+            <input type="text" id="name" placeholder="जैसे: RAMESH KUMAR SINGH"/>
+          </div>
+          <div class="fg">
+            <label>Mobile <span class="req">*</span></label>
+            <input type="tel" id="mobile" placeholder="10 digit" maxlength="10"/>
+          </div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="आपका email"/>
+          </div>
+          <div class="fg">
+            <label>Password <span class="req">*</span></label>
+            <input type="password" id="password" placeholder="Min 8 characters"/>
+          </div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Date of Birth</label>
+            <input type="date" id="dob"/>
+          </div>
+          <div class="fg">
+            <label>Gender</label>
+            <select id="gender">
+              <option value="">— चुनें —</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>पूरा पता <span class="req">*</span></label>
+          <textarea id="address" placeholder="घर का पता, गाँव/मोहल्ला, शहर..."></textarea>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>जिला (District) <span class="req">*</span></label>
+            <input type="text" id="district" placeholder="KHAGARIA"/>
+          </div>
+          <div class="fg">
+            <label>राज्य (State) <span class="req">*</span></label>
+            <select id="state">
+              <option value="">— चुनें —</option>
+              <option>Bihar</option><option>Uttar Pradesh</option>
+              <option>Maharashtra</option><option>Karnataka</option>
+              <option>West Bengal</option><option>Madhya Pradesh</option>
+              <option>Rajasthan</option><option>Gujarat</option>
+              <option>Tamil Nadu</option><option>Telangana</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Pin Code</label>
+          <input type="number" id="pincode" placeholder="851201" maxlength="6"/>
+        </div>
+        <div class="fg">
+          <label>Languages (जो भाषाएं जानते हैं)</label>
+          <input type="text" id="languages" placeholder="जैसे: Hindi, Maithili, English, Bhojpuri"/>
+        </div>
+        <div class="btn-row">
+          <button class="btn-next" onclick="nextStep(1)">अगला → Type चुनें</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: COUNSELOR TYPE -->
+  <div class="step-content" id="step2" style="display:none">
+    <div class="card">
+      <div class="card-head">
+        <h2>🎯 Counselor Type</h2>
+        <p>आप किस area में counseling देंगे? (एक या अधिक चुनें)</p>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          <span>💡</span>
+          <div>Multiple types चुन सकते हैं। जितनी ज्यादा expertise, उतने ज्यादा students आएंगे।</div>
+        </div>
+        <div class="type-grid" id="typeGrid">
+          <div class="type-btn" onclick="toggleType(this,'Business')">
+            <div class="type-icon">🎯</div>
+            <div class="type-label">Business</div>
+          </div>
+          <div class="type-btn" onclick="toggleType(this,'Legal')">
+            <div class="type-icon">📜</div>
+            <div class="type-label">Legal</div>
+          </div>
+          <div class="type-btn" onclick="toggleType(this,'Medical')">
+            <div class="type-icon">🏥</div>
+            <div class="type-label">Medical</div>
+          </div>
+          <div class="type-btn" onclick="toggleType(this,'Finance/CA')">
+            <div class="type-icon">🏦</div>
+            <div class="type-label">Finance/CA</div>
+          </div>
+          <div class="type-btn" onclick="toggleType(this,'Digital')">
+            <div class="type-icon">💻</div>
+            <div class="type-label">Digital</div>
+          </div>
+          <div class="type-btn" onclick="toggleType(this,'Agriculture')">
+            <div class="type-icon">🌾</div>
+            <div class="type-label">Agriculture</div>
+          </div>
+          <div class="type-btn" onclick="toggleType(this,'Motivation')">
+            <div class="type-icon">🧠</div>
+            <div class="type-label">Motivation</div>
+          </div>
+          <div class="type-btn" onclick="toggleType(this,'Consumer Rights')">
+            <div class="type-icon">⚖️</div>
+            <div class="type-label">Consumer Rights</div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;padding:12px;background:#FFF8F0;border-radius:8px;font-size:12px;color:var(--gray)">
+          <strong style="color:var(--brown)">Types की जिम्मेदारी:</strong><br/>
+          🎯 Business → Plan, Marketing, Management<br/>
+          📜 Legal → License, Registration, Dispute (Bar Council No. जरूरी)<br/>
+          🏥 Medical → FSSAI, Drug License, Health schemes (Medical Reg. जरूरी)<br/>
+          🏦 Finance/CA → Bank loan, Tax, CA services (CA License जरूरी)<br/>
+          💻 Digital → WhatsApp Business, Social media, Online<br/>
+          🌾 Agriculture → NABARD, Kisan schemes, Farming<br/>
+          🧠 Motivation → Soft skills, Confidence building<br/>
+          ⚖️ Consumer Rights → झगड़ा नहीं, solution!
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="prevStep(2)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(2)">अगला → Qualification</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: QUALIFICATION -->
+  <div class="step-content" id="step3" style="display:none">
+    <div class="card">
+      <div class="card-head">
+        <h2>🎓 Qualification & Experience</h2>
+        <p>आपकी educational background और license details</p>
+      </div>
+      <div class="card-body">
+        <div class="fg-row">
+          <div class="fg">
+            <label>Highest Qualification <span class="req">*</span></label>
+            <select id="qualification">
+              <option value="">— चुनें —</option>
+              <option>10th Pass</option>
+              <option>12th Pass</option>
+              <option>Graduate (BA/BSc/BCom)</option>
+              <option>B.Tech/B.E.</option>
+              <option>MBA</option>
+              <option>LLB (Law)</option>
+              <option>MBBS/BDS</option>
+              <option>CA/CMA/CS</option>
+              <option>Post Graduate</option>
+              <option>PhD</option>
+              <option>Diploma</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Experience (साल में) <span class="req">*</span></label>
+            <input type="number" id="experience" placeholder="जैसे: 10"/>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label>Professional Registration/License Number</label>
+          <input type="text" id="licenseNum" placeholder="Bar Council No. / CA Reg. / Medical Reg. / NABARD Cert. (अगर applicable)"/>
+          <div class="hint">Legal Counselor के लिए Bar Council No. जरूरी | Finance के लिए CA/CMA No. | Medical के लिए MCI No.</div>
+        </div>
+
+        <div class="fg">
+          <label>Previous Work Experience</label>
+          <textarea id="workExp" placeholder="आपने पहले कहाँ काम किया? Company, role, duration..."></textarea>
+        </div>
+
+        <div class="fg">
+          <label>Success Stories (अगर हो)</label>
+          <textarea id="successStory" placeholder="कोई student जिसे आपने help किया हो — business शुरू हुआ, loan मिला, license मिला..."></textarea>
+        </div>
+
+        <div class="fg">
+          <label>Aadhar Card Number</label>
+          <input type="number" id="aadhar" placeholder="12 digit Aadhar" maxlength="12"/>
+          <div class="hint">Verification के लिए। Encrypted रहेगा।</div>
+        </div>
+
+        <div class="fg">
+          <label>PAN Card Number</label>
+          <input type="text" id="pan" placeholder="ABCDE1234F" maxlength="10" style="text-transform:uppercase"/>
+          <div class="hint">Payment के लिए जरूरी।</div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="prevStep(3)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(3)">अगला → Fee Structure</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: FEE STRUCTURE -->
+  <div class="step-content" id="step4" style="display:none">
+    <div class="card">
+      <div class="card-head">
+        <h2>💰 Fee Structure</h2>
+        <p>Students आपकी fee देखकर book करेंगे</p>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          <span>💡</span>
+          <div>₹0 = Free counseling। छोटे उद्यम के लिए free counseling offer करने वाले Counselors को priority दी जाएगी। Students fee देखकर choose करेंगे — सस्ते से महंगे तक।</div>
+        </div>
+
+        <div class="free-toggle">
+          <input type="checkbox" id="freeToggle" onchange="toggleFree(this)"/>
+          <label for="freeToggle">💚 Free Counseling Offer करना चाहते हैं? (छोटे उद्यम के लिए)</label>
+        </div>
+
+        <div class="fee-row">
+          <div class="fee-item">
+            <label>📞 Phone Call (30 min) ₹</label>
+            <input type="number" id="feePhone" placeholder="0 = Free" value="0"/>
+          </div>
+          <div class="fee-item">
+            <label>🎥 Video Call (1 hour) ₹</label>
+            <input type="number" id="feeVideo" placeholder="0 = Free" value="0"/>
+          </div>
+          <div class="fee-item">
+            <label>🤝 In-person Meeting ₹</label>
+            <input type="number" id="feeInPerson" placeholder="500"/>
+          </div>
+          <div class="fee-item">
+            <label>📄 Document Review ₹</label>
+            <input type="number" id="feeDoc" placeholder="200"/>
+          </div>
+        </div>
+
+        <div class="fee-item" style="margin-bottom:12px">
+          <label>🏛️ Bank/Office Accompany ₹ (Lead Bank DM, Udyog Office, Consumer Forum)</label>
+          <input type="number" id="feeAccompany" placeholder="500-2000" style="margin-top:6px;width:100%;padding:8px;border:1.5px solid #FFE0B2;border-radius:6px;font-size:13px;font-family:inherit;outline:none"/>
+        </div>
+
+        <div style="background:#E8F5E9;border-radius:8px;padding:12px;font-size:12px;color:var(--green)">
+          💡 <strong>Tip:</strong> पहले कम fee रखें → अच्छी rating मिले → बाद में बढ़ाएं। First earning facilitate करने पर ACS bonus देगा।
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="prevStep(4)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(4)">अगला → Specialization</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: SPECIALIZATION -->
+  <div class="step-content" id="step5" style="display:none">
+    <div class="card">
+      <div class="card-head">
+        <h2>🎯 Specialization</h2>
+        <p>किस sector में help कर सकते हैं?</p>
+      </div>
+      <div class="card-body">
+        <div class="fg">
+          <label>Sectors (जो आपकी expertise है)</label>
+          <div class="sector-wrap" id="sectorWrap">
+            <button class="sector-tag" onclick="toggleSector(this)">🎋 Bamboo/Handicraft</button>
+            <button class="sector-tag" onclick="toggleSector(this)">📱 Mobile/Electronics</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🍕 Food/FSSAI</button>
+            <button class="sector-tag" onclick="toggleSector(this)">💊 Medical/Pharmacy</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🌾 Agriculture/Farming</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🏗️ Construction</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🧵 Tailoring/Fashion</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🚗 Transport/Logistics</button>
+            <button class="sector-tag" onclick="toggleSector(this)">📚 Education/Training</button>
+            <button class="sector-tag" onclick="toggleSector(this)">💻 IT/Digital</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🏦 Finance/Banking</button>
+            <button class="sector-tag" onclick="toggleSector(this)">⚖️ Legal/Compliance</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🐄 Dairy/Poultry</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🎨 Art/Craft</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🏪 Retail/Shop</button>
+            <button class="sector-tag" onclick="toggleSector(this)">🌿 Green/Eco Business</button>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label>Service Area (जहाँ आप available हैं)</label>
+          <select id="serviceArea">
+            <option value="">— चुनें —</option>
+            <option>My District only</option>
+            <option>My State (Online + In-person)</option>
+            <option>Pan India (Online only)</option>
+            <option>Pan India (Online + Travel)</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label>Availability</label>
+          <select id="availability">
+            <option>Weekdays only</option>
+            <option>Weekends only</option>
+            <option>Anytime</option>
+            <option>Morning only (6-12)</option>
+            <option>Evening only (6-10 PM)</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label>About Me (Students को क्या बताना चाहते हैं?)</label>
+          <textarea id="aboutMe" placeholder="अपना experience, approach, what makes you unique as a counselor...&#10;&#10;जैसे: 'मैं 15 साल से NABARD में काम किया है। खगड़िया में 200+ farmers को loan दिलाया है।'"></textarea>
+        </div>
+
+        <div class="fg">
+          <label>उद्यम विकिपीडिया में योगदान</label>
+          <div style="padding:12px;background:#F1F8E9;border-radius:8px;font-size:12px;color:var(--green)">
+            <strong>🌿 आप "खगड़िया का बांस" project में contribute करेंगे?</strong><br/>
+            अपने local knowledge से उद्यमों की list में नई entries add करें।
+          </div>
+          <select id="udyamContrib" style="margin-top:8px">
+            <option>हाँ — मैं contribute करूँगा/करूँगी</option>
+            <option>शायद — बाद में decide करूँगा/करूँगी</option>
+            <option>नहीं अभी</option>
+          </select>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="prevStep(5)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(5)">अगला → Bank Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6: BANK DETAILS -->
+  <div class="step-content" id="step6" style="display:none">
+    <div class="card">
+      <div class="card-head">
+        <h2>🏦 Bank Details</h2>
+        <p>Counseling fees यहाँ आएंगी</p>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          <span>🏦</span>
+          <div>Payment PAN card से जाएगा। Razorpay Phase 4 में integrate होगा।</div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>Account Holder Name <span class="req">*</span></label>
+            <input type="text" id="bankName" placeholder="जैसे पर Name पर है"/>
+          </div>
+          <div class="fg">
+            <label>Account Number <span class="req">*</span></label>
+            <input type="number" id="bankAcc" placeholder="Account Number"/>
+          </div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>IFSC Code <span class="req">*</span></label>
+            <input type="text" id="ifsc" placeholder="SBIN0001234" style="text-transform:uppercase" oninput="fetchIFSC(this.value)"/>
+          </div>
+          <div class="fg">
+            <label>Bank Name (Auto)</label>
+            <input type="text" id="bankNameAuto" readonly placeholder="IFSC से auto"/>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Branch (Auto)</label>
+          <input type="text" id="branchAuto" readonly placeholder="IFSC से auto"/>
+        </div>
+        <div class="fg">
+          <label>Account Type</label>
+          <select id="accType">
+            <option>Savings Account</option>
+            <option>Current Account</option>
+          </select>
+        </div>
+        <div class="btn-row">
+          <button class="btn-back" onclick="prevStep(6)">← वापस</button>
+          <button class="btn-next" onclick="nextStep(6)">अगला → Shapath Patra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7: SHAPATH PATRA -->
+  <div class="step-content" id="step7" style="display:none">
+    <div class="card">
+      <div class="card-head">
+        <h2>🙏 Shapath Patra — शपथ पत्र</h2>
+        <p>Counselor की Ethics Pledge</p>
+      </div>
+      <div class="card-body">
+        <div class="shapath-box">
+          <h4>🙏 Counselor की शपथ</h4>
+          मैं <strong id="shapathName">___</strong>, ACS Counselor के रूप में शपथ लेता/लेती हूँ कि:
+          <br/><br/>
+          <strong>1.</strong> मैं अपने हर Student की Motivation से लेकर पहली कमाई तक — ईमानदारी से guide करूँगा/करूँगी।
+          <br/>
+          <strong>2.</strong> मैं सही और verified जानकारी ही दूँगा/दूँगी। गलत या अधूरी जानकारी से student को नुकसान नहीं पहुँचाऊंगा/पहुँचाऊंगी।
+          <br/>
+          <strong>3.</strong> Legal, Medical, Finance counseling में मैं सिर्फ वही advice दूँगा/दूँगी जिसकी मुझे proper qualification है।
+          <br/>
+          <strong>4.</strong> मैं Consumer Rights और Duties के बारे में students को सही जानकारी दूँगा/दूँगी ताकि झगड़े न हों।
+          <br/>
+          <strong>5.</strong> मैं उद्यम विकिपीडिया में अपना local knowledge share करूँगा/करूँगी।
+          <br/>
+          <strong>6.</strong> मैं किसी भी Student से unfair fee नहीं लूँगा/लूँगी।
+          <br/>
+          <strong>7.</strong> मैं ACS के rules और guidelines का पालन करूँगा/करूँगी।
+          <br/>
+          <strong>8.</strong> मैं Child safety और DPDP Act 2023 का पालन करूँगा/करूँगी।
+          <br/><br/>
+          <strong style="color:var(--brown)">इस शपथ को तोड़ने पर मेरा Counselor account suspend/terminate हो सकता है।</strong>
+        </div>
+
+        <div class="fg">
+          <div style="display:flex;align-items:flex-start;gap:10px;padding:14px;background:#FFF8F0;border:1.5px solid var(--amber);border-radius:10px;cursor:pointer" onclick="document.getElementById('shapathAgree').click()">
+            <input type="checkbox" id="shapathAgree" style="width:18px;height:18px;accent-color:var(--brown);flex-shrink:0;margin-top:2px"/>
+            <label for="shapathAgree" style="font-size:13px;font-weight:600;color:var(--brown);cursor:pointer;line-height:1.5">
+              मैं उपरोक्त शपथ को पढ़कर समझ लिया/ली हूँ और इसे स्वीकार करता/करती हूँ।
+            </label>
+          </div>
+        </div>
+
+        <div class="alert-err alert" id="regErr" style="display:none">
+          <span>❌</span><span id="regErrMsg"></span>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="prevStep(7)">← वापस</button>
+          <button class="btn-next" onclick="submitForm()" id="submitBtn">✅ Registration Submit करें</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /formArea -->
+
+  <!-- SUCCESS -->
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">🎉</div>
+    <div class="success-title">Registration Successful!</div>
+    <div class="success-sub">
+      आपका Counselor application submit हो गया।<br/>
+      ACS team review करेगी और 2-3 दिन में approve करेगी।<br/>
+      Approved होने पर आप Student Marketplace में दिखेंगे।
+    </div>
+    <div class="success-id" id="successId">ACS-COUN-XXXXXX</div>
+    <br/><br/>
+    <a href="/dashboard/index.html" style="display:inline-block;padding:12px 28px;background:linear-gradient(135deg,var(--brown),var(--amber));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;font-size:14px">
+      🔑 Login करें →
+    </a>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- FIREBASE -->
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getAuth,createUserWithEmailAndPassword}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import{getFirestore,collection,addDoc,doc,setDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth=getAuth(app),db=getFirestore(app);
+
+window._submitToFirebase=async function(data){
+  // Firebase Auth account बनाएं
+  const cred=await createUserWithEmailAndPassword(auth,data.email,data.password);
+  const uid=cred.user.uid;
+  // users collection में role save करें
+  await setDoc(doc(db,'users',uid),{
+    name:data.name,
+    role:'Counselor',
+    email:data.email,
+    mobile:data.mobile,
+    status:'pending',
+    createdAt:serverTimestamp(),
+  });
+  // counselor_registrations में full data save करें
+  const ref=await addDoc(collection(db,'counselor_registrations'),{
+    ...data,
+    uid,
+    status:'pending',
+    submittedAt:serverTimestamp(),
+  });
+  return{uid,refId:ref.id};
+};
+</script>
+
+<script>
+let currentStep=1;
+let selectedTypes=[];
+let selectedSectors=[];
+
+// ── STEP NAVIGATION ──
+function updateStepUI(step){
+  for(let i=1;i<=7;i++){
+    const sc=document.getElementById('sc'+i);
+    const si=document.getElementById('si'+i);
+    if(i<step){sc.className='step-circle done';sc.textContent='✓';si.querySelector('.step-label').style.color='var(--green)'}
+    else if(i===step){sc.className='step-circle active';sc.textContent=i;si.querySelector('.step-label').style.color='var(--brown)'}
+    else{sc.className='step-circle';sc.textContent=i;si.querySelector('.step-label').style.color='var(--gray)'}
+    if(i<7){const sl=document.getElementById('sl'+i);if(sl)sl.className='step-line'+(i<step?' done':'')}
+  }
+  document.getElementById('progressFill').style.width=(step/7*100)+'%';
+}
+
+window.nextStep=function(from){
+  if(!validateStep(from))return;
+  document.getElementById('step'+from).style.display='none';
+  document.getElementById('step'+(from+1)).style.display='block';
+  currentStep=from+1;
+  updateStepUI(currentStep);
+  window.scrollTo(0,0);
+};
+
+window.prevStep=function(from){
+  document.getElementById('step'+from).style.display='none';
+  document.getElementById('step'+(from-1)).style.display='block';
+  currentStep=from-1;
+  updateStepUI(currentStep);
+  window.scrollTo(0,0);
+};
+
+function validateStep(step){
+  if(step===1){
+    const name=document.getElementById('name').value.trim();
+    const mobile=document.getElementById('mobile').value.trim();
+    const email=document.getElementById('email').value.trim();
+    const password=document.getElementById('password').value;
+    const district=document.getElementById('district').value.trim();
+    const state=document.getElementById('state').value;
+    if(!name){showToast('नाम जरूरी है','err');return false}
+    if(mobile.length!==10){showToast('10 digit Mobile जरूरी है','err');return false}
+    if(!email||!email.includes('@')){showToast('Valid Email जरूरी है','err');return false}
+    if(password.length<8){showToast('Password minimum 8 characters','err');return false}
+    if(!district){showToast('जिला जरूरी है','err');return false}
+    if(!state){showToast('राज्य चुनें','err');return false}
+    document.getElementById('shapathName').textContent=name;
+    return true;
+  }
+  if(step===2){
+    if(selectedTypes.length===0){showToast('कम से कम एक Counselor type चुनें','err');return false}
+    return true;
+  }
+  if(step===3){
+    if(!document.getElementById('qualification').value){showToast('Qualification जरूरी है','err');return false}
+    if(!document.getElementById('experience').value){showToast('Experience जरूरी है','err');return false}
+    return true;
+  }
+  if(step===6){
+    if(!document.getElementById('bankName').value){showToast('Account holder name जरूरी है','err');return false}
+    if(!document.getElementById('bankAcc').value){showToast('Account number जरूरी है','err');return false}
+    if(!document.getElementById('ifsc').value){showToast('IFSC code जरूरी है','err');return false}
+    return true;
+  }
+  return true;
+}
+
+// ── TYPE TOGGLE ──
+window.toggleType=function(el,type){
+  el.classList.toggle('sel');
+  if(el.classList.contains('sel')){
+    if(!selectedTypes.includes(type))selectedTypes.push(type);
+  }else{
+    selectedTypes=selectedTypes.filter(t=>t!==type);
+  }
+};
+
+// ── SECTOR TOGGLE ──
+window.toggleSector=function(el){
+  el.classList.toggle('sel');
+  const sector=el.textContent.trim();
+  if(el.classList.contains('sel')){
+    if(!selectedSectors.includes(sector))selectedSectors.push(sector);
+  }else{
+    selectedSectors=selectedSectors.filter(s=>s!==sector);
+  }
+};
+
+// ── FREE TOGGLE ──
+window.toggleFree=function(cb){
+  if(cb.checked){
+    document.getElementById('feePhone').value='0';
+    document.getElementById('feeVideo').value='0';
+    showToast('Free counseling offer — Students को पहले आप दिखेंगे!','ok');
+  }
+};
+
+// ── IFSC FETCH ──
+window.fetchIFSC=async function(ifsc){
+  if(ifsc.length!==11)return;
+  try{
+    const r=await fetch('https://ifsc.razorpay.com/'+ifsc.toUpperCase());
+    const d=await r.json();
+    if(d.BANK){
+      document.getElementById('bankNameAuto').value=d.BANK;
+      document.getElementById('branchAuto').value=d.BRANCH||'';
+      showToast('✅ Bank: '+d.BANK,'ok');
+    }
+  }catch(e){}
+};
+
+// ── SUBMIT ──
+window.submitForm=async function(){
+  if(!document.getElementById('shapathAgree').checked){
+    showToast('Shapath Patra accept करना जरूरी है','err');return;
+  }
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='⏳ Submit हो रहा है...';
+  btn.disabled=true;
+
+  const data={
+    // Personal
+    name:document.getElementById('name').value.trim().toUpperCase(),
+    mobile:document.getElementById('mobile').value.trim(),
+    email:document.getElementById('email').value.trim().toLowerCase(),
+    password:document.getElementById('password').value,
+    dob:document.getElementById('dob').value,
+    gender:document.getElementById('gender').value,
+    address:document.getElementById('address').value.trim(),
+    district:document.getElementById('district').value.trim().toUpperCase(),
+    state:document.getElementById('state').value,
+    pincode:document.getElementById('pincode').value,
+    languages:document.getElementById('languages').value,
+    // Type & Qualification
+    counselorTypes:selectedTypes,
+    qualification:document.getElementById('qualification').value,
+    experience:document.getElementById('experience').value,
+    licenseNum:document.getElementById('licenseNum').value,
+    workExp:document.getElementById('workExp').value,
+    successStory:document.getElementById('successStory').value,
+    aadhar:document.getElementById('aadhar').value,
+    pan:document.getElementById('pan').value.toUpperCase(),
+    // Fees
+    fees:{
+      phone:parseInt(document.getElementById('feePhone').value)||0,
+      video:parseInt(document.getElementById('feeVideo').value)||0,
+      inPerson:parseInt(document.getElementById('feeInPerson').value)||0,
+      doc:parseInt(document.getElementById('feeDoc').value)||0,
+      accompany:parseInt(document.getElementById('feeAccompany').value)||0,
+    },
+    freeOffered:document.getElementById('freeToggle').checked,
+    // Specialization
+    sectors:selectedSectors,
+    serviceArea:document.getElementById('serviceArea').value,
+    availability:document.getElementById('availability').value,
+    aboutMe:document.getElementById('aboutMe').value,
+    udyamContrib:document.getElementById('udyamContrib').value,
+    // Bank
+    bank:{
+      name:document.getElementById('bankName').value,
+      acc:document.getElementById('bankAcc').value,
+      ifsc:document.getElementById('ifsc').value.toUpperCase(),
+      bankName:document.getElementById('bankNameAuto').value,
+      branch:document.getElementById('branchAuto').value,
+      type:document.getElementById('accType').value,
+    },
+  };
+
+  try{
+    const{uid,refId}=await window._submitToFirebase(data);
+    const counselorId='ACS-COUN-'+refId.substring(0,6).toUpperCase();
+    document.getElementById('successId').textContent=counselorId;
+    document.getElementById('formArea').style.display='none';
+    document.getElementById('stepIndicator').style.display='none';
+    document.getElementById('successScreen').style.display='block';
+    window.scrollTo(0,0);
+  }catch(e){
+    let msg='Registration failed: '+e.message;
+    if(e.code==='auth/email-already-in-use')msg='यह Email already registered है। Login करें।';
+    if(e.code==='auth/weak-password')msg='Password कम से कम 6 characters होना चाहिए।';
+    document.getElementById('regErr').style.display='flex';
+    document.getElementById('regErrMsg').textContent=msg;
+    btn.textContent='✅ Registration Submit करें';
+    btn.disabled=false;
+    showToast(msg,'err');
+  }
+};
+
+// ── TOAST ──
+function showToast(msg,type='ok'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
+}
+window.showToast=showToast;
+</script>
+</body>
+</html>
