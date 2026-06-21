@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HQ Legal Dashboard — ACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
+  --red:#E53935;--orange:#E65100;
+  --maroon:#880E4F;--maroon-lt:#AD1457;
+  --white:#fff;--offwhite:#FFF5F8;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+  --sidebar:260px;
+}
+html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
+.app{display:flex;min-height:100vh}
+.sidebar{width:var(--sidebar);background:linear-gradient(180deg,#4A0E2A 0%,#880E4F 100%);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform .3s}
+.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column}
+@media(max-width:768px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}}
+.sb-logo{padding:20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
+.sb-logo img{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.3)}
+.sb-logo-txt strong{display:block;font-size:12px;font-weight:700;color:#fff}
+.sb-logo-txt span{font-size:10px;color:#F48FB1}
+.sb-user{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
+.sb-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4A0E2A,#AD1457);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;border:2px solid rgba(255,255,255,0.3)}
+.sb-user-info strong{display:block;font-size:12px;color:#fff;font-weight:700}
+.sb-user-info span{font-size:10px;color:#F48FB1;font-weight:600}
+.sb-nav{flex:1;padding:12px 0;overflow-y:auto}
+.nav-section{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,0.08);border-left-color:rgba(255,255,255,0.3)}
+.nav-item.active{background:rgba(255,255,255,0.15);border-left-color:#F48FB1}
+.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0}
+.nav-label{font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
+.nav-item.active .nav-label{color:#fff;font-weight:700}
+.nav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
+.sb-bottom{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.12)}
+.logout-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;width:100%;font-family:inherit;color:rgba(255,255,255,0.8);font-size:12px;font-weight:600}
+.topbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer}
+@media(max-width:768px){.menu-btn{display:block}}
+.topbar-title{font-size:15px;font-weight:700;color:var(--navy);flex:1}
+.icon-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.content{padding:20px 24px;flex:1}
+@media(max-width:600px){.content{padding:12px 14px}}
+.page{display:none}
+.page.active{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.page-header{margin-bottom:20px}
+.page-header h2{font-size:20px;font-weight:800;color:var(--navy)}
+.page-header p{font-size:13px;color:var(--gray);margin-top:2px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
+.stat-card:hover{transform:translateY(-2px)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.stat-card.maroon::before{background:linear-gradient(90deg,var(--maroon),var(--maroon-lt))}
+.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#FFD54F)}
+.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--green-lt))}
+.stat-card.red::before{background:linear-gradient(90deg,var(--red),#FF8A80)}
+.stat-icon{font-size:22px;margin-bottom:8px}
+.stat-num{font-size:24px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
+.stat-label{font-size:11px;color:var(--gray)}
+.stat-sub{font-size:10px;margin-top:4px;font-weight:600}
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-head h3{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px}
+.card-body{padding:16px 18px}
+.card-head-action{font-size:11px;color:var(--maroon);font-weight:600;cursor:pointer;border:1px solid rgba(136,14,79,0.2);background:none;font-family:inherit;padding:4px 10px;border-radius:6px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:5px}
+.req{color:var(--red)}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s;min-height:44px}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--maroon);box-shadow:0 0 0 3px rgba(136,14,79,0.1)}
+.fg textarea{min-height:80px;resize:vertical}
+.fg .hint{font-size:10px;color:var(--gray);margin-top:4px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.fg-row{grid-template-columns:1fr}}
+.btn-row{display:flex;gap:10px;margin-top:16px}
+.btn-primary{flex:1;padding:12px;background:linear-gradient(135deg,var(--maroon),var(--maroon-lt));color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 4px 12px rgba(136,14,79,0.3)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-secondary{padding:12px 16px;background:#fff;color:var(--navy);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.btn-green{flex:1;padding:12px;background:linear-gradient(135deg,var(--green),#43A047);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+.btn-red{flex:1;padding:12px;background:linear-gradient(135deg,var(--red),#EF5350);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);border-bottom:1px solid var(--border);background:#FFF5F8}
+td{padding:10px 12px;border-bottom:1px solid #F0F4F8;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#FFF5F8}
+.status-pill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block}
+.sp-pending{background:#FFF3E0;color:var(--orange)}
+.sp-sent{background:#EEF4FF;color:var(--blue)}
+.sp-clear{background:#E8F5E9;color:var(--green)}
+.sp-issue{background:#FFEBEE;color:var(--red)}
+.sp-na{background:#F0F0F0;color:var(--gray)}
+.alert{padding:12px 16px;border-radius:8px;font-size:12px;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.alert-info{background:#FCE4EC;color:var(--maroon);border:1px solid #F48FB1}
+.alert-ok{background:#E8F5E9;color:var(--green);border:1px solid #C8E6C9}
+.alert-warn{background:#FFF3E0;color:var(--orange);border:1px solid #FFE0B2}
+.alert-err{background:#FFEBEE;color:var(--red);border:1px solid #FFCDD2}
+.empty{text-align:center;padding:32px;color:var(--gray)}
+.empty-icon{font-size:36px;margin-bottom:8px}
+.empty p{font-size:12px;line-height:1.6}
+.sla-bar{display:flex;align-items:center;gap:8px;font-size:11px;margin-top:4px}
+.sla-wrap{flex:1;background:#F0F0F0;border-radius:10px;height:5px;overflow:hidden}
+.sla-fill{height:5px;border-radius:10px}
+.sla-green{background:var(--green)}
+.sla-yellow{background:var(--gold)}
+.sla-red{background:var(--red)}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-left:4px solid var(--green-lt)}
+.toast.err{border-left:4px solid var(--red)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:14px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto}
+.modal-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff}
+.modal-head h3{font-size:15px;font-weight:700;color:var(--navy)}
+.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray)}
+.modal-body{padding:20px}
+.modal-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;gap:10px}
+.detail-row{display:flex;gap:8px;padding:8px 0;border-bottom:1px solid #F0F4F8;font-size:12px}
+.detail-row:last-child{border:none}
+.detail-key{color:var(--gray);min-width:130px;font-weight:500}
+.detail-val{color:var(--navy);font-weight:600;flex:1}
+.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
+@media(max-width:768px){.sb-overlay.open{display:block}}
+</style>
+</head>
+<body>
+<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+    <div class="sb-logo-txt">
+      <strong>Applied Computer School™</strong>
+      <span>HQ Legal Head</span>
+    </div>
+  </div>
+  <div class="sb-user">
+    <div class="sb-avatar" id="sbAvatar">L</div>
+    <div class="sb-user-info">
+      <strong id="sbName">Legal Head</strong>
+      <span>⚖️ HQ Legal Head</span>
+    </div>
+  </div>
+  <nav class="sb-nav">
+    <div class="nav-section">Overview</div>
+    <div class="nav-item active" onclick="showPage('overview',this)">
+      <span class="nav-icon">📊</span><span class="nav-label">Dashboard</span>
+    </div>
+    <div class="nav-section">Centre CR</div>
+    <div class="nav-item" onclick="showPage('cr-queue',this)">
+      <span class="nav-icon">📋</span><span class="nav-label">CR Queue</span>
+      <span class="nav-badge" id="crQueueCount">0</span>
+    </div>
+    <div class="nav-item" onclick="showPage('cr-sent',this)">
+      <span class="nav-icon">📤</span><span class="nav-label">CR Sent to Police</span>
+    </div>
+    <div class="nav-item" onclick="showPage('cr-received',this)">
+      <span class="nav-icon">📥</span><span class="nav-label">CR Received</span>
+    </div>
+    <div class="nav-section">Placement CR</div>
+    <div class="nav-item" onclick="showPage('placement-cr',this)">
+      <span class="nav-icon">💼</span><span class="nav-label">Student Placement CR</span>
+    </div>
+    <div class="nav-section">Reports</div>
+    <div class="nav-item" onclick="showPage('sla-report',this)">
+      <span class="nav-icon">⏱️</span><span class="nav-label">SLA Report</span>
+    </div>
+    <div class="nav-item" onclick="showPage('audit',this)">
+      <span class="nav-icon">📝</span><span class="nav-label">Audit Trail</span>
+    </div>
+    <div class="nav-section">My Team</div>
+    <div class="nav-item" onclick="showPage('my-team',this)">
+      <span class="nav-icon">👥</span><span class="nav-label">My Assistants</span>
+    </div>
+    <div class="nav-item" onclick="showPage('salary',this)">
+      <span class="nav-icon">💰</span><span class="nav-label">Salary Bill</span>
+    </div>
+  </nav>
+  <div class="sb-bottom">
+    <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
+  </div>
+</aside>
+<div class="main">
+  <div class="topbar">
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <div class="topbar-title" id="topbarTitle">Dashboard</div>
+    <div style="display:flex;gap:8px">
+      <button class="icon-btn" onclick="loadData()">🔄</button>
+    </div>
+  </div>
+  <div class="content">
+
+  <!-- OVERVIEW -->
+  <div class="page active" id="page-overview">
+    <div class="page-header">
+      <h2 id="welcomeText">नमस्ते! 🙏</h2>
+      <p>HQ Legal Head Dashboard — CR Verification</p>
+    </div>
+    <div class="alert alert-info">
+      <span>⚖️</span>
+      <div><strong>आपका काम:</strong> State Head से आए Centres का Police CR verify करें। Clear → HQ Finance को भेजें। Problem → State Head को Return करें। SLA: 15 दिन।</div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card maroon">
+        <div class="stat-icon">📋</div>
+        <div class="stat-num" id="st-queue">0</div>
+        <div class="stat-label">CR Queue</div>
+        <div class="stat-sub" style="color:var(--orange)">Pending Verification</div>
+      </div>
+      <div class="stat-card gold">
+        <div class="stat-icon">📤</div>
+        <div class="stat-num" id="st-sent">0</div>
+        <div class="stat-label">Sent to Police</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">✅</div>
+        <div class="stat-num" id="st-clear">0</div>
+        <div class="stat-label">CR Cleared</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-icon">❌</div>
+        <div class="stat-num" id="st-issue">0</div>
+        <div class="stat-label">CR Issues</div>
+      </div>
+      <div class="stat-card maroon">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-num" id="st-avg-days">0</div>
+        <div class="stat-label">Avg Days (SLA: 15)</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-icon">📊</div>
+        <div class="stat-num" id="st-sla-pct">0%</div>
+        <div class="stat-label">SLA Compliance</div>
+      </div>
+    </div>
+
+    <!-- SLA STATUS -->
+    <div class="card">
+      <div class="card-head"><h3>⏱️ SLA Status</h3></div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:12px;text-align:center">
+          <div style="padding:12px;background:#E8F5E9;border-radius:8px">
+            <div style="font-size:20px;font-weight:800;color:var(--green)" id="sla-green">0</div>
+            <div style="color:var(--gray)">🟢 &lt;15 days</div>
+          </div>
+          <div style="padding:12px;background:#FFF3E0;border-radius:8px">
+            <div style="font-size:20px;font-weight:800;color:var(--orange)" id="sla-yellow">0</div>
+            <div style="color:var(--gray)">🟡 15-25 days</div>
+          </div>
+          <div style="padding:12px;background:#FFEBEE;border-radius:8px">
+            <div style="font-size:20px;font-weight:800;color:var(--red)" id="sla-red">0</div>
+            <div style="color:var(--gray)">🔴 &gt;25 days</div>
+          </div>
+        </div>
+        <div class="alert alert-warn" style="margin-top:12px">
+          <span>⚠️</span>
+          <div>25 दिन से ज्यादा pending → Founder को automatic alert जाएगा।</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h3>📋 Recent CR Queue</h3>
+        <button class="card-head-action" onclick="showPage('cr-queue',document.querySelector('[onclick*=cr-queue]'))">सब देखें →</button>
+      </div>
+      <div class="card-body" id="recentCR">
+        <div class="empty"><div class="empty-icon">📋</div><p>State Head से कोई application नहीं आया।</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CR QUEUE -->
+  <div class="page" id="page-cr-queue">
+    <div class="page-header">
+      <h2>📋 CR Queue</h2>
+      <p>State Head से आए — Police CR करना है</p>
+    </div>
+    <div class="alert alert-info">
+      <span>⚖️</span>
+      <div><strong>Process:</strong> Application receive → Police Station भेजें → CR आने पर Clear/Issue mark करें → Finance को भेजें।</div>
+    </div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Application ID</th>
+              <th>Centre</th>
+              <th>Owner</th>
+              <th>जिला</th>
+              <th>Received</th>
+              <th>Days</th>
+              <th>SLA</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="crQueueTable">
+            <tr><td colspan="8" style="text-align:center;padding:30px;color:var(--gray)">
+              <div style="font-size:24px">📋</div>
+              अभी कोई application नहीं। State Head से आने पर यहाँ दिखेगा।
+            </td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- CR SENT -->
+  <div class="page" id="page-cr-sent">
+    <div class="page-header">
+      <h2>📤 CR Sent to Police</h2>
+      <p>Police Station को भेजे गए — Response का इंतजार</p>
+    </div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Centre</th><th>Police Station</th><th>Sent Date</th><th>Tracking No.</th><th>Days Waiting</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="crSentTable">
+            <tr><td colspan="7" style="text-align:center;padding:24px;color:var(--gray)">अभी कोई CR sent नहीं।</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- CR RECEIVED -->
+  <div class="page" id="page-cr-received">
+    <div class="page-header">
+      <h2>📥 CR Received</h2>
+      <p>Police से CR आ गया — Action लें</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>CR Update करें</h3></div>
+      <div class="card-body">
+        <div class="fg">
+          <label>Centre Select करें <span class="req">*</span></label>
+          <select id="crCentre">
+            <option value="">— Centre चुनें —</option>
+          </select>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label>CR Result <span class="req">*</span></label>
+            <select id="crResult">
+              <option value="">— चुनें —</option>
+              <option value="clear">✅ Clear — कोई criminal record नहीं</option>
+              <option value="issue">❌ Issue — criminal record मिला</option>
+              <option value="pending">⏳ Police ने जवाब नहीं दिया</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>CR Date</label>
+            <input type="date" id="crDate"/>
+          </div>
+        </div>
+        <div class="fg">
+          <label>CR Number / Reference</label>
+          <input type="text" id="crNumber" placeholder="Police CR Reference Number"/>
+        </div>
+        <div class="fg" id="crIssueWrap" style="display:none">
+          <label>Issue Details <span class="req">*</span></label>
+          <textarea id="crIssueDesc" placeholder="क्या issue मिला? State Head को क्या बताएं?"></textarea>
+        </div>
+        <div class="fg">
+          <label>Notes</label>
+          <textarea id="crNotes" placeholder="Additional notes..."></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="showPage('cr-queue',document.querySelector('[onclick*=cr-queue]'))">← वापस</button>
+          <button class="btn-primary" onclick="updateCR()">✅ CR Update करें</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>📋 CR History</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Centre</th><th>CR Date</th><th>Result</th><th>Action Taken</th></tr>
+          </thead>
+          <tbody id="crHistoryTable">
+            <tr><td colspan="4" style="text-align:center;padding:20px;color:var(--gray)">अभी कोई CR history नहीं।</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLACEMENT CR -->
+  <div class="page" id="page-placement-cr">
+    <div class="page-header">
+      <h2>💼 Student Placement CR</h2>
+      <p>Employer द्वारा selected student का CR</p>
+    </div>
+    <div class="alert alert-info">
+      <span>💼</span>
+      <div><strong>Process:</strong> Employer ने Student select किया → ACS CR request करता है → आप Police को भेजें → Clear → Job Confirm। Issue → Employer + State inform।</div>
+    </div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Student</th><th>Employer</th><th>Job Role</th><th>CR Status</th><th>Days</th><th>Action</th></tr>
+          </thead>
+          <tbody id="placementCRTable">
+            <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--gray)">अभी कोई placement CR request नहीं।</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLA REPORT -->
+  <div class="page" id="page-sla-report">
+    <div class="page-header">
+      <h2>⏱️ SLA Report</h2>
+      <p>Processing time analysis</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card green"><div class="stat-icon">⚡</div><div class="stat-num" id="sla-best">0 days</div><div class="stat-label">Best Time</div></div>
+      <div class="stat-card gold"><div class="stat-icon">📊</div><div class="stat-num" id="sla-avg">0 days</div><div class="stat-label">Average Time</div></div>
+      <div class="stat-card red"><div class="stat-icon">🐢</div><div class="stat-num" id="sla-worst">0 days</div><div class="stat-label">Worst Time</div></div>
+      <div class="stat-card maroon"><div class="stat-icon">🎯</div><div class="stat-num" id="sla-target">15 days</div><div class="stat-label">SLA Target</div></div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="empty"><div class="empty-icon">⏱️</div><p>CR processing शुरू होने के बाद SLA report यहाँ दिखेगी।</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT TRAIL -->
+  <div class="page" id="page-audit">
+    <div class="page-header">
+      <h2>📝 Audit Trail</h2>
+      <p>सभी actions का tamper-proof record</p>
+    </div>
+    <div class="alert alert-ok">
+      <span>🛡️</span>
+      <div>हर action automatically log होता है। किसने, कब, क्या किया — permanent record। Court-ready documentation।</div>
+    </div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Action</th><th>Centre/Person</th><th>By</th><th>Details</th></tr>
+          </thead>
+          <tbody id="auditTable">
+            <tr><td colspan="5" style="text-align:center;padding:24px;color:var(--gray)">अभी कोई audit record नहीं।</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MY TEAM -->
+  <div class="page" id="page-my-team">
+    <div class="page-header">
+      <h2>👥 My Assistants</h2>
+      <p>Legal Department — 3 Assistants</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card maroon"><div class="stat-icon">👥</div><div class="stat-num">3</div><div class="stat-label">Total Assistants</div></div>
+      <div class="stat-card gold"><div class="stat-icon">🟡</div><div class="stat-num" id="team-yellow">0</div><div class="stat-label">Yellow Notice</div></div>
+      <div class="stat-card red"><div class="stat-icon">🔴</div><div class="stat-num" id="team-red">0</div><div class="stat-label">Red Notice</div></div>
+      <div class="stat-card green"><div class="stat-icon">⭐</div><div class="stat-num" id="team-good">3</div><div class="stat-label">Good Performance</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>📋 Assistant Performance (21-20 Period)</h3></div>
+      <div class="card-body">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="padding:12px;background:#FFF5F8;border-radius:8px;border:1px solid #F48FB1">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--maroon);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700">A1</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700;color:var(--navy)">Assistant 1</div>
+                <div style="font-size:11px;color:var(--gray)">Legal Department</div>
+              </div>
+              <span style="font-size:12px;font-weight:700;color:var(--green)">⭐ Good</span>
+            </div>
+          </div>
+          <div style="padding:12px;background:#FFF5F8;border-radius:8px;border:1px solid #F48FB1">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--maroon);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700">A2</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700;color:var(--navy)">Assistant 2</div>
+                <div style="font-size:11px;color:var(--gray)">Legal Department</div>
+              </div>
+              <span style="font-size:12px;font-weight:700;color:var(--green)">⭐ Good</span>
+            </div>
+          </div>
+          <div style="padding:12px;background:#FFF5F8;border-radius:8px;border:1px solid #F48FB1">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--maroon);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700">A3</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700;color:var(--navy)">Assistant 3</div>
+                <div style="font-size:11px;color:var(--gray)">Legal Department</div>
+              </div>
+              <span style="font-size:12px;font-weight:700;color:var(--green)">⭐ Good</span>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-warn" style="margin-top:12px">
+          <span>⚠️</span>
+          <div>Score 0-40% → 🟡 Yellow (Month 1) → 🔴 Red + PIP (Month 2) → ⚫ Terminate (Month 3)</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>💰 Monthly Salary Bill</h3></div>
+      <div class="card-body">
+        <div class="alert alert-info"><span>📅</span><div>21 तारीख तक सभी Assistants का bill submit होना चाहिए → 22-23 को HQ Establishment को भेजें।</div></div>
+        <div class="fg">
+          <label>Bill Period</label>
+          <input type="text" id="billPeriod" placeholder="जैसे: May 21 - June 20, 2026"/>
+        </div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="submitTeamBill()">📤 Bill HQ Establishment को Submit करें</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SALARY -->
+  <div class="page" id="page-salary">
+    <div class="page-header">
+      <h2>💰 My Salary Bill</h2>
+      <p>21 तारीख तक HQ Establishment को submit करें</p>
+    </div>
+    <div class="alert alert-warn">
+      <span>⚠️</span>
+      <div><strong>Deadline: 22-23 तारीख</strong> — Team का bill (21 तक) receive करें और HQ Establishment को भेजें। Delay पर 2%/day penalty।</div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>💰 Monthly Bill</h3></div>
+      <div class="card-body">
+        <div class="fg-row">
+          <div class="fg">
+            <label>Basic Salary (₹)</label>
+            <input type="number" id="myBasic" placeholder="Basic Salary"/>
+          </div>
+          <div class="fg">
+            <label>Allowances (₹)</label>
+            <input type="number" id="myAllowance" placeholder="HRA, TA etc."/>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Performance Summary</label>
+          <textarea id="myPerf" placeholder="इस महीने क्या किया? CR processed, SLA compliance..."></textarea>
+        </div>
+        <div class="fg">
+          <label>CR Statistics this month</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:12px">
+            <div style="padding:8px;background:#FFF5F8;border-radius:6px;text-align:center">
+              <div style="font-weight:700;color:var(--maroon)" id="bill-processed">0</div>
+              <div style="color:var(--gray)">CR Processed</div>
+            </div>
+            <div style="padding:8px;background:#E8F5E9;border-radius:6px;text-align:center">
+              <div style="font-weight:700;color:var(--green)" id="bill-clear">0</div>
+              <div style="color:var(--gray)">CR Clear</div>
+            </div>
+            <div style="padding:8px;background:#FFEBEE;border-radius:6px;text-align:center">
+              <div style="font-weight:700;color:var(--red)" id="bill-issue">0</div>
+              <div style="color:var(--gray)">CR Issues</div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-primary" onclick="submitMyBill()">📤 Bill Submit करें</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="centreModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Centre Details</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getAuth,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import{getFirestore,collection,getDocs,doc,getDoc,addDoc,updateDoc,setDoc,serverTimestamp,query,where}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth=getAuth(app),db=getFirestore(app);
+let currentUser=null,legalData=null,centres=[];
+
+onAuthStateChanged(auth,async user=>{
+  if(!user){window.location.href='/dashboard/index.html';return}
+  currentUser=user;
+  try{
+    const snap=await getDoc(doc(db,'users',user.uid));
+    legalData=snap.exists()?{uid:user.uid,email:user.email,...snap.data()}:{uid:user.uid,email:user.email,name:'Legal Head',role:'Admin'};
+    window.legalData=legalData;
+    initDashboard();
+  }catch(e){
+    legalData={uid:user.uid,email:user.email,name:'Legal Head',role:'Admin'};
+    window.legalData=legalData;
+    initDashboard();
+  }
+});
+
+async function initDashboard(){
+  const name=legalData.name||'Legal Head';
+  document.getElementById('sbName').textContent=name;
+  document.getElementById('sbAvatar').textContent=name[0].toUpperCase();
+  document.getElementById('welcomeText').textContent='नमस्ते, '+name+' जी 🙏';
+  await loadCentres();
+}
+
+async function loadCentres(){
+  try{
+    const snap=await getDocs(collection(db,'centre_registrations'));
+    centres=[];
+    snap.forEach(d=>centres.push({id:d.id,...d.data()}));
+    // HQ Legal queue = state_provisional status
+    const queue=centres.filter(c=>c.status==='state_provisional'||c.status==='hq_legal');
+    const clear=centres.filter(c=>c.crStatus==='clear');
+    const issue=centres.filter(c=>c.crStatus==='issue');
+    const sent=centres.filter(c=>c.crStatus==='sent');
+    document.getElementById('st-queue').textContent=queue.length;
+    document.getElementById('st-sent').textContent=sent.length;
+    document.getElementById('st-clear').textContent=clear.length;
+    document.getElementById('st-issue').textContent=issue.length;
+    document.getElementById('crQueueCount').textContent=queue.length;
+    buildCRQueue(queue);
+    buildRecentCR(queue);
+    populateCentreSelect(queue);
+    updateSLA(queue);
+  }catch(e){console.log(e)}
+}
+
+function buildCRQueue(queue){
+  const tbody=document.getElementById('crQueueTable');
+  if(!queue.length){tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--gray)">अभी कोई application नहीं।</td></tr>';return}
+  tbody.innerHTML=queue.map(c=>{
+    const days=daysSince(c.submittedAt);
+    const slaClass=days>25?'sla-red':days>15?'sla-yellow':'sla-green';
+    const slaLabel=days>25?'🔴 Overdue':days>15?'🟡 Warning':'🟢 OK';
+    return`<tr>
+      <td style="font-family:monospace;font-size:11px;color:var(--maroon)">ACS-CR-${c.id.substring(0,6).toUpperCase()}</td>
+      <td><strong>${c.centre?.name||'—'}</strong></td>
+      <td>${c.owner?.name||'—'}</td>
+      <td>${c.centre?.district||'—'}</td>
+      <td style="font-size:11px">${fmtDate(c.submittedAt)}</td>
+      <td style="font-weight:700;color:${days>25?'var(--red)':days>15?'var(--orange)':'var(--green)'}">${days}d</td>
+      <td><span class="status-pill ${days>25?'sp-issue':days>15?'sp-pending':'sp-clear'}">${slaLabel}</span></td>
+      <td>
+        <button style="padding:4px 10px;background:#FCE4EC;color:var(--maroon);border:none;border-radius:4px;cursor:pointer;font-size:11px;font-weight:600" onclick="sendCRToPolice('${c.id}')">📤 CR भेजें</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function buildRecentCR(queue){
+  const el=document.getElementById('recentCR');
+  if(!queue.length){el.innerHTML='<div class="empty"><div class="empty-icon">📋</div><p>कोई pending नहीं।</p></div>';return}
+  el.innerHTML=queue.slice(0,3).map(c=>`
+    <div style="padding:10px;background:#FFF5F8;border-radius:8px;margin-bottom:6px;font-size:12px">
+      <div style="font-weight:700;color:var(--navy)">${c.centre?.name||'—'}</div>
+      <div style="color:var(--gray);margin-top:2px">${c.centre?.district||'—'} | ${daysSince(c.submittedAt)} दिन से pending</div>
+    </div>`).join('');
+}
+
+function populateCentreSelect(queue){
+  const sel=document.getElementById('crCentre');
+  sel.innerHTML='<option value="">— Centre चुनें —</option>';
+  queue.forEach(c=>{
+    const o=document.createElement('option');
+    o.value=c.id;
+    o.textContent=(c.centre?.name||'—')+' — '+(c.centre?.district||'—');
+    sel.appendChild(o);
+  });
+}
+
+function updateSLA(queue){
+  const green=queue.filter(c=>daysSince(c.submittedAt)<=15).length;
+  const yellow=queue.filter(c=>daysSince(c.submittedAt)>15&&daysSince(c.submittedAt)<=25).length;
+  const red=queue.filter(c=>daysSince(c.submittedAt)>25).length;
+  document.getElementById('sla-green').textContent=green;
+  document.getElementById('sla-yellow').textContent=yellow;
+  document.getElementById('sla-red').textContent=red;
+  const total=queue.length||1;
+  document.getElementById('st-sla-pct').textContent=Math.round(green/total*100)+'%';
+}
+
+window._signOut=()=>signOut(auth);
+window._currentUser=()=>currentUser;
+window._legalData=()=>legalData;
+window._db=db;
+window._addDoc=async(col,data)=>addDoc(collection(db,col),{...data,createdAt:serverTimestamp()});
+window._updateDoc=async(col,id,data)=>updateDoc(doc(db,col,id),{...data,updatedAt:serverTimestamp()});
+
+function daysSince(ts){if(!ts)return 0;const d=ts.toDate?ts.toDate():new Date(ts);return Math.floor((Date.now()-d.getTime())/(1000*60*60*24))}
+function fmtDate(ts){if(!ts)return'—';try{const d=ts.toDate?ts.toDate():new Date(ts);return d.toLocaleDateString('hi-IN',{day:'2-digit',month:'short'})}catch(e){return'—'}}
+</script>
+
+<script>
+window.toggleSidebar=function(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sbOverlay').classList.toggle('open');
+};
+window.showPage=function(name,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+name)?.classList.add('active');
+  el?.classList.add('active');
+  const titles={'overview':'Dashboard','cr-queue':'CR Queue','cr-sent':'CR Sent to Police','cr-received':'CR Received','placement-cr':'Placement CR','sla-report':'SLA Report','audit':'Audit Trail','my-team':'My Team','salary':'Salary Bill'};
+  document.getElementById('topbarTitle').textContent=titles[name]||name;
+  if(window.innerWidth<=768)toggleSidebar();
+};
+
+window.sendCRToPolice=async function(id){
+  const ps=prompt('Police Station का नाम और address:');
+  if(!ps)return;
+  try{
+    await window._updateDoc('centre_registrations',id,{crStatus:'sent',crSentTo:ps,crSentDate:new Date().toISOString(),crSentBy:window._currentUser()?.uid});
+    await window._addDoc('audit_logs',{action:'CR_SENT_TO_POLICE',centreId:id,policeStation:ps,by:window._legalData()?.name,timestamp:new Date().toISOString()});
+    showToast('✅ CR Police Station को भेजा गया!','ok');
+    window.loadData();
+  }catch(e){showToast('Error: '+e.message,'err')}
+};
+
+window.updateCR=async function(){
+  const centreId=document.getElementById('crCentre').value;
+  const result=document.getElementById('crResult').value;
+  const crNum=document.getElementById('crNumber').value;
+  const issueDesc=document.getElementById('crIssueDesc').value;
+  if(!centreId){showToast('Centre चुनें','err');return}
+  if(!result){showToast('CR Result चुनें','err');return}
+  if(result==='issue'&&!issueDesc){showToast('Issue details जरूरी हैं','err');return}
+  try{
+    const newStatus=result==='clear'?'hq_finance':'state_provisional';
+    await window._updateDoc('centre_registrations',centreId,{
+      crStatus:result,crNumber:crNum,
+      crDate:document.getElementById('crDate').value,
+      crIssueDesc:issueDesc,
+      status:newStatus,
+      crProcessedBy:window._currentUser()?.uid,
+    });
+    await window._addDoc('audit_logs',{action:'CR_'+result.toUpperCase(),centreId,crNumber:crNum,by:window._legalData()?.name,timestamp:new Date().toISOString()});
+    if(result==='clear'){showToast('✅ CR Clear! HQ Finance को भेजा गया।','ok')}
+    else if(result==='issue'){showToast('❌ CR Issue noted. State Head को return किया।','ok')}
+    else{showToast('⏳ Pending noted.','ok')}
+    window.loadData();
+  }catch(e){showToast('Error: '+e.message,'err')}
+};
+
+document.getElementById('crResult').addEventListener('change',function(){
+  document.getElementById('crIssueWrap').style.display=this.value==='issue'?'block':'none';
+});
+
+window.submitTeamBill=function(){showToast('✅ Team bill HQ Establishment को submit हो गया!','ok')};
+window.submitMyBill=async function(){
+  const basic=document.getElementById('myBasic').value;
+  if(!basic){showToast('Basic salary जरूरी है','err');return}
+  try{
+    await window._addDoc('salary_bills',{
+      basic:parseInt(basic),allowances:parseInt(document.getElementById('myAllowance').value)||0,
+      performance:document.getElementById('myPerf').value,
+      department:'Legal',type:'head',
+      submittedBy:window._currentUser()?.uid,
+      name:window._legalData()?.name||'Legal Head',
+      month:new Date().toISOString().substring(0,7),status:'submitted',
+    });
+    showToast('✅ Salary bill submit हो गया!','ok');
+  }catch(e){showToast('Error','err')}
+};
+window.closeModal=function(){document.getElementById('centreModal').classList.remove('open')};
+function showToast(msg,type='ok'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
+}
+window.showToast=showToast;
+window.loadData=function(){window.location.reload()};
+window.doLogout=async function(){
+  if(!confirm('Logout?'))return;
+  await window._signOut();
+  window.location.href='/dashboard/index.html';
+};
+</script>
+</body>
+</html>
