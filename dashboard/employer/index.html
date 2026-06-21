@@ -539,13 +539,23 @@ let currentUser=null,employerData=null,myJobs=[];
 onAuthStateChanged(auth,async user=>{
   if(!user){window.location.href='/dashboard/index.html';return}
   currentUser=user;
-  const snap=await getDoc(doc(db,'users',user.uid));
-  if(snap.exists()){
-    employerData={uid:user.uid,email:user.email,...snap.data()};
+  try{
+    const snap=await getDoc(doc(db,'users',user.uid));
+    if(snap.exists()){
+      employerData={uid:user.uid,email:user.email,...snap.data()};
+      window.employerData=employerData;
+      initDashboard();
+    }else{
+      // data नहीं मिला — फिर भी dashboard दिखाएं
+      employerData={uid:user.uid,email:user.email,name:'Employer',role:'Employer'};
+      window.employerData=employerData;
+      initDashboard();
+    }
+  }catch(e){
+    console.log('Auth error:',e);
+    employerData={uid:user.uid,email:user.email,name:'Employer',role:'Employer'};
     window.employerData=employerData;
     initDashboard();
-  }else{
-    document.getElementById('welcomeText').textContent='नमस्ते! 🙏';
   }
 });
 
