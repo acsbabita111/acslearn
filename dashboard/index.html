@@ -497,6 +497,7 @@
         'Teacher':['Teacher'],
         'Counselor':['Counselor'],
         'Employer':['Employer'],
+        'Call_Center':['Call_Center'],
         'Admin':['Founder','Head','Admin','Regional_Manager','State_Head','Legal_Head','Finance_Head','Establishment_Head','HQ_Staff','Zonal','RM']
       };
       const allowed=roleMap[selectedRole]||[];
@@ -535,6 +536,7 @@
           'Student':'/dashboard/student/index.html',
           'Counselor':'/dashboard/counselor/index.html',
           'Employer':'/dashboard/employer/index.html',
+          'Call_Center':'/dashboard/callcenter/index.html',
         };
         const url=redirectMap[d.role];
         if(url){setTimeout(()=>{window.location.href=url;},1200);}
