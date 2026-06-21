@@ -19,38 +19,38 @@
 html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,#0B1F3A 0%,#1565C0 100%);padding:32px 20px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.hero::before{content:'🌍';position:absolute;right:-20px;top:-20px;font-size:120px;opacity:.08}
-.hero-logo{width:60px;height:60px;border-radius:14px;border:2px solid rgba(255,255,255,0.3);margin:0 auto 14px}
-.hero-title{font-size:26px;font-weight:800;margin-bottom:6px}
-.hero-sub{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;line-height:1.6}
-.hero-tagline{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.hero{background:linear-gradient(160deg,#0B1F3A 0%,#1565C0 100%);padding:52px 24px 44px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero-logo{width:72px;height:72px;border-radius:18px;border:2px solid rgba(255,255,255,0.3);margin:0 auto 24px}
+.hero-title{font-size:clamp(40px,9vw,72px);font-weight:800;line-height:1.05;margin-bottom:20px;letter-spacing:-1px}
+.hero-title span{color:var(--gold)}
+.hero-tagline{font-size:clamp(12px,2.5vw,15px);color:rgba(255,255,255,0.5);margin-bottom:20px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.hero-sub{font-size:clamp(16px,3vw,20px);color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto}
 
 /* MISSION BOX */
-.mission{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:16px;margin:0 20px 0;text-align:left}
-.mission p{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.8}
+.mission{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:20px 24px;max-width:520px;margin:0 auto;text-align:left}
+.mission p{font-size:15px;color:rgba(255,255,255,0.85);line-height:1.9}
 .mission strong{color:var(--gold)}
 
 /* MAIN */
 .main{max-width:640px;margin:0 auto;padding:20px 16px 60px}
 
 /* SECTION TITLE */
-.section-title{font-size:18px;font-weight:800;color:var(--navy);margin:24px 0 6px;display:flex;align-items:center;gap:8px}
-.section-desc{font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.6}
+.section-title{font-size:22px;font-weight:800;color:var(--navy);margin:32px 0 12px;text-align:center}
+.section-desc{font-size:15px;color:var(--gray);margin-bottom:14px;line-height:1.7;text-align:center}
 
 /* ROLE CARDS */
-.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
-@media(max-width:400px){.role-grid{grid-template-columns:1fr}}
-.role-card{border:2px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all .2s;background:#fff;text-align:left;position:relative;overflow:hidden}
-.role-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(0,0,0,0.1);transform:translateY(-2px)}
+.role-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:8px}
+.role-card{border:2px solid var(--border);border-radius:16px;padding:22px 24px;cursor:pointer;transition:all .2s;background:#fff;text-align:center;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:10px}
+.role-card:hover{border-color:var(--blue);box-shadow:0 6px 20px rgba(0,0,0,0.12);transform:translateY(-2px)}
 .role-card.selected{border-color:var(--blue);background:#EEF4FF}
 .role-card.featured{border-color:var(--orange);background:linear-gradient(135deg,#FFF8F0,#FFF3E0)}
-.role-card.featured::before{content:'★ Priority';position:absolute;top:8px;right:8px;font-size:9px;font-weight:700;color:var(--orange);background:#FFE0B2;padding:2px 6px;border-radius:10px}
-.role-icon{font-size:28px;margin-bottom:8px;display:block}
-.role-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.role-desc{font-size:11px;color:var(--gray);line-height:1.4}
-.role-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
-.role-tag{font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;background:#E8F5E9;color:var(--green)}
+.role-card.featured::before{content:'★ सबसे पहले';position:absolute;top:12px;right:12px;font-size:11px;font-weight:700;color:var(--orange);background:#FFE0B2;padding:4px 10px;border-radius:10px}
+.role-icon{font-size:44px;line-height:1}
+.role-content{width:100%;text-align:center}
+.role-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.role-desc{font-size:15px;color:var(--gray);line-height:1.6}
+.role-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;justify-content:center}
+.role-tag{font-size:13px;font-weight:700;padding:5px 14px;border-radius:20px;background:#E8F5E9;color:var(--green)}
 .role-tag.free{background:#E8F5E9;color:var(--green)}
 .role-tag.paid{background:#EEF4FF;color:var(--blue)}
 .role-tag.earn{background:#FFF3E0;color:var(--orange)}
@@ -168,16 +168,14 @@ html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(-
 <!-- HERO -->
 <div class="hero">
   <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
-  <div class="hero-title">ACS से जुड़ें 🙏</div>
-  <div class="hero-tagline">Applied Computer School™ — From Village to World</div>
-  <div class="hero-sub">यह platform उनके लिए है जिन्हें दुनिया ने नजरअंदाज किया।<br/>यहाँ सब कुछ FREE है। यहाँ कोई भेदभाव नहीं।</div>
-  <div class="mission">
-    <p>
-      <strong>दिहाड़ी मजदूर के बच्चे के लिए।</strong> किसान के बच्चे के लिए।
-      रिक्शा चालक के बच्चे के लिए। घरेलू कामगार के बच्चे के लिए।<br/><br/>
-      पढ़े-लिखे होशियार लोगों के लिए बहुत platform हैं —
-      <strong>लेकिन ACS उनके लिए है जिनके लिए कोई नहीं था।</strong>
-    </p>
+  <div class="hero-tagline">Applied Computer School™</div>
+  <div class="hero-title">
+    ACS से<br/>
+    <span>जुड़ें!</span>
+  </div>
+  <div class="hero-sub">
+    अपने घर, परिवार, समाज और देश का<br/>
+    <strong style="color:var(--gold)">सम्मानित नागरिक बनने के लिए।</strong>
   </div>
 </div>
 
@@ -195,261 +193,201 @@ html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(-
 
   <!-- ROLE SELECTION -->
   <div id="roleSection">
-
-    <!-- PRIORITY: असंगठित मजदूर -->
-    <div class="section-title">🔨 असंगठित क्षेत्र / दिहाड़ी मजदूर</div>
-    <div class="section-desc">ACS आपके लिए है — सब कुछ FREE। e-Shram Card, Insurance, Health, Legal Rights, बच्चों की education — सब यहाँ।</div>
-    <div class="role-grid">
+<div class="role-grid">
       <div class="role-card featured" onclick="selectRole(this,'worker','🔨','दिहाड़ी / असंगठित मजदूर','निर्माण, खेत, घरेलू, रिक्शा, ठेला, भट्टा — सब')">
-        <span class="role-icon">🔨</span>
-        <div class="role-title">दिहाड़ी / असंगठित मजदूर</div>
+        <span class="role-icon">🔨</span><div class="role-content"><div class="role-title">दिहाड़ी / असंगठित मजदूर</div>
         <div class="role-desc">निर्माण, खेत, घरेलू काम, रिक्शा, ठेला, ईंट भट्टा — सभी मजदूर साथी</div>
         <div class="role-tags">
           <span class="role-tag free">सब FREE</span>
           <span class="role-tag free">e-Shram Card</span>
           <span class="role-tag free">Insurance</span>
         </div>
-      </div>
+      </div></div>
       <div class="role-card featured" onclick="selectRole(this,'worker_child','👦','मजदूर परिवार का बच्चा','Free education + Scholarship + Career guidance')">
-        <span class="role-icon">👦</span>
-        <div class="role-title">मजदूर परिवार का बच्चा</div>
+        <span class="role-icon">👦</span><div class="role-content"><div class="role-title">मजदूर परिवार का बच्चा</div>
         <div class="role-desc">माँ-बाप मजदूर हैं — आपके लिए FREE education, Scholarship, Career guidance</div>
         <div class="role-tags">
           <span class="role-tag free">100% FREE</span>
           <span class="role-tag free">Scholarship</span>
         </div>
-      </div>
+      </div></div>
     </div>
-
-    <div class="divider"><hr/><span>सीखना चाहते हैं?</span><hr/></div>
-
-    <div class="role-grid">
+<div class="role-grid">
       <div class="role-card" onclick="selectRole(this,'student','📚','Course/Skill सीखना है','DCA, Tally, Mobile Repair, Digital Marketing...')">
-        <span class="role-icon">📚</span>
-        <div class="role-title">Course/Skill सीखना है</div>
+        <span class="role-icon">📚</span><div class="role-content"><div class="role-title">Course/Skill सीखना है</div>
         <div class="role-desc">DCA, Tally, Mobile Repair, Digital Marketing और 500+ courses</div>
         <div class="role-tags"><span class="role-tag free">Free Online</span><span class="role-tag paid">Centre Training</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'school_student','🏫','School Student (10th/12th)','Career guidance + Free courses + Scholarship')">
-        <span class="role-icon">🏫</span>
-        <div class="role-title">School Student</div>
+        <span class="role-icon">🏫</span><div class="role-content"><div class="role-title">School Student</div>
         <div class="role-desc">10th/12th — Career guidance, Free courses, Scholarship जानकारी</div>
         <div class="role-tags"><span class="role-tag free">Free</span><span class="role-tag free">Guidance</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'college_student','🎓','College Student','Internship + Skill + Part-time earning')">
-        <span class="role-icon">🎓</span>
-        <div class="role-title">College Student</div>
+        <span class="role-icon">🎓</span><div class="role-content"><div class="role-title">College Student</div>
         <div class="role-desc">Internship, Skill upgrade, Part-time earning opportunities</div>
         <div class="role-tags"><span class="role-tag free">Internship</span><span class="role-tag earn">Earn</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'workshop','🏭','Workshop में भाग लेना है','Short-term skill workshops — 1 day to 1 week')">
-        <span class="role-icon">🏭</span>
-        <div class="role-title">Workshop</div>
+        <span class="role-icon">🏭</span><div class="role-content"><div class="role-title">Workshop</div>
         <div class="role-desc">Short-term skill workshops — 1 दिन से 1 हफ्ते तक</div>
         <div class="role-tags"><span class="role-tag free">Free/Paid</span></div>
-      </div>
+      </div></div>
     </div>
-
-    <div class="divider"><hr/><span>कमाना चाहते हैं?</span><hr/></div>
-
-    <div class="role-grid">
+<div class="role-grid">
       <div class="role-card" onclick="selectRole(this,'job_seeker','💼','नौकरी चाहिए','ACS Verified Employers से connect — Job guarantee नहीं लेकिन support ✅')">
-        <span class="role-icon">💼</span>
-        <div class="role-title">नौकरी चाहिए</div>
+        <span class="role-icon">💼</span><div class="role-content"><div class="role-title">नौकरी चाहिए</div>
         <div class="role-desc">ACS Verified Employers से connect — Skill verify करें → Job पाएं</div>
         <div class="role-tags"><span class="role-tag free">Free</span><span class="role-tag earn">Job Support</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'business','🏪','रोजगार/Business शुरू करना है','₹0 से शुरू → Counselor → Loan → पहली कमाई')">
-        <span class="role-icon">🏪</span>
-        <div class="role-title">रोजगार शुरू करना है</div>
+        <span class="role-icon">🏪</span><div class="role-content"><div class="role-title">रोजगार शुरू करना है</div>
         <div class="role-desc">₹0 से शुरू — Counselor, Loan, License, Market — सब ACS देगा</div>
         <div class="role-tags"><span class="role-tag free">Free Counseling</span><span class="role-tag earn">NABARD</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'industry','🏭','उद्योग लगाना है','NABARD, Bank loan, License, Government schemes')">
-        <span class="role-icon">🏭</span>
-        <div class="role-title">उद्योग लगाना है</div>
+        <span class="role-icon">🏭</span><div class="role-content"><div class="role-title">उद्योग लगाना है</div>
         <div class="role-desc">NABARD, Bank loan, License, Udyam Wikipedia — पूरा support</div>
         <div class="role-tags"><span class="role-tag earn">NABARD</span><span class="role-tag earn">Subsidy</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'apprentice','🤝','Apprenticeship चाहिए','Skill सीखो + पैसे कमाओ — Work From Home भी')">
-        <span class="role-icon">🤝</span>
-        <div class="role-title">Apprenticeship</div>
+        <span class="role-icon">🤝</span><div class="role-content"><div class="role-title">Apprenticeship</div>
         <div class="role-desc">Skill सीखो + पैसे कमाओ — Work From Home options भी</div>
         <div class="role-tags"><span class="role-tag earn">Earn While Learn</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'wfh','🏠','Work From Home','Online work — घर बैठे कमाई')">
-        <span class="role-icon">🏠</span>
-        <div class="role-title">Work From Home</div>
+        <span class="role-icon">🏠</span><div class="role-content"><div class="role-title">Work From Home</div>
         <div class="role-desc">Data entry, Content, Translation, Online selling — घर से कमाएं</div>
         <div class="role-tags"><span class="role-tag earn">Earn</span><span class="role-tag free">Free Training</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'farmer','🌾','किसान / कृषि','Smart farming, PM Kisan, Kisan Credit Card, FPO')">
-        <span class="role-icon">🌾</span>
-        <div class="role-title">किसान / कृषि</div>
+        <span class="role-icon">🌾</span><div class="role-content"><div class="role-title">किसान / कृषि</div>
         <div class="role-desc">Smart farming, NABARD, PM Kisan, FPO, Organic farming support</div>
         <div class="role-tags"><span class="role-tag free">Free</span><span class="role-tag earn">Subsidy</span></div>
-      </div>
+      </div></div>
     </div>
-
-    <div class="divider"><hr/><span>विशेष वर्ग</span><hr/></div>
-
-    <div class="role-grid">
+<div class="role-grid">
       <div class="role-card" onclick="selectRole(this,'housewife','👩','गृहिणी / Homemaker','घर से काम — SHG, JEEVIKA, Mahila Udyam')">
-        <span class="role-icon">👩</span>
-        <div class="role-title">गृहिणी / Homemaker</div>
+        <span class="role-icon">👩</span><div class="role-content"><div class="role-title">गृहिणी / Homemaker</div>
         <div class="role-desc">घर से काम — SHG, JEEVIKA, Mahila Udyam Nidhi — महिला सशक्तिकरण</div>
         <div class="role-tags"><span class="role-tag free">SHG</span><span class="role-tag earn">JEEVIKA</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'senior','👴','Senior Citizen (60+)','Digital literacy, Pension schemes, Health support')">
-        <span class="role-icon">👴</span>
-        <div class="role-title">Senior Citizen (60+)</div>
+        <span class="role-icon">👴</span><div class="role-content"><div class="role-title">Senior Citizen (60+)</div>
         <div class="role-desc">Digital literacy, Pension schemes, Health, Atal Pension Yojana</div>
         <div class="role-tags"><span class="role-tag free">Free</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'differently_abled','♿','दिव्यांग / Differently Abled','Special skill training + WFH opportunities')">
-        <span class="role-icon">♿</span>
-        <div class="role-title">दिव्यांग</div>
+        <span class="role-icon">♿</span><div class="role-content"><div class="role-title">दिव्यांग</div>
         <div class="role-desc">Special skill training, WFH opportunities, Government schemes</div>
         <div class="role-tags"><span class="role-tag free">Special Support</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'ex_serviceman','🪖','Ex-Serviceman','Skill + Business + Job support')">
-        <span class="role-icon">🪖</span>
-        <div class="role-title">Ex-Serviceman</div>
+        <span class="role-icon">🪖</span><div class="role-content"><div class="role-title">Ex-Serviceman</div>
         <div class="role-desc">Skill upgrade, Business setup, Job placement — Veteran support</div>
         <div class="role-tags"><span class="role-tag free">Free</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'shg_leader','👩‍👩‍👧','SHG Leader','Group registration, NABARD, Bank linkage')">
-        <span class="role-icon">👩‍👩‍👧</span>
-        <div class="role-title">SHG Leader</div>
+        <span class="role-icon">👩‍👩‍👧</span><div class="role-content"><div class="role-title">SHG Leader</div>
         <div class="role-desc">Group registration, NABARD, JEEVIKA, Bank linkage support</div>
         <div class="role-tags"><span class="role-tag earn">NABARD</span><span class="role-tag earn">JEEVIKA</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'counseling_only','🧭','सिर्फ Counseling चाहिए','Business, Legal, Medical, Finance — expert से सलाह')">
-        <span class="role-icon">🧭</span>
-        <div class="role-title">सिर्फ Counseling चाहिए</div>
+        <span class="role-icon">🧭</span><div class="role-content"><div class="role-title">सिर्फ Counseling चाहिए</div>
         <div class="role-desc">Business, Legal, Medical, Finance — Expert से free/paid सलाह</div>
         <div class="role-tags"><span class="role-tag free">Free Available</span></div>
-      </div>
+      </div></div>
     </div>
-
-    <div class="divider"><hr/><span>ACS में देना/सिखाना चाहते हैं?</span><hr/></div>
-
-    <div class="role-grid">
+<div class="role-grid">
       <div class="role-card" onclick="selectRole(this,'teacher','👨‍🏫','Teacher/Trainer बनना है','Course बनाओ → Students पढ़ें → 7% Royalty')">
-        <span class="role-icon">👨‍🏫</span>
-        <div class="role-title">Teacher/Trainer</div>
+        <span class="role-icon">👨‍🏫</span><div class="role-content"><div class="role-title">Teacher/Trainer</div>
         <div class="role-desc">Course बनाओ → Students पढ़ें → हर student पर 7% Royalty</div>
         <div class="role-tags"><span class="role-tag earn">7% Royalty</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'counselor','🧭','Counselor बनना है','Students को guide करो → Fee + Bonus')">
-        <span class="role-icon">🧭</span>
-        <div class="role-title">Counselor बनना है</div>
+        <span class="role-icon">🧭</span><div class="role-content"><div class="role-title">Counselor बनना है</div>
         <div class="role-desc">Business, Legal, Medical — Students guide करो → Fee earn करो</div>
         <div class="role-tags"><span class="role-tag earn">Fee Earn</span><span class="role-tag earn">Bonus</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'centre','🏫','Centre खोलना है','Franchise → 80% revenue आपका')">
-        <span class="role-icon">🏫</span>
-        <div class="role-title">Centre खोलना है</div>
+        <span class="role-icon">🏫</span><div class="role-content"><div class="role-title">Centre खोलना है</div>
         <div class="role-desc">ACS Franchise — Register करें → Active → 80% revenue आपका</div>
         <div class="role-tags"><span class="role-tag earn">80% Revenue</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'content_creator','📚','Content Creator','Course content बनाओ → 7% royalty per student')">
-        <span class="role-icon">📚</span>
-        <div class="role-title">Content Creator</div>
+        <span class="role-icon">📚</span><div class="role-content"><div class="role-title">Content Creator</div>
         <div class="role-desc">Course content, Videos, Notes बनाओ → 7% royalty प्रति student</div>
         <div class="role-tags"><span class="role-tag earn">7% Royalty</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'translator','🌍','Translator बनना है','Content translate करो → 3% royalty per student')">
-        <span class="role-icon">🌍</span>
-        <div class="role-title">Translator</div>
+        <span class="role-icon">🌍</span><div class="role-content"><div class="role-title">Translator</div>
         <div class="role-desc">42 भाषाओं में content translate करो → 3% royalty प्रति student</div>
         <div class="role-tags"><span class="role-tag earn">3% Royalty</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'volunteer','🌱','Volunteer बनना है','Community serve करो → ACS mission में साथ')">
-        <span class="role-icon">🌱</span>
-        <div class="role-title">Volunteer</div>
+        <span class="role-icon">🌱</span><div class="role-content"><div class="role-title">Volunteer</div>
         <div class="role-desc">Community serve करो — ACS mission में साथ दो</div>
         <div class="role-tags"><span class="role-tag free">Free Service</span></div>
-      </div>
+      </div></div>
     </div>
-
-    <div class="divider"><hr/><span>ACS Staff बनना है?</span><hr/></div>
-
-    <div class="role-grid">
+<div class="role-grid">
       <div class="role-card" onclick="selectRole(this,'rm','🗺️','Regional Manager (RM)','Field work, Centre visit, Market survey')">
-        <span class="role-icon">🗺️</span>
-        <div class="role-title">Regional Manager</div>
+        <span class="role-icon">🗺️</span><div class="role-content"><div class="role-title">Regional Manager</div>
         <div class="role-desc">Field work, Centre visit, Market survey — Salary + Performance bonus</div>
         <div class="role-tags"><span class="role-tag earn">Salary</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'field_staff','🏃','Field Staff (Mobilization)','गाँव-गाँव जाकर लोगों को जागरूक करना')">
-        <span class="role-icon">🏃</span>
-        <div class="role-title">Field Staff</div>
+        <span class="role-icon">🏃</span><div class="role-content"><div class="role-title">Field Staff</div>
         <div class="role-desc">गाँव-गाँव जाकर लोगों को ACS से जोड़ो — Salary + Incentive</div>
         <div class="role-tags"><span class="role-tag earn">Salary</span><span class="role-tag earn">Incentive</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'call_center','📞','Call Center Agent','Inbound/Outbound calls — Language wise')">
-        <span class="role-icon">📞</span>
-        <div class="role-title">Call Center Agent</div>
+        <span class="role-icon">📞</span><div class="role-content"><div class="role-title">Call Center Agent</div>
         <div class="role-desc">Inbound/Outbound calls — Hindi, Kannada, Marathi और अन्य भाषाएं</div>
         <div class="role-tags"><span class="role-tag earn">Salary</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'hq_staff','🏛️','HQ Staff (Legal/Finance/Est.)','Headquarters में काम — Professional role')">
-        <span class="role-icon">🏛️</span>
-        <div class="role-title">HQ Staff</div>
+        <span class="role-icon">🏛️</span><div class="role-content"><div class="role-title">HQ Staff</div>
         <div class="role-desc">Legal, Finance, Establishment departments — Professional role</div>
         <div class="role-tags"><span class="role-tag earn">Salary</span></div>
-      </div>
+      </div></div>
     </div>
-
-    <div class="divider"><hr/><span>Business Partner बनना है?</span><hr/></div>
-
-    <div class="role-grid">
+<div class="role-grid">
       <div class="role-card" onclick="selectRole(this,'employer','👔','Employer/Recruiter','ACS Certified staff hire करें — Verified candidates')">
-        <span class="role-icon">👔</span>
-        <div class="role-title">Employer/Recruiter</div>
+        <span class="role-icon">👔</span><div class="role-content"><div class="role-title">Employer/Recruiter</div>
         <div class="role-desc">ACS Certified, CR Cleared candidates hire करें — Free posting</div>
         <div class="role-tags"><span class="role-tag free">Free Posting</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'bank_partner','🏦','Bank/Finance Partner','Loan referral, NABARD connect, Mudra support')">
-        <span class="role-icon">🏦</span>
-        <div class="role-title">Bank/Finance Partner</div>
+        <span class="role-icon">🏦</span><div class="role-content"><div class="role-title">Bank/Finance Partner</div>
         <div class="role-desc">Loan referral, NABARD, Mudra, JEEVIKA — Partnership</div>
         <div class="role-tags"><span class="role-tag earn">Partnership</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'ngo_partner','🤲','NGO/Government Partner','Scheme implementation, Community outreach')">
-        <span class="role-icon">🤲</span>
-        <div class="role-title">NGO/Government Partner</div>
+        <span class="role-icon">🤲</span><div class="role-content"><div class="role-title">NGO/Government Partner</div>
         <div class="role-desc">Scheme implementation, Community outreach — MOU partnership</div>
         <div class="role-tags"><span class="role-tag free">MOU</span></div>
-      </div>
+      </div></div>
       <div class="role-card" onclick="selectRole(this,'global_partner','🌍','Global South Partner','Africa, Latin America, South Asia — Local agent')">
-        <span class="role-icon">🌍</span>
-        <div class="role-title">Global South Partner</div>
+        <span class="role-icon">🌍</span><div class="role-content"><div class="role-title">Global South Partner</div>
         <div class="role-desc">Africa, Latin America, South Asia — Local agent bano</div>
         <div class="role-tags"><span class="role-tag earn">Revenue Share</span></div>
-      </div>
+      </div></div>
     </div>
 
   </div><!-- /roleSection -->
 
   <!-- RIGHTS & DUTIES (shown after role selection) -->
   <div id="rightsSection" style="display:none">
-
-    <div class="section-title">✅ आपके अधिकार</div>
-    <div class="rights-card">
+<div class="rights-card">
       <div class="rights-head">🛡️ ACS में आपके अधिकार</div>
       <div class="rights-body" id="rightsBody"></div>
     </div>
-
-    <div class="section-title">📋 आपके कर्तव्य</div>
-    <div class="rights-card">
+<div class="rights-card">
       <div class="rights-head">🤝 ACS से आपकी जिम्मेदारी</div>
       <div class="rights-body" id="dutiesBody"></div>
     </div>
-
-    <div class="section-title">📄 कौन से Documents चाहिए?</div>
-    <div class="doc-section" id="docsBody"></div>
+<div class="doc-section" id="docsBody"></div>
 
     <!-- AGREEMENT -->
     <div class="agreement-box">
