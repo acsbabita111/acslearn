@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="उद्यम विकिपीडिया — ACS | किसी भी उद्यम की पूरी जानकारी"/>
+<title>उद्यम विकिपीडिया — ACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
+  --orange:#E65100;--red:#C62828;
+  --offwhite:#F5F7FA;--white:#fff;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+}
+html,body{font-family:'Noto Sans Devanagari','Inter',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;min-height:100vh}
+
+/* NAVBAR */
+.nav{background:var(--navy);padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nav-brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none}
+.nav-brand img{height:28px;border-radius:6px}
+.nav-brand span{font-size:13px;font-weight:700}
+.nav-back{color:rgba(255,255,255,.8);font-size:13px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px}
+
+/* SEARCH BAR */
+.search-wrap{background:linear-gradient(135deg,var(--navy),#1565C0);padding:20px 16px 24px}
+.search-label{color:rgba(255,255,255,.7);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.search-title{color:#fff;font-size:20px;font-weight:800;margin-bottom:14px}
+.search-row{display:flex;gap:8px}
+.search-input{flex:1;padding:13px 16px;border:2px solid rgba(255,255,255,.2);border-radius:10px;font-size:14px;font-family:inherit;outline:none;background:rgba(255,255,255,.1);color:#fff}
+.search-input::placeholder{color:rgba(255,255,255,.5)}
+.search-input:focus{border-color:var(--gold);background:rgba(255,255,255,.15)}
+.search-btn{padding:13px 18px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+/* QUICK SEARCH */
+.quick-wrap{padding:10px 16px 16px;background:linear-gradient(135deg,var(--navy),#1565C0)}
+.quick-label{color:rgba(255,255,255,.5);font-size:11px;margin-bottom:8px}
+.quick-grid{display:flex;flex-wrap:wrap;gap:6px}
+.quick-btn{padding:6px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.85);font-size:12px;cursor:pointer;font-family:inherit;transition:.2s}
+.quick-btn:hover{background:rgba(255,255,255,.2);color:#fff}
+
+/* MAIN */
+.main{max-width:800px;margin:0 auto;padding:16px 12px 60px}
+
+/* WELCOME STATE */
+.welcome{text-align:center;padding:48px 20px}
+.welcome-icon{font-size:52px;margin-bottom:12px}
+.welcome h2{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.welcome p{font-size:13px;color:var(--gray);line-height:1.7;max-width:400px;margin:0 auto}
+
+/* LOADING */
+.loading{display:none;text-align:center;padding:60px 20px}
+.spinner{width:44px;height:44px;border:4px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:14px;color:var(--gray)}
+.loading-sub{font-size:12px;color:var(--gray);margin-top:6px;opacity:.7}
+
+/* WIKI OUTPUT */
+.wiki{display:none}
+
+/* WIKI HERO */
+.wiki-hero{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:14px;padding:20px;color:#fff;margin-bottom:14px}
+.wiki-num{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:4px}
+.wiki-title{font-size:22px;font-weight:800;margin-bottom:4px}
+.wiki-en{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:12px}
+.wiki-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
+@media(min-width:480px){.stats-row{grid-template-columns:repeat(4,1fr)}}
+.stat-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
+.stat-num{font-size:16px;font-weight:800;color:var(--blue);display:block}
+.stat-lbl{font-size:10px;color:var(--gray);margin-top:2px}
+
+/* SECTIONS */
+.sec{background:#fff;border-radius:12px;padding:16px;border:1px solid var(--border);margin-bottom:12px}
+.sec-head{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+.sec-body{font-size:13px;line-height:1.8;color:#2C3E50}
+.sec-body p{margin-bottom:10px}
+.sec-body p:last-child{margin:0}
+
+/* HIGHLIGHT BOX */
+.hi-box{border-left:4px solid var(--blue);background:#EEF4FF;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:10px;font-size:13px;line-height:1.7}
+.hi-box strong{color:var(--blue)}
+.warn-box{border-left:4px solid var(--orange);background:#FFF3E0;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:13px}
+.success-box{border-left:4px solid var(--green);background:#F0FDF4;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:13px}
+
+/* LEADERS */
+.leader-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.leader-item:last-child{border:none}
+.leader-name{font-weight:800;color:var(--navy)}
+.leader-sub{color:var(--gray);font-size:12px;margin-top:2px}
+
+/* LEVEL TABLE */
+.lv-table{width:100%;border-collapse:collapse;font-size:12px}
+.lv-table th{background:var(--navy);color:#fff;padding:8px 10px;text-align:left;font-weight:700}
+.lv-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
+.lv-table tr:hover td{background:#F8F9FA}
+.lv-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:800}
+.lv-l{background:#E8F5E9;color:var(--green)}
+.lv-m{background:#FFF3E0;color:var(--orange)}
+.lv-h{background:#EEF4FF;color:var(--blue)}
+
+/* RESOURCE */
+.res-item{background:#F8F9FA;border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:13px}
+.res-name{font-weight:700;color:var(--navy)}
+.res-sub{color:var(--gray);font-size:12px;margin-top:2px}
+
+/* SCHEME */
+.scheme-item{background:#F0FDF4;border:1px solid #C8E6C9;border-radius:8px;padding:12px;margin-bottom:8px}
+.scheme-name{font-weight:800;color:var(--green);margin-bottom:4px;font-size:13px}
+.scheme-body{font-size:12px;color:var(--text);line-height:1.6}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:14px;padding:20px;color:#fff;text-align:center;margin-top:14px}
+.cta h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.cta p{font-size:13px;opacity:.8;margin-bottom:16px}
+.cta-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.cta-btn{padding:12px 18px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-decoration:none;display:inline-block}
+.cta-gold{background:var(--gold);color:var(--navy)}
+.cta-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)}
+
+/* ACS MESSAGE */
+.acs-msg{background:linear-gradient(135deg,#F0FDF4,#E8F5E9);border:1px solid #C8E6C9;border-radius:12px;padding:16px;margin-bottom:12px;text-align:center}
+.acs-msg-text{font-size:14px;font-style:italic;color:var(--green);line-height:1.7;margin-bottom:8px}
+.acs-msg-sign{font-size:12px;color:var(--gray)}
+
+/* ERROR */
+.err-box{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:10px;padding:16px;text-align:center;color:var(--red);font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <a href="https://acslearn.com" class="nav-brand">
+    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+    <span>ACS</span>
+  </a>
+  <a href="https://acslearn.com/udyam/index.html" class="nav-back">← उद्यम खोजें</a>
+</nav>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-label">उद्यम विकिपीडिया</div>
+  <div class="search-title">📖 किसी भी उद्यम की पूरी जानकारी</div>
+  <div class="search-row">
+    <input type="text" class="search-input" id="searchInput"
+      placeholder="उद्यम का नाम लिखें — जैसे: डेयरी फार्म, मोबाइल रिपेयर..."
+      onkeydown="if(event.key==='Enter')generate()"/>
+    <button class="search-btn" onclick="generate()">🔍 खोजें</button>
+  </div>
+</div>
+<div class="quick-wrap">
+  <div class="quick-label">जल्दी खोजें:</div>
+  <div class="quick-grid">
+    <button class="quick-btn" onclick="qs('मोबाइल रिपेयर')">📱 मोबाइल रिपेयर</button>
+    <button class="quick-btn" onclick="qs('डेयरी फार्म')">🐄 डेयरी फार्म</button>
+    <button class="quick-btn" onclick="qs('बांस शिल्प')">🎋 बांस शिल्प</button>
+    <button class="quick-btn" onclick="qs('सौर ऊर्जा')">☀️ सौर ऊर्जा</button>
+    <button class="quick-btn" onclick="qs('कंप्यूटर संस्थान')">💻 कंप्यूटर संस्थान</button>
+    <button class="quick-btn" onclick="qs('मशरूम खेती')">🍄 मशरूम खेती</button>
+    <button class="quick-btn" onclick="qs('मधुमक्खी पालन')">🍯 मधुमक्खी पालन</button>
+    <button class="quick-btn" onclick="qs('डिजिटल मार्केटिंग')">📣 डिजिटल मार्केटिंग</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- WELCOME -->
+  <div class="welcome" id="welcomeState">
+    <div class="welcome-icon">📖</div>
+    <h2>उद्यम विकिपीडिया में आपका स्वागत है!</h2>
+    <p>कोई भी उद्यम खोजें और पाएं:<br/>
+    बाजार का आकार • वर्तमान ट्रेंड • कौन आगे है •<br/>
+    कैसे शुरू करें • कहाँ से सीखें • सरकारी योजनाएं</p>
+  </div>
+
+  <!-- LOADING -->
+  <div class="loading" id="loadingState">
+    <div class="spinner"></div>
+    <div class="loading-text">जानकारी तैयार हो रही है...</div>
+    <div class="loading-sub">दुनिया भर के डेटा से विश्लेषण हो रहा है</div>
+  </div>
+
+  <!-- WIKI OUTPUT -->
+  <div class="wiki" id="wikiOutput"></div>
+
+</div>
+
+<script>
+const API = "https://api.anthropic.com/v1/messages";
+
+window.qs = function(q){
+  document.getElementById('searchInput').value = q;
+  generate();
+};
+
+window.generate = async function(){
+  const q = document.getElementById('searchInput').value.trim();
+  if(!q){ alert('कृपया उद्यम का नाम लिखें!'); return; }
+
+  document.getElementById('welcomeState').style.display = 'none';
+  document.getElementById('wikiOutput').style.display = 'none';
+  document.getElementById('loadingState').style.display = 'block';
+
+  const prompt = `तुम ACS उद्यम विकिपीडिया के expert हो। उद्यम: "${q}"
+
+नीचे दिए format में JSON दो। सिर्फ valid JSON, कोई extra text नहीं, कोई markdown नहीं।
+
+{
+  "title": "उद्यम का पूरा हिंदी नाम",
+  "title_en": "English name",
+  "sector": "Master Group का नाम",
+  "tags": ["tag1","tag2","tag3","tag4"],
+  "market_global": "वैश्विक बाजार आकार जैसे $50 अरब",
+  "market_india": "भारत में बाजार आकार",
+  "growth": "वार्षिक वृद्धि दर जैसे 12%",
+  "outlook_2026": "2026 तक क्या होगा — 2 वाक्य में",
+  "parichay": "200-250 शब्द का परिचय हिंदी में। इस उद्यम का इतिहास, महत्व, और भारत में स्थिति।",
+  "trends": [
+    {"name":"ट्रेंड 1 का नाम","detail":"2-3 वाक्य विस्तार"},
+    {"name":"ट्रेंड 2","detail":"विस्तार"},
+    {"name":"ट्रेंड 3","detail":"विस्तार"},
+    {"name":"ट्रेंड 4","detail":"विस्तार"}
+  ],
+  "global_leaders": [
+    {"name":"नाम","country":"देश","why":"क्यों आगे हैं — 1 वाक्य"},
+    {"name":"नाम","country":"देश","why":"why"},
+    {"name":"नाम","country":"देश","why":"why"}
+  ],
+  "india_leaders": [
+    {"name":"नाम","location":"शहर/राज्य","why":"क्यों notable — 1 वाक्य"},
+    {"name":"नाम","location":"location","why":"why"}
+  ],
+  "levels": [
+    {"level":"L1","invest":"₹0","work":"क्या करें","income":"₹X-Y/माह"},
+    {"level":"L3","invest":"₹5,000","work":"क्या करें","income":"₹X-Y/माह"},
+    {"level":"L5","invest":"₹1 लाख","work":"क्या करें","income":"₹X-Y/माह"},
+    {"level":"L9","invest":"₹50 लाख","work":"क्या करें","income":"₹X-Y/माह"},
+    {"level":"L15","invest":"₹200 करोड़","work":"क्या करें","income":"₹X Cr+/माह"}
+  ],
+  "qualification": "150 शब्द — शुरू करने से पहले क्या जरूरी है, कौन सी skill, कितना अनुभव",
+  "fail_reasons": ["कारण 1","कारण 2","कारण 3","कारण 4"],
+  "success_tips": ["tip 1","tip 2","tip 3"],
+  "knowledge_sources": [
+    {"name":"source नाम","type":"Book/Website/Course/Institution","where":"URL या जगह","lang":"Hindi/English"},
+    {"name":"source 2","type":"type","where":"where","lang":"lang"},
+    {"name":"source 3","type":"type","where":"where","lang":"lang"},
+    {"name":"source 4","type":"type","where":"where","lang":"lang"},
+    {"name":"source 5","type":"type","where":"where","lang":"lang"}
+  ],
+  "schemes": [
+    {"name":"योजना का नाम","benefit":"क्या मिलेगा","apply":"कहाँ apply करें"},
+    {"name":"योजना 2","benefit":"benefit","apply":"apply"}
+  ],
+  "acs_message": "ACS की तरफ से 3-4 inspiring वाक्य — हिंदी में, गरीब बच्चों को प्रेरित करे"
+}`;
+
+  try {
+    const res = await fetch(API, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:2000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+
+    const data = await res.json();
+    let raw = data.content[0].text;
+    raw = raw.replace(/```json|```/g,'').trim();
+
+    let w;
+    try{ w = JSON.parse(raw); }
+    catch(e){ throw new Error('जानकारी format में नहीं आई। फिर कोशिश करें।'); }
+
+    renderWiki(w);
+
+  } catch(err){
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('wikiOutput').innerHTML = `<div class="err-box">⚠️ ${err.message||'कुछ गड़बड़ हुई। फिर कोशिश करें।'}</div>`;
+    document.getElementById('wikiOutput').style.display = 'block';
+  }
+};
+
+function renderWiki(w){
+  document.getElementById('loadingState').style.display = 'none';
+
+  const tagsHtml = (w.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+
+  const trendsHtml = (w.trends||[]).map(t=>`
+    <div class="hi-box">
+      <strong>🔥 ${t.name}</strong><br/>${t.detail}
+    </div>`).join('');
+
+  const globalHtml = (w.global_leaders||[]).map(l=>`
+    <div class="leader-item">
+      <div class="leader-name">🌍 ${l.name} <span style="font-weight:400;color:var(--gray)">(${l.country})</span></div>
+      <div class="leader-sub">${l.why}</div>
+    </div>`).join('');
+
+  const indiaHtml = (w.india_leaders||[]).map(l=>`
+    <div class="leader-item">
+      <div class="leader-name">🇮🇳 ${l.name} <span style="font-weight:400;color:var(--gray)">(${l.location})</span></div>
+      <div class="leader-sub">${l.why}</div>
+    </div>`).join('');
+
+  const levelsHtml = (w.levels||[]).map((lv,i)=>{
+    const cls = i<2?'lv-l':i<4?'lv-m':'lv-h';
+    return `<tr>
+      <td><span class="lv-badge ${cls}">${lv.level}</span></td>
+      <td>${lv.invest}</td>
+      <td>${lv.work}</td>
+      <td style="color:var(--green);font-weight:700">${lv.income}</td>
+    </tr>`;
+  }).join('');
+
+  const failHtml = (w.fail_reasons||[]).map(f=>`
+    <div class="warn-box">⚠️ ${f}</div>`).join('');
+
+  const tipsHtml = (w.success_tips||[]).map(t=>`
+    <div class="success-box">✅ ${t}</div>`).join('');
+
+  const sourcesHtml = (w.knowledge_sources||[]).map(s=>`
+    <div class="res-item">
+      <div class="res-name">📚 ${s.name}</div>
+      <div class="res-sub">${s.type} • ${s.lang} • ${s.where}</div>
+    </div>`).join('');
+
+  const schemesHtml = (w.schemes||[]).map(s=>`
+    <div class="scheme-item">
+      <div class="scheme-name">🏛️ ${s.name}</div>
+      <div class="scheme-body">
+        <strong>फायदा:</strong> ${s.benefit}<br/>
+        <strong>Apply:</strong> ${s.apply}
+      </div>
+    </div>`).join('');
+
+  document.getElementById('wikiOutput').innerHTML = `
+
+    <!-- HERO -->
+    <div class="wiki-hero">
+      <div class="wiki-num">📁 ${w.sector||''}</div>
+      <div class="wiki-title">${w.title||''}</div>
+      <div class="wiki-en">${w.title_en||''}</div>
+      <div class="wiki-tags">${tagsHtml}</div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-box"><span class="stat-num">${w.market_global||'—'}</span><div class="stat-lbl">Global Market</div></div>
+      <div class="stat-box"><span class="stat-num">${w.market_india||'—'}</span><div class="stat-lbl">India Market</div></div>
+      <div class="stat-box"><span class="stat-num" style="color:var(--green)">${w.growth||'—'}</span><div class="stat-lbl">Annual Growth</div></div>
+      <div class="stat-box"><span class="stat-num" style="color:var(--orange);font-size:13px">🚀 Growing</span><div class="stat-lbl">2026 Outlook</div></div>
+    </div>
+
+    <!-- PARICHAY -->
+    <div class="sec">
+      <div class="sec-head">📖 परिचय</div>
+      <div class="sec-body"><p>${(w.parichay||'').replace(/\n/g,'</p><p>')}</p></div>
+      <div class="hi-box" style="margin-top:12px;background:#FFF8E1;border-color:var(--gold)">
+        <strong style="color:var(--orange)">2026 तक:</strong> ${w.outlook_2026||'—'}
+      </div>
+    </div>
+
+    <!-- TRENDS -->
+    <div class="sec">
+      <div class="sec-head">📈 वर्तमान ट्रेंड 2025-26</div>
+      ${trendsHtml}
+    </div>
+
+    <!-- LEADERS -->
+    <div class="sec">
+      <div class="sec-head">🏆 कौन सबसे आगे है?</div>
+      <p style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:8px">🌍 Global Leaders:</p>
+      ${globalHtml}
+      <p style="font-size:12px;font-weight:700;color:var(--navy);margin:12px 0 8px">🇮🇳 India Leaders:</p>
+      ${indiaHtml}
+    </div>
+
+    <!-- LEVELS -->
+    <div class="sec">
+      <div class="sec-head">💰 निवेश स्तर (L1 से L15)</div>
+      <div style="overflow-x:auto">
+        <table class="lv-table">
+          <thead><tr><th>Level</th><th>निवेश</th><th>काम</th><th>आमदनी</th></tr></thead>
+          <tbody>${levelsHtml}</tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- QUALIFICATION -->
+    <div class="sec">
+      <div class="sec-head">✅ शुरू करने से पहले</div>
+      <div class="sec-body"><p>${(w.qualification||'').replace(/\n/g,'</p><p>')}</p></div>
+      <div style="margin-top:12px">
+        <p style="font-size:13px;font-weight:800;color:var(--red);margin-bottom:8px">⚠️ इन गलतियों से बचें:</p>
+        ${failHtml}
+      </div>
+      <div style="margin-top:8px">
+        <p style="font-size:13px;font-weight:800;color:var(--green);margin-bottom:8px">💡 सफलता के रास्ते:</p>
+        ${tipsHtml}
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE -->
+    <div class="sec">
+      <div class="sec-head">📚 ज्ञान कहाँ से मिलेगा?</div>
+      ${sourcesHtml}
+    </div>
+
+    <!-- SCHEMES -->
+    <div class="sec">
+      <div class="sec-head">🏛️ सरकारी योजनाएं</div>
+      ${schemesHtml}
+    </div>
+
+    <!-- ACS MESSAGE -->
+    <div class="acs-msg">
+      <div class="acs-msg-text">"${w.acs_message||''}"</div>
+      <div class="acs-msg-sign">— ACS | खगड़िया से विश्व तक 🌍</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <h3>अब शुरू करें! 🚀</h3>
+      <p>यह उद्यम आपके लिए है। ACS आपके साथ है।</p>
+      <div class="cta-btns">
+        <a href="https://acslearn.com/udyam/index.html" class="cta-btn cta-gold">💰 Level चुनें</a>
+        <a href="https://acslearn.com/dashboard/student/" class="cta-btn cta-ghost">📚 Course Enroll</a>
+        <a href="https://wa.me/919431210092" class="cta-btn cta-ghost">🧭 Counselor</a>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('wikiOutput').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+// URL से auto-search
+window.addEventListener('load', ()=>{
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if(q){
+    document.getElementById('searchInput').value = decodeURIComponent(q);
+    generate();
+  }
+});
+</script>
+</body>
+</html>
