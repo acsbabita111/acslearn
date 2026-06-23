@@ -487,7 +487,39 @@ img{max-width:100%;display:block}
 </head>
 <body>
 
-<!-- ══ NAVBAR ══ -->
+<!-- ══ LANGUAGE DETECT ══ -->
+<script>
+(function(){
+  // पहले से language set है?
+  const saved = localStorage.getItem('acs_lang');
+  if(saved) return; // याद है — redirect नहीं
+
+  const langMap = {
+    'hi':'/hi/', 'en':'/en/',
+    'kn':'/kn/', 'mr':'/mr/',
+    'ta':'/ta/', 'te':'/te/',
+    'bn':'/bn/', 'gu':'/gu/',
+    'pa':'/pa/', 'ml':'/ml/',
+    'ur':'/ur/', 'or':'/or/',
+    'as':'/as/', 'ne':'/ne/',
+    'sw':'/sw/', 'fr':'/fr/',
+    'es':'/es/', 'pt':'/pt/',
+    'ar':'/ar/', 'id':'/id/',
+    'vi':'/vi/', 'ha':'/ha/',
+  };
+
+  // Device की भाषा पढ़ो
+  const dl = (navigator.language || navigator.userLanguage || 'en')
+             .slice(0,2).toLowerCase();
+
+  // Save करो — अगली बार याद रहेगा
+  localStorage.setItem('acs_lang', dl);
+
+  // Redirect करो
+  const go = langMap[dl] || '/en/';
+  window.location.replace(go);
+})();
+</script>
 <nav class="navbar">
   <div class="nav-inner">
     <a href="/" class="nav-brand">
@@ -777,6 +809,21 @@ window.doLogout=async function(){
 
 <!-- ══ JS ══ -->
 <script>
+// Language switcher
+function changeLang(code){
+  localStorage.setItem('acs_lang', code);
+  const langMap = {
+    'hi':'/hi/','en':'/en/','kn':'/kn/','mr':'/mr/',
+    'ta':'/ta/','te':'/te/','bn':'/bn/','gu':'/gu/',
+    'pa':'/pa/','ml':'/ml/','ur':'/ur/','or':'/or/',
+    'as':'/as/','ne':'/ne/','sw':'/sw/','fr':'/fr/',
+    'es':'/es/','pt':'/pt/','ar':'/ar/','id':'/id/',
+    'vi':'/vi/','ha':'/ha/',
+  };
+  window.location.href = langMap[code] || '/en/';
+}
+window.changeLang = changeLang;
+
 // Menu
 function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
 function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
