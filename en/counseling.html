@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="ACS Counseling — Choose the right path. Take an Aptitude Test, meet a Counselor, get your personal Career Roadmap."/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#0B1F3A"/>
+<link rel="canonical" href="https://acslearn.com/en/counseling.html"/>
+<title>Counseling — Applied Computer School</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
+  --orange:#E65100;--red:#C62828;
+  --white:#fff;--offwhite:#F5F7FA;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+}
+html,body{font-family:'Inter',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* NAVBAR */
+.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:8px}
+.nav-brand img{height:30px;border-radius:6px}
+.nav-brand-text{color:#fff;font-size:13px;font-weight:700;line-height:1.2}
+.nav-brand-text small{display:block;color:var(--gold);font-size:10px;font-weight:400}
+.nav-controls{display:flex;align-items:center;gap:6px}
+.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;min-height:40px}
+.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-height:40px;min-width:40px}
+.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
+.translate-panel.open{display:block}
+#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
+
+/* MENU */
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
+.menu-overlay.open{display:block}
+.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}
+.menu-panel.open{right:0}
+.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.menu-head h3{font-size:15px}
+.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.menu-links{list-style:none;padding:6px 0}
+.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:14px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
+.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
+.menu-links li a.active{color:var(--blue);background:#EEF4FF}
+.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);padding:14px;border-radius:10px;font-weight:800;font-size:15px;min-height:52px}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);padding:40px 20px 48px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:350px;height:350px;border-radius:50%;background:rgba(249,168,37,.04);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.hero-logo{width:56px;height:56px;border-radius:14px;border:2px solid rgba(255,255,255,.2);margin:0 auto 20px}
+.hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.hero-title{font-size:clamp(26px,6vw,42px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:12px}
+.hero-title em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:clamp(14px,3vw,17px);color:rgba(255,255,255,.75);line-height:1.7}
+
+/* STEPS BAR */
+.steps-bar{background:#fff;border-bottom:2px solid var(--border);padding:12px 16px;position:sticky;top:52px;z-index:100}
+.steps-inner{max-width:700px;margin:0 auto;display:flex;gap:4px}
+.step-tab{flex:1;padding:10px 6px;text-align:center;font-size:11px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
+.step-tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+.step-tab.done{color:var(--green);border-bottom-color:var(--green)}
+.step-num{font-size:16px;display:block;margin-bottom:2px}
+
+/* MAIN */
+.main{max-width:680px;margin:0 auto;padding:20px 16px 60px}
+.sec{display:none}
+.sec.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.sec-sub{font-size:13px;color:var(--gray);margin-bottom:20px}
+
+/* APTITUDE TEST */
+.q-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:14px}
+.q-num{font-size:11px;font-weight:700;color:var(--gray);margin-bottom:6px;letter-spacing:1px}
+.q-text{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.5}
+.q-options{display:grid;gap:8px}
+.q-opt{padding:12px 16px;border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;color:var(--text);transition:.15s;text-align:left;background:#fff;font-family:inherit;width:100%}
+.q-opt:hover{border-color:var(--blue);background:#EEF4FF;color:var(--blue)}
+.q-opt.selected{border-color:var(--blue);background:#EEF4FF;color:var(--blue)}
+
+/* PROGRESS */
+.q-progress{display:flex;gap:4px;margin-bottom:16px}
+.q-dot{flex:1;height:4px;border-radius:2px;background:#E0E0E0;transition:.3s}
+.q-dot.done{background:var(--blue)}
+.q-dot.active{background:var(--gold)}
+
+/* CAREER PATHS */
+.path-grid{display:grid;gap:12px}
+.path-card{background:#fff;border:2px solid var(--border);border-radius:14px;padding:18px;cursor:pointer;transition:.2s;display:flex;align-items:flex-start;gap:14px}
+.path-card:hover{border-color:var(--blue);box-shadow:0 4px 16px rgba(0,0,0,.1);transform:translateY(-2px)}
+.path-icon{font-size:32px;flex-shrink:0}
+.path-content{flex:1}
+.path-title{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.path-desc{font-size:13px;color:var(--gray);line-height:1.6}
+.path-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.path-tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+.tag-green{background:#E8F5E9;color:var(--green)}
+.tag-blue{background:#EEF4FF;color:var(--blue)}
+.tag-orange{background:#FFF3E0;color:var(--orange)}
+
+/* COUNSELORS */
+.counselor-grid{display:grid;gap:12px}
+.counselor-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;align-items:flex-start;gap:14px}
+.c-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.c-info{flex:1}
+.c-name{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.c-role{font-size:12px;color:var(--blue);font-weight:700;margin-bottom:4px}
+.c-loc{font-size:12px;color:var(--gray);margin-bottom:8px}
+.c-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.c-tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:10px;background:#F0F4F8;color:var(--gray)}
+.c-btns{display:flex;gap:6px}
+.c-btn{padding:8px 14px;border-radius:8px;font-size:12px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.c-btn-green{background:var(--green);color:#fff}
+.c-btn-blue{background:var(--blue);color:#fff}
+.c-btn-gold{background:var(--gold);color:var(--navy)}
+
+/* ROADMAP */
+.roadmap{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:14px}
+.rm-title{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rm-steps{display:grid;gap:10px}
+.rm-step{display:flex;align-items:flex-start;gap:12px;padding:12px;background:#F8F9FA;border-radius:10px}
+.rm-num{width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rm-text{flex:1}
+.rm-step-title{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.rm-step-desc{font-size:12px;color:var(--gray)}
+
+/* BUTTONS */
+.btn-primary{width:100%;padding:14px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 4px 12px rgba(21,101,192,.3);transition:.2s;margin-top:16px}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-back{background:#F0F4F8;color:var(--navy);border:none;border-radius:10px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:10px;width:100%}
+
+/* FOOTER */
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:15px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
+.footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}
+.sitemap-grid a:hover{color:var(--gold)}
+.footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.6}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
+
+/* SCROLL + TOAST */
+.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
+.scroll-top.show{display:flex;align-items:center;justify-content:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;opacity:0;transition:.3s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast.err{border-left:4px solid var(--red)}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/en/" class="nav-brand">
+      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+      <div class="nav-brand-text">Applied Computer School
+        <small>Free Digital Education for the Global South</small>
+      </div>
+    </a>
+    <div class="nav-controls">
+      <button class="btn-translate" onclick="toggleTranslate()">🌐 Language</button>
+      <button class="btn-menu" onclick="openMenu()">☰</button>
+    </div>
+  </div>
+  <div class="translate-panel" id="translatePanel">
+    <div id="google_translate_element"></div>
+  </div>
+</nav>
+
+<!-- MENU -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-head"><h3>ACS Menu</h3>
+    <button class="menu-close" onclick="closeMenu()">✕</button>
+  </div>
+  <ul class="menu-links">
+    <li><a href="/en/">🏠 Home</a></li>
+    <li><a href="/en/mission.html">🎯 Mission</a></li>
+    <li><a href="/en/counseling.html" class="active">🧭 Counseling</a></li>
+    <li><a href="/en/industries/">🌍 Industries</a></li>
+    <li><a href="/courses/en/">📚 Courses</a></li>
+    <li><a href="/en/join.html">📝 Registration</a></li>
+    <li><a href="/verify/">🏆 Certificate</a></li>
+    <li><a href="/en/network.html">🤝 Network</a></li>
+    <li><a href="/vani/">📱 Vani App</a></li>
+    <li><a href="/contact/en/">📞 Contact</a></li>
+  </ul>
+  <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
+    <div class="hero-tag">🧭 Counseling Centre</div>
+    <div class="hero-title">
+      Choose the right path,<br/>
+      <em>success will follow.</em>
+    </div>
+    <div class="hero-sub">
+      Take Aptitude Test → Meet a Counselor → Get your Personal Roadmap
+    </div>
+  </div>
+</div>
+
+<!-- STEPS BAR -->
+<div class="steps-bar">
+  <div class="steps-inner">
+    <div class="step-tab active" id="tab1" onclick="goTo(1)"><span class="step-num">🧠</span>Test</div>
+    <div class="step-tab" id="tab2" onclick="goTo(2)"><span class="step-num">🗺️</span>Path</div>
+    <div class="step-tab" id="tab3" onclick="goTo(3)"><span class="step-num">🧭</span>Counselor</div>
+    <div class="step-tab" id="tab4" onclick="goTo(4)"><span class="step-num">🚀</span>Roadmap</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- SEC 1: APTITUDE TEST -->
+  <div class="sec active" id="sec1">
+    <div class="sec-title">🧠 Aptitude Test</div>
+    <div class="sec-sub">Answer 10 questions — your right path will emerge on its own.</div>
+    <div class="q-progress" id="qProgress"></div>
+    <div id="qContainer"></div>
+    <button class="btn-primary" id="nextBtn" onclick="nextQ()">Next Question →</button>
+  </div>
+
+  <!-- SEC 2: CAREER PATH -->
+  <div class="sec" id="sec2">
+    <div class="sec-title">🗺️ Choose Your Path</div>
+    <div class="sec-sub">Based on your answers — which path is right for you?</div>
+    <div class="path-grid">
+
+      <div class="path-card" onclick="selectPath('govt')">
+        <span class="path-icon">🏛️</span>
+        <div class="path-content">
+          <div class="path-title">Government Job</div>
+          <div class="path-desc">UPSC, State PSC, Railway, Bank, SSC — stable income, secure future.</div>
+          <div class="path-tags">
+            <span class="path-tag tag-green">Stable Income</span>
+            <span class="path-tag tag-blue">Pension</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card" onclick="selectPath('corporate')">
+        <span class="path-icon">🏢</span>
+        <div class="path-content">
+          <div class="path-title">Corporate Job</div>
+          <div class="path-desc">IT, Finance, Marketing, HR — fast growth, good salary.</div>
+          <div class="path-tags">
+            <span class="path-tag tag-blue">Fast Growth</span>
+            <span class="path-tag tag-orange">High Salary</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card" onclick="selectPath('private')">
+        <span class="path-icon">🏪</span>
+        <div class="path-content">
+          <div class="path-title">Private Job</div>
+          <div class="path-desc">Local industry, shops, companies — quick start, immediate income.</div>
+          <div class="path-tags">
+            <span class="path-tag tag-green">Quick Start</span>
+            <span class="path-tag tag-blue">Local</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card" onclick="selectPath('business')">
+        <span class="path-icon">💼</span>
+        <div class="path-content">
+          <div class="path-title">Own Business</div>
+          <div class="path-desc">Start from Rs.0 → up to Rs.200 Crore. Full path from L1 to L15.</div>
+          <div class="path-tags">
+            <span class="path-tag tag-orange">Be Your Own Boss</span>
+            <span class="path-tag tag-green">Start from Rs.0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="path-card" onclick="selectPath('selfemployed')">
+        <span class="path-icon">🔧</span>
+        <div class="path-content">
+          <div class="path-title">Self-Employment</div>
+          <div class="path-desc">Repair, service, freelance — earn from your skills.</div>
+          <div class="path-tags">
+            <span class="path-tag tag-green">Skill-based Earning</span>
+            <span class="path-tag tag-blue">Flexible</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="btn-back" onclick="goTo(1)">← Back to Test</button>
+  </div>
+
+  <!-- SEC 3: COUNSELORS -->
+  <div class="sec" id="sec3">
+    <div class="sec-title">🧭 Meet a Counselor</div>
+    <div class="sec-sub">Our expert counselors are ready to help you.</div>
+    <div class="counselor-grid">
+
+      <div class="counselor-card">
+        <div class="c-avatar">🧑</div>
+        <div class="c-info">
+          <div class="c-name">Rambharosh Vidyarthi</div>
+          <div class="c-role">Founder & Chief Counselor</div>
+          <div class="c-loc">📍 Vidyarthinagar, Chautham, Khagaria, Bihar</div>
+          <div class="c-tags">
+            <span class="c-tag">Business</span>
+            <span class="c-tag">Career</span>
+            <span class="c-tag">Hindi/English</span>
+          </div>
+          <div class="c-btns">
+            <a href="https://wa.me/919431210092" class="c-btn c-btn-green" target="_blank">💬 WhatsApp</a>
+            <a href="tel:+919431210092" class="c-btn c-btn-blue">📞 Call</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="counselor-card">
+        <div class="c-avatar">🏫</div>
+        <div class="c-info">
+          <div class="c-name">ACS Chautham Centre</div>
+          <div class="c-role">Headquarters Centre</div>
+          <div class="c-loc">📍 Vidyarthinagar, Chautham, Khagaria — ⭐4.8 (318 Reviews)</div>
+          <div class="c-tags">
+            <span class="c-tag">All Courses</span>
+            <span class="c-tag">Mon-Sat</span>
+            <span class="c-tag">6AM - 8PM</span>
+          </div>
+          <div class="c-btns">
+            <a href="https://wa.me/919431210092" class="c-btn c-btn-green" target="_blank">💬 WhatsApp</a>
+            <a href="mailto:acs.chautham@gmail.com" class="c-btn c-btn-blue">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="counselor-card">
+        <div class="c-avatar">🌐</div>
+        <div class="c-info">
+          <div class="c-name">Online Counseling</div>
+          <div class="c-role">WhatsApp / Video Call</div>
+          <div class="c-loc">📍 From anywhere — anytime</div>
+          <div class="c-tags">
+            <span class="c-tag">Free</span>
+            <span class="c-tag">Online</span>
+            <span class="c-tag">24x7</span>
+          </div>
+          <div class="c-btns">
+            <a href="https://wa.me/919431210092?text=Hello, I need counseling." class="c-btn c-btn-gold" target="_blank">🧭 Get Advice</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="btn-primary" onclick="goTo(4)">See Your Roadmap →</button>
+    <button class="btn-back" onclick="goTo(2)">← Back</button>
+  </div>
+
+  <!-- SEC 4: ROADMAP -->
+  <div class="sec" id="sec4">
+    <div class="sec-title">🚀 Your Personal Roadmap</div>
+    <div class="sec-sub">Your path to success — step by step.</div>
+    <div class="roadmap" id="roadmapCard">
+      <div class="rm-title">🗺️ Your Personal Roadmap</div>
+      <div class="rm-steps" id="roadmapSteps"></div>
+    </div>
+    <div style="background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:14px;padding:20px;color:#fff;text-align:center;margin-top:16px">
+      <div style="font-size:18px;font-weight:800;margin-bottom:8px">Start Now!</div>
+      <div style="font-size:13px;opacity:.8;margin-bottom:16px">Take the first step — ACS is with you.</div>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+        <a href="/en/industries/" style="padding:12px 20px;background:var(--gold);color:var(--navy);border-radius:10px;font-weight:800;font-size:14px">🌍 Industries</a>
+        <a href="/courses/en/" style="padding:12px 20px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:10px;font-weight:800;font-size:14px">📚 Courses</a>
+        <a href="https://wa.me/919431210092" style="padding:12px 20px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:14px" target="_blank">💬 Counselor</a>
+      </div>
+    </div>
+    <button class="btn-back" onclick="goTo(3)">← Back</button>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>Applied Computer School</h2>
+      <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
+      <p>An initiative of FFGPMTrust | ISO 9001:2015 Certified</p>
+    </div>
+    <div class="footer-col">
+      <h3>Site Map</h3>
+      <div class="sitemap-grid">
+        <a href="/en/">🏠 Home</a>
+        <a href="/en/mission.html">🎯 Mission</a>
+        <a href="/en/counseling.html">🧭 Counseling</a>
+        <a href="/en/industries/">🌍 Industries</a>
+        <a href="/courses/en/">📚 Courses</a>
+        <a href="/en/join.html">📝 Registration</a>
+        <a href="/verify/">🏆 Certificate</a>
+        <a href="/en/network.html">🤝 Network</a>
+        <a href="/vani/">📱 Vani App</a>
+        <a href="/contact/en/">📞 Contact</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Official Contact</h3>
+      <p>📍 ACS Building, Vidyarthinagar,<br/>Chautham, Khagaria, Bihar — 851201</p>
+      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
+      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
+      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
+      <p style="margin-top:8px;font-size:11px;color:rgba(255,255,255,.35)">⚠️ Payments only via official Razorpay link.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Applied Computer School |
+    <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
+    <a href="/" style="color:var(--gold)">acslearn.com</a>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo(0,0)">↑</button>
+<div class="toast" id="toast"></div>
+
+<script>
+const QUESTIONS = [
+  { q:'What is your highest education level?', opts:['Up to Class 8','Class 10 / 12','Graduate','Post Graduate'] },
+  { q:'Where do you live?', opts:['Village','Small Town','City','Metro'] },
+  { q:'How much can you invest to start?', opts:['Nothing (Rs.0)','Rs.1,000 – Rs.25,000','Rs.25,000 – Rs.5 Lakh','More than Rs.5 Lakh'] },
+  { q:'Which area interests you most?', opts:['Technology','Business','Art / Craft','Service'] },
+  { q:'How many hours can you work daily?', opts:['2-4 hours (Part-time)','6-8 hours (Full-time)','Flexible hours','Night / Shift work too'] },
+  { q:'What is your main goal?', opts:['Stable income','Fast career growth','Be my own boss','Community service'] },
+  { q:'What is your computer knowledge level?', opts:['None at all','Basic knowledge','Good knowledge','Expert'] },
+  { q:'Where would you prefer to work?', opts:['Work from home','Shop / Office','Travelling','Anywhere is fine'] },
+  { q:'What is your family\'s financial situation?', opts:['Very difficult','Managing','Good','Very good'] },
+  { q:'What is your biggest dream?', opts:['Support my family','Build my own business','Get a government job','Go abroad'] },
+];
+
+let answers = [], curQ = 0, selectedPath = '';
+
+function renderProgress(){
+  document.getElementById('qProgress').innerHTML =
+    QUESTIONS.map((_,i) =>
+      `<div class="q-dot ${i<curQ?'done':i===curQ?'active':''}"></div>`
+    ).join('');
+}
+
+function renderQ(){
+  renderProgress();
+  const q = QUESTIONS[curQ];
+  document.getElementById('qContainer').innerHTML = `
+    <div class="q-card">
+      <div class="q-num">QUESTION ${curQ+1} / ${QUESTIONS.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="q-options">
+        ${q.opts.map((opt,i) => `
+          <button class="q-opt ${answers[curQ]===i?'selected':''}"
+            onclick="selectOpt(${i})">${opt}</button>
+        `).join('')}
+      </div>
+    </div>`;
+  document.getElementById('nextBtn').textContent =
+    curQ < QUESTIONS.length-1 ? 'Next Question →' : 'See Results →';
+}
+
+window.selectOpt = function(i){
+  answers[curQ] = i;
+  document.querySelectorAll('.q-opt').forEach((b,j) => b.classList.toggle('selected', j===i));
+};
+
+window.nextQ = function(){
+  if(answers[curQ] === undefined){ showToast('Please select an option','err'); return; }
+  if(curQ < QUESTIONS.length-1){ curQ++; renderQ(); }
+  else { goTo(2); }
+};
+
+window.selectPath = function(path){
+  selectedPath = path;
+  goTo(3);
+};
+
+const ROADMAPS = {
+  govt: [
+    {t:'Check Eligibility', d:'UPSC / State PSC / Railway / Bank / SSC — which exam suits you best.'},
+    {t:'Choose a Course', d:'Computer Basics, General Studies — available at ACS.'},
+    {t:'Prepare for Exams', d:'Mock Tests, Study Material, guidance from Counselor.'},
+    {t:'Apply When Notified', d:'Apply immediately when notifications are released.'},
+    {t:'Success', d:'ACS Certificate will strengthen your profile after selection.'},
+  ],
+  corporate: [
+    {t:'Upgrade Your Skills', d:'DCA, Digital Marketing, Tally — learn at ACS.'},
+    {t:'Get Certified', d:'FFGPMTrust Certificate — recognized everywhere.'},
+    {t:'Build Your Resume', d:'Prepare a professional resume with Counselor help.'},
+    {t:'Apply for Jobs', d:'Connect directly with Employers in the ACS Network.'},
+    {t:'Keep Growing', d:'Keep learning new skills while working.'},
+  ],
+  private: [
+    {t:'Find Local Industry', d:'Counselor will tell you which industries exist in your district.'},
+    {t:'Take a Short Course', d:'Mobile Repair, Tailoring, Computer — 3-6 months.'},
+    {t:'Get Certified', d:'ACS Certificate will make getting a job easier.'},
+    {t:'Apply', d:'Employer list available in the ACS Network.'},
+  ],
+  business: [
+    {t:'Choose Your Industry', d:'Select your sector from 950 available industries.'},
+    {t:'Start at L1', d:'Begin from Rs.0 — earn through your skills.'},
+    {t:'Take a Course', d:'Complete the full course for your sector at ACS.'},
+    {t:'Build Project Report', d:'ACS Project Report template for bank loan.'},
+    {t:'Get a Loan', d:'Mudra / PMEGP — Counselor will help you apply.'},
+    {t:'Scale Your Business', d:'L1 → L2 → L3... grow step by step.'},
+  ],
+  selfemployed: [
+    {t:'Identify Your Skill', d:'Which skill of yours can earn money?'},
+    {t:'Sharpen Your Skill', d:'Take the relevant course at ACS.'},
+    {t:'Start from Rs.0', d:'L1 — work by hand, no investment needed.'},
+    {t:'Build Regular Clients', d:'5-10 regular clients = stable income.'},
+    {t:'Expand', d:'Gradually add tools, shop, team.'},
+  ],
+};
+
+function goTo(n){
+  [1,2,3,4].forEach(i => {
+    document.getElementById('sec'+i).classList.toggle('active', i===n);
+    const t = document.getElementById('tab'+i);
+    t.classList.remove('active','done');
+    if(i===n) t.classList.add('active');
+    if(i<n) t.classList.add('done');
+  });
+  if(n===4) renderRoadmap();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+window.goTo = goTo;
+
+function renderRoadmap(){
+  const steps = ROADMAPS[selectedPath] || ROADMAPS.business;
+  document.getElementById('roadmapSteps').innerHTML = steps.map((s,i) => `
+    <div class="rm-step">
+      <div class="rm-num">${i+1}</div>
+      <div class="rm-text">
+        <div class="rm-step-title">${s.t}</div>
+        <div class="rm-step-desc">${s.d}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
+function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
+window.openMenu=openMenu; window.closeMenu=closeMenu;
+function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
+window.toggleTranslate=toggleTranslate;
+window.addEventListener('scroll',()=>document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300));
+function showToast(msg,type='ok'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+window.showToast=showToast;
+window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur,sw,fr,es,pt,ar,id,vi,ha'},'google_translate_element');};
+
+renderQ();
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
