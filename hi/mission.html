@@ -1,1 +1,593 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="ACS का मिशन — शून्य से शिखर तक। 2011 में ₹5/माह से शुरू, आज 950 sectors, 2036 तक 50 करोड़ students। Applied Computer School™ की पूरी कहानी।"/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#0B1F3A"/>
+<meta property="og:title" content="ACS मिशन — शून्य से शिखर तक"/>
+<meta property="og:description" content="₹5/माह से शुरू हुई यात्रा, आज Global South तक।"/>
+<meta property="og:url" content="https://acslearn.com/hi/mission.html"/>
+<link rel="canonical" href="https://acslearn.com/hi/mission.html"/>
+<title>मिशन — Applied Computer School™</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
+  --orange:#E65100;--red:#C62828;
+  --white:#fff;--offwhite:#F5F7FA;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+}
+html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 
+/* NAVBAR */
+.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:8px}
+.nav-brand img{height:30px;border-radius:6px}
+.nav-brand-text{color:#fff;font-size:13px;font-weight:700;line-height:1.2}
+.nav-brand-text small{display:block;color:var(--gold);font-size:10px;font-weight:400}
+.nav-controls{display:flex;align-items:center;gap:6px}
+.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;min-height:40px}
+.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-height:40px;min-width:40px}
+.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
+.translate-panel.open{display:block}
+#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
+
+/* MENU */
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
+.menu-overlay.open{display:block}
+.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}
+.menu-panel.open{right:0}
+.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.menu-head h3{font-size:15px}
+.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.menu-links{list-style:none;padding:6px 0}
+.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:14px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
+.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
+.menu-links li a.active{color:var(--blue);background:#EEF4FF}
+.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);padding:14px;border-radius:10px;font-weight:800;font-size:15px;min-height:52px}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);padding:40px 20px 48px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:350px;height:350px;border-radius:50%;background:rgba(249,168,37,.04);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.hero-logo{width:56px;height:56px;border-radius:14px;border:2px solid rgba(255,255,255,.2);margin:0 auto 20px}
+.hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.hero-title{font-size:clamp(26px,6vw,42px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:12px}
+.hero-title em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:clamp(14px,3vw,17px);color:rgba(255,255,255,.75);line-height:1.7}
+
+/* MAIN */
+.main{max-width:720px;margin:0 auto;padding:32px 16px 60px}
+
+/* SECTION */
+.sec{margin-bottom:36px}
+.sec-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-title::after{content:'';flex:1;height:2px;background:var(--border);border-radius:1px}
+
+/* STORY CARD */
+.story{background:#fff;border-radius:14px;padding:22px;border:1px solid var(--border);line-height:1.9;font-size:15px;color:var(--text)}
+.story p{margin-bottom:14px}
+.story p:last-child{margin:0}
+.story strong{color:var(--navy)}
+.story em{color:var(--blue);font-style:normal;font-weight:700}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:12px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--gold),var(--blue),var(--green));border-radius:1px}
+.tl-item{position:relative;margin-bottom:28px}
+.tl-item:last-child{margin:0}
+.tl-dot{position:absolute;left:-26px;top:4px;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0}
+.tl-dot.gold{background:var(--gold)}
+.tl-dot.blue{background:var(--blue)}
+.tl-dot.green{background:var(--green)}
+.tl-dot.orange{background:var(--orange)}
+.tl-dot.navy{background:var(--navy)}
+.tl-year{font-size:12px;font-weight:800;color:var(--gray);margin-bottom:4px;letter-spacing:1px}
+.tl-title{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px}
+.tl-body{font-size:13px;color:var(--gray);line-height:1.7}
+.tl-body strong{color:var(--text)}
+
+/* TRUST CARD */
+.trust-card{background:linear-gradient(135deg,#FFF8E1,#FFFDE7);border:2px solid rgba(249,168,37,.3);border-radius:14px;padding:22px;margin-bottom:14px}
+.trust-icon{font-size:36px;margin-bottom:10px}
+.trust-title{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.trust-body{font-size:14px;color:var(--text);line-height:1.8}
+
+/* VISION CARD */
+.vision-card{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:14px;padding:24px;color:#fff;text-align:center}
+.vision-year{font-size:48px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:8px}
+.vision-title{font-size:18px;font-weight:800;margin-bottom:16px}
+.vision-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.vs-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px}
+.vs-num{font-size:20px;font-weight:900;color:var(--gold);display:block}
+.vs-lbl{font-size:11px;color:rgba(255,255,255,.6);margin-top:2px}
+.vision-quote{font-size:15px;font-style:italic;color:rgba(255,255,255,.8);line-height:1.7;border-top:1px solid rgba(255,255,255,.15);padding-top:16px}
+.vision-quote strong{color:var(--gold);font-style:normal}
+
+/* TEAM STATS */
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:480px){.team-grid{grid-template-columns:repeat(4,1fr)}}
+.team-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center}
+.team-num{font-size:22px;font-weight:900;color:var(--blue);display:block}
+.team-lbl{font-size:11px;color:var(--gray);margin-top:3px}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--blue),var(--blue-lt));border-radius:14px;padding:24px;text-align:center;color:#fff;margin-top:32px}
+.cta h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.cta p{font-size:13px;opacity:.8;margin-bottom:16px}
+.cta-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.cta-btn{padding:12px 20px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-decoration:none;display:inline-block;transition:.2s}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-gold{background:var(--gold);color:var(--navy)}
+.cta-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)}
+
+/* FOOTER */
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:15px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
+.footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}
+.sitemap-grid a:hover{color:var(--gold)}
+.footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.6}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
+
+/* GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+@media(max-width:480px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+.gallery-item{
+  aspect-ratio:1;overflow:hidden;
+  border-radius:10px;cursor:pointer;
+  position:relative;background:#E0E0E0;
+  transition:.2s;
+}
+.gallery-item:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.gallery-item img{
+  width:100%;height:100%;
+  object-fit:cover;transition:.3s;
+}
+.gallery-item:hover img{transform:scale(1.08)}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.95);z-index:900;
+  align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.lightbox.open{display:flex}
+.lb-img{
+  max-width:90vw;max-height:80vh;
+  border-radius:8px;object-fit:contain;
+}
+.lb-close{
+  position:absolute;top:16px;right:16px;
+  background:rgba(255,255,255,.15);border:none;
+  color:#fff;font-size:24px;cursor:pointer;
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.lb-prev,.lb-next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.15);border:none;
+  color:#fff;font-size:36px;cursor:pointer;
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:.2s;
+}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.3)}
+.lb-prev{left:12px}
+.lb-next{right:12px}
+.lb-counter{
+  color:rgba(255,255,255,.6);font-size:13px;
+  margin-top:12px;font-weight:600;
+}
+
+/* SCROLL + TOAST */
+.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
+.scroll-top.show{display:flex;align-items:center;justify-content:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;opacity:0;transition:.3s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+      <div class="nav-brand-text">Applied Computer School™
+        <small>Free Digital Education for the Global South</small>
+      </div>
+    </a>
+    <div class="nav-controls">
+      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
+      <button class="btn-menu" onclick="openMenu()">☰</button>
+    </div>
+  </div>
+  <div class="translate-panel" id="translatePanel">
+    <div id="google_translate_element"></div>
+  </div>
+</nav>
+
+<!-- SLIDE MENU -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-head">
+    <h3>ACS Menu</h3>
+    <button class="menu-close" onclick="closeMenu()">✕</button>
+  </div>
+  <ul class="menu-links">
+    <li><a href="/">🏠 होम</a></li>
+    <li><a href="/hi/mission.html" class="active">🎯 मिशन</a></li>
+    <li><a href="/hi/salah.html">🧭 सलाह</a></li>
+    <li><a href="/udyam/">🌍 उद्यम</a></li>
+    <li><a href="/courses/hi/">📚 कोर्स</a></li>
+    <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
+    <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
+    <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
+    <li><a href="/vani/">📱 वाणी App</a></li>
+    <li><a href="/contact/hi/">📞 संपर्क</a></li>
+  </ul>
+  <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
+    <div class="hero-tag">🎯 हमारा मिशन</div>
+    <div class="hero-title">
+      शून्य से <em>शिखर तक</em> —<br/>
+      यह सिर्फ नारा नहीं,<br/>
+      हमारी कहानी है।
+    </div>
+    <div class="hero-sub">
+      2011 से आज तक — एक सपना, एक मिशन, एक रास्ता।
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: शुरुआत -->
+  <div class="sec">
+    <div class="sec-title">📖 शुरुआत की कहानी</div>
+    <div class="story">
+      <p>
+        <strong>8 फरवरी 2011।</strong>
+        बिहार के सुदूर देहात में, खगड़िया के चौथम गाँव में,
+        एक सपना शुरू हुआ।
+      </p>
+      <p>
+        गरीब परिवारों के बच्चों को कंप्यूटर सिखाना था —
+        लेकिन फीस इतनी कि वो खुद आ सकें।
+        <em>₹5 प्रति महीना।</em>
+        बस इतना।
+      </p>
+      <p>
+        न बड़ी building थी, न बड़ा बजट।
+        था तो सिर्फ एक विश्वास —
+        <strong>"गरीब बाप के बच्चे भी काबिल होते हैं,
+        बस मौका चाहिए।"</strong>
+      </p>
+      <p>
+        यही मौका देने के लिए
+        <strong>Applied Computer School™ (ACS)</strong>
+        की स्थापना हुई।
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TIMELINE -->
+  <div class="sec">
+    <div class="sec-title">📅 सफर — 2011 से 2036 तक</div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot gold">1</div>
+        <div class="tl-year">8 फरवरी 2011</div>
+        <div class="tl-title">₹5/माह से शुरुआत</div>
+        <div class="tl-body">
+          खगड़िया, बिहार के सुदूर देहाती बच्चों को
+          <strong>₹5 प्रति महीना</strong> के दर से
+          कंप्यूटर शिक्षा की शुरुआत।
+          एक centre, एक सपना।
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot blue">2</div>
+        <div class="tl-year">8 फरवरी 2017</div>
+        <div class="tl-title">BSDM से सहयोग — दिशा बदली</div>
+        <div class="tl-body">
+          <strong>बिहार स्किल डेवलपमेंट मिशन (BSDM)</strong>
+          के सहयोग से ACS की दिशा बदली।
+          1 से <strong>3 Centres</strong> हो गए।
+          BSDM Code: KYP05030002 ✅
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot orange">3</div>
+        <div class="tl-year">2020 — कोरोना काल</div>
+        <div class="tl-title">FFGPMTrust की स्थापना</div>
+        <div class="tl-body">
+          जब पूरा देश थम गया, तब मन में आया —
+          इन बच्चों के लिए और कुछ करना है।
+          <strong>पूज्य दादाजी स्वतंत्रता सेनानी
+          श्री गंगाधर प्रसाद</strong> और
+          <strong>दादी श्रीमती लक्ष्मी देवी</strong>
+          की याद में
+          <strong>FFGPMTrust</strong> की स्थापना हुई।
+          Certificate अब इसी Trust के नाम से।
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot green">4</div>
+        <div class="tl-year">2026 — अभी</div>
+        <div class="tl-title">950 Sectors, Global Vision</div>
+        <div class="tl-body">
+          <strong>3 Centres, 300+ Live Students,
+          20,000+ Alumni।</strong>
+          950 business sectors।
+          1.50 लाख business ideas।
+          ISO 9001:2015 Certified।
+          ⭐4.8 Google Rating (318 Reviews)।
+          हिंदी, Kannada, Marathi में courses।
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot navy">5</div>
+        <div class="tl-year">2036 — लक्ष्य</div>
+        <div class="tl-title">50 करोड़ Students, 80+ भाषाएं</div>
+        <div class="tl-body">
+          दुनिया के हर गाँव में,
+          हर भाषा में,
+          हर उद्योग की जानकारी।
+          <strong>खगड़िया से विश्व तक। 🌍</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: TRUST -->
+  <div class="sec">
+    <div class="sec-title">🙏 FFGPMTrust — नींव की कहानी</div>
+    <div class="trust-card">
+      <div class="trust-icon">🇮🇳</div>
+      <div class="trust-title">
+        Freedom Fighter Gangadhar Prasad Memorial Trust
+      </div>
+      <div class="trust-body">
+        <p style="margin-bottom:12px">
+          ACS के Founder के <strong>पूज्य दादाजी
+          स्वतंत्रता सेनानी श्री गंगाधर प्रसाद</strong>
+          ने देश की आज़ादी के लिए संघर्ष किया।
+          <strong>दादी श्रीमती लक्ष्मी देवी</strong>
+          ने उनका साथ दिया।
+        </p>
+        <p style="margin-bottom:12px">
+          2020 के कोरोना काल में, जब दुनिया रुकी हुई थी,
+          तब उनकी पवित्र स्मृति में इस Trust की स्थापना हुई।
+        </p>
+        <p>
+          <strong>उद्देश्य:</strong> जो काम दादाजी ने
+          देश की आज़ादी के लिए किया,
+          वही काम हम आज गरीब बच्चों की
+          आर्थिक आज़ादी के लिए करें।
+        </p>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;flex:1;min-width:160px">
+        <div style="font-weight:800;color:var(--navy);margin-bottom:4px">🏛️ Registration</div>
+        <div style="color:var(--gray)">BR/2012/0055896</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;flex:1;min-width:160px">
+        <div style="font-weight:800;color:var(--navy);margin-bottom:4px">🏆 ISO Certified</div>
+        <div style="color:var(--gray)">9001:2015</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;flex:1;min-width:160px">
+        <div style="font-weight:800;color:var(--navy);margin-bottom:4px">⭐ Google Rating</div>
+        <div style="color:var(--gray)">4.8 / 318 Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: TEAM STATS -->
+  <div class="sec">
+    <div class="sec-title">👥 ACS अभी</div>
+    <div class="team-grid">
+      <div class="team-item"><span class="team-num">15+</span><div class="team-lbl">साल का अनुभव</div></div>
+      <div class="team-item"><span class="team-num">3</span><div class="team-lbl">Active Centres</div></div>
+      <div class="team-item"><span class="team-num">300+</span><div class="team-lbl">Live Students</div></div>
+      <div class="team-item"><span class="team-num">20,000+</span><div class="team-lbl">Alumni</div></div>
+      <div class="team-item"><span class="team-num">70+</span><div class="team-lbl">Apprentice</div></div>
+      <div class="team-item"><span class="team-num">950</span><div class="team-lbl">Business Sectors</div></div>
+      <div class="team-item"><span class="team-num">1,500+</span><div class="team-lbl">Live Pages</div></div>
+      <div class="team-item"><span class="team-num">80+</span><div class="team-lbl">भाषाएं (2036)</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: VISION 2036 -->
+  <div class="sec">
+    <div class="sec-title">🔮 Vision 2036</div>
+    <div class="vision-card">
+      <div class="vision-year">2036</div>
+      <div class="vision-title">खगड़िया से विश्व तक 🌍</div>
+      <div class="vision-stats">
+        <div class="vs-item"><span class="vs-num">50 करोड़</span><div class="vs-lbl">Target Students</div></div>
+        <div class="vs-item"><span class="vs-num">80+</span><div class="vs-lbl">भाषाएं</div></div>
+        <div class="vs-item"><span class="vs-num">950</span><div class="vs-lbl">Courses</div></div>
+        <div class="vs-item"><span class="vs-num">3.2 करोड़</span><div class="vs-lbl">Web Pages</div></div>
+      </div>
+      <div class="vision-quote">
+        "दुनिया के किसी भी गाँव का बच्चा,<br/>
+        अपनी भाषा में,<br/>
+        किसी भी उद्योग की पूरी जानकारी पाए।<br/><br/>
+        <strong>L1 (₹0) से शुरू करे।<br/>
+        L15 (₹200 करोड़) तक पहुँचे।</strong><br/><br/>
+        गरीब बाप के बच्चे creative होते हैं —<br/>
+        बस मौका चाहिए।"<br/><br/>
+        — <strong>Rambharosh Vidyarthi</strong><br/>
+        Founder, Applied Computer School™
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: GALLERY -->
+  <div class="sec">
+    <div class="sec-title">📸 ACS की झलकियाँ</div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-prev" onclick="event.stopPropagation();changePhoto(-1)">‹</button>
+    <img class="lb-img" id="lbImg" src="" alt="ACS Gallery"/>
+    <div class="lb-counter" id="lbCounter"></div>
+    <button class="lb-next" onclick="event.stopPropagation();changePhoto(1)">›</button>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>आप भी इस मिशन का हिस्सा बनें!</h3>
+    <p>सीखें, सिखाएं, कमाएं — साथ मिलकर दुनिया बदलें।</p>
+    <div class="cta-btns">
+      <a href="/udyam/" class="cta-btn cta-gold">🌍 उद्यम खोजें</a>
+      <a href="/hi/salah.html" class="cta-btn cta-ghost">🧭 सलाह लें</a>
+      <a href="/join.html" class="cta-btn cta-ghost">📝 जुड़ें</a>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>Applied Computer School™</h2>
+      <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
+      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का उपक्रम</p>
+      <p style="margin-top:8px;color:var(--gold);font-weight:700">Learn. Build. Contribute. Grow.</p>
+      <p style="margin-top:6px">ISO 9001:2015 प्रमाणित</p>
+    </div>
+    <div class="footer-col">
+      <h3>Site Map</h3>
+      <div class="sitemap-grid">
+        <a href="/">🏠 होम</a>
+        <a href="/hi/mission.html">🎯 मिशन</a>
+        <a href="/hi/salah.html">🧭 सलाह</a>
+        <a href="/udyam/">🌍 उद्यम</a>
+        <a href="/courses/hi/">📚 कोर्स</a>
+        <a href="/join.html">📝 रजिस्ट्रेशन</a>
+        <a href="/verify/">🏆 प्रमाण पत्र</a>
+        <a href="/hi/network.html">🤝 नेटवर्क</a>
+        <a href="/vani/">📱 वाणी App</a>
+        <a href="/contact/hi/">📞 संपर्क</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>आधिकारिक संपर्क</h3>
+      <p>📍 ACS Building, Vidyarthi Nagar,<br/>Chautham, Khagaria, Bihar — 851201</p>
+      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
+      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
+      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Applied Computer School™ |
+    <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
+    <a href="/" style="color:var(--gold)">acslearn.com</a>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo(0,0)">↑</button>
+<div class="toast" id="toast"></div>
+
+<script>
+// Gallery
+const BASE='https://acsbabita111.github.io/acslearn/gallery/';
+const PHOTOS=[
+  ...Array.from({length:42},(_,i)=>`applied_computer_school_${String(i+1).padStart(2,'0')}.jpg`),
+  'applied_computer_school_45.png',
+  'applied_computer_school_46.png',
+  'applied_computer_school_47.png',
+  'applied_computer_school_48.png',
+  'applied_computer_school_49.png',
+  'applied_computer_school_50.png',
+];
+let currentPhoto=0;
+
+// Render gallery
+const grid=document.getElementById('galleryGrid');
+PHOTOS.forEach((photo,i)=>{
+  const div=document.createElement('div');
+  div.className='gallery-item';
+  div.innerHTML=`<img src="${BASE}${photo}" alt="ACS ${i+1}" loading="lazy"/>`;
+  div.onclick=()=>openLightbox(i);
+  grid.appendChild(div);
+});
+
+function openLightbox(i){
+  currentPhoto=i;
+  document.getElementById('lbImg').src=BASE+PHOTOS[i];
+  document.getElementById('lbCounter').textContent=(i+1)+' / '+PHOTOS.length;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function changePhoto(dir){
+  currentPhoto=(currentPhoto+dir+PHOTOS.length)%PHOTOS.length;
+  document.getElementById('lbImg').src=BASE+PHOTOS[currentPhoto];
+  document.getElementById('lbCounter').textContent=(currentPhoto+1)+' / '+PHOTOS.length;
+}
+window.openLightbox=openLightbox;
+window.closeLightbox=closeLightbox;
+window.changePhoto=changePhoto;
+
+// Keyboard navigation
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='ArrowRight')changePhoto(1);
+  if(e.key==='ArrowLeft')changePhoto(-1);
+  if(e.key==='Escape')closeLightbox();
+});
+
+function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
+function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
+window.openMenu=openMenu;window.closeMenu=closeMenu;
+function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
+window.toggleTranslate=toggleTranslate;
+window.addEventListener('scroll',()=>document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300));
+window.googleTranslateElementInit=function(){
+  new google.translate.TranslateElement({pageLanguage:'hi',includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur,sw,fr,es,pt,ar,id,vi,ha'},'google_translate_element');
+};
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
