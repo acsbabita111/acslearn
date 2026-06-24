@@ -1,216 +1,435 @@
 <!DOCTYPE html>
-<html lang="hi" dir="ltr">
+<html lang="hi">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>ACS से जुड़ें | Join ACS — Applied Computer School™</title>
+<title id="pg-title">ACS से जुड़ें — Applied Computer School™</title>
+<meta name="description" content="ACS से जुड़ें — Student, Teacher, Worker, Centre, Counselor, Employer, Foreign Agent के रूप में Register करें।"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--navy:#0B1F3A;--blue:#1565C0;--blu2:#1976D2;--gold:#F9A825;--green:#2E7D32;--red:#C62828;--gray:#607080;--bg:#F5F7FA;--white:#fff;--border:#DCE3ED;--r:10px;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);font-family:'Noto Sans Devanagari',sans-serif;color:var(--navy);min-height:100vh;}
-body.en{font-family:'Inter',sans-serif;}
-/* HEADER */
-.hd{background:var(--navy);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99;}
-.hl{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.hl img{height:36px;width:36px;border-radius:6px;}
-.hl h1{color:#fff;font-size:14px;font-weight:700;}
-.hl p{color:rgba(255,255,255,.6);font-size:10px;}
-.lb{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:12px;font-weight:500;}
-/* HERO */
-.hero{background:linear-gradient(135deg,var(--navy),#1a3660);padding:32px 20px 28px;text-align:center;}
-.hero h2{color:#fff;font-size:20px;font-weight:700;line-height:1.4;}
-.hero p{color:rgba(255,255,255,.7);font-size:13px;margin-top:6px;}
-.badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;margin-top:10px;}
-/* STEPS */
-.sp{max-width:480px;margin:16px auto 0;padding:0 20px;}
-.sb{display:flex;align-items:center;}
-.sc{width:30px;height:30px;border-radius:50%;border:2.5px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gray);flex-shrink:0;transition:.3s;}
-.sc.a{border-color:var(--blue);background:var(--blue);color:#fff;}
-.sc.d{border-color:var(--green);background:var(--green);color:#fff;}
-.sl{flex:1;height:2px;background:var(--border);}
-.sl.d{background:var(--green);}
-.slb{display:flex;justify-content:space-between;padding:4px 0 0;font-size:10px;color:var(--gray);}
-.slb span{flex:1;text-align:center;}
-/* CARD */
-.card{background:#fff;border-radius:var(--r);box-shadow:0 2px 12px rgba(11,31,58,.09);margin:16px auto;max-width:480px;padding:22px 18px;border:1px solid var(--border);display:none;}
-.card.show{display:block;}
-.ct{font-size:16px;font-weight:700;margin-bottom:4px;}
-.cs{font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.5;}
-/* ROLES */
-.rg{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
-.rc{border:2px solid var(--border);border-radius:var(--r);padding:12px 10px;cursor:pointer;text-align:center;transition:.2s;}
-.rc:hover,.rc.sel{border-color:var(--blue);background:#EEF4FF;}
-.rc .ic{font-size:22px;margin-bottom:4px;}
-.rc .rn{font-size:12px;font-weight:600;}
-.rc .rd{font-size:10px;color:var(--gray);margin-top:2px;line-height:1.3;}
-/* FIELD */
-.f{margin-bottom:14px;}
-.f label{display:block;font-size:11px;font-weight:600;margin-bottom:5px;letter-spacing:.2px;}
-.f input,.f select,.f textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;color:var(--navy);background:var(--bg);font-family:inherit;outline:none;transition:.2s;}
-.f input:focus,.f select:focus{border-color:var(--blue);background:#fff;}
-.f .hint{font-size:10px;color:var(--gray);margin-top:3px;}
-.f .em{font-size:10px;color:var(--red);margin-top:3px;display:none;}
-.f .em.s{display:block;}
-/* PW BAR */
-.pb{height:4px;background:var(--border);border-radius:2px;margin-top:5px;overflow:hidden;}
-.pf{height:100%;width:0;transition:.4s;border-radius:2px;}
-.pw{background:var(--red)}.pm{background:var(--gold)}.ps{background:var(--green)}
-.pt{font-size:10px;margin-top:2px;}
-/* OTP */
-.or{display:flex;gap:7px;justify-content:center;}
-.ob{width:42px;height:46px;text-align:center;font-size:18px;font-weight:700;border:2px solid var(--border);border-radius:8px;background:var(--bg);outline:none;transition:.2s;}
-.ob:focus{border-color:var(--blue);background:#fff;}
-/* TERMS */
-.tb{border:1.5px solid var(--border);border-radius:8px;padding:12px;height:150px;overflow-y:auto;font-size:11px;color:var(--gray);line-height:1.7;background:#FAFBFC;margin-bottom:12px;}
-.tb h4{color:var(--navy);font-size:12px;margin-bottom:5px;}
-/* CHECK */
-.cr{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;}
-.cr input{width:16px;height:16px;margin-top:2px;flex-shrink:0;accent-color:var(--blue);}
-.cr label{font-size:11px;line-height:1.5;cursor:pointer;}
-/* BUTTONS */
-.btn{width:100%;padding:13px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:.2s;}
-.bp{background:var(--blue);color:#fff;}.bp:hover{background:var(--blu2);}
-.bp:disabled{background:var(--border);color:var(--gray);cursor:not-allowed;}
-.bo{background:transparent;color:var(--blue);border:2px solid var(--blue);margin-top:9px;}
-.bo:hover{background:#EEF4FF;}
-.bg{background:var(--gold);color:var(--navy);}.bg:hover{background:#F5A000;}
-/* ALERT */
-.al{padding:10px 14px;border-radius:8px;font-size:12px;margin-bottom:12px;display:none;}
-.al.s{display:block;}
-.ae{background:#FDECEC;border:1px solid #F5AAAA;color:var(--red);}
-.ao{background:#E8F5E9;border:1px solid #A5D6A7;color:var(--green);}
-.ai{background:#E3F2FD;border:1px solid #90CAF9;color:#1565C0;}
-/* SPIN */
-.sp2{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:5px;}
-@keyframes sp{to{transform:rotate(360deg)}}
-/* SUCCESS */
-.succ{text-align:center;padding:16px 10px;}
-.succ .si{font-size:56px;margin-bottom:12px;}
-.succ h3{font-size:18px;font-weight:700;color:var(--green);}
-.succ p{font-size:13px;color:var(--gray);margin-top:6px;line-height:1.6;}
-.sid{background:var(--bg);border:2px dashed var(--blue);border-radius:8px;padding:12px;margin:14px 0;font-size:13px;font-weight:700;word-break:break-all;}
-/* ROW BTNS */
-.rb{display:flex;gap:9px;margin-top:6px;}
-.rb .bo{flex:0 0 auto;padding:12px 18px;width:auto;}
-/* RESP */
-@media(max-width:380px){.rg{grid-template-columns:1fr;}.card{margin:10px;padding:16px 12px;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
+  --red:#E53935;--white:#fff;--offwhite:#F5F7FA;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+}
+html,body{background:var(--offwhite);color:var(--text);font-size:14px;min-height:100vh}
+body.hi{font-family:'Noto Sans Devanagari',sans-serif}
+body.en{font-family:'Inter',sans-serif}
+a{text-decoration:none;color:inherit}
+
+/* ── NAVBAR ── */
+.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:8px}
+.nav-brand img{height:30px;border-radius:6px}
+.nav-brand-text{color:#fff;font-size:15px;font-weight:700;line-height:1.2}
+.nav-brand-text small{display:block;color:var(--gold);font-size:11px;font-weight:400}
+.nav-controls{display:flex;gap:6px;align-items:center}
+.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit}
+.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-width:40px;min-height:40px}
+.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
+.translate-panel.open{display:block}
+#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
+
+/* ── MENU ── */
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
+.menu-overlay.open{display:block}
+.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s;overflow-y:auto}
+.menu-panel.open{right:0}
+.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.menu-head h3{font-size:15px}
+.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.menu-links{list-style:none;padding:6px 0}
+.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:14px;font-weight:500;border-bottom:1px solid #F0F0F0;min-height:48px}
+.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
+.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);padding:14px;border-radius:10px;font-weight:700;font-size:15px;min-height:52px}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy),#1565C0);padding:28px 16px 24px;text-align:center;color:#fff}
+.hero h2{font-size:20px;font-weight:700;line-height:1.4}
+.hero p{color:rgba(255,255,255,.7);font-size:12px;margin-top:5px}
+.badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;margin-top:8px}
+
+/* ── STEPS ── */
+.step-wrap{max-width:460px;margin:14px auto 0;padding:0 16px}
+.step-bar{display:flex;align-items:center}
+.step-circle{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gray);flex-shrink:0;transition:.3s}
+.step-circle.active{border-color:var(--blue);background:var(--blue);color:#fff}
+.step-circle.done{border-color:var(--green);background:var(--green);color:#fff}
+.step-line{flex:1;height:2px;background:var(--border)}
+.step-line.done{background:var(--green)}
+.step-labels{display:flex;justify-content:space-between;padding:3px 0 0;font-size:9px;color:var(--gray)}
+.step-labels span{flex:1;text-align:center}
+
+/* ── CARD ── */
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(11,31,58,.08);margin:14px auto;max-width:460px;padding:20px 16px;border:1px solid var(--border);display:none}
+.card.show{display:block}
+.card-title{font-size:15px;font-weight:700;margin-bottom:3px}
+.card-sub{font-size:11px;color:var(--gray);margin-bottom:16px;line-height:1.5}
+
+/* ── ROLE GRID ── */
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.role-card{border:2px solid var(--border);border-radius:9px;padding:11px 9px;cursor:pointer;text-align:center;transition:.2s}
+.role-card:hover,.role-card.sel{border-color:var(--blue);background:#EEF4FF}
+.role-icon{font-size:20px;margin-bottom:3px}
+.role-name{font-size:11px;font-weight:700}
+.role-desc{font-size:9px;color:var(--gray);margin-top:2px;line-height:1.3}
+
+/* ── FORM FIELDS ── */
+.field{margin-bottom:13px}
+.field label{display:block;font-size:11px;font-weight:600;margin-bottom:4px}
+.field input,.field select{width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;color:var(--text);background:var(--offwhite);font-family:inherit;outline:none;transition:.2s}
+.field input:focus,.field select:focus{border-color:var(--blue);background:#fff}
+.field .hint{font-size:9px;color:var(--gray);margin-top:2px}
+.field .err{font-size:9px;color:var(--red);margin-top:2px;display:none}
+.field .err.show{display:block}
+
+/* ── PASSWORD BAR ── */
+.pw-bar{height:3px;background:var(--border);border-radius:2px;margin-top:4px;overflow:hidden}
+.pw-fill{height:100%;width:0;transition:.4s;border-radius:2px}
+.pw-label{font-size:9px;margin-top:2px}
+
+/* ── OTP ── */
+.otp-row{display:flex;gap:6px;justify-content:center}
+.otp-box{width:40px;height:44px;text-align:center;font-size:18px;font-weight:700;border:2px solid var(--border);border-radius:7px;background:var(--offwhite);outline:none;transition:.2s;font-family:inherit}
+.otp-box:focus{border-color:var(--blue);background:#fff}
+
+/* ── TERMS BOX ── */
+.terms-box{border:1.5px solid var(--border);border-radius:7px;padding:11px;height:145px;overflow-y:auto;font-size:10px;color:var(--gray);line-height:1.7;background:#FAFBFC;margin-bottom:11px}
+.terms-box h4{color:var(--text);font-size:11px;margin-bottom:4px}
+
+/* ── CHECKBOX ── */
+.check-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px}
+.check-row input[type=checkbox]{width:15px;height:15px;margin-top:2px;flex-shrink:0;accent-color:var(--blue);cursor:pointer}
+.check-row label{font-size:10px;line-height:1.5;cursor:pointer}
+
+/* ── BUTTONS ── */
+.btn{width:100%;padding:12px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:.2s;font-family:inherit}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-lt)}
+.btn-blue:disabled{background:var(--border);color:var(--gray);cursor:not-allowed}
+.btn-outline{background:transparent;color:var(--blue);border:2px solid var(--blue);margin-top:8px}
+.btn-outline:hover{background:#EEF4FF}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:#F0A000}
+.btn-row{display:flex;gap:8px;margin-top:5px}
+.btn-row .btn-outline{flex:0 0 auto;padding:11px 16px;width:auto}
+
+/* ── ALERTS ── */
+.alert{padding:9px 13px;border-radius:7px;font-size:11px;margin-bottom:11px;display:none}
+.alert.show{display:block}
+.alert-err{background:#FDECEC;border:1px solid #F5AAAA;color:var(--red)}
+.alert-info{background:#E3F2FD;border:1px solid #90CAF9;color:var(--blue)}
+.alert-ok{background:#E8F5E9;border:1px solid #A5D6A7;color:var(--green)}
+
+/* ── SPINNER ── */
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SUCCESS ── */
+.success{text-align:center;padding:14px 8px}
+.success-icon{font-size:52px;margin-bottom:10px}
+.success h3{font-size:17px;font-weight:700;color:var(--green)}
+.success p{font-size:12px;color:var(--gray);margin-top:5px;line-height:1.6}
+.acs-id-box{background:var(--offwhite);border:2px dashed var(--blue);border-radius:7px;padding:11px;margin:12px 0;font-size:12px;font-weight:700;word-break:break-all}
+
+/* ── FOOTER ── */
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:900px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:15px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:6px 0}
+.footer-col h3{color:var(--gold);font-size:14px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:14px;padding:3px 0;display:block}
+.footer-col p{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:13px;color:rgba(255,255,255,.4)}
+
+@media(max-width:360px){.role-grid{grid-template-columns:1fr}.card{margin:8px;padding:14px 11px}}
 </style>
 </head>
-<body>
+<body class="hi">
 
-<header class="hd">
-  <a class="hl" href="https://acslearn.com">
-    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" onerror="this.style.display='none'"/>
-    <div><h1>Applied Computer School™</h1><p id="hs">Free Digital Education for the Global South</p></div>
-  </a>
-  <button class="lb" onclick="tL()" id="lb">🌐 English</button>
-</header>
-
-<div class="hero">
-  <h2 id="ht">ACS परिवार में आपका स्वागत है</h2>
-  <p id="hp">Student · Teacher · Worker · Centre · Counselor · Employer · Foreign Agent</p>
-  <span class="badge" id="hb">ISO 9001:2015 प्रमाणित | FFGPMTrust</span>
-</div>
-
-<div class="sp">
-  <div class="sb">
-    <div class="sc a" id="s1c">1</div><div class="sl" id="l1"></div>
-    <div class="sc" id="s2c">2</div><div class="sl" id="l2"></div>
-    <div class="sc" id="s3c">3</div><div class="sl" id="l3"></div>
-    <div class="sc" id="s4c">4</div>
-  </div>
-  <div class="slb"><span id="lb1">भूमिका</span><span id="lb2">जानकारी</span><span id="lb3">OTP</span><span id="lb4">शर्तें</span></div>
-</div>
-
-<!-- SEC 1: ROLE -->
-<div class="card show" id="c1">
-  <div class="ct" id="t1">आप कौन हैं? [Who are you?]</div>
-  <div class="cs" id="st1">अपनी भूमिका [Role] चुनें — सही form अपने आप खुलेगा।</div>
-  <div class="rg">
-    <div class="rc" onclick="sR('student',this)"><div class="ic">🎓</div><div class="rn" id="rn-s">विद्यार्थी [Student]</div><div class="rd" id="rd-s">Online / Offline courses सीखें</div></div>
-    <div class="rc" onclick="sR('teacher',this)"><div class="ic">👨‍🏫</div><div class="rn" id="rn-t">शिक्षक [Teacher]</div><div class="rd" id="rd-t">Course बनाएं, पढ़ाएं, कमाएं</div></div>
-    <div class="rc" onclick="sR('worker',this)"><div class="ic">🔧</div><div class="rn" id="rn-w">कार्यकर्ता [Worker]</div><div class="rd" id="rd-w">Work From Home / Job ढूंढें</div></div>
-    <div class="rc" onclick="sR('centre',this)"><div class="ic">🏫</div><div class="rn" id="rn-c">केंद्र [Centre]</div><div class="rd" id="rd-c">Offline Centre / Coaching खोलें</div></div>
-    <div class="rc" onclick="sR('counselor',this)"><div class="ic">🧭</div><div class="rn" id="rn-co">सलाहकार [Counselor]</div><div class="rd" id="rd-co">Career guidance दें, कमाएं</div></div>
-    <div class="rc" onclick="sR('employer',this)"><div class="ic">💼</div><div class="rn" id="rn-e">नियोक्ता [Employer]</div><div class="rd" id="rd-e">Job post करें, Worker ढूंढें</div></div>
-    <div class="rc" onclick="sR('foreign_agent',this)"><div class="ic">✈️</div><div class="rn" id="rn-f">विदेश एजेंट [Foreign Agent]</div><div class="rd" id="rd-f">विदेश में job placement</div></div>
-    <div class="rc" onclick="sR('team',this)"><div class="ic">🏢</div><div class="rn" id="rn-tm">ACS Team</div><div class="rd" id="rd-tm">HQ / ZM / RM / Field / Intern</div></div>
-  </div>
-  <div class="al ae" id="a1"></div>
-  <button class="btn bp" style="margin-top:14px" onclick="g2()" id="b1">आगे बढ़ें →</button>
-</div>
-
-<!-- SEC 2: DETAILS -->
-<div class="card" id="c2">
-  <div class="ct" id="t2">आपकी जानकारी [Your Details]</div>
-  <div class="cs" id="rt"></div>
-  <div class="al ae" id="a2"></div>
-  <div class="f"><label id="ln">पूरा नाम [Full Name] *</label><input type="text" id="fn" placeholder="जैसे: Ramesh Kumar Singh" autocomplete="name"/><div class="em" id="en"></div></div>
-  <div class="f"><label id="lm">मोबाइल [Mobile] *</label><input type="tel" id="fm" placeholder="10 अंक" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')" autocomplete="tel"/><div class="em" id="em2"></div></div>
-  <div class="f"><label id="le">Email *</label><input type="email" id="fe" placeholder="example@gmail.com" autocomplete="email"/><div class="em" id="ee"></div></div>
-  <div class="f"><label id="lst">राज्य [State] *</label>
-    <select id="fst"><option value="">-- चुनें --</option>
-    <option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Other / International</option>
-    </select><div class="em" id="est"></div></div>
-  <div id="xf"></div>
-  <div class="f"><label id="lp">पासवर्ड [Password] *</label><input type="password" id="fp" oninput="cpw(this.value)" autocomplete="new-password" placeholder="minimum 8"/><div class="pb"><div class="pf" id="pf"></div></div><div class="pt" id="pt"></div><div class="em" id="ep"></div></div>
-  <div class="f"><label id="lp2">Confirm Password *</label><input type="password" id="fp2" autocomplete="new-password" placeholder="same password again"/><div class="em" id="ep2"></div></div>
-  <div class="rb"><button class="btn bo" onclick="gs(1)">← वापस</button><button class="btn bp" style="flex:1" onclick="sOtp()" id="bo">OTP भेजें →</button></div>
-</div>
-
-<!-- SEC 3: OTP -->
-<div class="card" id="c3">
-  <div class="ct" id="t3">OTP Verify करें</div>
-  <div class="cs" id="st3">आपके Email पर 6 अंक का OTP भेजा गया है।</div>
-  <div class="al" id="a3"></div>
-  <div class="f" style="text-align:center">
-    <label id="lo" style="display:block;margin-bottom:10px">6-अंक OTP डालें *</label>
-    <div class="or">
-      <input class="ob" type="number" id="o1" oninput="on(this,'','o2')"/>
-      <input class="ob" type="number" id="o2" oninput="on(this,'o1','o3')"/>
-      <input class="ob" type="number" id="o3" oninput="on(this,'o2','o4')"/>
-      <input class="ob" type="number" id="o4" oninput="on(this,'o3','o5')"/>
-      <input class="ob" type="number" id="o5" oninput="on(this,'o4','o6')"/>
-      <input class="ob" type="number" id="o6" oninput="on(this,'o5','')"/>
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="https://acslearn.com" class="nav-brand">
+      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+      <div class="nav-brand-text">Applied Computer School™
+        <small>Free Digital Education for the Global South</small>
+      </div>
+    </a>
+    <div class="nav-controls">
+      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
+      <button class="btn-menu" onclick="openMenu()">☰</button>
     </div>
-    <div style="margin-top:8px;font-size:11px;color:var(--gray)"><span id="otmr"></span> <button id="rsndb" onclick="sOtp()" style="display:none;background:none;border:none;color:var(--blue);cursor:pointer;font-size:11px">दोबारा भेजें</button></div>
   </div>
-  <div class="rb"><button class="btn bo" onclick="gs(2)">← वापस</button><button class="btn bp" style="flex:1" onclick="vOtp()" id="bv">Verify करें ✓</button></div>
+  <div class="translate-panel" id="translatePanel">
+    <div id="google_translate_element"></div>
+  </div>
+</nav>
+
+<!-- ── SLIDE MENU ── -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-head">
+    <h3 id="menu-title">एसीएस मेन्यू</h3>
+    <button class="menu-close" onclick="closeMenu()">✕</button>
+  </div>
+  <ul class="menu-links" id="menu-links">
+    <li><a href="https://acslearn.com">🏠 <span class="t" data-hi="होम" data-en="Home">होम</span></a></li>
+    <li><a href="https://acslearn.com/udyam/">🌍 <span class="t" data-hi="उद्यम खोजें" data-en="Explore Industries">उद्यम खोजें</span></a></li>
+    <li><a href="https://acslearn.com/courses/hi/">📚 <span class="t" data-hi="कोर्स" data-en="Courses">कोर्स</span></a></li>
+    <li><a href="https://acslearn.com/join.html">🤝 <span class="t" data-hi="ACS से जुड़ें" data-en="Join ACS">ACS से जुड़ें</span></a></li>
+    <li><a href="https://acslearn.com/vani/">📱 <span class="t" data-hi="ACS Vani App" data-en="ACS Vani App">ACS Vani App</span></a></li>
+    <li><a href="https://acslearn.com/students/hi/">🎓 <span class="t" data-hi="विद्यार्थी" data-en="Students">विद्यार्थी</span></a></li>
+    <li><a href="https://acslearn.com/mentors/hi/">👨‍🏫 <span class="t" data-hi="प्रशिक्षक" data-en="Teachers">प्रशिक्षक</span></a></li>
+    <li><a href="https://acslearn.com/partners/hi/">🏫 <span class="t" data-hi="पार्टनर" data-en="Partners">पार्टनर</span></a></li>
+    <li><a href="https://acslearn.com/counselors/hi/">🧭 <span class="t" data-hi="सलाह लें" data-en="Counselors">सलाह लें</span></a></li>
+    <li><a href="https://acslearn.com/employers/hi/">💼 <span class="t" data-hi="नियोक्ता" data-en="Employers">नियोक्ता</span></a></li>
+    <li><a href="https://acslearn.com/payment/hi/">💳 <span class="t" data-hi="भुगतान" data-en="Payment">भुगतान</span></a></li>
+    <li><a href="https://acslearn.com/contact/hi/">📞 <span class="t" data-hi="संपर्क" data-en="Contact">संपर्क</span></a></li>
+  </ul>
+  <a href="https://acslearn.com/dashboard/" class="menu-login-btn">🔑 <span class="t" data-hi="Login / Dashboard" data-en="Login / Dashboard">Login / Dashboard</span></a>
 </div>
 
-<!-- SEC 4: TERMS -->
+<!-- ── HERO ── -->
+<div class="hero">
+  <h2 class="t" data-hi="ACS परिवार में आपका स्वागत है" data-en="Welcome to the ACS Family">ACS परिवार में आपका स्वागत है</h2>
+  <p class="t" data-hi="Student · Teacher · Worker · Centre · Counselor · Employer · Foreign Agent" data-en="Student · Teacher · Worker · Centre · Counselor · Employer · Foreign Agent">Student · Teacher · Worker · Centre · Counselor · Employer · Foreign Agent</p>
+  <span class="badge t" data-hi="ISO 9001:2015 प्रमाणित | FFGPMTrust" data-en="ISO 9001:2015 Certified | FFGPMTrust">ISO 9001:2015 प्रमाणित | FFGPMTrust</span>
+</div>
+
+<!-- ── STEP BAR ── -->
+<div class="step-wrap">
+  <div class="step-bar">
+    <div class="step-circle active" id="sc1">1</div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-circle" id="sc2">2</div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-circle" id="sc3">3</div>
+    <div class="step-line" id="sl3"></div>
+    <div class="step-circle" id="sc4">4</div>
+  </div>
+  <div class="step-labels">
+    <span class="t" data-hi="भूमिका" data-en="Role">भूमिका</span>
+    <span class="t" data-hi="जानकारी" data-en="Details">जानकारी</span>
+    <span>OTP</span>
+    <span class="t" data-hi="शर्तें" data-en="Terms">शर्तें</span>
+  </div>
+</div>
+
+<!-- ── STEP 1: ROLE ── -->
+<div class="card show" id="c1">
+  <div class="card-title t" data-hi="आप कौन हैं?" data-en="Who are you?">आप कौन हैं?</div>
+  <div class="card-sub t" data-hi="अपनी भूमिका [Role] चुनें — सही form अपने आप खुलेगा।" data-en="Select your role — the right form will open automatically.">अपनी भूमिका [Role] चुनें — सही form अपने आप खुलेगा।</div>
+  <div class="role-grid">
+    <div class="role-card" onclick="selRole('student',this)">
+      <div class="role-icon">🎓</div>
+      <div class="role-name t" data-hi="विद्यार्थी [Student]" data-en="Student">विद्यार्थी [Student]</div>
+      <div class="role-desc t" data-hi="Online / Offline courses सीखें" data-en="Learn online / offline courses">Online / Offline courses सीखें</div>
+    </div>
+    <div class="role-card" onclick="selRole('teacher',this)">
+      <div class="role-icon">👨‍🏫</div>
+      <div class="role-name t" data-hi="शिक्षक [Teacher]" data-en="Teacher">शिक्षक [Teacher]</div>
+      <div class="role-desc t" data-hi="Course बनाएं, पढ़ाएं, कमाएं" data-en="Create courses, teach, earn">Course बनाएं, पढ़ाएं, कमाएं</div>
+    </div>
+    <div class="role-card" onclick="selRole('worker',this)">
+      <div class="role-icon">🔧</div>
+      <div class="role-name t" data-hi="कार्यकर्ता [Worker]" data-en="Worker">कार्यकर्ता [Worker]</div>
+      <div class="role-desc t" data-hi="Work From Home / Job ढूंढें" data-en="Work From Home / Find jobs">Work From Home / Job ढूंढें</div>
+    </div>
+    <div class="role-card" onclick="selRole('centre',this)">
+      <div class="role-icon">🏫</div>
+      <div class="role-name t" data-hi="केंद्र [Centre]" data-en="Centre">केंद्र [Centre]</div>
+      <div class="role-desc t" data-hi="Offline Centre / Coaching खोलें" data-en="Open offline coaching centre">Offline Centre / Coaching खोलें</div>
+    </div>
+    <div class="role-card" onclick="selRole('counselor',this)">
+      <div class="role-icon">🧭</div>
+      <div class="role-name t" data-hi="सलाहकार [Counselor]" data-en="Counselor">सलाहकार [Counselor]</div>
+      <div class="role-desc t" data-hi="Career guidance दें, कमाएं" data-en="Give career guidance, earn">Career guidance दें, कमाएं</div>
+    </div>
+    <div class="role-card" onclick="selRole('employer',this)">
+      <div class="role-icon">💼</div>
+      <div class="role-name t" data-hi="नियोक्ता [Employer]" data-en="Employer">नियोक्ता [Employer]</div>
+      <div class="role-desc t" data-hi="Job post करें, Worker ढूंढें" data-en="Post jobs, find workers">Job post करें, Worker ढूंढें</div>
+    </div>
+    <div class="role-card" onclick="selRole('foreign_agent',this)">
+      <div class="role-icon">✈️</div>
+      <div class="role-name t" data-hi="विदेश एजेंट [Foreign Agent]" data-en="Foreign Agent">विदेश एजेंट [Foreign Agent]</div>
+      <div class="role-desc t" data-hi="विदेश में job placement" data-en="Overseas job placement">विदेश में job placement</div>
+    </div>
+    <div class="role-card" onclick="selRole('team',this)">
+      <div class="role-icon">🏢</div>
+      <div class="role-name">ACS Team</div>
+      <div class="role-desc">HQ / ZM / RM / Field / Intern</div>
+    </div>
+  </div>
+  <div class="alert alert-err" id="a1"></div>
+  <button class="btn btn-blue" style="margin-top:12px" onclick="goStep2()" id="btn1">आगे बढ़ें →</button>
+</div>
+
+<!-- ── STEP 2: DETAILS ── -->
+<div class="card" id="c2">
+  <div class="card-title t" data-hi="आपकी जानकारी [Your Details]" data-en="Your Details">आपकी जानकारी [Your Details]</div>
+  <div class="card-sub" id="role-tag"></div>
+  <div class="alert alert-err" id="a2"></div>
+  <div class="field">
+    <label class="t" data-hi="पूरा नाम [Full Name] *" data-en="Full Name *">पूरा नाम [Full Name] *</label>
+    <input type="text" id="f-name" autocomplete="name"/>
+    <div class="err" id="e-name"></div>
+  </div>
+  <div class="field">
+    <label class="t" data-hi="मोबाइल [Mobile] *" data-en="Mobile *">मोबाइल [Mobile] *</label>
+    <input type="tel" id="f-mobile" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')" autocomplete="tel"/>
+    <div class="err" id="e-mobile"></div>
+  </div>
+  <div class="field">
+    <label>Email *</label>
+    <input type="email" id="f-email" autocomplete="email"/>
+    <div class="err" id="e-email"></div>
+  </div>
+  <div class="field">
+    <label class="t" data-hi="राज्य [State] *" data-en="State / Country *">राज्य [State] *</label>
+    <select id="f-state">
+      <option value="" class="t" data-hi="-- राज्य चुनें --" data-en="-- Select --">-- राज्य चुनें --</option>
+      <option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option>
+      <option>Chhattisgarh</option><option>Delhi</option><option>Goa</option>
+      <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
+      <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
+      <option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option>
+      <option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option>
+      <option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
+      <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option>
+      <option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option>
+      <option>West Bengal</option><option>Other / International</option>
+    </select>
+    <div class="err" id="e-state"></div>
+  </div>
+  <!-- Role-specific extra fields -->
+  <div id="extra-fields"></div>
+  <div class="field">
+    <label class="t" data-hi="पासवर्ड [Password] * (कम से कम 8 characters)" data-en="Password * (minimum 8 characters)">पासवर्ड [Password] * (कम से कम 8 characters)</label>
+    <input type="password" id="f-pass" oninput="checkPw(this.value)" autocomplete="new-password"/>
+    <div class="pw-bar"><div class="pw-fill" id="pw-fill"></div></div>
+    <div class="pw-label" id="pw-label"></div>
+    <div class="err" id="e-pass"></div>
+  </div>
+  <div class="field">
+    <label class="t" data-hi="Confirm Password *" data-en="Confirm Password *">Confirm Password *</label>
+    <input type="password" id="f-pass2" autocomplete="new-password"/>
+    <div class="err" id="e-pass2"></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-outline" onclick="goStep(1)" id="back2">← वापस</button>
+    <button class="btn btn-blue" style="flex:1" onclick="sendOtp()" id="btn2">OTP भेजें →</button>
+  </div>
+</div>
+
+<!-- ── STEP 3: OTP ── -->
+<div class="card" id="c3">
+  <div class="card-title t" data-hi="OTP Verify करें" data-en="Verify OTP">OTP Verify करें</div>
+  <div class="card-sub t" data-hi="आपके Email पर 6 अंक का OTP भेजा गया है।" data-en="A 6-digit OTP has been sent to your Email.">आपके Email पर 6 अंक का OTP भेजा गया है।</div>
+  <div class="alert" id="a3"></div>
+  <div class="field" style="text-align:center">
+    <label class="t" style="display:block;margin-bottom:10px" data-hi="6-अंक OTP डालें *" data-en="Enter 6-digit OTP *">6-अंक OTP डालें *</label>
+    <div class="otp-row">
+      <input class="otp-box" type="number" id="o1" oninput="otpNav(this,'','o2')"/>
+      <input class="otp-box" type="number" id="o2" oninput="otpNav(this,'o1','o3')"/>
+      <input class="otp-box" type="number" id="o3" oninput="otpNav(this,'o2','o4')"/>
+      <input class="otp-box" type="number" id="o4" oninput="otpNav(this,'o3','o5')"/>
+      <input class="otp-box" type="number" id="o5" oninput="otpNav(this,'o4','o6')"/>
+      <input class="otp-box" type="number" id="o6" oninput="otpNav(this,'o5','')"/>
+    </div>
+    <div style="margin-top:7px;font-size:10px;color:var(--gray)">
+      <span id="otp-timer"></span>
+      <button id="resend-btn" onclick="sendOtp()" style="display:none;background:none;border:none;color:var(--blue);cursor:pointer;font-size:10px;font-family:inherit" class="t" data-hi="OTP दोबारा भेजें" data-en="Resend OTP">OTP दोबारा भेजें</button>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-outline" onclick="goStep(2)" id="back3">← वापस</button>
+    <button class="btn btn-blue" style="flex:1" onclick="verifyOtp()" id="btn3">Verify करें ✓</button>
+  </div>
+</div>
+
+<!-- ── STEP 4: TERMS ── -->
 <div class="card" id="c4">
-  <div class="ct" id="t4">शर्तें एवं नियम [Terms & Conditions]</div>
-  <div class="cs" id="st4">Register करने से पहले शर्तें पढ़ें और सहमति दें।</div>
-  <div class="al ae" id="a4"></div>
-  <div class="tb" id="tb"></div>
-  <div class="cr"><input type="checkbox" id="ck1"/><label for="ck1" id="lck1">मैंने ACS की शर्तें पढ़ी और समझी हैं — मैं सहमत हूँ।</label></div>
-  <div class="cr"><input type="checkbox" id="ck2"/><label for="ck2" id="lck2">मैं ACS की Privacy Policy से सहमत हूँ।</label></div>
-  <div class="cr" id="mgr" style="display:none"><input type="checkbox" id="ck3"/><label for="ck3" id="lck3">Guardian की सहमति है (18 वर्ष से कम)।</label></div>
-  <button class="btn bg" onclick="cReg()" id="br">🎉 <span id="brt">ACS में Register करें</span></button>
-  <button class="btn bo" onclick="gs(3)">← वापस</button>
+  <div class="card-title t" data-hi="शर्तें एवं नियम [Terms & Conditions]" data-en="Terms & Conditions">शर्तें एवं नियम [Terms & Conditions]</div>
+  <div class="card-sub t" data-hi="Register करने से पहले शर्तें पढ़ें और सहमति दें।" data-en="Please read and accept the terms before registering.">Register करने से पहले शर्तें पढ़ें और सहमति दें।</div>
+  <div class="alert alert-err" id="a4"></div>
+  <div class="terms-box" id="terms-box"></div>
+  <div class="check-row">
+    <input type="checkbox" id="ck1"/>
+    <label for="ck1" class="t" data-hi="मैंने ACS की शर्तें पढ़ी और समझी हैं — मैं सहमत हूँ।" data-en="I have read and understood ACS Terms & Conditions — I agree.">मैंने ACS की शर्तें पढ़ी और समझी हैं — मैं सहमत हूँ।</label>
+  </div>
+  <div class="check-row">
+    <input type="checkbox" id="ck2"/>
+    <label for="ck2" class="t" data-hi="मैं ACS की Privacy Policy से सहमत हूँ।" data-en="I agree to ACS Privacy Policy.">मैं ACS की Privacy Policy से सहमत हूँ।</label>
+  </div>
+  <div class="check-row" id="guardian-row" style="display:none">
+    <input type="checkbox" id="ck3"/>
+    <label for="ck3" class="t" data-hi="Guardian की सहमति है (18 वर्ष से कम)।" data-en="Guardian consent given (under 18 years).">Guardian की सहमति है (18 वर्ष से कम)।</label>
+  </div>
+  <button class="btn btn-gold" onclick="doRegister()" id="btn4">🎉 <span class="t" data-hi="ACS में Register करें" data-en="Register with ACS">ACS में Register करें</span></button>
+  <button class="btn btn-outline" onclick="goStep(3)">← वापस</button>
 </div>
 
-<!-- SEC 5: SUCCESS -->
+<!-- ── STEP 5: SUCCESS ── -->
 <div class="card" id="c5">
-  <div class="succ">
-    <div class="si">🎉</div>
-    <h3 id="sut">Registration सफल!</h3>
-    <p id="sum">ACS परिवार में आपका स्वागत है।</p>
-    <div class="sid"><div id="sui"></div><div style="font-size:11px;color:var(--gray);margin-top:4px" id="sur"></div><div style="font-size:11px;color:var(--gray)" id="sue"></div></div>
-    <p style="font-size:11px;color:var(--gray);margin-bottom:14px" id="sun">यह ID screenshot लें — Dashboard login के लिए Email + Password use करें।</p>
-    <button class="btn bp" onclick="window.location.href='https://acslearn.com/dashboard/'">Dashboard खोलें →</button>
-    <button class="btn bo" onclick="window.location.href='https://acslearn.com'" style="margin-top:9px">🏠 Home</button>
+  <div class="success">
+    <div class="success-icon">🎉</div>
+    <h3 class="t" data-hi="Registration सफल!" data-en="Registration Successful!">Registration सफल!</h3>
+    <p class="t" data-hi="ACS परिवार में आपका स्वागत है।" data-en="Welcome to the ACS Family.">ACS परिवार में आपका स्वागत है।</p>
+    <div class="acs-id-box">
+      <div id="s-id"></div>
+      <div style="font-size:10px;color:var(--gray);margin-top:3px" id="s-role"></div>
+      <div style="font-size:10px;color:var(--gray)" id="s-email"></div>
+    </div>
+    <p style="font-size:10px;color:var(--gray);margin-bottom:12px" class="t" data-hi="यह ID screenshot लें — Email + Password से Dashboard login करें।" data-en="Save this ID — use Email + Password to login to Dashboard.">यह ID screenshot लें — Email + Password से Dashboard login करें।</p>
+    <button class="btn btn-blue" onclick="location.href='https://acslearn.com/dashboard/'">
+      <span class="t" data-hi="Dashboard खोलें →" data-en="Open Dashboard →">Dashboard खोलें →</span>
+    </button>
+    <button class="btn btn-outline" onclick="location.href='https://acslearn.com'" style="margin-top:8px">
+      🏠 <span class="t" data-hi="Home पर जाएं" data-en="Go to Home">Home पर जाएं</span>
+    </button>
   </div>
 </div>
 
-<footer style="text-align:center;padding:20px;font-size:10px;color:var(--gray);border-top:1px solid var(--border);margin-top:20px">
-  <p>© 2026 Applied Computer School™ | FFGPMTrust | acslearn.com</p>
-  <p style="margin-top:3px">📞 +91-9431210092 | ✉️ acs.chautham@gmail.com | Khagaria, Bihar — 851201</p>
+<!-- ── FOOTER ── -->
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>Applied Computer School™</h2>
+      <p class="footer-tagline">"From Village to World"</p>
+      <p>FFGPMTrust का उपक्रम | ISO 9001:2015</p>
+      <p>Learn. Build. Contribute. Grow.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Sitemap</h3>
+      <div class="sitemap-grid">
+        <a href="https://acslearn.com">होम</a>
+        <a href="https://acslearn.com/udyam/">उद्यम</a>
+        <a href="https://acslearn.com/courses/hi/">कोर्स</a>
+        <a href="https://acslearn.com/join.html">जुड़ें</a>
+        <a href="https://acslearn.com/payment/hi/">भुगतान</a>
+        <a href="https://acslearn.com/contact/hi/">संपर्क</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>संपर्क</h3>
+      <p>📍 Chautham, Khagaria, Bihar — 851201</p>
+      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
+      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
+      <p>⚠️ भुगतान केवल official Razorpay link से।</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Applied Computer School™ | <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> | <a href="https://acslearn.com" style="color:var(--gold)">acslearn.com</a></div>
 </footer>
 
+<!-- ── FIREBASE ── -->
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import{getAuth,createUserWithEmailAndPassword,sendEmailVerification}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -219,257 +438,303 @@ import{getFirestore,doc,setDoc,serverTimestamp}from"https://www.gstatic.com/fire
 const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
 const auth=getAuth(app),db=getFirestore(app);
 
-let L='hi',R='',OTP='',TM=null,STEP=1;
+// ── LANGUAGE ──
+let LANG=new URLSearchParams(location.search).get('lang')||'hi';
+if(LANG!=='hi'&&LANG!=='en')LANG='hi';
+document.body.className=LANG;
+document.documentElement.lang=LANG;
 
-// ── TEXT ──
-const TX={
-  hi:{hs:"Free Digital Education for the Global South",lb:"🌐 English",ht:"ACS परिवार में आपका स्वागत है",hp:"Student · Teacher · Worker · Centre · Counselor · Employer · Foreign Agent",hb:"ISO 9001:2015 प्रमाणित | FFGPMTrust",t1:"आप कौन हैं? [Who are you?]",st1:"अपनी भूमिका [Role] चुनें — सही form अपने आप खुलेगा।",t2:"आपकी जानकारी [Your Details]",t3:"OTP Verify करें",st3:"आपके Email पर 6 अंक का OTP भेजा गया है।",t4:"शर्तें एवं नियम [Terms & Conditions]",st4:"Register करने से पहले शर्तें पढ़ें और सहमति दें।",lb1:"भूमिका",lb2:"जानकारी",lb3:"OTP",lb4:"शर्तें",ln:"पूरा नाम [Full Name] *",lm:"मोबाइल [Mobile] *",le:"Email *",lst:"राज्य [State] *",lp:"पासवर्ड [Password] *",lp2:"Confirm Password *",lo:"6-अंक OTP डालें *",b1:"आगे बढ़ें →",bo:"OTP भेजें →",bv:"Verify करें ✓",brt:"ACS में Register करें",bk:"← वापस",lck1:"मैंने ACS की शर्तें पढ़ी और समझी हैं — मैं सहमत हूँ।",lck2:"मैं ACS की Privacy Policy से सहमत हूँ।",lck3:"Guardian की सहमति है (18 वर्ष से कम)।",sut:"Registration सफल! 🎉",sum:"ACS परिवार में आपका स्वागत है।",sun:"यह ID screenshot लें — Dashboard login के लिए Email + Password use करें।",pw:["कमज़ोर","ठीक है","मजबूत ✓"],roles:{student:["विद्यार्थी [Student]","Online / Offline courses सीखें"],teacher:["शिक्षक [Teacher]","Course बनाएं, पढ़ाएं, कमाएं"],worker:["कार्यकर्ता [Worker]","Work From Home / Job ढूंढें"],centre:["केंद्र [Centre]","Offline Centre / Coaching खोलें"],counselor:["सलाहकार [Counselor]","Career guidance दें, कमाएं"],employer:["नियोक्ता [Employer]","Job post करें, Worker ढूंढें"],foreign_agent:["विदेश एजेंट [Foreign Agent]","विदेश में job placement"],team:["ACS Team","HQ / ZM / RM / Field / Intern"]},
-    e:{r:"कृपया एक भूमिका [Role] चुनें।",n:"नाम जरूरी है।",m:"10 अंक का मोबाइल नंबर डालें।",em:"सही Email डालें।",st:"राज्य चुनें।",p:"कम से कम 8 characters।",pm:"दोनों password एक जैसे होने चाहिए।",o:"6-अंक OTP डालें।",t:"शर्तें स्वीकार करें।",pr:"Privacy Policy स्वीकार करें।",g:"Guardian की सहमति जरूरी है।",a:"उम्र सही डालें।",eu:"यह Email पहले से registered है।",oe:"OTP expire हो गया। दोबारा भेजें।",ow:"OTP गलत है। फिर से डालें।"}},
-  en:{hs:"Free Digital Education for the Global South",lb:"🌐 हिंदी",ht:"Welcome to the ACS Family",hp:"Student · Teacher · Worker · Centre · Counselor · Employer · Foreign Agent",hb:"ISO 9001:2015 Certified | FFGPMTrust",t1:"Who are you?",st1:"Select your role — the right form will open automatically.",t2:"Your Details",t3:"Verify OTP",st3:"A 6-digit OTP has been sent to your Email.",t4:"Terms & Conditions",st4:"Please read and accept the terms before registering.",lb1:"Role",lb2:"Details",lb3:"OTP",lb4:"Terms",ln:"Full Name *",lm:"Mobile *",le:"Email *",lst:"State / Country *",lp:"Password *",lp2:"Confirm Password *",lo:"Enter 6-digit OTP *",b1:"Next →",bo:"Send OTP →",bv:"Verify ✓",brt:"Register with ACS",bk:"← Back",lck1:"I have read and understood ACS Terms & Conditions — I agree.",lck2:"I agree to ACS Privacy Policy.",lck3:"Guardian consent given (under 18 years).",sut:"Registration Successful! 🎉",sum:"Welcome to the ACS Family.",sun:"Save this ID — use your Email + Password to login to Dashboard.",pw:["Weak","OK","Strong ✓"],roles:{student:["Student","Learn online / offline courses"],teacher:["Teacher","Create courses, teach, earn"],worker:["Worker","Work From Home / Find jobs"],centre:["Centre","Open offline coaching centre"],counselor:["Counselor","Give career guidance, earn"],employer:["Employer","Post jobs, find workers"],foreign_agent:["Foreign Agent","Overseas job placement"],team:["ACS Team","HQ / ZM / RM / Field / Intern"]},
-    e:{r:"Please select a role.",n:"Name is required.",m:"Enter a valid 10-digit mobile.",em:"Enter a valid Email.",st:"Please select your state.",p:"Minimum 8 characters required.",pm:"Both passwords must match.",o:"Please enter the 6-digit OTP.",t:"Please accept the terms.",pr:"Please accept the Privacy Policy.",g:"Guardian consent is required.",a:"Please enter a valid age.",eu:"This Email is already registered.",oe:"OTP expired. Please resend.",ow:"Incorrect OTP. Please try again."}}
+function applyLang(){
+  document.querySelectorAll('.t').forEach(el=>{
+    const txt=el.getAttribute('data-'+LANG);
+    if(txt)el.textContent=txt;
+  });
+  // placeholder updates
+  const ph={hi:{name:'जैसे: Ramesh Kumar Singh',mobile:'10 अंक का नंबर',email:'example@gmail.com'},
+             en:{name:'e.g. Ramesh Kumar Singh',mobile:'10-digit mobile',email:'example@gmail.com'}};
+  const fn=document.getElementById('f-name');if(fn)fn.placeholder=ph[LANG].name;
+  const fm=document.getElementById('f-mobile');if(fm)fm.placeholder=ph[LANG].mobile;
+  const fe=document.getElementById('f-email');if(fe)fe.placeholder=ph[LANG].email;
+  document.getElementById('menu-title').textContent=LANG==='hi'?'एसीएस मेन्यू':'ACS Menu';
+  document.getElementById('pg-title').textContent=LANG==='hi'?'ACS से जुड़ें — Applied Computer School™':'Join ACS — Applied Computer School™';
+  // Lang toggle button
+  document.getElementById('lang-btn').textContent=LANG==='hi'?'🌐 English':'🌐 हिंदी';
+  // back buttons
+  const backs=document.querySelectorAll('.btn-outline');
+  backs.forEach(b=>{if(b.textContent.includes('वापस')||b.textContent.includes('Back'))b.textContent=LANG==='hi'?'← वापस':'← Back';});
+}
+
+window.switchLang=function(){
+  LANG=LANG==='hi'?'en':'hi';
+  document.body.className=LANG;
+  document.documentElement.lang=LANG;
+  const url=new URL(location.href);
+  url.searchParams.set('lang',LANG);
+  history.replaceState(null,'',url);
+  applyLang();
+  if(ROLE)loadExtraFields(ROLE);
 };
 
-// ── TERMS TEXT ──
-const TM2={
+// ── TERMS CONTENT ──
+const TERMS={
   hi:{
-    student:"<h4>ACS विद्यार्थी शर्तें — मुख्य बिंदु</h4>• Online Courses — हमेशा निःशुल्क [Free]।<br/>• Offline Training — Centre द्वारा तय Fees।<br/>• न्यूनतम आयु: 10 वर्ष (10-18: Guardian consent अनिवार्य)।<br/>• Certificate: Course complete + Exam pass + Practical + Centre approval।<br/>• Certificate Validity: Lifetime | Issuer: FFGPMTrust।<br/>• Refund: 7 दिन पहले cancel = 100% | 30%+ complete = No refund।<br/>• POCSO Act — Minor की सुरक्षा ACS की प्राथमिकता।<br/>• Grievance: 7 कार्य दिवस में response।<br/>• Dispute: Khagaria Court → Patna HC → UNCITRAL (International)।",
-    teacher:"<h4>ACS शिक्षक शर्तें — मुख्य बिंदु</h4>• योग्यता: 45+ वर्ष OR 15 साल अनुभव — ACS Course अनिवार्य नहीं।<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation)।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Teacher | 5% State | 5% ACS।<br/>• AI Training: बिना Written Permission — use नहीं।<br/>• Copyright Act 1957 Sec 57 — Moral Rights सुरक्षित।<br/>• Show Cause Notice 7 दिन | Appeal 7 दिन।",
-    worker:"<h4>ACS कार्यकर्ता शर्तें — मुख्य बिंदु</h4>• Green Tick Verification: DigiLocker + AI Photo।<br/>• Payment: 7 कार्य दिवस में Wallet में | Max Hold: 60 दिन।<br/>• Labour Codes 2025 + POSH Act + Maternity Benefit Act।<br/>• Referral Bonus: हर referral पर Wallet credit।<br/>• Article 19(1)(a): Honest Criticism — आपका अधिकार।<br/>• Show Cause Notice: Termination से 7 दिन पहले।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
-    centre:"<h4>ACS Centre शर्तें — मुख्य बिंदु</h4>• Registration: पूरी तरह निःशुल्क [Free]।<br/>• Revenue: 80% Centre | 20% ACS + Others।<br/>• Branding: ACS Logo / Name — Full Free — जैसे मन वैसे।<br/>• Certificate: सिर्फ Dashboard के माध्यम से — कोई shortcut नहीं।<br/>• Salary: Regional Base Fee से कम नहीं।<br/>• Show Cause Notice: 7 दिन | Appeal: 15 दिन।<br/>• Dispute: Khagaria Court → Patna HC → UNCITRAL।",
-    counselor:"<h4>ACS Counselor शर्तें — मुख्य बिंदु</h4>• योग्यता: 45+ वर्ष + 15 साल अनुभव।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Counselor | 5% State | 5% ACS।<br/>• Refund: 1 घंटे पहले cancel = 90% refund।<br/>• ACS Course: अनिवार्य नहीं।<br/>• Rating: 3.0 से कम = 30 दिन Improvement Period।<br/>• Show Cause Notice: 7 दिन।",
-    employer:"<h4>ACS Employer शर्तें — मुख्य बिंदु</h4>• Registration + Job Posting: पूरी तरह निःशुल्क [Free]।<br/>• Contact: सिर्फ ACS Dashboard के माध्यम से।<br/>• Salary: Minimum Wage से कम नहीं।<br/>• Workers से कोई Fee नहीं — Illegal है।<br/>• Fake Job, Advance Fee, Human Trafficking — तत्काल Terminate।<br/>• Child Labour (14 से कम) — Prohibited।<br/>• IT Act 2000 Sec 79 — ACS Intermediary।<br/>• Show Cause Notice: 7 दिन।",
-    foreign_agent:"<h4>ACS Foreign Agent शर्तें — मुख्य बिंदु</h4>• eMigrate License (MEA) अनिवार्य — Fake = IPC 420 + Criminal action।<br/>• Workers से कोई Fee नहीं — Emigration Act 1983।<br/>• Commission: 70% Agent | 20% ACS | 10% State।<br/>• काम: Visa guidance + Job placement + Training + Contract explain।<br/>• Human Trafficking (IPC 370) — तत्काल Terminate + Police report।<br/>• Passport Confiscation — Strictly Prohibited।<br/>• MEA Helpline: 1800-11-3090।",
-    team:"<h4>ACS Team शर्तें — मुख्य बिंदु</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field Staff → Intern।<br/>• Salary: Fixed (1-7 तारीख) + Incentive 0-50% on Target।<br/>• Probation: सभी levels पर 6 महीने।<br/>• Joining: 2 Upper Level + HQ Admin approval अनिवार्य।<br/>• Confidentiality: 2 साल (employment के बाद भी)।<br/>• Non-compete clause applicable।<br/>• POSH Act 2013 — ICC available।<br/>• Show Cause Notice: 7 दिन | F&F: 15 कार्य दिवस।"
+    student:"<h4>ACS विद्यार्थी शर्तें</h4>• Online Courses — हमेशा निःशुल्क [Free]।<br/>• Offline Training — Centre द्वारा तय Fees।<br/>• न्यूनतम आयु [Minimum Age]: 10 वर्ष।<br/>• 10-18 वर्ष: Guardian consent अनिवार्य।<br/>• Certificate: Course complete + Exam pass + Practical + Centre approval।<br/>• FFGPMTrust द्वारा जारी — Lifetime valid।<br/>• Refund: 7 दिन पहले = 100% | 30%+ complete = No refund।<br/>• POCSO Act — Minor की सुरक्षा प्राथमिकता।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
+    teacher:"<h4>ACS शिक्षक शर्तें</h4>• योग्यता: 45+ वर्ष OR 15 साल अनुभव — ACS Course अनिवार्य नहीं।<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation)।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Teacher | 5% State | 5% ACS।<br/>• AI Training: बिना Written Permission — use नहीं।<br/>• Copyright Act 1957 Sec 57 — Moral Rights सुरक्षित।<br/>• Show Cause Notice 7 दिन | Appeal 7 दिन।",
+    worker:"<h4>ACS कार्यकर्ता शर्तें</h4>• Green Tick Verification: DigiLocker + AI Photo।<br/>• Payment: 7 कार्य दिवस में Wallet | Max Hold: 60 दिन।<br/>• Labour Codes 2025 + POSH Act + Maternity Benefit Act।<br/>• Referral Bonus: हर referral पर Wallet credit।<br/>• Article 19(1)(a): Honest Criticism — आपका अधिकार।<br/>• Show Cause Notice: 7 दिन | Grievance: 7 कार्य दिवस।",
+    centre:"<h4>ACS Centre शर्तें</h4>• Registration: पूरी तरह निःशुल्क [Free]।<br/>• Revenue: 80% Centre | 20% ACS + Others।<br/>• Branding: ACS Logo / Name — Full Free।<br/>• Certificate: सिर्फ Dashboard से — कोई shortcut नहीं।<br/>• Fees: Regional Base Fee से कम नहीं।<br/>• Show Cause Notice: 7 दिन | Appeal: 15 दिन।",
+    counselor:"<h4>ACS Counselor शर्तें</h4>• योग्यता: 45+ वर्ष + 15 साल अनुभव।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Counselor | 5% State | 5% ACS।<br/>• Refund: 1 घंटे पहले cancel = 90%।<br/>• ACS Course: अनिवार्य नहीं।<br/>• Rating: 3.0 से कम = 30 दिन Improvement।<br/>• Show Cause Notice: 7 दिन।",
+    employer:"<h4>ACS Employer शर्तें</h4>• Registration + Job Posting: पूरी तरह निःशुल्क [Free]।<br/>• Contact: सिर्फ ACS Dashboard से।<br/>• Salary: Minimum Wage से कम नहीं।<br/>• Workers से कोई Fee नहीं — Illegal।<br/>• Fake Job, Advance Fee, Human Trafficking — तत्काल Terminate।<br/>• Child Labour (14 से कम) — Prohibited।<br/>• IT Act 2000 Sec 79 — ACS Intermediary।",
+    foreign_agent:"<h4>ACS Foreign Agent शर्तें</h4>• eMigrate License (MEA) अनिवार्य — Fake = IPC 420।<br/>• Workers से कोई Fee नहीं — Emigration Act 1983।<br/>• Commission: 70% Agent | 20% ACS | 10% State।<br/>• काम: Visa guidance + Job placement + Training + Contract।<br/>• Human Trafficking (IPC 370) — तत्काल Terminate।<br/>• Passport Confiscation — Strictly Prohibited।<br/>• MEA Helpline: 1800-11-3090।",
+    team:"<h4>ACS Team शर्तें</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field → Intern।<br/>• Salary: Fixed (1-7 तारीख) + Incentive 0-50% on Target।<br/>• Probation: सभी levels पर 6 महीने।<br/>• Joining: 2 Upper Level + HQ Admin approval अनिवार्य।<br/>• Confidentiality: 2 साल (employment के बाद भी)।<br/>• POSH Act 2013 — ICC available।<br/>• Show Cause Notice: 7 दिन | F&F: 15 कार्य दिवस।"
   },
   en:{
-    student:"<h4>ACS Student Terms — Key Points</h4>• Online Courses — Always Free.<br/>• Offline Training — Fees set by Centre.<br/>• Minimum Age: 10 years (10-18: Guardian consent required).<br/>• Certificate: Course complete + Exam pass + Practical + Centre approval.<br/>• Certificate Validity: Lifetime | Issuer: FFGPMTrust.<br/>• Refund: Cancel 7 days before = 100% | 30%+ complete = No refund.<br/>• POCSO Act — Minor protection is ACS's priority.<br/>• Grievance: Response within 7 working days.<br/>• Dispute: Khagaria Court → Patna HC → UNCITRAL (International).",
-    teacher:"<h4>ACS Teacher Terms — Key Points</h4>• Eligibility: 45+ years OR 15 years experience — ACS Course not mandatory.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Before payment: 5-minute Free Preview Session is mandatory.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.<br/>• AI Training: No use without Written Permission.<br/>• Copyright Act 1957 Sec 57 — Moral Rights protected.<br/>• Show Cause Notice: 7 days | Appeal: 7 days.",
-    worker:"<h4>ACS Worker Terms — Key Points</h4>• Green Tick Verification: DigiLocker + AI Photo.<br/>• Payment: Into Wallet within 7 working days | Max Hold: 60 days.<br/>• Labour Codes 2025 + POSH Act + Maternity Benefit Act.<br/>• Referral Bonus: Wallet credit for each referral.<br/>• Article 19(1)(a): Honest Criticism — your right.<br/>• Show Cause Notice: 7 days before termination.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
-    centre:"<h4>ACS Centre Terms — Key Points</h4>• Registration: Completely Free.<br/>• Revenue: 80% Centre | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — Full Free — use as you wish.<br/>• Certificate: Only via Dashboard — no shortcuts.<br/>• Fees: Not below Regional Base Fee.<br/>• Show Cause Notice: 7 days | Appeal: 15 days.<br/>• Dispute: Khagaria Court → Patna HC → UNCITRAL.",
-    counselor:"<h4>ACS Counselor Terms — Key Points</h4>• Eligibility: 45+ years + 15 years experience.<br/>• Before payment: 5-minute Free Preview Session is mandatory.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.<br/>• Refund: Cancel 1 hour before = 90% refund.<br/>• ACS Course: Not mandatory.<br/>• Rating: Below 3.0 = 30-day Improvement Period.<br/>• Show Cause Notice: 7 days.",
-    employer:"<h4>ACS Employer Terms — Key Points</h4>• Registration + Job Posting: Completely Free.<br/>• Contact: Only via ACS Dashboard.<br/>• Salary: Not below Minimum Wage.<br/>• No fees from Workers — Illegal.<br/>• Fake Job, Advance Fee, Human Trafficking — Immediate Termination.<br/>• Child Labour (under 14) — Prohibited.<br/>• IT Act 2000 Sec 79 — ACS is Intermediary.<br/>• Show Cause Notice: 7 days.",
-    foreign_agent:"<h4>ACS Foreign Agent Terms — Key Points</h4>• eMigrate License (MEA) mandatory — Fake = IPC 420 + Criminal action.<br/>• No fees from Workers — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.<br/>• Services: Visa guidance + Job placement + Training + Contract explanation.<br/>• Human Trafficking (IPC 370) — Immediate Termination + Police report.<br/>• Passport Confiscation — Strictly Prohibited.<br/>• MEA Helpline: 1800-11-3090.",
-    team:"<h4>ACS Team Terms — Key Points</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field Staff → Intern.<br/>• Salary: Fixed (1st-7th of month) + Incentive 0-50% on Target.<br/>• Probation: 6 months for all levels.<br/>• Joining: 2 Upper Level + HQ Admin approval mandatory.<br/>• Confidentiality: 2 years (even after employment ends).<br/>• Non-compete clause applicable.<br/>• POSH Act 2013 — ICC available.<br/>• Show Cause Notice: 7 days | F&F: 15 working days."
+    student:"<h4>ACS Student Terms</h4>• Online Courses — Always Free.<br/>• Offline Training — Fees set by Centre.<br/>• Minimum Age: 10 years (10-18: Guardian consent required).<br/>• Certificate: Course complete + Exam pass + Practical + Centre approval.<br/>• Issued by FFGPMTrust — Lifetime valid.<br/>• Refund: 7 days before = 100% | 30%+ complete = No refund.<br/>• POCSO Act — Minor protection priority.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
+    teacher:"<h4>ACS Teacher Terms</h4>• Eligibility: 45+ years OR 15 years experience — ACS Course not mandatory.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Before payment: 5-minute Free Preview Session mandatory.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.<br/>• AI Training: No use without Written Permission.<br/>• Copyright Act 1957 Sec 57 — Moral Rights protected.<br/>• Show Cause Notice: 7 days | Appeal: 7 days.",
+    worker:"<h4>ACS Worker Terms</h4>• Green Tick Verification: DigiLocker + AI Photo.<br/>• Payment: Into Wallet within 7 working days | Max Hold: 60 days.<br/>• Labour Codes 2025 + POSH Act + Maternity Benefit Act.<br/>• Referral Bonus: Wallet credit for each referral.<br/>• Article 19(1)(a): Honest Criticism — your right.<br/>• Show Cause Notice: 7 days | Grievance: 7 working days.",
+    centre:"<h4>ACS Centre Terms</h4>• Registration: Completely Free.<br/>• Revenue: 80% Centre | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — Full Free — use as you wish.<br/>• Certificate: Only via Dashboard — no shortcuts.<br/>• Fees: Not below Regional Base Fee.<br/>• Show Cause Notice: 7 days | Appeal: 15 days.",
+    counselor:"<h4>ACS Counselor Terms</h4>• Eligibility: 45+ years + 15 years experience.<br/>• Before payment: 5-minute Free Preview Session mandatory.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.<br/>• Refund: Cancel 1 hour before = 90% refund.<br/>• ACS Course: Not mandatory.<br/>• Rating: Below 3.0 = 30-day Improvement Period.<br/>• Show Cause Notice: 7 days.",
+    employer:"<h4>ACS Employer Terms</h4>• Registration + Job Posting: Completely Free.<br/>• Contact: Only via ACS Dashboard.<br/>• Salary: Not below Minimum Wage.<br/>• No fees from Workers — Illegal.<br/>• Fake Job, Advance Fee, Human Trafficking — Immediate Termination.<br/>• Child Labour (under 14) — Prohibited.<br/>• IT Act 2000 Sec 79 — ACS is Intermediary.",
+    foreign_agent:"<h4>ACS Foreign Agent Terms</h4>• eMigrate License (MEA) mandatory — Fake = IPC 420 + Criminal action.<br/>• No fees from Workers — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.<br/>• Services: Visa guidance + Job placement + Training + Contract.<br/>• Human Trafficking (IPC 370) — Immediate Termination.<br/>• Passport Confiscation — Strictly Prohibited.<br/>• MEA Helpline: 1800-11-3090.",
+    team:"<h4>ACS Team Terms</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field Staff → Intern.<br/>• Salary: Fixed (1st-7th) + Incentive 0-50% on Target.<br/>• Probation: 6 months for all levels.<br/>• Joining: 2 Upper Level + HQ Admin approval mandatory.<br/>• Confidentiality: 2 years (even after employment ends).<br/>• POSH Act 2013 — ICC available.<br/>• Show Cause Notice: 7 days | F&F: 15 working days."
   }
 };
 
 // ── EXTRA FIELDS ──
-const XF={
-  student:{hi:`<div class="f"><label>आयु [Age] *</label><input type="number" id="fa" placeholder="जैसे: 15" min="10" max="100"/><div class="hint">10-18 वर्ष: Guardian की सहमति जरूरी</div><div class="em" id="ea"></div></div><div class="f" id="gf" style="display:none"><label>Guardian का नाम *</label><input type="text" id="fg" placeholder="Guardian का पूरा नाम"/></div>`,
-    en:`<div class="f"><label>Age *</label><input type="number" id="fa" placeholder="e.g. 15" min="10" max="100"/><div class="hint">Ages 10-18: Guardian consent required</div><div class="em" id="ea"></div></div><div class="f" id="gf" style="display:none"><label>Guardian Name *</label><input type="text" id="fg" placeholder="Guardian's full name"/></div>`},
-  teacher:{hi:`<div class="f"><label>आयु [Age] *</label><input type="number" id="fa" placeholder="45+" min="45" max="100"/><div class="hint">न्यूनतम 45 वर्ष</div><div class="em" id="ea"></div></div><div class="f"><label>अनुभव [Experience] — वर्ष *</label><input type="number" id="fex" placeholder="जैसे: 20" min="15"/><div class="hint">न्यूनतम 15 वर्ष</div></div><div class="f"><label>विशेषज्ञता [Subject/Skill] *</label><input type="text" id="fsub" placeholder="जैसे: Computer, Tailoring, Farming"/></div>`,
-    en:`<div class="f"><label>Age *</label><input type="number" id="fa" placeholder="45+" min="45" max="100"/><div class="hint">Minimum 45 years</div><div class="em" id="ea"></div></div><div class="f"><label>Experience (years) *</label><input type="number" id="fex" placeholder="e.g. 20" min="15"/><div class="hint">Minimum 15 years</div></div><div class="f"><label>Subject / Skill *</label><input type="text" id="fsub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`},
-  worker:{hi:`<div class="f"><label>कौशल [Skill] *</label><input type="text" id="fsk" placeholder="जैसे: Typing, Data Entry"/></div><div class="f"><label>उपलब्धता [Availability]</label><select id="fav"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`,
-    en:`<div class="f"><label>Skill *</label><input type="text" id="fsk" placeholder="e.g. Typing, Data Entry"/></div><div class="f"><label>Availability</label><select id="fav"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`},
-  centre:{hi:`<div class="f"><label>Centre का नाम *</label><input type="text" id="fcn" placeholder="जैसे: ACS Khagaria Centre"/></div><div class="f"><label>पता [Address] *</label><input type="text" id="fadr" placeholder="पूरा पता"/></div><div class="f"><label>District *</label><input type="text" id="fdt" placeholder="जैसे: Khagaria"/></div>`,
-    en:`<div class="f"><label>Centre Name *</label><input type="text" id="fcn" placeholder="e.g. ACS Khagaria Centre"/></div><div class="f"><label>Address *</label><input type="text" id="fadr" placeholder="Full address"/></div><div class="f"><label>District *</label><input type="text" id="fdt" placeholder="e.g. Khagaria"/></div>`},
-  counselor:{hi:`<div class="f"><label>आयु [Age] *</label><input type="number" id="fa" placeholder="45+" min="45"/><div class="hint">न्यूनतम 45 वर्ष</div><div class="em" id="ea"></div></div><div class="f"><label>अनुभव [Experience] — वर्ष *</label><input type="number" id="fex" placeholder="15+" min="15"/><div class="hint">न्यूनतम 15 वर्ष</div></div><div class="f"><label>विशेषज्ञता [Specialization] *</label><input type="text" id="fsub" placeholder="जैसे: Career, Agriculture, Business"/></div>`,
-    en:`<div class="f"><label>Age *</label><input type="number" id="fa" placeholder="45+" min="45"/><div class="hint">Minimum 45 years</div><div class="em" id="ea"></div></div><div class="f"><label>Experience (years) *</label><input type="number" id="fex" placeholder="15+" min="15"/><div class="hint">Minimum 15 years</div></div><div class="f"><label>Specialization *</label><input type="text" id="fsub" placeholder="e.g. Career, Agriculture, Business"/></div>`},
-  employer:{hi:`<div class="f"><label>Business / Organization का नाम *</label><input type="text" id="forg" placeholder="जैसे: Sharma Electronics"/></div><div class="f"><label>Business Type</label><select id="fbt"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`,
-    en:`<div class="f"><label>Business / Organization Name *</label><input type="text" id="forg" placeholder="e.g. Sharma Electronics"/></div><div class="f"><label>Business Type</label><select id="fbt"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="international">International / MNC</option></select></div>`},
-  foreign_agent:{hi:`<div class="f"><label>eMigrate RA License Number *</label><input type="text" id="femi" placeholder="MEA eMigrate RA Number"/><div class="hint">बिना valid License के registration नहीं होगा।</div></div><div class="f"><label>Agency / Firm का नाम *</label><input type="text" id="forg" placeholder="जैसे: Global Placement Services"/></div>`,
-    en:`<div class="f"><label>eMigrate RA License Number *</label><input type="text" id="femi" placeholder="MEA eMigrate RA Number"/><div class="hint">Registration not possible without valid License.</div></div><div class="f"><label>Agency / Firm Name *</label><input type="text" id="forg" placeholder="e.g. Global Placement Services"/></div>`},
-  team:{hi:`<div class="f"><label>पद [Designation] *</label><select id="fdes"><option value="">-- पद चुनें --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="f"><label>Referring Manager का नाम *</label><input type="text" id="fmgr" placeholder="जिस Manager ने refer किया"/></div>`,
-    en:`<div class="f"><label>Designation *</label><select id="fdes"><option value="">-- Select --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="f"><label>Referring Manager Name *</label><input type="text" id="fmgr" placeholder="Name of referring manager"/></div>`}
-};
-
-// ── APPLY LANGUAGE ──
-function aL(){
-  const t=TX[L];
-  document.documentElement.lang=L;
-  document.body.classList.toggle('en',L==='en');
-  ['hs','lb','ht','hp','hb','t1','st1','t2','t3','st3','t4','st4','lb1','lb2','lb3','lb4','ln','lm','le','lst','lp','lp2','lo','b1','bo','bv','brt','bk','lck1','lck2','lck3','sut','sum','sun'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.textContent=t[id]||'';
-  });
-  // Role names
-  const rk={student:'s',teacher:'t',worker:'w',centre:'c',counselor:'co',employer:'e',foreign_agent:'f',team:'tm'};
-  Object.entries(rk).forEach(([role,k])=>{
-    const n=document.getElementById('rn-'+k),d=document.getElementById('rd-'+k);
-    if(n) n.textContent=t.roles[role][0];
-    if(d) d.textContent=t.roles[role][1];
-  });
-  if(R){
-    document.getElementById('xf').innerHTML=XF[R]?.[L]||'';
-    document.getElementById('rt').textContent=TX[L].roles[R]?.[0]||'';
-    document.getElementById('tb').innerHTML=TM2[L]?.[R]||'';
-    addAgeWatcher();
+const EXTRA={
+  student:{
+    hi:`<div class="field"><label>आयु [Age] *</label><input type="number" id="f-age" min="10" max="100" placeholder="जैसे: 15" oninput="ageWatch(this)"/><div class="hint">10-18 वर्ष: Guardian की सहमति जरूरी</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>Guardian का नाम *</label><input type="text" id="f-guardian" placeholder="Guardian का पूरा नाम"/></div>`,
+    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="10" max="100" placeholder="e.g. 15" oninput="ageWatch(this)"/><div class="hint">Ages 10-18: Guardian consent required</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>Guardian Name *</label><input type="text" id="f-guardian" placeholder="Guardian's full name"/></div>`
+  },
+  teacher:{
+    hi:`<div class="field"><label>आयु [Age] *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">न्यूनतम 45 वर्ष</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव [Experience] — वर्ष *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">न्यूनतम 15 वर्ष</div></div><div class="field"><label>विशेषज्ञता [Subject/Skill] *</label><input type="text" id="f-sub" placeholder="जैसे: Computer, Tailoring, Farming"/></div>`,
+    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div></div><div class="field"><label>Subject / Skill *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`
+  },
+  worker:{
+    hi:`<div class="field"><label>कौशल [Skill] *</label><input type="text" id="f-skill" placeholder="जैसे: Typing, Data Entry, Stitching"/></div><div class="field"><label>उपलब्धता [Availability]</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`,
+    en:`<div class="field"><label>Skill *</label><input type="text" id="f-skill" placeholder="e.g. Typing, Data Entry, Stitching"/></div><div class="field"><label>Availability</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`
+  },
+  centre:{
+    hi:`<div class="field"><label>Centre का नाम *</label><input type="text" id="f-cname" placeholder="जैसे: ACS Khagaria Centre"/></div><div class="field"><label>पता [Address] *</label><input type="text" id="f-addr" placeholder="पूरा पता"/></div><div class="field"><label>District *</label><input type="text" id="f-dist" placeholder="जैसे: Khagaria"/></div>`,
+    en:`<div class="field"><label>Centre Name *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Centre"/></div><div class="field"><label>Address *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>District *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`
+  },
+  counselor:{
+    hi:`<div class="field"><label>आयु [Age] *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">न्यूनतम 45 वर्ष</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव [Experience] — वर्ष *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">न्यूनतम 15 वर्ष</div></div><div class="field"><label>विशेषज्ञता [Specialization] *</label><input type="text" id="f-sub" placeholder="जैसे: Career, Agriculture, Business"/></div>`,
+    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div></div><div class="field"><label>Specialization *</label><input type="text" id="f-sub" placeholder="e.g. Career, Agriculture, Business"/></div>`
+  },
+  employer:{
+    hi:`<div class="field"><label>Business / Organization का नाम *</label><input type="text" id="f-org" placeholder="जैसे: Sharma Electronics"/></div><div class="field"><label>Business Type</label><select id="f-biz"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`,
+    en:`<div class="field"><label>Business / Organization Name *</label><input type="text" id="f-org" placeholder="e.g. Sharma Electronics"/></div><div class="field"><label>Business Type</label><select id="f-biz"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`
+  },
+  foreign_agent:{
+    hi:`<div class="field"><label>eMigrate RA License Number *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">बिना valid License के registration नहीं होगा।</div></div><div class="field"><label>Agency / Firm का नाम *</label><input type="text" id="f-org" placeholder="जैसे: Global Placement Services"/></div>`,
+    en:`<div class="field"><label>eMigrate RA License Number *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">Registration not possible without valid License.</div></div><div class="field"><label>Agency / Firm Name *</label><input type="text" id="f-org" placeholder="e.g. Global Placement Services"/></div>`
+  },
+  team:{
+    hi:`<div class="field"><label>पद [Designation] *</label><select id="f-desig"><option value="">-- पद चुनें --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="field"><label>Referring Manager का नाम *</label><input type="text" id="f-manager" placeholder="जिस Manager ने refer किया"/></div>`,
+    en:`<div class="field"><label>Designation *</label><select id="f-desig"><option value="">-- Select --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="field"><label>Referring Manager Name *</label><input type="text" id="f-manager" placeholder="Name of referring manager"/></div>`
   }
-}
-window.tL=function(){L=L==='hi'?'en':'hi';aL();};
-
-// ── ROLE SELECT ──
-window.sR=function(role,el){
-  R=role;
-  document.querySelectorAll('.rc').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel');
-  hA('a1');
 };
 
-// ── STEP NAV ──
-function gs(n){
-  STEP=n;
+const ROLE_NAMES={
+  hi:{student:'विद्यार्थी [Student]',teacher:'शिक्षक [Teacher]',worker:'कार्यकर्ता [Worker]',centre:'केंद्र [Centre]',counselor:'सलाहकार [Counselor]',employer:'नियोक्ता [Employer]',foreign_agent:'विदेश एजेंट [Foreign Agent]',team:'ACS Team'},
+  en:{student:'Student',teacher:'Teacher',worker:'Worker',centre:'Centre',counselor:'Counselor',employer:'Employer',foreign_agent:'Foreign Agent',team:'ACS Team'}
+};
+
+const ERR={
+  hi:{role:'कृपया एक भूमिका [Role] चुनें।',name:'नाम जरूरी है।',mobile:'10 अंक का मोबाइल नंबर डालें।',email:'सही Email डालें।',state:'राज्य चुनें।',pass:'कम से कम 8 characters।',match:'दोनों password एक जैसे होने चाहिए।',age:'उम्र 10 से 100 के बीच होनी चाहिए।',age45:'न्यूनतम 45 वर्ष।',otp:'6-अंक OTP डालें।',otpExp:'OTP expire हो गया। दोबारा भेजें।',otpWrong:'OTP गलत है। फिर से डालें।',terms:'शर्तें स्वीकार करें।',privacy:'Privacy Policy स्वीकार करें।',guardian:'Guardian की सहमति जरूरी है।',used:'यह Email पहले से registered है।'},
+  en:{role:'Please select a role.',name:'Name is required.',mobile:'Enter a valid 10-digit mobile.',email:'Enter a valid Email address.',state:'Please select your state.',pass:'Minimum 8 characters required.',match:'Both passwords must match.',age:'Age must be between 10 and 100.',age45:'Minimum 45 years required.',otp:'Please enter the 6-digit OTP.',otpExp:'OTP expired. Please resend.',otpWrong:'Incorrect OTP. Please try again.',terms:'Please accept the terms.',privacy:'Please accept the Privacy Policy.',guardian:'Guardian consent is required.',used:'This Email is already registered.'}
+};
+
+let ROLE='',OTP_CODE='',OTP_TIMER=null;
+
+// ── STEP NAVIGATION ──
+function goStep(n){
   for(let i=1;i<=5;i++) document.getElementById('c'+i).classList.toggle('show',i===n);
   for(let i=1;i<=4;i++){
-    const sc=document.getElementById('s'+i+'c');
-    sc.className='sc'+(i<n?' d':i===n?' a':'');
-    const sl=document.getElementById('l'+i);
-    if(sl) sl.className='sl'+(i<n?' d':'');
+    document.getElementById('sc'+i).className='step-circle'+(i<n?' done':i===n?' active':'');
+    if(i<4) document.getElementById('sl'+i).className='step-line'+(i<n?' done':'');
   }
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── STEP 1 → 2 ──
-window.g2=function(){
-  if(!R){sA('a1',TX[L].e.r,'ae');return;}
-  hA('a1');
-  document.getElementById('xf').innerHTML=XF[R]?.[L]||'';
-  document.getElementById('rt').textContent=TX[L].roles[R]?.[0]||'';
-  addAgeWatcher();
-  gs(2);
+// ── ROLE SELECT ──
+window.selRole=function(role,el){
+  ROLE=role;
+  document.querySelectorAll('.role-card').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  hideAlert('a1');
 };
 
-function addAgeWatcher(){
-  const fa=document.getElementById('fa');
-  if(!fa) return;
-  fa.addEventListener('input',function(){
-    const gf=document.getElementById('gf'),mg=document.getElementById('mgr');
-    const minor=R==='student'&&+this.value<18&&+this.value>=10;
-    if(gf) gf.style.display=minor?'block':'none';
-    if(mg) mg.style.display=minor?'flex':'none';
-  });
+// ── STEP 1 → 2 ──
+window.goStep2=function(){
+  if(!ROLE){showAlert('a1',ERR[LANG].role,'alert-err');return;}
+  hideAlert('a1');
+  loadExtraFields(ROLE);
+  document.getElementById('role-tag').textContent=ROLE_NAMES[LANG][ROLE]||'';
+  goStep(2);
+};
+
+function loadExtraFields(role){
+  document.getElementById('extra-fields').innerHTML=EXTRA[role]?.[LANG]||'';
 }
 
-// ── PASSWORD ──
-window.cpw=function(v){
-  let s=0;
-  if(v.length>=8)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
-  const pf=document.getElementById('pf'),pt=document.getElementById('pt');
-  const w=[0,30,60,85,100][s];
-  pf.style.width=w+'%';
-  pf.className='pf '+['','pw','pw','pm','ps'][s];
-  const labels=TX[L].pw;
-  pt.textContent=s<=1?labels[0]:s<=3?labels[1]:labels[2];
-  pt.style.color=s<=1?'var(--red)':s<=3?'var(--gold)':'var(--green)';
+// ── AGE WATCHER ──
+window.ageWatch=function(el){
+  const gf=document.getElementById('guardian-field');
+  const gr=document.getElementById('guardian-row');
+  const minor=ROLE==='student'&&+el.value>=10&&+el.value<18;
+  if(gf)gf.style.display=minor?'block':'none';
+  if(gr)gr.style.display=minor?'flex':'none';
 };
 
-// ── VALIDATE 2 ──
-function v2(){
-  const t=TX[L].e;let ok=true;
-  cE();
-  const n=document.getElementById('fn').value.trim();
-  const m=document.getElementById('fm').value.trim();
-  const e=document.getElementById('fe').value.trim();
-  const st=document.getElementById('fst').value;
-  const p=document.getElementById('fp').value;
-  const p2=document.getElementById('fp2').value;
-  if(!n){sE('en',t.n);ok=false;}
-  if(!/^\d{10}$/.test(m)){sE('em2',t.m);ok=false;}
-  if(!/\S+@\S+\.\S+/.test(e)){sE('ee',t.em);ok=false;}
-  if(!st){sE('est',t.st);ok=false;}
-  if(!p||p.length<8){sE('ep',t.p);ok=false;}
-  if(p!==p2){sE('ep2',t.pm);ok=false;}
-  // role age
-  const fa=document.getElementById('fa');
+// ── PASSWORD ──
+window.checkPw=function(v){
+  let s=0;if(v.length>=8)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
+  const pf=document.getElementById('pw-fill'),pl=document.getElementById('pw-label');
+  const pcts=[0,30,60,85,100];const cols=['','#E53935','#F9A825','#F9A825','#2E7D32'];
+  const labs={hi:['','कमज़ोर [Weak]','ठीक है [OK]','ठीक है [OK]','मजबूत [Strong] ✓'],en:['','Weak','OK','OK','Strong ✓']};
+  pf.style.width=pcts[s]+'%';pf.style.background=cols[s];
+  pl.textContent=labs[LANG][s];pl.style.color=cols[s];
+};
+
+// ── VALIDATE STEP 2 ──
+function validateStep2(){
+  const e=ERR[LANG];let ok=true;clearErrs();
+  const name=gv('f-name'),mob=gv('f-mobile'),email=gv('f-email'),state=gv('f-state'),pass=gv('f-pass'),pass2=gv('f-pass2');
+  if(!name){showErr('e-name',e.name);ok=false;}
+  if(!/^\d{10}$/.test(mob)){showErr('e-mobile',e.mobile);ok=false;}
+  if(!/\S+@\S+\.\S+/.test(email)){showErr('e-email',e.email);ok=false;}
+  if(!state){showErr('e-state',e.state);ok=false;}
+  if(!pass||pass.length<8){showErr('e-pass',e.pass);ok=false;}
+  if(pass!==pass2){showErr('e-pass2',e.match);ok=false;}
+  const fa=document.getElementById('f-age');
   if(fa){
     const av=+fa.value;
-    if(R==='student'&&(av<10||av>100)){sE('ea',t.a);ok=false;}
-    if((R==='teacher'||R==='counselor')&&av<45){sE('ea',L==='hi'?'न्यूनतम 45 वर्ष':'Min 45 years');ok=false;}
+    if(ROLE==='student'&&(av<10||av>100)){showErr('e-age',e.age);ok=false;}
+    if((ROLE==='teacher'||ROLE==='counselor')&&av<45){showErr('e-age',e.age45);ok=false;}
   }
   return ok;
 }
 
 // ── SEND OTP ──
-window.sOtp=async function(){
-  if(!v2()) return;
-  const btn=document.getElementById('bo');
-  btn.disabled=true;btn.innerHTML=`<span class="sp2"></span>${L==='hi'?'भेज रहे हैं...':'Sending...'}`;
-  OTP=Math.floor(100000+Math.random()*900000).toString();
-  sessionStorage.setItem('_otp',OTP);
-  sessionStorage.setItem('_ots',Date.now().toString());
-  // Show OTP in info alert (dev mode — production: use Email API)
-  sA('a3',`${L==='hi'?'OTP (Dev Mode):':'OTP (Dev Mode):'} ${OTP}`,'ai');
-  gs(3);sTmr();
-  btn.disabled=false;btn.textContent=TX[L].bo;
+window.sendOtp=async function(){
+  if(!validateStep2())return;
+  const btn=document.getElementById('btn2');
+  btn.disabled=true;btn.innerHTML='<span class="spin"></span>'+(LANG==='hi'?'OTP भेज रहे हैं...':'Sending OTP...');
+  OTP_CODE=Math.floor(100000+Math.random()*900000).toString();
+  sessionStorage.setItem('_acsOtp',OTP_CODE);
+  sessionStorage.setItem('_acsOtpTs',Date.now().toString());
+  // Dev mode — production में Email API से OTP भेजें
+  showAlert('a3','Dev Mode OTP: '+OTP_CODE,'alert-info');
+  goStep(3);startTimer();
+  btn.disabled=false;btn.textContent=LANG==='hi'?'OTP भेजें →':'Send OTP →';
 };
 
-function sTmr(){
-  let s=120;const te=document.getElementById('otmr'),rb=document.getElementById('rsndb');
-  if(rb) rb.style.display='none';
-  if(TM) clearInterval(TM);
-  TM=setInterval(()=>{
+function startTimer(){
+  let s=120;const te=document.getElementById('otp-timer'),rb=document.getElementById('resend-btn');
+  rb.style.display='none';
+  if(OTP_TIMER)clearInterval(OTP_TIMER);
+  OTP_TIMER=setInterval(()=>{
     s--;
-    if(te) te.textContent=(L==='hi'?'OTP valid: ':'OTP valid: ')+Math.floor(s/60)+':'+(s%60).toString().padStart(2,'0');
-    if(s<=0){clearInterval(TM);if(te)te.textContent=L==='hi'?'OTP expire हो गया':'OTP expired';if(rb)rb.style.display='inline';}
+    te.textContent=(LANG==='hi'?'OTP valid: ':'OTP valid: ')+Math.floor(s/60)+':'+(s%60).toString().padStart(2,'0');
+    if(s<=0){clearInterval(OTP_TIMER);te.textContent=LANG==='hi'?'OTP expire हो गया':'OTP expired';rb.style.display='inline';}
   },1000);
 }
 
-// ── OTP NAV ──
-window.on=function(el,p,nx){
+// ── OTP NAVIGATION ──
+window.otpNav=function(el,prev,next){
   el.value=el.value.replace(/\D/g,'').slice(-1);
-  if(el.value&&nx) document.getElementById(nx)?.focus();
-  if(!el.value&&p){el.value='';document.getElementById(p)?.focus();}
+  if(el.value&&next)document.getElementById(next)?.focus();
+  if(!el.value&&prev){el.value='';document.getElementById(prev)?.focus();}
 };
 
 // ── VERIFY OTP ──
-window.vOtp=function(){
+window.verifyOtp=function(){
   const entered=['o1','o2','o3','o4','o5','o6'].map(id=>document.getElementById(id)?.value||'').join('');
-  const t=TX[L].e;
-  if(entered.length<6){sA('a3',t.o,'ae');return;}
-  const stored=sessionStorage.getItem('_otp'),ts=+sessionStorage.getItem('_ots')||0;
-  if(Date.now()-ts>120000){sA('a3',t.oe,'ae');return;}
-  if(entered!==stored){sA('a3',t.ow,'ae');return;}
-  clearInterval(TM);
-  document.getElementById('tb').innerHTML=TM2[L]?.[R]||'';
-  const fa=document.getElementById('fa');
-  const minor=R==='student'&&fa&&+fa.value<18;
-  document.getElementById('mgr').style.display=minor?'flex':'none';
-  gs(4);
+  const e=ERR[LANG];
+  if(entered.length<6){showAlert('a3',e.otp,'alert-err');return;}
+  const stored=sessionStorage.getItem('_acsOtp');
+  const ts=+sessionStorage.getItem('_acsOtpTs')||0;
+  if(Date.now()-ts>120000){showAlert('a3',e.otpExp,'alert-err');return;}
+  if(entered!==stored){showAlert('a3',e.otpWrong,'alert-err');return;}
+  clearInterval(OTP_TIMER);
+  document.getElementById('terms-box').innerHTML=TERMS[LANG]?.[ROLE]||'';
+  const fa=document.getElementById('f-age');
+  document.getElementById('guardian-row').style.display=(ROLE==='student'&&fa&&+fa.value<18)?'flex':'none';
+  goStep(4);
 };
 
-// ── COMPLETE REG ──
-window.cReg=async function(){
-  const t=TX[L].e;
-  if(!document.getElementById('ck1').checked){sA('a4',t.t,'ae');return;}
-  if(!document.getElementById('ck2').checked){sA('a4',t.pr,'ae');return;}
-  const fa=document.getElementById('fa');
-  if(R==='student'&&fa&&+fa.value<18&&!document.getElementById('ck3').checked){sA('a4',t.g,'ae');return;}
-  const btn=document.getElementById('br');
-  btn.disabled=true;btn.innerHTML=`<span class="sp2"></span>${L==='hi'?'Register हो रहे हैं...':'Registering...'}`;
+// ── REGISTER ──
+window.doRegister=async function(){
+  const e=ERR[LANG];
+  if(!document.getElementById('ck1').checked){showAlert('a4',e.terms,'alert-err');return;}
+  if(!document.getElementById('ck2').checked){showAlert('a4',e.privacy,'alert-err');return;}
+  const fa=document.getElementById('f-age');
+  if(ROLE==='student'&&fa&&+fa.value<18&&!document.getElementById('ck3').checked){showAlert('a4',e.guardian,'alert-err');return;}
+  const btn=document.getElementById('btn4');
+  btn.disabled=true;btn.innerHTML='<span class="spin"></span>'+(LANG==='hi'?'Register हो रहे हैं...':'Registering...');
   try{
-    const email=document.getElementById('fe').value.trim();
-    const pass=document.getElementById('fp').value;
+    const email=gv('f-email'),pass=gv('f-pass');
     const cred=await createUserWithEmailAndPassword(auth,email,pass);
     await sendEmailVerification(cred.user);
-    const uid=cred.user.uid;
-    const st=document.getElementById('fst').value;
+    const uid=cred.user.uid,st=gv('f-state');
     const RC={student:'STU',teacher:'TCH',worker:'WRK',centre:'CTR',counselor:'CNS',employer:'EMP',foreign_agent:'FGA',team:'TEM'};
-    const acsId=`ACS-${RC[R]||'USR'}-${st.slice(0,2).toUpperCase()}-${uid.slice(-6).toUpperCase()}`;
-    const ud={uid,acsId,role:R,name:document.getElementById('fn').value.trim(),mobile:document.getElementById('fm').value.trim(),email,state:st,language:L,status:'pending',createdAt:serverTimestamp(),termsAccepted:true,termsVersion:'1.0',termsAcceptedAt:new Date().toISOString(),platform:'web'};
-    // Role-specific
-    const flds={fa:'age',fg:'guardianName',fex:'experience',fsub:'subject',fsk:'skill',fav:'availability',fcn:'centreName',fadr:'address',fdt:'district',forg:'organization',fbt:'businessType',femi:'emigrateLicense',fdes:'designation',fmgr:'referringManager'};
-    Object.entries(flds).forEach(([id,key])=>{const el=document.getElementById(id);if(el&&el.value) ud[key]=el.type==='number'?+el.value:el.value;});
+    const acsId='ACS-'+(RC[ROLE]||'USR')+'-'+st.slice(0,2).toUpperCase()+'-'+uid.slice(-6).toUpperCase();
+    const ud={uid,acsId,role:ROLE,name:gv('f-name'),mobile:gv('f-mobile'),email,state:st,language:LANG,status:'pending',createdAt:serverTimestamp(),termsAccepted:true,termsVersion:'1.0',termsAcceptedAt:new Date().toISOString(),platform:'web'};
+    // Role-specific fields
+    const flds={fa:'age','f-age':'age','f-exp':'experience','f-sub':'subject','f-skill':'skill','f-avail':'availability','f-cname':'centreName','f-addr':'address','f-dist':'district','f-org':'organization','f-biz':'businessType','f-emigrate':'emigrateLicense','f-desig':'designation','f-manager':'referringManager','f-guardian':'guardianName'};
+    Object.entries(flds).forEach(([id,key])=>{const el=document.getElementById(id);if(el&&el.value)ud[key]=el.type==='number'?+el.value:el.value;});
+    // Save to Firestore — users collection + role collection
     await setDoc(doc(db,'users',uid),ud);
-    await setDoc(doc(db,R+'s',uid),{...ud,userId:uid});
-    sessionStorage.removeItem('_otp');sessionStorage.removeItem('_ots');
-    document.getElementById('sui').textContent='ACS ID: '+acsId;
-    document.getElementById('sur').textContent='Role: '+TX[L].roles[R]?.[0];
-    document.getElementById('sue').textContent='Email: '+email;
-    gs(5);
-  }catch(e){
-    let msg=e.message||'Error';
-    if(e.code==='auth/email-already-in-use') msg=TX[L].e.eu;
-    sA('a4',msg,'ae');
+    await setDoc(doc(db,ROLE+'s',uid),{...ud,userId:uid});
+    sessionStorage.removeItem('_acsOtp');sessionStorage.removeItem('_acsOtpTs');
+    document.getElementById('s-id').textContent='ACS ID: '+acsId;
+    document.getElementById('s-role').textContent='Role: '+ROLE_NAMES[LANG][ROLE];
+    document.getElementById('s-email').textContent='Email: '+email;
+    goStep(5);
+  }catch(err){
+    let msg=err.message||'Error';
+    if(err.code==='auth/email-already-in-use')msg=ERR[LANG].used;
+    showAlert('a4',msg,'alert-err');
   }finally{
-    btn.disabled=false;btn.innerHTML=`🎉 <span id="brt">${TX[L].brt}</span>`;
+    btn.disabled=false;
+    btn.innerHTML='🎉 <span class="t" data-hi="ACS में Register करें" data-en="Register with ACS">'+(LANG==='hi'?'ACS में Register करें':'Register with ACS')+'</span>';
   }
 };
 
 // ── HELPERS ──
-function sA(id,msg,cls){const el=document.getElementById(id);if(el){el.textContent=msg;el.className='al '+cls+' s';}}
-function hA(id){const el=document.getElementById(id);if(el){el.textContent='';el.className='al';}}
-function sE(id,msg){const el=document.getElementById(id);if(el){el.textContent=msg;el.classList.add('s');}}
-function cE(){document.querySelectorAll('.em').forEach(e=>{e.textContent='';e.classList.remove('s');});}
+function gv(id){return document.getElementById(id)?.value?.trim()||'';}
+function showAlert(id,msg,cls){const el=document.getElementById(id);if(el){el.textContent=msg;el.className='alert '+cls+' show';}}
+function hideAlert(id){const el=document.getElementById(id);if(el){el.textContent='';el.className='alert';}}
+function showErr(id,msg){const el=document.getElementById(id);if(el){el.textContent=msg;el.classList.add('show');}}
+function clearErrs(){document.querySelectorAll('.err').forEach(e=>{e.textContent='';e.classList.remove('show');});}
+
+// ── INIT ──
+applyLang();
 </script>
+
+<!-- ── MENU + TRANSLATE JS ── -->
+<script>
+function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
+function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
+function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
+window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'hi',includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur'},'google_translate_element');};
+</script>
+
+<!-- Lang toggle button in navbar (added via JS) -->
+<script>
+(function(){
+  const nc=document.querySelector('.nav-controls');
+  const btn=document.createElement('button');
+  btn.id='lang-btn';
+  btn.className='btn-translate';
+  btn.style.marginRight='4px';
+  btn.textContent=document.body.classList.contains('en')?'🌐 हिंदी':'🌐 English';
+  btn.onclick=function(){window.switchLang&&window.switchLang();};
+  nc.insertBefore(btn,nc.firstChild);
+})();
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
