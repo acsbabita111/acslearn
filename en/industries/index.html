@@ -1,1 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="ACS Industries — 950 sectors, Self-Employment, Government Jobs, Private Jobs, Local Jobs."/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#0B1F3A"/>
+<link rel="canonical" href="https://acslearn.com/en/industries/"/>
+<title>Industries — Applied Computer School</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+ --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
+ --orange:#E65100;--red:#C62828;
+ --white:#fff;--offwhite:#F5F7FA;
+ --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+}
+html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 
+.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:8px}
+.nav-brand img{height:30px;border-radius:6px}
+.nav-brand-text{color:#fff;font-size:13px;font-weight:700;line-height:1.2}
+.nav-brand-text small{display:block;color:var(--gold);font-size:10px;font-weight:400}
+.nav-controls{display:flex;align-items:center;gap:6px}
+.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;min-height:40px}
+.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-height:40px;min-width:40px}
+.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
+.translate-panel.open{display:block}
+#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
+.menu-overlay.open{display:block}
+.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}
+.menu-panel.open{right:0}
+.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.menu-head h3{font-size:15px}
+.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.menu-links{list-style:none;padding:6px 0}
+.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:14px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
+.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
+.menu-links li a.active{color:var(--blue);background:#EEF4FF}
+.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);padding:14px;border-radius:10px;font-weight:800;font-size:15px;min-height:52px}
+
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);padding:36px 20px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.hero-logo{width:52px;height:52px;border-radius:14px;border:2px solid rgba(255,255,255,.2);margin:0 auto 16px}
+.hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:12px}
+.hero-title{font-size:clamp(24px,5.5vw,38px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero-title em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:20px}
+.hero-stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hs{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 14px;text-align:center}
+.hs-num{font-size:18px;font-weight:900;color:var(--gold);display:block}
+.hs-lbl{font-size:10px;color:rgba(255,255,255,.7)}
+
+.tab-bar{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:52px;z-index:100;overflow-x:auto}
+.tab-inner{display:flex;max-width:900px;margin:0 auto;min-width:480px}
+.tab{flex:1;padding:12px 6px;text-align:center;font-size:12px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
+.tab:hover{color:var(--blue)}
+.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-icon{font-size:16px;display:block;margin-bottom:3px}
+
+.main{max-width:900px;margin:0 auto;padding:16px 16px 60px}
+.sec{display:none}
+.sec.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{font-size:20px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.sec-sub{font-size:13px;color:var(--gray);margin-bottom:16px}
+
+/* SEARCH + FILTER */
+.search-wrap{position:relative;margin-bottom:10px}
+.search-input{width:100%;padding:13px 46px 13px 16px;border:2px solid var(--border);border-radius:12px;font-size:15px;font-family:inherit;outline:none;background:#fff;transition:border .2s}
+.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,.1)}
+.filter-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.filter-btn{padding:5px 10px;border:1.5px solid var(--border);border-radius:16px;font-size:11px;font-weight:700;cursor:pointer;background:#fff;color:var(--gray);font-family:inherit;transition:.15s}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
+.filter-btn.active{border-color:var(--blue);background:#EEF4FF;color:var(--blue)}
+.sector-count{font-size:12px;color:var(--gray);margin-bottom:10px;font-weight:600}
+
+/* SECTOR GRID */
+.sector-grid{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:480px){.sector-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:720px){.sector-grid{grid-template-columns:1fr 1fr 1fr}}
+.sector-card{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:.2s}
+.sector-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,.1);transform:translateY(-2px)}
+.s-num{font-size:9px;font-weight:700;color:var(--gray);letter-spacing:1px}
+.s-name{font-size:13px;font-weight:800;color:var(--navy);line-height:1.4;margin:3px 0}
+.s-invest{font-size:11px;color:var(--green);font-weight:700}
+.s-link{font-size:10px;color:var(--blue);margin-top:3px;font-weight:600}
+
+/* STATE/DISTRICT DROPDOWN */
+.loc-search{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.loc-select{flex:1;min-width:140px;padding:11px 14px;border:2px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s}
+.loc-select:focus{border-color:var(--blue)}
+.loc-btn{padding:11px 18px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+/* RESULT MESSAGE */
+.loc-result{background:#E8F5E9;border:1.5px solid #C8E6C9;border-radius:10px;padding:14px 16px;margin-bottom:14px;display:none;font-size:13px;line-height:1.7}
+.loc-result.show{display:block}
+.loc-result strong{color:var(--green)}
+
+/* PORTAL CARDS */
+.portal-grid{display:grid;gap:10px;margin-bottom:16px}
+.portal-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:14px;display:flex;align-items:flex-start;gap:12px;transition:.2s}
+.portal-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.p-icon{font-size:28px;flex-shrink:0}
+.p-info{flex:1}
+.p-name{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.p-desc{font-size:11px;color:var(--gray);margin-bottom:6px;line-height:1.5}
+.p-link{display:inline-block;padding:5px 12px;background:var(--blue);color:#fff;border-radius:6px;font-size:11px;font-weight:700}
+
+.sub-h{font-size:13px;font-weight:800;color:var(--navy);margin:18px 0 10px;padding-bottom:5px;border-bottom:2px solid var(--border)}
+
+/* EMPTY STATE */
+.empty-box{background:#fff;border:2px dashed var(--border);border-radius:14px;padding:28px 20px;text-align:center;margin-bottom:14px}
+.empty-icon{font-size:44px;margin-bottom:10px}
+.empty-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.empty-desc{font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.7}
+
+/* CTA */
+.reg-cta{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:14px;padding:20px;color:#fff;text-align:center;margin-top:14px}
+.reg-cta-icon{font-size:32px;margin-bottom:8px}
+.reg-cta h3{font-size:16px;font-weight:800;margin-bottom:6px}
+.reg-cta p{font-size:12px;opacity:.8;margin-bottom:14px;line-height:1.7}
+.reg-cta-btn{display:inline-block;padding:11px 22px;background:var(--gold);color:var(--navy);border-radius:10px;font-weight:800;font-size:13px;transition:.2s}
+
+/* SUGGEST LINK */
+.suggest-link{background:#FFF8E1;border:1px solid rgba(249,168,37,.4);border-radius:10px;padding:12px 16px;margin-top:14px;font-size:12px;color:var(--text);line-height:1.7}
+.suggest-link a{color:var(--blue);font-weight:700}
+
+/* FOOTER */
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:32px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1000px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:15px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:6px 0}
+.footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:3px 0;display:block}
+.footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:12px;color:rgba(255,255,255,.4)}
+.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
+.scroll-top.show{display:flex;align-items:center;justify-content:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;opacity:0;transition:.3s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+ <div class="nav-inner">
+  <a href="/en/" class="nav-brand">
+   <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+   <div class="nav-brand-text">Applied Computer School™
+    <small>Free Digital Education for the Global South</small>
+   </div>
+  </a>
+  <div class="nav-controls">
+   <button class="btn-translate" onclick="toggleTranslate()">🌐 Language</button>
+   <button class="btn-menu" onclick="openMenu()">☰</button>
+  </div>
+ </div>
+ <div class="translate-panel" id="translatePanel"><div id="google_translate_element"></div></div>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-panel" id="menuPanel">
+ <div class="menu-head"><h3>ACS Menu</h3><button class="menu-close" onclick="closeMenu()">✕</button></div>
+ <ul class="menu-links">
+  <li><a href="/en/">🏠 Home</a></li>
+  <li><a href="/en/mission.html">🎯 Mission</a></li>
+  <li><a href="/en/counseling.html">🧭 Counseling</a></li>
+  <li><a href="/en/industries/" class="active">🌍 Industries</a></li>
+  <li><a href="/courses/en/">📚 Courses</a></li>
+  <li><a href="/en/join.html">📝 Registration</a></li>
+  <li><a href="/verify/">🏆 Certificate</a></li>
+  <li><a href="/en/network.html">🤝 Network</a></li>
+  <li><a href="/vani/">📱 Vani App</a></li>
+  <li><a href="/contact/en/">📞 Contact</a></li>
+ </ul>
+ <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
+</div>
+
+<div class="hero">
+ <div class="hero-inner">
+  <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
+  <div class="hero-tag">🌍 Industries Hub</div>
+  <div class="hero-title">Choose your path,<br/><em>success starts right here.</em></div>
+  <div class="hero-sub">From self-employment to government jobs — every path is here.</div>
+  <div class="hero-stats">
+   <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">Sectors</div></div>
+   <div class="hs"><span class="hs-num">1.50 Lakh</span><div class="hs-lbl">Business Ideas</div></div>
+   <div class="hs"><span class="hs-num">15</span><div class="hs-lbl">Investment Levels</div></div>
+   <div class="hs"><span class="hs-num">₹0</span><div class="hs-lbl">onwards</div></div>
+  </div>
+ </div>
+</div>
+
+<div class="tab-bar">
+ <div class="tab-inner">
+  <div class="tab active" id="tab1" onclick="goTab(1)"><span class="tab-icon">🏪</span>Self-Employment</div>
+  <div class="tab" id="tab2" onclick="goTab(2)"><span class="tab-icon">🏛️</span>Govt Jobs</div>
+  <div class="tab" id="tab3" onclick="goTab(3)"><span class="tab-icon">🏢</span>Private Jobs</div>
+  <div class="tab" id="tab4" onclick="goTab(4)"><span class="tab-icon">🛒</span>Local Jobs</div>
+  <div class="tab" id="tab5" onclick="goTab(5)"><span class="tab-icon">🌏</span>Jobs Abroad</div>
+ </div>
+</div>
+
+<div class="main">
+
+ <!-- TAB 1: Self-Employment -->
+ <div class="sec active" id="sec1">
+  <div class="sec-title">🏪 Self-Employment</div>
+  <div class="sec-sub">Start from Rs.0 → go up to Rs.200 Crore. Choose from 950 sectors below.</div>
+  <div class="search-wrap">
+   <input type="text" class="search-input" id="searchInput"
+    placeholder="🔍 Search sector... e.g. Dairy, Mobile Repair, Bamboo, Tailoring..."
+    oninput="filterSectors()"/>
+  </div>
+  <div class="filter-row" id="mgFilter"></div>
+  <div class="sector-count" id="sectorCount">All 950 Sectors</div>
+  <div class="sector-grid" id="sectorGrid"></div>
+ </div>
+
+ <!-- TAB 2: Govt Jobs -->
+ <div class="sec" id="sec2">
+  <div class="sec-title">🏛️ Government Jobs</div>
+  <div class="sec-sub">All major central and state portals in one place.</div>
+
+  <div class="sub-h">🇮🇳 Central Government — National Portals</div>
+  <div class="portal-grid">
+   <div class="portal-card"><span class="p-icon">📋</span><div class="p-info"><div class="p-name">UPSC — Union Public Service Commission</div><div class="p-desc">IAS, IPS, IFS — India's highest civil services.</div><a href="https://upsc.gov.in" target="_blank" class="p-link">🔗 upsc.gov.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">📝</span><div class="p-info"><div class="p-name">SSC — Staff Selection Commission</div><div class="p-desc">CGL, CHSL, MTS, CPO, JE — Group B & C posts.</div><a href="https://ssc.nic.in" target="_blank" class="p-link">🔗 ssc.nic.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🚂</span><div class="p-info"><div class="p-name">Railway — Railway Recruitment Board</div><div class="p-desc">RRB NTPC, Group D, ALP, JE — Millions of posts.</div><a href="https://indianrailways.gov.in" target="_blank" class="p-link">🔗 indianrailways.gov.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🏦</span><div class="p-info"><div class="p-name">IBPS — Institute of Banking Personnel Selection</div><div class="p-desc">PO, Clerk, SO, RRB — All government banks.</div><a href="https://ibps.in" target="_blank" class="p-link">🔗 ibps.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🏦</span><div class="p-info"><div class="p-name">SBI — State Bank of India</div><div class="p-desc">SBI PO, Clerk, SO — India's largest bank.</div><a href="https://sbi.co.in/careers" target="_blank" class="p-link">🔗 sbi.co.in/careers</a></div></div>
+   <div class="portal-card"><span class="p-icon">👮</span><div class="p-info"><div class="p-name">CISF / BSF / CRPF / SSB</div><div class="p-desc">Central Armed Police Forces — Constable, SI, ASI.</div><a href="https://www.mha.gov.in" target="_blank" class="p-link">🔗 mha.gov.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🎖️</span><div class="p-info"><div class="p-name">Indian Army / Navy / Air Force</div><div class="p-desc">Agniveer, JCO, Officer — Armed Forces recruitment.</div><a href="https://joinindianarmy.nic.in" target="_blank" class="p-link">🔗 joinindianarmy.nic.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🏥</span><div class="p-info"><div class="p-name">AIIMS / NHM — Health</div><div class="p-desc">Nurse, Lab Tech, Staff Nurse, Doctor.</div><a href="https://nhm.gov.in" target="_blank" class="p-link">🔗 nhm.gov.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🎓</span><div class="p-info"><div class="p-name">UGC NET / CSIR NET</div><div class="p-desc">Assistant Professor, JRF — University teaching posts.</div><a href="https://ugcnet.nta.nic.in" target="_blank" class="p-link">🔗 ugcnet.nta.nic.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🌐</span><div class="p-info"><div class="p-name">NCS — National Career Service</div><div class="p-desc">All government jobs in one place. Set Job Alert.</div><a href="https://www.ncs.gov.in" target="_blank" class="p-link">🔗 ncs.gov.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🎯</span><div class="p-info"><div class="p-name">Sarkari Result</div><div class="p-desc">Latest Notifications, Admit Card, Results.</div><a href="https://www.sarkariresult.com" target="_blank" class="p-link">🔗 sarkariresult.com</a></div></div>
+   <div class="portal-card"><span class="p-icon">📮</span><div class="p-info"><div class="p-name">India Post — Postal Dept</div><div class="p-desc">GDS, Postman, Mail Guard, MTS recruitment.</div><a href="https://indiapostgdsonline.gov.in" target="_blank" class="p-link">🔗 indiapostgdsonline.gov.in</a></div></div>
+  </div>
+
+  <div class="sub-h">🏛️ State Government — State Jobs Finder</div>
+
+  <!-- STATE DROPDOWN -->
+  <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:13px;color:var(--navy)">
+   💡 Select your state → <strong>PSC Portal + 50+ Government Jobs</strong> [Permanent & Contract] will appear.
+  </div>
+
+  <div class="loc-search">
+   <select class="loc-select" id="stateJobSelect" onchange="loadStateJobs()">
+    <option value="">— Select State —</option>
+   </select>
+   <button class="loc-btn" onclick="loadStateJobs()">🔍 Search</button>
+  </div>
+
+  <!-- STATE PSC RESULT -->
+  <div id="statePSCResult" style="display:none;margin-bottom:16px">
+   <div class="portal-card" id="statePSCCard" style="border-color:var(--blue)">
+    <span class="p-icon" id="statePSCIcon">🏛️</span>
+    <div class="p-info">
+     <div class="p-name" id="statePSCName">—</div>
+     <div class="p-desc" id="statePSCDesc">—</div>
+     <a href="#" target="_blank" class="p-link" id="statePSCLink">🔗 Open Portal</a>
+    </div>
+   </div>
+  </div>
+
+  <!-- JOBS LIST -->
+  <div id="stateJobsResult" style="display:none">
+   <!-- PERMANENT -->
+   <div style="font-size:13px;font-weight:800;color:var(--green);margin:14px 0 8px;display:flex;align-items:center;gap:8px">
+    ✅ Permanent Jobs
+    <span style="font-size:11px;background:#E8F5E9;color:var(--green);padding:2px 8px;border-radius:10px;font-weight:700" id="permCount"></span>
+   </div>
+   <div class="portal-grid" id="permJobsList"></div>
+
+   <!-- CONTRACT -->
+   <div style="font-size:13px;font-weight:800;color:var(--orange);margin:14px 0 8px;display:flex;align-items:center;gap:8px">
+    📋 Contract Jobs
+    <span style="font-size:11px;background:#FFF3E0;color:var(--orange);padding:2px 8px;border-radius:10px;font-weight:700" id="contractCount"></span>
+   </div>
+   <div class="portal-grid" id="contractJobsList"></div>
+  </div>
+
+  <div class="suggest-link">
+   💡 Any Portal or Job missing? <a href="https://wa.me/919431210092?text=Hello, I want to add a govt job/portal:" target="_blank">Tell us on WhatsApp →</a> We will add it immediately.
+  </div>
+
+  <div class="reg-cta">
+   <div class="reg-cta-icon">🏫</div>
+   <h3>Do you run a Coaching Centre?</h3>
+   <p>your Coaching here Register .<br/>district Students your about will find you — <strong>Free [Free]।</strong></p>
+   <a href="/en/join.html" class="reg-cta-btn">📝 Register Coaching →</a>
+  </div>
+ </div>
+
+ <!-- TAB 3: Private Jobs -->
+ <div class="sec" id="sec3">
+  <div class="sec-title">🏢 Private Jobs</div>
+  <div class="sec-sub">District-wise list of Companies — required qualification, salary and employer contact.</div>
+
+  <div class="loc-search">
+   <select class="loc-select" id="stateSelect3" onchange="loadDistricts(3)">
+    <option value="">— Select State —</option>
+   </select>
+   <select class="loc-select" id="districtSelect3">
+    <option value="">— Select District —</option>
+   </select>
+   <button class="loc-btn" onclick="searchLoc(3)">🔍 Search</button>
+  </div>
+
+  <div class="loc-result" id="locResult3">
+   <strong id="locTitle3"></strong><br/>
+   📋 No company registered in your district yet.<br/>
+   If you are <strong>Employer</strong> — Register and reach thousands of Students and reach them.
+  </div>
+
+  <div class="empty-box">
+   <div class="empty-icon">🏢</div>
+   <div class="empty-title">No Company Registered Yet</div>
+   <div class="empty-desc">your district Companies here will appear as they Register will appear.<br/>
+   If you are an Employer — <strong>Register now — Free!</strong></div>
+   <a href="/en/join.html" style="display:inline-block;padding:11px 22px;background:var(--blue);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+    👔 Register as Employer →
+   </a>
+  </div>
+
+  <div class="reg-cta">
+   <div class="reg-cta-icon">👔</div>
+   <h3>Get Your Company Listed Here!</h3>
+   <p>✅ Company name, Website, Job Levels<br/>
+   ✅ Required Qualification and Salary<br/>
+   ✅ Students directly apply <br/>
+   ✅ <strong>Completely Free</strong></p>
+   <a href="/en/join.html" class="reg-cta-btn" style="background:var(--blue-lt);color:#fff">📝 Register Now →</a>
+  </div>
+ </div>
+
+ <!-- TAB 4: Local Jobs -->
+ <div class="sec" id="sec4">
+  <div class="sec-title">🛒 Local Jobs</div>
+  <div class="sec-sub">Local shops and workshops in your district — required workers, qualification, salary and full address.</div>
+
+  <div class="loc-search">
+   <select class="loc-select" id="stateSelect4" onchange="loadDistricts(4)">
+    <option value="">— Select State —</option>
+   </select>
+   <select class="loc-select" id="districtSelect4">
+    <option value="">— Select District —</option>
+   </select>
+   <button class="loc-btn" onclick="searchLoc(4)">🔍 Search</button>
+  </div>
+
+  <div class="loc-result" id="locResult4">
+   <strong id="locTitle4"></strong><br/>
+   📋 No Shop/Workshop registered in your district Yyet.<br/>
+   If you are <strong>Workers needed</strong> — Register now.
+  </div>
+
+  <div class="empty-box">
+   <div class="empty-icon">🛒</div>
+   <div class="empty-title">No Shop/Workshop Registered Yet</div>
+   <div class="empty-desc">your district shops here will appear as they Register will appear.<br/>
+   If you are Workers needed — <strong>Register now — Free!</strong></div>
+   <a href="/en/join.html" style="display:inline-block;padding:11px 22px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+    🏪 Register Shop/Workshop →
+   </a>
+  </div>
+
+  <div class="reg-cta">
+   <div class="reg-cta-icon">🔧</div>
+   <h3>List Your Shop/Workshop Here!</h3>
+   <p>✅ Shop name and complete address<br/>
+   ✅ Number of Workers needed<br/>
+   ✅ Required Qualification and Salary<br/>
+   ✅ <strong>Completely Free</strong></p>
+   <a href="/en/join.html" class="reg-cta-btn" style="background:var(--green-lt);color:#fff">📝 Register Now →</a>
+  </div>
+ </div>
+
+
+ <!-- TAB 5: Abroad in Jobs -->
+ <div class="sec" id="sec5">
+  <div class="sec-title">🌏 Jobs Abroad</div>
+  <div class="sec-sub">Safe overseas employment through government-recognized registered agents.</div>
+
+  <!-- WARNING BOX -->
+  <div style="background:#FFF3E0;border:2px solid var(--orange);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:13px;line-height:1.8">
+   ⚠️ <strong>Warning [Warning]:</strong> Before going abroad:<br/>
+   ✅ Only <strong>eMigrate registered agents</strong> Contact us<br/>
+   ✅ Never pay money in advance<br/>
+   ✅ Verify your Visa/Offer Letter<br/>
+   ✅ ACS Counselor  must consult<br/>
+   ❌ Fake agents avoid — <a href="https://emigrate.gov.in" target="_blank" style="color:var(--blue);font-weight:700">eMigrate.gov.in</a> to verify
+  </div>
+
+  <!-- GOVT PORTALS -->
+  <div class="sub-h">🇮🇳 Government Portals</div>
+  <div class="portal-grid">
+   <div class="portal-card"><span class="p-icon">🌐</span><div class="p-info"><div class="p-name">eMigrate — MEA India</div><div class="p-desc">Official MEA portal. Verify agents and search for jobs.</div><a href="https://emigrate.gov.in" target="_blank" class="p-link">🔗 emigrate.gov.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🎓</span><div class="p-info"><div class="p-name">NSDC International</div><div class="p-desc">National Skill Development Corporation — overseas placement support.</div><a href="https://www.nsdcinternational.in" target="_blank" class="p-link">🔗 nsdcinternational.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">🤝</span><div class="p-info"><div class="p-name">Pravasi Bharatiya Seva Kendra</div><div class="p-desc">Help for Indians stranded abroad. Helpline: 1800-11-3090.</div><a href="https://emigrate.gov.in/ext/stat/MoeaHome.do" target="_blank" class="p-link">🔗 emigrate.gov.in</a></div></div>
+   <div class="portal-card"><span class="p-icon">📋</span><div class="p-info"><div class="p-name">Overseas Employment — MoLE</div><div class="p-desc">Ministry of Labour — overseas employment policy and assistance.</div><a href="https://labour.gov.in" target="_blank" class="p-link">🔗 labour.gov.in</a></div></div>
+  </div>
+
+  <!-- EMBASSY SEARCH -->
+  <div class="sub-h">🏛️ Find Indian Embassy</div>
+  <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:12px;color:var(--navy)">
+   💡 Select country → Get complete address, phone, email and website of Indian Embassy.
+  </div>
+  <div class="loc-search">
+   <select class="loc-select" id="embassySelect" onchange="showEmbassy()">
+    <option value="">— Select Country —</option>
+   </select>
+  </div>
+  <div id="embassyResult" style="display:none;margin-bottom:16px">
+   <div style="background:#fff;border:2px solid var(--blue);border-radius:12px;padding:16px">
+    <div style="font-size:18px;margin-bottom:8px" id="embFlag"></div>
+    <div style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:10px" id="embName"></div>
+    <div style="display:grid;gap:6px;font-size:12px">
+     <div>📍 <span id="embAddress" style="color:var(--text)"></span></div>
+     <div>📞 <span id="embPhone" style="color:var(--blue);font-weight:700"></span></div>
+     <div>✉️ <span id="embEmail" style="color:var(--blue)"></span></div>
+     <div id="embConsulateRow" style="display:none">🏢 <span id="embConsulate" style="color:var(--gray)"></span></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+     <a id="embWebLink" href="#" target="_blank" class="p-link">🌐 Embassy Website</a>
+     <a id="embConsLink" href="#" target="_blank" class="p-link" style="background:var(--green);display:none">🏢 Consulate Website</a>
+    </div>
+   </div>
+  </div>
+
+  <!-- COUNTRY WISE OPPORTUNITIES -->
+  <div class="sub-h">🗺️ Country-wise Opportunities</div>
+  <div class="portal-grid">
+   <div class="portal-card"><span class="p-icon">🇦🇪</span><div class="p-info"><div class="p-name">UAE / Dubai</div><div class="p-desc">Construction, Hospitality, IT, Retail — Most Indians work here. Tax-free salary. here। Tax-free salary.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹30,000 – ₹2 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇸🇦</span><div class="p-info"><div class="p-name">Saudi Arabia</div><div class="p-desc">Construction, Oil & Gas, Healthcare, Domestic Work.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹25,000 – ₹1.5 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇶🇦</span><div class="p-info"><div class="p-name">Qatar</div><div class="p-desc">Infrastructure boom continues. Hospitality, Construction.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹35,000 – ₹2 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇰🇼</span><div class="p-info"><div class="p-name">Kuwait / Oman / Bahrain</div><div class="p-desc">Gulf countries — demand for Skilled & Unskilled workers.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹20,000 – ₹1 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇲🇾</span><div class="p-info"><div class="p-name">Malaysia / Singapore</div><div class="p-desc">Manufacturing, Plantation, Construction, IT.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹25,000 – ₹1.5 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇯🇵</span><div class="p-info"><div class="p-name">Japan — TITP Program</div><div class="p-desc">Technical Intern Training — 3-5 years. Agriculture, Manufacturing, Nursing.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹80,000 – ₹2 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇰🇷</span><div class="p-info"><div class="p-name">South Korea — EPS Program</div><div class="p-desc">Employment Permit System — Manufacturing, Agriculture.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹1 – ₹2.5 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇨🇦</span><div class="p-info"><div class="p-name">Canada</div><div class="p-desc">PR pathway, Skilled Worker, Student → Work. High demand in Healthcare, IT.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2 – ₹5 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇦🇺</span><div class="p-info"><div class="p-name">Australia</div><div class="p-desc">Skilled Migration, 482 Visa, Working Holiday. IT, Healthcare, Trades.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2.5 – ₹6 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇩🇪</span><div class="p-info"><div class="p-name">Germany / Europe</div><div class="p-desc">Skilled Workers Shortage. Nursing, Engineering, IT, Hospitality.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2 – ₹5 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇬🇧</span><div class="p-info"><div class="p-name">UK</div><div class="p-desc">Skilled Worker Visa — NHS, IT, Finance, Engineering.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹3 – ₹7 Lakh/month</div></div></div>
+   <div class="portal-card"><span class="p-icon">🇮🇱</span><div class="p-info"><div class="p-name">Israel</div><div class="p-desc">Agriculture, Construction, Caregiving — Government to Government scheme.</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹1.5 – ₹3 Lakh/month</div></div></div>
+  </div>
+
+  <!-- FOREIGN AGENT SEARCH -->
+  <div class="sub-h">🔍 Search Foreign Recruitment Agent</div>
+  <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:12px;color:var(--navy)">
+   💡 Contact only <strong>eMigrate Registered</strong> agents. Select your state and district below to find a registered agent near you.
+  </div>
+
+  <div class="loc-search">
+   <select class="loc-select" id="stateSelect5" onchange="loadDistricts(5)">
+    <option value="">— Select State —</option>
+   </select>
+   <select class="loc-select" id="districtSelect5">
+    <option value="">— Select District —</option>
+   </select>
+   <button class="loc-btn" onclick="searchLoc(5)">🔍 Search</button>
+  </div>
+
+  <div class="loc-result" id="locResult5">
+   <strong id="locTitle5"></strong><br/>
+   📋 No agent registered in your district yet. <strong>Foreign Agent [Foreign Agent]</strong> has not registered yet.<br/>
+   Get ACS Counselor advice →
+   <a href="https://wa.me/919431210092?text=Hello, I need advice about jobs abroad." target="_blank" style="color:var(--blue);font-weight:700">WhatsApp us</a>
+  </div>
+
+  <!-- AGENT EMPTY STATE -->
+  <div class="empty-box">
+   <div class="empty-icon">🌏</div>
+   <div class="empty-title">No Agent Registered Yet</div>
+   <div class="empty-desc">
+    your district eMigrate Registered Agents will appear here.<br/>
+    If you are <strong>Licensed Foreign Recruitment Agent</strong> <br/>
+    — Register now — <strong>Free Listing!</strong>
+   </div>
+   <a href="/en/join.html" style="display:inline-block;padding:11px 22px;background:var(--blue);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+    🌏 Register as Agent →
+   </a>
+  </div>
+
+  <!-- AGENT REGISTER CTA -->
+  <div class="reg-cta">
+   <div class="reg-cta-icon">🌏</div>
+   <h3>Are you a Licensed Foreign Recruitment Agent?</h3>
+   <p>
+    ✅ eMigrate License Number<br/>
+    ✅ Country-wise Job Openings<br/>
+    ✅ Required Qualification and Salary<br/>
+    ✅ Your complete contact details — district-wise listing<br/>
+    ✅ <strong>Completely Free</strong>
+   </p>
+   <a href="/en/join.html" class="reg-cta-btn" style="background:var(--blue-lt);color:#fff">📝 Register as Agent →</a>
+  </div>
+
+  <!-- COUNSELOR CTA -->
+  <div style="background:#E8F5E9;border:1.5px solid #C8E6C9;border-radius:12px;padding:16px;margin-top:14px;text-align:center">
+   <div style="font-size:20px;margin-bottom:8px">🧭</div>
+   <div style="font-size:14px;font-weight:800;color:var(--navy);margin-bottom:6px">Meet a Counselor Before Going Abroad!</div>
+   <div style="font-size:12px;color:var(--gray);margin-bottom:12px;line-height:1.7">
+    Visa types, Documents, Avoiding fake agents,<br/>choosing the right country — all FREE.
+   </div>
+   <a href="https://wa.me/919431210092?text=Hello, I need advice about jobs abroad."
+    target="_blank"
+    style="display:inline-block;padding:11px 22px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+    💬 Get FREE Counseling →
+   </a>
+  </div>
+ </div>
+
+</div>
+
+<footer class="footer-main">
+ <div class="footer-grid">
+  <div class="footer-brand">
+   <h2>Applied Computer School™</h2>
+   <p class="footer-tagline">"From Village to World"</p>
+   <p>An initiative of FFGPMTrust | ISO 9001:2015 Certified</p>
+  </div>
+  <div class="footer-col">
+   <h3>Site Map</h3>
+   <div class="sitemap-grid">
+    <a href="/en/">🏠 Home</a><a href="/en/mission.html">🎯 Mission</a>
+    <a href="/en/counseling.html">🧭 Counseling</a><a href="/udyam/">🌍 Industries</a>
+    <a href="/courses/en/">📚 Courses</a><a href="/en/join.html">📝 Registration</a>
+    <a href="/verify/">🏆 Certificate</a><a href="/en/network.html">🤝 Network</a>
+    <a href="/vani/">📱 Vani App</a><a href="/contact/en/">📞 Contact</a>
+   </div>
+  </div>
+  <div class="footer-col">
+   <h3>Contact</h3>
+   <p>📍 Vidyarthinagar, Chautham, Khagaria — 851201</p>
+   <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
+   <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+   <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
+   <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
+  </div>
+ </div>
+ <div class="footer-bottom">
+  © 2026 Applied Computer School™ |
+  <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
+  <a href="/" style="color:var(--gold)">acslearn.com</a>
+ </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo(0,0)">↑</button>
+<div class="toast" id="toast"></div>
+
+<!-- DATA FILES -->
+<script src="/assets/udyam_data.js"></script>
+<script src="/assets/govt_jobs_embassy.js"></script>
+
+<script>
+// ══ MASTER GROUPS ══
+const MG=[
+ {id:'all',name:'All (950)'},
+ {id:1,name:'🌾 Agriculture (67)'},{id:2,name:'⛏️ Mining (43)'},
+ {id:3,name:'🏭 Manufacturing (52)'},{id:4,name:'🏗️ Construction (30)'},
+ {id:5,name:'🧵 Textiles (40)'},{id:6,name:'💊 Healthcare (32)'},
+ {id:7,name:'💻 Technology (43)'},{id:8,name:'🚗 Transport (52)'},
+ {id:9,name:'🛍️ Trade (43)'},{id:10,name:'🎭 Services (39)'},
+ {id:11,name:'📚 Education (50)'},{id:12,name:'🌿 Handicrafts (40)'},
+ {id:13,name:'⚗️ Chemicals (42)'},{id:14,name:'🌍 Global (80)'},
+ {id:15,name:'🔮 Future (50)'},{id:16,name:'⚖️ Legal (30)'},
+ {id:17,name:'🏛️ Government (40)'},{id:18,name:'📊 Data (31)'},
+ {id:19,name:'🤖 Robotics (30)'},{id:20,name:'🌎 Climate (21)'},
+ {id:21,name:'🙏 Religious (10)'},{id:22,name:'🏆 Sports (10)'},
+ {id:23,name:'💰 Digital Finance (15)'},{id:24,name:'🛡️ Security (60)'},
+];
+
+let activeMG='all',searchQ='';
+
+// Render MG filters
+document.getElementById('mgFilter').innerHTML=
+ MG.map(m=>`<button class="filter-btn ${m.id==='all'?'active':''}"
+  onclick="filterMG('${m.id}',this)">${m.name}</button>`).join('');
+
+window.filterMG=function(id,el){
+ activeMG=id==='all'?'all':parseInt(id)||id;
+ document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+ el.classList.add('active');renderSectors();
+};
+
+window.filterSectors=function(){
+ searchQ=document.getElementById('searchInput').value.toLowerCase();
+ renderSectors();
+};
+
+function renderSectors(){
+ // Use ALL_SECTORS from external JS file
+ const data=typeof ALL_SECTORS!=='undefined'?ALL_SECTORS:[];
+ const filtered=data.filter(s=>{
+  const ms=!searchQ||s.name.toLowerCase().includes(searchQ);
+  const mm=activeMG==='all'||s.mg===activeMG;
+  return ms&&mm;
+ });
+ document.getElementById('sectorCount').textContent=
+  filtered.length===950?'All 950 Sectors':`${filtered.length} sectors found`;
+ document.getElementById('sectorGrid').innerHTML=filtered.map(s=>`
+  <div class="sector-card" onclick="openSector(${s.n},'${s.name.replace(/'/g,"\\'")}')">
+   <div class="s-num">Sectors ${String(s.n).padStart(3,'0')}</div>
+   <div class="s-name">${s.name}</div>
+   <div class="s-invest">💰 ${s.invest}</div>
+   <div class="s-link">Learn More →</div>
+  </div>`).join('')||
+  '<div style="text-align:center;padding:40px;color:var(--gray);grid-column:1/-1">ई Sectors नहीं मिला।</div>';
+}
+
+window.openSector=function(n,name){
+ // Future: redirect to /udyam/wiki.html?q=name
+ window.location.href='/udyam/wiki.html?sector='+encodeURIComponent(name);
+};
+
+// ══ STATE/DISTRICT ══
+function initStateDropdowns(){
+ const states=typeof STATES_DISTRICTS!=='undefined'?Object.keys(STATES_DISTRICTS):[];
+ [3,4,5].forEach(tab=>{
+  const sel=document.getElementById('stateSelect'+tab);
+  if(!sel)return;
+  states.forEach(s=>{
+   const opt=document.createElement('option');
+   opt.value=s;opt.textContent=s;
+   sel.appendChild(opt);
+  });
+ });
+}
+
+window.loadDistricts=function(tab){
+ const state=document.getElementById('stateSelect'+tab).value;
+ const sel=document.getElementById('districtSelect'+tab);
+ sel.innerHTML='<option value="">— Select District —</option>';
+ if(state&&typeof STATES_DISTRICTS!=='undefined'&&STATES_DISTRICTS[state]){
+  STATES_DISTRICTS[state].forEach(d=>{
+   const opt=document.createElement('option');
+   opt.value=d;opt.textContent=d;
+   sel.appendChild(opt);
+  });
+ }
+};
+
+window.searchLoc=function(tab){
+ const state=document.getElementById('stateSelect'+tab).value;
+ const dist=document.getElementById('districtSelect'+tab).value;
+ const res=document.getElementById('locResult'+tab);
+ const title=document.getElementById('locTitle'+tab);
+ if(!state){showToast('Select State','err');return;}
+ title.textContent=`📍 ${dist?dist+', ':''} ${state}`;
+ res.classList.add('show');
+ window.scrollTo({top:res.offsetTop-70,behavior:'smooth'});
+};
+
+window.goTab=function(n){
+ [1,2,3,4,5].forEach(i=>{
+  document.getElementById('sec'+i).classList.toggle('active',i===n);
+  document.getElementById('tab'+i).classList.toggle('active',i===n);
+ });
+ window.scrollTo({top:0,behavior:'smooth'});
+};
+
+// ══ STATE PSC DATA ══
+const STATE_PSC = {
+ 'बिहार': {name:'BPSC — बिहार लोक वा आयोग', url:'https://bpsc.bih.nic.in', extra:'BSSC: bssc.bihar.gov.in | Bihar Police: csbc.bih.nic.in'},
+ 'उत्तर प्रदेश': {name:'UPPSC — उत्तर प्रदेश लोक वा आयोग', url:'https://uppsc.up.nic.in', extra:'UPSSSC: upsssc.gov.in | UP Police: uppbpb.gov.in'},
+ 'महाराष्ट्र': {name:'MPSC — महाराष्ट्र लोक वा आयोग', url:'https://mpsc.gov.in', extra:'Maharashtra Rozgar: mahaonline.gov.in'},
+ 'कर्नाटक': {name:'KPSC — Karnataka Public Service Commission', url:'https://kpsc.kar.nic.in', extra:'KSSB: kssb.kar.nic.in'},
+ 'तमिलनाडु': {name:'TNPSC — Tamil Nadu Public Service Commission', url:'https://www.tnpsc.gov.in', extra:'TNUSRB: tnusrbonline.org'},
+ 'तेलंगाना': {name:'TSPSC — Telangana State PSC', url:'https://tspsc.gov.in', extra:'TSPolice: tslprb.in'},
+ 'आंध्र प्रदेश': {name:'APPSC — Andhra Pradesh PSC', url:'https://psc.ap.gov.in', extra:'APSSDC: apssdc.in'},
+ 'गुजरात': {name:'GPSC — Gujarat Public Service Commission', url:'https://gpsc.gujarat.gov.in', extra:'GSSSB: gsssb.gujarat.gov.in'},
+ 'राजस्थान': {name:'RPSC — Rajasthan Public Service Commission', url:'https://rpsc.rajasthan.gov.in', extra:'RSMSSB: rsmssb.rajasthan.gov.in'},
+ 'मध्य प्रदेश': {name:'MPPSC — Madhya Pradesh PSC', url:'https://mppsc.mp.gov.in', extra:'MP Vyapam: peb.mp.gov.in'},
+ 'पश्चिम बंगाल': {name:'WBPSC — West Bengal PSC', url:'https://pscwbapplication.in', extra:'WBSSC: wbssc.gov.in'},
+ 'ओडिशा': {name:'OPSC — Odisha Public Service Commission', url:'https://opsc.gov.in', extra:'OSSSC: osssc.gov.in'},
+ 'रल': {name:'Kerala PSC — Kerala Public Service Commission', url:'https://www.keralapsc.gov.in', extra:'Thulasi Portal: thulasi.psc.kerala.gov.in'},
+ 'पंजाब': {name:'PPSC — Punjab Public Service Commission', url:'https://ppsc.gov.in', extra:'Punjab Police: punjabpolice.gov.in'},
+ 'हरियाणा': {name:'HPSC — Haryana Public Service Commission', url:'https://hpsc.gov.in', extra:'HSSC: hssc.gov.in'},
+ 'झारखंड': {name:'JPSC — Jharkhand Public Service Commission', url:'https://jpsc.gov.in', extra:'JSSC: jssc.nic.in'},
+ 'छत्तीसगढ़': {name:'CGPSC — Chhattisgarh PSC', url:'https://psc.cg.gov.in', extra:'CGVYAPAM: cgvyapam.choice.gov.in'},
+ 'असम': {name:'APSC — Assam Public Service Commission', url:'https://apsc.nic.in', extra:'SLRC: slrcassam.in'},
+ 'हिमाचल प्रदेश': {name:'HPPSC — Himachal Pradesh PSC', url:'https://www.hppsc.hp.gov.in', extra:'HPSSC: hpsssb.hp.gov.in'},
+ 'उत्तराखंड': {name:'UKPSC — Uttarakhand PSC', url:'https://ukpsc.gov.in', extra:'UKSSSC: sssc.uk.gov.in'},
+ 'दिल्ली': {name:'DPSC / DSSSB — Delhi Subordinate Services', url:'https://dsssb.delhi.gov.in', extra:'Delhi Police: delhipolice.gov.in'},
+ 'जम्मू and कश्मीर': {name:'JKPSC — J&K Public Service Commission', url:'https://jkpsc.nic.in', extra:'JKSSB: jkssb.nic.in'},
+ 'मणिपुर': {name:'MPSC — Manipur PSC', url:'https://mpscmanipur.gov.in', extra:'—'},
+ 'मेघालय': {name:'MPSC — Meghalaya PSC', url:'https://mpsc.nic.in', extra:'—'},
+ 'त्रिपुरा': {name:'TPSC — Tripura PSC', url:'https://tpsc.gov.in', extra:'—'},
+ 'नागालैंड': {name:'NPSC — Nagaland PSC', url:'https://npsc.nagaland.gov.in', extra:'—'},
+ 'मिज़ोरम': {name:'MPSC — Mizoram PSC', url:'https://mpsc.mizoram.gov.in', extra:'—'},
+ 'अरुणाचल प्रदेश': {name:'APPSC — Arunachal Pradesh PSC', url:'https://appsc.gov.in', extra:'—'},
+ 'सिक्किम': {name:'SPSC — Sikkim PSC', url:'https://spsc.gov.in', extra:'—'},
+ 'गोवा': {name:'GPSC — Goa PSC', url:'https://gpsc-goa.gov.in', extra:'—'},
+};
+
+// ══ INIT STATE JOB DROPDOWN ══
+function initStateJobDropdown(){
+ const sel = document.getElementById('stateJobSelect');
+ if(!sel) return;
+ Object.keys(STATE_PSC).forEach(state => {
+  const opt = document.createElement('option');
+  opt.value = state; opt.textContent = state;
+  sel.appendChild(opt);
+ });
+}
+
+window.loadStateJobs = function(){
+ const state = document.getElementById('stateJobSelect').value;
+ if(!state){ showToast('Select State','err'); return; }
+
+ // Show PSC portal
+ const psc = STATE_PSC[state];
+ if(psc){
+  document.getElementById('statePSCIcon').textContent = '🏛️';
+  document.getElementById('statePSCName').textContent = psc.name;
+  document.getElementById('statePSCDesc').textContent = 'Other Portals: ' + psc.extra;
+  document.getElementById('statePSCLink').href = psc.url;
+  document.getElementById('statePSCLink').textContent = '🔗 ' + psc.url.replace('https://','');
+  document.getElementById('statePSCResult').style.display = 'block';
+ }
+
+ // Show jobs
+ const jobs = typeof GOVT_JOBS !== 'undefined' ? GOVT_JOBS : null;
+ if(!jobs){ document.getElementById('stateJobsResult').style.display = 'none'; return; }
+
+ document.getElementById('permCount').textContent = jobs.permanent.length + ' jobs';
+ document.getElementById('contractCount').textContent = jobs.contract.length + ' jobs';
+
+ document.getElementById('permJobsList').innerHTML = jobs.permanent.map(j => `
+  <div class="portal-card" style="align-items:flex-start">
+   <span class="p-icon" style="font-size:20px">✅</span>
+   <div class="p-info">
+    <div class="p-name" style="font-size:13px">${j.name}</div>
+    <div class="p-desc">Qualification: ${j.qual}</div>
+    <div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ${j.salary}</div>
+   </div>
+  </div>`).join('');
+
+ document.getElementById('contractJobsList').innerHTML = jobs.contract.map(j => `
+  <div class="portal-card" style="align-items:flex-start;border-color:#FFE0B2">
+   <span class="p-icon" style="font-size:20px">📋</span>
+   <div class="p-info">
+    <div class="p-name" style="font-size:13px">${j.name}</div>
+    <div class="p-desc">Qualification: ${j.qual}</div>
+    <div style="font-size:11px;color:var(--orange);font-weight:700;margin-top:4px">💰 ${j.salary}</div>
+   </div>
+  </div>`).join('');
+
+ document.getElementById('stateJobsResult').style.display = 'block';
+ document.getElementById('stateJobsResult').scrollIntoView({behavior:'smooth', block:'start'});
+};
+
+// ══ EMBASSY DROPDOWN ══
+function initEmbassyDropdown(){
+ const sel = document.getElementById('embassySelect');
+ if(!sel || typeof EMBASSIES === 'undefined') return;
+ Object.keys(EMBASSIES).forEach(country => {
+  const e = EMBASSIES[country];
+  const opt = document.createElement('option');
+  opt.value = country;
+  opt.textContent = e.flag + ' ' + country;
+  sel.appendChild(opt);
+ });
+}
+
+window.showEmbassy = function(){
+ const country = document.getElementById('embassySelect').value;
+ if(!country || typeof EMBASSIES === 'undefined') return;
+ const e = EMBASSIES[country];
+ if(!e) return;
+
+ document.getElementById('embFlag').textContent = e.flag + ' Indian Embassy — ' + country;
+ document.getElementById('embName').textContent = 'Embassy of India / High Commission — ' + e.city;
+ document.getElementById('embAddress').textContent = e.address;
+ document.getElementById('embPhone').textContent = e.phone;
+ document.getElementById('embEmail').textContent = e.email;
+ document.getElementById('embWebLink').href = e.website;
+
+ if(e.consulate){
+  document.getElementById('embConsulateRow').style.display = 'block';
+  document.getElementById('embConsulate').textContent = e.consulate;
+  if(e.consulate_web){
+   document.getElementById('embConsLink').style.display = 'inline-block';
+   document.getElementById('embConsLink').href = e.consulate_web;
+  }
+ } else {
+  document.getElementById('embConsulateRow').style.display = 'none';
+  document.getElementById('embConsLink').style.display = 'none';
+ }
+
+ document.getElementById('embassyResult').style.display = 'block';
+};
+
+// NAV
+function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
+function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
+window.openMenu=openMenu;window.closeMenu=closeMenu;
+function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
+window.toggleTranslate=toggleTranslate;
+window.addEventListener('scroll',()=>document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300));
+function showToast(msg,type='ok'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+window.showToast=showToast;
+window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur'},'google_translate_element');};
+
+// INIT
+document.addEventListener('DOMContentLoaded',function(){
+ initStateDropdowns();
+ initStateJobDropdown();
+ initEmbassyDropdown();
+ renderSectors();
+});
+initStateDropdowns();
+initStateJobDropdown();
+initEmbassyDropdown();
+renderSectors();
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
