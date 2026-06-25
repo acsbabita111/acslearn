@@ -276,13 +276,13 @@ a{text-decoration:none;color:inherit}
   <div class="card-sub" id="role-tag"></div>
   <div class="alert alert-err" id="a2"></div>
   <div class="field">
-    <label class="t" data-hi="पूरा नाम [Full Name] *" data-en="Full Name *">पूरा नाम [Full Name] *</label>
-    <input type="text" id="f-name" autocomplete="name"/>
+    <label class="t" data-hi="FULL NAME *" data-en="FULL NAME *">FULL NAME *</label>
+    <input type="text" id="f-name" autocomplete="name" placeholder="e.g. RAMESH KUMAR SINGH"/>
     <div class="err" id="e-name"></div>
   </div>
   <div class="field">
-    <label class="t" data-hi="मोबाइल [Mobile] *" data-en="Mobile *">मोबाइल [Mobile] *</label>
-    <input type="tel" id="f-mobile" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')" autocomplete="tel"/>
+    <label class="t" data-hi="MOBILE NUMBER *" data-en="MOBILE NUMBER *">MOBILE NUMBER *</label>
+    <input type="tel" id="f-mobile" maxlength="10" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'')" autocomplete="tel"/>
     <div class="err" id="e-mobile"></div>
   </div>
   <div class="field">
@@ -291,9 +291,9 @@ a{text-decoration:none;color:inherit}
     <div class="err" id="e-email"></div>
   </div>
   <div class="field">
-    <label class="t" data-hi="राज्य [State] *" data-en="State / Country *">राज्य [State] *</label>
+    <label class="t" data-hi="STATE *" data-en="STATE *">STATE *</label>
     <select id="f-state">
-      <option value="" class="t" data-hi="-- राज्य चुनें --" data-en="-- Select --">-- राज्य चुनें --</option>
+      <option value="">-- SELECT STATE --</option>
       <option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option>
       <option>Chhattisgarh</option><option>Delhi</option><option>Goa</option>
       <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
@@ -310,14 +310,14 @@ a{text-decoration:none;color:inherit}
   <!-- Role-specific extra fields -->
   <div id="extra-fields"></div>
   <div class="field">
-    <label class="t" data-hi="पासवर्ड [Password] * (कम से कम 8 characters)" data-en="Password * (minimum 8 characters)">पासवर्ड [Password] * (कम से कम 8 characters)</label>
+    <label class="t" data-hi="PASSWORD * (minimum 8 characters)" data-en="PASSWORD * (minimum 8 characters)">PASSWORD * (minimum 8 characters)</label>
     <input type="password" id="f-pass" oninput="checkPw(this.value)" autocomplete="new-password"/>
     <div class="pw-bar"><div class="pw-fill" id="pw-fill"></div></div>
     <div class="pw-label" id="pw-label"></div>
     <div class="err" id="e-pass"></div>
   </div>
   <div class="field">
-    <label class="t" data-hi="Confirm Password *" data-en="Confirm Password *">Confirm Password *</label>
+    <label class="t" data-hi="CONFIRM PASSWORD *" data-en="CONFIRM PASSWORD *">CONFIRM PASSWORD *</label>
     <input type="password" id="f-pass2" autocomplete="new-password"/>
     <div class="err" id="e-pass2"></div>
   </div>
@@ -333,7 +333,7 @@ a{text-decoration:none;color:inherit}
   <div class="card-sub t" data-hi="आपके Email पर 6 अंक का OTP भेजा गया है।" data-en="A 6-digit OTP has been sent to your Email.">आपके Email पर 6 अंक का OTP भेजा गया है।</div>
   <div class="alert" id="a3"></div>
   <div class="field" style="text-align:center">
-    <label class="t" style="display:block;margin-bottom:10px" data-hi="6-अंक OTP डालें *" data-en="Enter 6-digit OTP *">6-अंक OTP डालें *</label>
+    <label style="display:block;margin-bottom:10px">ENTER 6-DIGIT OTP *</label>
     <div class="otp-row">
       <input class="otp-box" type="number" id="o1" oninput="otpNav(this,'','o2')"/>
       <input class="otp-box" type="number" id="o2" oninput="otpNav(this,'o1','o3')"/>
@@ -361,15 +361,15 @@ a{text-decoration:none;color:inherit}
   <div class="terms-box" id="terms-box"></div>
   <div class="check-row">
     <input type="checkbox" id="ck1"/>
-    <label for="ck1" class="t" data-hi="मैंने ACS की शर्तें पढ़ी और समझी हैं — मैं सहमत हूँ।" data-en="I have read and understood ACS Terms & Conditions — I agree.">मैंने ACS की शर्तें पढ़ी और समझी हैं — मैं सहमत हूँ।</label>
+    <label for="ck1" class="t" data-hi="I have read and understood ACS Terms & Conditions — I agree." data-en="I have read and understood ACS Terms & Conditions — I agree.">I have read and understood ACS Terms &amp; Conditions — I agree.</label>
   </div>
   <div class="check-row">
     <input type="checkbox" id="ck2"/>
-    <label for="ck2" class="t" data-hi="मैं ACS की Privacy Policy से सहमत हूँ।" data-en="I agree to ACS Privacy Policy.">मैं ACS की Privacy Policy से सहमत हूँ।</label>
+    <label for="ck2" class="t" data-hi="I agree to ACS Privacy Policy." data-en="I agree to ACS Privacy Policy.">I agree to ACS Privacy Policy.</label>
   </div>
   <div class="check-row" id="guardian-row" style="display:none">
     <input type="checkbox" id="ck3"/>
-    <label for="ck3" class="t" data-hi="Guardian की सहमति है (18 वर्ष से कम)।" data-en="Guardian consent given (under 18 years).">Guardian की सहमति है (18 वर्ष से कम)।</label>
+    <label for="ck3" class="t" data-hi="Guardian consent given (under 18 years)." data-en="Guardian consent given (under 18 years).">Guardian consent given (under 18 years).</label>
   </div>
   <button class="btn btn-gold" onclick="doRegister()" id="btn4">🎉 <span class="t" data-hi="ACS में Register करें" data-en="Register with ACS">ACS में Register करें</span></button>
   <button class="btn btn-outline" onclick="goStep(3)" data-hi="← वापस" data-en="← Back">← वापस</button>
@@ -451,8 +451,8 @@ const LANG_DATA={
     menu:'एसीएस मेन्यू',
     btn_translate:'🌐 English',
     btn_switch:'🌐 English',
-    ph_name:'जैसे: Ramesh Kumar Singh',
-    ph_mobile:'10 अंक का नंबर',
+    ph_name:'e.g. RAMESH KUMAR SINGH',
+    ph_mobile:'10-digit mobile number',
     ph_email:'example@gmail.com',
     lang_path:'hi',
     dir:'ltr',
@@ -490,8 +490,8 @@ const LANG_DATA={
     menu:'ACS मेनू',
     btn_translate:'🌐 English',
     btn_switch:'🌐 मराठी',
-    ph_name:'उदा: Ramesh Kumar Singh',
-    ph_mobile:'10 अंकी मोबाइल',
+    ph_name:'e.g. RAMESH KUMAR SINGH',
+    ph_mobile:'10-digit mobile number',
     ph_email:'example@gmail.com',
     lang_path:'mr',
     dir:'ltr',
@@ -690,38 +690,38 @@ const TERMS={
 // ── EXTRA FIELDS ──
 const EXTRA={
   student:{
-    hi:`<div class="field"><label>आयु [Age] *</label><input type="number" id="f-age" min="10" max="100" placeholder="जैसे: 15" oninput="ageWatch(this)"/><div class="hint">10-18 वर्ष: Guardian की सहमति जरूरी</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>Guardian का नाम *</label><input type="text" id="f-guardian" placeholder="Guardian का पूरा नाम"/></div>`,
+    hi:`<div class="field"><label>AGE *</label><input type="number" id="f-age" min="10" max="100" placeholder="e.g. 15" oninput="ageWatch(this)"/><div class="hint">Age 10-18: Guardian consent required</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>GUARDIAN NAME *</label><input type="text" id="f-guardian" placeholder="Guardian full name"/></div>`,
     en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="10" max="100" placeholder="e.g. 15" oninput="ageWatch(this)"/><div class="hint">Ages 10-18: Guardian consent required</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>Guardian Name *</label><input type="text" id="f-guardian" placeholder="Guardian's full name"/></div>`
   },
   teacher:{
-    hi:`<div class="field"><label>आयु [Age] *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">न्यूनतम 45 वर्ष</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव [Experience] — वर्ष *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">न्यूनतम 15 वर्ष</div></div><div class="field"><label>विशेषज्ञता [Subject/Skill] *</label><input type="text" id="f-sub" placeholder="जैसे: Computer, Tailoring, Farming"/></div>`,
-    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div></div><div class="field"><label>Subject / Skill *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`
+    hi:`<div class="field"><label>AGE *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>EXPERIENCE (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div><div class="err" id="e-exp"></div></div><div class="field"><label>SUBJECT / SKILL *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`,
+    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div><div class="err" id="e-exp"></div></div><div class="field"><label>Subject / Skill *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`
   },
   worker:{
-    hi:`<div class="field"><label>कौशल [Skill] *</label><input type="text" id="f-skill" placeholder="जैसे: Typing, Data Entry, Stitching"/></div><div class="field"><label>उपलब्धता [Availability]</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`,
+    hi:`<div class="field"><label>SKILL *</label><input type="text" id="f-skill" placeholder="e.g. Typing, Data Entry, Stitching"/></div><div class="field"><label>AVAILABILITY</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`,
     en:`<div class="field"><label>Skill *</label><input type="text" id="f-skill" placeholder="e.g. Typing, Data Entry, Stitching"/></div><div class="field"><label>Availability</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`
   },
   centre:{
-    hi:`<div class="field"><label>Centre का नाम *</label><input type="text" id="f-cname" placeholder="जैसे: ACS Khagaria Centre"/></div><div class="field"><label>पता [Address] *</label><input type="text" id="f-addr" placeholder="पूरा पता"/></div><div class="field"><label>District *</label><input type="text" id="f-dist" placeholder="जैसे: Khagaria"/></div>`,
+    hi:`<div class="field"><label>CENTRE NAME *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Centre"/></div><div class="field"><label>ADDRESS *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>DISTRICT *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`,
     en:`<div class="field"><label>Centre Name *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Centre"/></div><div class="field"><label>Address *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>District *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`
   },
   counselor:{
-    hi:`<div class="field"><label>आयु [Age] *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">न्यूनतम 45 वर्ष</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव [Experience] — वर्ष *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">न्यूनतम 15 वर्ष</div></div><div class="field"><label>विशेषज्ञता [Specialization] *</label><input type="text" id="f-sub" placeholder="जैसे: Career, Agriculture, Business"/></div>`,
-    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div></div><div class="field"><label>Specialization *</label><input type="text" id="f-sub" placeholder="e.g. Career, Agriculture, Business"/></div>`
+    hi:`<div class="field"><label>आयु [Age] *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">न्यूनतम 45 वर्ष</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव [Experience] — वर्ष *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">न्यूनतम 15 वर्ष</div><div class="err" id="e-exp"></div></div><div class="field"><label>विशेषज्ञता [Specialization] *</label><input type="text" id="f-sub" placeholder="जैसे: Career, Agriculture, Business"/></div>`,
+    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div><div class="err" id="e-exp"></div></div><div class="field"><label>Specialization *</label><input type="text" id="f-sub" placeholder="e.g. Career, Agriculture, Business"/></div>`
   },
   employer:{
-    hi:`<div class="field"><label>Business / Organization का नाम *</label><input type="text" id="f-org" placeholder="जैसे: Sharma Electronics"/></div><div class="field"><label>Business Type</label><select id="f-biz"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`,
+    hi:`<div class="field"><label>BUSINESS / ORGANIZATION NAME *</label><input type="text" id="f-org" placeholder="e.g. Sharma Electronics"/></div><div class="field"><label>Business Type</label><select id="f-biz"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`,
     en:`<div class="field"><label>Business / Organization Name *</label><input type="text" id="f-org" placeholder="e.g. Sharma Electronics"/></div><div class="field"><label>Business Type</label><select id="f-biz"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`
   },
   foreign_agent:{
-    hi:`<div class="field"><label>eMigrate RA License Number *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">बिना valid License के registration नहीं होगा।</div></div><div class="field"><label>Agency / Firm का नाम *</label><input type="text" id="f-org" placeholder="जैसे: Global Placement Services"/></div>`,
+    hi:`<div class="field"><label>eMIGRATE RA LICENSE NUMBER *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">Registration not possible without valid eMigrate License.</div></div><div class="field"><label>AGENCY / FIRM NAME *</label><input type="text" id="f-org" placeholder="e.g. Global Placement Services"/></div>`,
     en:`<div class="field"><label>eMigrate RA License Number *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">Registration not possible without valid License.</div></div><div class="field"><label>Agency / Firm Name *</label><input type="text" id="f-org" placeholder="e.g. Global Placement Services"/></div>`
   },
   team:{
-    hi:`<div class="field"><label>पद [Designation] *</label><select id="f-desig"><option value="">-- पद चुनें --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="field"><label>Referring Manager का नाम *</label><input type="text" id="f-manager" placeholder="जिस Manager ने refer किया"/></div>`,
+    hi:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. Rambharosh Vidyarthi"/></div>`,
     en:`<div class="field"><label>Designation *</label><select id="f-desig"><option value="">-- Select --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="field"><label>Referring Manager Name *</label><input type="text" id="f-manager" placeholder="Name of referring manager"/></div>`,
-    kn:`<div class="field"><label>ಹೊಣೆ [Designation] *</label><select id="f-desig"><option value="">-- ಆಯ್ಕೆ ಮಾಡಿ --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option><option value="field_staff">Field Staff</option><option value="intern">Intern</option></select></div><div class="field"><label>Referring Manager ಹೆಸರು *</label><input type="text" id="f-manager" placeholder="Referring Manager ಹೆಸರು"/></div>`,
-    mr:`<div class="field"><label>पद [Designation] *</label><select id="f-desig"><option value="">-- निवडा --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option><option value="field_staff">Field Staff</option><option value="intern">Intern</option></select></div><div class="field"><label>Referring Manager चे नाव *</label><input type="text" id="f-manager" placeholder="Referring Manager चे नाव"/></div>`
+    kn:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option><option value="field_staff">Field Staff</option><option value="intern">Intern</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. Rambharosh Vidyarthi"/></div>`,
+    mr:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option><option value="field_staff">Field Staff</option><option value="intern">Intern</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. Rambharosh Vidyarthi"/></div>`
   }
 };
 
@@ -735,10 +735,10 @@ const ROLE_NAMES={
 };
 
 const ERR={
-  hi:{role:'कृपया एक भूमिका [Role] चुनें।',name:'नाम जरूरी है।',mobile:'10 अंक का मोबाइल नंबर डालें।',email:'सही Email डालें।',state:'राज्य चुनें।',pass:'कम से कम 8 characters।',match:'दोनों password एक जैसे होने चाहिए।',age:'उम्र 10 से 100 के बीच होनी चाहिए।',age45:'न्यूनतम 45 वर्ष।',otp:'6-अंक OTP डालें।',otpExp:'OTP expire हो गया। दोबारा भेजें।',otpWrong:'OTP गलत है। फिर से डालें।',terms:'शर्तें स्वीकार करें।',privacy:'Privacy Policy स्वीकार करें।',guardian:'Guardian की सहमति जरूरी है।',used:'यह Email पहले से registered है।'},
+  hi:{role:'Please select a role.',name:'Full name is required.',mobile:'Enter valid 10-digit mobile number.',email:'Enter valid Email address.',state:'Please select your state.',pass:'Minimum 8 characters required.',match:'Both passwords must match.',age:'Age must be between 10 and 100.',age45:'Minimum 45 years required.',otp:'Enter 6-digit OTP.',otpExp:'OTP expired. Please resend.',otpWrong:'Incorrect OTP. Please try again.',terms:'Please accept the terms.',privacy:'Please accept Privacy Policy.',guardian:'Guardian consent is required.',used:'This Email is already registered.'},
   en:{role:'Please select a role.',name:'Name is required.',mobile:'Enter a valid 10-digit mobile.',email:'Enter a valid Email address.',state:'Please select your state.',pass:'Minimum 8 characters required.',match:'Both passwords must match.',age:'Age must be between 10 and 100.',age45:'Minimum 45 years required.',otp:'Please enter the 6-digit OTP.',otpExp:'OTP expired. Please resend.',otpWrong:'Incorrect OTP. Please try again.',terms:'Please accept the terms.',privacy:'Please accept the Privacy Policy.',guardian:'Guardian consent is required.',used:'This Email is already registered.'},
   kn:{role:'ದಯವಿಟ್ಟು ಒಂದು Role ಆಯ್ಕೆ ಮಾಡಿ.',name:'ಹೆಸರು ಅಗತ್ಯ.',mobile:'10 ಅಂಕಿ ಮೊಬೈಲ್ ನಂಬರ್ ನಮೂದಿಸಿ.',email:'ಸರಿಯಾದ Email ನಮೂದಿಸಿ.',state:'ರಾಜ್ಯ ಆಯ್ಕೆ ಮಾಡಿ.',pass:'ಕನಿಷ್ಠ 8 characters.',match:'ಎರಡು passwords ಒಂದೇ ಆಗಿರಬೇಕು.',age:'ವಯಸ್ಸು 10-100 ನಡುವೆ ಇರಬೇಕು.',age45:'ಕನಿಷ್ಠ 45 ವರ್ಷ.',otp:'6-ಅಂಕಿ OTP ನಮೂದಿಸಿ.',otpExp:'OTP ಮುಕ್ತಾಯವಾಗಿದೆ. ಮತ್ತೆ ಕಳುಹಿಸಿ.',otpWrong:'OTP ತಪ್ಪಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',terms:'ನಿಯಮಗಳನ್ನು ಒಪ್ಪಿಕೊಳ್ಳಿ.',privacy:'Privacy Policy ಒಪ್ಪಿಕೊಳ್ಳಿ.',guardian:'Guardian ಒಪ್ಪಿಗೆ ಅಗತ್ಯ.',used:'ಈ Email ಈಗಾಗಲೇ registered ಆಗಿದೆ.'},
-  mr:{role:'कृपया एक Role निवडा.',name:'नाव आवश्यक आहे.',mobile:'10 अंकी मोबाइल नंबर टाका.',email:'योग्य Email टाका.',state:'राज्य निवडा.',pass:'किमान 8 characters.',match:'दोन्ही passwords सारखे असावेत.',age:'वय 10-100 च्या दरम्यान असावे.',age45:'किमान 45 वर्षे आवश्यक.',otp:'6-अंकी OTP टाका.',otpExp:'OTP कालबाह्य झाला. पुन्हा पाठवा.',otpWrong:'OTP चुकीचा आहे. पुन्हा प्रयत्न करा.',terms:'अटी स्वीकारा.',privacy:'Privacy Policy स्वीकारा.',guardian:'Guardian ची संमती आवश्यक.',used:'हा Email आधीच registered आहे.'},
+  mr:{role:'Please select a role.',name:'Full name is required.',mobile:'Enter valid 10-digit mobile number.',email:'Enter valid Email address.',state:'Please select your state.',pass:'Minimum 8 characters required.',match:'Both passwords must match.',age:'Age must be between 10 and 100.',age45:'Minimum 45 years required.',otp:'Enter 6-digit OTP.',otpExp:'OTP expired. Please resend.',otpWrong:'Incorrect OTP. Please try again.',terms:'Please accept the terms.',privacy:'Please accept Privacy Policy.',guardian:'Guardian consent is required.',used:'This Email is already registered.'},
   ar:{role:'يرجى اختيار دور.',name:'الاسم مطلوب.',mobile:'أدخل رقم هاتف محمول مكون من 10 أرقام.',email:'أدخل عنوان بريد إلكتروني صحيح.',state:'يرجى اختيار ولايتك.',pass:'8 أحرف على الأقل.',match:'كلمتا المرور يجب أن تتطابقا.',age:'العمر يجب أن يكون بين 10-100.',age45:'الحد الأدنى للعمر 45 سنة.',otp:'أدخل رمز OTP المكون من 6 أرقام.',otpExp:'انتهت صلاحية OTP. أعد الإرسال.',otpWrong:'رمز OTP غير صحيح. حاول مجدداً.',terms:'يرجى قبول الشروط.',privacy:'يرجى قبول سياسة الخصوصية.',guardian:'موافقة ولي الأمر مطلوبة.',used:'هذا البريد الإلكتروني مسجل مسبقاً.'},
   sw:{role:'Tafadhali chagua jukumu.',name:'Jina linahitajika.',mobile:'Weka nambari ya simu ya tarakimu 10.',email:'Weka anwani ya barua pepe sahihi.',state:'Tafadhali chagua jimbo lako.',pass:'Herufi 8 za chini.',match:'Nywila zote mbili lazima zilingane.',age:'Umri lazima uwe kati ya 10-100.',age45:'Kiwango cha chini ni miaka 45.',otp:'Weka OTP ya tarakimu 6.',otpExp:'OTP imeisha muda. Tuma tena.',otpWrong:'OTP si sahihi. Jaribu tena.',terms:'Tafadhali kubali masharti.',privacy:'Tafadhali kubali Sera ya Faragha.',guardian:'Ridhaa ya mlezi inahitajika.',used:'Barua pepe hii imesajiliwa tayari.'}
 };
@@ -805,11 +805,37 @@ function validateStep2(){
   if(!state){showErr('e-state',e.state);ok=false;}
   if(!pass||pass.length<8){showErr('e-pass',e.pass);ok=false;}
   if(pass!==pass2){showErr('e-pass2',e.match);ok=false;}
+  // Age validation — only if field exists AND has a value
   const fa=document.getElementById('f-age');
   if(fa){
-    const av=+fa.value;
-    if(ROLE==='student'&&(av<10||av>100)){showErr('e-age',e.age);ok=false;}
-    if((ROLE==='teacher'||ROLE==='counselor')&&av<45){showErr('e-age',e.age45);ok=false;}
+    const av=fa.value.trim();
+    if(!av){
+      // Age field खाली है
+      showErr('e-age','Age is required.');
+      ok=false;
+    } else {
+      const avn=+av;
+      if(ROLE==='student'&&(avn<10||avn>100)){showErr('e-age',e.age);ok=false;}
+      if((ROLE==='teacher'||ROLE==='counselor')&&avn<45){showErr('e-age',e.age45);ok=false;}
+    }
+  }
+  // Experience validation for Teacher/Counselor
+  const fex=document.getElementById('f-exp');
+  if(fex){
+    const exv=fex.value.trim();
+    if(!exv||+exv<1){
+      const exErr='Experience is required.';
+      // Show near the field if possible
+      const exErrEl=document.getElementById('e-exp');
+      if(exErrEl){showErr('e-exp',exErr);}
+      else{showAlert('a2',exErr,'alert-err');}
+      ok=false;
+    }
+  }
+  // If any error — scroll to top of form card
+  if(!ok){
+    const c2=document.getElementById('c2');
+    if(c2)c2.scrollIntoView({behavior:'smooth',block:'start'});
   }
   return ok;
 }
