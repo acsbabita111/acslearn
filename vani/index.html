@@ -3,36 +3,29 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="ACS वाणी — एक बोले, सब अपनी भाषा में सुनें। दो फ़ोन live जोड़ें और हर कोई अपनी मातृभाषा में बात करे।"/>
-<meta name="keywords" content="ACS Vani, वाणी, बहुभाषी, live translation, ग्लोबल साउथ शिक्षा"/>
-<meta name="author" content="Applied Computer School™"/>
+<meta name="description" content="ACS वाणी — एक बोले, सब अपनी भाषा में सुनें। फ़ोन live जोड़ें और 80+ भाषाओं में बात करें।"/>
+<meta name="keywords" content="ACS वाणी, बहुभाषी, live translation, ग्लोबल साउथ शिक्षा"/>
+<meta name="author" content="Applied Computer School"/>
 <meta name="theme-color" content="#0B1F3A"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://acslearn.com/vani/"/>
-<meta property="og:title" content="ACS वाणी — Live"/>
+<meta property="og:title" content="ACS Vani — Live"/>
 <meta property="og:description" content="एक बोले, सब अपनी भाषा में सुनें।"/>
 <meta property="og:image" content="https://acsbabita111.github.io/acslearn/logo.png"/>
 <link rel="canonical" href="https://acslearn.com/vani/"/>
 <title>ACS वाणी — Live</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-/* ===== ACS MASTER (header / menu / footer — acslearn.com जैसा) ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;--gold:#F9A825;
-  --green:#2E7D32;--green-lt:#43A047;--orange:#E65100;--red:#C62828;
-  --white:#FFFFFF;--offwhite:#F5F7FA;--gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
-}
+:root{--navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;--gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;--orange:#E65100;--red:#C62828;--white:#fff;--offwhite:#F5F7FA;--gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C}
 html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:17px;line-height:1.8}
 a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
 button,input,select{font-family:inherit}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
 .navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
-.nav-brand{display:flex;align-items:center;gap:8px}
-.nav-brand img{height:30px;border-radius:6px}
+.nav-brand{display:flex;align-items:center;gap:8px}.nav-brand img{height:30px;border-radius:6px}
 .nav-brand-text{color:#fff;font-size:16px;font-weight:700;line-height:1.2}
 .nav-brand-text small{display:block;color:var(--gold);font-size:12px;font-weight:400}
 .nav-controls{display:flex;align-items:center;gap:6px}
@@ -41,57 +34,42 @@ button,input,select{font-family:inherit}
 .translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
 .translate-panel.open{display:block}
 #google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:#fff;font-size:16px}
-
-.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
-.menu-overlay.open{display:block}
-.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}
-.menu-panel.open{right:0}
-.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
-.menu-head h3{font-size:15px}
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}.menu-overlay.open{display:block}
+.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}.menu-panel.open{right:0}
+.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}.menu-head h3{font-size:15px}
 .menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
 .menu-links{list-style:none;padding:6px 0}
 .menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:16px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
-.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
-.menu-links li a.active{color:var(--blue);background:#EEF4FF}
+.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}.menu-links li a.active{color:var(--blue);background:#EEF4FF}
 .menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);text-align:center;padding:14px;border-radius:10px;font-weight:800;font-size:16px;min-height:52px}
-
 .footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
 @media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
-.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}
-.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
+.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
 .footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
 .sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}
-.sitemap-grid a:hover{color:var(--gold)}
-.footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.8}
-.footer-col a{color:var(--gold)}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}.sitemap-grid a:hover{color:var(--gold)}
+.footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.8}.footer-col a{color:var(--gold)}
 .footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
-
-/* ===== VANI APP (scoped) ===== */
 #vaniApp{max-width:760px;margin:0 auto;padding:18px 16px 30px}
 #vaniApp .pill{display:inline-flex;align-items:center;gap:7px;background:#EEF4FF;border:1px solid #cfe0ff;color:#143a72;font-size:13px;font-weight:700;padding:6px 14px;border-radius:20px;margin:0 auto 12px}
 #vaniApp .pill i{width:10px;height:10px;border-radius:50%;background:var(--gray)}
-#vaniApp .pill.on i{background:var(--green-lt);animation:vblink 1.4s infinite}
-@keyframes vblink{50%{opacity:.35}}
+#vaniApp .pill.on i{background:var(--green-lt);animation:vblink 1.4s infinite}@keyframes vblink{50%{opacity:.35}}
 #vaniApp .screen{display:none}#vaniApp .screen.show{display:block}
 #vaniApp .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px 18px;box-shadow:0 2px 12px rgba(11,31,58,.06);margin-bottom:16px}
-#vaniApp h1{font-size:clamp(24px,6vw,32px);font-weight:900;color:var(--navy);text-align:center;letter-spacing:-.5px}
-#vaniApp h1 em{color:var(--gold);font-style:normal}
+#vaniApp h1{font-size:clamp(24px,6vw,32px);font-weight:900;color:var(--navy);text-align:center;letter-spacing:-.5px}#vaniApp h1 em{color:var(--gold);font-style:normal}
 #vaniApp .sub{text-align:center;color:var(--gray);font-size:16px;margin:6px 0 4px}
 #vaniApp .lbl{display:block;font-size:16px;font-weight:700;color:var(--navy);margin:16px 0 7px}
 #vaniApp .sel,#vaniApp .txt{width:100%;font-size:18px;font-weight:600;padding:13px;border:2px solid var(--blue);border-radius:12px;background:#fff;color:var(--navy);min-height:54px}
 #vaniApp .roles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
-#vaniApp .role{padding:18px 12px;border:2px solid var(--border);border-radius:16px;background:var(--offwhite);font-size:18px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:8px;min-height:104px;justify-content:center}
-#vaniApp .role .e{font-size:34px}
-#vaniApp .role.sel{border-color:var(--blue);background:#E3F2FD;color:var(--blue)}
-#vaniApp .btn{width:100%;margin-top:16px;border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:800;color:#fff;min-height:58px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));cursor:pointer}
-#vaniApp .btn.green{background:linear-gradient(135deg,var(--green),var(--green-lt))}
-#vaniApp .btn:disabled{opacity:.5}
+#vaniApp .role{padding:18px 12px;border:2px solid var(--border);border-radius:16px;background:var(--offwhite);font-size:18px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:8px;min-height:104px;justify-content:center;cursor:pointer}
+#vaniApp .role .e{font-size:34px}#vaniApp .role.sel{border-color:var(--blue);background:#E3F2FD;color:var(--blue)}
+#vaniApp .btn{width:100%;margin-top:14px;border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:800;color:#fff;min-height:58px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));cursor:pointer}
+#vaniApp .btn.green{background:linear-gradient(135deg,var(--green),var(--green-lt))}#vaniApp .btn:disabled{opacity:.5}
+#vaniApp .orline{text-align:center;color:var(--gray);font-size:14px;font-weight:700;margin:16px 0 4px}
 #vaniApp .codebox .txt{text-align:center;letter-spacing:6px;font-size:30px;font-weight:900}
 #vaniApp .roomline{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy);color:#fff;border-radius:14px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
-#vaniApp .roomline b{color:var(--gold);font-size:24px;letter-spacing:3px}
-#vaniApp .roomline .who{font-size:14px;color:rgba(255,255,255,.8)}
+#vaniApp .roomline b{color:var(--gold);font-size:24px;letter-spacing:3px}#vaniApp .roomline .who{font-size:14px;color:rgba(255,255,255,.8)}
 #vaniApp .leave{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:9px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px;cursor:pointer}
 #vaniApp .chat{min-height:240px;display:flex;flex-direction:column;gap:10px;padding:6px 2px 12px}
 #vaniApp .bub{max-width:84%;padding:12px 14px;border-radius:16px;box-shadow:0 1px 5px rgba(11,31,58,.06);position:relative}
@@ -122,13 +100,10 @@ button,input,select{font-family:inherit}
 #vaniApp .how ol li:last-child{border-bottom:none}
 #vaniApp .how ol li::before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
 #vaniApp .how ol li b{color:var(--navy)}
-#vaniApp .how .tip{margin-top:14px;font-size:14px;color:var(--gray);line-height:1.7;background:var(--offwhite);border-radius:10px;padding:12px 14px}
-#vaniApp .how .tip b{color:var(--green)}
+#vaniApp .how .tip{margin-top:14px;font-size:14px;color:var(--gray);line-height:1.7;background:var(--offwhite);border-radius:10px;padding:12px 14px}#vaniApp .how .tip b{color:var(--green)}
 </style>
 </head>
 <body>
-
-<!-- ===== ACS NAVBAR ===== -->
 <nav class="navbar">
   <div class="nav-inner">
     <a href="/" class="nav-brand">
@@ -144,8 +119,6 @@ button,input,select{font-family:inherit}
   </div>
   <div class="translate-panel" id="translatePanel"><div id="google_translate_element"></div></div>
 </nav>
-
-<!-- ===== ACS SLIDE MENU ===== -->
 <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
 <div class="menu-panel" id="menuPanel">
   <div class="menu-head"><h3>ACS Menu</h3><button class="menu-close" onclick="closeMenu()">✕</button></div>
@@ -163,16 +136,13 @@ button,input,select{font-family:inherit}
   </ul>
   <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
 </div>
-
-<!-- ===== VANI APP ===== -->
 <main id="vaniApp">
-
   <section class="screen show" id="setup">
     <div style="text-align:center"><span class="pill" id="livePill"><i></i><span id="liveTxt">…</span></span></div>
     <div id="status"></div>
     <div class="card">
       <h1>ACS <em>वाणी</em> Live</h1>
-      <p class="sub">शिक्षक कमरा बनाए · विद्यार्थी कोड डालकर जुड़े · दोनों अपनी भाषा में बात करें</p>
+      <p class="sub">एक भाषा में बोलें — हर कोई उसी पल अपनी भाषा में सुने और पढ़े।</p>
       <label class="lbl">मैं कौन हूँ?</label>
       <div class="roles">
         <button class="role" id="rTeacher"><span class="e">🎙️</span>शिक्षक</button>
@@ -180,33 +150,32 @@ button,input,select{font-family:inherit}
       </div>
       <label class="lbl" for="myLang">मेरी भाषा</label>
       <select class="sel" id="myLang"></select>
-      <div id="teacherBox" style="display:none"><button class="btn green" id="createBtn" disabled>नया कमरा बनाएं →</button></div>
-      <div id="studentBox" style="display:none">
-        <label class="lbl" for="joinCode">कमरा कोड</label>
+      <div id="actions" style="display:none">
+        <button class="btn green" id="createBtn">नया कमरा बनाएं →</button>
+        <div class="orline">— या कोड डालकर जुड़ें —</div>
         <div class="codebox"><input class="txt" id="joinCode" inputmode="numeric" maxlength="4" placeholder="••••"/></div>
-        <button class="btn" id="joinBtn" disabled>कमरे में जुड़ें →</button>
+        <button class="btn" id="joinBtn">कमरे में जुड़ें →</button>
       </div>
     </div>
     <div class="foot">एक ही कमरा कोड दो फ़ोन में खोलें — बात live जुड़ जाएगी। (इंटरनेट ज़रूरी)</div>
-
     <div class="how">
       <h2>📖 कैसे इस्तेमाल करें</h2>
       <div class="ex">उदाहरण: तीन विद्यार्थी आपस में बात करना चाहते हैं — एक <b>बांग्ला</b>, एक <b>कन्नड़</b>, एक <b>मराठी</b>। तीनों अलग भाषा बोलते हैं, फिर भी एक-दूसरे को समझेंगे।</div>
       <ol>
         <li>तीनों अपने-अपने फ़ोन में <b>यही पेज</b> खोलें।</li>
-        <li>हर कोई <b>🎓 विद्यार्थी</b> चुने और <b>अपनी भाषा</b> चुने — पहला बांग्ला, दूसरा कन्नड़, तीसरा मराठी।</li>
-        <li>कोई एक <b>“नया कमरा बनाएं”</b> दबाए → एक कमरा कोड मिलेगा (जैसे <b>5294</b>)। वही कोड बाकी दोनों को बताए।</li>
-        <li>बाकी दोनों वही कोड डालकर <b>“कमरे में जुड़ें”</b> दबाएं।</li>
+        <li>हर कोई एक भूमिका चुने (<b>विद्यार्थी</b> सबके लिए ठीक है) और <b>अपनी भाषा</b> चुने — पहला बांग्ला, दूसरा कन्नड़, तीसरा मराठी।</li>
+        <li>कोई एक <b>"नया कमरा बनाएं"</b> दबाए → एक कमरा कोड मिलेगा (जैसे <b>5294</b>), वही कोड बाकी दोनों को बताए।</li>
+        <li>बाकी दोनों वही कोड डालकर <b>"कमरे में जुड़ें"</b> दबाएं।</li>
         <li>अब कोई भी अपनी भाषा में बोले या लिखे — बाकी सबको <b>उनकी अपनी भाषा</b> में पहुँचेगा। बांग्ला वाला बांग्ला में, कन्नड़ वाला कन्नड़ में, मराठी वाला मराठी में पढ़े और सुने।</li>
       </ol>
       <div class="tip">
-        <b>कितने भी लोग जुड़ सकते हैं</b> — सिर्फ़ दो नहीं। हर किसी की भाषा अलग हो सकती है।<br>
+        <b>कोई भी कमरा बना या जुड़ सकता है</b> — शिक्षक और विद्यार्थी, दोनों को "नया कमरा बनाएं" बटन मिलता है।<br>
+        <b>दो से ज़्यादा लोग</b> भी एक कमरे में जुड़ सकते हैं — हर किसी की भाषा अलग।<br>
         हर संदेश के साथ भेजने वाले की भाषा दिखती है, इसलिए कई लोगों में भी पता चलता है किसने क्या कहा।<br>
-        <b>“शिक्षक”</b> सिर्फ़ तब चुनें जब कोई क्लास ले रहा हो; आपस की बातचीत में सब <b>“विद्यार्थी”</b> रह सकते हैं।
+        <b>"शिक्षक"</b> सिर्फ़ तब चुनें जब कोई क्लास ले रहा हो; आपस की बातचीत में सब <b>"विद्यार्थी"</b> रह सकते हैं।
       </div>
     </div>
   </section>
-
   <section class="screen" id="live">
     <div class="roomline">
       <div>कमरा <b id="roomCode">0000</b><div class="who" id="whoLine"></div></div>
@@ -215,28 +184,25 @@ button,input,select{font-family:inherit}
     <div class="chat" id="chat"></div>
     <div class="composer">
       <div class="crow">
-        <button class="mic" id="micBtn" title="बोलें">🎤</button>
+        <button class="mic" id="micBtn" title="Speak">🎤</button>
         <input class="cin" id="cin" placeholder="अपनी भाषा में लिखें…"/>
         <button class="send" id="sendBtn">भेजें</button>
       </div>
       <div class="chint" id="chint"></div>
     </div>
   </section>
-
 </main>
-
-<!-- ===== ACS FOOTER ===== -->
 <footer class="footer-main">
   <div class="footer-grid">
     <div class="footer-brand">
-      <h2>Applied Computer School™</h2>
+      <h2>Applied Computer School</h2>
       <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
       <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का उपक्रम</p>
       <p style="margin-top:8px;color:var(--gold);font-weight:700">Learn. Build. Contribute. Grow.</p>
       <p style="margin-top:6px">ISO 9001:2015 प्रमाणित</p>
     </div>
     <div class="footer-col">
-      <h3>Site Map</h3>
+      <h3>साइट मैप</h3>
       <div class="sitemap-grid">
         <a href="/">🏠 होम</a>
         <a href="/hi/mission.html">🎯 मिशन</a>
@@ -259,172 +225,170 @@ button,input,select{font-family:inherit}
       <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
     </div>
   </div>
-  <div class="footer-bottom">
-    © 2026 Applied Computer School™ |
-    <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
-    <a href="https://acslearn.com" style="color:var(--gold)">acslearn.com</a>
-  </div>
+  <div class="footer-bottom">© 2026 Applied Computer School | <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> | <a href="https://acslearn.com" style="color:var(--gold)">acslearn.com</a></div>
 </footer>
-
-<!-- ===== MENU / TRANSLATE JS ===== -->
 <script>
 function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
 function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
 function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
 window.openMenu=openMenu;window.closeMenu=closeMenu;window.toggleTranslate=toggleTranslate;
-window.googleTranslateElementInit=function(){
-  new google.translate.TranslateElement({pageLanguage:'hi',
-    includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur,sw,fr,es,pt,ar,id,vi,ha',
-    layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');
-};
+window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'hi',layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');};
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<!-- ===== VANI LIVE (Firebase + translation + voice) ===== -->
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {getAuth,signInAnonymously,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import {getFirestore,collection,addDoc,setDoc,doc,onSnapshot,query,orderBy,serverTimestamp}
-  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const app=initializeApp({
-  apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
-  authDomain:"acslearn-platform.firebaseapp.com",
-  projectId:"acslearn-platform",
-  storageBucket:"acslearn-platform.firebasestorage.app",
-  messagingSenderId:"435395814481",
-  appId:"1:435395814481:web:655f99452a90f8efbc4470"
-});
+import {getFirestore,collection,addDoc,setDoc,doc,onSnapshot,query,orderBy,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
 const auth=getAuth(app), db=getFirestore(app);
-
 const LANGS=[
-  {code:'hi',mm:'hi',name:'हिंदी',bcp:'hi-IN',rtl:false},
-  {code:'bho',mm:'hi',name:'भोजपुरी',bcp:'hi-IN',rtl:false},
-  {code:'en',mm:'en',name:'English',bcp:'en-IN',rtl:false},
-  {code:'kn',mm:'kn',name:'ಕನ್ನಡ (कन्नड़)',bcp:'kn-IN',rtl:false},
-  {code:'mr',mm:'mr',name:'मराठी',bcp:'mr-IN',rtl:false},
-  {code:'gu',mm:'gu',name:'ગુજરાતી',bcp:'gu-IN',rtl:false},
-  {code:'ta',mm:'ta',name:'தமிழ் (तमिल)',bcp:'ta-IN',rtl:false},
-  {code:'te',mm:'te',name:'తెలుగు',bcp:'te-IN',rtl:false},
-  {code:'bn',mm:'bn',name:'বাংলা',bcp:'bn-IN',rtl:false},
-  {code:'ur',mm:'ur',name:'اردو (उर्दू)',bcp:'ur-IN',rtl:true},
-  {code:'ar',mm:'ar',name:'العربية (अरबी)',bcp:'ar-SA',rtl:true},
-  {code:'sw',mm:'sw',name:'Kiswahili',bcp:'sw-KE',rtl:false},
-  {code:'es',mm:'es',name:'Español',bcp:'es-ES',rtl:false},
-  {code:'pt',mm:'pt',name:'Português',bcp:'pt-BR',rtl:false},
-  {code:'fr',mm:'fr',name:'Français',bcp:'fr-FR',rtl:false},
+ {code:'hi',mm:'hi',name:'Hindi (हिंदी)',bcp:'hi-IN',g:'in'},
+ {code:'bho',mm:'hi',name:'Bhojpuri (भोजपुरी)',bcp:'hi-IN',g:'in'},
+ {code:'bn',mm:'bn',name:'Bengali (বাংলা)',bcp:'bn-IN',g:'in'},
+ {code:'mr',mm:'mr',name:'Marathi (मराठी)',bcp:'mr-IN',g:'in'},
+ {code:'te',mm:'te',name:'Telugu (తెలుగు)',bcp:'te-IN',g:'in'},
+ {code:'ta',mm:'ta',name:'Tamil (தமிழ்)',bcp:'ta-IN',g:'in'},
+ {code:'gu',mm:'gu',name:'Gujarati (ગુજરાતી)',bcp:'gu-IN',g:'in'},
+ {code:'kn',mm:'kn',name:'Kannada (ಕನ್ನಡ)',bcp:'kn-IN',g:'in'},
+ {code:'ml',mm:'ml',name:'Malayalam (മലയാളം)',bcp:'ml-IN',g:'in'},
+ {code:'pa',mm:'pa',name:'Punjabi (ਪੰਜਾਬੀ)',bcp:'pa-IN',g:'in'},
+ {code:'or',mm:'or',name:'Odia (ଓଡ଼ିଆ)',bcp:'or-IN',g:'in'},
+ {code:'as',mm:'as',name:'Assamese (অসমীয়া)',bcp:'as-IN',g:'in'},
+ {code:'ur',mm:'ur',name:'Urdu (اردو)',bcp:'ur-IN',rtl:true,g:'in'},
+ {code:'ne',mm:'ne',name:'Nepali (नेपाली)',bcp:'ne-NP',g:'in'},
+ {code:'sa',mm:'sa',name:'Sanskrit (संस्कृतम्)',bcp:'sa-IN',g:'in'},
+ {code:'sd',mm:'sd',name:'Sindhi (سنڌي)',bcp:'sd',rtl:true,g:'in'},
+ {code:'ks',mm:'ks',name:'Kashmiri (कॉशुर)',bcp:'ks',rtl:true,g:'in'},
+ {code:'mai',mm:'hi',name:'Maithili (मैथिली)',bcp:'hi-IN',g:'in'},
+ {code:'kok',mm:'hi',name:'Konkani (कोंकणी)',bcp:'hi-IN',g:'in'},
+ {code:'doi',mm:'hi',name:'Dogri (डोगरी)',bcp:'hi-IN',g:'in'},
+ {code:'mni',mm:'mni',name:'Manipuri (মৈতৈলোন্)',bcp:'hi-IN',g:'in'},
+ {code:'brx',mm:'hi',name:'Bodo (बड़ो)',bcp:'hi-IN',g:'in'},
+ {code:'sat',mm:'sat',name:'Santali (ᱥᱟᱱᱛᱟᱲᱤ)',bcp:'hi-IN',g:'in'},
+ {code:'si',mm:'si',name:'Sinhala (සිංහල)',bcp:'si-LK',g:'in'},
+ {code:'en',mm:'en',name:'English',bcp:'en-IN',g:'wo'},
+ {code:'es',mm:'es',name:'Spanish (Español)',bcp:'es-ES',g:'wo'},
+ {code:'pt',mm:'pt',name:'Portuguese (Português)',bcp:'pt-BR',g:'wo'},
+ {code:'fr',mm:'fr',name:'French (Français)',bcp:'fr-FR',g:'wo'},
+ {code:'de',mm:'de',name:'German (Deutsch)',bcp:'de-DE',g:'wo'},
+ {code:'it',mm:'it',name:'Italian (Italiano)',bcp:'it-IT',g:'wo'},
+ {code:'nl',mm:'nl',name:'Dutch (Nederlands)',bcp:'nl-NL',g:'wo'},
+ {code:'ru',mm:'ru',name:'Russian (Русский)',bcp:'ru-RU',g:'wo'},
+ {code:'uk',mm:'uk',name:'Ukrainian (Українська)',bcp:'uk-UA',g:'wo'},
+ {code:'pl',mm:'pl',name:'Polish (Polski)',bcp:'pl-PL',g:'wo'},
+ {code:'ro',mm:'ro',name:'Romanian (Română)',bcp:'ro-RO',g:'wo'},
+ {code:'el',mm:'el',name:'Greek (Ελληνικά)',bcp:'el-GR',g:'wo'},
+ {code:'tr',mm:'tr',name:'Turkish (Türkçe)',bcp:'tr-TR',g:'wo'},
+ {code:'ar',mm:'ar',name:'Arabic (العربية)',bcp:'ar-SA',rtl:true,g:'wo'},
+ {code:'fa',mm:'fa',name:'Persian (فارسی)',bcp:'fa-IR',rtl:true,g:'wo'},
+ {code:'ps',mm:'ps',name:'Pashto (پښتو)',bcp:'ps-AF',rtl:true,g:'wo'},
+ {code:'he',mm:'he',name:'Hebrew (עברית)',bcp:'he-IL',rtl:true,g:'wo'},
+ {code:'ku',mm:'ku',name:'Kurdish (Kurdî)',bcp:'ku',g:'wo'},
+ {code:'sw',mm:'sw',name:'Swahili (Kiswahili)',bcp:'sw-KE',g:'wo'},
+ {code:'ha',mm:'ha',name:'Hausa',bcp:'ha',g:'wo'},
+ {code:'yo',mm:'yo',name:'Yoruba',bcp:'yo',g:'wo'},
+ {code:'ig',mm:'ig',name:'Igbo',bcp:'ig',g:'wo'},
+ {code:'am',mm:'am',name:'Amharic (አማርኛ)',bcp:'am-ET',g:'wo'},
+ {code:'so',mm:'so',name:'Somali (Soomaali)',bcp:'so',g:'wo'},
+ {code:'zu',mm:'zu',name:'Zulu (isiZulu)',bcp:'zu-ZA',g:'wo'},
+ {code:'xh',mm:'xh',name:'Xhosa (isiXhosa)',bcp:'xh',g:'wo'},
+ {code:'af',mm:'af',name:'Afrikaans',bcp:'af-ZA',g:'wo'},
+ {code:'rw',mm:'rw',name:'Kinyarwanda',bcp:'rw',g:'wo'},
+ {code:'mg',mm:'mg',name:'Malagasy',bcp:'mg',g:'wo'},
+ {code:'ny',mm:'ny',name:'Chichewa',bcp:'ny',g:'wo'},
+ {code:'sn',mm:'sn',name:'Shona',bcp:'sn',g:'wo'},
+ {code:'id',mm:'id',name:'Indonesian (Bahasa)',bcp:'id-ID',g:'wo'},
+ {code:'ms',mm:'ms',name:'Malay (Melayu)',bcp:'ms-MY',g:'wo'},
+ {code:'tl',mm:'tl',name:'Filipino (Tagalog)',bcp:'tl-PH',g:'wo'},
+ {code:'vi',mm:'vi',name:'Vietnamese (Tiếng Việt)',bcp:'vi-VN',g:'wo'},
+ {code:'th',mm:'th',name:'Thai (ไทย)',bcp:'th-TH',g:'wo'},
+ {code:'my',mm:'my',name:'Burmese (မြန်မာ)',bcp:'my-MM',g:'wo'},
+ {code:'km',mm:'km',name:'Khmer (ខ្មែរ)',bcp:'km-KH',g:'wo'},
+ {code:'lo',mm:'lo',name:'Lao (ລາວ)',bcp:'lo-LA',g:'wo'},
+ {code:'zh-CN',mm:'zh-CN',name:'Chinese (中文)',bcp:'zh-CN',g:'wo'},
+ {code:'ja',mm:'ja',name:'Japanese (日本語)',bcp:'ja-JP',g:'wo'},
+ {code:'ko',mm:'ko',name:'Korean (한국어)',bcp:'ko-KR',g:'wo'},
+ {code:'mn',mm:'mn',name:'Mongolian (Монгол)',bcp:'mn',g:'wo'},
+ {code:'ka',mm:'ka',name:'Georgian (ქართული)',bcp:'ka-GE',g:'wo'},
+ {code:'hy',mm:'hy',name:'Armenian (Հայերեն)',bcp:'hy-AM',g:'wo'},
+ {code:'az',mm:'az',name:'Azerbaijani (Azərbaycan)',bcp:'az',g:'wo'},
+ {code:'kk',mm:'kk',name:'Kazakh (Қазақ)',bcp:'kk',g:'wo'},
+ {code:'uz',mm:'uz',name:'Uzbek (Oʻzbek)',bcp:'uz',g:'wo'},
+ {code:'ky',mm:'ky',name:'Kyrgyz (Кыргыз)',bcp:'ky',g:'wo'},
+ {code:'tg',mm:'tg',name:'Tajik (Тоҷикӣ)',bcp:'tg',g:'wo'},
+ {code:'ht',mm:'ht',name:'Haitian Creole',bcp:'ht',g:'wo'},
+ {code:'sv',mm:'sv',name:'Swedish (Svenska)',bcp:'sv-SE',g:'wo'},
+ {code:'no',mm:'no',name:'Norwegian (Norsk)',bcp:'nb-NO',g:'wo'},
+ {code:'da',mm:'da',name:'Danish (Dansk)',bcp:'da-DK',g:'wo'},
+ {code:'fi',mm:'fi',name:'Finnish (Suomi)',bcp:'fi-FI',g:'wo'},
+ {code:'cs',mm:'cs',name:'Czech (Čeština)',bcp:'cs-CZ',g:'wo'},
+ {code:'sk',mm:'sk',name:'Slovak (Slovenčina)',bcp:'sk',g:'wo'},
+ {code:'hu',mm:'hu',name:'Hungarian (Magyar)',bcp:'hu-HU',g:'wo'},
+ {code:'bg',mm:'bg',name:'Bulgarian (Български)',bcp:'bg-BG',g:'wo'},
+ {code:'sr',mm:'sr',name:'Serbian (Српски)',bcp:'sr',g:'wo'},
+ {code:'hr',mm:'hr',name:'Croatian (Hrvatski)',bcp:'hr',g:'wo'},
+ {code:'sl',mm:'sl',name:'Slovenian (Slovenščina)',bcp:'sl',g:'wo'},
+ {code:'lt',mm:'lt',name:'Lithuanian (Lietuvių)',bcp:'lt',g:'wo'},
+ {code:'lv',mm:'lv',name:'Latvian (Latviešu)',bcp:'lv',g:'wo'},
+ {code:'et',mm:'et',name:'Estonian (Eesti)',bcp:'et',g:'wo'},
+ {code:'sq',mm:'sq',name:'Albanian (Shqip)',bcp:'sq',g:'wo'},
+ {code:'mk',mm:'mk',name:'Macedonian (Македонски)',bcp:'mk',g:'wo'},
+ {code:'ca',mm:'ca',name:'Catalan (Català)',bcp:'ca',g:'wo'},
+ {code:'cy',mm:'cy',name:'Welsh (Cymraeg)',bcp:'cy',g:'wo'},
+ {code:'ga',mm:'ga',name:'Irish (Gaeilge)',bcp:'ga',g:'wo'},
 ];
 const byCode=c=>LANGS.find(l=>l.code===c)||LANGS[0];
 const $=id=>document.getElementById(id);
-
 const CID=Math.random().toString(36).slice(2,9);
-let role=null,myLangCode='hi',room=null,authReady=false;
+let role=null,myLangCode='en',room=null,authReady=false;
 let unsubMsg=null,unsubPre=null,presTimer=null,lastWho='';
 const seen=new Set();
-
 const mySel=$('myLang');
-LANGS.forEach(l=>{const o=document.createElement('option');o.value=l.code;o.textContent=l.name;mySel.appendChild(o);});
-mySel.value='hi';mySel.onchange=()=>myLangCode=mySel.value;
-
+function addGroup(label,filter){const g=document.createElement('optgroup');g.label=label;LANGS.filter(filter).forEach(l=>{const o=document.createElement('option');o.value=l.code;o.textContent=l.name;g.appendChild(o);});mySel.appendChild(g);}
+addGroup('भारतीय भाषाएं',l=>l.g==='in');
+addGroup('विश्व की भाषाएं',l=>l.g==='wo');
+mySel.value='hi';myLangCode='hi';mySel.onchange=()=>myLangCode=mySel.value;
 function status(html,cls){$('status').innerHTML=html?`<div class="banner ${cls||'ok'}">${html}</div>`:'';}
-
 $('liveTxt').textContent='जोड़ रहा…';
-signInAnonymously(auth).catch(e=>{
-  $('liveTxt').textContent='त्रुटि';
-  if(String(e.code).includes('operation-not-allowed'))
-    status('<b>Firebase में Anonymous sign-in चालू नहीं है।</b><br>Console → Authentication → Sign-in method → <b>Anonymous</b> Enable करें, फिर पेज दोबारा खोलें।','err');
-  else status('<b>Firebase से नहीं जुड़ पाया:</b> '+e.message,'err');
-});
-onAuthStateChanged(auth,u=>{if(u){authReady=true;$('liveTxt').textContent='तैयार';$('livePill').classList.add('on');
-  $('createBtn').disabled=false;$('joinBtn').disabled=false;}});
-
-$('rTeacher').onclick=()=>{role='teacher';$('rTeacher').classList.add('sel');$('rStudent').classList.remove('sel');
-  $('teacherBox').style.display='block';$('studentBox').style.display='none';};
-$('rStudent').onclick=()=>{role='student';$('rStudent').classList.add('sel');$('rTeacher').classList.remove('sel');
-  $('studentBox').style.display='block';$('teacherBox').style.display='none';};
-
-$('createBtn').onclick=()=>{if(!authReady)return;myLangCode=mySel.value;enterRoom(String(Math.floor(1000+Math.random()*9000)));};
-$('joinBtn').onclick=()=>{if(!authReady)return;myLangCode=mySel.value;
-  const c=($('joinCode').value||'').trim();if(!/^\d{4}$/.test(c)){$('joinCode').focus();return;}enterRoom(c);};
-
+signInAnonymously(auth).catch(e=>{$('liveTxt').textContent='error';if(String(e.code).includes('operation-not-allowed'))status('<b>Firebase में Anonymous sign-in चालू नहीं है।</b><br>Console → Authentication → Sign-in method → <b>Anonymous</b> Enable करें, फिर पेज दोबारा खोलें।','err');else status('<b>Firebase से नहीं जुड़ पाया:</b> '+e.message,'err');});
+onAuthStateChanged(auth,u=>{if(u){authReady=true;$('liveTxt').textContent='तैयार';$('livePill').classList.add('on');}});
+function chooseRole(r,btn,other){role=r;btn.classList.add('sel');other.classList.remove('sel');$('actions').style.display='block';}
+$('rTeacher').onclick=()=>chooseRole('teacher',$('rTeacher'),$('rStudent'));
+$('rStudent').onclick=()=>chooseRole('student',$('rStudent'),$('rTeacher'));
+function ready(){if(!authReady){status('Firebase से जुड़ रहा है — एक पल रुकें।','err');return false;}if(!role){status('पहले शिक्षक या विद्यार्थी चुनें।','err');return false;}myLangCode=mySel.value;return true;}
+$('createBtn').onclick=()=>{if(!ready())return;enterRoom(String(Math.floor(1000+Math.random()*9000)));};
+$('joinBtn').onclick=()=>{if(!ready())return;const c=($('joinCode').value||'').trim();if(!/^\d{4}$/.test(c)){$('joinCode').focus();return;}enterRoom(c);};
 const mcol=code=>collection(db,'vani_rooms',code,'messages');
 const pdoc=(code,cid)=>doc(db,'vani_rooms',code,'presence',cid);
 const pcol=code=>collection(db,'vani_rooms',code,'presence');
-
 async function enterRoom(code){
-  room=code;$('roomCode').textContent=code;
+  room=code;$('roomCode').textContent=code;status('');
   $('setup').classList.remove('show');$('live').classList.add('show');
   sysMsg(role==='teacher'?'कमरा बना — विद्यार्थी को कोड बताएं।':'कमरे में जुड़ गए।');
   await beat();presTimer=setInterval(beat,4000);
-  unsubMsg=onSnapshot(query(mcol(code),orderBy('ts')),snap=>{
-    snap.docChanges().forEach(ch=>{if(ch.type!=='added')return;const id=ch.doc.id;if(seen.has(id))return;seen.add(id);
-      const m=ch.doc.data();if(!m||m.cid===CID)return;handleIncoming(m);});
-  },err=>{$('chint').innerHTML='<span style="color:#a02020">Firestore rules में vani_rooms की अनुमति चाहिए।</span>';});
-  unsubPre=onSnapshot(pcol(code),snap=>{
-    const now=Date.now();let names=[];
-    snap.forEach(d=>{const p=d.data();if(p&&p.ts&&now-p.ts<13000)names.push(p.role==='teacher'?'🎙️ शिक्षक':'🎓 विद्यार्थी');});
-    const t=names.length?names.join(' · '):'किसी और का इंतज़ार…';if(t!==lastWho){$('whoLine').textContent=t;lastWho=t;}
-  });
+  unsubMsg=onSnapshot(query(mcol(code),orderBy('ts')),snap=>{snap.docChanges().forEach(ch=>{if(ch.type!=='added')return;const id=ch.doc.id;if(seen.has(id))return;seen.add(id);const m=ch.doc.data();if(!m||m.cid===CID)return;handleIncoming(m);});},err=>{$('chint').innerHTML='<span style="color:#a02020">Firestore rules में vani_rooms की अनुमति चाहिए।</span>';});
+  unsubPre=onSnapshot(pcol(code),snap=>{const now=Date.now();let names=[];snap.forEach(d=>{const p=d.data();if(p&&p.ts&&now-p.ts<13000)names.push(p.role==='teacher'?'🎙️ शिक्षक':'🎓 विद्यार्थी');});const t=names.length?names.join(' · '):'किसी और का इंतज़ार…';if(t!==lastWho){$('whoLine').textContent=t;lastWho=t;}});
 }
-$('leaveBtn').onclick=async()=>{
-  if(unsubMsg)unsubMsg();if(unsubPre)unsubPre();clearInterval(presTimer);
-  if(room){try{await setDoc(pdoc(room,CID),{role,lang:myLangCode,ts:0});}catch(e){}}
-  room=null;seen.clear();$('chat').innerHTML='';
-  $('live').classList.remove('show');$('setup').classList.add('show');
-};
+$('leaveBtn').onclick=async()=>{if(unsubMsg)unsubMsg();if(unsubPre)unsubPre();clearInterval(presTimer);if(room){try{await setDoc(pdoc(room,CID),{role,lang:myLangCode,ts:0});}catch(e){}}room=null;seen.clear();$('chat').innerHTML='';$('live').classList.remove('show');$('setup').classList.add('show');};
 async function beat(){if(!room)return;try{await setDoc(pdoc(room,CID),{role,lang:myLangCode,ts:Date.now()});}catch(e){}}
-
-async function send(text){text=(text||'').trim();if(!text||!room)return;
-  renderBubble({role,srcLang:myLangCode},true,text);$('cin').value='';
-  try{await addDoc(mcol(room),{cid:CID,role,srcLang:myLangCode,text,ts:serverTimestamp()});}
-  catch(e){sysMsg('संदेश नहीं भेजा गया — कनेक्शन/नियम जाँचें।');}}
+async function send(text){text=(text||'').trim();if(!text||!room)return;renderBubble({role,srcLang:myLangCode},true,text);$('cin').value='';try{await addDoc(mcol(room),{cid:CID,role,srcLang:myLangCode,text,ts:serverTimestamp()});}catch(e){sysMsg('संदेश नहीं भेजा गया — कनेक्शन/नियम जाँचें।');}}
 $('sendBtn').onclick=()=>send($('cin').value);
 $('cin').addEventListener('keydown',e=>{if(e.key==='Enter')send(e.target.value);});
-
-async function handleIncoming(m){const myL=byCode(myLangCode);const b=renderBubble(m,false,'…',true);
-  let tr=m.text;if(m.srcLang!==myLangCode)tr=await translateOne(m.text,byCode(m.srcLang).mm,myL.mm);
-  fillBubble(b,tr,m);speak(tr,myL.bcp);}
-
-async function translateOne(text,src,tgt){if(src===tgt)return text;
-  try{const u=`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${src}|${tgt}`;
-    const r=await fetch(u);const d=await r.json();const t=d&&d.responseData&&d.responseData.translatedText;
-    if(t&&!/MYMEMORY WARNING|INVALID/i.test(t))return dec(t);}catch(e){}
-  try{const r=await fetch(`https://lingva.ml/api/v1/${src}/${tgt}/${encodeURIComponent(text)}`);
-    const d=await r.json();if(d&&d.translation)return d.translation;}catch(e){}
-  return text+'  (अनुवाद विफल)';}
+async function handleIncoming(m){const myL=byCode(myLangCode);const b=renderBubble(m,false,'…',true);let tr=m.text;if(m.srcLang!==myLangCode)tr=await translateOne(m.text,byCode(m.srcLang).mm,myL.mm);fillBubble(b,tr,m);speak(tr,myL.bcp);}
+async function translateOne(text,src,tgt){if(src===tgt)return text;try{const u=`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${src}|${tgt}`;const r=await fetch(u);const d=await r.json();const t=d&&d.responseData&&d.responseData.translatedText;if(t&&!/MYMEMORY WARNING|INVALID|NO QUERY/i.test(t))return dec(t);}catch(e){}try{const r=await fetch(`https://lingva.ml/api/v1/${src}/${tgt}/${encodeURIComponent(text)}`);const d=await r.json();if(d&&d.translation)return d.translation;}catch(e){}return text+'  (अनुवाद अनुपलब्ध)';}
 function dec(s){const t=document.createElement('textarea');t.innerHTML=s;return t.value;}
-
 const chat=$('chat');
-function sysMsg(t){const d=document.createElement('div');d.className='sys';d.textContent=t;chat.appendChild(d);scrollC();}
-function renderBubble(m,mine,text,loading){const b=document.createElement('div');
-  b.className='bub '+(mine?'me':'them')+((byCode(myLangCode).rtl&&!mine)?' rtl':'');
-  const who=m.role==='teacher'?'🎙️ शिक्षक':'🎓 विद्यार्थी';
-  const tag=mine?'':' · '+byCode(m.srcLang).name;
-  b.innerHTML=`<div class="meta">${who}${tag}</div><button class="spk">🔊</button><div class="body">${loading?'<i>अनुवाद हो रहा…</i>':esc(text)}</div>`;
-  b.querySelector('.spk').onclick=()=>speak(b.querySelector('.body').textContent,byCode(myLangCode).bcp);
-  chat.appendChild(b);scrollC();return b;}
-function fillBubble(b,text,m){if(byCode(myLangCode).rtl)b.classList.add('rtl');b.querySelector('.body').textContent=text;
-  if(m.srcLang!==myLangCode){const o=document.createElement('div');o.className='orig';
-    o.textContent='मूल ('+byCode(m.srcLang).name+'): '+m.text;b.appendChild(o);}scrollC();}
+function sysMsg(t){const d=document.createElement('div');d.className='sys';d.textContent=t;chat.appendChild(d);sc();}
+function renderBubble(m,mine,text,loading){const b=document.createElement('div');b.className='bub '+(mine?'me':'them')+((byCode(myLangCode).rtl&&!mine)?' rtl':'');const who=m.role==='teacher'?'🎙️ शिक्षक':'🎓 विद्यार्थी';const tag=mine?'':' · '+byCode(m.srcLang).name.replace(/\s*\(.*\)/,'');b.innerHTML=`<div class="meta">${who}${tag}</div><button class="spk">🔊</button><div class="body">${loading?'<i>अनुवाद हो रहा…</i>':esc(text)}</div>`;b.querySelector('.spk').onclick=()=>speak(b.querySelector('.body').textContent,byCode(myLangCode).bcp);chat.appendChild(b);sc();return b;}
+function fillBubble(b,text,m){if(byCode(myLangCode).rtl)b.classList.add('rtl');b.querySelector('.body').textContent=text;if(m.srcLang!==myLangCode){const o=document.createElement('div');o.className='orig';o.textContent='मूल ('+byCode(m.srcLang).name.replace(/\s*\(.*\)/,'')+'): '+m.text;b.appendChild(o);}sc();}
 function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
-function scrollC(){chat.scrollTop=chat.scrollHeight;}
-
+function sc(){chat.scrollTop=chat.scrollHeight;}
 let voices=[];function lv(){voices=window.speechSynthesis?speechSynthesis.getVoices():[];}
 if(window.speechSynthesis){lv();speechSynthesis.onvoiceschanged=lv;}
-function speak(text,bcp){if(!window.speechSynthesis)return;speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);u.lang=bcp;const base=bcp.split('-')[0];
-  const v=voices.find(v=>v.lang===bcp)||voices.find(v=>v.lang&&v.lang.startsWith(base));if(v)u.voice=v;u.rate=.95;speechSynthesis.speak(u);}
-
+function speak(text,bcp){if(!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=bcp;const base=bcp.split('-')[0];const v=voices.find(v=>v.lang===bcp)||voices.find(v=>v.lang&&v.lang.startsWith(base));if(v)u.voice=v;u.rate=.95;speechSynthesis.speak(u);}
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 const micBtn=$('micBtn'),chint=$('chint');let rec=null,listening=false;
-if(SR){chint.textContent='माइक दबाकर बोलें, या लिखकर भेजें। (Chrome में बेहतर)';
-  micBtn.onclick=()=>{if(listening){rec&&rec.stop();return;}
-    rec=new SR();rec.lang=byCode(myLangCode).bcp;rec.interimResults=false;
-    rec.onstart=()=>{listening=true;micBtn.classList.add('live');};
-    rec.onresult=ev=>send(ev.results[0][0].transcript);
-    rec.onerror=()=>{chint.textContent='माइक नहीं चला — लिखकर भेजें।';};
-    rec.onend=()=>{listening=false;micBtn.classList.remove('live');};rec.start();};
-}else{micBtn.style.display='none';chint.textContent='इस फ़ोन/browser में माइक नहीं — लिखकर भेजें, बाकी live चलेगा।';}
+if(SR){chint.textContent='माइक दबाकर बोलें, या लिखकर भेजें। (Chrome में बेहतर)';micBtn.onclick=()=>{if(listening){rec&&rec.stop();return;}rec=new SR();rec.lang=byCode(myLangCode).bcp;rec.interimResults=false;rec.onstart=()=>{listening=true;micBtn.classList.add('live');};rec.onresult=ev=>send(ev.results[0][0].transcript);rec.onerror=()=>{chint.textContent='इस भाषा में माइक उपलब्ध नहीं — कृपया लिखकर भेजें।';};rec.onend=()=>{listening=false;micBtn.classList.remove('live');};rec.start();};}else{micBtn.style.display='none';chint.textContent='इस फ़ोन/browser में माइक नहीं — लिखकर भेजें, बाकी live चलेगा।';}
 </script>
 </body>
 </html>
