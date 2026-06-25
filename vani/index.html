@@ -1,612 +1,430 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" dir="ltr">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ACS Vani — Calling</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<meta name="description" content="ACS वाणी — एक बोले, सब अपनी भाषा में सुनें। दो फ़ोन live जोड़ें और हर कोई अपनी मातृभाषा में बात करे।"/>
+<meta name="keywords" content="ACS Vani, वाणी, बहुभाषी, live translation, ग्लोबल साउथ शिक्षा"/>
+<meta name="author" content="Applied Computer School™"/>
+<meta name="theme-color" content="#0B1F3A"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://acslearn.com/vani/"/>
+<meta property="og:title" content="ACS वाणी — Live"/>
+<meta property="og:description" content="एक बोले, सब अपनी भाषा में सुनें।"/>
+<meta property="og:image" content="https://acsbabita111.github.io/acslearn/logo.png"/>
+<link rel="canonical" href="https://acslearn.com/vani/"/>
+<title>ACS वाणी — Live</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
+/* ===== ACS MASTER (header / menu / footer — acslearn.com जैसा) ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0B1F3A;--blue:#1565C0;
-  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
-  --red:#E53935;--teal:#006064;--teal-lt:#00838F;
-  --gray:#607D8B;--border:#E8EDF5;
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;--gold:#F9A825;
+  --green:#2E7D32;--green-lt:#43A047;--orange:#E65100;--red:#C62828;
+  --white:#FFFFFF;--offwhite:#F5F7FA;--gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
 }
-html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:#0B1F3A;color:#fff;overflow:hidden}
+html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:17px;line-height:1.8}
+a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+button,input,select{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* SPLASH */
-.splash{position:fixed;inset:0;background:linear-gradient(135deg,#0B1F3A,#1565C0);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1000;transition:opacity .5s}
-.splash.hide{opacity:0;pointer-events:none}
-.splash-logo{width:100px;height:100px;border-radius:24px;margin-bottom:20px;border:3px solid rgba(255,255,255,0.3);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.splash-title{font-size:28px;font-weight:800;color:#fff;margin-bottom:6px}
-.splash-sub{font-size:14px;color:rgba(255,255,255,0.6)}
-.splash-loading{margin-top:30px;display:flex;gap:8px}
-.dot{width:10px;height:10px;border-radius:50%;background:var(--gold);animation:bounce 1.2s infinite}
-.dot:nth-child(2){animation-delay:.2s}
-.dot:nth-child(3){animation-delay:.4s}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:8px}
+.nav-brand img{height:30px;border-radius:6px}
+.nav-brand-text{color:#fff;font-size:16px;font-weight:700;line-height:1.2}
+.nav-brand-text small{display:block;color:var(--gold);font-size:12px;font-weight:400}
+.nav-controls{display:flex;align-items:center;gap:6px}
+.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;min-height:40px}
+.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-height:40px;min-width:40px;line-height:1}
+.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
+.translate-panel.open{display:block}
+#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:#fff;font-size:16px}
 
-/* MAIN APP */
-.app{height:100vh;display:flex;flex-direction:column;background:#0B1F3A}
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
+.menu-overlay.open{display:block}
+.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}
+.menu-panel.open{right:0}
+.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.menu-head h3{font-size:15px}
+.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.menu-links{list-style:none;padding:6px 0}
+.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:16px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
+.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
+.menu-links li a.active{color:var(--blue);background:#EEF4FF}
+.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);text-align:center;padding:14px;border-radius:10px;font-weight:800;font-size:16px;min-height:52px}
 
-/* TOP BAR */
-.topbar{padding:16px 20px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.1)}
-.tb-logo{width:36px;height:36px;border-radius:10px;border:2px solid rgba(255,255,255,0.3)}
-.tb-title{flex:1}
-.tb-title strong{display:block;font-size:16px;font-weight:800;color:#fff}
-.tb-title span{font-size:11px;color:rgba(255,255,255,0.5)}
-.status-dot{width:10px;height:10px;border-radius:50%;background:var(--green-lt);animation:pulse2 2s infinite}
-@keyframes pulse2{0%,100%{opacity:1}50%{opacity:.3}}
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
+.footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}
+.sitemap-grid a:hover{color:var(--gold)}
+.footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.8}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
 
-/* TABS */
-.tabs{display:flex;background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.1)}
-.tab{flex:1;padding:12px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
-.tab.active{color:var(--gold);border-bottom-color:var(--gold)}
-
-/* CONTENT */
-.tab-content{display:none;flex:1;overflow-y:auto}
-.tab-content.active{display:flex;flex-direction:column}
-
-/* CALL SCREEN */
-.call-screen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 20px}
-.caller-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:800;margin-bottom:16px;border:3px solid rgba(255,255,255,0.2)}
-.caller-name{font-size:24px;font-weight:800;color:#fff;margin-bottom:6px;text-align:center}
-.caller-status{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px}
-.call-duration{font-size:18px;font-weight:700;color:var(--gold);margin-bottom:30px}
-.call-controls{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-.ctrl-btn{width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px;transition:all .2s}
-.ctrl-btn span{font-size:9px;color:rgba(255,255,255,0.7);margin-top:2px}
-.ctrl-btn.mute{background:rgba(255,255,255,0.15)}
-.ctrl-btn.speaker{background:rgba(255,255,255,0.15)}
-.ctrl-btn.end{background:var(--red);width:70px;height:70px;font-size:26px}
-.ctrl-btn.video{background:rgba(255,255,255,0.15)}
-.ctrl-btn.hold{background:rgba(255,255,255,0.15)}
-.ctrl-btn.active{background:rgba(255,255,255,0.3)}
-
-/* CONTACTS */
-.search-bar{padding:12px 16px;background:rgba(255,255,255,0.08);margin:12px;border-radius:10px;display:flex;align-items:center;gap:8px}
-.search-bar input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:14px;font-family:inherit}
-.search-bar input::placeholder{color:rgba(255,255,255,0.4)}
-.contact-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:all .2s}
-.contact-item:hover{background:rgba(255,255,255,0.05)}
-.ci-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0}
-.ci-info{flex:1}
-.ci-name{font-size:14px;font-weight:600;color:#fff}
-.ci-meta{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px}
-.ci-actions{display:flex;gap:8px}
-.ci-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
-.ci-btn.call{background:rgba(0,200,83,0.2);color:var(--green-lt)}
-.ci-btn.video{background:rgba(21,101,192,0.2);color:var(--blue)}
-.ci-btn.wa{background:rgba(37,211,102,0.2);color:#25D366}
-
-/* DIALER PAD */
-.dialer-pad{padding:20px}
-.dial-display{background:rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;font-size:28px;font-weight:800;color:#fff;margin-bottom:20px;min-height:64px;letter-spacing:3px}
-.pad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
-.pad-btn{padding:16px;background:rgba(255,255,255,0.08);border:none;border-radius:12px;color:#fff;font-size:20px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;text-align:center}
-.pad-btn:hover{background:rgba(255,255,255,0.15)}
-.pad-btn small{display:block;font-size:9px;color:rgba(255,255,255,0.4);font-weight:400}
-.pad-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.pad-call{padding:16px;background:var(--green);border:none;border-radius:12px;color:#fff;font-size:24px;cursor:pointer}
-.pad-wa{padding:16px;background:#25D366;border:none;border-radius:12px;color:#fff;font-size:20px;cursor:pointer;font-weight:700;font-family:inherit}
-.pad-clear{padding:16px;background:rgba(255,255,255,0.08);border:none;border-radius:12px;color:#fff;font-size:20px;cursor:pointer}
-
-/* INCOMING CALL */
-.incoming-overlay{position:fixed;inset:0;background:linear-gradient(135deg,#006064,#004D40);z-index:500;display:none;flex-direction:column;align-items:center;justify-content:center;padding:30px}
-.incoming-overlay.show{display:flex;animation:slideUp .3s ease}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.incoming-avatar{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-size:50px;font-weight:800;margin-bottom:20px;border:4px solid rgba(255,255,255,0.3);animation:ring 1s infinite}
-@keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.3)}50%{box-shadow:0 0 0 20px rgba(255,255,255,0)}}
-.incoming-name{font-size:28px;font-weight:800;color:#fff;margin-bottom:6px;text-align:center}
-.incoming-type{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:8px}
-.incoming-lang{font-size:12px;background:rgba(255,255,255,0.15);padding:4px 14px;border-radius:20px;color:#fff;margin-bottom:40px}
-.incoming-actions{display:flex;gap:40px}
-.inc-btn{width:70px;height:70px;border-radius:50%;border:none;cursor:pointer;font-size:28px;display:flex;align-items:center;justify-content:center}
-.inc-btn.reject{background:var(--red)}
-.inc-btn.accept{background:var(--green-lt)}
-
-/* LANGUAGE BADGE */
-.lang-flag{font-size:20px}
-
-/* ACTIVE CALL BAR */
-.active-call-bar{background:var(--green);padding:10px 16px;display:none;align-items:center;gap:10px;cursor:pointer}
-.active-call-bar.show{display:flex}
-.acb-name{flex:1;font-size:13px;font-weight:700;color:#fff}
-.acb-dur{font-size:12px;color:rgba(255,255,255,0.8)}
-.acb-end{background:var(--red);border:none;border-radius:6px;padding:6px 12px;color:#fff;cursor:pointer;font-size:12px;font-weight:700;font-family:inherit}
-
-/* RECENT CALLS */
-.recent-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.05)}
-.ri-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.ri-icon.out{background:rgba(0,200,83,0.15)}
-.ri-icon.inc{background:rgba(21,101,192,0.15)}
-.ri-icon.miss{background:rgba(229,57,53,0.15)}
-.ri-info{flex:1}
-.ri-name{font-size:13px;font-weight:600;color:#fff}
-.ri-meta{font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px}
-.ri-callback{background:rgba(0,200,83,0.2);border:none;border-radius:6px;padding:6px 12px;color:var(--green-lt);cursor:pointer;font-size:11px;font-weight:600;font-family:inherit}
-
-/* TOAST */
-.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:500;z-index:300;opacity:0;transition:all .3s;white-space:nowrap}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+/* ===== VANI APP (scoped) ===== */
+#vaniApp{max-width:760px;margin:0 auto;padding:18px 16px 30px}
+#vaniApp .pill{display:inline-flex;align-items:center;gap:7px;background:#EEF4FF;border:1px solid #cfe0ff;color:#143a72;font-size:13px;font-weight:700;padding:6px 14px;border-radius:20px;margin:0 auto 12px}
+#vaniApp .pill i{width:10px;height:10px;border-radius:50%;background:var(--gray)}
+#vaniApp .pill.on i{background:var(--green-lt);animation:vblink 1.4s infinite}
+@keyframes vblink{50%{opacity:.35}}
+#vaniApp .screen{display:none}#vaniApp .screen.show{display:block}
+#vaniApp .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px 18px;box-shadow:0 2px 12px rgba(11,31,58,.06);margin-bottom:16px}
+#vaniApp h1{font-size:clamp(24px,6vw,32px);font-weight:900;color:var(--navy);text-align:center;letter-spacing:-.5px}
+#vaniApp h1 em{color:var(--gold);font-style:normal}
+#vaniApp .sub{text-align:center;color:var(--gray);font-size:16px;margin:6px 0 4px}
+#vaniApp .lbl{display:block;font-size:16px;font-weight:700;color:var(--navy);margin:16px 0 7px}
+#vaniApp .sel,#vaniApp .txt{width:100%;font-size:18px;font-weight:600;padding:13px;border:2px solid var(--blue);border-radius:12px;background:#fff;color:var(--navy);min-height:54px}
+#vaniApp .roles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+#vaniApp .role{padding:18px 12px;border:2px solid var(--border);border-radius:16px;background:var(--offwhite);font-size:18px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:8px;min-height:104px;justify-content:center}
+#vaniApp .role .e{font-size:34px}
+#vaniApp .role.sel{border-color:var(--blue);background:#E3F2FD;color:var(--blue)}
+#vaniApp .btn{width:100%;margin-top:16px;border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:800;color:#fff;min-height:58px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));cursor:pointer}
+#vaniApp .btn.green{background:linear-gradient(135deg,var(--green),var(--green-lt))}
+#vaniApp .btn:disabled{opacity:.5}
+#vaniApp .codebox .txt{text-align:center;letter-spacing:6px;font-size:30px;font-weight:900}
+#vaniApp .roomline{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy);color:#fff;border-radius:14px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
+#vaniApp .roomline b{color:var(--gold);font-size:24px;letter-spacing:3px}
+#vaniApp .roomline .who{font-size:14px;color:rgba(255,255,255,.8)}
+#vaniApp .leave{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:9px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px;cursor:pointer}
+#vaniApp .chat{min-height:240px;display:flex;flex-direction:column;gap:10px;padding:6px 2px 12px}
+#vaniApp .bub{max-width:84%;padding:12px 14px;border-radius:16px;box-shadow:0 1px 5px rgba(11,31,58,.06);position:relative}
+#vaniApp .bub .meta{font-size:12px;font-weight:700;opacity:.7;margin-bottom:3px}
+#vaniApp .bub .body{font-size:20px;font-weight:600;line-height:1.5}
+#vaniApp .bub .orig{font-size:13px;color:var(--gray);margin-top:5px;font-weight:500}
+#vaniApp .bub .spk{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.05);border:none;border-radius:8px;width:34px;height:34px;font-size:15px;cursor:pointer}
+#vaniApp .bub.them{align-self:flex-start;background:#fff;border:1px solid var(--border);border-bottom-left-radius:5px}
+#vaniApp .bub.me{align-self:flex-end;background:#E3F2FD;border:1px solid #b9dcff;border-bottom-right-radius:5px}
+#vaniApp .bub.rtl .body{direction:rtl;text-align:right}
+#vaniApp .sys{align-self:center;background:#FFF6DC;border:1px solid #f3e3ad;color:#7a5b00;font-size:13px;font-weight:700;padding:6px 14px;border-radius:20px;text-align:center}
+#vaniApp .composer{position:sticky;bottom:0;background:var(--offwhite);padding:10px 0 4px;border-top:1px solid var(--border);margin-top:6px}
+#vaniApp .crow{display:flex;gap:8px}
+#vaniApp .mic{flex-shrink:0;width:58px;background:linear-gradient(135deg,var(--green),var(--green-lt));color:#fff;border:none;border-radius:14px;font-size:24px;min-height:56px;cursor:pointer}
+#vaniApp .mic.live{background:linear-gradient(135deg,var(--red),#e53935);animation:vpulse 1.1s infinite}@keyframes vpulse{50%{transform:scale(1.05)}}
+#vaniApp .cin{flex:1;font-size:18px;padding:14px;border:2px solid var(--border);border-radius:14px;min-height:56px}
+#vaniApp .send{flex-shrink:0;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:0 18px;font-size:18px;font-weight:800;min-height:56px;cursor:pointer}
+#vaniApp .chint{font-size:13px;color:var(--gray);margin-top:8px;text-align:center}
+#vaniApp .banner{border-radius:12px;padding:14px;font-size:15px;margin-bottom:14px;line-height:1.6}
+#vaniApp .banner.err{background:#FDECEA;border:1px solid #f5c2bd;color:#a02020}
+#vaniApp .banner.ok{background:#E8F5E9;border:1px solid #b6e0bb;color:#1b5e20}
+#vaniApp .foot{text-align:center;color:var(--gray);font-size:13px;margin-top:18px;line-height:1.7}
+#vaniApp .how{background:#fff;border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:16px;padding:20px 18px;margin-top:6px;box-shadow:0 2px 10px rgba(11,31,58,.05)}
+#vaniApp .how h2{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+#vaniApp .how .ex{background:#EEF4FF;border:1px solid #cfe0ff;color:#143a72;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:600;margin:10px 0 14px;line-height:1.6}
+#vaniApp .how ol{margin:0 0 0 4px;padding:0;list-style:none;counter-reset:s}
+#vaniApp .how ol li{counter-increment:s;position:relative;padding:8px 0 8px 42px;font-size:16px;line-height:1.6;border-bottom:1px dashed var(--border)}
+#vaniApp .how ol li:last-child{border-bottom:none}
+#vaniApp .how ol li::before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+#vaniApp .how ol li b{color:var(--navy)}
+#vaniApp .how .tip{margin-top:14px;font-size:14px;color:var(--gray);line-height:1.7;background:var(--offwhite);border-radius:10px;padding:12px 14px}
+#vaniApp .how .tip b{color:var(--green)}
 </style>
 </head>
 <body>
 
-<!-- SPLASH SCREEN -->
-<div class="splash" id="splash">
-  <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="splash-logo"/>
-  <div class="splash-title">ACS Vani</div>
-  <div class="splash-sub">From Village to World 🌍</div>
-  <div class="splash-loading">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-  </div>
-</div>
-
-<!-- INCOMING CALL -->
-<div class="incoming-overlay" id="incomingOverlay">
-  <div class="incoming-avatar" id="incAvatar">?</div>
-  <div class="incoming-name" id="incName">Incoming Call</div>
-  <div class="incoming-type">📞 Voice Call</div>
-  <div class="incoming-lang" id="incLang">🌐 Hindi</div>
-  <div class="incoming-actions">
-    <button class="inc-btn reject" onclick="rejectCall()">📵</button>
-    <button class="inc-btn accept" onclick="acceptCall()">📞</button>
-  </div>
-  <div style="display:flex;gap:20px;margin-top:20px">
-    <div style="text-align:center;font-size:11px;color:rgba(255,255,255,0.5)">Reject</div>
-    <div style="width:40px"></div>
-    <div style="text-align:center;font-size:11px;color:rgba(255,255,255,0.5)">Accept</div>
-  </div>
-</div>
-
-<!-- ACTIVE CALL BAR -->
-<div class="active-call-bar" id="activeCallBar" onclick="showCallScreen()">
-  <span style="font-size:16px">📞</span>
-  <div class="acb-name" id="acbName">—</div>
-  <div class="acb-dur" id="acbDur">00:00</div>
-  <button class="acb-end" onclick="endCall(event)">End</button>
-</div>
-
-<!-- MAIN APP -->
-<div class="app">
-  <div class="topbar">
-    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="tb-logo"/>
-    <div class="tb-title">
-      <strong>ACS Vani</strong>
-      <span id="userRole">Loading...</span>
-    </div>
-    <div class="status-dot" title="Online"></div>
-  </div>
-
-  <!-- TABS -->
-  <div class="tabs">
-    <div class="tab active" onclick="switchTab('dialer',this)">⌨️<br/>Dialer</div>
-    <div class="tab" onclick="switchTab('contacts',this)">👥<br/>Contacts</div>
-    <div class="tab" onclick="switchTab('recents',this)">🕐<br/>Recent</div>
-    <div class="tab" onclick="switchTab('callscreen',this)" id="callTab" style="display:none">📞<br/>On Call</div>
-  </div>
-
-  <!-- DIALER TAB -->
-  <div class="tab-content active" id="tab-dialer">
-    <div class="dialer-pad">
-      <div class="dial-display" id="dialDisplay">नंबर डालें</div>
-      <div class="pad-grid">
-        <button class="pad-btn" onclick="pad('1')">1</button>
-        <button class="pad-btn" onclick="pad('2')">2<small>ABC</small></button>
-        <button class="pad-btn" onclick="pad('3')">3<small>DEF</small></button>
-        <button class="pad-btn" onclick="pad('4')">4<small>GHI</small></button>
-        <button class="pad-btn" onclick="pad('5')">5<small>JKL</small></button>
-        <button class="pad-btn" onclick="pad('6')">6<small>MNO</small></button>
-        <button class="pad-btn" onclick="pad('7')">7<small>PQRS</small></button>
-        <button class="pad-btn" onclick="pad('8')">8<small>TUV</small></button>
-        <button class="pad-btn" onclick="pad('9')">9<small>WXYZ</small></button>
-        <button class="pad-btn" onclick="pad('*')">*</button>
-        <button class="pad-btn" onclick="pad('0')">0<small>+</small></button>
-        <button class="pad-btn" onclick="pad('#')">#</button>
+<!-- ===== ACS NAVBAR ===== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+      <div class="nav-brand-text">Applied Computer School™
+        <small>Free Digital Education for the Global South</small>
       </div>
-      <div class="pad-actions">
-        <button class="pad-wa" onclick="callWhatsApp()">💬 WA</button>
-        <button class="pad-call" onclick="startCall()">📞</button>
-        <button class="pad-clear" onclick="clearPad()">⌫</button>
-      </div>
-
-      <!-- Language selector -->
-      <div style="margin-top:16px;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px">
-        <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:8px">🌐 Call Language</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button onclick="setLang(this,'Hindi')" class="lang-btn active-lang" style="padding:6px 12px;border:1px solid rgba(255,255,255,0.3);border-radius:20px;background:rgba(255,255,255,0.15);color:#fff;font-size:11px;cursor:pointer;font-family:inherit">🇮🇳 Hindi</button>
-          <button onclick="setLang(this,'Kannada')" class="lang-btn" style="padding:6px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:20px;background:none;color:rgba(255,255,255,0.5);font-size:11px;cursor:pointer;font-family:inherit">🏳️ Kannada</button>
-          <button onclick="setLang(this,'Marathi')" class="lang-btn" style="padding:6px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:20px;background:none;color:rgba(255,255,255,0.5);font-size:11px;cursor:pointer;font-family:inherit">🏳️ Marathi</button>
-          <button onclick="setLang(this,'English')" class="lang-btn" style="padding:6px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:20px;background:none;color:rgba(255,255,255,0.5);font-size:11px;cursor:pointer;font-family:inherit">🌐 English</button>
-        </div>
-      </div>
+    </a>
+    <div class="nav-controls">
+      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
+      <button class="btn-menu" onclick="openMenu()">☰</button>
     </div>
   </div>
+  <div class="translate-panel" id="translatePanel"><div id="google_translate_element"></div></div>
+</nav>
 
-  <!-- CONTACTS TAB -->
-  <div class="tab-content" id="tab-contacts">
-    <div class="search-bar">
-      <span>🔍</span>
-      <input type="text" placeholder="नाम या number search करें..." oninput="searchContacts(this.value)"/>
-    </div>
-    <div id="contactsList"></div>
-  </div>
-
-  <!-- RECENTS TAB -->
-  <div class="tab-content" id="tab-recents">
-    <div style="padding:12px 16px;font-size:11px;color:rgba(255,255,255,0.4);font-weight:600;text-transform:uppercase;letter-spacing:1px">Recent Calls</div>
-    <div id="recentsList"></div>
-  </div>
-
-  <!-- CALL SCREEN TAB -->
-  <div class="tab-content" id="tab-callscreen">
-    <div class="call-screen">
-      <div class="caller-avatar" id="callAvatar">?</div>
-      <div class="caller-name" id="callName">—</div>
-      <div class="caller-status" id="callStatus">Connecting...</div>
-      <div class="call-duration" id="callDuration">00:00</div>
-      <div class="call-controls">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <button class="ctrl-btn mute" id="muteBtn" onclick="toggleMute()">🎤</button>
-          <span style="font-size:9px;color:rgba(255,255,255,0.5)">Mute</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <button class="ctrl-btn speaker" id="speakerBtn" onclick="toggleSpeaker()">🔊</button>
-          <span style="font-size:9px;color:rgba(255,255,255,0.5)">Speaker</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <button class="ctrl-btn hold" onclick="toggleHold()">⏸️</button>
-          <span style="font-size:9px;color:rgba(255,255,255,0.5)">Hold</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-          <button class="ctrl-btn video" onclick="startVideo()">📹</button>
-          <span style="font-size:9px;color:rgba(255,255,255,0.5)">Video</span>
-        </div>
-      </div>
-      <div style="margin-top:30px">
-        <button class="ctrl-btn end" onclick="endCall()" style="margin:0 auto">📵</button>
-        <div style="text-align:center;font-size:11px;color:rgba(255,255,255,0.4);margin-top:8px">End Call</div>
-      </div>
-
-      <!-- Notes during call -->
-      <div style="width:100%;margin-top:24px;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px">
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:6px">📝 Call Notes</div>
-        <textarea id="callNotes" placeholder="बातचीत के notes..." style="width:100%;background:none;border:none;outline:none;color:#fff;font-size:13px;font-family:inherit;resize:none;min-height:60px"></textarea>
-      </div>
-    </div>
-  </div>
+<!-- ===== ACS SLIDE MENU ===== -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-head"><h3>ACS Menu</h3><button class="menu-close" onclick="closeMenu()">✕</button></div>
+  <ul class="menu-links">
+    <li><a href="/">🏠 होम</a></li>
+    <li><a href="/hi/mission.html">🎯 मिशन</a></li>
+    <li><a href="/hi/salah.html">🧭 सलाह</a></li>
+    <li><a href="/udyam/">🌍 उद्यम</a></li>
+    <li><a href="/courses/hi/">📚 कोर्स</a></li>
+    <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
+    <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
+    <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
+    <li><a href="/vani/" class="active">📱 वाणी App</a></li>
+    <li><a href="/contact/hi/">📞 संपर्क</a></li>
+  </ul>
+  <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
 </div>
 
-<div class="toast" id="toast"></div>
+<!-- ===== VANI APP ===== -->
+<main id="vaniApp">
 
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import{getAuth,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import{getFirestore,collection,getDocs,doc,getDoc,addDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  <section class="screen show" id="setup">
+    <div style="text-align:center"><span class="pill" id="livePill"><i></i><span id="liveTxt">…</span></span></div>
+    <div id="status"></div>
+    <div class="card">
+      <h1>ACS <em>वाणी</em> Live</h1>
+      <p class="sub">शिक्षक कमरा बनाए · विद्यार्थी कोड डालकर जुड़े · दोनों अपनी भाषा में बात करें</p>
+      <label class="lbl">मैं कौन हूँ?</label>
+      <div class="roles">
+        <button class="role" id="rTeacher"><span class="e">🎙️</span>शिक्षक</button>
+        <button class="role" id="rStudent"><span class="e">🎓</span>विद्यार्थी</button>
+      </div>
+      <label class="lbl" for="myLang">मेरी भाषा</label>
+      <select class="sel" id="myLang"></select>
+      <div id="teacherBox" style="display:none"><button class="btn green" id="createBtn" disabled>नया कमरा बनाएं →</button></div>
+      <div id="studentBox" style="display:none">
+        <label class="lbl" for="joinCode">कमरा कोड</label>
+        <div class="codebox"><input class="txt" id="joinCode" inputmode="numeric" maxlength="4" placeholder="••••"/></div>
+        <button class="btn" id="joinBtn" disabled>कमरे में जुड़ें →</button>
+      </div>
+    </div>
+    <div class="foot">एक ही कमरा कोड दो फ़ोन में खोलें — बात live जुड़ जाएगी। (इंटरनेट ज़रूरी)</div>
 
-const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
-const auth=getAuth(app),db=getFirestore(app);
-let currentUser=null,userData=null;
+    <div class="how">
+      <h2>📖 कैसे इस्तेमाल करें</h2>
+      <div class="ex">उदाहरण: तीन विद्यार्थी आपस में बात करना चाहते हैं — एक <b>बांग्ला</b>, एक <b>कन्नड़</b>, एक <b>मराठी</b>। तीनों अलग भाषा बोलते हैं, फिर भी एक-दूसरे को समझेंगे।</div>
+      <ol>
+        <li>तीनों अपने-अपने फ़ोन में <b>यही पेज</b> खोलें।</li>
+        <li>हर कोई <b>🎓 विद्यार्थी</b> चुने और <b>अपनी भाषा</b> चुने — पहला बांग्ला, दूसरा कन्नड़, तीसरा मराठी।</li>
+        <li>कोई एक <b>“नया कमरा बनाएं”</b> दबाए → एक कमरा कोड मिलेगा (जैसे <b>5294</b>)। वही कोड बाकी दोनों को बताए।</li>
+        <li>बाकी दोनों वही कोड डालकर <b>“कमरे में जुड़ें”</b> दबाएं।</li>
+        <li>अब कोई भी अपनी भाषा में बोले या लिखे — बाकी सबको <b>उनकी अपनी भाषा</b> में पहुँचेगा। बांग्ला वाला बांग्ला में, कन्नड़ वाला कन्नड़ में, मराठी वाला मराठी में पढ़े और सुने।</li>
+      </ol>
+      <div class="tip">
+        <b>कितने भी लोग जुड़ सकते हैं</b> — सिर्फ़ दो नहीं। हर किसी की भाषा अलग हो सकती है।<br>
+        हर संदेश के साथ भेजने वाले की भाषा दिखती है, इसलिए कई लोगों में भी पता चलता है किसने क्या कहा।<br>
+        <b>“शिक्षक”</b> सिर्फ़ तब चुनें जब कोई क्लास ले रहा हो; आपस की बातचीत में सब <b>“विद्यार्थी”</b> रह सकते हैं।
+      </div>
+    </div>
+  </section>
 
-onAuthStateChanged(auth,async user=>{
-  if(user){
-    currentUser=user;
-    try{
-      const snap=await getDoc(doc(db,'users',user.uid));
-      userData=snap.exists()?{uid:user.uid,...snap.data()}:{uid:user.uid,name:'User'};
-    }catch(e){userData={uid:user.uid,name:'User'}}
-    document.getElementById('userRole').textContent=(userData.name||'User')+' | '+(userData.role||'—');
-  }
-});
+  <section class="screen" id="live">
+    <div class="roomline">
+      <div>कमरा <b id="roomCode">0000</b><div class="who" id="whoLine"></div></div>
+      <button class="leave" id="leaveBtn">छोड़ें</button>
+    </div>
+    <div class="chat" id="chat"></div>
+    <div class="composer">
+      <div class="crow">
+        <button class="mic" id="micBtn" title="बोलें">🎤</button>
+        <input class="cin" id="cin" placeholder="अपनी भाषा में लिखें…"/>
+        <button class="send" id="sendBtn">भेजें</button>
+      </div>
+      <div class="chint" id="chint"></div>
+    </div>
+  </section>
 
-window._db=db;
-window._currentUser=()=>currentUser;
-window._userData=()=>userData;
-window._addDoc=async(col,data)=>addDoc(collection(db,col),{...data,createdAt:serverTimestamp()});
+</main>
 
-// Load contacts from Firebase
-async function loadFirebaseContacts(){
-  try{
-    const snap=await getDocs(collection(db,'call_contacts'));
-    const contacts=[];
-    snap.forEach(d=>contacts.push({id:d.id,...d.data()}));
-    window._fbContacts=contacts;
-    renderContacts(contacts);
-  }catch(e){renderContacts([])}
-}
-loadFirebaseContacts();
-</script>
+<!-- ===== ACS FOOTER ===== -->
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>Applied Computer School™</h2>
+      <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
+      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का उपक्रम</p>
+      <p style="margin-top:8px;color:var(--gold);font-weight:700">Learn. Build. Contribute. Grow.</p>
+      <p style="margin-top:6px">ISO 9001:2015 प्रमाणित</p>
+    </div>
+    <div class="footer-col">
+      <h3>Site Map</h3>
+      <div class="sitemap-grid">
+        <a href="/">🏠 होम</a>
+        <a href="/hi/mission.html">🎯 मिशन</a>
+        <a href="/hi/salah.html">🧭 सलाह</a>
+        <a href="/udyam/">🌍 उद्यम</a>
+        <a href="/courses/hi/">📚 कोर्स</a>
+        <a href="/join.html">📝 रजिस्ट्रेशन</a>
+        <a href="/verify/">🏆 प्रमाण पत्र</a>
+        <a href="/hi/network.html">🤝 नेटवर्क</a>
+        <a href="/vani/">📱 वाणी App</a>
+        <a href="/contact/hi/">📞 संपर्क</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>आधिकारिक संपर्क</h3>
+      <p>📍 ACS Building, Vidyarthi Nagar,<br/>Chautham, Khagaria, Bihar — 851201</p>
+      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
+      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
+      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Applied Computer School™ |
+    <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
+    <a href="https://acslearn.com" style="color:var(--gold)">acslearn.com</a>
+  </div>
+</footer>
 
+<!-- ===== MENU / TRANSLATE JS ===== -->
 <script>
-// STATE
-let dialNum='';
-let callTimer=null;
-let callSecs=0;
-let isMuted=false;
-let isSpeaker=false;
-let currentLang='Hindi';
-let currentCallData={name:'',number:''};
-let localStream=null;
-let peerConnection=null;
-
-// SPLASH
-setTimeout(()=>{
-  document.getElementById('splash').classList.add('hide');
-  loadRecentCalls();
-},2000);
-
-// TABS
-window.switchTab=function(tab,el){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('tab-'+tab).classList.add('active');
+function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
+function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
+function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
+window.openMenu=openMenu;window.closeMenu=closeMenu;window.toggleTranslate=toggleTranslate;
+window.googleTranslateElementInit=function(){
+  new google.translate.TranslateElement({pageLanguage:'hi',
+    includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur,sw,fr,es,pt,ar,id,vi,ha',
+    layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');
 };
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-// DIALER PAD
-window.pad=function(d){
-  if(dialNum.length>=15)return;
-  dialNum+=d;
-  document.getElementById('dialDisplay').textContent=formatNum(dialNum);
-};
-window.clearPad=function(){
-  dialNum=dialNum.slice(0,-1);
-  document.getElementById('dialDisplay').textContent=dialNum?formatNum(dialNum):'नंबर डालें';
-};
-function formatNum(n){
-  if(n.length<=5)return n;
-  if(n.length<=10)return n.slice(0,5)+' '+n.slice(5);
-  return n.slice(0,5)+' '+n.slice(5,10)+' '+n.slice(10);
-}
+<!-- ===== VANI LIVE (Firebase + translation + voice) ===== -->
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {getAuth,signInAnonymously,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {getFirestore,collection,addDoc,setDoc,doc,onSnapshot,query,orderBy,serverTimestamp}
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// LANGUAGE
-window.setLang=function(btn,lang){
-  currentLang=lang;
-  document.querySelectorAll('.lang-btn').forEach(b=>{
-    b.style.background='none';
-    b.style.color='rgba(255,255,255,0.5)';
-    b.style.border='1px solid rgba(255,255,255,0.1)';
-  });
-  btn.style.background='rgba(255,255,255,0.15)';
-  btn.style.color='#fff';
-  btn.style.border='1px solid rgba(255,255,255,0.3)';
-  showToast('भाषा: '+lang+' ✅');
-};
-
-// CALL
-window.startCall=function(){
-  const num=dialNum.trim();
-  if(!num||num.length<10){showToast('Valid number डालें ❌');return}
-  initiateCall(num,'Unknown','📞');
-};
-
-window.callWhatsApp=function(){
-  const num=dialNum.trim();
-  if(!num||num.length<10){showToast('Valid number डालें ❌');return}
-  window.open('https://wa.me/91'+num+'?text=नमस्ते! ACS Vani से call कर रहे हैं।','_blank');
-  logCall(num,'Unknown','whatsapp','outgoing');
-  showToast('💬 WhatsApp खुल रहा है...');
-};
-
-function initiateCall(number,name,avatar){
-  currentCallData={name:name||number,number};
-
-  // tel: link से phone dialer खोलें
-  window.location.href='tel:+91'+number;
-
-  // Call screen setup
-  document.getElementById('callAvatar').textContent=avatar||name[0]||'?';
-  document.getElementById('callName').textContent=name||number;
-  document.getElementById('callStatus').textContent='Calling... ('+currentLang+')';
-  document.getElementById('acbName').textContent=name||number;
-  document.getElementById('callTab').style.display='flex';
-
-  // Start timer after 3 sec
-  setTimeout(()=>{
-    document.getElementById('callStatus').textContent='Connected ✅';
-    document.getElementById('activeCallBar').classList.add('show');
-    startCallTimer();
-    logCall(number,name,'phone','outgoing');
-  },3000);
-
-  switchTab('callscreen',document.getElementById('callTab'));
-  showToast('📞 Call जा रही है...');
-}
-
-window.callContact=function(number,name,avatar,via){
-  if(via==='wa'){
-    window.open('https://wa.me/91'+number+'?text=नमस्ते! ACS Vani से contact कर रहे हैं।','_blank');
-    logCall(number,name,'whatsapp','outgoing');
-    showToast('💬 WhatsApp खुल रहा है...');
-  }else{
-    initiateCall(number,name,avatar);
-  }
-};
-
-window.showCallScreen=function(){
-  switchTab('callscreen',document.getElementById('callTab'));
-};
-
-window.endCall=function(e){
-  if(e)e.stopPropagation();
-  clearInterval(callTimer);
-  callSecs=0;
-  document.getElementById('callDuration').textContent='00:00';
-  document.getElementById('acbDur').textContent='00:00';
-  document.getElementById('activeCallBar').classList.remove('show');
-  document.getElementById('callStatus').textContent='Call Ended';
-  document.getElementById('callTab').style.display='none';
-
-  // Save notes
-  const notes=document.getElementById('callNotes').value;
-  if(notes.trim()){
-    window._addDoc('call_notes',{
-      number:currentCallData.number,
-      name:currentCallData.name,
-      notes,agentUid:window._currentUser()?.uid,
-    }).catch(()=>{});
-  }
-  document.getElementById('callNotes').value='';
-  switchTab('dialer',document.querySelector('.tab'));
-  showToast('📵 Call ended | Notes saved');
-  loadRecentCalls();
-};
-
-function startCallTimer(){
-  callSecs=0;
-  callTimer=setInterval(()=>{
-    callSecs++;
-    const m=Math.floor(callSecs/60).toString().padStart(2,'0');
-    const s=(callSecs%60).toString().padStart(2,'0');
-    const dur=m+':'+s;
-    document.getElementById('callDuration').textContent=dur;
-    document.getElementById('acbDur').textContent=dur;
-  },1000);
-}
-
-// MUTE / SPEAKER / HOLD
-window.toggleMute=function(){
-  isMuted=!isMuted;
-  document.getElementById('muteBtn').textContent=isMuted?'🔇':'🎤';
-  document.getElementById('muteBtn').classList.toggle('active',isMuted);
-  showToast(isMuted?'Muted 🔇':'Unmuted 🎤');
-};
-window.toggleSpeaker=function(){
-  isSpeaker=!isSpeaker;
-  document.getElementById('speakerBtn').classList.toggle('active',isSpeaker);
-  showToast(isSpeaker?'Speaker ON 🔊':'Speaker OFF');
-};
-window.toggleHold=function(){showToast('Hold — Phase 2 में')};
-window.startVideo=function(){showToast('Video call — Phase 2 में')};
-
-// INCOMING CALL SIMULATION
-window.simulateIncoming=function(){
-  const callers=[
-    {name:'Rajesh Kumar',lang:'Hindi',avatar:'R'},
-    {name:'Priya Sharma',lang:'Marathi',avatar:'P'},
-    {name:'Suresh KN',lang:'Kannada',avatar:'S'},
-  ];
-  const c=callers[Math.floor(Math.random()*callers.length)];
-  document.getElementById('incAvatar').textContent=c.avatar;
-  document.getElementById('incName').textContent=c.name;
-  document.getElementById('incLang').textContent='🌐 '+c.lang;
-  document.getElementById('incomingOverlay').classList.add('show');
-
-  // Auto reject after 30 sec
-  setTimeout(()=>{
-    if(document.getElementById('incomingOverlay').classList.contains('show'))rejectCall();
-  },30000);
-};
-
-window.acceptCall=function(){
-  const name=document.getElementById('incName').textContent;
-  document.getElementById('incomingOverlay').classList.remove('show');
-  document.getElementById('callAvatar').textContent=name[0];
-  document.getElementById('callName').textContent=name;
-  document.getElementById('callStatus').textContent='Connected ✅';
-  document.getElementById('callTab').style.display='flex';
-  document.getElementById('activeCallBar').classList.add('show');
-  document.getElementById('acbName').textContent=name;
-  startCallTimer();
-  switchTab('callscreen',document.getElementById('callTab'));
-};
-
-window.rejectCall=function(){
-  document.getElementById('incomingOverlay').classList.remove('show');
-  showToast('Call rejected');
-};
-
-// CONTACTS
-function renderContacts(contacts){
-  const el=document.getElementById('contactsList');
-  const defaults=[
-    {name:'ACS HQ',number:'9431210092',category:'HQ',avatar:'🏛️',color:'#1565C0'},
-    {name:'Founder',number:'9431210092',category:'Founder',avatar:'👑',color:'#0B1F3A'},
-  ];
-  const all=[...defaults,...contacts];
-  el.innerHTML=all.map(c=>`
-    <div class="contact-item">
-      <div class="ci-avatar" style="background:${c.color||'#006064'};color:#fff">${c.avatar||(c.name||'?')[0].toUpperCase()}</div>
-      <div class="ci-info">
-        <div class="ci-name">${c.name||'—'}</div>
-        <div class="ci-meta">${c.number||c.mobile||'—'} | ${c.category||'General'}</div>
-      </div>
-      <div class="ci-actions">
-        <button class="ci-btn call" onclick="callContact('${c.number||c.mobile}','${c.name}','${c.avatar||(c.name||'?')[0]}','phone')">📞</button>
-        <button class="ci-btn wa" onclick="callContact('${c.number||c.mobile}','${c.name}','','wa')">💬</button>
-      </div>
-    </div>`).join('');
-}
-
-window.searchContacts=function(q){
-  const contacts=window._fbContacts||[];
-  const filtered=contacts.filter(c=>(c.name||'').toLowerCase().includes(q.toLowerCase())||(c.mobile||'').includes(q));
-  renderContacts(filtered);
-};
-
-// RECENT CALLS
-function logCall(number,name,via,direction){
-  const logs=JSON.parse(localStorage.getItem('acs_call_logs')||'[]');
-  logs.unshift({number,name,via,direction,lang:currentLang,time:new Date().toISOString()});
-  localStorage.setItem('acs_call_logs',JSON.stringify(logs.slice(0,50)));
-}
-
-function loadRecentCalls(){
-  const logs=JSON.parse(localStorage.getItem('acs_call_logs')||'[]');
-  const el=document.getElementById('recentsList');
-  if(!logs.length){el.innerHTML='<div style="text-align:center;padding:32px;color:rgba(255,255,255,0.3);font-size:13px">कोई recent call नहीं</div>';return}
-  el.innerHTML=logs.map(l=>{
-    const time=new Date(l.time).toLocaleTimeString('hi-IN',{hour:'2-digit',minute:'2-digit'});
-    const date=new Date(l.time).toLocaleDateString('hi-IN',{day:'2-digit',month:'short'});
-    return`<div class="recent-item">
-      <div class="ri-icon ${l.direction==='outgoing'?'out':'inc'}">
-        ${l.direction==='outgoing'?'📤':'📥'}
-      </div>
-      <div class="ri-info">
-        <div class="ri-name">${l.name||l.number}</div>
-        <div class="ri-meta">${l.number} | ${l.via==='wa'?'WhatsApp':'Phone'} | ${l.lang||'Hindi'} | ${date} ${time}</div>
-      </div>
-      <button class="ri-callback" onclick="callContact('${l.number}','${l.name||l.number}','','phone')">📞</button>
-    </div>`;
-  }).join('');
-}
-
-// TOAST
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
-}
-window.showToast=showToast;
-
-// PWA Install
-window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault();
-  window._installPrompt=e;
-  showToast('💡 ACS Vani install करें — Home screen पर');
+const app=initializeApp({
+  apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
+  authDomain:"acslearn-platform.firebaseapp.com",
+  projectId:"acslearn-platform",
+  storageBucket:"acslearn-platform.firebasestorage.app",
+  messagingSenderId:"435395814481",
+  appId:"1:435395814481:web:655f99452a90f8efbc4470"
 });
+const auth=getAuth(app), db=getFirestore(app);
 
-window.installApp=function(){
-  if(window._installPrompt){
-    window._installPrompt.prompt();
-    window._installPrompt.userChoice.then(r=>{
-      if(r.outcome==='accepted')showToast('✅ ACS Vani installed!');
-    });
-  }
-};
+const LANGS=[
+  {code:'hi',mm:'hi',name:'हिंदी',bcp:'hi-IN',rtl:false},
+  {code:'bho',mm:'hi',name:'भोजपुरी',bcp:'hi-IN',rtl:false},
+  {code:'en',mm:'en',name:'English',bcp:'en-IN',rtl:false},
+  {code:'kn',mm:'kn',name:'ಕನ್ನಡ (कन्नड़)',bcp:'kn-IN',rtl:false},
+  {code:'mr',mm:'mr',name:'मराठी',bcp:'mr-IN',rtl:false},
+  {code:'gu',mm:'gu',name:'ગુજરાતી',bcp:'gu-IN',rtl:false},
+  {code:'ta',mm:'ta',name:'தமிழ் (तमिल)',bcp:'ta-IN',rtl:false},
+  {code:'te',mm:'te',name:'తెలుగు',bcp:'te-IN',rtl:false},
+  {code:'bn',mm:'bn',name:'বাংলা',bcp:'bn-IN',rtl:false},
+  {code:'ur',mm:'ur',name:'اردو (उर्दू)',bcp:'ur-IN',rtl:true},
+  {code:'ar',mm:'ar',name:'العربية (अरबी)',bcp:'ar-SA',rtl:true},
+  {code:'sw',mm:'sw',name:'Kiswahili',bcp:'sw-KE',rtl:false},
+  {code:'es',mm:'es',name:'Español',bcp:'es-ES',rtl:false},
+  {code:'pt',mm:'pt',name:'Português',bcp:'pt-BR',rtl:false},
+  {code:'fr',mm:'fr',name:'Français',bcp:'fr-FR',rtl:false},
+];
+const byCode=c=>LANGS.find(l=>l.code===c)||LANGS[0];
+const $=id=>document.getElementById(id);
 
-// Service Worker Register
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/sw.js')
-    .then(()=>console.log('SW registered'))
-    .catch(e=>console.log('SW error:',e));
+const CID=Math.random().toString(36).slice(2,9);
+let role=null,myLangCode='hi',room=null,authReady=false;
+let unsubMsg=null,unsubPre=null,presTimer=null,lastWho='';
+const seen=new Set();
+
+const mySel=$('myLang');
+LANGS.forEach(l=>{const o=document.createElement('option');o.value=l.code;o.textContent=l.name;mySel.appendChild(o);});
+mySel.value='hi';mySel.onchange=()=>myLangCode=mySel.value;
+
+function status(html,cls){$('status').innerHTML=html?`<div class="banner ${cls||'ok'}">${html}</div>`:'';}
+
+$('liveTxt').textContent='जोड़ रहा…';
+signInAnonymously(auth).catch(e=>{
+  $('liveTxt').textContent='त्रुटि';
+  if(String(e.code).includes('operation-not-allowed'))
+    status('<b>Firebase में Anonymous sign-in चालू नहीं है।</b><br>Console → Authentication → Sign-in method → <b>Anonymous</b> Enable करें, फिर पेज दोबारा खोलें।','err');
+  else status('<b>Firebase से नहीं जुड़ पाया:</b> '+e.message,'err');
+});
+onAuthStateChanged(auth,u=>{if(u){authReady=true;$('liveTxt').textContent='तैयार';$('livePill').classList.add('on');
+  $('createBtn').disabled=false;$('joinBtn').disabled=false;}});
+
+$('rTeacher').onclick=()=>{role='teacher';$('rTeacher').classList.add('sel');$('rStudent').classList.remove('sel');
+  $('teacherBox').style.display='block';$('studentBox').style.display='none';};
+$('rStudent').onclick=()=>{role='student';$('rStudent').classList.add('sel');$('rTeacher').classList.remove('sel');
+  $('studentBox').style.display='block';$('teacherBox').style.display='none';};
+
+$('createBtn').onclick=()=>{if(!authReady)return;myLangCode=mySel.value;enterRoom(String(Math.floor(1000+Math.random()*9000)));};
+$('joinBtn').onclick=()=>{if(!authReady)return;myLangCode=mySel.value;
+  const c=($('joinCode').value||'').trim();if(!/^\d{4}$/.test(c)){$('joinCode').focus();return;}enterRoom(c);};
+
+const mcol=code=>collection(db,'vani_rooms',code,'messages');
+const pdoc=(code,cid)=>doc(db,'vani_rooms',code,'presence',cid);
+const pcol=code=>collection(db,'vani_rooms',code,'presence');
+
+async function enterRoom(code){
+  room=code;$('roomCode').textContent=code;
+  $('setup').classList.remove('show');$('live').classList.add('show');
+  sysMsg(role==='teacher'?'कमरा बना — विद्यार्थी को कोड बताएं।':'कमरे में जुड़ गए।');
+  await beat();presTimer=setInterval(beat,4000);
+  unsubMsg=onSnapshot(query(mcol(code),orderBy('ts')),snap=>{
+    snap.docChanges().forEach(ch=>{if(ch.type!=='added')return;const id=ch.doc.id;if(seen.has(id))return;seen.add(id);
+      const m=ch.doc.data();if(!m||m.cid===CID)return;handleIncoming(m);});
+  },err=>{$('chint').innerHTML='<span style="color:#a02020">Firestore rules में vani_rooms की अनुमति चाहिए।</span>';});
+  unsubPre=onSnapshot(pcol(code),snap=>{
+    const now=Date.now();let names=[];
+    snap.forEach(d=>{const p=d.data();if(p&&p.ts&&now-p.ts<13000)names.push(p.role==='teacher'?'🎙️ शिक्षक':'🎓 विद्यार्थी');});
+    const t=names.length?names.join(' · '):'किसी और का इंतज़ार…';if(t!==lastWho){$('whoLine').textContent=t;lastWho=t;}
+  });
 }
+$('leaveBtn').onclick=async()=>{
+  if(unsubMsg)unsubMsg();if(unsubPre)unsubPre();clearInterval(presTimer);
+  if(room){try{await setDoc(pdoc(room,CID),{role,lang:myLangCode,ts:0});}catch(e){}}
+  room=null;seen.clear();$('chat').innerHTML='';
+  $('live').classList.remove('show');$('setup').classList.add('show');
+};
+async function beat(){if(!room)return;try{await setDoc(pdoc(room,CID),{role,lang:myLangCode,ts:Date.now()});}catch(e){}}
+
+async function send(text){text=(text||'').trim();if(!text||!room)return;
+  renderBubble({role,srcLang:myLangCode},true,text);$('cin').value='';
+  try{await addDoc(mcol(room),{cid:CID,role,srcLang:myLangCode,text,ts:serverTimestamp()});}
+  catch(e){sysMsg('संदेश नहीं भेजा गया — कनेक्शन/नियम जाँचें।');}}
+$('sendBtn').onclick=()=>send($('cin').value);
+$('cin').addEventListener('keydown',e=>{if(e.key==='Enter')send(e.target.value);});
+
+async function handleIncoming(m){const myL=byCode(myLangCode);const b=renderBubble(m,false,'…',true);
+  let tr=m.text;if(m.srcLang!==myLangCode)tr=await translateOne(m.text,byCode(m.srcLang).mm,myL.mm);
+  fillBubble(b,tr,m);speak(tr,myL.bcp);}
+
+async function translateOne(text,src,tgt){if(src===tgt)return text;
+  try{const u=`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${src}|${tgt}`;
+    const r=await fetch(u);const d=await r.json();const t=d&&d.responseData&&d.responseData.translatedText;
+    if(t&&!/MYMEMORY WARNING|INVALID/i.test(t))return dec(t);}catch(e){}
+  try{const r=await fetch(`https://lingva.ml/api/v1/${src}/${tgt}/${encodeURIComponent(text)}`);
+    const d=await r.json();if(d&&d.translation)return d.translation;}catch(e){}
+  return text+'  (अनुवाद विफल)';}
+function dec(s){const t=document.createElement('textarea');t.innerHTML=s;return t.value;}
+
+const chat=$('chat');
+function sysMsg(t){const d=document.createElement('div');d.className='sys';d.textContent=t;chat.appendChild(d);scrollC();}
+function renderBubble(m,mine,text,loading){const b=document.createElement('div');
+  b.className='bub '+(mine?'me':'them')+((byCode(myLangCode).rtl&&!mine)?' rtl':'');
+  const who=m.role==='teacher'?'🎙️ शिक्षक':'🎓 विद्यार्थी';
+  const tag=mine?'':' · '+byCode(m.srcLang).name;
+  b.innerHTML=`<div class="meta">${who}${tag}</div><button class="spk">🔊</button><div class="body">${loading?'<i>अनुवाद हो रहा…</i>':esc(text)}</div>`;
+  b.querySelector('.spk').onclick=()=>speak(b.querySelector('.body').textContent,byCode(myLangCode).bcp);
+  chat.appendChild(b);scrollC();return b;}
+function fillBubble(b,text,m){if(byCode(myLangCode).rtl)b.classList.add('rtl');b.querySelector('.body').textContent=text;
+  if(m.srcLang!==myLangCode){const o=document.createElement('div');o.className='orig';
+    o.textContent='मूल ('+byCode(m.srcLang).name+'): '+m.text;b.appendChild(o);}scrollC();}
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+function scrollC(){chat.scrollTop=chat.scrollHeight;}
+
+let voices=[];function lv(){voices=window.speechSynthesis?speechSynthesis.getVoices():[];}
+if(window.speechSynthesis){lv();speechSynthesis.onvoiceschanged=lv;}
+function speak(text,bcp){if(!window.speechSynthesis)return;speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang=bcp;const base=bcp.split('-')[0];
+  const v=voices.find(v=>v.lang===bcp)||voices.find(v=>v.lang&&v.lang.startsWith(base));if(v)u.voice=v;u.rate=.95;speechSynthesis.speak(u);}
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+const micBtn=$('micBtn'),chint=$('chint');let rec=null,listening=false;
+if(SR){chint.textContent='माइक दबाकर बोलें, या लिखकर भेजें। (Chrome में बेहतर)';
+  micBtn.onclick=()=>{if(listening){rec&&rec.stop();return;}
+    rec=new SR();rec.lang=byCode(myLangCode).bcp;rec.interimResults=false;
+    rec.onstart=()=>{listening=true;micBtn.classList.add('live');};
+    rec.onresult=ev=>send(ev.results[0][0].transcript);
+    rec.onerror=()=>{chint.textContent='माइक नहीं चला — लिखकर भेजें।';};
+    rec.onend=()=>{listening=false;micBtn.classList.remove('live');};rec.start();};
+}else{micBtn.style.display='none';chint.textContent='इस फ़ोन/browser में माइक नहीं — लिखकर भेजें, बाकी live चलेगा।';}
 </script>
 </body>
 </html>
