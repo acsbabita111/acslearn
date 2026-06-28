@@ -1,338 +1,285 @@
-/* ==========================================================================
-   ACS SCRIPT.JS — COMMON COMPONENT FIX
-   Purpose:
-   1. Full menu restore
-   2. Full language panel restore
-   3. WhatsApp SVG button inject
-   4. Works from root and nested folders using style.css path
-   ========================================================================== */
+/* ════════════════════════════════════════════════════════════════════════
+   ACS script.js  —  साझा page-JS (परत-2)  ·  v2 (साफ़, नए instruction अनुसार)
+   ------------------------------------------------------------------------
+   निर्भरता (इससे पहले load हों):
+     acs-config.js   → window.ACS_CONFIG   (रंग/फ़ॉन्ट/org/भाषा)
+     links.js        → window.ACS_LINKS    (10 अटल menu + paths)
+     acs-translate.js→ window.ACS_T        (17 भाषाओं के labels)
 
-document.addEventListener("DOMContentLoaded", function () {
-  injectACSMenuPanel();
-  injectACSLanguagePanel();
-  injectACSWhatsAppButton();
-  bindACSControls();
-});
+   यह फ़ाइल क्या करती है:
+     • slide-menu — सिर्फ़ links.js के 10 items से (कोई hardcode नहीं, कोई 11वाँ नहीं)
+     • menu-labels — acs-translate से (भाषा अनुसार)
+     • भाषा-panel · WhatsApp बटन · gallery slideshow
+     • होल-fix: ESC से बंद · focus लौटे · click-बाहर बंद
+     • 10-मिनट निष्क्रिय → auto-logout (hook)
+     • नया version → "Update करें" toast (अपने-आप reload नहीं — काम न टूटे)
 
-function getACSBasePrefix() {
-  const cssLink = document.querySelector('link[href$="style.css"]');
+   पुराना 50+ item menu व हर hardcode यहाँ से पूरी तरह हटा दिया गया।
+   ════════════════════════════════════════════════════════════════════════ */
 
-  if (!cssLink) {
-    return "";
+(function () {
+  "use strict";
+
+  /* ── छोटे सहायक ── */
+  var $  = function (s, r) { return (r || document).querySelector(s); };
+  var SRC = (window.ACS_CONFIG && window.ACS_CONFIG.langs && window.ACS_CONFIG.langs.source) || "hi";
+
+  /* links.js key → acs-translate key (दोनों के नाम अलग थे — यहाँ मिलाए) */
+  var T_KEY = {
+    home:"home", mission:"mission", salah:"counseling", udyam:"industries",
+    courses:"courses", register:"registration", verify:"certificate",
+    network:"network", vani:"vani", contact:"contact"
+  };
+
+  /* कौन-सी भाषा? — page की असली भाषा:
+     (1) URL का folder (/hi/, /en/ …) → वही  · (2) पहले चुनी (याद) · (3) मूल (हिंदी)।
+     browser-अंदाज़ा जान-बूझकर नहीं — वरना हिंदी page पर menu अंग्रेज़ी बन सकता है।   */
+  function currentLang() {
+    var m = (location.pathname || "").match(/^\/([a-z]{2})\//);
+    if (m) return m[1];
+    try { var saved = localStorage.getItem("acs_lang"); if (saved) return saved; } catch (e) {}
+    return SRC;
   }
 
-  const href = cssLink.getAttribute("href") || "";
-
-  if (href.endsWith("style.css")) {
-    return href.replace(/style\.css$/, "");
+  /* किसी menu-item का सही label (मूल भाषा = links का साफ़ label; बाक़ी = acs-translate) */
+  function menuLabel(item, lang) {
+    if (lang !== SRC && window.ACS_T) return window.ACS_T.get(T_KEY[item.key] || item.key, lang);
+    return item.icon + " " + item.text;
   }
 
-  return "";
-}
-
-function acsPath(target) {
-  const base = getACSBasePrefix();
-  return base + target;
-}
-
-/* =========================
-   FULL MENU COMPONENT
-   ========================= */
-
-function injectACSMenuPanel() {
-  let menu = document.getElementById("menuPanel");
-
-  if (!menu) {
-    menu = document.createElement("div");
-    menu.className = "menu-panel";
-    menu.id = "menuPanel";
-    menu.hidden = true;
-
-    const nav = document.querySelector(".navbar");
-    if (nav) {
-      nav.insertAdjacentElement("afterend", menu);
-    } else {
-      document.body.prepend(menu);
+  /* toast दिखाओ (style.css का .acs-toast) */
+  function toast(msg, type) {
+    var t = $("#acsToast");
+    if (!t) {
+      t = document.createElement("div");
+      t.id = "acsToast"; t.className = "acs-toast";
+      document.body.appendChild(t);
     }
+    t.textContent = msg;
+    t.className = "acs-toast " + (type === "err" ? "err" : "ok");
+    requestAnimationFrame(function () { t.classList.add("show"); });
+    clearTimeout(t._h);
+    t._h = setTimeout(function () { t.classList.remove("show"); }, 3500);
   }
+  window.acsToast = toast;
 
-  const items = [
-    ["होम", "index.html"],
+  /* ════════════ 1) SLIDE-MENU — सिर्फ़ links.js के 10 items ════════════ */
+  function buildMenu() {
+    if (!window.ACS_LINKS) { console.error("ACS: links.js नहीं मिला — menu नहीं बना।"); return; }
 
-    ["कोर्स कैटलॉग", "courses/hi/index.html"],
-    ["डिजिटल कोर्स", "courses/hi/digital.html"],
-    ["व्यावसायिक कोर्स", "courses/hi/vocational.html"],
-    ["कृषि सहयोगी कोर्स", "courses/hi/agriculture.html"],
-    ["कला-संस्कृति कोर्स", "courses/hi/art-culture.html"],
-    ["एसीएस-एआई डिजिटल मास्टर™", "courses/hi/digital/acs-ai-digital-master.html"],
-    ["AI ई-कॉमर्स प्रोडक्ट लिस्टिंग", "courses/hi/digital/acs-ai-ecommerce-product-listing.html"],
+    var lang  = currentLang();
+    var items = window.ACS_LINKS.build(lang);          // [{key,icon,href,text}]
+    var login = window.ACS_LINKS.login || { icon:"🔑", label:{} };
 
-    ["अकादमी", "academy/hi/class-6-8.html"],
-    ["वर्ग 6–8", "academy/hi/class-6-8.html"],
-    ["वर्ग 9–10", "academy/hi/class-9-10.html"],
-    ["वर्ग 11–12", "academy/hi/class-11-12.html"],
-    ["वर्ग 12 से ऊपर", "academy/hi/class-12-plus.html"],
-
-    ["विद्यार्थी केंद्र", "students/hi/index.html"],
-    ["विद्यार्थी रजिस्ट्रेशन", "students/hi/register.html"],
-    ["विद्यार्थी प्रोफाइल", "students/hi/profile.html"],
-    ["विद्यार्थी डैशबोर्ड", "students/hi/dashboard.html"],
-    ["बायोडाटा", "students/hi/resume-builder.html"],
-    ["कौशल पर्ची", "students/hi/skill-slip.html"],
-    ["आवेदन-पत्र", "students/hi/job-application.html"],
-    ["दस्तावेज checklist", "students/hi/document-checklist.html"],
-
-    ["स्वरोजगार", "career/hi/self-employment.html"],
-    ["सरकारी रोजगार", "career/hi/government-employment.html"],
-    ["प्राइवेट रोजगार", "career/hi/private-employment.html"],
-    ["स्थानीय रोजगार", "career/hi/local-employment.html"],
-
-    ["प्रशिक्षक / Mentor", "mentors/hi/index.html"],
-    ["प्रशिक्षक रजिस्ट्रेशन", "mentors/hi/register.html"],
-    ["प्रशिक्षक प्रोफाइल", "mentors/hi/profile.html"],
-    ["Mentor Storefront", "mentors/hi/storefront.html"],
-
-    ["ट्रेनिंग पार्टनर", "partners/hi/index.html"],
-    ["पार्टनर रजिस्ट्रेशन", "partners/hi/register.html"],
-
-    ["दुकान-वर्कशॉप", "workshops/hi/index.html"],
-    ["वर्कशॉप रजिस्ट्रेशन", "workshops/hi/register.html"],
-
-    ["सलाह लें", "counselors/hi/index.html"],
-    ["सलाहकार रजिस्ट्रेशन", "counselors/hi/register.html"],
-    ["सलाह बुक करें", "counselors/hi/book.html"],
-
-    ["नियोक्ता", "employers/hi/index.html"],
-    ["नियोक्ता रजिस्ट्रेशन", "employers/hi/register.html"],
-
-    ["भुगतान नीति", "payment/hi/index.html"],
-    ["ऑफलाइन शुल्क", "payment/hi/offline-course-fee.html"],
-    ["प्रमाण-पत्र शुल्क", "payment/hi/certificate-service.html"],
-    ["सेंटर बैच शुल्क", "payment/hi/center-batch.html"],
-
-    ["टीचर डैशबोर्ड", "teacher/dashboard/index.html"],
-    ["पार्टनर डैशबोर्ड", "partner/dashboard/index.html"],
-    ["वर्कशॉप डैशबोर्ड", "workshop/dashboard/index.html"],
-    ["नियोक्ता डैशबोर्ड", "employer/dashboard/index.html"],
-    ["काउंसलर डैशबोर्ड", "counselor/dashboard/index.html"],
-    ["ऑपरेटर डैशबोर्ड", "operator/dashboard/index.html"],
-    ["मैनेजर डैशबोर्ड", "manager/dashboard/index.html"],
-
-    ["गैलरी", "gallery/hi/index.html"],
-    ["संपर्क", "contact/hi/index.html"],
-    ["सहायता", "help/hi/index.html"],
-    ["Sitemap", "sitemap.xml"]
-  ];
-
-  menu.innerHTML = `
-    <div class="menu-panel-header">
-      <h3>एसीएस मेन्यू</h3>
-      <button id="closeMenuPanel" type="button" aria-label="मेन्यू बंद करें">✕</button>
-    </div>
-
-    <ul class="menu-panel-links">
-      ${items.map(function (item) {
-        return `<li><a href="${acsPath(item[1])}">${item[0]}</a></li>`;
-      }).join("")}
-    </ul>
-  `;
-}
-
-/* =========================
-   LANGUAGE PANEL COMPONENT
-   ========================= */
-
-function injectACSLanguagePanel() {
-  let panel = document.getElementById("languagePanel");
-
-  if (!panel) {
-    panel = document.createElement("div");
-    panel.className = "language-panel";
-    panel.id = "languagePanel";
-    panel.hidden = true;
-
-    const trustStrip = document.querySelector(".trust-strip");
-    if (trustStrip) {
-      trustStrip.insertAdjacentElement("afterend", panel);
-    } else {
-      const nav = document.querySelector(".navbar");
-      if (nav) {
-        nav.insertAdjacentElement("afterend", panel);
-      } else {
-        document.body.prepend(panel);
-      }
+    var panel = $("#menuPanel");
+    if (!panel) {
+      panel = document.createElement("div");
+      panel.className = "menu-panel"; panel.id = "menuPanel"; panel.hidden = true;
+      var nav = $(".navbar");
+      if (nav) nav.insertAdjacentElement("afterend", panel); else document.body.prepend(panel);
     }
+
+    var links = items.map(function (it) {
+      return '<li><a href="' + it.href + '">' + menuLabel(it, lang) + "</a></li>";
+    }).join("");
+
+    var loginText = (login.label && (login.label[lang] || login.label.hi)) || "Login / Dashboard";
+
+    panel.innerHTML =
+      '<div class="menu-panel-header">' +
+        "<h3>ACS Menu</h3>" +
+        '<button id="closeMenuPanel" type="button" aria-label="मेन्यू बंद करें">✕</button>' +
+      "</div>" +
+      '<ul class="menu-panel-links">' + links +
+        '<li><a href="/dashboard/" class="acs-login">' + login.icon + " " + loginText + "</a></li>" +
+      "</ul>";
   }
 
-  const languages = [
-    ["Hindi (हिंदी) ✓", "index.html"],
-    ["English", "en/index.html"],
-    ["Bengali", "bn/index.html"],
-    ["Urdu", "ur/index.html"],
-    ["Arabic", "ar/index.html"],
-    ["Tamil", "ta/index.html"],
-    ["Telugu", "te/index.html"],
-    ["Marathi", "mr/index.html"],
-    ["Gujarati", "gu/index.html"],
-    ["Kannada", "kn/index.html"],
-    ["Malayalam", "ml/index.html"],
-    ["Punjabi", "pa/index.html"],
-    ["Odia", "or/index.html"],
-    ["Assamese", "as/index.html"],
-    ["Maithili", "mai/index.html"],
-    ["Bhojpuri", "bho/index.html"],
-    ["Magahi", "mag/index.html"],
-    ["Nepali", "ne/index.html"],
-    ["Sanskrit", "sa/index.html"],
-    ["Sinhala", "si/index.html"]
-  ];
+  /* ════════════ 2) भाषा-panel ════════════ */
+  function buildLangPanel() {
+    var lang = currentLang();
+    var NAMES = {
+      hi:"हिंदी", en:"English", kn:"ಕನ್ನಡ", mr:"मराठी", bn:"বাংলা", te:"తెలుగు",
+      ta:"தமிழ்", gu:"ગુજરાતી", pa:"ਪੰਜਾਬੀ", ur:"اردو", ml:"മലയാളം", or:"ଓଡ଼ିଆ",
+      as:"অসমীয়া", ne:"नेपाली", sw:"Kiswahili", fr:"Français", es:"Español",
+      pt:"Português", ar:"العربية", id:"Indonesia", vi:"Tiếng Việt", ha:"Hausa"
+    };
+    var list = (window.ACS_CONFIG && window.ACS_CONFIG.langs.google) || ["hi","en"];
 
-  panel.innerHTML = `
-    <div class="lang-panel-header">
-      <h3>भाषा चुनें / Select Language</h3>
-      <button id="closeLangPanel" type="button" aria-label="भाषा पैनल बंद करें">✕</button>
-    </div>
+    var panel = $("#languagePanel");
+    if (!panel) {
+      panel = document.createElement("div");
+      panel.className = "language-panel"; panel.id = "languagePanel"; panel.hidden = true;
+      var anchor = $(".trust-strip") || $(".navbar");
+      if (anchor) anchor.insertAdjacentElement("afterend", panel); else document.body.prepend(panel);
+    }
 
-    <div class="lang-divider">मुख्य भाषा</div>
+    var opts = list.map(function (code) {
+      var on = code === lang ? " active" : "";
+      var nm = (NAMES[code] || code) + (code === lang ? " ✓" : "");
+      return '<button class="lang-opt' + on + '" data-lang="' + code + '" type="button">' + nm + "</button>";
+    }).join("");
 
-    <div class="lang-grid">
-      ${languages.map(function (item, index) {
-        return `<button class="lang-opt ${index === 0 ? "active" : ""}" data-url="${acsPath(item[1])}" type="button">${item[0]}</button>`;
-      }).join("")}
-    </div>
-  `;
-}
-
-/* =========================
-   WHATSAPP COMPONENT
-   ========================= */
-
-function injectACSWhatsAppButton() {
-  if (document.querySelector(".whatsapp-float")) {
-    return;
+    panel.innerHTML =
+      '<div class="lang-panel-header">' +
+        "<h3>भाषा चुनें / Select Language</h3>" +
+        '<button id="closeLangPanel" type="button" aria-label="भाषा पैनल बंद करें">✕</button>' +
+      "</div>" +
+      '<div class="lang-grid">' + opts + "</div>";
   }
 
-  const wa = document.createElement("a");
-  wa.className = "whatsapp-float";
-  wa.href = "https://wa.me/919431210092";
-  wa.target = "_blank";
-  wa.rel = "noopener";
-  wa.setAttribute("aria-label", "WhatsApp पर संपर्क करें");
+  /* ════════════ 3) WhatsApp बटन ════════════ */
+  function buildWhatsApp() {
+    if ($(".whatsapp-float")) return;
+    var url = (window.ACS_CONFIG && window.ACS_CONFIG.org.whatsapp) || "https://wa.me/919431210092";
+    var a = document.createElement("a");
+    a.className = "whatsapp-float"; a.href = url; a.target = "_blank"; a.rel = "noopener";
+    a.setAttribute("aria-label", "WhatsApp पर संपर्क करें");
+    a.innerHTML =
+      '<svg class="wa-svg" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" ' +
+      'd="M16.02 3C8.85 3 3.03 8.82 3.03 15.99c0 2.29.6 4.53 1.75 6.5L3 29l6.66-1.74a12.86 12.86 0 0 0 ' +
+      '6.36 1.67h.01c7.16 0 12.98-5.82 12.98-12.99C29.01 8.82 23.19 3 16.02 3Zm0 23.74h-.01a10.7 10.7 0 0 ' +
+      '1-5.46-1.49l-.39-.23-3.95 1.03 1.05-3.85-.25-.4a10.72 10.72 0 0 1-1.64-5.81c0-5.89 4.79-10.68 ' +
+      '10.68-10.68 2.85 0 5.53 1.11 7.55 3.13a10.6 10.6 0 0 1 3.13 7.55c-.02 5.9-4.81 10.69-10.71 ' +
+      '10.69Zm5.86-8c-.32-.16-1.9-.94-2.2-1.05-.29-.11-.5-.16-.72.16-.21.32-.82 1.05-1 1.26-.18.21-.37.24-.69' +
+      '.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.55' +
+      '.16-.18.21-.32.32-.53.11-.21.05-.4-.03-.55-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21' +
+      ' 0-.55.08-.84.4-.29.32-1.1 1.07-1.1 2.62s1.13 3.05 1.29 3.26c.16.21 2.23 3.4 5.4 4.77.75.32 1.34.51 ' +
+      '1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.14-.29-.21-.61-.37Z"/></svg>';
+    document.body.appendChild(a);
+  }
 
-  wa.innerHTML = `
-    <svg class="wa-svg" viewBox="0 0 32 32" aria-hidden="true">
-      <path fill="currentColor" d="M16.02 3C8.85 3 3.03 8.82 3.03 15.99c0 2.29.6 4.53 1.75 6.5L3 29l6.66-1.74a12.86 12.86 0 0 0 6.36 1.67h.01c7.16 0 12.98-5.82 12.98-12.99C29.01 8.82 23.19 3 16.02 3Zm0 23.74h-.01a10.7 10.7 0 0 1-5.46-1.49l-.39-.23-3.95 1.03 1.05-3.85-.25-.4a10.72 10.72 0 0 1-1.64-5.81c0-5.89 4.79-10.68 10.68-10.68 2.85 0 5.53 1.11 7.55 3.13a10.6 10.6 0 0 1 3.13 7.55c-.02 5.9-4.81 10.69-10.71 10.69Zm5.86-8c-.32-.16-1.9-.94-2.2-1.05-.29-.11-.5-.16-.72.16-.21.32-.82 1.05-1 1.26-.18.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.18.21-.32.32-.53.11-.21.05-.4-.03-.55-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.55.08-.84.4-.29.32-1.1 1.07-1.1 2.62s1.13 3.05 1.29 3.26c.16.21 2.23 3.4 5.4 4.77.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.14-.29-.21-.61-.37Z"/>
-    </svg>
-  `;
+  /* ════════════ 4) gallery slideshow (अगर page पर हो) ════════════ */
+  function startGallery() {
+    var img = $("#galleryMainImage");
+    if (!img) return;
+    var pics = [
+      "gallery/applied_computer_school_45.png","gallery/applied_computer_school_46.png",
+      "gallery/applied_computer_school_47.png","gallery/applied_computer_school_48.png",
+      "gallery/applied_computer_school_49.png","gallery/applied_computer_school_50.png"
+    ];
+    var i = 0;
+    setInterval(function () {
+      i = (i + 1) % pics.length;
+      img.style.opacity = "0";
+      setTimeout(function () { img.src = pics[i]; img.style.opacity = "1"; }, 250);
+    }, 3000);
+  }
 
-  document.body.appendChild(wa);
-}
+  /* ════════════ 5) bindings — toggle · ESC · बाहर-click · focus ════════════ */
+  function bindControls() {
+    var menuBtn  = $("#menuToggle")     || $(".menu-btn");
+    var langBtn  = $("#languageToggle") || $(".lang-btn");
+    var menu     = $("#menuPanel");
+    var langP    = $("#languagePanel");
 
-/* =========================
-   EVENT BINDINGS
-   ========================= */
+    function open(panel, btn) {
+      if (!panel) return;
+      panel.hidden = false;
+      if (btn) btn.setAttribute("aria-expanded", "true");
+      var first = panel.querySelector("a, button");
+      if (first) first.focus();
+    }
+    function close(panel, btn) {
+      if (!panel || panel.hidden) return;
+      panel.hidden = true;
+      if (btn) { btn.setAttribute("aria-expanded", "false"); btn.focus(); }
+    }
 
-function bindACSControls() {
-  const languageToggle = document.getElementById("languageToggle");
-  const languagePanel = document.getElementById("languagePanel");
-  const closeLangPanel = document.getElementById("closeLangPanel");
+    if (menuBtn) menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation(); menu.hidden ? open(menu, menuBtn) : close(menu, menuBtn);
+    });
+    if (langBtn) langBtn.addEventListener("click", function (e) {
+      e.stopPropagation(); langP.hidden ? open(langP, langBtn) : close(langP, langBtn);
+    });
 
-  const menuToggle = document.getElementById("menuToggle");
-  const menuPanel = document.getElementById("menuPanel");
-  const closeMenuPanel = document.getElementById("closeMenuPanel");
+    var cM = $("#closeMenuPanel"); if (cM) cM.addEventListener("click", function () { close(menu, menuBtn); });
+    var cL = $("#closeLangPanel"); if (cL) cL.addEventListener("click", function () { close(langP, langBtn); });
 
-  if (languageToggle && languagePanel) {
-    languageToggle.addEventListener("click", function (event) {
-      event.stopPropagation();
+    /* भाषा चुनना → उस folder पर जाएँ (acs-translate.switchLang) */
+    document.querySelectorAll(".lang-opt").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var code = b.getAttribute("data-lang");
+        if (window.ACS_T && typeof window.ACS_T.switchLang === "function") window.ACS_T.switchLang(code);
+        else window.location.href = "/" + code + "/";
+      });
+    });
 
-      const isOpen = languageToggle.getAttribute("aria-expanded") === "true";
+    /* ESC → खुला panel बंद */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { close(menu, menuBtn); close(langP, langBtn); }
+    });
 
-      languageToggle.setAttribute("aria-expanded", String(!isOpen));
-      languagePanel.hidden = isOpen;
+    /* बाहर click → बंद */
+    document.addEventListener("click", function (e) {
+      if (menu && !menu.hidden && !menu.contains(e.target) && e.target !== menuBtn) close(menu, menuBtn);
+      if (langP && !langP.hidden && !langP.contains(e.target) && e.target !== langBtn) close(langP, langBtn);
     });
   }
 
-  if (closeLangPanel && languagePanel && languageToggle) {
-    closeLangPanel.addEventListener("click", function () {
-      languagePanel.hidden = true;
-      languageToggle.setAttribute("aria-expanded", "false");
+  /* ════════════ 6) 10-मिनट निष्क्रिय → auto-logout (hook) ════════════
+     असली sign-out template/dashboard का Firebase code करेगा (window.acsLogout).
+     यहाँ सिर्फ़ घड़ी — काम न हो तो 10 मिनट बाद hook चलाएँ।                    */
+  function idleLogout() {
+    var LIMIT = 10 * 60 * 1000, timer;
+    function reset() {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        if (typeof window.acsLogout === "function") {
+          window.acsLogout("idle");
+          toast("10 मिनट निष्क्रिय — सुरक्षा हेतु logout।", "err");
+        }
+      }, LIMIT);
+    }
+    ["click","keydown","mousemove","scroll","touchstart"].forEach(function (ev) {
+      document.addEventListener(ev, reset, { passive: true });
+    });
+    reset();
+  }
+
+  /* ════════════ 7) Service Worker — नया version → "Update करें" toast ════════════
+     अपने-आप reload नहीं (ग्राहक का काम बीच में न टूटे)।                        */
+  function registerSW() {
+    if (!("serviceWorker" in navigator)) return;
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("/sw.js").then(function (reg) {
+        reg.addEventListener("updatefound", function () {
+          var nw = reg.installing;
+          if (!nw) return;
+          nw.addEventListener("statechange", function () {
+            // पहली बार install नहीं — असली update तभी जब पहले से controller हो
+            if (nw.state === "installed" && navigator.serviceWorker.controller) {
+              showUpdateToast(reg);
+            }
+          });
+        });
+      }).catch(function (e) { console.log("ACS SW register skip:", e); });
     });
   }
 
-  document.querySelectorAll(".lang-opt").forEach(function (button) {
-    button.addEventListener("click", function () {
-      const url = button.getAttribute("data-url");
-      if (url) {
-        window.location.href = url;
-      }
+  function showUpdateToast(reg) {
+    var box = document.createElement("div");
+    box.className = "acs-toast ok show";
+    box.style.cssText += ";display:flex;gap:12px;align-items:center";
+    box.innerHTML = '<span>नया version आया है।</span>' +
+      '<button type="button" style="background:var(--gold);color:var(--navy);border:none;' +
+      'border-radius:8px;padding:8px 14px;font-weight:800;font-size:16px;cursor:pointer">Update करें</button>';
+    document.body.appendChild(box);
+    box.querySelector("button").addEventListener("click", function () {
+      if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
+      window.location.reload();
     });
+  }
+
+  /* ════════════ शुरुआत ════════════ */
+  document.addEventListener("DOMContentLoaded", function () {
+    buildMenu();
+    buildLangPanel();
+    buildWhatsApp();
+    startGallery();
+    bindControls();
+    idleLogout();
+    registerSW();
   });
 
-  if (menuToggle && menuPanel) {
-    menuToggle.addEventListener("click", function (event) {
-      event.stopPropagation();
-
-      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-
-      menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuPanel.hidden = isOpen;
-    });
-  }
-
-  if (closeMenuPanel && menuPanel && menuToggle) {
-    closeMenuPanel.addEventListener("click", function () {
-      menuPanel.hidden = true;
-      menuToggle.setAttribute("aria-expanded", "false");
-    });
-  }
-
-  document.addEventListener("click", function (event) {
-    if (
-      languagePanel &&
-      !languagePanel.hidden &&
-      !languagePanel.contains(event.target) &&
-      event.target !== languageToggle
-    ) {
-      languagePanel.hidden = true;
-      if (languageToggle) {
-        languageToggle.setAttribute("aria-expanded", "false");
-      }
-    }
-
-    if (
-      menuPanel &&
-      !menuPanel.hidden &&
-      !menuPanel.contains(event.target) &&
-      event.target !== menuToggle
-    ) {
-      menuPanel.hidden = true;
-      if (menuToggle) {
-        menuToggle.setAttribute("aria-expanded", "false");
-      }
-    }
-  });
-}
-const acsGalleryImages = [
-  "gallery/applied_computer_school_45.png",
-  "gallery/applied_computer_school_46.png",
-  "gallery/applied_computer_school_47.png",
-  "gallery/applied_computer_school_48.png",
-  "gallery/applied_computer_school_49.png",
-  "gallery/applied_computer_school_50.png"
-];
-
-let acsGalleryIndex = 0;
-const acsGalleryMainImage = document.getElementById("galleryMainImage");
-
-if (acsGalleryMainImage) {
-  setInterval(() => {
-    acsGalleryIndex = (acsGalleryIndex + 1) % acsGalleryImages.length;
-
-    acsGalleryMainImage.style.opacity = "0";
-
-    setTimeout(() => {
-      acsGalleryMainImage.src = acsGalleryImages[acsGalleryIndex];
-      acsGalleryMainImage.style.opacity = "1";
-    }, 250);
-  }, 3000);
-}
+})();
