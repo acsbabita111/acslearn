@@ -1,13 +1,25 @@
 /**
  * ACS Universal Translate Asset
- * Version 1.0 | June 2026
+ * Version 1.1 | June 2026 (bug-fix)
  * एक file → 80+ भाषाएं auto-translate
+ *
+ * v1.1 सुधार:
+ *  - switchLang अब उसी page पर भाषा बदलता है (home folder पर redirect का बग हटा)
+ *  - detectLang क्रम (ग्राहक देवो भव:): saved (last चुनी) → browser → page-folder
+ *    यानी user की चुनी भाषा हर page पर वही रहे; पहली बार browser भाषा
+ *  - auto-apply अब error-safe (translate विफल हो तो भी page चले)
+ *  - square bracket ( ) किए; जापानी अक्षर हटाया
  *
  * Use: ACS_T.get('courses', 'hi') → 'कोर्स'
  *      ACS_T.apply('hi') → सब UI labels update
  */
 
 const ACS_T = {
+
+  // ══ समर्थित भाषा-कोड — एक ही जगह (एक चीज़ = एक जगह) ══
+  // नई भाषा जोड़नी हो तो सिर्फ़ यहाँ कोड जोड़ें (+ labels/edu व switcher में नाम)।
+  // नोट: 'ur' (उर्दू) अभी हटाया — labels/switcher में अधूरा था; पूरा होने पर जोड़ें।
+  langCodes: ['hi','en','kn','mr','bn','te','ta','gu','pa','sw','fr','es','pt','ar','id','vi','ha'],
 
   // ══ UI LABELS — सभी भाषाएं ══
   labels: {
@@ -27,13 +39,13 @@ const ACS_T = {
 
     // ── COURSES PAGE ──
     free_online:  {hi:'✅ ऑनलाइन निःशुल्क', en:'✅ Free Online', kn:'✅ ಉಚಿತ ಆನ್‌ಲೈನ್', mr:'✅ विनामूल्य ऑनलाइन', bn:'✅ বিনামূল্যে অনলাইন', te:'✅ ఉచిత ఆన్‌లైన్', ta:'✅ இலவச ஆன்லைன்', gu:'✅ મફત ઑનલાઇન', pa:'✅ ਮੁਫ਼ਤ ਔਨਲਾਈਨ', sw:'✅ Bure Mtandaoni', fr:'✅ Gratuit en ligne', es:'✅ Gratuito en línea', pt:'✅ Gratuito online', ar:'✅ مجاني أونلاين', id:'✅ Gratis Online', vi:'✅ Miễn phí Online', ha:'✅ Kyauta Online'},
-    paid_centre:  {hi:'🏫 Centre पर Paid', en:'🏫 Paid at Centre', kn:'🏫 ಕೇಂದ್ರದಲ್ಲಿ ಶುಲ್ಕ', mr:'🏫 केंद्रावर शुल्क', bn:'🏫 কেন্দ্রে পেইড', te:'🏫 సెంటర్‌లో చెల్లింపు', ta:'🏫 மையத்தில் கட்டணம்', gu:'🏫 કેન્દ્ર પર ચૂકવણી', pa:'🏫 ਸੈਂਟਰ ਤੇ ਭੁਗਤਾਨ', sw:'✅ Hulipwa Kituo', fr:'🏫 Payant au Centre', es:'🏫 De pago en Centro', pt:'🏫 Pago no Centro', ar:'🏫 مدفوع في المركز', id:'🏫 Berbayar di Pusat', vi:'🏫 Trả phí tại Trung tâm', ha:'🏫 Biyan Kuɗi a Cibiya'},
+    paid_centre:  {hi:'🏫 Centre पर Paid', en:'🏫 Paid at Centre', kn:'🏫 ಕೇಂದ್ರದಲ್ಲಿ ಶುಲ್ಕ', mr:'🏫 केंद्रावर शुल्क', bn:'🏫 কেন্দ্রে পেইড', te:'🏫 సెంటర్‌లో చెల్లింపు', ta:'🏫 மையத்தில் கட்டணம்', gu:'🏫 કેન્દ્ર પર ચૂકવણી', pa:'🏫 ਸੈਂਟਰ ਤੇ ਭੁਗਤਾਨ', sw:'🏫 Hulipwa Kituo', fr:'🏫 Payant au Centre', es:'🏫 De pago en Centro', pt:'🏫 Pago no Centro', ar:'🏫 مدفوع في المركز', id:'🏫 Berbayar di Pusat', vi:'🏫 Trả phí tại Trung tâm', ha:'🏫 Biyan Kuɗi a Cibiya'},
     enroll:       {hi:'📝 Enroll करें', en:'📝 Enroll Now', kn:'📝 ನೋಂದಾಯಿಸಿ', mr:'📝 नोंदणी करा', bn:'📝 নথিভুক্ত করুন', te:'📝 నమోదు చేయండి', ta:'📝 பதிவு செய்யுங்கள்', gu:'📝 નોંધણી કરો', pa:'📝 ਦਾਖਲਾ ਲਓ', sw:'📝 Jiandikishe', fr:'📝 S\'inscrire', es:'📝 Inscribirse', pt:'📝 Inscrever-se', ar:'📝 سجل الآن', id:'📝 Daftar Sekarang', vi:'📝 Đăng ký ngay', ha:'📝 Yi Rajista'},
     search:       {hi:'🔍 खोजें', en:'🔍 Search', kn:'🔍 ಹುಡುಕಿ', mr:'🔍 शोधा', bn:'🔍 অনুসন্ধান', te:'🔍 వెతకండి', ta:'🔍 தேடு', gu:'🔍 શોધો', pa:'🔍 ਖੋਜੋ', sw:'🔍 Tafuta', fr:'🔍 Rechercher', es:'🔍 Buscar', pt:'🔍 Pesquisar', ar:'🔍 بحث', id:'🔍 Cari', vi:'🔍 Tìm kiếm', ha:'🔍 Nema'},
     duration:     {hi:'अवधि', en:'Duration', kn:'ಅವಧಿ', mr:'कालावधी', bn:'সময়কাল', te:'వ్యవధి', ta:'காலம்', gu:'સમયગાળો', pa:'ਅਵਧੀ', sw:'Muda', fr:'Durée', es:'Duración', pt:'Duração', ar:'المدة', id:'Durasi', vi:'Thời gian', ha:'Tsawon lokaci'},
-    lessons:      {hi:'पाठ [Lessons]', en:'Lessons', kn:'ಪಾಠಗಳು', mr:'धडे', bn:'পাঠ', te:'పాఠాలు', ta:'பாடங்கள்', gu:'પ્રકરણ', pa:'ਪਾਠ', sw:'Masomo', fr:'Leçons', es:'Lecciones', pt:'Aulas', ar:'دروس', id:'Pelajaran', vi:'Bài học', ha:'Darussan'},
-    salary:       {hi:'वेतन [Salary]', en:'Salary', kn:'ವೇತನ', mr:'पगार', bn:'বেতন', te:'జీతం', ta:'சம்பளம்', gu:'પગાર', pa:'ਤਨਖ਼ਾਹ', sw:'Mshahara', fr:'Salaire', es:'Salario', pt:'Salário', ar:'الراتب', id:'Gaji', vi:'Lương', ha:'Albashi'},
-    qualification:{hi:'योग्यता [Qualification]', en:'Qualification', kn:'ಅರ್ಹತೆ', mr:'पात्रता', bn:'যোগ্যতা', te:'అర్హత', ta:'தகுதி', gu:'લાયકાત', pa:'ਯੋਗਤਾ', sw:'Sifa', fr:'Qualification', es:'Calificación', pt:'Qualificação', ar:'المؤهل', id:'Kualifikasi', vi:'Bằng cấp', ha:'Cancika'},
+    lessons:      {hi:'पाठ (Lessons)', en:'Lessons', kn:'ಪಾಠಗಳು', mr:'धडे', bn:'পাঠ', te:'పాఠాలు', ta:'பாடங்கள்', gu:'પ્રકરણ', pa:'ਪਾਠ', sw:'Masomo', fr:'Leçons', es:'Lecciones', pt:'Aulas', ar:'دروس', id:'Pelajaran', vi:'Bài học', ha:'Darussan'},
+    salary:       {hi:'वेतन (Salary)', en:'Salary', kn:'ವೇತನ', mr:'पगार', bn:'বেতন', te:'జీతం', ta:'சம்பளம்', gu:'પગાર', pa:'ਤਨਖ਼ਾਹ', sw:'Mshahara', fr:'Salaire', es:'Salario', pt:'Salário', ar:'الراتب', id:'Gaji', vi:'Lương', ha:'Albashi'},
+    qualification:{hi:'योग्यता (Qualification)', en:'Qualification', kn:'ಅರ್ಹತೆ', mr:'पात्रता', bn:'যোগ্যতা', te:'అర్హత', ta:'தகுதி', gu:'લાયકાત', pa:'ਯੋਗਤਾ', sw:'Sifa', fr:'Qualification', es:'Calificación', pt:'Qualificação', ar:'المؤهل', id:'Kualifikasi', vi:'Bằng cấp', ha:'Cancika'},
 
     // ── COURSE TABS ──
     self_emp:     {hi:'🏪 स्वरोजगार कोर्स', en:'🏪 Self-Employment Courses', kn:'🏪 ಸ್ವಯಂ ಉದ್ಯೋಗ', mr:'🏪 स्वयंरोजगार', bn:'🏪 স্ব-কর্মসংস্থান', te:'🏪 స్వయం ఉపాధి', ta:'🏪 சுய தொழில்', gu:'🏪 સ્વ-રોજગાર', pa:'🏪 ਸਵੈ-ਰੁਜ਼ਗਾਰ', sw:'🏪 Kujitegemea', fr:'🏪 Auto-emploi', es:'🏪 Autoempleo', pt:'🏪 Autoemprego', ar:'🏪 العمل الحر', id:'🏪 Wirausaha', vi:'🏪 Tự kinh doanh', ha:'🏪 Kasuwanci'},
@@ -46,7 +58,7 @@ const ACS_T = {
     select_state: {hi:'— राज्य चुनें —', en:'— Select State —', kn:'— ರಾಜ್ಯ ಆಯ್ಕೆ —', mr:'— राज्य निवडा —', bn:'— রাজ্য নির্বাচন করুন —', te:'— రాష్ట్రం ఎంచుకోండి —', ta:'— மாநிலம் தேர்ந்தெடுக்கவும் —', gu:'— રાજ્ય પસંદ કરો —', pa:'— ਸੂਬਾ ਚੁਣੋ —', sw:'— Chagua Jimbo —', fr:'— Sélectionner État —', es:'— Seleccionar Estado —', pt:'— Selecionar Estado —', ar:'— اختر الولاية —', id:'— Pilih Negara Bagian —', vi:'— Chọn tỉnh —', ha:'— Zaɓi Jiha —'},
     select_dist:  {hi:'— जिला चुनें —', en:'— Select District —', kn:'— ಜಿಲ್ಲೆ ಆಯ್ಕೆ —', mr:'— जिल्हा निवडा —', bn:'— জেলা নির্বাচন করুন —', te:'— జిల్లా ఎంచుకోండి —', ta:'— மாவட்டம் தேர்ந்தெடுக்கவும் —', gu:'— જિલ્લો પસંદ કરો —', pa:'— ਜ਼ਿਲ੍ਹਾ ਚੁਣੋ —', sw:'— Chagua Wilaya —', fr:'— Sélectionner District —', es:'— Seleccionar Distrito —', pt:'— Selecionar Distrito —', ar:'— اختر المنطقة —', id:'— Pilih Distrik —', vi:'— Chọn huyện —', ha:'— Zaɓi Gunduma —'},
     free:         {hi:'निःशुल्क', en:'Free', kn:'ಉಚಿತ', mr:'विनामूल्य', bn:'বিনামূল্যে', te:'ఉచితం', ta:'இலவசம்', gu:'મફત', pa:'ਮੁਫ਼ਤ', sw:'Bure', fr:'Gratuit', es:'Gratis', pt:'Gratuito', ar:'مجاني', id:'Gratis', vi:'Miễn phí', ha:'Kyauta'},
-    paid:         {hi:'有料 [Paid]', en:'Paid', kn:'ಶುಲ್ಕ', mr:'शुल्क', bn:'পেইড', te:'చెల్లింపు', ta:'கட்டணம்', gu:'ચૂકવणी', pa:'ਭੁਗਤਾਨ', sw:'Kulipwa', fr:'Payant', es:'De pago', pt:'Pago', ar:'مدفوع', id:'Berbayar', vi:'Trả phí', ha:'Biyan Kuɗi'},
+    paid:         {hi:'भुगतान (Paid)', en:'Paid', kn:'ಶುಲ್ಕ', mr:'शुल्क', bn:'পেইড', te:'చెల్లింపు', ta:'கட்டணம்', gu:'ચૂકવणी', pa:'ਭੁਗਤਾਨ', sw:'Kulipwa', fr:'Payant', es:'De pago', pt:'Pago', ar:'مدفوع', id:'Berbayar', vi:'Trả phí', ha:'Biyan Kuɗi'},
     view_more:    {hi:'और देखें →', en:'View More →', kn:'ಇನ್ನಷ್ಟು →', mr:'अधिक पाहा →', bn:'আরো দেখুন →', te:'మరిన్ని చూడండి →', ta:'மேலும் →', gu:'વધુ →', pa:'ਹੋਰ ਦੇਖੋ →', sw:'Angalia Zaidi →', fr:'Voir Plus →', es:'Ver Más →', pt:'Ver Mais →', ar:'رؤية المزيد →', id:'Lihat Lebih →', vi:'Xem thêm →', ha:'Duba Karin →'},
     register_now: {hi:'अभी Register करें →', en:'Register Now →', kn:'ಈಗ ನೋಂದಾಯಿಸಿ →', mr:'आत्ता नोंदणी करा →', bn:'এখনই নিবন্ধন করুন →', te:'ఇప్పుడు నమోదు చేయండి →', ta:'இப்போது பதிவு செய்யுங்கள் →', gu:'હવે નોંધણી કરો →', pa:'ਹੁਣੇ ਰਜਿਸਟਰ ਕਰੋ →', sw:'Jiandikishe Sasa →', fr:'S\'inscrire Maintenant →', es:'Registrarse Ahora →', pt:'Registrar Agora →', ar:'سجل الآن →', id:'Daftar Sekarang →', vi:'Đăng ký ngay →', ha:'Yi Rajista Yanzu →'},
   },
@@ -97,15 +109,29 @@ const ACS_T = {
 
   /**
    * Current page की language detect करो
+   * क्रम (ग्राहक देवो भव:):
+   *   (1) saved = user की last चुनी भाषा — सबसे ऊपर (हर page पर वही)
+   *   (2) browser भाषा — सिर्फ़ पहली बार (जब कुछ saved नहीं)
+   *   (3) page जिस folder में है, उसकी भाषा — आख़िरी सहारा
    */
   detectLang: function() {
-    const path = window.location.pathname;
-    const match = path.match(/^\/(hi|en|kn|mr|bn|te|ta|gu|pa|ur|sw|fr|es|pt|ar|id|vi|ha)\//);
-    if (match) return match[1];
+    const langCodes = this.langCodes;
+
+    // (1) user की last चुनी भाषा — page बदलने पर भी यही रहे (उबाऊ न लगे)
     const saved = localStorage.getItem('acs_lang');
-    if (saved) return saved;
-    const browser = (navigator.language || 'en').slice(0,2).toLowerCase();
-    return browser;
+    if (saved && langCodes.indexOf(saved) !== -1) return saved;
+
+    // (2) पहली बार — browser/device की भाषा
+    const browser = (navigator.language || '').slice(0,2).toLowerCase();
+    if (langCodes.indexOf(browser) !== -1) return browser;
+
+    // (3) page जिस भाषा-folder में है
+    const path = window.location.pathname;
+    const match = path.match(new RegExp('^/(' + langCodes.join('|') + ')/'));
+    if (match) return match[1];
+
+    // कुछ न मिला → डिफ़ॉल्ट हिंदी
+    return 'hi';
   },
 
   /**
@@ -133,8 +159,9 @@ const ACS_T = {
       const translated = this.get(key, lang);
       if (translated) el.placeholder = translated;
     });
-    // Save lang
-    localStorage.setItem('acs_lang', lang);
+    // नोट: यहाँ localStorage save नहीं करते।
+    // भाषा सिर्फ़ तभी याद हो जब ग्राहक खुद चुने (switchLang में) —
+    // वरना browser-detect की गलत भाषा हमेशा के लिए lock हो सकती है।
   },
 
   /**
@@ -170,24 +197,39 @@ const ACS_T = {
   },
 
   /**
-   * Language switch करो
+   * Language switch करो — उसी page पर भाषा बदले (home पर redirect नहीं)
+   * /hi/network.html → /kn/network.html
    */
   switchLang: function(lang) {
-    const pathMap = {
-      hi:'/hi/', en:'/en/', kn:'/kn/', mr:'/mr/',
-      bn:'/bn/', te:'/te/', ta:'/ta/', gu:'/gu/',
-      pa:'/pa/', sw:'/sw/', fr:'/fr/', es:'/es/',
-      pt:'/pt/', ar:'/ar/', id:'/id/', vi:'/vi/', ha:'/ha/',
-    };
+    const langCodes = this.langCodes;
+    if (langCodes.indexOf(lang) === -1) lang = 'en';
+
+    // चुनी हुई भाषा हमेशा याद रहे
     localStorage.setItem('acs_lang', lang);
-    const target = pathMap[lang] || '/en/';
-    window.location.href = target;
+
+    let path = window.location.pathname;
+
+    // अगर path पहले से किसी भाषा-folder से शुरू है → सिर्फ़ वह folder बदलो,
+    // बाक़ी page वही रहे (network.html, courses/ आदि नहीं खोएगा)
+    const langFolder = new RegExp('^/(' + langCodes.join('|') + ')/');
+    if (langFolder.test(path)) {
+      path = path.replace(langFolder, '/' + lang + '/');
+    } else {
+      // कोई भाषा-folder नहीं (जैसे root का index) → उस भाषा के home folder पर
+      path = '/' + lang + '/';
+    }
+
+    window.location.href = path;
   },
 };
 
 // Auto-apply on page load
 document.addEventListener('DOMContentLoaded', function() {
-  // Apply translations
-  const lang = ACS_T.detectLang();
-  ACS_T.apply(lang);
+  try {
+    const lang = ACS_T.detectLang();
+    ACS_T.apply(lang);
+  } catch (e) {
+    // translate विफल हो तो page वैसा ही चले — content कभी न रुके
+    console.warn('ACS translate skipped:', e);
+  }
 });
