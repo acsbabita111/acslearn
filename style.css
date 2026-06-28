@@ -1,10 +1,20 @@
 
+/* ════════════════════════════════════════════════════════════════
+   ACS मास्टर CSS — एकमात्र (single source / परत-2)
+   रंग नीचे = acs-config.js के colors से हूबहू मेल खाएँ (एक चीज़=एक जगह)।
+   यहाँ एक रंग बदलो → पूरी website बदले।
+   ════════════════════════════════════════════════════════════════ */
 :root{
-  --primary:#0d6efd;--primary-dark:#0a58ca;--green:#15803d;--gold:#b45309;--gold-bg:#fef3c7;
-  --navy:#0f172a;--muted:#475569;--light:#f8fafc;--border:#e2e8f0;--white:#fff;--radius:16px;
+  /* ब्रांड 5 (Constitution — अधिकतम 5) */
+  --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
+  /* कामकाजी (ब्रांड-रंग नहीं) */
+  --white:#FFFFFF; --ink:#1A2B3C; --border:#E8EDF5; --muted:#475569;
+  --success:#43A047; --danger:#C62828;
+  /* पुराने नाम → नए मान (पुराने live pages न टूटें) */
+  --primary:#1565C0; --primary-dark:#0D47A1; --gold-bg:#FFF4D6; --light:#F5F7FA; --radius:16px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans Devanagari','Nirmala UI','Mangal',sans-serif;background:#fcfcf9;color:var(--navy);line-height:1.65}
+body{font-family:'Inter','Noto Sans Devanagari','Nirmala UI','Mangal',sans-serif;background:#fcfcf9;color:var(--navy);font-size:19px;line-height:1.8}
 a{text-decoration:none;color:inherit}
 .navbar{background:var(--navy);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:1000}
 .nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
@@ -13,39 +23,39 @@ a{text-decoration:none;color:inherit}
 .trust-strip{background:var(--green);color:#fff;text-align:center;padding:10px 14px;font-weight:900}.trust-strip p{margin:1px 0;line-height:1.35}
 .menu-panel{position:fixed;right:0;top:0;width:290px;height:100%;background:#fff;box-shadow:-5px 0 25px #0003;z-index:2000;padding:20px;overflow-y:auto}.menu-panel-header{display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:12px}.menu-panel-header h3{font-size:1.1rem}#closeMenuPanel,#closeLangPanel{background:none;border:0;font-size:1.25rem;cursor:pointer;color:#64748b}.menu-panel-links{list-style:none}.menu-panel-links a{display:block;padding:10px;border-radius:8px;font-weight:800;color:#334155}.menu-panel-links a:hover{background:#f1f5f9;color:var(--primary)}
 .language-panel{background:#fff;box-shadow:0 8px 25px #0002;padding:20px;max-width:900px;margin:auto;border-bottom:3px solid var(--primary)}.lang-panel-header{display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:12px}.lang-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.lang-opt{padding:10px;border:1px solid #cbd5e1;border-radius:8px;background:#f8fafc;font-weight:800;text-align:left;cursor:pointer}.lang-opt.active{background:var(--primary);color:white}
-.hero,.page-hero{background:#f3f4f6;background-image:radial-gradient(rgba(13,110,253,.045) 1px,transparent 0);background-size:24px 24px;text-align:center;padding:50px 16px;border-bottom:1px solid var(--border)}.hero{min-height:55vh;display:flex;align-items:center;justify-content:center}.hero-content,.page-hero-inner{max-width:940px;margin:auto}.hero-heading,.page-hero h1{font-size:2.55rem;font-weight:900;line-height:1.2}.highlight-gold{display:inline-block;background:var(--gold-bg);color:var(--gold);padding:9px 18px;border-radius:12px;font-size:2rem;font-weight:900;margin:14px 0}.hero-message{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px 24px;margin:12px auto 16px;max-width:440px;box-shadow:0 4px 12px #00000008}.hero-line{font-size:1.36rem;font-weight:900}.hero-brand-footer,.hero-audience-tags{font-weight:900;color:var(--muted);margin:10px 0}.hero-audience-tags a,.sub-link{color:var(--primary);font-weight:900;text-decoration:underline;text-underline-offset:4px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-width:180px;padding:14px 20px;border-radius:999px;font-weight:900;text-align:center;box-shadow:0 4px 10px #0001}.btn-primary{background:#16a34a;color:#fff}.btn-accent{background:var(--primary);color:#fff}.btn-dark{background:var(--navy);color:#fff}.btn-gold{background:var(--gold);color:#fff}.hero-buttons,.page-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:16px 0}.hero-secondary-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
-.section-container{padding:44px 16px;max-width:1200px;margin:auto}.bg-light{background:var(--light);max-width:100%}.section-title-block{text-align:center;margin-bottom:26px}.badge,.breadcrumb{display:inline-block;background:#eff6ff;color:var(--primary);padding:5px 12px;border-radius:999px;font-weight:900;font-size:.85rem;margin-bottom:8px}.section-title-block h2{font-size:1.75rem;font-weight:900}.subtext,.page-hero p{color:var(--muted);max-width:780px;margin:0 auto}
+.hero,.page-hero{background:#f3f4f6;background-image:radial-gradient(rgba(21,101,192,.05) 1px,transparent 0);background-size:24px 24px;text-align:center;padding:50px 16px;border-bottom:1px solid var(--border)}.hero{min-height:55vh;display:flex;align-items:center;justify-content:center}.hero-content,.page-hero-inner{max-width:940px;margin:auto}.hero-heading,.page-hero h1{font-size:2.55rem;font-weight:900;line-height:1.2}.highlight-gold{display:inline-block;background:var(--gold);color:var(--navy);padding:9px 18px;border-radius:12px;font-size:2rem;font-weight:900;margin:14px 0}.hero-message{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px 24px;margin:12px auto 16px;max-width:440px;box-shadow:0 4px 12px #00000008}.hero-line{font-size:1.36rem;font-weight:900}.hero-brand-footer,.hero-audience-tags{font-weight:900;color:var(--muted);margin:10px 0}.hero-audience-tags a,.sub-link{color:var(--primary);font-weight:900;text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-width:180px;padding:14px 20px;border-radius:999px;font-weight:900;text-align:center;box-shadow:0 4px 10px #0001}.btn-primary{background:var(--green);color:#fff}.btn-accent{background:var(--primary);color:#fff}.btn-dark{background:var(--navy);color:#fff}.btn-gold{background:var(--gold);color:#fff}.hero-buttons,.page-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:16px 0}.hero-secondary-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.section-container{padding:44px 16px;max-width:1200px;margin:auto}.bg-light{background:var(--light);max-width:100%}.section-title-block{text-align:center;margin-bottom:26px}.badge,.breadcrumb{display:inline-block;background:#eff6ff;color:var(--primary);padding:5px 12px;border-radius:999px;font-weight:900;font-size:16px;margin-bottom:8px}.section-title-block h2{font-size:1.75rem;font-weight:900}.subtext,.page-hero p{color:var(--muted);max-width:780px;margin:0 auto}
 .content-grid{display:grid;grid-template-columns:1fr;gap:16px}.content-card,.tool-card,.role-card,.notice-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:0 4px 8px #00000006}.content-card h3,.tool-card h3,.role-card h3{font-size:1.18rem;font-weight:900;margin-bottom:6px}.content-card p,.tool-card p,.role-card p,.notice-card p,.content-card li{color:var(--muted);margin:6px 0 10px}.pathway-link,.tool-link{color:var(--primary);font-weight:900}
 .tool-card{display:flex;flex-direction:column;min-height:170px}.tool-icon{font-size:2rem;margin-bottom:6px}.role-card strong{color:var(--navy)}
-.info-strip,.acs-payment-disclaimer{background:#eff6ff;border-left:4px solid #2563eb;border-radius:12px;padding:16px 18px;color:#1e3a8a;margin-top:16px;font-size:.94rem}.acs-payment-disclaimer a{color:var(--primary);font-weight:900;text-decoration:underline}.warning-strip{background:#fff7ed;border-left:4px solid #f97316;border-radius:12px;padding:16px 18px;color:#7c2d12;margin-top:16px}.success-strip{background:#f0fdf4;border-left:4px solid #16a34a;border-radius:12px;padding:16px 18px;color:#14532d;margin-top:16px}
+.info-strip,.acs-payment-disclaimer{background:#eff6ff;border-left:4px solid var(--blue);border-radius:12px;padding:16px 18px;color:#1e3a8a;margin-top:16px;font-size:16px}.acs-payment-disclaimer a{color:var(--primary);font-weight:900;text-decoration:underline}.warning-strip{background:#fff7ed;border-left:4px solid var(--gold);border-radius:12px;padding:16px 18px;color:#7c2d12;margin-top:16px}.success-strip{background:#f0fdf4;border-left:4px solid var(--green);border-radius:12px;padding:16px 18px;color:#14532d;margin-top:16px}
 .form-shell{display:grid;gap:12px;margin-top:16px}.form-row{display:grid;gap:6px}.form-row label{font-weight:900}.form-row input,.form-row textarea,.form-row select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}.form-row textarea{min-height:110px}.table{width:100%;border-collapse:collapse;margin-top:10px}.table th,.table td{border:1px solid #cbd5e1;padding:10px;text-align:left;vertical-align:top}.table th{background:#eff6ff}
 .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.gallery-tile{aspect-ratio:4/3;border:1px dashed #cbd5e1;border-radius:14px;background:#f8fafc;display:flex;align-items:center;justify-content:center;text-align:center;color:#475569;font-weight:900}
 .whatsapp-float{position:fixed;right:12px;bottom:72px;background:#25D366;color:#fff;width:54px;height:54px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #0004;z-index:1500}.wa-svg{width:30px;height:30px}.wa-text{display:none!important}
-.main-footer{background:var(--navy);color:#cbd5e1;padding:44px 16px 20px;border-top:4px solid var(--primary)}.footer-grid{display:grid;gap:28px;max-width:1200px;margin:auto}.footer-brand-info h2,.footer-sitemap h3,.footer-contact h3{color:white}.sponsor-org{color:#f59e0b;font-weight:900}.tagline{font-size:.85rem;color:#94a3b8}.iso-box{background:#1e293b;border-left:3px solid var(--primary);padding:10px;border-radius:8px}.sitemap-links{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.sitemap-links a{color:#94a3b8;font-size:.85rem}.contact-item a{color:white}.archive-notice{margin-top:14px;background:#ef444414;border:1px solid #ef444433;padding:10px;border-radius:8px;font-size:.82rem}.footer-bottom{text-align:center;color:#64748b;border-top:1px solid #334155;margin-top:28px;padding-top:14px}
+.main-footer{background:var(--navy);color:#cbd5e1;padding:44px 16px 20px;border-top:4px solid var(--primary)}.footer-grid{display:grid;gap:28px;max-width:1200px;margin:auto}.footer-brand-info h2,.footer-sitemap h3,.footer-contact h3{color:white}.sponsor-org{color:var(--gold);font-weight:900}.tagline{font-size:16px;color:#94a3b8}.iso-box{background:#1e293b;border-left:3px solid var(--primary);padding:10px;border-radius:8px}.sitemap-links{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.sitemap-links a{color:#94a3b8;font-size:16px}.contact-item a{color:white}.archive-notice{margin-top:14px;background:#ef444414;border:1px solid #ef444433;padding:10px;border-radius:8px;font-size:16px}.footer-bottom{text-align:center;color:#64748b;border-top:1px solid #334155;margin-top:28px;padding-top:14px}
 @media(min-width:768px){.content-grid.two{grid-template-columns:repeat(2,1fr)}.content-grid.three{grid-template-columns:repeat(3,1fr)}.content-grid.four{grid-template-columns:repeat(4,1fr)}.footer-grid{grid-template-columns:repeat(3,1fr)}.gallery-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:640px){.brand-logo-img{height:42px}.brand-name{font-size:1.05rem}.lang-btn,.menu-btn{min-width:54px;min-height:54px}.hero{min-height:auto;padding:34px 14px 22px}.hero-heading{font-size:2.2rem}.highlight-gold{font-size:1.7rem}.hero-line{font-size:1.3rem}body{padding-bottom:76px}}
 
 
 /* ACS Smart Internal Backlinks */
 .auto-backlink {
-  color: #0d6efd;
+  color: var(--blue);
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .auto-backlink:hover {
-  color: #0a58ca;
+  color: var(--primary-dark);
 }
 
 
 /* ACS Full Footer Restoration */
 .footer-brand-info .mini-note {
   margin-top: 10px;
-  font-size: 0.84rem;
+  font-size: 16px;
   color: #cbd5e1;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .footer-sitemap .sitemap-links {
@@ -132,3 +142,131 @@ a{text-decoration:none;color:inherit}
     border-radius: 8px;
   }
 }
+
+
+/* ════════════════════════════════════════════════════════════════
+   ACS मास्टर ADDITIONS (v2) — accessibility + template के साझा हिस्से
+   नाम "acs-" से शुरू → पुरानी live class से कभी न टकराएँ।
+   _TEMPLATE.html इन्हीं को इस्तेमाल करेगा (Step 4)।
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── keyboard focus साफ़ दिखे (accessibility होल हल) ── */
+a:focus-visible, button:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible,
+.btn:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:2px;
+  border-radius:6px;
+}
+
+/* ── reduced-motion: जिन्हें animation से तकलीफ़ हो ── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ── skip-link (सीधे मुख्य content पर) ── */
+.acs-skip{
+  position:absolute;left:-9999px;top:0;z-index:9999;
+  background:var(--gold);color:var(--navy);
+  padding:12px 18px;border-radius:0 0 10px 0;
+  font-weight:800;font-size:16px;
+}
+.acs-skip:focus{left:0}
+
+/* ── slide-menu (drawer) — दायें से आए ── */
+.acs-overlay{
+  position:fixed;inset:0;background:rgba(11,31,58,.5);
+  z-index:300;opacity:0;visibility:hidden;transition:.25s;
+}
+.acs-overlay.open{opacity:1;visibility:visible}
+.acs-drawer{
+  position:fixed;top:0;right:-300px;width:290px;height:100%;
+  background:#fff;z-index:400;overflow-y:auto;
+  transition:right .3s ease;box-shadow:-6px 0 24px rgba(0,0,0,.18);
+}
+.acs-drawer.open{right:0}
+.acs-drawer-head{
+  background:var(--navy);color:#fff;
+  display:flex;justify-content:space-between;align-items:center;padding:16px;
+}
+.acs-drawer-head h3{font-size:18px;font-weight:800}
+.acs-drawer a{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 18px;color:var(--navy);font-size:17px;font-weight:700;
+  border-bottom:1px solid #F0F2F5;min-height:50px;
+}
+.acs-drawer a:hover,.acs-drawer a.active{background:var(--offwhite);color:var(--blue)}
+.acs-drawer .acs-login{
+  margin:14px;background:var(--gold);color:var(--navy);
+  border-radius:12px;justify-content:center;font-weight:800;font-size:17px;
+}
+
+/* ── icon बटन (बंद/menu) — कम-से-कम 48px छूने को ── */
+.acs-iconbtn{
+  background:none;border:none;color:inherit;cursor:pointer;
+  font-size:22px;min-width:48px;min-height:48px;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+
+/* ── login modal ── */
+.acs-modal-bg{
+  position:fixed;inset:0;background:rgba(11,31,58,.8);z-index:500;
+  display:none;align-items:center;justify-content:center;padding:16px;
+}
+.acs-modal-bg.open{display:flex}
+.acs-modal{
+  background:#fff;border-radius:18px;width:100%;max-width:420px;
+  max-height:90vh;overflow-y:auto;padding:26px 22px;position:relative;
+}
+.acs-modal h3{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.acs-modal .sub{font-size:16px;color:var(--muted);margin-bottom:18px}
+.acs-role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.acs-role-btn{
+  padding:14px 10px;border:2px solid var(--border);border-radius:12px;
+  background:var(--offwhite);cursor:pointer;font-family:inherit;
+  font-size:16px;font-weight:700;color:var(--navy);
+  min-height:84px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;transition:.15s;
+}
+.acs-role-btn:hover,.acs-role-btn.sel{border-color:var(--blue);background:#E8F1FB;color:var(--blue)}
+.acs-role-btn .ic{font-size:26px}
+.acs-field{margin-bottom:14px}
+.acs-field label{display:block;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.acs-field input{
+  width:100%;padding:13px 14px;border:2px solid var(--border);border-radius:10px;
+  font-size:18px;font-family:inherit;outline:none;min-height:50px;
+}
+.acs-field input:focus{border-color:var(--blue)}
+.acs-submit{
+  width:100%;padding:15px;background:var(--blue);color:#fff;border:none;border-radius:10px;
+  font-size:18px;font-weight:800;cursor:pointer;font-family:inherit;min-height:54px;
+}
+.acs-modal .err{color:var(--danger);font-size:16px;margin-top:10px;text-align:center}
+
+/* ── toast (नीचे संदेश) ── */
+.acs-toast{
+  position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+  background:var(--navy);color:#fff;padding:12px 22px;border-radius:24px;
+  font-size:16px;z-index:999;opacity:0;transition:.3s;max-width:92%;text-align:center;
+}
+.acs-toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.acs-toast.ok{border-left:4px solid var(--success)}
+.acs-toast.err{border-left:4px solid var(--danger)}
+
+/* ── scroll-to-top ── */
+.acs-scrolltop{
+  position:fixed;right:16px;bottom:84px;width:48px;height:48px;border-radius:50%;
+  background:var(--navy);color:#fff;border:none;font-size:20px;cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.2);display:none;z-index:1400;
+}
+.acs-scrolltop.show{display:flex;align-items:center;justify-content:center}
+
+/* ── login के बाद welcome ── */
+.acs-welcome{display:none;text-align:center;padding:54px 20px}
+.acs-welcome.show{display:block}
+.acs-welcome .ic{font-size:54px;margin-bottom:12px}
+.acs-welcome h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
