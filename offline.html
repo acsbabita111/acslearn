@@ -3,25 +3,38 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Offline — ACS Vani</title>
+<title>Offline — ACS</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans Devanagari',sans-serif;background:#0B1F3A;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-.wrap{max-width:300px}
-.logo{width:80px;height:80px;border-radius:20px;margin:0 auto 20px;display:block}
-h1{font-size:24px;font-weight:800;margin-bottom:10px;color:#F9A825}
-p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:20px}
-.btn{display:inline-block;padding:12px 28px;background:#1565C0;color:#fff;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;border:none;font-family:inherit}
-.wifi{font-size:60px;margin-bottom:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Inter','Noto Sans Devanagari','Nirmala UI','Mangal',sans-serif;
+    background:#0B1F3A;color:#fff;min-height:100vh;line-height:1.7;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;
+  }
+  .wrap{max-width:340px}
+  .wifi{font-size:58px;margin-bottom:14px}
+  /* logo remote image पर निर्भर नहीं — offline में भी हमेशा दिखे */
+  .mark{
+    width:84px;height:84px;border-radius:22px;margin:0 auto 18px;
+    display:grid;place-items:center;background:#F9A825;color:#0B1F3A;
+    font-size:32px;font-weight:900;letter-spacing:1px;
+  }
+  h1{font-size:24px;font-weight:800;margin-bottom:10px;color:#F9A825}
+  p{font-size:17px;color:rgba(255,255,255,.82);margin-bottom:22px}
+  .btn{
+    display:inline-block;padding:14px 30px;background:#1565C0;color:#fff;
+    border-radius:12px;font-size:18px;font-weight:800;border:none;cursor:pointer;
+    font-family:inherit;min-height:52px;
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="wifi">📵</div>
-  <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="logo"/>
-  <h1>ACS Vani</h1>
-  <p>अभी Internet नहीं है।<br/>जो pages पहले खुले थे वो काम करेंगे।<br/>Internet आने पर automatically update होगा।</p>
-  <button class="btn" onclick="window.location.reload()">🔄 फिर try करें</button>
-</div>
+  <div class="wrap">
+    <div class="wifi">📵</div>
+    <div class="mark">ACS</div>
+    <h1>अभी Internet नहीं है</h1>
+    <p>जो pages पहले खुले थे, वे चलते रहेंगे।<br/>Internet आते ही अपने-आप ताज़ा हो जाएगा।</p>
+    <button class="btn" onclick="location.reload()">🔄 फिर try करें</button>
+  </div>
 </body>
 </html>

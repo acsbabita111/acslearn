@@ -1,66 +1,72 @@
 /* ==========================================================================
-   ACS Service Worker — v3 (auto-update)
-   लक्ष्य: रेपो पर नया code आते ही, ग्राहक के अगली बार site खोलते ही
-          लगभग तुरंत नया दिखे — पुरानी cache फँसाए नहीं।
+   ACS Service Worker — v4
+   लक्ष्य: नया code आते ही अगली बार खोलने पर लगभग तुरंत नया दिखे; offline भी चले।
 
    तरीक़ा:
-   - HTML pages → network-first (हमेशा अपने-आप ताज़ा; नेट न हो तो cache/offline)
-   - फ़ॉन्ट/logo/CSS/JS जैसी static चीज़ें → cache-first (तेज़)
-   - नया version आते ही skipWaiting + clients.claim → तुरंत कमान
-   - login/profile/dashboard जैसे निजी page कभी cache नहीं (सुरक्षा)
+   - HTML pages → network-first (हमेशा ताज़ा; नेट न हो तो cache/offline)
+   - CSS/JS/font/logo → cache-first + background-refresh (तेज़)
+   - login/dashboard/register जैसे निजी page कभी cache नहीं (सुरक्षा)
+   - नया version → script.js का "Update करें" toast; user दबाए तो SKIP_WAITING
 
-   ⚠️ बहुत ज़रूरी — अपडेट कैसे भेजें:
-      • सिर्फ़ HTML page अपने-आप ताज़ा होते हैं।
-      • पर जब आप CSS / JS / image (जैसे style.css, acs-translate.js) बदलें,
-        तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v3 → v4 → v5 …)।
-        तभी पुरानी cache साफ़ होगी और नया code ग्राहक तक पहुँचेगा।
-      • भूल गए तो ग्राहक को पुरानी CSS/JS दिखती रह सकती है।
+   ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v3';                 // ← CSS/JS बदलें तो यह ज़रूर बढ़ाएँ
+const CACHE_VERSION = 'v4';                 // ← CSS/JS बदलें तो बढ़ाएँ
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
-/* सिर्फ़ न बदलने वाली, सुरक्षित static चीज़ें पहले से cache —
-   कोई login/dashboard/personal page यहाँ नहीं। */
+/* फ़ॉन्ट URL — style.css/template जो माँगते हैं उससे हूबहू मेल (400–900) */
+const FONT_URL =
+  'https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap';
+
+/* न बदलने वाली साझा चीज़ें — offline में भी साइट चले */
 const PRECACHE_URLS = [
   '/',
-  '/offline.html',
+  OFFLINE_URL,
   '/manifest.json',
-  'https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap'
+  '/style.css',
+  '/script.js',
+  '/logo.png',
+  '/assets/acs-config.js',
+  '/assets/links.js',
+  '/assets/acs-translate.js',
+  FONT_URL
 ];
 
-/* कभी cache न करने वाले रास्ते (निजी/सुरक्षित) —
-   dashboard, profile, register, login व हर role का निजी क्षेत्र */
+/* निजी/सुरक्षित रास्ते — कभी cache नहीं */
 function isPrivatePath(url) {
-  return /\/dashboard\/|\/dashboard\.html|\/callcenter\/|\/founder|\/admin|\/manager\/|\/operator\/|\/profile\.html|\/register\.html|\/login|\/teacher\/|\/counselor\/|\/employer\/|\/partner\//i.test(url);
+  return /\/dashboard\/|\/dashboard\.html|\/callcenter\/|\/founder|\/admin|\/manager\/|\/operator\/|\/profile\.html|\/register\.html|register\.html|\/login|\/teacher\/|\/counselor\/|\/employer\/|\/partner\//i.test(url);
 }
 
-/* HTML page का request है या नहीं */
 function isHTMLRequest(request) {
   return request.mode === 'navigate' ||
          (request.headers.get('accept') || '').includes('text/html');
 }
 
-/* ── Install: static चीज़ें pre-cache, और तुरंत आगे बढ़ो ── */
+/* ── Install: साझा चीज़ें pre-cache (एक-एक करके — एक fail हो तो बाक़ी न रुकें) ── */
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(PRECACHE_URLS))
-      .catch(err => console.log('ACS SW precache skip:', err))
+    caches.open(CACHE_NAME).then(cache =>
+      Promise.all(PRECACHE_URLS.map(u =>
+        cache.add(u).catch(err => console.log('ACS SW precache skip:', u, err))
+      ))
+    )
   );
-  self.skipWaiting();   // नया version इंतज़ार न करे
+  self.skipWaiting();
 });
 
-/* ── Activate: पुरानी सब cache मिटाओ, तुरंत कमान लो ── */
+/* ── Activate: पुरानी cache मिटाओ, तुरंत कमान लो ── */
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(
-        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-      ))
-      .then(() => self.clients.claim())   // सब खुले tab तुरंत नए sw के अधीन
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
   );
+});
+
+/* ── page से संदेश: "Update करें" दबाने पर तुरंत नया sw सक्रिय ── */
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 /* ── Fetch ── */
@@ -68,17 +74,14 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
 
-  // निजी/सुरक्षित page: कभी cache नहीं — सीधे नेटवर्क
-  if (isPrivatePath(request.url)) {
-    return; // browser सामान्य रूप से नेटवर्क से लाए
-  }
+  // निजी page → सीधे नेटवर्क (कभी cache नहीं)
+  if (isPrivatePath(request.url)) return;
 
-  // HTML page → network-first (हमेशा ताज़ा)
+  // HTML → network-first (हमेशा ताज़ा)
   if (isHTMLRequest(request)) {
     event.respondWith(
       fetch(request)
         .then(response => {
-          // सिर्फ़ सही response cache करो (टूटा/opaque नहीं)
           if (response && response.ok) {
             const clone = response.clone();
             caches.open(CACHE_NAME).then(c => c.put(request, clone));
@@ -99,12 +102,10 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // बाक़ी static (CSS/JS/font/image) → cache-first (तेज़),
-  // पर background में ताज़ा भी कर लो (stale-while-revalidate)
+  // बाक़ी static (CSS/JS/font/image) → cache-first + background refresh
   event.respondWith(
     caches.match(request).then(cached => {
       const network = fetch(request).then(response => {
-        // सिर्फ़ सही response cache करो (टूटा/opaque नहीं)
         if (response && response.ok) {
           const clone = response.clone();
           caches.open(CACHE_NAME).then(c => c.put(request, clone));
@@ -116,14 +117,14 @@ self.addEventListener('fetch', event => {
   );
 });
 
-/* ── Push Notifications (vani/dashboard के लिए) ── */
+/* ── Push Notifications (vani/dashboard) ── */
 self.addEventListener('push', event => {
   const data = event.data ? event.data.json() : {};
   event.waitUntil(
     self.registration.showNotification(data.title || 'ACS', {
       body: data.body || 'नई सूचना',
-      icon: 'https://acsbabita111.github.io/acslearn/logo.png',
-      badge: 'https://acsbabita111.github.io/acslearn/logo.png',
+      icon: '/logo.png',
+      badge: '/logo.png',
       vibrate: [200, 100, 200],
       data: { url: data.url || '/' }
     })

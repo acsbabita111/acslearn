@@ -1,43 +1,24 @@
 {
-  "name": "ACS Vani — Applied Computer School",
-  "short_name": "ACS Vani",
-  "description": "Free Digital Education & Calling — From Village to World",
-  "start_url": "/dashboard/index.html",
+  "name": "Applied Computer School™ — ACS",
+  "short_name": "ACS",
+  "description": "गाँव से विश्व तक — निःशुल्क डिजिटल शिक्षा (Global South)",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0B1F3A",
   "theme_color": "#0B1F3A",
   "orientation": "portrait-primary",
   "lang": "hi",
+  "dir": "auto",
   "icons": [
-    {
-      "src": "https://acsbabita111.github.io/acslearn/logo.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "https://acsbabita111.github.io/acslearn/logo.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "categories": ["education", "productivity"],
   "shortcuts": [
-    {
-      "name": "Login",
-      "url": "/dashboard/index.html",
-      "description": "ACS Dashboard Login"
-    },
-    {
-      "name": "Call Center",
-      "url": "/dashboard/callcenter/index.html",
-      "description": "Call Center"
-    },
-    {
-      "name": "Courses",
-      "url": "/courses.html",
-      "description": "Free Courses"
-    }
+    { "name": "कोर्स", "url": "/courses/hi/", "description": "निःशुल्क कोर्स" },
+    { "name": "उद्यम", "url": "/udyam/", "description": "950 उद्यम" },
+    { "name": "Login", "url": "/dashboard/", "description": "ACS Dashboard" }
   ]
 }
