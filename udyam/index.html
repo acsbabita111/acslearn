@@ -66,7 +66,7 @@
 
   <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
   <div class="trust-strip">
-    <p>✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
+    <p style="font-size:16px;font-weight:700;white-space:nowrap">✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
     <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
   </div>
 
@@ -787,6 +787,19 @@ initStateDropdowns();
 initStateJobDropdown();
 initEmbassyDropdown();
 renderSectors();
+</script>
+
+<!-- home से deep-link: #jobs → नौकरी tab, #udyam → स्वरोजगार/उद्यम tab -->
+<script>
+(function(){
+  function applyHash(){
+    var h = location.hash;
+    if (h === '#jobs'  && window.goTab) goTab(2);   // सरकारी नौकरी (पहला नौकरी-tab)
+    else if (h === '#udyam' && window.goTab) goTab(1); // स्वरोजगार / उद्यम
+  }
+  setTimeout(applyHash, 80);                 // init/render के बाद चले
+  window.addEventListener('hashchange', applyHash);
+})();
 </script>
 
   </main>
