@@ -493,16 +493,10 @@ window.doLogin = async function(){
   if(!pass){ fieldErr("e-pass","Password डालें।"); return; }
   const btn=$("btn2"); btn.disabled=true; const old=btn.textContent; btn.textContent="जाँच हो रही है…";
   try{
-    const cred=await signInWithEmailAndPassword(auth,email,pass);
-    const uid=cred.user.uid;
-    let dbRole="";
-    try{ const snap=await getDoc(doc(db,"users",uid)); if(snap.exists()) dbRole=snap.data().role||""; }catch(e){}
-    if(dbRole && ROLE && dbRole!==ROLE){
-      await signOut(auth);
-      box("a2",'यह खाता "'+(RNAME[dbRole]||dbRole)+'" का है — वही भूमिका चुनें।');
-      btn.disabled=false; btn.textContent=old; return;
-    }
-    const role=dbRole||ROLE;
+    await signInWithEmailAndPassword(auth,email,pass);
+    /* हर भूमिका अपने अलग बक्से में रहती है — इसलिए चुनी हुई भूमिका (ROLE) ही पक्की।
+       (पुराना एक `users` बक्सा हटा दिया गया था; अब उसकी ज़रूरत नहीं।) */
+    const role=ROLE;
     if(NO_OTP.includes(role)){
       await finishLogin(role,email);
     }else{
