@@ -174,22 +174,33 @@
     var otpErr    = document.getElementById("acsOtpErr");
     var otpTimerEl= document.getElementById("acsOtpTimer");
     var resendBtn = document.getElementById("acsOtpResend");
-    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null;
+    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null, pendingDesignation = "";
 
     var SESSION_KEY = "acs_session";
     var OTP_VALID = 300, OTP_RESEND = 600;   // 5 मिनट valid · 10 मिनट resend
 
-    /* role → dashboard (असली role Firestore से) */
+    /* ── Role → URL (Constitution v1.5 मास्टर-सूची; role/designation Firestore में snake_case) ── */
+    /* 9 सीधे कार्ड */
     var ROLE_URLS = {
-      Founder:"/dashboard/founder/", HQ:"/dashboard/hq/", ZM:"/dashboard/zm/",
-      RM:"/dashboard/rm/", ACSTeam:"/dashboard/staff/", Staff:"/dashboard/staff/",
-      Teacher:"/dashboard/teacher/", Centre:"/dashboard/centre/",
-      Counselor:"/dashboard/counselor/", Employer:"/dashboard/employer/",
-      ForeignAgent:"/dashboard/foreign-agent/", Volunteer:"/dashboard/volunteer/",
-      Learner:"/dashboard/student/", Student:"/dashboard/student/"
+      student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
+      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
+    };
+    /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
+    var TEAM_URLS = {
+      founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
+      hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
+      zm:"/dashboard/zonal/", rm:"/dashboard/regional/",
+      field_staff:"/dashboard/hq/staff/", intern:"/dashboard/hq/staff/"
     };
 
-    function isStudent(r){ return r === "Student" || r === "Learner"; }
+    /* 3 Learner कार्ड → re-login पर OTP नहीं */
+    function isLearner(r){ return r==="student" || r==="jobseeker" || r==="entrepreneur"; }
+    /* सही dashboard URL */
+    function destFor(role, designation){
+      if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
+      return ROLE_URLS[role] || "/dashboard/student/";
+    }
     function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
 
     function showView(which){
@@ -265,9 +276,10 @@
         }
         /* role Firestore से */
         return window.firebase.firestore().collection("users").doc(user.uid).get().then(function (doc){
-          var role = (doc.exists && doc.data().role) || "Learner";
-          pendingUser = user; pendingRole = role;
-          if (isStudent(role)) return finishLogin();           // Student → कोई OTP नहीं
+          var data = doc.exists ? doc.data() : {};
+          var role = data.role || "student";
+          pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
+          if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
           /* 7 roles → असली OTP भेजो */
           return fn("requestLoginOtp")({ email: user.email }).then(function (res){
             if (res && res.data && res.data.skip) return finishLogin();
@@ -318,7 +330,7 @@
         var sid = res && res.data && res.data.sessionId;
         try{ localStorage.setItem(SESSION_KEY, sid || ""); }catch(e){}
         showView("welcome");
-        setTimeout(function (){ window.location.href = ROLE_URLS[pendingRole] || "/dashboard/student/"; }, 900);
+        setTimeout(function (){ window.location.href = destFor(pendingRole, pendingDesignation); }, 900);
       });
     }
 
