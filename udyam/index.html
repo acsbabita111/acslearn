@@ -565,26 +565,18 @@ img{max-width:100%;display:block}
 <div class="toast" id="toast"></div>
 
 <!-- DATA FILES -->
+<script src="/assets/master_groups.js"></script>
 <script src="/assets/udyam_data.js"></script>
 <script src="/assets/govt_jobs_embassy.js"></script>
 
 <script>
-// ══ MASTER GROUPS ══
-const MG=[
-  {id:'all',name:'सब (950)'},
-  {id:1,name:'🌾 कृषि (67)'},{id:2,name:'⛏️ खनन (43)'},
-  {id:3,name:'🏭 विनिर्माण (52)'},{id:4,name:'🏗️ निर्माण (30)'},
-  {id:5,name:'🧵 वस्त्र (40)'},{id:6,name:'💊 स्वास्थ्य (32)'},
-  {id:7,name:'💻 प्रौद्योगिकी (43)'},{id:8,name:'🚗 परिवहन (52)'},
-  {id:9,name:'🛍️ व्यापार (43)'},{id:10,name:'🎭 सेवाएं (39)'},
-  {id:11,name:'📚 शिक्षा (50)'},{id:12,name:'🌿 हस्तशिल्प (40)'},
-  {id:13,name:'⚗️ रसायन (42)'},{id:14,name:'🌍 वैश्विक (80)'},
-  {id:15,name:'🔮 भविष्य (50)'},{id:16,name:'⚖️ विधिक (30)'},
-  {id:17,name:'🏛️ सरकार (40)'},{id:18,name:'📊 डेटा (31)'},
-  {id:19,name:'🤖 रोबोटिक्स (30)'},{id:20,name:'🌎 जलवायु (21)'},
-  {id:21,name:'🙏 धार्मिक (10)'},{id:22,name:'🏆 खेल (10)'},
-  {id:23,name:'💰 डिजिटल वित्त (15)'},{id:24,name:'🛡️ सुरक्षा (60)'},
-];
+// ══ MASTER GROUPS (single source: /assets/master_groups.js) ══
+// नाम/श्रेणियाँ अब master_groups.js से; गिनती ALL_SECTORS से अपने-आप।
+const MG = [{ id:'all', name:'सब (' + ALL_SECTORS.length + ')' }].concat(
+  MASTER_GROUPS.map(function (g) {
+    return { id: g.id, name: g.emoji + ' ' + g.name + ' (' + mgCount(ALL_SECTORS, g.id) + ')' };
+  })
+);
 
 let activeMG='all',searchQ='';
 
