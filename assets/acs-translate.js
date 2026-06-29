@@ -1,14 +1,7 @@
 /**
  * ACS Universal Translate Asset
- * Version 1.1 | June 2026 (bug-fix)
- * एक file → 80+ भाषाएं auto-translate
- *
- * v1.1 सुधार:
- *  - switchLang अब उसी page पर भाषा बदलता है (home folder पर redirect का बग हटा)
- *  - detectLang क्रम (ग्राहक देवो भव:): saved (last चुनी) → browser → page-folder
- *    यानी user की चुनी भाषा हर page पर वही रहे; पहली बार browser भाषा
- *  - auto-apply अब error-safe (translate विफल हो तो भी page चले)
- *  - square bracket ( ) किए; जापानी अक्षर हटाया
+ * Version 1.0 | June 2026
+ * एक file → 17 भाषाएं auto-translate (लक्ष्य 80+)
  *
  * Use: ACS_T.get('courses', 'hi') → 'कोर्स'
  *      ACS_T.apply('hi') → सब UI labels update
@@ -16,31 +9,26 @@
 
 const ACS_T = {
 
-  // ══ समर्थित भाषा-कोड — एक ही जगह (एक चीज़ = एक जगह) ══
-  // नई भाषा जोड़नी हो तो सिर्फ़ यहाँ कोड जोड़ें (+ labels/edu व switcher में नाम)।
-  // नोट: 'ur' (उर्दू) अभी हटाया — labels/switcher में अधूरा था; पूरा होने पर जोड़ें।
-  langCodes: ['hi','en','kn','mr','bn','te','ta','gu','pa','sw','fr','es','pt','ar','id','vi','ha'],
-
   // ══ UI LABELS — सभी भाषाएं ══
   labels: {
 
     // ── MENU ──
     home:         {hi:'🏠 होम',         en:'🏠 Home',         kn:'🏠 ಮನೆ',           mr:'🏠 मुख्यपृष्ठ',    bn:'🏠 হোম',          te:'🏠 హోమ్',          ta:'🏠 முகப்பு',       gu:'🏠 હોમ',           pa:'🏠 ਹੋਮ',           sw:'🏠 Nyumbani',      fr:'🏠 Accueil',       es:'🏠 Inicio',        pt:'🏠 Início',        ar:'🏠 الرئيسية',      id:'🏠 Beranda',       vi:'🏠 Trang chủ',     ha:'🏠 Gida'},
     mission:      {hi:'🎯 मिशन',        en:'🎯 Mission',       kn:'🎯 ಮಿಷನ್',         mr:'🎯 ध्येय',         bn:'🎯 মিশন',          te:'🎯 మిషన్',          ta:'🎯 இலக்கு',        gu:'🎯 મિશન',          pa:'🎯 ਮਿਸ਼ਨ',         sw:'🎯 Dhamira',       fr:'🎯 Mission',       es:'🎯 Misión',        pt:'🎯 Missão',        ar:'🎯 المهمة',        id:'🎯 Misi',           vi:'🎯 Sứ mệnh',       ha:'🎯 Manufa'},
-    counseling:   {hi:'🧭 सलाह',        en:'🧭 Counseling',    kn:'🧭 ಸಲಹೆ',          mr:'🧭 सल्ला',         bn:'🧭 পরামর্শ',        te:'🧭 సలహా',           ta:'🧭 ஆலோசனை',        gu:'🧭 સલાહ',          pa:'🧭 ਸਲਾਹ',         sw:'🧭 Ushauri',       fr:'🧭 Conseil',       es:'🧭 Consejo',       pt:'🧭 Conselho',      ar:'🧭 استشارة',       id:'🧭 Konsultasi',    vi:'🧭 Tư vấn',        ha:'🧭 Shawara'},
-    industries:   {hi:'🌍 उद्यम',       en:'🌍 Industries',    kn:'🌍 ಉದ್ಯಮ',         mr:'🌍 उद्योग',        bn:'🌍 উদ্যোগ',         te:'🌍 వ్యాపారం',       ta:'🌍 தொழில்',        gu:'🌍 ઉદ્યોગ',        pa:'🌍 ਉਦਯੋਗ',        sw:'🌍 Biashara',      fr:'🌍 Secteurs',      es:'🌍 Sectores',      pt:'🌍 Setores',       ar:'🌍 القطاعات',      id:'🌍 Sektor',         vi:'🌍 Ngành nghề',    ha:'🌍 Kasuwanci'},
+    salah:   {hi:'🧭 सलाह',        en:'🧭 Counseling',    kn:'🧭 ಸಲಹೆ',          mr:'🧭 सल्ला',         bn:'🧭 পরামর্শ',        te:'🧭 సలహా',           ta:'🧭 ஆலோசனை',        gu:'🧭 સલાહ',          pa:'🧭 ਸਲਾਹ',         sw:'🧭 Ushauri',       fr:'🧭 Conseil',       es:'🧭 Consejo',       pt:'🧭 Conselho',      ar:'🧭 استشارة',       id:'🧭 Konsultasi',    vi:'🧭 Tư vấn',        ha:'🧭 Shawara'},
+    udyam:   {hi:'🌍 उद्यम',       en:'🌍 Industries',    kn:'🌍 ಉದ್ಯಮ',         mr:'🌍 उद्योग',        bn:'🌍 উদ্যোগ',         te:'🌍 వ్యాపారం',       ta:'🌍 தொழில்',        gu:'🌍 ઉદ્યોગ',        pa:'🌍 ਉਦਯੋਗ',        sw:'🌍 Biashara',      fr:'🌍 Secteurs',      es:'🌍 Sectores',      pt:'🌍 Setores',       ar:'🌍 القطاعات',      id:'🌍 Sektor',         vi:'🌍 Ngành nghề',    ha:'🌍 Kasuwanci'},
     courses:      {hi:'📚 कोर्स',       en:'📚 Courses',       kn:'📚 ಕೋರ್ಸ್',        mr:'📚 अभ्यासक्रम',    bn:'📚 কোর্স',          te:'📚 కోర్సులు',       ta:'📚 படிப்புகள்',     gu:'📚 કોર્સ',         pa:'📚 ਕੋਰਸ',         sw:'📚 Kozi',          fr:'📚 Cours',         es:'📚 Cursos',        pt:'📚 Cursos',        ar:'📚 الدورات',       id:'📚 Kursus',         vi:'📚 Khóa học',      ha:'📚 Darussan'},
-    registration: {hi:'📝 रजिस्ट्रेशन',en:'📝 Registration',  kn:'📝 ನೋಂದಣಿ',        mr:'📝 नोंदणी',        bn:'📝 নিবন্ধন',        te:'📝 నమోదు',          ta:'📝 பதிவு',          gu:'📝 નોંધણી',        pa:'📝 ਰਜਿਸਟ੍ਰੇਸ਼ਨ',  sw:'📝 Usajili',       fr:'📝 Inscription',   es:'📝 Registro',      pt:'📝 Registro',      ar:'📝 التسجيل',       id:'📝 Pendaftaran',   vi:'📝 Đăng ký',       ha:'📝 Rajista'},
-    certificate:  {hi:'🏆 प्रमाण पत्र', en:'🏆 Certificate',  kn:'🏆 ಪ್ರಮಾಣಪತ್ರ',    mr:'🏆 प्रमाणपत्र',    bn:'🏆 সার্টিফিকেট',    te:'🏆 సర్టిఫికెట్',    ta:'🏆 சான்றிதழ்',     gu:'🏆 પ્રમાણપત્ર',    pa:'🏆 ਸਰਟੀਫਿਕੇਟ',   sw:'🏆 Cheti',         fr:'🏆 Certificat',    es:'🏆 Certificado',   pt:'🏆 Certificado',   ar:'🏆 الشهادة',       id:'🏆 Sertifikat',    vi:'🏆 Chứng chỉ',     ha:'🏆 Takarda'},
+    register: {hi:'📝 रजिस्ट्रेशन',en:'📝 Registration',  kn:'📝 ನೋಂದಣಿ',        mr:'📝 नोंदणी',        bn:'📝 নিবন্ধন',        te:'📝 నమోదు',          ta:'📝 பதிவு',          gu:'📝 નોંધણી',        pa:'📝 ਰਜਿਸਟ੍ਰੇਸ਼ਨ',  sw:'📝 Usajili',       fr:'📝 Inscription',   es:'📝 Registro',      pt:'📝 Registro',      ar:'📝 التسجيل',       id:'📝 Pendaftaran',   vi:'📝 Đăng ký',       ha:'📝 Rajista'},
+    verify:  {hi:'🏆 प्रमाण पत्र', en:'🏆 Certificate',  kn:'🏆 ಪ್ರಮಾಣಪತ್ರ',    mr:'🏆 प्रमाणपत्र',    bn:'🏆 সার্টিফিকেট',    te:'🏆 సర్టిఫికెట్',    ta:'🏆 சான்றிதழ்',     gu:'🏆 પ્રમાણપત્ર',    pa:'🏆 ਸਰਟੀਫਿਕੇਟ',   sw:'🏆 Cheti',         fr:'🏆 Certificat',    es:'🏆 Certificado',   pt:'🏆 Certificado',   ar:'🏆 الشهادة',       id:'🏆 Sertifikat',    vi:'🏆 Chứng chỉ',     ha:'🏆 Takarda'},
     network:      {hi:'🤝 नेटवर्क',     en:'🤝 Network',       kn:'🤝 ನೆಟ್‌ವರ್ಕ್',    mr:'🤝 नेटवर्क',       bn:'🤝 নেটওয়ার্ক',     te:'🤝 నెట్‌వర్క్',     ta:'🤝 நெட்வொர்க்',   gu:'🤝 નેટવર્ક',       pa:'🤝 ਨੈੱਟਵਰਕ',      sw:'🤝 Mtandao',       fr:'🤝 Réseau',        es:'🤝 Red',           pt:'🤝 Rede',          ar:'🤝 الشبكة',        id:'🤝 Jaringan',      vi:'🤝 Mạng lưới',     ha:'🤝 Hanyar sadarwa'},
-    vani:         {hi:'📱 वाणी App',    en:'📱 Vani App',      kn:'📱 ವಾಣಿ App',       mr:'📱 वाणी App',      bn:'📱 বাণী App',        te:'📱 వాణి App',       ta:'📱 வாணி App',      gu:'📱 વાણી App',      pa:'📱 ਵਾਣੀ App',     sw:'📱 Vani App',      fr:'📱 Vani App',      es:'📱 Vani App',      pt:'📱 Vani App',      ar:'📱 Vani App',      id:'📱 Vani App',      vi:'📱 Vani App',      ha:'📱 Vani App'},
+    vani:         {hi:'📱 वाणी',    en:'📱 Vani',      kn:'📱 ವಾಣಿ',       mr:'📱 वाणी',      bn:'📱 বাণী',        te:'📱 వాణి',       ta:'📱 வாணி',      gu:'📱 વાણી',      pa:'📱 ਵਾਣੀ',     sw:'📱 Vani',      fr:'📱 Vani',      es:'📱 Vani',      pt:'📱 Vani',      ar:'📱 Vani',      id:'📱 Vani',      vi:'📱 Vani',      ha:'📱 Vani'},
     contact:      {hi:'📞 संपर्क',      en:'📞 Contact',       kn:'📞 ಸಂಪರ್ಕ',        mr:'📞 संपर्क',         bn:'📞 যোগাযোগ',        te:'📞 సంప్రదింపు',     ta:'📞 தொடர்பு',       gu:'📞 સંપર્ક',        pa:'📞 ਸੰਪਰਕ',        sw:'📞 Wasiliana',     fr:'📞 Contact',       es:'📞 Contacto',      pt:'📞 Contato',       ar:'📞 اتصل بنا',      id:'📞 Kontak',         vi:'📞 Liên hệ',       ha:'📞 Tuntubar'},
     login:        {hi:'🔑 Login',       en:'🔑 Login',         kn:'🔑 Login',          mr:'🔑 Login',         bn:'🔑 Login',          te:'🔑 Login',          ta:'🔑 Login',         gu:'🔑 Login',         pa:'🔑 Login',        sw:'🔑 Ingia',         fr:'🔑 Connexion',     es:'🔑 Iniciar sesión', pt:'🔑 Entrar',       ar:'🔑 تسجيل الدخول',  id:'🔑 Masuk',         vi:'🔑 Đăng nhập',     ha:'🔑 Shiga'},
 
     // ── COURSES PAGE ──
     free_online:  {hi:'✅ ऑनलाइन निःशुल्क', en:'✅ Free Online', kn:'✅ ಉಚಿತ ಆನ್‌ಲೈನ್', mr:'✅ विनामूल्य ऑनलाइन', bn:'✅ বিনামূল্যে অনলাইন', te:'✅ ఉచిత ఆన్‌లైన్', ta:'✅ இலவச ஆன்லைன்', gu:'✅ મફત ઑનલાઇન', pa:'✅ ਮੁਫ਼ਤ ਔਨਲਾਈਨ', sw:'✅ Bure Mtandaoni', fr:'✅ Gratuit en ligne', es:'✅ Gratuito en línea', pt:'✅ Gratuito online', ar:'✅ مجاني أونلاين', id:'✅ Gratis Online', vi:'✅ Miễn phí Online', ha:'✅ Kyauta Online'},
-    paid_centre:  {hi:'🏫 Centre पर Paid', en:'🏫 Paid at Centre', kn:'🏫 ಕೇಂದ್ರದಲ್ಲಿ ಶುಲ್ಕ', mr:'🏫 केंद्रावर शुल्क', bn:'🏫 কেন্দ্রে পেইড', te:'🏫 సెంటర్‌లో చెల్లింపు', ta:'🏫 மையத்தில் கட்டணம்', gu:'🏫 કેન્દ્ર પર ચૂકવણી', pa:'🏫 ਸੈਂਟਰ ਤੇ ਭੁਗਤਾਨ', sw:'🏫 Hulipwa Kituo', fr:'🏫 Payant au Centre', es:'🏫 De pago en Centro', pt:'🏫 Pago no Centro', ar:'🏫 مدفوع في المركز', id:'🏫 Berbayar di Pusat', vi:'🏫 Trả phí tại Trung tâm', ha:'🏫 Biyan Kuɗi a Cibiya'},
-    enroll:       {hi:'📝 Enroll करें', en:'📝 Enroll Now', kn:'📝 ನೋಂದಾಯಿಸಿ', mr:'📝 नोंदणी करा', bn:'📝 নথিভুক্ত করুন', te:'📝 నమోదు చేయండి', ta:'📝 பதிவு செய்யுங்கள்', gu:'📝 નોંધણી કરો', pa:'📝 ਦਾਖਲਾ ਲਓ', sw:'📝 Jiandikishe', fr:'📝 S\'inscrire', es:'📝 Inscribirse', pt:'📝 Inscrever-se', ar:'📝 سجل الآن', id:'📝 Daftar Sekarang', vi:'📝 Đăng ký ngay', ha:'📝 Yi Rajista'},
+    paid_centre:  {hi:'🏫 केंद्र पर शुल्क', en:'🏫 Paid at Centre', kn:'🏫 ಕೇಂದ್ರದಲ್ಲಿ ಶುಲ್ಕ', mr:'🏫 केंद्रावर शुल्क', bn:'🏫 কেন্দ্রে পেইড', te:'🏫 సెంటర్‌లో చెల్లింపు', ta:'🏫 மையத்தில் கட்டணம்', gu:'🏫 કેન્દ્ર પર ચૂકવણી', pa:'🏫 ਸੈਂਟਰ ਤੇ ਭੁਗਤਾਨ', sw:'🏫 Hulipiwa Kituoni', fr:'🏫 Payant au Centre', es:'🏫 De pago en Centro', pt:'🏫 Pago no Centro', ar:'🏫 مدفوع في المركز', id:'🏫 Berbayar di Pusat', vi:'🏫 Trả phí tại Trung tâm', ha:'🏫 Biyan Kuɗi a Cibiya'},
+    enroll:       {hi:'📝 दाखिला लें', en:'📝 Enroll Now', kn:'📝 ನೋಂದಾಯಿಸಿ', mr:'📝 नोंदणी करा', bn:'📝 নথিভুক্ত করুন', te:'📝 నమోదు చేయండి', ta:'📝 பதிவு செய்யுங்கள்', gu:'📝 નોંધણી કરો', pa:'📝 ਦਾਖਲਾ ਲਓ', sw:'📝 Jiandikishe', fr:'📝 S\'inscrire', es:'📝 Inscribirse', pt:'📝 Inscrever-se', ar:'📝 سجل الآن', id:'📝 Daftar Sekarang', vi:'📝 Đăng ký ngay', ha:'📝 Yi Rajista'},
     search:       {hi:'🔍 खोजें', en:'🔍 Search', kn:'🔍 ಹುಡುಕಿ', mr:'🔍 शोधा', bn:'🔍 অনুসন্ধান', te:'🔍 వెతకండి', ta:'🔍 தேடு', gu:'🔍 શોધો', pa:'🔍 ਖੋਜੋ', sw:'🔍 Tafuta', fr:'🔍 Rechercher', es:'🔍 Buscar', pt:'🔍 Pesquisar', ar:'🔍 بحث', id:'🔍 Cari', vi:'🔍 Tìm kiếm', ha:'🔍 Nema'},
     duration:     {hi:'अवधि', en:'Duration', kn:'ಅವಧಿ', mr:'कालावधी', bn:'সময়কাল', te:'వ్యవధి', ta:'காலம்', gu:'સમયગાળો', pa:'ਅਵਧੀ', sw:'Muda', fr:'Durée', es:'Duración', pt:'Duração', ar:'المدة', id:'Durasi', vi:'Thời gian', ha:'Tsawon lokaci'},
     lessons:      {hi:'पाठ (Lessons)', en:'Lessons', kn:'ಪಾಠಗಳು', mr:'धडे', bn:'পাঠ', te:'పాఠాలు', ta:'பாடங்கள்', gu:'પ્રકરણ', pa:'ਪਾਠ', sw:'Masomo', fr:'Leçons', es:'Lecciones', pt:'Aulas', ar:'دروس', id:'Pelajaran', vi:'Bài học', ha:'Darussan'},
@@ -58,28 +46,28 @@ const ACS_T = {
     select_state: {hi:'— राज्य चुनें —', en:'— Select State —', kn:'— ರಾಜ್ಯ ಆಯ್ಕೆ —', mr:'— राज्य निवडा —', bn:'— রাজ্য নির্বাচন করুন —', te:'— రాష్ట్రం ఎంచుకోండి —', ta:'— மாநிலம் தேர்ந்தெடுக்கவும் —', gu:'— રાજ્ય પસંદ કરો —', pa:'— ਸੂਬਾ ਚੁਣੋ —', sw:'— Chagua Jimbo —', fr:'— Sélectionner État —', es:'— Seleccionar Estado —', pt:'— Selecionar Estado —', ar:'— اختر الولاية —', id:'— Pilih Negara Bagian —', vi:'— Chọn tỉnh —', ha:'— Zaɓi Jiha —'},
     select_dist:  {hi:'— जिला चुनें —', en:'— Select District —', kn:'— ಜಿಲ್ಲೆ ಆಯ್ಕೆ —', mr:'— जिल्हा निवडा —', bn:'— জেলা নির্বাচন করুন —', te:'— జిల్లా ఎంచుకోండి —', ta:'— மாவட்டம் தேர்ந்தெடுக்கவும் —', gu:'— જિલ્લો પસંદ કરો —', pa:'— ਜ਼ਿਲ੍ਹਾ ਚੁਣੋ —', sw:'— Chagua Wilaya —', fr:'— Sélectionner District —', es:'— Seleccionar Distrito —', pt:'— Selecionar Distrito —', ar:'— اختر المنطقة —', id:'— Pilih Distrik —', vi:'— Chọn huyện —', ha:'— Zaɓi Gunduma —'},
     free:         {hi:'निःशुल्क', en:'Free', kn:'ಉಚಿತ', mr:'विनामूल्य', bn:'বিনামূল্যে', te:'ఉచితం', ta:'இலவசம்', gu:'મફત', pa:'ਮੁਫ਼ਤ', sw:'Bure', fr:'Gratuit', es:'Gratis', pt:'Gratuito', ar:'مجاني', id:'Gratis', vi:'Miễn phí', ha:'Kyauta'},
-    paid:         {hi:'भुगतान (Paid)', en:'Paid', kn:'ಶುಲ್ಕ', mr:'शुल्क', bn:'পেইড', te:'చెల్లింపు', ta:'கட்டணம்', gu:'ચૂકવणी', pa:'ਭੁਗਤਾਨ', sw:'Kulipwa', fr:'Payant', es:'De pago', pt:'Pago', ar:'مدفوع', id:'Berbayar', vi:'Trả phí', ha:'Biyan Kuɗi'},
+    paid:         {hi:'शुल्क (Paid)', en:'Paid', kn:'ಶುಲ್ಕ', mr:'शुल्क', bn:'পেইড', te:'చెల్లింపు', ta:'கட்டணம்', gu:'ચૂકવणी', pa:'ਭੁਗਤਾਨ', sw:'Kulipwa', fr:'Payant', es:'De pago', pt:'Pago', ar:'مدفوع', id:'Berbayar', vi:'Trả phí', ha:'Biyan Kuɗi'},
     view_more:    {hi:'और देखें →', en:'View More →', kn:'ಇನ್ನಷ್ಟು →', mr:'अधिक पाहा →', bn:'আরো দেখুন →', te:'మరిన్ని చూడండి →', ta:'மேலும் →', gu:'વધુ →', pa:'ਹੋਰ ਦੇਖੋ →', sw:'Angalia Zaidi →', fr:'Voir Plus →', es:'Ver Más →', pt:'Ver Mais →', ar:'رؤية المزيد →', id:'Lihat Lebih →', vi:'Xem thêm →', ha:'Duba Karin →'},
-    register_now: {hi:'अभी Register करें →', en:'Register Now →', kn:'ಈಗ ನೋಂದಾಯಿಸಿ →', mr:'आत्ता नोंदणी करा →', bn:'এখনই নিবন্ধন করুন →', te:'ఇప్పుడు నమోదు చేయండి →', ta:'இப்போது பதிவு செய்யுங்கள் →', gu:'હવે નોંધણી કરો →', pa:'ਹੁਣੇ ਰਜਿਸਟਰ ਕਰੋ →', sw:'Jiandikishe Sasa →', fr:'S\'inscrire Maintenant →', es:'Registrarse Ahora →', pt:'Registrar Agora →', ar:'سجل الآن →', id:'Daftar Sekarang →', vi:'Đăng ký ngay →', ha:'Yi Rajista Yanzu →'},
+    register_now: {hi:'अभी रजिस्ट्रेशन करें →', en:'Register Now →', kn:'ಈಗ ನೋಂದಾಯಿಸಿ →', mr:'आत्ता नोंदणी करा →', bn:'এখনই নিবন্ধন করুন →', te:'ఇప్పుడు నమోదు చేయండి →', ta:'இப்போது பதிவு செய்யுங்கள் →', gu:'હવે નોંધણી કરો →', pa:'ਹੁਣੇ ਰਜਿਸਟਰ ਕਰੋ →', sw:'Jiandikishe Sasa →', fr:'S\'inscrire Maintenant →', es:'Registrarse Ahora →', pt:'Registrar Agora →', ar:'سجل الآن →', id:'Daftar Sekarang →', vi:'Đăng ký ngay →', ha:'Yi Rajista Yanzu →'},
   },
 
   // ══ EDUCATION LEVEL NAMES ══
   edu: {
-    none:     {hi:'बिना पढ़ाई', en:'No Education', kn:'ಶಿಕ್ಷಣ ಇಲ್ಲ', mr:'शिक्षण नाही', bn:'শিক্ষা নেই', te:'విద్య లేదు', ta:'கல்வி இல்லை', sw:'Bila Elimu', fr:'Sans éducation', es:'Sin educación'},
-    class6:   {hi:'6वीं पास', en:'Class 6 Pass', kn:'6ನೇ ತರಗತಿ', mr:'6वी उत्तीर्ण', bn:'ষষ্ঠ শ্রেণী', te:'6వ తరగతి', ta:'6ஆம் வகுப்பு', sw:'Darasa la 6', fr:'6ème Classe', es:'Grado 6'},
-    class8:   {hi:'8वीं पास', en:'Class 8 Pass', kn:'8ನೇ ತರಗತಿ', mr:'8वी उत्तीर्ण', bn:'অষ্টম শ্রেণী', te:'8వ తరగతి', ta:'8ஆம் வகுப்பு', sw:'Darasa la 8', fr:'8ème Classe', es:'Grado 8'},
-    class10:  {hi:'10वीं पास', en:'10th Pass', kn:'10ನೇ ತರಗತಿ', mr:'10वी उत्तीर्ण', bn:'দশম শ্রেণী', te:'10వ తరగతి', ta:'10ஆம் வகுப்பு', sw:'Darasa la 10', fr:'10ème Classe', es:'10° Grado'},
-    class12:  {hi:'12वीं पास', en:'12th Pass', kn:'12ನೇ ತರಗತಿ', mr:'12वी उत्तीर्ण', bn:'দ্বাদশ শ্রেণী', te:'12వ తరగతి', ta:'12ஆம் வகுப்பு', sw:'Darasa la 12', fr:'Terminale', es:'12° Grado'},
-    iti:      {hi:'ITI', en:'ITI Certificate', kn:'ITI', mr:'ITI', bn:'ITI', te:'ITI', ta:'ITI', sw:'ITI', fr:'ITI', es:'ITI'},
-    diploma:  {hi:'डिप्लोमा', en:'Diploma', kn:'ಡಿಪ್ಲೊಮಾ', mr:'डिप्लोमा', bn:'ডিপ্লোমা', te:'డిప్లొమా', ta:'டிப்ளோமா', sw:'Diploma', fr:'Diplôme', es:'Diploma'},
-    bachelor: {hi:'स्नातक', en:"Bachelor's Degree", kn:'ಪದವಿ', mr:'पदवी', bn:'স্নাতক', te:'డిగ్రీ', ta:'இளநிலை', sw:'Shahada ya Kwanza', fr:'Licence', es:'Licenciatura'},
-    pg:       {hi:'स्नातकोत्तर', en:'Post Graduate', kn:'ಸ್ನಾತಕೋತ್ತರ', mr:'पदव्युत्तर', bn:'স্নাতকোত্তর', te:'పీజీ', ta:'முதுநிலை', sw:'Uzamili', fr:'Master', es:'Posgrado'},
-    phd:      {hi:'पीएचडी', en:'PhD', kn:'ಪಿಎಚ್‌ಡಿ', mr:'पीएचडी', bn:'পিএইচডি', te:'పీహెచ్‌డీ', ta:'முனைவர்', sw:'Uzamivu', fr:'Doctorat', es:'Doctorado'},
-    exp10:    {hi:'10 साल अनुभव', en:'10 Years Experience', kn:'10 ವರ್ಷ ಅನುಭವ', mr:'10 वर्षे अनुभव', bn:'10 বছরের অভিজ্ঞতা', te:'10 సంవత్సరాల అనుభవం', ta:'10 ஆண்டு அனுபவம்', sw:'Uzoefu wa Miaka 10', fr:'10 ans Expérience', es:'10 Años Experiencia'},
-    exp20:    {hi:'20 साल अनुभव', en:'20 Years Experience', kn:'20 ವರ್ಷ ಅನುಭವ', mr:'20 वर्षे अनुभव', bn:'20 বছরের অভিজ্ঞতা', te:'20 సంవత్సరాల అనుభవం', ta:'20 ஆண்டு அனுபவம்', sw:'Uzoefu wa Miaka 20', fr:'20 ans Expérience', es:'20 Años Experiencia'},
-    disabled: {hi:'दिव्यांग', en:'Differently Abled', kn:'ಅಂಗವಿಕಲ', mr:'अपंग', bn:'প্রতিবন্ধী', te:'వికలాంగుడు', ta:'மாற்றுத்திறனாளி', sw:'Walemavu', fr:'Handicapé', es:'Discapacitado'},
-    senior:   {hi:'वरिष्ठ नागरिक', en:'Senior Citizen', kn:'ಹಿರಿಯ ನಾಗರಿಕ', mr:'ज्येष्ठ नागरिक', bn:'প্রবীণ নাগরিক', te:'వృద్ధ పౌరుడు', ta:'மூத்த குடிமகன்', sw:'Mzee', fr:'Sénior', es:'Adulto Mayor'},
-    women:    {hi:'महिला', en:'Women', kn:'ಮಹಿಳೆ', mr:'महिला', bn:'মহিলা', te:'మహిళ', ta:'பெண்', sw:'Wanawake', fr:'Femme', es:'Mujer'},
+    none:     {hi:'बिना पढ़ाई', en:'No Education', kn:'ಶಿಕ್ಷಣ ಇಲ್ಲ', mr:'शिक्षण नाही', bn:'শিক্ষা নেই', te:'విద్య లేదు', ta:'கல்வி இல்லை', sw:'Bila Elimu', fr:'Sans éducation', es:'Sin educación', gu:'શિક્ષણ નથી', pa:'ਕੋਈ ਸਿੱਖਿਆ ਨਹੀਂ', pt:'Sem educação', ar:'بدون تعليم', id:'Tanpa Pendidikan', vi:'Không học vấn', ha:'Babu Ilimi'},
+    class6:   {hi:'6वीं पास', en:'Class 6 Pass', kn:'6ನೇ ತರಗತಿ', mr:'6वी उत्तीर्ण', bn:'ষষ্ঠ শ্রেণী', te:'6వ తరగతి', ta:'6ஆம் வகுப்பு', sw:'Darasa la 6', fr:'6ème Classe', es:'Grado 6', gu:'ધોરણ 6 પાસ', pa:'6ਵੀਂ ਪਾਸ', pt:'6ª série', ar:'الصف 6', id:'Kelas 6', vi:'Lớp 6', ha:'Aji 6'},
+    class8:   {hi:'8वीं पास', en:'Class 8 Pass', kn:'8ನೇ ತರಗತಿ', mr:'8वी उत्तीर्ण', bn:'অষ্টম শ্রেণী', te:'8వ తరగతి', ta:'8ஆம் வகுப்பு', sw:'Darasa la 8', fr:'8ème Classe', es:'Grado 8', gu:'ધોરણ 8 પાસ', pa:'8ਵੀਂ ਪਾਸ', pt:'8ª série', ar:'الصف 8', id:'Kelas 8', vi:'Lớp 8', ha:'Aji 8'},
+    class10:  {hi:'10वीं पास', en:'10th Pass', kn:'10ನೇ ತರಗತಿ', mr:'10वी उत्तीर्ण', bn:'দশম শ্রেণী', te:'10వ తరగతి', ta:'10ஆம் வகுப்பு', sw:'Darasa la 10', fr:'10ème Classe', es:'10° Grado', gu:'ધોરણ 10 પાસ', pa:'10ਵੀਂ ਪਾਸ', pt:'10ª série', ar:'الصف 10', id:'Kelas 10', vi:'Lớp 10', ha:'Aji 10'},
+    class12:  {hi:'12वीं पास', en:'12th Pass', kn:'12ನೇ ತರಗತಿ', mr:'12वी उत्तीर्ण', bn:'দ্বাদশ শ্রেণী', te:'12వ తరగతి', ta:'12ஆம் வகுப்பு', sw:'Darasa la 12', fr:'Terminale', es:'12° Grado', gu:'ધોરણ 12 પાસ', pa:'12ਵੀਂ ਪਾਸ', pt:'12ª série', ar:'الصف 12', id:'Kelas 12', vi:'Lớp 12', ha:'Aji 12'},
+    iti:      {hi:'ITI', en:'ITI Certificate', kn:'ITI', mr:'ITI', bn:'ITI', te:'ITI', ta:'ITI', sw:'ITI', fr:'ITI', es:'ITI', gu:'ITI', pa:'ITI', pt:'ITI', ar:'ITI', id:'ITI', vi:'ITI', ha:'ITI'},
+    diploma:  {hi:'डिप्लोमा', en:'Diploma', kn:'ಡಿಪ್ಲೊಮಾ', mr:'डिप्लोमा', bn:'ডিপ্লোমা', te:'డిప్లొమా', ta:'டிப்ளோமா', sw:'Diploma', fr:'Diplôme', es:'Diploma', gu:'ડિપ્લોમા', pa:'ਡਿਪਲੋਮਾ', pt:'Diploma', ar:'دبلوم', id:'Diploma', vi:'Bằng cao đẳng', ha:'Difloma'},
+    bachelor: {hi:'स्नातक', en:"Bachelor's Degree", kn:'ಪದವಿ', mr:'पदवी', bn:'স্নাতক', te:'డిగ్రీ', ta:'இளநிலை', sw:'Shahada ya Kwanza', fr:'Licence', es:'Licenciatura', gu:'સ્નાતક', pa:'ਗ੍ਰੈਜੂਏਟ', pt:'Bacharelado', ar:'بكالوريوس', id:'Sarjana', vi:'Cử nhân', ha:'Digiri'},
+    pg:       {hi:'स्नातकोत्तर', en:'Post Graduate', kn:'ಸ್ನಾತಕೋತ್ತರ', mr:'पदव्युत्तर', bn:'স্নাতকোত্তর', te:'పీజీ', ta:'முதுநிலை', sw:'Uzamili', fr:'Master', es:'Posgrado', gu:'અનુસ્નાતક', pa:'ਪੋਸਟ ਗ੍ਰੈਜੂਏਟ', pt:'Pós-graduação', ar:'دراسات عليا', id:'Pascasarjana', vi:'Sau đại học', ha:'Digiri na biyu'},
+    phd:      {hi:'पीएचडी', en:'PhD', kn:'ಪಿಎಚ್‌ಡಿ', mr:'पीएचडी', bn:'পিএইচডি', te:'పీహెచ్‌డీ', ta:'முனைவர்', sw:'Uzamivu', fr:'Doctorat', es:'Doctorado', gu:'પીએચડી', pa:'ਪੀਐਚਡੀ', pt:'Doutorado', ar:'دكتوراه', id:'Doktor', vi:'Tiến sĩ', ha:'PhD'},
+    exp10:    {hi:'10 साल अनुभव', en:'10 Years Experience', kn:'10 ವರ್ಷ ಅನುಭವ', mr:'10 वर्षे अनुभव', bn:'10 বছরের অভিজ্ঞতা', te:'10 సంవత్సరాల అనుభవం', ta:'10 ஆண்டு அனுபவம்', sw:'Uzoefu wa Miaka 10', fr:'10 ans Expérience', es:'10 Años Experiencia', gu:'10 વર્ષનો અનુભવ', pa:'10 ਸਾਲ ਤਜਰਬਾ', pt:'10 anos de experiência', ar:'خبرة 10 سنوات', id:'Pengalaman 10 Tahun', vi:'10 năm kinh nghiệm', ha:'Shekaru 10 gwaninta'},
+    exp20:    {hi:'20 साल अनुभव', en:'20 Years Experience', kn:'20 ವರ್ಷ ಅನುಭವ', mr:'20 वर्षे अनुभव', bn:'20 বছরের অভিজ্ঞতা', te:'20 సంవత్సరాల అనుభవం', ta:'20 ஆண்டு அனுபவம்', sw:'Uzoefu wa Miaka 20', fr:'20 ans Expérience', es:'20 Años Experiencia', gu:'20 વર્ષનો અનુભવ', pa:'20 ਸਾਲ ਤਜਰਬਾ', pt:'20 anos de experiência', ar:'خبرة 20 سنة', id:'Pengalaman 20 Tahun', vi:'20 năm kinh nghiệm', ha:'Shekaru 20 gwaninta'},
+    disabled: {hi:'दिव्यांग', en:'Differently Abled', kn:'ಅಂಗವಿಕಲ', mr:'अपंग', bn:'প্রতিবন্ধী', te:'వికలాంగుడు', ta:'மாற்றுத்திறனாளி', sw:'Walemavu', fr:'Handicapé', es:'Discapacitado', gu:'દિવ્યાંગ', pa:'ਅੰਗਹੀਣ', pt:'Pessoa com deficiência', ar:'ذوي الإعاقة', id:'Difabel', vi:'Người khuyết tật', ha:'Nakasa'},
+    senior:   {hi:'वरिष्ठ नागरिक', en:'Senior Citizen', kn:'ಹಿರಿಯ ನಾಗರಿಕ', mr:'ज्येष्ठ नागरिक', bn:'প্রবীণ নাগরিক', te:'వృద్ధ పౌరుడు', ta:'மூத்த குடிமகன்', sw:'Mzee', fr:'Sénior', es:'Adulto Mayor', gu:'વરિષ્ઠ નાગરિક', pa:'ਬਜ਼ੁਰਗ ਨਾਗਰਿਕ', pt:'Idoso', ar:'مواطن مسن', id:'Lansia', vi:'Người cao tuổi', ha:'Tsoho'},
+    women:    {hi:'महिला', en:'Women', kn:'ಮಹಿಳೆ', mr:'महिला', bn:'মহিলা', te:'మహిళ', ta:'பெண்', sw:'Wanawake', fr:'Femme', es:'Mujer', gu:'મહિલા', pa:'ਔਰਤ', pt:'Mulheres', ar:'نساء', id:'Wanita', vi:'Phụ nữ', ha:'Mata'},
   },
 
   // ══ HELPER FUNCTIONS ══
@@ -109,29 +97,15 @@ const ACS_T = {
 
   /**
    * Current page की language detect करो
-   * क्रम (ग्राहक देवो भव:):
-   *   (1) saved = user की last चुनी भाषा — सबसे ऊपर (हर page पर वही)
-   *   (2) browser भाषा — सिर्फ़ पहली बार (जब कुछ saved नहीं)
-   *   (3) page जिस folder में है, उसकी भाषा — आख़िरी सहारा
    */
   detectLang: function() {
-    const langCodes = this.langCodes;
-
-    // (1) user की last चुनी भाषा — page बदलने पर भी यही रहे (उबाऊ न लगे)
-    const saved = localStorage.getItem('acs_lang');
-    if (saved && langCodes.indexOf(saved) !== -1) return saved;
-
-    // (2) पहली बार — browser/device की भाषा
-    const browser = (navigator.language || '').slice(0,2).toLowerCase();
-    if (langCodes.indexOf(browser) !== -1) return browser;
-
-    // (3) page जिस भाषा-folder में है
     const path = window.location.pathname;
-    const match = path.match(new RegExp('^/(' + langCodes.join('|') + ')/'));
+    const match = path.match(/^\/(hi|en|kn|mr|bn|te|ta|gu|pa|sw|fr|es|pt|ar|id|vi|ha)\//);
     if (match) return match[1];
-
-    // कुछ न मिला → डिफ़ॉल्ट हिंदी
-    return 'hi';
+    const saved = localStorage.getItem('acs_lang');
+    if (saved) return saved;
+    const browser = (navigator.language || 'en').slice(0,2).toLowerCase();
+    return browser;
   },
 
   /**
@@ -159,9 +133,8 @@ const ACS_T = {
       const translated = this.get(key, lang);
       if (translated) el.placeholder = translated;
     });
-    // नोट: यहाँ localStorage save नहीं करते।
-    // भाषा सिर्फ़ तभी याद हो जब ग्राहक खुद चुने (switchLang में) —
-    // वरना browser-detect की गलत भाषा हमेशा के लिए lock हो सकती है।
+    // Save lang
+    localStorage.setItem('acs_lang', lang);
   },
 
   /**
@@ -197,39 +170,53 @@ const ACS_T = {
   },
 
   /**
-   * Language switch करो — उसी page पर भाषा बदले (home पर redirect नहीं)
-   * /hi/network.html → /kn/network.html
+   * Language switch करो — Constitution नियम:
+   * असली (हाथ से बना) page हो तो वही दिखे; न हो तभी Google Translate (अंतिम विकल्प)।
    */
   switchLang: function(lang) {
-    const langCodes = this.langCodes;
-    if (langCodes.indexOf(lang) === -1) lang = 'en';
-
-    // चुनी हुई भाषा हमेशा याद रहे
     localStorage.setItem('acs_lang', lang);
+    var path = window.location.pathname;
+    var rx = /^\/(hi|en|kn|mr|bn|te|ta|gu|pa|sw|fr|es|pt|ar|id|vi|ha)\//;
+    // page किसी भाषा-folder में नहीं → सीधे current page का Google-Translate
+    if (!rx.test(path)) { ACS_T.googleFallback(lang); return; }
+    var target = path.replace(rx, '/' + lang + '/');
+    // असली page मौजूद? (HEAD जाँच) — हो तो वही; न हो तो Google Translate
+    fetch(target, { method: 'HEAD' })
+      .then(function (r) { if (r.ok) window.location.href = target; else ACS_T.googleFallback(lang); })
+      .catch(function () { ACS_T.googleFallback(lang); });
+  },
 
-    let path = window.location.pathname;
-
-    // अगर path पहले से किसी भाषा-folder से शुरू है → सिर्फ़ वह folder बदलो,
-    // बाक़ी page वही रहे (network.html, courses/ आदि नहीं खोएगा)
-    const langFolder = new RegExp('^/(' + langCodes.join('|') + ')/');
-    if (langFolder.test(path)) {
-      path = path.replace(langFolder, '/' + lang + '/');
-    } else {
-      // कोई भाषा-folder नहीं (जैसे root का index) → उस भाषा के home folder पर
-      path = '/' + lang + '/';
+  /**
+   * Google Translate — अंतिम विकल्प (असली page न हो तभी)।
+   * googtrans cookie + widget → current page उसी भाषा में अनुवाद।
+   */
+  googleFallback: function(lang) {
+    if (lang === 'hi' || lang === 'en') { /* base — आमतौर पर असली page होता है */ }
+    document.cookie = 'googtrans=/auto/' + lang + ';path=/';
+    if (!document.getElementById('google_translate_element')) {
+      var d = document.createElement('div');
+      d.id = 'google_translate_element';
+      d.style.display = 'none';
+      document.body.appendChild(d);
     }
-
-    window.location.href = path;
+    if (!window.__acsGtLoaded) {
+      window.__acsGtLoaded = true;
+      window.googleTranslateElementInit = function () {
+        new google.translate.TranslateElement({ pageLanguage: 'auto', autoDisplay: false }, 'google_translate_element');
+      };
+      var s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.head.appendChild(s);
+      setTimeout(function () { window.location.reload(); }, 400);
+    } else {
+      window.location.reload();
+    }
   },
 };
 
 // Auto-apply on page load
 document.addEventListener('DOMContentLoaded', function() {
-  try {
-    const lang = ACS_T.detectLang();
-    ACS_T.apply(lang);
-  } catch (e) {
-    // translate विफल हो तो page वैसा ही चले — content कभी न रुके
-    console.warn('ACS translate skipped:', e);
-  }
+  // Apply translations
+  const lang = ACS_T.detectLang();
+  ACS_T.apply(lang);
 });
