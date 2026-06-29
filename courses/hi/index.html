@@ -1,186 +1,79 @@
 <!DOCTYPE html>
-<html lang="hi" dir="ltr">
+<html lang="hi">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="ACS कोर्स — स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी, स्थानीय नौकरी। Online Free, Centre पर Paid।"/>
-<meta name="robots" content="index, follow"/>
-<meta name="theme-color" content="#0B1F3A"/>
-<link rel="canonical" href="https://acslearn.com/courses/hi/"/>
-<title>कोर्स — Applied Computer School™</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
-  --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
-  --orange:#E65100;--red:#C62828;--purple:#6A1B9A;
-  --white:#fff;--offwhite:#F5F7FA;
-  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
-}
-html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:16px;line-height:1.8}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
 
-/* NAVBAR */
-.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
-.nav-brand{display:flex;align-items:center;gap:8px}
-.nav-brand img{height:36px;border-radius:6px}
-.nav-brand-text{color:#fff;font-size:15px;font-weight:700;line-height:1.2}
-.nav-brand-text small{display:block;color:var(--gold);font-size:12px;font-weight:400}
-.nav-controls{display:flex;align-items:center;gap:6px}
-.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:8px 14px;border-radius:6px;font-size:15px;cursor:pointer;font-family:inherit;min-height:40px}
-.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-height:40px;min-width:40px}
-.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
-.translate-panel.open{display:block}
-#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
-.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
-.menu-overlay.open{display:block}
-.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}
-.menu-panel.open{right:0}
-.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
-.menu-head h3{font-size:15px}
-.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
-.menu-links{list-style:none;padding:6px 0}
-.menu-links li a{display:flex;align-items:center;padding:14px 20px;color:var(--text);font-size:16px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
-.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
-.menu-links li a.active{color:var(--blue);background:#EEF4FF}
-.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);padding:14px;border-radius:10px;font-weight:800;font-size:15px;min-height:52px}
+  <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
+  <title>कोर्स — स्वरोजगार, नौकरी व सरकारी — हर रास्ते के कोर्स | Applied Computer School™</title>
+  <meta name="description" content="ACS कोर्स — स्वरोजगार, प्राइवेट नौकरी, स्थानीय नौकरी व सरकारी नौकरी के कोर्स। ऑनलाइन हमेशा निःशुल्क; केंद्र पर paid training।"/>
+  <link rel="canonical" href="https://acslearn.com/courses/hi/"/>
+  <meta name="robots" content="index,follow"/>
 
-/* HERO */
-.hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);padding:36px 20px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
-.hero-logo{width:52px;height:52px;border-radius:14px;border:2px solid rgba(255,255,255,.2);margin:0 auto 16px}
-.hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:12px}
-.hero-title{font-size:clamp(28px,6vw,44px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
-.hero-title em{color:var(--gold);font-style:normal}
-.hero-sub{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:16px;line-height:1.7}
-.hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.hero-badge{padding:10px 18px;border-radius:20px;font-size:15px;font-weight:700}
-.badge-free{background:rgba(46,125,50,.2);border:1px solid rgba(46,125,50,.4);color:#81C784}
-.badge-paid{background:rgba(21,101,192,.2);border:1px solid rgba(21,101,192,.4);color:#90CAF9}
+  <!-- मूल → अंग्रेज़ी → बाक़ी; generator हर भाषा के लिए hreflang भरे -->
+    <link rel="alternate" hreflang="hi" href="https://acslearn.com/courses/hi/"/>
+  <link rel="alternate" hreflang="en" href="https://acslearn.com/courses/en/"/>
+  <link rel="alternate" hreflang="x-default" href="https://acslearn.com/courses/hi/"/>
 
-/* TAB BAR */
-.tab-bar{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:52px;z-index:100;overflow-x:auto}
-.tab-inner{display:flex;max-width:900px;margin:0 auto;min-width:480px}
-.tab{flex:1;padding:14px 8px;text-align:center;font-size:14px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
-.tab:hover{color:var(--blue)}
-.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
-.tab-icon{font-size:20px;display:block;margin-bottom:3px}
+  <!-- Open Graph / सोशल शेयर -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="कोर्स — स्वरोजगार, नौकरी व सरकारी — हर रास्ते के कोर्स | Applied Computer School™"/>
+  <meta property="og:description" content="ACS कोर्स — स्वरोजगार, प्राइवेट नौकरी, स्थानीय नौकरी व सरकारी नौकरी के कोर्स। ऑनलाइन हमेशा निःशुल्क; केंद्र पर paid training।"/>
+  <meta property="og:image" content="https://acslearn.com/logo.png"/>
+  <meta property="og:locale" content="hi"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-/* MAIN */
-.main{max-width:900px;margin:0 auto;padding:16px 16px 60px}
-.sec{display:none}
-.sec.active{display:block;animation:fadeIn .3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.sec-title{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:6px}
-.sec-sub{font-size:16px;color:var(--gray);margin-bottom:16px;line-height:1.7}
+  <!-- PWA / icon / रंग -->
+  <meta name="theme-color" content="#0B1F3A"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <link rel="icon" href="/logo.png"/>
+  <link rel="apple-touch-icon" href="/logo.png"/>
 
-/* FILTERS */
-.filter-wrap{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:16px}
-.filter-title{font-size:14px;font-weight:700;color:var(--gray);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
-.filter-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-.filter-row:last-child{margin:0}
-.filter-btn{padding:8px 14px;border:1.5px solid var(--border);border-radius:16px;font-size:14px;font-weight:700;cursor:pointer;background:#fff;color:var(--gray);font-family:inherit;transition:.15s}
-.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
-.filter-btn.active{border-color:var(--blue);background:#EEF4FF;color:var(--blue)}
-.edu-select{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;font-family:inherit;outline:none;background:#fff;color:var(--text);margin-bottom:8px}
-.edu-select:focus{border-color:var(--blue)}
+  <!-- फ़ॉन्ट (sw.js के precache URL से हूबहू मेल — 400–900) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-/* SEARCH */
-.search-wrap{position:relative;margin-bottom:12px}
-.search-input{width:100%;padding:14px 48px 14px 18px;border:2px solid var(--border);border-radius:12px;font-size:16px;font-family:inherit;outline:none;background:#fff;transition:border .2s}
-.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,.1)}
-
-/* COURSE GRID */
-.course-grid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:480px){.course-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:720px){.course-grid{grid-template-columns:1fr 1fr 1fr}}
-.course-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:16px;transition:.2s;display:flex;flex-direction:column}
-.course-card:hover{border-color:var(--blue);box-shadow:0 4px 14px rgba(0,0,0,.1);transform:translateY(-2px)}
-.cc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
-.cc-id{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:1px}
-.cc-free{background:#E8F5E9;color:var(--green);font-size:12px;font-weight:800;padding:2px 8px;border-radius:10px}
-.cc-name{font-size:16px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:8px}
-.cc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.cc-tag{font-size:12px;font-weight:700;padding:3px 8px;border-radius:10px}
-.tag-duration{background:#EEF4FF;color:var(--blue)}
-.tag-lessons{background:#F3E5F5;color:var(--purple)}
-.tag-level{background:#FFF3E0;color:var(--orange)}
-.tag-salary{background:#E8F5E9;color:var(--green)}
-.tag-edu{background:#F5F5F5;color:var(--gray)}
-.cc-btns{display:flex;gap:6px;margin-top:auto}
-.cc-btn{flex:1;padding:11px 10px;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-align:center;transition:.2s}
-.btn-free{background:#E8F5E9;color:var(--green)}
-.btn-free:hover{background:var(--green);color:#fff}
-.btn-centre{background:#EEF4FF;color:var(--blue)}
-.btn-centre:hover{background:var(--blue);color:#fff}
-.course-count{font-size:12px;color:var(--gray);margin-bottom:10px;font-weight:600}
-
-/* STATS BAR */
-.stats-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.stat-pill{background:#fff;border:1px solid var(--border);border-radius:20px;padding:10px 16px;font-size:14px;font-weight:700}
-.sp-num{color:var(--blue);font-size:20px;font-weight:900}
-.sp-lbl{color:var(--gray)}
-
-/* FOOTER */
-.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:32px 20px 20px;margin-top:20px}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1000px;margin:0 auto}
-@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
-.footer-brand h2{color:#fff;font-size:15px;margin-bottom:6px}
-.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:6px 0}
-.footer-col h3{color:var(--gold);font-size:14px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
-.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.sitemap-grid a{color:rgba(255,255,255,.6);font-size:14px;padding:3px 0;display:block}
-.footer-col p{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
-.footer-col a{color:var(--gold)}
-.footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:14px;color:rgba(255,255,255,.4)}
-.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
-.scroll-top.show{display:flex;align-items:center;justify-content:center}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;opacity:0;transition:.3s;white-space:nowrap}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-</style>
+  <!-- मास्टर CSS (एकमात्र — रूट से, हर भाषा-folder से मिलेगा) -->
+  <link rel="stylesheet" href="/style.css"/>
 </head>
-<body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="/hi/" class="nav-brand">
-      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-      <div class="nav-brand-text">Applied Computer School™
-        <small>Free Digital Education for the Global South</small>
+<!-- data-lang = page की भाषा (app.js की "सुनो"/TTS व script.js इसे पढ़ें) -->
+<body data-lang="hi" data-page="courses">
+
+  <!-- keyboard वालों के लिए सीधा content पर -->
+  <a href="#main" class="acs-skip">मुख्य content पर जाएँ</a>
+
+  <!-- ══ NAVBAR (header सिर्फ़ यहीं — किसी page में दोबारा नहीं) ══
+       slide-menu व भाषा-panel script.js अपने-आप जोड़ता है (links.js के 10 items)। -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <img class="brand-logo-img" src="/logo.png" alt="ACS"/>
+        <span class="brand-name">Applied Computer School™</span>
+      </a>
+      <div class="nav-controls">
+        <button class="lang-btn" id="languageToggle" type="button"
+                aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
+        <button class="menu-btn" id="menuToggle" type="button"
+                aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
+        <button class="lang-btn" id="acsLoginBtn" type="button" aria-label="Login / Dashboard">🔑</button>
       </div>
-    </a>
-    <div class="nav-controls">
-      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
-      <button class="btn-menu" onclick="openMenu()">☰</button>
     </div>
+  </header>
+
+  <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
+  <div class="trust-strip">
+    <p>✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
+    <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
   </div>
-  <div class="translate-panel" id="translatePanel"><div id="google_translate_element"></div></div>
-</nav>
 
-<!-- MENU -->
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-<div class="menu-panel" id="menuPanel">
-  <div class="menu-head"><h3>ACS Menu</h3><button class="menu-close" onclick="closeMenu()">✕</button></div>
-  <ul class="menu-links">
-    <li><a href="/hi/">🏠 होम</a></li>
-    <li><a href="/hi/mission.html">🎯 मिशन</a></li>
-    <li><a href="/hi/salah.html">🧭 सलाह</a></li>
-    <li><a href="/udyam/">🌍 उद्यम</a></li>
-    <li><a href="/courses/hi/" class="active">📚 कोर्स</a></li>
-    <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
-    <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
-    <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
-    <li><a href="/vani/">📱 वाणी App</a></li>
-    <li><a href="/contact/hi/">📞 संपर्क</a></li>
-  </ul>
-  <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
-</div>
-
-<!-- HERO -->
+  <!-- ══ हर page का अपना content सिर्फ़ यहाँ बदलता है ══ -->
+  <main id="main">
+    <!-- ════════ कोर्स (courses) — बीच का content (data-driven: 4-tab) ════════ -->
+<div id="coursesApp">
 <div class="hero">
   <div class="hero-inner">
     <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
@@ -212,13 +105,13 @@ img{max-width:100%;display:block}
   <!-- ══ TAB 1: स्वरोजगार ══ -->
   <div class="sec active" id="sec1">
     <div class="sec-title">🏪 स्वरोजगार कोर्स</div>
-    <div class="sec-sub">खुद का व्यवसाय [Business] शुरू करने के लिए। Boss बनें — Employee नहीं।<br/>
+    <div class="sec-sub">खुद का व्यवसाय (Business) शुरू करने के लिए। Boss बनें — Employee नहीं।<br/>
     ₹0 से शुरू → धीरे-धीरे ₹200 करोड़ तक।</div>
 
     <div class="filter-wrap">
-      <div class="filter-title">🎓 शिक्षा स्तर [Education Level] से Filter करें</div>
+      <div class="filter-title">🎓 शिक्षा स्तर (Education Level) से Filter करें</div>
       <select class="edu-select" id="eduFilter1" onchange="applyFilters(1)">
-        <option value="all">— सभी शिक्षा स्तर [All Levels] —</option>
+        <option value="all">— सभी शिक्षा स्तर (All Levels) —</option>
       </select>
       <div class="filter-title" style="margin-top:10px">📂 Category से Filter करें</div>
       <div class="filter-row" id="mgFilter1"></div>
@@ -242,11 +135,11 @@ img{max-width:100%;display:block}
   <!-- ══ TAB 2: प्राइवेट नौकरी ══ -->
   <div class="sec" id="sec2">
     <div class="sec-title">🏢 प्राइवेट नौकरी कोर्स</div>
-    <div class="sec-sub">950 sectors की Companies में Skilled Employee [कामगार] बनने के लिए।<br/>
+    <div class="sec-sub">950 sectors की Companies में Skilled Employee (कामगार) बनने के लिए।<br/>
     Job पाओ, Salary कमाओ, Experience बढ़ाओ।</div>
 
     <div class="filter-wrap">
-      <div class="filter-title">🎓 शिक्षा स्तर [Education Level] से Filter करें</div>
+      <div class="filter-title">🎓 शिक्षा स्तर (Education Level) से Filter करें</div>
       <select class="edu-select" id="eduFilter2" onchange="applyFilters(2)">
         <option value="all">— सभी शिक्षा स्तर —</option>
       </select>
@@ -275,7 +168,7 @@ img{max-width:100%;display:block}
     छोटी शुरुआत — बड़ा सपना।</div>
 
     <div class="filter-wrap">
-      <div class="filter-title">🎓 शिक्षा स्तर [Education Level] से Filter करें</div>
+      <div class="filter-title">🎓 शिक्षा स्तर (Education Level) से Filter करें</div>
       <select class="edu-select" id="eduFilter3" onchange="applyFilters(3)">
         <option value="all">— सभी शिक्षा स्तर —</option>
       </select>
@@ -302,7 +195,7 @@ img{max-width:100%;display:block}
     Government job = Security + Pension + Respect।</div>
 
     <div class="filter-wrap">
-      <div class="filter-title">🎓 शिक्षा स्तर [Education Level] से Filter करें</div>
+      <div class="filter-title">🎓 शिक्षा स्तर (Education Level) से Filter करें</div>
       <select class="edu-select" id="eduFilter4" onchange="applyFilters(4)">
         <option value="all">— सभी शिक्षा स्तर —</option>
       </select>
@@ -325,50 +218,113 @@ img{max-width:100%;display:block}
 </div>
 
 <!-- FOOTER -->
-<footer class="footer-main">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <h2>Applied Computer School™</h2>
-      <p class="footer-tagline">"From Village to World"</p>
-      <p>FFGPMTrust का उपक्रम | ISO 9001:2015 प्रमाणित</p>
-    </div>
-    <div class="footer-col">
-      <h3>Site Map</h3>
-      <div class="sitemap-grid">
-        <a href="/hi/">🏠 होम</a><a href="/hi/mission.html">🎯 मिशन</a>
-        <a href="/hi/salah.html">🧭 सलाह</a><a href="/udyam/">🌍 उद्यम</a>
-        <a href="/courses/hi/">📚 कोर्स</a><a href="/join.html">📝 रजिस्ट्रेशन</a>
-        <a href="/verify/">🏆 प्रमाण पत्र</a><a href="/hi/network.html">🤝 नेटवर्क</a>
-        <a href="/vani/">📱 वाणी App</a><a href="/contact/hi/">📞 संपर्क</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h3>संपर्क</h3>
-      <p>📍 विद्यार्थीनगर, चौथम, खगड़िया — 851201</p>
-      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
-      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
-      <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    © 2026 Applied Computer School™ |
-    <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
-    <a href="/" style="color:var(--gold)">acslearn.com</a>
-  </div>
-</footer>
+</div>
 
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo(0,0)">↑</button>
-<div class="toast" id="toast"></div>
+<style>
+/* courses content-CSS (navbar/footer/menu/global हटाई — टेम्पलेट से; [ ]→( )) */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);padding:36px 20px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.hero-logo{width:52px;height:52px;border-radius:14px;border:2px solid rgba(255,255,255,.2);margin:0 auto 16px}
+.hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:16px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:12px}
+.hero-title{font-size:clamp(28px,6vw,44px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero-title em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:16px;line-height:1.7}
+.hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-badge{padding:10px 18px;border-radius:20px;font-size:16px;font-weight:700}
+.badge-free{background:rgba(46,125,50,.2);border:1px solid rgba(46,125,50,.4);color:#81C784}
+.badge-paid{background:rgba(21,101,192,.2);border:1px solid rgba(21,101,192,.4);color:#90CAF9}
 
-<!-- DATA -->
-<script src="/assets/master_groups.js"></script>
+/* TAB BAR */
+.tab-bar{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:52px;z-index:100;overflow-x:auto}
+.tab-inner{display:flex;max-width:900px;margin:0 auto;min-width:480px}
+.tab{flex:1;padding:14px 8px;text-align:center;font-size:16px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
+.tab:hover{color:var(--blue)}
+.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-icon{font-size:20px;display:block;margin-bottom:3px}
+
+/* MAIN */
+.main{max-width:900px;margin:0 auto;padding:16px 16px 60px}
+.sec{display:none}
+.sec.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.sec-sub{font-size:16px;color:var(--gray);margin-bottom:16px;line-height:1.7}
+
+/* FILTERS */
+.filter-wrap{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:16px}
+.filter-title{font-size:16px;font-weight:700;color:var(--gray);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.filter-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.filter-row:last-child{margin:0}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--border);border-radius:16px;font-size:16px;font-weight:700;cursor:pointer;background:#fff;color:var(--gray);font-family:inherit;transition:.15s}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
+.filter-btn.active{border-color:var(--blue);background:#EEF4FF;color:var(--blue)}
+.edu-select{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:16px;font-family:inherit;outline:none;background:#fff;color:var(--text);margin-bottom:8px}
+.edu-select:focus{border-color:var(--blue)}
+
+/* SEARCH */
+.search-wrap{position:relative;margin-bottom:12px}
+.search-input{width:100%;padding:14px 48px 14px 18px;border:2px solid var(--border);border-radius:12px;font-size:16px;font-family:inherit;outline:none;background:#fff;transition:border .2s}
+.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,.1)}
+
+/* COURSE GRID */
+.course-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:480px){.course-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:720px){.course-grid{grid-template-columns:1fr 1fr 1fr}}
+.course-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:16px;transition:.2s;display:flex;flex-direction:column}
+.course-card:hover{border-color:var(--blue);box-shadow:0 4px 14px rgba(0,0,0,.1);transform:translateY(-2px)}
+.cc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+.cc-id{font-size:16px;font-weight:700;color:var(--gray);letter-spacing:1px}
+.cc-free{background:#E8F5E9;color:var(--green);font-size:16px;font-weight:800;padding:2px 8px;border-radius:10px}
+.cc-name{font-size:16px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:8px}
+.cc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.cc-tag{font-size:16px;font-weight:700;padding:3px 8px;border-radius:10px}
+.tag-duration{background:#EEF4FF;color:var(--blue)}
+.tag-lessons{background:#F3E5F5;color:var(--purple)}
+.tag-level{background:#FFF3E0;color:var(--orange)}
+.tag-salary{background:#E8F5E9;color:var(--green)}
+.tag-edu{background:#F5F5F5;color:var(--gray)}
+.cc-btns{display:flex;gap:6px;margin-top:auto}
+.cc-btn{flex:1;padding:11px 10px;border-radius:8px;font-size:16px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-align:center;transition:.2s}
+.btn-free{background:#E8F5E9;color:var(--green)}
+.btn-free:hover{background:var(--green);color:#fff}
+.btn-centre{background:#EEF4FF;color:var(--blue)}
+.btn-centre:hover{background:var(--blue);color:#fff}
+.course-count{font-size:16px;color:var(--gray);margin-bottom:10px;font-weight:600}
+
+/* STATS BAR */
+.stats-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.stat-pill{background:#fff;border:1px solid var(--border);border-radius:20px;padding:10px 16px;font-size:16px;font-weight:700}
+.sp-num{color:var(--blue);font-size:20px;font-weight:900}
+.sp-lbl{color:var(--gray)}
+
+/* FOOTER */
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:32px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1000px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:16px;font-style:italic;margin:6px 0}
+.footer-col h3{color:var(--gold);font-size:16px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:16px;padding:3px 0;display:block}
+.footer-col p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:16px;color:rgba(255,255,255,.4)}
+.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
+.scroll-top.show{display:flex;align-items:center;justify-content:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:16px;z-index:999;opacity:0;transition:.3s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+
+<!-- data + render (4-tab: SELF_EMP/PRIVATE/LOCAL/GOVT + mg filter) — ज्यों-का-त्यों -->
 <script src="/assets/courses_data.js"></script>
-<script src="/assets/acs-translate.js"></script>
-
 <script>
 // ══ MG NAMES ══
-// 24 श्रेणियों के नाम अब single source से: /assets/master_groups.js → mgLabel(id)
-// (पहले यहाँ सिर्फ़ 12 अधूरे हार्डकोड थे — हटाए।)
+const MG_NAMES = {
+  1:'🌾 कृषि', 2:'⛏️ खनन', 3:'🏭 विनिर्माण',
+  4:'🏗️ निर्माण', 5:'🧵 वस्त्र', 6:'💊 स्वास्थ्य',
+  7:'💻 प्रौद्योगिकी', 8:'🚗 परिवहन', 9:'🛍️ व्यापार',
+  10:'🎭 सेवाएं', 11:'📚 शिक्षा', 24:'🛡️ सुरक्षा',
+};
 
 // ══ DATA MAP ══
 const TAB_DATA = {
@@ -404,7 +360,7 @@ function init() {
     mgs.forEach(mg => {
       const btn = document.createElement('button');
       btn.className = 'filter-btn';
-      btn.textContent = mgLabel(mg);
+      btn.textContent = MG_NAMES[mg] || 'MG'+mg;
       btn.onclick = function(){ setMG(tab, mg, this); };
       div.appendChild(btn);
     });
@@ -473,7 +429,7 @@ function renderTab(tab) {
         ${c.salary ? `<span class="cc-tag tag-salary">💰 ${c.salary}</span>` : ''}
         ${c.exam ? `<span class="cc-tag tag-level">📝 ${c.exam}</span>` : ''}
       </div>
-      ${eduNames ? `<div style="font-size:13px;color:var(--gray);margin-bottom:10px">🎓 ${eduNames}</div>` : ''}
+      ${eduNames ? `<div style="font-size:16px;color:var(--gray);margin-bottom:10px">🎓 ${eduNames}</div>` : ''}
       <div class="cc-btns">
         <button class="cc-btn btn-free" onclick="openCourse('${c.id}','online')">📱 Online पढ़ें</button>
         <button class="cc-btn btn-centre" onclick="openCourse('${c.id}','centre')">🏫 Centre Join</button>
@@ -512,6 +468,309 @@ window.googleTranslateElementInit=function(){new google.translate.TranslateEleme
 document.addEventListener('DOMContentLoaded', init);
 init();
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  </main>
+
+  <!-- ══ FOOTER (footer सिर्फ़ यहीं) — links links.js से मेल खाएँ ══ -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand-info">
+        <h2>Applied Computer School™</h2>
+        <p class="sponsor-org">FFGPMTrust · ISO 9001:2015</p>
+        <p class="tagline">गाँव से विश्व तक — निःशुल्क डिजिटल शिक्षा</p>
+        <div class="iso-box">ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar — 851201</div>
+      </div>
+      <div class="footer-sitemap">
+        <h3>मेन्यू</h3>
+        <ul class="sitemap-links">
+          <li><a href="/">🏠 होम</a></li>
+          <li><a href="/hi/mission.html">🎯 मिशन</a></li>
+          <li><a href="/hi/salah.html">🧭 सलाह</a></li>
+          <li><a href="/udyam/">🌍 उद्यम</a></li>
+          <li><a href="/courses/hi/">📚 कोर्स</a></li>
+          <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
+          <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
+          <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
+          <li><a href="/vani/">📱 वाणी</a></li>
+          <li><a href="/contact/hi/">📞 संपर्क</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>संपर्क</h3>
+        <p class="contact-item"><a href="tel:+919431210092">📞 +91-9431210092</a></p>
+        <p class="contact-item"><a href="mailto:acs.chautham@gmail.com">✉️ acs.chautham@gmail.com</a></p>
+        <p class="contact-item"><a href="https://wa.me/919431210092" target="_blank" rel="noopener">💬 WhatsApp</a></p>
+        <p class="contact-item"><a href="https://youtube.com/@AppliedComputerSchool" target="_blank" rel="noopener">▶️ YouTube</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="acsYear"></span> Applied Computer School™ · FFGPMTrust · acslearn.com</div>
+  </footer>
+
+  <!-- ══ LOGIN MODAL (login सिर्फ़ यहीं; Firebase तभी load हो जब खुले) ══ -->
+  <div class="acs-modal-bg" id="acsLoginModal" role="dialog" aria-modal="true" aria-labelledby="acsLoginTitle">
+    <div class="acs-modal">
+      <button class="acs-iconbtn" id="acsLoginClose" type="button" aria-label="बंद करें"
+              style="position:absolute;top:10px;right:10px">✕</button>
+
+      <div id="acsLoginView">
+        <h3 id="acsLoginTitle">🔑 Login</h3>
+        <p class="sub">अपना ईमेल व पासवर्ड डालें</p>
+        <div class="acs-field">
+          <label for="acsEmail">ईमेल (Email)</label>
+          <input id="acsEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com"/>
+        </div>
+        <div class="acs-field">
+          <label for="acsPass">पासवर्ड (Password)</label>
+          <input id="acsPass" type="password" autocomplete="current-password" placeholder="••••••••"/>
+        </div>
+        <button class="acs-submit" id="acsLoginSubmit" type="button">Login करें</button>
+        <p class="err" id="acsLoginErr" role="alert"></p>
+      </div>
+
+      <div id="acsOtpView" style="display:none">
+        <h3>🔒 OTP डालें</h3>
+        <p class="sub">आपके ईमेल पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</p>
+        <div class="acs-field">
+          <label for="acsOtpInput">6-अंकी OTP</label>
+          <input id="acsOtpInput" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="______"/>
+        </div>
+        <button class="acs-submit" id="acsOtpSubmit" type="button">Verify करें</button>
+        <p id="acsOtpTimer" class="sub" style="margin-top:8px"></p>
+        <button id="acsOtpResend" type="button" disabled
+                style="background:none;border:none;color:#1565C0;font-weight:800;cursor:not-allowed;opacity:.45;font:inherit;margin-top:2px">
+          OTP दोबारा भेजें
+        </button>
+        <p class="err" id="acsOtpErr" role="alert"></p>
+      </div>
+
+      <div class="acs-welcome" id="acsWelcome">
+        <div class="ic">✅</div>
+        <h2>स्वागत है!</h2>
+        <p class="sub">आपके dashboard पर भेजा जा रहा है…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SCRIPTS — क्रम ज़रूरी: config → links → translate → script ══ -->
+  <script src="/assets/acs-config.js"></script>
+  <script src="/assets/links.js"></script>
+  <script src="/assets/acs-translate.js"></script>
+  <script src="/script.js"></script>
+
+  <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
+  <script>
+  (function () {
+    document.getElementById("acsYear").textContent = new Date().getFullYear();
+
+    var modal     = document.getElementById("acsLoginModal");
+    var openBtn   = document.getElementById("acsLoginBtn");
+    var closeBtn  = document.getElementById("acsLoginClose");
+    var loginView = document.getElementById("acsLoginView");
+    var otpView   = document.getElementById("acsOtpView");
+    var welcome   = document.getElementById("acsWelcome");
+    var errEl     = document.getElementById("acsLoginErr");
+    var otpErr    = document.getElementById("acsOtpErr");
+    var otpTimerEl= document.getElementById("acsOtpTimer");
+    var resendBtn = document.getElementById("acsOtpResend");
+    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null, pendingDesignation = "";
+
+    var SESSION_KEY = "acs_session";
+    var OTP_VALID = 300, OTP_RESEND = 600;   // 5 मिनट valid · 10 मिनट resend
+
+    /* ── Role → URL (Constitution v1.5 मास्टर-सूची; role/designation Firestore में snake_case) ── */
+    /* 9 सीधे कार्ड */
+    var ROLE_URLS = {
+      student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
+      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
+    };
+    /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
+    var TEAM_URLS = {
+      founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
+      hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
+      zm:"/dashboard/zonal/", rm:"/dashboard/regional/",
+      field_staff:"/dashboard/hq/staff/", intern:"/dashboard/hq/staff/"
+    };
+
+    /* 3 Learner कार्ड → re-login पर OTP नहीं */
+    function isLearner(r){ return r==="student" || r==="jobseeker" || r==="entrepreneur"; }
+    /* सही dashboard URL */
+    function destFor(role, designation){
+      if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
+      return ROLE_URLS[role] || "/dashboard/student/";
+    }
+    function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
+
+    function showView(which){
+      loginView.style.display = (which==="login") ? "" : "none";
+      otpView.style.display   = (which==="otp")   ? "" : "none";
+      if (which==="welcome") welcome.classList.add("show"); else welcome.classList.remove("show");
+    }
+
+    function openModal(){
+      modal.classList.add("open");
+      showView("login");
+      errEl.textContent = ""; if(otpErr) otpErr.textContent = "";
+      loadFirebase();
+      var f = document.getElementById("acsEmail"); if (f) f.focus();
+    }
+    function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", function (e){
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+
+    /* Firebase compat (app+auth+firestore+functions) — सिर्फ़ ज़रूरत पर */
+    function loadFirebase(){
+      if (fbReady) return fbReady;
+      var cfg = (window.ACS_CONFIG && window.ACS_CONFIG.firebase) || null;
+      if (!cfg) { if(errEl) errEl.textContent = "config नहीं मिला।"; return Promise.reject(); }
+      var B = "https://www.gstatic.com/firebasejs/10.12.2/";
+      fbReady = loadScript(B+"firebase-app-compat.js")
+        .then(function(){ return loadScript(B+"firebase-auth-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-firestore-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-functions-compat.js"); })
+        .then(function(){
+          if (!window.firebase.apps.length) window.firebase.initializeApp(cfg);
+          /* idle-logout (script.js) + सामान्य logout — session-मार्क भी हटाओ */
+          window.acsLogout = function(){
+            try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+            try{ window.firebase.auth().signOut(); }catch(e){}
+            window.location.href = "/";
+          };
+        });
+      return fbReady;
+    }
+    function loadScript(src){
+      return new Promise(function (res, rej){
+        var s = document.createElement("script");
+        s.src = src; s.onload = res; s.onerror = rej;
+        document.head.appendChild(s);
+      });
+    }
+    /* OTP/session functions us-central1 (function-region से मेल) */
+    function fn(name){ return window.firebase.app().functions("us-central1").httpsCallable(name); }
+
+    /* ── password step ── */
+    document.getElementById("acsLoginSubmit").addEventListener("click", function (){
+      var email = document.getElementById("acsEmail").value.trim();
+      var pass  = document.getElementById("acsPass").value;
+      errEl.textContent = "";
+      if (!email || !pass) { errEl.textContent = "ईमेल व पासवर्ड दोनों भरें।"; return; }
+
+      loadFirebase().then(function (){
+        return window.firebase.auth().signInWithEmailAndPassword(email, pass);
+      }).then(function (cred){
+        var user = cred.user;
+        /* email-verify अनिवार्य — बिना verify login नहीं */
+        if (!user.emailVerified) {
+          user.sendEmailVerification().catch(function(){});
+          window.firebase.auth().signOut();
+          errEl.textContent = "पहले अपना ईमेल verify करें — verification link भेज दी गई।";
+          return;
+        }
+        /* role Firestore से */
+        return window.firebase.firestore().collection("users").doc(user.uid).get().then(function (doc){
+          var data = doc.exists ? doc.data() : {};
+          var role = data.role || "student";
+          pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
+          if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
+          /* 7 roles → असली OTP भेजो */
+          return fn("requestLoginOtp")({ email: user.email }).then(function (res){
+            if (res && res.data && res.data.skip) return finishLogin();
+            showView("otp"); startOtpTimer();
+            if(otpErr) otpErr.textContent = "";
+            var oi = document.getElementById("acsOtpInput"); if(oi){ oi.value=""; oi.focus(); }
+          });
+        });
+      }).catch(function (e){ errEl.textContent = authMsg(e); });
+    });
+
+    /* ── OTP verify ── */
+    document.getElementById("acsOtpSubmit").addEventListener("click", function (){
+      var code = (document.getElementById("acsOtpInput").value || "").trim();
+      if(otpErr) otpErr.textContent = "";
+      if (code.length < 6) { otpErr.textContent = "6-अंकी OTP डालें।"; return; }
+      fn("verifyLoginOtp")({ email: pendingUser.email, code: code })
+        .then(function (){ if(otpTimer) clearInterval(otpTimer); return finishLogin(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    /* ── OTP resend (10 मिनट बाद ही चालू) ── */
+    resendBtn.addEventListener("click", function (){
+      if (resendBtn.disabled) return;
+      if(otpErr) otpErr.textContent = "";
+      fn("requestLoginOtp")({ email: pendingUser.email })
+        .then(function (){ startOtpTimer(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    function startOtpTimer(){
+      var valid = OTP_VALID, resend = OTP_RESEND;
+      resendBtn.disabled = true; resendBtn.style.opacity = ".45"; resendBtn.style.cursor = "not-allowed";
+      if (otpTimer) clearInterval(otpTimer);
+      otpTimer = setInterval(function (){
+        valid--; resend--;
+        var v = valid>0 ? ("OTP "+fmt(valid)+" में ख़त्म") : "OTP ख़त्म";
+        var r = resend>0 ? (" · दोबारा "+fmt(resend)+" बाद") : "";
+        otpTimerEl.textContent = v + r;
+        if (resend<=0){ resendBtn.disabled=false; resendBtn.style.opacity="1"; resendBtn.style.cursor="pointer"; }
+        if (valid<=0 && resend<=0) clearInterval(otpTimer);
+      }, 1000);
+    }
+
+    /* ── सफल login: single-session सेट → redirect ── */
+    function finishLogin(){
+      return fn("claimSession")({}).then(function (res){
+        var sid = res && res.data && res.data.sessionId;
+        try{ localStorage.setItem(SESSION_KEY, sid || ""); }catch(e){}
+        showView("welcome");
+        setTimeout(function (){ window.location.href = destFor(pendingRole, pendingDesignation); }, 900);
+      });
+    }
+
+    function authMsg(e){
+      if (e && e.code) return (e.code.indexOf("password")>-1 || e.code.indexOf("user")>-1)
+        ? "ईमेल या पासवर्ड ग़लत है।" : "Login नहीं हो पाया — दोबारा कोशिश करें।";
+      return "Login नहीं हो पाया।";
+    }
+    function otpMsg(e){
+      var d = (e && e.details) || {};
+      if (d.reason==="wrong")  return "OTP ग़लत — "+d.attemptsLeft+" कोशिश बची।";
+      if (d.reason==="locked") return "3 ग़लत — "+(d.hoursLeft||12)+" घंटे बाद दोबारा।";
+      if (d.reason==="expired")return "OTP ख़त्म — दोबारा भेजें।";
+      if (d.reason==="wait")   return "थोड़ी देर रुकें — दोबारा "+fmt(d.secondsLeft)+" बाद।";
+      if (d.reason==="noOtp")  return "पहले OTP भेजें।";
+      return "OTP जाँच नहीं हो पाई — दोबारा कोशिश करें।";
+    }
+
+    /* ── single-session watcher — हर page पर, पर सिर्फ़ logged-in user के लिए ──
+       localStorage में session-मार्क हो तभी Firebase load (anonymous pages हल्के)। */
+    (function watchSession(){
+      var sid; try{ sid = localStorage.getItem(SESSION_KEY); }catch(e){ sid = null; }
+      if (!sid) return;                       // logged-in नहीं → page हल्का रहे
+      loadFirebase().then(function (){
+        window.firebase.auth().onAuthStateChanged(function (user){
+          if (!user) return;
+          window.firebase.firestore().collection("users").doc(user.uid).onSnapshot(function (doc){
+            var active = doc.exists && doc.data().activeSession;
+            if (active && active !== sid){
+              /* कहीं और login हुआ → यह session बंद */
+              try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+              window.firebase.auth().signOut().finally(function (){
+                alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
+                window.location.href = "/";
+              });
+            }
+          });
+        });
+      });
+    })();
+
+  })();
+  </script>
 </body>
 </html>
