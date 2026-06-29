@@ -66,7 +66,7 @@
 
   <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
   <div class="trust-strip">
-    <p>✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
+    <p style="font-size:16px;font-weight:700;white-space:nowrap">✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
     <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
   </div>
 
@@ -77,22 +77,21 @@
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <img src="/logo.png" alt="ACS" style="width:96px;height:96px;border-radius:18px;margin-bottom:14px"/>
+    <!-- (बीच का logo हटाया — ऊपर navbar में पहले से दिखता है) -->
 
     <div class="hero-message">
       <div class="hero-line" style="color:var(--navy)">तो अभी से रील देखना बंद!</div>
-      <div class="hero-line" style="color:var(--blue)">लूर सीखना <em style="font-style:normal;color:var(--gold)">चालू!!</em> 🚀</div>
+      <div class="hero-line" style="color:var(--blue);font-size:1.9rem">लूर सीखना <em style="font-style:normal;color:var(--gold)">चालू!!</em> 🚀</div>
     </div>
 
-    <p style="font-size:1.18rem;font-weight:700;color:var(--ink);max-width:640px;margin:6px auto">
-      शून्य से शिखर तक पहुँचने का रास्ता, <em style="font-style:normal;color:var(--blue)">यहाँ से भी शुरू होता है।</em>
-    </p>
-    <p style="color:var(--muted);max-width:640px;margin:0 auto 20px">
-      काउंसलर (counselor) से सलाह लेकर अपना रास्ता चुन सकते हैं।
-    </p>
+    <!-- tagline — दो लाइन; दूसरी लाइन बड़ी-मोटी (ऊपर जितनी चौड़ी) -->
+    <div style="max-width:640px;margin:12px auto 22px">
+      <div style="font-size:1.15rem;font-weight:700;color:var(--ink)">शून्य से शिखर तक पहुँचने का रास्ता,</div>
+      <div style="font-size:1.6rem;font-weight:900;color:var(--blue)">यहाँ से भी शुरू होता है।</div>
+    </div>
 
     <!-- STATS -->
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:20px 0">
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:18px 0">
       <div class="notice-card" style="min-width:170px;text-align:center">
         <div style="font-size:2.1rem;font-weight:900;color:var(--blue)">950</div>
         <div style="color:var(--muted);font-weight:700">सेक्टर के कोर्स</div>
@@ -103,11 +102,12 @@
       </div>
     </div>
 
-    <!-- BUTTONS -->
-    <div class="hero-secondary-links" style="margin:22px 0">
-      <a href="/udyam/" class="btn btn-gold">🌍 उद्यम खोजें</a>
-      <a href="/hi/salah.html" class="btn btn-accent">🧭 सलाह लें</a>
+    <!-- नया: बुलावा + 3 बटन (काउंसलर लाइन हटाई) -->
+    <div style="font-size:1.3rem;font-weight:900;color:var(--navy);margin:20px 0 14px">सुंदर भविष्य के लिए हमसे जुड़ें!</div>
+    <div class="hero-secondary-links" style="margin:0 0 18px">
       <a href="/courses/hi/" class="btn btn-primary">📚 कोर्स देखें</a>
+      <a href="/udyam/#jobs" class="btn btn-accent">🔍 जॉब सर्च करें</a>
+      <a href="/udyam/#udyam" class="btn btn-gold">🌍 उद्यम शुरू करें</a>
     </div>
 
     <span style="display:inline-block;background:var(--green);color:#fff;font-weight:800;padding:9px 20px;border-radius:999px">
