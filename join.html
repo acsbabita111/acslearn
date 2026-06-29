@@ -72,17 +72,22 @@ a{text-decoration:none;color:inherit}
 .card-sub{font-size:16px;color:var(--gray);margin-bottom:16px;line-height:1.5}
 
 /* ── ROLE GRID ── */
-.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.role-card{border:2px solid var(--border);border-radius:9px;padding:11px 9px;cursor:pointer;text-align:center;transition:.2s}
-.role-card:hover,.role-card.sel{border-color:var(--blue);background:#EEF4FF}
-.role-icon{font-size:20px;margin-bottom:3px}
-.role-name{font-size:16px;font-weight:700}
-.role-desc{font-size:16px;color:var(--gray);margin-top:2px;line-height:1.3}
-.role-group-head{grid-column:1/-1;font-size:16px;font-weight:700;color:var(--navy);margin:8px 0 2px;padding-top:4px;border-top:1px dashed var(--border)}
-.role-group-head.first{border-top:none;padding-top:0;margin-top:0}
-.role-card.learner{border-color:var(--gold);background:#FFFDF5}
-.role-card.learner .role-icon{font-size:26px}
-.role-card.learner .role-name{font-size:18px}
+.role-grid{display:grid;grid-template-columns:1fr;gap:11px}
+.role-card{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;text-align:left;cursor:pointer;border:1.5px solid var(--border);border-radius:16px;padding:14px 16px;background:linear-gradient(145deg,#ffffff 0%,#eef2f8 100%);box-shadow:0 4px 0 #cdd5e3,0 7px 16px rgba(11,31,58,.10);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 0 #bcc6da,0 12px 22px rgba(11,31,58,.16)}
+.role-card:active{transform:translateY(2px);box-shadow:0 2px 0 #cdd5e3,0 4px 10px rgba(11,31,58,.12)}
+.role-icon{grid-row:1/3;font-size:26px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:13px;box-shadow:inset 0 -2px 4px rgba(11,31,58,.06);margin:0}
+.role-name{font-size:18px;font-weight:700;color:var(--navy)}
+.role-desc{font-size:16px;color:var(--gray);line-height:1.3;margin:0}
+.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:12px 0 2px;padding-top:4px}
+.role-group-head.first{margin-top:0}
+.role-card.learner{border-color:var(--gold);background:linear-gradient(145deg,#fffdf4 0%,#fff3d6 100%);box-shadow:0 4px 0 #e3b649,0 8px 18px rgba(249,168,37,.20)}
+.role-card.learner:active{transform:translateY(2px);box-shadow:0 2px 0 #e3b649,0 4px 10px rgba(249,168,37,.18)}
+.role-card.learner .role-icon{font-size:30px;width:54px;height:54px;background:#fff8e6;border-color:#f0d489}
+.role-card.learner .role-name{font-size:19px}
+.role-card.sel{border-color:var(--blue);background:linear-gradient(145deg,#f4f9ff 0%,#e6f0ff 100%);box-shadow:0 4px 0 var(--blue),0 9px 20px rgba(21,101,192,.26)}
+.role-card.sel:active{transform:translateY(2px)}
+@media(prefers-reduced-motion:reduce){.role-card{transition:none}.role-card:hover,.role-card:active{transform:none}}
 
 /* ── FORM FIELDS ── */
 .field{margin-bottom:13px}
