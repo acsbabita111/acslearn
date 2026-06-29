@@ -1,193 +1,79 @@
 <!DOCTYPE html>
-<html lang="hi" dir="ltr">
+<html lang="hi">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="ACS उद्यम — 950 सेक्टर, स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी, स्थानीय नौकरी।"/>
-<meta name="robots" content="index, follow"/>
-<meta name="theme-color" content="#0B1F3A"/>
-<link rel="canonical" href="https://acslearn.com/udyam/"/>
-<title>उद्यम — Applied Computer School™</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
-  --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
-  --orange:#E65100;--red:#C62828;
-  --white:#fff;--offwhite:#F5F7FA;
-  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
-}
-html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:16px;line-height:1.8}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
 
-.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
-.nav-brand{display:flex;align-items:center;gap:8px}
-.nav-brand img{height:30px;border-radius:6px}
-.nav-brand-text{color:#fff;font-size:15px;font-weight:700;line-height:1.2}
-.nav-brand-text small{display:block;color:var(--gold);font-size:12px;font-weight:400}
-.nav-controls{display:flex;align-items:center;gap:6px}
-.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-family:inherit;min-height:40px}
-.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-height:40px;min-width:40px}
-.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
-.translate-panel.open{display:block}
-#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:14px;font-family:inherit}
-.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
-.menu-overlay.open{display:block}
-.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}
-.menu-panel.open{right:0}
-.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
-.menu-head h3{font-size:15px}
-.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
-.menu-links{list-style:none;padding:6px 0}
-.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:16px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
-.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
-.menu-links li a.active{color:var(--blue);background:#EEF4FF}
-.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);padding:14px;border-radius:10px;font-weight:800;font-size:15px;min-height:52px}
+  <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
+  <title>उद्यम — 950 सेक्टर, स्वरोजगार से सरकारी नौकरी तक | Applied Computer School™</title>
+  <meta name="description" content="ACS उद्यम केंद्र — 950 सेक्टर, 24 मास्टर-समूह। स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी व स्थानीय नौकरी — हर रास्ता एक जगह।"/>
+  <link rel="canonical" href="https://acslearn.com/udyam/"/>
+  <meta name="robots" content="index,follow"/>
 
-.hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);padding:36px 20px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
-.hero-logo{width:52px;height:52px;border-radius:14px;border:2px solid rgba(255,255,255,.2);margin:0 auto 16px}
-.hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:12px}
-.hero-title{font-size:clamp(24px,5.5vw,38px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
-.hero-title em{color:var(--gold);font-style:normal}
-.hero-sub{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:20px}
-.hero-stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.hs{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 14px;text-align:center}
-.hs-num{font-size:18px;font-weight:900;color:var(--gold);display:block}
-.hs-lbl{font-size:10px;color:rgba(255,255,255,.7)}
+  <!-- मूल → अंग्रेज़ी → बाक़ी; generator हर भाषा के लिए hreflang भरे -->
+    <link rel="alternate" hreflang="hi" href="https://acslearn.com/udyam/"/>
+  <link rel="alternate" hreflang="en" href="https://acslearn.com/en/industries/"/>
+  <link rel="alternate" hreflang="x-default" href="https://acslearn.com/udyam/"/>
 
-.tab-bar{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:52px;z-index:100;overflow-x:auto}
-.tab-inner{display:flex;max-width:900px;margin:0 auto;min-width:480px}
-.tab{flex:1;padding:14px 8px;text-align:center;font-size:14px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
-.tab:hover{color:var(--blue)}
-.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
-.tab-icon{font-size:20px;display:block;margin-bottom:3px}
+  <!-- Open Graph / सोशल शेयर -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="उद्यम — 950 सेक्टर, स्वरोजगार से सरकारी नौकरी तक | Applied Computer School™"/>
+  <meta property="og:description" content="ACS उद्यम केंद्र — 950 सेक्टर, 24 मास्टर-समूह। स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी व स्थानीय नौकरी — हर रास्ता एक जगह।"/>
+  <meta property="og:image" content="https://acslearn.com/logo.png"/>
+  <meta property="og:locale" content="hi"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-.main{max-width:900px;margin:0 auto;padding:16px 16px 60px}
-.sec{display:none}
-.sec.active{display:block;animation:fadeIn .3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.sec-title{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:6px}
-.sec-sub{font-size:16px;color:var(--gray);margin-bottom:16px}
+  <!-- PWA / icon / रंग -->
+  <meta name="theme-color" content="#0B1F3A"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <link rel="icon" href="/logo.png"/>
+  <link rel="apple-touch-icon" href="/logo.png"/>
 
-/* SEARCH + FILTER */
-.search-wrap{position:relative;margin-bottom:10px}
-.search-input{width:100%;padding:13px 46px 13px 16px;border:2px solid var(--border);border-radius:12px;font-size:15px;font-family:inherit;outline:none;background:#fff;transition:border .2s}
-.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,.1)}
-.filter-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
-.filter-btn{padding:8px 14px;border:1.5px solid var(--border);border-radius:16px;font-size:14px;font-weight:700;cursor:pointer;background:#fff;color:var(--gray);font-family:inherit;transition:.15s}
-.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
-.filter-btn.active{border-color:var(--blue);background:#EEF4FF;color:var(--blue)}
-.sector-count{font-size:14px;color:var(--gray);margin-bottom:10px;font-weight:600}
+  <!-- फ़ॉन्ट (sw.js के precache URL से हूबहू मेल — 400–900) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-/* SECTOR GRID */
-.sector-grid{display:grid;grid-template-columns:1fr;gap:8px}
-@media(min-width:480px){.sector-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:720px){.sector-grid{grid-template-columns:1fr 1fr 1fr}}
-.sector-card{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:.2s}
-.sector-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,.1);transform:translateY(-2px)}
-.s-num{font-size:12px;font-weight:700;color:var(--gray);letter-spacing:1px}
-.s-name{font-size:15px;font-weight:800;color:var(--navy);line-height:1.4;margin:3px 0}
-.s-invest{font-size:13px;color:var(--green);font-weight:700}
-.s-link{font-size:12px;color:var(--blue);margin-top:3px;font-weight:600}
-
-/* STATE/DISTRICT DROPDOWN */
-.loc-search{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.loc-select{flex:1;min-width:140px;padding:12px 16px;border:2px solid var(--border);border-radius:10px;font-size:16px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s}
-.loc-select:focus{border-color:var(--blue)}
-.loc-btn{padding:11px 18px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
-
-/* RESULT MESSAGE */
-.loc-result{background:#E8F5E9;border:1.5px solid #C8E6C9;border-radius:10px;padding:16px 18px;margin-bottom:14px;display:none;font-size:15px;line-height:1.7}
-.loc-result.show{display:block}
-.loc-result strong{color:var(--green)}
-
-/* PORTAL CARDS */
-.portal-grid{display:grid;gap:10px;margin-bottom:16px}
-.portal-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:14px;display:flex;align-items:flex-start;gap:12px;transition:.2s}
-.portal-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.p-icon{font-size:28px;flex-shrink:0}
-.p-info{flex:1}
-.p-name{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:2px}
-.p-desc{font-size:13px;color:var(--gray);margin-bottom:6px;line-height:1.5}
-.p-link{display:inline-block;padding:5px 12px;background:var(--blue);color:#fff;border-radius:6px;font-size:11px;font-weight:700}
-
-.sub-h{font-size:16px;font-weight:800;color:var(--navy);margin:18px 0 10px;padding-bottom:5px;border-bottom:2px solid var(--border)}
-
-/* EMPTY STATE */
-.empty-box{background:#fff;border:2px dashed var(--border);border-radius:14px;padding:28px 20px;text-align:center;margin-bottom:14px}
-.empty-icon{font-size:44px;margin-bottom:10px}
-.empty-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.empty-desc{font-size:15px;color:var(--gray);margin-bottom:14px;line-height:1.7}
-
-/* CTA */
-.reg-cta{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:14px;padding:20px;color:#fff;text-align:center;margin-top:14px}
-.reg-cta-icon{font-size:32px;margin-bottom:8px}
-.reg-cta h3{font-size:20px;font-weight:800;margin-bottom:6px}
-.reg-cta p{font-size:15px;opacity:.8;margin-bottom:14px;line-height:1.7}
-.reg-cta-btn{display:inline-block;padding:11px 22px;background:var(--gold);color:var(--navy);border-radius:10px;font-weight:800;font-size:13px;transition:.2s}
-
-/* SUGGEST LINK */
-.suggest-link{background:#FFF8E1;border:1px solid rgba(249,168,37,.4);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:15px;color:var(--text);line-height:1.7}
-.suggest-link a{color:var(--blue);font-weight:700}
-
-/* FOOTER */
-.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:32px 20px 20px;margin-top:20px}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1000px;margin:0 auto}
-@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
-.footer-brand h2{color:#fff;font-size:15px;margin-bottom:6px}
-.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:6px 0}
-.footer-col h3{color:var(--gold);font-size:14px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
-.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.sitemap-grid a{color:rgba(255,255,255,.6);font-size:14px;padding:3px 0;display:block}
-.footer-col p{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
-.footer-col a{color:var(--gold)}
-.footer-bottom{text-align:center;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:14px;color:rgba(255,255,255,.4)}
-.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
-.scroll-top.show{display:flex;align-items:center;justify-content:center}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;z-index:999;opacity:0;transition:.3s;white-space:nowrap}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-</style>
+  <!-- मास्टर CSS (एकमात्र — रूट से, हर भाषा-folder से मिलेगा) -->
+  <link rel="stylesheet" href="/style.css"/>
 </head>
-<body>
 
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="/hi/" class="nav-brand">
-      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-      <div class="nav-brand-text">Applied Computer School™
-        <small>Free Digital Education for the Global South</small>
+<!-- data-lang = page की भाषा (app.js की "सुनो"/TTS व script.js इसे पढ़ें) -->
+<body data-lang="hi" data-page="udyam">
+
+  <!-- keyboard वालों के लिए सीधा content पर -->
+  <a href="#main" class="acs-skip">मुख्य content पर जाएँ</a>
+
+  <!-- ══ NAVBAR (header सिर्फ़ यहीं — किसी page में दोबारा नहीं) ══
+       slide-menu व भाषा-panel script.js अपने-आप जोड़ता है (links.js के 10 items)। -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <img class="brand-logo-img" src="/logo.png" alt="ACS"/>
+        <span class="brand-name">Applied Computer School™</span>
+      </a>
+      <div class="nav-controls">
+        <button class="lang-btn" id="languageToggle" type="button"
+                aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
+        <button class="menu-btn" id="menuToggle" type="button"
+                aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
+        <button class="lang-btn" id="acsLoginBtn" type="button" aria-label="Login / Dashboard">🔑</button>
       </div>
-    </a>
-    <div class="nav-controls">
-      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
-      <button class="btn-menu" onclick="openMenu()">☰</button>
     </div>
+  </header>
+
+  <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
+  <div class="trust-strip">
+    <p>✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
+    <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
   </div>
-  <div class="translate-panel" id="translatePanel"><div id="google_translate_element"></div></div>
-</nav>
 
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-<div class="menu-panel" id="menuPanel">
-  <div class="menu-head"><h3>ACS Menu</h3><button class="menu-close" onclick="closeMenu()">✕</button></div>
-  <ul class="menu-links">
-    <li><a href="/hi/">🏠 होम</a></li>
-    <li><a href="/hi/mission.html">🎯 मिशन</a></li>
-    <li><a href="/hi/salah.html">🧭 सलाह</a></li>
-    <li><a href="/udyam/" class="active">🌍 उद्यम</a></li>
-    <li><a href="/courses/hi/">📚 कोर्स</a></li>
-    <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
-    <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
-    <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
-    <li><a href="/vani/">📱 वाणी App</a></li>
-    <li><a href="/contact/hi/">📞 संपर्क</a></li>
-  </ul>
-  <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
-</div>
-
+  <!-- ══ हर page का अपना content सिर्फ़ यहाँ बदलता है ══ -->
+  <main id="main">
+    <!-- ════════ उद्यम (udyam) — बीच का content (data-driven: 950 sector + 24 group) ════════ -->
+<div id="udyamApp">
 <div class="hero">
   <div class="hero-inner">
     <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
@@ -217,7 +103,7 @@ img{max-width:100%;display:block}
 
   <!-- TAB 1: स्वरोजगार -->
   <div class="sec active" id="sec1">
-    <div class="sec-title">🏪 स्वरोजगार [Self-Employment]</div>
+    <div class="sec-title">🏪 स्वरोजगार (Self-Employment)</div>
     <div class="sec-sub">₹0 से शुरू → ₹200 करोड़ तक। नीचे 950 सेक्टर में से अपना चुनें।</div>
     <div class="search-wrap">
       <input type="text" class="search-input" id="searchInput"
@@ -231,8 +117,8 @@ img{max-width:100%;display:block}
 
   <!-- TAB 2: सरकारी नौकरी -->
   <div class="sec" id="sec2">
-    <div class="sec-title">🏛️ सरकारी नौकरी [Government Job]</div>
-    <div class="sec-sub">सभी प्रमुख केंद्रीय और राज्य पोर्टल [Portals] एक जगह।</div>
+    <div class="sec-title">🏛️ सरकारी नौकरी (Government Job)</div>
+    <div class="sec-sub">सभी प्रमुख केंद्रीय और राज्य पोर्टल (Portals) एक जगह।</div>
 
     <div class="sub-h">🇮🇳 केंद्र सरकार — National Portals</div>
     <div class="portal-grid">
@@ -253,8 +139,8 @@ img{max-width:100%;display:block}
     <div class="sub-h">🏛️ राज्य सरकार — State Jobs Finder</div>
 
     <!-- STATE DROPDOWN -->
-    <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:13px;color:var(--navy)">
-      💡 अपना राज्य चुनें → उस राज्य की <strong>PSC Portal + 50+ सरकारी नौकरियाँ</strong> [Permanent & Contract] दिखेंगी।
+    <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:16px;color:var(--navy)">
+      💡 अपना राज्य चुनें → उस राज्य की <strong>PSC Portal + 50+ सरकारी नौकरियाँ</strong> (Permanent & Contract) दिखेंगी।
     </div>
 
     <div class="loc-search">
@@ -279,16 +165,16 @@ img{max-width:100%;display:block}
     <!-- JOBS LIST -->
     <div id="stateJobsResult" style="display:none">
       <!-- PERMANENT -->
-      <div style="font-size:13px;font-weight:800;color:var(--green);margin:14px 0 8px;display:flex;align-items:center;gap:8px">
-        ✅ स्थायी नौकरियाँ [Permanent Jobs]
-        <span style="font-size:11px;background:#E8F5E9;color:var(--green);padding:2px 8px;border-radius:10px;font-weight:700" id="permCount"></span>
+      <div style="font-size:16px;font-weight:800;color:var(--green);margin:14px 0 8px;display:flex;align-items:center;gap:8px">
+        ✅ स्थायी नौकरियाँ (Permanent Jobs)
+        <span style="font-size:16px;background:#E8F5E9;color:var(--green);padding:2px 8px;border-radius:10px;font-weight:700" id="permCount"></span>
       </div>
       <div class="portal-grid" id="permJobsList"></div>
 
       <!-- CONTRACT -->
-      <div style="font-size:13px;font-weight:800;color:var(--orange);margin:14px 0 8px;display:flex;align-items:center;gap:8px">
-        📋 अनुबंध नौकरियाँ [Contract Jobs]
-        <span style="font-size:11px;background:#FFF3E0;color:var(--orange);padding:2px 8px;border-radius:10px;font-weight:700" id="contractCount"></span>
+      <div style="font-size:16px;font-weight:800;color:var(--orange);margin:14px 0 8px;display:flex;align-items:center;gap:8px">
+        📋 अनुबंध नौकरियाँ (Contract Jobs)
+        <span style="font-size:16px;background:#FFF3E0;color:var(--orange);padding:2px 8px;border-radius:10px;font-weight:700" id="contractCount"></span>
       </div>
       <div class="portal-grid" id="contractJobsList"></div>
     </div>
@@ -302,22 +188,22 @@ img{max-width:100%;display:block}
     <div class="reg-cta">
       <div class="reg-cta-icon">🏫</div>
       <h3>Coaching Centre चलाते हैं?</h3>
-      <p>अपना Coaching यहाँ Register करें।<br/>जिले के Students को आपके बारे में पता चलेगा — <strong>निःशुल्क [Free]।</strong></p>
+      <p>अपना Coaching यहाँ Register करें।<br/>जिले के Students को आपके बारे में पता चलेगा — <strong>निःशुल्क (Free)।</strong></p>
       <a href="/join.html" class="reg-cta-btn">📝 Coaching Register करें →</a>
     </div>
   </div>
 
   <!-- TAB 3: प्राइवेट नौकरी -->
   <div class="sec" id="sec3">
-    <div class="sec-title">🏢 प्राइवेट नौकरी [Private Job]</div>
-    <div class="sec-sub">जिला-वार [District-wise] Companies की सूची — जरूरी योग्यता, वेतन और नियोक्ता संपर्क।</div>
+    <div class="sec-title">🏢 प्राइवेट नौकरी (Private Job)</div>
+    <div class="sec-sub">जिला-वार (District-wise) Companies की सूची — जरूरी योग्यता, वेतन और नियोक्ता संपर्क।</div>
 
     <div class="loc-search">
       <select class="loc-select" id="stateSelect3" onchange="loadDistricts(3)">
-        <option value="">— राज्य चुनें [State] —</option>
+        <option value="">— राज्य चुनें (State) —</option>
       </select>
       <select class="loc-select" id="districtSelect3">
-        <option value="">— जिला चुनें [District] —</option>
+        <option value="">— जिला चुनें (District) —</option>
       </select>
       <button class="loc-btn" onclick="searchLoc(3)">🔍 खोजें</button>
     </div>
@@ -325,7 +211,7 @@ img{max-width:100%;display:block}
     <div class="loc-result" id="locResult3">
       <strong id="locTitle3"></strong><br/>
       📋 आपके जिले में अभी कोई Company Register नहीं हुई है।<br/>
-      अगर आप <strong>Employer [नियोक्ता]</strong> हैं — अभी Register करें और हजारों Students तक पहुँचें।
+      अगर आप <strong>Employer (नियोक्ता)</strong> हैं — अभी Register करें और हजारों Students तक पहुँचें।
     </div>
 
     <div class="empty-box">
@@ -333,7 +219,7 @@ img{max-width:100%;display:block}
       <div class="empty-title">अभी कोई Company Register नहीं हुई</div>
       <div class="empty-desc">आपके जिले की Companies यहाँ दिखेंगी जैसे-जैसे Register होंगी।<br/>
       अगर आप Employer हैं — <strong>अभी Register करें — निःशुल्क!</strong></div>
-      <a href="/join.html" style="display:inline-block;padding:11px 22px;background:var(--blue);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+      <a href="/join.html" style="display:inline-block;padding:11px 22px;background:var(--blue);color:#fff;border-radius:10px;font-weight:800;font-size:16px">
         👔 Employer Register करें →
       </a>
     </div>
@@ -342,24 +228,24 @@ img{max-width:100%;display:block}
       <div class="reg-cta-icon">👔</div>
       <h3>आपकी Company यहाँ दिखे!</h3>
       <p>✅ Company नाम, Website, Job Levels<br/>
-      ✅ जरूरी योग्यता [Qualification] और वेतन [Salary]<br/>
+      ✅ जरूरी योग्यता (Qualification) और वेतन (Salary)<br/>
       ✅ Students directly apply करेंगे<br/>
-      ✅ <strong>बिल्कुल निःशुल्क [Free]</strong></p>
+      ✅ <strong>बिल्कुल निःशुल्क (Free)</strong></p>
       <a href="/join.html" class="reg-cta-btn" style="background:var(--blue-lt);color:#fff">📝 अभी Register करें →</a>
     </div>
   </div>
 
   <!-- TAB 4: स्थानीय नौकरी -->
   <div class="sec" id="sec4">
-    <div class="sec-title">🛒 स्थानीय नौकरी [Local Job]</div>
+    <div class="sec-title">🛒 स्थानीय नौकरी (Local Job)</div>
     <div class="sec-sub">जिले की दुकानें, Workshop — जरूरी कर्मचारी, योग्यता, वेतन और पूरा पता।</div>
 
     <div class="loc-search">
       <select class="loc-select" id="stateSelect4" onchange="loadDistricts(4)">
-        <option value="">— राज्य चुनें [State] —</option>
+        <option value="">— राज्य चुनें (State) —</option>
       </select>
       <select class="loc-select" id="districtSelect4">
-        <option value="">— जिला चुनें [District] —</option>
+        <option value="">— जिला चुनें (District) —</option>
       </select>
       <button class="loc-btn" onclick="searchLoc(4)">🔍 खोजें</button>
     </div>
@@ -375,7 +261,7 @@ img{max-width:100%;display:block}
       <div class="empty-title">अभी कोई दुकान/Workshop Register नहीं हुई</div>
       <div class="empty-desc">आपके जिले की दुकानें यहाँ दिखेंगी जैसे-जैसे Register होंगी।<br/>
       अगर आपको Workers चाहिए — <strong>अभी Register करें — निःशुल्क!</strong></div>
-      <a href="/join.html" style="display:inline-block;padding:11px 22px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+      <a href="/join.html" style="display:inline-block;padding:11px 22px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:16px">
         🏪 दुकान/Workshop Register करें →
       </a>
     </div>
@@ -386,7 +272,7 @@ img{max-width:100%;display:block}
       <p>✅ दुकान का नाम और पूरा पता<br/>
       ✅ कितने Workers चाहिए<br/>
       ✅ जरूरी योग्यता और वेतन<br/>
-      ✅ <strong>बिल्कुल निःशुल्क [Free]</strong></p>
+      ✅ <strong>बिल्कुल निःशुल्क (Free)</strong></p>
       <a href="/join.html" class="reg-cta-btn" style="background:var(--green-lt);color:#fff">📝 अभी Register करें →</a>
     </div>
   </div>
@@ -394,12 +280,12 @@ img{max-width:100%;display:block}
 
   <!-- TAB 5: विदेश में नौकरी -->
   <div class="sec" id="sec5">
-    <div class="sec-title">🌏 विदेश में नौकरी [Jobs Abroad]</div>
-    <div class="sec-sub">सरकारी मान्यता प्राप्त एजेंट [Registered Agents] के माध्यम से सुरक्षित विदेश रोजगार।</div>
+    <div class="sec-title">🌏 विदेश में नौकरी (Jobs Abroad)</div>
+    <div class="sec-sub">सरकारी मान्यता प्राप्त एजेंट (Registered Agents) के माध्यम से सुरक्षित विदेश रोजगार।</div>
 
     <!-- WARNING BOX -->
-    <div style="background:#FFF3E0;border:2px solid var(--orange);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:13px;line-height:1.8">
-      ⚠️ <strong>सावधान [Warning]:</strong> विदेश जाने से पहले:<br/>
+    <div style="background:#FFF3E0;border:2px solid var(--orange);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:16px;line-height:1.8">
+      ⚠️ <strong>सावधान (Warning):</strong> विदेश जाने से पहले:<br/>
       ✅ सिर्फ <strong>eMigrate registered agents</strong> से संपर्क करें<br/>
       ✅ कोई पैसा advance में मत दें<br/>
       ✅ Visa/Offer Letter verify करें<br/>
@@ -408,7 +294,7 @@ img{max-width:100%;display:block}
     </div>
 
     <!-- GOVT PORTALS -->
-    <div class="sub-h">🇮🇳 सरकारी पोर्टल [Government Portals]</div>
+    <div class="sub-h">🇮🇳 सरकारी पोर्टल (Government Portals)</div>
     <div class="portal-grid">
       <div class="portal-card"><span class="p-icon">🌐</span><div class="p-info"><div class="p-name">eMigrate — MEA India</div><div class="p-desc">विदेश मंत्रालय का official portal। Agent verify करें, नौकरी खोजें।</div><a href="https://emigrate.gov.in" target="_blank" class="p-link">🔗 emigrate.gov.in</a></div></div>
       <div class="portal-card"><span class="p-icon">🎓</span><div class="p-info"><div class="p-name">NSDC International</div><div class="p-desc">National Skill Development Corporation — विदेश placement support।</div><a href="https://www.nsdcinternational.in" target="_blank" class="p-link">🔗 nsdcinternational.in</a></div></div>
@@ -417,20 +303,20 @@ img{max-width:100%;display:block}
     </div>
 
     <!-- EMBASSY SEARCH -->
-    <div class="sub-h">🏛️ भारतीय दूतावास खोजें [Find Indian Embassy]</div>
-    <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:12px;color:var(--navy)">
-      💡 देश चुनें → भारतीय दूतावास [Embassy] का पूरा पता, फोन, Email और Website मिलेगा।
+    <div class="sub-h">🏛️ भारतीय दूतावास खोजें (Find Indian Embassy)</div>
+    <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:12px 16px;margin-bottom:12px;font-size:16px;color:var(--navy)">
+      💡 देश चुनें → भारतीय दूतावास (Embassy) का पूरा पता, फोन, Email और Website मिलेगा।
     </div>
     <div class="loc-search">
       <select class="loc-select" id="embassySelect" onchange="showEmbassy()">
-        <option value="">— देश चुनें [Country] —</option>
+        <option value="">— देश चुनें (Country) —</option>
       </select>
     </div>
     <div id="embassyResult" style="display:none;margin-bottom:16px">
       <div style="background:#fff;border:2px solid var(--blue);border-radius:12px;padding:16px">
         <div style="font-size:18px;margin-bottom:8px" id="embFlag"></div>
-        <div style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:10px" id="embName"></div>
-        <div style="display:grid;gap:6px;font-size:12px">
+        <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:10px" id="embName"></div>
+        <div style="display:grid;gap:6px;font-size:16px">
           <div>📍 <span id="embAddress" style="color:var(--text)"></span></div>
           <div>📞 <span id="embPhone" style="color:var(--blue);font-weight:700"></span></div>
           <div>✉️ <span id="embEmail" style="color:var(--blue)"></span></div>
@@ -444,41 +330,41 @@ img{max-width:100%;display:block}
     </div>
 
     <!-- COUNTRY WISE OPPORTUNITIES -->
-    <div class="sub-h">🗺️ देश-वार अवसर [Country-wise Opportunities]</div>
+    <div class="sub-h">🗺️ देश-वार अवसर (Country-wise Opportunities)</div>
     <div class="portal-grid">
-      <div class="portal-card"><span class="p-icon">🇦🇪</span><div class="p-info"><div class="p-name">UAE / Dubai</div><div class="p-desc">Construction, Hospitality, IT, Retail — सबसे ज़्यादा भारतीय यहाँ। Tax-free salary।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹30,000 – ₹2 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇸🇦</span><div class="p-info"><div class="p-name">Saudi Arabia</div><div class="p-desc">Construction, Oil & Gas, Healthcare, Domestic Work।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹25,000 – ₹1.5 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇶🇦</span><div class="p-info"><div class="p-name">Qatar</div><div class="p-desc">FIFA World Cup के बाद भी Infrastructure boom। Hospitality, Construction।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹35,000 – ₹2 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇰🇼</span><div class="p-info"><div class="p-name">Kuwait / Oman / Bahrain</div><div class="p-desc">Gulf देश — Skilled & Unskilled workers की माँग।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹20,000 – ₹1 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇲🇾</span><div class="p-info"><div class="p-name">Malaysia / Singapore</div><div class="p-desc">Manufacturing, Plantation, Construction, IT।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹25,000 – ₹1.5 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇯🇵</span><div class="p-info"><div class="p-name">Japan — TITP Program</div><div class="p-desc">Technical Intern Training — 3-5 साल। Agriculture, Manufacturing, Nursing।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹80,000 – ₹2 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇰🇷</span><div class="p-info"><div class="p-name">South Korea — EPS Program</div><div class="p-desc">Employment Permit System — Manufacturing, Agriculture।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹1 – ₹2.5 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇨🇦</span><div class="p-info"><div class="p-name">Canada</div><div class="p-desc">PR pathway, Skilled Worker, Student → Work। High demand in Healthcare, IT।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2 – ₹5 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇦🇺</span><div class="p-info"><div class="p-name">Australia</div><div class="p-desc">Skilled Migration, 482 Visa, Working Holiday। IT, Healthcare, Trades।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2.5 – ₹6 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇩🇪</span><div class="p-info"><div class="p-name">Germany / Europe</div><div class="p-desc">Skilled Workers Shortage। Nursing, Engineering, IT, Hospitality।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2 – ₹5 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇬🇧</span><div class="p-info"><div class="p-name">UK</div><div class="p-desc">Skilled Worker Visa — NHS, IT, Finance, Engineering।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹3 – ₹7 लाख/माह</div></div></div>
-      <div class="portal-card"><span class="p-icon">🇮🇱</span><div class="p-info"><div class="p-name">Israel</div><div class="p-desc">Agriculture, Construction, Caregiving — Government to Government।</div><div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹1.5 – ₹3 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇦🇪</span><div class="p-info"><div class="p-name">UAE / Dubai</div><div class="p-desc">Construction, Hospitality, IT, Retail — सबसे ज़्यादा भारतीय यहाँ। Tax-free salary।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹30,000 – ₹2 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇸🇦</span><div class="p-info"><div class="p-name">Saudi Arabia</div><div class="p-desc">Construction, Oil & Gas, Healthcare, Domestic Work।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹25,000 – ₹1.5 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇶🇦</span><div class="p-info"><div class="p-name">Qatar</div><div class="p-desc">FIFA World Cup के बाद भी Infrastructure boom। Hospitality, Construction।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹35,000 – ₹2 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇰🇼</span><div class="p-info"><div class="p-name">Kuwait / Oman / Bahrain</div><div class="p-desc">Gulf देश — Skilled & Unskilled workers की माँग।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹20,000 – ₹1 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇲🇾</span><div class="p-info"><div class="p-name">Malaysia / Singapore</div><div class="p-desc">Manufacturing, Plantation, Construction, IT।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹25,000 – ₹1.5 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇯🇵</span><div class="p-info"><div class="p-name">Japan — TITP Program</div><div class="p-desc">Technical Intern Training — 3-5 साल। Agriculture, Manufacturing, Nursing।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹80,000 – ₹2 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇰🇷</span><div class="p-info"><div class="p-name">South Korea — EPS Program</div><div class="p-desc">Employment Permit System — Manufacturing, Agriculture।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹1 – ₹2.5 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇨🇦</span><div class="p-info"><div class="p-name">Canada</div><div class="p-desc">PR pathway, Skilled Worker, Student → Work। High demand in Healthcare, IT।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2 – ₹5 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇦🇺</span><div class="p-info"><div class="p-name">Australia</div><div class="p-desc">Skilled Migration, 482 Visa, Working Holiday। IT, Healthcare, Trades।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2.5 – ₹6 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇩🇪</span><div class="p-info"><div class="p-name">Germany / Europe</div><div class="p-desc">Skilled Workers Shortage। Nursing, Engineering, IT, Hospitality।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹2 – ₹5 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇬🇧</span><div class="p-info"><div class="p-name">UK</div><div class="p-desc">Skilled Worker Visa — NHS, IT, Finance, Engineering।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹3 – ₹7 लाख/माह</div></div></div>
+      <div class="portal-card"><span class="p-icon">🇮🇱</span><div class="p-info"><div class="p-name">Israel</div><div class="p-desc">Agriculture, Construction, Caregiving — Government to Government।</div><div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ₹1.5 – ₹3 लाख/माह</div></div></div>
     </div>
 
     <!-- FOREIGN AGENT SEARCH -->
-    <div class="sub-h">🔍 विदेशी एजेंट खोजें [Search Foreign Agent]</div>
-    <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:12px;color:var(--navy)">
+    <div class="sub-h">🔍 विदेशी एजेंट खोजें (Search Foreign Agent)</div>
+    <div style="background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:16px;color:var(--navy)">
       💡 सिर्फ <strong>eMigrate Registered</strong> एजेंट से ही संपर्क करें। नीचे अपना राज्य और जिला चुनकर नज़दीकी registered agent खोजें।
     </div>
 
     <div class="loc-search">
       <select class="loc-select" id="stateSelect5" onchange="loadDistricts(5)">
-        <option value="">— राज्य चुनें [State] —</option>
+        <option value="">— राज्य चुनें (State) —</option>
       </select>
       <select class="loc-select" id="districtSelect5">
-        <option value="">— जिला चुनें [District] —</option>
+        <option value="">— जिला चुनें (District) —</option>
       </select>
       <button class="loc-btn" onclick="searchLoc(5)">🔍 खोजें</button>
     </div>
 
     <div class="loc-result" id="locResult5">
       <strong id="locTitle5"></strong><br/>
-      📋 आपके जिले में अभी कोई <strong>विदेशी एजेंट [Foreign Agent]</strong> Register नहीं हुआ है।<br/>
+      📋 आपके जिले में अभी कोई <strong>विदेशी एजेंट (Foreign Agent)</strong> Register नहीं हुआ है।<br/>
       ACS Counselor से सलाह लें →
       <a href="https://wa.me/919431210092?text=नमस्ते, विदेश में नौकरी के बारे में सलाह चाहिए।" target="_blank" style="color:var(--blue);font-weight:700">WhatsApp करें</a>
     </div>
@@ -492,7 +378,7 @@ img{max-width:100%;display:block}
         अगर आप <strong>Licensed Foreign Recruitment Agent</strong> हैं<br/>
         — अभी Register करें — <strong>निःशुल्क Listing!</strong>
       </div>
-      <a href="/join.html" style="display:inline-block;padding:11px 22px;background:var(--blue);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+      <a href="/join.html" style="display:inline-block;padding:11px 22px;background:var(--blue);color:#fff;border-radius:10px;font-weight:800;font-size:16px">
         🌏 Agent Register करें →
       </a>
     </div>
@@ -503,10 +389,10 @@ img{max-width:100%;display:block}
       <h3>Licensed Foreign Recruitment Agent हैं?</h3>
       <p>
         ✅ eMigrate License Number<br/>
-        ✅ देश-वार [Country-wise] Job Openings<br/>
-        ✅ जरूरी योग्यता [Qualification] और वेतन [Salary]<br/>
-        ✅ आपका पूरा संपर्क [Contact] — जिला-वार listing<br/>
-        ✅ <strong>बिल्कुल निःशुल्क [Free]</strong>
+        ✅ देश-वार (Country-wise) Job Openings<br/>
+        ✅ जरूरी योग्यता (Qualification) और वेतन (Salary)<br/>
+        ✅ आपका पूरा संपर्क (Contact) — जिला-वार listing<br/>
+        ✅ <strong>बिल्कुल निःशुल्क (Free)</strong>
       </p>
       <a href="/join.html" class="reg-cta-btn" style="background:var(--blue-lt);color:#fff">📝 Agent Register करें →</a>
     </div>
@@ -514,13 +400,13 @@ img{max-width:100%;display:block}
     <!-- COUNSELOR CTA -->
     <div style="background:#E8F5E9;border:1.5px solid #C8E6C9;border-radius:12px;padding:16px;margin-top:14px;text-align:center">
       <div style="font-size:20px;margin-bottom:8px">🧭</div>
-      <div style="font-size:14px;font-weight:800;color:var(--navy);margin-bottom:6px">विदेश जाने से पहले Counselor से मिलें!</div>
-      <div style="font-size:12px;color:var(--gray);margin-bottom:12px;line-height:1.7">
+      <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px">विदेश जाने से पहले Counselor से मिलें!</div>
+      <div style="font-size:16px;color:var(--gray);margin-bottom:12px;line-height:1.7">
         Visa types, Documents, Fake agents से बचाव,<br/>सही देश का चुनाव — सब कुछ FREE में।
       </div>
       <a href="https://wa.me/919431210092?text=नमस्ते, विदेश में नौकरी के बारे में सलाह चाहिए।"
         target="_blank"
-        style="display:inline-block;padding:11px 22px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:13px">
+        style="display:inline-block;padding:11px 22px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:16px">
         💬 FREE Counseling लें →
       </a>
     </div>
@@ -528,55 +414,135 @@ img{max-width:100%;display:block}
 
 </div>
 
-<footer class="footer-main">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <h2>Applied Computer School™</h2>
-      <p class="footer-tagline">"From Village to World"</p>
-      <p>FFGPMTrust का उपक्रम | ISO 9001:2015 प्रमाणित</p>
-    </div>
-    <div class="footer-col">
-      <h3>Site Map</h3>
-      <div class="sitemap-grid">
-        <a href="/hi/">🏠 होम</a><a href="/hi/mission.html">🎯 मिशन</a>
-        <a href="/hi/salah.html">🧭 सलाह</a><a href="/udyam/">🌍 उद्यम</a>
-        <a href="/courses/hi/">📚 कोर्स</a><a href="/join.html">📝 रजिस्ट्रेशन</a>
-        <a href="/verify/">🏆 प्रमाण पत्र</a><a href="/hi/network.html">🤝 नेटवर्क</a>
-        <a href="/vani/">📱 वाणी App</a><a href="/contact/hi/">📞 संपर्क</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h3>संपर्क</h3>
-      <p>📍 विद्यार्थीनगर, चौथम, खगड़िया — 851201</p>
-      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
-      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
-      <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
-      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    © 2026 Applied Computer School™ |
-    <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
-    <a href="/" style="color:var(--gold)">acslearn.com</a>
-  </div>
-</footer>
+</div>
 
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo(0,0)">↑</button>
-<div class="toast" id="toast"></div>
+<style>
+/* udyam content-CSS (navbar/footer/menu/global हटाई — टेम्पलेट से; फ़ॉन्ट ≥16px; [ ]→( )) */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);padding:36px 20px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.hero-logo{width:52px;height:52px;border-radius:14px;border:2px solid rgba(255,255,255,.2);margin:0 auto 16px}
+.hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:16px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:12px}
+.hero-title{font-size:clamp(24px,5.5vw,38px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero-title em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:20px}
+.hero-stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hs{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 14px;text-align:center}
+.hs-num{font-size:18px;font-weight:900;color:var(--gold);display:block}
+.hs-lbl{font-size:16px;color:rgba(255,255,255,.7)}
 
-<!-- DATA FILES -->
-<script src="/assets/master_groups.js"></script>
+.tab-bar{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:52px;z-index:100;overflow-x:auto}
+.tab-inner{display:flex;max-width:900px;margin:0 auto;min-width:480px}
+.tab{flex:1;padding:14px 8px;text-align:center;font-size:16px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
+.tab:hover{color:var(--blue)}
+.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-icon{font-size:20px;display:block;margin-bottom:3px}
+
+.main{max-width:900px;margin:0 auto;padding:16px 16px 60px}
+.sec{display:none}
+.sec.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.sec-sub{font-size:16px;color:var(--gray);margin-bottom:16px}
+
+/* SEARCH + FILTER */
+.search-wrap{position:relative;margin-bottom:10px}
+.search-input{width:100%;padding:13px 46px 13px 16px;border:2px solid var(--border);border-radius:12px;font-size:16px;font-family:inherit;outline:none;background:#fff;transition:border .2s}
+.search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,.1)}
+.filter-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.filter-btn{padding:8px 14px;border:1.5px solid var(--border);border-radius:16px;font-size:16px;font-weight:700;cursor:pointer;background:#fff;color:var(--gray);font-family:inherit;transition:.15s}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
+.filter-btn.active{border-color:var(--blue);background:#EEF4FF;color:var(--blue)}
+.sector-count{font-size:16px;color:var(--gray);margin-bottom:10px;font-weight:600}
+
+/* SECTOR GRID */
+.sector-grid{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:480px){.sector-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:720px){.sector-grid{grid-template-columns:1fr 1fr 1fr}}
+.sector-card{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:.2s}
+.sector-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,.1);transform:translateY(-2px)}
+.s-num{font-size:16px;font-weight:700;color:var(--gray);letter-spacing:1px}
+.s-name{font-size:16px;font-weight:800;color:var(--navy);line-height:1.4;margin:3px 0}
+.s-invest{font-size:16px;color:var(--green);font-weight:700}
+.s-link{font-size:16px;color:var(--blue);margin-top:3px;font-weight:600}
+
+/* STATE/DISTRICT DROPDOWN */
+.loc-search{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.loc-select{flex:1;min-width:140px;padding:12px 16px;border:2px solid var(--border);border-radius:10px;font-size:16px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s}
+.loc-select:focus{border-color:var(--blue)}
+.loc-btn{padding:11px 18px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+/* RESULT MESSAGE */
+.loc-result{background:#E8F5E9;border:1.5px solid #C8E6C9;border-radius:10px;padding:16px 18px;margin-bottom:14px;display:none;font-size:16px;line-height:1.7}
+.loc-result.show{display:block}
+.loc-result strong{color:var(--green)}
+
+/* PORTAL CARDS */
+.portal-grid{display:grid;gap:10px;margin-bottom:16px}
+.portal-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:14px;display:flex;align-items:flex-start;gap:12px;transition:.2s}
+.portal-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.p-icon{font-size:28px;flex-shrink:0}
+.p-info{flex:1}
+.p-name{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.p-desc{font-size:16px;color:var(--gray);margin-bottom:6px;line-height:1.5}
+.p-link{display:inline-block;padding:5px 12px;background:var(--blue);color:#fff;border-radius:6px;font-size:16px;font-weight:700}
+
+.sub-h{font-size:16px;font-weight:800;color:var(--navy);margin:18px 0 10px;padding-bottom:5px;border-bottom:2px solid var(--border)}
+
+/* EMPTY STATE */
+.empty-box{background:#fff;border:2px dashed var(--border);border-radius:14px;padding:28px 20px;text-align:center;margin-bottom:14px}
+.empty-icon{font-size:44px;margin-bottom:10px}
+.empty-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.empty-desc{font-size:16px;color:var(--gray);margin-bottom:14px;line-height:1.7}
+
+/* CTA */
+.reg-cta{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:14px;padding:20px;color:#fff;text-align:center;margin-top:14px}
+.reg-cta-icon{font-size:32px;margin-bottom:8px}
+.reg-cta h3{font-size:20px;font-weight:800;margin-bottom:6px}
+.reg-cta p{font-size:16px;opacity:.8;margin-bottom:14px;line-height:1.7}
+.reg-cta-btn{display:inline-block;padding:11px 22px;background:var(--gold);color:var(--navy);border-radius:10px;font-weight:800;font-size:16px;transition:.2s}
+
+/* SUGGEST LINK */
+.suggest-link{background:#FFF8E1;border:1px solid rgba(249,168,37,.4);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:16px;color:var(--text);line-height:1.7}
+.suggest-link a{color:var(--blue);font-weight:700}
+
+/* FOOTER */
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:32px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1000px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:16px;font-style:italic;margin:6px 0}
+.footer-col h3{color:var(--gold);font-size:16px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:16px;padding:3px 0;display:block}
+.footer-col p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:16px;color:rgba(255,255,255,.4)}
+.scroll-top{position:fixed;bottom:20px;right:20px;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
+.scroll-top.show{display:flex;align-items:center;justify-content:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 20px;border-radius:20px;font-size:16px;z-index:999;opacity:0;transition:.3s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+
+<!-- data + render (ALL_SECTORS + 24-group MG filter) — ज्यों-का-त्यों -->
 <script src="/assets/udyam_data.js"></script>
 <script src="/assets/govt_jobs_embassy.js"></script>
-
 <script>
-// ══ MASTER GROUPS (single source: /assets/master_groups.js) ══
-// नाम/श्रेणियाँ अब master_groups.js से; गिनती ALL_SECTORS से अपने-आप।
-const MG = [{ id:'all', name:'सब (' + ALL_SECTORS.length + ')' }].concat(
-  MASTER_GROUPS.map(function (g) {
-    return { id: g.id, name: g.emoji + ' ' + g.name + ' (' + mgCount(ALL_SECTORS, g.id) + ')' };
-  })
-);
+// ══ MASTER GROUPS ══
+const MG=[
+  {id:'all',name:'सब (950)'},
+  {id:1,name:'🌾 कृषि (67)'},{id:2,name:'⛏️ खनन (43)'},
+  {id:3,name:'🏭 विनिर्माण (52)'},{id:4,name:'🏗️ निर्माण (30)'},
+  {id:5,name:'🧵 वस्त्र (40)'},{id:6,name:'💊 स्वास्थ्य (32)'},
+  {id:7,name:'💻 प्रौद्योगिकी (43)'},{id:8,name:'🚗 परिवहन (52)'},
+  {id:9,name:'🛍️ व्यापार (43)'},{id:10,name:'🎭 सेवाएं (39)'},
+  {id:11,name:'📚 शिक्षा (50)'},{id:12,name:'🌿 हस्तशिल्प (40)'},
+  {id:13,name:'⚗️ रसायन (42)'},{id:14,name:'🌍 वैश्विक (80)'},
+  {id:15,name:'🔮 भविष्य (50)'},{id:16,name:'⚖️ विधिक (30)'},
+  {id:17,name:'🏛️ सरकार (40)'},{id:18,name:'📊 डेटा (31)'},
+  {id:19,name:'🤖 रोबोटिक्स (30)'},{id:20,name:'🌎 जलवायु (21)'},
+  {id:21,name:'🙏 धार्मिक (10)'},{id:22,name:'🏆 खेल (10)'},
+  {id:23,name:'💰 डिजिटल वित्त (15)'},{id:24,name:'🛡️ सुरक्षा (60)'},
+];
 
 let activeMG='all',searchQ='';
 
@@ -638,7 +604,7 @@ function initStateDropdowns(){
 window.loadDistricts=function(tab){
   const state=document.getElementById('stateSelect'+tab).value;
   const sel=document.getElementById('districtSelect'+tab);
-  sel.innerHTML='<option value="">— जिला चुनें [District] —</option>';
+  sel.innerHTML='<option value="">— जिला चुनें (District) —</option>';
   if(state&&typeof STATES_DISTRICTS!=='undefined'&&STATES_DISTRICTS[state]){
     STATES_DISTRICTS[state].forEach(d=>{
       const opt=document.createElement('option');
@@ -738,9 +704,9 @@ window.loadStateJobs = function(){
     <div class="portal-card" style="align-items:flex-start">
       <span class="p-icon" style="font-size:20px">✅</span>
       <div class="p-info">
-        <div class="p-name" style="font-size:13px">${j.name}</div>
+        <div class="p-name" style="font-size:16px">${j.name}</div>
         <div class="p-desc">योग्यता: ${j.qual}</div>
-        <div style="font-size:11px;color:var(--green);font-weight:700;margin-top:4px">💰 ${j.salary}</div>
+        <div style="font-size:16px;color:var(--green);font-weight:700;margin-top:4px">💰 ${j.salary}</div>
       </div>
     </div>`).join('');
 
@@ -748,9 +714,9 @@ window.loadStateJobs = function(){
     <div class="portal-card" style="align-items:flex-start;border-color:#FFE0B2">
       <span class="p-icon" style="font-size:20px">📋</span>
       <div class="p-info">
-        <div class="p-name" style="font-size:13px">${j.name}</div>
+        <div class="p-name" style="font-size:16px">${j.name}</div>
         <div class="p-desc">योग्यता: ${j.qual}</div>
-        <div style="font-size:11px;color:var(--orange);font-weight:700;margin-top:4px">💰 ${j.salary}</div>
+        <div style="font-size:16px;color:var(--orange);font-weight:700;margin-top:4px">💰 ${j.salary}</div>
       </div>
     </div>`).join('');
 
@@ -822,6 +788,309 @@ initStateJobDropdown();
 initEmbassyDropdown();
 renderSectors();
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  </main>
+
+  <!-- ══ FOOTER (footer सिर्फ़ यहीं) — links links.js से मेल खाएँ ══ -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand-info">
+        <h2>Applied Computer School™</h2>
+        <p class="sponsor-org">FFGPMTrust · ISO 9001:2015</p>
+        <p class="tagline">गाँव से विश्व तक — निःशुल्क डिजिटल शिक्षा</p>
+        <div class="iso-box">ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar — 851201</div>
+      </div>
+      <div class="footer-sitemap">
+        <h3>मेन्यू</h3>
+        <ul class="sitemap-links">
+          <li><a href="/">🏠 होम</a></li>
+          <li><a href="/hi/mission.html">🎯 मिशन</a></li>
+          <li><a href="/hi/salah.html">🧭 सलाह</a></li>
+          <li><a href="/udyam/">🌍 उद्यम</a></li>
+          <li><a href="/courses/hi/">📚 कोर्स</a></li>
+          <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
+          <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
+          <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
+          <li><a href="/vani/">📱 वाणी</a></li>
+          <li><a href="/contact/hi/">📞 संपर्क</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>संपर्क</h3>
+        <p class="contact-item"><a href="tel:+919431210092">📞 +91-9431210092</a></p>
+        <p class="contact-item"><a href="mailto:acs.chautham@gmail.com">✉️ acs.chautham@gmail.com</a></p>
+        <p class="contact-item"><a href="https://wa.me/919431210092" target="_blank" rel="noopener">💬 WhatsApp</a></p>
+        <p class="contact-item"><a href="https://youtube.com/@AppliedComputerSchool" target="_blank" rel="noopener">▶️ YouTube</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="acsYear"></span> Applied Computer School™ · FFGPMTrust · acslearn.com</div>
+  </footer>
+
+  <!-- ══ LOGIN MODAL (login सिर्फ़ यहीं; Firebase तभी load हो जब खुले) ══ -->
+  <div class="acs-modal-bg" id="acsLoginModal" role="dialog" aria-modal="true" aria-labelledby="acsLoginTitle">
+    <div class="acs-modal">
+      <button class="acs-iconbtn" id="acsLoginClose" type="button" aria-label="बंद करें"
+              style="position:absolute;top:10px;right:10px">✕</button>
+
+      <div id="acsLoginView">
+        <h3 id="acsLoginTitle">🔑 Login</h3>
+        <p class="sub">अपना ईमेल व पासवर्ड डालें</p>
+        <div class="acs-field">
+          <label for="acsEmail">ईमेल (Email)</label>
+          <input id="acsEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com"/>
+        </div>
+        <div class="acs-field">
+          <label for="acsPass">पासवर्ड (Password)</label>
+          <input id="acsPass" type="password" autocomplete="current-password" placeholder="••••••••"/>
+        </div>
+        <button class="acs-submit" id="acsLoginSubmit" type="button">Login करें</button>
+        <p class="err" id="acsLoginErr" role="alert"></p>
+      </div>
+
+      <div id="acsOtpView" style="display:none">
+        <h3>🔒 OTP डालें</h3>
+        <p class="sub">आपके ईमेल पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</p>
+        <div class="acs-field">
+          <label for="acsOtpInput">6-अंकी OTP</label>
+          <input id="acsOtpInput" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="______"/>
+        </div>
+        <button class="acs-submit" id="acsOtpSubmit" type="button">Verify करें</button>
+        <p id="acsOtpTimer" class="sub" style="margin-top:8px"></p>
+        <button id="acsOtpResend" type="button" disabled
+                style="background:none;border:none;color:#1565C0;font-weight:800;cursor:not-allowed;opacity:.45;font:inherit;margin-top:2px">
+          OTP दोबारा भेजें
+        </button>
+        <p class="err" id="acsOtpErr" role="alert"></p>
+      </div>
+
+      <div class="acs-welcome" id="acsWelcome">
+        <div class="ic">✅</div>
+        <h2>स्वागत है!</h2>
+        <p class="sub">आपके dashboard पर भेजा जा रहा है…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SCRIPTS — क्रम ज़रूरी: config → links → translate → script ══ -->
+  <script src="/assets/acs-config.js"></script>
+  <script src="/assets/links.js"></script>
+  <script src="/assets/acs-translate.js"></script>
+  <script src="/script.js"></script>
+
+  <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
+  <script>
+  (function () {
+    document.getElementById("acsYear").textContent = new Date().getFullYear();
+
+    var modal     = document.getElementById("acsLoginModal");
+    var openBtn   = document.getElementById("acsLoginBtn");
+    var closeBtn  = document.getElementById("acsLoginClose");
+    var loginView = document.getElementById("acsLoginView");
+    var otpView   = document.getElementById("acsOtpView");
+    var welcome   = document.getElementById("acsWelcome");
+    var errEl     = document.getElementById("acsLoginErr");
+    var otpErr    = document.getElementById("acsOtpErr");
+    var otpTimerEl= document.getElementById("acsOtpTimer");
+    var resendBtn = document.getElementById("acsOtpResend");
+    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null, pendingDesignation = "";
+
+    var SESSION_KEY = "acs_session";
+    var OTP_VALID = 300, OTP_RESEND = 600;   // 5 मिनट valid · 10 मिनट resend
+
+    /* ── Role → URL (Constitution v1.5 मास्टर-सूची; role/designation Firestore में snake_case) ── */
+    /* 9 सीधे कार्ड */
+    var ROLE_URLS = {
+      student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
+      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
+    };
+    /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
+    var TEAM_URLS = {
+      founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
+      hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
+      zm:"/dashboard/zonal/", rm:"/dashboard/regional/",
+      field_staff:"/dashboard/hq/staff/", intern:"/dashboard/hq/staff/"
+    };
+
+    /* 3 Learner कार्ड → re-login पर OTP नहीं */
+    function isLearner(r){ return r==="student" || r==="jobseeker" || r==="entrepreneur"; }
+    /* सही dashboard URL */
+    function destFor(role, designation){
+      if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
+      return ROLE_URLS[role] || "/dashboard/student/";
+    }
+    function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
+
+    function showView(which){
+      loginView.style.display = (which==="login") ? "" : "none";
+      otpView.style.display   = (which==="otp")   ? "" : "none";
+      if (which==="welcome") welcome.classList.add("show"); else welcome.classList.remove("show");
+    }
+
+    function openModal(){
+      modal.classList.add("open");
+      showView("login");
+      errEl.textContent = ""; if(otpErr) otpErr.textContent = "";
+      loadFirebase();
+      var f = document.getElementById("acsEmail"); if (f) f.focus();
+    }
+    function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", function (e){
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+
+    /* Firebase compat (app+auth+firestore+functions) — सिर्फ़ ज़रूरत पर */
+    function loadFirebase(){
+      if (fbReady) return fbReady;
+      var cfg = (window.ACS_CONFIG && window.ACS_CONFIG.firebase) || null;
+      if (!cfg) { if(errEl) errEl.textContent = "config नहीं मिला।"; return Promise.reject(); }
+      var B = "https://www.gstatic.com/firebasejs/10.12.2/";
+      fbReady = loadScript(B+"firebase-app-compat.js")
+        .then(function(){ return loadScript(B+"firebase-auth-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-firestore-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-functions-compat.js"); })
+        .then(function(){
+          if (!window.firebase.apps.length) window.firebase.initializeApp(cfg);
+          /* idle-logout (script.js) + सामान्य logout — session-मार्क भी हटाओ */
+          window.acsLogout = function(){
+            try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+            try{ window.firebase.auth().signOut(); }catch(e){}
+            window.location.href = "/";
+          };
+        });
+      return fbReady;
+    }
+    function loadScript(src){
+      return new Promise(function (res, rej){
+        var s = document.createElement("script");
+        s.src = src; s.onload = res; s.onerror = rej;
+        document.head.appendChild(s);
+      });
+    }
+    /* OTP/session functions us-central1 (function-region से मेल) */
+    function fn(name){ return window.firebase.app().functions("us-central1").httpsCallable(name); }
+
+    /* ── password step ── */
+    document.getElementById("acsLoginSubmit").addEventListener("click", function (){
+      var email = document.getElementById("acsEmail").value.trim();
+      var pass  = document.getElementById("acsPass").value;
+      errEl.textContent = "";
+      if (!email || !pass) { errEl.textContent = "ईमेल व पासवर्ड दोनों भरें।"; return; }
+
+      loadFirebase().then(function (){
+        return window.firebase.auth().signInWithEmailAndPassword(email, pass);
+      }).then(function (cred){
+        var user = cred.user;
+        /* email-verify अनिवार्य — बिना verify login नहीं */
+        if (!user.emailVerified) {
+          user.sendEmailVerification().catch(function(){});
+          window.firebase.auth().signOut();
+          errEl.textContent = "पहले अपना ईमेल verify करें — verification link भेज दी गई।";
+          return;
+        }
+        /* role Firestore से */
+        return window.firebase.firestore().collection("users").doc(user.uid).get().then(function (doc){
+          var data = doc.exists ? doc.data() : {};
+          var role = data.role || "student";
+          pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
+          if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
+          /* 7 roles → असली OTP भेजो */
+          return fn("requestLoginOtp")({ email: user.email }).then(function (res){
+            if (res && res.data && res.data.skip) return finishLogin();
+            showView("otp"); startOtpTimer();
+            if(otpErr) otpErr.textContent = "";
+            var oi = document.getElementById("acsOtpInput"); if(oi){ oi.value=""; oi.focus(); }
+          });
+        });
+      }).catch(function (e){ errEl.textContent = authMsg(e); });
+    });
+
+    /* ── OTP verify ── */
+    document.getElementById("acsOtpSubmit").addEventListener("click", function (){
+      var code = (document.getElementById("acsOtpInput").value || "").trim();
+      if(otpErr) otpErr.textContent = "";
+      if (code.length < 6) { otpErr.textContent = "6-अंकी OTP डालें।"; return; }
+      fn("verifyLoginOtp")({ email: pendingUser.email, code: code })
+        .then(function (){ if(otpTimer) clearInterval(otpTimer); return finishLogin(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    /* ── OTP resend (10 मिनट बाद ही चालू) ── */
+    resendBtn.addEventListener("click", function (){
+      if (resendBtn.disabled) return;
+      if(otpErr) otpErr.textContent = "";
+      fn("requestLoginOtp")({ email: pendingUser.email })
+        .then(function (){ startOtpTimer(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    function startOtpTimer(){
+      var valid = OTP_VALID, resend = OTP_RESEND;
+      resendBtn.disabled = true; resendBtn.style.opacity = ".45"; resendBtn.style.cursor = "not-allowed";
+      if (otpTimer) clearInterval(otpTimer);
+      otpTimer = setInterval(function (){
+        valid--; resend--;
+        var v = valid>0 ? ("OTP "+fmt(valid)+" में ख़त्म") : "OTP ख़त्म";
+        var r = resend>0 ? (" · दोबारा "+fmt(resend)+" बाद") : "";
+        otpTimerEl.textContent = v + r;
+        if (resend<=0){ resendBtn.disabled=false; resendBtn.style.opacity="1"; resendBtn.style.cursor="pointer"; }
+        if (valid<=0 && resend<=0) clearInterval(otpTimer);
+      }, 1000);
+    }
+
+    /* ── सफल login: single-session सेट → redirect ── */
+    function finishLogin(){
+      return fn("claimSession")({}).then(function (res){
+        var sid = res && res.data && res.data.sessionId;
+        try{ localStorage.setItem(SESSION_KEY, sid || ""); }catch(e){}
+        showView("welcome");
+        setTimeout(function (){ window.location.href = destFor(pendingRole, pendingDesignation); }, 900);
+      });
+    }
+
+    function authMsg(e){
+      if (e && e.code) return (e.code.indexOf("password")>-1 || e.code.indexOf("user")>-1)
+        ? "ईमेल या पासवर्ड ग़लत है।" : "Login नहीं हो पाया — दोबारा कोशिश करें।";
+      return "Login नहीं हो पाया।";
+    }
+    function otpMsg(e){
+      var d = (e && e.details) || {};
+      if (d.reason==="wrong")  return "OTP ग़लत — "+d.attemptsLeft+" कोशिश बची।";
+      if (d.reason==="locked") return "3 ग़लत — "+(d.hoursLeft||12)+" घंटे बाद दोबारा।";
+      if (d.reason==="expired")return "OTP ख़त्म — दोबारा भेजें।";
+      if (d.reason==="wait")   return "थोड़ी देर रुकें — दोबारा "+fmt(d.secondsLeft)+" बाद।";
+      if (d.reason==="noOtp")  return "पहले OTP भेजें।";
+      return "OTP जाँच नहीं हो पाई — दोबारा कोशिश करें।";
+    }
+
+    /* ── single-session watcher — हर page पर, पर सिर्फ़ logged-in user के लिए ──
+       localStorage में session-मार्क हो तभी Firebase load (anonymous pages हल्के)। */
+    (function watchSession(){
+      var sid; try{ sid = localStorage.getItem(SESSION_KEY); }catch(e){ sid = null; }
+      if (!sid) return;                       // logged-in नहीं → page हल्का रहे
+      loadFirebase().then(function (){
+        window.firebase.auth().onAuthStateChanged(function (user){
+          if (!user) return;
+          window.firebase.firestore().collection("users").doc(user.uid).onSnapshot(function (doc){
+            var active = doc.exists && doc.data().activeSession;
+            if (active && active !== sid){
+              /* कहीं और login हुआ → यह session बंद */
+              try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+              window.firebase.auth().signOut().finally(function (){
+                alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
+                window.location.href = "/";
+              });
+            }
+          });
+        });
+      });
+    })();
+
+  })();
+  </script>
 </body>
 </html>
