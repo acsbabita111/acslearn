@@ -8,7 +8,7 @@
 
   <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
   <title>ACS का नेटवर्क — गाँव से दुनिया तक | Applied Computer School™</title>
-  <meta name="description" content="ACS नेटवर्क — देश, जोन, रिजन के अनुसार सेंटर, शिक्षक, काउंसलर, नियोक्ता व एजेंट खोजें। अपने सुंदर भविष्य के लिए ACS नेटवर्क का सदस्य बनें।"/>
+  <meta name="description" content="ACS नेटवर्क — देश, राज्य व ज़िले के अनुसार सेंटर, शिक्षक, काउंसलर, नियोक्ता व एजेंट खोजें। नेटवर्क में जुड़ें और जीवन भर रॉयल्टी पाएँ।"/>
   <link rel="canonical" href="https://acslearn.com/hi/network.html"/>
   <meta name="robots" content="index,follow"/>
 
@@ -20,7 +20,7 @@
   <!-- Open Graph / सोशल शेयर -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="ACS का नेटवर्क — गाँव से दुनिया तक | Applied Computer School™"/>
-  <meta property="og:description" content="ACS नेटवर्क — देश, जोन, रिजन के अनुसार सेंटर, शिक्षक, काउंसलर, नियोक्ता व एजेंट खोजें। अपने सुंदर भविष्य के लिए ACS नेटवर्क का सदस्य बनें।"/>
+  <meta property="og:description" content="ACS नेटवर्क — देश, राज्य व ज़िले के अनुसार सेंटर, शिक्षक, काउंसलर, नियोक्ता व एजेंट खोजें। नेटवर्क में जुड़ें और जीवन भर रॉयल्टी पाएँ।"/>
   <meta property="og:image" content="https://acslearn.com/logo.png"/>
   <meta property="og:locale" content="hi"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -79,11 +79,9 @@
   <div class="page-hero-inner">
     <div style="font-size:2.6rem">🤝</div>
     <h1 style="color:var(--navy)">ACS का नेटवर्क</h1>
-    <p style="color:var(--muted);max-width:640px;margin:6px auto 0">
+    <p style="color:var(--muted);max-width:660px;margin:6px auto 0">
       गाँव से दुनिया तक — एक ही नेटवर्क से जुड़ें, सीखें, कमाएँ और दूसरों को भी आगे बढ़ाएँ।
     </p>
-
-    <!-- गिनती-काउंटर (अभी 0 — बाद में Firestore से अपने-आप भरें) -->
     <div class="net-stats">
       <div class="net-stat"><span class="net-n" id="nDesh">0</span><span class="net-l">देश</span></div>
       <div class="net-stat"><span class="net-n" id="nZonal">0</span><span class="net-l">जोनल ऑफिस</span></div>
@@ -104,9 +102,9 @@
     <div style="font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:12px">🔍 नेटवर्क खोजें</div>
 
     <div class="net-filters">
-      <select class="net-sel" id="fDesh"><option value="">देश चुनें</option></select>
-      <select class="net-sel" id="fZone"><option value="">जोन चुनें</option></select>
-      <select class="net-sel" id="fRegion"><option value="">रिजन चुनें</option></select>
+      <select class="net-sel" id="fCountry"><option value="">देश चुनें</option></select>
+      <select class="net-sel" id="fState"><option value="">राज्य चुनें</option></select>
+      <select class="net-sel" id="fDistrict"><option value="">ज़िला चुनें</option></select>
     </div>
 
     <div class="net-cats">
@@ -116,47 +114,40 @@
       <button class="net-cat" type="button" data-cat="agent">✈️ एजेंट</button>
     </div>
 
-    <!-- नतीजा / खाली-संदेश -->
+    <!-- नतीजा (अभी 00) + CTA -->
     <div id="netResult" class="net-empty">
-      <div style="font-size:2.4rem">🌱</div>
-      <div style="font-size:1.25rem;font-weight:800;color:var(--navy);margin:8px 0 2px">अभी यहाँ कोई नहीं जुड़े हैं।</div>
-      <p style="color:var(--muted);margin:0 0 16px">अपने सुंदर भविष्य के लिए ACS नेटवर्क का सदस्य बनें।</p>
-      <a href="/join.html" class="btn btn-primary">📝 जुड़ें (Join)</a>
+      <div class="net-count">00</div>
+      <div style="color:var(--muted);font-weight:700;margin-bottom:14px">रिज़ल्ट</div>
+      <p style="font-size:1.1rem;font-weight:700;color:var(--navy);max-width:520px;margin:0 auto 16px;line-height:1.7">
+        अपने सुंदर भविष्य के लिए Applied Computer School के नेटवर्क में जुड़ें और जीवन भर रॉयल्टी (royalty) पाएँ।
+      </p>
+      <a href="/join.html" class="btn btn-primary">📝 नेटवर्क में जुड़ें</a>
     </div>
   </div>
 </section>
 
-<!-- नेटवर्क का सफ़र (कैसे जुड़ें) -->
+<!-- नेटवर्क का सफ़र -->
 <section class="section-container" style="max-width:820px;padding-top:0">
   <div class="section-title-block"><h2 style="color:var(--navy)">नेटवर्क का सफ़र</h2></div>
   <div class="content-grid">
     <div class="notice-card" style="display:flex;gap:14px;align-items:flex-start">
       <div class="net-num" style="background:var(--blue)">1</div>
-      <div>
-        <div style="font-weight:800;color:var(--navy);font-size:1.1rem">🧑‍💻 Apprentice (घर से काम)</div>
-        <div style="color:var(--muted)">सबसे पहला कदम — घर बैठे Work From Home से शुरू करें।</div>
-      </div>
+      <div><div style="font-weight:800;color:var(--navy);font-size:1.1rem">🧑‍💻 Apprentice (घर से काम)</div>
+      <div style="color:var(--muted)">सबसे पहला कदम — घर बैठे Work From Home से शुरू करें।</div></div>
     </div>
     <div class="notice-card" style="display:flex;gap:14px;align-items:flex-start">
       <div class="net-num" style="background:var(--gold);color:var(--navy)">2</div>
-      <div>
-        <div style="font-weight:800;color:var(--navy);font-size:1.1rem">🏫 अपना केंद्र / Local Office</div>
-        <div style="color:var(--muted)">आगे बढ़कर अपना केंद्र खोलें। हर केंद्र 15+ कोचिंग और 50+ स्कूल जोड़ सकता है।</div>
-      </div>
+      <div><div style="font-weight:800;color:var(--navy);font-size:1.1rem">🏫 अपना केंद्र / Local Office</div>
+      <div style="color:var(--muted)">आगे बढ़कर अपना केंद्र खोलें। हर केंद्र 15+ कोचिंग और 50+ स्कूल जोड़ सकता है।</div></div>
     </div>
     <div class="notice-card" style="display:flex;gap:14px;align-items:flex-start">
       <div class="net-num" style="background:var(--green)">3</div>
-      <div>
-        <div style="font-weight:800;color:var(--navy);font-size:1.1rem">💰 कमाई — 80% आपका</div>
-        <div style="color:var(--muted)">हर फीस का सबसे बड़ा हिस्सा (80%) केंद्र को जाता है। बाक़ी पारदर्शी रूप से बँटता है — कोई छुपा commission नहीं।</div>
-      </div>
+      <div><div style="font-weight:800;color:var(--navy);font-size:1.1rem">💰 कमाई — 80% आपका</div>
+      <div style="color:var(--muted)">हर फीस का सबसे बड़ा हिस्सा (80%) केंद्र को जाता है। बाक़ी पारदर्शी रूप से बँटता है।</div></div>
     </div>
   </div>
-
   <div style="text-align:center;margin-top:18px">
-    <span style="display:inline-block;background:var(--green);color:#fff;font-weight:800;padding:9px 20px;border-radius:999px">
-      ✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क
-    </span>
+    <span style="display:inline-block;background:var(--green);color:#fff;font-weight:800;padding:9px 20px;border-radius:999px">✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क</span>
   </div>
 </section>
 
@@ -167,26 +158,165 @@
   .net-l{color:var(--muted);font-weight:700;font-size:16px}
   .net-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
   .net-sel{flex:1;min-width:150px;padding:12px;border:2px solid var(--border);border-radius:12px;font-size:18px;font-family:inherit;background:#fff;color:var(--navy)}
+  .net-sel:disabled{background:var(--offwhite);color:var(--muted)}
   .net-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
   .net-cat{padding:10px 16px;border:2px solid var(--border);border-radius:999px;background:#fff;font-weight:700;font-size:16px;cursor:pointer;color:var(--navy)}
   .net-cat.on{background:var(--blue);color:#fff;border-color:var(--blue)}
   .net-empty{text-align:center;padding:26px 16px;background:var(--offwhite);border-radius:14px}
+  .net-count{font-size:3rem;font-weight:900;color:var(--navy);line-height:1}
   .net-num{flex:0 0 auto;width:44px;height:44px;border-radius:50%;color:#fff;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center}
 </style>
 
+<!-- भारत के राज्य→ज़िला STATES_DISTRICTS यहाँ से -->
+<script src="/assets/udyam_data.js"></script>
 <script>
-  /* श्रेणी-बटन चुनाव (अभी कोई data नहीं → खाली-संदेश ही दिखे; बाद में Firestore से भरें) */
-  (function(){
-    var cats = document.querySelectorAll('.net-cat');
-    cats.forEach(function(b){
-      b.addEventListener('click', function(){
-        cats.forEach(function(x){ x.classList.remove('on'); });
-        b.classList.add('on');
-        /* TODO(future): चुने देश/जोन/रिजन + श्रेणी पर Firestore से सूची+गिनती भरें।
-           अभी कोई सदस्य नहीं → netResult खाली-संदेश ही रहे। */
-      });
+(function(){
+  /* देश — आपके क्रम में समूह (भारत → सार्क → ग्लोबल साउथ → एशिया → अफ्रीका → साउथ अमेरिका → ऑस्ट्रेलिया → यूरोप → उत्तर अमेरिका) */
+  var COUNTRY_GROUPS = [
+    ["🇮🇳 भारत", ["भारत"]],
+    ["सार्क देश (SAARC)", ["अफ़ग़ानिस्तान","बांग्लादेश","भूटान","मालदीव","नेपाल","पाकिस्तान","श्रीलंका"]],
+    ["ग्लोबल साउथ", ["ब्राज़ील","इंडोनेशिया","नाइजीरिया","दक्षिण अफ़्रीका","मिस्र","केन्या","वियतनाम","फ़िलीपींस","मेक्सिको","इथियोपिया","घाना","तंज़ानिया","युगांडा","अर्जेंटीना","कोलंबिया","पेरू","थाईलैंड","मलेशिया","म्यांमार","मोरक्को"]],
+    ["एशिया", ["चीन","जापान","दक्षिण कोरिया","सिंगापुर","कंबोडिया","लाओस","मंगोलिया","कज़ाख़स्तान","उज़्बेकिस्तान","ईरान","इराक","सऊदी अरब","संयुक्त अरब अमीरात","क़तर","कुवैत","ओमान","बहरीन","जॉर्डन","लेबनान","सीरिया","यमन","तुर्की","ताइवान","हांगकांग"]],
+    ["अफ्रीका", ["अल्जीरिया","ट्यूनीशिया","सूडान","ज़िम्बाब्वे","ज़ाम्बिया","अंगोला","मोज़ाम्बिक","कैमरून","सेनेगल","माली","रवांडा","बोत्सवाना","नामीबिया","कांगो","आइवरी कोस्ट","सोमालिया"]],
+    ["साउथ अमेरिका", ["चिली","वेनेज़ुएला","इक्वाडोर","बोलीविया","पैराग्वे","उरुग्वे","गुयाना","सूरीनाम"]],
+    ["ऑस्ट्रेलिया / ओशिनिया", ["ऑस्ट्रेलिया","न्यूज़ीलैंड","फ़िजी","पापुआ न्यू गिनी","सोलोमन द्वीप","समोआ","टोंगा"]],
+    ["यूरोप", ["यूनाइटेड किंगडम","जर्मनी","फ़्रांस","इटली","स्पेन","पुर्तगाल","नीदरलैंड","बेल्जियम","स्विट्ज़रलैंड","ऑस्ट्रिया","स्वीडन","नॉर्वे","डेनमार्क","फ़िनलैंड","पोलैंड","यूक्रेन","रूस","ग्रीस","आयरलैंड","चेक गणराज्य","हंगरी","रोमानिया"]],
+    ["उत्तर अमेरिका", ["संयुक्त राज्य अमेरिका","कनाडा","क्यूबा","ग्वाटेमाला","जमैका","हैती","डोमिनिकन गणराज्य","पनामा","कोस्टा रिका"]]
+  ];
+
+
+  /* सार्क देशों का राज्य/प्रांत → ज़िला (तुरंत भरने हेतु) */
+  var SAARC_DATA = {
+    "नेपाल": {
+      "कोशी प्रदेश": ["झापा","मोरंग","सुनसरी","धनकुटा","इलाम","ताप्लेजुङ","उदयपुर","सप्तरी","सिराहा"],
+      "मधेश प्रदेश": ["पर्सा","बारा","रौतहट","सर्लाही","महोत्तरी","धनुषा"],
+      "बागमती प्रदेश": ["काठमाडौं","ललितपुर","भक्तपुर","चितवन","मकवानपुर","काभ्रेपलाञ्चोक","सिन्धुपाल्चोक","नुवाकोट","धादिङ"],
+      "गण्डकी प्रदेश": ["कास्की","तनहुँ","स्याङ्जा","गोरखा","लमजुङ","पर्वत","बागलुङ","म्याग्दी","मुस्ताङ"],
+      "लुम्बिनी प्रदेश": ["रूपन्देही","कपिलवस्तु","दाङ","बाँके","बर्दिया","पाल्पा","गुल्मी","अर्घाखाँची"],
+      "कर्णाली प्रदेश": ["सुर्खेत","दैलेख","जाजरकोट","जुम्ला","कालिकोट","मुगु","हुम्ला","डोल्पा"],
+      "सुदूरपश्चिम प्रदेश": ["कैलाली","कञ्चनपुर","डडेल्धुरा","बैतडी","दार्चुला","अछाम","डोटी","बझाङ"]
+    },
+    "बांग्लादेश": {
+      "ढाका": ["ढाका","गाज़ीपुर","नारायणगंज","टांगाइल","किशोरगंज","मनिकगंज","मुंशीगंज","नरसिंगडी","फ़रीदपुर"],
+      "चटगाँव": ["चटगाँव","कॉक्स बाज़ार","कुमिल्ला","फ़ेनी","नोआखाली","रंगामाटी","खगड़ाछड़ी","बंदरबन"],
+      "राजशाही": ["राजशाही","बोगुरा","पाबना","नाटोर","नवाबगंज","जयपुरहाट","सिराजगंज","नौगाँव"],
+      "खुलना": ["खुलना","जशोर","सातखीरा","बागेरहाट","कुष्टिया","झेनाइदह","मगुरा","नड़ाइल"],
+      "बरिशाल": ["बरिशाल","पटुआखाली","भोला","पिरोजपुर","झालकाठी","बरगुना"],
+      "सिलहट": ["सिलहट","मौलवीबाज़ार","हबीगंज","सुनामगंज"],
+      "रंगपुर": ["रंगपुर","दिनाजपुर","कुड़ीग्राम","गाइबांधा","ठाकुरगाँव","पंचगढ़","नीलफामारी","लालमनिरहाट"],
+      "ময়মनसिंह": ["ময়মनसिंह","जमालपुर","नेत्रकोना","शेरपुर"]
+    },
+    "पाकिस्तान": {
+      "पंजाब": ["लाहौर","रावलपिंडी","फ़ैसलाबाद","मुल्तान","गुजरांवाला","सियालकोट","बहावलपुर","सरगोधा","झेलम"],
+      "सिंध": ["कराची","हैदराबाद","सक्खर","लरकाना","मीरपुर खास","नवाबशाह","थट्टा","बदीन"],
+      "ख़ैबर पख़्तूनख़्वा": ["पेशावर","मर्दान","एबटाबाद","स्वात","कोहाट","बन्नू","डेरा इस्माइल ख़ान","नौशेरा"],
+      "बलूचिस्तान": ["क्वेटा","ग्वादर","तुर्बत","ख़ुज़दार","सिबी","झोब","लोरालाई","चमन"],
+      "इस्लामाबाद": ["इस्लामाबाद"],
+      "आज़ाद कश्मीर": ["मुज़फ़्फ़राबाद","मीरपुर","कोटली","रावलाकोट","भिम्बर"],
+      "गिलगित-बाल्टिस्तान": ["गिलगित","स्कार्दू","हुंज़ा","घांचे","अस्तौर"]
+    },
+    "श्रीलंका": {
+      "पश्चिमी प्रांत": ["कोलंबो","गम्पाहा","कलुतारा"],
+      "मध्य प्रांत": ["कैंडी","माताले","नुवारा एलिया"],
+      "दक्षिणी प्रांत": ["गाले","मातारा","हम्बनटोटा"],
+      "उत्तरी प्रांत": ["जाफ़ना","किलिनोच्ची","मन्नार","वावुनिया","मुलैतिवु"],
+      "पूर्वी प्रांत": ["त्रिंकोमाली","बट्टिकलोआ","अम्पारा"],
+      "वायव्य प्रांत": ["कुरुनेगला","पुत्तलम"],
+      "उत्तर-मध्य प्रांत": ["अनुराधापुर","पोलोन्नरुवा"],
+      "ऊवा प्रांत": ["बादुल्ला","मोनरागला"],
+      "सबरगमुवा प्रांत": ["रत्नापुर","केगाल्ले"]
+    },
+    "भूटान": {
+      "थिम्फू": ["थिम्फू"],
+      "पारो": ["पारो"],
+      "पुनाखा": ["पुनाखा"],
+      "वांगडू फोडरंग": ["वांगडू फोडरंग"],
+      "बुमथांग": ["बुमथांग"],
+      "त्राशिगांग": ["त्राशिगांग"],
+      "सम्द्रुप जोंगखर": ["सम्द्रुप जोंगखर"],
+      "सरपांग": ["सरपांग"],
+      "हा": ["हा"]
+    },
+    "मालदीव": {
+      "माले": ["माले"],
+      "अड्डू सिटी": ["अड्डू"],
+      "उत्तरी प्रांत": ["हा अलिफ़","हा धालू","शविआनी","नूनू"],
+      "मध्य प्रांत": ["काफ़ू","अलिफ़ अलिफ़","अलिफ़ धालू","वावू"],
+      "दक्षिणी प्रांत": ["गाफ़ू अलिफ़","गाफ़ू धालू","ञविआनी","फ़ुवामुलाह"]
+    },
+    "अफ़ग़ानिस्तान": {
+      "काबुल": ["काबुल"],
+      "हेरात": ["हेरात"],
+      "कंधार": ["कंधार"],
+      "बल्ख़": ["मज़ार-ए-शरीफ़"],
+      "नंगरहार": ["जलालाबाद"],
+      "कुंदुज़": ["कुंदुज़"],
+      "ग़ज़नी": ["ग़ज़नी"],
+      "बामियान": ["बामियान"],
+      "बदख़्शान": ["फ़ैज़ाबाद"]
+    }
+  };
+
+  var cSel=document.getElementById('fCountry'),
+      sSel=document.getElementById('fState'),
+      dSel=document.getElementById('fDistrict');
+
+  /* देश भरें (optgroup) */
+  COUNTRY_GROUPS.forEach(function(grp){
+    var og=document.createElement('optgroup'); og.label=grp[0];
+    grp[1].forEach(function(c){ var o=document.createElement('option'); o.value=c; o.textContent=c; og.appendChild(o); });
+    cSel.appendChild(og);
+  });
+  cSel.value='भारत';   // सबसे ऊपर भारत — डिफ़ॉल्ट
+
+  function resetSel(sel,label){ sel.innerHTML='<option value="">'+label+'</option>'; }
+
+  /* किसी भी देश के राज्य लौटाए (भारत = STATES_DISTRICTS; सार्क = SAARC_DATA) */
+  function statesOf(country){
+    if(country==='भारत' && typeof STATES_DISTRICTS!=='undefined') return Object.keys(STATES_DISTRICTS);
+    if(SAARC_DATA[country]) return Object.keys(SAARC_DATA[country]);
+    return null;
+  }
+  function districtsOf(country,state){
+    if(country==='भारत' && typeof STATES_DISTRICTS!=='undefined' && STATES_DISTRICTS[state]) return STATES_DISTRICTS[state];
+    if(SAARC_DATA[country] && SAARC_DATA[country][state]) return SAARC_DATA[country][state];
+    return null;
+  }
+  function fillStates(){
+    resetSel(sSel,'राज्य/प्रांत चुनें'); resetSel(dSel,'ज़िला चुनें');
+    var sts=statesOf(cSel.value);
+    if(sts){
+      sSel.disabled=false;
+      sts.forEach(function(st){ var o=document.createElement('option'); o.value=st; o.textContent=st; sSel.appendChild(o); });
+    } else {
+      /* बाक़ी देशों के राज्य/ज़िला उनका पेज बनते वक्त जुड़ेंगे (data-file से) */
+      sSel.disabled=true;
+      sSel.innerHTML='<option value="">इस देश के राज्य जल्द जुड़ेंगे</option>';
+      dSel.disabled=true; dSel.innerHTML='<option value="">—</option>';
+    }
+  }
+  function fillDistricts(){
+    resetSel(dSel,'ज़िला चुनें');
+    var dis=districtsOf(cSel.value, sSel.value);
+    if(dis){
+      dSel.disabled=false;
+      dis.forEach(function(d){ var o=document.createElement('option'); o.value=d; o.textContent=d; dSel.appendChild(o); });
+    }
+  }
+
+  cSel.addEventListener('change',fillStates);
+  sSel.addEventListener('change',fillDistricts);
+  fillStates();  // भारत डिफ़ॉल्ट → राज्य भरें
+
+  /* श्रेणी-बटन (अभी कोई data नहीं → 00 ही रहे; बाद में Firestore से गिनती+सूची) */
+  var cats=document.querySelectorAll('.net-cat');
+  cats.forEach(function(b){
+    b.addEventListener('click',function(){
+      cats.forEach(function(x){x.classList.remove('on');}); b.classList.add('on');
+      /* TODO(future): चुने देश/राज्य/ज़िला + श्रेणी पर Firestore से गिनती(netResult .net-count) व सूची भरें। */
     });
-  })();
+  });
+})();
 </script>
 
   </main>
