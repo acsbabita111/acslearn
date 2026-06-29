@@ -1,876 +1,496 @@
 <!DOCTYPE html>
-<html lang="hi" dir="ltr">
+<html lang="hi">
 <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
 
-<!-- ══ META ══ -->
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="ACS नेटवर्क से जुड़ें — घर से काम (Apprentice) से शुरू करें, अपना केंद्र खोलें, और 80% तक कमाई पाएँ। गाँव से दुनिया तक।"/>
-<meta name="keywords" content="ACS network, ACS franchise, centre kaise khole, work from home, Applied Computer School network, नेटवर्क"/>
-<meta name="author" content="Applied Computer School™"/>
-<meta name="robots" content="index, follow"/>
-<meta name="theme-color" content="#0B1F3A"/>
+  <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
+  <title>ACS का नेटवर्क — गाँव से दुनिया तक | Applied Computer School™</title>
+  <meta name="description" content="ACS नेटवर्क — देश, जोन, रिजन के अनुसार सेंटर, शिक्षक, काउंसलर, नियोक्ता व एजेंट खोजें। अपने सुंदर भविष्य के लिए ACS नेटवर्क का सदस्य बनें।"/>
+  <link rel="canonical" href="https://acslearn.com/hi/network.html"/>
+  <meta name="robots" content="index,follow"/>
 
-<!-- ══ OPEN GRAPH (Social Media) ══ -->
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://acslearn.com/hi/network.html"/>
-<meta property="og:title" content="ACS नेटवर्क — गाँव से दुनिया तक"/>
-<meta property="og:description" content="घर से काम शुरू करें, अपना केंद्र खोलें, 80% तक कमाएँ।"/>
-<meta property="og:image" content="https://acsbabita111.github.io/acslearn/logo.png"/>
-<meta property="og:locale" content="hi_IN"/>
+  <!-- मूल → अंग्रेज़ी → बाक़ी; generator हर भाषा के लिए hreflang भरे -->
+    <link rel="alternate" hreflang="hi" href="https://acslearn.com/hi/network.html"/>
+  <link rel="alternate" hreflang="en" href="https://acslearn.com/en/network.html"/>
+  <link rel="alternate" hreflang="x-default" href="https://acslearn.com/hi/network.html"/>
 
-<!-- ══ CANONICAL ══ -->
-<link rel="canonical" href="https://acslearn.com/hi/network.html"/>
-<link rel="manifest" href="/manifest.json"/>
+  <!-- Open Graph / सोशल शेयर -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="ACS का नेटवर्क — गाँव से दुनिया तक | Applied Computer School™"/>
+  <meta property="og:description" content="ACS नेटवर्क — देश, जोन, रिजन के अनुसार सेंटर, शिक्षक, काउंसलर, नियोक्ता व एजेंट खोजें। अपने सुंदर भविष्य के लिए ACS नेटवर्क का सदस्य बनें।"/>
+  <meta property="og:image" content="https://acslearn.com/logo.png"/>
+  <meta property="og:locale" content="hi"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-<!-- ══ STRUCTURED DATA ══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Applied Computer School™",
-  "alternateName": "ACS",
-  "url": "https://acslearn.com",
-  "logo": "https://acsbabita111.github.io/acslearn/logo.png",
-  "description": "दुनिया भर से 950 सेक्टर के कोर्स, 1.50 लाख बिजनेस आइडिया",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ACS Building, Vidyarthi Nagar, Chautham",
-    "addressLocality": "Khagaria",
-    "addressRegion": "Bihar",
-    "postalCode": "851201",
-    "addressCountry": "IN"
-  },
-  "telephone": "+91-9431210092",
-  "email": "acs.chautham@gmail.com",
-  "sameAs": [
-    "https://ffgpmt.org",
-    "https://youtube.com/@AppliedComputerSchool"
-  ]
-}
-</script>
+  <!-- PWA / icon / रंग -->
+  <meta name="theme-color" content="#0B1F3A"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <link rel="icon" href="/logo.png"/>
+  <link rel="apple-touch-icon" href="/logo.png"/>
 
-<title>ACS नेटवर्क — गाँव से दुनिया तक | Applied Computer School™</title>
+  <!-- फ़ॉन्ट (sw.js के precache URL से हूबहू मेल — 400–900) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-<!-- ══ FONTS ══ -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-
-<style>
-/* ══════════════════════════════════════════════
-   ACS MASTER CSS — Version 1.0
-   यह CSS बदली = सब 3.5 करोड़ pages बदले
-   सोच कर बदलो।
-   ══════════════════════════════════════════════ */
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-:root{
-  /* Brand Colors */
-  --navy:     #0B1F3A;
-  --blue:     #1565C0;
-  --blue-lt:  #1E88E5;
-  --gold:     #F9A825;
-  --green:    #2E7D32;
-  --green-lt: #43A047;
-  --orange:   #E65100;
-  --orange-lt:#FF8F00;
-  --red:      #C62828;
-  /* Neutrals */
-  --white:    #FFFFFF;
-  --offwhite: #F5F7FA;
-  --gray:     #607D8B;
-  --border:   #E8EDF5;
-  --text:     #1A2B3C;
-}
-
-html,body{
-  font-family:'Inter','Noto Sans Devanagari',sans-serif;
-  background:var(--offwhite);
-  color:var(--text);
-  font-size:16px;
-  line-height:1.8;
-}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-
-/* ══ NAVBAR ══ */
-.navbar{
-  background:var(--navy);
-  position:sticky;top:0;z-index:200;
-  box-shadow:0 2px 10px rgba(0,0,0,.3);
-}
-.nav-inner{
-  display:flex;align-items:center;
-  justify-content:space-between;
-  padding:0 14px;height:52px;
-  max-width:1100px;margin:0 auto;
-}
-.nav-brand{display:flex;align-items:center;gap:8px}
-.nav-brand img{height:30px;border-radius:6px}
-.nav-brand-text{color:#fff;font-size:16px;font-weight:700;line-height:1.2}
-.nav-brand-text small{display:block;color:var(--gold);font-size:12px;font-weight:400}
-.nav-controls{display:flex;align-items:center;gap:6px}
-.btn-translate{
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.25);
-  color:#fff;padding:7px 12px;border-radius:6px;
-  font-size:13px;cursor:pointer;font-family:inherit;min-height:40px;
-}
-.btn-menu{
-  background:none;border:none;color:#fff;
-  font-size:24px;cursor:pointer;padding:4px 6px;
-  min-height:40px;min-width:40px;line-height:1;
-}
-.translate-panel{
-  display:none;background:#0d2a4a;
-  padding:10px 16px;
-  border-top:1px solid rgba(255,255,255,.1);
-}
-.translate-panel.open{display:block}
-#google_translate_element select{
-  width:100%;padding:8px;border-radius:6px;
-  border:1px solid rgba(255,255,255,.3);
-  background:#1a3a5c;color:white;
-  font-size:16px;font-family:inherit;
-}
-
-/* ══ SLIDE MENU ══ */
-.menu-overlay{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.5);z-index:300;
-}
-.menu-overlay.open{display:block}
-.menu-panel{
-  position:fixed;top:0;right:-290px;
-  width:290px;height:100%;background:#fff;
-  z-index:400;transition:right .3s ease;overflow-y:auto;
-}
-.menu-panel.open{right:0}
-.menu-head{
-  background:var(--navy);color:#fff;
-  padding:16px;display:flex;
-  justify-content:space-between;align-items:center;
-}
-.menu-head h3{font-size:15px}
-.menu-close{
-  background:none;border:none;color:#fff;
-  font-size:22px;cursor:pointer;
-  min-width:40px;min-height:40px;
-  display:flex;align-items:center;justify-content:center;
-}
-.menu-links{list-style:none;padding:6px 0}
-.menu-links li a{
-  display:flex;align-items:center;
-  padding:13px 20px;color:var(--text);
-  font-size:16px;font-weight:600;
-  border-bottom:1px solid #F0F0F0;min-height:48px;
-  transition:.15s;
-}
-.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
-.menu-links li a.active{color:var(--blue);background:#EEF4FF}
-.menu-login-btn{
-  margin:14px;display:flex;align-items:center;
-  justify-content:center;background:var(--gold);
-  color:var(--navy);text-align:center;padding:14px;
-  border-radius:10px;font-weight:800;font-size:16px;min-height:52px;
-}
-
-/* ══ HERO ══ */
-.hero{
-  background:linear-gradient(160deg,var(--navy) 0%,#1A3A6B 55%,#0D47A1 100%);
-  padding:40px 20px 48px;
-  text-align:center;
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;
-  top:-120px;right:-120px;
-  width:380px;height:380px;border-radius:50%;
-  background:rgba(249,168,37,.04);
-  pointer-events:none;
-}
-.hero::after{
-  content:'';position:absolute;
-  bottom:-80px;left:-80px;
-  width:280px;height:280px;border-radius:50%;
-  background:rgba(21,101,192,.12);
-  pointer-events:none;
-}
-.hero-inner{
-  position:relative;z-index:1;
-  max-width:540px;margin:0 auto;
-}
-
-/* Logo */
-.hero-logo{
-  width:60px;height:60px;border-radius:16px;
-  border:2px solid rgba(255,255,255,.2);
-  margin:0 auto 28px;
-}
-
-/* PUNCHLINE — सबसे बड़ा */
-.punch{margin-bottom:28px}
-.punch-l1{
-  font-size:clamp(22px,5.5vw,38px);
-  font-weight:900;color:var(--gold);
-  line-height:1.25;margin-bottom:6px;
-  letter-spacing:-0.5px;
-}
-.punch-l2{
-  font-size:clamp(26px,6.5vw,46px);
-  font-weight:900;color:#fff;
-  line-height:1.2;letter-spacing:-1px;
-}
-.punch-l2 em{color:var(--green-lt);font-style:normal}
-
-/* Divider */
-.hero-div{
-  width:48px;height:3px;
-  background:linear-gradient(90deg,var(--gold),var(--blue));
-  border-radius:2px;margin:0 auto 24px;
-}
-
-/* Tagline */
-.tagline{
-  font-size:clamp(15px,3.2vw,20px);
-  font-weight:700;
-  color:rgba(255,255,255,.85);
-  line-height:1.7;margin-bottom:8px;
-}
-.tagline em{color:var(--gold);font-style:normal;font-weight:900}
-
-.counsel{
-  font-size:clamp(13px,2.8vw,16px);
-  color:rgba(255,255,255,.6);
-  font-weight:600;margin-bottom:28px;
-  line-height:1.8;
-}
-
-/* Stats */
-.stats{
-  display:flex;gap:8px;
-  justify-content:center;
-  margin-bottom:28px;flex-wrap:wrap;
-}
-.stat{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;padding:12px 18px;
-  min-width:130px;flex:1;max-width:180px;
-}
-.stat-num{
-  font-size:clamp(18px,4vw,26px);
-  font-weight:900;color:var(--gold);
-  display:block;line-height:1.1;
-}
-.stat-lbl{
-  font-size:11px;color:rgba(255,255,255,.6);
-  font-weight:600;margin-top:4px;
-}
-
-/* Buttons */
-.hero-btns{
-  display:flex;gap:10px;
-  justify-content:center;
-  margin-bottom:20px;
-}
-.hbtn{
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  flex:1;max-width:140px;
-  padding:16px 8px;border-radius:16px;
-  font-family:inherit;text-decoration:none;
-  transition:transform .2s,box-shadow .2s;
-  box-shadow:0 6px 20px rgba(0,0,0,.3);
-  border:none;cursor:pointer;
-}
-.hbtn:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.4)}
-.hbtn-icon{font-size:26px;margin-bottom:6px;line-height:1}
-.hbtn-l1{font-size:17px;font-weight:900;color:#fff;line-height:1.2}
-.hbtn-l2{font-size:13px;font-weight:700;color:rgba(255,255,255,.8);margin-top:2px}
-.hbtn-orange{background:linear-gradient(135deg,var(--orange),var(--orange-lt))}
-.hbtn-blue{background:linear-gradient(135deg,var(--blue),var(--blue-lt))}
-.hbtn-green{background:linear-gradient(135deg,var(--green),var(--green-lt))}
-
-/* Free Badge */
-.free-badge{
-  display:inline-block;
-  background:rgba(46,125,50,.2);
-  border:1px solid rgba(46,125,50,.4);
-  color:#81C784;font-size:13px;font-weight:700;
-  padding:10px 22px;border-radius:30px;
-}
-
-/* ══ PAYMENT STRIP ══ */
-.payment-strip{
-  background:var(--navy);color:#fff;
-  padding:28px 20px;text-align:center;
-}
-.payment-title{
-  font-size:16px;font-weight:700;
-  color:var(--gold);margin-bottom:16px;
-}
-.payment-grid{
-  display:flex;flex-wrap:wrap;
-  justify-content:center;gap:8px;
-  max-width:500px;margin:0 auto;
-}
-.pay-item{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:10px;padding:10px 14px;
-  text-align:center;min-width:86px;
-}
-.pay-num{
-  font-size:22px;font-weight:900;
-  color:var(--gold);display:block;
-}
-.pay-lbl{
-  font-size:11px;color:rgba(255,255,255,.6);
-  margin-top:2px;
-}
-.payment-note{
-  font-size:11px;color:rgba(255,255,255,.35);
-  margin-top:12px;max-width:400px;
-  margin-left:auto;margin-right:auto;
-}
-
-/* ══ STATS STRIP ══ */
-.stats-strip{
-  display:flex;flex-wrap:wrap;
-  justify-content:center;
-  gap:20px 32px;padding:32px 20px;
-  max-width:700px;margin:0 auto;
-}
-.ss-item{text-align:center}
-.ss-num{
-  font-size:24px;font-weight:900;
-  color:var(--navy);display:block;
-}
-.ss-lbl{font-size:16px;color:var(--gray)}
-
-/* ══ FOOTER ══ */
-.footer-main{
-  background:var(--navy);
-  color:rgba(255,255,255,.7);
-  padding:36px 20px 20px;
-  margin-top:20px;
-}
-.footer-grid{
-  display:grid;grid-template-columns:1fr;
-  gap:28px;max-width:1000px;margin:0 auto;
-}
-@media(min-width:640px){
-  .footer-grid{grid-template-columns:1fr 1fr 1fr}
-}
-.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}
-.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
-.footer-col h3{
-  color:var(--gold);font-size:12px;font-weight:700;
-  margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;
-}
-.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.sitemap-grid a{
-  color:rgba(255,255,255,.6);font-size:12px;
-  padding:4px 0;display:block;
-}
-.sitemap-grid a:hover{color:var(--gold)}
-.footer-col p{
-  font-size:12px;color:rgba(255,255,255,.6);
-  margin-bottom:6px;line-height:1.8;
-}
-.footer-col a{color:var(--gold)}
-.footer-bottom{
-  text-align:center;padding:16px 20px;
-  border-top:1px solid rgba(255,255,255,.1);
-  margin-top:24px;font-size:12px;
-  color:rgba(255,255,255,.4);
-}
-
-/* ══ LOGIN MODAL ══ */
-.modal-bg{
-  display:none;position:fixed;inset:0;
-  background:rgba(11,31,58,.8);z-index:500;
-  align-items:center;justify-content:center;padding:16px;
-}
-.modal-bg.open{display:flex}
-.modal{
-  background:#fff;border-radius:16px;
-  width:100%;max-width:400px;
-  max-height:90vh;overflow-y:auto;
-  padding:28px 24px;position:relative;
-}
-.modal-x{
-  position:absolute;top:14px;right:16px;
-  background:none;border:none;font-size:22px;
-  cursor:pointer;color:var(--gray);
-  min-width:40px;min-height:40px;
-  display:flex;align-items:center;justify-content:center;
-}
-.modal h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:4px}
-.modal-sub{font-size:16px;color:var(--gray);margin-bottom:20px}
-.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-.role-btn{
-  padding:14px 10px;border:2px solid #E0E0E0;
-  border-radius:10px;background:var(--offwhite);
-  cursor:pointer;font-family:inherit;
-  font-size:13px;font-weight:700;color:var(--navy);
-  text-align:center;transition:.15s;
-  min-height:80px;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:6px;
-}
-.role-btn:hover,.role-btn.sel{
-  border-color:var(--blue);
-  background:#E3F2FD;color:var(--blue);
-}
-.role-icon{font-size:26px}
-.login-form{display:none}
-.login-form.show{display:block}
-.back-btn{
-  background:none;border:none;color:var(--blue);
-  font-size:13px;cursor:pointer;font-family:inherit;
-  margin-bottom:14px;padding:0;min-height:40px;
-}
-.fgroup{margin-bottom:14px}
-.fgroup label{
-  display:block;font-size:13px;font-weight:600;
-  color:var(--navy);margin-bottom:6px;
-}
-.fgroup input{
-  width:100%;padding:11px 14px;
-  border:2px solid #E0E0E0;border-radius:8px;
-  font-size:16px;font-family:inherit;outline:none;
-  min-height:48px;transition:border .2s;
-}
-.fgroup input:focus{border-color:var(--blue)}
-.submit-btn{
-  width:100%;padding:13px;background:var(--blue);
-  color:#fff;border:none;border-radius:8px;
-  font-size:16px;font-weight:800;cursor:pointer;
-  font-family:inherit;min-height:52px;
-}
-.login-err{color:var(--red);font-size:16px;margin-top:8px;text-align:center}
-
-/* ══ WELCOME ══ */
-.welcome{display:none;text-align:center;padding:60px 20px}
-.welcome.show{display:block}
-.welcome-icon{font-size:56px;margin-bottom:14px}
-.welcome h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
-.welcome p{color:var(--gray);margin-bottom:24px}
-.logout-btn{
-  padding:12px 28px;background:#FFEBEE;color:var(--red);
-  border:none;border-radius:8px;font-size:16px;
-  font-weight:700;cursor:pointer;font-family:inherit;
-}
-
-/* ══ SCROLL + TOAST ══ */
-.scroll-top{
-  position:fixed;bottom:20px;right:20px;
-  width:44px;height:44px;border-radius:50%;
-  background:var(--navy);color:#fff;border:none;
-  font-size:18px;cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,.2);display:none;
-}
-.scroll-top.show{display:flex;align-items:center;justify-content:center}
-.toast{
-  position:fixed;bottom:24px;left:50%;
-  transform:translateX(-50%) translateY(20px);
-  background:var(--navy);color:#fff;
-  padding:10px 20px;border-radius:20px;
-  font-size:13px;z-index:999;opacity:0;
-  transition:.3s;white-space:nowrap;
-}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-.toast.ok{border-left:4px solid var(--green-lt)}
-.toast.err{border-left:4px solid var(--red)}
-</style>
+  <!-- मास्टर CSS (एकमात्र — रूट से, हर भाषा-folder से मिलेगा) -->
+  <link rel="stylesheet" href="/style.css"/>
 </head>
-<body>
 
-<!-- ══ LANGUAGE DETECT ══ -->
-<script>
-(function(){
-  // पहले से language set है?
-  const saved = localStorage.getItem('acs_lang');
-  if(saved) return; // याद है — redirect नहीं
+<!-- data-lang = page की भाषा (app.js की "सुनो"/TTS व script.js इसे पढ़ें) -->
+<body data-lang="hi" data-page="network">
 
-  const langMap = {
-    'hi':'/hi/', 'en':'/en/',
-    'kn':'/kn/', 'mr':'/mr/',
-    'ta':'/ta/', 'te':'/te/',
-    'bn':'/bn/', 'gu':'/gu/',
-    'pa':'/pa/', 'ml':'/ml/',
-    'ur':'/ur/', 'or':'/or/',
-    'as':'/as/', 'ne':'/ne/',
-    'sw':'/sw/', 'fr':'/fr/',
-    'es':'/es/', 'pt':'/pt/',
-    'ar':'/ar/', 'id':'/id/',
-    'vi':'/vi/', 'ha':'/ha/',
-  };
+  <!-- keyboard वालों के लिए सीधा content पर -->
+  <a href="#main" class="acs-skip">मुख्य content पर जाएँ</a>
 
-  // Device की भाषा पढ़ो
-  const dl = (navigator.language || navigator.userLanguage || 'en')
-             .slice(0,2).toLowerCase();
-
-  // Save करो — अगली बार याद रहेगा
-  localStorage.setItem('acs_lang', dl);
-
-  // Redirect करो
-  const go = langMap[dl] || '/en/';
-  window.location.replace(go);
-})();
-</script>
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand">
-      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-      <div class="nav-brand-text">Applied Computer School™
-        <small>Free Digital Education for the Global South</small>
+  <!-- ══ NAVBAR (header सिर्फ़ यहीं — किसी page में दोबारा नहीं) ══
+       slide-menu व भाषा-panel script.js अपने-आप जोड़ता है (links.js के 10 items)। -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <img class="brand-logo-img" src="/logo.png" alt="ACS"/>
+        <span class="brand-name">Applied Computer School™</span>
+      </a>
+      <div class="nav-controls">
+        <button class="lang-btn" id="languageToggle" type="button"
+                aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
+        <button class="menu-btn" id="menuToggle" type="button"
+                aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
+        <button class="lang-btn" id="acsLoginBtn" type="button" aria-label="Login / Dashboard">🔑</button>
       </div>
-    </a>
-    <div class="nav-controls">
-      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
-      <button class="btn-menu" onclick="openMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
+  <div class="trust-strip">
+    <p>✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
+    <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
+  </div>
+
+  <!-- ══ हर page का अपना content सिर्फ़ यहाँ बदलता है ══ -->
+  <main id="main">
+    <!-- ════════ नेटवर्क (network) — बीच का content ════════ -->
+
+<!-- HERO + गिनती -->
+<section class="page-hero" style="padding:30px 16px">
+  <div class="page-hero-inner">
+    <div style="font-size:2.6rem">🤝</div>
+    <h1 style="color:var(--navy)">ACS का नेटवर्क</h1>
+    <p style="color:var(--muted);max-width:640px;margin:6px auto 0">
+      गाँव से दुनिया तक — एक ही नेटवर्क से जुड़ें, सीखें, कमाएँ और दूसरों को भी आगे बढ़ाएँ।
+    </p>
+
+    <!-- गिनती-काउंटर (अभी 0 — बाद में Firestore से अपने-आप भरें) -->
+    <div class="net-stats">
+      <div class="net-stat"><span class="net-n" id="nDesh">0</span><span class="net-l">देश</span></div>
+      <div class="net-stat"><span class="net-n" id="nZonal">0</span><span class="net-l">जोनल ऑफिस</span></div>
+      <div class="net-stat"><span class="net-n" id="nRegional">0</span><span class="net-l">रिजनल ऑफिस</span></div>
+      <div class="net-stat"><span class="net-n" id="nCentre">0</span><span class="net-l">सेंटर</span></div>
+      <div class="net-stat"><span class="net-n" id="nTeacher">0</span><span class="net-l">शिक्षक</span></div>
+      <div class="net-stat"><span class="net-n" id="nCounselor">0</span><span class="net-l">काउंसलर</span></div>
+      <div class="net-stat"><span class="net-n" id="nEmployer">0</span><span class="net-l">नियोक्ता</span></div>
+      <div class="net-stat"><span class="net-n" id="nAgent">0</span><span class="net-l">एजेंट</span></div>
+      <div class="net-stat"><span class="net-n" id="nLabharthi">0</span><span class="net-l">लाभार्थी</span></div>
     </div>
   </div>
-  <div class="translate-panel" id="translatePanel">
-    <div id="google_translate_element"></div>
+</section>
+
+<!-- खोज / फ़िल्टर -->
+<section class="section-container" style="max-width:900px;padding-top:24px">
+  <div class="notice-card">
+    <div style="font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:12px">🔍 नेटवर्क खोजें</div>
+
+    <div class="net-filters">
+      <select class="net-sel" id="fDesh"><option value="">देश चुनें</option></select>
+      <select class="net-sel" id="fZone"><option value="">जोन चुनें</option></select>
+      <select class="net-sel" id="fRegion"><option value="">रिजन चुनें</option></select>
+    </div>
+
+    <div class="net-cats">
+      <button class="net-cat on" type="button" data-cat="centre">🏫 सेंटर</button>
+      <button class="net-cat" type="button" data-cat="counselor">🧭 काउंसलर</button>
+      <button class="net-cat" type="button" data-cat="employer">💼 नियोक्ता</button>
+      <button class="net-cat" type="button" data-cat="agent">✈️ एजेंट</button>
+    </div>
+
+    <!-- नतीजा / खाली-संदेश -->
+    <div id="netResult" class="net-empty">
+      <div style="font-size:2.4rem">🌱</div>
+      <div style="font-size:1.25rem;font-weight:800;color:var(--navy);margin:8px 0 2px">अभी यहाँ कोई नहीं जुड़े हैं।</div>
+      <p style="color:var(--muted);margin:0 0 16px">अपने सुंदर भविष्य के लिए ACS नेटवर्क का सदस्य बनें।</p>
+      <a href="/join.html" class="btn btn-primary">📝 जुड़ें (Join)</a>
+    </div>
   </div>
-</nav>
+</section>
 
-<!-- ══ SLIDE MENU ══ -->
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-<div class="menu-panel" id="menuPanel">
-  <div class="menu-head">
-    <h3>ACS Menu</h3>
-    <button class="menu-close" onclick="closeMenu()">✕</button>
+<!-- नेटवर्क का सफ़र (कैसे जुड़ें) -->
+<section class="section-container" style="max-width:820px;padding-top:0">
+  <div class="section-title-block"><h2 style="color:var(--navy)">नेटवर्क का सफ़र</h2></div>
+  <div class="content-grid">
+    <div class="notice-card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="net-num" style="background:var(--blue)">1</div>
+      <div>
+        <div style="font-weight:800;color:var(--navy);font-size:1.1rem">🧑‍💻 Apprentice (घर से काम)</div>
+        <div style="color:var(--muted)">सबसे पहला कदम — घर बैठे Work From Home से शुरू करें।</div>
+      </div>
+    </div>
+    <div class="notice-card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="net-num" style="background:var(--gold);color:var(--navy)">2</div>
+      <div>
+        <div style="font-weight:800;color:var(--navy);font-size:1.1rem">🏫 अपना केंद्र / Local Office</div>
+        <div style="color:var(--muted)">आगे बढ़कर अपना केंद्र खोलें। हर केंद्र 15+ कोचिंग और 50+ स्कूल जोड़ सकता है।</div>
+      </div>
+    </div>
+    <div class="notice-card" style="display:flex;gap:14px;align-items:flex-start">
+      <div class="net-num" style="background:var(--green)">3</div>
+      <div>
+        <div style="font-weight:800;color:var(--navy);font-size:1.1rem">💰 कमाई — 80% आपका</div>
+        <div style="color:var(--muted)">हर फीस का सबसे बड़ा हिस्सा (80%) केंद्र को जाता है। बाक़ी पारदर्शी रूप से बँटता है — कोई छुपा commission नहीं।</div>
+      </div>
+    </div>
   </div>
-  <ul class="menu-links">
-    <li><a href="/" class="active">🏠 होम</a></li>
-    <li><a href="/hi/mission.html">🎯 मिशन</a></li>
-    <li><a href="/hi/salah.html">🧭 सलाह</a></li>
-    <li><a href="/udyam/">🌍 उद्यम</a></li>
-    <li><a href="/courses/hi/">📚 कोर्स</a></li>
-    <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
-    <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
-    <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
-    <li><a href="/vani/">📱 वाणी App</a></li>
-    <li><a href="/contact/hi/">📞 संपर्क</a></li>
-  </ul>
-  <a href="#" class="menu-login-btn" onclick="openModal();closeMenu();return false;">
-    🔑 Login / Dashboard
-  </a>
-</div>
 
-<!-- ══ MAIN CONTENT ══ -->
-<div id="mainContent">
+  <div style="text-align:center;margin-top:18px">
+    <span style="display:inline-block;background:var(--green);color:#fff;font-weight:800;padding:9px 20px;border-radius:999px">
+      ✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क
+    </span>
+  </div>
+</section>
 
-  <!-- ════════════════════════════════════════════════ -->
-  <!--  यहाँ इस page का अपना CONTENT आएगा (बाकी सब shell है)  -->
-  
 <style>
-/* बुज़ुर्ग-friendly: बड़े अक्षर, साफ़ contrast, बड़े बटन — page-scoped (prefix से) */
-.pg{max-width:680px;margin:0 auto;padding:22px 16px 40px;}
-.pg-head{text-align:center;margin-bottom:22px;}
-.pg-emoji{font-size:54px;line-height:1;}
-.pg-h1{font-size:30px;font-weight:800;color:var(--navy);margin:10px 0 6px;line-height:1.25;}
-.pg-sub{font-size:19px;color:var(--gray);line-height:1.6;}
-.pg-card{background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:22px 18px;margin:16px 0;box-shadow:0 2px 10px rgba(11,31,58,.06);}
-.pg-label{display:block;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:10px;}
-.pg-input{width:100%;font-size:22px;padding:16px 14px;border:2px solid #1565C0;border-radius:12px;text-align:center;letter-spacing:1px;box-sizing:border-box;}
-.pg-btn{display:block;width:100%;margin-top:14px;font-size:22px;font-weight:800;color:#fff;background:#2E7D32;border:none;border-radius:12px;padding:16px;min-height:56px;cursor:pointer;}
-.pg-btn:active{transform:scale(.99);}
-.pg-result{margin-top:18px;font-size:19px;line-height:1.7;display:none;}
-.pg-ok{background:#E8F5E9;border:2px solid #2E7D32;border-radius:14px;padding:18px;color:#1B5E20;}
-.pg-bad{background:#FDECEA;border:2px solid #C62828;border-radius:14px;padding:18px;color:#B71C1C;}
-.pg-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed #C8E6C9;font-size:18px;}
-.pg-row b{color:var(--navy);}
-.pg-note{font-size:16px;color:var(--gray);text-align:center;line-height:1.7;margin-top:14px;}
-.pg-steps{display:grid;gap:14px;margin:18px 0;}
-.pg-step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #E3E8EF;border-radius:14px;padding:16px;}
-.pg-step-n{flex:0 0 44px;height:44px;width:44px;border-radius:50%;background:#1565C0;color:#fff;font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-.pg-step-t{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:3px;}
-.pg-step-d{font-size:18px;color:#37474F;line-height:1.6;}
-.pg-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
-.pg-cta a{flex:1;min-width:150px;text-align:center;font-size:20px;font-weight:800;padding:16px;border-radius:12px;text-decoration:none;color:#fff;min-height:56px;display:flex;align-items:center;justify-content:center;}
-.pg-cta .cta-green{background:#2E7D32;}
-.pg-cta .cta-blue{background:#1565C0;}
-@media(max-width:480px){.pg-h1{font-size:26px;}.pg-input{font-size:20px;}}
+  .net-stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+  .net-stat{background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px 14px;min-width:96px;text-align:center}
+  .net-n{display:block;font-size:1.7rem;font-weight:900;color:var(--blue)}
+  .net-l{color:var(--muted);font-weight:700;font-size:16px}
+  .net-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .net-sel{flex:1;min-width:150px;padding:12px;border:2px solid var(--border);border-radius:12px;font-size:18px;font-family:inherit;background:#fff;color:var(--navy)}
+  .net-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .net-cat{padding:10px 16px;border:2px solid var(--border);border-radius:999px;background:#fff;font-weight:700;font-size:16px;cursor:pointer;color:var(--navy)}
+  .net-cat.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .net-empty{text-align:center;padding:26px 16px;background:var(--offwhite);border-radius:14px}
+  .net-num{flex:0 0 auto;width:44px;height:44px;border-radius:50%;color:#fff;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center}
 </style>
 
-<div class="pg">
-  <div class="pg-head">
-    <div class="pg-emoji">🤝</div>
-    <h1 class="pg-h1">ACS नेटवर्क</h1>
-    <p class="pg-sub">गाँव से दुनिया तक — साथ जुड़ें, सीखें, कमाएँ और दूसरों को भी आगे बढ़ाएँ।</p>
-  </div>
-
-  <div class="pg-card">
-    <p style="font-size:19px;line-height:1.8;color:#37474F;margin:0">
-      ACS सिर्फ़ पढ़ाई नहीं, एक <b>नेटवर्क</b> है। आप घर बैठे शुरू कर सकते हैं,
-      फिर अपना केंद्र खोल सकते हैं, और अपने इलाके के लोगों को भी काम-कमाई से जोड़ सकते हैं।
-    </p>
-  </div>
-
-  <div class="pg-steps">
-    <div class="pg-step">
-      <div class="pg-step-n">1</div>
-      <div>
-        <div class="pg-step-t">🧑‍💻 Apprentice (घर से काम)</div>
-        <div class="pg-step-d">सबसे पहला कदम — घर बैठे Work From Home। अभी 70+ लोग जुड़ चुके हैं।</div>
-      </div>
-    </div>
-    <div class="pg-step">
-      <div class="pg-step-n">2</div>
-      <div>
-        <div class="pg-step-t">🏫 अपना केंद्र / Local Office</div>
-        <div class="pg-step-d">आगे बढ़कर अपना केंद्र खोलें। हर केंद्र 15+ कोचिंग और 50+ स्कूल जोड़ सकता है।</div>
-      </div>
-    </div>
-    <div class="pg-step">
-      <div class="pg-step-n">3</div>
-      <div>
-        <div class="pg-step-t">💰 कमाई — 80% आपका</div>
-        <div class="pg-step-d">हर फीस का सबसे बड़ा हिस्सा (80%) केंद्र को जाता है। बाकी पारदर्शी रूप से बँटता है — कोई छुपा commission नहीं।</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="pg-card" style="text-align:center">
-    <div style="font-size:20px;font-weight:800;color:var(--navy);margin-bottom:6px">अभी जुड़ना चाहते हैं?</div>
-    <div style="font-size:18px;color:#37474F;line-height:1.7">रजिस्ट्रेशन करें या पहले काउंसलर से मुफ़्त सलाह लें।</div>
-    <div class="pg-cta">
-      <a class="cta-green" href="/join.html">📝 जुड़ें</a>
-      <a class="cta-blue" href="/hi/salah.html">🧭 सलाह लें</a>
-    </div>
-  </div>
-
-  <div style="text-align:center;margin-top:8px">
-    <span class="free-badge">✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क</span>
-  </div>
-</div>
-
-  <!-- ════════════════════════════════════════════════ -->
-
-</div><!-- /mainContent -->
-
-<!-- WELCOME (after login) -->
-<div class="welcome" id="welcomeScreen">
-  <div class="welcome-icon">🎉</div>
-  <h2 id="welcomeText">स्वागत है!</h2>
-  <p id="welcomeSub">Dashboard खुल रहा है...</p>
-  <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
-</div>
-
-<!-- ══ FOOTER ══ -->
-<footer class="footer-main">
-  <div class="footer-grid">
-
-    <div class="footer-brand">
-      <h2>Applied Computer School™</h2>
-      <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
-      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का उपक्रम</p>
-      <p style="margin-top:8px;color:var(--gold);font-weight:700">Learn. Build. Contribute. Grow.</p>
-      <p style="margin-top:6px">ISO 9001:2015 प्रमाणित</p>
-    </div>
-
-    <div class="footer-col">
-      <h3>Site Map</h3>
-      <div class="sitemap-grid">
-        <a href="/">🏠 होम</a>
-        <a href="/hi/mission.html">🎯 मिशन</a>
-        <a href="/hi/salah.html">🧭 सलाह</a>
-        <a href="/udyam/">🌍 उद्यम</a>
-        <a href="/courses/hi/">📚 कोर्स</a>
-        <a href="/join.html">📝 रजिस्ट्रेशन</a>
-        <a href="/verify/">🏆 प्रमाण पत्र</a>
-        <a href="/hi/network.html">🤝 नेटवर्क</a>
-        <a href="/vani/">📱 वाणी App</a>
-        <a href="/contact/hi/">📞 संपर्क</a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h3>आधिकारिक संपर्क</h3>
-      <p>📍 ACS Building, Vidyarthi Nagar,<br/>Chautham, Khagaria, Bihar — 851201</p>
-      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
-      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
-      <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
-      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
-      <p style="margin-top:8px;font-size:11px;color:rgba(255,255,255,.35)">
-        ⚠️ भुगतान केवल official Razorpay link से।
-      </p>
-    </div>
-
-  </div>
-  <div class="footer-bottom">
-    © 2026 Applied Computer School™ |
-    <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> |
-    <a href="https://acslearn.com" style="color:var(--gold)">acslearn.com</a>
-  </div>
-</footer>
-
-<!-- ══ LOGIN MODAL ══ -->
-<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <button class="modal-x" onclick="closeModal()">✕</button>
-    <div id="roleStep">
-      <h3>🔑 Login करें</h3>
-      <p class="modal-sub">अपना role चुनें</p>
-      <div class="role-grid">
-        <button class="role-btn" onclick="selectRole('Student')"><span class="role-icon">🎓</span>Student</button>
-        <button class="role-btn" onclick="selectRole('Centre')"><span class="role-icon">🏫</span>Centre</button>
-        <button class="role-btn" onclick="selectRole('Teacher')"><span class="role-icon">👨‍🏫</span>Teacher</button>
-        <button class="role-btn" onclick="selectRole('Counselor')"><span class="role-icon">🧭</span>Counselor</button>
-        <button class="role-btn" onclick="selectRole('Employer')"><span class="role-icon">💼</span>Employer</button>
-        <button class="role-btn" onclick="selectRole('Admin')"><span class="role-icon">🔐</span>Admin</button>
-      </div>
-    </div>
-    <div class="login-form" id="loginForm">
-      <button class="back-btn" onclick="backToRoles()">← वापस</button>
-      <h3 id="loginTitle">Login</h3>
-      <p class="modal-sub">Email और Password डालें</p>
-      <div class="fgroup">
-        <label>Email</label>
-        <input type="email" id="emailIn" placeholder="your@email.com"/>
-      </div>
-      <div class="fgroup">
-        <label>Password</label>
-        <input type="password" id="passIn" placeholder="Password"/>
-      </div>
-      <button class="submit-btn" onclick="doLogin()">Login करें →</button>
-      <div class="login-err" id="loginErr"></div>
-    </div>
-  </div>
-</div>
-
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo(0,0)">↑</button>
-<div class="toast" id="toast"></div>
-
-<!-- ══ FIREBASE ══ -->
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import{getAuth,signInWithEmailAndPassword,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import{getFirestore,doc,getDoc}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const app=initializeApp({
-  apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
-  authDomain:"acslearn-platform.firebaseapp.com",
-  projectId:"acslearn-platform",
-  storageBucket:"acslearn-platform.firebasestorage.app",
-  messagingSenderId:"435395814481",
-  appId:"1:435395814481:web:655f99452a90f8efbc4470"
-});
-const auth=getAuth(app),db=getFirestore(app);
-
-const ROLE_URLS={
-  Founder:'/dashboard/founder/',Head:'/dashboard/head/',
-  Centre:'/dashboard/centre/',Teacher:'/dashboard/teacher/',
-  Student:'/dashboard/student/',Counselor:'/dashboard/counselor/',
-  Employer:'/dashboard/employer/',Admin:'/dashboard/head/'
-};
-
-onAuthStateChanged(auth,async user=>{
-  if(user){
-    document.getElementById('mainContent').style.display='none';
-    const snap=await getDoc(doc(db,'users',user.uid));
-    const role=snap.exists()?snap.data().role:'Student';
-    const name=snap.exists()?snap.data().name:user.email;
-    document.getElementById('welcomeText').textContent='स्वागत है, '+name+'!';
-    document.getElementById('welcomeSub').textContent='Role: '+role+' — Dashboard खुल रहा है...';
-    document.getElementById('welcomeScreen').classList.add('show');
-    setTimeout(()=>{window.location.href=ROLE_URLS[role]||'/dashboard/student/';},1500);
-  }
-});
-
-window.doLogin=async function(){
-  const email=document.getElementById('emailIn').value.trim();
-  const pass=document.getElementById('passIn').value;
-  const err=document.getElementById('loginErr');
-  if(!email||!pass){err.textContent='Email और Password जरूरी है।';return;}
-  try{
-    await signInWithEmailAndPassword(auth,email,pass);
-    closeModal();
-  }catch(e){
-    err.textContent=e.code==='auth/invalid-credential'?'Email या Password गलत है।':'Login failed। फिर try करें।';
-  }
-};
-
-window.doLogout=async function(){
-  await signOut(auth);
-  document.getElementById('mainContent').style.display='block';
-  document.getElementById('welcomeScreen').classList.remove('show');
-};
-</script>
-
-<!-- ══ JS ══ -->
 <script>
-// Language switcher
-function changeLang(code){
-  localStorage.setItem('acs_lang', code);
-  const langMap = {
-    'hi':'/hi/','en':'/en/','kn':'/kn/','mr':'/mr/',
-    'ta':'/ta/','te':'/te/','bn':'/bn/','gu':'/gu/',
-    'pa':'/pa/','ml':'/ml/','ur':'/ur/','or':'/or/',
-    'as':'/as/','ne':'/ne/','sw':'/sw/','fr':'/fr/',
-    'es':'/es/','pt':'/pt/','ar':'/ar/','id':'/id/',
-    'vi':'/vi/','ha':'/ha/',
-  };
-  window.location.href = langMap[code] || '/en/';
-}
-window.changeLang = changeLang;
-
-// Menu
-function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
-function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
-window.openMenu=openMenu;window.closeMenu=closeMenu;
-
-// Translate
-function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
-window.toggleTranslate=toggleTranslate;
-
-// Modal
-function openModal(){document.getElementById('modalBg').classList.add('open');}
-function closeModal(){document.getElementById('modalBg').classList.remove('open');backToRoles();}
-window.openModal=openModal;window.closeModal=closeModal;
-
-// Role Select
-let selRole='';
-window.selectRole=function(r){
-  selRole=r;
-  document.getElementById('loginTitle').textContent=r+' Login';
-  document.getElementById('roleStep').style.display='none';
-  document.getElementById('loginForm').classList.add('show');
-};
-window.backToRoles=function(){
-  document.getElementById('roleStep').style.display='block';
-  document.getElementById('loginForm').classList.remove('show');
-  document.getElementById('loginErr').textContent='';
-};
-
-// Scroll
-window.addEventListener('scroll',()=>{
-  document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300);
-});
-
-// Toast
-function showToast(msg,type='ok'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
-  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);
-}
-window.showToast=showToast;
-
-// Google Translate
-window.googleTranslateElementInit=function(){
-  new google.translate.TranslateElement({
-    pageLanguage:'hi',
-    includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur,sw,fr,es,pt,ar,id,vi,ha',
-    layout:google.translate.TranslateElement.InlineLayout.SIMPLE
-  },'google_translate_element');
-};
+  /* श्रेणी-बटन चुनाव (अभी कोई data नहीं → खाली-संदेश ही दिखे; बाद में Firestore से भरें) */
+  (function(){
+    var cats = document.querySelectorAll('.net-cat');
+    cats.forEach(function(b){
+      b.addEventListener('click', function(){
+        cats.forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add('on');
+        /* TODO(future): चुने देश/जोन/रिजन + श्रेणी पर Firestore से सूची+गिनती भरें।
+           अभी कोई सदस्य नहीं → netResult खाली-संदेश ही रहे। */
+      });
+    });
+  })();
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  </main>
+
+  <!-- ══ FOOTER (footer सिर्फ़ यहीं) — links links.js से मेल खाएँ ══ -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand-info">
+        <h2>Applied Computer School™</h2>
+        <p class="sponsor-org">FFGPMTrust · ISO 9001:2015</p>
+        <p class="tagline">गाँव से विश्व तक — निःशुल्क डिजिटल शिक्षा</p>
+        <div class="iso-box">ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar — 851201</div>
+      </div>
+      <div class="footer-sitemap">
+        <h3>मेन्यू</h3>
+        <ul class="sitemap-links">
+          <li><a href="/">🏠 होम</a></li>
+          <li><a href="/hi/mission.html">🎯 मिशन</a></li>
+          <li><a href="/hi/salah.html">🧭 सलाह</a></li>
+          <li><a href="/udyam/">🌍 उद्यम</a></li>
+          <li><a href="/courses/hi/">📚 कोर्स</a></li>
+          <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
+          <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
+          <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
+          <li><a href="/vani/">📱 वाणी</a></li>
+          <li><a href="/contact/hi/">📞 संपर्क</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>संपर्क</h3>
+        <p class="contact-item"><a href="tel:+919431210092">📞 +91-9431210092</a></p>
+        <p class="contact-item"><a href="mailto:acs.chautham@gmail.com">✉️ acs.chautham@gmail.com</a></p>
+        <p class="contact-item"><a href="https://wa.me/919431210092" target="_blank" rel="noopener">💬 WhatsApp</a></p>
+        <p class="contact-item"><a href="https://youtube.com/@AppliedComputerSchool" target="_blank" rel="noopener">▶️ YouTube</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="acsYear"></span> Applied Computer School™ · FFGPMTrust · acslearn.com</div>
+  </footer>
+
+  <!-- ══ LOGIN MODAL (login सिर्फ़ यहीं; Firebase तभी load हो जब खुले) ══ -->
+  <div class="acs-modal-bg" id="acsLoginModal" role="dialog" aria-modal="true" aria-labelledby="acsLoginTitle">
+    <div class="acs-modal">
+      <button class="acs-iconbtn" id="acsLoginClose" type="button" aria-label="बंद करें"
+              style="position:absolute;top:10px;right:10px">✕</button>
+
+      <div id="acsLoginView">
+        <h3 id="acsLoginTitle">🔑 Login</h3>
+        <p class="sub">अपना ईमेल व पासवर्ड डालें</p>
+        <div class="acs-field">
+          <label for="acsEmail">ईमेल (Email)</label>
+          <input id="acsEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com"/>
+        </div>
+        <div class="acs-field">
+          <label for="acsPass">पासवर्ड (Password)</label>
+          <input id="acsPass" type="password" autocomplete="current-password" placeholder="••••••••"/>
+        </div>
+        <button class="acs-submit" id="acsLoginSubmit" type="button">Login करें</button>
+        <p class="err" id="acsLoginErr" role="alert"></p>
+      </div>
+
+      <div id="acsOtpView" style="display:none">
+        <h3>🔒 OTP डालें</h3>
+        <p class="sub">आपके ईमेल पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</p>
+        <div class="acs-field">
+          <label for="acsOtpInput">6-अंकी OTP</label>
+          <input id="acsOtpInput" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="______"/>
+        </div>
+        <button class="acs-submit" id="acsOtpSubmit" type="button">Verify करें</button>
+        <p id="acsOtpTimer" class="sub" style="margin-top:8px"></p>
+        <button id="acsOtpResend" type="button" disabled
+                style="background:none;border:none;color:#1565C0;font-weight:800;cursor:not-allowed;opacity:.45;font:inherit;margin-top:2px">
+          OTP दोबारा भेजें
+        </button>
+        <p class="err" id="acsOtpErr" role="alert"></p>
+      </div>
+
+      <div class="acs-welcome" id="acsWelcome">
+        <div class="ic">✅</div>
+        <h2>स्वागत है!</h2>
+        <p class="sub">आपके dashboard पर भेजा जा रहा है…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SCRIPTS — क्रम ज़रूरी: config → links → translate → script ══ -->
+  <script src="/assets/acs-config.js"></script>
+  <script src="/assets/links.js"></script>
+  <script src="/assets/acs-translate.js"></script>
+  <script src="/script.js"></script>
+
+  <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
+  <script>
+  (function () {
+    document.getElementById("acsYear").textContent = new Date().getFullYear();
+
+    var modal     = document.getElementById("acsLoginModal");
+    var openBtn   = document.getElementById("acsLoginBtn");
+    var closeBtn  = document.getElementById("acsLoginClose");
+    var loginView = document.getElementById("acsLoginView");
+    var otpView   = document.getElementById("acsOtpView");
+    var welcome   = document.getElementById("acsWelcome");
+    var errEl     = document.getElementById("acsLoginErr");
+    var otpErr    = document.getElementById("acsOtpErr");
+    var otpTimerEl= document.getElementById("acsOtpTimer");
+    var resendBtn = document.getElementById("acsOtpResend");
+    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null, pendingDesignation = "";
+
+    var SESSION_KEY = "acs_session";
+    var OTP_VALID = 300, OTP_RESEND = 600;   // 5 मिनट valid · 10 मिनट resend
+
+    /* ── Role → URL (Constitution v1.5 मास्टर-सूची; role/designation Firestore में snake_case) ── */
+    /* 9 सीधे कार्ड */
+    var ROLE_URLS = {
+      student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
+      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
+    };
+    /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
+    var TEAM_URLS = {
+      founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
+      hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
+      zm:"/dashboard/zonal/", rm:"/dashboard/regional/",
+      field_staff:"/dashboard/hq/staff/", intern:"/dashboard/hq/staff/"
+    };
+
+    /* 3 Learner कार्ड → re-login पर OTP नहीं */
+    function isLearner(r){ return r==="student" || r==="jobseeker" || r==="entrepreneur"; }
+    /* सही dashboard URL */
+    function destFor(role, designation){
+      if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
+      return ROLE_URLS[role] || "/dashboard/student/";
+    }
+    function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
+
+    function showView(which){
+      loginView.style.display = (which==="login") ? "" : "none";
+      otpView.style.display   = (which==="otp")   ? "" : "none";
+      if (which==="welcome") welcome.classList.add("show"); else welcome.classList.remove("show");
+    }
+
+    function openModal(){
+      modal.classList.add("open");
+      showView("login");
+      errEl.textContent = ""; if(otpErr) otpErr.textContent = "";
+      loadFirebase();
+      var f = document.getElementById("acsEmail"); if (f) f.focus();
+    }
+    function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", function (e){
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+
+    /* Firebase compat (app+auth+firestore+functions) — सिर्फ़ ज़रूरत पर */
+    function loadFirebase(){
+      if (fbReady) return fbReady;
+      var cfg = (window.ACS_CONFIG && window.ACS_CONFIG.firebase) || null;
+      if (!cfg) { if(errEl) errEl.textContent = "config नहीं मिला।"; return Promise.reject(); }
+      var B = "https://www.gstatic.com/firebasejs/10.12.2/";
+      fbReady = loadScript(B+"firebase-app-compat.js")
+        .then(function(){ return loadScript(B+"firebase-auth-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-firestore-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-functions-compat.js"); })
+        .then(function(){
+          if (!window.firebase.apps.length) window.firebase.initializeApp(cfg);
+          /* idle-logout (script.js) + सामान्य logout — session-मार्क भी हटाओ */
+          window.acsLogout = function(){
+            try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+            try{ window.firebase.auth().signOut(); }catch(e){}
+            window.location.href = "/";
+          };
+        });
+      return fbReady;
+    }
+    function loadScript(src){
+      return new Promise(function (res, rej){
+        var s = document.createElement("script");
+        s.src = src; s.onload = res; s.onerror = rej;
+        document.head.appendChild(s);
+      });
+    }
+    /* OTP/session functions us-central1 (function-region से मेल) */
+    function fn(name){ return window.firebase.app().functions("us-central1").httpsCallable(name); }
+
+    /* ── password step ── */
+    document.getElementById("acsLoginSubmit").addEventListener("click", function (){
+      var email = document.getElementById("acsEmail").value.trim();
+      var pass  = document.getElementById("acsPass").value;
+      errEl.textContent = "";
+      if (!email || !pass) { errEl.textContent = "ईमेल व पासवर्ड दोनों भरें।"; return; }
+
+      loadFirebase().then(function (){
+        return window.firebase.auth().signInWithEmailAndPassword(email, pass);
+      }).then(function (cred){
+        var user = cred.user;
+        /* email-verify अनिवार्य — बिना verify login नहीं */
+        if (!user.emailVerified) {
+          user.sendEmailVerification().catch(function(){});
+          window.firebase.auth().signOut();
+          errEl.textContent = "पहले अपना ईमेल verify करें — verification link भेज दी गई।";
+          return;
+        }
+        /* role Firestore से */
+        return window.firebase.firestore().collection("users").doc(user.uid).get().then(function (doc){
+          var data = doc.exists ? doc.data() : {};
+          var role = data.role || "student";
+          pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
+          if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
+          /* 7 roles → असली OTP भेजो */
+          return fn("requestLoginOtp")({ email: user.email }).then(function (res){
+            if (res && res.data && res.data.skip) return finishLogin();
+            showView("otp"); startOtpTimer();
+            if(otpErr) otpErr.textContent = "";
+            var oi = document.getElementById("acsOtpInput"); if(oi){ oi.value=""; oi.focus(); }
+          });
+        });
+      }).catch(function (e){ errEl.textContent = authMsg(e); });
+    });
+
+    /* ── OTP verify ── */
+    document.getElementById("acsOtpSubmit").addEventListener("click", function (){
+      var code = (document.getElementById("acsOtpInput").value || "").trim();
+      if(otpErr) otpErr.textContent = "";
+      if (code.length < 6) { otpErr.textContent = "6-अंकी OTP डालें।"; return; }
+      fn("verifyLoginOtp")({ email: pendingUser.email, code: code })
+        .then(function (){ if(otpTimer) clearInterval(otpTimer); return finishLogin(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    /* ── OTP resend (10 मिनट बाद ही चालू) ── */
+    resendBtn.addEventListener("click", function (){
+      if (resendBtn.disabled) return;
+      if(otpErr) otpErr.textContent = "";
+      fn("requestLoginOtp")({ email: pendingUser.email })
+        .then(function (){ startOtpTimer(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    function startOtpTimer(){
+      var valid = OTP_VALID, resend = OTP_RESEND;
+      resendBtn.disabled = true; resendBtn.style.opacity = ".45"; resendBtn.style.cursor = "not-allowed";
+      if (otpTimer) clearInterval(otpTimer);
+      otpTimer = setInterval(function (){
+        valid--; resend--;
+        var v = valid>0 ? ("OTP "+fmt(valid)+" में ख़त्म") : "OTP ख़त्म";
+        var r = resend>0 ? (" · दोबारा "+fmt(resend)+" बाद") : "";
+        otpTimerEl.textContent = v + r;
+        if (resend<=0){ resendBtn.disabled=false; resendBtn.style.opacity="1"; resendBtn.style.cursor="pointer"; }
+        if (valid<=0 && resend<=0) clearInterval(otpTimer);
+      }, 1000);
+    }
+
+    /* ── सफल login: single-session सेट → redirect ── */
+    function finishLogin(){
+      return fn("claimSession")({}).then(function (res){
+        var sid = res && res.data && res.data.sessionId;
+        try{ localStorage.setItem(SESSION_KEY, sid || ""); }catch(e){}
+        showView("welcome");
+        setTimeout(function (){ window.location.href = destFor(pendingRole, pendingDesignation); }, 900);
+      });
+    }
+
+    function authMsg(e){
+      if (e && e.code) return (e.code.indexOf("password")>-1 || e.code.indexOf("user")>-1)
+        ? "ईमेल या पासवर्ड ग़लत है।" : "Login नहीं हो पाया — दोबारा कोशिश करें।";
+      return "Login नहीं हो पाया।";
+    }
+    function otpMsg(e){
+      var d = (e && e.details) || {};
+      if (d.reason==="wrong")  return "OTP ग़लत — "+d.attemptsLeft+" कोशिश बची।";
+      if (d.reason==="locked") return "3 ग़लत — "+(d.hoursLeft||12)+" घंटे बाद दोबारा।";
+      if (d.reason==="expired")return "OTP ख़त्म — दोबारा भेजें।";
+      if (d.reason==="wait")   return "थोड़ी देर रुकें — दोबारा "+fmt(d.secondsLeft)+" बाद।";
+      if (d.reason==="noOtp")  return "पहले OTP भेजें।";
+      return "OTP जाँच नहीं हो पाई — दोबारा कोशिश करें।";
+    }
+
+    /* ── single-session watcher — हर page पर, पर सिर्फ़ logged-in user के लिए ──
+       localStorage में session-मार्क हो तभी Firebase load (anonymous pages हल्के)। */
+    (function watchSession(){
+      var sid; try{ sid = localStorage.getItem(SESSION_KEY); }catch(e){ sid = null; }
+      if (!sid) return;                       // logged-in नहीं → page हल्का रहे
+      loadFirebase().then(function (){
+        window.firebase.auth().onAuthStateChanged(function (user){
+          if (!user) return;
+          window.firebase.firestore().collection("users").doc(user.uid).onSnapshot(function (doc){
+            var active = doc.exists && doc.data().activeSession;
+            if (active && active !== sid){
+              /* कहीं और login हुआ → यह session बंद */
+              try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+              window.firebase.auth().signOut().finally(function (){
+                alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
+                window.location.href = "/";
+              });
+            }
+          });
+        });
+      });
+    })();
+
+  })();
+  </script>
 </body>
 </html>
