@@ -1,142 +1,78 @@
 <!DOCTYPE html>
-<html lang="hi" dir="ltr">
+<html lang="hi">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="ACS वाणी — एक बोले, सब अपनी भाषा में सुनें। फ़ोन live जोड़ें और 80+ भाषाओं में बात करें।"/>
-<meta name="keywords" content="ACS वाणी, बहुभाषी, live translation, ग्लोबल साउथ शिक्षा"/>
-<meta name="author" content="Applied Computer School"/>
-<meta name="theme-color" content="#0B1F3A"/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://acslearn.com/vani/"/>
-<meta property="og:title" content="ACS Vani — Live"/>
-<meta property="og:description" content="एक बोले, सब अपनी भाषा में सुनें।"/>
-<meta property="og:image" content="https://acsbabita111.github.io/acslearn/logo.png"/>
-<link rel="canonical" href="https://acslearn.com/vani/"/>
-<title>ACS वाणी — Live</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;--gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;--orange:#E65100;--red:#C62828;--white:#fff;--offwhite:#F5F7FA;--gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C}
-html,body{font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:17px;line-height:1.8}
-a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
-button,input,select{font-family:inherit}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
-.nav-brand{display:flex;align-items:center;gap:8px}.nav-brand img{height:30px;border-radius:6px}
-.nav-brand-text{color:#fff;font-size:16px;font-weight:700;line-height:1.2}
-.nav-brand-text small{display:block;color:var(--gold);font-size:12px;font-weight:400}
-.nav-controls{display:flex;align-items:center;gap:6px}
-.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:13px;cursor:pointer;min-height:40px}
-.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-height:40px;min-width:40px;line-height:1}
-.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
-.translate-panel.open{display:block}
-#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:#fff;font-size:16px}
-.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}.menu-overlay.open{display:block}
-.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s ease;overflow-y:auto}.menu-panel.open{right:0}
-.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}.menu-head h3{font-size:15px}
-.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
-.menu-links{list-style:none;padding:6px 0}
-.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:16px;font-weight:600;border-bottom:1px solid #F0F0F0;min-height:48px;transition:.15s}
-.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}.menu-links li a.active{color:var(--blue);background:#EEF4FF}
-.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);text-align:center;padding:14px;border-radius:10px;font-weight:800;font-size:16px;min-height:52px}
-.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:1000px;margin:0 auto}
-@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
-.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}.footer-tagline{color:var(--gold);font-size:12px;font-style:italic;margin:8px 0}
-.footer-col h3{color:var(--gold);font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
-.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.sitemap-grid a{color:rgba(255,255,255,.6);font-size:12px;padding:4px 0;display:block}.sitemap-grid a:hover{color:var(--gold)}
-.footer-col p{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:6px;line-height:1.8}.footer-col a{color:var(--gold)}
-.footer-bottom{text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:24px;font-size:12px;color:rgba(255,255,255,.4)}
-#vaniApp{max-width:760px;margin:0 auto;padding:18px 16px 30px}
-#vaniApp .pill{display:inline-flex;align-items:center;gap:7px;background:#EEF4FF;border:1px solid #cfe0ff;color:#143a72;font-size:13px;font-weight:700;padding:6px 14px;border-radius:20px;margin:0 auto 12px}
-#vaniApp .pill i{width:10px;height:10px;border-radius:50%;background:var(--gray)}
-#vaniApp .pill.on i{background:var(--green-lt);animation:vblink 1.4s infinite}@keyframes vblink{50%{opacity:.35}}
-#vaniApp .screen{display:none}#vaniApp .screen.show{display:block}
-#vaniApp .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px 18px;box-shadow:0 2px 12px rgba(11,31,58,.06);margin-bottom:16px}
-#vaniApp h1{font-size:clamp(24px,6vw,32px);font-weight:900;color:var(--navy);text-align:center;letter-spacing:-.5px}#vaniApp h1 em{color:var(--gold);font-style:normal}
-#vaniApp .sub{text-align:center;color:var(--gray);font-size:16px;margin:6px 0 4px}
-#vaniApp .lbl{display:block;font-size:16px;font-weight:700;color:var(--navy);margin:16px 0 7px}
-#vaniApp .sel,#vaniApp .txt{width:100%;font-size:18px;font-weight:600;padding:13px;border:2px solid var(--blue);border-radius:12px;background:#fff;color:var(--navy);min-height:54px}
-#vaniApp .roles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
-#vaniApp .role{padding:18px 12px;border:2px solid var(--border);border-radius:16px;background:var(--offwhite);font-size:18px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:8px;min-height:104px;justify-content:center;cursor:pointer}
-#vaniApp .role .e{font-size:34px}#vaniApp .role.sel{border-color:var(--blue);background:#E3F2FD;color:var(--blue)}
-#vaniApp .btn{width:100%;margin-top:14px;border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:800;color:#fff;min-height:58px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));cursor:pointer}
-#vaniApp .btn.green{background:linear-gradient(135deg,var(--green),var(--green-lt))}#vaniApp .btn:disabled{opacity:.5}
-#vaniApp .orline{text-align:center;color:var(--gray);font-size:14px;font-weight:700;margin:16px 0 4px}
-#vaniApp .codebox .txt{text-align:center;letter-spacing:6px;font-size:30px;font-weight:900}
-#vaniApp .roomline{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy);color:#fff;border-radius:14px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
-#vaniApp .roomline b{color:var(--gold);font-size:24px;letter-spacing:3px}#vaniApp .roomline .who{font-size:14px;color:rgba(255,255,255,.8)}
-#vaniApp .leave{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:9px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px;cursor:pointer}
-#vaniApp .chat{min-height:240px;display:flex;flex-direction:column;gap:10px;padding:6px 2px 12px}
-#vaniApp .bub{max-width:84%;padding:12px 14px;border-radius:16px;box-shadow:0 1px 5px rgba(11,31,58,.06);position:relative}
-#vaniApp .bub .meta{font-size:12px;font-weight:700;opacity:.7;margin-bottom:3px}
-#vaniApp .bub .body{font-size:20px;font-weight:600;line-height:1.5}
-#vaniApp .bub .orig{font-size:13px;color:var(--gray);margin-top:5px;font-weight:500}
-#vaniApp .bub .spk{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.05);border:none;border-radius:8px;width:34px;height:34px;font-size:15px;cursor:pointer}
-#vaniApp .bub.them{align-self:flex-start;background:#fff;border:1px solid var(--border);border-bottom-left-radius:5px}
-#vaniApp .bub.me{align-self:flex-end;background:#E3F2FD;border:1px solid #b9dcff;border-bottom-right-radius:5px}
-#vaniApp .bub.rtl .body{direction:rtl;text-align:right}
-#vaniApp .sys{align-self:center;background:#FFF6DC;border:1px solid #f3e3ad;color:#7a5b00;font-size:13px;font-weight:700;padding:6px 14px;border-radius:20px;text-align:center}
-#vaniApp .composer{position:sticky;bottom:0;background:var(--offwhite);padding:10px 0 4px;border-top:1px solid var(--border);margin-top:6px}
-#vaniApp .crow{display:flex;gap:8px}
-#vaniApp .mic{flex-shrink:0;width:58px;background:linear-gradient(135deg,var(--green),var(--green-lt));color:#fff;border:none;border-radius:14px;font-size:24px;min-height:56px;cursor:pointer}
-#vaniApp .mic.live{background:linear-gradient(135deg,var(--red),#e53935);animation:vpulse 1.1s infinite}@keyframes vpulse{50%{transform:scale(1.05)}}
-#vaniApp .cin{flex:1;font-size:18px;padding:14px;border:2px solid var(--border);border-radius:14px;min-height:56px}
-#vaniApp .send{flex-shrink:0;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:0 18px;font-size:18px;font-weight:800;min-height:56px;cursor:pointer}
-#vaniApp .chint{font-size:13px;color:var(--gray);margin-top:8px;text-align:center}
-#vaniApp .banner{border-radius:12px;padding:14px;font-size:15px;margin-bottom:14px;line-height:1.6}
-#vaniApp .banner.err{background:#FDECEA;border:1px solid #f5c2bd;color:#a02020}
-#vaniApp .banner.ok{background:#E8F5E9;border:1px solid #b6e0bb;color:#1b5e20}
-#vaniApp .foot{text-align:center;color:var(--gray);font-size:13px;margin-top:18px;line-height:1.7}
-#vaniApp .how{background:#fff;border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:16px;padding:20px 18px;margin-top:6px;box-shadow:0 2px 10px rgba(11,31,58,.05)}
-#vaniApp .how h2{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:8px}
-#vaniApp .how .ex{background:#EEF4FF;border:1px solid #cfe0ff;color:#143a72;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:600;margin:10px 0 14px;line-height:1.6}
-#vaniApp .how ol{margin:0 0 0 4px;padding:0;list-style:none;counter-reset:s}
-#vaniApp .how ol li{counter-increment:s;position:relative;padding:8px 0 8px 42px;font-size:16px;line-height:1.6;border-bottom:1px dashed var(--border)}
-#vaniApp .how ol li:last-child{border-bottom:none}
-#vaniApp .how ol li::before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
-#vaniApp .how ol li b{color:var(--navy)}
-#vaniApp .how .tip{margin-top:14px;font-size:14px;color:var(--gray);line-height:1.7;background:var(--offwhite);border-radius:10px;padding:12px 14px}#vaniApp .how .tip b{color:var(--green)}
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+  <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
+  <title>ACS वाणी — एक भाषा में बोलें, हर कोई अपनी भाषा में सुने | Applied Computer School™</title>
+  <meta name="description" content="ACS वाणी — एक भाषा में बोलें या लिखें, हर कोई उसी पल अपनी भाषा में सुने और पढ़े। शिक्षक-विद्यार्थी live कमरा, 80+ भाषाएँ।"/>
+  <link rel="canonical" href="https://acslearn.com/vani/"/>
+  <meta name="robots" content="index,follow"/>
+
+  <!-- मूल → अंग्रेज़ी → बाक़ी; generator हर भाषा के लिए hreflang भरे -->
+    <link rel="alternate" hreflang="hi" href="https://acslearn.com/vani/"/>
+  <link rel="alternate" hreflang="x-default" href="https://acslearn.com/vani/"/>
+
+  <!-- Open Graph / सोशल शेयर -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="ACS वाणी — एक भाषा में बोलें, हर कोई अपनी भाषा में सुने | Applied Computer School™"/>
+  <meta property="og:description" content="ACS वाणी — एक भाषा में बोलें या लिखें, हर कोई उसी पल अपनी भाषा में सुने और पढ़े। शिक्षक-विद्यार्थी live कमरा, 80+ भाषाएँ।"/>
+  <meta property="og:image" content="https://acslearn.com/logo.png"/>
+  <meta property="og:locale" content="hi"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- PWA / icon / रंग -->
+  <meta name="theme-color" content="#0B1F3A"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <link rel="icon" href="/logo.png"/>
+  <link rel="apple-touch-icon" href="/logo.png"/>
+
+  <!-- फ़ॉन्ट (sw.js के precache URL से हूबहू मेल — 400–900) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+  <!-- मास्टर CSS (एकमात्र — रूट से, हर भाषा-folder से मिलेगा) -->
+  <link rel="stylesheet" href="/style.css"/>
 </head>
-<body>
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand">
-      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-      <div class="nav-brand-text">Applied Computer School™
-        <small>Free Digital Education for the Global South</small>
+
+<!-- data-lang = page की भाषा (app.js की "सुनो"/TTS व script.js इसे पढ़ें) -->
+<body data-lang="hi" data-page="vani">
+
+  <!-- keyboard वालों के लिए सीधा content पर -->
+  <a href="#main" class="acs-skip">मुख्य content पर जाएँ</a>
+
+  <!-- ══ NAVBAR (header सिर्फ़ यहीं — किसी page में दोबारा नहीं) ══
+       slide-menu व भाषा-panel script.js अपने-आप जोड़ता है (links.js के 10 items)। -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <img class="brand-logo-img" src="/logo.png" alt="ACS"/>
+        <span class="brand-name">Applied Computer School™</span>
+      </a>
+      <div class="nav-controls">
+        <button class="lang-btn" id="languageToggle" type="button"
+                aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
+        <button class="menu-btn" id="menuToggle" type="button"
+                aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
+        <button class="lang-btn" id="acsLoginBtn" type="button" aria-label="Login / Dashboard">🔑</button>
       </div>
-    </a>
-    <div class="nav-controls">
-      <button class="btn-translate" onclick="toggleTranslate()">🌐 भाषा</button>
-      <button class="btn-menu" onclick="openMenu()">☰</button>
     </div>
+  </header>
+
+  <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
+  <div class="trust-strip">
+    <p>✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
+    <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
   </div>
-  <div class="translate-panel" id="translatePanel"><div id="google_translate_element"></div></div>
-</nav>
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-<div class="menu-panel" id="menuPanel">
-  <div class="menu-head"><h3>ACS Menu</h3><button class="menu-close" onclick="closeMenu()">✕</button></div>
-  <ul class="menu-links">
-    <li><a href="/">🏠 होम</a></li>
-    <li><a href="/hi/mission.html">🎯 मिशन</a></li>
-    <li><a href="/hi/salah.html">🧭 सलाह</a></li>
-    <li><a href="/udyam/">🌍 उद्यम</a></li>
-    <li><a href="/courses/hi/">📚 कोर्स</a></li>
-    <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
-    <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
-    <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
-    <li><a href="/vani/" class="active">📱 वाणी App</a></li>
-    <li><a href="/contact/hi/">📞 संपर्क</a></li>
-  </ul>
-  <a href="/dashboard/" class="menu-login-btn">🔑 Login / Dashboard</a>
-</div>
-<main id="vaniApp">
+
+  <!-- ══ हर page का अपना content सिर्फ़ यहाँ बदलता है ══ -->
+  <main id="main">
+    <!-- ════════ वाणी (vani) — बीच का content (self-contained mini-app) ════════ -->
+<div id="vaniApp">
   <section class="screen show" id="setup">
     <div style="text-align:center"><span class="pill" id="livePill"><i></i><span id="liveTxt">…</span></span></div>
     <div id="status"></div>
@@ -191,50 +127,63 @@ button,input,select{font-family:inherit}
       <div class="chint" id="chint"></div>
     </div>
   </section>
-</main>
-<footer class="footer-main">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <h2>Applied Computer School</h2>
-      <p class="footer-tagline">"From Village to World — Free Digital Education for the Global South"</p>
-      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट का उपक्रम</p>
-      <p style="margin-top:8px;color:var(--gold);font-weight:700">Learn. Build. Contribute. Grow.</p>
-      <p style="margin-top:6px">ISO 9001:2015 प्रमाणित</p>
-    </div>
-    <div class="footer-col">
-      <h3>साइट मैप</h3>
-      <div class="sitemap-grid">
-        <a href="/">🏠 होम</a>
-        <a href="/hi/mission.html">🎯 मिशन</a>
-        <a href="/hi/salah.html">🧭 सलाह</a>
-        <a href="/udyam/">🌍 उद्यम</a>
-        <a href="/courses/hi/">📚 कोर्स</a>
-        <a href="/join.html">📝 रजिस्ट्रेशन</a>
-        <a href="/verify/">🏆 प्रमाण पत्र</a>
-        <a href="/hi/network.html">🤝 नेटवर्क</a>
-        <a href="/vani/">📱 वाणी App</a>
-        <a href="/contact/hi/">📞 संपर्क</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h3>आधिकारिक संपर्क</h3>
-      <p>📍 ACS Building, Vidyarthi Nagar,<br/>Chautham, Khagaria, Bihar — 851201</p>
-      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
-      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
-      <p>💬 <a href="https://wa.me/919431210092">WhatsApp</a></p>
-      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 Applied Computer School | <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> | <a href="https://acslearn.com" style="color:var(--gold)">acslearn.com</a></div>
-</footer>
-<script>
-function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
-function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
-function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
-window.openMenu=openMenu;window.closeMenu=closeMenu;window.toggleTranslate=toggleTranslate;
-window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'hi',layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');};
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>
+
+<style>
+/* vani app-CSS (सिर्फ़ #vaniApp; navbar/footer/menu टेम्पलेट से; फ़ॉन्ट ≥16px) */
+#vaniApp{--blue-lt:#1E88E5;--green-lt:#43A047;--orange:#E65100;--red:#C62828;--gray:#607D8B;--text:#1A2B3C;max-width:760px;margin:0 auto;padding:18px 16px 30px}
+#vaniApp .pill{display:inline-flex;align-items:center;gap:7px;background:#EEF4FF;border:1px solid #cfe0ff;color:#143a72;font-size:16px;font-weight:700;padding:6px 14px;border-radius:20px;margin:0 auto 12px}
+#vaniApp .pill i{width:10px;height:10px;border-radius:50%;background:var(--gray)}
+#vaniApp .pill.on i{background:var(--green-lt);animation:vblink 1.4s infinite}@keyframes vblink{50%{opacity:.35}}
+#vaniApp .screen{display:none}#vaniApp .screen.show{display:block}
+#vaniApp .card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px 18px;box-shadow:0 2px 12px rgba(11,31,58,.06);margin-bottom:16px}
+#vaniApp h1{font-size:clamp(24px,6vw,32px);font-weight:900;color:var(--navy);text-align:center;letter-spacing:-.5px}#vaniApp h1 em{color:var(--gold);font-style:normal}
+#vaniApp .sub{text-align:center;color:var(--gray);font-size:16px;margin:6px 0 4px}
+#vaniApp .lbl{display:block;font-size:16px;font-weight:700;color:var(--navy);margin:16px 0 7px}
+#vaniApp .sel,#vaniApp .txt{width:100%;font-size:18px;font-weight:600;padding:13px;border:2px solid var(--blue);border-radius:12px;background:#fff;color:var(--navy);min-height:54px}
+#vaniApp .roles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+#vaniApp .role{padding:18px 12px;border:2px solid var(--border);border-radius:16px;background:var(--offwhite);font-size:18px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:8px;min-height:104px;justify-content:center;cursor:pointer}
+#vaniApp .role .e{font-size:34px}#vaniApp .role.sel{border-color:var(--blue);background:#E3F2FD;color:var(--blue)}
+#vaniApp .btn{width:100%;margin-top:14px;border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:800;color:#fff;min-height:58px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));cursor:pointer}
+#vaniApp .btn.green{background:linear-gradient(135deg,var(--green),var(--green-lt))}#vaniApp .btn:disabled{opacity:.5}
+#vaniApp .orline{text-align:center;color:var(--gray);font-size:16px;font-weight:700;margin:16px 0 4px}
+#vaniApp .codebox .txt{text-align:center;letter-spacing:6px;font-size:30px;font-weight:900}
+#vaniApp .roomline{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy);color:#fff;border-radius:14px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
+#vaniApp .roomline b{color:var(--gold);font-size:24px;letter-spacing:3px}#vaniApp .roomline .who{font-size:16px;color:rgba(255,255,255,.8)}
+#vaniApp .leave{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:9px;padding:8px 12px;font-size:16px;font-weight:700;min-height:40px;cursor:pointer}
+#vaniApp .chat{min-height:240px;display:flex;flex-direction:column;gap:10px;padding:6px 2px 12px}
+#vaniApp .bub{max-width:84%;padding:12px 14px;border-radius:16px;box-shadow:0 1px 5px rgba(11,31,58,.06);position:relative}
+#vaniApp .bub .meta{font-size:16px;font-weight:700;opacity:.7;margin-bottom:3px}
+#vaniApp .bub .body{font-size:20px;font-weight:600;line-height:1.5}
+#vaniApp .bub .orig{font-size:16px;color:var(--gray);margin-top:5px;font-weight:500}
+#vaniApp .bub .spk{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.05);border:none;border-radius:8px;width:34px;height:34px;font-size:16px;cursor:pointer}
+#vaniApp .bub.them{align-self:flex-start;background:#fff;border:1px solid var(--border);border-bottom-left-radius:5px}
+#vaniApp .bub.me{align-self:flex-end;background:#E3F2FD;border:1px solid #b9dcff;border-bottom-right-radius:5px}
+#vaniApp .bub.rtl .body{direction:rtl;text-align:right}
+#vaniApp .sys{align-self:center;background:#FFF6DC;border:1px solid #f3e3ad;color:#7a5b00;font-size:16px;font-weight:700;padding:6px 14px;border-radius:20px;text-align:center}
+#vaniApp .composer{position:sticky;bottom:0;background:var(--offwhite);padding:10px 0 4px;border-top:1px solid var(--border);margin-top:6px}
+#vaniApp .crow{display:flex;gap:8px}
+#vaniApp .mic{flex-shrink:0;width:58px;background:linear-gradient(135deg,var(--green),var(--green-lt));color:#fff;border:none;border-radius:14px;font-size:24px;min-height:56px;cursor:pointer}
+#vaniApp .mic.live{background:linear-gradient(135deg,var(--red),#e53935);animation:vpulse 1.1s infinite}@keyframes vpulse{50%{transform:scale(1.05)}}
+#vaniApp .cin{flex:1;font-size:18px;padding:14px;border:2px solid var(--border);border-radius:14px;min-height:56px}
+#vaniApp .send{flex-shrink:0;background:var(--blue);color:#fff;border:none;border-radius:14px;padding:0 18px;font-size:18px;font-weight:800;min-height:56px;cursor:pointer}
+#vaniApp .chint{font-size:16px;color:var(--gray);margin-top:8px;text-align:center}
+#vaniApp .banner{border-radius:12px;padding:14px;font-size:16px;margin-bottom:14px;line-height:1.6}
+#vaniApp .banner.err{background:#FDECEA;border:1px solid #f5c2bd;color:#a02020}
+#vaniApp .banner.ok{background:#E8F5E9;border:1px solid #b6e0bb;color:#1b5e20}
+#vaniApp .foot{text-align:center;color:var(--gray);font-size:16px;margin-top:18px;line-height:1.7}
+#vaniApp .how{background:#fff;border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:16px;padding:20px 18px;margin-top:6px;box-shadow:0 2px 10px rgba(11,31,58,.05)}
+#vaniApp .how h2{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+#vaniApp .how .ex{background:#EEF4FF;border:1px solid #cfe0ff;color:#143a72;border-radius:12px;padding:12px 14px;font-size:16px;font-weight:600;margin:10px 0 14px;line-height:1.6}
+#vaniApp .how ol{margin:0 0 0 4px;padding:0;list-style:none;counter-reset:s}
+#vaniApp .how ol li{counter-increment:s;position:relative;padding:8px 0 8px 42px;font-size:16px;line-height:1.6;border-bottom:1px dashed var(--border)}
+#vaniApp .how ol li:last-child{border-bottom:none}
+#vaniApp .how ol li::before{content:counter(s);position:absolute;left:0;top:8px;width:30px;height:30px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+#vaniApp .how ol li b{color:var(--navy)}
+#vaniApp .how .tip{margin-top:14px;font-size:16px;color:var(--gray);line-height:1.7;background:var(--offwhite);border-radius:10px;padding:12px 14px}#vaniApp .how .tip b{color:var(--green)}
+</style>
+
+<!-- वाणी app — Firebase modular + अनुवाद + TTS/STT (ज्यों-का-त्यों; पुराना menu/translate script हटा) -->
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {getAuth,signInAnonymously,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -390,5 +339,309 @@ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 const micBtn=$('micBtn'),chint=$('chint');let rec=null,listening=false;
 if(SR){chint.textContent='माइक दबाकर बोलें, या लिखकर भेजें। (Chrome में बेहतर)';micBtn.onclick=()=>{if(listening){rec&&rec.stop();return;}rec=new SR();rec.lang=byCode(myLangCode).bcp;rec.interimResults=false;rec.onstart=()=>{listening=true;micBtn.classList.add('live');};rec.onresult=ev=>send(ev.results[0][0].transcript);rec.onerror=()=>{chint.textContent='इस भाषा में माइक उपलब्ध नहीं — कृपया लिखकर भेजें।';};rec.onend=()=>{listening=false;micBtn.classList.remove('live');};rec.start();};}else{micBtn.style.display='none';chint.textContent='इस फ़ोन/browser में माइक नहीं — लिखकर भेजें, बाकी live चलेगा।';}
 </script>
+
+  </main>
+
+  <!-- ══ FOOTER (footer सिर्फ़ यहीं) — links links.js से मेल खाएँ ══ -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand-info">
+        <h2>Applied Computer School™</h2>
+        <p class="sponsor-org">FFGPMTrust · ISO 9001:2015</p>
+        <p class="tagline">गाँव से विश्व तक — निःशुल्क डिजिटल शिक्षा</p>
+        <div class="iso-box">ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar — 851201</div>
+      </div>
+      <div class="footer-sitemap">
+        <h3>मेन्यू</h3>
+        <ul class="sitemap-links">
+          <li><a href="/">🏠 होम</a></li>
+          <li><a href="/hi/mission.html">🎯 मिशन</a></li>
+          <li><a href="/hi/salah.html">🧭 सलाह</a></li>
+          <li><a href="/udyam/">🌍 उद्यम</a></li>
+          <li><a href="/courses/hi/">📚 कोर्स</a></li>
+          <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
+          <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
+          <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
+          <li><a href="/vani/">📱 वाणी</a></li>
+          <li><a href="/contact/hi/">📞 संपर्क</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>संपर्क</h3>
+        <p class="contact-item"><a href="tel:+919431210092">📞 +91-9431210092</a></p>
+        <p class="contact-item"><a href="mailto:acs.chautham@gmail.com">✉️ acs.chautham@gmail.com</a></p>
+        <p class="contact-item"><a href="https://wa.me/919431210092" target="_blank" rel="noopener">💬 WhatsApp</a></p>
+        <p class="contact-item"><a href="https://youtube.com/@AppliedComputerSchool" target="_blank" rel="noopener">▶️ YouTube</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="acsYear"></span> Applied Computer School™ · FFGPMTrust · acslearn.com</div>
+  </footer>
+
+  <!-- ══ LOGIN MODAL (login सिर्फ़ यहीं; Firebase तभी load हो जब खुले) ══ -->
+  <div class="acs-modal-bg" id="acsLoginModal" role="dialog" aria-modal="true" aria-labelledby="acsLoginTitle">
+    <div class="acs-modal">
+      <button class="acs-iconbtn" id="acsLoginClose" type="button" aria-label="बंद करें"
+              style="position:absolute;top:10px;right:10px">✕</button>
+
+      <div id="acsLoginView">
+        <h3 id="acsLoginTitle">🔑 Login</h3>
+        <p class="sub">अपना ईमेल व पासवर्ड डालें</p>
+        <div class="acs-field">
+          <label for="acsEmail">ईमेल (Email)</label>
+          <input id="acsEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com"/>
+        </div>
+        <div class="acs-field">
+          <label for="acsPass">पासवर्ड (Password)</label>
+          <input id="acsPass" type="password" autocomplete="current-password" placeholder="••••••••"/>
+        </div>
+        <button class="acs-submit" id="acsLoginSubmit" type="button">Login करें</button>
+        <p class="err" id="acsLoginErr" role="alert"></p>
+      </div>
+
+      <div id="acsOtpView" style="display:none">
+        <h3>🔒 OTP डालें</h3>
+        <p class="sub">आपके ईमेल पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</p>
+        <div class="acs-field">
+          <label for="acsOtpInput">6-अंकी OTP</label>
+          <input id="acsOtpInput" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="______"/>
+        </div>
+        <button class="acs-submit" id="acsOtpSubmit" type="button">Verify करें</button>
+        <p id="acsOtpTimer" class="sub" style="margin-top:8px"></p>
+        <button id="acsOtpResend" type="button" disabled
+                style="background:none;border:none;color:#1565C0;font-weight:800;cursor:not-allowed;opacity:.45;font:inherit;margin-top:2px">
+          OTP दोबारा भेजें
+        </button>
+        <p class="err" id="acsOtpErr" role="alert"></p>
+      </div>
+
+      <div class="acs-welcome" id="acsWelcome">
+        <div class="ic">✅</div>
+        <h2>स्वागत है!</h2>
+        <p class="sub">आपके dashboard पर भेजा जा रहा है…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SCRIPTS — क्रम ज़रूरी: config → links → translate → script ══ -->
+  <script src="/assets/acs-config.js"></script>
+  <script src="/assets/links.js"></script>
+  <script src="/assets/acs-translate.js"></script>
+  <script src="/script.js"></script>
+
+  <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
+  <script>
+  (function () {
+    document.getElementById("acsYear").textContent = new Date().getFullYear();
+
+    var modal     = document.getElementById("acsLoginModal");
+    var openBtn   = document.getElementById("acsLoginBtn");
+    var closeBtn  = document.getElementById("acsLoginClose");
+    var loginView = document.getElementById("acsLoginView");
+    var otpView   = document.getElementById("acsOtpView");
+    var welcome   = document.getElementById("acsWelcome");
+    var errEl     = document.getElementById("acsLoginErr");
+    var otpErr    = document.getElementById("acsOtpErr");
+    var otpTimerEl= document.getElementById("acsOtpTimer");
+    var resendBtn = document.getElementById("acsOtpResend");
+    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null, pendingDesignation = "";
+
+    var SESSION_KEY = "acs_session";
+    var OTP_VALID = 300, OTP_RESEND = 600;   // 5 मिनट valid · 10 मिनट resend
+
+    /* ── Role → URL (Constitution v1.5 मास्टर-सूची; role/designation Firestore में snake_case) ── */
+    /* 9 सीधे कार्ड */
+    var ROLE_URLS = {
+      student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
+      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
+    };
+    /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
+    var TEAM_URLS = {
+      founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
+      hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
+      zm:"/dashboard/zonal/", rm:"/dashboard/regional/",
+      field_staff:"/dashboard/hq/staff/", intern:"/dashboard/hq/staff/"
+    };
+
+    /* 3 Learner कार्ड → re-login पर OTP नहीं */
+    function isLearner(r){ return r==="student" || r==="jobseeker" || r==="entrepreneur"; }
+    /* सही dashboard URL */
+    function destFor(role, designation){
+      if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
+      return ROLE_URLS[role] || "/dashboard/student/";
+    }
+    function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
+
+    function showView(which){
+      loginView.style.display = (which==="login") ? "" : "none";
+      otpView.style.display   = (which==="otp")   ? "" : "none";
+      if (which==="welcome") welcome.classList.add("show"); else welcome.classList.remove("show");
+    }
+
+    function openModal(){
+      modal.classList.add("open");
+      showView("login");
+      errEl.textContent = ""; if(otpErr) otpErr.textContent = "";
+      loadFirebase();
+      var f = document.getElementById("acsEmail"); if (f) f.focus();
+    }
+    function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", function (e){
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+
+    /* Firebase compat (app+auth+firestore+functions) — सिर्फ़ ज़रूरत पर */
+    function loadFirebase(){
+      if (fbReady) return fbReady;
+      var cfg = (window.ACS_CONFIG && window.ACS_CONFIG.firebase) || null;
+      if (!cfg) { if(errEl) errEl.textContent = "config नहीं मिला।"; return Promise.reject(); }
+      var B = "https://www.gstatic.com/firebasejs/10.12.2/";
+      fbReady = loadScript(B+"firebase-app-compat.js")
+        .then(function(){ return loadScript(B+"firebase-auth-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-firestore-compat.js"); })
+        .then(function(){ return loadScript(B+"firebase-functions-compat.js"); })
+        .then(function(){
+          if (!window.firebase.apps.length) window.firebase.initializeApp(cfg);
+          /* idle-logout (script.js) + सामान्य logout — session-मार्क भी हटाओ */
+          window.acsLogout = function(){
+            try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+            try{ window.firebase.auth().signOut(); }catch(e){}
+            window.location.href = "/";
+          };
+        });
+      return fbReady;
+    }
+    function loadScript(src){
+      return new Promise(function (res, rej){
+        var s = document.createElement("script");
+        s.src = src; s.onload = res; s.onerror = rej;
+        document.head.appendChild(s);
+      });
+    }
+    /* OTP/session functions us-central1 (function-region से मेल) */
+    function fn(name){ return window.firebase.app().functions("us-central1").httpsCallable(name); }
+
+    /* ── password step ── */
+    document.getElementById("acsLoginSubmit").addEventListener("click", function (){
+      var email = document.getElementById("acsEmail").value.trim();
+      var pass  = document.getElementById("acsPass").value;
+      errEl.textContent = "";
+      if (!email || !pass) { errEl.textContent = "ईमेल व पासवर्ड दोनों भरें।"; return; }
+
+      loadFirebase().then(function (){
+        return window.firebase.auth().signInWithEmailAndPassword(email, pass);
+      }).then(function (cred){
+        var user = cred.user;
+        /* email-verify अनिवार्य — बिना verify login नहीं */
+        if (!user.emailVerified) {
+          user.sendEmailVerification().catch(function(){});
+          window.firebase.auth().signOut();
+          errEl.textContent = "पहले अपना ईमेल verify करें — verification link भेज दी गई।";
+          return;
+        }
+        /* role Firestore से */
+        return window.firebase.firestore().collection("users").doc(user.uid).get().then(function (doc){
+          var data = doc.exists ? doc.data() : {};
+          var role = data.role || "student";
+          pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
+          if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
+          /* 7 roles → असली OTP भेजो */
+          return fn("requestLoginOtp")({ email: user.email }).then(function (res){
+            if (res && res.data && res.data.skip) return finishLogin();
+            showView("otp"); startOtpTimer();
+            if(otpErr) otpErr.textContent = "";
+            var oi = document.getElementById("acsOtpInput"); if(oi){ oi.value=""; oi.focus(); }
+          });
+        });
+      }).catch(function (e){ errEl.textContent = authMsg(e); });
+    });
+
+    /* ── OTP verify ── */
+    document.getElementById("acsOtpSubmit").addEventListener("click", function (){
+      var code = (document.getElementById("acsOtpInput").value || "").trim();
+      if(otpErr) otpErr.textContent = "";
+      if (code.length < 6) { otpErr.textContent = "6-अंकी OTP डालें।"; return; }
+      fn("verifyLoginOtp")({ email: pendingUser.email, code: code })
+        .then(function (){ if(otpTimer) clearInterval(otpTimer); return finishLogin(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    /* ── OTP resend (10 मिनट बाद ही चालू) ── */
+    resendBtn.addEventListener("click", function (){
+      if (resendBtn.disabled) return;
+      if(otpErr) otpErr.textContent = "";
+      fn("requestLoginOtp")({ email: pendingUser.email })
+        .then(function (){ startOtpTimer(); })
+        .catch(function (e){ otpErr.textContent = otpMsg(e); });
+    });
+
+    function startOtpTimer(){
+      var valid = OTP_VALID, resend = OTP_RESEND;
+      resendBtn.disabled = true; resendBtn.style.opacity = ".45"; resendBtn.style.cursor = "not-allowed";
+      if (otpTimer) clearInterval(otpTimer);
+      otpTimer = setInterval(function (){
+        valid--; resend--;
+        var v = valid>0 ? ("OTP "+fmt(valid)+" में ख़त्म") : "OTP ख़त्म";
+        var r = resend>0 ? (" · दोबारा "+fmt(resend)+" बाद") : "";
+        otpTimerEl.textContent = v + r;
+        if (resend<=0){ resendBtn.disabled=false; resendBtn.style.opacity="1"; resendBtn.style.cursor="pointer"; }
+        if (valid<=0 && resend<=0) clearInterval(otpTimer);
+      }, 1000);
+    }
+
+    /* ── सफल login: single-session सेट → redirect ── */
+    function finishLogin(){
+      return fn("claimSession")({}).then(function (res){
+        var sid = res && res.data && res.data.sessionId;
+        try{ localStorage.setItem(SESSION_KEY, sid || ""); }catch(e){}
+        showView("welcome");
+        setTimeout(function (){ window.location.href = destFor(pendingRole, pendingDesignation); }, 900);
+      });
+    }
+
+    function authMsg(e){
+      if (e && e.code) return (e.code.indexOf("password")>-1 || e.code.indexOf("user")>-1)
+        ? "ईमेल या पासवर्ड ग़लत है।" : "Login नहीं हो पाया — दोबारा कोशिश करें।";
+      return "Login नहीं हो पाया।";
+    }
+    function otpMsg(e){
+      var d = (e && e.details) || {};
+      if (d.reason==="wrong")  return "OTP ग़लत — "+d.attemptsLeft+" कोशिश बची।";
+      if (d.reason==="locked") return "3 ग़लत — "+(d.hoursLeft||12)+" घंटे बाद दोबारा।";
+      if (d.reason==="expired")return "OTP ख़त्म — दोबारा भेजें।";
+      if (d.reason==="wait")   return "थोड़ी देर रुकें — दोबारा "+fmt(d.secondsLeft)+" बाद।";
+      if (d.reason==="noOtp")  return "पहले OTP भेजें।";
+      return "OTP जाँच नहीं हो पाई — दोबारा कोशिश करें।";
+    }
+
+    /* ── single-session watcher — हर page पर, पर सिर्फ़ logged-in user के लिए ──
+       localStorage में session-मार्क हो तभी Firebase load (anonymous pages हल्के)। */
+    (function watchSession(){
+      var sid; try{ sid = localStorage.getItem(SESSION_KEY); }catch(e){ sid = null; }
+      if (!sid) return;                       // logged-in नहीं → page हल्का रहे
+      loadFirebase().then(function (){
+        window.firebase.auth().onAuthStateChanged(function (user){
+          if (!user) return;
+          window.firebase.firestore().collection("users").doc(user.uid).onSnapshot(function (doc){
+            var active = doc.exists && doc.data().activeSession;
+            if (active && active !== sid){
+              /* कहीं और login हुआ → यह session बंद */
+              try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+              window.firebase.auth().signOut().finally(function (){
+                alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
+                window.location.href = "/";
+              });
+            }
+          });
+        });
+      });
+    })();
+
+  })();
+  </script>
 </body>
 </html>
