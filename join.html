@@ -16,7 +16,7 @@
   --red:#E53935;--white:#fff;--offwhite:#F5F7FA;
   --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
 }
-html,body{background:var(--offwhite);color:var(--text);font-size:16px;min-height:100vh}
+html,body{background:radial-gradient(circle at 9% 16%,rgba(249,168,37,.13),transparent 36%),radial-gradient(circle at 92% 11%,rgba(21,101,192,.13),transparent 34%),radial-gradient(circle at 90% 84%,rgba(46,125,50,.11),transparent 38%),radial-gradient(circle at 6% 86%,rgba(21,101,192,.09),transparent 36%),var(--offwhite);background-attachment:fixed;color:var(--text);font-size:16px;min-height:100vh}
 body.hi{font-family:'Noto Sans Devanagari',sans-serif}
 body.en{font-family:'Inter',sans-serif}
 a{text-decoration:none;color:inherit}
@@ -72,21 +72,37 @@ a{text-decoration:none;color:inherit}
 .card-sub{font-size:16px;color:var(--gray);margin-bottom:16px;line-height:1.5}
 
 /* ── ROLE GRID ── */
-.role-grid{display:grid;grid-template-columns:1fr;gap:11px}
-.role-card{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;text-align:left;cursor:pointer;border:1.5px solid var(--border);border-radius:16px;padding:14px 16px;background:linear-gradient(145deg,#ffffff 0%,#eef2f8 100%);box-shadow:0 4px 0 #cdd5e3,0 7px 16px rgba(11,31,58,.10);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
-.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 0 #bcc6da,0 12px 22px rgba(11,31,58,.16)}
-.role-card:active{transform:translateY(2px);box-shadow:0 2px 0 #cdd5e3,0 4px 10px rgba(11,31,58,.12)}
-.role-icon{grid-row:1/3;font-size:26px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--border);border-radius:13px;box-shadow:inset 0 -2px 4px rgba(11,31,58,.06);margin:0}
-.role-name{font-size:18px;font-weight:700;color:var(--navy)}
+.role-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.role-card{position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;text-align:left;cursor:pointer;border:1.5px solid var(--border);border-radius:18px;padding:15px 17px;background:linear-gradient(160deg,#ffffff 0%,#f1f5fb 48%,#e3ebf6 100%);box-shadow:0 5px 0 #c9d2e2,0 9px 20px rgba(11,31,58,.12);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+.role-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(11,31,58,.022) 0 7px,transparent 7px 15px);pointer-events:none}
+.role-card::after{content:"";position:absolute;top:0;left:0;right:0;height:46%;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent);pointer-events:none}
+.role-card>*{position:relative;z-index:1}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 7px 0 #b9c4d8,0 13px 24px rgba(11,31,58,.18)}
+.role-card:active{transform:translateY(3px);box-shadow:0 2px 0 #c9d2e2,0 4px 10px rgba(11,31,58,.14)}
+.role-icon{grid-row:1/3;font-size:27px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-radius:14px;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 5px rgba(11,31,58,.10),0 2px 4px rgba(11,31,58,.10)}
+.role-name{font-size:18px;font-weight:800;color:var(--navy)}
 .role-desc{font-size:16px;color:var(--gray);line-height:1.3;margin:0}
-.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:12px 0 2px;padding-top:4px}
-.role-group-head.first{margin-top:0}
-.role-card.learner{border-color:var(--gold);background:linear-gradient(145deg,#fffdf4 0%,#fff3d6 100%);box-shadow:0 4px 0 #e3b649,0 8px 18px rgba(249,168,37,.20)}
-.role-card.learner:active{transform:translateY(2px);box-shadow:0 2px 0 #e3b649,0 4px 10px rgba(249,168,37,.18)}
-.role-card.learner .role-icon{font-size:30px;width:54px;height:54px;background:#fff8e6;border-color:#f0d489}
-.role-card.learner .role-name{font-size:19px}
-.role-card.sel{border-color:var(--blue);background:linear-gradient(145deg,#f4f9ff 0%,#e6f0ff 100%);box-shadow:0 4px 0 var(--blue),0 9px 20px rgba(21,101,192,.26)}
-.role-card.sel:active{transform:translateY(2px)}
+.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding-top:4px}
+.role-group-head.first{margin-top:2px}
+.role-card.learner{border-width:2px}
+.role-card.learner .role-icon{font-size:32px;width:58px;height:58px}
+.role-card.learner .role-name{font-size:20px}
+.role-card.gold{border-color:#e0a52a;background:linear-gradient(150deg,#ffeba8 0%,#fbcf5c 52%,#f5bd35 100%);box-shadow:0 6px 0 #bf8a1f,0 12px 24px rgba(240,176,33,.40)}
+.role-card.gold::after{background:linear-gradient(180deg,rgba(255,255,255,.5),transparent)}
+.role-card.gold .role-icon{background:linear-gradient(145deg,#fff7da,#ffe9a8);border-color:#e8c870}
+.role-card.gold .role-name{color:#4a3500}.role-card.gold .role-desc{color:#6b5200}
+.role-card.gold:active{transform:translateY(3px);box-shadow:0 2px 0 #bf8a1f,0 5px 12px rgba(240,176,33,.34)}
+.role-card.cream{border-color:#e6d6ad;background:linear-gradient(150deg,#fffdf6 0%,#fdf3da 55%,#f8ead0 100%);box-shadow:0 6px 0 #ddcaa0,0 12px 22px rgba(180,150,80,.26)}
+.role-card.cream .role-icon{background:linear-gradient(145deg,#fffefa,#fdf2d6);border-color:#ecdfbe}
+.role-card.cream:active{transform:translateY(3px);box-shadow:0 2px 0 #ddcaa0,0 5px 12px rgba(180,150,80,.22)}
+.role-card.green{border-color:#2e7d32;background:linear-gradient(150deg,#d2efd4 0%,#8fd093 52%,#5cb860 100%);box-shadow:0 6px 0 #1e5a22,0 12px 24px rgba(46,125,50,.38)}
+.role-card.green::after{background:linear-gradient(180deg,rgba(255,255,255,.45),transparent)}
+.role-card.green .role-icon{background:linear-gradient(145deg,#f0fff0,#c8ecca);border-color:#a5d6a7}
+.role-card.green .role-name{color:#143f18}.role-card.green .role-desc{color:#1b5e20}
+.role-card.green:active{transform:translateY(3px);box-shadow:0 2px 0 #1e5a22,0 5px 12px rgba(46,125,50,.32)}
+.role-card.sel{border-color:var(--blue);box-shadow:0 6px 0 #0d4a99,0 12px 26px rgba(21,101,192,.34)}
+.role-card.sel .role-name{color:var(--blue)}
+.role-card.sel:active{transform:translateY(3px)}
 @media(prefers-reduced-motion:reduce){.role-card{transition:none}.role-card:hover,.role-card:active{transform:none}}
 
 /* ── FORM FIELDS ── */
@@ -232,61 +248,60 @@ a{text-decoration:none;color:inherit}
 
 <!-- ── STEP 1: ROLE ── -->
 <div class="card show" id="c1">
-  <div class="card-title t" data-hi="आप कौन हैं?" data-en="Who are you?">आप कौन हैं?</div>
   <div class="card-sub t" data-hi="अपनी भूमिका (Role) चुनें — सही form अपने आप खुलेगा।" data-en="Select your role — the right form will open automatically.">अपनी भूमिका (Role) चुनें — सही form अपने आप खुलेगा।</div>
   <div class="role-grid">
 
     <!-- समूह-1: सीखना / कमाना (Learner) -->
     <div class="role-group-head first t" data-hi="🟦 मैं सीखना / कमाना चाहता हूँ" data-en="🟦 I want to learn / earn">🟦 मैं सीखना / कमाना चाहता हूँ</div>
-    <div class="role-card learner" onclick="selRole('student',this)">
+    <div class="role-card learner gold" onclick="selRole('student',this)" ondblclick="selRole('student',this);goStep2()">
       <div class="role-icon">🎓</div>
       <div class="role-name t" data-hi="विद्यार्थी (Student)" data-en="Student">विद्यार्थी (Student)</div>
       <div class="role-desc t" data-hi="Online / Offline कोर्स सीखें" data-en="Learn online / offline courses">Online / Offline कोर्स सीखें</div>
     </div>
-    <div class="role-card learner" onclick="selRole('jobseeker',this)">
+    <div class="role-card learner cream" onclick="selRole('jobseeker',this)" ondblclick="selRole('jobseeker',this);goStep2()">
       <div class="role-icon">💼</div>
       <div class="role-name t" data-hi="नौकरी (Job-seeker)" data-en="Job-seeker">नौकरी (Job-seeker)</div>
       <div class="role-desc t" data-hi="नौकरी की तैयारी व खोज" data-en="Job preparation & search">नौकरी की तैयारी व खोज</div>
     </div>
-    <div class="role-card learner" onclick="selRole('entrepreneur',this)">
+    <div class="role-card learner green" onclick="selRole('entrepreneur',this)" ondblclick="selRole('entrepreneur',this);goStep2()">
       <div class="role-icon">🏭</div>
       <div class="role-name t" data-hi="उद्यम (Entrepreneur)" data-en="Entrepreneur">उद्यम (Entrepreneur)</div>
-      <div class="role-desc t" data-hi="अपना उद्योग लगाएँ" data-en="Start your own industry">अपना उद्योग लगाएँ</div>
+      <div class="role-desc t" data-hi="अपना उद्योग शुरू करें" data-en="Start your own industry">अपना उद्योग शुरू करें</div>
     </div>
 
     <!-- समूह-2: ACS से जुड़कर कमाना -->
     <div class="role-group-head t" data-hi="🟨 मैं ACS से जुड़कर कमाना चाहता हूँ" data-en="🟨 I want to join ACS & earn">🟨 मैं ACS से जुड़कर कमाना चाहता हूँ</div>
-    <div class="role-card" onclick="selRole('teacher',this)">
+    <div class="role-card" onclick="selRole('teacher',this)" ondblclick="selRole('teacher',this);goStep2()">
       <div class="role-icon">👨‍🏫</div>
       <div class="role-name t" data-hi="शिक्षक (Teacher)" data-en="Teacher">शिक्षक (Teacher)</div>
       <div class="role-desc t" data-hi="कोर्स बनाएँ, पढ़ाएँ, कमाएँ" data-en="Create courses, teach, earn">कोर्स बनाएँ, पढ़ाएँ, कमाएँ</div>
     </div>
-    <div class="role-card" onclick="selRole('centre',this)">
+    <div class="role-card" onclick="selRole('centre',this)" ondblclick="selRole('centre',this);goStep2()">
       <div class="role-icon">🏫</div>
       <div class="role-name t" data-hi="केंद्र (Centre)" data-en="Centre">केंद्र (Centre)</div>
-      <div class="role-desc t" data-hi="Offline केंद्र / Coaching खोलें" data-en="Open offline coaching centre">Offline केंद्र / Coaching खोलें</div>
+      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching centre">Offline केंद्र / Coaching शुरू करें</div>
     </div>
-    <div class="role-card" onclick="selRole('counselor',this)">
+    <div class="role-card" onclick="selRole('counselor',this)" ondblclick="selRole('counselor',this);goStep2()">
       <div class="role-icon">🧭</div>
       <div class="role-name t" data-hi="सलाहकार (Counselor)" data-en="Counselor">सलाहकार (Counselor)</div>
       <div class="role-desc t" data-hi="Career guidance दें, कमाएँ" data-en="Give career guidance, earn">Career guidance दें, कमाएँ</div>
     </div>
-    <div class="role-card" onclick="selRole('employer',this)">
+    <div class="role-card" onclick="selRole('employer',this)" ondblclick="selRole('employer',this);goStep2()">
       <div class="role-icon">💼</div>
       <div class="role-name t" data-hi="नियोक्ता (Employer)" data-en="Employer">नियोक्ता (Employer)</div>
       <div class="role-desc t" data-hi="Job post करें, कर्मचारी ढूँढें" data-en="Post jobs, find staff">Job post करें, कर्मचारी ढूँढें</div>
     </div>
-    <div class="role-card" onclick="selRole('foreign_agent',this)">
+    <div class="role-card" onclick="selRole('foreign_agent',this)" ondblclick="selRole('foreign_agent',this);goStep2()">
       <div class="role-icon">✈️</div>
       <div class="role-name t" data-hi="विदेश एजेंट (Foreign Agent)" data-en="Foreign Agent">विदेश एजेंट (Foreign Agent)</div>
       <div class="role-desc t" data-hi="विदेश में job placement" data-en="Overseas job placement">विदेश में job placement</div>
     </div>
-    <div class="role-card" onclick="selRole('volunteer',this)">
+    <div class="role-card" onclick="selRole('volunteer',this)" ondblclick="selRole('volunteer',this);goStep2()">
       <div class="role-icon">🤝</div>
       <div class="role-name t" data-hi="स्वयंसेवक (Volunteer)" data-en="Volunteer">स्वयंसेवक (Volunteer)</div>
       <div class="role-desc t" data-hi="सेवा-भाव से जुड़ें, RM-सपोर्ट" data-en="Serve & support RM (field)">सेवा-भाव से जुड़ें, RM-सपोर्ट</div>
     </div>
-    <div class="role-card" onclick="selRole('team',this)">
+    <div class="role-card" onclick="selRole('team',this)" ondblclick="selRole('team',this);goStep2()">
       <div class="role-icon">🛠️</div>
       <div class="role-name">ACS Team</div>
       <div class="role-desc">HQ / ZM / RM / Field / Intern</div>
