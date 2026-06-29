@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title id="pg-title">ACS Login — Applied Computer School</title>
+<!-- JS updates title, meta, buttons via applyLang() on load -->
+<meta name="description" id="pg-desc" content="ACS से जुड़ें — Student, Job-seeker, Entrepreneur, Teacher, Centre, Counselor, Employer, Foreign Agent, Volunteer, ACS Team के रूप में Register करें।"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
+  --gold:#F9A825;--green:#2E7D32;--green-lt:#43A047;
+  --red:#E53935;--white:#fff;--offwhite:#F5F7FA;
+  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
+}
+html,body{background:radial-gradient(circle at 9% 16%,rgba(249,168,37,.13),transparent 36%),radial-gradient(circle at 92% 11%,rgba(21,101,192,.13),transparent 34%),radial-gradient(circle at 90% 84%,rgba(46,125,50,.11),transparent 38%),radial-gradient(circle at 6% 86%,rgba(21,101,192,.09),transparent 36%),var(--offwhite);background-attachment:fixed;color:var(--text);font-size:16px;min-height:100vh}
+body.hi{font-family:'Noto Sans Devanagari',sans-serif}
+body.en{font-family:'Inter',sans-serif}
+a{text-decoration:none;color:inherit}
+
+/* ── NAVBAR ── */
+.navbar{background:var(--navy);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:52px;max-width:1100px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:8px}
+.nav-brand img{height:30px;border-radius:6px}
+.nav-brand-text{color:#fff;font-size:16px;font-weight:700;line-height:1.2}
+.nav-brand-text small{display:block;color:var(--gold);font-size:16px;font-weight:400}
+.nav-controls{display:flex;gap:6px;align-items:center}
+.btn-translate{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 12px;border-radius:6px;font-size:16px;cursor:pointer;font-family:inherit}
+.btn-menu{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 6px;min-width:40px;min-height:40px}
+.translate-panel{display:none;background:#0d2a4a;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1)}
+.translate-panel.open{display:block}
+#google_translate_element select{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:#1a3a5c;color:white;font-size:16px;font-family:inherit}
+
+/* ── MENU ── */
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300}
+.menu-overlay.open{display:block}
+.menu-panel{position:fixed;top:0;right:-290px;width:290px;height:100%;background:#fff;z-index:400;transition:right .3s;overflow-y:auto}
+.menu-panel.open{right:0}
+.menu-head{background:var(--navy);color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center}
+.menu-head h3{font-size:16px}
+.menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.menu-links{list-style:none;padding:6px 0}
+.menu-links li a{display:flex;align-items:center;padding:13px 20px;color:var(--text);font-size:16px;font-weight:500;border-bottom:1px solid #F0F0F0;min-height:48px}
+.menu-links li a:hover{background:#F5F7FA;color:var(--blue)}
+.menu-login-btn{margin:14px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--navy);padding:14px;border-radius:10px;font-weight:700;font-size:16px;min-height:52px}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy),#1565C0);padding:28px 16px 24px;text-align:center;color:#fff}
+.hero h2{font-size:20px;font-weight:700;line-height:1.4}
+.hero p{color:rgba(255,255,255,.7);font-size:16px;margin-top:5px}
+.badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:16px;font-weight:700;padding:3px 12px;border-radius:20px;margin-top:8px}
+
+/* ── STEPS ── */
+.step-wrap{max-width:460px;margin:14px auto 0;padding:0 16px}
+.step-bar{display:flex;align-items:center}
+.step-circle{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--gray);flex-shrink:0;transition:.3s}
+.step-circle.active{border-color:var(--blue);background:var(--blue);color:#fff}
+.step-circle.done{border-color:var(--green);background:var(--green);color:#fff}
+.step-line{flex:1;height:2px;background:var(--border)}
+.step-line.done{background:var(--green)}
+.step-labels{display:flex;justify-content:space-between;padding:3px 0 0;font-size:16px;color:var(--gray)}
+.step-labels span{flex:1;text-align:center}
+
+/* ── CARD ── */
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(11,31,58,.08);margin:14px auto;max-width:460px;padding:20px 16px;border:1px solid var(--border);display:none}
+.card.show{display:block}
+.card-title{font-size:16px;font-weight:700;margin-bottom:3px}
+.card-sub{font-size:16px;color:var(--gray);margin-bottom:16px;line-height:1.5}
+
+/* ── ROLE GRID ── */
+.role-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.role-card{position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;text-align:left;cursor:pointer;border:1.5px solid var(--border);border-radius:18px;padding:15px 17px;background:linear-gradient(160deg,#ffffff 0%,#f1f5fb 48%,#e3ebf6 100%);box-shadow:0 5px 0 #c9d2e2,0 9px 20px rgba(11,31,58,.12);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+.role-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(11,31,58,.022) 0 7px,transparent 7px 15px);pointer-events:none}
+.role-card::after{content:"";position:absolute;top:0;left:0;right:0;height:46%;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent);pointer-events:none}
+.role-card>*{position:relative;z-index:1}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 7px 0 #b9c4d8,0 13px 24px rgba(11,31,58,.18)}
+.role-card:active{transform:translateY(3px);box-shadow:0 2px 0 #c9d2e2,0 4px 10px rgba(11,31,58,.14)}
+.role-icon{grid-row:1/3;font-size:27px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-radius:14px;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 5px rgba(11,31,58,.10),0 2px 4px rgba(11,31,58,.10)}
+.role-name{font-size:18px;font-weight:800;color:var(--navy)}
+.role-desc{font-size:16px;color:var(--gray);line-height:1.3;margin:0}
+.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding-top:4px}
+.role-group-head.first{margin-top:2px}
+.role-card.learner{border-width:2px}
+.role-card.learner .role-icon{font-size:32px;width:58px;height:58px}
+.role-card.learner .role-name{font-size:20px}
+.role-card.gold{border-color:#e0a52a;background:linear-gradient(150deg,#ffeba8 0%,#fbcf5c 52%,#f5bd35 100%);box-shadow:0 6px 0 #bf8a1f,0 12px 24px rgba(240,176,33,.40)}
+.role-card.gold::after{background:linear-gradient(180deg,rgba(255,255,255,.5),transparent)}
+.role-card.gold .role-icon{background:linear-gradient(145deg,#fff7da,#ffe9a8);border-color:#e8c870}
+.role-card.gold .role-name{color:#4a3500}.role-card.gold .role-desc{color:#6b5200}
+.role-card.gold:active{transform:translateY(3px);box-shadow:0 2px 0 #bf8a1f,0 5px 12px rgba(240,176,33,.34)}
+.role-card.cream{border-color:#e6d6ad;background:linear-gradient(150deg,#fffdf6 0%,#fdf3da 55%,#f8ead0 100%);box-shadow:0 6px 0 #ddcaa0,0 12px 22px rgba(180,150,80,.26)}
+.role-card.cream .role-icon{background:linear-gradient(145deg,#fffefa,#fdf2d6);border-color:#ecdfbe}
+.role-card.cream:active{transform:translateY(3px);box-shadow:0 2px 0 #ddcaa0,0 5px 12px rgba(180,150,80,.22)}
+.role-card.green{border-color:#2e7d32;background:linear-gradient(150deg,#d2efd4 0%,#8fd093 52%,#5cb860 100%);box-shadow:0 6px 0 #1e5a22,0 12px 24px rgba(46,125,50,.38)}
+.role-card.green::after{background:linear-gradient(180deg,rgba(255,255,255,.45),transparent)}
+.role-card.green .role-icon{background:linear-gradient(145deg,#f0fff0,#c8ecca);border-color:#a5d6a7}
+.role-card.green .role-name{color:#143f18}.role-card.green .role-desc{color:#1b5e20}
+.role-card.green:active{transform:translateY(3px);box-shadow:0 2px 0 #1e5a22,0 5px 12px rgba(46,125,50,.32)}
+.role-card.sel{border-color:var(--blue);box-shadow:0 6px 0 #0d4a99,0 12px 26px rgba(21,101,192,.34)}
+.role-card.sel .role-name{color:var(--blue)}
+.role-card.sel:active{transform:translateY(3px)}
+@media(prefers-reduced-motion:reduce){.role-card{transition:none}.role-card:hover,.role-card:active{transform:none}}
+
+/* ── FORM FIELDS ── */
+.field{margin-bottom:13px}
+.field label{display:block;font-size:16px;font-weight:600;margin-bottom:4px}
+.field input,.field select{width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:16px;color:var(--text);background:var(--offwhite);font-family:inherit;outline:none;transition:.2s}
+.field input:focus,.field select:focus{border-color:var(--blue);background:#fff}
+.field .hint{font-size:16px;color:var(--gray);margin-top:2px}
+.field .err{font-size:16px;color:var(--red);margin-top:2px;display:none}
+.field .err.show{display:block}
+
+/* ── PASSWORD BAR ── */
+.pw-bar{height:3px;background:var(--border);border-radius:2px;margin-top:4px;overflow:hidden}
+.pw-fill{height:100%;width:0;transition:.4s;border-radius:2px}
+.pw-label{font-size:16px;margin-top:2px}
+
+/* ── OTP ── */
+.otp-row{display:flex;gap:6px;justify-content:center}
+.otp-box{width:40px;height:44px;text-align:center;font-size:18px;font-weight:700;border:2px solid var(--border);border-radius:7px;background:var(--offwhite);outline:none;transition:.2s;font-family:inherit}
+.otp-box:focus{border-color:var(--blue);background:#fff}
+
+/* ── TERMS BOX ── */
+.terms-box{border:1.5px solid var(--border);border-radius:7px;padding:11px;height:145px;overflow-y:auto;font-size:16px;color:var(--gray);line-height:1.7;background:#FAFBFC;margin-bottom:11px}
+.terms-box h4{color:var(--text);font-size:16px;margin-bottom:4px}
+
+/* ── CHECKBOX ── */
+.check-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px}
+.check-row input[type=checkbox]{width:15px;height:15px;margin-top:2px;flex-shrink:0;accent-color:var(--blue);cursor:pointer}
+.check-row label{font-size:16px;line-height:1.5;cursor:pointer}
+
+/* ── BUTTONS ── */
+.btn{width:100%;padding:12px;border-radius:7px;font-size:16px;font-weight:700;cursor:pointer;border:none;transition:.2s;font-family:inherit}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-lt)}
+.btn-blue:disabled{background:var(--border);color:var(--gray);cursor:not-allowed}
+.btn-outline{background:transparent;color:var(--blue);border:2px solid var(--blue);margin-top:8px}
+.btn-outline:hover{background:#EEF4FF}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:#F0A000}
+.btn-row{display:flex;gap:8px;margin-top:5px}
+.btn-row .btn-outline{flex:0 0 auto;padding:11px 16px;width:auto}
+
+/* ── ALERTS ── */
+.alert{padding:9px 13px;border-radius:7px;font-size:16px;margin-bottom:11px;display:none}
+.alert.show{display:block}
+.alert-err{background:#FDECEC;border:1px solid #F5AAAA;color:var(--red)}
+.alert-info{background:#E3F2FD;border:1px solid #90CAF9;color:var(--blue)}
+.alert-ok{background:#E8F5E9;border:1px solid #A5D6A7;color:var(--green)}
+
+/* ── SPINNER ── */
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SUCCESS ── */
+.success{text-align:center;padding:14px 8px}
+.success-icon{font-size:52px;margin-bottom:10px}
+.success h3{font-size:17px;font-weight:700;color:var(--green)}
+.success p{font-size:16px;color:var(--gray);margin-top:5px;line-height:1.6}
+.acs-id-box{background:var(--offwhite);border:2px dashed var(--blue);border-radius:7px;padding:11px;margin:12px 0;font-size:16px;font-weight:700;word-break:break-all}
+
+/* ── FOOTER ── */
+.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:900px;margin:0 auto}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}
+.footer-tagline{color:var(--gold);font-size:16px;font-style:italic;margin:6px 0}
+.footer-col h3{color:var(--gold);font-size:16px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sitemap-grid a{color:rgba(255,255,255,.6);font-size:16px;padding:3px 0;display:block}
+.footer-col p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
+.footer-col a{color:var(--gold)}
+.footer-bottom{text-align:center;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:16px;color:rgba(255,255,255,.4)}
+
+@media(max-width:360px){.role-grid{grid-template-columns:1fr}.card{margin:8px;padding:14px 11px}}
+</style>
+</head>
+<body class="hi">
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="https://acslearn.com" class="nav-brand">
+      <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+      <div class="nav-brand-text">Applied Computer School™
+        <small>Free Digital Education for the Global South</small>
+      </div>
+    </a>
+    <div class="nav-controls">
+      <button class="btn-translate" onclick="toggleTranslate()" id="btn-translate" class="t" data-hi="🌐 भाषा" data-en="🌐 Language">🌐 भाषा</button>
+      <button class="btn-menu" onclick="openMenu()">☰</button>
+    </div>
+  </div>
+  <div class="translate-panel" id="translatePanel">
+    <div id="google_translate_element"></div>
+  </div>
+</nav>
+
+<!-- ── SLIDE MENU ── -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-head">
+    <h3 id="menu-title">एसीएस मेन्यू</h3>
+    <button class="menu-close" onclick="closeMenu()">✕</button>
+  </div>
+  <ul class="menu-links" id="menu-links">
+    <li><a href="https://acslearn.com">🏠 <span class="t" data-hi="होम" data-en="Home">होम</span></a></li>
+    <li><a href="https://acslearn.com/hi/mission.html">🎯 <span class="t" data-hi="मिशन" data-en="Mission">मिशन</span></a></li>
+    <li><a href="https://acslearn.com/hi/salah.html">🧭 <span class="t" data-hi="सलाह" data-en="Counseling">सलाह</span></a></li>
+    <li><a href="https://acslearn.com/udyam/">🌍 <span class="t" data-hi="उद्यम" data-en="Industries">उद्यम</span></a></li>
+    <li><a href="https://acslearn.com/courses/hi/" id="mn-courses">📚 <span class="t" data-hi="कोर्स" data-en="Courses">कोर्स</span></a></li>
+    <li><a href="https://acslearn.com/join.html">📝 <span class="t" data-hi="रजिस्ट्रेशन" data-en="Register">रजिस्ट्रेशन</span></a></li>
+    <li><a href="https://acslearn.com/verify/">🏆 <span class="t" data-hi="प्रमाण पत्र" data-en="Certificate">प्रमाण पत्र</span></a></li>
+    <li><a href="https://acslearn.com/hi/network.html">🤝 <span class="t" data-hi="नेटवर्क" data-en="Network">नेटवर्क</span></a></li>
+    <li><a href="https://acslearn.com/vani/">📱 <span class="t" data-hi="वाणी App" data-en="Vani App">वाणी App</span></a></li>
+    <li><a href="https://acslearn.com/contact/hi/" id="mn-contact">📞 <span class="t" data-hi="संपर्क" data-en="Contact">संपर्क</span></a></li>
+  </ul>
+  <a href="https://acslearn.com/dashboard/" class="menu-login-btn">🔑 <span class="t" data-hi="Login / Dashboard" data-en="Login / Dashboard">Login / Dashboard</span></a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <h2 class="t" data-hi="🔑 अपने Dashboard में Login करें" data-en="🔑 Login to your Dashboard">🔑 अपने Dashboard में Login करें</h2>
+  <p class="t" data-hi="Email + Password से · 7 भूमिकाओं को OTP भी" data-en="With Email + Password · OTP for 7 roles too">Email + Password से · 7 भूमिकाओं को OTP भी</p>
+  <span class="badge t" data-hi="ISO 9001:2015 प्रमाणित | FFGPMTrust" data-en="ISO 9001:2015 Certified | FFGPMTrust">ISO 9001:2015 प्रमाणित | FFGPMTrust</span>
+</div>
+
+<!-- ── STEP BAR ── -->
+<div class="step-wrap">
+  <div class="step-bar">
+    <div class="step-circle active" id="sc1">1</div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-circle" id="sc2">2</div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-circle" id="sc3">3</div>
+  </div>
+  <div class="step-labels">
+    <span class="t" data-hi="भूमिका" data-en="Role">भूमिका</span>
+    <span>Login</span>
+    <span>OTP</span>
+  </div>
+</div>
+
+<!-- ── STEP 1: ROLE ── -->
+<div class="card show" id="c1">
+  <div class="card-sub t" data-hi="किस रूप में login करें? अपनी भूमिका (Role) चुनें।" data-en="Which role to login as? Select your role.">किस रूप में login करें? अपनी भूमिका (Role) चुनें।</div>
+  <div class="role-grid">
+
+    <!-- समूह-1: सीखना / कमाना (Learner) -->
+    <div class="role-group-head first t" data-hi="🟦 मैं Learner हूँ — सीधा login (OTP नहीं)" data-en="🟦 I am a Learner — direct login (no OTP)">🟦 मैं Learner हूँ — सीधा login (OTP नहीं)</div>
+    <div class="role-card learner gold" onclick="selRole('student',this)" ondblclick="selRole('student',this);goStep2()">
+      <div class="role-icon">🎓</div>
+      <div class="role-name t" data-hi="विद्यार्थी (Student)" data-en="Student">विद्यार्थी (Student)</div>
+      <div class="role-desc t" data-hi="Online / Offline कोर्स सीखें" data-en="Learn online / offline courses">Online / Offline कोर्स सीखें</div>
+    </div>
+    <div class="role-card learner cream" onclick="selRole('jobseeker',this)" ondblclick="selRole('jobseeker',this);goStep2()">
+      <div class="role-icon">💼</div>
+      <div class="role-name t" data-hi="नौकरी (Job-seeker)" data-en="Job-seeker">नौकरी (Job-seeker)</div>
+      <div class="role-desc t" data-hi="नौकरी की तैयारी व खोज" data-en="Job preparation & search">नौकरी की तैयारी व खोज</div>
+    </div>
+    <div class="role-card learner green" onclick="selRole('entrepreneur',this)" ondblclick="selRole('entrepreneur',this);goStep2()">
+      <div class="role-icon">🏭</div>
+      <div class="role-name t" data-hi="उद्यम (Entrepreneur)" data-en="Entrepreneur">उद्यम (Entrepreneur)</div>
+      <div class="role-desc t" data-hi="अपना उद्योग शुरू करें" data-en="Start your own industry">अपना उद्योग शुरू करें</div>
+    </div>
+
+    <!-- समूह-2: ACS से जुड़कर कमाना -->
+    <div class="role-group-head t" data-hi="🟨 मैं ACS-सदस्य हूँ — OTP से login" data-en="🟨 I am an ACS member — login with OTP">🟨 मैं ACS-सदस्य हूँ — OTP से login</div>
+    <div class="role-card" onclick="selRole('teacher',this)" ondblclick="selRole('teacher',this);goStep2()">
+      <div class="role-icon">👨‍🏫</div>
+      <div class="role-name t" data-hi="शिक्षक (Teacher)" data-en="Teacher">शिक्षक (Teacher)</div>
+      <div class="role-desc t" data-hi="कोर्स बनाएँ, पढ़ाएँ, कमाएँ" data-en="Create courses, teach, earn">कोर्स बनाएँ, पढ़ाएँ, कमाएँ</div>
+    </div>
+    <div class="role-card" onclick="selRole('centre',this)" ondblclick="selRole('centre',this);goStep2()">
+      <div class="role-icon">🏫</div>
+      <div class="role-name t" data-hi="केंद्र (Centre)" data-en="Centre">केंद्र (Centre)</div>
+      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching centre">Offline केंद्र / Coaching शुरू करें</div>
+    </div>
+    <div class="role-card" onclick="selRole('counselor',this)" ondblclick="selRole('counselor',this);goStep2()">
+      <div class="role-icon">🧭</div>
+      <div class="role-name t" data-hi="सलाहकार (Counselor)" data-en="Counselor">सलाहकार (Counselor)</div>
+      <div class="role-desc t" data-hi="Career guidance दें, कमाएँ" data-en="Give career guidance, earn">Career guidance दें, कमाएँ</div>
+    </div>
+    <div class="role-card" onclick="selRole('employer',this)" ondblclick="selRole('employer',this);goStep2()">
+      <div class="role-icon">💼</div>
+      <div class="role-name t" data-hi="नियोक्ता (Employer)" data-en="Employer">नियोक्ता (Employer)</div>
+      <div class="role-desc t" data-hi="Job post करें, कर्मचारी ढूँढें" data-en="Post jobs, find staff">Job post करें, कर्मचारी ढूँढें</div>
+    </div>
+    <div class="role-card" onclick="selRole('foreign_agent',this)" ondblclick="selRole('foreign_agent',this);goStep2()">
+      <div class="role-icon">✈️</div>
+      <div class="role-name t" data-hi="विदेश एजेंट (Foreign Agent)" data-en="Foreign Agent">विदेश एजेंट (Foreign Agent)</div>
+      <div class="role-desc t" data-hi="विदेश में job placement" data-en="Overseas job placement">विदेश में job placement</div>
+    </div>
+    <div class="role-card" onclick="selRole('volunteer',this)" ondblclick="selRole('volunteer',this);goStep2()">
+      <div class="role-icon">🤝</div>
+      <div class="role-name t" data-hi="स्वयंसेवक (Volunteer)" data-en="Volunteer">स्वयंसेवक (Volunteer)</div>
+      <div class="role-desc t" data-hi="सेवा-भाव से जुड़ें, RM-सपोर्ट" data-en="Serve & support RM (field)">सेवा-भाव से जुड़ें, RM-सपोर्ट</div>
+    </div>
+    <div class="role-card" onclick="selRole('team',this)" ondblclick="selRole('team',this);goStep2()">
+      <div class="role-icon">🛠️</div>
+      <div class="role-name">ACS Team</div>
+      <div class="role-desc">HQ / ZM / RM / Field / Intern</div>
+    </div>
+  </div>
+  <div class="alert alert-err" id="a1"></div>
+  <button class="btn btn-blue" style="margin-top:12px" onclick="goStep2()" id="btn1" data-hi="आगे बढ़ें →" data-en="Next →">आगे बढ़ें →</button>
+</div>
+
+<!-- ── STEP 2: LOGIN ── -->
+<div class="card" id="c2">
+  <div class="card-title t" data-hi="Login करें" data-en="Login">Login करें</div>
+  <div class="card-sub" id="role-tag"></div>
+  <div class="alert alert-err" id="a2"></div>
+  <div class="field">
+    <label>Email *</label>
+    <input type="email" id="f-email" autocomplete="email" inputmode="email" placeholder="name@example.com"/>
+    <div class="err" id="e-email"></div>
+  </div>
+  <div class="field">
+    <label class="t" data-hi="PASSWORD (पासवर्ड) *" data-en="PASSWORD *">PASSWORD (पासवर्ड) *</label>
+    <input type="password" id="f-pass" autocomplete="current-password" placeholder="********"/>
+    <div class="err" id="e-pass"></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-outline" onclick="goStep(1)" id="back2" data-hi="← वापस" data-en="← Back">← वापस</button>
+    <button class="btn btn-blue" style="flex:1" onclick="doLogin()" id="btn2" data-hi="Login करें →" data-en="Login →">Login करें →</button>
+  </div>
+</div>
+
+<!-- ── STEP 3: OTP ── -->
+<div class="card" id="c3">
+  <div class="card-title t" data-hi="OTP Verify करें" data-en="Verify OTP">OTP Verify करें</div>
+  <div class="card-sub t" data-hi="आपके Email पर 6-अंकी OTP भेजा गया — 5 मिनट valid।" data-en="A 6-digit OTP has been sent to your Email.">आपके Email पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</div>
+  <div class="alert" id="a3"></div>
+  <div class="field" style="text-align:center">
+    <label style="display:block;margin-bottom:10px">ENTER 6-DIGIT OTP *</label>
+    <div class="otp-row">
+      <input class="otp-box" type="number" id="o1" oninput="otpNav(this,'','o2')"/>
+      <input class="otp-box" type="number" id="o2" oninput="otpNav(this,'o1','o3')"/>
+      <input class="otp-box" type="number" id="o3" oninput="otpNav(this,'o2','o4')"/>
+      <input class="otp-box" type="number" id="o4" oninput="otpNav(this,'o3','o5')"/>
+      <input class="otp-box" type="number" id="o5" oninput="otpNav(this,'o4','o6')"/>
+      <input class="otp-box" type="number" id="o6" oninput="otpNav(this,'o5','')"/>
+    </div>
+    <div style="margin-top:7px;font-size:16px;color:var(--gray)">
+      <span id="otp-timer"></span>
+      <button id="resend-btn" onclick="resendLoginOtp()" style="display:none;background:none;border:none;color:var(--blue);cursor:pointer;font-size:16px;font-family:inherit" class="t" data-hi="OTP दोबारा भेजें" data-en="Resend OTP">OTP दोबारा भेजें</button>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-outline" onclick="goStep(2)" id="back3" data-hi="← वापस" data-en="← Back">← वापस</button>
+    <button class="btn btn-blue" style="flex:1" onclick="verifyLoginOtp()" id="btn3" data-hi="Verify करें ✓" data-en="Verify ✓">Verify करें ✓</button>
+  </div>
+</div>
+
+<!-- ── WELCOME ── -->
+<div class="card" id="c5">
+  <div class="success">
+    <div class="success-icon">✅</div>
+    <h3 class="t" data-hi="स्वागत है!" data-en="Welcome!">स्वागत है!</h3>
+    <p class="t" data-hi="आपके Dashboard पर भेजा जा रहा है…" data-en="Taking you to your Dashboard…">आपके Dashboard पर भेजा जा रहा है…</p>
+    <div class="acs-id-box">
+      <div style="font-size:16px;color:var(--gray)" id="s-role"></div>
+      <div style="font-size:16px;color:var(--gray)" id="s-email"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer-main">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>Applied Computer School™</h2>
+      <p class="footer-tagline">"From Village to World"</p>
+      <p class="t" data-hi="FFGPMTrust का उपक्रम | ISO 9001:2015" data-en="An initiative of FFGPMTrust | ISO 9001:2015">FFGPMTrust का उपक्रम | ISO 9001:2015</p>
+      <p>Learn. Build. Contribute. Grow.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Sitemap</h3>
+      <div class="sitemap-grid">
+        <a href="https://acslearn.com" class="t" data-hi="होम" data-en="Home">होम</a>
+        <a href="https://acslearn.com/udyam/" class="t" data-hi="उद्यम" data-en="Industries">उद्यम</a>
+        <a href="https://acslearn.com/courses/hi/" id="ft-courses" class="t" data-hi="कोर्स" data-en="Courses">कोर्स</a>
+        <a href="https://acslearn.com/join.html" class="t" data-hi="जुड़ें" data-en="Join">जुड़ें</a>
+        <a href="https://acslearn.com/payment/hi/" id="ft-payment" class="t" data-hi="भुगतान" data-en="Payment">भुगतान</a>
+        <a href="https://acslearn.com/contact/hi/" id="ft-contact" class="t" data-hi="संपर्क" data-en="Contact">संपर्क</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3 class="t" data-hi="संपर्क" data-en="Contact">संपर्क</h3>
+      <p>📍 Chautham, Khagaria, Bihar — 851201</p>
+      <p>📞 <a href="tel:+919431210092">+91-9431210092</a></p>
+      <p>✉️ <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p>🌐 <a href="https://ffgpmt.org">ffgpmt.org</a></p>
+      <p class="t" data-hi="⚠️ भुगतान केवल official Razorpay link से।" data-en="⚠️ Payment only via official Razorpay link.">⚠️ भुगतान केवल official Razorpay link से।</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Applied Computer School™ | <a href="https://ffgpmt.org" style="color:var(--gold)">ffgpmt.org</a> | <a href="https://acslearn.com" style="color:var(--gold)">acslearn.com</a></div>
+</footer>
+
+<!-- ── FIREBASE ── -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
+
+const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth = getAuth(app), db = getFirestore(app);
+const functions = getFunctions(app, "us-central1");
+const fnReqOtp = httpsCallable(functions, "requestLoginOtp");
+const fnVerOtp = httpsCallable(functions, "verifyLoginOtp");
+const fnClaim  = httpsCallable(functions, "claimSession");
+
+const NO_OTP = ["student","jobseeker","entrepreneur"];
+const DASH = {student:"/dashboard/student/",jobseeker:"/dashboard/jobseeker/",entrepreneur:"/dashboard/entrepreneur/",teacher:"/dashboard/teacher/",centre:"/dashboard/centre/",counselor:"/dashboard/counselor/",employer:"/dashboard/employer/",foreign_agent:"/dashboard/foreign-agent/",volunteer:"/dashboard/volunteer/",team:"/dashboard/"};
+const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",centre:"केंद्र (Centre)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",team:"ACS Team"};
+
+let ROLE = "", otpTimer = null;
+const $ = (id) => document.getElementById(id);
+
+/* भाषा (hi/en toggle) */
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.body.classList.toggle("en", lang === "en");
+  document.querySelectorAll(".t").forEach((el) => {
+    const v = el.getAttribute("data-" + lang) || el.getAttribute("data-hi");
+    if (v != null) el.textContent = v;
+  });
+  try { localStorage.setItem("acs_lang", lang); } catch(e){}
+  const b = $("lang-btn"); if (b) b.textContent = (lang === "en") ? "🌐 हिंदी" : "🌐 English";
+}
+window.switchLang = function(){
+  const cur = document.documentElement.lang || "hi";
+  applyLang(cur === "en" ? "hi" : "en");
+};
+(function(){
+  let l = "hi";
+  try { l = localStorage.getItem("acs_lang") || (navigator.language||"").slice(0,2); } catch(e){}
+  if (l !== "en") l = "hi";
+  applyLang(l);
+})();
+
+/* UI helpers */
+function show(id){ ["c1","c2","c3","c5"].forEach((c)=>{ const el=$(c); if(el) el.classList.remove("show"); }); const t=$(id); if(t) t.classList.add("show"); }
+function setStep(n){ for(let i=1;i<=3;i++){ const c=$("sc"+i); if(c) c.className="step-circle"+(i<n?" done":i===n?" active":""); } const l1=$("sl1"),l2=$("sl2"); if(l1) l1.className="step-line"+(n>1?" done":""); if(l2) l2.className="step-line"+(n>2?" done":""); }
+function fieldErr(id,msg){ const e=$(id); if(e) e.textContent=msg||""; }
+function box(id,msg,ok){ const a=$(id); if(a){ a.textContent=msg||""; a.style.display=msg?"block":"none"; a.className="alert"+(ok?"":" alert-err"); } }
+
+/* role चुनें */
+window.selRole = function(role, el){
+  ROLE = role;
+  document.querySelectorAll(".role-card").forEach((c)=>c.classList.remove("sel"));
+  if (el) el.classList.add("sel");
+  box("a1","");
+};
+window.goStep2 = function(){
+  if (!ROLE){ box("a1","पहले अपनी भूमिका (Role) चुनें।"); return; }
+  const rt=$("role-tag"); if(rt) rt.textContent = "भूमिका: " + (RNAME[ROLE] || ROLE);
+  show("c2"); setStep(2); window.scrollTo(0,0);
+};
+window.goStep = function(n){ show("c"+n); setStep(n); window.scrollTo(0,0); };
+
+/* OTP box nav */
+window.otpNav = function(el, prev, next){
+  el.value = el.value.replace(/\D/g,"").slice(0,1);
+  if (el.value && next){ const n=$(next); if(n) n.focus(); }
+  else if (!el.value && prev){ const p=$(prev); if(p) p.focus(); }
+};
+function readOtp(){ return ["o1","o2","o3","o4","o5","o6"].map((i)=>($(i).value||"").trim()).join(""); }
+function clearOtp(){ ["o1","o2","o3","o4","o5","o6"].forEach((i)=>{ const e=$(i); if(e) e.value=""; }); }
+
+function startOtpTimer(){
+  const btn=$("resend-btn"), tm=$("otp-timer"); let left=600;
+  if(btn) btn.style.display="none";
+  clearInterval(otpTimer);
+  otpTimer=setInterval(()=>{
+    left--;
+    const m=String(Math.floor(left/60)).padStart(2,"0"), sx=String(left%60).padStart(2,"0");
+    if(tm) tm.textContent = "OTP दोबारा भेजने में: "+m+":"+sx;
+    if(left<=0){ clearInterval(otpTimer); if(tm) tm.textContent=""; if(btn) btn.style.display="inline"; }
+  },1000);
+}
+
+/* 2) LOGIN — password → role-check → OTP या सीधे */
+window.doLogin = async function(){
+  fieldErr("e-email",""); fieldErr("e-pass",""); box("a2","");
+  const email=($("f-email").value||"").trim().toLowerCase();
+  const pass=$("f-pass").value||"";
+  if(!email||!/^\S+@\S+\.\S+$/.test(email)){ fieldErr("e-email","सही Email डालें।"); return; }
+  if(!pass){ fieldErr("e-pass","Password डालें।"); return; }
+  const btn=$("btn2"); btn.disabled=true; const old=btn.textContent; btn.textContent="जाँच हो रही है…";
+  try{
+    const cred=await signInWithEmailAndPassword(auth,email,pass);
+    const uid=cred.user.uid;
+    let dbRole="";
+    try{ const snap=await getDoc(doc(db,"users",uid)); if(snap.exists()) dbRole=snap.data().role||""; }catch(e){}
+    if(dbRole && ROLE && dbRole!==ROLE){
+      await signOut(auth);
+      box("a2",'यह खाता "'+(RNAME[dbRole]||dbRole)+'" का है — वही भूमिका चुनें।');
+      btn.disabled=false; btn.textContent=old; return;
+    }
+    const role=dbRole||ROLE;
+    if(NO_OTP.includes(role)){
+      await finishLogin(role,email);
+    }else{
+      await fnReqOtp({email});
+      show("c3"); setStep(3); clearOtp(); startOtpTimer(); window.scrollTo(0,0);
+    }
+  }catch(e){
+    let m="Login नहीं हुआ — Email/Password जाँचें।";
+    const c=e&&e.code;
+    if(c==="auth/invalid-credential"||c==="auth/wrong-password"||c==="auth/user-not-found") m="Email या Password ग़लत है।";
+    else if(c==="auth/too-many-requests") m="बहुत बार ग़लत — थोड़ी देर बाद कोशिश करें।";
+    else if(c==="auth/network-request-failed") m="Internet जाँचें।";
+    box("a2",m);
+  }
+  btn.disabled=false; btn.textContent=old;
+};
+
+/* 3) OTP verify */
+window.verifyLoginOtp = async function(){
+  box("a3","");
+  const code=readOtp();
+  if(code.length!==6){ box("a3","6 अंक का OTP डालें।"); return; }
+  const btn=$("btn3"); btn.disabled=true; const old=btn.textContent; btn.textContent="जाँच…";
+  try{
+    const email=($("f-email").value||"").trim().toLowerCase();
+    const res=await fnVerOtp({email,code});
+    if(res&&res.data&&res.data.ok===false) throw new Error(res.data.message||"OTP ग़लत");
+    await finishLogin(ROLE,email);
+  }catch(e){
+    box("a3",(e&&e.message)||"OTP ग़लत या समाप्त।");
+    clearOtp(); const o=$("o1"); if(o) o.focus();
+  }
+  btn.disabled=false; btn.textContent=old;
+};
+window.resendLoginOtp = async function(){
+  const email=($("f-email").value||"").trim().toLowerCase();
+  try{ await fnReqOtp({email}); clearOtp(); startOtpTimer(); box("a3","नया OTP भेजा गया।",true); }
+  catch(e){ box("a3",(e&&e.message)||"अभी दोबारा नहीं — थोड़ी देर बाद।"); }
+};
+
+/* single-session claim → dashboard */
+async function finishLogin(role,email){
+  try{ await fnClaim({}); }catch(e){}
+  const sr=$("s-role"); if(sr) sr.textContent="भूमिका: "+(RNAME[role]||role);
+  const se=$("s-email"); if(se) se.textContent=email;
+  show("c5"); setStep(3); window.scrollTo(0,0);
+  setTimeout(()=>{ location.href = DASH[role] || "/dashboard/"; }, 1200);
+}
+</script>
+
+<!-- ── MENU + TRANSLATE JS ── -->
+<script>
+function openMenu(){document.getElementById('menuPanel').classList.add('open');document.getElementById('menuOverlay').classList.add('open');}
+function closeMenu(){document.getElementById('menuPanel').classList.remove('open');document.getElementById('menuOverlay').classList.remove('open');}
+function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
+window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'hi',includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur'},'google_translate_element');};
+</script>
+
+<!-- Lang toggle button in navbar (added via JS) -->
+<script>
+(function(){
+  const nc=document.querySelector('.nav-controls');
+  const btn=document.createElement('button');
+  btn.id='lang-btn';
+  btn.className='btn-translate';
+  btn.style.marginRight='4px';
+  btn.textContent=document.body.classList.contains('en')?'🌐 हिंदी':'🌐 English';
+  btn.onclick=function(){window.switchLang&&window.switchLang();};
+  nc.insertBefore(btn,nc.firstChild);
+})();
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
