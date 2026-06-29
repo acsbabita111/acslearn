@@ -361,17 +361,14 @@ img{max-width:100%;display:block}
 <div class="toast" id="toast"></div>
 
 <!-- DATA -->
+<script src="/assets/master_groups.js"></script>
 <script src="/assets/courses_data.js"></script>
 <script src="/assets/acs-translate.js"></script>
 
 <script>
 // ══ MG NAMES ══
-const MG_NAMES = {
-  1:'🌾 कृषि', 2:'⛏️ खनन', 3:'🏭 विनिर्माण',
-  4:'🏗️ निर्माण', 5:'🧵 वस्त्र', 6:'💊 स्वास्थ्य',
-  7:'💻 प्रौद्योगिकी', 8:'🚗 परिवहन', 9:'🛍️ व्यापार',
-  10:'🎭 सेवाएं', 11:'📚 शिक्षा', 24:'🛡️ सुरक्षा',
-};
+// 24 श्रेणियों के नाम अब single source से: /assets/master_groups.js → mgLabel(id)
+// (पहले यहाँ सिर्फ़ 12 अधूरे हार्डकोड थे — हटाए।)
 
 // ══ DATA MAP ══
 const TAB_DATA = {
@@ -407,7 +404,7 @@ function init() {
     mgs.forEach(mg => {
       const btn = document.createElement('button');
       btn.className = 'filter-btn';
-      btn.textContent = MG_NAMES[mg] || 'MG'+mg;
+      btn.textContent = mgLabel(mg);
       btn.onclick = function(){ setMG(tab, mg, this); };
       div.appendChild(btn);
     });
