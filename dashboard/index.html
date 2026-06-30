@@ -417,6 +417,19 @@ const fnClaim  = httpsCallable(functions, "claimSession");
 const NO_OTP = ["student","jobseeker","entrepreneur"];
 const DASH = {student:"/dashboard/student/",jobseeker:"/dashboard/jobseeker/",entrepreneur:"/dashboard/entrepreneur/",teacher:"/dashboard/teacher/",centre:"/dashboard/centre/",counselor:"/dashboard/counselor/",employer:"/dashboard/employer/",foreign_agent:"/dashboard/foreign-agent/",volunteer:"/dashboard/volunteer/",team:"/dashboard/"};
 const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",centre:"केंद्र (Centre)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",team:"ACS Team"};
+/* ACS Team के अंदर हर पद (designation) का अपना घर — teams/{uid}.designation से तय */
+const TEAM_DASH = {
+  founder:"/dashboard/founder/",
+  hq_admin:"/dashboard/admin/",
+  hq_finance:"/dashboard/hq/finance/",
+  hq_establishment:"/dashboard/hq/establishment/",
+  hq_legal:"/dashboard/hq/legal/",
+  staff:"/dashboard/hq/staff/",
+  intern:"/dashboard/hq/staff/",
+  zm:"/dashboard/zonal/",
+  rm:"/dashboard/regional/",
+  callcenter:"/dashboard/callcenter/"
+};
 
 let ROLE = "", otpTimer = null;
 const $ = (id) => document.getElementById(id);
@@ -543,7 +556,22 @@ async function finishLogin(role,email){
   const sr=$("s-role"); if(sr) sr.textContent="भूमिका: "+(RNAME[role]||role);
   const se=$("s-email"); if(se) se.textContent=email;
   show("c5"); setStep(3); window.scrollTo(0,0);
-  setTimeout(()=>{ location.href = DASH[role] || "/dashboard/"; }, 1200);
+  let url = DASH[role] || "/dashboard/";
+  /* ACS Team: पद (designation) पढ़कर सही घर भेजो */
+  if(role==="team"){
+    url = "/dashboard/hq/staff/";   /* कोई पद न मिले तो सुरक्षित डिफ़ॉल्ट */
+    try{
+      const u=auth.currentUser;
+      if(u){
+        const snap=await getDoc(doc(db,"teams",u.uid));
+        if(snap.exists()){
+          const desig=((snap.data().designation)||"").toLowerCase();
+          if(TEAM_DASH[desig]) url=TEAM_DASH[desig];
+        }
+      }
+    }catch(e){}
+  }
+  setTimeout(()=>{ location.href = url; }, 1200);
 }
 </script>
 
