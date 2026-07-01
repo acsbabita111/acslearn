@@ -76,7 +76,7 @@
 <!-- ── HERO ── -->
 <div class="hero">
   <h2 class="t" data-hi="ACS परिवार में आपका स्वागत है" data-en="Welcome to the ACS Family">ACS परिवार में आपका स्वागत है</h2>
-  <p class="t" data-hi="विद्यार्थी · नौकरी · उद्यम · शिक्षक · केंद्र · सलाहकार · नियोक्ता · विदेश एजेंट · स्वयंसेवक · ACS Team" data-en="Student · Job-seeker · Entrepreneur · Teacher · Centre · Counselor · Employer · Foreign Agent · Volunteer · ACS Team">विद्यार्थी · नौकरी · उद्यम · शिक्षक · केंद्र · सलाहकार · नियोक्ता · विदेश एजेंट · स्वयंसेवक · ACS Team</p>
+  <p class="t" data-hi="विद्यार्थी · नौकरी · उद्यम · शिक्षक · केंद्र · सलाहकार · नियोक्ता · विदेश एजेंट · स्वयंसेवक · ACS Team" data-en="Student · Job-seeker · Entrepreneur · Teacher · Center · Counselor · Employer · Foreign Agent · Volunteer · ACS Team">विद्यार्थी · नौकरी · उद्यम · शिक्षक · केंद्र · सलाहकार · नियोक्ता · विदेश एजेंट · स्वयंसेवक · ACS Team</p>
   <span class="badge t" data-hi="ISO 9001:2015 प्रमाणित | FFGPMTrust" data-en="ISO 9001:2015 Certified | FFGPMTrust">ISO 9001:2015 प्रमाणित | FFGPMTrust</span>
 </div>
 
@@ -129,10 +129,10 @@
       <div class="role-name t" data-hi="शिक्षक (Teacher)" data-en="Teacher">शिक्षक (Teacher)</div>
       <div class="role-desc t" data-hi="कोर्स बनाएँ, पढ़ाएँ, कमाएँ" data-en="Create courses, teach, earn">कोर्स बनाएँ, पढ़ाएँ, कमाएँ</div>
     </div>
-    <div class="role-card" onclick="selRole('centre',this)" ondblclick="selRole('centre',this);goStep2()">
+    <div class="role-card" onclick="selRole('center',this)" ondblclick="selRole('center',this);goStep2()">
       <div class="role-icon">🏫</div>
-      <div class="role-name t" data-hi="केंद्र (Centre)" data-en="Centre">केंद्र (Centre)</div>
-      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching centre">Offline केंद्र / Coaching शुरू करें</div>
+      <div class="role-name t" data-hi="केंद्र (Center)" data-en="Center">केंद्र (Center)</div>
+      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching center">Offline केंद्र / Coaching शुरू करें</div>
     </div>
     <div class="role-card" onclick="selRole('counselor',this)" ondblclick="selRole('counselor',this);goStep2()">
       <div class="role-icon">🧭</div>
@@ -445,7 +445,7 @@ document.documentElement.lang=LANG;
 const LANG_DATA={
   hi:{
     title:'ACS से जुड़ें — Applied Computer School™',
-    desc:'ACS से जुड़ें — Student, Job-seeker, Entrepreneur, Teacher, Centre, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
+    desc:'ACS से जुड़ें — Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
     menu:'एसीएस मेन्यू',
     btn_translate:'🌐 English',
     btn_switch:'🌐 English',
@@ -458,7 +458,7 @@ const LANG_DATA={
   },
   en:{
     title:'Join ACS — Applied Computer School™',
-    desc:'Join ACS — Register as Student, Job-seeker, Entrepreneur, Teacher, Centre, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
+    desc:'Join ACS — Register as Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
     menu:'ACS Menu',
     btn_translate:'🌐 भाषा',
     btn_switch:'🌐 हिंदी',
@@ -471,7 +471,7 @@ const LANG_DATA={
   },
   kn:{
     title:'ACS ಗೆ ಸೇರಿ — Applied Computer School™',
-    desc:'ACS ಗೆ ಸೇರಿ — Student, Job-seeker, Entrepreneur, Teacher, Centre, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
+    desc:'ACS ಗೆ ಸೇರಿ — Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
     menu:'ACS ಮೆನು',
     btn_translate:'🌐 English',
     btn_switch:'🌐 ಕನ್ನಡ',
@@ -484,7 +484,7 @@ const LANG_DATA={
   },
   mr:{
     title:'ACS मध्ये सामील व्हा — Applied Computer School™',
-    desc:'ACS मध्ये सामील व्हा — Student, Job-seeker, Entrepreneur, Teacher, Centre, Counselor, Employer, Volunteer',
+    desc:'ACS मध्ये सामील व्हा — Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Volunteer',
     menu:'ACS मेनू',
     btn_translate:'🌐 English',
     btn_switch:'🌐 मराठी',
@@ -624,42 +624,42 @@ window.switchLang=function(){
 // ── TERMS CONTENT ──
 const TERMS={
   hi:{
-    student:"<h4>ACS विद्यार्थी शर्तें</h4>• Online Courses — हमेशा निःशुल्क (Free)।<br/>• Offline Training — Centre द्वारा तय Fees।<br/>• न्यूनतम आयु (Minimum Age): 10 वर्ष।<br/>• 10-18 वर्ष: Guardian consent अनिवार्य।<br/>• Certificate: Course complete + Exam pass + Practical + Centre approval।<br/>• FFGPMTrust द्वारा जारी — Lifetime valid।<br/>• Refund: 7 दिन पहले = 100% | 30%+ complete = No refund।<br/>• POCSO Act — Minor की सुरक्षा प्राथमिकता।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
+    student:"<h4>ACS विद्यार्थी शर्तें</h4>• Online Courses — हमेशा निःशुल्क (Free)।<br/>• Offline Training — Center द्वारा तय Fees।<br/>• न्यूनतम आयु (Minimum Age): 10 वर्ष।<br/>• 10-18 वर्ष: Guardian consent अनिवार्य।<br/>• Certificate: Course complete + Exam pass + Practical + Center approval।<br/>• FFGPMTrust द्वारा जारी — Lifetime valid।<br/>• Refund: 7 दिन पहले = 100% | 30%+ complete = No refund।<br/>• POCSO Act — Minor की सुरक्षा प्राथमिकता।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
     teacher:"<h4>ACS शिक्षक शर्तें</h4>• योग्यता: 45+ वर्ष OR 15 साल अनुभव — ACS Course अनिवार्य नहीं।<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation)।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Teacher | 5% State | 5% ACS।<br/>• AI Training: बिना Written Permission — use नहीं।<br/>• Copyright Act 1957 Sec 57 — Moral Rights सुरक्षित।<br/>• Show Cause Notice 7 दिन | Appeal 7 दिन।",
     jobseeker:"<h4>ACS नौकरी (Job-seeker) शर्तें</h4>• जुड़ना व देखना — निःशुल्क (Free)।<br/>• तैयारी: 16 वर्ष से | असली Job/Joining: 18 वर्ष से।<br/>• Job-connection लेते समय भौतिक सत्यापन (RM/Counselor)।<br/>• Verified Badge (Green Tick): वैकल्पिक — ₹300/600/1000 × 365 दिन।<br/>• Platform-fee सिर्फ़ Job-platform उपयोग पर — Agent को कुछ नहीं।<br/>• Fake Job/Advance Fee — तुरंत रिपोर्ट।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
     entrepreneur:"<h4>ACS उद्यम (Entrepreneur) शर्तें</h4>• जुड़ना व जानकारी — निःशुल्क (Free)।<br/>• न्यूनतम आयु: 16 वर्ष।<br/>• Project Report (bank-finance-ready) + Industrial Tour जानकारी।<br/>• Tour सीढ़ी: निवेश-अनुसार (₹20L से कम → ₹10Cr+)।<br/>• Tour लेते समय भौतिक सत्यापन व escrow भुगतान।<br/>• आँकड़े/सफलता-% सिर्फ़ अनुमान — ख़ुद verify करें।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
     volunteer:"<h4>ACS स्वयंसेवक (Volunteer) शर्तें</h4>• सेवा-भाव से जुड़ें — RM-सपोर्ट में field-worker।<br/>• कमीशन-आधारित सेवा।<br/>• कम-से-कम 6 माह सेवा + RM सिफ़ारिश → ACS Team में अवसर (उम्मीद, गारंटी नहीं)।<br/>• भौतिक सत्यापन (RM) अनिवार्य।<br/>• Article 19(1)(a): ईमानदार आलोचना — आपका अधिकार।<br/>• POSH Act + child-safety लागू।<br/>• Show Cause Notice: 7 दिन | Grievance: 7 कार्य दिवस।",
-    centre:"<h4>ACS Centre शर्तें</h4>• Registration: पूरी तरह निःशुल्क (Free)।<br/>• Revenue: 80% Centre | 20% ACS + Others।<br/>• Branding: ACS Logo / Name — Full Free।<br/>• Certificate: सिर्फ Dashboard से — कोई shortcut नहीं।<br/>• Fees: Regional Base Fee से कम नहीं।<br/>• Show Cause Notice: 7 दिन | Appeal: 15 दिन।",
+    center:"<h4>ACS Center शर्तें</h4>• Registration: पूरी तरह निःशुल्क (Free)।<br/>• Revenue: 80% Center | 20% ACS + Others।<br/>• Branding: ACS Logo / Name — Full Free।<br/>• Certificate: सिर्फ Dashboard से — कोई shortcut नहीं।<br/>• Fees: Regional Base Fee से कम नहीं।<br/>• Show Cause Notice: 7 दिन | Appeal: 15 दिन।",
     counselor:"<h4>ACS Counselor शर्तें</h4>• योग्यता: न्यूनतम 5 साल अनुभव।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Counselor | 5% State | 5% ACS।<br/>• Refund: 1 घंटे पहले cancel = 90%।<br/>• ACS Course: अनिवार्य नहीं।<br/>• Rating: 3.0 से कम = 30 दिन Improvement।<br/>• Show Cause Notice: 7 दिन।",
-    employer:"<h4>ACS Employer शर्तें</h4>• Registration + Job Posting: पूरी तरह निःशुल्क (Free)।<br/>• Contact: सिर्फ ACS Dashboard से।<br/>• Salary: Minimum Wage से कम नहीं।<br/>• Volunteers से कोई Fee नहीं — Illegal।<br/>• Fake Job, Advance Fee, Human Trafficking — तत्काल Terminate।<br/>• Child Labour (14 से कम) — Prohibited।<br/>• IT Act 2000 Sec 79 — ACS Intermediary।",
+    employer:"<h4>ACS Employer शर्तें</h4>• Registration + Job Posting: पूरी तरह निःशुल्क (Free)।<br/>• Contact: सिर्फ ACS Dashboard से।<br/>• Salary: Minimum Wage से कम नहीं।<br/>• Volunteers से कोई Fee नहीं — Illegal।<br/>• Fake Job, Advance Fee, Human Trafficking — तत्काल Terminate।<br/>• Child Labor (14 से कम) — Prohibited।<br/>• IT Act 2000 Sec 79 — ACS Intermediary।",
     foreign_agent:"<h4>ACS Foreign Agent शर्तें</h4>• eMigrate License (MEA) अनिवार्य — Fake = IPC 420।<br/>• Volunteers से कोई Fee नहीं — Emigration Act 1983।<br/>• Commission: 70% Agent | 20% ACS | 10% State।<br/>• काम: Visa guidance + Job placement + Training + Contract।<br/>• Human Trafficking (IPC 370) — तत्काल Terminate।<br/>• Passport Confiscation — Strictly Prohibited।<br/>• MEA Helpline: 1800-11-3090।",
     team:"<h4>ACS Team शर्तें</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field → Intern।<br/>• Salary: Fixed (1-7 तारीख) + Incentive 0-50% on Target।<br/>• Probation: सभी levels पर 6 महीने।<br/>• Joining: 2 Upper Level + HQ Admin approval अनिवार्य।<br/>• Confidentiality: 2 साल (employment के बाद भी)।<br/>• POSH Act 2013 — ICC available।<br/>• Show Cause Notice: 7 दिन | F&F: 15 कार्य दिवस।"
   },
   en:{
-    student:"<h4>ACS Student Terms</h4>• Online Courses — Always Free.<br/>• Offline Training — Fees set by Centre.<br/>• Minimum Age: 10 years (10-18: Guardian consent required).<br/>• Certificate: Course complete + Exam pass + Practical + Centre approval.<br/>• Issued by FFGPMTrust — Lifetime valid.<br/>• Refund: 7 days before = 100% | 30%+ complete = No refund.<br/>• POCSO Act — Minor protection priority.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
+    student:"<h4>ACS Student Terms</h4>• Online Courses — Always Free.<br/>• Offline Training — Fees set by Center.<br/>• Minimum Age: 10 years (10-18: Guardian consent required).<br/>• Certificate: Course complete + Exam pass + Practical + Center approval.<br/>• Issued by FFGPMTrust — Lifetime valid.<br/>• Refund: 7 days before = 100% | 30%+ complete = No refund.<br/>• POCSO Act — Minor protection priority.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
     teacher:"<h4>ACS Teacher Terms</h4>• Eligibility: 45+ years OR 15 years experience — ACS Course not mandatory.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Before payment: 5-minute Free Preview Session mandatory.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.<br/>• AI Training: No use without Written Permission.<br/>• Copyright Act 1957 Sec 57 — Moral Rights protected.<br/>• Show Cause Notice: 7 days | Appeal: 7 days.",
     jobseeker:"<h4>ACS Job-seeker Terms</h4>• Joining & browsing — Free.<br/>• Preparation: from 16 years | Real Job/Joining: from 18 years.<br/>• Physical verification (RM/Counselor) at job-connection.<br/>• Verified Badge (Green Tick): optional — ₹300/600/1000 × 365 days.<br/>• Platform-fee only for job-platform use — nothing to Agent.<br/>• Fake Job/Advance Fee — report immediately.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
     entrepreneur:"<h4>ACS Entrepreneur Terms</h4>• Joining & info — Free.<br/>• Minimum age: 16 years.<br/>• Project Report (bank-finance-ready) + Industrial Tour info.<br/>• Tour ladder: by investment (under ₹20L → ₹10Cr+).<br/>• Physical verification & escrow payment at Tour.<br/>• Figures/success-% are estimates only — verify yourself.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
     volunteer:"<h4>ACS Volunteer Terms</h4>• Join in service spirit — field-worker supporting RM.<br/>• Commission-based service.<br/>• Min 6 months service + RM recommendation → opportunity in ACS Team (hope, not guarantee).<br/>• Physical verification (RM) mandatory.<br/>• Article 19(1)(a): Honest Criticism — your right.<br/>• POSH Act + child-safety applicable.<br/>• Show Cause Notice: 7 days | Grievance: 7 working days.",
-    centre:"<h4>ACS Centre Terms</h4>• Registration: Completely Free.<br/>• Revenue: 80% Centre | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — Full Free — use as you wish.<br/>• Certificate: Only via Dashboard — no shortcuts.<br/>• Fees: Not below Regional Base Fee.<br/>• Show Cause Notice: 7 days | Appeal: 15 days.",
+    center:"<h4>ACS Center Terms</h4>• Registration: Completely Free.<br/>• Revenue: 80% Center | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — Full Free — use as you wish.<br/>• Certificate: Only via Dashboard — no shortcuts.<br/>• Fees: Not below Regional Base Fee.<br/>• Show Cause Notice: 7 days | Appeal: 15 days.",
     counselor:"<h4>ACS Counselor Terms</h4>• Eligibility: Minimum 5 years experience.<br/>• Before payment: 5-minute Free Preview Session mandatory.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.<br/>• Refund: Cancel 1 hour before = 90% refund.<br/>• ACS Course: Not mandatory.<br/>• Rating: Below 3.0 = 30-day Improvement Period.<br/>• Show Cause Notice: 7 days.",
-    employer:"<h4>ACS Employer Terms</h4>• Registration + Job Posting: Completely Free.<br/>• Contact: Only via ACS Dashboard.<br/>• Salary: Not below Minimum Wage.<br/>• No fees from Volunteers — Illegal.<br/>• Fake Job, Advance Fee, Human Trafficking — Immediate Termination.<br/>• Child Labour (under 14) — Prohibited.<br/>• IT Act 2000 Sec 79 — ACS is Intermediary.",
+    employer:"<h4>ACS Employer Terms</h4>• Registration + Job Posting: Completely Free.<br/>• Contact: Only via ACS Dashboard.<br/>• Salary: Not below Minimum Wage.<br/>• No fees from Volunteers — Illegal.<br/>• Fake Job, Advance Fee, Human Trafficking — Immediate Termination.<br/>• Child Labor (under 14) — Prohibited.<br/>• IT Act 2000 Sec 79 — ACS is Intermediary.",
     foreign_agent:"<h4>ACS Foreign Agent Terms</h4>• eMigrate License (MEA) mandatory — Fake = IPC 420 + Criminal action.<br/>• No fees from Volunteers — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.<br/>• Services: Visa guidance + Job placement + Training + Contract.<br/>• Human Trafficking (IPC 370) — Immediate Termination.<br/>• Passport Confiscation — Strictly Prohibited.<br/>• MEA Helpline: 1800-11-3090.",
     team:"<h4>ACS Team Terms</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field Staff → Intern.<br/>• Salary: Fixed (1st-7th) + Incentive 0-50% on Target.<br/>• Probation: 6 months for all levels.<br/>• Joining: 2 Upper Level + HQ Admin approval mandatory.<br/>• Confidentiality: 2 years (even after employment ends).<br/>• POSH Act 2013 — ICC available.<br/>• Show Cause Notice: 7 days | F&F: 15 working days."
   },
   kn:{
-    student:"<h4>ACS ವಿದ್ಯಾರ್ಥಿ ನಿಯಮಗಳು</h4>• Online Courses — ಯಾವಾಗಲೂ ಉಚಿತ (Free).<br/>• Offline Training — Centre ನಿಗದಿಪಡಿಸಿದ Fees.<br/>• ಕನಿಷ್ಠ ವಯಸ್ಸು: 10 ವರ್ಷ (10-18: Guardian consent ಅಗತ್ಯ).<br/>• Certificate: Course + Exam + Practical + Centre approval.<br/>• FFGPMTrust ಜಾರಿ — Lifetime valid.<br/>• Refund: 7 ದಿನ ಮೊದಲು = 100% | 30%+ complete = No refund.<br/>• Grievance: 7 ಕಾರ್ಯ ದಿನಗಳಲ್ಲಿ.",
+    student:"<h4>ACS ವಿದ್ಯಾರ್ಥಿ ನಿಯಮಗಳು</h4>• Online Courses — ಯಾವಾಗಲೂ ಉಚಿತ (Free).<br/>• Offline Training — Center ನಿಗದಿಪಡಿಸಿದ Fees.<br/>• ಕನಿಷ್ಠ ವಯಸ್ಸು: 10 ವರ್ಷ (10-18: Guardian consent ಅಗತ್ಯ).<br/>• Certificate: Course + Exam + Practical + Center approval.<br/>• FFGPMTrust ಜಾರಿ — Lifetime valid.<br/>• Refund: 7 ದಿನ ಮೊದಲು = 100% | 30%+ complete = No refund.<br/>• Grievance: 7 ಕಾರ್ಯ ದಿನಗಳಲ್ಲಿ.",
     teacher:"<h4>ACS ಶಿಕ್ಷಕ ನಿಯಮಗಳು</h4>• ಅರ್ಹತೆ: 45+ ವರ್ಷ OR 15 ವರ್ಷ ಅನುಭವ.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Payment ಮೊದಲು: 5 ನಿಮಿಷ Free Preview Session ಕಡ್ಡಾಯ.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.",
-    centre:"<h4>ACS Centre ನಿಯಮಗಳು</h4>• Registration: ಸಂಪೂರ್ಣ ಉಚಿತ (Free).<br/>• Revenue: 80% Centre | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — ಸಂಪೂರ್ಣ ಮುಕ್ತ.<br/>• Show Cause Notice: 7 ದಿನ | Appeal: 15 ದಿನ.",
+    center:"<h4>ACS Center ನಿಯಮಗಳು</h4>• Registration: ಸಂಪೂರ್ಣ ಉಚಿತ (Free).<br/>• Revenue: 80% Center | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — ಸಂಪೂರ್ಣ ಮುಕ್ತ.<br/>• Show Cause Notice: 7 ದಿನ | Appeal: 15 ದಿನ.",
     counselor:"<h4>ACS Counselor ನಿಯಮಗಳು</h4>• ಅರ್ಹತೆ: ಕನಿಷ್ಠ 5 ವರ್ಷ ಅನುಭವ.<br/>• Payment ಮೊದಲು: 5 ನಿಮಿಷ Free Preview Session ಕಡ್ಡಾಯ.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.",
     employer:"<h4>ACS Employer ನಿಯಮಗಳು</h4>• Registration + Job Posting: ಸಂಪೂರ್ಣ ಉಚಿತ.<br/>• Contact: ಕೇವಲ ACS Dashboard ಮೂಲಕ.<br/>• Salary: Minimum Wage ಕ್ಕಿಂತ ಕಡಿಮೆ ಇಲ್ಲ.",
     foreign_agent:"<h4>ACS Foreign Agent ನಿಯಮಗಳು</h4>• eMigrate License (MEA) ಕಡ್ಡಾಯ.<br/>• Volunteers ಗೆ ಯಾವುದೇ Fee ಇಲ್ಲ — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.",
     team:"<h4>ACS Team ನಿಯಮಗಳು</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field → Intern.<br/>• Salary: Fixed (1-7 ತಾರೀಖು) + Incentive 0-50%.<br/>• Probation: ಎಲ್ಲಾ levels ಗೆ 6 ತಿಂಗಳು."
   },
   mr:{
-    student:"<h4>ACS विद्यार्थी अटी</h4>• Online Courses — नेहमी मोफत (Free).<br/>• Offline Training — Centre निश्चित केलेली Fees.<br/>• किमान वय: 10 वर्षे (10-18: Guardian consent आवश्यक).<br/>• Certificate: Course + Exam + Practical + Centre approval.<br/>• FFGPMTrust जारी — Lifetime valid.<br/>• Refund: 7 दिवस आधी = 100% | 30%+ complete = No refund.<br/>• Grievance: 7 कार्य दिवसांत.",
+    student:"<h4>ACS विद्यार्थी अटी</h4>• Online Courses — नेहमी मोफत (Free).<br/>• Offline Training — Center निश्चित केलेली Fees.<br/>• किमान वय: 10 वर्षे (10-18: Guardian consent आवश्यक).<br/>• Certificate: Course + Exam + Practical + Center approval.<br/>• FFGPMTrust जारी — Lifetime valid.<br/>• Refund: 7 दिवस आधी = 100% | 30%+ complete = No refund.<br/>• Grievance: 7 कार्य दिवसांत.",
     teacher:"<h4>ACS शिक्षक अटी</h4>• पात्रता: 45+ वर्षे OR 15 वर्षांचा अनुभव.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Payment आधी: 5 मिनिट Free Preview Session अनिवार्य.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.",
-    centre:"<h4>ACS Centre अटी</h4>• Registration: पूर्णपणे मोफत (Free).<br/>• Revenue: 80% Centre | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — पूर्ण मुक्त.<br/>• Show Cause Notice: 7 दिवस | Appeal: 15 दिवस.",
+    center:"<h4>ACS Center अटी</h4>• Registration: पूर्णपणे मोफत (Free).<br/>• Revenue: 80% Center | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — पूर्ण मुक्त.<br/>• Show Cause Notice: 7 दिवस | Appeal: 15 दिवस.",
     counselor:"<h4>ACS Counselor अटी</h4>• पात्रता: किमान 5 वर्षांचा अनुभव.<br/>• Payment आधी: 5 मिनिट Free Preview Session अनिवार्य.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.",
     employer:"<h4>ACS Employer अटी</h4>• Registration + Job Posting: पूर्णपणे मोफत.<br/>• Contact: फक्त ACS Dashboard द्वारे.<br/>• Salary: Minimum Wage पेक्षा कमी नाही.",
     foreign_agent:"<h4>ACS Foreign Agent अटी</h4>• eMigrate License (MEA) अनिवार्य.<br/>• Volunteers कडून कोणतीही Fee नाही — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.",
@@ -668,7 +668,7 @@ const TERMS={
   ar:{
     student:"<h4>شروط طالب ACS</h4>• الدورات الإلكترونية — مجانية دائماً.<br/>• التدريب المباشر — رسوم يحددها المركز.<br/>• الحد الأدنى للعمر: 10 سنوات (10-18: موافقة ولي الأمر مطلوبة).<br/>• الشهادة: إتمام الدورة + اجتياز الامتحان + العملي + موافقة المركز.<br/>• صادرة من FFGPMTrust — صالحة مدى الحياة.",
     teacher:"<h4>شروط معلم ACS</h4>• المؤهل: 45+ سنة أو 15 سنة خبرة.<br/>• الإتاوة: 7% مدى الحياة (أصلي) | 3% (ترجمة).<br/>• الإيرادات: 90% للمعلم | 5% للولاية | 5% لـ ACS.",
-    centre:"<h4>شروط مركز ACS</h4>• التسجيل: مجاني تماماً.<br/>• الإيرادات: 80% للمركز | 20% ACS + آخرون.",
+    center:"<h4>شروط مركز ACS</h4>• التسجيل: مجاني تماماً.<br/>• الإيرادات: 80% للمركز | 20% ACS + آخرون.",
     counselor:"<h4>شروط مستشار ACS</h4>• المؤهل: 5 سنوات خبرة على الأقل.<br/>• الإيرادات: 90% للمستشار | 5% للولاية | 5% لـ ACS.",
     employer:"<h4>شروط صاحب العمل ACS</h4>• التسجيل + نشر الوظائف: مجاني تماماً.<br/>• التواصل: عبر ACS Dashboard فقط.",
     foreign_agent:"<h4>شروط وكيل ACS الخارجي</h4>• ترخيص eMigrate إلزامي.<br/>• لا رسوم من العمال — Emigration Act 1983.<br/>• العمولة: 70% للوكيل | 20% ACS | 10% للولاية.",
@@ -677,7 +677,7 @@ const TERMS={
   sw:{
     student:"<h4>Masharti ya Mwanafunzi ACS</h4>• Kozi za Mtandaoni — Bure daima.<br/>• Mafunzo ya Ana kwa Ana — Ada zinazowekwa na Kituo.<br/>• Umri wa chini: miaka 10 (10-18: ridhaa ya mlezi inahitajika).<br/>• Cheti: Kozi + Mtihani + Vitendo + Idhini ya Kituo.",
     teacher:"<h4>Masharti ya Mwalimu ACS</h4>• Sifa: miaka 45+ AU uzoefu wa miaka 15.<br/>• Royalty: 7% maisha yote (asili) | 3% (tafsiri).<br/>• Mapato: 90% Mwalimu | 5% Serikali | 5% ACS.",
-    centre:"<h4>Masharti ya Kituo ACS</h4>• Usajili: Bure kabisa.<br/>• Mapato: 80% Kituo | 20% ACS + Wengine.",
+    center:"<h4>Masharti ya Kituo ACS</h4>• Usajili: Bure kabisa.<br/>• Mapato: 80% Kituo | 20% ACS + Wengine.",
     counselor:"<h4>Masharti ya Mshauri ACS</h4>• Sifa: uzoefu wa miaka 5.<br/>• Mapato: 90% Mshauri | 5% Serikali | 5% ACS.",
     employer:"<h4>Masharti ya Mwajiri ACS</h4>• Usajili + Kutuma Kazi: Bure kabisa.<br/>• Mawasiliano: kupitia ACS Dashboard pekee.",
     foreign_agent:"<h4>Masharti ya Wakala wa Nje ACS</h4>• Leseni ya eMigrate inahitajika.<br/>• Hakuna ada kutoka kwa Wafanyakazi.<br/>• Tume: 70% Wakala | 20% ACS | 10% Serikali.",
@@ -707,9 +707,9 @@ const EXTRA={
     hi:`<div class="field"><label>सेवा-क्षेत्र / Skill *</label><input type="text" id="f-skill" placeholder="जैसे: Field work, Survey, Teaching"/></div><div class="field"><label>उपलब्धता (Availability)</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="weekend">Weekend</option></select></div>`,
     en:`<div class="field"><label>Service Area / Skill *</label><input type="text" id="f-skill" placeholder="e.g. Field work, Survey, Teaching"/></div><div class="field"><label>Availability</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="weekend">Weekend</option></select></div>`
   },
-  centre:{
-    hi:`<div class="field"><label>CENTRE NAME *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Centre"/></div><div class="field"><label>ADDRESS *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>DISTRICT *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`,
-    en:`<div class="field"><label>Centre Name *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Centre"/></div><div class="field"><label>Address *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>District *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`
+  center:{
+    hi:`<div class="field"><label>CENTER NAME *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Center"/></div><div class="field"><label>ADDRESS *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>DISTRICT *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`,
+    en:`<div class="field"><label>Center Name *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Center"/></div><div class="field"><label>Address *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>District *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`
   },
   counselor:{
     hi:`<div class="field"><label>आयु (Age) *</label><input type="number" id="f-age" min="18" placeholder="18+"/><div class="hint">न्यूनतम 18 वर्ष</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव (Experience) — वर्ष *</label><input type="number" id="f-exp" min="5" placeholder="5+"/><div class="hint">न्यूनतम 5 वर्ष</div><div class="err" id="e-exp"></div></div><div class="field"><label>विशेषज्ञता (Specialization) *</label><input type="text" id="f-sub" placeholder="जैसे: Career, Agriculture, Business"/></div>`,
@@ -732,12 +732,12 @@ const EXTRA={
 };
 
 const ROLE_NAMES={
-  hi:{student:'विद्यार्थी (Student)',teacher:'शिक्षक (Teacher)',jobseeker:'नौकरी (Job-seeker)',entrepreneur:'उद्यम (Entrepreneur)',volunteer:'स्वयंसेवक (Volunteer)',centre:'केंद्र (Centre)',counselor:'सलाहकार (Counselor)',employer:'नियोक्ता (Employer)',foreign_agent:'विदेश एजेंट (Foreign Agent)',team:'ACS Team'},
-  en:{student:'Student',teacher:'Teacher',jobseeker:'Job-seeker',entrepreneur:'Entrepreneur',volunteer:'Volunteer',centre:'Centre',counselor:'Counselor',employer:'Employer',foreign_agent:'Foreign Agent',team:'ACS Team'},
-  kn:{student:'ವಿದ್ಯಾರ್ಥಿ (Student)',teacher:'ಶಿಕ್ಷಕ (Teacher)',jobseeker:'ಉದ್ಯೋಗ (Job-seeker)',entrepreneur:'ಉದ್ಯಮಿ (Entrepreneur)',volunteer:'ಸ್ವಯಂಸೇವಕ (Volunteer)',centre:'ಕೇಂದ್ರ (Centre)',counselor:'ಸಲಹೆಗಾರ (Counselor)',employer:'ಉದ್ಯೋಗದಾತ (Employer)',foreign_agent:'ವಿದೇಶ Agent',team:'ACS Team'},
-  mr:{student:'विद्यार्थी (Student)',teacher:'शिक्षक (Teacher)',jobseeker:'नोकरी (Job-seeker)',entrepreneur:'उद्योजक (Entrepreneur)',volunteer:'स्वयंसेवक (Volunteer)',centre:'केंद्र (Centre)',counselor:'सल्लागार (Counselor)',employer:'नियोक्ता (Employer)',foreign_agent:'परदेश Agent',team:'ACS Team'},
-  ar:{student:'طالب',teacher:'معلم',jobseeker:'باحث عن عمل (Job-seeker)',entrepreneur:'رائد أعمال (Entrepreneur)',volunteer:'متطوع (Volunteer)',centre:'مركز',counselor:'مستشار',employer:'صاحب عمل',foreign_agent:'وكيل خارجي',team:'فريق ACS'},
-  sw:{student:'Mwanafunzi',teacher:'Mwalimu',jobseeker:'Mtafuta Kazi (Job-seeker)',entrepreneur:'Mjasiriamali (Entrepreneur)',volunteer:'Kujitolea (Volunteer)',centre:'Kituo',counselor:'Mshauri',employer:'Mwajiri',foreign_agent:'Wakala wa Nje',team:'Timu ya ACS'}
+  hi:{student:'विद्यार्थी (Student)',teacher:'शिक्षक (Teacher)',jobseeker:'नौकरी (Job-seeker)',entrepreneur:'उद्यम (Entrepreneur)',volunteer:'स्वयंसेवक (Volunteer)',center:'केंद्र (Center)',counselor:'सलाहकार (Counselor)',employer:'नियोक्ता (Employer)',foreign_agent:'विदेश एजेंट (Foreign Agent)',team:'ACS Team'},
+  en:{student:'Student',teacher:'Teacher',jobseeker:'Job-seeker',entrepreneur:'Entrepreneur',volunteer:'Volunteer',center:'Center',counselor:'Counselor',employer:'Employer',foreign_agent:'Foreign Agent',team:'ACS Team'},
+  kn:{student:'ವಿದ್ಯಾರ್ಥಿ (Student)',teacher:'ಶಿಕ್ಷಕ (Teacher)',jobseeker:'ಉದ್ಯೋಗ (Job-seeker)',entrepreneur:'ಉದ್ಯಮಿ (Entrepreneur)',volunteer:'ಸ್ವಯಂಸೇವಕ (Volunteer)',center:'ಕೇಂದ್ರ (Center)',counselor:'ಸಲಹೆಗಾರ (Counselor)',employer:'ಉದ್ಯೋಗದಾತ (Employer)',foreign_agent:'ವಿದೇಶ Agent',team:'ACS Team'},
+  mr:{student:'विद्यार्थी (Student)',teacher:'शिक्षक (Teacher)',jobseeker:'नोकरी (Job-seeker)',entrepreneur:'उद्योजक (Entrepreneur)',volunteer:'स्वयंसेवक (Volunteer)',center:'केंद्र (Center)',counselor:'सल्लागार (Counselor)',employer:'नियोक्ता (Employer)',foreign_agent:'परदेश Agent',team:'ACS Team'},
+  ar:{student:'طالب',teacher:'معلم',jobseeker:'باحث عن عمل (Job-seeker)',entrepreneur:'رائد أعمال (Entrepreneur)',volunteer:'متطوع (Volunteer)',center:'مركز',counselor:'مستشار',employer:'صاحب عمل',foreign_agent:'وكيل خارجي',team:'فريق ACS'},
+  sw:{student:'Mwanafunzi',teacher:'Mwalimu',jobseeker:'Mtafuta Kazi (Job-seeker)',entrepreneur:'Mjasiriamali (Entrepreneur)',volunteer:'Kujitolea (Volunteer)',center:'Kituo',counselor:'Mshauri',employer:'Mwajiri',foreign_agent:'Wakala wa Nje',team:'Timu ya ACS'}
 };
 
 const ERR={
@@ -938,11 +938,11 @@ window.doRegister=async function(){
     const cred=await createUserWithEmailAndPassword(auth,email,pass);
     await sendEmailVerification(cred.user);
     const uid=cred.user.uid,st=gv('f-state');
-    const RC={student:'STU',teacher:'TCH',jobseeker:'JOB',entrepreneur:'ENT',volunteer:'VOL',centre:'CTR',counselor:'CNS',employer:'EMP',foreign_agent:'FGA',team:'TEM'};
+    const RC={student:'STU',teacher:'TCH',jobseeker:'JOB',entrepreneur:'ENT',volunteer:'VOL',center:'CTR',counselor:'CNS',employer:'EMP',foreign_agent:'FGA',team:'TEM'};
     const acsId='ACS-'+(RC[ROLE]||'USR')+'-'+st.slice(0,2).toUpperCase()+'-'+uid.slice(-6).toUpperCase();
     const ud={uid,acsId,role:ROLE,name:gv('f-name'),mobile:gv('f-mobile'),email,state:st,language:LANG,status:'pending',createdAt:serverTimestamp(),termsAccepted:true,termsVersion:'1.0',termsAcceptedAt:new Date().toISOString(),platform:'web'};
     // Role-specific fields
-    const flds={fa:'age','f-age':'age','f-exp':'experience','f-sub':'subject','f-skill':'skill','f-avail':'availability','f-cname':'centreName','f-addr':'address','f-dist':'district','f-org':'organization','f-biz':'businessType','f-emigrate':'emigrateLicense','f-desig':'designation','f-manager':'referringManager','f-guardian':'guardianName'};
+    const flds={fa:'age','f-age':'age','f-exp':'experience','f-sub':'subject','f-skill':'skill','f-avail':'availability','f-cname':'centerName','f-addr':'address','f-dist':'district','f-org':'organization','f-biz':'businessType','f-emigrate':'emigrateLicense','f-desig':'designation','f-manager':'referringManager','f-guardian':'guardianName'};
     Object.entries(flds).forEach(([id,key])=>{const el=document.getElementById(id);if(el&&el.value)ud[key]=el.type==='number'?+el.value:el.value;});
     // Save to Firestore — users collection + role collection
     await setDoc(doc(db,'users',uid),ud);
@@ -1084,7 +1084,7 @@ applyLang();
     /* 9 सीधे कार्ड */
     var ROLE_URLS = {
       student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
-      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      teacher:"/dashboard/teacher/", center:"/dashboard/center/", counselor:"/dashboard/counselor/",
       employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
     };
     /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
