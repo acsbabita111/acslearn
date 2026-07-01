@@ -58,7 +58,6 @@
                 aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
         <button class="menu-btn" id="menuToggle" type="button"
                 aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
-        <button class="lang-btn" id="acsLoginBtn" type="button" aria-label="Login / Dashboard">🔑</button>
       </div>
     </div>
   </header>
@@ -105,7 +104,7 @@
   <div class="role-grid">
 
     <!-- समूह-1: सीखना / कमाना (Learner) -->
-    <div class="role-group-head first t" data-hi="🟦 मैं सीखना / कमाना चाहता हूँ" data-en="🟦 I want to learn / earn">🟦 मैं सीखना / कमाना चाहता हूँ</div>
+    <div class="role-group-head first t" data-hi="🟦 सुंदर भविष्य के लिए" data-en="🟦 For a beautiful future">🟦 सुंदर भविष्य के लिए</div>
     <div class="role-card learner gold" onclick="selRole('student',this)" ondblclick="selRole('student',this);goStep2()">
       <div class="role-icon">🎓</div>
       <div class="role-name t" data-hi="विद्यार्थी (Student)" data-en="Student">विद्यार्थी (Student)</div>
@@ -123,7 +122,7 @@
     </div>
 
     <!-- समूह-2: ACS से जुड़कर कमाना -->
-    <div class="role-group-head t" data-hi="🟨 मैं ACS से जुड़कर कमाना चाहता हूँ" data-en="🟨 I want to join ACS & earn">🟨 मैं ACS से जुड़कर कमाना चाहता हूँ</div>
+    <div class="role-group-head t" data-hi="🟨 सुंदर भविष्य के लिए" data-en="🟨 For a beautiful future">🟨 सुंदर भविष्य के लिए</div>
     <div class="role-card" onclick="selRole('teacher',this)" ondblclick="selRole('teacher',this);goStep2()">
       <div class="role-icon">👨‍🏫</div>
       <div class="role-name t" data-hi="शिक्षक (Teacher)" data-en="Teacher">शिक्षक (Teacher)</div>
@@ -327,7 +326,7 @@
 .role-icon{grid-row:1/3;font-size:27px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-radius:14px;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 5px rgba(11,31,58,.10),0 2px 4px rgba(11,31,58,.10)}
 .role-name{font-size:18px;font-weight:800;color:var(--navy)}
 .role-desc{font-size:16px;color:var(--gray);line-height:1.3;margin:0}
-.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding-top:4px}
+.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding-top:4px;text-align:center}
 .role-group-head.first{margin-top:2px}
 .role-card.learner{border-width:2px}
 .role-card.learner .role-icon{font-size:32px;width:58px;height:58px}
@@ -692,8 +691,8 @@ const EXTRA={
     en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="10" max="100" placeholder="e.g. 15" oninput="ageWatch(this)"/><div class="hint">Ages 10-18: Guardian consent required</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>Guardian Name *</label><input type="text" id="f-guardian" placeholder="Guardian's full name"/></div>`
   },
   teacher:{
-    hi:`<div class="field"><label>AGE *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>EXPERIENCE (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div><div class="err" id="e-exp"></div></div><div class="field"><label>SUBJECT / SKILL *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`,
-    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="45" placeholder="45+"/><div class="hint">Minimum 45 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="15" placeholder="15+"/><div class="hint">Minimum 15 years</div><div class="err" id="e-exp"></div></div><div class="field"><label>Subject / Skill *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`
+    hi:`<div class="field"><label>आयु (Age) *</label><input type="number" id="f-age" min="18" placeholder="जैसे 30"/><div class="hint">न्यूनतम 18 वर्ष (45 से कम पर बैज अनिवार्य)</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव (Experience) — वर्ष</label><input type="number" id="f-exp" min="0" placeholder="जैसे 3"/><div class="hint">वर्ष में (वैकल्पिक)</div><div class="err" id="e-exp"></div></div><div class="field"><label>विषय / कौशल (Subject / Skill) *</label><input type="text" id="f-sub" placeholder="जैसे: Computer, Tailoring, Farming"/></div>`,
+    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="18" placeholder="e.g. 30"/><div class="hint">Minimum 18 years (badge mandatory if under 45)</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years)</label><input type="number" id="f-exp" min="0" placeholder="e.g. 3"/><div class="hint">In years (optional)</div><div class="err" id="e-exp"></div></div><div class="field"><label>Subject / Skill *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`
   },
   jobseeker:{
     hi:`<div class="field"><label>SKILL / कौशल *</label><input type="text" id="f-skill" placeholder="जैसे: Typing, Data Entry, Stitching"/></div><div class="field"><label>उपलब्धता (Availability)</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`,
@@ -724,10 +723,10 @@ const EXTRA={
     en:`<div class="field"><label>eMigrate RA License Number *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">Registration not possible without valid License.</div></div><div class="field"><label>Agency / Firm Name *</label><input type="text" id="f-org" placeholder="e.g. Global Placement Services"/></div>`
   },
   team:{
-    hi:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`,
-    en:`<div class="field"><label>Designation *</label><select id="f-desig"><option value="">-- Select --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option><option value="field_staff">Field Staff</option><option value="intern">Intern / Apprentice</option></select></div><div class="field"><label>Referring Manager Name *</label><input type="text" id="f-manager" placeholder="Name of referring manager"/></div>`,
-    kn:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option><option value="field_staff">Field Staff</option><option value="intern">Intern</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`,
-    mr:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option><option value="field_staff">Field Staff</option><option value="intern">Intern</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`
+    hi:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`,
+    en:`<div class="field"><label>Designation *</label><select id="f-desig"><option value="">-- Select --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option></select></div><div class="field"><label>Referring Manager Name *</label><input type="text" id="f-manager" placeholder="Name of referring manager"/></div>`,
+    kn:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`,
+    mr:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`
   }
 };
 
@@ -797,7 +796,7 @@ window.checkPw=function(v){
   let s=0;if(v.length>=8)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
   const pf=document.getElementById('pw-fill'),pl=document.getElementById('pw-label');
   const pcts=[0,30,60,85,100];const cols=['','#E53935','#F9A825','#F9A825','#2E7D32'];
-  const labs={hi:['','कमज़ोर (Weak)','ठीक है [OK]','ठीक है [OK]','मजबूत (Strong) ✓'],en:['','Weak','OK','OK','Strong ✓']};
+  const labs={hi:['','कमज़ोर (Weak)','ठीक है (OK)','ठीक है (OK)','मजबूत (Strong) ✓'],en:['','Weak','OK','OK','Strong ✓']};
   pf.style.width=pcts[s]+'%';pf.style.background=cols[s];
   pl.textContent=labs[LANG][s];pl.style.color=cols[s];
 };
@@ -823,21 +822,22 @@ function validateStep2(){
     } else {
       const avn=+av;
       if(ROLE==='student'&&(avn<10||avn>100)){showErr('e-age',e.age);ok=false;}
-      if(ROLE==='teacher'&&avn<45){showErr('e-age',e.age45);ok=false;}
+      // (H1) Teacher <45 block हटाया — 45 से कम शिक्षक मान्य (बैज + उम्र-fee लागू)।
     }
   }
   // Experience validation for Teacher/Counselor
   const fex=document.getElementById('f-exp');
   if(fex){
     const exv=fex.value.trim();
-    if(!exv||+exv<1){
-      const exErr='Experience is required.';
-      // Show near the field if possible
-      const exErrEl=document.getElementById('e-exp');
-      if(exErrEl){showErr('e-exp',exErr);}
-      else{showAlert('a2',exErr,'alert-err');}
-      ok=false;
+    if(ROLE==='counselor'){ // (H3) Counselor: न्यूनतम 5 वर्ष अनुभव अनिवार्य
+      if(!exv || +exv < 5){
+        const exErr = !exv ? 'Experience is required.' : 'Minimum 5 years experience required.';
+        const exErrEl=document.getElementById('e-exp');
+        if(exErrEl){showErr('e-exp',exErr);} else{showAlert('a2',exErr,'alert-err');}
+        ok=false;
+      }
     }
+    // Teacher: अनुभव वैकल्पिक — कोई सख़्त न्यूनतम जाँच नहीं
   }
   // If any error — scroll to top of form card
   if(!ok){
@@ -940,7 +940,9 @@ window.doRegister=async function(){
     const uid=cred.user.uid,st=gv('f-state');
     const RC={student:'STU',teacher:'TCH',jobseeker:'JOB',entrepreneur:'ENT',volunteer:'VOL',center:'CTR',counselor:'CNS',employer:'EMP',foreign_agent:'FGA',team:'TEM'};
     const acsId='ACS-'+(RC[ROLE]||'USR')+'-'+st.slice(0,2).toUpperCase()+'-'+uid.slice(-6).toUpperCase();
-    const ud={uid,acsId,role:ROLE,name:gv('f-name'),mobile:gv('f-mobile'),email,state:st,language:LANG,status:'pending',createdAt:serverTimestamp(),termsAccepted:true,termsVersion:'1.0',termsAcceptedAt:new Date().toISOString(),platform:'web'};
+    const LEARNER_ROLES=['student','jobseeker','entrepreneur'];
+    const regStatus=LEARNER_ROLES.includes(ROLE)?'active':'pending'; // (H5) Learner सीधे active; बाक़ी 7 को अप्रूवल चाहिए → pending
+    const ud={uid,acsId,role:ROLE,name:gv('f-name'),mobile:gv('f-mobile'),email,state:st,language:LANG,status:regStatus,createdAt:serverTimestamp(),termsAccepted:true,termsVersion:'1.0',termsAcceptedAt:new Date().toISOString(),platform:'web'};
     // Role-specific fields
     const flds={fa:'age','f-age':'age','f-exp':'experience','f-sub':'subject','f-skill':'skill','f-avail':'availability','f-cname':'centerName','f-addr':'address','f-dist':'district','f-org':'organization','f-biz':'businessType','f-emigrate':'emigrateLicense','f-desig':'designation','f-manager':'referringManager','f-guardian':'guardianName'};
     Object.entries(flds).forEach(([id,key])=>{const el=document.getElementById(id);if(el&&el.value)ud[key]=el.type==='number'?+el.value:el.value;});
@@ -1027,7 +1029,12 @@ applyLang();
           <input id="acsPass" type="password" autocomplete="current-password" placeholder="••••••••"/>
         </div>
         <button class="acs-submit" id="acsLoginSubmit" type="button">Login करें</button>
+        <button id="acsForgot" type="button" aria-label="Forgot Password"
+                style="background:none;border:none;color:#1565C0;font-weight:700;cursor:pointer;font:inherit;margin-top:9px;text-decoration:underline">
+          पासवर्ड भूल गए? (Forgot Password?)
+        </button>
         <p class="err" id="acsLoginErr" role="alert"></p>
+        <p id="acsLoginInfo" role="status" style="color:#2E7D32;font-size:14px;margin-top:6px"></p>
       </div>
 
       <div id="acsOtpView" style="display:none">
@@ -1066,7 +1073,6 @@ applyLang();
     document.getElementById("acsYear").textContent = new Date().getFullYear();
 
     var modal     = document.getElementById("acsLoginModal");
-    var openBtn   = document.getElementById("acsLoginBtn");
     var closeBtn  = document.getElementById("acsLoginClose");
     var loginView = document.getElementById("acsLoginView");
     var otpView   = document.getElementById("acsOtpView");
@@ -1091,8 +1097,7 @@ applyLang();
     var TEAM_URLS = {
       founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
       hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
-      zm:"/dashboard/zonal/", rm:"/dashboard/regional/",
-      field_staff:"/dashboard/hq/staff/", intern:"/dashboard/hq/staff/"
+      zm:"/dashboard/zonal/", rm:"/dashboard/regional/"
     };
 
     /* 3 Learner कार्ड → re-login पर OTP नहीं */
@@ -1114,12 +1119,17 @@ applyLang();
       modal.classList.add("open");
       showView("login");
       errEl.textContent = ""; if(otpErr) otpErr.textContent = "";
+      var _i=document.getElementById("acsLoginInfo"); if(_i) _i.textContent="";
       loadFirebase();
       var f = document.getElementById("acsEmail"); if (f) f.focus();
     }
     function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
 
-    openBtn.addEventListener("click", openModal);
+    // menu (☰) के अंदर Login/Dashboard → यही modal खोले (header का अलग बटन हटाया)
+    document.addEventListener("click", function (e){
+      var t = e.target && e.target.closest ? e.target.closest(".acs-login") : null;
+      if (t){ e.preventDefault(); openModal(); }
+    });
     closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
     document.addEventListener("keydown", function (e){
@@ -1192,6 +1202,25 @@ applyLang();
       }).catch(function (e){ errEl.textContent = authMsg(e); });
     });
 
+    /* ── Forgot Password (Firebase reset-email — सब roles) ── */
+    var forgotBtn = document.getElementById("acsForgot");
+    var infoEl    = document.getElementById("acsLoginInfo");
+    if (forgotBtn){
+      forgotBtn.addEventListener("click", function (){
+        var email = document.getElementById("acsEmail").value.trim();
+        errEl.textContent = ""; if (infoEl) infoEl.textContent = "";
+        if (!email){ errEl.textContent = "पहले अपना ईमेल भरें, फिर 'पासवर्ड भूल गए' दबाएँ।"; return; }
+        forgotBtn.disabled = true;
+        loadFirebase().then(function (){
+          return window.firebase.auth().sendPasswordResetEmail(email);
+        }).then(function (){
+          if (infoEl) infoEl.textContent = "पासवर्ड रीसेट लिंक आपके ईमेल पर भेज दी गई — inbox/spam देखें।";
+        }).catch(function (e){
+          errEl.textContent = authMsg(e);
+        }).then(function (){ forgotBtn.disabled = false; });
+      });
+    }
+
     /* ── OTP verify ── */
     document.getElementById("acsOtpSubmit").addEventListener("click", function (){
       var code = (document.getElementById("acsOtpInput").value || "").trim();
@@ -1258,8 +1287,10 @@ applyLang();
       loadFirebase().then(function (){
         window.firebase.auth().onAuthStateChanged(function (user){
           if (!user) return;
+          var _redirected = false;
           window.firebase.firestore().collection("users").doc(user.uid).onSnapshot(function (doc){
-            var active = doc.exists && doc.data().activeSession;
+            var data = doc.exists ? doc.data() : {};
+            var active = data.activeSession;
             if (active && active !== sid){
               /* कहीं और login हुआ → यह session बंद */
               try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
@@ -1267,6 +1298,12 @@ applyLang();
                 alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
                 window.location.href = "/";
               });
+              return;
+            }
+            /* (H7) पहले से सही login है → सीधे उसके dashboard भेजो (रजिस्ट्रेशन-पेज पर न अटके) */
+            if (!_redirected){
+              _redirected = true;
+              window.location.href = destFor(data.role || "student", data.designation || "");
             }
           });
         });

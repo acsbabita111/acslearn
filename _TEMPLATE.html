@@ -57,7 +57,6 @@
                 aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
         <button class="menu-btn" id="menuToggle" type="button"
                 aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
-        <button class="lang-btn" id="acsLoginBtn" type="button" aria-label="Login / Dashboard">🔑</button>
       </div>
     </div>
   </header>
@@ -165,7 +164,6 @@
     document.getElementById("acsYear").textContent = new Date().getFullYear();
 
     var modal     = document.getElementById("acsLoginModal");
-    var openBtn   = document.getElementById("acsLoginBtn");
     var closeBtn  = document.getElementById("acsLoginClose");
     var loginView = document.getElementById("acsLoginView");
     var otpView   = document.getElementById("acsOtpView");
@@ -218,7 +216,11 @@
     }
     function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
 
-    openBtn.addEventListener("click", openModal);
+    // menu (☰) के अंदर Login/Dashboard → यही modal खोले (header का अलग बटन हटाया)
+    document.addEventListener("click", function (e){
+      var t = e.target && e.target.closest ? e.target.closest(".acs-login") : null;
+      if (t){ e.preventDefault(); openModal(); }
+    });
     closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
     document.addEventListener("keydown", function (e){
