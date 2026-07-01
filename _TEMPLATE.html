@@ -199,6 +199,25 @@
       if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
       return ROLE_URLS[role] || "/dashboard/student/";
     }
+    /* (BUG-FIX) role/designation अब "users" collection में नहीं — अपनी-अपनी
+       role-collection में (students/teachers/centers/.../teams) रहता है।
+       login के वक़्त role पहले से पता नहीं होता — इसलिए क्रम से ढूँढते हैं
+       (rules में यही collections पहले से पढ़ने योग्य — कोई नया deploy नहीं चाहिए)। */
+    var USER_COLLECTIONS = ["students","jobseekers","entrepreneurs","teachers","centers",
+                             "counselors","employers","foreign_agents","volunteers","teams"];
+    function findUserDoc(uid){
+      var db = window.firebase.firestore();
+      var i = 0;
+      function tryNext(){
+        if (i >= USER_COLLECTIONS.length) return Promise.resolve(null);
+        var col = USER_COLLECTIONS[i++];
+        return db.collection(col).doc(uid).get().then(function (doc){
+          if (doc.exists) return { data: doc.data(), collection: col };
+          return tryNext();
+        }).catch(function (){ return tryNext(); });
+      }
+      return tryNext();
+    }
     function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
 
     function showView(which){
@@ -276,9 +295,9 @@
           errEl.textContent = "पहले अपना ईमेल verify करें — verification link भेज दी गई।";
           return;
         }
-        /* role Firestore से */
-        return window.firebase.firestore().collection("users").doc(user.uid).get().then(function (doc){
-          var data = doc.exists ? doc.data() : {};
+        /* role अपनी role-collection से (findUserDoc — ऊपर परिभाषित) */
+        return findUserDoc(user.uid).then(function (found){
+          var data = (found && found.data) || {};
           var role = data.role || "student";
           pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
           if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
@@ -359,16 +378,20 @@
       loadFirebase().then(function (){
         window.firebase.auth().onAuthStateChanged(function (user){
           if (!user) return;
-          window.firebase.firestore().collection("users").doc(user.uid).onSnapshot(function (doc){
-            var active = doc.exists && doc.data().activeSession;
-            if (active && active !== sid){
-              /* कहीं और login हुआ → यह session बंद */
-              try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
-              window.firebase.auth().signOut().finally(function (){
-                alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
-                window.location.href = "/";
-              });
-            }
+          /* पहले सही role-collection ढूँढो, फिर उसी पर realtime सुनो */
+          findUserDoc(user.uid).then(function (found){
+            if (!found) return; // किसी collection में doc नहीं मिला — कुछ मत करो
+            window.firebase.firestore().collection(found.collection).doc(user.uid).onSnapshot(function (doc){
+              var active = doc.exists && doc.data().activeSession;
+              if (active && active !== sid){
+                /* कहीं और login हुआ → यह session बंद */
+                try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
+                window.firebase.auth().signOut().finally(function (){
+                  alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
+                  window.location.href = "/";
+                });
+              }
+            });
           });
         });
       });
