@@ -1,76 +1,89 @@
-/* ════════════════════════════════════════════════════════════════
-   acs-config.js  —  ACS एकमात्र CONFIG (single source / परत-1)
-   ----------------------------------------------------------------
-   नियम: रंग · फ़ॉन्ट · org-जानकारी · Firebase — सब सिर्फ़ यहाँ।
-   यहाँ एक value बदलो → पूरी website (करोड़ों pages) बदले।
-   menu/links यहाँ नहीं — उनका घर links.js है (एक चीज़ = एक जगह)।
-   ════════════════════════════════════════════════════════════════ */
+/* ============================================================
+   acs-config.js  —  ACS की "एक जगह सब सेटिंग" (CONFIG — परत 1)
+   ------------------------------------------------------------
+   नियम (Constitution):
+   • यह पूरी website का एकमात्र setting-घर है।
+   • menu/links यहाँ नहीं — वो links.js में।
+   • एक जगह बदलो → 5 करोड़+ पेज बदलें।
+   अपडेट: नया तिरंगा design (गोल्डन पट्टी · सफ़ेद शीर्षक · हरे 3D बटन)।
+   ============================================================ */
 
-window.ACS_CONFIG = {
+const ACS_CONFIG = {
 
-  /* ── ब्रांड पहचान ── */
-  brand: {
-    name:      "Applied Computer School™",
-    short:     "ACS",
-    trust:     "FFGPMTrust",
-    tagline:   "From Village to World — Free Digital Education for the Global South",
-    motto:     "Learn. Build. Contribute. Grow.",
-    iso:       "ISO 9001:2015",
-    logo:      "https://acsbabita111.github.io/acslearn/logo.png"
+  /* ---------- 1) रंग ---------- */
+  /* आधार 5 रंग (Constitution) + तिरंगा accents (Founder-स्वीकृत भारतीय टच) */
+  colors: {
+    /* आधार */
+    navy:        "#0B1F3A",   // मुख्य background / heading
+    navy_deep:   "#081527",   // footer
+    blue:        "#1565C0",
+    gold:        "#F9A825",   // पट्टी/pill (केसरी-गोल्डन)
+    gold_light:  "#FFC24D",   // gradient ऊपरी shade
+    gold_edge:   "#C77F0A",   // 3D निचला किनारा
+    green:       "#2E7D32",   // आधार हरा
+    offwhite:    "#F5F7FA",
+    white:       "#FFFFFF",
+
+    /* हरे बटन (3D) */
+    btn_green:        "#1F7A2E",
+    btn_green_light:  "#3BB14D",
+    btn_green_edge:   "#145F22",
+
+    /* 🇮🇳 तिरंगा (पट्टी/लकीर के लिए) */
+    saffron:      "#FF9933",
+    india_white:  "#FFFFFF",
+    india_green:  "#138808"
   },
 
-  /* ── संपर्क व org ── */
+  /* ---------- 2) फ़ॉन्ट (बुज़ुर्ग भी पढ़ें) ---------- */
+  fonts: {
+    family_text:  "'Noto Sans Devanagari', 'Inter', sans-serif",
+    family_num:   "'Inter', 'Noto Sans Devanagari', sans-serif",  // अंक/आँकड़े
+
+    size_base:    "19px",   // 16px से नीचे कभी नहीं
+    size_min:     "16px",
+    size_button:  "21px",
+    size_h1:      "38px",   // hero शीर्षक (मोबाइल); बड़े screen पर 48px
+    size_h2:      "26px",
+    size_h3:      "21px",
+
+    line_height:  "1.8",    // आम पाठ; पट्टी जैसी जगह CSS में कसी जाती है
+    weight_text:  "400",
+    weight_bold:  "800"
+  },
+
+  /* ---------- 3) संगठन जानकारी (हिंदी पेज = देवनागरी) ---------- */
   org: {
-    addressLine: "ACS Building, Vidyarthi Nagar, Chautham",
-    city:        "Khagaria",
-    region:      "Bihar",
-    pincode:     "851201",
-    country:     "IN",
-    phone:       "+91-9431210092",
+    name_short:  "ACS",
+    name_hi:     "एप्लाइड कंप्यूटर स्कूल",
+    name_en:     "Applied Computer School",   // अंग्रेज़ी पेज के लिए
+    tagline_hi:  "80+ भाषा में, गाँव से ग्लोबल साउथ तक!",
+    tagline_full_hi: "80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!",
+
+    trust_short: "FFGPMTrust",
+    trust_hi:    "फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट",
+    trust_site:  "ffgpmt.org",
+    iso:         "ISO 9001:2015",
+
+    website:     "acslearn.com",
     email:       "acs.chautham@gmail.com",
+    phone:       "+91-9431210092",
     whatsapp:    "https://wa.me/919431210092",
     youtube:     "https://youtube.com/@AppliedComputerSchool",
-    siteUrl:     "https://acslearn.com",
-    trustUrl:    "https://ffgpmt.org"
+    address_hi:  "एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201",
+
+    logo:        "logo.png"   // न खुले तो "ACS" text fallback
   },
 
-  /* ── रंग ──
-     ब्रांड पैलेट = ठीक 5 (Constitution: "अधिकतम 5")।
-     नीचे ui/* सिर्फ़ ज़रूरी कामकाजी रंग हैं (text/border/सफ़ल/त्रुटि),
-     ये ब्रांड-रंग में नहीं गिने जाते।                                  */
-  colors: {
-    brand: {
-      navy:     "#0B1F3A",
-      blue:     "#1565C0",
-      gold:     "#F9A825",
-      green:    "#2E7D32",
-      offwhite: "#F5F7FA"
-    },
-    ui: {
-      white:    "#FFFFFF",
-      ink:      "#1A2B3C",   /* मुख्य text */
-      line:     "#E8EDF5",   /* border */
-      muted:    "#607D8B",   /* हल्का text */
-      success:  "#43A047",
-      danger:   "#C62828"
-    }
+  /* ---------- 4) लेआउट (mobile-first) ---------- */
+  layout: {
+    max_width:        "1100px",
+    radius:           "18px",
+    radius_pill:      "999px",
+    auto_logout_min:  10
   },
 
-  /* ── फ़ॉन्ट ──
-     नियम: base 19px · 16px से नीचे कुछ नहीं · बटन 20-22px · line 1.8  */
-  type: {
-    devanagari: "'Noto Sans Devanagari'",
-    latin:      "'Inter'",
-    stack:      "'Inter','Noto Sans Devanagari',sans-serif",
-    base:       "19px",
-    min:        "16px",
-    lineHeight:  1.8,
-    button:     "21px",
-    weights:    [400, 500, 600, 700, 800, 900]
-  },
-
-  /* ── Firebase (तकनीकी — system के लिए ज़रूरी) ──
-     apiKey web-app में खुली रहना सामान्य; असली सुरक्षा Firestore Rules से। */
+  /* ---------- 5) Firebase (login/OTP/dashboard के लिए) ---------- */
   firebase: {
     apiKey:            "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
     authDomain:        "acslearn-platform.firebaseapp.com",
@@ -78,16 +91,9 @@ window.ACS_CONFIG = {
     storageBucket:     "acslearn-platform.firebasestorage.app",
     messagingSenderId: "435395814481",
     appId:             "1:435395814481:web:655f99452a90f8efbc4470"
-  },
-
-  /* ── भाषाएँ ──
-     मूल भाषा hi; अंग्रेज़ी = पुल। नई भाषा = यहाँ code जोड़ें + folder clone।
-     क्रम: चुनी → browser → GPS → असली page; न हो तभी Google Translate।    */
-  langs: {
-    source:  "hi",                  /* इस set की मूल भाषा */
-    bridge:  "en",                  /* पुल भाषा */
-    enabled: ["hi", "en"],          /* असली (हाथ से बने) page जिन भाषाओं में हैं */
-    google:  ["hi","en","kn","mr","te","ta","bn","gu","pa","ur",
-              "sw","fr","es","pt","ar","id","vi","ha"]  /* fallback widget */
   }
+
 };
+
+if (typeof window !== "undefined") window.ACS_CONFIG = ACS_CONFIG;
+if (typeof module !== "undefined") module.exports = ACS_CONFIG;
