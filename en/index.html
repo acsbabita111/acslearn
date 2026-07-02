@@ -679,22 +679,9 @@ img{max-width:100%;display:block}
 <div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <button class="modal-x" onclick="closeModal()">✕</button>
-    <div id="roleStep">
-      <h3>🔑 Login</h3>
-      <p class="modal-sub">Select your role</p>
-      <div class="role-grid">
-        <button class="role-btn" onclick="selectRole('Student')"><span class="role-icon">🎓</span>Student</button>
-        <button class="role-btn" onclick="selectRole('Center')"><span class="role-icon">🏫</span>Center</button>
-        <button class="role-btn" onclick="selectRole('Teacher')"><span class="role-icon">👨‍🏫</span>Teacher</button>
-        <button class="role-btn" onclick="selectRole('Counselor')"><span class="role-icon">🧭</span>Counselor</button>
-        <button class="role-btn" onclick="selectRole('Employer')"><span class="role-icon">💼</span>Employer</button>
-        <button class="role-btn" onclick="selectRole('Admin')"><span class="role-icon">🔐</span>Admin</button>
-      </div>
-    </div>
-    <div class="login-form" id="loginForm">
-      <button class="back-btn" onclick="backToRoles()">← वापस</button>
-      <h3 id="loginTitle">Login</h3>
-      <p class="modal-sub">Enter Email and Password</p>
+    <div class="login-form show" id="loginForm">
+      <h3 id="loginTitle">🔑 Login</h3>
+      <p class="modal-sub">Enter Email and Password — your Dashboard opens directly</p>
       <div class="fgroup">
         <label>Email</label>
         <input type="email" id="emailIn" placeholder="your@email.com"/>
@@ -728,30 +715,51 @@ const app=initializeApp({
 });
 const auth=getAuth(app),db=getFirestore(app);
 
+/* Correct role-mapping (same as join.html/master-list — lowercase snake_case) */
 const ROLE_URLS={
-  Founder:'/dashboard/founder/',Head:'/dashboard/head/',
-  Centre:'/dashboard/centre/',Teacher:'/dashboard/teacher/',
-  Student:'/dashboard/student/',Counselor:'/dashboard/counselor/',
-  Employer:'/dashboard/employer/',Admin:'/dashboard/head/'
+  student:'/dashboard/student/', jobseeker:'/dashboard/jobseeker/', entrepreneur:'/dashboard/entrepreneur/',
+  teacher:'/dashboard/teacher/', center:'/dashboard/center/', counselor:'/dashboard/counselor/',
+  employer:'/dashboard/employer/', foreign_agent:'/dashboard/foreign-agent/', volunteer:'/dashboard/volunteer/'
 };
+const TEAM_URLS={
+  founder:'/dashboard/founder/', hq_admin:'/dashboard/hq/',
+  hq_establishment:'/dashboard/hq/establishment/', hq_finance:'/dashboard/hq/finance/', hq_legal:'/dashboard/hq/legal/',
+  zm:'/dashboard/zonal/', rm:'/dashboard/regional/'
+};
+function destFor(role, designation){
+  if (role === 'team') return TEAM_URLS[designation] || '/dashboard/';
+  return ROLE_URLS[role] || '/dashboard/student/';
+}
+/* (BUG-FIX) role is no longer in a "users" collection — it lives in its own
+   role-collection (students/teachers/centers/.../teams). At login time we
+   don't know the role in advance, so we search in order (these collections
+   are already readable per existing Firestore Rules — no new deploy needed). */
+const USER_COLLECTIONS=['students','jobseekers','entrepreneurs','teachers','centers',
+                         'counselors','employers','foreign_agents','volunteers','teams'];
+async function findUserDoc(uid){
+  for (const col of USER_COLLECTIONS){
+    try{
+      const snap=await getDoc(doc(db,col,uid));
+      if (snap.exists()) return { data: snap.data(), collection: col };
+    }catch(e){ /* try next collection even on permission-denied */ }
+  }
+  return null;
+}
 
 onAuthStateChanged(auth,async user=>{
   if(user){
-    // (BUG-FIX) पहले "users" collection पढ़ने की कोशिश होती थी, जो नई
-    // Firestore Rules में अनुमत नहीं — permission-denied error से पूरा
-    // mainContent छुपा रह जाता था ("page disappears")। अब: पहले सफल
-    // जानकारी मिले तभी छुपाएँ; असफल हो तो पेज सामान्य दिखता रहे (crash नहीं)।
     try{
-      const snap=await getDoc(doc(db,'users',user.uid));
-      const role=snap.exists()?snap.data().role:'Student';
-      const name=snap.exists()?snap.data().name:user.email;
+      const found=await findUserDoc(user.uid);
+      const data=(found&&found.data)||{};
+      const role=data.role||'student';
+      const name=data.name||user.email;
       document.getElementById('mainContent').style.display='none';
-      document.getElementById('welcomeText').textContent='स्वागत है, '+name+'!';
-      document.getElementById('welcomeSub').textContent='Role: '+role+' — Opening Dashboard...';
+      document.getElementById('welcomeText').textContent='Welcome, '+name+'!';
+      document.getElementById('welcomeSub').textContent='Opening Dashboard...';
       document.getElementById('welcomeScreen').classList.add('show');
-      setTimeout(()=>{window.location.href=ROLE_URLS[role]||'/dashboard/student/';},1500);
+      setTimeout(()=>{window.location.href=destFor(role, data.designation||'');},1200);
     }catch(e){
-      console.warn('ACS: profile lookup skipped (legacy users-collection not permitted):', e && e.message);
+      console.warn('ACS: profile lookup failed:', e && e.message);
     }
   }
 });
@@ -804,22 +812,8 @@ window.toggleTranslate=toggleTranslate;
 
 // Modal
 function openModal(){document.getElementById('modalBg').classList.add('open');}
-function closeModal(){document.getElementById('modalBg').classList.remove('open');backToRoles();}
+function closeModal(){document.getElementById('modalBg').classList.remove('open');document.getElementById('loginErr').textContent='';}
 window.openModal=openModal;window.closeModal=closeModal;
-
-// Role Select
-let selRole='';
-window.selectRole=function(r){
-  selRole=r;
-  document.getElementById('loginTitle').textContent=r+' Login';
-  document.getElementById('roleStep').style.display='none';
-  document.getElementById('loginForm').classList.add('show');
-};
-window.backToRoles=function(){
-  document.getElementById('roleStep').style.display='block';
-  document.getElementById('loginForm').classList.remove('show');
-  document.getElementById('loginErr').textContent='';
-};
 
 // Scroll
 window.addEventListener('scroll',()=>{
