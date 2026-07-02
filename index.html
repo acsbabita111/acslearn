@@ -8,232 +8,155 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
-    --base:19px; --lh:1.8; --maxw:1100px;
-    --font:'Noto Sans Devanagari','Inter',sans-serif;
-  }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  body{ font-family:var(--font); font-size:var(--base); line-height:var(--lh);
-    color:var(--navy); background:var(--navy); -webkit-text-size-adjust:100%; }
-  a{ text-decoration:none; color:inherit; }
-  button:focus-visible,a:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; border-radius:6px; }
-  .tiranga-bar{ height:5px; background:linear-gradient(90deg,#FF9933 0 33.33%, #ffffff 33.33% 66.66%, #138808 66.66% 100%); }
 
-  /* NAVBAR */
-  header.nav{ position:sticky; top:0; z-index:50; background:var(--navy); color:#fff; }
-  .nav-in{ display:flex; align-items:center; gap:10px; max-width:var(--maxw); margin:0 auto; padding:12px 16px; }
-  .brand{ display:flex; align-items:center; gap:11px; flex:1; min-width:0; }
-  .brand .mark{ width:46px; height:46px; border-radius:10px; flex:0 0 auto; overflow:hidden;
-    background:linear-gradient(135deg,var(--gold),#ffcf4d); color:var(--navy);
-    display:grid; place-items:center; font-weight:800; font-size:18px; }
-  .brand .mark img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .brand .name{ font-weight:800; font-size:19px; line-height:1.2; }
-  .navbtns{ display:flex; gap:8px; flex:0 0 auto; }
-  .navbtn{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18); color:#fff;
-    border-radius:12px; min-width:58px; padding:8px 8px 6px; cursor:pointer; text-align:center;
-    display:flex; flex-direction:column; align-items:center; gap:2px; font-size:13px; font-weight:600; }
-  .navbtn .e{ font-size:18px; }
-  .navbtn .e.globe{ color:#5aa9ff; }
-
-  /* GREEN FREE BANNER */
-  .freebar{ background:linear-gradient(180deg,#ffc24d,#F9A825); color:var(--navy); text-align:center; padding:5px 16px; line-height:1.18;
-    box-shadow:inset 0 2px 0 rgba(255,255,255,.55), 0 4px 12px rgba(0,0,0,.28); }
-  .freebar b{ font-size:clamp(14px,4.4vw,21px); font-weight:800; white-space:nowrap; line-height:1.18; }
-  .freebar small{ display:block; font-size:13px; opacity:.85; margin-top:1px; line-height:1.18; color:var(--navy); }
-
-  /* HERO */
-  .hero{ position:relative; background:var(--navy);
-    background-image:radial-gradient(rgba(255,255,255,.05) 1.4px, transparent 1.4px); background-size:22px 22px; }
-  .hero-in{ max-width:760px; margin:0 auto; padding:30px 18px 40px; text-align:center; color:#fff; }
-
-  .pill{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
-    background:linear-gradient(180deg,#ffc24d,#F9A825); color:var(--navy); font-weight:800;
-    font-size:clamp(24px,7vw,34px); padding:18px 18px; border-radius:18px;
-    box-shadow:inset 0 3px 0 rgba(255,255,255,.5), 0 8px 0 #c77f0a, 0 14px 22px rgba(0,0,0,.35); }
-  h1.title{ margin-top:26px; font-size:38px; font-weight:800; line-height:1.28; color:#fff; text-shadow:0 2px 5px rgba(0,0,0,.5); }
-  h1.title .g{ color:#fff; }
-  .subtag{ margin-top:16px; font-size:20px; font-weight:600; color:#dbe6f7; line-height:1.6; }
-  .subtag .g{ color:var(--gold); }
-  .rule{ width:110px; height:6px; border-radius:999px; margin:22px auto 0;
-    background:linear-gradient(90deg,#FF9933 0 33.33%, #ffffff 33.33% 66.66%, #138808 66.66% 100%);
-    box-shadow:0 2px 6px rgba(0,0,0,.35); }
-
-  /* CTA buttons */
-  .cta-row{ display:flex; flex-direction:column; gap:14px; margin-top:30px; }
-  .btn{ font-size:21px; font-weight:700; border:none; border-radius:999px; padding:16px 22px;
-    cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:10px; color:#fff;
-    transition:transform .08s, box-shadow .08s; }
-  .btn-green{ background:linear-gradient(180deg,#3bb14d,#1f7a2e);
-    box-shadow:inset 0 2px 0 rgba(255,255,255,.35), 0 6px 0 #145f22, 0 12px 20px rgba(0,0,0,.35); }
-  .btn-green:active{ transform:translateY(4px);
-    box-shadow:inset 0 2px 0 rgba(255,255,255,.3), 0 2px 0 #145f22, 0 6px 12px rgba(0,0,0,.3); }
-  .btn.stack{ display:block; text-align:center; line-height:1.35; }
-
-  /* free info badge */
-  .freebadge{ margin-top:22px; display:inline-flex; align-items:center; gap:10px;
-    background:rgba(46,125,50,.18); color:#a6e6ad; border:1px solid rgba(46,125,50,.6);
-    font-weight:700; font-size:19px; padding:13px 24px; border-radius:999px; }
-
-  /* STAT CARDS */
-  .stats{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:34px; }
-  .scard{ background:#fff; border-radius:18px; padding:22px 14px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
-  .scard b{ display:block; font-family:'Inter',var(--font); font-weight:800; font-size:36px; line-height:1.1; }
-  .scard.blue b{ color:var(--blue); }
-  .scard.green b{ color:var(--green); }
-  .scard span{ display:block; margin-top:8px; font-size:17px; font-weight:600; color:#3a4a63; }
-  .stats-note{ margin-top:12px; font-size:14px; color:#9fb3d6; }
-
-  /* WhatsApp float */
-  .wa{ position:fixed; right:16px; bottom:20px; width:58px; height:58px; border-radius:50%;
-    background:#25D366; display:grid; place-items:center; z-index:40; box-shadow:0 8px 22px rgba(37,211,102,.5); }
-
-  /* FOOTER */
-  footer{ background:#081527; color:#9fb3d6; padding:40px 0 30px; }
-  footer .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; text-align:center; }
-  footer h5{ color:#fff; font-size:18px; margin-bottom:10px; }
-  footer p{ font-size:16px; }
-  footer a{ color:#9fb3d6; }
-  .fmenu{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px 18px; margin:22px 0 4px; }
-  .fmenu a{ display:inline-flex; align-items:center; gap:6px; color:#cdd8ea; font-size:16px; font-weight:600; }
-  .fmenu a:hover{ color:var(--gold); }
-  .warn{ margin-top:12px; color:var(--gold); font-size:15px; }
-  .fblock{ margin-top:20px; }
-  .fblock b{ display:block; color:#fff; font-size:16px; margin-bottom:6px; }
-  .fblock p{ margin:2px 0; }
-  .f-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:22px; padding-top:16px; font-size:14px; text-align:center; }
-
-  /* SLIDE MENU */
-  .scrim{ position:fixed; inset:0; background:rgba(0,0,0,.5); opacity:0; visibility:hidden; transition:.25s; z-index:70; }
-  .scrim.open{ opacity:1; visibility:visible; }
-  .drawer{ position:fixed; top:0; right:0; height:100%; width:84%; max-width:330px; background:var(--navy);
-    color:#fff; z-index:80; transform:translateX(105%); transition:transform .28s; padding:18px; overflow-y:auto; }
-  .drawer.open{ transform:translateX(0); }
-  .drawer h4{ color:var(--gold); font-size:14px; letter-spacing:.6px; margin:6px 6px 12px; }
-  .drawer a{ display:flex; align-items:center; gap:14px; padding:13px 12px; border-radius:12px;
-    font-size:18px; font-weight:600; color:#fff; }
-  .drawer a:hover{ background:rgba(255,255,255,.08); }
-  .drawer a.login{ background:var(--gold); color:var(--navy); margin-top:10px; font-weight:800; justify-content:center; }
-  .drawer a .e{ font-size:22px; width:28px; text-align:center; }
-  .drawer .close{ float:right; background:none; border:none; color:#fff; font-size:26px; cursor:pointer; }
-
-  @media(min-width:620px){
-    .cta-row{ flex-direction:row; justify-content:center; flex-wrap:wrap; }
-    h1.title{ font-size:48px; }
-    .hero-in{ padding-bottom:70px; }
-  }
-  @media(prefers-reduced-motion:reduce){ *{ transition:none; } }
-</style>
+<!-- परत 1: CONFIG + LINKS (एकमात्र घर) -->
+<script src="acs-config.js"></script>
+<script src="links.js"></script>
+<!-- परत: PRESENTATION (एक बार cache, सब पेज तेज़) -->
+<link rel="stylesheet" href="acs-style.css">
 </head>
 <body>
 
+<!-- 🇮🇳 तिरंगा-पट्टी -->
 <div class="tiranga-bar"></div>
 
-<!-- NAVBAR -->
+<!-- ===== NAVBAR (खोल) ===== -->
 <header class="nav">
   <div class="nav-in">
     <div class="brand">
-      <span class="mark"><img src="logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
-      <span class="name">एप्लाइड कंप्यूटर स्कूल™</span>
+      <span class="mark"><img id="acsLogo" src="logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">एप्लाइड कंप्यूटर स्कूल™</span>
     </div>
     <div class="navbtns">
-      <button class="navbtn" onclick="alert('भाषा चुनें — झलक')"><span class="e globe">🌐</span>भाषा</button>
+      <button class="navbtn" onclick="acsLanguage()"><span class="e globe">🌐</span>भाषा</button>
       <button class="navbtn" onclick="openMenu()"><span class="e">☰</span>मेन्यू</button>
     </div>
   </div>
 </header>
 
-<!-- GREEN FREE BANNER -->
+<!-- ===== गोल्डन पट्टी (खोल) ===== -->
 <div class="freebar">
-  <b>80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
   <small>मूल भाषा: हिंदी</small>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-in">
+<!-- ===== पेज-content यहाँ आएगा (हर पेज अलग) ===== -->
+<main id="acs-content">
+  <!-- ⬇️ हर पेज सिर्फ़ यह हिस्सा बदलता है (खोल वही रहता है) ⬇️ -->
+  <!-- PAGE-CONTENT-START (होमपेज का hero) -->
+  <section class="hero">
+    <div class="hero-in">
+      <span class="pill">✨ सुंदर भविष्य के लिए</span>
+      <h1 class="title">एप्लाइड कंप्यूटर स्कूल<br><span class="g">से जुड़ें!</span></h1>
+      <div class="rule"></div>
 
-    <span class="pill">✨ सुंदर भविष्य के लिए</span>
-    <h1 class="title">एप्लाइड कंप्यूटर स्कूल<br><span class="g">से जुड़ें!</span></h1>
-    <div class="rule"></div>
+      <div class="cta-row">
+        <button class="btn btn-green" onclick="alert('कोर्स — झलक')">📚 10,000+ कोर्स देखें!</button>
+        <button class="btn btn-green stack" onclick="alert('जॉब — झलक')">🔍 देश और विदेश में<br>जॉब खोजें</button>
+        <button class="btn btn-green" onclick="alert('उद्यम — झलक')">🌍 950+ उद्यम शुरू करें!</button>
+      </div>
 
-    <div class="cta-row">
-      <button class="btn btn-green" onclick="alert('कोर्स — झलक')">📚 10,000+ कोर्स देखें!</button>
-      <button class="btn btn-green stack" onclick="alert('जॉब — झलक')">🔍 देश और विदेश में<br>जॉब खोजें</button>
-      <button class="btn btn-green" onclick="alert('उद्यम — झलक')">🌍 950+ उद्यम शुरू करें!</button>
+      <div class="freebadge">✅ मोबाइल से ऑनलाइन पढ़ाई हमेशा निःशुल्क!</div>
     </div>
+  </section>
+  <!-- PAGE-CONTENT-END -->
+</main>
 
-    <div class="freebadge">✅ मोबाइल से ऑनलाइन पढ़ाई हमेशा निःशुल्क!</div>
-
-  </div>
-</section>
-
-<!-- WhatsApp float -->
-<a class="wa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+<!-- ===== WhatsApp (खोल) ===== -->
+<a class="wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
   <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true">
     <path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/>
   </svg>
 </a>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER (खोल) ===== -->
 <footer>
   <div class="wrap">
-    <h5>एप्लाइड कंप्यूटर स्कूल™</h5>
-    <p>80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <h5 id="acsFootName">एप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
 
     <nav class="fmenu" id="footerMenu" aria-label="फुटर मेन्यू"></nav>
 
     <div class="fblock">
       <b>📜 प्रमाण पत्र देने वाली संस्था</b>
-      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
-      <p>प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
     </div>
 
     <div class="fblock">
       <b>📞 संपर्क</b>
-      <p><a href="tel:+919431210092">+91-9431210092</a> · <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
-      <p>📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
     </div>
 
     <p class="warn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
-    <div class="f-bottom">© 2026 एप्लाइड कंप्यूटर स्कूल™ • acslearn.com</div>
+    <div class="f-bottom">© 2026 <span id="acsCopy">एप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
   </div>
 </footer>
 
-<!-- SLIDE MENU -->
+<!-- ===== SLIDE MENU (खोल) ===== -->
 <div class="scrim" id="scrim" onclick="closeMenu()"></div>
 <nav class="drawer" id="drawer" aria-label="मेन्यू">
   <button class="close" onclick="closeMenu()" aria-label="बंद करें">✕</button>
   <h4>मेन्यू</h4>
   <div id="menuList"></div>
-  <a class="login" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
 </nav>
 
 <script>
-  const ACS_MENU = [
-    {icon:"🏠", label:"होम", href:"#"},
-    {icon:"🎯", label:"मिशन", href:"#"},
-    {icon:"🧭", label:"सलाह", href:"#"},
-    {icon:"🌍", label:"उद्यम", href:"#"},
-    {icon:"📚", label:"कोर्स", href:"#"},
-    {icon:"📝", label:"रजिस्ट्रेशन", href:"/join.html"},
-    {icon:"🏆", label:"प्रमाण पत्र", href:"#"},
-    {icon:"🤝", label:"नेटवर्क", href:"#"},
-    {icon:"📱", label:"वाणी", href:"#"},
-    {icon:"📞", label:"संपर्क", href:"#"}
-  ];
-  const ml=document.getElementById('menuList');
-  ACS_MENU.forEach(m=>{ const a=document.createElement('a'); a.href=m.href;
-    a.innerHTML='<span class="e">'+m.icon+'</span>'+m.label; a.onclick=closeMenu; ml.appendChild(a); });
-  // footer menu — वही single-source ACS_MENU से
-  const fm=document.getElementById('footerMenu');
-  ACS_MENU.forEach(m=>{ const a=document.createElement('a'); a.href=m.href;
-    a.innerHTML='<span>'+m.icon+'</span>'+m.label; fm.appendChild(a); });
-  const drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim');
-  function openMenu(){ drawer.classList.add('open'); scrim.classList.add('open'); }
-  function closeMenu(){ drawer.classList.remove('open'); scrim.classList.remove('open'); }
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+/* ===== खोल का दिमाग़ — config + links से सब जोड़ो ===== */
+(function(){
+  var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
+
+  /* 1) रंग/फ़ॉन्ट config से → CSS variables (एक जगह बदलो → सब बदले) */
+  try{
+    var r = document.documentElement.style, col = C.colors||{}, f = C.fonts||{}, lay = C.layout||{};
+    if(col.navy)     r.setProperty('--navy', col.navy);
+    if(col.blue)     r.setProperty('--blue', col.blue);
+    if(col.gold)     r.setProperty('--gold', col.gold);
+    if(col.green)    r.setProperty('--green', col.green);
+    if(col.offwhite) r.setProperty('--offwhite', col.offwhite);
+    if(f.size_base)  r.setProperty('--base', f.size_base);
+    if(f.line_height)r.setProperty('--lh', f.line_height);
+    if(f.family_text)r.setProperty('--font', f.family_text);
+    if(lay.max_width)r.setProperty('--maxw', lay.max_width);
+  }catch(e){}
+
+  /* 2) org जानकारी config से भरो (fallback text पहले से HTML में) */
+  try{
+    var o = C.org||{};
+    var set = function(id,val){ var el=document.getElementById(id); if(el&&val) el.textContent=val; };
+    if(o.name_hi){ set('acsName', o.name_hi+'™'); set('acsFootName', o.name_hi+'™'); set('acsCopy', o.name_hi+'™'); }
+    set('acsTagline', o.tagline_hi);
+    set('acsFootTag', o.tagline_full_hi);
+    if(o.trust_hi) set('acsTrust', o.trust_hi+' ('+ (o.trust_short||'') +')');
+    if(o.iso) set('acsCert', 'प्रमाणन: '+o.iso+' · वेबसाइट: '+(o.trust_site||''));
+    var ph=document.getElementById('acsPhone'); if(ph&&o.phone){ ph.textContent=o.phone; ph.href='tel:'+o.phone.replace(/[^0-9+]/g,''); }
+    var em=document.getElementById('acsEmail'); if(em&&o.email){ em.textContent=o.email; em.href='mailto:'+o.email; }
+    if(o.address_hi) set('acsAddr', '📍 '+o.address_hi);
+    var wa=document.getElementById('acsWa'); if(wa&&o.whatsapp) wa.href=o.whatsapp;
+    var lg=document.getElementById('acsLogo'); if(lg&&o.logo) lg.src=o.logo;
+  }catch(e){}
+
+  /* 3) MENU links.js से → drawer + footer (एक जगह = 10 items) */
+  try{
+    var menu = L.menu||[], paths = L.paths||{};
+    var drawer=document.getElementById('menuList'), fm=document.getElementById('footerMenu');
+    menu.forEach(function(m){
+      if(drawer){ var a=document.createElement('a'); a.href=m.href;
+        a.innerHTML='<span class="e">'+m.icon+'</span>'+m.label; a.onclick=closeMenu; drawer.appendChild(a); }
+      if(fm){ var b=document.createElement('a'); b.href=m.href;
+        b.innerHTML='<span>'+m.icon+'</span>'+m.label; fm.appendChild(b); }
+    });
+    var login=document.getElementById('acsLogin'); if(login&&paths.login) login.href=paths.login;
+  }catch(e){}
+})();
+
+/* ===== menu खोलना/बंद करना ===== */
+function openMenu(){ document.getElementById('drawer').classList.add('open'); document.getElementById('scrim').classList.add('open'); }
+function closeMenu(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('scrim').classList.remove('open'); }
+function acsLanguage(){ alert('भाषा चयन — जल्द जुड़ेगा'); }
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
 </script>
 </body>
 </html>
