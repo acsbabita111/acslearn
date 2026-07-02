@@ -1,47 +1,43 @@
-/* ════════════════════════════════════════════════════════════════
-   links.js  —  ACS menu व paths का एकमात्र घर (single source / परत-1)
-   ----------------------------------------------------------------
-   नियम: menu/links सिर्फ़ यहाँ। navbar + footer-sitemap दोनों इसी से बनें
-   (दो जगह hardcode नहीं → एक बदलो, दोनों बदलें)।
-   10 items अटल — क्रम कभी न बदले; कोई 11वाँ नहीं।
-   path में {lang} = भाषा-folder (hi/en/kn…); बाक़ी paths साझा।
-   नई भाषा = हर item के label में नया code जोड़ें (path वही)।
-   ════════════════════════════════════════════════════════════════ */
+/* ============================================================
+   links.js  —  menu + paths का एकमात्र घर (परत 1 का हिस्सा)
+   ------------------------------------------------------------
+   नियम (Constitution):
+   • menu/links सिर्फ़ यहाँ। config में दोबारा नहीं।
+   • यहाँ बदलो → navbar-drawer + footer + हर पेज एक साथ बदले।
+   • MENU = 10 items — अटल, कभी 11वाँ नहीं।
+   ============================================================ */
 
-window.ACS_LINKS = {
+const ACS_LINKS = {
 
-  /* ── 10 अटल menu items ── */
-  items: [
-    { key: "home",     icon: "🏠", path: "/",                    label: { hi: "होम" } },
-    { key: "mission",  icon: "🎯", path: "/{lang}/mission.html", label: { hi: "मिशन" } },
-    { key: "salah",    icon: "🧭", path: "/{lang}/salah.html",   label: { hi: "सलाह" } },
-    { key: "udyam",    icon: "🌍", path: "/udyam/",              label: { hi: "उद्यम" } },
-    { key: "courses",  icon: "📚", path: "/courses/{lang}/",     label: { hi: "कोर्स" } },
-    { key: "register", icon: "📝", path: "/join.html",           label: { hi: "रजिस्ट्रेशन" } },
-    { key: "verify",   icon: "🏆", path: "/verify/",             label: { hi: "प्रमाण पत्र" } },
-    { key: "network",  icon: "🤝", path: "/{lang}/network.html", label: { hi: "नेटवर्क" } },
-    { key: "vani",     icon: "📱", path: "/vani/",               label: { hi: "वाणी" } },
-    { key: "contact",  icon: "📞", path: "/contact/{lang}/",     label: { hi: "संपर्क" } }
+  /* ---------- 10-item MENU (अटल क्रम) ----------
+     icon · label (देवनागरी) · href
+     ("#___" = अभी उसी पेज का हिस्सा;  "TODO" = पेज बनने पर पक्का path) */
+  menu: [
+    { icon: "🏠", label: "होम",         href: "/" },
+    { icon: "🎯", label: "मिशन",        href: "/mission.html" },
+    { icon: "🧭", label: "सलाह",         href: "#" },   /* TODO: सलाह पेज */
+    { icon: "🌍", label: "उद्यम",        href: "/udyam/" },
+    { icon: "📚", label: "कोर्स",        href: "/courses/" },
+    { icon: "📝", label: "रजिस्ट्रेशन",   href: "/join.html" },
+    { icon: "🏆", label: "प्रमाण पत्र",   href: "#" },   /* TODO: certificate पेज */
+    { icon: "🤝", label: "नेटवर्क",       href: "#" },   /* TODO: network पेज */
+    { icon: "📱", label: "वाणी",          href: "#" },   /* TODO: वाणी पेज */
+    { icon: "📞", label: "संपर्क",        href: "#contact" }
   ],
 
-  /* ── Login/Dashboard (menu के बाद अलग बटन) ── */
-  login: {
-    icon:  "🔑",
-    label: { hi: "Login / Dashboard" }
-  },
-
-  /* ── सहायक: किसी भाषा के लिए तैयार menu निकालें ──
-     acs-app.js इसी से navbar + footer दोनों बनाएगा।
-     label न मिले तो मूल (hi) दिखे — जब तक अनुवाद न हो।                  */
-  build: function (lang) {
-    lang = lang || (window.ACS_CONFIG && ACS_CONFIG.langs.source) || "hi";
-    return this.items.map(function (it) {
-      return {
-        key:   it.key,
-        icon:  it.icon,
-        href:  it.path.replace("{lang}", lang),
-        text:  it.label[lang] || it.label.hi
-      };
-    });
+  /* ---------- ख़ास paths (single source) ---------- */
+  paths: {
+    home:       "/",
+    login:      "/dashboard/",     /* 🔑 Login/Dashboard */
+    dashboard:  "/dashboard/",
+    register:   "/join.html",      /* 10 रजिस्ट्रेशन-कार्ड यहीं */
+    udyam:      "/udyam/",
+    courses:    "/courses/",
+    jobs:       "#",               /* TODO: jobs पेज */
+    language:   "#"                /* TODO: भाषा-चयन */
   }
+
 };
+
+if (typeof window !== "undefined") window.ACS_LINKS = ACS_LINKS;
+if (typeof module !== "undefined") module.exports = ACS_LINKS;
