@@ -10,10 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <!-- परत 1: CONFIG + LINKS (एकमात्र घर) -->
-<script src="acs-config.js"></script>
-<script src="links.js"></script>
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
 <!-- परत: PRESENTATION (एक बार cache, सब पेज तेज़) -->
-<link rel="stylesheet" href="acs-style.css">
+<link rel="stylesheet" href="/acs-style.css">
 </head>
 <body>
 
@@ -24,7 +25,7 @@
 <header class="nav">
   <div class="nav-in">
     <div class="brand">
-      <span class="mark"><img id="acsLogo" src="logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
       <span class="name" id="acsName">एप्लाइड कंप्यूटर स्कूल™</span>
     </div>
     <div class="navbtns">
@@ -33,6 +34,12 @@
     </div>
   </div>
 </header>
+
+<!-- भाषा panel (acs-translate.js इसे भरता है) -->
+<div class="translate-panel" id="translatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
 
 <!-- ===== गोल्डन पट्टी (खोल) ===== -->
 <div class="freebar">
@@ -58,7 +65,7 @@
 </a>
 
 <!-- ===== FOOTER (खोल) ===== -->
-<footer>
+<footer id="contact">
   <div class="wrap">
     <h5 id="acsFootName">एप्लाइड कंप्यूटर स्कूल™</h5>
     <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
@@ -143,7 +150,7 @@
 /* ===== menu खोलना/बंद करना ===== */
 function openMenu(){ document.getElementById('drawer').classList.add('open'); document.getElementById('scrim').classList.add('open'); }
 function closeMenu(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('scrim').classList.remove('open'); }
-function acsLanguage(){ alert('भाषा चयन — जल्द जुड़ेगा'); }
+function acsLanguage(){ var p=document.getElementById('translatePanel'); if(p) p.classList.toggle('open'); }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
 </script>
 </body>
