@@ -75,6 +75,13 @@ const ACS_CONFIG = {
     logo:        "logo.png"   // न खुले तो "ACS" text fallback
   },
 
+  /* ---------- भाषाएँ (script.js/acs-translate की माँग) ---------- */
+  langs: {
+    source: "hi",                       /* मूल भाषा (Constitution: मूल→अंग्रेज़ी→बाक़ी) */
+    google: ["hi","en","kn","mr","bn","te","ta","gu","pa","ur","ml","or",
+             "as","ne","sw","fr","es","pt","ar","id","vi","ha"]
+  },
+
   /* ---------- 4) लेआउट (mobile-first) ---------- */
   layout: {
     max_width:        "1100px",
