@@ -1,466 +1,229 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="referrer" content="strict-origin-when-cross-origin"/>
-
-  <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
-  <title>ACS — शून्य से शिखर तक | Applied Computer School™</title>
-  <meta name="description" content="गाँव से विश्व तक — 950 सेक्टर के निःशुल्क ऑनलाइन कोर्स व 1.5 लाख बिज़नेस आइडिया। शून्य से शिखर तक अपना रास्ता चुनें। ACS · FFGPMTrust।"/>
-  <link rel="canonical" href="https://acslearn.com/"/>
-  <meta name="robots" content="index,follow"/>
-
-  <!-- मूल → अंग्रेज़ी → बाक़ी; generator हर भाषा के लिए hreflang भरे -->
-    <link rel="alternate" hreflang="hi" href="https://acslearn.com/"/>
-  <link rel="alternate" hreflang="en" href="https://acslearn.com/en/"/>
-  <link rel="alternate" hreflang="x-default" href="https://acslearn.com/"/>
-
-  <!-- Open Graph / सोशल शेयर -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="ACS — शून्य से शिखर तक | Applied Computer School™"/>
-  <meta property="og:description" content="गाँव से विश्व तक — 950 सेक्टर के निःशुल्क ऑनलाइन कोर्स व 1.5 लाख बिज़नेस आइडिया। शून्य से शिखर तक अपना रास्ता चुनें। ACS · FFGPMTrust।"/>
-  <meta property="og:image" content="https://acslearn.com/logo.png"/>
-  <meta property="og:locale" content="hi"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
-  <!-- PWA / icon / रंग -->
-  <meta name="theme-color" content="#0B1F3A"/>
-  <link rel="manifest" href="/manifest.json"/>
-  <link rel="icon" href="/logo.png"/>
-  <link rel="apple-touch-icon" href="/logo.png"/>
-
-  <!-- फ़ॉन्ट (sw.js के precache URL से हूबहू मेल — 400–900) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-
-  <!-- मास्टर CSS (एकमात्र — रूट से, हर भाषा-folder से मिलेगा) -->
-  <link rel="stylesheet" href="/style.css"/>
-</head>
-
-<!-- data-lang = page की भाषा (app.js की "सुनो"/TTS व script.js इसे पढ़ें) -->
-<body data-lang="hi" data-page="home">
-
-  <!-- keyboard वालों के लिए सीधा content पर -->
-  <a href="#main" class="acs-skip">मुख्य content पर जाएँ</a>
-
-  <!-- ══ NAVBAR (header सिर्फ़ यहीं — किसी page में दोबारा नहीं) ══
-       slide-menu व भाषा-panel script.js अपने-आप जोड़ता है (links.js के 10 items)। -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="/" class="brand">
-        <img class="brand-logo-img" src="/logo.png" alt="ACS"/>
-        <span class="brand-name">Applied Computer School™</span>
-      </a>
-      <div class="nav-controls">
-        <button class="lang-btn" id="languageToggle" type="button"
-                aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
-        <button class="menu-btn" id="menuToggle" type="button"
-                aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
-  <div class="trust-strip">
-    <p style="font-size:16px;font-weight:700;white-space:nowrap">✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
-    <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
-  </div>
-
-  <!-- ══ हर page का अपना content सिर्फ़ यहाँ बदलता है ══ -->
-  <main id="main">
-    <!-- ════════ HOME — बीच का content (master design-system) ════════ -->
-
-<!-- HERO (होमपेज-विशेष डिज़ाइन — सिर्फ़ यहीं; .page-hero बाक़ी sitewide pages पर अछूता) -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>एप्लाइड कंप्यूटर स्कूल — ACS</title>
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  .acs-home-hero{
-    background:
-      radial-gradient(circle at 12% 18%, rgba(255,255,255,.07) 1.5px, transparent 0) 0 0/26px 26px,
-      linear-gradient(135deg, var(--navy) 0%, #0F2A52 55%, var(--blue) 130%);
-    padding:46px 16px 40px; border-bottom:none;
+  :root{
+    --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
+    --base:19px; --lh:1.8; --maxw:1100px;
+    --font:'Noto Sans Devanagari','Inter',sans-serif;
   }
-  .acs-hero-eyebrow{
-    display:inline-block; background:var(--gold); color:var(--navy);
-    font-weight:800; font-size:16px; padding:7px 18px; border-radius:999px; margin-bottom:16px;
-    letter-spacing:.2px;
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:var(--font); font-size:var(--base); line-height:var(--lh);
+    color:var(--navy); background:var(--navy); -webkit-text-size-adjust:100%; }
+  a{ text-decoration:none; color:inherit; }
+  button:focus-visible,a:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; border-radius:6px; }
+
+  /* NAVBAR */
+  header.nav{ position:sticky; top:0; z-index:50; background:var(--navy); color:#fff; }
+  .nav-in{ display:flex; align-items:center; gap:10px; max-width:var(--maxw); margin:0 auto; padding:12px 16px; }
+  .brand{ display:flex; align-items:center; gap:11px; flex:1; min-width:0; }
+  .brand .mark{ width:46px; height:46px; border-radius:10px; flex:0 0 auto;
+    background:linear-gradient(135deg,var(--gold),#ffcf4d); color:var(--navy);
+    display:grid; place-items:center; font-weight:800; font-size:18px; }
+  .brand .name{ font-weight:800; font-size:19px; line-height:1.2; }
+  .navbtns{ display:flex; gap:8px; flex:0 0 auto; }
+  .navbtn{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18); color:#fff;
+    border-radius:12px; min-width:58px; padding:8px 8px 6px; cursor:pointer; text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:2px; font-size:13px; font-weight:600; }
+  .navbtn .e{ font-size:18px; }
+  .navbtn .e.globe{ color:#5aa9ff; }
+
+  /* GREEN FREE BANNER */
+  .freebar{ background:var(--green); color:#fff; text-align:center; padding:14px 16px; }
+  .freebar b{ font-size:clamp(14px,4.4vw,21px); font-weight:700; white-space:nowrap; }
+  .freebar small{ display:block; font-size:15px; opacity:.92; margin-top:2px; }
+
+  /* HERO */
+  .hero{ position:relative; background:var(--navy);
+    background-image:radial-gradient(rgba(255,255,255,.05) 1.4px, transparent 1.4px); background-size:22px 22px; }
+  .hero-in{ max-width:760px; margin:0 auto; padding:36px 18px 110px; text-align:center; color:#fff; }
+
+  .pill{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+    background:var(--gold); color:var(--navy); font-weight:800;
+    font-size:clamp(24px,7vw,34px); padding:18px 18px; border-radius:18px;
+    box-shadow:0 8px 20px rgba(249,168,37,.35); }
+  h1.title{ margin-top:26px; font-size:38px; font-weight:800; line-height:1.28; color:#fff; }
+  h1.title .g{ color:var(--gold); }
+  .subtag{ margin-top:16px; font-size:20px; font-weight:600; color:#dbe6f7; line-height:1.6; }
+  .subtag .g{ color:var(--gold); }
+  .rule{ width:70px; height:5px; background:var(--gold); border-radius:999px; margin:22px auto 0; }
+
+  /* CTA buttons */
+  .cta-row{ display:flex; flex-direction:column; gap:14px; margin-top:30px; }
+  .btn{ font-size:21px; font-weight:700; border:none; border-radius:999px; padding:16px 22px;
+    cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:10px; color:#fff; }
+  .btn-green{ background:var(--green); }
+  .btn-blue{ background:var(--blue); }
+  .btn-gold{ background:var(--gold); color:var(--navy); }
+  .btn.stack{ display:block; text-align:center; line-height:1.35; }
+
+  /* free info badge */
+  .freebadge{ margin-top:22px; display:inline-flex; align-items:center; gap:10px;
+    background:rgba(46,125,50,.18); color:#a6e6ad; border:1px solid rgba(46,125,50,.6);
+    font-weight:700; font-size:19px; padding:13px 24px; border-radius:999px; }
+
+  /* STAT CARDS */
+  .stats{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:34px; }
+  .scard{ background:#fff; border-radius:18px; padding:22px 14px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
+  .scard b{ display:block; font-family:'Inter',var(--font); font-weight:800; font-size:36px; line-height:1.1; }
+  .scard.blue b{ color:var(--blue); }
+  .scard.green b{ color:var(--green); }
+  .scard span{ display:block; margin-top:8px; font-size:17px; font-weight:600; color:#3a4a63; }
+  .stats-note{ margin-top:12px; font-size:14px; color:#9fb3d6; }
+
+  /* WhatsApp float */
+  .wa{ position:fixed; right:16px; bottom:20px; width:58px; height:58px; border-radius:50%;
+    background:#25D366; display:grid; place-items:center; z-index:40; box-shadow:0 8px 22px rgba(37,211,102,.5); }
+
+  /* FOOTER */
+  footer{ background:#081527; color:#9fb3d6; padding:40px 0 30px; }
+  footer .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; text-align:center; }
+  footer h5{ color:#fff; font-size:18px; margin-bottom:10px; }
+  footer p{ font-size:16px; }
+  footer a{ color:#9fb3d6; }
+  .fmenu{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px 18px; margin:22px 0 4px; }
+  .fmenu a{ display:inline-flex; align-items:center; gap:6px; color:#cdd8ea; font-size:16px; font-weight:600; }
+  .fmenu a:hover{ color:var(--gold); }
+  .warn{ margin-top:12px; color:var(--gold); font-size:15px; }
+  .fblock{ margin-top:20px; }
+  .fblock b{ display:block; color:#fff; font-size:16px; margin-bottom:6px; }
+  .fblock p{ margin:2px 0; }
+  .f-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:22px; padding-top:16px; font-size:14px; text-align:center; }
+
+  /* SLIDE MENU */
+  .scrim{ position:fixed; inset:0; background:rgba(0,0,0,.5); opacity:0; visibility:hidden; transition:.25s; z-index:70; }
+  .scrim.open{ opacity:1; visibility:visible; }
+  .drawer{ position:fixed; top:0; right:0; height:100%; width:84%; max-width:330px; background:var(--navy);
+    color:#fff; z-index:80; transform:translateX(105%); transition:transform .28s; padding:18px; overflow-y:auto; }
+  .drawer.open{ transform:translateX(0); }
+  .drawer h4{ color:var(--gold); font-size:14px; letter-spacing:.6px; margin:6px 6px 12px; }
+  .drawer a{ display:flex; align-items:center; gap:14px; padding:13px 12px; border-radius:12px;
+    font-size:18px; font-weight:600; color:#fff; }
+  .drawer a:hover{ background:rgba(255,255,255,.08); }
+  .drawer a.login{ background:var(--gold); color:var(--navy); margin-top:10px; font-weight:800; justify-content:center; }
+  .drawer a .e{ font-size:22px; width:28px; text-align:center; }
+  .drawer .close{ float:right; background:none; border:none; color:#fff; font-size:26px; cursor:pointer; }
+
+  @media(min-width:620px){
+    .cta-row{ flex-direction:row; justify-content:center; flex-wrap:wrap; }
+    h1.title{ font-size:48px; }
   }
-  .acs-hero-title{
-    color:#fff; font-weight:900; line-height:1.28; margin:0;
-    font-size:2.55rem; text-shadow:0 2px 14px rgba(0,0,0,.18);
-  }
-  .acs-hero-title .acc{ color:var(--gold); }
-  .acs-hero-rule{ width:74px; height:4px; background:var(--gold); border-radius:999px; margin:20px auto 26px; }
-  .acs-home-hero .hero-secondary-links{ margin:0 0 22px }
-  .acs-home-hero .notice-card{ box-shadow:0 10px 24px rgba(0,0,0,.16); border:none }
-  @media(max-width:640px){
-    .acs-home-hero{padding:36px 14px 30px}
-    .acs-hero-title{font-size:1.95rem}
-    .acs-hero-eyebrow{font-size:16px}
-  }
+  @media(prefers-reduced-motion:reduce){ *{ transition:none; } }
 </style>
-<section class="page-hero acs-home-hero">
-  <div class="page-hero-inner">
-    <!-- (बीच का logo हटाया — ऊपर navbar में पहले से दिखता है) -->
+</head>
+<body>
 
-    <span class="acs-hero-eyebrow">✨ सुंदर भविष्य के लिए</span>
-    <h1 class="acs-hero-title">एप्लाइड कंप्यूटर स्कूल<br/><span class="acc">से जुड़ें!</span></h1>
-    <div class="acs-hero-rule"></div>
+<!-- NAVBAR -->
+<header class="nav">
+  <div class="nav-in">
+    <div class="brand">
+      <span class="mark">ACS</span>
+      <span class="name">एप्लाइड कंप्यूटर स्कूल™</span>
+    </div>
+    <div class="navbtns">
+      <button class="navbtn" onclick="alert('भाषा चुनें — झलक')"><span class="e globe">🌐</span>भाषा</button>
+      <button class="navbtn" onclick="openMenu()"><span class="e">☰</span>मेन्यू</button>
+    </div>
+  </div>
+</header>
 
-    <div class="hero-secondary-links" style="margin:0 0 18px">
-      <a href="/courses/hi/" class="btn btn-primary">📚 कोर्स देखें</a>
-      <a href="/udyam/#jobs" class="btn btn-accent">🔍 जॉब सर्च करें</a>
-      <a href="/udyam/#udyam" class="btn btn-gold">🌍 उद्यम शुरू करें</a>
+<!-- GREEN FREE BANNER -->
+<div class="freebar">
+  <b>80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small>मूल भाषा: हिंदी</small>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-in">
+
+    <span class="pill">✨ सुंदर भविष्य के लिए</span>
+    <h1 class="title">एप्लाइड कंप्यूटर स्कूल<br><span class="g">से जुड़ें!</span></h1>
+    <div class="rule"></div>
+
+    <div class="cta-row">
+      <button class="btn btn-green" onclick="alert('कोर्स — झलक')">📚 10,000+ कोर्स देखें!</button>
+      <button class="btn btn-blue stack" onclick="alert('जॉब — झलक')">🔍 देश और विदेश में<br>जॉब खोजें</button>
+      <button class="btn btn-gold" onclick="alert('उद्यम — झलक')">🌍 950+ उद्यम शुरू करें!</button>
     </div>
 
-    <!-- हीरो के अंदर वाले आँकड़े हटाए — नीचे STATS STRIP में ये पहले से हैं (दोहराव न हो) -->
+    <div class="freebadge">✅ मोबाइल से ऑनलाइन पढ़ाई हमेशा निःशुल्क!</div>
 
-    <span style="display:inline-block;background:var(--green);color:#fff;font-weight:800;padding:9px 20px;border-radius:999px">
-      ✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क
-    </span>
   </div>
 </section>
 
-<!-- STATS STRIP -->
-<section class="section-container" style="padding-top:0">
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <div class="notice-card" style="min-width:140px;text-align:center"><div style="font-size:1.6rem;font-weight:900;color:var(--blue)">950+</div><div style="color:var(--muted);font-weight:700">बिज़नेस सेक्टर</div></div>
-    <div class="notice-card" style="min-width:140px;text-align:center"><div style="font-size:1.6rem;font-weight:900;color:var(--green)">1.50 लाख</div><div style="color:var(--muted);font-weight:700">बिज़नेस आइडिया</div></div>
-    <div class="notice-card" style="min-width:140px;text-align:center"><div style="font-size:1.6rem;font-weight:900;color:var(--gold)">निःशुल्क</div><div style="color:var(--muted);font-weight:700">Online Courses</div></div>
-    <div class="notice-card" style="min-width:140px;text-align:center"><div style="font-size:1.6rem;font-weight:900;color:var(--navy)">ISO</div><div style="color:var(--muted);font-weight:700">9001:2015 Certified</div></div>
-    <div class="notice-card" style="min-width:140px;text-align:center"><div style="font-size:1.6rem;font-weight:900;color:var(--blue)">2036</div><div style="color:var(--muted);font-weight:700">Vision Year</div></div>
-  </div>
-</section>
+<!-- WhatsApp float -->
+<a class="wa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true">
+    <path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/>
+  </svg>
+</a>
 
-  </main>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <h5>एप्लाइड कंप्यूटर स्कूल™</h5>
+    <p>80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
 
-  <!-- ══ FOOTER (footer सिर्फ़ यहीं) — links links.js से मेल खाएँ ══ -->
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand-info">
-        <h2>Applied Computer School™</h2>
-        <p class="sponsor-org">FFGPMTrust · ISO 9001:2015</p>
-        <p class="tagline">गाँव से विश्व तक — निःशुल्क डिजिटल शिक्षा</p>
-        <div class="iso-box">ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar — 851201</div>
-      </div>
-      <div class="footer-sitemap">
-        <h3>मेन्यू</h3>
-        <ul class="sitemap-links">
-          <li><a href="/">🏠 होम</a></li>
-          <li><a href="/hi/mission.html">🎯 मिशन</a></li>
-          <li><a href="/hi/salah.html">🧭 सलाह</a></li>
-          <li><a href="/udyam/">🌍 उद्यम</a></li>
-          <li><a href="/courses/hi/">📚 कोर्स</a></li>
-          <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
-          <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
-          <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
-          <li><a href="/vani/">📱 वाणी</a></li>
-          <li><a href="/contact/hi/">📞 संपर्क</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h3>संपर्क</h3>
-        <p class="contact-item"><a href="tel:+919431210092">📞 +91-9431210092</a></p>
-        <p class="contact-item"><a href="mailto:acs.chautham@gmail.com">✉️ acs.chautham@gmail.com</a></p>
-        <p class="contact-item"><a href="https://wa.me/919431210092" target="_blank" rel="noopener">💬 WhatsApp</a></p>
-        <p class="contact-item"><a href="https://youtube.com/@AppliedComputerSchool" target="_blank" rel="noopener">▶️ YouTube</a></p>
-      </div>
+    <nav class="fmenu" id="footerMenu" aria-label="फुटर मेन्यू"></nav>
+
+    <div class="fblock">
+      <b>📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p>फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p>प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
     </div>
-    <div class="footer-bottom">© <span id="acsYear"></span> Applied Computer School™ · FFGPMTrust · acslearn.com</div>
-  </footer>
 
-  <!-- ══ LOGIN MODAL (login सिर्फ़ यहीं; Firebase तभी load हो जब खुले) ══ -->
-  <div class="acs-modal-bg" id="acsLoginModal" role="dialog" aria-modal="true" aria-labelledby="acsLoginTitle">
-    <div class="acs-modal">
-      <button class="acs-iconbtn" id="acsLoginClose" type="button" aria-label="बंद करें"
-              style="position:absolute;top:10px;right:10px">✕</button>
-
-      <div id="acsLoginView">
-        <h3 id="acsLoginTitle">🔑 Login</h3>
-        <p class="sub">अपना ईमेल व पासवर्ड डालें</p>
-        <div class="acs-field">
-          <label for="acsEmail">ईमेल (Email)</label>
-          <input id="acsEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com"/>
-        </div>
-        <div class="acs-field">
-          <label for="acsPass">पासवर्ड (Password)</label>
-          <input id="acsPass" type="password" autocomplete="current-password" placeholder="••••••••"/>
-        </div>
-        <button class="acs-submit" id="acsLoginSubmit" type="button">Login करें</button>
-        <p class="err" id="acsLoginErr" role="alert"></p>
-      </div>
-
-      <div id="acsOtpView" style="display:none">
-        <h3>🔒 OTP डालें</h3>
-        <p class="sub">आपके ईमेल पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</p>
-        <div class="acs-field">
-          <label for="acsOtpInput">6-अंकी OTP</label>
-          <input id="acsOtpInput" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="______"/>
-        </div>
-        <button class="acs-submit" id="acsOtpSubmit" type="button">Verify करें</button>
-        <p id="acsOtpTimer" class="sub" style="margin-top:8px"></p>
-        <button id="acsOtpResend" type="button" disabled
-                style="background:none;border:none;color:#1565C0;font-weight:800;cursor:not-allowed;opacity:.45;font:inherit;margin-top:2px">
-          OTP दोबारा भेजें
-        </button>
-        <p class="err" id="acsOtpErr" role="alert"></p>
-      </div>
-
-      <div class="acs-welcome" id="acsWelcome">
-        <div class="ic">✅</div>
-        <h2>स्वागत है!</h2>
-        <p class="sub">आपके dashboard पर भेजा जा रहा है…</p>
-      </div>
+    <div class="fblock">
+      <b>📞 संपर्क</b>
+      <p><a href="tel:+919431210092">+91-9431210092</a> · <a href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p>📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
     </div>
+
+    <p class="warn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="f-bottom">© 2026 एप्लाइड कंप्यूटर स्कूल™ • acslearn.com</div>
   </div>
+</footer>
 
-  <!-- ══ SCRIPTS — क्रम ज़रूरी: config → links → translate → script ══ -->
-  <script src="/assets/acs-config.js"></script>
-  <script src="/assets/links.js"></script>
-  <script src="/assets/acs-translate.js"></script>
-  <script src="/script.js"></script>
+<!-- SLIDE MENU -->
+<div class="scrim" id="scrim" onclick="closeMenu()"></div>
+<nav class="drawer" id="drawer" aria-label="मेन्यू">
+  <button class="close" onclick="closeMenu()" aria-label="बंद करें">✕</button>
+  <h4>मेन्यू</h4>
+  <div id="menuList"></div>
+  <a class="login" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
 
-  <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
-  <script>
-  (function () {
-    document.getElementById("acsYear").textContent = new Date().getFullYear();
-
-    var modal     = document.getElementById("acsLoginModal");
-    var closeBtn  = document.getElementById("acsLoginClose");
-    var loginView = document.getElementById("acsLoginView");
-    var otpView   = document.getElementById("acsOtpView");
-    var welcome   = document.getElementById("acsWelcome");
-    var errEl     = document.getElementById("acsLoginErr");
-    var otpErr    = document.getElementById("acsOtpErr");
-    var otpTimerEl= document.getElementById("acsOtpTimer");
-    var resendBtn = document.getElementById("acsOtpResend");
-    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null, pendingDesignation = "";
-
-    var SESSION_KEY = "acs_session";
-    var OTP_VALID = 300, OTP_RESEND = 600;   // 5 मिनट valid · 10 मिनट resend
-
-    /* ── Role → URL (Constitution v1.5 मास्टर-सूची; role/designation Firestore में snake_case) ── */
-    /* 9 सीधे कार्ड */
-    var ROLE_URLS = {
-      student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
-      teacher:"/dashboard/teacher/", center:"/dashboard/center/", counselor:"/dashboard/counselor/",
-      employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
-    };
-    /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
-    var TEAM_URLS = {
-      founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
-      hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
-      zm:"/dashboard/zonal/", rm:"/dashboard/regional/",
-      field_staff:"/dashboard/hq/staff/", intern:"/dashboard/hq/staff/"
-    };
-
-    /* 3 Learner कार्ड → re-login पर OTP नहीं */
-    function isLearner(r){ return r==="student" || r==="jobseeker" || r==="entrepreneur"; }
-    /* सही dashboard URL */
-    function destFor(role, designation){
-      if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
-      return ROLE_URLS[role] || "/dashboard/student/";
-    }
-    /* (BUG-FIX) role/designation अब "users" collection में नहीं — अपनी-अपनी
-       role-collection में (students/teachers/centers/.../teams) रहता है।
-       login के वक़्त role पहले से पता नहीं होता — इसलिए क्रम से ढूँढते हैं
-       (rules में यही collections पहले से पढ़ने योग्य — कोई नया deploy नहीं चाहिए)। */
-    var USER_COLLECTIONS = ["students","jobseekers","entrepreneurs","teachers","centers",
-                             "counselors","employers","foreign_agents","volunteers","teams"];
-    function findUserDoc(uid){
-      var db = window.firebase.firestore();
-      var i = 0;
-      function tryNext(){
-        if (i >= USER_COLLECTIONS.length) return Promise.resolve(null);
-        var col = USER_COLLECTIONS[i++];
-        return db.collection(col).doc(uid).get().then(function (doc){
-          if (doc.exists) return { data: doc.data(), collection: col };
-          return tryNext();
-        }).catch(function (){ return tryNext(); });
-      }
-      return tryNext();
-    }
-    function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
-
-    function showView(which){
-      loginView.style.display = (which==="login") ? "" : "none";
-      otpView.style.display   = (which==="otp")   ? "" : "none";
-      if (which==="welcome") welcome.classList.add("show"); else welcome.classList.remove("show");
-    }
-
-    function openModal(){
-      modal.classList.add("open");
-      showView("login");
-      errEl.textContent = ""; if(otpErr) otpErr.textContent = "";
-      loadFirebase();
-      var f = document.getElementById("acsEmail"); if (f) f.focus();
-    }
-    function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
-
-    // menu (☰) के अंदर Login/Dashboard → यही modal खोले (असली bug ठीक: header में बटन था ही नहीं)
-    document.addEventListener("click", function (e){
-      var t = e.target && e.target.closest ? e.target.closest(".acs-login") : null;
-      if (t){ e.preventDefault(); openModal(); }
-    });
-    closeBtn.addEventListener("click", closeModal);
-    modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
-    document.addEventListener("keydown", function (e){
-      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
-    });
-
-    /* Firebase compat (app+auth+firestore+functions) — सिर्फ़ ज़रूरत पर */
-    function loadFirebase(){
-      if (fbReady) return fbReady;
-      var cfg = (window.ACS_CONFIG && window.ACS_CONFIG.firebase) || null;
-      if (!cfg) { if(errEl) errEl.textContent = "config नहीं मिला।"; return Promise.reject(); }
-      var B = "https://www.gstatic.com/firebasejs/10.12.2/";
-      fbReady = loadScript(B+"firebase-app-compat.js")
-        .then(function(){ return loadScript(B+"firebase-auth-compat.js"); })
-        .then(function(){ return loadScript(B+"firebase-firestore-compat.js"); })
-        .then(function(){ return loadScript(B+"firebase-functions-compat.js"); })
-        .then(function(){
-          if (!window.firebase.apps.length) window.firebase.initializeApp(cfg);
-          /* idle-logout (script.js) + सामान्य logout — session-मार्क भी हटाओ */
-          window.acsLogout = function(){
-            try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
-            try{ window.firebase.auth().signOut(); }catch(e){}
-            window.location.href = "/";
-          };
-        });
-      return fbReady;
-    }
-    function loadScript(src){
-      return new Promise(function (res, rej){
-        var s = document.createElement("script");
-        s.src = src; s.onload = res; s.onerror = rej;
-        document.head.appendChild(s);
-      });
-    }
-    /* OTP/session functions us-central1 (function-region से मेल) */
-    function fn(name){ return window.firebase.app().functions("us-central1").httpsCallable(name); }
-
-    /* ── password step ── */
-    document.getElementById("acsLoginSubmit").addEventListener("click", function (){
-      var email = document.getElementById("acsEmail").value.trim();
-      var pass  = document.getElementById("acsPass").value;
-      errEl.textContent = "";
-      if (!email || !pass) { errEl.textContent = "ईमेल व पासवर्ड दोनों भरें।"; return; }
-
-      loadFirebase().then(function (){
-        return window.firebase.auth().signInWithEmailAndPassword(email, pass);
-      }).then(function (cred){
-        var user = cred.user;
-        /* email-verify अनिवार्य — बिना verify login नहीं */
-        if (!user.emailVerified) {
-          user.sendEmailVerification().catch(function(){});
-          window.firebase.auth().signOut();
-          errEl.textContent = "पहले अपना ईमेल verify करें — verification link भेज दी गई।";
-          return;
-        }
-        /* role अपनी role-collection से (findUserDoc — ऊपर परिभाषित) */
-        return findUserDoc(user.uid).then(function (found){
-          var data = (found && found.data) || {};
-          var role = data.role || "student";
-          pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
-          if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
-          /* 7 roles → असली OTP भेजो */
-          return fn("requestLoginOtp")({ email: user.email }).then(function (res){
-            if (res && res.data && res.data.skip) return finishLogin();
-            showView("otp"); startOtpTimer();
-            if(otpErr) otpErr.textContent = "";
-            var oi = document.getElementById("acsOtpInput"); if(oi){ oi.value=""; oi.focus(); }
-          });
-        });
-      }).catch(function (e){ errEl.textContent = authMsg(e); });
-    });
-
-    /* ── OTP verify ── */
-    document.getElementById("acsOtpSubmit").addEventListener("click", function (){
-      var code = (document.getElementById("acsOtpInput").value || "").trim();
-      if(otpErr) otpErr.textContent = "";
-      if (code.length < 6) { otpErr.textContent = "6-अंकी OTP डालें।"; return; }
-      fn("verifyLoginOtp")({ email: pendingUser.email, code: code })
-        .then(function (){ if(otpTimer) clearInterval(otpTimer); return finishLogin(); })
-        .catch(function (e){ otpErr.textContent = otpMsg(e); });
-    });
-
-    /* ── OTP resend (10 मिनट बाद ही चालू) ── */
-    resendBtn.addEventListener("click", function (){
-      if (resendBtn.disabled) return;
-      if(otpErr) otpErr.textContent = "";
-      fn("requestLoginOtp")({ email: pendingUser.email })
-        .then(function (){ startOtpTimer(); })
-        .catch(function (e){ otpErr.textContent = otpMsg(e); });
-    });
-
-    function startOtpTimer(){
-      var valid = OTP_VALID, resend = OTP_RESEND;
-      resendBtn.disabled = true; resendBtn.style.opacity = ".45"; resendBtn.style.cursor = "not-allowed";
-      if (otpTimer) clearInterval(otpTimer);
-      otpTimer = setInterval(function (){
-        valid--; resend--;
-        var v = valid>0 ? ("OTP "+fmt(valid)+" में ख़त्म") : "OTP ख़त्म";
-        var r = resend>0 ? (" · दोबारा "+fmt(resend)+" बाद") : "";
-        otpTimerEl.textContent = v + r;
-        if (resend<=0){ resendBtn.disabled=false; resendBtn.style.opacity="1"; resendBtn.style.cursor="pointer"; }
-        if (valid<=0 && resend<=0) clearInterval(otpTimer);
-      }, 1000);
-    }
-
-    /* ── सफल login: single-session सेट → redirect ── */
-    function finishLogin(){
-      return fn("claimSession")({}).then(function (res){
-        var sid = res && res.data && res.data.sessionId;
-        try{ localStorage.setItem(SESSION_KEY, sid || ""); }catch(e){}
-        showView("welcome");
-        setTimeout(function (){ window.location.href = destFor(pendingRole, pendingDesignation); }, 900);
-      });
-    }
-
-    function authMsg(e){
-      if (e && e.code) return (e.code.indexOf("password")>-1 || e.code.indexOf("user")>-1)
-        ? "ईमेल या पासवर्ड ग़लत है।" : "Login नहीं हो पाया — दोबारा कोशिश करें।";
-      return "Login नहीं हो पाया।";
-    }
-    function otpMsg(e){
-      var d = (e && e.details) || {};
-      if (d.reason==="wrong")  return "OTP ग़लत — "+d.attemptsLeft+" कोशिश बची।";
-      if (d.reason==="locked") return "3 ग़लत — "+(d.hoursLeft||12)+" घंटे बाद दोबारा।";
-      if (d.reason==="expired")return "OTP ख़त्म — दोबारा भेजें।";
-      if (d.reason==="wait")   return "थोड़ी देर रुकें — दोबारा "+fmt(d.secondsLeft)+" बाद।";
-      if (d.reason==="noOtp")  return "पहले OTP भेजें।";
-      return "OTP जाँच नहीं हो पाई — दोबारा कोशिश करें।";
-    }
-
-    /* ── single-session watcher — हर page पर, पर सिर्फ़ logged-in user के लिए ──
-       localStorage में session-मार्क हो तभी Firebase load (anonymous pages हल्के)। */
-    (function watchSession(){
-      var sid; try{ sid = localStorage.getItem(SESSION_KEY); }catch(e){ sid = null; }
-      if (!sid) return;                       // logged-in नहीं → page हल्का रहे
-      loadFirebase().then(function (){
-        window.firebase.auth().onAuthStateChanged(function (user){
-          if (!user) return;
-          /* पहले सही role-collection ढूँढो, फिर उसी पर realtime सुनो */
-          findUserDoc(user.uid).then(function (found){
-            if (!found) return;
-            window.firebase.firestore().collection(found.collection).doc(user.uid).onSnapshot(function (doc){
-              var active = doc.exists && doc.data().activeSession;
-              if (active && active !== sid){
-                /* कहीं और login हुआ → यह session बंद */
-                try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
-                window.firebase.auth().signOut().finally(function (){
-                  alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
-                  window.location.href = "/";
-                });
-              }
-            });
-          });
-        });
-      });
-    })();
-
-  })();
-  </script>
+<script>
+  const ACS_MENU = [
+    {icon:"🏠", label:"होम", href:"#"},
+    {icon:"🎯", label:"मिशन", href:"#"},
+    {icon:"🧭", label:"सलाह", href:"#"},
+    {icon:"🌍", label:"उद्यम", href:"#"},
+    {icon:"📚", label:"कोर्स", href:"#"},
+    {icon:"📝", label:"रजिस्ट्रेशन", href:"/join.html"},
+    {icon:"🏆", label:"प्रमाण पत्र", href:"#"},
+    {icon:"🤝", label:"नेटवर्क", href:"#"},
+    {icon:"📱", label:"वाणी", href:"#"},
+    {icon:"📞", label:"संपर्क", href:"#"}
+  ];
+  const ml=document.getElementById('menuList');
+  ACS_MENU.forEach(m=>{ const a=document.createElement('a'); a.href=m.href;
+    a.innerHTML='<span class="e">'+m.icon+'</span>'+m.label; a.onclick=closeMenu; ml.appendChild(a); });
+  // footer menu — वही single-source ACS_MENU से
+  const fm=document.getElementById('footerMenu');
+  ACS_MENU.forEach(m=>{ const a=document.createElement('a'); a.href=m.href;
+    a.innerHTML='<span>'+m.icon+'</span>'+m.label; fm.appendChild(a); });
+  const drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim');
+  function openMenu(){ drawer.classList.add('open'); scrim.classList.add('open'); }
+  function closeMenu(){ drawer.classList.remove('open'); scrim.classList.remove('open'); }
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+</script>
 </body>
 </html>
