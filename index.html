@@ -3,167 +3,89 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>एप्लाइड कंप्यूटर स्कूल — ACS</title>
+<title>अप्लाइड कंप्यूटर स्कूल — ACS</title>
 <meta name="theme-color" content="#0B1F3A" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- परत 1: CONFIG + LINKS (एकमात्र घर) -->
+<!-- परत 1: CONFIG + LINKS -->
 <script src="/assets/acs-config.js"></script>
 <script src="/assets/links.js"></script>
 <script src="/assets/acs-translate.js" defer></script>
-<!-- परत: PRESENTATION (एक बार cache, सब पेज तेज़) -->
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
 <link rel="stylesheet" href="/acs-style.css">
 </head>
 <body>
 
-<!-- 🇮🇳 तिरंगा-पट्टी -->
 <div class="tiranga-bar"></div>
-
-<!-- ===== NAVBAR (खोल) ===== -->
-<header class="nav">
-  <div class="nav-in">
-    <div class="brand">
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
       <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
-      <span class="name" id="acsName">एप्लाइड कंप्यूटर स्कूल™</span>
-    </div>
-    <div class="navbtns">
-      <button class="navbtn" onclick="acsLanguage()"><span class="e globe">🌐</span>भाषा</button>
-      <button class="navbtn" onclick="openMenu()"><span class="e">☰</span>मेन्यू</button>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
     </div>
   </div>
 </header>
-
-<!-- भाषा panel (acs-translate.js इसे भरता है) -->
-<div class="translate-panel" id="translatePanel">
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
   <div id="google_translate_element"></div>
 </div>
 
+<main>
+<section class="hero">
+  <div class="hero-in">
+    <span class="pill">✨ सुंदर भविष्य के लिए</span>
+    <h1 class="title">अप्लाइड कंप्यूटर स्कूल<br><span class="g">से जुड़ें!</span></h1>
 
-<!-- ===== गोल्डन पट्टी (खोल) ===== -->
-<div class="freebar">
-  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
-  <small>मूल भाषा: हिंदी</small>
-</div>
-
-<!-- ===== पेज-content यहाँ आएगा (हर पेज अलग) ===== -->
-<main id="acs-content">
-  <!-- ⬇️ हर पेज सिर्फ़ यह हिस्सा बदलता है (खोल वही रहता है) ⬇️ -->
-  <!-- PAGE-CONTENT-START (होमपेज का hero) -->
-  <section class="hero">
-    <div class="hero-in">
-      <span class="pill">✨ सुंदर भविष्य के लिए</span>
-      <h1 class="title">एप्लाइड कंप्यूटर स्कूल<br><span class="g">से जुड़ें!</span></h1>
-      <div class="rule"></div>
-
-      <div class="cta-row">
-        <button class="btn btn-green" onclick="alert('कोर्स — झलक')">📚 10,000+ कोर्स देखें!</button>
-        <button class="btn btn-green stack" onclick="alert('जॉब — झलक')">🔍 देश और विदेश में<br>जॉब खोजें</button>
-        <button class="btn btn-green" onclick="alert('उद्यम — झलक')">🌍 950+ उद्यम शुरू करें!</button>
-      </div>
-
-      <div class="freebadge">✅ मोबाइल से ऑनलाइन पढ़ाई हमेशा निःशुल्क!</div>
+    <div class="cta-row">
+      <a class="btn btn-white" href="/courses/hi/">📚 10,000+ कोर्स देखें!</a>
+      <a class="btn btn-green stack" href="/udyam/#videsh">🔍 देश और विदेश में<br>जॉब खोजें</a>
+      <a class="btn btn-green" href="/udyam/">🌍 950+ उद्यम शुरू करें!</a>
+      <a class="btn btn-green" href="/hi/network.html">🤝 देश और विदेश में हमारे नेटवर्क</a>
     </div>
-  </section>
-  <!-- PAGE-CONTENT-END -->
+  </div>
+</section>
 </main>
 
-<!-- ===== WhatsApp (खोल) ===== -->
-<a class="wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
-  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true">
-    <path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/>
-  </svg>
-</a>
-
-<!-- ===== FOOTER (खोल) ===== -->
-<footer id="contact">
+<footer class="acs-footer" id="contact">
   <div class="wrap">
-    <h5 id="acsFootName">एप्लाइड कंप्यूटर स्कूल™</h5>
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
     <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
-
-    <nav class="fmenu" id="footerMenu" aria-label="फुटर मेन्यू"></nav>
-
-    <div class="fblock">
-      <b>📜 प्रमाण पत्र देने वाली संस्था</b>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
       <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
       <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
     </div>
-
-    <div class="fblock">
-      <b>📞 संपर्क</b>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
       <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
       <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
     </div>
-
-    <p class="warn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
-    <div class="f-bottom">© 2026 <span id="acsCopy">एप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
   </div>
 </footer>
-
-<!-- ===== SLIDE MENU (खोल) ===== -->
-<div class="scrim" id="scrim" onclick="closeMenu()"></div>
-<nav class="drawer" id="drawer" aria-label="मेन्यू">
-  <button class="close" onclick="closeMenu()" aria-label="बंद करें">✕</button>
-  <h4>मेन्यू</h4>
-  <div id="menuList"></div>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList"></div>
   <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
 </nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
 
-<script>
-/* ===== खोल का दिमाग़ — config + links से सब जोड़ो ===== */
-(function(){
-  var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
-
-  /* 1) रंग/फ़ॉन्ट config से → CSS variables (एक जगह बदलो → सब बदले) */
-  try{
-    var r = document.documentElement.style, col = C.colors||{}, f = C.fonts||{}, lay = C.layout||{};
-    if(col.navy)     r.setProperty('--navy', col.navy);
-    if(col.blue)     r.setProperty('--blue', col.blue);
-    if(col.gold)     r.setProperty('--gold', col.gold);
-    if(col.green)    r.setProperty('--green', col.green);
-    if(col.offwhite) r.setProperty('--offwhite', col.offwhite);
-    if(f.size_base)  r.setProperty('--base', f.size_base);
-    if(f.line_height)r.setProperty('--lh', f.line_height);
-    if(f.family_text)r.setProperty('--font', f.family_text);
-    if(lay.max_width)r.setProperty('--maxw', lay.max_width);
-  }catch(e){}
-
-  /* 2) org जानकारी config से भरो (fallback text पहले से HTML में) */
-  try{
-    var o = C.org||{};
-    var set = function(id,val){ var el=document.getElementById(id); if(el&&val) el.textContent=val; };
-    if(o.name_hi){ set('acsName', o.name_hi+'™'); set('acsFootName', o.name_hi+'™'); set('acsCopy', o.name_hi+'™'); }
-    set('acsTagline', o.tagline_hi);
-    set('acsFootTag', o.tagline_full_hi);
-    if(o.trust_hi) set('acsTrust', o.trust_hi+' ('+ (o.trust_short||'') +')');
-    if(o.iso) set('acsCert', 'प्रमाणन: '+o.iso+' · वेबसाइट: '+(o.trust_site||''));
-    var ph=document.getElementById('acsPhone'); if(ph&&o.phone){ ph.textContent=o.phone; ph.href='tel:'+o.phone.replace(/[^0-9+]/g,''); }
-    var em=document.getElementById('acsEmail'); if(em&&o.email){ em.textContent=o.email; em.href='mailto:'+o.email; }
-    if(o.address_hi) set('acsAddr', '📍 '+o.address_hi);
-    var wa=document.getElementById('acsWa'); if(wa&&o.whatsapp) wa.href=o.whatsapp;
-    var lg=document.getElementById('acsLogo'); if(lg&&o.logo) lg.src=o.logo;
-  }catch(e){}
-
-  /* 3) MENU links.js से → drawer + footer (एक जगह = 10 items) */
-  try{
-    var menu = L.menu||[], paths = L.paths||{};
-    var drawer=document.getElementById('menuList'), fm=document.getElementById('footerMenu');
-    menu.forEach(function(m){
-      if(drawer){ var a=document.createElement('a'); a.href=m.href;
-        a.innerHTML='<span class="e">'+m.icon+'</span>'+m.label; a.onclick=closeMenu; drawer.appendChild(a); }
-      if(fm){ var b=document.createElement('a'); b.href=m.href;
-        b.innerHTML='<span>'+m.icon+'</span>'+m.label; fm.appendChild(b); }
-    });
-    var login=document.getElementById('acsLogin'); if(login&&paths.login) login.href=paths.login;
-  }catch(e){}
-})();
-
-/* ===== menu खोलना/बंद करना ===== */
-function openMenu(){ document.getElementById('drawer').classList.add('open'); document.getElementById('scrim').classList.add('open'); }
-function closeMenu(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('scrim').classList.remove('open'); }
-function acsLanguage(){ var p=document.getElementById('translatePanel'); if(p) p.classList.toggle('open'); }
-document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
-</script>
 </body>
 </html>
