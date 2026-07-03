@@ -1,0 +1,64 @@
+/* ============================================================
+   acs-universal.css — header + menu + footer (हर पेज एक-समान)
+   जगह: /acs-universal.css (रूट)
+   • सिर्फ़ ये universal हिस्से — body/content के rules नहीं
+     (पुराने pages का अपना design सुरक्षित रहे)।
+   • मान config से भी लगते हैं (acs-universal.js), ये fallback।
+   ============================================================ */
+:root{ --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA; }
+
+.tiranga-bar{ height:5px; background:linear-gradient(90deg,#FF9933 0 33.33%, #ffffff 33.33% 66.66%, #138808 66.66% 100%); }
+
+header.acs-nav{ position:sticky; top:0; z-index:50; background:var(--navy); color:#fff; }
+.acs-nav-in{ display:flex; align-items:center; gap:10px; max-width:1100px; margin:0 auto; padding:12px 16px; }
+.acs-brand{ display:flex; align-items:center; gap:11px; flex:1; min-width:0; color:#fff; text-decoration:none; }
+.acs-brand .mark{ width:46px; height:46px; border-radius:10px; flex:0 0 auto; overflow:hidden;
+  background:linear-gradient(135deg,var(--gold),#ffcf4d); color:var(--navy);
+  display:grid; place-items:center; font-weight:800; font-size:18px; }
+.acs-brand .mark img{ width:100%; height:100%; object-fit:cover; display:block; }
+.acs-brand .name{ font-weight:800; font-size:19px; line-height:1.2; color:#fff; }
+.acs-navbtns{ display:flex; gap:8px; flex:0 0 auto; }
+.acs-navbtn{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18); color:#fff;
+  border-radius:12px; min-width:58px; padding:8px 8px 6px; cursor:pointer; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:2px; font-size:13px; font-weight:600; font-family:inherit; }
+.acs-navbtn .e{ font-size:18px; }
+.acs-navbtn .e.globe{ color:#5aa9ff; }
+.acs-navbtn:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+
+.acs-freebar{ background:linear-gradient(180deg,#ffc24d,#F9A825); color:var(--navy); text-align:center;
+  padding:5px 16px; line-height:1.18; box-shadow:inset 0 2px 0 rgba(255,255,255,.55), 0 4px 12px rgba(0,0,0,.28); }
+.acs-freebar b{ font-size:clamp(14px,4.4vw,21px); font-weight:800; white-space:nowrap; line-height:1.18; }
+.acs-freebar small{ display:block; font-size:13px; opacity:.85; margin-top:1px; line-height:1.18; color:var(--navy); }
+
+.acs-translate-panel{ display:none; background:#fff; padding:10px 16px; border-bottom:2px solid var(--gold); }
+.acs-translate-panel.open{ display:block; }
+
+.acs-scrim{ position:fixed; inset:0; background:rgba(0,0,0,.5); opacity:0; visibility:hidden; transition:.25s; z-index:70; }
+.acs-scrim.open{ opacity:1; visibility:visible; }
+.acs-drawer{ position:fixed; top:0; right:0; height:100%; width:84%; max-width:330px; background:var(--navy);
+  color:#fff; z-index:80; transform:translateX(105%); transition:transform .28s; padding:18px; overflow-y:auto; }
+.acs-drawer.open{ transform:translateX(0); }
+.acs-drawer h4{ color:var(--gold); font-size:14px; letter-spacing:.6px; margin:6px 6px 12px; }
+.acs-drawer a{ display:flex; align-items:center; gap:14px; padding:13px 12px; border-radius:12px;
+  font-size:18px; font-weight:600; color:#fff; text-decoration:none; }
+.acs-drawer a:hover{ background:rgba(255,255,255,.08); }
+.acs-drawer a.login{ background:var(--gold); color:var(--navy); margin-top:10px; font-weight:800; justify-content:center; }
+.acs-drawer a .e{ font-size:22px; width:28px; text-align:center; }
+.acs-drawer .close{ float:right; background:none; border:none; color:#fff; font-size:26px; cursor:pointer; }
+
+footer.acs-footer{ background:#081527; color:#9fb3d6; padding:40px 0 30px; }
+footer.acs-footer .wrap{ max-width:1100px; margin:0 auto; padding:0 20px; text-align:center; }
+footer.acs-footer h5{ color:#fff; font-size:18px; margin-bottom:10px; }
+footer.acs-footer p{ font-size:16px; }
+footer.acs-footer a{ color:#9fb3d6; text-decoration:none; }
+.acs-fmenu{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px 18px; margin:22px 0 4px; }
+.acs-fmenu a{ display:inline-flex; align-items:center; gap:6px; color:#cdd8ea; font-size:16px; font-weight:600; }
+.acs-fmenu a:hover{ color:var(--gold); }
+.acs-fblock{ margin-top:20px; }
+.acs-fblock b{ display:block; color:#fff; font-size:16px; margin-bottom:6px; }
+.acs-fblock p{ margin:2px 0; }
+.acs-warn{ margin-top:12px; color:var(--gold); font-size:15px; }
+.acs-fbottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:22px; padding-top:16px; font-size:14px; text-align:center; }
+
+.acs-wa{ position:fixed; right:16px; bottom:20px; width:58px; height:58px; border-radius:50%;
+  background:#25D366; display:grid; place-items:center; z-index:40; box-shadow:0 8px 22px rgba(37,211,102,.5); }
