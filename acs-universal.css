@@ -1,5 +1,5 @@
 /* ============================================================
-   acs-universal.css v1.2 — header + menu + footer (हर पेज एक-समान)
+   acs-universal.css v1.3 — header + menu + footer (हर पेज एक-समान)
    v1.2: freebar तिरंगा (ऊपर सुनहरा · बीच सफेद · नीचे हरा) — Founder-आदेश;
          footer अपरिवर्तित।
    जगह: /acs-universal.css (रूट)
@@ -27,7 +27,7 @@ header.acs-nav{ position:sticky; top:0; z-index:50; background:var(--navy); colo
 .acs-navbtn .e.globe{ color:#5aa9ff; }
 .acs-navbtn:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
 
-.acs-freebar{ background:linear-gradient(180deg,#ffc24d 0 33.33%, #ffffff 33.33% 66.66%, #138808 66.66% 100%); color:var(--navy); text-align:center;
+.acs-freebar{ background:linear-gradient(180deg,#ffc24d 0%, #F9A825 24%, #ffffff 42%, #ffffff 58%, #2fa04a 76%, #138808 100%); color:var(--navy); text-align:center;
   padding:5px 16px; line-height:1.18; box-shadow:inset 0 2px 0 rgba(255,255,255,.55), 0 4px 12px rgba(0,0,0,.28); }
 .acs-freebar b{ font-size:clamp(14px,4.4vw,21px); font-weight:800; white-space:nowrap; line-height:1.18; }
 .acs-freebar small{ display:block; font-size:13px; opacity:.85; margin-top:1px; line-height:1.18; color:var(--navy);  text-shadow:0 1px 2px rgba(255,255,255,.75);}
