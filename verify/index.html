@@ -37,6 +37,7 @@
 
   <!-- मास्टर CSS (एकमात्र — रूट से, हर भाषा-folder से मिलेगा) -->
   <link rel="stylesheet" href="/style.css"/>
+  <link rel="stylesheet" href="/acs-universal.css"/>
 </head>
 
 <!-- data-lang = page की भाषा (app.js की "सुनो"/TTS व script.js इसे पढ़ें) -->
@@ -47,21 +48,26 @@
 
   <!-- ══ NAVBAR (header सिर्फ़ यहीं — किसी page में दोबारा नहीं) ══
        slide-menu व भाषा-panel script.js अपने-आप जोड़ता है (links.js के 10 items)। -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="/" class="brand">
-        <img class="brand-logo-img" src="/logo.png" alt="ACS"/>
-        <span class="brand-name">Applied Computer School™</span>
-      </a>
-      <div class="nav-controls">
-        <button class="lang-btn" id="languageToggle" type="button"
-                aria-label="भाषा चुनें" aria-expanded="false" aria-controls="languagePanel">🌐 भाषा</button>
-        <button class="menu-btn" id="menuToggle" type="button"
-                aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="menuPanel">☰ मेन्यू</button>
-        <button class="lang-btn" id="acsLoginBtn" type="button" aria-label="Login / Dashboard">🔑</button>
-      </div>
+  <div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
     </div>
-  </header>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
 
   <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
   <div class="trust-strip">
@@ -186,39 +192,36 @@ window.downloadCert = async function(){
   </main>
 
   <!-- ══ FOOTER (footer सिर्फ़ यहीं) — links links.js से मेल खाएँ ══ -->
-  <footer class="main-footer">
-    <div class="footer-grid">
-      <div class="footer-brand-info">
-        <h2>Applied Computer School™</h2>
-        <p class="sponsor-org">FFGPMTrust · ISO 9001:2015</p>
-        <p class="tagline">गाँव से विश्व तक — निःशुल्क डिजिटल शिक्षा</p>
-        <div class="iso-box">ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar — 851201</div>
-      </div>
-      <div class="footer-sitemap">
-        <h3>मेन्यू</h3>
-        <ul class="sitemap-links">
-          <li><a href="/">🏠 होम</a></li>
-          <li><a href="/hi/mission.html">🎯 मिशन</a></li>
-          <li><a href="/hi/salah.html">🧭 सलाह</a></li>
-          <li><a href="/udyam/">🌍 उद्यम</a></li>
-          <li><a href="/courses/hi/">📚 कोर्स</a></li>
-          <li><a href="/join.html">📝 रजिस्ट्रेशन</a></li>
-          <li><a href="/verify/">🏆 प्रमाण पत्र</a></li>
-          <li><a href="/hi/network.html">🤝 नेटवर्क</a></li>
-          <li><a href="/vani/">📱 वाणी</a></li>
-          <li><a href="/contact/hi/">📞 संपर्क</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h3>संपर्क</h3>
-        <p class="contact-item"><a href="tel:+919431210092">📞 +91-9431210092</a></p>
-        <p class="contact-item"><a href="mailto:acs.chautham@gmail.com">✉️ acs.chautham@gmail.com</a></p>
-        <p class="contact-item"><a href="https://wa.me/919431210092" target="_blank" rel="noopener">💬 WhatsApp</a></p>
-        <p class="contact-item"><a href="https://youtube.com/@AppliedComputerSchool" target="_blank" rel="noopener">▶️ YouTube</a></p>
-      </div>
+  <footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
     </div>
-    <div class="footer-bottom">© <span id="acsYear"></span> Applied Computer School™ · FFGPMTrust · acslearn.com</div>
-  </footer>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList"></div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
 
   <!-- ══ LOGIN MODAL (login सिर्फ़ यहीं; Firebase तभी load हो जब खुले) ══ -->
   <div class="acs-modal-bg" id="acsLoginModal" role="dialog" aria-modal="true" aria-labelledby="acsLoginTitle">
