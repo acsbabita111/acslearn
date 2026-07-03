@@ -55,10 +55,14 @@ const ACS_CONFIG = {
   /* ---------- 3) संगठन जानकारी (हिंदी पेज = देवनागरी) ---------- */
   org: {
     name_short:  "ACS",
-    name_hi:     "एप्लाइड कंप्यूटर स्कूल",
+    name_hi:     "अप्लाइड कंप्यूटर स्कूल",
     name_en:     "Applied Computer School",   // अंग्रेज़ी पेज के लिए
     tagline_hi:  "80+ भाषा में, गाँव से ग्लोबल साउथ तक!",
     tagline_full_hi: "80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!",
+    tagline_en:      "In 80+ languages, from village to the Global South!",
+    tagline_full_en: "From village to the Global South in 80+ languages — mobile-friendly course content!",
+    trust_en:        "Freedom Fighter Gangadhar Prasad Memorial Trust",
+    address_en:      "ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar — 851201",
 
     trust_short: "FFGPMTrust",
     trust_hi:    "फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट",
