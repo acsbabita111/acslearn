@@ -62,3 +62,9 @@ footer.acs-footer a{ color:#9fb3d6; text-decoration:none; }
 
 .acs-wa{ position:fixed; right:16px; bottom:20px; width:58px; height:58px; border-radius:50%;
   background:#25D366; display:grid; place-items:center; z-index:40; box-shadow:0 8px 22px rgba(37,211,102,.5); }
+
+/* v1.1 — पुरानी trust-strip (हरी पट्टी) अब दोहराव है:
+   नई सुनहरी freebar वही tagline + "मूल भाषा" दिखाती है।
+   9 पुराने पेजों की पट्टी एक जगह से छिपाओ (single-source)।
+   (भविष्य में generator-दौर में markup से भी हटेगी।) */
+.trust-strip{ display:none; }
