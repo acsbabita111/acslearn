@@ -1,10 +1,10 @@
 /* ============================================================
-   acs-universal.js v2 — header + menu + footer का एक दिमाग़
+   acs-universal.js v2.1 — header + menu + footer का एक दिमाग़
    जगह: /assets/acs-universal.js  (config+links के बाद load)
    • भाषा-सचेत: /en/ folder → English labels/strings; अन्यथा हिंदी।
    • acs- prefix — पुराने script.js/page-JS से कोई टकराव नहीं।
    ============================================================ */
-(function(){
+function acsUniversalInit(){
   var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
   var lang = (location.pathname||"").indexOf("/en/")===0 ? "en" : "hi";
 
@@ -67,7 +67,14 @@
     if(lg2){ lg2.href=login.href||"/dashboard/";
       lg2.innerHTML='<span class="e">'+(login.icon||"🔑")+'</span> '+((login.label&&(login.label[lang]||login.label.hi))||"Login / Dashboard"); }
   }catch(e){}
-})();
+}
+/* नीचे-load होने वाली scripts (links/config) चलने के बाद ही init —
+   script-क्रम से आज़ाद (चाहे universal ऊपर जुड़ा हो या नीचे) */
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", acsUniversalInit);
+} else {
+  acsUniversalInit();
+}
 
 function acsOpenMenu(){ var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");
   if(d)d.classList.add("open"); if(s)s.classList.add("open"); }
