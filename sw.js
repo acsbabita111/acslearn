@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v4';                 // ← CSS/JS बदलें तो बढ़ाएँ
+const CACHE_VERSION = 'v5';                 // ← CSS/JS बदलें तो बढ़ाएँ
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
@@ -25,6 +25,9 @@ const PRECACHE_URLS = [
   OFFLINE_URL,
   '/manifest.json',
   '/style.css',
+  '/acs-universal.css',
+  '/acs-style.css',
+  '/assets/acs-universal.js',
   '/script.js',
   '/logo.png',
   '/assets/acs-config.js',
