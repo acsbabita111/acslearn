@@ -52,7 +52,7 @@ window.ACS_ROLES = {
     F.nomineeName  = { id:"nominee_name", type:"text", required:true, hi:"नॉमिनी का नाम", en:"Nominee Name",
       hint_hi:"मृत्यु के बाद royalty/पारिश्रमिक नॉमिनी को जाता है", hint_en:"Royalty/dues go to nominee after death" };
     F.nomineeRel   = { id:"nominee_relation", type:"text", required:true, hi:"नॉमिनी से संबंध", en:"Nominee Relation" };
-    F.address      = { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Full Address", ph_hi:"गाँव/शहर, ज़िला, राज्य" };
+    F.address      = { id:"address", type:"pincode_address", required:true, hi:"पूरा पता", en:"Full Address" };
 
     /* दस्तावेज़-upload साझा परिभाषाएँ — एक चीज़ = एक जगह */
     F.docPhoto = { id:"doc_photo", accept:"image/*", required:true, hi:"आपका प्रोफ़ेशनल फ़ोटो (पासपोर्ट-साइज़)", en:"Your professional photo (passport-size)" };
@@ -60,6 +60,14 @@ window.ACS_ROLES = {
       hi:"Guardian की लिखित सहमति (18 से कम उम्र पर)", en:"Guardian written consent (if below 18)" };
     F.docLicense = { id:"doc_license", accept:"image/*,.pdf", required:true, hi:"eMigrate/RA लाइसेंस की प्रति", en:"Copy of eMigrate/RA license" };
     F.docPremisesPhoto = { id:"doc_premises_photo", accept:"image/*", required:true, hi:"केंद्र/वर्कशॉप के भवन का फ़ोटो", en:"Photo of Centre/Workshop premises" };
+    F.docPhotoId1 = { id:"doc_photo_id1", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 1 (जैसे Aadhaar)", en:"Photo ID proof 1 (e.g. Aadhaar)" };
+    F.docPhotoId2 = { id:"doc_photo_id2", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 2 (जैसे Voter-ID/Pan)", en:"Photo ID proof 2 (e.g. Voter-ID/PAN)" };
+    F.docMatric = { id:"doc_matric", accept:"image/*,.pdf", required:true, hi:"मैट्रिक (10वीं) का दस्तावेज़", en:"Matric (10th) document" };
+    F.docHighestEdu = { id:"doc_highest_edu", accept:"image/*,.pdf", required:true, hi:"अधिकतम शिक्षा का प्रमाण पत्र", en:"Highest education certificate" };
+    F.docExperience = { id:"doc_experience", accept:"image/*,.pdf", required:false, hi:"अनुभव प्रमाण पत्र (यदि लागू)", en:"Experience certificate (if applicable)" };
+    F.docSignature = { id:"doc_signature", accept:"image/*", required:true, hi:"हस्ताक्षर की स्कैन/फ़ोटो (JPG)", en:"Signature scan/photo (JPG)" };
+    F.emergencyContact1 = { id:"emergency_contact_1", type:"emergency_contact", required:true, hi:"आपातकालीन संपर्क 1", en:"Emergency Contact 1" };
+    F.emergencyContact2 = { id:"emergency_contact_2", type:"emergency_contact", required:true, hi:"आपातकालीन संपर्क 2", en:"Emergency Contact 2" };
 
     return [
       /* ---------------- समूह-1 : Learner (गेटवे नहीं — 3-में-1 फ़ाइल) ---------------- */
@@ -83,8 +91,8 @@ window.ACS_ROLES = {
         fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"),
           { id:"subject", type:"text", required:true, hi:"विषय / हुनर का क्षेत्र", en:"Subject / Skill area" },
           { id:"experience", type:"number", min:0, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
-          F.nomineeName, F.nomineeRel ],
-        documents: [ F.docPhoto ]
+          F.nomineeName, F.nomineeRel, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
       { key:"centre", group:"g2", icon:"🏫",
@@ -96,8 +104,8 @@ window.ACS_ROLES = {
         fields: [ F.nameLocal, F.nameRoman,
           { id:"org_name", type:"text", required:true, hi:"केंद्र/वर्कशॉप का नाम", en:"Centre/Workshop Name" },
           { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Address" },
-          { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" } ],
-        documents: [ F.docPhoto, F.docPremisesPhoto ]
+          { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" }, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature, F.docPremisesPhoto ]
       },
 
       { key:"counselor", group:"g2", icon:"🧭",
@@ -107,8 +115,8 @@ window.ACS_ROLES = {
         ruleFile:"rules-consent-counselor.html", gateway:true, needsGeo:false, needsRMOffice:false,
         fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"),
           { id:"experience", type:"number", min:5, required:true, hi:"अनुभव (वर्ष)", en:"Experience (years)", hint_hi:"न्यूनतम 5 वर्ष अनिवार्य" },
-          { id:"specialization", type:"text", required:true, hi:"विशेषज्ञता का विषय", en:"Specialization" }, F.address ],
-        documents: [ F.docPhoto ]
+          { id:"specialization", type:"text", required:true, hi:"विशेषज्ञता का विषय", en:"Specialization" }, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
       { key:"employer", group:"g2", icon:"🧑‍💼",
@@ -122,8 +130,8 @@ window.ACS_ROLES = {
             options:[ {v:"individual",hi:"व्यक्तिगत",en:"Individual"}, {v:"shop",hi:"दुकान/Workshop",en:"Shop/Workshop"},
                       {v:"msme",hi:"MSME/छोटा व्यवसाय",en:"MSME/Small Business"}, {v:"company",hi:"Company/Firm",en:"Company/Firm"},
                       {v:"ngo",hi:"NGO/Trust",en:"NGO/Trust"}, {v:"govt",hi:"सरकारी विभाग",en:"Government Dept."},
-                      {v:"international",hi:"International/MNC",en:"International/MNC"} ] }, F.address ],
-        documents: [ F.docPhoto ]
+                      {v:"international",hi:"International/MNC",en:"International/MNC"} ] }, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
       { key:"foreign_agent", group:"g2", icon:"✈️",
@@ -134,8 +142,8 @@ window.ACS_ROLES = {
         fields: [ F.nameLocal, F.nameRoman,
           { id:"org_name", type:"text", required:true, hi:"Agency/Firm का नाम", en:"Agency/Firm Name" },
           { id:"license_no", type:"text", required:true, hi:"eMigrate/RA लाइसेंस नंबर", en:"eMigrate/RA License No.",
-            hint_hi:"वैध लाइसेंस के बिना पंजीकरण नहीं", hint_en:"No registration without valid license" }, F.address ],
-        documents: [ F.docPhoto, F.docLicense ]
+            hint_hi:"वैध लाइसेंस के बिना पंजीकरण नहीं", hint_en:"No registration without valid license" }, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature, F.docLicense ]
       },
 
       { key:"volunteer", group:"g2", icon:"🤝",
@@ -144,8 +152,8 @@ window.ACS_ROLES = {
         collection:"volunteers", dashboard:"/dashboard/volunteer/",
         ruleFile:"rules-consent-volunteer.html", gateway:true, needsGeo:true, needsRMOffice:true,
         fields: [ F.nameLocal, F.nameRoman,
-          { id:"kshetra", type:"text", required:true, hi:"क्षेत्र", en:"Area/Region", ph_hi:"जैसे: चौथम, खगड़िया" } ],
-        documents: [ F.docPhoto ]
+          { id:"kshetra", type:"text", required:true, hi:"क्षेत्र", en:"Area/Region", ph_hi:"जैसे: चौथम, खगड़िया" }, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
       /* ---------------- समूह-3 : ACS Team ---------------- */
@@ -154,48 +162,48 @@ window.ACS_ROLES = {
         desc_hi:"मुख्यालय-प्रशासन प्रमुख — Founder के सीधे नीचे", desc_en:"HQ administration head — directly under Founder",
         collection:"team", dashboard:"/dashboard/hq/",
         ruleFile:"rules-consent-hq-admin.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"hq_establishment", group:"g3", icon:"🖥️",
         hi:"HQ Establishment Head", en:"HQ Establishment Head",
         desc_hi:"तकनीक/cyber-सुरक्षा प्रमुख", desc_en:"IT/cyber-security head",
         collection:"team", dashboard:"/dashboard/hq/establishment/",
         ruleFile:"rules-consent-hq-establishment.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"hq_finance", group:"g3", icon:"💰",
         hi:"HQ Finance Head", en:"HQ Finance Head",
         desc_hi:"भुगतान/लेखा प्रमुख", desc_en:"Payments/accounts head",
         collection:"team", dashboard:"/dashboard/hq/finance/",
         ruleFile:"rules-consent-hq-finance.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"hq_legal", group:"g3", icon:"⚖️",
         hi:"HQ Legal Head", en:"HQ Legal Head",
         desc_hi:"कानूनी/अनुपालन प्रमुख — एग्रीमेंट-सत्यापन अधिकारी", desc_en:"Legal/compliance head — agreement verification authority",
         collection:"team", dashboard:"/dashboard/hq/legal/",
         ruleFile:"rules-consent-hq-legal.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"zm", group:"g3", icon:"🌍",
         hi:"ZM / State Head / Country Head", en:"ZM / State Head / Country Head",
         desc_hi:"राज्य/देश का प्रमुख — प्रोविज़नल अप्रूवल-प्राधिकारी", desc_en:"State/Country head — provisional approval authority",
         collection:"team", dashboard:"/dashboard/zonal/",
         ruleFile:"rules-consent-zm.html", gateway:true, needsGeo:true, needsRMOffice:false,
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"rm", group:"g3", icon:"📍",
         hi:"RM (Regional Manager)", en:"RM (Regional Manager)",
         desc_hi:"क्षेत्र का प्रमुख — भौतिक सत्यापन प्राधिकारी", desc_en:"Regional head — physical verification authority",
         collection:"team", dashboard:"/dashboard/regional/",
         ruleFile:"rules-consent-rm.html", gateway:true, needsGeo:true, needsRMOffice:true,
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"content_creator", group:"g3", icon:"🎬",
         hi:"Content Creator", en:"Content Creator",
@@ -203,8 +211,8 @@ window.ACS_ROLES = {
         collection:"team", dashboard:"/dashboard/zonal/staff/",
         ruleFile:"rules-consent-content-creator.html", gateway:true, needsGeo:true, needsRMOffice:false,
         subtypes:["script","prompt","animator","voice","editor","thumbnail","publisher"],
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"staff", group:"g3", icon:"🗂️",
         hi:"Staff (Data Entry / Call Center / अन्य)", en:"Staff (Data Entry / Call Center / Other)",
@@ -212,8 +220,8 @@ window.ACS_ROLES = {
         collection:"team", dashboard:"/dashboard/", /* असली पता office-level-चयन पर निर्भर, फ़ाइल के अंदर तय */
         ruleFile:"rules-consent-hq-staff.html", gateway:true, needsGeo:false, needsRMOffice:false, hasOfficeLevelCascade:true,
         subtypes:["data_entry","callcenter","social_media","marketing","grade4","sweeper","other"],
-        fields: [ F.nameLocal, F.nameRoman, F.address ],
-        documents: [ F.docPhoto ]
+        fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
       { key:"intern", group:"g3", icon:"🎒",
         hi:"Intern (प्रशिक्षु-सहयोगी)", en:"Intern",
@@ -223,8 +231,8 @@ window.ACS_ROLES = {
         fields: [ F.nameLocal, F.nameRoman, F.age(14,"18 से कम पर Guardian लिखित सहमति अनिवार्य"),
           F.guardianName, F.guardianRel,
           { id:"referring_officer", type:"text", required:true, hi:"संदर्भ-अधिकारी का नाम", en:"Referring Officer" },
-          { id:"duration_months", type:"number", min:1, required:true, hi:"इंटर्नशिप-अवधि (महीने)", en:"Internship Duration (months)" } ],
-        documents: [ F.docPhoto, F.docGuardianConsent ]
+          { id:"duration_months", type:"number", min:1, required:true, hi:"इंटर्नशिप-अवधि (महीने)", en:"Internship Duration (months)" }, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature, F.docGuardianConsent ]
       }
     ];
   })(),
