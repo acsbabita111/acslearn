@@ -1036,13 +1036,60 @@
   }
   document.getElementById('editBtn').addEventListener('click', function(){ goToStep(3); });
   var lastRegNo = '';
+  var submitBtn = document.getElementById('submitBtn');
+  var submitErrorBox = document.createElement('div');
+  submitErrorBox.style.cssText = 'display:none;color:#B23A3A;font-size:15px;font-weight:700;text-align:center;margin-top:10px;background:#FBEAEA;border:1.5px solid #B23A3A;border-radius:9px;padding:10px';
+  submitBtn.insertAdjacentElement('afterend', submitErrorBox);
+
+  function gatherStep3Data(){
+    var out = {};
+    var card = R.byKey(roleSel.value);
+    if(card){
+      card.fields.forEach(function(f){
+        if(f.id==='name_local' || f.id==='name_roman') return;
+        var el = step3FieldEls[f.id];
+        if(!el) return;
+        var row = el.closest ? el.closest('.row') : null;
+        if(row && row.style.display==='none') return;
+        out[f.id] = el.value || '';
+      });
+    }
+    return out;
+  }
+  function gatherDocsBase64(){
+    var out = {};
+    Object.keys(docFiles).forEach(function(id){
+      var fd = docFiles[id];
+      out[id] = { base64: fd.dataUrl.split(',')[1], mime: fd.isImage ? 'image/jpeg' : fd.file.type, filename: fd.file.name };
+    });
+    return out;
+  }
+
   document.getElementById('submitBtn').addEventListener('click', function(){
-    lastRegNo = 'ACS-'+new Date().getFullYear()+'-'+Math.floor(100000+Math.random()*900000);
-    document.getElementById('regNoBox').textContent = lastRegNo;
-    for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
-    document.getElementById('panelSuccess').classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-    sendAgreementEmailToServer();
+    submitErrorBox.style.display = 'none';
+    submitBtn.disabled = true; submitBtn.textContent = '⏳ सेव किया जा रहा है…';
+
+    var payload = {
+      name_local: nameLocal.value, name_roman: nameRoman.value,
+      mobile: mobile.value, email: email.value,
+      role: roleSel.value,
+      formFields: gatherStep3Data(),
+      documents: gatherDocsBase64()
+    };
+
+    callOtpFn('submitRegistration', payload).then(function(res){
+      lastRegNo = res.regNo;
+      document.getElementById('regNoBox').textContent = lastRegNo;
+      for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
+      document.getElementById('panelSuccess').classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+      sendAgreementEmailToServer();
+    }).catch(function(err){
+      console.error('submitRegistration त्रुटि:', err);
+      submitErrorBox.textContent = '⚠️ सेव नहीं हो पाया — ' + (err.message || 'फिर कोशिश करें।') + ' (आपकी जानकारी सुरक्षित है, दोबारा Submit दबाएँ)';
+      submitErrorBox.style.display = 'block';
+      submitBtn.disabled = false; submitBtn.textContent = '✅ Final Submit करें';
+    });
   });
 
   /* ═══════════════ असली PDF — नाम/दिनांक/फ़ॉर्म-जानकारी + upload किए दस्तावेज़ों की फ़ोटो सहित ═══════════════ */
