@@ -52,6 +52,7 @@ window.ACS_ROLES = {
     F.nomineeName  = { id:"nominee_name", type:"text", required:true, hi:"नॉमिनी का नाम", en:"Nominee Name",
       hint_hi:"मृत्यु के बाद royalty/पारिश्रमिक नॉमिनी को जाता है", hint_en:"Royalty/dues go to nominee after death" };
     F.nomineeRel   = { id:"nominee_relation", type:"text", required:true, hi:"नॉमिनी से संबंध", en:"Nominee Relation" };
+    F.address      = { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Full Address", ph_hi:"गाँव/शहर, ज़िला, राज्य" };
 
     return [
       /* ---------------- समूह-1 : Learner (गेटवे नहीं — 3-में-1 फ़ाइल) ---------------- */
@@ -96,7 +97,7 @@ window.ACS_ROLES = {
         ruleFile:"rules-consent-counselor.html", gateway:true, needsGeo:false, needsRMOffice:false,
         fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"),
           { id:"experience", type:"number", min:5, required:true, hi:"अनुभव (वर्ष)", en:"Experience (years)", hint_hi:"न्यूनतम 5 वर्ष अनिवार्य" },
-          { id:"specialization", type:"text", required:true, hi:"विशेषज्ञता का विषय", en:"Specialization" } ]
+          { id:"specialization", type:"text", required:true, hi:"विशेषज्ञता का विषय", en:"Specialization" }, F.address ]
       },
 
       { key:"employer", group:"g2", icon:"🧑‍💼",
@@ -110,7 +111,7 @@ window.ACS_ROLES = {
             options:[ {v:"individual",hi:"व्यक्तिगत",en:"Individual"}, {v:"shop",hi:"दुकान/Workshop",en:"Shop/Workshop"},
                       {v:"msme",hi:"MSME/छोटा व्यवसाय",en:"MSME/Small Business"}, {v:"company",hi:"Company/Firm",en:"Company/Firm"},
                       {v:"ngo",hi:"NGO/Trust",en:"NGO/Trust"}, {v:"govt",hi:"सरकारी विभाग",en:"Government Dept."},
-                      {v:"international",hi:"International/MNC",en:"International/MNC"} ] } ]
+                      {v:"international",hi:"International/MNC",en:"International/MNC"} ] }, F.address ]
       },
 
       { key:"foreign_agent", group:"g2", icon:"✈️",
@@ -121,7 +122,7 @@ window.ACS_ROLES = {
         fields: [ F.nameLocal, F.nameRoman,
           { id:"org_name", type:"text", required:true, hi:"Agency/Firm का नाम", en:"Agency/Firm Name" },
           { id:"license_no", type:"text", required:true, hi:"eMigrate/RA लाइसेंस नंबर", en:"eMigrate/RA License No.",
-            hint_hi:"वैध लाइसेंस के बिना पंजीकरण नहीं", hint_en:"No registration without valid license" } ]
+            hint_hi:"वैध लाइसेंस के बिना पंजीकरण नहीं", hint_en:"No registration without valid license" }, F.address ]
       },
 
       { key:"volunteer", group:"g2", icon:"🤝",
@@ -139,42 +140,42 @@ window.ACS_ROLES = {
         desc_hi:"मुख्यालय-प्रशासन प्रमुख — Founder के सीधे नीचे", desc_en:"HQ administration head — directly under Founder",
         collection:"team", dashboard:"/dashboard/hq/",
         ruleFile:"rules-consent-hq-admin.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"hq_establishment", group:"g3", icon:"🖥️",
         hi:"HQ Establishment Head", en:"HQ Establishment Head",
         desc_hi:"तकनीक/cyber-सुरक्षा प्रमुख", desc_en:"IT/cyber-security head",
         collection:"team", dashboard:"/dashboard/hq/establishment/",
         ruleFile:"rules-consent-hq-establishment.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"hq_finance", group:"g3", icon:"💰",
         hi:"HQ Finance Head", en:"HQ Finance Head",
         desc_hi:"भुगतान/लेखा प्रमुख", desc_en:"Payments/accounts head",
         collection:"team", dashboard:"/dashboard/hq/finance/",
         ruleFile:"rules-consent-hq-finance.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"hq_legal", group:"g3", icon:"⚖️",
         hi:"HQ Legal Head", en:"HQ Legal Head",
         desc_hi:"कानूनी/अनुपालन प्रमुख — एग्रीमेंट-सत्यापन अधिकारी", desc_en:"Legal/compliance head — agreement verification authority",
         collection:"team", dashboard:"/dashboard/hq/legal/",
         ruleFile:"rules-consent-hq-legal.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"zm", group:"g3", icon:"🌍",
         hi:"ZM / State Head / Country Head", en:"ZM / State Head / Country Head",
         desc_hi:"राज्य/देश का प्रमुख — प्रोविज़नल अप्रूवल-प्राधिकारी", desc_en:"State/Country head — provisional approval authority",
         collection:"team", dashboard:"/dashboard/zonal/",
         ruleFile:"rules-consent-zm.html", gateway:true, needsGeo:true, needsRMOffice:false,
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"rm", group:"g3", icon:"📍",
         hi:"RM (Regional Manager)", en:"RM (Regional Manager)",
         desc_hi:"क्षेत्र का प्रमुख — भौतिक सत्यापन प्राधिकारी", desc_en:"Regional head — physical verification authority",
         collection:"team", dashboard:"/dashboard/regional/",
         ruleFile:"rules-consent-rm.html", gateway:true, needsGeo:true, needsRMOffice:true,
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"content_creator", group:"g3", icon:"🎬",
         hi:"Content Creator", en:"Content Creator",
@@ -182,7 +183,7 @@ window.ACS_ROLES = {
         collection:"team", dashboard:"/dashboard/zonal/staff/",
         ruleFile:"rules-consent-content-creator.html", gateway:true, needsGeo:true, needsRMOffice:false,
         subtypes:["script","prompt","animator","voice","editor","thumbnail","publisher"],
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"staff", group:"g3", icon:"🗂️",
         hi:"Staff (Data Entry / Call Center / अन्य)", en:"Staff (Data Entry / Call Center / Other)",
@@ -190,7 +191,7 @@ window.ACS_ROLES = {
         collection:"team", dashboard:"/dashboard/", /* असली पता office-level-चयन पर निर्भर, फ़ाइल के अंदर तय */
         ruleFile:"rules-consent-hq-staff.html", gateway:true, needsGeo:false, needsRMOffice:false, hasOfficeLevelCascade:true,
         subtypes:["data_entry","callcenter","social_media","marketing","grade4","sweeper","other"],
-        fields: [ F.nameLocal, F.nameRoman ]
+        fields: [ F.nameLocal, F.nameRoman, F.address ]
       },
       { key:"intern", group:"g3", icon:"🎒",
         hi:"Intern (प्रशिक्षु-सहयोगी)", en:"Intern",
