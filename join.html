@@ -1,1367 +1,601 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="referrer" content="strict-origin-when-cross-origin"/>
-
-  <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
-  <title>रजिस्ट्रेशन — ACS से जुड़ें | Applied Computer School™</title>
-  <meta name="description" content="ACS से जुड़ें — विद्यार्थी, नौकरी, उद्यम, शिक्षक, केंद्र, काउंसलर, नियोक्ता, एजेंट या टीम के रूप में मुफ़्त रजिस्ट्रेशन। सुरक्षित OTP सत्यापन।"/>
-  <link rel="canonical" href="https://acslearn.com/join.html"/>
-  <meta name="robots" content="index,follow"/>
-
-  <!-- मूल → अंग्रेज़ी → बाक़ी; generator हर भाषा के लिए hreflang भरे -->
-    <link rel="alternate" hreflang="hi" href="https://acslearn.com/join.html"/>
-  <link rel="alternate" hreflang="x-default" href="https://acslearn.com/join.html"/>
-
-  <!-- Open Graph / सोशल शेयर -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="रजिस्ट्रेशन — ACS से जुड़ें | Applied Computer School™"/>
-  <meta property="og:description" content="ACS से जुड़ें — विद्यार्थी, नौकरी, उद्यम, शिक्षक, केंद्र, काउंसलर, नियोक्ता, एजेंट या टीम के रूप में मुफ़्त रजिस्ट्रेशन। सुरक्षित OTP सत्यापन।"/>
-  <meta property="og:image" content="https://acslearn.com/logo.png"/>
-  <meta property="og:locale" content="hi"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
-  <!-- PWA / icon / रंग -->
-  <meta name="theme-color" content="#0B1F3A"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Applied Computer School",
-  "alternateName": "अप्लाइड कंप्यूटर स्कूल",
-  "url": "https://acslearn.com/",
-  "logo": "https://acslearn.com/logo.png",
-  "sameAs": ["https://ffgpmt.org", "https://www.youtube.com/@AppliedComputerSchool"],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ACS Building, Vidyarthi Nagar, Chautham",
-    "addressLocality": "Khagaria",
-    "addressRegion": "Bihar",
-    "postalCode": "851201",
-    "addressCountry": "IN"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91-9431210092",
-    "contactType": "customer service"
-  }
-}
-</script>
-  <link rel="manifest" href="/manifest.json"/>
-  <link rel="icon" href="/logo.png"/>
-  <link rel="apple-touch-icon" href="/logo.png"/>
-
-  <!-- फ़ॉन्ट (sw.js के precache URL से हूबहू मेल — 400–900) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-
-  <!-- मास्टर CSS (एकमात्र — रूट से, हर भाषा-folder से मिलेगा) -->
-  <link rel="stylesheet" href="/style.css"/>
-  <link rel="stylesheet" href="/acs-universal.css"/>
-</head>
-
-<!-- data-lang = page की भाषा (app.js की "सुनो"/TTS व script.js इसे पढ़ें) -->
-<body data-lang="hi" data-page="join">
-
-  <!-- keyboard वालों के लिए सीधा content पर -->
-  <a href="#main" class="acs-skip">मुख्य content पर जाएँ</a>
-
-  <!-- ══ NAVBAR (header सिर्फ़ यहीं — किसी page में दोबारा नहीं) ══
-       slide-menu व भाषा-panel script.js अपने-आप जोड़ता है (links.js के 10 items)। -->
-  <div class="tiranga-bar"></div>
-<header class="acs-nav">
-  <div class="acs-nav-in">
-    <a class="acs-brand" href="/">
-      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
-      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
-    </a>
-    <div class="acs-navbtns">
-      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
-      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
-    </div>
-  </div>
-</header>
-<div class="acs-freebar">
-  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
-  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
-</div>
-<div class="acs-translate-panel" id="acsTranslatePanel">
-  <div id="google_translate_element"></div>
-</div>
-
-  <!-- ══ TRUST + मूल-भाषा निशान (v1.1 नियम) ══ -->
-  <div class="trust-strip">
-    <p>✅ जुड़ना और सीखना — सबके लिए निःशुल्क</p>
-    <p style="font-weight:600;font-size:16px;opacity:.92">मूल भाषा: हिंदी</p>
-  </div>
-
-  <!-- ══ हर page का अपना content सिर्फ़ यहाँ बदलता है ══ -->
-  <main id="main">
-    <!-- ════════ रजिस्ट्रेशन (join) — बीच का content (असली OTP-रजिस्ट्रेशन) ════════ -->
-<div id="joinApp">
-<!-- ── HERO ── -->
-<div class="hero">
-  <h2 class="t" data-hi="ACS परिवार में आपका स्वागत है" data-en="Welcome to the ACS Family">ACS परिवार में आपका स्वागत है</h2>
-  <p class="t" data-hi="विद्यार्थी · नौकरी · उद्यम · शिक्षक · केंद्र · सलाहकार · नियोक्ता · विदेश एजेंट · स्वयंसेवक · ACS Team" data-en="Student · Job-seeker · Entrepreneur · Teacher · Center · Counselor · Employer · Foreign Agent · Volunteer · ACS Team">विद्यार्थी · नौकरी · उद्यम · शिक्षक · केंद्र · सलाहकार · नियोक्ता · विदेश एजेंट · स्वयंसेवक · ACS Team</p>
-  <span class="badge t" data-hi="ISO 9001:2015 प्रमाणित | FFGPMTrust" data-en="ISO 9001:2015 Certified | FFGPMTrust">ISO 9001:2015 प्रमाणित | FFGPMTrust</span>
-</div>
-
-<!-- ── STEP BAR ── -->
-<div class="step-wrap">
-  <div class="step-bar">
-    <div class="step-circle active" id="sc1">1</div>
-    <div class="step-line" id="sl1"></div>
-    <div class="step-circle" id="sc2">2</div>
-    <div class="step-line" id="sl2"></div>
-    <div class="step-circle" id="sc3">3</div>
-    <div class="step-line" id="sl3"></div>
-    <div class="step-circle" id="sc4">4</div>
-  </div>
-  <div class="step-labels">
-    <span class="t" data-hi="भूमिका" data-en="Role">भूमिका</span>
-    <span class="t" data-hi="जानकारी" data-en="Details">जानकारी</span>
-    <span>OTP</span>
-    <span class="t" data-hi="शर्तें" data-en="Terms">शर्तें</span>
-  </div>
-</div>
-
-<!-- ── STEP 1: ROLE ── -->
-<div class="card show" id="c1">
-  <div class="card-sub t" data-hi="अपनी भूमिका (Role) चुनें — सही form अपने आप खुलेगा।" data-en="Select your role — the right form will open automatically.">अपनी भूमिका (Role) चुनें — सही form अपने आप खुलेगा।</div>
-  <div class="role-grid">
-
-    <!-- समूह-1: सीखना / कमाना (Learner) -->
-    <div class="role-group-head first t" data-hi="🟦 सुंदर भविष्य के लिए" data-en="🟦 For a beautiful future">🟦 सुंदर भविष्य के लिए</div>
-    <div class="role-card learner gold" onclick="selRole('student',this)" ondblclick="selRole('student',this);goStep2()">
-      <div class="role-icon">🎓</div>
-      <div class="role-name t" data-hi="विद्यार्थी (Student)" data-en="Student">विद्यार्थी (Student)</div>
-      <div class="role-desc t" data-hi="Online / Offline कोर्स सीखें" data-en="Learn online / offline courses">Online / Offline कोर्स सीखें</div>
-    </div>
-    <div class="role-card learner cream" onclick="selRole('jobseeker',this)" ondblclick="selRole('jobseeker',this);goStep2()">
-      <div class="role-icon">💼</div>
-      <div class="role-name t" data-hi="नौकरी (Job-seeker)" data-en="Job-seeker">नौकरी (Job-seeker)</div>
-      <div class="role-desc t" data-hi="नौकरी की तैयारी व खोज" data-en="Job preparation & search">नौकरी की तैयारी व खोज</div>
-    </div>
-    <div class="role-card learner green" onclick="selRole('entrepreneur',this)" ondblclick="selRole('entrepreneur',this);goStep2()">
-      <div class="role-icon">🏭</div>
-      <div class="role-name t" data-hi="उद्यम (Entrepreneur)" data-en="Entrepreneur">उद्यम (Entrepreneur)</div>
-      <div class="role-desc t" data-hi="अपना उद्योग शुरू करें" data-en="Start your own industry">अपना उद्योग शुरू करें</div>
-    </div>
-
-    <!-- समूह-2: ACS से जुड़कर कमाना -->
-    <div class="role-group-head t" data-hi="🟨 सुंदर भविष्य के लिए" data-en="🟨 For a beautiful future">🟨 सुंदर भविष्य के लिए</div>
-    <div class="role-card" onclick="selRole('teacher',this)" ondblclick="selRole('teacher',this);goStep2()">
-      <div class="role-icon">👨‍🏫</div>
-      <div class="role-name t" data-hi="शिक्षक (Teacher)" data-en="Teacher">शिक्षक (Teacher)</div>
-      <div class="role-desc t" data-hi="कोर्स बनाएँ, पढ़ाएँ, कमाएँ" data-en="Create courses, teach, earn">कोर्स बनाएँ, पढ़ाएँ, कमाएँ</div>
-    </div>
-    <div class="role-card" onclick="selRole('center',this)" ondblclick="selRole('center',this);goStep2()">
-      <div class="role-icon">🏫</div>
-      <div class="role-name t" data-hi="केंद्र (Center)" data-en="Center">केंद्र (Center)</div>
-      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching center">Offline केंद्र / Coaching शुरू करें</div>
-    </div>
-    <div class="role-card" onclick="selRole('counselor',this)" ondblclick="selRole('counselor',this);goStep2()">
-      <div class="role-icon">🧭</div>
-      <div class="role-name t" data-hi="सलाहकार (Counselor)" data-en="Counselor">सलाहकार (Counselor)</div>
-      <div class="role-desc t" data-hi="Career guidance दें, कमाएँ" data-en="Give career guidance, earn">Career guidance दें, कमाएँ</div>
-    </div>
-    <div class="role-card" onclick="selRole('employer',this)" ondblclick="selRole('employer',this);goStep2()">
-      <div class="role-icon">💼</div>
-      <div class="role-name t" data-hi="नियोक्ता (Employer)" data-en="Employer">नियोक्ता (Employer)</div>
-      <div class="role-desc t" data-hi="Job post करें, कर्मचारी ढूँढें" data-en="Post jobs, find staff">Job post करें, कर्मचारी ढूँढें</div>
-    </div>
-    <div class="role-card" onclick="selRole('foreign_agent',this)" ondblclick="selRole('foreign_agent',this);goStep2()">
-      <div class="role-icon">✈️</div>
-      <div class="role-name t" data-hi="विदेश एजेंट (Foreign Agent)" data-en="Foreign Agent">विदेश एजेंट (Foreign Agent)</div>
-      <div class="role-desc t" data-hi="विदेश में job placement" data-en="Overseas job placement">विदेश में job placement</div>
-    </div>
-    <div class="role-card" onclick="selRole('volunteer',this)" ondblclick="selRole('volunteer',this);goStep2()">
-      <div class="role-icon">🤝</div>
-      <div class="role-name t" data-hi="स्वयंसेवक (Volunteer)" data-en="Volunteer">स्वयंसेवक (Volunteer)</div>
-      <div class="role-desc t" data-hi="सेवा-भाव से जुड़ें, RM-सपोर्ट" data-en="Serve & support RM (field)">सेवा-भाव से जुड़ें, RM-सपोर्ट</div>
-    </div>
-    <div class="role-card" onclick="selRole('team',this)" ondblclick="selRole('team',this);goStep2()">
-      <div class="role-icon">🛠️</div>
-      <div class="role-name">ACS Team</div>
-      <div class="role-desc">HQ / ZM / RM / Field / Intern</div>
-    </div>
-  </div>
-  <div class="alert alert-err" id="a1"></div>
-  <button class="btn btn-blue" style="margin-top:12px" onclick="goStep2()" id="btn1" data-hi="आगे बढ़ें →" data-en="Next →">आगे बढ़ें →</button>
-</div>
-
-<!-- ── STEP 2: DETAILS ── -->
-<div class="card" id="c2">
-  <div class="card-title t" data-hi="आपकी जानकारी (Your Details)" data-en="Your Details">आपकी जानकारी (Your Details)</div>
-  <div class="card-sub" id="role-tag"></div>
-  <div class="alert alert-err" id="a2"></div>
-  <div class="field">
-    <label class="t" data-hi="FULL NAME *" data-en="FULL NAME *">FULL NAME *</label>
-    <input type="text" id="f-name" autocomplete="name" placeholder="e.g. RAMESH KUMAR SINGH"/>
-    <div class="err" id="e-name"></div>
-  </div>
-  <div class="field">
-    <label class="t" data-hi="MOBILE NUMBER *" data-en="MOBILE NUMBER *">MOBILE NUMBER *</label>
-    <input type="tel" id="f-mobile" maxlength="10" placeholder="10-digit mobile number" oninput="this.value=this.value.replace(/\D/g,'')" autocomplete="tel"/>
-    <div class="err" id="e-mobile"></div>
-  </div>
-  <div class="field">
-    <label>Email *</label>
-    <input type="email" id="f-email" autocomplete="email"/>
-    <div class="err" id="e-email"></div>
-  </div>
-  <div class="field">
-    <label class="t" data-hi="STATE *" data-en="STATE *">STATE *</label>
-    <select id="f-state">
-      <option value="">-- SELECT STATE --</option>
-      <option>Andhra Pradesh</option><option>Assam</option><option>Bihar</option>
-      <option>Chhattisgarh</option><option>Delhi</option><option>Goa</option>
-      <option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option>
-      <option>Jharkhand</option><option>Karnataka</option><option>Kerala</option>
-      <option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option>
-      <option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option>
-      <option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
-      <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option>
-      <option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option>
-      <option>West Bengal</option><option>Other / International</option>
-    </select>
-    <div class="err" id="e-state"></div>
-  </div>
-  <!-- Role-specific extra fields -->
-  <div id="extra-fields"></div>
-  <div class="field">
-    <label class="t" data-hi="PASSWORD * (minimum 8 characters)" data-en="PASSWORD * (minimum 8 characters)">PASSWORD * (minimum 8 characters)</label>
-    <input type="password" id="f-pass" oninput="checkPw(this.value)" autocomplete="new-password"/>
-    <div class="pw-bar"><div class="pw-fill" id="pw-fill"></div></div>
-    <div class="pw-label" id="pw-label"></div>
-    <div class="err" id="e-pass"></div>
-  </div>
-  <div class="field">
-    <label class="t" data-hi="CONFIRM PASSWORD *" data-en="CONFIRM PASSWORD *">CONFIRM PASSWORD *</label>
-    <input type="password" id="f-pass2" autocomplete="new-password"/>
-    <div class="err" id="e-pass2"></div>
-  </div>
-  <div class="btn-row">
-    <button class="btn btn-outline" onclick="goStep(1)" id="back2" data-hi="← वापस" data-en="← Back">← वापस</button>
-    <button class="btn btn-blue" style="flex:1" onclick="sendOtp()" id="btn2" data-hi="OTP भेजें →" data-en="Send OTP →">OTP भेजें →</button>
-  </div>
-</div>
-
-<!-- ── STEP 3: OTP ── -->
-<div class="card" id="c3">
-  <div class="card-title t" data-hi="OTP Verify करें" data-en="Verify OTP">OTP Verify करें</div>
-  <div class="card-sub t" data-hi="आपके Email पर 6 अंक का OTP भेजा गया है।" data-en="A 6-digit OTP has been sent to your Email.">आपके Email पर 6 अंक का OTP भेजा गया है।</div>
-  <div class="alert" id="a3"></div>
-  <div class="field" style="text-align:center">
-    <label style="display:block;margin-bottom:10px">ENTER 6-DIGIT OTP *</label>
-    <div class="otp-row">
-      <input class="otp-box" type="number" id="o1" oninput="otpNav(this,'','o2')"/>
-      <input class="otp-box" type="number" id="o2" oninput="otpNav(this,'o1','o3')"/>
-      <input class="otp-box" type="number" id="o3" oninput="otpNav(this,'o2','o4')"/>
-      <input class="otp-box" type="number" id="o4" oninput="otpNav(this,'o3','o5')"/>
-      <input class="otp-box" type="number" id="o5" oninput="otpNav(this,'o4','o6')"/>
-      <input class="otp-box" type="number" id="o6" oninput="otpNav(this,'o5','')"/>
-    </div>
-    <div style="margin-top:7px;font-size:16px;color:var(--gray)">
-      <span id="otp-timer"></span>
-      <button id="resend-btn" onclick="sendOtp(true)" style="display:none;background:none;border:none;color:var(--blue);cursor:pointer;font-size:16px;font-family:inherit" class="t" data-hi="OTP दोबारा भेजें" data-en="Resend OTP">OTP दोबारा भेजें</button>
-    </div>
-  </div>
-  <div class="btn-row">
-    <button class="btn btn-outline" onclick="goStep(2)" id="back3" data-hi="← वापस" data-en="← Back">← वापस</button>
-    <button class="btn btn-blue" style="flex:1" onclick="verifyOtp()" id="btn3" data-hi="Verify करें ✓" data-en="Verify ✓">Verify करें ✓</button>
-  </div>
-</div>
-
-<!-- ── STEP 4: TERMS ── -->
-<div class="card" id="c4">
-  <div class="card-title t" data-hi="शर्तें एवं नियम (Terms & Conditions)" data-en="Terms & Conditions">शर्तें एवं नियम (Terms & Conditions)</div>
-  <div class="card-sub t" data-hi="Register करने से पहले शर्तें पढ़ें और सहमति दें।" data-en="Please read and accept the terms before registering.">Register करने से पहले शर्तें पढ़ें और सहमति दें।</div>
-  <div class="alert alert-err" id="a4"></div>
-  <div class="terms-box" id="terms-box"></div>
-  <div class="check-row">
-    <input type="checkbox" id="ck1"/>
-    <label for="ck1" class="t" data-hi="I have read and understood ACS Terms & Conditions — I agree." data-en="I have read and understood ACS Terms & Conditions — I agree.">I have read and understood ACS Terms &amp; Conditions — I agree.</label>
-  </div>
-  <div class="check-row">
-    <input type="checkbox" id="ck2"/>
-    <label for="ck2" class="t" data-hi="I agree to ACS Privacy Policy." data-en="I agree to ACS Privacy Policy.">I agree to ACS Privacy Policy.</label>
-  </div>
-  <div class="check-row" id="guardian-row" style="display:none">
-    <input type="checkbox" id="ck3"/>
-    <label for="ck3" class="t" data-hi="Guardian consent given (under 18 years)." data-en="Guardian consent given (under 18 years).">Guardian consent given (under 18 years).</label>
-  </div>
-  <button class="btn btn-gold" onclick="doRegister()" id="btn4">🎉 <span class="t" data-hi="ACS में Register करें" data-en="Register with ACS">ACS में Register करें</span></button>
-  <button class="btn btn-outline" onclick="goStep(3)" data-hi="← वापस" data-en="← Back">← वापस</button>
-</div>
-
-<!-- ── STEP 5: SUCCESS ── -->
-<div class="card" id="c5">
-  <div class="success">
-    <div class="success-icon">🎉</div>
-    <h3 class="t" data-hi="Registration सफल!" data-en="Registration Successful!">Registration सफल!</h3>
-    <p class="t" data-hi="ACS परिवार में आपका स्वागत है।" data-en="Welcome to the ACS Family.">ACS परिवार में आपका स्वागत है।</p>
-    <div class="acs-id-box">
-      <div id="s-id"></div>
-      <div style="font-size:16px;color:var(--gray);margin-top:3px" id="s-role"></div>
-      <div style="font-size:16px;color:var(--gray)" id="s-email"></div>
-    </div>
-    <p style="font-size:16px;color:var(--gray);margin-bottom:12px" class="t" data-hi="यह ID screenshot लें — Email + Password से Dashboard login करें।" data-en="Save this ID — use Email + Password to login to Dashboard.">यह ID screenshot लें — Email + Password से Dashboard login करें।</p>
-    <button class="btn btn-blue" onclick="location.href='https://acslearn.com/dashboard/'">
-      <span class="t" data-hi="Dashboard खोलें →" data-en="Open Dashboard →">Dashboard खोलें →</span>
-    </button>
-    <button class="btn btn-outline" onclick="location.href='https://acslearn.com'" style="margin-top:8px">
-      🏠 <span class="t" data-hi="Home पर जाएं" data-en="Go to Home">Home पर जाएं</span>
-    </button>
-  </div>
-</div>
-
-</div>
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>सुंदर भविष्य के लिए ACS से जुड़ें! | Applied Computer School</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="roles.js"></script>
 <style>
-/* join form-CSS (navbar/footer/menu/global हटाई — टेम्पलेट से; फ़ॉन्ट पहले से ≥16px) */
-.hero{background:linear-gradient(135deg,var(--navy),#1565C0);padding:28px 16px 24px;text-align:center;color:#fff;display:block;min-height:auto;border-bottom:none}
-.hero h2{font-size:20px;font-weight:700;line-height:1.4}
-.hero p{color:rgba(255,255,255,.7);font-size:16px;margin-top:5px}
-.badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:16px;font-weight:700;padding:3px 12px;border-radius:20px;margin-top:8px}
-
-/* ── STEPS ── */
-.step-wrap{max-width:460px;margin:14px auto 0;padding:0 16px}
-.step-bar{display:flex;align-items:center}
-.step-circle{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--gray);flex-shrink:0;transition:.3s}
-.step-circle.active{border-color:var(--blue);background:var(--blue);color:#fff}
-.step-circle.done{border-color:var(--green);background:var(--green);color:#fff}
-.step-line{flex:1;height:2px;background:var(--border)}
-.step-line.done{background:var(--green)}
-.step-labels{display:flex;justify-content:space-between;padding:3px 0 0;font-size:16px;color:var(--gray)}
-.step-labels span{flex:1;text-align:center}
-
-/* ── CARD ── */
-.card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(11,31,58,.08);margin:14px auto;max-width:460px;padding:20px 16px;border:1px solid var(--border);display:none}
-.card.show{display:block}
-.card-title{font-size:16px;font-weight:700;margin-bottom:3px}
-.card-sub{font-size:16px;color:var(--gray);margin-bottom:16px;line-height:1.5}
-
-/* ── ROLE GRID ── */
-.role-grid{display:grid;grid-template-columns:1fr;gap:12px}
-.role-card{position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:center;text-align:left;cursor:pointer;border:1.5px solid var(--border);border-radius:18px;padding:15px 17px;background:linear-gradient(160deg,#ffffff 0%,#f1f5fb 48%,#e3ebf6 100%);box-shadow:0 5px 0 #c9d2e2,0 9px 20px rgba(11,31,58,.12);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
-.role-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(11,31,58,.022) 0 7px,transparent 7px 15px);pointer-events:none}
-.role-card::after{content:"";position:absolute;top:0;left:0;right:0;height:46%;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent);pointer-events:none}
-.role-card>*{position:relative;z-index:1}
-.role-card:hover{transform:translateY(-2px);box-shadow:0 7px 0 #b9c4d8,0 13px 24px rgba(11,31,58,.18)}
-.role-card:active{transform:translateY(3px);box-shadow:0 2px 0 #c9d2e2,0 4px 10px rgba(11,31,58,.14)}
-.role-icon{grid-row:1/3;font-size:27px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-radius:14px;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 5px rgba(11,31,58,.10),0 2px 4px rgba(11,31,58,.10)}
-.role-name{font-size:18px;font-weight:800;color:var(--navy)}
-.role-desc{font-size:16px;color:var(--gray);line-height:1.3;margin:0}
-.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding-top:4px;text-align:center}
-.role-group-head.first{margin-top:2px}
-.role-card.learner{border-width:2px}
-.role-card.learner .role-icon{font-size:32px;width:58px;height:58px}
-.role-card.learner .role-name{font-size:20px}
-.role-card.gold{border-color:#e0a52a;background:linear-gradient(150deg,#ffeba8 0%,#fbcf5c 52%,#f5bd35 100%);box-shadow:0 6px 0 #bf8a1f,0 12px 24px rgba(240,176,33,.40)}
-.role-card.gold::after{background:linear-gradient(180deg,rgba(255,255,255,.5),transparent)}
-.role-card.gold .role-icon{background:linear-gradient(145deg,#fff7da,#ffe9a8);border-color:#e8c870}
-.role-card.gold .role-name{color:#4a3500}.role-card.gold .role-desc{color:#6b5200}
-.role-card.gold:active{transform:translateY(3px);box-shadow:0 2px 0 #bf8a1f,0 5px 12px rgba(240,176,33,.34)}
-.role-card.cream{border-color:#e6d6ad;background:linear-gradient(150deg,#fffdf6 0%,#fdf3da 55%,#f8ead0 100%);box-shadow:0 6px 0 #ddcaa0,0 12px 22px rgba(180,150,80,.26)}
-.role-card.cream .role-icon{background:linear-gradient(145deg,#fffefa,#fdf2d6);border-color:#ecdfbe}
-.role-card.cream:active{transform:translateY(3px);box-shadow:0 2px 0 #ddcaa0,0 5px 12px rgba(180,150,80,.22)}
-.role-card.green{border-color:#2e7d32;background:linear-gradient(150deg,#d2efd4 0%,#8fd093 52%,#5cb860 100%);box-shadow:0 6px 0 #1e5a22,0 12px 24px rgba(46,125,50,.38)}
-.role-card.green::after{background:linear-gradient(180deg,rgba(255,255,255,.45),transparent)}
-.role-card.green .role-icon{background:linear-gradient(145deg,#f0fff0,#c8ecca);border-color:#a5d6a7}
-.role-card.green .role-name{color:#143f18}.role-card.green .role-desc{color:#1b5e20}
-.role-card.green:active{transform:translateY(3px);box-shadow:0 2px 0 #1e5a22,0 5px 12px rgba(46,125,50,.32)}
-.role-card.sel{border-color:var(--blue);box-shadow:0 6px 0 #0d4a99,0 12px 26px rgba(21,101,192,.34)}
-.role-card.sel .role-name{color:var(--blue)}
-.role-card.sel:active{transform:translateY(3px)}
-@media(prefers-reduced-motion:reduce){.role-card{transition:none}.role-card:hover,.role-card:active{transform:none}}
-
-/* ── FORM FIELDS ── */
-.field{margin-bottom:13px}
-.field label{display:block;font-size:16px;font-weight:600;margin-bottom:4px}
-.field input,.field select{width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:16px;color:var(--text);background:var(--offwhite);font-family:inherit;outline:none;transition:.2s}
-.field input:focus,.field select:focus{border-color:var(--blue);background:#fff}
-.field .hint{font-size:16px;color:var(--gray);margin-top:2px}
-.field .err{font-size:16px;color:var(--red);margin-top:2px;display:none}
-.field .err.show{display:block}
-
-/* ── PASSWORD BAR ── */
-.pw-bar{height:3px;background:var(--border);border-radius:2px;margin-top:4px;overflow:hidden}
-.pw-fill{height:100%;width:0;transition:.4s;border-radius:2px}
-.pw-label{font-size:16px;margin-top:2px}
-
-/* ── OTP ── */
-.otp-row{display:flex;gap:6px;justify-content:center}
-.otp-box{width:40px;height:44px;text-align:center;font-size:18px;font-weight:700;border:2px solid var(--border);border-radius:7px;background:var(--offwhite);outline:none;transition:.2s;font-family:inherit}
-.otp-box:focus{border-color:var(--blue);background:#fff}
-
-/* ── TERMS BOX ── */
-.terms-box{border:1.5px solid var(--border);border-radius:7px;padding:11px;height:145px;overflow-y:auto;font-size:16px;color:var(--gray);line-height:1.7;background:#FAFBFC;margin-bottom:11px}
-.terms-box h4{color:var(--text);font-size:16px;margin-bottom:4px}
-
-/* ── CHECKBOX ── */
-.check-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px}
-.check-row input[type=checkbox]{width:15px;height:15px;margin-top:2px;flex-shrink:0;accent-color:var(--blue);cursor:pointer}
-.check-row label{font-size:16px;line-height:1.5;cursor:pointer}
-
-/* ── BUTTONS ── */
-.btn{width:100%;padding:12px;border-radius:7px;font-size:16px;font-weight:700;cursor:pointer;border:none;transition:.2s;font-family:inherit}
-.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-lt)}
-.btn-blue:disabled{background:var(--border);color:var(--gray);cursor:not-allowed}
-.btn-outline{background:transparent;color:var(--blue);border:2px solid var(--blue);margin-top:8px}
-.btn-outline:hover{background:#EEF4FF}
-.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:#F0A000}
-.btn-row{display:flex;gap:8px;margin-top:5px}
-.btn-row .btn-outline{flex:0 0 auto;padding:11px 16px;width:auto}
-
-/* ── ALERTS ── */
-.alert{padding:9px 13px;border-radius:7px;font-size:16px;margin-bottom:11px;display:none}
-.alert.show{display:block}
-.alert-err{background:#FDECEC;border:1px solid #F5AAAA;color:var(--red)}
-.alert-info{background:#E3F2FD;border:1px solid #90CAF9;color:var(--blue)}
-.alert-ok{background:#E8F5E9;border:1px solid #A5D6A7;color:var(--green)}
-
-/* ── SPINNER ── */
-.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:4px}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ── SUCCESS ── */
-.success{text-align:center;padding:14px 8px}
-.success-icon{font-size:52px;margin-bottom:10px}
-.success h3{font-size:17px;font-weight:700;color:var(--green)}
-.success p{font-size:16px;color:var(--gray);margin-top:5px;line-height:1.6}
-.acs-id-box{background:var(--offwhite);border:2px dashed var(--blue);border-radius:7px;padding:11px;margin:12px 0;font-size:16px;font-weight:700;word-break:break-all}
-
-/* ── FOOTER ── */
-.footer-main{background:var(--navy);color:rgba(255,255,255,.7);padding:36px 20px 20px;margin-top:20px}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:900px;margin:0 auto}
-@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr 1fr}}
-.footer-brand h2{color:#fff;font-size:16px;margin-bottom:6px}
-.footer-tagline{color:var(--gold);font-size:16px;font-style:italic;margin:6px 0}
-.footer-col h3{color:var(--gold);font-size:16px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
-.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.sitemap-grid a{color:rgba(255,255,255,.6);font-size:16px;padding:3px 0;display:block}
-.footer-col p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:5px;line-height:1.6}
-.footer-col a{color:var(--gold)}
-.footer-bottom{text-align:center;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:16px;color:rgba(255,255,255,.4)}
-
-@media(max-width:360px){.role-grid{grid-template-columns:1fr}.card{margin:8px;padding:14px 11px}}
+  :root{--navy:#0B1F3A;--blue:#1565C0;--gold:#F9A825;--green:#2E7D32;--off:#F5F7FA;--red:#B23A3A}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Noto Sans Devanagari','Inter',sans-serif;font-size:19px;line-height:1.8;color:#1a2433;background:var(--off);padding:12px}
+  .wrap{max-width:820px;margin:0 auto}
+  .tiranga-bar{height:7px;display:flex;border-radius:6px;overflow:hidden;margin-bottom:8px}
+  .tiranga-bar div{flex:1}
+  .tiranga-bar .saffron{background:#FF9933}
+  .tiranga-bar .white{background:#FFFFFF}
+  .tiranga-bar .greenstripe{background:#138808}
+  .head{background:var(--navy);color:#fff;border-radius:12px;padding:16px;text-align:center;margin-bottom:10px}
+  .head h1{font-size:22px;line-height:1.5}
+  .head .sub{font-size:16px;color:#cfd8e3;margin-top:4px}
+  .steps{display:flex;justify-content:center;gap:6px;margin-bottom:14px;font-size:13px;color:#888;flex-wrap:wrap}
+  .steps span{padding:4px 10px;border-radius:20px;background:#e3e9f2}
+  .steps span.active{background:var(--blue);color:#fff;font-weight:700}
+  .steps span.done{background:var(--green);color:#fff}
+  .panel{display:none}
+  .panel.active{display:block}
+  .card{background:#fff;border:2px solid var(--blue);border-radius:14px;padding:18px;margin-bottom:12px}
+  .card h3{color:var(--navy);font-size:18px;margin-bottom:10px}
+  .row{margin-bottom:14px}
+  .row label{display:block;font-size:16px;color:#444;font-weight:700;margin-bottom:5px}
+  .row .hint{font-size:14px;color:#888;font-weight:400;margin-top:3px}
+  input, select{width:100%;font:inherit;font-size:19px;padding:11px 12px;border:1.5px solid #cfd8e3;border-radius:9px;background:#fff}
+  input#nameRoman{text-transform:uppercase;font-family:'Inter',sans-serif;letter-spacing:.5px}
+  .badrow{display:none;color:var(--red);font-size:14px;margin-top:5px;font-weight:700}
+  .badrow.show{display:block}
+  .pwdwrap{position:relative}
+  .pwdwrap input{padding-right:46px}
+  .eyeBtn{position:absolute;right:6px;top:6px;bottom:6px;width:36px;border:none;background:#eef1f6;border-radius:7px;font-size:18px;cursor:pointer}
+  .checklist{background:var(--off);border-radius:9px;padding:8px 12px;margin-top:8px;font-size:15px}
+  .checklist div{padding:3px 0;color:#999}
+  .checklist div.ok{color:var(--green);font-weight:700}
+  .matchbox{display:none;border-radius:9px;padding:8px 12px;margin-top:8px;font-size:15px;font-weight:700}
+  .matchbox.show{display:block}
+  .matchbox.ok{background:#EAF3EC;color:#1b4d20;border:1.5px solid var(--green)}
+  .matchbox.bad{background:#FBEAEA;color:#7a1f1f;border:1.5px solid var(--red)}
+  .otpBoxWrap{display:none}
+  .otpBoxWrap.show{display:block}
+  .otpDigits{display:flex;gap:8px;justify-content:center;margin:14px 0}
+  .otpDigits input{width:46px;height:56px;text-align:center;font-size:26px;font-weight:800;padding:0}
+  .otpTimer{text-align:center;color:#888;font-size:15px;margin-bottom:8px}
+  button.big{width:100%;border:none;border-radius:11px;padding:15px;font:inherit;font-size:20px;font-weight:800;cursor:pointer;margin-top:6px}
+  .btn-off{background:#c7cfda;color:#6b7686;cursor:not-allowed}
+  .btn-on{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(46,125,50,.35)}
+  .btn-secondary{background:#fff;color:var(--blue);border:1.5px solid var(--blue) !important}
+  .cascade{display:none}
+  .cascade.show{display:block}
+  .fixedoffice{background:#EAF3EC;border:1.5px solid var(--green);border-radius:9px;padding:10px 12px;font-size:17px;color:#1b4d20;font-weight:700;display:none}
+  .fixedoffice.show{display:block}
+  .rulesLoadMsg{text-align:center;color:#888;padding:20px;font-size:16px}
+  #rulesContainer .rules{background:#fff;border:1px solid #dfe6ef;border-radius:12px;padding:8px 6px;margin-bottom:6px}
+  #rulesContainer .rule{display:flex;gap:10px;align-items:flex-start;padding:11px 10px;border-bottom:1px dashed #e3e9f2}
+  #rulesContainer .rule:last-child{border-bottom:none}
+  #rulesContainer .rule input[type=checkbox]{width:26px;height:26px;min-width:26px;margin-top:7px;accent-color:var(--green);cursor:pointer}
+  #rulesContainer .no{font-weight:800;color:var(--blue);min-width:38px;margin-top:2px}
+  #rulesContainer .rule.special{background:#FFF8E1;border-radius:8px}
+  #rulesContainer .part{background:var(--navy);color:var(--gold);border-radius:8px;padding:6px 12px;font-size:17px;font-weight:800;margin:14px 0 6px}
+  .count{font-size:16px;text-align:center;color:#555;margin:10px 0}
+  .final{display:flex;gap:10px;align-items:flex-start;background:#EAF3EC;border:1.5px solid var(--green);border-radius:10px;padding:10px 12px;margin:10px 0;font-size:17px}
+  .final input{width:26px;height:26px;min-width:26px;margin-top:5px;accent-color:var(--green)}
+  .final input:disabled{opacity:.45}
+  .fieldGrid{display:grid;gap:12px}
+  .successCard{background:#fff;border:2px solid var(--green);border-radius:16px;padding:24px;text-align:center}
+  .successCard .big-tick{font-size:52px}
+  .successCard h2{color:var(--green);font-size:22px;margin:8px 0}
+  .regno{background:var(--off);border:1.5px dashed var(--navy);border-radius:10px;padding:12px;font-size:20px;font-weight:800;color:var(--navy);letter-spacing:1px;margin:14px 0}
+  .foot{text-align:center;color:#666;font-size:15px;margin:14px 0}
+  .uploadRow{border:2px dashed #cfd8e3;border-radius:10px;padding:16px;text-align:center;color:#888;font-size:15px}
 </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="tiranga-bar"><div class="saffron"></div><div class="white"></div><div class="greenstripe"></div></div>
 
-<!-- असली रजिस्ट्रेशन: Firebase + OTP (requestRegisterOtp/verifyRegisterOtp) + createUser + setDoc — ज्यों-का-त्यों (सिर्फ़ pg-title→document.title, menu-title guard, नाम-placeholder neutral) -->
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import{getAuth,createUserWithEmailAndPassword,sendEmailVerification}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import{getFirestore,doc,setDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import{getFunctions,httpsCallable}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
+  <div class="head">
+    <h1>सुंदर भविष्य के लिए ACS से जुड़ें!</h1>
+    <div class="sub">Applied Computer School™ · FFGPMTrust</div>
+  </div>
 
-const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
-const auth=getAuth(app),db=getFirestore(app);
-const functions=getFunctions(app);                       // region us-central1 (function से मेल)
-const fnRequestOtp=httpsCallable(functions,'requestRegisterOtp');
-const fnVerifyOtp =httpsCallable(functions,'verifyRegisterOtp');
+  <div class="steps">
+    <span id="stepTab1" class="active">1. जानकारी+OTP</span>
+    <span id="stepTab2">2. नियम</span>
+    <span id="stepTab3">3. पूरा फ़ॉर्म</span>
+    <span id="stepTab4">4. सबमिट</span>
+  </div>
 
-// ── LANGUAGE ──
-let LANG=new URLSearchParams(location.search).get('lang')||'hi';
-if(LANG!=='hi'&&LANG!=='en')LANG='hi';
-document.body.className=LANG;
-document.documentElement.lang=LANG;
+  <!-- ═══════════════════ STEP 1 — नाम/मोबाइल/ईमेल/Password → OTP ═══════════════════ -->
+  <div class="panel active" id="panel1">
+    <div class="card">
+      <h3>1️⃣ अपनी जानकारी भरें</h3>
 
-// ── LANGUAGE DATA ──
-const LANG_DATA={
-  hi:{
-    title:'ACS से जुड़ें — Applied Computer School™',
-    desc:'ACS से जुड़ें — Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
-    menu:'एसीएस मेन्यू',
-    btn_translate:'🌐 English',
-    btn_switch:'🌐 English',
-    ph_name:'e.g. RAMESH KUMAR SINGH',
-    ph_mobile:'10-digit mobile number',
-    ph_email:'example@gmail.com',
-    lang_path:'hi',
-    dir:'ltr',
-    font:"'Noto Sans Devanagari',sans-serif",
-  },
-  en:{
-    title:'Join ACS — Applied Computer School™',
-    desc:'Join ACS — Register as Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
-    menu:'ACS Menu',
-    btn_translate:'🌐 भाषा',
-    btn_switch:'🌐 हिंदी',
-    ph_name:'e.g. Ramesh Kumar Singh',
-    ph_mobile:'10-digit mobile number',
-    ph_email:'example@gmail.com',
-    lang_path:'en',
-    dir:'ltr',
-    font:"'Inter',sans-serif",
-  },
-  kn:{
-    title:'ACS ಗೆ ಸೇರಿ — Applied Computer School™',
-    desc:'ACS ಗೆ ಸೇರಿ — Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Foreign Agent, Volunteer, ACS Team',
-    menu:'ACS ಮೆನು',
-    btn_translate:'🌐 English',
-    btn_switch:'🌐 ಕನ್ನಡ',
-    ph_name:'ಉದಾ: Ramesh Kumar Singh',
-    ph_mobile:'10 ಅಂಕಿ ಮೊಬೈಲ್',
-    ph_email:'example@gmail.com',
-    lang_path:'kn',
-    dir:'ltr',
-    font:"'Noto Sans Kannada','Noto Sans Devanagari',sans-serif",
-  },
-  mr:{
-    title:'ACS मध्ये सामील व्हा — Applied Computer School™',
-    desc:'ACS मध्ये सामील व्हा — Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Volunteer',
-    menu:'ACS मेनू',
-    btn_translate:'🌐 English',
-    btn_switch:'🌐 मराठी',
-    ph_name:'e.g. RAMESH KUMAR SINGH',
-    ph_mobile:'10-digit mobile number',
-    ph_email:'example@gmail.com',
-    lang_path:'mr',
-    dir:'ltr',
-    font:"'Noto Sans Devanagari',sans-serif",
-  },
-  ar:{
-    title:'انضم إلى ACS — Applied Computer School™',
-    desc:'انضم إلى ACS — طالب، معلم، عامل، مركز',
-    menu:'قائمة ACS',
-    btn_translate:'🌐 English',
-    btn_switch:'🌐 عربي',
-    ph_name:'مثال: Ramesh Kumar Singh',
-    ph_mobile:'رقم الهاتف المحمول',
-    ph_email:'example@gmail.com',
-    lang_path:'ar',
-    dir:'rtl',
-    font:"'Noto Sans Arabic',sans-serif",
-  },
-  sw:{
-    title:'Jiunge na ACS — Applied Computer School™',
-    desc:'Jiunge na ACS — Mwanafunzi, Mwalimu, Mfanyakazi, Kituo',
-    menu:'Menyu ya ACS',
-    btn_translate:'🌐 English',
-    btn_switch:'🌐 Kiswahili',
-    ph_name:'Mfano: Ramesh Kumar Singh',
-    ph_mobile:'Nambari ya simu (tarakimu 10)',
-    ph_email:'example@gmail.com',
-    lang_path:'sw',
-    dir:'ltr',
-    font:"'Inter',sans-serif",
-  },
-};
+      <div class="row"><label>नाम — हिंदी में</label><input type="text" id="nameLocal" placeholder="जैसे: राजेश कुमार"></div>
+      <div class="row">
+        <label>Name — ROMAN CAPITAL में (database के लिए)</label>
+        <input type="text" id="nameRoman" placeholder="e.g. RAJESH KUMAR">
+        <div class="hint">सिर्फ़ A-Z अक्षर व space।</div>
+        <div class="badrow" id="nameBad">⚠️ कृपया सिर्फ़ ROMAN CAPITAL अक्षर (A-Z) में भरें।</div>
+      </div>
+      <div class="row">
+        <label>मोबाइल नंबर</label>
+        <input type="tel" id="mobile" placeholder="10 अंकों का मोबाइल नंबर" maxlength="10">
+        <div class="badrow" id="mobileBad">⚠️ सही 10-अंकों का मोबाइल नंबर भरें।</div>
+      </div>
+      <div class="row">
+        <label>ईमेल पता</label>
+        <input type="email" id="email" placeholder="जैसे: name@example.com">
+        <div class="badrow" id="emailBad">⚠️ सही ईमेल पता भरें।</div>
+      </div>
+      <div class="row">
+        <label>Password बनाएँ</label>
+        <div class="pwdwrap"><input type="password" id="pwd" placeholder="Password टाइप करें"><button type="button" class="eyeBtn" id="eyePwd">👁️</button></div>
+        <div class="checklist" id="pwdChecklist">
+          <div id="c_len">◻ कम-से-कम 12 अक्षर</div>
+          <div id="c_cap">◻ एक बड़ा अक्षर (A-Z)</div>
+          <div id="c_small">◻ एक छोटा अक्षर (a-z)</div>
+          <div id="c_num">◻ एक अंक (0-9)</div>
+          <div id="c_sym">◻ एक विशेष चिह्न (! @ # $ % आदि)</div>
+        </div>
+      </div>
+      <div class="row">
+        <label>Password दोबारा भरें</label>
+        <div class="pwdwrap"><input type="password" id="pwd2" placeholder="Password दोबारा टाइप करें"><button type="button" class="eyeBtn" id="eyePwd2">👁️</button></div>
+        <div class="matchbox" id="matchBox"></div>
+      </div>
 
-// URL-based lang paths for menu links
-const LANG_PATHS={hi:'hi',en:'en',kn:'kn',mr:'mr',ar:'ar',sw:'sw'};
+      <button class="big btn-off" id="sendOtpBtn" type="button" disabled>📩 OTP भेजें</button>
 
-function updateMenuLinks(lang){
-  const lp=LANG_PATHS[lang]||'hi';
-  const links={
-    'mn-courses':'https://acslearn.com/courses/'+lp+'/',
-    'mn-students':'https://acslearn.com/students/'+lp+'/',
-    'mn-mentors':'https://acslearn.com/mentors/'+lp+'/',
-    'mn-partners':'https://acslearn.com/partners/'+lp+'/',
-    'mn-counselors':'https://acslearn.com/counselors/'+lp+'/',
-    'mn-employers':'https://acslearn.com/employers/'+lp+'/',
-    'mn-payment':'https://acslearn.com/payment/'+lp+'/',
-    'mn-contact':'https://acslearn.com/contact/'+lp+'/',
-    'ft-courses':'https://acslearn.com/courses/'+lp+'/',
-    'ft-payment':'https://acslearn.com/payment/'+lp+'/',
-    'ft-contact':'https://acslearn.com/contact/'+lp+'/',
-  };
-  Object.entries(links).forEach(([id,url])=>{
-    const el=document.getElementById(id);
-    if(el)el.href=url;
+      <div class="otpBoxWrap" id="otpBoxWrap">
+        <hr style="margin:18px 0;border:none;border-top:1px dashed #cfd8e3">
+        <h3 style="text-align:center">📩 आपके ईमेल पर OTP भेजा गया</h3>
+        <p style="text-align:center;color:#666;font-size:15px" id="otpSentTo"></p>
+        <div class="otpDigits">
+          <input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric">
+          <input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric">
+          <input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric">
+        </div>
+        <div class="otpTimer" id="otpTimer">5:00 में समाप्त होगा</div>
+        <button class="big btn-off" id="verifyOtpBtn" type="button" disabled>✅ OTP verify करें</button>
+        <button class="big btn-secondary" id="resendOtpBtn" type="button" style="margin-top:8px" disabled>पुनः भेजें (10:00)</button>
+      </div>
+    </div>
+    <p class="foot">OTP आपके ईमेल पर 6-अंकों का कोड भेजेगा — 5 मिनट तक मान्य।</p>
+  </div>
+
+  <!-- ═══════════════════ STEP 2 — Gate (पदनाम-सीढ़ी) + Rules ═══════════════════ -->
+  <div class="panel" id="panel2">
+    <div class="card">
+      <h3>2️⃣ अपना जॉब-रोल चुनें</h3>
+      <div class="row">
+        <select id="roleSel">
+          <option value="">— अपना रोल चुनें —</option>
+          <!-- नीचे के options roles.js (ACS_ROLES) से JS द्वारा अपने-आप भरे जाते हैं -->
+        </select>
+      </div>
+
+      <!-- ZM/RM/Volunteer/Staff के लिए राज्य-देश व RM-कार्यालय cascade -->
+      <div class="cascade" id="staffLevelBox">
+        <div class="row"><label>कार्यालय-स्तर चुनें</label>
+          <select id="staffLevelSel">
+            <option value="">— स्तर चुनें —</option>
+            <option value="hq">HQ (मुख्यालय)</option>
+            <option value="zm">ZM कार्यालय</option>
+            <option value="rm">RM कार्यालय</option>
+          </select>
+        </div>
+      </div>
+      <div class="fixedoffice" id="fixedHQ">📍 कार्यालय: <b>HQ (मुख्यालय)</b> — स्वतः तय।</div>
+      <div class="cascade" id="stateBox">
+        <div class="row"><label id="stateLabel">राज्य / देश चुनें (भारत + Global South)</label>
+          <select id="stateSel">
+            <option value="">— चुनें —</option>
+            <!-- roles.js (ACS_ROLES.geo.states) से JS द्वारा भरा जाता है -->
+          </select>
+        </div>
+      </div>
+      <div class="cascade" id="rmOfficeBox">
+        <div class="row"><label>RM कार्यालय चुनें</label><select id="rmOfficeSel"><option value="">— पहले राज्य/देश चुनें —</option></select></div>
+      </div>
+    </div>
+
+    <div class="card" id="rulesCard" style="display:none">
+      <h3>📜 आपके रोल के नियम, अधिकार व कर्तव्य</h3>
+      <div id="rulesContainer"><div class="rulesLoadMsg">नियम लोड हो रहे हैं…</div></div>
+      <div class="count" id="rulesCount"></div>
+      <div class="final" id="finalRow">
+        <input type="checkbox" id="finalChk" disabled>
+        <label for="finalChk"><b>अंतिम पुष्टि:</b> मैंने ऊपर के सभी नियम ख़ुद पढ़कर एक-एक करके स्वीकार किए हैं।</label>
+      </div>
+      <button class="big btn-off" id="toStep3Btn" type="button" disabled>➜ आगे बढ़ें (पूरा फ़ॉर्म)</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ STEP 3 — पूरा फ़ॉर्म ═══════════════════ -->
+  <div class="panel" id="panel3">
+    <div class="card">
+      <h3>3️⃣ पूरी जानकारी भरें</h3>
+      <div class="fieldGrid" id="dynamicFields"></div>
+      <div class="row" style="margin-top:10px">
+        <label>सहायक दस्तावेज़ (जो लागू हों) अपलोड करें</label>
+        <div class="uploadRow">📎 फ़ोटो · पहचान-प्रमाण · अन्य दस्तावेज़ — यहाँ upload करें (demo)</div>
+      </div>
+      <button class="big btn-off" id="toStep4Btn" type="button">➜ पुष्टि हेतु आगे बढ़ें</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ STEP 4 — पुष्टि व Submit ═══════════════════ -->
+  <div class="panel" id="panel4">
+    <div class="card">
+      <h3>4️⃣ एक बार जाँच लें</h3>
+      <div id="reviewBox" style="font-size:17px;line-height:2"></div>
+      <div style="display:flex;gap:10px;margin-top:14px">
+        <button class="big btn-secondary" id="editBtn" type="button">✏️ बदलाव करें</button>
+        <button class="big btn-on" id="submitBtn" type="button">✅ Final Submit करें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ सफलता-पर्दा ═══════════════════ -->
+  <div class="panel" id="panelSuccess">
+    <div class="successCard">
+      <div class="big-tick">🟡</div>
+      <h2>औपबंधिक रूप से आपका पंजीकरण सफल हुआ</h2>
+      <p>आपका पंजीकरण संख्या है:</p>
+      <div class="regno" id="regNoBox">ACS-2026-000000</div>
+      <p>अगले <b>2 से 7 कार्य-दिवस</b> में, सभी स्तर से जाँच के बाद आपका पंजीकरण स्थायी कर दिया जाएगा।</p>
+      <p style="margin-top:12px">Applied Computer School एवं आपके बीच हुए एग्रीमेंट का PDF यहाँ से डाउनलोड करें:</p>
+      <button class="big btn-secondary" type="button" onclick="alert('✅ (नमूना) यहाँ असली एग्रीमेंट-PDF डाउनलोड होगा — नाम, दिनांक व समय-मुहर सहित। आपके ईमेल पर भी भेज दी गई है।')">⬇️ एग्रीमेंट PDF डाउनलोड करें</button>
+      <p style="margin-top:14px;font-size:16px;color:#7a5200;background:#FFF8E1;border:1.5px solid var(--gold);border-radius:10px;padding:10px">
+        अभी आप अपने dashboard-panel में login करके <b>सिर्फ़ देख</b> सकते हैं। स्थायी पंजीकरण के बाद ही वहाँ से कोई भी कार्य कर सकेंगे।
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script src="roles.js"></script>
+<script>
+(function(){
+  /* ═══════════════ भूमिका-डेटा अब सीधे roles.js (window.ACS_ROLES) से — यहाँ कोई hardcode नहीं ═══════════════ */
+  var R = window.ACS_ROLES;
+  if(!R){ alert('⚠️ roles.js लोड नहीं हुआ — कृपया सुनिश्चित करें कि roles.js join.html के साथ उसी फ़ोल्डर में है।'); }
+
+  /* role-dropdown को roles.js के cards व groups से भरना (optgroup सहित) */
+  function buildRoleDropdown(){
+    var sel = document.getElementById('roleSel');
+    var byGroup = {};
+    R.cards.forEach(function(c){ (byGroup[c.group]=byGroup[c.group]||[]).push(c); });
+    Object.keys(R.groups).forEach(function(gKey){
+      var list = byGroup[gKey]; if(!list || !list.length) return;
+      var og = document.createElement('optgroup');
+      og.label = R.groups[gKey].hi;
+      list.forEach(function(c){
+        var opt = document.createElement('option');
+        opt.value = c.key; opt.textContent = c.hi;
+        og.appendChild(opt);
+      });
+      sel.appendChild(og);
+    });
+  }
+  /* राज्य/देश-dropdown roles.js के geo.states से भरना */
+  function buildStateDropdown(){
+    var sel = document.getElementById('stateSel');
+    R.geo.states.forEach(function(s){
+      var opt = document.createElement('option');
+      opt.value = s.v; opt.textContent = s.hi;
+      sel.appendChild(opt);
+    });
+  }
+  buildRoleDropdown();
+  buildStateDropdown();
+
+  /* ═══════════════ STEP 1 : नाम/मोबाइल/ईमेल/Password + OTP ═══════════════ */
+  function romanValid(v){ return /^[A-Z ]+$/.test(v) && v.trim().length>0; }
+  function mobileValid(v){ return /^[0-9]{10}$/.test(v); }
+  function emailValid(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  var nameLocal=document.getElementById('nameLocal'), nameRoman=document.getElementById('nameRoman'), nameBad=document.getElementById('nameBad');
+  var mobile=document.getElementById('mobile'), mobileBad=document.getElementById('mobileBad');
+  var email=document.getElementById('email'), emailBad=document.getElementById('emailBad');
+  var pwd=document.getElementById('pwd'), pwd2=document.getElementById('pwd2');
+  var eyePwd=document.getElementById('eyePwd'), eyePwd2=document.getElementById('eyePwd2');
+  var matchBox=document.getElementById('matchBox');
+  var sendOtpBtn=document.getElementById('sendOtpBtn');
+  var checks = { len:false, cap:false, small:false, num:false, sym:false };
+
+  function checkPwd(){
+    var v = pwd.value;
+    checks.len=v.length>=12; checks.cap=/[A-Z]/.test(v); checks.small=/[a-z]/.test(v);
+    checks.num=/[0-9]/.test(v); checks.sym=/[!@#$%^&*()_\-+=\[\]{};:'",.<>\/?\\|`~]/.test(v);
+    setLine('c_len',checks.len,"कम-से-कम 12 अक्षर"); setLine('c_cap',checks.cap,"एक बड़ा अक्षर (A-Z)");
+    setLine('c_small',checks.small,"एक छोटा अक्षर (a-z)"); setLine('c_num',checks.num,"एक अंक (0-9)");
+    setLine('c_sym',checks.sym,"एक विशेष चिह्न (! @ # $ % आदि)");
+    checkMatch(); validateStep1();
+  }
+  function setLine(id,ok,text){ var el=document.getElementById(id); el.textContent=(ok?"✅ ":"◻ ")+text; el.className=ok?"ok":""; }
+  function pwdAllOk(){ return checks.len&&checks.cap&&checks.small&&checks.num&&checks.sym; }
+  function checkMatch(){
+    if(pwd2.value.length===0){ matchBox.className='matchbox'; return; }
+    if(pwd.value===pwd2.value && pwd.value.length>0){ matchBox.className='matchbox show ok'; matchBox.textContent='✅ पासवर्ड मेल खाता है'; }
+    else { matchBox.className='matchbox show bad'; matchBox.textContent='❌ पासवर्ड मेल नहीं खाता'; }
+  }
+  function validateStep1(){
+    if(nameRoman.value && !romanValid(nameRoman.value)) nameBad.classList.add('show'); else nameBad.classList.remove('show');
+    if(mobile.value && !mobileValid(mobile.value)) mobileBad.classList.add('show'); else mobileBad.classList.remove('show');
+    if(email.value && !emailValid(email.value)) emailBad.classList.add('show'); else emailBad.classList.remove('show');
+    var ok = nameLocal.value.trim().length>0 && romanValid(nameRoman.value) && mobileValid(mobile.value)
+      && emailValid(email.value) && pwdAllOk() && pwd.value===pwd2.value && pwd.value.length>0;
+    sendOtpBtn.className = 'big ' + (ok?'btn-on':'btn-off'); sendOtpBtn.disabled = !ok;
+  }
+  nameLocal.addEventListener('input', validateStep1);
+  nameRoman.addEventListener('input', function(){ this.value=this.value.toUpperCase(); validateStep1(); });
+  mobile.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); validateStep1(); });
+  email.addEventListener('input', validateStep1);
+  pwd.addEventListener('input', checkPwd);
+  pwd2.addEventListener('input', function(){ checkMatch(); validateStep1(); });
+  eyePwd.addEventListener('click', function(){ pwd.type = pwd.type==='password'?'text':'password'; });
+  eyePwd2.addEventListener('click', function(){ pwd2.type = pwd2.type==='password'?'text':'password'; });
+
+  /* --- OTP (demo — असली में यहाँ Cloud Function + Brevo कॉल होगी) --- */
+  var otpBoxWrap=document.getElementById('otpBoxWrap'), otpSentTo=document.getElementById('otpSentTo');
+  var otpInputs=document.querySelectorAll('.otpDigits input');
+  var verifyOtpBtn=document.getElementById('verifyOtpBtn'), resendOtpBtn=document.getElementById('resendOtpBtn'), otpTimer=document.getElementById('otpTimer');
+  var otpCountdown, resendCountdown;
+
+  sendOtpBtn.addEventListener('click', function(){
+    if(sendOtpBtn.disabled) return;
+    otpSentTo.textContent = email.value + ' पर 6-अंकों का OTP भेजा गया (demo — असली में Brevo भेजेगा)';
+    otpBoxWrap.classList.add('show');
+    sendOtpBtn.disabled = true; sendOtpBtn.className='big btn-off';
+    otpInputs.forEach(function(inp){ inp.value=''; });
+    otpInputs[0].focus();
+    startOtpTimer(); startResendTimer();
+    otpBoxWrap.scrollIntoView({behavior:'smooth'});
   });
-}
 
-function applyLang(){
-  const ld=LANG_DATA[LANG]||LANG_DATA['hi'];
-
-  // RTL/LTR
-  document.documentElement.dir=ld.dir;
-  document.documentElement.lang=LANG;
-  document.body.style.fontFamily=ld.font;
-
-  // Font loading for script-specific languages
-  if(LANG==='kn'){
-    const l=document.createElement('link');
-    l.rel='stylesheet';
-    l.href='https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap';
-    document.head.appendChild(l);
+  otpInputs.forEach(function(inp, idx){
+    inp.addEventListener('input', function(){
+      this.value = this.value.replace(/[^0-9]/g,'');
+      if(this.value && idx<5) otpInputs[idx+1].focus();
+      checkOtpComplete();
+    });
+    inp.addEventListener('keydown', function(e){
+      if(e.key==='Backspace' && !this.value && idx>0) otpInputs[idx-1].focus();
+    });
+  });
+  function checkOtpComplete(){
+    var complete = Array.prototype.every.call(otpInputs, function(i){ return i.value.length===1; });
+    verifyOtpBtn.disabled = !complete; verifyOtpBtn.className='big '+(complete?'btn-on':'btn-off');
   }
-  if(LANG==='ar'){
-    const l=document.createElement('link');
-    l.rel='stylesheet';
-    l.href='https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap';
-    document.head.appendChild(l);
+  function startOtpTimer(){
+    var t = 300;
+    clearInterval(otpCountdown);
+    otpCountdown = setInterval(function(){
+      t--; var m=Math.floor(t/60), s=t%60;
+      otpTimer.textContent = m+':'+(s<10?'0':'')+s+' में समाप्त होगा';
+      if(t<=0){ clearInterval(otpCountdown); otpTimer.textContent='⏱️ OTP समाप्त हो गया — पुनः भेजें दबाएँ'; }
+    },1000);
   }
-
-  // RTL CSS
-  if(ld.dir==='rtl'){
-    document.body.style.direction='rtl';
-    document.body.style.textAlign='right';
-  } else {
-    document.body.style.direction='ltr';
-    document.body.style.textAlign='';
+  function startResendTimer(){
+    var t=600; resendOtpBtn.disabled=true; resendOtpBtn.className='big btn-off';
+    clearInterval(resendCountdown);
+    resendCountdown = setInterval(function(){
+      t--; var m=Math.floor(t/60), s=t%60;
+      resendOtpBtn.textContent = 'पुनः भेजें ('+m+':'+(s<10?'0':'')+s+')';
+      if(t<=0){ clearInterval(resendCountdown); resendOtpBtn.disabled=false; resendOtpBtn.className='big btn-on'; resendOtpBtn.textContent='📩 OTP पुनः भेजें'; }
+    },1000);
   }
-
-  // Page metadata
-  document.title=ld.title;
-  const pdesc=document.getElementById('pg-desc');
-  if(pdesc)pdesc.setAttribute('content',ld.desc);
-
-  // Navbar
-  const btrans=document.getElementById('btn-translate');
-  if(btrans)btrans.textContent=ld.btn_translate;
-  const langBtn=document.getElementById('lang-btn');
-  if(langBtn)langBtn.textContent=ld.btn_switch;
-  var _mt=document.getElementById('menu-title');if(_mt)_mt.textContent=ld.menu;
-
-  // All .t elements — use LANG data-attr, fallback to hi
-  document.querySelectorAll('.t').forEach(el=>{
-    const txt=el.getAttribute('data-'+LANG)||el.getAttribute('data-hi');
-    if(txt)el.textContent=txt;
+  resendOtpBtn.addEventListener('click', function(){
+    if(resendOtpBtn.disabled) return;
+    startOtpTimer(); startResendTimer();
+    alert('✅ (नमूना) नया OTP भेजा गया — पुराना रद्द हो गया।');
+  });
+  verifyOtpBtn.addEventListener('click', function(){
+    if(verifyOtpBtn.disabled) return;
+    clearInterval(otpCountdown); clearInterval(resendCountdown);
+    goToStep(2);
   });
 
-  // Placeholders
-  const fn=document.getElementById('f-name');if(fn)fn.placeholder=ld.ph_name;
-  const fm=document.getElementById('f-mobile');if(fm)fm.placeholder=ld.ph_mobile;
-  const fe=document.getElementById('f-email');if(fe)fe.placeholder=ld.ph_email;
-
-  // Dynamic menu/footer links
-  updateMenuLinks(LANG);
-
-  // Extra fields reload with new lang
-  if(ROLE)loadExtraFields(ROLE);
-}
-
-// Language cycle order
-const LANG_CYCLE=['hi','en','kn','mr'];
-window.switchLang=function(){
-  const idx=LANG_CYCLE.indexOf(LANG);
-  LANG=LANG_CYCLE[(idx+1)%LANG_CYCLE.length];
-  document.body.className=LANG;
-  const url=new URL(location.href);
-  url.searchParams.set('lang',LANG);
-  history.replaceState(null,'',url);
-  applyLang();
-  if(ROLE)loadExtraFields(ROLE);
-};
-
-// ── TERMS CONTENT ──
-const TERMS={
-  hi:{
-    student:"<h4>ACS विद्यार्थी शर्तें</h4>• Online Courses — हमेशा निःशुल्क (Free)।<br/>• Offline Training — Center द्वारा तय Fees।<br/>• न्यूनतम आयु (Minimum Age): 10 वर्ष।<br/>• 10-18 वर्ष: Guardian consent अनिवार्य।<br/>• Certificate: Course complete + Exam pass + Practical + Center approval।<br/>• FFGPMTrust द्वारा जारी — Lifetime valid।<br/>• Refund: 7 दिन पहले = 100% | 30%+ complete = No refund।<br/>• POCSO Act — Minor की सुरक्षा प्राथमिकता।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
-    teacher:"<h4>ACS शिक्षक शर्तें</h4>• योग्यता: 45+ वर्ष OR 15 साल अनुभव — ACS Course अनिवार्य नहीं।<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation)।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Teacher | 5% State | 5% ACS।<br/>• AI Training: बिना Written Permission — use नहीं।<br/>• Copyright Act 1957 Sec 57 — Moral Rights सुरक्षित।<br/>• Show Cause Notice 7 दिन | Appeal 7 दिन।",
-    jobseeker:"<h4>ACS नौकरी (Job-seeker) शर्तें</h4>• जुड़ना व देखना — निःशुल्क (Free)।<br/>• तैयारी: 16 वर्ष से | असली Job/Joining: 18 वर्ष से।<br/>• Job-connection लेते समय भौतिक सत्यापन (RM/Counselor)।<br/>• Verified Badge (Green Tick): वैकल्पिक — ₹300/600/1000 × 365 दिन।<br/>• Platform-fee सिर्फ़ Job-platform उपयोग पर — Agent को कुछ नहीं।<br/>• Fake Job/Advance Fee — तुरंत रिपोर्ट।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
-    entrepreneur:"<h4>ACS उद्यम (Entrepreneur) शर्तें</h4>• जुड़ना व जानकारी — निःशुल्क (Free)।<br/>• न्यूनतम आयु: 16 वर्ष।<br/>• Project Report (bank-finance-ready) + Industrial Tour जानकारी।<br/>• Tour सीढ़ी: निवेश-अनुसार (₹20L से कम → ₹10Cr+)।<br/>• Tour लेते समय भौतिक सत्यापन व escrow भुगतान।<br/>• आँकड़े/सफलता-% सिर्फ़ अनुमान — ख़ुद verify करें।<br/>• Grievance: 7 कार्य दिवस | Dispute: Patna HC → UNCITRAL।",
-    volunteer:"<h4>ACS स्वयंसेवक (Volunteer) शर्तें</h4>• सेवा-भाव से जुड़ें — RM-सपोर्ट में field-worker।<br/>• कमीशन-आधारित सेवा।<br/>• कम-से-कम 6 माह सेवा + RM सिफ़ारिश → ACS Team में अवसर (उम्मीद, गारंटी नहीं)।<br/>• भौतिक सत्यापन (RM) अनिवार्य।<br/>• Article 19(1)(a): ईमानदार आलोचना — आपका अधिकार।<br/>• POSH Act + child-safety लागू।<br/>• Show Cause Notice: 7 दिन | Grievance: 7 कार्य दिवस।",
-    center:"<h4>ACS Center शर्तें</h4>• Registration: पूरी तरह निःशुल्क (Free)।<br/>• Revenue: 80% Center | 20% ACS + Others।<br/>• Branding: ACS Logo / Name — Full Free।<br/>• Certificate: सिर्फ Dashboard से — कोई shortcut नहीं।<br/>• Fees: Regional Base Fee से कम नहीं।<br/>• Show Cause Notice: 7 दिन | Appeal: 15 दिन।",
-    counselor:"<h4>ACS Counselor शर्तें</h4>• योग्यता: न्यूनतम 5 साल अनुभव।<br/>• Payment से पहले: 5 मिनट Free Preview Session अनिवार्य।<br/>• Revenue: 90% Counselor | 5% State | 5% ACS।<br/>• Refund: 1 घंटे पहले cancel = 90%।<br/>• ACS Course: अनिवार्य नहीं।<br/>• Rating: 3.0 से कम = 30 दिन Improvement।<br/>• Show Cause Notice: 7 दिन।",
-    employer:"<h4>ACS Employer शर्तें</h4>• Registration + Job Posting: पूरी तरह निःशुल्क (Free)।<br/>• Contact: सिर्फ ACS Dashboard से।<br/>• Salary: Minimum Wage से कम नहीं।<br/>• Volunteers से कोई Fee नहीं — Illegal।<br/>• Fake Job, Advance Fee, Human Trafficking — तत्काल Terminate।<br/>• Child Labor (14 से कम) — Prohibited।<br/>• IT Act 2000 Sec 79 — ACS Intermediary।",
-    foreign_agent:"<h4>ACS Foreign Agent शर्तें</h4>• eMigrate License (MEA) अनिवार्य — Fake = IPC 420।<br/>• Volunteers से कोई Fee नहीं — Emigration Act 1983।<br/>• Commission: 70% Agent | 20% ACS | 10% State।<br/>• काम: Visa guidance + Job placement + Training + Contract।<br/>• Human Trafficking (IPC 370) — तत्काल Terminate।<br/>• Passport Confiscation — Strictly Prohibited।<br/>• MEA Helpline: 1800-11-3090।",
-    team:"<h4>ACS Team शर्तें</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field → Intern।<br/>• Salary: Fixed (1-7 तारीख) + Incentive 0-50% on Target।<br/>• Probation: सभी levels पर 6 महीने।<br/>• Joining: 2 Upper Level + HQ Admin approval अनिवार्य।<br/>• Confidentiality: 2 साल (employment के बाद भी)।<br/>• POSH Act 2013 — ICC available।<br/>• Show Cause Notice: 7 दिन | F&F: 15 कार्य दिवस।"
-  },
-  en:{
-    student:"<h4>ACS Student Terms</h4>• Online Courses — Always Free.<br/>• Offline Training — Fees set by Center.<br/>• Minimum Age: 10 years (10-18: Guardian consent required).<br/>• Certificate: Course complete + Exam pass + Practical + Center approval.<br/>• Issued by FFGPMTrust — Lifetime valid.<br/>• Refund: 7 days before = 100% | 30%+ complete = No refund.<br/>• POCSO Act — Minor protection priority.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
-    teacher:"<h4>ACS Teacher Terms</h4>• Eligibility: 45+ years OR 15 years experience — ACS Course not mandatory.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Before payment: 5-minute Free Preview Session mandatory.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.<br/>• AI Training: No use without Written Permission.<br/>• Copyright Act 1957 Sec 57 — Moral Rights protected.<br/>• Show Cause Notice: 7 days | Appeal: 7 days.",
-    jobseeker:"<h4>ACS Job-seeker Terms</h4>• Joining & browsing — Free.<br/>• Preparation: from 16 years | Real Job/Joining: from 18 years.<br/>• Physical verification (RM/Counselor) at job-connection.<br/>• Verified Badge (Green Tick): optional — ₹300/600/1000 × 365 days.<br/>• Platform-fee only for job-platform use — nothing to Agent.<br/>• Fake Job/Advance Fee — report immediately.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
-    entrepreneur:"<h4>ACS Entrepreneur Terms</h4>• Joining & info — Free.<br/>• Minimum age: 16 years.<br/>• Project Report (bank-finance-ready) + Industrial Tour info.<br/>• Tour ladder: by investment (under ₹20L → ₹10Cr+).<br/>• Physical verification & escrow payment at Tour.<br/>• Figures/success-% are estimates only — verify yourself.<br/>• Grievance: 7 working days | Dispute: Patna HC → UNCITRAL.",
-    volunteer:"<h4>ACS Volunteer Terms</h4>• Join in service spirit — field-worker supporting RM.<br/>• Commission-based service.<br/>• Min 6 months service + RM recommendation → opportunity in ACS Team (hope, not guarantee).<br/>• Physical verification (RM) mandatory.<br/>• Article 19(1)(a): Honest Criticism — your right.<br/>• POSH Act + child-safety applicable.<br/>• Show Cause Notice: 7 days | Grievance: 7 working days.",
-    center:"<h4>ACS Center Terms</h4>• Registration: Completely Free.<br/>• Revenue: 80% Center | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — Full Free — use as you wish.<br/>• Certificate: Only via Dashboard — no shortcuts.<br/>• Fees: Not below Regional Base Fee.<br/>• Show Cause Notice: 7 days | Appeal: 15 days.",
-    counselor:"<h4>ACS Counselor Terms</h4>• Eligibility: Minimum 5 years experience.<br/>• Before payment: 5-minute Free Preview Session mandatory.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.<br/>• Refund: Cancel 1 hour before = 90% refund.<br/>• ACS Course: Not mandatory.<br/>• Rating: Below 3.0 = 30-day Improvement Period.<br/>• Show Cause Notice: 7 days.",
-    employer:"<h4>ACS Employer Terms</h4>• Registration + Job Posting: Completely Free.<br/>• Contact: Only via ACS Dashboard.<br/>• Salary: Not below Minimum Wage.<br/>• No fees from Volunteers — Illegal.<br/>• Fake Job, Advance Fee, Human Trafficking — Immediate Termination.<br/>• Child Labor (under 14) — Prohibited.<br/>• IT Act 2000 Sec 79 — ACS is Intermediary.",
-    foreign_agent:"<h4>ACS Foreign Agent Terms</h4>• eMigrate License (MEA) mandatory — Fake = IPC 420 + Criminal action.<br/>• No fees from Volunteers — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.<br/>• Services: Visa guidance + Job placement + Training + Contract.<br/>• Human Trafficking (IPC 370) — Immediate Termination.<br/>• Passport Confiscation — Strictly Prohibited.<br/>• MEA Helpline: 1800-11-3090.",
-    team:"<h4>ACS Team Terms</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field Staff → Intern.<br/>• Salary: Fixed (1st-7th) + Incentive 0-50% on Target.<br/>• Probation: 6 months for all levels.<br/>• Joining: 2 Upper Level + HQ Admin approval mandatory.<br/>• Confidentiality: 2 years (even after employment ends).<br/>• POSH Act 2013 — ICC available.<br/>• Show Cause Notice: 7 days | F&F: 15 working days."
-  },
-  kn:{
-    student:"<h4>ACS ವಿದ್ಯಾರ್ಥಿ ನಿಯಮಗಳು</h4>• Online Courses — ಯಾವಾಗಲೂ ಉಚಿತ (Free).<br/>• Offline Training — Center ನಿಗದಿಪಡಿಸಿದ Fees.<br/>• ಕನಿಷ್ಠ ವಯಸ್ಸು: 10 ವರ್ಷ (10-18: Guardian consent ಅಗತ್ಯ).<br/>• Certificate: Course + Exam + Practical + Center approval.<br/>• FFGPMTrust ಜಾರಿ — Lifetime valid.<br/>• Refund: 7 ದಿನ ಮೊದಲು = 100% | 30%+ complete = No refund.<br/>• Grievance: 7 ಕಾರ್ಯ ದಿನಗಳಲ್ಲಿ.",
-    teacher:"<h4>ACS ಶಿಕ್ಷಕ ನಿಯಮಗಳು</h4>• ಅರ್ಹತೆ: 45+ ವರ್ಷ OR 15 ವರ್ಷ ಅನುಭವ.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Payment ಮೊದಲು: 5 ನಿಮಿಷ Free Preview Session ಕಡ್ಡಾಯ.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.",
-    center:"<h4>ACS Center ನಿಯಮಗಳು</h4>• Registration: ಸಂಪೂರ್ಣ ಉಚಿತ (Free).<br/>• Revenue: 80% Center | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — ಸಂಪೂರ್ಣ ಮುಕ್ತ.<br/>• Show Cause Notice: 7 ದಿನ | Appeal: 15 ದಿನ.",
-    counselor:"<h4>ACS Counselor ನಿಯಮಗಳು</h4>• ಅರ್ಹತೆ: ಕನಿಷ್ಠ 5 ವರ್ಷ ಅನುಭವ.<br/>• Payment ಮೊದಲು: 5 ನಿಮಿಷ Free Preview Session ಕಡ್ಡಾಯ.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.",
-    employer:"<h4>ACS Employer ನಿಯಮಗಳು</h4>• Registration + Job Posting: ಸಂಪೂರ್ಣ ಉಚಿತ.<br/>• Contact: ಕೇವಲ ACS Dashboard ಮೂಲಕ.<br/>• Salary: Minimum Wage ಕ್ಕಿಂತ ಕಡಿಮೆ ಇಲ್ಲ.",
-    foreign_agent:"<h4>ACS Foreign Agent ನಿಯಮಗಳು</h4>• eMigrate License (MEA) ಕಡ್ಡಾಯ.<br/>• Volunteers ಗೆ ಯಾವುದೇ Fee ಇಲ್ಲ — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.",
-    team:"<h4>ACS Team ನಿಯಮಗಳು</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field → Intern.<br/>• Salary: Fixed (1-7 ತಾರೀಖು) + Incentive 0-50%.<br/>• Probation: ಎಲ್ಲಾ levels ಗೆ 6 ತಿಂಗಳು."
-  },
-  mr:{
-    student:"<h4>ACS विद्यार्थी अटी</h4>• Online Courses — नेहमी मोफत (Free).<br/>• Offline Training — Center निश्चित केलेली Fees.<br/>• किमान वय: 10 वर्षे (10-18: Guardian consent आवश्यक).<br/>• Certificate: Course + Exam + Practical + Center approval.<br/>• FFGPMTrust जारी — Lifetime valid.<br/>• Refund: 7 दिवस आधी = 100% | 30%+ complete = No refund.<br/>• Grievance: 7 कार्य दिवसांत.",
-    teacher:"<h4>ACS शिक्षक अटी</h4>• पात्रता: 45+ वर्षे OR 15 वर्षांचा अनुभव.<br/>• Royalty: Lifetime 7% (Original) | 3% (Translation).<br/>• Payment आधी: 5 मिनिट Free Preview Session अनिवार्य.<br/>• Revenue: 90% Teacher | 5% State | 5% ACS.",
-    center:"<h4>ACS Center अटी</h4>• Registration: पूर्णपणे मोफत (Free).<br/>• Revenue: 80% Center | 20% ACS + Others.<br/>• Branding: ACS Logo / Name — पूर्ण मुक्त.<br/>• Show Cause Notice: 7 दिवस | Appeal: 15 दिवस.",
-    counselor:"<h4>ACS Counselor अटी</h4>• पात्रता: किमान 5 वर्षांचा अनुभव.<br/>• Payment आधी: 5 मिनिट Free Preview Session अनिवार्य.<br/>• Revenue: 90% Counselor | 5% State | 5% ACS.",
-    employer:"<h4>ACS Employer अटी</h4>• Registration + Job Posting: पूर्णपणे मोफत.<br/>• Contact: फक्त ACS Dashboard द्वारे.<br/>• Salary: Minimum Wage पेक्षा कमी नाही.",
-    foreign_agent:"<h4>ACS Foreign Agent अटी</h4>• eMigrate License (MEA) अनिवार्य.<br/>• Volunteers कडून कोणतीही Fee नाही — Emigration Act 1983.<br/>• Commission: 70% Agent | 20% ACS | 10% State.",
-    team:"<h4>ACS Team अटी</h4>• Hierarchy: HQ Personnel → ZM/State Head → RM → Field → Intern.<br/>• Salary: Fixed (1-7 तारखेला) + Incentive 0-50%.<br/>• Probation: सर्व levels साठी 6 महिने."
-  },
-  ar:{
-    student:"<h4>شروط طالب ACS</h4>• الدورات الإلكترونية — مجانية دائماً.<br/>• التدريب المباشر — رسوم يحددها المركز.<br/>• الحد الأدنى للعمر: 10 سنوات (10-18: موافقة ولي الأمر مطلوبة).<br/>• الشهادة: إتمام الدورة + اجتياز الامتحان + العملي + موافقة المركز.<br/>• صادرة من FFGPMTrust — صالحة مدى الحياة.",
-    teacher:"<h4>شروط معلم ACS</h4>• المؤهل: 45+ سنة أو 15 سنة خبرة.<br/>• الإتاوة: 7% مدى الحياة (أصلي) | 3% (ترجمة).<br/>• الإيرادات: 90% للمعلم | 5% للولاية | 5% لـ ACS.",
-    center:"<h4>شروط مركز ACS</h4>• التسجيل: مجاني تماماً.<br/>• الإيرادات: 80% للمركز | 20% ACS + آخرون.",
-    counselor:"<h4>شروط مستشار ACS</h4>• المؤهل: 5 سنوات خبرة على الأقل.<br/>• الإيرادات: 90% للمستشار | 5% للولاية | 5% لـ ACS.",
-    employer:"<h4>شروط صاحب العمل ACS</h4>• التسجيل + نشر الوظائف: مجاني تماماً.<br/>• التواصل: عبر ACS Dashboard فقط.",
-    foreign_agent:"<h4>شروط وكيل ACS الخارجي</h4>• ترخيص eMigrate إلزامي.<br/>• لا رسوم من العمال — Emigration Act 1983.<br/>• العمولة: 70% للوكيل | 20% ACS | 10% للولاية.",
-    team:"<h4>شروط فريق ACS</h4>• التسلسل الهرمي: HQ → ZM → RM → Field → Intern.<br/>• الراتب: ثابت + حافز 0-50%."
-  },
-  sw:{
-    student:"<h4>Masharti ya Mwanafunzi ACS</h4>• Kozi za Mtandaoni — Bure daima.<br/>• Mafunzo ya Ana kwa Ana — Ada zinazowekwa na Kituo.<br/>• Umri wa chini: miaka 10 (10-18: ridhaa ya mlezi inahitajika).<br/>• Cheti: Kozi + Mtihani + Vitendo + Idhini ya Kituo.",
-    teacher:"<h4>Masharti ya Mwalimu ACS</h4>• Sifa: miaka 45+ AU uzoefu wa miaka 15.<br/>• Royalty: 7% maisha yote (asili) | 3% (tafsiri).<br/>• Mapato: 90% Mwalimu | 5% Serikali | 5% ACS.",
-    center:"<h4>Masharti ya Kituo ACS</h4>• Usajili: Bure kabisa.<br/>• Mapato: 80% Kituo | 20% ACS + Wengine.",
-    counselor:"<h4>Masharti ya Mshauri ACS</h4>• Sifa: uzoefu wa miaka 5.<br/>• Mapato: 90% Mshauri | 5% Serikali | 5% ACS.",
-    employer:"<h4>Masharti ya Mwajiri ACS</h4>• Usajili + Kutuma Kazi: Bure kabisa.<br/>• Mawasiliano: kupitia ACS Dashboard pekee.",
-    foreign_agent:"<h4>Masharti ya Wakala wa Nje ACS</h4>• Leseni ya eMigrate inahitajika.<br/>• Hakuna ada kutoka kwa Wafanyakazi.<br/>• Tume: 70% Wakala | 20% ACS | 10% Serikali.",
-    team:"<h4>Masharti ya Timu ACS</h4>• Muundo: HQ → ZM → RM → Wafanyakazi → Intern.<br/>• Mshahara: Imara + Motisha 0-50%."
-  }
-};
-
-// ── EXTRA FIELDS ──
-const EXTRA={
-  student:{
-    hi:`<div class="field"><label>AGE *</label><input type="number" id="f-age" min="10" max="100" placeholder="e.g. 15" oninput="ageWatch(this)"/><div class="hint">Age 10-18: Guardian consent required</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>GUARDIAN NAME *</label><input type="text" id="f-guardian" placeholder="Guardian full name"/></div>`,
-    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="10" max="100" placeholder="e.g. 15" oninput="ageWatch(this)"/><div class="hint">Ages 10-18: Guardian consent required</div><div class="err" id="e-age"></div></div><div class="field" id="guardian-field" style="display:none"><label>Guardian Name *</label><input type="text" id="f-guardian" placeholder="Guardian's full name"/></div>`
-  },
-  teacher:{
-    hi:`<div class="field"><label>आयु (Age) *</label><input type="number" id="f-age" min="18" placeholder="जैसे 30"/><div class="hint">न्यूनतम 18 वर्ष (45 से कम पर बैज अनिवार्य)</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव (Experience) — वर्ष</label><input type="number" id="f-exp" min="0" placeholder="जैसे 3"/><div class="hint">वर्ष में (वैकल्पिक)</div><div class="err" id="e-exp"></div></div><div class="field"><label>विषय / कौशल (Subject / Skill) *</label><input type="text" id="f-sub" placeholder="जैसे: Computer, Tailoring, Farming"/></div>`,
-    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="18" placeholder="e.g. 30"/><div class="hint">Minimum 18 years (badge mandatory if under 45)</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years)</label><input type="number" id="f-exp" min="0" placeholder="e.g. 3"/><div class="hint">In years (optional)</div><div class="err" id="e-exp"></div></div><div class="field"><label>Subject / Skill *</label><input type="text" id="f-sub" placeholder="e.g. Computer, Tailoring, Farming"/></div>`
-  },
-  jobseeker:{
-    hi:`<div class="field"><label>SKILL / कौशल *</label><input type="text" id="f-skill" placeholder="जैसे: Typing, Data Entry, Stitching"/></div><div class="field"><label>उपलब्धता (Availability)</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`,
-    en:`<div class="field"><label>Skill *</label><input type="text" id="f-skill" placeholder="e.g. Typing, Data Entry, Stitching"/></div><div class="field"><label>Availability</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="freelance">Freelance</option></select></div>`
-  },
-  entrepreneur:{
-    hi:`<div class="field"><label>उद्योग-क्षेत्र (Sector) *</label><input type="text" id="f-sector" placeholder="जैसे: Food, Textile, Repair"/></div><div class="field"><label>निवेश-क्षमता (Investment)</label><select id="f-invest"><option value="below20l">₹20 लाख से कम</option><option value="20l_1cr">₹20 लाख – ₹1 करोड़</option><option value="1cr_10cr">₹1 करोड़ – ₹10 करोड़</option><option value="above10cr">₹10 करोड़ से ज़्यादा</option></select></div>`,
-    en:`<div class="field"><label>Sector *</label><input type="text" id="f-sector" placeholder="e.g. Food, Textile, Repair"/></div><div class="field"><label>Investment Capacity</label><select id="f-invest"><option value="below20l">Under ₹20 Lakh</option><option value="20l_1cr">₹20 Lakh – ₹1 Cr</option><option value="1cr_10cr">₹1 Cr – ₹10 Cr</option><option value="above10cr">Above ₹10 Cr</option></select></div>`
-  },
-  volunteer:{
-    hi:`<div class="field"><label>सेवा-क्षेत्र / Skill *</label><input type="text" id="f-skill" placeholder="जैसे: Field work, Survey, Teaching"/></div><div class="field"><label>उपलब्धता (Availability)</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="weekend">Weekend</option></select></div>`,
-    en:`<div class="field"><label>Service Area / Skill *</label><input type="text" id="f-skill" placeholder="e.g. Field work, Survey, Teaching"/></div><div class="field"><label>Availability</label><select id="f-avail"><option value="fulltime">Full Time</option><option value="parttime">Part Time</option><option value="weekend">Weekend</option></select></div>`
-  },
-  center:{
-    hi:`<div class="field"><label>CENTER NAME *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Center"/></div><div class="field"><label>ADDRESS *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>DISTRICT *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`,
-    en:`<div class="field"><label>Center Name *</label><input type="text" id="f-cname" placeholder="e.g. ACS Khagaria Center"/></div><div class="field"><label>Address *</label><input type="text" id="f-addr" placeholder="Full address"/></div><div class="field"><label>District *</label><input type="text" id="f-dist" placeholder="e.g. Khagaria"/></div>`
-  },
-  counselor:{
-    hi:`<div class="field"><label>आयु (Age) *</label><input type="number" id="f-age" min="18" placeholder="18+"/><div class="hint">न्यूनतम 18 वर्ष</div><div class="err" id="e-age"></div></div><div class="field"><label>अनुभव (Experience) — वर्ष *</label><input type="number" id="f-exp" min="5" placeholder="5+"/><div class="hint">न्यूनतम 5 वर्ष</div><div class="err" id="e-exp"></div></div><div class="field"><label>विशेषज्ञता (Specialization) *</label><input type="text" id="f-sub" placeholder="जैसे: Career, Agriculture, Business"/></div>`,
-    en:`<div class="field"><label>Age *</label><input type="number" id="f-age" min="18" placeholder="18+"/><div class="hint">Minimum 18 years</div><div class="err" id="e-age"></div></div><div class="field"><label>Experience (years) *</label><input type="number" id="f-exp" min="5" placeholder="5+"/><div class="hint">Minimum 5 years</div><div class="err" id="e-exp"></div></div><div class="field"><label>Specialization *</label><input type="text" id="f-sub" placeholder="e.g. Career, Agriculture, Business"/></div>`
-  },
-  employer:{
-    hi:`<div class="field"><label>BUSINESS / ORGANIZATION NAME *</label><input type="text" id="f-org" placeholder="e.g. Sharma Electronics"/></div><div class="field"><label>Business Type</label><select id="f-biz"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`,
-    en:`<div class="field"><label>Business / Organization Name *</label><input type="text" id="f-org" placeholder="e.g. Sharma Electronics"/></div><div class="field"><label>Business Type</label><select id="f-biz"><option value="individual">Individual / Sole Proprietor</option><option value="shop">Shop / Workshop</option><option value="msme">MSME / Small Business</option><option value="company">Company / Firm</option><option value="ngo">NGO / Trust</option><option value="govt">Government Dept.</option><option value="international">International / MNC</option></select></div>`
-  },
-  foreign_agent:{
-    hi:`<div class="field"><label>eMIGRATE RA LICENSE NUMBER *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">Registration not possible without valid eMigrate License.</div></div><div class="field"><label>AGENCY / FIRM NAME *</label><input type="text" id="f-org" placeholder="e.g. Global Placement Services"/></div>`,
-    en:`<div class="field"><label>eMigrate RA License Number *</label><input type="text" id="f-emigrate" placeholder="MEA eMigrate RA Number"/><div class="hint">Registration not possible without valid License.</div></div><div class="field"><label>Agency / Firm Name *</label><input type="text" id="f-org" placeholder="e.g. Global Placement Services"/></div>`
-  },
-  team:{
-    hi:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`,
-    en:`<div class="field"><label>Designation *</label><select id="f-desig"><option value="">-- Select --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM — Regional Manager</option></select></div><div class="field"><label>Referring Manager Name *</label><input type="text" id="f-manager" placeholder="Name of referring manager"/></div>`,
-    kn:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`,
-    mr:`<div class="field"><label>DESIGNATION *</label><select id="f-desig"><option value="">-- SELECT --</option><option value="hq_finance">HQ Finance</option><option value="hq_legal">HQ Legal</option><option value="hq_admin">HQ Admin</option><option value="hq_establishment">HQ Establishment</option><option value="zm">ZM / State Head</option><option value="rm">RM</option></select></div><div class="field"><label>REFERRING MANAGER NAME *</label><input type="text" id="f-manager" placeholder="e.g. आपके अधिकारी का नाम"/></div>`
-  }
-};
-
-const ROLE_NAMES={
-  hi:{student:'विद्यार्थी (Student)',teacher:'शिक्षक (Teacher)',jobseeker:'नौकरी (Job-seeker)',entrepreneur:'उद्यम (Entrepreneur)',volunteer:'स्वयंसेवक (Volunteer)',center:'केंद्र (Center)',counselor:'सलाहकार (Counselor)',employer:'नियोक्ता (Employer)',foreign_agent:'विदेश एजेंट (Foreign Agent)',team:'ACS Team'},
-  en:{student:'Student',teacher:'Teacher',jobseeker:'Job-seeker',entrepreneur:'Entrepreneur',volunteer:'Volunteer',center:'Center',counselor:'Counselor',employer:'Employer',foreign_agent:'Foreign Agent',team:'ACS Team'},
-  kn:{student:'ವಿದ್ಯಾರ್ಥಿ (Student)',teacher:'ಶಿಕ್ಷಕ (Teacher)',jobseeker:'ಉದ್ಯೋಗ (Job-seeker)',entrepreneur:'ಉದ್ಯಮಿ (Entrepreneur)',volunteer:'ಸ್ವಯಂಸೇವಕ (Volunteer)',center:'ಕೇಂದ್ರ (Center)',counselor:'ಸಲಹೆಗಾರ (Counselor)',employer:'ಉದ್ಯೋಗದಾತ (Employer)',foreign_agent:'ವಿದೇಶ Agent',team:'ACS Team'},
-  mr:{student:'विद्यार्थी (Student)',teacher:'शिक्षक (Teacher)',jobseeker:'नोकरी (Job-seeker)',entrepreneur:'उद्योजक (Entrepreneur)',volunteer:'स्वयंसेवक (Volunteer)',center:'केंद्र (Center)',counselor:'सल्लागार (Counselor)',employer:'नियोक्ता (Employer)',foreign_agent:'परदेश Agent',team:'ACS Team'},
-  ar:{student:'طالب',teacher:'معلم',jobseeker:'باحث عن عمل (Job-seeker)',entrepreneur:'رائد أعمال (Entrepreneur)',volunteer:'متطوع (Volunteer)',center:'مركز',counselor:'مستشار',employer:'صاحب عمل',foreign_agent:'وكيل خارجي',team:'فريق ACS'},
-  sw:{student:'Mwanafunzi',teacher:'Mwalimu',jobseeker:'Mtafuta Kazi (Job-seeker)',entrepreneur:'Mjasiriamali (Entrepreneur)',volunteer:'Kujitolea (Volunteer)',center:'Kituo',counselor:'Mshauri',employer:'Mwajiri',foreign_agent:'Wakala wa Nje',team:'Timu ya ACS'}
-};
-
-const ERR={
-  hi:{role:'Please select a role.',name:'Full name is required.',mobile:'Enter valid 10-digit mobile number.',email:'Enter valid Email address.',state:'Please select your state.',pass:'Minimum 8 characters required.',match:'Both passwords must match.',age:'Age must be between 10 and 100.',age45:'Minimum 45 years required.',otp:'Enter 6-digit OTP.',otpExp:'OTP expired. Please resend.',otpWrong:'Incorrect OTP. Please try again.',terms:'Please accept the terms.',privacy:'Please accept Privacy Policy.',guardian:'Guardian consent is required.',used:'This Email is already registered.'},
-  en:{role:'Please select a role.',name:'Name is required.',mobile:'Enter a valid 10-digit mobile.',email:'Enter a valid Email address.',state:'Please select your state.',pass:'Minimum 8 characters required.',match:'Both passwords must match.',age:'Age must be between 10 and 100.',age45:'Minimum 45 years required.',otp:'Please enter the 6-digit OTP.',otpExp:'OTP expired. Please resend.',otpWrong:'Incorrect OTP. Please try again.',terms:'Please accept the terms.',privacy:'Please accept the Privacy Policy.',guardian:'Guardian consent is required.',used:'This Email is already registered.'},
-  kn:{role:'ದಯವಿಟ್ಟು ಒಂದು Role ಆಯ್ಕೆ ಮಾಡಿ.',name:'ಹೆಸರು ಅಗತ್ಯ.',mobile:'10 ಅಂಕಿ ಮೊಬೈಲ್ ನಂಬರ್ ನಮೂದಿಸಿ.',email:'ಸರಿಯಾದ Email ನಮೂದಿಸಿ.',state:'ರಾಜ್ಯ ಆಯ್ಕೆ ಮಾಡಿ.',pass:'ಕನಿಷ್ಠ 8 characters.',match:'ಎರಡು passwords ಒಂದೇ ಆಗಿರಬೇಕು.',age:'ವಯಸ್ಸು 10-100 ನಡುವೆ ಇರಬೇಕು.',age45:'ಕನಿಷ್ಠ 45 ವರ್ಷ.',otp:'6-ಅಂಕಿ OTP ನಮೂದಿಸಿ.',otpExp:'OTP ಮುಕ್ತಾಯವಾಗಿದೆ. ಮತ್ತೆ ಕಳುಹಿಸಿ.',otpWrong:'OTP ತಪ್ಪಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',terms:'ನಿಯಮಗಳನ್ನು ಒಪ್ಪಿಕೊಳ್ಳಿ.',privacy:'Privacy Policy ಒಪ್ಪಿಕೊಳ್ಳಿ.',guardian:'Guardian ಒಪ್ಪಿಗೆ ಅಗತ್ಯ.',used:'ಈ Email ಈಗಾಗಲೇ registered ಆಗಿದೆ.'},
-  mr:{role:'Please select a role.',name:'Full name is required.',mobile:'Enter valid 10-digit mobile number.',email:'Enter valid Email address.',state:'Please select your state.',pass:'Minimum 8 characters required.',match:'Both passwords must match.',age:'Age must be between 10 and 100.',age45:'Minimum 45 years required.',otp:'Enter 6-digit OTP.',otpExp:'OTP expired. Please resend.',otpWrong:'Incorrect OTP. Please try again.',terms:'Please accept the terms.',privacy:'Please accept Privacy Policy.',guardian:'Guardian consent is required.',used:'This Email is already registered.'},
-  ar:{role:'يرجى اختيار دور.',name:'الاسم مطلوب.',mobile:'أدخل رقم هاتف محمول مكون من 10 أرقام.',email:'أدخل عنوان بريد إلكتروني صحيح.',state:'يرجى اختيار ولايتك.',pass:'8 أحرف على الأقل.',match:'كلمتا المرور يجب أن تتطابقا.',age:'العمر يجب أن يكون بين 10-100.',age45:'الحد الأدنى للعمر 45 سنة.',otp:'أدخل رمز OTP المكون من 6 أرقام.',otpExp:'انتهت صلاحية OTP. أعد الإرسال.',otpWrong:'رمز OTP غير صحيح. حاول مجدداً.',terms:'يرجى قبول الشروط.',privacy:'يرجى قبول سياسة الخصوصية.',guardian:'موافقة ولي الأمر مطلوبة.',used:'هذا البريد الإلكتروني مسجل مسبقاً.'},
-  sw:{role:'Tafadhali chagua jukumu.',name:'Jina linahitajika.',mobile:'Weka nambari ya simu ya tarakimu 10.',email:'Weka anwani ya barua pepe sahihi.',state:'Tafadhali chagua jimbo lako.',pass:'Herufi 8 za chini.',match:'Nywila zote mbili lazima zilingane.',age:'Umri lazima uwe kati ya 10-100.',age45:'Kiwango cha chini ni miaka 45.',otp:'Weka OTP ya tarakimu 6.',otpExp:'OTP imeisha muda. Tuma tena.',otpWrong:'OTP si sahihi. Jaribu tena.',terms:'Tafadhali kubali masharti.',privacy:'Tafadhali kubali Sera ya Faragha.',guardian:'Ridhaa ya mlezi inahitajika.',used:'Barua pepe hii imesajiliwa tayari.'}
-};
-
-let ROLE='',OTP_EMAIL='',OTP_TIMER=null;
-const REG_VALID=300, REG_RESEND=600;   // 5 मिनट OTP valid · 10 मिनट resend
-
-// ── STEP NAVIGATION ──
-function goStep(n){
-  for(let i=1;i<=5;i++) document.getElementById('c'+i).classList.toggle('show',i===n);
-  for(let i=1;i<=4;i++){
-    document.getElementById('sc'+i).className='step-circle'+(i<n?' done':i===n?' active':'');
-    if(i<4) document.getElementById('sl'+i).className='step-line'+(i<n?' done':'');
-  }
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// ── ROLE SELECT ──
-window.selRole=function(role,el){
-  ROLE=role;
-  document.querySelectorAll('.role-card').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel');
-  hideAlert('a1');
-};
-
-// ── STEP 1 → 2 ──
-window.goStep2=function(){
-  if(!ROLE){showAlert('a1',ERR[LANG].role,'alert-err');return;}
-  hideAlert('a1');
-  loadExtraFields(ROLE);
-  document.getElementById('role-tag').textContent=ROLE_NAMES[LANG][ROLE]||'';
-  goStep(2);
-};
-
-function loadExtraFields(role){
-  document.getElementById('extra-fields').innerHTML=EXTRA[role]?.[LANG]||EXTRA[role]?.en||EXTRA[role]?.hi||'';
-}
-
-// ── AGE WATCHER ──
-window.ageWatch=function(el){
-  const gf=document.getElementById('guardian-field');
-  const gr=document.getElementById('guardian-row');
-  const minor=ROLE==='student'&&+el.value>=10&&+el.value<18;
-  if(gf)gf.style.display=minor?'block':'none';
-  if(gr)gr.style.display=minor?'flex':'none';
-};
-
-// ── PASSWORD ──
-window.checkPw=function(v){
-  let s=0;if(v.length>=8)s++;if(/[A-Z]/.test(v))s++;if(/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
-  const pf=document.getElementById('pw-fill'),pl=document.getElementById('pw-label');
-  const pcts=[0,30,60,85,100];const cols=['','#E53935','#F9A825','#F9A825','#2E7D32'];
-  const labs={hi:['','कमज़ोर (Weak)','ठीक है (OK)','ठीक है (OK)','मजबूत (Strong) ✓'],en:['','Weak','OK','OK','Strong ✓']};
-  pf.style.width=pcts[s]+'%';pf.style.background=cols[s];
-  pl.textContent=labs[LANG][s];pl.style.color=cols[s];
-};
-
-// ── VALIDATE STEP 2 ──
-function validateStep2(){
-  const e=ERR[LANG];let ok=true;clearErrs();
-  const name=gv('f-name'),mob=gv('f-mobile'),email=gv('f-email'),state=gv('f-state'),pass=gv('f-pass'),pass2=gv('f-pass2');
-  if(!name){showErr('e-name',e.name);ok=false;}
-  if(!/^\d{10}$/.test(mob)){showErr('e-mobile',e.mobile);ok=false;}
-  if(!/\S+@\S+\.\S+/.test(email)){showErr('e-email',e.email);ok=false;}
-  if(!state){showErr('e-state',e.state);ok=false;}
-  if(!pass||pass.length<8){showErr('e-pass',e.pass);ok=false;}
-  if(pass!==pass2){showErr('e-pass2',e.match);ok=false;}
-  // Age validation — only if field exists AND has a value
-  const fa=document.getElementById('f-age');
-  if(fa){
-    const av=fa.value.trim();
-    if(!av){
-      // Age field खाली है
-      showErr('e-age','Age is required.');
-      ok=false;
-    } else {
-      const avn=+av;
-      if(ROLE==='student'&&(avn<10||avn>100)){showErr('e-age',e.age);ok=false;}
-      // (H1) Teacher <45 block हटाया — 45 से कम शिक्षक मान्य (बैज + उम्र-fee लागू)।
+  /* ═══════════════ STEP-नियंत्रण (टैब + panel दिखाना/छुपाना) ═══════════════ */
+  function goToStep(n){
+    for(var i=1;i<=4;i++){
+      document.getElementById('panel'+i).classList.toggle('active', i===n);
+      var tab = document.getElementById('stepTab'+i);
+      tab.classList.toggle('active', i===n);
+      tab.classList.toggle('done', i<n);
     }
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(n===3) buildStep3Fields();
+    if(n===4) buildReview();
   }
-  // Experience validation for Teacher/Counselor
-  const fex=document.getElementById('f-exp');
-  if(fex){
-    const exv=fex.value.trim();
-    if(ROLE==='counselor'){ // (H3) Counselor: न्यूनतम 5 वर्ष अनुभव अनिवार्य
-      if(!exv || +exv < 5){
-        const exErr = !exv ? 'Experience is required.' : 'Minimum 5 years experience required.';
-        const exErrEl=document.getElementById('e-exp');
-        if(exErrEl){showErr('e-exp',exErr);} else{showAlert('a2',exErr,'alert-err');}
-        ok=false;
+
+  /* ═══════════════ STEP 2 : Gate — पदनाम-सीढ़ी (cascading) ═══════════════ */
+  var roleSel=document.getElementById('roleSel');
+  var fixedHQ=document.getElementById('fixedHQ');
+  var staffLevelBox=document.getElementById('staffLevelBox'), staffLevelSel=document.getElementById('staffLevelSel');
+  var stateBox=document.getElementById('stateBox'), stateSel=document.getElementById('stateSel'), stateLabel=document.getElementById('stateLabel');
+  var rmOfficeBox=document.getElementById('rmOfficeBox'), rmOfficeSel=document.getElementById('rmOfficeSel');
+  var rulesCard=document.getElementById('rulesCard');
+
+  function resetCascade(){
+    fixedHQ.classList.remove('show');
+    staffLevelBox.classList.remove('show'); staffLevelSel.value='';
+    stateBox.classList.remove('show'); stateSel.value='';
+    rmOfficeBox.classList.remove('show'); rmOfficeSel.innerHTML='<option value="">— पहले राज्य/देश चुनें —</option>';
+    rulesCard.style.display='none';
+  }
+  function populateRMOffices(stateKey){
+    var list = R.geo.rmOfficesFor(stateKey);
+    rmOfficeSel.innerHTML = '<option value="">— चुनें —</option>' + list.map(function(o){return '<option value="'+o+'">'+o+'</option>';}).join('');
+  }
+  function officeComplete(){
+    var r = roleSel.value;
+    if(!r) return false;
+    var card = R.byKey(r);
+    if(!card) return false;
+    if(card.isHQ) return true;
+    if(card.hasOfficeLevelCascade){
+      var lvl = staffLevelSel.value; if(!lvl) return false;
+      if(lvl==='hq') return true;
+      if(lvl==='zm') return !!stateSel.value;
+      if(lvl==='rm') return !!stateSel.value && !!rmOfficeSel.value;
+      return false;
+    }
+    if(card.needsGeo && card.needsRMOffice) return !!stateSel.value && !!rmOfficeSel.value;
+    if(card.needsGeo) return !!stateSel.value;
+    return true; /* कोई office-info नहीं चाहिए (learner, teacher, centre, counselor, employer, foreign_agent) */
+  }
+  function onRoleChange(){
+    resetCascade();
+    var r = roleSel.value;
+    if(!r) return;
+    var card = R.byKey(r);
+    if(!card) return;
+    if(card.isHQ){ fixedHQ.classList.add('show'); }
+    else if(card.hasOfficeLevelCascade){ staffLevelBox.classList.add('show'); }
+    else if(card.needsGeo && card.needsRMOffice){ stateLabel.textContent="राज्य/देश चुनें (भारत + Global South)"; stateBox.classList.add('show'); }
+    else if(card.needsGeo){ stateLabel.textContent="राज्य/देश चुनें — यहीं कार्यक्षेत्र होगा"; stateBox.classList.add('show'); }
+    maybeLoadRules();
+  }
+  function onStaffLevelChange(){
+    stateBox.classList.remove('show'); stateSel.value=''; rmOfficeBox.classList.remove('show');
+    var lvl=staffLevelSel.value;
+    if(lvl==='hq') fixedHQ.classList.add('show'); else fixedHQ.classList.remove('show');
+    if(lvl==='zm'||lvl==='rm'){ stateLabel.textContent="राज्य/देश चुनें"; stateBox.classList.add('show'); }
+    maybeLoadRules();
+  }
+  function onStateChange(){
+    var r=roleSel.value; var card=R.byKey(r);
+    var needsRM = card && (card.needsRMOffice || (card.hasOfficeLevelCascade && staffLevelSel.value==='rm'));
+    if(needsRM && stateSel.value){ populateRMOffices(stateSel.value); rmOfficeBox.classList.add('show'); }
+    else { rmOfficeBox.classList.remove('show'); }
+    maybeLoadRules();
+  }
+  roleSel.addEventListener('change', onRoleChange);
+  staffLevelSel.addEventListener('change', onStaffLevelChange);
+  stateSel.addEventListener('change', onStateChange);
+  rmOfficeSel.addEventListener('change', maybeLoadRules);
+
+  var rulesLoadedFor = null;
+  function maybeLoadRules(){
+    if(officeComplete()){ loadRulesFor(roleSel.value); }
+    else { rulesCard.style.display='none'; }
+  }
+
+  /* ═══════════════ नियम — असली फ़ाइल से fetch करके इसी पेज में जोड़ना ═══════════════ */
+  var rulesContainer=document.getElementById('rulesContainer');
+  var rulesCountEl=document.getElementById('rulesCount');
+  var finalChk=document.getElementById('finalChk'), toStep3Btn=document.getElementById('toStep3Btn');
+
+  function loadRulesFor(role){
+    if(rulesLoadedFor===role){ rulesCard.style.display='block'; return; }
+    rulesLoadedFor = role;
+    rulesCard.style.display='block';
+    rulesContainer.innerHTML = '<div class="rulesLoadMsg">📜 नियम लोड हो रहे हैं…</div>';
+    var file = R.ruleFileFor(role);
+    if(!file){ rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ इस रोल की rules-फ़ाइल roles.js में दर्ज नहीं है।</div>'; return; }
+    fetch(file).then(function(r){
+      if(!r.ok) throw new Error('फ़ाइल नहीं मिली: '+file);
+      return r.text();
+    }).then(function(html){
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, 'text/html');
+      var idbox = doc.querySelector('.idbox');
+      var parts = doc.querySelectorAll('.part, .rules');
+      var srcScript = doc.querySelector('script');
+      rulesContainer.innerHTML = '';
+      if(idbox){
+        var note = document.createElement('div');
+        note.style.cssText='background:#EAF3EC;border:1.5px solid #2E7D32;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:15px;color:#1b4d20';
+        note.textContent = 'ℹ️ इस रोल में एक और चयन है — नीचे सबसे ऊपर मिलेगा, ज़रूरत अनुसार बदलें।';
+        rulesContainer.appendChild(note);
+        rulesContainer.appendChild(idbox.cloneNode(true));
       }
+      parts.forEach(function(el){ rulesContainer.appendChild(el.cloneNode(true)); });
+      // मूल फ़ाइल की script कुछ ID (otpBtn/count) ढूँढती है जो यहाँ नहीं हैं — dummy छिपे element ताकि क्रैश न हो
+      var dummies = document.createElement('div');
+      dummies.style.display = 'none';
+      dummies.innerHTML = '<button id="otpBtn"></button><div id="count"></div>';
+      rulesContainer.appendChild(dummies);
+      // मूल फ़ाइल की असली script चलाना — तभी designation-selector वाला dynamic-text काम करेगा
+      if(srcScript && srcScript.textContent){
+        var s = document.createElement('script');
+        s.textContent = srcScript.textContent;
+        document.body.appendChild(s);
+        document.body.removeChild(s); // एक बार चलाकर हटा दो, दोबारा-लोड पर दोहराव न हो
+      }
+      wireRuleCheckboxes();
+    }).catch(function(err){
+      rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ नियम लोड नहीं हो सके ('+err.message+')। कृपया सुनिश्चित करें कि '+file+' इसी फ़ोल्डर में मौजूद है।</div>';
+    });
+  }
+
+  function wireRuleCheckboxes(){
+    var boxes = rulesContainer.querySelectorAll('.rule input[type=checkbox]');
+    function visible(){
+      return Array.prototype.filter.call(boxes, function(b){
+        var el = b.closest('.rule');
+        return el.offsetParent !== null;
+      });
     }
-    // Teacher: अनुभव वैकल्पिक — कोई सख़्त न्यूनतम जाँच नहीं
+    function refresh(){
+      var vb = visible();
+      var done=0; vb.forEach(function(b){ if(b.checked) done++; });
+      rulesCountEl.textContent = done+' / '+vb.length+' नियम स्वीकार हुए';
+      if(done===vb.length && vb.length>0){ finalChk.disabled=false; }
+      else { finalChk.disabled=true; finalChk.checked=false; }
+      if(finalChk.checked && done===vb.length){ toStep3Btn.className='big btn-on'; toStep3Btn.disabled=false; }
+      else { toStep3Btn.className='big btn-off'; toStep3Btn.disabled=true; }
+    }
+    boxes.forEach(function(b){ b.addEventListener('change', refresh); });
+    // अगर fetch की गई फ़ाइल के अंदर अपना खुद का designation-selector है (जैसे Teacher/Centre/Learner), उसे भी सुनना
+    var innerSelects = rulesContainer.querySelectorAll('select');
+    innerSelects.forEach(function(sel){ sel.addEventListener('change', refresh); });
+    finalChk.addEventListener('change', refresh);
+    refresh();
   }
-  // If any error — scroll to top of form card
-  if(!ok){
-    const c2=document.getElementById('c2');
-    if(c2)c2.scrollIntoView({behavior:'smooth',block:'start'});
+  toStep3Btn.addEventListener('click', function(){ if(!toStep3Btn.disabled) goToStep(3); });
+
+  /* ═══════════════ STEP 3 : पूरा फ़ॉर्म (भूमिका-अनुसार खाने) ═══════════════ */
+  var dynamicFields = document.getElementById('dynamicFields');
+  var COMMON_FIELD_HTML = '<div class="row"><label>पूरा पता</label><input type="text" placeholder="गाँव/शहर, ज़िला, राज्य"></div>';
+  function buildStep3Fields(){
+    var r = roleSel.value;
+    var extra = '';
+    if(r==='learner'){
+      extra = '<div class="row"><label>उम्र</label><input type="number" min="10" max="90"></div>'
+            + '<div class="row"><label>Guardian का नाम (छोटी उम्र पर)</label><input type="text"></div>';
+    } else if(r==='teacher'){
+      extra = '<div class="row"><label>अनुभव (वर्ष)</label><input type="number" min="0"></div>'
+            + '<div class="row"><label>नॉमिनी का नाम</label><input type="text"></div>'
+            + '<div class="row"><label>नॉमिनी से संबंध</label><input type="text"></div>';
+    } else if(r==='centre'){
+      extra = '<div class="row"><label>केंद्र/वर्कशॉप की क्षमता (Students)</label><input type="number" min="1"></div>';
+    } else if(r==='volunteer'){
+      extra = '<div class="row"><label>क्षेत्र</label><input type="text" placeholder="जैसे: चौथम, खगड़िया"></div>';
+    } else if(r==='foreign_agent'){
+      extra = '<div class="row"><label>eMigrate/RA लाइसेंस नंबर</label><input type="text"></div>';
+    } else if(r==='counselor'){
+      extra = '<div class="row"><label>अनुभव (वर्ष) — न्यूनतम 5</label><input type="number" min="5"></div>';
+    }
+    dynamicFields.innerHTML = COMMON_FIELD_HTML + extra;
   }
-  return ok;
-}
 
-// ── SEND OTP (असली — server function; नक़ली Math.random हटाया) ──
-window.sendOtp=async function(resend){
-  if(!resend && !validateStep2())return;
-  const email=gv('f-email'); OTP_EMAIL=email;
-  const btn=resend?document.getElementById('resend-btn'):document.getElementById('btn2');
-  btn.disabled=true; btn.innerHTML='<span class="spin"></span>'+(LANG==='hi'?'OTP भेज रहे हैं...':'Sending OTP...');
-  try{
-    await fnRequestOtp({email});
-    if(!resend)goStep(3);
-    startOtpTimers();
-    showAlert('a3',(LANG==='hi'?'OTP आपके ईमेल पर भेज दिया गया — 5 मिनट valid।':'OTP sent to your email — valid 5 min.'),'alert-info');
-  }catch(err){
-    const d=(err&&err.details)||{}; let msg;
-    if(d.reason==='wait')        msg=(LANG==='hi'?'थोड़ी देर रुकें — दोबारा OTP '+fmtTime(d.secondsLeft)+' बाद।':'Please wait — resend in '+fmtTime(d.secondsLeft)+'.');
-    else if(d.reason==='locked') msg=(LANG==='hi'?'बहुत कोशिशें — '+(d.hoursLeft||12)+' घंटे बाद दोबारा।':'Too many attempts — try after '+(d.hoursLeft||12)+'h.');
-    else if(d.reason==='dailyLimit') msg=(LANG==='hi'?'आज की OTP सीमा पूरी — कल दोबारा।':'Daily OTP limit reached.');
-    else msg=(LANG==='hi'?'OTP नहीं भेजा जा सका — दोबारा कोशिश करें।':'Could not send OTP — try again.');
-    showAlert('a3',msg,'alert-err');
-  }finally{
-    btn.disabled=false;
-    if(!resend) btn.textContent=LANG==='hi'?'OTP भेजें →':'Send OTP →';
-    else        btn.textContent=LANG==='hi'?'OTP दोबारा भेजें':'Resend OTP';
+  document.getElementById('toStep4Btn').addEventListener('click', function(){ goToStep(4); });
+
+  /* ═══════════════ STEP 4 : पुष्टि व Submit ═══════════════ */
+  function buildReview(){
+    var box = document.getElementById('reviewBox');
+    var roleLabel = roleSel.options[roleSel.selectedIndex].text;
+    box.innerHTML =
+      '<div><b>नाम (हिंदी):</b> '+ (nameLocal.value||'—') +'</div>'+
+      '<div><b>Name (Roman):</b> '+ (nameRoman.value||'—') +'</div>'+
+      '<div><b>मोबाइल:</b> '+ (mobile.value||'—') +'</div>'+
+      '<div><b>ईमेल:</b> '+ (email.value||'—') +'</div>'+
+      '<div><b>रोल:</b> '+ roleLabel +'</div>';
   }
-};
-function fmtTime(s){s=Math.max(0,s|0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  document.getElementById('editBtn').addEventListener('click', function(){ goToStep(3); });
+  document.getElementById('submitBtn').addEventListener('click', function(){
+    var regno = 'ACS-'+new Date().getFullYear()+'-'+Math.floor(100000+Math.random()*900000);
+    document.getElementById('regNoBox').textContent = regno;
+    for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
+    document.getElementById('panelSuccess').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
 
-function startOtpTimers(){
-  const te=document.getElementById('otp-timer'), rb=document.getElementById('resend-btn');
-  let valid=REG_VALID, resend=REG_RESEND;
-  rb.style.display='inline';
-  rb.disabled=true; rb.style.opacity='.45'; rb.style.cursor='not-allowed';  // हाईलाइट नहीं
-  if(OTP_TIMER)clearInterval(OTP_TIMER);
-  OTP_TIMER=setInterval(()=>{
-    valid--; resend--;
-    const vtxt = valid>0 ? (LANG==='hi'?'OTP '+fmtTime(valid)+' में ख़त्म':'OTP expires in '+fmtTime(valid))
-                         : (LANG==='hi'?'OTP ख़त्म':'OTP expired');
-    const rtxt = resend>0 ? (LANG==='hi'?' · दोबारा '+fmtTime(resend)+' बाद':' · resend in '+fmtTime(resend)) : '';
-    te.textContent=vtxt+rtxt;
-    if(resend<=0){ rb.disabled=false; rb.style.opacity='1'; rb.style.cursor='pointer'; }
-    if(valid<=0 && resend<=0){ clearInterval(OTP_TIMER); }
-  },1000);
-}
-
-// ── OTP NAVIGATION ──
-window.otpNav=function(el,prev,next){
-  el.value=el.value.replace(/\D/g,'').slice(-1);
-  if(el.value&&next)document.getElementById(next)?.focus();
-  if(!el.value&&prev){el.value='';document.getElementById(prev)?.focus();}
-};
-
-// ── VERIFY OTP (असली — server जाँचे; sessionStorage हटाया) ──
-window.verifyOtp=async function(){
-  const entered=['o1','o2','o3','o4','o5','o6'].map(id=>document.getElementById(id)?.value||'').join('');
-  const e=ERR[LANG];
-  if(entered.length<6){showAlert('a3',e.otp,'alert-err');return;}
-  const btn=document.getElementById('btn3');
-  btn.disabled=true;btn.innerHTML='<span class="spin"></span>'+(LANG==='hi'?'जाँच रहे हैं...':'Verifying...');
-  try{
-    await fnVerifyOtp({email:OTP_EMAIL||gv('f-email'),code:entered});
-    if(OTP_TIMER)clearInterval(OTP_TIMER);
-    document.getElementById('terms-box').innerHTML=TERMS[LANG]?.[ROLE]||TERMS.en?.[ROLE]||TERMS.hi?.[ROLE]||'';
-    const fa=document.getElementById('f-age');
-    document.getElementById('guardian-row').style.display=(ROLE==='student'&&fa&&+fa.value<18)?'flex':'none';
-    goStep(4);
-  }catch(err){
-    const d=(err&&err.details)||{}; let msg;
-    if(d.reason==='wrong')        msg=(LANG==='hi'?'OTP ग़लत — '+(d.attemptsLeft)+' कोशिश बची।':'Wrong OTP — '+(d.attemptsLeft)+' left.');
-    else if(d.reason==='locked')  msg=(LANG==='hi'?'3 ग़लत — '+(d.hoursLeft||12)+' घंटे बाद दोबारा।':'Locked — try after '+(d.hoursLeft||12)+'h.');
-    else if(d.reason==='expired') msg=(LANG==='hi'?'OTP ख़त्म — नया लें।':'OTP expired — request a new one.');
-    else if(d.reason==='noOtp')   msg=(LANG==='hi'?'पहले OTP भेजें।':'Request OTP first.');
-    else msg=(LANG==='hi'?'जाँच नहीं हो पाई — दोबारा कोशिश करें।':'Verification failed — try again.');
-    showAlert('a3',msg,'alert-err');
-  }finally{
-    btn.disabled=false;btn.textContent=LANG==='hi'?'Verify करें ✓':'Verify ✓';
-  }
-};
-
-// ── REGISTER ──
-window.doRegister=async function(){
-  const e=ERR[LANG];
-  if(!document.getElementById('ck1').checked){showAlert('a4',e.terms,'alert-err');return;}
-  if(!document.getElementById('ck2').checked){showAlert('a4',e.privacy,'alert-err');return;}
-  const fa=document.getElementById('f-age');
-  if(ROLE==='student'&&fa&&+fa.value<18&&!document.getElementById('ck3').checked){showAlert('a4',e.guardian,'alert-err');return;}
-  const btn=document.getElementById('btn4');
-  btn.disabled=true;btn.innerHTML='<span class="spin"></span>'+(LANG==='hi'?'Register हो रहे हैं...':'Registering...');
-  try{
-    const email=gv('f-email'),pass=gv('f-pass');
-    const cred=await createUserWithEmailAndPassword(auth,email,pass);
-    await sendEmailVerification(cred.user);
-    const uid=cred.user.uid,st=gv('f-state');
-    const RC={student:'STU',teacher:'TCH',jobseeker:'JOB',entrepreneur:'ENT',volunteer:'VOL',center:'CTR',counselor:'CNS',employer:'EMP',foreign_agent:'FGA',team:'TEM'};
-    const acsId='ACS-'+(RC[ROLE]||'USR')+'-'+st.slice(0,2).toUpperCase()+'-'+uid.slice(-6).toUpperCase();
-    const LEARNER_ROLES=['student','jobseeker','entrepreneur'];
-    const regStatus=LEARNER_ROLES.includes(ROLE)?'active':'pending'; // (H5) Learner सीधे active; बाक़ी 7 को अप्रूवल चाहिए → pending
-    const ud={uid,acsId,role:ROLE,name:gv('f-name'),mobile:gv('f-mobile'),email,state:st,language:LANG,status:regStatus,createdAt:serverTimestamp(),termsAccepted:true,termsVersion:'1.0',termsAcceptedAt:new Date().toISOString(),platform:'web'};
-    // Role-specific fields
-    const flds={fa:'age','f-age':'age','f-exp':'experience','f-sub':'subject','f-skill':'skill','f-avail':'availability','f-cname':'centerName','f-addr':'address','f-dist':'district','f-org':'organization','f-biz':'businessType','f-emigrate':'emigrateLicense','f-desig':'designation','f-manager':'referringManager','f-guardian':'guardianName'};
-    Object.entries(flds).forEach(([id,key])=>{const el=document.getElementById(id);if(el&&el.value)ud[key]=el.type==='number'?+el.value:el.value;});
-    // Save to Firestore — users collection + role collection
-    await setDoc(doc(db,'users',uid),ud);
-    await setDoc(doc(db,ROLE+'s',uid),{...ud,userId:uid});
-    document.getElementById('s-id').textContent='ACS ID: '+acsId;
-    document.getElementById('s-role').textContent='Role: '+ROLE_NAMES[LANG][ROLE];
-    document.getElementById('s-email').textContent='Email: '+email;
-    goStep(5);
-  }catch(err){
-    let msg=err.message||'Error';
-    if(err.code==='auth/email-already-in-use')msg=ERR[LANG].used;
-    showAlert('a4',msg,'alert-err');
-  }finally{
-    btn.disabled=false;
-    btn.innerHTML='🎉 <span class="t" data-hi="ACS में Register करें" data-en="Register with ACS">'+(LANG==='hi'?'ACS में Register करें':'Register with ACS')+'</span>';
-  }
-};
-
-// ── HELPERS ──
-function gv(id){return document.getElementById(id)?.value?.trim()||'';}
-function showAlert(id,msg,cls){const el=document.getElementById(id);if(el){el.textContent=msg;el.className='alert '+cls+' show';}}
-function hideAlert(id){const el=document.getElementById(id);if(el){el.textContent='';el.className='alert';}}
-function showErr(id,msg){const el=document.getElementById(id);if(el){el.textContent=msg;el.classList.add('show');}}
-function clearErrs(){document.querySelectorAll('.err').forEach(e=>{e.textContent='';e.classList.remove('show');});}
-
-// ── INIT ──
-applyLang();
+  /* पहली बार साफ़ स्थिति */
+  document.getElementById('panelSuccess').classList.remove('active');
+})();
 </script>
-
-  </main>
-
-  <!-- ══ FOOTER (footer सिर्फ़ यहीं) — links links.js से मेल खाएँ ══ -->
-  <footer class="acs-footer" id="contact">
-  <div class="wrap">
-    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
-    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
-    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
-    <div class="acs-fblock">
-      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
-      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
-      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
-    </div>
-    <div class="acs-fblock">
-      <b id="acsFbContactTitle">📞 संपर्क</b>
-      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
-      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
-    </div>
-    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
-    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
-  </div>
-</footer>
-<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
-<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
-  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
-  <h4 id="acsDrawerTitle">मेन्यू</h4>
-  <div id="acsMenuList"></div>
-  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
-</nav>
-<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
-  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
-</a>
-<script src="/assets/acs-universal.js"></script>
-
-  <!-- ══ LOGIN MODAL (login सिर्फ़ यहीं; Firebase तभी load हो जब खुले) ══ -->
-  <div class="acs-modal-bg" id="acsLoginModal" role="dialog" aria-modal="true" aria-labelledby="acsLoginTitle">
-    <div class="acs-modal">
-      <button class="acs-iconbtn" id="acsLoginClose" type="button" aria-label="बंद करें"
-              style="position:absolute;top:10px;right:10px">✕</button>
-
-      <div id="acsLoginView">
-        <h3 id="acsLoginTitle">🔑 Login</h3>
-        <p class="sub">अपना ईमेल व पासवर्ड डालें</p>
-        <div class="acs-field">
-          <label for="acsEmail">ईमेल (Email)</label>
-          <input id="acsEmail" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com"/>
-        </div>
-        <div class="acs-field">
-          <label for="acsPass">पासवर्ड (Password)</label>
-          <input id="acsPass" type="password" autocomplete="current-password" placeholder="••••••••"/>
-        </div>
-        <button class="acs-submit" id="acsLoginSubmit" type="button">Login करें</button>
-        <button id="acsForgot" type="button" aria-label="Forgot Password"
-                style="background:none;border:none;color:#1565C0;font-weight:700;cursor:pointer;font:inherit;margin-top:9px;text-decoration:underline">
-          पासवर्ड भूल गए? (Forgot Password?)
-        </button>
-        <p class="err" id="acsLoginErr" role="alert"></p>
-        <p id="acsLoginInfo" role="status" style="color:#2E7D32;font-size:14px;margin-top:6px"></p>
-      </div>
-
-      <div id="acsOtpView" style="display:none">
-        <h3>🔒 OTP डालें</h3>
-        <p class="sub">आपके ईमेल पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</p>
-        <div class="acs-field">
-          <label for="acsOtpInput">6-अंकी OTP</label>
-          <input id="acsOtpInput" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="______"/>
-        </div>
-        <button class="acs-submit" id="acsOtpSubmit" type="button">Verify करें</button>
-        <p id="acsOtpTimer" class="sub" style="margin-top:8px"></p>
-        <button id="acsOtpResend" type="button" disabled
-                style="background:none;border:none;color:#1565C0;font-weight:800;cursor:not-allowed;opacity:.45;font:inherit;margin-top:2px">
-          OTP दोबारा भेजें
-        </button>
-        <p class="err" id="acsOtpErr" role="alert"></p>
-      </div>
-
-      <div class="acs-welcome" id="acsWelcome">
-        <div class="ic">✅</div>
-        <h2>स्वागत है!</h2>
-        <p class="sub">आपके dashboard पर भेजा जा रहा है…</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ SCRIPTS — क्रम ज़रूरी: config → links → translate → script ══ -->
-  <script src="/assets/acs-config.js"></script>
-  <script src="/assets/links.js"></script>
-  <script src="/assets/acs-translate.js"></script>
-  <script src="/script.js"></script>
-
-  <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
-  <script>
-  (function () {
-    document.getElementById("acsYear").textContent = new Date().getFullYear();
-
-    var modal     = document.getElementById("acsLoginModal");
-    var closeBtn  = document.getElementById("acsLoginClose");
-    var loginView = document.getElementById("acsLoginView");
-    var otpView   = document.getElementById("acsOtpView");
-    var welcome   = document.getElementById("acsWelcome");
-    var errEl     = document.getElementById("acsLoginErr");
-    var otpErr    = document.getElementById("acsOtpErr");
-    var otpTimerEl= document.getElementById("acsOtpTimer");
-    var resendBtn = document.getElementById("acsOtpResend");
-    var fbReady = null, otpTimer = null, pendingUser = null, pendingRole = null, pendingDesignation = "";
-
-    var SESSION_KEY = "acs_session";
-    var OTP_VALID = 300, OTP_RESEND = 600;   // 5 मिनट valid · 10 मिनट resend
-
-    /* ── Role → URL (Constitution v1.5 मास्टर-सूची; role/designation Firestore में snake_case) ── */
-    /* 9 सीधे कार्ड */
-    var ROLE_URLS = {
-      student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
-      teacher:"/dashboard/teacher/", center:"/dashboard/center/", counselor:"/dashboard/counselor/",
-      employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
-    };
-    /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
-    var TEAM_URLS = {
-      founder:"/dashboard/founder/", hq_admin:"/dashboard/hq/",
-      hq_establishment:"/dashboard/hq/establishment/", hq_finance:"/dashboard/hq/finance/", hq_legal:"/dashboard/hq/legal/",
-      zm:"/dashboard/zonal/", rm:"/dashboard/regional/"
-    };
-
-    /* 3 Learner कार्ड → re-login पर OTP नहीं */
-    function isLearner(r){ return r==="student" || r==="jobseeker" || r==="entrepreneur"; }
-    /* सही dashboard URL */
-    function destFor(role, designation){
-      if (role === "team") return TEAM_URLS[designation] || "/dashboard/";
-      return ROLE_URLS[role] || "/dashboard/student/";
-    }
-    /* (BUG-FIX) role/designation अब "users" collection में नहीं — अपनी-अपनी
-       role-collection में (students/teachers/centers/.../teams) रहता है।
-       login के वक़्त role पहले से पता नहीं होता — इसलिए क्रम से ढूँढते हैं
-       (rules में यही collections पहले से पढ़ने योग्य — कोई नया deploy नहीं चाहिए)। */
-    var USER_COLLECTIONS = ["students","jobseekers","entrepreneurs","teachers","centers",
-                             "counselors","employers","foreign_agents","volunteers","teams"];
-    function findUserDoc(uid){
-      var db = window.firebase.firestore();
-      var i = 0;
-      function tryNext(){
-        if (i >= USER_COLLECTIONS.length) return Promise.resolve(null);
-        var col = USER_COLLECTIONS[i++];
-        return db.collection(col).doc(uid).get().then(function (doc){
-          if (doc.exists) return { data: doc.data(), collection: col };
-          return tryNext();
-        }).catch(function (){ return tryNext(); }); // permission-denied पर भी अगली आज़माओ
-      }
-      return tryNext();
-    }
-    function fmt(s){ s=Math.max(0,s|0); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
-
-    function showView(which){
-      loginView.style.display = (which==="login") ? "" : "none";
-      otpView.style.display   = (which==="otp")   ? "" : "none";
-      if (which==="welcome") welcome.classList.add("show"); else welcome.classList.remove("show");
-    }
-
-    function openModal(){
-      modal.classList.add("open");
-      showView("login");
-      errEl.textContent = ""; if(otpErr) otpErr.textContent = "";
-      var _i=document.getElementById("acsLoginInfo"); if(_i) _i.textContent="";
-      loadFirebase();
-      var f = document.getElementById("acsEmail"); if (f) f.focus();
-    }
-    function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
-
-    // menu (☰) के अंदर Login/Dashboard → यही modal खोले (header का अलग बटन हटाया)
-    document.addEventListener("click", function (e){
-      var t = e.target && e.target.closest ? e.target.closest(".acs-login") : null;
-      if (t){ e.preventDefault(); openModal(); }
-    });
-    closeBtn.addEventListener("click", closeModal);
-    modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
-    document.addEventListener("keydown", function (e){
-      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
-    });
-
-    /* Firebase compat (app+auth+firestore+functions) — सिर्फ़ ज़रूरत पर */
-    function loadFirebase(){
-      if (fbReady) return fbReady;
-      var cfg = (window.ACS_CONFIG && window.ACS_CONFIG.firebase) || null;
-      if (!cfg) { if(errEl) errEl.textContent = "config नहीं मिला।"; return Promise.reject(); }
-      var B = "https://www.gstatic.com/firebasejs/10.12.2/";
-      fbReady = loadScript(B+"firebase-app-compat.js")
-        .then(function(){ return loadScript(B+"firebase-auth-compat.js"); })
-        .then(function(){ return loadScript(B+"firebase-firestore-compat.js"); })
-        .then(function(){ return loadScript(B+"firebase-functions-compat.js"); })
-        .then(function(){
-          if (!window.firebase.apps.length) window.firebase.initializeApp(cfg);
-          /* idle-logout (script.js) + सामान्य logout — session-मार्क भी हटाओ */
-          window.acsLogout = function(){
-            try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
-            try{ window.firebase.auth().signOut(); }catch(e){}
-            window.location.href = "/";
-          };
-        });
-      return fbReady;
-    }
-    function loadScript(src){
-      return new Promise(function (res, rej){
-        var s = document.createElement("script");
-        s.src = src; s.onload = res; s.onerror = rej;
-        document.head.appendChild(s);
-      });
-    }
-    /* OTP/session functions us-central1 (function-region से मेल) */
-    function fn(name){ return window.firebase.app().functions("us-central1").httpsCallable(name); }
-
-    /* ── password step ── */
-    document.getElementById("acsLoginSubmit").addEventListener("click", function (){
-      var email = document.getElementById("acsEmail").value.trim();
-      var pass  = document.getElementById("acsPass").value;
-      errEl.textContent = "";
-      if (!email || !pass) { errEl.textContent = "ईमेल व पासवर्ड दोनों भरें।"; return; }
-
-      loadFirebase().then(function (){
-        return window.firebase.auth().signInWithEmailAndPassword(email, pass);
-      }).then(function (cred){
-        var user = cred.user;
-        /* email-verify अनिवार्य — बिना verify login नहीं */
-        if (!user.emailVerified) {
-          user.sendEmailVerification().catch(function(){});
-          window.firebase.auth().signOut();
-          errEl.textContent = "पहले अपना ईमेल verify करें — verification link भेज दी गई।";
-          return;
-        }
-        /* role अपनी role-collection से (findUserDoc — ऊपर परिभाषित) */
-        return findUserDoc(user.uid).then(function (found){
-          var data = (found && found.data) || {};
-          var role = data.role || "student";
-          pendingUser = user; pendingRole = role; pendingDesignation = data.designation || "";
-          if (isLearner(role)) return finishLogin();           // 3 Learner कार्ड → कोई OTP नहीं
-          /* 7 roles → असली OTP भेजो */
-          return fn("requestLoginOtp")({ email: user.email }).then(function (res){
-            if (res && res.data && res.data.skip) return finishLogin();
-            showView("otp"); startOtpTimer();
-            if(otpErr) otpErr.textContent = "";
-            var oi = document.getElementById("acsOtpInput"); if(oi){ oi.value=""; oi.focus(); }
-          });
-        });
-      }).catch(function (e){ errEl.textContent = authMsg(e); });
-    });
-
-    /* ── Forgot Password (Firebase reset-email — सब roles) ── */
-    var forgotBtn = document.getElementById("acsForgot");
-    var infoEl    = document.getElementById("acsLoginInfo");
-    if (forgotBtn){
-      forgotBtn.addEventListener("click", function (){
-        var email = document.getElementById("acsEmail").value.trim();
-        errEl.textContent = ""; if (infoEl) infoEl.textContent = "";
-        if (!email){ errEl.textContent = "पहले अपना ईमेल भरें, फिर 'पासवर्ड भूल गए' दबाएँ।"; return; }
-        forgotBtn.disabled = true;
-        loadFirebase().then(function (){
-          return window.firebase.auth().sendPasswordResetEmail(email);
-        }).then(function (){
-          if (infoEl) infoEl.textContent = "पासवर्ड रीसेट लिंक आपके ईमेल पर भेज दी गई — inbox/spam देखें।";
-        }).catch(function (e){
-          errEl.textContent = authMsg(e);
-        }).then(function (){ forgotBtn.disabled = false; });
-      });
-    }
-
-    /* ── OTP verify ── */
-    document.getElementById("acsOtpSubmit").addEventListener("click", function (){
-      var code = (document.getElementById("acsOtpInput").value || "").trim();
-      if(otpErr) otpErr.textContent = "";
-      if (code.length < 6) { otpErr.textContent = "6-अंकी OTP डालें।"; return; }
-      fn("verifyLoginOtp")({ email: pendingUser.email, code: code })
-        .then(function (){ if(otpTimer) clearInterval(otpTimer); return finishLogin(); })
-        .catch(function (e){ otpErr.textContent = otpMsg(e); });
-    });
-
-    /* ── OTP resend (10 मिनट बाद ही चालू) ── */
-    resendBtn.addEventListener("click", function (){
-      if (resendBtn.disabled) return;
-      if(otpErr) otpErr.textContent = "";
-      fn("requestLoginOtp")({ email: pendingUser.email })
-        .then(function (){ startOtpTimer(); })
-        .catch(function (e){ otpErr.textContent = otpMsg(e); });
-    });
-
-    function startOtpTimer(){
-      var valid = OTP_VALID, resend = OTP_RESEND;
-      resendBtn.disabled = true; resendBtn.style.opacity = ".45"; resendBtn.style.cursor = "not-allowed";
-      if (otpTimer) clearInterval(otpTimer);
-      otpTimer = setInterval(function (){
-        valid--; resend--;
-        var v = valid>0 ? ("OTP "+fmt(valid)+" में ख़त्म") : "OTP ख़त्म";
-        var r = resend>0 ? (" · दोबारा "+fmt(resend)+" बाद") : "";
-        otpTimerEl.textContent = v + r;
-        if (resend<=0){ resendBtn.disabled=false; resendBtn.style.opacity="1"; resendBtn.style.cursor="pointer"; }
-        if (valid<=0 && resend<=0) clearInterval(otpTimer);
-      }, 1000);
-    }
-
-    /* ── सफल login: single-session सेट → redirect ── */
-    function finishLogin(){
-      return fn("claimSession")({}).then(function (res){
-        var sid = res && res.data && res.data.sessionId;
-        try{ localStorage.setItem(SESSION_KEY, sid || ""); }catch(e){}
-        showView("welcome");
-        setTimeout(function (){ window.location.href = destFor(pendingRole, pendingDesignation); }, 900);
-      });
-    }
-
-    function authMsg(e){
-      if (e && e.code) return (e.code.indexOf("password")>-1 || e.code.indexOf("user")>-1)
-        ? "ईमेल या पासवर्ड ग़लत है।" : "Login नहीं हो पाया — दोबारा कोशिश करें।";
-      return "Login नहीं हो पाया।";
-    }
-    function otpMsg(e){
-      var d = (e && e.details) || {};
-      if (d.reason==="wrong")  return "OTP ग़लत — "+d.attemptsLeft+" कोशिश बची।";
-      if (d.reason==="locked") return "3 ग़लत — "+(d.hoursLeft||12)+" घंटे बाद दोबारा।";
-      if (d.reason==="expired")return "OTP ख़त्म — दोबारा भेजें।";
-      if (d.reason==="wait")   return "थोड़ी देर रुकें — दोबारा "+fmt(d.secondsLeft)+" बाद।";
-      if (d.reason==="noOtp")  return "पहले OTP भेजें।";
-      return "OTP जाँच नहीं हो पाई — दोबारा कोशिश करें।";
-    }
-
-    /* ── single-session watcher — हर page पर, पर सिर्फ़ logged-in user के लिए ──
-       localStorage में session-मार्क हो तभी Firebase load (anonymous pages हल्के)। */
-    (function watchSession(){
-      var sid; try{ sid = localStorage.getItem(SESSION_KEY); }catch(e){ sid = null; }
-      if (!sid) return;                       // logged-in नहीं → page हल्का रहे
-      loadFirebase().then(function (){
-        window.firebase.auth().onAuthStateChanged(function (user){
-          if (!user) return;
-          var _redirected = false;
-          /* पहले सही role-collection ढूँढो, फिर उसी पर realtime सुनो */
-          findUserDoc(user.uid).then(function (found){
-            if (!found) return; // किसी collection में doc नहीं मिला — कुछ मत करो
-            window.firebase.firestore().collection(found.collection).doc(user.uid).onSnapshot(function (doc){
-              var data = doc.exists ? doc.data() : {};
-              var active = data.activeSession;
-              if (active && active !== sid){
-                /* कहीं और login हुआ → यह session बंद */
-                try{ localStorage.removeItem(SESSION_KEY); }catch(e){}
-                window.firebase.auth().signOut().finally(function (){
-                  alert("आपने दूसरी जगह login किया — यह session बंद किया गया।");
-                  window.location.href = "/";
-                });
-                return;
-              }
-              /* (H7) पहले से सही login है → सीधे उसके dashboard भेजो (रजिस्ट्रेशन-पेज पर न अटके) */
-              if (!_redirected){
-                _redirected = true;
-                window.location.href = destFor(data.role || "student", data.designation || "");
-              }
-            });
-          });
-        });
-      });
-    })();
-
-  })();
-  </script>
 </body>
 </html>
