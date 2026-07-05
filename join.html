@@ -571,6 +571,14 @@
     if(rulesLoadedFor===role){ rulesCard.style.display='block'; return; }
     rulesLoadedFor = role;
     rulesCard.style.display='block';
+    /* पिछले role की injected-script से finalChk/toStep3Btn पर जुड़े पुराने listener हमेशा के लिए हटाना —
+       clone बनाकर बदलना (clone किसी भी JS-listener को साथ नहीं लाता, सिर्फ़ HTML/attribute) */
+    var freshFinal = finalChk.cloneNode(true);
+    finalChk.parentNode.replaceChild(freshFinal, finalChk);
+    finalChk = freshFinal;
+    var freshBtn = toStep3Btn.cloneNode(true);
+    toStep3Btn.parentNode.replaceChild(freshBtn, toStep3Btn);
+    toStep3Btn = freshBtn;
     rulesContainer.innerHTML = '<div class="rulesLoadMsg">📜 नियम लोड हो रहे हैं…</div>';
     var file = R.ruleFileFor(role);
     if(!file){ rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ इस रोल की rules-फ़ाइल roles.js में दर्ज नहीं है।</div>'; return; }
