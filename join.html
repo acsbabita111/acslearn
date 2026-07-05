@@ -573,7 +573,7 @@
     rulesContainer.innerHTML = '<div class="rulesLoadMsg">📜 नियम लोड हो रहे हैं…</div>';
     var file = R.ruleFileFor(role);
     if(!file){ rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ इस रोल की rules-फ़ाइल roles.js में दर्ज नहीं है।</div>'; return; }
-    fetch(file).then(function(r){
+    fetch(file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){
       if(!r.ok) throw new Error('फ़ाइल नहीं मिली: '+file);
       return r.text();
     }).then(function(html){
@@ -631,9 +631,9 @@
     var innerSelects = rulesContainer.querySelectorAll('select');
     innerSelects.forEach(function(sel){ sel.addEventListener('change', refresh); });
     finalChk.addEventListener('change', refresh);
+    toStep3Btn.addEventListener('click', function(){ if(!toStep3Btn.disabled) goToStep(3); });
     refresh();
   }
-  toStep3Btn.addEventListener('click', function(){ if(!toStep3Btn.disabled) goToStep(3); });
 
   /* ═══════════════ STEP 3 : पूरा फ़ॉर्म — roles.js के card.fields से पूरी तरह dynamic ═══════════════ */
   var dynamicFields = document.getElementById('dynamicFields');
