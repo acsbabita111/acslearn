@@ -76,6 +76,21 @@
   .regno{background:var(--off);border:1.5px dashed var(--navy);border-radius:10px;padding:12px;font-size:20px;font-weight:800;color:var(--navy);letter-spacing:1px;margin:14px 0}
   .foot{text-align:center;color:#666;font-size:15px;margin:14px 0}
   .uploadRow{border:2px dashed #cfd8e3;border-radius:10px;padding:16px;text-align:center;color:#888;font-size:15px}
+  .docBox{border:2px dashed #cfd8e3;border-radius:12px;padding:16px;margin-bottom:14px;text-align:center;cursor:pointer;transition:.2s;background:#fff}
+  .docBox:hover{border-color:var(--blue);background:#F5F9FF}
+  .docBox.filled{border-color:var(--green);border-style:solid;background:#EAF3EC;cursor:default}
+  .docBox.filled:hover{background:#EAF3EC}
+  .docBox .docIcon{font-size:32px;margin-bottom:6px}
+  .docBox .docLabel{font-size:16px;font-weight:700;color:var(--navy)}
+  .docBox .docHint{font-size:14px;color:#888;margin-top:4px}
+  .docBox input[type=file]{display:none}
+  .docPreviewWrap{display:flex;align-items:center;gap:12px;text-align:left}
+  .docPreviewWrap img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:1.5px solid var(--green)}
+  .docPreviewWrap .fileIcon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:28px;background:#fff;border-radius:8px;border:1.5px solid var(--green)}
+  .docPreviewWrap .docMeta{flex:1;font-size:15px}
+  .docPreviewWrap .docMeta b{display:block;color:var(--green);font-size:16px}
+  .docRemoveBtn{background:#fff;border:1.5px solid var(--red);color:var(--red);border-radius:8px;padding:6px 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+  .docBadRow{color:var(--red);font-size:14px;margin-top:6px;font-weight:700}
 </style>
 </head>
 <body>
@@ -205,9 +220,9 @@
     <div class="card">
       <h3>3️⃣ पूरी जानकारी भरें</h3>
       <div class="fieldGrid" id="dynamicFields"></div>
-      <div class="row" style="margin-top:10px">
-        <label>सहायक दस्तावेज़ (जो लागू हों) अपलोड करें</label>
-        <div class="uploadRow">📎 फ़ोटो · पहचान-प्रमाण · अन्य दस्तावेज़ — यहाँ upload करें (demo)</div>
+      <div class="row" style="margin-top:10px" id="documentsSection">
+        <label>सहायक दस्तावेज़ अपलोड करें</label>
+        <div id="documentsContainer"></div>
       </div>
       <button class="big btn-off" id="toStep4Btn" type="button">➜ पुष्टि हेतु आगे बढ़ें</button>
     </div>
@@ -395,7 +410,7 @@
       tab.classList.toggle('done', i<n);
     }
     window.scrollTo({top:0,behavior:'smooth'});
-    if(n===3) buildStep3Fields();
+    if(n===3){ window._toggleMinor=null; buildStep3Fields(); buildStep3Documents(); if(window._toggleMinor) window._toggleMinor(); }
     if(n===4) buildReview();
   }
 
@@ -602,7 +617,7 @@
     var ageEl = step3FieldEls['age'];
     if(ageEl){
       var minorFieldIds = card.fields.filter(function(f){return f.showWhenMinor;}).map(function(f){return f.id;});
-      function toggleMinor(){
+      window._toggleMinor = function toggleMinor(){
         var age = parseInt(ageEl.value,10);
         var isMinor = !isNaN(age) && age>0 && age<18;
         minorFieldIds.forEach(function(fid){
@@ -610,10 +625,16 @@
           row.style.display = isMinor ? '' : 'none';
           if(!isMinor) step3FieldEls[fid].value='';
         });
+        /* Guardian-सहमति दस्तावेज़-बॉक्स भी (अगर तब तक बन चुका हो) उसी उम्र-सुनने से जुड़ा */
+        (card.documents||[]).filter(function(d){return d.showWhenMinor;}).forEach(function(d){
+          var box = docBoxEls[d.id]; if(!box) return;
+          box.style.display = isMinor ? '' : 'none';
+          if(!isMinor) delete docFiles[d.id];
+        });
         validateStep3();
-      }
-      ageEl.addEventListener('input', toggleMinor);
-      toggleMinor(); /* शुरुआती स्थिति */
+      };
+      ageEl.addEventListener('input', window._toggleMinor);
+      window._toggleMinor(); /* शुरुआती स्थिति (fields के लिए तुरंत; documents अभी तक न बने हों तो बाद में दोबारा नीचे sync होगा) */
     }
     validateStep3();
   }
@@ -632,12 +653,139 @@
         if(!el || !el.value || !el.value.trim()) ok = false;
         if(f.roman && el.value && !/^[A-Z ]+$/.test(el.value)) ok = false;
       });
+      (card.documents||[]).forEach(function(d){
+        if(!d.required) return;
+        var box = docBoxEls[d.id];
+        if(d.showWhenMinor && box && box.style.display==='none') return; /* नहीं दिखता तो अनिवार्य नहीं */
+        if(!docFiles[d.id]) ok = false;
+      });
     }
     toStep4Btn.className = 'big ' + (ok?'btn-on':'btn-off');
     toStep4Btn.disabled = !ok;
   }
 
   document.getElementById('toStep4Btn').addEventListener('click', function(){ if(!toStep4Btn.disabled) goToStep(4); });
+
+  /* ═══════════════ दस्तावेज़-Upload — असली drag-drop/click, preview, हटाना, validation ═══════════════ */
+  var docFiles = {}; /* doc.id → { file, dataUrl, isImage } */
+  var docBoxEls = {}; /* doc.id → box-element (validation व review के लिए) */
+  var MAX_DOC_MB = 5;
+
+  function docIconFor(fileName){
+    var ext = (fileName.split('.').pop()||'').toLowerCase();
+    if(ext==='pdf') return '📄';
+    return '🖼️';
+  }
+  function fileSizeText(bytes){
+    if(bytes < 1024*1024) return Math.round(bytes/1024)+' KB';
+    return (bytes/1024/1024).toFixed(1)+' MB';
+  }
+  function acceptToExtHint(accept){
+    if(accept.indexOf('.pdf')>-1) return 'फ़ोटो (JPG/PNG) या PDF, अधिकतम '+MAX_DOC_MB+'MB';
+    return 'फ़ोटो (JPG/PNG), अधिकतम '+MAX_DOC_MB+'MB';
+  }
+
+  function renderDocBox(doc){
+    var box = document.createElement('div');
+    box.className = 'docBox';
+    box.setAttribute('data-docid', doc.id);
+    var input = document.createElement('input');
+    input.type = 'file'; input.accept = doc.accept;
+    box.appendChild(input);
+
+    function showEmpty(){
+      box.classList.remove('filled');
+      box.innerHTML = '';
+      box.appendChild(input);
+      var reqStar = doc.required ? ' <span style="color:#B23A3A">*</span>' : ' (वैकल्पिक)';
+      box.insertAdjacentHTML('beforeend',
+        '<div class="docIcon">📎</div>'+
+        '<div class="docLabel">'+doc.hi+reqStar+'</div>'+
+        '<div class="docHint">यहाँ क्लिक करें या फ़ाइल खींच-छोड़ें — '+acceptToExtHint(doc.accept)+'</div>'+
+        '<div class="docBadRow" id="docBad_'+doc.id+'" style="display:none"></div>');
+    }
+    function showBadMsg(msg){
+      var el = box.querySelector('#docBad_'+doc.id);
+      if(el){ el.textContent = '⚠️ '+msg; el.style.display='block'; }
+    }
+    function showFilled(file, dataUrl){
+      box.classList.add('filled');
+      var isImage = file.type.indexOf('image')===0;
+      var previewHtml = isImage
+        ? '<img src="'+dataUrl+'" alt="preview">'
+        : '<div class="fileIcon">'+docIconFor(file.name)+'</div>';
+      box.innerHTML =
+        '<div class="docPreviewWrap">'+
+          previewHtml+
+          '<div class="docMeta"><b>✅ '+doc.hi+'</b>'+file.name+' · '+fileSizeText(file.size)+'</div>'+
+          '<button type="button" class="docRemoveBtn">हटाएँ</button>'+
+        '</div>';
+      box.querySelector('.docRemoveBtn').addEventListener('click', function(e){
+        e.stopPropagation();
+        delete docFiles[doc.id];
+        showEmpty();
+        validateStep3();
+      });
+    }
+    function handleFile(file){
+      if(!file) return;
+      var okType = doc.accept.split(',').some(function(a){
+        a = a.trim();
+        if(a==='image/*') return file.type.indexOf('image')===0;
+        if(a==='.pdf') return /\.pdf$/i.test(file.name);
+        return false;
+      });
+      if(!okType){ showBadMsg('गलत फ़ाइल-प्रकार। सिर्फ़ '+acceptToExtHint(doc.accept)+' स्वीकार होगा।'); return; }
+      if(file.size > MAX_DOC_MB*1024*1024){ showBadMsg('फ़ाइल बहुत बड़ी है — अधिकतम '+MAX_DOC_MB+'MB।'); return; }
+      var reader = new FileReader();
+      reader.onload = function(e){
+        docFiles[doc.id] = { file:file, dataUrl:e.target.result, isImage: file.type.indexOf('image')===0 };
+        showFilled(file, e.target.result);
+        validateStep3();
+      };
+      reader.readAsDataURL(file);
+    }
+    input.addEventListener('change', function(){ handleFile(this.files[0]); });
+    box.addEventListener('click', function(){ if(!box.classList.contains('filled')) input.click(); });
+    box.addEventListener('dragover', function(e){ e.preventDefault(); box.style.background='#F5F9FF'; });
+    box.addEventListener('dragleave', function(){ box.style.background=''; });
+    box.addEventListener('drop', function(e){
+      e.preventDefault(); box.style.background='';
+      if(!box.classList.contains('filled') && e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+
+    showEmpty();
+    docBoxEls[doc.id] = box;
+    return box;
+  }
+
+  function buildStep3Documents(){
+    var container = document.getElementById('documentsContainer');
+    var section = document.getElementById('documentsSection');
+    container.innerHTML = '';
+    docBoxEls = {};
+    var card = R.byKey(roleSel.value);
+    var docs = (card && card.documents) || [];
+    if(docs.length===0){ section.style.display='none'; return; }
+    section.style.display='block';
+    docs.forEach(function(doc){
+      /* पहले से चुनी फ़ाइल (Guardian-toggle पर दोबारा-render से न खोए) याद रखना */
+      var box = renderDocBox(doc);
+      if(docFiles[doc.id]){
+        box.classList.add('filled');
+        var f = docFiles[doc.id];
+        var previewHtml = f.isImage ? '<img src="'+f.dataUrl+'" alt="preview">' : '<div class="fileIcon">'+docIconFor(f.file.name)+'</div>';
+        box.innerHTML = '<div class="docPreviewWrap">'+previewHtml+
+          '<div class="docMeta"><b>✅ '+doc.hi+'</b>'+f.file.name+' · '+fileSizeText(f.file.size)+'</div>'+
+          '<button type="button" class="docRemoveBtn">हटाएँ</button></div>';
+        box.querySelector('.docRemoveBtn').addEventListener('click', function(e){
+          e.stopPropagation(); delete docFiles[doc.id];
+          container.innerHTML=''; buildStep3Documents(); validateStep3();
+        });
+      }
+      container.appendChild(box);
+    });
+  }
 
   /* ═══════════════ STEP 4 : पुष्टि व Submit ═══════════════ */
   function buildReview(){
@@ -663,6 +811,15 @@
           val = opt ? opt.hi : val;
         }
         html += '<div><b>'+f.hi+':</b> '+val+'</div>';
+      });
+      (card.documents||[]).forEach(function(d){
+        var box = docBoxEls[d.id];
+        if(box && box.style.display==='none') return; /* Guardian-दस्तावेज़ जो अभी लागू नहीं */
+        if(docFiles[d.id]){
+          html += '<div>📎 <b>'+d.hi+':</b> ✅ '+docFiles[d.id].file.name+'</div>';
+        } else if(d.required){
+          html += '<div>📎 <b>'+d.hi+':</b> <span style="color:#B23A3A">⚠️ अपलोड नहीं हुआ</span></div>';
+        }
       });
     }
     box.innerHTML = html;
