@@ -9,6 +9,7 @@
 <!-- Firebase SDK (compat) — असली OTP के लिए -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-functions-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
   var firebaseConfig = {
     apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
@@ -263,7 +264,7 @@
       <div class="regno" id="regNoBox">ACS-2026-000000</div>
       <p>अगले <b>2 से 7 कार्य-दिवस</b> में, सभी स्तर से जाँच के बाद आपका पंजीकरण स्थायी कर दिया जाएगा।</p>
       <p style="margin-top:12px">Applied Computer School एवं आपके बीच हुए एग्रीमेंट का PDF यहाँ से डाउनलोड करें:</p>
-      <button class="big btn-secondary" type="button" onclick="alert('✅ (नमूना) यहाँ असली एग्रीमेंट-PDF डाउनलोड होगा — नाम, दिनांक व समय-मुहर सहित। आपके ईमेल पर भी भेज दी गई है।')">⬇️ एग्रीमेंट PDF डाउनलोड करें</button>
+      <button class="big btn-secondary" id="downloadPdfBtn" type="button">⬇️ एग्रीमेंट PDF डाउनलोड करें</button>
       <p style="margin-top:14px;font-size:16px;color:#7a5200;background:#FFF8E1;border:1.5px solid var(--gold);border-radius:10px;padding:10px">
         अभी आप अपने dashboard-panel में login करके <b>सिर्फ़ देख</b> सकते हैं। स्थायी पंजीकरण के बाद ही वहाँ से कोई भी कार्य कर सकेंगे।
       </p>
@@ -346,7 +347,7 @@
     sendOtpBtn.className = 'big ' + (ok?'btn-on':'btn-off'); sendOtpBtn.disabled = !ok;
   }
   nameLocal.addEventListener('input', validateStep1);
-  nameRoman.addEventListener('input', function(){ this.value=this.value.toUpperCase(); validateStep1(); });
+  nameRoman.addEventListener('input', function(){ this.value=this.value.toUpperCase().replace(/[^A-Z ]/g,''); validateStep1(); });
   mobile.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); validateStep1(); });
   email.addEventListener('input', validateStep1);
   pwd.addEventListener('input', checkPwd);
@@ -589,6 +590,10 @@
         note.textContent = 'ℹ️ इस रोल में एक और चयन है — नीचे सबसे ऊपर मिलेगा, ज़रूरत अनुसार बदलें।';
         rulesContainer.appendChild(note);
         rulesContainer.appendChild(idbox.cloneNode(true));
+        var innerNameRoman = rulesContainer.querySelector('#nameRoman');
+        if(innerNameRoman){
+          innerNameRoman.addEventListener('input', function(){ this.value = this.value.toUpperCase().replace(/[^A-Z ]/g,''); });
+        }
       }
       parts.forEach(function(el){ rulesContainer.appendChild(el.cloneNode(true)); });
       // मूल फ़ाइल की script कुछ ID (otpBtn/count) ढूँढती है जो यहाँ नहीं हैं — dummy छिपे element ताकि क्रैश न हो
@@ -644,6 +649,29 @@
     var reqStar = f.required ? ' <span style="color:#B23A3A">*</span>' : '';
     var hint = f.hint_hi ? '<div class="hint">'+f.hint_hi+'</div>' : '';
     var idAttr = 'data-fid="'+f.id+'"';
+    if(f.type === 'emergency_contact'){
+      return '<div class="row" style="background:#F5F7FA;border-radius:9px;padding:10px">'+
+        '<label>'+f.hi+reqStar+'</label>'+
+        '<input type="text" id="ecName_'+f.id+'" placeholder="नाम" style="margin-bottom:6px">'+
+        '<input type="text" id="ecRel_'+f.id+'" placeholder="संबंध (जैसे: पिता, भाई)" style="margin-bottom:6px">'+
+        '<input type="tel" id="ecMobile_'+f.id+'" maxlength="10" placeholder="मोबाइल/WhatsApp नंबर">'+
+        '<input type="hidden" '+idAttr+'>'+
+        '</div>';
+    }
+    if(f.type === 'pincode_address'){
+      return '<div class="row">'+
+        '<label>पिन कोड'+reqStar+'</label>'+
+        '<input type="text" id="pin_'+f.id+'" maxlength="6" inputmode="numeric" placeholder="6-अंकों का PIN कोड भरें">'+
+        '<div class="hint" id="pinStatus_'+f.id+'"></div>'+
+        '<div id="pinResult_'+f.id+'" style="display:none;margin-top:8px">'+
+          '<div class="hint" id="pinStateDistrict_'+f.id+'" style="font-weight:700;color:#1b4d20"></div>'+
+          '<div style="margin-top:6px"><label>ब्लॉक/डाकघर चुनें</label><select id="pinBlock_'+f.id+'"></select></div>'+
+        '</div>'+
+        '<div style="margin-top:8px"><label>घर नं./गली/मोहल्ला (विस्तृत पता)'+reqStar+'</label>'+
+        '<input type="text" id="pinDetail_'+f.id+'" placeholder="जैसे: घर नं. 12, वार्ड 3"></div>'+
+        '<input type="hidden" '+idAttr+'>'+
+        '</div>';
+    }
     if(f.type === 'select'){
       var opts = '<option value="">— चुनें —</option>' + (f.options||[]).map(function(o){
         return '<option value="'+o.v+'">'+o.hi+'</option>';
@@ -659,6 +687,59 @@
     var romanCls = f.roman ? ' id="fieldRoman_'+f.id+'"' : '';
     return '<div class="row"><label>'+f.hi+reqStar+'</label><input type="text" '+idAttr+romanCls+' placeholder="'+(f.ph_hi||'')+'">'+hint+
       (f.roman ? '<div class="hint">सिर्फ़ A-Z अक्षर व space।</div>' : '') + '</div>';
+  }
+
+  function wirePincodeAddress(fid){
+    var pinEl = document.getElementById('pin_'+fid);
+    var statusEl = document.getElementById('pinStatus_'+fid);
+    var resultBox = document.getElementById('pinResult_'+fid);
+    var stateDistEl = document.getElementById('pinStateDistrict_'+fid);
+    var blockSel = document.getElementById('pinBlock_'+fid);
+    var detailEl = document.getElementById('pinDetail_'+fid);
+    var hiddenEl = dynamicFields.querySelector('[data-fid="'+fid+'"]');
+    var pinData = { state:'', district:'', block:'' };
+
+    function updateCombined(){
+      var parts = [];
+      if(detailEl.value.trim()) parts.push(detailEl.value.trim());
+      if(blockSel.value) parts.push(blockSel.value);
+      if(pinData.district) parts.push(pinData.district);
+      if(pinData.state) parts.push(pinData.state);
+      if(pinEl.value.length===6) parts.push('PIN: '+pinEl.value);
+      hiddenEl.value = parts.join(', ');
+      validateStep3();
+    }
+
+    pinEl.addEventListener('input', function(){
+      this.value = this.value.replace(/[^0-9]/g,'');
+      resultBox.style.display='none'; statusEl.textContent=''; statusEl.style.color='#888';
+      pinData = { state:'', district:'', block:'' };
+      updateCombined();
+      if(this.value.length===6){
+        statusEl.textContent = '⏳ पिन कोड जाँचा जा रहा है…'; statusEl.style.color='#888';
+        fetch('https://api.postalpincode.in/pincode/'+this.value)
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            var result = data && data[0];
+            if(!result || result.Status!=='Success' || !result.PostOffice || !result.PostOffice.length){
+              statusEl.textContent = '⚠️ यह पिन कोड नहीं मिला — कृपया दोबारा जाँचें।'; statusEl.style.color='#B23A3A';
+              return;
+            }
+            var offices = result.PostOffice;
+            pinData.state = offices[0].State; pinData.district = offices[0].District;
+            stateDistEl.textContent = '📍 राज्य: '+pinData.state+' · ज़िला: '+pinData.district;
+            blockSel.innerHTML = offices.map(function(o){ return '<option value="'+o.Name+'">'+o.Name+'</option>'; }).join('');
+            pinData.block = offices[0].Name;
+            resultBox.style.display='block';
+            statusEl.textContent = '✅ पिन कोड मिल गया — नीचे सही ब्लॉक/डाकघर चुनें।'; statusEl.style.color='#2E7D32';
+            updateCombined();
+          }).catch(function(){
+            statusEl.textContent = '⚠️ पिन कोड जाँच नहीं पाई — इंटरनेट देखें या सीधे विस्तृत पते में लिखें।'; statusEl.style.color='#B23A3A';
+          });
+      }
+    });
+    blockSel.addEventListener('change', updateCombined);
+    detailEl.addEventListener('input', updateCombined);
   }
 
   function buildStep3Fields(){
@@ -677,10 +758,29 @@
 
     /* हर field का असली element पकड़ना + व्यवहार जोड़ना */
     extraFields.forEach(function(f){
+      if(f.type === 'pincode_address'){
+        var hiddenEl = dynamicFields.querySelector('[data-fid="'+f.id+'"]');
+        step3FieldEls[f.id] = hiddenEl;
+        wirePincodeAddress(f.id);
+        return;
+      }
+      if(f.type === 'emergency_contact'){
+        var ecHidden = dynamicFields.querySelector('[data-fid="'+f.id+'"]');
+        step3FieldEls[f.id] = ecHidden;
+        var nEl = document.getElementById('ecName_'+f.id), rEl = document.getElementById('ecRel_'+f.id), mEl = document.getElementById('ecMobile_'+f.id);
+        function ecUpdate(){
+          ecHidden.value = [nEl.value.trim(), rEl.value.trim(), mEl.value.trim()].filter(Boolean).join(', ');
+          validateStep3();
+        }
+        nEl.addEventListener('input', ecUpdate);
+        rEl.addEventListener('input', ecUpdate);
+        mEl.addEventListener('input', function(){ this.value = this.value.replace(/[^0-9]/g,''); ecUpdate(); });
+        return;
+      }
       var el = dynamicFields.querySelector('[data-fid="'+f.id+'"]');
       step3FieldEls[f.id] = el;
       if(f.roman){
-        el.addEventListener('input', function(){ this.value = this.value.toUpperCase(); validateStep3(); });
+        el.addEventListener('input', function(){ this.value = this.value.toUpperCase().replace(/[^A-Z ]/g,''); validateStep3(); });
       } else {
         el.addEventListener('input', validateStep3);
         el.addEventListener('change', validateStep3);
@@ -726,6 +826,10 @@
         var el = step3FieldEls[f.id];
         if(!el || !el.value || !el.value.trim()) ok = false;
         if(f.roman && el.value && !/^[A-Z ]+$/.test(el.value)) ok = false;
+        if(f.type==='emergency_contact'){
+          var nm = document.getElementById('ecName_'+f.id), mb = document.getElementById('ecMobile_'+f.id);
+          if(!nm || !nm.value.trim() || !mb || !/^[0-9]{10}$/.test(mb.value)) ok = false;
+        }
       });
       (card.documents||[]).forEach(function(d){
         if(!d.required) return;
@@ -899,13 +1003,157 @@
     box.innerHTML = html;
   }
   document.getElementById('editBtn').addEventListener('click', function(){ goToStep(3); });
+  var lastRegNo = '';
   document.getElementById('submitBtn').addEventListener('click', function(){
-    var regno = 'ACS-'+new Date().getFullYear()+'-'+Math.floor(100000+Math.random()*900000);
-    document.getElementById('regNoBox').textContent = regno;
+    lastRegNo = 'ACS-'+new Date().getFullYear()+'-'+Math.floor(100000+Math.random()*900000);
+    document.getElementById('regNoBox').textContent = lastRegNo;
     for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
     document.getElementById('panelSuccess').classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
+    sendAgreementEmailToServer();
   });
+
+  /* ═══════════════ असली PDF — नाम/दिनांक/फ़ॉर्म-जानकारी + upload किए दस्तावेज़ों की फ़ोटो सहित ═══════════════ */
+  function buildAgreementPdf(){
+    var doc = new window.jspdf.jsPDF();
+    var y = 18;
+    var pageW = doc.internal.pageSize.getWidth();
+    var margin = 15;
+
+    function line(text, size, bold){
+      doc.setFontSize(size||11);
+      doc.setFont(undefined, bold?'bold':'normal');
+      var wrapped = doc.splitTextToSize(text, pageW-2*margin);
+      doc.text(wrapped, margin, y);
+      y += (wrapped.length * (size||11) * 0.5) + 3;
+      if(y > 275){ doc.addPage(); y = 18; }
+    }
+
+    line('Applied Computer School (ACS) — पंजीकरण एग्रीमेंट', 16, true);
+    line('Registration No: ' + lastRegNo, 12, true);
+    var now = new Date();
+    line('दिनांक/समय: ' + now.toLocaleDateString('en-IN') + ' ' + now.toLocaleTimeString('en-IN'), 10);
+    y += 3;
+
+    line('नाम (हिंदी): ' + (nameLocal.value||'—'), 11);
+    line('Name (Roman): ' + (nameRoman.value||'—'), 11);
+    line('मोबाइल: ' + (mobile.value||'—'), 11);
+    line('ईमेल: ' + (email.value||'—'), 11);
+    var roleLabel = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
+    line('रोल: ' + roleLabel, 11);
+    y += 5;
+
+    /* ---- पूरा एग्रीमेंट (नियम-पाठ) — जो Step-2 में स्वीकार किया गया ---- */
+    doc.addPage(); y = 18;
+    line('स्वीकृत नियम, अधिकार व कर्तव्य (पूरा एग्रीमेंट)', 14, true);
+    y += 2;
+    var ruleLabels = rulesContainer.querySelectorAll('.rule label, .part');
+    ruleLabels.forEach(function(el){
+      var isPart = el.classList.contains('part');
+      var text = el.textContent.replace(/\s+/g,' ').trim();
+      if(!text) return;
+      line(text, isPart?12:10, isPart);
+    });
+    y += 5;
+
+    /* ---- पूरा फ़ॉर्म (Step-3 की जानकारी) ---- */
+    doc.addPage(); y = 18;
+    var card = R.byKey(roleSel.value);
+    if(card){
+      line('अतिरिक्त जानकारी (पूरा फ़ॉर्म):', 12, true);
+      card.fields.forEach(function(f){
+        if(f.id==='name_local' || f.id==='name_roman') return;
+        var el = step3FieldEls[f.id];
+        if(!el) return;
+        var row = el.closest ? el.closest('.row') : null;
+        if(row && row.style.display==='none') return;
+        if(!el.value) return;
+        var val = el.value;
+        if(f.type==='select'){
+          var opt = f.options && f.options.filter(function(o){return o.v===val;})[0];
+          val = opt ? opt.hi : val;
+        }
+        line('- ' + f.hi + ': ' + val, 10);
+      });
+    }
+
+    y += 5;
+    line('संलग्न दस्तावेज़:', 12, true);
+    var docs = ((card && card.documents) || []).filter(function(d){ return d.id !== 'doc_signature'; });
+    docs.forEach(function(d){
+      var box = docBoxEls[d.id];
+      if(box && box.style.display==='none') return;
+      var fd = docFiles[d.id];
+      if(!fd){ line('- ' + d.hi + ': (अपलोड नहीं हुआ)', 10); return; }
+      line('- ' + d.hi + ' (' + fd.file.name + '):', 10, true);
+      if(fd.isImage){
+        try{
+          if(y > 200){ doc.addPage(); y = 18; }
+          var imgW = 70, imgH = 70;
+          doc.addImage(fd.dataUrl, margin, y, imgW, imgH);
+          y += imgH + 6;
+        }catch(e){ line('  (फ़ोटो PDF में जोड़ी नहीं जा सकी: '+e.message+')', 9); }
+      } else {
+        line('  (PDF/दस्तावेज़ अलग से संलग्न — इस फ़ाइल के साथ जोड़ें: ' + fd.file.name + ')', 9);
+      }
+    });
+
+    /* अंत में — कैंडिडेट का असली हस्ताक्षर + दिनांक/समय (agreements पर हस्ताक्षर-पंक्ति की जगह) */
+    var sigFd = docFiles['doc_signature'];
+    if(y > 220){ doc.addPage(); y = 18; }
+    y += 8;
+    doc.setDrawColor(150); doc.line(margin, y, margin+80, y); y += 2;
+    if(sigFd && sigFd.isImage){
+      try{ doc.addImage(sigFd.dataUrl, margin, y, 60, 25); y += 27; }
+      catch(e){ line('(हस्ताक्षर जोड़ा नहीं जा सका)', 9); }
+    } else {
+      line('(हस्ताक्षर अपलोड नहीं हुआ)', 9);
+    }
+    line('कैंडिडेट का हस्ताक्षर', 10, true);
+    var nowSign = new Date();
+    line('दिनांक/समय: ' + nowSign.toLocaleDateString('en-IN') + ' ' + nowSign.toLocaleTimeString('en-IN'), 9);
+
+    return doc;
+  }
+
+  document.getElementById('downloadPdfBtn').addEventListener('click', function(){
+    if(typeof window.jspdf === 'undefined'){ alert('⚠️ PDF-लाइब्रेरी लोड नहीं हो पाई — इंटरनेट जाँचें व दोबारा कोशिश करें।'); return; }
+    var doc = buildAgreementPdf();
+    doc.save(lastRegNo + '.pdf');
+  });
+
+  /* ═══════════════ असली ईमेल — वही Cloud Function/Brevo रास्ता जो OTP भेजता है ═══════════════
+     ज़रूरी: functions/index.js में यह नया function जोड़ें (मौजूदा OTP-function मिटाएँ नहीं):
+
+     const nodemailer = require('nodemailer');
+     const transporter = nodemailer.createTransport({
+       host: 'smtp-relay.brevo.com', port: 587,
+       auth: { user: BREVO_USER, pass: BREVO_KEY }  // वही जो OTP-भेजने में इस्तेमाल हो रहा
+     });
+     exports.sendAgreementEmail = functions.https.onCall(async (data, context) => {
+       const { email, name, regNo, pdfBase64 } = data;
+       await transporter.sendMail({
+         from: 'ACS <no-reply@acslearn.com>',
+         to: email,
+         subject: 'ACS पंजीकरण एग्रीमेंट — ' + regNo,
+         text: name + ' जी, आपका ACS एग्रीमेंट संलग्न है — Registration No: ' + regNo,
+         attachments: [{ filename: regNo+'.pdf', content: pdfBase64, encoding: 'base64' }]
+       });
+       return { success: true };
+     });
+  */
+  function sendAgreementEmailToServer(){
+    if(!firebaseReady()){ console.warn('Firebase तैयार नहीं — ईमेल नहीं भेजी जा सकी।'); return; }
+    var doc = buildAgreementPdf();
+    var pdfBase64 = doc.output('datauristring').split(',')[1]; // "data:application/pdf;base64,...." से सिर्फ़ base64-हिस्सा
+    callOtpFn('sendAgreementEmail', {
+      email: email.value, name: nameRoman.value, regNo: lastRegNo, pdfBase64: pdfBase64
+    }).then(function(){
+      console.log('✅ एग्रीमेंट-ईमेल भेजी गई');
+    }).catch(function(err){
+      console.warn('⚠️ एग्रीमेंट-ईमेल नहीं भेजी जा सकी:', err.message);
+    });
+  }
 
   /* पहली बार साफ़ स्थिति */
   document.getElementById('panelSuccess').classList.remove('active');
