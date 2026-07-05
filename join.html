@@ -6,6 +6,20 @@
 <title>सुंदर भविष्य के लिए ACS से जुड़ें! | Applied Computer School</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="roles.js"></script>
+<!-- Firebase SDK (compat) — असली OTP के लिए -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-functions-compat.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
+    authDomain: "acslearn-platform.firebaseapp.com",
+    projectId: "acslearn-platform",
+    storageBucket: "acslearn-platform.firebasestorage.app",
+    messagingSenderId: "435395814481",
+    appId: "1:435395814481:web:655f99452a90f8efbc4470"
+  };
+  try { firebase.initializeApp(firebaseConfig); } catch(e) { console.error('Firebase init विफल:', e); }
+</script>
 <style>
   :root{--navy:#0B1F3A;--blue:#1565C0;--gold:#F9A825;--green:#2E7D32;--off:#F5F7FA;--red:#B23A3A}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -258,7 +272,6 @@
 
 </div>
 
-<script src="roles.js"></script>
 <script>
 (function(){
   /* ═══════════════ भूमिका-डेटा अब सीधे roles.js (window.ACS_ROLES) से — यहाँ कोई hardcode नहीं ═══════════════ */
@@ -341,22 +354,62 @@
   eyePwd.addEventListener('click', function(){ pwd.type = pwd.type==='password'?'text':'password'; });
   eyePwd2.addEventListener('click', function(){ pwd2.type = pwd2.type==='password'?'text':'password'; });
 
-  /* --- OTP (demo — असली में यहाँ Cloud Function + Brevo कॉल होगी) --- */
+  /* --- असली OTP — Cloud Function (requestRegisterOtp / verifyRegisterOtp) + Brevo --- */
   var otpBoxWrap=document.getElementById('otpBoxWrap'), otpSentTo=document.getElementById('otpSentTo');
   var otpInputs=document.querySelectorAll('.otpDigits input');
   var verifyOtpBtn=document.getElementById('verifyOtpBtn'), resendOtpBtn=document.getElementById('resendOtpBtn'), otpTimer=document.getElementById('otpTimer');
   var otpCountdown, resendCountdown;
+  var otpErrorBox = document.createElement('div');
+  otpErrorBox.style.cssText = 'display:none;color:#B23A3A;font-size:15px;font-weight:700;text-align:center;margin-top:10px;background:#FBEAEA;border:1.5px solid #B23A3A;border-radius:9px;padding:8px 10px';
+  sendOtpBtn.insertAdjacentElement('afterend', otpErrorBox);
+  function showOtpError(msg){ otpErrorBox.textContent = '⚠️ ' + msg; otpErrorBox.style.display='block'; }
+  function clearOtpError(){ otpErrorBox.style.display='none'; }
+
+  function firebaseReady(){ return typeof firebase!=='undefined' && firebase.apps && firebase.apps.length>0 && firebase.functions; }
+  function callOtpFn(fnName, payload){
+    if(!firebaseReady()) return Promise.reject(new Error('Firebase तैयार नहीं है (SDK लोड नहीं हुआ या init विफल)।'));
+    return firebase.functions().httpsCallable(fnName)(payload).then(function(res){ return res.data; });
+  }
+
+  function setSendBtnLoading(loading){
+    sendOtpBtn.disabled = loading;
+    sendOtpBtn.textContent = loading ? '⏳ भेजा जा रहा है…' : '📩 OTP भेजें';
+    if(!loading) validateStep1();
+  }
 
   sendOtpBtn.addEventListener('click', function(){
     if(sendOtpBtn.disabled) return;
-    otpSentTo.textContent = email.value + ' पर 6-अंकों का OTP भेजा गया (demo — असली में Brevo भेजेगा)';
-    otpBoxWrap.classList.add('show');
-    sendOtpBtn.disabled = true; sendOtpBtn.className='big btn-off';
-    otpInputs.forEach(function(inp){ inp.value=''; });
-    otpInputs[0].focus();
-    startOtpTimer(); startResendTimer();
-    otpBoxWrap.scrollIntoView({behavior:'smooth'});
+    clearOtpError();
+    setSendBtnLoading(true);
+    callOtpFn('requestRegisterOtp', {
+      email: email.value,
+      name_local: nameLocal.value,
+      name_roman: nameRoman.value,
+      mobile: mobile.value,
+      password: pwd.value
+    }).then(function(){
+      otpSentTo.textContent = email.value + ' पर 6-अंकों का OTP भेजा गया — अपना Inbox/Spam देखें।';
+      otpBoxWrap.classList.add('show');
+      sendOtpBtn.className='big btn-off';
+      otpInputs.forEach(function(inp){ inp.value=''; });
+      otpInputs[0].focus();
+      startOtpTimer(); startResendTimer();
+      otpBoxWrap.scrollIntoView({behavior:'smooth'});
+    }).catch(function(err){
+      console.error('requestRegisterOtp त्रुटि:', err);
+      showOtpError(otpFriendlyError(err));
+      setSendBtnLoading(false);
+    });
   });
+
+  function otpFriendlyError(err){
+    var code = err && err.code || '';
+    var msg = (err && err.message) || '';
+    if(code==='resource-exhausted' || /12 घंटे|rate|too many/i.test(msg)) return 'बहुत बार कोशिश हुई — 12 घंटे बाद फिर कोशिश करें।';
+    if(code==='already-exists' || /already registered|पहले से/i.test(msg)) return 'यह ईमेल पहले से पंजीकृत है।';
+    if(code==='unavailable' || /network|फ़ोन|internet/i.test(msg)) return 'नेटवर्क/सर्वर से संपर्क नहीं हो पाया — फिर कोशिश करें।';
+    return msg || 'OTP भेजने में समस्या हुई — कृपया फिर कोशिश करें।';
+  }
 
   otpInputs.forEach(function(inp, idx){
     inp.addEventListener('input', function(){
@@ -392,13 +445,34 @@
   }
   resendOtpBtn.addEventListener('click', function(){
     if(resendOtpBtn.disabled) return;
-    startOtpTimer(); startResendTimer();
-    alert('✅ (नमूना) नया OTP भेजा गया — पुराना रद्द हो गया।');
+    clearOtpError();
+    resendOtpBtn.disabled = true; resendOtpBtn.textContent = '⏳ भेजा जा रहा है…';
+    callOtpFn('requestRegisterOtp', {
+      email: email.value, name_local: nameLocal.value, name_roman: nameRoman.value,
+      mobile: mobile.value, password: pwd.value, resend: true
+    }).then(function(){
+      startOtpTimer(); startResendTimer();
+      otpSentTo.textContent = email.value + ' पर नया OTP भेजा गया — पुराना रद्द हो गया।';
+    }).catch(function(err){
+      console.error('resend त्रुटि:', err);
+      showOtpError(otpFriendlyError(err));
+      resendOtpBtn.disabled=false; resendOtpBtn.className='big btn-on'; resendOtpBtn.textContent='📩 OTP पुनः भेजें';
+    });
   });
   verifyOtpBtn.addEventListener('click', function(){
     if(verifyOtpBtn.disabled) return;
-    clearInterval(otpCountdown); clearInterval(resendCountdown);
-    goToStep(2);
+    clearOtpError();
+    var code = Array.prototype.map.call(otpInputs, function(i){ return i.value; }).join('');
+    verifyOtpBtn.disabled = true; verifyOtpBtn.textContent = '⏳ जाँचा जा रहा है…';
+    callOtpFn('verifyRegisterOtp', { email: email.value, otp: code }).then(function(){
+      clearInterval(otpCountdown); clearInterval(resendCountdown);
+      goToStep(2);
+    }).catch(function(err){
+      console.error('verifyRegisterOtp त्रुटि:', err);
+      showOtpError(otpFriendlyError(err) || 'OTP ग़लत है — कृपया दोबारा जाँचें।');
+      verifyOtpBtn.disabled=false; verifyOtpBtn.className='big btn-on'; verifyOtpBtn.textContent='✅ OTP verify करें';
+      otpInputs.forEach(function(inp){ inp.value=''; }); otpInputs[0].focus();
+    });
   });
 
   /* ═══════════════ STEP-नियंत्रण (टैब + panel दिखाना/छुपाना) ═══════════════ */
