@@ -905,6 +905,28 @@
         validateStep3();
       });
     }
+    function compressImage(file, maxDim, quality){
+      return new Promise(function(resolve){
+        var reader = new FileReader();
+        reader.onload = function(e){
+          var img = new Image();
+          img.onload = function(){
+            var w = img.width, h = img.height;
+            if(w > maxDim || h > maxDim){
+              if(w > h){ h = Math.round(h * maxDim / w); w = maxDim; }
+              else { w = Math.round(w * maxDim / h); h = maxDim; }
+            }
+            var canvas = document.createElement('canvas');
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+            resolve(canvas.toDataURL('image/jpeg', quality));
+          };
+          img.onerror = function(){ resolve(e.target.result); }; /* संकुचन विफल हो तो मूल ही इस्तेमाल हो */
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
     function handleFile(file){
       if(!file) return;
       var okType = doc.accept.split(',').some(function(a){
@@ -915,13 +937,23 @@
       });
       if(!okType){ showBadMsg('गलत फ़ाइल-प्रकार। सिर्फ़ '+acceptToExtHint(doc.accept)+' स्वीकार होगा।'); return; }
       if(file.size > MAX_DOC_MB*1024*1024){ showBadMsg('फ़ाइल बहुत बड़ी है — अधिकतम '+MAX_DOC_MB+'MB।'); return; }
-      var reader = new FileReader();
-      reader.onload = function(e){
-        docFiles[doc.id] = { file:file, dataUrl:e.target.result, isImage: file.type.indexOf('image')===0 };
-        showFilled(file, e.target.result);
-        validateStep3();
-      };
-      reader.readAsDataURL(file);
+      var isImg = file.type.indexOf('image')===0;
+      if(isImg){
+        /* फ़ोटो को 1200px + JPEG-70% पर संकुचित करना — PDF/ईमेल हल्की रहे, पढ़ने-योग्यता बरक़रार */
+        compressImage(file, 1200, 0.7).then(function(dataUrl){
+          docFiles[doc.id] = { file:file, dataUrl:dataUrl, isImage:true };
+          showFilled(file, dataUrl);
+          validateStep3();
+        });
+      } else {
+        var reader = new FileReader();
+        reader.onload = function(e){
+          docFiles[doc.id] = { file:file, dataUrl:e.target.result, isImage:false };
+          showFilled(file, e.target.result);
+          validateStep3();
+        };
+        reader.readAsDataURL(file);
+      }
     }
     input.addEventListener('change', function(){ handleFile(this.files[0]); });
     box.addEventListener('click', function(){ if(!box.classList.contains('filled')) input.click(); });
@@ -1122,25 +1154,32 @@
     doc.save(lastRegNo + '.pdf');
   });
 
-  /* ═══════════════ असली ईमेल — वही Cloud Function/Brevo रास्ता जो OTP भेजता है ═══════════════
-     ज़रूरी: functions/index.js में यह नया function जोड़ें (मौजूदा OTP-function मिटाएँ नहीं):
+  /* ═══════════════ असली ईमेल — आपकी असली index.js के ठीक उसी Gmail-पैटर्न से (Brevo नहीं) ═══════════════
+     ज़रूरी: functions/index.js में यह नया हिस्सा जोड़ें (मौजूदा OTP-function मिटाएँ नहीं) —
+     ठीक आपके मौजूदा sendMail() जैसा ही ढाँचा, GMAIL_ADDR/GMAIL_PASS दोबारा इस्तेमाल करते हुए:
 
-     const nodemailer = require('nodemailer');
-     const transporter = nodemailer.createTransport({
-       host: 'smtp-relay.brevo.com', port: 587,
-       auth: { user: BREVO_USER, pass: BREVO_KEY }  // वही जो OTP-भेजने में इस्तेमाल हो रहा
-     });
-     exports.sendAgreementEmail = functions.https.onCall(async (data, context) => {
-       const { email, name, regNo, pdfBase64 } = data;
-       await transporter.sendMail({
-         from: 'ACS <no-reply@acslearn.com>',
-         to: email,
-         subject: 'ACS पंजीकरण एग्रीमेंट — ' + regNo,
-         text: name + ' जी, आपका ACS एग्रीमेंट संलग्न है — Registration No: ' + regNo,
-         attachments: [{ filename: regNo+'.pdf', content: pdfBase64, encoding: 'base64' }]
+     async function sendAgreementMail(pass, to, name, regNo, pdfBase64) {
+       const t = nodemailer.createTransport({
+         service: "gmail",
+         auth: { user: GMAIL_ADDR, pass: (pass || "").replace(/\s+/g, "") }
        });
-       return { success: true };
+       await t.sendMail({
+         from: '"ACS — Applied Computer School" <' + GMAIL_ADDR + '>',
+         to,
+         subject: "ACS पंजीकरण एग्रीमेंट — " + regNo,
+         text: (name||"") + " जी, आपका ACS पंजीकरण एग्रीमेंट (पूरा नियम-पाठ, फ़ॉर्म व संलग्न दस्तावेज़ सहित) इस ईमेल के साथ जुड़ा है। Registration No: " + regNo,
+         attachments: [{ filename: regNo + ".pdf", content: Buffer.from(pdfBase64, "base64") }],
+       });
+     }
+
+     exports.sendAgreementEmail = onCall(OPTS, (req) => {
+       const { email, name, regNo, pdfBase64 } = req.data;
+       if (!email || !pdfBase64) throw new HttpsError("invalid-argument", "email व pdfBase64 ज़रूरी");
+       return sendAgreementMail(GMAIL_PASS.value(), email, name, regNo, pdfBase64).then(() => ({ ok: true }));
      });
+
+     ⚠️ ध्यान: Gmail से एक ईमेल पर लगभग 25MB तक की सीमा होती है (attachment base64 में करीब 33% बड़ा हो जाता है)।
+     बहुत सारी बड़ी-साइज़ फ़ोटो अपलोड होने पर PDF इससे बड़ी हो सकती है — client-side फ़ोटो-संकुचन (compression) से यह जोखिम कम किया गया है।
   */
   function sendAgreementEmailToServer(){
     if(!firebaseReady()){ console.warn('Firebase तैयार नहीं — ईमेल नहीं भेजी जा सकी।'); return; }
