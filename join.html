@@ -464,7 +464,7 @@
     clearOtpError();
     var code = Array.prototype.map.call(otpInputs, function(i){ return i.value; }).join('');
     verifyOtpBtn.disabled = true; verifyOtpBtn.textContent = '⏳ जाँचा जा रहा है…';
-    callOtpFn('verifyRegisterOtp', { email: email.value, otp: code }).then(function(){
+    callOtpFn('verifyRegisterOtp', { email: email.value, code: code }).then(function(){
       clearInterval(otpCountdown); clearInterval(resendCountdown);
       goToStep(2);
     }).catch(function(err){
