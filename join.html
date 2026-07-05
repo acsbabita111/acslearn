@@ -546,43 +546,126 @@
   }
   toStep3Btn.addEventListener('click', function(){ if(!toStep3Btn.disabled) goToStep(3); });
 
-  /* ═══════════════ STEP 3 : पूरा फ़ॉर्म (भूमिका-अनुसार खाने) ═══════════════ */
+  /* ═══════════════ STEP 3 : पूरा फ़ॉर्म — roles.js के card.fields से पूरी तरह dynamic ═══════════════ */
   var dynamicFields = document.getElementById('dynamicFields');
-  var COMMON_FIELD_HTML = '<div class="row"><label>पूरा पता</label><input type="text" placeholder="गाँव/शहर, ज़िला, राज्य"></div>';
-  function buildStep3Fields(){
-    var r = roleSel.value;
-    var extra = '';
-    if(r==='learner'){
-      extra = '<div class="row"><label>उम्र</label><input type="number" min="10" max="90"></div>'
-            + '<div class="row"><label>Guardian का नाम (छोटी उम्र पर)</label><input type="text"></div>';
-    } else if(r==='teacher'){
-      extra = '<div class="row"><label>अनुभव (वर्ष)</label><input type="number" min="0"></div>'
-            + '<div class="row"><label>नॉमिनी का नाम</label><input type="text"></div>'
-            + '<div class="row"><label>नॉमिनी से संबंध</label><input type="text"></div>';
-    } else if(r==='centre'){
-      extra = '<div class="row"><label>केंद्र/वर्कशॉप की क्षमता (Students)</label><input type="number" min="1"></div>';
-    } else if(r==='volunteer'){
-      extra = '<div class="row"><label>क्षेत्र</label><input type="text" placeholder="जैसे: चौथम, खगड़िया"></div>';
-    } else if(r==='foreign_agent'){
-      extra = '<div class="row"><label>eMigrate/RA लाइसेंस नंबर</label><input type="text"></div>';
-    } else if(r==='counselor'){
-      extra = '<div class="row"><label>अनुभव (वर्ष) — न्यूनतम 5</label><input type="number" min="5"></div>';
+  var toStep4Btn = document.getElementById('toStep4Btn');
+  var step3FieldEls = {}; /* field.id → असली input/select element (Step-4 review व validation के लिए) */
+
+  function fieldInputHtml(f){
+    var reqStar = f.required ? ' <span style="color:#B23A3A">*</span>' : '';
+    var hint = f.hint_hi ? '<div class="hint">'+f.hint_hi+'</div>' : '';
+    var idAttr = 'data-fid="'+f.id+'"';
+    if(f.type === 'select'){
+      var opts = '<option value="">— चुनें —</option>' + (f.options||[]).map(function(o){
+        return '<option value="'+o.v+'">'+o.hi+'</option>';
+      }).join('');
+      return '<div class="row"><label>'+f.hi+reqStar+'</label><select '+idAttr+'>'+opts+'</select>'+hint+'</div>';
     }
-    dynamicFields.innerHTML = COMMON_FIELD_HTML + extra;
+    if(f.type === 'number'){
+      var minAttr = (f.min!=null) ? ' min="'+f.min+'"' : '';
+      var maxAttr = (f.max!=null) ? ' max="'+f.max+'"' : '';
+      return '<div class="row"><label>'+f.hi+reqStar+'</label><input type="number" '+idAttr+minAttr+maxAttr+' placeholder="'+(f.ph_hi||'')+'">'+hint+'</div>';
+    }
+    /* डिफ़ॉल्ट: text (Roman-capital खाने पर auto-uppercase क्लास) */
+    var romanCls = f.roman ? ' id="fieldRoman_'+f.id+'"' : '';
+    return '<div class="row"><label>'+f.hi+reqStar+'</label><input type="text" '+idAttr+romanCls+' placeholder="'+(f.ph_hi||'')+'">'+hint+
+      (f.roman ? '<div class="hint">सिर्फ़ A-Z अक्षर व space।</div>' : '') + '</div>';
   }
 
-  document.getElementById('toStep4Btn').addEventListener('click', function(){ goToStep(4); });
+  function buildStep3Fields(){
+    var r = roleSel.value;
+    var card = R.byKey(r);
+    dynamicFields.innerHTML = '';
+    step3FieldEls = {};
+    if(!card) return;
+    var extraFields = card.fields.filter(function(f){ return f.id!=='name_local' && f.id!=='name_roman'; });
+    if(extraFields.length===0){
+      dynamicFields.innerHTML = '<p style="color:#666;font-size:16px">इस भूमिका के लिए यहाँ कोई अतिरिक्त जानकारी नहीं चाहिए — सीधे आगे बढ़ें।</p>';
+      validateStep3(); return;
+    }
+    var html = extraFields.map(fieldInputHtml).join('');
+    dynamicFields.innerHTML = html;
+
+    /* हर field का असली element पकड़ना + व्यवहार जोड़ना */
+    extraFields.forEach(function(f){
+      var el = dynamicFields.querySelector('[data-fid="'+f.id+'"]');
+      step3FieldEls[f.id] = el;
+      if(f.roman){
+        el.addEventListener('input', function(){ this.value = this.value.toUpperCase(); validateStep3(); });
+      } else {
+        el.addEventListener('input', validateStep3);
+        el.addEventListener('change', validateStep3);
+      }
+    });
+
+    /* Guardian-खाने: उम्र-field मौजूद हो तो उसकी सुनकर showWhenMinor वाले खाने दिखाना/छुपाना */
+    var ageEl = step3FieldEls['age'];
+    if(ageEl){
+      var minorFieldIds = card.fields.filter(function(f){return f.showWhenMinor;}).map(function(f){return f.id;});
+      function toggleMinor(){
+        var age = parseInt(ageEl.value,10);
+        var isMinor = !isNaN(age) && age>0 && age<18;
+        minorFieldIds.forEach(function(fid){
+          var row = step3FieldEls[fid].closest('.row');
+          row.style.display = isMinor ? '' : 'none';
+          if(!isMinor) step3FieldEls[fid].value='';
+        });
+        validateStep3();
+      }
+      ageEl.addEventListener('input', toggleMinor);
+      toggleMinor(); /* शुरुआती स्थिति */
+    }
+    validateStep3();
+  }
+
+  function validateStep3(){
+    var r = roleSel.value; var card = R.byKey(r);
+    var ok = true;
+    if(card){
+      card.fields.filter(function(f){ return f.id!=='name_local' && f.id!=='name_roman'; }).forEach(function(f){
+        if(!f.required) return;
+        if(f.showWhenMinor){
+          var row = step3FieldEls[f.id].closest('.row');
+          if(row.style.display==='none') return; /* अभी दिखता ही नहीं तो अनिवार्य नहीं */
+        }
+        var el = step3FieldEls[f.id];
+        if(!el || !el.value || !el.value.trim()) ok = false;
+        if(f.roman && el.value && !/^[A-Z ]+$/.test(el.value)) ok = false;
+      });
+    }
+    toStep4Btn.className = 'big ' + (ok?'btn-on':'btn-off');
+    toStep4Btn.disabled = !ok;
+  }
+
+  document.getElementById('toStep4Btn').addEventListener('click', function(){ if(!toStep4Btn.disabled) goToStep(4); });
 
   /* ═══════════════ STEP 4 : पुष्टि व Submit ═══════════════ */
   function buildReview(){
     var box = document.getElementById('reviewBox');
-    var roleLabel = roleSel.options[roleSel.selectedIndex].text;
-    box.innerHTML =
+    var roleLabel = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
+    var html =
       '<div><b>नाम (हिंदी):</b> '+ (nameLocal.value||'—') +'</div>'+
       '<div><b>Name (Roman):</b> '+ (nameRoman.value||'—') +'</div>'+
       '<div><b>मोबाइल:</b> '+ (mobile.value||'—') +'</div>'+
       '<div><b>ईमेल:</b> '+ (email.value||'—') +'</div>'+
       '<div><b>रोल:</b> '+ roleLabel +'</div>';
+    var card = R.byKey(roleSel.value);
+    if(card){
+      card.fields.forEach(function(f){
+        var el = step3FieldEls[f.id];
+        if(!el) return;
+        var row = el.closest('.row');
+        if(row && row.style.display==='none') return; /* Guardian जैसे छिपे खाने न दिखाएँ */
+        var val = el.value;
+        if(!val) return;
+        if(f.type==='select'){
+          var opt = f.options && f.options.filter(function(o){return o.v===val;})[0];
+          val = opt ? opt.hi : val;
+        }
+        html += '<div><b>'+f.hi+':</b> '+val+'</div>';
+      });
+    }
+    box.innerHTML = html;
   }
   document.getElementById('editBtn').addEventListener('click', function(){ goToStep(3); });
   document.getElementById('submitBtn').addEventListener('click', function(){
