@@ -1080,6 +1080,7 @@
     var payload = {
       name_local: nameLocal.value, name_roman: nameRoman.value,
       mobile: mobile.value, email: email.value,
+      password: pwd.value,   /* (रास्ता A) server इसी से Auth-खाता बनाता है — provisional login के लिए */
       role: roleSel.value,
       formFields: gatherStep3Data(),
       documents: gatherDocsBase64()
