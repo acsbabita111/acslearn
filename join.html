@@ -268,6 +268,7 @@
       <p style="margin-top:14px;font-size:16px;color:#7a5200;background:#FFF8E1;border:1.5px solid var(--gold);border-radius:10px;padding:10px">
         अभी आप अपने dashboard-panel में login करके <b>सिर्फ़ देख</b> सकते हैं। स्थायी पंजीकरण के बाद ही वहाँ से कोई भी कार्य कर सकेंगे।
       </p>
+      <a id="goDashboardBtn" href="/dashboard/" style="display:block;text-align:center;background:var(--green);color:#fff;border-radius:12px;padding:15px;font-size:20px;font-weight:800;text-decoration:none;margin-top:12px">🔑 अपना Dashboard पर जाने के लिए क्लिक करें!</a>
     </div>
   </div>
 
@@ -1252,6 +1253,46 @@
 
   /* पहली बार साफ़ स्थिति */
   document.getElementById('panelSuccess').classList.remove('active');
+
+  /* ═══════ (v1.5) सब text-fields Roman CAPITAL — छूट: देवनागरी-नाम, email, password, OTP ═══════ */
+  document.addEventListener('input', function(e){
+    var el = e.target;
+    if(!el || !el.matches) return;
+    if(!el.matches('input[type="text"], textarea')) return;
+    if(el.id === 'nameLocal') return;
+    if(el.closest && el.closest('.otpDigits')) return;
+    var pos = el.selectionStart, up = el.value.toUpperCase();
+    if(el.value !== up){ el.value = up; try{ el.setSelectionRange(pos,pos); }catch(_){} }
+  });
+
+  /* ═══════ (v1.5) ID की तत्काल format-जाँच (आधार-Verhoeff · PAN · Voter-EPIC · DL · IFSC · खाता)
+     नोट: यह नक़ली/ग़लत-टाइप पकड़ती है; "यही व्यक्ति का है" वाली असली जाँच = DigiLocker/HQ (v1.5 नियम)। ═══════ */
+  var VD=[[0,1,2,3,4,5,6,7,8,9],[1,2,3,4,0,6,7,8,9,5],[2,3,4,0,1,7,8,9,5,6],[3,4,0,1,2,8,9,5,6,7],[4,0,1,2,3,9,5,6,7,8],[5,9,8,7,6,0,4,3,2,1],[6,5,9,8,7,1,0,4,3,2],[7,6,5,9,8,2,1,0,4,3],[8,7,6,5,9,3,2,1,0,4],[9,8,7,6,5,4,3,2,1,0]];
+  var VP=[[0,1,2,3,4,5,6,7,8,9],[1,5,7,6,2,8,3,0,9,4],[5,8,0,3,7,9,6,1,4,2],[8,9,1,6,0,4,3,5,2,7],[9,4,5,3,1,2,6,8,7,0],[4,2,8,6,5,7,3,9,0,1],[2,7,9,3,8,0,6,4,1,5],[7,0,4,6,9,1,3,2,5,8]];
+  function verhoeffOk(num){ var c=0,a=num.split('').reverse(); for(var i=0;i<a.length;i++){ c=VD[c][VP[i%8][parseInt(a[i],10)]]; } return c===0; }
+  var ID_CHECKS = [
+    {key:/aadhaar|aadhar|आधार/i, test:function(v){ v=v.replace(/\s/g,''); if(!/^[2-9][0-9]{11}$/.test(v)) return false; return verhoeffOk(v); }, name:'आधार'},
+    {key:/\bpan\b|पैन/i, test:function(v){ return /^[A-Z]{5}[0-9]{4}[A-Z]$/.test(v.replace(/\s/g,'')); }, name:'PAN'},
+    {key:/epic|voter|मतदाता|वोटर/i, test:function(v){ return /^[A-Z]{3}[0-9]{7}$/.test(v.replace(/\s/g,'')); }, name:'Voter-EPIC'},
+    {key:/ifsc/i, test:function(v){ return /^[A-Z]{4}0[A-Z0-9]{6}$/.test(v.replace(/\s/g,'')); }, name:'IFSC'},
+    {key:/driving|licence|license|लाइसेंस|\bdl\b/i, test:function(v){ return /^[A-Z]{2}[0-9]{2}[ -]?[0-9]{11}$/.test(v.replace(/\s/g,'')); }, name:'Driving Licence'},
+    {key:/account|खाता|acct/i, test:function(v){ return /^[0-9]{9,18}$/.test(v.replace(/\s/g,'')); }, name:'खाता-संख्या'}
+  ];
+  document.addEventListener('input', function(e){
+    var el = e.target;
+    if(!el || !el.matches || !el.matches('input[type="text"], input[type="tel"]')) return;
+    var hint = (el.getAttribute('data-fid')||'')+' '+(el.id||'')+' '+(el.placeholder||'');
+    var chk = null;
+    for(var i=0;i<ID_CHECKS.length;i++){ if(ID_CHECKS[i].key.test(hint)){ chk = ID_CHECKS[i]; break; } }
+    if(!chk) return;
+    var msg = el.parentNode.querySelector('.idCheckMsg');
+    if(!msg){ msg = document.createElement('div'); msg.className='idCheckMsg'; msg.style.cssText='font-size:16px;margin-top:4px;font-weight:700'; el.parentNode.appendChild(msg); }
+    var v = el.value.trim();
+    if(!v){ msg.textContent=''; return; }
+    if(chk.test(v)){ msg.textContent='✅ '+chk.name+' का format सही है'; msg.style.color='#2E7D32'; }
+    else { msg.textContent='⚠️ '+chk.name+' का format सही नहीं — दोबारा जाँचें'; msg.style.color='#c62828'; }
+  });
+
 })();
 </script>
 </body>
