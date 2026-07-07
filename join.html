@@ -10,6 +10,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-functions-compat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
   var firebaseConfig = {
     apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
@@ -1193,91 +1194,130 @@
   });
 
   /* ═══════════════ असली PDF — नाम/दिनांक/फ़ॉर्म-जानकारी + upload किए दस्तावेज़ों की फ़ोटो सहित ═══════════════ */
-  function buildAgreementPdf(){
+  /* ═══════ (v1.7) PDF में देवनागरी सही दिखे — browser की असली रेंडरिंग को image बनाकर जोड़ना ═══════
+     Roman/English पंक्तियाँ वैसे ही असली टेक्स्ट रहती हैं (हल्की, select होने योग्य)।
+     देवनागरी वाली पंक्तियाँ html2canvas से "फ़ोटो" बनाकर जोड़ी जाती हैं — इसलिए मात्राएँ/जुड़े-अक्षर
+     बिल्कुल वैसे ही दिखेंगे जैसे screen पर दिखते हैं। सीमा: वह हिस्सा PDF में copy-select नहीं होगा। */
+  function containsDevanagari(t){ return /[\u0900-\u097F]/.test(t); }
+  var _pdfHiddenDiv = null;
+  function getPdfHiddenDiv(){
+    if(_pdfHiddenDiv) return _pdfHiddenDiv;
+    var d = document.createElement('div');
+    d.style.cssText = 'position:fixed;left:-9999px;top:0;background:#fff;color:#000;'+
+      'font-family:"Noto Sans Devanagari",sans-serif;white-space:pre-wrap;line-height:1.5;padding:0;margin:0';
+    document.body.appendChild(d);
+    _pdfHiddenDiv = d;
+    return d;
+  }
+  async function renderDevLineToImage(text, size, bold, maxWidthMm){
+    var div = getPdfHiddenDiv();
+    var pxPerMm = 96/25.4;
+    div.style.width = Math.round(maxWidthMm*pxPerMm) + 'px';
+    div.style.fontSize = Math.round(size*pxPerMm*1.15) + 'px';
+    div.style.fontWeight = bold ? '700' : '400';
+    div.textContent = text;
+    var canvas = await window.html2canvas(div, {scale:3, backgroundColor:'#ffffff'});
+    var imgWmm = maxWidthMm;
+    var imgHmm = (canvas.height/canvas.width) * imgWmm;
+    return { imgData: canvas.toDataURL('image/png'), w: imgWmm, h: imgHmm };
+  }
+
+  async function buildAgreementPdf(){
     var doc = new window.jspdf.jsPDF();
     var y = 18;
     var pageW = doc.internal.pageSize.getWidth();
     var margin = 15;
 
-    function line(text, size, bold){
-      doc.setFontSize(size||11);
-      doc.setFont(undefined, bold?'bold':'normal');
-      var wrapped = doc.splitTextToSize(text, pageW-2*margin);
-      doc.text(wrapped, margin, y);
-      y += (wrapped.length * (size||11) * 0.5) + 3;
-      if(y > 275){ doc.addPage(); y = 18; }
+    async function line(text, size, bold){
+      size = size || 11;
+      if(containsDevanagari(text)){
+        var res = await renderDevLineToImage(text, size, bold, pageW-2*margin);
+        if(y + res.h > 280){ doc.addPage(); y = 18; }
+        doc.addImage(res.imgData, 'PNG', margin, y, res.w, res.h);
+        y += res.h + 2;
+      } else {
+        doc.setFontSize(size);
+        doc.setFont(undefined, bold?'bold':'normal');
+        var wrapped = doc.splitTextToSize(text, pageW-2*margin);
+        if(y + wrapped.length*size*0.5 > 280){ doc.addPage(); y = 18; }
+        doc.text(wrapped, margin, y);
+        y += (wrapped.length * size * 0.5) + 3;
+      }
     }
 
-    line('Applied Computer School (ACS) — पंजीकरण एग्रीमेंट', 16, true);
-    line('Registration No: ' + lastRegNo, 12, true);
+    await line('Applied Computer School (ACS) — पंजीकरण एग्रीमेंट', 16, true);
+    await line('Registration No: ' + lastRegNo, 12, true);
     var now = new Date();
-    line('दिनांक/समय: ' + now.toLocaleDateString('en-IN') + ' ' + now.toLocaleTimeString('en-IN'), 10);
+    await line('दिनांक/समय: ' + now.toLocaleDateString('en-IN') + ' ' + now.toLocaleTimeString('en-IN'), 10);
     y += 3;
 
-    line('नाम (हिंदी): ' + (nameLocal.value||'—'), 11);
-    line('Name (Roman): ' + (nameRoman.value||'—'), 11);
-    line('मोबाइल: ' + (mobile.value||'—'), 11);
-    line('जन्मतिथि: ' + (dobEl.value||'—'), 11);
-    if(isMinorNow()) line('Guardian मोबाइल: ' + (guardianMobile.value||'—'), 11);
-    line('ईमेल: ' + (email.value||'—'), 11);
+    await line('नाम (हिंदी): ' + (nameLocal.value||'—'), 11);
+    await line('Name (Roman): ' + (nameRoman.value||'—'), 11);
+    await line('मोबाइल: ' + (mobile.value||'—'), 11);
+    await line('जन्मतिथि: ' + (dobEl.value||'—'), 11);
+    if(isMinorNow()) await line('Guardian मोबाइल: ' + (guardianMobile.value||'—'), 11);
+    await line('ईमेल: ' + (email.value||'—'), 11);
     var roleLabel = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
-    line('रोल: ' + roleLabel, 11);
+    await line('रोल: ' + roleLabel, 11);
     y += 5;
 
     /* ---- पूरा एग्रीमेंट (नियम-पाठ) — जो Step-2 में स्वीकार किया गया ---- */
     doc.addPage(); y = 18;
-    line('स्वीकृत नियम, अधिकार व कर्तव्य (पूरा एग्रीमेंट)', 14, true);
+    await line('स्वीकृत नियम, अधिकार व कर्तव्य (पूरा एग्रीमेंट)', 14, true);
     y += 2;
     var ruleLabels = rulesContainer.querySelectorAll('.rule label, .part');
-    ruleLabels.forEach(function(el){
-      var isPart = el.classList.contains('part');
-      var text = el.textContent.replace(/\s+/g,' ').trim();
-      if(!text) return;
-      line(text, isPart?12:10, isPart);
-    });
+    for(var ri=0; ri<ruleLabels.length; ri++){
+      var relEl = ruleLabels[ri];
+      var isPart = relEl.classList.contains('part');
+      var rtext = relEl.textContent.replace(/\s+/g,' ').trim();
+      if(!rtext) continue;
+      await line(rtext, isPart?12:10, isPart);
+    }
     y += 5;
 
     /* ---- पूरा फ़ॉर्म (Step-3 की जानकारी) ---- */
     doc.addPage(); y = 18;
     var card = R.byKey(roleSel.value);
     if(card){
-      line('अतिरिक्त जानकारी (पूरा फ़ॉर्म):', 12, true);
-      card.fields.forEach(function(f){
-        if(f.id==='name_local' || f.id==='name_roman') return;
+      await line('अतिरिक्त जानकारी (पूरा फ़ॉर्म):', 12, true);
+      for(var fi=0; fi<card.fields.length; fi++){
+        var f = card.fields[fi];
+        if(f.id==='name_local' || f.id==='name_roman') continue;
         var el = step3FieldEls[f.id];
-        if(!el) return;
+        if(!el) continue;
         var row = el.closest ? el.closest('.row') : null;
-        if(row && row.style.display==='none') return;
-        if(!el.value) return;
+        if(row && row.style.display==='none') continue;
+        if(!el.value) continue;
         var val = el.value;
         if(f.type==='select'){
           var opt = f.options && f.options.filter(function(o){return o.v===val;})[0];
           val = opt ? opt.hi : val;
         }
-        line('- ' + f.hi + ': ' + val, 10);
-      });
+        await line('- ' + f.hi + ': ' + val, 10);
+      }
     }
 
     y += 5;
-    line('संलग्न दस्तावेज़:', 12, true);
+    await line('संलग्न दस्तावेज़:', 12, true);
     var docs = ((card && card.documents) || []).filter(function(d){ return d.id !== 'doc_signature'; });
-    docs.forEach(function(d){
+    for(var di=0; di<docs.length; di++){
+      var d = docs[di];
       var box = docBoxEls[d.id];
-      if(box && box.style.display==='none') return;
+      if(box && box.style.display==='none') continue;
       var fd = docFiles[d.id];
-      if(!fd){ line('- ' + d.hi + ': (अपलोड नहीं हुआ)', 10); return; }
-      line('- ' + d.hi + ' (' + fd.file.name + '):', 10, true);
+      if(!fd){ await line('- ' + d.hi + ': (अपलोड नहीं हुआ)', 10); continue; }
+      await line('- ' + d.hi + ' (' + fd.file.name + '):', 10, true);
       if(fd.isImage){
         try{
           if(y > 200){ doc.addPage(); y = 18; }
           var imgW = 70, imgH = 70;
           doc.addImage(fd.dataUrl, margin, y, imgW, imgH);
           y += imgH + 6;
-        }catch(e){ line('  (फ़ोटो PDF में जोड़ी नहीं जा सकी: '+e.message+')', 9); }
+        }catch(e){ await line('  (फ़ोटो PDF में जोड़ी नहीं जा सकी: '+e.message+')', 9); }
       } else {
-        line('  (PDF/दस्तावेज़ अलग से संलग्न — इस फ़ाइल के साथ जोड़ें: ' + fd.file.name + ')', 9);
+        await line('  (PDF/दस्तावेज़ अलग से संलग्न — इस फ़ाइल के साथ जोड़ें: ' + fd.file.name + ')', 9);
       }
-    });
+    }
 
     /* अंत में — कैंडिडेट का असली हस्ताक्षर + दिनांक/समय (agreements पर हस्ताक्षर-पंक्ति की जगह) */
     var sigFd = docFiles['doc_signature'];
@@ -1286,20 +1326,21 @@
     doc.setDrawColor(150); doc.line(margin, y, margin+80, y); y += 2;
     if(sigFd && sigFd.isImage){
       try{ doc.addImage(sigFd.dataUrl, margin, y, 60, 25); y += 27; }
-      catch(e){ line('(हस्ताक्षर जोड़ा नहीं जा सका)', 9); }
+      catch(e){ await line('(हस्ताक्षर जोड़ा नहीं जा सका)', 9); }
     } else {
-      line('(हस्ताक्षर अपलोड नहीं हुआ)', 9);
+      await line('(हस्ताक्षर अपलोड नहीं हुआ)', 9);
     }
-    line('कैंडिडेट का हस्ताक्षर', 10, true);
+    await line('कैंडिडेट का हस्ताक्षर', 10, true);
     var nowSign = new Date();
-    line('दिनांक/समय: ' + nowSign.toLocaleDateString('en-IN') + ' ' + nowSign.toLocaleTimeString('en-IN'), 9);
+    await line('दिनांक/समय: ' + nowSign.toLocaleDateString('en-IN') + ' ' + nowSign.toLocaleTimeString('en-IN'), 9);
 
     return doc;
   }
 
-  document.getElementById('downloadPdfBtn').addEventListener('click', function(){
+  document.getElementById('downloadPdfBtn').addEventListener('click', async function(){
     if(typeof window.jspdf === 'undefined'){ alert('⚠️ PDF-लाइब्रेरी लोड नहीं हो पाई — इंटरनेट जाँचें व दोबारा कोशिश करें।'); return; }
-    var doc = buildAgreementPdf();
+    if(typeof window.html2canvas === 'undefined'){ alert('⚠️ देवनागरी-रेंडर लाइब्रेरी लोड नहीं हो पाई — इंटरनेट जाँचें व दोबारा कोशिश करें।'); return; }
+    var doc = await buildAgreementPdf();
     doc.save(lastRegNo + '.pdf');
   });
 
@@ -1330,9 +1371,9 @@
      ⚠️ ध्यान: Gmail से एक ईमेल पर लगभग 25MB तक की सीमा होती है (attachment base64 में करीब 33% बड़ा हो जाता है)।
      बहुत सारी बड़ी-साइज़ फ़ोटो अपलोड होने पर PDF इससे बड़ी हो सकती है — client-side फ़ोटो-संकुचन (compression) से यह जोखिम कम किया गया है।
   */
-  function sendAgreementEmailToServer(){
+  async function sendAgreementEmailToServer(){
     if(!firebaseReady()){ console.warn('Firebase तैयार नहीं — ईमेल नहीं भेजी जा सकी।'); return; }
-    var doc = buildAgreementPdf();
+    var doc = await buildAgreementPdf();
     var pdfBase64 = doc.output('datauristring').split(',')[1]; // "data:application/pdf;base64,...." से सिर्फ़ base64-हिस्सा
     callOtpFn('sendAgreementEmail', {
       email: email.value, name: nameRoman.value, regNo: lastRegNo, pdfBase64: pdfBase64
