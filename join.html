@@ -1373,7 +1373,17 @@
   */
   async function sendAgreementEmailToServer(){
     if(!firebaseReady()){ console.warn('Firebase तैयार नहीं — ईमेल नहीं भेजी जा सकी।'); return; }
-    var doc = await buildAgreementPdf();
+    if(typeof window.jspdf === 'undefined' || typeof window.html2canvas === 'undefined'){
+      console.warn('⚠️ PDF/देवनागरी-रेंडर लाइब्रेरी लोड नहीं हो पाई — एग्रीमेंट-ईमेल इस बार नहीं भेजी जा सकी। (डेटा सुरक्षित है — बाद में Download-बटन से PDF मिल जाएगी।)');
+      return;
+    }
+    var doc;
+    try{
+      doc = await buildAgreementPdf();
+    }catch(e){
+      console.error('PDF बनाने में त्रुटि — एग्रीमेंट-ईमेल नहीं भेजी जा सकी:', e.message);
+      return;
+    }
     var pdfBase64 = doc.output('datauristring').split(',')[1]; // "data:application/pdf;base64,...." से सिर्फ़ base64-हिस्सा
     callOtpFn('sendAgreementEmail', {
       email: email.value, name: nameRoman.value, regNo: lastRegNo, pdfBase64: pdfBase64
