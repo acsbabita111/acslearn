@@ -142,6 +142,17 @@
         <div class="badrow" id="mobileBad">⚠️ सही 10-अंकों का मोबाइल नंबर भरें।</div>
       </div>
       <div class="row">
+        <label>जन्मतिथि (Date of Birth)</label>
+        <input type="date" id="dob">
+        <div class="badrow" id="dobBad">⚠️ जन्मतिथि भरें — इससे उम्र तय होती है।</div>
+      </div>
+      <div class="row" id="guardianRow" style="display:none">
+        <label>Guardian का मोबाइल नंबर (18 वर्ष से कम आयु के लिए अनिवार्य)</label>
+        <input type="tel" id="guardianMobile" maxlength="10" placeholder="Guardian का 10-अंकों का मोबाइल नंबर">
+        <div class="hint">आपकी उम्र 18 वर्ष से कम है — approval के समय हमारी टीम इस नंबर पर फ़ोन करके पुष्टि करेगी।</div>
+        <div class="badrow" id="guardianBad">⚠️ Guardian का सही 10-अंकों का मोबाइल नंबर भरें।</div>
+      </div>
+      <div class="row">
         <label>ईमेल पता</label>
         <input type="email" id="email" placeholder="जैसे: name@example.com">
         <div class="badrow" id="emailBad">⚠️ सही ईमेल पता भरें।</div>
@@ -317,6 +328,49 @@
   var nameLocal=document.getElementById('nameLocal'), nameRoman=document.getElementById('nameRoman'), nameBad=document.getElementById('nameBad');
   var mobile=document.getElementById('mobile'), mobileBad=document.getElementById('mobileBad');
   var email=document.getElementById('email'), emailBad=document.getElementById('emailBad');
+  /* ═══════ (v1.6) नाम — Roman(छोटे/बड़े अक्षर) → देवनागरी, phonetic अनुमान ═══════
+     ईमानदार सीमा: यह ध्वनि-आधारित अनुमान है (जैसे Google का हिंदी-टाइपिंग टूल) — पूर्ण
+     सटीक नहीं (जैसे "rajesh"→"रजेश" बनेगा, "राजेश" के लिए "raajesh/rajesh" पर निर्भर करेगा)।
+     field हमेशा हाथ से ठीक की जा सकती है। */
+  var CONS = [
+    ['kh','ख'],['gh','घ'],['chh','छ'],['ch','च'],['jh','झ'],['shh','ष'],['sh','श'],
+    ['th','थ'],['dh','ध'],['ph','फ'],['bh','भ'],['ng','ङ'],['ny','ञ'],['gy','ज्ञ'],
+    ['ksh','क्ष'],['tr','त्र'],['Th','ठ'],['Dh','ढ'],['Sh','ष'],
+    ['k','क'],['g','ग'],['j','ज'],['T','ट'],['D','ड'],['N','ण'],['t','त'],['d','द'],
+    ['n','न'],['p','प'],['f','फ़'],['b','ब'],['m','म'],['y','य'],['r','र'],['l','ल'],
+    ['v','व'],['w','व'],['S','श'],['s','स'],['h','ह'],['z','ज़'],['x','क्ष']
+  ];
+  var VOWEL_INIT = [['aa','आ'],['ee','ई'],['ii','ई'],['oo','ऊ'],['uu','ऊ'],['ai','ऐ'],['au','औ'],
+    ['a','अ'],['i','इ'],['u','उ'],['e','ए'],['o','ओ']];
+  var VOWEL_MATRA = [['aa','ा'],['ee','ी'],['ii','ी'],['oo','ू'],['uu','ू'],['ai','ै'],['au','ौ'],
+    ['a',''],['i','ि'],['u','ु'],['e','े'],['o','ो']];
+  function matchLongest(list, s, i){
+    for(var k=0;k<list.length;k++){ if(s.substr(i,list[k][0].length)===list[k][0]) return list[k]; }
+    return null;
+  }
+  function toDevanagari(s){
+    var i=0, out='', n=s.length;
+    while(i<n){
+      var ch=s[i];
+      if(!/[a-zA-Z]/.test(ch)){ out+=ch; i++; continue; }
+      var cons = matchLongest(CONS, s, i);
+      if(cons){
+        i+=cons[0].length; out+=cons[1];
+        var vm = matchLongest(VOWEL_MATRA, s, i);
+        if(vm){ out+=vm[1]; i+=vm[0].length; }
+        else {
+          var nextCons = matchLongest(CONS, s, i);
+          if(nextCons) out+='्';   /* संयुक्ताक्षर के लिए हलंत (अनुमानित) */
+        }
+        continue;
+      }
+      var vi = matchLongest(VOWEL_INIT, s, i);
+      if(vi){ out+=vi[1]; i+=vi[0].length; continue; }
+      out+=ch; i++;
+    }
+    return out;
+  }
+
   var pwd=document.getElementById('pwd'), pwd2=document.getElementById('pwd2');
   var eyePwd=document.getElementById('eyePwd'), eyePwd2=document.getElementById('eyePwd2');
   var matchBox=document.getElementById('matchBox');
@@ -339,18 +393,48 @@
     if(pwd.value===pwd2.value && pwd.value.length>0){ matchBox.className='matchbox show ok'; matchBox.textContent='✅ पासवर्ड मेल खाता है'; }
     else { matchBox.className='matchbox show bad'; matchBox.textContent='❌ पासवर्ड मेल नहीं खाता'; }
   }
+  var dobEl=document.getElementById('dob'), dobBad=document.getElementById('dobBad');
+  var guardianRow=document.getElementById('guardianRow'), guardianMobile=document.getElementById('guardianMobile'), guardianBad=document.getElementById('guardianBad');
+
+  function computeAge(dobStr){
+    if(!dobStr) return null;
+    var b=new Date(dobStr), t=new Date();
+    var age=t.getFullYear()-b.getFullYear();
+    var m=t.getMonth()-b.getMonth();
+    if(m<0 || (m===0 && t.getDate()<b.getDate())) age--;
+    return age;
+  }
+  function isMinorNow(){ var a=computeAge(dobEl.value); return a!==null && a>=0 && a<18; }
+  function updateGuardianVisibility(){
+    var minor = isMinorNow();
+    guardianRow.style.display = minor ? '' : 'none';
+    if(!minor) guardianMobile.value='';
+    validateStep1();
+  }
+
   function validateStep1(){
     if(nameRoman.value && !romanValid(nameRoman.value)) nameBad.classList.add('show'); else nameBad.classList.remove('show');
     if(mobile.value && !mobileValid(mobile.value)) mobileBad.classList.add('show'); else mobileBad.classList.remove('show');
     if(email.value && !emailValid(email.value)) emailBad.classList.add('show'); else emailBad.classList.remove('show');
+    if(dobEl.value){ dobBad.classList.remove('show'); } else { dobBad.classList.remove('show'); }
+    var minor = isMinorNow();
+    if(minor && guardianMobile.value && !mobileValid(guardianMobile.value)) guardianBad.classList.add('show'); else guardianBad.classList.remove('show');
+    var guardianOk = !minor || mobileValid(guardianMobile.value);
     var ok = nameLocal.value.trim().length>0 && romanValid(nameRoman.value) && mobileValid(mobile.value)
-      && emailValid(email.value) && pwdAllOk() && pwd.value===pwd2.value && pwd.value.length>0;
+      && emailValid(email.value) && !!dobEl.value && guardianOk
+      && pwdAllOk() && pwd.value===pwd2.value && pwd.value.length>0;
     sendOtpBtn.className = 'big ' + (ok?'btn-on':'btn-off'); sendOtpBtn.disabled = !ok;
   }
-  nameLocal.addEventListener('input', validateStep1);
+  nameLocal.addEventListener('input', function(){
+    if(/[a-zA-Z]/.test(this.value)){ this.value = toDevanagari(this.value); }
+    validateStep1();
+  });
   nameRoman.addEventListener('input', function(){ this.value=this.value.toUpperCase().replace(/[^A-Z ]/g,''); validateStep1(); });
   mobile.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); validateStep1(); });
   email.addEventListener('input', validateStep1);
+  dobEl.addEventListener('input', updateGuardianVisibility);
+  dobEl.addEventListener('change', updateGuardianVisibility);
+  guardianMobile.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); validateStep1(); });
   pwd.addEventListener('input', checkPwd);
   pwd2.addEventListener('input', function(){ checkMatch(); validateStep1(); });
   eyePwd.addEventListener('click', function(){ pwd.type = pwd.type==='password'?'text':'password'; });
@@ -388,6 +472,8 @@
       name_local: nameLocal.value,
       name_roman: nameRoman.value,
       mobile: mobile.value,
+      dob: dobEl.value,
+      guardian_mobile: guardianMobile.value,
       password: pwd.value
     }).then(function(){
       otpSentTo.textContent = email.value + ' पर 6-अंकों का OTP भेजा गया — अपना Inbox/Spam देखें।';
@@ -451,7 +537,8 @@
     resendOtpBtn.disabled = true; resendOtpBtn.textContent = '⏳ भेजा जा रहा है…';
     callOtpFn('requestRegisterOtp', {
       email: email.value, name_local: nameLocal.value, name_roman: nameRoman.value,
-      mobile: mobile.value, password: pwd.value, resend: true
+      mobile: mobile.value, dob: dobEl.value, guardian_mobile: guardianMobile.value,
+      password: pwd.value, resend: true
     }).then(function(){
       startOtpTimer(); startResendTimer();
       otpSentTo.textContent = email.value + ' पर नया OTP भेजा गया — पुराना रद्द हो गया।';
@@ -1014,6 +1101,8 @@
       '<div><b>नाम (हिंदी):</b> '+ (nameLocal.value||'—') +'</div>'+
       '<div><b>Name (Roman):</b> '+ (nameRoman.value||'—') +'</div>'+
       '<div><b>मोबाइल:</b> '+ (mobile.value||'—') +'</div>'+
+      '<div><b>जन्मतिथि:</b> '+ (dobEl.value||'—') +'</div>'+
+      (isMinorNow() ? '<div><b>Guardian मोबाइल:</b> '+ (guardianMobile.value||'—') +'</div>' : '')+
       '<div><b>ईमेल:</b> '+ (email.value||'—') +'</div>'+
       '<div><b>रोल:</b> '+ roleLabel +'</div>';
     var card = R.byKey(roleSel.value);
@@ -1081,6 +1170,7 @@
     var payload = {
       name_local: nameLocal.value, name_roman: nameRoman.value,
       mobile: mobile.value, email: email.value,
+      dob: dobEl.value, guardian_mobile: guardianMobile.value,
       password: pwd.value,   /* (रास्ता A) server इसी से Auth-खाता बनाता है — provisional login के लिए */
       role: roleSel.value,
       formFields: gatherStep3Data(),
@@ -1127,6 +1217,8 @@
     line('नाम (हिंदी): ' + (nameLocal.value||'—'), 11);
     line('Name (Roman): ' + (nameRoman.value||'—'), 11);
     line('मोबाइल: ' + (mobile.value||'—'), 11);
+    line('जन्मतिथि: ' + (dobEl.value||'—'), 11);
+    if(isMinorNow()) line('Guardian मोबाइल: ' + (guardianMobile.value||'—'), 11);
     line('ईमेल: ' + (email.value||'—'), 11);
     var roleLabel = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
     line('रोल: ' + roleLabel, 11);
@@ -1259,7 +1351,7 @@
     var el = e.target;
     if(!el || !el.matches) return;
     if(!el.matches('input[type="text"], textarea')) return;
-    if(el.id === 'nameLocal') return;
+    if(el.id === 'nameLocal' || el.id === 'pwd' || el.id === 'pwd2') return;   /* पासवर्ड eye-icon से type='text' बने तब भी सुरक्षित */
     if(el.closest && el.closest('.otpDigits')) return;
     var pos = el.selectionStart, up = el.value.toUpperCase();
     if(el.value !== up){ el.value = up; try{ el.setSelectionRange(pos,pos); }catch(_){} }
