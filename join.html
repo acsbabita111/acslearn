@@ -1216,10 +1216,13 @@
     div.style.fontSize = Math.round(size*pxPerMm*1.15) + 'px';
     div.style.fontWeight = bold ? '700' : '400';
     div.textContent = text;
-    var canvas = await window.html2canvas(div, {scale:3, backgroundColor:'#ffffff'});
+    var canvas = await window.html2canvas(div, {scale:3, backgroundColor:'#ffffff', useCORS:true, allowTaint:false});
     var imgWmm = maxWidthMm;
     var imgHmm = (canvas.height/canvas.width) * imgWmm;
-    return { imgData: canvas.toDataURL('image/png'), w: imgWmm, h: imgHmm };
+    var imgData;
+    try{ imgData = canvas.toDataURL('image/png'); }
+    catch(secErr){ throw new Error('देवनागरी-रेंडर सुरक्षा-त्रुटि (tainted canvas): ' + secErr.message); }
+    return { imgData: imgData, w: imgWmm, h: imgHmm };
   }
 
   async function buildAgreementPdf(){
@@ -1377,14 +1380,18 @@
       console.warn('⚠️ PDF/देवनागरी-रेंडर लाइब्रेरी लोड नहीं हो पाई — एग्रीमेंट-ईमेल इस बार नहीं भेजी जा सकी। (डेटा सुरक्षित है — बाद में Download-बटन से PDF मिल जाएगी।)');
       return;
     }
-    var doc;
+    var doc, pdfBase64;
     try{
       doc = await buildAgreementPdf();
+      pdfBase64 = doc.output('datauristring').split(',')[1]; // "data:application/pdf;base64,...." से सिर्फ़ base64-हिस्सा
     }catch(e){
       console.error('PDF बनाने में त्रुटि — एग्रीमेंट-ईमेल नहीं भेजी जा सकी:', e.message);
       return;
     }
-    var pdfBase64 = doc.output('datauristring').split(',')[1]; // "data:application/pdf;base64,...." से सिर्फ़ base64-हिस्सा
+    if(!pdfBase64 || pdfBase64.length < 2000){
+      console.error('⚠️ बनी हुई PDF असामान्य रूप से छोटी है ('+(pdfBase64?pdfBase64.length:0)+' अक्षर) — ईमेल नहीं भेजी गई। दोबारा कोशिश करें।');
+      return;
+    }
     callOtpFn('sendAgreementEmail', {
       email: email.value, name: nameRoman.value, regNo: lastRegNo, pdfBase64: pdfBase64
     }).then(function(){
