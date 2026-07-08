@@ -187,7 +187,7 @@ window.verifyCert = async function(){
        '<div class="pg-row"><span>नंबर</span><b>'+num+'</b></div>'+
        '<div class="pg-row"><span>नाम</span><b>'+(d.name||'—')+'</b></div>'+
        '<div class="pg-row"><span>कोर्स</span><b>'+(d.course||'—')+'</b></div>'+
-       '<div class="pg-row"><span>केंद्र</span><b>'+(d.centre||'—')+'</b></div>'+
+       '<div class="pg-row"><span>केंद्र</span><b>'+(d.center||d.centre||'—')+'</b></div>'+
        '<div class="pg-row" style="border:none"><span>दिनांक</span><b>'+(d.date||'—')+'</b></div></div>';
     }else{box.innerHTML='<div class="pg-bad"><div style="font-size:24px;font-weight:800;margin-bottom:6px">❌ नहीं मिला</div>इस नंबर का कोई प्रमाण पत्र हमारे रिकॉर्ड में नहीं है। कृपया नंबर दोबारा जाँचें।</div>';}
   }catch(e){box.innerHTML='<div class="pg-bad">⚠️ अभी जाँच नहीं हो पाई। थोड़ी देर बाद फिर कोशिश करें।</div>';}
@@ -322,7 +322,7 @@ window.downloadCert = async function(){
     /* 9 सीधे कार्ड */
     var ROLE_URLS = {
       student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
-      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      teacher:"/dashboard/teacher/", center:"/dashboard/center/", counselor:"/dashboard/counselor/",
       employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
     };
     /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
