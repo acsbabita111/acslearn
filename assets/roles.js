@@ -59,7 +59,7 @@ window.ACS_ROLES = {
     F.docGuardianConsent = { id:"doc_guardian_consent", accept:"image/*,.pdf", required:false, showWhenMinor:true,
       hi:"Guardian की लिखित सहमति (18 से कम उम्र पर)", en:"Guardian written consent (if below 18)" };
     F.docLicense = { id:"doc_license", accept:"image/*,.pdf", required:true, hi:"eMigrate/RA लाइसेंस की प्रति", en:"Copy of eMigrate/RA license" };
-    F.docPremisesPhoto = { id:"doc_premises_photo", accept:"image/*", required:true, hi:"केंद्र/वर्कशॉप के भवन का फ़ोटो", en:"Photo of Centre/Workshop premises" };
+    F.docPremisesPhoto = { id:"doc_premises_photo", accept:"image/*", required:true, hi:"केंद्र/वर्कशॉप के भवन का फ़ोटो", en:"Photo of Center/Workshop premises" };
     F.docPhotoId1 = { id:"doc_photo_id1", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 1 (जैसे Aadhaar)", en:"Photo ID proof 1 (e.g. Aadhaar)" };
     F.docPhotoId2 = { id:"doc_photo_id2", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 2 (जैसे Voter-ID/Pan)", en:"Photo ID proof 2 (e.g. Voter-ID/PAN)" };
     F.docMatric = { id:"doc_matric", accept:"image/*,.pdf", required:true, hi:"मैट्रिक (10वीं) का दस्तावेज़", en:"Matric (10th) document" };
@@ -95,14 +95,14 @@ window.ACS_ROLES = {
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
-      { key:"centre", group:"g2", icon:"🏫",
-        hi:"Centre / Workshop", en:"Centre / Workshop",
+      { key:"center", group:"g2", icon:"🏫",
+        hi:"Center / Workshop", en:"Center / Workshop",
         desc_hi:"किताबी कोर्स या सीधे-कमाई का हुनर सिखाने वाला केंद्र", desc_en:"Academic coaching or direct-earning skill workshop",
-        collection:"centres", dashboard:"/dashboard/centre/",
-        ruleFile:"rules-consent-centre.html", gateway:true, needsGeo:false, needsRMOffice:false,
-        subtypes:["centre","workshop"],
+        collection:"centers", dashboard:"/dashboard/center/",
+        ruleFile:"rules-consent-center.html", gateway:true, needsGeo:false, needsRMOffice:false,
+        subtypes:["center","workshop"],
         fields: [ F.nameLocal, F.nameRoman,
-          { id:"org_name", type:"text", required:true, hi:"केंद्र/वर्कशॉप का नाम", en:"Centre/Workshop Name" },
+          { id:"org_name", type:"text", required:true, hi:"केंद्र/वर्कशॉप का नाम", en:"Center/Workshop Name" },
           { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Address" },
           { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" }, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature, F.docPremisesPhoto ]
