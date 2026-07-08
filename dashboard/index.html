@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title id="pg-title">ACS Login — Applied Computer School</title>
 <!-- JS updates title, meta, buttons via applyLang() on load -->
-<meta name="description" id="pg-desc" content="ACS से जुड़ें — Student, Job-seeker, Entrepreneur, Teacher, Centre, Counselor, Employer, Foreign Agent, Volunteer, ACS Team के रूप में Register करें।"/>
+<meta name="description" id="pg-desc" content="ACS से जुड़ें — Student, Job-seeker, Entrepreneur, Teacher, Center, Counselor, Employer, Foreign Agent, Volunteer, ACS Team के रूप में Register करें।"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
@@ -263,10 +263,10 @@ a{text-decoration:none;color:inherit}
       <div class="role-name t" data-hi="शिक्षक (Teacher)" data-en="Teacher">शिक्षक (Teacher)</div>
       <div class="role-desc t" data-hi="कोर्स बनाएँ, पढ़ाएँ, कमाएँ" data-en="Create courses, teach, earn">कोर्स बनाएँ, पढ़ाएँ, कमाएँ</div>
     </div>
-    <div class="role-card" onclick="selRole('centre',this)" ondblclick="selRole('centre',this);goStep2()">
+    <div class="role-card" onclick="selRole('center',this)" ondblclick="selRole('center',this);goStep2()">
       <div class="role-icon">🏫</div>
-      <div class="role-name t" data-hi="केंद्र (Centre)" data-en="Centre">केंद्र (Centre)</div>
-      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching centre">Offline केंद्र / Coaching शुरू करें</div>
+      <div class="role-name t" data-hi="केंद्र (Center)" data-en="Center">केंद्र (Center)</div>
+      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching center">Offline केंद्र / Coaching शुरू करें</div>
     </div>
     <div class="role-card" onclick="selRole('counselor',this)" ondblclick="selRole('counselor',this);goStep2()">
       <div class="role-icon">🧭</div>
@@ -467,8 +467,8 @@ const fnReqReset = httpsCallable(functions, "requestPasswordResetOtp");
 const fnVerReset = httpsCallable(functions, "verifyPasswordResetOtp");
 
 const NO_OTP = ["student","jobseeker","entrepreneur"];
-const DASH = {student:"/dashboard/student/",jobseeker:"/dashboard/jobseeker/",entrepreneur:"/dashboard/entrepreneur/",teacher:"/dashboard/teacher/",centre:"/dashboard/centre/",counselor:"/dashboard/counselor/",employer:"/dashboard/employer/",foreign_agent:"/dashboard/foreign-agent/",volunteer:"/dashboard/volunteer/",team:"/dashboard/"};
-const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",centre:"केंद्र (Centre)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",team:"ACS Team"};
+const DASH = {student:"/dashboard/student/",jobseeker:"/dashboard/jobseeker/",entrepreneur:"/dashboard/entrepreneur/",teacher:"/dashboard/teacher/",center:"/dashboard/center/",counselor:"/dashboard/counselor/",employer:"/dashboard/employer/",foreign_agent:"/dashboard/foreign-agent/",volunteer:"/dashboard/volunteer/",team:"/dashboard/"};
+const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",center:"केंद्र (Center)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",team:"ACS Team"};
 /* ACS Team के अंदर हर पद (designation) का अपना घर — teams/{uid}.designation से तय */
 const TEAM_DASH = {
   founder:"/dashboard/founder/",
