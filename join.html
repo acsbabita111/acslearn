@@ -612,7 +612,7 @@
     }
     if(card.needsGeo && card.needsRMOffice) return !!stateSel.value && !!rmOfficeSel.value;
     if(card.needsGeo) return !!stateSel.value;
-    return true; /* कोई office-info नहीं चाहिए (learner, teacher, centre, counselor, employer, foreign_agent) */
+    return true; /* कोई office-info नहीं चाहिए (learner, teacher, center, counselor, employer, foreign_agent) */
   }
   function onRoleChange(){
     resetCascade();
@@ -729,7 +729,7 @@
       else { toStep3Btn.className='big btn-off'; toStep3Btn.disabled=true; }
     }
     boxes.forEach(function(b){ b.addEventListener('change', refresh); });
-    // अगर fetch की गई फ़ाइल के अंदर अपना खुद का designation-selector है (जैसे Teacher/Centre/Learner), उसे भी सुनना
+    // अगर fetch की गई फ़ाइल के अंदर अपना खुद का designation-selector है (जैसे Teacher/Center/Learner), उसे भी सुनना
     var innerSelects = rulesContainer.querySelectorAll('select');
     innerSelects.forEach(function(sel){ sel.addEventListener('change', refresh); });
     finalChk.addEventListener('change', refresh);
