@@ -317,8 +317,8 @@
 .cc-btn{flex:1;padding:11px 10px;border-radius:8px;font-size:16px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-align:center;transition:.2s}
 .btn-free{background:#E8F5E9;color:var(--green)}
 .btn-free:hover{background:var(--green);color:#fff}
-.btn-centre{background:#EEF4FF;color:var(--blue)}
-.btn-centre:hover{background:var(--blue);color:#fff}
+.btn-center{background:#EEF4FF;color:var(--blue)}
+.btn-center:hover{background:var(--blue);color:#fff}
 .course-count{font-size:16px;color:var(--gray);margin-bottom:10px;font-weight:600}
 
 /* STATS BAR */
@@ -462,7 +462,7 @@ function renderTab(tab) {
       ${eduNames ? `<div style="font-size:16px;color:var(--gray);margin-bottom:10px">🎓 ${eduNames}</div>` : ''}
       <div class="cc-btns">
         <button class="cc-btn btn-free" onclick="openCourse('${c.id}','online')">📱 Online पढ़ें</button>
-        <button class="cc-btn btn-centre" onclick="openCourse('${c.id}','centre')">🏫 Centre Join</button>
+        <button class="cc-btn btn-center" onclick="openCourse('${c.id}','center')">🏫 Center Join</button>
       </div>
     </div>`;
   }).join('');
@@ -608,7 +608,7 @@ init();
     /* 9 सीधे कार्ड */
     var ROLE_URLS = {
       student:"/dashboard/student/", jobseeker:"/dashboard/jobseeker/", entrepreneur:"/dashboard/entrepreneur/",
-      teacher:"/dashboard/teacher/", centre:"/dashboard/centre/", counselor:"/dashboard/counselor/",
+      teacher:"/dashboard/teacher/", center:"/dashboard/center/", counselor:"/dashboard/counselor/",
       employer:"/dashboard/employer/", foreign_agent:"/dashboard/foreign-agent/", volunteer:"/dashboard/volunteer/"
     };
     /* 10वाँ कार्ड team → designation अनुसार (hq_admin landing अभी बाक़ी → /dashboard/hq/) */
