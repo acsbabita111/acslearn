@@ -6,6 +6,7 @@
 <title>सुंदर भविष्य के लिए ACS से जुड़ें! | Applied Computer School</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="assets/roles.js"></script>
+<script src="assets/geo/countries.js"></script>
 <!-- Firebase SDK (compat) — असली OTP के लिए -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-functions-compat.js"></script>
@@ -217,18 +218,26 @@
         </div>
       </div>
       <div class="fixedoffice" id="fixedHQ">📍 कार्यालय: <b>HQ (मुख्यालय)</b> — स्वतः तय।</div>
+      <!-- (v-geo 09-Jul-2026) देश → राज्य → जिला; देश-क्रम: भारत → सार्क → Global South → शेष विश्व -->
+      <div class="cascade" id="countryBox">
+        <div class="row"><label>देश चुनें</label>
+          <select id="countrySel"><option value="">— चुनें —</option></select>
+        </div>
+      </div>
       <div class="cascade" id="stateBox">
-        <div class="row"><label id="stateLabel">राज्य / देश चुनें (भारत + Global South)</label>
-          <select id="stateSel">
-            <option value="">— चुनें —</option>
-            <!-- roles.js (ACS_ROLES.geo.states) से JS द्वारा भरा जाता है -->
-          </select>
+        <div class="row"><label id="stateLabel">राज्य / प्रांत चुनें</label>
+          <select id="stateSel"><option value="">— पहले देश चुनें —</option></select>
+          <input type="text" id="stateTyped" style="display:none" placeholder="अपना राज्य/प्रांत लिखें">
+          <div class="hint" id="stateTypedHint" style="display:none">इस देश की राज्य-सूची अभी नहीं जुड़ी — कृपया लिखें।</div>
         </div>
       </div>
       <div class="cascade" id="rmOfficeBox">
         <!-- (नया नियम 09-Jul-2026) RM = ज़िला-आधारित: 1 ज़िला अनिवार्य, अधिकतम 3
              (शुरुआत में 3 जिले/RM; टीम बड़ी होने पर 2 या 1 — सिकुड़न approval-स्तर से) -->
-        <div class="row"><label>अपना मुख्य जिला चुनें (अनिवार्य)</label><select id="rmDist1"><option value="">— पहले राज्य/देश चुनें —</option></select></div>
+        <div class="row"><label>अपना मुख्य जिला चुनें (अनिवार्य)</label><select id="rmDist1"><option value="">— पहले राज्य चुनें —</option></select>
+          <input type="text" id="distTyped" style="display:none" placeholder="अपना मुख्य जिला लिखें">
+          <div class="hint" id="distTypedHint" style="display:none">इस राज्य की जिला-सूची अभी नहीं जुड़ी — कृपया लिखें।</div>
+        </div>
         <div class="row"><label>जिला-2 (वैकल्पिक)</label><select id="rmDist2"><option value="">— वैकल्पिक —</option></select></div>
         <div class="row"><label>जिला-3 (वैकल्पिक)</label><select id="rmDist3"><option value="">— वैकल्पिक —</option></select></div>
       </div>
@@ -314,17 +323,36 @@
       sel.appendChild(og);
     });
   }
-  /* राज्य/देश-dropdown roles.js के geo.states से भरना */
-  function buildStateDropdown(){
-    var sel = document.getElementById('stateSel');
-    R.geo.states.forEach(function(s){
-      var opt = document.createElement('option');
-      opt.value = s.v; opt.textContent = s.hi;
-      sel.appendChild(opt);
+  /* (v-geo 09-Jul-2026) देश-dropdown — /assets/geo/countries.js से, 4 समूह-क्रम:
+     ①भारत ②सार्क ③Global South ④शेष विश्व (Founder-नियम) */
+  function buildCountryDropdown(){
+    var sel = document.getElementById('countrySel');
+    var C = window.ACS_GEO_COUNTRIES || [], G = window.ACS_GEO_GROUPS || {};
+    [1,2,3,4].forEach(function(g){
+      var list = C.filter(function(c){ return c.g===g; });
+      if(!list.length) return;
+      var og = document.createElement('optgroup');
+      og.label = G[g] || ('समूह-'+g);
+      list.forEach(function(c){
+        var opt = document.createElement('option');
+        opt.value = c.v; opt.textContent = c.hi;
+        og.appendChild(opt);
+      });
+      sel.appendChild(og);
+    });
+  }
+  /* माँग-पर-load: राज्य/जिला की छोटी फ़ाइल तभी उतरे जब ज़रूरत हो */
+  window.ACS_GEO_STATES = window.ACS_GEO_STATES || {};
+  window.ACS_GEO_DISTRICTS = window.ACS_GEO_DISTRICTS || {};
+  function loadGeo(src){
+    return new Promise(function(res, rej){
+      var s = document.createElement('script');
+      s.src = src; s.onload = res; s.onerror = rej;
+      document.head.appendChild(s);
     });
   }
   buildRoleDropdown();
-  buildStateDropdown();
+  buildCountryDropdown();
 
   /* ═══════════════ STEP 1 : नाम/मोबाइल/ईमेल/Password + OTP ═══════════════ */
   function romanValid(v){ return /^[A-Z ]+$/.test(v) && v.trim().length>0; }
@@ -587,7 +615,10 @@
   var roleSel=document.getElementById('roleSel');
   var fixedHQ=document.getElementById('fixedHQ');
   var staffLevelBox=document.getElementById('staffLevelBox'), staffLevelSel=document.getElementById('staffLevelSel');
+  var countryBox=document.getElementById('countryBox'), countrySel=document.getElementById('countrySel');
   var stateBox=document.getElementById('stateBox'), stateSel=document.getElementById('stateSel'), stateLabel=document.getElementById('stateLabel');
+  var stateTyped=document.getElementById('stateTyped'), stateTypedHint=document.getElementById('stateTypedHint');
+  var distTyped=document.getElementById('distTyped'), distTypedHint=document.getElementById('distTypedHint');
   var rmOfficeBox=document.getElementById('rmOfficeBox');
   var rmDist1=document.getElementById('rmDist1'), rmDist2=document.getElementById('rmDist2'), rmDist3=document.getElementById('rmDist3');
   var rulesCard=document.getElementById('rulesCard');
@@ -595,25 +626,94 @@
   function resetCascade(){
     fixedHQ.classList.remove('show');
     staffLevelBox.classList.remove('show'); staffLevelSel.value='';
+    countryBox.classList.remove('show'); countrySel.value='';
     stateBox.classList.remove('show'); stateSel.value='';
+    stateSel.style.display=''; stateTyped.style.display='none'; stateTypedHint.style.display='none'; stateTyped.value='';
     rmOfficeBox.classList.remove('show');
-    rmDist1.innerHTML='<option value="">— पहले राज्य/देश चुनें —</option>';
+    rmDist1.innerHTML='<option value="">— पहले राज्य चुनें —</option>';
     rmDist2.innerHTML='<option value="">— वैकल्पिक —</option>';
     rmDist3.innerHTML='<option value="">— वैकल्पिक —</option>';
+    rmDist1.style.display=''; rmDist2.parentElement.style.display=''; rmDist3.parentElement.style.display='';
+    distTyped.style.display='none'; distTypedHint.style.display='none'; distTyped.value='';
     rulesCard.style.display='none';
   }
-  /* (नया नियम 09-Jul-2026) RM ज़िला-आधारित — तीनों dropdown में राज्य की पूरी ज़िला-सूची */
-  function populateDistricts(stateKey){
-    var list = R.geo.districtsFor(stateKey);
-    var opts = list.map(function(o){return '<option value="'+o+'">'+o+'</option>';}).join('');
-    rmDist1.innerHTML = '<option value="">— चुनें —</option>' + opts;
-    rmDist2.innerHTML = '<option value="">— वैकल्पिक —</option>' + opts;
-    rmDist3.innerHTML = '<option value="">— वैकल्पिक —</option>' + opts;
+  /* ---- राज्य-सूची: देश चुनते ही उस देश की छोटी फ़ाइल load; न मिले तो typed-fallback ---- */
+  function isZmContext(){
+    var card = R.byKey(roleSel.value);
+    return roleSel.value==='zm' || (card && card.hasOfficeLevelCascade && staffLevelSel.value==='zm');
   }
-  /* चुने गए जिले — ख़ाली व दोहराव हटाकर */
+  function fillStateOptions(cc){
+    var list = window.ACS_GEO_STATES[cc] || [];
+    var html = '<option value="">— चुनें —</option>';
+    /* ZM-संदर्भ में, भारत छोड़ बाक़ी देशों पर "पूरा देश (Country Head)" का विकल्प —
+       Constitution: ZM = State Head / Country Head (जैसे केन्या का ZM पूरा केन्या) */
+    if(isZmContext() && cc!=='in') html += '<option value="_country">🌍 पूरा देश (Country Head)</option>';
+    html += list.map(function(s){ return '<option value="'+s.v+'">'+s.name+'</option>'; }).join('');
+    stateSel.innerHTML = html;
+    stateSel.style.display=''; stateTyped.style.display='none'; stateTypedHint.style.display='none';
+  }
+  function stateTypedMode(){
+    stateSel.style.display='none'; stateTyped.style.display=''; stateTypedHint.style.display='';
+  }
+  function populateStates(cc){
+    if(window.ACS_GEO_STATES[cc]){ fillStateOptions(cc); return; }
+    stateSel.innerHTML='<option value="">⏳ सूची आ रही है…</option>';
+    loadGeo('assets/geo/states/'+cc+'.js').then(function(){
+      if((window.ACS_GEO_STATES[cc]||[]).length) fillStateOptions(cc); else stateTypedMode();
+    }).catch(stateTypedMode);
+  }
+  /* ---- जिला-सूची: राज्य चुनते ही (भारत में) उस राज्य की फ़ाइल; न मिले तो typed ---- */
+  function distKey(){ return countrySel.value + '-' + stateSel.value; }
+  function distTypedMode(){
+    rmDist1.style.display='none'; rmDist2.parentElement.style.display='none'; rmDist3.parentElement.style.display='none';
+    distTyped.style.display=''; distTypedHint.style.display='';
+  }
+  function fillDistrictSelects(){
+    var list = window.ACS_GEO_DISTRICTS[distKey()] || [];
+    if(!list.length){ distTypedMode(); return; }
+    rmDist1.style.display=''; rmDist2.parentElement.style.display=''; rmDist3.parentElement.style.display='';
+    distTyped.style.display='none'; distTypedHint.style.display='none';
+    renderDistrictOptions();
+  }
+  /* (bug-fix 09-Jul-2026) जिला-दोहराव बंद: एक जगह चुना जिला बाक़ी dropdown से ग़ायब */
+  function renderDistrictOptions(){
+    var list = window.ACS_GEO_DISTRICTS[distKey()] || [];
+    var sels = [rmDist1, rmDist2, rmDist3];
+    var vals = sels.map(function(s){ return s.value; });
+    sels.forEach(function(sel, i){
+      var others = vals.filter(function(v, j){ return j!==i && v; });
+      var head = (i===0) ? '<option value="">— चुनें —</option>' : '<option value="">— वैकल्पिक —</option>';
+      sel.innerHTML = head + list.filter(function(d){ return others.indexOf(d)===-1; })
+        .map(function(d){ return '<option value="'+d+'"'+(d===vals[i]?' selected':'')+'>'+d+'</option>'; }).join('');
+    });
+  }
+  function populateDistricts(){
+    var k = distKey();
+    if(window.ACS_GEO_DISTRICTS[k]){ fillDistrictSelects(); return; }
+    rmDist1.innerHTML='<option value="">⏳ सूची आ रही है…</option>';
+    loadGeo('assets/geo/districts/'+k+'.js').then(fillDistrictSelects).catch(distTypedMode);
+  }
+  /* चुने गए जिले — select या typed, ख़ाली/दोहराव हटाकर */
   function chosenDistricts(){
+    if(distTyped.style.display!=='none'){
+      return distTyped.value.trim() ? [distTyped.value.trim()] : [];
+    }
     return [rmDist1.value, rmDist2.value, rmDist3.value]
       .filter(function(v,i,a){ return v && a.indexOf(v)===i; });
+  }
+  /* राज्य की चुनी value (select या typed) */
+  function stateValue(){
+    return stateTyped.style.display!=='none' ? stateTyped.value.trim() : stateSel.value;
+  }
+  function countryLabel(){
+    var o = countrySel.options[countrySel.selectedIndex];
+    return (countrySel.value && o) ? o.text : '';
+  }
+  function stateLabelText(){
+    if(stateTyped.style.display!=='none') return stateTyped.value.trim();
+    if(stateSel.value==='_country') return 'पूरा देश (Country Head)';
+    var o = stateSel.options[stateSel.selectedIndex];
+    return (stateSel.value && o) ? o.text : '';
   }
   /* पुष्टि-प्रदर्शन के लिए कार्य-क्षेत्र का सार (Step-4 · success · PDF तीनों में) */
   function officeSummaryText(){
@@ -624,7 +724,8 @@
     if(card.hasOfficeLevelCascade && lvl){
       parts.push('स्तर: ' + ({hq:'HQ (मुख्यालय)', zm:'ZM कार्यालय', rm:'RM कार्यालय'}[lvl] || lvl));
     }
-    if(stateSel.value) parts.push('राज्य/देश: ' + R.geo.stateLabel(stateSel.value));
+    if(countryLabel()) parts.push('देश: ' + countryLabel());
+    if(stateLabelText()) parts.push('राज्य/प्रांत: ' + stateLabelText());
     var ds = chosenDistricts();
     if(ds.length) parts.push('जिला: ' + ds.join(', '));
     return parts.join(' · ');
@@ -638,12 +739,12 @@
     if(card.hasOfficeLevelCascade){
       var lvl = staffLevelSel.value; if(!lvl) return false;
       if(lvl==='hq') return true;
-      if(lvl==='zm') return !!stateSel.value;
-      if(lvl==='rm') return !!stateSel.value && !!rmDist1.value;
+      if(lvl==='zm') return !!countrySel.value && !!stateValue();
+      if(lvl==='rm') return !!countrySel.value && !!stateValue() && chosenDistricts().length>0;
       return false;
     }
-    if(card.needsGeo && card.needsRMOffice) return !!stateSel.value && !!rmDist1.value;
-    if(card.needsGeo) return !!stateSel.value;
+    if(card.needsGeo && card.needsRMOffice) return !!countrySel.value && !!stateValue() && chosenDistricts().length>0;
+    if(card.needsGeo) return !!countrySel.value && !!stateValue();
     return true; /* कोई office-info नहीं चाहिए (learner, teacher, center, counselor, employer, foreign_agent) */
   }
   function onRoleChange(){
@@ -654,30 +755,45 @@
     if(!card) return;
     if(card.isHQ){ fixedHQ.classList.add('show'); }
     else if(card.hasOfficeLevelCascade){ staffLevelBox.classList.add('show'); }
-    else if(card.needsGeo && card.needsRMOffice){ stateLabel.textContent="राज्य/देश चुनें (भारत + Global South)"; stateBox.classList.add('show'); }
-    else if(card.needsGeo){ stateLabel.textContent="राज्य/देश चुनें — यहीं कार्यक्षेत्र होगा"; stateBox.classList.add('show'); }
+    else if(card.needsGeo){ countryBox.classList.add('show'); }  /* देश पहले — राज्य देश चुनने पर */
     maybeLoadRules();
   }
   function onStaffLevelChange(){
-    stateBox.classList.remove('show'); stateSel.value=''; rmOfficeBox.classList.remove('show');
+    countryBox.classList.remove('show'); countrySel.value='';
+    stateBox.classList.remove('show'); stateSel.value=''; stateTyped.value='';
+    rmOfficeBox.classList.remove('show');
     var lvl=staffLevelSel.value;
     if(lvl==='hq') fixedHQ.classList.add('show'); else fixedHQ.classList.remove('show');
-    if(lvl==='zm'||lvl==='rm'){ stateLabel.textContent="राज्य/देश चुनें"; stateBox.classList.add('show'); }
+    if(lvl==='zm'||lvl==='rm'){ countryBox.classList.add('show'); }
     maybeLoadRules();
   }
+  function onCountryChange(){
+    stateSel.value=''; stateTyped.value='';
+    rmOfficeBox.classList.remove('show');
+    if(countrySel.value){ populateStates(countrySel.value); stateBox.classList.add('show'); }
+    else { stateBox.classList.remove('show'); }
+    maybeLoadRules();
+  }
+  function needsDistrict(){
+    var card = R.byKey(roleSel.value);
+    return card && (card.needsRMOffice || (card.hasOfficeLevelCascade && staffLevelSel.value==='rm'));
+  }
   function onStateChange(){
-    var r=roleSel.value; var card=R.byKey(r);
-    var needsRM = card && (card.needsRMOffice || (card.hasOfficeLevelCascade && staffLevelSel.value==='rm'));
-    if(needsRM && stateSel.value){ populateDistricts(stateSel.value); rmOfficeBox.classList.add('show'); }
+    if(needsDistrict() && stateValue() && stateSel.value!=='_country'){
+      populateDistricts(); rmOfficeBox.classList.add('show');
+    }
     else { rmOfficeBox.classList.remove('show'); }
     maybeLoadRules();
   }
   roleSel.addEventListener('change', onRoleChange);
   staffLevelSel.addEventListener('change', onStaffLevelChange);
+  countrySel.addEventListener('change', onCountryChange);
   stateSel.addEventListener('change', onStateChange);
-  rmDist1.addEventListener('change', maybeLoadRules);
-  rmDist2.addEventListener('change', maybeLoadRules);
-  rmDist3.addEventListener('change', maybeLoadRules);
+  stateTyped.addEventListener('input', onStateChange);
+  rmDist1.addEventListener('change', function(){ renderDistrictOptions(); maybeLoadRules(); });
+  rmDist2.addEventListener('change', function(){ renderDistrictOptions(); maybeLoadRules(); });
+  rmDist3.addEventListener('change', function(){ renderDistrictOptions(); maybeLoadRules(); });
+  distTyped.addEventListener('input', maybeLoadRules);
 
   var rulesLoadedFor = null;
   function maybeLoadRules(){
@@ -1212,9 +1328,10 @@
       dob: dobEl.value, guardian_mobile: guardianMobile.value,
       password: pwd.value,   /* (रास्ता A) server इसी से Auth-खाता बनाता है — provisional login के लिए */
       role: roleSel.value,
-      /* (v-fix 09-Jul-2026) कार्य-क्षेत्र अब server तक जाए — पहले सिर्फ़ UI में था, भेजा नहीं जाता था (होल-A) */
+      /* (v-geo 09-Jul-2026) कार्य-क्षेत्र — देश → राज्य → जिले */
       staff_level: staffLevelSel.value || "",
-      state: stateSel.value || "",
+      country: countrySel.value || "",
+      state: stateValue() || "",
       rm_districts: chosenDistricts(),
       formFields: gatherStep3Data(),
       documents: gatherDocsBase64()
