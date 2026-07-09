@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["gm"]=[{"v":"banjul","name":"Banjul"},{"v":"central-river","name":"Central River"},{"v":"lower-river","name":"Lower River"},{"v":"north-bank","name":"North Bank"},{"v":"upper-river","name":"Upper River"},{"v":"west-coast","name":"West Coast"}];

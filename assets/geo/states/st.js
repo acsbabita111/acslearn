@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["st"]=[{"v":"cantagalo","name":"Cantagalo"},{"v":"cau","name":"Caué"},{"v":"lemba","name":"Lemba"},{"v":"lobata","name":"Lobata"},{"v":"m-z-chi","name":"Mé-Zóchi"},{"v":"pr-ncipe","name":"Príncipe"},{"v":"gua-grande","name":"Água Grande"}];

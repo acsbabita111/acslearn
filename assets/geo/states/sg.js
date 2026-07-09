@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["sg"]=[{"v":"central-singapore","name":"Central Singapore"},{"v":"north-east","name":"North East"},{"v":"north-west","name":"North West"},{"v":"south-east","name":"South East"},{"v":"south-west","name":"South West"}];

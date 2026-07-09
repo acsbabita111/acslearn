@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["kg"]=[{"v":"batken","name":"Batken"},{"v":"bishkek","name":"Bishkek"},{"v":"chuy","name":"Chuy"},{"v":"issyk-kul","name":"Issyk-Kul"},{"v":"jalal-abad","name":"Jalal-Abad"},{"v":"naryn","name":"Naryn"},{"v":"osh","name":"Osh"},{"v":"talas","name":"Talas"}];

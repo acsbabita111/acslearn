@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["rw"]=[{"v":"eastern","name":"Eastern"},{"v":"kigali","name":"Kigali"},{"v":"northern","name":"Northern"},{"v":"southern","name":"Southern"},{"v":"western","name":"Western"}];

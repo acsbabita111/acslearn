@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["re"]=[{"v":"saint-beno-t","name":"Saint-Benoît"},{"v":"saint-denis","name":"Saint-Denis"},{"v":"saint-paul","name":"Saint-Paul"},{"v":"saint-pierre","name":"Saint-Pierre"}];

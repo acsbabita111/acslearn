@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["kw"]=[{"v":"al-ahmadi","name":"Al Ahmadi"},{"v":"al-asimah","name":"Al Asimah"},{"v":"al-farwaniyah","name":"Al Farwaniyah"},{"v":"al-jahra","name":"Al Jahra"},{"v":"hawalli","name":"Hawalli"},{"v":"mubarak-al-kabeer","name":"Mubarak Al-Kabeer"}];

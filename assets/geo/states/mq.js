@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["mq"]=[{"v":"fort-de-france","name":"Fort-de-France"},{"v":"la-trinit","name":"La Trinité"},{"v":"le-marin","name":"Le Marin"},{"v":"saint-pierre","name":"Saint-Pierre"}];

@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["pf"]=[{"v":"austral-islands","name":"Austral Islands"},{"v":"leeward-islands","name":"Leeward Islands"},{"v":"marquesas-islands","name":"Marquesas Islands"},{"v":"tuamotu-gambier","name":"Tuamotu-Gambier"},{"v":"windward-islands","name":"Windward Islands"}];

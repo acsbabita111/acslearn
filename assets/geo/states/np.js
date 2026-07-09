@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["np"]=[{"v":"bagmati","name":"Bagmati"},{"v":"gandaki","name":"Gandaki"},{"v":"karnali","name":"Karnali"},{"v":"koshi","name":"Koshi"},{"v":"lumbini","name":"Lumbini"},{"v":"madhesh","name":"Madhesh"},{"v":"sudurpashchim","name":"Sudurpashchim"}];

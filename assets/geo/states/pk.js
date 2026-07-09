@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["pk"]=[{"v":"azad-kashmir","name":"Azad Kashmir"},{"v":"balochistan","name":"Balochistan"},{"v":"gilgit-baltistan","name":"Gilgit-Baltistan"},{"v":"islamabad","name":"Islamabad"},{"v":"khyber-pakhtunkhwa","name":"Khyber Pakhtunkhwa"},{"v":"punjab","name":"Punjab"},{"v":"sindh","name":"Sindh"}];

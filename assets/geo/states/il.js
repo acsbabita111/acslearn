@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["il"]=[{"v":"central","name":"Central"},{"v":"haifa","name":"Haifa"},{"v":"jerusalem","name":"Jerusalem"},{"v":"northern","name":"Northern"},{"v":"southern","name":"Southern"},{"v":"tel-aviv","name":"Tel Aviv"}];

@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["sk"]=[{"v":"bansk-bystrica","name":"Banská Bystrica"},{"v":"bratislava","name":"Bratislava"},{"v":"ko-ice","name":"Košice"},{"v":"nitra","name":"Nitra"},{"v":"pre-ov","name":"Prešov"},{"v":"tren-n","name":"Trenčín"},{"v":"trnava","name":"Trnava"},{"v":"ilina","name":"Žilina"}];
