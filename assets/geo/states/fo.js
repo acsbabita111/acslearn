@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["fo"]=[{"v":"eysturoy","name":"Eysturoy"},{"v":"northern-isles","name":"Northern Isles"},{"v":"sandoy","name":"Sandoy"},{"v":"streymoy","name":"Streymoy"},{"v":"su-uroy","name":"Suðuroy"},{"v":"v-gar","name":"Vágar"}];

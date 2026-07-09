@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["dj"]=[{"v":"ali-sabieh","name":"Ali Sabieh"},{"v":"arta","name":"Arta"},{"v":"dikhil","name":"Dikhil"},{"v":"djibouti","name":"Djibouti"},{"v":"obock","name":"Obock"},{"v":"tadjourah","name":"Tadjourah"}];

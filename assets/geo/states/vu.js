@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["vu"]=[{"v":"malampa","name":"Malampa"},{"v":"penama","name":"Penama"},{"v":"sanma","name":"Sanma"},{"v":"shefa","name":"Shefa"},{"v":"tafea","name":"Tafea"},{"v":"torba","name":"Torba"}];

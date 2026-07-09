@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["bo"]=[{"v":"beni","name":"Beni"},{"v":"chuquisaca","name":"Chuquisaca"},{"v":"cochabamba","name":"Cochabamba"},{"v":"la-paz","name":"La Paz"},{"v":"oruro","name":"Oruro"},{"v":"pando","name":"Pando"},{"v":"potos","name":"Potosí"},{"v":"santa-cruz","name":"Santa Cruz"},{"v":"tarija","name":"Tarija"}];

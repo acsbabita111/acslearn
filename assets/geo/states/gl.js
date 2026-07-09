@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["gl"]=[{"v":"avannaata","name":"Avannaata"},{"v":"kujalleq","name":"Kujalleq"},{"v":"qeqertalik","name":"Qeqertalik"},{"v":"qeqqata","name":"Qeqqata"},{"v":"sermersooq","name":"Sermersooq"}];

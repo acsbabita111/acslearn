@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["bh"]=[{"v":"capital","name":"Capital"},{"v":"muharraq","name":"Muharraq"},{"v":"northern","name":"Northern"},{"v":"southern","name":"Southern"}];

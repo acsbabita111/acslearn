@@ -1,1 +1,1 @@
-
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["ae"]=[{"v":"abu-dhabi","name":"Abu Dhabi"},{"v":"ajman","name":"Ajman"},{"v":"dubai","name":"Dubai"},{"v":"fujairah","name":"Fujairah"},{"v":"ras-al-khaimah","name":"Ras Al Khaimah"},{"v":"sharjah","name":"Sharjah"},{"v":"umm-al-quwain","name":"Umm Al Quwain"}];

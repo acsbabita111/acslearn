@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["mg"]=[{"v":"antananarivo","name":"Antananarivo"},{"v":"antsiranana","name":"Antsiranana"},{"v":"fianarantsoa","name":"Fianarantsoa"},{"v":"mahajanga","name":"Mahajanga"},{"v":"toamasina","name":"Toamasina"},{"v":"toliara","name":"Toliara"}];

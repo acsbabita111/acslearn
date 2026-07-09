@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["by"]=[{"v":"brest","name":"Brest"},{"v":"gomel","name":"Gomel"},{"v":"grodno","name":"Grodno"},{"v":"minsk","name":"Minsk"},{"v":"mogilev","name":"Mogilev"},{"v":"vitebsk","name":"Vitebsk"}];

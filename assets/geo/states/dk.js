@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["dk"]=[{"v":"central-denmark","name":"Central Denmark"},{"v":"denmark","name":"Denmark"},{"v":"north-denmark","name":"North Denmark"},{"v":"southern-denmark","name":"Southern Denmark"},{"v":"zealand","name":"Zealand"}];

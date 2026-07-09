@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["cr"]=[{"v":"alajuela","name":"Alajuela"},{"v":"cartago","name":"Cartago"},{"v":"guanacaste","name":"Guanacaste"},{"v":"heredia","name":"Heredia"},{"v":"lim-n","name":"Limón"},{"v":"puntarenas","name":"Puntarenas"},{"v":"san-jos","name":"San José"}];
