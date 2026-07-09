@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["tf"]=[{"v":"ad-lie-land","name":"Adélie Land"},{"v":"crozet-islands","name":"Crozet Islands"},{"v":"kerguelen-islands","name":"Kerguelen Islands"},{"v":"saint-paul-and-amsterdam-islands","name":"Saint-Paul and Amsterdam Islands"},{"v":"scattered-islands","name":"Scattered Islands"}];

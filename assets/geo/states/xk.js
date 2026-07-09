@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["xk"]=[{"v":"ferizaj","name":"Ferizaj"},{"v":"gjakove","name":"Gjakove"},{"v":"gjilan","name":"Gjilan"},{"v":"mitrovica","name":"Mitrovica"},{"v":"peja","name":"Peja"},{"v":"pristina","name":"Pristina"},{"v":"prizren","name":"Prizren"}];

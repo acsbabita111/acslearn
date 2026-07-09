@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["tj"]=[{"v":"dushanbe","name":"Dushanbe"},{"v":"gorno-badakhshan","name":"Gorno-Badakhshan"},{"v":"khatlon","name":"Khatlon"},{"v":"nohiyahoi-tobei-jumhur","name":"Nohiyahoi Tobei Jumhurí "},{"v":"sughd","name":"Sughd "}];

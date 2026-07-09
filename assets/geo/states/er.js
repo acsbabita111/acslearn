@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["er"]=[{"v":"anseba","name":"Anseba"},{"v":"debub","name":"Debub"},{"v":"gash-barka","name":"Gash-Barka"},{"v":"maekel","name":"Maekel"},{"v":"northern-red-sea","name":"Northern Red Sea"},{"v":"southern-red-sea","name":"Southern Red Sea"}];

@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["tv"]=[{"v":"funafuti","name":"Funafuti"},{"v":"nanumanga","name":"Nanumanga"},{"v":"nanumea","name":"Nanumea"},{"v":"niutao-island-council","name":"Niutao Island Council"},{"v":"nui","name":"Nui"},{"v":"nukufetau","name":"Nukufetau"},{"v":"nukulaelae","name":"Nukulaelae"},{"v":"vaitupu","name":"Vaitupu"}];

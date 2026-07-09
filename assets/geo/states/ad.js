@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["ad"]=[{"v":"andorra-la-vella","name":"Andorra la Vella"},{"v":"canillo","name":"Canillo"},{"v":"encamp","name":"Encamp"},{"v":"escaldes-engordany","name":"Escaldes-Engordany"},{"v":"la-massana","name":"La Massana"},{"v":"ordino","name":"Ordino"},{"v":"sant-juli-de-l-ria","name":"Sant Julià de Lòria"}];

@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["ne"]=[{"v":"agadez","name":"Agadez"},{"v":"diffa","name":"Diffa"},{"v":"dosso","name":"Dosso"},{"v":"maradi","name":"Maradi"},{"v":"niamey","name":"Niamey"},{"v":"tahoua","name":"Tahoua"},{"v":"tillab-ri","name":"Tillabéri"},{"v":"zinder","name":"Zinder"}];

@@ -1,0 +1,1 @@
+window.ACS_GEO_STATES=window.ACS_GEO_STATES||{};window.ACS_GEO_STATES["tg"]=[{"v":"centrale","name":"Centrale"},{"v":"kara","name":"Kara"},{"v":"maritime","name":"Maritime"},{"v":"plateaux","name":"Plateaux"},{"v":"savanes","name":"Savanes"}];
