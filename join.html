@@ -131,7 +131,7 @@
     <div class="card">
       <h3>1️⃣ अपनी जानकारी भरें</h3>
 
-      <div class="row"><label>नाम — हिंदी में</label><input type="text" id="nameLocal" placeholder="जैसे: राजेश कुमार"></div>
+      <div class="row"><label>नाम — हिंदी में <span style="font-weight:normal">(नीचे English में नाम लिखते ही यह अपने-आप सही बनेगा — चाहें तो यहाँ सुधार लें)</span></label><input type="text" id="nameLocal" placeholder="जैसे: राजेश कुमार"></div>
       <div class="row">
         <label>Name — ROMAN CAPITAL में (database के लिए)</label>
         <input type="text" id="nameRoman" placeholder="e.g. RAJESH KUMAR">
@@ -405,6 +405,58 @@
     return out;
   }
 
+  /* ═══════ (v1.8, 10-Jul-2026) असली transliteration — Google Input Tools API ═══════
+     वही इंजन जो Google का हिंदी-typing चलाता है: "manju kumari" → "मंजू कुमारी"
+     (सही मात्राएँ/संयुक्ताक्षर)। मुफ़्त, key-रहित। API न चले (offline) तो ऊपर का
+     पुराना phonetic-अनुमान fallback — काम कभी न रुके। नियम:
+       • English-नाम भरते ही हिंदी-field अपने-आप भरे (user की मेहनत शून्य)
+       • user हाथ से हिंदी लिख/सुधार दे तो auto-भराव उसे कभी न मिटाए
+       • हिंदी-field में Roman लिखा जाए तो रुक-रुक कर (600ms) पूरा text सही बने —
+         पुराने हर-keystroke वाले bug ("मअनजउ") का अंत। */
+  function googleTranslitWord(word){
+    return fetch('https://inputtools.google.com/request?text=' + encodeURIComponent(word) +
+      '&itc=hi-t-i0-und&num=1&cp=0&cs=1&ie=utf-8&oe=utf-8')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d && d[0]==='SUCCESS' && d[1] && d[1][0] && d[1][0][1] && d[1][0][1][0]) return d[1][0][1][0];
+        throw new Error('no-result');
+      });
+  }
+  function googleTranslitName(text){
+    var words = String(text||'').trim().split(/\s+/).filter(Boolean);
+    return Promise.all(words.map(function(w){
+      if(!/[a-zA-Z]/.test(w)) return Promise.resolve(w);   /* पहले से हिंदी शब्द — न छेड़ो */
+      return googleTranslitWord(w.toLowerCase());
+    })).then(function(parts){ return parts.join(' '); });
+  }
+  var romanTimer=null, localTimer=null, nameLocalAuto=false, translitSeq=0;
+  /* English-नाम से हिंदी अपने-आप — पर हाथ से लिखी हिंदी कभी न मिटे */
+  function autoFillHindiFromRoman(){
+    var v = nameRoman.value.trim();
+    if(!v) return;
+    if(nameLocal.value.trim() && !nameLocalAuto) return;   /* user का अपना लिखा — सुरक्षित */
+    var seq = ++translitSeq;
+    googleTranslitName(v).then(function(hi){
+      if(seq !== translitSeq) return;                       /* पुराना जवाब — फेंको */
+      if(nameLocal.value.trim() && !nameLocalAuto) return;
+      nameLocal.value = hi; nameLocalAuto = true; validateStep1();
+    }).catch(function(){ /* offline — चुपचाप; user हिंदी-field में सीधे लिख सकता है */ });
+  }
+  /* हिंदी-field में Roman टाइप हो तो 600ms रुककर पूरा text एक-साथ सही बनाओ */
+  function convertLocalField(){
+    var v = nameLocal.value;
+    if(!/[a-zA-Z]/.test(v)) return;
+    var seq = ++translitSeq;
+    googleTranslitName(v).then(function(hi){
+      if(seq !== translitSeq) return;
+      if(nameLocal.value !== v) return;                     /* बीच में और टाइप हुआ — अगली बारी में */
+      nameLocal.value = hi; nameLocalAuto = false; validateStep1();
+    }).catch(function(){
+      if(nameLocal.value !== v) return;
+      nameLocal.value = toDevanagari(v); nameLocalAuto = false; validateStep1();   /* offline-fallback */
+    });
+  }
+
   var pwd=document.getElementById('pwd'), pwd2=document.getElementById('pwd2');
   var eyePwd=document.getElementById('eyePwd'), eyePwd2=document.getElementById('eyePwd2');
   var matchBox=document.getElementById('matchBox');
@@ -460,10 +512,20 @@
     sendOtpBtn.className = 'big ' + (ok?'btn-on':'btn-off'); sendOtpBtn.disabled = !ok;
   }
   nameLocal.addEventListener('input', function(){
-    if(/[a-zA-Z]/.test(this.value)){ this.value = toDevanagari(this.value); }
+    if(/[a-zA-Z]/.test(this.value)){
+      clearTimeout(localTimer);
+      localTimer = setTimeout(convertLocalField, 600);      /* रुकने पर एक-साथ सही बने — टाइपिंग में कभी नहीं */
+    } else {
+      nameLocalAuto = false;                                 /* शुद्ध हिंदी हाथ से — auto कभी न मिटाए */
+    }
     validateStep1();
   });
-  nameRoman.addEventListener('input', function(){ this.value=this.value.toUpperCase().replace(/[^A-Z ]/g,''); validateStep1(); });
+  nameRoman.addEventListener('input', function(){
+    this.value=this.value.toUpperCase().replace(/[^A-Z ]/g,'');
+    clearTimeout(romanTimer);
+    romanTimer = setTimeout(autoFillHindiFromRoman, 600);    /* English भरते ही हिंदी अपने-आप */
+    validateStep1();
+  });
   mobile.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); validateStep1(); });
   email.addEventListener('input', validateStep1);
   dobEl.addEventListener('input', updateGuardianVisibility);
