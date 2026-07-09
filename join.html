@@ -582,6 +582,58 @@
       resendOtpBtn.disabled=false; resendOtpBtn.className='big btn-on'; resendOtpBtn.textContent='📩 OTP पुनः भेजें';
     });
   });
+  /* ── (10-Jul-2026, Founder-नियम) मौजूदा-आवेदन card ──
+     provisional → देखें / बदलाव करें / पूर्णतया निरस्त करें
+     approved   → "approve हो चुका — dashboard पर जाएँ" */
+  function showExistingCard(res){
+    var old = document.getElementById('existAppCard'); if(old) old.remove();
+    var card = document.createElement('div');
+    card.id = 'existAppCard';
+    card.style.cssText = 'border:2px solid var(--gold);border-radius:12px;padding:16px;margin:14px 0;background:#FFF8E1;font-size:18px;line-height:1.8';
+    var roleCard = R.byKey(res.role);
+    var roleLabel = roleCard ? (roleCard.hi + (roleCard.en && roleCard.en!==roleCard.hi ? ' ('+roleCard.en+')' : '')) : res.role;
+    var scope = [res.country, res.state].filter(Boolean).join(' · ') +
+      (res.rm_districts && res.rm_districts.length ? ' · जिला: ' + res.rm_districts.join(', ') : '');
+    if(res.status === 'approved'){
+      card.style.background = '#E8F5E9'; card.style.borderColor = 'var(--green)';
+      card.innerHTML =
+        '<b>✅ आपको "'+roleLabel+'" जॉब-रोल के लिए approve किया जा चुका है।</b><br>'+
+        'Registration No: <b>'+res.regNo+'</b><br>'+
+        '<a href="/" class="big btn-on" style="display:inline-block;text-decoration:none;margin-top:10px;padding:12px 18px;border-radius:10px">🔑 अपने Dashboard पर जाने के लिए यहाँ क्लिक करें (Login)</a>';
+      verifyOtpBtn.style.display='none';
+      verifyOtpBtn.parentElement.appendChild(card);
+      return;
+    }
+    card.innerHTML =
+      '<b>ℹ️ आपका फ़ॉर्म पहले से सफलतापूर्वक दर्ज है।</b><br>'+
+      'Registration No: <b>'+res.regNo+'</b><br>'+
+      'जॉब-रोल: <b>'+roleLabel+'</b>'+(scope? '<br>कार्य-क्षेत्र: '+scope : '')+'<br>'+
+      'आपके आवेदन की आंतरिक जाँच प्रक्रियाधीन है।<br>'+
+      '<div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">'+
+        '<button type="button" id="existEditBtn" class="big btn-on">✏️ फ़ॉर्म में बदलाव करें (आगे बढ़ें — वही Registration No रहेगा)</button>'+
+        '<button type="button" id="existCancelBtn" class="big" style="background:#C62828;color:#fff">🗑️ फ़ॉर्म पूर्णतया निरस्त करें</button>'+
+      '</div>';
+    verifyOtpBtn.style.display='none';
+    verifyOtpBtn.parentElement.appendChild(card);
+    document.getElementById('existEditBtn').addEventListener('click', function(){
+      card.remove(); goToStep(2);
+    });
+    document.getElementById('existCancelBtn').addEventListener('click', function(){
+      if(!confirm('क्या आप सचमुच आवेदन '+res.regNo+' पूर्णतया निरस्त करना चाहते हैं? यह वापस नहीं होगा।')) return;
+      var b = document.getElementById('existCancelBtn');
+      b.disabled = true; b.textContent = '⏳ निरस्त हो रहा है…';
+      callOtpFn('cancelApplication', { email: email.value, regNo: res.regNo }).then(function(){
+        card.style.background='#FFEBEE';
+        card.innerHTML = '<b>🗑️ आवेदन '+res.regNo+' निरस्त हुआ।</b><br>अब आप नया फ़ॉर्म भर सकते हैं।'+
+          '<div style="margin-top:12px"><button type="button" id="existFreshBtn" class="big btn-on">📝 नया फ़ॉर्म भरें</button></div>';
+        document.getElementById('existFreshBtn').addEventListener('click', function(){ card.remove(); goToStep(2); });
+      }).catch(function(err){
+        console.error('cancelApplication त्रुटि:', err);
+        b.disabled=false; b.textContent='🗑️ फ़ॉर्म पूर्णतया निरस्त करें';
+        alert('निरस्त नहीं हो पाया — कृपया दोबारा कोशिश करें।');
+      });
+    });
+  }
   verifyOtpBtn.addEventListener('click', function(){
     if(verifyOtpBtn.disabled) return;
     clearOtpError();
@@ -589,7 +641,13 @@
     verifyOtpBtn.disabled = true; verifyOtpBtn.textContent = '⏳ जाँचा जा रहा है…';
     callOtpFn('verifyRegisterOtp', { email: email.value, code: code }).then(function(){
       clearInterval(otpCountdown); clearInterval(resendCountdown);
-      goToStep(2);
+      /* (10-Jul-2026, Founder-नियम) दोहरा-registration रोक:
+         OTP सही होते ही पूछो — क्या इस email का आवेदन पहले से है? */
+      verifyOtpBtn.textContent = '⏳ आवेदन-स्थिति देखी जा रही है…';
+      callOtpFn('checkExistingApplication', { email: email.value }).then(function(res){
+        if(res && res.exists){ showExistingCard(res); }
+        else { goToStep(2); }
+      }).catch(function(){ goToStep(2); });   /* जाँच नाकाम → सामान्य रास्ता, form कभी न रुके */
     }).catch(function(err){
       console.error('verifyRegisterOtp त्रुटि:', err);
       showOtpError(otpFriendlyError(err) || 'OTP ग़लत है — कृपया दोबारा जाँचें।');
@@ -1342,7 +1400,8 @@
       document.getElementById('regNoBox').textContent = lastRegNo;
       var roleLabelS = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
       var osS = officeSummaryText();
-      document.getElementById('chosenBox').innerHTML = '<b>आपने चुना:</b> ' + roleLabelS + (osS ? '<br>' + osS : '');
+      document.getElementById('chosenBox').innerHTML = '<b>आपने चुना:</b> ' + roleLabelS + (osS ? '<br>' + osS : '')
+        + (res.updated ? '<br><span style="color:var(--blue)">ℹ️ आपका पुराना आवेदन इसी Registration No पर अद्यतन (update) हुआ है।</span>' : '');
       for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
       document.getElementById('panelSuccess').classList.add('active');
       window.scrollTo({top:0,behavior:'smooth'});
