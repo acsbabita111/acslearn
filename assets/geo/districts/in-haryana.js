@@ -1,0 +1,1 @@
+window.ACS_GEO_DISTRICTS=window.ACS_GEO_DISTRICTS||{};window.ACS_GEO_DISTRICTS["in-haryana"]=["Ambala","Bhiwani","Charkhi Dadri","Faridabad","Fatehabad","Gurgaon","Hisar","Jhajjar","Jind","Kaithal","Karnal","Kurukshetra","Mahendragarh","Mewat","Palwal","Panchkula","Panipat","Rewari","Rohtak","Sirsa","Sonipat","Yamunanagar"];

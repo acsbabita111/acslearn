@@ -1,0 +1,1 @@
+window.ACS_GEO_DISTRICTS=window.ACS_GEO_DISTRICTS||{};window.ACS_GEO_DISTRICTS["in-lakshadweep-ut"]=["Agatti","Amini","Androth","Bithra","Chethlath","Kadmath","Kalpeni","Kavaratti","Kilthan","Minicoy"];
