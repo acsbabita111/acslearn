@@ -226,7 +226,11 @@
         </div>
       </div>
       <div class="cascade" id="rmOfficeBox">
-        <div class="row"><label>RM कार्यालय चुनें</label><select id="rmOfficeSel"><option value="">— पहले राज्य/देश चुनें —</option></select></div>
+        <!-- (नया नियम 09-Jul-2026) RM = ज़िला-आधारित: 1 ज़िला अनिवार्य, अधिकतम 3
+             (शुरुआत में 3 जिले/RM; टीम बड़ी होने पर 2 या 1 — सिकुड़न approval-स्तर से) -->
+        <div class="row"><label>अपना मुख्य जिला चुनें (अनिवार्य)</label><select id="rmDist1"><option value="">— पहले राज्य/देश चुनें —</option></select></div>
+        <div class="row"><label>जिला-2 (वैकल्पिक)</label><select id="rmDist2"><option value="">— वैकल्पिक —</option></select></div>
+        <div class="row"><label>जिला-3 (वैकल्पिक)</label><select id="rmDist3"><option value="">— वैकल्पिक —</option></select></div>
       </div>
     </div>
 
@@ -274,6 +278,7 @@
       <h2>औपबंधिक रूप से आपका पंजीकरण सफल हुआ</h2>
       <p>आपका पंजीकरण संख्या है:</p>
       <div class="regno" id="regNoBox">ACS-2026-000000</div>
+      <p id="chosenBox" style="font-size:17px;background:#E8F5E9;border:1.5px solid var(--green);border-radius:10px;padding:10px;margin-top:10px"></p>
       <p>अगले <b>2 से 7 कार्य-दिवस</b> में, सभी स्तर से जाँच के बाद आपका पंजीकरण स्थायी कर दिया जाएगा।</p>
       <p style="margin-top:12px">Applied Computer School एवं आपके बीच हुए एग्रीमेंट का PDF यहाँ से डाउनलोड करें:</p>
       <button class="big btn-secondary" id="downloadPdfBtn" type="button">⬇️ एग्रीमेंट PDF डाउनलोड करें</button>
@@ -583,19 +588,46 @@
   var fixedHQ=document.getElementById('fixedHQ');
   var staffLevelBox=document.getElementById('staffLevelBox'), staffLevelSel=document.getElementById('staffLevelSel');
   var stateBox=document.getElementById('stateBox'), stateSel=document.getElementById('stateSel'), stateLabel=document.getElementById('stateLabel');
-  var rmOfficeBox=document.getElementById('rmOfficeBox'), rmOfficeSel=document.getElementById('rmOfficeSel');
+  var rmOfficeBox=document.getElementById('rmOfficeBox');
+  var rmDist1=document.getElementById('rmDist1'), rmDist2=document.getElementById('rmDist2'), rmDist3=document.getElementById('rmDist3');
   var rulesCard=document.getElementById('rulesCard');
 
   function resetCascade(){
     fixedHQ.classList.remove('show');
     staffLevelBox.classList.remove('show'); staffLevelSel.value='';
     stateBox.classList.remove('show'); stateSel.value='';
-    rmOfficeBox.classList.remove('show'); rmOfficeSel.innerHTML='<option value="">— पहले राज्य/देश चुनें —</option>';
+    rmOfficeBox.classList.remove('show');
+    rmDist1.innerHTML='<option value="">— पहले राज्य/देश चुनें —</option>';
+    rmDist2.innerHTML='<option value="">— वैकल्पिक —</option>';
+    rmDist3.innerHTML='<option value="">— वैकल्पिक —</option>';
     rulesCard.style.display='none';
   }
-  function populateRMOffices(stateKey){
-    var list = R.geo.rmOfficesFor(stateKey);
-    rmOfficeSel.innerHTML = '<option value="">— चुनें —</option>' + list.map(function(o){return '<option value="'+o+'">'+o+'</option>';}).join('');
+  /* (नया नियम 09-Jul-2026) RM ज़िला-आधारित — तीनों dropdown में राज्य की पूरी ज़िला-सूची */
+  function populateDistricts(stateKey){
+    var list = R.geo.districtsFor(stateKey);
+    var opts = list.map(function(o){return '<option value="'+o+'">'+o+'</option>';}).join('');
+    rmDist1.innerHTML = '<option value="">— चुनें —</option>' + opts;
+    rmDist2.innerHTML = '<option value="">— वैकल्पिक —</option>' + opts;
+    rmDist3.innerHTML = '<option value="">— वैकल्पिक —</option>' + opts;
+  }
+  /* चुने गए जिले — ख़ाली व दोहराव हटाकर */
+  function chosenDistricts(){
+    return [rmDist1.value, rmDist2.value, rmDist3.value]
+      .filter(function(v,i,a){ return v && a.indexOf(v)===i; });
+  }
+  /* पुष्टि-प्रदर्शन के लिए कार्य-क्षेत्र का सार (Step-4 · success · PDF तीनों में) */
+  function officeSummaryText(){
+    var card = R.byKey(roleSel.value); if(!card) return '';
+    var parts = [];
+    if(card.isHQ) parts.push('कार्यालय: HQ (मुख्यालय)');
+    var lvl = staffLevelSel.value;
+    if(card.hasOfficeLevelCascade && lvl){
+      parts.push('स्तर: ' + ({hq:'HQ (मुख्यालय)', zm:'ZM कार्यालय', rm:'RM कार्यालय'}[lvl] || lvl));
+    }
+    if(stateSel.value) parts.push('राज्य/देश: ' + R.geo.stateLabel(stateSel.value));
+    var ds = chosenDistricts();
+    if(ds.length) parts.push('जिला: ' + ds.join(', '));
+    return parts.join(' · ');
   }
   function officeComplete(){
     var r = roleSel.value;
@@ -607,10 +639,10 @@
       var lvl = staffLevelSel.value; if(!lvl) return false;
       if(lvl==='hq') return true;
       if(lvl==='zm') return !!stateSel.value;
-      if(lvl==='rm') return !!stateSel.value && !!rmOfficeSel.value;
+      if(lvl==='rm') return !!stateSel.value && !!rmDist1.value;
       return false;
     }
-    if(card.needsGeo && card.needsRMOffice) return !!stateSel.value && !!rmOfficeSel.value;
+    if(card.needsGeo && card.needsRMOffice) return !!stateSel.value && !!rmDist1.value;
     if(card.needsGeo) return !!stateSel.value;
     return true; /* कोई office-info नहीं चाहिए (learner, teacher, center, counselor, employer, foreign_agent) */
   }
@@ -636,14 +668,16 @@
   function onStateChange(){
     var r=roleSel.value; var card=R.byKey(r);
     var needsRM = card && (card.needsRMOffice || (card.hasOfficeLevelCascade && staffLevelSel.value==='rm'));
-    if(needsRM && stateSel.value){ populateRMOffices(stateSel.value); rmOfficeBox.classList.add('show'); }
+    if(needsRM && stateSel.value){ populateDistricts(stateSel.value); rmOfficeBox.classList.add('show'); }
     else { rmOfficeBox.classList.remove('show'); }
     maybeLoadRules();
   }
   roleSel.addEventListener('change', onRoleChange);
   staffLevelSel.addEventListener('change', onStaffLevelChange);
   stateSel.addEventListener('change', onStateChange);
-  rmOfficeSel.addEventListener('change', maybeLoadRules);
+  rmDist1.addEventListener('change', maybeLoadRules);
+  rmDist2.addEventListener('change', maybeLoadRules);
+  rmDist3.addEventListener('change', maybeLoadRules);
 
   var rulesLoadedFor = null;
   function maybeLoadRules(){
@@ -1105,7 +1139,11 @@
       '<div><b>जन्मतिथि:</b> '+ (dobEl.value||'—') +'</div>'+
       (isMinorNow() ? '<div><b>Guardian मोबाइल:</b> '+ (guardianMobile.value||'—') +'</div>' : '')+
       '<div><b>ईमेल:</b> '+ (email.value||'—') +'</div>'+
-      '<div><b>रोल:</b> '+ roleLabel +'</div>';
+      /* (v-fix 09-Jul-2026) रोल की पुष्टि उभरे रूप में — ग़लत चुनाव यहीं पकड़ में आए */
+      '<div style="background:#FFF8E1;border:1.5px solid var(--gold);border-radius:8px;padding:8px;margin:6px 0">'+
+        '<div><b>आपने चुना — रोल:</b> '+ roleLabel +'</div>'+
+        (officeSummaryText() ? '<div><b>कार्य-क्षेत्र:</b> '+ officeSummaryText() +'</div>' : '')+
+      '</div>';
     var card = R.byKey(roleSel.value);
     if(card){
       card.fields.forEach(function(f){
@@ -1174,6 +1212,10 @@
       dob: dobEl.value, guardian_mobile: guardianMobile.value,
       password: pwd.value,   /* (रास्ता A) server इसी से Auth-खाता बनाता है — provisional login के लिए */
       role: roleSel.value,
+      /* (v-fix 09-Jul-2026) कार्य-क्षेत्र अब server तक जाए — पहले सिर्फ़ UI में था, भेजा नहीं जाता था (होल-A) */
+      staff_level: staffLevelSel.value || "",
+      state: stateSel.value || "",
+      rm_districts: chosenDistricts(),
       formFields: gatherStep3Data(),
       documents: gatherDocsBase64()
     };
@@ -1181,6 +1223,9 @@
     callOtpFn('submitRegistration', payload).then(function(res){
       lastRegNo = res.regNo;
       document.getElementById('regNoBox').textContent = lastRegNo;
+      var roleLabelS = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
+      var osS = officeSummaryText();
+      document.getElementById('chosenBox').innerHTML = '<b>आपने चुना:</b> ' + roleLabelS + (osS ? '<br>' + osS : '');
       for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
       document.getElementById('panelSuccess').classList.add('active');
       window.scrollTo({top:0,behavior:'smooth'});
@@ -1262,6 +1307,8 @@
     await line('ईमेल: ' + (email.value||'—'), 11);
     var roleLabel = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
     await line('रोल: ' + roleLabel, 11);
+    var osP = officeSummaryText();
+    if(osP) await line('कार्य-क्षेत्र: ' + osP, 11);
     y += 5;
 
     /* ---- पूरा एग्रीमेंट (नियम-पाठ) — जो Step-2 में स्वीकार किया गया ---- */
