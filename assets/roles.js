@@ -18,8 +18,8 @@
    6) हर भूमिका का पूरा नियम-पाठ उसकी अपनी rules-consent-*.html फ़ाइल में — यहाँ सिर्फ़ फ़ाइल-नाम व Step-3 खाने।
 ===================================================================== */
 window.ACS_ROLES = {
-  version: "2.0",
-  updated: "05 July 2026",
+  version: "2.1",
+  updated: "10 July 2026",
 
   /* ---- Learner-समूह (login सिर्फ़ ID+Password) — फ़िलहाल 3, research से बदल सकता है ---- */
   learnerKeys: ("student jobseeker entrepreneur").split(" "),
@@ -88,9 +88,9 @@ window.ACS_ROLES = {
         collection:"teachers", dashboard:"/dashboard/teacher/",
         ruleFile:"rules-consent-teacher.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:["teacher","ustad"],
-        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"),
+        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.address,
           { id:"subject", type:"text", required:true, hi:"विषय / हुनर का क्षेत्र", en:"Subject / Skill area" },
-          { id:"experience", type:"number", min:0, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
+          { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
           F.nomineeName, F.nomineeRel, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
@@ -114,7 +114,7 @@ window.ACS_ROLES = {
         collection:"counselors", dashboard:"/dashboard/counselor/",
         ruleFile:"rules-consent-counselor.html", gateway:true, needsGeo:false, needsRMOffice:false,
         fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"),
-          { id:"experience", type:"number", min:5, required:true, hi:"अनुभव (वर्ष)", en:"Experience (years)", hint_hi:"न्यूनतम 5 वर्ष अनिवार्य" },
+          { id:"experience", type:"number", min:5, max:60, required:true, hi:"अनुभव (वर्ष)", en:"Experience (years)", hint_hi:"न्यूनतम 5 वर्ष अनिवार्य" },
           { id:"specialization", type:"text", required:true, hi:"विशेषज्ञता का विषय", en:"Specialization" }, F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
@@ -231,7 +231,8 @@ window.ACS_ROLES = {
         fields: [ F.nameLocal, F.nameRoman, F.age(14,"18 से कम पर Guardian लिखित सहमति अनिवार्य"),
           F.guardianName, F.guardianRel,
           { id:"referring_officer", type:"text", required:true, hi:"संदर्भ-अधिकारी का नाम", en:"Referring Officer" },
-          { id:"duration_months", type:"number", min:1, required:true, hi:"इंटर्नशिप-अवधि (महीने)", en:"Internship Duration (months)" }, F.emergencyContact1, F.emergencyContact2 ],
+          { id:"duration_months", type:"number", min:1, max:24, required:true, hi:"इंटर्नशिप-अवधि (महीने)", en:"Internship Duration (months)", hint_hi:"1 से 24 महीने" },
+          F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature, F.docGuardianConsent ]
       }
     ];
