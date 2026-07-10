@@ -4,7 +4,7 @@
    ------------------------------------------------------------
    आधार: Founder की 35-पद तालिका (10-Jul-2026 · 11:36 PM)
          + Addendum-प्रविष्टि "संगठन-ढाँचा v2.0" (11-Jul-2026 · 02:44 AM)
-   Version: 1.0 · 11-Jul-2026 · 02:53 AM IST
+   Version: 1.1 · 11-Jul-2026 · 03:04 AM IST — शब्द-सुधार: "ख़ाली" शब्द हटा (पदेन-नियम: कोई पद कभी रिक्त नहीं)
 
    ⚠️ matrix-सुरक्षा नियम (v2.0 प्रविष्टि):
    यह फ़ाइल GitHub पर सार्वजनिक है — सिर्फ़ *दिखाने* के लिए
@@ -18,15 +18,15 @@
 
 const ACS_DESIGNATIONS = {
 
-  version: "1.0",
-  updated: "11-07-2026 · 02:53 AM IST",
+  version: "1.1",
+  updated: "11-07-2026 · 03:04 AM IST",
 
   /* ---------- approval एक-पाइपलाइन (v2.0-ग) ----------
      क्रम: legal → finance → establishment → विभागीय-चौकी → अंतिम मुहर
      विभागीय-चौकी = सिर्फ़ सीधा ऊपर वाला एक (superior field)।
      अंतिम मुहर: final_approval field (founder / hq_admin)।
-     पदेन-प्रभारी नियम: कोई चौकी ख़ाली → उसका immediate superior
-     पदेन प्रभारी (server-side तय)। */
+     पदेन-प्रभारी नियम: कोई पद कभी रिक्त/"ख़ाली" नहीं — मूल धारक न हो
+     तो उसका immediate superior स्वतः पदेन प्रभारी (server-side तय)। */
   pipeline_order: ["hq_legal", "hq_finance", "hq_establishment", "SUPERIOR", "FINAL"],
 
   /* ---------- स्तर (level) ---------- */
@@ -38,7 +38,7 @@ const ACS_DESIGNATIONS = {
 
   /* ============================================================
      भाग-1 — ACS TEAM के पद (teams collection · designation field)
-     status: built = dashboard बना · placeholder = ख़ाली ढाँचा ·
+     status: built = dashboard बना · placeholder = शुरुआती ढाँचा ·
              new = folder भी नहीं (🆕) · shared = साझा dashboard
      ============================================================ */
   teams: [
@@ -121,7 +121,7 @@ const ACS_DESIGNATIONS = {
       level: "hq", qualification: "12th समकक्ष", min_age: 18,
       dashboard: "/dashboard/future/", superior: "hq_admin",
       final_approval: "founder", status: "shared",
-      note: "ख़ाली slot — नया पद बने तो पहले यहीं बैठे" },
+      note: "आरक्षित slot — नया पद बने तो पहले यहीं बैठे" },
 
     /* ---------- नेटवर्क-श्रृंखला (ZM-स्तर) ---------- */
     { key: "continental", label: "Continental Head", label_en: "Continental Head",
