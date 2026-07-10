@@ -10,8 +10,6 @@
 <!-- Firebase SDK (compat) — असली OTP के लिए -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-functions-compat.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
   var firebaseConfig = {
     apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
@@ -1467,7 +1465,7 @@
       for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
       document.getElementById('panelSuccess').classList.add('active');
       window.scrollTo({top:0,behavior:'smooth'});
-      sendAgreementEmailToServer();
+      startServerPdf();   /* (काम-2-ब) PDF अब server पर बनती है — v1.5 PDF-नियम */
     }).catch(function(err){
       console.error('submitRegistration त्रुटि:', err);
       submitErrorBox.textContent = '⚠️ सेव नहीं हो पाया — ' + (err.message || 'फिर कोशिश करें।') + ' (आपकी जानकारी सुरक्षित है, दोबारा Submit दबाएँ)';
@@ -1476,215 +1474,41 @@
     });
   });
 
-  /* ═══════════════ असली PDF — नाम/दिनांक/फ़ॉर्म-जानकारी + upload किए दस्तावेज़ों की फ़ोटो सहित ═══════════════ */
-  /* ═══════ (v1.7) PDF में देवनागरी सही दिखे — browser की असली रेंडरिंग को image बनाकर जोड़ना ═══════
-     Roman/English पंक्तियाँ वैसे ही असली टेक्स्ट रहती हैं (हल्की, select होने योग्य)।
-     देवनागरी वाली पंक्तियाँ html2canvas से "फ़ोटो" बनाकर जोड़ी जाती हैं — इसलिए मात्राएँ/जुड़े-अक्षर
-     बिल्कुल वैसे ही दिखेंगे जैसे screen पर दिखते हैं। सीमा: वह हिस्सा PDF में copy-select नहीं होगा। */
-  function containsDevanagari(t){ return /[\u0900-\u097F]/.test(t); }
-  var _pdfHiddenDiv = null;
-  function getPdfHiddenDiv(){
-    if(_pdfHiddenDiv) return _pdfHiddenDiv;
-    var d = document.createElement('div');
-    d.style.cssText = 'position:fixed;left:-9999px;top:0;background:#fff;color:#000;'+
-      'font-family:"Noto Sans Devanagari",sans-serif;white-space:pre-wrap;line-height:1.5;padding:0;margin:0';
-    document.body.appendChild(d);
-    _pdfHiddenDiv = d;
-    return d;
-  }
-  async function renderDevLineToImage(text, size, bold, maxWidthMm){
-    var div = getPdfHiddenDiv();
-    var pxPerMm = 96/25.4;
-    div.style.width = Math.round(maxWidthMm*pxPerMm) + 'px';
-    div.style.fontSize = Math.round(size*pxPerMm*1.15) + 'px';
-    div.style.fontWeight = bold ? '700' : '400';
-    div.textContent = text;
-    var canvas = await window.html2canvas(div, {scale:3, backgroundColor:'#ffffff', useCORS:true, allowTaint:false});
-    var imgWmm = maxWidthMm;
-    var imgHmm = (canvas.height/canvas.width) * imgWmm;
-    var imgData;
-    try{ imgData = canvas.toDataURL('image/png'); }
-    catch(secErr){ throw new Error('देवनागरी-रेंडर सुरक्षा-त्रुटि (tainted canvas): ' + secErr.message); }
-    return { imgData: imgData, w: imgWmm, h: imgHmm };
+  /* ═══════ (काम-2-ब, v1.5 PDF-नियम) एग्रीमेंट-PDF अब सिर्फ़ server पर बनती है ═══════
+     प्रवाह: submitRegistration सफल → generateAgreementPdf({regNo, email}) → server:
+     Puppeteer से designer A4 PDF → Storage स्थायी प्रति → email attachment → signed pdfUrl।
+     browser-निर्मित PDF (jsPDF/html2canvas) निरस्त — Addendum v1.5 (10-Jul-2026)। */
+  var lastPdfUrl = '';
+  var dlBtn = document.getElementById('downloadPdfBtn');
+  var pdfStatusBox = document.createElement('p');
+  pdfStatusBox.style.cssText = 'font-size:16px;font-weight:700;text-align:center;margin-top:10px';
+  dlBtn.insertAdjacentElement('afterend', pdfStatusBox);
+  function setPdfStatus(msg, color){ pdfStatusBox.textContent = msg; pdfStatusBox.style.color = color || '#555'; }
+
+  function startServerPdf(){
+    if(!firebaseReady()){ setPdfStatus('⚠️ Firebase तैयार नहीं — बाद में नीचे बटन से PDF बनवाएँ।', '#B23A3A'); return; }
+    lastPdfUrl = '';
+    dlBtn.disabled = true; dlBtn.textContent = '⏳ एग्रीमेंट-PDF server पर बन रही है…';
+    setPdfStatus('कृपया प्रतीक्षा करें — 1 से 2 मिनट लग सकते हैं। PDF आपकी email पर भी जाएगी।');
+    firebase.functions().httpsCallable('generateAgreementPdf', { timeout: 180000 })({ regNo: lastRegNo, email: email.value })
+      .then(function(res){
+        var d = res.data || {};
+        lastPdfUrl = d.pdfUrl || '';
+        dlBtn.disabled = false; dlBtn.textContent = '⬇️ एग्रीमेंट PDF डाउनलोड करें';
+        if(d.mailNote === 'sent') setPdfStatus('✅ PDF तैयार — आपकी email पर भी भेज दी गई है।', '#2E7D32');
+        else setPdfStatus('✅ PDF तैयार — नीचे बटन से download करें (email इस बार नहीं जा सकी)।', '#7a5200');
+      })
+      .catch(function(err){
+        dlBtn.disabled = false; dlBtn.textContent = '🔁 PDF दोबारा बनवाएँ';
+        setPdfStatus('⚠️ PDF नहीं बन पाई — ' + (err.message || 'फिर कोशिश करें') + '।', '#B23A3A');
+      });
   }
 
-  async function buildAgreementPdf(){
-    var doc = new window.jspdf.jsPDF();
-    var y = 18;
-    var pageW = doc.internal.pageSize.getWidth();
-    var margin = 15;
-
-    async function line(text, size, bold){
-      size = size || 11;
-      if(containsDevanagari(text)){
-        var res = await renderDevLineToImage(text, size, bold, pageW-2*margin);
-        if(y + res.h > 280){ doc.addPage(); y = 18; }
-        doc.addImage(res.imgData, 'PNG', margin, y, res.w, res.h);
-        y += res.h + 2;
-      } else {
-        doc.setFontSize(size);
-        doc.setFont(undefined, bold?'bold':'normal');
-        var wrapped = doc.splitTextToSize(text, pageW-2*margin);
-        if(y + wrapped.length*size*0.5 > 280){ doc.addPage(); y = 18; }
-        doc.text(wrapped, margin, y);
-        y += (wrapped.length * size * 0.5) + 3;
-      }
-    }
-
-    await line('Applied Computer School (ACS) — पंजीकरण एग्रीमेंट', 16, true);
-    await line('Registration No: ' + lastRegNo, 12, true);
-    var now = new Date();
-    await line('दिनांक/समय: ' + now.toLocaleDateString('en-IN') + ' ' + now.toLocaleTimeString('en-IN'), 10);
-    y += 3;
-
-    await line('नाम (हिंदी): ' + (nameLocal.value||'—'), 11);
-    await line('Name (Roman): ' + (nameRoman.value||'—'), 11);
-    await line('मोबाइल: ' + (mobile.value||'—'), 11);
-    await line('जन्मतिथि: ' + (dobEl.value||'—'), 11);
-    if(isMinorNow()) await line('Guardian मोबाइल: ' + (guardianMobile.value||'—'), 11);
-    await line('ईमेल: ' + (email.value||'—'), 11);
-    var roleLabel = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
-    await line('रोल: ' + roleLabel, 11);
-    var osP = officeSummaryText();
-    if(osP) await line('कार्य-क्षेत्र: ' + osP, 11);
-    y += 5;
-
-    /* ---- पूरा एग्रीमेंट (नियम-पाठ) — जो Step-2 में स्वीकार किया गया ---- */
-    doc.addPage(); y = 18;
-    await line('स्वीकृत नियम, अधिकार व कर्तव्य (पूरा एग्रीमेंट)', 14, true);
-    y += 2;
-    var ruleLabels = rulesContainer.querySelectorAll('.rule label, .part');
-    for(var ri=0; ri<ruleLabels.length; ri++){
-      var relEl = ruleLabels[ri];
-      var isPart = relEl.classList.contains('part');
-      var rtext = relEl.textContent.replace(/\s+/g,' ').trim();
-      if(!rtext) continue;
-      await line(rtext, isPart?12:10, isPart);
-    }
-    y += 5;
-
-    /* ---- पूरा फ़ॉर्म (Step-3 की जानकारी) ---- */
-    doc.addPage(); y = 18;
-    var card = R.byKey(roleSel.value);
-    if(card){
-      await line('अतिरिक्त जानकारी (पूरा फ़ॉर्म):', 12, true);
-      for(var fi=0; fi<card.fields.length; fi++){
-        var f = card.fields[fi];
-        if(f.id==='name_local' || f.id==='name_roman') continue;
-        var el = step3FieldEls[f.id];
-        if(!el) continue;
-        var row = el.closest ? el.closest('.row') : null;
-        if(row && row.style.display==='none') continue;
-        if(!el.value) continue;
-        var val = el.value;
-        if(f.type==='select'){
-          var opt = f.options && f.options.filter(function(o){return o.v===val;})[0];
-          val = opt ? opt.hi : val;
-        }
-        await line('- ' + f.hi + ': ' + val, 10);
-      }
-    }
-
-    y += 5;
-    await line('संलग्न दस्तावेज़:', 12, true);
-    var docs = ((card && card.documents) || []).filter(function(d){ return d.id !== 'doc_signature'; });
-    for(var di=0; di<docs.length; di++){
-      var d = docs[di];
-      var box = docBoxEls[d.id];
-      if(box && box.style.display==='none') continue;
-      var fd = docFiles[d.id];
-      if(!fd){ await line('- ' + d.hi + ': (अपलोड नहीं हुआ)', 10); continue; }
-      await line('- ' + d.hi + ' (' + fd.file.name + '):', 10, true);
-      if(fd.isImage){
-        try{
-          if(y > 200){ doc.addPage(); y = 18; }
-          var imgW = 70, imgH = 70;
-          doc.addImage(fd.dataUrl, margin, y, imgW, imgH);
-          y += imgH + 6;
-        }catch(e){ await line('  (फ़ोटो PDF में जोड़ी नहीं जा सकी: '+e.message+')', 9); }
-      } else {
-        await line('  (PDF/दस्तावेज़ अलग से संलग्न — इस फ़ाइल के साथ जोड़ें: ' + fd.file.name + ')', 9);
-      }
-    }
-
-    /* अंत में — कैंडिडेट का असली हस्ताक्षर + दिनांक/समय (agreements पर हस्ताक्षर-पंक्ति की जगह) */
-    var sigFd = docFiles['doc_signature'];
-    if(y > 220){ doc.addPage(); y = 18; }
-    y += 8;
-    doc.setDrawColor(150); doc.line(margin, y, margin+80, y); y += 2;
-    if(sigFd && sigFd.isImage){
-      try{ doc.addImage(sigFd.dataUrl, margin, y, 60, 25); y += 27; }
-      catch(e){ await line('(हस्ताक्षर जोड़ा नहीं जा सका)', 9); }
-    } else {
-      await line('(हस्ताक्षर अपलोड नहीं हुआ)', 9);
-    }
-    await line('कैंडिडेट का हस्ताक्षर', 10, true);
-    var nowSign = new Date();
-    await line('दिनांक/समय: ' + nowSign.toLocaleDateString('en-IN') + ' ' + nowSign.toLocaleTimeString('en-IN'), 9);
-
-    return doc;
-  }
-
-  document.getElementById('downloadPdfBtn').addEventListener('click', async function(){
-    if(typeof window.jspdf === 'undefined'){ alert('⚠️ PDF-लाइब्रेरी लोड नहीं हो पाई — इंटरनेट जाँचें व दोबारा कोशिश करें।'); return; }
-    if(typeof window.html2canvas === 'undefined'){ alert('⚠️ देवनागरी-रेंडर लाइब्रेरी लोड नहीं हो पाई — इंटरनेट जाँचें व दोबारा कोशिश करें।'); return; }
-    var doc = await buildAgreementPdf();
-    doc.save(lastRegNo + '.pdf');
+  dlBtn.addEventListener('click', function(){
+    if(lastPdfUrl){ window.open(lastPdfUrl, '_blank'); return; }   /* Storage वाली स्थायी PDF */
+    if(!lastRegNo){ alert('पहले registration पूरा करें।'); return; }
+    startServerPdf();   /* नाकामी/देर पर उसी बटन से दोबारा — server उसी path पर बनाता है */
   });
-
-  /* ═══════════════ असली ईमेल — आपकी असली index.js के ठीक उसी Gmail-पैटर्न से (Brevo नहीं) ═══════════════
-     ज़रूरी: functions/index.js में यह नया हिस्सा जोड़ें (मौजूदा OTP-function मिटाएँ नहीं) —
-     ठीक आपके मौजूदा sendMail() जैसा ही ढाँचा, GMAIL_ADDR/GMAIL_PASS दोबारा इस्तेमाल करते हुए:
-
-     async function sendAgreementMail(pass, to, name, regNo, pdfBase64) {
-       const t = nodemailer.createTransport({
-         service: "gmail",
-         auth: { user: GMAIL_ADDR, pass: (pass || "").replace(/\s+/g, "") }
-       });
-       await t.sendMail({
-         from: '"ACS — Applied Computer School" <' + GMAIL_ADDR + '>',
-         to,
-         subject: "ACS पंजीकरण एग्रीमेंट — " + regNo,
-         text: (name||"") + " जी, आपका ACS पंजीकरण एग्रीमेंट (पूरा नियम-पाठ, फ़ॉर्म व संलग्न दस्तावेज़ सहित) इस ईमेल के साथ जुड़ा है। Registration No: " + regNo,
-         attachments: [{ filename: regNo + ".pdf", content: Buffer.from(pdfBase64, "base64") }],
-       });
-     }
-
-     exports.sendAgreementEmail = onCall(OPTS, (req) => {
-       const { email, name, regNo, pdfBase64 } = req.data;
-       if (!email || !pdfBase64) throw new HttpsError("invalid-argument", "email व pdfBase64 ज़रूरी");
-       return sendAgreementMail(GMAIL_PASS.value(), email, name, regNo, pdfBase64).then(() => ({ ok: true }));
-     });
-
-     ⚠️ ध्यान: Gmail से एक ईमेल पर लगभग 25MB तक की सीमा होती है (attachment base64 में करीब 33% बड़ा हो जाता है)।
-     बहुत सारी बड़ी-साइज़ फ़ोटो अपलोड होने पर PDF इससे बड़ी हो सकती है — client-side फ़ोटो-संकुचन (compression) से यह जोखिम कम किया गया है।
-  */
-  async function sendAgreementEmailToServer(){
-    if(!firebaseReady()){ console.warn('Firebase तैयार नहीं — ईमेल नहीं भेजी जा सकी।'); return; }
-    if(typeof window.jspdf === 'undefined' || typeof window.html2canvas === 'undefined'){
-      console.warn('⚠️ PDF/देवनागरी-रेंडर लाइब्रेरी लोड नहीं हो पाई — एग्रीमेंट-ईमेल इस बार नहीं भेजी जा सकी। (डेटा सुरक्षित है — बाद में Download-बटन से PDF मिल जाएगी।)');
-      return;
-    }
-    var doc, pdfBase64;
-    try{
-      doc = await buildAgreementPdf();
-      pdfBase64 = doc.output('datauristring').split(',')[1]; // "data:application/pdf;base64,...." से सिर्फ़ base64-हिस्सा
-    }catch(e){
-      console.error('PDF बनाने में त्रुटि — एग्रीमेंट-ईमेल नहीं भेजी जा सकी:', e.message);
-      return;
-    }
-    if(!pdfBase64 || pdfBase64.length < 2000){
-      console.error('⚠️ बनी हुई PDF असामान्य रूप से छोटी है ('+(pdfBase64?pdfBase64.length:0)+' अक्षर) — ईमेल नहीं भेजी गई। दोबारा कोशिश करें।');
-      return;
-    }
-    callOtpFn('sendAgreementEmail', {
-      email: email.value, name: nameRoman.value, regNo: lastRegNo, pdfBase64: pdfBase64
-    }).then(function(){
-      console.log('✅ एग्रीमेंट-ईमेल भेजी गई');
-    }).catch(function(err){
-      console.warn('⚠️ एग्रीमेंट-ईमेल नहीं भेजी जा सकी:', err.message);
-    });
-  }
 
   /* पहली बार साफ़ स्थिति */
   document.getElementById('panelSuccess').classList.remove('active');
