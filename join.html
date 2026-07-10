@@ -528,6 +528,9 @@
   email.addEventListener('input', validateStep1);
   dobEl.addEventListener('input', updateGuardianVisibility);
   dobEl.addEventListener('change', updateGuardianVisibility);
+  /* (10-Jul-2026, form-logic) जन्मतिथि बदली → उम्र-खाना अपने-आप दोबारा गिने */
+  dobEl.addEventListener('input', function(){ if(window._syncAgeFromDob) window._syncAgeFromDob(); });
+  dobEl.addEventListener('change', function(){ if(window._syncAgeFromDob) window._syncAgeFromDob(); });
   guardianMobile.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); validateStep1(); });
   pwd.addEventListener('input', checkPwd);
   pwd2.addEventListener('input', function(){ checkMatch(); validateStep1(); });
@@ -1174,6 +1177,20 @@
       };
       ageEl.addEventListener('input', window._toggleMinor);
       window._toggleMinor(); /* शुरुआती स्थिति (fields के लिए तुरंत; documents अभी तक न बने हों तो बाद में दोबारा नीचे sync होगा) */
+
+      /* (10-Jul-2026, form-logic) जन्मतिथि = एकमात्र सच — उम्र-खाना हाथ से कभी नहीं भरेगा:
+         जन्मतिथि से अपने-आप गिनकर भरे (locked)। ग़लत उम्र दिखे तो आवेदक अपनी
+         जन्मतिथि ख़ुद जाँचेगा — यही मुफ़्त cross-check है। */
+      ageEl.readOnly = true;
+      ageEl.style.background = '#eef2f7';
+      ageEl.placeholder = 'जन्मतिथि भरते ही अपने-आप आ जाएगी';
+      window._syncAgeFromDob = function(){
+        var a = computeAge(dobEl.value);
+        ageEl.value = (a===null || a<0) ? '' : String(a);
+        if(window._toggleMinor) window._toggleMinor();
+        validateStep3();
+      };
+      window._syncAgeFromDob();
     }
     validateStep3();
   }
@@ -1438,6 +1455,25 @@
 
   document.getElementById('submitBtn').addEventListener('click', function(){
     submitErrorBox.style.display = 'none';
+
+    /* (10-Jul-2026, form-logic) cross-check — भेजने से पहले browser पर ही पकड़:
+       आपातकालीन संपर्क व Guardian-नंबर में आवेदक का अपना नंबर नहीं चल सकता। */
+    var ownD = (mobile.value || '').replace(/\D/g, '');
+    var s3 = gatherStep3Data();
+    var ec1D = String(s3.emergency_contact_1 || '').replace(/\D/g, '');
+    var ec2D = String(s3.emergency_contact_2 || '').replace(/\D/g, '');
+    var gmD = (guardianMobile.value || '').replace(/\D/g, '');
+    if (ownD && (ec1D.indexOf(ownD) !== -1 || ec2D.indexOf(ownD) !== -1)) {
+      submitErrorBox.textContent = '⚠️ आपातकालीन संपर्क में अपना ही mobile-नंबर नहीं चल सकता — किसी और (परिवार/मित्र) का नंबर दें।';
+      submitErrorBox.style.display = 'block'; window.scrollTo({top: submitErrorBox.offsetTop - 80, behavior: 'smooth'});
+      return;
+    }
+    if (ownD && gmD && gmD === ownD) {
+      submitErrorBox.textContent = '⚠️ Guardian का mobile आवेदक के अपने mobile से अलग होना चाहिए।';
+      submitErrorBox.style.display = 'block'; window.scrollTo({top: submitErrorBox.offsetTop - 80, behavior: 'smooth'});
+      return;
+    }
+
     submitBtn.disabled = true; submitBtn.textContent = '⏳ सेव किया जा रहा है…';
 
     var payload = {
