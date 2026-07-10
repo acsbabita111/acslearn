@@ -358,6 +358,12 @@
   function emailValid(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
   var nameLocal=document.getElementById('nameLocal'), nameRoman=document.getElementById('nameRoman'), nameBad=document.getElementById('nameBad');
+  /* (10-Jul-2026, form-logic) नाम-घालमेल बंद, ताला-1: Roman-खाने में सिर्फ़ A-Z व space —
+     देवनागरी/अंक/चिह्न टाइप या paste होते ही तुरंत हटें */
+  nameRoman.addEventListener('input', function(){
+    var v = this.value.toUpperCase().replace(/[^A-Z ]/g,'');
+    if(v !== this.value) this.value = v;
+  });
   var mobile=document.getElementById('mobile'), mobileBad=document.getElementById('mobileBad');
   var email=document.getElementById('email'), emailBad=document.getElementById('emailBad');
   /* ═══════ (v1.6) नाम — Roman(छोटे/बड़े अक्षर) → देवनागरी, phonetic अनुमान ═══════
@@ -380,6 +386,12 @@
     for(var k=0;k<list.length;k++){ if(s.substr(i,list[k][0].length)===list[k][0]) return list[k]; }
     return null;
   }
+  /* (10-Jul-2026, form-logic) ताला-2 का सन्देश-row (nameLocal के ठीक नीचे) */
+  var localBadRow = document.createElement('div');
+  localBadRow.style.cssText = 'display:none;color:#B23A3A;font-size:16px;font-weight:700;margin:-8px 0 10px';
+  localBadRow.textContent = '⚠️ यह नाम हिंदी (देवनागरी) में होना चाहिए — नीचे English खाने में लिखेंगे तो यह अपने-आप बन जाएगा।';
+  nameLocal.insertAdjacentElement('afterend', localBadRow);
+
   function toDevanagari(s){
     var i=0, out='', n=s.length;
     while(i<n){
@@ -451,7 +463,10 @@
       nameLocal.value = hi; nameLocalAuto = false; validateStep1();
     }).catch(function(){
       if(nameLocal.value !== v) return;
-      nameLocal.value = toDevanagari(v); nameLocalAuto = false; validateStep1();   /* offline-fallback */
+      /* (10-Jul-2026, form-logic) ताला-3: अक्षर-दर-अक्षर offline-fallback (garbler) निरस्त —
+         API न चले तो Roman जस-का-तस रहे; ताला-2 का gate आगे बढ़ने से रोक देगा
+         और user को साफ़ सन्देश दिखेगा। कचरा-देवनागरी अब कभी नहीं बनेगी। */
+      validateStep1();
     });
   }
 
@@ -504,7 +519,11 @@
     var minor = isMinorNow();
     if(minor && guardianMobile.value && !mobileValid(guardianMobile.value)) guardianBad.classList.add('show'); else guardianBad.classList.remove('show');
     var guardianOk = !minor || mobileValid(guardianMobile.value);
-    var ok = nameLocal.value.trim().length>0 && romanValid(nameRoman.value) && mobileValid(mobile.value)
+    /* (10-Jul-2026, form-logic) ताला-2: हिंदी-नाम में देवनागरी हो और A-Z न बचा हो —
+       वरना OTP-बटन बंद (transliteration API न चले तो user ख़ुद देवनागरी लिखे) */
+    var devOk = /[\u0900-\u097F]/.test(nameLocal.value) && !/[A-Za-z0-9]/.test(nameLocal.value);
+    if(nameLocal.value.trim() && !devOk){ localBadRow.style.display='block'; } else { localBadRow.style.display='none'; }
+    var ok = nameLocal.value.trim().length>0 && devOk && romanValid(nameRoman.value) && mobileValid(mobile.value)
       && emailValid(email.value) && !!dobEl.value && guardianOk
       && pwdAllOk() && pwd.value===pwd2.value && pwd.value.length>0;
     sendOtpBtn.className = 'big ' + (ok?'btn-on':'btn-off'); sendOtpBtn.disabled = !ok;
