@@ -6,8 +6,9 @@
 <meta name="robots" content="noindex"/>
 <title>Admin Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-4)
-     v2.1 · 11-Jul-2026 — टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
+     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-5 — अंतिम)
+     v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
+     पिछला: टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
      पिछला: approve/reject बटन (server: approveApplication/rejectApplication)
      + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
      + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
@@ -218,15 +219,32 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
         <div class="pd">दायरे के सदस्य — hold-बटन v1.4 नियम से (कारण अनिवार्य; un-hold ऊपर वाले का हक़)। Transfer व Leave-delegation की जगह आरक्षित — batch-दौर में चालू।</div>
         <div id="teamList" class="note">सदस्य लाए जा रहे हैं…</div>
       </div>
-      <div class="pcard">
+      <div class="pcard" style="grid-column:1/-1">
         <div class="ph">🗂️ काम-पैनल</div>
-        <div class="pd">आपको मिला काम — पूरा · चालू · pending।</div>
-        <span class="soon">चरण-5 में चालू</span>
+        <div class="pd">काम सौंपें (सिर्फ़ अपने से नीचे वाले को) व मिले काम की स्थिति बदलें — pending → चालू → पूरा।</div>
+        <div style="margin-top:10px">
+          <select id="tMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+          <input id="tTitle" placeholder="काम का शीर्षक" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;width:100%;margin-top:8px"/>
+          <button class="abtn ok" style="margin-top:8px" id="tAssign">➕ काम सौंपें</button>
+          <div class="msg" id="tMsg"></div>
+        </div>
+        <div id="taskList" class="note" style="margin-top:10px">काम लाए जा रहे हैं…</div>
       </div>
-      <div class="pcard">
+      <div class="pcard" style="grid-column:1/-1">
         <div class="ph">📊 रिपोर्ट-चक्र</div>
-        <div class="pd">दैनिक · साप्ताहिक · पाक्षिक · मासिक · त्रैमासिक · अर्धवार्षिक · वार्षिक — Founder को भेजना।</div>
-        <span class="soon">चरण-5 में चालू</span>
+        <div class="pd">सात चक्र — अपने से ऊपर (Founder) को भेजें। भेजी रिपोर्टें नीचे।</div>
+        <div style="margin-top:10px">
+          <select id="rCycle" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px">
+            <option value="daily">दैनिक</option><option value="weekly">साप्ताहिक</option>
+            <option value="fortnightly">पाक्षिक</option><option value="monthly">मासिक</option>
+            <option value="quarterly">त्रैमासिक</option><option value="halfyearly">अर्धवार्षिक</option>
+            <option value="yearly">वार्षिक</option>
+          </select>
+          <textarea id="rText" placeholder="रिपोर्ट-सामग्री" style="width:100%;min-height:80px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px;margin-top:8px"></textarea>
+          <button class="abtn ok" style="margin-top:8px" id="rSend">📤 रिपोर्ट भेजें</button>
+          <div class="msg" id="rMsg"></div>
+        </div>
+        <div id="repList" class="note" style="margin-top:10px">रिपोर्टें लाई जा रही हैं…</div>
       </div>
     </div>
 
@@ -316,6 +334,8 @@ onAuthStateChanged(auth, async (user)=>{
   loadApplications();
   /* ── [P2] टीम-पैनल + पदेन-प्रभार ── */
   loadTeamPanel(desig);
+  /* ── [P3] काम व रिपोर्ट ── */
+  loadTasks(); loadReports();
 
   /* ── single-session (v1.2 नियम): sessions/{uid} सुनो ── */
   startSessionWatch(user);
@@ -501,6 +521,8 @@ async function loadTeamPanel(myDesig){
       '<div class="note">इन पदों की चौकी/काम अभी आपके पदेन प्रभार में — धारक आते ही अपने-आप वापस।</div>'
     : '<span class="note">अभी कोई पदेन प्रभार नहीं — आपके नीचे के सब पद भरे हैं।</span>';
 
+  TEAM_MEMBERS = members;
+  fillMemberSelect();
   members.sort((a,b)=> String(a.designation||"").localeCompare(String(b.designation||"")));
   listEl.innerHTML = "";
   if(members.length===0){ listEl.textContent="कोई टीम-सदस्य record नहीं।"; return; }
@@ -526,7 +548,7 @@ async function loadTeamPanel(myDesig){
     el.innerHTML =
       '<div class="r1"><span class="nm">'+(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
       + '<span class="pill">'+mxLabel(d)+'</span>'+stChip
-      + (m.level?'<span class="chip lvl">'+String(m.level).toUpperCase()+'</span>':'')+'</div>'
+      + (m.level && String(m.level).toUpperCase()!==mxLabel(d).toUpperCase() ? '<span class="chip lvl">'+String(m.level).toUpperCase()+'</span>':'')+'</div>'
       + (holdRec?'<div class="hres">कारण: '+(holdRec.reason||"—")+'</div>':'')
       + acts;
     listEl.appendChild(el);
@@ -559,6 +581,89 @@ document.addEventListener("click", async (ev)=>{
   }catch(e){
     b.disabled=false;
     if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);}
+  }
+});
+
+/* ═══ [P3] काम-पैनल + रिपोर्ट-चक्र ═══ */
+const CYCLE_HI = {daily:"दैनिक",weekly:"साप्ताहिक",fortnightly:"पाक्षिक",monthly:"मासिक",quarterly:"त्रैमासिक",halfyearly:"अर्धवार्षिक",yearly:"वार्षिक"};
+let TEAM_MEMBERS = [];
+function fillMemberSelect(){
+  const sel = $("tMem"); if(!sel) return;
+  sel.innerHTML = TEAM_MEMBERS
+    .filter(m=>String(m.designation||"").toLowerCase()!=="founder" && !(auth.currentUser && m._uid===auth.currentUser.uid))
+    .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+}
+async function loadTasks(){
+  const el = $("taskList"); if(!el) return;
+  try{
+    const qs = await getDocs(collection(db,"tasks"));
+    const uid = auth.currentUser ? auth.currentUser.uid : "";
+    let rows = []; qs.forEach(d=>{ const t=d.data(); t._id=d.id; rows.push(t); });
+    rows.sort((a,b)=>((b.at&&b.at.toMillis)?b.at.toMillis():0)-((a.at&&a.at.toMillis)?a.at.toMillis():0));
+    if(rows.length===0){ el.innerHTML='<span class="note">अभी कोई काम दर्ज नहीं।</span>'; return; }
+    el.innerHTML = rows.map(t=>{
+      const mine = (t.to===uid);
+      const st = t.status||"pending";
+      const stChip = st==="done" ? '<span class="chip appr">✅ पूरा</span>' : st==="ongoing" ? '<span class="chip prov">🔵 चालू</span>' : '<span class="chip off">⏳ pending</span>';
+      const who = mine ? '(मुझे मिला)' : '(मैंने सौंपा → '+mxLabel(String(t.to_designation||"").toLowerCase())+')';
+      const btns = (st!=="done")
+        ? '<div class="acts">'
+          + (st==="pending"?'<button class="abtn ok" data-tact="ongoing" data-tid="'+t._id+'">▶️ चालू करें</button>':'')
+          + '<button class="abtn ok" data-tact="done" data-tid="'+t._id+'">✅ पूरा</button></div>'
+        : '';
+      return '<div class="mem"><div class="r1"><span class="nm">'+(t.title||"—")+'</span>'+stChip+'<span class="rg">'+who+'</span></div>'
+        + (t.detail?'<div class="r2">'+t.detail+'</div>':'')
+        + btns + '<div class="msg" id="tmsg-'+t._id+'"></div></div>';
+    }).join("");
+  }catch(e){ el.textContent="काम-सूची नहीं खुली — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
+}
+async function loadReports(){
+  const el = $("repList"); if(!el) return;
+  try{
+    const qs = await getDocs(collection(db,"reports"));
+    let rows=[]; qs.forEach(d=>{ const t=d.data(); rows.push(t); });
+    rows.sort((a,b)=>((b.at&&b.at.toMillis)?b.at.toMillis():0)-((a.at&&a.at.toMillis)?a.at.toMillis():0));
+    if(rows.length===0){ el.innerHTML='<span class="note">अभी कोई रिपोर्ट नहीं।</span>'; return; }
+    el.innerHTML = rows.slice(0,20).map(t=>
+      '<div class="mem"><div class="r1"><span class="pill">'+(CYCLE_HI[t.cycle]||t.cycle)+'</span>'
+      +'<span class="rg">'+fmtDate(t.at)+' · '+mxLabel(String(t.by_designation||"").toLowerCase())+'</span></div>'
+      +'<div class="r2">'+(t.text||"")+'</div></div>').join("");
+  }catch(e){ el.textContent="रिपोर्टें नहीं खुलीं — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
+}
+document.addEventListener("click", async (ev)=>{
+  const tb = ev.target.closest("[data-tact]");
+  if(tb){
+    const msg=$("tmsg-"+tb.getAttribute("data-tid"));
+    tb.disabled=true;
+    try{
+      await httpsCallable(functions,"updateTaskStatus")({taskId:tb.getAttribute("data-tid"), status:tb.getAttribute("data-tact")});
+      await loadTasks();
+    }catch(e){ tb.disabled=false; if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);} }
+    return;
+  }
+  if(ev.target && ev.target.id==="tAssign"){
+    const b=ev.target, msg=$("tMsg");
+    const uid=$("tMem").value, title=($("tTitle").value||"").trim();
+    if(!uid || !title){ msg.className="msg err"; msg.textContent="सदस्य व शीर्षक दोनों ज़रूरी।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="सौंपा जा रहा है…";
+    try{
+      await httpsCallable(functions,"assignTask")({targetUid:uid, title:title});
+      msg.className="msg ok"; msg.textContent="✅ काम सौंपा गया।"; $("tTitle").value="";
+      await loadTasks();
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="rSend"){
+    const b=ev.target, msg=$("rMsg");
+    const cycle=$("rCycle").value, text=($("rText").value||"").trim();
+    if(!text){ msg.className="msg err"; msg.textContent="रिपोर्ट-सामग्री लिखें।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="भेजी जा रही है…";
+    try{
+      await httpsCallable(functions,"submitReport")({cycle:cycle, text:text});
+      msg.className="msg ok"; msg.textContent="📤 रिपोर्ट दर्ज — Founder तक (batch-दौर में उनके पैनल पर भी दिखेगी)।"; $("rText").value="";
+      await loadReports();
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
   }
 });
 
