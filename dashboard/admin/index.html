@@ -7,7 +7,7 @@
 <title>Admin Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
      ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-2)
-     v1.1 · 11-Jul-2026 — आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
+     v1.2 · 11-Jul-2026 — नाम-fix (name_local/name_roman) + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
      + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
      --------------------------------------------------------------
      यही फ़ाइल बाक़ी 24 dashboards का नमूना (मास्टर टेम्पलेट) है।
@@ -267,7 +267,7 @@ onAuthStateChanged(auth, async (user)=>{
   $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (provisional)");
 
   /* ── [T4] प्रोफ़ाइल — teams से ── */
-  $("pName").textContent  = team.name || team.fullName || "—";
+  $("pName").textContent  = team.name_local || team.name_roman || team.name || team.fullName || "—";
   $("pLevel").textContent = (team.level||"—").toUpperCase();
   const area = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
   $("pArea").textContent  = area || "—";
@@ -390,7 +390,7 @@ function drawApps(){
     const el = document.createElement("div");
     el.className = "app";
     el.innerHTML =
-      '<div class="r1"><span class="nm">'+(a.name||a.fullName||"—")+'</span>'+
+      '<div class="r1"><span class="nm">'+(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
       '<span class="rg">('+(a.regNo||a._id)+')</span>'+stChip+
       '<span class="chip lvl">'+lvl+'</span></div>'+
       '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+area):'')+(a.email?(' · ✉️ '+a.email):'')+'</div>'+
