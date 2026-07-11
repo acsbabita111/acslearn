@@ -6,8 +6,9 @@
 <meta name="robots" content="noindex"/>
 <title>Admin Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-1)
-     v1.0 · 11-Jul-2026
+     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-2)
+     v1.1 · 11-Jul-2026 — आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
+     + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
      --------------------------------------------------------------
      यही फ़ाइल बाक़ी 24 dashboards का नमूना (मास्टर टेम्पलेट) है।
      हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
@@ -90,6 +91,27 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .pcard .pd{font-size:17px;color:var(--gray);line-height:1.7}
 .soon{display:inline-block;margin-top:10px;background:var(--offwhite);border:1px dashed var(--gray);color:var(--gray);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:700}
 
+/* [P1] आवेदन-सूची */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ftab{background:var(--offwhite);border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;color:var(--gray);cursor:pointer}
+.ftab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.applist{display:flex;flex-direction:column;gap:10px}
+.app{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite)}
+.app .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.app .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.app .rg{font-size:16px;font-weight:700;color:var(--gray)}
+.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800}
+.chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.chip.lvl{background:#fff;color:var(--blue);border:1px solid var(--border)}
+.app .r2{font-size:16px;color:var(--gray);margin-top:4px}
+.app .more{margin-top:8px;display:none}
+.app.open .more{display:block}
+.app .mrow{font-size:17px;margin-top:2px}
+.app .mrow b{color:var(--navy)}
+.app .vbtn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
+
 /* ═══ [T6] footer ═══ */
 .foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
 </style>
@@ -152,10 +174,16 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 
     <!-- [T5] पैनल-जाल — मास्टर टेम्पलेट के 4 पैनल + पदेन-पट्टी -->
     <div class="pnl">
-      <div class="pcard">
+      <div class="pcard" style="grid-column:1/-1">
         <div class="ph">📥 आवेदन-पैनल</div>
-        <div class="pd">आपके दायरे के आवेदन — RM-स्तर के सभी + ZM-office के कर्मी (अंतिम मुहर आपकी)। हर आवेदन पर: view · review · approve · reject (कारण) · hold · stop · return · required-documents।</div>
-        <span class="soon">चरण-2 में सूची · चरण-3 में बटन</span>
+        <div class="pd">आपके दायरे के आवेदन (अंतिम मुहर आपकी: RM-स्तर के सभी + ZM-office के कर्मी)। अभी सिर्फ़ देखना — approve/reject बटन चरण-3 में।</div>
+        <div class="ftabs" id="ftabs">
+          <button class="ftab on" data-f="all">सब</button>
+          <button class="ftab" data-f="provisional">⏳ जाँच में</button>
+          <button class="ftab" data-f="approved">✅ स्वीकृत</button>
+          <button class="ftab" data-f="cancelled">🗑️ निरस्त</button>
+        </div>
+        <div class="applist" id="appList"><div class="note">आवेदन लाए जा रहे हैं…</div></div>
       </div>
       <div class="pcard">
         <div class="ph">🧭 पदेन-प्रभार</div>
@@ -236,7 +264,6 @@ onAuthStateChanged(auth, async (user)=>{
   if(!isActive) $("provBar").classList.add("on");
 
   /* ── topbar व pill ── */
-  $("tbRole").textContent = mxLabel(desig) + " Dashboard";
   $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (provisional)");
 
   /* ── [T4] प्रोफ़ाइल — teams से ── */
@@ -250,11 +277,20 @@ onAuthStateChanged(auth, async (user)=>{
   show("appView");
 
   /* ── registration-ब्योरा (regNo · दस्तावेज़ · सफ़र) — विफल हो तो dashboard न रुके ── */
-  loadRegistration(user).catch(()=>{
-    $("pReg").textContent = "—";
-    $("docNote").textContent = "आवेदन-ब्योरा अभी server-नियम से बंद है — चरण-3 में खुलेगा।";
-    drawTimeline(desig, null);
-  });
+  if(desig==="founder"){
+    $("tlWrap").innerHTML = '<div class="note" style="font-size:18px;font-weight:700;color:var(--navy)">👑 Founder — सर्वोच्च; कोई approval-सफ़र लागू नहीं (नियम-4)।</div>';
+    $("tlNote").textContent = "";
+    $("docNote").textContent = "Founder-खाते पर आवेदन-record लागू नहीं।";
+  } else {
+    loadRegistration(user).catch(()=>{
+      $("pReg").textContent = "—";
+      $("docNote").textContent = "आवेदन-ब्योरा नहीं खुला — network/नियम जाँचें।";
+      drawTimeline(desig, null);
+    });
+  }
+
+  /* ── [P1] आवेदन-पैनल की सूची — registrations से (सिर्फ़ पढ़ना) ── */
+  loadApplications();
 
   /* ── single-session (v1.2 नियम): sessions/{uid} सुनो ── */
   startSessionWatch(user);
@@ -294,6 +330,7 @@ async function loadRegistration(user){
 
 /* ═══ approval-सफ़र timeline — चौकियाँ matrix से, स्थिति status से ═══ */
 function drawTimeline(desigKey, reg){
+  if(desigKey==="founder") return;
   const me = desigKey || "hq_admin";
   const row = mxRow(me) || {};
   const chain = ["hq_legal","hq_finance","hq_establishment"];
@@ -313,6 +350,64 @@ function drawTimeline(desigKey, reg){
   });
   $("tlNote").textContent = approved ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।";
 }
+
+/* ═══ [P1] आवेदन-सूची — registrations (एकमात्र सही स्रोत), सिर्फ़ पढ़ना ═══ */
+let APPS = [], FILTER = "all";
+async function loadApplications(){
+  const box = $("appList");
+  try{
+    const qs = await getDocs(collection(db,"registrations"));
+    APPS = [];
+    qs.forEach(d=>{ const r=d.data(); r._id=d.id; APPS.push(r); });
+    APPS.sort((a,b)=>{
+      const ta=(a.createdAt&&a.createdAt.toMillis)?a.createdAt.toMillis():0;
+      const tb=(b.createdAt&&b.createdAt.toMillis)?b.createdAt.toMillis():0;
+      return tb-ta;
+    });
+    drawApps();
+  }catch(e){
+    box.innerHTML = '<div class="note">सूची नहीं खुली — rules-deploy व login-भूमिका जाँचें। (' + (e.code||"") + ')</div>';
+  }
+}
+function fmtDate(ts){
+  try{ const d=(ts&&ts.toDate)?ts.toDate():null; if(!d) return "—";
+    return d.getDate().toString().padStart(2,"0")+"-"+(d.getMonth()+1).toString().padStart(2,"0")+"-"+d.getFullYear();
+  }catch(e){ return "—"; }
+}
+function drawApps(){
+  const box = $("appList"); box.innerHTML = "";
+  const list = APPS.filter(a=> FILTER==="all" ? true : (a.status||"")===FILTER);
+  if(list.length===0){ box.innerHTML = '<div class="note">इस श्रेणी में कोई आवेदन नहीं।</div>'; return; }
+  list.forEach(a=>{
+    const st = a.status||"provisional";
+    const stChip = st==="approved" ? '<span class="chip appr">✅ स्वीकृत</span>'
+                 : st==="cancelled" ? '<span class="chip canc">🗑️ निरस्त</span>'
+                 : '<span class="chip prov">⏳ जाँच में</span>';
+    const lvl = (a.staff_level||a.role||"—").toString().toUpperCase();
+    const area = [a.country,a.state,(a.rm_districts&&a.rm_districts.join)?a.rm_districts.join(", "):a.rm_districts].filter(Boolean).join(" · ");
+    const docs = a.documents||a.docs||{};
+    const docLinks = Object.keys(docs).map(k=>'<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+docs[k]+'">📄 '+k+'</a>').join("") || '<span class="note">कोई दस्तावेज़-link नहीं</span>';
+    const el = document.createElement("div");
+    el.className = "app";
+    el.innerHTML =
+      '<div class="r1"><span class="nm">'+(a.name||a.fullName||"—")+'</span>'+
+      '<span class="rg">('+(a.regNo||a._id)+')</span>'+stChip+
+      '<span class="chip lvl">'+lvl+'</span></div>'+
+      '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+area):'')+(a.email?(' · ✉️ '+a.email):'')+'</div>'+
+      '<div class="more"><div class="mrow"><b>Mobile:</b> '+(a.phone||a.mobile||"—")+'</div>'+
+      '<div class="mrow"><b>दस्तावेज़:</b><br/>'+docLinks+'</div>'+
+      '<div class="note">approve/reject/hold/return बटन — चरण-3 (server-approval) में।</div></div>'+
+      '<button class="vbtn">👁️ view</button>';
+    el.querySelector(".vbtn").addEventListener("click",()=>{ el.classList.toggle("open"); });
+    box.appendChild(el);
+  });
+}
+document.addEventListener("click",(ev)=>{
+  const t = ev.target.closest(".ftab"); if(!t) return;
+  FILTER = t.getAttribute("data-f");
+  document.querySelectorAll(".ftab").forEach(b=>b.classList.toggle("on", b===t));
+  drawApps();
+});
 
 /* ═══ single-session: sessions/{uid}.activeSession बदले तो logout ═══ */
 async function startSessionWatch(user){
