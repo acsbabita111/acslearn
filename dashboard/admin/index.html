@@ -6,8 +6,9 @@
 <meta name="robots" content="noindex"/>
 <title>Admin Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-2)
-     v1.2 · 11-Jul-2026 — नाम-fix (name_local/name_roman) + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
+     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-3)
+     v2.0 · 11-Jul-2026 — approve/reject बटन (server: approveApplication/rejectApplication)
+     + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
      + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
      --------------------------------------------------------------
      यही फ़ाइल बाक़ी 24 dashboards का नमूना (मास्टर टेम्पलेट) है।
@@ -104,6 +105,16 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
 .chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
 .chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.chip.rej{background:#FFF3E0;color:#B71C1C;border:1px solid #F9A825}
+.acts{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff}
+.abtn.ok{background:var(--green)} .abtn.no{background:#B71C1C}
+.abtn:disabled{opacity:.55;cursor:wait}
+.rejbox{display:none;margin-top:8px;width:100%}
+.rejbox.on{display:block}
+.rejbox textarea{width:100%;min-height:70px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px}
+.msg{font-size:16px;font-weight:700;margin-top:6px}
+.msg.ok{color:var(--green)} .msg.err{color:#B71C1C}
 .chip.lvl{background:#fff;color:var(--blue);border:1px solid var(--border)}
 .app .r2{font-size:16px;color:var(--gray);margin-top:4px}
 .app .more{margin-top:8px;display:none}
@@ -181,6 +192,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
           <button class="ftab on" data-f="all">सब</button>
           <button class="ftab" data-f="provisional">⏳ जाँच में</button>
           <button class="ftab" data-f="approved">✅ स्वीकृत</button>
+          <button class="ftab" data-f="rejected">⚠️ अस्वीकृत</button>
           <button class="ftab" data-f="cancelled">🗑️ निरस्त</button>
         </div>
         <div class="applist" id="appList"><div class="note">आवेदन लाए जा रहे हैं…</div></div>
@@ -382,11 +394,28 @@ function drawApps(){
     const st = a.status||"provisional";
     const stChip = st==="approved" ? '<span class="chip appr">✅ स्वीकृत</span>'
                  : st==="cancelled" ? '<span class="chip canc">🗑️ निरस्त</span>'
+                 : st==="rejected" ? '<span class="chip rej">⚠️ अस्वीकृत</span>'
                  : '<span class="chip prov">⏳ जाँच में</span>';
     const lvl = (a.staff_level||a.role||"—").toString().toUpperCase();
     const area = [a.country,a.state,(a.rm_districts&&a.rm_districts.join)?a.rm_districts.join(", "):a.rm_districts].filter(Boolean).join(" · ");
     const docs = a.documents||a.docs||{};
     const docLinks = Object.keys(docs).map(k=>'<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+docs[k]+'">📄 '+k+'</a>').join("") || '<span class="note">कोई दस्तावेज़-link नहीं</span>';
+    let rejInfo = "";
+    if(a.rejection && a.rejection.reason){
+      rejInfo = '<div class="mrow"><b>अस्वीकृति-कारण:</b> '+a.rejection.reason+'</div>'
+              + '<div class="mrow"><b>सुधार-समय:</b> '+fmtDate(a.rejection.correction_deadline)+' तक (1 सप्ताह — v1.4 नियम)</div>';
+    }
+    const canAct = (st==="provisional" || st==="rejected");
+    const rn = a.regNo || a._id;
+    const actHtml = canAct
+      ? '<div class="acts">'
+        + '<button class="abtn ok" data-act="approve" data-reg="'+rn+'">✅ Approve (अंतिम मुहर)</button>'
+        + '<button class="abtn no" data-act="rejopen" data-reg="'+rn+'">❌ Reject</button>'
+        + '</div>'
+        + '<div class="rejbox" id="rej-'+rn+'"><textarea id="rtx-'+rn+'" placeholder="अस्वीकृति का कारण लिखें (अनिवार्य)"></textarea>'
+        + '<button class="abtn no" style="margin-top:6px" data-act="reject" data-reg="'+rn+'">कारण के साथ Reject भेजें</button></div>'
+        + '<div class="msg" id="msg-'+rn+'"></div>'
+      : '<div class="msg" id="msg-'+rn+'"></div>';
     const el = document.createElement("div");
     el.className = "app";
     el.innerHTML =
@@ -396,7 +425,8 @@ function drawApps(){
       '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+area):'')+(a.email?(' · ✉️ '+a.email):'')+'</div>'+
       '<div class="more"><div class="mrow"><b>Mobile:</b> '+(a.phone||a.mobile||"—")+'</div>'+
       '<div class="mrow"><b>दस्तावेज़:</b><br/>'+docLinks+'</div>'+
-      '<div class="note">approve/reject/hold/return बटन — चरण-3 (server-approval) में।</div></div>'+
+      rejInfo +
+      actHtml + '</div>'+
       '<button class="vbtn">👁️ view</button>';
     el.querySelector(".vbtn").addEventListener("click",()=>{ el.classList.toggle("open"); });
     box.appendChild(el);
@@ -407,6 +437,31 @@ document.addEventListener("click",(ev)=>{
   FILTER = t.getAttribute("data-f");
   document.querySelectorAll(".ftab").forEach(b=>b.classList.toggle("on", b===t));
   drawApps();
+});
+
+/* ═══ [P1] approve/reject — server-मुहर (चरण-3) ═══ */
+document.addEventListener("click", async (ev)=>{
+  const b = ev.target.closest(".abtn"); if(!b) return;
+  const act = b.getAttribute("data-act"), rn = b.getAttribute("data-reg");
+  if(!act || !rn) return;
+  if(act==="rejopen"){ const box=$("rej-"+rn); if(box) box.classList.toggle("on"); return; }
+  const msg = $("msg-"+rn);
+  if(act==="approve" && !confirm(rn+" — अंतिम मुहर लगाएँ? (आवेदन स्वीकृत + टीम-सदस्यता active)")) return;
+  let reason = "";
+  if(act==="reject"){
+    const tx=$("rtx-"+rn); reason=(tx&&tx.value||"").trim();
+    if(!reason){ if(msg){msg.className="msg err";msg.textContent="कारण लिखना अनिवार्य है।";} return; }
+  }
+  b.disabled = true; if(msg){msg.className="msg";msg.textContent="server-मुहर लग रही है…";}
+  try{
+    const fn = httpsCallable(functions, act==="approve" ? "approveApplication" : "rejectApplication");
+    await fn(act==="approve" ? {regNo:rn} : {regNo:rn, reason:reason});
+    if(msg){msg.className="msg ok";msg.textContent = act==="approve" ? "✅ स्वीकृत — टीम-सदस्यता active हो गई।" : "⚠️ अस्वीकृत — कारण व 1-सप्ताह सुधार-समय दर्ज।";}
+    await loadApplications();
+  }catch(e){
+    b.disabled = false;
+    if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e && e.message ? e.message : e);}
+  }
 });
 
 /* ═══ single-session: sessions/{uid}.activeSession बदले तो logout ═══ */
