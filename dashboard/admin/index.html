@@ -6,8 +6,9 @@
 <meta name="robots" content="noindex"/>
 <title>Admin Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-3)
-     v2.0 · 11-Jul-2026 — approve/reject बटन (server: approveApplication/rejectApplication)
+     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-4)
+     v2.1 · 11-Jul-2026 — टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
+     पिछला: approve/reject बटन (server: approveApplication/rejectApplication)
      + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
      + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
      --------------------------------------------------------------
@@ -123,6 +124,16 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .app .mrow b{color:var(--navy)}
 .app .vbtn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
 
+/* [P2] टीम-पैनल व पदेन-प्रभार */
+.mem{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite);margin-top:10px}
+.mem .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mem .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.chip.on{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.off{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.hold{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
+.exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
+
 /* ═══ [T6] footer ═══ */
 .foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
 </style>
@@ -199,13 +210,13 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
       </div>
       <div class="pcard">
         <div class="ph">🧭 पदेन-प्रभार</div>
-        <div class="pd">जिन पदों का प्रभार अभी आपके पास पदेन (ex-officio) है — उनकी चौकियाँ यहाँ अलग रंग में दिखेंगी। (कोई पद कभी रिक्त नहीं — पदेन-प्रभारी नियम।)</div>
-        <span class="soon">चरण-4 में चालू</span>
+        <div class="pd">जिन पदों का कोई active धारक नहीं और जिनका immediate superior आप हैं — उनका प्रभार पदेन आपके पास (कोई पद कभी रिक्त नहीं)।</div>
+        <div id="exoList" class="note">देखा जा रहा है…</div>
       </div>
-      <div class="pcard">
+      <div class="pcard" style="grid-column:1/-1">
         <div class="ph">👥 टीम-पैनल</div>
-        <div class="pd">दायरे के सदस्य + अनुशासन-बटन: हल्का Work-Hold · घोर ID-Hold (कारण अनिवार्य) · Transfer · Leave-delegation · Rejection-चक्र की स्थिति।</div>
-        <span class="soon">चरण-4 में चालू</span>
+        <div class="pd">दायरे के सदस्य — hold-बटन v1.4 नियम से (कारण अनिवार्य; un-hold ऊपर वाले का हक़)। Transfer व Leave-delegation की जगह आरक्षित — batch-दौर में चालू।</div>
+        <div id="teamList" class="note">सदस्य लाए जा रहे हैं…</div>
       </div>
       <div class="pcard">
         <div class="ph">🗂️ काम-पैनल</div>
@@ -303,6 +314,8 @@ onAuthStateChanged(auth, async (user)=>{
 
   /* ── [P1] आवेदन-पैनल की सूची — registrations से (सिर्फ़ पढ़ना) ── */
   loadApplications();
+  /* ── [P2] टीम-पैनल + पदेन-प्रभार ── */
+  loadTeamPanel(desig);
 
   /* ── single-session (v1.2 नियम): sessions/{uid} सुनो ── */
   startSessionWatch(user);
@@ -329,14 +342,7 @@ async function loadRegistration(user){
   const keys = Object.keys(docs);
   const wrap = $("docWrap"); wrap.innerHTML="";
   if(keys.length===0){ $("docNote").textContent="आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"; }
-  else{
-    keys.forEach(k=>{
-      const a=document.createElement("a");
-      a.className="doc"; a.href=docs[k]; a.target="_blank"; a.rel="noopener";
-      a.textContent="📄 "+k;
-      wrap.appendChild(a);
-    });
-  }
+  else{ wrap.innerHTML = docChips(docs); $("docNote").textContent=""; }
   drawTimeline(null, latest);
 }
 
@@ -381,6 +387,16 @@ async function loadApplications(){
     box.innerHTML = '<div class="note">सूची नहीं खुली — rules-deploy व login-भूमिका जाँचें। (' + (e.code||"") + ')</div>';
   }
 }
+function docChips(docs){
+  const keys = Object.keys(docs||{});
+  if(keys.length===0) return "";
+  return keys.map(k=>{
+    const d = docs[k];
+    const u = (typeof d==="string") ? d : (d && d.url);
+    if(!u) return '<span class="doc" style="margin:4px 6px 0 0;color:#B71C1C">📄 '+k+' (upload विफल)</span>';
+    return '<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+u+'">📄 '+k+'</a>';
+  }).join("");
+}
 function fmtDate(ts){
   try{ const d=(ts&&ts.toDate)?ts.toDate():null; if(!d) return "—";
     return d.getDate().toString().padStart(2,"0")+"-"+(d.getMonth()+1).toString().padStart(2,"0")+"-"+d.getFullYear();
@@ -399,7 +415,7 @@ function drawApps(){
     const lvl = (a.staff_level||a.role||"—").toString().toUpperCase();
     const area = [a.country,a.state,(a.rm_districts&&a.rm_districts.join)?a.rm_districts.join(", "):a.rm_districts].filter(Boolean).join(" · ");
     const docs = a.documents||a.docs||{};
-    const docLinks = Object.keys(docs).map(k=>'<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+docs[k]+'">📄 '+k+'</a>').join("") || '<span class="note">कोई दस्तावेज़-link नहीं</span>';
+    const docLinks = docChips(docs) || '<span class="note">कोई दस्तावेज़-link नहीं</span>';
     let rejInfo = "";
     if(a.rejection && a.rejection.reason){
       rejInfo = '<div class="mrow"><b>अस्वीकृति-कारण:</b> '+a.rejection.reason+'</div>'
@@ -461,6 +477,88 @@ document.addEventListener("click", async (ev)=>{
   }catch(e){
     b.disabled = false;
     if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e && e.message ? e.message : e);}
+  }
+});
+
+/* ═══ [P2] टीम-पैनल — teams से; hold-बटन server (setHold/liftHold) ═══ */
+let MYDESIG = "";
+async function loadTeamPanel(myDesig){
+  MYDESIG = myDesig;
+  const listEl = $("teamList"), exoEl = $("exoList");
+  let members = [];
+  try{
+    const qs = await getDocs(collection(db,"teams"));
+    qs.forEach(d=>{ const t=d.data(); t._uid=d.id; members.push(t); });
+  }catch(e){
+    listEl.textContent = "टीम-सूची नहीं खुली — rules v3 deploy जाँचें। ("+(e.code||"")+")";
+    exoEl.textContent = "—"; return;
+  }
+  const activeDesigs = {};
+  members.forEach(m=>{ if(m.active===true) activeDesigs[String(m.designation||"").toLowerCase()] = true; });
+  const mine = MX.filter(t => t.superior===myDesig && t.key!=="founder" && !activeDesigs[t.key]);
+  exoEl.innerHTML = mine.length
+    ? mine.map(t=>'<span class="exo">🧭 '+t.label+'</span>').join("") +
+      '<div class="note">इन पदों की चौकी/काम अभी आपके पदेन प्रभार में — धारक आते ही अपने-आप वापस।</div>'
+    : '<span class="note">अभी कोई पदेन प्रभार नहीं — आपके नीचे के सब पद भरे हैं।</span>';
+
+  members.sort((a,b)=> String(a.designation||"").localeCompare(String(b.designation||"")));
+  listEl.innerHTML = "";
+  if(members.length===0){ listEl.textContent="कोई टीम-सदस्य record नहीं।"; return; }
+  members.forEach(m=>{
+    const d = String(m.designation||"").toLowerCase();
+    const isSelf = (auth.currentUser && m._uid===auth.currentUser.uid);
+    const holdRec = m.hold && m.hold.type ? m.hold : null;
+    const stChip = holdRec ? '<span class="chip hold">⛔ '+(holdRec.type==="id"?"घोर ID-Hold":"हल्का Work-Hold")+'</span>'
+                 : (m.active===true ? '<span class="chip on">active</span>' : '<span class="chip off">provisional</span>');
+    const el = document.createElement("div");
+    el.className = "mem";
+    let acts = "";
+    if(d!=="founder" && !isSelf){
+      acts = holdRec
+        ? '<div class="acts"><button class="abtn ok" data-hact="lift" data-uid="'+m._uid+'">🔓 Un-hold</button></div>'
+        : '<div class="acts">'
+          + '<button class="abtn no" data-hact="work" data-uid="'+m._uid+'">🟠 Work-Hold</button>'
+          + '<button class="abtn no" data-hact="id" data-uid="'+m._uid+'">⛔ ID-Hold</button></div>'
+          + '<div class="rejbox" id="hbx-'+m._uid+'"><textarea id="htx-'+m._uid+'" placeholder="hold का कारण (अनिवार्य)"></textarea>'
+          + '<button class="abtn no" style="margin-top:6px" data-hact="send" data-uid="'+m._uid+'">कारण के साथ hold लगाएँ</button></div>';
+      acts += '<div class="msg" id="hmsg-'+m._uid+'"></div>';
+    }
+    el.innerHTML =
+      '<div class="r1"><span class="nm">'+(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
+      + '<span class="pill">'+mxLabel(d)+'</span>'+stChip
+      + (m.level?'<span class="chip lvl">'+String(m.level).toUpperCase()+'</span>':'')+'</div>'
+      + (holdRec?'<div class="hres">कारण: '+(holdRec.reason||"—")+'</div>':'')
+      + acts;
+    listEl.appendChild(el);
+  });
+}
+let PENDING_HOLD = {};
+document.addEventListener("click", async (ev)=>{
+  const b = ev.target.closest("[data-hact]"); if(!b) return;
+  const act = b.getAttribute("data-hact"), uid = b.getAttribute("data-uid");
+  const msg = $("hmsg-"+uid);
+  if(act==="work" || act==="id"){
+    PENDING_HOLD[uid]=act;
+    const bx=$("hbx-"+uid); if(bx) bx.classList.add("on");
+    if(msg){msg.className="msg";msg.textContent=(act==="id"?"घोर ID-Hold":"हल्का Work-Hold")+" चुना — कारण लिखकर भेजें।";}
+    return;
+  }
+  b.disabled = true;
+  try{
+    if(act==="send"){
+      const tx=$("htx-"+uid); const reason=(tx&&tx.value||"").trim();
+      if(!reason){ if(msg){msg.className="msg err";msg.textContent="कारण अनिवार्य है।";} b.disabled=false; return; }
+      await httpsCallable(functions,"setHold")({targetUid:uid, type:(PENDING_HOLD[uid]||"work"), reason:reason});
+      if(msg){msg.className="msg ok";msg.textContent="⛔ hold लग गया — history में दर्ज।";}
+    }else if(act==="lift"){
+      if(!confirm("Un-hold करें?")) { b.disabled=false; return; }
+      await httpsCallable(functions,"liftHold")({targetUid:uid});
+      if(msg){msg.className="msg ok";msg.textContent="🔓 un-hold हो गया।";}
+    }
+    await loadTeamPanel(MYDESIG);
+  }catch(e){
+    b.disabled=false;
+    if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);}
   }
 });
 
