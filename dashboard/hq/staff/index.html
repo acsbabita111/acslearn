@@ -8,7 +8,10 @@
 <!-- ════════════════════════════════════════════════════════════════
      ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
      हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
-     ACS Dashboard — मास्टर टेम्पलेट v3.2 (काम-4 · admin v2.2 से रूपांतरित)
+     ACS Dashboard — मास्टर टेम्पलेट v3.3 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.3 · 12-Jul-2026 — Founder-चित्र से: पहचान-कार्ड दो-स्तंभ — बाएँ बड़ा
+             portrait-फ़ोटो, दाएँ सूचना + नाम + पदनाम + कार्य-क्षेत्र + गृह जिला + राज्य
+     पिछला: v3.2 — मास्टर टेम्पलेट v3.2 (काम-4 · admin v2.2 से रूपांतरित)
      v3.2 · 12-Jul-2026 — Founder-निर्देश: सार्वजनिक पहचान-कार्ड (फ़ोटो + सूचना +
              पता district/state; email/mobile/WhatsApp कभी नहीं) — फ़ोटो-बदल+verify
              इंजन अगले दौर में (जगह आरक्षित)।
@@ -148,12 +151,15 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
 
 /* ═══ सार्वजनिक पहचान-कार्ड (v3.2) ═══ */
-.pubcard{display:flex;align-items:center;gap:16px;background:var(--offwhite);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;flex-wrap:wrap}
-.pphoto{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);background:#fff}
-.pphoto-fb{width:96px;height:96px;border-radius:50%;border:3px solid var(--gold);background:#fff;display:flex;align-items:center;justify-content:center;font-size:48px}
-.pubname{font-size:22px;font-weight:800;color:var(--navy)}
-.pubaddr{font-size:18px;font-weight:700;color:var(--gray)}
-.pubnote{font-size:16px;color:var(--gray);background:#FFF6DD;border:1px solid var(--gold);border-radius:10px;padding:10px 12px;margin-bottom:12px;line-height:1.7}
+.pubcard{display:grid;grid-template-columns:1fr;gap:14px;background:var(--offwhite);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px}
+@media(min-width:640px){.pubcard{grid-template-columns:220px 1fr}}
+.pwrap{display:flex;justify-content:center}
+.pphoto{width:200px;height:250px;border-radius:14px;object-fit:cover;border:3px solid var(--gold);background:#fff}
+.pphoto-fb{width:200px;height:250px;border-radius:14px;border:3px solid var(--gold);background:#fff;display:flex;align-items:center;justify-content:center;font-size:84px}
+.pubname{font-size:23px;font-weight:800;color:var(--navy)}
+.pubrow{font-size:18px;font-weight:700;color:var(--text);margin-top:4px}
+.pubrow b{color:var(--gray);font-weight:700}
+.pubnote{font-size:16px;color:var(--gray);background:#FFF6DD;border:1px solid var(--gold);border-radius:10px;padding:10px 12px;margin-bottom:10px;line-height:1.7}
 
 /* ═══ बाईं काम-सूची (v3.1) — desktop स्थायी, mobile drawer ═══ */
 .shell{display:flex;align-items:flex-start;gap:14px}
@@ -224,17 +230,22 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <div class="card panel" id="pnl-profile" data-nav="👤 मेरी प्रोफ़ाइल">
       <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
 
-      <!-- v3.2: सार्वजनिक पहचान-कार्ड — यहाँ email/mobile/WhatsApp कभी नहीं -->
+      <!-- v3.3: सार्वजनिक पहचान-कार्ड (दो-स्तंभ) — यहाँ email/mobile/WhatsApp कभी नहीं -->
       <div class="pubcard">
-        <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
-        <div class="pphoto-fb" id="pPhotoFb">👤</div>
+        <div class="pwrap">
+          <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
+          <div class="pphoto-fb" id="pPhotoFb">👤</div>
+        </div>
         <div>
+          <div class="pubnote">📢 यह फ़ोटो व ब्योरा सार्वजनिक (public) हैं — सबको दिखते हैं। आप नया फ़ोटो भेज सकते हैं; आपके ऊपर के पद से verify होने पर ही नया फ़ोटो public होगा — तब तक यही फ़ोटो public रहेगी। इस सार्वजनिक कार्ड पर email / mobile / WhatsApp कभी नहीं दिखते।</div>
           <div class="pubname" id="pubName">—</div>
-          <div class="pubaddr" id="pubAddr">📍 —</div>
+          <div class="pubrow"><b>पदनाम:</b> <span id="pubDesig">—</span></div>
+          <div class="pubrow"><b>कार्य-क्षेत्र:</b> <span id="pubArea">—</span></div>
+          <div class="pubrow"><b>गृह जिला:</b> <span id="pubDist">—</span></div>
+          <div class="pubrow"><b>राज्य:</b> <span id="pubState">—</span></div>
+          <button class="abtn ok" style="background:var(--blue);margin-top:10px" disabled>📷 नया फ़ोटो भेजें — verify-इंजन अगले दौर में चालू</button>
         </div>
       </div>
-      <div class="pubnote">📢 यह फ़ोटो व पता सार्वजनिक (public) हैं — सबको दिखते हैं। आप नया फ़ोटो भेज सकते हैं; आपके ऊपर के पद से verify होने पर ही नया फ़ोटो public होगा — तब तक यही फ़ोटो public रहेगी। इस सार्वजनिक कार्ड पर email / mobile / WhatsApp कभी नहीं दिखते।</div>
-      <button class="abtn ok" style="background:var(--blue);margin-bottom:14px" disabled>📷 नया फ़ोटो भेजें — verify-इंजन अगले दौर में चालू</button>
 
       <div class="pgrid">
         <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
@@ -364,10 +375,12 @@ function show(id){
 }
 
 /* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
-function fillPubCard(name, photoUrl, district, state){
-  $("pubName").textContent = name || "—";
-  const addr = [district, state].filter(Boolean).join(", ");
-  $("pubAddr").textContent = "📍 " + (addr || "—");
+function fillPubCard(name, photoUrl, desigLabel, area, district, state){
+  $("pubName").textContent  = name || "—";
+  $("pubDesig").textContent = desigLabel || "—";
+  $("pubArea").textContent  = area || "—";
+  $("pubDist").textContent  = district || "—";
+  $("pubState").textContent = state || "—";
   if(photoUrl){
     const im=$("pPhoto"); im.src=photoUrl;
     im.onload=()=>{ im.style.display="block"; $("pPhotoFb").style.display="none"; };
@@ -439,7 +452,8 @@ async function guardTeam(user){
   $("tbWho").textContent = "👤 " + whoName + " · " + mxLabel(desig);
   $("tbWho").title = "UID: " + user.uid;
   const homeDist = (team.region && team.region.length ? team.region[0] : (team.district||""));
-  fillPubCard(whoName, team.photo_public || team.photoURL || "", homeDist, team.state||"");
+  const pubArea = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
+  fillPubCard(whoName, team.photo_public || team.photoURL || "", mxLabel(desig), pubArea, homeDist, team.state||"");
 
   /* ── [T4] प्रोफ़ाइल — teams से ── */
   $("pName").textContent  = team.name_local || team.name_roman || team.name || team.fullName || "—";
@@ -905,7 +919,8 @@ async function guardExternal(user){
   $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
   $("tbWho").title = "UID: " + user.uid;
   const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0] : (reg.district||""));
-  fillPubCard(whoName, reg.photo_public || "", homeDistE, reg.state||"");
+  const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
+  fillPubCard(whoName, reg.photo_public || "", ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
 
   /* दस्तावेज़-chips */
   const docs = reg.documents || reg.docs || {};
