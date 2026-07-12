@@ -8,7 +8,11 @@
 <!-- ════════════════════════════════════════════════════════════════
      ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
      हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
-     ACS Dashboard — मास्टर टेम्पलेट v3.1 (काम-4 · admin v2.2 से रूपांतरित)
+     ACS Dashboard — मास्टर टेम्पलेट v3.2 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.2 · 12-Jul-2026 — Founder-निर्देश: सार्वजनिक पहचान-कार्ड (फ़ोटो + सूचना +
+             पता district/state; email/mobile/WhatsApp कभी नहीं) — फ़ोटो-बदल+verify
+             इंजन अगले दौर में (जगह आरक्षित)।
+     पिछला: v3.1 (काम-सूची) — मास्टर टेम्पलेट v3.1 (काम-4 · admin v2.2 से रूपांतरित)
      v3.1 · 12-Jul-2026 — Founder-निर्देश: बाईं काम-सूची (mobile: ☰ drawer) ·
              पैनल click-पर-खुले · आलसी-load (data तभी जब पैनल खुले) ·
              आवेदन-सूची 50-50 की खेप ("और देखें") — 500+ RM के लिए तैयार
@@ -143,6 +147,14 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
 .exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
 
+/* ═══ सार्वजनिक पहचान-कार्ड (v3.2) ═══ */
+.pubcard{display:flex;align-items:center;gap:16px;background:var(--offwhite);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;flex-wrap:wrap}
+.pphoto{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);background:#fff}
+.pphoto-fb{width:96px;height:96px;border-radius:50%;border:3px solid var(--gold);background:#fff;display:flex;align-items:center;justify-content:center;font-size:48px}
+.pubname{font-size:22px;font-weight:800;color:var(--navy)}
+.pubaddr{font-size:18px;font-weight:700;color:var(--gray)}
+.pubnote{font-size:16px;color:var(--gray);background:#FFF6DD;border:1px solid var(--gold);border-radius:10px;padding:10px 12px;margin-bottom:12px;line-height:1.7}
+
 /* ═══ बाईं काम-सूची (v3.1) — desktop स्थायी, mobile drawer ═══ */
 .shell{display:flex;align-items:flex-start;gap:14px}
 .side{background:#fff;border:1px solid var(--border);border-radius:16px;padding:10px;min-width:210px;box-shadow:0 6px 18px rgba(11,31,58,.06);position:sticky;top:10px}
@@ -211,6 +223,19 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <!-- [T4] प्रोफ़ाइल -->
     <div class="card panel" id="pnl-profile" data-nav="👤 मेरी प्रोफ़ाइल">
       <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
+
+      <!-- v3.2: सार्वजनिक पहचान-कार्ड — यहाँ email/mobile/WhatsApp कभी नहीं -->
+      <div class="pubcard">
+        <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
+        <div class="pphoto-fb" id="pPhotoFb">👤</div>
+        <div>
+          <div class="pubname" id="pubName">—</div>
+          <div class="pubaddr" id="pubAddr">📍 —</div>
+        </div>
+      </div>
+      <div class="pubnote">📢 यह फ़ोटो व पता सार्वजनिक (public) हैं — सबको दिखते हैं। आप नया फ़ोटो भेज सकते हैं; आपके ऊपर के पद से verify होने पर ही नया फ़ोटो public होगा — तब तक यही फ़ोटो public रहेगी। इस सार्वजनिक कार्ड पर email / mobile / WhatsApp कभी नहीं दिखते।</div>
+      <button class="abtn ok" style="background:var(--blue);margin-bottom:14px" disabled>📷 नया फ़ोटो भेजें — verify-इंजन अगले दौर में चालू</button>
+
       <div class="pgrid">
         <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
         <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
@@ -281,6 +306,17 @@ const mxLabel = (key)=>{ const r=mxRow(key); return r ? r.label : (key||"—"); 
 function show(id){
   ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
   $(id).classList.remove("hidden");
+}
+
+/* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
+function fillPubCard(name, photoUrl, district, state){
+  $("pubName").textContent = name || "—";
+  const addr = [district, state].filter(Boolean).join(", ");
+  $("pubAddr").textContent = "📍 " + (addr || "—");
+  if(photoUrl){
+    const im=$("pPhoto"); im.src=photoUrl;
+    im.onload=()=>{ im.style.display="block"; $("pPhotoFb").style.display="none"; };
+  }
 }
 
 /* ═══ काम-सूची इंजन (v3.1) — पैनल click-पर, data आलसी-load ═══ */
@@ -395,6 +431,8 @@ async function guardExternal(user){
   $("pPhone").textContent = reg.phone || reg.mobile || "—";
   $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
   $("tbWho").title = "UID: " + user.uid;
+  const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0] : (reg.district||""));
+  fillPubCard(whoName, reg.photo_public || "", homeDistE, reg.state||"");
 
   /* दस्तावेज़-chips */
   const docs = reg.documents || reg.docs || {};
