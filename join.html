@@ -1326,39 +1326,87 @@
         '<div style="font-weight:700;color:#1b4d20;font-size:17px" id="desiredLockedTxt">'+locked+'</div>'+
         '<div class="hint">यह आपके ऊपर (चरण-2) के चुनाव से अपने-आप लिया गया है।</div>';
     } else {
+      /* (v2 — Founder-होल 12-Jul शाम) राज्य/जिला भी सूची से — geo-फ़ाइलें माँग-पर;
+         सूची न जुड़ी हो तभी typed-fallback (09-Jul geo-नियम) */
       var C = window.ACS_GEO_COUNTRIES || [], G = window.ACS_GEO_GROUPS || {};
       var copts = '<option value="">— देश चुनें —</option>';
       [1,2,3,4].forEach(function(g){
         var list = C.filter(function(c){ return c.g===g; });
         if(!list.length) return;
         copts += '<optgroup label="'+(G[g]||('समूह-'+g))+'">'+list.map(function(c){
-          return '<option value="'+c.v+'" data-hi="'+c.hi+'">'+c.hi+'</option>'; }).join('')+'</optgroup>';
+          return '<option value="'+c.v+'">'+c.hi+'</option>'; }).join('')+'</optgroup>';
       });
       box.innerHTML = '<label>🎯 वांछित कार्य-क्षेत्र — जिस जगह के लिए आवेदन कर रहे हैं <span style="color:#B23A3A">*</span></label>'+
         '<div style="margin-top:4px"><label>देश</label><select id="desiredCountry">'+copts+'</select></div>'+
-        '<div style="margin-top:6px"><label>राज्य / प्रांत</label><input type="text" id="desiredState" placeholder="अपना वांछित राज्य/प्रांत लिखें"></div>'+
-        '<div style="margin-top:6px"><label>जिला</label><input type="text" id="desiredDistrict" placeholder="अपना वांछित जिला लिखें"></div>'+
+        '<div style="margin-top:6px"><label>राज्य / प्रांत</label>'+
+          '<select id="desiredStateSel" style="display:none"><option value="">— पहले देश चुनें —</option></select>'+
+          '<input type="text" id="desiredStateTyped" style="display:none" placeholder="अपना वांछित राज्य/प्रांत लिखें">'+
+          '<div class="hint" id="desiredStateHint" style="display:none">इस देश की राज्य-सूची अभी नहीं जुड़ी — कृपया लिखें।</div></div>'+
+        '<div style="margin-top:6px"><label>जिला</label>'+
+          '<select id="desiredDistSel" style="display:none"><option value="">— पहले राज्य चुनें —</option></select>'+
+          '<input type="text" id="desiredDistTyped" style="display:none" placeholder="अपना वांछित जिला लिखें">'+
+          '<div class="hint" id="desiredDistHint" style="display:none">इस राज्य की जिला-सूची अभी नहीं जुड़ी — कृपया लिखें।</div></div>'+
         '<div class="hint">यही जगह आपके आवेदन, पुष्टि-पर्दे व एग्रीमेंट-PDF — तीनों पर दिखेगी।</div>';
     }
-    /* जगह: pincode-block के ठीक आगे (Founder-नियम); pincode-खाना न हो तो सबसे ऊपर */
     var pinDetailInput = dynamicFields.querySelector('[id^="pinDetail_"]');
     var pinRow = pinDetailInput ? pinDetailInput.closest('.row') : null;
     if(pinRow && pinRow.parentNode){ pinRow.parentNode.insertBefore(box, pinRow.nextSibling); }
     else { dynamicFields.insertBefore(box, dynamicFields.firstChild); }
-    ['desiredCountry','desiredState','desiredDistrict'].forEach(function(id){
-      var el = document.getElementById(id); if(!el) return;
-      el.addEventListener('input', validateStep3); el.addEventListener('change', validateStep3);
+    if(locked) return;
+    var dC = document.getElementById('desiredCountry');
+    var dSS = document.getElementById('desiredStateSel'), dST = document.getElementById('desiredStateTyped'), dSH = document.getElementById('desiredStateHint');
+    var dDS = document.getElementById('desiredDistSel'), dDT = document.getElementById('desiredDistTyped'), dDH = document.getElementById('desiredDistHint');
+    function resetDist(){ dDS.style.display='none'; dDT.style.display='none'; dDH.style.display='none'; dDS.innerHTML='<option value="">— पहले राज्य चुनें —</option>'; dDT.value=''; }
+    function stateTypedMode(){ dSS.style.display='none'; dST.style.display=''; dSH.style.display=''; resetDist(); dDT.style.display=''; validateStep3(); }
+    function fillStates(cc){
+      var list = window.ACS_GEO_STATES[cc] || [];
+      if(!list.length){ stateTypedMode(); return; }
+      dSS.innerHTML = '<option value="">— चुनें —</option>' + list.map(function(x){ return '<option value="'+x.v+'">'+x.name+'</option>'; }).join('');
+      dSS.style.display=''; dST.style.display='none'; dSH.style.display='none';
+      validateStep3();
+    }
+    function distTypedMode(){ dDS.style.display='none'; dDT.style.display=''; dDH.style.display=''; validateStep3(); }
+    function fillDists(key){
+      var list = window.ACS_GEO_DISTRICTS[key] || [];
+      if(!list.length){ distTypedMode(); return; }
+      dDS.innerHTML = '<option value="">— चुनें —</option>' + list.map(function(d){ return '<option value="'+d+'">'+d+'</option>'; }).join('');
+      dDS.style.display=''; dDT.style.display='none'; dDH.style.display='none';
+      validateStep3();
+    }
+    dC.addEventListener('change', function(){
+      dST.value=''; resetDist();
+      if(!dC.value){ dSS.style.display='none'; dST.style.display='none'; dSH.style.display='none'; validateStep3(); return; }
+      if(window.ACS_GEO_STATES[dC.value]){ fillStates(dC.value); return; }
+      dSS.innerHTML='<option value="">⏳ सूची आ रही है…</option>'; dSS.style.display='';
+      loadGeo('assets/geo/states/'+dC.value+'.js').then(function(){ fillStates(dC.value); }).catch(stateTypedMode);
     });
+    dSS.addEventListener('change', function(){
+      resetDist();
+      if(!dSS.value){ validateStep3(); return; }
+      var key = dC.value + '-' + dSS.value;
+      if(window.ACS_GEO_DISTRICTS[key]){ fillDists(key); return; }
+      dDS.innerHTML='<option value="">⏳ सूची आ रही है…</option>'; dDS.style.display='';
+      loadGeo('assets/geo/districts/'+key+'.js').then(function(){ fillDists(key); }).catch(distTypedMode);
+    });
+    [dST, dDT].forEach(function(el){ el.addEventListener('input', validateStep3); });
+    dDS.addEventListener('change', validateStep3);
   }
   function desiredAreaData(){
     var lockedEl = document.getElementById('desiredLockedTxt');
     if(lockedEl) return { mode:'from_step2', text: lockedEl.textContent, country:'', state:'', district:'' };
-    var c = document.getElementById('desiredCountry'), st = document.getElementById('desiredState'), d = document.getElementById('desiredDistrict');
+    var c = document.getElementById('desiredCountry');
     if(!c) return { mode:'none', text:'', country:'', state:'', district:'' };
     var cOpt = c.options[c.selectedIndex];
+    var dSS = document.getElementById('desiredStateSel'), dST = document.getElementById('desiredStateTyped');
+    var dDS = document.getElementById('desiredDistSel'), dDT = document.getElementById('desiredDistTyped');
+    var stLabel = (dST && dST.style.display!=='none') ? dST.value.trim()
+      : (dSS && dSS.value ? dSS.options[dSS.selectedIndex].text : '');
+    var dtLabel = (dDT && dDT.style.display!=='none') ? dDT.value.trim()
+      : (dDS && dDS.value ? dDS.options[dDS.selectedIndex].text : '');
     return { mode:'typed', country:(c.value||''), country_hi:(c.value && cOpt ? cOpt.text : ''),
-      state:(st ? st.value.trim() : ''), district:(d ? d.value.trim() : ''),
-      text: [ (d&&d.value.trim()) ? 'जिला: '+d.value.trim() : '', (st&&st.value.trim()) ? 'राज्य: '+st.value.trim() : '',
+      state: stLabel, state_code: (dSS && dSS.style.display!=='none' ? dSS.value : ''),
+      district: dtLabel,
+      text: [ dtLabel ? 'जिला: '+dtLabel : '', stLabel ? 'राज्य: '+stLabel : '',
               (c.value && cOpt) ? 'देश: '+cOpt.text : '' ].filter(Boolean).join(' · ') };
   }
   function desiredAreaOk(){
@@ -1673,7 +1721,7 @@
       payload.formFields.desired_state = dArea.state;
       payload.formFields.desired_district = dArea.district;
       if(!payload.country) payload.country = dArea.country;
-      if(!payload.state) payload.state = dArea.state;
+      if(!payload.state) payload.state = dArea.state_code || dArea.state;
     } else if(dArea.mode === 'from_step2'){
       payload.formFields.desired_area = dArea.text;
     }
