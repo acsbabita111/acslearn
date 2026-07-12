@@ -315,7 +315,34 @@ window.ACS_ROLES = {
   /* ---- साझा सहायक ---- */
   byKey: function (k) {
     for (var i = 0; i < this.cards.length; i++) if (this.cards[i].key === k) return this.cards[i];
-    return this.teamCardFor(k);   /* (काम-5 v1.9) matrix v1.3 के पद — virtual card */
+    var lc = this.learnerCardFor(k);   /* (काम-5 v1.9-ब) matrix के 3 Learner-कार्ड */
+    if (lc) return lc;
+    return this.teamCardFor(k);        /* (काम-5 v1.9) matrix v1.3 के टीम-पद — virtual card */
+  },
+  /* ═══ (काम-5 v1.9-ब, 12-07-2026) student/jobseeker/entrepreneur — matrix-कार्ड ═══
+     आधार: पुराना learner-कार्ड (नियम-फ़ाइल/fields वही — फ़ाइल के अंदर का selector
+     अपने-आप सही उप-प्रकार पर सुनता रहेगा); collection/dashboard/public-नाम matrix से। */
+  learnerCardFor: function (k) {
+    if (k !== "student" && k !== "jobseeker" && k !== "entrepreneur") return null;
+    if (this._teamCardCache[k]) return this._teamCardCache[k];
+    var M = (typeof window !== "undefined") ? window.ACS_DESIGNATIONS : null;
+    var mc = null;
+    if (M && M.cards) for (var i = 0; i < M.cards.length; i++) if (M.cards[i].key === k) { mc = M.cards[i]; break; }
+    var base = null;
+    for (var j = 0; j < this.cards.length; j++) if (this.cards[j].key === "learner") { base = this.cards[j]; break; }
+    if (!base) return null;
+    var card = {
+      key: k, group: "g1", icon: (k==="student"?"🎓":k==="jobseeker"?"💼":"🏭"),
+      hi: (mc && mc.public_label) || base.hi, en: (mc && mc.public_label) || base.en,
+      desc_hi: base.desc_hi, desc_en: base.desc_en,
+      collection: (mc && mc.collection) || base.collection,
+      dashboard: (mc && mc.dashboard) || base.dashboard,
+      ruleFile: base.ruleFile, gateway: false, needsGeo: false, needsRMOffice: false,
+      learnerSubtype: k,
+      fields: base.fields.slice(), documents: (base.documents || []).slice()
+    };
+    this._teamCardCache[k] = card;
+    return card;
   },
   /* ═══ (काम-5 v1.9, 12-07-2026) matrix-चालित virtual team-card ═══
      स्रोत: window.ACS_DESIGNATIONS (v1.3) — public_label/ruleFile/geo/registrable वहीं से।
