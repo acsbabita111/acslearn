@@ -4,7 +4,10 @@
    ------------------------------------------------------------
    आधार: Founder की 35-पद तालिका (10-Jul-2026 · 11:36 PM)
          + Addendum-प्रविष्टि "संगठन-ढाँचा v2.0" (11-Jul-2026 · 02:44 AM)
-   Version: 1.1 · 11-Jul-2026 · 03:04 AM IST — शब्द-सुधार: "ख़ाली" शब्द हटा (पदेन-नियम: कोई पद कभी रिक्त नहीं)
+         + Addendum-प्रविष्टि "Vendor-role v1.7" (12-Jul-2026 · 12:12 PM)
+   Version: 1.2 · 12-Jul-2026 — Vendor-कार्ड जुड़ा (v1.7-क) ·
+            Employer/Foreign-Agent अलग-अलग dashboard (v1.7-ख — "एक-परिवार" पंक्ति निरस्त)
+   पिछला: 1.1 · 11-Jul-2026 · 03:04 AM IST — शब्द-सुधार: "ख़ाली" शब्द हटा (पदेन-नियम: कोई पद कभी रिक्त नहीं)
 
    ⚠️ matrix-सुरक्षा नियम (v2.0 प्रविष्टि):
    यह फ़ाइल GitHub पर सार्वजनिक है — सिर्फ़ *दिखाने* के लिए
@@ -18,8 +21,8 @@
 
 const ACS_DESIGNATIONS = {
 
-  version: "1.1",
-  updated: "11-07-2026 · 03:04 AM IST",
+  version: "1.2",
+  updated: "12-07-2026 IST",
 
   /* ---------- approval एक-पाइपलाइन (v2.0-ग) ----------
      क्रम: legal → finance → establishment → विभागीय-चौकी → अंतिम मुहर
@@ -198,7 +201,8 @@ const ACS_DESIGNATIONS = {
   ],
 
   /* ============================================================
-     भाग-2 — बाहरी stakeholder कार्ड (10-कार्ड लॉक — Addendum-v1 §2)
+     भाग-2 — बाहरी stakeholder कार्ड (10-कार्ड लॉक — Addendum-v1 §2;
+     v1.7-क override: Founder-अधिकार से "vendor" कार्ड जुड़ा)
      code-key/collection वहीं से; उप-प्रकार (subtype) यहाँ दर्ज।
      approval-चौकियाँ बाद में इसी engine पर (v2.0-ग)।
      ============================================================ */
@@ -216,14 +220,17 @@ const ACS_DESIGNATIONS = {
       subtypes: ["Counselor", "Professional"],
       note: "न्यूनतम अनुभव 5 वर्ष; 5-मिनट free preview अनिवार्य" },
     { key: "employer",      collection: "employers",      dashboard: "/dashboard/employer/",      label: "नियोक्ता",         min_age: 0,
-      subtypes: ["Employer", "Foreign Agent"],
-      note: "Employer + Foreign Agent = एक dashboard-परिवार (Foreign Agent = tag); card/Terms/eMigrate अलग बने रहें" },
+      subtypes: ["Employer"],
+      note: "v1.7-ख: Employer व Foreign Agent के dashboard अलग-अलग (v2.0 की एक-परिवार पंक्ति निरस्त); Employer के dashboard में कोई agent-सूची नहीं" },
     { key: "foreign_agent", collection: "foreign_agents", dashboard: "/dashboard/foreign-agent/", label: "विदेश एजेंट",       min_age: 0,
       subtypes: [],
-      note: "registration-card व Terms अलग; dashboard-परिवार employer के साथ" },
+      note: "v1.7-ख: अपना अलग dashboard — इसमें कई employers की सूची हो सकती है; card/Terms/eMigrate अलग" },
     { key: "volunteer",     collection: "volunteers",     dashboard: "/dashboard/volunteer/",     label: "स्वयंसेवक",        min_age: 18,
       subtypes: [],
       note: "approval पर teams-record (designation: rm_volunteer) भी बने — v2.0-घ" },
+    { key: "vendor",        collection: "vendors",        dashboard: "/dashboard/vendor/",        label: "विक्रेता (Vendor)", min_age: 18,
+      subtypes: [],
+      note: "v1.7-क: उद्यम-स्थापना का सेवा/सामान प्रदाता; जुड़ना free; Verified Vendor = वैकल्पिक paid badge (₹300/600/1000 × 365 दिन); प्रदर्शन-नियम: बिना RM भौतिक-सत्यापन + approval-श्रृंखला के कोई नाम portal पर कभी न दिखे" },
     { key: "team",          collection: "teams",          dashboard: "/dashboard/",               label: "ACS टीम",          min_age: 18,
       subtypes: [],
       note: "designation ऊपर भाग-1 से; routing teams/{uid}.designation से" }
