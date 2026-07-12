@@ -4,10 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="robots" content="noindex"/>
-<title>कानून Head Dashboard — ACS</title>
+<title>{{TITLE}} — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
-     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     {{GEN_NOTE}}
      ACS Dashboard — मास्टर टेम्पलेट v3.0 (काम-4 · admin v2.2 से रूपांतरित)
      v3.0 · 12-Jul-2026 — MODE (team/external) + topbar-पहचान + Transfer/Leave UI + CAN_FINAL-gate
      पिछला: v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
@@ -150,7 +149,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
   <!-- [T1] topbar -->
   <div class="topbar">
     <img src="/assets/acs-logo.png" alt="ACS" onerror="this.style.display='none'"/>
-    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">कानून Head Dashboard</span></div>
+    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">{{TB_ROLE}}</span></div>
     <div class="sp"></div>
     <div class="tbwho" id="tbWho"></div>
     <button class="btn-out" onclick="doLogout()">Logout</button>
@@ -172,7 +171,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <div class="cbox">
       <div class="bigicon">🔒</div>
       <div class="h">यह आपका Dashboard नहीं</div>
-      <div class="s">यह पन्ना सिर्फ़ कानून Head के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <div class="s">यह पन्ना सिर्फ़ {{DENY_WHO}} के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
       <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
     </div>
   </div>
@@ -206,7 +205,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <div class="pnl">
       <div class="pcard" style="grid-column:1/-1">
         <div class="ph">📥 आवेदन-पैनल</div>
-        <div class="pd">आपके दायरे के आवेदन — आपकी चौकी-मुहर व दायरा-छँटाई अगले दौर (rules-विस्तार) में; अभी पूरी सूची सिर्फ़ Founder/Admin को दिखती है।</div>
+        <div class="pd">{{P1_NOTE}}</div>
         <div class="ftabs" id="ftabs">
           <button class="ftab on" data-f="all">सब</button>
           <button class="ftab" data-f="provisional">⏳ जाँच में</button>
@@ -267,7 +266,15 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     </div>
     <!--TEAM_ONLY_END-->
 
-    
+    <!--EXTERNAL_ONLY_START-->
+    <div class="pnl">
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">🛤️ approval-स्थिति</div>
+        <div class="pd">बाहरी-role (g2) की approval-श्रृंखला server पर अगले दौर में बनेगी (v1.3: "पहले टीम फ़ाइनल") — तब तक dashboard देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>
+      </div>
+      {{EXTRA_PANELS}}
+    </div>
+    <!--EXTERNAL_ONLY_END-->
 
   </div>
 
@@ -292,11 +299,11 @@ const $ = (id)=>document.getElementById(id);
 /* ── generator-भरे consts — जिन designations/roles को यह dashboard
    देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
    यह सिर्फ़ पर्दा है (matrix-सुरक्षा नियम)। ── */
-const MODE = "team";              /* team | external */
-const ALLOWED = ["hq_legal","founder"];
-const EXT_ROLES = []; /* team-mode में external-fallback roles (जैसे volunteer) */
-const ROLE_LABEL = "कानून Head Dashboard";  /* external-mode में pill-label */
-const HOME = "/dashboard/hq/legal/";
+const MODE = "{{MODE}}";              /* team | external */
+const ALLOWED = {{ALLOWED_JSON}};
+const EXT_ROLES = {{EXT_ROLES_JSON}}; /* team-mode में external-fallback roles (जैसे volunteer) */
+const ROLE_LABEL = "{{ROLE_LABEL}}";  /* external-mode में pill-label */
+const HOME = "{{HOME}}";
 
 /* ── matrix से label/चौकी-सूची (सिर्फ़ दिखाने के लिए) ── */
 const MX = (window.ACS_DESIGNATIONS && window.ACS_DESIGNATIONS.teams) || [];

@@ -6,14 +6,18 @@
 <meta name="robots" content="noindex"/>
 <title>Admin Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ACS Admin Dashboard — मास्टर टेम्पलेट (काम-3 · चरण-5 — अंतिम)
-     v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
+     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     ACS Dashboard — मास्टर टेम्पलेट v3.0 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.0 · 12-Jul-2026 — MODE (team/external) + topbar-पहचान + Transfer/Leave UI + CAN_FINAL-gate
+     पिछला: v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
      पिछला: टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
      पिछला: approve/reject बटन (server: approveApplication/rejectApplication)
      + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
      + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
      --------------------------------------------------------------
-     यही फ़ाइल बाक़ी 24 dashboards का नमूना (मास्टर टेम्पलेट) है।
+     लोहे का नियम (परत-2/4): कोई dashboard-page हाथ से न बने —
+     सिर्फ़ generator (generator/build_dashboards.js) इस टेम्पलेट से बनाए।
      हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
              [T4] प्रोफ़ाइल+approval-सफ़र · [T5] पैनल-जाल · [T6] footer
      नियम: पद-जानकारी सिर्फ़ /assets/designation_matrix.js से (परत-3)।
@@ -37,6 +41,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .topbar .tt strong{display:block;font-size:17px;font-weight:800;line-height:1.3}
 .topbar .tt span{font-size:16px;color:var(--gold);font-weight:700}
 .topbar .sp{flex:1}
+.tbwho{font-size:16px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .btn-out{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:10px 16px;font-size:16px;font-weight:700;cursor:pointer}
 .btn-out:hover{background:rgba(255,255,255,.28)}
 
@@ -147,6 +152,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <img src="/assets/acs-logo.png" alt="ACS" onerror="this.style.display='none'"/>
     <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">Admin Dashboard</span></div>
     <div class="sp"></div>
+    <div class="tbwho" id="tbWho"></div>
     <button class="btn-out" onclick="doLogout()">Logout</button>
   </div>
 
@@ -195,11 +201,12 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
       <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
     </div>
 
-    <!-- [T5] पैनल-जाल — मास्टर टेम्पलेट के 4 पैनल + पदेन-पट्टी -->
+    <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
+    <!--TEAM_ONLY_START-->
     <div class="pnl">
       <div class="pcard" style="grid-column:1/-1">
         <div class="ph">📥 आवेदन-पैनल</div>
-        <div class="pd">आपके दायरे के आवेदन (अंतिम मुहर आपकी: RM-स्तर के सभी + ZM-office के कर्मी)। अभी सिर्फ़ देखना — approve/reject बटन चरण-3 में।</div>
+        <div class="pd">आपके दायरे के आवेदन (अंतिम मुहर आपकी: RM-स्तर के सभी + ZM-office के कर्मी)। approve/reject बटन नीचे।</div>
         <div class="ftabs" id="ftabs">
           <button class="ftab on" data-f="all">सब</button>
           <button class="ftab" data-f="provisional">⏳ जाँच में</button>
@@ -216,7 +223,18 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
       </div>
       <div class="pcard" style="grid-column:1/-1">
         <div class="ph">👥 टीम-पैनल</div>
-        <div class="pd">दायरे के सदस्य — hold-बटन v1.4 नियम से (कारण अनिवार्य; un-hold ऊपर वाले का हक़)। Transfer व Leave-delegation की जगह आरक्षित — batch-दौर में चालू।</div>
+        <div class="pd">दायरे के सदस्य — hold-बटन v1.4 नियम से (कारण अनिवार्य; un-hold ऊपर वाले का हक़)। 🔁 Transfer व 🏖️ छुट्टी-प्रतिनिधि — v1.4 इंजन (काम-4) से चालू।</div>
+        <div class="mem" id="leaveBox">
+          <div class="r1"><span class="nm">🏖️ मेरी छुट्टी — काम-प्रतिनिधि</span><span class="chip lvl" id="lvStatus">कोई प्रतिनिधि नहीं</span></div>
+          <div class="r2">v1.4 नियम: प्रतिनिधि सिर्फ़ समकक्ष या ठीक एक step ऊपर वाला — नीचे वाले को कभी नहीं। मियाद ख़त्म = अधिकार अपने-आप वापस।</div>
+          <div style="margin-top:8px">
+            <select id="lvMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+            <input id="lvUntil" type="date" style="font-size:17px;padding:9px;border:1px solid var(--border);border-radius:9px;margin-top:8px"/>
+            <div class="acts"><button class="abtn ok" id="lvSet">🏖️ प्रतिनिधि नियुक्त करें</button>
+            <button class="abtn no" id="lvCancel">↩️ प्रतिनिधि हटाएँ (जल्दी वापसी)</button></div>
+            <div class="msg" id="lvMsg"></div>
+          </div>
+        </div>
         <div id="teamList" class="note">सदस्य लाए जा रहे हैं…</div>
       </div>
       <div class="pcard" style="grid-column:1/-1">
@@ -247,6 +265,9 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
         <div id="repList" class="note" style="margin-top:10px">रिपोर्टें लाई जा रही हैं…</div>
       </div>
     </div>
+    <!--TEAM_ONLY_END-->
+
+    
 
   </div>
 
@@ -268,9 +289,14 @@ const auth = getAuth(app), db = getFirestore(app);
 const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 
-/* ── जिन designations को यह dashboard देखने की छूट (display-gate) ──
-   असली रोक server (Firestore rules) पर — यह सिर्फ़ पर्दा है। */
+/* ── generator-भरे consts — जिन designations/roles को यह dashboard
+   देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
+   यह सिर्फ़ पर्दा है (matrix-सुरक्षा नियम)। ── */
+const MODE = "team";              /* team | external */
 const ALLOWED = ["hq_admin","founder"];
+const EXT_ROLES = []; /* team-mode में external-fallback roles (जैसे volunteer) */
+const ROLE_LABEL = "Admin Dashboard";  /* external-mode में pill-label */
+const HOME = "/dashboard/admin/";
 
 /* ── matrix से label/चौकी-सूची (सिर्फ़ दिखाने के लिए) ── */
 const MX = (window.ACS_DESIGNATIONS && window.ACS_DESIGNATIONS.teams) || [];
@@ -282,16 +308,25 @@ function show(id){
   $(id).classList.remove("hidden");
 }
 
-/* ═══ पहरा (display-gate) ═══ */
+/* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
 onAuthStateChanged(auth, async (user)=>{
   if(!user){ location.href="/dashboard/index.html"; return; }
+  if(MODE==="external"){ await guardExternal(user); return; }
+  await guardTeam(user);
+});
+
+/*TEAM_GUARD_JS_START*/
+async function guardTeam(user){
   let team = null;
   try{
     const snap = await getDoc(doc(db,"teams",user.uid));
     if(snap.exists()) team = snap.data();
   }catch(e){ /* पढ़ न पाए तो नीचे deny */ }
   const desig = ((team && team.designation)||"").toLowerCase();
-  if(!team || ALLOWED.indexOf(desig)===-1){ show("denyView"); return; }
+  if(!team || ALLOWED.indexOf(desig)===-1){
+    if(EXT_ROLES.length){ await guardExternal(user); return; } /* dual: provisional-external रास्ता */
+    show("denyView"); return;
+  }
 
   /* ── [T2] hold-पट्टी (v1.4 fields: hold:{type,reason}) ── */
   if(team.hold && team.hold.type){
@@ -304,8 +339,14 @@ onAuthStateChanged(auth, async (user)=>{
   const isActive = (team.active===true);
   if(!isActive) $("provBar").classList.add("on");
 
-  /* ── topbar व pill ── */
+  /* ── अंतिम-मुहर अधिकार (display-gate; असली जाँच server पर) ── */
+  CAN_FINAL = (desig==="founder" || desig==="hq_admin");
+
+  /* ── topbar व pill + login-पहचान (v1.6-ङ2 होल बंद) ── */
   $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (provisional)");
+  const whoName = team.name_local || team.name_roman || team.name || team.fullName || (user.email||"");
+  $("tbWho").textContent = "👤 " + whoName + " · " + mxLabel(desig);
+  $("tbWho").title = "UID: " + user.uid;
 
   /* ── [T4] प्रोफ़ाइल — teams से ── */
   $("pName").textContent  = team.name_local || team.name_roman || team.name || team.fullName || "—";
@@ -341,7 +382,8 @@ onAuthStateChanged(auth, async (user)=>{
   startSessionWatch(user);
   /* ── 10-मिनट auto-logout ── */
   startIdleTimer();
-});
+}
+/*TEAM_GUARD_JS_END*/
 
 /* ═══ registration पढ़ना — स्रोत: registrations (एकमात्र सही collection) ═══ */
 async function loadRegistration(user){
@@ -369,7 +411,7 @@ async function loadRegistration(user){
 /* ═══ approval-सफ़र timeline — चौकियाँ matrix से, स्थिति status से ═══ */
 function drawTimeline(desigKey, reg){
   if(desigKey==="founder") return;
-  const me = desigKey || "hq_admin";
+  const me = desigKey || (ALLOWED[0]||"");
   const row = mxRow(me) || {};
   const chain = ["hq_legal","hq_finance","hq_establishment"];
   if(row.superior && chain.indexOf(row.superior)===-1) chain.push(row.superior);
@@ -389,8 +431,9 @@ function drawTimeline(desigKey, reg){
   $("tlNote").textContent = approved ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।";
 }
 
+/*TEAM_ONLY_JS_START*/
 /* ═══ [P1] आवेदन-सूची — registrations (एकमात्र सही स्रोत), सिर्फ़ पढ़ना ═══ */
-let APPS = [], FILTER = "all";
+let APPS = [], FILTER = "all", CAN_FINAL = false;
 async function loadApplications(){
   const box = $("appList");
   try{
@@ -404,7 +447,7 @@ async function loadApplications(){
     });
     drawApps();
   }catch(e){
-    box.innerHTML = '<div class="note">सूची नहीं खुली — rules-deploy व login-भूमिका जाँचें। (' + (e.code||"") + ')</div>';
+    box.innerHTML = '<div class="note">सूची नहीं खुली — या तो आवेदन-सूची का rules-दायरा अभी आपके पद तक विस्तारित नहीं (अगला दौर), या network जाँचें। (' + (e.code||"") + ')</div>';
   }
 }
 function docChips(docs){
@@ -441,7 +484,7 @@ function drawApps(){
       rejInfo = '<div class="mrow"><b>अस्वीकृति-कारण:</b> '+a.rejection.reason+'</div>'
               + '<div class="mrow"><b>सुधार-समय:</b> '+fmtDate(a.rejection.correction_deadline)+' तक (1 सप्ताह — v1.4 नियम)</div>';
     }
-    const canAct = (st==="provisional" || st==="rejected");
+    const canAct = CAN_FINAL && (st==="provisional" || st==="rejected");
     const rn = a.regNo || a._id;
     const actHtml = canAct
       ? '<div class="acts">'
@@ -540,9 +583,14 @@ async function loadTeamPanel(myDesig){
         ? '<div class="acts"><button class="abtn ok" data-hact="lift" data-uid="'+m._uid+'">🔓 Un-hold</button></div>'
         : '<div class="acts">'
           + '<button class="abtn no" data-hact="work" data-uid="'+m._uid+'">🟠 Work-Hold</button>'
-          + '<button class="abtn no" data-hact="id" data-uid="'+m._uid+'">⛔ ID-Hold</button></div>'
+          + '<button class="abtn no" data-hact="id" data-uid="'+m._uid+'">⛔ ID-Hold</button>'
+          + '<button class="abtn ok" data-hact="tropen" data-uid="'+m._uid+'" style="background:var(--blue)">🔁 Transfer</button></div>'
           + '<div class="rejbox" id="hbx-'+m._uid+'"><textarea id="htx-'+m._uid+'" placeholder="hold का कारण (अनिवार्य)"></textarea>'
-          + '<button class="abtn no" style="margin-top:6px" data-hact="send" data-uid="'+m._uid+'">कारण के साथ hold लगाएँ</button></div>';
+          + '<button class="abtn no" style="margin-top:6px" data-hact="send" data-uid="'+m._uid+'">कारण के साथ hold लगाएँ</button></div>'
+          + '<div class="rejbox" id="tbx-'+m._uid+'"><div class="note" style="margin-bottom:6px">🔁 Transfer (v1.4-ख): इस सदस्य का काम/permission किसे मिले?</div>'
+          + '<select id="tsl-'+m._uid+'" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>'
+          + '<textarea id="ttx-'+m._uid+'" style="margin-top:6px" placeholder="Transfer का कारण (अनिवार्य)"></textarea>'
+          + '<button class="abtn ok" style="margin-top:6px;background:var(--blue)" data-hact="trsend" data-uid="'+m._uid+'">🔁 Transfer करें</button></div>';
       acts += '<div class="msg" id="hmsg-'+m._uid+'"></div>';
     }
     el.innerHTML =
@@ -563,6 +611,27 @@ document.addEventListener("click", async (ev)=>{
     PENDING_HOLD[uid]=act;
     const bx=$("hbx-"+uid); if(bx) bx.classList.add("on");
     if(msg){msg.className="msg";msg.textContent=(act==="id"?"घोर ID-Hold":"हल्का Work-Hold")+" चुना — कारण लिखकर भेजें।";}
+    return;
+  }
+  if(act==="tropen"){
+    const bx=$("tbx-"+uid); if(!bx) return;
+    const sel=$("tsl-"+uid);
+    if(sel && !sel.options.length){
+      sel.innerHTML = TEAM_MEMBERS
+        .filter(m=>m._uid!==uid && String(m.designation||"").toLowerCase()!=="founder")
+        .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+    }
+    bx.classList.toggle("on"); return;
+  }
+  if(act==="trsend"){
+    b.disabled=true;
+    try{
+      const toUid=($("tsl-"+uid)||{}).value, reason=(($("ttx-"+uid)||{}).value||"").trim();
+      if(!toUid || !reason){ if(msg){msg.className="msg err";msg.textContent="नया सदस्य व कारण — दोनों अनिवार्य।";} b.disabled=false; return; }
+      await httpsCallable(functions,"transferRole")({fromUid:uid, toUid:toUid, reason:reason});
+      if(msg){msg.className="msg ok";msg.textContent="🔁 transfer दर्ज — history में।";}
+      await loadTeamPanel(MYDESIG);
+    }catch(e){ b.disabled=false; if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);} }
     return;
   }
   b.disabled = true;
@@ -588,10 +657,11 @@ document.addEventListener("click", async (ev)=>{
 const CYCLE_HI = {daily:"दैनिक",weekly:"साप्ताहिक",fortnightly:"पाक्षिक",monthly:"मासिक",quarterly:"त्रैमासिक",halfyearly:"अर्धवार्षिक",yearly:"वार्षिक"};
 let TEAM_MEMBERS = [];
 function fillMemberSelect(){
-  const sel = $("tMem"); if(!sel) return;
-  sel.innerHTML = TEAM_MEMBERS
+  const opts = TEAM_MEMBERS
     .filter(m=>String(m.designation||"").toLowerCase()!=="founder" && !(auth.currentUser && m._uid===auth.currentUser.uid))
     .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+  const sel = $("tMem"); if(sel) sel.innerHTML = opts;
+  const lv = $("lvMem"); if(lv) lv.innerHTML = opts; /* v1.4 छँटाई (समकक्ष/एक-ऊपर) server पर — यह सिर्फ़ सूची */
 }
 async function loadTasks(){
   const el = $("taskList"); if(!el) return;
@@ -653,6 +723,29 @@ document.addEventListener("click", async (ev)=>{
     }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
     b.disabled=false; return;
   }
+  if(ev.target && ev.target.id==="lvSet"){
+    const b=ev.target, msg=$("lvMsg");
+    const toUid=$("lvMem").value, until=$("lvUntil").value;
+    if(!toUid || !until){ msg.className="msg err"; msg.textContent="प्रतिनिधि व अंतिम-तारीख़ दोनों ज़रूरी।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="नियुक्त हो रहा है…";
+    try{
+      await httpsCallable(functions,"delegateLeave")({action:"set", toUid:toUid, until:until});
+      msg.className="msg ok"; msg.textContent="🏖️ प्रतिनिधि नियुक्त — मियाद ख़त्म होते ही अधिकार अपने-आप वापस।";
+      $("lvStatus").textContent="प्रतिनिधि नियुक्त ("+until+" तक)";
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="lvCancel"){
+    const b=ev.target, msg=$("lvMsg");
+    if(!confirm("प्रतिनिधि हटाएँ? (जल्दी वापसी — अधिकार तुरंत आपके पास)")) return;
+    b.disabled=true;
+    try{
+      await httpsCallable(functions,"delegateLeave")({action:"cancel"});
+      msg.className="msg ok"; msg.textContent="↩️ प्रतिनिधि हटा — अधिकार वापस आपके पास।";
+      $("lvStatus").textContent="कोई प्रतिनिधि नहीं";
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
   if(ev.target && ev.target.id==="rSend"){
     const b=ev.target, msg=$("rMsg");
     const cycle=$("rCycle").value, text=($("rText").value||"").trim();
@@ -666,6 +759,53 @@ document.addEventListener("click", async (ev)=>{
     b.disabled=false; return;
   }
 });
+
+/*TEAM_ONLY_JS_END*/
+
+/* ═══ external-mode पहरा — registrations से (आवेदक-स्वयं rules-दायरा) ═══ */
+async function guardExternal(user){
+  let reg=null, t0=0;
+  try{
+    const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+    qs.forEach(d=>{
+      const r=d.data();
+      if(r.status==="cancelled") return;
+      const okRoles = EXT_ROLES.length ? EXT_ROLES : ALLOWED;
+      if(okRoles.indexOf(String(r.role||"").toLowerCase())===-1) return;
+      const t=(r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+      if(!reg || t>t0){ reg=r; t0=t; }
+    });
+  }catch(e){ /* नीचे deny */ }
+  if(!reg){ show("denyView"); return; }
+
+  const isActive = (reg.status==="approved");
+  if(!isActive) $("provBar").classList.add("on");
+  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (provisional)");
+
+  const whoName = reg.name_local || reg.name_roman || reg.name || reg.fullName || (user.email||"");
+  $("pName").textContent  = whoName;
+  $("pReg").textContent   = reg.regNo || "—";
+  $("pLevel").textContent = ROLE_LABEL;
+  const area = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):reg.rm_districts].filter(Boolean).join(" · ");
+  $("pArea").textContent  = area || "—";
+  $("pEmail").textContent = reg.email || (user.email||"—");
+  $("pPhone").textContent = reg.phone || reg.mobile || "—";
+  $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
+  $("tbWho").title = "UID: " + user.uid;
+
+  /* दस्तावेज़-chips */
+  const docs = reg.documents || reg.docs || {};
+  const wrap = $("docWrap"); wrap.innerHTML = docChips(docs);
+  $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
+
+  /* g2-सफ़र नोट */
+  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
+  $("tlNote").textContent = "";
+
+  show("appView");
+  startSessionWatch(user);
+  startIdleTimer();
+}
 
 /* ═══ single-session: sessions/{uid}.activeSession बदले तो logout ═══ */
 async function startSessionWatch(user){

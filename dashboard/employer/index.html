@@ -3,719 +3,388 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Employer Dashboard — ACS</title>
+<meta name="robots" content="noindex"/>
+<title>नियोक्ता Dashboard — ACS</title>
+<!-- ════════════════════════════════════════════════════════════════
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
+     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     ACS Dashboard — मास्टर टेम्पलेट v3.0 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.0 · 12-Jul-2026 — MODE (team/external) + topbar-पहचान + Transfer/Leave UI + CAN_FINAL-gate
+     पिछला: v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
+     पिछला: टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
+     पिछला: approve/reject बटन (server: approveApplication/rejectApplication)
+     + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
+     + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
+     --------------------------------------------------------------
+     लोहे का नियम (परत-2/4): कोई dashboard-page हाथ से न बने —
+     सिर्फ़ generator (generator/build_dashboards.js) इस टेम्पलेट से बनाए।
+     हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
+             [T4] प्रोफ़ाइल+approval-सफ़र · [T5] पैनल-जाल · [T6] footer
+     नियम: पद-जानकारी सिर्फ़ /assets/designation_matrix.js से (परत-3)।
+     असली रोक server पर — matrix कभी guard नहीं (matrix-सुरक्षा नियम)।
+     data-स्रोत: teams/{uid} + registrations — users/centre_registrations वर्जित।
+     फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं · गोल bracket ( ) · सरल हिंदी।
+     ════════════════════════════════════════════════════════════════ -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
-  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
-  --red:#E53935;--orange:#E65100;
-  --dark:#1A237E;--dark-lt:#283593;
-  --white:#fff;--offwhite:#F8F9FF;
-  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
-  --sidebar:260px;
+  --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
+  --text:#1A2B3C; --gray:#5A6B7C; --border:#E3E9F2;
 }
-html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
-.app{display:flex;min-height:100vh}
-.sidebar{width:var(--sidebar);background:linear-gradient(180deg,#0D47A1 0%,#1565C0 100%);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform .3s}
-.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column}
-@media(max-width:768px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}}
-.sb-logo{padding:20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
-.sb-logo img{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.3)}
-.sb-logo-txt strong{display:block;font-size:12px;font-weight:700;color:#fff}
-.sb-logo-txt span{font-size:10px;color:#90CAF9}
-.sb-user{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
-.sb-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0D47A1,#1E88E5);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;border:2px solid rgba(255,255,255,0.3)}
-.sb-user-info strong{display:block;font-size:12px;color:#fff;font-weight:700}
-.sb-user-info span{font-size:10px;color:#90CAF9;font-weight:600}
-.sb-nav{flex:1;padding:12px 0;overflow-y:auto}
-.nav-section{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
-.nav-item:hover{background:rgba(255,255,255,0.08);border-left-color:rgba(255,255,255,0.3)}
-.nav-item.active{background:rgba(255,255,255,0.15);border-left-color:#90CAF9}
-.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0}
-.nav-label{font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
-.nav-item.active .nav-label{color:#fff;font-weight:700}
-.nav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
-.sb-bottom{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.12)}
-.logout-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;width:100%;font-family:inherit;color:rgba(255,255,255,0.8);font-size:12px;font-weight:600}
-.topbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
-.menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer}
-@media(max-width:768px){.menu-btn{display:block}}
-.topbar-title{font-size:15px;font-weight:700;color:var(--navy);flex:1}
-.icon-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
-.content{padding:20px 24px;flex:1}
-@media(max-width:600px){.content{padding:12px 14px}}
-.page{display:none}
-.page.active{display:block;animation:fadeIn .25s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.page-header{margin-bottom:20px}
-.page-header h2{font-size:20px;font-weight:800;color:var(--navy)}
-.page-header p{font-size:13px;color:var(--gray);margin-top:2px}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
-.stat-card:hover{transform:translateY(-2px)}
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.stat-card.blue::before{background:linear-gradient(90deg,var(--blue),var(--blue-lt))}
-.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#FFD54F)}
-.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--green-lt))}
-.stat-card.red::before{background:linear-gradient(90deg,var(--red),#FF8A80)}
-.stat-icon{font-size:22px;margin-bottom:8px}
-.stat-num{font-size:24px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
-.stat-label{font-size:11px;color:var(--gray)}
-.card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
-.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.card-head h3{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px}
-.card-body{padding:16px 18px}
-.card-head-action{font-size:11px;color:var(--blue);font-weight:600;cursor:pointer;border:1px solid rgba(21,101,192,0.2);background:none;font-family:inherit;padding:4px 10px;border-radius:6px}
-.fg{margin-bottom:14px}
-.fg label{display:block;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:5px}
-.req{color:var(--red)}
-.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s;min-height:44px}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(21,101,192,0.1)}
-.fg textarea{min-height:80px;resize:vertical}
-.fg .hint{font-size:10px;color:var(--gray);margin-top:4px}
-.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:500px){.fg-row{grid-template-columns:1fr}}
-.btn-row{display:flex;gap:10px;margin-top:16px}
-.btn-primary{flex:1;padding:12px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 4px 12px rgba(21,101,192,0.3)}
-.btn-primary:hover{transform:translateY(-1px)}
-.btn-secondary{padding:12px 16px;background:#fff;color:var(--navy);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
-.btn-green{flex:1;padding:12px;background:linear-gradient(135deg,var(--green),#43A047);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);border-bottom:1px solid var(--border);background:#F8FAFF}
-td{padding:10px 12px;border-bottom:1px solid #F0F4F8;vertical-align:middle}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#F8FAFF}
-.status-pill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block}
-.sp-open{background:#E8F5E9;color:var(--green)}
-.sp-closed{background:#FFEBEE;color:var(--red)}
-.sp-review{background:#FFF3E0;color:var(--orange)}
-.sp-hired{background:#EEF4FF;color:var(--blue)}
-.alert{padding:12px 16px;border-radius:8px;font-size:12px;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.alert-info{background:#EEF4FF;color:var(--blue);border:1px solid #C7D9F9}
-.alert-ok{background:#E8F5E9;color:var(--green);border:1px solid #C8E6C9}
-.alert-warn{background:#FFF3E0;color:var(--orange);border:1px solid #FFE0B2}
-.empty{text-align:center;padding:32px;color:var(--gray)}
-.empty-icon{font-size:36px;margin-bottom:8px}
-.empty p{font-size:12px;line-height:1.6}
-.candidate-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;transition:all .2s}
-.candidate-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-.cc-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.cc-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-lt));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0}
-.cc-name{font-size:14px;font-weight:700;color:var(--navy)}
-.cc-meta{font-size:11px;color:var(--gray);margin-top:2px}
-.match-wrap{display:flex;align-items:center;gap:8px;margin-top:8px}
-.match-bar{flex:1;background:#F0F0F0;border-radius:10px;height:6px;overflow:hidden}
-.match-fill{height:6px;border-radius:10px;background:linear-gradient(90deg,var(--blue),var(--green-lt))}
-.match-pct{font-size:11px;font-weight:700;color:var(--green)}
-.cr-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px}
-.cr-cleared{background:#E8F5E9;color:var(--green)}
-.cr-pending{background:#FFF3E0;color:var(--orange)}
-.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
-.toast.show{transform:translateY(0);opacity:1}
-.toast.ok{border-left:4px solid var(--green-lt)}
-.toast.err{border-left:4px solid var(--red)}
-.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
-@media(max-width:768px){.sb-overlay.open{display:block}}
-.job-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;transition:all .2s}
-.job-card:hover{border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-.job-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.job-meta{font-size:11px;color:var(--gray);margin-bottom:8px;display:flex;flex-wrap:wrap;gap:10px}
-.progress-wrap{background:#F0F0F0;border-radius:10px;height:6px;overflow:hidden}
-.progress-fill{height:6px;border-radius:10px;background:linear-gradient(90deg,var(--blue),var(--blue-lt))}
+html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:19px;line-height:1.75}
+.wrap{min-height:100vh;display:flex;flex-direction:column}
+
+/* ═══ [T1] topbar — dashboard-परिवार का साझा माथा ═══ */
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar img{width:42px;height:42px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35)}
+.topbar .tt strong{display:block;font-size:17px;font-weight:800;line-height:1.3}
+.topbar .tt span{font-size:16px;color:var(--gold);font-weight:700}
+.topbar .sp{flex:1}
+.tbwho{font-size:16px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-out{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:10px 16px;font-size:16px;font-weight:700;cursor:pointer}
+.btn-out:hover{background:rgba(255,255,255,.28)}
+
+/* ═══ [T2] hold-पट्टी (v1.4) — hold लगे तो ही दिखे ═══ */
+.holdbar{display:none;background:#B71C1C;color:#fff;padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.holdbar.on{display:block}
+
+/* ═══ [T3] provisional-पर्दा (07-Jul रास्ता-A) ═══ */
+.provbar{display:none;background:var(--gold);color:var(--navy);padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.provbar.on{display:block}
+
+/* ═══ साझा कार्ड-रूप ═══ */
+.main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:16px 12px 28px}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 16px;margin-bottom:16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.card h2{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.center{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 14px}
+.cbox{background:#fff;border:1px solid var(--border);border-radius:18px;max-width:560px;width:100%;padding:36px 24px;text-align:center;box-shadow:0 10px 30px rgba(11,31,58,.08)}
+.bigicon{font-size:60px;line-height:1;margin-bottom:12px}
+.cbox .h{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.cbox .s{font-size:18px;color:var(--gray);line-height:1.7}
+.btn-blue{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:18px;font-weight:800;cursor:pointer;margin-top:16px}
+.hidden{display:none}
+
+/* ═══ [T4] प्रोफ़ाइल ═══ */
+.pgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr}}
+.pitem{background:var(--offwhite);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.pitem .k{font-size:16px;color:var(--gray);font-weight:700}
+.pitem .v{font-size:19px;font-weight:800;color:var(--navy);word-break:break-word}
+.pill{display:inline-block;background:var(--offwhite);color:var(--blue);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:800}
+.docwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.doc{display:inline-flex;align-items:center;gap:6px;background:var(--offwhite);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:16px;font-weight:700;color:var(--blue);text-decoration:none}
+.doc:hover{border-color:var(--blue)}
+.note{font-size:16px;color:var(--gray);margin-top:8px}
+
+/* approval-सफ़र timeline */
+.tl{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step .dot{width:26px;display:flex;flex-direction:column;align-items:center}
+.step .dot i{width:18px;height:18px;border-radius:50%;background:var(--border);border:3px solid var(--border);display:block}
+.step.done .dot i{background:var(--green);border-color:var(--green)}
+.step.now  .dot i{background:#fff;border-color:var(--gold)}
+.step .dot em{flex:1;width:3px;background:var(--border);min-height:22px;display:block}
+.step:last-child .dot em{display:none}
+.step .lbl{font-size:18px;font-weight:700;padding-bottom:14px}
+.step.done .lbl{color:var(--green)}
+.step.now  .lbl{color:var(--navy)}
+.step .lbl small{display:block;font-size:16px;color:var(--gray);font-weight:600}
+
+/* ═══ [T5] पैनल-जाल ═══ */
+.pnl{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.pnl{grid-template-columns:1fr 1fr}}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.pcard .ph{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pcard .pd{font-size:17px;color:var(--gray);line-height:1.7}
+.soon{display:inline-block;margin-top:10px;background:var(--offwhite);border:1px dashed var(--gray);color:var(--gray);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:700}
+
+/* [P1] आवेदन-सूची */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ftab{background:var(--offwhite);border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;color:var(--gray);cursor:pointer}
+.ftab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.applist{display:flex;flex-direction:column;gap:10px}
+.app{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite)}
+.app .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.app .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.app .rg{font-size:16px;font-weight:700;color:var(--gray)}
+.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800}
+.chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.chip.rej{background:#FFF3E0;color:#B71C1C;border:1px solid #F9A825}
+.acts{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff}
+.abtn.ok{background:var(--green)} .abtn.no{background:#B71C1C}
+.abtn:disabled{opacity:.55;cursor:wait}
+.rejbox{display:none;margin-top:8px;width:100%}
+.rejbox.on{display:block}
+.rejbox textarea{width:100%;min-height:70px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px}
+.msg{font-size:16px;font-weight:700;margin-top:6px}
+.msg.ok{color:var(--green)} .msg.err{color:#B71C1C}
+.chip.lvl{background:#fff;color:var(--blue);border:1px solid var(--border)}
+.app .r2{font-size:16px;color:var(--gray);margin-top:4px}
+.app .more{margin-top:8px;display:none}
+.app.open .more{display:block}
+.app .mrow{font-size:17px;margin-top:2px}
+.app .mrow b{color:var(--navy)}
+.app .vbtn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
+
+/* [P2] टीम-पैनल व पदेन-प्रभार */
+.mem{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite);margin-top:10px}
+.mem .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mem .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.chip.on{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.off{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.hold{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
+.exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
+
+/* ═══ [T6] footer ═══ */
+.foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
 </style>
 </head>
 <body>
-<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
-<div class="app">
-<aside class="sidebar" id="sidebar">
-  <div class="sb-logo">
-    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-    <div class="sb-logo-txt">
-      <strong>Applied Computer School™</strong>
-      <span>Employer Dashboard</span>
-    </div>
-  </div>
-  <div class="sb-user">
-    <div class="sb-avatar" id="sbAvatar">E</div>
-    <div class="sb-user-info">
-      <strong id="sbName">Employer</strong>
-      <span>💼 Employer</span>
-    </div>
-  </div>
-  <nav class="sb-nav">
-    <div class="nav-section">Overview</div>
-    <div class="nav-item active" onclick="showPage('overview',this)">
-      <span class="nav-icon">📊</span><span class="nav-label">Dashboard</span>
-    </div>
-    <div class="nav-section">Jobs</div>
-    <div class="nav-item" onclick="showPage('post-job',this)">
-      <span class="nav-icon">➕</span><span class="nav-label">Post New Job</span>
-    </div>
-    <div class="nav-item" onclick="showPage('my-jobs',this)">
-      <span class="nav-icon">💼</span><span class="nav-label">My Jobs</span>
-      <span class="nav-badge" id="jobCount">0</span>
-    </div>
-    <div class="nav-section">Candidates</div>
-    <div class="nav-item" onclick="showPage('candidates',this)">
-      <span class="nav-icon">👥</span><span class="nav-label">Candidates</span>
-    </div>
-    <div class="nav-item" onclick="showPage('shortlisted',this)">
-      <span class="nav-icon">⭐</span><span class="nav-label">Shortlisted</span>
-    </div>
-    <div class="nav-item" onclick="showPage('hired',this)">
-      <span class="nav-icon">✅</span><span class="nav-label">Hired</span>
-    </div>
-    <div class="nav-section">Talent Map</div>
-    <div class="nav-item" onclick="showPage('talent-map',this)">
-      <span class="nav-icon">🗺️</span><span class="nav-label">Talent Map</span>
-    </div>
-    <div class="nav-item" onclick="showPage('skill-pipeline',this)">
-      <span class="nav-icon">📈</span><span class="nav-label">Skill Pipeline</span>
-    </div>
-    <div class="nav-section">Account</div>
-    <div class="nav-item" onclick="showPage('profile',this)">
-      <span class="nav-icon">🏢</span><span class="nav-label">Company Profile</span>
-    </div>
-  </nav>
-  <div class="sb-bottom">
-    <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
-  </div>
-</aside>
-<div class="main">
+<div class="wrap">
+
+  <!-- [T1] topbar -->
   <div class="topbar">
-    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-    <div class="topbar-title" id="topbarTitle">Dashboard</div>
-    <div style="display:flex;gap:8px">
-      <button class="icon-btn" onclick="showPage('post-job',document.querySelector('[onclick*=post-job]'))">➕</button>
-      <button class="icon-btn" onclick="loadData()">🔄</button>
+    <img src="/assets/acs-logo.png" alt="ACS" onerror="this.style.display='none'"/>
+    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">नियोक्ता Dashboard</span></div>
+    <div class="sp"></div>
+    <div class="tbwho" id="tbWho"></div>
+    <button class="btn-out" onclick="doLogout()">Logout</button>
+  </div>
+
+  <!-- [T2] hold-पट्टी -->
+  <div class="holdbar" id="holdBar"></div>
+
+  <!-- [T3] provisional-पर्दा -->
+  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — dashboard अभी सिर्फ़ देखने के मोड में है। approval पूरा होते ही सब काम-अधिकार खुल जाएँगे।</div>
+
+  <!-- जाँच-दृश्य -->
+  <div class="center" id="loadView">
+    <div class="cbox"><div class="bigicon">⏳</div><div class="s">जाँच हो रही है…</div></div>
+  </div>
+
+  <!-- ग़लत भूमिका -->
+  <div class="center hidden" id="denyView">
+    <div class="cbox">
+      <div class="bigicon">🔒</div>
+      <div class="h">यह आपका Dashboard नहीं</div>
+      <div class="s">यह पन्ना सिर्फ़ नियोक्ता के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
     </div>
   </div>
-  <div class="content">
 
-  <!-- OVERVIEW -->
-  <div class="page active" id="page-overview">
-    <div class="page-header">
-      <h2 id="welcomeText">नमस्ते! 🙏</h2>
-      <p>ACS Verified Talent — आपके लिए तैयार</p>
-    </div>
-    <div class="alert alert-ok">
-      <span>✅</span>
-      <div><strong>ACS Advantage:</strong> सभी candidates ACS Certified हैं। Background check (Police CR) complete। Skills verified। आप सीधे hire कर सकते हैं।</div>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card blue"><div class="stat-icon">💼</div><div class="stat-num" id="st-jobs">0</div><div class="stat-label">Active Jobs</div></div>
-      <div class="stat-card gold"><div class="stat-icon">👥</div><div class="stat-num" id="st-applications">0</div><div class="stat-label">Applications</div></div>
-      <div class="stat-card green"><div class="stat-icon">✅</div><div class="stat-num" id="st-hired">0</div><div class="stat-label">Hired</div></div>
-      <div class="stat-card blue"><div class="stat-icon">⭐</div><div class="stat-num" id="st-shortlisted">0</div><div class="stat-label">Shortlisted</div></div>
-    </div>
+  <!-- मुख्य दृश्य -->
+  <div class="main hidden" id="appView">
+
+    <!-- [T4] प्रोफ़ाइल -->
     <div class="card">
-      <div class="card-head"><h3>💼 My Active Jobs</h3><button class="card-head-action" onclick="showPage('post-job',document.querySelector('[onclick*=post-job]'))">➕ नई Job</button></div>
-      <div class="card-body" id="activeJobsList">
-        <div class="empty"><div class="empty-icon">💼</div><p>अभी कोई job post नहीं।<br/>पहली job post करें!</p></div>
+      <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
+      <div class="pgrid">
+        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
+        <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
+        <div class="pitem"><div class="k">स्तर</div><div class="v" id="pLevel">—</div></div>
+        <div class="pitem"><div class="k">कार्य-क्षेत्र</div><div class="v" id="pArea">—</div></div>
+        <div class="pitem"><div class="k">Email</div><div class="v" id="pEmail">—</div></div>
+        <div class="pitem"><div class="k">Mobile</div><div class="v" id="pPhone">—</div></div>
       </div>
+
+      <h2 style="margin-top:18px">📎 मेरे दस्तावेज़</h2>
+      <div class="docwrap" id="docWrap"><span class="note" id="docNote">दस्तावेज़ लाए जा रहे हैं…</span></div>
+      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — चरण-3 में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
+
+      <h2 style="margin-top:18px">🛤️ मेरा approval-सफ़र</h2>
+      <div class="tl" id="tlWrap"></div>
+      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
     </div>
-    <div class="card">
-      <div class="card-head"><h3>🗺️ Talent Available — Area Wise</h3></div>
-      <div class="card-body" id="talentOverview">
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-          <div style="padding:12px;background:#EEF4FF;border-radius:8px;text-align:center"><div style="font-size:20px;font-weight:800;color:var(--blue)" id="to-dca">0</div><div style="font-size:11px;color:var(--gray)">DCA Students</div></div>
-          <div style="padding:12px;background:#E8F5E9;border-radius:8px;text-align:center"><div style="font-size:20px;font-weight:800;color:var(--green)" id="to-mobile">0</div><div style="font-size:11px;color:var(--gray)">Mobile Repair</div></div>
-          <div style="padding:12px;background:#FFF3E0;border-radius:8px;text-align:center"><div style="font-size:20px;font-weight:800;color:var(--orange)" id="to-digital">0</div><div style="font-size:11px;color:var(--gray)">Digital Marketing</div></div>
-          <div style="padding:12px;background:#F3E5F5;border-radius:8px;text-align:center"><div style="font-size:20px;font-weight:800;color:#6A1B9A" id="to-tally">0</div><div style="font-size:11px;color:var(--gray)">Tally/Accounts</div></div>
-          <div style="padding:12px;background:#E0F2F1;border-radius:8px;text-align:center"><div style="font-size:20px;font-weight:800;color:#00695C" id="to-electrical">0</div><div style="font-size:11px;color:var(--gray)">Electrical</div></div>
-          <div style="padding:12px;background:#FFF8E1;border-radius:8px;text-align:center"><div style="font-size:20px;font-weight:800;color:var(--gold)" id="to-other">0</div><div style="font-size:11px;color:var(--gray)">Other Skills</div></div>
-        </div>
-        <div style="font-size:11px;color:var(--gray);margin-top:10px;text-align:center">* Real-time data — ACS Network से</div>
+
+    <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
+    
+
+    <!--EXTERNAL_ONLY_START-->
+    <div class="pnl">
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">🛤️ approval-स्थिति</div>
+        <div class="pd">बाहरी-role (g2) की approval-श्रृंखला server पर अगले दौर में बनेगी (v1.3: "पहले टीम फ़ाइनल") — तब तक dashboard देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>
       </div>
+      <div class="pcard" style="grid-column:1/-1"><div class="ph">🗂️ आगे के पैनल</div><div class="pd">इस role के काम-पैनल (सेवा · payment · badge आदि) approval-श्रृंखला (g2) के साथ अगले दौर में खुलेंगे।</div><span class="soon">आरक्षित — अगले दौर में</span></div>
     </div>
-  </div>
-
-  <!-- POST JOB -->
-  <div class="page" id="page-post-job">
-    <div class="page-header"><h2>➕ Post New Job</h2><p>ACS Students को job opportunity दें</p></div>
-    <div class="card">
-      <div class="card-head"><h3>💼 Job Details</h3></div>
-      <div class="card-body">
-        <div class="fg">
-          <label>Job Title <span class="req">*</span></label>
-          <input type="text" id="jobTitle" placeholder="जैसे: Computer Operator, Mobile Repair Technician"/>
-        </div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Department/Category <span class="req">*</span></label>
-            <select id="jobCat">
-              <option value="">— चुनें —</option>
-              <option>Computer/IT</option>
-              <option>Mobile Repair</option>
-              <option>Digital Marketing</option>
-              <option>Accounts/Tally</option>
-              <option>Electrical/Technical</option>
-              <option>Sales/Marketing</option>
-              <option>Teaching/Training</option>
-              <option>Agriculture</option>
-              <option>Healthcare</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label>Positions <span class="req">*</span></label>
-            <input type="number" id="jobPositions" placeholder="कितनी vacancy है?" min="1"/>
-          </div>
-        </div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Salary Range (₹/month) <span class="req">*</span></label>
-            <input type="text" id="jobSalary" placeholder="जैसे: 8000-12000"/>
-          </div>
-          <div class="fg">
-            <label>Job Type</label>
-            <select id="jobType">
-              <option>Full Time</option>
-              <option>Part Time</option>
-              <option>Contract</option>
-              <option>Internship</option>
-              <option>Apprenticeship</option>
-            </select>
-          </div>
-        </div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Location <span class="req">*</span></label>
-            <input type="text" id="jobLocation" placeholder="जिला, राज्य"/>
-          </div>
-          <div class="fg">
-            <label>Last Date</label>
-            <input type="date" id="jobLastDate"/>
-          </div>
-        </div>
-        <div class="fg">
-          <label>Required Skills <span class="req">*</span></label>
-          <input type="text" id="jobSkills" placeholder="जैसे: MS Office, Tally, Mobile Repair (comma से अलग करें)"/>
-        </div>
-        <div class="fg">
-          <label>Minimum Qualification</label>
-          <select id="jobQual">
-            <option>10th Pass</option>
-            <option>12th Pass</option>
-            <option>Graduate</option>
-            <option>ACS Certificate (any course)</option>
-            <option>ACS DCA Certificate</option>
-            <option>No specific requirement</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>Job Description</label>
-          <textarea id="jobDesc" placeholder="Job की जिम्मेदारियाँ, requirements, working hours, benefits..."></textarea>
-        </div>
-        <div class="fg">
-          <label>ACS Replacement Guarantee चाहिए?</label>
-          <select id="jobGuarantee">
-            <option value="yes">हाँ — अगर candidate 3 months में छोड़े तो replacement</option>
-            <option value="no">नहीं — standard hiring</option>
-          </select>
-          <div class="hint">ACS Replacement Guarantee वाली jobs पर students ज्यादा apply करते हैं।</div>
-        </div>
-        <div class="alert alert-info" style="margin-top:8px">
-          <span>🛡️</span>
-          <div><strong>ACS Verification:</strong> सभी candidates का Police CR (Background Check) ACS करेगा। आपको verified candidates मिलेंगे।</div>
-        </div>
-        <div class="btn-row">
-          <button class="btn-secondary" onclick="showPage('my-jobs',document.querySelector('[onclick*=my-jobs]'))">← वापस</button>
-          <button class="btn-primary" onclick="postJob()">✅ Job Post करें</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MY JOBS -->
-  <div class="page" id="page-my-jobs">
-    <div class="page-header"><h2>💼 My Jobs</h2><p>आपकी सभी job postings</p></div>
-    <div id="myJobsList">
-      <div class="empty"><div class="empty-icon">💼</div><p>अभी कोई job post नहीं।<br/><button onclick="showPage('post-job',document.querySelector('[onclick*=post-job]'))" style="margin-top:10px;padding:8px 16px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-family:inherit;cursor:pointer;font-size:12px">➕ पहली Job Post करें</button></p></div>
-    </div>
-  </div>
-
-  <!-- CANDIDATES -->
-  <div class="page" id="page-candidates">
-    <div class="page-header"><h2>👥 Candidates</h2><p>ACS Certified — Skills Verified — CR Cleared</p></div>
-    <div class="alert alert-ok">
-      <span>✅</span>
-      <div><strong>ACS Verified Candidates:</strong> हर candidate का ACS Certificate, skills test और Police CR complete है। आप directly interview call कर सकते हैं।</div>
-    </div>
-    <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
-      <select id="filterSkill" style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:inherit;outline:none" onchange="filterCandidates()">
-        <option value="">सभी Skills</option>
-        <option>DCA/Computer</option>
-        <option>Mobile Repair</option>
-        <option>Digital Marketing</option>
-        <option>Tally/Accounts</option>
-        <option>Electrical</option>
-      </select>
-      <select id="filterLocation" style="padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:inherit;outline:none" onchange="filterCandidates()">
-        <option value="">सभी Location</option>
-        <option>Khagaria</option>
-        <option>Saharsa</option>
-        <option>Bihar</option>
-      </select>
-    </div>
-    <div id="candidatesList">
-      <div class="empty"><div class="empty-icon">👥</div><p>Students certified होने के बाद यहाँ दिखेंगे।<br/>Phase 4 में Exam → Certificate → यहाँ।</p></div>
-    </div>
-  </div>
-
-  <!-- SHORTLISTED -->
-  <div class="page" id="page-shortlisted">
-    <div class="page-header"><h2>⭐ Shortlisted Candidates</h2><p>आपने shortlist किए हुए candidates</p></div>
-    <div class="empty"><div class="empty-icon">⭐</div><p>अभी कोई candidate shortlist नहीं किया।</p></div>
-  </div>
-
-  <!-- HIRED -->
-  <div class="page" id="page-hired">
-    <div class="page-header"><h2>✅ Hired Candidates</h2><p>ACS के through hire किए गए candidates</p></div>
-    <div class="stats-grid">
-      <div class="stat-card green"><div class="stat-icon">✅</div><div class="stat-num" id="hired-total">0</div><div class="stat-label">Total Hired</div></div>
-      <div class="stat-card blue"><div class="stat-icon">📅</div><div class="stat-num" id="hired-retention">0%</div><div class="stat-label">3-Month Retention</div></div>
-      <div class="stat-card gold"><div class="stat-icon">⭐</div><div class="stat-num" id="hired-rating">—</div><div class="stat-label">Avg Performance</div></div>
-    </div>
-    <div class="empty"><div class="empty-icon">✅</div><p>Hire होने वाले candidates यहाँ दिखेंगे।</p></div>
-  </div>
-
-  <!-- TALENT MAP -->
-  <div class="page" id="page-talent-map">
-    <div class="page-header"><h2>🗺️ Talent Map</h2><p>Area wise available talent</p></div>
-    <div class="alert alert-info">
-      <span>💡</span>
-      <div><strong>ACS Unique Feature:</strong> Regional Manager के Market Survey से यह data आता है। आप जान सकते हैं — किस area में कौन सी skill available है।</div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📊 Skill Availability — Bihar</h3></div>
-      <div class="card-body">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>💻 Computer/DCA</span><span style="font-weight:700;color:var(--blue)">0 available</span></div>
-            <div class="progress-wrap"><div class="progress-fill" style="width:0%"></div></div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>📱 Mobile Repair</span><span style="font-weight:700;color:var(--blue)">0 available</span></div>
-            <div class="progress-wrap"><div class="progress-fill" style="width:0%"></div></div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>📢 Digital Marketing</span><span style="font-weight:700;color:var(--blue)">0 available</span></div>
-            <div class="progress-wrap"><div class="progress-fill" style="width:0%"></div></div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>📊 Tally/Accounts</span><span style="font-weight:700;color:var(--blue)">0 available</span></div>
-            <div class="progress-wrap"><div class="progress-fill" style="width:0%"></div></div>
-          </div>
-        </div>
-        <div class="alert alert-info" style="margin-top:12px"><span>ℹ️</span><div>Students certified होने के बाद यहाँ real data आएगा। Phase 4 में।</div></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📋 Skill Demand Submit करें</h3></div>
-      <div class="card-body">
-        <div class="alert alert-info"><span>💡</span><div>आपकी skill demand ACS Regional Manager को जाएगी। वो उसी के हिसाब से training करवाएंगे।</div></div>
-        <div class="fg">
-          <label>आपको किस skill की जरूरत है?</label>
-          <textarea id="skillDemand" placeholder="जैसे: Mobile Repair (5 candidates), Computer Operator (3 candidates), Tally Expert (2 candidates)..."></textarea>
-        </div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Timeline</label>
-            <select id="skillTimeline">
-              <option>1 month में</option>
-              <option>3 months में</option>
-              <option>6 months में</option>
-              <option>Ongoing need</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label>Salary Range</label>
-            <input type="text" id="skillSalary" placeholder="₹8000-15000"/>
-          </div>
-        </div>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="submitSkillDemand()">📤 Demand Submit करें</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SKILL PIPELINE -->
-  <div class="page" id="page-skill-pipeline">
-    <div class="page-header"><h2>📈 Skill Pipeline</h2><p>अगले 3-6 महीने में कौन available होगा</p></div>
-    <div class="card">
-      <div class="card-body">
-        <div class="empty"><div class="empty-icon">📈</div><p>Students enrolled होने के बाद यहाँ pipeline दिखेगी।<br/>जैसे: "अगले 3 months में 15 DCA students certified होंगे।"</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- COMPANY PROFILE -->
-  <div class="page" id="page-profile">
-    <div class="page-header"><h2>🏢 Company Profile</h2><p>Students आपकी company देखेंगे</p></div>
-    <div class="card">
-      <div class="card-head"><h3>🏢 Company Details</h3></div>
-      <div class="card-body">
-        <div class="fg-row">
-          <div class="fg">
-            <label>Company Name <span class="req">*</span></label>
-            <input type="text" id="compName" placeholder="Company का नाम"/>
-          </div>
-          <div class="fg">
-            <label>Industry</label>
-            <select id="compIndustry">
-              <option>IT/Computer</option>
-              <option>Mobile/Electronics</option>
-              <option>Manufacturing</option>
-              <option>Agriculture</option>
-              <option>Healthcare</option>
-              <option>Education</option>
-              <option>Retail/Trade</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="fg-row">
-          <div class="fg">
-            <label>Company Size</label>
-            <select id="compSize">
-              <option>1-10 employees</option>
-              <option>11-50 employees</option>
-              <option>51-200 employees</option>
-              <option>200+ employees</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label>District</label>
-            <input type="text" id="compDistrict" placeholder="जिला"/>
-          </div>
-        </div>
-        <div class="fg">
-          <label>About Company</label>
-          <textarea id="compAbout" placeholder="Company क्या करती है? Work culture? Benefits?"></textarea>
-        </div>
-        <div class="fg">
-          <label>Website (optional)</label>
-          <input type="url" id="compWeb" placeholder="https://..."/>
-        </div>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="saveProfile()">💾 Profile Save करें</button>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>🛡️ ACS Verified Employer</h3></div>
-      <div class="card-body">
-        <div class="alert alert-info"><span>🛡️</span><div>ACS Verified Employer badge पाने के लिए GST number, Business registration और good hiring history जरूरी है। Verified employers को priority candidates मिलते हैं।</div></div>
-        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
-          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>GST Registration</span><span style="font-weight:700;color:var(--orange)">⏳ Pending</span></div>
-          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Business Registration</span><span style="font-weight:700;color:var(--orange)">⏳ Pending</span></div>
-          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>Hiring History</span><span style="font-weight:700;color:var(--orange)">0 hires</span></div>
-          <div style="display:flex;justify-content:space-between;padding:8px;background:#F8FAFF;border-radius:6px"><span>ACS Verified Badge</span><span style="font-weight:700;color:var(--orange)">⏳ Pending</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!--EXTERNAL_ONLY_END-->
 
   </div>
+
+  <!-- [T6] footer -->
+  <div class="foot">ACS™ · FFGPMTrust · From Village to World</div>
 </div>
-</div>
-<div class="toast" id="toast"></div>
+
+<!-- पद-जानकारी का एकमात्र घर (परत-3) — सिर्फ़ दिखाने के लिए, guard नहीं -->
+<script src="/assets/designation_matrix.js"></script>
 
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import{getAuth,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import{getFirestore,collection,getDocs,doc,getDoc,addDoc,setDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
 
-const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
-const auth=getAuth(app),db=getFirestore(app);
-let currentUser=null,employerData=null,myJobs=[];
+const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth = getAuth(app), db = getFirestore(app);
+const functions = getFunctions(app, "us-central1");
+const $ = (id)=>document.getElementById(id);
 
-onAuthStateChanged(auth,async user=>{
-  if(!user){window.location.href='/dashboard/index.html';return}
-  currentUser=user;
-  try{
-    const snap=await getDoc(doc(db,'users',user.uid));
-    if(snap.exists()){
-      employerData={uid:user.uid,email:user.email,...snap.data()};
-      window.employerData=employerData;
-      initDashboard();
-    }else{
-      // data नहीं मिला — फिर भी dashboard दिखाएं
-      employerData={uid:user.uid,email:user.email,name:'Employer',role:'Employer'};
-      window.employerData=employerData;
-      initDashboard();
-    }
-  }catch(e){
-    console.log('Auth error:',e);
-    employerData={uid:user.uid,email:user.email,name:'Employer',role:'Employer'};
-    window.employerData=employerData;
-    initDashboard();
-  }
+/* ── generator-भरे consts — जिन designations/roles को यह dashboard
+   देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
+   यह सिर्फ़ पर्दा है (matrix-सुरक्षा नियम)। ── */
+const MODE = "external";              /* team | external */
+const ALLOWED = ["employer"];
+const EXT_ROLES = []; /* team-mode में external-fallback roles (जैसे volunteer) */
+const ROLE_LABEL = "नियोक्ता";  /* external-mode में pill-label */
+const HOME = "/dashboard/employer/";
+
+/* ── matrix से label/चौकी-सूची (सिर्फ़ दिखाने के लिए) ── */
+const MX = (window.ACS_DESIGNATIONS && window.ACS_DESIGNATIONS.teams) || [];
+const mxRow = (key)=> MX.find(t=>t.key===key) || null;
+const mxLabel = (key)=>{ const r=mxRow(key); return r ? r.label : (key||"—"); };
+
+function show(id){
+  ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
+  $(id).classList.remove("hidden");
+}
+
+/* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
+onAuthStateChanged(auth, async (user)=>{
+  if(!user){ location.href="/dashboard/index.html"; return; }
+  if(MODE==="external"){ await guardExternal(user); return; }
+  /* external-mode: team-guard लागू नहीं */
 });
 
-async function initDashboard(){
-  const name=employerData.name||employerData.companyName||'Employer';
-  document.getElementById('sbName').textContent=name;
-  document.getElementById('sbAvatar').textContent=name[0].toUpperCase();
-  document.getElementById('welcomeText').textContent='नमस्ते, '+name+' जी 🙏';
-  loadJobs();
+
+
+/* ═══ registration पढ़ना — स्रोत: registrations (एकमात्र सही collection) ═══ */
+async function loadRegistration(user){
+  const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+  let latest=null, t0=0;
+  qs.forEach(d=>{
+    const r=d.data();
+    if(r.status==="cancelled") return;
+    const t = (r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+    if(!latest || t>t0){ latest=r; t0=t; }
+  });
+  if(!latest){ $("pReg").textContent="—"; $("docNote").textContent="कोई आवेदन-record नहीं मिला (सीधे बनाए गए account में सामान्य है)।"; drawTimeline(null,null); return; }
+
+  $("pReg").textContent = latest.regNo || "—";
+
+  /* दस्तावेज़-chips */
+  const docs = latest.documents || latest.docs || {};
+  const keys = Object.keys(docs);
+  const wrap = $("docWrap"); wrap.innerHTML="";
+  if(keys.length===0){ $("docNote").textContent="आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"; }
+  else{ wrap.innerHTML = docChips(docs); $("docNote").textContent=""; }
+  drawTimeline(null, latest);
 }
 
-async function loadJobs(){
+/* ═══ approval-सफ़र timeline — चौकियाँ matrix से, स्थिति status से ═══ */
+function drawTimeline(desigKey, reg){
+  if(desigKey==="founder") return;
+  const me = desigKey || (ALLOWED[0]||"");
+  const row = mxRow(me) || {};
+  const chain = ["hq_legal","hq_finance","hq_establishment"];
+  if(row.superior && chain.indexOf(row.superior)===-1) chain.push(row.superior);
+  const finalKey = (row.final_approval==="hq_admin") ? "hq_admin" : "founder";
+  if(chain.indexOf(finalKey)===-1) chain.push(finalKey);
+
+  const approved = !!(reg && (reg.status==="approved"));
+  const wrap=$("tlWrap"); wrap.innerHTML="";
+  chain.forEach((k,i)=>{
+    const st=document.createElement("div");
+    st.className = "step " + (approved ? "done" : (i===0 ? "now" : ""));
+    const who = (k==="founder") ? "Founder" : mxLabel(k);
+    const tag = (i===chain.length-1) ? " — अंतिम मुहर" : (i>=3 ? " — विभागीय चौकी" : " — चौकी");
+    st.innerHTML = '<div class="dot"><i></i><em></em></div><div class="lbl">'+who+'<small>'+ (approved?"पूर्ण ✅":"स्थिति चरण-3 से live होगी") + tag +'</small></div>';
+    wrap.appendChild(st);
+  });
+  $("tlNote").textContent = approved ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।";
+}
+
+
+
+/* ═══ external-mode पहरा — registrations से (आवेदक-स्वयं rules-दायरा) ═══ */
+async function guardExternal(user){
+  let reg=null, t0=0;
   try{
-    const q=await getDocs(collection(db,'job_postings'));
-    myJobs=[];
-    q.forEach(d=>{if(d.data().employerUid===currentUser.uid)myJobs.push({id:d.id,...d.data()})});
-    document.getElementById('st-jobs').textContent=myJobs.filter(j=>j.status==='open').length;
-    document.getElementById('jobCount').textContent=myJobs.length;
-    buildJobsList();
-  }catch(e){console.log(e)}
+    const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+    qs.forEach(d=>{
+      const r=d.data();
+      if(r.status==="cancelled") return;
+      const okRoles = EXT_ROLES.length ? EXT_ROLES : ALLOWED;
+      if(okRoles.indexOf(String(r.role||"").toLowerCase())===-1) return;
+      const t=(r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+      if(!reg || t>t0){ reg=r; t0=t; }
+    });
+  }catch(e){ /* नीचे deny */ }
+  if(!reg){ show("denyView"); return; }
+
+  const isActive = (reg.status==="approved");
+  if(!isActive) $("provBar").classList.add("on");
+  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (provisional)");
+
+  const whoName = reg.name_local || reg.name_roman || reg.name || reg.fullName || (user.email||"");
+  $("pName").textContent  = whoName;
+  $("pReg").textContent   = reg.regNo || "—";
+  $("pLevel").textContent = ROLE_LABEL;
+  const area = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):reg.rm_districts].filter(Boolean).join(" · ");
+  $("pArea").textContent  = area || "—";
+  $("pEmail").textContent = reg.email || (user.email||"—");
+  $("pPhone").textContent = reg.phone || reg.mobile || "—";
+  $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
+  $("tbWho").title = "UID: " + user.uid;
+
+  /* दस्तावेज़-chips */
+  const docs = reg.documents || reg.docs || {};
+  const wrap = $("docWrap"); wrap.innerHTML = docChips(docs);
+  $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
+
+  /* g2-सफ़र नोट */
+  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
+  $("tlNote").textContent = "";
+
+  show("appView");
+  startSessionWatch(user);
+  startIdleTimer();
 }
 
-function buildJobsList(){
-  const el=document.getElementById('myJobsList');
-  const el2=document.getElementById('activeJobsList');
-  if(!myJobs.length){
-    el.innerHTML='<div class="empty"><div class="empty-icon">💼</div><p>अभी कोई job post नहीं।<br/><button onclick="showPage(\'post-job\',document.querySelector(\'[onclick*=post-job]\'))" style="margin-top:10px;padding:8px 16px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-family:inherit;cursor:pointer;font-size:12px">➕ पहली Job Post करें</button></p></div>';
-    el2.innerHTML='<div class="empty"><div class="empty-icon">💼</div><p>अभी कोई job post नहीं।</p></div>';
-    return;
+/* ═══ single-session: sessions/{uid}.activeSession बदले तो logout ═══ */
+async function startSessionWatch(user){
+  let mySid = null;
+  try{ mySid = localStorage.getItem("acs_sid"); }catch(e){}
+  if(!mySid){
+    try{
+      const res = await httpsCallable(functions,"claimSession")({});
+      mySid = res && res.data && res.data.sessionId;
+      if(mySid){ try{ localStorage.setItem("acs_sid", mySid); }catch(e){} }
+    }catch(e){ /* claim न हो पाए तो चुपचाप — पहरा server पर */ }
   }
-  const html=myJobs.map(j=>`
-    <div class="job-card">
-      <div class="job-title">${j.title||'—'}</div>
-      <div class="job-meta">
-        <span>📍 ${j.location||'—'}</span>
-        <span>💰 ₹${j.salary||'—'}/month</span>
-        <span>👥 ${j.positions||1} positions</span>
-        <span>📅 ${j.lastDate||'—'}</span>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span class="status-pill ${j.status==='open'?'sp-open':'sp-closed'}">${j.status==='open'?'✅ Open':'❌ Closed'}</span>
-        <div style="display:flex;gap:6px">
-          <button style="padding:4px 10px;background:#EEF4FF;color:var(--blue);border:none;border-radius:4px;cursor:pointer;font-size:11px;font-weight:600" onclick="showToast('Candidates Phase 4 में दिखेंगे','ok')">👥 Candidates</button>
-          <button style="padding:4px 10px;background:#FFEBEE;color:var(--red);border:none;border-radius:4px;cursor:pointer;font-size:11px;font-weight:600" onclick="closeJob('${j.id}')">Close</button>
-        </div>
-      </div>
-    </div>`).join('');
-  el.innerHTML=html;
-  el2.innerHTML=myJobs.filter(j=>j.status==='open').map(j=>`
-    <div style="display:flex;align-items:center;gap:10px;padding:10px;background:#F8FAFF;border-radius:8px;margin-bottom:6px;font-size:12px">
-      <span style="font-size:18px">💼</span>
-      <div style="flex:1"><div style="font-weight:600;color:var(--navy)">${j.title}</div><div style="color:var(--gray)">${j.location} | ₹${j.salary}</div></div>
-      <span class="status-pill sp-open">Open</span>
-    </div>`).join('');
+  if(!mySid) return;
+  onSnapshot(doc(db,"sessions",user.uid),(snap)=>{
+    const d = snap.exists() ? snap.data() : null;
+    if(d && d.activeSession && d.activeSession!==mySid){
+      alert("आपने दूसरी जगह login किया — यह session बंद हो रहा है।");
+      doLogout();
+    }
+  },()=>{ /* rules पढ़ने से रोकें तो चुप */ });
 }
 
-window._signOut=()=>signOut(auth);
-window._currentUser=()=>currentUser;
-window._employerData=()=>employerData;
-window._addDoc=async(col,data)=>addDoc(collection(db,col),{...data,createdAt:serverTimestamp()});
-window._setDoc=async(col,id,data)=>setDoc(doc(db,col,id),{...data,updatedAt:serverTimestamp()},{merge:true});
-window._updateDoc=async(col,id,data)=>{const{updateDoc,doc:d}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");await updateDoc(d(db,col,id),data)};
-</script>
-
-<script>
-window.toggleSidebar=function(){
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('sbOverlay').classList.toggle('open');
-};
-window.showPage=function(name,el){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  document.getElementById('page-'+name)?.classList.add('active');
-  el?.classList.add('active');
-  const titles={'overview':'Dashboard','post-job':'Post New Job','my-jobs':'My Jobs','candidates':'Candidates','shortlisted':'Shortlisted','hired':'Hired','talent-map':'Talent Map','skill-pipeline':'Skill Pipeline','profile':'Company Profile'};
-  document.getElementById('topbarTitle').textContent=titles[name]||name;
-  if(window.innerWidth<=768)toggleSidebar();
-};
-window.postJob=async function(){
-  const title=document.getElementById('jobTitle').value.trim();
-  const cat=document.getElementById('jobCat').value;
-  const positions=document.getElementById('jobPositions').value;
-  const salary=document.getElementById('jobSalary').value.trim();
-  const location=document.getElementById('jobLocation').value.trim();
-  const skills=document.getElementById('jobSkills').value.trim();
-  if(!title){showToast('Job title जरूरी है','err');return}
-  if(!cat){showToast('Category चुनें','err');return}
-  if(!positions){showToast('Positions जरूरी है','err');return}
-  if(!salary){showToast('Salary range जरूरी है','err');return}
-  if(!location){showToast('Location जरूरी है','err');return}
-  if(!skills){showToast('Required skills जरूरी हैं','err');return}
-  try{
-    await window._addDoc('job_postings',{
-      title,category:cat,positions:parseInt(positions),salary,location,
-      skills:skills.split(',').map(s=>s.trim()),
-      description:document.getElementById('jobDesc').value,
-      qualification:document.getElementById('jobQual').value,
-      jobType:document.getElementById('jobType').value,
-      lastDate:document.getElementById('jobLastDate').value,
-      guarantee:document.getElementById('jobGuarantee').value,
-      employerUid:window._currentUser()?.uid,
-      employerName:window._employerData()?.name||'',
-      status:'open',
-    });
-    showToast('✅ Job Post हो गई! Students देख सकते हैं।','ok');
-    ['jobTitle','jobSalary','jobLocation','jobSkills','jobDesc','jobPositions'].forEach(id=>document.getElementById(id).value='');
-    showPage('my-jobs',document.querySelector('[onclick*=my-jobs]'));
-    window.loadData();
-  }catch(e){showToast('Error: '+e.message,'err')}
-};
-window.filterCandidates=function(){
-  showToast('Filter Phase 4 में काम करेगा','ok');
-};
-window.submitSkillDemand=async function(){
-  const demand=document.getElementById('skillDemand').value.trim();
-  if(!demand){showToast('Skill demand जरूरी है','err');return}
-  try{
-    await window._addDoc('skill_demands',{
-      demand,
-      timeline:document.getElementById('skillTimeline').value,
-      salary:document.getElementById('skillSalary').value,
-      employerUid:window._currentUser()?.uid,
-      employerName:window._employerData()?.name||'',
-    });
-    showToast('✅ Skill Demand submit हो गई! Regional Manager को जाएगी।','ok');
-    document.getElementById('skillDemand').value='';
-  }catch(e){showToast('Error','err')}
-};
-window.closeJob=async function(id){
-  if(!confirm('Job close करना चाहते हैं?'))return;
-  showToast('Job closed','ok');
-  window.loadData();
-};
-window.saveProfile=async function(){
-  const name=document.getElementById('compName').value.trim();
-  if(!name){showToast('Company name जरूरी है','err');return}
-  try{
-    await window._setDoc('users',window._currentUser()?.uid,{
-      name,companyName:name,
-      industry:document.getElementById('compIndustry').value,
-      companySize:document.getElementById('compSize').value,
-      district:document.getElementById('compDistrict').value,
-      about:document.getElementById('compAbout').value,
-      website:document.getElementById('compWeb').value,
-    });
-    showToast('✅ Company Profile Save हो गया!','ok');
-  }catch(e){showToast('Error','err')}
-};
-function showToast(msg,type='ok'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
-  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
+/* ═══ 10-मिनट auto-logout (screen-silent) ═══ */
+let idleT=null;
+function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
+function startIdleTimer(){
+  ["click","keydown","scroll","touchstart","mousemove"].forEach(ev=>document.addEventListener(ev,resetIdle,{passive:true}));
+  resetIdle();
 }
-window.showToast=showToast;
-window.loadData=function(){window.location.reload()};
-window.doLogout=async function(){
-  if(!confirm('Logout?'))return;
-  await window._signOut();
-  window.location.href='/dashboard/index.html';
-};
+
+window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localStorage.removeItem("acs_sid"); }catch(e){} location.href="/dashboard/index.html"; };
 </script>
 </body>
 </html>

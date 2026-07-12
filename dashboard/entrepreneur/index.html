@@ -3,108 +3,388 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Entrepreneur — ACS</title>
+<meta name="robots" content="noindex"/>
+<title>उद्योग-प्रशिक्षु Dashboard — ACS</title>
+<!-- ════════════════════════════════════════════════════════════════
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
+     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     ACS Dashboard — मास्टर टेम्पलेट v3.0 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.0 · 12-Jul-2026 — MODE (team/external) + topbar-पहचान + Transfer/Leave UI + CAN_FINAL-gate
+     पिछला: v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
+     पिछला: टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
+     पिछला: approve/reject बटन (server: approveApplication/rejectApplication)
+     + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
+     + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
+     --------------------------------------------------------------
+     लोहे का नियम (परत-2/4): कोई dashboard-page हाथ से न बने —
+     सिर्फ़ generator (generator/build_dashboards.js) इस टेम्पलेट से बनाए।
+     हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
+             [T4] प्रोफ़ाइल+approval-सफ़र · [T5] पैनल-जाल · [T6] footer
+     नियम: पद-जानकारी सिर्फ़ /assets/designation_matrix.js से (परत-3)।
+     असली रोक server पर — matrix कभी guard नहीं (matrix-सुरक्षा नियम)।
+     data-स्रोत: teams/{uid} + registrations — users/centre_registrations वर्जित।
+     फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं · गोल bracket ( ) · सरल हिंदी।
+     ════════════════════════════════════════════════════════════════ -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0B1F3A;--blue:#1565C0;--gold:#F9A825;--green:#2E7D32;--offwhite:#F0F9FF;--text:#1A2B3C;--gray:#607D8B;--border:#E8EDF5}
-html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:17px}
+:root{
+  --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
+  --text:#1A2B3C; --gray:#5A6B7C; --border:#E3E9F2;
+}
+html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:19px;line-height:1.75}
 .wrap{min-height:100vh;display:flex;flex-direction:column}
-.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px}
-.topbar img{width:40px;height:40px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35)}
-.topbar .tt strong{display:block;font-size:16px;font-weight:800}
-.topbar .tt span{font-size:12px;color:var(--gold);font-weight:700}
+
+/* ═══ [T1] topbar — dashboard-परिवार का साझा माथा ═══ */
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar img{width:42px;height:42px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35)}
+.topbar .tt strong{display:block;font-size:17px;font-weight:800;line-height:1.3}
+.topbar .tt span{font-size:16px;color:var(--gold);font-weight:700}
 .topbar .sp{flex:1}
-.btn-out{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:9px;padding:9px 14px;font-size:15px;font-weight:700;cursor:pointer}
-.btn-out:hover{background:rgba(255,255,255,.25)}
-.center{flex:1;display:flex;align-items:center;justify-content:center;padding:24px}
-.card{background:#fff;border:1px solid var(--border);border-radius:18px;max-width:560px;width:100%;padding:40px 28px;text-align:center;box-shadow:0 10px 30px rgba(11,31,58,.08)}
-.bigicon{font-size:64px;line-height:1;margin-bottom:14px}
-.role-pill{display:inline-block;background:var(--offwhite);color:var(--blue);border:1px solid var(--border);border-radius:999px;padding:6px 16px;font-size:15px;font-weight:800;margin-bottom:18px}
-.uc{font-size:26px;font-weight:800;color:var(--navy);margin-bottom:10px}
-.uc-sub{font-size:17px;color:var(--gray);line-height:1.7;margin-bottom:8px}
-.hello{font-size:18px;font-weight:700;color:var(--green);margin-bottom:18px;min-height:24px}
-.bar{height:10px;background:var(--border);border-radius:999px;overflow:hidden;margin:22px auto 6px;max-width:320px}
-.bar i{display:block;height:100%;width:35%;background:linear-gradient(90deg,var(--gold),var(--green));border-radius:999px}
-.bar-txt{font-size:13px;color:var(--gray)}
-.deny .bigicon{}
-.foot{font-size:13px;color:var(--gray);padding:16px;text-align:center}
+.tbwho{font-size:16px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-out{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:10px 16px;font-size:16px;font-weight:700;cursor:pointer}
+.btn-out:hover{background:rgba(255,255,255,.28)}
+
+/* ═══ [T2] hold-पट्टी (v1.4) — hold लगे तो ही दिखे ═══ */
+.holdbar{display:none;background:#B71C1C;color:#fff;padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.holdbar.on{display:block}
+
+/* ═══ [T3] provisional-पर्दा (07-Jul रास्ता-A) ═══ */
+.provbar{display:none;background:var(--gold);color:var(--navy);padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.provbar.on{display:block}
+
+/* ═══ साझा कार्ड-रूप ═══ */
+.main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:16px 12px 28px}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 16px;margin-bottom:16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.card h2{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.center{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 14px}
+.cbox{background:#fff;border:1px solid var(--border);border-radius:18px;max-width:560px;width:100%;padding:36px 24px;text-align:center;box-shadow:0 10px 30px rgba(11,31,58,.08)}
+.bigicon{font-size:60px;line-height:1;margin-bottom:12px}
+.cbox .h{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.cbox .s{font-size:18px;color:var(--gray);line-height:1.7}
+.btn-blue{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:18px;font-weight:800;cursor:pointer;margin-top:16px}
 .hidden{display:none}
-.btn-blue{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:16px;font-weight:800;cursor:pointer;margin-top:8px}
+
+/* ═══ [T4] प्रोफ़ाइल ═══ */
+.pgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr}}
+.pitem{background:var(--offwhite);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.pitem .k{font-size:16px;color:var(--gray);font-weight:700}
+.pitem .v{font-size:19px;font-weight:800;color:var(--navy);word-break:break-word}
+.pill{display:inline-block;background:var(--offwhite);color:var(--blue);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:800}
+.docwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.doc{display:inline-flex;align-items:center;gap:6px;background:var(--offwhite);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:16px;font-weight:700;color:var(--blue);text-decoration:none}
+.doc:hover{border-color:var(--blue)}
+.note{font-size:16px;color:var(--gray);margin-top:8px}
+
+/* approval-सफ़र timeline */
+.tl{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step .dot{width:26px;display:flex;flex-direction:column;align-items:center}
+.step .dot i{width:18px;height:18px;border-radius:50%;background:var(--border);border:3px solid var(--border);display:block}
+.step.done .dot i{background:var(--green);border-color:var(--green)}
+.step.now  .dot i{background:#fff;border-color:var(--gold)}
+.step .dot em{flex:1;width:3px;background:var(--border);min-height:22px;display:block}
+.step:last-child .dot em{display:none}
+.step .lbl{font-size:18px;font-weight:700;padding-bottom:14px}
+.step.done .lbl{color:var(--green)}
+.step.now  .lbl{color:var(--navy)}
+.step .lbl small{display:block;font-size:16px;color:var(--gray);font-weight:600}
+
+/* ═══ [T5] पैनल-जाल ═══ */
+.pnl{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.pnl{grid-template-columns:1fr 1fr}}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.pcard .ph{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pcard .pd{font-size:17px;color:var(--gray);line-height:1.7}
+.soon{display:inline-block;margin-top:10px;background:var(--offwhite);border:1px dashed var(--gray);color:var(--gray);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:700}
+
+/* [P1] आवेदन-सूची */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ftab{background:var(--offwhite);border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;color:var(--gray);cursor:pointer}
+.ftab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.applist{display:flex;flex-direction:column;gap:10px}
+.app{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite)}
+.app .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.app .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.app .rg{font-size:16px;font-weight:700;color:var(--gray)}
+.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800}
+.chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.chip.rej{background:#FFF3E0;color:#B71C1C;border:1px solid #F9A825}
+.acts{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff}
+.abtn.ok{background:var(--green)} .abtn.no{background:#B71C1C}
+.abtn:disabled{opacity:.55;cursor:wait}
+.rejbox{display:none;margin-top:8px;width:100%}
+.rejbox.on{display:block}
+.rejbox textarea{width:100%;min-height:70px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px}
+.msg{font-size:16px;font-weight:700;margin-top:6px}
+.msg.ok{color:var(--green)} .msg.err{color:#B71C1C}
+.chip.lvl{background:#fff;color:var(--blue);border:1px solid var(--border)}
+.app .r2{font-size:16px;color:var(--gray);margin-top:4px}
+.app .more{margin-top:8px;display:none}
+.app.open .more{display:block}
+.app .mrow{font-size:17px;margin-top:2px}
+.app .mrow b{color:var(--navy)}
+.app .vbtn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
+
+/* [P2] टीम-पैनल व पदेन-प्रभार */
+.mem{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite);margin-top:10px}
+.mem .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mem .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.chip.on{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.off{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.hold{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
+.exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
+
+/* ═══ [T6] footer ═══ */
+.foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+  <!-- [T1] topbar -->
   <div class="topbar">
-    <img src="https://acslearn.com/logo.png" alt="ACS" onerror="this.style.display='none'"/>
-    <div class="tt"><strong>Applied Computer School™</strong><span>उद्यमी (Entrepreneur)</span></div>
+    <img src="/assets/acs-logo.png" alt="ACS" onerror="this.style.display='none'"/>
+    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">उद्योग-प्रशिक्षु Dashboard</span></div>
     <div class="sp"></div>
+    <div class="tbwho" id="tbWho"></div>
     <button class="btn-out" onclick="doLogout()">Logout</button>
   </div>
 
-  <!-- लोड हो रहा -->
+  <!-- [T2] hold-पट्टी -->
+  <div class="holdbar" id="holdBar"></div>
+
+  <!-- [T3] provisional-पर्दा -->
+  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — dashboard अभी सिर्फ़ देखने के मोड में है। approval पूरा होते ही सब काम-अधिकार खुल जाएँगे।</div>
+
+  <!-- जाँच-दृश्य -->
   <div class="center" id="loadView">
-    <div class="card"><div class="bigicon">⏳</div><div class="uc-sub">जाँच हो रही है…</div></div>
+    <div class="cbox"><div class="bigicon">⏳</div><div class="s">जाँच हो रही है…</div></div>
   </div>
 
-  <!-- सही भूमिका → Under Construction -->
-  <div class="center hidden" id="okView">
-    <div class="card">
-      <div class="bigicon">🚀</div>
-      <div class="role-pill">उद्यमी (Entrepreneur)</div>
-      <div class="hello" id="hello"></div>
-      <div class="uc">🚧 Dashboard बन रहा है</div>
-      <div class="uc-sub">यह हिस्सा अभी तैयार हो रहा है।<br/>जल्द ही यहाँ आपके सब काम-काज दिखेंगे।</div>
-      <div class="bar"><i></i></div>
-      <div class="bar-txt">Under Construction</div>
-    </div>
-  </div>
-
-  <!-- ग़लत भूमिका → Access Denied -->
+  <!-- ग़लत भूमिका -->
   <div class="center hidden" id="denyView">
-    <div class="card deny">
+    <div class="cbox">
       <div class="bigicon">🔒</div>
-      <div class="uc">यह आपका Dashboard नहीं</div>
-      <div class="uc-sub">यह पन्ना सिर्फ़ "उद्यमी (Entrepreneur)" के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <div class="h">यह आपका Dashboard नहीं</div>
+      <div class="s">यह पन्ना सिर्फ़ उद्योग-प्रशिक्षु के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
       <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
     </div>
   </div>
 
+  <!-- मुख्य दृश्य -->
+  <div class="main hidden" id="appView">
+
+    <!-- [T4] प्रोफ़ाइल -->
+    <div class="card">
+      <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
+      <div class="pgrid">
+        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
+        <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
+        <div class="pitem"><div class="k">स्तर</div><div class="v" id="pLevel">—</div></div>
+        <div class="pitem"><div class="k">कार्य-क्षेत्र</div><div class="v" id="pArea">—</div></div>
+        <div class="pitem"><div class="k">Email</div><div class="v" id="pEmail">—</div></div>
+        <div class="pitem"><div class="k">Mobile</div><div class="v" id="pPhone">—</div></div>
+      </div>
+
+      <h2 style="margin-top:18px">📎 मेरे दस्तावेज़</h2>
+      <div class="docwrap" id="docWrap"><span class="note" id="docNote">दस्तावेज़ लाए जा रहे हैं…</span></div>
+      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — चरण-3 में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
+
+      <h2 style="margin-top:18px">🛤️ मेरा approval-सफ़र</h2>
+      <div class="tl" id="tlWrap"></div>
+      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
+    </div>
+
+    <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
+    
+
+    <!--EXTERNAL_ONLY_START-->
+    <div class="pnl">
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">🛤️ approval-स्थिति</div>
+        <div class="pd">बाहरी-role (g2) की approval-श्रृंखला server पर अगले दौर में बनेगी (v1.3: "पहले टीम फ़ाइनल") — तब तक dashboard देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>
+      </div>
+      <div class="pcard" style="grid-column:1/-1"><div class="ph">🌱 उद्यमी-सहयोग ecosystem</div><div class="pd">v1.7-ग की आरक्षित जगह — Verified Vendor सूची · First Customer Mission (90-दिन) · Failure Recovery · Family/Women परतें · ज़िला-माँग जानकारी। निर्माण just-in-time (अपना chatroom)।</div><span class="soon">आरक्षित — अगले दौर में</span></div>
+    </div>
+    <!--EXTERNAL_ONLY_END-->
+
+  </div>
+
+  <!-- [T6] footer -->
   <div class="foot">ACS™ · FFGPMTrust · From Village to World</div>
 </div>
+
+<!-- पद-जानकारी का एकमात्र घर (परत-3) — सिर्फ़ दिखाने के लिए, guard नहीं -->
+<script src="/assets/designation_matrix.js"></script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
 
 const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
 const auth = getAuth(app), db = getFirestore(app);
+const functions = getFunctions(app, "us-central1");
+const $ = (id)=>document.getElementById(id);
 
-function showOk(data){
-  document.getElementById('loadView').classList.add('hidden');
-  document.getElementById('denyView').classList.add('hidden');
-  document.getElementById('okView').classList.remove('hidden');
-  const nm = (data && (data.name||data.fullName)) || '';
-  document.getElementById('hello').textContent = nm ? ('नमस्ते, ' + String(nm).split(' ')[0] + ' जी! 🙏') : 'नमस्ते! 🙏';
-}
-function showDenied(){
-  document.getElementById('loadView').classList.add('hidden');
-  document.getElementById('okView').classList.add('hidden');
-  document.getElementById('denyView').classList.remove('hidden');
+/* ── generator-भरे consts — जिन designations/roles को यह dashboard
+   देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
+   यह सिर्फ़ पर्दा है (matrix-सुरक्षा नियम)। ── */
+const MODE = "external";              /* team | external */
+const ALLOWED = ["entrepreneur"];
+const EXT_ROLES = []; /* team-mode में external-fallback roles (जैसे volunteer) */
+const ROLE_LABEL = "उद्योग-प्रशिक्षु";  /* external-mode में pill-label */
+const HOME = "/dashboard/entrepreneur/";
+
+/* ── matrix से label/चौकी-सूची (सिर्फ़ दिखाने के लिए) ── */
+const MX = (window.ACS_DESIGNATIONS && window.ACS_DESIGNATIONS.teams) || [];
+const mxRow = (key)=> MX.find(t=>t.key===key) || null;
+const mxLabel = (key)=>{ const r=mxRow(key); return r ? r.label : (key||"—"); };
+
+function show(id){
+  ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
+  $(id).classList.remove("hidden");
 }
 
-onAuthStateChanged(auth, async user=>{
-  if(!user){ location.href='/dashboard/index.html'; return; }
-  try{
-    const q = query(collection(db,'entrepreneurs'), where('email','==',user.email));
-    const snap = await getDocs(q);
-    if(!snap.empty){ showOk(snap.docs[0].data()); }
-    else{ showDenied(); }
-  }catch(e){ showDenied(); }
+/* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
+onAuthStateChanged(auth, async (user)=>{
+  if(!user){ location.href="/dashboard/index.html"; return; }
+  if(MODE==="external"){ await guardExternal(user); return; }
+  /* external-mode: team-guard लागू नहीं */
 });
 
-window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} location.href='/dashboard/index.html'; };
+
+
+/* ═══ registration पढ़ना — स्रोत: registrations (एकमात्र सही collection) ═══ */
+async function loadRegistration(user){
+  const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+  let latest=null, t0=0;
+  qs.forEach(d=>{
+    const r=d.data();
+    if(r.status==="cancelled") return;
+    const t = (r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+    if(!latest || t>t0){ latest=r; t0=t; }
+  });
+  if(!latest){ $("pReg").textContent="—"; $("docNote").textContent="कोई आवेदन-record नहीं मिला (सीधे बनाए गए account में सामान्य है)।"; drawTimeline(null,null); return; }
+
+  $("pReg").textContent = latest.regNo || "—";
+
+  /* दस्तावेज़-chips */
+  const docs = latest.documents || latest.docs || {};
+  const keys = Object.keys(docs);
+  const wrap = $("docWrap"); wrap.innerHTML="";
+  if(keys.length===0){ $("docNote").textContent="आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"; }
+  else{ wrap.innerHTML = docChips(docs); $("docNote").textContent=""; }
+  drawTimeline(null, latest);
+}
+
+/* ═══ approval-सफ़र timeline — चौकियाँ matrix से, स्थिति status से ═══ */
+function drawTimeline(desigKey, reg){
+  if(desigKey==="founder") return;
+  const me = desigKey || (ALLOWED[0]||"");
+  const row = mxRow(me) || {};
+  const chain = ["hq_legal","hq_finance","hq_establishment"];
+  if(row.superior && chain.indexOf(row.superior)===-1) chain.push(row.superior);
+  const finalKey = (row.final_approval==="hq_admin") ? "hq_admin" : "founder";
+  if(chain.indexOf(finalKey)===-1) chain.push(finalKey);
+
+  const approved = !!(reg && (reg.status==="approved"));
+  const wrap=$("tlWrap"); wrap.innerHTML="";
+  chain.forEach((k,i)=>{
+    const st=document.createElement("div");
+    st.className = "step " + (approved ? "done" : (i===0 ? "now" : ""));
+    const who = (k==="founder") ? "Founder" : mxLabel(k);
+    const tag = (i===chain.length-1) ? " — अंतिम मुहर" : (i>=3 ? " — विभागीय चौकी" : " — चौकी");
+    st.innerHTML = '<div class="dot"><i></i><em></em></div><div class="lbl">'+who+'<small>'+ (approved?"पूर्ण ✅":"स्थिति चरण-3 से live होगी") + tag +'</small></div>';
+    wrap.appendChild(st);
+  });
+  $("tlNote").textContent = approved ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।";
+}
+
+
+
+/* ═══ external-mode पहरा — registrations से (आवेदक-स्वयं rules-दायरा) ═══ */
+async function guardExternal(user){
+  let reg=null, t0=0;
+  try{
+    const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+    qs.forEach(d=>{
+      const r=d.data();
+      if(r.status==="cancelled") return;
+      const okRoles = EXT_ROLES.length ? EXT_ROLES : ALLOWED;
+      if(okRoles.indexOf(String(r.role||"").toLowerCase())===-1) return;
+      const t=(r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+      if(!reg || t>t0){ reg=r; t0=t; }
+    });
+  }catch(e){ /* नीचे deny */ }
+  if(!reg){ show("denyView"); return; }
+
+  const isActive = (reg.status==="approved");
+  if(!isActive) $("provBar").classList.add("on");
+  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (provisional)");
+
+  const whoName = reg.name_local || reg.name_roman || reg.name || reg.fullName || (user.email||"");
+  $("pName").textContent  = whoName;
+  $("pReg").textContent   = reg.regNo || "—";
+  $("pLevel").textContent = ROLE_LABEL;
+  const area = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):reg.rm_districts].filter(Boolean).join(" · ");
+  $("pArea").textContent  = area || "—";
+  $("pEmail").textContent = reg.email || (user.email||"—");
+  $("pPhone").textContent = reg.phone || reg.mobile || "—";
+  $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
+  $("tbWho").title = "UID: " + user.uid;
+
+  /* दस्तावेज़-chips */
+  const docs = reg.documents || reg.docs || {};
+  const wrap = $("docWrap"); wrap.innerHTML = docChips(docs);
+  $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
+
+  /* g2-सफ़र नोट */
+  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
+  $("tlNote").textContent = "";
+
+  show("appView");
+  startSessionWatch(user);
+  startIdleTimer();
+}
+
+/* ═══ single-session: sessions/{uid}.activeSession बदले तो logout ═══ */
+async function startSessionWatch(user){
+  let mySid = null;
+  try{ mySid = localStorage.getItem("acs_sid"); }catch(e){}
+  if(!mySid){
+    try{
+      const res = await httpsCallable(functions,"claimSession")({});
+      mySid = res && res.data && res.data.sessionId;
+      if(mySid){ try{ localStorage.setItem("acs_sid", mySid); }catch(e){} }
+    }catch(e){ /* claim न हो पाए तो चुपचाप — पहरा server पर */ }
+  }
+  if(!mySid) return;
+  onSnapshot(doc(db,"sessions",user.uid),(snap)=>{
+    const d = snap.exists() ? snap.data() : null;
+    if(d && d.activeSession && d.activeSession!==mySid){
+      alert("आपने दूसरी जगह login किया — यह session बंद हो रहा है।");
+      doLogout();
+    }
+  },()=>{ /* rules पढ़ने से रोकें तो चुप */ });
+}
+
+/* ═══ 10-मिनट auto-logout (screen-silent) ═══ */
+let idleT=null;
+function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
+function startIdleTimer(){
+  ["click","keydown","scroll","touchstart","mousemove"].forEach(ev=>document.addEventListener(ev,resetIdle,{passive:true}));
+  resetIdle();
+}
+
+window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localStorage.removeItem("acs_sid"); }catch(e){} location.href="/dashboard/index.html"; };
 </script>
 </body>
 </html>

@@ -3,1079 +3,840 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
 <title>Founder Dashboard — ACS</title>
+<!-- ════════════════════════════════════════════════════════════════
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
+     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     ACS Dashboard — मास्टर टेम्पलेट v3.0 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.0 · 12-Jul-2026 — MODE (team/external) + topbar-पहचान + Transfer/Leave UI + CAN_FINAL-gate
+     पिछला: v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
+     पिछला: टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
+     पिछला: approve/reject बटन (server: approveApplication/rejectApplication)
+     + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
+     + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
+     --------------------------------------------------------------
+     लोहे का नियम (परत-2/4): कोई dashboard-page हाथ से न बने —
+     सिर्फ़ generator (generator/build_dashboards.js) इस टेम्पलेट से बनाए।
+     हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
+             [T4] प्रोफ़ाइल+approval-सफ़र · [T5] पैनल-जाल · [T6] footer
+     नियम: पद-जानकारी सिर्फ़ /assets/designation_matrix.js से (परत-3)।
+     असली रोक server पर — matrix कभी guard नहीं (matrix-सुरक्षा नियम)।
+     data-स्रोत: teams/{uid} + registrations — users/centre_registrations वर्जित।
+     फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं · गोल bracket ( ) · सरल हिंदी।
+     ════════════════════════════════════════════════════════════════ -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0B1F3A;--navy2:#0D2748;
-  --blue:#1565C0;--blue-lt:#1E88E5;
-  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
-  --red:#E53935;--orange:#E65100;
-  --white:#fff;--offwhite:#F8FAFF;
-  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
-  --sidebar:260px;
+  --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
+  --text:#1A2B3C; --gray:#5A6B7C; --border:#E3E9F2;
 }
-html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
+html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:19px;line-height:1.75}
+.wrap{min-height:100vh;display:flex;flex-direction:column}
 
-/* ── LAYOUT ── */
-.app{display:flex;min-height:100vh}
-.sidebar{width:var(--sidebar);background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform .3s}
-.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column;min-height:100vh}
-@media(max-width:768px){
-  .sidebar{transform:translateX(-100%)}
-  .sidebar.open{transform:translateX(0)}
-  .main{margin-left:0}
-}
+/* ═══ [T1] topbar — dashboard-परिवार का साझा माथा ═══ */
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar img{width:42px;height:42px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35)}
+.topbar .tt strong{display:block;font-size:17px;font-weight:800;line-height:1.3}
+.topbar .tt span{font-size:16px;color:var(--gold);font-weight:700}
+.topbar .sp{flex:1}
+.tbwho{font-size:16px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-out{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:10px 16px;font-size:16px;font-weight:700;cursor:pointer}
+.btn-out:hover{background:rgba(255,255,255,.28)}
 
-/* ── SIDEBAR ── */
-.sb-logo{padding:20px 20px 16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:10px}
-.sb-logo img{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.2)}
-.sb-logo-txt strong{display:block;font-size:12px;font-weight:700;color:var(--white)}
-.sb-logo-txt span{font-size:10px;color:var(--gold)}
+/* ═══ [T2] hold-पट्टी (v1.4) — hold लगे तो ही दिखे ═══ */
+.holdbar{display:none;background:#B71C1C;color:#fff;padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.holdbar.on{display:block}
 
-.sb-user{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:10px}
-.sb-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-lt));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--white);flex-shrink:0}
-.sb-user-info strong{display:block;font-size:12px;color:var(--white);font-weight:600}
-.sb-user-info span{font-size:10px;color:var(--gold);font-weight:600}
+/* ═══ [T3] provisional-पर्दा (07-Jul रास्ता-A) ═══ */
+.provbar{display:none;background:var(--gold);color:var(--navy);padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.provbar.on{display:block}
 
-/* Live pulse */
-.live-badge{display:flex;align-items:center;gap:6px;padding:8px 20px;background:rgba(0,200,83,0.1);border-bottom:1px solid rgba(255,255,255,0.06)}
-.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--green-lt);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-.live-badge span{font-size:10px;color:var(--green-lt);font-weight:700;letter-spacing:.5px}
+/* ═══ साझा कार्ड-रूप ═══ */
+.main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:16px 12px 28px}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 16px;margin-bottom:16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.card h2{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.center{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 14px}
+.cbox{background:#fff;border:1px solid var(--border);border-radius:18px;max-width:560px;width:100%;padding:36px 24px;text-align:center;box-shadow:0 10px 30px rgba(11,31,58,.08)}
+.bigicon{font-size:60px;line-height:1;margin-bottom:12px}
+.cbox .h{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.cbox .s{font-size:18px;color:var(--gray);line-height:1.7}
+.btn-blue{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:18px;font-weight:800;cursor:pointer;margin-top:16px}
+.hidden{display:none}
 
-.sb-nav{flex:1;padding:12px 0;overflow-y:auto}
-.nav-section{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.3)}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
-.nav-item:hover{background:rgba(255,255,255,0.06);border-left-color:rgba(255,255,255,0.2)}
-.nav-item.active{background:rgba(21,101,192,0.2);border-left-color:var(--blue-lt)}
-.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0}
-.nav-label{font-size:12px;color:rgba(255,255,255,0.7);font-weight:500}
-.nav-item.active .nav-label{color:var(--white);font-weight:600}
-.nav-badge{margin-left:auto;background:var(--red);color:var(--white);font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
-.nav-badge.gold{background:var(--gold);color:var(--navy)}
+/* ═══ [T4] प्रोफ़ाइल ═══ */
+.pgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr}}
+.pitem{background:var(--offwhite);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.pitem .k{font-size:16px;color:var(--gray);font-weight:700}
+.pitem .v{font-size:19px;font-weight:800;color:var(--navy);word-break:break-word}
+.pill{display:inline-block;background:var(--offwhite);color:var(--blue);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:800}
+.docwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.doc{display:inline-flex;align-items:center;gap:6px;background:var(--offwhite);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:16px;font-weight:700;color:var(--blue);text-decoration:none}
+.doc:hover{border-color:var(--blue)}
+.note{font-size:16px;color:var(--gray);margin-top:8px}
 
-.sb-bottom{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.08)}
-.logout-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(229,57,53,0.1);border:1px solid rgba(229,57,53,0.2);border-radius:8px;cursor:pointer;width:100%;font-family:inherit;color:#FF8A80;font-size:12px;font-weight:600;transition:all .2s}
-.logout-btn:hover{background:rgba(229,57,53,0.2)}
+/* approval-सफ़र timeline */
+.tl{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step .dot{width:26px;display:flex;flex-direction:column;align-items:center}
+.step .dot i{width:18px;height:18px;border-radius:50%;background:var(--border);border:3px solid var(--border);display:block}
+.step.done .dot i{background:var(--green);border-color:var(--green)}
+.step.now  .dot i{background:#fff;border-color:var(--gold)}
+.step .dot em{flex:1;width:3px;background:var(--border);min-height:22px;display:block}
+.step:last-child .dot em{display:none}
+.step .lbl{font-size:18px;font-weight:700;padding-bottom:14px}
+.step.done .lbl{color:var(--green)}
+.step.now  .lbl{color:var(--navy)}
+.step .lbl small{display:block;font-size:16px;color:var(--gray);font-weight:600}
 
-/* ── TOPBAR ── */
-.topbar{background:var(--white);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
-.menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer;padding:4px}
-@media(max-width:768px){.menu-btn{display:block}}
-.topbar-title{font-size:15px;font-weight:700;color:var(--navy);flex:1}
-.topbar-date{font-size:11px;color:var(--gray)}
-.topbar-actions{display:flex;gap:8px}
-.icon-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:var(--white);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s;position:relative}
-.icon-btn:hover{background:var(--offwhite)}
-.notif-dot{position:absolute;top:6px;right:6px;width:7px;height:7px;background:var(--red);border-radius:50%;border:1.5px solid var(--white)}
+/* ═══ [T5] पैनल-जाल ═══ */
+.pnl{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.pnl{grid-template-columns:1fr 1fr}}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.pcard .ph{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pcard .pd{font-size:17px;color:var(--gray);line-height:1.7}
+.soon{display:inline-block;margin-top:10px;background:var(--offwhite);border:1px dashed var(--gray);color:var(--gray);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:700}
 
-/* ── CONTENT ── */
-.content{padding:20px 24px;flex:1}
-@media(max-width:600px){.content{padding:12px 14px}}
+/* [P1] आवेदन-सूची */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ftab{background:var(--offwhite);border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;color:var(--gray);cursor:pointer}
+.ftab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.applist{display:flex;flex-direction:column;gap:10px}
+.app{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite)}
+.app .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.app .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.app .rg{font-size:16px;font-weight:700;color:var(--gray)}
+.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800}
+.chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.chip.rej{background:#FFF3E0;color:#B71C1C;border:1px solid #F9A825}
+.acts{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff}
+.abtn.ok{background:var(--green)} .abtn.no{background:#B71C1C}
+.abtn:disabled{opacity:.55;cursor:wait}
+.rejbox{display:none;margin-top:8px;width:100%}
+.rejbox.on{display:block}
+.rejbox textarea{width:100%;min-height:70px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px}
+.msg{font-size:16px;font-weight:700;margin-top:6px}
+.msg.ok{color:var(--green)} .msg.err{color:#B71C1C}
+.chip.lvl{background:#fff;color:var(--blue);border:1px solid var(--border)}
+.app .r2{font-size:16px;color:var(--gray);margin-top:4px}
+.app .more{margin-top:8px;display:none}
+.app.open .more{display:block}
+.app .mrow{font-size:17px;margin-top:2px}
+.app .mrow b{color:var(--navy)}
+.app .vbtn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
 
-/* Page sections */
-.page{display:none}
-.page.active{display:block;animation:fadeIn .25s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* [P2] टीम-पैनल व पदेन-प्रभार */
+.mem{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite);margin-top:10px}
+.mem .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mem .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.chip.on{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.off{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.hold{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
+.exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
 
-.page-header{margin-bottom:20px}
-.page-header h2{font-size:20px;font-weight:800;color:var(--navy)}
-.page-header p{font-size:13px;color:var(--gray);margin-top:2px}
-
-/* ── STATS GRID ── */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
-.stat-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
-.stat-card:hover{transform:translateY(-2px)}
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.stat-card.blue::before{background:linear-gradient(90deg,var(--blue),var(--blue-lt))}
-.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#FFD54F)}
-.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--green-lt))}
-.stat-card.red::before{background:linear-gradient(90deg,var(--red),#FF8A80)}
-.stat-card.orange::before{background:linear-gradient(90deg,var(--orange),#FF8C00)}
-.stat-icon{font-size:22px;margin-bottom:8px}
-.stat-num{font-size:26px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
-.stat-num.loading{background:#E8EDF5;border-radius:6px;height:28px;width:60px;animation:shimmer 1.5s infinite}
-@keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
-.stat-label{font-size:11px;color:var(--gray);font-weight:500}
-.stat-sub{font-size:10px;margin-top:4px;font-weight:600}
-.stat-sub.up{color:var(--green)}
-.stat-sub.down{color:var(--red)}
-.stat-sub.warn{color:var(--orange)}
-
-/* ── GRID 2-COL ── */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
-@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
-
-/* ── CARD ── */
-.card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
-.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.card-head h3{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px}
-.card-head-action{font-size:11px;color:var(--blue);font-weight:600;cursor:pointer;border:none;background:none;font-family:inherit;padding:4px 10px;border-radius:6px;border:1px solid rgba(21,101,192,0.2)}
-.card-body{padding:16px 18px}
-
-/* ── PENDING CENTRES TABLE ── */
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);border-bottom:1px solid var(--border);background:#F8FAFF}
-td{padding:10px 12px;border-bottom:1px solid #F0F4F8;vertical-align:middle}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#F8FAFF}
-.status-pill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block}
-.status-pill.pending{background:#FFF3E0;color:#E65100}
-.status-pill.legal{background:#E8EAF6;color:#3949AB}
-.status-pill.finance{background:#E0F2F1;color:#00695C}
-.status-pill.approved{background:#E8F5E9;color:var(--green)}
-.status-pill.rejected{background:#FFEBEE;color:var(--red)}
-.status-pill.provisional{background:#F3E5F5;color:#6A1B9A}
-.action-btns{display:flex;gap:6px}
-.btn-sm{padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .2s}
-.btn-view{background:#EEF4FF;color:var(--blue)}
-.btn-approve{background:#E8F5E9;color:var(--green)}
-.btn-reject{background:#FFEBEE;color:var(--red)}
-.btn-sm:hover{filter:brightness(.95);transform:translateY(-1px)}
-
-/* ── ALERT LIST ── */
-.alert-list{display:flex;flex-direction:column;gap:8px}
-.alert-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;font-size:12px}
-.alert-item.warn{background:#FFF3E0;border:1px solid #FFE0B2}
-.alert-item.err{background:#FFEBEE;border:1px solid #FFCDD2}
-.alert-item.info{background:#EEF4FF;border:1px solid #C7D9F9}
-.alert-item.ok{background:#E8F5E9;border:1px solid #C8E6C9}
-.alert-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-.alert-text strong{display:block;font-weight:600;color:var(--navy);margin-bottom:2px}
-.alert-text span{color:var(--gray);font-size:11px}
-
-/* ── FLOW TRACKER ── */
-.flow-row{display:flex;align-items:center;gap:0;margin-bottom:8px;font-size:11px}
-.flow-step{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
-.flow-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-.flow-dot.done{background:var(--green-lt);color:var(--white)}
-.flow-dot.active{background:var(--blue);color:var(--white);animation:pulse 2s infinite}
-.flow-dot.pending{background:#E8EDF5;color:var(--gray)}
-.flow-dot.stuck{background:var(--red);color:var(--white)}
-.flow-label{font-size:9px;color:var(--gray);text-align:center;font-weight:500}
-.flow-line{flex:1;height:2px;background:var(--border);margin:0 2px;margin-top:-18px}
-.flow-line.done{background:var(--green-lt)}
-
-/* ── REVENUE SPLIT ── */
-.split-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
-.split-row:last-child{border:none}
-.split-bar-wrap{flex:1;background:#F0F4F8;border-radius:10px;height:8px;overflow:hidden}
-.split-bar{height:8px;border-radius:10px}
-.split-pct{font-size:11px;font-weight:700;min-width:36px;text-align:right}
-
-/* ── MINI CHART ── */
-.mini-bars{display:flex;align-items:flex-end;gap:4px;height:60px;padding:4px 0}
-.mini-bar{flex:1;border-radius:4px 4px 0 0;min-width:8px;transition:height .5s}
-.mini-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:3px}
-.mini-bar-lbl{font-size:8px;color:var(--gray)}
-
-/* ── CENTRE DETAIL MODAL ── */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
-.modal-overlay.open{display:flex}
-.modal{background:var(--white);border-radius:14px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-.modal-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--white)}
-.modal-head h3{font-size:15px;font-weight:700;color:var(--navy)}
-.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--gray);padding:4px}
-.modal-body{padding:20px}
-.detail-row{display:flex;gap:8px;padding:8px 0;border-bottom:1px solid #F0F4F8;font-size:12px}
-.detail-row:last-child{border:none}
-.detail-key{color:var(--gray);min-width:130px;font-weight:500}
-.detail-val{color:var(--navy);font-weight:600;flex:1;word-break:break-all}
-.modal-actions{display:flex;gap:10px;padding:16px 20px;border-top:1px solid var(--border);background:var(--offwhite)}
-.btn-primary{flex:1;padding:11px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:var(--white);border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
-.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(21,101,192,0.3)}
-.btn-danger{flex:1;padding:11px;background:linear-gradient(135deg,var(--red),#EF5350);color:var(--white);border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
-.btn-secondary{padding:11px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--navy)}
-
-/* ── TOAST ── */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:var(--white);padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
-.toast.show{transform:translateY(0);opacity:1}
-.toast.ok{border-left:4px solid var(--green-lt)}
-.toast.err{border-left:4px solid var(--red)}
-
-/* ── EMPTY STATE ── */
-.empty{text-align:center;padding:40px 20px;color:var(--gray)}
-.empty-icon{font-size:40px;margin-bottom:10px}
-.empty p{font-size:13px}
-
-/* ── OVERLAY for mobile ── */
-.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
-@media(max-width:768px){.sb-overlay.open{display:block}}
-
-/* ── SEARCH ── */
-.search-bar{display:flex;gap:8px;margin-bottom:14px}
-.search-bar input{flex:1;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none}
-.search-bar input:focus{border-color:var(--blue)}
-.filter-select{padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:inherit;outline:none;cursor:pointer}
-
-/* ── PAYROLL CALENDAR ── */
-.cal-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.cal-step{flex:1;min-width:80px;padding:10px 8px;border-radius:8px;text-align:center;border:1px solid var(--border)}
-.cal-step.done{background:#E8F5E9;border-color:var(--green)}
-.cal-step.active{background:#EEF4FF;border-color:var(--blue)}
-.cal-step.pending{background:#F8FAFF}
-.cal-date{font-size:11px;font-weight:700;color:var(--navy)}
-.cal-label{font-size:9px;color:var(--gray);margin-top:2px}
-.cal-status{font-size:12px;margin-top:4px}
-
-/* ── REJECT REASON ── */
-.reason-wrap{display:none;padding:12px;background:#FFF3E0;border-radius:8px;margin-top:10px}
-.reason-wrap.show{display:block}
-.reason-wrap textarea{width:100%;padding:8px;border:1.5px solid #FFE0B2;border-radius:6px;font-size:12px;font-family:inherit;resize:none;min-height:70px;outline:none}
-.reason-wrap label{font-size:11px;font-weight:600;color:var(--orange);margin-bottom:6px;display:block}
+/* ═══ [T6] footer ═══ */
+.foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<!-- Sidebar Overlay (mobile) -->
-<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
-
-<div class="app">
-
-<!-- ═══ SIDEBAR ═══ -->
-<aside class="sidebar" id="sidebar">
-  <div class="sb-logo">
-    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-    <div class="sb-logo-txt">
-      <strong>Applied Computer School™</strong>
-      <span>From Village to World</span>
-    </div>
-  </div>
-
-  <div class="sb-user">
-    <div class="sb-avatar">👑</div>
-    <div class="sb-user-info">
-      <strong>संस्थापक (Founder)</strong>
-      <span>👑 Founder</span>
-    </div>
-  </div>
-
-  <div class="live-badge">
-    <div class="pulse-dot"></div>
-    <span>LIVE DATA</span>
-  </div>
-
-  <nav class="sb-nav">
-    <div class="nav-section">Overview</div>
-    <div class="nav-item active" onclick="showPage('overview',this)">
-      <span class="nav-icon">📊</span>
-      <span class="nav-label">Dashboard</span>
-    </div>
-    <div class="nav-item" onclick="showPage('alerts',this)">
-      <span class="nav-icon">🚨</span>
-      <span class="nav-label">Alerts</span>
-      <span class="nav-badge" id="alertCount">0</span>
-    </div>
-
-    <div class="nav-section">Centres</div>
-    <div class="nav-item" onclick="showPage('pending',this)">
-      <span class="nav-icon">⏳</span>
-      <span class="nav-label">Pending Centres</span>
-      <span class="nav-badge" id="pendingCount">0</span>
-    </div>
-    <div class="nav-item" onclick="showPage('approved',this)">
-      <span class="nav-icon">✅</span>
-      <span class="nav-label">Approved Centres</span>
-    </div>
-    <div class="nav-item" onclick="showPage('all-centres',this)">
-      <span class="nav-icon">🏫</span>
-      <span class="nav-label">All Centres</span>
-    </div>
-
-    <div class="nav-section">People</div>
-    <div class="nav-item" onclick="showPage('teachers',this)">
-      <span class="nav-icon">👨‍🏫</span>
-      <span class="nav-label">Teachers</span>
-    </div>
-    <div class="nav-item" onclick="showPage('students',this)">
-      <span class="nav-icon">👨‍🎓</span>
-      <span class="nav-label">Students</span>
-    </div>
-    <div class="nav-item" onclick="showPage('staff',this)">
-      <span class="nav-icon">👥</span>
-      <span class="nav-label">Staff & HR</span>
-    </div>
-
-    <div class="nav-section">Finance</div>
-    <div class="nav-item" onclick="showPage('revenue',this)">
-      <span class="nav-icon">💰</span>
-      <span class="nav-label">Revenue</span>
-    </div>
-    <div class="nav-item" onclick="showPage('payroll',this)">
-      <span class="nav-icon">📅</span>
-      <span class="nav-label">Payroll</span>
-    </div>
-
-    <div class="nav-section">Growth</div>
-    <div class="nav-item" onclick="showPage('demand',this)">
-      <span class="nav-icon">💼</span>
-      <span class="nav-label">Demand-Supply</span>
-    </div>
-    <div class="nav-item" onclick="showPage('compliance',this)">
-      <span class="nav-icon">⚖️</span>
-      <span class="nav-label">Compliance</span>
-    </div>
-  </nav>
-
-  <div class="sb-bottom">
-    <button class="logout-btn" onclick="doLogout()">
-      <span>🚪</span> Logout
-    </button>
-  </div>
-</aside>
-
-<!-- ═══ MAIN ═══ -->
-<div class="main">
-
-  <!-- Topbar -->
+  <!-- [T1] topbar -->
   <div class="topbar">
-    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-    <div class="topbar-title" id="topbarTitle">Dashboard Overview</div>
-    <div class="topbar-date" id="topbarDate"></div>
-    <div class="topbar-actions">
-      <button class="icon-btn" title="Notifications">🔔<div class="notif-dot" id="notifDot"></div></button>
-      <button class="icon-btn" title="Refresh" onclick="loadData()">🔄</button>
+    <img src="/assets/acs-logo.png" alt="ACS" onerror="this.style.display='none'"/>
+    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">Founder Dashboard</span></div>
+    <div class="sp"></div>
+    <div class="tbwho" id="tbWho"></div>
+    <button class="btn-out" onclick="doLogout()">Logout</button>
+  </div>
+
+  <!-- [T2] hold-पट्टी -->
+  <div class="holdbar" id="holdBar"></div>
+
+  <!-- [T3] provisional-पर्दा -->
+  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — dashboard अभी सिर्फ़ देखने के मोड में है। approval पूरा होते ही सब काम-अधिकार खुल जाएँगे।</div>
+
+  <!-- जाँच-दृश्य -->
+  <div class="center" id="loadView">
+    <div class="cbox"><div class="bigicon">⏳</div><div class="s">जाँच हो रही है…</div></div>
+  </div>
+
+  <!-- ग़लत भूमिका -->
+  <div class="center hidden" id="denyView">
+    <div class="cbox">
+      <div class="bigicon">🔒</div>
+      <div class="h">यह आपका Dashboard नहीं</div>
+      <div class="s">यह पन्ना सिर्फ़ Founder के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
     </div>
   </div>
 
-  <div class="content">
+  <!-- मुख्य दृश्य -->
+  <div class="main hidden" id="appView">
 
-  <!-- ═══ PAGE: OVERVIEW ═══ -->
-  <div class="page active" id="page-overview">
-    <div class="page-header">
-      <h2>नमस्ते, संस्थापक जी 🙏</h2>
-      <p>ACS Network का पूरा Overview — real-time</p>
-    </div>
-
-    <!-- Stats Grid -->
-    <div class="stats-grid" id="statsGrid">
-      <div class="stat-card blue">
-        <div class="stat-icon">🏫</div>
-        <div class="stat-num" id="st-centres">—</div>
-        <div class="stat-label">Total Centres</div>
-        <div class="stat-sub" id="st-centres-sub"></div>
-      </div>
-      <div class="stat-card gold">
-        <div class="stat-icon">⏳</div>
-        <div class="stat-num" id="st-pending">—</div>
-        <div class="stat-label">Pending Approval</div>
-        <div class="stat-sub warn" id="st-pending-sub"></div>
-      </div>
-      <div class="stat-card green">
-        <div class="stat-icon">👨‍🎓</div>
-        <div class="stat-num" id="st-students">—</div>
-        <div class="stat-label">Total Students</div>
-        <div class="stat-sub up" id="st-students-sub"></div>
-      </div>
-      <div class="stat-card blue">
-        <div class="stat-icon">👨‍🏫</div>
-        <div class="stat-num" id="st-teachers">—</div>
-        <div class="stat-label">Teachers</div>
-        <div class="stat-sub" id="st-teachers-sub"></div>
-      </div>
-      <div class="stat-card green">
-        <div class="stat-icon">🎓</div>
-        <div class="stat-num" id="st-certs">—</div>
-        <div class="stat-label">Certificates Issued</div>
-        <div class="stat-sub up" id="st-certs-sub"></div>
-      </div>
-      <div class="stat-card orange">
-        <div class="stat-icon">💰</div>
-        <div class="stat-num" id="st-revenue">—</div>
-        <div class="stat-label">Total Revenue</div>
-        <div class="stat-sub" id="st-revenue-sub"></div>
-      </div>
-    </div>
-
-    <!-- Approval Flow Overview -->
+    <!-- [T4] प्रोफ़ाइल -->
     <div class="card">
-      <div class="card-head">
-        <h3>📋 Application Flow Tracker</h3>
-        <button class="card-head-action" onclick="showPage('pending',document.querySelector('[onclick*=pending]'))">सब देखें →</button>
+      <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
+      <div class="pgrid">
+        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
+        <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
+        <div class="pitem"><div class="k">स्तर</div><div class="v" id="pLevel">—</div></div>
+        <div class="pitem"><div class="k">कार्य-क्षेत्र</div><div class="v" id="pArea">—</div></div>
+        <div class="pitem"><div class="k">Email</div><div class="v" id="pEmail">—</div></div>
+        <div class="pitem"><div class="k">Mobile</div><div class="v" id="pPhone">—</div></div>
       </div>
-      <div class="card-body">
-        <div id="flowTracker">
-          <div style="text-align:center;color:var(--gray);font-size:12px;padding:20px">⏳ Data load हो रहा है...</div>
-        </div>
-      </div>
+
+      <h2 style="margin-top:18px">📎 मेरे दस्तावेज़</h2>
+      <div class="docwrap" id="docWrap"><span class="note" id="docNote">दस्तावेज़ लाए जा रहे हैं…</span></div>
+      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — चरण-3 में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
+
+      <h2 style="margin-top:18px">🛤️ मेरा approval-सफ़र</h2>
+      <div class="tl" id="tlWrap"></div>
+      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
     </div>
 
-    <div class="grid-2">
-      <!-- Recent Alerts -->
-      <div class="card">
-        <div class="card-head">
-          <h3>🚨 Recent Alerts</h3>
-          <button class="card-head-action" onclick="showPage('alerts',document.querySelector('[onclick*=alerts]'))">सब →</button>
+    <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
+    <!--TEAM_ONLY_START-->
+    <div class="pnl">
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">📥 आवेदन-पैनल</div>
+        <div class="pd">सभी आवेदन (अंतिम मुहर आपकी: ZM/Continental · सातों Heads · System Security · Admin)। approve/reject बटन नीचे।</div>
+        <div class="ftabs" id="ftabs">
+          <button class="ftab on" data-f="all">सब</button>
+          <button class="ftab" data-f="provisional">⏳ जाँच में</button>
+          <button class="ftab" data-f="approved">✅ स्वीकृत</button>
+          <button class="ftab" data-f="rejected">⚠️ अस्वीकृत</button>
+          <button class="ftab" data-f="cancelled">🗑️ निरस्त</button>
         </div>
-        <div class="card-body">
-          <div class="alert-list" id="recentAlerts">
-            <div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>
+        <div class="applist" id="appList"><div class="note">आवेदन लाए जा रहे हैं…</div></div>
+      </div>
+      <div class="pcard">
+        <div class="ph">🧭 पदेन-प्रभार</div>
+        <div class="pd">जिन पदों का कोई active धारक नहीं और जिनका immediate superior आप हैं — उनका प्रभार पदेन आपके पास (कोई पद कभी रिक्त नहीं)।</div>
+        <div id="exoList" class="note">देखा जा रहा है…</div>
+      </div>
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">👥 टीम-पैनल</div>
+        <div class="pd">दायरे के सदस्य — hold-बटन v1.4 नियम से (कारण अनिवार्य; un-hold ऊपर वाले का हक़)। 🔁 Transfer व 🏖️ छुट्टी-प्रतिनिधि — v1.4 इंजन (काम-4) से चालू।</div>
+        <div class="mem" id="leaveBox">
+          <div class="r1"><span class="nm">🏖️ मेरी छुट्टी — काम-प्रतिनिधि</span><span class="chip lvl" id="lvStatus">कोई प्रतिनिधि नहीं</span></div>
+          <div class="r2">v1.4 नियम: प्रतिनिधि सिर्फ़ समकक्ष या ठीक एक step ऊपर वाला — नीचे वाले को कभी नहीं। मियाद ख़त्म = अधिकार अपने-आप वापस।</div>
+          <div style="margin-top:8px">
+            <select id="lvMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+            <input id="lvUntil" type="date" style="font-size:17px;padding:9px;border:1px solid var(--border);border-radius:9px;margin-top:8px"/>
+            <div class="acts"><button class="abtn ok" id="lvSet">🏖️ प्रतिनिधि नियुक्त करें</button>
+            <button class="abtn no" id="lvCancel">↩️ प्रतिनिधि हटाएँ (जल्दी वापसी)</button></div>
+            <div class="msg" id="lvMsg"></div>
           </div>
         </div>
+        <div id="teamList" class="note">सदस्य लाए जा रहे हैं…</div>
       </div>
-
-      <!-- Revenue Split -->
-      <div class="card">
-        <div class="card-head">
-          <h3>💰 Revenue Split</h3>
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">🗂️ काम-पैनल</div>
+        <div class="pd">काम सौंपें (सिर्फ़ अपने से नीचे वाले को) व मिले काम की स्थिति बदलें — pending → चालू → पूरा।</div>
+        <div style="margin-top:10px">
+          <select id="tMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+          <input id="tTitle" placeholder="काम का शीर्षक" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;width:100%;margin-top:8px"/>
+          <button class="abtn ok" style="margin-top:8px" id="tAssign">➕ काम सौंपें</button>
+          <div class="msg" id="tMsg"></div>
         </div>
-        <div class="card-body">
-          <div class="split-row">
-            <span style="font-size:11px;min-width:100px;color:var(--text)">Centre (80%)</span>
-            <div class="split-bar-wrap"><div class="split-bar" style="width:80%;background:#1565C0;height:8px;border-radius:10px"></div></div>
-            <span class="split-pct" style="color:var(--blue)">80%</span>
-          </div>
-          <div class="split-row">
-            <span style="font-size:11px;min-width:100px;color:var(--text)">Content Creator (7%)</span>
-            <div class="split-bar-wrap"><div class="split-bar" style="width:7%;background:#F9A825"></div></div>
-            <span class="split-pct" style="color:var(--gold)">7%</span>
-          </div>
-          <div class="split-row">
-            <span style="font-size:11px;min-width:100px;color:var(--text)">Translator (3%)</span>
-            <div class="split-bar-wrap"><div class="split-bar" style="width:3%;background:#7B1FA2"></div></div>
-            <span class="split-pct" style="color:#7B1FA2">3%</span>
-          </div>
-          <div class="split-row">
-            <span style="font-size:11px;min-width:100px;color:var(--text)">ACS Platform (5%)</span>
-            <div class="split-bar-wrap"><div class="split-bar" style="width:5%;background:#2E7D32"></div></div>
-            <span class="split-pct" style="color:var(--green)">5%</span>
-          </div>
-          <div class="split-row">
-            <span style="font-size:11px;min-width:100px;color:var(--text)">State Office (5%)</span>
-            <div class="split-bar-wrap"><div class="split-bar" style="width:5%;background:#E65100"></div></div>
-            <span class="split-pct" style="color:var(--orange)">5%</span>
-          </div>
-          <div style="margin-top:14px;padding:10px;background:#F8FAFF;border-radius:8px;font-size:11px;color:var(--gray)">
-            Total Collected: <strong id="totalRevenue" style="color:var(--navy)">₹0</strong> |
-            Hold: <strong id="holdRevenue" style="color:var(--orange)">₹0</strong> |
-            Released: <strong id="releasedRevenue" style="color:var(--green)">₹0</strong>
-          </div>
+        <div id="taskList" class="note" style="margin-top:10px">काम लाए जा रहे हैं…</div>
+      </div>
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">📊 रिपोर्ट-चक्र</div>
+        <div class="pd">सात चक्र — अपने से ऊपर (Founder) को भेजें। भेजी रिपोर्टें नीचे।</div>
+        <div style="margin-top:10px">
+          <select id="rCycle" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px">
+            <option value="daily">दैनिक</option><option value="weekly">साप्ताहिक</option>
+            <option value="fortnightly">पाक्षिक</option><option value="monthly">मासिक</option>
+            <option value="quarterly">त्रैमासिक</option><option value="halfyearly">अर्धवार्षिक</option>
+            <option value="yearly">वार्षिक</option>
+          </select>
+          <textarea id="rText" placeholder="रिपोर्ट-सामग्री" style="width:100%;min-height:80px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px;margin-top:8px"></textarea>
+          <button class="abtn ok" style="margin-top:8px" id="rSend">📤 रिपोर्ट भेजें</button>
+          <div class="msg" id="rMsg"></div>
         </div>
+        <div id="repList" class="note" style="margin-top:10px">रिपोर्टें लाई जा रही हैं…</div>
       </div>
     </div>
+    <!--TEAM_ONLY_END-->
 
-    <!-- Monthly Trend -->
-    <div class="card">
-      <div class="card-head"><h3>📈 Centre Registration Trend (6 महीने)</h3></div>
-      <div class="card-body">
-        <div class="mini-bars" id="trendChart"></div>
-        <div style="font-size:10px;color:var(--gray);margin-top:8px;text-align:center">हर bar = 1 महीना | नीला = Applications | हरा = Approved</div>
-      </div>
-    </div>
+    
+
   </div>
 
-  <!-- ═══ PAGE: ALERTS ═══ -->
-  <div class="page" id="page-alerts">
-    <div class="page-header">
-      <h2>🚨 Alerts & Escalations</h2>
-      <p>जो तुरंत ध्यान देने की जरूरत है</p>
-    </div>
-    <div id="allAlerts">
-      <div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>
-    </div>
-  </div>
-
-  <!-- ═══ PAGE: PENDING CENTRES ═══ -->
-  <div class="page" id="page-pending">
-    <div class="page-header">
-      <h2>⏳ Pending Centre Applications</h2>
-      <p>Approval के लिए Waiting — सभी stages</p>
-    </div>
-    <div class="search-bar">
-      <input type="text" id="searchPending" placeholder="🔍 Centre नाम, जिला, राज्य खोजें..." oninput="filterCentres()"/>
-      <select class="filter-select" id="filterStatus" onchange="filterCentres()">
-        <option value="">सभी Status</option>
-        <option value="pending">⏳ Applied</option>
-        <option value="regional_recommended">Regional Recommended</option>
-        <option value="state_provisional">State Provisional</option>
-        <option value="hq_legal">HQ Legal</option>
-        <option value="hq_finance">HQ Finance</option>
-        <option value="hq_establishment">HQ Establishment</option>
-      </select>
-    </div>
-    <div class="card">
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Application ID</th>
-              <th>Centre नाम</th>
-              <th>Owner</th>
-              <th>जिला, राज्य</th>
-              <th>Status</th>
-              <th>दिन</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="pendingTable">
-            <tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">⏳ Data load हो रहा है...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ PAGE: APPROVED ═══ -->
-  <div class="page" id="page-approved">
-    <div class="page-header">
-      <h2>✅ Approved Centres</h2>
-      <p>ACS Network में Active Centres</p>
-    </div>
-    <div class="card">
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Centre ID</th>
-              <th>Centre नाम</th>
-              <th>Owner</th>
-              <th>जिला, राज्य</th>
-              <th>Students</th>
-              <th>Revenue</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="approvedTable">
-            <tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">⏳ Data load हो रहा है...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ PAGE: ALL CENTRES ═══ -->
-  <div class="page" id="page-all-centres">
-    <div class="page-header">
-      <h2>🏫 All Centres</h2>
-      <p>Network के सभी Centres</p>
-    </div>
-    <div class="card">
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>ID</th><th>Centre</th><th>Owner</th><th>State</th><th>Status</th><th>Date</th></tr>
-          </thead>
-          <tbody id="allCentresTable">
-            <tr><td colspan="6" style="text-align:center;padding:30px;color:var(--gray)">⏳ Loading...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ PAGE: TEACHERS ═══ -->
-  <div class="page" id="page-teachers">
-    <div class="page-header"><h2>👨‍🏫 Teachers</h2><p>Active Teachers & Retired Experts</p></div>
-    <div class="stats-grid">
-      <div class="stat-card blue"><div class="stat-icon">👨‍🏫</div><div class="stat-num" id="tc-total">0</div><div class="stat-label">Total Teachers</div></div>
-      <div class="stat-card gold"><div class="stat-icon">👴</div><div class="stat-num" id="tc-retired">0</div><div class="stat-label">Retired Experts</div></div>
-      <div class="stat-card green"><div class="stat-icon">📚</div><div class="stat-num" id="tc-courses">0</div><div class="stat-label">Courses Created</div></div>
-      <div class="stat-card orange"><div class="stat-icon">💰</div><div class="stat-num" id="tc-earnings">₹0</div><div class="stat-label">Total Earnings</div></div>
-    </div>
-    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">👨‍🏫</div><p>अभी कोई Teacher registered नहीं है।<br/>Regional Managers field में जाकर Retired Experts ढूंढेंगे।</p></div></div></div>
-  </div>
-
-  <!-- ═══ PAGE: STUDENTS ═══ -->
-  <div class="page" id="page-students">
-    <div class="page-header"><h2>👨‍🎓 Students</h2><p>Network के सभी Students</p></div>
-    <div class="stats-grid">
-      <div class="stat-card blue"><div class="stat-icon">👨‍🎓</div><div class="stat-num" id="stu-total">0</div><div class="stat-label">Total Enrolled</div></div>
-      <div class="stat-card green"><div class="stat-icon">🎓</div><div class="stat-num" id="stu-cert">0</div><div class="stat-label">Certified</div></div>
-      <div class="stat-card gold"><div class="stat-icon">💼</div><div class="stat-num" id="stu-placed">0</div><div class="stat-label">Placed</div></div>
-      <div class="stat-card orange"><div class="stat-icon">🏪</div><div class="stat-num" id="stu-self">0</div><div class="stat-label">Self-Employed</div></div>
-    </div>
-    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">👨‍🎓</div><p>Centres approved होने के बाद Students enroll करेंगे।</p></div></div></div>
-  </div>
-
-  <!-- ═══ PAGE: STAFF ═══ -->
-  <div class="page" id="page-staff">
-    <div class="page-header"><h2>👥 Staff & HR</h2><p>Performance Notices & Team Status</p></div>
-    <div class="stats-grid">
-      <div class="stat-card blue"><div class="stat-icon">👥</div><div class="stat-num">13+</div><div class="stat-label">Total HQ Staff</div></div>
-      <div class="stat-card gold"><div class="stat-icon">🟡</div><div class="stat-num" id="hr-yellow">0</div><div class="stat-label">Yellow Notices</div></div>
-      <div class="stat-card red"><div class="stat-icon">🔴</div><div class="stat-num" id="hr-red">0</div><div class="stat-label">Red Notices</div></div>
-      <div class="stat-card red"><div class="stat-icon">⚫</div><div class="stat-num" id="hr-black">0</div><div class="stat-label">Terminated</div></div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📅 Salary Calendar — इस महीने</h3></div>
-      <div class="card-body">
-        <div class="cal-row" id="salaryCalendar"></div>
-        <div style="font-size:11px;color:var(--gray);margin-top:8px">⚠️ Penalty: 2%/day — Human delay पर | Server failure पर नहीं</div>
-      </div>
-    </div>
-    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">👥</div><p>Staff dashboard Phase 3 में पूरा होगा।<br/>अभी HQ में: Founder + 3 Heads + 9 Assistants</p></div></div></div>
-  </div>
-
-  <!-- ═══ PAGE: REVENUE ═══ -->
-  <div class="page" id="page-revenue">
-    <div class="page-header"><h2>💰 Revenue Dashboard</h2><p>पूरे Network का Financial Overview</p></div>
-    <div class="stats-grid">
-      <div class="stat-card blue"><div class="stat-icon">💰</div><div class="stat-num" id="rev-total">₹0</div><div class="stat-label">Total Collected</div></div>
-      <div class="stat-card orange"><div class="stat-icon">🔒</div><div class="stat-num" id="rev-hold">₹0</div><div class="stat-label">On Hold</div></div>
-      <div class="stat-card green"><div class="stat-icon">✅</div><div class="stat-num" id="rev-released">₹0</div><div class="stat-label">Released</div></div>
-      <div class="stat-card gold"><div class="stat-icon">🏦</div><div class="stat-num" id="rev-acs">₹0</div><div class="stat-label">ACS Share (5%)</div></div>
-    </div>
-    <div class="card"><div class="card-body"><div class="empty"><div class="empty-icon">💰</div><p>Revenue Razorpay integration Phase 4 में होगा।<br/>अभी सभी values ₹0 हैं — Centres approved होने पर update होगा।</p></div></div></div>
-  </div>
-
-  <!-- ═══ PAGE: PAYROLL ═══ -->
-  <div class="page" id="page-payroll">
-    <div class="page-header"><h2>📅 Payroll Status</h2><p>21→20 Performance Period | 1 तारीख को Salary</p></div>
-    <div class="card">
-      <div class="card-head"><h3>इस महीने का Payroll Calendar</h3></div>
-      <div class="card-body">
-        <div class="cal-row" id="payrollCalendar2"></div>
-        <div style="margin-top:14px;padding:12px;background:#FFF3E0;border-radius:8px;font-size:12px;color:var(--orange)">
-          ⚠️ <strong>Penalty Rule:</strong> Human delay पर 2%/day दोषी की salary से काटा जाएगा।
-          Server failure / Natural calamity पर exempt।
-        </div>
-      </div>
-    </div>
-    <div class="card"><div class="card-head"><h3>📊 Payroll Summary</h3></div>
-      <div class="card-body">
-        <div class="empty"><div class="empty-icon">📅</div><p>Staff salary Phase 3 में integrate होगी।<br/>Performance Period: 21 prev → 20 current month</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ PAGE: DEMAND-SUPPLY ═══ -->
-  <div class="page" id="page-demand">
-    <div class="page-header"><h2>💼 Demand-Supply Dashboard</h2><p>Job Demand vs Student Supply — Area wise</p></div>
-    <div class="stats-grid">
-      <div class="stat-card blue"><div class="stat-icon">💼</div><div class="stat-num">0</div><div class="stat-label">Job Demands Posted</div></div>
-      <div class="stat-card green"><div class="stat-icon">👨‍🎓</div><div class="stat-num">0</div><div class="stat-label">Students Available</div></div>
-      <div class="stat-card gold"><div class="stat-icon">📊</div><div class="stat-num">0</div><div class="stat-label">Skills Gap Identified</div></div>
-      <div class="stat-card orange"><div class="stat-icon">🏪</div><div class="stat-num">0</div><div class="stat-label">Self-Emp Opportunities</div></div>
-    </div>
-    <div class="card"><div class="card-body">
-      <div class="alert-item info"><div class="alert-icon">💡</div>
-        <div class="alert-text">
-          <strong>495/500 Problem → ACS Solution</strong>
-          <span>जब 500 students 1 job के लिए apply करें → 495 को local self-employment में support मिलेगा।<br/>Market Survey → Opportunity → Training → Bank Liaison → First Income</span>
-        </div>
-      </div>
-      <div class="empty" style="margin-top:16px"><div class="empty-icon">💼</div><p>Employer Dashboard Phase 3 में। Regional Manager surveys Phase 2 में शुरू होंगे।</p></div>
-    </div></div>
-  </div>
-
-  <!-- ═══ PAGE: COMPLIANCE ═══ -->
-  <div class="page" id="page-compliance">
-    <div class="page-header"><h2>⚖️ Compliance Status</h2><p>DPDP Act 2023 + Legal + Security</p></div>
-    <div class="stats-grid">
-      <div class="stat-card green"><div class="stat-icon">🛡️</div><div class="stat-num">Active</div><div class="stat-label">Firebase Security</div></div>
-      <div class="stat-card blue"><div class="stat-icon">🔒</div><div class="stat-num">RBAC</div><div class="stat-label">Role-Based Access</div></div>
-      <div class="stat-card gold"><div class="stat-icon">📋</div><div class="stat-num">On</div><div class="stat-label">Audit Trail</div></div>
-      <div class="stat-card orange"><div class="stat-icon">⚖️</div><div class="stat-num">2027</div><div class="stat-label">DPDP Full Compliance</div></div>
-    </div>
-    <div class="card"><div class="card-head"><h3>📋 Compliance Checklist</h3></div>
-      <div class="card-body">
-        <div class="alert-list">
-          <div class="alert-item ok"><div class="alert-icon">✅</div><div class="alert-text"><strong>Firebase Authentication</strong><span>Email/Password + Role-based access</span></div></div>
-          <div class="alert-item ok"><div class="alert-icon">✅</div><div class="alert-text"><strong>Firestore Security Rules</strong><span>Logged-in users only</span></div></div>
-          <div class="alert-item ok"><div class="alert-icon">✅</div><div class="alert-text"><strong>Police CR — Centre Owners</strong><span>Registration form में शपथ पत्र</span></div></div>
-          <div class="alert-item warn"><div class="alert-icon">⚠️</div><div class="alert-text"><strong>DPDP Act 2023</strong><span>Parental consent module Phase 4 में</span></div></div>
-          <div class="alert-item warn"><div class="alert-icon">⚠️</div><div class="alert-text"><strong>Data Encryption</strong><span>AES-256 Phase 3 में implement होगा</span></div></div>
-          <div class="alert-item info"><div class="alert-icon">ℹ️</div><div class="alert-text"><strong>ISO 9001:2015</strong><span>FFGPMTrust certified — ACS under umbrella</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  </div><!-- /content -->
-</div><!-- /main -->
-</div><!-- /app -->
-
-<!-- ═══ CENTRE DETAIL MODAL ═══ -->
-<div class="modal-overlay" id="centreModal">
-  <div class="modal">
-    <div class="modal-head">
-      <h3 id="modalTitle">Centre Details</h3>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-body" id="modalBody"></div>
-    <div id="rejectReasonWrap" class="reason-wrap">
-      <label>❌ Rejection का कारण बताएं (जरूरी)</label>
-      <textarea id="rejectReason" placeholder="कारण लिखें — Centre को email जाएगा..."></textarea>
-    </div>
-    <div class="modal-actions" id="modalActions"></div>
-  </div>
+  <!-- [T6] footer -->
+  <div class="foot">ACS™ · FFGPMTrust · From Village to World</div>
 </div>
 
-<!-- Toast -->
-<div class="toast" id="toast"></div>
+<!-- पद-जानकारी का एकमात्र घर (परत-3) — सिर्फ़ दिखाने के लिए, guard नहीं -->
+<script src="/assets/designation_matrix.js"></script>
 
-<!-- FIREBASE -->
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import{getAuth,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import{getFirestore,collection,getDocs,doc,updateDoc,query,orderBy,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
 
-const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
-const auth=getAuth(app),db=getFirestore(app);
-const FOUNDER_UID='2mTgBSLfDFffbdGQpp1zvkLGrUf1';
+const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth = getAuth(app), db = getFirestore(app);
+const functions = getFunctions(app, "us-central1");
+const $ = (id)=>document.getElementById(id);
 
-// Auth check
-onAuthStateChanged(auth,user=>{
-  if(!user){window.location.href='../index.html';return}
-  if(user.uid!==FOUNDER_UID){showToast('❌ Access Denied — Founder only','err');setTimeout(()=>window.location.href='../index.html',2000);return}
-  window.loadData();
+/* ── generator-भरे consts — जिन designations/roles को यह dashboard
+   देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
+   यह सिर्फ़ पर्दा है (matrix-सुरक्षा नियम)। ── */
+const MODE = "team";              /* team | external */
+const ALLOWED = ["founder"];
+const EXT_ROLES = []; /* team-mode में external-fallback roles (जैसे volunteer) */
+const ROLE_LABEL = "Founder Dashboard";  /* external-mode में pill-label */
+const HOME = "/dashboard/founder/";
+
+/* ── matrix से label/चौकी-सूची (सिर्फ़ दिखाने के लिए) ── */
+const MX = (window.ACS_DESIGNATIONS && window.ACS_DESIGNATIONS.teams) || [];
+const mxRow = (key)=> MX.find(t=>t.key===key) || null;
+const mxLabel = (key)=>{ const r=mxRow(key); return r ? r.label : (key||"—"); };
+
+function show(id){
+  ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
+  $(id).classList.remove("hidden");
+}
+
+/* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
+onAuthStateChanged(auth, async (user)=>{
+  if(!user){ location.href="/dashboard/index.html"; return; }
+  if(MODE==="external"){ await guardExternal(user); return; }
+  await guardTeam(user);
 });
 
-window._signOut=()=>signOut(auth);
-window._db=db;
-window._getDocs=getDocs;
-window._collection=collection;
-window._doc=doc;
-window._updateDoc=updateDoc;
-window._query=query;
-window._orderBy=orderBy;
-window._serverTimestamp=serverTimestamp;
-</script>
-
-<script>
-// ── DATA ──
-let allCentres=[];
-
-// ── SIDEBAR ──
-function toggleSidebar(){
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('sbOverlay').classList.toggle('open');
-}
-window.toggleSidebar=toggleSidebar;
-
-// ── PAGE NAV ──
-window.showPage=function(name,el){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  const pg=document.getElementById('page-'+name);
-  if(pg)pg.classList.add('active');
-  if(el)el.classList.add('active');
-  const titles={overview:'Dashboard Overview',alerts:'Alerts',pending:'Pending Centres',approved:'Approved Centres','all-centres':'All Centres',teachers:'Teachers',students:'Students',staff:'Staff & HR',revenue:'Revenue',payroll:'Payroll',demand:'Demand-Supply',compliance:'Compliance'};
-  document.getElementById('topbarTitle').textContent=titles[name]||name;
-  if(window.innerWidth<=768)toggleSidebar();
-};
-
-// ── DATE ──
-function setDate(){
-  const d=new Date();
-  const opts={weekday:'long',year:'numeric',month:'long',day:'numeric'};
-  document.getElementById('topbarDate').textContent=d.toLocaleDateString('hi-IN',opts);
-}
-
-// ── LOAD DATA ──
-window.loadData=async function(){
-  if(!window._getDocs)return;
+/*TEAM_GUARD_JS_START*/
+async function guardTeam(user){
+  let team = null;
   try{
-    const snap=await window._getDocs(window._collection(window._db,'centre_registrations'));
-    allCentres=[];
-    snap.forEach(d=>{allCentres.push({id:d.id,...d.data()})});
-    updateStats();
-    buildPendingTable();
-    buildApprovedTable();
-    buildAllCentresTable();
-    buildFlowTracker();
-    buildAlerts();
-    buildTrendChart();
-    buildSalaryCalendar();
-  }catch(e){showToast('Data load error: '+e.message,'err')}
-};
-
-// ── STATS ──
-function updateStats(){
-  const total=allCentres.length;
-  const pending=allCentres.filter(c=>c.status==='pending'||c.status==='regional_recommended'||c.status==='state_provisional'||c.status==='hq_legal'||c.status==='hq_finance'||c.status==='hq_establishment').length;
-  const approved=allCentres.filter(c=>c.status==='approved').length;
-  const rejected=allCentres.filter(c=>c.status==='rejected').length;
-  document.getElementById('st-centres').textContent=total;
-  document.getElementById('st-centres-sub').textContent=`✅ ${approved} Approved | ❌ ${rejected} Rejected`;
-  document.getElementById('st-pending').textContent=pending;
-  document.getElementById('st-pending-sub').textContent=pending>0?`${pending} applications review के लिए`:'सब ठीक है';
-  document.getElementById('st-students').textContent='0';
-  document.getElementById('st-teachers').textContent='0';
-  document.getElementById('st-certs').textContent='0';
-  document.getElementById('st-revenue').textContent='₹0';
-  document.getElementById('pendingCount').textContent=pending;
-  document.getElementById('alertCount').textContent=allCentres.filter(c=>daysSince(c.submittedAt)>7&&c.status!=='approved'&&c.status!=='rejected').length;
-  if(pending>0)document.getElementById('notifDot').style.display='block';
-}
-
-function daysSince(ts){
-  if(!ts)return 0;
-  const d=ts.toDate?ts.toDate():new Date(ts);
-  return Math.floor((Date.now()-d.getTime())/(1000*60*60*24));
-}
-
-// ── PENDING TABLE ──
-function buildPendingTable(){
-  const pending=allCentres.filter(c=>c.status!=='approved'&&c.status!=='rejected');
-  const tbody=document.getElementById('pendingTable');
-  if(!pending.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)"><div style="font-size:24px">✅</div>कोई Pending application नहीं</td></tr>';return}
-  tbody.innerHTML=pending.map(c=>{
-    const days=daysSince(c.submittedAt);
-    const daysColor=days>15?'var(--red)':days>7?'var(--orange)':'var(--green)';
-    return`<tr>
-      <td style="font-family:monospace;font-size:11px;color:var(--blue)">ACS-CR-${c.id.substring(0,6).toUpperCase()}</td>
-      <td><strong>${c.centre?.name||'—'}</strong><br/><span style="font-size:10px;color:var(--gray)">${c.centre?.type||''}</span></td>
-      <td>${c.owner?.name||'—'}<br/><span style="font-size:10px;color:var(--gray)">${c.owner?.mobile||''}</span></td>
-      <td>${c.centre?.district||'—'}<br/><span style="font-size:10px;color:var(--gray)">${c.centre?.state||''}</span></td>
-      <td><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></td>
-      <td style="font-weight:700;color:${daysColor}">${days} दिन</td>
-      <td><div class="action-btns">
-        <button class="btn-sm btn-view" onclick="openModal('${c.id}')">👁️ देखें</button>
-      </div></td>
-    </tr>`;
-  }).join('');
-}
-
-// ── APPROVED TABLE ──
-function buildApprovedTable(){
-  const approved=allCentres.filter(c=>c.status==='approved');
-  const tbody=document.getElementById('approvedTable');
-  if(!approved.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">अभी कोई Approved Centre नहीं</td></tr>';return}
-  tbody.innerHTML=approved.map(c=>`<tr>
-    <td style="font-family:monospace;font-size:11px;color:var(--green)">ACS-${c.id.substring(0,6).toUpperCase()}</td>
-    <td><strong>${c.centre?.name||'—'}</strong></td>
-    <td>${c.owner?.name||'—'}</td>
-    <td>${c.centre?.district||'—'}, ${c.centre?.state||'—'}</td>
-    <td>0</td><td>₹0</td>
-    <td><span class="status-pill approved">✅ Active</span></td>
-  </tr>`).join('');
-}
-
-// ── ALL CENTRES TABLE ──
-function buildAllCentresTable(){
-  const tbody=document.getElementById('allCentresTable');
-  if(!allCentres.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--gray)">कोई application नहीं</td></tr>';return}
-  tbody.innerHTML=allCentres.map(c=>`<tr>
-    <td style="font-family:monospace;font-size:11px">ACS-CR-${c.id.substring(0,6).toUpperCase()}</td>
-    <td>${c.centre?.name||'—'}</td>
-    <td>${c.owner?.name||'—'}</td>
-    <td>${c.centre?.state||'—'}</td>
-    <td><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></td>
-    <td style="font-size:11px;color:var(--gray)">${fmtDate(c.submittedAt)}</td>
-  </tr>`).join('');
-}
-
-// ── FLOW TRACKER ──
-function buildFlowTracker(){
-  const stages=[
-    {key:'pending',label:'Applied',icon:'📋'},
-    {key:'regional_recommended',label:'Regional',icon:'🗺️'},
-    {key:'state_provisional',label:'State',icon:'🌐'},
-    {key:'hq_legal',label:'Legal',icon:'⚖️'},
-    {key:'hq_finance',label:'Finance',icon:'💰'},
-    {key:'hq_establishment',label:'Final',icon:'🏫'},
-    {key:'approved',label:'Active',icon:'✅'},
-  ];
-  const counts={};
-  allCentres.forEach(c=>{counts[c.status]=(counts[c.status]||0)+1});
-  const el=document.getElementById('flowTracker');
-  if(!allCentres.length){el.innerHTML='<div style="text-align:center;color:var(--gray);font-size:12px;padding:20px">अभी कोई application नहीं है</div>';return}
-  el.innerHTML=`<div class="flow-row">${stages.map((s,i)=>{
-    const cnt=counts[s.key]||0;
-    const cls=cnt>0?'active':'pending';
-    return`<div class="flow-step">
-      <div class="flow-dot ${cls}">${cnt>0?cnt:'—'}</div>
-      <div class="flow-label">${s.icon}<br/>${s.label}</div>
-    </div>${i<stages.length-1?'<div class="flow-line"></div>':''}`;
-  }).join('')}</div>`;
-}
-
-// ── ALERTS ──
-function buildAlerts(){
-  const stuck=allCentres.filter(c=>daysSince(c.submittedAt)>7&&c.status!=='approved'&&c.status!=='rejected');
-  const alerts=stuck.map(c=>({
-    type:daysSince(c.submittedAt)>15?'err':'warn',
-    title:`${c.centre?.name||'Centre'} — ${daysSince(c.submittedAt)} दिन से अटका`,
-    sub:`Status: ${statusLabel(c.status)} | ${c.centre?.district||'—'}, ${c.centre?.state||'—'}`
-  }));
-
-  const html=alerts.length?alerts.map(a=>`
-    <div class="alert-item ${a.type}">
-      <div class="alert-icon">${a.type==='err'?'🔴':'🟡'}</div>
-      <div class="alert-text"><strong>${a.title}</strong><span>${a.sub}</span></div>
-    </div>`).join('')
-    :'<div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>';
-
-  document.getElementById('recentAlerts').innerHTML=alerts.slice(0,3).length?alerts.slice(0,3).map(a=>`
-    <div class="alert-item ${a.type}">
-      <div class="alert-icon">${a.type==='err'?'🔴':'🟡'}</div>
-      <div class="alert-text"><strong>${a.title}</strong><span>${a.sub}</span></div>
-    </div>`).join(''):'<div class="empty"><div class="empty-icon">✅</div><p>कोई alert नहीं</p></div>';
-  document.getElementById('allAlerts').innerHTML=html;
-}
-
-// ── TREND CHART ──
-function buildTrendChart(){
-  const months=['Jan','Feb','Mar','Apr','May','Jun'];
-  const el=document.getElementById('trendChart');
-  el.innerHTML=months.map((m,i)=>{
-    const h=Math.floor(Math.random()*80)+20;
-    return`<div class="mini-bar-wrap" style="flex:1">
-      <div class="mini-bar" style="height:${h}%;background:linear-gradient(180deg,var(--blue),var(--blue-lt));width:100%"></div>
-      <div class="mini-bar-lbl">${m}</div>
-    </div>`;
-  }).join('');
-}
-
-// ── SALARY CALENDAR ──
-function buildSalaryCalendar(){
-  const today=new Date().getDate();
-  const steps=[
-    {dates:'21',label:'Regional → State',done:today>21},
-    {dates:'22-23',label:'State → HQ Est.',done:today>23},
-    {dates:'24-25',label:'HQ Est. → Finance',done:today>25},
-    {dates:'26-27',label:'Finance Verify',done:today>27},
-    {dates:'28-30',label:'SBI Transfer',done:today>30},
-    {dates:'1st',label:'💰 Salary!',done:false},
-  ];
-  const html=steps.map(s=>`
-    <div class="cal-step ${s.done?'done':today>=parseInt(s.dates)?'active':'pending'}">
-      <div class="cal-date">${s.dates}</div>
-      <div class="cal-label">${s.label}</div>
-      <div class="cal-status">${s.done?'✅':today>=parseInt(s.dates)?'⏳':'⬜'}</div>
-    </div>`).join('');
-  ['salaryCalendar','payrollCalendar2'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el)el.innerHTML=html;
-  });
-}
-
-// ── MODAL ──
-window.openModal=function(id){
-  const c=allCentres.find(x=>x.id===id);
-  if(!c)return;
-  document.getElementById('modalTitle').textContent=c.centre?.name||'Centre Details';
-  document.getElementById('modalBody').innerHTML=`
-    <div class="detail-row"><span class="detail-key">Application ID</span><span class="detail-val" style="color:var(--blue);font-family:monospace">ACS-CR-${c.id.substring(0,6).toUpperCase()}</span></div>
-    <div class="detail-row"><span class="detail-key">Centre नाम</span><span class="detail-val">${c.centre?.name||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">प्रकार</span><span class="detail-val">${c.centre?.type||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">Owner</span><span class="detail-val">${c.owner?.name||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">Email</span><span class="detail-val">${c.owner?.email||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">Mobile</span><span class="detail-val">${c.owner?.mobile||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">Udyog Aadhaar</span><span class="detail-val">${c.owner?.udyog||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">अनुभव</span><span class="detail-val">${c.owner?.experience||'—'} साल</span></div>
-    <div class="detail-row"><span class="detail-key">Pin Code</span><span class="detail-val">${c.centre?.pinCode||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">जिला</span><span class="detail-val">${c.centre?.district||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">राज्य</span><span class="detail-val">${c.centre?.state||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">पता</span><span class="detail-val">${c.centre?.address||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">Bank</span><span class="detail-val">${c.bank?.bankName||'—'} | ${c.bank?.ifsc||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">Courses</span><span class="detail-val">${(c.courses||[]).join(', ')||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">भाषा</span><span class="detail-val">${c.language||'—'}</span></div>
-    <div class="detail-row"><span class="detail-key">Applied</span><span class="detail-val">${fmtDate(c.submittedAt)} (${daysSince(c.submittedAt)} दिन पहले)</span></div>
-    <div class="detail-row"><span class="detail-key">Status</span><span class="detail-val"><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></span></div>`;
-
-  document.getElementById('rejectReasonWrap').classList.remove('show');
-  document.getElementById('rejectReason').value='';
-
-  const actions=document.getElementById('modalActions');
-  if(c.status==='approved'){
-    actions.innerHTML=`<button class="btn-secondary" onclick="closeModal()">बंद करें</button><div style="font-size:12px;color:var(--green);font-weight:600;padding:8px">✅ यह Centre पहले से Approved है</div>`;
-  }else if(c.status==='rejected'){
-    actions.innerHTML=`<button class="btn-secondary" onclick="closeModal()">बंद करें</button><div style="font-size:12px;color:var(--red);font-weight:600;padding:8px">❌ यह Application Rejected है</div>`;
-  }else{
-    actions.innerHTML=`
-      <button class="btn-secondary" onclick="closeModal()">बंद करें</button>
-      <button class="btn-danger" onclick="showRejectReason('${c.id}')">❌ Reject करें</button>
-      <button class="btn-primary" onclick="approveCenter('${c.id}')">✅ Approve करें</button>`;
+    const snap = await getDoc(doc(db,"teams",user.uid));
+    if(snap.exists()) team = snap.data();
+  }catch(e){ /* पढ़ न पाए तो नीचे deny */ }
+  const desig = ((team && team.designation)||"").toLowerCase();
+  if(!team || ALLOWED.indexOf(desig)===-1){
+    if(EXT_ROLES.length){ await guardExternal(user); return; } /* dual: provisional-external रास्ता */
+    show("denyView"); return;
   }
-  document.getElementById('centreModal').classList.add('open');
-};
 
-window.closeModal=function(){
-  document.getElementById('centreModal').classList.remove('open');
-};
+  /* ── [T2] hold-पट्टी (v1.4 fields: hold:{type,reason}) ── */
+  if(team.hold && team.hold.type){
+    const hb=$("holdBar");
+    hb.textContent = "⛔ आप पर hold लगा है — कारण: " + (team.hold.reason||"—");
+    hb.classList.add("on");
+  }
 
-window.showRejectReason=function(id){
-  const wrap=document.getElementById('rejectReasonWrap');
-  wrap.classList.add('show');
-  const actions=document.getElementById('modalActions');
-  actions.innerHTML=`
-    <button class="btn-secondary" onclick="closeModal()">Cancel</button>
-    <button class="btn-danger" onclick="rejectCenter('${id}')">❌ Confirm Reject</button>`;
-};
+  /* ── [T3] provisional-पर्दा ── */
+  const isActive = (team.active===true);
+  if(!isActive) $("provBar").classList.add("on");
 
-window.approveCenter=async function(id){
-  try{
-    await window._updateDoc(window._doc(window._db,'centre_registrations',id),{status:'approved',approvedAt:window._serverTimestamp(),approvedBy:'Founder'});
-    showToast('✅ Centre Approved!','ok');
-    closeModal();
-    await window.loadData();
-  }catch(e){showToast('Error: '+e.message,'err')}
-};
+  /* ── अंतिम-मुहर अधिकार (display-gate; असली जाँच server पर) ── */
+  CAN_FINAL = (desig==="founder" || desig==="hq_admin");
 
-window.rejectCenter=async function(id){
-  const reason=document.getElementById('rejectReason').value.trim();
-  if(!reason){showToast('❌ Rejection का कारण जरूरी है','err');return}
-  try{
-    await window._updateDoc(window._doc(window._db,'centre_registrations',id),{status:'rejected',rejectedAt:window._serverTimestamp(),rejectedBy:'Founder',rejectionReason:reason});
-    showToast('Application Rejected','err');
-    closeModal();
-    await window.loadData();
-  }catch(e){showToast('Error: '+e.message,'err')}
-};
+  /* ── topbar व pill + login-पहचान (v1.6-ङ2 होल बंद) ── */
+  $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (provisional)");
+  const whoName = team.name_local || team.name_roman || team.name || team.fullName || (user.email||"");
+  $("tbWho").textContent = "👤 " + whoName + " · " + mxLabel(desig);
+  $("tbWho").title = "UID: " + user.uid;
 
-// ── FILTER ──
-window.filterCentres=function(){
-  const search=document.getElementById('searchPending').value.toLowerCase();
-  const status=document.getElementById('filterStatus').value;
-  const filtered=allCentres.filter(c=>{
-    if(c.status==='approved'||c.status==='rejected')return false;
-    const matchSearch=!search||(c.centre?.name||'').toLowerCase().includes(search)||(c.centre?.district||'').toLowerCase().includes(search)||(c.centre?.state||'').toLowerCase().includes(search);
-    const matchStatus=!status||c.status===status;
-    return matchSearch&&matchStatus;
-  });
-  const tbody=document.getElementById('pendingTable');
-  if(!filtered.length){tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--gray)">कोई result नहीं</td></tr>';return}
-  tbody.innerHTML=filtered.map(c=>{
-    const days=daysSince(c.submittedAt);
-    const daysColor=days>15?'var(--red)':days>7?'var(--orange)':'var(--green)';
-    return`<tr>
-      <td style="font-family:monospace;font-size:11px;color:var(--blue)">ACS-CR-${c.id.substring(0,6).toUpperCase()}</td>
-      <td><strong>${c.centre?.name||'—'}</strong></td>
-      <td>${c.owner?.name||'—'}</td>
-      <td>${c.centre?.district||'—'}, ${c.centre?.state||'—'}</td>
-      <td><span class="status-pill ${statusClass(c.status)}">${statusLabel(c.status)}</span></td>
-      <td style="font-weight:700;color:${daysColor}">${days} दिन</td>
-      <td><button class="btn-sm btn-view" onclick="openModal('${c.id}')">👁️ देखें</button></td>
-    </tr>`;
-  }).join('');
-};
+  /* ── [T4] प्रोफ़ाइल — teams से ── */
+  $("pName").textContent  = team.name_local || team.name_roman || team.name || team.fullName || "—";
+  $("pLevel").textContent = (team.level||"—").toUpperCase();
+  const area = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
+  $("pArea").textContent  = area || "—";
+  $("pEmail").textContent = team.email || (user.email||"—");
+  $("pPhone").textContent = team.phone || team.mobile || "—";
 
-// ── LOGOUT ──
-window.doLogout=async function(){
-  if(!confirm('Logout करना चाहते हैं?'))return;
-  await window._signOut();
-  window.location.href='../index.html';
-};
+  show("appView");
 
-// ── UTILS ──
-function statusClass(s){
-  const map={pending:'pending',regional_recommended:'pending',state_provisional:'provisional',hq_legal:'legal',hq_finance:'finance',hq_establishment:'legal',approved:'approved',rejected:'rejected'};
-  return map[s]||'pending';
+  /* ── registration-ब्योरा (regNo · दस्तावेज़ · सफ़र) — विफल हो तो dashboard न रुके ── */
+  if(desig==="founder"){
+    $("tlWrap").innerHTML = '<div class="note" style="font-size:18px;font-weight:700;color:var(--navy)">👑 Founder — सर्वोच्च; कोई approval-सफ़र लागू नहीं (नियम-4)।</div>';
+    $("tlNote").textContent = "";
+    $("docNote").textContent = "Founder-खाते पर आवेदन-record लागू नहीं।";
+  } else {
+    loadRegistration(user).catch(()=>{
+      $("pReg").textContent = "—";
+      $("docNote").textContent = "आवेदन-ब्योरा नहीं खुला — network/नियम जाँचें।";
+      drawTimeline(desig, null);
+    });
+  }
+
+  /* ── [P1] आवेदन-पैनल की सूची — registrations से (सिर्फ़ पढ़ना) ── */
+  loadApplications();
+  /* ── [P2] टीम-पैनल + पदेन-प्रभार ── */
+  loadTeamPanel(desig);
+  /* ── [P3] काम व रिपोर्ट ── */
+  loadTasks(); loadReports();
+
+  /* ── single-session (v1.2 नियम): sessions/{uid} सुनो ── */
+  startSessionWatch(user);
+  /* ── 10-मिनट auto-logout ── */
+  startIdleTimer();
 }
-function statusLabel(s){
-  const map={pending:'⏳ Applied',regional_recommended:'🗺️ Regional',state_provisional:'🌐 State Provisional',hq_legal:'⚖️ HQ Legal',hq_finance:'💰 HQ Finance',hq_establishment:'🏫 HQ Establishment',approved:'✅ Approved',rejected:'❌ Rejected'};
-  return map[s]||s;
+/*TEAM_GUARD_JS_END*/
+
+/* ═══ registration पढ़ना — स्रोत: registrations (एकमात्र सही collection) ═══ */
+async function loadRegistration(user){
+  const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+  let latest=null, t0=0;
+  qs.forEach(d=>{
+    const r=d.data();
+    if(r.status==="cancelled") return;
+    const t = (r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+    if(!latest || t>t0){ latest=r; t0=t; }
+  });
+  if(!latest){ $("pReg").textContent="—"; $("docNote").textContent="कोई आवेदन-record नहीं मिला (सीधे बनाए गए account में सामान्य है)।"; drawTimeline(null,null); return; }
+
+  $("pReg").textContent = latest.regNo || "—";
+
+  /* दस्तावेज़-chips */
+  const docs = latest.documents || latest.docs || {};
+  const keys = Object.keys(docs);
+  const wrap = $("docWrap"); wrap.innerHTML="";
+  if(keys.length===0){ $("docNote").textContent="आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"; }
+  else{ wrap.innerHTML = docChips(docs); $("docNote").textContent=""; }
+  drawTimeline(null, latest);
+}
+
+/* ═══ approval-सफ़र timeline — चौकियाँ matrix से, स्थिति status से ═══ */
+function drawTimeline(desigKey, reg){
+  if(desigKey==="founder") return;
+  const me = desigKey || (ALLOWED[0]||"");
+  const row = mxRow(me) || {};
+  const chain = ["hq_legal","hq_finance","hq_establishment"];
+  if(row.superior && chain.indexOf(row.superior)===-1) chain.push(row.superior);
+  const finalKey = (row.final_approval==="hq_admin") ? "hq_admin" : "founder";
+  if(chain.indexOf(finalKey)===-1) chain.push(finalKey);
+
+  const approved = !!(reg && (reg.status==="approved"));
+  const wrap=$("tlWrap"); wrap.innerHTML="";
+  chain.forEach((k,i)=>{
+    const st=document.createElement("div");
+    st.className = "step " + (approved ? "done" : (i===0 ? "now" : ""));
+    const who = (k==="founder") ? "Founder" : mxLabel(k);
+    const tag = (i===chain.length-1) ? " — अंतिम मुहर" : (i>=3 ? " — विभागीय चौकी" : " — चौकी");
+    st.innerHTML = '<div class="dot"><i></i><em></em></div><div class="lbl">'+who+'<small>'+ (approved?"पूर्ण ✅":"स्थिति चरण-3 से live होगी") + tag +'</small></div>';
+    wrap.appendChild(st);
+  });
+  $("tlNote").textContent = approved ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।";
+}
+
+/*TEAM_ONLY_JS_START*/
+/* ═══ [P1] आवेदन-सूची — registrations (एकमात्र सही स्रोत), सिर्फ़ पढ़ना ═══ */
+let APPS = [], FILTER = "all", CAN_FINAL = false;
+async function loadApplications(){
+  const box = $("appList");
+  try{
+    const qs = await getDocs(collection(db,"registrations"));
+    APPS = [];
+    qs.forEach(d=>{ const r=d.data(); r._id=d.id; APPS.push(r); });
+    APPS.sort((a,b)=>{
+      const ta=(a.createdAt&&a.createdAt.toMillis)?a.createdAt.toMillis():0;
+      const tb=(b.createdAt&&b.createdAt.toMillis)?b.createdAt.toMillis():0;
+      return tb-ta;
+    });
+    drawApps();
+  }catch(e){
+    box.innerHTML = '<div class="note">सूची नहीं खुली — या तो आवेदन-सूची का rules-दायरा अभी आपके पद तक विस्तारित नहीं (अगला दौर), या network जाँचें। (' + (e.code||"") + ')</div>';
+  }
+}
+function docChips(docs){
+  const keys = Object.keys(docs||{});
+  if(keys.length===0) return "";
+  return keys.map(k=>{
+    const d = docs[k];
+    const u = (typeof d==="string") ? d : (d && d.url);
+    if(!u) return '<span class="doc" style="margin:4px 6px 0 0;color:#B71C1C">📄 '+k+' (upload विफल)</span>';
+    return '<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+u+'">📄 '+k+'</a>';
+  }).join("");
 }
 function fmtDate(ts){
-  if(!ts)return'—';
-  try{const d=ts.toDate?ts.toDate():new Date(ts);return d.toLocaleDateString('hi-IN',{day:'2-digit',month:'short',year:'numeric'})}catch(e){return'—'}
+  try{ const d=(ts&&ts.toDate)?ts.toDate():null; if(!d) return "—";
+    return d.getDate().toString().padStart(2,"0")+"-"+(d.getMonth()+1).toString().padStart(2,"0")+"-"+d.getFullYear();
+  }catch(e){ return "—"; }
 }
-function showToast(msg,type='ok'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
+function drawApps(){
+  const box = $("appList"); box.innerHTML = "";
+  const list = APPS.filter(a=> FILTER==="all" ? true : (a.status||"")===FILTER);
+  if(list.length===0){ box.innerHTML = '<div class="note">इस श्रेणी में कोई आवेदन नहीं।</div>'; return; }
+  list.forEach(a=>{
+    const st = a.status||"provisional";
+    const stChip = st==="approved" ? '<span class="chip appr">✅ स्वीकृत</span>'
+                 : st==="cancelled" ? '<span class="chip canc">🗑️ निरस्त</span>'
+                 : st==="rejected" ? '<span class="chip rej">⚠️ अस्वीकृत</span>'
+                 : '<span class="chip prov">⏳ जाँच में</span>';
+    const lvl = (a.staff_level||a.role||"—").toString().toUpperCase();
+    const area = [a.country,a.state,(a.rm_districts&&a.rm_districts.join)?a.rm_districts.join(", "):a.rm_districts].filter(Boolean).join(" · ");
+    const docs = a.documents||a.docs||{};
+    const docLinks = docChips(docs) || '<span class="note">कोई दस्तावेज़-link नहीं</span>';
+    let rejInfo = "";
+    if(a.rejection && a.rejection.reason){
+      rejInfo = '<div class="mrow"><b>अस्वीकृति-कारण:</b> '+a.rejection.reason+'</div>'
+              + '<div class="mrow"><b>सुधार-समय:</b> '+fmtDate(a.rejection.correction_deadline)+' तक (1 सप्ताह — v1.4 नियम)</div>';
+    }
+    const canAct = CAN_FINAL && (st==="provisional" || st==="rejected");
+    const rn = a.regNo || a._id;
+    const actHtml = canAct
+      ? '<div class="acts">'
+        + '<button class="abtn ok" data-act="approve" data-reg="'+rn+'">✅ Approve (अंतिम मुहर)</button>'
+        + '<button class="abtn no" data-act="rejopen" data-reg="'+rn+'">❌ Reject</button>'
+        + '</div>'
+        + '<div class="rejbox" id="rej-'+rn+'"><textarea id="rtx-'+rn+'" placeholder="अस्वीकृति का कारण लिखें (अनिवार्य)"></textarea>'
+        + '<button class="abtn no" style="margin-top:6px" data-act="reject" data-reg="'+rn+'">कारण के साथ Reject भेजें</button></div>'
+        + '<div class="msg" id="msg-'+rn+'"></div>'
+      : '<div class="msg" id="msg-'+rn+'"></div>';
+    const el = document.createElement("div");
+    el.className = "app";
+    el.innerHTML =
+      '<div class="r1"><span class="nm">'+(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
+      '<span class="rg">('+(a.regNo||a._id)+')</span>'+stChip+
+      '<span class="chip lvl">'+lvl+'</span></div>'+
+      '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+area):'')+(a.email?(' · ✉️ '+a.email):'')+'</div>'+
+      '<div class="more"><div class="mrow"><b>Mobile:</b> '+(a.phone||a.mobile||"—")+'</div>'+
+      '<div class="mrow"><b>दस्तावेज़:</b><br/>'+docLinks+'</div>'+
+      rejInfo +
+      actHtml + '</div>'+
+      '<button class="vbtn">👁️ view</button>';
+    el.querySelector(".vbtn").addEventListener("click",()=>{ el.classList.toggle("open"); });
+    box.appendChild(el);
+  });
+}
+document.addEventListener("click",(ev)=>{
+  const t = ev.target.closest(".ftab"); if(!t) return;
+  FILTER = t.getAttribute("data-f");
+  document.querySelectorAll(".ftab").forEach(b=>b.classList.toggle("on", b===t));
+  drawApps();
+});
+
+/* ═══ [P1] approve/reject — server-मुहर (चरण-3) ═══ */
+document.addEventListener("click", async (ev)=>{
+  const b = ev.target.closest(".abtn"); if(!b) return;
+  const act = b.getAttribute("data-act"), rn = b.getAttribute("data-reg");
+  if(!act || !rn) return;
+  if(act==="rejopen"){ const box=$("rej-"+rn); if(box) box.classList.toggle("on"); return; }
+  const msg = $("msg-"+rn);
+  if(act==="approve" && !confirm(rn+" — अंतिम मुहर लगाएँ? (आवेदन स्वीकृत + टीम-सदस्यता active)")) return;
+  let reason = "";
+  if(act==="reject"){
+    const tx=$("rtx-"+rn); reason=(tx&&tx.value||"").trim();
+    if(!reason){ if(msg){msg.className="msg err";msg.textContent="कारण लिखना अनिवार्य है।";} return; }
+  }
+  b.disabled = true; if(msg){msg.className="msg";msg.textContent="server-मुहर लग रही है…";}
+  try{
+    const fn = httpsCallable(functions, act==="approve" ? "approveApplication" : "rejectApplication");
+    await fn(act==="approve" ? {regNo:rn} : {regNo:rn, reason:reason});
+    if(msg){msg.className="msg ok";msg.textContent = act==="approve" ? "✅ स्वीकृत — टीम-सदस्यता active हो गई।" : "⚠️ अस्वीकृत — कारण व 1-सप्ताह सुधार-समय दर्ज।";}
+    await loadApplications();
+  }catch(e){
+    b.disabled = false;
+    if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e && e.message ? e.message : e);}
+  }
+});
+
+/* ═══ [P2] टीम-पैनल — teams से; hold-बटन server (setHold/liftHold) ═══ */
+let MYDESIG = "";
+async function loadTeamPanel(myDesig){
+  MYDESIG = myDesig;
+  const listEl = $("teamList"), exoEl = $("exoList");
+  let members = [];
+  try{
+    const qs = await getDocs(collection(db,"teams"));
+    qs.forEach(d=>{ const t=d.data(); t._uid=d.id; members.push(t); });
+  }catch(e){
+    listEl.textContent = "टीम-सूची नहीं खुली — rules v3 deploy जाँचें। ("+(e.code||"")+")";
+    exoEl.textContent = "—"; return;
+  }
+  const activeDesigs = {};
+  members.forEach(m=>{ if(m.active===true) activeDesigs[String(m.designation||"").toLowerCase()] = true; });
+  const mine = MX.filter(t => t.superior===myDesig && t.key!=="founder" && !activeDesigs[t.key]);
+  exoEl.innerHTML = mine.length
+    ? mine.map(t=>'<span class="exo">🧭 '+t.label+'</span>').join("") +
+      '<div class="note">इन पदों की चौकी/काम अभी आपके पदेन प्रभार में — धारक आते ही अपने-आप वापस।</div>'
+    : '<span class="note">अभी कोई पदेन प्रभार नहीं — आपके नीचे के सब पद भरे हैं।</span>';
+
+  TEAM_MEMBERS = members;
+  fillMemberSelect();
+  members.sort((a,b)=> String(a.designation||"").localeCompare(String(b.designation||"")));
+  listEl.innerHTML = "";
+  if(members.length===0){ listEl.textContent="कोई टीम-सदस्य record नहीं।"; return; }
+  members.forEach(m=>{
+    const d = String(m.designation||"").toLowerCase();
+    const isSelf = (auth.currentUser && m._uid===auth.currentUser.uid);
+    const holdRec = m.hold && m.hold.type ? m.hold : null;
+    const stChip = holdRec ? '<span class="chip hold">⛔ '+(holdRec.type==="id"?"घोर ID-Hold":"हल्का Work-Hold")+'</span>'
+                 : (m.active===true ? '<span class="chip on">active</span>' : '<span class="chip off">provisional</span>');
+    const el = document.createElement("div");
+    el.className = "mem";
+    let acts = "";
+    if(d!=="founder" && !isSelf){
+      acts = holdRec
+        ? '<div class="acts"><button class="abtn ok" data-hact="lift" data-uid="'+m._uid+'">🔓 Un-hold</button></div>'
+        : '<div class="acts">'
+          + '<button class="abtn no" data-hact="work" data-uid="'+m._uid+'">🟠 Work-Hold</button>'
+          + '<button class="abtn no" data-hact="id" data-uid="'+m._uid+'">⛔ ID-Hold</button>'
+          + '<button class="abtn ok" data-hact="tropen" data-uid="'+m._uid+'" style="background:var(--blue)">🔁 Transfer</button></div>'
+          + '<div class="rejbox" id="hbx-'+m._uid+'"><textarea id="htx-'+m._uid+'" placeholder="hold का कारण (अनिवार्य)"></textarea>'
+          + '<button class="abtn no" style="margin-top:6px" data-hact="send" data-uid="'+m._uid+'">कारण के साथ hold लगाएँ</button></div>'
+          + '<div class="rejbox" id="tbx-'+m._uid+'"><div class="note" style="margin-bottom:6px">🔁 Transfer (v1.4-ख): इस सदस्य का काम/permission किसे मिले?</div>'
+          + '<select id="tsl-'+m._uid+'" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>'
+          + '<textarea id="ttx-'+m._uid+'" style="margin-top:6px" placeholder="Transfer का कारण (अनिवार्य)"></textarea>'
+          + '<button class="abtn ok" style="margin-top:6px;background:var(--blue)" data-hact="trsend" data-uid="'+m._uid+'">🔁 Transfer करें</button></div>';
+      acts += '<div class="msg" id="hmsg-'+m._uid+'"></div>';
+    }
+    el.innerHTML =
+      '<div class="r1"><span class="nm">'+(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
+      + '<span class="pill">'+mxLabel(d)+'</span>'+stChip
+      + (m.level && String(m.level).toUpperCase()!==mxLabel(d).toUpperCase() ? '<span class="chip lvl">'+String(m.level).toUpperCase()+'</span>':'')+'</div>'
+      + (holdRec?'<div class="hres">कारण: '+(holdRec.reason||"—")+'</div>':'')
+      + acts;
+    listEl.appendChild(el);
+  });
+}
+let PENDING_HOLD = {};
+document.addEventListener("click", async (ev)=>{
+  const b = ev.target.closest("[data-hact]"); if(!b) return;
+  const act = b.getAttribute("data-hact"), uid = b.getAttribute("data-uid");
+  const msg = $("hmsg-"+uid);
+  if(act==="work" || act==="id"){
+    PENDING_HOLD[uid]=act;
+    const bx=$("hbx-"+uid); if(bx) bx.classList.add("on");
+    if(msg){msg.className="msg";msg.textContent=(act==="id"?"घोर ID-Hold":"हल्का Work-Hold")+" चुना — कारण लिखकर भेजें।";}
+    return;
+  }
+  if(act==="tropen"){
+    const bx=$("tbx-"+uid); if(!bx) return;
+    const sel=$("tsl-"+uid);
+    if(sel && !sel.options.length){
+      sel.innerHTML = TEAM_MEMBERS
+        .filter(m=>m._uid!==uid && String(m.designation||"").toLowerCase()!=="founder")
+        .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+    }
+    bx.classList.toggle("on"); return;
+  }
+  if(act==="trsend"){
+    b.disabled=true;
+    try{
+      const toUid=($("tsl-"+uid)||{}).value, reason=(($("ttx-"+uid)||{}).value||"").trim();
+      if(!toUid || !reason){ if(msg){msg.className="msg err";msg.textContent="नया सदस्य व कारण — दोनों अनिवार्य।";} b.disabled=false; return; }
+      await httpsCallable(functions,"transferRole")({fromUid:uid, toUid:toUid, reason:reason});
+      if(msg){msg.className="msg ok";msg.textContent="🔁 transfer दर्ज — history में।";}
+      await loadTeamPanel(MYDESIG);
+    }catch(e){ b.disabled=false; if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);} }
+    return;
+  }
+  b.disabled = true;
+  try{
+    if(act==="send"){
+      const tx=$("htx-"+uid); const reason=(tx&&tx.value||"").trim();
+      if(!reason){ if(msg){msg.className="msg err";msg.textContent="कारण अनिवार्य है।";} b.disabled=false; return; }
+      await httpsCallable(functions,"setHold")({targetUid:uid, type:(PENDING_HOLD[uid]||"work"), reason:reason});
+      if(msg){msg.className="msg ok";msg.textContent="⛔ hold लग गया — history में दर्ज।";}
+    }else if(act==="lift"){
+      if(!confirm("Un-hold करें?")) { b.disabled=false; return; }
+      await httpsCallable(functions,"liftHold")({targetUid:uid});
+      if(msg){msg.className="msg ok";msg.textContent="🔓 un-hold हो गया।";}
+    }
+    await loadTeamPanel(MYDESIG);
+  }catch(e){
+    b.disabled=false;
+    if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);}
+  }
+});
+
+/* ═══ [P3] काम-पैनल + रिपोर्ट-चक्र ═══ */
+const CYCLE_HI = {daily:"दैनिक",weekly:"साप्ताहिक",fortnightly:"पाक्षिक",monthly:"मासिक",quarterly:"त्रैमासिक",halfyearly:"अर्धवार्षिक",yearly:"वार्षिक"};
+let TEAM_MEMBERS = [];
+function fillMemberSelect(){
+  const opts = TEAM_MEMBERS
+    .filter(m=>String(m.designation||"").toLowerCase()!=="founder" && !(auth.currentUser && m._uid===auth.currentUser.uid))
+    .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+  const sel = $("tMem"); if(sel) sel.innerHTML = opts;
+  const lv = $("lvMem"); if(lv) lv.innerHTML = opts; /* v1.4 छँटाई (समकक्ष/एक-ऊपर) server पर — यह सिर्फ़ सूची */
+}
+async function loadTasks(){
+  const el = $("taskList"); if(!el) return;
+  try{
+    const qs = await getDocs(collection(db,"tasks"));
+    const uid = auth.currentUser ? auth.currentUser.uid : "";
+    let rows = []; qs.forEach(d=>{ const t=d.data(); t._id=d.id; rows.push(t); });
+    rows.sort((a,b)=>((b.at&&b.at.toMillis)?b.at.toMillis():0)-((a.at&&a.at.toMillis)?a.at.toMillis():0));
+    if(rows.length===0){ el.innerHTML='<span class="note">अभी कोई काम दर्ज नहीं।</span>'; return; }
+    el.innerHTML = rows.map(t=>{
+      const mine = (t.to===uid);
+      const st = t.status||"pending";
+      const stChip = st==="done" ? '<span class="chip appr">✅ पूरा</span>' : st==="ongoing" ? '<span class="chip prov">🔵 चालू</span>' : '<span class="chip off">⏳ pending</span>';
+      const who = mine ? '(मुझे मिला)' : '(मैंने सौंपा → '+mxLabel(String(t.to_designation||"").toLowerCase())+')';
+      const btns = (st!=="done")
+        ? '<div class="acts">'
+          + (st==="pending"?'<button class="abtn ok" data-tact="ongoing" data-tid="'+t._id+'">▶️ चालू करें</button>':'')
+          + '<button class="abtn ok" data-tact="done" data-tid="'+t._id+'">✅ पूरा</button></div>'
+        : '';
+      return '<div class="mem"><div class="r1"><span class="nm">'+(t.title||"—")+'</span>'+stChip+'<span class="rg">'+who+'</span></div>'
+        + (t.detail?'<div class="r2">'+t.detail+'</div>':'')
+        + btns + '<div class="msg" id="tmsg-'+t._id+'"></div></div>';
+    }).join("");
+  }catch(e){ el.textContent="काम-सूची नहीं खुली — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
+}
+async function loadReports(){
+  const el = $("repList"); if(!el) return;
+  try{
+    const qs = await getDocs(collection(db,"reports"));
+    let rows=[]; qs.forEach(d=>{ const t=d.data(); rows.push(t); });
+    rows.sort((a,b)=>((b.at&&b.at.toMillis)?b.at.toMillis():0)-((a.at&&a.at.toMillis)?a.at.toMillis():0));
+    if(rows.length===0){ el.innerHTML='<span class="note">अभी कोई रिपोर्ट नहीं।</span>'; return; }
+    el.innerHTML = rows.slice(0,20).map(t=>
+      '<div class="mem"><div class="r1"><span class="pill">'+(CYCLE_HI[t.cycle]||t.cycle)+'</span>'
+      +'<span class="rg">'+fmtDate(t.at)+' · '+mxLabel(String(t.by_designation||"").toLowerCase())+'</span></div>'
+      +'<div class="r2">'+(t.text||"")+'</div></div>').join("");
+  }catch(e){ el.textContent="रिपोर्टें नहीं खुलीं — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
+}
+document.addEventListener("click", async (ev)=>{
+  const tb = ev.target.closest("[data-tact]");
+  if(tb){
+    const msg=$("tmsg-"+tb.getAttribute("data-tid"));
+    tb.disabled=true;
+    try{
+      await httpsCallable(functions,"updateTaskStatus")({taskId:tb.getAttribute("data-tid"), status:tb.getAttribute("data-tact")});
+      await loadTasks();
+    }catch(e){ tb.disabled=false; if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);} }
+    return;
+  }
+  if(ev.target && ev.target.id==="tAssign"){
+    const b=ev.target, msg=$("tMsg");
+    const uid=$("tMem").value, title=($("tTitle").value||"").trim();
+    if(!uid || !title){ msg.className="msg err"; msg.textContent="सदस्य व शीर्षक दोनों ज़रूरी।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="सौंपा जा रहा है…";
+    try{
+      await httpsCallable(functions,"assignTask")({targetUid:uid, title:title});
+      msg.className="msg ok"; msg.textContent="✅ काम सौंपा गया।"; $("tTitle").value="";
+      await loadTasks();
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="lvSet"){
+    const b=ev.target, msg=$("lvMsg");
+    const toUid=$("lvMem").value, until=$("lvUntil").value;
+    if(!toUid || !until){ msg.className="msg err"; msg.textContent="प्रतिनिधि व अंतिम-तारीख़ दोनों ज़रूरी।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="नियुक्त हो रहा है…";
+    try{
+      await httpsCallable(functions,"delegateLeave")({action:"set", toUid:toUid, until:until});
+      msg.className="msg ok"; msg.textContent="🏖️ प्रतिनिधि नियुक्त — मियाद ख़त्म होते ही अधिकार अपने-आप वापस।";
+      $("lvStatus").textContent="प्रतिनिधि नियुक्त ("+until+" तक)";
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="lvCancel"){
+    const b=ev.target, msg=$("lvMsg");
+    if(!confirm("प्रतिनिधि हटाएँ? (जल्दी वापसी — अधिकार तुरंत आपके पास)")) return;
+    b.disabled=true;
+    try{
+      await httpsCallable(functions,"delegateLeave")({action:"cancel"});
+      msg.className="msg ok"; msg.textContent="↩️ प्रतिनिधि हटा — अधिकार वापस आपके पास।";
+      $("lvStatus").textContent="कोई प्रतिनिधि नहीं";
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="rSend"){
+    const b=ev.target, msg=$("rMsg");
+    const cycle=$("rCycle").value, text=($("rText").value||"").trim();
+    if(!text){ msg.className="msg err"; msg.textContent="रिपोर्ट-सामग्री लिखें।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="भेजी जा रही है…";
+    try{
+      await httpsCallable(functions,"submitReport")({cycle:cycle, text:text});
+      msg.className="msg ok"; msg.textContent="📤 रिपोर्ट दर्ज — Founder तक (batch-दौर में उनके पैनल पर भी दिखेगी)।"; $("rText").value="";
+      await loadReports();
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+});
+
+/*TEAM_ONLY_JS_END*/
+
+/* ═══ external-mode पहरा — registrations से (आवेदक-स्वयं rules-दायरा) ═══ */
+async function guardExternal(user){
+  let reg=null, t0=0;
+  try{
+    const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+    qs.forEach(d=>{
+      const r=d.data();
+      if(r.status==="cancelled") return;
+      const okRoles = EXT_ROLES.length ? EXT_ROLES : ALLOWED;
+      if(okRoles.indexOf(String(r.role||"").toLowerCase())===-1) return;
+      const t=(r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+      if(!reg || t>t0){ reg=r; t0=t; }
+    });
+  }catch(e){ /* नीचे deny */ }
+  if(!reg){ show("denyView"); return; }
+
+  const isActive = (reg.status==="approved");
+  if(!isActive) $("provBar").classList.add("on");
+  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (provisional)");
+
+  const whoName = reg.name_local || reg.name_roman || reg.name || reg.fullName || (user.email||"");
+  $("pName").textContent  = whoName;
+  $("pReg").textContent   = reg.regNo || "—";
+  $("pLevel").textContent = ROLE_LABEL;
+  const area = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):reg.rm_districts].filter(Boolean).join(" · ");
+  $("pArea").textContent  = area || "—";
+  $("pEmail").textContent = reg.email || (user.email||"—");
+  $("pPhone").textContent = reg.phone || reg.mobile || "—";
+  $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
+  $("tbWho").title = "UID: " + user.uid;
+
+  /* दस्तावेज़-chips */
+  const docs = reg.documents || reg.docs || {};
+  const wrap = $("docWrap"); wrap.innerHTML = docChips(docs);
+  $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
+
+  /* g2-सफ़र नोट */
+  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
+  $("tlNote").textContent = "";
+
+  show("appView");
+  startSessionWatch(user);
+  startIdleTimer();
 }
 
-// ── INIT ──
-setDate();
-buildSalaryCalendar();
+/* ═══ single-session: sessions/{uid}.activeSession बदले तो logout ═══ */
+async function startSessionWatch(user){
+  let mySid = null;
+  try{ mySid = localStorage.getItem("acs_sid"); }catch(e){}
+  if(!mySid){
+    try{
+      const res = await httpsCallable(functions,"claimSession")({});
+      mySid = res && res.data && res.data.sessionId;
+      if(mySid){ try{ localStorage.setItem("acs_sid", mySid); }catch(e){} }
+    }catch(e){ /* claim न हो पाए तो चुपचाप — पहरा server पर */ }
+  }
+  if(!mySid) return;
+  onSnapshot(doc(db,"sessions",user.uid),(snap)=>{
+    const d = snap.exists() ? snap.data() : null;
+    if(d && d.activeSession && d.activeSession!==mySid){
+      alert("आपने दूसरी जगह login किया — यह session बंद हो रहा है।");
+      doLogout();
+    }
+  },()=>{ /* rules पढ़ने से रोकें तो चुप */ });
+}
+
+/* ═══ 10-मिनट auto-logout (screen-silent) ═══ */
+let idleT=null;
+function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
+function startIdleTimer(){
+  ["click","keydown","scroll","touchstart","mousemove"].forEach(ev=>document.addEventListener(ev,resetIdle,{passive:true}));
+  resetIdle();
+}
+
+window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localStorage.removeItem("acs_sid"); }catch(e){} location.href="/dashboard/index.html"; };
 </script>
 </body>
 </html>

@@ -288,6 +288,11 @@ a{text-decoration:none;color:inherit}
       <div class="role-name t" data-hi="स्वयंसेवक (Volunteer)" data-en="Volunteer">स्वयंसेवक (Volunteer)</div>
       <div class="role-desc t" data-hi="सेवा-भाव से जुड़ें, RM-सपोर्ट" data-en="Serve & support RM (field)">सेवा-भाव से जुड़ें, RM-सपोर्ट</div>
     </div>
+    <div class="role-card" onclick="selRole('vendor',this)" ondblclick="selRole('vendor',this);goStep2()">
+      <div class="role-icon">🧰</div>
+      <div class="role-name t" data-hi="विक्रेता (Vendor)" data-en="Vendor">विक्रेता (Vendor)</div>
+      <div class="role-desc t" data-hi="उद्यम-स्थापना का सामान/सेवा दें" data-en="Supply goods/services for enterprises">उद्यम-स्थापना का सामान/सेवा दें</div>
+    </div>
     <div class="role-card" onclick="selRole('team',this)" ondblclick="selRole('team',this);goStep2()">
       <div class="role-icon">🛠️</div>
       <div class="role-name">ACS Team</div>
@@ -451,6 +456,8 @@ a{text-decoration:none;color:inherit}
 <script src="/assets/acs-universal.js"></script>
 
 <!-- ── FIREBASE ── -->
+<!-- पद→घर की एकमात्र जगह (परत-3) — routing इसी से (काम-4 v3.0) -->
+<script src="/assets/designation_matrix.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -467,21 +474,16 @@ const fnReqReset = httpsCallable(functions, "requestPasswordResetOtp");
 const fnVerReset = httpsCallable(functions, "verifyPasswordResetOtp");
 
 const NO_OTP = ["student","jobseeker","entrepreneur"];
-const DASH = {student:"/dashboard/student/",jobseeker:"/dashboard/jobseeker/",entrepreneur:"/dashboard/entrepreneur/",teacher:"/dashboard/teacher/",center:"/dashboard/center/",counselor:"/dashboard/counselor/",employer:"/dashboard/employer/",foreign_agent:"/dashboard/foreign-agent/",volunteer:"/dashboard/volunteer/",team:"/dashboard/"};
-const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",center:"केंद्र (Center)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",team:"ACS Team"};
-/* ACS Team के अंदर हर पद (designation) का अपना घर — teams/{uid}.designation से तय */
-const TEAM_DASH = {
-  founder:"/dashboard/founder/",
-  hq_admin:"/dashboard/admin/",
-  hq_finance:"/dashboard/hq/finance/",
-  hq_establishment:"/dashboard/hq/establishment/",
-  hq_legal:"/dashboard/hq/legal/",
-  staff:"/dashboard/hq/staff/",
-  intern:"/dashboard/hq/staff/",
-  zm:"/dashboard/zonal/",
-  rm:"/dashboard/regional/",
-  callcenter:"/dashboard/callcenter/"
-};
+/* ── काम-4 v3.0: routing का एकमात्र स्रोत = designation_matrix (परत-3) ──
+   पुराना hardcoded 8-पद TEAM_DASH निरस्त (v1.6-ङ2 होल बंद)।
+   अनजान/नया designation → /dashboard/future/ (v2.0 Future-नियम)। */
+const _MX = window.ACS_DESIGNATIONS || {teams:[],cards:[]};
+const DASH = {team:"/dashboard/"};
+(_MX.cards||[]).forEach(c=>{ if(c.key!=="team" && c.dashboard) DASH[c.key]=c.dashboard; });
+const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",center:"केंद्र (Center)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",vendor:"विक्रेता (Vendor)",team:"ACS Team"};
+const TEAM_DASH = {};
+(_MX.teams||[]).forEach(t=>{ if(t.dashboard) TEAM_DASH[t.key]=t.dashboard; });
+const FUTURE_HOME = "/dashboard/future/";
 
 let ROLE = "", otpTimer = null;
 const $ = (id) => document.getElementById(id);
@@ -703,7 +705,7 @@ async function finishLogin(role,email){
   let url = DASH[role] || "/dashboard/";
   /* ACS Team: पद (designation) पढ़कर सही घर भेजो */
   if(role==="team"){
-    url = "/dashboard/hq/staff/";   /* कोई पद न मिले तो सुरक्षित डिफ़ॉल्ट */
+    url = FUTURE_HOME;   /* अनजान/नया पद → Future-dashboard (v2.0 नियम; पुराना hq/staff-डिफ़ॉल्ट निरस्त) */
     try{
       const u=auth.currentUser;
       if(u){

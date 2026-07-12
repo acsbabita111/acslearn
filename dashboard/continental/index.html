@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="robots" content="noindex"/>
-<title>कानून Head Dashboard — ACS</title>
+<title>Continental Head Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
      ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
      हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
@@ -150,7 +150,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
   <!-- [T1] topbar -->
   <div class="topbar">
     <img src="/assets/acs-logo.png" alt="ACS" onerror="this.style.display='none'"/>
-    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">कानून Head Dashboard</span></div>
+    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">Continental Head Dashboard</span></div>
     <div class="sp"></div>
     <div class="tbwho" id="tbWho"></div>
     <button class="btn-out" onclick="doLogout()">Logout</button>
@@ -172,7 +172,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <div class="cbox">
       <div class="bigicon">🔒</div>
       <div class="h">यह आपका Dashboard नहीं</div>
-      <div class="s">यह पन्ना सिर्फ़ कानून Head के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <div class="s">यह पन्ना सिर्फ़ Continental Head के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
       <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
     </div>
   </div>
@@ -293,10 +293,10 @@ const $ = (id)=>document.getElementById(id);
    देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
    यह सिर्फ़ पर्दा है (matrix-सुरक्षा नियम)। ── */
 const MODE = "team";              /* team | external */
-const ALLOWED = ["hq_legal","founder"];
+const ALLOWED = ["continental","founder"];
 const EXT_ROLES = []; /* team-mode में external-fallback roles (जैसे volunteer) */
-const ROLE_LABEL = "कानून Head Dashboard";  /* external-mode में pill-label */
-const HOME = "/dashboard/hq/legal/";
+const ROLE_LABEL = "Continental Head Dashboard";  /* external-mode में pill-label */
+const HOME = "/dashboard/continental/";
 
 /* ── matrix से label/चौकी-सूची (सिर्फ़ दिखाने के लिए) ── */
 const MX = (window.ACS_DESIGNATIONS && window.ACS_DESIGNATIONS.teams) || [];

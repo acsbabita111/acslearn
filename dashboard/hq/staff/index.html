@@ -3,829 +3,840 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
 <title>Staff Dashboard — ACS</title>
+<!-- ════════════════════════════════════════════════════════════════
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
+     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     ACS Dashboard — मास्टर टेम्पलेट v3.0 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.0 · 12-Jul-2026 — MODE (team/external) + topbar-पहचान + Transfer/Leave UI + CAN_FINAL-gate
+     पिछला: v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
+     पिछला: टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
+     पिछला: approve/reject बटन (server: approveApplication/rejectApplication)
+     + rejected-chip व सुधार-deadline · पिछला: नाम-fix + आवेदन-पैनल की असली सूची (registrations से, सिर्फ़ पढ़ना)
+     + पट्टी हमेशा "Admin Dashboard" + Founder-दृश्य में approval-सफ़र नहीं
+     --------------------------------------------------------------
+     लोहे का नियम (परत-2/4): कोई dashboard-page हाथ से न बने —
+     सिर्फ़ generator (generator/build_dashboards.js) इस टेम्पलेट से बनाए।
+     हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
+             [T4] प्रोफ़ाइल+approval-सफ़र · [T5] पैनल-जाल · [T6] footer
+     नियम: पद-जानकारी सिर्फ़ /assets/designation_matrix.js से (परत-3)।
+     असली रोक server पर — matrix कभी guard नहीं (matrix-सुरक्षा नियम)।
+     data-स्रोत: teams/{uid} + registrations — users/centre_registrations वर्जित।
+     फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं · गोल bracket ( ) · सरल हिंदी।
+     ════════════════════════════════════════════════════════════════ -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0B1F3A;--blue:#1565C0;--blue-lt:#1E88E5;
-  --gold:#F9A825;--green:#2E7D32;--green-lt:#00C853;
-  --red:#E53935;--orange:#E65100;
-  --slate:#37474F;--slate-lt:#546E7A;
-  --white:#fff;--offwhite:#F5F7FA;
-  --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
-  --sidebar:260px;
-  --dept-color:#37474F;
+  --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
+  --text:#1A2B3C; --gray:#5A6B7C; --border:#E3E9F2;
 }
-html,body{height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:14px}
-.app{display:flex;min-height:100vh}
-.sidebar{width:var(--sidebar);background:linear-gradient(180deg,var(--dept-color) 0%,var(--slate-lt) 100%);position:fixed;top:0;left:0;height:100vh;display:flex;flex-direction:column;z-index:100;transition:transform .3s}
-.main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column}
-@media(max-width:768px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}}
-.sb-logo{padding:20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
-.sb-logo img{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.3)}
-.sb-logo-txt strong{display:block;font-size:12px;font-weight:700;color:#fff}
-.sb-logo-txt span{font-size:10px;color:#B0BEC5}
-.sb-user{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;gap:10px}
-.sb-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--slate),var(--slate-lt));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;border:2px solid rgba(255,255,255,0.3)}
-.sb-user-info strong{display:block;font-size:12px;color:#fff;font-weight:700}
-.sb-user-info span{font-size:10px;color:#B0BEC5;font-weight:600}
-.dept-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:4px}
-.sb-nav{flex:1;padding:12px 0;overflow-y:auto}
-.nav-section{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent}
-.nav-item:hover{background:rgba(255,255,255,0.08);border-left-color:rgba(255,255,255,0.3)}
-.nav-item.active{background:rgba(255,255,255,0.15);border-left-color:#B0BEC5}
-.nav-icon{font-size:16px;width:20px;text-align:center;flex-shrink:0}
-.nav-label{font-size:12px;color:rgba(255,255,255,0.8);font-weight:500}
-.nav-item.active .nav-label{color:#fff;font-weight:700}
-.nav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px}
-.sb-bottom{padding:12px 20px;border-top:1px solid rgba(255,255,255,0.12)}
-.logout-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;cursor:pointer;width:100%;font-family:inherit;color:rgba(255,255,255,0.8);font-size:12px;font-weight:600}
-.topbar{background:#fff;border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
-.menu-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer}
-@media(max-width:768px){.menu-btn{display:block}}
-.topbar-title{font-size:15px;font-weight:700;color:var(--navy);flex:1}
-.icon-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
-.content{padding:20px 24px;flex:1}
-@media(max-width:600px){.content{padding:12px 14px}}
-.page{display:none}
-.page.active{display:block;animation:fadeIn .25s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.page-header{margin-bottom:20px}
-.page-header h2{font-size:20px;font-weight:800;color:var(--navy)}
-.page-header p{font-size:13px;color:var(--gray);margin-top:2px}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
-.stat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden;transition:transform .2s}
-.stat-card:hover{transform:translateY(-2px)}
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.stat-card.slate::before{background:linear-gradient(90deg,var(--slate),var(--slate-lt))}
-.stat-card.gold::before{background:linear-gradient(90deg,var(--gold),#FFD54F)}
-.stat-card.green::before{background:linear-gradient(90deg,var(--green),var(--green-lt))}
-.stat-card.red::before{background:linear-gradient(90deg,var(--red),#FF8A80)}
-.stat-icon{font-size:22px;margin-bottom:8px}
-.stat-num{font-size:24px;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px}
-.stat-label{font-size:11px;color:var(--gray)}
-.card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px}
-.card-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.card-head h3{font-size:13px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px}
-.card-body{padding:16px 18px}
-.fg{margin-bottom:14px}
-.fg label{display:block;font-size:12px;font-weight:600;color:var(--navy);margin-bottom:5px}
-.req{color:var(--red)}
-.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border .2s;min-height:44px}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--slate);box-shadow:0 0 0 3px rgba(55,71,79,0.1)}
-.fg textarea{min-height:80px;resize:vertical}
-.fg .hint{font-size:10px;color:var(--gray);margin-top:4px}
-.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:500px){.fg-row{grid-template-columns:1fr}}
-.btn-row{display:flex;gap:10px;margin-top:16px}
-.btn-primary{flex:1;padding:12px;background:linear-gradient(135deg,var(--slate),var(--slate-lt));color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
-.btn-primary:hover{transform:translateY(-1px)}
-.btn-secondary{padding:12px 16px;background:#fff;color:var(--navy);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
-.btn-green{flex:1;padding:12px;background:linear-gradient(135deg,var(--green),#43A047);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);border-bottom:1px solid var(--border);background:#F5F7FA}
-td{padding:10px 12px;border-bottom:1px solid #F0F4F8;vertical-align:middle}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:#F5F7FA}
-.status-pill{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block}
-.sp-pending{background:#FFF3E0;color:var(--orange)}
-.sp-done{background:#E8F5E9;color:var(--green)}
-.sp-urgent{background:#FFEBEE;color:var(--red)}
-.alert{padding:12px 16px;border-radius:8px;font-size:12px;margin-bottom:12px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.alert-info{background:#ECEFF1;color:var(--slate);border:1px solid #B0BEC5}
-.alert-ok{background:#E8F5E9;color:var(--green);border:1px solid #C8E6C9}
-.alert-warn{background:#FFF3E0;color:var(--orange);border:1px solid #FFE0B2}
-.empty{text-align:center;padding:32px;color:var(--gray)}
-.empty-icon{font-size:36px;margin-bottom:8px}
-.empty p{font-size:12px;line-height:1.6}
-.task-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;transition:all .2s}
-.task-item:hover{border-color:var(--slate);background:#F5F7FA}
-.task-check{width:18px;height:18px;accent-color:var(--slate);flex-shrink:0;margin-top:2px}
-.task-text{flex:1;font-size:12px;color:var(--text)}
-.task-text.done{text-decoration:line-through;color:var(--gray)}
-.task-priority{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;flex-shrink:0}
-.tp-high{background:#FFEBEE;color:var(--red)}
-.tp-med{background:#FFF3E0;color:var(--orange)}
-.tp-low{background:#E8F5E9;color:var(--green)}
-.toast{position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;z-index:300;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
-.toast.show{transform:translateY(0);opacity:1}
-.toast.ok{border-left:4px solid var(--green-lt)}
-.toast.err{border-left:4px solid var(--red)}
-.sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
-@media(max-width:768px){.sb-overlay.open{display:block}}
+html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:19px;line-height:1.75}
+.wrap{min-height:100vh;display:flex;flex-direction:column}
+
+/* ═══ [T1] topbar — dashboard-परिवार का साझा माथा ═══ */
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar img{width:42px;height:42px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35)}
+.topbar .tt strong{display:block;font-size:17px;font-weight:800;line-height:1.3}
+.topbar .tt span{font-size:16px;color:var(--gold);font-weight:700}
+.topbar .sp{flex:1}
+.tbwho{font-size:16px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-out{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:10px 16px;font-size:16px;font-weight:700;cursor:pointer}
+.btn-out:hover{background:rgba(255,255,255,.28)}
+
+/* ═══ [T2] hold-पट्टी (v1.4) — hold लगे तो ही दिखे ═══ */
+.holdbar{display:none;background:#B71C1C;color:#fff;padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.holdbar.on{display:block}
+
+/* ═══ [T3] provisional-पर्दा (07-Jul रास्ता-A) ═══ */
+.provbar{display:none;background:var(--gold);color:var(--navy);padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.provbar.on{display:block}
+
+/* ═══ साझा कार्ड-रूप ═══ */
+.main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:16px 12px 28px}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 16px;margin-bottom:16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.card h2{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.center{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 14px}
+.cbox{background:#fff;border:1px solid var(--border);border-radius:18px;max-width:560px;width:100%;padding:36px 24px;text-align:center;box-shadow:0 10px 30px rgba(11,31,58,.08)}
+.bigicon{font-size:60px;line-height:1;margin-bottom:12px}
+.cbox .h{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.cbox .s{font-size:18px;color:var(--gray);line-height:1.7}
+.btn-blue{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:18px;font-weight:800;cursor:pointer;margin-top:16px}
+.hidden{display:none}
+
+/* ═══ [T4] प्रोफ़ाइल ═══ */
+.pgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr}}
+.pitem{background:var(--offwhite);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.pitem .k{font-size:16px;color:var(--gray);font-weight:700}
+.pitem .v{font-size:19px;font-weight:800;color:var(--navy);word-break:break-word}
+.pill{display:inline-block;background:var(--offwhite);color:var(--blue);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:800}
+.docwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.doc{display:inline-flex;align-items:center;gap:6px;background:var(--offwhite);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:16px;font-weight:700;color:var(--blue);text-decoration:none}
+.doc:hover{border-color:var(--blue)}
+.note{font-size:16px;color:var(--gray);margin-top:8px}
+
+/* approval-सफ़र timeline */
+.tl{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step .dot{width:26px;display:flex;flex-direction:column;align-items:center}
+.step .dot i{width:18px;height:18px;border-radius:50%;background:var(--border);border:3px solid var(--border);display:block}
+.step.done .dot i{background:var(--green);border-color:var(--green)}
+.step.now  .dot i{background:#fff;border-color:var(--gold)}
+.step .dot em{flex:1;width:3px;background:var(--border);min-height:22px;display:block}
+.step:last-child .dot em{display:none}
+.step .lbl{font-size:18px;font-weight:700;padding-bottom:14px}
+.step.done .lbl{color:var(--green)}
+.step.now  .lbl{color:var(--navy)}
+.step .lbl small{display:block;font-size:16px;color:var(--gray);font-weight:600}
+
+/* ═══ [T5] पैनल-जाल ═══ */
+.pnl{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.pnl{grid-template-columns:1fr 1fr}}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.pcard .ph{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pcard .pd{font-size:17px;color:var(--gray);line-height:1.7}
+.soon{display:inline-block;margin-top:10px;background:var(--offwhite);border:1px dashed var(--gray);color:var(--gray);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:700}
+
+/* [P1] आवेदन-सूची */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ftab{background:var(--offwhite);border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;color:var(--gray);cursor:pointer}
+.ftab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.applist{display:flex;flex-direction:column;gap:10px}
+.app{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite)}
+.app .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.app .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.app .rg{font-size:16px;font-weight:700;color:var(--gray)}
+.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800}
+.chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.chip.rej{background:#FFF3E0;color:#B71C1C;border:1px solid #F9A825}
+.acts{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff}
+.abtn.ok{background:var(--green)} .abtn.no{background:#B71C1C}
+.abtn:disabled{opacity:.55;cursor:wait}
+.rejbox{display:none;margin-top:8px;width:100%}
+.rejbox.on{display:block}
+.rejbox textarea{width:100%;min-height:70px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px}
+.msg{font-size:16px;font-weight:700;margin-top:6px}
+.msg.ok{color:var(--green)} .msg.err{color:#B71C1C}
+.chip.lvl{background:#fff;color:var(--blue);border:1px solid var(--border)}
+.app .r2{font-size:16px;color:var(--gray);margin-top:4px}
+.app .more{margin-top:8px;display:none}
+.app.open .more{display:block}
+.app .mrow{font-size:17px;margin-top:2px}
+.app .mrow b{color:var(--navy)}
+.app .vbtn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
+
+/* [P2] टीम-पैनल व पदेन-प्रभार */
+.mem{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite);margin-top:10px}
+.mem .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mem .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.chip.on{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.off{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.hold{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
+.exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
+
+/* ═══ [T6] footer ═══ */
+.foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
 </style>
 </head>
 <body>
-<div class="sb-overlay" id="sbOverlay" onclick="toggleSidebar()"></div>
-<div class="app">
-<aside class="sidebar" id="sidebar">
-  <div class="sb-logo">
-    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
-    <div class="sb-logo-txt">
-      <strong>Applied Computer School™</strong>
-      <span id="deptLabel">Staff Dashboard</span>
-    </div>
-  </div>
-  <div class="sb-user">
-    <div class="sb-avatar" id="sbAvatar">S</div>
-    <div class="sb-user-info">
-      <strong id="sbName">Staff Member</strong>
-      <span id="sbRole">👤 Admin Staff</span>
-      <div class="dept-badge" id="deptBadge" style="background:rgba(255,255,255,0.15);color:#fff">—</div>
-    </div>
-  </div>
-  <nav class="sb-nav">
-    <div class="nav-section">Overview</div>
-    <div class="nav-item active" onclick="showPage('overview',this)">
-      <span class="nav-icon">📊</span><span class="nav-label">Dashboard</span>
-    </div>
-    <div class="nav-item" onclick="showPage('my-tasks',this)">
-      <span class="nav-icon">✅</span><span class="nav-label">My Tasks</span>
-      <span class="nav-badge" id="taskCount">0</span>
-    </div>
-    <div class="nav-section" id="deptNavSection">Department Work</div>
-    <div class="nav-item" id="nav-dept1" onclick="showPage('dept-work1',this)">
-      <span class="nav-icon" id="nav-dept1-icon">📋</span>
-      <span class="nav-label" id="nav-dept1-label">Department Work 1</span>
-    </div>
-    <div class="nav-item" id="nav-dept2" onclick="showPage('dept-work2',this)">
-      <span class="nav-icon" id="nav-dept2-icon">📝</span>
-      <span class="nav-label" id="nav-dept2-label">Department Work 2</span>
-    </div>
-    <div class="nav-item" id="nav-dept3" onclick="showPage('dept-work3',this)">
-      <span class="nav-icon" id="nav-dept3-icon">📂</span>
-      <span class="nav-label" id="nav-dept3-label">Department Work 3</span>
-    </div>
-    <div class="nav-section">Documents</div>
-    <div class="nav-item" onclick="showPage('documents',this)">
-      <span class="nav-icon">📁</span><span class="nav-label">Documents</span>
-    </div>
-    <div class="nav-item" onclick="showPage('reports',this)">
-      <span class="nav-icon">📊</span><span class="nav-label">Reports</span>
-    </div>
-    <div class="nav-section">Account</div>
-    <div class="nav-item" onclick="showPage('attendance',this)">
-      <span class="nav-icon">📅</span><span class="nav-label">My Attendance</span>
-    </div>
-    <div class="nav-item" onclick="showPage('salary',this)">
-      <span class="nav-icon">💰</span><span class="nav-label">My Salary</span>
-    </div>
-    <div class="nav-item" onclick="showPage('grievance',this)">
-      <span class="nav-icon">📮</span><span class="nav-label">Grievance</span>
-    </div>
-  </nav>
-  <div class="sb-bottom">
-    <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
-  </div>
-</aside>
-<div class="main">
+<div class="wrap">
+
+  <!-- [T1] topbar -->
   <div class="topbar">
-    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-    <div class="topbar-title" id="topbarTitle">Dashboard</div>
-    <div style="display:flex;gap:8px">
-      <button class="icon-btn" onclick="loadData()">🔄</button>
+    <img src="/assets/acs-logo.png" alt="ACS" onerror="this.style.display='none'"/>
+    <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">Staff Dashboard</span></div>
+    <div class="sp"></div>
+    <div class="tbwho" id="tbWho"></div>
+    <button class="btn-out" onclick="doLogout()">Logout</button>
+  </div>
+
+  <!-- [T2] hold-पट्टी -->
+  <div class="holdbar" id="holdBar"></div>
+
+  <!-- [T3] provisional-पर्दा -->
+  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — dashboard अभी सिर्फ़ देखने के मोड में है। approval पूरा होते ही सब काम-अधिकार खुल जाएँगे।</div>
+
+  <!-- जाँच-दृश्य -->
+  <div class="center" id="loadView">
+    <div class="cbox"><div class="bigicon">⏳</div><div class="s">जाँच हो रही है…</div></div>
+  </div>
+
+  <!-- ग़लत भूमिका -->
+  <div class="center hidden" id="denyView">
+    <div class="cbox">
+      <div class="bigicon">🔒</div>
+      <div class="h">यह आपका Dashboard नहीं</div>
+      <div class="s">यह पन्ना सिर्फ़ Staff (DEO · Intern) के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
     </div>
   </div>
-  <div class="content">
 
-  <!-- OVERVIEW -->
-  <div class="page active" id="page-overview">
-    <div class="page-header">
-      <h2 id="welcomeText">नमस्ते! 🙏</h2>
-      <p id="welcomeSub">ACS Staff Dashboard</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card slate">
-        <div class="stat-icon">✅</div>
-        <div class="stat-num" id="st-tasks-done">0</div>
-        <div class="stat-label">Tasks Done Today</div>
-      </div>
-      <div class="stat-card gold">
-        <div class="stat-icon">⏳</div>
-        <div class="stat-num" id="st-tasks-pending">0</div>
-        <div class="stat-label">Pending Tasks</div>
-      </div>
-      <div class="stat-card green">
-        <div class="stat-icon">📅</div>
-        <div class="stat-num" id="st-attendance">0%</div>
-        <div class="stat-label">Attendance (Month)</div>
-      </div>
-      <div class="stat-card red">
-        <div class="stat-icon">⚠️</div>
-        <div class="stat-num" id="st-notices">0</div>
-        <div class="stat-label">Performance Notices</div>
-      </div>
-    </div>
+  <!-- मुख्य दृश्य -->
+  <div class="main hidden" id="appView">
 
-    <!-- Department Info -->
-    <div class="card" id="deptInfoCard">
-      <div class="card-head"><h3 id="deptInfoTitle">📋 Department Info</h3></div>
-      <div class="card-body" id="deptInfoBody">
-        <div class="empty"><div class="empty-icon">⏳</div><p>Loading...</p></div>
-      </div>
-    </div>
-
-    <!-- Today's Tasks -->
+    <!-- [T4] प्रोफ़ाइल -->
     <div class="card">
-      <div class="card-head">
-        <h3>✅ Today's Tasks</h3>
-        <button onclick="showPage('my-tasks',document.querySelector('[onclick*=my-tasks]'))" style="font-size:11px;color:var(--slate);font-weight:600;cursor:pointer;border:1px solid rgba(55,71,79,0.2);background:none;font-family:inherit;padding:4px 10px;border-radius:6px">सब →</button>
+      <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
+      <div class="pgrid">
+        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
+        <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
+        <div class="pitem"><div class="k">स्तर</div><div class="v" id="pLevel">—</div></div>
+        <div class="pitem"><div class="k">कार्य-क्षेत्र</div><div class="v" id="pArea">—</div></div>
+        <div class="pitem"><div class="k">Email</div><div class="v" id="pEmail">—</div></div>
+        <div class="pitem"><div class="k">Mobile</div><div class="v" id="pPhone">—</div></div>
       </div>
-      <div class="card-body" id="todayTasks">
-        <div class="empty"><div class="empty-icon">✅</div><p>कोई pending task नहीं।</p></div>
-      </div>
+
+      <h2 style="margin-top:18px">📎 मेरे दस्तावेज़</h2>
+      <div class="docwrap" id="docWrap"><span class="note" id="docNote">दस्तावेज़ लाए जा रहे हैं…</span></div>
+      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — चरण-3 में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
+
+      <h2 style="margin-top:18px">🛤️ मेरा approval-सफ़र</h2>
+      <div class="tl" id="tlWrap"></div>
+      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
     </div>
 
-    <!-- Performance Status -->
-    <div class="card">
-      <div class="card-head"><h3>📈 Performance Status</h3></div>
-      <div class="card-body">
-        <div style="display:flex;align-items:center;gap:14px;padding:14px;background:#F5F7FA;border-radius:10px">
-          <div style="font-size:40px" id="perfEmoji">⭐</div>
-          <div>
-            <div style="font-size:16px;font-weight:800;color:var(--navy)" id="perfLabel">Good Performance</div>
-            <div style="font-size:12px;color:var(--gray);margin-top:4px" id="perfDesc">कोई notice नहीं। इसी तरह काम करते रहें!</div>
+    <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
+    <!--TEAM_ONLY_START-->
+    <div class="pnl">
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">📥 आवेदन-पैनल</div>
+        <div class="pd">आपके दायरे के आवेदन — आपकी चौकी-मुहर व दायरा-छँटाई अगले दौर (rules-विस्तार) में; अभी पूरी सूची सिर्फ़ Founder/Admin को दिखती है।</div>
+        <div class="ftabs" id="ftabs">
+          <button class="ftab on" data-f="all">सब</button>
+          <button class="ftab" data-f="provisional">⏳ जाँच में</button>
+          <button class="ftab" data-f="approved">✅ स्वीकृत</button>
+          <button class="ftab" data-f="rejected">⚠️ अस्वीकृत</button>
+          <button class="ftab" data-f="cancelled">🗑️ निरस्त</button>
+        </div>
+        <div class="applist" id="appList"><div class="note">आवेदन लाए जा रहे हैं…</div></div>
+      </div>
+      <div class="pcard">
+        <div class="ph">🧭 पदेन-प्रभार</div>
+        <div class="pd">जिन पदों का कोई active धारक नहीं और जिनका immediate superior आप हैं — उनका प्रभार पदेन आपके पास (कोई पद कभी रिक्त नहीं)।</div>
+        <div id="exoList" class="note">देखा जा रहा है…</div>
+      </div>
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">👥 टीम-पैनल</div>
+        <div class="pd">दायरे के सदस्य — hold-बटन v1.4 नियम से (कारण अनिवार्य; un-hold ऊपर वाले का हक़)। 🔁 Transfer व 🏖️ छुट्टी-प्रतिनिधि — v1.4 इंजन (काम-4) से चालू।</div>
+        <div class="mem" id="leaveBox">
+          <div class="r1"><span class="nm">🏖️ मेरी छुट्टी — काम-प्रतिनिधि</span><span class="chip lvl" id="lvStatus">कोई प्रतिनिधि नहीं</span></div>
+          <div class="r2">v1.4 नियम: प्रतिनिधि सिर्फ़ समकक्ष या ठीक एक step ऊपर वाला — नीचे वाले को कभी नहीं। मियाद ख़त्म = अधिकार अपने-आप वापस।</div>
+          <div style="margin-top:8px">
+            <select id="lvMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+            <input id="lvUntil" type="date" style="font-size:17px;padding:9px;border:1px solid var(--border);border-radius:9px;margin-top:8px"/>
+            <div class="acts"><button class="abtn ok" id="lvSet">🏖️ प्रतिनिधि नियुक्त करें</button>
+            <button class="abtn no" id="lvCancel">↩️ प्रतिनिधि हटाएँ (जल्दी वापसी)</button></div>
+            <div class="msg" id="lvMsg"></div>
           </div>
         </div>
-        <div style="margin-top:12px;font-size:11px;color:var(--gray)">
-          Score 0-40% → 🟡 Yellow | Month 2 → 🔴 Red + PIP | Month 3 → ⚫ Terminate
+        <div id="teamList" class="note">सदस्य लाए जा रहे हैं…</div>
+      </div>
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">🗂️ काम-पैनल</div>
+        <div class="pd">काम सौंपें (सिर्फ़ अपने से नीचे वाले को) व मिले काम की स्थिति बदलें — pending → चालू → पूरा।</div>
+        <div style="margin-top:10px">
+          <select id="tMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+          <input id="tTitle" placeholder="काम का शीर्षक" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;width:100%;margin-top:8px"/>
+          <button class="abtn ok" style="margin-top:8px" id="tAssign">➕ काम सौंपें</button>
+          <div class="msg" id="tMsg"></div>
         </div>
+        <div id="taskList" class="note" style="margin-top:10px">काम लाए जा रहे हैं…</div>
       </div>
-    </div>
-  </div>
-
-  <!-- MY TASKS -->
-  <div class="page" id="page-my-tasks">
-    <div class="page-header">
-      <h2>✅ My Tasks</h2>
-      <p>Head द्वारा assign किए tasks</p>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>➕ New Task Add</h3></div>
-      <div class="card-body">
-        <div class="fg-row">
-          <div class="fg">
-            <label>Task <span class="req">*</span></label>
-            <input type="text" id="newTask" placeholder="Task लिखें..."/>
-          </div>
-          <div class="fg">
-            <label>Priority</label>
-            <select id="taskPriority">
-              <option value="high">🔴 High</option>
-              <option value="med" selected>🟡 Medium</option>
-              <option value="low">🟢 Low</option>
-            </select>
-          </div>
-        </div>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="addTask()">➕ Add Task</button>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📋 All Tasks</h3></div>
-      <div class="card-body" id="allTasksList">
-        <div class="empty"><div class="empty-icon">✅</div><p>कोई task नहीं।</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DEPT WORK 1 -->
-  <div class="page" id="page-dept-work1">
-    <div class="page-header">
-      <h2 id="dw1-title">Department Work 1</h2>
-      <p id="dw1-desc">Department specific work</p>
-    </div>
-    <div class="card">
-      <div class="card-body" id="dw1-content">
-        <div class="empty"><div class="empty-icon">📋</div><p>Loading...</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DEPT WORK 2 -->
-  <div class="page" id="page-dept-work2">
-    <div class="page-header">
-      <h2 id="dw2-title">Department Work 2</h2>
-      <p id="dw2-desc">Department specific work</p>
-    </div>
-    <div class="card">
-      <div class="card-body" id="dw2-content">
-        <div class="empty"><div class="empty-icon">📝</div><p>Loading...</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DEPT WORK 3 -->
-  <div class="page" id="page-dept-work3">
-    <div class="page-header">
-      <h2 id="dw3-title">Department Work 3</h2>
-      <p id="dw3-desc">Department specific work</p>
-    </div>
-    <div class="card">
-      <div class="card-body" id="dw3-content">
-        <div class="empty"><div class="empty-icon">📂</div><p>Loading...</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DOCUMENTS -->
-  <div class="page" id="page-documents">
-    <div class="page-header">
-      <h2>📁 Documents</h2>
-      <p>Department documents और files</p>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📤 Document Upload</h3></div>
-      <div class="card-body">
-        <div class="fg">
-          <label>Document Title</label>
-          <input type="text" id="docTitle" placeholder="Document का नाम"/>
-        </div>
-        <div class="fg">
-          <label>Category</label>
-          <select id="docCat">
-            <option>CR Documents</option>
-            <option>Bank Verification</option>
-            <option>Approval Letters</option>
-            <option>Salary Bills</option>
-            <option>Audit Records</option>
-            <option>Other</option>
+      <div class="pcard" style="grid-column:1/-1">
+        <div class="ph">📊 रिपोर्ट-चक्र</div>
+        <div class="pd">सात चक्र — अपने से ऊपर (Founder) को भेजें। भेजी रिपोर्टें नीचे।</div>
+        <div style="margin-top:10px">
+          <select id="rCycle" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px">
+            <option value="daily">दैनिक</option><option value="weekly">साप्ताहिक</option>
+            <option value="fortnightly">पाक्षिक</option><option value="monthly">मासिक</option>
+            <option value="quarterly">त्रैमासिक</option><option value="halfyearly">अर्धवार्षिक</option>
+            <option value="yearly">वार्षिक</option>
           </select>
+          <textarea id="rText" placeholder="रिपोर्ट-सामग्री" style="width:100%;min-height:80px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px;margin-top:8px"></textarea>
+          <button class="abtn ok" style="margin-top:8px" id="rSend">📤 रिपोर्ट भेजें</button>
+          <div class="msg" id="rMsg"></div>
         </div>
-        <div class="fg">
-          <label>Notes</label>
-          <textarea id="docNotes" placeholder="Document के बारे में..."></textarea>
-        </div>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="saveDocument()">💾 Document Log करें</button>
-        </div>
+        <div id="repList" class="note" style="margin-top:10px">रिपोर्टें लाई जा रही हैं…</div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-head"><h3>📋 Recent Documents</h3></div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Document</th><th>Category</th><th>Date</th><th>Status</th></tr>
-          </thead>
-          <tbody id="docTable">
-            <tr><td colspan="4" style="text-align:center;padding:20px;color:var(--gray)">कोई document नहीं।</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+    <!--TEAM_ONLY_END-->
 
-  <!-- REPORTS -->
-  <div class="page" id="page-reports">
-    <div class="page-header">
-      <h2>📊 Reports</h2>
-      <p>Daily/Weekly/Monthly reports</p>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📝 Daily Report Submit करें</h3></div>
-      <div class="card-body">
-        <div class="fg">
-          <label>Date</label>
-          <input type="date" id="reportDate"/>
-        </div>
-        <div class="fg">
-          <label>आज क्या किया? <span class="req">*</span></label>
-          <textarea id="reportWork" placeholder="आज के काम का विवरण... कितने files process किए, कितने calls किए, कोई issue आया..."></textarea>
-        </div>
-        <div class="fg">
-          <label>कल का plan</label>
-          <textarea id="reportPlan" placeholder="कल क्या करेंगे..."></textarea>
-        </div>
-        <div class="fg">
-          <label>कोई issue या help चाहिए?</label>
-          <textarea id="reportIssue" placeholder="Head को बताना हो तो..."></textarea>
-        </div>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="submitReport()">📤 Report Submit करें</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ATTENDANCE -->
-  <div class="page" id="page-attendance">
-    <div class="page-header">
-      <h2>📅 My Attendance</h2>
-      <p>Performance Period: 21 prev → 20 current</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card green">
-        <div class="stat-icon">✅</div>
-        <div class="stat-num" id="att-present">0</div>
-        <div class="stat-label">Present Days</div>
-      </div>
-      <div class="stat-card red">
-        <div class="stat-icon">❌</div>
-        <div class="stat-num" id="att-absent">0</div>
-        <div class="stat-label">Absent Days</div>
-      </div>
-      <div class="stat-card gold">
-        <div class="stat-icon">📊</div>
-        <div class="stat-num" id="att-pct">0%</div>
-        <div class="stat-label">Attendance %</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📅 इस महीने</h3></div>
-      <div class="card-body">
-        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px" id="attGrid"></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>✅ Mark Today's Attendance</h3></div>
-      <div class="card-body">
-        <div class="alert alert-info"><span>ℹ️</span><div>Head द्वारा attendance mark होती है। अगर गलत हो तो यहाँ request करें।</div></div>
-        <div class="fg">
-          <label>Attendance Correction Request</label>
-          <textarea id="attRequest" placeholder="Date और reason बताएं..."></textarea>
-        </div>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="submitAttRequest()">📤 Request Submit करें</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SALARY -->
-  <div class="page" id="page-salary">
-    <div class="page-header">
-      <h2>💰 My Salary</h2>
-      <p>Payroll details और slip</p>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>💰 Salary Details</h3></div>
-      <div class="card-body">
-        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
-          <div style="display:flex;justify-content:space-between;padding:10px;background:#F5F7FA;border-radius:6px">
-            <span style="color:var(--gray)">Basic Salary</span>
-            <span style="font-weight:700" id="sal-basic">—</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:10px;background:#F5F7FA;border-radius:6px">
-            <span style="color:var(--gray)">Performance Score</span>
-            <span style="font-weight:700;color:var(--green)" id="sal-score">—</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:10px;background:#F5F7FA;border-radius:6px">
-            <span style="color:var(--gray)">Penalty (अगर हो)</span>
-            <span style="font-weight:700;color:var(--red)" id="sal-penalty">₹0</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;padding:12px;background:#E8F5E9;border-radius:6px;border:1px solid #C8E6C9">
-            <span style="font-weight:700;color:var(--navy)">Net Salary</span>
-            <span style="font-weight:800;color:var(--green)" id="sal-net">—</span>
-          </div>
-        </div>
-        <div class="alert alert-info" style="margin-top:12px">
-          <span>📅</span>
-          <div>Salary हर महीने 1 तारीख को SBI के through credited होती है। Performance Period: 21 prev → 20 current।</div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📋 Salary History</h3></div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Month</th><th>Basic</th><th>Penalty</th><th>Net</th><th>Status</th></tr>
-          </thead>
-          <tbody id="salaryHistory">
-            <tr><td colspan="5" style="text-align:center;padding:20px;color:var(--gray)">अभी कोई salary history नहीं।</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- GRIEVANCE -->
-  <div class="page" id="page-grievance">
-    <div class="page-header">
-      <h2>📮 Grievance</h2>
-      <p>कोई problem? यहाँ बताएं — Anonymous option भी है</p>
-    </div>
-    <div class="alert alert-info">
-      <span>ℹ️</span>
-      <div>72 hours में response मिलेगा। Anonymous complaint का option है। Escalation path: Head → Founder।</div>
-    </div>
-    <div class="card">
-      <div class="card-head"><h3>📝 Complaint Submit करें</h3></div>
-      <div class="card-body">
-        <div class="fg">
-          <label>Category</label>
-          <select id="grievCat">
-            <option>Salary/Payment issue</option>
-            <option>Attendance dispute</option>
-            <option>Performance notice dispute</option>
-            <option>Work environment</option>
-            <option>Harassment/Discrimination</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label>Complaint <span class="req">*</span></label>
-          <textarea id="grievText" placeholder="आपकी problem क्या है?"></textarea>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
-          <input type="checkbox" id="grievAnon" style="width:16px;height:16px;accent-color:var(--slate)"/>
-          <label for="grievAnon" style="font-size:12px;cursor:pointer">Anonymous complaint (नाम नहीं बताएंगे)</label>
-        </div>
-        <div class="btn-row">
-          <button class="btn-primary" onclick="submitGrievance()">📤 Submit करें</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    
 
   </div>
+
+  <!-- [T6] footer -->
+  <div class="foot">ACS™ · FFGPMTrust · From Village to World</div>
 </div>
-</div>
-<div class="toast" id="toast"></div>
+
+<!-- पद-जानकारी का एकमात्र घर (परत-3) — सिर्फ़ दिखाने के लिए, guard नहीं -->
+<script src="/assets/designation_matrix.js"></script>
 
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import{getAuth,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import{getFirestore,collection,getDocs,doc,getDoc,addDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
 
-const app=initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
-const auth=getAuth(app),db=getFirestore(app);
-let currentUser=null,staffData=null;
+const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
+const auth = getAuth(app), db = getFirestore(app);
+const functions = getFunctions(app, "us-central1");
+const $ = (id)=>document.getElementById(id);
 
-onAuthStateChanged(auth,async user=>{
-  if(!user){window.location.href='/dashboard/index.html';return}
-  currentUser=user;
+/* ── generator-भरे consts — जिन designations/roles को यह dashboard
+   देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
+   यह सिर्फ़ पर्दा है (matrix-सुरक्षा नियम)। ── */
+const MODE = "team";              /* team | external */
+const ALLOWED = ["hq_deo","hq_intern","zm_deo","zm_intern","rm_intern","founder"];
+const EXT_ROLES = []; /* team-mode में external-fallback roles (जैसे volunteer) */
+const ROLE_LABEL = "Staff Dashboard";  /* external-mode में pill-label */
+const HOME = "/dashboard/hq/staff/";
+
+/* ── matrix से label/चौकी-सूची (सिर्फ़ दिखाने के लिए) ── */
+const MX = (window.ACS_DESIGNATIONS && window.ACS_DESIGNATIONS.teams) || [];
+const mxRow = (key)=> MX.find(t=>t.key===key) || null;
+const mxLabel = (key)=>{ const r=mxRow(key); return r ? r.label : (key||"—"); };
+
+function show(id){
+  ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
+  $(id).classList.remove("hidden");
+}
+
+/* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
+onAuthStateChanged(auth, async (user)=>{
+  if(!user){ location.href="/dashboard/index.html"; return; }
+  if(MODE==="external"){ await guardExternal(user); return; }
+  await guardTeam(user);
+});
+
+/*TEAM_GUARD_JS_START*/
+async function guardTeam(user){
+  let team = null;
   try{
-    const snap=await getDoc(doc(db,'users',user.uid));
-    staffData=snap.exists()?{uid:user.uid,email:user.email,...snap.data()}:{uid:user.uid,email:user.email,name:'Staff',role:'Admin',department:'General'};
-    window.staffData=staffData;
-    initDashboard();
+    const snap = await getDoc(doc(db,"teams",user.uid));
+    if(snap.exists()) team = snap.data();
+  }catch(e){ /* पढ़ न पाए तो नीचे deny */ }
+  const desig = ((team && team.designation)||"").toLowerCase();
+  if(!team || ALLOWED.indexOf(desig)===-1){
+    if(EXT_ROLES.length){ await guardExternal(user); return; } /* dual: provisional-external रास्ता */
+    show("denyView"); return;
+  }
+
+  /* ── [T2] hold-पट्टी (v1.4 fields: hold:{type,reason}) ── */
+  if(team.hold && team.hold.type){
+    const hb=$("holdBar");
+    hb.textContent = "⛔ आप पर hold लगा है — कारण: " + (team.hold.reason||"—");
+    hb.classList.add("on");
+  }
+
+  /* ── [T3] provisional-पर्दा ── */
+  const isActive = (team.active===true);
+  if(!isActive) $("provBar").classList.add("on");
+
+  /* ── अंतिम-मुहर अधिकार (display-gate; असली जाँच server पर) ── */
+  CAN_FINAL = (desig==="founder" || desig==="hq_admin");
+
+  /* ── topbar व pill + login-पहचान (v1.6-ङ2 होल बंद) ── */
+  $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (provisional)");
+  const whoName = team.name_local || team.name_roman || team.name || team.fullName || (user.email||"");
+  $("tbWho").textContent = "👤 " + whoName + " · " + mxLabel(desig);
+  $("tbWho").title = "UID: " + user.uid;
+
+  /* ── [T4] प्रोफ़ाइल — teams से ── */
+  $("pName").textContent  = team.name_local || team.name_roman || team.name || team.fullName || "—";
+  $("pLevel").textContent = (team.level||"—").toUpperCase();
+  const area = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
+  $("pArea").textContent  = area || "—";
+  $("pEmail").textContent = team.email || (user.email||"—");
+  $("pPhone").textContent = team.phone || team.mobile || "—";
+
+  show("appView");
+
+  /* ── registration-ब्योरा (regNo · दस्तावेज़ · सफ़र) — विफल हो तो dashboard न रुके ── */
+  if(desig==="founder"){
+    $("tlWrap").innerHTML = '<div class="note" style="font-size:18px;font-weight:700;color:var(--navy)">👑 Founder — सर्वोच्च; कोई approval-सफ़र लागू नहीं (नियम-4)।</div>';
+    $("tlNote").textContent = "";
+    $("docNote").textContent = "Founder-खाते पर आवेदन-record लागू नहीं।";
+  } else {
+    loadRegistration(user).catch(()=>{
+      $("pReg").textContent = "—";
+      $("docNote").textContent = "आवेदन-ब्योरा नहीं खुला — network/नियम जाँचें।";
+      drawTimeline(desig, null);
+    });
+  }
+
+  /* ── [P1] आवेदन-पैनल की सूची — registrations से (सिर्फ़ पढ़ना) ── */
+  loadApplications();
+  /* ── [P2] टीम-पैनल + पदेन-प्रभार ── */
+  loadTeamPanel(desig);
+  /* ── [P3] काम व रिपोर्ट ── */
+  loadTasks(); loadReports();
+
+  /* ── single-session (v1.2 नियम): sessions/{uid} सुनो ── */
+  startSessionWatch(user);
+  /* ── 10-मिनट auto-logout ── */
+  startIdleTimer();
+}
+/*TEAM_GUARD_JS_END*/
+
+/* ═══ registration पढ़ना — स्रोत: registrations (एकमात्र सही collection) ═══ */
+async function loadRegistration(user){
+  const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+  let latest=null, t0=0;
+  qs.forEach(d=>{
+    const r=d.data();
+    if(r.status==="cancelled") return;
+    const t = (r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+    if(!latest || t>t0){ latest=r; t0=t; }
+  });
+  if(!latest){ $("pReg").textContent="—"; $("docNote").textContent="कोई आवेदन-record नहीं मिला (सीधे बनाए गए account में सामान्य है)।"; drawTimeline(null,null); return; }
+
+  $("pReg").textContent = latest.regNo || "—";
+
+  /* दस्तावेज़-chips */
+  const docs = latest.documents || latest.docs || {};
+  const keys = Object.keys(docs);
+  const wrap = $("docWrap"); wrap.innerHTML="";
+  if(keys.length===0){ $("docNote").textContent="आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"; }
+  else{ wrap.innerHTML = docChips(docs); $("docNote").textContent=""; }
+  drawTimeline(null, latest);
+}
+
+/* ═══ approval-सफ़र timeline — चौकियाँ matrix से, स्थिति status से ═══ */
+function drawTimeline(desigKey, reg){
+  if(desigKey==="founder") return;
+  const me = desigKey || (ALLOWED[0]||"");
+  const row = mxRow(me) || {};
+  const chain = ["hq_legal","hq_finance","hq_establishment"];
+  if(row.superior && chain.indexOf(row.superior)===-1) chain.push(row.superior);
+  const finalKey = (row.final_approval==="hq_admin") ? "hq_admin" : "founder";
+  if(chain.indexOf(finalKey)===-1) chain.push(finalKey);
+
+  const approved = !!(reg && (reg.status==="approved"));
+  const wrap=$("tlWrap"); wrap.innerHTML="";
+  chain.forEach((k,i)=>{
+    const st=document.createElement("div");
+    st.className = "step " + (approved ? "done" : (i===0 ? "now" : ""));
+    const who = (k==="founder") ? "Founder" : mxLabel(k);
+    const tag = (i===chain.length-1) ? " — अंतिम मुहर" : (i>=3 ? " — विभागीय चौकी" : " — चौकी");
+    st.innerHTML = '<div class="dot"><i></i><em></em></div><div class="lbl">'+who+'<small>'+ (approved?"पूर्ण ✅":"स्थिति चरण-3 से live होगी") + tag +'</small></div>';
+    wrap.appendChild(st);
+  });
+  $("tlNote").textContent = approved ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।";
+}
+
+/*TEAM_ONLY_JS_START*/
+/* ═══ [P1] आवेदन-सूची — registrations (एकमात्र सही स्रोत), सिर्फ़ पढ़ना ═══ */
+let APPS = [], FILTER = "all", CAN_FINAL = false;
+async function loadApplications(){
+  const box = $("appList");
+  try{
+    const qs = await getDocs(collection(db,"registrations"));
+    APPS = [];
+    qs.forEach(d=>{ const r=d.data(); r._id=d.id; APPS.push(r); });
+    APPS.sort((a,b)=>{
+      const ta=(a.createdAt&&a.createdAt.toMillis)?a.createdAt.toMillis():0;
+      const tb=(b.createdAt&&b.createdAt.toMillis)?b.createdAt.toMillis():0;
+      return tb-ta;
+    });
+    drawApps();
   }catch(e){
-    staffData={uid:user.uid,email:user.email,name:'Staff',role:'Admin',department:'General'};
-    window.staffData=staffData;
-    initDashboard();
+    box.innerHTML = '<div class="note">सूची नहीं खुली — या तो आवेदन-सूची का rules-दायरा अभी आपके पद तक विस्तारित नहीं (अगला दौर), या network जाँचें। (' + (e.code||"") + ')</div>';
+  }
+}
+function docChips(docs){
+  const keys = Object.keys(docs||{});
+  if(keys.length===0) return "";
+  return keys.map(k=>{
+    const d = docs[k];
+    const u = (typeof d==="string") ? d : (d && d.url);
+    if(!u) return '<span class="doc" style="margin:4px 6px 0 0;color:#B71C1C">📄 '+k+' (upload विफल)</span>';
+    return '<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+u+'">📄 '+k+'</a>';
+  }).join("");
+}
+function fmtDate(ts){
+  try{ const d=(ts&&ts.toDate)?ts.toDate():null; if(!d) return "—";
+    return d.getDate().toString().padStart(2,"0")+"-"+(d.getMonth()+1).toString().padStart(2,"0")+"-"+d.getFullYear();
+  }catch(e){ return "—"; }
+}
+function drawApps(){
+  const box = $("appList"); box.innerHTML = "";
+  const list = APPS.filter(a=> FILTER==="all" ? true : (a.status||"")===FILTER);
+  if(list.length===0){ box.innerHTML = '<div class="note">इस श्रेणी में कोई आवेदन नहीं।</div>'; return; }
+  list.forEach(a=>{
+    const st = a.status||"provisional";
+    const stChip = st==="approved" ? '<span class="chip appr">✅ स्वीकृत</span>'
+                 : st==="cancelled" ? '<span class="chip canc">🗑️ निरस्त</span>'
+                 : st==="rejected" ? '<span class="chip rej">⚠️ अस्वीकृत</span>'
+                 : '<span class="chip prov">⏳ जाँच में</span>';
+    const lvl = (a.staff_level||a.role||"—").toString().toUpperCase();
+    const area = [a.country,a.state,(a.rm_districts&&a.rm_districts.join)?a.rm_districts.join(", "):a.rm_districts].filter(Boolean).join(" · ");
+    const docs = a.documents||a.docs||{};
+    const docLinks = docChips(docs) || '<span class="note">कोई दस्तावेज़-link नहीं</span>';
+    let rejInfo = "";
+    if(a.rejection && a.rejection.reason){
+      rejInfo = '<div class="mrow"><b>अस्वीकृति-कारण:</b> '+a.rejection.reason+'</div>'
+              + '<div class="mrow"><b>सुधार-समय:</b> '+fmtDate(a.rejection.correction_deadline)+' तक (1 सप्ताह — v1.4 नियम)</div>';
+    }
+    const canAct = CAN_FINAL && (st==="provisional" || st==="rejected");
+    const rn = a.regNo || a._id;
+    const actHtml = canAct
+      ? '<div class="acts">'
+        + '<button class="abtn ok" data-act="approve" data-reg="'+rn+'">✅ Approve (अंतिम मुहर)</button>'
+        + '<button class="abtn no" data-act="rejopen" data-reg="'+rn+'">❌ Reject</button>'
+        + '</div>'
+        + '<div class="rejbox" id="rej-'+rn+'"><textarea id="rtx-'+rn+'" placeholder="अस्वीकृति का कारण लिखें (अनिवार्य)"></textarea>'
+        + '<button class="abtn no" style="margin-top:6px" data-act="reject" data-reg="'+rn+'">कारण के साथ Reject भेजें</button></div>'
+        + '<div class="msg" id="msg-'+rn+'"></div>'
+      : '<div class="msg" id="msg-'+rn+'"></div>';
+    const el = document.createElement("div");
+    el.className = "app";
+    el.innerHTML =
+      '<div class="r1"><span class="nm">'+(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
+      '<span class="rg">('+(a.regNo||a._id)+')</span>'+stChip+
+      '<span class="chip lvl">'+lvl+'</span></div>'+
+      '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+area):'')+(a.email?(' · ✉️ '+a.email):'')+'</div>'+
+      '<div class="more"><div class="mrow"><b>Mobile:</b> '+(a.phone||a.mobile||"—")+'</div>'+
+      '<div class="mrow"><b>दस्तावेज़:</b><br/>'+docLinks+'</div>'+
+      rejInfo +
+      actHtml + '</div>'+
+      '<button class="vbtn">👁️ view</button>';
+    el.querySelector(".vbtn").addEventListener("click",()=>{ el.classList.toggle("open"); });
+    box.appendChild(el);
+  });
+}
+document.addEventListener("click",(ev)=>{
+  const t = ev.target.closest(".ftab"); if(!t) return;
+  FILTER = t.getAttribute("data-f");
+  document.querySelectorAll(".ftab").forEach(b=>b.classList.toggle("on", b===t));
+  drawApps();
+});
+
+/* ═══ [P1] approve/reject — server-मुहर (चरण-3) ═══ */
+document.addEventListener("click", async (ev)=>{
+  const b = ev.target.closest(".abtn"); if(!b) return;
+  const act = b.getAttribute("data-act"), rn = b.getAttribute("data-reg");
+  if(!act || !rn) return;
+  if(act==="rejopen"){ const box=$("rej-"+rn); if(box) box.classList.toggle("on"); return; }
+  const msg = $("msg-"+rn);
+  if(act==="approve" && !confirm(rn+" — अंतिम मुहर लगाएँ? (आवेदन स्वीकृत + टीम-सदस्यता active)")) return;
+  let reason = "";
+  if(act==="reject"){
+    const tx=$("rtx-"+rn); reason=(tx&&tx.value||"").trim();
+    if(!reason){ if(msg){msg.className="msg err";msg.textContent="कारण लिखना अनिवार्य है।";} return; }
+  }
+  b.disabled = true; if(msg){msg.className="msg";msg.textContent="server-मुहर लग रही है…";}
+  try{
+    const fn = httpsCallable(functions, act==="approve" ? "approveApplication" : "rejectApplication");
+    await fn(act==="approve" ? {regNo:rn} : {regNo:rn, reason:reason});
+    if(msg){msg.className="msg ok";msg.textContent = act==="approve" ? "✅ स्वीकृत — टीम-सदस्यता active हो गई।" : "⚠️ अस्वीकृत — कारण व 1-सप्ताह सुधार-समय दर्ज।";}
+    await loadApplications();
+  }catch(e){
+    b.disabled = false;
+    if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e && e.message ? e.message : e);}
   }
 });
 
-function initDashboard(){
-  const name=staffData.name||'Staff';
-  const dept=staffData.department||detectDept(staffData.role||'');
-  document.getElementById('sbName').textContent=name;
-  document.getElementById('sbAvatar').textContent=name[0].toUpperCase();
-  document.getElementById('welcomeText').textContent='नमस्ते, '+name+' जी 🙏';
-  document.getElementById('welcomeSub').textContent=dept+' Department — ACS Staff';
-  setupDept(dept);
-  buildAttendance();
-  loadTasks();
-}
-
-function detectDept(role){
-  if(role.includes('Legal'))return'Legal';
-  if(role.includes('Finance'))return'Finance';
-  if(role.includes('Est'))return'Establishment';
-  return'General';
-}
-
-function setupDept(dept){
-  const configs={
-    Legal:{
-      color:'#880E4F',badge:'⚖️ Legal Dept.',label:'HQ Legal Department',
-      nav1:{icon:'📋',label:'CR Queue Helper',title:'CR Queue — Help करें',desc:'Legal Head को CR processing में help करें'},
-      nav2:{icon:'📝',label:'Police Liaison',title:'Police Liaison',desc:'Police station documents, tracking'},
-      nav3:{icon:'📁',label:'Legal Documents',title:'Legal Documents',desc:'Court-ready documentation'},
-      info:`<div class="alert alert-info"><span>⚖️</span><div><strong>Legal Dept. काम:</strong><br/>• CR applications process करें<br/>• Police station liaison करें<br/>• Legal documents maintain करें<br/>• SLA track करें (15 दिन target)<br/>• Audit trail maintain करें</div></div>`
-    },
-    Finance:{
-      color:'#004D40',badge:'💰 Finance Dept.',label:'HQ Finance Department',
-      nav1:{icon:'🔍',label:'Verification Helper',title:'Verification — Help करें',desc:'Bank/PAN/CIBIL verification में help'},
-      nav2:{icon:'📊',label:'Revenue Tracking',title:'Revenue Tracking',desc:'Payment records और ledger'},
-      nav3:{icon:'💳',label:'Payroll Helper',title:'Payroll Helper',desc:'Salary bills और calculations'},
-      info:`<div class="alert alert-info"><span>💰</span><div><strong>Finance Dept. काम:</strong><br/>• Bank verification documents<br/>• PAN/CIBIL records maintain<br/>• Revenue entries करें<br/>• Payroll calculations check<br/>• Fraud detection alert</div></div>`
-    },
-    Establishment:{
-      color:'#1A237E',badge:'🏛️ Est. Dept.',label:'HQ Establishment Department',
-      nav1:{icon:'✅',label:'Approval Helper',title:'Final Approval — Help करें',desc:'Centre approval letters prepare'},
-      nav2:{icon:'📚',label:'Course Management',title:'Course Management',desc:'Teacher courses review support'},
-      nav3:{icon:'🎓',label:'Certificate Helper',title:'Certificate Helper',desc:'Certificate generation support'},
-      info:`<div class="alert alert-info"><span>🏛️</span><div><strong>Establishment Dept. काम:</strong><br/>• Approval letters prepare<br/>• Centre records maintain<br/>• Course review support<br/>• Certificate data entry<br/>• HR records maintain</div></div>`
-    },
-  };
-  const c=configs[dept]||configs.Legal;
-  document.documentElement.style.setProperty('--dept-color',c.color);
-  document.getElementById('deptLabel').textContent=c.label;
-  document.getElementById('deptBadge').textContent=c.badge;
-  document.getElementById('sbRole').textContent=c.badge;
-  document.getElementById('nav-dept1-icon').textContent=c.nav1.icon;
-  document.getElementById('nav-dept1-label').textContent=c.nav1.label;
-  document.getElementById('nav-dept2-icon').textContent=c.nav2.icon;
-  document.getElementById('nav-dept2-label').textContent=c.nav2.label;
-  document.getElementById('nav-dept3-icon').textContent=c.nav3.icon;
-  document.getElementById('nav-dept3-label').textContent=c.nav3.label;
-  document.getElementById('dw1-title').textContent=c.nav1.title;
-  document.getElementById('dw1-desc').textContent=c.nav1.desc;
-  document.getElementById('dw2-title').textContent=c.nav2.title;
-  document.getElementById('dw2-desc').textContent=c.nav2.desc;
-  document.getElementById('dw3-title').textContent=c.nav3.title;
-  document.getElementById('dw3-desc').textContent=c.nav3.desc;
-  document.getElementById('deptInfoTitle').textContent=c.badge+' — आपका काम';
-  document.getElementById('deptInfoBody').innerHTML=c.info;
-}
-
-function buildAttendance(){
-  const today=new Date().getDate();
-  const grid=document.getElementById('attGrid');
-  let html='';
-  const days=['र','सो','म','बु','गु','शु','श'];
-  days.forEach(d=>html+=`<div style="text-align:center;font-size:9px;color:var(--gray);padding:4px">${d}</div>`);
-  const firstDay=new Date(new Date().getFullYear(),new Date().getMonth(),1).getDay();
-  for(let i=0;i<firstDay;i++)html+=`<div></div>`;
-  const daysInMonth=new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate();
-  let present=0,absent=0;
-  for(let d=1;d<=daysInMonth;d++){
-    const isToday=d===today;
-    const isPast=d<today;
-    const isPresent=isPast&&Math.random()>0.1;
-    if(isPast)isPresent?present++:absent++;
-    const bg=isToday?'var(--slate)':isPresent?'var(--green-lt)':isPast?'#FFEBEE':'#F5F7FA';
-    const color=isToday||isPresent?'#fff':isPast?'var(--red)':'var(--gray)';
-    html+=`<div style="aspect-ratio:1;border-radius:4px;background:${bg};color:${color};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:${isToday?'800':'500'}">${d}</div>`;
+/* ═══ [P2] टीम-पैनल — teams से; hold-बटन server (setHold/liftHold) ═══ */
+let MYDESIG = "";
+async function loadTeamPanel(myDesig){
+  MYDESIG = myDesig;
+  const listEl = $("teamList"), exoEl = $("exoList");
+  let members = [];
+  try{
+    const qs = await getDocs(collection(db,"teams"));
+    qs.forEach(d=>{ const t=d.data(); t._uid=d.id; members.push(t); });
+  }catch(e){
+    listEl.textContent = "टीम-सूची नहीं खुली — rules v3 deploy जाँचें। ("+(e.code||"")+")";
+    exoEl.textContent = "—"; return;
   }
-  grid.innerHTML=html;
-  present++;
-  const pct=Math.round(present/(present+absent)*100)||0;
-  document.getElementById('att-present').textContent=present;
-  document.getElementById('att-absent').textContent=absent;
-  document.getElementById('att-pct').textContent=pct+'%';
-  document.getElementById('st-attendance').textContent=pct+'%';
+  const activeDesigs = {};
+  members.forEach(m=>{ if(m.active===true) activeDesigs[String(m.designation||"").toLowerCase()] = true; });
+  const mine = MX.filter(t => t.superior===myDesig && t.key!=="founder" && !activeDesigs[t.key]);
+  exoEl.innerHTML = mine.length
+    ? mine.map(t=>'<span class="exo">🧭 '+t.label+'</span>').join("") +
+      '<div class="note">इन पदों की चौकी/काम अभी आपके पदेन प्रभार में — धारक आते ही अपने-आप वापस।</div>'
+    : '<span class="note">अभी कोई पदेन प्रभार नहीं — आपके नीचे के सब पद भरे हैं।</span>';
+
+  TEAM_MEMBERS = members;
+  fillMemberSelect();
+  members.sort((a,b)=> String(a.designation||"").localeCompare(String(b.designation||"")));
+  listEl.innerHTML = "";
+  if(members.length===0){ listEl.textContent="कोई टीम-सदस्य record नहीं।"; return; }
+  members.forEach(m=>{
+    const d = String(m.designation||"").toLowerCase();
+    const isSelf = (auth.currentUser && m._uid===auth.currentUser.uid);
+    const holdRec = m.hold && m.hold.type ? m.hold : null;
+    const stChip = holdRec ? '<span class="chip hold">⛔ '+(holdRec.type==="id"?"घोर ID-Hold":"हल्का Work-Hold")+'</span>'
+                 : (m.active===true ? '<span class="chip on">active</span>' : '<span class="chip off">provisional</span>');
+    const el = document.createElement("div");
+    el.className = "mem";
+    let acts = "";
+    if(d!=="founder" && !isSelf){
+      acts = holdRec
+        ? '<div class="acts"><button class="abtn ok" data-hact="lift" data-uid="'+m._uid+'">🔓 Un-hold</button></div>'
+        : '<div class="acts">'
+          + '<button class="abtn no" data-hact="work" data-uid="'+m._uid+'">🟠 Work-Hold</button>'
+          + '<button class="abtn no" data-hact="id" data-uid="'+m._uid+'">⛔ ID-Hold</button>'
+          + '<button class="abtn ok" data-hact="tropen" data-uid="'+m._uid+'" style="background:var(--blue)">🔁 Transfer</button></div>'
+          + '<div class="rejbox" id="hbx-'+m._uid+'"><textarea id="htx-'+m._uid+'" placeholder="hold का कारण (अनिवार्य)"></textarea>'
+          + '<button class="abtn no" style="margin-top:6px" data-hact="send" data-uid="'+m._uid+'">कारण के साथ hold लगाएँ</button></div>'
+          + '<div class="rejbox" id="tbx-'+m._uid+'"><div class="note" style="margin-bottom:6px">🔁 Transfer (v1.4-ख): इस सदस्य का काम/permission किसे मिले?</div>'
+          + '<select id="tsl-'+m._uid+'" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>'
+          + '<textarea id="ttx-'+m._uid+'" style="margin-top:6px" placeholder="Transfer का कारण (अनिवार्य)"></textarea>'
+          + '<button class="abtn ok" style="margin-top:6px;background:var(--blue)" data-hact="trsend" data-uid="'+m._uid+'">🔁 Transfer करें</button></div>';
+      acts += '<div class="msg" id="hmsg-'+m._uid+'"></div>';
+    }
+    el.innerHTML =
+      '<div class="r1"><span class="nm">'+(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
+      + '<span class="pill">'+mxLabel(d)+'</span>'+stChip
+      + (m.level && String(m.level).toUpperCase()!==mxLabel(d).toUpperCase() ? '<span class="chip lvl">'+String(m.level).toUpperCase()+'</span>':'')+'</div>'
+      + (holdRec?'<div class="hres">कारण: '+(holdRec.reason||"—")+'</div>':'')
+      + acts;
+    listEl.appendChild(el);
+  });
+}
+let PENDING_HOLD = {};
+document.addEventListener("click", async (ev)=>{
+  const b = ev.target.closest("[data-hact]"); if(!b) return;
+  const act = b.getAttribute("data-hact"), uid = b.getAttribute("data-uid");
+  const msg = $("hmsg-"+uid);
+  if(act==="work" || act==="id"){
+    PENDING_HOLD[uid]=act;
+    const bx=$("hbx-"+uid); if(bx) bx.classList.add("on");
+    if(msg){msg.className="msg";msg.textContent=(act==="id"?"घोर ID-Hold":"हल्का Work-Hold")+" चुना — कारण लिखकर भेजें।";}
+    return;
+  }
+  if(act==="tropen"){
+    const bx=$("tbx-"+uid); if(!bx) return;
+    const sel=$("tsl-"+uid);
+    if(sel && !sel.options.length){
+      sel.innerHTML = TEAM_MEMBERS
+        .filter(m=>m._uid!==uid && String(m.designation||"").toLowerCase()!=="founder")
+        .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+    }
+    bx.classList.toggle("on"); return;
+  }
+  if(act==="trsend"){
+    b.disabled=true;
+    try{
+      const toUid=($("tsl-"+uid)||{}).value, reason=(($("ttx-"+uid)||{}).value||"").trim();
+      if(!toUid || !reason){ if(msg){msg.className="msg err";msg.textContent="नया सदस्य व कारण — दोनों अनिवार्य।";} b.disabled=false; return; }
+      await httpsCallable(functions,"transferRole")({fromUid:uid, toUid:toUid, reason:reason});
+      if(msg){msg.className="msg ok";msg.textContent="🔁 transfer दर्ज — history में।";}
+      await loadTeamPanel(MYDESIG);
+    }catch(e){ b.disabled=false; if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);} }
+    return;
+  }
+  b.disabled = true;
+  try{
+    if(act==="send"){
+      const tx=$("htx-"+uid); const reason=(tx&&tx.value||"").trim();
+      if(!reason){ if(msg){msg.className="msg err";msg.textContent="कारण अनिवार्य है।";} b.disabled=false; return; }
+      await httpsCallable(functions,"setHold")({targetUid:uid, type:(PENDING_HOLD[uid]||"work"), reason:reason});
+      if(msg){msg.className="msg ok";msg.textContent="⛔ hold लग गया — history में दर्ज।";}
+    }else if(act==="lift"){
+      if(!confirm("Un-hold करें?")) { b.disabled=false; return; }
+      await httpsCallable(functions,"liftHold")({targetUid:uid});
+      if(msg){msg.className="msg ok";msg.textContent="🔓 un-hold हो गया।";}
+    }
+    await loadTeamPanel(MYDESIG);
+  }catch(e){
+    b.disabled=false;
+    if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);}
+  }
+});
+
+/* ═══ [P3] काम-पैनल + रिपोर्ट-चक्र ═══ */
+const CYCLE_HI = {daily:"दैनिक",weekly:"साप्ताहिक",fortnightly:"पाक्षिक",monthly:"मासिक",quarterly:"त्रैमासिक",halfyearly:"अर्धवार्षिक",yearly:"वार्षिक"};
+let TEAM_MEMBERS = [];
+function fillMemberSelect(){
+  const opts = TEAM_MEMBERS
+    .filter(m=>String(m.designation||"").toLowerCase()!=="founder" && !(auth.currentUser && m._uid===auth.currentUser.uid))
+    .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+  const sel = $("tMem"); if(sel) sel.innerHTML = opts;
+  const lv = $("lvMem"); if(lv) lv.innerHTML = opts; /* v1.4 छँटाई (समकक्ष/एक-ऊपर) server पर — यह सिर्फ़ सूची */
+}
+async function loadTasks(){
+  const el = $("taskList"); if(!el) return;
+  try{
+    const qs = await getDocs(collection(db,"tasks"));
+    const uid = auth.currentUser ? auth.currentUser.uid : "";
+    let rows = []; qs.forEach(d=>{ const t=d.data(); t._id=d.id; rows.push(t); });
+    rows.sort((a,b)=>((b.at&&b.at.toMillis)?b.at.toMillis():0)-((a.at&&a.at.toMillis)?a.at.toMillis():0));
+    if(rows.length===0){ el.innerHTML='<span class="note">अभी कोई काम दर्ज नहीं।</span>'; return; }
+    el.innerHTML = rows.map(t=>{
+      const mine = (t.to===uid);
+      const st = t.status||"pending";
+      const stChip = st==="done" ? '<span class="chip appr">✅ पूरा</span>' : st==="ongoing" ? '<span class="chip prov">🔵 चालू</span>' : '<span class="chip off">⏳ pending</span>';
+      const who = mine ? '(मुझे मिला)' : '(मैंने सौंपा → '+mxLabel(String(t.to_designation||"").toLowerCase())+')';
+      const btns = (st!=="done")
+        ? '<div class="acts">'
+          + (st==="pending"?'<button class="abtn ok" data-tact="ongoing" data-tid="'+t._id+'">▶️ चालू करें</button>':'')
+          + '<button class="abtn ok" data-tact="done" data-tid="'+t._id+'">✅ पूरा</button></div>'
+        : '';
+      return '<div class="mem"><div class="r1"><span class="nm">'+(t.title||"—")+'</span>'+stChip+'<span class="rg">'+who+'</span></div>'
+        + (t.detail?'<div class="r2">'+t.detail+'</div>':'')
+        + btns + '<div class="msg" id="tmsg-'+t._id+'"></div></div>';
+    }).join("");
+  }catch(e){ el.textContent="काम-सूची नहीं खुली — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
+}
+async function loadReports(){
+  const el = $("repList"); if(!el) return;
+  try{
+    const qs = await getDocs(collection(db,"reports"));
+    let rows=[]; qs.forEach(d=>{ const t=d.data(); rows.push(t); });
+    rows.sort((a,b)=>((b.at&&b.at.toMillis)?b.at.toMillis():0)-((a.at&&a.at.toMillis)?a.at.toMillis():0));
+    if(rows.length===0){ el.innerHTML='<span class="note">अभी कोई रिपोर्ट नहीं।</span>'; return; }
+    el.innerHTML = rows.slice(0,20).map(t=>
+      '<div class="mem"><div class="r1"><span class="pill">'+(CYCLE_HI[t.cycle]||t.cycle)+'</span>'
+      +'<span class="rg">'+fmtDate(t.at)+' · '+mxLabel(String(t.by_designation||"").toLowerCase())+'</span></div>'
+      +'<div class="r2">'+(t.text||"")+'</div></div>').join("");
+  }catch(e){ el.textContent="रिपोर्टें नहीं खुलीं — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
+}
+document.addEventListener("click", async (ev)=>{
+  const tb = ev.target.closest("[data-tact]");
+  if(tb){
+    const msg=$("tmsg-"+tb.getAttribute("data-tid"));
+    tb.disabled=true;
+    try{
+      await httpsCallable(functions,"updateTaskStatus")({taskId:tb.getAttribute("data-tid"), status:tb.getAttribute("data-tact")});
+      await loadTasks();
+    }catch(e){ tb.disabled=false; if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e);} }
+    return;
+  }
+  if(ev.target && ev.target.id==="tAssign"){
+    const b=ev.target, msg=$("tMsg");
+    const uid=$("tMem").value, title=($("tTitle").value||"").trim();
+    if(!uid || !title){ msg.className="msg err"; msg.textContent="सदस्य व शीर्षक दोनों ज़रूरी।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="सौंपा जा रहा है…";
+    try{
+      await httpsCallable(functions,"assignTask")({targetUid:uid, title:title});
+      msg.className="msg ok"; msg.textContent="✅ काम सौंपा गया।"; $("tTitle").value="";
+      await loadTasks();
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="lvSet"){
+    const b=ev.target, msg=$("lvMsg");
+    const toUid=$("lvMem").value, until=$("lvUntil").value;
+    if(!toUid || !until){ msg.className="msg err"; msg.textContent="प्रतिनिधि व अंतिम-तारीख़ दोनों ज़रूरी।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="नियुक्त हो रहा है…";
+    try{
+      await httpsCallable(functions,"delegateLeave")({action:"set", toUid:toUid, until:until});
+      msg.className="msg ok"; msg.textContent="🏖️ प्रतिनिधि नियुक्त — मियाद ख़त्म होते ही अधिकार अपने-आप वापस।";
+      $("lvStatus").textContent="प्रतिनिधि नियुक्त ("+until+" तक)";
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="lvCancel"){
+    const b=ev.target, msg=$("lvMsg");
+    if(!confirm("प्रतिनिधि हटाएँ? (जल्दी वापसी — अधिकार तुरंत आपके पास)")) return;
+    b.disabled=true;
+    try{
+      await httpsCallable(functions,"delegateLeave")({action:"cancel"});
+      msg.className="msg ok"; msg.textContent="↩️ प्रतिनिधि हटा — अधिकार वापस आपके पास।";
+      $("lvStatus").textContent="कोई प्रतिनिधि नहीं";
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+  if(ev.target && ev.target.id==="rSend"){
+    const b=ev.target, msg=$("rMsg");
+    const cycle=$("rCycle").value, text=($("rText").value||"").trim();
+    if(!text){ msg.className="msg err"; msg.textContent="रिपोर्ट-सामग्री लिखें।"; return; }
+    b.disabled=true; msg.className="msg"; msg.textContent="भेजी जा रही है…";
+    try{
+      await httpsCallable(functions,"submitReport")({cycle:cycle, text:text});
+      msg.className="msg ok"; msg.textContent="📤 रिपोर्ट दर्ज — Founder तक (batch-दौर में उनके पैनल पर भी दिखेगी)।"; $("rText").value="";
+      await loadReports();
+    }catch(e){ msg.className="msg err"; msg.textContent="नहीं हुआ: "+(e&&e.message?e.message:e); }
+    b.disabled=false; return;
+  }
+});
+
+/*TEAM_ONLY_JS_END*/
+
+/* ═══ external-mode पहरा — registrations से (आवेदक-स्वयं rules-दायरा) ═══ */
+async function guardExternal(user){
+  let reg=null, t0=0;
+  try{
+    const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
+    qs.forEach(d=>{
+      const r=d.data();
+      if(r.status==="cancelled") return;
+      const okRoles = EXT_ROLES.length ? EXT_ROLES : ALLOWED;
+      if(okRoles.indexOf(String(r.role||"").toLowerCase())===-1) return;
+      const t=(r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
+      if(!reg || t>t0){ reg=r; t0=t; }
+    });
+  }catch(e){ /* नीचे deny */ }
+  if(!reg){ show("denyView"); return; }
+
+  const isActive = (reg.status==="approved");
+  if(!isActive) $("provBar").classList.add("on");
+  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (provisional)");
+
+  const whoName = reg.name_local || reg.name_roman || reg.name || reg.fullName || (user.email||"");
+  $("pName").textContent  = whoName;
+  $("pReg").textContent   = reg.regNo || "—";
+  $("pLevel").textContent = ROLE_LABEL;
+  const area = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):reg.rm_districts].filter(Boolean).join(" · ");
+  $("pArea").textContent  = area || "—";
+  $("pEmail").textContent = reg.email || (user.email||"—");
+  $("pPhone").textContent = reg.phone || reg.mobile || "—";
+  $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
+  $("tbWho").title = "UID: " + user.uid;
+
+  /* दस्तावेज़-chips */
+  const docs = reg.documents || reg.docs || {};
+  const wrap = $("docWrap"); wrap.innerHTML = docChips(docs);
+  $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
+
+  /* g2-सफ़र नोट */
+  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
+  $("tlNote").textContent = "";
+
+  show("appView");
+  startSessionWatch(user);
+  startIdleTimer();
 }
 
-function loadTasks(){
-  const tasks=JSON.parse(localStorage.getItem('acs_staff_tasks_'+currentUser?.uid)||'[]');
-  const pending=tasks.filter(t=>!t.done).length;
-  const done=tasks.filter(t=>t.done).length;
-  document.getElementById('taskCount').textContent=pending;
-  document.getElementById('st-tasks-pending').textContent=pending;
-  document.getElementById('st-tasks-done').textContent=done;
-  renderTasks(tasks);
+/* ═══ single-session: sessions/{uid}.activeSession बदले तो logout ═══ */
+async function startSessionWatch(user){
+  let mySid = null;
+  try{ mySid = localStorage.getItem("acs_sid"); }catch(e){}
+  if(!mySid){
+    try{
+      const res = await httpsCallable(functions,"claimSession")({});
+      mySid = res && res.data && res.data.sessionId;
+      if(mySid){ try{ localStorage.setItem("acs_sid", mySid); }catch(e){} }
+    }catch(e){ /* claim न हो पाए तो चुपचाप — पहरा server पर */ }
+  }
+  if(!mySid) return;
+  onSnapshot(doc(db,"sessions",user.uid),(snap)=>{
+    const d = snap.exists() ? snap.data() : null;
+    if(d && d.activeSession && d.activeSession!==mySid){
+      alert("आपने दूसरी जगह login किया — यह session बंद हो रहा है।");
+      doLogout();
+    }
+  },()=>{ /* rules पढ़ने से रोकें तो चुप */ });
 }
 
-function renderTasks(tasks){
-  const today=tasks.slice(-5);
-  document.getElementById('todayTasks').innerHTML=today.length?today.map((t,i)=>`
-    <div class="task-item">
-      <input type="checkbox" class="task-check" ${t.done?'checked':''} onchange="toggleTask(${i})"/>
-      <span class="task-text ${t.done?'done':''}">${t.text}</span>
-      <span class="task-priority tp-${t.priority||'med'}">${t.priority==='high'?'🔴':t.priority==='low'?'🟢':'🟡'}</span>
-    </div>`).join(''):'<div class="empty"><div class="empty-icon">✅</div><p>कोई task नहीं।</p></div>';
-
-  document.getElementById('allTasksList').innerHTML=tasks.length?tasks.map((t,i)=>`
-    <div class="task-item">
-      <input type="checkbox" class="task-check" ${t.done?'checked':''} onchange="toggleTask(${i})"/>
-      <span class="task-text ${t.done?'done':''}">${t.text}</span>
-      <span class="task-priority tp-${t.priority||'med'}">${t.priority==='high'?'🔴 High':t.priority==='low'?'🟢 Low':'🟡 Med'}</span>
-      <button onclick="deleteTask(${i})" style="margin-left:6px;background:#FFEBEE;color:var(--red);border:none;border-radius:4px;cursor:pointer;font-size:10px;padding:2px 6px">✕</button>
-    </div>`).join(''):'<div class="empty"><div class="empty-icon">✅</div><p>कोई task नहीं।</p></div>';
+/* ═══ 10-मिनट auto-logout (screen-silent) ═══ */
+let idleT=null;
+function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
+function startIdleTimer(){
+  ["click","keydown","scroll","touchstart","mousemove"].forEach(ev=>document.addEventListener(ev,resetIdle,{passive:true}));
+  resetIdle();
 }
 
-window._signOut=()=>signOut(auth);
-window._currentUser=()=>currentUser;
-window._staffData=()=>staffData;
-window._addDoc=async(col,data)=>addDoc(collection(db,col),{...data,createdAt:serverTimestamp()});
-</script>
-
-<script>
-let tasks=[];
-
-window.toggleSidebar=function(){
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('sbOverlay').classList.toggle('open');
-};
-window.showPage=function(name,el){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  document.getElementById('page-'+name)?.classList.add('active');
-  el?.classList.add('active');
-  const t=document.getElementById('topbarTitle');
-  const m={'overview':'Dashboard','my-tasks':'My Tasks','dept-work1':document.getElementById('dw1-title')?.textContent,'dept-work2':document.getElementById('dw2-title')?.textContent,'dept-work3':document.getElementById('dw3-title')?.textContent,'documents':'Documents','reports':'Reports','attendance':'My Attendance','salary':'My Salary','grievance':'Grievance'};
-  t.textContent=m[name]||name;
-  if(window.innerWidth<=768)toggleSidebar();
-};
-
-window.addTask=function(){
-  const text=document.getElementById('newTask').value.trim();
-  const priority=document.getElementById('taskPriority').value;
-  if(!text){showToast('Task लिखें','err');return}
-  const uid=window._currentUser()?.uid||'guest';
-  const tasks=JSON.parse(localStorage.getItem('acs_staff_tasks_'+uid)||'[]');
-  tasks.push({text,priority,done:false,date:new Date().toISOString()});
-  localStorage.setItem('acs_staff_tasks_'+uid,JSON.stringify(tasks));
-  document.getElementById('newTask').value='';
-  showToast('✅ Task added!','ok');
-  window.loadData();
-};
-
-window.toggleTask=function(idx){
-  const uid=window._currentUser()?.uid||'guest';
-  const tasks=JSON.parse(localStorage.getItem('acs_staff_tasks_'+uid)||'[]');
-  if(tasks[idx])tasks[idx].done=!tasks[idx].done;
-  localStorage.setItem('acs_staff_tasks_'+uid,JSON.stringify(tasks));
-  window.loadData();
-};
-
-window.deleteTask=function(idx){
-  const uid=window._currentUser()?.uid||'guest';
-  const tasks=JSON.parse(localStorage.getItem('acs_staff_tasks_'+uid)||'[]');
-  tasks.splice(idx,1);
-  localStorage.setItem('acs_staff_tasks_'+uid,JSON.stringify(tasks));
-  showToast('Task deleted','ok');
-  window.loadData();
-};
-
-window.saveDocument=async function(){
-  const title=document.getElementById('docTitle').value.trim();
-  if(!title){showToast('Document title जरूरी है','err');return}
-  try{
-    await window._addDoc('staff_documents',{
-      title,category:document.getElementById('docCat').value,
-      notes:document.getElementById('docNotes').value,
-      staffUid:window._currentUser()?.uid,
-      staffName:window._staffData()?.name||'',
-      department:window._staffData()?.department||'',
-    });
-    showToast('✅ Document log हो गया!','ok');
-    document.getElementById('docTitle').value='';
-    document.getElementById('docNotes').value='';
-  }catch(e){showToast('Error','err')}
-};
-
-window.submitReport=async function(){
-  const work=document.getElementById('reportWork').value.trim();
-  if(!work){showToast('काम का विवरण जरूरी है','err');return}
-  try{
-    await window._addDoc('daily_reports',{
-      date:document.getElementById('reportDate').value,
-      work,plan:document.getElementById('reportPlan').value,
-      issue:document.getElementById('reportIssue').value,
-      staffUid:window._currentUser()?.uid,
-      staffName:window._staffData()?.name||'',
-      department:window._staffData()?.department||'',
-    });
-    showToast('✅ Daily report submit हो गया!','ok');
-    ['reportWork','reportPlan','reportIssue'].forEach(id=>document.getElementById(id).value='');
-  }catch(e){showToast('Error','err')}
-};
-
-window.submitAttRequest=async function(){
-  const req=document.getElementById('attRequest').value.trim();
-  if(!req){showToast('Request details जरूरी हैं','err');return}
-  try{
-    await window._addDoc('attendance_requests',{
-      request:req,staffUid:window._currentUser()?.uid,
-      staffName:window._staffData()?.name||'',
-      status:'pending',
-    });
-    showToast('✅ Request submit हो गई। Head verify करेगा।','ok');
-    document.getElementById('attRequest').value='';
-  }catch(e){showToast('Error','err')}
-};
-
-window.submitGrievance=async function(){
-  const text=document.getElementById('grievText').value.trim();
-  if(!text){showToast('Complaint जरूरी है','err');return}
-  const anon=document.getElementById('grievAnon').checked;
-  try{
-    await window._addDoc('grievances',{
-      text,category:document.getElementById('grievCat').value,
-      anonymous:anon,
-      staffUid:anon?'anonymous':window._currentUser()?.uid,
-      staffName:anon?'Anonymous':window._staffData()?.name||'',
-      status:'submitted',
-    });
-    showToast('✅ Complaint submit हो गई! Ticket: #ACS-'+Date.now().toString().slice(-6),'ok');
-    document.getElementById('grievText').value='';
-  }catch(e){showToast('Error','err')}
-};
-
-function showToast(msg,type='ok'){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast '+(type==='ok'?'ok':'err');
-  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
-}
-window.showToast=showToast;
-window.loadData=function(){window.location.reload()};
-window.doLogout=async function(){
-  if(!confirm('Logout?'))return;
-  await window._signOut();
-  window.location.href='/dashboard/index.html';
-};
-
-// Set today's date
-document.getElementById('reportDate').value=new Date().toISOString().split('T')[0];
+window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localStorage.removeItem("acs_sid"); }catch(e){} location.href="/dashboard/index.html"; };
 </script>
 </body>
 </html>
