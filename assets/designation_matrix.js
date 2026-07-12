@@ -5,7 +5,10 @@
    आधार: Founder की 35-पद तालिका (10-Jul-2026 · 11:36 PM)
          + Addendum-प्रविष्टि "संगठन-ढाँचा v2.0" (11-Jul-2026 · 02:44 AM)
          + Addendum-प्रविष्टि "Vendor-role v1.7" (12-Jul-2026 · 12:12 PM)
-   Version: 1.2 · 12-Jul-2026 — Vendor-कार्ड जुड़ा (v1.7-क) ·
+   Version: 1.3 · 12-Jul-2026 — काम-5: public_label (कूट-नाम नियम — Founder, 12-07-2026:
+            code-key सिर्फ़ internal; public को सुंदर आम-बोलचाल नाम) + ruleFile (नियम-फ़ाइल का
+            एकमात्र घर अब यहीं) + registrable + geo — नीचे v1.3-block से।
+   पिछला:  1.2 · 12-Jul-2026 — Vendor-कार्ड जुड़ा (v1.7-क) ·
             Employer/Foreign-Agent अलग-अलग dashboard (v1.7-ख — "एक-परिवार" पंक्ति निरस्त)
    पिछला: 1.1 · 11-Jul-2026 · 03:04 AM IST — शब्द-सुधार: "ख़ाली" शब्द हटा (पदेन-नियम: कोई पद कभी रिक्त नहीं)
 
@@ -21,7 +24,7 @@
 
 const ACS_DESIGNATIONS = {
 
-  version: "1.2",
+  version: "1.3",
   updated: "12-07-2026 IST",
 
   /* ---------- approval एक-पाइपलाइन (v2.0-ग) ----------
@@ -241,6 +244,91 @@ const ACS_DESIGNATIONS = {
     { key: "others", label: "Others (Learner)", min_age: 10, note: "भविष्य की नई Learner-श्रेणी के लिए जगह आरक्षित (v2.0-घ)" }
   ]
 };
+
+/* ============================================================
+   v1.3-block (12-07-2026, काम-5) — हर पद/कार्ड पर 4 नए खाने:
+   public_label  = public-नाम (कूट-नाम नियम: key कभी UI पर नहीं)
+   ruleFile      = rules-consent फ़ाइल (एकमात्र घर अब matrix)
+   registrable   = registration-form से चुना जा सकता है या नहीं
+   geo           = hq | country_state | district | continent
+   ============================================================ */
+(function(M){
+  var PUB = {
+    founder:"संस्थापक (Founder)",
+    system_security:"प्रणाली सुरक्षा प्रमुख (System Security Head)",
+    hq_admin:"प्रधान कार्यालय प्रशासक (HQ Administrator)",
+    hq_establishment:"स्थापना प्रमुख (Establishment Head)",
+    hq_finance:"वित्त प्रमुख (Finance Head)",
+    hq_legal:"कानून प्रमुख (Legal Head)",
+    hq_employment:"रोजगार प्रमुख (Employment Head)",
+    hq_academic:"एकेडमिक प्रमुख (Academic Head)",
+    hq_examination:"एग्जामिनेशन प्रमुख (Examination Head)",
+    hq_network:"नेटवर्क प्रमुख (Network Head)",
+    hq_deo:"Data Entry Operator — प्रधान कार्यालय",
+    hq_intern:"Intern — प्रधान कार्यालय",
+    hq_callcenter:"Call Center — प्रधान कार्यालय",
+    hq_future:"आरक्षित पद — प्रधान कार्यालय",
+    continental:"महाद्वीप प्रमुख (Continental Head)",
+    zm:"राज्य/देश प्रमुख (State/Country Head)",
+    zm_content_creator:"Content Creator — राज्य कार्यालय",
+    zm_social_media:"Social Media Manager — राज्य कार्यालय",
+    zm_callcenter:"Call Center — राज्य कार्यालय",
+    zm_deo:"Data Entry Operator — राज्य कार्यालय",
+    zm_intern:"Intern — राज्य कार्यालय",
+    zm_future:"आरक्षित पद — राज्य कार्यालय",
+    rm:"क्षेत्रीय प्रबंधक (Regional Manager)",
+    rm_callcenter:"Call Center — क्षेत्रीय कार्यालय",
+    rm_volunteer:"स्वयंसेवक (Volunteer)",
+    rm_intern:"Intern — क्षेत्रीय कार्यालय",
+    rm_future:"आरक्षित पद — क्षेत्रीय कार्यालय"
+  };
+  var RULE = {
+    system_security:"rules-consent-system-security.html",
+    hq_admin:"rules-consent-hq-admin.html",
+    hq_establishment:"rules-consent-hq-establishment.html",
+    hq_finance:"rules-consent-hq-finance.html",
+    hq_legal:"rules-consent-hq-legal.html",
+    hq_employment:"rules-consent-hq-employment.html",
+    hq_academic:"rules-consent-hq-academic.html",
+    hq_examination:"rules-consent-hq-examination.html",
+    hq_network:"rules-consent-hq-network.html",
+    hq_deo:"rules-consent-hq-staff.html",
+    hq_intern:"rules-consent-intern.html",
+    hq_callcenter:"rules-consent-hq-staff.html",
+    continental:"rules-consent-continental.html",
+    zm:"rules-consent-zm.html",
+    zm_content_creator:"rules-consent-content-creator.html",
+    zm_social_media:"rules-consent-social-media.html",
+    zm_callcenter:"rules-consent-hq-staff.html",
+    zm_deo:"rules-consent-hq-staff.html",
+    zm_intern:"rules-consent-intern.html",
+    rm:"rules-consent-rm.html",
+    rm_callcenter:"rules-consent-hq-staff.html",
+    rm_volunteer:"rules-consent-volunteer.html",
+    rm_intern:"rules-consent-intern.html"
+  };
+  M.teams.forEach(function(t){
+    t.public_label = PUB[t.key] || t.label;
+    t.ruleFile = RULE[t.key] || null;
+    /* registrable: founder कभी नहीं; Future-slot आरक्षित; rm_volunteer का रास्ता = volunteer-कार्ड */
+    t.registrable = !(t.key === "founder" || /_future$/.test(t.key) || t.key === "rm_volunteer");
+    if(t.key === "continental"){ t.geo = "continent"; }
+    else if(t.level === "hq"){ t.geo = "hq"; }
+    else if(t.level === "zm"){ t.geo = "country_state"; }
+    else { t.geo = "district"; }
+  });
+  var CPUB = {
+    student:"विद्यार्थी (Student)", jobseeker:"नौकरी (Job-seeker)", entrepreneur:"उद्यम (Entrepreneur)",
+    teacher:"शिक्षक (Teacher)", center:"केंद्र (Center)", counselor:"सलाहकार (Counselor)",
+    employer:"नियोक्ता (Employer)", foreign_agent:"विदेश एजेंट (Foreign Agent)",
+    volunteer:"स्वयंसेवक (Volunteer)", vendor:"विक्रेता (Vendor)", team:"ACS टीम (ACS Team)"
+  };
+  var CRULE = { vendor:"rules-consent-vendor.html" };
+  M.cards.forEach(function(c){
+    c.public_label = CPUB[c.key] || c.label;
+    if(CRULE[c.key]) c.ruleFile = CRULE[c.key];
+  });
+})(ACS_DESIGNATIONS);
 
 /* browser + generator दोनों के लिए */
 if (typeof module !== "undefined" && module.exports) { module.exports = ACS_DESIGNATIONS; }

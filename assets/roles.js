@@ -156,6 +156,22 @@ window.ACS_ROLES = {
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
+      { key:"vendor", group:"g2", icon:"🛒",
+        hi:"Vendor (विक्रेता)", en:"Vendor",
+        desc_hi:"उद्यम-स्थापना का सेवा/सामान प्रदाता — जुड़ना निःशुल्क", desc_en:"Enterprise-setup goods/service provider — free to join",
+        collection:"vendors", dashboard:"/dashboard/vendor/",
+        ruleFile:"rules-consent-vendor.html", gateway:true, needsGeo:false, needsRMOffice:false,
+        fields: [ F.nameLocal, F.nameRoman,
+          { id:"org_name", type:"text", required:true, hi:"संस्था/दुकान का नाम", en:"Business/Shop Name" },
+          { id:"vendor_type", type:"select", required:true, hi:"सेवा/सामान का प्रकार", en:"Goods/Service Type",
+            options:[ {v:"machinery",hi:"यंत्र-विक्रेता (Machinery)",en:"Machinery"}, {v:"raw_material",hi:"कच्चा-माल (Raw Material)",en:"Raw Material"},
+                      {v:"packaging",hi:"Packaging",en:"Packaging"}, {v:"license_compliance",hi:"License/Compliance सहायक",en:"License/Compliance"},
+                      {v:"marketing",hi:"Marketing/Branding",en:"Marketing/Branding"}, {v:"export",hi:"Export सहायक",en:"Export Support"},
+                      {v:"other",hi:"अन्य",en:"Other"} ] },
+          F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
+      },
+
       /* ---------------- समूह-3 : ACS Team ---------------- */
       { key:"hq_admin", group:"g3", icon:"🏢",
         hi:"HQ Admin", en:"HQ Admin",
@@ -167,7 +183,7 @@ window.ACS_ROLES = {
       },
       { key:"hq_establishment", group:"g3", icon:"🖥️",
         hi:"HQ Establishment Head", en:"HQ Establishment Head",
-        desc_hi:"तकनीक/cyber-सुरक्षा प्रमुख", desc_en:"IT/cyber-security head",
+        desc_hi:"तकनीक-प्रबंधन प्रमुख", desc_en:"IT/technology management head",
         collection:"team", dashboard:"/dashboard/hq/establishment/",
         ruleFile:"rules-consent-hq-establishment.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
         fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
@@ -299,7 +315,53 @@ window.ACS_ROLES = {
   /* ---- साझा सहायक ---- */
   byKey: function (k) {
     for (var i = 0; i < this.cards.length; i++) if (this.cards[i].key === k) return this.cards[i];
-    return null;
+    return this.teamCardFor(k);   /* (काम-5 v1.9) matrix v1.3 के पद — virtual card */
+  },
+  /* ═══ (काम-5 v1.9, 12-07-2026) matrix-चालित virtual team-card ═══
+     स्रोत: window.ACS_DESIGNATIONS (v1.3) — public_label/ruleFile/geo/registrable वहीं से।
+     fields/documents: नज़दीकी मौजूदा कार्ड से (एक चीज़ = एक जगह; दोहराव नहीं)। */
+  _teamCardCache: {},
+  _TEAM_FIELD_BASE: {
+    hq_deo:"staff", zm_deo:"staff", hq_callcenter:"staff", zm_callcenter:"staff", rm_callcenter:"staff",
+    hq_intern:"intern", zm_intern:"intern", rm_intern:"intern",
+    zm:"zm", rm:"rm", zm_content_creator:"content_creator",
+    hq_admin:"hq_admin", hq_establishment:"hq_establishment", hq_finance:"hq_finance", hq_legal:"hq_legal"
+    /* बाक़ी सब (system_security, नए Heads, continental, zm_social_media) → hq_admin का साझा टीम-सेट */
+  },
+  teamCardFor: function (k) {
+    if (this._teamCardCache[k]) return this._teamCardCache[k];
+    var M = (typeof window !== "undefined") ? window.ACS_DESIGNATIONS : null;
+    if (!M || !M.teams) return null;
+    var t = null;
+    for (var i = 0; i < M.teams.length; i++) if (M.teams[i].key === k) { t = M.teams[i]; break; }
+    if (!t || t.registrable === false) return null;
+    var baseKey = this._TEAM_FIELD_BASE[k] || "hq_admin";
+    var base = null;
+    for (var j = 0; j < this.cards.length; j++) if (this.cards[j].key === baseKey) { base = this.cards[j]; break; }
+    if (!base) return null;
+    var card = {
+      key: k, group: "g3", icon: "🛠️",
+      hi: t.public_label || t.label, en: t.label_en || t.label,
+      desc_hi: "", desc_en: "",
+      collection: "team", dashboard: t.dashboard || "/dashboard/",
+      ruleFile: t.ruleFile || null, gateway: true,
+      isHQ: (t.geo === "hq"),
+      needsGeo: (t.geo === "country_state" || t.geo === "district"),
+      needsRMOffice: (t.geo === "district"),
+      matrixLevel: t.level || "",
+      fields: base.fields.slice(),
+      documents: (base.documents || []).slice()
+    };
+    if (t.geo === "continent") {
+      card.fields = card.fields.slice();
+      card.fields.splice(2, 0, { id: "continent", type: "select", required: true,
+        hi: "महाद्वीप (कार्य-क्षेत्र)", en: "Continent",
+        options: [ {v:"asia",hi:"एशिया (Asia)"}, {v:"africa",hi:"अफ़्रीका (Africa)"},
+                   {v:"south_america",hi:"दक्षिण अमेरिका (South America)"}, {v:"north_america",hi:"उत्तर अमेरिका (North America)"},
+                   {v:"europe",hi:"यूरोप (Europe)"}, {v:"oceania",hi:"ओशिनिया (Oceania)"} ] });
+    }
+    this._teamCardCache[k] = card;
+    return card;
   },
   isLearner: function (k) { return k === "learner" || this.learnerKeys.indexOf(k) > -1; },
   ruleFileFor: function (k) { var c = this.byKey(k); return c ? c.ruleFile : null; },
