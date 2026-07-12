@@ -50,7 +50,13 @@ a{text-decoration:none;color:inherit}
 
 /* ── HERO ── */
 .hero{background:linear-gradient(135deg,var(--navy),#1565C0);padding:28px 16px 24px;text-align:center;color:#fff}
-.hero h2{font-size:20px;font-weight:700;line-height:1.4}
+.hero h2{font-size:22px;font-weight:800;line-height:1.55;text-shadow:0 2px 8px rgba(0,0,0,.25)}
+.hero-logo{width:64px;height:64px;border-radius:16px;margin-bottom:10px;box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 3px rgba(255,255,255,.18)}
+.hero-tricolor{display:flex;gap:0;width:150px;height:5px;margin:12px auto 0;border-radius:3px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.hero-tricolor span{flex:1}
+.hero-tricolor span:nth-child(1){background:#F9A825}
+.hero-tricolor span:nth-child(2){background:#F5F7FA}
+.hero-tricolor span:nth-child(3){background:#2E7D32}
 .hero p{color:rgba(255,255,255,.7);font-size:16px;margin-top:5px}
 .badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:16px;font-weight:700;padding:3px 12px;border-radius:20px;margin-top:8px}
 
@@ -74,7 +80,7 @@ a{text-decoration:none;color:inherit}
 /* ── ROLE GRID ── */
 .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(min-width:700px){.role-grid{grid-template-columns:1fr 1fr 1fr}}
-.role-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;text-align:center;cursor:pointer;border:1.5px solid var(--border);border-radius:14px;padding:13px 10px;background:linear-gradient(160deg,#ffffff 0%,#f1f5fb 48%,#e3ebf6 100%);box-shadow:0 5px 0 #c9d2e2,0 9px 20px rgba(11,31,58,.12);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
+.role-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;text-align:center;cursor:pointer;border:1.5px solid var(--border);border-radius:16px;padding:18px 10px 16px;background:linear-gradient(160deg,#ffffff 0%,#f1f5fb 48%,#e3ebf6 100%);box-shadow:0 5px 0 #c9d2e2,0 9px 20px rgba(11,31,58,.12);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
 .role-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(11,31,58,.022) 0 7px,transparent 7px 15px);pointer-events:none}
 .role-card::after{content:"";position:absolute;top:0;left:0;right:0;height:46%;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent);pointer-events:none}
 .role-card>*{position:relative;z-index:1}
@@ -82,7 +88,7 @@ a{text-decoration:none;color:inherit}
 .role-card:hover{transform:translateY(-2px);box-shadow:0 7px 0 #b9c4d8,0 13px 24px rgba(11,31,58,.18)}
 .role-card:active{transform:translateY(3px);box-shadow:0 2px 0 #c9d2e2,0 4px 10px rgba(11,31,58,.14)}
 .role-icon{margin:0 auto 4px;font-size:26px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-radius:14px;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 5px rgba(11,31,58,.10),0 3px 6px rgba(11,31,58,.16);transition:transform .14s ease}
-.role-name{font-size:18px;font-weight:800;color:var(--navy)}
+.role-name{font-size:19px;font-weight:800;color:var(--navy);line-height:1.5}
 .role-desc{font-size:16px;color:var(--gray);line-height:1.4;margin:0}
 .role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding:8px 12px;background:linear-gradient(150deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:10px;box-shadow:0 3px 0 #c9d2e2,0 6px 12px rgba(11,31,58,.10)}
 .role-group-head.first{margin-top:2px}
@@ -214,9 +220,10 @@ a{text-decoration:none;color:inherit}
 
 <!-- ── HERO ── -->
 <div class="hero">
-  <h2 class="t" data-hi="🔑 अपने Dashboard में Login करें" data-en="🔑 Login to your Dashboard">🔑 अपने Dashboard में Login करें</h2>
-  <p class="t" data-hi="Email + Password से · 7 भूमिकाओं को OTP भी" data-en="With Email + Password · OTP for 7 roles too">Email + Password से · 7 भूमिकाओं को OTP भी</p>
-  <span class="badge t" data-hi="ISO 9001:2015 प्रमाणित | FFGPMTrust" data-en="ISO 9001:2015 Certified | FFGPMTrust">ISO 9001:2015 प्रमाणित | FFGPMTrust</span>
+  <!-- (Founder-आदेश 12-Jul रात) ऊपर सिर्फ़ यह एक पंक्ति — बाक़ी सारा उपदेश निरस्त -->
+  <img src="/logo.png" alt="ACS" class="hero-logo" onerror="this.style.display='none'"/>
+  <h2>सुंदर भविष्य के लिए अप्लाइड कंप्यूटर स्कूल से जुड़ें!</h2>
+  <div class="hero-tricolor"><span></span><span></span><span></span></div>
 </div>
 
 <!-- ── STEP BAR ── -->
@@ -237,7 +244,6 @@ a{text-decoration:none;color:inherit}
 
 <!-- ── STEP 1: ROLE ── -->
 <div class="card show" id="c1">
-  <div class="card-sub t" data-hi="किस रूप में लॉगिन (Login) करें? अपनी भूमिका (Role) चुनें।" data-en="Which role to login as? Select your role.">किस रूप में login करें? अपनी भूमिका (Role) चुनें।</div>
   <!-- (login v2, 12-Jul-2026) tiles hardcode निरस्त — matrix v1.4 + roles.js से
        अपने-आप बनते हैं (join.html जैसा; 13वाँ कार्ड आए तो यहाँ कुछ नहीं बदलना)।
        लिपि-bracket नियम: हर English शब्द का देवनागरी-उच्चारण पहले। -->
@@ -447,45 +453,25 @@ window.switchLang = function(){
   const cur = document.documentElement.lang || "hi";
   applyLang(cur === "en" ? "hi" : "en");
 };
-/* ═══ (login v2, 12-Jul-2026) 12 tiles — matrix v1.4 public_label + roles.js desc से ═══
-   join.html से एक-समान नाम/desc/क्रम (मेनू-सिद्धांत); center-align; लिपि-bracket नियम। */
+/* ═══ (login v3, 12-Jul-2026 रात — Founder-आदेश) 12 tiles: सिर्फ़ नाम —
+   देवनागरी (Roman) — कोई description नहीं, कोई समूह-भाषण नहीं। स्रोत matrix v1.4। ═══ */
 (function buildRoleTiles(){
   const grid = document.getElementById('roleGrid');
-  const MX2 = window.ACS_DESIGNATIONS, RR = window.ACS_ROLES;
-  if(!grid || !MX2 || !RR) return;
-  const LEARNER = ["student","jobseeker","entrepreneur"];
+  const MX2 = window.ACS_DESIGNATIONS;
+  if(!grid || !MX2) return;
   const TINT = { student:"gold", jobseeker:"cream", entrepreneur:"green" };
   const ICON = { student:"🎓", jobseeker:"💼", entrepreneur:"🏭", teacher:"👨‍🏫", center:"🏫",
     counselor:"🧭", employer:"🧑‍💼", foreign_agent:"✈️", volunteer:"🤝",
     finance_mitra:"🏦", vendor:"🛒", team:"🛠️" };
-  function head(cls, hi, en){
+  (MX2.cards || []).forEach(function(c){
     const d = document.createElement('div');
-    d.className = 'role-group-head ' + cls + ' t';
-    d.setAttribute('data-hi', hi); d.setAttribute('data-en', en); d.textContent = hi;
-    grid.appendChild(d);
-  }
-  function tile(c){
-    const rc = (c.key === 'team') ? null : RR.byKey(c.key);
-    const descHi = (c.key === 'team') ? 'कार्यालय-पद — पदनाम आगे चुनें (एचक्यू HQ / ज़ेडएम ZM / आरएम RM)'
-      : ((rc && rc.desc_hi) || '');
-    const descEn = (c.key === 'team') ? 'Office posts — pick designation next (HQ / ZM / RM)'
-      : ((rc && rc.desc_en) || '');
-    const d = document.createElement('div');
-    d.className = 'role-card' + (LEARNER.indexOf(c.key) > -1 ? ' learner ' + TINT[c.key] : '');
+    d.className = 'role-card' + (TINT[c.key] ? ' learner ' + TINT[c.key] : '');
     d.innerHTML = '<div class="role-icon">' + (ICON[c.key] || '⭐') + '</div>'
-      + '<div class="role-name t" data-hi="' + (c.public_label || c.label) + '" data-en="' + (c.label_en || c.public_label || c.label) + '">' + (c.public_label || c.label) + '</div>'
-      + '<div class="role-desc t" data-hi="' + descHi + '" data-en="' + descEn + '">' + descHi + '</div>';
+      + '<div class="role-name">' + (c.public_label || c.label) + '</div>';
     d.addEventListener('click', function(){ selRole(c.key, d); });
     d.addEventListener('dblclick', function(){ selRole(c.key, d); goStep2(); });
     grid.appendChild(d);
-  }
-  const cards = MX2.cards || [];
-  head('first', '🟦 मैं सीखने वाला (Learner) हूँ — सीधा लॉगिन, ओटीपी (OTP) नहीं',
-       '🟦 I am a Learner — direct login (no OTP)');
-  cards.filter(c => LEARNER.indexOf(c.key) > -1).forEach(tile);
-  head('', '🟨 मैं ACS-सदस्य हूँ — लॉगिन ओटीपी (OTP) से',
-       '🟨 I am an ACS member — login with OTP');
-  cards.filter(c => LEARNER.indexOf(c.key) === -1).forEach(tile);
+  });
 })();
 (function(){
   let l = "hi";
