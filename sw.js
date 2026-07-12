@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v16';                 // ← CSS/JS बदलें तो बढ़ाएँ (v10: 12-Jul-2026 — designation_matrix v1.2, काम-4)
+const CACHE_VERSION = 'v17';                 // ← CSS/JS बदलें तो बढ़ाएँ (v10: 12-Jul-2026 — designation_matrix v1.2, काम-4)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
