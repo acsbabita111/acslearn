@@ -40,17 +40,17 @@ function p1Note(allowedKeys){
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
 function extraPanels(key){
   if(key==="entrepreneur") return (
-    '<div class="pcard" style="grid-column:1/-1">' +
+    '<div class="pcard panel" id="pnl-extra" data-nav="🌱 उद्यमी-सहयोग" style="grid-column:1/-1">' +
     '<div class="ph">🌱 उद्यमी-सहयोग ecosystem</div>' +
     '<div class="pd">v1.7-ग की आरक्षित जगह — Verified Vendor सूची · First Customer Mission (90-दिन) · Failure Recovery · Family/Women परतें · ज़िला-माँग जानकारी। निर्माण just-in-time (अपना chatroom)।</div>' +
     '<span class="soon">आरक्षित — अगले दौर में</span></div>');
   if(key==="vendor") return (
-    '<div class="pcard" style="grid-column:1/-1">' +
+    '<div class="pcard panel" id="pnl-extra" data-nav="🧾 RM-सत्यापन" style="grid-column:1/-1">' +
     '<div class="ph">🧾 RM भौतिक-सत्यापन</div>' +
     '<div class="pd">v1.7 प्रदर्शन-नियम: बिना RM भौतिक-सत्यापन + approval-श्रृंखला के आपका नाम portal पर नहीं दिखेगा। सत्यापन-स्थिति यहीं दिखेगी। Verified Vendor badge (वैकल्पिक, ₹300/600/1000 × 365 दिन) approval के बाद।</div>' +
     '<span class="soon">आरक्षित — अगले दौर में</span></div>');
   return (
-    '<div class="pcard" style="grid-column:1/-1">' +
+    '<div class="pcard panel" id="pnl-extra" data-nav="🗂️ आगे के पैनल" style="grid-column:1/-1">' +
     '<div class="ph">🗂️ आगे के पैनल</div>' +
     '<div class="pd">इस role के काम-पैनल (सेवा · payment · badge आदि) approval-श्रृंखला (g2) के साथ अगले दौर में खुलेंगे।</div>' +
     '<span class="soon">आरक्षित — अगले दौर में</span></div>');

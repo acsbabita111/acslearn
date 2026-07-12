@@ -8,7 +8,10 @@
 <!-- ════════════════════════════════════════════════════════════════
      ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · 12-Jul-2026) —
      हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
-     ACS Dashboard — मास्टर टेम्पलेट v3.0 (काम-4 · admin v2.2 से रूपांतरित)
+     ACS Dashboard — मास्टर टेम्पलेट v3.1 (काम-4 · admin v2.2 से रूपांतरित)
+     v3.1 · 12-Jul-2026 — Founder-निर्देश: बाईं काम-सूची (mobile: ☰ drawer) ·
+             पैनल click-पर-खुले · आलसी-load (data तभी जब पैनल खुले) ·
+             आवेदन-सूची 50-50 की खेप ("और देखें") — 500+ RM के लिए तैयार
      v3.0 · 12-Jul-2026 — MODE (team/external) + topbar-पहचान + Transfer/Leave UI + CAN_FINAL-gate
      पिछला: v2.2 · 11-Jul-2026 — काम-पैनल + रिपोर्ट-चक्र live (assignTask/updateTaskStatus/submitReport)
      पिछला: टीम-पैनल live (hold-बटन) + पदेन-प्रभार + दस्तावेज़-404 fix
@@ -140,6 +143,26 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
 .exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
 
+/* ═══ बाईं काम-सूची (v3.1) — desktop स्थायी, mobile drawer ═══ */
+.shell{display:flex;align-items:flex-start;gap:14px}
+.side{background:#fff;border:1px solid var(--border);border-radius:16px;padding:10px;min-width:210px;box-shadow:0 6px 18px rgba(11,31,58,.06);position:sticky;top:10px}
+.side .si{display:flex;align-items:center;gap:8px;width:100%;text-align:right;border:none;background:none;border-radius:10px;padding:12px 12px;font-size:17px;font-weight:800;color:var(--navy);cursor:pointer;font-family:inherit}
+.side .si:hover{background:var(--offwhite)}
+.side .si.on{background:var(--blue);color:#fff}
+.content{flex:1;min-width:0}
+.panel{display:none}
+.panel.on{display:block}
+.pnl{display:block}
+.pnl .pcard{margin-bottom:12px}
+.sideveil{display:none}
+@media(max-width:899px){
+  .shell{display:block}
+  .side{display:none;position:fixed;top:0;right:0;bottom:0;z-index:60;border-radius:0;min-width:250px;max-width:80vw;overflow:auto;padding-top:16px}
+  .side.open{display:block}
+  .sideveil.open{display:block;position:fixed;inset:0;background:rgba(11,31,58,.45);z-index:55}
+}
+@media(min-width:900px){.side-toggle{display:none}}
+
 /* ═══ [T6] footer ═══ */
 .foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
 </style>
@@ -153,6 +176,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <div class="tt"><strong>Applied Computer School™</strong><span id="tbRole">शिक्षक Dashboard</span></div>
     <div class="sp"></div>
     <div class="tbwho" id="tbWho"></div>
+    <button class="btn-out side-toggle" onclick="toggleSide()">☰ काम-सूची</button>
     <button class="btn-out" onclick="doLogout()">Logout</button>
   </div>
 
@@ -179,9 +203,13 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 
   <!-- मुख्य दृश्य -->
   <div class="main hidden" id="appView">
+   <div class="shell">
+    <div class="sideveil" id="sideVeil" onclick="toggleSide()"></div>
+    <nav class="side" id="sideNav" aria-label="काम-सूची"></nav>
+    <div class="content">
 
     <!-- [T4] प्रोफ़ाइल -->
-    <div class="card">
+    <div class="card panel" id="pnl-profile" data-nav="👤 मेरी प्रोफ़ाइल">
       <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
       <div class="pgrid">
         <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
@@ -206,14 +234,16 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 
     <!--EXTERNAL_ONLY_START-->
     <div class="pnl">
-      <div class="pcard" style="grid-column:1/-1">
+      <div class="pcard panel" id="pnl-status" data-nav="🛤️ approval-स्थिति" style="grid-column:1/-1">
         <div class="ph">🛤️ approval-स्थिति</div>
         <div class="pd">बाहरी-role (g2) की approval-श्रृंखला server पर अगले दौर में बनेगी (v1.3: "पहले टीम फ़ाइनल") — तब तक dashboard देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>
       </div>
-      <div class="pcard" style="grid-column:1/-1"><div class="ph">🗂️ आगे के पैनल</div><div class="pd">इस role के काम-पैनल (सेवा · payment · badge आदि) approval-श्रृंखला (g2) के साथ अगले दौर में खुलेंगे।</div><span class="soon">आरक्षित — अगले दौर में</span></div>
+      <div class="pcard panel" id="pnl-extra" data-nav="🗂️ आगे के पैनल" style="grid-column:1/-1"><div class="ph">🗂️ आगे के पैनल</div><div class="pd">इस role के काम-पैनल (सेवा · payment · badge आदि) approval-श्रृंखला (g2) के साथ अगले दौर में खुलेंगे।</div><span class="soon">आरक्षित — अगले दौर में</span></div>
     </div>
     <!--EXTERNAL_ONLY_END-->
 
+    </div>
+   </div>
   </div>
 
   <!-- [T6] footer -->
@@ -226,7 +256,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot, orderBy, limit, startAfter } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
 
 const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
@@ -251,6 +281,31 @@ const mxLabel = (key)=>{ const r=mxRow(key); return r ? r.label : (key||"—"); 
 function show(id){
   ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
   $(id).classList.remove("hidden");
+}
+
+/* ═══ काम-सूची इंजन (v3.1) — पैनल click-पर, data आलसी-load ═══ */
+window.toggleSide = function(){
+  document.getElementById("sideNav").classList.toggle("open");
+  document.getElementById("sideVeil").classList.toggle("open");
+};
+const LAZY = {}; /* team-mode अपनी entries नीचे (team-only block में) भरता है */
+function initNav(){
+  const nav=$("sideNav"); nav.innerHTML="";
+  document.querySelectorAll(".panel").forEach(p=>{
+    const b=document.createElement("button");
+    b.className="si"; b.textContent=p.getAttribute("data-nav")||p.id;
+    b.setAttribute("data-go",p.id);
+    b.addEventListener("click",()=>navGo(p.id));
+    nav.appendChild(b);
+  });
+  navGo("pnl-profile");
+}
+function navGo(id){
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("on",p.id===id));
+  document.querySelectorAll(".side .si").forEach(b=>b.classList.toggle("on",b.getAttribute("data-go")===id));
+  const nv=$("sideNav"); if(nv.classList.contains("open")) window.toggleSide();
+  window.scrollTo(0,0);
+  const fn=LAZY[id]; if(typeof fn==="function") fn();
 }
 
 /* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
@@ -351,6 +406,7 @@ async function guardExternal(user){
   $("tlNote").textContent = "";
 
   show("appView");
+  initNav();
   startSessionWatch(user);
   startIdleTimer();
 }
