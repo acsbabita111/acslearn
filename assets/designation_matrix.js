@@ -5,7 +5,10 @@
    आधार: Founder की 35-पद तालिका (10-Jul-2026 · 11:36 PM)
          + Addendum-प्रविष्टि "संगठन-ढाँचा v2.0" (11-Jul-2026 · 02:44 AM)
          + Addendum-प्रविष्टि "Vendor-role v1.7" (12-Jul-2026 · 12:12 PM)
-   Version: 1.3 · 12-Jul-2026 — काम-5: public_label (कूट-नाम नियम — Founder, 12-07-2026:
+   Version: 1.4 · 12-Jul-2026 — Founder-आदेश: 12वाँ कार्ड "finance_mitra"
+            (वित्त मित्र — उद्यमी↔अधिकृत वित्तीय संस्था का पुल; 11-कार्ड लॉक का
+            Founder-override, v1.7-ग सिद्धांत-2 का पद-रूप)।
+   पिछला:  1.3 · 12-Jul-2026 — काम-5: public_label (कूट-नाम नियम — Founder, 12-07-2026:
             code-key सिर्फ़ internal; public को सुंदर आम-बोलचाल नाम) + ruleFile (नियम-फ़ाइल का
             एकमात्र घर अब यहीं) + registrable + geo — नीचे v1.3-block से।
    पिछला:  1.2 · 12-Jul-2026 — Vendor-कार्ड जुड़ा (v1.7-क) ·
@@ -24,7 +27,7 @@
 
 const ACS_DESIGNATIONS = {
 
-  version: "1.3",
+  version: "1.4",
   updated: "12-07-2026 IST",
 
   /* ---------- approval एक-पाइपलाइन (v2.0-ग) ----------
@@ -231,6 +234,9 @@ const ACS_DESIGNATIONS = {
     { key: "volunteer",     collection: "volunteers",     dashboard: "/dashboard/volunteer/",     label: "स्वयंसेवक",        min_age: 18,
       subtypes: [],
       note: "approval पर teams-record (designation: rm_volunteer) भी बने — v2.0-घ" },
+    { key: "finance_mitra", collection: "finance_mitras", dashboard: "/dashboard/finance-mitra/", label: "वित्त मित्र (Finance Mitra)", min_age: 18,
+      subtypes: [],
+      note: "Founder-आदेश 12-07-2026: उद्यमी व Vendor के बीच का गुम पद — नए उद्यमियों को सिर्फ़ अधिकृत वित्तीय संस्थाओं (बैंक/सरकारी योजना/NBFC/CSR) से जोड़ने वाला पुल (v1.7-ग सिद्धांत-2)। उद्यमी से शून्य शुल्क — कमीशन संस्था से; badge ₹300/600/1000×365; प्रदर्शन-नियम vendor जैसा" },
     { key: "vendor",        collection: "vendors",        dashboard: "/dashboard/vendor/",        label: "विक्रेता (Vendor)", min_age: 18,
       subtypes: [],
       note: "v1.7-क: उद्यम-स्थापना का सेवा/सामान प्रदाता; जुड़ना free; Verified Vendor = वैकल्पिक paid badge (₹300/600/1000 × 365 दिन); प्रदर्शन-नियम: बिना RM भौतिक-सत्यापन + approval-श्रृंखला के कोई नाम portal पर कभी न दिखे" },
@@ -321,9 +327,9 @@ const ACS_DESIGNATIONS = {
     student:"विद्यार्थी (Student)", jobseeker:"नौकरी (Job-seeker)", entrepreneur:"उद्यम (Entrepreneur)",
     teacher:"शिक्षक (Teacher)", center:"केंद्र (Center)", counselor:"सलाहकार (Counselor)",
     employer:"नियोक्ता (Employer)", foreign_agent:"विदेश एजेंट (Foreign Agent)",
-    volunteer:"स्वयंसेवक (Volunteer)", vendor:"विक्रेता (Vendor)", team:"ACS टीम (ACS Team)"
+    volunteer:"स्वयंसेवक (Volunteer)", finance_mitra:"वित्त मित्र (Finance Mitra)", vendor:"विक्रेता (Vendor)", team:"ACS टीम (ACS Team)"
   };
-  var CRULE = { vendor:"rules-consent-vendor.html" };
+  var CRULE = { vendor:"rules-consent-vendor.html", finance_mitra:"rules-consent-finance-mitra.html" };
   M.cards.forEach(function(c){
     c.public_label = CPUB[c.key] || c.label;
     if(CRULE[c.key]) c.ruleFile = CRULE[c.key];

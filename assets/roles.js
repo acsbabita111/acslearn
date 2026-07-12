@@ -156,6 +156,19 @@ window.ACS_ROLES = {
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
+      { key:"finance_mitra", group:"g2", icon:"🏦",
+        hi:"वित्त मित्र (Finance Mitra)", en:"Finance Mitra",
+        desc_hi:"उद्यमी को बैंक/योजना से जोड़कर पूंजी की व्यवस्था — जुड़ना निःशुल्क", desc_en:"Connect entrepreneurs to banks/schemes for capital — free to join",
+        collection:"finance_mitras", dashboard:"/dashboard/finance-mitra/",
+        ruleFile:"rules-consent-finance-mitra.html", gateway:true, needsGeo:false, needsRMOffice:false,
+        fields: [ F.nameLocal, F.nameRoman,
+          { id:"affiliation", type:"text", required:true, hi:"किस संस्था/योजना से अधिकृत (जैसे: SBI Bank-Mitra, मुद्रा DSA)", en:"Authorized by which institution/scheme" },
+          { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
+          F.address, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature,
+          { id:"doc_empanelment", accept:"image/*,.pdf", required:true, hi:"संस्था-अधिकृति/empanelment प्रमाण की प्रति", en:"Institution authorization/empanelment proof" } ]
+      },
+
       { key:"vendor", group:"g2", icon:"🛒",
         hi:"Vendor (विक्रेता)", en:"Vendor",
         desc_hi:"उद्यम-स्थापना का सेवा/सामान प्रदाता — जुड़ना निःशुल्क", desc_en:"Enterprise-setup goods/service provider — free to join",
