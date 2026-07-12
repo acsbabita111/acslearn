@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>सुंदर भविष्य के लिए ACS से जुड़ें! | Applied Computer School</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="assets/designation_matrix.js"></script>
 <script src="assets/roles.js"></script>
 <script src="assets/geo/countries.js"></script>
 <!-- Firebase SDK (compat) — असली OTP के लिए -->
@@ -42,6 +43,14 @@
   .panel.active{display:block}
   .card{background:#fff;border:2px solid var(--blue);border-radius:14px;padding:18px;margin-bottom:12px}
   .card h3{color:var(--navy);font-size:18px;margin-bottom:10px}
+  .roleGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+  .role-card{border:2px solid #cfd8e3;border-radius:12px;padding:12px 10px;background:#fff;cursor:pointer;text-align:center}
+  .role-card .rIcon{font-size:26px;line-height:1.2}
+  .role-card .rName{font-size:17px;font-weight:800;color:var(--navy);margin-top:4px;line-height:1.4}
+  .role-card .rDesc{font-size:16px;color:#667;line-height:1.5;margin-top:2px}
+  .role-card.sel{border-color:var(--green);background:#EAF3EC;box-shadow:0 2px 10px rgba(46,125,50,.18)}
+  .role-card.learnerC{background:#FFFDF4}
+  @media(min-width:700px){ .roleGrid{grid-template-columns:1fr 1fr 1fr} }
   .row{margin-bottom:14px}
   .row label{display:block;font-size:16px;color:#444;font-weight:700;margin-bottom:5px}
   .row .hint{font-size:14px;color:#888;font-weight:400;margin-top:3px}
@@ -196,12 +205,27 @@
   <!-- ═══════════════════ STEP 2 — Gate (पदनाम-सीढ़ी) + Rules ═══════════════════ -->
   <div class="panel" id="panel2">
     <div class="card">
-      <h3>2️⃣ अपना जॉब-रोल चुनें</h3>
-      <div class="row">
-        <select id="roleSel">
-          <option value="">— अपना रोल चुनें —</option>
-          <!-- नीचे के options roles.js (ACS_ROLES) से JS द्वारा अपने-आप भरे जाते हैं -->
-        </select>
+      <h3>2️⃣ अपनी भूमिका (Role) चुनें</h3>
+      <!-- (काम-5 v1.9, 12-07-2026) registration व login के item एक-समान (मेनू-सिद्धांत):
+           11 कार्ड — एकमात्र स्रोत designation_matrix v1.3 (public_label)। कूट-नाम कभी UI पर नहीं। -->
+      <div class="roleGrid" id="roleGrid"></div>
+      <select id="roleSel" style="display:none">
+        <option value="">— अपना रोल चुनें —</option>
+      </select>
+
+      <!-- ACS टीम कार्ड चुनने पर: पदनाम-सीढ़ी (matrix v1.3 से) -->
+      <div class="cascade" id="teamLadderBox">
+        <div class="row"><label>कार्यालय-स्तर चुनें</label>
+          <select id="teamLevelSel">
+            <option value="">— स्तर चुनें —</option>
+            <option value="hq">प्रधान कार्यालय (HQ)</option>
+            <option value="zm">राज्य/देश कार्यालय</option>
+            <option value="rm">क्षेत्रीय कार्यालय</option>
+          </select>
+        </div>
+        <div class="row" id="teamDesigRow" style="display:none"><label>पदनाम चुनें</label>
+          <select id="teamDesigSel"><option value="">— पहले स्तर चुनें —</option></select>
+        </div>
       </div>
 
       <!-- ZM/RM/Volunteer/Staff के लिए राज्य-देश व RM-कार्यालय cascade -->
@@ -304,21 +328,70 @@
   var R = window.ACS_ROLES;
   if(!R){ alert('⚠️ roles.js लोड नहीं हुआ — कृपया सुनिश्चित करें कि roles.js join.html के साथ उसी फ़ोल्डर में है।'); }
 
-  /* role-dropdown को roles.js के cards व groups से भरना (optgroup सहित) */
-  function buildRoleDropdown(){
+  /* ═══ (काम-5 v1.9, 12-07-2026) 11-कार्ड grid — एकमात्र स्रोत matrix v1.3 ═══
+     login-page से एक-समान item/नाम/क्रम (मेनू-सिद्धांत)। कूट-नाम UI पर कभी नहीं —
+     सिर्फ़ public_label। ACS-टीम कार्ड → पदनाम-सीढ़ी (registrable पद)। */
+  var MX = window.ACS_DESIGNATIONS;
+  if(!MX){ alert('⚠️ designation_matrix.js लोड नहीं हुआ — कृपया assets फ़ोल्डर जाँचें।'); }
+  var CARD_ICON = { student:'🎓', jobseeker:'💼', entrepreneur:'🏭', teacher:'👨‍🏫', center:'🏫',
+    counselor:'🧭', employer:'🧑‍💼', foreign_agent:'✈️', volunteer:'🤝', vendor:'🛒', team:'🛠️' };
+  var teamLadderBox, teamLevelSel, teamDesigSel, teamDesigRow;
+  function ensureRoleOption(key, label){
     var sel = document.getElementById('roleSel');
-    var byGroup = {};
-    R.cards.forEach(function(c){ (byGroup[c.group]=byGroup[c.group]||[]).push(c); });
-    Object.keys(R.groups).forEach(function(gKey){
-      var list = byGroup[gKey]; if(!list || !list.length) return;
-      var og = document.createElement('optgroup');
-      og.label = R.groups[gKey].hi;
-      list.forEach(function(c){
-        var opt = document.createElement('option');
-        opt.value = c.key; opt.textContent = c.hi;
-        og.appendChild(opt);
+    for(var i=0;i<sel.options.length;i++){ if(sel.options[i].value===key){ sel.options[i].textContent=label; return; } }
+    var opt = document.createElement('option'); opt.value=key; opt.textContent=label; sel.appendChild(opt);
+  }
+  function setRole(key, label){
+    ensureRoleOption(key, label);
+    var sel = document.getElementById('roleSel');
+    if(sel.value !== key){ sel.value = key; sel.dispatchEvent(new Event('change')); }
+  }
+  function buildRoleCards(){
+    var grid = document.getElementById('roleGrid');
+    (MX && MX.cards || []).forEach(function(c){
+      var div = document.createElement('div');
+      div.className = 'role-card' + ((c.key==='student'||c.key==='jobseeker'||c.key==='entrepreneur')?' learnerC':'');
+      var rc = R.byKey(c.key==='team' ? '' : c.key);
+      div.innerHTML = '<div class="rIcon">'+(CARD_ICON[c.key]||'⭐')+'</div>'+
+        '<div class="rName">'+(c.public_label||c.label)+'</div>'+
+        (rc && rc.desc_hi ? '<div class="rDesc">'+rc.desc_hi+'</div>' : (c.key==='team'?'<div class="rDesc">कार्यालय-पद — पदनाम नीचे चुनें</div>':''));
+      div.addEventListener('click', function(){
+        grid.querySelectorAll('.role-card').forEach(function(x){ x.classList.remove('sel'); });
+        div.classList.add('sel');
+        if(c.key === 'team'){
+          teamLadderBox.classList.add('show');
+          teamLevelSel.value=''; teamDesigRow.style.display='none';
+          teamDesigSel.innerHTML='<option value="">— पहले स्तर चुनें —</option>';
+          /* रोल तभी तय होगा जब पदनाम चुना जाए */
+          var sel = document.getElementById('roleSel');
+          if(sel.value){ sel.value=''; sel.dispatchEvent(new Event('change')); }
+        } else {
+          teamLadderBox.classList.remove('show');
+          setRole(c.key, c.public_label||c.label);
+        }
       });
-      sel.appendChild(og);
+      grid.appendChild(div);
+    });
+    /* टीम-सीढ़ी: स्तर → उस स्तर के registrable पद (public_label से) */
+    teamLevelSel.addEventListener('change', function(){
+      var lvl = teamLevelSel.value;
+      teamDesigSel.innerHTML = '<option value="">— पदनाम चुनें —</option>';
+      if(!lvl){ teamDesigRow.style.display='none'; return; }
+      (MX.teams||[]).forEach(function(t){
+        if(t.level !== lvl || t.registrable === false) return;
+        var opt = document.createElement('option');
+        opt.value = t.key; opt.textContent = t.public_label || t.label;
+        teamDesigSel.appendChild(opt);
+      });
+      teamDesigRow.style.display='';
+      var sel = document.getElementById('roleSel');
+      if(sel.value){ sel.value=''; sel.dispatchEvent(new Event('change')); }
+    });
+    teamDesigSel.addEventListener('change', function(){
+      var k = teamDesigSel.value;
+      if(!k){ return; }
+      var t = null; (MX.teams||[]).forEach(function(x){ if(x.key===k) t=x; });
+      setRole(k, t ? (t.public_label||t.label) : k);
     });
   }
   /* (v-geo 09-Jul-2026) देश-dropdown — /assets/geo/countries.js से, 4 समूह-क्रम:
@@ -349,7 +422,11 @@
       document.head.appendChild(s);
     });
   }
-  buildRoleDropdown();
+  teamLadderBox = document.getElementById('teamLadderBox');
+  teamLevelSel = document.getElementById('teamLevelSel');
+  teamDesigSel = document.getElementById('teamDesigSel');
+  teamDesigRow = document.getElementById('teamDesigRow');
+  buildRoleCards();
   buildCountryDropdown();
 
   /* ═══════════════ STEP 1 : नाम/मोबाइल/ईमेल/Password + OTP ═══════════════ */
@@ -859,7 +936,15 @@
   function officeSummaryText(){
     var card = R.byKey(roleSel.value); if(!card) return '';
     var parts = [];
-    if(card.isHQ) parts.push('कार्यालय: HQ (मुख्यालय)');
+    if(card.isHQ) parts.push('कार्यालय: प्रधान कार्यालय (HQ)');
+    if(card.matrixLevel && !card.isHQ){
+      parts.push('कार्यालय-स्तर: ' + ({hq:'प्रधान कार्यालय (HQ)', zm:'राज्य/देश कार्यालय', rm:'क्षेत्रीय कार्यालय'}[card.matrixLevel] || card.matrixLevel));
+    }
+    var contEl = step3FieldEls['continent'];
+    if(contEl && contEl.value){
+      var cOpt = contEl.options && contEl.options[contEl.selectedIndex];
+      parts.push('महाद्वीप: ' + (cOpt ? cOpt.text : contEl.value));
+    }
     var lvl = staffLevelSel.value;
     if(card.hasOfficeLevelCascade && lvl){
       parts.push('स्तर: ' + ({hq:'HQ (मुख्यालय)', zm:'ZM कार्यालय', rm:'RM कार्यालय'}[lvl] || lvl));
@@ -1211,7 +1296,77 @@
       };
       window._syncAgeFromDob();
     }
+    buildDesiredAreaBox();   /* (Founder-नियम 12-07-2026) वांछित कार्य-क्षेत्र — pincode के आगे */
     validateStep3();
+  }
+
+  /* ═══ (Founder-नियम, 12-07-2026) वांछित कार्य-क्षेत्र — pincode के ठीक आगे ═══
+     "जहाँ के लिए आवेदन किया जा रहा है" — जिला / राज्य / देश अलग से अवश्य लिखा जाए।
+     Step-2 की सीढ़ी में चुना गया हो → वही locked दिखे; वरना यहाँ भरना अनिवार्य। */
+  function desiredLockedText(){
+    var card = R.byKey(roleSel.value); if(!card) return '';
+    if(card.isHQ) return 'कार्यालय: प्रधान कार्यालय (HQ) — चौथम, खगड़िया, बिहार, भारत';
+    var contEl = step3FieldEls['continent'];
+    if(contEl){ return 'महाद्वीप: ऊपर "महाद्वीप" खाने में आपका चुनाव ही वांछित कार्य-क्षेत्र है।'; }
+    var parts = [];
+    var ds = chosenDistricts(); if(ds.length) parts.push('जिला: ' + ds.join(', '));
+    if(stateLabelText()) parts.push('राज्य/प्रांत: ' + stateLabelText());
+    if(countryLabel()) parts.push('देश: ' + countryLabel());
+    return parts.join(' · ');
+  }
+  function buildDesiredAreaBox(){
+    var oldBox = document.getElementById('desiredAreaBox'); if(oldBox) oldBox.remove();
+    if(!roleSel.value) return;
+    var locked = desiredLockedText();
+    var box = document.createElement('div');
+    box.className = 'row'; box.id = 'desiredAreaBox';
+    box.style.cssText = 'background:#FFF8E1;border:1.5px solid var(--gold);border-radius:9px;padding:10px';
+    if(locked){
+      box.innerHTML = '<label>🎯 वांछित कार्य-क्षेत्र — जिस जगह के लिए आवेदन कर रहे हैं</label>'+
+        '<div style="font-weight:700;color:#1b4d20;font-size:17px" id="desiredLockedTxt">'+locked+'</div>'+
+        '<div class="hint">यह आपके ऊपर (चरण-2) के चुनाव से अपने-आप लिया गया है।</div>';
+    } else {
+      var C = window.ACS_GEO_COUNTRIES || [], G = window.ACS_GEO_GROUPS || {};
+      var copts = '<option value="">— देश चुनें —</option>';
+      [1,2,3,4].forEach(function(g){
+        var list = C.filter(function(c){ return c.g===g; });
+        if(!list.length) return;
+        copts += '<optgroup label="'+(G[g]||('समूह-'+g))+'">'+list.map(function(c){
+          return '<option value="'+c.v+'" data-hi="'+c.hi+'">'+c.hi+'</option>'; }).join('')+'</optgroup>';
+      });
+      box.innerHTML = '<label>🎯 वांछित कार्य-क्षेत्र — जिस जगह के लिए आवेदन कर रहे हैं <span style="color:#B23A3A">*</span></label>'+
+        '<div style="margin-top:4px"><label>देश</label><select id="desiredCountry">'+copts+'</select></div>'+
+        '<div style="margin-top:6px"><label>राज्य / प्रांत</label><input type="text" id="desiredState" placeholder="अपना वांछित राज्य/प्रांत लिखें"></div>'+
+        '<div style="margin-top:6px"><label>जिला</label><input type="text" id="desiredDistrict" placeholder="अपना वांछित जिला लिखें"></div>'+
+        '<div class="hint">यही जगह आपके आवेदन, पुष्टि-पर्दे व एग्रीमेंट-PDF — तीनों पर दिखेगी।</div>';
+    }
+    /* जगह: pincode-block के ठीक आगे (Founder-नियम); pincode-खाना न हो तो सबसे ऊपर */
+    var pinDetailInput = dynamicFields.querySelector('[id^="pinDetail_"]');
+    var pinRow = pinDetailInput ? pinDetailInput.closest('.row') : null;
+    if(pinRow && pinRow.parentNode){ pinRow.parentNode.insertBefore(box, pinRow.nextSibling); }
+    else { dynamicFields.insertBefore(box, dynamicFields.firstChild); }
+    ['desiredCountry','desiredState','desiredDistrict'].forEach(function(id){
+      var el = document.getElementById(id); if(!el) return;
+      el.addEventListener('input', validateStep3); el.addEventListener('change', validateStep3);
+    });
+  }
+  function desiredAreaData(){
+    var lockedEl = document.getElementById('desiredLockedTxt');
+    if(lockedEl) return { mode:'from_step2', text: lockedEl.textContent, country:'', state:'', district:'' };
+    var c = document.getElementById('desiredCountry'), st = document.getElementById('desiredState'), d = document.getElementById('desiredDistrict');
+    if(!c) return { mode:'none', text:'', country:'', state:'', district:'' };
+    var cOpt = c.options[c.selectedIndex];
+    return { mode:'typed', country:(c.value||''), country_hi:(c.value && cOpt ? cOpt.text : ''),
+      state:(st ? st.value.trim() : ''), district:(d ? d.value.trim() : ''),
+      text: [ (d&&d.value.trim()) ? 'जिला: '+d.value.trim() : '', (st&&st.value.trim()) ? 'राज्य: '+st.value.trim() : '',
+              (c.value && cOpt) ? 'देश: '+cOpt.text : '' ].filter(Boolean).join(' · ') };
+  }
+  function desiredAreaOk(){
+    var box = document.getElementById('desiredAreaBox');
+    if(!box) return true;
+    if(document.getElementById('desiredLockedTxt')) return true;
+    var d = desiredAreaData();
+    return !!(d.country && d.state && d.district);
   }
 
   function validateStep3(){
@@ -1239,6 +1394,7 @@
         if(!docFiles[d.id]) ok = false;
       });
     }
+    if(!desiredAreaOk()) ok = false;   /* (Founder-नियम 12-07-2026) वांछित कार्य-क्षेत्र अनिवार्य */
     toStep4Btn.className = 'big ' + (ok?'btn-on':'btn-off');
     toStep4Btn.disabled = !ok;
   }
@@ -1413,6 +1569,7 @@
       '<div style="background:#FFF8E1;border:1.5px solid var(--gold);border-radius:8px;padding:8px;margin:6px 0">'+
         '<div><b>आपने चुना — रोल:</b> '+ roleLabel +'</div>'+
         (officeSummaryText() ? '<div><b>कार्य-क्षेत्र:</b> '+ officeSummaryText() +'</div>' : '')+
+        (function(){ var d = desiredAreaData(); return (d.mode==='typed' && d.text) ? '<div><b>🎯 वांछित कार्य-क्षेत्र:</b> '+d.text+'</div>' : ''; })()+
       '</div>';
     var card = R.byKey(roleSel.value);
     if(card){
@@ -1502,20 +1659,33 @@
       password: pwd.value,   /* (रास्ता A) server इसी से Auth-खाता बनाता है — provisional login के लिए */
       role: roleSel.value,
       /* (v-geo 09-Jul-2026) कार्य-क्षेत्र — देश → राज्य → जिले */
-      staff_level: staffLevelSel.value || "",
+      staff_level: (function(){ var c = R.byKey(roleSel.value); return (c && c.matrixLevel) || staffLevelSel.value || ""; })(),
       country: countrySel.value || "",
       state: stateValue() || "",
       rm_districts: chosenDistricts(),
       formFields: gatherStep3Data(),
       documents: gatherDocsBase64()
     };
+    /* (Founder-नियम 12-07-2026) वांछित कार्य-क्षेत्र — record व PDF दोनों में जाए */
+    var dArea = desiredAreaData();
+    if(dArea.mode === 'typed'){
+      payload.formFields.desired_country = dArea.country_hi || dArea.country;
+      payload.formFields.desired_state = dArea.state;
+      payload.formFields.desired_district = dArea.district;
+      if(!payload.country) payload.country = dArea.country;
+      if(!payload.state) payload.state = dArea.state;
+    } else if(dArea.mode === 'from_step2'){
+      payload.formFields.desired_area = dArea.text;
+    }
 
     callOtpFn('submitRegistration', payload).then(function(res){
       lastRegNo = res.regNo;
       document.getElementById('regNoBox').textContent = lastRegNo;
       var roleLabelS = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
       var osS = officeSummaryText();
+      var dS = desiredAreaData();
       document.getElementById('chosenBox').innerHTML = '<b>आपने चुना:</b> ' + roleLabelS + (osS ? '<br>' + osS : '')
+        + ((dS.mode==='typed' && dS.text) ? '<br>🎯 वांछित कार्य-क्षेत्र: ' + dS.text : '')
         + (res.updated ? '<br><span style="color:var(--blue)">ℹ️ आपका पुराना आवेदन इसी Registration No पर अद्यतन (update) हुआ है।</span>' : '');
       for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
       document.getElementById('panelSuccess').classList.add('active');

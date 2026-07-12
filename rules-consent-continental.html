@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>नियम व सहमति — Continental Head | ACS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0B1F3A;--blue:#1565C0;--gold:#F9A825;--green:#2E7D32;--off:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Noto Sans Devanagari','Inter',sans-serif;font-size:19px;line-height:1.8;color:#1a2433;background:var(--off);padding:12px}
+  .wrap{max-width:820px;margin:0 auto}
+  .head{background:var(--navy);color:#fff;border-radius:12px;padding:16px;text-align:center;margin-bottom:10px}
+  .head h1{font-size:22px;line-height:1.5}
+  .head .org{color:var(--gold);font-weight:700;font-size:16px;margin-top:4px}
+  .head .sub{font-size:16px;color:#cfd8e3;margin-top:2px}
+  .ver{background:#fff;border:1.5px solid var(--blue);border-radius:10px;padding:8px 12px;font-size:16px;text-align:center;margin-bottom:12px;color:var(--navy)}
+  .note{background:#FFF8E1;border:1.5px solid var(--gold);border-radius:10px;padding:11px 13px;font-size:17px;margin-bottom:12px}
+  .part{background:var(--navy);color:var(--gold);border-radius:8px;padding:6px 12px;font-size:17px;font-weight:800;margin:14px 0 6px}
+  .rules{background:#fff;border:1px solid #dfe6ef;border-radius:12px;padding:8px 6px;margin-bottom:6px}
+  .rule{display:flex;gap:10px;align-items:flex-start;padding:11px 10px;border-bottom:1px dashed #e3e9f2}
+  .rule:last-child{border-bottom:none}
+  .rule input{width:26px;height:26px;min-width:26px;margin-top:7px;accent-color:var(--green);cursor:pointer}
+  .rule .no{font-weight:800;color:var(--blue);min-width:38px;margin-top:2px}
+  .rule label{cursor:pointer;flex:1}
+  .rule.special{background:#FFF8E1;border-radius:8px}
+  .rule.new{background:#EAF3EC;border-radius:8px}
+  .bar{position:sticky;bottom:0;background:#fff;border:1px solid #dfe6ef;border-radius:12px;padding:12px;margin-top:12px;box-shadow:0 -4px 14px rgba(11,31,58,.08)}
+  .count{font-size:16px;text-align:center;color:#555;margin-bottom:8px}
+  .final{display:flex;gap:10px;align-items:flex-start;background:#EAF3EC;border:1.5px solid var(--green);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:17px}
+  .final input{width:26px;height:26px;min-width:26px;margin-top:5px;accent-color:var(--green)}
+  .final input:disabled{opacity:.45}
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  button{flex:1;min-width:150px;border:none;border-radius:10px;padding:14px;font:inherit;font-size:20px;font-weight:800;cursor:pointer}
+  #otpBtn{background:#c7cfda;color:#6b7686;cursor:not-allowed;transition:.3s}
+  #otpBtn.on{background:var(--green);color:#fff;cursor:pointer;box-shadow:0 4px 14px rgba(46,125,50,.35)}
+  .foot{text-align:center;color:#666;font-size:16px;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <h1>नियम, अधिकार व कर्तव्य — Continental Head</h1>
+    <div class="org">Applied Computer School™ · FFGPMTrust</div>
+    <div class="sub">मूल भाषा: हिंदी · पद: Continental Head</div>
+    <!-- internal designation-key: team / continental — public को कभी न दिखाएँ (Founder-नियम 12-07-2026) -->
+  </div>
+
+  <div class="ver"><b>Version: 1.1 (मसौदा)</b> · प्रभावी तिथि: Founder-मंज़ूरी की तिथि से<br>
+  Supersedes: v1.0 मसौदा (12-07-2026) · <b>बदलाव-सार:</b> नियम-47 कानूनी-सुरक्षा रूप · वार्षिक नैतिकता-घोषणा · KPI-नियम · नियम-43/40 सुदृढ़ · public-नाम प्रदर्शन (कूट-नाम internal)</div>
+
+  <div class="note">🙏 कृपया हर नियम ध्यान से पढ़ें। <b>हर नियम को ख़ुद पढ़कर उसके आगे ☑ करें — एक-एक करके।</b> सभी 49 ☑ होने पर नीचे "अंतिम पुष्टि" खुलेगी; उसे भी ख़ुद ☑ करेंगे, तभी "OTP भेजें" बटन चालू होगा। (PDF-प्रति अंतिम पंजीकरण के बाद मिलेगी।)</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">1.</span><label>ACS के पाँच आधार-सिद्धांत मेरे हर फ़ैसले की कसौटी होंगे — (1) <b>विद्यार्थी पहले</b>, (2) <b>सत्यनिष्ठा</b>, (3) <b>शुरू से निजता-सुरक्षा</b> (Privacy by Design), (4) <b>निष्पक्षता</b>, (5) <b>भेदभाव-रहित व्यवहार</b>। ये सिद्धांत ACS Global South Charter (जो पहले से लागू है) पर आधारित हैं; Charter के सिद्धांत सर्वोपरि हैं।</label></div>
+  </div>
+
+  <div class="part">भाग-ख : पद, काम व मानदेय</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">2.</span><label>आपका पद <b>Continental Head</b> है। आप HQ के नेटवर्क Head के नीचे, भारत से बाहर अपने महाद्वीप के दायरे में काम करेंगे। आपके नीचे: आपके महाद्वीप के हर देश का ZM (Country Head)।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">3.</span><label>आपका मुख्य काम: अपने महाद्वीप में ACS का विस्तार — देश-दर-देश ZM-नेटवर्क खड़ा करना, स्थानीय कानूनों के दायरे में ACS-नियम लागू कराना।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">4.</span><label>आपको अपने महाद्वीप के देशों का data देखने का अधिकार मिलेगा — सिर्फ़ अपने दायरे का data, उससे बाहर नहीं।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">5.</span><label>आपका मानदेय हर महीने की 1 से 7 तारीख़ के बीच मिलेगा।</label></div>
+  </div>
+
+  <div class="part">भाग-ग : कार्यालय-शृंखला, अप्रूवल-चक्र, चरित्र-प्रमाण व ग्राहक-प्रतिबद्धता</div>
+  <div class="rules">
+    <div class="rule new"><input type="checkbox"><span class="no">6.</span><label>अपने दायरे के रोज़मर्रा के फ़ैसलों में आपका निर्णय अंतिम होगा — बशर्ते वह ACS के नियमों, आपके ऊपर के प्रमुख के निर्देश और Founder की सर्वोच्चता के दायरे में हो।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">7.</span><label>अपने अधिकार-क्षेत्र से बाहर या बड़े फ़ैसलों के लिए अपने ऊपर के प्रमुख — <b>नेटवर्क Head (Network Head)</b> — से सहमति लेना अनिवार्य होगा।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">8.</span><label>नियुक्ति/जुड़ने की एक-पाइपलाइन (v2.0-ग): हर आवेदन Legal → Finance → Establishment → विभागीय-चौकी (सीधा ऊपर वाला एक) → अंतिम मुहर से गुज़रेगा। आपका आवेदन: Legal → Finance → Establishment → <b>नेटवर्क Head</b> → <b>Founder की अंतिम मुहर</b>। आपके महाद्वीप के हर देश-ZM के आवेदन में <b>विभागीय-चौकी आप</b> होंगे।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">9.</span><label>किसी दूसरे कार्यालय से विवाद होने पर — दोनों तरफ़ के ऊपर वाले प्रमुख मिलकर फ़ैसला करेंगे; बात न बने तो HQ Admin का फ़ैसला अंतिम; HQ Admin से भी विवाद हो तो Founder का फ़ैसला अंतिम व अपरिवर्तनीय।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">10.</span><label><b>चरित्र-प्रमाण पत्र (अनिवार्य):</b> सेवा शुरू करने के <b>30 दिनों के अंदर</b> स्थानीय पुलिस द्वारा जारी चरित्र प्रमाण पत्र जमा करना अनिवार्य होगा। इसका सत्यापन <b>HQ Legal Head</b> करेंगे। <b>जब तक सत्यापन पूरा नहीं होता, दूसरे महीने का मानदेय स्थगित रहेगा।</b></label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">11.</span><label><b>Work From Home विकल्प:</b> आपको Work From Home का विकल्प चुनने का अधिकार होगा — बशर्ते अपना पता वेबसाइट पर सार्वजनिक करने की सहमति दें। इसके लिए भविष्य में कोई अलग शुल्क/भत्ता देय नहीं होगा, न ही कोई वित्तीय दावा मान्य होगा।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">12.</span><label><b>प्रोफ़ेशनल फ़ोटो (अनिवार्य):</b> अपना एक अच्छा प्रोफ़ेशनल पासपोर्ट-साइज़ क्लोज़अप फ़ोटो अपलोड करना अनिवार्य होगा, जिसे कोई भी व्यक्ति खोज (search) करने पर देख सकेगा। नया फ़ोटो ऊपर के पद से verify होने पर ही public होगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">13.</span><label><b>व्यवसाय-वृद्धि:</b> Applied Computer School का व्यवसाय बढ़ाने का हर संभव प्रयास करना आपका भी कर्तव्य है।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">14.</span><label><b>"ग्राहक देवो भव:"</b> — किसी भी हालत में इस नियम की अवहेलना नहीं होगी। जिससे ACS का राजस्व बनता है — हर student, teacher, center, employer, agent, vendor — वह हमारे लिए देवता के समान है; हर स्टेकहोल्डर से आदरपूर्ण व सेवा-भाव का व्यवहार अनिवार्य।</label></div>
+  </div>
+
+  <div class="part">भाग-घ : कर्तव्य व आचरण</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">15.</span><label>आपको ACS के सभी नियम मानने होंगे, और अपने नीचे के लोगों से भी नियमों का पालन कराना होगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">16.</span><label>महिलाओं की सुरक्षा (POSH), बच्चों की सुरक्षा (POCSO) और लोगों की निजी जानकारी की सुरक्षा (DPDP) — इन कानूनों का पालन हमेशा ज़रूरी है।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">17.</span><label><b>गोपनीयता (Confidentiality):</b> ACS की अंदर की कोई जानकारी बाहर नहीं जाएगी। गोपनीय संपत्ति में ये सब गिने जाएँगे — source code, student database, पैसों के record, अंदरूनी SOP, password/API key, AI prompt, training सामग्री, dashboard का data। आप सिर्फ़ अपने दायरे का data देखेंगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">18.</span><label><b>बौद्धिक संपत्ति (IP):</b> सेवा के दौरान आपने ACS के काम के लिए जो भी बनाया — software, code, design, दस्तावेज़, SOP या कोई और रचना — वह सब ACS की संपत्ति होगी।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">19.</span><label><b>हितों का टकराव (Conflict of Interest):</b> ACS की लिखित अनुमति के बिना किसी प्रतिस्पर्धी संस्था में काम या समान भूमिका नहीं निभाएँगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">20.</span><label><b>Social media नियम:</b> Facebook, YouTube, Instagram, LinkedIn, Telegram या किसी भी platform पर ACS की अंदरूनी जानकारी, code या system-detail साझा करना मना है।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">21.</span><label><b>राजनीतिक तटस्थता:</b> ACS किसी राजनीतिक दल, नेता या विचारधारा का विस्तार नहीं है। कोई भी कर्मी ACS के मंच/पद/सामग्री का उपयोग प्रचार में नहीं करेगा; निजी नागरिक-अधिकार (Article 19) सुरक्षित है।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">22.</span><label><b>AI-नियम:</b> सिर्फ़ ACS-नीति में अनुमत AI tools का उपयोग होगा। संवेदनशील जानकारी बिना अनुमति किसी सार्वजनिक AI सेवा में नहीं डाली जाएगी। AI से बनी सामग्री की अंतिम ज़िम्मेदारी इंसान की होगी।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">23.</span><label><b>वार्षिक नैतिकता-घोषणा (Ethics Declaration):</b> हर वर्ष dashboard से यह घोषणा भरना अनिवार्य होगा — (1) कोई रिश्वत नहीं, (2) कोई भाई-भतीजावाद नहीं, (3) कोई भेदभाव नहीं, (4) कोई छिपा commission नहीं, (5) हितों के हर टकराव की स्वयं-घोषणा। झूठी घोषणा = अनुशासनिक कार्रवाई।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">24.</span><label><b>KPI (काम-नाप के संकेतक):</b> आपके पद के वार्षिक KPI (जैसे: सक्रिय देश-ZM संख्या, देश-परिशिष्ट अनुपालन, रिपोर्ट-चक्र पालन) Founder/HQ द्वारा दर्ज होंगे व dashboard पर दिखेंगे; लक्ष्य-संख्याएँ व मूल्यांकन-विधि Founder तय करेंगे।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">25.</span><label><b>देश-परिशिष्ट पालन:</b> हर देश में लागू अतिरिक्त नियम Country Annexure से चलेंगे; स्थानीय श्रम/शिक्षा/data-कानूनों की जानकारी रखना व पालन कराना आपकी ज़िम्मेदारी है।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">26.</span><label><b>साझा-भाषा नियम:</b> बहुदेशीय भाषा का content देशों में दोबारा नहीं बनेगा — मूल → English → बाक़ी क्रम ही साझा रास्ता; इसका पालन आपके महाद्वीप में आप कराएँगे।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">27.</span><label><b>विदेश-सत्यापन:</b> आपके दायरे की नियुक्तियों में आमने-सामने सत्यापन live-video call से भी मान्य होगा — पर record अनिवार्य।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">28.</span><label><b>पदेन-प्रभारी:</b> किसी देश का ZM-पद मूल धारक-रहित हो तो आप स्वतः पदेन प्रभारी — पद भरते ही अधिकार वापस।</label></div>
+  </div>
+
+  <div class="part">भाग-ङ : जुड़ना, login व record</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">29.</span><label>जुड़ने का रास्ता: फ़ॉर्म भरना → OTP से जाँच → औपबंधिक (अस्थायी) पंजीकरण → 2 से 7 कार्य-दिवस में जाँच व आमने-सामने (भौतिक) सत्यापन — विदेश में हों तो live-video call से सत्यापन भी मान्य — → नेटवर्क Head की जाँच → Founder की स्वीकृति → फ़ाइनल (🟢)। स्थायी होने तक dashboard सिर्फ़ देख सकेंगे, कोई काम नहीं कर सकेंगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">30.</span><label>Login का नियम: हर बार password और 6 अंकों का Email-OTP डालना होगा। एक ID एक समय में एक ही जगह चलेगी। 10 मिनट कोई हलचल न हो तो अपने-आप logout हो जाएगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">31.</span><label><b>Digital record (Audit Trail):</b> हर login, मंज़ूरी, बदलाव और प्रशासनिक काम का digital record अपने-आप रखा जाएगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">32.</span><label><b>Digital सबूत:</b> ACS के dashboard log, OTP-record, email record, system log और digital audit log — आधिकारिक अभिलेख माने जाएँगे और किसी भी जाँच/विवाद में मान्य होंगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">33.</span><label><b>Record कितने दिन रहेंगे:</b> प्रशासनिक व technical log कम-से-कम 7 वर्ष; पैसों के record लागू कानून के अनुसार; certificate के record स्थायी रखे जाएँगे।</label></div>
+  </div>
+
+  <div class="part">भाग-च : सुरक्षा-घटना, रिपोर्ट व आपदा</div>
+  <div class="rules">
+    <div class="rule special"><input type="checkbox"><span class="no">34.</span><label><b>साइबर/गड़बड़ी की तत्काल सूचना:</b> account hack, password leak, data-चोरी या किसी भी तरह की गड़बड़ी की जानकारी मिलते ही — <b>तुरंत (तत्काल)</b> — अपने ऊपर के प्रमुख व Founder को सूचना देना अनिवार्य है। सूचना देने में 1 घंटे से ज़्यादा देरी होने पर — जिसे यह जानकारी सबसे पहले मिली, वही ज़िम्मेदार माना जाएगा; इस पद के स्तर पर देरी होने पर <b>Continental Head दोषी माने जाएंगे।</b> जिसने भी अपने स्तर पर यह जानकारी छिपाने की कोशिश की, वह भी दोषी माना जाएगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">35.</span><label><b>ग़लत काम की रिपोर्ट (Whistleblower):</b> किसी भी अधिकारी/कर्मी का भ्रष्टाचार, data-चोरी या फ़र्ज़ी काम दिखे तो सीधे Founder को गुप्त रूप से रिपोर्ट करेंगे; सच्ची रिपोर्ट करने वाले की पहचान गुप्त रखते हुए अग्रेतर कार्रवाई की जाएगी।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">36.</span><label><b>रिपोर्ट-चक्र:</b> दैनिक, साप्ताहिक, पाक्षिक, मासिक, त्रैमासिक, अर्धवार्षिक व वार्षिक रिपोर्ट अपने ऊपर के प्रमुख को dashboard से भेजना अनिवार्य होगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">37.</span><label><b>आपात रोक (Emergency Suspension):</b> account hack, धोखाधड़ी का शक या cyber-हमले की स्थिति में Founder किसी भी account को जाँच पूरी होने तक तुरंत रोक सकते हैं — इसमें सहयोग देना आपका कर्तव्य है।</label></div>
+  </div>
+
+  <div class="part">भाग-छ : अनुशासन व सेवा-समाप्ति</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">38.</span><label>ग़लती होने पर पहले 7 दिन का Show-Cause नोटिस मिलेगा — लिखित जवाब देने का मौक़ा। फ़ैसले के ख़िलाफ़ 15 दिन के अंदर अपील कर सकते हैं।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">39.</span><label>ACS या किसी व्यक्ति की झूठी बदनामी करने अथवा छवि खराब करने पर अंतिम नियम के तहत आपातकालीन निष्कासन की प्रक्रिया अपनाई जा सकेगी, जिसमें एक्सेस तुरंत ब्लॉक कर 12 से 24 घंटे का संक्षिप्त डिजिटल नोटिस दिया जाएगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">40.</span><label>किसी जाँच के समय भुगतान ज़्यादा-से-ज़्यादा 60 दिन तक रोका जा सकता है; रोकने की सूचना 48 घंटे के अंदर दी जाएगी।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">41.</span><label><b>सेवा-समाप्ति पर पहुँच बंद:</b> सेवा समाप्त होते ही ACS का email, dashboard, GitHub, Firebase, server — हर पहुँच बंद कर दी जाएगी; office की चाबी व ACS का सामान वापस करना होगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">42.</span><label><b>Data वापसी/मिटाना:</b> सेवा समाप्ति या निलंबन के तत्काल प्रभाव से कर्मी के पास मौजूद समस्त ACS डेटा पर संस्था का अधिकार होगा। अगले 24 घंटे के भीतर कर्मी को अपने निजी उपकरणों से डेटा को पूरी तरह नष्ट/हटाने का डिजिटल हलफ़नामा प्रस्तुत करना अनिवार्य होगा। साथ ही ACS तकनीकी रूप से भी एक्सेस-block होते ही सभी credentials (login, session, API-पहुँच) तुरंत अमान्य कर देगा।</label></div>
+  </div>
+
+  <div class="part">भाग-ज : नियम-परिवर्तन, विवाद व सर्वोच्चता</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">43.</span><label>नियम बदलने का अधिकार Founder के पास है; बदलाव की सूचना 7 दिन में मिलेगी; इसे चुनौती नहीं दी जा सकती। पर कोई भी बदलाव पहले से मिले/दिए पैसे पर पीछे से लागू नहीं होगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">44.</span><label>इस सहमति की दो बराबर प्रतियाँ होंगी — एक आपके पास, एक ACS (HQ Legal) के पास। विवाद में यही मान्य होंगी।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">45.</span><label>कोई कानूनी विवाद उत्पन्न होने पर मामला केवल <b>खगड़िया (बिहार) न्यायालय</b> अथवा पटना स्थित संबंधित सक्षम दीवानी न्यायालय/श्रम न्यायालय के अधिकार-क्षेत्र के अधीन ही विचारणीय होगा। विदेशी मामलों में UNCITRAL नियम मान्य होंगे; जहाँ किसी देश का अनिवार्य स्थानीय कानून (जैसे data-सुरक्षा या श्रम-कानून) लागू हो, वहाँ वह कानून व उस देश का परिशिष्ट (Country Annexure) प्राथमिक रहेगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">46.</span><label><b>देश-परिशिष्ट (Country Annexure):</b> भारत के बाहर लागू अतिरिक्त नियम संबंधित देश के परिशिष्ट के माध्यम से जारी किए जाएँगे; मूल दस्तावेज़ वही रहेगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">47.</span><label><b>आपात व्यवस्था (Founder अनुपलब्ध होने पर):</b> Founder द्वारा पहले से लिखित रूप से नामित पद के पास केवल रोज़मर्रा का सीमित प्रशासनिक अधिकार रहेगा; नीति, revenue व नियुक्ति-रद्दीकरण जैसे बड़े फ़ैसले Founder की वापसी तक स्थगित रहेंगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">48.</span><label>सबसे ऊपर की बात: ACS के सबसे नए दर्ज नियम और Founder का निर्देश ही अंतिम माने जाएँगे। Founder द्वारा लिया गया हर निर्णय ACS के नियमों, लागू कानूनों और संगठन के हित के दायरे में होगा।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">49.</span><label><b>Founder का विशेष अधिकार (तत्काल सेवा-समाप्ति):</b> संगठन की सुरक्षा, अनुशासन, वित्तीय हित, कानूनी अनुपालन या डिजिटल सिस्टम की रक्षा के लिए Founder आपातकालीन सुरक्षा-उपाय के तहत कर्मी का एक्सेस तत्काल <b>निलंबित (Suspend)</b> कर सकते हैं — जिसकी समीक्षा 12 से 24 घंटे के भीतर डिजिटल आपातकालीन कारण बताओ (Show-Cause) नोटिस व कर्मी के लिखित पक्ष के माध्यम से होगी (Principles of Natural Justice); समीक्षा-उपरांत Founder सेवा तत्काल प्रभाव से समाप्त कर सकते हैं। उस समय तक का देय मानदेय विधिक सेटलमेंट के अधीन रखा जाएगा। यह नियम अप्लाइड कंप्यूटर स्कूल के समस्त कर्मियों पर समान रूप से लागू होगा।</label></div>
+  </div>
+
+  <div class="bar">
+    <div class="count" id="count">0 / 49 नियम स्वीकार हुए</div>
+    <div class="final" id="finalRow">
+      <input type="checkbox" id="finalChk" disabled>
+      <label for="finalChk"><b>अंतिम पुष्टि:</b> मैंने ऊपर के सभी नियम ख़ुद पढ़कर एक-एक करके स्वीकार किए हैं।</label>
+    </div>
+    <div class="btns">
+      <button id="otpBtn" type="button" disabled>📩 OTP भेजें</button>
+    </div>
+  </div>
+
+  <p class="foot">एक प्रति आपके पास, एक ACS में। मूल भाषा: हिंदी। अंतिम कानूनी मंज़ूरी HQ Legal Head की।</p>
+
+</div>
+
+<script>
+(function(){
+  var boxes = document.querySelectorAll('.rule input');
+  var otp = document.getElementById('otpBtn');
+  var fin = document.getElementById('finalChk');
+  var count = document.getElementById('count');
+  function refresh(){
+    var done = 0;
+    boxes.forEach(function(b){ if(b.checked) done++; });
+    count.textContent = done + ' / ' + boxes.length + ' नियम स्वीकार हुए';
+    if(done === boxes.length){ fin.disabled = false; }
+    else { fin.disabled = true; fin.checked = false; }
+    if(fin.checked && done === boxes.length){ otp.classList.add('on'); otp.disabled = false; }
+    else { otp.classList.remove('on'); otp.disabled = true; }
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', refresh); });
+  fin.addEventListener('change', refresh);
+  otp.addEventListener('click', function(){ if(!otp.disabled) alert('✅ (नमूना) यहाँ से असली पेज OTP भेजेगा — Cloud Function से।'); });
+  refresh();
+})();
+</script>
+</body>
+</html>
