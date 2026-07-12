@@ -37,14 +37,17 @@ header.acs-nav{ position:sticky; top:0; z-index:50; background:var(--navy); colo
 
 .acs-scrim{ position:fixed; inset:0; background:rgba(0,0,0,.5); opacity:0; visibility:hidden; transition:.25s; z-index:70; }
 .acs-scrim.open{ opacity:1; visibility:visible; }
-.acs-drawer{ position:fixed; top:0; right:0; height:100%; width:84%; max-width:330px; background:var(--navy);
-  color:#fff; z-index:80; transform:translateX(105%); transition:transform .28s; padding:18px; overflow-y:auto; }
+.acs-drawer{ position:fixed; top:0; right:0; height:100%; height:100dvh; width:84%; max-width:330px; background:var(--navy);
+  color:#fff; z-index:80; transform:translateX(105%); transition:transform .28s; padding:18px; padding-bottom:24px; overflow-y:auto;
+  display:flex; flex-direction:column; }
+.acs-drawer nav, .acs-drawer .acs-drawer-links{ flex:1 1 auto; }
 .acs-drawer.open{ transform:translateX(0); }
 .acs-drawer h4{ color:var(--gold); font-size:14px; letter-spacing:.6px; margin:6px 6px 12px; }
 .acs-drawer a{ display:flex; align-items:center; gap:14px; padding:13px 12px; border-radius:12px;
   font-size:18px; font-weight:600; color:#fff; text-decoration:none; }
 .acs-drawer a:hover{ background:rgba(255,255,255,.08); }
-.acs-drawer a.login{ background:var(--gold); color:var(--navy); margin-top:10px; font-weight:800; justify-content:center; }
+.acs-drawer a.login{ background:var(--gold); color:var(--navy); margin-top:10px; font-weight:800; justify-content:center;
+  position:sticky; bottom:0; box-shadow:0 -6px 14px rgba(11,31,58,.45), 0 3px 0 #bf8a1f; }
 .acs-drawer a .e{ font-size:22px; width:28px; text-align:center; }
 .acs-drawer .close{ float:right; background:none; border:none; color:#fff; font-size:26px; cursor:pointer; }
 
