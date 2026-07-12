@@ -288,6 +288,11 @@ a{text-decoration:none;color:inherit}
       <div class="role-name t" data-hi="स्वयंसेवक (Volunteer)" data-en="Volunteer">स्वयंसेवक (Volunteer)</div>
       <div class="role-desc t" data-hi="सेवा-भाव से जुड़ें, RM-सपोर्ट" data-en="Serve & support RM (field)">सेवा-भाव से जुड़ें, RM-सपोर्ट</div>
     </div>
+    <div class="role-card" onclick="selRole('finance_mitra',this)" ondblclick="selRole('finance_mitra',this);goStep2()">
+      <div class="role-icon">🏦</div>
+      <div class="role-name t" data-hi="वित्त मित्र (Finance Mitra)" data-en="Finance Mitra">वित्त मित्र (Finance Mitra)</div>
+      <div class="role-desc t" data-hi="उद्यमी को बैंक/योजना से जोड़ें" data-en="Connect entrepreneurs to banks/schemes">उद्यमी को बैंक/योजना से जोड़ें</div>
+    </div>
     <div class="role-card" onclick="selRole('vendor',this)" ondblclick="selRole('vendor',this);goStep2()">
       <div class="role-icon">🧰</div>
       <div class="role-name t" data-hi="विक्रेता (Vendor)" data-en="Vendor">विक्रेता (Vendor)</div>
@@ -480,7 +485,7 @@ const NO_OTP = ["student","jobseeker","entrepreneur"];
 const _MX = window.ACS_DESIGNATIONS || {teams:[],cards:[]};
 const DASH = {team:"/dashboard/"};
 (_MX.cards||[]).forEach(c=>{ if(c.key!=="team" && c.dashboard) DASH[c.key]=c.dashboard; });
-const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",center:"केंद्र (Center)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",vendor:"विक्रेता (Vendor)",team:"ACS Team"};
+const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",center:"केंद्र (Center)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",finance_mitra:"वित्त मित्र (Finance Mitra)",vendor:"विक्रेता (Vendor)",team:"ACS Team"};
 const TEAM_DASH = {};
 (_MX.teams||[]).forEach(t=>{ if(t.dashboard) TEAM_DASH[t.key]=t.dashboard; });
 const FUTURE_HOME = "/dashboard/future/";
