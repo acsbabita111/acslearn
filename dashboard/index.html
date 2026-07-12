@@ -51,7 +51,6 @@ a{text-decoration:none;color:inherit}
 /* ── HERO ── */
 .hero{background:linear-gradient(135deg,var(--navy),#1565C0);padding:28px 16px 24px;text-align:center;color:#fff}
 .hero h2{font-size:22px;font-weight:800;line-height:1.55;text-shadow:0 2px 8px rgba(0,0,0,.25)}
-.hero-logo{width:64px;height:64px;border-radius:16px;margin-bottom:10px;box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 3px rgba(255,255,255,.18)}
 .hero-tricolor{display:flex;gap:0;width:150px;height:5px;margin:12px auto 0;border-radius:3px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.3)}
 .hero-tricolor span{flex:1}
 .hero-tricolor span:nth-child(1){background:#F9A825}
@@ -73,13 +72,16 @@ a{text-decoration:none;color:inherit}
 
 /* ── CARD ── */
 .card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(11,31,58,.08);margin:14px auto;max-width:460px;padding:20px 16px;border:1px solid var(--border);display:none}
+#c1{max-width:960px;padding:24px 20px}
+@media(min-width:1200px){#c1{max-width:1100px}}
 .card.show{display:block}
 .card-title{font-size:16px;font-weight:700;margin-bottom:3px}
 .card-sub{font-size:16px;color:var(--gray);margin-bottom:16px;line-height:1.5}
 
 /* ── ROLE GRID ── */
 .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(min-width:700px){.role-grid{grid-template-columns:1fr 1fr 1fr}}
+@media(min-width:700px){.role-grid{grid-template-columns:1fr 1fr 1fr;gap:14px}}
+@media(min-width:1000px){.role-grid{grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}}
 .role-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;text-align:center;cursor:pointer;border:1.5px solid var(--border);border-radius:16px;padding:18px 10px 16px;background:linear-gradient(160deg,#ffffff 0%,#f1f5fb 48%,#e3ebf6 100%);box-shadow:0 5px 0 #c9d2e2,0 9px 20px rgba(11,31,58,.12);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease}
 .role-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(11,31,58,.022) 0 7px,transparent 7px 15px);pointer-events:none}
 .role-card::after{content:"";position:absolute;top:0;left:0;right:0;height:46%;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent);pointer-events:none}
@@ -221,7 +223,6 @@ a{text-decoration:none;color:inherit}
 <!-- ── HERO ── -->
 <div class="hero">
   <!-- (Founder-आदेश 12-Jul रात) ऊपर सिर्फ़ यह एक पंक्ति — बाक़ी सारा उपदेश निरस्त -->
-  <img src="/logo.png" alt="ACS" class="hero-logo" onerror="this.style.display='none'"/>
   <h2>सुंदर भविष्य के लिए अप्लाइड कंप्यूटर स्कूल से जुड़ें!</h2>
   <div class="hero-tricolor"><span></span><span></span><span></span></div>
 </div>
