@@ -78,12 +78,13 @@ a{text-decoration:none;color:inherit}
 .role-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(11,31,58,.022) 0 7px,transparent 7px 15px);pointer-events:none}
 .role-card::after{content:"";position:absolute;top:0;left:0;right:0;height:46%;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent);pointer-events:none}
 .role-card>*{position:relative;z-index:1}
+.role-card:hover .role-icon{transform:translateY(-2px) scale(1.06)}
 .role-card:hover{transform:translateY(-2px);box-shadow:0 7px 0 #b9c4d8,0 13px 24px rgba(11,31,58,.18)}
 .role-card:active{transform:translateY(3px);box-shadow:0 2px 0 #c9d2e2,0 4px 10px rgba(11,31,58,.14)}
-.role-icon{margin:0 auto 4px;font-size:26px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-radius:14px;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 5px rgba(11,31,58,.10),0 2px 4px rgba(11,31,58,.10)}
+.role-icon{margin:0 auto 4px;font-size:26px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-radius:14px;box-shadow:inset 0 2px 3px rgba(255,255,255,.9),inset 0 -3px 5px rgba(11,31,58,.10),0 3px 6px rgba(11,31,58,.16);transition:transform .14s ease}
 .role-name{font-size:18px;font-weight:800;color:var(--navy)}
 .role-desc{font-size:16px;color:var(--gray);line-height:1.4;margin:0}
-.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding-top:4px}
+.role-group-head{grid-column:1/-1;font-size:16px;font-weight:800;color:var(--navy);margin:14px 0 2px;padding:8px 12px;background:linear-gradient(150deg,#ffffff,#e9f0fb);border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:10px;box-shadow:0 3px 0 #c9d2e2,0 6px 12px rgba(11,31,58,.10)}
 .role-group-head.first{margin-top:2px}
 .role-card.learner{border-width:2px}
 .role-card.learner .role-icon{font-size:32px;width:58px;height:58px}
@@ -229,89 +230,25 @@ a{text-decoration:none;color:inherit}
   </div>
   <div class="step-labels">
     <span class="t" data-hi="भूमिका" data-en="Role">भूमिका</span>
-    <span>Login</span>
-    <span>OTP</span>
+    <span class="t" data-hi="लॉगिन" data-en="Login">लॉगिन</span>
+    <span class="t" data-hi="ओटीपी (OTP)" data-en="OTP">ओटीपी (OTP)</span>
   </div>
 </div>
 
 <!-- ── STEP 1: ROLE ── -->
 <div class="card show" id="c1">
-  <div class="card-sub t" data-hi="किस रूप में login करें? अपनी भूमिका (Role) चुनें।" data-en="Which role to login as? Select your role.">किस रूप में login करें? अपनी भूमिका (Role) चुनें।</div>
-  <div class="role-grid">
-
-    <!-- समूह-1: सीखना / कमाना (Learner) -->
-    <div class="role-group-head first t" data-hi="🟦 मैं Learner हूँ — सीधा login (OTP नहीं)" data-en="🟦 I am a Learner — direct login (no OTP)">🟦 मैं Learner हूँ — सीधा login (OTP नहीं)</div>
-    <div class="role-card learner gold" onclick="selRole('student',this)" ondblclick="selRole('student',this);goStep2()">
-      <div class="role-icon">🎓</div>
-      <div class="role-name t" data-hi="विद्यार्थी (Student)" data-en="Student">विद्यार्थी (Student)</div>
-      <div class="role-desc t" data-hi="Online / Offline कोर्स सीखें" data-en="Learn online / offline courses">Online / Offline कोर्स सीखें</div>
-    </div>
-    <div class="role-card learner cream" onclick="selRole('jobseeker',this)" ondblclick="selRole('jobseeker',this);goStep2()">
-      <div class="role-icon">💼</div>
-      <div class="role-name t" data-hi="नौकरी (Job-seeker)" data-en="Job-seeker">नौकरी (Job-seeker)</div>
-      <div class="role-desc t" data-hi="नौकरी की तैयारी व खोज" data-en="Job preparation & search">नौकरी की तैयारी व खोज</div>
-    </div>
-    <div class="role-card learner green" onclick="selRole('entrepreneur',this)" ondblclick="selRole('entrepreneur',this);goStep2()">
-      <div class="role-icon">🏭</div>
-      <div class="role-name t" data-hi="उद्यम (Entrepreneur)" data-en="Entrepreneur">उद्यम (Entrepreneur)</div>
-      <div class="role-desc t" data-hi="अपना उद्योग शुरू करें" data-en="Start your own industry">अपना उद्योग शुरू करें</div>
-    </div>
-
-    <!-- समूह-2: ACS से जुड़कर कमाना -->
-    <div class="role-group-head t" data-hi="🟨 मैं ACS-सदस्य हूँ — OTP से login" data-en="🟨 I am an ACS member — login with OTP">🟨 मैं ACS-सदस्य हूँ — OTP से login</div>
-    <div class="role-card" onclick="selRole('teacher',this)" ondblclick="selRole('teacher',this);goStep2()">
-      <div class="role-icon">👨‍🏫</div>
-      <div class="role-name t" data-hi="शिक्षक (Teacher)" data-en="Teacher">शिक्षक (Teacher)</div>
-      <div class="role-desc t" data-hi="कोर्स बनाएँ, पढ़ाएँ, कमाएँ" data-en="Create courses, teach, earn">कोर्स बनाएँ, पढ़ाएँ, कमाएँ</div>
-    </div>
-    <div class="role-card" onclick="selRole('center',this)" ondblclick="selRole('center',this);goStep2()">
-      <div class="role-icon">🏫</div>
-      <div class="role-name t" data-hi="केंद्र (Center)" data-en="Center">केंद्र (Center)</div>
-      <div class="role-desc t" data-hi="Offline केंद्र / Coaching शुरू करें" data-en="Open offline coaching center">Offline केंद्र / Coaching शुरू करें</div>
-    </div>
-    <div class="role-card" onclick="selRole('counselor',this)" ondblclick="selRole('counselor',this);goStep2()">
-      <div class="role-icon">🧭</div>
-      <div class="role-name t" data-hi="सलाहकार (Counselor)" data-en="Counselor">सलाहकार (Counselor)</div>
-      <div class="role-desc t" data-hi="Career guidance दें, कमाएँ" data-en="Give career guidance, earn">Career guidance दें, कमाएँ</div>
-    </div>
-    <div class="role-card" onclick="selRole('employer',this)" ondblclick="selRole('employer',this);goStep2()">
-      <div class="role-icon">💼</div>
-      <div class="role-name t" data-hi="नियोक्ता (Employer)" data-en="Employer">नियोक्ता (Employer)</div>
-      <div class="role-desc t" data-hi="Job post करें, कर्मचारी ढूँढें" data-en="Post jobs, find staff">Job post करें, कर्मचारी ढूँढें</div>
-    </div>
-    <div class="role-card" onclick="selRole('foreign_agent',this)" ondblclick="selRole('foreign_agent',this);goStep2()">
-      <div class="role-icon">✈️</div>
-      <div class="role-name t" data-hi="विदेश एजेंट (Foreign Agent)" data-en="Foreign Agent">विदेश एजेंट (Foreign Agent)</div>
-      <div class="role-desc t" data-hi="विदेश में job placement" data-en="Overseas job placement">विदेश में job placement</div>
-    </div>
-    <div class="role-card" onclick="selRole('volunteer',this)" ondblclick="selRole('volunteer',this);goStep2()">
-      <div class="role-icon">🤝</div>
-      <div class="role-name t" data-hi="स्वयंसेवक (Volunteer)" data-en="Volunteer">स्वयंसेवक (Volunteer)</div>
-      <div class="role-desc t" data-hi="सेवा-भाव से जुड़ें, RM-सपोर्ट" data-en="Serve & support RM (field)">सेवा-भाव से जुड़ें, RM-सपोर्ट</div>
-    </div>
-    <div class="role-card" onclick="selRole('finance_mitra',this)" ondblclick="selRole('finance_mitra',this);goStep2()">
-      <div class="role-icon">🏦</div>
-      <div class="role-name t" data-hi="वित्त मित्र (Finance Mitra)" data-en="Finance Mitra">वित्त मित्र (Finance Mitra)</div>
-      <div class="role-desc t" data-hi="उद्यमी को बैंक/योजना से जोड़ें" data-en="Connect entrepreneurs to banks/schemes">उद्यमी को बैंक/योजना से जोड़ें</div>
-    </div>
-    <div class="role-card" onclick="selRole('vendor',this)" ondblclick="selRole('vendor',this);goStep2()">
-      <div class="role-icon">🧰</div>
-      <div class="role-name t" data-hi="विक्रेता (Vendor)" data-en="Vendor">विक्रेता (Vendor)</div>
-      <div class="role-desc t" data-hi="उद्यम-स्थापना का सामान/सेवा दें" data-en="Supply goods/services for enterprises">उद्यम-स्थापना का सामान/सेवा दें</div>
-    </div>
-    <div class="role-card" onclick="selRole('team',this)" ondblclick="selRole('team',this);goStep2()">
-      <div class="role-icon">🛠️</div>
-      <div class="role-name">ACS Team</div>
-      <div class="role-desc">HQ / ZM / RM / Field / Intern</div>
-    </div>
-  </div>
+  <div class="card-sub t" data-hi="किस रूप में लॉगिन (Login) करें? अपनी भूमिका (Role) चुनें।" data-en="Which role to login as? Select your role.">किस रूप में login करें? अपनी भूमिका (Role) चुनें।</div>
+  <!-- (login v2, 12-Jul-2026) tiles hardcode निरस्त — matrix v1.4 + roles.js से
+       अपने-आप बनते हैं (join.html जैसा; 13वाँ कार्ड आए तो यहाँ कुछ नहीं बदलना)।
+       लिपि-bracket नियम: हर English शब्द का देवनागरी-उच्चारण पहले। -->
+  <div class="role-grid" id="roleGrid"></div>
   <div class="alert alert-err" id="a1"></div>
   <button class="btn btn-blue" style="margin-top:12px" onclick="goStep2()" id="btn1" data-hi="आगे बढ़ें →" data-en="Next →">आगे बढ़ें →</button>
 </div>
 
 <!-- ── STEP 2: LOGIN ── -->
 <div class="card" id="c2">
-  <div class="card-title t" data-hi="Login करें" data-en="Login">Login करें</div>
+  <div class="card-title t" data-hi="लॉगिन (Login) करें" data-en="Login">Login करें</div>
   <div class="card-sub" id="role-tag"></div>
   <div class="alert alert-err" id="a2"></div>
   <div class="field">
@@ -464,6 +401,7 @@ a{text-decoration:none;color:inherit}
 <!-- ── FIREBASE ── -->
 <!-- पद→घर की एकमात्र जगह (परत-3) — routing इसी से (काम-4 v3.0) -->
 <script src="/assets/designation_matrix.js"></script>
+<script src="/assets/roles.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -509,9 +447,51 @@ window.switchLang = function(){
   const cur = document.documentElement.lang || "hi";
   applyLang(cur === "en" ? "hi" : "en");
 };
+/* ═══ (login v2, 12-Jul-2026) 12 tiles — matrix v1.4 public_label + roles.js desc से ═══
+   join.html से एक-समान नाम/desc/क्रम (मेनू-सिद्धांत); center-align; लिपि-bracket नियम। */
+(function buildRoleTiles(){
+  const grid = document.getElementById('roleGrid');
+  const MX2 = window.ACS_DESIGNATIONS, RR = window.ACS_ROLES;
+  if(!grid || !MX2 || !RR) return;
+  const LEARNER = ["student","jobseeker","entrepreneur"];
+  const TINT = { student:"gold", jobseeker:"cream", entrepreneur:"green" };
+  const ICON = { student:"🎓", jobseeker:"💼", entrepreneur:"🏭", teacher:"👨‍🏫", center:"🏫",
+    counselor:"🧭", employer:"🧑‍💼", foreign_agent:"✈️", volunteer:"🤝",
+    finance_mitra:"🏦", vendor:"🛒", team:"🛠️" };
+  function head(cls, hi, en){
+    const d = document.createElement('div');
+    d.className = 'role-group-head ' + cls + ' t';
+    d.setAttribute('data-hi', hi); d.setAttribute('data-en', en); d.textContent = hi;
+    grid.appendChild(d);
+  }
+  function tile(c){
+    const rc = (c.key === 'team') ? null : RR.byKey(c.key);
+    const descHi = (c.key === 'team') ? 'कार्यालय-पद — पदनाम आगे चुनें (एचक्यू HQ / ज़ेडएम ZM / आरएम RM)'
+      : ((rc && rc.desc_hi) || '');
+    const descEn = (c.key === 'team') ? 'Office posts — pick designation next (HQ / ZM / RM)'
+      : ((rc && rc.desc_en) || '');
+    const d = document.createElement('div');
+    d.className = 'role-card' + (LEARNER.indexOf(c.key) > -1 ? ' learner ' + TINT[c.key] : '');
+    d.innerHTML = '<div class="role-icon">' + (ICON[c.key] || '⭐') + '</div>'
+      + '<div class="role-name t" data-hi="' + (c.public_label || c.label) + '" data-en="' + (c.label_en || c.public_label || c.label) + '">' + (c.public_label || c.label) + '</div>'
+      + '<div class="role-desc t" data-hi="' + descHi + '" data-en="' + descEn + '">' + descHi + '</div>';
+    d.addEventListener('click', function(){ selRole(c.key, d); });
+    d.addEventListener('dblclick', function(){ selRole(c.key, d); goStep2(); });
+    grid.appendChild(d);
+  }
+  const cards = MX2.cards || [];
+  head('first', '🟦 मैं सीखने वाला (Learner) हूँ — सीधा लॉगिन, ओटीपी (OTP) नहीं',
+       '🟦 I am a Learner — direct login (no OTP)');
+  cards.filter(c => LEARNER.indexOf(c.key) > -1).forEach(tile);
+  head('', '🟨 मैं ACS-सदस्य हूँ — लॉगिन ओटीपी (OTP) से',
+       '🟨 I am an ACS member — login with OTP');
+  cards.filter(c => LEARNER.indexOf(c.key) === -1).forEach(tile);
+})();
 (function(){
   let l = "hi";
-  try { l = localStorage.getItem("acs_lang") || (navigator.language||"").slice(0,2); } catch(e){}
+  /* (login v2) डिफ़ॉल्ट हिंदी — browser-भाषा से auto-switch निरस्त (auto-detect
+     का हक़ सिर्फ़ home/entry-page को); toggle से चुनी भाषा हमेशा याद रहेगी */
+  try { l = localStorage.getItem("acs_lang") || "hi"; } catch(e){}
   if (l !== "en") l = "hi";
   applyLang(l);
 })();
