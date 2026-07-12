@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>नियम व सहमति — Finance Mitra | ACS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0B1F3A;--blue:#1565C0;--gold:#F9A825;--green:#2E7D32;--off:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Noto Sans Devanagari','Inter',sans-serif;font-size:19px;line-height:1.8;color:#1a2433;background:var(--off);padding:12px}
+  .wrap{max-width:820px;margin:0 auto}
+  .head{background:var(--navy);color:#fff;border-radius:12px;padding:16px;text-align:center;margin-bottom:10px}
+  .head h1{font-size:22px;line-height:1.5}
+  .head .org{color:var(--gold);font-weight:700;font-size:16px;margin-top:4px}
+  .head .sub{font-size:16px;color:#cfd8e3;margin-top:2px}
+  .ver{background:#fff;border:1.5px solid var(--blue);border-radius:10px;padding:8px 12px;font-size:16px;text-align:center;margin-bottom:12px;color:var(--navy)}
+  .note{background:#FFF8E1;border:1.5px solid var(--gold);border-radius:10px;padding:11px 13px;font-size:17px;margin-bottom:12px}
+  .part{background:var(--navy);color:var(--gold);border-radius:8px;padding:6px 12px;font-size:17px;font-weight:800;margin:14px 0 6px}
+  .rules{background:#fff;border:1px solid #dfe6ef;border-radius:12px;padding:8px 6px;margin-bottom:6px}
+  .rule{display:flex;gap:10px;align-items:flex-start;padding:11px 10px;border-bottom:1px dashed #e3e9f2}
+  .rule:last-child{border-bottom:none}
+  .rule input{width:26px;height:26px;min-width:26px;margin-top:7px;accent-color:var(--green);cursor:pointer}
+  .rule .no{font-weight:800;color:var(--blue);min-width:38px;margin-top:2px}
+  .rule label{cursor:pointer;flex:1}
+  .rule.special{background:#FFF8E1;border-radius:8px}
+  .rule.new{background:#EAF3EC;border-radius:8px}
+  .bar{position:sticky;bottom:0;background:#fff;border:1px solid #dfe6ef;border-radius:12px;padding:12px;margin-top:12px;box-shadow:0 -4px 14px rgba(11,31,58,.08)}
+  .count{font-size:16px;text-align:center;color:#555;margin-bottom:8px}
+  .final{display:flex;gap:10px;align-items:flex-start;background:#EAF3EC;border:1.5px solid var(--green);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:17px}
+  .final input{width:26px;height:26px;min-width:26px;margin-top:5px;accent-color:var(--green)}
+  .final input:disabled{opacity:.45}
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  button{flex:1;min-width:150px;border:none;border-radius:10px;padding:14px;font:inherit;font-size:20px;font-weight:800;cursor:pointer}
+  #otpBtn{background:#c7cfda;color:#6b7686;cursor:not-allowed;transition:.3s}
+  #otpBtn.on{background:var(--green);color:#fff;cursor:pointer;box-shadow:0 4px 14px rgba(46,125,50,.35)}
+  .foot{text-align:center;color:#666;font-size:16px;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <h1>नियम, अधिकार व कर्तव्य — वित्त मित्र (Finance Mitra)</h1>
+    <div class="org">Applied Computer School™ · FFGPMTrust</div>
+    <div class="sub">मूल भाषा: हिंदी · पद: वित्त मित्र (Finance Mitra)</div>
+    <!-- internal designation-key: finance_mitra — public को कभी न दिखाएँ (Founder-नियम 12-07-2026) -->
+  </div>
+
+  <div class="ver"><b>Version: 1.1 (मसौदा)</b> · प्रभावी तिथि: Founder-मंज़ूरी की तिथि से<br>
+  Supersedes: v1.0 मसौदा (12-07-2026) · <b>बदलाव-सार:</b> नियम-47 कानूनी-सुरक्षा रूप · वार्षिक नैतिकता-घोषणा · KPI-नियम · नियम-43/40 सुदृढ़ · public-नाम प्रदर्शन (कूट-नाम internal)</div>
+
+  <div class="note">🙏 कृपया हर नियम ध्यान से पढ़ें। <b>हर नियम को ख़ुद पढ़कर उसके आगे ☑ करें — एक-एक करके।</b> सभी 41 ☑ होने पर नीचे "अंतिम पुष्टि" खुलेगी; उसे भी ख़ुद ☑ करेंगे, तभी "OTP भेजें" बटन चालू होगा। (PDF-प्रति अंतिम पंजीकरण के बाद मिलेगी।)</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">1.</span><label>ACS के पाँच आधार-सिद्धांत मेरे हर फ़ैसले की कसौटी होंगे — (1) <b>विद्यार्थी पहले</b>, (2) <b>सत्यनिष्ठा</b>, (3) <b>शुरू से निजता-सुरक्षा</b> (Privacy by Design), (4) <b>निष्पक्षता</b>, (5) <b>भेदभाव-रहित व्यवहार</b>। ये सिद्धांत ACS Global South Charter (जो पहले से लागू है) पर आधारित हैं; Charter के सिद्धांत सर्वोपरि हैं।</label></div>
+  </div>
+
+  <div class="part">भाग-ख : पद, काम व शुल्क</div>
+  <div class="rules">
+    <div class="rule new"><input type="checkbox"><span class="no">2.</span><label>ACS से <b>वित्त मित्र (Finance Mitra)</b> के रूप में जुड़ना <b>पूर्णतः निःशुल्क</b> है। आपका काम: ACS से जुड़े नए उद्यमियों (Entrepreneur) को <b>सिर्फ़ अधिकृत वित्तीय संस्थाओं</b> — बैंक, सरकारी योजनाएँ (जैसे PMMY/मुद्रा, PMEGP, Stand-Up India), पंजीकृत NBFC, CSR — से मिलवाकर पूंजी/ऋण की व्यवस्था में सहयोग करना। आप RM के भौतिक सत्यापन, approval-श्रृंखला (Legal → Finance → Establishment → RM/ZM) और HQ की फ़ाइनल स्वीकृति से जुड़ेंगे।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">3.</span><label><b>लोहे का नियम (ACS-सिद्धांत):</b> ACS और आप — दोनों में से कोई भी <b>ख़ुद बैंक/निवेशक/ऋणदाता/वित्तीय-सलाहकार नहीं</b> है। आप केवल जोड़ने वाला <b>पुल</b> हैं। ऋण/निवेश देने-न-देने का अंतिम फ़ैसला हमेशा अधिकृत संस्था का; उद्यम का अंतिम फ़ैसला हमेशा उद्यमी का।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">4.</span><label><b>उद्यमी से शून्य शुल्क (अत्यंत महत्वपूर्ण):</b> उद्यमी/Learner से किसी भी नाम पर — "फ़ाइल-चार्ज", "processing", "अग्रिम", "मिठाई" — कोई भी राशि लेना <b>पूर्णतः निषिद्ध व अवैध</b> है। ऋण दिलाने के नाम पर अग्रिम-वसूली भारत में प्रचलित सबसे बड़ी धोखाधड़ी है — ACS में इसकी सज़ा तत्काल निष्कासन व कानूनी कार्रवाई है। आपकी कमाई सिर्फ़ वित्तीय संस्था से मिलने वाले कमीशन/मानदेय से होगी (ACS-revenue split भविष्य में Founder तय करेंगे)।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">5.</span><label><b>सच की शर्तें:</b> हर योजना/ऋण की ब्याज-दर, अवधि, guarantee-शर्त व फ़ीस — जैसी संस्था ने बताई, वैसी ही लिखित में उद्यमी को देंगे; बढ़ा-चढ़ाकर या छिपाकर बताना (misselling) निषिद्ध है। "loan पक्का हो जाएगा" जैसा कोई वादा कभी नहीं।</label></div>
+  </div>
+
+  <div class="part">भाग-ग : सत्यापन, बैज, प्रदर्शन-नियम व ग्राहक-प्रतिबद्धता</div>
+  <div class="rules">
+    <div class="rule special"><input type="checkbox"><span class="no">6.</span><label><b>अधिकृति-प्रमाण अनिवार्य:</b> आप जिस संस्था/योजना से जोड़ने का काम करेंगे, उसकी अधिकृति/empanelment (जैसे Bank-Mitra/BC प्रमाण, DSA-अनुबंध, संस्था का अधिकार-पत्र) की प्रति जमा करना अनिवार्य है; नवीनीकरण होते ही नई प्रति। बिना वैध अधिकृति के उस संस्था के नाम पर काम निषिद्ध।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">7.</span><label><b>प्रदर्शन-नियम (Founder-नियम, 12-Jul-2026):</b> जब तक RM का भौतिक-सत्यापन व पूरी approval-श्रृंखला पार न हो, आपका नाम portal पर <b>कभी नहीं दिखेगा</b>।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">8.</span><label><b>Verified बैज (वैकल्पिक, paid):</b> स्थान-आधारित शुल्क — Metropolitan ₹1,000 · जिला-मुख्यालय ₹600 · एरिया ₹300 · अवधि 365 दिन। बैज = अतिरिक्त भरोसा-चिह्न + सूची-प्राथमिकता — सत्यापन-द्वार नहीं; बिना बैज भी approved वित्त मित्र काम कर सकेंगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">9.</span><label><b>बैज-refund नियम:</b> verification से पहले रद्द करने पर 90% वापसी (10% processing); बैज मिलने के बाद = (पूरा शुल्क − 30%) × बचे दिन ÷ 365।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">10.</span><label>अपने ऊपर के प्रमुख (RM/ZM) के निर्देशानुसार ACS-मंच से जुड़े काम करेंगे; ACS-व्यवस्था से जुड़ा कोई बड़ा निर्णय स्वयं नहीं लेंगे।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">11.</span><label><b>चरित्र-प्रमाण पत्र (अनिवार्य):</b> सेवा शुरू करने के 30 दिनों के अंदर स्थानीय पुलिस द्वारा जारी चरित्र प्रमाण पत्र जमा करना अनिवार्य होगा। इसका सत्यापन HQ Legal Head करेंगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">12.</span><label><b>स्थान-पारदर्शिता:</b> अपने कार्य-स्थान का पूरा व सही पता वेबसाइट पर सार्वजनिक करने की सहमति देनी होगी, ताकि उद्यमी उसे खोज व verify कर सकें।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">13.</span><label><b>प्रोफ़ेशनल फ़ोटो (अनिवार्य):</b> अपना एक अच्छा प्रोफ़ेशनल पासपोर्ट-साइज़ क्लोज़अप फ़ोटो अपलोड करना अनिवार्य होगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">14.</span><label><b>व्यवसाय-वृद्धि:</b> Applied Computer School का व्यवसाय बढ़ाने का हर संभव प्रयास करना — जैसे अपने संपर्कों को ACS से जोड़ना — आपका भी कर्तव्य है।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">15.</span><label><b>"ग्राहक देवो भव:"</b> — किसी भी हालत में इस नियम की अवहेलना नहीं होगी। हर उद्यमी/Learner से आदरपूर्ण व सेवा-भाव का व्यवहार अनिवार्य।</label></div>
+  </div>
+
+  <div class="part">भाग-घ : कर्तव्य व आचरण</div>
+  <div class="rules">
+    <div class="rule new"><input type="checkbox"><span class="no">16.</span><label><b>काग़ज़ों की सच्चाई:</b> उद्यमी के आवेदन/project report/income-प्रमाण में किसी भी तरह की हेराफेरी, फ़र्ज़ी दस्तावेज़ बनवाना या बढ़ा हुआ आँकड़ा भरवाना — अपराध है; ऐसा दबाव उद्यमी डाले तो भी मना करेंगे और ACS को सूचित करेंगे।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">17.</span><label><b>वित्तीय data की सुरक्षा (DPDP — अति-संवेदनशील):</b> उद्यमी के bank/आय/KYC-दस्तावेज़ सिर्फ़ उसी आवेदन के लिए — किसी को बेचना, साझा करना, spam या ACS से बाहर ले जाना पूर्णतः निषिद्ध।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">18.</span><label>महिलाओं की सुरक्षा (POSH), बच्चों की सुरक्षा (POCSO) और निजी जानकारी की सुरक्षा (DPDP) — इन कानूनों का पालन हमेशा ज़रूरी है। ऋण/पूंजी की बात सिर्फ़ 18+ उद्यमी से — minor से कभी नहीं।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">19.</span><label><b>AI-नियम (v1.7 सिद्धांत):</b> ACS का कोई भी AI-सुझाव (योजना/score/blueprint) निर्णय-सहायक मात्र है — अंतिम निर्णयकर्ता नहीं; उद्यमी को यह disclaimer साफ़ बताएँगे और मानव-समीक्षा के बिना कोई ऋण-सिफ़ारिश आगे नहीं बढ़ाएँगे।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">20.</span><label><b>वार्षिक नैतिकता-घोषणा (Ethics Declaration):</b> हर वर्ष dashboard से घोषणा — (1) कोई रिश्वत/उपहार नहीं, (2) कोई छिपा commission नहीं, (3) कोई भेदभाव नहीं, (4) हितों के हर टकराव की स्वयं-घोषणा। झूठी घोषणा = listing-समाप्ति।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">21.</span><label><b>बौद्धिक संपत्ति/ब्रांड:</b> ACS का logo, नाम व सामग्री ACS की संपत्ति है — लिखित अनुमति के बिना अपने प्रचार में उपयोग निषिद्ध; "ACS-गारंटीड loan" जैसा प्रचार कभी नहीं।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">22.</span><label><b>Social media नियम:</b> ACS की अंदरूनी जानकारी या उद्यमियों का data किसी platform पर साझा करना मना है।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">23.</span><label><b>राजनीतिक तटस्थता:</b> ACS-मंच/listing का उपयोग किसी राजनीतिक प्रचार में नहीं करेंगे; निजी नागरिक-अधिकार (Article 19) सुरक्षित है।</label></div>
+  </div>
+
+  <div class="part">भाग-ङ : जुड़ना, login व record</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">24.</span><label>जुड़ने का रास्ता: फ़ॉर्म भरना → OTP से जाँच → औपबंधिक (अस्थायी) पंजीकरण → RM का आमने-सामने (भौतिक) सत्यापन → approval-श्रृंखला → HQ फ़ाइनल (🟢)। फ़ाइनल होने तक dashboard सिर्फ़ देख सकेंगे और नाम portal पर नहीं दिखेगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">25.</span><label>Login का नियम: हर बार password और 6 अंकों का Email-OTP डालना होगा। एक ID एक समय में एक ही जगह चलेगी। 10 मिनट कोई हलचल न हो तो अपने-आप logout हो जाएगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">26.</span><label><b>Digital record (Audit Trail):</b> हर login, हर उद्यमी-संस्था जुड़ाव व dashboard-काम का digital record अपने-आप रखा जाएगा — विवाद में यही मान्य।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">27.</span><label><b>Digital सबूत:</b> ACS के dashboard log, OTP-record, email record व digital audit log — आधिकारिक अभिलेख माने जाएँगे।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">28.</span><label><b>Record कितने दिन रहेंगे:</b> प्रशासनिक log कम-से-कम 7 वर्ष; पैसों के record लागू कानून के अनुसार रखे जाएँगे।</label></div>
+  </div>
+
+  <div class="part">भाग-च : सुरक्षा-घटना व रिपोर्ट</div>
+  <div class="rules">
+    <div class="rule special"><input type="checkbox"><span class="no">29.</span><label><b>गड़बड़ी की तत्काल सूचना:</b> अपने account के hack या ACS-मंच पर किसी धोखाधड़ी (ख़ासकर loan-के-नाम-पर-वसूली) की जानकारी मिलते ही तुरंत अपने RM व ACS को सूचना देना अनिवार्य है।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">30.</span><label><b>ग़लत काम की रिपोर्ट (Whistleblower):</b> ACS के किसी कर्मी द्वारा रिश्वत-माँग या फ़र्ज़ी काम दिखे तो सीधे Founder को गुप्त रूप से रिपोर्ट करेंगे; पहचान गुप्त रखी जाएगी।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">31.</span><label><b>आपात रोक (Emergency Suspension):</b> धोखाधड़ी के शक या शिकायत की स्थिति में Founder/ACS आपकी listing व account को जाँच पूरी होने तक तुरंत रोक सकते हैं।</label></div>
+  </div>
+
+  <div class="part">भाग-छ : अनुशासन व सेवा-समाप्ति</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">32.</span><label>ग़लती होने पर पहले 7 दिन का Show-Cause नोटिस मिलेगा — लिखित जवाब देने का मौक़ा। फ़ैसले के ख़िलाफ़ 15 दिन के अंदर अपील कर सकते हैं।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">33.</span><label>ACS या किसी व्यक्ति की झूठी बदनामी करने अथवा छवि खराब करने पर आपातकालीन निष्कासन की प्रक्रिया अपनाई जा सकेगी — एक्सेस तुरंत ब्लॉक कर 12 से 24 घंटे का संक्षिप्त डिजिटल नोटिस दिया जाएगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">34.</span><label>किसी जाँच के समय (बैज-राशि जैसा कोई देय हो तो) भुगतान ज़्यादा-से-ज़्यादा 60 दिन तक रोका जा सकता है; रोकने की सूचना 48 घंटे के अंदर दी जाएगी।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">35.</span><label><b>समाप्ति पर listing बंद:</b> जुड़ाव समाप्त होते ही listing, dashboard-पहुँच व portal-प्रदर्शन तुरंत बंद; चल रहे उद्यमी-आवेदनों की स्थिति व काग़ज़ ACS/RM को सौंपना (handover) अनिवार्य — उद्यमी का काम कभी न रुके।</label></div>
+  </div>
+
+  <div class="part">भाग-ज : नियम-परिवर्तन, विवाद व सर्वोच्चता</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">36.</span><label>नियम बदलने का अधिकार Founder के पास है; बदलाव की सूचना 7 दिन में मिलेगी; इसे चुनौती नहीं दी जा सकती। पर कोई भी बदलाव पहले से मिले/दिए पैसे पर पीछे से लागू नहीं होगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">37.</span><label>इस सहमति की दो बराबर प्रतियाँ होंगी — एक आपके पास, एक ACS (HQ Legal) के पास। विवाद में यही मान्य होंगी।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">38.</span><label>कोई कानूनी विवाद उत्पन्न होने पर मामला केवल <b>खगड़िया (बिहार) न्यायालय</b> अथवा पटना स्थित संबंधित सक्षम दीवानी न्यायालय के अधिकार-क्षेत्र के अधीन ही विचारणीय होगा। विदेशी मामलों में UNCITRAL नियम मान्य होंगे; जहाँ किसी देश का अनिवार्य स्थानीय कानून लागू हो, वहाँ वह कानून व देश-परिशिष्ट प्राथमिक रहेगा। (ऋण/निवेश का अनुबंध उद्यमी-संस्था के बीच का है — ACS/वित्त मित्र उसका पक्ष नहीं।)</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">39.</span><label><b>देश-परिशिष्ट (Country Annexure):</b> भारत के बाहर लागू अतिरिक्त नियम संबंधित देश के परिशिष्ट के माध्यम से जारी किए जाएँगे; मूल दस्तावेज़ वही रहेगा।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">40.</span><label>सबसे ऊपर की बात: ACS के सबसे नए दर्ज नियम और Founder का निर्देश ही अंतिम माने जाएँगे।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">41.</span><label><b>Founder का विशेष अधिकार (तत्काल जुड़ाव-समाप्ति):</b> संगठन की सुरक्षा, साख, वित्तीय हित या कानूनी अनुपालन की रक्षा के लिए Founder आपातकालीन सुरक्षा-उपाय के तहत वित्त मित्र की listing व एक्सेस तत्काल <b>निलंबित (Suspend)</b> कर सकते हैं — जिसकी समीक्षा 12 से 24 घंटे के भीतर डिजिटल आपातकालीन कारण बताओ (Show-Cause) नोटिस व लिखित पक्ष के माध्यम से होगी; समीक्षा-उपरांत Founder जुड़ाव तत्काल प्रभाव से समाप्त कर सकते हैं।</label></div>
+  </div>
+
+  <div class="bar">
+    <div class="count" id="count">0 / 41 नियम स्वीकार हुए</div>
+    <div class="final" id="finalRow">
+      <input type="checkbox" id="finalChk" disabled>
+      <label for="finalChk"><b>अंतिम पुष्टि:</b> मैंने ऊपर के सभी नियम ख़ुद पढ़कर एक-एक करके स्वीकार किए हैं।</label>
+    </div>
+    <div class="btns">
+      <button id="otpBtn" type="button" disabled>📩 OTP भेजें</button>
+    </div>
+  </div>
+
+  <p class="foot">एक प्रति आपके पास, एक ACS में। मूल भाषा: हिंदी। अंतिम कानूनी मंज़ूरी HQ Legal Head की।</p>
+
+</div>
+
+<script>
+(function(){
+  var boxes = document.querySelectorAll('.rule input');
+  var otp = document.getElementById('otpBtn');
+  var fin = document.getElementById('finalChk');
+  var count = document.getElementById('count');
+  function refresh(){
+    var done = 0;
+    boxes.forEach(function(b){ if(b.checked) done++; });
+    count.textContent = done + ' / ' + boxes.length + ' नियम स्वीकार हुए';
+    if(done === boxes.length){ fin.disabled = false; }
+    else { fin.disabled = true; fin.checked = false; }
+    if(fin.checked && done === boxes.length){ otp.classList.add('on'); otp.disabled = false; }
+    else { otp.classList.remove('on'); otp.disabled = true; }
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', refresh); });
+  fin.addEventListener('change', refresh);
+  otp.addEventListener('click', function(){ if(!otp.disabled) alert('✅ (नमूना) यहाँ से असली पेज OTP भेजेगा — Cloud Function से।'); });
+  refresh();
+})();
+</script>
+</body>
+</html>
