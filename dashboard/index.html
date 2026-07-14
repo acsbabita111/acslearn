@@ -284,11 +284,11 @@ a{text-decoration:none;color:inherit}
 
 <!-- ── STEP 3: OTP ── -->
 <div class="card" id="c3">
-  <div class="card-title t" data-hi="OTP Verify करें" data-en="Verify OTP">OTP Verify करें</div>
+  <div class="card-title t" data-hi="OTP जाँचें (Verify)" data-en="Verify OTP">OTP जाँचें (Verify)</div>
   <div class="card-sub t" data-hi="आपके Email पर 6-अंकी OTP भेजा गया — 5 मिनट valid।" data-en="A 6-digit OTP has been sent to your Email.">आपके Email पर 6-अंकी OTP भेजा गया — 5 मिनट valid।</div>
   <div class="alert" id="a3"></div>
   <div class="field" style="text-align:center">
-    <label style="display:block;margin-bottom:10px">ENTER 6-DIGIT OTP *</label>
+    <label style="display:block;margin-bottom:10px">6-अंकों का OTP लिखें *</label>
     <div class="otp-row">
       <input class="otp-box" type="number" id="o1" oninput="otpNav(this,'','o2')"/>
       <input class="otp-box" type="number" id="o2" oninput="otpNav(this,'o1','o3')"/>
@@ -304,7 +304,7 @@ a{text-decoration:none;color:inherit}
   </div>
   <div class="btn-row">
     <button class="btn btn-outline" onclick="goStep(2)" id="back3" data-hi="← वापस" data-en="← Back">← वापस</button>
-    <button class="btn btn-blue" style="flex:1" onclick="verifyLoginOtp()" id="btn3" data-hi="Verify करें ✓" data-en="Verify ✓">Verify करें ✓</button>
+    <button class="btn btn-blue" style="flex:1" onclick="verifyLoginOtp()" id="btn3" data-hi="जाँचें (Verify) ✓" data-en="Verify ✓">जाँचें (Verify) ✓</button>
   </div>
 </div>
 
@@ -328,7 +328,7 @@ a{text-decoration:none;color:inherit}
 
   <div id="fp-step-reset" style="display:none">
     <div class="field" style="text-align:center">
-      <label style="display:block;margin-bottom:10px">ENTER 6-DIGIT OTP *</label>
+      <label style="display:block;margin-bottom:10px">6-अंकों का OTP लिखें *</label>
       <div class="otp-row">
         <input class="otp-box" type="number" id="p1" oninput="otpNav(this,'','p2')"/>
         <input class="otp-box" type="number" id="p2" oninput="otpNav(this,'p1','p3')"/>
@@ -582,9 +582,9 @@ window.doLogin = async function(){
       show("c3"); setStep(3); clearOtp(); startOtpTimer(); window.scrollTo(0,0);
     }
   }catch(e){
-    let m="Login नहीं हुआ — Email/Password जाँचें।";
+    let m="लॉगिन (Login) नहीं हुआ — ईमेल व पासवर्ड जाँचें।";
     const c=e&&e.code;
-    if(c==="auth/invalid-credential"||c==="auth/wrong-password"||c==="auth/user-not-found") m="Email या Password ग़लत है।";
+    if(c==="auth/invalid-credential"||c==="auth/wrong-password"||c==="auth/user-not-found") m="ईमेल (Email) या पासवर्ड (Password) ग़लत है।";
     else if(c==="auth/too-many-requests") m="बहुत बार ग़लत — थोड़ी देर बाद कोशिश करें।";
     else if(c==="auth/network-request-failed") m="Internet जाँचें।";
     box("a2",m);

@@ -195,14 +195,14 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
     <div class="sp"></div>
     <div class="tbwho" id="tbWho"></div>
     <button class="btn-out side-toggle" onclick="toggleSide()">☰ काम-सूची</button>
-    <button class="btn-out" onclick="doLogout()">Logout</button>
+    <button class="btn-out" onclick="doLogout()">बाहर निकलें (Logout)</button>
   </div>
 
   <!-- [T2] hold-पट्टी -->
   <div class="holdbar" id="holdBar"></div>
 
   <!-- [T3] provisional-पर्दा -->
-  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — dashboard अभी सिर्फ़ देखने के मोड में है। approval पूरा होते ही सब काम-अधिकार खुल जाएँगे।</div>
+  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — डैशबोर्ड (Dashboard) अभी सिर्फ़ देखने के मोड में है। स्वीकृति (Approval) पूरी होते ही सब काम-अधिकार खुल जाएँगे।</div>
 
   <!-- जाँच-दृश्य -->
   <div class="center" id="loadView">
@@ -462,7 +462,7 @@ async function guardTeam(user){
   CAN_FINAL = (desig==="founder" || desig==="hq_admin");
 
   /* ── topbar व pill + login-पहचान (v1.6-ङ2 होल बंद) ── */
-  $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (provisional)");
+  $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (अस्थायी — जाँच में)");
   const whoName = team.name_local || team.name_roman || team.name || team.fullName || (user.email||"");
   $("tbWho").textContent = "👤 " + whoName + " · " + mxLabel(desig);
   $("tbWho").title = "UID: " + user.uid;
@@ -946,7 +946,7 @@ async function guardExternal(user){
 
   const isActive = (reg.status==="approved");
   if(!isActive) $("provBar").classList.add("on");
-  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (provisional)");
+  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (अस्थायी — जाँच में)");
 
   const whoName = reg.name_local || reg.name_roman || reg.name || reg.fullName || (user.email||"");
   $("pName").textContent  = whoName;
