@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>रजिस्ट्रेशन गाइड — 12 भूमिकाएँ | अप्लाइड कंप्यूटर स्कूल</title>
+<meta name="description" content="ACS की 12 भूमिकाएँ — हर भूमिका के ज़रूरी दस्तावेज़, अधिकार-कर्तव्य व टीम-पदों की योग्यताएँ — आवेदन से पहले पूरा नक़्शा।"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* (14-Jul-2026, Founder-आदेश) guide-पृष्ठ — data-स्रोत सिर्फ़ matrix v1.4 + roles.js (परत-3) */
+:root{ --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --off:#F5F7FA; --border:#dfe6ef; }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:'Noto Sans Devanagari','Inter',sans-serif; background:var(--off); color:#22304a; font-size:19px; line-height:1.7; }
+.tricolor{ display:flex; height:6px; } .tricolor span{ flex:1; }
+.tricolor span:nth-child(1){ background:var(--gold); } .tricolor span:nth-child(2){ background:#fff; } .tricolor span:nth-child(3){ background:var(--green); }
+.hero{ background:linear-gradient(160deg,#0B1F3A,#123c7a); color:#fff; text-align:center; padding:26px 14px 22px; }
+.hero h1{ font-size:23px; font-weight:800; line-height:1.55; text-shadow:0 2px 8px rgba(0,0,0,.25); }
+.hero .sub{ font-size:17px; color:#dbe6f7; margin-top:6px; }
+.hero .bar{ display:flex; width:150px; height:5px; margin:12px auto 0; border-radius:3px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,.3); }
+.hero .bar span{ flex:1; } .hero .bar span:nth-child(1){ background:var(--gold); } .hero .bar span:nth-child(2){ background:var(--off); } .hero .bar span:nth-child(3){ background:var(--green); }
+.wrap{ max-width:900px; margin:0 auto; padding:14px 12px 60px; }
+.note{ background:#FFF8E1; border:1.5px solid var(--gold); border-radius:10px; padding:12px; font-size:17px; margin:12px 0 16px; }
+.acc{ background:#fff; border:1.5px solid var(--border); border-radius:14px; margin-bottom:12px; overflow:hidden;
+  box-shadow:0 3px 0 #d5dce8, 0 6px 14px rgba(11,31,58,.08); }
+.acc-head{ width:100%; display:flex; align-items:center; gap:12px; padding:14px 14px; background:#fff; border:none; cursor:pointer; text-align:left; }
+.acc-head .ic{ font-size:26px; }
+.acc-head .nm{ flex:1; font-size:18px; font-weight:800; color:var(--navy); font-family:inherit; line-height:1.5; }
+.acc-head .ar{ font-size:18px; color:var(--blue); transition:transform .2s; }
+.acc.open .acc-head .ar{ transform:rotate(180deg); }
+.acc-body{ display:none; border-top:1.5px solid var(--border); padding:14px; background:#fbfcfe; }
+.acc.open .acc-body{ display:block; }
+.acc-body h4{ font-size:17px; color:var(--navy); margin:12px 0 4px; }
+.acc-body h4:first-child{ margin-top:0; }
+.acc-body ul{ padding-left:24px; }
+.acc-body li{ font-size:16px; line-height:1.75; margin-bottom:2px; }
+.docline .t{ color:#556; font-size:16px; }
+.applyBtn{ display:block; width:100%; margin-top:14px; background:var(--green); color:#fff; font-family:inherit; font-size:19px; font-weight:800;
+  border:none; border-radius:12px; padding:13px; cursor:pointer; text-align:center; text-decoration:none;
+  box-shadow:0 4px 0 #1d5a22, 0 8px 16px rgba(46,125,50,.3); }
+.applyBtn:active{ transform:translateY(3px); box-shadow:0 1px 0 #1d5a22; }
+.ruleLink{ color:var(--blue); font-weight:700; font-size:16px; }
+table.qual{ width:100%; border-collapse:collapse; margin-top:6px; background:#fff; }
+table.qual th, table.qual td{ border:1px solid var(--border); padding:8px 8px; font-size:16px; text-align:left; line-height:1.6; }
+table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
+.lvl{ background:#eef3fb; font-weight:800; color:var(--navy); }
+.foot{ text-align:center; color:#667; font-size:16px; padding:20px 10px; }
+@media(min-width:760px){ .hero h1{ font-size:26px; } }
+</style>
+</head>
+<body>
+<div class="tricolor"><span></span><span></span><span></span></div>
+<div class="hero">
+  <h1>रजिस्ट्रेशन गाइड — पहले पूरा नक़्शा, फिर आवेदन</h1>
+  <div class="sub">12 भूमिकाएँ (Role) · ज़रूरी दस्तावेज़ · अधिकार व कर्तव्य · टीम-पदों की योग्यताएँ</div>
+  <div class="bar"><span></span><span></span><span></span></div>
+</div>
+<div class="wrap">
+  <div class="note">🙏 जिस भूमिका में रुचि हो, उसी पर छूकर/click कर खोलें — वहीं उसके <b>ज़रूरी काग़ज़ात</b> (प्रकार व आकार सहित), <b>मुख्य अधिकार-कर्तव्य</b> और <b>📝 आवेदन का बटन</b> मिलेगा। हर फ़ाइल: फ़ोटो (JPG/PNG) — जहाँ लिखा हो वहाँ PDF भी — अधिकतम <b>5MB</b>।</div>
+  <div id="accHome">⏳ सूची बन रही है…</div>
+  <div class="foot">ACS™ · FFGPMTrust · From Village to World</div>
+</div>
+
+<script src="/assets/designation_matrix.js"></script>
+<script src="/assets/roles.js"></script>
+<script>
+(function(){
+  var M = window.ACS_DESIGNATIONS, R = window.ACS_ROLES;
+  var home = document.getElementById('accHome');
+  if(!M || !R){ home.textContent = '⚠️ सूची नहीं खुल पाई — कृपया पृष्ठ दोबारा खोलें।'; return; }
+
+  var ICON = { student:'🎓', jobseeker:'💼', entrepreneur:'🏭', teacher:'👨‍🏫', center:'🏫',
+    counselor:'🧭', employer:'🧑‍💼', foreign_agent:'✈️', volunteer:'🤝',
+    finance_mitra:'🏦', vendor:'🛒', team:'🛠️' };
+
+  /* 2-पंक्ति परिचय + मुख्य अधिकार + मुख्य कर्तव्य — स्रोत: उसी भूमिका की rules-consent फ़ाइल (सार-रूप) */
+  var INFO = {
+    student: { intro:'सीखने वाला — 10 साल से। पूरे कोर्स, 950+ उद्यम व यंत्रों की जानकारी हमेशा निःशुल्क।',
+      rights:['सारा online content निःशुल्क — जुड़ने का कोई शुल्क नहीं','अपनी भाषा में पढ़ाई; certificate FFGPMTrust से (exam-रास्ते से)'],
+      duties:['10-18 उम्र पर Guardian की सहमति व उनका पहचान-पत्र अनिवार्य','paid सिर्फ़ 5 सेवाएँ (aptitude test, offline training आदि) — बाक़ी सब free'] },
+    jobseeker: { intro:'नौकरी की तैयारी — 16 साल से; असली job/joining 18 साल से।',
+      rights:['जुड़ना निःशुल्क; किसी agent/नियोक्ता को एक भी रुपया देना मना — कमीशन employer से','Verified-badge वैकल्पिक (₹300/600/1000 · 365 दिन) — बिना badge भी apply कर सकेंगे'],
+      duties:['सही जानकारी/दस्तावेज़ देना; 16-18 उम्र में सिर्फ़ तैयारी-गतिविधियाँ (POCSO-सुरक्षा)'] },
+    entrepreneur: { intro:'अपना उद्यम शुरू करने वाला — 950+ उद्यमों की bank-ready जानकारी।',
+      rights:['project report, यंत्र-सूची, वित्त मित्र व विक्रेता — सब तक सीधी पहुँच','ऋण दिलाने के नाम पर कोई अग्रिम-वसूली माने नहीं — तुरंत ACS को रिपोर्ट करें'],
+      duties:['ऋण/निवेश का अंतिम फ़ैसला संस्था का; अपने काग़ज़ों की सच्चाई आपकी ज़िम्मेदारी'] },
+    teacher: { intro:'कोर्स पढ़ाएँ या पारंपरिक हुनर सिखाएँ — मूल Course Creator को 7% royalty lifetime।',
+      rights:['live-class fee: न्यूनतम ACS तय, अधिकतम आप','45+ उम्र पर badge मर्ज़ी; कम उम्र पर badge-नियम लागू'],
+      duties:['original content only; POSH/POCSO/DPDP का पालन; 7-दिन Show-Cause व्यवस्था'] },
+    center: { intro:'किताबी कोर्स या सीधे-कमाई का हुनर सिखाने वाला केंद्र — कोर्स-आय का 80% केंद्र को।',
+      rights:['80/7/3/5/5 revenue-split में सबसे बड़ा हिस्सा; अपने students को छूट-banner','branding निःशुल्क; WhatsApp-panel (enrolled+सहमति वाले students को)'],
+      duties:['fee कभी ACS न्यूनतम-slab से नीचे नहीं; certificate सिर्फ़ असली Exam→Result रास्ते से'] },
+    counselor: { intro:'करियर/उद्योग सलाह — आय का 90% आपको; अनुभव कम-से-कम 5 वर्ष।',
+      rights:['90/5/5 split; turn-key उद्योग-सेटअप सेवा भी दे सकेंगे','badge वैकल्पिक — बिना badge भी काम'],
+      duties:['हर सत्र से पहले 5-मिनट free preview अनिवार्य; 1 घंटे पहले रद्द = 90% वापसी नियम'] },
+    employer: { intro:'job post करें, staff पाएँ — जुड़ना व worker से संपर्क पूर्णतः निःशुल्क।',
+      rights:['deश-विदेश के तैयार job-seekers तक dashboard से सीधी पहुँच'],
+      duties:['worker/job-seeker से कोई शुल्क कभी नहीं (ZERO worker fee — लोहे का नियम)','संपर्क सिर्फ़ dashboard से; झूठी job post = कार्रवाई'] },
+    foreign_agent: { intro:'विदेश placement — eMigrate लाइसेंस अनिवार्य; कमीशन employer से।',
+      rights:['90/5/5 split — आपका 90%'],
+      duties:['बच्चे/worker से एक रुपया भी नहीं; eMigrate व स्थानीय कानूनों का पालन अनिवार्य'] },
+    volunteer: { intro:'सेवा-भाव से लोगों को ACS-नेटवर्क से जोड़ें — प्रति-verification पारितोषिक।',
+      rights:['field-अनुभव; आगे टीम में आने का रास्ता; मानदेय नहीं — कमीशन-आधारित'],
+      duties:['RM-स्तर की देख-रेख में काम; सही जानकारी से ही जुड़ाव'] },
+    finance_mitra: { intro:'नए उद्यमी को अधिकृत वित्तीय संस्था (बैंक/सरकारी योजना/NBFC/CSR) से जोड़कर पूंजी की व्यवस्था — जुड़ना निःशुल्क।',
+      rights:['कमीशन वित्तीय संस्था से; badge वैकल्पिक (₹300/600/1000 · 365 दिन)'],
+      duties:['उद्यमी से किसी नाम पर शून्य शुल्क — अग्रिम-वसूली = तत्काल निष्कासन + कानूनी कार्रवाई','संस्था-अधिकृति/empanelment प्रमाण अनिवार्य; ब्याज-शर्तें बढ़ा-चढ़ाकर बताना निषिद्ध'] },
+    vendor: { intro:'उद्यम-स्थापना का सेवा/सामान प्रदाता (यंत्र, कच्चा-माल, packaging…) — जुड़ना निःशुल्क।',
+      rights:['approved होने पर portal-listing; Verified-badge वैकल्पिक = सूची-प्राथमिकता'],
+      duties:['ACS मंच है — सौदे का पक्ष नहीं: गुणवत्ता/warranty/bill की ज़िम्मेदारी आपकी','RM भौतिक-सत्यापन से पहले नाम portal पर नहीं दिखेगा'] },
+    team: { intro:'ACS का कार्यालय-परिवार — प्रधान कार्यालय (HQ), राज्य/देश कार्यालय व क्षेत्रीय कार्यालय के पद। पदनाम form के अंदर चुनेंगे।',
+      rights:['मानदेय हर माह 1-7 तारीख़; अपने दायरे के फ़ैसलों में निर्णय-अधिकार','Work-From-Home विकल्प (पता सार्वजनिक करने की सहमति पर)'],
+      duties:['चरित्र-प्रमाण 30 दिन में; हर login OTP; वार्षिक नैतिकता-घोषणा; approval-श्रृंखला से स्थायी'] }
+  };
+
+  function docLines(card){
+    var docs = (card && card.documents) || [];
+    if(!docs.length) return '<li>कोई दस्तावेज़ नहीं — सिर्फ़ जानकारी भरनी है।</li>';
+    return docs.map(function(d){
+      var type = (d.accept || '').indexOf('.pdf') > -1 ? 'फ़ोटो/PDF' : 'फ़ोटो';
+      var cond = d.showWhenMinor ? ' — सिर्फ़ 18 से कम उम्र पर' : (d.showWhenAdult ? ' — सिर्फ़ 18+ पर' : '');
+      return '<li class="docline">' + d.hi + ' <span class="t">(' + type + ', 5MB तक' + cond + (d.required ? '' : ' — वैकल्पिक') + ')</span></li>';
+    }).join('');
+  }
+  function bullets(arr){ return (arr || []).map(function(x){ return '<li>' + x + '</li>'; }).join(''); }
+
+  var LVL_HI = { hq:'प्रधान कार्यालय (HQ)', zm:'राज्य/देश कार्यालय', rm:'क्षेत्रीय कार्यालय' };
+  function teamTable(){
+    var rows = '', last = '';
+    (M.teams || []).filter(function(t){ return t.registrable; }).forEach(function(t){
+      if(t.level !== last){
+        rows += '<tr><td class="lvl" colspan="3">' + (LVL_HI[t.level] || t.level) + '</td></tr>';
+        last = t.level;
+      }
+      rows += '<tr><td>' + (t.public_label || t.label) + '</td><td>' + (t.qualification || '—') + '</td><td>' + (t.min_age ? t.min_age + '+' : '—') + '</td></tr>';
+    });
+    return '<h4>🎓 पदों की योग्यता व न्यूनतम उम्र (पद form के अंदर चुनेंगे)</h4>'
+      + '<table class="qual"><tr><th>पद</th><th>योग्यता</th><th>उम्र</th></tr>' + rows + '</table>';
+  }
+
+  (M.cards || []).forEach(function(c){
+    var card = (c.key === 'team') ? null : R.byKey(c.key);
+    var info = INFO[c.key] || { intro:(card && card.desc_hi) || '', rights:[], duties:[] };
+    var ruleFile = (card && card.ruleFile) || c.ruleFile || '';
+    var sec = document.createElement('div');
+    sec.className = 'acc';
+    sec.innerHTML =
+      '<button type="button" class="acc-head"><span class="ic">' + (ICON[c.key] || '⭐') + '</span>'
+      + '<span class="nm">' + (c.public_label || c.label) + '</span><span class="ar">▼</span></button>'
+      + '<div class="acc-body">'
+      +   '<div style="font-size:16px">' + info.intro + '</div>'
+      +   '<h4>📋 ज़रूरी दस्तावेज़ — पहले तैयार रखें</h4><ul>' + (c.key === 'team'
+            ? '<li class="docline">प्रोफ़ेशनल फ़ोटो, 2 पहचान-पत्र, मैट्रिक व अधिकतम-शिक्षा प्रमाण, अनुभव (यदि हो), हस्ताक्षर <span class="t">(फ़ोटो/PDF, 5MB तक — पद के अनुसार form में सटीक सूची दिखेगी)</span></li>'
+            : docLines(card)) + '</ul>'
+      +   '<h4>🧭 मुख्य अधिकार</h4><ul>' + bullets(info.rights) + '</ul>'
+      +   '<h4>📏 मुख्य कर्तव्य व नियम</h4><ul>' + bullets(info.duties) + '</ul>'
+      +   (c.key === 'team' ? teamTable() : '')
+      +   (ruleFile ? '<div style="margin-top:8px">📜 <a class="ruleLink" href="/' + ruleFile + '" target="_blank" rel="noopener">पूरे नियम पढ़ें (आवेदन में यही एक-एक कर स्वीकार होंगे)</a></div>' : '')
+      +   '<a class="applyBtn" href="/join.html?role=' + c.key + '">📝 इस भूमिका के लिए आवेदन करें →</a>'
+      + '</div>';
+    sec.querySelector('.acc-head').addEventListener('click', function(){
+      var open = sec.classList.contains('open');
+      document.querySelectorAll('.acc.open').forEach(function(x){ x.classList.remove('open'); });
+      if(!open) sec.classList.add('open');
+    });
+    home.appendChild(sec);
+  });
+  home.removeChild(home.firstChild); /* "सूची बन रही है…" text-node हटाना */
+})();
+</script>
+</body>
+</html>

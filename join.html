@@ -335,7 +335,7 @@
   if(!MX){ alert('⚠️ designation_matrix.js लोड नहीं हुआ — कृपया assets फ़ोल्डर जाँचें।'); }
   var CARD_ICON = { student:'🎓', jobseeker:'💼', entrepreneur:'🏭', teacher:'👨‍🏫', center:'🏫',
     counselor:'🧭', employer:'🧑‍💼', foreign_agent:'✈️', volunteer:'🤝', finance_mitra:'🏦', vendor:'🛒', team:'🛠️' };
-  var teamLadderBox, teamLevelSel, teamDesigSel, teamDesigRow;
+  var teamLadderBox, teamLevelSel, teamDesigSel, teamDesigRow, tileByKey = {};
   function ensureRoleOption(key, label){
     var sel = document.getElementById('roleSel');
     for(var i=0;i<sel.options.length;i++){ if(sel.options[i].value===key){ sel.options[i].textContent=label; return; } }
@@ -371,7 +371,13 @@
         }
       });
       grid.appendChild(div);
+      tileByKey[c.key] = div;   /* (14-Jul) guide-page से ?role= पूर्व-चुनाव हेतु */
     });
+    /* (14-Jul-2026, Founder) registration-guide से आया हो तो कार्ड पहले से चुना मिले */
+    try {
+      var pre = new URLSearchParams(location.search).get('role');
+      if(pre && tileByKey[pre]) tileByKey[pre].click();
+    } catch(e){}
     /* टीम-सीढ़ी: स्तर → उस स्तर के registrable पद (public_label से) */
     teamLevelSel.addEventListener('change', function(){
       var lvl = teamLevelSel.value;
@@ -973,12 +979,40 @@
     if(card.needsGeo) return !!countrySel.value && !!stateValue();
     return true; /* कोई office-info नहीं चाहिए (learner, teacher, center, counselor, employer, foreign_agent) */
   }
+  /* ═══ (14-Jul-2026, Founder-आदेश) role चुनते ही, form/नियम से पहले —
+     "पहले तैयार रखें" दस्तावेज़-सूची: नाम + प्रकार + अधिकतम आकार + उम्र-शर्त ═══ */
+  function renderDocPrereq(card){
+    var box = document.getElementById('docPrereqBox');
+    if(!box){
+      box = document.createElement('div');
+      box.id = 'docPrereqBox';
+      box.style.cssText = 'display:none;background:#EAF3EC;border:1.5px solid var(--green);border-radius:10px;padding:12px;margin:10px 0';
+      var ladder = document.getElementById('teamLadderBox');
+      ladder.insertAdjacentElement('afterend', box);
+    }
+    var docs = (card && card.documents) || [];
+    if(!docs.length){ box.style.display = 'none'; return; }
+    var html = '<div style="font-weight:800;color:#1b4d20;font-size:17px">📋 शुरू करने से पहले ये दस्तावेज़ तैयार रखें</div>'
+      + '<div class="hint" style="margin:2px 0 6px">हर फ़ाइल: फ़ोटो (JPG/PNG)' 
+      + ' या जहाँ लिखा हो वहाँ PDF भी · अधिकतम आकार 5MB प्रति फ़ाइल</div><ul style="margin:0;padding-right:4px;padding-left:22px">';
+    docs.forEach(function(d){
+      var type = (d.accept || '').indexOf('.pdf') > -1 ? 'फ़ोटो/PDF' : 'फ़ोटो';
+      var cond = d.showWhenMinor ? ' — सिर्फ़ 18 से कम उम्र पर' : (d.showWhenAdult ? ' — सिर्फ़ 18+ पर' : '');
+      html += '<li style="font-size:16px;line-height:1.7">' + d.hi + ' <span style="color:#556">(' + type + ', 5MB तक' + cond + ')</span>'
+        + (d.required ? '' : ' <span style="color:#556">— वैकल्पिक</span>') + '</li>';
+    });
+    html += '</ul>';
+    box.innerHTML = html;
+    box.style.display = 'block';
+  }
+
   function onRoleChange(){
     resetCascade();
     var r = roleSel.value;
-    if(!r) return;
+    if(!r){ renderDocPrereq(null); return; }
     var card = R.byKey(r);
-    if(!card) return;
+    if(!card){ renderDocPrereq(null); return; }
+    renderDocPrereq(card);   /* (14-Jul) कलम उठाने से पहले दस्तावेज़-सूची */
     if(card.isHQ){ fixedHQ.classList.add('show'); }
     else if(card.hasOfficeLevelCascade){ staffLevelBox.classList.add('show'); }
     else if(card.needsGeo){ countryBox.classList.add('show'); }  /* देश पहले — राज्य देश चुनने पर */
