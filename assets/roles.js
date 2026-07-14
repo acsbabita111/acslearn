@@ -1,5 +1,7 @@
 /* =====================================================================
-   ACS — roles.js  (v2.0 — पूर्ण अद्यतन)
+   ACS — roles.js  (v2.1 · 14-Jul-2026 · 11:05 — Founder-आदेश: संस्था-सत्यापन
+   दस्तावेज़ — व्यक्ति=अपना फ़ोटो+पहचान; संस्था(Center/Employer/Vendor)=मालिक के
+   दस्तावेज़ + संस्था का अलग सत्यापन। पिछला: v2.0 — पूर्ण अद्यतन)
    घर: /assets/roles.js   ·   परत-3 DATA (सिर्फ़ जानकारी — कोई design नहीं)
    मूल भाषा: हिंदी
    ---------------------------------------------------------------------
@@ -60,6 +62,17 @@ window.ACS_ROLES = {
       hi:"Guardian की लिखित सहमति (18 से कम उम्र पर)", en:"Guardian written consent (if below 18)" };
     F.docLicense = { id:"doc_license", accept:"image/*,.pdf", required:true, hi:"eMigrate/RA लाइसेंस की प्रति", en:"Copy of eMigrate/RA license" };
     F.docPremisesPhoto = { id:"doc_premises_photo", accept:"image/*", required:true, hi:"केंद्र/वर्कशॉप के भवन का फ़ोटो", en:"Photo of Center/Workshop premises" };
+    /* संस्था-सत्यापन दस्तावेज़ (Founder-आदेश 14-Jul-2026): मालिक के दस्तावेज़ + संस्था का अलग सत्यापन।
+       ध्यान: Owner-वाले id वही पुराने (doc_photo/doc_photo_id1/2) — सिर्फ़ लेबल बदला; server/डैशबोर्ड-chips अछूते। */
+    F.docOwnerPhoto = { id:"doc_photo", accept:"image/*", required:true, hi:"मालिक (Owner) का पासपोर्ट-साइज़ फ़ोटो", en:"Owner passport-size photo" };
+    F.docOwnerId1 = { id:"doc_photo_id1", accept:"image/*,.pdf", required:true, hi:"मालिक का फ़ोटो पहचान-पत्र 1 (जैसे Aadhaar)", en:"Owner photo ID 1 (e.g. Aadhaar)" };
+    F.docOwnerId2 = { id:"doc_photo_id2", accept:"image/*,.pdf", required:true, hi:"मालिक का फ़ोटो पहचान-पत्र 2 (जैसे Voter-ID/PAN)", en:"Owner photo ID 2 (e.g. Voter-ID/PAN)" };
+    F.docOrgPhotoOut = { id:"doc_org_photo_out", accept:"image/*", required:true, hi:"संस्था/भवन का बाहर से फ़ोटो — नाम-बोर्ड साफ़ दिखे", en:"Outside photo of premises — name-board visible" };
+    F.docOrgPhotoIn = { id:"doc_org_photo_in", accept:"image/*", required:true, hi:"संस्था के अंदर का फ़ोटो (क्लासरूम/वर्कशॉप/दफ़्तर)", en:"Inside photo (classroom/workshop/office)" };
+    F.docOrgPhotoInOpt = { id:"doc_org_photo_in", accept:"image/*", required:false, hi:"संस्था के अंदर का फ़ोटो (हो तो)", en:"Inside photo (if available)" };
+    F.docOrgProof = { id:"doc_org_proof", accept:"image/*,.pdf", required:true, hi:"संस्था का पंजीकरण/लाइसेंस प्रमाण (उद्यम/Shop-License/GST — कोई एक)", en:"Business registration/license proof (any one)" };
+    F.docOrgProofOpt = { id:"doc_org_proof", accept:"image/*,.pdf", required:false, hi:"संस्था का पंजीकरण/लाइसेंस प्रमाण (व्यक्तिगत नियोक्ता के लिए वैकल्पिक)", en:"Business registration/license proof (optional for individual employer)" };
+    F.docOrgPhotoOutOpt = { id:"doc_org_photo_out", accept:"image/*", required:false, hi:"कार्यस्थल/भवन का बाहर से फ़ोटो (व्यक्तिगत नियोक्ता के लिए वैकल्पिक)", en:"Premises outside photo (optional for individual employer)" };
     F.docPhotoId1 = { id:"doc_photo_id1", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 1 (जैसे Aadhaar)", en:"Photo ID proof 1 (e.g. Aadhaar)" };
     F.docPhotoId2 = { id:"doc_photo_id2", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 2 (जैसे Voter-ID/Pan)", en:"Photo ID proof 2 (e.g. Voter-ID/PAN)" };
     F.docMatric = { id:"doc_matric", accept:"image/*,.pdf", required:true, hi:"मैट्रिक (10वीं) का दस्तावेज़", en:"Matric (10th) document" };
@@ -113,7 +126,7 @@ window.ACS_ROLES = {
           { id:"org_name", type:"text", required:true, hi:"केंद्र/वर्कशॉप का नाम", en:"Center/Workshop Name" },
           { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Address" },
           { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" }, F.emergencyContact1, F.emergencyContact2 ],
-        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature, F.docPremisesPhoto ]
+        documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docOrgPhotoIn, F.docOrgProof, F.docExperience ]
       },
 
       { key:"counselor", group:"g2", icon:"🧭",
@@ -139,7 +152,7 @@ window.ACS_ROLES = {
                       {v:"msme",hi:"MSME/छोटा व्यवसाय",en:"MSME/Small Business"}, {v:"company",hi:"Company/Firm",en:"Company/Firm"},
                       {v:"ngo",hi:"NGO/Trust",en:"NGO/Trust"}, {v:"govt",hi:"सरकारी विभाग",en:"Government Dept."},
                       {v:"international",hi:"International/MNC",en:"International/MNC"} ] }, F.address, F.emergencyContact1, F.emergencyContact2 ],
-        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
+        documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOutOpt, F.docOrgProofOpt ]
       },
 
       { key:"foreign_agent", group:"g2", icon:"✈️",
@@ -190,7 +203,7 @@ window.ACS_ROLES = {
                       {v:"marketing",hi:"Marketing/Branding",en:"Marketing/Branding"}, {v:"export",hi:"Export सहायक",en:"Export Support"},
                       {v:"other",hi:"अन्य",en:"Other"} ] },
           F.address, F.emergencyContact1, F.emergencyContact2 ],
-        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
+        documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docOrgPhotoInOpt, F.docOrgProof ]
       },
 
       /* ---------------- समूह-3 : ACS Team ---------------- */
