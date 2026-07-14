@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v26';                 // ← CSS/JS बदलें तो बढ़ाएँ (v26: 14-Jul-2026 — 29-dashboard batch v3.4: chip-public_label + gateway-timeline)
+const CACHE_VERSION = 'v27';                 // ← (v27: 14-Jul-2026 — Founder-आदेश: शिक्षक/केंद्र-विभाजन — 14 कार्ड · 31 dashboards · matrix v1.5 · roles v2.2 · 2 नई rules-फ़ाइलें)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 

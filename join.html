@@ -213,6 +213,13 @@
         <option value="">— अपना रोल चुनें —</option>
       </select>
 
+      <!-- v2.0 (14-Jul-2026, Founder): शिक्षक/केंद्र कार्ड पर क्लिक → दो-विकल्प (ACS-टीम साँचा) -->
+      <div class="cascade" id="childChoiceBox">
+        <div class="row"><label id="childChoiceLabel">प्रकार चुनें</label>
+          <div class="roleGrid" id="childChoiceGrid"></div>
+        </div>
+      </div>
+
       <!-- ACS टीम कार्ड चुनने पर: पदनाम-सीढ़ी (matrix v1.3 से) -->
       <div class="cascade" id="teamLadderBox">
         <div class="row"><label>कार्यालय-स्तर चुनें</label>
@@ -333,8 +340,8 @@
      सिर्फ़ public_label। ACS-टीम कार्ड → पदनाम-सीढ़ी (registrable पद)। */
   var MX = window.ACS_DESIGNATIONS;
   if(!MX){ alert('⚠️ designation_matrix.js लोड नहीं हुआ — कृपया assets फ़ोल्डर जाँचें।'); }
-  var CARD_ICON = { student:'🎓', jobseeker:'💼', entrepreneur:'🏭', teacher:'👨‍🏫', center:'🏫',
-    counselor:'🧭', employer:'🧑‍💼', foreign_agent:'✈️', volunteer:'🤝', finance_mitra:'🏦', vendor:'🛒', team:'🛠️' };
+  var CARD_ICON = { student:'🎓', jobseeker:'💼', entrepreneur:'🏭', teacher:'👨‍🏫', ustad:'🧰', center:'🏫',
+    workshop:'🔧', counselor:'🧭', employer:'🧑‍💼', foreign_agent:'✈️', volunteer:'🤝', finance_mitra:'🏦', vendor:'🛒', team:'🛠️' };
   var teamLadderBox, teamLevelSel, teamDesigSel, teamDesigRow, tileByKey = {};
   function ensureRoleOption(key, label){
     var sel = document.getElementById('roleSel');
@@ -348,7 +355,33 @@
   }
   function buildRoleCards(){
     var grid = document.getElementById('roleGrid');
+    var childBox=document.getElementById('childChoiceBox'), childGrid=document.getElementById('childChoiceGrid');
+    function hideChildBox(){ childBox.classList.remove('show'); childGrid.innerHTML=''; }
+    function showChildChoice(parentCard){
+      /* v2.0 (14-Jul): parent-कार्ड → उसके children (matrix v1.5) के दो बड़े विकल्प */
+      teamLadderBox.classList.remove('show');
+      childGrid.innerHTML='';
+      (parentCard.children||[]).forEach(function(k){
+        var cc=null; (MX.cards||[]).forEach(function(x){ if(x.key===k) cc=x; });
+        if(!cc) return;
+        var rc2=R.byKey(k);
+        var b=document.createElement('div'); b.className='role-card';
+        b.innerHTML='<div class="rIcon">'+(CARD_ICON[k]||'⭐')+'</div>'+
+          '<div class="rName">'+(cc.public_label||cc.label)+'</div>'+
+          (rc2&&rc2.desc_hi?'<div class="rDesc">'+rc2.desc_hi+'</div>':'');
+        b.addEventListener('click',function(){
+          childGrid.querySelectorAll('.role-card').forEach(function(x){x.classList.remove('sel');});
+          b.classList.add('sel');
+          setRole(k, cc.public_label||cc.label);
+        });
+        childGrid.appendChild(b);
+      });
+      childBox.classList.add('show');
+      var sel=document.getElementById('roleSel');
+      if(sel.value){ sel.value=''; sel.dispatchEvent(new Event('change')); }
+    }
     (MX && MX.cards || []).forEach(function(c){
+      if(c.parent) return; /* v2.0: child-कार्ड grid में नहीं — parent पर क्लिक से चुनाव */
       var div = document.createElement('div');
       div.className = 'role-card' + ((c.key==='student'||c.key==='jobseeker'||c.key==='entrepreneur')?' learnerC':'');
       var rc = R.byKey(c.key==='team' ? '' : c.key);
@@ -358,6 +391,11 @@
       div.addEventListener('click', function(){
         grid.querySelectorAll('.role-card').forEach(function(x){ x.classList.remove('sel'); });
         div.classList.add('sel');
+        if(c.children && c.children.length){
+          showChildChoice(c);
+          return;
+        }
+        hideChildBox();
         if(c.key === 'team'){
           teamLadderBox.classList.add('show');
           teamLevelSel.value=''; teamDesigRow.style.display='none';
