@@ -481,11 +481,23 @@ window.switchLang = function(){
     });
     return d;
   }
+  function rebuildAllTiles(){
+    /* v3.2 (14-Jul, blunder-सुधार): ग़लत क्लिक से वापसी — पूरा grid फिर से */
+    grid.innerHTML='';
+    ROLE='';
+    (MX2.cards || []).forEach(function(c){ if(c.parent) return; grid.appendChild(makeTile(c, false)); });
+    box("a1","");
+  }
   function expandChildren(parentCard, parentTile){
     const kids = (parentCard.children||[]).map(k => (MX2.cards||[]).find(x=>x.key===k)).filter(Boolean);
     if(!kids.length) return;
     const frag = document.createDocumentFragment();
     kids.forEach(function(cc){ frag.appendChild(makeTile(cc, true)); });
+    const back = document.createElement('div');
+    back.className='role-card';
+    back.innerHTML='<div class="role-icon">↩</div><div class="role-name">सब भूमिकाएँ (वापस)</div>';
+    back.addEventListener('click', rebuildAllTiles);
+    frag.appendChild(back);
     parentTile.replaceWith(frag);
     const sel=$("roleGrid").querySelector('.role-card'); /* पहले child पर संकेत नहीं — चुनाव user का */
     box("a1","अब प्रकार चुनें — "+kids.map(function(x){return x.public_label||x.label;}).join(" या ")+"।",true);
