@@ -281,6 +281,7 @@
         <label for="finalChk"><b>अंतिम पुष्टि:</b> मैंने ऊपर के सभी नियम ख़ुद पढ़कर एक-एक करके स्वीकार किए हैं।</label>
       </div>
       <button class="big btn-off" id="toStep3Btn" type="button" disabled>➜ आगे बढ़ें (पूरा फ़ॉर्म)</button>
+      <button class="big btn-secondary" id="back1Btn" type="button" style="margin-top:8px">← पिछला — भूमिका/जानकारी बदलें</button>
     </div>
   </div>
 
@@ -294,6 +295,7 @@
         <div id="documentsContainer"></div>
       </div>
       <button class="big btn-off" id="toStep4Btn" type="button">➜ पुष्टि हेतु आगे बढ़ें</button>
+      <button class="big btn-secondary" id="back2Btn" type="button" style="margin-top:8px">← पिछला — नियम फिर पढ़ें</button>
     </div>
   </div>
 
@@ -305,6 +307,7 @@
       <div style="display:flex;gap:10px;margin-top:14px">
         <button class="big btn-secondary" id="editBtn" type="button">✏️ बदलाव करें</button>
         <button class="big btn-on" id="submitBtn" type="button">✅ Final Submit करें</button>
+      <button class="big btn-secondary" id="back3Btn" type="button" style="margin-top:8px">← पिछला — फ़ॉर्म में बदलाव</button>
       </div>
     </div>
   </div>
@@ -869,6 +872,24 @@
     });
   });
 
+  /* ═══ v2.1 (14-Jul, Founder blunder-सुधार): हर step से सुरक्षित वापसी ═══ */
+  document.getElementById('back1Btn').addEventListener('click', function(){
+    goToStep(1);
+    var rb=document.getElementById('resume2Btn');
+    if(!rb){
+      rb=document.createElement('button'); rb.type='button'; rb.id='resume2Btn'; rb.className='big btn-on';
+      rb.style.marginTop='10px'; rb.textContent='➜ नियम पर वापस जाएँ (जानकारी बदल ली)';
+      var hint=document.createElement('div'); hint.className='hint'; hint.style.marginTop='6px';
+      hint.textContent='ध्यान: Email बदला हो तो नया OTP लेना होगा — server पुराने OTP पर आगे नहीं बढ़ने देगा।';
+      var host=document.getElementById('verifyOtpBtn').parentElement;
+      host.appendChild(rb); host.appendChild(hint);
+      rb.addEventListener('click', function(){ goToStep(2); });
+    }
+    rb.style.display='';
+  });
+  document.getElementById('back2Btn').addEventListener('click', function(){ goToStep(2); });
+  document.getElementById('back3Btn').addEventListener('click', function(){ goToStep(3); });
+
   /* ═══════════════ STEP-नियंत्रण (टैब + panel दिखाना/छुपाना) ═══════════════ */
   function goToStep(n){
     for(var i=1;i<=4;i++){
@@ -878,7 +899,16 @@
       tab.classList.toggle('done', i<n);
     }
     window.scrollTo({top:0,behavior:'smooth'});
-    if(n===3){ window._toggleMinor=null; buildStep3Fields(); buildStep3Documents(); if(window._toggleMinor) window._toggleMinor(); }
+    if(n===3){
+      /* v2.1 (14-Jul, blunder-सुधार): role वही हो तो form दोबारा न बने — भरा data/upload सुरक्षित;
+         role बदला हो तभी पुनर्निर्माण */
+      var curRole = document.getElementById('roleSel').value;
+      if(window._step3Role !== curRole){
+        window._toggleMinor=null; buildStep3Fields(); buildStep3Documents();
+        if(window._toggleMinor) window._toggleMinor();
+        window._step3Role = curRole;
+      }
+    }
     if(n===4) buildReview();
   }
 

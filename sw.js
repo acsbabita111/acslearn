@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v28';                 // ← (v28: 14-Jul-2026 — नव-पेज ऑडिट सुधार: चारों rules-फ़ाइलें एक-भूमिका · join child-पूर्व-चुनाव)
+const CACHE_VERSION = 'v29';                 // ← (v29: 14-Jul-2026 — blunder-सुधार: join हर step पर ← पिछला + data-रक्षा · login में ↩ सब-भूमिकाएँ)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
