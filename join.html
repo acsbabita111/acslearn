@@ -799,6 +799,7 @@
     var code = Array.prototype.map.call(otpInputs, function(i){ return i.value; }).join('');
     verifyOtpBtn.disabled = true; verifyOtpBtn.textContent = '⏳ जाँचा जा रहा है…';
     callOtpFn('verifyRegisterOtp', { email: email.value, code: code }).then(function(){
+      window.startOtpValidity();   /* (14-Jul) 30-मिनट मियाद-घड़ी शुरू */
       clearInterval(otpCountdown); clearInterval(resendCountdown);
       /* (10-Jul-2026, Founder-नियम) दोहरा-registration रोक:
          OTP सही होते ही पूछो — क्या इस email का आवेदन पहले से है? */
@@ -1272,10 +1273,12 @@
           if(!isMinor) step3FieldEls[fid].value='';
         });
         /* Guardian-सहमति दस्तावेज़-बॉक्स भी (अगर तब तक बन चुका हो) उसी उम्र-सुनने से जुड़ा */
-        (card.documents||[]).filter(function(d){return d.showWhenMinor;}).forEach(function(d){
+        (card.documents||[]).forEach(function(d){
+          if(!d.showWhenMinor && !d.showWhenAdult) return;   /* (14-Jul) दोनों दिशा */
           var box = docBoxEls[d.id]; if(!box) return;
-          box.style.display = isMinor ? '' : 'none';
-          if(!isMinor) delete docFiles[d.id];
+          var show = d.showWhenMinor ? isMinor : !isMinor;
+          box.style.display = show ? '' : 'none';
+          if(!show) delete docFiles[d.id];
         });
         validateStep3();
       };
@@ -1438,7 +1441,7 @@
       (card.documents||[]).forEach(function(d){
         if(!d.required) return;
         var box = docBoxEls[d.id];
-        if(d.showWhenMinor && box && box.style.display==='none') return; /* नहीं दिखता तो अनिवार्य नहीं */
+        if((d.showWhenMinor || d.showWhenAdult) && box && box.style.display==='none') return; /* नहीं दिखता तो अनिवार्य नहीं */
         if(!docFiles[d.id]) ok = false;
       });
     }
@@ -1640,7 +1643,10 @@
         if(docFiles[d.id]){
           html += '<div>📎 <b>'+d.hi+':</b> ✅ '+docFiles[d.id].file.name+'</div>';
         } else if(d.required){
-          html += '<div>📎 <b>'+d.hi+':</b> <span style="color:#B23A3A">⚠️ अपलोड नहीं हुआ</span></div>';
+          var bx = docBoxEls[d.id];
+          if(!((d.showWhenMinor || d.showWhenAdult) && bx && bx.style.display==='none')){
+            html += '<div>📎 <b>'+d.hi+':</b> <span style="color:#B23A3A">⚠️ अपलोड नहीं हुआ</span></div>';
+          }
         }
       });
     }
@@ -1652,6 +1658,103 @@
   var submitErrorBox = document.createElement('div');
   submitErrorBox.style.cssText = 'display:none;color:#B23A3A;font-size:15px;font-weight:700;text-align:center;margin-top:10px;background:#FBEAEA;border:1.5px solid #B23A3A;border-radius:9px;padding:10px';
   submitBtn.insertAdjacentElement('afterend', submitErrorBox);
+
+  /* ═══ (13-Jul-2026, Founder-होल-4) OTP-प्रमाण की मियाद (आराम से form भरने में)
+     निकल जाए तो — भरा data खोए बिना यहीं नया OTP लेकर दोबारा Submit ═══ */
+  var reOtpBox = document.createElement('div');
+  reOtpBox.style.cssText = 'display:none;margin-top:10px;background:#FFF8E1;border:1.5px solid var(--gold);border-radius:9px;padding:12px;text-align:center';
+  reOtpBox.innerHTML = '<div style="font-weight:800;color:#7A5A00;font-size:16px;line-height:1.6">⏳ form भरने में समय लगा — OTP-प्रमाण की मियाद निकल गई।<br>घबराएँ नहीं: भरा हुआ सब सुरक्षित है — नया OTP लेकर यहीं से Submit हो जाएगा।</div>'
+    + '<button type="button" class="big btn-on" id="reOtpSend" style="margin-top:8px">📩 नया OTP भेजें</button>'
+    + '<div id="reOtpRow" style="display:none;margin-top:8px"><input type="tel" id="reOtpCode" maxlength="6" inputmode="numeric" placeholder="6 अंकों का OTP" style="text-align:center;font-size:20px;letter-spacing:6px;max-width:220px;margin:0 auto;display:block">'
+    + '<button type="button" class="big btn-on" id="reOtpGo" style="margin-top:8px">✅ OTP जाँचें व दोबारा Submit</button></div>'
+    + '<div id="reOtpMsg" style="margin-top:6px;font-size:15px;color:#7A5A00"></div>';
+  submitErrorBox.insertAdjacentElement('afterend', reOtpBox);
+  function reOtpSay(t){ document.getElementById('reOtpMsg').textContent = t; }
+  document.getElementById('reOtpSend').addEventListener('click', function(){
+    var b = this; b.disabled = true; b.textContent = '⏳ भेजा जा रहा है…'; reOtpSay('');
+    callOtpFn('requestRegisterOtp', {
+      email: email.value, name_local: nameLocal.value, name_roman: nameRoman.value,
+      mobile: mobile.value, dob: dobEl.value, guardian_mobile: guardianMobile.value,
+      password: pwd.value, resend: true
+    }).then(function(){
+      b.disabled = false; b.textContent = '📩 OTP दोबारा भेजें';
+      document.getElementById('reOtpRow').style.display = ''; 
+      reOtpSay('✅ OTP आपके email पर गया — 5 मिनट के अंदर भरें।');
+    }).catch(function(e){ b.disabled = false; b.textContent = '📩 नया OTP भेजें'; reOtpSay('⚠️ ' + (e.message || 'भेज नहीं पाए — फिर कोशिश करें')); });
+  });
+  /* ═══ (14-Jul-2026, Founder-सुझाव) 30-मिनट उल्टी घड़ी — मियाद दिखती रहे;
+     समाप्त होते ही यहीं "दोबारा OTP" (form-data जस-का-तस, घड़ी फिर 30:00) ═══ */
+  var vBar = document.createElement('div');
+  vBar.id = 'otpValidityBar';
+  vBar.style.cssText = 'display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:10px;z-index:600;'
+    + 'background:#0B1F3A;color:#fff;border:1.5px solid var(--gold);border-radius:12px;'
+    + 'padding:8px 14px;font-size:16px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.35);text-align:center;max-width:92%';
+  vBar.innerHTML = '<span id="vBarLive">🕐 OTP-प्रमाण मियाद: <b id="vBarClock" style="color:#F9A825">30:00</b></span>'
+    + '<span id="vBarDead" style="display:none">⏳ मियाद समाप्त — '
+    + '<button type="button" id="vBarSend" class="big btn-on" style="display:inline-block;width:auto;padding:6px 12px;margin:4px 4px 0;font-size:16px">📩 दोबारा OTP प्राप्त करें</button>'
+    + '<span id="vBarRow" style="display:none"><input type="tel" id="vBarCode" maxlength="6" inputmode="numeric" placeholder="6 अंक" '
+    + 'style="width:110px;text-align:center;font-size:18px;letter-spacing:4px;border-radius:8px;border:none;padding:6px;margin:4px 4px 0;vertical-align:middle">'
+    + '<button type="button" id="vBarGo" class="big btn-on" style="display:inline-block;width:auto;padding:6px 12px;margin:4px 0 0;font-size:16px">✅ जाँचें</button></span>'
+    + '<div id="vBarMsg" style="font-size:15px;color:#F9A825;margin-top:3px"></div></span>';
+  document.body.appendChild(vBar);
+  var vDeadline = 0, vTick = null;
+  function vBarSay(t){ document.getElementById('vBarMsg').textContent = t; }
+  function fmtMMSS(ms){ var t = Math.max(0, Math.floor(ms/1000)); var m = Math.floor(t/60), x = t%60;
+    return (m<10?'0':'')+m+':'+(x<10?'0':'')+x; }
+  window.startOtpValidity = function(){
+    vDeadline = Date.now() + 30*60*1000;
+    document.getElementById('vBarLive').style.display = '';
+    document.getElementById('vBarDead').style.display = 'none';
+    vBar.style.display = 'block';
+    if(vTick) clearInterval(vTick);
+    vTick = setInterval(function(){
+      var left = vDeadline - Date.now();
+      if(left <= 0){
+        clearInterval(vTick); vTick = null;
+        document.getElementById('vBarLive').style.display = 'none';
+        document.getElementById('vBarDead').style.display = '';
+        document.getElementById('vBarRow').style.display = 'none'; vBarSay('');
+        return;
+      }
+      var c = document.getElementById('vBarClock');
+      c.textContent = fmtMMSS(left);
+      c.style.color = left < 5*60*1000 ? '#FF6B6B' : '#F9A825';   /* आख़िरी 5 मिनट लाल */
+    }, 1000);
+  };
+  window.stopOtpValidity = function(){ if(vTick){ clearInterval(vTick); vTick = null; } vBar.style.display = 'none'; };
+  document.getElementById('vBarSend').addEventListener('click', function(){
+    var b = this; b.disabled = true; b.textContent = '⏳…'; vBarSay('');
+    callOtpFn('requestRegisterOtp', {
+      email: email.value, name_local: nameLocal.value, name_roman: nameRoman.value,
+      mobile: mobile.value, dob: dobEl.value, guardian_mobile: guardianMobile.value,
+      password: pwd.value, resend: true
+    }).then(function(){
+      b.disabled = false; b.textContent = '📩 OTP दोबारा भेजें';
+      document.getElementById('vBarRow').style.display = ''; vBarSay('✅ OTP email पर गया — 5 मिनट में भरें।');
+    }).catch(function(e){ b.disabled = false; b.textContent = '📩 दोबारा OTP प्राप्त करें'; vBarSay('⚠️ ' + (e.message || 'भेज नहीं पाए')); });
+  });
+  document.getElementById('vBarGo').addEventListener('click', function(){
+    var code = document.getElementById('vBarCode').value.replace(/[^0-9]/g, '');
+    if(code.length !== 6){ vBarSay('⚠️ 6 अंक भरें'); return; }
+    var b = this; b.disabled = true; b.textContent = '⏳';
+    callOtpFn('verifyRegisterOtp', { email: email.value, code: code }).then(function(){
+      b.disabled = false; b.textContent = '✅ जाँचें';
+      document.getElementById('vBarCode').value = '';
+      window.startOtpValidity();   /* घड़ी फिर 30:00 — काम वहीं से जारी */
+    }).catch(function(e){ b.disabled = false; b.textContent = '✅ जाँचें'; vBarSay('⚠️ ' + (e.message || 'OTP ग़लत/पुराना')); });
+  });
+
+  document.getElementById('reOtpGo').addEventListener('click', function(){
+    var code = document.getElementById('reOtpCode').value.replace(/[^0-9]/g, '');
+    if(code.length !== 6){ reOtpSay('⚠️ 6 अंकों का OTP भरें'); return; }
+    var b = this; b.disabled = true; b.textContent = '⏳ जाँच हो रही है…';
+    callOtpFn('verifyRegisterOtp', { email: email.value, code: code }).then(function(){
+      b.disabled = false; b.textContent = '✅ OTP जाँचें व दोबारा Submit';
+      reOtpBox.style.display = 'none';
+      window.startOtpValidity();   /* (14-Jul) घड़ी फिर 30:00 */
+      submitBtn.click();   /* भरा हुआ data वही का वही — सीधा दोबारा submit */
+    }).catch(function(e){ b.disabled = false; b.textContent = '✅ OTP जाँचें व दोबारा Submit'; reOtpSay('⚠️ ' + (e.message || 'OTP ग़लत/पुराना')); });
+  });
 
   function gatherStep3Data(){
     var out = {};
@@ -1679,6 +1782,7 @@
 
   document.getElementById('submitBtn').addEventListener('click', function(){
     submitErrorBox.style.display = 'none';
+    reOtpBox.style.display = 'none';
 
     /* (10-Jul-2026, form-logic) cross-check — भेजने से पहले browser पर ही पकड़:
        आपातकालीन संपर्क व Guardian-नंबर में आवेदक का अपना नंबर नहीं चल सकता। */
@@ -1737,13 +1841,23 @@
         + (res.updated ? '<br><span style="color:var(--blue)">ℹ️ आपका पुराना आवेदन इसी Registration No पर अद्यतन (update) हुआ है।</span>' : '');
       for(var i=1;i<=4;i++){ document.getElementById('panel'+i).classList.remove('active'); document.getElementById('stepTab'+i).classList.add('done'); }
       document.getElementById('panelSuccess').classList.add('active');
+      window.stopOtpValidity();   /* (14-Jul) पंजीकरण पूर्ण — घड़ी बंद */
       window.scrollTo({top:0,behavior:'smooth'});
       startServerPdf();   /* (काम-2-ब) PDF अब server पर बनती है — v1.5 PDF-नियम */
     }).catch(function(err){
       console.error('submitRegistration त्रुटि:', err);
-      submitErrorBox.textContent = '⚠️ सेव नहीं हो पाया — ' + (err.message || 'फिर कोशिश करें।') + ' (आपकी जानकारी सुरक्षित है, दोबारा Submit दबाएँ)';
-      submitErrorBox.style.display = 'block';
       submitBtn.disabled = false; submitBtn.textContent = '✅ Final Submit करें';
+      var expired = !!(err && (((err.message || '').indexOf('otpVerificationExpired') > -1) || (err.details && err.details.reason === 'otpVerificationExpired')));
+      if(expired){
+        /* (13-Jul-2026) मियाद-चूक = ग़लती नहीं — data रखे-रखे नया OTP लेकर आगे */
+        submitErrorBox.style.display = 'none';
+        document.getElementById('reOtpRow').style.display = 'none';
+        reOtpBox.style.display = 'block';
+        reOtpBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        submitErrorBox.textContent = '⚠️ सेव नहीं हो पाया — ' + (err.message || 'फिर कोशिश करें।') + ' (आपकी जानकारी सुरक्षित है, दोबारा Submit दबाएँ)';
+        submitErrorBox.style.display = 'block';
+      }
     });
   });
 
