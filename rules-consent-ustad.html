@@ -62,13 +62,10 @@
     <h3>👤 आपकी जानकारी</h3>
     <div class="idrow"><label>नाम — हिंदी में</label><input type="text" placeholder="जैसे: राजेश कुमार"></div>
     <div class="idrow"><label>Name — ROMAN CAPITAL में</label><input type="text" placeholder="e.g. RAJESH KUMAR"></div>
-    <div class="idrow"><label>आप कौन हैं?</label>
-      <select id="typeSel">
-        <option value="teacher">Teacher (कोचिंग/कोर्स)</option>
-        <option value="ustad">उस्ताद (पारंपरिक/हाथ का हुनर)</option>
-      </select>
+    <div class="idrow"><label>भूमिका (Role)</label>
+      <select id="typeSel"><option value="ustad">उस्ताद (पारंपरिक/हाथ का हुनर)</option></select>
     </div>
-    <div class="idrow"><label id="subjectLabel">विषय / कौशल</label><input type="text" id="subjectInput" placeholder="जैसे: Computer, सिलाई, संगीत"></div>
+    <div class="idrow"><label id="subjectLabel">हुनर का क्षेत्र</label><input type="text" id="subjectInput" placeholder="जैसे: मिट्टी के बर्तन, बढ़ईगिरी, खेती"></div>
     <div class="idrow"><label>उम्र</label><input type="number" min="18" max="90" placeholder="न्यूनतम 18 वर्ष"></div>
     <div class="idrow"><label>अनुभव (वर्ष)</label><input type="number" min="0" placeholder="वैकल्पिक"></div>
     <div class="idrow"><label>नॉमिनी का नाम</label><input type="text" placeholder="मृत्यु के बाद royalty जिसे मिलेगी"></div>
@@ -85,7 +82,7 @@
   <div class="part">भाग-ख : पद, काम व पारिश्रमिक</div>
   <div class="rules">
     <div class="rule"><input type="checkbox"><span class="no">2.</span><label>ACS से जुड़ना पूर्णतः निःशुल्क है। न्यूनतम उम्र 18 वर्ष। आप RM के भौतिक सत्यापन, ZM की प्रोविज़नल मंज़ूरी और HQ की फ़ाइनल स्वीकृति से जुड़ेंगे।</label></div>
-    <div class="rule"><input type="checkbox"><span class="no">3.</span><label><b>मुख्य काम:</b> <span id="ruleTask">Teacher — कोर्स/content बनाना और online/live पढ़ाना।</span></label></div>
+    <div class="rule"><input type="checkbox"><span class="no">3.</span><label><b>मुख्य काम:</b> <span id="ruleTask">उस्ताद — अपने पारंपरिक/हाथ के हुनर (जैसे: हस्तकला, काश्तकारी, मरम्मत, संगीत, या कोई ख़ास तजुर्बा) में Learner को व्यावहारिक प्रशिक्षण देना।</span></label></div>
     <div class="rule"><input type="checkbox"><span class="no">4.</span><label><b>Royalty अधिकार (लाइफटाइम):</b> मूल Course Creator को 7% (लाइफटाइम), उस कोर्स से जुड़ी भाषा-Content-Creator टीम को 3% — जीवनभर मिलती रहेगी; आपकी मृत्यु के बाद यह राशि आपके ऊपर बताए गए नॉमिनी को जाती रहेगी। Live-class/coaching की fee आप स्वयं तय करें — ACS-न्यूनतम से नीचे नहीं, अधिकतम पर कोई बंदिश नहीं।</label></div>
     <div class="rule special"><input type="checkbox"><span class="no">5.</span><label><b>विशेष संयोजन (Work From Home Combo):</b> यदि आप घर से ही content भी बनाते हैं और live coaching भी स्वयं देते हैं (अलग Centre की ज़रूरत नहीं), तो आपको Centre का हिस्सा (80%) + Content Creator का हिस्सा (7%) — कुल <b>87% तक</b> — दोनों मिल सकते हैं।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">6.</span><label>भुगतान समय: भारत में 7 कार्य-दिवस, अंतरराष्ट्रीय में 10; किसी जाँच के दौरान भुगतान रोकना हो तो अधिकतम 60 दिन, सूचना 48 घंटे में।</label></div>
@@ -96,7 +93,7 @@
     <div class="rule"><input type="checkbox"><span class="no">7.</span><label><b>Verified Badge (वैकल्पिक/अनिवार्य):</b> Metro ₹1000 · Town/ज़िला-HQ ₹600 · Village/एरिया ₹300 · 365 दिन। 45 वर्ष या अधिक उम्र पर यह वैकल्पिक है; 45 से कम उम्र पर अनिवार्य + उम्र-fee x% (x = 45 − आपकी उम्र)। नवीनीकरण की खिड़की हर वर्ष 1-25 मार्च।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">8.</span><label>अपने ऊपर के प्रमुख (RM/ZM) के निर्देशानुसार काम करेंगे; कोई भी बड़ा निर्णय स्वयं नहीं लेंगे।</label></div>
     <div class="rule special"><input type="checkbox"><span class="no">9.</span><label><b>चरित्र-प्रमाण पत्र (अनिवार्य):</b> सेवा शुरू करने के <b>30 दिनों के अंदर</b> स्थानीय पुलिस द्वारा जारी चरित्र प्रमाण पत्र जमा करना अनिवार्य होगा। इसका सत्यापन <b>HQ Legal Head</b> करेंगे। <b>जब तक सत्यापन पूरा नहीं होता, दूसरे महीने से मिलने वाली royalty/fee-payment स्थगित रहेगी।</b></label></div>
-    <div class="rule special"><input type="checkbox"><span class="no">10.</span><label><b>अपने स्थान से काम:</b> Teacher/उस्ताद का काम मूल रूप से अपने घर से ही होता है। अपना पता वेबसाइट पर सार्वजनिक करने की सहमति देनी होगी। इसके लिए भविष्य में कोई अलग शुल्क/भत्ता देय नहीं होगा, न ही कोई वित्तीय दावा मान्य होगा।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">10.</span><label><b>अपने स्थान से काम:</b> उस्ताद का काम मूल रूप से अपने घर से ही होता है। अपना पता वेबसाइट पर सार्वजनिक करने की सहमति देनी होगी। इसके लिए भविष्य में कोई अलग शुल्क/भत्ता देय नहीं होगा, न ही कोई वित्तीय दावा मान्य होगा।</label></div>
     <div class="rule special"><input type="checkbox"><span class="no">11.</span><label><b>प्रोफ़ेशनल फ़ोटो (अनिवार्य):</b> अपना एक अच्छा प्रोफ़ेशनल पासपोर्ट-साइज़ क्लोज़अप फ़ोटो अपलोड करना अनिवार्य होगा, जिसे कोई भी व्यक्ति खोज (search) करने पर देख सकेगा।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">12.</span><label><b>व्यवसाय-वृद्धि:</b> Applied Computer School का व्यवसाय बढ़ाने का हर संभव प्रयास करना आपका भी कर्तव्य है — अच्छा content व अच्छी coaching ही सबसे बड़ा प्रचार है।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">13.</span><label><b>"ग्राहक देवो भव:"</b> — किसी भी हालत में इस नियम की अवहेलना नहीं होगी। जिससे ACS का राजस्व बनता है, वह हमारे लिए देवता के समान है; हर Learner से आदरपूर्ण व सेवा-भाव का व्यवहार अनिवार्य।</label></div>
@@ -151,7 +148,7 @@
     <div class="rule"><input type="checkbox"><span class="no">42.</span><label><b>देश-परिशिष्ट (Country Annexure):</b> भारत के बाहर लागू अतिरिक्त नियम संबंधित देश के परिशिष्ट के माध्यम से जारी किए जाएँगे; मूल दस्तावेज़ वही रहेगा।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">43.</span><label><b>आपात व्यवस्था (Founder अनुपलब्ध होने पर):</b> Founder द्वारा पहले से लिखित रूप से नामित पद के पास केवल रोज़मर्रा का सीमित प्रशासनिक अधिकार रहेगा।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">44.</span><label>सबसे ऊपर की बात: ACS के सबसे नए दर्ज नियम और Founder का निर्देश ही अंतिम माने जाएँगे। Founder द्वारा लिया गया हर निर्णय ACS के नियमों, लागू कानूनों और संगठन के हित के दायरे में होगा।</label></div>
-    <div class="rule special"><input type="checkbox"><span class="no">45.</span><label><b>Founder का विशेष अधिकार (तत्काल सेवा-समाप्ति):</b> संगठन की सुरक्षा, अनुशासन, वित्तीय हित, कानूनी अनुपालन या डिजिटल सिस्टम की रक्षा के लिए Founder किसी भी कर्मी/Teacher/उस्ताद की सेवा तत्काल प्रभाव से समाप्त कर सकते हैं। ऐसी स्थिति में एक्सेस तत्काल ब्लॉक कर दिया जाएगा और 12 से 24 घंटे में डिजिटल Show-Cause नोटिस भेजा जाएगा। उस समय तक की देय राशि विधिक सेटलमेंट के अधीन रखी जाएगी। यह नियम अप्लाइड कंप्यूटर स्कूल के समस्त कर्मियों पर समान रूप से लागू होगा।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">45.</span><label><b>Founder का विशेष अधिकार (तत्काल सेवा-समाप्ति):</b> संगठन की सुरक्षा, अनुशासन, वित्तीय हित, कानूनी अनुपालन या डिजिटल सिस्टम की रक्षा के लिए Founder किसी भी कर्मी/उस्ताद की सेवा तत्काल प्रभाव से समाप्त कर सकते हैं। ऐसी स्थिति में एक्सेस तत्काल ब्लॉक कर दिया जाएगा और 12 से 24 घंटे में डिजिटल Show-Cause नोटिस भेजा जाएगा। उस समय तक की देय राशि विधिक सेटलमेंट के अधीन रखी जाएगी। यह नियम अप्लाइड कंप्यूटर स्कूल के समस्त कर्मियों पर समान रूप से लागू होगा।</label></div>
   </div>
 
   <div class="bar">

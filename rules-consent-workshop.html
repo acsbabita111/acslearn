@@ -63,12 +63,9 @@
     <div class="idrow"><label>संचालक का नाम — हिंदी में</label><input type="text" placeholder="जैसे: राजेश कुमार"></div>
     <div class="idrow"><label>Name — ROMAN CAPITAL में</label><input type="text" placeholder="e.g. RAJESH KUMAR"></div>
     <div class="idrow"><label>आप किस श्रेणी में हैं?</label>
-      <select id="typeSel">
-        <option value="center">Center / कोचिंग (किताबी शिक्षा)</option>
-        <option value="workshop">Workshop (सीधे कमाई का हुनर)</option>
-      </select>
+      <select id="typeSel"><option value="workshop">Workshop (सीधे कमाई का हुनर)</option></select>
     </div>
-    <div class="idrow"><label id="nameLabel">केंद्र/कोचिंग का नाम</label><input type="text" id="orgNameInput" placeholder="जैसे: ACS खगड़िया केंद्र"></div>
+    <div class="idrow"><label id="nameLabel">वर्कशॉप का नाम</label><input type="text" id="orgNameInput" placeholder="जैसे: ACS खगड़िया वर्कशॉप"></div>
     <div class="idrow"><label>पूरा पता</label><input type="text" placeholder="गाँव/शहर, ज़िला, राज्य"></div>
     <div class="idrow"><label>ज़िला</label><input type="text" placeholder="ज़िले का नाम"></div>
   </div>
@@ -83,8 +80,8 @@
   <div class="part">भाग-ख : पद, काम व आय-हिस्सा</div>
   <div class="rules">
     <div class="rule"><input type="checkbox"><span class="no">2.</span><label>ACS से जुड़ना पूर्णतः निःशुल्क है। आप RM के भौतिक सत्यापन, ZM की प्रोविज़नल मंज़ूरी और HQ की फ़ाइनल स्वीकृति से जुड़ेंगे।</label></div>
-    <div class="rule"><input type="checkbox"><span class="no">3.</span><label><b>मुख्य काम:</b> <span id="ruleTask">Center/कोचिंग — किताब-कॉपी-कलम आधारित ज्ञान; कक्षा 6 और ऊपर के सभी विषयों की पढ़ाई-लिखाई।</span></label></div>
-    <div class="rule"><input type="checkbox"><span class="no">4.</span><label><b>आय-हिस्सा:</b> पहले से तैयार ACS-कोर्स पढ़ाने पर — Center/Workshop <b>80%</b> · Content Creator 7% · उस कोर्स से जुड़ी भाषा-Content-Creator टीम को 3%  · ACS/HQ 5% · State 5%। यदि आपने ख़ुद content बनाया, तो उसका <b>7% लाइफटाइम</b> अलग से आपको मिलता रहेगा (इस हिस्से में आप Content Creator की भूमिका में भी आ जाते हैं)।</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">3.</span><label><b>मुख्य काम:</b> <span id="ruleTask">Workshop — सीधे पैसा कमाने वाला हुनर सिखाना, जैसे: ट्रैक्टर गैरेज, मोटरसाइकिल गैरेज, सिलाई-टेलरिंग, लोहार का काम, राजमिस्त्री, दूध/मछली-उत्पादन।</span></label></div>
+    <div class="rule"><input type="checkbox"><span class="no">4.</span><label><b>आय-हिस्सा:</b> पहले से तैयार ACS-कोर्स पढ़ाने पर — Workshop <b>80%</b> · Content Creator 7% · उस कोर्स से जुड़ी भाषा-Content-Creator टीम को 3%  · ACS/HQ 5% · State 5%। यदि आपने ख़ुद content बनाया, तो उसका <b>7% लाइफटाइम</b> अलग से आपको मिलता रहेगा (इस हिस्से में आप Content Creator की भूमिका में भी आ जाते हैं)।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">5.</span><label>fee स्वयं तय करें — ACS-न्यूनतम से नीचे नहीं, अधिकतम पर कोई बंदिश नहीं। छूट-banner से छूट दे सकते हैं, पर अंतिम fee कभी ACS-न्यूनतम slab से नीचे नहीं जाए।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">6.</span><label>मुफ़्त ACS branding मिलेगी; WhatsApp panel (सिर्फ़ enrolled व सहमति वाले students के लिए)। भुगतान समय: भारत में 7 कार्य-दिवस, अंतरराष्ट्रीय में 10; जाँच के दौरान hold अधिकतम 60 दिन, सूचना 48 घंटे में।</label></div>
   </div>
@@ -95,8 +92,8 @@
     <div class="rule"><input type="checkbox"><span class="no">8.</span><label>अपने ऊपर के प्रमुख (RM/ZM) के निर्देशानुसार काम करेंगे; कोई भी बड़ा निर्णय स्वयं नहीं लेंगे।</label></div>
     <div class="rule special"><input type="checkbox"><span class="no">9.</span><label><b>चरित्र-प्रमाण पत्र (संचालक हेतु अनिवार्य):</b> सेवा शुरू करने के <b>30 दिनों के अंदर</b> स्थानीय पुलिस द्वारा जारी चरित्र प्रमाण पत्र जमा करना अनिवार्य होगा। इसका सत्यापन <b>HQ Legal Head</b> करेंगे। <b>जब तक सत्यापन पूरा नहीं होता, दूसरे महीने से मिलने वाला आय-हिस्सा स्थगित रहेगा।</b></label></div>
     <div class="rule special"><input type="checkbox"><span class="no">10.</span><label><b>स्थान-पारदर्शिता:</b> अपनी वर्कशॉप का पूरा व सही पता वेबसाइट पर सार्वजनिक करना अनिवार्य होगा, ताकि Students/जनता उसे खोज (search) व verify कर सकें।</label></div>
-    <div class="rule new"><input type="checkbox"><span class="no">11.</span><label><b>न्यूनतम बुनियादी सुविधाएँ (अनिवार्य):</b> केंद्र/वर्कशॉप में ये सुविधाएँ होनी चाहिए — बच्चों के लिए अलग शौचालय, अग्निशमन व्यवस्था, बिजली, पंखा, रोशनी, स्वच्छ पेयजल, एक बड़ा टीवी/डिजिटल बोर्ड, तथा Students व Teacher दोनों के लिए बैठने की व्यवस्था। <b>Center</b> के कार्यालय में एक Laptop/Desktop होना अनिवार्य है; <b>Workshop</b> में यदि न हो तो Volunteer या किसी Student के मोबाइल से यह काम चलाया जा सकता है। सभी Center/Workshop को एक साइनबोर्ड लगाना होगा, जिस पर लिखा हो: <i>"Applied Computer School द्वारा संबद्ध प्रशिक्षण केंद्र।"</i></label></div>
-    <div class="rule special"><input type="checkbox"><span class="no">12.</span><label><b>प्रोफ़ेशनल फ़ोटो (अनिवार्य):</b> केंद्र/वर्कशॉप के भवन/मुख्य-द्वार का एक अच्छा फ़ोटो और संचालक का एक प्रोफ़ेशनल पासपोर्ट-साइज़ फ़ोटो अपलोड करना अनिवार्य होगा, जिसे कोई भी व्यक्ति खोज करने पर देख सके।</label></div>
+    <div class="rule new"><input type="checkbox"><span class="no">11.</span><label><b>न्यूनतम बुनियादी सुविधाएँ (अनिवार्य):</b> वर्कशॉप में ये सुविधाएँ होनी चाहिए — बच्चों के लिए अलग शौचालय, अग्निशमन व्यवस्था, बिजली, पंखा, रोशनी, स्वच्छ पेयजल, एक बड़ा टीवी/डिजिटल बोर्ड, तथा Students व Teacher दोनों के लिए बैठने की व्यवस्था। <b>Center</b> के कार्यालय में एक Laptop/Desktop होना अनिवार्य है; <b>Workshop</b> में यदि न हो तो Volunteer या किसी Student के मोबाइल से यह काम चलाया जा सकता है। सभी Workshop को एक साइनबोर्ड लगाना होगा, जिस पर लिखा हो: <i>"Applied Computer School द्वारा संबद्ध प्रशिक्षण केंद्र।"</i></label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">12.</span><label><b>प्रोफ़ेशनल फ़ोटो (अनिवार्य):</b> वर्कशॉप के भवन/मुख्य-द्वार का एक अच्छा फ़ोटो और संचालक का एक प्रोफ़ेशनल पासपोर्ट-साइज़ फ़ोटो अपलोड करना अनिवार्य होगा, जिसे कोई भी व्यक्ति खोज करने पर देख सके।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">13.</span><label><b>व्यवसाय-वृद्धि:</b> Applied Computer School का व्यवसाय बढ़ाने का हर संभव प्रयास करना आपका भी कर्तव्य है।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">14.</span><label><b>"ग्राहक देवो भव:"</b> — किसी भी हालत में इस नियम की अवहेलना नहीं होगी। जिससे ACS का राजस्व बनता है, वह हमारे लिए देवता के समान है; हर Student/Learner से आदरपूर्ण व सेवा-भाव का व्यवहार अनिवार्य।</label></div>
   </div>
@@ -149,7 +146,7 @@
     <div class="rule"><input type="checkbox"><span class="no">42.</span><label><b>देश-परिशिष्ट (Country Annexure):</b> भारत के बाहर लागू अतिरिक्त नियम संबंधित देश के परिशिष्ट के माध्यम से जारी किए जाएँगे; मूल दस्तावेज़ वही रहेगा।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">43.</span><label><b>आपात व्यवस्था (Founder अनुपलब्ध होने पर):</b> Founder द्वारा पहले से लिखित रूप से नामित पद के पास केवल रोज़मर्रा का सीमित प्रशासनिक अधिकार रहेगा।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">44.</span><label>सबसे ऊपर की बात: ACS के सबसे नए दर्ज नियम और Founder का निर्देश ही अंतिम माने जाएँगे। Founder द्वारा लिया गया हर निर्णय ACS के नियमों, लागू कानूनों और संगठन के हित के दायरे में होगा।</label></div>
-    <div class="rule special"><input type="checkbox"><span class="no">45.</span><label><b>Founder का विशेष अधिकार (तत्काल सेवा-समाप्ति):</b> संगठन की सुरक्षा, अनुशासन, वित्तीय हित, कानूनी अनुपालन या डिजिटल सिस्टम की रक्षा के लिए Founder किसी भी केंद्र/वर्कशॉप की सहभागिता तत्काल प्रभाव से समाप्त कर सकते हैं। ऐसी स्थिति में एक्सेस तत्काल ब्लॉक कर दिया जाएगा और 12 से 24 घंटे में डिजिटल Show-Cause नोटिस भेजा जाएगा। उस समय तक की देय राशि विधिक सेटलमेंट के अधीन रखी जाएगी। यह नियम अप्लाइड कंप्यूटर स्कूल से जुड़े समस्त स्टेकहोल्डर पर समान रूप से लागू होगा।</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">45.</span><label><b>Founder का विशेष अधिकार (तत्काल सेवा-समाप्ति):</b> संगठन की सुरक्षा, अनुशासन, वित्तीय हित, कानूनी अनुपालन या डिजिटल सिस्टम की रक्षा के लिए Founder किसी भी वर्कशॉप की सहभागिता तत्काल प्रभाव से समाप्त कर सकते हैं। ऐसी स्थिति में एक्सेस तत्काल ब्लॉक कर दिया जाएगा और 12 से 24 घंटे में डिजिटल Show-Cause नोटिस भेजा जाएगा। उस समय तक की देय राशि विधिक सेटलमेंट के अधीन रखी जाएगी। यह नियम अप्लाइड कंप्यूटर स्कूल से जुड़े समस्त स्टेकहोल्डर पर समान रूप से लागू होगा।</label></div>
   </div>
 
   <div class="bar">

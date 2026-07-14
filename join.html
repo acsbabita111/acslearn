@@ -365,7 +365,7 @@
         var cc=null; (MX.cards||[]).forEach(function(x){ if(x.key===k) cc=x; });
         if(!cc) return;
         var rc2=R.byKey(k);
-        var b=document.createElement('div'); b.className='role-card';
+        var b=document.createElement('div'); b.className='role-card'; b.dataset.key=k;
         b.innerHTML='<div class="rIcon">'+(CARD_ICON[k]||'⭐')+'</div>'+
           '<div class="rName">'+(cc.public_label||cc.label)+'</div>'+
           (rc2&&rc2.desc_hi?'<div class="rDesc">'+rc2.desc_hi+'</div>':'');
@@ -414,7 +414,16 @@
     /* (14-Jul-2026, Founder) registration-guide से आया हो तो कार्ड पहले से चुना मिले */
     try {
       var pre = new URLSearchParams(location.search).get('role');
-      if(pre && tileByKey[pre]) tileByKey[pre].click();
+      if(pre && tileByKey[pre]){ tileByKey[pre].click(); }
+      else if(pre){
+        /* v2.0: child-role (ustad/workshop) — पहले parent खोलो, फिर child चुनो */
+        var pc=null; (MX.cards||[]).forEach(function(x){ if(x.key===pre) pc=x; });
+        if(pc && pc.parent && tileByKey[pc.parent]){
+          tileByKey[pc.parent].click();
+          var cb=document.querySelector('#childChoiceGrid .role-card[data-key="'+pre+'"]');
+          if(cb) cb.click();
+        }
+      }
     } catch(e){}
     /* टीम-सीढ़ी: स्तर → उस स्तर के registrable पद (public_label से) */
     teamLevelSel.addEventListener('change', function(){
