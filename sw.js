@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v24';                 // ← CSS/JS बदलें तो बढ़ाएँ (v24: 14-Jul-2026 — roles.js v2.1 संस्था-दस्तावेज़ + 2MB सीमा + guide सरल-भाषा)
+const CACHE_VERSION = 'v25';                 // ← CSS/JS बदलें तो बढ़ाएँ (v25: 14-Jul-2026 — join फ़ॉन्ट≥16px · 950 उद्यम शब्द-सुधार · Vani · roles v2.1 पते)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
