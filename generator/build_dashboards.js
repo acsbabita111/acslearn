@@ -1,5 +1,8 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.2 · 14-Jul-2026 — एक-generator नियम (Founder): join.html व login (dashboard/index.html)
+          भी अब इसी generator से — स्रोत: /_JOIN_TEMPLATE.html · /dashboard/_LOGIN_TEMPLATE.html।
+          इन दोनों को अब हाथ से न बदलें — टेम्पलेट बदलो, generator चलाओ (परत-4)।
    v1.1 · 14-Jul-2026 — v3.4 टेम्पलेट: chip-public_label + gateway-timeline (मिलान-सुधार)
    v1.0 · 12-Jul-2026 (काम-4)
    ------------------------------------------------------------
@@ -19,7 +22,7 @@ const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.ht
 
 const STAMP = "14-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.1 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.2 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -122,8 +125,24 @@ for(const [home, h] of homes){
   made.push({ home, mode: h.mode + (h.ext?"+ext":""), allowed: h.keys.join(","), bytes: final.length });
 }
 
+/* ---------- 4) एक-generator नियम (v1.2, Founder 14-Jul-2026):
+   join व login भी इसी generator के अधीन — टेम्पलेट → output + generator-मुहर।
+   (सार्वजनिक-content संसार का root _TEMPLATE.html अपनी जगह यथावत — v1.2 आर्किटेक्चर) ---------- */
+const SPECIALS = [
+  { tpl: "_JOIN_TEMPLATE.html",                    out: "join.html",                     nm: "join (registration)" },
+  { tpl: path.join("dashboard","_LOGIN_TEMPLATE.html"), out: path.join("dashboard","index.html"), nm: "login/router" }
+];
+for(const sp of SPECIALS){
+  let t = fs.readFileSync(path.join(ROOT, sp.tpl), "utf8");
+  const note = "<!--\n  " + GEN_NOTE.split("\n").join("\n  ") + "\n  स्रोत-टेम्पलेट: /" + String(sp.tpl).split(path.sep).join("/") + "\n-->\n";
+  const outHtml = t.replace(/^(<!DOCTYPE html>\s*\n?)/i, "$1" + note);
+  if(outHtml === t){ console.error("❌ doctype नहीं मिला:", sp.tpl); process.exit(1); }
+  fs.writeFileSync(path.join(ROOT, sp.out), outHtml);
+  made.push({ home: "/"+String(sp.out).split(path.sep).join("/"), mode: "special:"+sp.nm, allowed: "—", bytes: outHtml.length });
+}
+
 /* ---------- रिपोर्ट ---------- */
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" dashboards बने — generator v1.1 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.2 · "+STAMP);
