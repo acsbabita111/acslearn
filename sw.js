@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v30';                 // ← (v30: 14-Jul-2026 — एक-generator नियम: join+login अब generator v1.2 के अधीन)
+const CACHE_VERSION = 'v31';                 // ← (v31: 14-Jul-2026 — 4-कसौटी सुधार: उम्र एक-बार (जन्मतिथि से) · लिपि-bracket labels · अस्थायी-pill)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 

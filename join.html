@@ -161,10 +161,10 @@
         <div class="badrow" id="dobBad">⚠️ जन्मतिथि भरें — इससे उम्र तय होती है।</div>
       </div>
       <div class="row" id="guardianRow" style="display:none">
-        <label>Guardian का मोबाइल नंबर (18 वर्ष से कम आयु के लिए अनिवार्य)</label>
+        <label>अभिभावक (Guardian) का मोबाइल नंबर (18 वर्ष से कम आयु के लिए अनिवार्य)</label>
         <input type="tel" id="guardianMobile" maxlength="10" placeholder="Guardian का 10-अंकों का मोबाइल नंबर">
         <div class="hint">आपकी उम्र 18 वर्ष से कम है — approval के समय हमारी टीम इस नंबर पर फ़ोन करके पुष्टि करेगी।</div>
-        <div class="badrow" id="guardianBad">⚠️ Guardian का सही 10-अंकों का मोबाइल नंबर भरें।</div>
+        <div class="badrow" id="guardianBad">⚠️ अभिभावक (Guardian) का सही 10-अंकों का मोबाइल नंबर भरें।</div>
       </div>
       <div class="row">
         <label>ईमेल पता</label>
@@ -172,8 +172,8 @@
         <div class="badrow" id="emailBad">⚠️ सही ईमेल पता भरें।</div>
       </div>
       <div class="row">
-        <label>Password बनाएँ</label>
-        <div class="pwdwrap"><input type="password" id="pwd" placeholder="Password टाइप करें"><button type="button" class="eyeBtn" id="eyePwd">👁️</button></div>
+        <label>पासवर्ड (Password) बनाएँ</label>
+        <div class="pwdwrap"><input type="password" id="pwd" placeholder="पासवर्ड लिखें"><button type="button" class="eyeBtn" id="eyePwd">👁️</button></div>
         <div class="checklist" id="pwdChecklist">
           <div id="c_len">◻ कम-से-कम 12 अक्षर</div>
           <div id="c_cap">◻ एक बड़ा अक्षर (A-Z)</div>
@@ -183,8 +183,8 @@
         </div>
       </div>
       <div class="row">
-        <label>Password दोबारा भरें</label>
-        <div class="pwdwrap"><input type="password" id="pwd2" placeholder="Password दोबारा टाइप करें"><button type="button" class="eyeBtn" id="eyePwd2">👁️</button></div>
+        <label>पासवर्ड (Password) दोबारा भरें</label>
+        <div class="pwdwrap"><input type="password" id="pwd2" placeholder="पासवर्ड दोबारा लिखें"><button type="button" class="eyeBtn" id="eyePwd2">👁️</button></div>
         <div class="matchbox" id="matchBox"></div>
       </div>
 
@@ -913,6 +913,7 @@
         if(window._toggleMinor) window._toggleMinor();
         window._step3Role = curRole;
       }
+      if(window._refreshAgeFromDob) window._refreshAgeFromDob();   /* v2.2: उम्र सदा जन्मतिथि से */
     }
     if(n===4) buildReview();
   }
@@ -1376,6 +1377,19 @@
       }
     });
 
+    /* v2.2 (14-Jul, Founder एक-बार नियम): उम्र दोबारा नहीं पूछते —
+       Step-1 की जन्मतिथि से अपने-आप भरती है (readonly) */
+    window._refreshAgeFromDob = function(){
+      var el = step3FieldEls['age']; if(!el) return;
+      var d = document.getElementById('dob').value, age='';
+      if(d){ var b=new Date(d), t=new Date(); age=t.getFullYear()-b.getFullYear();
+        var mm=t.getMonth()-b.getMonth(); if(mm<0||(mm===0&&t.getDate()<b.getDate())) age--; }
+      el.value = age; el.readOnly = true; el.setAttribute('readonly','');
+      el.style.background='#eef2f7';
+      var lb = el.closest('.row') && el.closest('.row').querySelector('label');
+      if(lb) lb.textContent='उम्र — जन्मतिथि से अपने-आप (बदलनी हो तो ← पिछला दबाकर जन्मतिथि सुधारें)';
+      if(window._toggleMinor) window._toggleMinor();
+    };
     /* Guardian-खाने: उम्र-field मौजूद हो तो उसकी सुनकर showWhenMinor वाले खाने दिखाना/छुपाना */
     var ageEl = step3FieldEls['age'];
     if(ageEl){
