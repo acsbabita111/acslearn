@@ -1,5 +1,6 @@
 /* =====================================================================
-   ACS — roles.js  (v2.1 · 14-Jul-2026 · 11:05 — Founder-आदेश: संस्था-सत्यापन
+   ACS — roles.js  (v2.2 · 14-Jul-2026 · __:__ — Founder-आदेश: शिक्षक/केंद्र-परिवार विभाजन —
+   +ustad(हुनर-प्रमाण, डिग्री नहीं) +workshop(औज़ार-हॉल फ़ोटो, 3-वर्ष); पिछला v2.1 · 11:05 — Founder-आदेश: संस्था-सत्यापन
    दस्तावेज़ — व्यक्ति=अपना फ़ोटो+पहचान; संस्था(Center/Employer/Vendor)=मालिक के
    दस्तावेज़ + संस्था का अलग सत्यापन। पिछला: v2.0 — पूर्ण अद्यतन)
    घर: /assets/roles.js   ·   परत-3 DATA (सिर्फ़ जानकारी — कोई design नहीं)
@@ -72,6 +73,10 @@ window.ACS_ROLES = {
     F.docOrgPhotoInOpt = { id:"doc_org_photo_in", accept:"image/*", required:false, hi:"संस्था के अंदर का फ़ोटो (हो तो)", en:"Inside photo (if available)" };
     F.docOrgProof = { id:"doc_org_proof", accept:"image/*,.pdf", required:true, hi:"संस्था का पंजीकरण/लाइसेंस प्रमाण (उद्यम/Shop-License/GST — कोई एक)", en:"Business registration/license proof (any one)" };
     F.docOrgProofOpt = { id:"doc_org_proof", accept:"image/*,.pdf", required:false, hi:"संस्था का पंजीकरण/लाइसेंस प्रमाण (व्यक्तिगत नियोक्ता के लिए वैकल्पिक)", en:"Business registration/license proof (optional for individual employer)" };
+        /* v2.2 (Founder 14-Jul-2026): उस्ताद-पहचान = हुनर-प्रमाण, डिग्री नहीं */
+    F.docSkillProof1 = { id:"doc_skill_proof1", accept:"image/*", required:true, hi:"हुनर-प्रमाण फ़ोटो 1 — अपना काम करते/बनाते हुए", en:"Skill-proof photo 1 — you at work" };
+    F.docSkillProof2 = { id:"doc_skill_proof2", accept:"image/*", required:false, hi:"हुनर-प्रमाण फ़ोटो 2 — बनाया हुआ काम/नमूना (हो तो)", en:"Skill-proof photo 2 — finished work/sample (if any)" };
+    F.docWorkshopIn = { id:"doc_org_photo_in", accept:"image/*", required:true, hi:"वर्कशॉप के अंदर का फ़ोटो — औज़ार/मशीन/काम की जगह दिखे", en:"Inside photo — tools/machines/work area visible" };
     F.docOrgPhotoOutOpt = { id:"doc_org_photo_out", accept:"image/*", required:false, hi:"कार्यस्थल/भवन का बाहर से फ़ोटो (व्यक्तिगत नियोक्ता के लिए वैकल्पिक)", en:"Premises outside photo (optional for individual employer)" };
     F.docPhotoId1 = { id:"doc_photo_id1", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 1 (जैसे Aadhaar)", en:"Photo ID proof 1 (e.g. Aadhaar)" };
     F.docPhotoId2 = { id:"doc_photo_id2", accept:"image/*,.pdf", required:true, hi:"फ़ोटो पहचान-पत्र 2 (जैसे Voter-ID/Pan)", en:"Photo ID proof 2 (e.g. Voter-ID/PAN)" };
@@ -104,11 +109,11 @@ window.ACS_ROLES = {
 
       /* ---------------- समूह-2 : जुड़कर कमाने वाले (गेटवे — RM/ZM/HQ शृंखला) ---------------- */
       { key:"teacher", group:"g2", icon:"👨‍🏫",
-        hi:"Teacher / उस्ताद", en:"Teacher / Ustad",
-        desc_hi:"कोर्स पढ़ाएँ या पारंपरिक हुनर सिखाएँ — royalty लाइफटाइम", desc_en:"Teach courses or traditional skills — lifetime royalty",
+        hi:"शिक्षक (Teacher)", en:"Teacher (Academic)",
+        desc_hi:"एकेडमिक कोर्स — वर्ग-6 से PhD तक; royalty लाइफटाइम", desc_en:"Academic courses — class 6 to PhD; lifetime royalty",
         collection:"teachers", dashboard:"/dashboard/teacher/",
         ruleFile:"rules-consent-teacher.html", gateway:true, needsGeo:false, needsRMOffice:false,
-        subtypes:["teacher","ustad"],
+        subtypes:[], children:["teacher","ustad"], /* v2.2: क्लिक-पर-दो-विकल्प (ACS-टीम साँचा) */
         fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.address,
           { id:"subject", type:"text", required:true, hi:"विषय / हुनर का क्षेत्र", en:"Subject / Skill area" },
           { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
@@ -116,17 +121,43 @@ window.ACS_ROLES = {
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
       },
 
+{ key:"ustad", group:"g2", icon:"🛠️",
+        hi:"उस्ताद (Ustad)", en:"Ustad (Master Artisan)", parent:"teacher",
+        desc_hi:"पुश्तैनी हुनर की हाथ-सिखाई — काश्तकारी से संगीत तक; royalty लाइफटाइम", desc_en:"Hands-on hereditary skills — lifetime royalty",
+        collection:"ustads", dashboard:"/dashboard/ustad/",
+        ruleFile:"rules-consent-ustad.html", gateway:true, needsGeo:false, needsRMOffice:false,
+        subtypes:[],
+        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.address,
+          { id:"subject", type:"text", required:true, hi:"हुनर का क्षेत्र (जैसे सिलाई, मशीन-मरम्मत, दूध-उत्पादन)", en:"Skill area (e.g., tailoring, machine repair, dairy)" },
+          { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
+          F.nomineeName, F.nomineeRel, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docSkillProof1, F.docSkillProof2, F.docExperience, F.docSignature ] /* v2.2: डिग्री नहीं — हुनर-प्रमाण */
+      },
+
       { key:"center", group:"g2", icon:"🏫",
-        hi:"Center / Workshop", en:"Center / Workshop",
-        desc_hi:"किताबी कोर्स या सीधे-कमाई का हुनर सिखाने वाला केंद्र", desc_en:"Academic coaching or direct-earning skill workshop",
+        hi:"केंद्र (Center)", en:"Center (Academic)",
+        desc_hi:"एकेडमिक ज्ञान का घर — कोचिंग/स्कूल/कॉलेज/University", desc_en:"Academic coaching/school/college/university",
         collection:"centers", dashboard:"/dashboard/center/",
         ruleFile:"rules-consent-center.html", gateway:true, needsGeo:false, needsRMOffice:false,
-        subtypes:["center","workshop"],
+        subtypes:["center","college","university"], children:["center","workshop"], /* v2.2 */
         fields: [ F.nameLocal, F.nameRoman,
           { id:"org_name", type:"text", required:true, hi:"केंद्र/वर्कशॉप का नाम", en:"Center/Workshop Name" },
           { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Address" },
           { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" }, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docOrgPhotoIn, F.docOrgProof, F.docExperience ]
+      },
+
+{ key:"workshop", group:"g2", icon:"🔧",
+        hi:"वर्कशॉप (Workshop)", en:"Workshop", parent:"center",
+        desc_hi:"उस्ताद-हुनर सीखने की जगह — कम-से-कम 3 वर्ष पुरानी", desc_en:"Hands-on skill workshop — min 3 years old",
+        collection:"workshops", dashboard:"/dashboard/workshop/",
+        ruleFile:"rules-consent-workshop.html", gateway:true, needsGeo:false, needsRMOffice:false,
+        subtypes:[],
+        fields: [ F.nameLocal, F.nameRoman,
+          { id:"org_name", type:"text", required:true, hi:"वर्कशॉप का नाम", en:"Workshop Name" },
+          { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Address" },
+          { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" }, F.emergencyContact1, F.emergencyContact2 ],
+        documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docWorkshopIn, F.docOrgProof, F.docExperience ]
       },
 
       { key:"counselor", group:"g2", icon:"🧭",

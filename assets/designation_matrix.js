@@ -5,7 +5,11 @@
    आधार: Founder की 35-पद तालिका (10-Jul-2026 · 11:36 PM)
          + Addendum-प्रविष्टि "संगठन-ढाँचा v2.0" (11-Jul-2026 · 02:44 AM)
          + Addendum-प्रविष्टि "Vendor-role v1.7" (12-Jul-2026 · 12:12 PM)
-   Version: 1.4 · 12-Jul-2026 — Founder-आदेश: 12वाँ कार्ड "finance_mitra"
+   Version: 1.5 · 14-Jul-2026 — Founder-आदेश: शिक्षक-परिवार व केंद्र-परिवार का विभाजन —
+            +2 कार्ड (ustad · workshop; parent-कुंजी — join/login में मूल कार्ड पर
+            क्लिक → दो-विकल्प, ACS-टीम साँचा); dashboards 29 → 31; rules/एग्रीमेंट
+            अलग-अलग। पुराना "Teacher(+उस्ताद)" व "Center(+WorkShop subtype)" एक-घर निरस्त।
+   पिछला:  1.4 · 12-Jul-2026 — Founder-आदेश: 12वाँ कार्ड "finance_mitra"
             (वित्त मित्र — उद्यमी↔अधिकृत वित्तीय संस्था का पुल; 11-कार्ड लॉक का
             Founder-override, v1.7-ग सिद्धांत-2 का पद-रूप)।
    पिछला:  1.3 · 12-Jul-2026 — काम-5: public_label (कूट-नाम नियम — Founder, 12-07-2026:
@@ -217,11 +221,17 @@ const ACS_DESIGNATIONS = {
     { key: "jobseeker",     collection: "jobseekers",     dashboard: "/dashboard/jobseeker/",     label: "नौकरी-प्रशिक्षु",   min_age: 16, subtypes: [] },
     { key: "entrepreneur",  collection: "entrepreneurs",  dashboard: "/dashboard/entrepreneur/",  label: "उद्योग-प्रशिक्षु",  min_age: 16, subtypes: [] },
     { key: "teacher",       collection: "teachers",       dashboard: "/dashboard/teacher/",       label: "शिक्षक",           min_age: 18,
-      subtypes: ["Teacher", "Ustad"],
-      note: "स्वतंत्र शिक्षक = Course Creator (मूल कोर्स, 7% royalty lifetime — v2.0-घ); केंद्र-प्रशिक्षक अलग login नहीं (v2 §18)" },
+      subtypes: [], children: ["teacher","ustad"],
+      note: "v1.5: एकेडमिक शिक्षक — वर्ग-6 से PhD तक का पाठ्यक्रम (स्कूल/कॉलेज/University); Course Creator (7% royalty lifetime — v2.0-घ); केंद्र-प्रशिक्षक अलग login नहीं (v2 §18)" },
+    { key: "ustad",         collection: "ustads",         dashboard: "/dashboard/ustad/",         label: "उस्ताद",           min_age: 18,
+      subtypes: [], parent: "teacher",
+      note: "v1.5 (Founder 14-Jul-2026): पुश्तैनी/अनुभव-सिद्ध हुनर (काश्तकारी) की हाथ-सिखाई — दूध/मछली-उत्पादन, सिलाई, मशीन-मरम्मत, संगीत-साधना आदि; पहचान = हुनर-प्रमाण (डिग्री नहीं); royalty (7% lifetime) व badge नियम teacher-समान जब तक Founder अलग न तय करे" },
     { key: "center",        collection: "centers",        dashboard: "/dashboard/center/",        label: "केंद्र",           min_age: 0,
-      subtypes: ["Center", "WorkShop", "College", "University"],
-      note: "संस्था Min-Age 0 (आज खुला, आज मान्यता); WorkShop कम-से-कम 3 वर्ष पुराना अनिवार्य" },
+      subtypes: ["Center", "College", "University"], children: ["center","workshop"],
+      note: "v1.5: एकेडमिक ज्ञान का घर — कोचिंग/स्कूल/कॉलेज/University; संस्था Min-Age 0 (आज खुला, आज मान्यता)" },
+    { key: "workshop",      collection: "workshops",      dashboard: "/dashboard/workshop/",      label: "वर्कशॉप",          min_age: 0,
+      subtypes: [], parent: "center",
+      note: "v1.5 (Founder 14-Jul-2026): उस्ताद-ज्ञान (हुनर/काश्तकारी) सीखने-सिखाने का स्थान; कम-से-कम 3 वर्ष पुरानी अनिवार्य; revenue केंद्र-समान (80%) जब तक Founder अलग न तय करे; अभ्यास-सुरक्षा (औज़ार/मशीन/POCSO) लागू" },
     { key: "counselor",     collection: "counselors",     dashboard: "/dashboard/counselor/",     label: "सलाहकार",          min_age: 18,
       subtypes: ["Counselor", "Professional"],
       note: "न्यूनतम अनुभव 5 वर्ष; 5-मिनट free preview अनिवार्य" },
@@ -325,11 +335,13 @@ const ACS_DESIGNATIONS = {
   });
   var CPUB = {
     student:"विद्यार्थी (Student)", jobseeker:"नौकरी (Job-seeker)", entrepreneur:"उद्यम (Entrepreneur)",
-    teacher:"शिक्षक (Teacher)", center:"केंद्र (Center)", counselor:"सलाहकार (Counselor)",
+    teacher:"शिक्षक (Teacher)", ustad:"उस्ताद (Ustad)", center:"केंद्र (Center)", workshop:"वर्कशॉप (Workshop)", counselor:"सलाहकार (Counselor)",
     employer:"नियोक्ता (Employer)", foreign_agent:"विदेश एजेंट (Foreign Agent)",
     volunteer:"स्वयंसेवक (Volunteer)", finance_mitra:"वित्त मित्र (Finance Mitra)", vendor:"विक्रेता (Vendor)", team:"ACS टीम (ACS Team)"
   };
-  var CRULE = { vendor:"rules-consent-vendor.html", finance_mitra:"rules-consent-finance-mitra.html" };
+  var CRULE = { vendor:"rules-consent-vendor.html", finance_mitra:"rules-consent-finance-mitra.html",
+    teacher:"rules-consent-teacher.html", ustad:"rules-consent-ustad.html",
+    center:"rules-consent-center.html", workshop:"rules-consent-workshop.html" };
   M.cards.forEach(function(c){
     c.public_label = CPUB[c.key] || c.label;
     if(CRULE[c.key]) c.ruleFile = CRULE[c.key];
