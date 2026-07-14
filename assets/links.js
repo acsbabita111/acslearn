@@ -18,7 +18,9 @@ const ACS_LINKS = {
     { key: "salah",    icon: "🧭", label: "सलाह",         href: "/hi/salah.html", label_en: "Counseling", href_en: "/en/counseling.html" },
     { key: "udyam",    icon: "🌍", label: "उद्यम",        href: "/udyam/", label_en: "Industries", href_en: "/en/industries/" },
     { key: "courses",  icon: "📚", label: "कोर्स",        href: "/courses/hi/", label_en: "Courses", href_en: "/courses/hi/" },
-    { key: "register", icon: "📝", label: "रजिस्ट्रेशन",   href: "/join.html", label_en: "Registration", href_en: "/join.html" },
+    /* (Founder-आदेश 14-Jul-2026) रजिस्ट्रेशन अब पहले guide-पृष्ठ खोले — 12 भूमिकाएँ,
+       दस्तावेज़-सूची, अधिकार-कर्तव्य, टीम-योग्यताएँ; वहीं से form का बटन। menu-नाम वही (10-लॉक)। */
+    { key: "register", icon: "📝", label: "रजिस्ट्रेशन",   href: "/registration-guide.html", label_en: "Registration", href_en: "/registration-guide.html" },
     { key: "verify",   icon: "🏆", label: "प्रमाण पत्र",   href: "/verify/", label_en: "Certificate", href_en: "/verify/" },
     { key: "network",  icon: "🤝", label: "नेटवर्क",       href: "/hi/network.html", label_en: "Network", href_en: "/hi/network.html" },
     { key: "vani",     icon: "📱", label: "वाणी",          href: "/vani/", label_en: "Vani", href_en: "/vani/" },
