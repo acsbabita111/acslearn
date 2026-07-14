@@ -77,8 +77,16 @@ window.ACS_ROLES = {
         collection:"learners", dashboard:"/dashboard/learner/",
         ruleFile:"rules-consent-learner.html", gateway:false, needsGeo:false, needsRMOffice:false,
         subtypes:["student","jobseeker","entrepreneur"], /* फ़ाइल के अंदर अपना selector है */
-        fields: [ F.nameLocal, F.nameRoman ], /* उम्र/Guardian/पुलिस-वेरिफिकेशन फ़ाइल के अंदर ही dynamic हैं */
-        documents: [] /* Learner से कोई दस्तावेज़ नहीं माँगा जाता — बाल-सुरक्षा */
+        /* (Founder-आदेश 13-Jul-2026, काम-5 होल-2/3) पुराना "कोई दस्तावेज़ नहीं" नियम निरस्त:
+           अपना फोटो अनिवार्य; 18 से कम उम्र पर अभिभावक का पहचान-पत्र अनिवार्य
+           (showWhenMinor); 18+ पर अपना पहचान-पत्र अनिवार्य (showWhenAdult) —
+           Founder-सुधार 14-Jul-2026: उम्र के अनुसार दोनों दिशा में सही दस्तावेज़। */
+        fields: [ F.nameLocal, F.nameRoman, F.age(10, "जन्मतिथि (चरण-1) से अपने-आप", "auto from DOB") ],
+        documents: [ F.docPhoto,
+          { id:"doc_guardian_id", accept:"image/*,.pdf", required:true, showWhenMinor:true,
+            hi:"अभिभावक (Guardian) का पहचान-पत्र — 18 से कम उम्र पर अनिवार्य", en:"Guardian's photo-ID — mandatory under 18" },
+          { id:"doc_photo_id1", accept:"image/*,.pdf", required:true, showWhenAdult:true,
+            hi:"अपना फ़ोटो पहचान-पत्र (जैसे Aadhaar) — 18+ पर अनिवार्य", en:"Your photo-ID (e.g. Aadhaar) — mandatory 18+" } ]
       },
 
       /* ---------------- समूह-2 : जुड़कर कमाने वाले (गेटवे — RM/ZM/HQ शृंखला) ---------------- */
