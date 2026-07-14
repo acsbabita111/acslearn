@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v23';                 // ← CSS/JS बदलें तो बढ़ाएँ (v10: 12-Jul-2026 — designation_matrix v1.2, काम-4)
+const CACHE_VERSION = 'v24';                 // ← CSS/JS बदलें तो बढ़ाएँ (v24: 14-Jul-2026 — roles.js v2.1 संस्था-दस्तावेज़ + 2MB सीमा + guide सरल-भाषा)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 

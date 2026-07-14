@@ -994,11 +994,11 @@
     if(!docs.length){ box.style.display = 'none'; return; }
     var html = '<div style="font-weight:800;color:#1b4d20;font-size:17px">📋 शुरू करने से पहले ये दस्तावेज़ तैयार रखें</div>'
       + '<div class="hint" style="margin:2px 0 6px">हर फ़ाइल: फ़ोटो (JPG/PNG)' 
-      + ' या जहाँ लिखा हो वहाँ PDF भी · अधिकतम आकार 5MB प्रति फ़ाइल</div><ul style="margin:0;padding-right:4px;padding-left:22px">';
+      + ' या जहाँ लिखा हो वहाँ PDF भी · अधिकतम आकार 2MB प्रति फ़ाइल</div><ul style="margin:0;padding-right:4px;padding-left:22px">';
     docs.forEach(function(d){
       var type = (d.accept || '').indexOf('.pdf') > -1 ? 'फ़ोटो/PDF' : 'फ़ोटो';
       var cond = d.showWhenMinor ? ' — सिर्फ़ 18 से कम उम्र पर' : (d.showWhenAdult ? ' — सिर्फ़ 18+ पर' : '');
-      html += '<li style="font-size:16px;line-height:1.7">' + d.hi + ' <span style="color:#556">(' + type + ', 5MB तक' + cond + ')</span>'
+      html += '<li style="font-size:16px;line-height:1.7">' + d.hi + ' <span style="color:#556">(' + type + ', 2MB तक' + cond + ')</span>'
         + (d.required ? '' : ' <span style="color:#556">— वैकल्पिक</span>') + '</li>';
     });
     html += '</ul>';
@@ -1489,7 +1489,7 @@
   /* ═══════════════ दस्तावेज़-Upload — असली drag-drop/click, preview, हटाना, validation ═══════════════ */
   var docFiles = {}; /* doc.id → { file, dataUrl, isImage } */
   var docBoxEls = {}; /* doc.id → box-element (validation व review के लिए) */
-  var MAX_DOC_MB = 5;
+  var MAX_DOC_MB = 2;   /* Founder-आदेश 14-Jul-2026: 5MB → 2MB */
 
   function docIconFor(fileName){
     var ext = (fileName.split('.').pop()||'').toLowerCase();
