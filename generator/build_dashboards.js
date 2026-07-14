@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.1 · 14-Jul-2026 — v3.4 टेम्पलेट: chip-public_label + gateway-timeline (मिलान-सुधार)
    v1.0 · 12-Jul-2026 (काम-4)
    ------------------------------------------------------------
    लोहे का नियम: कोई dashboard-page हाथ से न बने — सिर्फ़ यह script।
@@ -16,9 +17,9 @@ const ROOT = path.join(__dirname, "..");
 const MX = require(path.join(ROOT, "assets", "designation_matrix.js"));
 const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.html"), "utf8");
 
-const STAMP = "12-Jul-2026";
+const STAMP = "14-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.0 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.1 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -125,4 +126,4 @@ for(const [home, h] of homes){
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" dashboards बने — generator v1.0 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" dashboards बने — generator v1.1 · "+STAMP);
