@@ -431,7 +431,7 @@ const NO_OTP = ["student","jobseeker","entrepreneur"];
 const _MX = window.ACS_DESIGNATIONS || {teams:[],cards:[]};
 const DASH = {team:"/dashboard/"};
 (_MX.cards||[]).forEach(c=>{ if(c.key!=="team" && c.dashboard) DASH[c.key]=c.dashboard; });
-const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",center:"केंद्र (Center)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",finance_mitra:"वित्त मित्र (Finance Mitra)",vendor:"विक्रेता (Vendor)",team:"ACS Team"};
+const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",ustad:"उस्ताद (Ustad)",center:"केंद्र (Center)",workshop:"वर्कशॉप (Workshop)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",finance_mitra:"वित्त मित्र (Finance Mitra)",vendor:"विक्रेता (Vendor)",team:"ACS Team"};
 const TEAM_DASH = {};
 (_MX.teams||[]).forEach(t=>{ if(t.dashboard) TEAM_DASH[t.key]=t.dashboard; });
 const FUTURE_HOME = "/dashboard/future/";
@@ -461,17 +461,38 @@ window.switchLang = function(){
   const MX2 = window.ACS_DESIGNATIONS;
   if(!grid || !MX2) return;
   const TINT = { student:"gold", jobseeker:"cream", entrepreneur:"green" };
-  const ICON = { student:"🎓", jobseeker:"💼", entrepreneur:"🏭", teacher:"👨‍🏫", center:"🏫",
-    counselor:"🧭", employer:"🧑‍💼", foreign_agent:"✈️", volunteer:"🤝",
+  const ICON = { student:"🎓", jobseeker:"💼", entrepreneur:"🏭", teacher:"👨‍🏫", ustad:"🧰", center:"🏫",
+    workshop:"🔧", counselor:"🧭", employer:"🧑‍💼", foreign_agent:"✈️", volunteer:"🤝",
     finance_mitra:"🏦", vendor:"🛒", team:"🛠️" };
-  (MX2.cards || []).forEach(function(c){
+  /* v2.0 (14-Jul-2026, Founder): parent-कार्ड (शिक्षक/केंद्र) पर क्लिक → दो-विकल्प
+     tiles उसी की जगह पर (ACS-टीम साँचा — matrix v1.5 children से) */
+  function makeTile(c, isChild){
     const d = document.createElement('div');
     d.className = 'role-card' + (TINT[c.key] ? ' learner ' + TINT[c.key] : '');
     d.innerHTML = '<div class="role-icon">' + (ICON[c.key] || '⭐') + '</div>'
       + '<div class="role-name">' + (c.public_label || c.label) + '</div>';
-    d.addEventListener('click', function(){ selRole(c.key, d); });
-    d.addEventListener('dblclick', function(){ selRole(c.key, d); goStep2(); });
-    grid.appendChild(d);
+    d.addEventListener('click', function(){
+      if(!isChild && c.children && c.children.length){ expandChildren(c, d); return; }
+      selRole(c.key, d);
+    });
+    d.addEventListener('dblclick', function(){
+      if(!isChild && c.children && c.children.length){ expandChildren(c, d); return; }
+      selRole(c.key, d); goStep2();
+    });
+    return d;
+  }
+  function expandChildren(parentCard, parentTile){
+    const kids = (parentCard.children||[]).map(k => (MX2.cards||[]).find(x=>x.key===k)).filter(Boolean);
+    if(!kids.length) return;
+    const frag = document.createDocumentFragment();
+    kids.forEach(function(cc){ frag.appendChild(makeTile(cc, true)); });
+    parentTile.replaceWith(frag);
+    const sel=$("roleGrid").querySelector('.role-card'); /* पहले child पर संकेत नहीं — चुनाव user का */
+    box("a1","अब प्रकार चुनें — "+kids.map(function(x){return x.public_label||x.label;}).join(" या ")+"।",true);
+  }
+  (MX2.cards || []).forEach(function(c){
+    if(c.parent) return; /* child-कार्ड grid में नहीं — parent पर क्लिक से खुलेंगे */
+    grid.appendChild(makeTile(c, false));
   });
 })();
 (function(){
