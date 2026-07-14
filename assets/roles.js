@@ -87,7 +87,7 @@ window.ACS_ROLES = {
       { key:"learner", group:"g1", icon:"🎓",
         hi:"Learner — Student / Job-seeker / Entrepreneur", en:"Learner — Student / Job-seeker / Entrepreneur",
         desc_hi:"सीखने वाला — उम्र व उप-प्रकार फ़ाइल के अंदर चुनें", desc_en:"Learner — choose sub-type & age inside",
-        collection:"learners", dashboard:"/dashboard/learner/",
+        collection:"learners", dashboard:"/dashboard/student/", /* उप-प्रकार की असली routing matrix से — v2.1 सफ़ाई */
         ruleFile:"rules-consent-learner.html", gateway:false, needsGeo:false, needsRMOffice:false,
         subtypes:["student","jobseeker","entrepreneur"], /* फ़ाइल के अंदर अपना selector है */
         /* (Founder-आदेश 13-Jul-2026, काम-5 होल-2/3) पुराना "कोई दस्तावेज़ नहीं" नियम निरस्त:
@@ -210,7 +210,7 @@ window.ACS_ROLES = {
       { key:"hq_admin", group:"g3", icon:"🏢",
         hi:"HQ Admin", en:"HQ Admin",
         desc_hi:"मुख्यालय-प्रशासन प्रमुख — Founder के सीधे नीचे", desc_en:"HQ administration head — directly under Founder",
-        collection:"team", dashboard:"/dashboard/hq/",
+        collection:"team", dashboard:"/dashboard/admin/", /* v2.0-नियम: hq_admin का घर admin — v2.1 सफ़ाई */
         ruleFile:"rules-consent-hq-admin.html", gateway:true, needsGeo:false, needsRMOffice:false, isHQ:true,
         fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
@@ -258,7 +258,7 @@ window.ACS_ROLES = {
       { key:"content_creator", group:"g3", icon:"🎬",
         hi:"Content Creator", en:"Content Creator",
         desc_hi:"7 उप-भूमिकाएँ — ZM कार्यालय के अंतर्गत", desc_en:"7 sub-roles — under ZM office",
-        collection:"team", dashboard:"/dashboard/zonal/staff/",
+        collection:"team", dashboard:"/dashboard/content-creator/", /* v2.1 सफ़ाई */
         ruleFile:"rules-consent-content-creator.html", gateway:true, needsGeo:true, needsRMOffice:false,
         subtypes:["script","prompt","animator","voice","editor","thumbnail","publisher"],
         fields: [ F.nameLocal, F.nameRoman, F.address, F.emergencyContact1, F.emergencyContact2 ],
