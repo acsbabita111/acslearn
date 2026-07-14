@@ -7,8 +7,8 @@
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
 
   <!-- ── SEO (generator भरे; डिफ़ॉल्ट सुरक्षित) ── -->
-  <title>उद्यम — 950 सेक्टर, स्वरोजगार से सरकारी नौकरी तक | Applied Computer School™</title>
-  <meta name="description" content="ACS उद्यम केंद्र — 950 सेक्टर, 24 मास्टर-समूह। स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी व स्थानीय नौकरी — हर रास्ता एक जगह।"/>
+  <title>उद्यम — 950+ उद्यम, स्वरोजगार से सरकारी नौकरी तक | Applied Computer School™</title>
+  <meta name="description" content="ACS उद्यम केंद्र — 950+ उद्यम, 24 मास्टर-समूह। स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी व स्थानीय नौकरी — हर रास्ता एक जगह।"/>
   <link rel="canonical" href="https://acslearn.com/udyam/"/>
   <meta name="robots" content="index,follow"/>
 
@@ -19,8 +19,8 @@
 
   <!-- Open Graph / सोशल शेयर -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="उद्यम — 950 सेक्टर, स्वरोजगार से सरकारी नौकरी तक | Applied Computer School™"/>
-  <meta property="og:description" content="ACS उद्यम केंद्र — 950 सेक्टर, 24 मास्टर-समूह। स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी व स्थानीय नौकरी — हर रास्ता एक जगह।"/>
+  <meta property="og:title" content="उद्यम — 950+ उद्यम, स्वरोजगार से सरकारी नौकरी तक | Applied Computer School™"/>
+  <meta property="og:description" content="ACS उद्यम केंद्र — 950+ उद्यम, 24 मास्टर-समूह। स्वरोजगार, सरकारी नौकरी, प्राइवेट नौकरी व स्थानीय नौकरी — हर रास्ता एक जगह।"/>
   <meta property="og:image" content="https://acslearn.com/logo.png"/>
   <meta property="og:locale" content="hi"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -102,7 +102,7 @@
 
   <!-- ══ हर page का अपना content सिर्फ़ यहाँ बदलता है ══ -->
   <main id="main">
-    <!-- ════════ उद्यम (udyam) — बीच का content (data-driven: 950 sector + 24 group) ════════ -->
+    <!-- ════════ उद्यम (udyam) — बीच का content (data-driven: 950 udyam + 24 group) ════════ -->
 <div id="udyamApp">
 <div class="hero">
   <div class="hero-inner">
@@ -134,14 +134,14 @@
   <!-- TAB 1: स्वरोजगार -->
   <div class="sec active" id="sec1">
     <div class="sec-title">🏪 स्वरोजगार (Self-Employment)</div>
-    <div class="sec-sub">₹0 से शुरू → ₹200 करोड़ तक। नीचे 950 सेक्टर में से अपना चुनें।</div>
+    <div class="sec-sub">₹0 से शुरू → ₹200 करोड़ तक। नीचे 950+ उद्यमों में से अपना चुनें।</div>
     <div class="search-wrap">
       <input type="text" class="search-input" id="searchInput"
         placeholder="🔍 सेक्टर खोजें... जैसे: डेयरी, मोबाइल, बाँस, सिलाई..."
         oninput="filterSectors()"/>
     </div>
     <div class="filter-row" id="mgFilter"></div>
-    <div class="sector-count" id="sectorCount">सभी 950 सेक्टर</div>
+    <div class="sector-count" id="sectorCount">सभी 950 उद्यम</div>
     <div class="sector-grid" id="sectorGrid"></div>
   </div>
 
@@ -601,7 +601,7 @@ function renderSectors(){
     return ms&&mm;
   });
   document.getElementById('sectorCount').textContent=
-    filtered.length===950?'सभी 950 सेक्टर':`${filtered.length} सेक्टर मिले`;
+    filtered.length===950?'सभी 950 उद्यम':`${filtered.length} उद्यम मिले`;
   document.getElementById('sectorGrid').innerHTML=filtered.map(s=>`
     <div class="sector-card" onclick="openSector(${s.n},'${s.name.replace(/'/g,"\\'")}')">
       <div class="s-num">सेक्टर ${String(s.n).padStart(3,'0')}</div>
