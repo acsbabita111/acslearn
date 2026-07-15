@@ -1,5 +1,7 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.3 · 15-Jul-2026 — टेम्पलेट v4.0 (पतला खोखा): CSS/JS अब /assets/ में साझा;
+          JS की build-time TEAM-कटाई हटी (runtime-gate) — सिर्फ़ HTML-mode कटाई बची।
    v1.2 · 14-Jul-2026 — एक-generator नियम (Founder): join.html व login (dashboard/index.html)
           भी अब इसी generator से — स्रोत: /_JOIN_TEMPLATE.html · /dashboard/_LOGIN_TEMPLATE.html।
           इन दोनों को अब हाथ से न बदलें — टेम्पलेट बदलो, generator चलाओ (परत-4)।
@@ -20,9 +22,9 @@ const ROOT = path.join(__dirname, "..");
 const MX = require(path.join(ROOT, "assets", "designation_matrix.js"));
 const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.html"), "utf8");
 
-const STAMP = "14-Jul-2026";
+const STAMP = "15-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.2 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.3 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -104,15 +106,13 @@ for(const [home, h] of homes){
     .split("{{P1_NOTE}}").join(isTeam ? p1Note(h.keys) : "")
     .split("{{EXTRA_PANELS}}").join(isTeam ? "" : extraPanels(h.keys[0]));
 
-  /* mode-अनुसार दूसरे mode के हिस्से हटाना */
+  /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
+     dashboard.js runtime-gate if(MODE==="team") से ख़ुद सँभालता है) */
   let final = out;
   if(isTeam){
     final = final.replace(/<!--EXTERNAL_ONLY_START-->[\s\S]*?<!--EXTERNAL_ONLY_END-->/,"");
   } else {
     final = final.replace(/<!--TEAM_ONLY_START-->[\s\S]*?<!--TEAM_ONLY_END-->/,"");
-    final = final.replace(/\/\*TEAM_ONLY_JS_START\*\/[\s\S]*?\/\*TEAM_ONLY_JS_END\*\//,"");
-    final = final.replace(/\/\*TEAM_GUARD_JS_START\*\/[\s\S]*?\/\*TEAM_GUARD_JS_END\*\//,"");
-    final = final.replace("  await guardTeam(user);\n", "  /* external-mode: team-guard लागू नहीं */\n");
   }
 
   /* जाँच: कोई placeholder बचा तो fail (check-robot भावना) */
@@ -145,4 +145,4 @@ for(const sp of SPECIALS){
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.2 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.3 · "+STAMP);
