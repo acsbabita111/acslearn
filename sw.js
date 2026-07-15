@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v33';                 // ← (v33: 14-Jul-2026 — EN-पेज style-सफ़ाई (फ़ॉन्ट≥16px, [ ]→( )) + मूल-भाषा निशान en/mission)
+const CACHE_VERSION = 'v34';                 // ← (v34: 15-Jul-2026 — udyam/wiki: sector+q param-होल बंद, udyam_data-fallback, universal-रूप, फ़ॉन्ट≥16px)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
