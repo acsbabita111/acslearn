@@ -23,7 +23,7 @@ const ACS_LINKS = {
     { key: "register", icon: "📝", label: "रजिस्ट्रेशन",   href: "/registration-guide.html", label_en: "Registration", href_en: "/registration-guide.html" },
     { key: "verify",   icon: "🏆", label: "प्रमाण पत्र",   href: "/verify/", label_en: "Certificate", href_en: "/verify/" },
     { key: "network",  icon: "🤝", label: "नेटवर्क",       href: "/hi/network.html", label_en: "Network", href_en: "/hi/network.html" },
-    { key: "vani",     icon: "📱", label: "वाणी",          href: "/vani/", label_en: "Vani", href_en: "/vani/" },
+    { key: "vani",     icon: "📱", label: "वाणी",          href: "/vani/", label_en: "Vani", href_en: "/vani/en/" },
     { key: "contact",  icon: "📞", label: "संपर्क",        href: "/contact/hi/", label_en: "Contact", href_en: "/contact/hi/" }
   ],
 
