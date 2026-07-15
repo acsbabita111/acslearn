@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.0.1 · 15-Jul-2026 — hotfix: CAN_FINAL/MYDESIG साझा-क्षेत्र में (दो team-block
+          के अलग scope से strict-mode ReferenceError — dashboards "जाँच" पर अटकते थे)।
    v4.0 · 15-Jul-2026 — Founder-आदेश: "32 घरों के लिए एक ही CSS/JS"।
    बदला: (1) per-page मूल्य window.ACS_DASH से (पतला खोखा) ·
    (2) build-time TEAM-कटाई → runtime-gate if(MODE==="team") ·
@@ -73,6 +75,11 @@ window.toggleSide = function(){
   document.getElementById("sideVeil").classList.toggle("open");
 };
 const LAZY = {}; /* team-mode अपनी entries नीचे (team-only block में) भरता है */
+/* v4.0.1 (15-Jul-2026): guard-block व engines-block अलग scope थे — guardTeam का
+   CAN_FINAL/MYDESIG भरना strict-mode ReferenceError देता था ("जाँच हो रही है" पर
+   अटकना)। साझा state अब यहाँ — दोनों block एक ही घर पढ़ें-लिखें। */
+let CAN_FINAL = false;
+let MYDESIG = "";
 function initNav(){
   const nav=$("sideNav"); nav.innerHTML="";
   document.querySelectorAll(".panel").forEach(p=>{
@@ -271,7 +278,7 @@ LAZY["pnl-tasks"]   = async ()=>{ await ensureTeam(); if(!TASKS_LOADED){ TASKS_L
 LAZY["pnl-reports"] = async ()=>{ if(!REPORTS_LOADED){ REPORTS_LOADED=true; await loadReports(); } };
 
 /* ═══ [P1] आवेदन-सूची — registrations (एकमात्र सही स्रोत), सिर्फ़ पढ़ना ═══ */
-let APPS = [], FILTER = "all", CAN_FINAL = false;
+let APPS = [], FILTER = "all";
 let APP_CURSOR = null, APP_DONE = false, APP_PAGE = 50;
 async function loadApplications(more){
   const box = $("appList");
@@ -380,7 +387,6 @@ document.addEventListener("click", async (ev)=>{
 });
 
 /* ═══ [P2] टीम-पैनल — teams से; hold-बटन server (setHold/liftHold) ═══ */
-let MYDESIG = "";
 async function loadTeamPanel(myDesig){
   MYDESIG = myDesig;
   const listEl = $("teamList"), exoEl = $("exoList");
