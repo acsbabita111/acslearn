@@ -1,0 +1,159 @@
+/* ============================================================
+   build_course_pages.js — कोर्स-पाठ पेजों का generator (परत-4)
+   v1.0 · 15-Jul-2026 (कोर्स-दौर: वेल्डिंग पाठ 1-2 से शुरुआत)
+   ------------------------------------------------------------
+   लोहे का नियम: कोई पाठ-पेज हाथ से न बने — सिर्फ़ यह script।
+   स्रोत:  /_TEMPLATE.html (परत-2 — root मास्टर टेम्पलेट, home वाला universal ढाँचा)
+         + generator/data/welding_lessons_data.js (परत-3 — पाठ-सामग्री का एकमात्र घर)
+   चलाना: repo-रूट से → node generator/build_course_pages.js
+   नतीजा: /courses/hi/<course-slug>/<code>-<num>-<slug>.html (SEO-नामकरण नियम)
+
+   check-robot (fail = पेज नहीं बनेगा):
+   1. हर पाठ ≥ 1200 शब्द (Founder-नियम 15-Jul: 1200-1300 न्यूनतम)
+   2. हर पाठ में ≥ 1 रेखा-चित्र (svg) — अनिवार्य
+   3. दिखने वाले text में square bracket नहीं — सिर्फ़ गोल ( )
+   4. कोई font-size 16px से नीचे नहीं
+   5. कूट-नाम (course.code आदि) पेज के दिखने वाले text में नहीं
+   ============================================================ */
+
+"use strict";
+const fs = require("fs");
+const path = require("path");
+
+const ROOT = path.join(__dirname, "..");
+const { WELDING_COURSE, WELDING_LESSONS } =
+  require(path.join(__dirname, "data", "welding_lessons_data.js"));
+
+const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
+
+const STAMP = "15-Jul-2026";
+const GEN_NOTE =
+  "<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · " + STAMP + ") —\n" +
+  "     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->";
+
+/* ---------- सहायक ---------- */
+function pad3(n){ return String(n).padStart(3, "0"); }
+
+function fileName(course, l){
+  /* SEO नियम: [code]-[num]-[slug].html · lowercase · hyphen · max 60 */
+  const name = (course.code + "-" + pad3(l.num) + "-" + l.slug).toLowerCase();
+  if (!/^[a-z0-9-]+$/.test(name)) throw new Error("slug-नियम टूटा: " + name);
+  if (name.length > 60) throw new Error("slug 60 से लंबा: " + name);
+  return name + ".html";
+}
+
+function visibleText(html){
+  /* svg + tags हटाकर सिर्फ़ पढ़ा जाने वाला text */
+  return html
+    .replace(/<svg[\s\S]*?<\/svg>/g, " ")
+    .replace(/<style[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+function wordCount(html){
+  const t = visibleText(html);
+  return t ? t.split(" ").length : 0;
+}
+
+/* ---------- check-robot ---------- */
+function checkRobot(course, l, contentHtml){
+  const holes = [];
+  const words = wordCount(contentHtml);
+  if (words < 1200) holes.push("शब्द-गिनती " + words + " (< 1200)");
+  if (!/<svg[\s>]/.test(contentHtml)) holes.push("रेखा-चित्र (svg) नहीं मिला");
+  const vis = visibleText(contentHtml);
+  if (/[\[\]]/.test(vis)) holes.push("दिखने वाले text में square bracket");
+  const small = contentHtml.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || [];
+  for (const m of small){
+    const n = parseInt(m.match(/([0-9]{1,2})(?:\.[0-9]+)?px/i)[1], 10);
+    if (n < 16) holes.push("font-size " + n + "px (< 16px): " + m.trim());
+  }
+  /* svg के font: shorthand भी जाँचो */
+  const svgFonts = contentHtml.match(/font\s*:\s*[0-9]{3}\s+0*([0-9]{1,2})px/gi) || [];
+  for (const m of svgFonts){
+    const n = parseInt(m.match(/([0-9]{1,2})px/i)[1], 10);
+    if (n < 16) holes.push("svg font " + n + "px (< 16px)");
+  }
+  const codeRe = new RegExp("\\b" + course.code + "\\b", "i");
+  if (codeRe.test(vis)) holes.push("कूट-नाम (" + course.code + ") दिखने वाले text में");
+  return { words, holes };
+}
+
+/* ---------- पाठ का content-HTML ---------- */
+function lessonBody(course, l, prevFile, nextFile){
+  const secs = l.sections.map(s =>
+    '<section class="lsn-sec">\n<h2>' + s.t + "</h2>\n" + s.h.trim() + "\n</section>"
+  ).join("\n\n");
+
+  const prev = prevFile
+    ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>'
+    : '<a class="lsn-navbtn" href="/courses/hi/">← कोर्स-सूची</a>';
+  const next = nextFile
+    ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '">अगला पाठ →</a>'
+    : '<span class="lsn-navbtn lsn-soon">अगला पाठ — जल्द</span>';
+
+  return '\n<article class="lsn-wrap">\n' +
+    '<header class="lsn-head">\n' +
+    '<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ' + course.title + " › " +
+      "हिस्सा-" + course.part.no + ": " + course.part.name + "</p>\n" +
+    "<h1>पाठ-" + l.num + ": " + l.title + "</h1>\n" +
+    '<p class="lsn-meta">पढ़ाई का समय: ' + l.minutes + " मिनट · पाठ " + l.num + " / " +
+      course.totalLessons + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
+    "</header>\n\n" + secs + "\n\n" +
+    '<section class="lsn-sec lsn-video">\n<h2>वीडियो (Video)</h2>\n' +
+    "<p>इस पाठ का चुना हुआ वीडियो जल्द यहीं जुड़ेगा — जाँच-परख के बाद। तब तक ऊपर की समझाइश और चित्र पूरा पाठ हैं; पढ़ाई कहीं नहीं रुकती।</p>\n</section>\n\n" +
+    '<nav class="lsn-nav">' + prev + next + "</nav>\n" +
+    "</article>\n";
+}
+
+/* ---------- टेम्पलेट में जड़ना ---------- */
+function buildPage(course, l, prevFile, nextFile){
+  const body = lessonBody(course, l, prevFile, nextFile);
+  const { words, holes } = checkRobot(course, l, body);
+  if (holes.length){
+    console.error("❌ पाठ-" + l.num + " check-robot fail:");
+    holes.forEach(h => console.error("   • " + h));
+    return null;
+  }
+
+  const S = "<!-- PAGE-CONTENT-START -->", E = "<!-- PAGE-CONTENT-END -->";
+  const a = TPL.indexOf(S), b = TPL.indexOf(E);
+  if (a < 0 || b < 0) throw new Error("_TEMPLATE.html में PAGE-CONTENT निशान नहीं मिले");
+
+  let page = TPL.slice(0, a + S.length) + "\n" + body + "\n" + TPL.slice(b);
+
+  /* head: title/meta/canonical (SEO) + पाठ-CSS */
+  const canonical = "https://acslearn.com/courses/" + course.lang + "/" + course.slug + "/" +
+                    fileName(course, l);
+  page = page.replace(/<title>[\s\S]*?<\/title>/,
+    "<title>" + l.metaTitle + "</title>\n" +
+    '<meta name="description" content="' + l.metaDesc + '">\n' +
+    '<meta name="robots" content="index, follow, max-image-preview:large">\n' +
+    '<link rel="canonical" href="' + canonical + '">');
+  page = page.replace("</head>",
+    '<link rel="stylesheet" href="/assets/course-lesson.css">\n</head>');
+
+  page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE);
+  return { page, words };
+}
+
+/* ---------- मुख्य ---------- */
+const outDir = path.join(ROOT, "courses", WELDING_COURSE.lang, WELDING_COURSE.slug);
+fs.mkdirSync(outDir, { recursive: true });
+
+let ok = 0, fail = 0;
+WELDING_LESSONS.forEach((l, i) => {
+  const prev = i > 0 ? fileName(WELDING_COURSE, WELDING_LESSONS[i-1]) : null;
+  const next = i < WELDING_LESSONS.length - 1 ? fileName(WELDING_COURSE, WELDING_LESSONS[i+1]) : null;
+  const built = buildPage(WELDING_COURSE, l, prev, next);
+  if (!built){ fail++; return; }
+  const f = fileName(WELDING_COURSE, l);
+  fs.writeFileSync(path.join(outDir, f), built.page, "utf8");
+  console.log("✅ पाठ-" + l.num + " → courses/" + WELDING_COURSE.lang + "/" +
+    WELDING_COURSE.slug + "/" + f + " (" + built.words + " शब्द)");
+  ok++;
+});
+
+console.log("\n— नतीजा: " + ok + " पेज बने · " + fail + " fail —");
+if (fail) process.exit(1);
