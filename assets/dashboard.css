@@ -1,0 +1,159 @@
+/* ════════════════════════════════════════════════════════════
+   dashboard.css — 31-dashboard परिवार का एकमात्र साझा CSS (परत-1)
+   v4.0 · 15-Jul-2026 — Founder-आदेश: "32 घरों के लिए एक ही CSS/JS" —
+   टेम्पलेट v3.4 की style हूबहू यहाँ + होम-रूप ब्रांड (topbar/tagline)।
+   नियम: dashboard-रूप यहीं बदलें — pages में कभी नहीं (एक चीज़ = एक जगह)।
+   फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं · body 19px · गोल bracket ( )।
+   ════════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --offwhite:#F5F7FA;
+  --text:#1A2B3C; --gray:#5A6B7C; --border:#E3E9F2;
+}
+html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;background:var(--offwhite);color:var(--text);font-size:19px;line-height:1.75}
+.wrap{min-height:100vh;display:flex;flex-direction:column}
+
+/* ═══ [T1] topbar — dashboard-परिवार का साझा माथा ═══ */
+.topbar{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar img{width:42px;height:42px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35)}
+.topbar .tt strong{display:block;font-size:17px;font-weight:800;line-height:1.3}
+.topbar .tt span{font-size:16px;color:var(--gold);font-weight:700}
+.topbar .sp{flex:1}
+.tbwho{font-size:16px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-out{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:9px;padding:10px 16px;font-size:16px;font-weight:700;cursor:pointer}
+.btn-out:hover{background:rgba(255,255,255,.28)}
+
+/* ═══ [T2] hold-पट्टी (v1.4) — hold लगे तो ही दिखे ═══ */
+.holdbar{display:none;background:#B71C1C;color:#fff;padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.holdbar.on{display:block}
+
+/* ═══ [T3] provisional-पर्दा (07-Jul रास्ता-A) ═══ */
+.provbar{display:none;background:var(--gold);color:var(--navy);padding:12px 16px;font-size:17px;font-weight:700;text-align:center}
+.provbar.on{display:block}
+
+/* ═══ साझा कार्ड-रूप ═══ */
+.main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:16px 12px 28px}
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 16px;margin-bottom:16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.card h2{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.center{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 14px}
+.cbox{background:#fff;border:1px solid var(--border);border-radius:18px;max-width:560px;width:100%;padding:36px 24px;text-align:center;box-shadow:0 10px 30px rgba(11,31,58,.08)}
+.bigicon{font-size:60px;line-height:1;margin-bottom:12px}
+.cbox .h{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.cbox .s{font-size:18px;color:var(--gray);line-height:1.7}
+.btn-blue{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:18px;font-weight:800;cursor:pointer;margin-top:16px}
+.hidden{display:none}
+
+/* ═══ [T4] प्रोफ़ाइल ═══ */
+.pgrid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr}}
+.pitem{background:var(--offwhite);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.pitem .k{font-size:16px;color:var(--gray);font-weight:700}
+.pitem .v{font-size:19px;font-weight:800;color:var(--navy);word-break:break-word}
+.pill{display:inline-block;background:var(--offwhite);color:var(--blue);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:800}
+.docwrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.doc{display:inline-flex;align-items:center;gap:6px;background:var(--offwhite);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-size:16px;font-weight:700;color:var(--blue);text-decoration:none}
+.doc:hover{border-color:var(--blue)}
+.note{font-size:16px;color:var(--gray);margin-top:8px}
+
+/* approval-सफ़र timeline */
+.tl{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step .dot{width:26px;display:flex;flex-direction:column;align-items:center}
+.step .dot i{width:18px;height:18px;border-radius:50%;background:var(--border);border:3px solid var(--border);display:block}
+.step.done .dot i{background:var(--green);border-color:var(--green)}
+.step.now  .dot i{background:#fff;border-color:var(--gold)}
+.step .dot em{flex:1;width:3px;background:var(--border);min-height:22px;display:block}
+.step:last-child .dot em{display:none}
+.step .lbl{font-size:18px;font-weight:700;padding-bottom:14px}
+.step.done .lbl{color:var(--green)}
+.step.now  .lbl{color:var(--navy)}
+.step .lbl small{display:block;font-size:16px;color:var(--gray);font-weight:600}
+
+/* ═══ [T5] पैनल-जाल ═══ */
+.pnl{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.pnl{grid-template-columns:1fr 1fr}}
+.pcard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 16px;box-shadow:0 6px 18px rgba(11,31,58,.06)}
+.pcard .ph{font-size:20px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pcard .pd{font-size:17px;color:var(--gray);line-height:1.7}
+.soon{display:inline-block;margin-top:10px;background:var(--offwhite);border:1px dashed var(--gray);color:var(--gray);border-radius:999px;padding:5px 14px;font-size:16px;font-weight:700}
+
+/* [P1] आवेदन-सूची */
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.ftab{background:var(--offwhite);border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;color:var(--gray);cursor:pointer}
+.ftab.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.applist{display:flex;flex-direction:column;gap:10px}
+.app{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite)}
+.app .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.app .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.app .rg{font-size:16px;font-weight:700;color:var(--gray)}
+.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800}
+.chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.chip.rej{background:#FFF3E0;color:#B71C1C;border:1px solid #F9A825}
+.acts{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff}
+.abtn.ok{background:var(--green)} .abtn.no{background:#B71C1C}
+.abtn:disabled{opacity:.55;cursor:wait}
+.rejbox{display:none;margin-top:8px;width:100%}
+.rejbox.on{display:block}
+.rejbox textarea{width:100%;min-height:70px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px}
+.msg{font-size:16px;font-weight:700;margin-top:6px}
+.msg.ok{color:var(--green)} .msg.err{color:#B71C1C}
+.chip.lvl{background:#fff;color:var(--blue);border:1px solid var(--border)}
+.app .r2{font-size:16px;color:var(--gray);margin-top:4px}
+.app .more{margin-top:8px;display:none}
+.app.open .more{display:block}
+.app .mrow{font-size:17px;margin-top:2px}
+.app .mrow b{color:var(--navy)}
+.app .vbtn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
+
+/* [P2] टीम-पैनल व पदेन-प्रभार */
+.mem{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--offwhite);margin-top:10px}
+.mem .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mem .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.chip.on{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
+.chip.off{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
+.chip.hold{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
+.mem .hres{font-size:16px;color:#B71C1C;font-weight:700;margin-top:4px}
+.exo{display:inline-block;background:#FFF3E0;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;margin:6px 6px 0 0}
+
+/* ═══ सार्वजनिक पहचान-कार्ड (v3.2) ═══ */
+.pubcard{display:grid;grid-template-columns:1fr;gap:14px;background:var(--offwhite);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px}
+@media(min-width:640px){.pubcard{grid-template-columns:220px 1fr}}
+.pwrap{display:flex;justify-content:center}
+.pphoto{width:200px;height:250px;border-radius:14px;object-fit:cover;border:3px solid var(--gold);background:#fff}
+.pphoto-fb{width:200px;height:250px;border-radius:14px;border:3px solid var(--gold);background:#fff;display:flex;align-items:center;justify-content:center;font-size:84px}
+.pubname{font-size:23px;font-weight:800;color:var(--navy)}
+.pubrow{font-size:18px;font-weight:700;color:var(--text);margin-top:4px}
+.pubrow b{color:var(--gray);font-weight:700}
+.pubnote{font-size:16px;color:var(--gray);background:#FFF6DD;border:1px solid var(--gold);border-radius:10px;padding:10px 12px;margin-bottom:10px;line-height:1.7}
+
+/* ═══ बाईं काम-सूची (v3.1) — desktop स्थायी, mobile drawer ═══ */
+.shell{display:flex;align-items:flex-start;gap:14px}
+.side{background:#fff;border:1px solid var(--border);border-radius:16px;padding:10px;min-width:210px;box-shadow:0 6px 18px rgba(11,31,58,.06);position:sticky;top:10px}
+.side .si{display:flex;align-items:center;gap:8px;width:100%;text-align:right;border:none;background:none;border-radius:10px;padding:12px 12px;font-size:17px;font-weight:800;color:var(--navy);cursor:pointer;font-family:inherit}
+.side .si:hover{background:var(--offwhite)}
+.side .si.on{background:var(--blue);color:#fff}
+.content{flex:1;min-width:0}
+.panel{display:none}
+.panel.on{display:block}
+.pnl{display:block}
+.pnl .pcard{margin-bottom:12px}
+.sideveil{display:none}
+@media(max-width:899px){
+  .shell{display:block}
+  .side{display:none;position:fixed;top:0;right:0;bottom:0;z-index:60;border-radius:0;min-width:250px;max-width:80vw;overflow:auto;padding-top:16px}
+  .side.open{display:block}
+  .sideveil.open{display:block;position:fixed;inset:0;background:rgba(11,31,58,.45);z-index:55}
+}
+@media(min-width:900px){.side-toggle{display:none}}
+
+/* ═══ [T6] footer ═══ */
+.foot{font-size:16px;color:var(--gray);padding:16px;text-align:center}
+
+/* ═══ v4.0: होम-रूप ब्रांड — "दिखेगा एक जैसा" (Founder, 15-Jul) ═══ */
+.topbar .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;min-width:0}
+.topbar .mark{font-weight:800;font-size:18px;color:#fff}
+.topbar .mark img{width:42px;height:42px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35);display:block}
+.tagline{background:var(--navy);color:var(--gold);text-align:center;font-size:16px;font-weight:700;padding:7px 10px;border-bottom:3px solid var(--gold)}
