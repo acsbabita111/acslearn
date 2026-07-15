@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v32';                 // ← (v32: 14-Jul-2026 — menu-ऑडिट सुधार: वाणी(EN) की कड़ी /vani/en/ पर)
+const CACHE_VERSION = 'v33';                 // ← (v33: 14-Jul-2026 — EN-पेज style-सफ़ाई (फ़ॉन्ट≥16px, [ ]→( )) + मूल-भाषा निशान en/mission)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
