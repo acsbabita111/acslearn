@@ -15,30 +15,30 @@
   --offwhite:#F5F7FA;--white:#fff;
   --gray:#607D8B;--border:#E8EDF5;--text:#1A2B3C;
 }
-html,body{font-family:'Noto Sans Devanagari','Inter',sans-serif;background:var(--offwhite);color:var(--text);font-size:15px;min-height:100vh}
+html,body{font-family:'Noto Sans Devanagari','Inter',sans-serif;background:var(--offwhite);color:var(--text);font-size:19px;line-height:1.8;min-height:100vh}
 
 /* NAVBAR */
 .nav{background:var(--navy);padding:0 16px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .nav-brand{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none}
 .nav-brand img{height:28px;border-radius:6px}
-.nav-brand span{font-size:13px;font-weight:700}
-.nav-back{color:rgba(255,255,255,.8);font-size:13px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px}
+.nav-brand span{font-size:17px;font-weight:700}
+.nav-back{color:rgba(255,255,255,.8);font-size:17px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px}
 
 /* SEARCH BAR */
 .search-wrap{background:linear-gradient(135deg,var(--navy),#1565C0);padding:20px 16px 24px}
-.search-label{color:rgba(255,255,255,.7);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.search-label{color:rgba(255,255,255,.7);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 .search-title{color:#fff;font-size:20px;font-weight:800;margin-bottom:14px}
 .search-row{display:flex;gap:8px}
-.search-input{flex:1;padding:13px 16px;border:2px solid rgba(255,255,255,.2);border-radius:10px;font-size:14px;font-family:inherit;outline:none;background:rgba(255,255,255,.1);color:#fff}
+.search-input{flex:1;padding:13px 16px;border:2px solid rgba(255,255,255,.2);border-radius:10px;font-size:17px;font-family:inherit;outline:none;background:rgba(255,255,255,.1);color:#fff}
 .search-input::placeholder{color:rgba(255,255,255,.5)}
 .search-input:focus{border-color:var(--gold);background:rgba(255,255,255,.15)}
-.search-btn{padding:13px 18px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
+.search-btn{padding:13px 18px;background:var(--gold);color:var(--navy);border:none;border-radius:10px;font-size:17px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap}
 
 /* QUICK SEARCH */
 .quick-wrap{padding:10px 16px 16px;background:linear-gradient(135deg,var(--navy),#1565C0)}
-.quick-label{color:rgba(255,255,255,.5);font-size:11px;margin-bottom:8px}
+.quick-label{color:rgba(255,255,255,.5);font-size:16px;margin-bottom:8px}
 .quick-grid{display:flex;flex-wrap:wrap;gap:6px}
-.quick-btn{padding:6px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.85);font-size:12px;cursor:pointer;font-family:inherit;transition:.2s}
+.quick-btn{padding:6px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;color:rgba(255,255,255,.85);font-size:16px;cursor:pointer;font-family:inherit;transition:.2s}
 .quick-btn:hover{background:rgba(255,255,255,.2);color:#fff}
 
 /* MAIN */
@@ -48,104 +48,104 @@ html,body{font-family:'Noto Sans Devanagari','Inter',sans-serif;background:var(-
 .welcome{text-align:center;padding:48px 20px}
 .welcome-icon{font-size:52px;margin-bottom:12px}
 .welcome h2{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:8px}
-.welcome p{font-size:13px;color:var(--gray);line-height:1.7;max-width:400px;margin:0 auto}
+.welcome p{font-size:17px;color:var(--gray);line-height:1.7;max-width:400px;margin:0 auto}
 
 /* LOADING */
 .loading{display:none;text-align:center;padding:60px 20px}
 .spinner{width:44px;height:44px;border:4px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loading-text{font-size:14px;color:var(--gray)}
-.loading-sub{font-size:12px;color:var(--gray);margin-top:6px;opacity:.7}
+.loading-text{font-size:17px;color:var(--gray)}
+.loading-sub{font-size:16px;color:var(--gray);margin-top:6px;opacity:.7}
 
 /* WIKI OUTPUT */
 .wiki{display:none}
 
 /* WIKI HERO */
 .wiki-hero{background:linear-gradient(135deg,var(--navy),#1A3A6B);border-radius:14px;padding:20px;color:#fff;margin-bottom:14px}
-.wiki-num{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:4px}
+.wiki-num{font-size:16px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:4px}
 .wiki-title{font-size:22px;font-weight:800;margin-bottom:4px}
-.wiki-en{font-size:13px;color:rgba(255,255,255,.6);margin-bottom:12px}
+.wiki-en{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:12px}
 .wiki-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
+.tag{font-size:16px;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
 
 /* STATS ROW */
 .stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:14px}
 @media(min-width:480px){.stats-row{grid-template-columns:repeat(4,1fr)}}
 .stat-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
 .stat-num{font-size:16px;font-weight:800;color:var(--blue);display:block}
-.stat-lbl{font-size:10px;color:var(--gray);margin-top:2px}
+.stat-lbl{font-size:16px;color:var(--gray);margin-top:2px}
 
 /* SECTIONS */
 .sec{background:#fff;border-radius:12px;padding:16px;border:1px solid var(--border);margin-bottom:12px}
-.sec-head{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
-.sec-body{font-size:13px;line-height:1.8;color:#2C3E50}
+.sec-head{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+.sec-body{font-size:17px;line-height:1.8;color:#2C3E50}
 .sec-body p{margin-bottom:10px}
 .sec-body p:last-child{margin:0}
 
 /* HIGHLIGHT BOX */
-.hi-box{border-left:4px solid var(--blue);background:#EEF4FF;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:10px;font-size:13px;line-height:1.7}
+.hi-box{border-left:4px solid var(--blue);background:#EEF4FF;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:10px;font-size:17px;line-height:1.7}
 .hi-box strong{color:var(--blue)}
-.warn-box{border-left:4px solid var(--orange);background:#FFF3E0;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:13px}
-.success-box{border-left:4px solid var(--green);background:#F0FDF4;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:13px}
+.warn-box{border-left:4px solid var(--orange);background:#FFF3E0;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:17px}
+.success-box{border-left:4px solid var(--green);background:#F0FDF4;padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:17px}
 
 /* LEADERS */
-.leader-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.leader-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:17px}
 .leader-item:last-child{border:none}
 .leader-name{font-weight:800;color:var(--navy)}
-.leader-sub{color:var(--gray);font-size:12px;margin-top:2px}
+.leader-sub{color:var(--gray);font-size:16px;margin-top:2px}
 
 /* LEVEL TABLE */
-.lv-table{width:100%;border-collapse:collapse;font-size:12px}
+.lv-table{width:100%;border-collapse:collapse;font-size:16px}
 .lv-table th{background:var(--navy);color:#fff;padding:8px 10px;text-align:left;font-weight:700}
 .lv-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
 .lv-table tr:hover td{background:#F8F9FA}
-.lv-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:800}
+.lv-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:16px;font-weight:800}
 .lv-l{background:#E8F5E9;color:var(--green)}
 .lv-m{background:#FFF3E0;color:var(--orange)}
 .lv-h{background:#EEF4FF;color:var(--blue)}
 
 /* RESOURCE */
-.res-item{background:#F8F9FA;border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:13px}
+.res-item{background:#F8F9FA;border-radius:8px;padding:10px 12px;margin-bottom:6px;font-size:17px}
 .res-name{font-weight:700;color:var(--navy)}
-.res-sub{color:var(--gray);font-size:12px;margin-top:2px}
+.res-sub{color:var(--gray);font-size:16px;margin-top:2px}
 
 /* SCHEME */
 .scheme-item{background:#F0FDF4;border:1px solid #C8E6C9;border-radius:8px;padding:12px;margin-bottom:8px}
-.scheme-name{font-weight:800;color:var(--green);margin-bottom:4px;font-size:13px}
-.scheme-body{font-size:12px;color:var(--text);line-height:1.6}
+.scheme-name{font-weight:800;color:var(--green);margin-bottom:4px;font-size:17px}
+.scheme-body{font-size:16px;color:var(--text);line-height:1.6}
 
 /* CTA */
 .cta{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:14px;padding:20px;color:#fff;text-align:center;margin-top:14px}
 .cta h3{font-size:18px;font-weight:800;margin-bottom:6px}
-.cta p{font-size:13px;opacity:.8;margin-bottom:16px}
+.cta p{font-size:17px;opacity:.8;margin-bottom:16px}
 .cta-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.cta-btn{padding:12px 18px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-decoration:none;display:inline-block}
+.cta-btn{padding:12px 18px;border-radius:10px;font-size:17px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-decoration:none;display:inline-block}
 .cta-gold{background:var(--gold);color:var(--navy)}
 .cta-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)}
 
 /* ACS MESSAGE */
 .acs-msg{background:linear-gradient(135deg,#F0FDF4,#E8F5E9);border:1px solid #C8E6C9;border-radius:12px;padding:16px;margin-bottom:12px;text-align:center}
-.acs-msg-text{font-size:14px;font-style:italic;color:var(--green);line-height:1.7;margin-bottom:8px}
-.acs-msg-sign{font-size:12px;color:var(--gray)}
+.acs-msg-text{font-size:17px;font-style:italic;color:var(--green);line-height:1.7;margin-bottom:8px}
+.acs-msg-sign{font-size:16px;color:var(--gray)}
 
 /* ERROR */
-.err-box{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:10px;padding:16px;text-align:center;color:var(--red);font-size:14px}
+.err-box{background:#FEF2F2;border:1px solid #FCA5A5;border-radius:10px;padding:16px;text-align:center;color:var(--red);font-size:17px}
 </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav class="nav">
-  <a href="https://acslearn.com" class="nav-brand">
-    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS"/>
+  <a href="/" class="nav-brand">
+    <img src="/logo.png" alt="ACS"/>
     <span>ACS</span>
   </a>
-  <a href="https://acslearn.com/udyam/index.html" class="nav-back">← उद्यम खोजें</a>
+  <a href="/udyam/" class="nav-back">← उद्यम खोजें</a>
 </nav>
 
 <!-- SEARCH -->
 <div class="search-wrap">
-  <div class="search-label">उद्यम विकिपीडिया</div>
+  <div class="search-label">उद्यम विकिपीडिया · मूल भाषा: हिंदी</div>
   <div class="search-title">📖 किसी भी उद्यम की पूरी जानकारी</div>
   <div class="search-row">
     <input type="text" class="search-input" id="searchInput"
@@ -191,6 +191,7 @@ html,body{font-family:'Noto Sans Devanagari','Inter',sans-serif;background:var(-
 
 </div>
 
+<script src="/assets/udyam_data.js"></script>
 <script>
 const API = "https://api.anthropic.com/v1/messages";
 
@@ -282,11 +283,76 @@ window.generate = async function(){
     renderWiki(w);
 
   } catch(err){
-    document.getElementById('loadingState').style.display = 'none';
-    document.getElementById('wikiOutput').innerHTML = `<div class="err-box">⚠️ ${err.message||'कुछ गड़बड़ हुई। फिर कोशिश करें।'}</div>`;
-    document.getElementById('wikiOutput').style.display = 'block';
+    renderFallback(q);
   }
 };
+
+/* ── AI न चले तो udyam_data से बुनियादी जानकारी (fallback) ── */
+const MG_NAMES={1:'🌾 कृषि व खाद्य',2:'⛏️ खनन व ऊर्जा',3:'🏭 विनिर्माण',4:'🏗️ निर्माण',5:'🧵 वस्त्र व फैशन',6:'💊 स्वास्थ्य',7:'💻 प्रौद्योगिकी',8:'🚗 परिवहन',9:'🛍️ व्यापार व वित्त',10:'🎭 सेवाएं व मनोरंजन',11:'📚 शिक्षा व शोध',12:'🌿 हस्तशिल्प व कला',13:'⚗️ रसायन व सामग्री',14:'🌍 वैश्विक मॉडल',15:'🔮 भविष्य के उद्यम',16:'⚖️ विधिक व पेशेवर सेवा',17:'🏛️ सरकार व समाज-सेवा',18:'📊 डेटा व शोध',19:'🤖 रोबोटिक्स व चिप',20:'🌎 जलवायु व समुद्र',21:'🙏 धार्मिक व आध्यात्मिक',22:'🏆 खेल',23:'💰 डिजिटल वित्त व बीमा',24:'🛡️ सुरक्षा व एशिया मॉडल'};
+function cleanName(n){ return (n||'').replace(/\[/g,'(').replace(/\]/g,')'); }
+function findSector(q){
+  const s=(q||'').trim().toLowerCase();
+  const all=(typeof ALL_SECTORS!=='undefined')?ALL_SECTORS:[];
+  if(!s) return {hit:null,list:[]};
+  const m=all.filter(it=>it.name.toLowerCase().includes(s));
+  return {hit:m[0]||null,list:m.slice(0,6)};
+}
+function renderFallback(q){
+  document.getElementById('loadingState').style.display='none';
+  const out=document.getElementById('wikiOutput');
+  const r=findSector(q);
+  if(r.hit){
+    const it=r.hit;
+    const others=r.list.filter(x=>x.n!==it.n).map(x=>
+      `<button class="quick-btn" style="border-color:var(--border);color:var(--blue);background:#EEF4FF"
+        onclick="qs(decodeURIComponent('${encodeURIComponent(cleanName(x.name))}'))">${cleanName(x.name)}</button>`).join(' ');
+    out.innerHTML=`
+      <div class="wiki-hero">
+        <div class="wiki-num">📁 ${MG_NAMES[it.mg]||('मास्टर-समूह '+it.mg)} · उद्यम क्रम ${it.n}</div>
+        <div class="wiki-title">${cleanName(it.name)}</div>
+        <div class="wiki-en">ACS की 950+ उद्यम सूची से</div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><span class="stat-num">${it.n} / 950+</span><div class="stat-lbl">सूची में जगह</div></div>
+        <div class="stat-box"><span class="stat-num">${MG_NAMES[it.mg]?MG_NAMES[it.mg].split(' ')[0]:'—'}</span><div class="stat-lbl">मास्टर-समूह ${it.mg}</div></div>
+        <div class="stat-box"><span class="stat-num" style="color:var(--green)">${it.invest||'—'}</span><div class="stat-lbl">निवेश-रेंज (L1-L15)</div></div>
+        <div class="stat-box"><span class="stat-num" style="color:var(--orange)">5 रास्ते</span><div class="stat-lbl">नौकरी के अवसर-द्वार</div></div>
+      </div>
+      <div class="sec">
+        <div class="sec-head">📖 इस उद्यम के बारे में</div>
+        <div class="sec-body">
+          <p>यह उद्यम ACS की 950+ उद्यम सूची के मास्टर-समूह ${it.mg} (${MG_NAMES[it.mg]||''}) में आता है।</p>
+          <p>निवेश की सीढ़ी: ${it.invest||'—'} — यानी L1 (लगभग शून्य पैसे) से शुरू करके L15 तक बढ़ा जा सकता है। छोटा शुरू करें, सीखते हुए बड़ा बनें।</p>
+          <p>नौकरी/कमाई के रास्ते: सरकारी नौकरी (exam-रास्ता) · स्वरोजगार (ख़ुद मालिक) · स्थानीय छोटे उद्यम में नौकरी · कॉर्पोरेट नौकरी · विदेश में नौकरी।</p>
+        </div>
+        <div class="hi-box" style="margin-top:12px;background:#FFF8E1;border-color:var(--gold)">
+          <strong style="color:var(--orange)">नोट:</strong> इस उद्यम की विस्तृत जानकारी (बाजार, ट्रेंड, योजनाएं, ज्ञान-स्रोत) जल्द जुड़ रही है। तब तक ACS Counselor से मुफ़्त राह पूछें।
+        </div>
+        ${others?`<div style="margin-top:12px"><p style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:8px">मिलते-जुलते उद्यम:</p><div class="quick-grid">${others}</div></div>`:''}
+      </div>
+      <div class="cta">
+        <h3>अब शुरू करें! 🚀</h3>
+        <p>यह उद्यम आपके लिए है। ACS आपके साथ है।</p>
+        <div class="cta-btns">
+          <a href="/udyam/" class="cta-btn cta-gold">💰 950+ उद्यम देखें</a>
+          <a href="/join.html" class="cta-btn cta-ghost">📝 रजिस्ट्रेशन</a>
+          <a href="https://wa.me/919431210092" class="cta-btn cta-ghost">🧭 Counselor</a>
+        </div>
+      </div>`;
+  } else {
+    out.innerHTML=`
+      <div class="err-box">⚠️ "${q||''}" — यह नाम 950+ उद्यम सूची में नहीं मिला।<br/>
+      छोटा शब्द लिखकर फिर खोजें (जैसे "डेयरी" या "मोबाइल")।</div>
+      <div class="sec" style="margin-top:12px">
+        <div class="sec-head">💡 कोई उद्यम छूट गया है?</div>
+        <div class="sec-body"><p>ACS की सूची बंद नहीं है। नया उद्यम सुझाएँ — जाँच के बाद सूची में जुड़ेगा।</p></div>
+        <a href="https://wa.me/919431210092?text=नमस्ते, 950%2B सूची में एक नया उद्यम जोड़ने का सुझाव है:" target="_blank"
+           style="display:inline-block;margin-top:10px;padding:11px 18px;background:var(--green);color:#fff;border-radius:10px;font-weight:800;font-size:16px;text-decoration:none">WhatsApp पर सुझाएँ →</a>
+      </div>`;
+  }
+  out.style.display='block';
+  window.scrollTo(0,0);
+}
 
 function renderWiki(w){
   document.getElementById('loadingState').style.display = 'none';
@@ -356,7 +422,7 @@ function renderWiki(w){
       <div class="stat-box"><span class="stat-num">${w.market_global||'—'}</span><div class="stat-lbl">Global Market</div></div>
       <div class="stat-box"><span class="stat-num">${w.market_india||'—'}</span><div class="stat-lbl">India Market</div></div>
       <div class="stat-box"><span class="stat-num" style="color:var(--green)">${w.growth||'—'}</span><div class="stat-lbl">Annual Growth</div></div>
-      <div class="stat-box"><span class="stat-num" style="color:var(--orange);font-size:13px">🚀 Growing</span><div class="stat-lbl">2026 Outlook</div></div>
+      <div class="stat-box"><span class="stat-num" style="color:var(--orange);font-size:17px">🚀 Growing</span><div class="stat-lbl">2026 Outlook</div></div>
     </div>
 
     <!-- PARICHAY -->
@@ -377,9 +443,9 @@ function renderWiki(w){
     <!-- LEADERS -->
     <div class="sec">
       <div class="sec-head">🏆 कौन सबसे आगे है?</div>
-      <p style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:8px">🌍 Global Leaders:</p>
+      <p style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">🌍 Global Leaders:</p>
       ${globalHtml}
-      <p style="font-size:12px;font-weight:700;color:var(--navy);margin:12px 0 8px">🇮🇳 India Leaders:</p>
+      <p style="font-size:16px;font-weight:700;color:var(--navy);margin:12px 0 8px">🇮🇳 India Leaders:</p>
       ${indiaHtml}
     </div>
 
@@ -399,11 +465,11 @@ function renderWiki(w){
       <div class="sec-head">✅ शुरू करने से पहले</div>
       <div class="sec-body"><p>${(w.qualification||'').replace(/\n/g,'</p><p>')}</p></div>
       <div style="margin-top:12px">
-        <p style="font-size:13px;font-weight:800;color:var(--red);margin-bottom:8px">⚠️ इन गलतियों से बचें:</p>
+        <p style="font-size:17px;font-weight:800;color:var(--red);margin-bottom:8px">⚠️ इन गलतियों से बचें:</p>
         ${failHtml}
       </div>
       <div style="margin-top:8px">
-        <p style="font-size:13px;font-weight:800;color:var(--green);margin-bottom:8px">💡 सफलता के रास्ते:</p>
+        <p style="font-size:17px;font-weight:800;color:var(--green);margin-bottom:8px">💡 सफलता के रास्ते:</p>
         ${tipsHtml}
       </div>
     </div>
@@ -431,8 +497,8 @@ function renderWiki(w){
       <h3>अब शुरू करें! 🚀</h3>
       <p>यह उद्यम आपके लिए है। ACS आपके साथ है।</p>
       <div class="cta-btns">
-        <a href="https://acslearn.com/udyam/index.html" class="cta-btn cta-gold">💰 Level चुनें</a>
-        <a href="https://acslearn.com/dashboard/student/" class="cta-btn cta-ghost">📚 Course Enroll</a>
+        <a href="/udyam/" class="cta-btn cta-gold">💰 Level चुनें</a>
+        <a href="/dashboard/student/" class="cta-btn cta-ghost">📚 Course Enroll</a>
         <a href="https://wa.me/919431210092" class="cta-btn cta-ghost">🧭 Counselor</a>
       </div>
     </div>
@@ -445,7 +511,7 @@ function renderWiki(w){
 // URL से auto-search
 window.addEventListener('load', ()=>{
   const params = new URLSearchParams(window.location.search);
-  const q = params.get('q');
+  const q = params.get('q') || params.get('sector');
   if(q){
     document.getElementById('searchInput').value = decodeURIComponent(q);
     generate();
