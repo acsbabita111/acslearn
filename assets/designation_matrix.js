@@ -31,8 +31,8 @@
 
 const ACS_DESIGNATIONS = {
 
-  version: "1.4",
-  updated: "12-07-2026 IST",
+  version: "1.5",
+  updated: "15-07-2026 IST",  /* v1.5: 14-कार्ड सामग्री (ustad/workshop, 14-Jul) — version-field सुधार 15-Jul */
 
   /* ---------- approval एक-पाइपलाइन (v2.0-ग) ----------
      क्रम: legal → finance → establishment → विभागीय-चौकी → अंतिम मुहर
