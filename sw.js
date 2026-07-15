@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v36';                 // ← (v36: 15-Jul-2026 — dashboard v4.0: साझा /assets/dashboard.css+js, होम-रूप topbar, logo-fix)
+const CACHE_VERSION = 'v37';                 // ← (v37: 15-Jul-2026 — dashboard.js v4.0.1 hotfix: CAN_FINAL/MYDESIG साझा-scope — 'जाँच' अटकाव बंद)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
