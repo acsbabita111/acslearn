@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.3 · 16-Jul-2026 (काम-6 चरण-6) — dual-घर नियम: initNav अब boot-रास्ते से
+          छनती काम-सूची बनाता है — external-boot पर team-पैनल छिपे, team-boot पर
+          external-पैनल छिपे (साझा-scope नियम: TEAM_PANEL_IDS module-स्तर पर)।
+          बाक़ी घरों पर व्यवहार हूबहू वही (उनके पेज में दूसरा block होता ही नहीं)।
    v4.2 · 16-Jul-2026 (काम-6 चरण-2) — प्रशिक्षु-इंजन अब तीनों घरों पर
           (student/jobseeker/entrepreneur): मुफ़्त कोर्स-सूची साझा; Guardian-नोट
           role-अनुसार (विद्यार्थी 10-18 · नौकरी 16-18 job-नियम · उद्यम 16-18)।
@@ -88,9 +92,13 @@ const LAZY = {}; /* team-mode अपनी entries नीचे (team-only block
    अटकना)। साझा state अब यहाँ — दोनों block एक ही घर पढ़ें-लिखें। */
 let CAN_FINAL = false;
 let MYDESIG = "";
-function initNav(){
+/* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
+const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports"];
+function initNav(boot){
   const nav=$("sideNav"); nav.innerHTML="";
   document.querySelectorAll(".panel").forEach(p=>{
+    if(boot==="ext" && TEAM_PANEL_IDS.indexOf(p.id)>-1) return;
+    if(boot==="team" && p.id!=="pnl-profile" && TEAM_PANEL_IDS.indexOf(p.id)===-1) return;
     const b=document.createElement("button");
     b.className="si"; b.textContent=p.getAttribute("data-nav")||p.id;
     b.setAttribute("data-go",p.id);
@@ -195,7 +203,7 @@ guardTeam = async function(user){
 
   /* ── v3.1: data आलसी-load — पैनल खुलने पर ही (500+ के लिए हल्का) ── */
   MYDESIG = desig;
-  initNav();
+  initNav("team");
 
   /* ── single-session (v1.2 नियम): sessions/{uid} सुनो ── */
   startSessionWatch(user);
@@ -660,7 +668,7 @@ async function guardExternal(user){
   $("tlNote").textContent = "";
 
   show("appView");
-  initNav();
+  initNav("ext");
   /* v4.1: role-इंजन (जैसे विद्यार्थी-इंजन) को reg सौंपो — hook न हो तो चुप */
   if(typeof window.__acsExtReady==="function"){ try{ window.__acsExtReady(reg); }catch(e){} }
   startSessionWatch(user);
