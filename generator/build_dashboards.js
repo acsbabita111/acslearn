@@ -1,5 +1,10 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.8 · 16-Jul-2026 (काम-6 चरण-5) — counselor · employer · foreign-agent सुसज्जित:
+          counselor = 90/5/5 · 5-मिनट free preview · 1-घंटा cancel=90% (दोनों ओर) ·
+          45-नियम badge (P_TU_BADGE साझा); employer = ZERO worker fee · माँग=जॉब-रोल ·
+          contact सिर्फ़ dashboard; agent = 90/5/5 · commission केवल employer से ·
+          eMigrate/RA अनिवार्य · UNCITRAL। हर पंक्ति rules-consent फ़ाइलों से मिलान-जाँची।
    v1.7 · 16-Jul-2026 (काम-6 चरण-4) — center व workshop घर सुसज्जित (संस्था-जोड़ी):
           केंद्र = enrollment-analytics (Addendum-v2 §19-20) · टीम-ढाँचा · certificate-flow;
           workshop = उस्ताद-ज्ञान का अभ्यास-स्थान (≥3 वर्ष · apprenticeship · सुरक्षा/POCSO)।
@@ -40,7 +45,7 @@ const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.ht
 
 const STAMP = "16-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.7 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.8 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -476,6 +481,133 @@ const P_WS_SAFE = (
     'RM/ZM कैंप लगवाते हैं — आपकी संस्था मेज़बान बन सकती है।</div>' +
     '</div>');
 
+/* --- counselor · employer · foreign-agent के टुकड़े ---
+   स्रोत-पंक्तियाँ (rules-consent फ़ाइलों से मिलान-जाँची): counselor 90/5/5 ·
+   5-वर्ष अनुभव · 1-घंटा cancel=90% दोनों ओर · 45-नियम badge; employer शून्य
+   worker-शुल्क · platform-fee सीधे ACS को · आदरपूर्ण व्यवहार · contact सिर्फ़
+   dashboard; agent 90/5/5 · commission केवल employer से · eMigrate/RA के बिना
+   कार्य नहीं · UNCITRAL। */
+
+/* --- सिर्फ़ सलाहकार (counselor) --- */
+const P_CNS_SERVICE = (
+    '<div class="pcard panel" id="pnl-service" data-nav="🧭 मेरी सलाह-सेवा" style="grid-column:1/-1">' +
+    '<div class="ph">🧭 मेरी सलाह-सेवा</div>' +
+    '<div class="pd"><b>पात्रता:</b> कम-से-कम 5 वर्ष का अनुभव — उम्र की कोई शर्त नहीं। ' +
+    'अनुभव ही आपकी पहचान है।</div>' +
+    '<div class="pd"><b>5-मिनट free preview (अनिवार्य):</b> हर पढ़ने वाले को booking से पहले 5 मिनट की ' +
+    'मुफ़्त बातचीत ज़रूर मिलती है — इसी से वह आप पर भरोसा करना सीखता है।</div>' +
+    '<div class="pd"><b>fee-नियम:</b> सलाह-fee आप ख़ुद तय करें — ACS की न्यूनतम slab से नीचे कभी नहीं, ' +
+    'अधिकतम पर कोई बंदिश नहीं।</div>' +
+    '<span class="soon">booking-इंजन अगले दौर में — तब यहीं समय-तालिका व booking दिखेंगी</span>' +
+    '</div>');
+
+const P_CNS_APTITUDE = (
+    '<div class="pcard panel" id="pnl-aptlink" data-nav="🧠 Aptitude-जुड़ाव" style="grid-column:1/-1">' +
+    '<div class="ph">🧠 Aptitude टेस्ट से आपका जुड़ाव</div>' +
+    '<div class="pd">सलाह का रास्ता Aptitude टेस्ट से <b>पहले भी</b> खुला है और नतीजे के <b>बाद भी</b> — ' +
+    'दोनों रास्तों से पढ़ने वाले आप तक पहुँचते हैं।</div>' +
+    '<div class="pd"><b>आपका पहला काम:</b> नतीजे में जिन बच्चों की "अनजान क्षेत्र" सूची लंबी हो ' +
+    '(जिन सवालों पर बहुत बार "जानता नहीं" चुना) — उन्हें वे क्षेत्र खोलकर दिखाना। ' +
+    'याद रखें: सलाह सिर्फ़ दिशा है — "यही आपका भविष्य है" या "100 प्रतिशत गारंटी" जैसी बात कभी नहीं।</div>' +
+    '</div>');
+
+const P_CNS_EARN = (
+    '<div class="pcard panel" id="pnl-earn" data-nav="💰 कमाई (90 प्रतिशत)" style="grid-column:1/-1">' +
+    '<div class="ph">💰 कमाई व रद्द-नियम</div>' +
+    '<div class="pd"><b>बँटवारा:</b> Counselor 90 प्रतिशत · State 5 प्रतिशत · ACS 5 प्रतिशत।</div>' +
+    '<div class="pd"><b>रद्द-नियम (दोनों ओर बराबर):</b> booking से 1 घंटा पहले तक cancel होने पर पढ़ने वाले को ' +
+    '90 प्रतिशत वापसी — चाहे वह cancel करे या आप ख़ुद। आपकी कमाई उसी हिसाब से बनेगी।</div>' +
+    '<div class="pd"><b>भुगतान-चक्र:</b> भारत 7 कार्य-दिवस · अंतरराष्ट्रीय 10; किसी जाँच में hold ' +
+    'ज़्यादा-से-ज़्यादा 60 दिन — सूचना 48 घंटे के भीतर।</div>' +
+    '<span class="soon">कमाई-खाता व रसीदें अगले दौर में</span>' +
+    '</div>');
+
+/* --- सिर्फ़ नियोक्ता (employer) --- */
+const P_EMP_DEMAND = (
+    '<div class="pcard panel" id="pnl-demand" data-nav="💼 मेरी माँग (जॉब-रोल)" style="grid-column:1/-1">' +
+    '<div class="ph">💼 मेरी माँग — जॉब-रोल के हिसाब से</div>' +
+    '<div class="pd">यहाँ आप अपनी माँग दर्ज करेंगे: <b>कौन-सा जॉब-रोल</b> चाहिए · कितने लोग · कहाँ (देश/विदेश)। ' +
+    'आपकी यही माँग जुड़कर कोर्स व उद्यम-पेजों पर "अवसर-संख्या" बनकर दिखती है — गिनती की इकाई जॉब-रोल है, ' +
+    'ताकि पढ़ने वाला जान सके कि किस काम के कितने असली मौक़े हैं।</div>' +
+    '<span class="soon">माँग-इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_EMP_FIND = (
+    '<div class="pcard panel" id="pnl-find" data-nav="🧑‍🔧 worker खोज" style="grid-column:1/-1">' +
+    '<div class="ph">🧑‍🔧 worker/job-seeker खोज</div>' +
+    '<div class="pd">dashboard से जुड़े job-seekers खोजना — Green Tick badge वाले सूची में पहले दिखते हैं, ' +
+    'पर बिना badge वाले भी पूरे हक़ से apply कर सकते हैं।</div>' +
+    '<div class="pd"><b>पक्के नियम:</b> हर संपर्क सिर्फ़ dashboard के माध्यम से — बाहर के रास्ते नहीं। ' +
+    'worker से आदरपूर्ण व सेवा-भाव का व्यवहार अनिवार्य है। worker/job-seeker की निजी जानकारी ' +
+    'किसी बाहरी platform पर साझा करना मना है (DPDP)।</div>' +
+    '<span class="soon">खोज-इंजन approval-श्रृंखला के साथ अगले दौर में</span>' +
+    '</div>');
+
+const P_EMP_ZERO = (
+    '<div class="pcard panel" id="pnl-zerofee" data-nav="🆓 शून्य-शुल्क नियम" style="grid-column:1/-1">' +
+    '<div class="ph">🆓 शून्य-शुल्क नियम (अत्यंत महत्वपूर्ण)</div>' +
+    '<div class="pd">आपके लिए ACS से जुड़ना अभी पूरी तरह <b>मुफ़्त</b> है। और सबसे बड़ा नियम: ' +
+    '<b>worker या job-seeker से किसी भी प्रकार का शुल्क लेना पूरी तरह निषिद्ध है</b> — ' +
+    'job दिलाने के बदले वसूली गंभीर नियम-उल्लंघन है।</div>' +
+    '<div class="note">स्पष्टीकरण: job-seeker अपनी platform-उपयोग फ़ीस सीधे ACS को देता है — ' +
+    'उसका आपसे या आपके ज़रिए कोई लेना-देना नहीं।</div>' +
+    '</div>');
+
+const P_EMP_HIRE = (
+    '<div class="pcard panel" id="pnl-hire" data-nav="⚖️ भर्ती-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">⚖️ भर्ती के पक्के नियम</div>' +
+    '<div class="pd">असली job व joining सिर्फ़ <b>18 साल या ऊपर</b> वालों की — नाबालिग को job देना निषिद्ध। ' +
+    'POSH · POCSO · DPDP का पालन हर हाल में। किसी शिकायत पर पहले 7-दिन का Show-Cause — ' +
+    'अपनी बात रखने का पूरा मौक़ा।</div>' +
+    '</div>');
+
+const P_EMP_IDENTITY = (
+    '<div class="pcard panel" id="pnl-identity" data-nav="🏢 संस्था-पहचान" style="grid-column:1/-1">' +
+    '<div class="ph">🏢 संस्था-पहचान (वैकल्पिक)</div>' +
+    '<div class="pd">नियोक्ता के लिए संस्था होना ज़रूरी नहीं — <b>व्यक्तिगत नियोक्ता</b> भी जुड़ सकता है। ' +
+    'संस्था हो तो संस्था-दस्तावेज़ (नाम-बोर्ड वाला बाहर-फ़ोटो · अंदर-फ़ोटो · पंजीकरण/लाइसेंस) ' +
+    'से भरोसा और बढ़ता है। हर दस्तावेज़ अधिकतम 2MB।</div>' +
+    '</div>');
+
+/* --- सिर्फ़ विदेश एजेंट (foreign-agent) --- */
+const P_FA_WORK = (
+    '<div class="pcard panel" id="pnl-fawork" data-nav="🌏 मेरा काम" style="grid-column:1/-1">' +
+    '<div class="ph">🌏 मेरा काम — विदेश-रोजगार का पुल</div>' +
+    '<div class="pd">आप job-seeker और विदेशी नियोक्ता (employer) के बीच का भरोसेमंद पुल हैं। ' +
+    'आपके इस घर में <b>कई employers की सूची</b> एक साथ रहेगी — हर employer की माँग, देश और शर्तें एक जगह।</div>' +
+    '<span class="soon">employer-सूची इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_FA_LICENSE = (
+    '<div class="pcard panel" id="pnl-license" data-nav="🛂 eMigrate व लाइसेंस" style="grid-column:1/-1">' +
+    '<div class="ph">🛂 eMigrate/RA लाइसेंस (अनिवार्य)</div>' +
+    '<div class="pd"><b>eMigrate/RA लाइसेंस के बिना पंजीकरण या कार्य नहीं होगा</b> — यह सबसे पहला दरवाज़ा है। ' +
+    'eMigrate व लागू श्रम-नियमों का पूरा पालन हर भर्ती में अनिवार्य। ' +
+    'अंतरराष्ट्रीय विवाद में UNCITRAL नियम मान्य होंगे।</div>' +
+    '<div class="note">आपका लाइसेंस-नंबर registration में दर्ज होता है — RM-सत्यापन में यही जाँचा जाता है।</div>' +
+    '</div>');
+
+const P_FA_EARN = (
+    '<div class="pcard panel" id="pnl-earn" data-nav="💰 कमाई (90 प्रतिशत)" style="grid-column:1/-1">' +
+    '<div class="ph">💰 कमाई व commission-नियम</div>' +
+    '<div class="pd"><b>बँटवारा:</b> Agent 90 प्रतिशत · ACS 5 प्रतिशत · State 5 प्रतिशत।</div>' +
+    '<div class="pd"><b>लोहे का नियम:</b> commission <b>केवल employer से</b> मिलेगा — बच्चे/worker/job-seeker से ' +
+    'किसी भी प्रकार का commission या शुल्क कभी नहीं। job-seeker अपनी platform-fee सीधे ACS को देता है। ' +
+    'उल्लंघन = तत्काल कार्रवाई।</div>' +
+    '<div class="pd"><b>भुगतान-चक्र:</b> भारत 7 कार्य-दिवस · अंतरराष्ट्रीय 10; hold ज़्यादा-से-ज़्यादा 60 दिन — ' +
+    'सूचना 48 घंटे के भीतर।</div>' +
+    '<span class="soon">कमाई-खाता व रसीदें अगले दौर में</span>' +
+    '</div>');
+
+const P_FA_JOBSEEKERS = (
+    '<div class="pcard panel" id="pnl-fajs" data-nav="🧑‍🔧 job-seeker जुड़ाव" style="grid-column:1/-1">' +
+    '<div class="ph">🧑‍🔧 job-seeker जुड़ाव</div>' +
+    '<div class="pd">आप सिर्फ़ <b>18 साल या ऊपर</b> के job-seekers को विदेश-रोजगार से जोड़ सकते हैं। ' +
+    'हर संपर्क सिर्फ़ dashboard के माध्यम से; job-seeker की निजी जानकारी किसी बाहरी platform पर ' +
+    'साझा करना मना है (DPDP)। सत्यापित job-seeker सूची approval-श्रृंखला के साथ यहीं दिखेगी।</div>' +
+    '<span class="soon">जुड़ाव-इंजन अगले दौर में</span>' +
+    '</div>');
+
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
   return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST + P_HELP;
@@ -500,6 +632,18 @@ function workshopPanels(){
   return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
        + P_INST_VERIFY(" साथ में यह प्रमाण भी कि workshop कम-से-कम 3 साल से चल रहा है।")
        + P_INST_BADGE + P_RULES_LINK("rules-consent-workshop.html","वर्कशॉप (Workshop)") + P_HELP;
+}
+function counselorPanels(){
+  return P_CNS_SERVICE + P_CNS_APTITUDE + P_CNS_EARN + P_TU_BADGE
+       + P_RULES_LINK("rules-consent-counselor.html","सलाहकार (Counselor)") + P_HELP;
+}
+function employerPanels(){
+  return P_EMP_DEMAND + P_EMP_FIND + P_EMP_ZERO + P_EMP_HIRE + P_EMP_IDENTITY
+       + P_RULES_LINK("rules-consent-employer.html","नियोक्ता (Employer)") + P_HELP;
+}
+function foreignAgentPanels(){
+  return P_FA_WORK + P_FA_LICENSE + P_FA_EARN + P_FA_JOBSEEKERS
+       + P_RULES_LINK("rules-consent-foreign-agent.html","विदेश एजेंट (Foreign Agent)") + P_HELP;
 }
 
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
@@ -568,6 +712,9 @@ for(const [home, h] of homes){
        : h.keys[0]==="ustad" ? ustadPanels()
        : h.keys[0]==="center" ? centerPanels()
        : h.keys[0]==="workshop" ? workshopPanels()
+       : h.keys[0]==="counselor" ? counselorPanels()
+       : h.keys[0]==="employer" ? employerPanels()
+       : h.keys[0]==="foreign_agent" ? foreignAgentPanels()
        : extraPanels(h.keys[0])));
 
   /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
@@ -609,4 +756,4 @@ for(const sp of SPECIALS){
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.7 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.8 · "+STAMP);
