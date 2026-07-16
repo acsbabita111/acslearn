@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v42';                 // ← (v42: 16-Jul-2026 — काम-कोर्स-2: कोर्स-कड़ी patch (courses_data/udyam_data) + वेल्डिंग पाठ 3-10)
+const CACHE_VERSION = 'v43';                 // ← (v43: 16-Jul-2026 — काम-कोर्स-2: कोर्स-परिचय पेज + url-मोड़ (courses_data/udyam_data) + generator v1.1)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
