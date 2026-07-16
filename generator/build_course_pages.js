@@ -1,6 +1,8 @@
 /* ============================================================
    build_course_pages.js — कोर्स-पाठ पेजों का generator (परत-4)
-   v1.0 · 15-Jul-2026 (कोर्स-दौर: वेल्डिंग पाठ 1-2 से शुरुआत)
+   v1.1 · 16-Jul-2026 (काम-कोर्स-2: + कोर्स-परिचय पेज (index.html) निर्माण;
+              पाठ-1 का पिछला-बटन अब कोर्स-परिचय पर। पाठ-पेजों का GEN_NOTE v1.0 ही —
+              ताकि अछूते पाठ byte-अछूते रहें।)
    ------------------------------------------------------------
    लोहे का नियम: कोई पाठ-पेज हाथ से न बने — सिर्फ़ यह script।
    स्रोत:  /_TEMPLATE.html (परत-2 — root मास्टर टेम्पलेट, home वाला universal ढाँचा)
@@ -88,7 +90,7 @@ function lessonBody(course, l, prevFile, nextFile){
 
   const prev = prevFile
     ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>'
-    : '<a class="lsn-navbtn" href="/courses/hi/">← कोर्स-सूची</a>';
+    : '<a class="lsn-navbtn" href="/courses/' + course.lang + '/' + course.slug + '/">← कोर्स-परिचय</a>';
   const next = nextFile
     ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '">अगला पाठ →</a>'
     : '<span class="lsn-navbtn lsn-soon">अगला पाठ — जल्द</span>';
@@ -154,6 +156,69 @@ WELDING_LESSONS.forEach((l, i) => {
     WELDING_COURSE.slug + "/" + f + " (" + built.words + " शब्द)");
   ok++;
 });
+
+/* ---------- कोर्स-परिचय पेज (index.html) — SEO-नियम: /courses/[lang]/[slug]/index.html ---------- */
+function buildCourseIndex(course, lessons){
+  const GEN_NOTE_IDX =
+    "<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.1 · 16-Jul-2026) —\n" +
+    "     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->";
+
+  const items = lessons.map(l =>
+    '<li class="ci-item"><a href="' + fileName(course, l) + '">पाठ-' + l.num + ": " + l.title +
+    '</a><span class="ci-min">' + l.minutes + " मिनट</span></li>"
+  ).join("\n");
+
+  const body = '\n<article class="lsn-wrap ci-wrap">\n' +
+    '<header class="lsn-head">\n' +
+    '<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ' + course.title + "</p>\n" +
+    "<h1>" + course.title + "</h1>\n" +
+    '<p class="lsn-meta">ऑनलाइन पढ़ाई पूरी तरह मुफ़्त · बिना login · अपनी गति से · कुल ' +
+      course.totalLessons + " पाठ</p>\n</header>\n\n" +
+    '<section class="lsn-sec">\n<h2>यह कोर्स किसके लिए है</h2>\n' +
+    "<p>यह कोर्स उनके लिए है जो वेल्डिंग का हुनर सीखकर कमाना चाहते हैं — चाहे किसी दुकान में वेल्डर सहायक बनकर, चाहे आगे चलकर अपनी वेल्डिंग दुकान खोलकर। पढ़ने के लिए कक्षा-6 तक की हिंदी काफ़ी है। कोई भी पाठ खोलिए, पढ़िए, और अपनी वेल्डिंग डायरी बनाते चलिए।</p>\n" +
+    "<p>पढ़ाई का रास्ता सीधा है — <b>पहले यहाँ मुफ़्त पढ़ो</b>, फिर मन पक्का हो तो आगे प्रवेश-टेस्ट देकर नज़दीकी वर्कशॉप में हाथ का अभ्यास, और अभ्यास के बाद परीक्षा से प्रमाण पत्र। टेस्ट, वर्कशॉप और परीक्षा की जानकारी समय आने पर यहीं जुड़ेगी — पढ़ाई के लिए आज किसी चीज़ का इंतज़ार नहीं।</p>\n</section>\n\n" +
+    '<section class="lsn-sec">\n<h2>हिस्सा-' + course.part.no + ": " + course.part.name +
+      " (पाठ 1-20)</h2>\n" +
+    "<p>हुनर से पहले हिफ़ाज़त — पहले बीस पाठ आपके शरीर और आपकी जगह की सुरक्षा के हैं। अभी " +
+      lessons.length + " पाठ तैयार हैं; बाक़ी जुड़ते जा रहे हैं।</p>\n" +
+    '<ul class="ci-list">\n' + items + "\n</ul>\n" +
+    '<p class="ci-soon">पाठ ' + (lessons.length + 1) + "-20 — जल्द जुड़ेंगे।</p>\n</section>\n\n" +
+    '<section class="lsn-sec">\n<h2>आगे के हिस्से</h2>\n' +
+    "<p>पूरा कोर्स " + course.totalLessons + " पाठों का है, आठ हिस्सों में। हिस्सा-2 (यंत्रों की पहचान) की तैयारी चल रही है — हर नया पाठ तैयार होते ही यहीं जुड़ता है। जो पाठ अभी नहीं बना, उसका झूठा बटन यहाँ कभी नहीं मिलेगा।</p>\n</section>\n\n" +
+    '<nav class="lsn-nav"><a class="lsn-navbtn lsn-next" href="' +
+      fileName(course, lessons[0]) + '">पाठ-1 से शुरू करें →</a></nav>\n' +
+    "</article>\n";
+
+  /* index की check-robot: bracket · font · कूट-नाम (शब्द-गिनती नियम पाठों का है, परिचय का नहीं) */
+  const vis = visibleText(body);
+  const holes = [];
+  if (/[\[\]]/.test(vis)) holes.push("square bracket");
+  const small = body.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || [];
+  for (const m of small){
+    const n = parseInt(m.match(/([0-9]{1,2})(?:\.[0-9]+)?px/i)[1], 10);
+    if (n < 16) holes.push("font " + n + "px");
+  }
+  if (new RegExp("\\b" + course.code + "\\b", "i").test(vis)) holes.push("कूट-नाम दिखने वाले text में");
+  if (holes.length){ console.error("❌ कोर्स-परिचय check-robot fail: " + holes.join(" · ")); return false; }
+
+  const S = "<!-- PAGE-CONTENT-START -->", E = "<!-- PAGE-CONTENT-END -->";
+  const a = TPL.indexOf(S), b = TPL.indexOf(E);
+  let page = TPL.slice(0, a + S.length) + "\n" + body + "\n" + TPL.slice(b);
+  const canonical = "https://acslearn.com/courses/" + course.lang + "/" + course.slug + "/";
+  page = page.replace(/<title>[\s\S]*?<\/title>/,
+    "<title>" + course.title + " — मुफ़्त ऑनलाइन कोर्स | ACS</title>\n" +
+    '<meta name="description" content="' + course.title + ' का पूरा मुफ़्त ऑनलाइन कोर्स सरल हिंदी में — सुरक्षा से हुनर तक, ' + course.totalLessons + ' पाठ। बिना login पढ़िए, अपनी गति से।">\n' +
+    '<meta name="robots" content="index, follow, max-image-preview:large">\n' +
+    '<link rel="canonical" href="' + canonical + '">');
+  page = page.replace("</head>",
+    '<link rel="stylesheet" href="/assets/course-lesson.css">\n' +
+    "<style>.ci-list{list-style:none;padding:0;margin:12px 0}.ci-item{display:flex;justify-content:space-between;gap:10px;padding:12px 4px;border-bottom:1px solid #E2E8F0;font-size:18px}.ci-item a{color:#1565C0;text-decoration:none;font-weight:600}.ci-min{color:#2E7D32;font-size:16px;white-space:nowrap}.ci-soon{color:#0B1F3A;font-size:17px;font-weight:600;margin-top:10px}</style>\n</head>");
+  page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE_IDX);
+  fs.writeFileSync(path.join(outDir, "index.html"), page, "utf8");
+  console.log("✅ कोर्स-परिचय → courses/" + course.lang + "/" + course.slug + "/index.html");
+  return true;
+}
+if (!buildCourseIndex(WELDING_COURSE, WELDING_LESSONS)) fail++;
 
 console.log("\n— नतीजा: " + ok + " पेज बने · " + fail + " fail —");
 if (fail) process.exit(1);
