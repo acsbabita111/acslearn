@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v37';                 // ← (v37: 15-Jul-2026 — dashboard.js v4.0.1 hotfix: CAN_FINAL/MYDESIG साझा-scope — 'जाँच' अटकाव बंद)
+const CACHE_VERSION = 'v39';                 // ← (v39: 16-Jul-2026 — काम-6 चरण-1: dashboard.js v4.1 विद्यार्थी-इंजन + प्रशिक्षु provisional-पर्दा फ़िक्स। v38 = v2.3 के लंबित निकास-zip का — टकराव-रोक हेतु छोड़ा)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
