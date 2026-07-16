@@ -6,9 +6,13 @@
 <meta name="robots" content="noindex"/>
 <title>उद्योग-प्रशिक्षु Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.3 · 15-Jul-2026) —
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.4 · 16-Jul-2026) —
      हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
-     ACS Dashboard — मास्टर टेम्पलेट v4.0 (पतला खोखा)
+     ACS Dashboard — मास्टर टेम्पलेट v4.1 (पतला खोखा)
+     v4.1 · 16-Jul-2026 (काम-6 चरण-1) — external status-कार्ड अब generator-चालित
+             (STATUS_PANEL-खाना): g2-roles का पाठ हूबहू वही; प्रशिक्षु-कार्ड
+             (student/jobseeker/entrepreneur) पर सही संदेश "खाता सीधा चालू ✅";
+             विद्यार्थी-घर के 9 असली पैनल generator के studentPanels() से।
      v4.0 · 15-Jul-2026 — Founder-आदेश: 31 घरों के लिए एक ही CSS/JS —
              style → /assets/dashboard.css · तर्क → /assets/dashboard.js ·
              per-page मूल्य सिर्फ़ window.ACS_DASH में · होम-रूप topbar+tagline ·
@@ -116,10 +120,7 @@
 
     <!--EXTERNAL_ONLY_START-->
     <div class="pnl">
-      <div class="pcard panel" id="pnl-status" data-nav="🛤️ approval-स्थिति" style="grid-column:1/-1">
-        <div class="ph">🛤️ approval-स्थिति</div>
-        <div class="pd">बाहरी-role (g2) की approval-श्रृंखला server पर अगले दौर में बनेगी (v1.3: "पहले टीम फ़ाइनल") — तब तक dashboard देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>
-      </div>
+      <div class="pcard panel" id="pnl-status" data-nav="✅ खाता-स्थिति" style="grid-column:1/-1"><div class="ph">✅ खाता-स्थिति</div><div class="pd">आपका खाता सीधा चालू है ✅ — आपकी भूमिका के लिए कोई approval ज़रूरी नहीं (नियम v1.3)। जुड़ना व पढ़ना हमेशा मुफ़्त; पैसा सिर्फ़ तब, जब आप कोई paid-सेवा लें।</div><div class="note" id="stGuard" style="display:none"></div></div>
       <div class="pcard panel" id="pnl-extra" data-nav="🌱 उद्यमी-सहयोग" style="grid-column:1/-1"><div class="ph">🌱 उद्यमी-सहयोग ecosystem</div><div class="pd">v1.7-ग की आरक्षित जगह — Verified Vendor सूची · First Customer Mission (90-दिन) · Failure Recovery · Family/Women परतें · ज़िला-माँग जानकारी। निर्माण just-in-time (अपना chatroom)।</div><span class="soon">आरक्षित — अगले दौर में</span></div>
     </div>
     <!--EXTERNAL_ONLY_END-->
