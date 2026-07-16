@@ -1,5 +1,10 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.1 · 16-Jul-2026 (काम-6 चरण-1) — (1) guardExternal: प्रशिक्षु-roles
+          (student/jobseeker/entrepreneur) पर provisional-पर्दा व "अस्थायी" pill
+          अब कभी नहीं — v1.3-(क) "खाता सीधा चालू" का प्रदर्शन-रूप; (2) विद्यार्थी-इंजन:
+          मुफ़्त कोर्स-सूची (courses_data.js आलसी-load, url-नियम v2.4-क8, 50-50 खेप)
+          + 10-18 Guardian-नोट (dob से)। बाक़ी तर्क byte-अछूता।
    v4.0.1 · 15-Jul-2026 — hotfix: CAN_FINAL/MYDESIG साझा-क्षेत्र में (दो team-block
           के अलग scope से strict-mode ReferenceError — dashboards "जाँच" पर अटकते थे)।
    v4.0 · 15-Jul-2026 — Founder-आदेश: "32 घरों के लिए एक ही CSS/JS"।
@@ -620,7 +625,11 @@ async function guardExternal(user){
   }catch(e){ /* नीचे deny */ }
   if(!reg){ show("denyView"); return; }
 
-  const isActive = (reg.status==="approved");
+  /* v4.1 (16-Jul-2026, काम-6): v1.3-(क) — प्रशिक्षु-roles का खाता सीधा चालू;
+     उन पर न provisional-पर्दा, न "अस्थायी" pill (भ्रामक-संदेश होल बंद)। */
+  const roleKey0 = String((reg.role)||ALLOWED[0]||"").toLowerCase();
+  const noGate = (NO_GATEWAY_EXT.indexOf(roleKey0)>-1);
+  const isActive = noGate ? true : (reg.status==="approved");
   if(!isActive) $("provBar").classList.add("on");
   $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (अस्थायी — जाँच में)");
 
@@ -649,6 +658,8 @@ async function guardExternal(user){
 
   show("appView");
   initNav();
+  /* v4.1: role-इंजन (जैसे विद्यार्थी-इंजन) को reg सौंपो — hook न हो तो चुप */
+  if(typeof window.__acsExtReady==="function"){ try{ window.__acsExtReady(reg); }catch(e){} }
   startSessionWatch(user);
   startIdleTimer();
 }
@@ -683,3 +694,94 @@ function startIdleTimer(){
 }
 
 window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localStorage.removeItem("acs_sid"); }catch(e){} location.href="/dashboard/index.html"; };
+
+/* ═══════════════════════════════════════════════════════════════
+   v4.1 (काम-6 चरण-1) — विद्यार्थी-इंजन: सिर्फ़ student-घर पर जागे।
+   (1) Guardian-नोट (10-18 नियम) — reg.dob से उम्र गिनकर।
+   (2) 📚 मुफ़्त कोर्स-सूची — /assets/courses_data.js आलसी-load (पैनल खुलने पर ही);
+       url-नियम (v2.4-क8): url वाले कोर्स पर ही "पढ़ें" बटन — मरा पता कभी नहीं;
+       scale-नियम (v1.8-ख2): 50-50 की खेप, "और देखें" से आगे;
+       data की पुरानी चौकोर bracket-जोड़ी दिखाते समय गोल ( ) में बदले (लिपि-नियम)।
+   ═══════════════════════════════════════════════════════════════ */
+if (MODE==="external" && ALLOWED.length===1 && ALLOWED[0]==="student") {
+
+  window.__acsExtReady = function(reg){
+    try{
+      const d = new Date(String(reg.dob||""));
+      if(isNaN(d.getTime())) return;
+      const now = new Date();
+      let age = now.getFullYear()-d.getFullYear();
+      const m = now.getMonth()-d.getMonth();
+      if(m<0 || (m===0 && now.getDate()<d.getDate())) age--;
+      if(!(age>0 && age<18)) return;
+      const el = $("stGuard");
+      if(el){
+        el.style.display="block";
+        el.textContent = "ℹ️ आपकी उम्र "+age+" साल है — paid-सेवा, workshop-कैंप व भ्रमण पर Guardian (अभिभावक) की सहमति ज़रूरी है (10-18 नियम)।";
+      }
+    }catch(e){}
+  };
+
+  let CRS_LOADED=false, CRS_ALL=[], CRS_SHOWN=0;
+  const CRS_PAGE=50; /* scale-नियम: 50-50 खेप */
+  const noSq = (t)=>String(t||"").split("[").join("(").split("]").join(")");
+
+  function crsCollect(){
+    /* courses_data.js की चार सूचियाँ — जो मौजूद हों वही (data बदले तो अपने-आप) */
+    const G=[["🌱 स्वरोजगार कोर्स", (typeof SELF_EMP_COURSES!=="undefined")?SELF_EMP_COURSES:[]],
+             ["🏢 प्राइवेट नौकरी कोर्स", (typeof PRIVATE_JOB_COURSES!=="undefined")?PRIVATE_JOB_COURSES:[]],
+             ["🏘️ स्थानीय नौकरी कोर्स", (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[]],
+             ["🏛️ सरकारी तैयारी कोर्स", (typeof GOVT_JOB_COURSES!=="undefined")?GOVT_JOB_COURSES:[]]];
+    CRS_ALL=[]; G.forEach(g=>{ (g[1]||[]).forEach(c=>CRS_ALL.push({g:g[0], c:c})); });
+  }
+
+  function crsDrawMore(){
+    const box=$("crsList"); if(!box) return;
+    if(CRS_SHOWN===0) box.innerHTML="";
+    const old=$("crsMoreWrap"); if(old) old.remove();
+    let lastG = CRS_SHOWN>0 ? CRS_ALL[CRS_SHOWN-1].g : "";
+    const end = Math.min(CRS_SHOWN+CRS_PAGE, CRS_ALL.length);
+    for(let i=CRS_SHOWN;i<end;i++){
+      const it=CRS_ALL[i], c=it.c;
+      if(it.g!==lastG){
+        lastG=it.g;
+        const h=document.createElement("div");
+        h.className="ph"; h.style.marginTop="12px"; h.textContent=it.g;
+        box.appendChild(h);
+      }
+      const row=document.createElement("div");
+      row.className="mem";
+      const meta=[c.duration?("⏱️ "+noSq(c.duration)):"", c.lessons?("📄 "+c.lessons+" पाठ"):""].filter(Boolean).join(" · ");
+      const right = c.url
+        ? '<a class="abtn ok" style="display:inline-block;text-decoration:none" href="'+c.url+'">📖 पढ़ें (मुफ़्त)</a>'
+        : '<span class="note" style="margin-top:0">पाठ जल्द जुड़ेंगे</span>';
+      row.innerHTML = '<div class="r1"><span class="nm">'+noSq(c.name_hi||c.name_en||"—")+'</span></div>'
+                    + '<div class="r2">'+meta+'</div>' + right;
+      box.appendChild(row);
+    }
+    CRS_SHOWN=end;
+    const w=document.createElement("div"); w.id="crsMoreWrap";
+    if(CRS_SHOWN<CRS_ALL.length){
+      const mb=document.createElement("button");
+      mb.className="abtn ok"; mb.style.background="var(--blue)"; mb.style.marginTop="10px";
+      mb.textContent="⬇️ और कोर्स देखें ("+(CRS_ALL.length-CRS_SHOWN)+" बाक़ी)";
+      mb.addEventListener("click", crsDrawMore);
+      w.appendChild(mb);
+    } else {
+      const nt=document.createElement("div"); nt.className="note";
+      nt.textContent="कुल "+CRS_ALL.length+" कोर्स — सूची पूरी। नए कोर्स जुड़ते ही यहीं दिखेंगे।";
+      w.appendChild(nt);
+    }
+    box.appendChild(w);
+  }
+
+  LAZY["pnl-courses"] = function(){
+    if(CRS_LOADED) return; CRS_LOADED=true;
+    const box=$("crsList"); if(box) box.innerHTML='<span class="note">कोर्स-सूची आ रही है…</span>';
+    const sc=document.createElement("script");
+    sc.src="/assets/courses_data.js";
+    sc.onload=function(){ crsCollect(); if(CRS_ALL.length===0){ if(box) box.innerHTML='<span class="note">कोर्स-सूची अभी ख़ाली है — जल्द जुड़ेगी।</span>'; return; } CRS_SHOWN=0; crsDrawMore(); };
+    sc.onerror=function(){ CRS_LOADED=false; if(box) box.innerHTML='<span class="note" style="color:#B71C1C">कोर्स-सूची नहीं खुली — network जाँचकर पैनल दोबारा खोलें।</span>'; };
+    document.body.appendChild(sc);
+  };
+} /* विद्यार्थी-इंजन end */
