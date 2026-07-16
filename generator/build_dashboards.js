@@ -1,5 +1,10 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.7 · 16-Jul-2026 (काम-6 चरण-4) — center व workshop घर सुसज्जित (संस्था-जोड़ी):
+          केंद्र = enrollment-analytics (Addendum-v2 §19-20) · टीम-ढाँचा · certificate-flow;
+          workshop = उस्ताद-ज्ञान का अभ्यास-स्थान (≥3 वर्ष · apprenticeship · सुरक्षा/POCSO)।
+          साझा संस्था-टुकड़े: 80%-हिस्सा · छूट+WhatsApp · संस्था-सत्यापन · संस्था-badge
+          (उम्र-fee नहीं — rules-फ़ाइल पुष्ट)।
    v1.6 · 16-Jul-2026 (काम-6 चरण-3) — teacher व ustad घर सुसज्जित (g2 —
           provisional-पर्दा/approval-कार्ड यथावत): Teacher = content·royalty·
           live-class की दुनिया; उस्ताद = हुनर-प्रमाणीकरण (दोहरे-ताले का पहला ताला)।
@@ -35,7 +40,7 @@ const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.ht
 
 const STAMP = "16-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.6 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.7 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -355,6 +360,122 @@ const P_UST_MENTOR = (
     'गाँव-गाँव हुनर सिखाने वालों का जाल यही है।</div>' +
     '</div>');
 
+/* --- संस्था-जोड़ी (center · workshop) के साझा टुकड़े ---
+   स्रोत: Constitution (80/7/3/5/5 · fee min/max · छूट-banner · WhatsApp panel ·
+   certificate-flow) + Addendum-v2 §19-20 + v2.1-क3 संस्था-दस्तावेज़ नियम +
+   rules-consent-center/workshop की समान पंक्तियाँ (badge पर उम्र-fee नहीं)। */
+
+function P_INST_ENROLL(who){
+  return (
+    '<div class="pcard panel" id="pnl-enroll" data-nav="🎓 Enrollment व Analytics" style="grid-column:1/-1">' +
+    '<div class="ph">🎓 Enrollment व Analytics (आपका सबसे बड़ा काम)</div>' +
+    '<div class="pd">यहाँ एक जगह दिखेगा: कितने ' + who + ' enroll हुए · किसने कौन-सा कोर्स लिया · कितनी fee चुकाई · ' +
+    'कितनों ने परीक्षा दी · पास-प्रतिशत — पूरा हिसाब। enrollment और भुगतान का digital record अपने-आप बनेगा।</div>' +
+    '<div class="pd"><b>पक्का नियम:</b> आप सिर्फ़ <b>अपने</b> enroll किए ' + who + ' का हिसाब देखेंगे — कोई पढ़ने वाला ' +
+    'कई जगह पढ़ता हो तो हर संस्था को सिर्फ़ अपना दिखता है; उसे अपने सब जगहों का। आँकड़े एक ही खाते से आते हैं — ' +
+    'इसलिए कभी नहीं टकराते।</div>' +
+    '<span class="soon">enrollment-खाता व analytics-इंजन अगले दौर में</span>' +
+    '</div>');
+}
+
+const P_INST_EARN = (
+    '<div class="pcard panel" id="pnl-earn" data-nav="💰 कमाई व हिस्सा" style="grid-column:1/-1">' +
+    '<div class="ph">💰 कमाई व हिस्सा (80 प्रतिशत आपका)</div>' +
+    '<div class="pd"><b>कोर्स-आय का बँटवारा:</b> आपकी संस्था 80 प्रतिशत · मूल Course Creator 7 प्रतिशत · ' +
+    'भाषा-Content-Creator टीम 3 प्रतिशत · ACS 5 प्रतिशत · State 5 प्रतिशत।</div>' +
+    '<div class="pd"><b>fee-नियम:</b> कोर्स-fee आप ख़ुद तय करें — ACS की न्यूनतम slab से नीचे कभी नहीं, ' +
+    'अधिकतम पर कोई बंदिश नहीं। branding मुफ़्त है।</div>' +
+    '<div class="pd"><b>भुगतान-चक्र:</b> भारत 7 कार्य-दिवस · अंतरराष्ट्रीय 10; किसी जाँच में hold ज़्यादा-से-ज़्यादा ' +
+    '60 दिन — सूचना 48 घंटे के भीतर।</div>' +
+    '<span class="soon">कमाई-खाता व रसीदें अगले दौर में</span>' +
+    '</div>');
+
+const P_INST_OFFER = (
+    '<div class="pcard panel" id="pnl-offer" data-nav="🏷️ छूट व WhatsApp" style="grid-column:1/-1">' +
+    '<div class="ph">🏷️ छूट-banner व WhatsApp panel</div>' +
+    '<div class="pd"><b>छूट-banner:</b> आप अपने enrolled पढ़ने वालों को छूट दे सकते हैं — छूट की सीमा आप तय करें, ' +
+    'पर अंतिम fee कभी ACS-न्यूनतम slab से नीचे न जाए। छूट-प्रतिशत का master-button HQ/Founder के पास है — ' +
+    'एक जगह बदलते ही सब जगह दिखता है।</div>' +
+    '<div class="pd"><b>WhatsApp panel:</b> अपना मोबाइल जोड़कर enrolled व सहमति देने वाले पढ़ने वालों को ' +
+    'एक साथ संदेश — <b>सिर्फ़ उन्हीं को</b>, बाहर के नंबरों को कभी नहीं।</div>' +
+    '<span class="soon">दोनों इंजन अगले दौर में</span>' +
+    '</div>');
+
+function P_INST_VERIFY(extra){
+  return (
+    '<div class="pcard panel" id="pnl-verify" data-nav="🏛️ संस्था-सत्यापन" style="grid-column:1/-1">' +
+    '<div class="ph">🏛️ संस्था-सत्यापन व दस्तावेज़</div>' +
+    '<div class="pd">संस्था के लिए दस्तावेज़-नियम: मालिक के अपने पहचान-दस्तावेज़ + संस्था का बाहर से फ़ोटो ' +
+    '(नाम-बोर्ड दिखता हुआ) + अंदर का फ़ोटो + पंजीकरण/लाइसेंस।' + (extra||'') + '</div>' +
+    '<div class="pd">RM आपकी संस्था का भौतिक-सत्यापन करते हैं — उसके और approval-श्रृंखला के पूरा हुए बिना ' +
+    'आपका नाम portal पर नहीं दिखता (प्रदर्शन-नियम)। हर दस्तावेज़ अधिकतम 2MB।</div>' +
+    '</div>');
+}
+
+const P_INST_BADGE = (
+    '<div class="pcard panel" id="pnl-badge" data-nav="✅ Verified Badge" style="grid-column:1/-1">' +
+    '<div class="ph">✅ Verified Badge (संस्था-स्तर)</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> एरिया/गाँव 300 रुपये · जिला-मुख्यालय 600 रुपये · महानगर (Metro) 1,000 रुपये। ' +
+    'यह संस्था-स्तर का badge है — <b>उम्र-fee नहीं लगती</b>। badge आपकी मर्ज़ी (वैकल्पिक); badge वाली संस्था को ' +
+    'सूची में भरोसा व प्राथमिकता, पर बिना badge भी काम चलता रहता है।</div>' +
+    '<div class="note">नवीनीकरण हर साल 1 अप्रैल से 31 मार्च के हिसाब से — खिड़की 1 से 25 मार्च। ' +
+    'वापसी: सत्यापन से पहले 90 प्रतिशत; badge बनने के बाद = (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<button class="abtn ok" style="background:var(--blue)" disabled>✅ badge के लिए आवेदन</button> ' +
+    '<span class="soon">badge-इंजन अगले दौर में</span>' +
+    '</div>');
+
+/* --- सिर्फ़ केंद्र (center) --- */
+const P_CTR_TEAM = (
+    '<div class="pcard panel" id="pnl-team" data-nav="👥 केंद्र की टीम" style="grid-column:1/-1">' +
+    '<div class="ph">👥 केंद्र की टीम (अंदर का ढाँचा)</div>' +
+    '<div class="pd">केंद्र-पैनल के भीतर चार जगहें: <b>Owner (मालिक)</b> — अंदर का mode, अलग login नहीं · ' +
+    '<b>संचालक/Staff</b> — केंद्र चलाने वाले · <b>केंद्र-प्रशिक्षक</b> — केंद्र के नाम से पढ़ाते हैं ' +
+    '(पहचान केंद्र की, अलग login नहीं) · <b>Call Center</b> — अपने पढ़ने वालों की मदद का panel।</div>' +
+    '<div class="note">जो शिक्षक अपने नाम से पढ़ाना-कमाना चाहें, वे अलग से "शिक्षक" भूमिका में जुड़ें — ' +
+    'वहाँ royalty व अपनी fee दोनों मिलती हैं।</div>' +
+    '<span class="soon">टीम-जोड़ने का इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_CTR_CERT = (
+    '<div class="pcard panel" id="pnl-certflow" data-nav="🏆 Certificate-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">🏆 Certificate का पक्का रास्ता</div>' +
+    '<div class="pd">प्रमाण पत्र सिर्फ़ असली रास्ते से बनता है: <b>Exam → Result → Certificate</b> — ' +
+    'कोई हाथ का रास्ता (manual bypass) नहीं। हर certificate पर दो नाम साफ़ दिखते हैं: ' +
+    'देने वाला FFGPMTrust + पढ़ाने वाला ACS। हर certificate पर unique number व QR — दुनिया में कहीं से verify।</div>' +
+    '<div class="note">⚠️ फ़र्ज़ी certificate बनाना/दिलाना = तत्काल समाप्ति व कानूनी कार्रवाई।</div>' +
+    '</div>');
+
+/* --- सिर्फ़ workshop --- */
+const P_WS_TRAIN = (
+    '<div class="pcard panel" id="pnl-train" data-nav="🛠️ प्रशिक्षण व apprenticeship" style="grid-column:1/-1">' +
+    '<div class="ph">🛠️ प्रशिक्षण व apprenticeship</div>' +
+    '<div class="pd">आपके पास शागिर्द <b>टेस्ट-2 (workshop-प्रवेश)</b> पास करके आते हैं। प्रशिक्षण paid व स्थानीय है — ' +
+    'अवधि कोर्स की प्रकृति से 15 से 300 दिन। यहीं हाथ का असली काम सीखा जाता है — ' +
+    'शागिर्द की <b>पहली कमाई</b> तक का रास्ता आपके workshop से होकर जाता है।</div>' +
+    '<div class="pd">प्रशिक्षण के बाद: शागिर्द अपने काम का फोटो/वीडियो भेजता है → उस्ताद हुनर-प्रमाणीकरण देते हैं → ' +
+    'HQ की online परीक्षा — दोनों ताले खुलें तभी प्रशिक्षण-पूर्णता का प्रमाण पत्र।</div>' +
+    '<span class="soon">प्रशिक्षण-batch इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_WS_USTAD = (
+    '<div class="pcard panel" id="pnl-ustads" data-nav="🧑‍🔧 मेरे उस्ताद" style="grid-column:1/-1">' +
+    '<div class="ph">🧑‍🔧 मेरे उस्ताद</div>' +
+    '<div class="pd">Workshop = उस्ताद-ज्ञान का स्थान। आपके यहाँ सिखाने वाले उस्तादों की सूची यहीं रहेगी — ' +
+    'उस्ताद की पहचान डिग्री नहीं, हुनर-प्रमाण है (उनके अपने काम के फोटो/वीडियो)। ' +
+    'शागिर्दों का हुनर-प्रमाणीकरण इन्हीं उस्तादों से निकलता है।</div>' +
+    '<span class="soon">उस्ताद-जोड़ने का इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_WS_SAFE = (
+    '<div class="pcard panel" id="pnl-safety" data-nav="🛡️ सुरक्षा-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">🛡️ अभ्यास-सुरक्षा (सबसे पहले)</div>' +
+    '<div class="pd">हाथ के काम में सुरक्षा पहला पाठ है — औज़ार, आग, बिजली, धार: हर अभ्यास सुरक्षा-नियम से। ' +
+    'नाबालिग शागिर्द पर POCSO-नियम की ख़ास सावधानी — 16 से 18 वालों का प्रशिक्षण सिर्फ़ Guardian (अभिभावक) ' +
+    'की सहमति से; 5, 10, 15 या 30-दिवसीय कैंप भी संस्था की देखरेख में ही।</div>' +
+    '<div class="pd">⛺ <b>कैंप-मेज़बानी:</b> जहाँ workshop नहीं, वहाँ 10 या ज़्यादा पास-विद्यार्थियों के निवेदन पर ' +
+    'RM/ZM कैंप लगवाते हैं — आपकी संस्था मेज़बान बन सकती है।</div>' +
+    '</div>');
+
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
   return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST + P_HELP;
@@ -370,6 +491,15 @@ function teacherPanels(){
 }
 function ustadPanels(){
   return P_UST_CERTIFY + P_UST_SKILL + P_UST_MENTOR + P_TU_EARN + P_TU_BADGE + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
+}
+function centerPanels(){
+  return P_INST_ENROLL("पढ़ने वाले (students)") + P_CTR_TEAM + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
+       + P_INST_VERIFY("") + P_INST_BADGE + P_RULES_LINK("rules-consent-center.html","केंद्र (Center)") + P_HELP;
+}
+function workshopPanels(){
+  return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
+       + P_INST_VERIFY(" साथ में यह प्रमाण भी कि workshop कम-से-कम 3 साल से चल रहा है।")
+       + P_INST_BADGE + P_RULES_LINK("rules-consent-workshop.html","वर्कशॉप (Workshop)") + P_HELP;
 }
 
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
@@ -436,6 +566,8 @@ for(const [home, h] of homes){
        : h.keys[0]==="entrepreneur" ? entrepreneurPanels()
        : h.keys[0]==="teacher" ? teacherPanels()
        : h.keys[0]==="ustad" ? ustadPanels()
+       : h.keys[0]==="center" ? centerPanels()
+       : h.keys[0]==="workshop" ? workshopPanels()
        : extraPanels(h.keys[0])));
 
   /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
@@ -477,4 +609,4 @@ for(const sp of SPECIALS){
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.6 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.7 · "+STAMP);
