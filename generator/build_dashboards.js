@@ -1,5 +1,9 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.6 · 16-Jul-2026 (काम-6 चरण-3) — teacher व ustad घर सुसज्जित (g2 —
+          provisional-पर्दा/approval-कार्ड यथावत): Teacher = content·royalty·
+          live-class की दुनिया; उस्ताद = हुनर-प्रमाणीकरण (दोहरे-ताले का पहला ताला)।
+          कमाई/badge पैनल दोनों में साझा (rules-फ़ाइलों की समान पंक्तियों से)।
    v1.5 · 16-Jul-2026 (काम-6 चरण-2) — jobseeker व entrepreneur घर भी सुसज्जित:
           साझा पैनल-टुकड़े (P_*) — एक चीज़ = एक जगह; studentPanels उन्हीं टुकड़ों से
           (output हूबहू वही); jobseekerPanels (नौकरी-पेड़ · Green Tick badge) व
@@ -31,7 +35,7 @@ const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.ht
 
 const STAMP = "16-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.5 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.6 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -256,6 +260,101 @@ const P_EXAMCERT_ENT = (
     '<div class="note">हर प्रमाण पत्र पर unique number व QR — दुनिया में कहीं से verify। Lifetime valid।</div>' +
     '</div>');
 
+/* --- Teacher-परिवार (teacher · ustad) के साझा टुकड़े ---
+   स्रोत-पंक्तियाँ: rules-consent-teacher/ustad (v1.1-मानक) — दोनों में समान:
+   badge-slab + 45-उम्र नियम · 7% lifetime royalty + नॉमिनी · fee min/max ·
+   भुगतान 7/10 कार्य-दिवस · hold 60 दिन (सूचना 48 घंटे)। */
+
+const P_TU_EARN = (
+    '<div class="pcard panel" id="pnl-earn" data-nav="💰 कमाई व royalty" style="grid-column:1/-1">' +
+    '<div class="ph">💰 कमाई व royalty</div>' +
+    '<div class="pd"><b>पढ़ाने/सिखाने की fee:</b> आप ख़ुद तय करें — ACS की न्यूनतम से नीचे कभी नहीं, ' +
+    'अधिकतम पर कोई बंदिश नहीं। न्यूनतम slab हर सेवा-पेज पर साफ़ दिखती है।</div>' +
+    '<div class="pd"><b>कोर्स-royalty:</b> आपका बनाया कोर्स जितनी बार बिके — मूल Course Creator के नाते ' +
+    '<b>7 प्रतिशत आजीवन (lifetime)</b> आपको; आपके बाद आपके नॉमिनी को। कोर्स किसी तीसरी भाषा में बने तो ' +
+    'उस संस्करण पर भी 7 प्रतिशत आपका ही। royalty और अपनी fee — दोनों साथ मिल सकते हैं।</div>' +
+    '<div class="pd"><b>भुगतान-चक्र:</b> भारत में 7 कार्य-दिवस · अंतरराष्ट्रीय 10। किसी जाँच में भुगतान ' +
+    'ज़्यादा-से-ज़्यादा 60 दिन रुक सकता है — रोकने की सूचना 48 घंटे के भीतर मिलेगी।</div>' +
+    '<span class="soon">कमाई-खाता व रसीदें अगले दौर में यहीं</span>' +
+    '</div>');
+
+const P_TU_BADGE = (
+    '<div class="pcard panel" id="pnl-badge" data-nav="✅ Verified Badge" style="grid-column:1/-1">' +
+    '<div class="ph">✅ Verified Badge</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · महानगर (Metro) 1,000 रुपये।</div>' +
+    '<div class="pd"><b>उम्र-नियम:</b> 45 वर्ष या अधिक उम्र पर badge आपकी मर्ज़ी (वैकल्पिक); 45 से कम उम्र पर ' +
+    'अनिवार्य + उम्र-fee x प्रतिशत (x = 45 में से आपकी उम्र घटाकर)। नवीनीकरण हर साल 1 अप्रैल से 31 मार्च के ' +
+    'हिसाब से — नवीनीकरण-खिड़की 1 से 25 मार्च।</div>' +
+    '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); ' +
+    'badge बनने के बाद = (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<button class="abtn ok" style="background:var(--blue)" disabled>✅ badge के लिए आवेदन</button> ' +
+    '<span class="soon">badge-इंजन अगले दौर में</span>' +
+    '</div>');
+
+function P_RULES_LINK(file, who){
+  return (
+    '<div class="pcard panel" id="pnl-rules" data-nav="📜 मेरा नियम-पत्र" style="grid-column:1/-1">' +
+    '<div class="ph">📜 मेरा नियम-पत्र (एग्रीमेंट)</div>' +
+    '<div class="pd">' + who + ' के सब नियम — वही जो आपने registration पर स्वीकारे। POSH · POCSO · DPDP का पालन ' +
+    'हर हाल में अनिवार्य; किसी शिकायत पर पहले 7-दिन का Show-Cause (अपनी बात रखने का पूरा मौक़ा)।</div>' +
+    '<a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="/' + file + '">📜 पूरा नियम-पत्र पढ़ें</a>' +
+    '</div>');
+}
+
+/* --- सिर्फ़ शिक्षक (teacher) --- */
+const P_TCH_CONTENT = (
+    '<div class="pcard panel" id="pnl-content" data-nav="📖 मेरा content व कोर्स" style="grid-column:1/-1">' +
+    '<div class="ph">📖 मेरा content व कोर्स</div>' +
+    '<div class="pd">आप अपने नाम से कोर्स/content बनाते हैं — <b>सिर्फ़ मौलिक (अपना लिखा) content</b>; ' +
+    'content को समय-समय पर अप-टू-डेट रखना आपका कर्तव्य है। content-चोरी पर तत्काल समाप्ति का नियम है।</div>' +
+    '<div class="pd">आपका कोर्स ZM-office की Content Creator टीम ACS-रूप (कक्षा-6 हिंदी · चित्र · जाँच) देकर चमकाती है — ' +
+    'मूल रचनाकार का श्रेय और 7 प्रतिशत royalty हमेशा आपकी ही रहती है।</div>' +
+    '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="/courses/">🌍 live कोर्स-सूची देखें</a> ' +
+    '<span class="soon">कोर्स भेजने का इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_TCH_LIVE = (
+    '<div class="pcard panel" id="pnl-live" data-nav="🎥 Live class" style="grid-column:1/-1">' +
+    '<div class="ph">🎥 Live class (व आगे — वाणी)</div>' +
+    '<div class="pd">आप अपनी भाषा में live class लेते हैं — fee आप तय करें (ACS न्यूनतम से नीचे नहीं)। ' +
+    'समय पर class लेना कर्तव्य है।</div>' +
+    '<div class="pd">🌏 आगे का सपना: ACS वाणी से आप अपनी भाषा में पढ़ाएँगे और Global South के बच्चे ' +
+    'अपनी-अपनी भाषा में सुनेंगे, अपनी भाषा में सवाल पूछेंगे — निर्माण अपने दौर में, चरण-दर-चरण।</div>' +
+    '<span class="soon">live-class इंजन अगले दौर में</span>' +
+    '</div>');
+
+/* --- सिर्फ़ उस्ताद (ustad) --- */
+const P_UST_CERTIFY = (
+    '<div class="pcard panel" id="pnl-certify" data-nav="🎓 शागिर्द-प्रमाणीकरण" style="grid-column:1/-1">' +
+    '<div class="ph">🎓 शागिर्द का हुनर-प्रमाणीकरण (आपकी सबसे बड़ी ज़िम्मेदारी)</div>' +
+    '<div class="pd">प्रमाण पत्र पर <b>दोहरा-ताला</b> है: <b>पहला ताला आपका</b> — शागिर्द की पहली कमाई के बाद, ' +
+    'उसके किए काम का फोटो/वीडियो और पूरा practical देखकर आप हुनर-प्रमाणीकरण देते हैं। ' +
+    '<b>दूसरा ताला</b> — HQ के एग्जामिनेशन विभाग की online परीक्षा का नतीजा। दोनों ताले खुलें, ' +
+    'तभी प्रशिक्षण-पूर्णता का प्रमाण पत्र बनता है — कोई एक पक्ष अकेला जारी नहीं कर सकता।</div>' +
+    '<div class="pd">हाथ के हुनर को सिर्फ़ सिखाने वाला परख सकता है — इसीलिए यह ताला आपके पास है। ' +
+    'आपका ईमानदार प्रमाणीकरण ही ACS की दुनिया-भर की साख है; ग़लत/झूठा प्रमाणीकरण गंभीर नियम-उल्लंघन है।</div>' +
+    '<div class="note">शागिर्दों के आए सबूत (फोटो/वीडियो) की सूची और प्रमाणीकरण-बटन यहीं दिखेंगे।</div>' +
+    '<span class="soon">प्रमाणीकरण-इंजन व समीक्षा-चौकी अगले दौर में</span>' +
+    '</div>');
+
+const P_UST_SKILL = (
+    '<div class="pcard panel" id="pnl-skill" data-nav="🛠️ मेरा हुनर व workshop" style="grid-column:1/-1">' +
+    '<div class="ph">🛠️ मेरा हुनर व workshop</div>' +
+    '<div class="pd">उस्ताद की पहचान डिग्री नहीं — <b>हुनर-प्रमाण</b> है: आपके अपने किए काम के फोटो/वीडियो। ' +
+    'पुश्तैनी हुनर, बरसों का अनुभव, काश्तकारी — यही आपकी योग्यता है।</div>' +
+    '<div class="pd">आप workshop (उस्ताद-ज्ञान का स्थान — कम-से-कम 3 साल चला हुआ) से जुड़कर सिखाते हैं। ' +
+    'अभ्यास में सुरक्षा पहले; नाबालिग शागिर्द पर POCSO-नियम की ख़ास सावधानी।</div>' +
+    '<span class="soon">हुनर-प्रमाण जोड़ने की जगह अगले दौर में</span>' +
+    '</div>');
+
+const P_UST_MENTOR = (
+    '<div class="pcard panel" id="pnl-mentor" data-nav="👥 उस्ताद-जाल" style="grid-column:1/-1">' +
+    '<div class="ph">👥 उस्ताद-जाल (कल के उस्ताद)</div>' +
+    '<div class="pd">दो-दरवाज़ा नियम: तरक़्क़ी की सीढ़ी पर कुशल-स्तर से ऊपर पहुँचा कर्मी या तो अपना काम (मालिक) ' +
+    'शुरू कर सकता है, या ACS-उस्ताद बनकर सिखा सकता है। आपके आज के शागिर्द ही कल के उस्ताद — ' +
+    'गाँव-गाँव हुनर सिखाने वालों का जाल यही है।</div>' +
+    '</div>');
+
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
   return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST + P_HELP;
@@ -265,6 +364,12 @@ function jobseekerPanels(){
 }
 function entrepreneurPanels(){
   return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL + P_HELP;
+}
+function teacherPanels(){
+  return P_TCH_CONTENT + P_TU_EARN + P_TCH_LIVE + P_TU_BADGE + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_HELP;
+}
+function ustadPanels(){
+  return P_UST_CERTIFY + P_UST_SKILL + P_UST_MENTOR + P_TU_EARN + P_TU_BADGE + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
 }
 
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
@@ -329,6 +434,8 @@ for(const [home, h] of homes){
       (h.keys[0]==="student" ? studentPanels()
        : h.keys[0]==="jobseeker" ? jobseekerPanels()
        : h.keys[0]==="entrepreneur" ? entrepreneurPanels()
+       : h.keys[0]==="teacher" ? teacherPanels()
+       : h.keys[0]==="ustad" ? ustadPanels()
        : extraPanels(h.keys[0])));
 
   /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
@@ -370,4 +477,4 @@ for(const sp of SPECIALS){
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.5 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.6 · "+STAMP);
