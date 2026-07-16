@@ -1,5 +1,6 @@
 /* ============================================================
    dev_runtime_check.js — dashboard.js का runtime-परीक्षा-यंत्र (dev-tool)
+   v1.1 · 16-Jul-2026 (काम-6 चरण-2) — + jobseeker व entrepreneur boot-परीक्षाएँ
    v1.0 · 16-Jul-2026 (काम-6 चरण-1)
    ------------------------------------------------------------
    नियम (v2.3-ख2, स्थायी): assets/dashboard.js के हर बदलाव पर upload से
@@ -120,6 +121,36 @@ const E = (id)=>doc.getElementById(id);
     check("admin: appView खुला (जाँच-अटकाव नहीं)", !E("appView")._cls["hidden"]);
     check("admin: pill में 'अस्थायी' नहीं (active)", E("desigPill").textContent.indexOf("अस्थायी")===-1);
     check("admin: teams का country/state/region पढ़ा", (E("pArea").textContent||"").indexOf("Khagaria")>-1);
+  }
+
+  /* ═ परीक्षा-2ब: external-boot (jobseeker, 17 साल) — v4.2 प्रशिक्षु-इंजन ═ */
+  {
+    const t = freshSandbox(
+      { mode:"external", allowed:["jobseeker"], extRoles:[], roleLabel:"नौकरी-प्रशिक्षु", home:"/dashboard/jobseeker/" },
+      { lists:{ registrations:[{ authUid:"u4", role:"jobseeker", status:"provisional",
+          name_local:"टेस्ट नौकरी", regNo:"ACS-T-004", dob:"2009-06-01",
+          country:"India", state:"Bihar", email:"j@x", documents:{} }] } }
+    );
+    await t.fire({ uid:"u4", email:"j@x" });
+    await sleep(20);
+    check("jobseeker: appView खुला", !E("appView")._cls["hidden"]);
+    check("jobseeker: provisional-पर्दा नहीं", !E("provBar")._cls["on"]);
+    check("jobseeker: Guardian-नोट में 18-नियम", (E("stGuard").textContent||"").indexOf("18 साल से")>-1);
+  }
+
+  /* ═ परीक्षा-2स: external-boot (entrepreneur, 17 साल) ═ */
+  {
+    const t = freshSandbox(
+      { mode:"external", allowed:["entrepreneur"], extRoles:[], roleLabel:"उद्योग-प्रशिक्षु", home:"/dashboard/entrepreneur/" },
+      { lists:{ registrations:[{ authUid:"u5", role:"entrepreneur", status:"provisional",
+          name_local:"टेस्ट उद्यमी", regNo:"ACS-T-005", dob:"2009-06-01",
+          country:"India", state:"Bihar", email:"e@x", documents:{} }] } }
+    );
+    await t.fire({ uid:"u5", email:"e@x" });
+    await sleep(20);
+    check("entrepreneur: appView खुला", !E("appView")._cls["hidden"]);
+    check("entrepreneur: provisional-पर्दा नहीं", !E("provBar")._cls["on"]);
+    check("entrepreneur: Guardian-नोट में Tour-नियम", (E("stGuard").textContent||"").indexOf("Industrial Tour")>-1);
   }
 
   /* ═ परीक्षा-3: external-boot (g2 role, जैसे vendor) — पुराना बर्ताव अछूता ═ */

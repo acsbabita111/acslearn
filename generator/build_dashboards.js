@@ -1,5 +1,9 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.5 · 16-Jul-2026 (काम-6 चरण-2) — jobseeker व entrepreneur घर भी सुसज्जित:
+          साझा पैनल-टुकड़े (P_*) — एक चीज़ = एक जगह; studentPanels उन्हीं टुकड़ों से
+          (output हूबहू वही); jobseekerPanels (नौकरी-पेड़ · Green Tick badge) व
+          entrepreneurPanels (950+ उद्यम · ecosystem · सहयोगी · Industrial Tour)।
    v1.4 · 16-Jul-2026 (काम-6 चरण-1) — टेम्पलेट v4.1: external status-कार्ड अब
           statusPanel(key) से (g2 = पुराना पाठ हूबहू; प्रशिक्षु = "खाता सीधा चालू ✅");
           विद्यार्थी-घर के 9 असली पैनल studentPanels() से — बाक़ी घरों का HTML अपरिवर्तित।
@@ -27,7 +31,7 @@ const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.ht
 
 const STAMP = "16-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.4 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.5 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -65,12 +69,12 @@ function statusPanel(key){
     '      </div>');
 }
 
-/* ---------- विद्यार्थी-घर के असली पैनल (काम-6 चरण-1, 16-Jul-2026) ----------
+/* ---------- प्रशिक्षु-घरों के असली पैनल (काम-6 चरण-1+2, 16-Jul-2026) ----------
    नियम लागू: काम-सूची (v1.8-ख1) · scale/आलसी-load (v1.8-ख2) · कूट-नाम कभी UI पर नहीं ·
-   कोई मरा बटन नहीं (url-नियम v2.4-क8) · गोल bracket · फ़ॉन्ट ≥16px (सिर्फ़ मौजूदा classes)। */
-function studentPanels(){
-  return (
-    /* 🧠 टेस्ट-1 — Aptitude */
+   कोई मरा बटन नहीं (url-नियम v2.4-क8) · गोल bracket · फ़ॉन्ट ≥16px (सिर्फ़ मौजूदा classes)।
+   साझा-टुकड़े (P_*) = एक चीज़ एक जगह — तीनों प्रशिक्षु-घर इन्हीं से बनें। */
+
+const P_APTITUDE = (
     '<div class="pcard panel" id="pnl-aptitude" data-nav="🧠 Aptitude टेस्ट" style="grid-column:1/-1">' +
     '<div class="ph">🧠 Aptitude टेस्ट (अभिरुचि-परीक्षा — टेस्ट-1)</div>' +
     '<div class="pd">यह ज्ञान की नहीं, आपकी रुचि (अभिरुचि) की परीक्षा है — कोई जवाब सही या ग़लत नहीं। ' +
@@ -80,9 +84,9 @@ function studentPanels(){
     '<div class="note">💡 भुगतान से पहले साफ़ दिखेगा: सत्यापन असफल होने पर 30 प्रतिशत जाँच-शुल्क कटता है (यह दंड नहीं)।</div>' +
     '<button class="abtn ok" style="background:var(--blue)" disabled>🧠 टेस्ट शुरू करें</button> ' +
     '<span class="soon">टेस्ट-इंजन जल्द चालू होगा — अभी तैयारी में</span>' +
-    '</div>' +
+    '</div>');
 
-    /* 📚 मेरे कोर्स */
+const P_COURSES = (
     '<div class="pcard panel" id="pnl-courses" data-nav="📚 मेरे कोर्स" style="grid-column:1/-1">' +
     '<div class="ph">📚 मेरे कोर्स</div>' +
     '<div class="pd"><b>मेरा नामांकन:</b> नामांकन-खाता अगले दौर में जुड़ेगा — तब यहाँ सिर्फ़ आपका अपना ब्योरा दिखेगा: ' +
@@ -91,9 +95,9 @@ function studentPanels(){
     '<div class="pd">पढ़ना हमेशा मुफ़्त है — बिना रोक, बिना शर्त। जिस कोर्स के पाठ बन चुके हैं, उस पर "पढ़ें" बटन दिखेगा।</div>' +
     '<div id="crsList"><span class="note">कोर्स-सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin-top:10px" href="/courses/">🌍 पूरी कोर्स-सूची देखें</a>' +
-    '</div>' +
+    '</div>');
 
-    /* 📝 मेरी परीक्षाएँ */
+const P_EXAMS = (
     '<div class="pcard panel" id="pnl-exams" data-nav="📝 मेरी परीक्षाएँ" style="grid-column:1/-1">' +
     '<div class="ph">📝 मेरी परीक्षाएँ (टेस्ट-2 व टेस्ट-3)</div>' +
     '<div class="pd"><b>टेस्ट-2 — Workshop-प्रवेश टेस्ट:</b> online कोर्स पूरा करने के बाद, workshop या कैंप में admission के लिए। ' +
@@ -103,46 +107,58 @@ function studentPanels(){
     '<div class="pd"><b>टेस्ट-3 (मोड-ब) — online कोर्स-पूर्णता:</b> workshop में भाग न लेने पर, आपके आवेदन से, online ज्ञान के पूर्ण ' +
     'मूल्यांकन के बाद — प्रमाण पत्र पर साफ़ लिखा होगा: "इन्होंने अभी तक प्रैक्टिकल नहीं किया है।"</div>' +
     '<span class="soon">परीक्षा-इंजन अगले दौर में — तब यहीं से टेस्ट देंगे</span>' +
-    '</div>' +
+    '</div>');
 
-    /* 📸 पहली-कमाई सबूत */
+const P_PROOF = (
     '<div class="pcard panel" id="pnl-proof" data-nav="📸 पहली-कमाई सबूत" style="grid-column:1/-1">' +
     '<div class="ph">📸 पहली-कमाई का सबूत (मोड-अ का हिस्सा)</div>' +
     '<div class="pd">यहाँ आप अपने किए काम का फोटो या वीडियो भेजेंगे (हर फ़ाइल अधिकतम 2MB)। उस्ताद इसे देखकर हुनर-प्रमाणीकरण देंगे — ' +
     'यह प्रमाण पत्र के दो तालों में से पहला ताला है।</div>' +
     '<button class="abtn ok" style="background:var(--blue)" disabled>📤 सबूत भेजें</button> ' +
     '<span class="soon">upload-इंजन व समीक्षा-चौकी अगले दौर में</span>' +
-    '</div>' +
+    '</div>');
 
-    /* 🏆 मेरे प्रमाण पत्र */
+const P_CERTS = (
     '<div class="pcard panel" id="pnl-certs" data-nav="🏆 मेरे प्रमाण पत्र" style="grid-column:1/-1">' +
     '<div class="ph">🏆 मेरे प्रमाण पत्र</div>' +
     '<div class="pd">ACS पर अभी तीन प्रकार: (1) Aptitude Certificate — रुचि-रिपोर्ट, (2) प्रशिक्षण-पूर्णता प्रमाण पत्र — दोहरा-ताला, ' +
     '(3) online कोर्स-पूर्णता प्रमाण पत्र। हर प्रमाण पत्र पर unique number व QR — दुनिया में कहीं से verify। ' +
     'Lifetime valid; verify 3 साल मुफ़्त, फिर 1000 रुपये; duplicate 500 रुपये।</div>' +
     '<div class="note">अभी आपका कोई प्रमाण पत्र नहीं बना — परीक्षा-इंजन चालू होते ही download यहीं मिलेगा।</div>' +
-    '</div>' +
+    '</div>');
 
-    /* 💳 मेरे भुगतान */
+function P_PAY(extra){
+  return (
     '<div class="pcard panel" id="pnl-pay" data-nav="💳 मेरे भुगतान" style="grid-column:1/-1">' +
     '<div class="ph">💳 मेरे भुगतान</div>' +
     '<div class="pd">paid सिर्फ़ ये 5 सेवाएँ: aptitude टेस्ट · offline प्रशिक्षण · workshop apprenticeship · ' +
     'counselor सलाह · विदेश-एजेंट connection। बाक़ी सब — पढ़ना, जुड़ना, देखना — हमेशा मुफ़्त।</div>' +
+    (extra || '') +
     '<div class="note">💡 हर paid-सेवा पर भुगतान-बटन के ठीक ऊपर लिखा मिलेगा: सत्यापन असफल = 30 प्रतिशत जाँच-शुल्क। ' +
     'भुगतान से पहले मशीन-जाँच मुफ़्त होती है।</div>' +
     '<span class="soon">रसीद व भुगतान-history अगले दौर में</span>' +
-    '</div>' +
+    '</div>');
+}
 
-    /* 🧭 सलाह */
+const P_COUNSEL = (
     '<div class="pcard panel" id="pnl-counsel" data-nav="🧭 सलाह (Counselor)" style="grid-column:1/-1">' +
     '<div class="ph">🧭 सलाह — काउंसलर (Counselor)</div>' +
     '<div class="pd">सलाह का रास्ता टेस्ट से पहले भी खुला है और बाद भी। हर counselor से 5 मिनट की मुफ़्त बातचीत (free preview) ' +
     'ज़रूर मिलती है — फिर booking। booking रद्द करने पर (1 घंटा पहले तक) 90 प्रतिशत वापसी — चाहे आप रद्द करें या counselor।</div>' +
     '<div class="note">counselor-सूची (नाम · fees) यहाँ तभी दिखेगी जब उनका RM भौतिक-सत्यापन व approval पूरा होगा — ' +
     'बिना सत्यापन कोई नाम portal पर नहीं दिखता (प्रदर्शन-नियम)।</div>' +
-    '</div>' +
+    '</div>');
 
-    /* 🛠️ Workshop / कैंप */
+const P_HELP = (
+    '<div class="pcard panel" id="pnl-help" data-nav="🆘 सहायता व शिकायत" style="grid-column:1/-1">' +
+    '<div class="ph">🆘 सहायता व शिकायत</div>' +
+    '<div class="pd">कोई दिक़्क़त, सवाल या शिकायत हो — सीधे लिखें। शिकायत की स्वतंत्र सुनवाई ACS की Trust Policy का हिस्सा है।</div>' +
+    '<a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092">💬 WhatsApp पर लिखें</a> ' +
+    '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="mailto:acs.chautham@gmail.com">✉️ Email भेजें</a>' +
+    '</div>');
+
+/* --- सिर्फ़ विद्यार्थी --- */
+const P_WORKSHOP_ST = (
     '<div class="pcard panel" id="pnl-workshop" data-nav="🛠️ Workshop व कैंप" style="grid-column:1/-1">' +
     '<div class="ph">🛠️ Workshop व कैंप</div>' +
     '<div class="pd">रास्ता: मुफ़्त पढ़ो → टेस्ट-2 पास करो → अपने पास के workshop में paid-प्रशिक्षण (अवधि कोर्स के हिसाब से 15 से 300 दिन)। ' +
@@ -150,24 +166,110 @@ function studentPanels(){
     '<div class="pd">ℹ️ 16 से 18 साल वालों के लिए: प्रशिक्षण-कैंप व भ्रमण सिर्फ़ Guardian (अभिभावक) की सहमति से — या Guardian साथ जाएँ।</div>' +
     '<button class="abtn ok" style="background:var(--blue)" disabled>🙏 कैंप-निवेदन भेजें</button> ' +
     '<span class="soon">workshop-सूची व निवेदन-इंजन अगले दौर में</span>' +
-    '</div>' +
-
-    /* 🆘 सहायता */
-    '<div class="pcard panel" id="pnl-help" data-nav="🆘 सहायता व शिकायत" style="grid-column:1/-1">' +
-    '<div class="ph">🆘 सहायता व शिकायत</div>' +
-    '<div class="pd">कोई दिक़्क़त, सवाल या शिकायत हो — सीधे लिखें। शिकायत की स्वतंत्र सुनवाई ACS की Trust Policy का हिस्सा है।</div>' +
-    '<a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092">💬 WhatsApp पर लिखें</a> ' +
-    '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="mailto:acs.chautham@gmail.com">✉️ Email भेजें</a>' +
     '</div>');
+
+/* --- सिर्फ़ नौकरी-प्रशिक्षु (jobseeker) --- */
+const P_JOBS = (
+    '<div class="pcard panel" id="pnl-jobs" data-nav="💼 नौकरी-खोज" style="grid-column:1/-1">' +
+    '<div class="ph">💼 नौकरी-खोज (नौकरी का पेड़)</div>' +
+    '<div class="pd"><b>दो तने:</b> (1) सरकारी नौकरी — exam के रास्ते (तैयारी-कोर्स मुफ़्त पढ़ें); (2) प्राइवेट — चार डाल: ' +
+    'स्वरोजगार · अपने इलाक़े के छोटे उद्यम में रोजगार · कॉर्पोरेट सेक्टर · विदेश में रोजगार।</div>' +
+    '<div class="pd"><b>तरक़्क़ी की 6 सीढ़ियाँ:</b> प्रशिक्षु → सहायक → कुशल कर्मी → प्रधान कर्मी → प्रबंधक → मालिक। ' +
+    'कुशल-स्तर से ऊपर बढ़ने पर दो दरवाज़े खुलते हैं — अपना काम शुरू करना (मालिक) या ACS-उस्ताद बनकर सिखाना।</div>' +
+    '<div class="pd"><b>विदेश-रोजगार के पक्के नियम:</b> agent को आप कुछ नहीं देते — उसका commission नियोक्ता (employer) से आता है; ' +
+    'आप सिर्फ़ ACS को platform-fee देते हैं। eMigrate पंजीकरण अनिवार्य। नियोक्ता से संपर्क सिर्फ़ dashboard से — बाहर के वादों पर भरोसा न करें।</div>' +
+    '<div class="pd">ℹ️ उम्र-नियम: job-तैयारी 16 साल से; असली job व joining 18 साल से (16 से 18 पर Guardian की सहमति ज़रूरी)।</div>' +
+    '<div class="note">नियोक्ता की माँग-सूची (कौन-सा काम · कितने अवसर · देश-विदेश) approval-श्रृंखला चालू होने पर यहीं दिखेगी।</div>' +
+    '<span class="soon">नौकरी-सूची इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_BADGE = (
+    '<div class="pcard panel" id="pnl-badge" data-nav="✅ Green Tick badge" style="grid-column:1/-1">' +
+    '<div class="ph">✅ Verified Badge (Green Tick)</div>' +
+    '<div class="pd">जुड़ना मुफ़्त है — badge लेना आपकी मर्ज़ी (वैकल्पिक)। badge वाले को नियोक्ता की नज़र में भरोसा व प्राथमिकता मिलती है, ' +
+    'पर बिना badge भी आप हर जगह apply कर सकते हैं। न्यूनतम उम्र 18; कोई उम्र-जोड़ नहीं — सीधा रेट।</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · महानगर 1,000 रुपये।</div>' +
+    '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); badge बनने के बाद = ' +
+    '(पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<button class="abtn ok" style="background:var(--blue)" disabled>✅ badge के लिए आवेदन</button> ' +
+    '<span class="soon">badge-इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_PAY_JOBSEEKER_EXTRA = (
+    '<div class="pd"><b>platform-fee:</b> नौकरी मिलने के रास्ते में आप सिर्फ़ ACS को platform-fee देते हैं — ' +
+    'किसी agent या बिचौलिए को एक रुपया भी नहीं। नियोक्ता से worker-fee शून्य।</div>');
+
+/* --- सिर्फ़ उद्योग-प्रशिक्षु (entrepreneur) --- */
+const P_UDYAM = (
+    '<div class="pcard panel" id="pnl-udyam" data-nav="🌍 950+ उद्यम" style="grid-column:1/-1">' +
+    '<div class="ph">🌍 950 से ज़्यादा उद्यमों की सूची</div>' +
+    '<div class="pd">24 सेक्टर में बँटे 950 से ज़्यादा उद्यम — हर उद्यम पर निवेश-रेंज, बाज़ार-जानकारी और bank-finance-ready ' +
+    'project report की तैयारी। अपनी रुचि व जेब के हिसाब से उद्यम चुनें; कोर्स का Module-8 आपकी अपनी project report बनवाता है।</div>' +
+    '<a class="abtn ok" style="display:inline-block;text-decoration:none" href="/udyam/">🌍 उद्यम-सूची खोलें</a>' +
+    '</div>');
+
+const P_ECOSYS = (
+    '<div class="pcard panel" id="pnl-ecosys" data-nav="🌱 उद्यमी-सहयोग" style="grid-column:1/-1">' +
+    '<div class="ph">🌱 उद्यमी-सहयोग ecosystem</div>' +
+    '<div class="pd">ACS का साथ सिर्फ़ उद्यम शुरू करवाने तक नहीं — <b>पहला ग्राहक मिलने तक</b> (First Customer Mission, 90-दिन साथ)। ' +
+    'आगे की परतें: असफल होने पर नई योजना (Failure Recovery) · परिवार-सहयोग व महिला-उद्यमिता परतें · ज़िले की माँग-जानकारी।</div>' +
+    '<div class="pd"><b>निवेश-सीढ़ी:</b> L1 (शून्य रुपये से शुरुआत) से L15 तक — मालिक बनते ही यह सीढ़ी आपके सामने खुलती है। ' +
+    'सफलता का पैमाना नौकरी नहीं — <b>टिकाऊ आय</b> है।</div>' +
+    '<div class="note">⚖️ दो पक्के सिद्धांत: (1) ACS ख़ुद बैंक या निवेशक कभी नहीं — सिर्फ़ अधिकृत संस्थाओं से जोड़ने वाला पुल; ' +
+    '(2) AI सिर्फ़ निर्णय-सहायक है — अंतिम निर्णय हमेशा आपका, बड़े फ़ैसलों पर मानव-समीक्षा ज़रूरी।</div>' +
+    '<span class="soon">ecosystem-इंजन just-in-time — अपने दौर में</span>' +
+    '</div>');
+
+const P_PARTNERS = (
+    '<div class="pcard panel" id="pnl-partners" data-nav="🤝 मेरे सहयोगी" style="grid-column:1/-1">' +
+    '<div class="ph">🤝 मेरे सहयोगी — उस्ताद · विक्रेता · वित्त मित्र</div>' +
+    '<div class="pd"><b>उस्ताद:</b> हुनर सिखाने व राह दिखाने वाला mentor — workshop-प्रशिक्षण व हुनर-प्रमाणीकरण इन्हीं से।</div>' +
+    '<div class="pd"><b>विक्रेता (Vendor):</b> यंत्र · कच्चा-माल · packaging · license-सहायता · marketing — सब एक जगह। ' +
+    'सूची में सिर्फ़ वही नाम दिखेंगे जिनका RM भौतिक-सत्यापन व approval पूरा है। ACS मंच है — सौदे का पक्ष नहीं।</div>' +
+    '<div class="pd"><b>वित्त मित्र (Finance Mitra):</b> बैंक · सरकारी योजना · NBFC · CSR से जोड़ने वाला पुल — ' +
+    '<b>आपसे शून्य शुल्क</b> (उसका commission संस्था से)।</div>' +
+    '<div class="note">⚠️ चेतावनी: loan दिलाने के नाम पर कोई अग्रिम पैसा माँगे तो एक रुपया न दें — तुरंत शिकायत करें; ' +
+    'ऐसा करने वाले का तत्काल निष्कासन व कानूनी कार्रवाई का नियम है।</div>' +
+    '<span class="soon">सत्यापित-सूचियाँ approval-श्रृंखला चालू होने पर यहीं</span>' +
+    '</div>');
+
+const P_TOUR = (
+    '<div class="pcard panel" id="pnl-tour" data-nav="🗺️ Industrial Tour" style="grid-column:1/-1">' +
+    '<div class="ph">🗺️ Industrial Tour (औद्योगिक भ्रमण)</div>' +
+    '<div class="pd">उद्यम लगाने से पहले उसे चलते हुए देखो और वहीं काम सीखो — हर जगह कम-से-कम 5 दिन रहना। सीढ़ी: ' +
+    '20 लाख रुपये से छोटा उद्यम → अपने इलाक़े/देश के समानांतर उद्यम में 1 महीना ख़ुद काम; ' +
+    '20 लाख से 1 करोड़ → अपने राज्य का बेहतरीन उद्योग, 15 दिन; ' +
+    '1 से 10 करोड़ → देश का best industrial area, 10 दिन; ' +
+    '10 करोड़ से ऊपर → अंतरराष्ट्रीय औद्योगिक केंद्र, 5 दिन।</div>' +
+    '<div class="pd">न्यूनतम उम्र 16 (16 से 18 पर Guardian-नियम)। न्यूनतम राशि पहले बताई जाती है; पैसा escrow में रहता है; ' +
+    'हर यात्री का बीमा व 24×7 आपात-लाइन।</div>' +
+    '<button class="abtn ok" style="background:var(--blue)" disabled>🗺️ Tour की जानकारी माँगें</button> ' +
+    '<span class="soon">tour-इंजन just-in-time — अपने दौर में</span>' +
+    '</div>');
+
+const P_EXAMCERT_ENT = (
+    '<div class="pcard panel" id="pnl-examcert" data-nav="📝 परीक्षा व प्रमाण पत्र" style="grid-column:1/-1">' +
+    '<div class="ph">📝 परीक्षा व प्रमाण पत्र (छोटा नक़्शा)</div>' +
+    '<div class="pd">रास्ता: मुफ़्त कोर्स पढ़ो → टेस्ट-2 (workshop-प्रवेश, qualifying) → workshop-प्रशिक्षण → पहली कमाई → ' +
+    'उस्ताद-प्रमाणीकरण + HQ की online परीक्षा — दोनों ताले खुलें तभी प्रशिक्षण-पूर्णता का प्रमाण पत्र। ' +
+    'workshop में भाग न लें तो आवेदन से online कोर्स-पूर्णता प्रमाण पत्र (उस पर लिखा होगा: "इन्होंने अभी तक प्रैक्टिकल नहीं किया है")।</div>' +
+    '<div class="note">हर प्रमाण पत्र पर unique number व QR — दुनिया में कहीं से verify। Lifetime valid।</div>' +
+    '</div>');
+
+/* --- तीनों घरों की रचना --- */
+function studentPanels(){
+  return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST + P_HELP;
+}
+function jobseekerPanels(){
+  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL + P_HELP;
+}
+function entrepreneurPanels(){
+  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL + P_HELP;
 }
 
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
 function extraPanels(key){
-  if(key==="entrepreneur") return (
-    '<div class="pcard panel" id="pnl-extra" data-nav="🌱 उद्यमी-सहयोग" style="grid-column:1/-1">' +
-    '<div class="ph">🌱 उद्यमी-सहयोग ecosystem</div>' +
-    '<div class="pd">v1.7-ग की आरक्षित जगह — Verified Vendor सूची · First Customer Mission (90-दिन) · Failure Recovery · Family/Women परतें · ज़िला-माँग जानकारी। निर्माण just-in-time (अपना chatroom)।</div>' +
-    '<span class="soon">आरक्षित — अगले दौर में</span></div>');
+  /* v1.5: entrepreneur-branch हटा — वह घर अब entrepreneurPanels() से सुसज्जित */
   if(key==="vendor") return (
     '<div class="pcard panel" id="pnl-extra" data-nav="🧾 RM-सत्यापन" style="grid-column:1/-1">' +
     '<div class="ph">🧾 RM भौतिक-सत्यापन</div>' +
@@ -223,7 +325,11 @@ for(const [home, h] of homes){
     .split("{{HOME}}").join(home)
     .split("{{P1_NOTE}}").join(isTeam ? p1Note(h.keys) : "")
     .split("{{STATUS_PANEL}}").join(isTeam ? "" : statusPanel(h.keys[0]))
-    .split("{{EXTRA_PANELS}}").join(isTeam ? "" : (h.keys[0]==="student" ? studentPanels() : extraPanels(h.keys[0])));
+    .split("{{EXTRA_PANELS}}").join(isTeam ? "" :
+      (h.keys[0]==="student" ? studentPanels()
+       : h.keys[0]==="jobseeker" ? jobseekerPanels()
+       : h.keys[0]==="entrepreneur" ? entrepreneurPanels()
+       : extraPanels(h.keys[0])));
 
   /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
      dashboard.js runtime-gate if(MODE==="team") से ख़ुद सँभालता है) */
@@ -264,4 +370,4 @@ for(const sp of SPECIALS){
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.4 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.5 · "+STAMP);
