@@ -182,7 +182,9 @@ function buildCourseIndex(course, lessons){
     "<p>हुनर से पहले हिफ़ाज़त — पहले बीस पाठ आपके शरीर और आपकी जगह की सुरक्षा के हैं। अभी " +
       lessons.length + " पाठ तैयार हैं; बाक़ी जुड़ते जा रहे हैं।</p>\n" +
     '<ul class="ci-list">\n' + items + "\n</ul>\n" +
-    '<p class="ci-soon">पाठ ' + (lessons.length + 1) + "-20 — जल्द जुड़ेंगे।</p>\n</section>\n\n" +
+    (lessons.length < 20
+      ? '<p class="ci-soon">पाठ ' + (lessons.length + 1) + "-20 — जल्द जुड़ेंगे।</p>"
+      : '<p class="ci-soon">हिस्सा-1 (पाठ 1-20) पूरा — बधाई! अब हिस्सा-2 की तैयारी चल रही है।</p>') + "\n</section>\n\n" +
     '<section class="lsn-sec">\n<h2>आगे के हिस्से</h2>\n' +
     "<p>पूरा कोर्स " + course.totalLessons + " पाठों का है, आठ हिस्सों में। हिस्सा-2 (यंत्रों की पहचान) की तैयारी चल रही है — हर नया पाठ तैयार होते ही यहीं जुड़ता है। जो पाठ अभी नहीं बना, उसका झूठा बटन यहाँ कभी नहीं मिलेगा।</p>\n</section>\n\n" +
     '<nav class="lsn-nav"><a class="lsn-navbtn lsn-next" href="' +
