@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.2 · 16-Jul-2026 (काम-6 चरण-2) — प्रशिक्षु-इंजन अब तीनों घरों पर
+          (student/jobseeker/entrepreneur): मुफ़्त कोर्स-सूची साझा; Guardian-नोट
+          role-अनुसार (विद्यार्थी 10-18 · नौकरी 16-18 job-नियम · उद्यम 16-18)।
    v4.1 · 16-Jul-2026 (काम-6 चरण-1) — (1) guardExternal: प्रशिक्षु-roles
           (student/jobseeker/entrepreneur) पर provisional-पर्दा व "अस्थायी" pill
           अब कभी नहीं — v1.3-(क) "खाता सीधा चालू" का प्रदर्शन-रूप; (2) विद्यार्थी-इंजन:
@@ -696,14 +699,16 @@ function startIdleTimer(){
 window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localStorage.removeItem("acs_sid"); }catch(e){} location.href="/dashboard/index.html"; };
 
 /* ═══════════════════════════════════════════════════════════════
-   v4.1 (काम-6 चरण-1) — विद्यार्थी-इंजन: सिर्फ़ student-घर पर जागे।
+   v4.2 (काम-6 चरण-1+2) — प्रशिक्षु-इंजन: तीनों प्रशिक्षु-घरों पर जागे
+   (student · jobseeker · entrepreneur — NO_GATEWAY_EXT)।
    (1) Guardian-नोट (10-18 नियम) — reg.dob से उम्र गिनकर।
    (2) 📚 मुफ़्त कोर्स-सूची — /assets/courses_data.js आलसी-load (पैनल खुलने पर ही);
        url-नियम (v2.4-क8): url वाले कोर्स पर ही "पढ़ें" बटन — मरा पता कभी नहीं;
        scale-नियम (v1.8-ख2): 50-50 की खेप, "और देखें" से आगे;
        data की पुरानी चौकोर bracket-जोड़ी दिखाते समय गोल ( ) में बदले (लिपि-नियम)।
    ═══════════════════════════════════════════════════════════════ */
-if (MODE==="external" && ALLOWED.length===1 && ALLOWED[0]==="student") {
+if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0])>-1) {
+  const TRAINEE_ROLE = ALLOWED[0];
 
   window.__acsExtReady = function(reg){
     try{
@@ -715,8 +720,13 @@ if (MODE==="external" && ALLOWED.length===1 && ALLOWED[0]==="student") {
       if(m<0 || (m===0 && now.getDate()<d.getDate())) age--;
       if(!(age>0 && age<18)) return;
       const el = $("stGuard");
-      if(el){
-        el.style.display="block";
+      if(!el) return;
+      el.style.display="block";
+      if(TRAINEE_ROLE==="jobseeker"){
+        el.textContent = "ℹ️ आपकी उम्र "+age+" साल है — job-तैयारी 16 साल से चलती है, पर असली job व joining 18 साल से। 16 से 18 पर प्रशिक्षण-कैंप व भ्रमण Guardian (अभिभावक) की सहमति से।";
+      } else if(TRAINEE_ROLE==="entrepreneur"){
+        el.textContent = "ℹ️ आपकी उम्र "+age+" साल है — 18 से पहले paid-सेवा, Industrial Tour व क़ानूनी काग़ज़ों पर Guardian (अभिभावक) की सहमति ज़रूरी है।";
+      } else {
         el.textContent = "ℹ️ आपकी उम्र "+age+" साल है — paid-सेवा, workshop-कैंप व भ्रमण पर Guardian (अभिभावक) की सहमति ज़रूरी है (10-18 नियम)।";
       }
     }catch(e){}
@@ -784,4 +794,4 @@ if (MODE==="external" && ALLOWED.length===1 && ALLOWED[0]==="student") {
     sc.onerror=function(){ CRS_LOADED=false; if(box) box.innerHTML='<span class="note" style="color:#B71C1C">कोर्स-सूची नहीं खुली — network जाँचकर पैनल दोबारा खोलें।</span>'; };
     document.body.appendChild(sc);
   };
-} /* विद्यार्थी-इंजन end */
+} /* प्रशिक्षु-इंजन end */
