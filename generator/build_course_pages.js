@@ -1,6 +1,8 @@
 /* ============================================================
    build_course_pages.js — कोर्स-पाठ पेजों का generator (परत-4)
-   v1.1 · 16-Jul-2026 (काम-कोर्स-2: + कोर्स-परिचय पेज (index.html) निर्माण;
+   v1.2 · 16-Jul-2026 (काम-कोर्स-2: + videoUrl/videoNote-खाना — प्रति-पाठ सत्यापित वीडियो;
+              बिना-वीडियो पाठों में सत्यापित BharatSkills सरकारी-मंच कड़ी। पहले का:
+   v1.1 · 16-Jul-2026 (+ कोर्स-परिचय पेज (index.html) निर्माण;
               पाठ-1 का पिछला-बटन अब कोर्स-परिचय पर। पाठ-पेजों का GEN_NOTE v1.0 ही —
               ताकि अछूते पाठ byte-अछूते रहें।)
    ------------------------------------------------------------
@@ -104,7 +106,12 @@ function lessonBody(course, l, prevFile, nextFile){
       course.totalLessons + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
     "</header>\n\n" + secs + "\n\n" +
     '<section class="lsn-sec lsn-video">\n<h2>वीडियो (Video)</h2>\n' +
-    "<p>इस पाठ का चुना हुआ वीडियो जल्द यहीं जुड़ेगा — जाँच-परख के बाद। तब तक ऊपर की समझाइश और चित्र पूरा पाठ हैं; पढ़ाई कहीं नहीं रुकती।</p>\n</section>\n\n" +
+    (l.videoUrl
+      ? '<p><a href="' + l.videoUrl + '" target="_blank" rel="noopener">▶ इस पाठ का चुना हुआ वीडियो देखें</a>' +
+        (l.videoNote ? " — " + l.videoNote : "") + " (नई खिड़की में खुलेगा)</p>\n"
+      : "<p>इस पाठ का चुना हुआ वीडियो जल्द यहीं जुड़ेगा — जाँच-परख के बाद। तब तक ऊपर की समझाइश और चित्र पूरा पाठ हैं; पढ़ाई कहीं नहीं रुकती।</p>\n" +
+        '<p>वेल्डिंग के और वीडियो भारत सरकार के <a href="https://bskillforum.bharatskills.gov.in/Home/video?flag=1&amp;pkTrade_ID=Welder&amp;pkCourse_ID=CTS" target="_blank" rel="noopener">BharatSkills वीडियो-मंच (Welder)</a> पर देखे जा सकते हैं — सरकारी भंडार, हिंदी सामग्री सहित। (नई खिड़की में खुलेगा)</p>\n') +
+    "</section>\n\n" +
     '<nav class="lsn-nav">' + prev + next + "</nav>\n" +
     "</article>\n";
 }
