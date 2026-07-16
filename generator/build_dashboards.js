@@ -1,5 +1,12 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v1.9 · 16-Jul-2026 (काम-6 चरण-6, अंतिम) — बाहरी-परिवार पूरा:
+          dual-घर नियम (volunteer): team+external दोनों block पेज में रहें —
+          काम-सूची boot-रास्ते से छनती है (dashboard.js v4.3 initNav-filter);
+          volunteer = सेवा-भाव · RM-मार्गदर्शन · मानदेय नहीं-सिर्फ़ कमीशन ·
+          RM-पात्रता का रास्ता; finance-mitra = पुल · अग्रिम-निषेध (फ़ाइल-चार्ज/
+          processing/अग्रिम/मिठाई) · अधिकृति-प्रमाण; vendor = 6 श्रेणियाँ ·
+          मंच-सौदे-का-पक्ष-नहीं · RM-सत्यापन। हर पंक्ति rules-फ़ाइलों से मिलान-जाँची।
    v1.8 · 16-Jul-2026 (काम-6 चरण-5) — counselor · employer · foreign-agent सुसज्जित:
           counselor = 90/5/5 · 5-मिनट free preview · 1-घंटा cancel=90% (दोनों ओर) ·
           45-नियम badge (P_TU_BADGE साझा); employer = ZERO worker fee · माँग=जॉब-रोल ·
@@ -45,7 +52,7 @@ const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.ht
 
 const STAMP = "16-Jul-2026";
 const GEN_NOTE =
-  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.8 · " + STAMP + ") —\n" +
+  "⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.9 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।";
 
 /* ---------- साझा-घर वाले dashboards के प्रदर्शन-नाम ---------- */
@@ -608,6 +615,115 @@ const P_FA_JOBSEEKERS = (
     '<span class="soon">जुड़ाव-इंजन अगले दौर में</span>' +
     '</div>');
 
+/* --- volunteer · finance-mitra · vendor के टुकड़े (चरण-6, अंतिम) ---
+   स्रोत-पंक्तियाँ rules-consent फ़ाइलों से मिलान-जाँची: volunteer "RM के मार्गदर्शन
+   में" · "RM-पात्रता बनती है — अवसर है, गारंटी नहीं"; finance-mitra "फ़ाइल-चार्ज/
+   processing/अग्रिम/मिठाई — किसी नाम पर नहीं" · "अग्रिम-वसूली = तत्काल निष्कासन
+   व कानूनी कार्रवाई" · PMMY/PMEGP/Stand-Up India; vendor "ACS सौदे की राशि न
+   लेगा, न रखेगा, न guarantee"। v2.0-घ: volunteer मानदेय नहीं — सिर्फ़ कमीशन। */
+
+/* --- सिर्फ़ स्वयंसेवक (volunteer — dual-घर का external-रूप) --- */
+const P_VOL_SEVA = (
+    '<div class="pcard panel" id="pnl-seva" data-nav="🤝 मेरा सेवा-काम" style="grid-column:1/-1">' +
+    '<div class="ph">🤝 मेरा सेवा-काम</div>' +
+    '<div class="pd">आप सेवा-भाव से जुड़े हैं — ACS की बात गाँव-गाँव पहुँचाना आपका काम है: लोगों को RM से मिलाना, ' +
+    'सत्यापन (verification) में सहयोग, और अपने इलाक़े के केंद्र, उस्ताद, workshop व उद्योग-घरों को ' +
+    'ACS-नेटवर्क से जोड़ने में मदद। हर काम <b>RM के मार्गदर्शन में</b> होगा।</div>' +
+    '<div class="pd">यह field में सीखने का रास्ता भी है — ज़मीन पर काम करते-करते आप ACS की पूरी व्यवस्था ' +
+    'भीतर से समझ जाते हैं।</div>' +
+    '<span class="soon">काम-सूची व field-इंजन approval के बाद team-रूप में यहीं</span>' +
+    '</div>');
+
+const P_VOL_PATH = (
+    '<div class="pcard panel" id="pnl-volpath" data-nav="🛤️ आगे का रास्ता" style="grid-column:1/-1">' +
+    '<div class="ph">🛤️ आगे का रास्ता (टीम तक)</div>' +
+    '<div class="pd">approval पूरा होते ही आप RM-स्तर की टीम में स्वयंसेवक के रूप में जुड़ जाते हैं — ' +
+    'तब <b>यही घर team-रूप में खुलेगा</b>: मिला काम, रिपोर्ट-चक्र, टीम-पैनल।</div>' +
+    '<div class="pd">अच्छे काम से आगे <b>RM-पात्रता बनती है</b> (तब RM के सभी नियम व approval लागू होंगे) — ' +
+    'यह एक अवसर है, गारंटी नहीं। स्वयंसेवक की पहचान Intern से अलग है — Intern टीम-कर्मी है, ' +
+    'आप सेवा-भाव के साथी।</div>' +
+    '</div>');
+
+const P_VOL_EARN = (
+    '<div class="pcard panel" id="pnl-earn" data-nav="💰 कमाई-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">💰 कमाई का साफ़ नियम</div>' +
+    '<div class="pd">स्वयंसेवक को <b>कोई वेतन या मानदेय नहीं मिलता — सिर्फ़ कमीशन</b>: जो काम (जुड़ाव/सेवा) ' +
+    'आपके सहयोग से पूरा हो, उस पर नियम-अनुसार कमीशन। यह पहले ही साफ़ लिखा है ताकि कोई झूठी उम्मीद न बने।</div>' +
+    '<div class="pd"><b>भुगतान-चक्र:</b> भारत 7 कार्य-दिवस · अंतरराष्ट्रीय 10; hold ज़्यादा-से-ज़्यादा 60 दिन — ' +
+    'सूचना 48 घंटे के भीतर।</div>' +
+    '<span class="soon">कमीशन-खाता अगले दौर में</span>' +
+    '</div>');
+
+/* --- सिर्फ़ वित्त मित्र (finance-mitra) --- */
+const P_FM_BRIDGE = (
+    '<div class="pcard panel" id="pnl-bridge" data-nav="🌉 मेरा काम — पुल" style="grid-column:1/-1">' +
+    '<div class="ph">🌉 मेरा काम — उद्यमी और संस्था के बीच पुल</div>' +
+    '<div class="pd">आप उद्यमी को <b>अधिकृत वित्तीय संस्थाओं</b> से जोड़ते हैं: बैंक · सरकारी योजनाएँ ' +
+    '(जैसे PMMY/मुद्रा, PMEGP, Stand-Up India) · पंजीकृत NBFC · CSR। ACS ख़ुद कभी बैंक या निवेशक नहीं — ' +
+    'आप ही वह भरोसेमंद पुल हैं।</div>' +
+    '<div class="pd"><b>सीमा-रेखा:</b> loan का अंतिम फ़ैसला हमेशा अधिकृत संस्था का; उद्यम का अंतिम फ़ैसला ' +
+    'हमेशा उद्यमी का। आप राह दिखाते हैं — फ़ैसला नहीं थोपते।</div>' +
+    '<span class="soon">उद्यमी-जुड़ाव इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_FM_ZERO = (
+    '<div class="pcard panel" id="pnl-zerofee" data-nav="🚫 अग्रिम-निषेध" style="grid-column:1/-1">' +
+    '<div class="ph">🚫 शून्य-शुल्क व अग्रिम-निषेध (अत्यंत महत्वपूर्ण)</div>' +
+    '<div class="pd">उद्यमी/Learner से <b>किसी भी नाम पर</b> — "फ़ाइल-चार्ज", "processing", "अग्रिम", "मिठाई" — ' +
+    'कोई भी राशि लेना पूर्णतः निषिद्ध व अवैध है। आपकी कमाई सिर्फ़ संस्था के कमीशन से होती है।</div>' +
+    '<div class="note">⚠️ अग्रिम-वसूली भारत में प्रचलित सबसे बड़ी धोखाधड़ी है — ACS में इसकी सज़ा ' +
+    'तत्काल निष्कासन व कानूनी कार्रवाई है।</div>' +
+    '</div>');
+
+const P_FM_AUTH = (
+    '<div class="pcard panel" id="pnl-auth" data-nav="🛂 अधिकृति-प्रमाण" style="grid-column:1/-1">' +
+    '<div class="ph">🛂 अधिकृति-प्रमाण (अनिवार्य)</div>' +
+    '<div class="pd">आप जिस संस्था/योजना से जोड़ने का काम करेंगे, उसकी <b>अधिकृति/empanelment का प्रमाण अनिवार्य</b> है — ' +
+    'RM-सत्यापन में यही जाँचा जाता है। भौतिक-सत्यापन व approval-श्रृंखला पूरी हुए बिना आपका नाम ' +
+    'portal पर कभी नहीं दिखता (प्रदर्शन-नियम)।</div>' +
+    '</div>');
+
+const P_FM_EARN = (
+    '<div class="pcard panel" id="pnl-earn" data-nav="💰 कमाई-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">💰 कमाई-नियम</div>' +
+    '<div class="pd">आपकी कमाई <b>सिर्फ़ संस्था के कमीशन/मानदेय से</b> — उद्यमी से शून्य। ' +
+    'ACS-revenue का बँटवारा भविष्य में Founder तय करेंगे — तब यहीं दर्ज होगा।</div>' +
+    '<div class="pd"><b>भुगतान-चक्र:</b> भारत 7 कार्य-दिवस · अंतरराष्ट्रीय 10; hold ज़्यादा-से-ज़्यादा 60 दिन — ' +
+    'सूचना 48 घंटे के भीतर।</div>' +
+    '<span class="soon">कमीशन-खाता अगले दौर में</span>' +
+    '</div>');
+
+/* --- सिर्फ़ विक्रेता (vendor) --- */
+const P_VND_GOODS = (
+    '<div class="pcard panel" id="pnl-goods" data-nav="🧾 मेरी सेवाएँ/सामान" style="grid-column:1/-1">' +
+    '<div class="ph">🧾 मेरी सेवाएँ व सामान</div>' +
+    '<div class="pd">उद्यम खड़ा करने वाले को जो-जो चाहिए, वही आपका बाज़ार है — छह श्रेणियाँ: ' +
+    'यंत्र-बिक्री · कच्चा-माल · packaging · license/compliance-सहायता · marketing/branding · export-सहायता। ' +
+    'approval के बाद आपकी listing उद्यमी के "मेरे सहयोगी" पैनल में दिखेगी।</div>' +
+    '<span class="soon">listing-इंजन अगले दौर में</span>' +
+    '</div>');
+
+const P_VND_DEAL = (
+    '<div class="pcard panel" id="pnl-deal" data-nav="⚖️ लेन-देन-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">⚖️ लेन-देन का साफ़ नियम</div>' +
+    '<div class="pd">ACS मंच (platform) है — आपके और ख़रीदार के बीच किसी सौदे का पक्ष नहीं। ' +
+    'सौदे की राशि, guarantee, delivery, गुणवत्ता व विवाद — सबकी ज़िम्मेदारी सीधे विक्रेता-ख़रीदार की। ' +
+    '<b>ACS सौदे की राशि न लेगा, न रखेगा, न उसकी guarantee देगा।</b></div>' +
+    '<div class="pd">ईमानदार दाम और असली माल — यही आपकी और पूरे नेटवर्क की साख है।</div>' +
+    '</div>');
+
+/* --- साझा: सादा Verified Badge (vendor · finance-mitra — v1.7/v1.9 दर्ज slab) --- */
+const P_SIMPLE_BADGE = (
+    '<div class="pcard panel" id="pnl-badge" data-nav="✅ Verified Badge" style="grid-column:1/-1">' +
+    '<div class="ph">✅ Verified Badge (वैकल्पिक)</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · ' +
+    'महानगर (Metro) 1,000 रुपये। badge लेना आपकी मर्ज़ी — badge वाले को सूची में भरोसा व प्राथमिकता।</div>' +
+    '<div class="note">साफ़ समझ: badge सत्यापन का दरवाज़ा नहीं है — RM भौतिक-सत्यापन व approval-श्रृंखला ' +
+    'हर हाल में अनिवार्य व अलग चीज़ है; badge उसके बाद का अतिरिक्त भरोसा-चिह्न है। बाक़ी शर्तें नियम-पत्र में।</div>' +
+    '<button class="abtn ok" style="background:var(--blue)" disabled>✅ badge के लिए आवेदन</button> ' +
+    '<span class="soon">badge-इंजन अगले दौर में</span>' +
+    '</div>');
+
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
   return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST + P_HELP;
@@ -644,6 +760,35 @@ function employerPanels(){
 function foreignAgentPanels(){
   return P_FA_WORK + P_FA_LICENSE + P_FA_EARN + P_FA_JOBSEEKERS
        + P_RULES_LINK("rules-consent-foreign-agent.html","विदेश एजेंट (Foreign Agent)") + P_HELP;
+}
+function volunteerPanels(){
+  return P_VOL_SEVA + P_VOL_PATH + P_VOL_EARN
+       + P_RULES_LINK("rules-consent-volunteer.html","स्वयंसेवक (Volunteer)") + P_HELP;
+}
+function financeMitraPanels(){
+  return P_FM_BRIDGE + P_FM_ZERO + P_FM_AUTH + P_FM_EARN + P_SIMPLE_BADGE
+       + P_RULES_LINK("rules-consent-finance-mitra.html","वित्त मित्र (Finance Mitra)") + P_HELP;
+}
+function vendorPanels(){
+  return P_VND_GOODS + P_VND_DEAL + P_INST_VERIFY("") + P_SIMPLE_BADGE
+       + P_RULES_LINK("rules-consent-vendor.html","विक्रेता (Vendor)") + P_HELP;
+}
+/* चरण-6: role → पैनल-सेट का एक नक़्शा (dual-घर भी इसी से) */
+function rolePanels(key){
+  return key==="student" ? studentPanels()
+       : key==="jobseeker" ? jobseekerPanels()
+       : key==="entrepreneur" ? entrepreneurPanels()
+       : key==="teacher" ? teacherPanels()
+       : key==="ustad" ? ustadPanels()
+       : key==="center" ? centerPanels()
+       : key==="workshop" ? workshopPanels()
+       : key==="counselor" ? counselorPanels()
+       : key==="employer" ? employerPanels()
+       : key==="foreign_agent" ? foreignAgentPanels()
+       : key==="volunteer" ? volunteerPanels()
+       : key==="finance_mitra" ? financeMitraPanels()
+       : key==="vendor" ? vendorPanels()
+       : extraPanels(key);
 }
 
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
@@ -702,27 +847,21 @@ for(const [home, h] of homes){
     .split("{{EXT_ROLES_JSON}}").join(JSON.stringify(h.ext||[]))
     .split("{{ROLE_LABEL}}").join(h.roleLabel || h.extLabel || mainLabel)
     .split("{{HOME}}").join(home)
-    .split("{{P1_NOTE}}").join(isTeam ? p1Note(h.keys) : "")
-    .split("{{STATUS_PANEL}}").join(isTeam ? "" : statusPanel(h.keys[0]))
-    .split("{{EXTRA_PANELS}}").join(isTeam ? "" :
-      (h.keys[0]==="student" ? studentPanels()
-       : h.keys[0]==="jobseeker" ? jobseekerPanels()
-       : h.keys[0]==="entrepreneur" ? entrepreneurPanels()
-       : h.keys[0]==="teacher" ? teacherPanels()
-       : h.keys[0]==="ustad" ? ustadPanels()
-       : h.keys[0]==="center" ? centerPanels()
-       : h.keys[0]==="workshop" ? workshopPanels()
-       : h.keys[0]==="counselor" ? counselorPanels()
-       : h.keys[0]==="employer" ? employerPanels()
-       : h.keys[0]==="foreign_agent" ? foreignAgentPanels()
-       : extraPanels(h.keys[0])));
+    .split("{{P1_NOTE}}").join(isTeam ? p1Note(h.keys) : "");
+  /* v1.9 dual-नियम: external-पैनल की चाबी — dual-घर पर h.ext[0], वरना बाहरी-कार्ड की key */
+  const extKey = (h.ext && h.ext[0]) ? h.ext[0] : (isTeam ? null : h.keys[0]);
+  const out2 = out
+    .split("{{STATUS_PANEL}}").join(extKey ? statusPanel(extKey) : "")
+    .split("{{EXTRA_PANELS}}").join(extKey ? rolePanels(extKey) : "");
 
   /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
-     dashboard.js runtime-gate if(MODE==="team") से ख़ुद सँभालता है) */
-  let final = out;
-  if(isTeam){
+     dashboard.js runtime-gate if(MODE==="team") से ख़ुद सँभालता है)
+     v1.9 dual-नियम: dual-घर (h.ext) पर दोनों block रहें — काम-सूची boot-रास्ते
+     से छनती है (dashboard.js v4.3 initNav-filter)। */
+  let final = out2;
+  if(isTeam && !h.ext){
     final = final.replace(/<!--EXTERNAL_ONLY_START-->[\s\S]*?<!--EXTERNAL_ONLY_END-->/,"");
-  } else {
+  } else if(!isTeam){
     final = final.replace(/<!--TEAM_ONLY_START-->[\s\S]*?<!--TEAM_ONLY_END-->/,"");
   }
 
@@ -756,4 +895,4 @@ for(const sp of SPECIALS){
 console.log("घर | mode | allowed | bytes");
 made.sort((a,b)=>a.home.localeCompare(b.home));
 for(const m of made) console.log(m.home+" | "+m.mode+" | "+m.allowed+" | "+m.bytes);
-console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.8 · "+STAMP);
+console.log("\n✅ कुल "+made.length+" पेज बने (31 dashboards + join + login) — generator v1.9 · "+STAMP);

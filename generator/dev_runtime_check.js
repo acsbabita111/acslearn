@@ -1,5 +1,7 @@
 /* ============================================================
    dev_runtime_check.js — dashboard.js का runtime-परीक्षा-यंत्र (dev-tool)
+   v1.2 · 16-Jul-2026 (काम-6 चरण-6) — + नक़ली पैनल-DOM व dual-घर (volunteer)
+          की दोनों-दिशा परीक्षाएँ: ext-boot में team-पैनल छिपें, team-boot में सेवा-पैनल
    v1.1 · 16-Jul-2026 (काम-6 चरण-2) — + jobseeker व entrepreneur boot-परीक्षाएँ
    v1.0 · 16-Jul-2026 (काम-6 चरण-1)
    ------------------------------------------------------------
@@ -39,15 +41,23 @@ function makeEl(id){
   return el;
 }
 const ELS = {};
+let CUR_PANELS = [];
+function makePanel(id, nav){
+  const el = makeEl(id); el.id = id; el._attrs = {"data-nav": nav};
+  el.getAttribute = (k)=> (el._attrs && el._attrs[k]) || null;
+  ELS[id] = el; return el;
+}
 const doc = {
   getElementById:(id)=>{ if(!ELS[id]) ELS[id]=makeEl(id); return ELS[id]; },
-  querySelectorAll:()=>[], addEventListener:()=>{},
+  querySelectorAll:(sel)=> (sel===".panel" ? CUR_PANELS : []),
+  addEventListener:()=>{},
   createElement:(tag)=>{ const e=makeEl("_"+tag+Math.random()); e._tag=tag; return e; },
   body: makeEl("_body")
 };
 
 function freshSandbox(cfg, fakes){
   for(const k of Object.keys(ELS)) delete ELS[k];
+  CUR_PANELS = (fakes.panels||[]).map(p=>makePanel(p[0], p[1]));
   let authCb = null;
   const sandbox = {
     console, setTimeout, clearTimeout,
@@ -74,8 +84,10 @@ function freshSandbox(cfg, fakes){
   sandbox.window.ACS_DASH = cfg;
   sandbox.window.ACS_DESIGNATIONS = {
     teams:[{key:"hq_admin",label:"Admin (प्रशासन)",public_label:"Admin (प्रशासन)",level:"hq"},
+           {key:"rm_volunteer",label:"स्वयंसेवक",public_label:"स्वयंसेवक",level:"rm"},
            {key:"founder",label:"Founder",public_label:"Founder"}],
-    cards:[{key:"student",label:"कोचिंग-प्रशिक्षु",public_label:"कोचिंग-प्रशिक्षु"}]
+    cards:[{key:"student",label:"कोचिंग-प्रशिक्षु",public_label:"कोचिंग-प्रशिक्षु"},
+           {key:"volunteer",label:"स्वयंसेवक (Volunteer)",public_label:"स्वयंसेवक (Volunteer)"}]
   };
   vm.createContext(sandbox);
   vm.runInContext(body, sandbox, { filename:"dashboard.js(stubbed)" });
@@ -165,6 +177,50 @@ const E = (id)=>doc.getElementById(id);
     check("vendor: appView खुला", !E("appView")._cls["hidden"]);
     check("vendor: provisional-पर्दा है (g2 यथावत)", !!E("provBar")._cls["on"]);
     check("vendor: pill में 'अस्थायी' है (g2 यथावत)", E("desigPill").textContent.indexOf("अस्थायी")>-1);
+  }
+
+  /* ═ परीक्षा-4: dual-घर (volunteer) — external-boot: team-पैनल काम-सूची से बाहर ═ */
+  const DUAL_PANELS = [
+    ["pnl-profile","👤 मेरी प्रोफ़ाइल"],["pnl-apps","📥 आवेदन-पैनल"],["pnl-exo","🧭 पदेन-प्रभार"],
+    ["pnl-team","👥 टीम-पैनल"],["pnl-tasks","🗂️ काम-पैनल"],["pnl-reports","📊 रिपोर्ट-चक्र"],
+    ["pnl-status","🛤️ approval-स्थिति"],["pnl-seva","🤝 मेरा सेवा-काम"],
+    ["pnl-volpath","🛤️ आगे का रास्ता"],["pnl-earn","💰 कमाई-नियम"]
+  ];
+  const DUAL_CFG = { mode:"team", allowed:["rm_volunteer","founder"], extRoles:["volunteer"],
+                     roleLabel:"स्वयंसेवक (Volunteer)", home:"/dashboard/volunteer/" };
+  {
+    const t = freshSandbox(DUAL_CFG,
+      { panels: DUAL_PANELS,
+        lists:{ registrations:[{ authUid:"u6", role:"volunteer", status:"provisional",
+          name_local:"टेस्ट स्वयंसेवक", regNo:"ACS-T-006", country:"India", state:"Bihar",
+          email:"vo@x", documents:{} }] } }  /* teams-doc अनुपस्थित → external-fallback */
+    );
+    await t.fire({ uid:"u6", email:"vo@x" });
+    await sleep(20);
+    const navTexts = E("sideNav").children.map(c=>c.textContent);
+    check("volunteer-ext: appView खुला (dual fallback)", !E("appView")._cls["hidden"]);
+    check("volunteer-ext: provisional-पर्दा है (g2)", !!E("provBar")._cls["on"]);
+    check("volunteer-ext: काम-सूची में सेवा-पैनल", navTexts.indexOf("🤝 मेरा सेवा-काम")>-1);
+    check("volunteer-ext: team-पैनल छिपे", navTexts.indexOf("👥 टीम-पैनल")===-1 && navTexts.indexOf("📥 आवेदन-पैनल")===-1);
+  }
+
+  /* ═ परीक्षा-5: dual-घर — team-boot (rm_volunteer active): external-पैनल छिपें ═ */
+  {
+    const t = freshSandbox(DUAL_CFG,
+      { panels: DUAL_PANELS,
+        docs:{ teams:{ designation:"rm_volunteer", active:true, name_local:"टेस्ट टीम-स्वयंसेवक",
+          level:"rm", country:"India", state:"Bihar", region:["Khagaria"], email:"vt@x" } },
+        lists:{ registrations:[{ authUid:"u7", role:"volunteer", status:"approved",
+          regNo:"ACS-T-007", documents:{} }] } }
+    );
+    await t.fire({ uid:"u7", email:"vt@x" });
+    await sleep(20);
+    const navTexts = E("sideNav").children.map(c=>c.textContent);
+    check("volunteer-team: appView खुला", !E("appView")._cls["hidden"]);
+    check("volunteer-team: pill में 'अस्थायी' नहीं (active)", E("desigPill").textContent.indexOf("अस्थायी")===-1);
+    check("volunteer-team: काम-सूची में team-पैनल", navTexts.indexOf("👥 टीम-पैनल")>-1 && navTexts.indexOf("🗂️ काम-पैनल")>-1);
+    check("volunteer-team: सेवा-पैनल छिपे", navTexts.indexOf("🤝 मेरा सेवा-काम")===-1);
+    check("volunteer-team: प्रोफ़ाइल दोनों में", navTexts.indexOf("👤 मेरी प्रोफ़ाइल")>-1);
   }
 
   console.log(fails===0 ? "\n🏁 runtime-परीक्षा: सब पास ✅" : "\n🏁 runtime-परीक्षा: "+fails+" विफल ❌");
