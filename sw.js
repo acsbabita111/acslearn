@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v41';                 // ← (v41: 16-Jul-2026 — काम-6 चरण-6: dashboard.js v4.3 dual-नियम initNav-filter + volunteer/finance-mitra/vendor पैनल। v38 = v2.3 के लंबित निकास-zip का — छोड़ा)
+const CACHE_VERSION = 'v42';                 // ← (v42: 16-Jul-2026 — काम-कोर्स-2: कोर्स-कड़ी patch (courses_data/udyam_data) + वेल्डिंग पाठ 3-10)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
