@@ -470,7 +470,16 @@ function renderTab(tab) {
 
 window.openCourse = function(id, type) {
   if(type === 'online') {
-    window.location.href = '/courses/hi/' + id.toLowerCase() + '/';
+    /* url-नियम (Addendum v2.4): बटन सिर्फ़ url से खुले — मरा पता कभी नहीं */
+    const all = [].concat(
+      typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
+      typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : [],
+      typeof LOCAL_JOB_COURSES !== 'undefined' ? LOCAL_JOB_COURSES : [],
+      typeof GOVT_JOB_COURSES !== 'undefined' ? GOVT_JOB_COURSES : []
+    );
+    const c = all.find(x => x.id === id);
+    if(c && c.url){ window.location.href = c.url; }
+    else { showToast('इस कोर्स के पाठ जल्द जुड़ेंगे — तैयार होते ही यहीं खुलेंगे।'); }
   } else {
     window.location.href = '/join.html';
   }
