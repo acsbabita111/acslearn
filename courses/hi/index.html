@@ -439,6 +439,8 @@ function renderTab(tab) {
     return;
   }
 
+  /* गोल-bracket नियम: data के [ ] प्रदर्शन में ( ) — udyam-grid जैसा (सुधार-2, 17-Jul-2026) */
+  const fx = s => String(s).replace(/\[/g,'(').replace(/\]/g,')');
   grid.innerHTML = filtered.map(c => {
     const eduNames = c.edu ? c.edu.map(e => {
       const found = typeof EDU_LEVELS !== 'undefined' ? EDU_LEVELS.find(l=>l.id===e) : null;
@@ -451,13 +453,13 @@ function renderTab(tab) {
         <span class="cc-id">${c.id}</span>
         <span class="cc-free">✅ Online Free</span>
       </div>
-      <div class="cc-name">${c.name_hi}</div>
+      <div class="cc-name">${fx(c.name_hi)}</div>
       <div class="cc-meta">
-        ${c.duration ? `<span class="cc-tag tag-duration">⏱ ${c.duration}</span>` : ''}
+        ${c.duration ? `<span class="cc-tag tag-duration">⏱ ${fx(c.duration)}</span>` : ''}
         ${c.lessons ? `<span class="cc-tag tag-lessons">📖 ${c.lessons} पाठ</span>` : ''}
-        ${c.level ? `<span class="cc-tag tag-level">📊 ${c.level}</span>` : ''}
-        ${c.salary ? `<span class="cc-tag tag-salary">💰 ${c.salary}</span>` : ''}
-        ${c.exam ? `<span class="cc-tag tag-level">📝 ${c.exam}</span>` : ''}
+        ${c.level ? `<span class="cc-tag tag-level">📊 ${fx(c.level)}</span>` : ''}
+        ${c.salary ? `<span class="cc-tag tag-salary">💰 ${fx(c.salary)}</span>` : ''}
+        ${c.exam ? `<span class="cc-tag tag-level">📝 ${fx(c.exam)}</span>` : ''}
       </div>
       ${eduNames ? `<div style="font-size:16px;color:var(--gray);margin-bottom:10px">🎓 ${eduNames}</div>` : ''}
       <div class="cc-btns">
