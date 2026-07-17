@@ -85,6 +85,8 @@ function checkRobot(course, l, contentHtml){
 }
 
 /* ---------- पाठ का content-HTML ---------- */
+function PART(num){ return WELDING_COURSE.parts.find(p => num >= p.from && num <= p.to) || WELDING_COURSE.parts[WELDING_COURSE.parts.length-1]; }
+
 function lessonBody(course, l, prevFile, nextFile){
   const secs = l.sections.map(s =>
     '<section class="lsn-sec">\n<h2>' + s.t + "</h2>\n" + s.h.trim() + "\n</section>"
@@ -100,7 +102,7 @@ function lessonBody(course, l, prevFile, nextFile){
   return '\n<article class="lsn-wrap">\n' +
     '<header class="lsn-head">\n' +
     '<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ' + course.title + " › " +
-      "हिस्सा-" + course.part.no + ": " + course.part.name + "</p>\n" +
+      "हिस्सा-" + PART(l.num).no + ": " + PART(l.num).name + "</p>\n" +
     "<h1>पाठ-" + l.num + ": " + l.title + "</h1>\n" +
     '<p class="lsn-meta">पढ़ाई का समय: ' + l.minutes + " मिनट · पाठ " + l.num + " / " +
       course.totalLessons + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
@@ -170,10 +172,22 @@ function buildCourseIndex(course, lessons){
     "<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.1 · 16-Jul-2026) —\n" +
     "     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->";
 
-  const items = lessons.map(l =>
-    '<li class="ci-item"><a href="' + fileName(course, l) + '">पाठ-' + l.num + ": " + l.title +
-    '</a><span class="ci-min">' + l.minutes + " मिनट</span></li>"
-  ).join("\n");
+  function partBlock(pt){
+    const inPart = lessons.filter(l => l.num >= pt.from && l.num <= pt.to);
+    if (!inPart.length) return "";
+    const items = inPart.map(l =>
+      '<li class="ci-item"><a href="' + fileName(course, l) + '">पाठ-' + l.num + ": " + l.title +
+      '</a><span class="ci-min">' + l.minutes + " मिनट</span></li>"
+    ).join("\n");
+    const last = inPart[inPart.length - 1].num;
+    const soon = (last < pt.to)
+      ? '<p class="ci-soon">पाठ ' + (last + 1) + "-" + pt.to + " — जल्द जुड़ेंगे।</p>"
+      : '<p class="ci-soon">हिस्सा-' + pt.no + " (पाठ " + pt.from + "-" + pt.to + ") पूरा ✅</p>";
+    return '<section class="lsn-sec">\n<h2>हिस्सा-' + pt.no + ": " + pt.name +
+      " (पाठ " + pt.from + "-" + pt.to + ")</h2>\n" +
+      '<ul class="ci-list">\n' + items + "\n</ul>\n" + soon + "\n</section>\n\n";
+  }
+  const partSections = course.parts.map(partBlock).join("");
 
   const body = '\n<article class="lsn-wrap ci-wrap">\n' +
     '<header class="lsn-head">\n' +
@@ -184,16 +198,9 @@ function buildCourseIndex(course, lessons){
     '<section class="lsn-sec">\n<h2>यह कोर्स किसके लिए है</h2>\n' +
     "<p>यह कोर्स उनके लिए है जो वेल्डिंग का हुनर सीखकर कमाना चाहते हैं — चाहे किसी दुकान में वेल्डर सहायक बनकर, चाहे आगे चलकर अपनी वेल्डिंग दुकान खोलकर। पढ़ने के लिए कक्षा-6 तक की हिंदी काफ़ी है। कोई भी पाठ खोलिए, पढ़िए, और अपनी वेल्डिंग डायरी बनाते चलिए।</p>\n" +
     "<p>पढ़ाई का रास्ता सीधा है — <b>पहले यहाँ मुफ़्त पढ़ो</b>, फिर मन पक्का हो तो आगे प्रवेश-टेस्ट देकर नज़दीकी वर्कशॉप में हाथ का अभ्यास, और अभ्यास के बाद परीक्षा से प्रमाण पत्र। टेस्ट, वर्कशॉप और परीक्षा की जानकारी समय आने पर यहीं जुड़ेगी — पढ़ाई के लिए आज किसी चीज़ का इंतज़ार नहीं।</p>\n</section>\n\n" +
-    '<section class="lsn-sec">\n<h2>हिस्सा-' + course.part.no + ": " + course.part.name +
-      " (पाठ 1-20)</h2>\n" +
-    "<p>हुनर से पहले हिफ़ाज़त — पहले बीस पाठ आपके शरीर और आपकी जगह की सुरक्षा के हैं। अभी " +
-      lessons.length + " पाठ तैयार हैं; बाक़ी जुड़ते जा रहे हैं।</p>\n" +
-    '<ul class="ci-list">\n' + items + "\n</ul>\n" +
-    (lessons.length < 20
-      ? '<p class="ci-soon">पाठ ' + (lessons.length + 1) + "-20 — जल्द जुड़ेंगे।</p>"
-      : '<p class="ci-soon">हिस्सा-1 (पाठ 1-20) पूरा — बधाई! अब हिस्सा-2 की तैयारी चल रही है।</p>') + "\n</section>\n\n" +
+    partSections +
     '<section class="lsn-sec">\n<h2>आगे के हिस्से</h2>\n' +
-    "<p>पूरा कोर्स " + course.totalLessons + " पाठों का है, आठ हिस्सों में। हिस्सा-2 (यंत्रों की पहचान) की तैयारी चल रही है — हर नया पाठ तैयार होते ही यहीं जुड़ता है। जो पाठ अभी नहीं बना, उसका झूठा बटन यहाँ कभी नहीं मिलेगा।</p>\n</section>\n\n" +
+    "<p>पूरा कोर्स " + course.totalLessons + " पाठों का है, आठ हिस्सों में — हर नया पाठ तैयार होते ही यहीं जुड़ता है। जो पाठ अभी नहीं बना, उसका झूठा बटन यहाँ कभी नहीं मिलेगा।</p>\n</section>\n\n" +
     '<nav class="lsn-nav"><a class="lsn-navbtn lsn-next" href="' +
       fileName(course, lessons[0]) + '">पाठ-1 से शुरू करें →</a></nav>\n' +
     "</article>\n";
