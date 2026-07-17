@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 15-Jul-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>वेल्डिंग बिजली का हिसाब पाठ-46 — मीटर लोड और मासिक खर्च की गणना | Welding Electricity Bill Calculation</title>
+<meta name="description" content="वेल्डिंग मशीन कितना बिजली बिल खाती है? केवीए (KVA) और किलोवाट (KW) का गणित, घरेलू बनाम व्यावसायिक कनेक्शन और बिजली बचाने के आसान देसी तरीके सरल हिंदी में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/welding/wld-046-bijli-ka-hisab-meter-load.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="वेल्डिंग बिजली का हिसाब पाठ-46 — मीटर लोड और मासिक खर्च की गणना | Welding Electricity Bill Calculation">
+<meta property="og:description" content="वेल्डिंग मशीन कितना बिजली बिल खाती है? केवीए (KVA) और किलोवाट (KW) का गणित, घरेलू बनाम व्यावसायिक कनेक्शन और बिजली बचाने के आसान देसी तरीके सरल हिंदी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/welding/wld-046-bijli-ka-hisab-meter-load.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-46: बिजली का हिसाब — मीटर, लोड और ख़र्च","description":"वेल्डिंग मशीन कितना बिजली बिल खाती है? केवीए (KVA) और किलोवाट (KW) का गणित, घरेलू बनाम व्यावसायिक कनेक्शन और बिजली बचाने के आसान देसी तरीके सरल हिंदी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/welding/wld-046-bijli-ka-hisab-meter-load.html","isPartOf":{"@type":"Course","name":"वेल्डिंग (Welding) कोर्स","description":"धातु जोड़ने का हुनर — कुशल कर्मी बनने की सीढ़ी","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"वेल्डिंग (Welding) कोर्स","item":"https://acslearn.com/courses/hi/welding/"},{"@type":"ListItem","position":4,"name":"पाठ-46: बिजली का हिसाब — मीटर, लोड और ख़र्च","item":"https://acslearn.com/courses/hi/welding/wld-046-bijli-ka-hisab-meter-load.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › वेल्डिंग (Welding) कोर्स › हिस्सा-2: यंत्रों की पहचान</p>
+<h1>पाठ-46: बिजली का हिसाब — मीटर, लोड और ख़र्च</h1>
+<p class="lsn-meta">पढ़ाई का समय: 12-14 मिनट · पाठ 46 / 300 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/welding/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="wld-001-aankh-ki-suraksha.html">पाठ-1</a> <a href="wld-002-helmet-aapki-dhaal.html">पाठ-2</a> <a href="wld-003-tvacha-bhi-jalti-hai.html">पाठ-3</a> <a href="wld-004-dastane-aur-jute.html">पाठ-4</a> <a href="wld-005-chingari-aur-aag.html">पाठ-5</a> <a href="wld-006-bijli-ka-jhatka.html">पाठ-6</a> <a href="wld-007-dhuan-aur-saans.html">पाठ-7</a> <a href="wld-008-saaf-jagah-surakshit-jagah.html">पाठ-8</a> <a href="wld-009-gas-cylinder-ki-savdhani.html">पाठ-9</a> <a href="wld-010-aapat-sthiti-pahla-ilaj.html">पाठ-10</a> <a href="wld-011-earthing-zameen-ka-taar.html">पाठ-11</a> <a href="wld-012-shor-se-kaan-ki-raksha.html">पाठ-12</a> <a href="wld-013-bhari-saman-uthane-ka-tarika.html">पाठ-13</a> <a href="wld-014-thakan-ka-niyam.html">पाठ-14</a> <a href="wld-015-roshni-aur-hawa.html">पाठ-15</a> <a href="wld-016-band-tang-jagah-ka-niyam.html">पाठ-16</a> <a href="wld-017-unchai-par-welding.html">पाठ-17</a> <a href="wld-018-roz-ki-5-minute-janch.html">पाठ-18</a> <a href="wld-019-suraksha-chihn-ki-bhasha.html">पाठ-19</a> <a href="wld-020-suraksha-ki-aadat-ganth.html">पाठ-20</a> <a href="wld-021-machine-ke-do-parivar.html">पाठ-21</a> <a href="wld-022-naam-patti-padhna.html">पाठ-22</a> <a href="wld-023-holder-haath-milap.html">पाठ-23</a> <a href="wld-024-earth-clamp-bhula-bhai.html">पाठ-24</a> <a href="wld-025-cable-machine-ki-nasein.html">पाठ-25</a> <a href="wld-026-electrode-number-bolte-hain.html">पाठ-26</a> <a href="wld-027-chipping-hathauda-tar-brush.html">पाठ-27</a> <a href="wld-028-grinder-tez-dost-tez-khatra.html">पाठ-28</a> <a href="wld-029-napne-nishan-ke-auzar.html">पाठ-29</a> <a href="wld-030-kharidari-ki-samajh.html">पाठ-30</a> <a href="wld-031-auto-darkening-helmet-parakh.html">पाठ-31</a> <a href="wld-032-machine-button-ghundi-current.html">पाठ-32</a> <a href="wld-033-ac-dc-bijli-do-mizaj.html">पाठ-33</a> <a href="wld-034-gas-welding-set-pehchan.html">पाठ-34</a> <a href="wld-035-regulator-gauge-padhna.html">पाठ-35</a> <a href="wld-036-lau-ki-pehchan-teen-tarah.html">पाठ-36</a> <a href="wld-037-gas-cutting-torch-parichay.html">पाठ-37</a> <a href="wld-038-mig-machine-pehla-parichay.html">पाठ-38</a> <a href="wld-039-tig-machine-pehla-parichay.html">पाठ-39</a> <a href="wld-040-kaun-si-welding-kahan-tulna.html">पाठ-40</a> <a href="wld-041-machine-chhoti-dekhbhal.html">पाठ-41</a> <a href="wld-042-cable-holder-gharelu-marammat.html">पाठ-42</a> <a href="wld-043-machine-aam-rog-ilaj.html">पाठ-43</a> <a href="wld-044-kab-mistri-bulayen.html">पाठ-44</a> <a href="wld-045-auzar-peti-sajana.html">पाठ-45</a> <span class="lsn-jumpcur">पाठ-46 (यही)</span> <a href="wld-047-generator-par-welding.html">पाठ-47</a> <a href="wld-048-kiraye-ke-auzar.html">पाठ-48</a> <a href="wld-049-nakli-asli-saman-pehchan.html">पाठ-49</a> <a href="wld-050-yantra-gyan-ki-ganth.html">पाठ-50</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>पाठ परिचय</h2>
+<p>पाठ-22 में हमने मशीन की नाम-पट्टी (Nameplate) पर लिखे केवीए (KVA) को पढ़ना सीखा था, और पाठ-21 में जाना था कि इन्वर्टर (Inverter) वेल्डिंग मशीन ट्रांसफार्मर (Transformer) के मुक़ाबले कम बिजली खाती है। लेकिन क्या आपने कभी सोचा है कि जब आप दुकान में वेल्डिंग की छड़ (Welding Rod) पिघला रहे होते हैं, तो सिर्फ़ छड़ और लोहा ही नहीं घिस रहा होता? आपके पीछे दीवार पर टंगा बिजली का मीटर (Meter) भी उतनी ही तेज़ी से घूम रहा होता है!</p>
+<p>बहुत से वेल्डर भाई इस बिजली के गुपचुप ख़र्च को समझ नहीं पाते। वे सोचते हैं कि लोहे और छड़ का दाम जोड़ लिया, तो मुनाफ़ा पक्का हो गया। लेकिन जब महीने के अंत में बिजली का बिल आता है, तो उनके पैरों तले ज़मीन खिसक जाती है। वेल्डिंग का काम करने वाले हर कारीगर को यह हिसाब जानना ही चाहिए, नहीं तो वह ग्राहक को काम का भाव (Quotation) बताते समय अनजाने में अपनी ही जेब काट बैठता है। आज हम इसी बिजली के मीटर, लोड और ख़र्च का पूरा कच्चा-चिट्ठा खोलेंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सीखने का उद्देश्य</h2>
+<p>इस पाठ को पूरा पढ़ने के बाद आप तीन ज़रूरी बातें सीख जाएँगे:</p>
+<p>1. मशीन की बिजली खाने की भूख यानी लोड (Load) को समझना और उसे अपने मीटर के मंज़ूर लोड (Sanctioned Load) से मिलाना।<br>
+2. घरेलू (Domestic) और व्यावसायिक (Commercial) कनेक्शन का फ़र्क और सही श्रेणी (Category) चुनने का फ़ायदा जानना।<br>
+3. अपनी मशीन और रोज़ के काम के घंटों से महीने की यूनिट (Unit) और ख़र्च का मोटा हिसाब ख़ुद निकालना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात — मशीन की भूख और मीटर का लोड</h2>
+<p>बिजली के इस पूरे खेल को समझने के लिए हमें पाँच मुख्य बातों पर ध्यान देना होगा:</p>
+<p><b>1. मशीन की भूख और मंज़ूर लोड (Sanctioned Load)</b><br>
+हर वेल्डिंग मशीन की बिजली खाने की अपनी एक क्षमता होती है, जिसे हम मशीन की 'भूख' कह सकते हैं। पाठ-22 में हमने देखा था कि यह मशीन की नाम-पट्टी (Nameplate) पर केवीए (KVA) या किलोवाट (KW) के रूप में लिखी होती है। अब मान लीजिए आपकी मशीन की भूख 5 किलोवाट की है, लेकिन आपके घर या दुकान के मीटर का मंज़ूर लोड (Sanctioned Load) — यानी बिजली दफ़्तर से मिली आधिकारिक अनुमति — सिर्फ़ 2 किलोवाट की है।</p>
+<p>यहाँ भारी गड़बड़ होगी! जब आप बड़ी भूख वाली मशीन को छोटे लोड वाले मीटर पर चलाएँगे, तो मीटर पर क्षमता से ज़्यादा बोझ पड़ेगा। इसका नतीजा यह होगा कि आपकी सुरक्षा के लिए लगा एमसीबी (MCB) बार-बार गिरेगा, बिजली के तार गरम होकर पिघलने लगेंगे (जैसा हमने पाठ-6 के तार-सुरक्षा नियमों में पढ़ा था), और वोल्टेज बार-बार ऊपर-नीचे होगा। इसलिए, मशीन चलाने से पहले मीटर का लोड बढ़वाना बेहद ज़रूरी है।</p>
+<p><b>2. घरेलू बनाम व्यावसायिक कनेक्शन (Domestic vs Commercial Connection)</b><br>
+घर की बिजली और दुकान की बिजली में क़ानूनी और पैसों का बड़ा फ़र्क होता है। घरेलू कनेक्शन (Domestic Connection) सिर्फ़ पंखे, टीवी और रसोई के सामान के लिए होता है। यदि आप घर के मीटर पर वेल्डिंग की दुकान खोलकर बैठ जाएँगे, तो यह क़ानूनी रूप से अपराध है। बिजली विभाग की जाँच में पकड़े जाने पर भारी जुर्माना देना पड़ सकता है।</p>
+<p>व्यावसायिक कनेक्शन (Commercial Connection) धंधे के लिए ही बना होता है। अलग-अलग राज्यों और इलाक़ों में इसकी दरें (Rates) और नियम बदलते रहते हैं। इसलिए, हमेशा अपने स्थानीय बिजली-दफ़्तर (Electricity Office) में जाकर ताज़ा दरों की जानकारी लें और अपनी दुकान को सही श्रेणी (Category) में दर्ज करवाएँ। सही श्रेणी में काम करना आपको क़ानूनी झंझटों से बचाता है।</p>
+<p><b>3. बिजली ख़र्च का गणित (Unit Calculation)</b><br>
+बिजली का बिल 'यूनिट' (Unit) में आता है। एक यूनिट का मतलब होता है 1 किलोवाट (KW) के उपकरण का 1 घंटे तक चलना। इसका सीधा सूत्र है:<br>
+<b>यूनिट = खपत (KW) × घंटे (Hours)</b></p>
+<p>अगर आपकी मशीन 3 किलोवाट की है और आप उसे दिन भर में कुल मिलाकर 4 घंटे चलाते हैं, तो एक दिन की यूनिट हुई: 3 × 4 = 12 यूनिट। महीने भर (25 दिन काम) का हिसाब लगाएँ तो: 12 × 25 = 300 यूनिट। अब इसे अपने इलाक़े की व्यावसायिक दर (मान लीजिए 8 रुपये प्रति यूनिट) से गुणा कर दीजिए, तो महीने का ख़र्च आ जाएगा: 300 × 8 = 2400 रुपये। यह गुणा-भाग हर वेल्डर को अपने काम का भाव तय करते समय जोड़ना चाहिए।</p>
+<p><b>4. सही ढाँचा और तार (Infrastructure and Wiring)</b><br>
+मशीन तक बिजली पहुँचाने वाले तार का सही होना बहुत ज़रूरी है। अगर आप पतले तार का इस्तेमाल करेंगे, तो तार के भीतर रुकावट (Resistance) बढ़ेगी। इससे तार गरम होगा और बिजली बिना काम किए ही गर्मी बनकर उड़ जाएगी, जिससे बिल ज़्यादा आएगा। हमेशा मशीन के लोड के हिसाब से मोटा और सही तार चुनें, अपना अलग एमसीबी (MCB) लगाएँ, और पाठ-11 के अनुसार पक्की अर्थिंग (Earthing) रखें।</p>
+<p><b>5. बचत की असली घुंडी (Saving Tricks)</b><br>
+बिजली बचाने के तीन अचूक देसी तरीक़े हैं:<br>
+पहला, पाठ-21 के अनुसार इन्वर्टर (Inverter) वेल्डिंग मशीन का उपयोग करें, क्योंकि यह पुरानी ट्रांसफार्मर मशीन से लगभग आधी बिजली खाती है।<br>
+दूसरा, काम ख़त्म होते ही मशीन को बंद करने की आदत डालें। कई कारीगर वेल्डिंग करने के बाद मशीन को घंटों 'ऑन' (ON) छोड़ देते हैं। भले ही वेल्डिंग न हो रही हो, मशीन चालू रहने पर भी बिजली पीती रहती है।<br>
+तीसरा, हमेशा काम के हिसाब से सही करंट (Current) सेट करें। ज़रूरत से ज़्यादा करंट रखने पर बिजली की यूनिट भी ज़्यादा उठती है और लोहा भी जल जाता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चित्र से समझिए</h2>
+<figure class="lsn-fig">
+<svg viewBox="0 0 380 430" role="img" aria-label="मीटर से मशीन तक का सुरक्षित और सही बिजली मार्ग जिसमें एमसीबी, मोटा तार, वेल्डिंग मशीन और अर्थिंग दिखाई गई है" xmlns="http://www.w3.org/2000/svg">
+<title>मीटर से मशीन तक का सही बिजली मार्ग</title>
+<style>.dt{font:600 17px 'Noto Sans Devanagari',sans-serif;fill:#0B1F3A}.ds{font:400 16px 'Noto Sans Devanagari',sans-serif;fill:#1565C0}</style>
+<text class="dt" x="190" y="30" text-anchor="middle">सही बिजली मार्ग = कम ख़र्च, सुरक्षा</text>
+
+<!-- Meter Box -->
+<rect x="30" y="70" width="110" height="75" rx="6" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2.5"/>
+<text class="dt" x="85" y="100" text-anchor="middle">बिजली मीटर</text>
+<text class="ds" x="85" y="125" text-anchor="middle">मंज़ूर लोड</text>
+
+<!-- Arrow/Wire from Meter to MCB -->
+<line x1="140" y1="105" x2="210" y2="105" stroke="#C62828" stroke-width="3.5"/>
+<polygon points="210,105 200,100 200,110" fill="#C62828"/>
+
+<!-- MCB Box -->
+<rect x="210" y="70" width="130" height="75" rx="6" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2.5"/>
+<text class="dt" x="275" y="100" text-anchor="middle">सुरक्षा MCB</text>
+<text class="ds" x="275" y="125" text-anchor="middle">सही क्षमता</text>
+
+<!-- Wire from MCB to Machine -->
+<path d="M 275 145 L 275 190 L 220 190" fill="none" stroke="#0B1F3A" stroke-width="4"/>
+<text class="ds" x="285" y="175" text-anchor="start">मोटा तार</text>
+
+<!-- Machine Box -->
+<rect x="60" y="190" width="160" height="90" rx="8" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2.5"/>
+<text class="dt" x="140" y="225" text-anchor="middle">वेल्डिंग मशीन</text>
+<text class="ds" x="140" y="250" text-anchor="middle">इन्वर्टर (कम भूख)</text>
+
+<!-- Earthing Connection from Machine -->
+<line x1="140" y1="280" x2="140" y2="310" stroke="#2E7D32" stroke-width="3"/>
+<!-- Earth Symbol -->
+<line x1="120" y1="310" x2="160" y2="310" stroke="#2E7D32" stroke-width="3"/>
+<line x1="128" y1="317" x2="152" y2="317" stroke="#2E7D32" stroke-width="2.5"/>
+<line x1="135" y1="324" x2="145" y2="324" stroke="#2E7D32" stroke-width="2"/>
+<text class="ds" x="170" y="322" text-anchor="start">पक्की अर्थिंग</text>
+
+<!-- Formula Box -->
+<rect x="30" y="345" width="320" height="65" rx="6" fill="#F5F7FA" stroke="#F9A825" stroke-width="2.5"/>
+<text class="dt" x="190" y="372" text-anchor="middle">यूनिट (Unit) = किलोवाट (KW) × घंटे</text>
+<text class="ds" x="190" y="397" text-anchor="middle">मासिक ख़र्च = कुल यूनिट × स्थानीय दर</text>
+</svg>
+<figcaption>सुरक्षित बिजली मार्ग का ढाँचा: मीटर से मशीन तक का सही सफ़र और बिजली बिल की गणितीय बुनियाद।</figcaption>
+</figure>
+</section>
+
+<section class="lsn-sec">
+<h2>आसान भाषा में समझिए</h2>
+<p>इसे अपने गाँव की <b>आटा-चक्की (Flour Mill)</b> से समझिए। चक्की चलाने वाला आपसे पिसाई का भाव तय करते समय सिर्फ़ अपनी मेहनत का पैसा नहीं जोड़ता। वह बहुत ध्यान से देखता है कि एक बोरी गेहूँ पीसने में उसका कितना डीज़ल जला या कितनी बिजली की यूनिट उठी। अगर वह बिजली या डीज़ल का ख़र्च जोड़ना भूल जाए और केवल मेहनत की मज़दूरी ले, तो वह कुछ ही महीनों में कंगाल हो जाएगा और चक्की बंद करनी पड़ेगी।</p>
+<p>वेल्डिंग का काम भी ठीक वैसा ही है। यहाँ आप लोहे को आपस में जोड़ने (पिघलाने) का काम कर रहे हैं। इस पिघलाने के काम में जो बिजली ख़र्च हो रही है, वह आपकी जेब से जा रही है। जब आप किसी ग्राहक के लिए लोहे का गेट, ग्रिल या खिड़की बनाते हैं, तो उसके दाम में लोहे और छड़ के साथ-साथ <b>बिजली की यूनिटों का दाम</b> भी जुड़ा होना चाहिए। बिजली कोई मुफ़्त की हवा नहीं है; यह एक कच्चा माल (Raw Material) है जिसे आप बाज़ार से खरीदकर काम में लगा रहे हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>असली उदाहरण — आँखें खोलने वाला बिल</h2>
+<p>हमारे एक छात्र हैं — मदन लाल, जिन्होंने गाँव के चौराहे पर नई-नई दुकान खोली थी। पहले महीने उन्होंने ख़ूब काम किया, दिन-रात वेल्डिंग की। वे बड़े ख़ुश थे कि अच्छी कमाई हुई है। लेकिन महीने के आख़िरी दिन जब बिजली का बिल आया, तो उनके होश उड़ गए। बिल आया पूरे 4,500 रुपये, जबकि उनका अनुमान सिर्फ़ 1,500 रुपये का था। मदन लाल परेशान हो गए कि सारा मुनाफ़ा तो बिजली बिल में ही चला गया!</p>
+<p>उन्होंने अपने पुराने पाठों को याद किया और दुकान की आदतों का हिसाब बैठाया। जाँच करने पर दो बड़े 'चोर' पकड़े गए:</p>
+<p>पहला चोर था — <b>मशीन को चालू छोड़ना।</b> मदन लाल वेल्डिंग करने के बाद मशीन का स्विच बंद नहीं करते थे। वे लोहे की नाप लेते, कटाई करते, हथौड़ा चलाते, और इस बीच मशीन घंटों चालू (Idle) रहकर बिजली पीती रहती थी।</p>
+<p>दूसरा चोर था — <b>ज़रूरत से ज़्यादा करंट (Current)।</b> वे पतली पत्ती वेल्ड करने के लिए भी मशीन को 180 एम्पीयर (Ampere) पर चलाते थे, जिससे न केवल लोहा जलता था बल्कि मीटर भी दोगुनी तेज़ी से भागता था।</p>
+<p>मदन लाल ने तुरंत अपनी आदत बदली। अब वे वेल्डिंग रुकते ही मशीन बंद कर देते और काम के हिसाब से ही करंट सेट करते। नतीजा? अगले महीने काम उतना ही हुआ, लेकिन बिजली का बिल घटकर आधा यानी 2,200 रुपये रह गया!</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI के साथ अभ्यास</h2>
+<p>अपने मोबाइल पर AI साथी को खोलिए और उससे ये सवाल पूछकर अभ्यास कीजिए:</p>
+<p>1. "मेरी वेल्डिंग मशीन की नाम-पट्टी पर 4 KVA लिखा है और मैं रोज़ लगभग 3 घंटे वेल्डिंग करता हूँ। मुझे बताओ कि महीने (26 दिन) में मेरी मशीन लगभग कितनी यूनिट बिजली खाएगी?"<br>
+2. "अगर मेरे यहाँ व्यावसायिक बिजली की दर 9 रुपये प्रति यूनिट है, तो ऊपर बताई गई यूनिटों का कुल मासिक ख़र्च कितना होगा?"<br>
+3. "क्या वेल्डिंग मशीन को बिना काम के चालू रखने पर भी बिजली ख़र्च होती है? इसे कम करने के क्या तरीक़े हैं?"</p>
+<p>देखिए कि AI कैसे आपके लिए मिनटों में पूरा गणित आसान करके सामने रख देता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज ही करने का काम (Step-by-Step गतिविधि)</h2>
+<p>आज ही अपनी दुकान या घर पर जाकर ये चार काम कीजिए:</p>
+<p>1. <b>मशीन की पट्टी देखें:</b> अपनी वेल्डिंग मशीन के पीछे लगी नाम-पट्टी (Nameplate) को ध्यान से देखें। उस पर लिखा किलोवाट (KW) या केवीए (KVA) अपनी डायरी में नोट करें।<br>
+2. <b>बिजली का बिल जाँचें:</b> अपनी दुकान या घर का पुराना बिजली बिल निकालें। उसमें दो चीज़ें ढूँढें — पहला, 'मंज़ूर लोड' (Sanctioned Load) कितना किलोवाट है? दूसरा, 'कनेक्शन की श्रेणी' (Category) क्या लिखी है (घरेलू या व्यावसायिक)?<br>
+3. <b>समय का हिसाब रखें:</b> एक दिन घड़ी देखकर नोट करें कि आपने वास्तव में कुल कितने घंटे वेल्डिंग मशीन चालू रखी। ऊपर दिए गए सूत्र (Unit = KW × Hours) से एक दिन की यूनिट का अंदाज़ा लगाएँ।<br>
+4. <b>नियम की पट्टी लगाएँ:</b> अपनी दुकान की दीवार पर चॉक या पेंट से बड़े अक्षरों में लिख लें: <b>"काम बंद, तो मशीन बंद!"</b> यह छोटी सी आदत आपको हर महीने सैकड़ों रुपये बचाएगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम गलतियाँ</h2>
+<p><b>पड़ोसी के मीटर या घरेलू लाइन से जुगाड़-कनेक्शन जोड़ना:</b> बहुत से लोग सोचते हैं कि ऐसा करके वे बिजली का बिल बचा रहे हैं। लेकिन यह एक बड़ा क़ानूनी फंदा है। पकड़े जाने पर जेल और भारी जुर्माना हो सकता है। साथ ही, घरेलू तार वेल्डिंग मशीन का लोड नहीं सह पाते और शॉर्ट-सर्किट (Short-circuit) से आग लगने का ख़तरा रहता है।</p>
+<p><b>मशीन को बेकार चालू छोड़ना:</b> यह सोचना कि "जब वेल्डिंग नहीं हो रही तो बिल क्यों आएगा।" मशीन का पंखा और अंदरूनी पुर्ज़े चालू रहने पर भी लगातार बिजली खाते हैं।</p>
+<p><b>पतले सर्विस वायर (Service Wire) का उपयोग:</b> लोड के हिसाब से तार पतला होने पर बिजली का बिल तो बढ़ता ही है, साथ ही वोल्टेज की भारी कमी होती है जिससे वेल्डिंग की गुणवत्ता भी ख़राब होती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सावधानियाँ</h2>
+<p>मीटर का लोड बढ़वाना हो, कनेक्शन की श्रेणी (घरेलू से व्यावसायिक) बदलवानी हो, या मीटर ख़राब होने की शिकायत करनी हो — ये सारे काम हमेशा सीधे <b>बिजली-दफ़्तर (Electricity Department)</b> के काउंटर पर जाकर या उनकी आधिकारिक वेबसाइट से ही करें। बीच के दलालों (Agents) के चक्कर में न पड़ें, वे आपको धोखा दे सकते हैं।</p>
+<p>दुकान में वेल्डिंग मशीन के लिए हमेशा एक अलग और सही क्षमता का एमसीबी (MCB) ज़रूर लगवाएँ। यह आपके मुख्य मीटर को मशीन की किसी भी गड़बड़ी से सुरक्षित रखता है।</p>
+<p>बिजली का कोई भी काम करते समय पाठ-6 और पाठ-11 के सुरक्षा नियमों को कभी न भूलें। गीले हाथों से प्लग न छुएँ और ज़मीन हमेशा सूखी रखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तेज़ दोहराव</h2>
+<p>मशीन की भूख (KVA/KW) बनाम मीटर का लोड • घरेलू कनेक्शन पर धंधा करना ग़ैर-क़ानूनी और ख़तरनाक • यूनिट = किलोवाट (KW) × घंटे • मोटा तार + सही MCB + पक्की अर्थिंग = कम बिल, पूरी सुरक्षा • मशीन बेकार चालू रखना यानी पैसे पानी में बहाना • लोड और श्रेणी का काम सीधे सरकारी दफ़्तर से करवाएँ।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटी परीक्षा (Quiz)</h2>
+<p>1. वेल्डिंग मशीन की बिजली खाने की क्षमता (भूख) कहाँ लिखी होती है?<br>
+2. यदि मशीन की भूख मीटर के मंज़ूर लोड (Sanctioned Load) से ज़्यादा हो, तो क्या समस्या आएगी?<br>
+3. बिजली की यूनिट (Unit) निकालने का सही गणितीय सूत्र क्या है?<br>
+4. घरेलू कनेक्शन पर वेल्डिंग की दुकान चलाने के दो बड़े ख़तरे कौन से हैं?<br>
+5. वेल्डिंग का करंट ज़रूरत से ज़्यादा रखने पर बिजली बिल पर क्या असर पड़ता है?</p>
+<p>(सभी सवालों के जवाब इसी पाठ में छिपे हैं। सोचिए और अपने AI साथी से जँचवाइए!)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पाठ का सार (Chapter Summary)</h2>
+<p>इस पाठ में हमने सीखा कि वेल्डिंग का काम केवल लोहे और छड़ का खेल नहीं है, बल्कि इसमें बिजली का बिल एक बड़ा ख़र्च होता है। मशीन की बिजली की भूख (KVA/KW) का मिलान हमेशा मीटर के मंज़ूर लोड (Sanctioned Load) से होना चाहिए, नहीं तो तार गरम होंगे और एमसीबी बार-बार गिरेगा। दुकान के लिए हमेशा व्यावसायिक कनेक्शन ही लेना चाहिए ताकि क़ानूनी कार्रवाई से बचा जा सके। बिजली बिल का गणित बहुत सीधा है: यूनिट = किलोवाट × घंटे। मोटे और सही तारों का उपयोग करने, काम न होने पर मशीन तुरंत बंद करने, और सही वेल्डिंग करंट सेट करने से बिजली की बड़ी बचत होती है। बिजली से जुड़े सभी आधिकारिक काम सीधे सरकारी दफ़्तर से ही कराने चाहिए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आगे क्या सीखें</h2>
+<p>अब जब आपने दुकान के भीतर मीटर और बिजली का पूरा हिसाब-किताब समझ लिया है, तो सोचिए कि अगर काम किसी ऐसे गाँव या खेत में आ जाए जहाँ बिजली का खंभा ही न हो, तो क्या करेंगे? वहाँ काम आती है पहियों पर चलने वाली बिजली — यानी जनरेटर। लेकिन जनरेटर पर वेल्डिंग मशीन चलाना इतना सीधा नहीं होता; उसके अपने नियम और नखरे हैं। अगला पाठ — <b>पाठ-47: जनरेटर पर वेल्डिंग — गाँव की असलियत।</b></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%B5%E0%A5%87%E0%A4%B2%E0%A5%8D%E0%A4%A1%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%AC%E0%A4%BF%E0%A4%9C%E0%A4%B2%E0%A5%80%20%E0%A4%95%E0%A4%BE%20%E0%A4%B9%E0%A4%BF%E0%A4%B8%E0%A4%BE%E0%A4%AC%20%E2%80%94%20%E0%A4%AE%E0%A5%80%E0%A4%9F%E0%A4%B0%2C%20%E0%A4%B2%E0%A5%8B%E0%A4%A1%20%E0%A4%94%E0%A4%B0%20%E0%A4%96%E0%A4%BC%E0%A4%B0%E0%A5%8D%E0%A4%9A%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://bskillforum.bharatskills.gov.in/Home/video?flag=1&amp;pkTrade_ID=Welder&amp;pkCourse_ID=CTS" target="_blank" rel="noopener">🏛️ BharatSkills सरकारी वीडियो-मंच</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="wld-045-auzar-peti-sajana.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="wld-047-generator-par-welding.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>
