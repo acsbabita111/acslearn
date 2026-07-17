@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 15-Jul-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>वेल्डिंग पाठ 22 — नाम-पट्टी, Ampere और Duty Cycle | Welding Rating Plate Hindi</title>
+<meta name="description" content="हर मशीन के बदन पर लगी नाम-पट्टी में उसकी पूरी कुंडली है — एम्पियर यानी ताक़त, Duty Cycle यानी काम-आराम का अनुपात, और Input Volt यानी सही बिजली। तीनों अंक पढ़ना सरल हिंदी में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/welding/wld-022-naam-patti-padhna.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › वेल्डिंग (Welding) कोर्स › हिस्सा-2: यंत्रों की पहचान</p>
+<h1>पाठ-22: मशीन की नाम-पट्टी पढ़ना — मशीन का आधार कार्ड</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 22 / 300 · पढ़ाई पूरी तरह मुफ़्त</p>
+</header>
+
+<section class="lsn-sec">
+<h2>पाठ परिचय</h2>
+<p>हर वेल्डिंग मशीन के बदन पर एक छोटी पट्टी लगी होती है — धातु की या मोटी छपी हुई — जिस पर अंकों-अक्षरों की कतारें हैं। उसका नाम है <b>नाम-पट्टी (Rating Plate)</b>, और सच पूछिए तो वह मशीन का <b>आधार कार्ड</b> है: नाम, ताक़त, मिज़ाज, ख़ुराक — सब उसी पर दर्ज है।</p>
+<p>और सबसे अजीब बात? <b>ज़्यादातर लोग उसे कभी नहीं पढ़ते।</b> बरसों मशीन चलाने वाले कारीगर से पूछिए — "तुम्हारी मशीन का duty cycle क्या है?" — और अक्सर जवाब मिलेगा, "वो क्या होता है?"</p>
+<p>आज के बाद आप उन "ज़्यादातर" में नहीं रहेंगे। पट्टी की पूरी कतारों में से आपके काम के <b>तीन अंक</b> हैं — ताक़त, काम-आराम, और ख़ुराक। तीनों आज खुलेंगे — और पाठ-30 की ख़रीदारी में यही तीन अंक आपकी सबसे तेज़ आँख होंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सीखने का उद्देश्य</h2>
+<p>इस पाठ को पूरा करने के बाद आप तीन चीज़ें जान जाएँगे:</p>
+<p>1. <b>एम्पियर (Ampere/A)</b> — मशीन की ताक़त का अंक, और आपके काम के लिए कितना चाहिए।<br>
+2. <b>Duty Cycle</b> — काम-आराम का अनुपात; "60% @ 160A" जैसी पंक्ति का पूरा मतलब, और मशीन का अपने-आप रुकना बीमारी क्यों नहीं।<br>
+3. <b>Input Volt</b> — मशीन की सही ख़ुराक (220V/415V), और ग़लत ख़ुराक का अंजाम।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात — तीन अंक, पूरी कुंडली</h2>
+<p><b>अंक 1 — एम्पियर (A): ताक़त।</b> यह अंक बताता है मशीन छड़ में कितना ज़ोर भर सकती है। मोटा हिसाब: <b>160A</b> की मशीन पतले-मँझले काम (ग्रिल, गेट, चादर, घरेलू मरम्मत) की भरोसेमंद साथी है; <b>200A</b> मोटा लोहा भी जोड़ लेती है। अंक जितना बड़ा — ताक़त उतनी, दाम उतना, और अक्सर बिजली की माँग भी उतनी। यानी "सबसे बड़ा अंक सबसे अच्छा" नहीं — <b>अपने काम जितना अंक सबसे अच्छा।</b> (कौन-से काम में कितना — इसकी बारीक़ी छड़-नंबरों के साथ पाठ-26 में और खुलेगी।)</p>
+<p><b>अंक 2 — Duty Cycle: काम-आराम का अनुपात।</b> पट्टी पर लिखा मिलेगा — जैसे <b>"60% @ 160A"</b>। मतलब: 160A पर चलाते हुए, हर <b>10 मिनट</b> में मशीन <b>6 मिनट काम</b> कर सकती है और उसे <b>4 मिनट साँस</b> चाहिए। यह कमज़ोरी नहीं — हर मशीन की बनावट का सच है; भीतर की लपेटन/electronics गरम होते हैं और ठंडा होने का समय माँगते हैं। लगातार खींचोगे तो दो में से एक होगा — या मशीन <b>ख़ुद रुक जाएगी</b> (उसका भीतरी पहरेदार — Thermal Cut — गरमी पर बिजली काट देता है), या बार-बार की ज़बरदस्ती से <b>उम्र घटाकर मरेगी।</b> यह भी पढ़िए कि duty cycle अंक के साथ बदलता है — वही मशीन कम एम्पियर पर ज़्यादा देर चलती है, ऊँचे एम्पियर पर जल्दी थकती है। कहीं यह जाना-पहचाना लगा? यह मशीन का <b>पाठ-14</b> है — साँस-नियम; मशीन का 60-90 मिनट बस लिखा हुआ आता है।</p>
+<p><b>अंक 3 — Input Volt: ख़ुराक।</b> पट्टी बताती है मशीन किस बिजली की बनी है — घर-दुकान की आम लाइन (<b>220V</b>, एक-फ़ेज़) या कारख़ाने की भारी लाइन (<b>415V</b>, तीन-फ़ेज़)। यह अंक <b>बिना-छूट</b> वाला है: 415V की मशीन घर की लाइन में = चलेगी नहीं या तड़पेगी; 220V की मशीन भारी लाइन में = <b>उसी पल ख़त्म</b> — भीतर का सब कुछ जलकर। ख़रीद से पहले और किसी नई जगह प्लग लगाने से पहले — पहला सवाल यही: <b>यहाँ की लाइन और पट्टी का Volt मिलते हैं?</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>चित्र से समझिए</h2>
+<figure class="lsn-fig">
+<svg viewBox="0 0 380 430" role="img" aria-label="नमूना नाम-पट्टी — तीन अंक घेरों में: Ampere ताक़त, Duty Cycle काम-आराम, Input Volt ख़ुराक" xmlns="http://www.w3.org/2000/svg">
+<title>नाम-पट्टी के तीन ज़रूरी अंक</title>
+<style>.dt{font:600 17px 'Noto Sans Devanagari',sans-serif;fill:#0B1F3A}.ds{font:400 16px 'Noto Sans Devanagari',sans-serif;fill:#1565C0}.dm{font:600 18px Inter,sans-serif;fill:#0B1F3A}</style>
+<text class="dt" x="190" y="28" text-anchor="middle">नाम-पट्टी — मशीन का आधार कार्ड</text>
+<rect x="60" y="50" width="260" height="180" rx="8" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2.5"/>
+<text class="dm" x="190" y="80" text-anchor="middle">WELDING MACHINE</text>
+<line x1="76" y1="92" x2="304" y2="92" stroke="#0B1F3A" stroke-width="1.5"/>
+<text class="dm" x="86" y="122" text-anchor="start">Current: 160 A</text>
+<ellipse cx="238" cy="116" rx="52" ry="17" fill="none" stroke="#F9A825" stroke-width="3"/>
+<text class="dm" x="86" y="156" text-anchor="start">Duty Cycle: 60%</text>
+<ellipse cx="242" cy="150" rx="56" ry="17" fill="none" stroke="#2E7D32" stroke-width="3"/>
+<text class="dm" x="86" y="190" text-anchor="start">Input: 220 V, 50 Hz</text>
+<ellipse cx="250" cy="184" rx="64" ry="17" fill="none" stroke="#1565C0" stroke-width="3"/>
+<line x1="238" y1="99" x2="120" y2="262" stroke="#F9A825" stroke-width="2" stroke-dasharray="5 4"/>
+<text class="ds" x="96" y="286" text-anchor="middle">ताक़त — कितना</text>
+<text class="ds" x="96" y="306" text-anchor="middle">मोटा लोहा जुड़ेगा</text>
+<line x1="242" y1="167" x2="192" y2="262" stroke="#2E7D32" stroke-width="2" stroke-dasharray="5 4"/>
+<text class="ds" x="192" y="286" text-anchor="middle">काम-आराम —</text>
+<text class="ds" x="192" y="306" text-anchor="middle">10 में 6 काम,</text>
+<text class="ds" x="192" y="326" text-anchor="middle">4 साँस</text>
+<line x1="284" y1="201" x2="292" y2="262" stroke="#1565C0" stroke-width="2" stroke-dasharray="5 4"/>
+<text class="ds" x="292" y="286" text-anchor="middle">ख़ुराक — सही</text>
+<text class="ds" x="292" y="306" text-anchor="middle">बिजली; ग़लत =</text>
+<text class="ds" x="292" y="326" text-anchor="middle">मशीन ख़त्म</text>
+<text class="ds" x="190" y="372" text-anchor="middle">अपने-आप रुकना = बीमारी नहीं,</text>
+<text class="ds" x="190" y="394" text-anchor="middle">भीतरी पहरेदार की जान-रक्षा (Thermal Cut)</text>
+<text class="ds" x="190" y="420" text-anchor="middle">पट्टी मिटी मशीन = अंधी मशीन — पहले लिखवाओ</text>
+</svg>
+<figcaption>तीन घेरे — पीला ताक़त, हरा काम-आराम, नीला ख़ुराक; यही पूरी कुंडली है।</figcaption>
+</figure>
+</section>
+
+<section class="lsn-sec">
+<h2>आसान भाषा में समझिए</h2>
+<p><b>Duty Cycle को दौड़ समझिए।</b> गाँव का कोई लड़का 100 मीटर बिजली-सा दौड़ता है — पर पूरा मैदान नहीं दौड़ सकता; कोई दूसरा धीमा है पर कोसों चलता जाता है। दोनों धावक हैं — दौड़ की <b>जात</b> अलग है। मशीन की पट्टी यही बताती है — यह 100 मीटर वाली है या मैराथन वाली। 60% वाली मशीन से लगातार मैराथन माँगना उसका क़सूर नहीं, आपकी माँग का क़सूर है।</p>
+<p><b>Ampere को बैल की जोड़ी समझिए।</b> हल्की गाड़ी के लिए हल्के बैल काफ़ी; पत्थर लदी गाड़ी को तगड़ी जोड़ी चाहिए। पर तगड़ी जोड़ी को <b>चारा भी तगड़ा</b> — यानी बड़ा A अक्सर बड़ी बिजली-माँग। खाली शान के लिए तगड़ी जोड़ी पालना घाटे का सौदा है।</p>
+<p><b>Volt को ख़ुराक समझिए।</b> भैंस का चारा बकरी को और बकरी का भैंस को — दोनों तरफ़ अनर्थ। मशीन की ख़ुराक पट्टी पर लिखी है; लाइन उससे मिलाना आपकी ज़िम्मेदारी है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>असली उदाहरण — 'मशीन बार-बार बंद हो जाती है'</h2>
+<p>नई-नवेली इन्वर्टर मशीन, महीना भी नहीं बीता — और मालिक दुकानदार के सिर पर: <b>"ख़राब निकाल दी! बार-बार अपने-आप बंद हो जाती है!"</b></p>
+<p>दुकानदार ने एक ही सवाल पूछा — "काम क्या चल रहा था?" जवाब — "गेट का भारी काम था, सुबह से लगातार खींच रहा था।" दुकानदार मुस्कुराया, पट्टी पर उँगली रखी — <b>60% @ 160A</b> — और समझाया: "यह रुकना बीमारी नहीं, इसका भीतरी पहरेदार है। तुम इसका आराम खा रहे थे, तो इसने ख़ुद छुट्टी ले ली — <b>यह रुकी इसीलिए है ताकि मरे नहीं।</b> दस मिनट ठंडी होने दो, फिर वही जवान।"</p>
+<p>मालिक झेंपा — पर उस दिन से उसकी मशीन की उम्र बदल गई। अब वह जोड़ों के बीच छड़ बदलने, पपड़ी झाड़ने, नाप लेने का समय मशीन की साँस बना देता है — काम भी नहीं रुकता, मशीन भी नहीं थकती।</p>
+<p>याद रखिए — <b>Thermal Cut से रुकी मशीन को ज़बरदस्ती बार-बार जगाना</b> (बंद-चालू, बंद-चालू) उसकी मौत की रिहर्सल है। रुकी है तो साँस दीजिए; बार-बार रुके तो अपने काम का एम्पियर और पट्टी का duty cycle मिलाइए — बेमेल वहीं मिलेगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI के साथ अभ्यास</h2>
+<p>अपने AI साथी से ये सवाल पूछिए:</p>
+<p>1. "मेरी पट्टी पर लिखा है — 200A, 60%, 220V। पूरा मतलब समझाओ: मैं इससे क्या-क्या जोड़ सकता हूँ, कितनी देर लगातार?"<br>
+2. "Duty cycle एम्पियर के साथ क्यों बदलता है — कम A पर वही मशीन ज़्यादा देर कैसे चल लेती है?"<br>
+3. फिर परखने वाला — "पुरानी मशीन ली है, पट्टी घिसकर मिट चुकी है — चला लूँ, देखते हैं?" — देखिए AI 'अंधी मशीन' पर क्या कहता है। (सही राह: दुकानदार/मिस्त्री से मशीन की जानकारी लिखवाकर पट्टी की जगह चिपकाओ — तब चलाओ।)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज ही करने का काम (Step-by-Step गतिविधि)</h2>
+<p>आज पट्टी-पढ़ाई का पहला अभ्यास — मशीन कोई भी चलेगी:</p>
+<p>1. घर की किन्हीं तीन बिजली-चीज़ों की पट्टी खोजिए और पढ़िए — मोटर, प्रेस, मिक्सर, पंखा। हर एक का Volt और Watt/A डायरी में लिखिए। (पट्टी-पढ़ने की आँख यहीं बनती है।)<br>
+2. किसी वेल्डिंग दुकान पर मौक़ा मिले तो कारीगर से पूछकर उसकी मशीन की पट्टी देखिए — तीनों अंक खोजकर डायरी में लिखिए: A कितना? Duty cycle? Volt?<br>
+3. डायरी में यह तालिका बनाइए और भरिए — "मेरा इरादा-काम: ___ · उसके लिए मोटा A-अंदाज़ा: ___ · मेरी लाइन: 220V/415V" — यह पंक्ति पाठ-30 की ख़रीद-सूची की पहली ईंट है।<br>
+4. एक पंक्ति पहले पन्ने पर — <b>"अपने-आप रुकना = पहरेदार; ज़बरदस्ती जगाना = मौत की रिहर्सल।"</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम गलतियाँ</h2>
+<p><b>415V की मशीन घर की लाइन में ठूँसना, या 220V की भारी लाइन में</b> — पहला काम नहीं देगा, दूसरा मशीन उसी पल खा जाएगा। Volt बिना-छूट अंक है।</p>
+<p><b>Thermal Cut को ख़राबी समझकर बार-बार बंद-चालू करना</b> — पहरेदार से लड़ना; साँस दीजिए, बेमेल खोजिए।</p>
+<p><b>"जितना बड़ा A उतनी अच्छी" सोच</b> — अपने काम से बड़ी मशीन = बेकार गया दाम + अक्सर भारी बिजली-माँग। नाप का सौदा ही सही सौदा है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सावधानियाँ</h2>
+<p><b>पट्टी मिटी मशीन = अंधी मशीन।</b> पुरानी मशीन की पट्टी घिस गई हो तो चलाने से पहले दुकानदार/बिजली-मिस्त्री से उसकी जानकारी (A, duty, Volt) लिखवाकर मशीन पर चिपकाइए — बिना कुंडली की मशीन पर अंदाज़े का हर दिन जुआ है।</p>
+<p>पट्टी पर और भी अंक-निशान मिलेंगे — ISI/मानक-छाप, बनाने वाले का नाम, Hz — इनका काम ख़रीद के पाठ (पाठ-30) में खुलेगा; आज की तीन-अंक की आँख वहीं की तैयारी है।</p>
+<p>नई जगह काम पर पहला सवाल Volt का — और दूसरा वही पुराना: वहाँ की लाइन की <b>अर्थिंग</b> (पाठ-11)। पट्टी सही + लाइन सही + अर्थिंग सही — तब प्लग।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तेज़ दोहराव</h2>
+<p>नाम-पट्टी = मशीन का आधार कार्ड • A = ताक़त — अपने काम जितना अंक सबसे अच्छा • Duty Cycle = काम-आराम — 60% यानी 10 में 6 काम, 4 साँस; ऊँचे A पर जल्दी थकती • अपने-आप रुकना = Thermal Cut पहरेदार — बीमारी नहीं • ज़बरदस्ती बार-बार जगाना = मौत की रिहर्सल • Volt = ख़ुराक — 220/415 का बेमेल यानी मशीन ख़त्म • पट्टी मिटी = अंधी मशीन — पहले लिखवाओ • मशीन का साँस-नियम = आपका पाठ-14।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटी परीक्षा (Quiz)</h2>
+<p>1. "60% duty cycle @ 160A" का पूरा मतलब क्या है?<br>
+2. मशीन का अपने-आप बंद हो जाना क्या है — ख़राबी या कुछ और?<br>
+3. 220V की मशीन 415V में लगे तो क्या होगा?<br>
+4. पट्टी मिटी पुरानी मशीन का सही इलाज क्या है?<br>
+5. "जितना बड़ा A उतनी अच्छी मशीन" — सही या ग़लत, क्यों?</p>
+<p>जवाब पाठ में हैं — AI साथी से जँचवाइए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पाठ का सार (Chapter Summary)</h2>
+<p>नाम-पट्टी मशीन का आधार कार्ड है, और उसके तीन अंक पूरी कुंडली — एम्पियर यानी ताक़त: 160A पतले-मँझले काम की, 200A मोटे लोहे की, और सही अंक वही जो आपके काम जितना; Duty Cycle यानी काम-आराम का अनुपात: 60% @ 160A मतलब 10 मिनट में 6 काम और 4 साँस — लगातार खींचने पर मशीन का भीतरी पहरेदार (Thermal Cut) उसे रोक देता है, जो बीमारी नहीं, जान-रक्षा है, और ज़बरदस्ती बार-बार जगाना उसकी उम्र खाना है; Input Volt यानी ख़ुराक: 220V और 415V का बेमेल जोड़ बिना-छूट वाली ग़लती है — ग़लत लाइन मशीन को उसी पल ख़त्म कर सकती है। पट्टी मिटी मशीन अंधी मशीन है — पहले जानकारी लिखवाकर चिपकाओ, तब चलाओ। मशीन का duty cycle वही साँस-नियम है जो पाठ-14 ने आपको सिखाया था — बस मशीन का लिखा हुआ आता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आगे क्या सीखें</h2>
+<p>मशीन की कुंडली पढ़ ली। अब उस औज़ार की बारी जो दिन भर आपके <b>हाथ में</b> रहेगा — मशीन और आपके बीच का असली हाथ-मिलाप: छड़ पकड़ने वाला चिमटा। उसकी पकड़, उसका ढँकाव और उसका सही नाप — तीनों में आपकी हथेली की हिफ़ाज़त लिखी है। अगला पाठ — <b>पाठ-23: होल्डर — कारीगर का हाथ-मिलाप।</b></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का चुना हुआ वीडियो जल्द यहीं जुड़ेगा — जाँच-परख के बाद। तब तक ऊपर की समझाइश और चित्र पूरा पाठ हैं; पढ़ाई कहीं नहीं रुकती।</p>
+<p>वेल्डिंग के और वीडियो भारत सरकार के <a href="https://bskillforum.bharatskills.gov.in/Home/video?flag=1&amp;pkTrade_ID=Welder&amp;pkCourse_ID=CTS" target="_blank" rel="noopener">BharatSkills वीडियो-मंच (Welder)</a> पर देखे जा सकते हैं — सरकारी भंडार, हिंदी सामग्री सहित। (नई खिड़की में खुलेगा)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="wld-021-machine-ke-do-parivar.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="wld-023-holder-haath-milap.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList"></div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+</body>
+</html>
