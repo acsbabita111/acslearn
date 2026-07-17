@@ -85,7 +85,29 @@ function checkRobot(course, l, contentHtml){
 }
 
 /* ---------- पाठ का content-HTML ---------- */
+function loadMenu(){
+  const src = fs.readFileSync(path.join(ROOT, "assets", "links.js"), "utf8");
+  const box = {};
+  new Function("window", src + "; window.__L = (typeof ACS_LINKS !== \'undefined\') ? ACS_LINKS : null;")(box);
+  if (!box.__L || !Array.isArray(box.__L.menu)) throw new Error("links.js से menu नहीं पढ़ा गया");
+  return box.__L.menu;
+}
+const MENU = loadMenu();
+const MENU_HTML = MENU.map(m =>
+  '<a class="acs-mitem" href="' + m.href + '"><span class="e">' + m.icon + "</span> " + m.label + "</a>"
+).join("\n");
+const MENU_FALLBACK_JS =
+  '<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</scr' + 'ipt>';
+
 function PART(num){ return WELDING_COURSE.parts.find(p => num >= p.from && num <= p.to) || WELDING_COURSE.parts[WELDING_COURSE.parts.length-1]; }
+
+function ALL_LESSON_LINKS(course, curNum){
+  return WELDING_LESSONS.map(x =>
+    x.num === curNum
+      ? '<span class="lsn-jumpcur">पाठ-' + x.num + " (यही)</span>"
+      : '<a href="' + fileName(course, x) + '">पाठ-' + x.num + "</a>"
+  ).join(" ");
+}
 
 function lessonBody(course, l, prevFile, nextFile){
   const secs = l.sections.map(s =>
@@ -106,13 +128,22 @@ function lessonBody(course, l, prevFile, nextFile){
     "<h1>पाठ-" + l.num + ": " + l.title + "</h1>\n" +
     '<p class="lsn-meta">पढ़ाई का समय: ' + l.minutes + " मिनट · पाठ " + l.num + " / " +
       course.totalLessons + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
-    "</header>\n\n" + secs + "\n\n" +
+    '<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> ' +
+      '<a class="lsn-toolbtn" href="/courses/' + course.lang + "/" + course.slug + '/">📖 कोर्स-परिचय</a></p>\n' +
+    "</header>\n\n" +
+    '<details class="lsn-jump">\n<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
+    ALL_LESSON_LINKS(course, l.num) + "\n</div>\n</details>\n\n" + secs + "\n\n" +
     '<section class="lsn-sec lsn-video">\n<h2>वीडियो (Video)</h2>\n' +
     (l.videoUrl
-      ? '<p><a href="' + l.videoUrl + '" target="_blank" rel="noopener">▶ इस पाठ का चुना हुआ वीडियो देखें</a>' +
-        (l.videoNote ? " — " + l.videoNote : "") + " (नई खिड़की में खुलेगा)</p>\n"
-      : "<p>इस पाठ का चुना हुआ वीडियो जल्द यहीं जुड़ेगा — जाँच-परख के बाद। तब तक ऊपर की समझाइश और चित्र पूरा पाठ हैं; पढ़ाई कहीं नहीं रुकती।</p>\n" +
-        '<p>वेल्डिंग के और वीडियो भारत सरकार के <a href="https://bskillforum.bharatskills.gov.in/Home/video?flag=1&amp;pkTrade_ID=Welder&amp;pkCourse_ID=CTS" target="_blank" rel="noopener">BharatSkills वीडियो-मंच (Welder)</a> पर देखे जा सकते हैं — सरकारी भंडार, हिंदी सामग्री सहित। (नई खिड़की में खुलेगा)</p>\n') +
+      ? '<p><a class="lsn-vidbtn" href="' + l.videoUrl + '" target="_blank" rel="noopener">▶ इस पाठ का जाँचा हुआ वीडियो देखें</a>' +
+        (l.videoNote ? " — " + l.videoNote : "") + "</p>\n"
+      : "<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>\n") +
+    '<p class="lsn-vidrow">' +
+      '<a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=' +
+        encodeURIComponent("वेल्डिंग " + l.title + " हिंदी") +
+        '" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> ' +
+      '<a class="lsn-vidbtn lsn-vidgov" href="https://bskillforum.bharatskills.gov.in/Home/video?flag=1&amp;pkTrade_ID=Welder&amp;pkCourse_ID=CTS" target="_blank" rel="noopener">🏛️ BharatSkills सरकारी वीडियो-मंच</a></p>\n' +
+    '<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>\n' +
     "</section>\n\n" +
     '<nav class="lsn-nav">' + prev + next + "</nav>\n" +
     "</article>\n";
@@ -142,8 +173,28 @@ function buildPage(course, l, prevFile, nextFile){
     '<meta name="description" content="' + l.metaDesc + '">\n' +
     '<meta name="robots" content="index, follow, max-image-preview:large">\n' +
     '<link rel="canonical" href="' + canonical + '">');
+  const ld = { "@context": "https://schema.org", "@type": "LearningResource",
+    "name": "पाठ-" + l.num + ": " + l.title, "description": l.metaDesc,
+    "inLanguage": "hi", "isAccessibleForFree": true, "learningResourceType": "Lesson",
+    "url": canonical,
+    "isPartOf": { "@type": "Course", "name": course.title, "description": course.tagline,
+      "provider": { "@type": "Organization", "name": "Applied Computer School (ACS)", "url": "https://acslearn.com" } } };
+  const bc = { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "होम", "item": "https://acslearn.com/" },
+    { "@type": "ListItem", "position": 2, "name": "कोर्स", "item": "https://acslearn.com/courses/hi/" },
+    { "@type": "ListItem", "position": 3, "name": course.title, "item": "https://acslearn.com/courses/" + course.lang + "/" + course.slug + "/" },
+    { "@type": "ListItem", "position": 4, "name": "पाठ-" + l.num + ": " + l.title, "item": canonical } ] };
   page = page.replace("</head>",
+    '<meta property="og:title" content="' + l.metaTitle + '">\n' +
+    '<meta property="og:description" content="' + l.metaDesc + '">\n' +
+    '<meta property="og:type" content="article">\n' +
+    '<meta property="og:url" content="' + canonical + '">\n' +
+    '<meta property="og:site_name" content="Applied Computer School (ACS)">\n' +
+    '<script type="application/ld+json">' + JSON.stringify(ld) + "</scr" + "ipt>\n" +
+    '<script type="application/ld+json">' + JSON.stringify(bc) + "</scr" + "ipt>\n" +
     '<link rel="stylesheet" href="/assets/course-lesson.css">\n</head>');
+  page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
+  page = page.replace("</body>", MENU_FALLBACK_JS + '\n<script src="/assets/course-lesson.js" defer></scr' + 'ipt>\n</body>');
 
   page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE);
   return { page, words };
@@ -229,6 +280,8 @@ function buildCourseIndex(course, lessons){
   page = page.replace("</head>",
     '<link rel="stylesheet" href="/assets/course-lesson.css">\n' +
     "<style>.ci-list{list-style:none;padding:0;margin:12px 0}.ci-item{display:flex;justify-content:space-between;gap:10px;padding:12px 4px;border-bottom:1px solid #E2E8F0;font-size:18px}.ci-item a{color:#1565C0;text-decoration:none;font-weight:600}.ci-min{color:#2E7D32;font-size:16px;white-space:nowrap}.ci-soon{color:#0B1F3A;font-size:17px;font-weight:600;margin-top:10px}</style>\n</head>");
+  page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
+  page = page.replace("</body>", MENU_FALLBACK_JS + "\n</body>");
   page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE_IDX);
   fs.writeFileSync(path.join(outDir, "index.html"), page, "utf8");
   console.log("✅ कोर्स-परिचय → courses/" + course.lang + "/" + course.slug + "/index.html");

@@ -1,0 +1,12 @@
+{
+  "_टिप्पणी": "इस फ़ाइल की नक़ल 'factory.config.json' नाम से बनाओ और key भरो। असली config GitHub पर कभी नहीं!",
+  "provider": "gemini-free",
+  "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai/",
+  "model": "gemini-2.5-flash",
+  "apiKey": "यहाँ-अपनी-API-KEY-चिपकाओ",
+  "temperature": 0.7,
+  "maxTokens": 16000,
+  "maxRetries": 3,
+  "_deepseek": { "baseUrl": "https://api.deepseek.com/", "model": "deepseek-chat" },
+  "_mistral":  { "baseUrl": "https://api.mistral.ai/v1/", "model": "mistral-small-latest" }
+}
