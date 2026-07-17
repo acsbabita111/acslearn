@@ -11,6 +11,7 @@
   if (!("speechSynthesis" in window)) return; /* आवाज़-मशीन ही नहीं — चुपचाप हट जाओ */
 
   var synth = window.speechSynthesis;
+  var session = 0; /* रोको-सुधार: cancel के बाद onend अगला टुकड़ा न चलाए */
   var current = null; /* {btn, queue:[], i} */
 
   function textOf(el) {
@@ -24,6 +25,7 @@
   }
 
   function stopAll() {
+    session++;
     synth.cancel();
     if (current && current.btn) markBtn(current.btn, false);
     document.querySelectorAll(".lsn-speakall").forEach(function (b) {
@@ -39,8 +41,9 @@
 
   function speakChunks(chunks, btn, onDone) {
     /* लंबा text टुकड़ों में — कुछ फ़ोन लंबी बोली बीच में काट देते हैं */
-    var i = 0;
+    var i = 0, my = session; /* रोको दबते ही session बदलती है — यह कड़ी वहीं मर जाती है */
     function next() {
+      if (my !== session) return;
       if (i >= chunks.length) { if (onDone) onDone(); return; }
       var u = new SpeechSynthesisUtterance(chunks[i++]);
       u.lang = "hi-IN"; u.rate = 0.95;
