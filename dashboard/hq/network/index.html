@@ -6,9 +6,13 @@
 <meta name="robots" content="noindex"/>
 <title>नेटवर्क Head Dashboard — ACS</title>
 <!-- ════════════════════════════════════════════════════════════════
-     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.3 · 15-Jul-2026) —
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.9 · 16-Jul-2026) —
      हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
-     ACS Dashboard — मास्टर टेम्पलेट v4.0 (पतला खोखा)
+     ACS Dashboard — मास्टर टेम्पलेट v4.1 (पतला खोखा)
+     v4.1 · 16-Jul-2026 (काम-6 चरण-1) — external status-कार्ड अब generator-चालित
+             (STATUS_PANEL-खाना): g2-roles का पाठ हूबहू वही; प्रशिक्षु-कार्ड
+             (student/jobseeker/entrepreneur) पर सही संदेश "खाता सीधा चालू ✅";
+             विद्यार्थी-घर के 9 असली पैनल generator के studentPanels() से।
      v4.0 · 15-Jul-2026 — Founder-आदेश: 31 घरों के लिए एक ही CSS/JS —
              style → /assets/dashboard.css · तर्क → /assets/dashboard.js ·
              per-page मूल्य सिर्फ़ window.ACS_DASH में · होम-रूप topbar+tagline ·
@@ -104,11 +108,11 @@
 
       <h2 style="margin-top:18px">📎 मेरे दस्तावेज़</h2>
       <div class="docwrap" id="docWrap"><span class="note" id="docNote">दस्तावेज़ लाए जा रहे हैं…</span></div>
-      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — चरण-3 में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
+      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — अगले दौर में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
 
       <h2 style="margin-top:18px">🛤️ मेरा approval-सफ़र</h2>
       <div class="tl" id="tlWrap"></div>
-      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
+      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति अगले दौर (server-approval) से जुड़ेगी।</div>
     </div>
 
     <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
