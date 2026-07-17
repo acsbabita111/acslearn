@@ -86,7 +86,7 @@ function statusPanel(key){
   return (
     '<div class="pcard panel" id="pnl-status" data-nav="🛤️ approval-स्थिति" style="grid-column:1/-1">\n' +
     '        <div class="ph">🛤️ approval-स्थिति</div>\n' +
-    '        <div class="pd">बाहरी-role (g2) की approval-श्रृंखला server पर अगले दौर में बनेगी (v1.3: "पहले टीम फ़ाइनल") — तब तक dashboard देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>\n' +
+    '        <div class="pd">आपकी स्वीकृति (approval) की जाँच-श्रृंखला server पर अगले दौर में बनेगी — नियम से पहले टीम-व्यवस्था पूरी होती है, फिर सेवा-भूमिकाएँ खुलती हैं। तब तक डैशबोर्ड (Dashboard) देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>\n' +
     '      </div>');
 }
 
@@ -326,8 +326,13 @@ const P_TCH_CONTENT = (
     'content को समय-समय पर अप-टू-डेट रखना आपका कर्तव्य है। content-चोरी पर तत्काल समाप्ति का नियम है।</div>' +
     '<div class="pd">आपका कोर्स ZM-office की Content Creator टीम ACS-रूप (कक्षा-6 हिंदी · चित्र · जाँच) देकर चमकाती है — ' +
     'मूल रचनाकार का श्रेय और 7 प्रतिशत royalty हमेशा आपकी ही रहती है।</div>' +
+    '<div class="pd"><b>आपकी पटरी:</b> एकेडमिक पढ़ाई — वर्ग-6 से PhD तक (स्कूल/कॉलेज/University स्तर)। ' +
+    'पुश्तैनी या हाथ के हुनर (सिलाई, मशीन-मरम्मत, काश्तकारी आदि) की हाथ-सिखाई का घर अलग है — उस्ताद।</div>' +
+    '<div class="pd"><b>पहचान-नियम:</b> यहाँ आप अपने नाम से पढ़ाते और कमाते हैं। किसी केंद्र के भीतर, केंद्र के ' +
+    'नाम से पढ़ाना = केंद्र-प्रशिक्षक — वह व्यवस्था केंद्र के डैशबोर्ड (Dashboard) से चलती है, उसका अलग login नहीं होता।</div>' +
     '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="/courses/">🌍 live कोर्स-सूची देखें</a> ' +
     '<span class="soon">कोर्स भेजने का इंजन अगले दौर में</span>' +
+    '<div class="note">इंजन बनने तक अपना कोर्स-प्रस्ताव (विषय + छोटा ख़ाका) 🆘 सहायता-पैनल के WhatsApp/Email से भेज सकते हैं।</div>' +
     '</div>');
 
 const P_TCH_LIVE = (
@@ -802,7 +807,7 @@ function extraPanels(key){
   return (
     '<div class="pcard panel" id="pnl-extra" data-nav="🗂️ आगे के पैनल" style="grid-column:1/-1">' +
     '<div class="ph">🗂️ आगे के पैनल</div>' +
-    '<div class="pd">इस role के काम-पैनल (सेवा · payment · badge आदि) approval-श्रृंखला (g2) के साथ अगले दौर में खुलेंगे।</div>' +
+    '<div class="pd">इस भूमिका के काम-पैनल (सेवा · भुगतान (payment) · badge आदि) स्वीकृति (approval)-श्रृंखला के साथ अगले दौर में खुलेंगे।</div>' +
     '<span class="soon">आरक्षित — अगले दौर में</span></div>');
 }
 
