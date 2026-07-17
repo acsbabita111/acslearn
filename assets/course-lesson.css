@@ -43,3 +43,18 @@
   .lsn-wrap{font-size:19px}
   .lsn-head h1{font-size:34px}
 }
+
+/* ===== v2.0 (17-Jul-2026): tools · सब-पाठ panel · आवाज़ · वीडियो-बटन ===== */
+.lsn-tools{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
+.lsn-speakall,.lsn-toolbtn{display:inline-block;font-size:18px;font-weight:700;padding:10px 16px;border-radius:10px;border:2px solid #1565C0;background:#F5F7FA;color:#1565C0;text-decoration:none;cursor:pointer;font-family:inherit}
+.lsn-speakall.speaking,.lsn-speak.speaking{background:#1565C0;color:#F5F7FA}
+.lsn-jump{margin:16px 0;border:2px solid #E2E8F0;border-radius:12px;background:#F5F7FA}
+.lsn-jump summary{cursor:pointer;font-size:18px;font-weight:700;color:#0B1F3A;padding:12px 14px}
+.lsn-jumplist{padding:6px 14px 14px;line-height:2.2;font-size:17px}
+.lsn-jumplist a{color:#1565C0;text-decoration:none;font-weight:600;white-space:nowrap;padding:2px 6px;border:1px solid #CBD5E1;border-radius:8px}
+.lsn-jumpcur{color:#F5F7FA;background:#2E7D32;font-weight:700;white-space:nowrap;padding:2px 8px;border-radius:8px}
+.lsn-speak{font-size:16px;font-weight:700;margin-left:10px;padding:4px 10px;border-radius:8px;border:1.5px solid #1565C0;background:#F5F7FA;color:#1565C0;cursor:pointer;vertical-align:middle;font-family:inherit}
+.lsn-vidrow{display:flex;flex-wrap:wrap;gap:10px}
+.lsn-vidbtn{display:inline-block;font-size:18px;font-weight:700;padding:12px 16px;border-radius:10px;background:#1565C0;color:#F5F7FA;text-decoration:none}
+.lsn-vidgov{background:#2E7D32}
+.lsn-vidnote{font-size:16px;color:#0B1F3A}
