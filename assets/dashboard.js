@@ -260,7 +260,7 @@ function drawTimeline(desigKey, reg){
       st.innerHTML='<div class="dot"><i></i><em></em></div><div class="lbl">'+sp.w+'<small>'+(approvedX?"पूर्ण ✅":"जाँच में")+sp.t+'</small></div>';
       wrapX.appendChild(st);
     });
-    $("tlNote").textContent = approvedX ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "बाहरी roles की चौकी-दर-चौकी live स्थिति (g2) अगले दौर में जुड़ेगी — यह सरल नक़्शा है।";
+    $("tlNote").textContent = approvedX ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति अगले दौर में जुड़ेगी — यह सरल नक़्शा है।";
     return;
   }
   const me = desigKey || (ALLOWED[0]||"");
@@ -664,7 +664,7 @@ async function guardExternal(user){
   $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
 
   /* g2-सफ़र नोट */
-  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
+  $("tlWrap").innerHTML = '<div class="note">स्वीकृति (approval) की जाँच-श्रृंखला अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
   $("tlNote").textContent = "";
 
   show("appView");
