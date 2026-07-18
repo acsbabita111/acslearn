@@ -479,6 +479,32 @@ const P_WS_TRAIN = (
     '<span class="soon">प्रशिक्षण-batch इंजन अगले दौर में</span>' +
     '</div>');
 
+
+/* (18-Jul-2026, चरण-5 · होल-M) केंद्र का सुरक्षा-पैनल — workshop की तर्ज़ पर,
+   केंद्र-रूप में: 10-18 Guardian-सहमति (Constitution) · POCSO · नियम-11 सुविधाएँ */
+const P_CTR_SAFE = (
+    '<div class="pcard panel" id="pnl-safety" data-nav="🛡️ सुरक्षा-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">🛡️ केंद्र-सुरक्षा (सबसे पहले)</div>' +
+    '<div class="pd">केंद्र में 10 से 18 साल के बच्चे भी पढ़ते हैं — उनकी सुरक्षा पहला नियम है: ' +
+    'POCSO-कानून की ख़ास सावधानी; 10 से 18 वालों पर Guardian (अभिभावक) की सहमति अनिवार्य। ' +
+    'भवन में अग्निशमन-व्यवस्था, बिजली-तारों की सुरक्षा, साफ़ पेयजल व बच्चों के लिए अलग शौचालय — ' +
+    'नियम-11 की सुविधाएँ हमेशा चालू हालत में रहें।</div>' +
+    '<div class="note">कोई गंभीर घटना हो तो तुरंत अपने RM/ZM को सूचना दें।</div>' +
+    '</div>');
+
+/* (18-Jul-2026, चरण-5 · होल-M) workshop का certificate-पैनल — P_CTR_CERT की तर्ज़ पर,
+   + v2.5 दोहरा-ताला (उस्ताद-प्रमाणीकरण + स्वतंत्र परीक्षा) */
+const P_WS_CERT = (
+    '<div class="pcard panel" id="pnl-certflow" data-nav="🏆 Certificate-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">🏆 Certificate का पक्का रास्ता (दोहरा-ताला)</div>' +
+    '<div class="pd">प्रमाण पत्र सिर्फ़ असली रास्ते से बनता है: <b>Exam → Result → Certificate</b> — ' +
+    'कोई हाथ का रास्ता (manual bypass) नहीं। प्रशिक्षण-पूर्णता पर <b>दो ताले</b> खुलने ज़रूरी: ' +
+    '(1) उस्ताद का हुनर-प्रमाणीकरण — शागिर्द के अपने काम के फोटो/वीडियो-सबूत के साथ; ' +
+    '(2) एग्जामिनेशन-विभाग की स्वतंत्र online परीक्षा का result। कोई एक पक्ष अकेला certificate ' +
+    'जारी नहीं कर सकता। हर certificate पर FFGPMTrust + ACS दोनों नाम, unique number व QR — ' +
+    'दुनिया में कहीं से verify।</div>' +
+    '<div class="note">⚠️ फ़र्ज़ी certificate बनाना/दिलाना = तत्काल समाप्ति व कानूनी कार्रवाई।</div>' +
+    '</div>');
 const P_WS_USTAD = (
     '<div class="pcard panel" id="pnl-ustads" data-nav="🧑‍🔧 मेरे उस्ताद" style="grid-column:1/-1">' +
     '<div class="ph">🧑‍🔧 मेरे उस्ताद</div>' +
@@ -768,11 +794,12 @@ function ustadPanels(){
   return P_UST_CERTIFY + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
 }
 function centerPanels(){
-  return P_INST_ENROLL("पढ़ने वाले (students)") + P_CTR_TEAM + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
+  return P_INST_ENROLL("पढ़ने वाले (students)") + P_CTR_TEAM + P_CTR_SAFE + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
        + P_INST_VERIFY("") + P_INST_BADGE + P_RULES_LINK("rules-consent-center.html","केंद्र (Center)") + P_HELP;
 }
 function workshopPanels(){
   return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
+       + P_WS_CERT
        + P_INST_VERIFY(" साथ में यह प्रमाण भी कि workshop कम-से-कम 3 साल से चल रहा है।")
        + P_INST_BADGE + P_RULES_LINK("rules-consent-workshop.html","वर्कशॉप (Workshop)") + P_HELP;
 }
