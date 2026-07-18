@@ -739,8 +739,14 @@ function jobseekerPanels(){
 function entrepreneurPanels(){
   return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL + P_HELP;
 }
+/* v2.0-सुधार (Founder 18-Jul-2026): online-पढ़ाई कमाई 90/100 — सिर्फ़ teacher
+   (उस्ताद की पढ़ाई-fee का बँटवारा दर्ज नहीं — खुला सवाल)। साझा P_TU_EARN से व्युत्पन्न। */
+const P_TCH_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty:',
+    '<div class="pd"><b>Online पढ़ाई की कमाई:</b> स्टूडेंट से आने वाले हर 100 रुपये में से <b>90 रुपये आपके</b>।</div>' +
+    '<div class="pd"><b>कोर्स-royalty:');
+
 function teacherPanels(){
-  return P_TCH_CONTENT + P_TU_EARN + P_TCH_LIVE + P_TU_BADGE + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_HELP;
+  return P_TCH_CONTENT + P_TCH_EARN + P_TCH_LIVE + P_TU_BADGE + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_HELP;
 }
 function ustadPanels(){
   return P_UST_CERTIFY + P_UST_SKILL + P_UST_MENTOR + P_TU_EARN + P_TU_BADGE + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
