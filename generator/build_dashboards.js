@@ -1,5 +1,8 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.1 · 18-Jul-2026 (काम-9+) — learner-progress पैनल (P_PROGRESS): device-local
+          प्रगति/अंक/मील-पत्थर/कोमल-सिलसिला (localStorage, शून्य-server, बिना-leaderboard)
+          — student/jobseeker/entrepreneur में; पाठ-पेज course-lesson.js लिखता है; sw v48।
    v2.0 · 18-Jul-2026 (काम-9 दौर-प) — पैनल-एकरूपता: (1) प्रशिक्षु 3 घरों में
           📜 नियम-पत्र (learner rules) · (2) teacher/ustad/counselor में व्यक्ति-सुरक्षा
           P_IND_SAFE (POSH·POCSO·10-18 Guardian) · (3) 📣 प्रचार-किट P_PROMO
@@ -807,17 +810,23 @@ const P_PROMO = (
     '<span class="soon">प्रचार-किट इंजन अगले दौर में</span>' +
     '</div>');
 
+
+/* (काम-9+ · 18-Jul) learner-progress + हल्की gamification — device-local
+   (localStorage, शून्य-server, DPDP-सुरक्षित); व्यक्तिगत अंक/मील-पत्थर/कोमल सिलसिला,
+   कोई leaderboard नहीं (बाल-सुरक्षा)। पाठ-पेज course-lesson.js से लिखते हैं। */
+const P_PROGRESS = "<div class=\"pcard panel\" id=\"pnl-progress\" data-nav=\"📈 मेरी प्रगति\" style=\"grid-column:1/-1\"><div class=\"ph\">📈 मेरी प्रगति (इसी फ़ोन में)</div><div class=\"pd\">यह हिसाब आपके अपने फ़ोन में सुरक्षित रहता है — कोई server पर नहीं जाता (निजता सुरक्षित)। दूसरे फ़ोन पर हिसाब जोड़ने की सुविधा नामांकन-खाते के साथ अगले दौर में आएगी।</div><div id=\"acsProgBox\"><span class=\"note\">पढ़ाई का हिसाब यहाँ दिखेगा…</span></div><a class=\"abtn ok\" style=\"background:var(--blue);display:inline-block;text-decoration:none;margin-top:10px\" href=\"/courses/\">📖 पढ़ना जारी रखें</a><script>(function(){try{var d;try{d=JSON.parse(localStorage.getItem(\"acs_learn_progress\")||\"{}\");}catch(e){d={};}var n=0,k;if(d.read){for(k in d.read){if(d.read.hasOwnProperty(k))n++;}}var read=n,xp=n*10;var days=[];if(d.days){for(k in d.days){if(d.days.hasOwnProperty(k))days.push(k);}days.sort();}function ds(dt){return dt.getFullYear()+\"-\"+(\"0\"+(dt.getMonth()+1)).slice(-2)+\"-\"+(\"0\"+dt.getDate()).slice(-2);}var best=0,run=0,prev=null,i,pp,t;for(i=0;i<days.length;i++){pp=days[i].split(\"-\");t=new Date(pp[0],pp[1]-1,pp[2]);if(prev&&Math.round((t-prev)/86400000)===1){run++;}else{run=1;}if(run>best)best=run;prev=t;}var cur=0;if(days.length){var td=new Date();var yd=new Date(Date.now()-86400000);var last=days[days.length-1];cur=(last===ds(td)||last===ds(yd))?run:0;}var ms=[[300,\"🏅 पारंगत\"],[100,\"🥇 स्वर्ण\"],[50,\"🥈 रजत\"],[10,\"🥉 कांस्य\"],[1,\"🌱 शुरुआत\"]];var curM=\"—\",nextN=1,nextName=\"🌱 शुरुआत\",j;for(j=ms.length-1;j>=0;j--){if(read>=ms[j][0])curM=ms[j][1];}for(j=ms.length-1;j>=0;j--){if(read<ms[j][0]){nextN=ms[j][0];nextName=ms[j][1];break;}}var box=document.getElementById(\"acsProgBox\");if(!box)return;if(read===0){box.innerHTML='<div class=\"pd\">अभी आपने कोई पाठ पूरा नहीं पढ़ा। नीचे पढ़ना-जारी-रखें बटन दबाकर शुरू करें — हर पाठ पर यहीं अंक व मील-पत्थर अपने-आप जुड़ते जाएँगे। 🌱</div>';return;}var toNext=(read<300)?(\"अगले मील-पत्थर (\"+nextName+\") तक \"+(nextN-read)+\" पाठ और।\"):(\"आप सबसे ऊँचे मील-पत्थर पर हैं — बहुत बढ़िया!\");var streakLine=cur>0?(\"🔥 सीखने का सिलसिला: \"+cur+\" दिन लगातार\"):(\"आज एक पाठ पढ़कर नया सिलसिला शुरू करें 🌱\");box.innerHTML='<div class=\"pd\"><b>कुल अंक:</b> '+xp+' &nbsp; <b>पाठ पढ़े:</b> '+read+'</div>'+'<div class=\"pd\"><b>मौजूदा मील-पत्थर:</b> '+curM+' &nbsp; <b>सबसे लंबा सिलसिला:</b> '+best+' दिन</div>'+'<div class=\"pd\">'+streakLine+'</div>'+'<div class=\"note\">'+toNext+'</div>';}catch(e){}})();</script></div>";
+
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
-  return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
+  return P_APTITUDE + P_COURSES + P_PROGRESS + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
        + P_RULES_LINK("rules-consent-learner.html","विद्यार्थी (Student)") + P_HELP;
 }
 function jobseekerPanels(){
-  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
+  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_PROGRESS + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","नौकरी-इच्छुक (Job-seeker)") + P_HELP;
 }
 function entrepreneurPanels(){
-  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
+  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_PROGRESS + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","उद्यमी (Entrepreneur)") + P_HELP;
 }
 /* v2.0-सुधार (Founder 18-Jul-2026): online-पढ़ाई कमाई 90/100 — सिर्फ़ teacher
