@@ -203,6 +203,10 @@ guardTeam = async function(user){
 
   /* ── v3.1: data आलसी-load — पैनल खुलने पर ही (500+ के लिए हल्का) ── */
   MYDESIG = desig;
+  /* ── वाणी-context (साझा /assets/vani.js के लिए) ── */
+  try{ window.__ACS_VANI = { app, auth, functions, httpsCallable,
+    firestore:{ getFirestore, collection, query, orderBy, onSnapshot },
+    uid:user.uid, lang:"hi" }; }catch(e){}
   initNav("team");
 
   /* ── single-session (v1.2 नियम): sessions/{uid} सुनो ── */
@@ -260,7 +264,7 @@ function drawTimeline(desigKey, reg){
       st.innerHTML='<div class="dot"><i></i><em></em></div><div class="lbl">'+sp.w+'<small>'+(approvedX?"पूर्ण ✅":"जाँच में")+sp.t+'</small></div>';
       wrapX.appendChild(st);
     });
-    $("tlNote").textContent = approvedX ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "चौकी-दर-चौकी की live स्थिति अगले दौर में जुड़ेगी — यह सरल नक़्शा है।";
+    $("tlNote").textContent = approvedX ? "आपका approval पूर्ण है — पूरा functioning चालू।" : "बाहरी roles की चौकी-दर-चौकी live स्थिति (g2) अगले दौर में जुड़ेगी — यह सरल नक़्शा है।";
     return;
   }
   const me = desigKey || (ALLOWED[0]||"");
@@ -664,7 +668,7 @@ async function guardExternal(user){
   $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
 
   /* g2-सफ़र नोट */
-  $("tlWrap").innerHTML = '<div class="note">स्वीकृति (approval) की जाँच-श्रृंखला अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
+  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
   $("tlNote").textContent = "";
 
   show("appView");
@@ -698,7 +702,7 @@ async function startSessionWatch(user){
 
 /* ═══ 10-मिनट auto-logout (screen-silent) ═══ */
 let idleT=null;
-function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
+function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ if(window.__acsVaniActive){ resetIdle(); return; } alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
 function startIdleTimer(){
   ["click","keydown","scroll","touchstart","mousemove"].forEach(ev=>document.addEventListener(ev,resetIdle,{passive:true}));
   resetIdle();
