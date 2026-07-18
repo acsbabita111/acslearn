@@ -1,0 +1,112 @@
+rules_version = '2';
+/* ════════════════════════════════════════════════════════════
+   ACS Firestore Security Rules — v5
+   अद्यतन: 16-Jul-2026 (वाणी चरण-1)
+   v5 (16-Jul): vani_rooms + messages की read जुड़ी (सिर्फ़ login वाले) —
+   लिखना सिर्फ़ server-functions से (vaniOpen/vaniSay/vaniLeave)।
+   v4 (11-Jul, चरण-5): tasks व reports की read जुड़ी — लिखना सिर्फ़
+   server-functions से (assignTask/updateTaskStatus/submitReport)।
+   v3 (11-Jul, चरण-4): teams-read में active Admin जुड़ा — टीम-पैनल
+   व पदेन-प्रभार के लिए (teams-write अब भी सिर्फ़ Founder/server)।
+   v2 में बदला था: (1) registrations का read-नियम जुड़ा
+              (Founder · active Admin · आवेदक स्वयं) — write सबके लिए बंद;
+              (2) roleCols में 'centers' जुड़ा ('centres' migration-साथी,
+              Addendum-v1 §2: American spelling)।
+   बाक़ी सब ज्यों का त्यों। deploy सिर्फ़ office-laptop से:
+   firebase deploy --only firestore:rules
+   ════════════════════════════════════════════════════════════ */
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── कौन Founder है? (teams में designation 'founder') ──
+    function isFounder() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/teams/$(request.auth.uid))
+        && get(/databases/$(database)/documents/teams/$(request.auth.uid)).data.designation == 'founder';
+    }
+
+    // ── teams का कोई भी active सदस्य (HQ/ZM/RM आदि) ──
+    function isTeam() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/teams/$(request.auth.uid))
+        && get(/databases/$(database)/documents/teams/$(request.auth.uid)).data.active == true;
+    }
+
+    // ── 9 सीधे role-बक्सों की सूची ──
+    function roleCols() {
+      return ['students','jobseekers','entrepreneurs','teachers','centres','centers',
+              'counselors','employers','foreign_agents','volunteers'];
+    }
+
+    // ── teams: अपना doc खुद पढ़े; Founder सबका; बदलना सिर्फ़ Founder ──
+    match /teams/{uid} {
+      allow read:  if request.auth != null && (request.auth.uid == uid || isFounder() || isActiveAdmin());
+      allow write: if isFounder();
+    }
+
+    // ── 9 role-बक्से: अपना doc खुद; team/Founder पढ़ सके ──
+    match /{collection}/{uid} {
+      allow read: if collection in roleCols()
+        && request.auth != null && (request.auth.uid == uid || isTeam() || isFounder());
+      allow create: if collection in roleCols()
+        && request.auth != null && request.auth.uid == uid;
+      allow update, delete: if collection in roleCols()
+        && request.auth != null && (request.auth.uid == uid || isFounder());
+    }
+
+    // ── registrations: आवेदन-बक्सा (एकमात्र सही स्रोत) ──
+    //    पढ़े: Founder · active Admin · आवेदक स्वयं (authUid मेल)।
+    //    लिखे: कोई नहीं — हर बदलाव सिर्फ़ server (Cloud Functions) से।
+    function isActiveAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/teams/$(request.auth.uid))
+        && get(/databases/$(database)/documents/teams/$(request.auth.uid)).data.designation == 'hq_admin'
+        && get(/databases/$(database)/documents/teams/$(request.auth.uid)).data.active == true;
+    }
+    match /registrations/{regNo} {
+      allow read: if isFounder() || isActiveAdmin()
+        || (request.auth != null && resource.data.authUid == request.auth.uid);
+      allow write: if false;
+    }
+
+    // ── tasks: काम-पैनल — पढ़े: पाने वाला · सौंपने वाला · Founder · active Admin ──
+    match /tasks/{taskId} {
+      allow read: if request.auth != null
+        && (resource.data.to == request.auth.uid
+            || resource.data.by == request.auth.uid
+            || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+
+    // ── reports: रिपोर्ट-चक्र — पढ़े: भेजने वाला · Founder · active Admin ──
+    match /reports/{reportId} {
+      allow read: if request.auth != null
+        && (resource.data.by == request.auth.uid
+            || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+
+    // ── sessions: अपना खुद पढ़े; लिखना सिर्फ़ server (admin) ──
+    match /sessions/{uid} {
+      allow read:  if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    // ── otp_records: पूरी तरह बंद (सिर्फ़ server) ──
+    match /otp_records/{id} {
+      allow read, write: if false;
+    }
+
+    // ── वाणी (Vani) — चरण-1 (v5) ─────────────────────────────
+    //    लिखाई सिर्फ़ server-functions से (vaniOpen/vaniSay/vaniLeave) —
+    //    इसलिए write हमेशा बंद। पढ़ाई सिर्फ़ login वाले को।
+    match /vani_rooms/{room} {
+      allow read: if request.auth != null;
+      allow write: if false;
+      match /messages/{msg} {
+        allow read: if request.auth != null;
+        allow write: if false;
+      }
+    }
+  }
+}
