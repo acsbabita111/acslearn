@@ -1,5 +1,14 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.0 · 18-Jul-2026 (काम-9 दौर-प) — पैनल-एकरूपता: (1) प्रशिक्षु 3 घरों में
+          📜 नियम-पत्र (learner rules) · (2) teacher/ustad/counselor में व्यक्ति-सुरक्षा
+          P_IND_SAFE (POSH·POCSO·10-18 Guardian) · (3) 📣 प्रचार-किट P_PROMO
+          (center·workshop·teacher·ustad·counselor — ईमानदार-पैनल) · (4) foreign-agent
+          में ✅ badge (P_SIMPLE_BADGE — सपाट slab, उम्र-fee नहीं) · (5) employer
+          "संस्था-पहचान" → साझा P_INST_VERIFY का optional-मोड (नाम-एकरूपता + संस्था
+          वैकल्पिक सुरक्षित) · (6) learner "मेरे कोर्स" ↔ संस्था "Enrollment" ज़िक्र।
+          ⚠️ STAMP व GEN_NOTE जान-बूझकर अछूते (byte-untouched नियम — अछूते घर न बदलें);
+          इसलिए हर पेज का emitted note "v1.9 · 16-Jul" ही रहेगा।
    v1.9 · 16-Jul-2026 (काम-6 चरण-6, अंतिम) — बाहरी-परिवार पूरा:
           dual-घर नियम (volunteer): team+external दोनों block पेज में रहें —
           काम-सूची boot-रास्ते से छनती है (dashboard.js v4.3 initNav-filter);
@@ -111,7 +120,9 @@ const P_COURSES = (
     '<div class="pcard panel" id="pnl-courses" data-nav="📚 मेरे कोर्स" style="grid-column:1/-1">' +
     '<div class="ph">📚 मेरे कोर्स</div>' +
     '<div class="pd"><b>मेरा नामांकन:</b> नामांकन-खाता अगले दौर में जुड़ेगा — तब यहाँ सिर्फ़ आपका अपना ब्योरा दिखेगा: ' +
-    'मेरा कोर्स · मेरी fee · मेरी परीक्षा · मेरा नतीजा (आपके सब केंद्रों का, एक जगह)।</div>' +
+    'मेरा कोर्स · मेरी fee · मेरी परीक्षा · मेरा नतीजा (आपके सब केंद्रों का, एक जगह)। ' +
+    'जिस केंद्र/संस्था में आप पढ़ते हैं, उसके "Enrollment व Analytics" पैनल और आपके इस ब्योरे का स्रोत ' +
+    'एक ही नामांकन-खाता है — इसलिए दोनों को एक ही सच दिखता है।</div>' +
     '<div class="ph" style="margin-top:14px">📖 मुफ़्त online कोर्स — अभी पढ़ें</div>' +
     '<div class="pd">पढ़ना हमेशा मुफ़्त है — बिना रोक, बिना शर्त। जिस कोर्स के पाठ बन चुके हैं, उस पर "पढ़ें" बटन दिखेगा।</div>' +
     '<div id="crsList"><span class="note">कोर्स-सूची यह पैनल खोलने पर आती है…</span></div>' +
@@ -393,7 +404,8 @@ function P_INST_ENROLL(who){
     'कितनों ने परीक्षा दी · पास-प्रतिशत — पूरा हिसाब। enrollment और भुगतान का digital record अपने-आप बनेगा।</div>' +
     '<div class="pd"><b>पक्का नियम:</b> आप सिर्फ़ <b>अपने</b> enroll किए ' + who + ' का हिसाब देखेंगे — कोई पढ़ने वाला ' +
     'कई जगह पढ़ता हो तो हर संस्था को सिर्फ़ अपना दिखता है; उसे अपने सब जगहों का। आँकड़े एक ही खाते से आते हैं — ' +
-    'इसलिए कभी नहीं टकराते।</div>' +
+    'इसलिए कभी नहीं टकराते। यही खाता पढ़ने वाले के dashboard में "मेरे कोर्स" के रूप में दिखता है — ' +
+    'आपका Analytics और उसका ब्योरा, दोनों का स्रोत एक ही।</div>' +
     '<span class="soon">enrollment-खाता व analytics-इंजन अगले दौर में</span>' +
     '</div>');
 }
@@ -423,7 +435,19 @@ const P_INST_OFFER = (
     '<span class="soon">दोनों इंजन अगले दौर में</span>' +
     '</div>');
 
-function P_INST_VERIFY(extra){
+function P_INST_VERIFY(extra, opts){
+  /* (काम-9 दौर-प · item-5) employer के लिए optional-मोड: संस्था वैकल्पिक (व्यक्तिगत
+     नियोक्ता संभव — v2.2-क3)। नाम/nav वही "🏛️ संस्था-सत्यापन" (नाम-एकरूपता)।
+     default-शाखा हूबहू पुरानी — center/workshop/vendor byte-अछूते। */
+  if(opts && opts.optional) return (
+    '<div class="pcard panel" id="pnl-verify" data-nav="🏛️ संस्था-सत्यापन" style="grid-column:1/-1">' +
+    '<div class="ph">🏛️ संस्था-सत्यापन व दस्तावेज़ (वैकल्पिक)</div>' +
+    '<div class="pd">आपके लिए संस्था होना ज़रूरी नहीं — <b>व्यक्तिगत नियोक्ता</b> भी जुड़ सकता है। ' +
+    'संस्था हो तो संस्था-दस्तावेज़ (नाम-बोर्ड वाला बाहर-फ़ोटो · अंदर-फ़ोटो · पंजीकरण/लाइसेंस) से भरोसा ' +
+    'और बढ़ता है।' + (extra||'') + ' हर दस्तावेज़ अधिकतम 2MB।</div>' +
+    '<div class="pd">संस्था दर्ज करने पर RM उसका भौतिक-सत्यापन करते हैं — तब वह approval-श्रृंखला के साथ ' +
+    'आपकी पहचान को और पुख़्ता करता है (प्रदर्शन-नियम)।</div>' +
+    '</div>');
   return (
     '<div class="pcard panel" id="pnl-verify" data-nav="🏛️ संस्था-सत्यापन" style="grid-column:1/-1">' +
     '<div class="ph">🏛️ संस्था-सत्यापन व दस्तावेज़</div>' +
@@ -604,13 +628,8 @@ const P_EMP_HIRE = (
     'अपनी बात रखने का पूरा मौक़ा।</div>' +
     '</div>');
 
-const P_EMP_IDENTITY = (
-    '<div class="pcard panel" id="pnl-identity" data-nav="🏢 संस्था-पहचान" style="grid-column:1/-1">' +
-    '<div class="ph">🏢 संस्था-पहचान (वैकल्पिक)</div>' +
-    '<div class="pd">नियोक्ता के लिए संस्था होना ज़रूरी नहीं — <b>व्यक्तिगत नियोक्ता</b> भी जुड़ सकता है। ' +
-    'संस्था हो तो संस्था-दस्तावेज़ (नाम-बोर्ड वाला बाहर-फ़ोटो · अंदर-फ़ोटो · पंजीकरण/लाइसेंस) ' +
-    'से भरोसा और बढ़ता है। हर दस्तावेज़ अधिकतम 2MB।</div>' +
-    '</div>');
+/* (काम-9 दौर-प · item-5) P_EMP_IDENTITY हटाया — employer अब साझा
+   P_INST_VERIFY("", {optional:true}) उपयोग करता है (नाम-एकरूपता + single-source)। */
 
 /* --- सिर्फ़ विदेश एजेंट (foreign-agent) --- */
 const P_FA_WORK = (
@@ -760,15 +779,46 @@ const P_SIMPLE_BADGE = (
     '<span class="soon">badge-इंजन अगले दौर में</span>' +
     '</div>');
 
+/* (काम-9 दौर-प · item-2) व्यक्ति-सुरक्षा — teacher · ustad · counselor साझा।
+   संस्था-सुरक्षा (P_CTR_SAFE/P_WS_SAFE भवन-नियम-11) से अलग: यहाँ व्यक्ति सीधे 10-18
+   से मिलता है। पाठ rules-consent-teacher/ustad/counselor से मिलान-जाँचा (POSH·POCSO·
+   DPDP·Show-Cause तीनों में मौजूद)। */
+const P_IND_SAFE = (
+    '<div class="pcard panel" id="pnl-safety" data-nav="🛡️ सुरक्षा-नियम" style="grid-column:1/-1">' +
+    '<div class="ph">🛡️ सुरक्षा व मर्यादा (सबसे पहले)</div>' +
+    '<div class="pd">आपके पास 10 से 18 साल के बच्चे भी सीखने/सलाह के लिए आते हैं — उनकी सुरक्षा पहला नियम है: ' +
+    'POCSO-कानून की ख़ास सावधानी; 10 से 18 वालों के साथ हर काम सिर्फ़ Guardian (अभिभावक) की सहमति से। ' +
+    'हर व्यवहार में POSH (उत्पीड़न-रोक) व DPDP (निजता) का पूरा पालन।</div>' +
+    '<div class="note">किसी शिकायत पर पहले 7-दिन का Show-Cause (अपनी बात रखने का पूरा मौक़ा); ' +
+    'कोई गंभीर घटना हो तो तुरंत अपने RM/ZM व ACS को सूचना दें।</div>' +
+    '</div>');
+
+/* (काम-9 दौर-प · item-3) प्रचार-किट — सभी सेवा-बेचने वाले (center·workshop·teacher·
+   ustad·counselor) साझा। ईमानदार-पैनल: इंजन नहीं बना → बटन disabled + chip। */
+const P_PROMO = (
+    '<div class="pcard panel" id="pnl-promo" data-nav="📣 प्रचार-किट" style="grid-column:1/-1">' +
+    '<div class="ph">📣 प्रचार-किट (अपनी सेवा फैलाएँ)</div>' +
+    '<div class="pd">यहाँ से आप अपनी ACS-सेवा का प्रचार कर सकेंगे: तैयार पोस्टर/कार्ड (आपके नाम व QR के साथ) ' +
+    'और share-कड़ी — WhatsApp या social media पर एक टैप में। हर share = मुफ़्त प्रचार, आपके पास ज़्यादा लोग।</div>' +
+    '<div class="pd"><b>ZM-कैंपेन:</b> बड़े प्रचार-अभियान के लिए अपने ZM-office से निवेदन कर सकेंगे — ' +
+    'पोस्टर-डिज़ाइन व स्थानीय प्रचार में सहयोग।</div>' +
+    '<button class="abtn ok" style="background:var(--blue)" disabled>📥 पोस्टर/कड़ी बनाएँ</button> ' +
+    '<button class="abtn ok" disabled>📣 ZM-कैंपेन का निवेदन</button> ' +
+    '<span class="soon">प्रचार-किट इंजन अगले दौर में</span>' +
+    '</div>');
+
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
-  return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST + P_HELP;
+  return P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
+       + P_RULES_LINK("rules-consent-learner.html","विद्यार्थी (Student)") + P_HELP;
 }
 function jobseekerPanels(){
-  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL + P_HELP;
+  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
+       + P_RULES_LINK("rules-consent-learner.html","नौकरी-इच्छुक (Job-seeker)") + P_HELP;
 }
 function entrepreneurPanels(){
-  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL + P_HELP;
+  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
+       + P_RULES_LINK("rules-consent-learner.html","उद्यमी (Entrepreneur)") + P_HELP;
 }
 /* v2.0-सुधार (Founder 18-Jul-2026): online-पढ़ाई कमाई 90/100 — सिर्फ़ teacher
    (उस्ताद की पढ़ाई-fee का बँटवारा दर्ज नहीं — खुला सवाल)। साझा P_TU_EARN से व्युत्पन्न। */
@@ -777,7 +827,8 @@ const P_TCH_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function teacherPanels(){
-  return P_TCH_CONTENT + P_TCH_EARN + P_TCH_LIVE + P_TU_BADGE + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_HELP;
+  return P_TCH_CONTENT + P_IND_SAFE + P_TCH_EARN + P_TCH_LIVE + P_TU_BADGE + P_PROMO
+       + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_HELP;
 }
 /* उस्ताद कमाई-गणित (Founder 18-Jul-2026): 90 सीधी-सिखाई · 7 recording-content ·
    80 दूसरे के कोर्स का practical। साझा P_TU_EARN से व्युत्पन्न (दोहराव नहीं)। */
@@ -791,28 +842,29 @@ const P_UST_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function ustadPanels(){
-  return P_UST_CERTIFY + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
+  return P_UST_CERTIFY + P_IND_SAFE + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_PROMO
+       + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
 }
 function centerPanels(){
   return P_INST_ENROLL("पढ़ने वाले (students)") + P_CTR_TEAM + P_CTR_SAFE + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
-       + P_INST_VERIFY("") + P_INST_BADGE + P_RULES_LINK("rules-consent-center.html","केंद्र (Center)") + P_HELP;
+       + P_INST_VERIFY("") + P_INST_BADGE + P_PROMO + P_RULES_LINK("rules-consent-center.html","केंद्र (Center)") + P_HELP;
 }
 function workshopPanels(){
   return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
        + P_WS_CERT
        + P_INST_VERIFY(" साथ में यह प्रमाण भी कि workshop कम-से-कम 3 साल से चल रहा है।")
-       + P_INST_BADGE + P_RULES_LINK("rules-consent-workshop.html","वर्कशॉप (Workshop)") + P_HELP;
+       + P_INST_BADGE + P_PROMO + P_RULES_LINK("rules-consent-workshop.html","वर्कशॉप (Workshop)") + P_HELP;
 }
 function counselorPanels(){
-  return P_CNS_SERVICE + P_CNS_APTITUDE + P_CNS_EARN + P_TU_BADGE
+  return P_CNS_SERVICE + P_IND_SAFE + P_CNS_APTITUDE + P_CNS_EARN + P_TU_BADGE + P_PROMO
        + P_RULES_LINK("rules-consent-counselor.html","सलाहकार (Counselor)") + P_HELP;
 }
 function employerPanels(){
-  return P_EMP_DEMAND + P_EMP_FIND + P_EMP_ZERO + P_EMP_HIRE + P_EMP_IDENTITY
+  return P_EMP_DEMAND + P_EMP_FIND + P_EMP_ZERO + P_EMP_HIRE + P_INST_VERIFY("", {optional:true})
        + P_RULES_LINK("rules-consent-employer.html","नियोक्ता (Employer)") + P_HELP;
 }
 function foreignAgentPanels(){
-  return P_FA_WORK + P_FA_LICENSE + P_FA_EARN + P_FA_JOBSEEKERS
+  return P_FA_WORK + P_FA_LICENSE + P_FA_EARN + P_FA_JOBSEEKERS + P_SIMPLE_BADGE
        + P_RULES_LINK("rules-consent-foreign-agent.html","विदेश एजेंट (Foreign Agent)") + P_HELP;
 }
 function volunteerPanels(){
