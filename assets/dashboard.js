@@ -97,8 +97,11 @@ const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports
 function initNav(boot){
   const nav=$("sideNav"); nav.innerHTML="";
   document.querySelectorAll(".panel").forEach(p=>{
-    if(boot==="ext" && TEAM_PANEL_IDS.indexOf(p.id)>-1) return;
-    if(boot==="team" && p.id!=="pnl-profile" && TEAM_PANEL_IDS.indexOf(p.id)===-1) return;
+    /* वाणी सार्वभौम — किसी भी boot में कभी न छँटे */
+    if(p.id!=="pnl-vani"){
+      if(boot==="ext" && TEAM_PANEL_IDS.indexOf(p.id)>-1) return;
+      if(boot==="team" && p.id!=="pnl-profile" && TEAM_PANEL_IDS.indexOf(p.id)===-1) return;
+    }
     const b=document.createElement("button");
     b.className="si"; b.textContent=p.getAttribute("data-nav")||p.id;
     b.setAttribute("data-go",p.id);
