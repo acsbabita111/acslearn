@@ -1,0 +1,17 @@
+/* legal.css — वापसी · गोपनीयता · शर्तें पेजों की साझा शैली (परत-1)
+   v1.0 · सब अक्षर 16px से बड़े · रंग acs-config से मेल · मोबाइल-first */
+.lg-wrap{max-width:820px;margin:0 auto;padding:18px 16px 40px}
+.lg-h1{font-size:26px;line-height:1.5;color:#0B1F3A;margin:10px 0 6px;font-weight:800}
+.lg-lead{font-size:19px;line-height:1.8;color:#26364a;margin:0 0 18px}
+.lg-card{background:#fff;border:1px solid #e3e8ef;border-left:5px solid #1565C0;border-radius:12px;padding:16px 16px;margin:14px 0}
+.lg-card h2{font-size:21px;line-height:1.5;color:#1565C0;margin:2px 0 10px;font-weight:800}
+.lg-card p{font-size:18px;line-height:1.85;color:#1f2b3a;margin:8px 0}
+.lg-card ul{margin:8px 0 8px;padding-left:22px}
+.lg-card li{font-size:18px;line-height:1.85;color:#1f2b3a;margin:7px 0}
+.lg-warn{background:#FFF7E6;border:1px solid #F9A825;border-left:5px solid #F9A825;border-radius:12px;padding:16px;margin:14px 0}
+.lg-warn p{font-size:18px;line-height:1.85;color:#5b4300;margin:6px 0;font-weight:600}
+.lg-money{background:#F1F8F2;border:1px solid #2E7D32;border-left:5px solid #2E7D32;border-radius:12px;padding:16px;margin:14px 0}
+.lg-money p{font-size:18px;line-height:1.85;color:#1b4d22;margin:7px 0}
+.lg-updated{font-size:16px;color:#5a6b7d;margin-top:22px;text-align:center}
+.lg-links{margin-top:18px;text-align:center}
+.lg-links a{display:inline-block;font-size:17px;color:#1565C0;margin:6px 10px;text-decoration:none;font-weight:600}
