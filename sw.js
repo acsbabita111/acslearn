@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v47';                 // ← (v47: 18-Jul-2026 — केंद्र/वर्कशॉप चरण-2 cache-bust: roles.js v2.3 के साथ अनिवार्य। v45/v46 के नाम जल-चुके — इसलिए सीधे v47)
+const CACHE_VERSION = 'v48';                 // ← (v48: 18-Jul-2026 — काम-9+ learner-progress: course-lesson.js/css बदले, cache-bust अनिवार्य)                 // ← (v47: 18-Jul-2026 — केंद्र/वर्कशॉप चरण-2 cache-bust: roles.js v2.3 के साथ अनिवार्य। v45/v46 के नाम जल-चुके — इसलिए सीधे v47)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
