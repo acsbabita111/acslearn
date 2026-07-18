@@ -76,12 +76,15 @@
     L.forEach(l=>{ const o=document.createElement("option"); o.value=l[0]; o.textContent=l[2]; sel.appendChild(o); });
     sel.value = myLang; sel.onchange = ()=> myLang = sel.value;
 
-    let roomId=null, roomCode=null, unsub=null, seen=new Set();
+    let roomId=null, roomCode=null, unsub=null, seen=new Set(), opening=false;
 
     function show(v){ $("#v-setup").style.display = v?"none":"block"; $("#v-live").style.display = v?"block":"none"; }
     function say(t){ $("#v-msg").textContent = t||""; }
 
     async function open(code){
+      if(opening || roomId) return;
+      opening=true;
+      const cb=$("#v-create"), jb=$("#v-join"); if(cb)cb.disabled=true; if(jb)jb.disabled=true;
       say("");
       try{
         const r = await httpsCallable(functions,"vaniOpen")({ lang:myLang, code:code||"", type:"public" });
@@ -92,6 +95,7 @@
         sysline(code ? "कमरे में जुड़ गए।" : "कमरा बना — कोड बताएँ।");
         listen();
       }catch(e){ say(niceErr(e)); }
+      finally{ opening=false; if(cb)cb.disabled=false; if(jb)jb.disabled=false; }
     }
     $("#v-create").onclick = ()=> open("");
     $("#v-join").onclick   = ()=>{ const c=($("#v-code").value||"").trim(); if(!/^\d{4}$/.test(c)){ say("कोड 4 अंकों का हो"); return; } open(c); };
