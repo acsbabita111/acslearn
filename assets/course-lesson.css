@@ -58,3 +58,5 @@
 .lsn-vidbtn{display:inline-block;font-size:18px;font-weight:700;padding:12px 16px;border-radius:10px;background:#1565C0;color:#F5F7FA;text-decoration:none}
 .lsn-vidgov{background:#2E7D32}
 .lsn-vidnote{font-size:16px;color:#0B1F3A}
+.lsn-prog{margin:22px 14px;padding:14px 16px;border:2px solid #2E7D32;border-radius:12px;background:#F5F7FA;font-size:18px;line-height:1.75;color:#0B1F3A}
+.lsn-prog a{color:#1565C0;font-weight:700;text-decoration:none}

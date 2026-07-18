@@ -109,3 +109,51 @@
   /* पेज छोड़ते समय आवाज़ बंद */
   window.addEventListener("pagehide", function () { synth.cancel(); });
 })();
+
+/* ============================================================
+   काम-9+ (18-Jul-2026): learner-progress — device-local (आपके फ़ोन में ही),
+   शून्य-server, DPDP-सुरक्षित, offline-OK, ES5 (Android-8)। पाठ "पढ़ा" तभी
+   गिनता है जब पढ़ने वाला नीचे तक पहुँचे या 25 सेकंड रुके (गिनती-ईमानदारी)।
+   सिर्फ़ सकारात्मक feedback — कोई दबाव/leaderboard नहीं (हल्की gamification)।
+   ============================================================ */
+(function () {
+  "use strict";
+  try {
+    if (location.pathname.indexOf("/courses/") < 0) return;
+    var KEY = "acs_learn_progress", path = location.pathname;
+    var d; try { d = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { d = {}; }
+    if (!d.read) d.read = {}; if (!d.days) d.days = {};
+    var now = new Date();
+    var ds = now.getFullYear() + "-" + ("0" + (now.getMonth() + 1)).slice(-2) + "-" + ("0" + now.getDate()).slice(-2);
+    function box() {
+      var b = document.getElementById("acsLsnProg");
+      if (!b) {
+        b = document.createElement("div"); b.id = "acsLsnProg"; b.className = "lsn-prog";
+        var m = document.querySelector("main") || document.body; m.appendChild(b);
+      }
+      return b;
+    }
+    function count() { var n = 0, k; for (k in d.read) { if (d.read.hasOwnProperty(k)) n++; } return n; }
+    function paint(justEarned) {
+      var n = count();
+      var head = justEarned ? "✓ यह पाठ पढ़ा — (+10 अंक)"
+        : (d.read[path] ? "✓ यह पाठ आप पढ़ चुके हैं" : "📖 यह पाठ पढ़ते रहिए");
+      box().innerHTML = "<b>" + head + "</b><br>आपके कुल अंक: " + (n * 10) + " · पाठ पढ़े: " + n +
+        " &nbsp;<a href=\"/dashboard/\">📈 मेरी पूरी प्रगति</a>";
+    }
+    function mark() {
+      if (d.read[path]) return;
+      d.read[path] = Date.now(); d.days[ds] = 1;
+      try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+      paint(true);
+    }
+    paint(false);
+    var done = !!d.read[path];
+    function chk() {
+      if (done) return;
+      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 140)) { done = true; mark(); }
+    }
+    window.addEventListener("scroll", chk, false);
+    setTimeout(function () { if (!done) { done = true; mark(); } }, 25000);
+  } catch (e) {}
+})();
