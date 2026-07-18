@@ -1,5 +1,9 @@
 /* =====================================================================
-   ACS — roles.js  (v2.2 · 14-Jul-2026 · __:__ — Founder-आदेश: शिक्षक/केंद्र-परिवार विभाजन —
+   ACS — roles.js  (v2.3 · 18-Jul-2026 · केंद्र/वर्कशॉप चरण-2 — Founder-आदेश "रास्ता-अ":
+   center+workshop अब बाक़ी सब roles की क़तार में — पता = पिनकोड (pincode_address),
+   अलग "ज़िला" खाना हटा (ज़िला का एकमात्र सच = वांछित कार्य-क्षेत्र); मालिक की उम्र
+   age(18); वर्कशॉप में स्थापना-वर्ष (estd_year) — 3-वर्ष की जाँच अब असल में लगती है;
+   center का "केंद्र/वर्कशॉप का नाम" → "केंद्र का नाम"।  पिछला v2.2 · 14-Jul-2026 · __:__ — Founder-आदेश: शिक्षक/केंद्र-परिवार विभाजन —
    +ustad(हुनर-प्रमाण, डिग्री नहीं) +workshop(औज़ार-हॉल फ़ोटो, 3-वर्ष); पिछला v2.1 · 11:05 — Founder-आदेश: संस्था-सत्यापन
    दस्तावेज़ — व्यक्ति=अपना फ़ोटो+पहचान; संस्था(Center/Employer/Vendor)=मालिक के
    दस्तावेज़ + संस्था का अलग सत्यापन। पिछला: v2.0 — पूर्ण अद्यतन)
@@ -21,8 +25,8 @@
    6) हर भूमिका का पूरा नियम-पाठ उसकी अपनी rules-consent-*.html फ़ाइल में — यहाँ सिर्फ़ फ़ाइल-नाम व Step-3 खाने।
 ===================================================================== */
 window.ACS_ROLES = {
-  version: "2.1",
-  updated: "10 July 2026",
+  version: "2.3",
+  updated: "18 July 2026",
 
   /* ---- Learner-समूह (login सिर्फ़ ID+Password) — फ़िलहाल 3, research से बदल सकता है ---- */
   learnerKeys: ("student jobseeker entrepreneur").split(" "),
@@ -56,6 +60,15 @@ window.ACS_ROLES = {
       hint_hi:"मृत्यु के बाद royalty/पारिश्रमिक नॉमिनी को जाता है", hint_en:"Royalty/dues go to nominee after death" };
     F.nomineeRel   = { id:"nominee_relation", type:"text", required:true, hi:"नॉमिनी से संबंध", en:"Nominee Relation" };
     F.address      = { id:"address", type:"pincode_address", required:true, hi:"पूरा पता", en:"Full Address" };
+    /* (18-Jul-2026, चरण-2) वर्कशॉप की पहचान = कम-से-कम 3 वर्ष पुरानी। यह शर्त
+       v2.1-क2 · matrix v1.5 · guide · dashboard — चारों जगह लिखी थी, पर जाँच कहीं
+       नहीं थी (कोई खाना ही नहीं)। max हर बार अपने-आप गिना जाता है (आज का वर्ष − 3) —
+       कोई साल हाथ से लिखा नहीं, इसलिए कभी बासी नहीं होगा। server भी यही फ़ाइल live
+       पढ़कर ठीक यही सीमा लगाता है — एक चीज़ = एक जगह। */
+    F.estdYear     = { id:"estd_year", type:"number", min:1900, max:(new Date().getFullYear() - 3), required:true,
+      hi:"वर्कशॉप किस वर्ष से चल रही है (स्थापना-वर्ष)", en:"Year workshop established",
+      hint_hi:"कम-से-कम 3 वर्ष पुरानी वर्कशॉप ही जुड़ सकती है — यही वर्ष पंजीकरण/लाइसेंस के काग़ज़ से मेल खाना चाहिए",
+      hint_en:"Workshop must be at least 3 years old — must match the registration/license document" };
 
     /* दस्तावेज़-upload साझा परिभाषाएँ — एक चीज़ = एक जगह */
     F.docPhoto = { id:"doc_photo", accept:"image/*", required:true, hi:"आपका प्रोफ़ेशनल फ़ोटो (पासपोर्ट-साइज़)", en:"Your professional photo (passport-size)" };
@@ -140,10 +153,13 @@ window.ACS_ROLES = {
         collection:"centers", dashboard:"/dashboard/center/",
         ruleFile:"rules-consent-center.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:["center","college","university"], children:["center","workshop"], /* v2.2 */
+        /* (18-Jul-2026, चरण-2 "रास्ता-अ") पता = पिनकोड (बाक़ी सब roles जैसा);
+           अलग "ज़िला" खाना हटा — ज़िला/राज्य/देश का एकमात्र सच = वांछित कार्य-क्षेत्र;
+           age = मालिक/संचालक की उम्र (जन्मतिथि से अपने-आप, server भी यहीं से जाँचता है) */
         fields: [ F.nameLocal, F.nameRoman,
-          { id:"org_name", type:"text", required:true, hi:"केंद्र/वर्कशॉप का नाम", en:"Center/Workshop Name" },
-          { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Address" },
-          { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" }, F.emergencyContact1, F.emergencyContact2 ],
+          F.age(18, "मालिक/संचालक की न्यूनतम उम्र 18 वर्ष — जन्मतिथि से अपने-आप भरती है"),
+          { id:"org_name", type:"text", required:true, hi:"केंद्र का नाम", en:"Center Name" },
+          F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docOrgPhotoIn, F.docOrgProof, F.docExperience ]
       },
 
@@ -153,10 +169,11 @@ window.ACS_ROLES = {
         collection:"workshops", dashboard:"/dashboard/workshop/",
         ruleFile:"rules-consent-workshop.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:[],
+        /* (18-Jul-2026, चरण-2 "रास्ता-अ") center जैसा ही — साथ में estd_year (3-वर्ष की असली जाँच) */
         fields: [ F.nameLocal, F.nameRoman,
+          F.age(18, "मालिक/संचालक की न्यूनतम उम्र 18 वर्ष — जन्मतिथि से अपने-आप भरती है"),
           { id:"org_name", type:"text", required:true, hi:"वर्कशॉप का नाम", en:"Workshop Name" },
-          { id:"address", type:"text", required:true, hi:"पूरा पता", en:"Address" },
-          { id:"district", type:"text", required:true, hi:"ज़िला", en:"District" }, F.emergencyContact1, F.emergencyContact2 ],
+          F.estdYear, F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docWorkshopIn, F.docOrgProof, F.docExperience ]
       },
 
