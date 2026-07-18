@@ -374,7 +374,7 @@
         var b=document.createElement('div'); b.className='role-card'; b.dataset.key=k;
         b.innerHTML='<div class="rIcon">'+(CARD_ICON[k]||'⭐')+'</div>'+
           '<div class="rName">'+(cc.public_label||cc.label)+'</div>'+
-          (rc2&&rc2.desc_hi?'<div class="rDesc">'+rc2.desc_hi+'</div>':'');
+          '';  /* (18-Jul चरण-5 · होल-Q) v1.9-क5 सादगी-नियम: कार्ड पर सिर्फ़ नाम — विवरण-पंक्ति हटी */
         b.addEventListener('click',function(){
           childGrid.querySelectorAll('.role-card').forEach(function(x){x.classList.remove('sel');});
           b.classList.add('sel');
@@ -393,7 +393,7 @@
       var rc = R.byKey(c.key==='team' ? '' : c.key);
       div.innerHTML = '<div class="rIcon">'+(CARD_ICON[c.key]||'⭐')+'</div>'+
         '<div class="rName">'+(c.public_label||c.label)+'</div>'+
-        (rc && rc.desc_hi ? '<div class="rDesc">'+rc.desc_hi+'</div>' : (c.key==='team'?'<div class="rDesc">कार्यालय-पद — पदनाम नीचे चुनें</div>':''));
+        '';  /* (18-Jul चरण-5 · होल-Q) v1.9-क5: कार्ड पर सिर्फ़ नाम */
       div.addEventListener('click', function(){
         grid.querySelectorAll('.role-card').forEach(function(x){ x.classList.remove('sel'); });
         div.classList.add('sel');

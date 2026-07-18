@@ -157,7 +157,7 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
     var sec = document.createElement('div');
     sec.className = 'acc';
     sec.innerHTML =
-      '<button type="button" class="acc-head"><span class="ic">' + (ICON[c.key] || '⭐') + '</span>'
+      '<button type="button" class="acc-head"><span class="ic">' + ((card && card.icon) || ICON[c.key] || '⭐') + '</span>'  /* (18-Jul चरण-5 · होल-N) icon का पहला घर roles.js-कार्ड */
       + '<span class="nm">' + (c.public_label || c.label) + '</span><span class="ar">▼</span></button>'
       + '<div class="acc-body">'
       +   '<div style="font-size:16px">' + info.intro + '</div>'
