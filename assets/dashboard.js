@@ -724,8 +724,10 @@ window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localSt
    ═══════════════════════════════════════════════════════════════ */
 if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0])>-1) {
   const TRAINEE_ROLE = ALLOWED[0];
+  let BADGE_REG = null;   /* (काम-11) बैज-flow के लिए reg (पते से fallback-पिन) */
 
   window.__acsExtReady = function(reg){
+    BADGE_REG = reg;
     try{
       const d = new Date(String(reg.dob||""));
       if(isNaN(d.getTime())) return;
@@ -809,4 +811,108 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     sc.onerror=function(){ CRS_LOADED=false; if(box) box.innerHTML='<span class="note" style="color:#B71C1C">कोर्स-सूची नहीं खुली — network जाँचकर पैनल दोबारा खोलें।</span>'; };
     document.body.appendChild(sc);
   };
+
+  /* ═══════════════════════════════════════════════════════════════
+     (काम-11, 19-Jul-2026) Green Tick बैज — Razorpay भुगतान (सिर्फ़ नौकरी-इच्छुक)
+     प्रवाह: बटन → createBadgeOrder (server tier+रक़म तय करे) → पुष्टि (30% जाँच-शुल्क
+     खुलासा) → Razorpay checkout (browser) → verifyBadgePayment → status अपडेट।
+     tier/रक़म client कभी तय नहीं करता — सिर्फ़ server से आई रक़म दिखाता है।
+     ═══════════════════════════════════════════════════════════════ */
+  if(TRAINEE_ROLE==="jobseeker"){
+    const TIER_HI = { village:"गाँव", town:"क़स्बा", metro:"महानगर" };
+
+    function loadRazorpay(){
+      return new Promise((res,rej)=>{
+        if(window.Razorpay){ res(); return; }
+        const s=document.createElement("script");
+        s.src="https://checkout.razorpay.com/v1/checkout.js";
+        s.onload=()=>res(); s.onerror=()=>rej(new Error("भुगतान-पृष्ठ नहीं खुला — network जाँचें"));
+        document.body.appendChild(s);
+      });
+    }
+    function pinFromReg(){
+      try{
+        const a=String((BADGE_REG&&BADGE_REG.formFields&&BADGE_REG.formFields.address)||"");
+        let m=a.match(/PIN:\s*(\d{6})/); if(!m) m=a.match(/(\d{6})(?!.*\d)/);
+        return m?m[1]:"";
+      }catch(e){ return ""; }
+    }
+
+    async function loadBadgeStatus(){
+      const st=$("badgeStatus"), btn=$("badgeBuyBtn");
+      if(!st||!btn) return;
+      try{
+        const u=auth.currentUser; if(!u) return;
+        const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+        let latest=null,t0=0;
+        qs.forEach(d=>{ const p=d.data(); if(p.purpose!=="badge") return;
+          const t=(p.createdAt&&p.createdAt.toMillis)?p.createdAt.toMillis():0;
+          if(!latest||t>t0){ latest=p; t0=t; } });
+        if(latest && latest.status==="paid" && latest.rmStatus==="approved"){
+          st.textContent="✅ आपका बैज सक्रिय है।"; st.style.color="#1b4d20"; btn.style.display="none"; return;
+        }
+        if(latest && latest.status==="paid"){
+          st.textContent="⏳ भुगतान हो चुका — RM-सत्यापन जारी है। स्वीकृति पर बैज सक्रिय हो जाएगा।";
+          st.style.color="#8a5a00"; btn.style.display="none"; return;
+        }
+        if(latest && latest.rmStatus==="rejected"){
+          st.textContent="⚠️ पिछला बैज-आवेदन अस्वीकृत हुआ था — आप दोबारा ले सकते हैं।";
+          st.style.color="#B71C1C"; btn.style.display="inline-block"; return;
+        }
+        st.textContent="अभी आपके पास बैज नहीं है (लेना वैकल्पिक)।"; st.style.color="#555";
+        btn.style.display="inline-block";
+      }catch(e){
+        /* status न मिले (rules/network) तो भी बटन दिखे — काम न रुके */
+        st.textContent="बैज लेना वैकल्पिक है।"; st.style.color="#555"; btn.style.display="inline-block";
+      }
+    }
+    LAZY["pnl-badge"] = loadBadgeStatus;
+
+    async function buyBadge(){
+      const btn=$("badgeBuyBtn"), msg=$("badgeMsg");
+      if(!btn) return;
+      btn.disabled=true; if(msg){ msg.className="msg"; msg.textContent="शुल्क तैयार किया जा रहा है…"; }
+      try{
+        const res=await httpsCallable(functions,"createBadgeOrder")({ pincode:pinFromReg() });
+        const o=(res&&res.data)||{};
+        if(!o.ok||!o.orderId) throw new Error("order नहीं बना");
+        const rupee=Math.round((o.amount||0)/100);
+        const tierHi=TIER_HI[o.tier]||o.tier||"";
+        const go=confirm("आपका क्षेत्र: "+tierHi+" · शुल्क ₹"+rupee+" (365 दिन)।\n\n"+
+          "भुगतान के बाद RM आपकी जानकारी जाँचेंगे। सत्यापन असफल हुआ तो 30% जाँच-शुल्क कटेगा।\n\nभुगतान करें?");
+        if(!go){ btn.disabled=false; if(msg) msg.textContent=""; return; }
+        if(msg) msg.textContent="भुगतान-पृष्ठ खुल रहा है…";
+        await loadRazorpay();
+        const rzp=new window.Razorpay({
+          key:o.keyId, order_id:o.orderId, amount:o.amount, currency:o.currency||"INR",
+          name:o.name||"Applied Computer School", description:"Green Tick बैज (365 दिन)",
+          prefill:{ email:(auth.currentUser&&auth.currentUser.email)||"" },
+          theme:{ color:"#0B1F3A" },
+          handler: async function(r){
+            if(msg){ msg.className="msg"; msg.textContent="भुगतान की पुष्टि हो रही है…"; }
+            try{
+              await httpsCallable(functions,"verifyBadgePayment")({
+                razorpay_order_id:r.razorpay_order_id,
+                razorpay_payment_id:r.razorpay_payment_id,
+                razorpay_signature:r.razorpay_signature });
+              if(msg){ msg.className="msg ok"; msg.textContent="✅ भुगतान सफल — अब RM-सत्यापन होगा।"; }
+              loadBadgeStatus();
+            }catch(e){
+              if(msg){ msg.className="msg err"; msg.textContent="भुगतान हुआ पर पुष्टि अटकी — status थोड़ी देर में अपने-आप सुधरेगा।"; }
+            }
+            btn.disabled=false;
+          },
+          modal:{ ondismiss:function(){ btn.disabled=false; if(msg){ msg.className="msg"; msg.textContent="भुगतान रद्द किया गया।"; } } }
+        });
+        rzp.open();
+      }catch(e){
+        btn.disabled=false;
+        if(msg){ msg.className="msg err"; msg.textContent="नहीं हो पाया: "+(e&&e.message?e.message:e); }
+      }
+    }
+    document.addEventListener("click",(ev)=>{
+      const b=ev.target.closest('[data-act="badge-buy"]'); if(!b) return;
+      buyBadge();
+    });
+  }
 } /* प्रशिक्षु-इंजन end */
