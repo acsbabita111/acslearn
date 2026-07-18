@@ -436,7 +436,12 @@ const NO_OTP = ["student","jobseeker","entrepreneur"];
 const _MX = window.ACS_DESIGNATIONS || {teams:[],cards:[]};
 const DASH = {team:"/dashboard/"};
 (_MX.cards||[]).forEach(c=>{ if(c.key!=="team" && c.dashboard) DASH[c.key]=c.dashboard; });
-const RNAME = {student:"विद्यार्थी (Student)",jobseeker:"नौकरी (Job-seeker)",entrepreneur:"उद्यम (Entrepreneur)",teacher:"शिक्षक (Teacher)",ustad:"उस्ताद (Ustad)",center:"केंद्र (Center)",workshop:"वर्कशॉप (Workshop)",counselor:"सलाहकार (Counselor)",employer:"नियोक्ता (Employer)",foreign_agent:"विदेश एजेंट (Foreign Agent)",volunteer:"स्वयंसेवक (Volunteer)",finance_mitra:"वित्त मित्र (Finance Mitra)",vendor:"विक्रेता (Vendor)",team:"ACS Team"};
+/* (18-Jul-2026, चरण-5 · होल-O) नाम-नक़्शा अब matrix v1.5 के public_label से — हाथ की
+   जुड़वाँ-सूची हटी (एक चीज़ = एक जगह)। team का matrix-कार्ड label ही चले; कुछ न मिले तो key। */
+const RNAME = (function(){ const m = { team: "ACS Team" };
+  (((window.ACS_DESIGNATIONS||{}).cards)||[]).forEach(function(c){
+    if(c && c.key && (c.public_label || c.label)) m[c.key] = c.public_label || c.label; });
+  return m; })();
 const TEAM_DASH = {};
 (_MX.teams||[]).forEach(t=>{ if(t.dashboard) TEAM_DASH[t.key]=t.dashboard; });
 const FUTURE_HOME = "/dashboard/future/";
