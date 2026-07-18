@@ -225,11 +225,14 @@ const P_BADGE = (
     '<div class="ph">✅ Verified Badge (Green Tick)</div>' +
     '<div class="pd">जुड़ना मुफ़्त है — badge लेना आपकी मर्ज़ी (वैकल्पिक)। badge वाले को नियोक्ता की नज़र में भरोसा व प्राथमिकता मिलती है, ' +
     'पर बिना badge भी आप हर जगह apply कर सकते हैं। न्यूनतम उम्र 18; कोई उम्र-जोड़ नहीं — सीधा रेट।</div>' +
-    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · महानगर 1,000 रुपये।</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · महानगर 1,000 रुपये। आपका सही शुल्क आपके पिन कोड से अपने-आप तय होगा।</div>' +
     '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); badge बनने के बाद = ' +
     '(पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
-    '<button class="abtn ok" style="background:var(--blue)" disabled>✅ badge के लिए आवेदन</button> ' +
-    '<span class="soon">badge-इंजन अगले दौर में</span>' +
+    '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
+    '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपका पता व जानकारी जाँचेंगे। ' +
+    'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
+    '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
+    '<div id="badgeMsg" class="msg"></div>' +
     '</div>');
 
 const P_PAY_JOBSEEKER_EXTRA = (
