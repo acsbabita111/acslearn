@@ -1,0 +1,32 @@
+/* ACS career-kit.css — करियर-किट पेज की साझा शैली (परत-1 असेट)।
+   सिर्फ़ career-kit-विशेष classes (ck-*)। navbar/menu/footer = मास्टर टेम्पलेट से।
+   नियम: कुछ भी 16px से नीचे नहीं; गोल ( ) ही। */
+.ck-lead{font-size:18px;color:#334155;margin:0 0 16px;line-height:1.75}
+.ck-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px}
+.ck-tabs button{flex:1;min-width:150px;font-family:inherit;font-size:17px;font-weight:700;padding:12px;border:2px solid #1565C0;border-radius:12px;background:#fff;color:#1565C0;cursor:pointer}
+.ck-tabs button.on{background:#1565C0;color:#fff}
+.ck-card{background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:16px;margin:0 0 16px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.ck-card h2{font-size:21px;margin:0 0 10px;color:#2E7D32}
+.ck-card p{font-size:17px;line-height:1.75}
+.ck-card label{display:block;font-size:16px;font-weight:700;margin:12px 0 4px}
+.ck-card input,.ck-card textarea,.ck-card select{width:100%;font-family:inherit;font-size:17px;padding:11px;border:1.5px solid #CBD5E1;border-radius:10px;background:#fff;color:#0B1F3A;box-sizing:border-box}
+.ck-card textarea{min-height:80px;resize:vertical}
+.ck-row{display:flex;gap:12px;flex-wrap:wrap}
+.ck-row>div{flex:1;min-width:220px}
+.ck-btn{display:inline-block;font-family:inherit;font-size:18px;font-weight:800;padding:13px 18px;border:none;border-radius:12px;background:#1565C0;color:#fff;cursor:pointer;text-decoration:none;margin:8px 8px 0 0}
+.ck-btn.green{background:#2E7D32}
+.ck-btn.gold{background:#F9A825;color:#0B1F3A}
+.ck-btn.ghost{background:#fff;color:#1565C0;border:2px solid #1565C0}
+.ck-note{font-size:16px;background:#FEF9E7;border-left:5px solid #F9A825;padding:10px 12px;border-radius:8px;margin:12px 0;line-height:1.7}
+.ck-safe{font-size:16px;background:#EAF6EC;border-left:5px solid #2E7D32;padding:10px 12px;border-radius:8px;margin:12px 0;line-height:1.7}
+.ck-sub{font-size:18px;color:#0B1F3A;font-weight:700;margin:14px 0 4px}
+.ck-card details{border:1px solid #E2E8F0;border-radius:10px;padding:8px 12px;margin:8px 0;background:#fff}
+.ck-card details summary{font-size:17px;font-weight:700;cursor:pointer;color:#0B1F3A}
+.ck-card details p{font-size:17px;margin:8px 0}
+.ck-card ul{padding-left:22px}
+.ck-card li{margin:5px 0;font-size:17px}
+.ck-qbox{font-size:20px;font-weight:800;color:#0B1F3A;background:#F5F7FA;border:2px dashed #1565C0;border-radius:12px;padding:16px;margin:10px 0}
+.ck-timer{font-size:22px;font-weight:800;color:#2E7D32}
+.ck-hide{display:none}
+.ck-photo-img{width:96px;height:auto;border:1.5px solid #CBD5E1;border-radius:8px;margin:8px 12px 0 0;vertical-align:middle}
+#ck-photo-prev{margin-top:8px}
