@@ -364,9 +364,12 @@ const P_UST_SKILL = (
     '<div class="ph">🛠️ मेरा हुनर व workshop</div>' +
     '<div class="pd">उस्ताद की पहचान डिग्री नहीं — <b>हुनर-प्रमाण</b> है: आपके अपने किए काम के फोटो/वीडियो। ' +
     'पुश्तैनी हुनर, बरसों का अनुभव, काश्तकारी — यही आपकी योग्यता है।</div>' +
+    '<div class="pd"><b>आपकी पटरी:</b> हुनर/काश्तकारी की हाथ-सिखाई। किताबी एकेडमिक पढ़ाई ' +
+    '(वर्ग-6 से PhD) का घर अलग है — शिक्षक।</div>' +
     '<div class="pd">आप workshop (उस्ताद-ज्ञान का स्थान — कम-से-कम 3 साल चला हुआ) से जुड़कर सिखाते हैं। ' +
     'अभ्यास में सुरक्षा पहले; नाबालिग शागिर्द पर POCSO-नियम की ख़ास सावधानी।</div>' +
     '<span class="soon">हुनर-प्रमाण जोड़ने की जगह अगले दौर में</span>' +
+    '<div class="note">इंजन बनने तक नए हुनर-प्रमाण (फोटो/वीडियो) 🆘 सहायता-पैनल के WhatsApp/Email से भेज सकते हैं।</div>' +
     '</div>');
 
 const P_UST_MENTOR = (
@@ -748,8 +751,17 @@ const P_TCH_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
 function teacherPanels(){
   return P_TCH_CONTENT + P_TCH_EARN + P_TCH_LIVE + P_TU_BADGE + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_HELP;
 }
+/* उस्ताद कमाई-गणित (Founder 18-Jul-2026): 90 सीधी-सिखाई · 7 recording-content ·
+   80 दूसरे के कोर्स का practical। साझा P_TU_EARN से व्युत्पन्न (दोहराव नहीं)। */
+const P_UST_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty:',
+    '<div class="pd"><b>कमाई का गणित (तीन रास्ते):</b> (1) आमने-सामने बैठाकर सिखाने की fee — हर 100 रुपये में से ' +
+    '<b>90 रुपये आपके</b>। (2) आपकी सिखाई की live recording से नया content बने, तो उस content की कमाई पर ' +
+    '<b>7 रुपये प्रति 100</b> — ज़िंदगी भर (मूल रचनाकार के नाते)। (3) किसी दूसरे के बनाए कोर्स का सिर्फ़ ' +
+    'practical आप कराएँ, तो उस कमाई में से <b>80 रुपये प्रति 100 आपके</b>।</div>' +
+    '<div class="pd"><b>कोर्स-royalty:');
+
 function ustadPanels(){
-  return P_UST_CERTIFY + P_UST_SKILL + P_UST_MENTOR + P_TU_EARN + P_TU_BADGE + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
+  return P_UST_CERTIFY + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_HELP;
 }
 function centerPanels(){
   return P_INST_ENROLL("पढ़ने वाले (students)") + P_CTR_TEAM + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
