@@ -1,5 +1,7 @@
 /* ============================================================
-   /assets/aptitude-test.js — v1.2 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   /assets/aptitude-test.js — v1.3 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   v1.3 · 20-Jul-2026: ↩ अब सीधे उसी dashboard-घर पर लौटाता है जहाँ से आए
+   (आने वाले पन्ने का पता याद रखता है — दोबारा login कभी नहीं)।
    v1.2 · 20-Jul-2026: (1) हर क़दम पर '↩ Dashboard' वापसी-कड़ी; (2) प्रश्न-पाठ
    पहले, चित्र उसके नीचे (पढ़ने का सहज क्रम) — Founder-screenshot से।
    v1.1 · 20-Jul-2026: scroll-सुधार — जवाब दबाने पर पन्ना अपनी जगह रहे;
@@ -14,6 +16,30 @@
 (function () {
   "use strict";
   var KEY = "acs_apt_v1";
+
+  /* ---- वापसी-पता: जिस dashboard-घर से आए, ठीक वहीं लौटें (re-login नहीं) ---- */
+  var BACK = "/dashboard/";
+  (function () {
+    var b = null;
+    try {
+      var m = /[?&]back=([^&]+)/.exec(location.search);
+      if (m) { var q = decodeURIComponent(m[1]); if (q.indexOf("/dashboard/") === 0) b = q; }
+    } catch (e) {}
+    if (!b) {
+      try {
+        var r = document.referrer;
+        if (r) {
+          var a = document.createElement("a"); a.href = r;
+          if (a.hostname === location.hostname && a.pathname.indexOf("/dashboard/") === 0 && a.pathname.length > 11) b = a.pathname;
+        }
+      } catch (e) {}
+    }
+    try {
+      if (b) sessionStorage.setItem("acs_apt_back", b);
+      else b = sessionStorage.getItem("acs_apt_back");
+    } catch (e) {}
+    if (b) BACK = b;
+  })();
   var FACES = ["😖", "🙁", "😐", "🙂", "😍"];
   var FACE_TXT = ["बिल्कुल नहीं", "कम", "जानता नहीं", "पसंद", "बहुत पसंद"];
 
@@ -68,7 +94,7 @@
     var step = flow[ST.pos], html = "";
     var qn = qIndexAt(ST.pos);
     html += '<div class="apt-top"><span class="apt-prog">प्रश्न ' + qn + ' / ' + TOTAL_Q + '</span>' +
-      '<a class="apt-back-dash" href="/dashboard/">↩ Dashboard</a></div>';
+      '<a class="apt-back-dash" href="' + BACK + '">↩ Dashboard</a></div>';
     html += '<div class="apt-bar"><i style="width:' + Math.round((qn - 1) * 100 / TOTAL_Q) + '%"></i></div>';
 
     if (step.kind === "k") {
@@ -221,7 +247,7 @@
     rows.sort(function (a, b) { return b.s - a.s; });
     var max = Math.max(rows[0].s, 1);
     var html = '<div class="apt-top"><span class="apt-prog">🏁 आपका नतीजा (' + esc(ST.doneAt || "") + ')</span>' +
-      '<a class="apt-back-dash" href="/dashboard/">↩ Dashboard</a></div>';
+      '<a class="apt-back-dash" href="' + BACK + '">↩ Dashboard</a></div>';
 
     html += '<div class="apt-res-top"><h3>⭐ सबसे प्रबल रुचि: ' + MG[rows[0].m].e + " " + esc(MG[rows[0].m].n) + "</h3>";
     html += "<p>आगे के मज़बूत क्षेत्र: ";
