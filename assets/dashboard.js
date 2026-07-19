@@ -136,13 +136,14 @@ function ensurePhotoDecor(verified){
     }
     wrap.style.cssText="position:relative;display:inline-block;padding:5px;border-radius:22px;"+
       "background:linear-gradient(135deg,#F9A825 0%,#2E7D32 55%,#0B1F3A 100%);"+
-      "box-shadow:0 4px 14px rgba(11,31,58,.25)";
+      "box-shadow:0 4px 14px rgba(11,31,58,.25);"+
+      "height:fit-content;width:fit-content;line-height:0;align-self:flex-start";
     [im,fb].forEach(el=>{ if(!el) return;
       el.style.borderRadius="16px"; el.style.display=el.style.display; });
     if(im && im.style.display!=="none"){
       im.style.width="200px"; im.style.height="250px"; im.style.objectFit="cover";
-      im.style.display="block"; im.style.background="#fff";
-      if(fb) fb.style.display="none";
+      im.style.display="block"; im.style.background="#fff"; im.style.margin="0";
+      if(fb){ fb.style.display="none"; fb.style.height="0"; fb.style.padding="0"; fb.style.margin="0"; }
     } else if(fb){
       const nm=($("pubName")&&$("pubName").textContent)||"";
       const ch=(nm.trim()[0]||"👤");
