@@ -63,6 +63,11 @@ function acsUniversalInit(){
       if(fm){ var b=document.createElement("a"); b.href=m.href;
         b.innerHTML="<span>"+m.icon+"</span>"+label; fm.appendChild(b); }
     });
+    /* legal-पंक्ति (काम-11-पूर्व, 19-Jul-2026): Razorpay-अनुपालन — refund/privacy/terms हर पेज के footer से */
+    if(fm){ var lgl=document.createElement("div"); lgl.className="acs-flegal";
+      lgl.style.cssText="margin-top:10px;font-size:16px;line-height:1.8";
+      lgl.innerHTML='<a href="/refund.html">💳 रिफंड (Refund) नीति</a> · <a href="/privacy.html">🔒 निजता (Privacy) नीति</a> · <a href="/terms.html">📜 नियम व शर्तें (Terms)</a>';
+      fm.parentNode.insertBefore(lgl, fm.nextSibling); }
     var lg2=document.getElementById("acsLogin");
     if(lg2){ lg2.href=login.href||"/dashboard/";
       lg2.innerHTML='<span class="e">'+(login.icon||"🔑")+'</span> '+((login.label&&(login.label[lang]||login.label.hi))||"Login / Dashboard"); }
