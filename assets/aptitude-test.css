@@ -1,0 +1,47 @@
+/* ============================================================
+   /assets/aptitude-test.css — v1.0 (अभिरुचि-टेस्ट पन्ने की सजावट)
+   नियम: कुछ भी 16px से छोटा नहीं · सिर्फ़ ACS रंग · apt- नाम-घेरा
+   ============================================================ */
+.apt-wrap{max-width:760px;margin:0 auto;padding:14px 14px 40px;font-size:19px;line-height:1.75;color:#0B1F3A}
+.apt-lead{font-size:19px}
+.apt-card{background:#fff;border:2px solid #0B1F3A22;border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 2px 8px #0B1F3A14}
+.apt-prog{font-size:17px;font-weight:700;color:#1565C0;margin-bottom:6px}
+.apt-bar{height:10px;background:#F5F7FA;border:1px solid #0B1F3A33;border-radius:6px;overflow:hidden;margin-bottom:12px}
+.apt-bar i{display:block;height:100%;background:#2E7D32;width:0}
+.apt-q{font-size:21px;font-weight:800;margin:8px 0 12px}
+.apt-img{max-width:260px;margin:0 auto 10px;display:block}
+.apt-img svg{width:100%;height:auto;display:block}
+.apt-faces{display:flex;justify-content:space-between;gap:8px;margin:10px 0}
+.apt-face{flex:1;font-size:34px;line-height:1;padding:12px 4px;border:2px solid #0B1F3A33;border-radius:14px;background:#fff;cursor:pointer}
+.apt-face small{display:block;font-size:16px;margin-top:6px;color:#0B1F3A}
+.apt-face.on{border-color:#2E7D32;background:#2E7D3218;box-shadow:0 0 0 3px #2E7D3244}
+.apt-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.apt-opt{border:2px solid #0B1F3A33;border-radius:14px;background:#fff;padding:8px;text-align:center;cursor:pointer;font-size:17px;font-weight:700;color:#0B1F3A}
+.apt-opt svg{width:100%;max-width:170px;height:auto;display:block;margin:0 auto 4px}
+.apt-opt.first{border-color:#2E7D32;background:#2E7D3218}
+.apt-opt.first .apt-tag{background:#2E7D32}
+.apt-opt.last{border-color:#F9A825;background:#F9A82522}
+.apt-opt.last .apt-tag{background:#F9A825;color:#0B1F3A}
+.apt-opt.on{border-color:#1565C0;background:#1565C018}
+.apt-tag{display:inline-block;font-size:16px;font-weight:800;color:#fff;background:#1565C0;border-radius:8px;padding:2px 10px;margin-top:6px}
+.apt-hint{font-size:17px;color:#1565C0;font-weight:700;margin:8px 0}
+.apt-story .apt-opt{text-align:right}
+.apt-katha{background:#F9A82515;border:2px solid #F9A825;border-radius:16px;padding:16px}
+.apt-katha h3{font-size:20px;margin:0 0 8px}
+.apt-nav{display:flex;gap:10px;margin-top:14px}
+.apt-btn{flex:1;font-size:20px;font-weight:800;padding:14px;border-radius:14px;border:none;cursor:pointer;font-family:inherit}
+.apt-btn.green{background:#2E7D32;color:#fff}
+.apt-btn.blue{background:#1565C0;color:#fff}
+.apt-btn.ghost{background:#fff;color:#0B1F3A;border:2px solid #0B1F3A55}
+.apt-btn:disabled{opacity:.4;cursor:not-allowed}
+.apt-note{background:#F5F7FA;border:2px dashed #1565C066;border-radius:12px;padding:10px 14px;font-size:17px;margin:12px 0}
+.apt-res-top{background:#2E7D3215;border:2px solid #2E7D32;border-radius:16px;padding:16px;margin:12px 0}
+.apt-res-top h3{font-size:22px;margin:0 0 6px}
+.apt-row{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:17px}
+.apt-row .nm{min-width:150px;font-weight:700}
+.apt-row .tr{flex:1;height:14px;background:#F5F7FA;border:1px solid #0B1F3A22;border-radius:7px;overflow:hidden}
+.apt-row .tr i{display:block;height:100%;background:#1565C0}
+.apt-row .sc{min-width:36px;text-align:right;font-weight:800}
+.apt-chip{display:inline-block;background:#F5F7FA;border:1px solid #0B1F3A44;border-radius:999px;padding:4px 12px;font-size:16px;margin:3px 4px 3px 0}
+.apt-hide{display:none}
+@media(max-width:420px){.apt-face{font-size:28px}.apt-opts{gap:8px}}
