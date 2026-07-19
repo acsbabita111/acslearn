@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/aptitude_data.js — v9.0 (खेप-1 से 9: प्रश्न 1-804 · मूल भाषा: हिंदी)
+   /assets/aptitude_data.js — v10.0 (खेप-1 से 10: प्रश्न 1-874 · 950/950 उद्यम-coverage · मूल भाषा: हिंदी)
    ACS Aptitude प्रश्न-भंडार (परत-3 data — एक चीज़ = एक जगह)
    ------------------------------------------------------------
    - प्रश्न-गिनती: 650 (202 पट्टी + 181 चित्र-चुनाव + 166 जोड़ी + 101 कहानी) + 4 कथाएँ
@@ -4770,7 +4770,583 @@ window.APT_DATA = {
     opts:[
       { img:"tube_bubble", label:"शराब-बीयर बनाने का कारख़ाना", mg:[1,3], udy:[57] },
       { img:"shop_sell", label:"bar-pub चलाना", mg:[10], udy:[420] }
-    ] }
+    ] },
+
+  { id:"q805", type:"pick", band:[2,3], layer:2, set:9,
+    text:"ख़ास खनिज — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bolt_fit", label:"कोबाल्ट (battery-खनिज) की खदान", mg:[2,15], udy:[74] },
+      { img:"coin_stamp", label:"निकेल-खदान", mg:[2], udy:[75] },
+      { img:"run_machine", label:"बॉक्साइट से aluminium बनाना", mg:[2,3], udy:[76] },
+      { img:"puzzle_solo", label:"दुर्लभ (rare-earth) खनिज", mg:[2,15], udy:[78] }
+    ] },
+
+  { id:"q806", type:"pick", band:[2,3], layer:2, set:9,
+    text:"खाद और रसायन के खनिज — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"compost", label:"फास्फेट (खाद-खनिज) की खदान", mg:[2,1], udy:[81] },
+      { img:"pack_weigh", label:"पोटाश खाद-खनिज", mg:[2,1], udy:[82] },
+      { img:"lock_key", label:"यूरेनियम-खदान", mg:[2,24], udy:[77] },
+      { img:"tube_bubble", label:"पेट्रो-रसायन कारख़ाना", mg:[2,13], udy:[87] }
+    ] },
+
+  { id:"q807", type:"pick", band:[2,3], layer:2, set:9,
+    text:"तेल-गैस की सेवा-दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"toy_boat", label:"gas को ठंडा कर जहाज़ से भेजना (LNG)", mg:[2,8], udy:[85] },
+      { img:"godown_stack", label:"कोयला-खदान की सेवा-कंपनी", mg:[2], udy:[91] },
+      { img:"pani_khoj", label:"तेल-कुएँ की सेवा-कंपनी", mg:[2], udy:[92] },
+      { img:"world_map", label:"गहरे समुद्र की खोज-अनुसंधान", mg:[2,18], udy:[110] }
+    ] },
+
+  { id:"q808", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — लहरों (ज्वार) से बिजली बनाना, या बहुलक-रेजिन (गोंद-सामग्री) बनाना?",
+    opts:[
+      { img:"flood_road", label:"लहरों (ज्वार) से बिजली बनाना", mg:[2,20], udy:[98] },
+      { img:"tube_bubble", label:"बहुलक-रेजिन (गोंद-सामग्री) बनाना", mg:[2,13], udy:[108] }
+    ] },
+
+  { id:"q809", type:"scale", band:[2,3], layer:2, set:9, udy:[109], img:"tank_measure",
+    text:"औद्योगिक-क्रायोजेनिक (बहुत ठंडी) गैसें बनाना — कैसा लगता है?", mg:[2,13] },
+
+  { id:"q810", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"धातु के उत्पाद — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"cook_pot", label:"aluminium के बर्तन-सामान", mg:[3], udy:[112] },
+      { img:"puja_thali", label:"तांबा-पीतल के उत्पाद", mg:[3,12], udy:[113] },
+      { img:"pipe_irrigation", label:"पाइप-fitting बनाना", mg:[3], udy:[115] },
+      { img:"bolt_fit", label:"spring-पेच (fastener) बनाना", mg:[3], udy:[120] }
+    ] },
+
+  { id:"q811", type:"pick", band:[2,3], layer:2, set:9,
+    text:"गाड़ी के भीतर की दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tube_bubble", label:"गाड़ी का काँच बनाना", mg:[3], udy:[138] },
+      { img:"board_wire", label:"गाड़ी का electronics बनाना", mg:[3,7], udy:[139] },
+      { img:"cycle_fix", label:"motorcycle बनाना", mg:[3], udy:[140] },
+      { img:"run_machine", label:"खनन (खदान) की मशीनें बनाना", mg:[3,2], udy:[123] }
+    ] },
+
+  { id:"q812", type:"pick", band:[2,3], layer:2, set:9,
+    text:"आसमान के कारख़ाने — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"vehicle_sound", label:"helicopter बनाना", mg:[3], udy:[142] },
+      { img:"lock_key", label:"radar-निगरानी उपकरण बनाना", mg:[3,24], udy:[146] },
+      { img:"patang", label:"rocket-प्रक्षेपण सेवा", mg:[3,15], udy:[147] },
+      { img:"bolt_fit", label:"विमान के पुर्जे बनाना", mg:[3], udy:[148] }
+    ] },
+
+  { id:"q813", type:"pick", band:[2,3], layer:2, set:9,
+    text:"समुद्र के कारख़ाने — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tank_measure", label:"समुद्र के बीच तेल-मंच (platform)", mg:[3,2], udy:[151] },
+      { img:"toy_boat", label:"पनडुब्बी बनाना", mg:[3,24], udy:[152] },
+      { img:"decoration", label:"विलासिता-नाव (yacht) बनाना", mg:[3], udy:[154] },
+      { img:"show_way", label:"समुद्री सेवाओं की कंपनी", mg:[3,8], udy:[156] }
+    ] },
+
+  { id:"q814", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — विमान-रखरखाव का कारख़ाना, या जहाज़ की रचना (नौसेना-वास्तुकला)?",
+    opts:[
+      { img:"bolt_fit", label:"विमान-रखरखाव का कारख़ाना", mg:[3,8], udy:[149] },
+      { img:"write_story", label:"जहाज़ की रचना (नौसेना-वास्तुकला)", mg:[3], udy:[159] }
+    ] },
+
+  { id:"q815", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — पानी के नीचे के robot बनाना, या glass-fiber (मज़बूत रेशा-सामग्री)?",
+    opts:[
+      { img:"robot_toy", label:"पानी के नीचे के robot बनाना", mg:[3,19], udy:[157] },
+      { img:"tube_bubble", label:"glass-fiber (मज़बूत रेशा-सामग्री)", mg:[3,13], udy:[162] }
+    ] },
+
+  { id:"q816", type:"pick", band:[2,3], layer:2, set:9,
+    text:"बिल्कुल नई तकनीक — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"lock_key", label:"blockchain तकनीक", mg:[7,23], udy:[270] },
+      { img:"video_edit", label:"AR-VR (आभासी दुनिया) बनाना", mg:[7], udy:[272] },
+      { img:"world_map", label:"metaverse बनाना", mg:[7,15], udy:[274] },
+      { img:"puzzle_solo", label:"quantum-computing", mg:[7,15], udy:[284] }
+    ] },
+
+  { id:"q817", type:"pick", band:[2,3], layer:2, set:9,
+    text:"electronics की गहराई — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"run_machine", label:"औद्योगिक electronics", mg:[7,3], udy:[279] },
+      { img:"board_wire", label:"electronic पुर्जे बनाना", mg:[7,3], udy:[282] },
+      { img:"phone_dead", label:"दूरसंचार-उपकरण बनाना", mg:[7], udy:[291] },
+      { img:"toy_boat", label:"समुद्र के नीचे internet-केबल", mg:[7,8], udy:[294] }
+    ] },
+
+  { id:"q818", type:"pick", band:[2,3], layer:2, set:9,
+    text:"digital-ढाँचे के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"pani_khoj", label:"खोज-engine (search) कंपनी", mg:[7], udy:[301] },
+      { img:"camera_click", label:"film के जादुई दृश्य (VFX) studio", mg:[7,12], udy:[305] },
+      { img:"badi_imarat", label:"data-center का ढाँचा बनाना", mg:[7,4], udy:[306] },
+      { img:"bulb_fix", label:"data-center की ठंडक-बिजली प्रणाली", mg:[7], udy:[307] }
+    ] },
+
+  { id:"q819", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"रेल की सेवा-दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bolt_fit", label:"रेल के उपकरण बनाना", mg:[8,3], udy:[321] },
+      { img:"show_way", label:"रेल-रखरखाव सेवा", mg:[8], udy:[322] },
+      { img:"travel_road", label:"रेल-पर्यटन (सैर वाली रेल)", mg:[8,10], udy:[325] },
+      { img:"bus_drive", label:"शहर की tram (हल्की रेल)", mg:[8], udy:[326] }
+    ] },
+
+  { id:"q820", type:"pick", band:[2,3], layer:2, set:9,
+    text:"समुद्री सेवा-दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"godown_stack", label:"थोक-माल (अनाज-कोयला) की जहाज़रानी", mg:[8], udy:[329] },
+      { img:"tank_measure", label:"तेल-टैंकर जहाज़ चलाना", mg:[8,2], udy:[334] },
+      { img:"pack_weigh", label:"जहाज़ों को रसद पहुँचाना", mg:[8], udy:[336] },
+      { img:"pani_khoj", label:"बंदरगाह की खुदाई (dredging)", mg:[8,4], udy:[337] }
+    ] },
+
+  { id:"q821", type:"pick", band:[2,3], layer:2, set:9,
+    text:"आसमान की सेवा-दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bolt_fit", label:"विमान-रखरखाव सेवा", mg:[8], udy:[341] },
+      { img:"show_way", label:"वायु-यातायात प्रबंधन", mg:[8], udy:[345] },
+      { img:"patang", label:"निजी jet-charter सेवा", mg:[8], udy:[347] },
+      { img:"bulb_fix", label:"बिजली-गाड़ियों का बेड़ा (fleet) चलाना", mg:[8,15], udy:[317] }
+    ] },
+
+  { id:"q822", type:"pick", band:[2,3], layer:2, set:9,
+    text:"माल-सेवा की गहराई — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"waste_sort", label:"गोदाम-जहाज़ की कीड़ा-मार (धूमन) सेवा", mg:[8], udy:[351] },
+      { img:"type_computer", label:"logistics-तकनीक कंपनी", mg:[8,7], udy:[352] },
+      { img:"godown_stack", label:"आपूर्ति-श्रृंखला प्रबंधन", mg:[8,16], udy:[353] },
+      { img:"world_map", label:"माल-अग्रेषण (forwarding) सेवा", mg:[8], udy:[355] }
+    ] },
+
+  { id:"q823", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — hyperloop (नली में तेज़ गाड़ी), या समुद्री-बीमा सेवा?",
+    opts:[
+      { img:"idea_machine", label:"hyperloop (नली में तेज़ गाड़ी)", mg:[8,15], udy:[327] },
+      { img:"toy_boat", label:"समुद्री-बीमा सेवा", mg:[8,23], udy:[335] }
+    ] },
+
+  { id:"q824", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"school के प्रकार — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"teach_kids", label:"CBSE-ICSE जैसा board-school", mg:[11], udy:[445] },
+      { img:"world_map", label:"अंतरराष्ट्रीय school", mg:[11,14], udy:[446] },
+      { img:"write_story", label:"घर पर पढ़ाई (home-schooling) सेवा", mg:[11], udy:[448] },
+      { img:"badi_imarat", label:"आवासीय (hostel वाला) school", mg:[11], udy:[450] }
+    ] },
+
+  { id:"q825", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"college के प्रकार — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"graph_up", label:"व्यापार की पढ़ाई (MBA) की school", mg:[11,9], udy:[454] },
+      { img:"hisab_copy", label:"कला-विज्ञान college", mg:[11], udy:[456] },
+      { img:"paint_toy", label:"ललित-कला college", mg:[11,12], udy:[458] },
+      { img:"med_shop", label:"pharmacy-college", mg:[11,6], udy:[459] }
+    ] },
+
+  { id:"q826", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"ख़ास पढ़ाई — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"badi_imarat", label:"वास्तुकला (भवन-design) की school", mg:[11,4], udy:[460] },
+      { img:"patang", label:"विमानन-प्रशिक्षण संस्थान", mg:[11,8], udy:[471] },
+      { img:"learn_lang", label:"भाषा सिखाने वाला app", mg:[11,7], udy:[474] },
+      { img:"news_read", label:"शैक्षणिक-प्रकाशन (किताबें छापना)", mg:[11,12], udy:[491] }
+    ] },
+
+  { id:"q827", type:"pick", band:[2,3], layer:2, set:9,
+    text:"अनुसंधान की गहराई — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"med_shop", label:"दवा-खोज (pharma) अनुसंधान", mg:[11,6], udy:[482] },
+      { img:"tube_bubble", label:"सामग्री-विज्ञान अनुसंधान", mg:[11,15], udy:[485] },
+      { img:"robot_toy", label:"AI-ML अनुसंधान", mg:[11,15], udy:[486] },
+      { img:"fish_pond", label:"समुद्री-अनुसंधान", mg:[11,20], udy:[488] }
+    ] },
+
+  { id:"q828", type:"scale", band:[2,3], layer:2, set:9, udy:[490], img:"idea_machine",
+    text:"विचार-मंच (नीति-अनुसंधान) में काम — कैसा लगता है?", mg:[11,17] },
+
+  { id:"q829", type:"pick", band:[3], layer:2, set:9,
+    text:"बड़ों की दुनिया के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"herb_leaf", label:"भांग-उद्योग (जहाँ क़ानूनी है)", mg:[14,1], udy:[574] },
+      { img:"tube_bubble", label:"शराब-champagne उद्योग", mg:[14], udy:[585] },
+      { img:"cook_pot", label:"pisco-rum (शराब) उद्योग", mg:[14], udy:[613] },
+      { img:"world_map", label:"शराब-निर्यात का धंधा", mg:[14], udy:[615] }
+    ] },
+
+  { id:"q830", type:"pick", band:[2,3], layer:2, set:9,
+    text:"उत्तर-अमेरिका के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tree_plant", label:"maple-सिरप (कनाडा का मीठा रस)", mg:[14,1], udy:[575] },
+      { img:"fish_pond", label:"lobster-समुद्री भोजन", mg:[14,1], udy:[576] },
+      { img:"camera_click", label:"Hollywood-film उद्योग", mg:[14,10], udy:[577] },
+      { img:"world_map", label:"व्यावसायिक-अंतरिक्ष कंपनी", mg:[14,15], udy:[578] }
+    ] },
+
+  { id:"q831", type:"pick", band:[2,3], layer:2, set:9,
+    text:"अमेरिका की तकनीक-दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"idea_machine", label:"Silicon-Valley जैसा startup", mg:[14,7], udy:[579] },
+      { img:"pani_khoj", label:"चट्टान से gas निकालना (fracking)", mg:[14,2], udy:[580] },
+      { img:"fish_pond", label:"salmon-मछली पालन", mg:[14,1], udy:[581] },
+      { img:"patang", label:"aerospace-रक्षा उद्योग", mg:[14,24], udy:[582] }
+    ] },
+
+  { id:"q832", type:"pick", band:[2,3], layer:2, set:9,
+    text:"यूरोप के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"note_100", label:"विलासिता-सामान (luxury) उद्योग", mg:[14,5], udy:[584] },
+      { img:"bolt_fit", label:"Swiss-घड़ी (बारीक कारीगरी)", mg:[14,3], udy:[586] },
+      { img:"vehicle_sound", label:"car-racing (F-1) उद्योग", mg:[14,22], udy:[587] },
+      { img:"sewing_machine", label:"यूरोप का fashion-उद्योग", mg:[14,5], udy:[588] }
+    ] },
+
+  { id:"q833", type:"pick", band:[2,3], layer:2, set:9,
+    text:"यूरोप की ताक़त — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bulb_fix", label:"परमाणु-ऊर्जा उद्योग", mg:[14,2], udy:[589] },
+      { img:"med_shop", label:"दवा-नवाचार उद्योग", mg:[14,6], udy:[590] },
+      { img:"godown_stack", label:"Rotterdam जैसा बंदरगाह-logistics", mg:[14,8], udy:[591] },
+      { img:"teach_kids", label:"Nordic कल्याण-शिक्षा निर्यात", mg:[14,11], udy:[592] }
+    ] },
+
+  { id:"q834", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"खेल और परदे की दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"team_win", label:"football-उद्योग (यूरोप-मॉडल)", mg:[14,22], udy:[593] },
+      { img:"forest_birds", label:"safari-वन्यजीव पर्यटन", mg:[14,10], udy:[594] },
+      { img:"video_edit", label:"Nollywood-film (अफ़्रीका)", mg:[14,10], udy:[599] },
+      { img:"stage_song", label:"Afrobeat-संगीत उद्योग", mg:[14,12], udy:[600] }
+    ] },
+
+  { id:"q835", type:"pick", band:[2,3], layer:2, set:9,
+    text:"अफ़्रीका के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"coin_stamp", label:"हीरा-व्यापार", mg:[14,9], udy:[596] },
+      { img:"bolt_fit", label:"महत्वपूर्ण-खनिज निर्यात", mg:[14,2], udy:[597] },
+      { img:"mobile_app", label:"mobile-money (phone से बैंक)", mg:[14,23], udy:[598] },
+      { img:"flower_sell", label:"फूल-निर्यात का धंधा", mg:[14,1], udy:[601] }
+    ] },
+
+  { id:"q836", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"अफ़्रीका-अमेज़न की धरती — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tractor_plough", label:"savanna-कृषि", mg:[14,1], udy:[602] },
+      { img:"world_map", label:"अफ़्रीकी मुक्त-व्यापार क्षेत्र", mg:[14,9], udy:[603] },
+      { img:"forest_birds", label:"Amazon पारिस्थितिकी-पर्यटन", mg:[14,20], udy:[604] },
+      { img:"mandi_taul", label:"soybean-गोमांस निर्यात", mg:[14,1], udy:[605] }
+    ] },
+
+  { id:"q837", type:"pick", band:[2,3], layer:2, set:9,
+    text:"दक्षिण-अमेरिका के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"seed_sow", label:"quinoa-निर्यात", mg:[14,1], udy:[607] },
+      { img:"run_machine", label:"तांबा-खनन (Chile-मॉडल)", mg:[14,2], udy:[608] },
+      { img:"bolt_fit", label:"lithium-खनन", mg:[14,2], udy:[609] },
+      { img:"patang", label:"Embraer जैसे विमान बनाना", mg:[14,3], udy:[610] }
+    ] },
+
+  { id:"q838", type:"pick", band:[2,3], layer:2, set:9,
+    text:"दक्षिण-अमेरिका आगे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"toy_boat", label:"Panama-नहर की सेवाएँ", mg:[14,8], udy:[611] },
+      { img:"animal_love", label:"alpaca-ऊन का धंधा", mg:[14,1], udy:[612] },
+      { img:"idea_machine", label:"खनन-तकनीक का निर्यात", mg:[14,2], udy:[614] },
+      { img:"sewing_machine", label:"merino-ऊन निर्यात", mg:[14,5], udy:[616] }
+    ] },
+
+  { id:"q839", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"ऑस्ट्रेलिया-धरती के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"animal_love", label:"गोमांस-भेड़ निर्यात", mg:[14,1], udy:[617] },
+      { img:"lock_key", label:"यूरेनियम-निर्यात", mg:[14,2], udy:[618] },
+      { img:"tank_measure", label:"LNG-निर्यात", mg:[14,2], udy:[619] },
+      { img:"coin_stamp", label:"opal-रत्न का धंधा", mg:[14], udy:[620] }
+    ] },
+
+  { id:"q840", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"ओशिनिया की दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"travel_road", label:"पर्यटन-उद्योग", mg:[14,10], udy:[621] },
+      { img:"animal_love", label:"kangaroo-उत्पाद", mg:[14], udy:[622] },
+      { img:"cow_milk", label:"NZ kiwi-dairy का धंधा", mg:[14,1], udy:[623] },
+      { img:"sewing_machine", label:"हरित कपड़ा-कारख़ाने", mg:[14,5], udy:[625] }
+    ] },
+
+  { id:"q841", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"पड़ोसी देशों के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"coin_stamp", label:"रत्न-नीलम का धंधा (श्रीलंका)", mg:[14], udy:[627] },
+      { img:"embroidery", label:"कालीन-निर्यात (नेपाल)", mg:[14,12], udy:[628] },
+      { img:"type_computer", label:"IT-software निर्यात", mg:[14,7], udy:[629] },
+      { img:"med_shop", label:"दवा-निर्यात", mg:[14,6], udy:[630] }
+    ] },
+
+  { id:"q842", type:"pick", band:[2,3], layer:2, set:9,
+    text:"पड़ोसी देश आगे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"note_100", label:"परदेस से पैसा भेजने (प्रेषण) की सेवा", mg:[14,23], udy:[631] },
+      { img:"tank_measure", label:"जल-विद्युत निर्यात (भूटान-नेपाल)", mg:[14,2], udy:[632] },
+      { img:"sewing_machine", label:"कपड़ा-निर्यात (पाकिस्तान-मॉडल)", mg:[14,5], udy:[633] },
+      { img:"tree_plant", label:"ताड़-तेल उद्योग (मलेशिया)", mg:[14,1], udy:[634] }
+    ] },
+
+  { id:"q843", type:"pick", band:[2,3], layer:2, set:9,
+    text:"आसियान देशों के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"cycle_fix", label:"रबड़-निर्यात", mg:[14,1], udy:[635] },
+      { img:"pack_weigh", label:"tin-खनन", mg:[14,2], udy:[636] },
+      { img:"board_wire", label:"electronics-उद्योग (आसियान)", mg:[14,7], udy:[637] },
+      { img:"seed_sow", label:"चावल-निर्यात (थाई-वियतनाम)", mg:[14,1], udy:[638] }
+    ] },
+
+  { id:"q844", type:"pick", band:[2,3], layer:2, set:9,
+    text:"पश्चिम-एशिया के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"pani_khoj", label:"तेल-गैस उद्योग (खाड़ी)", mg:[14,2], udy:[644] },
+      { img:"note_100", label:"इस्लामी-वित्त", mg:[14,23], udy:[645] },
+      { img:"tree_plant", label:"खजूर-निर्यात", mg:[14,1], udy:[647] },
+      { img:"tank_measure", label:"खारा-पानी मीठा करने की तकनीक-निर्यात", mg:[14,20], udy:[648] }
+    ] },
+
+  { id:"q845", type:"story", band:[1,2,3], layer:2, set:9, img:"world_map",
+    text:"बड़े भाई खाड़ी-देश में काम करते हैं। वहाँ की कौन-सी दुनिया तुम्हें खींचती है?",
+    opts:[
+      { label:"हज-उमरा यात्रियों की सेवा", mg:[14,21], udy:[650], pts:2 },
+      { label:"real-estate (दुबई-मॉडल)", mg:[14,9], udy:[651], pts:2 },
+      { label:"रक्षा-उद्योग", mg:[14,24], udy:[652], pts:2 },
+      { label:"पेट्रो-रसायन निर्यात", mg:[14,13], udy:[653], pts:2 }
+    ] },
+
+  { id:"q846", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — Singapore जैसा वित्तीय-केंद्र, या Philippines जैसा BPO (call-center) केंद्र?",
+    opts:[
+      { img:"note_100", label:"Singapore जैसा वित्तीय-केंद्र", mg:[14,23], udy:[640] },
+      { img:"queue_line", label:"Philippines जैसा BPO (call-center) केंद्र", mg:[14,10], udy:[641] }
+    ] },
+
+  { id:"q847", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — Myanmar-सागौन लकड़ी का धंधा, या Cambodia-वस्त्र उद्योग?",
+    opts:[
+      { img:"forest_birds", label:"Myanmar-सागौन लकड़ी का धंधा", mg:[14,1], udy:[642] },
+      { img:"sewing_machine", label:"Cambodia-वस्त्र उद्योग", mg:[14,5], udy:[643] }
+    ] },
+
+  { id:"q848", type:"scale", band:[2,3], layer:2, set:9, udy:[583], img:"animal_love",
+    text:"रोएंदार-खाल (fur) उद्योग — कैसा लगता है?", mg:[14] },
+
+  { id:"q849", type:"pick", band:[2,3], layer:2, set:9,
+    text:"AI की सेवा-दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"robot_toy", label:"AI-model बनाना", mg:[15,7], udy:[654] },
+      { img:"fever_check", label:"AI से स्वास्थ्य-सेवा", mg:[15,6], udy:[655] },
+      { img:"seed_sow", label:"AI से खेती", mg:[15,1], udy:[656] },
+      { img:"note_100", label:"AI से वित्त", mg:[15,23], udy:[657] }
+    ] },
+
+  { id:"q850", type:"pick", band:[2,3], layer:2, set:9,
+    text:"AI की दुनिया आगे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"run_machine", label:"AI से कारख़ाना (विनिर्माण)", mg:[15,3], udy:[658] },
+      { img:"teach_kids", label:"AI से पढ़ाई", mg:[15,11], udy:[659] },
+      { img:"judge_friends", label:"AI से क़ानूनी सेवा", mg:[15,16], udy:[660] },
+      { img:"queue_line", label:"AI से भर्ती", mg:[15,16], udy:[661] }
+    ] },
+
+  { id:"q851", type:"pick", band:[2,3], layer:2, set:9,
+    text:"चलती-फिरती AI — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"vehicle_sound", label:"अपने-आप चलती (autonomous) गाड़ी", mg:[15,8], udy:[662] },
+      { img:"robot_toy", label:"AI-robotics कंपनी", mg:[15,19], udy:[663] },
+      { img:"world_map", label:"उपग्रह से पृथ्वी-अवलोकन", mg:[15,18], udy:[671] },
+      { img:"show_way", label:"GPS-navigation सेवा", mg:[15,8], udy:[672] }
+    ] },
+
+  { id:"q852", type:"pick", band:[2,3], layer:2, set:9,
+    text:"अंतरिक्ष के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"patang", label:"व्यावसायिक rocket-प्रक्षेपण", mg:[15,3], udy:[664] },
+      { img:"idea_machine", label:"नई पीढ़ी के उपग्रह बनाना", mg:[15,3], udy:[665] },
+      { img:"world_map", label:"अंतरिक्ष-पर्यटन", mg:[15,10], udy:[666] },
+      { img:"lock_key", label:"अंतरिक्ष-रक्षा", mg:[15,24], udy:[673] }
+    ] },
+
+  { id:"q853", type:"pick", band:[2,3], layer:2, set:9,
+    text:"अंतरिक्ष की गहराई — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"pani_khoj", label:"क्षुद्रग्रह (asteroid) खनन", mg:[15,2], udy:[667] },
+      { img:"seed_sow", label:"अंतरिक्ष में खेती", mg:[15,1], udy:[668] },
+      { img:"puzzle_solo", label:"चाँद (moon) की अर्थव्यवस्था", mg:[15], udy:[669] },
+      { img:"world_map", label:"Mars-mission उद्योग", mg:[15], udy:[670] }
+    ] },
+
+  { id:"q854", type:"pick", band:[2,3], layer:2, set:9,
+    text:"नए ज़माने का भोजन — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tube_bubble", label:"प्रयोगशाला में उगाया मांस", mg:[15,1], udy:[674] },
+      { img:"compost", label:"कीड़ों से protein-आहार", mg:[15,1], udy:[682] },
+      { img:"fish_pond", label:"कोशिका से समुद्री-भोजन", mg:[15,1], udy:[683] },
+      { img:"waste_sort", label:"खाद्य-बर्बादी रोकने की तकनीक", mg:[15,20], udy:[697] }
+    ] },
+
+  { id:"q855", type:"pick", band:[2,3], layer:2, set:9,
+    text:"जीवन-विज्ञान का भविष्य — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"puzzle_solo", label:"gene-संपादन (सुधार) तकनीक", mg:[15,6], udy:[676] },
+      { img:"med_shop", label:"व्यक्ति के अनुसार दवा", mg:[15,6], udy:[677] },
+      { img:"elder_help", label:"लंबी-उम्र (दीर्घायु) विज्ञान", mg:[15,6], udy:[678] },
+      { img:"herb_leaf", label:"पेट-जीवाणु (microbiome) उत्पाद", mg:[15,6], udy:[679] }
+    ] },
+
+  { id:"q856", type:"pick", band:[2,3], layer:2, set:9,
+    text:"जीव से बनी सामग्री — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tube_bubble", label:"संश्लेषित-जीवविज्ञान", mg:[15,6], udy:[680] },
+      { img:"herb_leaf", label:"जैव-आधारित सामग्री", mg:[15,13], udy:[681] },
+      { img:"compost", label:"मिट्टी में घुल जाने वाले उत्पाद", mg:[15,20], udy:[699] },
+      { img:"tree_plant", label:"carbon-तटस्थ उत्पाद", mg:[15,20], udy:[703] }
+    ] },
+
+  { id:"q857", type:"pick", band:[2,3], layer:2, set:9,
+    text:"ऊर्जा का भविष्य — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bulb_fix", label:"परमाणु-संलयन (fusion) ऊर्जा", mg:[15,2], udy:[684] },
+      { img:"tube_bubble", label:"hydrogen-अर्थव्यवस्था", mg:[15,2], udy:[685] },
+      { img:"tank_measure", label:"ammonia-ईंधन", mg:[15,2], udy:[686] },
+      { img:"flood_road", label:"महासागर-ऊर्जा", mg:[15,20], udy:[693] }
+    ] },
+
+  { id:"q858", type:"pick", band:[2,3], layer:2, set:9,
+    text:"battery और सामग्री — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bolt_fit", label:"ठोस-अवस्था battery", mg:[15,2], udy:[687] },
+      { img:"light_string", label:"अतिचालक (superconductor) सामग्री", mg:[15,19], udy:[688] },
+      { img:"godown_stack", label:"ऊर्जा-संग्रहण प्रणाली", mg:[15,2], udy:[689] },
+      { img:"weld_spark", label:"हरित-इस्पात", mg:[15,3], udy:[690] }
+    ] },
+
+  { id:"q859", type:"pick", band:[2,3], layer:2, set:9,
+    text:"हरित कारख़ाने — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"brick_wall", label:"हरित-cement", mg:[15,4], udy:[691] },
+      { img:"tree_plant", label:"carbon-अवशोषण तकनीक", mg:[15,20], udy:[692] },
+      { img:"waste_sort", label:"कचरे से धातु (शहरी-खनन)", mg:[15,2], udy:[698] },
+      { img:"run_machine", label:"शून्य-अपशिष्ट विनिर्माण", mg:[15,3], udy:[702] }
+    ] },
+
+  { id:"q860", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — सेवा-के-रूप-में-उत्पाद (किराया-मॉडल), या साझा-अर्थव्यवस्था मंच?",
+    opts:[
+      { img:"hisab_copy", label:"सेवा-के-रूप-में-उत्पाद (किराया-मॉडल)", mg:[15,9], udy:[694] },
+      { img:"mobile_app", label:"साझा-अर्थव्यवस्था मंच", mg:[15,7], udy:[700] }
+    ] },
+
+  { id:"q861", type:"scale", band:[2,3], layer:2, set:9, udy:[701], img:"toy_open",
+    text:"पुरानी चीज़ों से नई क़ीमती चीज़ बनाना (upcycling) — कैसा लगता है?", mg:[15,20] },
+
+  { id:"q862", type:"pick", band:[2,3], layer:2, set:9,
+    text:"digital-सुरक्षा के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"aag_bujhana", label:"आपदा के बाद प्रणाली-बहाली (disaster-recovery)", mg:[24,7], udy:[896] },
+      { img:"lock_key", label:"cyber-हमले पर तुरंत-जवाब सेवा", mg:[24,7], udy:[897] },
+      { img:"judge_friends", label:"सुरक्षा-परामर्श", mg:[24], udy:[899] },
+      { img:"pani_khoj", label:"forensic-सुरक्षा जाँच", mg:[24,16], udy:[900] }
+    ] },
+
+  { id:"q863", type:"pick", band:[2,3], layer:2, set:9,
+    text:"चीन-मॉडल के कारख़ाने — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"toy_open", label:"हल्का-विनिर्माण (रोज़मर्रा का सामान)", mg:[24,3], udy:[901] },
+      { img:"run_machine", label:"भारी-विनिर्माण (मशीन-इस्पात)", mg:[24,3], udy:[902] },
+      { img:"board_wire", label:"electronics-कारख़ाना (चीन-मॉडल)", mg:[24,7], udy:[903] },
+      { img:"solar_panel", label:"solar-panel का महाकारख़ाना", mg:[24,2], udy:[904] }
+    ] },
+
+  { id:"q864", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"चीन-मॉडल आगे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bulb_fix", label:"बिजली-गाड़ी क्रांति (चीन-मॉडल)", mg:[24,3], udy:[905] },
+      { img:"seed_sow", label:"धान-खेती (चीन-मॉडल)", mg:[24,1], udy:[906] },
+      { img:"tree_plant", label:"बाँस-उद्योग (चीन-मॉडल)", mg:[24,1], udy:[908] },
+      { img:"world_map", label:"Belt-Road जैसा विदेश-निर्माण", mg:[24,4], udy:[910] }
+    ] },
+
+  { id:"q865", type:"pick", band:[2,3], layer:2, set:9,
+    text:"जापान-कोरिया की दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bulb_fix", label:"जापानी विद्युत-उद्योग", mg:[24,3], udy:[911] },
+      { img:"robot_toy", label:"जापानी robotics", mg:[24,19], udy:[912] },
+      { img:"tractor_plough", label:"जापानी कृषि-तकनीक", mg:[24,1], udy:[913] },
+      { img:"phone_dead", label:"कोरिया electronics (बड़े brand-मॉडल)", mg:[24,7], udy:[916] }
+    ] },
+
+  { id:"q866", type:"pick", band:[2,3], layer:2, set:9,
+    text:"कोरिया-वियतनाम की दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"toy_boat", label:"कोरिया जहाज़-निर्माण", mg:[24,3], udy:[917] },
+      { img:"weld_spark", label:"कोरिया इस्पात-उद्योग", mg:[24,3], udy:[919] },
+      { img:"video_edit", label:"display-screen तकनीक", mg:[24,7], udy:[920] },
+      { img:"board_wire", label:"वियतनाम electronics-कारख़ाना", mg:[24,7], udy:[921] }
+    ] },
+
+  { id:"q867", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"आसियान-मॉडल के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"fish_pond", label:"वियतनाम झींगा-निर्यात", mg:[24,1], udy:[924] },
+      { img:"wood_toy", label:"वियतनाम बाँस-अर्थव्यवस्था", mg:[24,1], udy:[925] },
+      { img:"travel_road", label:"थाई पर्यटन-उद्योग", mg:[24,10], udy:[931] },
+      { img:"vehicle_sound", label:"थाई गाड़ी (automotive) उद्योग", mg:[24,3], udy:[933] }
+    ] },
+
+  { id:"q868", type:"pick", band:[2,3], layer:2, set:9,
+    text:"थाईलैंड-सिंगापुर की दुनिया — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"cycle_fix", label:"थाई रबड़-उद्योग", mg:[24,1], udy:[934] },
+      { img:"coin_stamp", label:"थाई रत्न-जवाहरात", mg:[24], udy:[935] },
+      { img:"note_100", label:"सिंगापुर वित्तीय-केंद्र", mg:[24,23], udy:[926] },
+      { img:"godown_stack", label:"सिंगापुर logistics-केंद्र", mg:[24,8], udy:[927] }
+    ] },
+
+  { id:"q869", type:"story", band:[1,2,3], layer:2, set:9, img:"world_map",
+    text:"सिंगापुर बहुत छोटा देश है, फिर भी बहुत आगे। किस राह से सीखना चाहोगे?",
+    opts:[
+      { label:"जैव-चिकित्सा केंद्र की राह", mg:[24,6], udy:[928], pts:2 },
+      { label:"शिक्षा-निर्यात की राह", mg:[24,11], udy:[929], pts:2 },
+      { label:"smart-राष्ट्र की राह", mg:[24,7], udy:[930], pts:2 },
+      { label:"निर्यात-प्रसंस्करण क्षेत्र की राह", mg:[24,14], udy:[944], pts:2 }
+    ] },
+
+  { id:"q870", type:"pick", band:[1,2,3], layer:2, set:9,
+    text:"ऑस्ट्रेलिया-मॉडल के धंधे — इनमें से कौन-सा काम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"cow_milk", label:"dairy-farming (ऑस्ट्रेलिया-मॉडल)", mg:[24,1], udy:[936] },
+      { img:"animal_love", label:"ऊन-उद्योग", mg:[24,1], udy:[937] },
+      { img:"mandi_taul", label:"गोमांस-उद्योग", mg:[24,1], udy:[938] },
+      { img:"idea_machine", label:"खनन-तकनीक का निर्यात", mg:[24,2], udy:[939] }
+    ] },
+
+  { id:"q871", type:"pair", band:[2,3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — tattoo-शरीर कला का studio, या मृत्यु-देखभाल (अंतिम-यात्रा) सेवा?",
+    opts:[
+      { img:"paint_toy", label:"tattoo-शरीर कला का studio", mg:[24,12], udy:[948] },
+      { img:"temple_seva", label:"मृत्यु-देखभाल (अंतिम-यात्रा) सेवा", mg:[24,17], udy:[949] }
+    ] },
+
+  { id:"q872", type:"pair", band:[3], layer:2, set:9,
+    text:"ज़्यादा अच्छा काम क्या — ऑस्ट्रेलिया जैसा शराब (wine) उद्योग, या जुआ-lottery उद्योग?",
+    opts:[
+      { img:"tube_bubble", label:"ऑस्ट्रेलिया जैसा शराब (wine) उद्योग", mg:[24,14], udy:[940] },
+      { img:"count_money", label:"जुआ-lottery उद्योग", mg:[24], udy:[947] }
+    ] },
+
+  { id:"q873", type:"scale", band:[2,3], layer:2, set:9, udy:[946], img:"tube_bubble",
+    text:"बहुलक-रेजिन निर्माण (एशिया-मॉडल) — कैसा लगता है?", mg:[24,13] },
+
+  { id:"q874", type:"scale", band:[3], layer:2, set:9, udy:[950], img:"decoration",
+    text:"विवाह-डेटिंग उद्योग — कैसा लगता है?", mg:[24,10] }
 
   ],
   stories: [
