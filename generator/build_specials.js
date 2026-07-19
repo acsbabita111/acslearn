@@ -1,5 +1,6 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
+   v1.1 · 20-Jul-2026 (काम-12: + /aptitude-test.html — अभिरुचि-टेस्ट मुफ़्त-झलक)
    v1.0 · 18-Jul-2026 (काम-9+; + रिज़्यूमे-फ़ोटो: device-local canvas-resize)
    ------------------------------------------------------------
    लोहे का नियम: कोई पेज हाथ से न बने — सिर्फ़ यह script।
@@ -29,7 +30,7 @@ const MENU_HTML = loadMenu().map(m =>
 ).join("\n");
 const MENU_FALLBACK_JS =
   '<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</scr' + 'ipt>';
-const GEN_NOTE = "<!-- ⚠️ generator से बना (build_specials.js v1.0) — हाथ से न बदलें। स्रोत: _TEMPLATE.html + assets/career-kit.* -->";
+const GEN_NOTE = "<!-- ⚠️ generator से बना (build_specials.js v1.1) — हाथ से न बदलें। स्रोत: _TEMPLATE.html + अपने-अपने assets -->";
 
 /* ---- check-robot ---- */
 function visibleText(html) {
@@ -392,4 +393,30 @@ buildSpecial({
   head: ['<link rel="stylesheet" href="/assets/legal.css">'],
   foot: [],
   content: TERMS_CONTENT
+});
+
+/* ===================== aptitude-test content (काम-12) ===================== */
+const APT_CONTENT =
+'<div class="apt-wrap">' +
+'<h1 style="font-size:26px;margin:14px 0 6px">🧭 अभिरुचि-टेस्ट (Aptitude Test)</h1>' +
+'<p class="apt-lead">यह जानने का खेल है कि आपका मन किन कामों में लगता है।</p>' +
+'<p>कोई जवाब सही या ग़लत नहीं होता — बस अपनी पसंद बताइए।</p>' +
+'<p>यह मुफ़्त झलक है — 24 प्रश्न और बीच में दो कहानियाँ।</p>' +
+'<div class="apt-note">🔒 आपके जवाब सिर्फ़ आपके फ़ोन में रहते हैं — कहीं भेजे नहीं जाते।</div>' +
+'<div id="apt-box" class="apt-card"><p>टेस्ट खुल रहा है…</p></div>' +
+'<div class="apt-note">📝 नतीजा अभिरुचि की झलक देता है — यह योग्यता का प्रमाण नहीं है।</div>' +
+'</div>';
+
+buildSpecial({
+  out: "aptitude-test.html", langStrict: true,
+  title: "अभिरुचि-टेस्ट — मुफ़्त झलक | अप्लाइड कंप्यूटर स्कूल",
+  desc: "24 सरल प्रश्न — जानें आपका मन किन कामों में लगता है। मुफ़्त, बिना खाता, जवाब आपके फ़ोन में ही।",
+  head: ['<link rel="stylesheet" href="/assets/aptitude-test.css">'],
+  foot: [
+    '<script src="/assets/mg_names.js"></scr' + 'ipt>',
+    '<script src="/assets/aptitude_art.js"></scr' + 'ipt>',
+    '<script src="/assets/aptitude_data.js"></scr' + 'ipt>',
+    '<script src="/assets/aptitude-test.js" defer></scr' + 'ipt>'
+  ],
+  content: APT_CONTENT
 });
