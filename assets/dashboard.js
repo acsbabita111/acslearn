@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.4.1 · 19-Jul-2026 — showLoadError में अब e.stack की पहली 3 पंक्तियाँ भी दिखतीं
+          (फ़ाइल:लाइन-नंबर समेत) — अगली बार कोई crash आए तो पहले ही प्रयास में
+          सटीक जड़ पकड़ में आए, कोई अटकल/और screenshot-चक्र न चाहिए पड़े।
    v4.4 · 19-Jul-2026 — गूँगा-fallback निषेध का स्थायी पहरा (v3.5-घ, Laxmi-केस से):
           guardTeam/guardExternal का पूरा profile-भरने वाला हिस्सा अब try-catch में
           (guardTeamRender/guardExternalRender अलग functions) — कोई भी अनपेक्षित
@@ -85,6 +88,9 @@ function showLoadError(context, e){
       '<div class="s">कुछ गड़बड़ हुई — ' + context + '</div>' +
       '<div class="note" style="font-size:15px;color:#B71C1C;margin-top:8px;word-break:break-word">' +
         esc((e && e.message) || String(e)) +
+      '</div>' +
+      '<div class="note" style="font-size:12px;color:#888;margin-top:4px;word-break:break-word;font-family:monospace;white-space:pre-wrap">' +
+        esc((e && e.stack) ? String(e.stack).split("\n").slice(0,3).join("\n") : "") +
       '</div>' +
       '<button type="button" style="margin-top:14px;padding:10px 20px;border-radius:10px;border:none;background:var(--blue);color:#fff;font-size:17px;cursor:pointer" onclick="location.reload()">🔄 फिर कोशिश करें</button>' +
       '<div class="note" style="margin-top:10px">बार-बार यही आए तो सहायता से संपर्क करें: <a href="tel:+919431210092">+91-9431210092</a></div>' +
