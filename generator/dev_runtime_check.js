@@ -223,6 +223,34 @@ const E = (id)=>doc.getElementById(id);
     check("volunteer-team: प्रोफ़ाइल दोनों में", navTexts.indexOf("👤 मेरी प्रोफ़ाइल")>-1);
   }
 
+/* ── (v1.3, 19-Jul-2026) nav-whitelist जाँच — badgeq-प्रकरण की सीख ──
+   नियम: TEAM_EXTRAS से team-पेजों में बैठा हर पैनल-id dashboard.js की
+   TEAM_PANEL_IDS सूची में भी हो, वरना पैनल पेज में होकर भी काम-सूची से छँटेगा। */
+(function(){
+  const fs=require("fs"), path=require("path");
+  const dj=fs.readFileSync(path.join(__dirname,"..","assets","dashboard.js"),"utf8");
+  const m=dj.match(/const TEAM_PANEL_IDS\s*=\s*\[([^\]]*)\]/);
+  if(!m){ console.error("❌ nav-जाँच: TEAM_PANEL_IDS नहीं मिली"); process.exit(1); }
+  const wl=m[1].split(",").map(x=>x.replace(/["'\s]/g,"")).filter(Boolean);
+  const gen=fs.readFileSync(path.join(__dirname,"build_dashboards.js"),"utf8");
+  const teamExtras=gen.match(/const TEAM_EXTRAS[\s\S]*?};/);
+  const need=new Set();
+  if(teamExtras){
+    /* TEAM_EXTRAS में इस्तेमाल हर P_* const की id निकालो */
+    const consts=[...teamExtras[0].matchAll(/P_[A-Z_]+/g)].map(x=>x[0]);
+    for(const c of new Set(consts)){
+      const cm=gen.match(new RegExp("const "+c+"[\\s\\S]*?id=\\\"(pnl-[a-z-]+)\\\""));
+      if(cm) need.add(cm[1]);
+    }
+  }
+  const missing=[...need].filter(id=>wl.indexOf(id)===-1);
+  if(missing.length){
+    console.error("❌ nav-whitelist होल: TEAM_PANEL_IDS में जोड़ना बाक़ी →", missing.join(", "));
+    process.exit(1);
+  }
+  console.log("✅ nav-whitelist जाँच: team-extra पैनल "+[...need].join(",")+" सूची में मौजूद");
+})();
+
   console.log(fails===0 ? "\n🏁 runtime-परीक्षा: सब पास ✅" : "\n🏁 runtime-परीक्षा: "+fails+" विफल ❌");
   process.exit(fails===0?0:1);
 })().catch(e=>{ console.error("❌ यंत्र-त्रुटि:", e); process.exit(1); });
