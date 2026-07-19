@@ -915,7 +915,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
         const t=(p.createdAt&&p.createdAt.toMillis)?p.createdAt.toMillis():0;
         if(!latest||t>t0){ latest=p; t0=t; } });
       if(latest && latest.status==="paid" && latest.rmStatus==="approved"){
-        st.textContent="✅ इस भूमिका का आपका बैज सक्रिय है।"; st.style.color="#1b4d20"; btn.style.display="none"; return;
+        let till="";
+        try{ const ex=latest.badgeExpiresAt&&latest.badgeExpiresAt.toDate?latest.badgeExpiresAt.toDate():null;
+             if(ex) till=" ("+("0"+ex.getDate()).slice(-2)+"-"+("0"+(ex.getMonth()+1)).slice(-2)+"-"+ex.getFullYear()+" तक)"; }catch(e){}
+        st.textContent="✅ इस भूमिका का आपका बैज सक्रिय है"+till+"।"; st.style.color="#1b4d20"; btn.style.display="none";
+        const pr=$("badgePinRow"); if(pr) pr.style.display="none"; return;
       }
       if(latest && latest.status==="paid"){
         st.textContent="⏳ भुगतान हो चुका — RM-सत्यापन जारी है। स्वीकृति पर बैज सक्रिय हो जाएगा।";
@@ -1064,4 +1068,74 @@ if (MODE==="external" && ALLOWED.length>=1) {
       box.innerHTML='<span class="note" style="color:#B71C1C">हिसाब नहीं खुला — network जाँचकर पैनल दोबारा खोलें।</span>';
     }
   };
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   (काम-11 कदम-3, 19-Jul-2026) 🟢 बैज-सत्यापन क़तार — founder/admin/zonal/
+   regional के team-घरों पर (पैनल generator से सिर्फ़ वहीं बैठा है)।
+   data = server listBadgeQueue (दायरा server जाँचता है) · फ़ैसला = decideBadge।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const ROLE_HI={jobseeker:"नौकरी-इच्छुक",teacher:"शिक्षक",ustad:"उस्ताद",counselor:"सलाहकार",
+    center:"केंद्र",workshop:"वर्कशॉप",foreign_agent:"विदेश एजेंट",finance_mitra:"वित्त मित्र",vendor:"विक्रेता"};
+  const TIER_HI={village:"गाँव",town:"क़स्बा",metro:"महानगर"};
+
+  async function loadQueue(){
+    const box=$("badgeqList"); if(!box) return;
+    box.innerHTML='<span class="note">सूची आ रही है…</span>';
+    try{
+      const res=await httpsCallable(functions,"listBadgeQueue")({});
+      const items=(res&&res.data&&res.data.items)||[];
+      if(items.length===0){
+        box.innerHTML='<span class="note">✅ अभी कोई लंबित बैज-सत्यापन नहीं — क़तार ख़ाली है।</span>'; return;
+      }
+      box.innerHTML="";
+      items.forEach(it=>{
+        const dt=it.paidAt? (function(){const d=new Date(it.paidAt);return ("0"+d.getDate()).slice(-2)+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+d.getFullYear();})():"—";
+        const row=document.createElement("div"); row.className="mem";
+        row.innerHTML =
+          '<div class="r1"><span class="nm">'+(it.name||"—")+' · '+(it.regNo||"—")+'</span></div>'
+        + '<div class="r2">भूमिका: '+(ROLE_HI[it.role]||it.role)+' · क्षेत्र: '+(TIER_HI[it.tier]||it.tier||"—")
+        + ' (पिन '+(it.pin||"—")+') · राशि: ₹'+(it.amountRupees||0)+' · भुगतान: '+dt+'</div>'
+        + '<div class="r2">राज्य: '+(it.state||"—")+' · वांछित जिला: '+(it.district||"—")
+        + (it.mobile? ' · 📱 '+it.mobile : '')+'</div>'
+        + '<div class="acts">'
+        + '<button class="abtn ok" data-bqact="approve" data-oid="'+it.orderId+'">✅ स्वीकृत — बैज दें (365 दिन)</button> '
+        + '<button class="abtn no" data-bqact="rejopen" data-oid="'+it.orderId+'">❌ अस्वीकृत</button></div>'
+        + '<div class="rejbox" id="bqrej-'+it.orderId+'"><textarea id="bqtx-'+it.orderId+'" rows="2" '
+        + 'placeholder="अस्वीकृति का कारण (अनिवार्य) — आवेदक को दिखेगा; 70% वापसी देय + 7-दिन सुधार-खिड़की"></textarea>'
+        + '<button class="abtn no" style="margin-top:6px" data-bqact="reject" data-oid="'+it.orderId+'">कारण के साथ अस्वीकृत करें</button></div>'
+        + '<div class="msg" id="bqmsg-'+it.orderId+'"></div>';
+        box.appendChild(row);
+      });
+    }catch(e){
+      box.innerHTML='<span class="note" style="color:#B71C1C">सूची नहीं खुली: '+((e&&e.message)||e)+'</span>';
+    }
+  }
+  LAZY["pnl-badgeq"] = loadQueue;
+
+  document.addEventListener("click", async (ev)=>{
+    const b=ev.target.closest("[data-bqact]"); if(!b) return;
+    const act=b.getAttribute("data-bqact"), oid=b.getAttribute("data-oid");
+    if(!act||!oid) return;
+    if(act==="rejopen"){ const bx=$("bqrej-"+oid); if(bx) bx.classList.toggle("on"); return; }
+    const msg=$("bqmsg-"+oid);
+    let reason="";
+    if(act==="reject"){
+      const tx=$("bqtx-"+oid); reason=String((tx&&tx.value)||"").trim();
+      if(!reason){ if(msg){msg.className="msg err";msg.textContent="कारण लिखना अनिवार्य है।";} return; }
+    }
+    if(act==="approve" && !confirm("इस आवेदक को Verified Badge दें? (365 दिन के लिए सक्रिय होगा)")) return;
+    b.disabled=true; if(msg){msg.className="msg";msg.textContent="server पर दर्ज हो रहा है…";}
+    try{
+      await httpsCallable(functions,"decideBadge")({ orderId:oid, action:(act==="reject"?"reject":"approve"), reason:reason });
+      if(msg){msg.className="msg ok";msg.textContent = act==="reject"
+        ? "⚠️ अस्वीकृत दर्ज — 70% वापसी देय (office Razorpay से) + 7-दिन सुधार-खिड़की।"
+        : "✅ बैज सक्रिय — 365 दिन।";}
+      setTimeout(loadQueue, 900);
+    }catch(e){
+      b.disabled=false;
+      if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+((e&&e.message)||e);}
+    }
+  });
 })();
