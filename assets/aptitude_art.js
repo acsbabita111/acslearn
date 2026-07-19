@@ -1,9 +1,9 @@
 /* ============================================================
-   /assets/aptitude_art.js — v4.0 (+ खेप-4 के 2 नए चित्र = कुल 98)
+   /assets/aptitude_art.js — v5.0 (+ खेप-5 के 2 नए चित्र = कुल 100)
    ACS Aptitude चित्र-भंडार (परत-3 data — एक चीज़ = एक जगह)
    ------------------------------------------------------------
-   - चित्र-गिनती: 98 (खेप-1: 46 · खेप-2: 47 · खेप-3: 3 · खेप-4: 2 —
-     graph_up व badi_imarat; खेप-4 के बाक़ी 98 प्रश्न पुराने चित्रों से)
+   - चित्र-गिनती: 100 (खेप-1: 46 · खेप-2: 47 · खेप-3: 3 · खेप-4: 2 ·
+     खेप-5: 2 — balla_gend व patang; बाक़ी सब प्रश्न पुराने चित्रों से)
    - खेप-2 पुनरुपयोग (प्रश्न-data इन्हीं id को दोबारा बुलाए):
      नक़्शे-पर-देश→world_map · भंडारा-परोसना→food_serve · साबुन-बेचना→shop_sell
      पुरानी-मशीन→run_machine · हिसाब-जाँच→hisab_copy · वीडियो-से-समझाना→video_edit
@@ -1188,6 +1188,28 @@ badi_imarat:
 '<circle cx="170" cy="40" r="10" stroke="#F9A825"/>' +
 '<path d="M170 26 v-4 M170 54 v4 M156 40 h-4 M184 40 h4" stroke="#F9A825" stroke-width="2.5"/>' +
 '<path d="M32 132 h140" stroke-width="2.5"/>' +
+'</svg>',
+
+balla_gend:
+'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+'<path d="M70 128 L110 56" stroke-width="3.5"/>' +
+'<path d="M104 50 q10 -12 22 -4 q8 12 -4 22 L110 56 z" fill="#F9A825" stroke="#0B1F3A"/>' +
+'<path d="M66 134 l10 -4" stroke-width="4"/>' +
+'<circle cx="52" cy="64" r="12" stroke="#2E7D32"/>' +
+'<path d="M44 56 q8 8 16 16" stroke="#2E7D32" stroke-width="2"/>' +
+'<path d="M36 78 l-6 6 M40 50 l-6 -6" stroke="#1565C0" stroke-width="2"/>' +
+'<path d="M40 140 h120" stroke-width="2.5"/>' +
+'</svg>',
+
+patang:
+'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+'<path d="M100 24 L140 64 L100 104 L60 64 z" fill="#F9A825" stroke="#0B1F3A"/>' +
+'<path d="M100 24 v80 M60 64 h80" stroke-width="2"/>' +
+'<path d="M100 104 q-8 12 0 20 q8 8 0 16" stroke="#2E7D32" stroke-width="2.5"/>' +
+'<path d="M96 116 l-8 2 M104 128 l8 2" stroke="#2E7D32" stroke-width="2"/>' +
+'<path d="M100 104 Q70 128 44 136" stroke="#1565C0" stroke-width="2"/>' +
+'<circle cx="40" cy="140" r="6" stroke="#1565C0"/>' +
+'<path d="M150 32 q8 -2 12 4 M156 46 q8 -2 12 4" stroke="#1565C0" stroke-width="2" stroke-dasharray="3 4"/>' +
 '</svg>'
 
 };
