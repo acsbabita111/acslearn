@@ -738,6 +738,8 @@ async function guardExternalRender(user, reg){
 
   show("appView");
   initNav("ext");
+  /* (19-Jul) बैज-निशान: engine का hook हो तो चलाओ — न हो तो चुप (गूँगा-fallback नहीं, वैकल्पिक-सजावट) */
+  if(typeof window.__acsBadgeMark==="function"){ try{ window.__acsBadgeMark(); }catch(e){} }
   /* v4.1: role-इंजन (जैसे विद्यार्थी-इंजन) को reg सौंपो — hook न हो तो चुप */
   if(typeof window.__acsExtReady==="function"){ try{ window.__acsExtReady(reg); }catch(e){} }
   startSessionWatch(user);
@@ -921,6 +923,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         try{ const ex=latest.badgeExpiresAt&&latest.badgeExpiresAt.toDate?latest.badgeExpiresAt.toDate():null;
              if(ex) till=" ("+("0"+ex.getDate()).slice(-2)+"-"+("0"+(ex.getMonth()+1)).slice(-2)+"-"+ex.getFullYear()+" तक)"; }catch(e){}
         st.textContent="✅ इस भूमिका का आपका बैज सक्रिय है"+till+"।"; st.style.color="#1b4d20"; btn.style.display="none";
+        markPhotoBadge();
         const pr=$("badgePinRow"); if(pr) pr.style.display="none"; return;
       }
       if(latest && latest.status==="paid"){
@@ -939,6 +942,35 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
   }
   LAZY["pnl-badge"] = loadBadgeStatus;
+
+  /* (Founder-आदेश 19-Jul) बैज सक्रिय हो तो प्रोफ़ाइल-फ़ोटो के किनारे हरा ✔-निशान */
+  function markPhotoBadge(){
+    if(document.getElementById("pubBadgeTick")) return;
+    const im=$("pPhoto"), fb=$("pPhotoFb");
+    const holder=(im&&im.parentElement)||(fb&&fb.parentElement);
+    if(!holder) return;
+    holder.style.position="relative";
+    const t=document.createElement("span");
+    t.id="pubBadgeTick"; t.title="Verified Badge — सत्यापित (Green Tick)";
+    t.textContent="✔";
+    t.style.cssText="position:absolute;bottom:6px;right:6px;width:34px;height:34px;"+
+      "border-radius:50%;background:#2E7D32;color:#fff;display:flex;align-items:center;"+
+      "justify-content:center;font-size:20px;font-weight:800;border:3px solid #fff;"+
+      "box-shadow:0 1px 4px rgba(0,0,0,.35);z-index:3";
+    holder.appendChild(t);
+  }
+  /* boot पर एक हल्की जाँच — पैनल खोले बिना भी निशान दिखे */
+  window.__acsBadgeMark = async function(){
+    try{
+      const u=auth.currentUser; if(!u) return;
+      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+      let ok=false;
+      qs.forEach(d=>{ const p=d.data()||{};
+        if(p.purpose==="badge" && String(p.role||"jobseeker").toLowerCase()===BADGE_ROLE
+           && p.status==="paid" && p.rmStatus==="approved") ok=true; });
+      if(ok) markPhotoBadge();
+    }catch(e){}
+  };
 
   async function buyBadge(){
     const btn=$("badgeBuyBtn"), msg=$("badgeMsg");
