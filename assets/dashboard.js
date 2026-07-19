@@ -904,6 +904,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
   async function loadBadgeStatus(){
     const st=$("badgeStatus"), btn=$("badgeBuyBtn");
     if(!st||!btn) return;
+    /* registration में पता/पिन न हो (प्रशिक्षु-roles में खाना ही नहीं) → पिन-खाना दिखाओ */
+    if(!pinFromReg()){ const pr=$("badgePinRow"); if(pr) pr.style.display="block"; }
     try{
       const u=auth.currentUser; if(!u) return;
       const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
@@ -935,9 +937,21 @@ if (MODE==="external" && ALLOWED.length>=1) {
   async function buyBadge(){
     const btn=$("badgeBuyBtn"), msg=$("badgeMsg");
     if(!btn) return;
+    /* पिन: पहले registration-पते से; न हो तो पैनल के पिन-खाने से (server भी यही क्रम मानता है) */
+    let pin = pinFromReg();
+    if(!pin){
+      const inp=$("badgePin");
+      pin = String((inp&&inp.value)||"").replace(/[^0-9]/g,"");
+      if(pin.length!==6){
+        const pr=$("badgePinRow"); if(pr) pr.style.display="block";
+        if(inp) inp.focus();
+        if(msg){ msg.className="msg err"; msg.textContent="पहले अपने घर का 6-अंकों का पिन कोड भरें — शुल्क इसी से तय होगा।"; }
+        return;
+      }
+    }
     btn.disabled=true; if(msg){ msg.className="msg"; msg.textContent="शुल्क तैयार किया जा रहा है…"; }
     try{
-      const res=await httpsCallable(functions,"createBadgeOrder")({ role:BADGE_ROLE, pincode:pinFromReg() });
+      const res=await httpsCallable(functions,"createBadgeOrder")({ role:BADGE_ROLE, pincode:pin });
       const o=(res&&res.data)||{};
       if(!o.ok||!o.orderId) throw new Error("order नहीं बना");
       const rupee=Math.round((o.amount||0)/100);
