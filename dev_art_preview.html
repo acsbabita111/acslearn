@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- ============================================================
+  generator/dev_art_preview.html — सिर्फ़ जाँच-यंत्र (dev tool)
+  ⚠️ यह website का पेज नहीं — GitHub पर चढ़ाना ज़रूरी नहीं;
+  चढ़ भी जाए तो कोई कड़ी इस तक नहीं जाती (generator/ folder)।
+  काम: assets/aptitude_art.js के सब चित्र एक साथ दिखाना —
+  mobile-screenshot मुहर (नियम-5) इसी से ली जाए।
+  खोलने का तरीक़ा: पूरा folder-ढाँचा रखकर इस फ़ाइल को browser में खोलें।
+  ============================================================ -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACS चित्र-भंडार जाँच (dev)</title>
+<style>
+  body{font-family:"Noto Sans Devanagari",Inter,sans-serif;background:#F5F7FA;color:#0B1F3A;margin:0;padding:16px;font-size:19px;line-height:1.7}
+  h1{font-size:22px;color:#0B1F3A}
+  .note{background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;padding:10px 14px;font-size:16px;margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .card{background:#fff;border:2px solid #0B1F3A22;border-radius:12px;padding:10px;text-align:center}
+  .card svg{width:100%;height:auto;display:block}
+  .cid{font-size:16px;margin-top:6px;word-break:break-all;color:#1565C0;font-weight:bold}
+  .count{font-size:18px;margin:10px 0;color:#2E7D32;font-weight:bold}
+</style>
+</head>
+<body>
+<h1>🎨 ACS Aptitude चित्र-भंडार — आँख-जाँच</h1>
+<div class="note">⚠️ यह सिर्फ़ जाँच-यंत्र है — website का पेज नहीं। हर चित्र के नीचे उसकी id दिखती है (असली टेस्ट में id की जगह प्रश्न का label दिखेगा)।</div>
+<div class="count" id="cnt">चित्र गिने जा रहे हैं…</div>
+<div class="grid" id="grid"></div>
+<script src="../assets/aptitude_art.js"></script>
+<script>
+(function(){
+  var g=document.getElementById('grid'), n=0;
+  if(!window.APT_ART){ document.getElementById('cnt').textContent='❌ aptitude_art.js नहीं मिली — folder-ढाँचा जाँचें (गूँगा-fallback निषेध)'; return; }
+  for(var id in APT_ART){
+    n++;
+    var d=document.createElement('div'); d.className='card';
+    d.innerHTML=APT_ART[id]+'<div class="cid">'+n+'. '+id+'</div>';
+    g.appendChild(d);
+  }
+  document.getElementById('cnt').textContent='कुल चित्र: '+n+' (पूर्ण भंडार का लक्ष्य: 93)';
+})();
+</script>
+</body>
+</html>
