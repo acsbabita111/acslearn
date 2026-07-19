@@ -1,9 +1,9 @@
 /* ============================================================
-   /assets/aptitude_art.js — v3.0 (+ खेप-3 के 3 नए चित्र = कुल 96)
+   /assets/aptitude_art.js — v4.0 (+ खेप-4 के 2 नए चित्र = कुल 98)
    ACS Aptitude चित्र-भंडार (परत-3 data — एक चीज़ = एक जगह)
    ------------------------------------------------------------
-   - चित्र-गिनती: 96 (खेप-1 के 46 + खेप-2 के 47 + खेप-3 के 3:
-     pani_khoj · chitthi_daftar · aag_bujhana — बाक़ी 47 प्रश्न पुराने चित्रों से)
+   - चित्र-गिनती: 98 (खेप-1: 46 · खेप-2: 47 · खेप-3: 3 · खेप-4: 2 —
+     graph_up व badi_imarat; खेप-4 के बाक़ी 98 प्रश्न पुराने चित्रों से)
    - खेप-2 पुनरुपयोग (प्रश्न-data इन्हीं id को दोबारा बुलाए):
      नक़्शे-पर-देश→world_map · भंडारा-परोसना→food_serve · साबुन-बेचना→shop_sell
      पुरानी-मशीन→run_machine · हिसाब-जाँच→hisab_copy · वीडियो-से-समझाना→video_edit
@@ -1165,6 +1165,29 @@ aag_bujhana:
 '<path d="M120 84 q10 -2 16 4 M122 92 q10 0 14 6" stroke="#1565C0" stroke-width="2.5" stroke-dasharray="3 4"/>' +
 '<path d="M148 110 q-8 -10 0 -20 q3 6 8 8 q-2 -10 6 -16 q2 12 8 16 q6 5 2 12 q-4 8 -12 8 q-8 0 -12 -8 z" stroke="#F9A825"/>' +
 '<path d="M40 132 h130" stroke-width="2.5"/>' +
+'</svg>',
+
+graph_up:
+'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+'<path d="M40 32 v96 h124" stroke-width="2.5"/>' +
+'<rect x="56" y="104" width="18" height="24" stroke="#1565C0"/>' +
+'<rect x="86" y="84" width="18" height="44" stroke="#1565C0"/>' +
+'<rect x="116" y="60" width="18" height="68" stroke="#1565C0"/>' +
+'<path d="M52 96 L84 72 L116 48 L142 34" stroke="#2E7D32" stroke-width="3.5"/>' +
+'<path d="M142 34 l-10 -2 M142 34 l-2 10" stroke="#2E7D32" stroke-width="3"/>' +
+'<circle cx="156" cy="52" r="6" stroke="#F9A825"/>' +
+'</svg>',
+
+badi_imarat:
+'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+'<rect x="44" y="88" width="40" height="44"/>' +
+'<path d="M52 100 h8 M68 100 h8 M52 114 h8 M68 114 h8" stroke="#1565C0" stroke-width="2"/>' +
+'<rect x="96" y="48" width="52" height="84"/>' +
+'<path d="M106 62 h10 M126 62 h10 M106 78 h10 M126 78 h10 M106 94 h10 M126 94 h10 M106 110 h10 M126 110 h10" stroke="#1565C0" stroke-width="2"/>' +
+'<path d="M118 48 v-14 l12 4 l-12 4" stroke="#2E7D32"/>' +
+'<circle cx="170" cy="40" r="10" stroke="#F9A825"/>' +
+'<path d="M170 26 v-4 M170 54 v4 M156 40 h-4 M184 40 h4" stroke="#F9A825" stroke-width="2.5"/>' +
+'<path d="M32 132 h140" stroke-width="2.5"/>' +
 '</svg>'
 
 };

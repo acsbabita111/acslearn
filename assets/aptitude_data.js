@@ -1,8 +1,12 @@
 /* ============================================================
-   /assets/aptitude_data.js — v3.0 (खेप-1+2+3: प्रश्न 1-98 · मूल भाषा: हिंदी)
+   /assets/aptitude_data.js — v4.0 (खेप-1+2+3+4: प्रश्न 1-198 · मूल भाषा: हिंदी)
    ACS Aptitude प्रश्न-भंडार (परत-3 data — एक चीज़ = एक जगह)
    ------------------------------------------------------------
-   - प्रश्न-गिनती: 98 (32 पट्टी + 31 चित्र-चुनाव + 24 जोड़ी + 11 कहानी) + 4 कथाएँ
+   - प्रश्न-गिनती: 198 (67 पट्टी + 46 चित्र-चुनाव + 56 जोड़ी + 29 कहानी) + 4 कथाएँ
+   - स्केल-परत नियम (v4.0): layer:3 प्रश्नों पर mg नहीं — "amb" हौसला-अंक
+     (1 छोटा-पक्का … 5 बड़ा सपना); दोनों जवाब सही, कोई शर्म-दबाव नहीं।
+     पट्टी पर amb:true = चेहरा 1-5 सीधे हौसला-अंक। भावी इंजन इसी से
+     "सुझाया स्केल" (L1-L15 दिशा) निकालेगा — certified score सिर्फ़ गणित।
    - सेट-नियम (v3.0): "set" खाना न हो = set 1 (खेप-1/2)। खेप-3 = set:2,
      layer:2 (गहराई-परत)। भविष्य में मशीन set-दर-set परोसेगी — 20-सेट नींव।
    - सभी 24 मास्टर-समूह छुए गए (खेप-2 में रसायन-13 · वैश्विक-14 ·
@@ -636,6 +640,546 @@ window.APT_DATA = {
       { label:"कचरा अलग-अलग छँटवाऊँगा",         mg:[20,2],  pts:2 },
       { label:"पेड़ लगवाऊँगा",                    mg:[1,20],  pts:2 },
       { label:"फ़ोटो-video से सबको दिखाऊँगा",     mg:[18,12], pts:2 }
+    ] },
+
+  /* ═══════ खेप-4 हिस्सा-अ (set:3, layer:2 — गहराई-प्रश्न 50) ═══════ */
+
+  { id:"q099", type:"scale", band:[1,2,3], layer:2, set:3, img:"count_money",
+    text:"अपनी पहली कमाई का हिसाब लिखना — कैसा लगता है?", mg:[23,18] },
+  { id:"q100", type:"scale", band:[1,2,3], layer:2, set:3, img:"jugaad_new",
+    text:"टूटी चीज़ फेंकने से पहले सुधारने की कोशिश करना — कैसा लगता है?", mg:[3] },
+  { id:"q101", type:"scale", band:[1,2,3], layer:2, set:3, img:"travel_road",
+    text:"नए शहर में रास्ता ख़ुद खोजना — कैसा लगता है?", mg:[8,14] },
+  { id:"q102", type:"scale", band:[1,2,3], layer:2, set:3, img:"decoration",
+    text:"त्योहार पर घर-सजावट की ज़िम्मेदारी लेना — कैसा लगता है?", mg:[10,12] },
+  { id:"q103", type:"scale", band:[1,2,3], layer:2, set:3, img:"teach_kids",
+    text:"छोटे भाई-बहन को होमवर्क कराना — कैसा लगता है?", mg:[11] },
+  { id:"q104", type:"scale", band:[1,2,3], layer:2, set:3, img:"herb_leaf",
+    text:"बीमार पौधे को देखकर उसका कारण सोचना — कैसा लगता है?", mg:[1,18] },
+  { id:"q105", type:"scale", band:[1,2,3], layer:2, set:3, img:"embroidery",
+    text:"पुराने कपड़े से कोई नई चीज़ बनाना — कैसा लगता है?", mg:[5,12] },
+  { id:"q106", type:"scale", band:[1,2,3], layer:2, set:3, img:"hisab_copy",
+    text:"दुकान का उधार-हिसाब याद रखना — कैसा लगता है?", mg:[9,23] },
+  { id:"q107", type:"scale", band:[1,2,3], layer:2, set:3, img:"judge_friends",
+    text:"मोहल्ले के झगड़े में बीच-बचाव कराना — कैसा लगता है?", mg:[16,10] },
+  { id:"q108", type:"scale", band:[1,2,3], layer:2, set:3, img:"elder_help",
+    text:"घर के बड़ों को दवा का समय याद दिलाना — कैसा लगता है?", mg:[6,10] },
+  { id:"q109", type:"scale", band:[1,2,3], layer:2, set:3, img:"team_win",
+    text:"खेल में टीम बनाना और चलाना — कैसा लगता है?", mg:[22,10] },
+  { id:"q110", type:"scale", band:[1,2,3], layer:2, set:3, img:"temple_seva",
+    text:"धार्मिक आयोजन में कोई ज़िम्मेदारी लेना — कैसा लगता है?", mg:[21,10] },
+  { id:"q111", type:"scale", band:[1,2,3], layer:2, set:3, img:"camera_click",
+    text:"photo-video सँभालकर सजाकर रखना — कैसा लगता है?", mg:[18,12] },
+  { id:"q112", type:"scale", band:[1,2,3], layer:2, set:3, img:"note_100",
+    text:"बिजली-पानी का बिल पढ़कर समझना — कैसा लगता है?", mg:[23,2] },
+  { id:"q113", type:"scale", band:[1,2,3], layer:2, set:3, img:"flood_road",
+    text:"मौसम बिगड़ने पर घर-सामान की हिफ़ाज़त करना — कैसा लगता है?", mg:[24] },
+
+  { id:"q114", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"brick_wall",   label:"छत की मरम्मत",     mg:[4] },
+      { img:"handpump_fix", label:"नल का काम",        mg:[4,2] },
+      { img:"board_wire",   label:"बिजली का काम",      mg:[4,2] },
+      { img:"paint_toy",    label:"रंगाई-पुताई",        mg:[4,12] }
+    ] },
+  { id:"q115", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"cook_pot",     label:"चाय-नाश्ते की दुकान",  mg:[10] },
+      { img:"sweet_make",   label:"मिठाई का काम",        mg:[10,1] },
+      { img:"food_serve",   label:"होटल में परोसा",       mg:[10] },
+      { img:"school_stall", label:"ठेला-चाट का काम",     mg:[10,9] }
+    ] },
+  { id:"q116", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"sewing_machine", label:"सिलाई",          mg:[5] },
+      { img:"embroidery",     label:"कढ़ाई",           mg:[5,12] },
+      { img:"soap_make",      label:"रंगाई-छपाई",      mg:[5,13] },
+      { img:"shop_sell",      label:"कपड़ा बेचना",     mg:[5,9] }
+    ] },
+  { id:"q117", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"mobile_app",    label:"recharge-भुगतान का काम",  mg:[7,23] },
+      { img:"phone_dead",    label:"mobile मरम्मत",           mg:[7,3] },
+      { img:"shop_sell",     label:"mobile-सामान बेचना",      mg:[9,7] },
+      { img:"type_computer", label:"online form भरना",        mg:[7,17] }
+    ] },
+  { id:"q118", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bus_drive",     label:"गाड़ी चलाना",       mg:[8] },
+      { img:"cycle_fix",     label:"गाड़ी की मरम्मत",    mg:[8,3] },
+      { img:"vehicle_sound", label:"गाड़ी की धुलाई-सेवा", mg:[8,10] },
+      { img:"bolt_fit",      label:"पुर्ज़े बेचना",       mg:[8,9] }
+    ] },
+  { id:"q119", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"teach_kids",     label:"tuition पढ़ाना",       mg:[11] },
+      { img:"shop_sell",      label:"copy-किताब दुकान",    mg:[9,11] },
+      { img:"chitthi_daftar", label:"form भरने की सहायता",  mg:[17,11] },
+      { img:"exercise_coach", label:"खेल सिखाना",          mg:[22,11] }
+    ] },
+  { id:"q120", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tractor_plough", label:"यंत्र चलाना",          mg:[1,3] },
+      { img:"note_100",       label:"यंत्र किराये पर देना",   mg:[1,9] },
+      { img:"run_machine",    label:"यंत्र की मरम्मत",       mg:[1,3] },
+      { img:"idea_machine",   label:"नया यंत्र सीखना",      mg:[1,15] }
+    ] },
+  { id:"q121", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"shop_sell",       label:"पानी-जार बेचना",   mg:[2,9] },
+      { img:"pani_khoj",       label:"बोरिंग का काम",    mg:[2] },
+      { img:"pipe_irrigation", label:"सिंचाई का ठेका",    mg:[2,1] },
+      { img:"tank_measure",    label:"टंकी-सफ़ाई सेवा",   mg:[2,10] }
+    ] },
+  { id:"q122", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"mela_gate",    label:"शादी-मंडप का काम",  mg:[10,4] },
+      { img:"flower_sell",  label:"फूल का काम",        mg:[10,1] },
+      { img:"light_string", label:"लाइट-झालर का काम",  mg:[10,2] },
+      { img:"camera_click", label:"फ़ोटो-video का काम",  mg:[10,12] }
+    ] },
+  { id:"q123", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"boy_bandage", label:"पशु-इलाज में सहायता",  mg:[1,6] },
+      { img:"shop_sell",   label:"चारा बेचना",           mg:[1,9] },
+      { img:"cow_milk",    label:"दूध का काम",           mg:[1,9] },
+      { img:"animal_love", label:"पशु-देखभाल",           mg:[1,10] }
+    ] },
+  { id:"q124", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"queue_line",   label:"चौकीदारी-निगरानी",   mg:[24] },
+      { img:"camera_click", label:"CCTV का काम",        mg:[24,7] },
+      { img:"aag_bujhana",  label:"आग-सुरक्षा",          mg:[24] },
+      { img:"mela_gate",    label:"भीड़ का इंतज़ाम",      mg:[24,10] }
+    ] },
+  { id:"q125", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"embroidery", label:"मेहँदी का काम",     mg:[12,5] },
+      { img:"decoration", label:"रंगोली-सजावट",     mg:[12] },
+      { img:"stage_song", label:"गीत-बाजा",          mg:[12,10] },
+      { img:"clay_art",   label:"मूर्ति बनाना",       mg:[12] }
+    ] },
+  { id:"q126", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"learn_lang",     label:"वहाँ की भाषा सीखना",     mg:[14,11] },
+      { img:"chitthi_daftar", label:"passport-कागज़ बनवाना",  mg:[14,17] },
+      { img:"weld_spark",     label:"हुनर-प्रमाण बनवाना",     mg:[14,3] },
+      { img:"world_food",     label:"वहाँ का काम-ढंग सीखना",  mg:[14,10] }
+    ] },
+  { id:"q127", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"video_edit",    label:"video बनाकर कमाना",   mg:[18,12] },
+      { img:"shop_sell",     label:"online सामान बेचना",   mg:[18,9] },
+      { img:"type_computer", label:"typing का काम",       mg:[18,7] },
+      { img:"teach_kids",    label:"online सिखाना",       mg:[18,11] }
+    ] },
+  { id:"q128", type:"pick", band:[1,2,3], layer:2, set:3,
+    text:"इनमें से कौन-सा काम तुम सबसे पहले करना चाहोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"hisab_copy",     label:"दुकान का खाता लिखना",     mg:[23,9] },
+      { img:"piggy_bank",     label:"बचत-समूह चलाना",         mg:[23,10] },
+      { img:"chitthi_daftar", label:"बीमा-कागज़ में सहायता",     mg:[23,16] },
+      { img:"mobile_app",     label:"mobile-bank में सहायता",   mg:[23,7] }
+    ] },
+
+  { id:"q129", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — पक्की छोटी कमाई, या बढ़ने वाली पर अनिश्चित कमाई?",
+    opts:[
+      { img:"run_machine",  label:"पक्की छोटी कमाई",           mg:[3,23] },
+      { img:"idea_machine", label:"बढ़ने वाली अनिश्चित कमाई",   mg:[15,9] }
+    ] },
+  { id:"q130", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा मज़ा किसमें — हाथ के काम में, या दिमाग़ के काम में?",
+    opts:[
+      { img:"jugaad_new",  label:"हाथ का काम",    mg:[3,12] },
+      { img:"puzzle_solo", label:"दिमाग़ का काम",  mg:[18,16] }
+    ] },
+  { id:"q131", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — सामान बनाना, या सेवा देना?",
+    opts:[
+      { img:"wood_toy",   label:"सामान बनाना",  mg:[3] },
+      { img:"food_serve", label:"सेवा देना",     mg:[10] }
+    ] },
+  { id:"q132", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — गाँव में अपना काम, या शहर में नौकरी?",
+    opts:[
+      { img:"shop_sell",     label:"गाँव में अपना काम",  mg:[9,1] },
+      { img:"type_computer", label:"शहर में नौकरी",     mg:[7,3] }
+    ] },
+  { id:"q133", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — सुबह-जल्दी वाला काम, या रात-देर वाला काम?",
+    opts:[
+      { img:"seed_sow",   label:"सुबह-जल्दी वाला काम",  mg:[1] },
+      { img:"weld_spark", label:"रात-देर वाला काम",     mg:[3,10] }
+    ] },
+  { id:"q134", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — एक हुनर गहरा, या कई हुनर थोड़े-थोड़े?",
+    opts:[
+      { img:"weld_spark", label:"एक हुनर गहरा",         mg:[3] },
+      { img:"jugaad_new", label:"कई हुनर थोड़े-थोड़े",    mg:[9,10] }
+    ] },
+  { id:"q135", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — मशीन के साथ काम, या लोगों के साथ काम?",
+    opts:[
+      { img:"run_machine", label:"मशीन के साथ काम",  mg:[3,19] },
+      { img:"team_win",    label:"लोगों के साथ काम",  mg:[10,11] }
+    ] },
+  { id:"q136", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — लिखने-पढ़ने वाला काम, या बोलने-घूमने वाला काम?",
+    opts:[
+      { img:"write_story", label:"लिखने-पढ़ने वाला काम",   mg:[18,11] },
+      { img:"show_way",    label:"बोलने-घूमने वाला काम",   mg:[10,9] }
+    ] },
+  { id:"q137", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — साफ़ नाप-जोख वाला काम, या अंदाज़े-कला वाला काम?",
+    opts:[
+      { img:"tank_measure", label:"साफ़ नाप-जोख वाला काम",  mg:[4,18] },
+      { img:"paint_toy",    label:"अंदाज़े-कला वाला काम",    mg:[12] }
+    ] },
+  { id:"q138", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — सीखा हुआ रोज़ दोहराना, या रोज़ कुछ नया सीखना?",
+    opts:[
+      { img:"run_machine", label:"सीखा हुआ रोज़ दोहराना",  mg:[3] },
+      { img:"learn_lang",  label:"रोज़ कुछ नया सीखना",    mg:[15,14] }
+    ] },
+  { id:"q139", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — घर से काम, या बाहर घूमकर काम?",
+    opts:[
+      { img:"sewing_machine", label:"घर से काम",         mg:[5,18] },
+      { img:"travel_road",    label:"बाहर घूमकर काम",    mg:[8,9] }
+    ] },
+  { id:"q140", type:"pair", band:[1,2,3], layer:2, set:3,
+    text:"ज़्यादा अच्छा क्या — चीज़ें सँभालना, या लोग सँभालना?",
+    opts:[
+      { img:"godown_stack", label:"चीज़ें सँभालना",  mg:[8,3] },
+      { img:"elder_help",   label:"लोग सँभालना",    mg:[10,11] }
+    ] },
+
+  { id:"q141", type:"story", band:[1,2,3], layer:2, set:3, img:"leaky_roof",
+    text:"पड़ोसी की छत टपक रही है और उसने मदद माँगी। तुम क्या करोगे?",
+    opts:[
+      { label:"ख़ुद जुगाड़ से रोकूँगा",              mg:[3,4],   pts:2 },
+      { label:"अच्छा मिस्त्री बुलवाऊँगा",            mg:[10,4],  pts:2 },
+      { label:"सामान की सूची-ख़र्च बनाऊँगा",        mg:[18,9],  pts:2 },
+      { label:"बारिश-पानी जमा करने का उपाय सोचूँगा", mg:[20,2],  pts:2 }
+    ] },
+  { id:"q142", type:"story", band:[1,2,3], layer:2, set:3, img:"tamatar_tokri",
+    text:"हाट में तुम्हारी सब्ज़ी नहीं बिक रही। तुम क्या करोगे?",
+    opts:[
+      { label:"दाम थोड़ा घटाऊँगा",            mg:[9],    pts:2 },
+      { label:"सजाकर अच्छे से रखूँगा",         mg:[12,9], pts:2 },
+      { label:"घूम-घूमकर बेचूँगा",             mg:[8,9],  pts:2 },
+      { label:"बची सब्ज़ी का अचार बनाऊँगा",    mg:[1,13], pts:2 }
+    ] },
+  { id:"q143", type:"story", band:[1,2,3], layer:2, set:3, img:"shop_sell",
+    text:"दोस्त की दुकान में एक दिन हाथ बँटाना है। तुम क्या सँभालोगे?",
+    opts:[
+      { label:"ग्राहकों से बात",           mg:[10,9],  pts:2 },
+      { label:"माल जमाना-सजाना",         mg:[8,9],   pts:2 },
+      { label:"हिसाब-किताब",             mg:[23,18], pts:2 },
+      { label:"नई चीज़ रखने की सलाह",     mg:[15,9],  pts:2 }
+    ] },
+  { id:"q144", type:"story", band:[1,2,3], layer:2, set:3, img:"mela_gate",
+    text:"गाँव में मेला लगवाना है। तुम क्या सँभालोगे?",
+    opts:[
+      { label:"दुकानदार जुटाऊँगा",         mg:[9,10],  pts:2 },
+      { label:"जगह का नक़्शा बनाऊँगा",     mg:[4,18],  pts:2 },
+      { label:"अनुमति के कागज़ करवाऊँगा",  mg:[17,16], pts:2 },
+      { label:"प्रचार सँभालूँगा",            mg:[12,18], pts:2 }
+    ] },
+  { id:"q145", type:"story", band:[1,2,3], layer:2, set:3, img:"wood_toy",
+    text:"स्कूल की बेंच टूट गई है। तुम क्या करोगे?",
+    opts:[
+      { label:"ख़ुद मरम्मत की कोशिश",         mg:[3],     pts:2 },
+      { label:"बढ़ई से करवाकर सीखूँगा",       mg:[11,3],  pts:2 },
+      { label:"चंदे का हिसाब सँभालूँगा",        mg:[23,17], pts:2 },
+      { label:"नई मज़बूत design सोचूँगा",      mg:[12,15], pts:2 }
+    ] },
+  { id:"q146", type:"story", band:[1,2,3], layer:2, set:3, img:"animal_love",
+    text:"घर की बकरी बीमार लग रही है। तुम पहले क्या करोगे?",
+    opts:[
+      { label:"पशु-डॉक्टर के पास ले जाऊँगा",     mg:[6,1],   pts:2 },
+      { label:"घरेलू इलाज पूछूँगा",              mg:[1,17],  pts:2 },
+      { label:"लक्षण लिखकर रखूँगा",             mg:[18,6],  pts:2 },
+      { label:"बाक़ी जानवरों से अलग रखूँगा",     mg:[24,1],  pts:2 }
+    ] },
+  { id:"q147", type:"story", band:[1,2,3], layer:2, set:3, img:"mobile_app",
+    text:"नया app फ़ोन में चल नहीं रहा। तुम पहले क्या करोगे?",
+    opts:[
+      { label:"settings ख़ुद जाँचूँगा",        mg:[7],    pts:2 },
+      { label:"video में तरीक़ा देखूँगा",      mg:[11,18], pts:2 },
+      { label:"किसी जानकार दोस्त से पूछूँगा", mg:[10],   pts:2 },
+      { label:"mobile-दुकान पर दिखाऊँगा",   mg:[9,7],  pts:2 }
+    ] },
+  { id:"q148", type:"story", band:[1,2,3], layer:2, set:3, img:"note_100",
+    text:"इस महीने बिजली-बिल बहुत ज़्यादा आया। तुम क्या करोगे?",
+    opts:[
+      { label:"meter की जाँच करवाऊँगा",       mg:[2,18],  pts:2 },
+      { label:"दफ़्तर में शिकायत दूँगा",         mg:[17,16], pts:2 },
+      { label:"बिजली-बचत के उपाय करूँगा",     mg:[20,2],  pts:2 },
+      { label:"पुराने बिलों से हिसाब मिलाऊँगा",  mg:[23,18], pts:2 }
+    ] },
+
+  /* ═══════ खेप-4 हिस्सा-ब (set:3, layer:3 — स्केल-परत 50) ═══════
+     इनमें समूह-ठप्पा नहीं — "amb" = हौसला-अंक (1 छोटा-पक्का … 5 बड़ा सपना)।
+     दोनों जवाब सही — नतीजे में सिर्फ़ "सुझाया स्केल" (L1-L15 दिशा) बनेगा।
+     पट्टी-प्रश्न पर amb:true = चेहरा-1 से 5 सीधे हौसला-अंक। */
+
+  { id:"q149", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"graph_up",
+    text:"अपना काम पूरे जिले में फैलाना — सोचकर कैसा लगता है?" },
+  { id:"q150", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"team_win",
+    text:"दस लोगों की टोली को काम बताना — सोचकर कैसा लगता है?" },
+  { id:"q151", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"note_100",
+    text:"बैंक से क़र्ज़ लेकर काम बड़ा करना — सोचकर कैसा लगता है?" },
+  { id:"q152", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"travel_road",
+    text:"अनजान शहर में जाकर नया काम शुरू करना — सोचकर कैसा लगता है?" },
+  { id:"q153", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"school_stall",
+    text:"अपने नाम के board वाली दुकान — सोचकर कैसा लगता है?" },
+  { id:"q154", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"badi_imarat",
+    text:"मशीनें ख़रीदकर अपना कारख़ाना — सोचकर कैसा लगता है?" },
+  { id:"q155", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"world_map",
+    text:"अपना माल दूसरे देश तक भेजना — सोचकर कैसा लगता है?" },
+  { id:"q156", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"teach_kids",
+    text:"नए लोगों को काम पर रखना और सिखाना — सोचकर कैसा लगता है?" },
+  { id:"q157", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"godown_stack",
+    text:"बड़ा order लेने का साहस करना — सोचकर कैसा लगता है?" },
+  { id:"q158", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"piggy_bank",
+    text:"कमाई बचाकर उसे काम में दोबारा लगाना — सोचकर कैसा लगता है?" },
+  { id:"q159", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"jugaad_new",
+    text:"एक बार हारकर दोबारा शुरू करना — सोचकर कैसा लगता है?" },
+  { id:"q160", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"hisab_copy",
+    text:"अगले पाँच साल की योजना बनाना — सोचकर कैसा लगता है?" },
+  { id:"q161", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"mela_gate",
+    text:"गाँव में औरों के लिए रोज़गार बनाना — सोचकर कैसा लगता है?" },
+  { id:"q162", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"chitthi_daftar",
+    text:"अधिकारियों से बेझिझक अपनी बात कहना — सोचकर कैसा लगता है?" },
+  { id:"q163", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"stage_play",
+    text:"मंच पर सबके सामने बोलना — सोचकर कैसा लगता है?" },
+  { id:"q164", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"tree_plant",
+    text:"रोज़ थोड़ा-थोड़ा करके बड़ा लक्ष्य पूरा करना — सोचकर कैसा लगता है?" },
+  { id:"q165", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"learn_lang",
+    text:"काम के लिए नई भाषा सीखना — सोचकर कैसा लगता है?" },
+  { id:"q166", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"news_boy",
+    text:"अपने काम का प्रचार ख़ुद करना — सोचकर कैसा लगता है?" },
+  { id:"q167", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"team_win",
+    text:"मुश्किल घड़ी में टोली का हौसला बाँधना — सोचकर कैसा लगता है?" },
+  { id:"q168", type:"scale", band:[2,3], layer:3, set:3, amb:true, img:"count_money",
+    text:"खाते में हर पैसा साफ़-साफ़ रखना — सोचकर कैसा लगता है?" },
+
+  { id:"q169", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"shop_sell",   label:"छोटी दुकान, पक्की कमाई",     amb:2 },
+      { img:"badi_imarat", label:"बड़ी दुकान, ज़्यादा जोखिम",    amb:4 }
+    ] },
+  { id:"q170", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"puzzle_solo", label:"अकेले सब सँभालूँ",       amb:2 },
+      { img:"team_win",    label:"टोली बनाकर काम बाँटूँ",   amb:4 }
+    ] },
+  { id:"q171", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"shop_sell", label:"गाँव में नाम हो",   amb:2 },
+      { img:"world_map", label:"दूर तक नाम हो",    amb:4 }
+    ] },
+  { id:"q172", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"piggy_bank", label:"जितना है, उतने में ख़ुश",   amb:2 },
+      { img:"graph_up",   label:"हर साल थोड़ा बढ़ाऊँ",      amb:4 }
+    ] },
+  { id:"q173", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"write_story", label:"पहले पूरा सीखूँ, फिर शुरू",  amb:2 },
+      { img:"jugaad_new",  label:"शुरू करके सीखता चलूँ",     amb:4 }
+    ] },
+  { id:"q174", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"piggy_bank", label:"उधार से हमेशा दूर",           amb:2 },
+      { img:"note_100",   label:"सोच-समझकर क़र्ज़ लेना सही",   amb:4 }
+    ] },
+  { id:"q175", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"school_stall", label:"एक जगह टिककर काम",       amb:2 },
+      { img:"travel_road",  label:"जहाँ मौक़ा, वहाँ काम",      amb:4 }
+    ] },
+  { id:"q176", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"count_money", label:"पक्की पगार वाली नौकरी",         amb:2 },
+      { img:"graph_up",    label:"अपना काम — ऊपर-नीचे कमाई",    amb:4 }
+    ] },
+  { id:"q177", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"pack_weigh",   label:"छोटा order, जल्दी पूरा",   amb:2 },
+      { img:"godown_stack", label:"बड़ा order, लंबा काम",    amb:4 }
+    ] },
+  { id:"q178", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"shop_sell", label:"जाने-माने ग्राहक",     amb:2 },
+      { img:"news_boy",  label:"नए ग्राहक खोजना",    amb:4 }
+    ] },
+  { id:"q179", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"jugaad_new", label:"ख़ुद करने में मज़ा",     amb:2 },
+      { img:"team_win",   label:"करवाने में मज़ा",       amb:4 }
+    ] },
+  { id:"q180", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"run_machine",  label:"एक धंधा जमाकर",       amb:2 },
+      { img:"school_stall", label:"दो-तीन धंधे साथ-साथ",   amb:4 }
+    ] },
+  { id:"q181", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"mandi_taul", label:"गाँव का बाज़ार",         amb:2 },
+      { img:"world_map",  label:"online पूरी दुनिया",     amb:4 }
+    ] },
+  { id:"q182", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"wood_toy",  label:"पुराना पक्का ढंग",        amb:2 },
+      { img:"robot_toy", label:"नई मशीन, नया ढंग",      amb:4 }
+    ] },
+  { id:"q183", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"seed_sow",    label:"थोड़े में शुरुआत",           amb:2 },
+      { img:"badi_imarat", label:"पूरी तैयारी, बड़ा आग़ाज़",    amb:4 }
+    ] },
+  { id:"q184", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"make_alone",  label:"नाम पीछे, काम आगे",   amb:2 },
+      { img:"stage_play",  label:"काम के साथ नाम भी",   amb:4 }
+    ] },
+  { id:"q185", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"hisab_copy", label:"महीने भर की योजना",     amb:2 },
+      { img:"world_map",  label:"पाँच साल की योजना",     amb:4 }
+    ] },
+  { id:"q186", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"run_machine", label:"जो आता है, वही पक्का",   amb:2 },
+      { img:"learn_lang",  label:"हर साल एक नया हुनर",   amb:4 }
+    ] },
+  { id:"q187", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"shop_sell",   label:"छोटा भरा-पूरा काम",      amb:2 },
+      { img:"badi_imarat", label:"बड़ी कंपनी का सपना",     amb:4 }
+    ] },
+  { id:"q188", type:"pair", band:[2,3], layer:3, set:3,
+    text:"दोनों सही हैं — तुम्हें कौन-सा ज़्यादा भाता है?",
+    opts:[
+      { img:"piggy_bank", label:"कमाई अपने घर के लिए",       amb:2 },
+      { img:"team_win",   label:"औरों को भी रोज़गार मिले",    amb:4 }
+    ] },
+
+  { id:"q189", type:"story", band:[2,3], layer:3, set:3, img:"note_100",
+    text:"पहली बार 500 रुपये कमाए। तुम क्या करोगे?",
+    opts:[
+      { label:"घर में दे दूँगा",                    amb:1 },
+      { label:"बचाकर रखूँगा",                     amb:2 },
+      { label:"औज़ार या सीखने पर लगाऊँगा",        amb:3 },
+      { label:"माल लाकर छोटा धंधा शुरू करूँगा",    amb:5 }
+    ] },
+  { id:"q190", type:"story", band:[2,3], layer:3, set:3, img:"mela_gate",
+    text:"मेले में तुम्हारी दुकान अच्छी चली। अब आगे?",
+    opts:[
+      { label:"बस, इतने में ख़ुश हूँ",        amb:1 },
+      { label:"अगले मेले में फिर लगाऊँगा",   amb:2 },
+      { label:"हर हाट में लगाऊँगा",          amb:3 },
+      { label:"पक्की दुकान खोलूँगा",         amb:5 }
+    ] },
+  { id:"q191", type:"story", band:[2,3], layer:3, set:3, img:"teach_kids",
+    text:"पड़ोस के 3 बच्चे तुमसे पढ़ने आने लगे। अब आगे?",
+    opts:[
+      { label:"मुफ़्त पढ़ाता रहूँगा",              amb:1 },
+      { label:"समय बाँधकर tuition बनाऊँगा",     amb:2 },
+      { label:"और बच्चे जोड़ूँगा",               amb:3 },
+      { label:"कोचिंग-घर खोलूँगा",              amb:5 }
+    ] },
+  { id:"q192", type:"story", band:[2,3], layer:3, set:3, img:"sewing_machine",
+    text:"सिलाई के order बढ़ने लगे हैं। अब आगे?",
+    opts:[
+      { label:"जितना हो सके, उतना ही लूँगा",       amb:1 },
+      { label:"रात लगाकर पूरा करूँगा",            amb:2 },
+      { label:"एक साथी जोड़ूँगा",                 amb:3 },
+      { label:"मशीन और कारीगर बढ़ाऊँगा",         amb:5 }
+    ] },
+  { id:"q193", type:"story", band:[2,3], layer:3, set:3, img:"jugaad_new",
+    text:"गाँव में हुनर सिखाने वाला कैंप आया है। तुम क्या करोगे?",
+    opts:[
+      { label:"अभी सोचूँगा",                     amb:1 },
+      { label:"ख़ुद जाकर सीखूँगा",               amb:2 },
+      { label:"दोस्तों को भी साथ लाऊँगा",        amb:3 },
+      { label:"आगे सिखाने वाला बनूँगा",          amb:5 }
+    ] },
+  { id:"q194", type:"story", band:[2,3], layer:3, set:3, img:"seed_sow",
+    text:"खेत का एक कोना ख़ाली है। तुम क्या करोगे?",
+    opts:[
+      { label:"जो सब लगाते हैं, वही लगाऊँगा",         amb:1 },
+      { label:"एक नई सब्ज़ी आज़माऊँगा",              amb:2 },
+      { label:"बाज़ार से पूछकर लगाऊँगा",              amb:3 },
+      { label:"अगले साल पूरे खेत की नई योजना",       amb:5 }
+    ] },
+  { id:"q195", type:"story", band:[2,3], layer:3, set:3, img:"cycle_fix",
+    text:"सस्ती टूटी साइकिलें बिक रही हैं। तुम क्या करोगे?",
+    opts:[
+      { label:"एक अपने लिए लूँगा",              amb:1 },
+      { label:"सुधारकर चलाऊँगा",                amb:2 },
+      { label:"सुधार-सुधारकर बेचूँगा",            amb:3 },
+      { label:"मरम्मत की दुकान खोलूँगा",         amb:5 }
+    ] },
+  { id:"q196", type:"story", band:[2,3], layer:3, set:3, img:"video_edit",
+    text:"तुम्हें video बनाना आ गया है। अब आगे?",
+    opts:[
+      { label:"अपने लिए बनाऊँगा",              amb:1 },
+      { label:"घर के आयोजनों के बनाऊँगा",       amb:2 },
+      { label:"शादी के order लूँगा",             amb:3 },
+      { label:"studio-टोली बनाऊँगा",            amb:5 }
+    ] },
+  { id:"q197", type:"story", band:[2,3], layer:3, set:3, img:"mandi_taul",
+    text:"दूर की हाट में दाम ज़्यादा मिलता है। तुम क्या करोगे?",
+    opts:[
+      { label:"अपना गाँव ही ठीक है",              amb:1 },
+      { label:"कभी-कभी जाऊँगा",                  amb:2 },
+      { label:"हफ़्ते की योजना बनाकर जाऊँगा",      amb:3 },
+      { label:"औरों का माल भी ले जाऊँगा",         amb:5 }
+    ] },
+  { id:"q198", type:"story", band:[2,3], layer:3, set:3, img:"piggy_bank",
+    text:"गाँव के बचत-समूह ने जुड़ने का न्योता दिया। तुम क्या करोगे?",
+    opts:[
+      { label:"अभी नहीं जुड़ूँगा",                    amb:1 },
+      { label:"जुड़कर बचत करूँगा",                   amb:2 },
+      { label:"हिसाब की ज़िम्मेदारी लूँगा",             amb:3 },
+      { label:"समूह से क़र्ज़ लेकर काम बड़ा करूँगा",    amb:5 }
     ] }
 
   ],
