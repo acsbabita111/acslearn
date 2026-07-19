@@ -1,5 +1,7 @@
 /* ============================================================
-   /assets/aptitude-test.js — v1.0 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   /assets/aptitude-test.js — v1.1 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   v1.1 · 20-Jul-2026: scroll-सुधार — जवाब दबाने पर पन्ना अपनी जगह रहे;
+   सिर्फ़ प्रश्न बदलने पर टेस्ट-डिब्बे के ऊपर आए (पन्ने के ऊपर नहीं)।
    ------------------------------------------------------------
    - स्रोत-data: APT_DATA (प्रश्न) + APT_ART (चित्र) + MG_NAMES (समूह-नाम)।
    - device-local नियम: जवाब व नतीजा सिर्फ़ इसी फ़ोन में (localStorage) —
@@ -52,8 +54,13 @@
     return '<div class="apt-note">🖼️ चित्र नहीं खुला — प्रश्न शब्दों से पूरा है।</div>';
   }
 
-  /* ---- एक क़दम दिखाना ---- */
-  function render() {
+  /* ---- नज़र टेस्ट-डिब्बे पर लाना (पन्ने के ऊपर नहीं) ---- */
+  function focusBox() {
+    try { box.scrollIntoView(true); } catch (e) { window.scrollTo(0, 0); }
+  }
+
+  /* ---- एक क़दम दिखाना (keep=true: जगह न बदले — जवाब-दबाव पर) ---- */
+  function render(keep) {
     if (ST.done) { renderResult(); return; }
     if (ST.pos >= flow.length) { finish(); return; }
     var step = flow[ST.pos], html = "";
@@ -66,7 +73,9 @@
       html += '<div class="apt-katha">' + art(k.img) +
         "<h3>📖 " + esc(k.title) + "</h3><p>" + esc(k.text) + "</p></div>";
       html += navBtns(true);
-      box.innerHTML = html; wireNav(true); return;
+      box.innerHTML = html; wireNav(true);
+      if (!keep) focusBox();
+      return;
     }
 
     var q = step.q, a = ST.ans[q.id];
@@ -110,7 +119,7 @@
     html += navBtns(answered(q));
     box.innerHTML = html;
     wireQ(q); wireNav(false);
-    window.scrollTo(0, 0);
+    if (!keep) focusBox();
   }
 
   function pickHint(a) {
@@ -153,7 +162,7 @@
       els = box.getElementsByClassName("apt-face");
       for (i = 0; i < els.length; i++) els[i].onclick = function () {
         ST.ans[q.id] = { v: parseInt(this.getAttribute("data-f"), 10) };
-        saveState(); render();
+        saveState(); render(true);
       };
     } else if (q.type === "pick") {
       els = box.getElementsByClassName("apt-opt");
@@ -163,13 +172,13 @@
         if (a.first == null) a.first = idx;
         else if (a.last == null && idx !== a.first) a.last = idx;
         else { a.first = idx; a.last = null; }
-        ST.ans[q.id] = a; saveState(); render();
+        ST.ans[q.id] = a; saveState(); render(true);
       };
     } else {
       els = box.getElementsByClassName("apt-opt");
       for (i = 0; i < els.length; i++) els[i].onclick = function () {
         ST.ans[q.id] = { v: parseInt(this.getAttribute("data-i"), 10) };
-        saveState(); render();
+        saveState(); render(true);
       };
     }
   }
@@ -242,7 +251,7 @@
       ST = { pos: 0, ans: {}, done: false, started: Date.now() };
       saveState(); render();
     };
-    window.scrollTo(0, 0);
+    focusBox();
   }
 
   /* ---- शुरुआत ---- */

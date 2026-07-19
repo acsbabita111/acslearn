@@ -1,8 +1,11 @@
 /* ============================================================
-   /assets/aptitude-test.css — v1.0 (अभिरुचि-टेस्ट पन्ने की सजावट)
+   /assets/aptitude-test.css — v1.1 (अभिरुचि-टेस्ट पन्ने की सजावट)
+   v1.1 · 20-Jul-2026: पूरा हिस्सा हल्के पर्दे पर (गहरी पृष्ठभूमि पर
+   गहरी लिखाई अदृश्य थी — Founder-screenshot से पकड़ी)।
    नियम: कुछ भी 16px से छोटा नहीं · सिर्फ़ ACS रंग · apt- नाम-घेरा
    ============================================================ */
-.apt-wrap{max-width:760px;margin:0 auto;padding:14px 14px 40px;font-size:19px;line-height:1.75;color:#0B1F3A}
+.apt-wrap{max-width:760px;margin:14px auto 30px;padding:16px 14px 24px;font-size:19px;line-height:1.75;color:#0B1F3A;background:#F5F7FA;border-radius:18px}
+.apt-wrap h1{color:#0B1F3A}
 .apt-lead{font-size:19px}
 .apt-card{background:#fff;border:2px solid #0B1F3A22;border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 2px 8px #0B1F3A14}
 .apt-prog{font-size:17px;font-weight:700;color:#1565C0;margin-bottom:6px}
