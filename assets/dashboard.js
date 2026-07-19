@@ -124,6 +124,7 @@ const LAZY = {}; /* team-mode अपनी entries नीचे (team-only block
    अटकना)। साझा state अब यहाँ — दोनों block एक ही घर पढ़ें-लिखें। */
 let CAN_FINAL = false;
 let MYDESIG = "";
+let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
 const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports"];
 function initNav(boot){
@@ -691,6 +692,7 @@ async function guardExternal(user){
    guardExternal की try-catch के भीतर चलता है; कोई भी अनपेक्षित data अब चुप्पी में
    नहीं दबेगा, दिखता संदेश देगी (गूँगा-fallback निषेध नियम, Laxmi-केस से सीखा)। */
 async function guardExternalRender(user, reg){
+  EXT_REG = reg;
   /* v4.1 (16-Jul-2026, काम-6): v1.3-(क) — प्रशिक्षु-roles का खाता सीधा चालू;
      उन पर न provisional-पर्दा, न "अस्थायी" pill (भ्रामक-संदेश होल बंद)। */
   const roleKey0 = String((reg.role)||ALLOWED[0]||"").toLowerCase();
@@ -772,10 +774,8 @@ window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localSt
    ═══════════════════════════════════════════════════════════════ */
 if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0])>-1) {
   const TRAINEE_ROLE = ALLOWED[0];
-  let BADGE_REG = null;   /* (काम-11) बैज-flow के लिए reg (पते से fallback-पिन) */
 
   window.__acsExtReady = function(reg){
-    BADGE_REG = reg;
     try{
       const d = new Date(String(reg.dob||""));
       if(isNaN(d.getTime())) return;
@@ -860,107 +860,184 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     document.body.appendChild(sc);
   };
 
-  /* ═══════════════════════════════════════════════════════════════
-     (काम-11, 19-Jul-2026) Green Tick बैज — Razorpay भुगतान (सिर्फ़ नौकरी-इच्छुक)
-     प्रवाह: बटन → createBadgeOrder (server tier+रक़म तय करे) → पुष्टि (30% जाँच-शुल्क
-     खुलासा) → Razorpay checkout (browser) → verifyBadgePayment → status अपडेट।
-     tier/रक़म client कभी तय नहीं करता — सिर्फ़ server से आई रक़म दिखाता है।
-     ═══════════════════════════════════════════════════════════════ */
-  if(TRAINEE_ROLE==="jobseeker"){
-    const TIER_HI = { village:"गाँव", town:"क़स्बा", metro:"महानगर" };
+} /* प्रशिक्षु-इंजन end */
 
-    function loadRazorpay(){
-      return new Promise((res,rej)=>{
-        if(window.Razorpay){ res(); return; }
-        const s=document.createElement("script");
-        s.src="https://checkout.razorpay.com/v1/checkout.js";
-        s.onload=()=>res(); s.onerror=()=>rej(new Error("भुगतान-पृष्ठ नहीं खुला — network जाँचें"));
-        document.body.appendChild(s);
-      });
-    }
-    function pinFromReg(){
-      try{
-        const a=String((BADGE_REG&&BADGE_REG.formFields&&BADGE_REG.formFields.address)||"");
-        let m=a.match(/PIN:\s*(\d{6})/); if(!m) m=a.match(/(\d{6})(?!.*\d)/);
-        return m?m[1]:"";
-      }catch(e){ return ""; }
-    }
+/* ═══════════════════════════════════════════════════════════════
+   (काम-11+, 19-Jul-2026 Founder-आदेश) साझा बैज-इंजन — बैज-योग्य हर भूमिका पर
+   (jobseeker · teacher · ustad · counselor · center · workshop · foreign_agent ·
+   finance_mitra · vendor)। प्रवाह: बटन → createBadgeOrder (server भूमिका+पिन से
+   tier व रक़म तय करे; शिक्षक/उस्ताद/सलाहकार पर उम्र-fee भी server जोड़े) → पुष्टि
+   (30% जाँच-शुल्क खुलासा) → Razorpay checkout → verifyBadgePayment → status।
+   रक़म client कभी तय नहीं करता। पैनल जिस पेज पर नहीं, वहाँ यह इंजन चुप रहता है।
+   ═══════════════════════════════════════════════════════════════ */
+if (MODE==="external" && ALLOWED.length>=1) {
+  const BADGE_ROLE = String(ALLOWED[0]||"").toLowerCase();
+  const TIER_HI = { village:"गाँव", town:"क़स्बा", metro:"महानगर" };
 
-    async function loadBadgeStatus(){
-      const st=$("badgeStatus"), btn=$("badgeBuyBtn");
-      if(!st||!btn) return;
-      try{
-        const u=auth.currentUser; if(!u) return;
-        const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
-        let latest=null,t0=0;
-        qs.forEach(d=>{ const p=d.data(); if(p.purpose!=="badge") return;
-          const t=(p.createdAt&&p.createdAt.toMillis)?p.createdAt.toMillis():0;
-          if(!latest||t>t0){ latest=p; t0=t; } });
-        if(latest && latest.status==="paid" && latest.rmStatus==="approved"){
-          st.textContent="✅ आपका बैज सक्रिय है।"; st.style.color="#1b4d20"; btn.style.display="none"; return;
-        }
-        if(latest && latest.status==="paid"){
-          st.textContent="⏳ भुगतान हो चुका — RM-सत्यापन जारी है। स्वीकृति पर बैज सक्रिय हो जाएगा।";
-          st.style.color="#8a5a00"; btn.style.display="none"; return;
-        }
-        if(latest && latest.rmStatus==="rejected"){
-          st.textContent="⚠️ पिछला बैज-आवेदन अस्वीकृत हुआ था — आप दोबारा ले सकते हैं।";
-          st.style.color="#B71C1C"; btn.style.display="inline-block"; return;
-        }
-        st.textContent="अभी आपके पास बैज नहीं है (लेना वैकल्पिक)।"; st.style.color="#555";
-        btn.style.display="inline-block";
-      }catch(e){
-        /* status न मिले (rules/network) तो भी बटन दिखे — काम न रुके */
-        st.textContent="बैज लेना वैकल्पिक है।"; st.style.color="#555"; btn.style.display="inline-block";
-      }
-    }
-    LAZY["pnl-badge"] = loadBadgeStatus;
-
-    async function buyBadge(){
-      const btn=$("badgeBuyBtn"), msg=$("badgeMsg");
-      if(!btn) return;
-      btn.disabled=true; if(msg){ msg.className="msg"; msg.textContent="शुल्क तैयार किया जा रहा है…"; }
-      try{
-        const res=await httpsCallable(functions,"createBadgeOrder")({ pincode:pinFromReg() });
-        const o=(res&&res.data)||{};
-        if(!o.ok||!o.orderId) throw new Error("order नहीं बना");
-        const rupee=Math.round((o.amount||0)/100);
-        const tierHi=TIER_HI[o.tier]||o.tier||"";
-        const go=confirm("आपका क्षेत्र: "+tierHi+" · शुल्क ₹"+rupee+" (365 दिन)।\n\n"+
-          "भुगतान के बाद RM आपकी जानकारी जाँचेंगे। सत्यापन असफल हुआ तो 30% जाँच-शुल्क कटेगा।\n\nभुगतान करें?");
-        if(!go){ btn.disabled=false; if(msg) msg.textContent=""; return; }
-        if(msg) msg.textContent="भुगतान-पृष्ठ खुल रहा है…";
-        await loadRazorpay();
-        const rzp=new window.Razorpay({
-          key:o.keyId, order_id:o.orderId, amount:o.amount, currency:o.currency||"INR",
-          name:o.name||"Applied Computer School", description:"Green Tick बैज (365 दिन)",
-          prefill:{ email:(auth.currentUser&&auth.currentUser.email)||"" },
-          theme:{ color:"#0B1F3A" },
-          handler: async function(r){
-            if(msg){ msg.className="msg"; msg.textContent="भुगतान की पुष्टि हो रही है…"; }
-            try{
-              await httpsCallable(functions,"verifyBadgePayment")({
-                razorpay_order_id:r.razorpay_order_id,
-                razorpay_payment_id:r.razorpay_payment_id,
-                razorpay_signature:r.razorpay_signature });
-              if(msg){ msg.className="msg ok"; msg.textContent="✅ भुगतान सफल — अब RM-सत्यापन होगा।"; }
-              loadBadgeStatus();
-            }catch(e){
-              if(msg){ msg.className="msg err"; msg.textContent="भुगतान हुआ पर पुष्टि अटकी — status थोड़ी देर में अपने-आप सुधरेगा।"; }
-            }
-            btn.disabled=false;
-          },
-          modal:{ ondismiss:function(){ btn.disabled=false; if(msg){ msg.className="msg"; msg.textContent="भुगतान रद्द किया गया।"; } } }
-        });
-        rzp.open();
-      }catch(e){
-        btn.disabled=false;
-        if(msg){ msg.className="msg err"; msg.textContent="नहीं हो पाया: "+(e&&e.message?e.message:e); }
-      }
-    }
-    document.addEventListener("click",(ev)=>{
-      const b=ev.target.closest('[data-act="badge-buy"]'); if(!b) return;
-      buyBadge();
+  function loadRazorpay(){
+    return new Promise((res,rej)=>{
+      if(window.Razorpay){ res(); return; }
+      const s=document.createElement("script");
+      s.src="https://checkout.razorpay.com/v1/checkout.js";
+      s.onload=()=>res(); s.onerror=()=>rej(new Error("भुगतान-पृष्ठ नहीं खुला — network जाँचें"));
+      document.body.appendChild(s);
     });
   }
-} /* प्रशिक्षु-इंजन end */
+  function pinFromReg(){
+    try{
+      const a=String((EXT_REG&&EXT_REG.formFields&&EXT_REG.formFields.address)||"");
+      let m=a.match(/PIN:\s*(\d{6})/); if(!m) m=a.match(/(\d{6})(?!.*\d)/);
+      return m?m[1]:"";
+    }catch(e){ return ""; }
+  }
+
+  async function loadBadgeStatus(){
+    const st=$("badgeStatus"), btn=$("badgeBuyBtn");
+    if(!st||!btn) return;
+    try{
+      const u=auth.currentUser; if(!u) return;
+      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+      let latest=null,t0=0;
+      qs.forEach(d=>{ const p=d.data(); if(p.purpose!=="badge") return;
+        if(String(p.role||"jobseeker").toLowerCase()!==BADGE_ROLE) return;
+        const t=(p.createdAt&&p.createdAt.toMillis)?p.createdAt.toMillis():0;
+        if(!latest||t>t0){ latest=p; t0=t; } });
+      if(latest && latest.status==="paid" && latest.rmStatus==="approved"){
+        st.textContent="✅ इस भूमिका का आपका बैज सक्रिय है।"; st.style.color="#1b4d20"; btn.style.display="none"; return;
+      }
+      if(latest && latest.status==="paid"){
+        st.textContent="⏳ भुगतान हो चुका — RM-सत्यापन जारी है। स्वीकृति पर बैज सक्रिय हो जाएगा।";
+        st.style.color="#8a5a00"; btn.style.display="none"; return;
+      }
+      if(latest && latest.rmStatus==="rejected"){
+        st.textContent="⚠️ पिछला बैज-आवेदन अस्वीकृत हुआ था — आप दोबारा ले सकते हैं।";
+        st.style.color="#B71C1C"; btn.style.display="inline-block"; return;
+      }
+      st.textContent="अभी इस भूमिका में आपका बैज नहीं है (लेना वैकल्पिक)।"; st.style.color="#555";
+      btn.style.display="inline-block";
+    }catch(e){
+      /* status न मिले (rules/network) तो भी बटन दिखे — काम न रुके */
+      st.textContent="बैज लेना वैकल्पिक है।"; st.style.color="#555"; btn.style.display="inline-block";
+    }
+  }
+  LAZY["pnl-badge"] = loadBadgeStatus;
+
+  async function buyBadge(){
+    const btn=$("badgeBuyBtn"), msg=$("badgeMsg");
+    if(!btn) return;
+    btn.disabled=true; if(msg){ msg.className="msg"; msg.textContent="शुल्क तैयार किया जा रहा है…"; }
+    try{
+      const res=await httpsCallable(functions,"createBadgeOrder")({ role:BADGE_ROLE, pincode:pinFromReg() });
+      const o=(res&&res.data)||{};
+      if(!o.ok||!o.orderId) throw new Error("order नहीं बना");
+      const rupee=Math.round((o.amount||0)/100);
+      const tierHi=TIER_HI[o.tier]||o.tier||"";
+      let line="आपका क्षेत्र: "+tierHi+" · शुल्क ₹"+rupee+" (365 दिन)।";
+      if(o.ageFee && o.ageFee>0){
+        line="आपका क्षेत्र: "+tierHi+" · मूल शुल्क ₹"+Math.round(o.baseAmount/100)+
+             " + उम्र-fee ₹"+Math.round(o.ageFee/100)+" = कुल ₹"+rupee+" (365 दिन)।";
+      }
+      const go=confirm(line+"\n\n"+
+        "भुगतान के बाद RM आपकी जानकारी जाँचेंगे। सत्यापन असफल हुआ तो 30% जाँच-शुल्क कटेगा।\n\nभुगतान करें?");
+      if(!go){ btn.disabled=false; if(msg) msg.textContent=""; return; }
+      if(msg) msg.textContent="भुगतान-पृष्ठ खुल रहा है…";
+      await loadRazorpay();
+      const rzp=new window.Razorpay({
+        key:o.keyId, order_id:o.orderId, amount:o.amount, currency:o.currency||"INR",
+        name:o.name||"Applied Computer School", description:"Verified Badge (365 दिन)",
+        prefill:{ email:(auth.currentUser&&auth.currentUser.email)||"" },
+        theme:{ color:"#0B1F3A" },
+        handler: async function(r){
+          if(msg){ msg.className="msg"; msg.textContent="भुगतान की पुष्टि हो रही है…"; }
+          try{
+            await httpsCallable(functions,"verifyBadgePayment")({
+              razorpay_order_id:r.razorpay_order_id,
+              razorpay_payment_id:r.razorpay_payment_id,
+              razorpay_signature:r.razorpay_signature });
+            if(msg){ msg.className="msg ok"; msg.textContent="✅ भुगतान सफल — अब RM-सत्यापन होगा।"; }
+            loadBadgeStatus();
+          }catch(e){
+            if(msg){ msg.className="msg err"; msg.textContent="भुगतान हुआ पर पुष्टि अटकी — status थोड़ी देर में अपने-आप सुधरेगा।"; }
+          }
+          btn.disabled=false;
+        },
+        modal:{ ondismiss:function(){ btn.disabled=false; if(msg){ msg.className="msg"; msg.textContent="भुगतान रद्द किया गया।"; } } }
+      });
+      rzp.open();
+    }catch(e){
+      btn.disabled=false;
+      if(msg){ msg.className="msg err"; msg.textContent="नहीं हो पाया: "+(e&&e.message?e.message:e); }
+    }
+  }
+  document.addEventListener("click",(ev)=>{
+    const b=ev.target.closest('[data-act="badge-buy"]'); if(!b) return;
+    buyBadge();
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   (काम-11+, 19-Jul-2026 Founder-आदेश) 📒 खाता-बही — सिर्फ़ लेन-देन-रिकॉर्ड।
+   ACS कोई balance नहीं रखता, निकासी नहीं (PPI-बचाव + "ACS पुल-मात्र" v1.7)।
+   स्रोत: payments (rules v6 — मालिक अपना पढ़े)। scale-नियम: 50-50 खेप।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const ROLE_HI={jobseeker:"नौकरी-इच्छुक",teacher:"शिक्षक",ustad:"उस्ताद",counselor:"सलाहकार",
+    center:"केंद्र",workshop:"वर्कशॉप",foreign_agent:"विदेश एजेंट",finance_mitra:"वित्त मित्र",vendor:"विक्रेता"};
+  const TIER_HI={village:"गाँव",town:"क़स्बा",metro:"महानगर"};
+  let LG_ALL=[], LG_SHOWN=0; const LG_PAGE=50;
+  function stLine(p){
+    if(p.status==="paid" && p.rmStatus==="approved") return ["✅ बैज सक्रिय","#1b4d20"];
+    if(p.status==="paid" && p.rmStatus==="rejected") return ["⚠️ सत्यापन असफल — वापसी नियम लागू","#B71C1C"];
+    if(p.status==="paid") return ["⏳ भुगतान हुआ — RM-सत्यापन जारी","#8a5a00"];
+    return ["🕐 शुरू हुआ — भुगतान पूरा नहीं","#555"];
+  }
+  function lgDrawMore(){
+    const box=$("ledgerList"); if(!box) return;
+    if(LG_SHOWN===0) box.innerHTML="";
+    const old=$("lgMoreWrap"); if(old) old.remove();
+    const end=Math.min(LG_SHOWN+LG_PAGE, LG_ALL.length);
+    for(let i=LG_SHOWN;i<end;i++){
+      const p=LG_ALL[i], st=stLine(p);
+      const d=(p.createdAt&&p.createdAt.toDate)?p.createdAt.toDate():null;
+      const dt=d?(("0"+d.getDate()).slice(-2)+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+d.getFullYear()):"—";
+      const amt="₹"+Math.round((p.amount||0)/100);
+      const roleHi=ROLE_HI[String(p.role||"jobseeker")]||p.role||"";
+      const row=document.createElement("div"); row.className="mem";
+      row.innerHTML='<div class="r1"><span class="nm">✅ Verified Badge — '+roleHi+'</span></div>'
+        +'<div class="r2">📅 '+dt+' · क्षेत्र: '+(TIER_HI[p.tier]||p.tier||"—")+' · राशि: '+amt
+        +((p.ageFee&&p.ageFee>0)?(' (मूल ₹'+Math.round(p.baseAmount/100)+' + उम्र-fee ₹'+Math.round(p.ageFee/100)+')'):'')+'</div>'
+        +'<div class="r2" style="color:'+st[1]+'">'+st[0]+'</div>';
+      box.appendChild(row);
+    }
+    LG_SHOWN=end;
+    const w=document.createElement("div"); w.id="lgMoreWrap";
+    if(LG_SHOWN<LG_ALL.length){
+      const mb=document.createElement("button");
+      mb.className="abtn ok"; mb.style.background="var(--blue)"; mb.style.marginTop="10px";
+      mb.textContent="⬇️ और देखें ("+(LG_ALL.length-LG_SHOWN)+" बाक़ी)";
+      mb.addEventListener("click", lgDrawMore);
+      w.appendChild(mb);
+    }
+    box.appendChild(w);
+  }
+  LAZY["pnl-ledger"] = async function(){
+    const box=$("ledgerList"); if(!box) return;
+    box.innerHTML='<span class="note">हिसाब आ रहा है…</span>';
+    try{
+      const u=auth.currentUser; if(!u){ box.innerHTML='<span class="note">पहले login करें।</span>'; return; }
+      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+      LG_ALL=[]; qs.forEach(d=>LG_ALL.push(d.data()||{}));
+      LG_ALL.sort((a,b)=>{
+        const ta=(a.createdAt&&a.createdAt.toMillis)?a.createdAt.toMillis():0;
+        const tb=(b.createdAt&&b.createdAt.toMillis)?b.createdAt.toMillis():0;
+        return tb-ta;
+      });
+      if(LG_ALL.length===0){
+        box.innerHTML='<span class="note">अभी कोई लेन-देन नहीं — पहली paid-सेवा लेते ही हिसाब यहीं दिखेगा।</span>'; return;
+      }
+      LG_SHOWN=0; lgDrawMore();
+    }catch(e){
+      box.innerHTML='<span class="note" style="color:#B71C1C">हिसाब नहीं खुला — network जाँचकर पैनल दोबारा खोलें।</span>';
+    }
+  };
+})();
