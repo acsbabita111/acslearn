@@ -7,6 +7,7 @@
    v4.4.1 · 19-Jul-2026 — showLoadError में अब e.stack की पहली 3 पंक्तियाँ भी दिखतीं
           (फ़ाइल:लाइन-नंबर समेत) — अगली बार कोई crash आए तो पहले ही प्रयास में
           सटीक जड़ पकड़ में आए, कोई अटकल/और screenshot-चक्र न चाहिए पड़े।
+   v4.6 · 20-Jul-2026 — ✔-बचाव: फ़ोटो-load पर लगा हुआ बैज-निशान न मिटे (cache-दौड़ दोष बंद)।
    v4.4 · 19-Jul-2026 — गूँगा-fallback निषेध का स्थायी पहरा (v3.5-घ, Laxmi-केस से):
           guardTeam/guardExternal का पूरा profile-भरने वाला हिस्सा अब try-catch में
           (guardTeamRender/guardExternalRender अलग functions) — कोई भी अनपेक्षित
@@ -173,12 +174,15 @@ function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   setTxt("pubDist",  district || "—");
   setTxt("pubState", state || "—");
   const im=$("pPhoto");
+  /* (v4.6, 20-Jul-2026) ✔-बचाव: लगे हुए बैज-निशान को फ़ोटो-load कभी न मिटाए —
+     पहले false भेजने से देर-से-आई फ़ोटो हरा ✔ हटा देती थी (cache-दौड़ दोष)। */
+  const keepTick=()=>!!document.getElementById("pubBadgeTick");
   if(photoUrl && im){
-    im.onload=()=>{ im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; ensurePhotoDecor(false); };
-    im.onerror=()=>{ im.style.display="none"; const fb=$("pPhotoFb"); if(fb) fb.style.display="flex"; ensurePhotoDecor(false); };
+    im.onload=()=>{ im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; ensurePhotoDecor(keepTick()); };
+    im.onerror=()=>{ im.style.display="none"; const fb=$("pPhotoFb"); if(fb) fb.style.display="flex"; ensurePhotoDecor(keepTick()); };
     im.src=photoUrl;
   }
-  ensurePhotoDecor(false);
+  ensurePhotoDecor(keepTick());
 }
 
 /* ═══ काम-सूची इंजन (v3.1) — पैनल click-पर, data आलसी-load ═══ */

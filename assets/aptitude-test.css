@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/aptitude-test.css — v1.1 (अभिरुचि-टेस्ट पन्ने की सजावट)
+   /assets/aptitude-test.css — v1.2 (अभिरुचि-टेस्ट पन्ने की सजावट)
+   v1.2 · 20-Jul-2026: ↩ Dashboard वापसी-कड़ी + चित्र-चौखट (position-सुधार)।
    v1.1 · 20-Jul-2026: पूरा हिस्सा हल्के पर्दे पर (गहरी पृष्ठभूमि पर
    गहरी लिखाई अदृश्य थी — Founder-screenshot से पकड़ी)।
    नियम: कुछ भी 16px से छोटा नहीं · सिर्फ़ ACS रंग · apt- नाम-घेरा
@@ -8,11 +9,13 @@
 .apt-wrap h1{color:#0B1F3A}
 .apt-lead{font-size:19px}
 .apt-card{background:#fff;border:2px solid #0B1F3A22;border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 2px 8px #0B1F3A14}
-.apt-prog{font-size:17px;font-weight:700;color:#1565C0;margin-bottom:6px}
+.apt-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
+.apt-prog{font-size:17px;font-weight:700;color:#1565C0}
+.apt-back-dash{font-size:16px;font-weight:700;color:#0B1F3A;text-decoration:none;border:2px solid #0B1F3A44;border-radius:999px;padding:4px 12px;background:#fff}
 .apt-bar{height:10px;background:#F5F7FA;border:1px solid #0B1F3A33;border-radius:6px;overflow:hidden;margin-bottom:12px}
 .apt-bar i{display:block;height:100%;background:#2E7D32;width:0}
 .apt-q{font-size:21px;font-weight:800;margin:8px 0 12px}
-.apt-img{max-width:260px;margin:0 auto 10px;display:block}
+.apt-img{max-width:230px;margin:6px auto 12px;display:block;background:#F5F7FA;border:2px solid #0B1F3A22;border-radius:14px;padding:8px}
 .apt-img svg{width:100%;height:auto;display:block}
 .apt-faces{display:flex;justify-content:space-between;gap:8px;margin:10px 0}
 .apt-face{flex:1;font-size:34px;line-height:1;padding:12px 4px;border:2px solid #0B1F3A33;border-radius:14px;background:#fff;cursor:pointer}

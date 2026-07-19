@@ -1,5 +1,7 @@
 /* ============================================================
-   /assets/aptitude-test.js — v1.1 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   /assets/aptitude-test.js — v1.2 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   v1.2 · 20-Jul-2026: (1) हर क़दम पर '↩ Dashboard' वापसी-कड़ी; (2) प्रश्न-पाठ
+   पहले, चित्र उसके नीचे (पढ़ने का सहज क्रम) — Founder-screenshot से।
    v1.1 · 20-Jul-2026: scroll-सुधार — जवाब दबाने पर पन्ना अपनी जगह रहे;
    सिर्फ़ प्रश्न बदलने पर टेस्ट-डिब्बे के ऊपर आए (पन्ने के ऊपर नहीं)।
    ------------------------------------------------------------
@@ -65,7 +67,8 @@
     if (ST.pos >= flow.length) { finish(); return; }
     var step = flow[ST.pos], html = "";
     var qn = qIndexAt(ST.pos);
-    html += '<div class="apt-prog">प्रश्न ' + qn + ' / ' + TOTAL_Q + "</div>";
+    html += '<div class="apt-top"><span class="apt-prog">प्रश्न ' + qn + ' / ' + TOTAL_Q + '</span>' +
+      '<a class="apt-back-dash" href="/dashboard/">↩ Dashboard</a></div>';
     html += '<div class="apt-bar"><i style="width:' + Math.round((qn - 1) * 100 / TOTAL_Q) + '%"></i></div>';
 
     if (step.kind === "k") {
@@ -80,7 +83,7 @@
 
     var q = step.q, a = ST.ans[q.id];
     if (q.type === "scale") {
-      html += art(q.img) + '<div class="apt-q">' + esc(q.text) + "</div>";
+      html += '<div class="apt-q">' + esc(q.text) + "</div>" + art(q.img);
       html += '<div class="apt-faces">';
       for (var f = 0; f < 5; f++) {
         html += '<button type="button" class="apt-face' + (a && a.v === f ? " on" : "") + '" data-f="' + f + '">' +
@@ -108,7 +111,7 @@
       }
       html += "</div>";
     } else if (q.type === "story") {
-      html += art(q.img) + '<div class="apt-q">' + esc(q.text) + "</div>";
+      html += '<div class="apt-q">' + esc(q.text) + "</div>" + art(q.img);
       html += '<div class="apt-opts apt-story" style="grid-template-columns:1fr">';
       for (var s = 0; s < q.opts.length; s++) {
         html += '<button type="button" class="apt-opt' + (a && a.v === s ? " on" : "") + '" data-i="' + s + '">' +
@@ -217,7 +220,8 @@
     for (m = 1; m <= 24; m++) rows.push({ m: m, s: r.sc[m] });
     rows.sort(function (a, b) { return b.s - a.s; });
     var max = Math.max(rows[0].s, 1);
-    var html = '<div class="apt-prog">🏁 आपका नतीजा (' + esc(ST.doneAt || "") + ")</div>";
+    var html = '<div class="apt-top"><span class="apt-prog">🏁 आपका नतीजा (' + esc(ST.doneAt || "") + ')</span>' +
+      '<a class="apt-back-dash" href="/dashboard/">↩ Dashboard</a></div>';
 
     html += '<div class="apt-res-top"><h3>⭐ सबसे प्रबल रुचि: ' + MG[rows[0].m].e + " " + esc(MG[rows[0].m].n) + "</h3>";
     html += "<p>आगे के मज़बूत क्षेत्र: ";
