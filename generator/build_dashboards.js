@@ -1,5 +1,8 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.3 · 20-Jul-2026 (काम-12) — P_APTITUDE जीवित: मरा बटन → असली कड़ी
+          (/aptitude-test.html); निरस्त फीस-पाठ (30-दिन छतरी/एक-बार-submit/
+          30 प्रतिशत) हटाकर Jio-नियम v3.7 का पाठ; तीनों प्रशिक्षु-घर।
    v2.2 · 18-Jul-2026 (काम-9+) — करियर-किट पैनल (P_CAREER): student+jobseeker;
           असल tool /career-kit.html (client-side resume/interview/mock, device-local)।
    v2.1 · 18-Jul-2026 (काम-9+) — learner-progress पैनल (P_PROGRESS): device-local
@@ -110,15 +113,14 @@ function statusPanel(key){
    साझा-टुकड़े (P_*) = एक चीज़ एक जगह — तीनों प्रशिक्षु-घर इन्हीं से बनें। */
 
 const P_APTITUDE = (
-    '<div class="pcard panel" id="pnl-aptitude" data-nav="🧠 Aptitude टेस्ट" style="grid-column:1/-1">' +
-    '<div class="ph">🧠 Aptitude टेस्ट (अभिरुचि-परीक्षा — टेस्ट-1)</div>' +
-    '<div class="pd">यह ज्ञान की नहीं, आपकी रुचि (अभिरुचि) की परीक्षा है — कोई जवाब सही या ग़लत नहीं। ' +
-    'नतीजा बताता है कि 24 सेक्टर में आपकी रुचि किधर सबसे मज़बूत है, 4 सुझाए सेक्टर और सुझाया स्केल क्या है।</div>' +
-    '<div class="pd">🕐 फीस चुकाने पर 30 दिन की छतरी — टेस्ट अपनी सुविधा से 5 से 25 दिन में पूरा करें। ' +
-    'जवाब जितनी बार चाहें बदलें, पर Final Submit सिर्फ़ एक बार — उसके बाद ही नतीजा। नतीजे के साथ Aptitude Certificate download होगा।</div>' +
-    '<div class="note">💡 भुगतान से पहले साफ़ दिखेगा: सत्यापन असफल होने पर 30 प्रतिशत जाँच-शुल्क कटता है (यह दंड नहीं)।</div>' +
-    '<button class="abtn ok" style="background:var(--blue)" disabled>🧠 टेस्ट शुरू करें</button> ' +
-    '<span class="soon">टेस्ट-इंजन जल्द चालू होगा — अभी तैयारी में</span>' +
+    '<div class="pcard panel" id="pnl-aptitude" data-nav="🧭 अभिरुचि-टेस्ट" style="grid-column:1/-1">' +
+    '<div class="ph">🧭 अभिरुचि-टेस्ट (Aptitude Test — टेस्ट-1)</div>' +
+    '<div class="pd">यह ज्ञान की नहीं, आपकी रुचि की परीक्षा है — कोई जवाब सही या ग़लत नहीं। ' +
+    'नतीजा बताता है कि 24 क्षेत्रों में आपका मन किधर सबसे ज़्यादा लगता है।</div>' +
+    '<div class="pd">🎁 मुफ़्त झलक अभी खुली है — 24 सरल प्रश्न, बीच में कहानियाँ। ' +
+    'आपके जवाब आपके फ़ोन में ही रहते हैं — कहीं भेजे नहीं जाते (निजता सुरक्षित)।</div>' +
+    '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin:4px 6px 0 0" href="/aptitude-test.html">🧭 मुफ़्त झलक — टेस्ट अभी दें</a>' +
+    '<div class="note">🎫 आगे की राह: बैज (Badge) के साथ पूरा टेस्ट 365 दिन मुफ़्त · प्रमाण पत्र (certificate) ₹125 — मर्ज़ी हो तो लें, या न लें। यह सुविधा जल्द जुड़ेगी।</div>' +
     '</div>');
 
 const P_COURSES = (
