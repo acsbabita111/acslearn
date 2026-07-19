@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/aptitude_data.js — v10.0 (खेप-1 से 10: प्रश्न 1-874 · 950/950 उद्यम-coverage · मूल भाषा: हिंदी)
+   /assets/aptitude_data.js — v11.0 (खेप-1 से 11: प्रश्न 1-1824 · 950/950 उद्यम, हर उद्यम पर 2+ स्पर्श · मूल भाषा: हिंदी)
    ACS Aptitude प्रश्न-भंडार (परत-3 data — एक चीज़ = एक जगह)
    ------------------------------------------------------------
    - प्रश्न-गिनती: 650 (202 पट्टी + 181 चित्र-चुनाव + 166 जोड़ी + 101 कहानी) + 4 कथाएँ
@@ -5346,7 +5346,2857 @@ window.APT_DATA = {
     text:"बहुलक-रेजिन निर्माण (एशिया-मॉडल) — कैसा लगता है?", mg:[24,13] },
 
   { id:"q874", type:"scale", band:[3], layer:2, set:9, udy:[950], img:"decoration",
-    text:"विवाह-डेटिंग उद्योग — कैसा लगता है?", mg:[24,10] }
+    text:"विवाह-डेटिंग उद्योग — कैसा लगता है?", mg:[24,10] },
+
+  { id:"q875", type:"scale", band:[1,2,3], layer:2, set:10, udy:[1], img:"seed_sow",
+    text:"धान-चावल की खेती — यह काम तुम्हें कैसा लगता है?", mg:[1] },
+
+  { id:"q876", type:"scale", band:[1,2,3], layer:2, set:10, udy:[2], img:"tractor_plough",
+    text:"गेहूं का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1] },
+
+  { id:"q877", type:"scale", band:[1,2,3], layer:2, set:10, udy:[3], img:"tamatar_tokri",
+    text:"मक्का-भुट्टा उगाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1] },
+
+  { id:"q878", type:"scale", band:[1,2,3], layer:2, set:10, udy:[4], img:"pack_weigh",
+    text:"दाल की खेती — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1] },
+
+  { id:"q879", type:"scale", band:[1,2,3], layer:2, set:10, udy:[5], img:"mandi_taul",
+    text:"तेल वाले बीज (सरसों-सोयाबीन) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q880", type:"scale", band:[1,2,3], layer:2, set:10, udy:[6], img:"tractor_plough",
+    text:"गन्ना उगाना और चीनी-मिल — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q881", type:"scale", band:[1,2,3], layer:2, set:10, udy:[7], img:"tree_plant",
+    text:"कपास की खेती — यह काम तुम्हें कैसा लगता है?", mg:[1,5] },
+
+  { id:"q882", type:"scale", band:[1,2,3], layer:2, set:10, udy:[8], img:"sewing_machine",
+    text:"जूट का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1] },
+
+  { id:"q883", type:"scale", band:[1,2,3], layer:2, set:10, udy:[9], img:"herb_leaf",
+    text:"चाय-बग़ान का काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1] },
+
+  { id:"q884", type:"scale", band:[1,2,3], layer:2, set:10, udy:[10], img:"world_food",
+    text:"coffee-बग़ान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1,14] },
+
+  { id:"q885", type:"scale", band:[1,2,3], layer:2, set:10, udy:[11], img:"tree_plant",
+    text:"आम की बाग़वानी — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q886", type:"scale", band:[1,2,3], layer:2, set:10, udy:[12], img:"tamatar_tokri",
+    text:"केला की खेती — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q887", type:"scale", band:[1,2,3], layer:2, set:10, udy:[13], img:"flower_sell",
+    text:"अंगूर की खेती — यह काम तुम्हें कैसा लगता है?", mg:[1] },
+
+  { id:"q888", type:"scale", band:[1,2,3], layer:2, set:10, udy:[14], img:"world_food",
+    text:"सेब का बग़ीचा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1] },
+
+  { id:"q889", type:"scale", band:[1,2,3], layer:2, set:10, udy:[15], img:"flower_sell",
+    text:"संतरा-नींबू का बाग़ — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1] },
+
+  { id:"q890", type:"scale", band:[1,2,3], layer:2, set:10, udy:[16], img:"world_food",
+    text:"avocado (विदेशी फल) की खेती — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1,14] },
+
+  { id:"q891", type:"scale", band:[1,2,3], layer:2, set:10, udy:[17], img:"tree_plant",
+    text:"काजू-अखरोट के बाग़ — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q892", type:"scale", band:[1,2,3], layer:2, set:10, udy:[18], img:"herb_leaf",
+    text:"blueberry (विदेशी बेर) की खेती — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1,14] },
+
+  { id:"q893", type:"scale", band:[1,2,3], layer:2, set:10, udy:[19], img:"tractor_plough",
+    text:"आलू की खेती — यह काम तुम्हें कैसा लगता है?", mg:[1] },
+
+  { id:"q894", type:"scale", band:[1,2,3], layer:2, set:10, udy:[20], img:"godown_stack",
+    text:"मसाला-सब्ज़ी उगाकर देना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1] },
+
+  { id:"q895", type:"scale", band:[1,2,3], layer:2, set:10, udy:[21], img:"cow_milk",
+    text:"दूध-जाँच मशीन चलाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1,18] },
+
+  { id:"q896", type:"scale", band:[1,2,3], layer:2, set:10, udy:[22], img:"animal_love",
+    text:"बकरी-farm — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1] },
+
+  { id:"q897", type:"scale", band:[1,2,3], layer:2, set:10, udy:[23], img:"hen_farm",
+    text:"अंडा-बिक्री — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1,9] },
+
+  { id:"q898", type:"scale", band:[1,2,3], layer:2, set:10, udy:[24], img:"animal_love",
+    text:"सूअर-पालन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q899", type:"scale", band:[1,2,3], layer:2, set:10, udy:[25], img:"fish_pond",
+    text:"मछली पालन — यह काम तुम्हें कैसा लगता है?", mg:[1] },
+
+  { id:"q900", type:"scale", band:[1,2,3], layer:2, set:10, udy:[26], img:"bee_box",
+    text:"शहद-पेटी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1] },
+
+  { id:"q901", type:"scale", band:[1,2,3], layer:2, set:10, udy:[27], img:"forest_birds",
+    text:"रेशम पालन — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1] },
+
+  { id:"q902", type:"scale", band:[1,2,3], layer:2, set:10, udy:[28], img:"forest_birds",
+    text:"ऊन उत्पादन का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1] },
+
+  { id:"q903", type:"scale", band:[1,2,3], layer:2, set:10, udy:[29], img:"animal_love",
+    text:"लामा-अल्पाका (ऊन वाले पशु) पालन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1,5] },
+
+  { id:"q904", type:"scale", band:[1,2,3], layer:2, set:10, udy:[30], img:"fish_pond",
+    text:"झींगा-पालन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q905", type:"scale", band:[1,2,3], layer:2, set:10, udy:[31], img:"tree_plant",
+    text:"बाँस उगाने का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[1,12] },
+
+  { id:"q906", type:"scale", band:[1,2,3], layer:2, set:10, udy:[32], img:"forest_birds",
+    text:"सागौन (इमारती पेड़) लगाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1] },
+
+  { id:"q907", type:"scale", band:[1,2,3], layer:2, set:10, udy:[33], img:"pani_khoj",
+    text:"रबड़-पेड़ से दूध (latex) निकालना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1,13] },
+
+  { id:"q908", type:"scale", band:[1,2,3], layer:2, set:10, udy:[34], img:"world_food",
+    text:"नारियल की खेती — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1] },
+
+  { id:"q909", type:"scale", band:[1,2,3], layer:2, set:10, udy:[35], img:"tree_plant",
+    text:"ताड़-तेल के पेड़ लगाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q910", type:"scale", band:[1,2,3], layer:2, set:10, udy:[36], img:"world_food",
+    text:"cocoa — chocolate का कच्चा फल — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1,14] },
+
+  { id:"q911", type:"scale", band:[1,2,3], layer:2, set:10, udy:[37], img:"herb_leaf",
+    text:"पेड़ से गोंद-राल निकालना — यह काम तुम्हें कैसा लगता है?", mg:[1,13] },
+
+  { id:"q912", type:"scale", band:[1,2,3], layer:2, set:10, udy:[38], img:"forest_birds",
+    text:"कागज़ के लिए लकड़ी उगाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q913", type:"scale", band:[1,2,3], layer:2, set:10, udy:[39], img:"wood_toy",
+    text:"इमारती लकड़ी का धंधा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1,4] },
+
+  { id:"q914", type:"scale", band:[1,2,3], layer:2, set:10, udy:[40], img:"toy_open",
+    text:"पेड़ की छाल से ढक्कन (cork) बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1,14] },
+
+  { id:"q915", type:"scale", band:[1,2,3], layer:2, set:10, udy:[41], img:"herb_leaf",
+    text:"काली-मिर्च की बेल — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q916", type:"scale", band:[1,2,3], layer:2, set:10, udy:[42], img:"cook_pot",
+    text:"हल्दी-अदरक की खेती — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q917", type:"scale", band:[1,2,3], layer:2, set:10, udy:[43], img:"tree_plant",
+    text:"इलायची-बग़ान — यह काम तुम्हें कैसा लगता है?", mg:[1] },
+
+  { id:"q918", type:"scale", band:[1,2,3], layer:2, set:10, udy:[44], img:"flower_sell",
+    text:"केसर की खेती — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1] },
+
+  { id:"q919", type:"scale", band:[1,2,3], layer:2, set:10, udy:[45], img:"herb_leaf",
+    text:"एलोवेरा-जड़ी-बूटी का धंधा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1] },
+
+  { id:"q920", type:"scale", band:[1,2,3], layer:2, set:10, udy:[46], img:"tree_plant",
+    text:"सन-पटसन (रेशे) की खेती — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1,5] },
+
+  { id:"q921", type:"scale", band:[1,2,3], layer:2, set:10, udy:[47], img:"seed_sow",
+    text:"quinoa (विदेशी अनाज) उगाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1,14] },
+
+  { id:"q922", type:"scale", band:[1,2,3], layer:2, set:10, udy:[48], img:"herb_leaf",
+    text:"stevia — मीठी पत्ती की खेती — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q923", type:"scale", band:[1,2,3], layer:2, set:10, udy:[49], img:"flower_sell",
+    text:"vanilla की बेल लगाना — यह काम तुम्हें कैसा लगता है?", mg:[1,14] },
+
+  { id:"q924", type:"scale", band:[1,2,3], layer:2, set:10, udy:[50], img:"seed_sow",
+    text:"मशरूम-कक्ष — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1,15] },
+
+  { id:"q925", type:"scale", band:[1,2,3], layer:2, set:10, udy:[51], img:"pack_weigh",
+    text:"आटा-चक्की — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q926", type:"scale", band:[1,2,3], layer:2, set:10, udy:[52], img:"run_machine",
+    text:"सरसों-पिराई — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q927", type:"scale", band:[1,2,3], layer:2, set:10, udy:[53], img:"cow_milk",
+    text:"दूध-जाँच मशीन चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1,18] },
+
+  { id:"q928", type:"scale", band:[2,3], layer:2, set:10, udy:[54], img:"pack_weigh",
+    text:"मांस-प्रसंस्करण की इकाई चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q929", type:"scale", band:[2,3], layer:2, set:10, udy:[55], img:"fish_pond",
+    text:"समुद्री-भोजन साफ़ कर के pack करने की इकाई — यह काम तुम्हें कैसा लगता है?", mg:[1,3] },
+
+  { id:"q930", type:"scale", band:[1,2,3], layer:2, set:10, udy:[56], img:"cook_pot",
+    text:"chips की इकाई — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1,13] },
+
+  { id:"q931", type:"scale", band:[3], layer:2, set:10, udy:[57], img:"tube_bubble",
+    text:"शराब-बीयर बनाने का कारख़ाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q932", type:"scale", band:[1,2,3], layer:2, set:10, udy:[58], img:"godown_stack",
+    text:"chocolate बनाने की इकाई में काम — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q933", type:"scale", band:[1,2,3], layer:2, set:10, udy:[59], img:"cook_pot",
+    text:"bakery-भट्ठी — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1,10] },
+
+  { id:"q934", type:"scale", band:[1,2,3], layer:2, set:10, udy:[60], img:"godown_stack",
+    text:"जमे-हुए (frozen) खाद्य की इकाई — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q935", type:"scale", band:[1,2,3], layer:2, set:10, udy:[61], img:"tamatar_tokri",
+    text:"कच्चा-माल ख़रीद — यह काम तुम्हें कैसा लगता है?", mg:[1,9] },
+
+  { id:"q936", type:"scale", band:[1,2,3], layer:2, set:10, udy:[62], img:"cook_pot",
+    text:"पिसाई-मिश्रण — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[1,13] },
+
+  { id:"q937", type:"scale", band:[1,2,3], layer:2, set:10, udy:[63], img:"pack_weigh",
+    text:"दाना-मिश्रण — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[1,3] },
+
+  { id:"q938", type:"scale", band:[1,2,3], layer:2, set:10, udy:[64], img:"flower_sell",
+    text:"फूल-माला दुकान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[1,9] },
+
+  { id:"q939", type:"scale", band:[1,2,3], layer:2, set:10, udy:[65], img:"fish_pond",
+    text:"धान के खेत में साथ-साथ मछली भी — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[1] },
+
+  { id:"q940", type:"scale", band:[1,2,3], layer:2, set:10, udy:[66], img:"shop_sell",
+    text:"तेल की दुकान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[1,9] },
+
+  { id:"q941", type:"scale", band:[1,2,3], layer:2, set:10, udy:[67], img:"tree_plant",
+    text:"नर्सरी से कलम-पौधे तैयार करके बेचना — यह काम तुम्हें कैसा लगता है?", mg:[1,9] },
+
+  { id:"q942", type:"scale", band:[2,3], layer:2, set:10, udy:[68], img:"run_machine",
+    text:"लोहा-अयस्क की खदान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2] },
+
+  { id:"q943", type:"scale", band:[2,3], layer:2, set:10, udy:[69], img:"godown_stack",
+    text:"कोयला-खदान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[2] },
+
+  { id:"q944", type:"scale", band:[2,3], layer:2, set:10, udy:[70], img:"coin_stamp",
+    text:"सोना-खदान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[2] },
+
+  { id:"q945", type:"scale", band:[1,2,3], layer:2, set:10, udy:[71], img:"coin_stamp",
+    text:"हीरे की खदान — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[2] },
+
+  { id:"q946", type:"scale", band:[2,3], layer:2, set:10, udy:[72], img:"bolt_fit",
+    text:"तांबा-खदान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[2] },
+
+  { id:"q947", type:"scale", band:[2,3], layer:2, set:10, udy:[73], img:"bolt_fit",
+    text:"battery-खनिज lithium की खदान — यह काम तुम्हें कैसा लगता है?", mg:[2,15] },
+
+  { id:"q948", type:"scale", band:[2,3], layer:2, set:10, udy:[74], img:"bolt_fit",
+    text:"कोबाल्ट (battery-खनिज) की खदान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2,15] },
+
+  { id:"q949", type:"scale", band:[2,3], layer:2, set:10, udy:[75], img:"coin_stamp",
+    text:"निकेल-खदान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[2] },
+
+  { id:"q950", type:"scale", band:[2,3], layer:2, set:10, udy:[76], img:"run_machine",
+    text:"बॉक्साइट से aluminium बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[2,3] },
+
+  { id:"q951", type:"scale", band:[2,3], layer:2, set:10, udy:[77], img:"lock_key",
+    text:"यूरेनियम-खदान — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[2,24] },
+
+  { id:"q952", type:"scale", band:[2,3], layer:2, set:10, udy:[78], img:"puzzle_solo",
+    text:"दुर्लभ (rare-earth) खनिज — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[2,15] },
+
+  { id:"q953", type:"scale", band:[1,2,3], layer:2, set:10, udy:[79], img:"brick_wall",
+    text:"पत्थर-गिट्टी की मशीन का काम — यह काम तुम्हें कैसा लगता है?", mg:[2,3] },
+
+  { id:"q954", type:"scale", band:[1,2,3], layer:2, set:10, udy:[80], img:"pack_weigh",
+    text:"नमक बनाने का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2] },
+
+  { id:"q955", type:"scale", band:[2,3], layer:2, set:10, udy:[81], img:"compost",
+    text:"फास्फेट (खाद-खनिज) की खदान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[2,1] },
+
+  { id:"q956", type:"scale", band:[2,3], layer:2, set:10, udy:[82], img:"pack_weigh",
+    text:"पोटाश खाद-खनिज — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[2,1] },
+
+  { id:"q957", type:"scale", band:[2,3], layer:2, set:10, udy:[83], img:"pani_khoj",
+    text:"कच्चा तेल निकालना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[2] },
+
+  { id:"q958", type:"scale", band:[2,3], layer:2, set:10, udy:[84], img:"tube_bubble",
+    text:"प्राकृतिक gas का कुआँ — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[2] },
+
+  { id:"q959", type:"scale", band:[2,3], layer:2, set:10, udy:[85], img:"toy_boat",
+    text:"gas को ठंडा कर जहाज़ से भेजना (LNG) — यह काम तुम्हें कैसा लगता है?", mg:[2,8] },
+
+  { id:"q960", type:"scale", band:[2,3], layer:2, set:10, udy:[86], img:"run_machine",
+    text:"तेल-शोधन कारख़ाना (refinery) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2,13] },
+
+  { id:"q961", type:"scale", band:[2,3], layer:2, set:10, udy:[87], img:"tube_bubble",
+    text:"पेट्रो-रसायन कारख़ाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[2,13] },
+
+  { id:"q962", type:"scale", band:[1,2,3], layer:2, set:10, udy:[88], img:"mobile_app",
+    text:"संपीडित-पाइपलाइन गैस का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[2] },
+
+  { id:"q963", type:"scale", band:[2,3], layer:2, set:10, udy:[89], img:"cook_pot",
+    text:"गन्ने से ethanol (गाड़ी-ईंधन) बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[2,1] },
+
+  { id:"q964", type:"scale", band:[1,2,3], layer:2, set:10, udy:[90], img:"herb_leaf",
+    text:"पौधों से bio-diesel बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[2,20] },
+
+  { id:"q965", type:"scale", band:[2,3], layer:2, set:10, udy:[91], img:"godown_stack",
+    text:"कोयला-खदान की सेवा-कंपनी — यह काम तुम्हें कैसा लगता है?", mg:[2] },
+
+  { id:"q966", type:"scale", band:[2,3], layer:2, set:10, udy:[92], img:"pani_khoj",
+    text:"तेल-कुएँ की सेवा-कंपनी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2] },
+
+  { id:"q967", type:"scale", band:[1,2,3], layer:2, set:10, udy:[93], img:"solar_panel",
+    text:"solar-काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[2,15] },
+
+  { id:"q968", type:"scale", band:[1,2,3], layer:2, set:10, udy:[94], img:"patang",
+    text:"पवन-चक्की से बिजली — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[2,20] },
+
+  { id:"q969", type:"scale", band:[1,2,3], layer:2, set:10, udy:[95], img:"tank_measure",
+    text:"बाँध से बिजली (जल-विद्युत) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[2] },
+
+  { id:"q970", type:"scale", band:[1,2,3], layer:2, set:10, udy:[96], img:"pani_khoj",
+    text:"ज़मीन की गर्मी से बिजली — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[2] },
+
+  { id:"q971", type:"scale", band:[1,2,3], layer:2, set:10, udy:[97], img:"compost",
+    text:"गोबर-गैस — यह काम तुम्हें कैसा लगता है?", mg:[2,20] },
+
+  { id:"q972", type:"scale", band:[2,3], layer:2, set:10, udy:[98], img:"flood_road",
+    text:"लहरों (ज्वार) से बिजली बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2,20] },
+
+  { id:"q973", type:"scale", band:[1,2,3], layer:2, set:10, udy:[99], img:"tube_bubble",
+    text:"हरित hydrogen बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[2,15] },
+
+  { id:"q974", type:"scale", band:[1,2,3], layer:2, set:10, udy:[100], img:"bulb_fix",
+    text:"बड़ी battery में बिजली जमा करना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[2,15] },
+
+  { id:"q975", type:"scale", band:[1,2,3], layer:2, set:10, udy:[101], img:"solar_panel",
+    text:"solar-panel बनाने का कारख़ाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[2,3] },
+
+  { id:"q976", type:"scale", band:[1,2,3], layer:2, set:10, udy:[102], img:"run_machine",
+    text:"पवन-turbine (बड़ी चक्की) बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[2,3] },
+
+  { id:"q977", type:"scale", band:[1,2,3], layer:2, set:10, udy:[103], img:"tank_measure",
+    text:"RO-जार — यह काम तुम्हें कैसा लगता है?", mg:[2,9] },
+
+  { id:"q978", type:"scale", band:[1,2,3], layer:2, set:10, udy:[104], img:"tank_measure",
+    text:"टंकी-सफ़ाई — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2,10] },
+
+  { id:"q979", type:"scale", band:[2,3], layer:2, set:10, udy:[105], img:"tank_measure",
+    text:"गंदे पानी की सफ़ाई का संयंत्र — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[2,20] },
+
+  { id:"q980", type:"scale", band:[1,2,3], layer:2, set:10, udy:[106], img:"waste_sort",
+    text:"गीला-सूखा छाँटना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[2,20] },
+
+  { id:"q981", type:"scale", band:[1,2,3], layer:2, set:10, udy:[107], img:"toy_open",
+    text:"पुराना electronics खोलना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[2,20] },
+
+  { id:"q982", type:"scale", band:[2,3], layer:2, set:10, udy:[108], img:"tube_bubble",
+    text:"बहुलक-रेजिन (गोंद-सामग्री) बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[2,13] },
+
+  { id:"q983", type:"scale", band:[2,3], layer:2, set:10, udy:[109], img:"tank_measure",
+    text:"औद्योगिक-क्रायोजेनिक (बहुत ठंडी) गैसें बनाना — यह काम तुम्हें कैसा लगता है?", mg:[2,13] },
+
+  { id:"q984", type:"scale", band:[2,3], layer:2, set:10, udy:[110], img:"world_map",
+    text:"गहरे समुद्र की खोज-अनुसंधान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[2,18] },
+
+  { id:"q985", type:"scale", band:[2,3], layer:2, set:10, udy:[111], img:"weld_spark",
+    text:"इस्पात (steel) बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3] },
+
+  { id:"q986", type:"scale", band:[1,2,3], layer:2, set:10, udy:[112], img:"cook_pot",
+    text:"aluminium के बर्तन-सामान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q987", type:"scale", band:[1,2,3], layer:2, set:10, udy:[113], img:"puja_thali",
+    text:"तांबा-पीतल के उत्पाद — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,12] },
+
+  { id:"q988", type:"scale", band:[1,2,3], layer:2, set:10, udy:[114], img:"weld_spark",
+    text:"gate-window की नाप लेकर fitting करना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3,4] },
+
+  { id:"q989", type:"scale", band:[1,2,3], layer:2, set:10, udy:[115], img:"pipe_irrigation",
+    text:"पाइप-fitting बनाना — यह काम तुम्हें कैसा लगता है?", mg:[3] },
+
+  { id:"q990", type:"scale", band:[2,3], layer:2, set:10, udy:[116], img:"badi_imarat",
+    text:"पुल-hall का इस्पात-ढाँचा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3,4] },
+
+  { id:"q991", type:"scale", band:[1,2,3], layer:2, set:10, udy:[117], img:"board_wire",
+    text:"तार-switch बेचना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3,2] },
+
+  { id:"q992", type:"scale", band:[1,2,3], layer:2, set:10, udy:[118], img:"jugaad_new",
+    text:"धातु ढलाई का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q993", type:"scale", band:[1,2,3], layer:2, set:10, udy:[119], img:"weld_spark",
+    text:"gate-window की नाप लेकर fitting करना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,4] },
+
+  { id:"q994", type:"scale", band:[1,2,3], layer:2, set:10, udy:[120], img:"bolt_fit",
+    text:"spring-पेच (fastener) बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3] },
+
+  { id:"q995", type:"scale", band:[1,2,3], layer:2, set:10, udy:[121], img:"tractor_plough",
+    text:"यंत्र किराये पर — यह काम तुम्हें कैसा लगता है?", mg:[3,1] },
+
+  { id:"q996", type:"scale", band:[2,3], layer:2, set:10, udy:[122], img:"badi_imarat",
+    text:"निर्माण (building) की बड़ी मशीनें — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3,4] },
+
+  { id:"q997", type:"scale", band:[2,3], layer:2, set:10, udy:[123], img:"run_machine",
+    text:"खनन (खदान) की मशीनें बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3,2] },
+
+  { id:"q998", type:"scale", band:[2,3], layer:2, set:10, udy:[124], img:"pack_weigh",
+    text:"packaging-मशीन बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q999", type:"scale", band:[2,3], layer:2, set:10, udy:[125], img:"sewing_machine",
+    text:"कपड़ा-मिल की मशीनें — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,5] },
+
+  { id:"q1000", type:"scale", band:[2,3], layer:2, set:10, udy:[126], img:"pack_weigh",
+    text:"खाना pack करने की मशीनें — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3,1] },
+
+  { id:"q1001", type:"scale", band:[2,3], layer:2, set:10, udy:[127], img:"fever_check",
+    text:"चिकित्सा-उपकरण बनाना — यह काम तुम्हें कैसा लगता है?", mg:[3,6] },
+
+  { id:"q1002", type:"scale", band:[2,3], layer:2, set:10, udy:[128], img:"news_read",
+    text:"छपाई-मशीन बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1003", type:"scale", band:[1,2,3], layer:2, set:10, udy:[129], img:"run_machine",
+    text:"मोटर-जोड़ — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3,2] },
+
+  { id:"q1004", type:"scale", band:[1,2,3], layer:2, set:10, udy:[130], img:"run_machine",
+    text:"generator बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1005", type:"scale", band:[1,2,3], layer:2, set:10, udy:[131], img:"vehicle_sound",
+    text:"car बनाने का कारख़ाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3] },
+
+  { id:"q1006", type:"scale", band:[1,2,3], layer:2, set:10, udy:[132], img:"cycle_fix",
+    text:"motorcycle-scooter बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3] },
+
+  { id:"q1007", type:"scale", band:[1,2,3], layer:2, set:10, udy:[133], img:"bus_drive",
+    text:"truck-bus बनाना — यह काम तुम्हें कैसा लगता है?", mg:[3] },
+
+  { id:"q1008", type:"scale", band:[1,2,3], layer:2, set:10, udy:[134], img:"tractor_plough",
+    text:"tractor बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3,1] },
+
+  { id:"q1009", type:"scale", band:[1,2,3], layer:2, set:10, udy:[135], img:"bulb_fix",
+    text:"बिजली-गाड़ी (EV) बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3,15] },
+
+  { id:"q1010", type:"scale", band:[1,2,3], layer:2, set:10, udy:[136], img:"bolt_fit",
+    text:"गाड़ी के पुर्जे बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1011", type:"scale", band:[1,2,3], layer:2, set:10, udy:[137], img:"tube_bubble",
+    text:"tyre-रबड़ बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,13] },
+
+  { id:"q1012", type:"scale", band:[2,3], layer:2, set:10, udy:[138], img:"tube_bubble",
+    text:"गाड़ी का काँच बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3] },
+
+  { id:"q1013", type:"scale", band:[2,3], layer:2, set:10, udy:[139], img:"board_wire",
+    text:"गाड़ी का electronics बनाना — यह काम तुम्हें कैसा लगता है?", mg:[3,7] },
+
+  { id:"q1014", type:"scale", band:[2,3], layer:2, set:10, udy:[140], img:"cycle_fix",
+    text:"motorcycle बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1015", type:"scale", band:[1,2,3], layer:2, set:10, udy:[141], img:"patang",
+    text:"हवाई-जहाज़ बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1016", type:"scale", band:[2,3], layer:2, set:10, udy:[142], img:"vehicle_sound",
+    text:"helicopter बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1017", type:"scale", band:[1,2,3], layer:2, set:10, udy:[143], img:"patang",
+    text:"खिलौना-drone उड़ाना सीखना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,19] },
+
+  { id:"q1018", type:"scale", band:[1,2,3], layer:2, set:10, udy:[144], img:"world_map",
+    text:"उपग्रह (satellite) बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3,15] },
+
+  { id:"q1019", type:"scale", band:[2,3], layer:2, set:10, udy:[145], img:"lock_key",
+    text:"रक्षा (सेना) के उपकरण बनाना — यह काम तुम्हें कैसा लगता है?", mg:[3,24] },
+
+  { id:"q1020", type:"scale", band:[2,3], layer:2, set:10, udy:[146], img:"lock_key",
+    text:"radar-निगरानी उपकरण बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3,24] },
+
+  { id:"q1021", type:"scale", band:[2,3], layer:2, set:10, udy:[147], img:"patang",
+    text:"rocket-प्रक्षेपण सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3,15] },
+
+  { id:"q1022", type:"scale", band:[2,3], layer:2, set:10, udy:[148], img:"bolt_fit",
+    text:"विमान के पुर्जे बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1023", type:"scale", band:[2,3], layer:2, set:10, udy:[149], img:"bolt_fit",
+    text:"विमान-रखरखाव का कारख़ाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,8] },
+
+  { id:"q1024", type:"scale", band:[1,2,3], layer:2, set:10, udy:[150], img:"toy_boat",
+    text:"पानी का जहाज़ बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3] },
+
+  { id:"q1025", type:"scale", band:[2,3], layer:2, set:10, udy:[151], img:"tank_measure",
+    text:"समुद्र के बीच तेल-मंच (platform) — यह काम तुम्हें कैसा लगता है?", mg:[3,2] },
+
+  { id:"q1026", type:"scale", band:[2,3], layer:2, set:10, udy:[152], img:"toy_boat",
+    text:"पनडुब्बी बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3,24] },
+
+  { id:"q1027", type:"scale", band:[1,2,3], layer:2, set:10, udy:[153], img:"fish_pond",
+    text:"मछली पकड़ने के जहाज़ बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1028", type:"scale", band:[2,3], layer:2, set:10, udy:[154], img:"decoration",
+    text:"विलासिता-नाव (yacht) बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1029", type:"scale", band:[2,3], layer:2, set:10, udy:[155], img:"godown_stack",
+    text:"बंदरगाह की मशीनें बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,8] },
+
+  { id:"q1030", type:"scale", band:[2,3], layer:2, set:10, udy:[156], img:"show_way",
+    text:"समुद्री सेवाओं की कंपनी — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3,8] },
+
+  { id:"q1031", type:"scale", band:[2,3], layer:2, set:10, udy:[157], img:"robot_toy",
+    text:"पानी के नीचे के robot बनाना — यह काम तुम्हें कैसा लगता है?", mg:[3,19] },
+
+  { id:"q1032", type:"scale", band:[1,2,3], layer:2, set:10, udy:[158], img:"weld_spark",
+    text:"जहाज़-मरम्मत का काम — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1033", type:"scale", band:[2,3], layer:2, set:10, udy:[159], img:"write_story",
+    text:"जहाज़ की रचना (नौसेना-वास्तुकला) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[3] },
+
+  { id:"q1034", type:"scale", band:[1,2,3], layer:2, set:10, udy:[160], img:"tube_bubble",
+    text:"काँच का कारख़ाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[3,13] },
+
+  { id:"q1035", type:"scale", band:[1,2,3], layer:2, set:10, udy:[161], img:"wood_toy",
+    text:"furniture-पॉलिश — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[3,12] },
+
+  { id:"q1036", type:"scale", band:[2,3], layer:2, set:10, udy:[162], img:"tube_bubble",
+    text:"glass-fiber (मज़बूत रेशा-सामग्री) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[3,13] },
+
+  { id:"q1037", type:"scale", band:[1,2,3], layer:2, set:10, udy:[163], img:"brick_wall",
+    text:"ईंट-जोड़ाई — यह काम तुम्हें कैसा लगता है?", mg:[4] },
+
+  { id:"q1038", type:"scale", band:[1,2,3], layer:2, set:10, udy:[164], img:"badi_imarat",
+    text:"apartment (बहु-मंज़िला) बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[4] },
+
+  { id:"q1039", type:"scale", band:[1,2,3], layer:2, set:10, udy:[165], img:"brick_wall",
+    text:"दुकान-दफ़्तर के भवन बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[4,9] },
+
+  { id:"q1040", type:"scale", band:[1,2,3], layer:2, set:10, udy:[166], img:"show_way",
+    text:"पूरी township बसाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[4] },
+
+  { id:"q1041", type:"scale", band:[1,2,3], layer:2, set:10, udy:[167], img:"lock_key",
+    text:"किफ़ायती (सस्ते) घर की योजना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[4,17] },
+
+  { id:"q1042", type:"scale", band:[1,2,3], layer:2, set:10, udy:[168], img:"bolt_fit",
+    text:"पहले-से-बने (ready) घर जोड़ना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[4,3] },
+
+  { id:"q1043", type:"scale", band:[1,2,3], layer:2, set:10, udy:[169], img:"tree_plant",
+    text:"हरित (कम-बिजली वाला) भवन — यह काम तुम्हें कैसा लगता है?", mg:[4,20] },
+
+  { id:"q1044", type:"scale", band:[1,2,3], layer:2, set:10, udy:[170], img:"mobile_app",
+    text:"smart-घर (app से चलने वाला) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[4,7] },
+
+  { id:"q1045", type:"scale", band:[1,2,3], layer:2, set:10, udy:[171], img:"decoration",
+    text:"घर की भीतरी सजावट (interior) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[4,12] },
+
+  { id:"q1046", type:"scale", band:[1,2,3], layer:2, set:10, udy:[172], img:"tree_plant",
+    text:"बग़ीचा-हरियाली की रचना (landscape) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[4,12] },
+
+  { id:"q1047", type:"scale", band:[1,2,3], layer:2, set:10, udy:[173], img:"travel_road",
+    text:"सड़क बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[4] },
+
+  { id:"q1048", type:"scale", band:[1,2,3], layer:2, set:10, udy:[174], img:"board_wire",
+    text:"रेल-लाइन बिछाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[4,8] },
+
+  { id:"q1049", type:"scale", band:[1,2,3], layer:2, set:10, udy:[175], img:"badi_imarat",
+    text:"metro-rail बनाना — यह काम तुम्हें कैसा लगता है?", mg:[4,8] },
+
+  { id:"q1050", type:"scale", band:[2,3], layer:2, set:10, udy:[176], img:"patang",
+    text:"हवाई-अड्डा बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[4,8] },
+
+  { id:"q1051", type:"scale", band:[2,3], layer:2, set:10, udy:[177], img:"toy_boat",
+    text:"बंदरगाह बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[4,8] },
+
+  { id:"q1052", type:"scale", band:[1,2,3], layer:2, set:10, udy:[178], img:"flood_road",
+    text:"पुल बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[4] },
+
+  { id:"q1053", type:"scale", band:[2,3], layer:2, set:10, udy:[179], img:"tank_measure",
+    text:"बाँध बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[4] },
+
+  { id:"q1054", type:"scale", band:[1,2,3], layer:2, set:10, udy:[180], img:"pani_khoj",
+    text:"bore-पाइप — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[4,2] },
+
+  { id:"q1055", type:"scale", band:[1,2,3], layer:2, set:10, udy:[181], img:"flood_road",
+    text:"विद्युत पारेषण का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[4] },
+
+  { id:"q1056", type:"scale", band:[1,2,3], layer:2, set:10, udy:[182], img:"badi_imarat",
+    text:"दूरसंचार टॉवर का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[4] },
+
+  { id:"q1057", type:"scale", band:[2,3], layer:2, set:10, udy:[183], img:"pani_khoj",
+    text:"सुरंग खोदना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[4] },
+
+  { id:"q1058", type:"scale", band:[2,3], layer:2, set:10, udy:[184], img:"pani_khoj",
+    text:"ज़मीन के नीचे खदान की सुरंग बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[4,2] },
+
+  { id:"q1059", type:"scale", band:[1,2,3], layer:2, set:10, udy:[185], img:"pipe_irrigation",
+    text:"तेल-gas की pipeline बिछाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[4,2] },
+
+  { id:"q1060", type:"scale", band:[1,2,3], layer:2, set:10, udy:[186], img:"badi_imarat",
+    text:"solar-park बनाने की टोली — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[4,20] },
+
+  { id:"q1061", type:"scale", band:[1,2,3], layer:2, set:10, udy:[187], img:"badi_imarat",
+    text:"पवन-farm खड़ा करने की टोली — यह काम तुम्हें कैसा लगता है?", mg:[4,20] },
+
+  { id:"q1062", type:"scale", band:[2,3], layer:2, set:10, udy:[188], img:"badi_imarat",
+    text:"परमाणु-बिजलीघर के निर्माण में काम — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[4,2] },
+
+  { id:"q1063", type:"scale", band:[1,2,3], layer:2, set:10, udy:[189], img:"badi_imarat",
+    text:"अस्पताल-भवन का निर्माण — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[4,6] },
+
+  { id:"q1064", type:"scale", band:[1,2,3], layer:2, set:10, udy:[190], img:"badi_imarat",
+    text:"stadium बनाने का काम — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[4,22] },
+
+  { id:"q1065", type:"scale", band:[2,3], layer:2, set:10, udy:[191], img:"run_machine",
+    text:"औद्योगिक-park (कारख़ानों का मोहल्ला) बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[4] },
+
+  { id:"q1066", type:"scale", band:[2,3], layer:2, set:10, udy:[192], img:"world_map",
+    text:"विशेष आर्थिक क्षेत्र (SEZ) बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[4,14] },
+
+  { id:"q1067", type:"scale", band:[1,2,3], layer:2, set:10, udy:[193], img:"sewing_machine",
+    text:"कपास से धागा बनाना (मिल) — यह काम तुम्हें कैसा लगता है?", mg:[5,3] },
+
+  { id:"q1068", type:"scale", band:[1,2,3], layer:2, set:10, udy:[194], img:"tube_bubble",
+    text:"कृत्रिम रेशा बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[5,13] },
+
+  { id:"q1069", type:"scale", band:[1,2,3], layer:2, set:10, udy:[195], img:"embroidery",
+    text:"दस्ताने-टोपी की बुनाई का काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1070", type:"scale", band:[1,2,3], layer:2, set:10, udy:[196], img:"forest_birds",
+    text:"रेशम का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1071", type:"scale", band:[1,2,3], layer:2, set:10, udy:[197], img:"sewing_machine",
+    text:"बोरी-सिलाई — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[5,3] },
+
+  { id:"q1072", type:"scale", band:[1,2,3], layer:2, set:10, udy:[198], img:"embroidery",
+    text:"हथकरघा-बुनाई — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[5,12] },
+
+  { id:"q1073", type:"scale", band:[1,2,3], layer:2, set:10, udy:[199], img:"embroidery",
+    text:"मच्छरदानी के order लेना — यह काम तुम्हें कैसा लगता है?", mg:[5] },
+
+  { id:"q1074", type:"scale", band:[1,2,3], layer:2, set:10, udy:[200], img:"pack_weigh",
+    text:"jeans (denim) का कपड़ा बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1075", type:"scale", band:[1,2,3], layer:2, set:10, udy:[201], img:"embroidery",
+    text:"मच्छरदानी के order लेना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1076", type:"scale", band:[1,2,3], layer:2, set:10, udy:[202], img:"boy_bandage",
+    text:"अस्पताल के ख़ास वस्त्र बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[5,6] },
+
+  { id:"q1077", type:"scale", band:[1,2,3], layer:2, set:10, udy:[203], img:"sewing_machine",
+    text:"school-bag सिलने की इकाई चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[5,9] },
+
+  { id:"q1078", type:"scale", band:[1,2,3], layer:2, set:10, udy:[204], img:"exercise_coach",
+    text:"खेल के कपड़े बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[5,22] },
+
+  { id:"q1079", type:"scale", band:[1,2,3], layer:2, set:10, udy:[205], img:"note_100",
+    text:"महँगे (विलासिता) fashion-brand — यह काम तुम्हें कैसा लगता है?", mg:[5,14] },
+
+  { id:"q1080", type:"scale", band:[1,2,3], layer:2, set:10, udy:[206], img:"embroidery",
+    text:"पारंपरिक पोशाक (साड़ी-कुर्ता) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[5,12] },
+
+  { id:"q1081", type:"scale", band:[1,2,3], layer:2, set:10, udy:[207], img:"paint_toy",
+    text:"बच्चों के कपड़े बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1082", type:"scale", band:[1,2,3], layer:2, set:10, udy:[208], img:"sewing_machine",
+    text:"dress-सिलाई — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1083", type:"scale", band:[1,2,3], layer:2, set:10, udy:[209], img:"decoration",
+    text:"शादी की पोशाक बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[5,10] },
+
+  { id:"q1084", type:"scale", band:[1,2,3], layer:2, set:10, udy:[210], img:"shop_sell",
+    text:"designer-दुकान (boutique) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[5,12] },
+
+  { id:"q1085", type:"scale", band:[1,2,3], layer:2, set:10, udy:[211], img:"mobile_app",
+    text:"online-fashion की बिक्री — यह काम तुम्हें कैसा लगता है?", mg:[5,9] },
+
+  { id:"q1086", type:"scale", band:[1,2,3], layer:2, set:10, udy:[212], img:"graph_up",
+    text:"तेज़-बदलता fashion (हर हफ़्ते नया) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1087", type:"scale", band:[1,2,3], layer:2, set:10, udy:[213], img:"shoe_stitch",
+    text:"चमड़े का सामान बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1088", type:"scale", band:[1,2,3], layer:2, set:10, udy:[214], img:"shoe_stitch",
+    text:"चप्पल बनाने की छोटी मशीन लगाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[5,3] },
+
+  { id:"q1089", type:"scale", band:[1,2,3], layer:2, set:10, udy:[215], img:"pack_weigh",
+    text:"bag-इकाई — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[5,9] },
+
+  { id:"q1090", type:"scale", band:[1,2,3], layer:2, set:10, udy:[216], img:"animal_love",
+    text:"घोड़े की काठी-लगाम का सामान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[5] },
+
+  { id:"q1091", type:"scale", band:[1,2,3], layer:2, set:10, udy:[217], img:"sewing_machine",
+    text:"चमड़े की jacket सिलना — यह काम तुम्हें कैसा लगता है?", mg:[5] },
+
+  { id:"q1092", type:"scale", band:[1,2,3], layer:2, set:10, udy:[218], img:"shoe_stitch",
+    text:"खेल-जूतों का कारख़ाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[5,22] },
+
+  { id:"q1093", type:"scale", band:[1,2,3], layer:2, set:10, udy:[219], img:"tube_bubble",
+    text:"कृत्रिम (PU) चमड़ा बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[5,13] },
+
+  { id:"q1094", type:"scale", band:[1,2,3], layer:2, set:10, udy:[220], img:"shoe_stitch",
+    text:"चप्पल बनाने की छोटी मशीन लगाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[5,3] },
+
+  { id:"q1095", type:"scale", band:[1,2,3], layer:2, set:10, udy:[221], img:"world_map",
+    text:"निर्यात के लिए बढ़िया चमड़ा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[5,14] },
+
+  { id:"q1096", type:"scale", band:[1,2,3], layer:2, set:10, udy:[222], img:"soap_make",
+    text:"चमड़ा साफ़ कर के तैयार करना (शोधन) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[5,13] },
+
+  { id:"q1097", type:"scale", band:[1,2,3], layer:2, set:10, udy:[223], img:"jugaad_new",
+    text:"गहना गढ़ना — यह काम तुम्हें कैसा लगता है?", mg:[5,12] },
+
+  { id:"q1098", type:"scale", band:[1,2,3], layer:2, set:10, udy:[224], img:"coin_stamp",
+    text:"हीरे के गहने बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1099", type:"scale", band:[1,2,3], layer:2, set:10, udy:[225], img:"decoration",
+    text:"चाँदी के गहने बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[5,12] },
+
+  { id:"q1100", type:"scale", band:[1,2,3], layer:2, set:10, udy:[226], img:"paint_toy",
+    text:"कृत्रिम (fashion) गहने — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[5] },
+
+  { id:"q1101", type:"scale", band:[1,2,3], layer:2, set:10, udy:[227], img:"bolt_fit",
+    text:"घड़ी बनाने का काम — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[5,3] },
+
+  { id:"q1102", type:"scale", band:[1,2,3], layer:2, set:10, udy:[228], img:"med_shop",
+    text:"चश्मा बनाना-बेचना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[5,6] },
+
+  { id:"q1103", type:"scale", band:[1,2,3], layer:2, set:10, udy:[229], img:"embroidery",
+    text:"handbag-बटुआ बनाना — यह काम तुम्हें कैसा लगता है?", mg:[5] },
+
+  { id:"q1104", type:"scale", band:[1,2,3], layer:2, set:10, udy:[230], img:"bolt_fit",
+    text:"बटन-चेन बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[5,3] },
+
+  { id:"q1105", type:"scale", band:[1,2,3], layer:2, set:10, udy:[231], img:"clay_art",
+    text:"आदिवासी-जनजातीय गहने — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[5,12] },
+
+  { id:"q1106", type:"scale", band:[1,2,3], layer:2, set:10, udy:[232], img:"puzzle_solo",
+    text:"रत्न-कटाई सीखना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[5,12] },
+
+  { id:"q1107", type:"scale", band:[1,2,3], layer:2, set:10, udy:[233], img:"med_shop",
+    text:"जेनेरिक दवाएं का धंधा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[6] },
+
+  { id:"q1108", type:"scale", band:[1,2,3], layer:2, set:10, udy:[234], img:"med_shop",
+    text:"दवा का कच्चा माल (API) बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[6,13] },
+
+  { id:"q1109", type:"scale", band:[1,2,3], layer:2, set:10, udy:[235], img:"fever_check",
+    text:"टीका (vaccine) बनाना — यह काम तुम्हें कैसा लगता है?", mg:[6] },
+
+  { id:"q1110", type:"scale", band:[1,2,3], layer:2, set:10, udy:[236], img:"herb_leaf",
+    text:"जीव-विज्ञान से bio-दवा बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[6,15] },
+
+  { id:"q1111", type:"scale", band:[1,2,3], layer:2, set:10, udy:[237], img:"herb_leaf",
+    text:"herbal-पिसाई — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[6,13] },
+
+  { id:"q1112", type:"scale", band:[1,2,3], layer:2, set:10, udy:[238], img:"tube_bubble",
+    text:"homeopathy-दवा बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[6] },
+
+  { id:"q1113", type:"scale", band:[2,3], layer:2, set:10, udy:[239], img:"fever_check",
+    text:"चिकित्सा-उपकरण की इकाई चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[6,3] },
+
+  { id:"q1114", type:"scale", band:[1,2,3], layer:2, set:10, udy:[240], img:"tube_bubble",
+    text:"जाँच-lab — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[6,18] },
+
+  { id:"q1115", type:"scale", band:[1,2,3], layer:2, set:10, udy:[241], img:"godown_stack",
+    text:"अस्पतालों को सामान की आपूर्ति — यह काम तुम्हें कैसा लगता है?", mg:[6,9] },
+
+  { id:"q1116", type:"scale", band:[1,2,3], layer:2, set:10, udy:[242], img:"bolt_fit",
+    text:"operation के औज़ार बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[6,3] },
+
+  { id:"q1117", type:"scale", band:[1,2,3], layer:2, set:10, udy:[243], img:"sick_care",
+    text:"अस्पताल-clinic चलाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[6] },
+
+  { id:"q1118", type:"scale", band:[1,2,3], layer:2, set:10, udy:[244], img:"mobile_app",
+    text:"phone-video से इलाज (telemedicine) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[6,7] },
+
+  { id:"q1119", type:"scale", band:[1,2,3], layer:2, set:10, udy:[245], img:"world_map",
+    text:"इलाज-पर्यटन (विदेशी मरीज़ बुलाना) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[6,14] },
+
+  { id:"q1120", type:"scale", band:[1,2,3], layer:2, set:10, udy:[246], img:"fever_check",
+    text:"दाँतों का clinic — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[6] },
+
+  { id:"q1121", type:"scale", band:[1,2,3], layer:2, set:10, udy:[247], img:"sick_care",
+    text:"आँख-जाँच शिविर में सहायता करना — यह काम तुम्हें कैसा लगता है?", mg:[6,10] },
+
+  { id:"q1122", type:"scale", band:[1,2,3], layer:2, set:10, udy:[248], img:"elder_help",
+    text:"मन (mental) स्वास्थ्य की सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[6] },
+
+  { id:"q1123", type:"scale", band:[1,2,3], layer:2, set:10, udy:[249], img:"elder_help",
+    text:"बुज़ुर्ग-देखभाल की सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[6,10] },
+
+  { id:"q1124", type:"scale", band:[1,2,3], layer:2, set:10, udy:[250], img:"boy_bandage",
+    text:"मरीज़ को घर पर पट्टी-सेवा देना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[6,10] },
+
+  { id:"q1125", type:"scale", band:[1,2,3], layer:2, set:10, udy:[251], img:"sick_care",
+    text:"एम्बुलेंस सेवाएं — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[6] },
+
+  { id:"q1126", type:"scale", band:[1,2,3], layer:2, set:10, udy:[252], img:"med_shop",
+    text:"रक्त-बैंक चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[6] },
+
+  { id:"q1127", type:"scale", band:[2,3], layer:2, set:10, udy:[253], img:"seed_sow",
+    text:"खेती की bio-तकनीक (बढ़िया बीज) — यह काम तुम्हें कैसा लगता है?", mg:[6,1] },
+
+  { id:"q1128", type:"scale", band:[2,3], layer:2, set:10, udy:[254], img:"run_machine",
+    text:"उद्योग की bio-तकनीक — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[6,3] },
+
+  { id:"q1129", type:"scale", band:[2,3], layer:2, set:10, udy:[255], img:"fish_pond",
+    text:"समुद्री bio-तकनीक — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[6] },
+
+  { id:"q1130", type:"scale", band:[2,3], layer:2, set:10, udy:[256], img:"boy_bandage",
+    text:"शरीर-ऊतक की मरम्मत का विज्ञान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[6,15] },
+
+  { id:"q1131", type:"scale", band:[2,3], layer:2, set:10, udy:[257], img:"idea_machine",
+    text:"gene से इलाज खोजना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[6,15] },
+
+  { id:"q1132", type:"scale", band:[2,3], layer:2, set:10, udy:[258], img:"puzzle_solo",
+    text:"DNA-जाँच की सेवा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[6,18] },
+
+  { id:"q1133", type:"scale", band:[1,2,3], layer:2, set:10, udy:[259], img:"herb_leaf",
+    text:"खेत-दवा की सही जानकारी किसानों को देना — यह काम तुम्हें कैसा लगता है?", mg:[6,13] },
+
+  { id:"q1134", type:"scale", band:[1,2,3], layer:2, set:10, udy:[260], img:"herb_leaf",
+    text:"दवा की सलाह — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[6,13] },
+
+  { id:"q1135", type:"scale", band:[2,3], layer:2, set:10, udy:[261], img:"tube_bubble",
+    text:"कोशिका-पालन की प्रयोगशाला — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[6] },
+
+  { id:"q1136", type:"scale", band:[2,3], layer:2, set:10, udy:[262], img:"puzzle_solo",
+    text:"stem-cell शोध — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[6,15] },
+
+  { id:"q1137", type:"scale", band:[1,2,3], layer:2, set:10, udy:[263], img:"boy_bandage",
+    text:"टीका-देखभाल — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[6,1] },
+
+  { id:"q1138", type:"scale", band:[1,2,3], layer:2, set:10, udy:[264], img:"waste_sort",
+    text:"अस्पताल-कचरे का सुरक्षित प्रबंधन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[6,20] },
+
+  { id:"q1139", type:"scale", band:[1,2,3], layer:2, set:10, udy:[265], img:"mobile_app",
+    text:"software डालना — यह काम तुम्हें कैसा लगता है?", mg:[7] },
+
+  { id:"q1140", type:"scale", band:[1,2,3], layer:2, set:10, udy:[266], img:"mobile_app",
+    text:"mobile-app बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1141", type:"scale", band:[1,2,3], layer:2, set:10, udy:[267], img:"type_computer",
+    text:"cloud (किराये का computer) सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1142", type:"scale", band:[1,2,3], layer:2, set:10, udy:[268], img:"board_wire",
+    text:"जाल (network) जोड़ना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[7,2] },
+
+  { id:"q1143", type:"scale", band:[1,2,3], layer:2, set:10, udy:[269], img:"robot_toy",
+    text:"AI (यंत्र-बुद्धि) बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[7,15] },
+
+  { id:"q1144", type:"scale", band:[2,3], layer:2, set:10, udy:[270], img:"lock_key",
+    text:"blockchain तकनीक — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[7,23] },
+
+  { id:"q1145", type:"scale", band:[1,2,3], layer:2, set:10, udy:[271], img:"board_wire",
+    text:"चीज़ों का internet (IoT) — यह काम तुम्हें कैसा लगता है?", mg:[7,15] },
+
+  { id:"q1146", type:"scale", band:[2,3], layer:2, set:10, udy:[272], img:"video_edit",
+    text:"AR-VR (आभासी दुनिया) बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1147", type:"scale", band:[1,2,3], layer:2, set:10, udy:[273], img:"game_rules",
+    text:"video-game बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[7,22] },
+
+  { id:"q1148", type:"scale", band:[2,3], layer:2, set:10, udy:[274], img:"world_map",
+    text:"metaverse बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[7,15] },
+
+  { id:"q1149", type:"scale", band:[2,3], layer:2, set:10, udy:[275], img:"idea_machine",
+    text:"chip (अर्धचालक) बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[7,19] },
+
+  { id:"q1150", type:"scale", band:[1,2,3], layer:2, set:10, udy:[276], img:"type_computer",
+    text:"hardware जोड़ना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[7,3] },
+
+  { id:"q1151", type:"scale", band:[2,3], layer:2, set:10, udy:[277], img:"phone_dead",
+    text:"mobile-phone का कारख़ाना — यह काम तुम्हें कैसा लगता है?", mg:[7,3] },
+
+  { id:"q1152", type:"scale", band:[2,3], layer:2, set:10, udy:[278], img:"video_edit",
+    text:"TV-electronics बनाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[7,3] },
+
+  { id:"q1153", type:"scale", band:[2,3], layer:2, set:10, udy:[279], img:"run_machine",
+    text:"औद्योगिक electronics — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[7,3] },
+
+  { id:"q1154", type:"scale", band:[2,3], layer:2, set:10, udy:[280], img:"board_wire",
+    text:"circuit-board बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1155", type:"scale", band:[1,2,3], layer:2, set:10, udy:[281], img:"bulb_fix",
+    text:"बल्ब-पंखा लगाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[7,2] },
+
+  { id:"q1156", type:"scale", band:[2,3], layer:2, set:10, udy:[282], img:"board_wire",
+    text:"electronic पुर्जे बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[7,3] },
+
+  { id:"q1157", type:"scale", band:[1,2,3], layer:2, set:10, udy:[283], img:"robot_toy",
+    text:"3D-printer की जानकारी रखना — यह काम तुम्हें कैसा लगता है?", mg:[7,15] },
+
+  { id:"q1158", type:"scale", band:[2,3], layer:2, set:10, udy:[284], img:"puzzle_solo",
+    text:"quantum-computing — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[7,15] },
+
+  { id:"q1159", type:"scale", band:[1,2,3], layer:2, set:10, udy:[285], img:"phone_dead",
+    text:"mobile-network कंपनी — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1160", type:"scale", band:[1,2,3], layer:2, set:10, udy:[286], img:"type_computer",
+    text:"internet-सेवा (broadband) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1161", type:"scale", band:[1,2,3], layer:2, set:10, udy:[287], img:"world_map",
+    text:"उपग्रह से संचार — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[7,15] },
+
+  { id:"q1162", type:"scale", band:[1,2,3], layer:2, set:10, udy:[288], img:"video_edit",
+    text:"OTT (online-TV) मंच — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[7,10] },
+
+  { id:"q1163", type:"scale", band:[1,2,3], layer:2, set:10, udy:[289], img:"news_read",
+    text:"radio-प्रसारण — यह काम तुम्हें कैसा लगता है?", mg:[7] },
+
+  { id:"q1164", type:"scale", band:[1,2,3], layer:2, set:10, udy:[290], img:"light_string",
+    text:"optical-fiber बिछाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1165", type:"scale", band:[2,3], layer:2, set:10, udy:[291], img:"phone_dead",
+    text:"दूरसंचार-उपकरण बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1166", type:"scale", band:[1,2,3], layer:2, set:10, udy:[292], img:"queue_line",
+    text:"call-center चलाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[7,10] },
+
+  { id:"q1167", type:"scale", band:[1,2,3], layer:2, set:10, udy:[293], img:"godown_stack",
+    text:"data-center चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[7,18] },
+
+  { id:"q1168", type:"scale", band:[2,3], layer:2, set:10, udy:[294], img:"toy_boat",
+    text:"समुद्र के नीचे internet-केबल — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[7,8] },
+
+  { id:"q1169", type:"scale", band:[1,2,3], layer:2, set:10, udy:[295], img:"mobile_app",
+    text:"app-दुकान चलाना — यह काम तुम्हें कैसा लगता है?", mg:[7,9] },
+
+  { id:"q1170", type:"scale", band:[1,2,3], layer:2, set:10, udy:[296], img:"camera_click",
+    text:"digital-प्रचार agency — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[7,9] },
+
+  { id:"q1171", type:"scale", band:[1,2,3], layer:2, set:10, udy:[297], img:"write_story",
+    text:"content बनाने की कंपनी — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[7,18] },
+
+  { id:"q1172", type:"scale", band:[1,2,3], layer:2, set:10, udy:[298], img:"teach_kids",
+    text:"online-पढ़ाई कंपनी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[7,11] },
+
+  { id:"q1173", type:"scale", band:[1,2,3], layer:2, set:10, udy:[299], img:"note_100",
+    text:"fintech (पैसे की तकनीक) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[7,23] },
+
+  { id:"q1174", type:"scale", band:[1,2,3], layer:2, set:10, udy:[300], img:"mobile_app",
+    text:"social-media मंच चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[7] },
+
+  { id:"q1175", type:"scale", band:[2,3], layer:2, set:10, udy:[301], img:"pani_khoj",
+    text:"खोज-engine (search) कंपनी — यह काम तुम्हें कैसा लगता है?", mg:[7] },
+
+  { id:"q1176", type:"scale", band:[1,2,3], layer:2, set:10, udy:[302], img:"news_read",
+    text:"नई app-ख़बरें दोस्तों को समझाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[7,15] },
+
+  { id:"q1177", type:"scale", band:[1,2,3], layer:2, set:10, udy:[303], img:"hisab_copy",
+    text:"freelancing-मंच (काम दिलाने वाला) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[7,16] },
+
+  { id:"q1178", type:"scale", band:[1,2,3], layer:2, set:10, udy:[304], img:"type_computer",
+    text:"software-सेवा कंपनी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[7] },
+
+  { id:"q1179", type:"scale", band:[2,3], layer:2, set:10, udy:[305], img:"camera_click",
+    text:"film के जादुई दृश्य (VFX) studio — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[7,12] },
+
+  { id:"q1180", type:"scale", band:[2,3], layer:2, set:10, udy:[306], img:"badi_imarat",
+    text:"data-center का ढाँचा बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[7,4] },
+
+  { id:"q1181", type:"scale", band:[2,3], layer:2, set:10, udy:[307], img:"bulb_fix",
+    text:"data-center की ठंडक-बिजली प्रणाली — यह काम तुम्हें कैसा लगता है?", mg:[7] },
+
+  { id:"q1182", type:"scale", band:[1,2,3], layer:2, set:10, udy:[308], img:"travel_road",
+    text:"truck-ढुलाई कंपनी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1183", type:"scale", band:[1,2,3], layer:2, set:10, udy:[309], img:"bus_drive",
+    text:"school-van — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8,11] },
+
+  { id:"q1184", type:"scale", band:[1,2,3], layer:2, set:10, udy:[310], img:"bus_drive",
+    text:"auto-सवारी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8,10] },
+
+  { id:"q1185", type:"scale", band:[1,2,3], layer:2, set:10, udy:[311], img:"bus_drive",
+    text:"अपना e-रिक्शा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8,15] },
+
+  { id:"q1186", type:"scale", band:[1,2,3], layer:2, set:10, udy:[312], img:"news_boy",
+    text:"घर-पहुँच सेवा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8,10] },
+
+  { id:"q1187", type:"scale", band:[1,2,3], layer:2, set:10, udy:[313], img:"mobile_app",
+    text:"app वाली taxi कंपनी — यह काम तुम्हें कैसा लगता है?", mg:[8,7] },
+
+  { id:"q1188", type:"scale", band:[1,2,3], layer:2, set:10, udy:[314], img:"godown_stack",
+    text:"logistics (माल-प्रबंध) कंपनी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1189", type:"scale", band:[1,2,3], layer:2, set:10, udy:[315], img:"pack_weigh",
+    text:"packers-movers (घर-सामान भिजाई) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8,10] },
+
+  { id:"q1190", type:"scale", band:[1,2,3], layer:2, set:10, udy:[316], img:"note_100",
+    text:"साइकिल-किराया — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8,9] },
+
+  { id:"q1191", type:"scale", band:[2,3], layer:2, set:10, udy:[317], img:"bulb_fix",
+    text:"बिजली-गाड़ियों का बेड़ा (fleet) चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8,15] },
+
+  { id:"q1192", type:"scale", band:[1,2,3], layer:2, set:10, udy:[318], img:"queue_line",
+    text:"यात्री-रेल सेवा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8] },
+
+  { id:"q1193", type:"scale", band:[1,2,3], layer:2, set:10, udy:[319], img:"godown_stack",
+    text:"माल-रेल (मालगाड़ी) — यह काम तुम्हें कैसा लगता है?", mg:[8] },
+
+  { id:"q1194", type:"scale", band:[1,2,3], layer:2, set:10, udy:[320], img:"bus_drive",
+    text:"metro चलाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1195", type:"scale", band:[1,2,3], layer:2, set:10, udy:[321], img:"bolt_fit",
+    text:"रेल के उपकरण बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8,3] },
+
+  { id:"q1196", type:"scale", band:[1,2,3], layer:2, set:10, udy:[322], img:"show_way",
+    text:"रेल-रखरखाव सेवा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1197", type:"scale", band:[1,2,3], layer:2, set:10, udy:[323], img:"graph_up",
+    text:"तेज़-रफ़्तार (bullet) रेल — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8,15] },
+
+  { id:"q1198", type:"scale", band:[1,2,3], layer:2, set:10, udy:[324], img:"food_serve",
+    text:"रेल में खानपान-सेवा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8,10] },
+
+  { id:"q1199", type:"scale", band:[1,2,3], layer:2, set:10, udy:[325], img:"travel_road",
+    text:"रेल-पर्यटन (सैर वाली रेल) — यह काम तुम्हें कैसा लगता है?", mg:[8,10] },
+
+  { id:"q1200", type:"scale", band:[1,2,3], layer:2, set:10, udy:[326], img:"bus_drive",
+    text:"शहर की tram (हल्की रेल) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1201", type:"scale", band:[2,3], layer:2, set:10, udy:[327], img:"idea_machine",
+    text:"hyperloop (नली में तेज़ गाड़ी) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8,15] },
+
+  { id:"q1202", type:"scale", band:[1,2,3], layer:2, set:10, udy:[328], img:"toy_boat",
+    text:"container-जहाज़रानी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8,14] },
+
+  { id:"q1203", type:"scale", band:[2,3], layer:2, set:10, udy:[329], img:"godown_stack",
+    text:"थोक-माल (अनाज-कोयला) की जहाज़रानी — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8] },
+
+  { id:"q1204", type:"scale", band:[1,2,3], layer:2, set:10, udy:[330], img:"godown_stack",
+    text:"बंदरगाह चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8] },
+
+  { id:"q1205", type:"scale", band:[1,2,3], layer:2, set:10, udy:[331], img:"shoe_stitch",
+    text:"जाल-मरम्मत — यह काम तुम्हें कैसा लगता है?", mg:[8,1] },
+
+  { id:"q1206", type:"scale", band:[1,2,3], layer:2, set:10, udy:[332], img:"show_way",
+    text:"ferry-नाव सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1207", type:"scale", band:[1,2,3], layer:2, set:10, udy:[333], img:"world_map",
+    text:"cruise (सैर वाला जहाज़) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8,10] },
+
+  { id:"q1208", type:"scale", band:[2,3], layer:2, set:10, udy:[334], img:"tank_measure",
+    text:"तेल-टैंकर जहाज़ चलाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8,2] },
+
+  { id:"q1209", type:"scale", band:[2,3], layer:2, set:10, udy:[335], img:"toy_boat",
+    text:"समुद्री-बीमा सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8,23] },
+
+  { id:"q1210", type:"scale", band:[2,3], layer:2, set:10, udy:[336], img:"pack_weigh",
+    text:"जहाज़ों को रसद पहुँचाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8] },
+
+  { id:"q1211", type:"scale", band:[2,3], layer:2, set:10, udy:[337], img:"pani_khoj",
+    text:"बंदरगाह की खुदाई (dredging) — यह काम तुम्हें कैसा लगता है?", mg:[8,4] },
+
+  { id:"q1212", type:"scale", band:[1,2,3], layer:2, set:10, udy:[338], img:"patang",
+    text:"यात्री-विमान सेवा (airline) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1213", type:"scale", band:[1,2,3], layer:2, set:10, udy:[339], img:"pack_weigh",
+    text:"माल-विमान सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1214", type:"scale", band:[1,2,3], layer:2, set:10, udy:[340], img:"queue_line",
+    text:"हवाई-अड्डा चलाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1215", type:"scale", band:[2,3], layer:2, set:10, udy:[341], img:"bolt_fit",
+    text:"विमान-रखरखाव सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8] },
+
+  { id:"q1216", type:"scale", band:[2,3], layer:2, set:10, udy:[342], img:"tank_measure",
+    text:"विमान-ईंधन भराई कंपनी — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8,2] },
+
+  { id:"q1217", type:"scale", band:[1,2,3], layer:2, set:10, udy:[343], img:"vehicle_sound",
+    text:"helicopter-सेवा — यह काम तुम्हें कैसा लगता है?", mg:[8] },
+
+  { id:"q1218", type:"scale", band:[1,2,3], layer:2, set:10, udy:[344], img:"patang",
+    text:"खिलौना-drone उड़ाना सीखना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8,19] },
+
+  { id:"q1219", type:"scale", band:[2,3], layer:2, set:10, udy:[345], img:"show_way",
+    text:"वायु-यातायात प्रबंधन — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1220", type:"scale", band:[1,2,3], layer:2, set:10, udy:[346], img:"teach_kids",
+    text:"विमानन-प्रशिक्षण school — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8,11] },
+
+  { id:"q1221", type:"scale", band:[2,3], layer:2, set:10, udy:[347], img:"patang",
+    text:"निजी jet-charter सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8] },
+
+  { id:"q1222", type:"scale", band:[1,2,3], layer:2, set:10, udy:[348], img:"godown_stack",
+    text:"गोदाम-प्रबंध का काम — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8] },
+
+  { id:"q1223", type:"scale", band:[1,2,3], layer:2, set:10, udy:[349], img:"godown_stack",
+    text:"cold-storage — यह काम तुम्हें कैसा लगता है?", mg:[8,1] },
+
+  { id:"q1224", type:"scale", band:[1,2,3], layer:2, set:10, udy:[350], img:"tractor_plough",
+    text:"अनाज भंडारण-साइलो का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1225", type:"scale", band:[2,3], layer:2, set:10, udy:[351], img:"waste_sort",
+    text:"गोदाम-जहाज़ की कीड़ा-मार (धूमन) सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1226", type:"scale", band:[2,3], layer:2, set:10, udy:[352], img:"type_computer",
+    text:"logistics-तकनीक कंपनी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8,7] },
+
+  { id:"q1227", type:"scale", band:[2,3], layer:2, set:10, udy:[353], img:"godown_stack",
+    text:"आपूर्ति-श्रृंखला प्रबंधन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8,16] },
+
+  { id:"q1228", type:"scale", band:[1,2,3], layer:2, set:10, udy:[354], img:"godown_stack",
+    text:"सीमा-शुल्क (customs) निकासी — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[8,16] },
+
+  { id:"q1229", type:"scale", band:[2,3], layer:2, set:10, udy:[355], img:"world_map",
+    text:"माल-अग्रेषण (forwarding) सेवा — यह काम तुम्हें कैसा लगता है?", mg:[8] },
+
+  { id:"q1230", type:"scale", band:[2,3], layer:2, set:10, udy:[356], img:"hisab_copy",
+    text:"दूसरों की पूरी ढुलाई सँभालना (3PL) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[8] },
+
+  { id:"q1231", type:"scale", band:[1,2,3], layer:2, set:10, udy:[357], img:"godown_stack",
+    text:"e-commerce की भराई-भिजाई — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[8,9] },
+
+  { id:"q1232", type:"scale", band:[1,2,3], layer:2, set:10, udy:[358], img:"news_boy",
+    text:"courier-सेवा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[8,9] },
+
+  { id:"q1233", type:"scale", band:[1,2,3], layer:2, set:10, udy:[359], img:"godown_stack",
+    text:"दवा की cold-chain ढुलाई — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[8,6] },
+
+  { id:"q1234", type:"scale", band:[1,2,3], layer:2, set:10, udy:[360], img:"badi_imarat",
+    text:"सुपरमार्केट-हाइपरमार्केट का धंधा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9] },
+
+  { id:"q1235", type:"scale", band:[1,2,3], layer:2, set:10, udy:[361], img:"shop_sell",
+    text:"ख़ास-चीज़ की दुकान (specialty) — यह काम तुम्हें कैसा लगता है?", mg:[9] },
+
+  { id:"q1236", type:"scale", band:[1,2,3], layer:2, set:10, udy:[362], img:"mobile_app",
+    text:"online-बिक्री — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[9,7] },
+
+  { id:"q1237", type:"scale", band:[1,2,3], layer:2, set:10, udy:[363], img:"godown_stack",
+    text:"department-store (सब एक छत के नीचे) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[9] },
+
+  { id:"q1238", type:"scale", band:[1,2,3], layer:2, set:10, udy:[364], img:"shop_sell",
+    text:"एक जगह दुकान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[9] },
+
+  { id:"q1239", type:"scale", band:[1,2,3], layer:2, set:10, udy:[365], img:"med_shop",
+    text:"दवा-दुकान — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[9,6] },
+
+  { id:"q1240", type:"scale", band:[1,2,3], layer:2, set:10, udy:[366], img:"note_100",
+    text:"pump पर नौकरी — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9,2] },
+
+  { id:"q1241", type:"scale", band:[1,2,3], layer:2, set:10, udy:[367], img:"phone_dead",
+    text:"electronics-खुदरा दुकान — यह काम तुम्हें कैसा लगता है?", mg:[9,7] },
+
+  { id:"q1242", type:"scale", band:[1,2,3], layer:2, set:10, udy:[368], img:"sewing_machine",
+    text:"कपड़े की खुदरा दुकान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[9,5] },
+
+  { id:"q1243", type:"scale", band:[2,3], layer:2, set:10, udy:[369], img:"vehicle_sound",
+    text:"गाड़ी-showroom (dealership) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[9,8] },
+
+  { id:"q1244", type:"scale", band:[1,2,3], layer:2, set:10, udy:[370], img:"mandi_taul",
+    text:"मंडी-बिक्री — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[9,1] },
+
+  { id:"q1245", type:"scale", band:[2,3], layer:2, set:10, udy:[371], img:"run_machine",
+    text:"औद्योगिक माल का व्यापार — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[9] },
+
+  { id:"q1246", type:"scale", band:[1,2,3], layer:2, set:10, udy:[372], img:"pack_weigh",
+    text:"विदेश भेजे जाने वाले सामान की packing — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9,14] },
+
+  { id:"q1247", type:"scale", band:[1,2,3], layer:2, set:10, udy:[373], img:"shop_sell",
+    text:"gahna-दुकान — यह काम तुम्हें कैसा लगता है?", mg:[9] },
+
+  { id:"q1248", type:"scale", band:[1,2,3], layer:2, set:10, udy:[374], img:"mandi_taul",
+    text:"वस्तु-exchange (मंडी का बड़ा बाज़ार) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[9] },
+
+  { id:"q1249", type:"scale", band:[2,3], layer:2, set:10, udy:[375], img:"weld_spark",
+    text:"इस्पात-व्यापार — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[9,3] },
+
+  { id:"q1250", type:"scale", band:[2,3], layer:2, set:10, udy:[376], img:"tube_bubble",
+    text:"रसायन-व्यापार — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[9,13] },
+
+  { id:"q1251", type:"scale", band:[1,2,3], layer:2, set:10, udy:[377], img:"pack_weigh",
+    text:"बोतल-packing — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[9,13] },
+
+  { id:"q1252", type:"scale", band:[1,2,3], layer:2, set:10, udy:[378], img:"godown_stack",
+    text:"electronics का वितरण (distributor) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9,7] },
+
+  { id:"q1253", type:"scale", band:[1,2,3], layer:2, set:10, udy:[379], img:"med_shop",
+    text:"औषधि वितरण का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[9] },
+
+  { id:"q1254", type:"scale", band:[2,3], layer:2, set:10, udy:[380], img:"note_100",
+    text:"बैंक चलाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[9,23] },
+
+  { id:"q1255", type:"scale", band:[1,2,3], layer:2, set:10, udy:[381], img:"count_money",
+    text:"bank-मित्र — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[9,23] },
+
+  { id:"q1256", type:"scale", band:[2,3], layer:2, set:10, udy:[382], img:"count_money",
+    text:"निवेश-बैंक — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[9] },
+
+  { id:"q1257", type:"scale", band:[2,3], layer:2, set:10, udy:[383], img:"graph_up",
+    text:"share-बाज़ार का काम — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[9,18] },
+
+  { id:"q1258", type:"scale", band:[2,3], layer:2, set:10, udy:[384], img:"piggy_bank",
+    text:"mutual-fund कंपनी — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9,23] },
+
+  { id:"q1259", type:"scale", band:[1,2,3], layer:2, set:10, udy:[385], img:"hisab_copy",
+    text:"बीमा-सहायता — यह काम तुम्हें कैसा लगता है?", mg:[9,23] },
+
+  { id:"q1260", type:"scale", band:[2,3], layer:2, set:10, udy:[386], img:"elder_help",
+    text:"pension-fund का प्रबंध — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[9,23] },
+
+  { id:"q1261", type:"scale", band:[2,3], layer:2, set:10, udy:[387], img:"idea_machine",
+    text:"नए-धंधों में पूँजी (venture capital) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[9,15] },
+
+  { id:"q1262", type:"scale", band:[2,3], layer:2, set:10, udy:[388], img:"graph_up",
+    text:"private-equity (कंपनियाँ ख़रीद कर सुधारना) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[9] },
+
+  { id:"q1263", type:"scale", band:[2,3], layer:2, set:10, udy:[389], img:"mobile_app",
+    text:"fintech-startup — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[9,7] },
+
+  { id:"q1264", type:"scale", band:[1,2,3], layer:2, set:10, udy:[390], img:"brick_wall",
+    text:"घरों की ख़रीद-बिक्री (property) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9] },
+
+  { id:"q1265", type:"scale", band:[1,2,3], layer:2, set:10, udy:[391], img:"badi_imarat",
+    text:"दुकान-दफ़्तर की संपत्ति — यह काम तुम्हें कैसा लगता है?", mg:[9] },
+
+  { id:"q1266", type:"scale", band:[1,2,3], layer:2, set:10, udy:[392], img:"godown_stack",
+    text:"औद्योगिक ज़मीन का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[9] },
+
+  { id:"q1267", type:"scale", band:[1,2,3], layer:2, set:10, udy:[393], img:"show_way",
+    text:"ज़मीन-विकास (plot काटना) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[9,4] },
+
+  { id:"q1268", type:"scale", band:[2,3], layer:2, set:10, udy:[394], img:"badi_imarat",
+    text:"REIT — संपत्ति का साझा-trust — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[9,23] },
+
+  { id:"q1269", type:"scale", band:[1,2,3], layer:2, set:10, udy:[395], img:"lock_key",
+    text:"संपत्ति-प्रबंध (किराया-रखरखाव) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[9] },
+
+  { id:"q1270", type:"scale", band:[1,2,3], layer:2, set:10, udy:[396], img:"mobile_app",
+    text:"prop-tech (संपत्ति की app) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9,7] },
+
+  { id:"q1271", type:"scale", band:[2,3], layer:2, set:10, udy:[397], img:"brick_wall",
+    text:"निर्माण-परामर्श — यह काम तुम्हें कैसा लगता है?", mg:[9,4] },
+
+  { id:"q1272", type:"scale", band:[1,2,3], layer:2, set:10, udy:[398], img:"hisab_copy",
+    text:"नगर-योजना की सलाह — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[9,17] },
+
+  { id:"q1273", type:"scale", band:[1,2,3], layer:2, set:10, udy:[399], img:"badi_imarat",
+    text:"smart-city का विकास — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[9,15] },
+
+  { id:"q1274", type:"scale", band:[1,2,3], layer:2, set:10, udy:[400], img:"chitthi_daftar",
+    text:"कागज़-जानकार — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[9,16] },
+
+  { id:"q1275", type:"scale", band:[1,2,3], layer:2, set:10, udy:[401], img:"type_computer",
+    text:"co-working (साझा दफ़्तर) चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[9,10] },
+
+  { id:"q1276", type:"scale", band:[1,2,3], layer:2, set:10, udy:[402], img:"ride_machine",
+    text:"मशीन-गाड़ी किराये (lease) पर देना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[9] },
+
+  { id:"q1277", type:"scale", band:[1,2,3], layer:2, set:10, udy:[403], img:"food_serve",
+    text:"hotel-resort चलाना — यह काम तुम्हें कैसा लगता है?", mg:[10] },
+
+  { id:"q1278", type:"scale", band:[1,2,3], layer:2, set:10, udy:[404], img:"travel_road",
+    text:"tour-गाड़ी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[10,8] },
+
+  { id:"q1279", type:"scale", band:[1,2,3], layer:2, set:10, udy:[405], img:"travel_road",
+    text:"साहसिक-पर्यटन (trekking-rafting) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[10,22] },
+
+  { id:"q1280", type:"scale", band:[1,2,3], layer:2, set:10, udy:[406], img:"sick_care",
+    text:"इलाज-पर्यटन कंपनी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[10,6] },
+
+  { id:"q1281", type:"scale", band:[1,2,3], layer:2, set:10, udy:[407], img:"tree_plant",
+    text:"पारिस्थितिकी पर्यटन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[10] },
+
+  { id:"q1282", type:"scale", band:[1,2,3], layer:2, set:10, udy:[408], img:"stage_play",
+    text:"सांस्कृतिक-पर्यटन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[10,12] },
+
+  { id:"q1283", type:"scale", band:[1,2,3], layer:2, set:10, udy:[409], img:"temple_seva",
+    text:"धार्मिक-पर्यटन सेवा — यह काम तुम्हें कैसा लगता है?", mg:[10,21] },
+
+  { id:"q1284", type:"scale", band:[1,2,3], layer:2, set:10, udy:[410], img:"toy_boat",
+    text:"cruise-पर्यटन — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[10,8] },
+
+  { id:"q1285", type:"scale", band:[1,2,3], layer:2, set:10, udy:[411], img:"exercise_coach",
+    text:"स्वास्थ्य (wellness)-पर्यटन — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[10,6] },
+
+  { id:"q1286", type:"scale", band:[1,2,3], layer:2, set:10, udy:[412], img:"tree_plant",
+    text:"कृषि पर्यटन — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[10] },
+
+  { id:"q1287", type:"scale", band:[1,2,3], layer:2, set:10, udy:[413], img:"food_serve",
+    text:"बड़ा restaurant चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[10] },
+
+  { id:"q1288", type:"scale", band:[1,2,3], layer:2, set:10, udy:[414], img:"cook_pot",
+    text:"ढाबा-street food — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[10] },
+
+  { id:"q1289", type:"scale", band:[1,2,3], layer:2, set:10, udy:[415], img:"sweet_make",
+    text:"मिठाई-भट्ठी — यह काम तुम्हें कैसा लगता है?", mg:[10] },
+
+  { id:"q1290", type:"scale", band:[1,2,3], layer:2, set:10, udy:[416], img:"food_serve",
+    text:"catering-खाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[10] },
+
+  { id:"q1291", type:"scale", band:[1,2,3], layer:2, set:10, udy:[417], img:"mobile_app",
+    text:"cloud-kitchen (सिर्फ़ delivery की रसोई) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[10,7] },
+
+  { id:"q1292", type:"scale", band:[1,2,3], layer:2, set:10, udy:[418], img:"cycle_fix",
+    text:"khana-delivery app — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[10,7] },
+
+  { id:"q1293", type:"scale", band:[1,2,3], layer:2, set:10, udy:[419], img:"sweet_make",
+    text:"order का cake — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[10,12] },
+
+  { id:"q1294", type:"scale", band:[3], layer:2, set:10, udy:[420], img:"shop_sell",
+    text:"bar-pub चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[10] },
+
+  { id:"q1295", type:"scale", band:[1,2,3], layer:2, set:10, udy:[421], img:"vehicle_sound",
+    text:"food-truck (चलती-गाड़ी रसोई) — यह काम तुम्हें कैसा लगता है?", mg:[10] },
+
+  { id:"q1296", type:"scale", band:[1,2,3], layer:2, set:10, udy:[422], img:"food_serve",
+    text:"बड़े-भोज और संस्था का खानपान-ठेका — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[10] },
+
+  { id:"q1297", type:"scale", band:[1,2,3], layer:2, set:10, udy:[423], img:"camera_click",
+    text:"film बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[10,12] },
+
+  { id:"q1298", type:"scale", band:[1,2,3], layer:2, set:10, udy:[424], img:"video_edit",
+    text:"TV-serial निर्माण — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[10] },
+
+  { id:"q1299", type:"scale", band:[1,2,3], layer:2, set:10, udy:[425], img:"mobile_app",
+    text:"OTT-मंच चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[10,7] },
+
+  { id:"q1300", type:"scale", band:[1,2,3], layer:2, set:10, udy:[426], img:"stage_song",
+    text:"संगीत-निर्माण (studio) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[10,12] },
+
+  { id:"q1301", type:"scale", band:[1,2,3], layer:2, set:10, udy:[427], img:"game_rules",
+    text:"video-game उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[10,7] },
+
+  { id:"q1302", type:"scale", band:[1,2,3], layer:2, set:10, udy:[428], img:"badi_imarat",
+    text:"मनोरंजन पार्क का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[10] },
+
+  { id:"q1303", type:"scale", band:[1,2,3], layer:2, set:10, udy:[429], img:"team_win",
+    text:"खेल-मनोरंजन (event) कंपनी — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[10] },
+
+  { id:"q1304", type:"scale", band:[1,2,3], layer:2, set:10, udy:[430], img:"stage_play",
+    text:"हास्य (stand-up comedy) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[10] },
+
+  { id:"q1305", type:"scale", band:[1,2,3], layer:2, set:10, udy:[431], img:"decoration",
+    text:"circus-प्रदर्शन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[10,12] },
+
+  { id:"q1306", type:"scale", band:[1,2,3], layer:2, set:10, udy:[432], img:"type_computer",
+    text:"e-sports का आयोजन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[10,22] },
+
+  { id:"q1307", type:"scale", band:[1,2,3], layer:2, set:10, udy:[433], img:"balla_gend",
+    text:"cricket-उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[10,22] },
+
+  { id:"q1308", type:"scale", band:[1,2,3], layer:2, set:10, udy:[434], img:"team_win",
+    text:"football-उद्योग — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[10,22] },
+
+  { id:"q1309", type:"scale", band:[1,2,3], layer:2, set:10, udy:[435], img:"team_win",
+    text:"basketball-league का काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[10,22] },
+
+  { id:"q1310", type:"scale", band:[1,2,3], layer:2, set:10, udy:[436], img:"team_win",
+    text:"tennis-आयोजन — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[10,22] },
+
+  { id:"q1311", type:"scale", band:[1,2,3], layer:2, set:10, udy:[437], img:"world_map",
+    text:"olympic-खेलों का आयोजन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[10,22] },
+
+  { id:"q1312", type:"scale", band:[1,2,3], layer:2, set:10, udy:[438], img:"wood_toy",
+    text:"खेल-सामान बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[10,3] },
+
+  { id:"q1313", type:"scale", band:[1,2,3], layer:2, set:10, udy:[439], img:"exercise_coach",
+    text:"बच्चों की खेल-कक्षा चलाना — यह काम तुम्हें कैसा लगता है?", mg:[10,22] },
+
+  { id:"q1314", type:"scale", band:[1,2,3], layer:2, set:10, udy:[440], img:"exercise_coach",
+    text:"खेल-पोषण (खिलाड़ी-आहार) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[10,6] },
+
+  { id:"q1315", type:"scale", band:[1,2,3], layer:2, set:10, udy:[441], img:"team_win",
+    text:"खेल-आँकड़ों की सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[10,18] },
+
+  { id:"q1316", type:"scale", band:[1,2,3], layer:2, set:10, udy:[442], img:"paint_toy",
+    text:"नन्हों का खेल-विद्यालय — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11] },
+
+  { id:"q1317", type:"scale", band:[1,2,3], layer:2, set:10, udy:[443], img:"teach_kids",
+    text:"प्राथमिक school चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1318", type:"scale", band:[1,2,3], layer:2, set:10, udy:[444], img:"hisab_copy",
+    text:"माध्यमिक school चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1319", type:"scale", band:[1,2,3], layer:2, set:10, udy:[445], img:"teach_kids",
+    text:"CBSE-ICSE जैसा board-school — यह काम तुम्हें कैसा लगता है?", mg:[11] },
+
+  { id:"q1320", type:"scale", band:[1,2,3], layer:2, set:10, udy:[446], img:"world_map",
+    text:"अंतरराष्ट्रीय school — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11,14] },
+
+  { id:"q1321", type:"scale", band:[1,2,3], layer:2, set:10, udy:[447], img:"elder_help",
+    text:"दिव्यांग बच्चों की विशेष-शिक्षा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11,6] },
+
+  { id:"q1322", type:"scale", band:[1,2,3], layer:2, set:10, udy:[448], img:"write_story",
+    text:"घर पर पढ़ाई (home-schooling) सेवा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11] },
+
+  { id:"q1323", type:"scale", band:[1,2,3], layer:2, set:10, udy:[449], img:"mobile_app",
+    text:"online-school — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11,7] },
+
+  { id:"q1324", type:"scale", band:[1,2,3], layer:2, set:10, udy:[450], img:"badi_imarat",
+    text:"आवासीय (hostel वाला) school — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1325", type:"scale", band:[1,2,3], layer:2, set:10, udy:[451], img:"run_machine",
+    text:"व्यावसायिक (हुनर) पढ़ाई केंद्र — यह काम तुम्हें कैसा लगता है?", mg:[11] },
+
+  { id:"q1326", type:"scale", band:[1,2,3], layer:2, set:10, udy:[452], img:"bolt_fit",
+    text:"engineering-college — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11] },
+
+  { id:"q1327", type:"scale", band:[1,2,3], layer:2, set:10, udy:[453], img:"fever_check",
+    text:"medical-college — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11,6] },
+
+  { id:"q1328", type:"scale", band:[1,2,3], layer:2, set:10, udy:[454], img:"graph_up",
+    text:"व्यापार की पढ़ाई (MBA) की school — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11,9] },
+
+  { id:"q1329", type:"scale", band:[1,2,3], layer:2, set:10, udy:[455], img:"judge_friends",
+    text:"वकालत (law) की पढ़ाई का college — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11,16] },
+
+  { id:"q1330", type:"scale", band:[1,2,3], layer:2, set:10, udy:[456], img:"hisab_copy",
+    text:"कला-विज्ञान college — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1331", type:"scale", band:[1,2,3], layer:2, set:10, udy:[457], img:"seed_sow",
+    text:"कृषि-college — यह काम तुम्हें कैसा लगता है?", mg:[11,1] },
+
+  { id:"q1332", type:"scale", band:[1,2,3], layer:2, set:10, udy:[458], img:"paint_toy",
+    text:"ललित-कला college — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11,12] },
+
+  { id:"q1333", type:"scale", band:[1,2,3], layer:2, set:10, udy:[459], img:"med_shop",
+    text:"pharmacy-college — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11,6] },
+
+  { id:"q1334", type:"scale", band:[1,2,3], layer:2, set:10, udy:[460], img:"badi_imarat",
+    text:"वास्तुकला (भवन-design) की school — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11,4] },
+
+  { id:"q1335", type:"scale", band:[1,2,3], layer:2, set:10, udy:[461], img:"badi_imarat",
+    text:"विश्वविद्यालय चलाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1336", type:"scale", band:[1,2,3], layer:2, set:10, udy:[462], img:"chitthi_daftar",
+    text:"औद्योगिक प्रशिक्षण संस्थान-पॉलिटेकनिक का धंधा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1337", type:"scale", band:[1,2,3], layer:2, set:10, udy:[463], img:"type_computer",
+    text:"computer-कक्षा में सहायक बनना — यह काम तुम्हें कैसा लगता है?", mg:[11,7] },
+
+  { id:"q1338", type:"scale", band:[1,2,3], layer:2, set:10, udy:[464], img:"type_computer",
+    text:"computer-कक्षा में सहायक बनना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11,7] },
+
+  { id:"q1339", type:"scale", band:[1,2,3], layer:2, set:10, udy:[465], img:"bus_drive",
+    text:"driving-school — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11,8] },
+
+  { id:"q1340", type:"scale", band:[1,2,3], layer:2, set:10, udy:[466], img:"video_edit",
+    text:"रंगोली-मेहँदी की online-कक्षा चलाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11,12] },
+
+  { id:"q1341", type:"scale", band:[1,2,3], layer:2, set:10, udy:[467], img:"cook_pot",
+    text:"पाककला (खाना बनाना) की school — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11,10] },
+
+  { id:"q1342", type:"scale", band:[1,2,3], layer:2, set:10, udy:[468], img:"learn_lang",
+    text:"भाषा-संस्थान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11,14] },
+
+  { id:"q1343", type:"scale", band:[1,2,3], layer:2, set:10, udy:[469], img:"video_edit",
+    text:"रंगोली-मेहँदी की online-कक्षा चलाना — यह काम तुम्हें कैसा लगता है?", mg:[11,12] },
+
+  { id:"q1344", type:"scale", band:[1,2,3], layer:2, set:10, udy:[470], img:"exercise_coach",
+    text:"बच्चों की खेल-कक्षा चलाना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11,22] },
+
+  { id:"q1345", type:"scale", band:[1,2,3], layer:2, set:10, udy:[471], img:"patang",
+    text:"विमानन-प्रशिक्षण संस्थान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11,8] },
+
+  { id:"q1346", type:"scale", band:[1,2,3], layer:2, set:10, udy:[472], img:"mobile_app",
+    text:"ed-tech कंपनी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11,7] },
+
+  { id:"q1347", type:"scale", band:[1,2,3], layer:2, set:10, udy:[473], img:"type_computer",
+    text:"मुफ़्त online-course मंच — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1348", type:"scale", band:[1,2,3], layer:2, set:10, udy:[474], img:"learn_lang",
+    text:"भाषा सिखाने वाला app — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11,7] },
+
+  { id:"q1349", type:"scale", band:[1,2,3], layer:2, set:10, udy:[475], img:"teach_kids",
+    text:"परीक्षा तैयारी का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[11] },
+
+  { id:"q1350", type:"scale", band:[1,2,3], layer:2, set:10, udy:[476], img:"teach_kids",
+    text:"कंपनी-कर्मचारियों का प्रशिक्षण — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11,16] },
+
+  { id:"q1351", type:"scale", band:[1,2,3], layer:2, set:10, udy:[477], img:"coin_stamp",
+    text:"पेशेवर-प्रमाणपत्र की संस्था — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11] },
+
+  { id:"q1352", type:"scale", band:[1,2,3], layer:2, set:10, udy:[478], img:"idea_machine",
+    text:"coding-bootcamp — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11,7] },
+
+  { id:"q1353", type:"scale", band:[1,2,3], layer:2, set:10, udy:[479], img:"write_story",
+    text:"ऑनलाइन ट्यूटरिंग का धंधा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1354", type:"scale", band:[1,2,3], layer:2, set:10, udy:[480], img:"game_rules",
+    text:"बच्चों का पढ़ाई-app — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11] },
+
+  { id:"q1355", type:"scale", band:[1,2,3], layer:2, set:10, udy:[481], img:"school_stall",
+    text:"कौशल मूल्यांकन का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[11] },
+
+  { id:"q1356", type:"scale", band:[2,3], layer:2, set:10, udy:[482], img:"med_shop",
+    text:"दवा-खोज (pharma) अनुसंधान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11,6] },
+
+  { id:"q1357", type:"scale", band:[2,3], layer:2, set:10, udy:[483], img:"seed_sow",
+    text:"कृषि-अनुसंधान केंद्र — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11,1] },
+
+  { id:"q1358", type:"scale", band:[2,3], layer:2, set:10, udy:[484], img:"world_map",
+    text:"अंतरिक्ष-अनुसंधान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11,15] },
+
+  { id:"q1359", type:"scale", band:[2,3], layer:2, set:10, udy:[485], img:"tube_bubble",
+    text:"सामग्री-विज्ञान अनुसंधान — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11,15] },
+
+  { id:"q1360", type:"scale", band:[2,3], layer:2, set:10, udy:[486], img:"robot_toy",
+    text:"AI-ML अनुसंधान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[11,15] },
+
+  { id:"q1361", type:"scale", band:[2,3], layer:2, set:10, udy:[487], img:"tree_plant",
+    text:"जलवायु-अनुसंधान — यह काम तुम्हें कैसा लगता है?", mg:[11,20] },
+
+  { id:"q1362", type:"scale", band:[2,3], layer:2, set:10, udy:[488], img:"fish_pond",
+    text:"समुद्री-अनुसंधान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[11,20] },
+
+  { id:"q1363", type:"scale", band:[2,3], layer:2, set:10, udy:[489], img:"lock_key",
+    text:"रक्षा-अनुसंधान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[11,24] },
+
+  { id:"q1364", type:"scale", band:[2,3], layer:2, set:10, udy:[490], img:"idea_machine",
+    text:"विचार-मंच (नीति-अनुसंधान) में काम — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[11,17] },
+
+  { id:"q1365", type:"scale", band:[1,2,3], layer:2, set:10, udy:[491], img:"news_read",
+    text:"शैक्षणिक-प्रकाशन (किताबें छापना) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[11,12] },
+
+  { id:"q1366", type:"scale", band:[1,2,3], layer:2, set:10, udy:[492], img:"wood_toy",
+    text:"बाँस-शिल्प की इकाई — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[12,1] },
+
+  { id:"q1367", type:"scale", band:[1,2,3], layer:2, set:10, udy:[493], img:"clay_art",
+    text:"मिट्टी के बर्तन-सिरेमिक का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[12] },
+
+  { id:"q1368", type:"scale", band:[1,2,3], layer:2, set:10, udy:[494], img:"wood_toy",
+    text:"बढ़ई-काम — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[12,3] },
+
+  { id:"q1369", type:"scale", band:[1,2,3], layer:2, set:10, udy:[495], img:"embroidery",
+    text:"कढ़ाई-केंद्र — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[12,5] },
+
+  { id:"q1370", type:"scale", band:[1,2,3], layer:2, set:10, udy:[496], img:"embroidery",
+    text:"कालीन-दरी की बुनाई — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[12,5] },
+
+  { id:"q1371", type:"scale", band:[1,2,3], layer:2, set:10, udy:[497], img:"decoration",
+    text:"दीवार-चित्र — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[12] },
+
+  { id:"q1372", type:"scale", band:[1,2,3], layer:2, set:10, udy:[498], img:"clay_art",
+    text:"मूर्तिकला — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[12] },
+
+  { id:"q1373", type:"scale", band:[1,2,3], layer:2, set:10, udy:[499], img:"tube_bubble",
+    text:"काँच-कला (सजावटी) — यह काम तुम्हें कैसा लगता है?", mg:[12] },
+
+  { id:"q1374", type:"scale", band:[1,2,3], layer:2, set:10, udy:[500], img:"brick_wall",
+    text:"पत्थर की कारीगरी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[12,4] },
+
+  { id:"q1375", type:"scale", band:[1,2,3], layer:2, set:10, udy:[501], img:"soap_make",
+    text:"साबुन-फिनाइल घर पर बनाकर बेचना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[12,13] },
+
+  { id:"q1376", type:"scale", band:[1,2,3], layer:2, set:10, udy:[502], img:"paint_toy",
+    text:"flex-design — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[12,9] },
+
+  { id:"q1377", type:"scale", band:[1,2,3], layer:2, set:10, udy:[503], img:"sewing_machine",
+    text:"fashion-design — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[12,5] },
+
+  { id:"q1378", type:"scale", band:[1,2,3], layer:2, set:10, udy:[504], img:"decoration",
+    text:"interior-design — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[12,4] },
+
+  { id:"q1379", type:"scale", band:[1,2,3], layer:2, set:10, udy:[505], img:"idea_machine",
+    text:"औद्योगिक-design (चीज़ों का रूप) — यह काम तुम्हें कैसा लगता है?", mg:[12,3] },
+
+  { id:"q1380", type:"scale", band:[1,2,3], layer:2, set:10, udy:[506], img:"wood_toy",
+    text:"उत्पाद डिजाइन का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[12] },
+
+  { id:"q1381", type:"scale", band:[1,2,3], layer:2, set:10, udy:[507], img:"video_edit",
+    text:"animation-studio — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[12,7] },
+
+  { id:"q1382", type:"scale", band:[1,2,3], layer:2, set:10, udy:[508], img:"camera_click",
+    text:"फोटोग्राफी स्टूडियो — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[12] },
+
+  { id:"q1383", type:"scale", band:[1,2,3], layer:2, set:10, udy:[509], img:"camera_click",
+    text:"वीडियो निर्माण — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[12] },
+
+  { id:"q1384", type:"scale", band:[1,2,3], layer:2, set:10, udy:[510], img:"badi_imarat",
+    text:"भवन-design (architecture) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[12,4] },
+
+  { id:"q1385", type:"scale", band:[1,2,3], layer:2, set:10, udy:[511], img:"mobile_app",
+    text:"app का रूप-design (UX) — यह काम तुम्हें कैसा लगता है?", mg:[12,7] },
+
+  { id:"q1386", type:"scale", band:[1,2,3], layer:2, set:10, udy:[512], img:"write_story",
+    text:"पुस्तक प्रकाशन का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[12] },
+
+  { id:"q1387", type:"scale", band:[1,2,3], layer:2, set:10, udy:[513], img:"news_read",
+    text:"पत्रिका छापना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[12] },
+
+  { id:"q1388", type:"scale", band:[1,2,3], layer:2, set:10, udy:[514], img:"school_stall",
+    text:"समाचार पत्र का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[12] },
+
+  { id:"q1389", type:"scale", band:[1,2,3], layer:2, set:10, udy:[515], img:"news_boy",
+    text:"digital-समाचार portal — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[12,18] },
+
+  { id:"q1390", type:"scale", band:[1,2,3], layer:2, set:10, udy:[516], img:"stage_song",
+    text:"podcast बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[12,18] },
+
+  { id:"q1391", type:"scale", band:[1,2,3], layer:2, set:10, udy:[517], img:"camera_click",
+    text:"वृत्तचित्र (सच्ची घटना की film) — यह काम तुम्हें कैसा लगता है?", mg:[12] },
+
+  { id:"q1392", type:"scale", band:[1,2,3], layer:2, set:10, udy:[518], img:"hisab_copy",
+    text:"शैक्षणिक-प्रकाशन — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[12,11] },
+
+  { id:"q1393", type:"scale", band:[1,2,3], layer:2, set:10, udy:[519], img:"write_story",
+    text:"comic-किताबें बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[12] },
+
+  { id:"q1394", type:"scale", band:[1,2,3], layer:2, set:10, udy:[520], img:"puja_thali",
+    text:"धार्मिक-प्रकाशन — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[12,21] },
+
+  { id:"q1395", type:"scale", band:[1,2,3], layer:2, set:10, udy:[521], img:"hisab_copy",
+    text:"पाठ्य-सामग्री (किताबें) बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[12,11] },
+
+  { id:"q1396", type:"scale", band:[1,2,3], layer:2, set:10, udy:[522], img:"coin_stamp",
+    text:"संग्रहालय-प्रबंध — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[12] },
+
+  { id:"q1397", type:"scale", band:[1,2,3], layer:2, set:10, udy:[523], img:"badi_imarat",
+    text:"विरासत (पुरानी इमारतों का) पर्यटन — यह काम तुम्हें कैसा लगता है?", mg:[12,10] },
+
+  { id:"q1398", type:"scale", band:[1,2,3], layer:2, set:10, udy:[524], img:"stage_play",
+    text:"सांस्कृतिक-उत्सव का आयोजन — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[12,10] },
+
+  { id:"q1399", type:"scale", band:[1,2,3], layer:2, set:10, udy:[525], img:"stage_play",
+    text:"देसी-नृत्य कक्षा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[12,21] },
+
+  { id:"q1400", type:"scale", band:[1,2,3], layer:2, set:10, udy:[526], img:"stage_song",
+    text:"लोक-कला बचाने का काम — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[12] },
+
+  { id:"q1401", type:"scale", band:[1,2,3], layer:2, set:10, udy:[527], img:"pani_khoj",
+    text:"पुरातत्व-सेवा (खुदाई-अध्ययन) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[12,18] },
+
+  { id:"q1402", type:"scale", band:[1,2,3], layer:2, set:10, udy:[528], img:"paint_toy",
+    text:"कला-दीर्घा (gallery) चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[12,9] },
+
+  { id:"q1403", type:"scale", band:[1,2,3], layer:2, set:10, udy:[529], img:"coin_stamp",
+    text:"पुरानी-वस्तुओं का व्यापार — यह काम तुम्हें कैसा लगता है?", mg:[12,9] },
+
+  { id:"q1404", type:"scale", band:[1,2,3], layer:2, set:10, udy:[530], img:"brick_wall",
+    text:"पुरानी-इमारत की मरम्मत (पुनरुद्धार) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[12,4] },
+
+  { id:"q1405", type:"scale", band:[1,2,3], layer:2, set:10, udy:[531], img:"world_map",
+    text:"देश-विदेश सांस्कृतिक आदान-प्रदान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[12,14] },
+
+  { id:"q1406", type:"scale", band:[2,3], layer:2, set:10, udy:[532], img:"run_machine",
+    text:"बुनियादी रसायन कारख़ाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1407", type:"scale", band:[2,3], layer:2, set:10, udy:[533], img:"idea_machine",
+    text:"विशेष (specialty) रसायन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1408", type:"scale", band:[1,2,3], layer:2, set:10, udy:[534], img:"seed_sow",
+    text:"बीज-खाद बेचना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[13,1] },
+
+  { id:"q1409", type:"scale", band:[1,2,3], layer:2, set:10, udy:[535], img:"weld_spark",
+    text:"gate-रंगाई — यह काम तुम्हें कैसा लगता है?", mg:[13,3] },
+
+  { id:"q1410", type:"scale", band:[1,2,3], layer:2, set:10, udy:[536], img:"soap_make",
+    text:"चिपकने वाले पदार्थ का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1411", type:"scale", band:[1,2,3], layer:2, set:10, udy:[537], img:"cycle_fix",
+    text:"रबड़-उत्पाद बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1412", type:"scale", band:[1,2,3], layer:2, set:10, udy:[538], img:"toy_open",
+    text:"plastic-उत्पाद की इकाई — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1413", type:"scale", band:[2,3], layer:2, set:10, udy:[539], img:"tube_bubble",
+    text:"बहुलक (polymer) बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1414", type:"scale", band:[1,2,3], layer:2, set:10, udy:[540], img:"soap_make",
+    text:"रंजक एवं वर्णक का धंधा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1415", type:"scale", band:[2,3], layer:2, set:10, udy:[541], img:"tank_measure",
+    text:"औद्योगिक gas बनाना — यह काम तुम्हें कैसा लगता है?", mg:[13,2] },
+
+  { id:"q1416", type:"scale", band:[1,2,3], layer:2, set:10, udy:[542], img:"soap_make",
+    text:"साबुन-फिनाइल घर पर बनाकर बेचना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[13,9] },
+
+  { id:"q1417", type:"scale", band:[1,2,3], layer:2, set:10, udy:[543], img:"decoration",
+    text:"शैंपू-बाल देखभाल का धंधा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1418", type:"scale", band:[1,2,3], layer:2, set:10, udy:[544], img:"decoration",
+    text:"त्वचा देखभाल-सौंदर्य प्रसाधन का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1419", type:"scale", band:[1,2,3], layer:2, set:10, udy:[545], img:"soap_make",
+    text:"toothpaste बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1420", type:"scale", band:[1,2,3], layer:2, set:10, udy:[546], img:"pack_weigh",
+    text:"detergent-powder की इकाई — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1421", type:"scale", band:[1,2,3], layer:2, set:10, udy:[547], img:"soap_make",
+    text:"साबुन-फिनाइल घर पर बनाकर बेचना — यह काम तुम्हें कैसा लगता है?", mg:[13,9] },
+
+  { id:"q1422", type:"scale", band:[1,2,3], layer:2, set:10, udy:[548], img:"paint_toy",
+    text:"बच्चों के साबुन-तेल उत्पाद — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1423", type:"scale", band:[2,3], layer:2, set:10, udy:[549], img:"med_shop",
+    text:"स्त्री-स्वच्छता उत्पाद की इकाई चलाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[13,6] },
+
+  { id:"q1424", type:"scale", band:[1,2,3], layer:2, set:10, udy:[550], img:"flower_sell",
+    text:"इत्र (perfume) बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1425", type:"scale", band:[1,2,3], layer:2, set:10, udy:[551], img:"tube_bubble",
+    text:"सफ़ाई-उत्पाद (phenyl जैसे) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1426", type:"scale", band:[1,2,3], layer:2, set:10, udy:[552], img:"animal_love",
+    text:"पालतू-पशु का भोजन बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[13,1] },
+
+  { id:"q1427", type:"scale", band:[1,2,3], layer:2, set:10, udy:[553], img:"pack_weigh",
+    text:"कागज़-डिब्बे — यह काम तुम्हें कैसा लगता है?", mg:[13,9] },
+
+  { id:"q1428", type:"scale", band:[1,2,3], layer:2, set:10, udy:[554], img:"run_machine",
+    text:"plastic-packing मशीन — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[13,3] },
+
+  { id:"q1429", type:"scale", band:[1,2,3], layer:2, set:10, udy:[555], img:"tube_bubble",
+    text:"काँच की बोतल-packaging — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[13,3] },
+
+  { id:"q1430", type:"scale", band:[1,2,3], layer:2, set:10, udy:[556], img:"pack_weigh",
+    text:"टिन-डिब्बे बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[13,3] },
+
+  { id:"q1431", type:"scale", band:[1,2,3], layer:2, set:10, udy:[557], img:"toy_open",
+    text:"पन्नी वाली (लचीली) packaging — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1432", type:"scale", band:[1,2,3], layer:2, set:10, udy:[558], img:"godown_stack",
+    text:"गत्ते के box बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[13] },
+
+  { id:"q1433", type:"scale", band:[1,2,3], layer:2, set:10, udy:[559], img:"tree_plant",
+    text:"पत्तल जैसी eco-packing — यह काम तुम्हें कैसा लगता है?", mg:[13,20] },
+
+  { id:"q1434", type:"scale", band:[1,2,3], layer:2, set:10, udy:[560], img:"med_shop",
+    text:"दवा-packaging — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[13,6] },
+
+  { id:"q1435", type:"scale", band:[1,2,3], layer:2, set:10, udy:[561], img:"pickle_jar",
+    text:"packing-label — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[13,9] },
+
+  { id:"q1436", type:"scale", band:[1,2,3], layer:2, set:10, udy:[562], img:"decoration",
+    text:"महँगी (विलासिता) packaging — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1437", type:"scale", band:[1,2,3], layer:2, set:10, udy:[563], img:"tank_measure",
+    text:"plaster-नाप — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[13,4] },
+
+  { id:"q1438", type:"scale", band:[1,2,3], layer:2, set:10, udy:[564], img:"weld_spark",
+    text:"छड़-बँधाई — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[13,4] },
+
+  { id:"q1439", type:"scale", band:[1,2,3], layer:2, set:10, udy:[565], img:"clay_art",
+    text:"ईंट-टाइल का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[13] },
+
+  { id:"q1440", type:"scale", band:[1,2,3], layer:2, set:10, udy:[566], img:"brick_wall",
+    text:"पत्थर-गिट्टी की मशीन का काम — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[13,2] },
+
+  { id:"q1441", type:"scale", band:[1,2,3], layer:2, set:10, udy:[567], img:"paint_toy",
+    text:"घर-पुताई — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[13,4] },
+
+  { id:"q1442", type:"scale", band:[1,2,3], layer:2, set:10, udy:[568], img:"tube_bubble",
+    text:"काँच (शीशा) बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[13,3] },
+
+  { id:"q1443", type:"scale", band:[1,2,3], layer:2, set:10, udy:[569], img:"pipe_irrigation",
+    text:"नई fitting — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[13,4] },
+
+  { id:"q1444", type:"scale", band:[1,2,3], layer:2, set:10, udy:[570], img:"wood_toy",
+    text:"plywood-board कारख़ाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[13,3] },
+
+  { id:"q1445", type:"scale", band:[1,2,3], layer:2, set:10, udy:[571], img:"decoration",
+    text:"टाइल्स-सज्जा — यह काम तुम्हें कैसा लगता है?", mg:[13,4] },
+
+  { id:"q1446", type:"scale", band:[1,2,3], layer:2, set:10, udy:[572], img:"flood_road",
+    text:"जल-रोधक (waterproof) सामान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[13] },
+
+  { id:"q1447", type:"scale", band:[1,2,3], layer:2, set:10, udy:[573], img:"lock_key",
+    text:"नाज़ुक माल की सुरक्षा-packaging — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[13,24] },
+
+  { id:"q1448", type:"scale", band:[3], layer:2, set:10, udy:[574], img:"herb_leaf",
+    text:"भांग-उद्योग (जहाँ क़ानूनी है) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1449", type:"scale", band:[2,3], layer:2, set:10, udy:[575], img:"tree_plant",
+    text:"maple-सिरप (कनाडा का मीठा रस) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1450", type:"scale", band:[2,3], layer:2, set:10, udy:[576], img:"fish_pond",
+    text:"lobster-समुद्री भोजन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1451", type:"scale", band:[2,3], layer:2, set:10, udy:[577], img:"camera_click",
+    text:"Hollywood-film उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[14,10] },
+
+  { id:"q1452", type:"scale", band:[2,3], layer:2, set:10, udy:[578], img:"world_map",
+    text:"व्यावसायिक-अंतरिक्ष कंपनी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,15] },
+
+  { id:"q1453", type:"scale", band:[2,3], layer:2, set:10, udy:[579], img:"idea_machine",
+    text:"Silicon-Valley जैसा startup — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,7] },
+
+  { id:"q1454", type:"scale", band:[2,3], layer:2, set:10, udy:[580], img:"pani_khoj",
+    text:"चट्टान से gas निकालना (fracking) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1455", type:"scale", band:[2,3], layer:2, set:10, udy:[581], img:"fish_pond",
+    text:"salmon-मछली पालन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1456", type:"scale", band:[2,3], layer:2, set:10, udy:[582], img:"patang",
+    text:"aerospace-रक्षा उद्योग — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,24] },
+
+  { id:"q1457", type:"scale", band:[2,3], layer:2, set:10, udy:[583], img:"animal_love",
+    text:"रोएंदार-खाल (fur) उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[14] },
+
+  { id:"q1458", type:"scale", band:[2,3], layer:2, set:10, udy:[584], img:"note_100",
+    text:"विलासिता-सामान (luxury) उद्योग — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,5] },
+
+  { id:"q1459", type:"scale", band:[3], layer:2, set:10, udy:[585], img:"tube_bubble",
+    text:"शराब-champagne उद्योग — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14] },
+
+  { id:"q1460", type:"scale", band:[2,3], layer:2, set:10, udy:[586], img:"bolt_fit",
+    text:"Swiss-घड़ी (बारीक कारीगरी) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,3] },
+
+  { id:"q1461", type:"scale", band:[2,3], layer:2, set:10, udy:[587], img:"vehicle_sound",
+    text:"car-racing (F-1) उद्योग — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,22] },
+
+  { id:"q1462", type:"scale", band:[2,3], layer:2, set:10, udy:[588], img:"sewing_machine",
+    text:"यूरोप का fashion-उद्योग — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,5] },
+
+  { id:"q1463", type:"scale", band:[2,3], layer:2, set:10, udy:[589], img:"bulb_fix",
+    text:"परमाणु-ऊर्जा उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[14,2] },
+
+  { id:"q1464", type:"scale", band:[2,3], layer:2, set:10, udy:[590], img:"med_shop",
+    text:"दवा-नवाचार उद्योग — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,6] },
+
+  { id:"q1465", type:"scale", band:[2,3], layer:2, set:10, udy:[591], img:"godown_stack",
+    text:"Rotterdam जैसा बंदरगाह-logistics — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,8] },
+
+  { id:"q1466", type:"scale", band:[2,3], layer:2, set:10, udy:[592], img:"teach_kids",
+    text:"Nordic कल्याण-शिक्षा निर्यात — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,11] },
+
+  { id:"q1467", type:"scale", band:[1,2,3], layer:2, set:10, udy:[593], img:"team_win",
+    text:"football-उद्योग (यूरोप-मॉडल) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,22] },
+
+  { id:"q1468", type:"scale", band:[1,2,3], layer:2, set:10, udy:[594], img:"forest_birds",
+    text:"safari-वन्यजीव पर्यटन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,10] },
+
+  { id:"q1469", type:"scale", band:[1,2,3], layer:2, set:10, udy:[595], img:"pack_weigh",
+    text:"निर्यात-packing — यह काम तुम्हें कैसा लगता है?", mg:[14,9] },
+
+  { id:"q1470", type:"scale", band:[2,3], layer:2, set:10, udy:[596], img:"coin_stamp",
+    text:"हीरा-व्यापार — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,9] },
+
+  { id:"q1471", type:"scale", band:[2,3], layer:2, set:10, udy:[597], img:"bolt_fit",
+    text:"महत्वपूर्ण-खनिज निर्यात — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1472", type:"scale", band:[2,3], layer:2, set:10, udy:[598], img:"mobile_app",
+    text:"mobile-money (phone से बैंक) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,23] },
+
+  { id:"q1473", type:"scale", band:[1,2,3], layer:2, set:10, udy:[599], img:"video_edit",
+    text:"Nollywood-film (अफ़्रीका) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,10] },
+
+  { id:"q1474", type:"scale", band:[1,2,3], layer:2, set:10, udy:[600], img:"stage_song",
+    text:"Afrobeat-संगीत उद्योग — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,12] },
+
+  { id:"q1475", type:"scale", band:[2,3], layer:2, set:10, udy:[601], img:"flower_sell",
+    text:"फूल-निर्यात का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[14,1] },
+
+  { id:"q1476", type:"scale", band:[1,2,3], layer:2, set:10, udy:[602], img:"tractor_plough",
+    text:"savanna-कृषि — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1477", type:"scale", band:[1,2,3], layer:2, set:10, udy:[603], img:"world_map",
+    text:"अफ़्रीकी मुक्त-व्यापार क्षेत्र — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,9] },
+
+  { id:"q1478", type:"scale", band:[1,2,3], layer:2, set:10, udy:[604], img:"forest_birds",
+    text:"Amazon पारिस्थितिकी-पर्यटन — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,20] },
+
+  { id:"q1479", type:"scale", band:[1,2,3], layer:2, set:10, udy:[605], img:"mandi_taul",
+    text:"soybean-गोमांस निर्यात — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1480", type:"scale", band:[1,2,3], layer:2, set:10, udy:[606], img:"school_stall",
+    text:"café खोलना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,10] },
+
+  { id:"q1481", type:"scale", band:[2,3], layer:2, set:10, udy:[607], img:"seed_sow",
+    text:"quinoa-निर्यात — यह काम तुम्हें कैसा लगता है?", mg:[14,1] },
+
+  { id:"q1482", type:"scale", band:[2,3], layer:2, set:10, udy:[608], img:"run_machine",
+    text:"तांबा-खनन (Chile-मॉडल) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1483", type:"scale", band:[2,3], layer:2, set:10, udy:[609], img:"bolt_fit",
+    text:"lithium-खनन — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1484", type:"scale", band:[2,3], layer:2, set:10, udy:[610], img:"patang",
+    text:"Embraer जैसे विमान बनाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,3] },
+
+  { id:"q1485", type:"scale", band:[2,3], layer:2, set:10, udy:[611], img:"toy_boat",
+    text:"Panama-नहर की सेवाएँ — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,8] },
+
+  { id:"q1486", type:"scale", band:[2,3], layer:2, set:10, udy:[612], img:"animal_love",
+    text:"alpaca-ऊन का धंधा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1487", type:"scale", band:[3], layer:2, set:10, udy:[613], img:"cook_pot",
+    text:"pisco-rum (शराब) उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[14] },
+
+  { id:"q1488", type:"scale", band:[2,3], layer:2, set:10, udy:[614], img:"idea_machine",
+    text:"खनन-तकनीक का निर्यात — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1489", type:"scale", band:[3], layer:2, set:10, udy:[615], img:"world_map",
+    text:"शराब-निर्यात का धंधा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14] },
+
+  { id:"q1490", type:"scale", band:[2,3], layer:2, set:10, udy:[616], img:"sewing_machine",
+    text:"merino-ऊन निर्यात — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,5] },
+
+  { id:"q1491", type:"scale", band:[1,2,3], layer:2, set:10, udy:[617], img:"animal_love",
+    text:"गोमांस-भेड़ निर्यात — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1492", type:"scale", band:[1,2,3], layer:2, set:10, udy:[618], img:"lock_key",
+    text:"यूरेनियम-निर्यात — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1493", type:"scale", band:[1,2,3], layer:2, set:10, udy:[619], img:"tank_measure",
+    text:"LNG-निर्यात — यह काम तुम्हें कैसा लगता है?", mg:[14,2] },
+
+  { id:"q1494", type:"scale", band:[1,2,3], layer:2, set:10, udy:[620], img:"coin_stamp",
+    text:"opal-रत्न का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14] },
+
+  { id:"q1495", type:"scale", band:[1,2,3], layer:2, set:10, udy:[621], img:"travel_road",
+    text:"पर्यटन-उद्योग — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,10] },
+
+  { id:"q1496", type:"scale", band:[1,2,3], layer:2, set:10, udy:[622], img:"animal_love",
+    text:"kangaroo-उत्पाद — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14] },
+
+  { id:"q1497", type:"scale", band:[1,2,3], layer:2, set:10, udy:[623], img:"cow_milk",
+    text:"NZ kiwi-dairy का धंधा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1498", type:"scale", band:[1,2,3], layer:2, set:10, udy:[624], img:"sewing_machine",
+    text:"तैयार वस्त्र का धंधा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14] },
+
+  { id:"q1499", type:"scale", band:[1,2,3], layer:2, set:10, udy:[625], img:"sewing_machine",
+    text:"हरित कपड़ा-कारख़ाने — यह काम तुम्हें कैसा लगता है?", mg:[14,5] },
+
+  { id:"q1500", type:"scale", band:[1,2,3], layer:2, set:10, udy:[626], img:"run_machine",
+    text:"भूनना-पीसना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,3] },
+
+  { id:"q1501", type:"scale", band:[1,2,3], layer:2, set:10, udy:[627], img:"coin_stamp",
+    text:"रत्न-नीलम का धंधा (श्रीलंका) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14] },
+
+  { id:"q1502", type:"scale", band:[1,2,3], layer:2, set:10, udy:[628], img:"embroidery",
+    text:"कालीन-निर्यात (नेपाल) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,12] },
+
+  { id:"q1503", type:"scale", band:[1,2,3], layer:2, set:10, udy:[629], img:"type_computer",
+    text:"IT-software निर्यात — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,7] },
+
+  { id:"q1504", type:"scale", band:[1,2,3], layer:2, set:10, udy:[630], img:"med_shop",
+    text:"दवा-निर्यात — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,6] },
+
+  { id:"q1505", type:"scale", band:[2,3], layer:2, set:10, udy:[631], img:"note_100",
+    text:"परदेस से पैसा भेजने (प्रेषण) की सेवा — यह काम तुम्हें कैसा लगता है?", mg:[14,23] },
+
+  { id:"q1506", type:"scale", band:[2,3], layer:2, set:10, udy:[632], img:"tank_measure",
+    text:"जल-विद्युत निर्यात (भूटान-नेपाल) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1507", type:"scale", band:[2,3], layer:2, set:10, udy:[633], img:"sewing_machine",
+    text:"कपड़ा-निर्यात (पाकिस्तान-मॉडल) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,5] },
+
+  { id:"q1508", type:"scale", band:[2,3], layer:2, set:10, udy:[634], img:"tree_plant",
+    text:"ताड़-तेल उद्योग (मलेशिया) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1509", type:"scale", band:[2,3], layer:2, set:10, udy:[635], img:"cycle_fix",
+    text:"रबड़-निर्यात — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1510", type:"scale", band:[2,3], layer:2, set:10, udy:[636], img:"pack_weigh",
+    text:"tin-खनन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1511", type:"scale", band:[2,3], layer:2, set:10, udy:[637], img:"board_wire",
+    text:"electronics-उद्योग (आसियान) — यह काम तुम्हें कैसा लगता है?", mg:[14,7] },
+
+  { id:"q1512", type:"scale", band:[2,3], layer:2, set:10, udy:[638], img:"seed_sow",
+    text:"चावल-निर्यात (थाई-वियतनाम) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1513", type:"scale", band:[1,2,3], layer:2, set:10, udy:[639], img:"travel_road",
+    text:"सैलानी-खाना घुमाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,8] },
+
+  { id:"q1514", type:"scale", band:[2,3], layer:2, set:10, udy:[640], img:"note_100",
+    text:"Singapore जैसा वित्तीय-केंद्र — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,23] },
+
+  { id:"q1515", type:"scale", band:[2,3], layer:2, set:10, udy:[641], img:"queue_line",
+    text:"Philippines जैसा BPO (call-center) केंद्र — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,10] },
+
+  { id:"q1516", type:"scale", band:[2,3], layer:2, set:10, udy:[642], img:"forest_birds",
+    text:"Myanmar-सागौन लकड़ी का धंधा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1517", type:"scale", band:[2,3], layer:2, set:10, udy:[643], img:"sewing_machine",
+    text:"Cambodia-वस्त्र उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[14,5] },
+
+  { id:"q1518", type:"scale", band:[2,3], layer:2, set:10, udy:[644], img:"pani_khoj",
+    text:"तेल-गैस उद्योग (खाड़ी) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,2] },
+
+  { id:"q1519", type:"scale", band:[2,3], layer:2, set:10, udy:[645], img:"note_100",
+    text:"इस्लामी-वित्त — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,23] },
+
+  { id:"q1520", type:"scale", band:[1,2,3], layer:2, set:10, udy:[646], img:"coin_stamp",
+    text:"सोना-चाँदी परखना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,18] },
+
+  { id:"q1521", type:"scale", band:[2,3], layer:2, set:10, udy:[647], img:"tree_plant",
+    text:"खजूर-निर्यात — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,1] },
+
+  { id:"q1522", type:"scale", band:[2,3], layer:2, set:10, udy:[648], img:"tank_measure",
+    text:"खारा-पानी मीठा करने की तकनीक-निर्यात — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[14,20] },
+
+  { id:"q1523", type:"scale", band:[1,2,3], layer:2, set:10, udy:[649], img:"world_food",
+    text:"हलाल-खाना बनाना — यह काम तुम्हें कैसा लगता है?", mg:[14,10] },
+
+  { id:"q1524", type:"scale", band:[1,2,3], layer:2, set:10, udy:[650], img:"world_map",
+    text:"हज-उमरा यात्रियों की सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[14,21] },
+
+  { id:"q1525", type:"scale", band:[1,2,3], layer:2, set:10, udy:[651], img:"world_map",
+    text:"real-estate (दुबई-मॉडल) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[14,9] },
+
+  { id:"q1526", type:"scale", band:[1,2,3], layer:2, set:10, udy:[652], img:"world_map",
+    text:"रक्षा-उद्योग — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[14,24] },
+
+  { id:"q1527", type:"scale", band:[1,2,3], layer:2, set:10, udy:[653], img:"world_map",
+    text:"पेट्रो-रसायन निर्यात — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[14,13] },
+
+  { id:"q1528", type:"scale", band:[2,3], layer:2, set:10, udy:[654], img:"robot_toy",
+    text:"AI-model बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,7] },
+
+  { id:"q1529", type:"scale", band:[2,3], layer:2, set:10, udy:[655], img:"fever_check",
+    text:"AI से स्वास्थ्य-सेवा — यह काम तुम्हें कैसा लगता है?", mg:[15,6] },
+
+  { id:"q1530", type:"scale", band:[2,3], layer:2, set:10, udy:[656], img:"seed_sow",
+    text:"AI से खेती — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,1] },
+
+  { id:"q1531", type:"scale", band:[2,3], layer:2, set:10, udy:[657], img:"note_100",
+    text:"AI से वित्त — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15,23] },
+
+  { id:"q1532", type:"scale", band:[2,3], layer:2, set:10, udy:[658], img:"run_machine",
+    text:"AI से कारख़ाना (विनिर्माण) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15,3] },
+
+  { id:"q1533", type:"scale", band:[2,3], layer:2, set:10, udy:[659], img:"teach_kids",
+    text:"AI से पढ़ाई — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,11] },
+
+  { id:"q1534", type:"scale", band:[2,3], layer:2, set:10, udy:[660], img:"judge_friends",
+    text:"AI से क़ानूनी सेवा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,16] },
+
+  { id:"q1535", type:"scale", band:[2,3], layer:2, set:10, udy:[661], img:"queue_line",
+    text:"AI से भर्ती — यह काम तुम्हें कैसा लगता है?", mg:[15,16] },
+
+  { id:"q1536", type:"scale", band:[2,3], layer:2, set:10, udy:[662], img:"vehicle_sound",
+    text:"अपने-आप चलती (autonomous) गाड़ी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,8] },
+
+  { id:"q1537", type:"scale", band:[2,3], layer:2, set:10, udy:[663], img:"robot_toy",
+    text:"AI-robotics कंपनी — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15,19] },
+
+  { id:"q1538", type:"scale", band:[2,3], layer:2, set:10, udy:[664], img:"patang",
+    text:"व्यावसायिक rocket-प्रक्षेपण — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15,3] },
+
+  { id:"q1539", type:"scale", band:[2,3], layer:2, set:10, udy:[665], img:"idea_machine",
+    text:"नई पीढ़ी के उपग्रह बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,3] },
+
+  { id:"q1540", type:"scale", band:[2,3], layer:2, set:10, udy:[666], img:"world_map",
+    text:"अंतरिक्ष-पर्यटन — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,10] },
+
+  { id:"q1541", type:"scale", band:[2,3], layer:2, set:10, udy:[667], img:"pani_khoj",
+    text:"क्षुद्रग्रह (asteroid) खनन — यह काम तुम्हें कैसा लगता है?", mg:[15,2] },
+
+  { id:"q1542", type:"scale", band:[2,3], layer:2, set:10, udy:[668], img:"seed_sow",
+    text:"अंतरिक्ष में खेती — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,1] },
+
+  { id:"q1543", type:"scale", band:[2,3], layer:2, set:10, udy:[669], img:"puzzle_solo",
+    text:"चाँद (moon) की अर्थव्यवस्था — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15] },
+
+  { id:"q1544", type:"scale", band:[2,3], layer:2, set:10, udy:[670], img:"world_map",
+    text:"Mars-mission उद्योग — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15] },
+
+  { id:"q1545", type:"scale", band:[2,3], layer:2, set:10, udy:[671], img:"world_map",
+    text:"उपग्रह से पृथ्वी-अवलोकन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,18] },
+
+  { id:"q1546", type:"scale", band:[2,3], layer:2, set:10, udy:[672], img:"show_way",
+    text:"GPS-navigation सेवा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,8] },
+
+  { id:"q1547", type:"scale", band:[2,3], layer:2, set:10, udy:[673], img:"lock_key",
+    text:"अंतरिक्ष-रक्षा — यह काम तुम्हें कैसा लगता है?", mg:[15,24] },
+
+  { id:"q1548", type:"scale", band:[2,3], layer:2, set:10, udy:[674], img:"tube_bubble",
+    text:"प्रयोगशाला में उगाया मांस — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,1] },
+
+  { id:"q1549", type:"scale", band:[1,2,3], layer:2, set:10, udy:[675], img:"badi_imarat",
+    text:"बिना-मिट्टी टावर-खेती — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15,1] },
+
+  { id:"q1550", type:"scale", band:[2,3], layer:2, set:10, udy:[676], img:"puzzle_solo",
+    text:"gene-संपादन (सुधार) तकनीक — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15,6] },
+
+  { id:"q1551", type:"scale", band:[2,3], layer:2, set:10, udy:[677], img:"med_shop",
+    text:"व्यक्ति के अनुसार दवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,6] },
+
+  { id:"q1552", type:"scale", band:[2,3], layer:2, set:10, udy:[678], img:"elder_help",
+    text:"लंबी-उम्र (दीर्घायु) विज्ञान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,6] },
+
+  { id:"q1553", type:"scale", band:[2,3], layer:2, set:10, udy:[679], img:"herb_leaf",
+    text:"पेट-जीवाणु (microbiome) उत्पाद — यह काम तुम्हें कैसा लगता है?", mg:[15,6] },
+
+  { id:"q1554", type:"scale", band:[2,3], layer:2, set:10, udy:[680], img:"tube_bubble",
+    text:"संश्लेषित-जीवविज्ञान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,6] },
+
+  { id:"q1555", type:"scale", band:[2,3], layer:2, set:10, udy:[681], img:"herb_leaf",
+    text:"जैव-आधारित सामग्री — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15,13] },
+
+  { id:"q1556", type:"scale", band:[2,3], layer:2, set:10, udy:[682], img:"compost",
+    text:"कीड़ों से protein-आहार — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15,1] },
+
+  { id:"q1557", type:"scale", band:[2,3], layer:2, set:10, udy:[683], img:"fish_pond",
+    text:"कोशिका से समुद्री-भोजन — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,1] },
+
+  { id:"q1558", type:"scale", band:[2,3], layer:2, set:10, udy:[684], img:"bulb_fix",
+    text:"परमाणु-संलयन (fusion) ऊर्जा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,2] },
+
+  { id:"q1559", type:"scale", band:[2,3], layer:2, set:10, udy:[685], img:"tube_bubble",
+    text:"hydrogen-अर्थव्यवस्था — यह काम तुम्हें कैसा लगता है?", mg:[15,2] },
+
+  { id:"q1560", type:"scale", band:[2,3], layer:2, set:10, udy:[686], img:"tank_measure",
+    text:"ammonia-ईंधन — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,2] },
+
+  { id:"q1561", type:"scale", band:[2,3], layer:2, set:10, udy:[687], img:"bolt_fit",
+    text:"ठोस-अवस्था battery — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15,2] },
+
+  { id:"q1562", type:"scale", band:[2,3], layer:2, set:10, udy:[688], img:"light_string",
+    text:"अतिचालक (superconductor) सामग्री — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15,19] },
+
+  { id:"q1563", type:"scale", band:[2,3], layer:2, set:10, udy:[689], img:"godown_stack",
+    text:"ऊर्जा-संग्रहण प्रणाली — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,2] },
+
+  { id:"q1564", type:"scale", band:[2,3], layer:2, set:10, udy:[690], img:"weld_spark",
+    text:"हरित-इस्पात — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,3] },
+
+  { id:"q1565", type:"scale", band:[2,3], layer:2, set:10, udy:[691], img:"brick_wall",
+    text:"हरित-cement — यह काम तुम्हें कैसा लगता है?", mg:[15,4] },
+
+  { id:"q1566", type:"scale", band:[2,3], layer:2, set:10, udy:[692], img:"tree_plant",
+    text:"carbon-अवशोषण तकनीक — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,20] },
+
+  { id:"q1567", type:"scale", band:[2,3], layer:2, set:10, udy:[693], img:"flood_road",
+    text:"महासागर-ऊर्जा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15,20] },
+
+  { id:"q1568", type:"scale", band:[2,3], layer:2, set:10, udy:[694], img:"hisab_copy",
+    text:"सेवा-के-रूप-में-उत्पाद (किराया-मॉडल) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15,9] },
+
+  { id:"q1569", type:"scale", band:[1,2,3], layer:2, set:10, udy:[695], img:"embroidery",
+    text:"पुराने कपड़े से नया — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,20] },
+
+  { id:"q1570", type:"scale", band:[1,2,3], layer:2, set:10, udy:[696], img:"compost",
+    text:"खाद बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,20] },
+
+  { id:"q1571", type:"scale", band:[2,3], layer:2, set:10, udy:[697], img:"waste_sort",
+    text:"खाद्य-बर्बादी रोकने की तकनीक — यह काम तुम्हें कैसा लगता है?", mg:[15,20] },
+
+  { id:"q1572", type:"scale", band:[2,3], layer:2, set:10, udy:[698], img:"waste_sort",
+    text:"कचरे से धातु (शहरी-खनन) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[15,2] },
+
+  { id:"q1573", type:"scale", band:[2,3], layer:2, set:10, udy:[699], img:"compost",
+    text:"मिट्टी में घुल जाने वाले उत्पाद — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[15,20] },
+
+  { id:"q1574", type:"scale", band:[2,3], layer:2, set:10, udy:[700], img:"mobile_app",
+    text:"साझा-अर्थव्यवस्था मंच — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[15,7] },
+
+  { id:"q1575", type:"scale", band:[2,3], layer:2, set:10, udy:[701], img:"toy_open",
+    text:"पुरानी चीज़ों से नई क़ीमती चीज़ बनाना (upcycling) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[15,20] },
+
+  { id:"q1576", type:"scale", band:[2,3], layer:2, set:10, udy:[702], img:"run_machine",
+    text:"शून्य-अपशिष्ट विनिर्माण — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[15,3] },
+
+  { id:"q1577", type:"scale", band:[2,3], layer:2, set:10, udy:[703], img:"tree_plant",
+    text:"carbon-तटस्थ उत्पाद — यह काम तुम्हें कैसा लगता है?", mg:[15,20] },
+
+  { id:"q1578", type:"scale", band:[1,2,3], layer:2, set:10, udy:[704], img:"tank_measure",
+    text:"नाप-जानकार — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[16,18] },
+
+  { id:"q1579", type:"scale", band:[2,3], layer:2, set:10, udy:[705], img:"judge_friends",
+    text:"कंपनी-वकालत (corporate law) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[16] },
+
+  { id:"q1580", type:"scale", band:[2,3], layer:2, set:10, udy:[706], img:"idea_machine",
+    text:"बौद्धिक-संपदा (idea की रक्षा) सेवा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[16] },
+
+  { id:"q1581", type:"scale", band:[2,3], layer:2, set:10, udy:[707], img:"coin_stamp",
+    text:"patent-trademark सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[16] },
+
+  { id:"q1582", type:"scale", band:[2,3], layer:2, set:10, udy:[708], img:"show_way",
+    text:"समझौता-मध्यस्थता केंद्र — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[16] },
+
+  { id:"q1583", type:"scale", band:[2,3], layer:2, set:10, udy:[709], img:"hisab_copy",
+    text:"नियम-पालन (compliance) सेवा — यह काम तुम्हें कैसा लगता है?", mg:[16] },
+
+  { id:"q1584", type:"scale", band:[2,3], layer:2, set:10, udy:[710], img:"write_story",
+    text:"company-secretary सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[16] },
+
+  { id:"q1585", type:"scale", band:[2,3], layer:2, set:10, udy:[711], img:"pani_khoj",
+    text:"forensic (धोखा-खोज) जाँच — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[16,24] },
+
+  { id:"q1586", type:"scale", band:[2,3], layer:2, set:10, udy:[712], img:"type_computer",
+    text:"क़ानूनी काम ठेके पर (legal-outsourcing) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[16,7] },
+
+  { id:"q1587", type:"scale", band:[2,3], layer:2, set:10, udy:[713], img:"puzzle_solo",
+    text:"मुक़दमे का digital-प्रमाण खोजना (e-discovery) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[16,18] },
+
+  { id:"q1588", type:"scale", band:[1,2,3], layer:2, set:10, udy:[714], img:"hisab_copy",
+    text:"CA (chartered accountant) की फ़र्म — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[16,23] },
+
+  { id:"q1589", type:"scale", band:[1,2,3], layer:2, set:10, udy:[715], img:"note_100",
+    text:"कर (tax) की सलाह — यह काम तुम्हें कैसा लगता है?", mg:[16] },
+
+  { id:"q1590", type:"scale", band:[1,2,3], layer:2, set:10, udy:[716], img:"count_money",
+    text:"audit (खाता-जाँच) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[16,18] },
+
+  { id:"q1591", type:"scale", band:[1,2,3], layer:2, set:10, udy:[717], img:"hisab_copy",
+    text:"दुकानों का stock-register रखने का काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[16,18] },
+
+  { id:"q1592", type:"scale", band:[1,2,3], layer:2, set:10, udy:[718], img:"piggy_bank",
+    text:"वेतन-प्रक्रिया सेवा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[16] },
+
+  { id:"q1593", type:"scale", band:[2,3], layer:2, set:10, udy:[719], img:"graph_up",
+    text:"व्यापार-सलाह — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[16,9] },
+
+  { id:"q1594", type:"scale", band:[2,3], layer:2, set:10, udy:[720], img:"idea_machine",
+    text:"management-consulting — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[16] },
+
+  { id:"q1595", type:"scale", band:[2,3], layer:2, set:10, udy:[721], img:"judge_friends",
+    text:"जोखिम-सलाह — यह काम तुम्हें कैसा लगता है?", mg:[16,18] },
+
+  { id:"q1596", type:"scale", band:[2,3], layer:2, set:10, udy:[722], img:"tree_plant",
+    text:"ESG (पर्यावरण-समाज) परामर्श — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[16,20] },
+
+  { id:"q1597", type:"scale", band:[2,3], layer:2, set:10, udy:[723], img:"badi_imarat",
+    text:"corporate-सलाह (कंपनी-सौदे) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[16,9] },
+
+  { id:"q1598", type:"scale", band:[1,2,3], layer:2, set:10, udy:[724], img:"queue_line",
+    text:"भर्ती-agency — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[16] },
+
+  { id:"q1599", type:"scale", band:[1,2,3], layer:2, set:10, udy:[725], img:"show_way",
+    text:"बड़े-अफ़सर की खोज (executive search) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[16] },
+
+  { id:"q1600", type:"scale", band:[1,2,3], layer:2, set:10, udy:[726], img:"mela_gate",
+    text:"कार्यबल सेवाएं — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[16] },
+
+  { id:"q1601", type:"scale", band:[1,2,3], layer:2, set:10, udy:[727], img:"show_way",
+    text:"अस्थायी-रोज़गार agency — यह काम तुम्हें कैसा लगता है?", mg:[16] },
+
+  { id:"q1602", type:"scale", band:[1,2,3], layer:2, set:10, udy:[728], img:"mobile_app",
+    text:"gig-कार्यबल मंच — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[16,7] },
+
+  { id:"q1603", type:"scale", band:[2,3], layer:2, set:10, udy:[729], img:"count_money",
+    text:"payroll-outsourcing — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[16] },
+
+  { id:"q1604", type:"scale", band:[1,2,3], layer:2, set:10, udy:[730], img:"teach_kids",
+    text:"कर्मचारी-प्रशिक्षण कंपनी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[16,11] },
+
+  { id:"q1605", type:"scale", band:[2,3], layer:2, set:10, udy:[731], img:"type_computer",
+    text:"HR-tech (कर्मचारी-प्रबंध की app) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[16,7] },
+
+  { id:"q1606", type:"scale", band:[2,3], layer:2, set:10, udy:[732], img:"hisab_copy",
+    text:"मूल्यांकन-परीक्षण सेवा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[16,18] },
+
+  { id:"q1607", type:"scale", band:[1,2,3], layer:2, set:10, udy:[733], img:"elder_help",
+    text:"नई-नौकरी दिलाने की सेवा (outplacement) — यह काम तुम्हें कैसा लगता है?", mg:[16] },
+
+  { id:"q1608", type:"scale", band:[1,2,3], layer:2, set:10, udy:[734], img:"write_story",
+    text:"राशन-दुकान का रजिस्टर सँभालना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[17,18] },
+
+  { id:"q1609", type:"scale", band:[1,2,3], layer:2, set:10, udy:[735], img:"queue_line",
+    text:"नगरपालिका-सेवा में काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[17] },
+
+  { id:"q1610", type:"scale", band:[1,2,3], layer:2, set:10, udy:[736], img:"note_100",
+    text:"बिल-सहायता — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[17,23] },
+
+  { id:"q1611", type:"scale", band:[1,2,3], layer:2, set:10, udy:[737], img:"write_story",
+    text:"राशन-दुकान का रजिस्टर सँभालना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[17,18] },
+
+  { id:"q1612", type:"scale", band:[1,2,3], layer:2, set:10, udy:[738], img:"pack_weigh",
+    text:"सरकारी-ख़रीद का काम — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[17] },
+
+  { id:"q1613", type:"scale", band:[1,2,3], layer:2, set:10, udy:[739], img:"graph_up",
+    text:"आँकड़ों (सांख्यिकी) की सेवा — यह काम तुम्हें कैसा लगता है?", mg:[17,18] },
+
+  { id:"q1614", type:"scale", band:[1,2,3], layer:2, set:10, udy:[740], img:"hisab_copy",
+    text:"जनगणना-सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[17,18] },
+
+  { id:"q1615", type:"scale", band:[2,3], layer:2, set:10, udy:[741], img:"write_story",
+    text:"नीति-प्रशासन (सरकारी दफ़्तर) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[17] },
+
+  { id:"q1616", type:"scale", band:[2,3], layer:2, set:10, udy:[742], img:"judge_friends",
+    text:"नियामक-प्राधिकरण में काम — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[17,16] },
+
+  { id:"q1617", type:"scale", band:[1,2,3], layer:2, set:10, udy:[743], img:"chitthi_daftar",
+    text:"सरकारी डिजिटल सेवाएं — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[17] },
+
+  { id:"q1618", type:"scale", band:[1,2,3], layer:2, set:10, udy:[744], img:"elder_help",
+    text:"NGO चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[17] },
+
+  { id:"q1619", type:"scale", band:[1,2,3], layer:2, set:10, udy:[745], img:"temple_seva",
+    text:"धर्मार्थ-संस्था — यह काम तुम्हें कैसा लगता है?", mg:[17,21] },
+
+  { id:"q1620", type:"scale", band:[1,2,3], layer:2, set:10, udy:[746], img:"idea_machine",
+    text:"सामाजिक-उद्यम (सेवा और धंधा साथ) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[17] },
+
+  { id:"q1621", type:"scale", band:[1,2,3], layer:2, set:10, udy:[747], img:"piggy_bank",
+    text:"दान-foundation का प्रबंध — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[17,23] },
+
+  { id:"q1622", type:"scale", band:[1,2,3], layer:2, set:10, udy:[748], img:"flood_road",
+    text:"आपदा में राहत-कार्य — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[17,24] },
+
+  { id:"q1623", type:"scale", band:[1,2,3], layer:2, set:10, udy:[749], img:"team_win",
+    text:"सामुदायिक-विकास कार्यक्रम — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[17] },
+
+  { id:"q1624", type:"scale", band:[1,2,3], layer:2, set:10, udy:[750], img:"world_map",
+    text:"अंतरराष्ट्रीय-विकास संस्था — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[17,14] },
+
+  { id:"q1625", type:"scale", band:[1,2,3], layer:2, set:10, udy:[751], img:"puja_thali",
+    text:"धर्म-आधारित सेवा-संस्था — यह काम तुम्हें कैसा लगता है?", mg:[17,21] },
+
+  { id:"q1626", type:"scale", band:[1,2,3], layer:2, set:10, udy:[752], img:"temple_seva",
+    text:"धार्मिक संस्थान का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[17] },
+
+  { id:"q1627", type:"scale", band:[1,2,3], layer:2, set:10, udy:[753], img:"puja_thali",
+    text:"धार्मिक-प्रकाशन सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[17,21] },
+
+  { id:"q1628", type:"scale", band:[1,2,3], layer:2, set:10, udy:[754], img:"soap_make",
+    text:"धुलाई/dry-clean की दुकान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[17,10] },
+
+  { id:"q1629", type:"scale", band:[1,2,3], layer:2, set:10, udy:[755], img:"decoration",
+    text:"parlour-हुनर — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[17,10] },
+
+  { id:"q1630", type:"scale", band:[1,2,3], layer:2, set:10, udy:[756], img:"exercise_coach",
+    text:"spa-wellness केंद्र — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[17,6] },
+
+  { id:"q1631", type:"scale", band:[1,2,3], layer:2, set:10, udy:[757], img:"animal_love",
+    text:"पालतू-जानवर की देखभाल — यह काम तुम्हें कैसा लगता है?", mg:[17] },
+
+  { id:"q1632", type:"scale", band:[1,2,3], layer:2, set:10, udy:[758], img:"bulb_fix",
+    text:"घर-रखरखाव सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[17,10] },
+
+  { id:"q1633", type:"scale", band:[1,2,3], layer:2, set:10, udy:[759], img:"jugaad_new",
+    text:"घर-मरम्मत सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[17,3] },
+
+  { id:"q1634", type:"scale", band:[1,2,3], layer:2, set:10, udy:[760], img:"mela_gate",
+    text:"tent-किराया — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[17,10] },
+
+  { id:"q1635", type:"scale", band:[1,2,3], layer:2, set:10, udy:[761], img:"decoration",
+    text:"विवाह करवाने की सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[17,10] },
+
+  { id:"q1636", type:"scale", band:[2,3], layer:2, set:10, udy:[762], img:"temple_seva",
+    text:"अंतिम-संस्कार की सेवा सँभालना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[17,21] },
+
+  { id:"q1637", type:"scale", band:[1,2,3], layer:2, set:10, udy:[763], img:"elder_help",
+    text:"वृद्ध-सहायता सेवा — यह काम तुम्हें कैसा लगता है?", mg:[17,6] },
+
+  { id:"q1638", type:"scale", band:[1,2,3], layer:2, set:10, udy:[764], img:"tamatar_tokri",
+    text:"फल-ठेला — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[17,9] },
+
+  { id:"q1639", type:"scale", band:[1,2,3], layer:2, set:10, udy:[765], img:"waste_sort",
+    text:"कबाड़-छँटाई — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[17,9] },
+
+  { id:"q1640", type:"scale", band:[1,2,3], layer:2, set:10, udy:[766], img:"weld_spark",
+    text:"लोहार-काम — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[17,3] },
+
+  { id:"q1641", type:"scale", band:[1,2,3], layer:2, set:10, udy:[767], img:"clay_art",
+    text:"पारंपरिक कुम्हारी — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[17,12] },
+
+  { id:"q1642", type:"scale", band:[1,2,3], layer:2, set:10, udy:[768], img:"shoe_stitch",
+    text:"मोची का पेशा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[17] },
+
+  { id:"q1643", type:"scale", band:[1,2,3], layer:2, set:10, udy:[769], img:"soap_make",
+    text:"धोबी-धुलाई का पेशा — यह काम तुम्हें कैसा लगता है?", mg:[17] },
+
+  { id:"q1644", type:"scale", band:[1,2,3], layer:2, set:10, udy:[770], img:"make_alone",
+    text:"hair-cut हुनर — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[17,10] },
+
+  { id:"q1645", type:"scale", band:[1,2,3], layer:2, set:10, udy:[771], img:"coin_stamp",
+    text:"गिरवी/सोना-ऋण की दुकान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[17,23] },
+
+  { id:"q1646", type:"scale", band:[1,2,3], layer:2, set:10, udy:[772], img:"sewing_machine",
+    text:"चरखा-खादी का काम — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[17,5] },
+
+  { id:"q1647", type:"scale", band:[1,2,3], layer:2, set:10, udy:[773], img:"clay_art",
+    text:"मूर्ति-देवता निर्माण — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[17] },
+
+  { id:"q1648", type:"scale", band:[2,3], layer:2, set:10, udy:[774], img:"count_money",
+    text:"आँकड़ों की ख़रीद-बिक्री (data-दलाली) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[18] },
+
+  { id:"q1649", type:"scale", band:[2,3], layer:2, set:10, udy:[775], img:"type_computer",
+    text:"आँकड़ों पर ठप्पा लगाना (data-annotation) — यह काम तुम्हें कैसा लगता है?", mg:[18] },
+
+  { id:"q1650", type:"scale", band:[2,3], layer:2, set:10, udy:[776], img:"world_map",
+    text:"GIS-नक़्शा सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[18] },
+
+  { id:"q1651", type:"scale", band:[2,3], layer:2, set:10, udy:[777], img:"show_way",
+    text:"भू-स्थानिक (ज़मीन-आँकड़ा) सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[18] },
+
+  { id:"q1652", type:"scale", band:[1,2,3], layer:2, set:10, udy:[778], img:"graph_up",
+    text:"data-विश्लेषण कंपनी — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[18] },
+
+  { id:"q1653", type:"scale", band:[2,3], layer:2, set:10, udy:[779], img:"hisab_copy",
+    text:"धंधे के आँकड़े (business-intelligence) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[18,9] },
+
+  { id:"q1654", type:"scale", band:[1,2,3], layer:2, set:10, udy:[780], img:"mandi_taul",
+    text:"बाज़ार-अनुसंधान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[18,9] },
+
+  { id:"q1655", type:"scale", band:[1,2,3], layer:2, set:10, udy:[781], img:"queue_line",
+    text:"उपभोक्ता-अनुसंधान (लोग क्या चाहते हैं) — यह काम तुम्हें कैसा लगता है?", mg:[18] },
+
+  { id:"q1656", type:"scale", band:[2,3], layer:2, set:10, udy:[782], img:"toy_open",
+    text:"खुला-data मंच — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[18,17] },
+
+  { id:"q1657", type:"scale", band:[2,3], layer:2, set:10, udy:[783], img:"note_100",
+    text:"data से कमाई की सलाह (मुद्रीकरण) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[18] },
+
+  { id:"q1658", type:"scale", band:[1,2,3], layer:2, set:10, udy:[784], img:"news_boy",
+    text:"order घर-घर — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[18,8] },
+
+  { id:"q1659", type:"scale", band:[1,2,3], layer:2, set:10, udy:[785], img:"mobile_app",
+    text:"creator-अर्थव्यवस्था (video से कमाई) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[18,7] },
+
+  { id:"q1660", type:"scale", band:[1,2,3], layer:2, set:10, udy:[786], img:"video_edit",
+    text:"YouTube-production नेटवर्क — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[18] },
+
+  { id:"q1661", type:"scale", band:[1,2,3], layer:2, set:10, udy:[787], img:"camera_click",
+    text:"माल की फ़ोटो-कला — यह काम तुम्हें कैसा लगता है?", mg:[18,12] },
+
+  { id:"q1662", type:"scale", band:[1,2,3], layer:2, set:10, udy:[788], img:"write_story",
+    text:"newsletter-सदस्यता media — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[18] },
+
+  { id:"q1663", type:"scale", band:[1,2,3], layer:2, set:10, udy:[789], img:"stage_song",
+    text:"audiobook बनाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[18,12] },
+
+  { id:"q1664", type:"scale", band:[1,2,3], layer:2, set:10, udy:[790], img:"camera_click",
+    text:"stock-photo/video बेचना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[18] },
+
+  { id:"q1665", type:"scale", band:[1,2,3], layer:2, set:10, udy:[791], img:"shop_sell",
+    text:"creator का माल-बिक्री (commerce) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[18,9] },
+
+  { id:"q1666", type:"scale", band:[1,2,3], layer:2, set:10, udy:[792], img:"coin_stamp",
+    text:"digital-संपत्ति का license देना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[18,16] },
+
+  { id:"q1667", type:"scale", band:[1,2,3], layer:2, set:10, udy:[793], img:"team_win",
+    text:"fan-सदस्यता मंच — यह काम तुम्हें कैसा लगता है?", mg:[18] },
+
+  { id:"q1668", type:"scale", band:[2,3], layer:2, set:10, udy:[794], img:"hisab_copy",
+    text:"शैक्षणिक-अनुसंधान सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[18,11] },
+
+  { id:"q1669", type:"scale", band:[2,3], layer:2, set:10, udy:[795], img:"fever_check",
+    text:"दवा-परीक्षण (clinical) अनुसंधान — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[18,6] },
+
+  { id:"q1670", type:"scale", band:[2,3], layer:2, set:10, udy:[796], img:"elder_help",
+    text:"सामाजिक-अनुसंधान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[18] },
+
+  { id:"q1671", type:"scale", band:[1,2,3], layer:2, set:10, udy:[797], img:"judge_friends",
+    text:"जनमत-सर्वेक्षण — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[18] },
+
+  { id:"q1672", type:"scale", band:[1,2,3], layer:2, set:10, udy:[798], img:"flood_road",
+    text:"मौसम बिगड़ने से पहले फ़सल-सलाह देना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[18,20] },
+
+  { id:"q1673", type:"scale", band:[2,3], layer:2, set:10, udy:[799], img:"note_100",
+    text:"वित्तीय-अनुसंधान — यह काम तुम्हें कैसा लगता है?", mg:[18,23] },
+
+  { id:"q1674", type:"scale", band:[2,3], layer:2, set:10, udy:[800], img:"tube_bubble",
+    text:"औद्योगिक-प्रयोगशाला — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[18,3] },
+
+  { id:"q1675", type:"scale", band:[2,3], layer:2, set:10, udy:[801], img:"idea_machine",
+    text:"विचार-मंच (think-tank) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[18,17] },
+
+  { id:"q1676", type:"scale", band:[2,3], layer:2, set:10, udy:[802], img:"pani_khoj",
+    text:"पुरातत्व-अनुसंधान — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[18,12] },
+
+  { id:"q1677", type:"scale", band:[2,3], layer:2, set:10, udy:[803], img:"world_map",
+    text:"अंतरिक्ष-data सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[18,15] },
+
+  { id:"q1678", type:"scale", band:[2,3], layer:2, set:10, udy:[804], img:"type_computer",
+    text:"AI के लिए data-labeling — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[18,15] },
+
+  { id:"q1679", type:"scale", band:[1,2,3], layer:2, set:10, udy:[805], img:"puzzle_solo",
+    text:"chip-design समझना — यह काम तुम्हें कैसा लगता है?", mg:[19,18] },
+
+  { id:"q1680", type:"scale", band:[2,3], layer:2, set:10, udy:[806], img:"run_machine",
+    text:"chip-foundry (ढलाई-कारख़ाना) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[19,7] },
+
+  { id:"q1681", type:"scale", band:[1,2,3], layer:2, set:10, udy:[807], img:"tube_bubble",
+    text:"chip-जाँच का काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[19,13] },
+
+  { id:"q1682", type:"scale", band:[2,3], layer:2, set:10, udy:[808], img:"type_computer",
+    text:"chip-design का software (EDA) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[19,7] },
+
+  { id:"q1683", type:"scale", band:[2,3], layer:2, set:10, udy:[809], img:"bolt_fit",
+    text:"chip बनाने की मशीनें — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[19,3] },
+
+  { id:"q1684", type:"scale", band:[2,3], layer:2, set:10, udy:[810], img:"idea_machine",
+    text:"memory-chip बनाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[19] },
+
+  { id:"q1685", type:"scale", band:[2,3], layer:2, set:10, udy:[811], img:"bulb_fix",
+    text:"power-chip (बिजली सँभालने वाली) — यह काम तुम्हें कैसा लगता है?", mg:[19] },
+
+  { id:"q1686", type:"scale", band:[2,3], layer:2, set:10, udy:[812], img:"tube_bubble",
+    text:"नई-सामग्री वाली (यौगिक) chip — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[19] },
+
+  { id:"q1687", type:"scale", band:[2,3], layer:2, set:10, udy:[813], img:"light_string",
+    text:"रोशनी वाली (photonic) chip — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[19,15] },
+
+  { id:"q1688", type:"scale", band:[2,3], layer:2, set:10, udy:[814], img:"puzzle_solo",
+    text:"quantum-chip — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[19,15] },
+
+  { id:"q1689", type:"scale", band:[1,2,3], layer:2, set:10, udy:[815], img:"run_machine",
+    text:"कारख़ाने के robot बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[19,3] },
+
+  { id:"q1690", type:"scale", band:[1,2,3], layer:2, set:10, udy:[816], img:"robot_toy",
+    text:"सेवा-robot (होटल-घर के लिए) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[19,10] },
+
+  { id:"q1691", type:"scale", band:[1,2,3], layer:2, set:10, udy:[817], img:"patang",
+    text:"drone-छिड़काव — यह काम तुम्हें कैसा लगता है?", mg:[19,1] },
+
+  { id:"q1692", type:"scale", band:[1,2,3], layer:2, set:10, udy:[818], img:"fever_check",
+    text:"चिकित्सा-robot — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[19,6] },
+
+  { id:"q1693", type:"scale", band:[1,2,3], layer:2, set:10, udy:[819], img:"idea_machine",
+    text:"इंसान-जैसा (humanoid) robot — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[19,15] },
+
+  { id:"q1694", type:"scale", band:[1,2,3], layer:2, set:10, udy:[820], img:"toy_boat",
+    text:"पानी के नीचे चलने वाले robot — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[19] },
+
+  { id:"q1695", type:"scale", band:[1,2,3], layer:2, set:10, udy:[821], img:"world_map",
+    text:"अंतरिक्ष-robot — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[19,15] },
+
+  { id:"q1696", type:"scale", band:[1,2,3], layer:2, set:10, udy:[822], img:"bolt_fit",
+    text:"साथ काम करने वाला robot (cobot) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[19] },
+
+  { id:"q1697", type:"scale", band:[1,2,3], layer:2, set:10, udy:[823], img:"type_computer",
+    text:"robot का software-AI — यह काम तुम्हें कैसा लगता है?", mg:[19,7] },
+
+  { id:"q1698", type:"scale", band:[1,2,3], layer:2, set:10, udy:[824], img:"toy_open",
+    text:"robot-मरम्मत — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[19,3] },
+
+  { id:"q1699", type:"scale", band:[1,2,3], layer:2, set:10, udy:[825], img:"robot_toy",
+    text:"3D-छपाई का काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[19,15] },
+
+  { id:"q1700", type:"scale", band:[2,3], layer:2, set:10, udy:[826], img:"puzzle_solo",
+    text:"nano-तकनीक — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[19,15] },
+
+  { id:"q1701", type:"scale", band:[1,2,3], layer:2, set:10, udy:[827], img:"bolt_fit",
+    text:"स्मार्ट कारखाना का धंधा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[19] },
+
+  { id:"q1702", type:"scale", band:[2,3], layer:2, set:10, udy:[828], img:"video_edit",
+    text:"मशीन की आभासी जुड़वाँ (digital-twin) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[19,18] },
+
+  { id:"q1703", type:"scale", band:[2,3], layer:2, set:10, udy:[829], img:"idea_machine",
+    text:"उन्नत-सामग्री engineering — यह काम तुम्हें कैसा लगता है?", mg:[19,3] },
+
+  { id:"q1704", type:"scale", band:[2,3], layer:2, set:10, udy:[830], img:"tank_measure",
+    text:"बारीक-नाप (परिशुद्धता) engineering — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[19] },
+
+  { id:"q1705", type:"scale", band:[2,3], layer:2, set:10, udy:[831], img:"bolt_fit",
+    text:"बहुत छोटे पुर्जों का सूक्ष्म-विनिर्माण — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[19,3] },
+
+  { id:"q1706", type:"scale", band:[2,3], layer:2, set:10, udy:[832], img:"lock_key",
+    text:"धूल-रहित (स्वच्छ-कक्ष) कारख़ाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[19] },
+
+  { id:"q1707", type:"scale", band:[2,3], layer:2, set:10, udy:[833], img:"toy_open",
+    text:"मुड़ने वाला electronics — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[19,7] },
+
+  { id:"q1708", type:"scale", band:[2,3], layer:2, set:10, udy:[834], img:"herb_leaf",
+    text:"जीवों से सामग्री (जैव-विनिर्माण) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[19,6] },
+
+  { id:"q1709", type:"scale", band:[1,2,3], layer:2, set:10, udy:[835], img:"tree_plant",
+    text:"जलवायु-tech कंपनी — यह काम तुम्हें कैसा लगता है?", mg:[20,15] },
+
+  { id:"q1710", type:"scale", band:[2,3], layer:2, set:10, udy:[836], img:"write_story",
+    text:"ESG-रिपोर्ट सेवा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[20,16] },
+
+  { id:"q1711", type:"scale", band:[1,2,3], layer:2, set:10, udy:[837], img:"hisab_copy",
+    text:"carbon-हिसाब सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[20,18] },
+
+  { id:"q1712", type:"scale", band:[2,3], layer:2, set:10, udy:[838], img:"judge_friends",
+    text:"जलवायु-जोखिम की सलाह — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[20] },
+
+  { id:"q1713", type:"scale", band:[1,2,3], layer:2, set:10, udy:[839], img:"forest_birds",
+    text:"जीव-बचाव (जैव-विविधता) सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[20] },
+
+  { id:"q1714", type:"scale", band:[1,2,3], layer:2, set:10, udy:[840], img:"note_100",
+    text:"हरित-वित्त (हरे कामों को पैसा) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[20,23] },
+
+  { id:"q1715", type:"scale", band:[2,3], layer:2, set:10, udy:[841], img:"godown_stack",
+    text:"टिकाऊ आपूर्ति-श्रृंखला सलाह — यह काम तुम्हें कैसा लगता है?", mg:[20,8] },
+
+  { id:"q1716", type:"scale", band:[1,2,3], layer:2, set:10, udy:[842], img:"piggy_bank",
+    text:"जलवायु-बीमा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[20,23] },
+
+  { id:"q1717", type:"scale", band:[2,3], layer:2, set:10, udy:[843], img:"tree_plant",
+    text:"शून्य-धुआँ (net-zero) सलाह — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[20] },
+
+  { id:"q1718", type:"scale", band:[1,2,3], layer:2, set:10, udy:[844], img:"graph_up",
+    text:"जलवायु-data का विश्लेषण — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[20,18] },
+
+  { id:"q1719", type:"scale", band:[1,2,3], layer:2, set:10, udy:[845], img:"fish_pond",
+    text:"समुद्री-शैवाल (seaweed) खेती — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[20,1] },
+
+  { id:"q1720", type:"scale", band:[2,3], layer:2, set:10, udy:[846], img:"fish_pond",
+    text:"समुद्री bio-तकनीक की कंपनी — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[20,6] },
+
+  { id:"q1721", type:"scale", band:[1,2,3], layer:2, set:10, udy:[847], img:"world_map",
+    text:"महासागर-अवलोकन सेवा — यह काम तुम्हें कैसा लगता है?", mg:[20,18] },
+
+  { id:"q1722", type:"scale", band:[2,3], layer:2, set:10, udy:[848], img:"pani_khoj",
+    text:"गहरे-समुद्र में खनन — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[20,2] },
+
+  { id:"q1723", type:"scale", band:[2,3], layer:2, set:10, udy:[849], img:"solar_panel",
+    text:"समुद्री नवीकरणीय-ऊर्जा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[20,2] },
+
+  { id:"q1724", type:"scale", band:[2,3], layer:2, set:10, udy:[850], img:"patang",
+    text:"समुद्र के बीच पवन-चक्की (offshore) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[20,2] },
+
+  { id:"q1725", type:"scale", band:[2,3], layer:2, set:10, udy:[851], img:"flood_road",
+    text:"लहरों (ज्वार) से बिजली — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[20,2] },
+
+  { id:"q1726", type:"scale", band:[1,2,3], layer:2, set:10, udy:[852], img:"tank_measure",
+    text:"खारे-पानी को मीठा बनाना (desalination) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[20,13] },
+
+  { id:"q1727", type:"scale", band:[1,2,3], layer:2, set:10, udy:[853], img:"waste_sort",
+    text:"समुद्र से plastic-सफ़ाई — यह काम तुम्हें कैसा लगता है?", mg:[20] },
+
+  { id:"q1728", type:"scale", band:[2,3], layer:2, set:10, udy:[854], img:"toy_boat",
+    text:"समुद्री-बीमा का काम — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[20,23] },
+
+  { id:"q1729", type:"scale", band:[2,3], layer:2, set:10, udy:[855], img:"coin_stamp",
+    text:"carbon-credit की ख़रीद-बिक्री — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[20,9] },
+
+  { id:"q1730", type:"scale", band:[1,2,3], layer:2, set:10, udy:[856], img:"news_read",
+    text:"ज्योतिष-जन्मपत्री का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[21] },
+
+  { id:"q1731", type:"scale", band:[1,2,3], layer:2, set:10, udy:[857], img:"news_read",
+    text:"वास्तु-फेंग शुई का धंधा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[21] },
+
+  { id:"q1732", type:"scale", band:[2,3], layer:2, set:10, udy:[858], img:"puzzle_solo",
+    text:"टैरो-अंकशास्त्र की सलाह-दुकान — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[21] },
+
+  { id:"q1733", type:"scale", band:[1,2,3], layer:2, set:10, udy:[859], img:"temple_seva",
+    text:"बुज़ुर्गों की तीर्थ-यात्रा में साथ देना — यह काम तुम्हें कैसा लगता है?", mg:[21,10] },
+
+  { id:"q1734", type:"scale", band:[1,2,3], layer:2, set:10, udy:[860], img:"puja_thali",
+    text:"प्रसाद-दुकान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[21,9] },
+
+  { id:"q1735", type:"scale", band:[1,2,3], layer:2, set:10, udy:[861], img:"news_read",
+    text:"योग-ध्यान सेवाएं — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[21] },
+
+  { id:"q1736", type:"scale", band:[1,2,3], layer:2, set:10, udy:[862], img:"temple_seva",
+    text:"बुज़ुर्गों की तीर्थ-यात्रा में साथ देना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[21,10] },
+
+  { id:"q1737", type:"scale", band:[1,2,3], layer:2, set:10, udy:[863], img:"mobile_app",
+    text:"धार्मिक-app बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[21,7] },
+
+  { id:"q1738", type:"scale", band:[1,2,3], layer:2, set:10, udy:[864], img:"temple_seva",
+    text:"आध्यात्मिक-retreat (शांति-शिविर) चलाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[21,10] },
+
+  { id:"q1739", type:"scale", band:[1,2,3], layer:2, set:10, udy:[865], img:"temple_seva",
+    text:"मंदिर-चर्च प्रबंधन — यह काम तुम्हें कैसा लगता है?", mg:[21] },
+
+  { id:"q1740", type:"scale", band:[1,2,3], layer:2, set:10, udy:[866], img:"team_win",
+    text:"खेल-प्रबंधन कंपनी — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[22] },
+
+  { id:"q1741", type:"scale", band:[1,2,3], layer:2, set:10, udy:[867], img:"video_edit",
+    text:"खेल-media अधिकारों का धंधा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[22,18] },
+
+  { id:"q1742", type:"scale", band:[1,2,3], layer:2, set:10, udy:[868], img:"hisab_copy",
+    text:"score-आँकड़े — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[22,18] },
+
+  { id:"q1743", type:"scale", band:[1,2,3], layer:2, set:10, udy:[869], img:"judge_friends",
+    text:"खिलाड़ी का प्रतिनिधि (agent) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[22,16] },
+
+  { id:"q1744", type:"scale", band:[1,2,3], layer:2, set:10, udy:[870], img:"balla_gend",
+    text:"tournament करवाना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[22,10] },
+
+  { id:"q1745", type:"scale", band:[1,2,3], layer:2, set:10, udy:[871], img:"graph_up",
+    text:"खेल-विश्लेषण (आँकड़े) — यह काम तुम्हें कैसा लगता है?", mg:[22,18] },
+
+  { id:"q1746", type:"scale", band:[1,2,3], layer:2, set:10, udy:[872], img:"ground_prep",
+    text:"साहसिक-खेल केंद्र — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[22,10] },
+
+  { id:"q1747", type:"scale", band:[1,2,3], layer:2, set:10, udy:[873], img:"game_rules",
+    text:"e-sports का काम — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[22,7] },
+
+  { id:"q1748", type:"scale", band:[1,2,3], layer:2, set:10, udy:[874], img:"ground_prep",
+    text:"मैदान-प्रबंध — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[22,4] },
+
+  { id:"q1749", type:"scale", band:[1,2,3], layer:2, set:10, udy:[875], img:"exercise_coach",
+    text:"खेल-पोषण उत्पाद बनाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[22,6] },
+
+  { id:"q1750", type:"scale", band:[2,3], layer:2, set:10, udy:[876], img:"fever_check",
+    text:"स्वास्थ्य-बीमा कंपनी — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[23,6] },
+
+  { id:"q1751", type:"scale", band:[2,3], layer:2, set:10, udy:[877], img:"piggy_bank",
+    text:"बीमे का बीमा (पुनर्बीमा) — यह काम तुम्हें कैसा लगता है?", mg:[23] },
+
+  { id:"q1752", type:"scale", band:[1,2,3], layer:2, set:10, udy:[878], img:"flood_road",
+    text:"मौसम बिगड़ने से पहले फ़सल-सलाह देना — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[23,20] },
+
+  { id:"q1753", type:"scale", band:[2,3], layer:2, set:10, udy:[879], img:"toy_boat",
+    text:"जहाज़-माल का समुद्री-बीमा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[23,8] },
+
+  { id:"q1754", type:"scale", band:[1,2,3], layer:2, set:10, udy:[880], img:"hisab_copy",
+    text:"बीमा-दावे में लोगों की मदद करना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[23,16] },
+
+  { id:"q1755", type:"scale", band:[1,2,3], layer:2, set:10, udy:[881], img:"graph_up",
+    text:"निवेश समझना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[23,18] },
+
+  { id:"q1756", type:"scale", band:[2,3], layer:2, set:10, udy:[882], img:"mobile_app",
+    text:"digital-संपत्ति का प्रबंध — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[23,7] },
+
+  { id:"q1757", type:"scale", band:[2,3], layer:2, set:10, udy:[883], img:"note_100",
+    text:"धन-प्रबंधन सेवा — यह काम तुम्हें कैसा लगता है?", mg:[23] },
+
+  { id:"q1758", type:"scale", band:[2,3], layer:2, set:10, udy:[884], img:"count_money",
+    text:"बड़े परिवार का धन-प्रबंध (family-office) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[23] },
+
+  { id:"q1759", type:"scale", band:[2,3], layer:2, set:10, udy:[885], img:"note_100",
+    text:"हर app के भीतर पैसा-सुविधा जोड़ना (अंतर्निहित-वित्त) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[23,7] },
+
+  { id:"q1760", type:"scale", band:[1,2,3], layer:2, set:10, udy:[886], img:"mobile_app",
+    text:"mobile-bank सिखाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[23,7] },
+
+  { id:"q1761", type:"scale", band:[2,3], layer:2, set:10, udy:[887], img:"shop_sell",
+    text:"अभी लो, बाद में दो (BNPL) सेवा — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[23,9] },
+
+  { id:"q1762", type:"scale", band:[1,2,3], layer:2, set:10, udy:[888], img:"piggy_bank",
+    text:"छोटी-बचत योजना — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[23] },
+
+  { id:"q1763", type:"scale", band:[1,2,3], layer:2, set:10, udy:[889], img:"team_win",
+    text:"मिल-जुलकर पूँजी — यह काम तुम्हें कैसा लगता है?", mg:[23,10] },
+
+  { id:"q1764", type:"scale", band:[2,3], layer:2, set:10, udy:[890], img:"coin_stamp",
+    text:"इस्लामी-fintech — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[23,14] },
+
+  { id:"q1765", type:"scale", band:[1,2,3], layer:2, set:10, udy:[891], img:"queue_line",
+    text:"भौतिक सुरक्षा सेवाएं — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24] },
+
+  { id:"q1766", type:"scale", band:[1,2,3], layer:2, set:10, udy:[892], img:"queue_line",
+    text:"निजी सुरक्षा एजेंसी का धंधा — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24] },
+
+  { id:"q1767", type:"scale", band:[1,2,3], layer:2, set:10, udy:[893], img:"camera_click",
+    text:"CCTV जोड़ना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1768", type:"scale", band:[1,2,3], layer:2, set:10, udy:[894], img:"lock_key",
+    text:"alarm-ताला — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,3] },
+
+  { id:"q1769", type:"scale", band:[1,2,3], layer:2, set:10, udy:[895], img:"mobile_app",
+    text:"अग्नि सुरक्षा का धंधा — यह काम तुम्हें कैसा लगता है?", mg:[24] },
+
+  { id:"q1770", type:"scale", band:[2,3], layer:2, set:10, udy:[896], img:"aag_bujhana",
+    text:"आपदा के बाद प्रणाली-बहाली (disaster-recovery) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1771", type:"scale", band:[2,3], layer:2, set:10, udy:[897], img:"lock_key",
+    text:"cyber-हमले पर तुरंत-जवाब सेवा — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1772", type:"scale", band:[1,2,3], layer:2, set:10, udy:[898], img:"flood_road",
+    text:"आपातकालीन प्रबंधन — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24] },
+
+  { id:"q1773", type:"scale", band:[2,3], layer:2, set:10, udy:[899], img:"judge_friends",
+    text:"सुरक्षा-परामर्श — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24] },
+
+  { id:"q1774", type:"scale", band:[2,3], layer:2, set:10, udy:[900], img:"pani_khoj",
+    text:"forensic-सुरक्षा जाँच — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,16] },
+
+  { id:"q1775", type:"scale", band:[2,3], layer:2, set:10, udy:[901], img:"toy_open",
+    text:"हल्का-विनिर्माण (रोज़मर्रा का सामान) — यह काम तुम्हें कैसा लगता है?", mg:[24,3] },
+
+  { id:"q1776", type:"scale", band:[2,3], layer:2, set:10, udy:[902], img:"run_machine",
+    text:"भारी-विनिर्माण (मशीन-इस्पात) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,3] },
+
+  { id:"q1777", type:"scale", band:[2,3], layer:2, set:10, udy:[903], img:"board_wire",
+    text:"electronics-कारख़ाना (चीन-मॉडल) — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1778", type:"scale", band:[2,3], layer:2, set:10, udy:[904], img:"solar_panel",
+    text:"solar-panel का महाकारख़ाना — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24,2] },
+
+  { id:"q1779", type:"scale", band:[1,2,3], layer:2, set:10, udy:[905], img:"bulb_fix",
+    text:"बिजली-गाड़ी क्रांति (चीन-मॉडल) — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24,3] },
+
+  { id:"q1780", type:"scale", band:[1,2,3], layer:2, set:10, udy:[906], img:"seed_sow",
+    text:"धान-खेती (चीन-मॉडल) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,1] },
+
+  { id:"q1781", type:"scale", band:[1,2,3], layer:2, set:10, udy:[907], img:"seed_sow",
+    text:"धान+मछली चीनी-ढंग — यह काम तुम्हें कैसा लगता है?", mg:[24,1] },
+
+  { id:"q1782", type:"scale", band:[1,2,3], layer:2, set:10, udy:[908], img:"tree_plant",
+    text:"बाँस-उद्योग (चीन-मॉडल) — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,1] },
+
+  { id:"q1783", type:"scale", band:[1,2,3], layer:2, set:10, udy:[909], img:"video_edit",
+    text:"live दिखाकर बेचना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,18] },
+
+  { id:"q1784", type:"scale", band:[1,2,3], layer:2, set:10, udy:[910], img:"world_map",
+    text:"Belt-Road जैसा विदेश-निर्माण — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24,4] },
+
+  { id:"q1785", type:"scale", band:[2,3], layer:2, set:10, udy:[911], img:"bulb_fix",
+    text:"जापानी विद्युत-उद्योग — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24,3] },
+
+  { id:"q1786", type:"scale", band:[2,3], layer:2, set:10, udy:[912], img:"robot_toy",
+    text:"जापानी robotics — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,19] },
+
+  { id:"q1787", type:"scale", band:[2,3], layer:2, set:10, udy:[913], img:"tractor_plough",
+    text:"जापानी कृषि-तकनीक — यह काम तुम्हें कैसा लगता है?", mg:[24,1] },
+
+  { id:"q1788", type:"scale", band:[1,2,3], layer:2, set:10, udy:[914], img:"bolt_fit",
+    text:"टोयोटा उत्पादन प्रणाली का धंधा — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24] },
+
+  { id:"q1789", type:"scale", band:[1,2,3], layer:2, set:10, udy:[915], img:"cook_pot",
+    text:"जापानी खाना सीखना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,14] },
+
+  { id:"q1790", type:"scale", band:[2,3], layer:2, set:10, udy:[916], img:"phone_dead",
+    text:"कोरिया electronics (बड़े brand-मॉडल) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1791", type:"scale", band:[2,3], layer:2, set:10, udy:[917], img:"toy_boat",
+    text:"कोरिया जहाज़-निर्माण — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24,3] },
+
+  { id:"q1792", type:"scale", band:[1,2,3], layer:2, set:10, udy:[918], img:"stage_song",
+    text:"K-pop कक्षा — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,14] },
+
+  { id:"q1793", type:"scale", band:[2,3], layer:2, set:10, udy:[919], img:"weld_spark",
+    text:"कोरिया इस्पात-उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[24,3] },
+
+  { id:"q1794", type:"scale", band:[2,3], layer:2, set:10, udy:[920], img:"video_edit",
+    text:"display-screen तकनीक — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1795", type:"scale", band:[2,3], layer:2, set:10, udy:[921], img:"board_wire",
+    text:"वियतनाम electronics-कारख़ाना — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1796", type:"scale", band:[1,2,3], layer:2, set:10, udy:[922], img:"sewing_machine",
+    text:"वियतनाम कपड़ा उद्योग — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24] },
+
+  { id:"q1797", type:"scale", band:[1,2,3], layer:2, set:10, udy:[923], img:"seed_sow",
+    text:"चाय-कॉफ़ी उगाना — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24,14] },
+
+  { id:"q1798", type:"scale", band:[1,2,3], layer:2, set:10, udy:[924], img:"fish_pond",
+    text:"वियतनाम झींगा-निर्यात — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,1] },
+
+  { id:"q1799", type:"scale", band:[1,2,3], layer:2, set:10, udy:[925], img:"wood_toy",
+    text:"वियतनाम बाँस-अर्थव्यवस्था — यह काम तुम्हें कैसा लगता है?", mg:[24,1] },
+
+  { id:"q1800", type:"scale", band:[2,3], layer:2, set:10, udy:[926], img:"note_100",
+    text:"सिंगापुर वित्तीय-केंद्र — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,23] },
+
+  { id:"q1801", type:"scale", band:[2,3], layer:2, set:10, udy:[927], img:"godown_stack",
+    text:"सिंगापुर logistics-केंद्र — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,8] },
+
+  { id:"q1802", type:"scale", band:[1,2,3], layer:2, set:10, udy:[928], img:"world_map",
+    text:"जैव-चिकित्सा केंद्र की राह — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24,6] },
+
+  { id:"q1803", type:"scale", band:[1,2,3], layer:2, set:10, udy:[929], img:"world_map",
+    text:"शिक्षा-निर्यात की राह — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24,11] },
+
+  { id:"q1804", type:"scale", band:[1,2,3], layer:2, set:10, udy:[930], img:"world_map",
+    text:"smart-राष्ट्र की राह — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,7] },
+
+  { id:"q1805", type:"scale", band:[1,2,3], layer:2, set:10, udy:[931], img:"travel_road",
+    text:"थाई पर्यटन-उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[24,10] },
+
+  { id:"q1806", type:"scale", band:[1,2,3], layer:2, set:10, udy:[932], img:"food_serve",
+    text:"थाई-खाना दुकान — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,14] },
+
+  { id:"q1807", type:"scale", band:[1,2,3], layer:2, set:10, udy:[933], img:"vehicle_sound",
+    text:"थाई गाड़ी (automotive) उद्योग — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,3] },
+
+  { id:"q1808", type:"scale", band:[2,3], layer:2, set:10, udy:[934], img:"cycle_fix",
+    text:"थाई रबड़-उद्योग — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24,1] },
+
+  { id:"q1809", type:"scale", band:[2,3], layer:2, set:10, udy:[935], img:"coin_stamp",
+    text:"थाई रत्न-जवाहरात — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24] },
+
+  { id:"q1810", type:"scale", band:[1,2,3], layer:2, set:10, udy:[936], img:"cow_milk",
+    text:"dairy-farming (ऑस्ट्रेलिया-मॉडल) — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,1] },
+
+  { id:"q1811", type:"scale", band:[1,2,3], layer:2, set:10, udy:[937], img:"animal_love",
+    text:"ऊन-उद्योग — यह काम तुम्हें कैसा लगता है?", mg:[24,1] },
+
+  { id:"q1812", type:"scale", band:[1,2,3], layer:2, set:10, udy:[938], img:"mandi_taul",
+    text:"गोमांस-उद्योग — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,1] },
+
+  { id:"q1813", type:"scale", band:[1,2,3], layer:2, set:10, udy:[939], img:"idea_machine",
+    text:"खनन-तकनीक का निर्यात — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,2] },
+
+  { id:"q1814", type:"scale", band:[3], layer:2, set:10, udy:[940], img:"tube_bubble",
+    text:"ऑस्ट्रेलिया जैसा शराब (wine) उद्योग — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24,14] },
+
+  { id:"q1815", type:"scale", band:[1,2,3], layer:2, set:10, udy:[941], img:"fish_pond",
+    text:"मछली+सब्ज़ी एक साथ — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24,1] },
+
+  { id:"q1816", type:"scale", band:[1,2,3], layer:2, set:10, udy:[942], img:"mobile_app",
+    text:"नाप-जोख वाली खेती — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,18] },
+
+  { id:"q1817", type:"scale", band:[1,2,3], layer:2, set:10, udy:[943], img:"godown_stack",
+    text:"ठेके पर खेती कर के सीधी आपूर्ति — यह काम तुम्हें कैसा लगता है?", mg:[24,1] },
+
+  { id:"q1818", type:"scale", band:[1,2,3], layer:2, set:10, udy:[944], img:"world_map",
+    text:"निर्यात-प्रसंस्करण क्षेत्र की राह — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,14] },
+
+  { id:"q1819", type:"scale", band:[1,2,3], layer:2, set:10, udy:[945], img:"bolt_fit",
+    text:"जापानी सधा-ढंग — इस दुनिया को और गहराई से सीखना कैसा लगेगा?", mg:[24,3] },
+
+  { id:"q1820", type:"scale", band:[2,3], layer:2, set:10, udy:[946], img:"tube_bubble",
+    text:"बहुलक-रेजिन निर्माण (एशिया-मॉडल) — इस काम में अपना नाम बनाना कैसा लगेगा?", mg:[24,13] },
+
+  { id:"q1821", type:"scale", band:[3], layer:2, set:10, udy:[947], img:"count_money",
+    text:"जुआ-lottery उद्योग — ऐसा काम तुम्हारे ज़िले में खुले और मौक़ा मिले, तो कैसा लगेगा?", mg:[24] },
+
+  { id:"q1822", type:"scale", band:[2,3], layer:2, set:10, udy:[948], img:"paint_toy",
+    text:"tattoo-शरीर कला का studio — इस काम को पाँच साल सीखना पड़े, तो कैसा लगेगा?", mg:[24,12] },
+
+  { id:"q1823", type:"scale", band:[2,3], layer:2, set:10, udy:[949], img:"temple_seva",
+    text:"मृत्यु-देखभाल (अंतिम-यात्रा) सेवा — यह काम तुम्हें कैसा लगता है?", mg:[24,17] },
+
+  { id:"q1824", type:"scale", band:[3], layer:2, set:10, udy:[950], img:"decoration",
+    text:"विवाह-डेटिंग उद्योग — इस काम में रोज़ का दिन बिताना कैसा लगेगा?", mg:[24,10] }
 
   ],
   stories: [
