@@ -110,17 +110,74 @@ function showLoadError(context, e){
 function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 
 /* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
+/* registration-दस्तावेज़ से DP (Founder-आदेश 19-Jul: व्यक्ति का upload किया
+   professional-फ़ोटो ही DP — ख़ाली चौखट निषेध; verify-नियम सार्वजनिक-सूचियों
+   के photo_public पर यथावत) */
+function regDocPhoto(reg){
+  try{
+    const d=(reg&&(reg.documents||reg.docs))||{};
+    const p=d.doc_photo||d.photo||null;
+    return (p&&p.url)?p.url:"";
+  }catch(e){ return ""; }
+}
+/* ACS DP-सजावट: gradient-ring + नाम-अक्षर placeholder + (verified) ऊपर-दाएँ हरा बैज */
+function ensurePhotoDecor(verified){
+  try{
+    const im=$("pPhoto"), fb=$("pPhotoFb");
+    const target=(im && im.style.display!=="none") ? im : fb;
+    if(!target) return;
+    let wrap=document.getElementById("pubPhotoWrap");
+    if(!wrap){
+      wrap=document.createElement("div"); wrap.id="pubPhotoWrap";
+      target.parentNode.insertBefore(wrap, target);
+      wrap.appendChild(target);
+      if(im && fb && !wrap.contains(im)) wrap.appendChild(im);
+      if(im && fb && !wrap.contains(fb)) wrap.appendChild(fb);
+    }
+    wrap.style.cssText="position:relative;display:inline-block;padding:5px;border-radius:22px;"+
+      "background:linear-gradient(135deg,#F9A825 0%,#2E7D32 55%,#0B1F3A 100%);"+
+      "box-shadow:0 4px 14px rgba(11,31,58,.25)";
+    [im,fb].forEach(el=>{ if(!el) return;
+      el.style.borderRadius="16px"; el.style.display=el.style.display; });
+    if(im && im.style.display!=="none"){
+      im.style.width="200px"; im.style.height="250px"; im.style.objectFit="cover";
+      im.style.display="block"; im.style.background="#fff";
+      if(fb) fb.style.display="none";
+    } else if(fb){
+      const nm=($("pubName")&&$("pubName").textContent)||"";
+      const ch=(nm.trim()[0]||"👤");
+      fb.textContent=ch;
+      fb.style.cssText="width:200px;height:250px;border-radius:16px;display:flex;"+
+        "align-items:center;justify-content:center;font-size:88px;font-weight:800;color:#fff;"+
+        "background:linear-gradient(160deg,#1565C0,#0B1F3A);";
+    }
+    let t=document.getElementById("pubBadgeTick");
+    if(verified){
+      if(!t){
+        t=document.createElement("span"); t.id="pubBadgeTick";
+        t.title="ACS Verified Badge — सत्यापित (Green Tick)";
+        t.textContent="✔"; wrap.appendChild(t);
+      }
+      t.style.cssText="position:absolute;top:-10px;right:-10px;width:40px;height:40px;"+
+        "border-radius:50%;background:#2E7D32;color:#fff;display:flex;align-items:center;"+
+        "justify-content:center;font-size:22px;font-weight:900;border:3px solid #fff;"+
+        "box-shadow:0 2px 8px rgba(0,0,0,.4);z-index:5";
+    } else if(t){ t.remove(); }
+  }catch(e){}
+}
 function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   setTxt("pubName",  name || "—");
   setTxt("pubDesig", desigLabel || "—");
   setTxt("pubArea",  area || "—");
   setTxt("pubDist",  district || "—");
   setTxt("pubState", state || "—");
-  if(photoUrl){
-    const im=$("pPhoto"); if(!im) return;
+  const im=$("pPhoto");
+  if(photoUrl && im){
+    im.onload=()=>{ im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; ensurePhotoDecor(false); };
+    im.onerror=()=>{ im.style.display="none"; const fb=$("pPhotoFb"); if(fb) fb.style.display="flex"; ensurePhotoDecor(false); };
     im.src=photoUrl;
-    im.onload=()=>{ im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; };
   }
+  ensurePhotoDecor(false);
 }
 
 /* ═══ काम-सूची इंजन (v3.1) — पैनल click-पर, data आलसी-load ═══ */
@@ -292,6 +349,15 @@ async function loadRegistration(user){
   const wrap = $("docWrap"); wrap.innerHTML="";
   if(keys.length===0){ setTxt("docNote", "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"); }
   else{ wrap.innerHTML = docChips(docs); setTxt("docNote", ""); }
+  /* (19-Jul Founder-आदेश) team-प्रोफ़ाइल की DP भी registration के doc_photo से */
+  try{
+    const dp=regDocPhoto(latest);
+    const im=$("pPhoto");
+    if(dp && im && im.style.display==="none"){
+      im.onload=()=>{ im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; ensurePhotoDecor(!!document.getElementById("pubBadgeTick")); };
+      im.src=dp;
+    }
+  }catch(e){}
   drawTimeline(null, latest);
 }
 
@@ -725,7 +791,7 @@ async function guardExternalRender(user, reg){
   $("tbWho").title = "UID: " + user.uid;
   const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0] : (reg.district||""));
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
-  fillPubCard(whoName, reg.photo_public || "", ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
+  fillPubCard(whoName, reg.photo_public || regDocPhoto(reg), ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
 
   /* दस्तावेज़-chips */
   const docs = reg.documents || reg.docs || {};
@@ -943,22 +1009,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   }
   LAZY["pnl-badge"] = loadBadgeStatus;
 
-  /* (Founder-आदेश 19-Jul) बैज सक्रिय हो तो प्रोफ़ाइल-फ़ोटो के किनारे हरा ✔-निशान */
-  function markPhotoBadge(){
-    if(document.getElementById("pubBadgeTick")) return;
-    const im=$("pPhoto"), fb=$("pPhotoFb");
-    const holder=(im&&im.parentElement)||(fb&&fb.parentElement);
-    if(!holder) return;
-    holder.style.position="relative";
-    const t=document.createElement("span");
-    t.id="pubBadgeTick"; t.title="Verified Badge — सत्यापित (Green Tick)";
-    t.textContent="✔";
-    t.style.cssText="position:absolute;bottom:6px;right:6px;width:34px;height:34px;"+
-      "border-radius:50%;background:#2E7D32;color:#fff;display:flex;align-items:center;"+
-      "justify-content:center;font-size:20px;font-weight:800;border:3px solid #fff;"+
-      "box-shadow:0 1px 4px rgba(0,0,0,.35);z-index:3";
-    holder.appendChild(t);
-  }
+  function markPhotoBadge(){ ensurePhotoDecor(true); }
   /* boot पर एक हल्की जाँच — पैनल खोले बिना भी निशान दिखे */
   window.__acsBadgeMark = async function(){
     try{
