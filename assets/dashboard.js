@@ -1,5 +1,11 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.4 · 19-Jul-2026 — गूँगा-fallback निषेध का स्थायी पहरा (v3.5-घ, Laxmi-केस से):
+          guardTeam/guardExternal का पूरा profile-भरने वाला हिस्सा अब try-catch में
+          (guardTeamRender/guardExternalRender अलग functions) — कोई भी अनपेक्षित
+          data अब चुप्पी में "जाँच हो रही है" पर हमेशा के लिए नहीं अटकाएगी; दिखता
+          त्रुटि-संदेश + पुनः-कोशिश बटन + सहायता-नंबर हमेशा (showLoadError साझा helper)।
+          बाक़ी तर्क byte-अछूता — पहले जैसा ही व्यवहार, बस अब सुरक्षा-जाल के साथ।
    v4.3 · 16-Jul-2026 (काम-6 चरण-6) — dual-घर नियम: initNav अब boot-रास्ते से
           छनती काम-सूची बनाता है — external-boot पर team-पैनल छिपे, team-boot पर
           external-पैनल छिपे (साझा-scope नियम: TEAM_PANEL_IDS module-स्तर पर)।
@@ -67,6 +73,26 @@ function show(id){
   ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
   $(id).classList.remove("hidden");
 }
+/* (19-Jul-2026, v3.5-घ — गूँगा-fallback निषेध का स्थायी पहरा) किसी भी अनपेक्षित data/
+   त्रुटि से dashboard चुपचाप "जाँच हो रही है" पर हमेशा के लिए न अटके — दिखता संदेश +
+   पुनः-कोशिश बटन + सहायता-नंबर, हमेशा। साझा — team व external दोनों रास्तों पर। */
+function showLoadError(context, e){
+  show("loadView");
+  const box = $("loadView");
+  if(box){
+    box.innerHTML =
+      '<div class="cbox"><div class="bigicon">⚠️</div>' +
+      '<div class="s">कुछ गड़बड़ हुई — ' + context + '</div>' +
+      '<div class="note" style="font-size:15px;color:#B71C1C;margin-top:8px;word-break:break-word">' +
+        esc((e && e.message) || String(e)) +
+      '</div>' +
+      '<button type="button" style="margin-top:14px;padding:10px 20px;border-radius:10px;border:none;background:var(--blue);color:#fff;font-size:17px;cursor:pointer" onclick="location.reload()">🔄 फिर कोशिश करें</button>' +
+      '<div class="note" style="margin-top:10px">बार-बार यही आए तो सहायता से संपर्क करें: <a href="tel:+919431210092">+91-9431210092</a></div>' +
+      '</div>';
+  }
+  console.error("[ACS guard]", context, e);
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 
 /* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
 function fillPubCard(name, photoUrl, desigLabel, area, district, state){
@@ -158,6 +184,15 @@ guardTeam = async function(user){
     show("denyView"); return;
   }
 
+  try{ await guardTeamRender(user, team, desig); }
+  catch(e){ showLoadError("dashboard नहीं दिखा (team)", e); }
+};
+} /* team-guard end */
+
+/* (19-Jul-2026, v3.5-घ) profile-भरने का पूरा हिस्सा अलग function में — पूरी तरह
+   guardTeam की try-catch के भीतर चलता है; कोई भी अनपेक्षित data अब चुप्पी में
+   नहीं दबेगा, दिखता संदेश देगी (गूँगा-fallback निषेध नियम)। */
+async function guardTeamRender(user, team, desig){
   /* ── [T2] hold-पट्टी (v1.4 fields: hold:{type,reason}) ── */
   if(team.hold && team.hold.type){
     const hb=$("holdBar");
@@ -216,8 +251,7 @@ guardTeam = async function(user){
   startSessionWatch(user);
   /* ── 10-मिनट auto-logout ── */
   startIdleTimer();
-};
-} /* team-guard end */
+}
 
 /* ═══ registration पढ़ना — स्रोत: registrations (एकमात्र सही collection) ═══ */
 async function loadRegistration(user){
@@ -643,6 +677,14 @@ async function guardExternal(user){
   }catch(e){ /* नीचे deny */ }
   if(!reg){ show("denyView"); return; }
 
+  try{ await guardExternalRender(user, reg); }
+  catch(e){ showLoadError("dashboard नहीं दिखा (बाहरी-role)", e); }
+}
+
+/* (19-Jul-2026, v3.5-घ) profile-भरने का पूरा हिस्सा अलग function में — पूरी तरह
+   guardExternal की try-catch के भीतर चलता है; कोई भी अनपेक्षित data अब चुप्पी में
+   नहीं दबेगा, दिखता संदेश देगी (गूँगा-fallback निषेध नियम, Laxmi-केस से सीखा)। */
+async function guardExternalRender(user, reg){
   /* v4.1 (16-Jul-2026, काम-6): v1.3-(क) — प्रशिक्षु-roles का खाता सीधा चालू;
      उन पर न provisional-पर्दा, न "अस्थायी" pill (भ्रामक-संदेश होल बंद)। */
   const roleKey0 = String((reg.role)||ALLOWED[0]||"").toLowerCase();
