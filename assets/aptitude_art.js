@@ -1,8 +1,9 @@
 /* ============================================================
-   /assets/aptitude_art.js — v2.0 (खेप-अ+ब+स = खेप-1 व खेप-2 पूर्ण)
+   /assets/aptitude_art.js — v3.0 (+ खेप-3 के 3 नए चित्र = कुल 96)
    ACS Aptitude चित्र-भंडार (परत-3 data — एक चीज़ = एक जगह)
    ------------------------------------------------------------
-   - चित्र-गिनती: 93 (खेप-1 के 46 + खेप-2 के 47)
+   - चित्र-गिनती: 96 (खेप-1 के 46 + खेप-2 के 47 + खेप-3 के 3:
+     pani_khoj · chitthi_daftar · aag_bujhana — बाक़ी 47 प्रश्न पुराने चित्रों से)
    - खेप-2 पुनरुपयोग (प्रश्न-data इन्हीं id को दोबारा बुलाए):
      नक़्शे-पर-देश→world_map · भंडारा-परोसना→food_serve · साबुन-बेचना→shop_sell
      पुरानी-मशीन→run_machine · हिसाब-जाँच→hisab_copy · वीडियो-से-समझाना→video_edit
@@ -1128,6 +1129,42 @@ toy_boat:
 '<rect x="140" y="100" width="12" height="10" rx="3" fill="#1565C0" stroke="#0B1F3A"/>' +
 '<circle cx="160" cy="112" r="3" stroke="#1565C0"/><circle cx="168" cy="106" r="4" stroke="#1565C0"/>' +
 '<path d="M32 128 q14 8 28 0 q14 -8 28 0 q14 8 28 0 q14 -8 28 0 q14 8 28 0" stroke="#1565C0"/>' +
+'</svg>',
+
+pani_khoj:
+'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+'<circle cx="84" cy="40" r="10"/>' +
+'<path d="M84 50 v40 M84 90 l-12 28 M84 90 l12 28"/>' +
+'<path d="M84 62 L108 70 M84 62 L60 70"/>' +
+'<path d="M108 70 L128 84 M60 70 L128 84" stroke="#F9A825" stroke-width="2.5"/>' +
+'<path d="M128 84 v18" stroke="#F9A825" stroke-width="2.5" stroke-dasharray="4 4"/>' +
+'<path d="M36 120 h132" stroke-width="2.5" stroke-dasharray="8 6"/>' +
+'<path d="M108 134 q10 8 20 0 q10 -8 20 0" stroke="#1565C0" stroke-width="2.5"/>' +
+'<path d="M116 144 q10 8 20 0" stroke="#1565C0" stroke-width="2.5"/>' +
+'</svg>',
+
+chitthi_daftar:
+'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+'<rect x="30" y="64" width="56" height="38" rx="4"/>' +
+'<path d="M30 66 L58 88 L86 66" stroke-width="2.5"/>' +
+'<path d="M96 82 h24" stroke="#F9A825" stroke-width="2.5"/>' +
+'<path d="M114 76 l8 6 l-8 6" stroke="#F9A825" stroke-width="2.5"/>' +
+'<rect x="128" y="56" width="44" height="72" rx="3"/>' +
+'<path d="M136 68 h10 M154 68 h10 M136 84 h10 M154 84 h10 M136 100 h10 M154 100 h10" stroke="#1565C0" stroke-width="2"/>' +
+'<path d="M146 56 v-16 l12 4 l-12 4" stroke="#2E7D32"/>' +
+'<path d="M144 128 v-14 h12 v14" stroke-width="2.5"/>' +
+'<path d="M24 130 h152" stroke-width="2.5"/>' +
+'</svg>',
+
+aag_bujhana:
+'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+'<circle cx="64" cy="46" r="10"/>' +
+'<path d="M64 56 v40 M64 96 l-12 30 M64 96 l12 30 M64 68 L92 76"/>' +
+'<rect x="88" y="70" width="12" height="22" rx="4" stroke="#2E7D32"/>' +
+'<path d="M100 76 L118 82" stroke="#2E7D32" stroke-width="2.5"/>' +
+'<path d="M120 84 q10 -2 16 4 M122 92 q10 0 14 6" stroke="#1565C0" stroke-width="2.5" stroke-dasharray="3 4"/>' +
+'<path d="M148 110 q-8 -10 0 -20 q3 6 8 8 q-2 -10 6 -16 q2 12 8 16 q6 5 2 12 q-4 8 -12 8 q-8 0 -12 -8 z" stroke="#F9A825"/>' +
+'<path d="M40 132 h130" stroke-width="2.5"/>' +
 '</svg>'
 
 };
