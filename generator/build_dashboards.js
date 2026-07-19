@@ -231,6 +231,9 @@ const P_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपका पता व जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
+    'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
     '<div id="badgeMsg" class="msg"></div>' +
     '</div>');
@@ -326,6 +329,9 @@ const P_TU_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
+    'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
     '<div id="badgeMsg" class="msg"></div>' +
     '</div>');
@@ -480,6 +486,9 @@ const P_INST_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
+    'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
     '<div id="badgeMsg" class="msg"></div>' +
     '</div>');
@@ -792,6 +801,9 @@ const P_SIMPLE_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
+    'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
     '<div id="badgeMsg" class="msg"></div>' +
     '</div>');
