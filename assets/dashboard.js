@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.5 · 19-Jul-2026 — null-सुरक्षित setters (setTxt/setHTML): guard-render व
+          loadRegistration की profile-भराई अब किसी सजावटी element के ग़ायब होने
+          (बासी-cache/CDN-मिश्रण) पर पूरा dashboard नहीं गिराती — console-चेतावनी
+          + बाक़ी सब चालू। fillPubCard भी null-सुरक्षित। तर्क/पाठ बाक़ी byte-अछूता।
    v4.4.1 · 19-Jul-2026 — showLoadError में अब e.stack की पहली 3 पंक्तियाँ भी दिखतीं
           (फ़ाइल:लाइन-नंबर समेत) — अगली बार कोई crash आए तो पहले ही प्रयास में
           सटीक जड़ पकड़ में आए, कोई अटकल/और screenshot-चक्र न चाहिए पड़े।
@@ -40,6 +44,11 @@ const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",auth
 const auth = getAuth(app), db = getFirestore(app);
 const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
+/* v4.5 (19-Jul-2026, Laxmi-केस राउंड-2 की सीख): null-सुरक्षित setters —
+   बासी-cache/CDN-मिश्रण से कोई सजावटी element ग़ायब हो तो पूरा dashboard न गिरे;
+   console में चेतावनी दर्ज हो (गूँगा-fallback निषेध: चुप्पी नहीं, पर मौत भी नहीं)। */
+function setTxt(id,v){ const el=$(id); if(el){ el.textContent=v; } else { try{console.warn("ACS element ग़ायब:",id);}catch(e){} } return el; }
+function setHTML(id,v){ const el=$(id); if(el){ el.innerHTML=v; } else { try{console.warn("ACS element ग़ायब:",id);}catch(e){} } return el; }
 
 /* ── generator-भरे consts — जिन designations/roles को यह dashboard
    देखने की छूट (display-gate)। असली रोक server (Firestore rules) पर —
@@ -102,14 +111,15 @@ function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;'
 
 /* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
 function fillPubCard(name, photoUrl, desigLabel, area, district, state){
-  $("pubName").textContent  = name || "—";
-  $("pubDesig").textContent = desigLabel || "—";
-  $("pubArea").textContent  = area || "—";
-  $("pubDist").textContent  = district || "—";
-  $("pubState").textContent = state || "—";
+  setTxt("pubName",  name || "—");
+  setTxt("pubDesig", desigLabel || "—");
+  setTxt("pubArea",  area || "—");
+  setTxt("pubDist",  district || "—");
+  setTxt("pubState", state || "—");
   if(photoUrl){
-    const im=$("pPhoto"); im.src=photoUrl;
-    im.onload=()=>{ im.style.display="block"; $("pPhotoFb").style.display="none"; };
+    const im=$("pPhoto"); if(!im) return;
+    im.src=photoUrl;
+    im.onload=()=>{ im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; };
   }
 }
 
@@ -215,33 +225,33 @@ async function guardTeamRender(user, team, desig){
   CAN_FINAL = (desig==="founder" || desig==="hq_admin");
 
   /* ── topbar व pill + login-पहचान (v1.6-ङ2 होल बंद) ── */
-  $("desigPill").textContent = mxLabel(desig) + (isActive ? "" : " (अस्थायी — जाँच में)");
+  setTxt("desigPill", mxLabel(desig) + (isActive ? "" : " (अस्थायी — जाँच में)"));
   const whoName = team.name_local || team.name_roman || team.name || team.fullName || (user.email||"");
-  $("tbWho").textContent = "👤 " + whoName + " · " + mxLabel(desig);
+  setTxt("tbWho", "👤 " + whoName + " · " + mxLabel(desig));
   $("tbWho").title = "UID: " + user.uid;
   const homeDist = (team.region && team.region.length ? team.region[0] : (team.district||""));
   const pubArea = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
   fillPubCard(whoName, team.photo_public || team.photoURL || "", mxLabel(desig), pubArea, homeDist, team.state||"");
 
   /* ── [T4] प्रोफ़ाइल — teams से ── */
-  $("pName").textContent  = team.name_local || team.name_roman || team.name || team.fullName || "—";
-  $("pLevel").textContent = (team.level||"—").toUpperCase();
+  setTxt("pName", team.name_local || team.name_roman || team.name || team.fullName || "—");
+  setTxt("pLevel", (team.level||"—").toUpperCase());
   const area = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
-  $("pArea").textContent  = area || "—";
-  $("pEmail").textContent = team.email || (user.email||"—");
-  $("pPhone").textContent = team.phone || team.mobile || "—";
+  setTxt("pArea", area || "—");
+  setTxt("pEmail", team.email || (user.email||"—"));
+  setTxt("pPhone", team.phone || team.mobile || "—");
 
   show("appView");
 
   /* ── registration-ब्योरा (regNo · दस्तावेज़ · सफ़र) — विफल हो तो dashboard न रुके ── */
   if(desig==="founder"){
-    $("tlWrap").innerHTML = '<div class="note" style="font-size:18px;font-weight:700;color:var(--navy)">👑 Founder — सर्वोच्च; कोई approval-सफ़र लागू नहीं (नियम-4)।</div>';
-    $("tlNote").textContent = "";
-    $("docNote").textContent = "Founder-खाते पर आवेदन-record लागू नहीं।";
+    setHTML("tlWrap", '<div class="note" style="font-size:18px;font-weight:700;color:var(--navy)">👑 Founder — सर्वोच्च; कोई approval-सफ़र लागू नहीं (नियम-4)।</div>');
+    setTxt("tlNote", "");
+    setTxt("docNote", "Founder-खाते पर आवेदन-record लागू नहीं।");
   } else {
     loadRegistration(user).catch(()=>{
-      $("pReg").textContent = "—";
-      $("docNote").textContent = "आवेदन-ब्योरा नहीं खुला — network/नियम जाँचें।";
+      setTxt("pReg", "—");
+      setTxt("docNote", "आवेदन-ब्योरा नहीं खुला — network/नियम जाँचें।");
       drawTimeline(desig, null);
     });
   }
@@ -270,16 +280,16 @@ async function loadRegistration(user){
     const t = (r.createdAt&&r.createdAt.toMillis)?r.createdAt.toMillis():0;
     if(!latest || t>t0){ latest=r; t0=t; }
   });
-  if(!latest){ $("pReg").textContent="—"; $("docNote").textContent="कोई आवेदन-record नहीं मिला (सीधे बनाए गए account में सामान्य है)।"; drawTimeline(null,null); return; }
+  if(!latest){ setTxt("pReg", "—"); setTxt("docNote", "कोई आवेदन-record नहीं मिला (सीधे बनाए गए account में सामान्य है)।"); drawTimeline(null,null); return; }
 
-  $("pReg").textContent = latest.regNo || "—";
+  setTxt("pReg", latest.regNo || "—");
 
   /* दस्तावेज़-chips */
   const docs = latest.documents || latest.docs || {};
   const keys = Object.keys(docs);
   const wrap = $("docWrap"); wrap.innerHTML="";
-  if(keys.length===0){ $("docNote").textContent="आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"; }
-  else{ wrap.innerHTML = docChips(docs); $("docNote").textContent=""; }
+  if(keys.length===0){ setTxt("docNote", "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"); }
+  else{ wrap.innerHTML = docChips(docs); setTxt("docNote", ""); }
   drawTimeline(null, latest);
 }
 
@@ -699,17 +709,17 @@ async function guardExternalRender(user, reg){
   const noGate = (NO_GATEWAY_EXT.indexOf(roleKey0)>-1);
   const isActive = noGate ? true : (reg.status==="approved");
   if(!isActive) $("provBar").classList.add("on");
-  $("desigPill").textContent = ROLE_LABEL + (isActive ? "" : " (अस्थायी — जाँच में)");
+  setTxt("desigPill", ROLE_LABEL + (isActive ? "" : " (अस्थायी — जाँच में)"));
 
   const whoName = reg.name_local || reg.name_roman || reg.name || reg.fullName || (user.email||"");
-  $("pName").textContent  = whoName;
-  $("pReg").textContent   = reg.regNo || "—";
-  $("pLevel").textContent = ROLE_LABEL;
+  setTxt("pName", whoName);
+  setTxt("pReg", reg.regNo || "—");
+  setTxt("pLevel", ROLE_LABEL);
   const area = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):reg.rm_districts].filter(Boolean).join(" · ");
-  $("pArea").textContent  = area || "—";
-  $("pEmail").textContent = reg.email || (user.email||"—");
-  $("pPhone").textContent = reg.phone || reg.mobile || "—";
-  $("tbWho").textContent  = "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL);
+  setTxt("pArea", area || "—");
+  setTxt("pEmail", reg.email || (user.email||"—"));
+  setTxt("pPhone", reg.phone || reg.mobile || "—");
+  setTxt("tbWho", "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL));
   $("tbWho").title = "UID: " + user.uid;
   const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0] : (reg.district||""));
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
@@ -718,11 +728,11 @@ async function guardExternalRender(user, reg){
   /* दस्तावेज़-chips */
   const docs = reg.documents || reg.docs || {};
   const wrap = $("docWrap"); wrap.innerHTML = docChips(docs);
-  $("docNote").textContent = Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।";
+  setTxt("docNote", Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।");
 
   /* g2-सफ़र नोट */
-  $("tlWrap").innerHTML = '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>';
-  $("tlNote").textContent = "";
+  setHTML("tlWrap", '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>');
+  setTxt("tlNote", "");
 
   show("appView");
   initNav("ext");
