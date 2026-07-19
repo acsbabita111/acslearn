@@ -1,8 +1,12 @@
 /* ============================================================
-   /assets/aptitude_data.js — v6.0 (खेप-1 से 6: प्रश्न 1-399 · मूल भाषा: हिंदी)
+   /assets/aptitude_data.js — v7.0 (खेप-1 से 7: प्रश्न 1-500 · मूल भाषा: हिंदी)
    ACS Aptitude प्रश्न-भंडार (परत-3 data — एक चीज़ = एक जगह)
    ------------------------------------------------------------
-   - प्रश्न-गिनती: 399 (127 पट्टी + 106 चित्र-चुनाव + 106 जोड़ी + 60 कहानी) + 4 कथाएँ
+   - प्रश्न-गिनती: 500 (157 पट्टी + 136 चित्र-चुनाव + 131 जोड़ी + 76 कहानी) + 4 कथाएँ
+   - खेप-7 (set:6) = उद्यम-पहचान परत: एक प्रश्न = एक ख़ास धंधा (मुर्गी-farm,
+     AC-मरम्मत, tent-house, दाल-मिल…) — 950-कोर्स सटीकता की ओर पहली परत।
+     दीर्घ-लक्ष्य: 950 × 2 ≈ 1900 प्रश्न (Founder-नियम, 20-Jul)। अभी गिनती
+     24-समूह पर; उद्यम-ठप्पा बड़े-टेस्ट इंजन-दौर में इन्हीं प्रश्नों पर जुड़ेगा।
    - खेप-6 (set:5) = बड़ों की पट्टी: काम-दुनिया के परिपक्व प्रश्न — band:(2,3),
      10-13 वालों को नहीं परोसे जाएँगे। शून्य नया चित्र — सब पुराने भंडार से।
    - खेप-5 (set:4) = संतुलन-खेप: पतले समूह (खेल · रोबोट · विधिक · धार्मिक ·
@@ -2244,6 +2248,540 @@ window.APT_DATA = {
       { label:"हुनर-प्रमाण साथ रखूँगा",          mg:[11,18], pts:2 },
       { label:"दोस्तों को भी ख़बर करूँगा",        mg:[10],    pts:2 },
       { label:"कंपनी-सूची पहले पढ़ूँगा",          mg:[18,9],  pts:2 }
+    ] },
+
+  /* ═══════ खेप-7 (set:6 — उद्यम-पहचान परत 101: एक प्रश्न = एक धंधा) ═══════ */
+
+  { id:"q400", type:"scale", band:[1,2,3], layer:2, set:6, img:"hen_farm",
+    text:"मुर्गी के चूज़ों की देखभाल करना — कैसा लगता है?", mg:[1] },
+  { id:"q401", type:"scale", band:[1,2,3], layer:2, set:6, img:"seed_sow",
+    text:"मशरूम जैसी नई खेती आज़माना — कैसा लगता है?", mg:[1,15] },
+  { id:"q402", type:"scale", band:[1,2,3], layer:2, set:6, img:"flower_sell",
+    text:"फूल उगाकर माला-गजरा बेचना — कैसा लगता है?", mg:[1,9] },
+  { id:"q403", type:"scale", band:[1,2,3], layer:2, set:6, img:"animal_love",
+    text:"बकरी-पालन से कमाई की योजना बनाना — कैसा लगता है?", mg:[1,23] },
+  { id:"q404", type:"scale", band:[1,2,3], layer:2, set:6, img:"cook_pot",
+    text:"गुड़ बनाने की भट्ठी का काम — कैसा लगता है?", mg:[1,13] },
+  { id:"q405", type:"scale", band:[1,2,3], layer:2, set:6, img:"sewing_machine",
+    text:"सिलाई-मशीन की मरम्मत का हुनर सीखना — कैसा लगता है?", mg:[3,5] },
+  { id:"q406", type:"scale", band:[1,2,3], layer:2, set:6, img:"shoe_stitch",
+    text:"जूता-चप्पल बनाना और सुधारना — कैसा लगता है?", mg:[5,3] },
+  { id:"q407", type:"scale", band:[1,2,3], layer:2, set:6, img:"tamatar_tokri",
+    text:"बाँस की टोकरी-डलिया बुनना — कैसा लगता है?", mg:[12,1] },
+  { id:"q408", type:"scale", band:[1,2,3], layer:2, set:6, img:"soap_make",
+    text:"अगरबत्ती-मोमबत्ती बनाना — कैसा लगता है?", mg:[13,12] },
+  { id:"q409", type:"scale", band:[1,2,3], layer:2, set:6, img:"pickle_jar",
+    text:"पापड़-बड़ी-अचार का घर से धंधा — कैसा लगता है?", mg:[1,13] },
+  { id:"q410", type:"scale", band:[1,2,3], layer:2, set:6, img:"sweet_make",
+    text:"मिठाई-नमकीन की भट्ठी का काम — कैसा लगता है?", mg:[10,9] },
+  { id:"q411", type:"scale", band:[1,2,3], layer:2, set:6, img:"cycle_fix",
+    text:"मोटरसाइकिल-मरम्मत सीखना — कैसा लगता है?", mg:[8,3] },
+  { id:"q412", type:"scale", band:[1,2,3], layer:2, set:6, img:"bus_drive",
+    text:"e-रिक्शा चलाना और सँभालना — कैसा लगता है?", mg:[8,15] },
+  { id:"q413", type:"scale", band:[1,2,3], layer:2, set:6, img:"run_machine",
+    text:"AC-fridge की मरम्मत का काम — कैसा लगता है?", mg:[3,2] },
+  { id:"q414", type:"scale", band:[1,2,3], layer:2, set:6, img:"camera_click",
+    text:"CCTV-camera लगाने का काम — कैसा लगता है?", mg:[24,7] },
+  { id:"q415", type:"scale", band:[1,2,3], layer:2, set:6, img:"type_computer",
+    text:"computer के हिस्से जोड़कर चालू करना — कैसा लगता है?", mg:[7,3] },
+  { id:"q416", type:"scale", band:[1,2,3], layer:2, set:6, img:"mobile_app",
+    text:"गाँव-गाँव internet-सेवा पहुँचाना — कैसा लगता है?", mg:[7,15] },
+  { id:"q417", type:"scale", band:[1,2,3], layer:2, set:6, img:"camera_click",
+    text:"फ़ोटो-studio का काम — कैसा लगता है?", mg:[12,9] },
+  { id:"q418", type:"scale", band:[1,2,3], layer:2, set:6, img:"embroidery",
+    text:"मेहँदी-श्रृंगार का हुनर — कैसा लगता है?", mg:[12,10] },
+  { id:"q419", type:"scale", band:[1,2,3], layer:2, set:6, img:"make_alone",
+    text:"नाई-सैलून का हुनर — कैसा लगता है?", mg:[10,12] },
+  { id:"q420", type:"scale", band:[1,2,3], layer:2, set:6, img:"pack_weigh",
+    text:"धोबी-press की दुकान चलाना — कैसा लगता है?", mg:[10,5] },
+  { id:"q421", type:"scale", band:[1,2,3], layer:2, set:6, img:"mela_gate",
+    text:"tent-house के सामान का धंधा — कैसा लगता है?", mg:[10,9] },
+  { id:"q422", type:"scale", band:[1,2,3], layer:2, set:6, img:"run_machine",
+    text:"आटा-चक्की चलाना — कैसा लगता है?", mg:[3,1] },
+  { id:"q423", type:"scale", band:[1,2,3], layer:2, set:6, img:"brick_wall",
+    text:"ईंट-भट्ठे के काम का प्रबंध — कैसा लगता है?", mg:[4,2] },
+  { id:"q424", type:"scale", band:[1,2,3], layer:2, set:6, img:"brick_wall",
+    text:"टाइल्स-मार्बल लगाने का काम — कैसा लगता है?", mg:[4] },
+  { id:"q425", type:"scale", band:[1,2,3], layer:2, set:6, img:"decoration",
+    text:"छत की सजावट का काम — कैसा लगता है?", mg:[4,12] },
+  { id:"q426", type:"scale", band:[1,2,3], layer:2, set:6, img:"pani_khoj",
+    text:"boring-मशीन का काम — कैसा लगता है?", mg:[2,3] },
+  { id:"q427", type:"scale", band:[1,2,3], layer:2, set:6, img:"bulb_fix",
+    text:"LED-बल्ब जोड़ने की छोटी इकाई चलाना — कैसा लगता है?", mg:[3,2] },
+  { id:"q428", type:"scale", band:[1,2,3], layer:2, set:6, img:"badi_imarat",
+    text:"मोबाइल-tower का रखरखाव — कैसा लगता है?", mg:[7,24] },
+  { id:"q429", type:"scale", band:[1,2,3], layer:2, set:6, img:"stage_play",
+    text:"मेले में जादू-कठपुतली दिखाना — कैसा लगता है?", mg:[12,10] },
+
+  { id:"q430", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"cook_pot",   label:"पनीर बनाना",        mg:[1,13] },
+      { img:"sweet_make", label:"घी-खोया का काम",    mg:[1,10] },
+      { img:"shop_sell",  label:"दही-lassi की दुकान", mg:[1,9] },
+      { img:"cow_milk",   label:"दूध-जमा केंद्र",      mg:[1,18] }
+    ] },
+  { id:"q431", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tree_plant",     label:"पौध-नर्सरी",       mg:[1] },
+      { img:"tractor_plough", label:"बड़ी सब्ज़ी-खेती",   mg:[1] },
+      { img:"tamatar_tokri",  label:"सब्ज़ी का ठेला",    mg:[1,9] },
+      { img:"godown_stack",   label:"सब्ज़ी-भंडारण",     mg:[1,8] }
+    ] },
+  { id:"q432", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tree_plant", label:"आम का बाग़",       mg:[1] },
+      { img:"seed_sow",   label:"केले की खेती",     mg:[1] },
+      { img:"shop_sell",  label:"juice की दुकान",   mg:[1,10] },
+      { img:"pickle_jar", label:"मुरब्बा-जैम बनाना",  mg:[1,13] }
+    ] },
+  { id:"q433", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tractor_plough", label:"धान-गेहूँ की खेती",  mg:[1] },
+      { img:"run_machine",    label:"दाल-मिल",           mg:[1,3] },
+      { img:"cook_pot",       label:"चूड़ा-भूनने का काम",  mg:[1,10] },
+      { img:"seed_sow",       label:"बीज-उत्पादन",       mg:[1,15] }
+    ] },
+  { id:"q434", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"wood_toy",     label:"furniture बनाना",     mg:[3] },
+      { img:"bolt_fit",     label:"दरवाज़ा-खिड़की",       mg:[3,4] },
+      { img:"toy_open",     label:"लकड़ी के खिलौने",     mg:[3,12] },
+      { img:"godown_stack", label:"लकड़ी की दुकान",      mg:[3,9] }
+    ] },
+  { id:"q435", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"weld_spark", label:"गेट-grill बनाना",     mg:[3] },
+      { img:"jugaad_new", label:"खेती के औज़ार",       mg:[3,1] },
+      { img:"cook_pot",   label:"लोहे के बर्तन",        mg:[3,9] },
+      { img:"bolt_fit",   label:"nut-bolt की इकाई",   mg:[3] }
+    ] },
+  { id:"q436", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"sewing_machine", label:"readymade की सिलाई",   mg:[5,9] },
+      { img:"school_stall",   label:"school-dress के order", mg:[5,9] },
+      { img:"embroidery",     label:"परदा-चादर का काम",     mg:[5,12] },
+      { img:"soap_make",      label:"रंगाई का काम",          mg:[5,13] }
+    ] },
+  { id:"q437", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"clay_art",   label:"दीया-मूर्ति बनाना",   mg:[12,21] },
+      { img:"tree_plant", label:"गमला-नर्सरी",        mg:[12,1] },
+      { img:"brick_wall", label:"ईंट बनाना",          mg:[4,12] },
+      { img:"jugaad_new", label:"मिट्टी के बर्तन",      mg:[12,3] }
+    ] },
+  { id:"q438", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"bus_drive",     label:"auto-taxi चलाना",   mg:[8,10] },
+      { img:"godown_stack",  label:"माल-tempo",         mg:[8,9] },
+      { img:"count_money",   label:"टिकट-agency",       mg:[8,23] },
+      { img:"vehicle_sound", label:"गाड़ी-धुलाई केंद्र",    mg:[8,10] }
+    ] },
+  { id:"q439", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"food_serve",   label:"tiffin-सेवा",      mg:[10,9] },
+      { img:"school_stall", label:"खाने का ठेला",     mg:[10,9] },
+      { img:"cook_pot",     label:"ढाबा",             mg:[10] },
+      { img:"mela_gate",    label:"catering के order", mg:[10,9] }
+    ] },
+  { id:"q440", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"teach_kids", label:"coaching चलाना",     mg:[11,9] },
+      { img:"shop_sell",  label:"किताब-copy दुकान",   mg:[11,9] },
+      { img:"video_edit", label:"online-पाठ बनाना",    mg:[11,18] },
+      { img:"food_serve", label:"mess-hostel सेवा",   mg:[11,10] }
+    ] },
+  { id:"q441", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"med_shop",       label:"दवा-दुकान",           mg:[6,9] },
+      { img:"tube_bubble",    label:"जाँच-lab में सहायता",   mg:[6,18] },
+      { img:"exercise_coach", label:"मालिश-कसरत सेवा",     mg:[6,10] },
+      { img:"shop_sell",      label:"चश्मे की दुकान",        mg:[6,9] }
+    ] },
+  { id:"q442", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"chitthi_daftar", label:"form-भराई केंद्र",       mg:[7,17] },
+      { img:"phone_dead",     label:"mobile-मरम्मत",         mg:[7,3] },
+      { img:"camera_click",   label:"photo-print",           mg:[7,12] },
+      { img:"mobile_app",     label:"online-बिक्री सहायता",   mg:[7,9] }
+    ] },
+  { id:"q443", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"make_alone",  label:"सैलून का काम",         mg:[10,12] },
+      { img:"decoration",  label:"parlour का काम",       mg:[10,12] },
+      { img:"embroidery",  label:"मेहँदी का काम",         mg:[12,10] },
+      { img:"shop_sell",   label:"श्रृंगार-सामान दुकान",    mg:[9,10] }
+    ] },
+  { id:"q444", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"brick_wall",   label:"राजमिस्त्री का ठेका",   mg:[4] },
+      { img:"handpump_fix", label:"नल-plumber",         mg:[4,2] },
+      { img:"board_wire",   label:"बिजली-मिस्त्री",       mg:[4,2] },
+      { img:"paint_toy",    label:"रंगाई का ठेका",       mg:[4,12] }
+    ] },
+  { id:"q445", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"run_machine",  label:"AC-मरम्मत",         mg:[3,2] },
+      { img:"bolt_fit",     label:"fridge-मरम्मत",      mg:[3,2] },
+      { img:"jugaad_new",   label:"cooler बनाना",      mg:[3,15] },
+      { img:"badi_imarat",  label:"बर्फ़-factory",       mg:[3,9] }
+    ] },
+  { id:"q446", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"mela_gate",   label:"शादी-decoration",  mg:[10,12] },
+      { img:"flower_sell", label:"फूल की दुकान",     mg:[10,1] },
+      { img:"shop_sell",   label:"gift की दुकान",    mg:[9,10] },
+      { img:"stage_song",  label:"DJ-साउंड सेवा",    mg:[10,12] }
+    ] },
+  { id:"q447", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"queue_line",   label:"guard-agency",       mg:[24,10] },
+      { img:"camera_click", label:"CCTV लगाना",         mg:[24,7] },
+      { img:"lock_key",     label:"ताला-चाबी का काम",    mg:[24,3] },
+      { img:"aag_bujhana",  label:"आग-यंत्र भरना",       mg:[24,13] }
+    ] },
+  { id:"q448", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"cycle_fix", label:"puncture की दुकान",  mg:[8,3] },
+      { img:"bolt_fit",  label:"spare-parts दुकान",  mg:[8,9] },
+      { img:"bus_drive", label:"driving सिखाना",     mg:[8,11] },
+      { img:"note_100",  label:"गाड़ी ख़रीद-बेच",      mg:[8,9] }
+    ] },
+  { id:"q449", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"tractor_plough",  label:"tractor किराये पर",   mg:[1,9] },
+      { img:"run_machine",     label:"thresher का काम",     mg:[1,3] },
+      { img:"pipe_irrigation", label:"pump-मरम्मत",         mg:[1,3] },
+      { img:"patang",          label:"drone-छिड़काव",       mg:[1,19] }
+    ] },
+  { id:"q450", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"fish_pond",    label:"मछली-बीज का काम",   mg:[1,15] },
+      { img:"tank_measure", label:"तालाब का पट्टा",      mg:[1,16] },
+      { img:"shoe_stitch",  label:"जाल की बिक्री",       mg:[1,5] },
+      { img:"pack_weigh",   label:"सूखी मछली का धंधा",  mg:[1,9] }
+    ] },
+  { id:"q451", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"hen_farm",     label:"अंडा-farm",       mg:[1,9] },
+      { img:"animal_love",  label:"चूज़ा-केंद्र",      mg:[1] },
+      { img:"godown_stack", label:"दाना-दुकान",      mg:[1,9] },
+      { img:"badi_imarat",  label:"broiler-पालन",    mg:[1,3] }
+    ] },
+  { id:"q452", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"shop_sell",   label:"मिठाई की दुकान",   mg:[10,9] },
+      { img:"cook_pot",    label:"cake-bakery",      mg:[10,15] },
+      { img:"run_machine", label:"toffee की इकाई",   mg:[10,3] },
+      { img:"sweet_make",  label:"गुड़-भट्ठी",         mg:[10,1] }
+    ] },
+  { id:"q453", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"light_string", label:"DJ-साउंड",       mg:[12,2] },
+      { img:"stage_song",   label:"band-बाजा",      mg:[12,10] },
+      { img:"stage_play",   label:"मंच-कलाकार",     mg:[12] },
+      { img:"mela_gate",    label:"event-आयोजक",   mg:[10,12] }
+    ] },
+  { id:"q454", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"sewing_machine", label:"ladies-टेलर",      mg:[5,9] },
+      { img:"tank_measure",   label:"gents-टेलर",       mg:[5,9] },
+      { img:"embroidery",     label:"कढ़ाई-इकाई",       mg:[5,12] },
+      { img:"school_stall",   label:"uniform के order",  mg:[5,18] }
+    ] },
+  { id:"q455", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"school_stall", label:"चाय की दुकान",      mg:[10,9] },
+      { img:"cook_pot",     label:"नाश्ते की दुकान",    mg:[10] },
+      { img:"badi_imarat",  label:"रुकने की जगह",      mg:[10,9] },
+      { img:"food_serve",   label:"highway-ढाबा",      mg:[10,8] }
+    ] },
+  { id:"q456", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"paint_toy",      label:"flex-banner छापना",  mg:[12,9] },
+      { img:"chitthi_daftar", label:"शादी-card बनाना",    mg:[12,9] },
+      { img:"write_story",    label:"register-बनाना",     mg:[9,18] },
+      { img:"soap_make",      label:"कपड़े पर छपाई",      mg:[12,5] }
+    ] },
+  { id:"q457", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"solar_panel", label:"solar लगाना",        mg:[2,15] },
+      { img:"bolt_fit",    label:"battery-मरम्मत",      mg:[2,3] },
+      { img:"board_wire",  label:"inverter का काम",    mg:[2,3] },
+      { img:"bus_drive",   label:"e-गाड़ी charging",    mg:[2,15] }
+    ] },
+  { id:"q458", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"type_computer", label:"photocopy-केंद्र",     mg:[7,9] },
+      { img:"pack_weigh",    label:"lamination का काम",   mg:[9,3] },
+      { img:"shoe_stitch",   label:"book-binding",        mg:[9,3] },
+      { img:"shop_sell",     label:"stationery-दुकान",     mg:[9,11] }
+    ] },
+  { id:"q459", type:"pick", band:[1,2,3], layer:2, set:6,
+    text:"इनमें से कौन-सा धंधा तुम सबसे पहले चुनोगे? और कौन-सा सबसे कम?",
+    opts:[
+      { img:"brick_wall", label:"विदेश में निर्माण-काम",   mg:[14,4] },
+      { img:"bus_drive",  label:"विदेश में driver-काम",   mg:[14,8] },
+      { img:"food_serve", label:"विदेश में hotel-काम",    mg:[14,10] },
+      { img:"learn_lang", label:"विदेश जाकर पढ़ाई",      mg:[14,11] }
+    ] },
+
+  { id:"q460", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा धंधा क्या — गाय-भैंस की डेयरी, या मुर्गी-farm?",
+    opts:[ { img:"cow_milk", label:"गाय-भैंस की डेयरी", mg:[1] },
+           { img:"hen_farm", label:"मुर्गी-farm", mg:[1] } ] },
+  { id:"q461", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — फल-बाग़ (धीमा पर बड़ा), या सब्ज़ी (तेज़ पर छोटा)?",
+    opts:[ { img:"tree_plant", label:"फल-बाग़ का धंधा", mg:[1] },
+           { img:"tamatar_tokri", label:"सब्ज़ी का धंधा", mg:[1] } ] },
+  { id:"q462", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — किराये की पक्की दुकान, या अपना घूमता ठेला?",
+    opts:[ { img:"shop_sell", label:"किराये की दुकान", mg:[9] },
+           { img:"school_stall", label:"अपना ठेला", mg:[9] } ] },
+  { id:"q463", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — मशीन से बना माल, या हाथ से बना माल?",
+    opts:[ { img:"run_machine", label:"मशीन से माल", mg:[3] },
+           { img:"jugaad_new", label:"हाथ से माल", mg:[3,12] } ] },
+  { id:"q464", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — घर से tiffin-सेवा, या बाज़ार में खाने का ठेला?",
+    opts:[ { img:"food_serve", label:"घर से tiffin", mg:[10,9] },
+           { img:"mandi_taul", label:"बाज़ार में ठेला", mg:[9,10] } ] },
+  { id:"q465", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"बड़ा हुनर क्या — चीज़ मरम्मत करने का, या चीज़ बेचने का?",
+    opts:[ { img:"cycle_fix", label:"मरम्मत का हुनर", mg:[3,10] },
+           { img:"shop_sell", label:"बेचने का हुनर", mg:[9] } ] },
+  { id:"q466", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — सीमेंट-ईंट का काम, या लकड़ी-रंग का काम?",
+    opts:[ { img:"brick_wall", label:"सीमेंट-ईंट का काम", mg:[4] },
+           { img:"wood_toy", label:"लकड़ी-रंग का काम", mg:[3,12] } ] },
+  { id:"q467", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — शहर में मज़दूरी, या गाँव में अपनी खेती?",
+    opts:[ { img:"travel_road", label:"शहर में मज़दूरी", mg:[3,8] },
+           { img:"seed_sow", label:"गाँव में अपनी खेती", mg:[1] } ] },
+  { id:"q468", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — मोबाइल सुधारना, या मोबाइल बेचना?",
+    opts:[ { img:"phone_dead", label:"मोबाइल सुधारना", mg:[3,7] },
+           { img:"mobile_app", label:"मोबाइल बेचना", mg:[9,7] } ] },
+  { id:"q469", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — order की सिलाई, या readymade बेचना?",
+    opts:[ { img:"sewing_machine", label:"order की सिलाई", mg:[5] },
+           { img:"shop_sell", label:"readymade बेचना", mg:[5,9] } ] },
+  { id:"q470", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा मज़ा किसमें — मीठा बनाने में, या नमकीन बनाने में?",
+    opts:[ { img:"sweet_make", label:"मीठा बनाना", mg:[10] },
+           { img:"cook_pot", label:"नमकीन बनाना", mg:[10] } ] },
+  { id:"q471", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छी क्या — सुबह की मंडी, या शाम की दुकान?",
+    opts:[ { img:"mandi_taul", label:"सुबह की मंडी", mg:[9,1] },
+           { img:"school_stall", label:"शाम की दुकान", mg:[9] } ] },
+  { id:"q472", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — मशीन किराये पर देना, या ख़ुद चलाना?",
+    opts:[ { img:"tractor_plough", label:"मशीन किराये पर देना", mg:[9,1] },
+           { img:"run_machine", label:"मशीन ख़ुद चलाना", mg:[3,1] } ] },
+  { id:"q473", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — जानवर पालना, या पौधे उगाना?",
+    opts:[ { img:"animal_love", label:"जानवर पालना", mg:[1] },
+           { img:"tree_plant", label:"पौधे उगाना", mg:[1] } ] },
+  { id:"q474", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — पक्का ठेका, या रोज़ की दिहाड़ी?",
+    opts:[ { img:"hisab_copy", label:"पक्का ठेका", mg:[9,16] },
+           { img:"godown_stack", label:"रोज़ की दिहाड़ी", mg:[23,3] } ] },
+  { id:"q475", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — एक बड़ा order, या सौ छोटे ग्राहक?",
+    opts:[ { img:"godown_stack", label:"एक बड़ा order", mg:[9,8] },
+           { img:"mela_gate", label:"सौ छोटे ग्राहक", mg:[9,10] } ] },
+  { id:"q476", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छी क्या — गाँव की दुकान, या online-दुकान?",
+    opts:[ { img:"school_stall", label:"गाँव की दुकान", mg:[9] },
+           { img:"mobile_app", label:"online-दुकान", mg:[9,7] } ] },
+  { id:"q477", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — पानी का धंधा, या बिजली का धंधा?",
+    opts:[ { img:"handpump_fix", label:"पानी का धंधा", mg:[2] },
+           { img:"solar_panel", label:"बिजली का धंधा", mg:[2,15] } ] },
+  { id:"q478", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — सजावट का काम, या रखरखाव का काम?",
+    opts:[ { img:"decoration", label:"सजावट का काम", mg:[12,10] },
+           { img:"bolt_fit", label:"रखरखाव का काम", mg:[3,24] } ] },
+  { id:"q479", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — उपज सीधे बेचना, या उपज से चीज़ बनाकर बेचना?",
+    opts:[ { img:"mandi_taul", label:"उपज सीधे बेचना", mg:[1,9] },
+           { img:"pickle_jar", label:"चीज़ बनाकर बेचना", mg:[13,9] } ] },
+  { id:"q480", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — नई चीज़ बेचना, या पुरानी चीज़ों की ख़रीद-बेच?",
+    opts:[ { img:"pack_weigh", label:"नई चीज़ बेचना", mg:[9] },
+           { img:"note_100", label:"पुरानी ख़रीद-बेच", mg:[9,18] } ] },
+  { id:"q481", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — tent-कुर्सी का किराया-धंधा, या ताज़े फूल-माला का धंधा?",
+    opts:[ { img:"mela_gate", label:"tent-कुर्सी किराया", mg:[9,10] },
+           { img:"flower_sell", label:"ताज़े फूल-माला", mg:[1,9] } ] },
+  { id:"q482", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — बच्चों की coaching, या बड़ों का हुनर-केंद्र?",
+    opts:[ { img:"teach_kids", label:"बच्चों की coaching", mg:[11,9] },
+           { img:"jugaad_new", label:"बड़ों का हुनर-केंद्र", mg:[11,3] } ] },
+  { id:"q483", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा भाता क्या — दवा-दुकान का अनुशासन, या किराने की भाग-दौड़?",
+    opts:[ { img:"med_shop", label:"दवा-दुकान का अनुशासन", mg:[6,9] },
+           { img:"shop_sell", label:"किराने की भाग-दौड़", mg:[9,10] } ] },
+  { id:"q484", type:"pair", band:[1,2,3], layer:2, set:6,
+    text:"ज़्यादा अच्छा क्या — अपने नाम का माल बनाना, या दूसरों का माल बेचना?",
+    opts:[ { img:"idea_machine", label:"अपने नाम का माल", mg:[9,15] },
+           { img:"godown_stack", label:"दूसरों का माल बेचना", mg:[9] } ] },
+
+  { id:"q485", type:"story", band:[1,2,3], layer:2, set:6, img:"travel_road",
+    text:"गाँव में नई सड़क बनी, शहर पास हो गया। कौन-सा धंधा सोचोगे?",
+    opts:[
+      { label:"सवारी-गाड़ी चलाऊँगा",        mg:[8,10], pts:2 },
+      { label:"माल-ढुलाई का काम",          mg:[8,9],  pts:2 },
+      { label:"सड़क-किनारे दुकान",          mg:[9,15], pts:2 },
+      { label:"गाड़ी-मरम्मत की दुकान",       mg:[3,8],  pts:2 }
+    ] },
+  { id:"q486", type:"story", band:[1,2,3], layer:2, set:6, img:"bulb_fix",
+    text:"गाँव में बिजली अब पूरे समय रहती है। कौन-सा धंधा सोचोगे?",
+    opts:[
+      { label:"ठंडे सामान की दुकान",       mg:[9,3],  pts:2 },
+      { label:"वेल्डिंग की इकाई",           mg:[3,15], pts:2 },
+      { label:"आटा-चक्की",                mg:[3,1],  pts:2 },
+      { label:"सिलाई-केंद्र",               mg:[5,3],  pts:2 }
+    ] },
+  { id:"q487", type:"story", band:[1,2,3], layer:2, set:6, img:"school_stall",
+    text:"पास में नया college खुला है। कौन-सा धंधा सोचोगे?",
+    opts:[
+      { label:"mess-tiffin की सेवा",       mg:[10,9], pts:2 },
+      { label:"photocopy-केंद्र",           mg:[7,9],  pts:2 },
+      { label:"किराये के कमरे",             mg:[9,4],  pts:2 },
+      { label:"चाय-नाश्ते की दुकान",         mg:[10,9], pts:2 }
+    ] },
+  { id:"q488", type:"story", band:[1,2,3], layer:2, set:6, img:"mela_gate",
+    text:"मेले का ठेका तुम्हारी टोली को मिला। तुम क्या सँभालोगे?",
+    opts:[
+      { label:"खाने का स्टॉल",           mg:[10,9],  pts:2 },
+      { label:"झूले का इंतज़ाम",          mg:[10,3],  pts:2 },
+      { label:"खिलौने की बिक्री",         mg:[9,12],  pts:2 },
+      { label:"parking का इंतज़ाम",       mg:[24,8],  pts:2 }
+    ] },
+  { id:"q489", type:"story", band:[1,2,3], layer:2, set:6, img:"note_100",
+    text:"तुम्हारे पास 10 हज़ार रुपये की पूँजी है। किसमें लगाओगे?",
+    opts:[
+      { label:"मुर्गी के चूज़ों में",           mg:[1,23], pts:2 },
+      { label:"सब्ज़ी के ठेले में",            mg:[1,9],  pts:2 },
+      { label:"recharge-छोटे सामान में",     mg:[7,9],  pts:2 },
+      { label:"सिलाई-मशीन में",            mg:[5,23], pts:2 }
+    ] },
+  { id:"q490", type:"story", band:[1,2,3], layer:2, set:6, img:"sewing_machine",
+    text:"school-dress का बड़ा order मिला है। पहले क्या सँभालोगे?",
+    opts:[
+      { label:"कपड़े की ख़रीद",            mg:[9,5],   pts:2 },
+      { label:"सिलाई की टोली",           mg:[10,5],  pts:2 },
+      { label:"नाप का रिकॉर्ड",            mg:[18,5],  pts:2 },
+      { label:"समय की योजना",            mg:[18,24], pts:2 }
+    ] },
+  { id:"q491", type:"story", band:[1,2,3], layer:2, set:6, img:"flood_road",
+    text:"बाढ़ के बाद गाँव में बहुत काम है। तुम क्या सँभालोगे?",
+    opts:[
+      { label:"मरम्मत-मिस्त्री का काम",      mg:[4,3],   pts:2 },
+      { label:"दवा-राहत में सहायता",       mg:[6,10],  pts:2 },
+      { label:"नाव-सेवा",                 mg:[8,24],  pts:2 },
+      { label:"पानी की जाँच",              mg:[13,20], pts:2 }
+    ] },
+  { id:"q492", type:"story", band:[1,2,3], layer:2, set:6, img:"puja_thali",
+    text:"त्योहार का मौसम आ रहा है। कौन-सा धंधा तैयार करोगे?",
+    opts:[
+      { label:"दीया-मूर्ति बनाऊँगा",         mg:[12,21], pts:2 },
+      { label:"मिठाई का काम",             mg:[10,9],  pts:2 },
+      { label:"सजावट के order लूँगा",      mg:[12,10], pts:2 },
+      { label:"कपड़े की बिक्री",             mg:[5,9],   pts:2 }
+    ] },
+  { id:"q493", type:"story", band:[1,2,3], layer:2, set:6, img:"solar_panel",
+    text:"गाँव के 20 घर सोलर लगवाना चाहते हैं। तुम क्या करोगे?",
+    opts:[
+      { label:"लगाने का हुनर सीखूँगा",       mg:[2,11],  pts:2 },
+      { label:"dealer से सम्पर्क करूँगा",     mg:[9,10],  pts:2 },
+      { label:"सबका हिसाब सँभालूँगा",       mg:[23,18], pts:2 },
+      { label:"रखरखाव का ठेका लूँगा",       mg:[3,9],   pts:2 }
+    ] },
+  { id:"q494", type:"story", band:[1,2,3], layer:2, set:6, img:"mandi_taul",
+    text:"मंडी में बिचौलिया ज़्यादा काट रहा है। तुम क्या करोगे?",
+    opts:[
+      { label:"सीधे भाव पता करूँगा",         mg:[18,9],  pts:2 },
+      { label:"किसान-टोली बनाऊँगा",         mg:[10,1],  pts:2 },
+      { label:"कागज़-नियम समझूँगा",         mg:[16,17], pts:2 },
+      { label:"online-भाव देखना सीखूँगा",    mg:[18,7],  pts:2 }
+    ] },
+  { id:"q495", type:"story", band:[1,2,3], layer:2, set:6, img:"sewing_machine",
+    text:"शहर का दर्ज़ी गाँव में सिखाने आया है। तुम क्या करोगे?",
+    opts:[
+      { label:"ख़ुद हुनर सीखूँगा",             mg:[11,5],  pts:2 },
+      { label:"सिखाने की जगह दिलवाऊँगा",     mg:[10,17], pts:2 },
+      { label:"बच्चों को जोड़ूँगा",             mg:[11,10], pts:2 },
+      { label:"औज़ार-दुकान का मौक़ा सोचूँगा",   mg:[9,15],  pts:2 }
+    ] },
+  { id:"q496", type:"story", band:[1,2,3], layer:2, set:6, img:"tractor_plough",
+    text:"पुराना ट्रैक्टर सस्ते में मिल रहा है। तुम पहले क्या करोगे?",
+    opts:[
+      { label:"जानकार से जाँच कराऊँगा",       mg:[18,3],  pts:2 },
+      { label:"मरम्मत-ख़र्च जोड़ूँगा",           mg:[23,3],  pts:2 },
+      { label:"किराये की कमाई आँकूँगा",       mg:[9,23],  pts:2 },
+      { label:"कागज़ पूरे देखूँगा",             mg:[16,18], pts:2 }
+    ] },
+  { id:"q497", type:"story", band:[1,2,3], layer:2, set:6, img:"badi_imarat",
+    text:"गाँव में शादी-घर नहीं है। तुम क्या करोगे?",
+    opts:[
+      { label:"सही जगह सोचूँगा",                    mg:[4,9],   pts:2 },
+      { label:"लागत का हिसाब जोड़ूँगा",              mg:[23,18], pts:2 },
+      { label:"पहले किराये का सामान शुरू करूँगा",     mg:[9,15],  pts:2 },
+      { label:"बड़ों से सलाह करूँगा",                mg:[10,17], pts:2 }
+    ] },
+  { id:"q498", type:"story", band:[1,2,3], layer:2, set:6, img:"phone_dead",
+    text:"मोबाइल-मरम्मत सीख ली, पर ग्राहक कम आते हैं। तुम क्या करोगे?",
+    opts:[
+      { label:"दाम का साफ़ board लगाऊँगा",      mg:[9,18], pts:2 },
+      { label:"घर-घर प्रचार करूँगा",             mg:[9,10], pts:2 },
+      { label:"recharge-सामान भी रखूँगा",       mg:[9,7],  pts:2 },
+      { label:"बड़ी दुकान से जुड़ूँगा",            mg:[9,10], pts:2 }
+    ] },
+  { id:"q499", type:"story", band:[1,2,3], layer:2, set:6, img:"sick_care",
+    text:"गाँव में जाँच-शिविर लगवाना है। तुम क्या सँभालोगे?",
+    opts:[
+      { label:"डॉक्टर से सम्पर्क",           mg:[6,10],  pts:2 },
+      { label:"जगह का इंतज़ाम",            mg:[10,24], pts:2 },
+      { label:"घर-घर सूचना",              mg:[10,11], pts:2 },
+      { label:"रिकॉर्ड की सूची",             mg:[18,6],  pts:2 }
+    ] },
+  { id:"q500", type:"story", band:[1,2,3], layer:2, set:6, img:"world_map",
+    text:"गाँव के 5 लड़के विदेश जाना चाहते हैं। तुम क्या करोगे?",
+    opts:[
+      { label:"सही agent की जाँच सिखाऊँगा",    mg:[16,24], pts:2 },
+      { label:"कागज़-प्रक्रिया समझूँगा",         mg:[17,14], pts:2 },
+      { label:"हुनर-प्रमाण बनवाऊँगा",          mg:[11,18], pts:2 },
+      { label:"ख़र्च का हिसाब जोड़ूँगा",          mg:[23,18], pts:2 }
     ] }
 
   ],
