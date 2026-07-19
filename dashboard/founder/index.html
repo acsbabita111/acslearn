@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<title>Founder Dashboard — ACS</title>
+<!-- ════════════════════════════════════════════════════════════════
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.9 · 16-Jul-2026) —
+     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     ACS Dashboard — मास्टर टेम्पलेट v4.1 (पतला खोखा)
+     v4.1 · 16-Jul-2026 (काम-6 चरण-1) — external status-कार्ड अब generator-चालित
+             (STATUS_PANEL-खाना): g2-roles का पाठ हूबहू वही; प्रशिक्षु-कार्ड
+             (student/jobseeker/entrepreneur) पर सही संदेश "खाता सीधा चालू ✅";
+             विद्यार्थी-घर के 9 असली पैनल generator के studentPanels() से।
+     v4.0 · 15-Jul-2026 — Founder-आदेश: 31 घरों के लिए एक ही CSS/JS —
+             style → /assets/dashboard.css · तर्क → /assets/dashboard.js ·
+             per-page मूल्य सिर्फ़ window.ACS_DASH में · होम-रूप topbar+tagline ·
+             logo /logo.png + "ACS" text-fallback (गूँगा-fallback निषेध) ·
+             TEAM-कटाई अब runtime-gate से (external का docChips-होल बंद)।
+     पिछला इतिहास (v3.4 तक) — assets/dashboard.js के शीर्ष-नोट व git-इतिहास में।
+     --------------------------------------------------------------
+     लोहे का नियम (परत-2/4): कोई dashboard-page हाथ से न बने —
+     सिर्फ़ generator (generator/build_dashboards.js) इस टेम्पलेट से बनाए।
+     हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
+             [T4] प्रोफ़ाइल+approval-सफ़र · [T5] पैनल-जाल · [T6] footer
+     नियम: पद-जानकारी सिर्फ़ /assets/designation_matrix.js से (परत-3)।
+     असली रोक server पर — matrix कभी guard नहीं (matrix-सुरक्षा नियम)।
+     data-स्रोत: teams/{uid} + registrations — users/centre_registrations वर्जित।
+     फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं · गोल bracket ( ) · सरल हिंदी।
+     ════════════════════════════════════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/dashboard.css"/>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- [T1] topbar — v4.0: होम-रूप ब्रांड (logo /logo.png + "ACS" text-fallback — गूँगा-fallback निषेध) -->
+  <div class="topbar">
+    <a class="brand" href="/" title="ACS होम">
+      <span class="mark"><img src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"/></span>
+      <span class="tt"><strong>अप्लाइड कंप्यूटर स्कूल™</strong><span id="tbRole">Founder Dashboard</span></span>
+    </a>
+    <div class="sp"></div>
+    <div class="tbwho" id="tbWho"></div>
+    <button class="btn-out side-toggle" onclick="toggleSide()">☰ काम-सूची</button>
+    <button class="btn-out" onclick="doLogout()">बाहर निकलें (Logout)</button>
+  </div>
+  <div class="tagline"><b>80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b></div>
+
+  <!-- [T2] hold-पट्टी -->
+  <div class="holdbar" id="holdBar"></div>
+
+  <!-- [T3] provisional-पर्दा -->
+  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — डैशबोर्ड (Dashboard) अभी सिर्फ़ देखने के मोड में है। स्वीकृति (Approval) पूरी होते ही सब काम-अधिकार खुल जाएँगे।</div>
+
+  <!-- जाँच-दृश्य -->
+  <div class="center" id="loadView">
+    <div class="cbox"><div class="bigicon">⏳</div><div class="s">जाँच हो रही है…</div></div>
+  </div>
+
+  <!-- ग़लत भूमिका -->
+  <div class="center hidden" id="denyView">
+    <div class="cbox">
+      <div class="bigicon">🔒</div>
+      <div class="h">यह आपका Dashboard नहीं</div>
+      <div class="s">यह पन्ना सिर्फ़ Founder के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
+    </div>
+  </div>
+
+  <!-- मुख्य दृश्य -->
+  <div class="main hidden" id="appView">
+   <div class="shell">
+    <div class="sideveil" id="sideVeil" onclick="toggleSide()"></div>
+    <nav class="side" id="sideNav" aria-label="काम-सूची"></nav>
+    <div class="content">
+
+    <!-- [T4] प्रोफ़ाइल -->
+    <div class="card panel" id="pnl-profile" data-nav="👤 मेरी प्रोफ़ाइल">
+      <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
+
+      <!-- v3.3: सार्वजनिक पहचान-कार्ड (दो-स्तंभ) — यहाँ email/mobile/WhatsApp कभी नहीं -->
+      <div class="pubcard">
+        <div class="pwrap">
+          <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
+          <div class="pphoto-fb" id="pPhotoFb">👤</div>
+        </div>
+        <div>
+          <div class="pubnote">📢 यह फ़ोटो व ब्योरा सार्वजनिक (public) हैं — सबको दिखते हैं। आप नया फ़ोटो भेज सकते हैं; आपके ऊपर के पद से verify होने पर ही नया फ़ोटो public होगा — तब तक यही फ़ोटो public रहेगी। इस सार्वजनिक कार्ड पर email / mobile / WhatsApp कभी नहीं दिखते।</div>
+          <div class="pubname" id="pubName">—</div>
+          <div class="pubrow"><b>पदनाम:</b> <span id="pubDesig">—</span></div>
+          <div class="pubrow"><b>कार्य-क्षेत्र:</b> <span id="pubArea">—</span></div>
+          <div class="pubrow"><b>गृह जिला:</b> <span id="pubDist">—</span></div>
+          <div class="pubrow"><b>राज्य:</b> <span id="pubState">—</span></div>
+          <button class="abtn ok" style="background:var(--blue);margin-top:10px" disabled>📷 नया फ़ोटो भेजें — verify-इंजन अगले दौर में चालू</button>
+        </div>
+      </div>
+
+      <div class="pgrid">
+        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
+        <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
+        <div class="pitem"><div class="k">स्तर</div><div class="v" id="pLevel">—</div></div>
+        <div class="pitem"><div class="k">कार्य-क्षेत्र</div><div class="v" id="pArea">—</div></div>
+        <div class="pitem"><div class="k">Email</div><div class="v" id="pEmail">—</div></div>
+        <div class="pitem"><div class="k">Mobile</div><div class="v" id="pPhone">—</div></div>
+      </div>
+
+      <h2 style="margin-top:18px">📎 मेरे दस्तावेज़</h2>
+      <div class="docwrap" id="docWrap"><span class="note" id="docNote">दस्तावेज़ लाए जा रहे हैं…</span></div>
+      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — चरण-3 में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
+
+      <h2 style="margin-top:18px">🛤️ मेरा approval-सफ़र</h2>
+      <div class="tl" id="tlWrap"></div>
+      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
+    </div>
+
+    <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
+    <!--TEAM_ONLY_START-->
+    <div class="pnl">
+      <div class="pcard panel" id="pnl-apps" data-nav="📥 आवेदन-पैनल" style="grid-column:1/-1">
+        <div class="ph">📥 आवेदन-पैनल</div>
+        <div class="pd">सभी आवेदन (अंतिम मुहर आपकी: ZM/Continental · सातों Heads · System Security · Admin)। approve/reject बटन नीचे।</div>
+        <div class="ftabs" id="ftabs">
+          <button class="ftab on" data-f="all">सब</button>
+          <button class="ftab" data-f="provisional">⏳ जाँच में</button>
+          <button class="ftab" data-f="approved">✅ स्वीकृत</button>
+          <button class="ftab" data-f="rejected">⚠️ अस्वीकृत</button>
+          <button class="ftab" data-f="cancelled">🗑️ निरस्त</button>
+        </div>
+        <div class="applist" id="appList"><div class="note">आवेदन लाए जा रहे हैं…</div></div>
+      </div>
+      <div class="pcard panel" id="pnl-exo" data-nav="🧭 पदेन-प्रभार">
+        <div class="ph">🧭 पदेन-प्रभार</div>
+        <div class="pd">जिन पदों का कोई active धारक नहीं और जिनका immediate superior आप हैं — उनका प्रभार पदेन आपके पास (कोई पद कभी रिक्त नहीं)।</div>
+        <div id="exoList" class="note">देखा जा रहा है…</div>
+      </div>
+      <div class="pcard panel" id="pnl-team" data-nav="👥 टीम-पैनल" style="grid-column:1/-1">
+        <div class="ph">👥 टीम-पैनल</div>
+        <div class="pd">दायरे के सदस्य — hold-बटन v1.4 नियम से (कारण अनिवार्य; un-hold ऊपर वाले का हक़)। 🔁 Transfer व 🏖️ छुट्टी-प्रतिनिधि — v1.4 इंजन (काम-4) से चालू।</div>
+        <div class="mem" id="leaveBox">
+          <div class="r1"><span class="nm">🏖️ मेरी छुट्टी — काम-प्रतिनिधि</span><span class="chip lvl" id="lvStatus">कोई प्रतिनिधि नहीं</span></div>
+          <div class="r2">v1.4 नियम: प्रतिनिधि सिर्फ़ समकक्ष या ठीक एक step ऊपर वाला — नीचे वाले को कभी नहीं। मियाद ख़त्म = अधिकार अपने-आप वापस।</div>
+          <div style="margin-top:8px">
+            <select id="lvMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+            <input id="lvUntil" type="date" style="font-size:17px;padding:9px;border:1px solid var(--border);border-radius:9px;margin-top:8px"/>
+            <div class="acts"><button class="abtn ok" id="lvSet">🏖️ प्रतिनिधि नियुक्त करें</button>
+            <button class="abtn no" id="lvCancel">↩️ प्रतिनिधि हटाएँ (जल्दी वापसी)</button></div>
+            <div class="msg" id="lvMsg"></div>
+          </div>
+        </div>
+        <div id="teamList" class="note">सदस्य लाए जा रहे हैं…</div>
+      </div>
+      <div class="pcard panel" id="pnl-tasks" data-nav="🗂️ काम-पैनल" style="grid-column:1/-1">
+        <div class="ph">🗂️ काम-पैनल</div>
+        <div class="pd">काम सौंपें (सिर्फ़ अपने से नीचे वाले को) व मिले काम की स्थिति बदलें — pending → चालू → पूरा।</div>
+        <div style="margin-top:10px">
+          <select id="tMem" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;max-width:100%"></select>
+          <input id="tTitle" placeholder="काम का शीर्षक" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px;width:100%;margin-top:8px"/>
+          <button class="abtn ok" style="margin-top:8px" id="tAssign">➕ काम सौंपें</button>
+          <div class="msg" id="tMsg"></div>
+        </div>
+        <div id="taskList" class="note" style="margin-top:10px">काम लाए जा रहे हैं…</div>
+      </div>
+      <div class="pcard panel" id="pnl-reports" data-nav="📊 रिपोर्ट-चक्र" style="grid-column:1/-1">
+        <div class="ph">📊 रिपोर्ट-चक्र</div>
+        <div class="pd">सात चक्र — अपने से ऊपर (Founder) को भेजें। भेजी रिपोर्टें नीचे।</div>
+        <div style="margin-top:10px">
+          <select id="rCycle" style="font-size:17px;padding:10px;border:1px solid var(--border);border-radius:9px">
+            <option value="daily">दैनिक</option><option value="weekly">साप्ताहिक</option>
+            <option value="fortnightly">पाक्षिक</option><option value="monthly">मासिक</option>
+            <option value="quarterly">त्रैमासिक</option><option value="halfyearly">अर्धवार्षिक</option>
+            <option value="yearly">वार्षिक</option>
+          </select>
+          <textarea id="rText" placeholder="रिपोर्ट-सामग्री" style="width:100%;min-height:80px;font-size:17px;font-family:inherit;border:1px solid var(--border);border-radius:9px;padding:10px;margin-top:8px"></textarea>
+          <button class="abtn ok" style="margin-top:8px" id="rSend">📤 रिपोर्ट भेजें</button>
+          <div class="msg" id="rMsg"></div>
+        </div>
+        <div id="repList" class="note" style="margin-top:10px">रिपोर्टें लाई जा रही हैं…</div>
+      </div>
+    </div>
+      <div class="pcard panel" id="pnl-badgeq" data-nav="🟢 बैज-सत्यापन" style="grid-column:1/-1"><div class="ph">🟢 बैज-सत्यापन क़तार (Verified Badge)</div><div class="pd">जिन लोगों ने बैज का भुगतान कर दिया है, उनकी जाँच-सूची। आपके कार्य-क्षेत्र के record ही दिखते हैं। स्वीकृति = बैज 365 दिन के लिए सक्रिय। अस्वीकृति = कारण अनिवार्य; आवेदक को 70 प्रतिशत वापसी देय होगी (वापसी अभी office के Razorpay dashboard से) और 7 दिन की सुधार-खिड़की खुलेगी।</div><div id="badgeqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div></div>
+    <!--TEAM_ONLY_END-->
+
+    
+
+    <!-- वाणी — हर dashboard में (team+external दोनों; mode-कटाई से बाहर) -->
+    <div class="grid">
+      <div class="pcard panel" id="pnl-vani" data-nav="📱 वाणी" style="grid-column:1/-1">
+        <p style="color:#607D8B">वाणी लोड हो रही है…</p>
+      </div>
+    </div>
+
+    </div>
+   </div>
+  </div>
+
+  <!-- [T6] footer -->
+  <div class="foot">ACS™ · FFGPMTrust · From Village to World</div>
+</div>
+
+<!-- per-page मूल्य — generator भरता है (एकमात्र per-page हिस्सा) -->
+<script>window.ACS_DASH={mode:"team",allowed:["founder"],extRoles:[],roleLabel:"Founder Dashboard",home:"/dashboard/founder/"};</script>
+<!-- पद-जानकारी का एकमात्र घर (परत-3) — सिर्फ़ दिखाने के लिए, guard नहीं -->
+<script src="/assets/designation_matrix.js"></script>
+<!-- 31-घर का एकमात्र साझा तर्क (परत-1) -->
+<script type="module" src="/assets/dashboard.js"></script>
+<script src="/assets/vani.js" defer></script>
+</body>
+</html>
+
 
