@@ -958,6 +958,24 @@ function rolePanels(key){
        : extraPanels(key);
 }
 
+/* (काम-11 कदम-3, 19-Jul-2026) बैज-सत्यापन क़तार — सिर्फ़ founder/admin/zonal/regional।
+   data server-callable (listBadgeQueue) से; फ़ैसला decideBadge से। v2.1 क्रम की अमल। */
+const P_BADGE_QUEUE = (
+    '<div class="pcard panel" id="pnl-badgeq" data-nav="🟢 बैज-सत्यापन" style="grid-column:1/-1">' +
+    '<div class="ph">🟢 बैज-सत्यापन क़तार (Verified Badge)</div>' +
+    '<div class="pd">जिन लोगों ने बैज का भुगतान कर दिया है, उनकी जाँच-सूची। आपके कार्य-क्षेत्र के record ही दिखते हैं। ' +
+    'स्वीकृति = बैज 365 दिन के लिए सक्रिय। अस्वीकृति = कारण अनिवार्य; आवेदक को 70 प्रतिशत वापसी देय होगी ' +
+    '(वापसी अभी office के Razorpay dashboard से) और 7 दिन की सुधार-खिड़की खुलेगी।</div>' +
+    '<div id="badgeqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '</div>');
+/* किन team-घरों में यह पैनल बैठे — घर-पथ से (एक चीज़ = एक जगह) */
+const TEAM_EXTRAS = {
+  "/dashboard/founder/":  P_BADGE_QUEUE,
+  "/dashboard/admin/":    P_BADGE_QUEUE,
+  "/dashboard/zonal/":    P_BADGE_QUEUE,
+  "/dashboard/regional/": P_BADGE_QUEUE,
+};
+
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
 function extraPanels(key){
   /* v1.5: entrepreneur-branch हटा — वह घर अब entrepreneurPanels() से सुसज्जित */
@@ -1019,7 +1037,8 @@ for(const [home, h] of homes){
   const extKey = (h.ext && h.ext[0]) ? h.ext[0] : (isTeam ? null : h.keys[0]);
   const out2 = out
     .split("{{STATUS_PANEL}}").join(extKey ? statusPanel(extKey) : "")
-    .split("{{EXTRA_PANELS}}").join(extKey ? rolePanels(extKey) : "");
+    .split("{{EXTRA_PANELS}}").join(extKey ? rolePanels(extKey) : "")
+    .split("{{TEAM_EXTRA_PANELS}}").join(isTeam ? (TEAM_EXTRAS[home] || "") : "");
 
   /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
      dashboard.js runtime-gate if(MODE==="team") से ख़ुद सँभालता है)
