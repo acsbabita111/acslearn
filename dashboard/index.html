@@ -581,7 +581,7 @@ window.doLogin = async function(){
        (पुराना एक `users` बक्सा हटा दिया गया था; अब उसकी ज़रूरत नहीं।) */
     const role=ROLE;
     if(NO_OTP.includes(role)){
-      await finishLogin(role,email);
+      await finishLogin(role,email,"a2");
     }else{
       await fnReqOtp({email});
       show("c3"); setStep(3); clearOtp(); startOtpTimer(); window.scrollTo(0,0);
@@ -607,7 +607,7 @@ window.verifyLoginOtp = async function(){
     const email=($("f-email").value||"").trim().toLowerCase();
     const res=await fnVerOtp({email,code});
     if(res&&res.data&&res.data.ok===false) throw new Error(res.data.message||"OTP ग़लत");
-    await finishLogin(ROLE,email);
+    await finishLogin(ROLE,email,"a3");
   }catch(e){
     box("a3",(e&&e.message)||"OTP ग़लत या समाप्त।");
     clearOtp(); const o=$("o1"); if(o) o.focus();
@@ -713,8 +713,20 @@ window.submitForgotReset = async function(){
 };
 
 /* single-session claim → dashboard */
-async function finishLogin(role,email){
-  try{ await fnClaim({}); }catch(e){}
+async function finishLogin(role,email,errBox){
+  /* single-session (v1.2 नियम) — session-claim अनिवार्य: विफल हो तो login न बढ़े
+     (H-6, काम-13 कदम-2)। network झपकी के लिए एक बार retry; फिर भी विफल तो
+     signOut + साफ़ संदेश — चुप-fail व आधा-login दोनों निषेध। */
+  let claimed=false;
+  for(let att=1; att<=2 && !claimed; att++){
+    try{ await fnClaim({}); claimed=true; }
+    catch(e){ if(att<2) await new Promise(function(r){ setTimeout(r,1000); }); }
+  }
+  if(!claimed){
+    try{ await auth.signOut(); }catch(_e){}
+    box(errBox||"a2","session शुरू नहीं हो सकी — Internet जाँचकर फिर से login करें।");
+    return;
+  }
   const sr=$("s-role"); if(sr) sr.textContent="भूमिका: "+(RNAME[role]||role);
   const se=$("s-email"); if(se) se.textContent=email;
   show("c5"); setStep(3); window.scrollTo(0,0);
