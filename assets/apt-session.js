@@ -355,14 +355,14 @@
     q.opts.forEach(function (o, i) {
       var cls = a.first === i ? ' first' : (a.last === i ? ' last' : '');
       var tag = a.first === i ? '<span class="apt-tag">⭐ सबसे पहले</span>' : (a.last === i ? '<span class="apt-tag">🚫 सबसे कम</span>' : '');
-      h += '<button class="apt-opt' + cls + '" data-i="' + i + '">' + (o.img && ART[o.img] ? ART[o.img] : '') + esc(o.t || o.text || '') + tag + '</button>';
+      h += '<button class="apt-opt' + cls + '" data-i="' + i + '">' + (o.img && ART[o.img] ? ART[o.img] : '') + esc(o.t || o.text || o.label || '') + tag + '</button>';
     });
     return h + '</div>';
   }
   function optUI(q, a) {
     var h = '<div class="apt-opts' + (q.type === 'story' ? ' apt-story' : '') + '">';
     q.opts.forEach(function (o, i) {
-      h += '<button class="apt-opt' + (a.v === i ? ' on' : '') + '" data-i="' + i + '">' + esc(o.t || o.text || '') + '</button>';
+      h += '<button class="apt-opt' + (a.v === i ? ' on' : '') + '" data-i="' + i + '">' + esc(o.t || o.text || o.label || '') + '</button>';
     });
     return h + '</div>';
   }
