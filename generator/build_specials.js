@@ -1,6 +1,6 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
-   v1.1 · 20-Jul-2026 (काम-12: + /aptitude-test.html — अभिरुचि-टेस्ट मुफ़्त-झलक)
+   v1.2 · 20-Jul-2026 (नींव-दौर: aptitude-test पन्ने में पूरा-टेस्ट session-द्वार + apt-session.js)\n   v1.1 · 20-Jul-2026 (काम-12: + /aptitude-test.html — अभिरुचि-टेस्ट मुफ़्त-झलक)
    v1.0 · 18-Jul-2026 (काम-9+; + रिज़्यूमे-फ़ोटो: device-local canvas-resize)
    ------------------------------------------------------------
    लोहे का नियम: कोई पेज हाथ से न बने — सिर्फ़ यह script।
@@ -405,6 +405,14 @@ const APT_CONTENT =
 '<div class="apt-note">🔒 आपके जवाब सिर्फ़ आपके फ़ोन में रहते हैं — कहीं भेजे नहीं जाते।</div>' +
 '<div id="apt-box" class="apt-card"><p>टेस्ट खुल रहा है…</p></div>' +
 '<div class="apt-note">📝 नतीजा अभिरुचि की झलक देता है — यह योग्यता का प्रमाण नहीं है।</div>' +
+'<h2 style="font-size:24px;margin:22px 0 4px">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</h2>' +
+'<p>टेस्ट मुफ़्त है — जितनी बार चाहें, दें।</p>' +
+'<p>घड़ी 90 मिनट की है।</p>' +
+'<p>पन्ना बंद करें तो घड़ी रुक जाती है।</p>' +
+'<p>खंड 1 — आपकी रुचि के समूह।</p>' +
+'<p>खंड 2 — उनकी गहराई।</p>' +
+'<p>खंड 3 — कोर्स का चुनाव।</p>' +
+'<div id="apt-sess-box" class="apt-card"><p>पूरा टेस्ट खुल रहा है…</p></div>' +
 '</div>';
 
 buildSpecial({
@@ -416,7 +424,8 @@ buildSpecial({
     '<script src="/assets/mg_names.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_art.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_data.js"></scr' + 'ipt>',
-    '<script src="/assets/aptitude-test.js" defer></scr' + 'ipt>'
+    '<script src="/assets/aptitude-test.js" defer></scr' + 'ipt>',
+    '<script src="/assets/apt-session.js" defer></scr' + 'ipt>'
   ],
   content: APT_CONTENT
 });
