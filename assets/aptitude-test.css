@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/aptitude-test.css — v1.2 (अभिरुचि-टेस्ट पन्ने की सजावट)
+   /assets/aptitude-test.css — v1.3 (अभिरुचि-टेस्ट पन्ने की सजावट + session)
    v1.2 · 20-Jul-2026: ↩ Dashboard वापसी-कड़ी + चित्र-चौखट (position-सुधार)।
    v1.1 · 20-Jul-2026: पूरा हिस्सा हल्के पर्दे पर (गहरी पृष्ठभूमि पर
    गहरी लिखाई अदृश्य थी — Founder-screenshot से पकड़ी)।
@@ -51,3 +51,10 @@
 .apt-chip{display:inline-block;background:#F5F7FA;border:1px solid #0B1F3A44;border-radius:999px;padding:4px 12px;font-size:16px;margin:3px 4px 3px 0}
 .apt-hide{display:none}
 @media(max-width:420px){.apt-face{font-size:28px}.apt-opts{gap:8px}}
+/* --- v1.3 जोड़ (20-Jul-2026, नींव-दौर: session-इंजन) --- */
+.apt-11{flex-wrap:wrap}
+.apt-11 .apt-face{flex:0 0 calc(20% - 8px);font-size:19px;font-weight:800;padding:12px 2px;min-width:44px}
+.apt-sel{font-size:19px;padding:10px 12px;border:2px solid #0B1F3A44;border-radius:12px;background:#fff;font-family:inherit}
+.apt-course{flex-wrap:wrap;border:2px solid #0B1F3A22;border-radius:12px;padding:8px 10px;background:#fff}
+.apt-course .nm{flex:1;min-width:180px}
+.apt-mini{flex:0 0 auto;font-size:16px;padding:8px 12px;text-decoration:none;text-align:center}
