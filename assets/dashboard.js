@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v4.6 · 20-Jul-2026 (काम-13 कदम-1) — XSS-बंद: हर user-field अब esc() से (आवेदन-सूची · टीम · काम/रिपोर्ट · बैज-क़तार · docChips)
    v4.5 · 19-Jul-2026 — null-सुरक्षित setters (setTxt/setHTML): guard-render व
           loadRegistration की profile-भराई अब किसी सजावटी element के ग़ायब होने
           (बासी-cache/CDN-मिश्रण) पर पूरा dashboard नहीं गिराती — console-चेतावनी
@@ -239,8 +240,8 @@ function docChips(docs){
   return keys.map(k=>{
     const d = docs[k];
     const u = (typeof d==="string") ? d : (d && d.url);
-    if(!u) return '<span class="doc" style="margin:4px 6px 0 0;color:#B71C1C">📄 '+k+' (upload विफल)</span>';
-    return '<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+u+'">📄 '+k+'</a>';
+    if(!u) return '<span class="doc" style="margin:4px 6px 0 0;color:#B71C1C">📄 '+esc(k)+' (upload विफल)</span>';
+    return '<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+esc(u)+'">📄 '+esc(k)+'</a>';
   }).join("");
 }
 function fmtDate(ts){
@@ -478,11 +479,11 @@ function drawApps(){
     const el = document.createElement("div");
     el.className = "app";
     el.innerHTML =
-      '<div class="r1"><span class="nm">'+(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
-      '<span class="rg">('+(a.regNo||a._id)+')</span>'+stChip+
-      '<span class="chip lvl">'+lvl+'</span></div>'+
-      '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+area):'')+(a.email?(' · ✉️ '+a.email):'')+'</div>'+
-      '<div class="more"><div class="mrow"><b>Mobile:</b> '+(a.phone||a.mobile||"—")+'</div>'+
+      '<div class="r1"><span class="nm">'+esc(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
+      '<span class="rg">('+esc(a.regNo||a._id)+')</span>'+stChip+
+      '<span class="chip lvl">'+esc(lvl)+'</span></div>'+
+      '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+esc(area)):'')+(a.email?(' · ✉️ '+esc(a.email)):'')+'</div>'+
+      '<div class="more"><div class="mrow"><b>Mobile:</b> '+esc(a.phone||a.mobile||"—")+'</div>'+
       '<div class="mrow"><b>दस्तावेज़:</b><br/>'+docLinks+'</div>'+
       rejInfo +
       actHtml + '</div>'+
@@ -583,10 +584,10 @@ async function loadTeamPanel(myDesig){
       acts += '<div class="msg" id="hmsg-'+m._uid+'"></div>';
     }
     el.innerHTML =
-      '<div class="r1"><span class="nm">'+(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
+      '<div class="r1"><span class="nm">'+esc(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
       + '<span class="pill">'+mxLabel(d)+'</span>'+stChip
-      + (m.level && String(m.level).toUpperCase()!==mxLabel(d).toUpperCase() ? '<span class="chip lvl">'+String(m.level).toUpperCase()+'</span>':'')+'</div>'
-      + (holdRec?'<div class="hres">कारण: '+(holdRec.reason||"—")+'</div>':'')
+      + (m.level && String(m.level).toUpperCase()!==mxLabel(d).toUpperCase() ? '<span class="chip lvl">'+esc(String(m.level).toUpperCase())+'</span>':'')+'</div>'
+      + (holdRec?'<div class="hres">कारण: '+esc(holdRec.reason||"—")+'</div>':'')
       + acts;
     listEl.appendChild(el);
   });
@@ -608,7 +609,7 @@ document.addEventListener("click", async (ev)=>{
     if(sel && !sel.options.length){
       sel.innerHTML = TEAM_MEMBERS
         .filter(m=>m._uid!==uid && String(m.designation||"").toLowerCase()!=="founder")
-        .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+        .map(m=>'<option value="'+esc(m._uid)+'">'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
     }
     bx.classList.toggle("on"); return;
   }
@@ -648,7 +649,7 @@ let TEAM_MEMBERS = [];
 function fillMemberSelect(){
   const opts = TEAM_MEMBERS
     .filter(m=>String(m.designation||"").toLowerCase()!=="founder" && !(auth.currentUser && m._uid===auth.currentUser.uid))
-    .map(m=>'<option value="'+m._uid+'">'+(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+    .map(m=>'<option value="'+esc(m._uid)+'">'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
   const sel = $("tMem"); if(sel) sel.innerHTML = opts;
   const lv = $("lvMem"); if(lv) lv.innerHTML = opts; /* v1.4 छँटाई (समकक्ष/एक-ऊपर) server पर — यह सिर्फ़ सूची */
 }
@@ -670,8 +671,8 @@ async function loadTasks(){
           + (st==="pending"?'<button class="abtn ok" data-tact="ongoing" data-tid="'+t._id+'">▶️ चालू करें</button>':'')
           + '<button class="abtn ok" data-tact="done" data-tid="'+t._id+'">✅ पूरा</button></div>'
         : '';
-      return '<div class="mem"><div class="r1"><span class="nm">'+(t.title||"—")+'</span>'+stChip+'<span class="rg">'+who+'</span></div>'
-        + (t.detail?'<div class="r2">'+t.detail+'</div>':'')
+      return '<div class="mem"><div class="r1"><span class="nm">'+esc(t.title||"—")+'</span>'+stChip+'<span class="rg">'+who+'</span></div>'
+        + (t.detail?'<div class="r2">'+esc(t.detail)+'</div>':'')
         + btns + '<div class="msg" id="tmsg-'+t._id+'"></div></div>';
     }).join("");
   }catch(e){ el.textContent="काम-सूची नहीं खुली — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
@@ -686,7 +687,7 @@ async function loadReports(){
     el.innerHTML = rows.slice(0,20).map(t=>
       '<div class="mem"><div class="r1"><span class="pill">'+(CYCLE_HI[t.cycle]||t.cycle)+'</span>'
       +'<span class="rg">'+fmtDate(t.at)+' · '+mxLabel(String(t.by_designation||"").toLowerCase())+'</span></div>'
-      +'<div class="r2">'+(t.text||"")+'</div></div>').join("");
+      +'<div class="r2">'+esc(t.text||"")+'</div></div>').join("");
   }catch(e){ el.textContent="रिपोर्टें नहीं खुलीं — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
 }
 document.addEventListener("click", async (ev)=>{
@@ -1184,11 +1185,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
         const dt=it.paidAt? (function(){const d=new Date(it.paidAt);return ("0"+d.getDate()).slice(-2)+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+d.getFullYear();})():"—";
         const row=document.createElement("div"); row.className="mem";
         row.innerHTML =
-          '<div class="r1"><span class="nm">'+(it.name||"—")+' · '+(it.regNo||"—")+'</span></div>'
+          '<div class="r1"><span class="nm">'+esc(it.name||"—")+' · '+esc(it.regNo||"—")+'</span></div>'
         + '<div class="r2">भूमिका: '+(ROLE_HI[it.role]||it.role)+' · क्षेत्र: '+(TIER_HI[it.tier]||it.tier||"—")
-        + ' (पिन '+(it.pin||"—")+') · राशि: ₹'+(it.amountRupees||0)+' · भुगतान: '+dt+'</div>'
-        + '<div class="r2">राज्य: '+(it.state||"—")+' · वांछित जिला: '+(it.district||"—")
-        + (it.mobile? ' · 📱 '+it.mobile : '')+'</div>'
+        + ' (पिन '+esc(it.pin||"—")+') · राशि: ₹'+(it.amountRupees||0)+' · भुगतान: '+dt+'</div>'
+        + '<div class="r2">राज्य: '+esc(it.state||"—")+' · वांछित जिला: '+esc(it.district||"—")
+        + (it.mobile? ' · 📱 '+esc(it.mobile) : '')+'</div>'
         + '<div class="acts">'
         + '<button class="abtn ok" data-bqact="approve" data-oid="'+it.orderId+'">✅ स्वीकृत — बैज दें (365 दिन)</button> '
         + '<button class="abtn no" data-bqact="rejopen" data-oid="'+it.orderId+'">❌ अस्वीकृत</button></div>'
