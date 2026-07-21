@@ -61,7 +61,7 @@ fs.readdirSync('assets/apt_sets').forEach(function (f) {
 var ALLQ = BASE_D.questions.concat(window.APT_POOL);
 var seen4 = {}, dup4 = 0;
 ALLQ.forEach(function (q) { if (seen4[q.id]) dup4++; seen4[q.id] = 1; });
-if (ALLQ.length !== 7524 || dup4) throw new Error('विभाजन-अखंडता फेल: कुल ' + ALLQ.length + ' दोहराव ' + dup4);
+if (ALLQ.length !== 8474 || dup4) throw new Error('विभाजन-अखंडता फेल: कुल ' + ALLQ.length + ' दोहराव ' + dup4);
 console.log('जाँच-4 विभाजन-अखंडता ✅ | आधार ' + BASE_D.questions.length + ' + टुकड़े ' + window.APT_POOL.length + ' = ' + ALLQ.length + ' | दोहराव 0');
 
 /* ---------- जाँच-5: session पूरा सफ़र (नक़ली DOM) ---------- */
