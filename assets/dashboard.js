@@ -8,6 +8,8 @@
    v4.4.1 · 19-Jul-2026 — showLoadError में अब e.stack की पहली 3 पंक्तियाँ भी दिखतीं
           (फ़ाइल:लाइन-नंबर समेत) — अगली बार कोई crash आए तो पहले ही प्रयास में
           सटीक जड़ पकड़ में आए, कोई अटकल/और screenshot-चक्र न चाहिए पड़े।
+   v4.7 · 22-Jul-2026 — बैज-द्वार निशान (acs_apt_gate_v1): Jio-नियम v3.7 —
+        learner-बैज सक्रिय → पूरा अभिरुचि-टेस्ट खुले; न रहे तो निशान हटे।
    v4.6 · 20-Jul-2026 — ✔-बचाव: फ़ोटो-load पर लगा हुआ बैज-निशान न मिटे (cache-दौड़ दोष बंद)।
    v4.4 · 19-Jul-2026 — गूँगा-fallback निषेध का स्थायी पहरा (v3.5-घ, Laxmi-केस से):
           guardTeam/guardExternal का पूरा profile-भरने वाला हिस्सा अब try-catch में
@@ -995,19 +997,19 @@ if (MODE==="external" && ALLOWED.length>=1) {
         try{ const ex=latest.badgeExpiresAt&&latest.badgeExpiresAt.toDate?latest.badgeExpiresAt.toDate():null;
              if(ex) till=" ("+("0"+ex.getDate()).slice(-2)+"-"+("0"+(ex.getMonth()+1)).slice(-2)+"-"+ex.getFullYear()+" तक)"; }catch(e){}
         st.textContent="✅ इस भूमिका का आपका बैज सक्रिय है"+till+"।"; st.style.color="#1b4d20"; btn.style.display="none";
-        markPhotoBadge();
+        markPhotoBadge(); setAptGate(latest);
         const pr=$("badgePinRow"); if(pr) pr.style.display="none"; return;
       }
       if(latest && latest.status==="paid"){
         st.textContent="⏳ भुगतान हो चुका — RM-सत्यापन जारी है। स्वीकृति पर बैज सक्रिय हो जाएगा।";
-        st.style.color="#8a5a00"; btn.style.display="none"; return;
+        st.style.color="#8a5a00"; btn.style.display="none"; clearAptGate(); return;
       }
       if(latest && latest.rmStatus==="rejected"){
         st.textContent="⚠️ पिछला बैज-आवेदन अस्वीकृत हुआ था — आप दोबारा ले सकते हैं।";
-        st.style.color="#B71C1C"; btn.style.display="inline-block"; return;
+        st.style.color="#B71C1C"; btn.style.display="inline-block"; clearAptGate(); return;
       }
       st.textContent="अभी इस भूमिका में आपका बैज नहीं है (लेना वैकल्पिक)।"; st.style.color="#555";
-      btn.style.display="inline-block";
+      btn.style.display="inline-block"; clearAptGate();
     }catch(e){
       /* status न मिले (rules/network) तो भी बटन दिखे — काम न रुके */
       st.textContent="बैज लेना वैकल्पिक है।"; st.style.color="#555"; btn.style.display="inline-block";
@@ -1016,16 +1018,31 @@ if (MODE==="external" && ALLOWED.length>=1) {
   LAZY["pnl-badge"] = loadBadgeStatus;
 
   function markPhotoBadge(){ ensurePhotoDecor(true); }
+  /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
+     भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-टेस्ट खुले। निशान device-local;
+     बैज सक्रिय न मिले तो निशान हटे (refund/समाप्ति पर द्वार बंद)। */
+  function setAptGate(pay){
+    try{
+      if(BADGE_ROLE!=="jobseeker" && BADGE_ROLE!=="student") return;
+      let until=0;
+      try{ const ex=pay&&pay.badgeExpiresAt&&pay.badgeExpiresAt.toDate?pay.badgeExpiresAt.toDate():null; if(ex) until=ex.getTime(); }catch(e){}
+      if(!until) until=Date.now()+30*24*60*60*1000;
+      localStorage.setItem("acs_apt_gate_v1", JSON.stringify({until:until, role:BADGE_ROLE}));
+    }catch(e){}
+  }
+  function clearAptGate(){
+    try{ if(BADGE_ROLE==="jobseeker"||BADGE_ROLE==="student") localStorage.removeItem("acs_apt_gate_v1"); }catch(e){}
+  }
   /* boot पर एक हल्की जाँच — पैनल खोले बिना भी निशान दिखे */
   window.__acsBadgeMark = async function(){
     try{
       const u=auth.currentUser; if(!u) return;
       const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
-      let ok=false;
+      let ok=false, okPay=null;
       qs.forEach(d=>{ const p=d.data()||{};
         if(p.purpose==="badge" && String(p.role||"jobseeker").toLowerCase()===BADGE_ROLE
-           && p.status==="paid" && p.rmStatus==="approved") ok=true; });
-      if(ok) markPhotoBadge();
+           && p.status==="paid" && p.rmStatus==="approved"){ ok=true; okPay=p; } });
+      if(ok){ markPhotoBadge(); setAptGate(okPay); }
     }catch(e){}
   };
 

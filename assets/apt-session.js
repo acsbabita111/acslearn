@@ -1,5 +1,8 @@
 /* ============================================================
-   /assets/apt-session.js — v1.0 (अभिरुचि पूरा-टेस्ट session-इंजन · नींव-दौर)
+   /assets/apt-session.js — v1.1 (अभिरुचि पूरा-टेस्ट session-इंजन · बैज-द्वार)
+   v1.1 · 22-Jul-2026: बैज-द्वार — पूरा टेस्ट सिर्फ़ बैज-निशान (acs_apt_gate_v1)
+   वालों को; बिना निशान = द्वार-कार्ड (Jio-नियम v3.7-क अ/ब का अमल)।
+   v1.0 (अभिरुचि पूरा-टेस्ट session-इंजन · नींव-दौर)
    20-Jul-2026 · मूल भाषा: हिंदी
    ------------------------------------------------------------
    नियम (Addendum v4.1 + Founder-फ़ैसले 20-Jul):
@@ -26,6 +29,28 @@
   if (!box) return;
   var D = window.APT_DATA, ART = window.APT_ART || {}, MG = window.MG_NAMES || {};
   if (!D || !D.pool) { box.innerHTML = '<p>टेस्ट-सामग्री नहीं खुली — पन्ना दोबारा खोलिए।</p>'; return; }
+
+  /* ---------- बैज-द्वार (Jio-नियम v3.7 · 22-Jul-2026) ----------
+     पूरा टेस्ट सिर्फ़ बैज वालों के लिए। निशान dashboard से बनता है
+     (acs_apt_gate_v1) — बैज सक्रिय हो तभी। बिना निशान = द्वार-कार्ड। */
+  function gateOK() {
+    try {
+      var g = JSON.parse(localStorage.getItem('acs_apt_gate_v1') || 'null');
+      return !!(g && g.until && Date.now() < g.until);
+    } catch (e) { return false; }
+  }
+  if (!gateOK()) {
+    box.innerHTML = '<div class="apt-card">' +
+      '<p class="apt-q">\uD83C\uDF96\uFE0F पूरा टेस्ट बैज वालों के लिए है</p>' +
+      '<p>बैज वाले साथी यह टेस्ट 365 दिन मुफ़्त देते हैं — जितनी बार चाहें।</p>' +
+      '<p>बैज है? पहले लॉगिन (Login) कीजिए। फिर अपने डैशबोर्ड (Dashboard) के \uD83C\uDF96\uFE0F बैज पैनल में जाइए।</p>' +
+      '<p>वहाँ से इस पन्ने पर आइए — द्वार अपने-आप खुल जाएगा।</p>' +
+      '<p>बैज नहीं है? ऊपर की मुफ़्त झलक (24 प्रश्न) दीजिए।</p>' +
+      '<p>बैज अपने dashboard से लिया जा सकता है।</p>' +
+      '<div class="apt-nav"><a class="apt-btn green" href="/dashboard/">\uD83D\uDD11 Login / Dashboard</a></div>' +
+      '</div>';
+    return;
+  }
 
   var KEY = 'acs_apt_sess_v1';
   var TOTAL = 120, PER_KHAND = 40, LIMIT_SEC = 90 * 60;
