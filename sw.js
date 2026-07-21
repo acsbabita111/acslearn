@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v79'; // grahak-sthiti kon poora (udyam 1-950): 950 naye prashn q3725-q4674, bhandar 4674, mg01-24 shard
+const CACHE_VERSION = 'v80'; // grahak-sthiti kon poora (udyam 1-950): 950 naye prashn q3725-q4674, bhandar 4674, mg01-24 shard
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
