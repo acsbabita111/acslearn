@@ -374,3 +374,62 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   if (box10.innerHTML.indexOf('id="apt-next"') < 0) throw new Error('सब 40 जवाब मिलने के बाद भी कथा-विराम नहीं आई (खंड-1 पूरा नहीं हुआ माना)');
   console.log('जाँच-10 mandatory-complete-per-40 ✅ (skip किया प्रश्न "' + firstId + '" उसी परत में दुबारा आया, तभी खंड-1 पूरा हुआ)');
 })();
+
+/* ---------- जाँच-11: परीक्षा-रद्द (❌ परीक्षा छोड़ें) · 22-Jul-2026 ---------- */
+(function cancelAttemptCheck() {
+  var st11 = {};
+  st11['acs_apt_gate_v1'] = JSON.stringify({ until: Date.now() + 86400000, role: 'jobseeker' });
+  var sess11 = { acs_apt_back: '/dashboard/jobseeker/' };
+  global.sessionStorage = {
+    getItem: function (k) { return sess11[k] || null; },
+    setItem: function (k, v) { sess11[k] = v; }
+  };
+  global.location = { href: '' };
+  global.localStorage = { getItem: function (k) { return st11[k] || null; }, setItem: function (k, v) { st11[k] = v; }, removeItem: function (k) { delete st11[k]; } };
+  global.window = { APT_POOL: [], scrollTo: function () {}, scrollY: 0, location: global.location };
+  global.confirm = function () { return true; };
+  global.alert = function (t) { throw new Error('alert: ' + t); };
+  global.setInterval = function () { return {}; };
+  global.clearInterval = function () {};
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
+
+  var files11 = { '/assets/apt_sets/broad.js': 'assets/apt_sets/broad.js' };
+  for (var m11 = 1; m11 <= 24; m11++) {
+    var nm11 = 'mg' + (m11 < 10 ? '0' + m11 : m11) + '.js';
+    files11['/assets/apt_sets/' + nm11] = 'assets/apt_sets/' + nm11;
+  }
+  var reg11 = {};
+  var box11 = { offsetTop: 0, _q: {} };
+  var _h11 = '';
+  Object.defineProperty(box11, 'innerHTML', { get: function () { return _h11; }, set: function (v) { _h11 = v; reg11 = {}; } });
+  box11.querySelectorAll = function () { return []; };
+  global.document = {
+    hidden: false,
+    getElementById: function (id) {
+      if (id === 'apt-sess-box') return box11;
+      if (box11.innerHTML.indexOf('id="' + id + '"') < 0) return null;
+      if (!reg11[id]) reg11[id] = {};
+      return reg11[id];
+    },
+    createElement: function () { return {}; },
+    head: { appendChild: function (sc) {
+      var fp = files11[sc.src];
+      if (!fp) { if (sc.onerror) sc.onerror(); return; }
+      eval(fs.readFileSync(fp, 'utf8'));
+      if (sc.onload) sc.onload();
+    } }
+  };
+  eval(fs.readFileSync('assets/apt-session.js', 'utf8'));
+  reg11['apt-yob'] = { value: 2011 };
+  document.getElementById('apt-go');
+  reg11['apt-go'].onclick();
+  if (box11.innerHTML.indexOf('id="apt-cancel"') < 0) throw new Error('❌ परीक्षा छोड़ें बटन नहीं दिखा');
+  if (typeof reg11['apt-cancel'].onclick !== 'function') throw new Error('परीक्षा छोड़ें बटन पर onclick नहीं लगा');
+  reg11['apt-cancel'].onclick();
+  var Sfinal = JSON.parse(st11['acs_apt_sess_v1']);
+  if (Sfinal.cur !== null) throw new Error('रद्द करने के बाद भी प्रयास (S.cur) साफ़ नहीं हुआ');
+  if (global.location.href !== '/dashboard/jobseeker/') throw new Error('रद्द करने के बाद सही dashboard-पते पर नहीं भेजा (मिला: ' + global.location.href + ')');
+  console.log('जाँच-11 परीक्षा-रद्द ✅ (S.cur साफ़ हुआ, /dashboard/jobseeker/ पर भेजा)');
+})();
