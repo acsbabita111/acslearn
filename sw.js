@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v86'; // team-bhumika kon poora (udyam 1-950): 950 naye prashn q9425-q10374, bhandar 10374, mg01-24 shard
+const CACHE_VERSION = 'v87'; // apt-attempt-fee: apt-pay.js nayi, apt-session.js (attempt-gate) + salah.html generator-route me laya + aptitude-test.html dummy-label
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 

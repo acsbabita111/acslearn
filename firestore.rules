@@ -1,7 +1,13 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
-   ACS Firestore Security Rules — v5
-   अद्यतन: 16-Jul-2026 (वाणी चरण-1)
+   ACS Firestore Security Rules — v6
+   अद्यतन: 22-Jul-2026 (काम-अभिरुचि-भुगतान — होल-बंदी)
+   v6 (22-Jul): 🔴 होल-बंदी — payments collection का कोई read-rule
+   कभी था ही नहीं (v3.4/v3.6/v3.7 के दर्ज दावे "v6 payments जुड़ा" ग़लत
+   निकले — मशीन-ऑडिट से पकड़ा गया)। बिना इस rule के dashboard.js का हर
+   badge-status/खाता-बही getDocs(payments) हमेशा permission-denied
+   रहा होगा। अब जोड़ा: पढ़े मालिक (uid मेल)/Founder/active-Admin; लिखे
+   हमेशा सिर्फ़ server (Cloud Functions, admin SDK rules बायपास करता है)।
    v5 (16-Jul): vani_rooms + messages की read जुड़ी (सिर्फ़ login वाले) —
    लिखना सिर्फ़ server-functions से (vaniOpen/vaniSay/vaniLeave)।
    v4 (11-Jul, चरण-5): tasks व reports की read जुड़ी — लिखना सिर्फ़
@@ -95,6 +101,15 @@ service cloud.firestore {
     // ── otp_records: पूरी तरह बंद (सिर्फ़ server) ──
     match /otp_records/{id} {
       allow read, write: if false;
+    }
+
+    // ── payments: भुगतान-रिकॉर्ड (badge · aptitude_attempt आदि) ──
+    //    पढ़े: मालिक (uid मेल) · Founder · active Admin। लिखे: कोई नहीं —
+    //    हर बदलाव सिर्फ़ server (Cloud Functions, admin SDK) से (v6, 22-Jul)।
+    match /payments/{orderId} {
+      allow read: if request.auth != null
+        && (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
+      allow write: if false;
     }
 
     // ── वाणी (Vani) — चरण-1 (v5) ─────────────────────────────
