@@ -225,7 +225,7 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   var boxG = { innerHTML: '' };
   global.document = { getElementById: function (id) { return id === 'apt-sess-box' ? boxG : null; }, createElement: function () { return {}; }, head: { appendChild: function () {} } };
   eval(fs.readFileSync('assets/apt-session.js', 'utf8'));
-  if (boxG.innerHTML.indexOf('बैज वालों के लिए') < 0) throw new Error('द्वार-कार्ड नहीं दिखा');
+  if (boxG.innerHTML.indexOf('Login / Dashboard') < 0) throw new Error('द्वार-कार्ड नहीं दिखा');
   if (boxG.innerHTML.indexOf('जन्म का साल') >= 0) throw new Error('बिना बैज टेस्ट खुल गया!');
   console.log('जाँच-7 बैज-द्वार बंद ✅ (बिना निशान = द्वार-कार्ड, टेस्ट नहीं खुला)');
 })();
@@ -244,4 +244,29 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   if (boxJ.innerHTML.indexOf('बैज सक्रिय है') < 0) throw new Error('बैज-सूचना पंक्ति नहीं दिखी');
   if (boxJ.innerHTML.indexOf('प्रश्न 1 / 24') >= 0) throw new Error('बैज-धारक को झलक खुल गई!');
   console.log('जाँच-8 झलक-छिपाव ✅ (बैज-निशान = झलक बंद, सूचना-पंक्ति दिखी)');
+})();
+
+/* ---------- जाँच-9: ₹100-चांस-द्वार (unlock('attempt')) · 22-Jul-2026 ---------- */
+(function attemptGateCheck() {
+  var st9 = {};
+  global.localStorage = { getItem: function (k) { return st9[k] || null; }, setItem: function (k, v) { st9[k] = v; }, removeItem: function (k) { delete st9[k]; } };
+  global.window = { scrollTo: function () {} };
+  eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  var boxA = { innerHTML: '' };
+  global.document = {
+    getElementById: function (id) { return id === 'apt-sess-box' ? boxA : null; },
+    createElement: function () { return {}; },
+    head: { appendChild: function () {} }
+  };
+  eval(fs.readFileSync('assets/apt-session.js', 'utf8'));
+  /* बिना badge — पहले द्वार-कार्ड ही दिखे */
+  if (boxA.innerHTML.indexOf('जन्म का साल') >= 0) throw new Error('बिना भुगतान टेस्ट खुल गया!');
+  if (typeof global.window.ACS_APT_SESSION !== 'object' || typeof global.window.ACS_APT_SESSION.unlock !== 'function')
+    throw new Error('window.ACS_APT_SESSION.unlock एक्सपोज़ नहीं हुआ — apt-pay.js जुड़ नहीं पाएगा');
+  /* अब भुगतान-पुष्टि जैसे unlock('attempt') बुलाओ — टेस्ट खुलना चाहिए */
+  global.window.ACS_APT_SESSION.unlock('attempt');
+  if (boxA.innerHTML.indexOf('जन्म का साल') < 0) throw new Error('unlock(attempt) के बाद भी टेस्ट नहीं खुला');
+  console.log('जाँच-9 ₹100-चांस-द्वार ✅ (unlock(attempt) से टेस्ट खुला, window.ACS_APT_SESSION एक्सपोज़्ड)');
 })();

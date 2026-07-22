@@ -403,10 +403,13 @@ const APT_CONTENT =
 '<p>कोई जवाब सही या ग़लत नहीं होता — बस अपनी पसंद बताइए।</p>' +
 '<p>यह मुफ़्त झलक है — 24 प्रश्न और बीच में दो कहानियाँ।</p>' +
 '<div class="apt-note">🔒 आपके जवाब सिर्फ़ आपके फ़ोन में रहते हैं — कहीं भेजे नहीं जाते।</div>' +
+'<div class="apt-note" style="background:var(--gold-bg,#fef3d0);font-weight:700">⚠️ यह डमी/झलक-टेस्ट है — असली पूरे 120-प्रश्न टेस्ट के लिए रजिस्ट्रेशन ज़रूरी है।</div>' +
 '<div id="apt-box" class="apt-card"><p>टेस्ट खुल रहा है…</p></div>' +
 '<div class="apt-note">📝 नतीजा अभिरुचि की झलक देता है — यह योग्यता का प्रमाण नहीं है।</div>' +
 '<h2 style="font-size:24px;margin:22px 0 4px">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</h2>' +
-'<p>टेस्ट मुफ़्त है — जितनी बार चाहें, दें।</p>' +
+'<p>रजिस्ट्रेशन ज़रूरी है।</p>' +
+'<p>बिना बैज (badge): ₹100 में 1 चांस।</p>' +
+'<p>बैज (badge) वालों को मुफ़्त — 365 दिन, जितनी बार चाहें।</p>' +
 '<p>घड़ी 90 मिनट की है।</p>' +
 '<p>पन्ना बंद करें तो घड़ी रुक जाती है।</p>' +
 '<p>खंड 1 — आपकी रुचि के समूह।</p>' +
@@ -425,7 +428,140 @@ buildSpecial({
     '<script src="/assets/aptitude_art.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_data.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude-test.js" defer></scr' + 'ipt>',
-    '<script src="/assets/apt-session.js" defer></scr' + 'ipt>'
+    '<script src="/assets/apt-session.js" defer></scr' + 'ipt>',
+    '<script type="module" src="/assets/apt-pay.js"></scr' + 'ipt>'
   ],
   content: APT_CONTENT
+});
+
+/* ===================== salah content (काम-अभिरुचि-भुगतान, 22-Jul) =====================
+   पहले हाथ से बना था (कोई generator-निशान नहीं) — परत-4 का उल्लंघन था
+   (मशीन-ऑडिट से पकड़ा गया)। अब यहीं generator-रास्ते में लाया गया —
+   पुराना "जल्द आ रहा है" placeholder हटाकर असली टेस्ट-embed (aptitude-test.html
+   जैसा apt-box + apt-sess-box ढाँचा), बाक़ी सब content (career-paths,
+   counselors, CTA) हूबहू पुराने salah.html से। */
+const SALAH_CONTENT = `    <!-- ════════ सलाह (salah) — बीच का content ════════ -->
+
+<section class="page-hero" style="padding:34px 16px">
+  <div class="page-hero-inner">
+    <div style="font-size:2.6rem">🧭</div>
+    <h1 style="color:var(--navy)">सलाह</h1>
+    <p style="color:var(--muted);max-width:640px;margin:6px auto 0">
+      सही रास्ता चुनें — अभिरुचि परखें, रास्ते समझें, और काउंसलर (counselor) से बात करें।
+    </p>
+  </div>
+</section>
+
+<!-- ASLI APTITUDE TEST (लाइव) -->
+<section class="section-container apt-wrap" style="max-width:760px">
+  <div class="notice-card" style="text-align:center">
+    <div style="font-size:2.4rem">🧠</div>
+    <h2 style="color:var(--navy);margin:6px 0">अभिरुचि परीक्षा (Aptitude Test)</h2>
+    <p style="color:var(--muted);margin:0 auto;max-width:600px">
+      यह कोई पास/फेल परीक्षा नहीं — सिर्फ़ <b>रुचि</b> जानने का तरीक़ा।
+    </p>
+    <div class="apt-note">🔒 आपके जवाब सिर्फ़ आपके फ़ोन में रहते हैं — कहीं भेजे नहीं जाते।</div>
+    <div class="apt-note" style="background:var(--gold-bg);font-weight:700">⚠️ यह डमी/झलक-टेस्ट है — असली पूरे 120-प्रश्न टेस्ट के लिए रजिस्ट्रेशन ज़रूरी है।</div>
+    <div id="apt-box" class="apt-card"><p>टेस्ट खुल रहा है…</p></div>
+  </div>
+</section>
+
+<section class="section-container apt-wrap" style="max-width:760px;padding-top:0">
+  <div class="notice-card" style="text-align:center">
+    <h2 style="color:var(--navy);font-size:22px;margin:4px 0">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</h2>
+    <p style="color:var(--muted)">रजिस्ट्रेशन ज़रूरी है। बिना बैज (badge): ₹100 में 1 चांस। बैज (badge) वालों को मुफ़्त — 365 दिन, जितनी बार चाहें।</p>
+    <div id="apt-sess-box" class="apt-card"><p>पूरा टेस्ट खुल रहा है…</p></div>
+  </div>
+  <p style="color:var(--muted);font-size:16px;text-align:center;margin-top:10px">
+    (आधार: RIASEC अभिरुचि-विज्ञान, 1959 पर आधारित/प्रेरित — यह दिशा भर है, अंतिम फ़ैसला नहीं।)
+  </p>
+</section>
+
+<!-- CAREER PATHS -->
+<section class="section-container" style="max-width:1000px;padding-top:0">
+  <div class="section-title-block"><h2 style="color:var(--navy)">🗺️ रास्ते — आपके लिए कौन-सा सही?</h2></div>
+  <div class="content-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="notice-card"><div style="font-size:1.8rem">🏛️</div>
+      <div style="font-weight:800;color:var(--navy);font-size:1.1rem">सरकारी नौकरी (Government Job)</div>
+      <div style="color:var(--muted)">UPSC, BPSC, Railway, Bank, SSC — स्थिर आय, सुरक्षित भविष्य, पेंशन (pension)।</div></div>
+    <div class="notice-card"><div style="font-size:1.8rem">🏢</div>
+      <div style="font-weight:800;color:var(--navy);font-size:1.1rem">कॉर्पोरेट नौकरी (Corporate Job)</div>
+      <div style="color:var(--muted)">IT, Finance, Marketing, HR — तेज़ growth, अच्छी salary।</div></div>
+    <div class="notice-card"><div style="font-size:1.8rem">🏪</div>
+      <div style="font-weight:800;color:var(--navy);font-size:1.1rem">प्राइवेट नौकरी (Private Job)</div>
+      <div style="color:var(--muted)">स्थानीय (local) उद्योग, दुकान, कंपनी — तुरंत काम, तुरंत कमाई।</div></div>
+    <div class="notice-card"><div style="font-size:1.8rem">💼</div>
+      <div style="font-weight:800;color:var(--navy);font-size:1.1rem">खुद का व्यवसाय (Own Business)</div>
+      <div style="color:var(--muted)">₹0 से शुरू → ₹200 करोड़ तक। L1 से L15 का पूरा रास्ता।</div></div>
+    <div class="notice-card"><div style="font-size:1.8rem">🔧</div>
+      <div style="font-weight:800;color:var(--navy);font-size:1.1rem">स्वरोजगार (Self-Employment)</div>
+      <div style="color:var(--muted)">मरम्मत, सेवा, फ्रीलांस (freelance) — हुनर (lure) से कमाई, लचीला (flexible)।</div></div>
+  </div>
+</section>
+
+<!-- COUNSELORS -->
+<section class="section-container" style="max-width:1000px;padding-top:0">
+  <div class="section-title-block"><h2 style="color:var(--navy)">🧭 काउंसलर से मिलें (Meet a Counselor)</h2>
+    <p style="color:var(--muted)">हमारे विशेषज्ञ काउंसलर (expert counselors) आपकी मदद के लिए तैयार हैं।</p></div>
+  <div class="content-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="notice-card">
+      <div style="font-size:2rem">🧑</div>
+      <div style="font-weight:800;color:var(--navy)">ACS Founder · मुख्य काउंसलर</div>
+      <div style="color:var(--muted);font-size:16px">📍 विद्यार्थीनगर, चौथम, खगड़िया, बिहार</div>
+      <div style="margin:8px 0;color:var(--muted)">व्यवसाय (business) · करियर (career) · हिंदी</div>
+      <div class="hero-secondary-links" style="justify-content:flex-start">
+        <a href="https://wa.me/919431210092" target="_blank" rel="noopener" class="btn btn-primary" style="min-width:auto;padding:10px 16px">💬 WhatsApp</a>
+        <a href="tel:+919431210092" class="btn btn-accent" style="min-width:auto;padding:10px 16px">📞 Call</a>
+      </div>
+    </div>
+    <div class="notice-card">
+      <div style="font-size:2rem">🏫</div>
+      <div style="font-weight:800;color:var(--navy)">ACS Chautham Centre</div>
+      <div style="color:var(--muted);font-size:16px">मुख्यालय केंद्र (headquarters center) · ⭐4.8 (318 Reviews)</div>
+      <div style="margin:8px 0;color:var(--muted)">सभी कोर्स · सोमवार–शनिवार · सुबह 6 — रात 8</div>
+      <div class="hero-secondary-links" style="justify-content:flex-start">
+        <a href="https://wa.me/919431210092" target="_blank" rel="noopener" class="btn btn-primary" style="min-width:auto;padding:10px 16px">💬 WhatsApp</a>
+        <a href="mailto:acs.chautham@gmail.com" class="btn btn-accent" style="min-width:auto;padding:10px 16px">✉️ Email</a>
+      </div>
+    </div>
+    <div class="notice-card">
+      <div style="font-size:2rem">🌐</div>
+      <div style="font-weight:800;color:var(--navy)">ऑनलाइन काउंसलिंग (Online Counseling)</div>
+      <div style="color:var(--muted);font-size:16px">WhatsApp / Video Call · कहीं से भी, किसी भी समय</div>
+      <div style="margin:8px 0;color:var(--muted)">निःशुल्क (free) · ऑनलाइन · 24×7</div>
+      <div class="hero-secondary-links" style="justify-content:flex-start">
+        <a href="https://wa.me/919431210092?text=नमस्ते, मुझे सलाह चाहिए।" target="_blank" rel="noopener" class="btn btn-gold" style="min-width:auto;padding:10px 16px">🧭 सलाह लें</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-container" style="max-width:760px;padding-top:0;text-align:center">
+  <div class="notice-card">
+    <h3 style="color:var(--navy);margin:0 0 6px">रास्ता तय करने में मदद चाहिए?</h3>
+    <p style="color:var(--muted);margin:0 0 14px">पहले काउंसलर से मुफ़्त बात करें, फिर उद्यम/कोर्स चुनें।</p>
+    <div class="hero-secondary-links">
+      <a href="/udyam/" class="btn btn-gold">🌍 उद्यम खोजें</a>
+      <a href="/courses/hi/" class="btn btn-primary">📚 कोर्स देखें</a>
+      <a href="/join.html" class="btn btn-accent">📝 जुड़ें</a>
+    </div>
+  </div>
+</section>
+`;
+
+buildSpecial({
+  out: "hi/salah.html", langStrict: false,
+  title: "सलाह — सही रास्ता चुनें | Applied Computer School™",
+  desc: "ACS सलाह — अभिरुचि परखें, 5 करियर रास्ते (सरकारी/कॉर्पोरेट/प्राइवेट नौकरी, व्यवसाय, स्वरोजगार) समझें, और विशेषज्ञ काउंसलर से मुफ़्त बात करें।",
+  head: ['<link rel="stylesheet" href="/assets/aptitude-test.css">'],
+  foot: [
+    '<script src="/assets/mg_names.js"></scr' + 'ipt>',
+    '<script src="/assets/aptitude_art.js"></scr' + 'ipt>',
+    '<script src="/assets/aptitude_data.js"></scr' + 'ipt>',
+    '<script src="/assets/aptitude-test.js" defer></scr' + 'ipt>',
+    '<script src="/assets/apt-session.js" defer></scr' + 'ipt>',
+    '<script type="module" src="/assets/apt-pay.js"></scr' + 'ipt>'
+  ],
+  content: SALAH_CONTENT
 });
