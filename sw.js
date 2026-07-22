@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v87'; // apt-attempt-fee: apt-pay.js nayi, apt-session.js (attempt-gate) + salah.html generator-route me laya + aptitude-test.html dummy-label
+const CACHE_VERSION = 'v88'; // apt-session.js poora redesign (mandatory-complete-per-40 + 30s story-hold + mgName bugfix) + apt-pay.js report-save + dashboard.js salah-panel + apt-full-info/dummy-notice conditional
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
