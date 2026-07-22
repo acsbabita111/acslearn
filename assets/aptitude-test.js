@@ -28,6 +28,8 @@
         _bx.innerHTML = '<p class="apt-q">\uD83C\uDF96\uFE0F आपका बैज सक्रिय है — मुफ़्त झलक की ज़रूरत नहीं।</p>' +
           '<p>नीचे पूरा टेस्ट (120 प्रश्न) दीजिए — मुफ़्त, जितनी बार चाहें।</p>';
       }
+      var _n1 = document.getElementById("apt-dummy-notice"); if (_n1) _n1.style.display = "none";
+      var _n2 = document.getElementById("apt-full-info"); if (_n2) _n2.style.display = "none";
       return;
     }
   } catch (e) {}

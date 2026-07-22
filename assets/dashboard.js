@@ -1112,6 +1112,36 @@ if (MODE==="external" && ALLOWED.length>=1) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   (22-Jul-2026) सलाह-पैनल: पिछली अभिरुचि-रिपोर्ट की स्थिति (₹125-सेव)।
+   badge-status से स्वतंत्र — रिपोर्ट सेव होना/न होना अलग बात है।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const st = document.getElementById("apt-last-report-status");
+  if (!st) return;
+  (async () => {
+    try {
+      const u = auth.currentUser; if (!u) { st.textContent = "लॉगिन-जाँच बाक़ी…"; return; }
+      const res = await httpsCallable(functions, "latestAptitudeReport")({});
+      const d = (res && res.data) || {};
+      if (!d.found) {
+        st.innerHTML = "अभी कोई रिपोर्ट सेव नहीं — टेस्ट देकर नतीजे पर ₹125 में सेव करें।";
+        return;
+      }
+      const dt = d.paidAt ? new Date(d.paidAt).toLocaleDateString("hi-IN") : "";
+      st.innerHTML = "✅ पिछली रिपोर्ट सेव है"+(dt?" ("+esc(dt)+")":"")+"। " +
+        '<button class="abtn ok" id="apt-old-print" style="margin:4px 4px 0 0">🖨️ Print</button> ' +
+        '<a class="abtn ok" id="apt-old-wa" target="_blank" rel="noopener" href="https://wa.me/?text='+
+        encodeURIComponent(d.reportText||"")+'" style="display:inline-block;text-decoration:none;margin:4px 0 0">📲 WhatsApp</a>';
+      const pb = document.getElementById("apt-old-print");
+      if (pb) pb.onclick = () => {
+        const w = window.open("", "_blank");
+        if (w) { w.document.write("<pre style='font-size:16px;white-space:pre-wrap'>"+esc(d.reportText||"")+"</pre>"); w.print(); }
+      };
+    } catch(e) { st.textContent = "रिपोर्ट-स्थिति नहीं जाँची जा सकी।"; }
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
    (काम-11+, 19-Jul-2026 Founder-आदेश) 📒 खाता-बही — सिर्फ़ लेन-देन-रिकॉर्ड।
    ACS कोई balance नहीं रखता, निकासी नहीं (PPI-बचाव + "ACS पुल-मात्र" v1.7)।
    स्रोत: payments (rules v6 — मालिक अपना पढ़े)। scale-नियम: 50-50 खेप।

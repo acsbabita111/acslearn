@@ -52,7 +52,9 @@
     } else if (showBuy) {
       extra = '<div id="apt-buy-wrap">' +
         '<p style="font-weight:700;color:var(--navy,#0B1F3A)">या: बिना-badge भी ₹100 में 1 पूरा चांस लें</p>' +
-        '<div class="apt-nav"><button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 चांस लें</button></div>' +
+        '<p style="font-size:16px;color:var(--muted,#666)">₹100 भरने के लिए पहले Student/Job-seeker/Entrepreneur — किसी भी भूमिका में रजिस्ट्रेशन ज़रूरी है।</p>' +
+        '<div class="apt-nav"><a class="apt-btn ghost" href="/join.html">📝 पहले रजिस्ट्रेशन करें</a> ' +
+        '<button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 चांस लें</button></div>' +
         '<p id="apt-buy-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
         '</div>';
     }
@@ -70,11 +72,21 @@
   /* apt-pay.js (module-स्क्रिप्ट, अलग फ़ाइल) इन्हीं दो को बुलाता है —
      गूँगा-fallback निषेध (v2.3): apt-pay.js न लोड हो पाए तो 2.5s में
      अपने-आप buy-card दिखे, "अटका हुआ जाँच रहा है" कभी न रहे। */
+  /* static "डमी-टेस्ट"/"रजिस्ट्रेशन ज़रूरी" वाली लाइनें (apt-box के ऊपर/नीचे, page-content में
+     hardcoded) असली-गेट पास होने पर बेमानी/भ्रामक हो जाती हैं — छिपा दो (होल-बंदी, 22-Jul)। */
+  function hideStaticNotices() {
+    try {
+      var n1 = document.getElementById('apt-dummy-notice'); if (n1) n1.style.display = 'none';
+      var n2 = document.getElementById('apt-full-info'); if (n2) n2.style.display = 'none';
+    } catch (e) {}
+  }
+
   window.ACS_APT_SESSION = {
     unlock: function (mode) {
       if (engineStarted) return;
       ACCESS_MODE = mode || 'attempt';
       engineStarted = true;
+      hideStaticNotices();
       initEngine();
     },
     showBuy: function () { if (!engineStarted) renderGateCard(true); }
@@ -83,6 +95,7 @@
   if (gateOK()) {
     ACCESS_MODE = 'badge';
     engineStarted = true;
+    hideStaticNotices();
     initEngine();
   } else {
     renderGateCard('checking');
@@ -253,7 +266,7 @@
     if (id && ART[id]) return '<div class="apt-img">' + ART[id] + '</div>';
     return '';
   }
-  function mgName(m) { var e = MG[m]; return e ? ((e.icon ? e.icon + ' ' : '') + e.name) : ('समूह-' + m); }
+  function mgName(m) { var e = MG[m]; return e ? ((e.e ? e.e + ' ' : '') + e.n) : ('समूह-' + m); }
 
   /* ---------- शुरुआत-कार्ड ---------- */
   function renderStart() {
@@ -299,7 +312,8 @@
   function newAttempt(yob) {
     S.birthYear = yob;
     var n = S.attempts.length + 1;
-    S.cur = { n: n, band: bandOf(YEAR_NOW - yob), phase: 1, ids: { k1: [], k2: [], k3: [] }, pos: 0, ans: {}, elapsed: 0, topMg: [], locked: false };
+    S.cur = { n: n, band: bandOf(YEAR_NOW - yob), phase: 1, ids: { k1: [], k2: [], k3: [] },
+              queue: null, doneOrder: null, pos: 0, ans: {}, elapsed: 0, topMg: [], locked: false };
     save(S);
     bootQuestions();
   }
@@ -332,11 +346,13 @@
     if (C.phase === 1) {
       var top = rank(T.mg).filter(function (x) { return x.avg > 0; }).slice(0, 4).map(function (x) { return x.k; });
       if (top.length < 3) top = rank(T.mg).slice(0, 3).map(function (x) { return x.k; });
-      C.topMg = top; C.phase = 2; save(S);
+      C.topMg = top; C.phase = 2; C.queue = null; C.doneOrder = null; save(S);
       storyBreak(top[0], function () {
         loadTopShards(function () {
           var deep = poolAll().filter(function (q) { return udyTags(q).length && mgTags(q).some(function (m) { return top.indexOf(m) >= 0; }); });
           var picked = pickSpread(deep, PER_KHAND, C.band, S.used, C.n * 211 + 3, function (q) { return mgTags(q)[0] || 0; });
+          var chosen1 = {}; C.ids.k1.forEach(function (id) { chosen1[id] = 1; });
+          picked = backfillTo40(picked, chosen1, C.band, top);
           C.ids.k2 = picked.map(function (q) { return q.id; });
           save(S); renderStep();
         });
@@ -344,7 +360,7 @@
     } else if (C.phase === 2) {
       var udyRank = rank(T.udy);
       var topU = {}; udyRank.slice(0, 30).forEach(function (x, i) { if (x.avg > 0) topU[x.k] = 30 - i; });
-      C.phase = 3; save(S);
+      C.phase = 3; C.queue = null; C.doneOrder = null; save(S);
       storyBreak(C.topMg[0], function () {
         var chosen = {}; C.ids.k1.concat(C.ids.k2).forEach(function (id) { chosen[id] = 1; });
         var deep = poolAll().filter(function (q) {
@@ -353,6 +369,7 @@
         deep.sort(function (a, b) { return weight(b, topU) - weight(a, topU); });
         var fresh = deep.filter(function (q) { return !S.used[q.id] && fitsBand(q, C.band); });
         var list = (fresh.length >= PER_KHAND ? fresh : deep.filter(function (q) { return fitsBand(q, C.band); })).slice(0, PER_KHAND);
+        list = backfillTo40(list, chosen, C.band, C.topMg);
         C.ids.k3 = list.map(function (q) { return q.id; });
         save(S); renderStep();
       });
@@ -360,31 +377,92 @@
   }
   function weight(q, topU) { var w = 0; udyTags(q).forEach(function (u) { if (topU[u]) w += topU[u]; }); return w; }
 
-  /* ---------- कथा-विराम ---------- */
+  /* ---------- होल-बंदी (22-Jul): खंड कभी 40 से कम न रहे ----------
+     deep-filter (mg+udy मिलान) कभी-कभी 40 से कम दे सकता है (loaded-shard सीमित
+     होने से) — तब मौजूदा loaded-pool से band-फिट कोई भी बाक़ी प्रश्न भरकर 40 पूरे
+     करो (topMg-मेल वालों को प्राथमिकता); वरना खंड ख़ाली रहकर टेस्ट ग़लत-समय
+     ख़त्म हो जाता (80/120 वाला होल)। */
+  function backfillTo40(list, chosenIds, band, topMg) {
+    if (list.length >= PER_KHAND) return list.slice(0, PER_KHAND);
+    var have = {}; list.forEach(function (q) { have[q.id] = 1; });
+    Object.keys(chosenIds || {}).forEach(function (id) { have[id] = 1; });
+    var backup = poolAll().filter(function (q) { return !have[q.id] && fitsBand(q, band); });
+    backup.sort(function (a, b) {
+      var am = (topMg && mgTags(a).some(function (m) { return topMg.indexOf(m) >= 0; })) ? 0 : 1;
+      var bm = (topMg && mgTags(b).some(function (m) { return topMg.indexOf(m) >= 0; })) ? 0 : 1;
+      return am - bm;
+    });
+    var need = PER_KHAND - list.length;
+    return list.concat(backup.slice(0, need));
+  }
+
+  /* ---------- कथा-विराम — 30-सेकंड अनिवार्य होल्ड (Founder-नियम, 22-Jul) ----------
+     "आगे बढ़ें" बटन 30 सेकंड तक निष्क्रिय रहे — जल्दी में बिना पढ़े आगे बढ़ना रुके। */
+  var HOLD_SEC = 30;
   function storyBreak(topMgId, next) {
     var st = (D.stories || []).filter(function (s) { return (s.mg || []).indexOf(topMgId) >= 0; })[0] || (D.stories || [])[S.cur.phase % (D.stories || [1]).length] || null;
     if (!st) { next(); return; }
     box.innerHTML = '<div class="apt-card apt-katha">' + art(st.img) +
       '<p class="apt-q">📖 ' + esc(st.title) + '</p><p>' + esc(st.text) + '</p>' +
-      '<div class="apt-nav"><button class="apt-btn blue" id="apt-next">आगे बढ़ें ➜</button></div></div>';
-    document.getElementById('apt-next').onclick = next;
+      '<div class="apt-nav"><button class="apt-btn blue" id="apt-next" disabled>⏳ ' + HOLD_SEC + ' सेकंड रुकिए…</button></div></div>';
     window.scrollTo(0, box.offsetTop - 8);
+    var btn = document.getElementById('apt-next');
+    var left = HOLD_SEC;
+    var timer = setInterval(function () {
+      left--;
+      if (left <= 0) {
+        clearInterval(timer);
+        if (btn) { btn.disabled = false; btn.textContent = 'आगे बढ़ें ➜'; btn.onclick = next; }
+      } else if (btn) {
+        btn.textContent = '⏳ ' + left + ' सेकंड रुकिए…';
+      }
+    }, 1000);
   }
 
-  /* ---------- प्रश्न-प्रदर्शन ---------- */
+  /* ---------- प्रश्न-प्रदर्शन — mandatory-complete-per-40 मॉडल (Founder-नियम, 22-Jul) ----------
+     हर खंड (40 प्रश्न) की अपनी queue: सामने वाला प्रश्न हमेशा queue[0]। जवाब मिले →
+     आगे बढ़े (doneOrder में); "अभी छोड़ें" दबे तो वही प्रश्न queue के पीछे चला जाए —
+     यानी बाक़ी 39 में घूमकर फिर सामने आएगा। खंड तभी पूरा माना जाए जब queue ख़ाली
+     हो — कोई भी प्रश्न बिना जवाब टेस्ट को आगे नहीं बढ़ा सकता (1 भी छूटा तो दुबारा आएगा)। */
   function seq() { var C = S.cur; return C.ids.k1.concat(C.ids.k2, C.ids.k3); }
+  function currentPhaseIds() {
+    var C = S.cur;
+    if (C.phase === 1) return C.ids.k1;
+    if (C.phase === 2) return C.ids.k2;
+    return C.ids.k3;
+  }
+  function ensureQueue() {
+    var C = S.cur;
+    if (!C.queue) {
+      var ids = currentPhaseIds();
+      C.queue = ids.filter(function (id) { return !(C.ans[id] && answeredRaw(C.ans[id])); });
+      C.doneOrder = ids.filter(function (id) { return C.ans[id] && answeredRaw(C.ans[id]); });
+      save(S);
+    }
+    if (!C.doneOrder) C.doneOrder = [];
+  }
+  function answeredRaw(a) {
+    if (typeof a.first === 'number' && typeof a.last === 'number') return true;
+    return typeof a.v === 'number' || typeof a.v11 === 'number';
+  }
+  function advance() {
+    var C = S.cur;
+    var cur = C.queue.shift();
+    if (typeof cur !== 'undefined') C.doneOrder.push(cur);
+  }
   function renderStep() {
-    var C = S.cur, ids = seq();
-    if (C.pos >= ids.length) {
-      if (C.phase === 1 || (C.phase === 2 && ids.length < TOTAL)) { khandBoundary(); return; }
+    var C = S.cur;
+    ensureQueue();
+    if (C.queue.length === 0) {
+      if (C.phase === 1 || C.phase === 2) { khandBoundary(); return; }
       renderSubmit(); return;
     }
-    if (C.phase === 1 && C.pos >= PER_KHAND) { khandBoundary(); return; }
-    if (C.phase === 2 && C.pos >= 2 * PER_KHAND) { khandBoundary(); return; }
     var qmap = byId(poolAll().concat(D.questions));
-    var q = qmap[ids[C.pos]];
-    if (!q) { C.pos++; save(S); renderStep(); return; }
-    var head = '<div class="apt-top"><span class="apt-prog">खंड ' + C.phase + ' · प्रश्न ' + (C.pos + 1) + ' / ' + TOTAL + '</span>' +
+    var qid = C.queue[0];
+    var q = qmap[qid];
+    if (!q) { C.queue.shift(); save(S); renderStep(); return; }
+    var globalDone = (C.phase - 1) * PER_KHAND + C.doneOrder.length;
+    var head = '<div class="apt-top"><span class="apt-prog">खंड ' + C.phase + ' · प्रश्न ' + (globalDone + 1) + ' / ' + TOTAL + '</span>' +
       '<span class="apt-prog" id="apt-clock">' + clockText(C) + '</span></div>';
     var body = '<p class="apt-q">' + esc(q.text) + '</p>';
     var a = C.ans[q.id] || {};
@@ -393,13 +471,23 @@
     else body += optUI(q, a);
     body += art(q.img);
     var nav = '<div class="apt-nav">' +
-      (C.pos > 0 ? '<button class="apt-btn ghost" id="apt-prev">← पिछला</button> ' : '') +
-      '<button class="apt-btn blue" id="apt-skiporgo">' + (answered(q, a) ? 'आगे ➜' : 'बाद में देखूँगा ➜') + '</button></div>';
+      (C.doneOrder.length > 0 ? '<button class="apt-btn ghost" id="apt-prev">← पिछला</button> ' : '') +
+      '<button class="apt-btn blue" id="apt-skiporgo">' + (answered(q, a) ? 'आगे ➜' : '⏭ अभी छोड़ें (यह प्रश्न फिर आएगा)') + '</button></div>';
     box.innerHTML = '<div class="apt-card">' + head + body + nav + '</div>';
     bind(q);
     var pv = document.getElementById('apt-prev');
-    if (pv) pv.onclick = function () { C.pos--; save(S); renderStep(); };
-    document.getElementById('apt-skiporgo').onclick = function () { C.pos++; save(S); renderStep(); };
+    if (pv) pv.onclick = function () {
+      if (!C.doneOrder.length) return;
+      var back = C.doneOrder.pop();
+      C.queue.unshift(back);
+      save(S); renderStep();
+    };
+    document.getElementById('apt-skiporgo').onclick = function () {
+      var aa = C.ans[q.id] || {};
+      if (answered(q, aa)) { advance(); }
+      else { var cur = C.queue.shift(); C.queue.push(cur); }
+      save(S); renderStep();
+    };
   }
   function answered(q, a) {
     if (q.type === 'pick') return typeof a.first === 'number' && typeof a.last === 'number';
@@ -439,10 +527,10 @@
     var keep = window.scrollY;
     function done() { save(S); var y = keep; renderStep(); window.scrollTo(0, y); }
     Array.prototype.forEach.call(box.querySelectorAll('[data-v]'), function (b) {
-      b.onclick = function () { a.v = Number(b.getAttribute('data-v')); C.pos++; done(); };
+      b.onclick = function () { a.v = Number(b.getAttribute('data-v')); advance(); done(); };
     });
     Array.prototype.forEach.call(box.querySelectorAll('[data-v11]'), function (b) {
-      b.onclick = function () { a.v11 = Number(b.getAttribute('data-v11')); C.pos++; done(); };
+      b.onclick = function () { a.v11 = Number(b.getAttribute('data-v11')); advance(); done(); };
     });
     Array.prototype.forEach.call(box.querySelectorAll('[data-i]'), function (b) {
       b.onclick = function () {
@@ -451,8 +539,8 @@
           if (typeof a.first !== 'number') a.first = i;
           else if (a.first === i) { delete a.first; delete a.last; }
           else { a.last = i; }
-          if (typeof a.first === 'number' && typeof a.last === 'number') C.pos++;
-        } else { a.v = i; C.pos++; }
+          if (typeof a.first === 'number' && typeof a.last === 'number') advance();
+        } else { a.v = i; advance(); }
         done();
       };
     });
@@ -466,7 +554,15 @@
       '<p>चाहें तो "← पिछला" से पीछे जाकर जवाब बदल लें।</p>' +
       '<div class="apt-nav"><button class="apt-btn ghost" id="apt-prev">← पिछला</button> ' +
       '<button class="apt-btn green" id="apt-lock">✅ अंतिम जमा</button></div></div>';
-    document.getElementById('apt-prev').onclick = function () { C.pos = seq().length - 1; save(S); renderStep(); };
+    document.getElementById('apt-prev').onclick = function () {
+      ensureQueue();
+      if (C.doneOrder && C.doneOrder.length) {
+        var back = C.doneOrder.pop();
+        C.queue = C.queue || [];
+        C.queue.unshift(back);
+      }
+      save(S); renderStep();
+    };
     document.getElementById('apt-lock').onclick = function () {
       if (confirm('पक्का जमा करें? इसके बाद यह प्रयास बदलेगा नहीं।')) finish(false);
     };
@@ -487,6 +583,52 @@
   }
 
   /* ---------- नतीजा ---------- */
+  /* ---------- ₹125 रिपोर्ट-सेव + Print/WhatsApp (badge-status से स्वतंत्र, 22-Jul) ----------
+     window.ACS_APT_PAY (apt-pay.js) उपलब्ध न हो तो बटन साफ़ संदेश दे — गूँगा-fallback निषेध। */
+  function buildReportText(mgR, picks, C) {
+    var lines = [];
+    lines.push('ACS अभिरुचि-टेस्ट रिपोर्ट — ' + new Date().toLocaleDateString('hi-IN'));
+    lines.push('शीर्ष समूह: ' + mgR.slice(0, 4).map(function (x) { return mgName(x.k); }).join(', '));
+    if (picks && picks.length) {
+      lines.push('सुझाए कोर्स:');
+      picks.forEach(function (p, i) { lines.push((i + 1) + '. ' + String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')')); });
+    }
+    lines.push('(यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।)');
+    return lines.join('\n');
+  }
+  function wireReportSave(mgR, picks, C) {
+    var btn = document.getElementById('apt-report-save-btn');
+    var msg = document.getElementById('apt-report-msg');
+    if (!btn) return;
+    var reportText = buildReportText(mgR, picks, C);
+    btn.onclick = function () {
+      if (!window.ACS_APT_PAY || !window.ACS_APT_PAY.saveReport) {
+        if (msg) msg.textContent = '⚠️ भुगतान-सुविधा अभी लोड नहीं हुई — पन्ना दोबारा खोलें।';
+        return;
+      }
+      btn.disabled = true;
+      if (msg) msg.textContent = 'भुगतान तैयार किया जा रहा है…';
+      window.ACS_APT_PAY.saveReport(reportText, function (err) {
+        btn.disabled = false;
+        if (err) { if (msg) msg.textContent = 'नहीं हो पाया: ' + (err.message || err); return; }
+        showSavedOptions(reportText);
+      });
+    };
+  }
+  function showSavedOptions(reportText) {
+    var wrap = document.getElementById('apt-report-save-wrap');
+    var msg = document.getElementById('apt-report-msg');
+    if (msg) { msg.textContent = '✅ रिपोर्ट सेव हो गई।'; msg.className = 'msg ok'; }
+    if (wrap) {
+      wrap.innerHTML =
+        '<button class="apt-btn blue" id="apt-report-print">🖨️ Print करें</button> ' +
+        '<a class="apt-btn green" id="apt-report-wa" target="_blank" rel="noopener" href="https://wa.me/?text=' +
+        encodeURIComponent(reportText) + '">📲 WhatsApp करें</a>';
+      var pb = document.getElementById('apt-report-print');
+      if (pb) pb.onclick = function () { window.print(); };
+    }
+  }
+
   function renderResult(byClock) {
     var C = S.cur, qmap = byId(poolAll().concat(D.questions));
     var T = tally(qmap, C.ans);
@@ -510,7 +652,8 @@
         h += '<div class="apt-opts">';
         picks.forEach(function (p, i) {
           var nm = String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')');
-          h += '<div class="apt-row apt-course"><span class="nm">' + (i + 1) + '. ' + esc(nm) + '</span> ';
+          var nmHtml = p.u.course ? ('<a href="' + p.u.course + '" style="color:inherit;text-decoration:underline">' + esc(nm) + '</a>') : esc(nm);
+          h += '<div class="apt-row apt-course"><span class="nm">' + (i + 1) + '. ' + nmHtml + '</span> ';
           if (p.u.course) h += '<a class="apt-btn apt-mini" href="' + p.u.course + '">📚 पढ़ें — कोर्स उपलब्ध ✅</a>';
           else h += '<span class="apt-hint">पाठ जल्द जुड़ेंगे</span> <a class="apt-btn2 apt-mini" href="https://wa.me/919431210092?text=' +
             encodeURIComponent('मुझे यह कोर्स चाहिए: ' + nm + ' (उद्यम ' + p.u.n + ')') + '">📲 यह कोर्स माँगें</a>';
@@ -523,10 +666,16 @@
         if (unMg.length) h += '<div class="apt-note">🔍 अनजान क्षेत्र: ' + unMg.slice(0, 6).map(function (m) { return mgName(Number(m)); }).join(' · ') + ' — इन्हें जानना भी एक राह है।</div>';
       }
       h += '<div class="apt-note">📝 यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।</div>' +
-        '<div class="apt-note">🟢 टेस्ट मुफ़्त है। प्रमाण पत्र (PDF) ₹125 में — मर्ज़ी हो तो लें, या न लें। यह सुविधा जल्द जुड़ेगी।</div>' +
+        '<div class="apt-note">🟢 टेस्ट मुफ़्त है (badge-धारक असीमित)। यह रिपोर्ट अभी अस्थायी है — ' +
+        '₹125 जमा करें तो सिस्टम इसे भविष्य के लिए सेव कर देगा, तभी Print/WhatsApp विकल्प खुलेंगे। ' +
+        'हर नए टेस्ट/नतीजे का सेव अलग ₹125 में।</div>' +
+        '<div id="apt-report-save-wrap" class="apt-nav">' +
+        '<button class="apt-btn gold" id="apt-report-save-btn">📄 यह रिपोर्ट सेव करें (₹125)</button></div>' +
+        '<p id="apt-report-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
         '<div class="apt-nav"><button class="apt-btn green" id="apt-again">🆕 नया प्रयास (ताज़ा प्रश्न)</button></div>';
       box.innerHTML = '<div class="apt-card">' + h + '</div>';
       document.getElementById('apt-again').onclick = function () { S.cur = null; save(S); renderStart(); };
+      wireReportSave(mgR, picks, C);
       window.scrollTo(0, box.offsetTop - 8);
     });
   }

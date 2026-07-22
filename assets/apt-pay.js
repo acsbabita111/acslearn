@@ -29,9 +29,6 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
       return !!(g && g.until && Date.now() < g.until);
     } catch (e) { return false; }
   }
-  /* बैज पहले से सक्रिय — इस पूरी स्क्रिप्ट की ज़रूरत नहीं */
-  if (gateOK()) return;
-
   var app = initializeApp({
     apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
     authDomain: "acslearn-platform.firebaseapp.com",
@@ -136,14 +133,73 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
     if (b) { wired = true; b.onclick = buyAttempt; }
   }
 
+  /* ---------- ₹125 रिपोर्ट-सेव (badge-status से स्वतंत्र — हमेशा उपलब्ध) ----------
+     apt-session.js का renderResult() इसे कॉल करता है; सफल होने पर Print/WhatsApp
+     दिखाने का ज़िम्मा भी वहीं (apt-session.js) संभालता है — यह सिर्फ़ भुगतान करता है। */
+  var savingReport = false;
+  function saveReport(reportText, onDone) {
+    if (savingReport) return;
+    var u = auth.currentUser;
+    if (!u) { onDone(new Error("पहले लॉगिन करें।")); return; }
+    savingReport = true;
+    httpsCallable(functions, "createAptitudeReportOrder")({ reportText: reportText }).then(function (res) {
+      var o = (res && res.data) || {};
+      if (!o.ok || !o.orderId) throw new Error("order नहीं बना");
+      return loadRazorpay().then(function () {
+        return new Promise(function (resolve, reject) {
+          var rzp = new window.Razorpay({
+            key: o.keyId, order_id: o.orderId, amount: o.amount, currency: o.currency || "INR",
+            name: o.name || "Applied Computer School",
+            description: "अभिरुचि-रिपोर्ट सेव (₹125)",
+            prefill: { email: (auth.currentUser && auth.currentUser.email) || "" },
+            theme: { color: "#0B1F3A" },
+            handler: function (r) { resolve(r); },
+            modal: { ondismiss: function () { reject(new Error("भुगतान रद्द किया गया।")); } }
+          });
+          rzp.open();
+        });
+      });
+    }).then(function (r) {
+      return httpsCallable(functions, "verifyAptitudeReportPayment")({
+        razorpay_order_id: r.razorpay_order_id,
+        razorpay_payment_id: r.razorpay_payment_id,
+        razorpay_signature: r.razorpay_signature
+      });
+    }).then(function () {
+      savingReport = false; onDone(null);
+    }).catch(function (e) {
+      savingReport = false; onDone(e);
+    });
+  }
+
+  /* dashboard "सलाह" पैनल के लिए — सबसे नई सेव-रिपोर्ट लाओ */
+  function fetchLatestReport(cb) {
+    var u = auth.currentUser;
+    if (!u) { cb(null); return; }
+    httpsCallable(functions, "latestAptitudeReport")({}).then(function (res) {
+      var d = (res && res.data) || {};
+      cb(d.found ? d : null);
+    }).catch(function () { cb(null); });
+  }
+
   window.ACS_APT_PAY = {
     consume: function () {
       httpsCallable(functions, "consumeAptitudeAttempt")({}).catch(function (e) {
         /* चुपचाप — नतीजा already बन चुका है, यह सिर्फ़ हिसाब-बही अपडेट है */
         console && console.warn && console.warn("consumeAptitudeAttempt:", e && e.message);
       });
+    },
+    saveReport: saveReport,
+    fetchLatestReport: fetchLatestReport,
+    whenLoggedIn: function (cb) {
+      if (auth.currentUser) { cb(auth.currentUser); return; }
+      onAuthStateChanged(auth, function (u) { if (u) cb(u); });
     }
   };
+
+  /* बैज पहले से सक्रिय हो तो ₹100/चांस-प्रवाह की ज़रूरत नहीं — सिर्फ़ वही हिस्सा रुके,
+     साझा firebase-init व saveReport ऊपर हमेशा तैयार रहते हैं। */
+  if (gateOK()) return;
 
   onAuthStateChanged(auth, function (user) {
     if (user) refreshStatus(false);
