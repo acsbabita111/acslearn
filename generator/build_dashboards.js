@@ -186,6 +186,11 @@ const P_COUNSEL = (
     'ज़रूर मिलती है — फिर booking। booking रद्द करने पर (1 घंटा पहले तक) 90 प्रतिशत वापसी — चाहे आप रद्द करें या counselor।</div>' +
     '<div class="note">counselor-सूची (नाम · fees) यहाँ तभी दिखेगी जब उनका RM भौतिक-सत्यापन व approval पूरा होगा — ' +
     'बिना सत्यापन कोई नाम portal पर नहीं दिखता (प्रदर्शन-नियम)।</div>' +
+    '<div class="pd" style="margin-top:14px"><b>🧭 अभिरुचि-टेस्ट:</b> बिना-badge ₹100/चांस; ' +
+    'Green/Golden Badge-धारक — मुफ़्त, 365 दिन जितनी बार चाहें। ' +
+    'रिपोर्ट (नतीजा) अस्थायी रहती है — ₹125 जमा करने पर ही स्थायी रूप से सेव होकर Print/WhatsApp खुलते हैं (हर नए नतीजे का अलग ₹125)।</div>' +
+    '<a class="abtn ok" style="display:inline-block;text-decoration:none;margin:6px 0" href="/aptitude-test.html">📝 अभिरुचि-टेस्ट शुरू/जारी करें</a>' +
+    '<div id="apt-last-report-status" class="note">पिछली रिपोर्ट जाँची जा रही है…</div>' +
     '</div>');
 
 const P_HELP = (
