@@ -1,0 +1,155 @@
+/* ============================================================
+   /assets/apt-pay.js — v1.0 (₹100/चांस भुगतान-द्वार · अभिरुचि-टेस्ट)
+   22-Jul-2026 · मूल भाषा: हिंदी · Founder-निर्णय की अमल-परत
+   ------------------------------------------------------------
+   नियम:
+   - badge-निशान (acs_apt_gate_v1) पहले से सक्रिय हो तो यह स्क्रिप्ट कुछ
+     नहीं करती — apt-session.js ख़ुद 'badge' मोड से सीधे खुल चुका होता है।
+   - बिना-badge: login ज़रूरी। login वाले का ₹100/चांस-status जाँचो
+     (Cloud Function checkAptitudeAttempt) — unused+paid मिले तो सीधे
+     unlock('attempt'); न मिले तो buy-card + बटन दिखाओ (apt-session.js से)।
+   - ख़रीद-प्रवाह: createAptitudeAttemptOrder → Razorpay checkout →
+     verifyAptitudeAttemptPayment → दोबारा-जाँच → unlock('attempt')।
+   - रक़म कभी client तय नहीं करता — server (functions/index.js) से आती है।
+   - Final-Submit पर apt-session.js ख़ुद window.ACS_APT_PAY.consume() बुलाता
+     है (सिर्फ़ attempt-मोड में) — यहीं exposed।
+   - गूँगा-fallback निषेध (v2.3): यह स्क्रिप्ट न लोड हो पाए तो apt-session.js
+     का अपना 2.5s fallback-timer buy-card दिखा ही देगा — अटका हुआ नहीं रहेगा।
+   ============================================================ */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
+
+(function () {
+  "use strict";
+
+  function gateOK() {
+    try {
+      var g = JSON.parse(localStorage.getItem("acs_apt_gate_v1") || "null");
+      return !!(g && g.until && Date.now() < g.until);
+    } catch (e) { return false; }
+  }
+  /* बैज पहले से सक्रिय — इस पूरी स्क्रिप्ट की ज़रूरत नहीं */
+  if (gateOK()) return;
+
+  var app = initializeApp({
+    apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
+    authDomain: "acslearn-platform.firebaseapp.com",
+    projectId: "acslearn-platform",
+    storageBucket: "acslearn-platform.firebasestorage.app",
+    messagingSenderId: "435395814481",
+    appId: "1:435395814481:web:655f99452a90f8efbc4470"
+  });
+  var auth = getAuth(app);
+  var functions = getFunctions(app, "us-central1");
+
+  function loadRazorpay() {
+    return new Promise(function (res, rej) {
+      if (window.Razorpay) { res(); return; }
+      var s = document.createElement("script");
+      s.src = "https://checkout.razorpay.com/v1/checkout.js";
+      s.onload = function () { res(); };
+      s.onerror = function () { rej(new Error("भुगतान-पृष्ठ नहीं खुला — network जाँचें")); };
+      document.body.appendChild(s);
+    });
+  }
+
+  function setMsg(txt, cls) {
+    var m = document.getElementById("apt-buy-msg");
+    if (m) { m.textContent = txt; m.className = cls || ""; }
+  }
+
+  var checking = false;
+  function refreshStatus(afterPay) {
+    if (checking) return;
+    checking = true;
+    httpsCallable(functions, "checkAptitudeAttempt")({}).then(function (res) {
+      checking = false;
+      var d = (res && res.data) || {};
+      if (d.available) {
+        if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.unlock) {
+          window.ACS_APT_SESSION.unlock("attempt");
+        }
+      } else if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
+        window.ACS_APT_SESSION.showBuy();
+        wireBuyButton();
+        if (afterPay) setMsg("भुगतान हुआ पर चांस नहीं दिखा — पन्ना दोबारा खोलें।", "msg err");
+      }
+    }).catch(function () {
+      checking = false;
+      if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
+        window.ACS_APT_SESSION.showBuy();
+        wireBuyButton();
+      }
+    });
+  }
+
+  var buying = false;
+  function buyAttempt() {
+    if (buying) return;
+    var u = auth.currentUser;
+    if (!u) {
+      setMsg("पहले लॉगिन करें — नीचे 'Login / Dashboard' दबाएँ।", "msg err");
+      return;
+    }
+    buying = true;
+    setMsg("शुल्क तैयार किया जा रहा है…", "msg");
+    httpsCallable(functions, "createAptitudeAttemptOrder")({}).then(function (res) {
+      var o = (res && res.data) || {};
+      if (!o.ok || !o.orderId) throw new Error("order नहीं बना");
+      return loadRazorpay().then(function () {
+        return new Promise(function (resolve, reject) {
+          setMsg("भुगतान-पृष्ठ खुल रहा है…", "msg");
+          var rzp = new window.Razorpay({
+            key: o.keyId, order_id: o.orderId, amount: o.amount, currency: o.currency || "INR",
+            name: o.name || "Applied Computer School",
+            description: "अभिरुचि-टेस्ट — 1 पूरा चांस (₹100)",
+            prefill: { email: (auth.currentUser && auth.currentUser.email) || "" },
+            theme: { color: "#0B1F3A" },
+            handler: function (r) { resolve(r); },
+            modal: { ondismiss: function () { reject(new Error("भुगतान रद्द किया गया।")); } }
+          });
+          rzp.open();
+        });
+      });
+    }).then(function (r) {
+      if (!r) return;
+      setMsg("भुगतान की पुष्टि हो रही है…", "msg");
+      return httpsCallable(functions, "verifyAptitudeAttemptPayment")({
+        razorpay_order_id: r.razorpay_order_id,
+        razorpay_payment_id: r.razorpay_payment_id,
+        razorpay_signature: r.razorpay_signature
+      });
+    }).then(function (v) {
+      buying = false;
+      if (v) { setMsg("✅ भुगतान सफल — टेस्ट खुल रहा है…", "msg ok"); refreshStatus(true); }
+    }).catch(function (e) {
+      buying = false;
+      setMsg("नहीं हो पाया: " + (e && e.message ? e.message : e), "msg err");
+    });
+  }
+
+  var wired = false;
+  function wireBuyButton() {
+    if (wired) return;
+    var b = document.getElementById("apt-buy-attempt-btn");
+    if (b) { wired = true; b.onclick = buyAttempt; }
+  }
+
+  window.ACS_APT_PAY = {
+    consume: function () {
+      httpsCallable(functions, "consumeAptitudeAttempt")({}).catch(function (e) {
+        /* चुपचाप — नतीजा already बन चुका है, यह सिर्फ़ हिसाब-बही अपडेट है */
+        console && console.warn && console.warn("consumeAptitudeAttempt:", e && e.message);
+      });
+    }
+  };
+
+  onAuthStateChanged(auth, function (user) {
+    if (user) refreshStatus(false);
+    else if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
+      window.ACS_APT_SESSION.showBuy();
+      wireBuyButton();
+    }
+  });
+})();

@@ -30,27 +30,70 @@
   var D = window.APT_DATA, ART = window.APT_ART || {}, MG = window.MG_NAMES || {};
   if (!D || !D.pool) { box.innerHTML = '<p>टेस्ट-सामग्री नहीं खुली — पन्ना दोबारा खोलिए।</p>'; return; }
 
-  /* ---------- बैज-द्वार (Jio-नियम v3.7 · 22-Jul-2026) ----------
-     पूरा टेस्ट सिर्फ़ बैज वालों के लिए। निशान dashboard से बनता है
-     (acs_apt_gate_v1) — बैज सक्रिय हो तभी। बिना निशान = द्वार-कार्ड। */
+  /* ---------- बैज-द्वार + ₹100/चांस-द्वार (Jio-नियम v3.7 + Founder-नियम 22-Jul) ----------
+     दो रास्ते: (अ) बैज-निशान (acs_apt_gate_v1, dashboard से) → मुफ़्त-असीमित;
+     (ब) ₹100 में 1-चांस — apt-pay.js (अलग module-स्क्रिप्ट) से भुगतान होकर
+     window.ACS_APT_SESSION.unlock('attempt') बुलाता है। यहाँ से पूरा इंजन
+     initEngine() में लपेटा — ताकि async भुगतान-पुष्टि के बाद भी टेस्ट शुरू
+     हो सके (पहले सीधे return से आगे का code कभी न चलता)। */
   function gateOK() {
     try {
       var g = JSON.parse(localStorage.getItem('acs_apt_gate_v1') || 'null');
       return !!(g && g.until && Date.now() < g.until);
     } catch (e) { return false; }
   }
-  if (!gateOK()) {
+  var ACCESS_MODE = null;   /* 'badge' | 'attempt' — finish() पर तय करता है consume बुलाना है या नहीं */
+  var engineStarted = false;
+
+  function renderGateCard(showBuy) {
+    var extra = '';
+    if (showBuy === 'checking') {
+      extra = '<p id="apt-buy-msg">\uD83D\uDD0E आपका भुगतान-चांस जाँचा जा रहा है…</p>';
+    } else if (showBuy) {
+      extra = '<div id="apt-buy-wrap">' +
+        '<p style="font-weight:700;color:var(--navy,#0B1F3A)">या: बिना-badge भी ₹100 में 1 पूरा चांस लें</p>' +
+        '<div class="apt-nav"><button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 चांस लें</button></div>' +
+        '<p id="apt-buy-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
+        '</div>';
+    }
     box.innerHTML = '<div class="apt-card">' +
-      '<p class="apt-q">\uD83C\uDF96\uFE0F पूरा टेस्ट बैज वालों के लिए है</p>' +
+      '<p class="apt-q">\uD83C\uDF96\uFE0F पूरा टेस्ट — बैज या ₹100/चांस से</p>' +
       '<p>बैज वाले साथी यह टेस्ट 365 दिन मुफ़्त देते हैं — जितनी बार चाहें।</p>' +
       '<p>बैज है? पहले लॉगिन (Login) कीजिए। फिर अपने डैशबोर्ड (Dashboard) के \uD83C\uDF96\uFE0F बैज पैनल में जाइए।</p>' +
       '<p>वहाँ से इस पन्ने पर आइए — द्वार अपने-आप खुल जाएगा।</p>' +
-      '<p>बैज नहीं है? ऊपर की मुफ़्त झलक (24 प्रश्न) दीजिए।</p>' +
-      '<p>बैज अपने dashboard से लिया जा सकता है।</p>' +
+      '<p>बैज नहीं है? ऊपर की मुफ़्त झलक (24 प्रश्न) दीजिए, या नीचे ₹100 में सीधे पूरा टेस्ट लीजिए।</p>' +
       '<div class="apt-nav"><a class="apt-btn green" href="/dashboard/">\uD83D\uDD11 Login / Dashboard</a></div>' +
+      extra +
       '</div>';
-    return;
   }
+
+  /* apt-pay.js (module-स्क्रिप्ट, अलग फ़ाइल) इन्हीं दो को बुलाता है —
+     गूँगा-fallback निषेध (v2.3): apt-pay.js न लोड हो पाए तो 2.5s में
+     अपने-आप buy-card दिखे, "अटका हुआ जाँच रहा है" कभी न रहे। */
+  window.ACS_APT_SESSION = {
+    unlock: function (mode) {
+      if (engineStarted) return;
+      ACCESS_MODE = mode || 'attempt';
+      engineStarted = true;
+      initEngine();
+    },
+    showBuy: function () { if (!engineStarted) renderGateCard(true); }
+  };
+
+  if (gateOK()) {
+    ACCESS_MODE = 'badge';
+    engineStarted = true;
+    initEngine();
+  } else {
+    renderGateCard('checking');
+    setTimeout(function () {
+      if (!engineStarted) renderGateCard(true);
+    }, 2500);
+  }
+  return; /* नीचे initEngine() परिभाषा है — असली शुरुआत ऊपर से होती है */
+
+  /* ================= पूरा इंजन — सिर्फ़ gate पास होने पर चले ================= */
+  function initEngine() {
 
   var KEY = 'acs_apt_sess_v1';
   var TOTAL = 120, PER_KHAND = 40, LIMIT_SEC = 90 * 60;
@@ -434,6 +477,12 @@
     Object.keys(C.ans).forEach(function (id) { S.used[id] = 1; });
     S.attempts.push({ n: C.n, band: C.band, doneAt: new Date().toISOString().slice(0, 10), byClock: !!byClock });
     save(S);
+    /* ₹100-चांस रास्ते से आए थे तो अभी consume करो (badge-रास्ते पर ज़रूरत नहीं —
+       बैज-धारक असीमित हैं)। server ख़ुद सबसे पुराना unused+paid चांस चुनकर
+       consume करता है — यहाँ orderId भेजने की ज़रूरत नहीं (v22-Jul डिज़ाइन)। */
+    if (ACCESS_MODE === 'attempt' && window.ACS_APT_PAY && window.ACS_APT_PAY.consume) {
+      try { window.ACS_APT_PAY.consume(); } catch (e) {}
+    }
     renderResult(byClock);
   }
 
@@ -486,4 +535,6 @@
   var C0 = S.cur;
   if (C0 && C0.locked) { S.cur = null; save(S); }
   renderStart();
+
+  } /* ==== initEngine() समाप्त ==== */
 })();
