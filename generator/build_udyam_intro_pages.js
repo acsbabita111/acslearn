@@ -99,10 +99,15 @@ function checkRobot(bodyHtml){
 }
 
 /* ---------- पेज-body बनाना ---------- */
+/* MG-साझा-हिस्से — v1.2 (23-Jul काम-4ख ढाँचा): ये keys पहले उद्यम-विशेष (udy.parts) में खोजे जाते हैं;
+   न मिलें तो MG_INTRO से (साझा-रूप) लिए जाते हैं — ताकि 24 MG × 1 रिसर्च से 950 उद्यम ढके जा सकें। */
+const MG_SHARED_KEYS = ["bazar", "leaders"];
+
 function buildBody(n, udy){
   const mg = MG_INTRO[udy.mg] || null;
   const secsHtml = SEC_LABELS.map(([key, label]) => {
-    const html = udy.parts[key];
+    let html = udy.parts[key];
+    if (!html && mg && MG_SHARED_KEYS.indexOf(key) >= 0) html = mg[key];
     if (!html) return "";
     return '<section class="udy-sec">\n<h2>' + label + "</h2>\n" + html + "\n</section>";
   }).join("\n\n");

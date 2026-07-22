@@ -1,11 +1,18 @@
 /* ============================================================
    udyam_intro_data.js — उद्यम-परिचय पेजों की सामग्री (परत-3)
+   v1.2 · 23-Jul-2026 (काम-4ख ढाँचा — MG-स्तर साझा-रिसर्च नियम जुड़ा; पुराना:
    v1.0 · 22-Jul-2026 (काम-4क — नमूना: सिर्फ़ MG-3 + उद्यम n=116 वेल्डिंग)
    ------------------------------------------------------------
-   ढाँचा (v2.7-क3 का अमल):
-     MG_INTRO[mg]      → 🟦 साझा-ज्ञान (सारे उस MG के उद्यमों में एक बार)
-     UDYAM_INTRO[n]    → 🟨 उद्यम-विशेष (परिचय, बाज़ार, कमाई-सीढ़ी, ज्ञान-कड़ी, पूँजी-रेंज)
-   पेज = generator दोनों गूँथकर बनाए (build_udyam_intro_pages.js)।
+   ढाँचा (v2.7-क3 का अमल + v1.2 विस्तार):
+     MG_INTRO[mg].name/body      → 🟦 साझा-ज्ञान (v1.0 से)
+     MG_INTRO[mg].bazar/leaders  → 🟦 साझा-रिसर्च (v1.2, नया — 24 बार, 950 बार नहीं;
+                                     पूरी योजना: KAAM-4B-MASTER-PLAN.md देखें)
+     UDYAM_INTRO[n]              → 🟨 उद्यम-विशेष (परिचय, outlook, trends, lscale, milte,
+                                     yogyata, asafal, suraksha, safalta, maang, yojana, gyan,
+                                     tour, sandesh — सुरक्षा/माँग जान-बूझकर उद्यम-स्तर पर रखे,
+                                     क्योंकि हर काम के ख़तरे/माँग अलग होते हैं)
+   पेज = generator दोनों गूँथकर बनाए (build_udyam_intro_pages.js — MG_SHARED_KEYS से पता
+   चलता है कौन-सी keys udy.parts में न मिलने पर MG_INTRO से माँगी जाएँ)।
    नियम: दिखने वाले text में कोई square bracket नहीं — गोल ( ) ही।
          हर बड़ा नाम/विकिपीडिया-कड़ी target="_blank" + verify-नोट के साथ।
    भरोसा-नियम (Founder, 22-Jul): हर बड़े नाम पर दो कड़ियाँ — (1) आधिकारिक वेबसाइट
@@ -44,7 +51,95 @@ const MG_INTRO = {
       "<p>विनिर्माण-समूह की वैश्विक तस्वीर भी उत्साह बढ़ाने वाली है — दुनिया-भर में विनिर्माण-क्षेत्र की " +
       "कमाई हर साल खरबों डॉलर में है, और भारत सरकार का लक्ष्य है कि 2047 तक देश की अर्थव्यवस्था में " +
       "विनिर्माण का हिस्सा आज से काफ़ी ज़्यादा बढ़े। यानी यह समूह न सिर्फ़ आज बड़ा है, आने वाले दशकों में " +
-      "और बड़ा होने वाला है — यहाँ से जुड़ने वाला हर विद्यार्थी एक बढ़ते हुए क्षेत्र में क़दम रख रहा है।</p>"
+      "और बड़ा होने वाला है — यहाँ से जुड़ने वाला हर विद्यार्थी एक बढ़ते हुए क्षेत्र में क़दम रख रहा है।</p>",
+
+    /* 🟦 bazar — MG-स्तर साझा (v1.2, 23-Jul काम-4ख ढाँचा): पूरे विनिर्माण-समूह का साझा बाज़ार-परिदृश्य।
+       उद्यम-विशेष रेंज/growth अलग हो तो UDYAM_INTRO[n].parts.bazar_extra से जोड़ें (वैकल्पिक, अभी ख़ाली)। */
+    bazar:
+      "<p>दुनिया-भर की कई शोध-कंपनियाँ (जैसे Mordor Intelligence, TechSci Research) हर साल विनिर्माण-उद्योगों के " +
+      "बाज़ार का अंदाज़ा लगाती हैं। इनके अनुमान थोड़े अलग-अलग आते हैं (हर कंपनी का अपना तरीक़ा होता है), " +
+      "पर दिशा सबकी एक — यह क्षेत्र तेज़ी से बढ़ रहा है।</p>" +
+      "<p><b>भारत:</b> इस्पात व धातु-आधारित विनिर्माण (जैसे इस्पात-संरचना/fabrication) का बाज़ार 2025 में " +
+      "क़रीब ₹52,000 करोड़ से ₹69,000 करोड़ के बीच आँका गया (अलग-अलग शोध-रिपोर्ट में 6 से 8 अरब डॉलर) — " +
+      "और 2030 तक हर साल लगभग 7.7% से 8.7% की रफ़्तार से बढ़ने का अनुमान है। इसका मतलब — 2030 तक यह बाज़ार " +
+      "लगभग दोगुना, क़रीब ₹1,00,000 करोड़ तक पहुँच सकता है। निर्माण-उद्योग (construction) ही इसका सबसे बड़ा " +
+      "ग्राहक है — 2024 में कुल माँग का लगभग 68% हिस्सा अकेले निर्माण-क्षेत्र से आया।</p>" +
+      "<p><b>दुनिया-भर:</b> पूरी दुनिया का structural/metal fabrication बाज़ार अलग-अलग रिपोर्टों में " +
+      "$160 अरब से $195 अरब (यानी लगभग ₹13 लाख करोड़ से ₹16 लाख करोड़) के बीच आँका गया है, 4% से 9% सालाना " +
+      "बढ़ोतरी के अनुमान के साथ। एशिया-प्रशांत क्षेत्र (भारत-चीन-दक्षिण-पूर्व एशिया समेत) सबसे बड़ा व सबसे " +
+      "तेज़ बढ़ता हिस्सा है — शहरीकरण व बुनियादी-ढाँचे के निर्माण की वजह से।</p>" +
+      "<p><b>भारत में कहाँ सबसे ज़्यादा:</b> पश्चिम भारत (महाराष्ट्र, गुजरात) में देश के इस्पात-संरचना " +
+      "बाज़ार का सबसे बड़ा हिस्सा (2024 में क़रीब 43%) है — नए औद्योगिक क्षेत्रों की वजह से यहीं सबसे तेज़ " +
+      "बढ़ोतरी भी हो रही है। इसका मतलब यह नहीं कि बाक़ी राज्यों में मौक़ा नहीं — बिहार, यूपी, ओडिशा जैसे " +
+      "राज्यों में भी सड़क, रेल व बिजली की परियोजनाएँ लगातार बढ़ रही हैं, और वहाँ स्थानीय कारीगर की कमी " +
+      "अक्सर बड़े शहरों से ज़्यादा महसूस होती है — यानी छोटे शहर में प्रतिस्पर्धा कम, मौक़ा ज़्यादा।</p>" +
+      "<p><b>निर्माण-तरीक़े में बदलाव:</b> पहले से तैयार (pre-engineered building) ढाँचों का बाज़ार भारत " +
+      "में हर साल क़रीब 11-15% की रफ़्तार से बढ़ रहा है — यानी वर्कशॉप में बनाकर साइट पर सिर्फ़ जोड़ने " +
+      "वाला काम आने वाले सालों में और बढ़ेगा, घटेगा नहीं।</p>" +
+      "<p class=\"udy-note\">📊 यह अनुमान है — ठीक-ठीक संख्या शोध-कंपनी-दर-कंपनी बदलती है; दिशा (बाज़ार बढ़ " +
+      "रहा है) पक्की मानी जा सकती है, अंतिम आँकड़ा नहीं। (बाहरी site — जानकारी ख़ुद verify करें।)</p>" +
+      "<div class=\"udy-svg-wrap\"><svg viewBox=\"0 0 320 150\" role=\"img\" aria-label=\"भारत का बाज़ार 2025 बनाम 2030\">" +
+      "<style>.bxl{font:600 12px sans-serif;fill:#0B1F3A}.bxb{font:700 14px sans-serif;fill:#F5F7FA}</style>" +
+      "<text x=\"8\" y=\"14\" class=\"bxl\">भारत का इस्पात/धातु-विनिर्माण बाज़ार (अनुमान)</text>" +
+      "<rect x=\"40\" y=\"90\" width=\"70\" height=\"50\" fill=\"#1565C0\"/><text x=\"48\" y=\"120\" class=\"bxb\">2025</text>" +
+      "<text x=\"30\" y=\"85\" class=\"bxl\">≈₹60,000 करोड़</text>" +
+      "<rect x=\"180\" y=\"30\" width=\"70\" height=\"110\" fill=\"#F9A825\"/><text x=\"188\" y=\"120\" class=\"bxb\">2030</text>" +
+      "<text x=\"162\" y=\"25\" class=\"bxl\">≈₹1,00,000 करोड़</text>" +
+      "</svg></div>",
+
+    /* 🟦 leaders — MG-स्तर साझा (v1.2): विनिर्माण-समूह के जाने-पहचाने बड़े नाम — पूरे MG-3 के हर उद्यम-पेज
+       पर यही 30 नाम दिखेंगे (जब तक किसी उद्यम को अपनी अलग-विशेष सूची न देनी हो)। */
+    leaders:
+      "<p>यहाँ तीन सूचियाँ हैं — भारत, ग्लोबल साउथ व दुनिया के जाने-पहचाने बड़े नाम, जो धातु-विनिर्माण/ " +
+      "इस्पात-आधारित काम में सक्रिय हैं। यह पक्की रैंकिंग (ranking) नहीं — सिर्फ़ जाने-पहचाने नाम, ताकि अंदाज़ा " +
+      "लगे यह उद्योग छोटी दुकान से विश्व-स्तर तक कितना फैला है। हर नाम की वेबसाइट + 📍 Maps-कड़ी साथ है — " +
+      "क्लिक करके ख़ुद देखिए, असली जगह, झूठा नाम नहीं। धोखे बहुत हैं — ACS का तरीक़ा: दावा नहीं, सबूत। " +
+      "(बाहरी site — जानकारी ख़ुद verify करें।)</p>" +
+
+      "<h3>भारत के 10 बड़े नाम</h3>" +
+      "<ol class=\"udy-leadlist\">" +
+      LEAD("टाटा स्टील (Tata Steel)", "https://www.tatasteel.com/", "Tata Steel headquarters Mumbai India", "भारत की सबसे पुरानी व बड़ी इस्पात कंपनियों में से एक") +
+      LEAD("जेएसडब्ल्यू स्टील (JSW Steel)", "https://www.jsw.in/steel", "JSW Steel headquarters Mumbai India", "बड़े पैमाने पर इस्पात-उत्पादन व निर्माण") +
+      LEAD("जिंदल स्टील एंड पावर (JSPL)", "https://www.jsplgroup.com/", "Jindal Steel and Power headquarters New Delhi India", "संरचनात्मक (structural) व विशेष इस्पात में अग्रणी") +
+      LEAD("सेल (SAIL — Steel Authority of India)", "https://sail.co.in/en", "Steel Authority of India SAIL headquarters New Delhi", "सरकारी इस्पात-कंपनी, देश की बड़ी सप्लायर") +
+      LEAD("एल एंड टी (L&amp;T Construction)", "https://www.lntecc.com/", "Larsen and Toubro headquarters Mumbai India", "बड़े इस्पात-ढाँचे व औद्योगिक निर्माण के ठेके") +
+      LEAD("इस्जेक हैवी इंजीनियरिंग (ISGEC Heavy Engineering)", "https://www.isgec.com/", "Isgec Heavy Engineering Yamunanagar Haryana India", "भारी इंजीनियरिंग व फैब्रिकेशन") +
+      LEAD("टाटा प्रोजेक्ट्स (Tata Projects)", "https://tataprojects.com/", "Tata Projects headquarters Mumbai India", "बड़े इस्पात-निर्माण व EPC प्रोजेक्ट") +
+      LEAD("बीएचईएल (BHEL — Bharat Heavy Electricals Limited)", "https://www.bhel.com/", "BHEL Bharat Heavy Electricals headquarters New Delhi", "भारी उद्योग व ढाँचा-निर्माण") +
+      LEAD("पेन्नार इंडस्ट्रीज (Pennar Industries)", "https://www.pennarindia.com/", "Pennar Industries headquarters Hyderabad India", "संरचनात्मक व भारी इस्पात-फैब्रिकेशन") +
+      LEAD("ज़ेटवर्क (Zetwerk)", "https://www.zetwerk.com/", "Zetwerk headquarters Bengaluru India", "नए दौर का manufacturing-network, छोटे फैब्रिकेटरों को बड़े ऑर्डर से जोड़ता है") +
+      "</ol>" +
+
+      "<h3>ग्लोबल साउथ के 10 बड़े नाम</h3>" +
+      "<ol class=\"udy-leadlist\">" +
+      LEAD("ज़मील स्टील (Zamil Steel)", "https://www.zamilsteel.com/", "Zamil Steel Dammam Saudi Arabia", "सऊदी अरब; दुनिया की सबसे बड़ी pre-engineered building फैक्ट्री, 95 से ज़्यादा देशों में सप्लाई") +
+      LEAD("एआईसी स्टील (AIC Steel)", "http://www.aicsteel.com/", "AIC Steel Arabian International Company Jeddah Saudi Arabia", "सऊदी अरब/यूएई/मिस्र में सक्रिय बड़ी इस्पात-फैब्रिकेशन कंपनी") +
+      LEAD("अमाना कॉन्ट्रैक्टिंग (Amana Contracting and Steel Buildings)", "https://www.amanabuildings.com/", "Amana Contracting and Steel Buildings Dubai UAE", "संयुक्त अरब अमीरात (UAE)") +
+      LEAD("क्राकाताउ स्टील (Krakatau Steel)", "https://www.krakatausteel.com/", "Krakatau Steel Cilegon Indonesia", "इंडोनेशिया की सबसे बड़ी इस्पात-कंपनी") +
+      LEAD("विजया कर्या (Wijaya Karya — WIKA)", "https://www.wika.co.id/en", "Wijaya Karya WIKA headquarters Jakarta Indonesia", "इंडोनेशिया, बड़े इस्पात-ढाँचे व EPC प्रोजेक्ट") +
+      LEAD("गेर्दाउ (Gerdau)", "https://www2.gerdau.com/", "Gerdau headquarters Porto Alegre Brazil", "ब्राज़ील, लातिन अमेरिका की सबसे बड़ी इस्पात-कंपनियों में से एक") +
+      LEAD("यूज़ीमिनास (Usiminas)", "https://www.usiminas.com/", "Usiminas headquarters Belo Horizonte Brazil", "ब्राज़ील का बड़ा इस्पात-समूह") +
+      LEAD("आर्सेलर मित्तल ब्राज़ील (ArcelorMittal Brazil)", "https://brasil.arcelormittal.com/", "ArcelorMittal Brazil Espirito Santo", "ब्राज़ील की सबसे बड़ी इस्पात-उत्पादक इकाई") +
+      LEAD("कोलंबस स्टेनलेस (Columbus Stainless)", "https://www.columbus.co.za/", "Columbus Stainless Middelburg South Africa", "दक्षिण अफ़्रीका, अफ़्रीका की एकमात्र स्टेनलेस-स्टील निर्माता") +
+      LEAD("बी एंड टी स्टील (B&amp;T Steel)", "https://btsteel.co.za/", "B and T Steel South Africa", "दक्षिण अफ़्रीका, पूरे अफ़्रीका में इस्पात-ढाँचे बनाने वाली अग्रणी कंपनी") +
+      "</ol>" +
+
+      "<h3>दुनिया के 10 बड़े नाम</h3>" +
+      "<ol class=\"udy-leadlist\">" +
+      LEAD("आर्सेलर मित्तल (ArcelorMittal)", "https://corporate.arcelormittal.com/", "ArcelorMittal headquarters Luxembourg City", "लक्ज़मबर्ग, दुनिया की सबसे बड़ी इस्पात-कंपनियों में से एक, 60 से ज़्यादा देशों में") +
+      LEAD("निप्पॉन स्टील (Nippon Steel)", "https://www.nipponsteel.com/en/", "Nippon Steel headquarters Tokyo Japan", "जापान, दुनिया की अग्रणी इस्पात-कंपनी") +
+      LEAD("चाइना बाओवू स्टील ग्रुप (China Baowu Steel Group)", "https://www.baowugroup.com/en/home", "China Baowu Steel Group headquarters Shanghai China", "चीन, उत्पादन में दुनिया की सबसे बड़ी इस्पात-कंपनी") +
+      LEAD("पॉस्को (POSCO)", "https://www.posco.co.kr/", "POSCO headquarters Pohang South Korea", "दक्षिण कोरिया, बड़ी वैश्विक इस्पात-कंपनी") +
+      LEAD("न्यूकॉर कॉर्पोरेशन (Nucor Corporation)", "https://www.nucor.com/", "Nucor Corporation headquarters Charlotte North Carolina USA", "अमेरिका, उत्तरी अमेरिका की सबसे बड़ी इस्पात-निर्माता व रीसाइक्लर") +
+      LEAD("थिसेनक्रुप (thyssenkrupp)", "https://www.thyssenkrupp.com/en", "thyssenkrupp headquarters Essen Germany", "जर्मनी, भारी इंजीनियरिंग व इस्पात में बड़ा नाम") +
+      LEAD("एचबीआईएस ग्रुप (HBIS Group)", "http://www.hbisco.com/", "HBIS Group headquarters Shijiazhuang Hebei China", "चीन, बड़ी सरकारी इस्पात-कंपनी") +
+      LEAD("यूएस स्टील (United States Steel)", "https://www.ussteel.com/", "United States Steel headquarters Pittsburgh USA", "अमेरिका का पुराना व बड़ा इस्पात-नाम") +
+      LEAD("शूफ स्टील (Schuff Steel)", "https://www.schuff.com/", "Schuff Steel headquarters Phoenix Arizona USA", "अमेरिका, इस्पात-ढाँचे खड़े करने (erection) में विशेषज्ञ") +
+      LEAD("वोएस्टअल्पाइन (voestalpine)", "https://www.voestalpine.com/", "voestalpine headquarters Linz Austria", "ऑस्ट्रिया, उच्च-तकनीक इस्पात व ढाँचा-निर्माण") +
+      "</ol>" +
+
+      "<p>इन सूचियों का मक़सद डराना नहीं, हौसला देना है — इतनी बड़ी दुनिया में भी शुरुआत हमेशा एक छोटी " +
+      "दुकान, एक मशीन व एक अच्छे हाथ से ही होती है। ऊपर लिखी हर बड़ी कंपनी भी कभी एक छोटी वर्कशॉप ही थी।</p>"
   }
 };
 
@@ -82,37 +177,6 @@ const UDYAM_INTRO = {
         "पार्क बढ़ रहे हैं, वैसे-वैसे इस्पात-संरचना बनाने वालों को नया काम मिल रहा है। इसी तरह रेलवे के नए " +
         "स्टेशन व फ्लाईओवर बनने से भी वेल्डिंग-आधारित काम की माँग साल-दर-साल बढ़ती जा रही है।</p>",
 
-      bazar:
-        "<p>दुनिया-भर की कई शोध-कंपनियाँ (जैसे Mordor Intelligence, TechSci Research) हर साल इस उद्योग के " +
-        "बाज़ार का अंदाज़ा लगाती हैं। इनके अनुमान थोड़े अलग-अलग आते हैं (हर कंपनी का अपना तरीक़ा होता है), " +
-        "पर दिशा सबकी एक — यह बाज़ार तेज़ी से बढ़ रहा है।</p>" +
-        "<p><b>भारत:</b> 2025 में इस्पात-संरचना (structural steel fabrication) का बाज़ार क़रीब ₹52,000 करोड़ से " +
-        "₹69,000 करोड़ के बीच आँका गया (अलग-अलग शोध-रिपोर्ट में 6 से 8 अरब डॉलर) — और 2030 तक हर साल " +
-        "लगभग 7.7% से 8.7% की रफ़्तार से बढ़ने का अनुमान है। इसका मतलब — 2030 तक यह बाज़ार लगभग दोगुना, " +
-        "क़रीब ₹1,00,000 करोड़ तक पहुँच सकता है। निर्माण-उद्योग (construction) ही इसका सबसे बड़ा ग्राहक है — " +
-        "2024 में कुल माँग का लगभग 68% हिस्सा अकेले निर्माण-क्षेत्र से आया।</p>" +
-        "<p><b>दुनिया-भर:</b> पूरी दुनिया का structural steel fabrication बाज़ार अलग-अलग रिपोर्टों में " +
-        "$160 अरब से $195 अरब (यानी लगभग ₹13 लाख करोड़ से ₹16 लाख करोड़) के बीच आँका गया है, 4% से 9% सालाना " +
-        "बढ़ोतरी के अनुमान के साथ। एशिया-प्रशांत क्षेत्र (भारत-चीन-दक्षिण-पूर्व एशिया समेत) सबसे बड़ा व सबसे " +
-        "तेज़ बढ़ता हिस्सा है — शहरीकरण व बुनियादी-ढाँचे के निर्माण की वजह से।</p>" +
-        "<p><b>भारत में कहाँ सबसे ज़्यादा:</b> पश्चिम भारत (महाराष्ट्र, गुजरात) में देश के इस्पात-संरचना " +
-        "बाज़ार का सबसे बड़ा हिस्सा (2024 में क़रीब 43%) है — नए औद्योगिक क्षेत्रों की वजह से यहीं सबसे तेज़ " +
-        "बढ़ोतरी भी हो रही है। इसका मतलब यह नहीं कि बाक़ी राज्यों में मौक़ा नहीं — बिहार, यूपी, ओडिशा जैसे " +
-        "राज्यों में भी सड़क, रेल व बिजली की परियोजनाएँ लगातार बढ़ रही हैं, और वहाँ स्थानीय वेल्डर की कमी " +
-        "अक्सर बड़े शहरों से ज़्यादा महसूस होती है — यानी छोटे शहर में प्रतिस्पर्धा कम, मौक़ा ज़्यादा।</p>" +
-        "<p><b>निर्माण-तरीक़े में बदलाव:</b> पहले से तैयार (pre-engineered building) ढाँचों का बाज़ार भारत " +
-        "में हर साल क़रीब 11-15% की रफ़्तार से बढ़ रहा है — यानी वर्कशॉप में बनाकर साइट पर सिर्फ़ जोड़ने " +
-        "वाला काम आने वाले सालों में और बढ़ेगा, घटेगा नहीं।</p>" +
-        "<p class=\"udy-note\">📊 यह अनुमान है — ठीक-ठीक संख्या शोध-कंपनी-दर-कंपनी बदलती है; दिशा (बाज़ार बढ़ " +
-        "रहा है) पक्की मानी जा सकती है, अंतिम आँकड़ा नहीं। (बाहरी site — जानकारी ख़ुद verify करें।)</p>" +
-        "<div class=\"udy-svg-wrap\"><svg viewBox=\"0 0 320 150\" role=\"img\" aria-label=\"भारत का बाज़ार 2025 बनाम 2030\">" +
-        "<style>.bxl{font:600 12px sans-serif;fill:#0B1F3A}.bxb{font:700 14px sans-serif;fill:#F5F7FA}</style>" +
-        "<text x=\"8\" y=\"14\" class=\"bxl\">भारत का इस्पात-संरचना बाज़ार (अनुमान)</text>" +
-        "<rect x=\"40\" y=\"90\" width=\"70\" height=\"50\" fill=\"#1565C0\"/><text x=\"48\" y=\"120\" class=\"bxb\">2025</text>" +
-        "<text x=\"30\" y=\"85\" class=\"bxl\">≈₹60,000 करोड़</text>" +
-        "<rect x=\"180\" y=\"30\" width=\"70\" height=\"110\" fill=\"#F9A825\"/><text x=\"188\" y=\"120\" class=\"bxb\">2030</text>" +
-        "<text x=\"162\" y=\"25\" class=\"bxl\">≈₹1,00,000 करोड़</text>" +
-        "</svg></div>",
 
       trends:
         "<p>आजकल हाथ की पुरानी वेल्डिंग के साथ-साथ नई मशीनें भी आ रही हैं — मिग (MIG) व टिग (TIG) मशीन, जो जल्दी " +
@@ -126,58 +190,6 @@ const UDYAM_INTRO = {
         "(जैसे मकान की ग्रिल, खेत के औज़ार, छोटी मरम्मत) में अभी भी हाथ के हुनर की ही ज़रूरत है — इसलिए यह हुनर " +
         "आने वाले सालों में भी बेकार नहीं होगा, बस नई मशीनों के साथ जुड़ना ज़रूरी रहेगा।</p>",
 
-      leaders:
-        "<p>यहाँ तीन सूचियाँ हैं — भारत, ग्लोबल साउथ व दुनिया के जाने-पहचाने बड़े नाम, जो इस्पात-संरचना/ " +
-        "वेल्डिंग-काम में सक्रिय हैं। यह पक्की रैंकिंग (ranking) नहीं — सिर्फ़ जाने-पहचाने नाम, ताकि अंदाज़ा " +
-        "लगे यह उद्योग छोटी दुकान से विश्व-स्तर तक कितना फैला है। हर नाम की वेबसाइट + 📍 Maps-कड़ी साथ है — " +
-        "क्लिक करके ख़ुद देखिए, असली जगह, झूठा नाम नहीं। धोखे बहुत हैं — ACS का तरीक़ा: दावा नहीं, सबूत। " +
-        "(बाहरी site — जानकारी ख़ुद verify करें।)</p>" +
-
-        "<h3>भारत के 10 बड़े नाम</h3>" +
-        "<ol class=\"udy-leadlist\">" +
-        LEAD("टाटा स्टील (Tata Steel)", "https://www.tatasteel.com/", "Tata Steel headquarters Mumbai India", "भारत की सबसे पुरानी व बड़ी इस्पात कंपनियों में से एक") +
-        LEAD("जेएसडब्ल्यू स्टील (JSW Steel)", "https://www.jsw.in/steel", "JSW Steel headquarters Mumbai India", "बड़े पैमाने पर इस्पात-उत्पादन व निर्माण") +
-        LEAD("जिंदल स्टील एंड पावर (JSPL)", "https://www.jsplgroup.com/", "Jindal Steel and Power headquarters New Delhi India", "संरचनात्मक (structural) व विशेष इस्पात में अग्रणी") +
-        LEAD("सेल (SAIL — Steel Authority of India)", "https://sail.co.in/en", "Steel Authority of India SAIL headquarters New Delhi", "सरकारी इस्पात-कंपनी, देश की बड़ी सप्लायर") +
-        LEAD("एल एंड टी (L&amp;T Construction)", "https://www.lntecc.com/", "Larsen and Toubro headquarters Mumbai India", "बड़े इस्पात-ढाँचे व औद्योगिक निर्माण के ठेके") +
-        LEAD("इस्जेक हैवी इंजीनियरिंग (ISGEC Heavy Engineering)", "https://www.isgec.com/", "Isgec Heavy Engineering Yamunanagar Haryana India", "भारी इंजीनियरिंग व फैब्रिकेशन") +
-        LEAD("टाटा प्रोजेक्ट्स (Tata Projects)", "https://tataprojects.com/", "Tata Projects headquarters Mumbai India", "बड़े इस्पात-निर्माण व EPC प्रोजेक्ट") +
-        LEAD("बीएचईएल (BHEL — Bharat Heavy Electricals Limited)", "https://www.bhel.com/", "BHEL Bharat Heavy Electricals headquarters New Delhi", "भारी उद्योग व ढाँचा-निर्माण") +
-        LEAD("पेन्नार इंडस्ट्रीज (Pennar Industries)", "https://www.pennarindia.com/", "Pennar Industries headquarters Hyderabad India", "संरचनात्मक व भारी इस्पात-फैब्रिकेशन") +
-        LEAD("ज़ेटवर्क (Zetwerk)", "https://www.zetwerk.com/", "Zetwerk headquarters Bengaluru India", "नए दौर का manufacturing-network, छोटे फैब्रिकेटरों को बड़े ऑर्डर से जोड़ता है") +
-        "</ol>" +
-
-        "<h3>ग्लोबल साउथ के 10 बड़े नाम</h3>" +
-        "<ol class=\"udy-leadlist\">" +
-        LEAD("ज़मील स्टील (Zamil Steel)", "https://www.zamilsteel.com/", "Zamil Steel Dammam Saudi Arabia", "सऊदी अरब; दुनिया की सबसे बड़ी pre-engineered building फैक्ट्री, 95 से ज़्यादा देशों में सप्लाई") +
-        LEAD("एआईसी स्टील (AIC Steel)", "http://www.aicsteel.com/", "AIC Steel Arabian International Company Jeddah Saudi Arabia", "सऊदी अरब/यूएई/मिस्र में सक्रिय बड़ी इस्पात-फैब्रिकेशन कंपनी") +
-        LEAD("अमाना कॉन्ट्रैक्टिंग (Amana Contracting and Steel Buildings)", "https://www.amanabuildings.com/", "Amana Contracting and Steel Buildings Dubai UAE", "संयुक्त अरब अमीरात (UAE)") +
-        LEAD("क्राकाताउ स्टील (Krakatau Steel)", "https://www.krakatausteel.com/", "Krakatau Steel Cilegon Indonesia", "इंडोनेशिया की सबसे बड़ी इस्पात-कंपनी") +
-        LEAD("विजया कर्या (Wijaya Karya — WIKA)", "https://www.wika.co.id/en", "Wijaya Karya WIKA headquarters Jakarta Indonesia", "इंडोनेशिया, बड़े इस्पात-ढाँचे व EPC प्रोजेक्ट") +
-        LEAD("गेर्दाउ (Gerdau)", "https://www2.gerdau.com/", "Gerdau headquarters Porto Alegre Brazil", "ब्राज़ील, लातिन अमेरिका की सबसे बड़ी इस्पात-कंपनियों में से एक") +
-        LEAD("यूज़ीमिनास (Usiminas)", "https://www.usiminas.com/", "Usiminas headquarters Belo Horizonte Brazil", "ब्राज़ील का बड़ा इस्पात-समूह") +
-        LEAD("आर्सेलर मित्तल ब्राज़ील (ArcelorMittal Brazil)", "https://brasil.arcelormittal.com/", "ArcelorMittal Brazil Espirito Santo", "ब्राज़ील की सबसे बड़ी इस्पात-उत्पादक इकाई") +
-        LEAD("कोलंबस स्टेनलेस (Columbus Stainless)", "https://www.columbus.co.za/", "Columbus Stainless Middelburg South Africa", "दक्षिण अफ़्रीका, अफ़्रीका की एकमात्र स्टेनलेस-स्टील निर्माता") +
-        LEAD("बी एंड टी स्टील (B&amp;T Steel)", "https://btsteel.co.za/", "B and T Steel South Africa", "दक्षिण अफ़्रीका, पूरे अफ़्रीका में इस्पात-ढाँचे बनाने वाली अग्रणी कंपनी") +
-        "</ol>" +
-
-        "<h3>दुनिया के 10 बड़े नाम</h3>" +
-        "<ol class=\"udy-leadlist\">" +
-        LEAD("आर्सेलर मित्तल (ArcelorMittal)", "https://corporate.arcelormittal.com/", "ArcelorMittal headquarters Luxembourg City", "लक्ज़मबर्ग, दुनिया की सबसे बड़ी इस्पात-कंपनियों में से एक, 60 से ज़्यादा देशों में") +
-        LEAD("निप्पॉन स्टील (Nippon Steel)", "https://www.nipponsteel.com/en/", "Nippon Steel headquarters Tokyo Japan", "जापान, दुनिया की अग्रणी इस्पात-कंपनी") +
-        LEAD("चाइना बाओवू स्टील ग्रुप (China Baowu Steel Group)", "https://www.baowugroup.com/en/home", "China Baowu Steel Group headquarters Shanghai China", "चीन, उत्पादन में दुनिया की सबसे बड़ी इस्पात-कंपनी") +
-        LEAD("पॉस्को (POSCO)", "https://www.posco.co.kr/", "POSCO headquarters Pohang South Korea", "दक्षिण कोरिया, बड़ी वैश्विक इस्पात-कंपनी") +
-        LEAD("न्यूकॉर कॉर्पोरेशन (Nucor Corporation)", "https://www.nucor.com/", "Nucor Corporation headquarters Charlotte North Carolina USA", "अमेरिका, उत्तरी अमेरिका की सबसे बड़ी इस्पात-निर्माता व रीसाइक्लर") +
-        LEAD("थिसेनक्रुप (thyssenkrupp)", "https://www.thyssenkrupp.com/en", "thyssenkrupp headquarters Essen Germany", "जर्मनी, भारी इंजीनियरिंग व इस्पात में बड़ा नाम") +
-        LEAD("एचबीआईएस ग्रुप (HBIS Group)", "http://www.hbisco.com/", "HBIS Group headquarters Shijiazhuang Hebei China", "चीन, बड़ी सरकारी इस्पात-कंपनी") +
-        LEAD("यूएस स्टील (United States Steel)", "https://www.ussteel.com/", "United States Steel headquarters Pittsburgh USA", "अमेरिका का पुराना व बड़ा इस्पात-नाम") +
-        LEAD("शूफ स्टील (Schuff Steel)", "https://www.schuff.com/", "Schuff Steel headquarters Phoenix Arizona USA", "अमेरिका, इस्पात-ढाँचे खड़े करने (erection) में विशेषज्ञ") +
-        LEAD("वोएस्टअल्पाइन (voestalpine)", "https://www.voestalpine.com/", "voestalpine headquarters Linz Austria", "ऑस्ट्रिया, उच्च-तकनीक इस्पात व ढाँचा-निर्माण") +
-        "</ol>" +
-
-        "<p>इन सूचियों का मक़सद डराना नहीं, हौसला देना है — इतनी बड़ी दुनिया में भी शुरुआत हमेशा एक छोटी " +
-        "दुकान, एक वेल्डिंग-मशीन व एक अच्छे हाथ से ही होती है। ऊपर लिखी हर बड़ी कंपनी भी कभी एक छोटी वर्कशॉप " +
-        "ही थी।</p>",
 
       lscale:
         "<p>यह उद्यम भी उसी 15-पड़ाव (L1 से L15) की सीढ़ी पर चलता है जो ACS हर उद्यम में सिखाता है — " +
