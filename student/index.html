@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<title>कोचिंग-प्रशिक्षु Dashboard — ACS</title>
+<!-- ════════════════════════════════════════════════════════════════
+     ⚙️ यह फ़ाइल generator से बनी है (generator/build_dashboards.js v1.9 · 16-Jul-2026) —
+     हाथ से न बदलें। बदलाव: टेम्पलेट/matrix में करके generator दोबारा चलाएँ (परत-4 नियम)।
+     ACS Dashboard — मास्टर टेम्पलेट v4.1 (पतला खोखा)
+     v4.1 · 16-Jul-2026 (काम-6 चरण-1) — external status-कार्ड अब generator-चालित
+             (STATUS_PANEL-खाना): g2-roles का पाठ हूबहू वही; प्रशिक्षु-कार्ड
+             (student/jobseeker/entrepreneur) पर सही संदेश "खाता सीधा चालू ✅";
+             विद्यार्थी-घर के 9 असली पैनल generator के studentPanels() से।
+     v4.0 · 15-Jul-2026 — Founder-आदेश: 31 घरों के लिए एक ही CSS/JS —
+             style → /assets/dashboard.css · तर्क → /assets/dashboard.js ·
+             per-page मूल्य सिर्फ़ window.ACS_DASH में · होम-रूप topbar+tagline ·
+             logo /logo.png + "ACS" text-fallback (गूँगा-fallback निषेध) ·
+             TEAM-कटाई अब runtime-gate से (external का docChips-होल बंद)।
+     पिछला इतिहास (v3.4 तक) — assets/dashboard.js के शीर्ष-नोट व git-इतिहास में।
+     --------------------------------------------------------------
+     लोहे का नियम (परत-2/4): कोई dashboard-page हाथ से न बने —
+     सिर्फ़ generator (generator/build_dashboards.js) इस टेम्पलेट से बनाए।
+     हिस्से: [T1] topbar · [T2] hold-पट्टी · [T3] provisional-पर्दा ·
+             [T4] प्रोफ़ाइल+approval-सफ़र · [T5] पैनल-जाल · [T6] footer
+     नियम: पद-जानकारी सिर्फ़ /assets/designation_matrix.js से (परत-3)।
+     असली रोक server पर — matrix कभी guard नहीं (matrix-सुरक्षा नियम)।
+     data-स्रोत: teams/{uid} + registrations — users/centre_registrations वर्जित।
+     फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं · गोल bracket ( ) · सरल हिंदी।
+     ════════════════════════════════════════════════════════════════ -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/dashboard.css"/>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- [T1] topbar — v4.0: होम-रूप ब्रांड (logo /logo.png + "ACS" text-fallback — गूँगा-fallback निषेध) -->
+  <div class="topbar">
+    <a class="brand" href="/" title="ACS होम">
+      <span class="mark"><img src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"/></span>
+      <span class="tt"><strong>अप्लाइड कंप्यूटर स्कूल™</strong><span id="tbRole">कोचिंग-प्रशिक्षु Dashboard</span></span>
+    </a>
+    <div class="sp"></div>
+    <div class="tbwho" id="tbWho"></div>
+    <button class="btn-out side-toggle" onclick="toggleSide()">☰ काम-सूची</button>
+    <button class="btn-out" onclick="doLogout()">बाहर निकलें (Logout)</button>
+  </div>
+  <div class="tagline"><b>80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b></div>
+
+  <!-- [T2] hold-पट्टी -->
+  <div class="holdbar" id="holdBar"></div>
+
+  <!-- [T3] provisional-पर्दा -->
+  <div class="provbar" id="provBar">⏳ आपका आवेदन जाँच में है — डैशबोर्ड (Dashboard) अभी सिर्फ़ देखने के मोड में है। स्वीकृति (Approval) पूरी होते ही सब काम-अधिकार खुल जाएँगे।</div>
+
+  <!-- जाँच-दृश्य -->
+  <div class="center" id="loadView">
+    <div class="cbox"><div class="bigicon">⏳</div><div class="s">जाँच हो रही है…</div></div>
+  </div>
+
+  <!-- ग़लत भूमिका -->
+  <div class="center hidden" id="denyView">
+    <div class="cbox">
+      <div class="bigicon">🔒</div>
+      <div class="h">यह आपका Dashboard नहीं</div>
+      <div class="s">यह पन्ना सिर्फ़ कोचिंग-प्रशिक्षु के लिए है।<br/>कृपया सही भूमिका से Login करें।</div>
+      <button class="btn-blue" onclick="location.href='/dashboard/index.html'">← Login पर जाएँ</button>
+    </div>
+  </div>
+
+  <!-- मुख्य दृश्य -->
+  <div class="main hidden" id="appView">
+   <div class="shell">
+    <div class="sideveil" id="sideVeil" onclick="toggleSide()"></div>
+    <nav class="side" id="sideNav" aria-label="काम-सूची"></nav>
+    <div class="content">
+
+    <!-- [T4] प्रोफ़ाइल -->
+    <div class="card panel" id="pnl-profile" data-nav="👤 मेरी प्रोफ़ाइल">
+      <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
+
+      <!-- v3.3: सार्वजनिक पहचान-कार्ड (दो-स्तंभ) — यहाँ email/mobile/WhatsApp कभी नहीं -->
+      <div class="pubcard">
+        <div class="pwrap">
+          <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
+          <div class="pphoto-fb" id="pPhotoFb">👤</div>
+        </div>
+        <div>
+          <div class="pubnote">📢 यह फ़ोटो व ब्योरा सार्वजनिक (public) हैं — सबको दिखते हैं। आप नया फ़ोटो भेज सकते हैं; आपके ऊपर के पद से verify होने पर ही नया फ़ोटो public होगा — तब तक यही फ़ोटो public रहेगी। इस सार्वजनिक कार्ड पर email / mobile / WhatsApp कभी नहीं दिखते।</div>
+          <div class="pubname" id="pubName">—</div>
+          <div class="pubrow"><b>पदनाम:</b> <span id="pubDesig">—</span></div>
+          <div class="pubrow"><b>कार्य-क्षेत्र:</b> <span id="pubArea">—</span></div>
+          <div class="pubrow"><b>गृह जिला:</b> <span id="pubDist">—</span></div>
+          <div class="pubrow"><b>राज्य:</b> <span id="pubState">—</span></div>
+          <button class="abtn ok" style="background:var(--blue);margin-top:10px" disabled>📷 नया फ़ोटो भेजें — verify-इंजन अगले दौर में चालू</button>
+        </div>
+      </div>
+
+      <div class="pgrid">
+        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
+        <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
+        <div class="pitem"><div class="k">स्तर</div><div class="v" id="pLevel">—</div></div>
+        <div class="pitem"><div class="k">कार्य-क्षेत्र</div><div class="v" id="pArea">—</div></div>
+        <div class="pitem"><div class="k">Email</div><div class="v" id="pEmail">—</div></div>
+        <div class="pitem"><div class="k">Mobile</div><div class="v" id="pPhone">—</div></div>
+      </div>
+
+      <h2 style="margin-top:18px">📎 मेरे दस्तावेज़</h2>
+      <div class="docwrap" id="docWrap"><span class="note" id="docNote">दस्तावेज़ लाए जा रहे हैं…</span></div>
+      <div class="note">दस्तावेज़ दोबारा भेजना (re-upload) — चरण-3 में चालू होगा। भविष्य में यहीं police-verification व passbook/cheque की जगह भी बनेगी।</div>
+
+      <h2 style="margin-top:18px">🛤️ मेरा approval-सफ़र</h2>
+      <div class="tl" id="tlWrap"></div>
+      <div class="note" id="tlNote">चौकी-दर-चौकी की live स्थिति चरण-3 (server-approval) से जुड़ेगी।</div>
+    </div>
+
+    <!-- [T5] पैनल-जाल — team-mode के 4 पैनल + पदेन-पट्टी -->
+    
+
+    <!--EXTERNAL_ONLY_START-->
+    <div class="pnl">
+      <div class="pcard panel" id="pnl-status" data-nav="✅ खाता-स्थिति" style="grid-column:1/-1"><div class="ph">✅ खाता-स्थिति</div><div class="pd">आपका खाता सीधा चालू है ✅ — आपकी भूमिका के लिए कोई approval ज़रूरी नहीं (नियम v1.3)। जुड़ना व पढ़ना हमेशा मुफ़्त; पैसा सिर्फ़ तब, जब आप कोई paid-सेवा लें।</div><div class="note" id="stGuard" style="display:none"></div></div>
+      <div class="pcard panel" id="pnl-aptitude" data-nav="🧭 अभिरुचि-टेस्ट" style="grid-column:1/-1"><div class="ph">🧭 अभिरुचि-टेस्ट (Aptitude Test — टेस्ट-1)</div><div class="pd">यह ज्ञान की नहीं, आपकी रुचि की परीक्षा है — कोई जवाब सही या ग़लत नहीं। नतीजा बताता है कि 24 क्षेत्रों में आपका मन किधर सबसे ज़्यादा लगता है।</div><div class="pd">🎁 मुफ़्त झलक अभी खुली है — 24 सरल प्रश्न, बीच में कहानियाँ। आपके जवाब आपके फ़ोन में ही रहते हैं — कहीं भेजे नहीं जाते (निजता सुरक्षित)।</div><a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin:4px 6px 0 0" href="/aptitude-test.html">🧭 मुफ़्त झलक — टेस्ट अभी दें</a><div class="note">🎫 आगे की राह: बैज (Badge) के साथ पूरा टेस्ट 365 दिन मुफ़्त · प्रमाण पत्र (certificate) ₹125 — मर्ज़ी हो तो लें, या न लें। यह सुविधा जल्द जुड़ेगी।</div></div><div class="pcard panel" id="pnl-courses" data-nav="📚 मेरे कोर्स" style="grid-column:1/-1"><div class="ph">📚 मेरे कोर्स</div><div class="pd"><b>मेरा नामांकन:</b> नामांकन-खाता अगले दौर में जुड़ेगा — तब यहाँ सिर्फ़ आपका अपना ब्योरा दिखेगा: मेरा कोर्स · मेरी fee · मेरी परीक्षा · मेरा नतीजा (आपके सब केंद्रों का, एक जगह)। जिस केंद्र/संस्था में आप पढ़ते हैं, उसके "Enrollment व Analytics" पैनल और आपके इस ब्योरे का स्रोत एक ही नामांकन-खाता है — इसलिए दोनों को एक ही सच दिखता है।</div><div class="ph" style="margin-top:14px">📖 मुफ़्त online कोर्स — अभी पढ़ें</div><div class="pd">पढ़ना हमेशा मुफ़्त है — बिना रोक, बिना शर्त। जिस कोर्स के पाठ बन चुके हैं, उस पर "पढ़ें" बटन दिखेगा।</div><div id="crsList"><span class="note">कोर्स-सूची यह पैनल खोलने पर आती है…</span></div><a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin-top:10px" href="/courses/">🌍 पूरी कोर्स-सूची देखें</a></div><div class="pcard panel" id="pnl-progress" data-nav="📈 मेरी प्रगति" style="grid-column:1/-1"><div class="ph">📈 मेरी प्रगति (इसी फ़ोन में)</div><div class="pd">यह हिसाब आपके अपने फ़ोन में सुरक्षित रहता है — कोई server पर नहीं जाता (निजता सुरक्षित)। दूसरे फ़ोन पर हिसाब जोड़ने की सुविधा नामांकन-खाते के साथ अगले दौर में आएगी।</div><div id="acsProgBox"><span class="note">पढ़ाई का हिसाब यहाँ दिखेगा…</span></div><a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin-top:10px" href="/courses/">📖 पढ़ना जारी रखें</a><script>(function(){try{var d;try{d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}");}catch(e){d={};}var n=0,k;if(d.read){for(k in d.read){if(d.read.hasOwnProperty(k))n++;}}var read=n,xp=n*10;var days=[];if(d.days){for(k in d.days){if(d.days.hasOwnProperty(k))days.push(k);}days.sort();}function ds(dt){return dt.getFullYear()+"-"+("0"+(dt.getMonth()+1)).slice(-2)+"-"+("0"+dt.getDate()).slice(-2);}var best=0,run=0,prev=null,i,pp,t;for(i=0;i<days.length;i++){pp=days[i].split("-");t=new Date(pp[0],pp[1]-1,pp[2]);if(prev&&Math.round((t-prev)/86400000)===1){run++;}else{run=1;}if(run>best)best=run;prev=t;}var cur=0;if(days.length){var td=new Date();var yd=new Date(Date.now()-86400000);var last=days[days.length-1];cur=(last===ds(td)||last===ds(yd))?run:0;}var ms=[[300,"🏅 पारंगत"],[100,"🥇 स्वर्ण"],[50,"🥈 रजत"],[10,"🥉 कांस्य"],[1,"🌱 शुरुआत"]];var curM="—",nextN=1,nextName="🌱 शुरुआत",j;for(j=ms.length-1;j>=0;j--){if(read>=ms[j][0])curM=ms[j][1];}for(j=ms.length-1;j>=0;j--){if(read<ms[j][0]){nextN=ms[j][0];nextName=ms[j][1];break;}}var box=document.getElementById("acsProgBox");if(!box)return;if(read===0){box.innerHTML='<div class="pd">अभी आपने कोई पाठ पूरा नहीं पढ़ा। नीचे पढ़ना-जारी-रखें बटन दबाकर शुरू करें — हर पाठ पर यहीं अंक व मील-पत्थर अपने-आप जुड़ते जाएँगे। 🌱</div>';return;}var toNext=(read<300)?("अगले मील-पत्थर ("+nextName+") तक "+(nextN-read)+" पाठ और।"):("आप सबसे ऊँचे मील-पत्थर पर हैं — बहुत बढ़िया!");var streakLine=cur>0?("🔥 सीखने का सिलसिला: "+cur+" दिन लगातार"):("आज एक पाठ पढ़कर नया सिलसिला शुरू करें 🌱");box.innerHTML='<div class="pd"><b>कुल अंक:</b> '+xp+' &nbsp; <b>पाठ पढ़े:</b> '+read+'</div>'+'<div class="pd"><b>मौजूदा मील-पत्थर:</b> '+curM+' &nbsp; <b>सबसे लंबा सिलसिला:</b> '+best+' दिन</div>'+'<div class="pd">'+streakLine+'</div>'+'<div class="note">'+toNext+'</div>';}catch(e){}})();</script></div><div class="pcard panel" id="pnl-career" data-nav="💼 करियर-किट" style="grid-column:1/-1"><div class="ph">💼 करियर-किट — नौकरी की तैयारी</div><div class="pd">नौकरी के तीन औज़ार एक जगह: अपना <b>रिज़्यूमे</b> बनाएँ · <b>इंटरव्यू की तैयारी</b> करें · <b>मॉक-अभ्यास</b> करें। सब आपके अपने फ़ोन में सुरक्षित रहता है (कोई server पर नहीं — निजता सुरक्षित)।</div><a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin:4px 6px 0 0" href="/career-kit.html">💼 करियर-किट खोलें</a><div class="note">✍️ अभी उपलब्ध: रिज़्यूमे-बिल्डर · इंटरव्यू-सवाल व सुझाव · मॉक-अभ्यास (सवाल + समय + आवाज़)। आवाज़/वीडियो-रिकॉर्डिंग व AI-आधारित जाँच अगले दौर में।</div></div><div class="pcard panel" id="pnl-exams" data-nav="📝 मेरी परीक्षाएँ" style="grid-column:1/-1"><div class="ph">📝 मेरी परीक्षाएँ (टेस्ट-2 व टेस्ट-3)</div><div class="pd"><b>टेस्ट-2 — Workshop-प्रवेश टेस्ट:</b> online कोर्स पूरा करने के बाद, workshop या कैंप में admission के लिए। यह सिर्फ़ पास-फ़ेल (qualifying) है — इसका कोई प्रमाण पत्र नहीं। fail हों तो जब मर्ज़ी आधी फीस पर दोबारा।</div><div class="pd"><b>टेस्ट-3 (मोड-अ) — प्रशिक्षण-पूर्णता:</b> workshop-प्रशिक्षण → पहली कमाई → अपने काम का फोटो या वीडियो भेजें → उस्ताद हुनर-प्रमाणीकरण दें → साथ में HQ की online परीक्षा — <b>दोनों ताले खुलें तभी</b> प्रशिक्षण-पूर्णता का प्रमाण पत्र।</div><div class="pd"><b>टेस्ट-3 (मोड-ब) — online कोर्स-पूर्णता:</b> workshop में भाग न लेने पर, आपके आवेदन से, online ज्ञान के पूर्ण मूल्यांकन के बाद — प्रमाण पत्र पर साफ़ लिखा होगा: "इन्होंने अभी तक प्रैक्टिकल नहीं किया है।"</div><span class="soon">परीक्षा-इंजन अगले दौर में — तब यहीं से टेस्ट देंगे</span></div><div class="pcard panel" id="pnl-proof" data-nav="📸 पहली-कमाई सबूत" style="grid-column:1/-1"><div class="ph">📸 पहली-कमाई का सबूत (मोड-अ का हिस्सा)</div><div class="pd">यहाँ आप अपने किए काम का फोटो या वीडियो भेजेंगे (हर फ़ाइल अधिकतम 2MB)। उस्ताद इसे देखकर हुनर-प्रमाणीकरण देंगे — यह प्रमाण पत्र के दो तालों में से पहला ताला है।</div><button class="abtn ok" style="background:var(--blue)" disabled>📤 सबूत भेजें</button> <span class="soon">upload-इंजन व समीक्षा-चौकी अगले दौर में</span></div><div class="pcard panel" id="pnl-certs" data-nav="🏆 मेरे प्रमाण पत्र" style="grid-column:1/-1"><div class="ph">🏆 मेरे प्रमाण पत्र</div><div class="pd">ACS पर अभी तीन प्रकार: (1) Aptitude Certificate — रुचि-रिपोर्ट, (2) प्रशिक्षण-पूर्णता प्रमाण पत्र — दोहरा-ताला, (3) online कोर्स-पूर्णता प्रमाण पत्र। हर प्रमाण पत्र पर unique number व QR — दुनिया में कहीं से verify। Lifetime valid; verify 3 साल मुफ़्त, फिर 1000 रुपये; duplicate 500 रुपये।</div><div class="note">अभी आपका कोई प्रमाण पत्र नहीं बना — परीक्षा-इंजन चालू होते ही download यहीं मिलेगा।</div></div><div class="pcard panel" id="pnl-pay" data-nav="💳 मेरे भुगतान" style="grid-column:1/-1"><div class="ph">💳 मेरे भुगतान</div><div class="pd">paid सिर्फ़ ये 5 सेवाएँ: aptitude टेस्ट · offline प्रशिक्षण · workshop apprenticeship · counselor सलाह · विदेश-एजेंट connection। बाक़ी सब — पढ़ना, जुड़ना, देखना — हमेशा मुफ़्त।</div><div class="note">💡 हर paid-सेवा पर भुगतान-बटन के ठीक ऊपर लिखा मिलेगा: सत्यापन असफल = 30 प्रतिशत जाँच-शुल्क। भुगतान से पहले मशीन-जाँच मुफ़्त होती है।</div><div class="note">पूरा हिसाब "📒 मेरा लेन-देन" पैनल में देखें; रसीद-download अगले दौर में।</div></div><div class="pcard panel" id="pnl-counsel" data-nav="🧭 सलाह (Counselor)" style="grid-column:1/-1"><div class="ph">🧭 सलाह — काउंसलर (Counselor)</div><div class="pd">सलाह का रास्ता टेस्ट से पहले भी खुला है और बाद भी। हर counselor से 5 मिनट की मुफ़्त बातचीत (free preview) ज़रूर मिलती है — फिर booking। booking रद्द करने पर (1 घंटा पहले तक) 90 प्रतिशत वापसी — चाहे आप रद्द करें या counselor।</div><div class="note">counselor-सूची (नाम · fees) यहाँ तभी दिखेगी जब उनका RM भौतिक-सत्यापन व approval पूरा होगा — बिना सत्यापन कोई नाम portal पर नहीं दिखता (प्रदर्शन-नियम)।</div><div class="pd" style="margin-top:14px"><b>🧭 अभिरुचि-टेस्ट:</b> बिना-badge ₹100/चांस; Green/Golden Badge-धारक — मुफ़्त, 365 दिन जितनी बार चाहें। रिपोर्ट (नतीजा) अस्थायी रहती है — ₹125 जमा करने पर ही स्थायी रूप से सेव होकर Print/WhatsApp खुलते हैं (हर नए नतीजे का अलग ₹125)।</div><a class="abtn ok" style="display:inline-block;text-decoration:none;margin:6px 0" href="/aptitude-test.html">📝 अभिरुचि-टेस्ट शुरू/जारी करें</a><div id="apt-last-report-status" class="note">पिछली रिपोर्ट जाँची जा रही है…</div></div><div class="pcard panel" id="pnl-workshop" data-nav="🛠️ Workshop व कैंप" style="grid-column:1/-1"><div class="ph">🛠️ Workshop व कैंप</div><div class="pd">रास्ता: मुफ़्त पढ़ो → टेस्ट-2 पास करो → अपने पास के workshop में paid-प्रशिक्षण (अवधि कोर्स के हिसाब से 15 से 300 दिन)। पास में workshop न हो तो 10 या ज़्यादा पास-विद्यार्थी मिलकर online निवेदन करें — RM या ZM कैंप लगवाएँगे।</div><div class="pd">ℹ️ 16 से 18 साल वालों के लिए: प्रशिक्षण-कैंप व भ्रमण सिर्फ़ Guardian (अभिभावक) की सहमति से — या Guardian साथ जाएँ।</div><button class="abtn ok" style="background:var(--blue)" disabled>🙏 कैंप-निवेदन भेजें</button> <span class="soon">workshop-सूची व निवेदन-इंजन अगले दौर में</span></div><div class="pcard panel" id="pnl-rules" data-nav="📜 मेरा नियम-पत्र" style="grid-column:1/-1"><div class="ph">📜 मेरा नियम-पत्र (एग्रीमेंट)</div><div class="pd">विद्यार्थी (Student) के सब नियम — वही जो आपने registration पर स्वीकारे। POSH · POCSO · DPDP का पालन हर हाल में अनिवार्य; किसी शिकायत पर पहले 7-दिन का Show-Cause (अपनी बात रखने का पूरा मौक़ा)।</div><a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="/rules-consent-learner.html">📜 पूरा नियम-पत्र पढ़ें</a></div><div class="pcard panel" id="pnl-ledger" data-nav="📒 मेरा लेन-देन" style="grid-column:1/-1"><div class="ph">📒 मेरा लेन-देन (खाता-बही)</div><div class="pd">यहाँ ACS के साथ आपका हर भुगतान दिखता है — कब, किस सेवा पर, कितना, और उसकी स्थिति। यह सिर्फ़ हिसाब-किताब है — ACS आपका पैसा जमा करके नहीं रखता।</div><div id="ledgerList"><span class="note">हिसाब यह पैनल खोलने पर आता है…</span></div><div class="note">अभी बैज-भुगतान दिखते हैं; बाक़ी paid-सेवाएँ (aptitude टेस्ट आदि) जुड़ते ही उनका हिसाब भी यहीं दिखेगा। कमाई (royalty/commission) का खाता भुगतान-चक्र इंजन के साथ जुड़ेगा।</div></div><div class="pcard panel" id="pnl-help" data-nav="🆘 सहायता व शिकायत" style="grid-column:1/-1"><div class="ph">🆘 सहायता व शिकायत</div><div class="pd">कोई दिक़्क़त, सवाल या शिकायत हो — सीधे लिखें। शिकायत की स्वतंत्र सुनवाई ACS की Trust Policy का हिस्सा है।</div><a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092">💬 WhatsApp पर लिखें</a> <a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="mailto:acs.chautham@gmail.com">✉️ Email भेजें</a></div>
+    </div>
+    <!--EXTERNAL_ONLY_END-->
+
+    <!-- वाणी — हर dashboard में (team+external दोनों; mode-कटाई से बाहर) -->
+    <div class="grid">
+      <div class="pcard panel" id="pnl-vani" data-nav="📱 वाणी" style="grid-column:1/-1">
+        <p style="color:#607D8B">वाणी लोड हो रही है…</p>
+      </div>
+    </div>
+
+    </div>
+   </div>
+  </div>
+
+  <!-- [T6] footer -->
+  <div class="foot">ACS™ · FFGPMTrust · From Village to World</div>
+</div>
+
+<!-- per-page मूल्य — generator भरता है (एकमात्र per-page हिस्सा) -->
+<script>window.ACS_DASH={mode:"external",allowed:["student"],extRoles:[],roleLabel:"कोचिंग-प्रशिक्षु",home:"/dashboard/student/"};</script>
+<!-- पद-जानकारी का एकमात्र घर (परत-3) — सिर्फ़ दिखाने के लिए, guard नहीं -->
+<script src="/assets/designation_matrix.js"></script>
+<!-- 31-घर का एकमात्र साझा तर्क (परत-1) -->
+<script type="module" src="/assets/dashboard.js"></script>
+<script src="/assets/vani.js" defer></script>
+</body>
+</html>
