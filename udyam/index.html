@@ -607,6 +607,7 @@ function renderSectors(){
       <div class="s-num">सेक्टर ${String(s.n).padStart(3,'0')}</div>
       <div class="s-name">${s.name.replace(/\[/g,'(').replace(/\]/g,')')}</div>
       <div class="s-invest">💰 ${s.invest}</div>
+      ${s.intro?`<a href="${s.intro}" onclick="event.stopPropagation()" style="display:block;color:var(--blue);font-weight:700;font-size:16px;margin-top:6px;text-decoration:none">📖 पूरी जानकारी पढ़ें →</a>`:''}
       ${s.course?`<a href="${s.course}" onclick="event.stopPropagation()" style="display:block;color:var(--green);font-weight:700;font-size:16px;margin-top:6px;text-decoration:none">📚 मुफ़्त कोर्स पढ़ें →</a>`:''}
       <div class="s-link">विस्तृत जानकारी →</div>
     </div>`).join('')||
