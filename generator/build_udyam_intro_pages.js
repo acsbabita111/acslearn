@@ -24,10 +24,18 @@ const ROOT = path.join(__dirname, "..");
 const { MG_INTRO, UDYAM_INTRO } = require(path.join(__dirname, "data", "udyam_intro_data.js"));
 
 const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
-const STAMP = "22-Jul-2026";
+const STAMP = "23-Jul-2026";
 const GEN_NOTE =
-  "<!-- ⚙️ यह पेज generator से बना है (generator/build_udyam_intro_pages.js v1.0 · " + STAMP + ") —\n" +
+  "<!-- ⚙️ यह पेज generator से बना है (generator/build_udyam_intro_pages.js v1.1 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: generator/data/udyam_intro_data.js में करके generator दोबारा चलाएँ (परत-4 नियम)। -->";
+
+/* ---------- udyam_data.js से course-url पढ़ना (एक चीज़ = एक जगह — udyam_data.js ही मूल-स्रोत) ---------- */
+function loadCourseUrl(n){
+  const src = fs.readFileSync(path.join(ROOT, "assets", "udyam_data.js"), "utf8");
+  const re = new RegExp('\\{"n":\\s*' + n + ',[^}]*?"course":\\s*"([^"]+)"');
+  const m = src.match(re);
+  return m ? m[1] : null;
+}
 
 /* ---------- menu (links.js से — build_course_pages.js जैसा पैटर्न) ---------- */
 function loadMenu(){
@@ -103,13 +111,31 @@ function checkRobot(bodyHtml){
    न मिलें तो MG_INTRO से (साझा-रूप) लिए जाते हैं — ताकि 24 MG × 1 रिसर्च से 950 उद्यम ढके जा सकें। */
 const MG_SHARED_KEYS = ["bazar", "leaders"];
 
+/* CTA-बटन नियम (Founder, 23-Jul): अलग-अलग पैराग्राफ़/सेक्शन पर फैले हों, एक जगह ढेर न हों।
+   key = जिस सेक्शन के ठीक बाद बटन दिखे। */
+function ctaHtml(label, href, emoji){
+  return '\n<p class="udy-cta-wrap"><a class="udy-cta" href="' + href + '">' + emoji + " " + label + "</a></p>\n";
+}
+function buildCtaAfter(n, udy, courseUrl){
+  const map = {};
+  map["leaders"] = ctaHtml("अपना सही उद्यम पता करने के लिए अभी टेस्ट शुरू करें", "/aptitude-test.html", "🧭");
+  if (courseUrl){
+    map["lscale"] = ctaHtml(udy.title_hi.replace(/\(.*?\)/g, "").trim() + " कोर्स अभी शुरू करें", courseUrl, "📚");
+  }
+  map["yojana"] = ctaHtml("कोर्स में रजिस्ट्रेशन करें", "/join.html", "📝");
+  return map;
+}
+
 function buildBody(n, udy){
   const mg = MG_INTRO[udy.mg] || null;
+  const courseUrl = loadCourseUrl(n);
+  const ctaAfter = buildCtaAfter(n, udy, courseUrl);
   const secsHtml = SEC_LABELS.map(([key, label]) => {
     let html = udy.parts[key];
     if (!html && mg && MG_SHARED_KEYS.indexOf(key) >= 0) html = mg[key];
     if (!html) return "";
-    return '<section class="udy-sec">\n<h2>' + label + "</h2>\n" + html + "\n</section>";
+    const cta = ctaAfter[key] || "";
+    return '<section class="udy-sec">\n<h2>' + label + "</h2>\n" + html + cta + "\n</section>";
   }).join("\n\n");
 
   const mgBlock = mg
@@ -175,11 +201,25 @@ function buildPage(n, udy){
     '<script type="application/ld+json">' + JSON.stringify(bc) + "</scr" + "ipt>\n" +
     '<link rel="stylesheet" href="/assets/course-lesson.css">\n' +
     "<style>.udy-svg-wrap{margin:14px 0;max-width:340px}.udy-sec h2{font-size:22px}" +
+    ".udy-sec p{text-align:justify}" +
     ".udy-cmptbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:17px}" +
     ".udy-cmptbl th,.udy-cmptbl td{border:1px solid #CBD5E1;padding:8px 10px;text-align:left}" +
     ".udy-cmptbl th{background:#0B1F3A;color:#F5F7FA}" +
-    ".udy-note{background:#FFF8E1;border-left:4px solid #F9A825;padding:10px 14px;font-size:17px;margin:12px 0}" +
-    ".udy-maplink{color:#2E7D32;font-weight:700;text-decoration:none}</style>\n</head>");
+    ".udy-note{background:#FFF8E1;border-left:4px solid #F9A825;padding:10px 14px;font-size:17px;margin:12px 0;text-align:left}" +
+    ".udy-maplink{color:#2E7D32;font-weight:700;text-decoration:none}" +
+    ".udy-leadlist{padding-left:30px;list-style-position:outside;margin:10px 0}" +
+    ".udy-leadlist li{margin-bottom:10px;padding-left:4px;text-align:left}" +
+    ".udy-cta-wrap{text-align:center;margin:26px 0}" +
+    ".udy-cta{display:inline-block;background:linear-gradient(135deg,#2E7D32,#1565C0);color:#fff!important;" +
+    "padding:14px 26px;border-radius:10px;font-weight:700;font-size:18px;text-decoration:none;" +
+    "box-shadow:0 4px 14px rgba(0,0,0,.28)}" +
+    ".udy-statcards{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}" +
+    ".udy-statcard{flex:1;min-width:130px;background:#0B1F3A;color:#F5F7FA;border-radius:10px;padding:14px;text-align:center}" +
+    ".udy-statcard b{display:block;font-size:23px;color:#F9A825;margin-bottom:4px}" +
+    ".udy-iconrow{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}" +
+    ".udy-iconitem{flex:1;min-width:100px;text-align:center;font-size:16px;background:#F5F7FA;" +
+    "border-radius:10px;padding:12px}" +
+    ".udy-iconitem .ic{font-size:30px;display:block;margin-bottom:6px}</style>\n</head>");
   page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
   page = page.replace("</body>", MENU_FALLBACK_JS + "\n</body>");
   page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE);
