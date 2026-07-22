@@ -463,7 +463,8 @@
     if (!q) { C.queue.shift(); save(S); renderStep(); return; }
     var globalDone = (C.phase - 1) * PER_KHAND + C.doneOrder.length;
     var head = '<div class="apt-top"><span class="apt-prog">खंड ' + C.phase + ' · प्रश्न ' + (globalDone + 1) + ' / ' + TOTAL + '</span>' +
-      '<span class="apt-prog" id="apt-clock">' + clockText(C) + '</span></div>';
+      '<span class="apt-prog" id="apt-clock">' + clockText(C) + '</span>' +
+      '<button class="apt-btn ghost apt-mini" id="apt-cancel" style="margin-left:8px">❌ परीक्षा छोड़ें</button></div>';
     var body = '<p class="apt-q">' + esc(q.text) + '</p>';
     var a = C.ans[q.id] || {};
     if (q.type === 'scale') body += scaleUI(q, a);
@@ -488,6 +489,18 @@
       else { var cur = C.queue.shift(); C.queue.push(cur); }
       save(S); renderStep();
     };
+    var cb = document.getElementById('apt-cancel');
+    if (cb) cb.onclick = cancelAttempt;
+  }
+  /* ---------- परीक्षा-रद्द (Founder-नियम, 22-Jul) ----------
+     बीच में कभी भी छोड़ने का विकल्प — पक्का करके प्रयास हटे, dashboard लौटें। */
+  function backUrl() {
+    try { return sessionStorage.getItem('acs_apt_back') || '/dashboard/'; } catch (e) { return '/dashboard/'; }
+  }
+  function cancelAttempt() {
+    if (!confirm('पक्का परीक्षा छोड़ना है? अब तक के जवाब मिट जाएँगे — यह प्रयास रद्द हो जाएगा।')) return;
+    S.cur = null; save(S);
+    location.href = backUrl();
   }
   function answered(q, a) {
     if (q.type === 'pick') return typeof a.first === 'number' && typeof a.last === 'number';
@@ -553,7 +566,8 @@
       '<p>जवाब मिले: ' + got + ' / ' + TOTAL + '। जमा करने के बाद यह प्रयास बंद (lock) हो जाएगा।</p>' +
       '<p>चाहें तो "← पिछला" से पीछे जाकर जवाब बदल लें।</p>' +
       '<div class="apt-nav"><button class="apt-btn ghost" id="apt-prev">← पिछला</button> ' +
-      '<button class="apt-btn green" id="apt-lock">✅ अंतिम जमा</button></div></div>';
+      '<button class="apt-btn green" id="apt-lock">✅ अंतिम जमा</button> ' +
+      '<button class="apt-btn ghost apt-mini" id="apt-cancel">❌ परीक्षा छोड़ें</button></div></div>';
     document.getElementById('apt-prev').onclick = function () {
       ensureQueue();
       if (C.doneOrder && C.doneOrder.length) {
@@ -566,6 +580,8 @@
     document.getElementById('apt-lock').onclick = function () {
       if (confirm('पक्का जमा करें? इसके बाद यह प्रयास बदलेगा नहीं।')) finish(false);
     };
+    var cb2 = document.getElementById('apt-cancel');
+    if (cb2) cb2.onclick = cancelAttempt;
   }
   function finish(byClock) {
     var C = S.cur; if (!C || C.locked) return;
