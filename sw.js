@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v93'; // udyam n115 industrial-pipes-fittings intro page + course+intro-link
+const CACHE_VERSION = 'v94'; // udyam n111 steel-manufacturing intro page + course+intro-link
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
