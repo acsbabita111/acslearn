@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v90'; // apt-session.js: parikshaa-radd (cancel-attempt) button in renderStep + renderSubmit
+const CACHE_VERSION = 'v92'; // udyam n119 sheet-metal-fabrication intro page + udyam_data.js intro-link
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
