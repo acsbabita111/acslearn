@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v115'; // udyam n134,136,140,142,148 tractor+auto-parts+motorcycle+civil-helicopter+aerospace-components intro pages
+const CACHE_VERSION = 'v117'; // MG-3 FULLY COMPLETE 52/52 (49 business + 3 career-info: n145 defence-equipment, n146 radar-surveillance, n152 submarine)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
