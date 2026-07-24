@@ -9,7 +9,8 @@
    नतीजा: /udyam/[slug].html (SEO-नामकरण नियम — v2.4-क8 का url-नियम इसी से भरेगा)
 
    check-robot (fail = पेज नहीं बनेगा):
-   1. शब्द-गिनती 3800 से 4200 के बीच (Founder-नियम 22-Jul दूसरा दौर: "कोई कमी नहीं रखेंगे" —
+   1. शब्द-गिनती 3800 से 4800 के बीच (Founder-निर्देश 24-Jul-2026 तीसरा दौर: ऊपरी-सीमा
+      4200→4800 बढ़ाई गई, ताकि हर परिचय-पेज को ज़्यादा विस्तृत, संपूर्ण content मिल सके —
       बाज़ार-आँकड़े · सुरक्षा-आँकड़े · माँग-संख्या · मिलते-जुलते धंधे — चार नए data-सेक्शन जुड़े)
    2. ≥ 2 रेखा-चित्र (svg) अनिवार्य (पहले ≥1 था — अब L-सीढ़ी + कम-से-कम 1 डेटा-चार्ट)
    3. दिखने वाले text में square bracket नहीं — सिर्फ़ गोल ( )
@@ -90,7 +91,7 @@ function checkRobot(bodyHtml){
   const holes = [];
   const words = wordCount(bodyHtml);
   if (words < 3800) holes.push("शब्द-गिनती " + words + " (< 3800)");
-  if (words > 4200) holes.push("शब्द-गिनती " + words + " (> 4200)");
+  if (words > 4800) holes.push("शब्द-गिनती " + words + " (> 4800)");
   const svgCount = (bodyHtml.match(/<svg[\s>]/g) || []).length;
   if (svgCount < 2) holes.push("रेखा-चित्र (svg) सिर्फ़ " + svgCount + " (< 2 चाहिए)");
   const vis = visibleText(bodyHtml);
