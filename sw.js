@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v119'; // MG-2 mining: 10/43 (n68 iron-ore, n69 coal, n70 gold, n71 diamond, n72 copper, n73 lithium, n74 cobalt, n75 nickel, n76 bauxite-aluminium, n78 rare-earth); n77 uranium pending — civilian-only care needed
+const CACHE_VERSION = 'v123'; // MG-2 mining: 43/43 COMPLETE (n68-n110 all present, n77 uranium as gov-career-path template)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
