@@ -615,7 +615,9 @@ function renderSectors(){
 }
 
 window.openSector=function(n,name){
-  // Future: redirect to /udyam/wiki.html?q=name
+  // परिचय-पेज बना हो तो card-click सीधे वहीं जाए; वरना wiki (ईमानदार-पैनल नियम)
+  const s=(typeof ALL_SECTORS!=='undefined'?ALL_SECTORS:[]).find(x=>x.n===n);
+  if(s&&s.intro){window.location.href=s.intro;return;}
   window.location.href='/udyam/wiki.html?sector='+encodeURIComponent(name);
 };
 
