@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v251'; // BUGFIX: duplicate-slug holes closed — n648 (desalination-technology-mg14-business) and n520 (religious-publishing-handicraft-business) given unique slugs, unique content preserved for all 4 entries (n648/852, n520/753). All 893 pages now verified unique, 0 fail.
+const CACHE_VERSION = 'v252'; // MG-24 suraksha/global continues n894-903 (10 udyam: access-control through chinese-electronics — security-services group complete, china-economic-model group started). MG-24 total 13/58. Overall: 903/950 udyam done.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
