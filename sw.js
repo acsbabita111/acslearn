@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v195'; // MG-7 COMPLETE 43/43 (n306-307) + MG-8 parivahan start batch1 n308-313 (8 udyam)
+const CACHE_VERSION = 'v215'; // MG-12 batch3: n523-528 new (Heritage Tourism through Art Gallery) — full 528-page consolidated delivery
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
