@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v218'; // MG-13 rasayan COMPLETE 42/42 (n532-573) — full chemicals group finished
+const CACHE_VERSION = 'v226'; // MG-14 vaishvik COMPLETE n644-653 (10 udyam: oil-gas through petrochemical) — MG-14 total 80/80 FINAL
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
