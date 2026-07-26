@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v231'; // MG-15 bhavishya COMPLETE n694-703 (10 udyam: product-as-a-service through carbon-neutral) — MG-15 total 50/50 FINAL
+const CACHE_VERSION = 'v251'; // BUGFIX: duplicate-slug holes closed — n648 (desalination-technology-mg14-business) and n520 (religious-publishing-handicraft-business) given unique slugs, unique content preserved for all 4 entries (n648/852, n520/753). All 893 pages now verified unique, 0 fail.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
