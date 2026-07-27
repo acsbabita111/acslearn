@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v254'; // MG-24 continued n911-920 (10 udyam: japanese-electric through korea-display — Japan-model series COMPLETE n911-915, Korea-model series COMPLETE n916-920). MG-24 total 30/58. Overall: 920/950 udyam done.
+const CACHE_VERSION = 'v255'; // MG-24 continued n921-930 (10 udyam: vietnam-electronics through singapore-smart-nation — Vietnam-model series COMPLETE n921-925, Singapore-model series COMPLETE n926-930). MG-24 total 40/58. Overall: 930/950 udyam done.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
