@@ -1276,6 +1276,10 @@ if (MODE==="external" && ALLOWED.length>=1) {
     try{
       const res=await httpsCallable(functions,"listServiceVerifyQueue")({});
       const items=(res&&res.data&&res.data.items)||[];
+      /* (27-Jul, Founder-टोक) ईमानदार-पैनल: बटन = सिर्फ़ अपना अधिकार —
+         rm/hq_admin = कदम-1 (सत्यापन); 🏁/⛔ अंतिम मुहर सिर्फ़ zm/founder (1-ब)। */
+      const scope=String((res&&res.data&&res.data.scope)||"").toLowerCase();
+      const canFinal=(scope==="zm"||scope==="founder");
       if(!items.length){ box.innerHTML='<span class="note">आपके दायरे में अभी कोई सेवा-भूमिका आवेदन नहीं।</span>'; return; }
       let h="";
       items.forEach(function(it){
@@ -1288,10 +1292,14 @@ if (MODE==="external" && ALLOWED.length>=1) {
            '<br>Reg: '+esc(it.regNo)+' · '+esc(it.district||"—")+' / '+esc(it.state||"—")+stt+
            '<br>'+vf+(it.verifyNote?' — '+esc(it.verifyNote):'')+
            '<div style="margin-top:6px">'+
-           '<button class="abtn ok" data-sevaq="ok" data-reg="'+esc(it.regNo)+'">✅ भौतिक-सत्यापन</button> '+
-           '<button class="abtn" style="background:#B71C1C;color:#fff" data-sevaq="fail" data-reg="'+esc(it.regNo)+'">❌ असफल</button> '+
-           '<button class="abtn ok" style="background:#0B1F3A" data-sevaq="approve" data-reg="'+esc(it.regNo)+'">🏁 अंतिम स्वीकृति</button> '+
-           '<button class="abtn" style="background:#6b7280;color:#fff" data-sevaq="reject" data-reg="'+esc(it.regNo)+'">⛔ अस्वीकृति</button>'+
+           (it.verify!=="verified"
+             ? '<button class="abtn ok" data-sevaq="ok" data-reg="'+esc(it.regNo)+'">✅ भौतिक-सत्यापन</button> '+
+               '<button class="abtn" style="background:#B71C1C;color:#fff" data-sevaq="fail" data-reg="'+esc(it.regNo)+'">❌ असफल</button> '
+             : '')+
+           (canFinal
+             ? '<button class="abtn ok" style="background:#0B1F3A" data-sevaq="approve" data-reg="'+esc(it.regNo)+'">🏁 अंतिम स्वीकृति</button> '+
+               '<button class="abtn" style="background:#6b7280;color:#fff" data-sevaq="reject" data-reg="'+esc(it.regNo)+'">⛔ अस्वीकृति</button>'
+             : (it.verify==="verified" ? '<span class="note">कदम-1 पूरा — अंतिम मुहर ZM/Founder करेंगे</span>' : ''))+
            '</div></div>';
       });
       box.innerHTML=h;
