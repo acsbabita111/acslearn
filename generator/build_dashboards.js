@@ -236,7 +236,7 @@ const P_BADGE = (
     '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); badge बनने के बाद = ' +
     '(पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
-    '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपका पता व जानकारी जाँचेंगे। ' +
+    '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपका पता व जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
     '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
@@ -354,7 +354,7 @@ const P_TU_BADGE = (
     '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); ' +
     'badge बनने के बाद = (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
-    '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
+    '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
     '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
@@ -511,7 +511,7 @@ const P_INST_BADGE = (
     '<div class="note">नवीनीकरण हर साल 1 अप्रैल से 31 मार्च के हिसाब से — खिड़की 1 से 25 मार्च। ' +
     'वापसी: सत्यापन से पहले 90 प्रतिशत; badge बनने के बाद = (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
-    '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
+    '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
     '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
@@ -826,7 +826,7 @@ const P_SIMPLE_BADGE = (
     '<div class="note">साफ़ समझ: badge सत्यापन का दरवाज़ा नहीं है — RM भौतिक-सत्यापन व approval-श्रृंखला ' +
     'हर हाल में अनिवार्य व अलग चीज़ है; badge उसके बाद का अतिरिक्त भरोसा-चिह्न है। बाक़ी शर्तें नियम-पत्र में।</div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
-    '<div class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
+    '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
     '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
