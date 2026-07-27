@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v262'; // UDYAM-INTRO ENHANCER (all 950 pages via shared files, zero page-regen): acs-universal.js adds (1) big topic-icon hero SVG under every intro title (keyword->emoji map, ~70 rules, fallback factory icon), (2) per-paragraph Hindi listen buttons via speechSynthesis hi-IN with single-active toggle, (3) floating up+back round buttons bottom-left; acs-style.css adds hero card, listen-chip, float buttons and centers ALL buttons (udy-cta, lsn-vidbtn WhatsApp bar, lsn-navbtn back). Also fixed n932/n933 L-ladder SVG caption (was cloned tourism text) — only those 2 pages rebuilt.
+const CACHE_VERSION = 'v263'; // SEO+DISTINCT-HERO: (1) robots.txt + sitemap.xml (965 URLs, new generator/build_sitemap.js — 950 intros + main pages); (2) hero v2 per-udyam distinct visuals: new generator/build_udyam_hero_data.js builds assets/udyam_hero_data.js (n -> topic icon from ~220-rule keyword map over real names, 176 distinct icons, only 5 generic fallbacks + 24 MG color palettes + empty img slot for future real-photo campaign — photo auto-replaces SVG when filled); acs-universal.js hero block rewritten to lazy-load the map, vary layout by n. SEO audit recorded: all 950 pages already have title/description/canonical/og:title/JSON-LD; og:image pending photo-round.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
