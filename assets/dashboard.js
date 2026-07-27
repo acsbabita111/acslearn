@@ -125,7 +125,7 @@ function regDocPhoto(reg){
   }catch(e){ return ""; }
 }
 /* ACS DP-सजावट: gradient-ring + नाम-अक्षर placeholder + (verified) ऊपर-दाएँ हरा बैज */
-function ensurePhotoDecor(verified){
+function ensurePhotoDecor(verified, gold){ /* v4.8: gold=true ⇒ Student Golden (v3.7) — हरा ✔ सेवा-भूमिकाओं की अटूट पहचान, विद्यार्थी पर गोल्डन 🏅 */
   try{
     const im=$("pPhoto"), fb=$("pPhotoFb");
     const target=(im && im.style.display!=="none") ? im : fb;
@@ -139,7 +139,8 @@ function ensurePhotoDecor(verified){
       if(im && fb && !wrap.contains(fb)) wrap.appendChild(fb);
     }
     wrap.style.cssText="position:relative;display:inline-block;padding:5px;border-radius:22px;"+
-      "background:linear-gradient(135deg,#F9A825 0%,#2E7D32 55%,#0B1F3A 100%);"+
+      (gold ? "background:linear-gradient(135deg,#FACC15 0%,#F9A825 55%,#B8860B 100%);"
+            : "background:linear-gradient(135deg,#F9A825 0%,#2E7D32 55%,#0B1F3A 100%);")+
       "box-shadow:0 4px 14px rgba(11,31,58,.25);"+
       "height:fit-content;width:fit-content;line-height:0;align-self:flex-start";
     [im,fb].forEach(el=>{ if(!el) return;
@@ -160,11 +161,12 @@ function ensurePhotoDecor(verified){
     if(verified){
       if(!t){
         t=document.createElement("span"); t.id="pubBadgeTick";
-        t.title="ACS Verified Badge — सत्यापित (Green Tick)";
-        t.textContent="✔"; wrap.appendChild(t);
+        wrap.appendChild(t);
       }
+      t.title = gold ? "ACS Student Golden Badge — सक्रिय" : "ACS Verified Badge — सत्यापित (Green Tick)";
+      t.textContent = gold ? "🏅" : "✔";
       t.style.cssText="position:absolute;top:-10px;right:-10px;width:40px;height:40px;"+
-        "border-radius:50%;background:#2E7D32;color:#fff;display:flex;align-items:center;"+
+        "border-radius:50%;background:"+(gold?"#F9A825":"#2E7D32")+";color:#fff;display:flex;align-items:center;"+
         "justify-content:center;font-size:22px;font-weight:900;border:3px solid #fff;"+
         "box-shadow:0 2px 8px rgba(0,0,0,.4);z-index:5";
     } else if(t){ t.remove(); }
@@ -960,6 +962,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
    ═══════════════════════════════════════════════════════════════ */
 if (MODE==="external" && ALLOWED.length>=1) {
   const BADGE_ROLE = String(ALLOWED[0]||"").toLowerCase();
+  const IS_GOLD = (BADGE_ROLE === "student");   /* v3.7 काम-5: Golden — पिन/tier/RM-क़तार लागू नहीं */
   const TIER_HI = { village:"गाँव", town:"क़स्बा", metro:"महानगर" };
 
   function loadRazorpay(){
@@ -983,7 +986,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     const st=$("badgeStatus"), btn=$("badgeBuyBtn");
     if(!st||!btn) return;
     /* registration में पता/पिन न हो (प्रशिक्षु-roles में खाना ही नहीं) → पिन-खाना दिखाओ */
-    if(!pinFromReg()){ const pr=$("badgePinRow"); if(pr) pr.style.display="block"; }
+    if(!IS_GOLD && !pinFromReg()){ const pr=$("badgePinRow"); if(pr) pr.style.display="block"; }
     try{
       const u=auth.currentUser; if(!u) return;
       const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
@@ -996,12 +999,14 @@ if (MODE==="external" && ALLOWED.length>=1) {
         let till="";
         try{ const ex=latest.badgeExpiresAt&&latest.badgeExpiresAt.toDate?latest.badgeExpiresAt.toDate():null;
              if(ex) till=" ("+("0"+ex.getDate()).slice(-2)+"-"+("0"+(ex.getMonth()+1)).slice(-2)+"-"+ex.getFullYear()+" तक)"; }catch(e){}
-        st.textContent="✅ इस भूमिका का आपका बैज सक्रिय है"+till+"।"; st.style.color="#1b4d20"; btn.style.display="none";
+        st.textContent=(IS_GOLD?"🏅 आपका Student Golden Badge सक्रिय है":"✅ इस भूमिका का आपका बैज सक्रिय है")+till+"।";
+        st.style.color=IS_GOLD?"#8a5a00":"#1b4d20"; btn.style.display="none";
         markPhotoBadge(); setAptGate(latest);
         const pr=$("badgePinRow"); if(pr) pr.style.display="none"; return;
       }
       if(latest && latest.status==="paid"){
-        st.textContent="⏳ भुगतान हो चुका — RM-सत्यापन जारी है। स्वीकृति पर बैज सक्रिय हो जाएगा।";
+        st.textContent=IS_GOLD?"⏳ भुगतान की पुष्टि हो रही है — कुछ पल में Golden Badge सक्रिय दिखेगा।"
+                              :"⏳ भुगतान हो चुका — RM-सत्यापन जारी है। स्वीकृति पर बैज सक्रिय हो जाएगा।";
         st.style.color="#8a5a00"; btn.style.display="none"; clearAptGate(); return;
       }
       if(latest && latest.rmStatus==="rejected"){
@@ -1017,7 +1022,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   }
   LAZY["pnl-badge"] = loadBadgeStatus;
 
-  function markPhotoBadge(){ ensurePhotoDecor(true); }
+  function markPhotoBadge(){ ensurePhotoDecor(true, IS_GOLD); }
   /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
      भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-टेस्ट खुले। निशान device-local;
      बैज सक्रिय न मिले तो निशान हटे (refund/समाप्ति पर द्वार बंद)। */
@@ -1050,8 +1055,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     const btn=$("badgeBuyBtn"), msg=$("badgeMsg");
     if(!btn) return;
     /* पिन: पहले registration-पते से; न हो तो पैनल के पिन-खाने से (server भी यही क्रम मानता है) */
-    let pin = pinFromReg();
-    if(!pin){
+    let pin = IS_GOLD ? "" : pinFromReg();
+    if(!IS_GOLD && !pin){
       const inp=$("badgePin");
       pin = String((inp&&inp.value)||"").replace(/[^0-9]/g,"");
       if(pin.length!==6){
@@ -1073,14 +1078,22 @@ if (MODE==="external" && ALLOWED.length>=1) {
         line="आपका क्षेत्र: "+tierHi+" · मूल शुल्क ₹"+Math.round(o.baseAmount/100)+
              " + उम्र-fee ₹"+Math.round(o.ageFee/100)+" = कुल ₹"+rupee+" (365 दिन)।";
       }
-      const go=confirm(line+"\n\n"+
-        "भुगतान के बाद RM आपकी जानकारी जाँचेंगे। सत्यापन असफल हुआ तो 30% जाँच-शुल्क कटेगा।\n\nभुगतान करें?");
+      if(IS_GOLD){
+        line="🏅 Student Golden Badge · शुल्क ₹"+rupee+" (365 दिन)।";
+        if(o.ageFee && o.ageFee<0){
+          line="🏅 Student Golden Badge · मूल ₹"+Math.round(o.baseAmount/100)+
+               " − उम्र-छूट ₹"+Math.round(-o.ageFee/100)+" = ₹"+rupee+" (365 दिन)।";
+        }
+      }
+      const go=confirm(line+"\n\n"+(IS_GOLD
+        ? "भुगतान होते ही Badge तुरंत सक्रिय — RM-जाँच नहीं। 18 से कम उम्र पर भुगतान अभिभावक की सहमति/उपस्थिति में करें।\nवापसी-नियम: ACS-दोष = 100%; अन्यथा (पूरा − 30%) × बचे दिन ÷ 365।\n\nभुगतान करें?"
+        : "भुगतान के बाद RM आपकी जानकारी जाँचेंगे। सत्यापन असफल हुआ तो 30% जाँच-शुल्क कटेगा।\n\nभुगतान करें?"));
       if(!go){ btn.disabled=false; if(msg) msg.textContent=""; return; }
       if(msg) msg.textContent="भुगतान-पृष्ठ खुल रहा है…";
       await loadRazorpay();
       const rzp=new window.Razorpay({
         key:o.keyId, order_id:o.orderId, amount:o.amount, currency:o.currency||"INR",
-        name:o.name||"Applied Computer School", description:"Verified Badge (365 दिन)",
+        name:o.name||"Applied Computer School", description:IS_GOLD?"Student Golden Badge (365 दिन)":"Verified Badge (365 दिन)",
         prefill:{ email:(auth.currentUser&&auth.currentUser.email)||"" },
         theme:{ color:"#0B1F3A" },
         handler: async function(r){
@@ -1090,7 +1103,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
               razorpay_order_id:r.razorpay_order_id,
               razorpay_payment_id:r.razorpay_payment_id,
               razorpay_signature:r.razorpay_signature });
-            if(msg){ msg.className="msg ok"; msg.textContent="✅ भुगतान सफल — अब RM-सत्यापन होगा।"; }
+            if(msg){ msg.className="msg ok"; msg.textContent=IS_GOLD?"✅ भुगतान सफल — 🏅 Golden Badge सक्रिय!":"✅ भुगतान सफल — अब RM-सत्यापन होगा।"; }
             loadBadgeStatus();
           }catch(e){
             if(msg){ msg.className="msg err"; msg.textContent="भुगतान हुआ पर पुष्टि अटकी — status थोड़ी देर में अपने-आप सुधरेगा।"; }
