@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v265'; // KAAM-4G HOTFIX (pale-content bug on converted AI lessons, caught from Founder screenshots): legacy-lesson.css v1.1 — (1) old style.css :root color-variables were dropped by class-only filter so var(--text/--muted/...) resolved empty = faded text; now the full :root var-set is scoped under .lsn-wrap (content gets exact legacy palette; zero clash with universal --blue/--gold/--green because nearest-ancestor custom-property wins); (2) .reveal{opacity:0} scroll-animation killed inside .lsn-wrap — sections always visible. Pages unchanged (0 regen) — only this css + sw.
+const CACHE_VERSION = 'v266'; // KAAM-4G FIX-2 (page-number-jump broken, caught by Founder): legacy shell kept lesson-map + course-progress-data JSON and audio-dock OUTSIDE <main>, so shell-swap dropped them and app.js jump said every lesson unavailable. Converter v1.2 now carries all three verbatim into the new article (checked: lesson-map 150 entries inside main). All 150 AI lessons rebuilt from clean source; css unchanged.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
