@@ -1001,6 +1001,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
              if(ex) till=" ("+("0"+ex.getDate()).slice(-2)+"-"+("0"+(ex.getMonth()+1)).slice(-2)+"-"+ex.getFullYear()+" तक)"; }catch(e){}
         st.textContent=(IS_GOLD?"🏅 आपका Student Golden Badge सक्रिय है":"✅ इस भूमिका का आपका बैज सक्रिय है")+till+"।";
         st.style.color=IS_GOLD?"#8a5a00":"#1b4d20"; btn.style.display="none";
+        /* v4.9 (Founder-टोक, 27-Jul): बैज सक्रिय ⇒ "RM जाँचेंगे/30%" वाला भुगतान-पूर्व
+           नोट अब भ्रामक — छिपाओ (null-सुरक्षित; rejected/नए-आवेदक पर दिखा रहता है)। */
+        { const rn=$("badgeRmNote"); if(rn) rn.style.display="none"; }
         markPhotoBadge(); setAptGate(latest);
         const pr=$("badgePinRow"); if(pr) pr.style.display="none"; return;
       }
