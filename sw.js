@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v270'; // KAAM-5 CLIENT (Student Golden Badge, v3.7): dashboard.js v4.8 — IS_GOLD branches in shared badge-engine (no pin/tier, golden success-text, guardian+refund confirm, golden photo-ring + medal-tick instead of green tick); new P_BADGE_GOLD panel in student dashboard (flat Rs300, age-discount examples, instant-active, refund formula); refund.html new card 1-b; ALSO pays kaam-6 regen debt caught by hash-diff: jobseeker+entrepreneur pages get the counsel-panel aptitude lines that never reached live. login-router NOT regenerated (live H-6 copy restored; template-sync stays a dedicated future round). Server side already deployed (BADGE_ROLES+student, golden auto-grant).
+const CACHE_VERSION = 'v271'; // HOTFIX (Founder catch): pre-payment RM-verification/30% note in badge panel now gets id=badgeRmNote and dashboard.js v4.9 hides it once badge is ACTIVE (misleading after approval); still shown for new applicants & rejected state. Golden panel never had it. login-router again restored from live (H-6 patch protected).
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
