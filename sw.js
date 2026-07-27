@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v273'; // (supersedes un-uploaded v272) E1 UI FIX (Founder catch): honest-panel rule — RM/Admin see ONLY step-1 verify/fail buttons; final-approve+reject buttons render only for ZM/Founder (scope from server); after verified, step-1 buttons hide and RM sees 'step-1 done — final seal by ZM/Founder'.
+const CACHE_VERSION = 'v274'; // (supersedes un-uploaded v273) E1 TRUTH ON APPLICANT SIDE (Founder catch: approved center still saw old 'chain will be built next round / view-only' static text): status-card text rewritten to live 2-step chakki wording + new stTwoStep live box; dashboard.js v5.1 renders REAL step-1 (rmVerify verified/failed+note/pending) and step-2 (approved celebration / rejected+reason / waiting) into both status-card and approval-panel; also removed internal code-word that leaked into UI text.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
