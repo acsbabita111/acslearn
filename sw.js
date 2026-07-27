@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v261'; // GRAPH-CARD (all 950 intro pages): .udy-svg-wrap styling moved to /acs-style.css — charts now centered, 560px wide, white card with gold top-bar (one-file fix, no page regen needed; generator inline rule removed). + regen-debt cleared: 6 new unique-slug pages uploaded (391/624/406/471 mg-suffix pairs, glass/paint island pair) and 5 stale shared pages rebuilt; udyam_data.js links for n391/624/406/471/567/568 now point to their own pages — shared-slug pairs now ZERO, every udyam has its own page. Old orphan files (9) listed for manual delete.
+const CACHE_VERSION = 'v262'; // UDYAM-INTRO ENHANCER (all 950 pages via shared files, zero page-regen): acs-universal.js adds (1) big topic-icon hero SVG under every intro title (keyword->emoji map, ~70 rules, fallback factory icon), (2) per-paragraph Hindi listen buttons via speechSynthesis hi-IN with single-active toggle, (3) floating up+back round buttons bottom-left; acs-style.css adds hero card, listen-chip, float buttons and centers ALL buttons (udy-cta, lsn-vidbtn WhatsApp bar, lsn-navbtn back). Also fixed n932/n933 L-ladder SVG caption (was cloned tourism text) — only those 2 pages rebuilt.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
