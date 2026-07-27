@@ -1,0 +1,7 @@
+# ACS acslearn.com — robots.txt (v263)
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /assets/
+
+Sitemap: https://acslearn.com/sitemap.xml
