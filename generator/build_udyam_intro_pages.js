@@ -1,10 +1,14 @@
 /* ============================================================
    build_udyam_intro_pages.js — उद्यम-परिचय पेजों का generator (परत-4)
-   v1.0 · 22-Jul-2026 (काम-4क — नमूना: सिर्फ़ n=116 वेल्डिंग/इस्पात-संरचना)
+   v1.1 · 27-Jul-2026 (45MB-फ़ाइल-विभाजन — GitHub-अपलोड-सीमा के कारण data अब
+   24 MG-टुकड़ों + 1 साझा-फ़ाइल में; पुराना: v1.0 · 22-Jul-2026)
    ------------------------------------------------------------
    लोहे का नियम: कोई परिचय-पेज हाथ से न बने — सिर्फ़ यह script (परत-4)।
    स्रोत: /_TEMPLATE.html (परत-2 — root मास्टर टेम्पलेट)
-        + generator/data/udyam_intro_data.js (परत-3 — MG_INTRO + UDYAM_INTRO)
+        + generator/data/udyam_intro_shared.js (LEAD + MG_INTRO)
+        + generator/data/udyam_intro_mg01.js ... mg24.js (24 MG-टुकड़े — हर एक का
+          अपना UDYAM_INTRO-हिस्सा; हर फ़ाइल के अंत में 🔮 भविष्य-स्लॉट — नए उद्यम
+          हमेशा यहीं जोड़े जाएँ, कोई संख्या-सीमा नहीं)
    चलाना: repo-रूट से → node generator/build_udyam_intro_pages.js
    नतीजा: /udyam/[slug].html (SEO-नामकरण नियम — v2.4-क8 का url-नियम इसी से भरेगा)
 
@@ -22,7 +26,16 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const { MG_INTRO, UDYAM_INTRO } = require(path.join(__dirname, "data", "udyam_intro_data.js"));
+const DATA_DIR = path.join(__dirname, "data");
+
+/* ---------- 24 MG-टुकड़े + साझा-फ़ाइल जोड़ना (v1.1 विभाजन) ---------- */
+const { LEAD, MG_INTRO } = require(path.join(DATA_DIR, "udyam_intro_shared.js"));
+const UDYAM_INTRO = {};
+for (let mg = 1; mg <= 24; mg++) {
+  const mgTag = String(mg).padStart(2, "0");
+  const piece = require(path.join(DATA_DIR, "udyam_intro_mg" + mgTag + ".js"));
+  Object.assign(UDYAM_INTRO, piece);
+}
 
 const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
 const STAMP = "23-Jul-2026";
