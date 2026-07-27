@@ -236,6 +236,17 @@ const P_BADGE = (
     '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · महानगर 1,000 रुपये। आपका सही शुल्क आपके पिन कोड से अपने-आप तय होगा।</div>' +
     '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); badge बनने के बाद = ' +
     '(पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<div class="ph" style="margin-top:14px">🤝 referral (जान-पहचान से जोड़ो, इनाम पाओ)</div>' +
+    '<div class="pd">भुगतान से पहले नीचे referral-code भर सकते हैं (वैकल्पिक) — लाने वाले का ACS-नंबर। ' +
+    'इनाम-सूत्र: दोनों के बैज-शुल्क में से कम वाले का एक-तिहाई। सीमा 3 प्रति बैज-वर्ष (स्वयंसेवक असीमित)।</div>' +
+    '<div id="refCodeRow" class="pd">🤝 referral-code (वैकल्पिक): ' +
+    '<input id="refCode" placeholder="जैसे ACS-2026-907642" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:230px;margin-left:6px"></div>' +
+    '<div class="pd">आपका अपना code (सक्रिय बैज पर): <b id="myRefCode">—</b> · इस वर्ष: <span id="refQuota">—</span></div>' +
+    '<div id="refList"><span class="note">आपके referral यह पैनल खोलने पर दिखेंगे…</span></div>' +
+    '<div class="pd">🎁 fund gift करें — लाभार्थी का ACS-नंबर: ' +
+    '<input id="refGiftTo" placeholder="ACS-2026-…" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:200px"> ' +
+    '<button class="abtn ok" id="refGiftBtn" type="button">🎁 भेजें</button></div>' +
+    '<div id="refMsg" class="msg"></div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपका पता व जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
@@ -261,6 +272,17 @@ const P_BADGE_GOLD = (
     'सहमति/उपस्थिति में ही करें।</div>' +
     '<div class="note">भुगतान होते ही Badge तुरंत सक्रिय — कोई RM-जाँच नहीं। वापसी-नियम: ACS की तकनीकी ग़लती = ' +
     'पूरा वापस; अन्यथा (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<div class="ph" style="margin-top:14px">🤝 referral (जान-पहचान से जोड़ो, इनाम पाओ)</div>' +
+    '<div class="pd">भुगतान से पहले नीचे referral-code भर सकते हैं (वैकल्पिक) — लाने वाले का ACS-नंबर। ' +
+    'इनाम-सूत्र: दोनों के बैज-शुल्क में से कम वाले का एक-तिहाई। सीमा 3 प्रति बैज-वर्ष (स्वयंसेवक असीमित)।</div>' +
+    '<div id="refCodeRow" class="pd">🤝 referral-code (वैकल्पिक): ' +
+    '<input id="refCode" placeholder="जैसे ACS-2026-907642" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:230px;margin-left:6px"></div>' +
+    '<div class="pd">आपका अपना code (सक्रिय बैज पर): <b id="myRefCode">—</b> · इस वर्ष: <span id="refQuota">—</span></div>' +
+    '<div id="refList"><span class="note">आपके referral यह पैनल खोलने पर दिखेंगे…</span></div>' +
+    '<div class="pd">🎁 fund gift करें — लाभार्थी का ACS-नंबर: ' +
+    '<input id="refGiftTo" placeholder="ACS-2026-…" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:200px"> ' +
+    '<button class="abtn ok" id="refGiftBtn" type="button">🎁 भेजें</button></div>' +
+    '<div id="refMsg" class="msg"></div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:#B8860B;display:none">🏅 Golden Badge के लिए भुगतान करें</button>' +
     '<div id="badgeMsg" class="msg"></div>' +
@@ -354,6 +376,17 @@ const P_TU_BADGE = (
     'हिसाब से — नवीनीकरण-खिड़की 1 से 25 मार्च।</div>' +
     '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); ' +
     'badge बनने के बाद = (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<div class="ph" style="margin-top:14px">🤝 referral (जान-पहचान से जोड़ो, इनाम पाओ)</div>' +
+    '<div class="pd">भुगतान से पहले नीचे referral-code भर सकते हैं (वैकल्पिक) — लाने वाले का ACS-नंबर। ' +
+    'इनाम-सूत्र: दोनों के बैज-शुल्क में से कम वाले का एक-तिहाई। सीमा 3 प्रति बैज-वर्ष (स्वयंसेवक असीमित)।</div>' +
+    '<div id="refCodeRow" class="pd">🤝 referral-code (वैकल्पिक): ' +
+    '<input id="refCode" placeholder="जैसे ACS-2026-907642" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:230px;margin-left:6px"></div>' +
+    '<div class="pd">आपका अपना code (सक्रिय बैज पर): <b id="myRefCode">—</b> · इस वर्ष: <span id="refQuota">—</span></div>' +
+    '<div id="refList"><span class="note">आपके referral यह पैनल खोलने पर दिखेंगे…</span></div>' +
+    '<div class="pd">🎁 fund gift करें — लाभार्थी का ACS-नंबर: ' +
+    '<input id="refGiftTo" placeholder="ACS-2026-…" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:200px"> ' +
+    '<button class="abtn ok" id="refGiftBtn" type="button">🎁 भेजें</button></div>' +
+    '<div id="refMsg" class="msg"></div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
@@ -511,6 +544,17 @@ const P_INST_BADGE = (
     'सूची में भरोसा व प्राथमिकता, पर बिना badge भी काम चलता रहता है।</div>' +
     '<div class="note">नवीनीकरण हर साल 1 अप्रैल से 31 मार्च के हिसाब से — खिड़की 1 से 25 मार्च। ' +
     'वापसी: सत्यापन से पहले 90 प्रतिशत; badge बनने के बाद = (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<div class="ph" style="margin-top:14px">🤝 referral (जान-पहचान से जोड़ो, इनाम पाओ)</div>' +
+    '<div class="pd">भुगतान से पहले नीचे referral-code भर सकते हैं (वैकल्पिक) — लाने वाले का ACS-नंबर। ' +
+    'इनाम-सूत्र: दोनों के बैज-शुल्क में से कम वाले का एक-तिहाई। सीमा 3 प्रति बैज-वर्ष (स्वयंसेवक असीमित)।</div>' +
+    '<div id="refCodeRow" class="pd">🤝 referral-code (वैकल्पिक): ' +
+    '<input id="refCode" placeholder="जैसे ACS-2026-907642" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:230px;margin-left:6px"></div>' +
+    '<div class="pd">आपका अपना code (सक्रिय बैज पर): <b id="myRefCode">—</b> · इस वर्ष: <span id="refQuota">—</span></div>' +
+    '<div id="refList"><span class="note">आपके referral यह पैनल खोलने पर दिखेंगे…</span></div>' +
+    '<div class="pd">🎁 fund gift करें — लाभार्थी का ACS-नंबर: ' +
+    '<input id="refGiftTo" placeholder="ACS-2026-…" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:200px"> ' +
+    '<button class="abtn ok" id="refGiftBtn" type="button">🎁 भेजें</button></div>' +
+    '<div id="refMsg" class="msg"></div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
@@ -826,6 +870,17 @@ const P_SIMPLE_BADGE = (
     'महानगर (Metro) 1,000 रुपये। badge लेना आपकी मर्ज़ी — badge वाले को सूची में भरोसा व प्राथमिकता।</div>' +
     '<div class="note">साफ़ समझ: badge सत्यापन का दरवाज़ा नहीं है — RM भौतिक-सत्यापन व approval-श्रृंखला ' +
     'हर हाल में अनिवार्य व अलग चीज़ है; badge उसके बाद का अतिरिक्त भरोसा-चिह्न है। बाक़ी शर्तें नियम-पत्र में।</div>' +
+    '<div class="ph" style="margin-top:14px">🤝 referral (जान-पहचान से जोड़ो, इनाम पाओ)</div>' +
+    '<div class="pd">भुगतान से पहले नीचे referral-code भर सकते हैं (वैकल्पिक) — लाने वाले का ACS-नंबर। ' +
+    'इनाम-सूत्र: दोनों के बैज-शुल्क में से कम वाले का एक-तिहाई। सीमा 3 प्रति बैज-वर्ष (स्वयंसेवक असीमित)।</div>' +
+    '<div id="refCodeRow" class="pd">🤝 referral-code (वैकल्पिक): ' +
+    '<input id="refCode" placeholder="जैसे ACS-2026-907642" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:230px;margin-left:6px"></div>' +
+    '<div class="pd">आपका अपना code (सक्रिय बैज पर): <b id="myRefCode">—</b> · इस वर्ष: <span id="refQuota">—</span></div>' +
+    '<div id="refList"><span class="note">आपके referral यह पैनल खोलने पर दिखेंगे…</span></div>' +
+    '<div class="pd">🎁 fund gift करें — लाभार्थी का ACS-नंबर: ' +
+    '<input id="refGiftTo" placeholder="ACS-2026-…" style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:200px"> ' +
+    '<button class="abtn ok" id="refGiftBtn" type="button">🎁 भेजें</button></div>' +
+    '<div id="refMsg" class="msg"></div>' +
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
@@ -957,7 +1012,9 @@ function foreignAgentPanels(){
        + P_RULES_LINK("rules-consent-foreign-agent.html","विदेश एजेंट (Foreign Agent)") + P_LEDGER + P_HELP;
 }
 function volunteerPanels(){
-  return P_VOL_SEVA + P_VOL_PATH + P_VOL_EARN
+  /* काम-8 (27-Jul, Founder-एकरूपता): स्वयंसेवक को भी Verified Badge —
+     field-staff विश्वसनीयता; referral-खंड बैज-पैनल के भीतर अपने-आप। */
+  return P_VOL_SEVA + P_VOL_PATH + P_VOL_EARN + P_SIMPLE_BADGE
        + P_RULES_LINK("rules-consent-volunteer.html","स्वयंसेवक (Volunteer)") + P_LEDGER + P_HELP;
 }
 function financeMitraPanels(){
