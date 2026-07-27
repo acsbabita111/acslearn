@@ -120,3 +120,24 @@
     .hero-in{ padding-bottom:70px; }
   }
   @media(prefers-reduced-motion:reduce){ *{ transition:none; } }
+
+
+/* ── उद्यम-परिचय ग्राफ़-कार्ड (v261): ग्राफ़ बीच में, बड़ा, कार्ड-उभार ──
+   एकमात्र घर यही — generator के inline-block से .udy-svg-wrap नियम हटा दिया गया।
+   पुराने पेजों के inline 340px नियम को यह selector (ज़्यादा specific) हराता है। */
+.udy-sec .udy-svg-wrap{
+  display:block;
+  max-width:560px;
+  margin:26px auto;
+  background:#FFFFFF;
+  border:1px solid #CBD5E1;
+  border-top:5px solid #F9A825;
+  border-radius:12px;
+  padding:16px 14px 10px;
+  box-shadow:0 6px 20px rgba(11,31,58,.16);
+}
+.udy-sec .udy-svg-wrap svg{
+  display:block;
+  width:100%;
+  height:auto;
+}

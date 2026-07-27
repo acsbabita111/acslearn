@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v260'; // MG-24 n932-933 Thailand Food + Automotive intro pages — 950/950 udyam-parichay COMPLETE 🎉 (entries in udyam_intro_mg24.js, generator-built, check-robot pass; udyam_data.js intro links added)
+const CACHE_VERSION = 'v261'; // GRAPH-CARD (all 950 intro pages): .udy-svg-wrap styling moved to /acs-style.css — charts now centered, 560px wide, white card with gold top-bar (one-file fix, no page regen needed; generator inline rule removed). + regen-debt cleared: 6 new unique-slug pages uploaded (391/624/406/471 mg-suffix pairs, glass/paint island pair) and 5 stale shared pages rebuilt; udyam_data.js links for n391/624/406/471/567/568 now point to their own pages — shared-slug pairs now ZERO, every udyam has its own page. Old orphan files (9) listed for manual delete.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
