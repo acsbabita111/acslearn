@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v252'; // MG-24 suraksha/global continues n894-903 (10 udyam: access-control through chinese-electronics — security-services group complete, china-economic-model group started). MG-24 total 13/58. Overall: 903/950 udyam done.
+const CACHE_VERSION = 'v253'; // MG-24 continued n904-910 (7 udyam: chinese-solar through china-belt-road — China economic-model series COMPLETE n901-910). MG-24 total 20/58. Overall: 910/950 udyam done.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
