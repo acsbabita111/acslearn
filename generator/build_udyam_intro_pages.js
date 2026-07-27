@@ -214,6 +214,9 @@ function buildPage(n, udy){
     '<script type="application/ld+json">' + JSON.stringify(ld) + "</scr" + "ipt>\n" +
     '<script type="application/ld+json">' + JSON.stringify(bc) + "</scr" + "ipt>\n" +
     '<link rel="stylesheet" href="/assets/course-lesson.css">\n' +
+    /* नोट (v261): नीचे का .udy-svg-wrap{340px} नियम पुराना है — /acs-style.css का
+       ".udy-sec .udy-svg-wrap" graph-card (560px, बीच में, कार्ड-रूप) इसे हराता है।
+       यहाँ से हटाना = 950 पेजों का regen — अगले पूर्ण-regen दौर में ही साफ़ करें। */
     "<style>.udy-svg-wrap{margin:14px 0;max-width:340px}.udy-sec h2{font-size:22px}" +
     ".udy-sec p{text-align:justify}" +
     ".udy-cmptbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:17px}" +
