@@ -99,10 +99,12 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
 (function(){
   /* v267: तैरते ⬆/← बटन सब कोर्स-पेजों पर भी (Founder-नियम: "पीछे व ऊपर —
      दो बटन हमेशा"); hero व अनुच्छेद-सुनो पहले की तरह सिर्फ़ उद्यम-परिचय पर। */
+  /* v268 (Founder-नियम): ⬆/← तैरते बटन साइट के हर पेज पर डिफ़ॉल्ट —
+     जहाँ भी universal चलता है। hero+अनुच्छेद-सुनो सिर्फ़ उद्यम-परिचय पर।
+     होम पर ← नहीं (पीछे कुछ नहीं)। */
   var P = location.pathname || "";
   var isUdyam = /^\/udyam\/.+\.html$/.test(P);
-  var isCourse = /^\/courses\//.test(P);
-  if(!isUdyam && !isCourse) return;
+  var isHome = (P === "/" || P === "/index.html");
   function ready(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded",fn); }
   ready(function(){
     var sec1 = document.querySelector(".udy-sec");
@@ -207,9 +209,9 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       bTop.onclick=function(){ try{window.scrollTo({top:0,behavior:"smooth"});}catch(e){window.scrollTo(0,0);} };
       var bBack = document.createElement("a");
       bBack.className="udy-fbtn"; bBack.textContent="←";
-      bBack.href = isUdyam ? "/udyam/" : "/courses/hi/"; bBack.setAttribute("aria-label","वापस — सब उद्यम");
+      bBack.href = isUdyam ? "/udyam/" : "/"; bBack.setAttribute("aria-label","पीछे जाएँ");
       bBack.onclick=function(ev){ if(history.length>1){ ev.preventDefault(); history.back(); } };
-      fw.appendChild(bTop); fw.appendChild(bBack);
+      fw.appendChild(bTop); if(!isHome) fw.appendChild(bBack);
       document.body.appendChild(fw);
     }catch(e){}
   });
