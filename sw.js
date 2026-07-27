@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v272'; // KAAM-7 E1 CLIENT (service-role 2-step approval, Founder: final=ZM-of-state/Founder, employer included, RM-fail=note-only, volunteer via team-path): new P_SEVA_QUEUE panel in founder/admin/zonal/regional (list + verify/fail + final approve/reject buttons; server enforces scope+order), pnl-sevaq added to TEAM_PANEL_IDS whitelist; JOIN: step>1 locks name fields grey-prefilled (Founder point-1; change via back to step-1). Server functions listServiceVerifyQueue + rmVerifyService + approveApplication/rejectApplication E1-branches deploy separately.
+const CACHE_VERSION = 'v273'; // (supersedes un-uploaded v272) E1 UI FIX (Founder catch): honest-panel rule — RM/Admin see ONLY step-1 verify/fail buttons; final-approve+reject buttons render only for ZM/Founder (scope from server); after verified, step-1 buttons hide and RM sees 'step-1 done — final seal by ZM/Founder'.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
