@@ -1,6 +1,9 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
-   ACS Firestore Security Rules — v6
+   ACS Firestore Security Rules — v7
+   v7 (27-Jul, काम-8): referrals-बक्सा — पढ़े: लाने वाला (refBy) ·
+   gift-लाभार्थी (giftedToUid) · Founder · active-Admin; लिखे: कोई नहीं
+   (सिर्फ़ server-functions)। roleCols-पहरा नियम यथावत।
    अद्यतन: 22-Jul-2026 (काम-अभिरुचि-भुगतान — होल-बंदी)
    v6 (22-Jul): 🔴 होल-बंदी — payments collection का कोई read-rule
    कभी था ही नहीं (v3.4/v3.6/v3.7 के दर्ज दावे "v6 payments जुड़ा" ग़लत
@@ -109,6 +112,15 @@ service cloud.firestore {
     match /payments/{orderId} {
       allow read: if request.auth != null
         && (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+
+    // ── referrals (काम-8 · v7): record-मात्र fund-प्रविष्टियाँ ──
+    match /referrals/{orderId} {
+      allow read: if request.auth != null
+        && (resource.data.refBy == request.auth.uid
+            || resource.data.giftedToUid == request.auth.uid
+            || isFounder() || isActiveAdmin());
       allow write: if false;
     }
 

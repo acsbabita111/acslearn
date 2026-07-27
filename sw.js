@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v274'; // (supersedes un-uploaded v273) E1 TRUTH ON APPLICANT SIDE (Founder catch: approved center still saw old 'chain will be built next round / view-only' static text): status-card text rewritten to live 2-step chakki wording + new stTwoStep live box; dashboard.js v5.1 renders REAL step-1 (rmVerify verified/failed+note/pending) and step-2 (approved celebration / rejected+reason / waiting) into both status-card and approval-panel; also removed internal code-word that leaked into UI text.
+const CACHE_VERSION = 'v275'; // (supersedes un-uploaded v274) KAAM-8 REFERRAL CLIENT + VOLUNTEER BADGE (Founder: 1-a record-only via 7-workday cycle, volunteer gets badge too=uniformity, fund giftable, badge-purchases only for now): all 5 badge panels gain referral section (optional code input=referrer regNo, my-code shown only with active badge, quota x/3 or unlimited for volunteer, fund list due/paid with expiry, gift by ACS-number); dashboard.js v5.2 sends referralCode to createBadgeOrder and adds loadMyReferrals+gift engine; server: BADGE_ROLES+volunteer, min/3 formula at grant-moment inside both grant transactions (idempotent doc-id=orderId), giftReferral fn; firestore.rules v7 referrals read-block. Deploy functions+rules from office.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
