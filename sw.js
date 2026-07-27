@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v256'; // MG-24 continued n931,n934-942 (10 udyam: thailand-tourism through precision-agriculture-asia — Thailand-model, Australia-model series COMPLETE + aquaponics/precision-ag close out full Asia-economic-model chain n901-942). n940 australia-wine flagged 18+/band-3 (alcohol). MG-24 total 50/58. Overall: 940/950 udyam done (n932/933 missing from base data — Founder decision pending).
+const CACHE_VERSION = 'v258'; // POST-COMPLETION CLEANUP: session started with stale compaction-summary claiming only 13/58 MG-24 done; discovered n943-950 (and in fact full n904-950) were already complete pre-session. Removed 5 accidental duplicate data-entries (n943,944,945,946,947) this session had re-written on top of existing ones, deleted 3 resulting orphan HTML files, and fixed a real pre-existing slug-collision bug: n926 Singapore-Financial-Hub (MG-24) shared its slug with pre-existing n640 Singapore-Financial-Hub (MG-14) — generator auto-renamed n926's file to singapore-financial-hub-mg24-business.html but assets/udyam_data.js intro-link still pointed to the n640 file; corrected now. Final verification: 948/948 unique slugs, 948/948 files exist, 948/948 intro-links resolve correctly, 0 duplicates, 0 fails. Project 950-udyam-intro corpus (948 achievable, n932/933 absent) is COMPLETE.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
