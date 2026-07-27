@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v255'; // MG-24 continued n921-930 (10 udyam: vietnam-electronics through singapore-smart-nation — Vietnam-model series COMPLETE n921-925, Singapore-model series COMPLETE n926-930). MG-24 total 40/58. Overall: 930/950 udyam done.
+const CACHE_VERSION = 'v256'; // MG-24 continued n931,n934-942 (10 udyam: thailand-tourism through precision-agriculture-asia — Thailand-model, Australia-model series COMPLETE + aquaponics/precision-ag close out full Asia-economic-model chain n901-942). n940 australia-wine flagged 18+/band-3 (alcohol). MG-24 total 50/58. Overall: 940/950 udyam done (n932/933 missing from base data — Founder decision pending).
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
