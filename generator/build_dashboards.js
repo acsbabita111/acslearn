@@ -245,6 +245,26 @@ const P_BADGE = (
     '<div id="badgeMsg" class="msg"></div>' +
     '</div>');
 
+/* (काम-5 · 27-Jul) Student Golden Badge — v3.7: flat ₹300, उम्र-छूट server-गणना,
+   RM-क़तार नहीं (भुगतान = तुरंत सक्रिय), रंग गोल्डन। id वही (साझा बैज-इंजन चले);
+   पिन-row जान-बूझकर नहीं — Golden में क्षेत्र-भेद लागू नहीं। */
+const P_BADGE_GOLD = (
+    '<div class="pcard panel" id="pnl-badge" data-nav="🏅 Golden Badge" style="grid-column:1/-1">' +
+    '<div class="ph">🏅 Student Golden Badge</div>' +
+    '<div class="pd">पढ़ना मुफ़्त है — Golden Badge लेना आपकी मर्ज़ी (वैकल्पिक)। Badge के साथ सभी online टेस्ट ' +
+    '365 दिन असीमित मुफ़्त — जितनी बार चाहें दें, नतीजा मुफ़्त देखें (प्रमाण पत्र-PDF ₹125 में — मर्ज़ी हो तो लें)।</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> सबके लिए सीधा 300 रुपये — गाँव/क़स्बा/महानगर का भेद नहीं। ' +
+    '18 से कम उम्र पर छूट: हर कम-वर्ष पर 12 प्रतिशत — जैसे 10 वर्ष = 12 रुपये · 14 वर्ष = 156 रुपये · ' +
+    '16 वर्ष = 228 रुपये। सही रक़म आपकी जन्मतिथि से अपने-आप बनेगी।</div>' +
+    '<div class="note" style="color:#8a5a00"><b>अभिभावक-नियम:</b> 18 से कम उम्र पर भुगतान अभिभावक की ' +
+    'सहमति/उपस्थिति में ही करें।</div>' +
+    '<div class="note">भुगतान होते ही Badge तुरंत सक्रिय — कोई RM-जाँच नहीं। वापसी-नियम: ACS की तकनीकी ग़लती = ' +
+    'पूरा वापस; अन्यथा (पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
+    '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
+    '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:#B8860B;display:none">🏅 Golden Badge के लिए भुगतान करें</button>' +
+    '<div id="badgeMsg" class="msg"></div>' +
+    '</div>');
+
 const P_PAY_JOBSEEKER_EXTRA = (
     '<div class="pd"><b>platform-fee:</b> नौकरी मिलने के रास्ते में आप सिर्फ़ ACS को platform-fee देते हैं — ' +
     'किसी agent या बिचौलिए को एक रुपया भी नहीं। नियोक्ता से worker-fee शून्य।</div>');
@@ -877,7 +897,7 @@ const P_PROGRESS = "<div class=\"pcard panel\" id=\"pnl-progress\" data-nav=\"�
 
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
-  return P_APTITUDE + P_COURSES + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
+  return P_BADGE_GOLD + P_APTITUDE + P_COURSES + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
        + P_RULES_LINK("rules-consent-learner.html","विद्यार्थी (Student)") + P_LEDGER + P_HELP;
 }
 function jobseekerPanels(){
