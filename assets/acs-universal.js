@@ -97,16 +97,21 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
    बटन-केंद्रण की css /acs-style.css में है।
    ============================================================ */
 (function(){
-  if(!(location.pathname||"").match(/^\/udyam\/.+\.html$/)) return;
+  /* v267: तैरते ⬆/← बटन सब कोर्स-पेजों पर भी (Founder-नियम: "पीछे व ऊपर —
+     दो बटन हमेशा"); hero व अनुच्छेद-सुनो पहले की तरह सिर्फ़ उद्यम-परिचय पर। */
+  var P = location.pathname || "";
+  var isUdyam = /^\/udyam\/.+\.html$/.test(P);
+  var isCourse = /^\/courses\//.test(P);
+  if(!isUdyam && !isCourse) return;
   function ready(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded",fn); }
   ready(function(){
     var sec1 = document.querySelector(".udy-sec");
-    if(!sec1) return; /* सिर्फ़ परिचय-पेज */
+    var doUdyam = isUdyam && !!sec1; /* hero+सुनो सिर्फ़ उद्यम-परिचय पर */
 
     /* ---------- (1) hero v2 — हर उद्यम का अपना दृश्य ----------
        स्रोत: /assets/udyam_hero_data.js (generator-निर्मित: n → चिह्न+mg+img)।
        img भरा हो → असली फ़ोटो; ख़ाली → MG-रंग-थीम SVG-दृश्य (n से ढाँचा-बदलाव)। */
-    try{
+    if(doUdyam) try{
       var h1 = document.querySelector("h1");
       var mN = document.body.textContent.match(/उद्यम-सूची क्रमांक (\d+)/);
       var uN = mN ? parseInt(mN[1],10) : 0;
@@ -160,7 +165,7 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
     }catch(e){}
 
     /* ---------- (2) 🔊 सुनो-बटन — हर अनुच्छेद पर ---------- */
-    try{
+    if(doUdyam) try{
       if("speechSynthesis" in window){
         var current = null; /* {btn, utt} */
         function stopAll(){
@@ -202,7 +207,7 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       bTop.onclick=function(){ try{window.scrollTo({top:0,behavior:"smooth"});}catch(e){window.scrollTo(0,0);} };
       var bBack = document.createElement("a");
       bBack.className="udy-fbtn"; bBack.textContent="←";
-      bBack.href="/udyam/"; bBack.setAttribute("aria-label","वापस — सब उद्यम");
+      bBack.href = isUdyam ? "/udyam/" : "/courses/hi/"; bBack.setAttribute("aria-label","वापस — सब उद्यम");
       bBack.onclick=function(ev){ if(history.length>1){ ev.preventDefault(); history.back(); } };
       fw.appendChild(bTop); fw.appendChild(bBack);
       document.body.appendChild(fw);
