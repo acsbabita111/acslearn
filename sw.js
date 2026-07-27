@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v263'; // SEO+DISTINCT-HERO: (1) robots.txt + sitemap.xml (965 URLs, new generator/build_sitemap.js — 950 intros + main pages); (2) hero v2 per-udyam distinct visuals: new generator/build_udyam_hero_data.js builds assets/udyam_hero_data.js (n -> topic icon from ~220-rule keyword map over real names, 176 distinct icons, only 5 generic fallbacks + 24 MG color palettes + empty img slot for future real-photo campaign — photo auto-replaces SVG when filled); acs-universal.js hero block rewritten to lazy-load the map, vary layout by n. SEO audit recorded: all 950 pages already have title/description/canonical/og:title/JSON-LD; og:image pending photo-round.
+const CACHE_VERSION = 'v264'; // KAAM-4G PILOT: legacy->universal migration begins. New generator/build_legacy_migrate.js (shell-swap: main-content byte-identical, outer shell from welding donor = universal navbar/menu/footer, real canonical, breadcrumb, computed prev/next from file sequence, 3 exit buttons, course-lesson.js for learner-progress, /assets/app.js kept for content interactivity). New assets/legacy-lesson.css = class-only rules extracted from /assets/style.css (globals dropped to avoid clashing with universal shell). Pilot: AI-Digital-Master 150 lessons converted, 0 fail; DCA 361 + Printer 902 in next batches; course index/details pages out of scope (Template-A round).
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
