@@ -68,11 +68,23 @@ function classOnly(css) {
 }
 
 const styleSrc = fs.readFileSync(path.join(ROOT, "assets/style.css"), "utf8");
+/* :root के रंग-चर .lsn-wrap-दायरे में — content को पुराना रंग-संसार हूबहू,
+   universal-खोल के --blue/--gold/--green से शून्य टकराव (नज़दीकी-परिभाषा जीतती है) */
+const rootM = styleSrc.match(/:root\s*\{([^}]*)\}/);
+const scopedVars = rootM ? ".lsn-wrap{" + rootM[1].trim() + "}\n" : "";
 const legacyCss =
   "/* legacy-lesson.css — generator-निर्मित (build_legacy_migrate.js)।\n" +
   "   स्रोत: /assets/style.css के सिर्फ़ class-नियम (global *, html, body, main,\n" +
   "   a, p आदि बाहर — universal-खोल से टकराव-रोक)। हाथ से न बदलें —\n" +
-  "   style.css बदले तो यह generator दोबारा चलाएँ। */\n" + classOnly(styleSrc);
+  "   style.css बदले तो यह generator दोबारा चलाएँ। */\n" + scopedVars + classOnly(styleSrc) +
+  "\n/* v1.1: scroll-पर-प्रकट (.reveal) बंद — content सदा दिखे (धुँधला-होल की जड़-2) */\n" +
+  ".lsn-wrap .reveal{opacity:1 !important;transform:none !important;transition:none !important}\n" +
+  "/* v1.1: legacy-content का अपना dark-मंच बहाल — भीतरी द्वीप मूल रंग-संसार में जिए,\n" +
+  "   universal-खोल बाहर उजला रहे (सफ़ेद-पर्दे पर सफ़ेद-text वाला उल्टा-अंधापन रोक) */\n" +
+  ".lsn-wrap{background:linear-gradient(180deg,var(--bg),var(--bg2)) !important;" +
+  "color:var(--text);border-radius:14px;padding:18px 14px 26px}\n" +
+  ".lsn-wrap .lsn-crumb, .lsn-wrap .lsn-crumb a{color:var(--muted)}\n" +
+  ".lsn-wrap .lsn-crumb a{text-decoration:underline}\n";
 fs.writeFileSync(path.join(ROOT, "assets/legacy-lesson.css"), legacyCss);
 
 /* ---------- 2) welding-दाता खोल ---------- */
