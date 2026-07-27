@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v267'; // FLOAT BUTTONS EVERYWHERE ON COURSES (Founder rule: up + back always): acs-universal.js enhancer gate widened — floating up/back round buttons now on ALL /courses/ pages (welding, ecom, AI now; DCA/printer automatically after migration) plus udyam as before; hero + per-paragraph listen stay udyam-intro-only; back-button fallback /courses/hi/ on course pages.
+const CACHE_VERSION = 'v268'; // (supersedes un-uploaded v267) SITE-WIDE FLOAT + DCA MIGRATED + SITEMAP AUTO: (1) floating up+back buttons now DEFAULT on every page where universal runs (home shows only up — nothing behind it); back fallback / . (2) DCA 360 lessons converted to universal shell via converter v1.2 pipeline (lesson-map 360 inside main, content byte-identical, computed prev/next, 3 exits). (3) Permanent rule baked in code: build_legacy_migrate v1.3 auto-runs build_sitemap at the end — sitemap can never be forgotten again; sitemap.xml regenerated now = 1699 URLs (added AI-150 which was missed + DCA-360).
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
