@@ -203,7 +203,7 @@ let CAN_FINAL = false;
 let MYDESIG = "";
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
-const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq"];
+const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
 /* ⚠️ nav-whitelist नियम (19-Jul सीख): नया team-पैनल जोड़ो तो उसका id ऊपर की सूची में भी —
    वरना पेज में होते हुए भी काम-सूची से छँट जाएगा (badgeq-प्रकरण, Founder ने Notepad से पकड़ा)। */
 function initNav(boot){
@@ -1267,6 +1267,66 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
   }
   LAZY["pnl-badgeq"] = loadQueue;
+
+  /* ═══ E1 (काम-7 · 27-Jul): सेवा-भूमिका सत्यापन-क़तार ═══ */
+  async function loadSevaQueue(){
+    const box=$("sevaqList"), msg=$("sevaqMsg");
+    if(!box) return;
+    box.innerHTML='<span class="note">क़तार खुल रही है…</span>';
+    try{
+      const res=await httpsCallable(functions,"listServiceVerifyQueue")({});
+      const items=(res&&res.data&&res.data.items)||[];
+      if(!items.length){ box.innerHTML='<span class="note">आपके दायरे में अभी कोई सेवा-भूमिका आवेदन नहीं।</span>'; return; }
+      let h="";
+      items.forEach(function(it){
+        const vf=it.verify==="verified"?'<span style="color:#1b4d20;font-weight:700">✅ सत्यापित</span>'
+               : it.verify==="failed" ?'<span style="color:#B71C1C;font-weight:700">❌ असफल</span>'
+               : '<span style="color:#8a5a00;font-weight:700">⏳ सत्यापन बाक़ी</span>';
+        const stt=it.status==="rejected"?' · <span style="color:#B71C1C">अस्वीकृत</span>':"";
+        h+='<div class="pd" style="border:1px solid #dbe3ee;border-radius:10px;padding:10px;margin:8px 0">'+
+           '<b>'+esc(it.name)+'</b> · '+esc(it.role)+(it.orgName?' · '+esc(it.orgName):'')+
+           '<br>Reg: '+esc(it.regNo)+' · '+esc(it.district||"—")+' / '+esc(it.state||"—")+stt+
+           '<br>'+vf+(it.verifyNote?' — '+esc(it.verifyNote):'')+
+           '<div style="margin-top:6px">'+
+           '<button class="abtn ok" data-sevaq="ok" data-reg="'+esc(it.regNo)+'">✅ भौतिक-सत्यापन</button> '+
+           '<button class="abtn" style="background:#B71C1C;color:#fff" data-sevaq="fail" data-reg="'+esc(it.regNo)+'">❌ असफल</button> '+
+           '<button class="abtn ok" style="background:#0B1F3A" data-sevaq="approve" data-reg="'+esc(it.regNo)+'">🏁 अंतिम स्वीकृति</button> '+
+           '<button class="abtn" style="background:#6b7280;color:#fff" data-sevaq="reject" data-reg="'+esc(it.regNo)+'">⛔ अस्वीकृति</button>'+
+           '</div></div>';
+      });
+      box.innerHTML=h;
+    }catch(e){
+      box.innerHTML='<span class="note" style="color:#B71C1C">'+esc((e&&e.message)||"क़तार नहीं खुली")+'</span>';
+    }
+  }
+  LAZY["pnl-sevaq"] = loadSevaQueue;
+  document.addEventListener("click", async function(ev){
+    const b=ev.target.closest("[data-sevaq]"); if(!b) return;
+    const act=b.getAttribute("data-sevaq"), regNo=b.getAttribute("data-reg");
+    const msg=$("sevaqMsg");
+    try{
+      b.disabled=true;
+      if(act==="ok"||act==="fail"){
+        const note=prompt(act==="ok"?"टिप्पणी (वैकल्पिक):":"असफल का कारण (अनिवार्य):","")||"";
+        if(act==="fail"&&!note.trim()){ if(msg){msg.className="msg err";msg.textContent="असफल पर कारण अनिवार्य है।";} b.disabled=false; return; }
+        await httpsCallable(functions,"rmVerifyService")({regNo:regNo, ok:act==="ok", note:note.trim()});
+        if(msg){msg.className="msg ok";msg.textContent=(act==="ok"?"✅ सत्यापन दर्ज":"❌ असफल दर्ज")+" — "+regNo;}
+      }else if(act==="approve"){
+        if(!confirm("अंतिम स्वीकृति दें? (सिर्फ़ उसी राज्य के ZM या Founder से होगी)")){ b.disabled=false; return; }
+        await httpsCallable(functions,"approveApplication")({regNo:regNo});
+        if(msg){msg.className="msg ok";msg.textContent="🏁 स्वीकृत — "+regNo;}
+      }else{
+        const reason=prompt("अस्वीकृति का कारण (अनिवार्य):","")||"";
+        if(!reason.trim()){ b.disabled=false; return; }
+        await httpsCallable(functions,"rejectApplication")({regNo:regNo, reason:reason.trim()});
+        if(msg){msg.className="msg ok";msg.textContent="⛔ अस्वीकृत — "+regNo;}
+      }
+      loadSevaQueue();
+    }catch(e){
+      if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+((e&&e.message)||e);}
+    }
+    b.disabled=false;
+  });
 
   document.addEventListener("click", async (ev)=>{
     const b=ev.target.closest("[data-bqact]"); if(!b) return;
