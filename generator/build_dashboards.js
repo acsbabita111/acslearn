@@ -996,11 +996,24 @@ const P_BADGE_QUEUE = (
     '<div id="badgeqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '</div>');
 /* किन team-घरों में यह पैनल बैठे — घर-पथ से (एक चीज़ = एक जगह) */
+/* (काम-7 · E1 · 27-Jul) सेवा-भूमिका सत्यापन-क़तार — 2-कदम चौकी का पैनल:
+   कदम-1 RM भौतिक-सत्यापन (rm=ज़िला · zm=राज्य · admin/founder=सब);
+   कदम-2 अंतिम मुहर = उसी राज्य का ZM या Founder (server रोकता है)। */
+const P_SEVA_QUEUE = (
+    '<div class="pcard panel" id="pnl-sevaq" data-nav="🏷️ सेवा-आवेदन सत्यापन" style="grid-column:1/-1">' +
+    '<div class="ph">🏷️ सेवा-भूमिका आवेदन — 2-कदम चौकी (E1)</div>' +
+    '<div class="pd">शिक्षक · उस्ताद · सलाहकार · केंद्र · वर्कशॉप · नियोक्ता · विदेश-एजेंट · वित्त-मित्र · विक्रेता — ' +
+    'कदम-1: RM भौतिक-सत्यापन (अपने दायरे में) · कदम-2: अंतिम स्वीकृति सिर्फ़ उसी राज्य के ZM या Founder से। ' +
+    'बिना सत्यापन कोई नाम portal-सूची में नहीं दिखता (प्रदर्शन-नियम)।</div>' +
+    '<div id="sevaqList"><span class="note">क़तार यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="sevaqMsg" class="msg"></div>' +
+    '</div>');
+
 const TEAM_EXTRAS = {
-  "/dashboard/founder/":  P_BADGE_QUEUE,
-  "/dashboard/admin/":    P_BADGE_QUEUE,
-  "/dashboard/zonal/":    P_BADGE_QUEUE,
-  "/dashboard/regional/": P_BADGE_QUEUE,
+  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE,
+  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE,
+  "/dashboard/zonal/":    P_BADGE_QUEUE + P_SEVA_QUEUE,
+  "/dashboard/regional/": P_BADGE_QUEUE + P_SEVA_QUEUE,
 };
 
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
