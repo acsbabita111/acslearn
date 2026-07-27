@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v264'; // KAAM-4G PILOT: legacy->universal migration begins. New generator/build_legacy_migrate.js (shell-swap: main-content byte-identical, outer shell from welding donor = universal navbar/menu/footer, real canonical, breadcrumb, computed prev/next from file sequence, 3 exit buttons, course-lesson.js for learner-progress, /assets/app.js kept for content interactivity). New assets/legacy-lesson.css = class-only rules extracted from /assets/style.css (globals dropped to avoid clashing with universal shell). Pilot: AI-Digital-Master 150 lessons converted, 0 fail; DCA 361 + Printer 902 in next batches; course index/details pages out of scope (Template-A round).
+const CACHE_VERSION = 'v265'; // KAAM-4G HOTFIX (pale-content bug on converted AI lessons, caught from Founder screenshots): legacy-lesson.css v1.1 — (1) old style.css :root color-variables were dropped by class-only filter so var(--text/--muted/...) resolved empty = faded text; now the full :root var-set is scoped under .lsn-wrap (content gets exact legacy palette; zero clash with universal --blue/--gold/--green because nearest-ancestor custom-property wins); (2) .reveal{opacity:0} scroll-animation killed inside .lsn-wrap — sections always visible. Pages unchanged (0 regen) — only this css + sw.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
