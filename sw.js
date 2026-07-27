@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v259'; // 45MB-FILE SPLIT (permanent fix for GitHub upload-size failure): generator/data/udyam_intro_data.js (45MB, exceeded practical upload limits) permanently retired and split into generator/data/udyam_intro_shared.js (LEAD()+MG_INTRO, 317KB) + 24 separate generator/data/udyam_intro_mgNN.js files, one per MG sector (largest: MG-14 at 4.55MB, all comfortably under GitHub limits). Each mg-file ends with a 🔮 Future-Slot comment block documenting how to add new udyam entries to that sector — the system stays permanently open for new additions, no capacity ceiling. generator/build_udyam_intro_pages.js updated (v1.1) to require all 25 pieces and merge in-memory at build-time; behavior otherwise unchanged. While fixing this, also caught and fixed 4 legacy entries (n77,145,146,152) whose mg field had been null (silently skipping MG-shared bazar/leaders content and masking a real word-count-over-limit bug); corrected mg values (77→2, 145/146/152→3) and trimmed each entry's redundant closing paragraphs to fit under the 4800-word ceiling now that shared content is properly included. Full corpus reverified: 948/948 pages build with 0 fail.
+const CACHE_VERSION = 'v260'; // MG-24 n932-933 Thailand Food + Automotive intro pages — 950/950 udyam-parichay COMPLETE 🎉 (entries in udyam_intro_mg24.js, generator-built, check-robot pass; udyam_data.js intro links added)
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
