@@ -808,8 +808,26 @@ async function guardExternalRender(user, reg){
   const wrap = $("docWrap"); wrap.innerHTML = docChips(docs);
   setTxt("docNote", Object.keys(docs).length ? "" : "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।");
 
-  /* g2-सफ़र नोट */
-  setHTML("tlWrap", '<div class="note">बाहरी-role approval-श्रृंखला (g2) अगले दौर में — तब यहाँ चौकी-दर-चौकी live स्थिति दिखेगी।</div>');
+  /* (27-Jul, E1) असली 2-कदम स्थिति — status-कार्ड व approval-पैनल दोनों में।
+     पुराना "अगले दौर में" वाक्य व UI पर कूट-नाम — दोनों होल बंद। */
+  function twoStepHTML(r){
+    const rv=(r&&r.rmVerify)||{};
+    const s1 = rv.status==="verified"
+        ? '<span style="color:#1b4d20;font-weight:700">✅ कदम-1: RM भौतिक-सत्यापन पूरा</span>'
+      : rv.status==="failed"
+        ? '<span style="color:#B71C1C;font-weight:700">❌ कदम-1: सत्यापन असफल</span>'+(rv.note?' — '+esc(rv.note)+' (सुधार कर दोबारा तैयार रहें)':'')
+        : '<span style="color:#8a5a00;font-weight:700">⏳ कदम-1: RM भौतिक-सत्यापन बाक़ी</span>';
+    let s2='<span class="note">कदम-2: अंतिम मुहर (आपके राज्य के ZM या Founder) — कदम-1 के बाद</span>';
+    if(r && r.status==="approved") s2='<span style="color:#1b4d20;font-weight:800">🎉 कदम-2: स्वीकृत — सब काम-अधिकार खुले</span>';
+    else if(r && r.status==="rejected"){
+      const rj=(r.rejection&&r.rejection.reason)?(' — '+esc(r.rejection.reason)):'';
+      s2='<span style="color:#B71C1C;font-weight:700">⚠️ कदम-2: अस्वीकृत'+rj+'</span>';
+    }
+    return '<div class="pd">'+s1+'</div><div class="pd">'+s2+'</div>';
+  }
+  const twoStep = twoStepHTML(reg);
+  setHTML("tlWrap", twoStep);
+  setHTML("stTwoStep", twoStep);
   setTxt("tlNote", "");
 
   show("appView");
@@ -1023,7 +1041,83 @@ if (MODE==="external" && ALLOWED.length>=1) {
       st.textContent="बैज लेना वैकल्पिक है।"; st.style.color="#555"; btn.style.display="inline-block";
     }
   }
-  LAZY["pnl-badge"] = loadBadgeStatus;
+  LAZY["pnl-badge"] = function(){ loadBadgeStatus(); loadMyReferrals(); };
+
+  /* ═══ काम-8 (27-Jul): मेरे referral — record-मात्र (1-अ); gift-योग्य ═══ */
+  async function loadMyReferrals(){
+    const codeEl=$("myRefCode"), qEl=$("refQuota"), list=$("refList");
+    if(!list) return;
+    try{
+      const u=auth.currentUser; if(!u) return;
+      /* code = अपना regNo — सक्रिय बैज पर ही बताओ (referral-अधिकार की शर्त) */
+      let hasBadge=false;
+      try{
+        const qs0=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+        const now=Date.now();
+        qs0.forEach(d=>{ const p=d.data()||{};
+          if(p.purpose==="badge"&&p.status==="paid"&&p.rmStatus==="approved"){
+            const ex=p.badgeExpiresAt&&p.badgeExpiresAt.toMillis?p.badgeExpiresAt.toMillis():0;
+            if(ex>now) hasBadge=true; } });
+      }catch(e){}
+      if(codeEl) codeEl.textContent = hasBadge ? ((EXT_REG&&EXT_REG.regNo)||"—")
+                                               : "— (सक्रिय बैज पर मिलेगा)";
+      const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",u.uid)));
+      const gifts=await getDocs(query(collection(db,"referrals"), where("giftedToUid","==",u.uid)));
+      const now2=Date.now(); let act=0, rows=[];
+      mine.forEach(d=>{ const x=d.data()||{};
+        const ex=x.expiresAt&&x.expiresAt.toMillis?x.expiresAt.toMillis():0;
+        if(ex>now2) act++;
+        rows.push({id:d.id,x:x,mine:true}); });
+      gifts.forEach(d=>{ const x=d.data()||{}; if(x.refBy===u.uid) return;
+        rows.push({id:d.id,x:x,mine:false}); });
+      if(qEl) qEl.textContent = (BADGE_ROLE==="volunteer") ? (act+" (असीमित)") : (act+" / 3");
+      if(!rows.length){ list.innerHTML='<span class="note">अभी कोई referral-प्रविष्टि नहीं। भुगतान-चक्र: हर fund का पैसा 7 कार्य-दिवस नियम से office भेजता है।</span>'; return; }
+      let h="";
+      rows.forEach(r=>{ const x=r.x;
+        const ex=x.expiresAt&&x.expiresAt.toDate?x.expiresAt.toDate():null;
+        const till=ex?(("0"+ex.getDate()).slice(-2)+"-"+("0"+(ex.getMonth()+1)).slice(-2)+"-"+ex.getFullYear()):"—";
+        const st=x.status==="paid"?'<span style="color:#1b4d20;font-weight:700">✅ भुगतान हुआ</span>'
+                                  :'<span style="color:#8a5a00;font-weight:700">⏳ बाक़ी (7-कार्यदिवस चक्र)</span>';
+        h+='<div class="pd" style="border:1px solid #dbe3ee;border-radius:10px;padding:10px;margin:6px 0">'+
+           (r.mine?'':'🎁 <b>आपको gift मिला</b> — ')+
+           '₹'+Math.round((x.amountPaise||0)/100)+' · नई भूमिका: '+esc(x.newRole||"—")+
+           ' · '+st+' · अवधि: '+till+' तक'+
+           (x.giftedToRegNo?(' · 🎁 gift → '+esc(x.giftedToRegNo)):'')+
+           (r.mine&&x.status==="due"&&!x.giftedToRegNo?(' <button class="abtn ok" data-refgift="'+esc(r.id)+'" type="button" style="padding:4px 10px">🎁 इसे gift करें</button>'):'')+
+           '</div>';
+      });
+      list.innerHTML=h;
+    }catch(e){
+      list.innerHTML='<span class="note" style="color:#B71C1C">referral-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>';
+    }
+  }
+  document.addEventListener("click", async function(ev){
+    const g=ev.target.closest("[data-refgift]");
+    const btn=ev.target.closest("#refGiftBtn");
+    if(!g && !btn) return;
+    const msg=$("refMsg"); const to=(($("refGiftTo")||{}).value||"").trim().toUpperCase();
+    if(!to){ if(msg){msg.className="msg err";msg.textContent="पहले लाभार्थी का ACS-नंबर भरें।";} return; }
+    let oid = g ? g.getAttribute("data-refgift") : "";
+    try{
+      if(!oid){
+        /* बटन-रास्ता: सबसे पुराना due-fund gift हो */
+        const u=auth.currentUser;
+        const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",u.uid)));
+        let cand=null, t0=9e15;
+        mine.forEach(d=>{ const x=d.data()||{};
+          if(x.status!=="due"||x.giftedToRegNo) return;
+          const t=x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():0;
+          if(t<t0){ t0=t; cand=d.id; } });
+        if(!cand){ if(msg){msg.className="msg err";msg.textContent="gift-योग्य कोई fund नहीं।";} return; }
+        oid=cand;
+      }
+      await httpsCallable(functions,"giftReferral")({ orderId:oid, toRegNo:to });
+      if(msg){msg.className="msg ok";msg.textContent="🎁 gift दर्ज — भुगतान-चक्र में पैसा "+to+" को जाएगा।";}
+      loadMyReferrals();
+    }catch(e){
+      if(msg){msg.className="msg err";msg.textContent="नहीं हुआ: "+((e&&e.message)||e);}
+    }
+  });
 
   function markPhotoBadge(){ ensurePhotoDecor(true, IS_GOLD); }
   /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
@@ -1071,7 +1165,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
     btn.disabled=true; if(msg){ msg.className="msg"; msg.textContent="शुल्क तैयार किया जा रहा है…"; }
     try{
-      const res=await httpsCallable(functions,"createBadgeOrder")({ role:BADGE_ROLE, pincode:pin });
+      const refCode=(($("refCode")||{}).value||"").trim();
+      const res=await httpsCallable(functions,"createBadgeOrder")({ role:BADGE_ROLE, pincode:pin, referralCode:refCode });
       const o=(res&&res.data)||{};
       if(!o.ok||!o.orderId) throw new Error("order नहीं बना");
       const rupee=Math.round((o.amount||0)/100);
