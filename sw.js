@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v266'; // KAAM-4G FIX-2 (page-number-jump broken, caught by Founder): legacy shell kept lesson-map + course-progress-data JSON and audio-dock OUTSIDE <main>, so shell-swap dropped them and app.js jump said every lesson unavailable. Converter v1.2 now carries all three verbatim into the new article (checked: lesson-map 150 entries inside main). All 150 AI lessons rebuilt from clean source; css unchanged.
+const CACHE_VERSION = 'v267'; // FLOAT BUTTONS EVERYWHERE ON COURSES (Founder rule: up + back always): acs-universal.js enhancer gate widened — floating up/back round buttons now on ALL /courses/ pages (welding, ecom, AI now; DCA/printer automatically after migration) plus udyam as before; hero + per-paragraph listen stay udyam-intro-only; back-button fallback /courses/hi/ on course pages.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
