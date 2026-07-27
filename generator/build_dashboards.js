@@ -103,7 +103,8 @@ function statusPanel(key){
   return (
     '<div class="pcard panel" id="pnl-status" data-nav="🛤️ approval-स्थिति" style="grid-column:1/-1">\n' +
     '        <div class="ph">🛤️ approval-स्थिति</div>\n' +
-    '        <div class="pd">आपकी स्वीकृति (approval) की जाँच-श्रृंखला server पर अगले दौर में बनेगी — नियम से पहले टीम-व्यवस्था पूरी होती है, फिर सेवा-भूमिकाएँ खुलती हैं। तब तक डैशबोर्ड (Dashboard) देखने के मोड में। आपका आवेदन सुरक्षित दर्ज है।</div>\n' +
+    '        <div class="pd">आपकी स्वीकृति (approval) की 2-कदम चौकी अब चालू है — कदम-1: RM (क्षेत्रीय अधिकारी) का भौतिक-सत्यापन · कदम-2: अंतिम मुहर आपके राज्य के ZM या Founder से। स्वीकृति पूरी होते ही सब काम-अधिकार खुल जाते हैं; तब तक डैशबोर्ड (Dashboard) देखने के मोड में रहता है।</div>\n' +
+    '        <div class="pd" id="stTwoStep"><span class="note">आपकी लाइव स्थिति खुल रही है…</span></div>\n' +
     '      </div>');
 }
 
