@@ -907,6 +907,17 @@
       tab.classList.toggle('done', i<n);
     }
     window.scrollTo({top:0,behavior:'smooth'});
+    /* (27-Jul, Founder बिंदु-1): step-1 का भरा नाम आगे के steps में दुबारा न भरना पड़े —
+       वही खाने पहले-से-भरे + locked-grey दिखें; बदलना हो तो ← से step-1 पर। */
+    try{
+      var _lk=(n>1);
+      [nameLocal,nameRoman].forEach(function(el){ if(!el) return;
+        el.readOnly=_lk;
+        el.style.background=_lk?'#eef2f6':'';
+        el.style.color=_lk?'#475569':'';
+        el.title=_lk?'step-1 से लिया गया — बदलने के लिए ← पिछला दबाकर step-1 पर जाएँ':'';
+      });
+    }catch(e){}
     if(n===3){
       /* v2.1 (14-Jul, blunder-सुधार): role वही हो तो form दोबारा न बने — भरा data/upload सुरक्षित;
          role बदला हो तभी पुनर्निर्माण */

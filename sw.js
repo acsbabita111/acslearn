@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v271'; // HOTFIX (Founder catch): pre-payment RM-verification/30% note in badge panel now gets id=badgeRmNote and dashboard.js v4.9 hides it once badge is ACTIVE (misleading after approval); still shown for new applicants & rejected state. Golden panel never had it. login-router again restored from live (H-6 patch protected).
+const CACHE_VERSION = 'v272'; // KAAM-7 E1 CLIENT (service-role 2-step approval, Founder: final=ZM-of-state/Founder, employer included, RM-fail=note-only, volunteer via team-path): new P_SEVA_QUEUE panel in founder/admin/zonal/regional (list + verify/fail + final approve/reject buttons; server enforces scope+order), pnl-sevaq added to TEAM_PANEL_IDS whitelist; JOIN: step>1 locks name fields grey-prefilled (Founder point-1; change via back to step-1). Server functions listServiceVerifyQueue + rmVerifyService + approveApplication/rejectApplication E1-branches deploy separately.
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
 
