@@ -137,6 +137,16 @@ for (let fi = 0; fi < files.length; fi++) {
     const mMain = h.match(/<main[^>]*>([\s\S]*?)<\/main>/);
     if (!mMain) throw new Error("main नहीं");
     const inner = mMain[1];
+    /* v1.2: main-बाहर बैठे ज़रूरी छिपे-अंग साथ लाओ — app.js इन्हीं से चलता है:
+       lesson-map (पेज-नंबर-जाएँ सूची) · course-progress-data (प्रोग्रेस-मीटर) ·
+       audio-dock (सारांश-सुनो पट्टी)। जो मिले, verbatim जुड़े। */
+    let carried = "";
+    const mMap = h.match(/<script type="application\/json" id="lesson-map">[\s\S]*?<\/script>/);
+    if (mMap) carried += mMap[0] + "\n";
+    const mProg = h.match(/<script type="application\/json" id="course-progress-data">[\s\S]*?<\/script>/);
+    if (mProg) carried += mProg[0] + "\n";
+    const mDock = h.match(/<div class="audio-dock"[\s\S]*?<\/div>/);
+    if (mDock) carried += mDock[0] + "\n";
     const tRaw = (h.match(/<title>([^<]*)/) || [,""])[1].trim();
     const h1m = inner.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
     const h1 = h1m ? h1m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim() : tRaw.split("|")[0].trim();
@@ -160,7 +170,7 @@ for (let fi = 0; fi < files.length; fi++) {
       '<a class="lsn-navbtn" href="/">🏠 होम</a> ' +
       '<a class="lsn-navbtn" href="/courses/hi/">📚 सब कोर्स</a> ' +
       '<a class="lsn-navbtn" href="index.html">🗂️ ' + esc(C.name.split(" (")[0]) + ' — पाठ-सूची</a>' +
-      "</div>\n</article>";
+      "</div>\n" + carried + "</article>";
 
     let page = setHead(shellHead, { title: esc(title), desc: esc(desc), canon, h1 }) +
       "<main>\n" + article + "\n</main>" + shellFoot;
@@ -172,6 +182,8 @@ for (let fi = 0; fi < files.length; fi++) {
     if (!page.includes('href="index.html"')) throw new Error("कोर्स-सूची निकास ग़ायब");
     if (nextF && !page.includes('href="' + nextF + '"')) throw new Error("अगला-कड़ी ग़ायब");
     if (prevF && !page.includes('href="' + prevF + '"')) throw new Error("पिछला-कड़ी ग़ायब");
+    if (mMap && !page.includes('id="lesson-map"')) throw new Error("lesson-map ग़ायब");
+    if (mProg && !page.includes('id="course-progress-data"')) throw new Error("progress-data ग़ायब");
     fs.writeFileSync(p, page);
     done++;
   } catch (e) { fail.push(f + " — " + e.message); }
