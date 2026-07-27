@@ -191,3 +191,5 @@ for (let fi = 0; fi < files.length; fi++) {
 console.log("— " + arg + ": " + done + " पाठ बदले · fail " + fail.length + " —");
 fail.slice(0, 5).forEach(x => console.log("  ✗", x));
 console.log("legacy-lesson.css:", legacyCss.length, "bytes");
+/* v1.3 (Founder-नियम, स्थायी): खेप के बाद sitemap भूलना असंभव — यहीं से ताज़ा बने */
+require("./build_sitemap.js");
