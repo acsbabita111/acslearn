@@ -127,10 +127,13 @@
     var q = step.q, a = ST.ans[q.id];
     if (q.type === "scale") {
       html += '<div class="apt-q">' + esc(q.text) + "</div>" + art(q.img);
+      /* (28-Jul, Founder — विकल्प 2+4): तीन बटन + हिंदी; index 0/2/4 रखने से
+         गिनती-नक़्शा (−5/0/+5) व 😐=0 की जाँच बिना बदले सही रहती है। */
+      var F3 = [ { f: 0, e: "👎", t: "पसंद नहीं" }, { f: 2, e: "😐", t: "पता नहीं" }, { f: 4, e: "👍", t: "पसंद है" } ];
       html += '<div class="apt-faces">';
-      for (var f = 0; f < 5; f++) {
-        html += '<button type="button" class="apt-face' + (a && a.v === f ? " on" : "") + '" data-f="' + f + '">' +
-          FACES[f] + "<small>" + FACE_TXT[f] + "</small></button>";
+      for (var f = 0; f < 3; f++) {
+        html += '<button type="button" class="apt-face' + (a && a.v === F3[f].f ? " on" : "") + '" data-f="' + F3[f].f + '" style="min-width:96px">' +
+          F3[f].e + '<small style="display:block;font-size:16px;font-weight:700">' + F3[f].t + "</small></button>";
       }
       html += "</div>";
     } else if (q.type === "pick") {

@@ -526,17 +526,16 @@
     return typeof a.v === 'number' || typeof a.v11 === 'number';
   }
   function scaleUI(q, a) {
-    var C = S.cur;
-    if (C.band === 1) {
-      var faces = ['😖', '🙁', '😐', '🙂', '😍'], i, h = '<div class="apt-faces">';
-      for (i = 0; i < 5; i++) h += '<button class="apt-face' + (a.v === i ? ' on' : '') + '" data-v="' + i + '">' + faces[i] + '</button>';
-      return h + '</div><p class="apt-hint">😐 = जानता नहीं — यह भी ठीक जवाब है।</p>';
+    /* (28-Jul, Founder-मुहर — विकल्प 2+4 मिश्रण) देहाती-सरल: तीन बटन + नीचे सीधी
+       हिंदी — सब उम्र पर। गिनती 11-बिंदु नक़्शे के तीन बिंदु (−5/0/+5) — v3.8 भीतरी-
+       गणित अटल; 😐=0 की "जानता नहीं" क़ीमत यथावत। पुरानी −5…+5 पट्टी निरस्त। */
+    var F = [ { v: -5, e: '👎', t: 'पसंद नहीं' }, { v: 0, e: '😐', t: 'पता नहीं' }, { v: 5, e: '👍', t: 'पसंद है' } ];
+    var h = '<div class="apt-faces">', i;
+    for (i = 0; i < 3; i++) {
+      h += '<button class="apt-face' + (a.v11 === F[i].v ? ' on' : '') + '" data-v11="' + F[i].v + '" style="min-width:96px">' +
+        F[i].e + '<small style="display:block;font-size:16px;font-weight:700">' + F[i].t + '</small></button>';
     }
-    var h = '<div class="apt-faces apt-11">', v;
-    for (v = -5; v <= 5; v++) {
-      h += '<button class="apt-face' + (a.v11 === v ? ' on' : '') + '" data-v11="' + v + '">' + (v === 0 ? '😐' : (v > 0 ? '+' + v : v)) + '</button>';
-    }
-    return h + '</div><p class="apt-hint">−5 = बिल्कुल नहीं · 0 = जानता नहीं · +5 = बहुत पसंद</p>';
+    return h + '</div><p class="apt-hint">😐 पता नहीं — यह भी ठीक जवाब है; ऐसे काम आगे खोजने लायक़ गिने जाते हैं।</p>';
   }
   function pickUI(q, a) {
     var h = '<p class="apt-hint">पहला दबाव = ⭐ सबसे पहले · दूसरा दबाव = 🚫 सबसे कम</p><div class="apt-opts">';
