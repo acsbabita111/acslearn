@@ -501,17 +501,22 @@ function P_INST_ENROLL(who){
     '<div class="pd"><b>📚 कोर्स-घोषणा:</b> कोर्स के साथ फीस · समय-सीमा · seat · प्रारंभ-तिथि · अंतिम-तिथि — ' +
     'पाँचों एक साथ ज़रूरी। बिना घोषित कोर्स के कोई नामांकन नहीं। seat ' +
     'नियम से गुणक में (केंद्र 30 · वर्कशॉप 10)।</div>' +
-    '<div class="pd">' +
-    '<select id="ofCatSel"><option value="">खंड चुनें…</option>' +
+    '<div class="k9grid">' +
+    '<div class="k9f"><label>खंड</label><select id="ofCatSel"><option value="">चुनें…</option>' +
     '<option value="ac">📖 एकेडमिक (कक्षा 6-12)</option>' +
-    '<option value="vo">🛠️ वोकेशनल (24 सेक्टर)</option></select> ' +
-    '<select id="ofSecSel" style="display:none"><option value="">सेक्टर चुनें…</option></select> ' +
-    '<select id="ofCourseSel" style="display:none"><option value="">कोर्स चुनें…</option></select> ' +
-    '<input id="ofFee" type="number" min="0" placeholder="फीस (₹)"> ' +
-    '<input id="ofDur" type="text" placeholder="समय-सीमा (जैसे: 3 माह)"> ' +
-    '<input id="ofSeats" type="number" placeholder="seat"> ' +
-    '<input id="ofStart" type="date" title="प्रारंभ-तिथि"> <input id="ofEnd" type="date" title="अंतिम-तिथि"> ' +
-    '<button class="abtn ok" id="ofDeclare">📣 घोषित करें</button></div>' +
+    '<option value="vo">🛠️ वोकेशनल (24 सेक्टर)</option></select></div>' +
+    '<div class="k9f" id="ofSecWrap" style="display:none"><label>सेक्टर</label>' +
+    '<select id="ofSecSel"><option value="">चुनें…</option></select></div>' +
+    '<div class="k9f" id="ofCourseWrap" style="display:none"><label>कोर्स / कक्षा</label>' +
+    '<select id="ofCourseSel"><option value="">चुनें…</option></select></div>' +
+    '<div class="k9full" id="ofSubBox" style="display:none"></div>' +
+    '<div class="k9f"><label>फीस (₹)</label><input id="ofFee" type="number" min="0" placeholder="जैसे 5000"></div>' +
+    '<div class="k9f"><label>समय-सीमा</label><input id="ofDur" type="text" placeholder="जैसे: 9 माह"></div>' +
+    '<div class="k9f"><label>seat</label><input id="ofSeats" type="number" placeholder="30 के गुणक में"></div>' +
+    '<div class="k9f"><label>प्रारंभ-तिथि</label><input id="ofStart" type="date"></div>' +
+    '<div class="k9f"><label>अंतिम-तिथि (अपने-आप)</label><input id="ofEnd" type="date" readonly title="समय-सीमा + प्रारंभ-तिथि से अपने-आप"></div>' +
+    '<div class="k9f"><label>&nbsp;</label><button class="abtn ok" id="ofDeclare" style="width:100%">📣 घोषित करें</button></div>' +
+    '</div>' +
     '<div id="ofMsg" class="msg"></div>' +
     '<div class="pd"><b>मेरी घोषणाएँ (seat-भराई सहित):</b></div>' +
     '<div id="ofList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
@@ -556,6 +561,30 @@ const P_INST_OFFER = (
     '<div class="pd"><b>WhatsApp panel:</b> अपना मोबाइल जोड़कर enrolled व सहमति देने वाले पढ़ने वालों को ' +
     'एक साथ संदेश — <b>सिर्फ़ उन्हीं को</b>, बाहर के नंबरों को कभी नहीं।</div>' +
     '<span class="soon">दोनों इंजन अगले दौर में</span>' +
+    '</div>');
+
+/* (काम-9अ+ · Founder-आदेश 28-Jul) 🪪 परिचय-पत्र designer — staff व student दोनों के
+   शानदार ID-card; device-local canvas (फ़ोटो फ़ोन से बाहर कभी नहीं — DPDP), PNG download। */
+const P_IDCARD = (
+    '<div class="pcard panel" id="pnl-idcard" data-nav="🪪 परिचय-पत्र" style="grid-column:1/-1">' +
+    '<div class="ph">🪪 परिचय-पत्र (ID Card) — staff व student</div>' +
+    '<div class="pd">नाम-पद भरें, फ़ोटो चुनें (फ़ोटो आपके device में ही रहती है — कहीं नहीं जाती), ' +
+    'फिर PNG download करके print करें। active विद्यार्थी सूची से चुनते ही नाम-ID अपने-आप भरता है।</div>' +
+    '<div class="k9grid">' +
+    '<div class="k9f"><label>किसका कार्ड</label><select id="idWho"><option value="staff">👨‍🏫 Staff</option>' +
+    '<option value="student">🎓 Student (active सूची से)</option></select></div>' +
+    '<div class="k9f" id="idStuWrap" style="display:none"><label>विद्यार्थी चुनें</label>' +
+    '<select id="idStuSel"><option value="">चुनें…</option></select></div>' +
+    '<div class="k9f"><label>नाम</label><input id="idName" type="text" placeholder="पूरा नाम"></div>' +
+    '<div class="k9f"><label>पद / कोर्स</label><input id="idRole" type="text" placeholder="जैसे: शिक्षक / DCA"></div>' +
+    '<div class="k9f"><label>ID नंबर</label><input id="idNo" type="text" placeholder="ACS-…"></div>' +
+    '<div class="k9f"><label>फ़ोटो (वैकल्पिक)</label><input id="idPhoto" type="file" accept="image/*"></div>' +
+    '<div class="k9f"><label>&nbsp;</label><button class="abtn ok" id="idMake" style="width:100%">🪪 कार्ड बनाएँ</button></div>' +
+    '</div>' +
+    '<div class="k9idwrap" style="margin-top:12px"><canvas id="idCanvas" width="860" height="540"></canvas>' +
+    '<img class="prev" id="idPrev" alt="" style="display:none">' +
+    '<a class="abtn ok" id="idSave" download="ACS-parichay-patra.png" style="display:none;text-decoration:none">⬇️ PNG download</a></div>' +
+    '<div id="idMsg" class="msg"></div>' +
     '</div>');
 
 function P_INST_VERIFY(extra, opts){
@@ -1035,11 +1064,11 @@ function ustadPanels(){
        + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_LEDGER + P_HELP;
 }
 function centerPanels(){
-  return P_INST_ENROLL("पढ़ने वाले (students)") + P_CTR_TEAM + P_CTR_SAFE + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
+  return P_INST_ENROLL("पढ़ने वाले (students)") + P_IDCARD + P_CTR_TEAM + P_CTR_SAFE + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
        + P_INST_VERIFY("") + P_INST_BADGE + P_PROMO + P_RULES_LINK("rules-consent-center.html","केंद्र (Center)") + P_LEDGER + P_HELP;
 }
 function workshopPanels(){
-  return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
+  return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_IDCARD + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
        + P_WS_CERT
        + P_INST_VERIFY(" साथ में यह प्रमाण भी कि workshop कम-से-कम 3 साल से चल रहा है।")
        + P_INST_BADGE + P_PROMO + P_RULES_LINK("rules-consent-workshop.html","वर्कशॉप (Workshop)") + P_LEDGER + P_HELP;
