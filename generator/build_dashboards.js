@@ -502,7 +502,11 @@ function P_INST_ENROLL(who){
     'पाँचों एक साथ ज़रूरी। बिना घोषित कोर्स के कोई नामांकन नहीं। seat ' +
     'नियम से गुणक में (केंद्र 30 · वर्कशॉप 10)।</div>' +
     '<div class="pd">' +
-    '<select id="ofCourseSel"><option value="">कोर्स चुनें…</option></select> ' +
+    '<select id="ofCatSel"><option value="">खंड चुनें…</option>' +
+    '<option value="ac">📖 एकेडमिक (कक्षा 6-12)</option>' +
+    '<option value="vo">🛠️ वोकेशनल (24 सेक्टर)</option></select> ' +
+    '<select id="ofSecSel" style="display:none"><option value="">सेक्टर चुनें…</option></select> ' +
+    '<select id="ofCourseSel" style="display:none"><option value="">कोर्स चुनें…</option></select> ' +
     '<input id="ofFee" type="number" min="0" placeholder="फीस (₹)"> ' +
     '<input id="ofDur" type="text" placeholder="समय-सीमा (जैसे: 3 माह)"> ' +
     '<input id="ofSeats" type="number" placeholder="seat"> ' +
