@@ -112,7 +112,10 @@ window.ACS_ROLES = {
            अपना फोटो अनिवार्य; 18 से कम उम्र पर अभिभावक का पहचान-पत्र अनिवार्य
            (showWhenMinor); 18+ पर अपना पहचान-पत्र अनिवार्य (showWhenAdult) —
            Founder-सुधार 14-Jul-2026: उम्र के अनुसार दोनों दिशा में सही दस्तावेज़। */
-        fields: [ F.nameLocal, F.nameRoman, F.age(10, "जन्मतिथि (चरण-1) से अपने-आप", "auto from DOB") ],
+        fields: [ F.nameLocal, F.nameRoman, F.age(10, "जन्मतिथि (चरण-1) से अपने-आप", "auto from DOB"),
+          /* (28-Jul होल-बंदी) server का minor-नियम guardian_name माँगता है — खाना form में था ही नहीं,
+             हर नाबालिग-registration रुक जाता था (Founder-test से पकड़ा)। showWhenMinor: 18+ पर नहीं दिखेगा। */
+          F.guardianName ],
         documents: [ F.docPhoto,
           { id:"doc_guardian_id", accept:"image/*,.pdf", required:true, showWhenMinor:true,
             hi:"अभिभावक (Guardian) का पहचान-पत्र — 18 से कम उम्र पर अनिवार्य", en:"Guardian's photo-ID — mandatory under 18" },
