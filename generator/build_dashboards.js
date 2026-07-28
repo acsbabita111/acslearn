@@ -504,7 +504,8 @@ function P_INST_ENROLL(who){
     '<div class="k9grid">' +
     '<div class="k9f"><label>खंड</label><select id="ofCatSel"><option value="">चुनें…</option>' +
     '<option value="ac">📖 एकेडमिक (कक्षा 6-12)</option>' +
-    '<option value="vo">🛠️ वोकेशनल (24 सेक्टर)</option></select></div>' +
+    '<option value="vo">🛠️ वोकेशनल (24 सेक्टर · 950 उद्यम)</option>' +
+    '<option value="gv">🏛️ सरकारी नौकरी/छात्रवृत्ति तैयारी</option></select></div>' +
     '<div class="k9f" id="ofSecWrap" style="display:none"><label>सेक्टर</label>' +
     '<select id="ofSecSel"><option value="">चुनें…</option></select></div>' +
     '<div class="k9f" id="ofCourseWrap" style="display:none"><label>कोर्स / कक्षा</label>' +
