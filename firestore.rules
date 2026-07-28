@@ -1,6 +1,9 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
-   ACS Firestore Security Rules — v7
+   ACS Firestore Security Rules — v8
+   v8 (28-Jul, काम-9अ): नामांकन-खाता — offerings (कोर्स-घोषणा: बेनाम
+   seat-गिनती, login-भर पढ़े) + enrollments (पढ़े: केंद्र-अपना ·
+   विद्यार्थी-अपना · Founder · active-Admin)। लिखे कोई नहीं — सब server से।
    v7 (27-Jul, काम-8): referrals-बक्सा — पढ़े: लाने वाला (refBy) ·
    gift-लाभार्थी (giftedToUid) · Founder · active-Admin; लिखे: कोई नहीं
    (सिर्फ़ server-functions)। roleCols-पहरा नियम यथावत।
@@ -120,6 +123,22 @@ service cloud.firestore {
       allow read: if request.auth != null
         && (resource.data.refBy == request.auth.uid
             || resource.data.giftedToUid == request.auth.uid
+            || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+
+    // ── offerings (काम-9अ · v8): कोर्स-घोषणा — बेनाम data (नाम कभी नहीं,
+    //    सिर्फ़ कोर्स/फीस/seat/तिथियाँ) — seat-graph के लिए login-भर पढ़े ──
+    match /offerings/{offId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // ── enrollments (काम-9अ · v8): नामांकन-record — दोनों पक्ष अपना ही देखें ──
+    match /enrollments/{enrollId} {
+      allow read: if request.auth != null
+        && (resource.data.centerUid == request.auth.uid
+            || resource.data.studentUid == request.auth.uid
             || isFounder() || isActiveAdmin());
       allow write: if false;
     }
