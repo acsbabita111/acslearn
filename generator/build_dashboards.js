@@ -127,14 +127,31 @@ const P_APTITUDE = (
 const P_COURSES = (
     '<div class="pcard panel" id="pnl-courses" data-nav="📚 मेरे कोर्स" style="grid-column:1/-1">' +
     '<div class="ph">📚 मेरे कोर्स</div>' +
-    '<div class="pd"><b>मेरा नामांकन:</b> नामांकन-खाता अगले दौर में जुड़ेगा — तब यहाँ सिर्फ़ आपका अपना ब्योरा दिखेगा: ' +
-    'मेरा कोर्स · मेरी fee · मेरी परीक्षा · मेरा नतीजा (आपके सब केंद्रों का, एक जगह)। ' +
-    'जिस केंद्र/संस्था में आप पढ़ते हैं, उसके "Enrollment व Analytics" पैनल और आपके इस ब्योरे का स्रोत ' +
-    'एक ही नामांकन-खाता है — इसलिए दोनों को एक ही सच दिखता है।</div>' +
+    '<div class="pd"><b>मेरा नामांकन:</b> offline पढ़ाई का पूरा ब्योरा अब "🏫 मेरा केंद्र" पैनल में है — ' +
+    'निवेदन · केंद्र का प्रस्ताव · active नामांकन · फीस-रसीदें। केंद्र के "Enrollment" पैनल और आपके ' +
+    'ब्योरे का स्रोत एक ही नामांकन-खाता है — दोनों को एक ही सच दिखता है।</div>' +
     '<div class="ph" style="margin-top:14px">📖 मुफ़्त online कोर्स — अभी पढ़ें</div>' +
     '<div class="pd">पढ़ना हमेशा मुफ़्त है — बिना रोक, बिना शर्त। जिस कोर्स के पाठ बन चुके हैं, उस पर "पढ़ें" बटन दिखेगा।</div>' +
     '<div id="crsList"><span class="note">कोर्स-सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin-top:10px" href="/courses/">🌍 पूरी कोर्स-सूची देखें</a>' +
+    '</div>');
+
+/* (काम-9अ · 28-Jul-2026) 🏫 मेरा केंद्र — learner का नामांकन-द्वार (दरवाज़ा-1)।
+   Founder बिंदु 8/11/12: केंद्र-खोज → घोषित कोर्स seat-graph सहित → निवेदन;
+   केंद्र के प्रस्ताव पर हाँ/ना; active पर तारीख़ · फीस-रसीदें · प्रगति-% · 80%-chip। */
+const P_MYCTR = (
+    '<div class="pcard panel" id="pnl-myctr" data-nav="🏫 मेरा केंद्र" style="grid-column:1/-1">' +
+    '<div class="ph">🏫 मेरा केंद्र — offline पढ़ाई</div>' +
+    '<div class="pd">केंद्र/वर्कशॉप की ACS-ID लिखें (उनके बोर्ड/पर्चे पर मिलेगी) — नाम देखकर पुष्टि करें, ' +
+    'घोषित कोर्स seat-भराई सहित दिखेंगे, फिर निवेदन भेजें। केंद्र की हाँ पर नामांकन active।</div>' +
+    '<div class="pd"><input id="mcCtrReg" type="text" placeholder="ACS-CE-2026-XXXXXX"> ' +
+    '<button class="abtn" id="mcFindBtn">🔎 केंद्र खोजें</button></div>' +
+    '<div id="mcCtrCard"></div>' +
+    '<div class="pd" style="margin-top:14px"><b>मेरे नामांकन:</b> निवेदन · प्रस्ताव · active — सब यहीं।</div>' +
+    '<div id="mcList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="mcMsg" class="msg"></div>' +
+    '<div class="pd">नाबालिग (10-18) पर 🛡️ Guardian-निशान registration की दर्ज सहमति से अपने-आप लगता है।</div>' +
+    '<span class="soon">असाइनमेंट · परीक्षा · प्रमाण पत्र — अगले दौर (काम-10/11) में</span>' +
     '</div>');
 
 const P_EXAMS = (
@@ -475,16 +492,40 @@ const P_UST_MENTOR = (
    rules-consent-center/workshop की समान पंक्तियाँ (badge पर उम्र-fee नहीं)। */
 
 function P_INST_ENROLL(who){
+  /* (काम-9अ · 28-Jul-2026) असली नामांकन-इंजन — Founder बिंदु 11-13:
+     घोषणा (फीस+अवधि+seat-गुणक+तिथियाँ) · दो-दरवाज़ा सहमति-चक्र · seat-graph ·
+     फीस-record (record-मात्र) · ACS-ID साझा। इंजन: dashboard.js का k9-block। */
   return (
     '<div class="pcard panel" id="pnl-enroll" data-nav="🎓 Enrollment व Analytics" style="grid-column:1/-1">' +
-    '<div class="ph">🎓 Enrollment व Analytics (आपका सबसे बड़ा काम)</div>' +
-    '<div class="pd">यहाँ एक जगह दिखेगा: कितने ' + who + ' enroll हुए · किसने कौन-सा कोर्स लिया · कितनी fee चुकाई · ' +
-    'कितनों ने परीक्षा दी · पास-प्रतिशत — पूरा हिसाब। enrollment और भुगतान का digital record अपने-आप बनेगा।</div>' +
-    '<div class="pd"><b>पक्का नियम:</b> आप सिर्फ़ <b>अपने</b> enroll किए ' + who + ' का हिसाब देखेंगे — कोई पढ़ने वाला ' +
-    'कई जगह पढ़ता हो तो हर संस्था को सिर्फ़ अपना दिखता है; उसे अपने सब जगहों का। आँकड़े एक ही खाते से आते हैं — ' +
-    'इसलिए कभी नहीं टकराते। यही खाता पढ़ने वाले के dashboard में "मेरे कोर्स" के रूप में दिखता है — ' +
-    'आपका Analytics और उसका ब्योरा, दोनों का स्रोत एक ही।</div>' +
-    '<span class="soon">enrollment-खाता व analytics-इंजन अगले दौर में</span>' +
+    '<div class="ph">🎓 Enrollment — नामांकन-खाता</div>' +
+    '<div class="pd"><b>📚 कोर्स-घोषणा:</b> कोर्स के साथ फीस · समय-सीमा · seat · प्रारंभ-तिथि · अंतिम-तिथि — ' +
+    'पाँचों एक साथ ज़रूरी। बिना घोषित कोर्स के कोई नामांकन नहीं। seat ' +
+    'नियम से गुणक में (केंद्र 30 · वर्कशॉप 10)।</div>' +
+    '<div class="pd">' +
+    '<select id="ofCourseSel"><option value="">कोर्स चुनें…</option></select> ' +
+    '<input id="ofFee" type="number" min="0" placeholder="फीस (₹)"> ' +
+    '<input id="ofDur" type="text" placeholder="समय-सीमा (जैसे: 3 माह)"> ' +
+    '<input id="ofSeats" type="number" placeholder="seat"> ' +
+    '<input id="ofStart" type="date" title="प्रारंभ-तिथि"> <input id="ofEnd" type="date" title="अंतिम-तिथि"> ' +
+    '<button class="abtn ok" id="ofDeclare">📣 घोषित करें</button></div>' +
+    '<div id="ofMsg" class="msg"></div>' +
+    '<div class="pd"><b>मेरी घोषणाएँ (seat-भराई सहित):</b></div>' +
+    '<div id="ofList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div class="pd" style="margin-top:14px"><b>➕ ' + who + ' जोड़ो (सामने बैठा हो):</b> ACS-ID लिखें → नाम देखकर ' +
+    'पुष्टि → प्रस्ताव जाएगा → उसकी हाँ पर नामांकन active। सीधा active कभी नहीं — दोनों की सहमति ज़रूरी।</div>' +
+    '<div class="pd"><input id="addStuReg" type="text" placeholder="ACS-ST-2026-XXXXXX"> ' +
+    '<button class="abtn" id="addStuFind">🔎 खोजें</button></div>' +
+    '<div id="addStuCard"></div>' +
+    '<div class="pd" style="margin-top:14px"><b>⏳ निवेदन व प्रस्ताव (फ़ैसला यहीं):</b></div>' +
+    '<div id="enrPendList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div class="pd" style="margin-top:14px"><b>📋 active सूची — फीस-दर्ज व रसीद यहीं:</b></div>' +
+    '<div id="enrActiveList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="enrMsg" class="msg"></div>' +
+    '<div class="pd" style="margin-top:14px"><b>🔗 मेरी ACS-ID साझा करें:</b> <b id="instShareId">—</b> ' +
+    '<button class="abtn" id="instShareCopy">📋 copy</button> ' +
+    '<a class="abtn" id="instShareWa" target="_blank" rel="noopener" style="text-decoration:none">📲 WhatsApp</a></div>' +
+    '<div class="pd">यह ID बोर्ड/पर्चे पर लिखें — ' + who + ' इसी से आपको खोजकर निवेदन भेजेगा।</div>' +
+    '<span class="soon">प्रगति-दृश्य · 80 प्रतिशत-गेट · परीक्षा — अगले दौर (काम-10/11) में</span>' +
     '</div>');
 }
 
@@ -953,15 +994,15 @@ const P_PROGRESS = "<div class=\"pcard panel\" id=\"pnl-progress\" data-nav=\"�
 
 /* --- तीनों घरों की रचना --- */
 function studentPanels(){
-  return P_BADGE_GOLD + P_APTITUDE + P_COURSES + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
+  return P_BADGE_GOLD + P_APTITUDE + P_COURSES + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
        + P_RULES_LINK("rules-consent-learner.html","विद्यार्थी (Student)") + P_LEDGER + P_HELP;
 }
 function jobseekerPanels(){
-  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
+  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","नौकरी-इच्छुक (Job-seeker)") + P_LEDGER + P_HELP;
 }
 function entrepreneurPanels(){
-  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_PROGRESS + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
+  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_MYCTR + P_PROGRESS + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","उद्यमी (Entrepreneur)") + P_LEDGER + P_HELP;
 }
 /* v2.0-सुधार (Founder 18-Jul-2026): online-पढ़ाई कमाई 90/100 — सिर्फ़ teacher
