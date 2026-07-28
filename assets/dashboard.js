@@ -1476,12 +1476,18 @@ if (MODE==="external" && ALLOWED.length>=1) {
   var K9C=null;
   function k9Courses(cb){
     if(K9C){ cb(K9C); return; }
-    if(typeof SELF_EMP_COURSES!=="undefined"){ collect(); cb(K9C); return; }
+    if(typeof SELF_EMP_COURSES!=="undefined" && window.MG_NAMES){ collect(); cb(K9C); return; }
     var sc=document.createElement("script"); sc.src="/assets/courses_data.js";
-    sc.onload=function(){ collect(); cb(K9C); };
+    sc.onload=function(){
+      var sm=document.createElement("script"); sm.src="/assets/mg_names.js";   /* सेक्टर-नाम — एकमात्र घर */
+      sm.onload=function(){ collect(); cb(K9C); };
+      sm.onerror=function(){ collect(); cb(K9C); };
+      document.body.appendChild(sm);
+    };
     sc.onerror=function(){ cb(null); };
     document.body.appendChild(sc);
     function collect(){ K9C=[];
+      ((typeof ACADEMIC_COURSES!=="undefined")?ACADEMIC_COURSES:[]).forEach(function(c){ c._ac=true; K9C.push(c); });
       [ (typeof SELF_EMP_COURSES!=="undefined")?SELF_EMP_COURSES:[],
         (typeof PRIVATE_JOB_COURSES!=="undefined")?PRIVATE_JOB_COURSES:[],
         (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[],
@@ -1577,10 +1583,31 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var box=$("ofList"); if(!box||!isInst()) return;
     box.innerHTML='<span class="note">हिसाब आ रहा है…</span>';
     k9Courses(function(A){
-      var sel=$("ofCourseSel"); if(!sel||!A) return;
-      if(sel.options.length>1) return;
-      A.forEach(function(c){ var o=document.createElement("option"); o.value=c.id;
-        o.textContent=rb(c.name_hi||c.name_en||c.id); sel.appendChild(o); });
+      var cat=$("ofCatSel"), sec=$("ofSecSel"), sel=$("ofCourseSel");
+      if(!cat||!sec||!sel||!A) return;
+      if(cat._k9) return; cat._k9=true;
+      function fillCourses(list){
+        sel.innerHTML='<option value="">कोर्स चुनें…</option>';
+        list.forEach(function(c){ var o=document.createElement("option"); o.value=c.id;
+          o.textContent=rb(c.name_hi||c.name_en||c.id); sel.appendChild(o); });
+        sel.style.display=""; }
+      cat.onchange=function(){
+        sel.style.display="none"; sec.style.display="none";
+        if(cat.value==="ac"){ fillCourses(A.filter(function(c){return c._ac;})); return; }
+        if(cat.value!=="vo") return;
+        if(!sec._k9){ sec._k9=true;
+          var M=window.MG_NAMES||{}; var k;
+          for(k=1;k<=24;k++){ var m=M[k]||M[String(k)]; if(!m) continue;
+            var o=document.createElement("option"); o.value=String(k);
+            o.textContent=(m.e||"")+" "+m.n; sec.appendChild(o); }
+          var g=document.createElement("option"); g.value="govt";
+          g.textContent="🏛️ सरकारी नौकरी तैयारी"; sec.appendChild(g); }
+        sec.style.display="";
+        sec.onchange=function(){
+          if(!sec.value) return;
+          if(sec.value==="govt"){ fillCourses(A.filter(function(c){return !c._ac && !c.mg;})); return; }
+          fillCourses(A.filter(function(c){return String(c.mg)===sec.value;})); };
+      };
     });
     try{ await k9LoadInst(); }
     catch(e){ box.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }
