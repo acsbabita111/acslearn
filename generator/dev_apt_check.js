@@ -31,8 +31,12 @@ if (rows !== 24) throw new Error('पंक्ति-गिनती ग़ल�
 store = {}; boxEl.innerHTML = '';
 eval(fs.readFileSync('assets/aptitude-test.js', 'utf8'));
 if (boxEl.innerHTML.indexOf('प्रश्न 1 / 24') < 0) throw new Error('पहला प्रश्न नहीं दिखा');
-var faces = (boxEl.innerHTML.match(/apt-face/g) || []).length;
-console.log('जाँच-2 ख़ाली-शुरुआत बूट ✅ | चेहरे: ' + (faces >= 5 ? '5 ✅' : '❌ ' + faces));
+/* (28-Jul, Founder 2+4-मिश्रण) पट्टी अब 3-बटन: 👎/😐/👍 + हिंदी-शब्द —
+   गिनती data-f से (regex apt-face डिब्बे को भी गिन लेता था — पुरानी चूक)। */
+var faces = (boxEl.innerHTML.match(/data-f=/g) || []).length;
+var lbls = boxEl.innerHTML.indexOf('पसंद नहीं') >= 0 && boxEl.innerHTML.indexOf('पता नहीं') >= 0;
+console.log('जाँच-2 ख़ाली-शुरुआत बूट ✅ | बटन: ' + (faces === 3 && lbls ? '3 + शब्द ✅' : '❌ ' + faces));
+if (faces !== 3 || !lbls) throw new Error('3-बटन पट्टी ग़लत');
 
 /* जाँच-3: बीच की हालत (11वें क़दम = कथा-1) */
 store = {}; boxEl.innerHTML = '';
