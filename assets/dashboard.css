@@ -157,3 +157,36 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .topbar .mark{font-weight:800;font-size:18px;color:#fff}
 .topbar .mark img{width:42px;height:42px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35);display:block}
 .tagline{background:var(--navy);color:var(--gold);text-align:center;font-size:16px;font-weight:700;padding:7px 10px;border-bottom:3px solid var(--gold)}
+
+/* ═══ k9 (काम-9अ · 28-Jul) — नामांकन-खाता design-परत ═══ */
+.k9grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end;
+  background:#fff;border:1.5px solid #dbe4f0;border-left:6px solid var(--gold);border-radius:14px;padding:16px}
+.k9f label{display:block;font-size:16px;font-weight:700;color:var(--navy);margin:0 0 5px}
+.k9f select,.k9f input{width:100%;box-sizing:border-box;font-size:17px;padding:10px 11px;
+  border:2px solid #c9d4e4;border-radius:10px;background:#fff;color:var(--navy)}
+.k9f select:focus,.k9f input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(249,168,37,.22)}
+.k9f input[readonly]{background:#f2f6fb;color:#456;font-weight:700}
+.k9full{grid-column:1/-1}
+.k9subs{display:flex;flex-wrap:wrap;gap:8px;padding:10px;background:#f7fafc;border:1.5px dashed #c9d4e4;border-radius:10px}
+.k9subs label{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:600;color:var(--navy);
+  background:#fff;border:1.5px solid #dbe4f0;border-radius:999px;padding:6px 12px;cursor:pointer;margin:0}
+.k9subs input{width:18px;height:18px;accent-color:var(--green)}
+.k9subs label.on{background:#E8F5E9;border-color:var(--green)}
+/* seat-नक़्शा — flight-शैली: हर seat एक कुर्सी-बिंदु */
+.k9seatwrap{margin:8px 0 4px}
+.k9seat{display:flex;flex-wrap:wrap;gap:6px;max-width:420px}
+.k9dot{width:17px;height:17px;border-radius:5px 5px 8px 8px;border:2px solid #9fb3cc;background:#fff;box-sizing:border-box}
+.k9dot.f{border-color:var(--green);background:linear-gradient(160deg,var(--gold),var(--green))}
+.k9seatlbl{font-size:16px;font-weight:800;color:var(--navy);margin-top:5px}
+.k9seatlbl b{color:var(--green)}
+.k9bar{height:16px;border-radius:999px;background:#e8eef6;overflow:hidden;max-width:420px;border:1px solid #dbe4f0}
+.k9bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--green));border-radius:999px}
+/* offering-कार्ड */
+.k9off{background:#fff;border:1.5px solid #dbe4f0;border-radius:14px;padding:14px;margin:10px 0;
+  box-shadow:0 1px 4px rgba(11,31,58,.06)}
+.k9off .t{font-size:18px;font-weight:800;color:var(--navy)}
+.k9off .m{font-size:16px;color:#345;margin:4px 0}
+/* परिचय-पत्र preview */
+.k9idwrap{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.k9idwrap canvas{display:none}
+.k9idwrap img.prev{width:100%;max-width:430px;border-radius:14px;box-shadow:0 4px 14px rgba(11,31,58,.25)}

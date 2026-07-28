@@ -1470,9 +1470,13 @@ if (MODE==="external" && ALLOWED.length>=1) {
 (function(){
   function rb(t){ return String(t==null?"":t).replace(/\[/g,"(").replace(/\]/g,")"); }
   function dt(ts){ try{ return ts&&ts.toDate ? ts.toDate().toLocaleDateString("hi-IN") : "—"; }catch(e){ return "—"; } }
-  function seatBar(f,se){ var pct=se?Math.min(100,Math.round(f/se*100)):0, n=Math.round(pct/10);
-    return '<span style="font-family:monospace;letter-spacing:1px">'+
-      "▓".repeat(n)+"░".repeat(10-n)+'</span> '+f+"/"+se+" seat"; }
+  function seatBar(f,se){
+    var pct=se?Math.min(100,Math.round(f/se*100)):0, h;
+    if(se<=60){ h='<div class="k9seat">';
+      for(var i=0;i<se;i++) h+='<span class="k9dot'+(i<f?' f':'')+'"></span>';
+      h+='</div>'; }
+    else h='<div class="k9bar"><i style="width:'+pct+'%"></i></div>';
+    return '<div class="k9seatwrap">'+h+'<div class="k9seatlbl"><b>'+f+'</b> / '+se+' seat भरीं · '+pct+' प्रतिशत</div></div>'; }
   var K9C=null;
   function k9Courses(cb){
     if(K9C){ cb(K9C); return; }
@@ -1525,12 +1529,13 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(OF_ALL.length===0){ box.innerHTML='<span class="note">अभी कोई घोषणा नहीं — ऊपर से पहली घोषणा करें।</span>'; return; }
     box.innerHTML="";
     OF_ALL.forEach(function(o){
-      var d=document.createElement("div"); d.className="lrow";
-      d.innerHTML='<div class="r1"><span class="nm">'+esc(rb(o.courseName))+'</span> '+
-        (o.status==="open"?'<span class="chip ok">खुली</span>':'<span class="chip">बंद</span>')+'</div>'+
-        '<div class="r2">₹'+esc(o.feeRupees)+' · '+esc(rb(o.durationText))+' · '+esc(o.startDate)+' से '+esc(o.endDate)+
-        '<br>'+seatBar(o.filledCount||0,o.seats)+'</div>'+
-        (o.status==="open"?'<button class="abtn" data-k9close="'+esc(o.courseId)+'">⛔ घोषणा बंद</button>':'');
+      var d=document.createElement("div"); d.className="k9off";
+      d.innerHTML='<div class="t">'+esc(rb(o.courseName))+' '+
+        (o.status==="open"?'<span class="chip appr">खुली</span>':'<span class="chip">बंद</span>')+'</div>'+
+        '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+esc(o.startDate)+' से '+esc(o.endDate)+'</div>'+
+        (o.subjects?'<div class="m">📚 विषय: '+esc(rb(o.subjects))+'</div>':'')+
+        seatBar(o.filledCount||0,o.seats)+
+        (o.status==="open"?'<button class="abtn" style="background:#B71C1C;margin-top:8px" data-k9close="'+esc(o.courseId)+'">⛔ घोषणा बंद</button>':'');
       box.appendChild(d);
     });
   }
@@ -1590,9 +1595,28 @@ if (MODE==="external" && ALLOWED.length>=1) {
         sel.innerHTML='<option value="">कोर्स चुनें…</option>';
         list.forEach(function(c){ var o=document.createElement("option"); o.value=c.id;
           o.textContent=rb(c.name_hi||c.name_en||c.id); sel.appendChild(o); });
-        sel.style.display=""; }
+        var w=$("ofCourseWrap"); if(w) w.style.display=""; }
+      var NCERT={ jr:["हिंदी","अंग्रेज़ी","गणित","विज्ञान","सामाजिक विज्ञान","संस्कृत"],
+        sr:["हिंदी","अंग्रेज़ी","भौतिकी","रसायन","जीव विज्ञान","गणित","लेखाशास्त्र","व्यवसाय अध्ययन","अर्थशास्त्र","इतिहास","भूगोल","राजनीति विज्ञान"] };
+      function subBox(){ return $("ofSubBox"); }
+      function drawSubs(cid){
+        var box=subBox(); if(!box) return;
+        var n=parseInt(cid.replace("AC",""),10);
+        var L=(n>=11)?NCERT.sr:NCERT.jr;
+        var h='<label style="font-size:16px;font-weight:700;color:var(--navy);display:block;margin-bottom:6px">NCERT-विषय चुनें:</label><div class="k9subs">'+
+          '<label><input type="checkbox" id="ofSubAll"> ✅ सभी विषय</label>';
+        L.forEach(function(sub,i){ h+='<label><input type="checkbox" class="ofSub" value="'+sub+'"> '+sub+'</label>'; });
+        h+='</div>'; box.innerHTML=h; box.style.display="";
+        var all=$("ofSubAll");
+        function paint(){ box.querySelectorAll(".k9subs label").forEach(function(l){
+          var c=l.querySelector("input"); l.className=c&&c.checked?"on":""; }); }
+        all.onchange=function(){ box.querySelectorAll(".ofSub").forEach(function(c){ c.checked=all.checked; }); paint(); };
+        box.querySelectorAll(".ofSub").forEach(function(c){ c.onchange=paint; });
+      }
+      function wrapShow(id,on){ var w=$(id); if(w) w.style.display=on?"":"none"; }
       cat.onchange=function(){
-        sel.style.display="none"; sec.style.display="none";
+        wrapShow("ofCourseWrap",false); wrapShow("ofSecWrap",false); sel.value="";
+        var sb=subBox(); if(sb){ sb.style.display="none"; sb.innerHTML=""; }
         if(cat.value==="ac"){ fillCourses(A.filter(function(c){return c._ac;})); return; }
         if(cat.value!=="vo") return;
         if(!sec._k9){ sec._k9=true;
@@ -1602,12 +1626,31 @@ if (MODE==="external" && ALLOWED.length>=1) {
             o.textContent=(m.e||"")+" "+m.n; sec.appendChild(o); }
           var g=document.createElement("option"); g.value="govt";
           g.textContent="🏛️ सरकारी नौकरी तैयारी"; sec.appendChild(g); }
-        sec.style.display="";
+        wrapShow("ofSecWrap",true);
         sec.onchange=function(){
           if(!sec.value) return;
           if(sec.value==="govt"){ fillCourses(A.filter(function(c){return !c._ac && !c.mg;})); return; }
           fillCourses(A.filter(function(c){return String(c.mg)===sec.value;})); };
       };
+      sel.onchange=function(){ var sb=subBox(); if(sb){ sb.style.display="none"; sb.innerHTML=""; }
+        if(cat.value==="ac" && /^AC\d+$/.test(sel.value)) drawSubs(sel.value); };
+      /* अंतिम-तिथि अपने-आप: समय-सीमा (माह/दिन/साल) + प्रारंभ-तिथि */
+      function autoEnd(){
+        var st=$("ofStart"), en=$("ofEnd"), du=$("ofDur");
+        if(!st||!en||!du||!st.value) return;
+        var t=du.value, m=t.match(/(\d+)\s*(माह|महीना|महीने|month|months|mah)/i),
+            dd=t.match(/(\d+)\s*(दिन|day|days|din)/i),
+            yy=t.match(/(\d+)\s*(साल|वर्ष|year|years|sal|varsh)/i);
+        var d=new Date(st.value); if(isNaN(d.getTime())) return;
+        if(yy) d.setFullYear(d.getFullYear()+parseInt(yy[1],10));
+        else if(m) d.setMonth(d.getMonth()+parseInt(m[1],10));
+        else if(dd) d.setDate(d.getDate()+parseInt(dd[1],10));
+        else return;
+        d.setDate(d.getDate()-1);   /* अवधि का आख़िरी दिन */
+        en.value=d.toISOString().slice(0,10);
+      }
+      var stEl=$("ofStart"), duEl=$("ofDur");
+      if(stEl) stEl.onchange=autoEnd; if(duEl){ duEl.onchange=autoEnd; duEl.oninput=autoEnd; }
     });
     try{ await k9LoadInst(); }
     catch(e){ box.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }
@@ -1654,9 +1697,12 @@ if (MODE==="external" && ALLOWED.length>=1) {
     try{
       if(b.id==="ofDeclare"){
         b.disabled=true;
+        var subs=[]; document.querySelectorAll("#ofSubBox .ofSub:checked").forEach(function(c){ subs.push(c.value); });
+        var allS=$("ofSubAll");
         var r=await call("declareOffering",{ courseId:$("ofCourseSel").value, feeRupees:Number($("ofFee").value),
           durationText:$("ofDur").value, seats:Number($("ofSeats").value),
-          startDate:$("ofStart").value, endDate:$("ofEnd").value });
+          startDate:$("ofStart").value, endDate:$("ofEnd").value,
+          subjectsText:(allS&&allS.checked)?"सभी NCERT-विषय":subs.join(", ") });
         b.disabled=false; var m1=$("ofMsg"); if(m1){m1.className="msg ok";m1.textContent="📣 घोषणा दर्ज — "+r.data.offeringId;}
         await k9LoadInst(); return;
       }
@@ -1690,9 +1736,10 @@ if (MODE==="external" && ALLOWED.length>=1) {
         b.disabled=false; var C=cr.data;
         var rows=(C.offerings||[]).map(function(o){
           var full=(o.filledCount||0)>=o.seats;
-          return '<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(o.courseName))+'</span></div>'+
-            '<div class="r2">₹'+esc(o.feeRupees)+' · '+esc(rb(o.durationText))+' · '+esc(o.startDate)+' से '+esc(o.endDate)+
-            '<br>'+seatBar(o.filledCount||0,o.seats)+'</div>'+
+          return '<div class="k9off"><div class="t">'+esc(rb(o.courseName))+'</div>'+
+            '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+esc(o.startDate)+' से '+esc(o.endDate)+'</div>'+
+            (o.subjects?'<div class="m">📚 विषय: '+esc(rb(o.subjects))+'</div>':'')+
+            seatBar(o.filledCount||0,o.seats)+
             (full?'<span class="chip">seat भर गईं</span>'
                  :'<button class="abtn ok" data-k9req="'+esc(o.courseId)+'" data-ctr="'+esc(C.regNo)+'">✉️ निवेदन भेजें</button>')+'</div>';
         }).join("");
@@ -1738,4 +1785,77 @@ if (MODE==="external" && ALLOWED.length>=1) {
       say(false,"नहीं हुआ: "+((e&&e.message)||e));
     }
   });
+
+  /* ───── 🪪 परिचय-पत्र designer (device-local — फ़ोटो कहीं नहीं जाती) ───── */
+  var ID_IMG=null;
+  function idDraw(){
+    var cv=$("idCanvas"); if(!cv) return;
+    var x=cv.getContext("2d"), W=cv.width, H=cv.height;
+    var name=($("idName")&&$("idName").value.trim())||"नाम";
+    var role=($("idRole")&&$("idRole").value.trim())||"";
+    var no=($("idNo")&&$("idNo").value.trim())||"";
+    var inst=rb((EXT_REG&&((EXT_REG.formFields&&(EXT_REG.formFields.center_name||EXT_REG.formFields.workshop_name))||EXT_REG.name_local))||"ACS");
+    /* पृष्ठभूमि — navy, ऊपर तिरंगा-रेखा (गोल्ड-सफ़ेद-हरा), नीचे gold-पट्टी */
+    x.fillStyle="#0B1F3A"; x.fillRect(0,0,W,H);
+    var g=x.createLinearGradient(0,0,W,0); g.addColorStop(0,"#F9A825"); g.addColorStop(.5,"#F5F7FA"); g.addColorStop(1,"#2E7D32");
+    x.fillStyle=g; x.fillRect(0,0,W,14);
+    x.fillStyle="#F9A825"; x.fillRect(0,H-56,W,56);
+    x.fillStyle="#0B1F3A"; x.font="700 24px 'Noto Sans Devanagari',sans-serif";
+    x.textAlign="center"; x.fillText("acslearn.com · From Village to World", W/2, H-20);
+    /* header */
+    x.fillStyle="#F5F7FA"; x.textAlign="left"; x.font="800 34px 'Noto Sans Devanagari',sans-serif";
+    x.fillText("अप्लाइड कंप्यूटर स्कूल™", 40, 66);
+    x.fillStyle="#F9A825"; x.font="700 24px 'Noto Sans Devanagari',sans-serif";
+    x.fillText(inst.slice(0,34), 40, 100);
+    x.strokeStyle="rgba(245,247,250,.35)"; x.lineWidth=2;
+    x.beginPath(); x.moveTo(40,118); x.lineTo(W-40,118); x.stroke();
+    /* फ़ोटो-चौखट — gradient ring (DP-नीति की झलक) */
+    var px=40, py=150, pw=210, ph=260;
+    var rg=x.createLinearGradient(px,py,px+pw,py+ph); rg.addColorStop(0,"#F9A825"); rg.addColorStop(.55,"#2E7D32"); rg.addColorStop(1,"#1565C0");
+    x.fillStyle=rg; x.fillRect(px-6,py-6,pw+12,ph+12);
+    x.fillStyle="#F5F7FA"; x.fillRect(px,py,pw,ph);
+    if(ID_IMG){ var r=Math.max(pw/ID_IMG.width, ph/ID_IMG.height),
+        sw=pw/r, sh=ph/r, sx=(ID_IMG.width-sw)/2, sy=(ID_IMG.height-sh)/2;
+      x.drawImage(ID_IMG, sx,sy,sw,sh, px,py,pw,ph); }
+    else{ x.fillStyle="#9fb3cc"; x.font="800 90px sans-serif"; x.textAlign="center";
+      x.fillText((name[0]||"A"), px+pw/2, py+ph/2+32); x.textAlign="left"; }
+    /* ब्योरा */
+    var tx=px+pw+44, ty=190;
+    x.fillStyle="#F5F7FA"; x.font="800 40px 'Noto Sans Devanagari',sans-serif";
+    x.fillText(name.slice(0,20), tx, ty);
+    x.fillStyle="#F9A825"; x.font="700 28px 'Noto Sans Devanagari',sans-serif";
+    if(role) x.fillText(role.slice(0,26), tx, ty+48);
+    x.fillStyle="#cdd9ea"; x.font="700 26px 'Noto Sans Devanagari',monospace";
+    if(no) x.fillText("🪪 "+no, tx, ty+100);
+    x.fillText("📅 वैध: भर्ती-वर्ष + 365 दिन", tx, ty+144);
+    var out=$("idPrev"), sv=$("idSave");
+    if(out){ out.src=cv.toDataURL("image/png"); out.style.display=""; }
+    if(sv){ sv.href=cv.toDataURL("image/png"); sv.style.display="inline-block"; }
+  }
+  LAZY["pnl-idcard"]=function(){
+    var who=$("idWho"); if(!who||who._k9) return; who._k9=true;
+    who.onchange=function(){
+      var w=$("idStuWrap"); if(!w) return;
+      if(who.value==="student"){
+        w.style.display="";
+        var ss=$("idStuSel"); if(ss && ss.options.length<=1){
+          EN_ALL.filter(function(e){return e.status==="active";}).forEach(function(e){
+            var o=document.createElement("option"); o.value=e._id;
+            o.textContent=rb(e.studentName)+" · "+e.studentRegNo; ss.appendChild(o); });
+          ss.onchange=function(){
+            var e=EN_ALL.find(function(z){return z._id===ss.value;}); if(!e) return;
+            $("idName").value=rb(e.studentName); $("idNo").value=e.studentRegNo;
+            $("idRole").value=rb(e.courseName).slice(0,26); };
+        }
+      } else w.style.display="none";
+    };
+    var ph=$("idPhoto");
+    if(ph) ph.onchange=function(){
+      var f=ph.files&&ph.files[0]; if(!f) return;
+      var img=new Image(); img.onload=function(){ ID_IMG=img; };
+      img.src=URL.createObjectURL(f);
+    };
+    var mk=$("idMake"); if(mk) mk.onclick=function(){ try{ idDraw(); }catch(e){
+      var m=$("idMsg"); if(m){m.className="msg err";m.textContent="कार्ड नहीं बना: "+((e&&e.message)||e);} } };
+  };
 })(); /* k9-block end */
