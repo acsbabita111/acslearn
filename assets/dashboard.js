@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.3 · 28-Jul-2026 (काम-9अ) — नामांकन-इंजन k9: केंद्र/वर्कशॉप pnl-enroll
+        (घोषणा·seat-graph·दो-दरवाज़ा·फीस-record) + learner pnl-myctr। नीचे की
+        सूची अधूरी थी — v4.7 से v5.2 (काम-5/7/8: IS_GOLD·sevaQueue·referral)
+        भी इसी फ़ाइल में जीवित हैं (बासी-टिप्पणी सुधार, v3.0-घ4)।
    v4.6 · 20-Jul-2026 (काम-13 कदम-1) — XSS-बंद: हर user-field अब esc() से (आवेदन-सूची · टीम · काम/रिपोर्ट · बैज-क़तार · docChips)
    v4.5 · 19-Jul-2026 — null-सुरक्षित setters (setTxt/setHTML): guard-render व
           loadRegistration की profile-भराई अब किसी सजावटी element के ग़ायब होने
@@ -1456,3 +1460,255 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
   });
 })();
+
+
+/* ═══════════════════════════════════════════════════════════════
+   (काम-9अ · 28-Jul-2026) k9-block — नामांकन-इंजन (server: v9अ functions)।
+   केंद्र/वर्कशॉप: pnl-enroll · learner: pnl-myctr। data device पर नहीं —
+   सब Firestore (rules v8: अपना ही दिखे) + server-callables।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  function rb(t){ return String(t==null?"":t).replace(/\[/g,"(").replace(/\]/g,")"); }
+  function dt(ts){ try{ return ts&&ts.toDate ? ts.toDate().toLocaleDateString("hi-IN") : "—"; }catch(e){ return "—"; } }
+  function seatBar(f,se){ var pct=se?Math.min(100,Math.round(f/se*100)):0, n=Math.round(pct/10);
+    return '<span style="font-family:monospace;letter-spacing:1px">'+
+      "▓".repeat(n)+"░".repeat(10-n)+'</span> '+f+"/"+se+" seat"; }
+  var K9C=null;
+  function k9Courses(cb){
+    if(K9C){ cb(K9C); return; }
+    if(typeof SELF_EMP_COURSES!=="undefined"){ collect(); cb(K9C); return; }
+    var sc=document.createElement("script"); sc.src="/assets/courses_data.js";
+    sc.onload=function(){ collect(); cb(K9C); };
+    sc.onerror=function(){ cb(null); };
+    document.body.appendChild(sc);
+    function collect(){ K9C=[];
+      [ (typeof SELF_EMP_COURSES!=="undefined")?SELF_EMP_COURSES:[],
+        (typeof PRIVATE_JOB_COURSES!=="undefined")?PRIVATE_JOB_COURSES:[],
+        (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[],
+        (typeof GOVT_JOB_COURSES!=="undefined")?GOVT_JOB_COURSES:[]
+      ].forEach(function(L){ (L||[]).forEach(function(c){ K9C.push(c); }); }); }
+  }
+  function k9Prog(courseId){
+    /* device-local प्रगति (v3.2) — url-उपसर्ग से पढ़े-पाठ गिनती ÷ कुल पाठ */
+    var c=(K9C||[]).find(function(x){return x.id===courseId;});
+    if(!c||!c.url||!c.lessons) return null;
+    var d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
+    var r=d.read||{}, n=0, k; for(k in r){ if(k.indexOf(c.url)===0) n++; }
+    return Math.min(100, Math.round(n/c.lessons*100));
+  }
+  function call(name, data){ return httpsCallable(functions, name)(data); }
+  function isInst(){ return !!(EXT_REG && (EXT_REG.role==="center"||EXT_REG.role==="workshop")); }
+
+  /* ───────── केंद्र/वर्कशॉप — pnl-enroll ───────── */
+  var OF_ALL=[], EN_ALL=[], EN_SHOWN=0;
+  async function k9LoadInst(){
+    var u=auth.currentUser; if(!u||!isInst()) return;
+    var qs=await getDocs(query(collection(db,"offerings"), where("centerUid","==",u.uid)));
+    OF_ALL=[]; qs.forEach(function(d){ OF_ALL.push(d.data()||{}); });
+    var es=await getDocs(query(collection(db,"enrollments"), where("centerUid","==",u.uid)));
+    EN_ALL=[]; es.forEach(function(d){ var x=d.data()||{}; x._id=d.id; EN_ALL.push(x); });
+    drawOfferings(); drawPending(); EN_SHOWN=0; drawActive(false);
+    var sid=$("instShareId");
+    if(sid){ sid.textContent=(EXT_REG&&EXT_REG.regNo)||"—";
+      var wa=$("instShareWa");
+      if(wa) wa.href="https://wa.me/?text="+encodeURIComponent("मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: "+((EXT_REG&&EXT_REG.regNo)||"")+" — acslearn.com");
+    }
+  }
+  function drawOfferings(){
+    var box=$("ofList"); if(!box) return;
+    if(OF_ALL.length===0){ box.innerHTML='<span class="note">अभी कोई घोषणा नहीं — ऊपर से पहली घोषणा करें।</span>'; return; }
+    box.innerHTML="";
+    OF_ALL.forEach(function(o){
+      var d=document.createElement("div"); d.className="lrow";
+      d.innerHTML='<div class="r1"><span class="nm">'+esc(rb(o.courseName))+'</span> '+
+        (o.status==="open"?'<span class="chip ok">खुली</span>':'<span class="chip">बंद</span>')+'</div>'+
+        '<div class="r2">₹'+esc(o.feeRupees)+' · '+esc(rb(o.durationText))+' · '+esc(o.startDate)+' से '+esc(o.endDate)+
+        '<br>'+seatBar(o.filledCount||0,o.seats)+'</div>'+
+        (o.status==="open"?'<button class="abtn" data-k9close="'+esc(o.courseId)+'">⛔ घोषणा बंद</button>':'');
+      box.appendChild(d);
+    });
+  }
+  function pendRow(e, forInst){
+    var who=forInst ? (esc(rb(e.studentName))+' · '+esc(e.studentRegNo)) : esc(rb(e.centerName));
+    var g=e.minor?(e.guardianOk?' 🛡️':' <span style="color:#B71C1C">🛡️ Guardian-दस्तावेज़ नहीं</span>'):'';
+    var h='<div class="r1"><span class="nm">'+who+g+'</span> · '+esc(rb(e.courseName))+
+      (e.status==="requested"?' <span class="chip">⏳ निवेदन</span>':' <span class="chip">📩 प्रस्ताव</span>')+'</div>';
+    var mine=(e.status==="requested")===forInst; /* फ़ैसला दूसरे पक्ष का: requested→केंद्र · offered→विद्यार्थी */
+    if(mine) h+='<button class="abtn ok" data-k9acc="'+esc(e._id)+'">✅ स्वीकारें</button> '+
+                '<button class="abtn" style="background:#B71C1C;color:#fff" data-k9ret="'+esc(e._id)+'">❌ लौटाएँ</button>';
+    else h+='<button class="abtn" data-k9wd="'+esc(e._id)+'">↩ वापस लें</button>';
+    return h;
+  }
+  function drawPending(){
+    var box=$("enrPendList"); if(!box) return;
+    var P=EN_ALL.filter(function(e){return e.status==="requested"||e.status==="offered";});
+    if(P.length===0){ box.innerHTML='<span class="note">अभी कोई निवेदन/प्रस्ताव लंबित नहीं।</span>'; return; }
+    box.innerHTML="";
+    P.forEach(function(e){ var d=document.createElement("div"); d.className="lrow"; d.innerHTML=pendRow(e,true); box.appendChild(d); });
+  }
+  function feeLines(e){
+    var f=e.feeEntries||[]; if(f.length===0) return '<span class="note">कोई फीस-प्रविष्टि नहीं।</span>';
+    return f.map(function(x){ return '🧾 '+esc(x.receiptNo)+' · ₹'+esc(x.amountRupees)+' · '+dt(x.at)+(x.note?' · '+esc(rb(x.note)):''); }).join("<br>");
+  }
+  function drawActive(more){
+    var box=$("enrActiveList"); if(!box) return;
+    var A=EN_ALL.filter(function(e){return e.status==="active";});
+    if(A.length===0){ box.innerHTML='<span class="note">अभी कोई active नामांकन नहीं।</span>'; return; }
+    if(!more) box.innerHTML="";
+    var from=EN_SHOWN, to=Math.min(A.length, from+50); EN_SHOWN=to;   /* scale-नियम: 50-खेप */
+    A.slice(from,to).forEach(function(e){
+      var d=document.createElement("div"); d.className="lrow";
+      var g=e.minor?(e.guardianOk?' 🛡️':''):'';
+      d.innerHTML='<div class="r1"><span class="nm">'+esc(rb(e.studentName))+g+'</span> · '+esc(e.studentRegNo)+'</div>'+
+        '<div class="r2">'+esc(rb(e.courseName))+' · नामांकन: '+dt(e.enrolledAt)+'<br>'+feeLines(e)+'</div>'+
+        '<button class="abtn ok" data-k9fee="'+esc(e._id)+'">💰 फीस-दर्ज</button> '+
+        '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+
+        encodeURIComponent("ACS रसीद — "+rb(e.studentName)+" ("+e.studentRegNo+") · "+rb(e.courseName)+" · "+feePlain(e))+'">📲 रसीद WhatsApp</a>';
+      box.appendChild(d);
+    });
+    var old=$("k9More"); if(old) old.remove();
+    if(to<A.length){ var mb=document.createElement("button"); mb.className="abtn"; mb.id="k9More";
+      mb.textContent="और देखें ("+(A.length-to)+" बाक़ी)"; mb.onclick=function(){ drawActive(true); }; box.appendChild(mb); }
+  }
+  function feePlain(e){ var f=e.feeEntries||[]; if(!f.length) return "कोई फीस-प्रविष्टि नहीं";
+    return f.map(function(x){ return x.receiptNo+" ₹"+x.amountRupees; }).join(", "); }
+
+  LAZY["pnl-enroll"]=async function(){
+    var box=$("ofList"); if(!box||!isInst()) return;
+    box.innerHTML='<span class="note">हिसाब आ रहा है…</span>';
+    k9Courses(function(A){
+      var sel=$("ofCourseSel"); if(!sel||!A) return;
+      if(sel.options.length>1) return;
+      A.forEach(function(c){ var o=document.createElement("option"); o.value=c.id;
+        o.textContent=rb(c.name_hi||c.name_en||c.id); sel.appendChild(o); });
+    });
+    try{ await k9LoadInst(); }
+    catch(e){ box.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }
+  };
+
+  /* ───────── learner — pnl-myctr ───────── */
+  var MC_ALL=[];
+  async function k9LoadMine(){
+    var u=auth.currentUser; if(!u) return;
+    var qs=await getDocs(query(collection(db,"enrollments"), where("studentUid","==",u.uid)));
+    MC_ALL=[]; qs.forEach(function(d){ var x=d.data()||{}; x._id=d.id; MC_ALL.push(x); });
+    var box=$("mcList"); if(!box) return;
+    if(MC_ALL.length===0){ box.innerHTML='<span class="note">अभी कोई नामांकन नहीं — ऊपर केंद्र खोजकर निवेदन भेजें।</span>'; return; }
+    box.innerHTML="";
+    MC_ALL.forEach(function(e){
+      var d=document.createElement("div"); d.className="lrow"; var h;
+      if(e.status==="requested"||e.status==="offered") h=pendRow(e,false);
+      else if(e.status==="active"){
+        var pr=k9Prog(e.courseId);
+        h='<div class="r1"><span class="nm">'+esc(rb(e.courseName))+'</span> <span class="chip ok">✅ active</span></div>'+
+          '<div class="r2">🏫 '+esc(rb(e.centerName))+' · नामांकन-तिथि: '+dt(e.enrolledAt)+
+          (pr!==null?('<br>📈 प्रगति: '+pr+' प्रतिशत'+(pr>=80?' · <span class="chip ok">🎯 परीक्षा के योग्य</span>':'')):'')+
+          '<br>'+feeLines(e)+'</div>';
+      } else h='<div class="r1"><span class="nm">'+esc(rb(e.courseName))+'</span> <span class="chip">'+
+          (e.status==="returned"?'❌ लौटाया':'↩ वापस लिया')+'</span></div>'+
+          (e.returnReason?'<div class="r2">कारण: '+esc(rb(e.returnReason))+'</div>':'');
+      d.innerHTML=h; box.appendChild(d);
+    });
+  }
+  LAZY["pnl-myctr"]=async function(){
+    var box=$("mcList"); if(!box) return;
+    box.innerHTML='<span class="note">सूची आ रही है…</span>';
+    k9Courses(function(){});   /* प्रगति-% के लिए पहले से गरम */
+    try{ await k9LoadMine(); }
+    catch(e){ box.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
+  };
+
+  /* ───────── बटन-तार (एक साझा click-सुनना) ───────── */
+  document.addEventListener("click", async function(ev){
+    var b=ev.target.closest("[data-k9close],[data-k9acc],[data-k9ret],[data-k9wd],[data-k9fee],#ofDeclare,#addStuFind,#mcFindBtn,#instShareCopy,[data-k9off],[data-k9req]");
+    if(!b) return;
+    var msg=$("enrMsg")||$("mcMsg")||$("ofMsg");
+    function say(ok,t){ if(msg){ msg.className="msg "+(ok?"ok":"err"); msg.textContent=t; } }
+    try{
+      if(b.id==="ofDeclare"){
+        b.disabled=true;
+        var r=await call("declareOffering",{ courseId:$("ofCourseSel").value, feeRupees:Number($("ofFee").value),
+          durationText:$("ofDur").value, seats:Number($("ofSeats").value),
+          startDate:$("ofStart").value, endDate:$("ofEnd").value });
+        b.disabled=false; var m1=$("ofMsg"); if(m1){m1.className="msg ok";m1.textContent="📣 घोषणा दर्ज — "+r.data.offeringId;}
+        await k9LoadInst(); return;
+      }
+      if(b.hasAttribute("data-k9close")){
+        if(!confirm("घोषणा बंद करें? नए नामांकन रुक जाएँगे — active अछूते रहेंगे।")) return;
+        await call("closeOffering",{ courseId:b.getAttribute("data-k9close") }); await k9LoadInst(); return;
+      }
+      if(b.id==="addStuFind"){
+        b.disabled=true;
+        var card=$("addStuCard"); if(card) card.innerHTML='<span class="note">खोज रहे…</span>';
+        var res=await call("lookupStudent",{ regNo:$("addStuReg").value.trim() });
+        b.disabled=false; var d=res.data;
+        var opts=OF_ALL.filter(function(o){return o.status==="open";})
+          .map(function(o){return '<option value="'+esc(o.courseId)+'">'+esc(rb(o.courseName))+'</option>';}).join("");
+        if(card) card.innerHTML='<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(d.name))+'</span> · '+esc(d.regNo)+
+          (d.minor?' 🛡️ (नाबालिग)':'')+'</div>'+
+          (opts?('<select id="addStuCourse">'+opts+'</select> <button class="abtn ok" data-k9off="'+esc(d.regNo)+'">📩 प्रस्ताव भेजें</button>')
+               :'<span class="note">पहले ऊपर कोई कोर्स घोषित करें।</span>')+'</div>';
+        return;
+      }
+      if(b.hasAttribute("data-k9off")){
+        b.disabled=true;
+        await call("offerEnrollment",{ studentRegNo:b.getAttribute("data-k9off"), courseId:$("addStuCourse").value });
+        say(true,"📩 प्रस्ताव गया — विद्यार्थी की हाँ पर active होगा।");
+        var c2=$("addStuCard"); if(c2) c2.innerHTML=""; await k9LoadInst(); return;
+      }
+      if(b.id==="mcFindBtn"){
+        b.disabled=true;
+        var cc=$("mcCtrCard"); if(cc) cc.innerHTML='<span class="note">खोज रहे…</span>';
+        var cr=await call("lookupCenter",{ regNo:$("mcCtrReg").value.trim() });
+        b.disabled=false; var C=cr.data;
+        var rows=(C.offerings||[]).map(function(o){
+          var full=(o.filledCount||0)>=o.seats;
+          return '<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(o.courseName))+'</span></div>'+
+            '<div class="r2">₹'+esc(o.feeRupees)+' · '+esc(rb(o.durationText))+' · '+esc(o.startDate)+' से '+esc(o.endDate)+
+            '<br>'+seatBar(o.filledCount||0,o.seats)+'</div>'+
+            (full?'<span class="chip">seat भर गईं</span>'
+                 :'<button class="abtn ok" data-k9req="'+esc(o.courseId)+'" data-ctr="'+esc(C.regNo)+'">✉️ निवेदन भेजें</button>')+'</div>';
+        }).join("");
+        if(cc) cc.innerHTML='<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(C.name))+'</span> · '+esc(C.regNo)+
+          '</div><div class="r2">'+esc(rb(C.district||"—"))+' / '+esc(rb(C.state||"—"))+'</div></div>'+
+          (rows||'<span class="note">इस केंद्र की कोई खुली कोर्स-घोषणा नहीं।</span>');
+        return;
+      }
+      if(b.hasAttribute("data-k9req")){
+        b.disabled=true;
+        await call("requestEnrollment",{ centerRegNo:b.getAttribute("data-ctr"), courseId:b.getAttribute("data-k9req") });
+        say(true,"✉️ निवेदन गया — केंद्र की हाँ पर active होगा।"); await k9LoadMine(); return;
+      }
+      if(b.hasAttribute("data-k9acc")){
+        b.disabled=true;
+        await call("acceptEnrollment",{ enrollId:b.getAttribute("data-k9acc") });
+        say(true,"✅ नामांकन active — seat दर्ज।");
+        if(isInst()) await k9LoadInst(); else await k9LoadMine(); return;
+      }
+      if(b.hasAttribute("data-k9ret")){
+        var why=prompt("लौटाने का कारण लिखें (ज़रूरी):"); if(!why) return;
+        await call("declineOrWithdraw",{ enrollId:b.getAttribute("data-k9ret"), reason:why });
+        if(isInst()) await k9LoadInst(); else await k9LoadMine(); return;
+      }
+      if(b.hasAttribute("data-k9wd")){
+        if(!confirm("अपना निवेदन/प्रस्ताव वापस लें?")) return;
+        await call("declineOrWithdraw",{ enrollId:b.getAttribute("data-k9wd") });
+        if(isInst()) await k9LoadInst(); else await k9LoadMine(); return;
+      }
+      if(b.hasAttribute("data-k9fee")){
+        var amt=prompt("रक़म (₹) लिखें:"); if(!amt) return;
+        var nt=prompt("नोट (जैसे: पहली किस्त) — ख़ाली भी चलेगा:")||"";
+        var fr=await call("recordFee",{ enrollId:b.getAttribute("data-k9fee"), amountRupees:Number(amt), note:nt });
+        say(true,"🧾 फीस दर्ज — रसीद "+fr.data.receiptNo); await k9LoadInst(); return;
+      }
+      if(b.id==="instShareCopy"){
+        try{ await navigator.clipboard.writeText((EXT_REG&&EXT_REG.regNo)||""); say(true,"📋 ID copy हुई।"); }
+        catch(e){ say(false,"copy नहीं हुई — ID हाथ से लिखें।"); }
+        return;
+      }
+    }catch(e){
+      b.disabled=false;
+      say(false,"नहीं हुआ: "+((e&&e.message)||e));
+    }
+  });
+})(); /* k9-block end */
