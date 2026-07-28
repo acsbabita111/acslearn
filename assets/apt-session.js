@@ -78,6 +78,13 @@
     try {
       var n1 = document.getElementById('apt-dummy-notice'); if (n1) n1.style.display = 'none';
       var n2 = document.getElementById('apt-full-info'); if (n2) n2.style.display = 'none';
+      /* (28-Jul होल-बंदी) ₹100-चांस पर 24-झलक भी छिपे — दो टेस्ट साथ न चलें
+         (badge-रास्ता aptitude-test.js में पहले से छिपाता था, यह रास्ता छूटा था) */
+      var jb = document.getElementById('apt-box');
+      if (jb && mode === 'attempt') {
+        jb.innerHTML = '<p class="apt-q">🎫 आपका ₹100-चांस सक्रिय है — मुफ़्त झलक की ज़रूरत नहीं।</p>' +
+          '<p>नीचे पूरा 120-प्रश्न टेस्ट खुला है।</p>';
+      }
     } catch (e) {}
   }
 
@@ -127,9 +134,17 @@
   function loadScript(url, ok, fail) {
     if (loaded[url]) { ok(); return; }
     var sc = document.createElement('script');
+    var done = false;
+    /* (28-Jul होल-बंदी) कमज़ोर नेट पर फ़ाइल अटके (न onload न onerror) तो पहले
+       अनंत सन्नाटा था — "40 पर हैंग"। अब 25 सेकंड में fail → retry-card। */
+    var tmr = setTimeout(function () {
+      if (done) return; done = true;
+      sc.onload = sc.onerror = null;
+      fail(url);
+    }, 25000);
     sc.src = url;
-    sc.onload = function () { loaded[url] = 1; ok(); };
-    sc.onerror = function () { fail(url); };
+    sc.onload = function () { if (done) return; done = true; clearTimeout(tmr); loaded[url] = 1; ok(); };
+    sc.onerror = function () { if (done) return; done = true; clearTimeout(tmr); fail(url); };
     document.head.appendChild(sc);
   }
   function loadMany(urls, ok) {
@@ -412,7 +427,11 @@
       left--;
       if (left <= 0) {
         clearInterval(timer);
-        if (btn) { btn.disabled = false; btn.textContent = 'आगे बढ़ें ➜'; btn.onclick = next; }
+        if (btn) { btn.disabled = false; btn.textContent = 'आगे बढ़ें ➜';
+          btn.onclick = function () {
+            box.innerHTML = '<div class="apt-card"><p>⏳ अगले खंड के प्रश्न आ रहे हैं…</p><p class="apt-note">कमज़ोर नेट पर 25 सेकंड तक लग सकते हैं।</p></div>';
+            next();
+          }; }
       } else if (btn) {
         btn.textContent = '⏳ ' + left + ' सेकंड रुकिए…';
       }

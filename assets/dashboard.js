@@ -1481,7 +1481,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
   function k9Courses(cb){
     if(K9C){ cb(K9C); return; }
     if(typeof SELF_EMP_COURSES!=="undefined" && window.MG_NAMES
-       && typeof ALL_SECTORS!=="undefined" && typeof GOVT_JOBS!=="undefined"){ collect(); cb(K9C); return; }
+       && typeof ALL_SECTORS!=="undefined" && typeof GOVT_JOBS!=="undefined"
+       && typeof GOVT_SCHOLAR_COURSES!=="undefined"){ collect(); cb(K9C); return; }
     var need=["/assets/courses_data.js","/assets/mg_names.js","/assets/udyam_data.js","/assets/govt_jobs_embassy.js"], i=0;
     (function next(){
       if(i>=need.length){ collect(); cb(K9C); return; }
@@ -1491,6 +1492,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     })();
     function collect(){ K9C=[];
       ((typeof ACADEMIC_COURSES!=="undefined")?ACADEMIC_COURSES:[]).forEach(function(c){ c._ac=true; K9C.push(c); });
+      ((typeof GOVT_SCHOLAR_COURSES!=="undefined")?GOVT_SCHOLAR_COURSES:[]).forEach(function(c){ c._sc=true; K9C.push(c); });
       [ (typeof SELF_EMP_COURSES!=="undefined")?SELF_EMP_COURSES:[],
         (typeof PRIVATE_JOB_COURSES!=="undefined")?PRIVATE_JOB_COURSES:[],
         (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[],
@@ -1609,7 +1611,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       function fillGovt(){
         sel.innerHTML='<option value="">चुनें…</option>';
         var g0=og(sel,"📚 तैयारी-कोर्स");
-        A.filter(function(c){return !c._ac && !c.mg && c.id.indexOf("SC")!==0;})
+        A.filter(function(c){return !c._ac && !c._sc && !c.mg;})
           .forEach(function(c){ opt(g0,c.id,rb(c.name_hi||c.name_en||c.id)); });
         var G=(typeof GOVT_JOBS!=="undefined")?GOVT_JOBS:{};
         var g1=og(sel,"🏛️ सरकारी पद — स्थायी ("+((G.permanent||[]).length)+")");
@@ -1617,7 +1619,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         var g2=og(sel,"📝 सरकारी पद — संविदा ("+((G.contract||[]).length)+")");
         (G.contract||[]).forEach(function(j,i){ opt(g2,"GOV-C"+(i+1),rb(j.name)+" — तैयारी"); });
         var g3=og(sel,"🎓 छात्रवृत्ति/प्रवेश-परीक्षा");
-        A.filter(function(c){return c.id.indexOf("SC")===0;})
+        A.filter(function(c){return c._sc;})
           .forEach(function(c){ opt(g3,c.id,rb(c.name_hi||c.name_en||c.id)); });
         var w=$("ofCourseWrap"); if(w) w.style.display=""; }
       var NCERT={ jr:["हिंदी","अंग्रेज़ी","संस्कृत","उर्दू","गणित","विज्ञान","सामाजिक विज्ञान","कंप्यूटर","कला","शारीरिक शिक्षा"],
