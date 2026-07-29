@@ -1041,7 +1041,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       }
       const row=document.createElement("div");
       row.className="crscard"; row.style.display="inline-block"; row.style.width="min(260px,100%)"; row.style.margin="6px"; row.style.verticalAlign="top";
-      const meta=[c.duration?("⏱️ "+noSq(c.duration)):"", c.lessons?("📄 "+c.lessons+" पाठ"):""].filter(Boolean).join(" · ");
+      const meta=[c.duration?("⏱️ "+noSq(c.duration)):"", c.lessons?("📄 "+c.lessons+" पाठ"):"",
+        "🗣️ हिंदी","📴 पढ़े पाठ offline भी"].filter(Boolean).join(" · ");
       const right = c.url
         ? '<a class="abtn ok" style="display:inline-block;text-decoration:none" href="'+c.url+'">📖 पढ़ें (मुफ़्त)</a>'
         : '<span class="note" style="margin-top:0">पाठ जल्द जुड़ेंगे</span>';
@@ -1072,15 +1073,22 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      प्रगति device-local (acs_learn_progress); परीक्षा/result/प्रमाणपत्र-इंजन (काम-10)
      बनने तक: परीक्षा-निवेदन = असली WhatsApp-रास्ता; प्रमाणपत्र-कड़ी result तक ताले में
      (ईमानदार-पैनल नियम — मरा बटन नहीं)। */
-  function crsMineFill(){
+  async function crsMineFill(){
     const bx=$("crsMine"); if(!bx) return;
+    await loadExamState();
     let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
     const read=d.read||{}, byC={};
     for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
     const mine=[];
     CRS_ALL.forEach(function(x){ const c=x&&x.c; if(c && c.url && byC[c.url]) mine.push({c:c, n:byC[c.url]}); });
-    if(!mine.length){ bx.innerHTML='<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से पहला पाठ खोलिए, वह यहाँ अपने-आप जुड़ जाएगा।</div>'; return; }
-    let h='<div class="crsgrid">';
+    const doneN=mine.filter(function(m){var t=Number(m.c.lessons)||0;return t&&m.n>=t;}).length;
+    const certN=Object.keys(CERT_BY).length;
+    const sumBar='<div class="pubcard g3" style="padding:10px;margin-bottom:10px">'+
+      '<div class="gcol"><div class="gstat">📚 शुरू किए <b>'+mine.length+'</b></div></div>'+
+      '<div class="gcol"><div class="gstat">🏆 पूरे <b>'+doneN+'</b></div></div>'+
+      '<div class="gcol"><div class="gstat">📜 प्रमाणपत्र <b>'+certN+'</b></div></div></div>';
+    if(!mine.length){ bx.innerHTML=sumBar+'<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से पहला पाठ खोलिए, वह यहाँ अपने-आप जुड़ जाएगा।</div>'; return; }
+    let h=sumBar+'<div class="crsgrid">';
     mine.forEach(function(m){
       const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
       const R=26, C=2*Math.PI*R, off=C*(1-pc/100);
@@ -1090,8 +1098,14 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         'stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 34 34)"/>'+
         '<text x="34" y="40" text-anchor="middle" font-size="17" font-weight="800" fill="#0B1F3A">'+pc+'%</text></svg>';
       function st(cls,txt){ return '<span class="crsstep '+cls+'">'+txt+'</span>'; }
+      const bank=(window.COURSE_EXAMS||{})[m.c.id];
+      const canExam=bank && m.n>=bank.minLessons;
+      const res=EXAM_RES[m.c.id]||null, cert=res?CERT_BY[res.id]:null;
       const steps='<div class="crssteps">'+
-        st(done?'on':'cur','📖 पढ़ाई')+st(done?'cur':'','🎓 परीक्षा')+st('','📄 result')+st('','📜 ₹125')+'</div>';
+        st(done?'on':'cur','📖 पढ़ाई')+
+        st(res?'on':(canExam?'cur':''),'🎓 परीक्षा')+
+        st(res?'on':'','📄 '+(res?(res.pct+'%'):'result'))+
+        st(cert?'on':(res?'cur':''),'📜 '+(cert?cert.certNo.slice(-6):'₹125'))+'</div>';
       h+='<div class="crscard"><div class="crsban">'+(done?'🏆':'📖')+'</div><div class="crsbody">'+
         '<div class="crsname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
         '<div class="crsring">'+ring+'<div class="crsmeta">'+m.n+(tot?(' / '+tot):'')+' पाठ'+(tot?'<br>बचे '+Math.max(0,tot-m.n):'')+'</div></div>'+
@@ -1099,8 +1113,17 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         (done
           ? '<a class="crsgo" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
             encodeURIComponent('मैंने online कोर्स पूरा किया: '+(m.c.name_hi||m.c.id)+' ('+m.c.id+') — परीक्षा देना चाहता/चाहती हूँ। ACS-नंबर: '+(window.ACS_REGNO||''))+
-            '">🎓 परीक्षा-निवेदन</a><div class="note">📜 प्रमाणपत्र ₹125 — result आने पर यहीं खुलेगा</div>'
+            '">🎓 परीक्षा-निवेदन</a>'+
+            '<div class="note">📜 प्रमाणपत्र ₹125 — result पर यहीं खुलेगा · FFGPMTrust-जारी, QR से दुनिया-भर verify</div>'+
+            '<div class="note">🏢 आगे की राह: <a href="/career-kit.html">करियर-किट</a> से resume बनाइए — पहली कमाई की तैयारी</div>'
           : '<a class="crsgo" href="'+esc(m.c.url)+'">▶ आगे पढ़ें</a>')+
+        (cert
+          ? '<div style="margin-top:8px"><button class="crsgo" style="background:var(--gold);color:var(--navy)" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ प्रमाणपत्र download</button></div>'
+          : res
+          ? '<div style="margin-top:8px"><button class="crsgo" type="button" data-cert="'+esc(res.id)+'">📜 प्रमाणपत्र लें — ₹125</button><div class="note">FFGPMTrust-जारी · "प्रैक्टिकल नहीं" पंक्ति सहित (मोड-ब)</div></div>'
+          : canExam
+          ? '<div style="margin-top:8px"><button class="crsgo" style="background:var(--blue)" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें — मुफ़्त ('+bank.q.length+' प्रश्न)</button><div id="exWrap_'+esc(m.c.id)+'" style="display:none"></div></div>'
+          : (bank?'<div class="note">🎓 परीक्षा '+bank.minLessons+' पाठ पढ़ने पर खुलेगी</div>':''))+
         '</div></div>';
     });
     h+='</div>';
@@ -1136,6 +1159,91 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       bx.innerHTML = h ? (h+'<div class="note">फीस-रसीदें व पूरा ब्योरा — "🏫 मेरा केंद्र" पैनल में।</div>')
         : '<div class="pd">अभी किसी केंद्र में नामांकन नहीं — "🏫 मेरा केंद्र" पैनल से नज़दीकी केंद्र खोजिए।</div>';
     }catch(e){ bx.innerHTML='<span class="note" style="color:#B71C1C">केंद्र-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
+  }
+  /* ── (30-Jul, रास्ता-1) 🎓 परीक्षा → 📄 result → 📜 ₹125 प्रमाणपत्र ── */
+  let EXAM_RES={}, CERT_BY={};
+  async function loadExamState(){
+    EXAM_RES={}; CERT_BY={};
+    try{ const u=auth.currentUser; if(!u) return;
+      const rs=await getDocs(query(collection(db,"examResults"), where("uid","==",u.uid)));
+      rs.forEach(d=>{ const x=d.data()||{}; const k=x.courseId;
+        const t=x.at&&x.at.toMillis?x.at.toMillis():0;
+        if(x.pass && (!EXAM_RES[k]||t>EXAM_RES[k]._t)) EXAM_RES[k]=Object.assign({_t:t,id:d.id},x); });
+      const cs=await getDocs(query(collection(db,"certificates"), where("uid","==",u.uid)));
+      cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; });
+    }catch(e){}
+  }
+  function examBox(cid,bank){
+    let h='<div class="pd" style="text-align:left"><b>'+esc(bank.name)+'</b> · pass = '+bank.pass+'%</div>';
+    bank.q.forEach(function(qq,i){
+      h+='<div class="pd" style="text-align:left"><b>'+(i+1)+'.</b> '+esc(qq.t)+'<br>';
+      qq.o.forEach(function(op,j){ h+='<label style="display:block;margin:4px 0"><input type="radio" name="ex_'+i+'" value="'+j+'"> '+esc(op)+'</label>'; });
+      h+='</div>'; });
+    h+='<button class="crsgo" id="exSubmit" data-exid="'+cid+'" type="button">📨 जमा करें</button><div class="note" id="exMsg"></div>';
+    return h;
+  }
+  document.addEventListener("click", async function(ev){
+    const eb=ev.target.closest("[data-exam]");
+    if(eb){ const cid=eb.getAttribute("data-exam"); const bx=$("exWrap_"+cid);
+      if(bx){ bx.style.display=""; bx.innerHTML=examBox(cid, window.COURSE_EXAMS[cid]); } return; }
+    const sb=ev.target.closest("#exSubmit");
+    if(sb){ const cid=sb.getAttribute("data-exid"); const bank=window.COURSE_EXAMS[cid];
+      const ans=[]; let miss=false;
+      bank.q.forEach(function(_,i){ const r=document.querySelector('input[name="ex_'+i+'"]:checked');
+        if(!r) miss=true; ans.push(r?Number(r.value):-1); });
+      const m=$("exMsg");
+      if(miss){ if(m) m.textContent="हर प्रश्न का जवाब चुनें।"; return; }
+      sb.disabled=true; if(m) m.textContent="⏳ जाँच हो रही है…";
+      try{ const out=await httpsCallable(functions,"submitCourseExam")({courseId:cid, answers:ans});
+        const d=out.data||{};
+        if(m) m.innerHTML=(d.pass?'🎉 <b>पास!</b> ':'😔 इस बार नहीं — दोबारा दे सकते हैं। ')+
+          'अंक: '+d.score+'/'+d.total+' ('+d.pct+'%)';
+        await loadExamState(); setTimeout(function(){ crsMineFill(); },1200);
+      }catch(e){ if(m) m.textContent="त्रुटि: "+((e&&e.message)||e); sb.disabled=false; }
+      return; }
+    const cb=ev.target.closest("[data-cert]");
+    if(cb){ const rid=cb.getAttribute("data-cert"); cb.disabled=true;
+      try{ const o=await httpsCallable(functions,"createCourseCertOrder")({resultId:rid});
+        await loadRazorpay();
+        const rz=new window.Razorpay({ key:o.data.keyId, order_id:o.data.orderId, amount:o.data.amount,
+          name:"ACS प्रमाणपत्र", description:"कोर्स-परीक्षा प्रमाणपत्र ₹125",
+          handler:async function(rsp){
+            try{ const v=await httpsCallable(functions,"verifyCourseCertPayment")({
+                orderId:rsp.razorpay_order_id, paymentId:rsp.razorpay_payment_id, signature:rsp.razorpay_signature });
+              alert("📜 प्रमाणपत्र बना! नंबर: "+v.data.certNo);
+              await loadExamState(); crsMineFill();
+            }catch(e2){ alert("verify-त्रुटि: "+((e2&&e2.message)||e2)); cb.disabled=false; } } });
+        rz.open();
+      }catch(e){ alert("cert-order त्रुटि: "+((e&&e.message)||e)); cb.disabled=false; } return; }
+    const db2=ev.target.closest("[data-certdl]");
+    if(db2){ certDraw(JSON.parse(db2.getAttribute("data-certdl"))); return; }
+  });
+  function certDraw(c){
+    const cv=document.createElement("canvas"); cv.width=1000; cv.height=700;
+    const x=cv.getContext("2d");
+    x.fillStyle="#F5F7FA"; x.fillRect(0,0,1000,700);
+    x.strokeStyle="#F9A825"; x.lineWidth=14; x.strokeRect(20,20,960,660);
+    x.strokeStyle="#0B1F3A"; x.lineWidth=3; x.strokeRect(42,42,916,616);
+    x.fillStyle="#0B1F3A"; x.textAlign="center";
+    x.font="800 34px 'Noto Sans Devanagari',sans-serif";
+    x.fillText("अप्लाइड कंप्यूटर स्कूल™ · FFGPMTrust",500,110);
+    x.font="800 44px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#1565C0";
+    x.fillText("Online कोर्स-पूर्णता प्रमाणपत्र",500,180);
+    x.fillStyle="#0B1F3A"; x.font="700 26px 'Noto Sans Devanagari',sans-serif";
+    x.fillText("प्रमाणित किया जाता है कि",500,240);
+    x.font="800 40px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#2E7D32";
+    x.fillText(c.name||"—",500,300);
+    x.fillStyle="#0B1F3A"; x.font="700 26px 'Noto Sans Devanagari',sans-serif";
+    x.fillText("ने यह online परीक्षा "+c.pct+"% अंकों से पास की:",500,350);
+    x.font="800 30px 'Noto Sans Devanagari',sans-serif";
+    x.fillText(c.courseName||c.courseId,500,400);
+    x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#B71C1C";
+    x.fillText("(इन्होंने अभी तक प्रैक्टिकल नहीं किया है।)",500,450);
+    x.fillStyle="#0B1F3A"; x.font="700 22px monospace";
+    x.fillText("प्रमाणपत्र नं: "+c.certNo+" · तिथि: "+new Date().toLocaleDateString("hi-IN"),500,510);
+    x.font="700 20px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
+    x.fillText("verify: acslearn.com (QR अगले दौर में) · From Village to World 🌍",500,560);
+    const a=document.createElement("a"); a.download=c.certNo+".png"; a.href=cv.toDataURL("image/png"); a.click();
   }
   LAZY["pnl-courses"] = function(){
     if(CRS_LOADED) return; CRS_LOADED=true;
@@ -1232,6 +1340,21 @@ if (MODE==="external" && ALLOWED.length>=1) {
   /* ═══ काम-8 (27-Jul): मेरे referral — record-मात्र (1-अ); gift-योग्य ═══ */
   async function loadMyReferrals(){
     const codeEl=$("myRefCode"), qEl=$("refQuota"), list=$("refList");
+    /* (30-Jul LearnVern-2) link+Copy+Share — code अपने-आप भरकर पहुँचे */
+    function refShareUI(code){
+      if(!codeEl || document.getElementById("refLinkBox")) return;
+      const link=location.origin+"/join.html?ref="+code;
+      const d=document.createElement("div"); d.id="refLinkBox";
+      d.innerHTML='<div class="pd" style="word-break:break-all"><b>🔗 आपका link:</b> <span id="refLinkTxt">'+link+'</span></div>'+
+        '<button class="abtn" type="button" id="refCopyBtn">📋 Copy</button> '+
+        '<a class="abtn ok" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+
+        encodeURIComponent("ACS में मुफ़्त पढ़ाई! मेरे link से जुड़ो: "+link)+'">🟢 WhatsApp पर भेजें</a>'+
+        '<span class="note" id="refCopyMsg"></span>';
+      codeEl.parentNode && codeEl.parentNode.insertBefore(d, codeEl.nextSibling);
+      d.querySelector("#refCopyBtn").onclick=function(){
+        try{ navigator.clipboard.writeText(link);
+          document.getElementById("refCopyMsg").textContent=" ✅ copy हो गया"; }catch(e){} };
+    }
     if(!list) return;
     try{
       const u=auth.currentUser; if(!u) return;
@@ -1247,6 +1370,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       }catch(e){}
       if(codeEl) codeEl.textContent = hasBadge ? ((EXT_REG&&EXT_REG.regNo)||"—")
                                                : "— (सक्रिय बैज पर मिलेगा)";
+      refShareUI((window.ACS_REGNO||codeEl.textContent||"").trim());
       const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",u.uid)));
       const gifts=await getDocs(query(collection(db,"referrals"), where("giftedToUid","==",u.uid)));
       const now2=Date.now(); let act=0, rows=[];
@@ -1393,7 +1517,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
     btn.disabled=true; if(msg){ msg.className="msg"; msg.textContent="शुल्क तैयार किया जा रहा है…"; }
     try{
-      const refCode=(($("refCode")||{}).value||"").trim();
+      let refCode=(($("refCode")||{}).value||"").trim();
+      if(!refCode){ try{ refCode=(localStorage.getItem("acs_ref_code")||"").trim(); }catch(e){} }
       const res=await httpsCallable(functions,"createBadgeOrder")({ role:BADGE_ROLE, pincode:pin, referralCode:refCode });
       const o=(res&&res.data)||{};
       if(!o.ok||!o.orderId) throw new Error("order नहीं बना");
