@@ -132,11 +132,34 @@ function regDocPhoto(reg){
 /* (29-Jul स्थायी-इलाज) decor-याददाश्त: रंग का फ़ैसला एक बार बैज-इंजन करता है,
    बाक़ी बुलाने वाले (फ़ोटो-load आदि) याद दोहराते हैं — झिलमिल (हरा↔गोल्डन) बंद। */
 let DECOR = { on:false, gold:false };
-function setBadgePerf(kind, tillMs, code){
-  /* परफ़ॉर्मेंस-खाना + पहचान-पंक्ति — बैज-प्रकार व अंतिम-तिथि (Founder बिंदु-2/3) */
-  const d = tillMs ? new Date(tillMs).toLocaleDateString("hi-IN") : "";
-  setTxt("perfBadge", kind==="gold" ? ("Golden 🏅 · "+d) : kind==="green" ? ("Green ✔ · "+d) : "—");
-  if(code) setTxt("pubRef", code + (d?(" · "+d+" तक"):""));
+let BADGE_INFO = null;   /* (29-Jul K1) {kind,till,from,code} — timing-दौड़ में आख़िरी सच यही */
+function setBadgePerf(kind, tillMs, code){ setBadgePerfFrom(kind, tillMs, 0, code); }
+function setBadgePerfFrom(kind, tillMs, fromMs, code){
+  BADGE_INFO = { kind:kind, till:tillMs||0, from:fromMs||0, code:code||"" };
+  applyBadgePerf();
+}
+/* (29-Jul रात, Founder) referral-घड़ी: खिड़की = बैज के पहले 3 सप्ताह; slot-जीवन 1 सप्ताह */
+function refClock(){
+  if(!BADGE_INFO || !BADGE_INFO.from) return null;
+  const WK=7*24*60*60*1000, now=Date.now(), from=BADGE_INFO.from;
+  const wk=Math.floor((now-from)/WK)+1;
+  if(wk>3) return { over:true };
+  const endWin=from+3*WK, endWk=from+wk*WK;
+  return { over:false, wk:wk,
+    dWin:Math.max(0,Math.ceil((endWin-now)/86400000)),
+    dWk:Math.max(0,Math.ceil((endWk-now)/86400000)) };
+}
+function applyBadgePerf(){
+  if(!BADGE_INFO) return;
+  const d = BADGE_INFO.till ? new Date(BADGE_INFO.till).toLocaleDateString("hi-IN") : "";
+  setTxt("perfBadge", BADGE_INFO.kind==="gold" ? ("Golden 🏅"+(d?(" · "+d):"")) :
+    BADGE_INFO.kind==="green" ? ("Green ✔"+(d?(" · "+d):"")) : "—");
+  const code = BADGE_INFO.code || window.ACS_REGNO || "";
+  if(!code) return;
+  const rc = refClock();
+  if(rc && rc.over) setTxt("pubRef", code + " · referral-समय पूरा");
+  else if(rc) setTxt("pubRef", code + " · हफ़्ता "+rc.wk+"/3 · बचा समय "+rc.dWin+" दिन");
+  else setTxt("pubRef", code);
 }
 function ensurePhotoDecor(verified, gold){ /* v4.8: gold=true ⇒ Student Golden (v3.7) — हरा ✔ सेवा-भूमिकाओं की अटूट पहचान, विद्यार्थी पर गोल्डन 🏅 */
   if(verified===true){ DECOR.on=true; if(typeof gold==="boolean") DECOR.gold=gold; }
@@ -206,6 +229,39 @@ function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   ensurePhotoDecor(keepTick());
   perfFill();
 }
+/* (29-Jul K4, Founder-आदेश) फ़ोटो-स्विच चालू: फ़ाइल → canvas-छोटा (~500px) →
+   server-function updateProfilePhoto। प्रशिक्षु का अपना कार्ड ⇒ फ़ोटो तुरंत बदले;
+   सेवा-भूमिका पर DP-नीति यथावत — नया फ़ोटो जाँच के बाद ही public (v1.8-ख3)। */
+document.addEventListener("click", function(ev){
+  if(!ev.target.closest("#photoUpBtn")) return;
+  const fi=$("photoUpFile"); if(fi) fi.click();
+});
+document.addEventListener("change", async function(ev){
+  if(!ev.target || ev.target.id!=="photoUpFile") return;
+  const f=ev.target.files && ev.target.files[0]; if(!f) return;
+  const msg=$("photoUpMsg");
+  function say(t,ok){ if(msg){ msg.style.color = ok?"var(--green)":"#B71C1C"; msg.textContent=t; } }
+  say("⏳ फ़ोटो छोटा करके भेजा जा रहा है…", true);
+  try{
+    const img=new Image();
+    const url=URL.createObjectURL(f);
+    await new Promise((res,rej)=>{ img.onload=res; img.onerror=rej; img.src=url; });
+    const M=500, r=Math.min(1, M/Math.max(img.width,img.height));
+    const cv=document.createElement("canvas");
+    cv.width=Math.round(img.width*r); cv.height=Math.round(img.height*r);
+    cv.getContext("2d").drawImage(img,0,0,cv.width,cv.height);
+    URL.revokeObjectURL(url);
+    const b64=cv.toDataURL("image/jpeg",0.85).split(",")[1];
+    const out=await httpsCallable(functions,"updateProfilePhoto")({ photo_b64:b64 });
+    const d=(out&&out.data)||{};
+    if(d.liveNow && d.url){
+      const im=$("pPhoto"); if(im){ im.src=d.url; im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; }
+      say("✅ नया फ़ोटो लग गया!", true);
+    } else {
+      say("✅ फ़ोटो पहुँच गया — जाँच के बाद कार्ड पर लगेगा; तब तक पुराना ही दिखेगा।", true);
+    }
+  }catch(e){ say("नहीं भेज पाए: "+((e&&e.message)||e), false); }
+});
 /* (29-Jul) ⚡ परफ़ॉर्मेंस-परत — सब device-local (DPDP): पाठ-गिनती · लगातार-दिन ·
    रुचि-दिशा (आख़िरी टेस्ट) · बैज-स्थिति */
 function perfFill(){
@@ -218,8 +274,11 @@ function perfFill(){
     setTxt("perfStreak", String(st));
     let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
     if(ap.prev && ap.prev.mg && ap.prev.mg.length) setTxt("perfSector", ap.prev.mg[0]);
-    let g=null; try{ g=JSON.parse(localStorage.getItem("acs_apt_gate_v1")||"null"); }catch(e){}
-    setTxt("perfBadge", (g && g.until>Date.now()) ? "सक्रिय ✅" : "—");
+    if(BADGE_INFO){ applyBadgePerf(); }
+    else{
+      let g=null; try{ g=JSON.parse(localStorage.getItem("acs_apt_gate_v1")||"null"); }catch(e){}
+      setTxt("perfBadge", (g && g.until>Date.now()) ? "सक्रिय ✅" : "—");
+    }
   }catch(e){}
 }
 
@@ -836,7 +895,11 @@ async function guardExternalRender(user, reg){
   setTxt("pPhone", reg.phone || reg.mobile || "—");
   setTxt("tbWho", "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL));
   $("tbWho").title = "UID: " + user.uid;
-  const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0] : (reg.district||""));
+  window.ACS_REGNO = reg.regNo || "";   /* (29-Jul K2) badge-मॉड्यूल हेतु regNo साझा-याद */
+  const ffD = reg.formFields || {};
+  /* (29-Jul K3, Founder) गृह-जिला ख़ाली न रहे — क्रम: वांछित जिला → form-जिला → पिन-पता */
+  const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0]
+    : (ffD.desired_district || reg.desired_district || reg.district || ffD.district || ffD.pincode_address || ""));
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
   fillPubCard(whoName, reg.photo_public || regDocPhoto(reg), ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
 
@@ -977,13 +1040,17 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         box.appendChild(h);
       }
       const row=document.createElement("div");
-      row.className="mem";
-      const meta=[c.duration?("⏱️ "+noSq(c.duration)):"", c.lessons?("📄 "+c.lessons+" पाठ"):""].filter(Boolean).join(" · ");
+      row.className="crscard"; row.style.display="inline-block"; row.style.width="min(260px,100%)"; row.style.margin="6px"; row.style.verticalAlign="top";
+      const meta=[c.duration?("⏱️ "+noSq(c.duration)):"", c.lessons?("📄 "+c.lessons+" पाठ"):"",
+        "🗣️ हिंदी","📴 पढ़े पाठ offline भी"].filter(Boolean).join(" · ");
       const right = c.url
         ? '<a class="abtn ok" style="display:inline-block;text-decoration:none" href="'+c.url+'">📖 पढ़ें (मुफ़्त)</a>'
         : '<span class="note" style="margin-top:0">पाठ जल्द जुड़ेंगे</span>';
-      row.innerHTML = '<div class="r1"><span class="nm">'+noSq(c.name_hi||c.name_en||"—")+'</span></div>'
-                    + '<div class="r2">'+meta+'</div>' + right;
+      row.innerHTML = '<div class="crsban">📚</div><div class="crsbody">'+
+        '<div class="crsname">'+noSq(c.name_hi||c.name_en||"—")+'</div>'+
+        '<div class="crsmeta">'+meta+'</div>'+
+        (c.url?'<a class="crsgo" href="'+c.url+'">▶ पढ़ें — मुफ़्त</a>':'<span class="note">पाठ जल्द जुड़ेंगे</span>')+
+        '</div>';
       box.appendChild(row);
     }
     CRS_SHOWN=end;
@@ -1002,12 +1069,90 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     box.appendChild(w);
   }
 
+  /* ── (29-Jul, Founder) 📖 मेरी पढ़ाई: प्रगति-मीटर + परीक्षा-सीढ़ी ──
+     प्रगति device-local (acs_learn_progress); परीक्षा/result/प्रमाणपत्र-इंजन (काम-10)
+     बनने तक: परीक्षा-निवेदन = असली WhatsApp-रास्ता; प्रमाणपत्र-कड़ी result तक ताले में
+     (ईमानदार-पैनल नियम — मरा बटन नहीं)। */
+  function crsMineFill(){
+    const bx=$("crsMine"); if(!bx) return;
+    let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
+    const read=d.read||{}, byC={};
+    for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
+    const mine=[];
+    CRS_ALL.forEach(function(x){ const c=x&&x.c; if(c && c.url && byC[c.url]) mine.push({c:c, n:byC[c.url]}); });
+    if(!mine.length){ bx.innerHTML='<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से पहला पाठ खोलिए, वह यहाँ अपने-आप जुड़ जाएगा।</div>'; return; }
+    let h='<div class="crsgrid">';
+    mine.forEach(function(m){
+      const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
+      const R=26, C=2*Math.PI*R, off=C*(1-pc/100);
+      const ring='<svg width="68" height="68" viewBox="0 0 68 68">'+
+        '<circle cx="34" cy="34" r="'+R+'" fill="none" stroke="#e8edf4" stroke-width="8"/>'+
+        '<circle cx="34" cy="34" r="'+R+'" fill="none" stroke="'+(done?"#2E7D32":"#F9A825")+'" stroke-width="8" stroke-linecap="round" '+
+        'stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 34 34)"/>'+
+        '<text x="34" y="40" text-anchor="middle" font-size="17" font-weight="800" fill="#0B1F3A">'+pc+'%</text></svg>';
+      function st(cls,txt){ return '<span class="crsstep '+cls+'">'+txt+'</span>'; }
+      const steps='<div class="crssteps">'+
+        st(done?'on':'cur','📖 पढ़ाई')+st(done?'cur':'','🎓 परीक्षा')+st('','📄 result')+st('','📜 ₹125')+'</div>';
+      h+='<div class="crscard"><div class="crsban">'+(done?'🏆':'📖')+'</div><div class="crsbody">'+
+        '<div class="crsname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
+        '<div class="crsring">'+ring+'<div class="crsmeta">'+m.n+(tot?(' / '+tot):'')+' पाठ'+(tot?'<br>बचे '+Math.max(0,tot-m.n):'')+'</div></div>'+
+        steps+
+        (done
+          ? '<a class="crsgo" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
+            encodeURIComponent('मैंने online कोर्स पूरा किया: '+(m.c.name_hi||m.c.id)+' ('+m.c.id+') — परीक्षा देना चाहता/चाहती हूँ। ACS-नंबर: '+(window.ACS_REGNO||''))+
+            '">🎓 परीक्षा-निवेदन</a>'+
+            '<div class="note">📜 प्रमाणपत्र ₹125 — result पर यहीं खुलेगा · FFGPMTrust-जारी, QR से दुनिया-भर verify</div>'+
+            '<div class="note">🏢 आगे की राह: <a href="/career-kit.html">करियर-किट</a> से resume बनाइए — पहली कमाई की तैयारी</div>'
+          : '<a class="crsgo" href="'+esc(m.c.url)+'">▶ आगे पढ़ें</a>')+
+        '</div></div>';
+    });
+    h+='</div>';
+    bx.innerHTML=h;
+  }
+  /* 🧭 रिपोर्ट के कोर्स — आख़िरी अभिरुचि-रिपोर्ट से */
+  function crsReportFill(){
+    const bx=$("crsReport"); if(!bx) return;
+    let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
+    const P=ap.prev;
+    if(!P||!P.udy||!P.udy.length){ bx.innerHTML='<div class="pd">रिपोर्ट अभी नहीं बनी — 🧭 अभिरुचि-टेस्ट दीजिए, आपके मन के कोर्स यहीं दिखेंगे।</div>'; return; }
+    let h='<div class="pd">⭐ '+P.mg.map(function(m2){return '<span class="chip appr">'+esc(m2)+'</span>';}).join(' ')+'</div>';
+    P.udy.slice(0,5).forEach(function(u,i){
+      h+='<div class="lrow"><span class="nm">'+(i+1)+'. '+esc(u.nm)+'</span> '+
+        (u.c?'<a class="abtn ok" style="text-decoration:none" href="'+esc(u.c)+'">📚 पढ़ें</a>'
+            :'<a class="abtn2" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
+             encodeURIComponent('मुझे यह कोर्स चाहिए: '+u.nm)+'">📲 कोर्स माँगें</a>')+'</div>';
+    });
+    bx.innerHTML=h;
+  }
+  /* 🏫 मेरे केंद्र के कोर्स — नामांकन-खाते से झलक; पूरा ब्योरा "मेरा केंद्र" में */
+  async function crsCenterFill(){
+    const bx=$("crsCenter"); if(!bx) return;
+    try{
+      const u=auth.currentUser; if(!u){ bx.innerHTML=''; return; }
+      const qs=await getDocs(query(collection(db,"enrollments"), where("studentUid","==",u.uid)));
+      let h=''; const ST={requested:"⏳ निवेदन भेजा",offered:"✉️ केंद्र का प्रस्ताव — जवाब दें",active:"✅ पढ़ाई चालू"};
+      qs.forEach(function(dd){ const x=dd.data()||{};
+        if(!ST[x.status]) return;
+        h+='<div class="lrow"><span class="nm">'+esc(rb(x.courseName||x.courseId||""))+'</span> '+
+          '<span class="note">🏫 '+esc(x.centerName||"")+' · '+ST[x.status]+'</span></div>';
+      });
+      bx.innerHTML = h ? (h+'<div class="note">फीस-रसीदें व पूरा ब्योरा — "🏫 मेरा केंद्र" पैनल में।</div>')
+        : '<div class="pd">अभी किसी केंद्र में नामांकन नहीं — "🏫 मेरा केंद्र" पैनल से नज़दीकी केंद्र खोजिए।</div>';
+    }catch(e){ bx.innerHTML='<span class="note" style="color:#B71C1C">केंद्र-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
+  }
   LAZY["pnl-courses"] = function(){
     if(CRS_LOADED) return; CRS_LOADED=true;
     const box=$("crsList"); if(box) box.innerHTML='<span class="note">कोर्स-सूची आ रही है…</span>';
     const sc=document.createElement("script");
     sc.src="/assets/courses_data.js";
-    sc.onload=function(){ crsCollect(); if(CRS_ALL.length===0){ if(box) box.innerHTML='<span class="note">कोर्स-सूची अभी ख़ाली है — जल्द जुड़ेगी।</span>'; return; } CRS_SHOWN=0; crsDrawMore(); };
+    sc.onload=function(){
+      crsCollect();
+      /* (29-Jul, Founder — "मेरे कोर्स" शानदार-रूप) 🟢 खंड = सिर्फ़ जीवित (url वाले) कोर्स */
+      CRS_ALL = CRS_ALL.filter(function(x){ return x && x.c && x.c.url; });   /* तत्व = {g,c} लिफ़ाफ़ा */
+      if(CRS_ALL.length===0){ if(box) box.innerHTML='<span class="note">पाठ वाले कोर्स अभी जुड़ रहे हैं।</span>'; }
+      else { CRS_SHOWN=0; crsDrawMore(); }
+      crsMineFill(); crsReportFill(); crsCenterFill();
+    };
     sc.onerror=function(){ CRS_LOADED=false; if(box) box.innerHTML='<span class="note" style="color:#B71C1C">कोर्स-सूची नहीं खुली — network जाँचकर पैनल दोबारा खोलें।</span>'; };
     document.body.appendChild(sc);
   };
@@ -1066,7 +1211,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         /* v4.9 (Founder-टोक, 27-Jul): बैज सक्रिय ⇒ "RM जाँचेंगे/30%" वाला भुगतान-पूर्व
            नोट अब भ्रामक — छिपाओ (null-सुरक्षित; rejected/नए-आवेदक पर दिखा रहता है)। */
         { const rn=$("badgeRmNote"); if(rn) rn.style.display="none"; }
-        markPhotoBadge(); setAptGate(latest);
+        markPhotoBadge(latest); setAptGate(latest);
         const pr=$("badgePinRow"); if(pr) pr.style.display="none"; return;
       }
       if(latest && latest.status==="paid"){
@@ -1108,6 +1253,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
       const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",u.uid)));
       const gifts=await getDocs(query(collection(db,"referrals"), where("giftedToUid","==",u.uid)));
       const now2=Date.now(); let act=0, rows=[];
+      window.__myRefDocs=[];   /* (29-Jul N3) जीवन-graph हेतु referral-तिथियाँ */
+      mine.forEach(function(d){ const x=d.data()||{};
+        const t=x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():0; if(t) window.__myRefDocs.push(t); });
       mine.forEach(d=>{ const x=d.data()||{};
         const ex=x.expiresAt&&x.expiresAt.toMillis?x.expiresAt.toMillis():0;
         if(ex>now2) act++;
@@ -1115,6 +1263,35 @@ if (MODE==="external" && ALLOWED.length>=1) {
       gifts.forEach(d=>{ const x=d.data()||{}; if(x.refBy===u.uid) return;
         rows.push({id:d.id,x:x,mine:false}); });
       if(qEl) qEl.textContent = (BADGE_ROLE==="volunteer") ? (act+" (असीमित)") : (act+" / 3");
+      /* (29-Jul रात, Founder — जीवन-graph) 3 slot: हुआ ✔ / चालू ▶ / जला ✖ / आगे ⬜ */
+      if(qEl && BADGE_ROLE!=="volunteer"){
+        let wn=document.getElementById("refWkNote");
+        if(!wn){ wn=document.createElement("div"); wn.id="refWkNote";
+          qEl.parentNode && qEl.parentNode.appendChild(wn); }
+        const rc = (typeof refClock==="function") ? refClock() : null;
+        const usedWk = {};
+        try{
+          const from = BADGE_INFO && BADGE_INFO.from;
+          if(from && window.__myRefDocs) window.__myRefDocs.forEach(function(t){
+            const w = Math.floor((t - from)/(7*24*60*60*1000)) + 1;
+            if(w>=1 && w<=3) usedWk[w]=1; });
+        }catch(e){}
+        function seg(w){
+          const cur = rc && !rc.over && rc.wk===w;
+          const past = rc ? (rc.over || rc.wk>w) : false;
+          const st = usedWk[w] ? "✔ हुआ" : (cur ? "▶ चालू" : (past ? "✖ जला" : "⬜ आगे"));
+          const bg = usedWk[w] ? "#2E7D32" : (cur ? "#F9A825" : (past ? "#9aa7b8" : "#e8edf4"));
+          const fg = (usedWk[w]||cur) ? "#fff" : "#0B1F3A";
+          return '<span style="display:inline-block;min-width:96px;text-align:center;padding:7px 8px;'+
+            'border-radius:10px;margin:3px;font-weight:800;background:'+bg+';color:'+fg+'">हफ़्ता-'+w+'<br>'+st+'</span>';
+        }
+        let h='<div style="margin-top:8px"><b>🤝 referral-जीवन (सिर्फ़ पहले 3 सप्ताह · 1 हफ़्ता = 1 referral):</b><br>'+
+          seg(1)+seg(2)+seg(3)+'</div>';
+        if(rc && !rc.over) h+='<div class="note">⏳ इस हफ़्ते का slot: '+(usedWk[rc.wk]?'हो चुका ✔':('बचा है — '+rc.dWk+' दिन'))+
+          ' · पूरी खिड़की का बचा समय: '+rc.dWin+' दिन</div>';
+        if(rc && rc.over) h+='<div class="note">referral-समय (बैज के पहले 3 सप्ताह) पूरा हो चुका है।</div>';
+        wn.innerHTML=h;
+      }
       /* (29-Jul, Founder बिंदु-2) पहचान-स्तंभ की referral-पंक्ति में उपयोग-गिनती भी */
       const pr=$("pubRef");
       if(pr && pr.textContent && pr.textContent!=="—")
@@ -1167,8 +1344,13 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
   });
 
-  function markPhotoBadge(){ ensurePhotoDecor(true, IS_GOLD);
-    setBadgePerf(IS_GOLD?"gold":"green", BADGE_TILL||0, (EXT_REG&&EXT_REG.regNo)||""); }
+  function markPhotoBadge(pay){ ensurePhotoDecor(true, IS_GOLD);
+    let till=0, from=0;
+    try{ till=pay&&pay.badgeExpiresAt&&pay.badgeExpiresAt.toMillis?pay.badgeExpiresAt.toMillis():0; }catch(e){}
+    try{ from=pay&&pay.badgeActiveFrom&&pay.badgeActiveFrom.toMillis?pay.badgeActiveFrom.toMillis():0; }catch(e){}
+    if(BADGE_INFO===null) BADGE_INFO={};
+    setBadgePerfFrom(IS_GOLD?"gold":"green", till, from,
+      (typeof EXT_REG!=="undefined"&&EXT_REG&&EXT_REG.regNo)||window.ACS_REGNO||""); }
   /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
      भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-टेस्ट खुले। निशान device-local;
      बैज सक्रिय न मिले तो निशान हटे (refund/समाप्ति पर द्वार बंद)। */
@@ -1193,7 +1375,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       qs.forEach(d=>{ const p=d.data()||{};
         if(p.purpose==="badge" && String(p.role||"jobseeker").toLowerCase()===BADGE_ROLE
            && p.status==="paid" && p.rmStatus==="approved"){ ok=true; okPay=p; } });
-      if(ok){ markPhotoBadge(); setAptGate(okPay); }
+      if(ok){ markPhotoBadge(okPay); setAptGate(okPay); }
     }catch(e){}
   };
 
