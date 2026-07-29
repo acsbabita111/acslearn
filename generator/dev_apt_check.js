@@ -260,12 +260,13 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
-  var boxJ = { innerHTML: '', getElementsByClassName: function () { return []; } };
+  var boxJ = { innerHTML: '', style: {}, getElementsByClassName: function () { return []; } };
   global.document = { getElementById: function (id) { return id === 'apt-box' ? boxJ : null; } };
   eval(fs.readFileSync('assets/aptitude-test.js', 'utf8'));
-  if (boxJ.innerHTML.indexOf('बैज सक्रिय है') < 0) throw new Error('बैज-सूचना पंक्ति नहीं दिखी');
+  /* (29-Jul, Founder) नई उम्मीद: डिब्बा पूरा छिपे — "बैज सक्रिय" जैसा संदेश भी नहीं */
+  if (boxJ.style.display !== 'none') throw new Error('बैज-धारक पर झलक-डिब्बा छिपा नहीं');
   if (boxJ.innerHTML.indexOf('प्रश्न 1 / 24') >= 0) throw new Error('बैज-धारक को झलक खुल गई!');
-  console.log('जाँच-8 झलक-छिपाव ✅ (बैज-निशान = झलक बंद, सूचना-पंक्ति दिखी)');
+  console.log('जाँच-8 झलक-छिपाव ✅ (डिब्बा display:none — रास्ता-चालित पन्ना)');
 })();
 
 /* ---------- जाँच-9: ₹100-चांस-द्वार (unlock('attempt')) · 22-Jul-2026 ---------- */
