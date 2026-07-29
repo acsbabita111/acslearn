@@ -118,6 +118,17 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    /* (30-Jul v9, रास्ता-1) परीक्षा-result व प्रमाणपत्र — लिखे सिर्फ़ server */
+    match /examResults/{rid} {
+      allow read: if request.auth != null &&
+        (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+    match /certificates/{cid} {
+      allow read: if request.auth != null &&
+        (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
     // ── referrals (काम-8 · v7): record-मात्र fund-प्रविष्टियाँ ──
     match /referrals/{orderId} {
       allow read: if request.auth != null
