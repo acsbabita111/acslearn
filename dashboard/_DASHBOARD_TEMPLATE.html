@@ -107,7 +107,9 @@
         </div>
       </div>
       <div class="pubnote">📢 यह कार्ड सबको दिख सकता है। इस पर email या फ़ोन कभी नहीं दिखते। नया फ़ोटो भेजेंगे तो जाँच के बाद ही लगेगा — तब तक यही रहेगा।</div>
-      <button class="abtn ok" style="background:var(--blue);margin-top:10px" disabled>📷 नया फ़ोटो भेजें — यह सुविधा अगले दौर में</button>
+      <button class="abtn ok" id="photoUpBtn" style="background:var(--blue);margin-top:10px" type="button">📷 नया फ़ोटो भेजें</button>
+      <input type="file" id="photoUpFile" accept="image/*" style="display:none"/>
+      <div class="note" id="photoUpMsg"></div>
 
       <div class="pgrid">
         <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
