@@ -80,21 +80,33 @@
       <h2>👤 मेरी प्रोफ़ाइल <span class="pill" id="desigPill">—</span></h2>
 
       <!-- v3.3: सार्वजनिक पहचान-कार्ड (दो-स्तंभ) — यहाँ email/mobile/WhatsApp कभी नहीं -->
-      <div class="pubcard">
-        <div class="pwrap">
-          <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
-          <div class="pphoto-fb" id="pPhotoFb">👤</div>
+      <!-- (29-Jul, Founder) 3-परत game-कार्ड: फ़ोटो · पहचान · परफ़ॉर्मेंस -->
+      <div class="pubcard g3">
+        <div class="gcol">
+          <div class="gtag">📸 मेरा फ़ोटो</div>
+          <div class="pwrap">
+            <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
+            <div class="pphoto-fb" id="pPhotoFb">👤</div>
+          </div>
         </div>
-        <div>
-          <div class="pubnote">📢 यह फ़ोटो व ब्योरा सार्वजनिक (public) हैं — सबको दिखते हैं। आप नया फ़ोटो भेज सकते हैं; आपके ऊपर के पद से verify होने पर ही नया फ़ोटो public होगा — तब तक यही फ़ोटो public रहेगी। इस सार्वजनिक कार्ड पर email / mobile / WhatsApp कभी नहीं दिखते।</div>
+        <div class="gcol">
+          <div class="gtag">🪪 मेरी पहचान</div>
           <div class="pubname" id="pubName">—</div>
-          <div class="pubrow"><b>पदनाम:</b> <span id="pubDesig">—</span></div>
-          <div class="pubrow"><b>कार्य-क्षेत्र:</b> <span id="pubArea">—</span></div>
+          <div class="pubrow"><b>पद:</b> <span id="pubDesig">—</span></div>
+          <div class="pubrow"><b>इलाक़ा:</b> <span id="pubArea">—</span></div>
           <div class="pubrow"><b>गृह जिला:</b> <span id="pubDist">—</span></div>
           <div class="pubrow"><b>राज्य:</b> <span id="pubState">—</span></div>
-          <button class="abtn ok" style="background:var(--blue);margin-top:10px" disabled>📷 नया फ़ोटो भेजें — verify-इंजन अगले दौर में चालू</button>
+        </div>
+        <div class="gcol">
+          <div class="gtag">⚡ मेरा परफ़ॉर्मेंस</div>
+          <div class="gstat">📖 पाठ पढ़े <b id="perfLessons">0</b></div>
+          <div class="gstat">🔥 लगातार दिन <b id="perfStreak">0</b></div>
+          <div class="gstat">⭐ रुचि-दिशा <b id="perfSector">टेस्ट दें</b></div>
+          <div class="gstat">🏅 बैज <b id="perfBadge">—</b></div>
         </div>
       </div>
+      <div class="pubnote">📢 यह कार्ड सबको दिख सकता है। इस पर email या फ़ोन कभी नहीं दिखते। नया फ़ोटो भेजेंगे तो जाँच के बाद ही लगेगा — तब तक यही रहेगा।</div>
+      <button class="abtn ok" style="background:var(--blue);margin-top:10px" disabled>📷 नया फ़ोटो भेजें — यह सुविधा अगले दौर में</button>
 
       <div class="pgrid">
         <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
