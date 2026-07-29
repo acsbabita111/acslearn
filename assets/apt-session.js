@@ -78,12 +78,36 @@
     try {
       var n1 = document.getElementById('apt-dummy-notice'); if (n1) n1.style.display = 'none';
       var n2 = document.getElementById('apt-full-info'); if (n2) n2.style.display = 'none';
-      /* (28-Jul होल-बंदी) ₹100-चांस पर 24-झलक भी छिपे — दो टेस्ट साथ न चलें
-         (badge-रास्ता aptitude-test.js में पहले से छिपाता था, यह रास्ता छूटा था) */
+      /* (29-Jul, Founder बिंदु-1/2 — रास्ता-चालित पन्ना) बैज/₹100-धारक को झलक-दुनिया
+         दिखे ही नहीं: डिब्बा + "झलक"-पंक्तियाँ ग़ायब; उनकी जगह सिर्फ़ दो चीज़ें —
+         📊 पिछला हिसाब (⭐ सेक्टर + 5+ उद्यम) और नया/जारी टेस्ट। */
       var jb = document.getElementById('apt-box');
-      if (jb && mode === 'attempt') {
-        jb.innerHTML = '<p class="apt-q">🎫 आपका ₹100-चांस सक्रिय है — मुफ़्त झलक की ज़रूरत नहीं।</p>' +
-          '<p>नीचे पूरा 120-प्रश्न टेस्ट खुला है।</p>';
+      if (jb) { if (jb.style) jb.style.display = 'none'; jb.innerHTML = ''; }
+      if (document.querySelectorAll) {
+        var ps = document.querySelectorAll('.apt-wrap > p, .apt-wrap > .apt-note');
+        for (var pi = 0; pi < ps.length; pi++) {
+          if (ps[pi].textContent && ps[pi].textContent.indexOf('झलक') >= 0) ps[pi].style.display = 'none';
+        }
+        var h1 = document.querySelector('.apt-wrap h1');
+        if (h1 && h1.textContent.indexOf('पूरा टेस्ट') < 0) h1.textContent += ' — पूरा टेस्ट';
+      }
+      var sb = document.getElementById('apt-sess-box');
+      if (sb && sb.parentNode && document.createElement && !document.getElementById('apt-hisab')) {
+        var hc = document.createElement('div'); hc.id = 'apt-hisab'; hc.className = 'apt-card';
+        if (S.prev && S.prev.udy && S.prev.udy.length) {
+          var hh = '<p class="apt-q">📊 पिछला हिसाब (' + new Date(S.prev.at).toLocaleDateString('hi-IN') + ')</p>' +
+            '<p>⭐ सुझाए सेक्टर: ' + S.prev.mg.map(function (n) { return '<span class="apt-chip">' + n + '</span>'; }).join(' ') + '</p>' +
+            '<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">';
+          S.prev.udy.forEach(function (u, i) {
+            hh += '<div class="apt-row">' + (i + 1) + '. ' +
+              (u.c ? '<a href="' + u.c + '" style="color:inherit;text-decoration:underline">' + u.nm + '</a>' : u.nm) + '</div>';
+          });
+          hh += '</div><p class="apt-hint">नया टेस्ट नीचे से — नतीजा हर बार ताज़ा बनेगा।</p>';
+          hc.innerHTML = hh;
+        } else {
+          hc.innerHTML = '<p class="apt-q">📊 पिछला हिसाब</p><p>अभी कोई पूरा टेस्ट दर्ज नहीं — नीचे से पहला टेस्ट शुरू कीजिए।</p>';
+        }
+        sb.parentNode.insertBefore(hc, sb);
       }
     } catch (e) {}
   }
@@ -674,6 +698,12 @@
       var byN = {}; SEC.forEach(function (u) { byN[u.n] = u; });
       var picks = udyR.slice(0, 12).map(function (x) { return { u: byN[x.k], score: x.avg }; }).filter(function (p) { return p.u; });
       picks.sort(function (a, b) { return (b.u.course ? 1 : 0) - (a.u.course ? 1 : 0) || b.score - a.score; });
+      /* (29-Jul, Founder बिंदु-2) पिछला-हिसाब सहेजो — मुख्य-पन्ने पर दिखेगा */
+      S.prev = { at: Date.now(),
+        mg: mgR.slice(0, 4).map(function (x) { return mgName(x.k); }),
+        udy: picks.slice(0, 8).map(function (p) {
+          return { n: p.u.n, nm: String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')'), c: p.u.course || '' }; }) };
+      save(S);
       picks = picks.slice(0, 5);
       var h = '';
       if (byClock) h += '<div class="apt-note">⏱ 90 मिनट पूरे — जितने जवाब मिले, उन्हीं से नतीजा बना।</div>';
