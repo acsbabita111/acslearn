@@ -883,7 +883,7 @@ async function guardExternalRender(user, reg){
   const ffD = reg.formFields || {};
   /* (29-Jul K3, Founder) गृह-जिला ख़ाली न रहे — क्रम: वांछित जिला → form-जिला → पिन-पता */
   const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0]
-    : (reg.desired_district || reg.district || ffD.district || ffD.pincode_address || ""));
+    : (ffD.desired_district || reg.desired_district || reg.district || ffD.district || ffD.pincode_address || ""));
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
   fillPubCard(whoName, reg.photo_public || regDocPhoto(reg), ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
 
