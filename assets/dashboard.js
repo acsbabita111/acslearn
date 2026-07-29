@@ -192,6 +192,23 @@ function fillPubCard(name, photoUrl, desigLabel, area, district, state){
     im.src=photoUrl;
   }
   ensurePhotoDecor(keepTick());
+  perfFill();
+}
+/* (29-Jul) ⚡ परफ़ॉर्मेंस-परत — सब device-local (DPDP): पाठ-गिनती · लगातार-दिन ·
+   रुचि-दिशा (आख़िरी टेस्ट) · बैज-स्थिति */
+function perfFill(){
+  try{
+    let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
+    const r=d.read||{}, days=d.days||{}; let n=0; for(const k in r) n++;
+    setTxt("perfLessons", String(n));
+    let st=0, t=new Date();
+    for(;;){ const ds=t.toISOString().slice(0,10); if(days[ds]){ st++; t.setDate(t.getDate()-1); } else break; }
+    setTxt("perfStreak", String(st));
+    let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
+    if(ap.prev && ap.prev.mg && ap.prev.mg.length) setTxt("perfSector", ap.prev.mg[0]);
+    let g=null; try{ g=JSON.parse(localStorage.getItem("acs_apt_gate_v1")||"null"); }catch(e){}
+    setTxt("perfBadge", (g && g.until>Date.now()) ? "सक्रिय ✅" : "—");
+  }catch(e){}
 }
 
 /* ═══ काम-सूची इंजन (v3.1) — पैनल click-पर, data आलसी-load ═══ */
@@ -242,14 +259,18 @@ onAuthStateChanged(auth, async (user)=>{
 });
 
 /* ═══ साझा helpers (v4.0: team-block से बाहर — external का docChips-होल बंद) ═══ */
+const DOC_HI = { doc_photo:"आपका फ़ोटो", doc_guardian_id:"अभिभावक का पहचान-पत्र", doc_id:"पहचान-पत्र",
+  doc_qual:"योग्यता-प्रमाण", doc_skill:"हुनर-प्रमाण फ़ोटो", doc_reg:"पंजीकरण/लाइसेंस",
+  doc_inst_out:"संस्था — बाहर का फ़ोटो", doc_inst_in:"संस्था — अंदर का फ़ोटो" };
+function docHi(k){ return DOC_HI[k] || String(k).replace(/^doc_/,"").replace(/_/g," "); }
 function docChips(docs){
   const keys = Object.keys(docs||{});
   if(keys.length===0) return "";
   return keys.map(k=>{
     const d = docs[k];
     const u = (typeof d==="string") ? d : (d && d.url);
-    if(!u) return '<span class="doc" style="margin:4px 6px 0 0;color:#B71C1C">📄 '+esc(k)+' (upload विफल)</span>';
-    return '<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+esc(u)+'">📄 '+esc(k)+'</a>';
+    if(!u) return '<span class="doc" style="margin:4px 6px 0 0;color:#B71C1C">📄 '+esc(docHi(k))+' (नहीं चढ़ा)</span>';
+    return '<a class="doc" style="margin:4px 6px 0 0" target="_blank" rel="noopener" href="'+esc(u)+'">📄 '+esc(docHi(k))+'</a>';
   }).join("");
 }
 function fmtDate(ts){
@@ -829,9 +850,16 @@ async function guardExternalRender(user, reg){
     }
     return '<div class="pd">'+s1+'</div><div class="pd">'+s2+'</div>';
   }
-  const twoStep = twoStepHTML(reg);
-  setHTML("tlWrap", twoStep);
-  setHTML("stTwoStep", twoStep);
+  if(NO_GATEWAY_EXT.includes(String(reg.role||"").toLowerCase())){
+    /* (29-Jul होल-बंदी) प्रशिक्षु E1-मुक्त है — "RM-सत्यापन बाक़ी" दिखाना झूठा इंतज़ार था */
+    const okLine='<div class="pd" style="font-weight:800;color:var(--green)">✅ आपका खाता चालू है — कोई जाँच बाक़ी नहीं। पढ़ाई शुरू कीजिए!</div>';
+    setHTML("tlWrap", okLine); setHTML("stTwoStep", okLine);
+    const w=$("tlWrap"); if(w && w.previousElementSibling && w.previousElementSibling.tagName==="H2") w.previousElementSibling.style.display="none";
+  } else {
+    const twoStep = twoStepHTML(reg);
+    setHTML("tlWrap", twoStep);
+    setHTML("stTwoStep", twoStep);
+  }
   setTxt("tlNote", "");
 
   show("appView");
@@ -1703,6 +1731,69 @@ if (MODE==="external" && ALLOWED.length>=1) {
       d.innerHTML=h; box.appendChild(d);
     });
   }
+  /* (29-Jul, Founder) 🧭 दरवाज़ा-इंजन: बैज > ₹100-चांस > झलक — पैनल अब अंधा नहीं।
+     नियम-मुहर: दोनों हों तो बैज जीते (365-दिन असीमित); unused चांस मरता नहीं —
+     record में सुरक्षित, बैज-मियाद बाद काम आए (Founder 29-Jul)। */
+  LAZY["pnl-aptitude"]=async function(){
+    var box=$("aptGateBox"); if(!box) return;
+    var back=encodeURIComponent(location.pathname);
+    var u=auth.currentUser;
+    function draw(h){ box.innerHTML=h; }
+    try{
+      var badgeTill=0;
+      if(u){
+        var qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+        qs.forEach(function(d){ var p=d.data()||{};
+          if(p.purpose==="badge"&&p.status==="paid"&&p.rmStatus==="approved"){
+            var ex=p.badgeExpiresAt&&p.badgeExpiresAt.toMillis?p.badgeExpiresAt.toMillis():0;
+            if(ex>Date.now()&&ex>badgeTill) badgeTill=ex; } });
+      }
+      var chance=false;
+      if(u){ try{ var cr=await httpsCallable(functions,"checkAptitudeAttempt")({});
+        chance=!!(cr.data&&cr.data.available); }catch(e){} }
+      var goBtn='<a class="abtn ok" style="display:inline-block;text-decoration:none" href="/aptitude-test.html?back='+back+'">▶️ नया टेस्ट दें / जारी रखें</a>';
+      /* (29-Jul, Founder — रोगी→रिपोर्ट→दवा→दुकान) आख़िरी टेस्ट की रिपोर्ट यहीं:
+         ⭐ सेक्टर · 5+ उद्यम + सफलता-संभावना · 📚 कोर्स-कड़ी · 🎬 विशेषज्ञ-video ·
+         🧑‍🏫 सलाहकार — पन्ने की पूरी उपयोगिता एक जगह। */
+      function reportHTML(){
+        var ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
+        var P=ap.prev;
+        if(!P||!P.udy||!P.udy.length)
+          return '<div class="pd">अभी आपकी कोई रिपोर्ट नहीं बनी — नीचे से टेस्ट दीजिए, रिपोर्ट यहीं दिखेगी।</div>';
+        var h='<div class="pd"><b>📊 आपकी रिपोर्ट ('+new Date(P.at).toLocaleDateString("hi-IN")+')</b></div>'+
+          '<div class="pd">⭐ आपका मन इन क्षेत्रों में लगता है: '+P.mg.map(function(m){return '<span class="chip appr">'+esc(m)+'</span>';}).join(' ')+'</div>'+
+          '<div class="pd"><b>🏭 इन कामों में आगे बढ़ सकते हैं:</b></div>';
+        P.udy.slice(0,6).forEach(function(u2,i){
+          var sLine=(typeof u2.s==="number")
+            ? (u2.s>=4?"मन बहुत गहरा लगा — शुरुआत के लिए सबसे अच्छा":(u2.s>=2?"मन अच्छा लगा — सफल होने की अच्छी उम्मीद":"मन लगा — आज़माने लायक़"))
+            : "आपकी रुचि यहाँ दिखी";
+          h+='<div class="lrow"><div class="r1"><span class="nm">'+(i+1)+'. '+esc(u2.nm)+'</span></div>'+
+            '<div class="r2">💡 '+sLine+' <span class="note">(यह अनुमान है)</span></div>'+
+            (u2.c?'<a class="abtn ok" style="text-decoration:none" href="'+esc(u2.c)+'">📚 कोर्स पढ़ें</a> ':'')+
+            '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query='+
+            encodeURIComponent(u2.nm+" expert documentary")+'">🎬 दुनिया के उस्ताद देखें</a></div>';
+        });
+        h+='<div class="pd">🧑‍🏫 राह पर बात करनी हो — <a href="/hi/salah.html" style="font-weight:800">सलाहकार-पन्ना खोलें</a></div>';
+        return h;
+      }
+      if(badgeTill){
+        draw('<div class="pd"><b>🏅 आपका बैज चालू है ('+new Date(badgeTill).toLocaleDateString("hi-IN")+' तक)</b> — पूरा टेस्ट 365 दिन, जितनी बार चाहें, मुफ़्त।</div>'+
+          reportHTML()+goBtn+
+          '<div class="note">📜 रिपोर्ट की PDF ₹125 में — मर्ज़ी हो तो लें; नतीजा वैसे भी मुफ़्त दिखता है।</div>');
+        return;
+      }
+      if(chance){
+        draw('<div class="pd"><b>🎫 आपका ₹100 वाला 1 मौक़ा तैयार है</b> — पूरा टेस्ट खुला।</div>'+reportHTML()+goBtn);
+        return;
+      }
+      draw(reportHTML()+
+        '<div class="pd">🎁 पहले मुफ़्त झलक लीजिए — 24 आसान प्रश्न, बीच में कहानियाँ।</div>'+
+        '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="/aptitude-test.html?back='+back+'">🧭 मुफ़्त झलक दें</a>'+
+        '<div class="note">🏅 बैज लें तो पूरा टेस्ट साल-भर मुफ़्त · बिना बैज ₹100 में 1 मौक़ा · रिपोर्ट-PDF ₹125 — आपकी मर्ज़ी।</div>');
+    }catch(e){
+      draw('<span class="note" style="color:#B71C1C">स्थिति नहीं खुली: '+esc((e&&e.message)||e)+'</span>');
+    }
+  };
   LAZY["pnl-myctr"]=async function(){
     var box=$("mcList"); if(!box) return;
     box.innerHTML='<span class="note">सूची आ रही है…</span>';

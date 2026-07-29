@@ -190,3 +190,22 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .k9idwrap{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
 .k9idwrap canvas{display:none}
 .k9idwrap img.prev{width:100%;max-width:430px;border-radius:14px;box-shadow:0 4px 14px rgba(11,31,58,.25)}
+
+/* ═══ (29-Jul) 3-परत game-कार्ड — भाग्य-विधाता पन्ना ═══ */
+.pubcard.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;
+  background:linear-gradient(150deg,#0B1F3A,#122b52 60%,#0B1F3A);border-radius:18px;padding:16px;
+  box-shadow:0 6px 22px rgba(11,31,58,.35)}
+.pubcard.g3 .gcol{background:rgba(255,255,255,.06);border:1.5px solid rgba(249,168,37,.35);
+  border-radius:14px;padding:14px;text-align:center;position:relative;overflow:hidden}
+.pubcard.g3 .gcol::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--gold),var(--green))}
+.gtag{display:inline-block;font-size:17px;font-weight:900;color:#0B1F3A;background:var(--gold);
+  border-radius:999px;padding:5px 16px;margin:4px 0 12px;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.pubcard.g3 .pubname{color:#F5F7FA;font-size:24px;font-weight:900;margin:2px 0 8px}
+.pubcard.g3 .pubrow{color:#cdd9ea;font-size:17px;margin:5px 0}
+.pubcard.g3 .pubrow b{color:#F9A825;font-weight:800}
+.pubcard.g3 .pubrow span{color:#F5F7FA;font-weight:700}
+.pubcard.g3 .pwrap{margin:0 auto}
+.gstat{color:#cdd9ea;font-size:18px;font-weight:700;margin:10px 0;background:rgba(255,255,255,.05);
+  border-radius:10px;padding:8px}
+.gstat b{color:#F9A825;font-size:22px;font-weight:900;margin-left:6px}

@@ -702,7 +702,7 @@
       S.prev = { at: Date.now(),
         mg: mgR.slice(0, 4).map(function (x) { return mgName(x.k); }),
         udy: picks.slice(0, 8).map(function (p) {
-          return { n: p.u.n, nm: String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')'), c: p.u.course || '' }; }) };
+          return { n: p.u.n, nm: String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')'), c: p.u.course || '', s: Math.round((p.score || 0) * 10) / 10 }; }) };
       save(S);
       picks = picks.slice(0, 5);
       var h = '';
