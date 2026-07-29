@@ -1162,6 +1162,12 @@ if (MODE==="external" && ALLOWED.length>=1) {
       gifts.forEach(d=>{ const x=d.data()||{}; if(x.refBy===u.uid) return;
         rows.push({id:d.id,x:x,mine:false}); });
       if(qEl) qEl.textContent = (BADGE_ROLE==="volunteer") ? (act+" (असीमित)") : (act+" / 3");
+      /* (29-Jul, Founder — हफ़्ता-सीढ़ी) सरल समझ-पंक्ति */
+      if(qEl && BADGE_ROLE!=="volunteer" && !document.getElementById("refWkNote")){
+        const wn=document.createElement("div"); wn.id="refWkNote"; wn.className="note";
+        wn.textContent="नियम: पहले हफ़्ते 1 · दूसरे हफ़्ते तक 2 · तीसरे हफ़्ते से पूरे 3 (साल-भर में कुल 3)।";
+        qEl.parentNode && qEl.parentNode.appendChild(wn);
+      }
       /* (29-Jul, Founder बिंदु-2) पहचान-स्तंभ की referral-पंक्ति में उपयोग-गिनती भी */
       const pr=$("pubRef");
       if(pr && pr.textContent && pr.textContent!=="—")
