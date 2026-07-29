@@ -132,10 +132,17 @@ function regDocPhoto(reg){
 /* (29-Jul स्थायी-इलाज) decor-याददाश्त: रंग का फ़ैसला एक बार बैज-इंजन करता है,
    बाक़ी बुलाने वाले (फ़ोटो-load आदि) याद दोहराते हैं — झिलमिल (हरा↔गोल्डन) बंद। */
 let DECOR = { on:false, gold:false };
+let BADGE_INFO = null;   /* (29-Jul K1) {kind,till,code} — timing-दौड़ में आख़िरी सच यही */
 function setBadgePerf(kind, tillMs, code){
-  /* परफ़ॉर्मेंस-खाना + पहचान-पंक्ति — बैज-प्रकार व अंतिम-तिथि (Founder बिंदु-2/3) */
-  const d = tillMs ? new Date(tillMs).toLocaleDateString("hi-IN") : "";
-  setTxt("perfBadge", kind==="gold" ? ("Golden 🏅 · "+d) : kind==="green" ? ("Green ✔ · "+d) : "—");
+  BADGE_INFO = { kind:kind, till:tillMs||0, code:code||"" };
+  applyBadgePerf();
+}
+function applyBadgePerf(){
+  if(!BADGE_INFO) return;
+  const d = BADGE_INFO.till ? new Date(BADGE_INFO.till).toLocaleDateString("hi-IN") : "";
+  setTxt("perfBadge", BADGE_INFO.kind==="gold" ? ("Golden 🏅"+(d?(" · "+d):"")) :
+    BADGE_INFO.kind==="green" ? ("Green ✔"+(d?(" · "+d):"")) : "—");
+  const code = BADGE_INFO.code || window.ACS_REGNO || "";
   if(code) setTxt("pubRef", code + (d?(" · "+d+" तक"):""));
 }
 function ensurePhotoDecor(verified, gold){ /* v4.8: gold=true ⇒ Student Golden (v3.7) — हरा ✔ सेवा-भूमिकाओं की अटूट पहचान, विद्यार्थी पर गोल्डन 🏅 */
@@ -206,6 +213,39 @@ function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   ensurePhotoDecor(keepTick());
   perfFill();
 }
+/* (29-Jul K4, Founder-आदेश) फ़ोटो-स्विच चालू: फ़ाइल → canvas-छोटा (~500px) →
+   server-function updateProfilePhoto। प्रशिक्षु का अपना कार्ड ⇒ फ़ोटो तुरंत बदले;
+   सेवा-भूमिका पर DP-नीति यथावत — नया फ़ोटो जाँच के बाद ही public (v1.8-ख3)। */
+document.addEventListener("click", function(ev){
+  if(!ev.target.closest("#photoUpBtn")) return;
+  const fi=$("photoUpFile"); if(fi) fi.click();
+});
+document.addEventListener("change", async function(ev){
+  if(!ev.target || ev.target.id!=="photoUpFile") return;
+  const f=ev.target.files && ev.target.files[0]; if(!f) return;
+  const msg=$("photoUpMsg");
+  function say(t,ok){ if(msg){ msg.style.color = ok?"var(--green)":"#B71C1C"; msg.textContent=t; } }
+  say("⏳ फ़ोटो छोटा करके भेजा जा रहा है…", true);
+  try{
+    const img=new Image();
+    const url=URL.createObjectURL(f);
+    await new Promise((res,rej)=>{ img.onload=res; img.onerror=rej; img.src=url; });
+    const M=500, r=Math.min(1, M/Math.max(img.width,img.height));
+    const cv=document.createElement("canvas");
+    cv.width=Math.round(img.width*r); cv.height=Math.round(img.height*r);
+    cv.getContext("2d").drawImage(img,0,0,cv.width,cv.height);
+    URL.revokeObjectURL(url);
+    const b64=cv.toDataURL("image/jpeg",0.85).split(",")[1];
+    const out=await httpsCallable(functions,"updateProfilePhoto")({ photo_b64:b64 });
+    const d=(out&&out.data)||{};
+    if(d.liveNow && d.url){
+      const im=$("pPhoto"); if(im){ im.src=d.url; im.style.display="block"; const fb=$("pPhotoFb"); if(fb) fb.style.display="none"; }
+      say("✅ नया फ़ोटो लग गया!", true);
+    } else {
+      say("✅ फ़ोटो पहुँच गया — जाँच के बाद कार्ड पर लगेगा; तब तक पुराना ही दिखेगा।", true);
+    }
+  }catch(e){ say("नहीं भेज पाए: "+((e&&e.message)||e), false); }
+});
 /* (29-Jul) ⚡ परफ़ॉर्मेंस-परत — सब device-local (DPDP): पाठ-गिनती · लगातार-दिन ·
    रुचि-दिशा (आख़िरी टेस्ट) · बैज-स्थिति */
 function perfFill(){
@@ -218,8 +258,11 @@ function perfFill(){
     setTxt("perfStreak", String(st));
     let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
     if(ap.prev && ap.prev.mg && ap.prev.mg.length) setTxt("perfSector", ap.prev.mg[0]);
-    let g=null; try{ g=JSON.parse(localStorage.getItem("acs_apt_gate_v1")||"null"); }catch(e){}
-    setTxt("perfBadge", (g && g.until>Date.now()) ? "सक्रिय ✅" : "—");
+    if(BADGE_INFO){ applyBadgePerf(); }
+    else{
+      let g=null; try{ g=JSON.parse(localStorage.getItem("acs_apt_gate_v1")||"null"); }catch(e){}
+      setTxt("perfBadge", (g && g.until>Date.now()) ? "सक्रिय ✅" : "—");
+    }
   }catch(e){}
 }
 
@@ -836,7 +879,11 @@ async function guardExternalRender(user, reg){
   setTxt("pPhone", reg.phone || reg.mobile || "—");
   setTxt("tbWho", "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL));
   $("tbWho").title = "UID: " + user.uid;
-  const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0] : (reg.district||""));
+  window.ACS_REGNO = reg.regNo || "";   /* (29-Jul K2) badge-मॉड्यूल हेतु regNo साझा-याद */
+  const ffD = reg.formFields || {};
+  /* (29-Jul K3, Founder) गृह-जिला ख़ाली न रहे — क्रम: वांछित जिला → form-जिला → पिन-पता */
+  const homeDistE = (reg.rm_districts && reg.rm_districts.length ? reg.rm_districts[0]
+    : (reg.desired_district || reg.district || ffD.district || ffD.pincode_address || ""));
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
   fillPubCard(whoName, reg.photo_public || regDocPhoto(reg), ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
 
@@ -1066,7 +1113,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         /* v4.9 (Founder-टोक, 27-Jul): बैज सक्रिय ⇒ "RM जाँचेंगे/30%" वाला भुगतान-पूर्व
            नोट अब भ्रामक — छिपाओ (null-सुरक्षित; rejected/नए-आवेदक पर दिखा रहता है)। */
         { const rn=$("badgeRmNote"); if(rn) rn.style.display="none"; }
-        markPhotoBadge(); setAptGate(latest);
+        markPhotoBadge(latest); setAptGate(latest);
         const pr=$("badgePinRow"); if(pr) pr.style.display="none"; return;
       }
       if(latest && latest.status==="paid"){
@@ -1167,8 +1214,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
   });
 
-  function markPhotoBadge(){ ensurePhotoDecor(true, IS_GOLD);
-    setBadgePerf(IS_GOLD?"gold":"green", BADGE_TILL||0, (EXT_REG&&EXT_REG.regNo)||""); }
+  function markPhotoBadge(pay){ ensurePhotoDecor(true, IS_GOLD);
+    let till=0; try{ till=pay&&pay.badgeExpiresAt&&pay.badgeExpiresAt.toMillis?pay.badgeExpiresAt.toMillis():0; }catch(e){}
+    setBadgePerf(IS_GOLD?"gold":"green", till, (typeof EXT_REG!=="undefined"&&EXT_REG&&EXT_REG.regNo)||window.ACS_REGNO||""); }
   /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
      भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-टेस्ट खुले। निशान device-local;
      बैज सक्रिय न मिले तो निशान हटे (refund/समाप्ति पर द्वार बंद)। */
@@ -1193,7 +1241,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       qs.forEach(d=>{ const p=d.data()||{};
         if(p.purpose==="badge" && String(p.role||"jobseeker").toLowerCase()===BADGE_ROLE
            && p.status==="paid" && p.rmStatus==="approved"){ ok=true; okPay=p; } });
-      if(ok){ markPhotoBadge(); setAptGate(okPay); }
+      if(ok){ markPhotoBadge(okPay); setAptGate(okPay); }
     }catch(e){}
   };
 
