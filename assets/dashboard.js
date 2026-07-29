@@ -1065,12 +1065,80 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     box.appendChild(w);
   }
 
+  /* ── (29-Jul, Founder) 📖 मेरी पढ़ाई: प्रगति-मीटर + परीक्षा-सीढ़ी ──
+     प्रगति device-local (acs_learn_progress); परीक्षा/result/प्रमाणपत्र-इंजन (काम-10)
+     बनने तक: परीक्षा-निवेदन = असली WhatsApp-रास्ता; प्रमाणपत्र-कड़ी result तक ताले में
+     (ईमानदार-पैनल नियम — मरा बटन नहीं)। */
+  function crsMineFill(){
+    const bx=$("crsMine"); if(!bx) return;
+    let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
+    const read=d.read||{}, byC={};
+    for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
+    const mine=[];
+    CRS_ALL.forEach(function(x){ const c=x&&x.c; if(c && c.url && byC[c.url]) mine.push({c:c, n:byC[c.url]}); });
+    if(!mine.length){ bx.innerHTML='<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से पहला पाठ खोलिए, वह यहाँ अपने-आप जुड़ जाएगा।</div>'; return; }
+    let h='';
+    mine.forEach(function(m){
+      const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
+      h+='<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(m.c.name_hi||m.c.id))+'</span>'+
+        '<span class="note"> '+m.n+(tot?(' / '+tot):'')+' पाठ</span></div>'+
+        '<div style="background:#e8edf4;border-radius:8px;height:16px;overflow:hidden;margin:6px 0">'+
+        '<div style="height:16px;width:'+pc+'%;background:linear-gradient(90deg,var(--gold),var(--green))"></div></div>'+
+        '<div class="r2">'+
+        (done
+          ? '✅ कोर्स पूरा! <a class="abtn ok" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
+            encodeURIComponent('मैंने online कोर्स पूरा किया: '+(m.c.name_hi||m.c.id)+' ('+m.c.id+') — परीक्षा देना चाहता/चाहती हूँ। मेरा ACS-नंबर: '+(window.ACS_REGNO||''))+
+            '">🎓 परीक्षा-निवेदन भेजें</a> <span class="note">· result: — · 📜 प्रमाणपत्र ₹125 — result आने पर यहीं खुलेगा</span>'
+          : '<a class="abtn" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ आगे पढ़ें ('+pc+'%)</a>'+
+            ' <span class="note">पूरा होते ही यहीं परीक्षा → result → 📜 प्रमाणपत्र (₹125) की सीढ़ी खुलेगी</span>')+
+        '</div></div>';
+    });
+    bx.innerHTML=h;
+  }
+  /* 🧭 रिपोर्ट के कोर्स — आख़िरी अभिरुचि-रिपोर्ट से */
+  function crsReportFill(){
+    const bx=$("crsReport"); if(!bx) return;
+    let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
+    const P=ap.prev;
+    if(!P||!P.udy||!P.udy.length){ bx.innerHTML='<div class="pd">रिपोर्ट अभी नहीं बनी — 🧭 अभिरुचि-टेस्ट दीजिए, आपके मन के कोर्स यहीं दिखेंगे।</div>'; return; }
+    let h='<div class="pd">⭐ '+P.mg.map(function(m2){return '<span class="chip appr">'+esc(m2)+'</span>';}).join(' ')+'</div>';
+    P.udy.slice(0,5).forEach(function(u,i){
+      h+='<div class="lrow"><span class="nm">'+(i+1)+'. '+esc(u.nm)+'</span> '+
+        (u.c?'<a class="abtn ok" style="text-decoration:none" href="'+esc(u.c)+'">📚 पढ़ें</a>'
+            :'<a class="abtn2" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
+             encodeURIComponent('मुझे यह कोर्स चाहिए: '+u.nm)+'">📲 कोर्स माँगें</a>')+'</div>';
+    });
+    bx.innerHTML=h;
+  }
+  /* 🏫 मेरे केंद्र के कोर्स — नामांकन-खाते से झलक; पूरा ब्योरा "मेरा केंद्र" में */
+  async function crsCenterFill(){
+    const bx=$("crsCenter"); if(!bx) return;
+    try{
+      const u=auth.currentUser; if(!u){ bx.innerHTML=''; return; }
+      const qs=await getDocs(query(collection(db,"enrollments"), where("studentUid","==",u.uid)));
+      let h=''; const ST={requested:"⏳ निवेदन भेजा",offered:"✉️ केंद्र का प्रस्ताव — जवाब दें",active:"✅ पढ़ाई चालू"};
+      qs.forEach(function(dd){ const x=dd.data()||{};
+        if(!ST[x.status]) return;
+        h+='<div class="lrow"><span class="nm">'+esc(rb(x.courseName||x.courseId||""))+'</span> '+
+          '<span class="note">🏫 '+esc(x.centerName||"")+' · '+ST[x.status]+'</span></div>';
+      });
+      bx.innerHTML = h ? (h+'<div class="note">फीस-रसीदें व पूरा ब्योरा — "🏫 मेरा केंद्र" पैनल में।</div>')
+        : '<div class="pd">अभी किसी केंद्र में नामांकन नहीं — "🏫 मेरा केंद्र" पैनल से नज़दीकी केंद्र खोजिए।</div>';
+    }catch(e){ bx.innerHTML='<span class="note" style="color:#B71C1C">केंद्र-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
+  }
   LAZY["pnl-courses"] = function(){
     if(CRS_LOADED) return; CRS_LOADED=true;
     const box=$("crsList"); if(box) box.innerHTML='<span class="note">कोर्स-सूची आ रही है…</span>';
     const sc=document.createElement("script");
     sc.src="/assets/courses_data.js";
-    sc.onload=function(){ crsCollect(); if(CRS_ALL.length===0){ if(box) box.innerHTML='<span class="note">कोर्स-सूची अभी ख़ाली है — जल्द जुड़ेगी।</span>'; return; } CRS_SHOWN=0; crsDrawMore(); };
+    sc.onload=function(){
+      crsCollect();
+      /* (29-Jul, Founder — "मेरे कोर्स" शानदार-रूप) 🟢 खंड = सिर्फ़ जीवित (url वाले) कोर्स */
+      CRS_ALL = CRS_ALL.filter(function(x){ return x && x.c && x.c.url; });   /* तत्व = {g,c} लिफ़ाफ़ा */
+      if(CRS_ALL.length===0){ if(box) box.innerHTML='<span class="note">पाठ वाले कोर्स अभी जुड़ रहे हैं।</span>'; }
+      else { CRS_SHOWN=0; crsDrawMore(); }
+      crsMineFill(); crsReportFill(); crsCenterFill();
+    };
     sc.onerror=function(){ CRS_LOADED=false; if(box) box.innerHTML='<span class="note" style="color:#B71C1C">कोर्स-सूची नहीं खुली — network जाँचकर पैनल दोबारा खोलें।</span>'; };
     document.body.appendChild(sc);
   };
