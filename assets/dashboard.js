@@ -132,10 +132,22 @@ function regDocPhoto(reg){
 /* (29-Jul स्थायी-इलाज) decor-याददाश्त: रंग का फ़ैसला एक बार बैज-इंजन करता है,
    बाक़ी बुलाने वाले (फ़ोटो-load आदि) याद दोहराते हैं — झिलमिल (हरा↔गोल्डन) बंद। */
 let DECOR = { on:false, gold:false };
-let BADGE_INFO = null;   /* (29-Jul K1) {kind,till,code} — timing-दौड़ में आख़िरी सच यही */
-function setBadgePerf(kind, tillMs, code){
-  BADGE_INFO = { kind:kind, till:tillMs||0, code:code||"" };
+let BADGE_INFO = null;   /* (29-Jul K1) {kind,till,from,code} — timing-दौड़ में आख़िरी सच यही */
+function setBadgePerf(kind, tillMs, code){ setBadgePerfFrom(kind, tillMs, 0, code); }
+function setBadgePerfFrom(kind, tillMs, fromMs, code){
+  BADGE_INFO = { kind:kind, till:tillMs||0, from:fromMs||0, code:code||"" };
   applyBadgePerf();
+}
+/* (29-Jul रात, Founder) referral-घड़ी: खिड़की = बैज के पहले 3 सप्ताह; slot-जीवन 1 सप्ताह */
+function refClock(){
+  if(!BADGE_INFO || !BADGE_INFO.from) return null;
+  const WK=7*24*60*60*1000, now=Date.now(), from=BADGE_INFO.from;
+  const wk=Math.floor((now-from)/WK)+1;
+  if(wk>3) return { over:true };
+  const endWin=from+3*WK, endWk=from+wk*WK;
+  return { over:false, wk:wk,
+    dWin:Math.max(0,Math.ceil((endWin-now)/86400000)),
+    dWk:Math.max(0,Math.ceil((endWk-now)/86400000)) };
 }
 function applyBadgePerf(){
   if(!BADGE_INFO) return;
@@ -143,7 +155,11 @@ function applyBadgePerf(){
   setTxt("perfBadge", BADGE_INFO.kind==="gold" ? ("Golden 🏅"+(d?(" · "+d):"")) :
     BADGE_INFO.kind==="green" ? ("Green ✔"+(d?(" · "+d):"")) : "—");
   const code = BADGE_INFO.code || window.ACS_REGNO || "";
-  if(code) setTxt("pubRef", code + (d?(" · "+d+" तक"):""));
+  if(!code) return;
+  const rc = refClock();
+  if(rc && rc.over) setTxt("pubRef", code + " · referral-समय पूरा");
+  else if(rc) setTxt("pubRef", code + " · हफ़्ता "+rc.wk+"/3 · बचा समय "+rc.dWin+" दिन");
+  else setTxt("pubRef", code);
 }
 function ensurePhotoDecor(verified, gold){ /* v4.8: gold=true ⇒ Student Golden (v3.7) — हरा ✔ सेवा-भूमिकाओं की अटूट पहचान, विद्यार्थी पर गोल्डन 🏅 */
   if(verified===true){ DECOR.on=true; if(typeof gold==="boolean") DECOR.gold=gold; }
@@ -1155,6 +1171,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
       const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",u.uid)));
       const gifts=await getDocs(query(collection(db,"referrals"), where("giftedToUid","==",u.uid)));
       const now2=Date.now(); let act=0, rows=[];
+      window.__myRefDocs=[];   /* (29-Jul N3) जीवन-graph हेतु referral-तिथियाँ */
+      mine.forEach(function(d){ const x=d.data()||{};
+        const t=x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():0; if(t) window.__myRefDocs.push(t); });
       mine.forEach(d=>{ const x=d.data()||{};
         const ex=x.expiresAt&&x.expiresAt.toMillis?x.expiresAt.toMillis():0;
         if(ex>now2) act++;
@@ -1162,11 +1181,34 @@ if (MODE==="external" && ALLOWED.length>=1) {
       gifts.forEach(d=>{ const x=d.data()||{}; if(x.refBy===u.uid) return;
         rows.push({id:d.id,x:x,mine:false}); });
       if(qEl) qEl.textContent = (BADGE_ROLE==="volunteer") ? (act+" (असीमित)") : (act+" / 3");
-      /* (29-Jul, Founder — हफ़्ता-सीढ़ी) सरल समझ-पंक्ति */
-      if(qEl && BADGE_ROLE!=="volunteer" && !document.getElementById("refWkNote")){
-        const wn=document.createElement("div"); wn.id="refWkNote"; wn.className="note";
-        wn.textContent="नियम: पहले हफ़्ते 1 · दूसरे हफ़्ते तक 2 · तीसरे हफ़्ते से पूरे 3 (साल-भर में कुल 3)।";
-        qEl.parentNode && qEl.parentNode.appendChild(wn);
+      /* (29-Jul रात, Founder — जीवन-graph) 3 slot: हुआ ✔ / चालू ▶ / जला ✖ / आगे ⬜ */
+      if(qEl && BADGE_ROLE!=="volunteer"){
+        let wn=document.getElementById("refWkNote");
+        if(!wn){ wn=document.createElement("div"); wn.id="refWkNote";
+          qEl.parentNode && qEl.parentNode.appendChild(wn); }
+        const rc = (typeof refClock==="function") ? refClock() : null;
+        const usedWk = {};
+        try{
+          const from = BADGE_INFO && BADGE_INFO.from;
+          if(from && window.__myRefDocs) window.__myRefDocs.forEach(function(t){
+            const w = Math.floor((t - from)/(7*24*60*60*1000)) + 1;
+            if(w>=1 && w<=3) usedWk[w]=1; });
+        }catch(e){}
+        function seg(w){
+          const cur = rc && !rc.over && rc.wk===w;
+          const past = rc ? (rc.over || rc.wk>w) : false;
+          const st = usedWk[w] ? "✔ हुआ" : (cur ? "▶ चालू" : (past ? "✖ जला" : "⬜ आगे"));
+          const bg = usedWk[w] ? "#2E7D32" : (cur ? "#F9A825" : (past ? "#9aa7b8" : "#e8edf4"));
+          const fg = (usedWk[w]||cur) ? "#fff" : "#0B1F3A";
+          return '<span style="display:inline-block;min-width:96px;text-align:center;padding:7px 8px;'+
+            'border-radius:10px;margin:3px;font-weight:800;background:'+bg+';color:'+fg+'">हफ़्ता-'+w+'<br>'+st+'</span>';
+        }
+        let h='<div style="margin-top:8px"><b>🤝 referral-जीवन (सिर्फ़ पहले 3 सप्ताह · 1 हफ़्ता = 1 referral):</b><br>'+
+          seg(1)+seg(2)+seg(3)+'</div>';
+        if(rc && !rc.over) h+='<div class="note">⏳ इस हफ़्ते का slot: '+(usedWk[rc.wk]?'हो चुका ✔':('बचा है — '+rc.dWk+' दिन'))+
+          ' · पूरी खिड़की का बचा समय: '+rc.dWin+' दिन</div>';
+        if(rc && rc.over) h+='<div class="note">referral-समय (बैज के पहले 3 सप्ताह) पूरा हो चुका है।</div>';
+        wn.innerHTML=h;
       }
       /* (29-Jul, Founder बिंदु-2) पहचान-स्तंभ की referral-पंक्ति में उपयोग-गिनती भी */
       const pr=$("pubRef");
@@ -1221,8 +1263,12 @@ if (MODE==="external" && ALLOWED.length>=1) {
   });
 
   function markPhotoBadge(pay){ ensurePhotoDecor(true, IS_GOLD);
-    let till=0; try{ till=pay&&pay.badgeExpiresAt&&pay.badgeExpiresAt.toMillis?pay.badgeExpiresAt.toMillis():0; }catch(e){}
-    setBadgePerf(IS_GOLD?"gold":"green", till, (typeof EXT_REG!=="undefined"&&EXT_REG&&EXT_REG.regNo)||window.ACS_REGNO||""); }
+    let till=0, from=0;
+    try{ till=pay&&pay.badgeExpiresAt&&pay.badgeExpiresAt.toMillis?pay.badgeExpiresAt.toMillis():0; }catch(e){}
+    try{ from=pay&&pay.badgeActiveFrom&&pay.badgeActiveFrom.toMillis?pay.badgeActiveFrom.toMillis():0; }catch(e){}
+    if(BADGE_INFO===null) BADGE_INFO={};
+    setBadgePerfFrom(IS_GOLD?"gold":"green", till, from,
+      (typeof EXT_REG!=="undefined"&&EXT_REG&&EXT_REG.regNo)||window.ACS_REGNO||""); }
   /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
      भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-टेस्ट खुले। निशान device-local;
      बैज सक्रिय न मिले तो निशान हटे (refund/समाप्ति पर द्वार बंद)। */
