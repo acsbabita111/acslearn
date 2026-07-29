@@ -129,7 +129,19 @@ function regDocPhoto(reg){
   }catch(e){ return ""; }
 }
 /* ACS DP-सजावट: gradient-ring + नाम-अक्षर placeholder + (verified) ऊपर-दाएँ हरा बैज */
+/* (29-Jul स्थायी-इलाज) decor-याददाश्त: रंग का फ़ैसला एक बार बैज-इंजन करता है,
+   बाक़ी बुलाने वाले (फ़ोटो-load आदि) याद दोहराते हैं — झिलमिल (हरा↔गोल्डन) बंद। */
+let DECOR = { on:false, gold:false };
+function setBadgePerf(kind, tillMs, code){
+  /* परफ़ॉर्मेंस-खाना + पहचान-पंक्ति — बैज-प्रकार व अंतिम-तिथि (Founder बिंदु-2/3) */
+  const d = tillMs ? new Date(tillMs).toLocaleDateString("hi-IN") : "";
+  setTxt("perfBadge", kind==="gold" ? ("Golden 🏅 · "+d) : kind==="green" ? ("Green ✔ · "+d) : "—");
+  if(code) setTxt("pubRef", code + (d?(" · "+d+" तक"):""));
+}
 function ensurePhotoDecor(verified, gold){ /* v4.8: gold=true ⇒ Student Golden (v3.7) — हरा ✔ सेवा-भूमिकाओं की अटूट पहचान, विद्यार्थी पर गोल्डन 🏅 */
+  if(verified===true){ DECOR.on=true; if(typeof gold==="boolean") DECOR.gold=gold; }
+  verified = verified || DECOR.on;
+  gold = DECOR.gold;
   try{
     const im=$("pPhoto"), fb=$("pPhotoFb");
     const target=(im && im.style.display!=="none") ? im : fb;
@@ -1103,6 +1115,10 @@ if (MODE==="external" && ALLOWED.length>=1) {
       gifts.forEach(d=>{ const x=d.data()||{}; if(x.refBy===u.uid) return;
         rows.push({id:d.id,x:x,mine:false}); });
       if(qEl) qEl.textContent = (BADGE_ROLE==="volunteer") ? (act+" (असीमित)") : (act+" / 3");
+      /* (29-Jul, Founder बिंदु-2) पहचान-स्तंभ की referral-पंक्ति में उपयोग-गिनती भी */
+      const pr=$("pubRef");
+      if(pr && pr.textContent && pr.textContent!=="—")
+        pr.textContent += (BADGE_ROLE==="volunteer") ? (" · "+act+" (असीमित)") : (" · "+act+" / 3");
       if(!rows.length){ list.innerHTML='<span class="note">अभी कोई referral-प्रविष्टि नहीं। भुगतान-चक्र: हर fund का पैसा 7 कार्य-दिवस नियम से office भेजता है।</span>'; return; }
       let h="";
       rows.forEach(r=>{ const x=r.x;
@@ -1151,7 +1167,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
   });
 
-  function markPhotoBadge(){ ensurePhotoDecor(true, IS_GOLD); }
+  function markPhotoBadge(){ ensurePhotoDecor(true, IS_GOLD);
+    setBadgePerf(IS_GOLD?"gold":"green", BADGE_TILL||0, (EXT_REG&&EXT_REG.regNo)||""); }
   /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
      भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-टेस्ट खुले। निशान device-local;
      बैज सक्रिय न मिले तो निशान हटे (refund/समाप्ति पर द्वार बंद)। */
