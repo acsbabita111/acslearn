@@ -157,3 +157,18 @@
     setTimeout(function () { if (!done) { done = true; mark(); } }, 25000);
   } catch (e) {}
 })();
+
+/* ═══ (30-Jul तुरंत-2, Founder) हर पाठ-पन्ने पर वापसी-बटन — v4.0 वापसी-पता नियम का कोर्स-रूप ═══ */
+(function(){
+  try{
+    if(document.getElementById("lsnBackHome")) return;
+    var back="/dashboard/";
+    try{ var b=localStorage.getItem("acs_back_home"); if(b && b.indexOf("/dashboard/")===0) back=b; }catch(e){}
+    var a=document.createElement("a");
+    a.id="lsnBackHome"; a.href=back; a.textContent="↩ मेरा पैनल";
+    a.style.cssText="position:fixed;left:12px;bottom:12px;z-index:9999;background:#0B1F3A;color:#fff;"+
+      "font-weight:800;font-size:17px;padding:10px 16px;border-radius:999px;text-decoration:none;"+
+      "box-shadow:0 4px 12px rgba(0,0,0,.35);font-family:'Noto Sans Devanagari',sans-serif";
+    document.body.appendChild(a);
+  }catch(e){}
+})();

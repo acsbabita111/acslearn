@@ -1049,7 +1049,9 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       row.innerHTML = '<div class="crsban">📚</div><div class="crsbody">'+
         '<div class="crsname">'+noSq(c.name_hi||c.name_en||"—")+'</div>'+
         '<div class="crsmeta">'+meta+'</div>'+
-        (c.url?'<a class="crsgo" href="'+c.url+'">▶ पढ़ें — मुफ़्त</a>':'<span class="note">पाठ जल्द जुड़ेंगे</span>')+
+        (c.url?'<a class="crsgo" href="'+c.url+'">▶ पढ़ें — मुफ़्त</a> '+
+          '<button class="abtn" type="button" data-enroll="'+c.id+'" style="margin-top:6px">➕ मेरी पढ़ाई में जोड़ें</button>'
+          :'<span class="note">पाठ जल्द जुड़ेंगे</span>')+
         '</div>';
       box.appendChild(row);
     }
@@ -1073,6 +1075,21 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      प्रगति device-local (acs_learn_progress); परीक्षा/result/प्रमाणपत्र-इंजन (काम-10)
      बनने तक: परीक्षा-निवेदन = असली WhatsApp-रास्ता; प्रमाणपत्र-कड़ी result तक ताले में
      (ईमानदार-पैनल नियम — मरा बटन नहीं)। */
+  /* (30-Jul तुरंत-1) स्थायी-इनरोल: ➕ से जुड़ा कोर्स हमेशा दिखे + जुड़ने-तारीख़ */
+  function enrGet(){ try{ return JSON.parse(localStorage.getItem("acs_my_courses")||"{}"); }catch(e){ return {}; } }
+  function enrAdd(id){ const E=enrGet(); if(!E[id]) E[id]={at:Date.now()};
+    localStorage.setItem("acs_my_courses", JSON.stringify(E)); }
+  /* (30-Jul तुरंत-2) कोर्स खोलते ही वापसी-पता याद — पाठ-पन्ने का "↩ मेरा पैनल" यही पढ़ेगा */
+  document.addEventListener("click", function(ev){
+    const a=ev.target.closest('a[href^="/courses/"]'); if(!a) return;
+    try{ localStorage.setItem("acs_back_home", location.pathname); }catch(e){}
+  });
+  document.addEventListener("click", function(ev){
+    const b=ev.target.closest("[data-enroll]"); if(!b) return;
+    enrAdd(b.getAttribute("data-enroll"));
+    b.outerHTML='<span class="crsstep on">✅ जुड़ गया</span>';
+    crsMineFill();
+  });
   async function crsMineFill(){
     const bx=$("crsMine"); if(!bx) return;
     await loadExamState();
@@ -1080,7 +1097,11 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const read=d.read||{}, byC={};
     for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
     const mine=[];
-    CRS_ALL.forEach(function(x){ const c=x&&x.c; if(c && c.url && byC[c.url]) mine.push({c:c, n:byC[c.url]}); });
+    const ENR=enrGet();
+    CRS_ALL.forEach(function(x){ const c=x&&x.c; if(!c) return;
+      const started = c.url && byC[c.url];
+      if(started && !ENR[c.id]) enrAdd(c.id);   /* पढ़ना शुरू = अपने-आप जुड़ा (तारीख़ आज) */
+      if(ENR[c.id] || started) mine.push({c:c, n:(c.url&&byC[c.url])||0, at:(enrGet()[c.id]||{}).at||Date.now()}); });
     const doneN=mine.filter(function(m){var t=Number(m.c.lessons)||0;return t&&m.n>=t;}).length;
     const certN=Object.keys(CERT_BY).length;
     const sumBar='<div class="pubcard g3" style="padding:10px;margin-bottom:10px">'+
@@ -1108,6 +1129,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         st(cert?'on':(res?'cur':''),'📜 '+(cert?cert.certNo.slice(-6):'₹125'))+'</div>';
       h+='<div class="crscard"><div class="crsban">'+(done?'🏆':'📖')+'</div><div class="crsbody">'+
         '<div class="crsname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
+        '<div class="crsmeta">📅 जुड़े: '+new Date(m.at).toLocaleDateString("hi-IN")+' · प्रगति '+pc+'%</div>'+
         '<div class="crsring">'+ring+'<div class="crsmeta">'+m.n+(tot?(' / '+tot):'')+' पाठ'+(tot?'<br>बचे '+Math.max(0,tot-m.n):'')+'</div></div>'+
         steps+
         (done
