@@ -130,9 +130,16 @@ const P_COURSES = (
     '<div class="pd"><b>मेरा नामांकन:</b> offline पढ़ाई का पूरा ब्योरा अब "🏫 मेरा केंद्र" पैनल में है — ' +
     'निवेदन · केंद्र का प्रस्ताव · active नामांकन · फीस-रसीदें। केंद्र के "Enrollment" पैनल और आपके ' +
     'ब्योरे का स्रोत एक ही नामांकन-खाता है — दोनों को एक ही सच दिखता है।</div>' +
-    '<div class="ph" style="margin-top:14px">📖 मुफ़्त online कोर्स — अभी पढ़ें</div>' +
-    '<div class="pd">पढ़ना हमेशा मुफ़्त है — बिना रोक, बिना शर्त। जिस कोर्स के पाठ बन चुके हैं, उस पर "पढ़ें" बटन दिखेगा।</div>' +
+    '<div class="ph" style="margin-top:14px">📖 मेरी पढ़ाई — शुरू किए कोर्स</div>' +
+    '<div class="pd">जो कोर्स आपने पढ़ना शुरू किया, वह अपने-आप यहाँ दिखता है — कितना पढ़ा, आगे क्या।</div>' +
+    '<div id="crsMine"><span class="note">यह पैनल खोलने पर आता है…</span></div>' +
+    '<div class="ph" style="margin-top:14px">🧭 आपकी रिपोर्ट के कोर्स</div>' +
+    '<div id="crsReport"><span class="note">…</span></div>' +
+    '<div class="ph" style="margin-top:14px">🟢 अभी पढ़ने लायक़ कोर्स (पाठ बने हुए)</div>' +
+    '<div class="pd">पढ़ना हमेशा मुफ़्त है — बिना रोक, बिना शर्त।</div>' +
     '<div id="crsList"><span class="note">कोर्स-सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div class="ph" style="margin-top:14px">🏫 मेरे केंद्र के कोर्स</div>' +
+    '<div id="crsCenter"><span class="note">…</span></div>' +
     '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none;margin-top:10px" href="/courses/">🌍 पूरी कोर्स-सूची देखें</a>' +
     '</div>');
 
