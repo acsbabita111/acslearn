@@ -1040,13 +1040,16 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         box.appendChild(h);
       }
       const row=document.createElement("div");
-      row.className="mem";
+      row.className="crscard"; row.style.display="inline-block"; row.style.width="min(260px,100%)"; row.style.margin="6px"; row.style.verticalAlign="top";
       const meta=[c.duration?("⏱️ "+noSq(c.duration)):"", c.lessons?("📄 "+c.lessons+" पाठ"):""].filter(Boolean).join(" · ");
       const right = c.url
         ? '<a class="abtn ok" style="display:inline-block;text-decoration:none" href="'+c.url+'">📖 पढ़ें (मुफ़्त)</a>'
         : '<span class="note" style="margin-top:0">पाठ जल्द जुड़ेंगे</span>';
-      row.innerHTML = '<div class="r1"><span class="nm">'+noSq(c.name_hi||c.name_en||"—")+'</span></div>'
-                    + '<div class="r2">'+meta+'</div>' + right;
+      row.innerHTML = '<div class="crsban">📚</div><div class="crsbody">'+
+        '<div class="crsname">'+noSq(c.name_hi||c.name_en||"—")+'</div>'+
+        '<div class="crsmeta">'+meta+'</div>'+
+        (c.url?'<a class="crsgo" href="'+c.url+'">▶ पढ़ें — मुफ़्त</a>':'<span class="note">पाठ जल्द जुड़ेंगे</span>')+
+        '</div>';
       box.appendChild(row);
     }
     CRS_SHOWN=end;
@@ -1077,22 +1080,30 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const mine=[];
     CRS_ALL.forEach(function(x){ const c=x&&x.c; if(c && c.url && byC[c.url]) mine.push({c:c, n:byC[c.url]}); });
     if(!mine.length){ bx.innerHTML='<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से पहला पाठ खोलिए, वह यहाँ अपने-आप जुड़ जाएगा।</div>'; return; }
-    let h='';
+    let h='<div class="crsgrid">';
     mine.forEach(function(m){
       const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
-      h+='<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(m.c.name_hi||m.c.id))+'</span>'+
-        '<span class="note"> '+m.n+(tot?(' / '+tot):'')+' पाठ</span></div>'+
-        '<div style="background:#e8edf4;border-radius:8px;height:16px;overflow:hidden;margin:6px 0">'+
-        '<div style="height:16px;width:'+pc+'%;background:linear-gradient(90deg,var(--gold),var(--green))"></div></div>'+
-        '<div class="r2">'+
+      const R=26, C=2*Math.PI*R, off=C*(1-pc/100);
+      const ring='<svg width="68" height="68" viewBox="0 0 68 68">'+
+        '<circle cx="34" cy="34" r="'+R+'" fill="none" stroke="#e8edf4" stroke-width="8"/>'+
+        '<circle cx="34" cy="34" r="'+R+'" fill="none" stroke="'+(done?"#2E7D32":"#F9A825")+'" stroke-width="8" stroke-linecap="round" '+
+        'stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 34 34)"/>'+
+        '<text x="34" y="40" text-anchor="middle" font-size="17" font-weight="800" fill="#0B1F3A">'+pc+'%</text></svg>';
+      function st(cls,txt){ return '<span class="crsstep '+cls+'">'+txt+'</span>'; }
+      const steps='<div class="crssteps">'+
+        st(done?'on':'cur','📖 पढ़ाई')+st(done?'cur':'','🎓 परीक्षा')+st('','📄 result')+st('','📜 ₹125')+'</div>';
+      h+='<div class="crscard"><div class="crsban">'+(done?'🏆':'📖')+'</div><div class="crsbody">'+
+        '<div class="crsname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
+        '<div class="crsring">'+ring+'<div class="crsmeta">'+m.n+(tot?(' / '+tot):'')+' पाठ'+(tot?'<br>बचे '+Math.max(0,tot-m.n):'')+'</div></div>'+
+        steps+
         (done
-          ? '✅ कोर्स पूरा! <a class="abtn ok" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
-            encodeURIComponent('मैंने online कोर्स पूरा किया: '+(m.c.name_hi||m.c.id)+' ('+m.c.id+') — परीक्षा देना चाहता/चाहती हूँ। मेरा ACS-नंबर: '+(window.ACS_REGNO||''))+
-            '">🎓 परीक्षा-निवेदन भेजें</a> <span class="note">· result: — · 📜 प्रमाणपत्र ₹125 — result आने पर यहीं खुलेगा</span>'
-          : '<a class="abtn" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ आगे पढ़ें ('+pc+'%)</a>'+
-            ' <span class="note">पूरा होते ही यहीं परीक्षा → result → 📜 प्रमाणपत्र (₹125) की सीढ़ी खुलेगी</span>')+
+          ? '<a class="crsgo" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
+            encodeURIComponent('मैंने online कोर्स पूरा किया: '+(m.c.name_hi||m.c.id)+' ('+m.c.id+') — परीक्षा देना चाहता/चाहती हूँ। ACS-नंबर: '+(window.ACS_REGNO||''))+
+            '">🎓 परीक्षा-निवेदन</a><div class="note">📜 प्रमाणपत्र ₹125 — result आने पर यहीं खुलेगा</div>'
+          : '<a class="crsgo" href="'+esc(m.c.url)+'">▶ आगे पढ़ें</a>')+
         '</div></div>';
     });
+    h+='</div>';
     bx.innerHTML=h;
   }
   /* 🧭 रिपोर्ट के कोर्स — आख़िरी अभिरुचि-रिपोर्ट से */
