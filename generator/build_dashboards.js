@@ -1154,6 +1154,55 @@ const TEAM_EXTRAS = {
   "/dashboard/regional/": P_BADGE_QUEUE + P_SEVA_QUEUE,
 };
 
+/* ══════════ (30-Jul-2026 Founder-सुधार-3) student-घर पैनल-विलय ══════════
+   7 आदेश: (1) खाता-स्थिति+GoldenBadge → "खाता: <बैज-स्थिति>" (3-नियम नाम,
+   dashboard.js v5.5 जीवित-नाम) (2) मेरे कोर्स+मेरी प्रगति → "मेरे कोर्स प्रगति"
+   (3) परीक्षाएँ+प्रमाण पत्र (4) भुगतान+लेन-देन → "मेरा अकाउंट"
+   (5) अभिरुचि+सलाह (6) नियम-पत्र+सहायता → "नियम, सहायता, शिकायत"
+   (7) वाणी ऊपर — (6) सबसे नीचे। विधि: संतुलित-div कटाई; B-खंड panel-वर्ग
+   खोकर (pcard pmerged) A के भीतर; id/भीतरी-इंजन अछूते (LAZY-जोड़
+   dashboard.js MERGED_LAZY से)। दायरा: सिर्फ़ /dashboard/student/। */
+function panelBlock(html, id){
+  const mark = 'id="' + id + '"';
+  const at = html.indexOf(mark); if(at < 0) return null;
+  const start = html.lastIndexOf("<div", at);
+  const re = /<div\b|<\/div>/g; re.lastIndex = start;
+  let depth = 0, m;
+  while((m = re.exec(html))){
+    if(m[0] === "</div>"){ depth--; if(depth === 0) return { start, end: re.lastIndex }; }
+    else depth++;
+  }
+  return null;
+}
+function mergePair(html, idA, idB, newNav){
+  const B = panelBlock(html, idB); if(!B) throw new Error("merge: " + idB + " नहीं मिला");
+  const bHtml = html.slice(B.start, B.end).replace('class="pcard panel"', 'class="pcard pmerged"')
+    .replace(/ data-nav="[^"]*"/, "");   /* बासी nav-नाम B पर न बचे (v3.0-घ4) */
+  html = html.slice(0, B.start) + html.slice(B.end);
+  const A = panelBlock(html, idA); if(!A) throw new Error("merge: " + idA + " नहीं मिला");
+  let aHtml = html.slice(A.start, A.end).replace(/data-nav="[^"]*"/, 'data-nav="' + newNav + '"');
+  const ci = aHtml.lastIndexOf("</div>");
+  aHtml = aHtml.slice(0, ci) + '<div class="pmergesep"></div>' + bHtml + aHtml.slice(ci);
+  return html.slice(0, A.start) + aHtml + html.slice(A.end);
+}
+function moveAfter(html, idMove, idAnchor){
+  const M = panelBlock(html, idMove); if(!M) throw new Error("move: " + idMove + " नहीं मिला");
+  const blk = html.slice(M.start, M.end);
+  html = html.slice(0, M.start) + html.slice(M.end);
+  const A = panelBlock(html, idAnchor); if(!A) throw new Error("move-anchor: " + idAnchor + " नहीं मिला");
+  return html.slice(0, A.end) + "\n      " + blk + html.slice(A.end);
+}
+function applyStudentMerges(html){
+  html = mergePair(html, "pnl-status",   "pnl-badge",    "✅ खाता: कोई बैज नहीं");
+  html = mergePair(html, "pnl-courses",  "pnl-progress", "📚 मेरे कोर्स प्रगति");
+  html = mergePair(html, "pnl-exams",    "pnl-certs",    "🏆 मेरे परीक्षा / प्रमाण पत्र");
+  html = mergePair(html, "pnl-pay",      "pnl-ledger",   "💳 मेरा अकाउंट");
+  html = mergePair(html, "pnl-aptitude", "pnl-counsel",  "🧭 अभिरुचि / काउंसलिंग");
+  html = mergePair(html, "pnl-rules",    "pnl-help",     "📜 नियम, सहायता, शिकायत");
+  html = moveAfter(html, "pnl-rules", "pnl-vani");   /* आदेश-7: वाणी ऊपर */
+  return html;
+}
+
 /* ---------- external roles के अतिरिक्त आरक्षित-पैनल ---------- */
 function extraPanels(key){
   /* v1.5: entrepreneur-branch हटा — वह घर अब entrepreneurPanels() से सुसज्जित */
@@ -1232,6 +1281,9 @@ for(const [home, h] of homes){
   /* जाँच: कोई placeholder बचा तो fail (check-robot भावना) */
   const left = final.match(/\{\{[A-Z_]+\}\}/);
   if(left){ console.error("❌ placeholder बचा:", left[0], "→", home); process.exit(1); }
+
+  /* (30-Jul Founder-सुधार-3) सिर्फ़ student-घर पर पैनल-विलय transform */
+  if(home==="/dashboard/student/") final = applyStudentMerges(final);
 
   const dir = path.join(ROOT, home.replace(/^\//,""));
   fs.mkdirSync(dir, { recursive:true });
