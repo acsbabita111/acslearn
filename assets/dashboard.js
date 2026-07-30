@@ -1515,6 +1515,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       '</div>';
     card.innerHTML = h;
   }
+  function examBox(cid,bank){
     let h='<div class="pd" style="text-align:left"><b>'+esc(bank.name)+'</b> · pass = '+bank.pass+'%</div>';
     bank.q.forEach(function(qq,i){
       /* (v5.9) बड़े बैंक (setSize) पर सेट-शीर्षक: 40 का सेट-1/2/3 */
