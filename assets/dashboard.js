@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.4.1 · 30-Jul-2026 (Founder-सुधार-2) — परफ़ॉर्मेंस-कार्ड सिर्फ़ 3 बक्से:
+        कोर्स रजिस्टर्ड · कोर्स पूरे · बैज (पाठ/दिन/रुचि-दिशा प्रोफ़ाइल से हटे;
+        server-नतीजा-इंजन यथावत — टेस्ट-पन्ना उसे पढ़ता रहेगा)।
    v5.4 · 30-Jul-2026 (2-होल दौर, Founder) — होल-1: perfSector अब खाते (server)
         से भी (latestAptitudeResult — फ़ोन बदलने पर भी रुचि-दिशा वही); होल-2:
         6-tile परफ़ॉर्मेंस (कोर्स रजिस्टर्ड/पूरे) + "मेरे कोर्स" प्रगति-ग्राफ +
@@ -308,24 +311,10 @@ function perfCourseStats(){
    रुचि-दिशा: पहले device, फिर खाता (server) जीतता है (30-Jul होल-1) · बैज-स्थिति */
 function perfFill(){
   try{
-    let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
-    const r=d.read||{}, days=d.days||{}; let n=0; for(const k in r) n++;
-    setTxt("perfLessons", String(n));
-    let st=0, t=new Date();
-    for(;;){ const ds=t.toISOString().slice(0,10); if(days[ds]){ st++; t.setDate(t.getDate()-1); } else break; }
-    setTxt("perfStreak", String(st));
-    perfCourseStats();   /* (30-Jul होल-2) कोर्स रजिस्टर्ड / पूरे */
-    let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
-    if(ap.prev && ap.prev.mg && ap.prev.mg.length) setTxt("perfSector", ap.prev.mg[0]);
-    /* (30-Jul होल-1) खाता (server) जीतता है — फ़ोन बदलने पर भी रुचि-दिशा वही।
-       function अभी deploy न हो/network fail = चुपचाप, device-मूल्य बना रहे। */
-    try{
-      httpsCallable(functions,"latestAptitudeResult")({}).then(r=>{
-        const d=(r&&r.data)||{};
-        if(d.found && d.prev && d.prev.mg && d.prev.mg.length)
-          setTxt("perfSector", String(d.prev.mg[0]).replace(/[<>]/g,""));
-      }).catch(()=>{});
-    }catch(e){}
+    /* (30-Jul Founder-सुधार-2) कार्ड पर सिर्फ़ 3 बक्से — कोर्स रजिस्टर्ड/पूरे + बैज।
+       पाठ-गिनती/लगातार-दिन/रुचि-दिशा का ब्योरा "📈 मेरी प्रगति" व टेस्ट-पन्ने पर;
+       खाता-नतीजा (server) इंजन यथावत जीवित — यहाँ सिर्फ़ प्रदर्शन हटा। */
+    perfCourseStats();   /* कोर्स रजिस्टर्ड / पूरे */
     if(BADGE_INFO){ applyBadgePerf(); }
     else{
       let g=null; try{ g=JSON.parse(localStorage.getItem("acs_apt_gate_v1")||"null"); }catch(e){}
