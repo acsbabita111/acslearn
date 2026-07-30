@@ -1,6 +1,13 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
-   ACS Firestore Security Rules — v11
+   ACS Firestore Security Rules — v12
+   v12 (30-Jul, इंजन-दौर): examAttempts — server-मोड परीक्षा (PJ016/DCA)
+   का निजी attempt-रिकॉर्ड (qids+perms सर्वर-निजी, client कभी नहीं पढ़ता
+   सीधे — startCourseExam/submitCourseExam callable-functions ही इसे
+   छूते हैं)। पढ़े: मालिक (uid) · Founder · active-Admin (सिर्फ़ अपनी
+   प्रगति देखने/डीबग हेतु — सही-उत्तर qids से जुड़े दूसरी collection
+   (dca_bank) में हैं, यहाँ नहीं — इसलिए पढ़ने पर भी उत्तर नहीं लीकते)।
+   लिखे: कोई नहीं (सिर्फ़ server-functions, admin SDK)।
    v11 (30-Jul, सुधार-4): learnProgress — पढ़ाई-प्रगति की server-सच्चाई
    (syncLearnProgress union); पढ़े: मालिक · Founder · active-Admin;
    लिखे: कोई नहीं (सिर्फ़ server)।
@@ -126,6 +133,13 @@ service cloud.firestore {
 
     /* (30-Jul v9, रास्ता-1) परीक्षा-result व प्रमाणपत्र — लिखे सिर्फ़ server */
     match /examResults/{rid} {
+      allow read: if request.auth != null &&
+        (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+    /* (30-Jul v12, इंजन-दौर) server-मोड परीक्षा-attempt — qids/perms निजी,
+       सही-उत्तर यहाँ कभी नहीं (dca_bank अलग, functions-folder-only) */
+    match /examAttempts/{aid} {
       allow read: if request.auth != null &&
         (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
       allow write: if false;
