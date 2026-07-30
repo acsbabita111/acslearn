@@ -195,6 +195,13 @@ function buildPage(course, l, prevFile, nextFile){
     '<link rel="stylesheet" href="/assets/course-lesson.css">\n</head>');
   page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
   page = page.replace("</body>", MENU_FALLBACK_JS + '\n<script src="/assets/course-lesson.js" defer></scr' + 'ipt>\n</body>');
+  /* ── (30-Jul स्थायी-नियम, Founder) घड़ी+प्रगति-इंजन का लोहे का पहरा ──
+     भविष्य का हर कोर्स-पाठ इसी नियम पर: course-lesson.css+js अनिवार्य।
+     टेम्पलेट-बदलाव से कड़ी छूटे = build यहीं fail (पेज बनेगा ही नहीं)।
+     दायरा: सिर्फ़ पाठ-पन्ने — course-details/index जैसे मेटा-पन्ने बाहर
+     (उन पर "पढ़ा"-दर्ज = पाठ-गिनती का झूठा फुलाव)। */
+  if (page.indexOf('/assets/course-lesson.js') < 0 || page.indexOf('/assets/course-lesson.css') < 0)
+    throw new Error("स्थायी-नियम भंग: course-lesson इंजन-कड़ी पाठ-पेज में नहीं — " + (l && l.id));
 
   page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE);
   return { page, words };
