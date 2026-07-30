@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.7 · 30-Jul-2026 (सुधार-6, Founder: "लैपटॉप 4 / मोबाइल 2 — माजरा?") —
+        ➕-जुड़ाव (acs_my_courses) भी अब syncLearnProgress-union में: हर फ़ोन
+        पर एक ही कोर्स-सूची (v302 का दर्ज enroll-होल बंद)। पुराना server
+        enr न लौटाए तो local यथावत (पिछड़ा-संगत)।
    v5.6.2 · 30-Jul-2026 (होल-बंदी) — "rb is not defined": rb k9-IIFE (1943) में
         क़ैद, ext-block उसे नहीं देखता — तालिका (v5.3 से!) व crsCenterFill चुपचाप
         मरते थे; readable-त्रुटि नियम ने उजागर किया; दोनों जगह उसी scope का noSq।
@@ -309,9 +313,12 @@ function syncLearnProgress(){
   LP_SYNC=(async ()=>{
     let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
     const read=Object.keys(d.read||{}), days=Object.keys(d.days||{});
+    /* (v5.7) ➕-जुड़ाव भी खाते में — id+जुड़ने-तारीख़ */
+    let E0={}; try{ E0=JSON.parse(localStorage.getItem("acs_my_courses")||"{}"); }catch(e){}
+    const enr=Object.keys(E0).slice(0,300).map(k=>({id:k, at:(E0[k]&&E0[k].at)||Date.now()}));
     try{
       const r=await Promise.race([
-        httpsCallable(functions,"syncLearnProgress")({read:read,days:days}),
+        httpsCallable(functions,"syncLearnProgress")({read:read,days:days,enr:enr}),
         new Promise(function(_,rj){ setTimeout(function(){ rj(new Error("समय-सीमा")); },8000); })
       ]);
       const x=(r&&r.data)||{};
@@ -319,6 +326,13 @@ function syncLearnProgress(){
         const nr={},nd={}; x.read.forEach(u=>{nr[u]=1;}); (x.days||[]).forEach(u=>{nd[u]=1;});
         const out={read:nr,days:nd};
         try{ localStorage.setItem("acs_learn_progress",JSON.stringify(out)); }catch(e){}
+        /* (v5.7) खाते की ➕-सूची local में — पुराना server enr न दे तो local यथावत */
+        if(x.enr && typeof x.enr==="object" && !Array.isArray(x.enr)){
+          try{
+            const ne={}; Object.keys(x.enr).slice(0,300).forEach(k=>{ ne[k]={at:Number(x.enr[k])||Date.now()}; });
+            localStorage.setItem("acs_my_courses",JSON.stringify(ne));
+          }catch(e){}
+        }
         return {srv:true,d:out};
       }
     }catch(e){}
