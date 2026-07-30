@@ -1356,52 +1356,165 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; });
     }catch(e){}
   }
-/* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर) — PJ016 आदि ═══
-     एक-स्क्रीन-एक-प्रश्न UI; प्रश्न+विकल्प server से आते हैं (बिना उत्तर);
-     answers[i] = चुना गया प्रदर्शन-स्थान (0-3) — असली-क्रम सिर्फ़ server जानता है। */
+/* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
+     पूर्ण-स्क्रीन ओवरले (table-row के भीतर नहीं) — बड़े छूने-लायक़ विकल्प,
+     अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
   const SERVER_EXAM_COURSES = { PJ016: true };
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
+  const OPT_LABEL = ["अ","ब","स","द"];
+  function ensureExamStyle() {
+    if (document.getElementById("examEngineStyle")) return;
+    const st = document.createElement("style"); st.id = "examEngineStyle";
+    st.textContent =
+      '.examOverlay{position:fixed;inset:0;z-index:9999;background:rgba(11,31,58,.78);'+
+      'display:flex;align-items:flex-end;justify-content:center;backdrop-filter:blur(2px)}'+
+      '@media(min-width:640px){.examOverlay{align-items:center;padding:24px}}'+
+      '.examCard{background:var(--offwhite);width:100%;max-width:620px;max-height:96vh;'+
+      'display:flex;flex-direction:column;border-radius:22px 22px 0 0;overflow:hidden;'+
+      'box-shadow:0 -8px 40px #0004;animation:examSlideUp .28s ease-out}'+
+      '@media(min-width:640px){.examCard{border-radius:22px;animation:examPopIn .22s ease-out}}'+
+      '@keyframes examSlideUp{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}'+
+      '@keyframes examPopIn{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}'+
+      '@keyframes examFadeQ{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}'+
+      '@media(prefers-reduced-motion:reduce){.examCard,.examQArea{animation:none!important}}'+
+      '.examTop{background:var(--navy);color:#fff;padding:16px 18px 14px;flex-shrink:0}'+
+      '.examTopRow{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}'+
+      '.examName{font-weight:900;font-size:16px;line-height:1.35}'+
+      '.examPassNote{color:#B9D4FF;font-size:13px;margin-top:2px}'+
+      '.examExitBtn{background:#ffffff22;border:none;color:#fff;width:34px;height:34px;border-radius:50%;'+
+      'font-size:18px;line-height:1;cursor:pointer;flex-shrink:0}'+
+      '.examCountWrap{display:flex;align-items:baseline;gap:8px;margin-top:12px}'+
+      '.examQNum{font-size:26px;font-weight:900;color:var(--gold)}'+
+      '.examQTot{font-size:15px;color:#B9D4FF}'+
+      '.examFilled{margin-inline-start:auto;font-size:13px;color:#B9D4FF}'+
+      '.examProgWrap{height:8px;background:#ffffff26;border-radius:8px;overflow:hidden;margin-top:8px}'+
+      '.examProgBar{height:100%;background:var(--gold);border-radius:8px;transition:width .35s ease}'+
+      '.examBody{overflow-y:auto;padding:20px 18px 12px;flex:1}'+
+      '.examQArea{animation:examFadeQ .22s ease-out}'+
+      '.examQText{font-size:23px;font-weight:900;color:#000;line-height:1.55;margin-bottom:16px}'+
+      '.examOptRow{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid #E3E8EF;'+
+      'border-radius:16px;padding:13px 14px;margin-bottom:10px;cursor:pointer;transition:all .15s ease;min-height:56px}'+
+      '.examOptRow:active{transform:scale(.98)}'+
+      '.examOptRow.sel{border-color:var(--blue);background:#EAF2FE}'+
+      '.examOptBadge{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;'+
+      'display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;transition:all .15s ease}'+
+      '.examOptRow.sel .examOptBadge{background:var(--gold);color:var(--navy)}'+
+      '.examOptText{font-size:17px;color:var(--navy);line-height:1.45;flex:1}'+
+      '.examOptRow input{position:absolute;opacity:0;width:1px;height:1px}'+
+      '.examFoot{flex-shrink:0;display:flex;gap:10px;padding:14px 18px;border-top:1px solid #E3E8EF;background:#fff}'+
+      '.examBtn{flex:1;border:none;border-radius:14px;padding:15px 12px;font-weight:900;font-size:16px;cursor:pointer;'+
+      'display:flex;align-items:center;justify-content:center;gap:6px;transition:opacity .15s}'+
+      '.examBtn:disabled{opacity:.45;cursor:default}'+
+      '.examBtn.prev{background:#E9EDF3;color:var(--navy);flex:.8}'+
+      '.examBtn.next{background:var(--blue);color:#fff}'+
+      '.examBtn.finish{background:var(--green);color:#fff}'+
+      '.examMsgBar{padding:0 18px 12px;font-size:14px;color:#B71C1C;font-weight:700;text-align:center}'+
+      '.examExitConfirm{padding:16px 18px;background:#fff7ed;border-top:1px solid #E3E8EF}'+
+      '.examExitConfirm p{font-size:15px;color:#7c2d12;font-weight:700;margin-bottom:10px}'+
+      '.examExitRow{display:flex;gap:10px}'+
+      '.examResBadge{width:88px;height:88px;border-radius:50%;display:flex;align-items:center;justify-content:center;'+
+      'font-size:42px;margin:0 auto 14px}'+
+      '.examResBadge.pass{background:#E8F5E9;border:3px solid var(--green)}'+
+      '.examResBadge.fail{background:#FFEBEE;border:3px solid #B71C1C}'+
+      '.examResTitle{text-align:center;font-size:22px;font-weight:900;color:var(--navy);margin-bottom:4px}'+
+      '.examResSub{text-align:center;font-size:15px;color:#5b6b82;margin-bottom:18px}'+
+      '.examResNums{display:flex;justify-content:center;gap:28px;margin-bottom:20px}'+
+      '.examResNum{text-align:center}.examResNum b{display:block;font-size:28px;font-weight:900;color:var(--navy)}'+
+      '.examResNum span{font-size:13px;color:#5b6b82}';
+    document.head.appendChild(st);
+  }
+  function examOverlayEls() {
+    let ov = document.getElementById("examOverlay");
+    if (!ov) {
+      ensureExamStyle();
+      ov = document.createElement("div"); ov.id = "examOverlay"; ov.className = "examOverlay";
+      ov.innerHTML = '<div class="examCard" id="examCardBody"></div>';
+      document.body.appendChild(ov);
+    }
+    return { overlay: ov, card: document.getElementById("examCardBody") };
+  }
+  function examCloseOverlay() {
+    const ov = document.getElementById("examOverlay"); if (ov) ov.remove();
+    EX_STATE = null;
+  }
   async function examStartServer(cid) {
-    const bx = $("exWrap_" + cid); if (!bx) return;
-    bx.style.display = ""; bx.innerHTML = '<div class="pd" style="text-align:center">⏳ परीक्षा तैयार हो रही है…</div>';
+    const { card } = examOverlayEls();
+    card.innerHTML = '<div style="padding:60px 20px;text-align:center;color:var(--navy)">⏳ परीक्षा तैयार हो रही है…</div>';
     try {
       const out = await httpsCallable(functions, "startCourseExam")({ courseId: cid });
       const d = out.data || {};
       EX_STATE = { attemptId: d.attemptId, cid: cid, name: d.name, total: d.total, pass: d.pass,
         questions: d.questions || [], idx: 0, answers: new Array(d.total).fill(-1) };
-      examRenderServer(bx);
+      examRenderServer();
     } catch (e) {
-      bx.innerHTML = '<div class="pd" style="color:#B71C1C;text-align:center">परीक्षा शुरू नहीं हुई: ' + esc((e && e.message) || e) + '</div>';
+      card.innerHTML = '<div style="padding:40px 20px;text-align:center">'+
+        '<div style="font-size:15px;color:#B71C1C;font-weight:700;margin-bottom:16px">परीक्षा शुरू नहीं हुई: '+esc((e && e.message) || e)+'</div>'+
+        '<button class="examBtn next" style="max-width:220px;margin:0 auto" onclick="document.getElementById(\'examOverlay\').remove()">बंद करें</button></div>';
     }
   }
-  function examRenderServer(bx) {
+  function examRenderServer() {
     const S = EX_STATE; if (!S) return;
+    const { card } = examOverlayEls();
     const q = S.questions[S.idx];
     const answered = S.answers.filter(function (a) { return a >= 0; }).length;
     const pct = Math.round((S.idx + 1) * 100 / S.total);
-    let h = '<div class="pd" style="text-align:left"><b>' + esc(S.name) + '</b> · pass = ' + S.pass + '%</div>';
-    h += '<div class="note">प्रश्न ' + (S.idx + 1) + ' / ' + S.total + ' · भरे: ' + answered + '/' + S.total + '</div>';
-    h += '<div style="height:8px;background:#e0e0e0;border-radius:4px;overflow:hidden;margin:6px 0"><div style="height:100%;width:' + pct + '%;background:var(--blue)"></div></div>';
-    h += '<div class="pd" style="text-align:left"><b>' + (S.idx + 1) + '.</b> ' + esc(q.t) + '<br>';
+    let h = '<div class="examTop"><div class="examTopRow">'+
+      '<div><div class="examName">'+esc(S.name)+'</div><div class="examPassNote">पास होने के लिए '+S.pass+'% चाहिए</div></div>'+
+      '<button class="examExitBtn" id="examExitBtn" type="button" aria-label="बंद करें">✕</button>'+
+      '</div>'+
+      '<div class="examCountWrap"><span class="examQNum">'+(S.idx + 1)+'</span><span class="examQTot">/ '+S.total+'</span>'+
+      '<span class="examFilled">भरे '+answered+'/'+S.total+'</span></div>'+
+      '<div class="examProgWrap"><div class="examProgBar" style="width:'+pct+'%"></div></div>'+
+      '</div>';
+    h += '<div class="examBody"><div class="examQArea">'+
+      '<div class="examQText">'+esc(q.t)+'</div>';
     q.o.forEach(function (op, j) {
-      const checked = (S.answers[S.idx] === j) ? " checked" : "";
-      h += '<label style="display:block;margin:6px 0"><input type="radio" name="exq" value="' + j + '"' + checked + '> ' + esc(op) + '</label>';
+      const sel = S.answers[S.idx] === j;
+      h += '<label class="examOptRow'+(sel ? ' sel' : '')+'">'+
+        '<input type="radio" name="exq" value="'+j+'"'+(sel ? ' checked' : '')+'>'+
+        '<span class="examOptBadge">'+OPT_LABEL[j]+'</span>'+
+        '<span class="examOptText">'+esc(op)+'</span></label>';
     });
-    h += '</div>';
-    h += '<div style="display:flex;gap:8px;justify-content:space-between">' +
-      '<button class="crsgo" id="exPrev" type="button"' + (S.idx === 0 ? ' disabled' : '') + '>◀ पिछला</button>' +
+    h += '</div></div>';
+    h += '<div class="examMsgBar" id="exMsg"></div>';
+    h += '<div class="examFoot">'+
+      '<button class="examBtn prev" id="exPrev" type="button"'+(S.idx === 0 ? ' disabled' : '')+'>◀ पिछला</button>'+
       (S.idx < S.total - 1
-        ? '<button class="crsgo" id="exNext" type="button">अगला ▶</button>'
-        : '<button class="crsgo" id="exFinish" type="button">📨 जमा करें</button>') +
-      '</div><div class="note" id="exMsg"></div>';
-    bx.innerHTML = h;
+        ? '<button class="examBtn next" id="exNext" type="button">अगला ▶</button>'
+        : '<button class="examBtn finish" id="exFinish" type="button">📨 जमा करें</button>')+
+      '</div>';
+    card.innerHTML = h;
+    /* क्लिक कहीं भी row पर हो तो radio चुने — बड़ा छूने-लायक़ क्षेत्र */
+    card.querySelectorAll(".examOptRow").forEach(function (row) {
+      row.addEventListener("click", function () {
+        const r = row.querySelector('input[type="radio"]'); if (r) r.checked = true;
+        card.querySelectorAll(".examOptRow").forEach(function (rr) { rr.classList.remove("sel"); });
+        row.classList.add("sel");
+      });
+    });
   }
   function examSaveCurrent() {
     const S = EX_STATE; if (!S) return;
     const r = document.querySelector('input[name="exq"]:checked');
     if (r) S.answers[S.idx] = Number(r.value);
   }
-  function examBox(cid,bank){
+  function examRenderResult(d) {
+    const { card } = examOverlayEls();
+    const passCls = d.pass ? "pass" : "fail";
+    const emoji = d.pass ? "🎉" : "😔";
+    let h = '<div style="padding:32px 20px 26px">'+
+      '<div class="examResBadge '+passCls+'">'+emoji+'</div>'+
+      '<div class="examResTitle">'+(d.pass ? "पास! 🎓" : "इस बार नहीं")+'</div>'+
+      '<div class="examResSub">'+(d.pass ? "बधाई — अब ₹125 में प्रमाणपत्र ले सकते हैं" : "दोबारा दे सकते हैं — कमज़ोर हिस्सा पहचानकर अभ्यास करें")+'</div>'+
+      '<div class="examResNums">'+
+        '<div class="examResNum"><b>'+d.score+'</b><span>सही</span></div>'+
+        '<div class="examResNum"><b>'+d.total+'</b><span>कुल</span></div>'+
+        '<div class="examResNum"><b>'+d.pct+'%</b><span>अंक</span></div>'+
+      '</div>'+
+      '<button class="examBtn '+(d.pass ? "finish" : "next")+'" id="examResClose" type="button" style="width:100%">ठीक है, बंद करें</button>'+
+      '</div>';
+    card.innerHTML = h;
+  }
     let h='<div class="pd" style="text-align:left"><b>'+esc(bank.name)+'</b> · pass = '+bank.pass+'%</div>';
     bank.q.forEach(function(qq,i){
       /* (v5.9) बड़े बैंक (setSize) पर सेट-शीर्षक: 40 का सेट-1/2/3 */
@@ -1422,29 +1535,43 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       const bx=$("exWrap_"+cid);
       if(bx){ bx.style.display=""; bx.innerHTML=examBox(cid, window.COURSE_EXAMS[cid]); } return; }
     const epv=ev.target.closest("#exPrev");
-    if(epv){ examSaveCurrent(); if(EX_STATE && EX_STATE.idx>0){ EX_STATE.idx--; examRenderServer($("exWrap_"+EX_STATE.cid)); } return; }
+    if(epv){ examSaveCurrent(); if(EX_STATE && EX_STATE.idx>0){ EX_STATE.idx--; examRenderServer(); } return; }
     const enx=ev.target.closest("#exNext");
     if(enx){ const S=EX_STATE; if(!S) return;
       const r=document.querySelector('input[name="exq"]:checked');
       if(!r){ const m=$("exMsg"); if(m) m.textContent="जवाब चुनें, फिर अगला।"; return; }
-      examSaveCurrent(); if(S.idx<S.total-1) S.idx++; examRenderServer($("exWrap_"+S.cid)); return; }
+      examSaveCurrent(); if(S.idx<S.total-1) S.idx++; examRenderServer(); return; }
+    const eex=ev.target.closest("#examExitBtn");
+    if(eex){ const S=EX_STATE; if(!S) return; examSaveCurrent();
+      const foot=document.querySelector(".examFoot"); const msg=$("exMsg");
+      if(foot) foot.style.display="none"; if(msg) msg.textContent="";
+      const card=document.getElementById("examCardBody");
+      if(card){ const conf=document.createElement("div"); conf.className="examExitConfirm";
+        conf.innerHTML='<p>पक्का बाहर निकलें? अभी तक के जवाब नहीं बचेंगे — दोबारा शुरू करना होगा।</p>'+
+          '<div class="examExitRow"><button class="examBtn prev" id="exExitCancel" type="button">नहीं, जारी रखें</button>'+
+          '<button class="examBtn next" id="exExitYes" type="button" style="background:#B71C1C">हाँ, निकलें</button></div>';
+        card.appendChild(conf); }
+      return; }
+    const eyx=ev.target.closest("#exExitYes");
+    if(eyx){ examCloseOverlay(); return; }
+    const enc=ev.target.closest("#exExitCancel");
+    if(enc){ examRenderServer(); return; }
     const efn=ev.target.closest("#exFinish");
     if(efn){ const S=EX_STATE; if(!S) return;
       examSaveCurrent();
       const missIdx=S.answers.findIndex(function(a){return a<0;});
-      if(missIdx>=0){ S.idx=missIdx; examRenderServer($("exWrap_"+S.cid));
+      if(missIdx>=0){ S.idx=missIdx; examRenderServer();
         const m=$("exMsg"); if(m) m.textContent="प्रश्न "+(missIdx+1)+" अधूरा है — भरकर आगे बढ़ें।"; return; }
       efn.disabled=true; const m0=$("exMsg"); if(m0) m0.textContent="⏳ जाँच हो रही है…";
       try{ const out=await httpsCallable(functions,"submitCourseExam")({attemptId:S.attemptId, answers:S.answers});
         const d=out.data||{};
-        const bx=$("exWrap_"+S.cid);
-        if(bx) bx.innerHTML='<div class="pd" style="text-align:center">'+
-          (d.pass?'🎉 <b>पास!</b> ':'😔 इस बार नहीं — दोबारा दे सकते हैं। ')+
-          'अंक: '+d.score+'/'+d.total+' ('+d.pct+'%)</div>';
+        examRenderResult(d);
         EX_STATE=null;
         await loadExamState(); setTimeout(function(){ crsMineFill(); },1200);
       }catch(e){ const m=$("exMsg"); if(m) m.textContent="त्रुटि: "+((e&&e.message)||e); efn.disabled=false; }
       return; }
+    const erc=ev.target.closest("#examResClose");
+    if(erc){ examCloseOverlay(); return; }
     const sb=ev.target.closest("#exSubmit");
     if(sb){ const cid=sb.getAttribute("data-exid"); const bank=window.COURSE_EXAMS[cid];
       const ans=[]; let miss=false;
