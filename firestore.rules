@@ -1,6 +1,9 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
-   ACS Firestore Security Rules — v8
+   ACS Firestore Security Rules — v10
+   v10 (30-Jul, होल-1): aptitudeResults — final-submit पर server-save
+   हुआ नतीजा-सार; पढ़े: मालिक (uid) · Founder · active-Admin; लिखे:
+   कोई नहीं (सिर्फ़ server-functions)। deploy office से।
    v8 (28-Jul, काम-9अ): नामांकन-खाता — offerings (कोर्स-घोषणा: बेनाम
    seat-गिनती, login-भर पढ़े) + enrollments (पढ़े: केंद्र-अपना ·
    विद्यार्थी-अपना · Founder · active-Admin)। लिखे कोई नहीं — सब server से।
@@ -125,6 +128,12 @@ service cloud.firestore {
       allow write: if false;
     }
     match /certificates/{cid} {
+      allow read: if request.auth != null &&
+        (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+    /* ── (30-Jul v10, होल-1) अभिरुचि-नतीजा सार — मुफ़्त server-save ── */
+    match /aptitudeResults/{rid} {
       allow read: if request.auth != null &&
         (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
       allow write: if false;

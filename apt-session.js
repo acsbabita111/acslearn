@@ -1,5 +1,9 @@
 /* ============================================================
-   /assets/apt-session.js — v1.1 (अभिरुचि पूरा-टेस्ट session-इंजन · बैज-द्वार)
+   /assets/apt-session.js — v1.2 (नतीजा खाते में भी — server-save · होल-1)
+   v1.2 · 30-Jul-2026 (Founder-override v4.0-ख1): final-submit पर नतीजे का सार
+   login-खाते में server-save (apt-pay.js → saveAptitudeResult); नए फ़ोन पर
+   "पिछला हिसाब" खाते से (latestAptitudeResult)। जवाब यथावत device-local;
+   मुफ़्त-झलक (बिना login) यथावत device-local।
    v1.1 · 22-Jul-2026: बैज-द्वार — पूरा टेस्ट सिर्फ़ बैज-निशान (acs_apt_gate_v1)
    वालों को; बिना निशान = द्वार-कार्ड (Jio-नियम v3.7-क अ/ब का अमल)।
    v1.0 (अभिरुचि पूरा-टेस्ट session-इंजन · नींव-दौर)
@@ -11,7 +15,8 @@
    - घड़ी रास्ता-अ: सिर्फ़ खुले पन्ने पर चले — पन्ना बंद = घड़ी रुके,
      लौटने पर वहीं से (Founder-फ़ैसला, 20-Jul)।
    - नियंत्रक = शुद्ध गणित (v4.1-क7) — चयन व scoring में AI शून्य।
-   - जवाब-नतीजा device-local (localStorage) — server पर कुछ नहीं (DPDP)।
+   - जवाब device-local (localStorage); नतीजे का सार login पर खाते (server)
+     में भी — Founder-override 30-Jul (v4.0-ख1 का device-only वाक्य निरस्त)।
    - भंडार आलसी-load: आधार-फ़ाइल का pool-नक़्शा → broad.js (खंड-1) →
      शीर्ष MG के mgNN.js (खंड-2/3) → नतीजे पर udyam_data.js।
    - attempt-घुमाव: इस्तेमाल हुए प्रश्न दर्ज — अगला प्रयास ताज़ा प्रश्न;
@@ -106,6 +111,29 @@
           hc.innerHTML = hh;
         } else {
           hc.innerHTML = '<p class="apt-q">📊 पिछला हिसाब</p><p>अभी कोई पूरा टेस्ट दर्ज नहीं — नीचे से पहला टेस्ट शुरू कीजिए।</p>';
+          /* (30-Jul होल-1) फ़ोन बदला? — खाते (server) से पिछला नतीजा लाओ।
+             apt-pay.js देर से आए तो 2.5s बाद एक बार फिर। H-2 सीख: server से
+             आए पाठ में < > हटाकर ही छापो। */
+          var srvTry = function () {
+            if (!(window.ACS_APT_PAY && window.ACS_APT_PAY.latestResult)) return false;
+            window.ACS_APT_PAY.latestResult(function (r) {
+              var p = r && r.prev;
+              if (!p || !p.udy || !p.udy.length) return;
+              var cl = function (t) { return String(t == null ? '' : t).replace(/[<>]/g, ''); };
+              var hh2 = '<p class="apt-q">📊 पिछला हिसाब — ☁️ आपके खाते से (' + new Date(p.at).toLocaleDateString('hi-IN') + ')</p>' +
+                '<p>⭐ सुझाए सेक्टर: ' + (p.mg || []).map(function (n) { return '<span class="apt-chip">' + cl(n) + '</span>'; }).join(' ') + '</p>' +
+                '<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">';
+              p.udy.forEach(function (u, i) {
+                var c = String(u.c || ''); if (c.charAt(0) !== '/') c = '';
+                hh2 += '<div class="apt-row">' + (i + 1) + '. ' +
+                  (c ? '<a href="' + c + '" style="color:inherit;text-decoration:underline">' + cl(u.nm) + '</a>' : cl(u.nm)) + '</div>';
+              });
+              hh2 += '</div><p class="apt-hint">यह आपके खाते में सुरक्षित है — किसी भी फ़ोन से login कर देख सकते हैं।</p>';
+              hc.innerHTML = hh2;
+            });
+            return true;
+          };
+          if (!srvTry()) setTimeout(srvTry, 2500);
         }
         sb.parentNode.insertBefore(hc, sb);
       }
@@ -322,7 +350,7 @@
       html += '<p>पहले अपना जन्म का साल चुनिए (सिर्फ़ आपके फ़ोन में रहेगा):</p>' +
         '<div class="apt-nav"><select id="apt-yob" class="apt-sel">' + yearOpts() + '</select> ' +
         '<button class="apt-btn green" id="apt-go">🚀 शुरू करें</button></div>' +
-        '<div class="apt-note">🔒 जवाब और नतीजा सिर्फ़ आपके फ़ोन में — कहीं भेजे नहीं जाते।</div>';
+        '<div class="apt-note">🔒 आपके जवाब फ़ोन में रहते हैं। login हो तो नतीजे का सार आपके खाते में भी अपने-आप सुरक्षित होता है — फ़ोन बदलने पर भी वही मिलेगा।</div>';
     }
     html += '</div>';
     box.innerHTML = html;
@@ -704,6 +732,11 @@
         udy: picks.slice(0, 8).map(function (p) {
           return { n: p.u.n, nm: String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')'), c: p.u.course || '', s: Math.round((p.score || 0) * 10) / 10 }; }) };
       save(S);
+      /* (30-Jul होल-1, Founder-override v4.0-ख1) login हो तो नतीजे का सार खाते
+         में भी — फ़ोन बदलने पर नतीजा न खोए। fail = चुपचाप, नतीजा कभी न रुके। */
+      if (window.ACS_APT_PAY && window.ACS_APT_PAY.saveResult) {
+        try { window.ACS_APT_PAY.saveResult(S.prev); } catch (e) {}
+      }
       picks = picks.slice(0, 5);
       var h = '';
       if (byClock) h += '<div class="apt-note">⏱ 90 मिनट पूरे — जितने जवाब मिले, उन्हीं से नतीजा बना।</div>';
