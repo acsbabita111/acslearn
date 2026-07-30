@@ -224,7 +224,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
   border-radius:999px;padding:8px 20px;text-decoration:none}
 .crsring{display:flex;align-items:center;gap:12px;justify-content:center;margin:6px 0}
 .crssteps{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
-.crsstep{font-size:15px;font-weight:800;border-radius:999px;padding:5px 12px;background:#eef2f8;color:#7a8aa0}
+.crsstep{font-size:16px;font-weight:800;border-radius:999px;padding:5px 12px;background:#eef2f8;color:#7a8aa0} /* (30-Jul) 15px→16px — फ़ॉन्ट-नियम होल बंद */
 .crsstep.on{background:var(--green);color:#fff}
 .crsstep.cur{background:var(--gold);color:var(--navy)}
 
@@ -319,3 +319,9 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
   .lvc[data-h]::before{content:attr(data-h)": ";color:#5A6B85;font-weight:700}
   .lvc-prog[data-h]::before{content:""}
 }
+
+/* (30-Jul सुधार-5ख, Founder) "✅ जुड़ गया" / ➕ जोड़ें — पढ़ें-बटन के नीचे
+   1 पूरी लाइन (block, center, कभी न टूटे) */
+.crsjoined{display:block;width:max-content;max-width:100%;margin:8px auto 0;
+  white-space:nowrap;font-size:16px}
+.crsjoinbtn{display:block;width:max-content;max-width:100%;margin:8px auto 0;white-space:nowrap}

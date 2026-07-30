@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.6.1 · 30-Jul-2026 (Founder-सुधार-5) — (क) तालिका दो-चरण: पहले इसी फ़ोन से
+        तुरंत (4 कोर्स फ़ौरन), फिर खाते से अंतिम; sync पर 8s-घड़ी; त्रुटि अब
+        readable (गूँगा-fallback निषेध)। (ख) कोर्स-कार्ड में "✅ जुड़ गया" नीचे
+        1 पूरी लाइन (block) + पहले-से-जुड़े पर सीधे chip (बटन नहीं)।
    v5.6 · 30-Jul-2026 (Founder-सुधार-4) — "मेरी कोर्स प्रगति" तालिका (LearnVern-
         रूप): स्तंभ कोर्स|प्रगति|परीक्षा|प्रमाणपत्र|कार्रवाई; प्रगति अब server-सच
         (syncLearnProgress — local∪server, मशीन बदले तो भी वही); profile-tile भी
@@ -303,7 +307,10 @@ function syncLearnProgress(){
     let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
     const read=Object.keys(d.read||{}), days=Object.keys(d.days||{});
     try{
-      const r=await httpsCallable(functions,"syncLearnProgress")({read:read,days:days});
+      const r=await Promise.race([
+        httpsCallable(functions,"syncLearnProgress")({read:read,days:days}),
+        new Promise(function(_,rj){ setTimeout(function(){ rj(new Error("समय-सीमा")); },8000); })
+      ]);
       const x=(r&&r.data)||{};
       if(x.ok && Array.isArray(x.read)){
         const nr={},nd={}; x.read.forEach(u=>{nr[u]=1;}); (x.days||[]).forEach(u=>{nd[u]=1;});
@@ -1139,8 +1146,10 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       row.innerHTML = '<div class="crsban">📚</div><div class="crsbody">'+
         '<div class="crsname">'+noSq(c.name_hi||c.name_en||"—")+'</div>'+
         '<div class="crsmeta">'+meta+'</div>'+
-        (c.url?'<a class="crsgo" href="'+c.url+'">▶ पढ़ें — मुफ़्त</a> '+
-          '<button class="abtn" type="button" data-enroll="'+c.id+'" style="margin-top:6px">➕ मेरी पढ़ाई में जोड़ें</button>'
+        (c.url?'<a class="crsgo" href="'+c.url+'">▶ पढ़ें — मुफ़्त</a>'+
+          (enrGet()[c.id]
+            ? '<span class="crsstep on crsjoined">✅ जुड़ गया</span>'
+            : '<button class="abtn crsjoinbtn" type="button" data-enroll="'+c.id+'">➕ मेरी पढ़ाई में जोड़ें</button>')
           :'<span class="note">पाठ जल्द जुड़ेंगे</span>')+
         '</div>';
       box.appendChild(row);
@@ -1177,65 +1186,73 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   document.addEventListener("click", function(ev){
     const b=ev.target.closest("[data-enroll]"); if(!b) return;
     enrAdd(b.getAttribute("data-enroll"));
-    b.outerHTML='<span class="crsstep on">✅ जुड़ गया</span>';
+    b.outerHTML='<span class="crsstep on crsjoined">✅ जुड़ गया</span>';
     crsMineFill();
   });
   async function crsMineFill(){
     const bx=$("crsMine"); if(!bx) return;
-    await loadExamState();
-    /* (30-Jul सुधार-4) प्रगति = server-सच (union) — मशीन बदले, तालिका वही */
+    /* (30-Jul सुधार-5) दो-चरण चित्रण: चरण-1 = इसी फ़ोन के आँकड़ों से तालिका
+       तुरंत (जुड़े कोर्स फ़ौरन दिखें); चरण-2 = खाते (server) से मिलाकर अंतिम।
+       कोई रुकावट तालिका कभी न रोके — त्रुटि पर readable संदेश (v2.3)। */
+    function localD(){ try{ return JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){ return {}; } }
+    function draw(dd, phase){
+     try{
+      const read=(dd&&dd.read)||{}, byC={};
+      for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
+      const ENR=enrGet(); const mine=[];
+      CRS_ALL.forEach(function(x){ const c=x&&x.c; if(!c) return;
+        const started = c.url && byC[c.url];
+        if(started && !ENR[c.id]) enrAdd(c.id);
+        if(enrGet()[c.id] || started) mine.push({c:c, n:(c.url&&byC[c.url])||0, at:(enrGet()[c.id]||{}).at||Date.now()}); });
+      const doneN=mine.filter(function(m){var t=Number(m.c.lessons)||0;return t&&m.n>=t;}).length;
+      const certN=Object.keys(CERT_BY).length;
+      const sumBar='<div class="lvsum">'+
+        '<div class="lvstat"><div class="lvnum" style="color:var(--blue)">'+mine.length+'</div><div class="lvlbl">शुरू किए</div></div>'+
+        '<div class="lvstat"><div class="lvnum" style="color:var(--green)">'+doneN+'</div><div class="lvlbl">पूरे</div></div>'+
+        '<div class="lvstat"><div class="lvnum" style="color:var(--gold)">'+certN+'</div><div class="lvlbl">📜 प्रमाणपत्र</div></div></div>';
+      if(!mine.length){ bx.innerHTML=sumBar+'<div class="pd" style="text-align:center">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से "➕ जोड़ें" या पहला पाठ खोलिए।</div>'; return; }
+      let h=sumBar+'<div class="lvtbl">'+
+        '<div class="lvthead"><span>कोर्स</span><span>प्रगति</span><span>परीक्षा</span><span>प्रमाणपत्र</span><span></span></div>';
+      mine.forEach(function(m){
+        const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
+        const bank=(window.COURSE_EXAMS||{})[m.c.id];
+        const canExam=bank && m.n>=bank.minLessons;
+        const res=EXAM_RES[m.c.id]||null, cert=res?CERT_BY[res.id]:null;
+        let ex;
+        if(res) ex='<span class="lvok">📄 '+res.pct+'%'+((res.pct>=60)?' ✅':' ❌')+'</span>';
+        else if(canExam) ex='<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
+        else if(bank) ex='<span class="lvmut">🔒 '+bank.minLessons+' पाठ बाद</span>';
+        else ex='<span class="lvmut">—</span>';
+        let ct;
+        if(cert) ct='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ Download</button>';
+        else if(res && res.pct>=60) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
+        else ct='<span class="lvmut">—</span>';
+        const go = done ? '<span class="lvok">🏆 पूरा</span>'
+          : '<a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
+        h+='<div class="lvtrow">'+
+          '<span class="lvc lvc-name"><span class="lvic2">'+(done?'🏆':'📚')+'</span><span class="lvnw">'+
+            '<span class="lvname">'+esc(rb(m.c.name_hi||m.c.id))+'</span>'+
+            '<span class="lvsub">📅 '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ</span></span></span>'+
+          '<span class="lvc lvc-prog" data-h="प्रगति"><span class="lvpc"><b>'+pc+'%</b> पूरा'+(done?' 🏆':'')+'</span>'+
+            '<span class="lvbar2'+(done?' done':'')+'"><i style="width:'+Math.max(pc,3)+'%"></i></span></span>'+
+          '<span class="lvc" data-h="परीक्षा">'+ex+'</span>'+
+          '<span class="lvc" data-h="प्रमाणपत्र">'+ct+'</span>'+
+          '<span class="lvc">'+go+'</span>'+
+        '</div><div id="exWrap_'+esc(m.c.id)+'" style="display:none"></div>';
+      });
+      h+='</div>';
+      h+= phase==="wait"  ? '<div class="note" style="text-align:center">⏳ खाते से मिलान हो रहा है…</div>'
+        : phase==="cloud" ? '<div class="note" style="text-align:center">☁️ प्रगति आपके खाते से — किसी भी फ़ोन पर वही रहेगी।</div>'
+        :                   '<div class="note" style="text-align:center">📴 अभी इसी फ़ोन की प्रगति — network/खाता जुड़ते ही सब फ़ोन एक हो जाएँगे।</div>';
+      bx.innerHTML=h;
+     }catch(e){
+      bx.innerHTML='<div class="pd" style="color:#B71C1C;text-align:center">तालिका नहीं बनी: '+esc((e&&e.message)||String(e))+' — पन्ना दोबारा खोलें।</div>';
+     }
+    }
+    draw(localD(),"wait");                              /* चरण-1: तुरंत */
+    try{ await loadExamState(); }catch(e){}
     const sp=await syncLearnProgress();
-    const read=(sp.d&&sp.d.read)||{}, byC={};
-    for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
-    const ENR=enrGet(); const mine=[];
-    CRS_ALL.forEach(function(x){ const c=x&&x.c; if(!c) return;
-      const started = c.url && byC[c.url];
-      if(started && !ENR[c.id]) enrAdd(c.id);
-      if(enrGet()[c.id] || started) mine.push({c:c, n:(c.url&&byC[c.url])||0, at:(enrGet()[c.id]||{}).at||Date.now()}); });
-    const doneN=mine.filter(function(m){var t=Number(m.c.lessons)||0;return t&&m.n>=t;}).length;
-    const certN=Object.keys(CERT_BY).length;
-    const sumBar='<div class="lvsum">'+
-      '<div class="lvstat"><div class="lvnum" style="color:var(--blue)">'+mine.length+'</div><div class="lvlbl">शुरू किए</div></div>'+
-      '<div class="lvstat"><div class="lvnum" style="color:var(--green)">'+doneN+'</div><div class="lvlbl">पूरे</div></div>'+
-      '<div class="lvstat"><div class="lvnum" style="color:var(--gold)">'+certN+'</div><div class="lvlbl">📜 प्रमाणपत्र</div></div></div>';
-    if(!mine.length){ bx.innerHTML=sumBar+'<div class="pd" style="text-align:center">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से "➕ जोड़ें" या पहला पाठ खोलिए।</div>'; return; }
-    /* (Founder-फ़ोटो रूप) तालिका: कोर्स | प्रगति | परीक्षा | प्रमाणपत्र | कार्रवाई */
-    let h=sumBar+'<div class="lvtbl">'+
-      '<div class="lvthead"><span>कोर्स</span><span>प्रगति</span><span>परीक्षा</span><span>प्रमाणपत्र</span><span></span></div>';
-    mine.forEach(function(m){
-      const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
-      const bank=(window.COURSE_EXAMS||{})[m.c.id];
-      const canExam=bank && m.n>=bank.minLessons;
-      const res=EXAM_RES[m.c.id]||null, cert=res?CERT_BY[res.id]:null;
-      /* स्तंभ-3: परीक्षा (Founder बिंदु-4 — प्रगति व प्रमाणपत्र के बीच) */
-      let ex;
-      if(res) ex='<span class="lvok">📄 '+res.pct+'%'+((res.pct>=60)?' ✅':' ❌')+'</span>';
-      else if(canExam) ex='<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
-      else if(bank) ex='<span class="lvmut">🔒 '+bank.minLessons+' पाठ बाद</span>';
-      else ex='<span class="lvmut">—</span>';
-      /* स्तंभ-4: प्रमाणपत्र */
-      let ct;
-      if(cert) ct='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ Download</button>';
-      else if(res && res.pct>=60) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
-      else ct='<span class="lvmut">—</span>';
-      /* स्तंभ-5: कार्रवाई */
-      const go = done ? '<span class="lvok">🏆 पूरा</span>'
-        : '<a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
-      h+='<div class="lvtrow">'+
-        '<span class="lvc lvc-name"><span class="lvic2">'+(done?'🏆':'📚')+'</span><span class="lvnw">'+
-          '<span class="lvname">'+esc(rb(m.c.name_hi||m.c.id))+'</span>'+
-          '<span class="lvsub">📅 '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ</span></span></span>'+
-        '<span class="lvc lvc-prog" data-h="प्रगति"><span class="lvpc"><b>'+pc+'%</b> पूरा'+(done?' 🏆':'')+'</span>'+
-          '<span class="lvbar2'+(done?' done':'')+'"><i style="width:'+Math.max(pc,3)+'%"></i></span></span>'+
-        '<span class="lvc" data-h="परीक्षा">'+ex+'</span>'+
-        '<span class="lvc" data-h="प्रमाणपत्र">'+ct+'</span>'+
-        '<span class="lvc">'+go+'</span>'+
-      '</div><div id="exWrap_'+esc(m.c.id)+'" style="display:none"></div>';
-    });
-    h+='</div>';
-    h+= sp.srv ? '<div class="note" style="text-align:center">☁️ प्रगति आपके खाते से — किसी भी फ़ोन पर वही रहेगी।</div>'
-               : '<div class="note" style="text-align:center">📴 अभी इसी फ़ोन की प्रगति — network/खाता जुड़ते ही सब फ़ोन एक हो जाएँगे।</div>';
-    bx.innerHTML=h;
+    draw(sp.d, sp.srv?"cloud":"local");                 /* चरण-2: अंतिम */
   }
   /* 🧭 रिपोर्ट के कोर्स — आख़िरी अभिरुचि-रिपोर्ट से */
   function crsReportFill(){
