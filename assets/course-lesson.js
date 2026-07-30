@@ -1,6 +1,11 @@
 /* ============================================================
-   ACS course-lesson.js v1.0 — पाठ की आवाज़-सुविधा (🔊)
-   काम-कोर्स-2 · 17-Jul-2026
+   ACS course-lesson.js v1.3 — आवाज़ 🔊 + प्रगति-दर्ज + तैरती ⏱ सक्रिय-घड़ी
+   v1.3 · 30-Jul-2026 (Founder हलचल-नियम): 10s हलचल-शून्य/छिपा-tab = ⏸;
+   25s-दर्ज सक्रिय-सेकंड से; छत 30 मि/पेज; d.time-बचत; दो-घड़ी टकराव हटा।
+   v1.2 · 30-Jul-2026 (Founder: "अंधा पेज") — हर पाठ पर तैरता timer:
+   बीता-समय (ऊपर गिनता) + 25s उल्टी-गिनती + दर्ज होते ही हरा ✅ (+10)।
+   v1.1-सार: पाठ "पढ़ा" = नीचे-तक या 25s — जो पहले (गिनती-ईमानदारी)।
+   v1.0 · 17-Jul-2026 (काम-कोर्स-2) — आवाज़-सुविधा
    ------------------------------------------------------------
    browser की अपनी बोली-मशीन (Web Speech API, hi-IN) से —
    कोई server नहीं, कोई ख़र्च नहीं; Android के Chrome में हिंदी आवाज़ आती है।
@@ -146,15 +151,82 @@
       d.read[path] = Date.now(); d.days[ds] = 1;
       try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
       paint(true);
+      flPaint();   /* (v1.2) तैरता ⏱ तुरंत हरा हो */
     }
     paint(false);
+    /* ── (v1.2, Founder) तैरता ⏱ — "अंधा पेज" इलाज ──
+       ऊपर: पेज पर बीता समय (हमेशा गिनता, दर्ज-बाद भी);
+       नीचे: 25s उल्टी-गिनती/"नीचे तक" इशारा → दर्ज पर हरा ✅ (+10)।
+       style JS से inject — CSS-कड़ी न भी हो तो चले (गूँगा-fallback निषेध)। */
+    /* ── (v1.3, Founder हलचल-नियम) सक्रिय-सेकंड इंजन ──
+       चले तभी: पिछली हलचल <10s + tab दिखता + बैठक-छत (30 मि) बाक़ी।
+       हर 10 सक्रिय-सेकंड व पन्ना-छोड़ते समय d.time[कोर्स-घर] में बचत। */
+    var home = path.slice(0, path.lastIndexOf("/") + 1);
+    if (!d.time) d.time = {};
+    var baseT = Number(d.time[home]) || 0;
+    var sess = 0, accT = 0, lastAct = Date.now(), CAPS = 30 * 60;
+    function poke(){ lastAct = Date.now(); }
+    ["touchstart","mousemove","scroll","keydown","click"].forEach(function (ev) {
+      window.addEventListener(ev, poke, { passive: true });
+    });
+    function flushT(){
+      if (accT <= 0) return;
+      d.time[home] = (Number(d.time[home]) || 0) + accT; accT = 0;
+      try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+    }
+    function two(n){ n = Math.floor(n) % 60; return (n < 10 ? "0" : "") + n; }
+    function flBox(){
+      var f = document.getElementById("acsLsnTimer");
+      if (!f) {
+        var st = document.createElement("style");
+        st.textContent =
+          "#acsLsnTimer{position:fixed;right:12px;bottom:12px;z-index:9999;" +
+          "background:#0B1F3A;color:#F5F7FA;border:2px solid #F9A825;border-radius:16px;" +
+          "padding:10px 14px;font-size:18px;font-weight:900;line-height:1.5;" +
+          "box-shadow:0 4px 14px rgba(0,0,0,.35);text-align:center;max-width:78vw}" +
+          "#acsLsnTimer .fl2{display:block;font-size:16px;font-weight:700;color:#F9A825}" +
+          "#acsLsnTimer.done{background:#2E7D32;border-color:#66BB6A}" +
+          "#acsLsnTimer.done .fl2{color:#F5F7FA}";
+        document.head.appendChild(st);
+        f = document.createElement("div"); f.id = "acsLsnTimer";
+        document.body.appendChild(f);
+      }
+      return f;
+    }
+    function fmtT(sec){ var h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
+      return h ? (h + " घं " + m + " मि") : (m + " मि"); }
+    function flPaint(running){
+      var f = flBox();
+      var clock = "⏱ " + Math.floor(sess / 60) + ":" + two(sess) + (running ? "" : " ⏸");
+      var total = '<span class="fl2">कोर्स कुल: ' + fmtT(baseT + sess) + "</span>";
+      if (d.read[path]) {
+        f.className = "done";
+        f.innerHTML = clock + '<span class="fl2">✅ पाठ दर्ज (+10 अंक)</span>' + total;
+      } else {
+        var rem = Math.max(0, 25 - sess);
+        f.className = "";
+        f.innerHTML = clock + '<span class="fl2">📖 ' + rem + ' सेकंड (पढ़ते हुए) या नीचे तक — फिर दर्ज</span>' + total;
+      }
+    }
     var done = !!d.read[path];
     function chk() {
       if (done) return;
       if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 140)) { done = true; mark(); }
     }
     window.addEventListener("scroll", chk, false);
-    setTimeout(function () { if (!done) { done = true; mark(); } }, 25000);
+    setInterval(function () {
+      var running = (Date.now() - lastAct) < 10000 &&
+                    document.visibilityState !== "hidden" && sess < CAPS;
+      if (running) {
+        sess++; accT++;
+        if (accT >= 10) flushT();
+        if (!done && sess >= 25) { done = true; mark(); }
+      }
+      flPaint(running);
+    }, 1000);
+    document.addEventListener("visibilitychange", function () { if (document.hidden) flushT(); });
+    window.addEventListener("pagehide", flushT);
+    flPaint(true);
   } catch (e) {}
 })();
 

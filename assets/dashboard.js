@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.8 · 30-Jul-2026 (Founder-सुधार-8, ⏱ समय-तंत्र) — पाठ-घड़ी का समय
+        syncLearnProgress से delta-रूप में खाते में (दो फ़ोन के समय जुड़ें,
+        दोहरा-जोड़ असंभव: acs_time_sent बहीखाता); तालिका-पंक्ति में
+        '⏱ Xघं Yमि' = server-योग + बिना-भेजा हिस्सा — मशीन बदलो, समय वही।
    v5.7.1 · 30-Jul-2026 (होल-बंदी, ई-कॉमर्स जाँच से) — प्रगति-गिनती अब कोर्स-घर
         (crsHome/cntRead) exact-मिलान से: 3-स्तरीय पथ (/hi/digital/ecom/) व
         index.html-वाले url (printer/dca/ai) पर पुराना prefix-regex श्रेणी-स्तर पर
@@ -319,6 +323,19 @@ function crsHome(u){ u=String(u||""); if(!u) return "";
   return u; }
 function cntRead(read,u){ const h=crsHome(u); if(!h) return 0;
   let n=0; for(const k in read){ if(String(k).indexOf(h)===0) n++; } return n; }
+/* (v5.8) कोर्स पर बिताया समय = खाते का योग + अभी का बिना-भेजा हिस्सा */
+function courseTimeSec(u){
+  const h=crsHome(u); if(!h) return 0;
+  let srv=0,loc=0,sent=0;
+  try{ srv=Number((JSON.parse(localStorage.getItem("acs_time_srv")||"{}"))[h])||0; }catch(e){}
+  try{ const d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); loc=Number(((d&&d.time)||{})[h])||0; }catch(e){}
+  try{ sent=Number((JSON.parse(localStorage.getItem("acs_time_sent")||"{}"))[h])||0; }catch(e){}
+  return srv+Math.max(0,loc-sent);
+}
+function fmtMinHi(s){ s=Math.max(0,Math.floor(Number(s)||0));
+  if(s<60) return "1 मि से कम";
+  const m=Math.round(s/60); if(m<60) return m+" मि";
+  return Math.floor(m/60)+" घं "+(m%60)+" मि"; }
 let LP_SYNC=null;
 function syncLearnProgress(){
   if(LP_SYNC) return LP_SYNC;
@@ -328,16 +345,28 @@ function syncLearnProgress(){
     /* (v5.7) ➕-जुड़ाव भी खाते में — id+जुड़ने-तारीख़ */
     let E0={}; try{ E0=JSON.parse(localStorage.getItem("acs_my_courses")||"{}"); }catch(e){}
     const enr=Object.keys(E0).slice(0,300).map(k=>({id:k, at:(E0[k]&&E0[k].at)||Date.now()}));
+    /* (v5.8) समय-delta — पिछली-भेजी के बाद का नया समय ही जाए (दोहरा-जोड़ रोक) */
+    let SENT={}; try{ SENT=JSON.parse(localStorage.getItem("acs_time_sent")||"{}"); }catch(e){}
+    const TL=d.time||{}, timeAdd={};
+    Object.keys(TL).slice(0,50).forEach(k=>{
+      const dv=Math.floor((Number(TL[k])||0)-(Number(SENT[k])||0));
+      if(dv>0) timeAdd[k]=dv; });
     try{
       const r=await Promise.race([
-        httpsCallable(functions,"syncLearnProgress")({read:read,days:days,enr:enr}),
+        httpsCallable(functions,"syncLearnProgress")({read:read,days:days,enr:enr,timeAdd:timeAdd}),
         new Promise(function(_,rj){ setTimeout(function(){ rj(new Error("समय-सीमा")); },8000); })
       ]);
       const x=(r&&r.data)||{};
       if(x.ok && Array.isArray(x.read)){
         const nr={},nd={}; x.read.forEach(u=>{nr[u]=1;}); (x.days||[]).forEach(u=>{nd[u]=1;});
-        const out={read:nr,days:nd};
+        const out={read:nr,days:nd,time:TL};   /* (v5.8) घड़ी-योग मिटे नहीं */
         try{ localStorage.setItem("acs_learn_progress",JSON.stringify(out)); }catch(e){}
+        /* (v5.8) खाते का समय-योग + भेजा-बहीखाता */
+        if(x.time && typeof x.time==="object" && !Array.isArray(x.time)){
+          try{ localStorage.setItem("acs_time_srv",JSON.stringify(x.time)); }catch(e){}
+          const ns={}; Object.keys(TL).forEach(k=>{ ns[k]=Number(TL[k])||0; });
+          try{ localStorage.setItem("acs_time_sent",JSON.stringify(ns)); }catch(e){}
+        }
         /* (v5.7) खाते की ➕-सूची local में — पुराना server enr न दे तो local यथावत */
         if(x.enr && typeof x.enr==="object" && !Array.isArray(x.enr)){
           try{
@@ -1259,7 +1288,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         h+='<div class="lvtrow">'+
           '<span class="lvc lvc-name"><span class="lvic2">'+(done?'🏆':'📚')+'</span><span class="lvnw">'+
             '<span class="lvname">'+esc(noSq(m.c.name_hi||m.c.id))+'</span>'+   /* (v5.6.2) rb→noSq: rb k9-IIFE में क़ैद था — scope-होल */
-            '<span class="lvsub">📅 '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ</span></span></span>'+
+            '<span class="lvsub">📅 '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ · ⏱ '+fmtMinHi(courseTimeSec(m.c.url))+'</span></span></span>'+
           '<span class="lvc lvc-prog" data-h="प्रगति"><span class="lvpc"><b>'+pc+'%</b> पूरा'+(done?' 🏆':'')+'</span>'+
             '<span class="lvbar2'+(done?' done':'')+'"><i style="width:'+Math.max(pc,3)+'%"></i></span></span>'+
           '<span class="lvc" data-h="परीक्षा">'+ex+'</span>'+
