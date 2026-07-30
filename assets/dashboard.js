@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.7.1 · 30-Jul-2026 (होल-बंदी, ई-कॉमर्स जाँच से) — प्रगति-गिनती अब कोर्स-घर
+        (crsHome/cntRead) exact-मिलान से: 3-स्तरीय पथ (/hi/digital/ecom/) व
+        index.html-वाले url (printer/dca/ai) पर पुराना prefix-regex श्रेणी-स्तर पर
+        कटता था — printer कभी गिना ही नहीं जा सकता था; अब सब सही।
    v5.7 · 30-Jul-2026 (सुधार-6, Founder: "लैपटॉप 4 / मोबाइल 2 — माजरा?") —
         ➕-जुड़ाव (acs_my_courses) भी अब syncLearnProgress-union में: हर फ़ोन
         पर एक ही कोर्स-सूची (v302 का दर्ज enroll-होल बंद)। पुराना server
@@ -307,6 +311,14 @@ document.addEventListener("change", async function(ev){
    जाए, ग्राफ न बदले"। एक बार प्रति-boot: local∪server → server (union), जवाब
    local में भी। function deploy न हो/offline = local से (चुपचाप, कभी न अटके)।
    नोट: read/days के मान 1 पर सामान्यीकृत (गिनती key-आधारित ही थी)। */
+/* (v5.7.1) कोर्स-घर पथ: url से index.html/फ़ाइल-नाम हटाकर folder/ — गिनती
+   exact-startsWith से (prefix-regex 3-स्तरीय पथों पर ग़लत कटता था)। */
+function crsHome(u){ u=String(u||""); if(!u) return "";
+  u=u.split("#")[0].split("?")[0];
+  if(u.charAt(u.length-1)!=="/") u=u.slice(0,u.lastIndexOf("/")+1);
+  return u; }
+function cntRead(read,u){ const h=crsHome(u); if(!h) return 0;
+  let n=0; for(const k in read){ if(String(k).indexOf(h)===0) n++; } return n; }
 let LP_SYNC=null;
 function syncLearnProgress(){
   if(LP_SYNC) return LP_SYNC;
@@ -364,13 +376,12 @@ function perfCourseStats(){
                (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[],
                (typeof GOVT_JOB_COURSES!=="undefined")?GOVT_JOB_COURSES:[]];
       let E={}; try{ E=JSON.parse(localStorage.getItem("acs_my_courses")||"{}"); }catch(e){}
-      const read=(sp.d&&sp.d.read)||{}, byC={};
-      for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
+      const read=(sp.d&&sp.d.read)||{};
       let reg=0, done=0;
       L.forEach(arr=>(arr||[]).forEach(c=>{
         if(!c) return;
-        const started=c.url&&byC[c.url];
-        if(E[c.id]||started){ reg++; const t=Number(c.lessons)||0; if(t&&started&&byC[c.url]>=t) done++; }
+        const started=cntRead(read,c.url);   /* (v5.7.1) exact-मिलान */
+        if(E[c.id]||started){ reg++; const t=Number(c.lessons)||0; if(t&&started>=t) done++; }
       }));
       setTxt("perfCrsReg",String(reg)); setTxt("perfCrsDone",String(done));
     }catch(e){} });
@@ -1214,13 +1225,12 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     function localD(){ try{ return JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){ return {}; } }
     function draw(dd, phase){
      try{
-      const read=(dd&&dd.read)||{}, byC={};
-      for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
+      const read=(dd&&dd.read)||{};
       const ENR=enrGet(); const mine=[];
       CRS_ALL.forEach(function(x){ const c=x&&x.c; if(!c) return;
-        const started = c.url && byC[c.url];
+        const started = cntRead(read,c.url);   /* (v5.7.1) exact-मिलान */
         if(started && !ENR[c.id]) enrAdd(c.id);
-        if(enrGet()[c.id] || started) mine.push({c:c, n:(c.url&&byC[c.url])||0, at:(enrGet()[c.id]||{}).at||Date.now()}); });
+        if(enrGet()[c.id] || started) mine.push({c:c, n:started, at:(enrGet()[c.id]||{}).at||Date.now()}); });
       const doneN=mine.filter(function(m){var t=Number(m.c.lessons)||0;return t&&m.n>=t;}).length;
       const certN=Object.keys(CERT_BY).length;
       const sumBar='<div class="lvsum">'+
