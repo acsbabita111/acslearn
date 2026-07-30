@@ -1096,59 +1096,39 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
     const read=d.read||{}, byC={};
     for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
-    const mine=[];
-    const ENR=enrGet();
+    const ENR=enrGet(); const mine=[];
     CRS_ALL.forEach(function(x){ const c=x&&x.c; if(!c) return;
       const started = c.url && byC[c.url];
-      if(started && !ENR[c.id]) enrAdd(c.id);   /* पढ़ना शुरू = अपने-आप जुड़ा (तारीख़ आज) */
-      if(ENR[c.id] || started) mine.push({c:c, n:(c.url&&byC[c.url])||0, at:(enrGet()[c.id]||{}).at||Date.now()}); });
+      if(started && !ENR[c.id]) enrAdd(c.id);
+      if(enrGet()[c.id] || started) mine.push({c:c, n:(c.url&&byC[c.url])||0, at:(enrGet()[c.id]||{}).at||Date.now()}); });
     const doneN=mine.filter(function(m){var t=Number(m.c.lessons)||0;return t&&m.n>=t;}).length;
     const certN=Object.keys(CERT_BY).length;
-    const sumBar='<div class="pubcard g3" style="padding:10px;margin-bottom:10px">'+
-      '<div class="gcol"><div class="gstat">📚 शुरू किए <b>'+mine.length+'</b></div></div>'+
-      '<div class="gcol"><div class="gstat">🏆 पूरे <b>'+doneN+'</b></div></div>'+
-      '<div class="gcol"><div class="gstat">📜 प्रमाणपत्र <b>'+certN+'</b></div></div></div>';
-    if(!mine.length){ bx.innerHTML=sumBar+'<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से पहला पाठ खोलिए, वह यहाँ अपने-आप जुड़ जाएगा।</div>'; return; }
-    let h=sumBar+'<div class="crsgrid">';
+    /* LearnVern-शैली हल्की सारांश-पट्टी: सफ़ेद card, रंग सिर्फ़ अंकों में */
+    const sumBar='<div class="lvsum">'+
+      '<div class="lvstat"><div class="lvnum" style="color:var(--blue)">'+mine.length+'</div><div class="lvlbl">शुरू किए</div></div>'+
+      '<div class="lvstat"><div class="lvnum" style="color:var(--green)">'+doneN+'</div><div class="lvlbl">पूरे</div></div>'+
+      '<div class="lvstat"><div class="lvnum" style="color:var(--gold)">'+certN+'</div><div class="lvlbl">📜 प्रमाणपत्र</div></div></div>';
+    if(!mine.length){ bx.innerHTML=sumBar+'<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से "➕ जोड़ें" या पहला पाठ खोलिए।</div>'; return; }
+    let h=sumBar;
     mine.forEach(function(m){
       const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
-      const R=26, C=2*Math.PI*R, off=C*(1-pc/100);
-      const ring='<svg width="68" height="68" viewBox="0 0 68 68">'+
-        '<circle cx="34" cy="34" r="'+R+'" fill="none" stroke="#e8edf4" stroke-width="8"/>'+
-        '<circle cx="34" cy="34" r="'+R+'" fill="none" stroke="'+(done?"#2E7D32":"#F9A825")+'" stroke-width="8" stroke-linecap="round" '+
-        'stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" transform="rotate(-90 34 34)"/>'+
-        '<text x="34" y="40" text-anchor="middle" font-size="17" font-weight="800" fill="#0B1F3A">'+pc+'%</text></svg>';
-      function st(cls,txt){ return '<span class="crsstep '+cls+'">'+txt+'</span>'; }
       const bank=(window.COURSE_EXAMS||{})[m.c.id];
       const canExam=bank && m.n>=bank.minLessons;
       const res=EXAM_RES[m.c.id]||null, cert=res?CERT_BY[res.id]:null;
-      const steps='<div class="crssteps">'+
-        st(done?'on':'cur','📖 पढ़ाई')+
-        st(res?'on':(canExam?'cur':''),'🎓 परीक्षा')+
-        st(res?'on':'','📄 '+(res?(res.pct+'%'):'result'))+
-        st(cert?'on':(res?'cur':''),'📜 '+(cert?cert.certNo.slice(-6):'₹125'))+'</div>';
-      h+='<div class="crscard"><div class="crsban">'+(done?'🏆':'📖')+'</div><div class="crsbody">'+
-        '<div class="crsname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
-        '<div class="crsmeta">📅 जुड़े: '+new Date(m.at).toLocaleDateString("hi-IN")+' · प्रगति '+pc+'%</div>'+
-        '<div class="crsring">'+ring+'<div class="crsmeta">'+m.n+(tot?(' / '+tot):'')+' पाठ'+(tot?'<br>बचे '+Math.max(0,tot-m.n):'')+'</div></div>'+
-        steps+
-        (done
-          ? '<a class="crsgo" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
-            encodeURIComponent('मैंने online कोर्स पूरा किया: '+(m.c.name_hi||m.c.id)+' ('+m.c.id+') — परीक्षा देना चाहता/चाहती हूँ। ACS-नंबर: '+(window.ACS_REGNO||''))+
-            '">🎓 परीक्षा-निवेदन</a>'+
-            '<div class="note">📜 प्रमाणपत्र ₹125 — result पर यहीं खुलेगा · FFGPMTrust-जारी, QR से दुनिया-भर verify</div>'+
-            '<div class="note">🏢 आगे की राह: <a href="/career-kit.html">करियर-किट</a> से resume बनाइए — पहली कमाई की तैयारी</div>'
-          : '<a class="crsgo" href="'+esc(m.c.url)+'">▶ आगे पढ़ें</a>')+
-        (cert
-          ? '<div style="margin-top:8px"><button class="crsgo" style="background:var(--gold);color:var(--navy)" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ प्रमाणपत्र download</button></div>'
-          : res
-          ? '<div style="margin-top:8px"><button class="crsgo" type="button" data-cert="'+esc(res.id)+'">📜 प्रमाणपत्र लें — ₹125</button><div class="note">FFGPMTrust-जारी · "प्रैक्टिकल नहीं" पंक्ति सहित (मोड-ब)</div></div>'
-          : canExam
-          ? '<div style="margin-top:8px"><button class="crsgo" style="background:var(--blue)" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें — मुफ़्त ('+bank.q.length+' प्रश्न)</button><div id="exWrap_'+esc(m.c.id)+'" style="display:none"></div></div>'
-          : (bank?'<div class="note">🎓 परीक्षा '+bank.minLessons+' पाठ पढ़ने पर खुलेगी</div>':''))+
-        '</div></div>';
+      let act='';
+      if(cert) act='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ प्रमाणपत्र</button>';
+      else if(res) act='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 प्रमाणपत्र लें ₹125</button>';
+      else if(done||canExam) act='<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
+      if(!done) act+=' <a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
+      h+='<div class="lvrow"><div class="lvic">'+(done?'🏆':'📚')+'</div>'+
+        '<div class="lvmain"><div class="lvname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
+        '<div class="lvsub">📅 जुड़े: '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ'+
+        (res?(' · 📄 result: '+res.pct+'%'):'')+(cert?(' · 📜 '+cert.certNo):'')+'</div>'+
+        '<div class="lvbar"><i style="width:'+pc+'%"></i></div>'+
+        '<div class="lvpct">'+pc+'% पूरा'+(canExam&&!res?' · 🎓 परीक्षा खुली है':'')+'</div></div>'+
+        '<div class="lvact">'+act+'</div></div>'+
+        '<div id="exWrap_'+esc(m.c.id)+'" style="display:none"></div>';
     });
-    h+='</div>';
     bx.innerHTML=h;
   }
   /* 🧭 रिपोर्ट के कोर्स — आख़िरी अभिरुचि-रिपोर्ट से */
