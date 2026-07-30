@@ -127,9 +127,7 @@ const P_APTITUDE = (
 const P_COURSES = (
     '<div class="pcard panel" id="pnl-courses" data-nav="📚 मेरे कोर्स" style="grid-column:1/-1">' +
     '<div class="ph">📚 मेरे कोर्स</div>' +
-    '<div class="pd"><b>मेरा नामांकन:</b> offline पढ़ाई का पूरा ब्योरा अब "🏫 मेरा केंद्र" पैनल में है — ' +
-    'निवेदन · केंद्र का प्रस्ताव · active नामांकन · फीस-रसीदें। केंद्र के "Enrollment" पैनल और आपके ' +
-    'ब्योरे का स्रोत एक ही नामांकन-खाता है — दोनों को एक ही सच दिखता है।</div>' +
+
     '<div class="ph" style="margin-top:14px">📖 मेरी पढ़ाई — शुरू किए कोर्स</div>' +
     '<div class="pd">जो कोर्स आपने पढ़ना शुरू किया, वह अपने-आप यहाँ दिखता है — कितना पढ़ा, आगे क्या।</div>' +
     '<div id="crsMine"><span class="note">यह पैनल खोलने पर आता है…</span></div>' +
