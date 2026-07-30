@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.9 · 30-Jul-2026 (DCA-परीक्षा) — बड़े प्रश्न-बैंक (setSize) पर परीक्षा 3-सेट
+        शीर्षकों में बँटी दिखे (सेट-1/2/3 × 40); इंजन/जमा-रास्ता अपरिवर्तित।
    v5.8 · 30-Jul-2026 (Founder-सुधार-8, ⏱ समय-तंत्र) — पाठ-घड़ी का समय
         syncLearnProgress से delta-रूप में खाते में (दो फ़ोन के समय जुड़ें,
         दोहरा-जोड़ असंभव: acs_time_sent बहीखाता); तालिका-पंक्ति में
@@ -1354,9 +1356,59 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; });
     }catch(e){}
   }
+/* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर) — PJ016 आदि ═══
+     एक-स्क्रीन-एक-प्रश्न UI; प्रश्न+विकल्प server से आते हैं (बिना उत्तर);
+     answers[i] = चुना गया प्रदर्शन-स्थान (0-3) — असली-क्रम सिर्फ़ server जानता है। */
+  const SERVER_EXAM_COURSES = { PJ016: true };
+  let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
+  async function examStartServer(cid) {
+    const bx = $("exWrap_" + cid); if (!bx) return;
+    bx.style.display = ""; bx.innerHTML = '<div class="pd" style="text-align:center">⏳ परीक्षा तैयार हो रही है…</div>';
+    try {
+      const out = await httpsCallable(functions, "startCourseExam")({ courseId: cid });
+      const d = out.data || {};
+      EX_STATE = { attemptId: d.attemptId, cid: cid, name: d.name, total: d.total, pass: d.pass,
+        questions: d.questions || [], idx: 0, answers: new Array(d.total).fill(-1) };
+      examRenderServer(bx);
+    } catch (e) {
+      bx.innerHTML = '<div class="pd" style="color:#B71C1C;text-align:center">परीक्षा शुरू नहीं हुई: ' + esc((e && e.message) || e) + '</div>';
+    }
+  }
+  function examRenderServer(bx) {
+    const S = EX_STATE; if (!S) return;
+    const q = S.questions[S.idx];
+    const answered = S.answers.filter(function (a) { return a >= 0; }).length;
+    const pct = Math.round((S.idx + 1) * 100 / S.total);
+    let h = '<div class="pd" style="text-align:left"><b>' + esc(S.name) + '</b> · pass = ' + S.pass + '%</div>';
+    h += '<div class="note">प्रश्न ' + (S.idx + 1) + ' / ' + S.total + ' · भरे: ' + answered + '/' + S.total + '</div>';
+    h += '<div style="height:8px;background:#e0e0e0;border-radius:4px;overflow:hidden;margin:6px 0"><div style="height:100%;width:' + pct + '%;background:var(--blue)"></div></div>';
+    h += '<div class="pd" style="text-align:left"><b>' + (S.idx + 1) + '.</b> ' + esc(q.t) + '<br>';
+    q.o.forEach(function (op, j) {
+      const checked = (S.answers[S.idx] === j) ? " checked" : "";
+      h += '<label style="display:block;margin:6px 0"><input type="radio" name="exq" value="' + j + '"' + checked + '> ' + esc(op) + '</label>';
+    });
+    h += '</div>';
+    h += '<div style="display:flex;gap:8px;justify-content:space-between">' +
+      '<button class="crsgo" id="exPrev" type="button"' + (S.idx === 0 ? ' disabled' : '') + '>◀ पिछला</button>' +
+      (S.idx < S.total - 1
+        ? '<button class="crsgo" id="exNext" type="button">अगला ▶</button>'
+        : '<button class="crsgo" id="exFinish" type="button">📨 जमा करें</button>') +
+      '</div><div class="note" id="exMsg"></div>';
+    bx.innerHTML = h;
+  }
+  function examSaveCurrent() {
+    const S = EX_STATE; if (!S) return;
+    const r = document.querySelector('input[name="exq"]:checked');
+    if (r) S.answers[S.idx] = Number(r.value);
+  }
   function examBox(cid,bank){
     let h='<div class="pd" style="text-align:left"><b>'+esc(bank.name)+'</b> · pass = '+bank.pass+'%</div>';
     bank.q.forEach(function(qq,i){
+      /* (v5.9) बड़े बैंक (setSize) पर सेट-शीर्षक: 40 का सेट-1/2/3 */
+      if(bank.setSize && i%bank.setSize===0){
+        var sn=Math.floor(i/bank.setSize)+1, tot=Math.ceil(bank.q.length/bank.setSize);
+        h+='<div class="pd" style="background:var(--navy);color:#F5F7FA;font-weight:800;border-radius:12px;text-align:center">📗 सेट-'+sn+' / '+tot+' (प्रश्न '+(i+1)+'–'+Math.min(i+bank.setSize,bank.q.length)+')</div>';
+      }
       h+='<div class="pd" style="text-align:left"><b>'+(i+1)+'.</b> '+esc(qq.t)+'<br>';
       qq.o.forEach(function(op,j){ h+='<label style="display:block;margin:4px 0"><input type="radio" name="ex_'+i+'" value="'+j+'"> '+esc(op)+'</label>'; });
       h+='</div>'; });
@@ -1365,8 +1417,34 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   }
   document.addEventListener("click", async function(ev){
     const eb=ev.target.closest("[data-exam]");
-    if(eb){ const cid=eb.getAttribute("data-exam"); const bx=$("exWrap_"+cid);
+    if(eb){ const cid=eb.getAttribute("data-exam");
+      if(SERVER_EXAM_COURSES[cid]){ await examStartServer(cid); return; }
+      const bx=$("exWrap_"+cid);
       if(bx){ bx.style.display=""; bx.innerHTML=examBox(cid, window.COURSE_EXAMS[cid]); } return; }
+    const epv=ev.target.closest("#exPrev");
+    if(epv){ examSaveCurrent(); if(EX_STATE && EX_STATE.idx>0){ EX_STATE.idx--; examRenderServer($("exWrap_"+EX_STATE.cid)); } return; }
+    const enx=ev.target.closest("#exNext");
+    if(enx){ const S=EX_STATE; if(!S) return;
+      const r=document.querySelector('input[name="exq"]:checked');
+      if(!r){ const m=$("exMsg"); if(m) m.textContent="जवाब चुनें, फिर अगला।"; return; }
+      examSaveCurrent(); if(S.idx<S.total-1) S.idx++; examRenderServer($("exWrap_"+S.cid)); return; }
+    const efn=ev.target.closest("#exFinish");
+    if(efn){ const S=EX_STATE; if(!S) return;
+      examSaveCurrent();
+      const missIdx=S.answers.findIndex(function(a){return a<0;});
+      if(missIdx>=0){ S.idx=missIdx; examRenderServer($("exWrap_"+S.cid));
+        const m=$("exMsg"); if(m) m.textContent="प्रश्न "+(missIdx+1)+" अधूरा है — भरकर आगे बढ़ें।"; return; }
+      efn.disabled=true; const m0=$("exMsg"); if(m0) m0.textContent="⏳ जाँच हो रही है…";
+      try{ const out=await httpsCallable(functions,"submitCourseExam")({attemptId:S.attemptId, answers:S.answers});
+        const d=out.data||{};
+        const bx=$("exWrap_"+S.cid);
+        if(bx) bx.innerHTML='<div class="pd" style="text-align:center">'+
+          (d.pass?'🎉 <b>पास!</b> ':'😔 इस बार नहीं — दोबारा दे सकते हैं। ')+
+          'अंक: '+d.score+'/'+d.total+' ('+d.pct+'%)</div>';
+        EX_STATE=null;
+        await loadExamState(); setTimeout(function(){ crsMineFill(); },1200);
+      }catch(e){ const m=$("exMsg"); if(m) m.textContent="त्रुटि: "+((e&&e.message)||e); efn.disabled=false; }
+      return; }
     const sb=ev.target.closest("#exSubmit");
     if(sb){ const cid=sb.getAttribute("data-exid"); const bank=window.COURSE_EXAMS[cid];
       const ans=[]; let miss=false;
