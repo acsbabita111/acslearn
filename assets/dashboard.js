@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.6 · 30-Jul-2026 (Founder-सुधार-4) — "मेरी कोर्स प्रगति" तालिका (LearnVern-
+        रूप): स्तंभ कोर्स|प्रगति|परीक्षा|प्रमाणपत्र|कार्रवाई; प्रगति अब server-सच
+        (syncLearnProgress — local∪server, मशीन बदले तो भी वही); profile-tile भी
+        उसी sync से; पुराना crsgraph/lvrow रूप निरस्त।
    v5.5 · 30-Jul-2026 (Founder-सुधार-3, student काम-सूची) — MERGED_LAZY: मिले-जुले
         पैनल A खुलते ही B का आलसी-इंजन भी चले (status→badge · pay→ledger);
         updateAcctNav: खाता-पैनल का मेनू-नाम = बैज-स्थिति (कोई बैज नहीं /
@@ -288,6 +292,30 @@ document.addEventListener("change", async function(ev){
     }
   }catch(e){ say("नहीं भेज पाए: "+((e&&e.message)||e), false); }
 });
+/* (30-Jul सुधार-4, Founder बिंदु-3) पढ़ाई-प्रगति की server-सच्चाई — "मशीन बदल
+   जाए, ग्राफ न बदले"। एक बार प्रति-boot: local∪server → server (union), जवाब
+   local में भी। function deploy न हो/offline = local से (चुपचाप, कभी न अटके)।
+   नोट: read/days के मान 1 पर सामान्यीकृत (गिनती key-आधारित ही थी)। */
+let LP_SYNC=null;
+function syncLearnProgress(){
+  if(LP_SYNC) return LP_SYNC;
+  LP_SYNC=(async ()=>{
+    let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
+    const read=Object.keys(d.read||{}), days=Object.keys(d.days||{});
+    try{
+      const r=await httpsCallable(functions,"syncLearnProgress")({read:read,days:days});
+      const x=(r&&r.data)||{};
+      if(x.ok && Array.isArray(x.read)){
+        const nr={},nd={}; x.read.forEach(u=>{nr[u]=1;}); (x.days||[]).forEach(u=>{nd[u]=1;});
+        const out={read:nr,days:nd};
+        try{ localStorage.setItem("acs_learn_progress",JSON.stringify(out)); }catch(e){}
+        return {srv:true,d:out};
+      }
+    }catch(e){}
+    return {srv:false,d:{read:d.read||{},days:d.days||{}}};
+  })();
+  return LP_SYNC;
+}
 /* (30-Jul होल-2) courses_data.js का एक-दरवाज़ा loader — top-level const वाली
    फ़ाइल दो script-tag से load हो तो दूसरा re-declare पर मरता है; पूरा dashboard
    अब इसी एक दरवाज़े से data माँगे (एक चीज़ = एक जगह)। in-flight माँगें क़तार में। */
@@ -306,14 +334,13 @@ function ensureCoursesData(cb){
 function perfCourseStats(){
   ensureCoursesData(function(ok){
     if(!ok){ setTxt("perfCrsReg","—"); setTxt("perfCrsDone","—"); return; }
-    try{
+    syncLearnProgress().then(function(sp){ try{
       const L=[(typeof SELF_EMP_COURSES!=="undefined")?SELF_EMP_COURSES:[],
                (typeof PRIVATE_JOB_COURSES!=="undefined")?PRIVATE_JOB_COURSES:[],
                (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[],
                (typeof GOVT_JOB_COURSES!=="undefined")?GOVT_JOB_COURSES:[]];
       let E={}; try{ E=JSON.parse(localStorage.getItem("acs_my_courses")||"{}"); }catch(e){}
-      let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
-      const read=d.read||{}, byC={};
+      const read=(sp.d&&sp.d.read)||{}, byC={};
       for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
       let reg=0, done=0;
       L.forEach(arr=>(arr||[]).forEach(c=>{
@@ -322,7 +349,7 @@ function perfCourseStats(){
         if(E[c.id]||started){ reg++; const t=Number(c.lessons)||0; if(t&&started&&byC[c.url]>=t) done++; }
       }));
       setTxt("perfCrsReg",String(reg)); setTxt("perfCrsDone",String(done));
-    }catch(e){}
+    }catch(e){} });
   });
 }
 /* (29-Jul) ⚡ परफ़ॉर्मेंस-परत — पाठ-गिनती · लगातार-दिन · कोर्स-आँकड़े device-local;
@@ -1156,8 +1183,9 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   async function crsMineFill(){
     const bx=$("crsMine"); if(!bx) return;
     await loadExamState();
-    let d={}; try{ d=JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"); }catch(e){}
-    const read=d.read||{}, byC={};
+    /* (30-Jul सुधार-4) प्रगति = server-सच (union) — मशीन बदले, तालिका वही */
+    const sp=await syncLearnProgress();
+    const read=(sp.d&&sp.d.read)||{}, byC={};
     for(const k in read){ const m=String(k).match(/^(\/courses\/[a-z]{2}\/[a-z0-9-]+\/)/); if(m) byC[m[1]]=(byC[m[1]]||0)+1; }
     const ENR=enrGet(); const mine=[];
     CRS_ALL.forEach(function(x){ const c=x&&x.c; if(!c) return;
@@ -1166,42 +1194,47 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       if(enrGet()[c.id] || started) mine.push({c:c, n:(c.url&&byC[c.url])||0, at:(enrGet()[c.id]||{}).at||Date.now()}); });
     const doneN=mine.filter(function(m){var t=Number(m.c.lessons)||0;return t&&m.n>=t;}).length;
     const certN=Object.keys(CERT_BY).length;
-    /* LearnVern-शैली हल्की सारांश-पट्टी: सफ़ेद card, रंग सिर्फ़ अंकों में */
     const sumBar='<div class="lvsum">'+
       '<div class="lvstat"><div class="lvnum" style="color:var(--blue)">'+mine.length+'</div><div class="lvlbl">शुरू किए</div></div>'+
       '<div class="lvstat"><div class="lvnum" style="color:var(--green)">'+doneN+'</div><div class="lvlbl">पूरे</div></div>'+
       '<div class="lvstat"><div class="lvnum" style="color:var(--gold)">'+certN+'</div><div class="lvlbl">📜 प्रमाणपत्र</div></div></div>';
-    if(!mine.length){ bx.innerHTML=sumBar+'<div class="pd">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से "➕ जोड़ें" या पहला पाठ खोलिए।</div>'; return; }
-    /* (30-Jul होल-2, Founder) 📊 कोर्स-प्रगति ग्राफ — हर कोर्स की % पट्टी;
-       नीला=चालू, हरा=पूरा (रंग-अनुशासन); सब center। */
-    let graph='<div class="crsgraph"><div class="cgh">📊 कोर्स प्रगति ग्राफ</div>';
-    mine.slice(0,10).forEach(function(m){
-      var t=Number(m.c.lessons)||0, pc=t?Math.min(100,Math.round(m.n*100/t)):0, dn=(t&&m.n>=t);
-      graph+='<div class="cgrow"><div class="cgname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
-        '<div class="cgbar'+(dn?' done':'')+'"><i style="width:'+Math.max(pc,4)+'%"></i>'+
-        '<span class="cgpc">'+pc+'%'+(dn?' 🏆':'')+'</span></div></div>';
-    });
-    graph+='</div>';
-    let h=sumBar+graph;
+    if(!mine.length){ bx.innerHTML=sumBar+'<div class="pd" style="text-align:center">अभी कोई कोर्स शुरू नहीं — नीचे 🟢 सूची से "➕ जोड़ें" या पहला पाठ खोलिए।</div>'; return; }
+    /* (Founder-फ़ोटो रूप) तालिका: कोर्स | प्रगति | परीक्षा | प्रमाणपत्र | कार्रवाई */
+    let h=sumBar+'<div class="lvtbl">'+
+      '<div class="lvthead"><span>कोर्स</span><span>प्रगति</span><span>परीक्षा</span><span>प्रमाणपत्र</span><span></span></div>';
     mine.forEach(function(m){
       const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
       const bank=(window.COURSE_EXAMS||{})[m.c.id];
       const canExam=bank && m.n>=bank.minLessons;
       const res=EXAM_RES[m.c.id]||null, cert=res?CERT_BY[res.id]:null;
-      let act='';
-      if(cert) act='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ प्रमाणपत्र</button>';
-      else if(res) act='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 प्रमाणपत्र लें ₹125</button>';
-      else if(done||canExam) act='<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
-      if(!done) act+=' <a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
-      h+='<div class="lvrow"><div class="lvic">'+(done?'🏆':'📚')+'</div>'+
-        '<div class="lvmain"><div class="lvname">'+esc(rb(m.c.name_hi||m.c.id))+'</div>'+
-        '<div class="lvsub">📅 जुड़े: '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ'+
-        (res?(' · 📄 result: '+res.pct+'%'):'')+(cert?(' · 📜 '+cert.certNo):'')+'</div>'+
-        '<div class="lvbar"><i style="width:'+pc+'%"></i></div>'+
-        '<div class="lvpct">'+pc+'% पूरा'+(canExam&&!res?' · 🎓 परीक्षा खुली है':'')+'</div></div>'+
-        '<div class="lvact">'+act+'</div></div>'+
-        '<div id="exWrap_'+esc(m.c.id)+'" style="display:none"></div>';
+      /* स्तंभ-3: परीक्षा (Founder बिंदु-4 — प्रगति व प्रमाणपत्र के बीच) */
+      let ex;
+      if(res) ex='<span class="lvok">📄 '+res.pct+'%'+((res.pct>=60)?' ✅':' ❌')+'</span>';
+      else if(canExam) ex='<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
+      else if(bank) ex='<span class="lvmut">🔒 '+bank.minLessons+' पाठ बाद</span>';
+      else ex='<span class="lvmut">—</span>';
+      /* स्तंभ-4: प्रमाणपत्र */
+      let ct;
+      if(cert) ct='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ Download</button>';
+      else if(res && res.pct>=60) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
+      else ct='<span class="lvmut">—</span>';
+      /* स्तंभ-5: कार्रवाई */
+      const go = done ? '<span class="lvok">🏆 पूरा</span>'
+        : '<a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
+      h+='<div class="lvtrow">'+
+        '<span class="lvc lvc-name"><span class="lvic2">'+(done?'🏆':'📚')+'</span><span class="lvnw">'+
+          '<span class="lvname">'+esc(rb(m.c.name_hi||m.c.id))+'</span>'+
+          '<span class="lvsub">📅 '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ</span></span></span>'+
+        '<span class="lvc lvc-prog" data-h="प्रगति"><span class="lvpc"><b>'+pc+'%</b> पूरा'+(done?' 🏆':'')+'</span>'+
+          '<span class="lvbar2'+(done?' done':'')+'"><i style="width:'+Math.max(pc,3)+'%"></i></span></span>'+
+        '<span class="lvc" data-h="परीक्षा">'+ex+'</span>'+
+        '<span class="lvc" data-h="प्रमाणपत्र">'+ct+'</span>'+
+        '<span class="lvc">'+go+'</span>'+
+      '</div><div id="exWrap_'+esc(m.c.id)+'" style="display:none"></div>';
     });
+    h+='</div>';
+    h+= sp.srv ? '<div class="note" style="text-align:center">☁️ प्रगति आपके खाते से — किसी भी फ़ोन पर वही रहेगी।</div>'
+               : '<div class="note" style="text-align:center">📴 अभी इसी फ़ोन की प्रगति — network/खाता जुड़ते ही सब फ़ोन एक हो जाएँगे।</div>';
     bx.innerHTML=h;
   }
   /* 🧭 रिपोर्ट के कोर्स — आख़िरी अभिरुचि-रिपोर्ट से */

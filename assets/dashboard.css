@@ -287,3 +287,35 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .pmerged{margin-top:14px}
 .pmergesep{height:3px;background:linear-gradient(90deg,var(--gold),var(--green));
   border-radius:2px;margin:18px 0 6px;opacity:.55}
+
+/* (30-Jul सुधार-4) "मेरी कोर्स प्रगति" तालिका — Founder-फ़ोटो रूप।
+   स्तंभ: कोर्स | प्रगति | परीक्षा | प्रमाणपत्र | कार्रवाई। सफ़ेद आधार;
+   नीला=चालू/कार्य · हरा=पूरा · गोल्ड=प्रमाणपत्र (रंग-अनुशासन v5.1-क8)। */
+.lvtbl{background:#fff;border:1px solid var(--border);border-radius:14px;padding:6px 14px;margin:10px 0}
+.lvthead,.lvtrow{display:grid;grid-template-columns:2.2fr 1.6fr 1.1fr 1.2fr 1.1fr;
+  gap:10px;align-items:center;padding:12px 2px;text-align:center}
+.lvthead{color:#5A6B85;font-size:16px;font-weight:800;border-bottom:1.5px solid var(--border)}
+.lvthead span:first-child{text-align:left}
+.lvtrow{border-bottom:1px solid #EDF1F7}
+.lvtbl .lvtrow:last-of-type{border-bottom:0}
+.lvc{font-size:16px}
+.lvc-name{display:flex;align-items:center;gap:10px;text-align:left}
+.lvic2{width:46px;height:46px;min-width:46px;border:1.5px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:22px;background:#F7FAFF}
+.lvnw{display:inline-block}
+.lvtbl .lvname{display:block;font-size:17px;font-weight:800;color:var(--navy)}
+.lvtbl .lvsub{display:block;font-size:16px;color:#5A6B85}
+.lvc-prog .lvpc{display:block;font-size:16px;color:var(--navy)}
+.lvc-prog .lvpc b{font-size:18px}
+.lvbar2{display:block;height:10px;background:#DCE6F5;border-radius:5px;overflow:hidden;margin-top:6px}
+.lvbar2 i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#1565C0,#42A5F5)}
+.lvbar2.done i{background:linear-gradient(90deg,#2E7D32,#66BB6A)}
+.lvok{color:var(--green);font-weight:800}
+.lvmut{color:#8A97AB}
+@media(max-width:759px){
+  .lvthead{display:none}
+  .lvtrow{grid-template-columns:1fr;gap:8px;text-align:center;padding:14px 2px}
+  .lvc-name{justify-content:center;text-align:center}
+  .lvc[data-h]::before{content:attr(data-h)": ";color:#5A6B85;font-weight:700}
+  .lvc-prog[data-h]::before{content:""}
+}
