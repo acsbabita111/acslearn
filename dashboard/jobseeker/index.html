@@ -163,6 +163,9 @@
 <script>window.ACS_DASH={mode:"external",allowed:["jobseeker"],extRoles:[],roleLabel:"नौकरी-प्रशिक्षु",home:"/dashboard/jobseeker/"};</script>
 <!-- पद-जानकारी का एकमात्र घर (परत-3) — सिर्फ़ दिखाने के लिए, guard नहीं -->
 <script src="/assets/designation_matrix.js"></script>
+<!-- कोर्स-परीक्षा भंडार (गेटिंग-मेटाडेटा: minLessons/name/pass) — dashboard.js से पहले
+     ताकि window.COURSE_EXAMS मॉड्यूल-कोड चलने से पहले भर चुका हो (30-Jul, इंजन-दौर होल-बंदी) -->
+<script src="/assets/exam_data.js"></script>
 <!-- 31-घर का एकमात्र साझा तर्क (परत-1) -->
 <script type="module" src="/assets/dashboard.js"></script>
 <script src="/assets/vani.js" defer></script>
