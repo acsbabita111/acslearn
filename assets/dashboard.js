@@ -1367,7 +1367,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const st = document.createElement("style"); st.id = "examEngineStyle";
     st.textContent =
       '.examOverlay{position:fixed;inset:0;z-index:9999;background:rgba(11,31,58,.78);'+
-      'display:flex;align-items:flex-end;justify-content:center;backdrop-filter:blur(2px)}'+
+      'display:flex;align-items:flex-end;justify-content:center}'+
       '@media(min-width:640px){.examOverlay{align-items:center;padding:24px}}'+
       '.examCard{background:var(--offwhite);width:100%;max-width:620px;max-height:96vh;'+
       'display:flex;flex-direction:column;border-radius:22px 22px 0 0;overflow:hidden;'+
