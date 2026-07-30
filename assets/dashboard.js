@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.6.2 · 30-Jul-2026 (होल-बंदी) — "rb is not defined": rb k9-IIFE (1943) में
+        क़ैद, ext-block उसे नहीं देखता — तालिका (v5.3 से!) व crsCenterFill चुपचाप
+        मरते थे; readable-त्रुटि नियम ने उजागर किया; दोनों जगह उसी scope का noSq।
    v5.6.1 · 30-Jul-2026 (Founder-सुधार-5) — (क) तालिका दो-चरण: पहले इसी फ़ोन से
         तुरंत (4 कोर्स फ़ौरन), फिर खाते से अंतिम; sync पर 8s-घड़ी; त्रुटि अब
         readable (गूँगा-fallback निषेध)। (ख) कोर्स-कार्ड में "✅ जुड़ गया" नीचे
@@ -1231,7 +1234,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
           : '<a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
         h+='<div class="lvtrow">'+
           '<span class="lvc lvc-name"><span class="lvic2">'+(done?'🏆':'📚')+'</span><span class="lvnw">'+
-            '<span class="lvname">'+esc(rb(m.c.name_hi||m.c.id))+'</span>'+
+            '<span class="lvname">'+esc(noSq(m.c.name_hi||m.c.id))+'</span>'+   /* (v5.6.2) rb→noSq: rb k9-IIFE में क़ैद था — scope-होल */
             '<span class="lvsub">📅 '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ</span></span></span>'+
           '<span class="lvc lvc-prog" data-h="प्रगति"><span class="lvpc"><b>'+pc+'%</b> पूरा'+(done?' 🏆':'')+'</span>'+
             '<span class="lvbar2'+(done?' done':'')+'"><i style="width:'+Math.max(pc,3)+'%"></i></span></span>'+
@@ -1278,7 +1281,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       let h=''; const ST={requested:"⏳ निवेदन भेजा",offered:"✉️ केंद्र का प्रस्ताव — जवाब दें",active:"✅ पढ़ाई चालू"};
       qs.forEach(function(dd){ const x=dd.data()||{};
         if(!ST[x.status]) return;
-        h+='<div class="lrow"><span class="nm">'+esc(rb(x.courseName||x.courseId||""))+'</span> '+
+        h+='<div class="lrow"><span class="nm">'+esc(noSq(x.courseName||x.courseId||""))+'</span> '+   /* (v5.6.2) पुराना छिपा rb-होल */
           '<span class="note">🏫 '+esc(x.centerName||"")+' · '+ST[x.status]+'</span></div>';
       });
       bx.innerHTML = h ? (h+'<div class="note">फीस-रसीदें व पूरा ब्योरा — "🏫 मेरा केंद्र" पैनल में।</div>')
