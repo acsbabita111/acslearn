@@ -282,3 +282,8 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .lvrow .lvmain{text-align:center}
 .lvrow .lvbar{margin-left:auto;margin-right:auto}
 .lvrow .lvpct{text-align:center}
+
+/* (30-Jul सुधार-3) student विलय-पैनल: B-खंड A के भीतर card-रूप में */
+.pmerged{margin-top:14px}
+.pmergesep{height:3px;background:linear-gradient(90deg,var(--gold),var(--green));
+  border-radius:2px;margin:18px 0 6px;opacity:.55}

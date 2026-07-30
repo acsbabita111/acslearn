@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v5.5 · 30-Jul-2026 (Founder-सुधार-3, student काम-सूची) — MERGED_LAZY: मिले-जुले
+        पैनल A खुलते ही B का आलसी-इंजन भी चले (status→badge · pay→ledger);
+        updateAcctNav: खाता-पैनल का मेनू-नाम = बैज-स्थिति (कोई बैज नहीं /
+        ग्रीन बैज / गोल्डन बैज — नया 3-नियम); सिर्फ़ मिले-जुले घर पर सक्रिय।
    v5.4.1 · 30-Jul-2026 (Founder-सुधार-2) — परफ़ॉर्मेंस-कार्ड सिर्फ़ 3 बक्से:
         कोर्स रजिस्टर्ड · कोर्स पूरे · बैज (पाठ/दिन/रुचि-दिशा प्रोफ़ाइल से हटे;
         server-नतीजा-इंजन यथावत — टेस्ट-पन्ना उसे पढ़ता रहेगा)।
@@ -157,11 +161,25 @@ function refClock(){
     dWin:Math.max(0,Math.ceil((endWin-now)/86400000)),
     dWk:Math.max(0,Math.ceil((endWk-now)/86400000)) };
 }
+/* (30-Jul सुधार-3, नया 3-नियम नाम) खाता-पैनल का मेनू-नाम = बैज-स्थिति:
+   कोई बैज नहीं / ग्रीन बैज / गोल्डन बैज। सिर्फ़ मिले-जुले घर पर सक्रिय
+   (पहचान: pnl-status के भीतर pnl-badge) — बाक़ी 12 घर byte-व्यवहार अछूते। */
+function updateAcctNav(){
+  const p=document.getElementById("pnl-status");
+  if(!p || !p.querySelector("#pnl-badge")) return;
+  let label="✅ खाता: कोई बैज नहीं";
+  if(BADGE_INFO && BADGE_INFO.kind==="gold") label="🏅 खाता: गोल्डन बैज";
+  else if(BADGE_INFO && BADGE_INFO.kind==="green") label="✅ खाता: ग्रीन बैज";
+  p.setAttribute("data-nav",label);
+  const b=document.querySelector('.side .si[data-go="pnl-status"]');
+  if(b) b.textContent=label;
+}
 function applyBadgePerf(){
   if(!BADGE_INFO) return;
   const d = BADGE_INFO.till ? new Date(BADGE_INFO.till).toLocaleDateString("hi-IN") : "";
   setTxt("perfBadge", BADGE_INFO.kind==="gold" ? ("Golden 🏅"+(d?(" · "+d):"")) :
     BADGE_INFO.kind==="green" ? ("Green ✔"+(d?(" · "+d):"")) : "—");
+  updateAcctNav();   /* (सुधार-3) मेनू-नाम = बैज-स्थिति */
   const code = BADGE_INFO.code || window.ACS_REGNO || "";
   if(!code) return;
   const rc = refClock();
@@ -337,6 +355,9 @@ let MYDESIG = "";
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
 const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
+/* (30-Jul सुधार-3) मिले-जुले पैनल: A खुले तो B के आलसी-इंजन भी चलें —
+   B का panel-वर्ग गया पर id/इंजन जीवित (generator applyStudentMerges)। */
+const MERGED_LAZY = { "pnl-status": ["pnl-badge"], "pnl-pay": ["pnl-ledger"] };
 /* ⚠️ nav-whitelist नियम (19-Jul सीख): नया team-पैनल जोड़ो तो उसका id ऊपर की सूची में भी —
    वरना पेज में होते हुए भी काम-सूची से छँट जाएगा (badgeq-प्रकरण, Founder ने Notepad से पकड़ा)। */
 function initNav(boot){
@@ -361,6 +382,7 @@ function navGo(id){
   const nv=$("sideNav"); if(nv.classList.contains("open")) window.toggleSide();
   window.scrollTo(0,0);
   const fn=LAZY[id]; if(typeof fn==="function") fn();
+  (MERGED_LAZY[id]||[]).forEach(x=>{ const g=LAZY[x]; if(typeof g==="function") g(); });
 }
 
 /* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
