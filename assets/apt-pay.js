@@ -1,6 +1,9 @@
 /* ============================================================
-   /assets/apt-pay.js — v1.0 (₹100/चांस भुगतान-द्वार · अभिरुचि-टेस्ट)
-   22-Jul-2026 · मूल भाषा: हिंदी · Founder-निर्णय की अमल-परत
+   /assets/apt-pay.js — v1.1 (₹100/चांस भुगतान-द्वार + नतीजा-server-save)
+   v1.1 · 30-Jul-2026 (होल-1, Founder-override v4.0-ख1): saveResult —
+   final-submit पर नतीजे का सार खाते में (saveAptitudeResult, मुफ़्त);
+   latestResult — नए फ़ोन पर खाते से पिछला नतीजा (latestAptitudeResult)।
+   v1.0 · 22-Jul-2026 · मूल भाषा: हिंदी · Founder-निर्णय की अमल-परत
    ------------------------------------------------------------
    नियम:
    - badge-निशान (acs_apt_gate_v1) पहले से सक्रिय हो तो यह स्क्रिप्ट कुछ
@@ -182,6 +185,37 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
     }).catch(function () { cb(null); });
   }
 
+  /* ---------- (30-Jul होल-1, Founder-override v4.0-ख1) नतीजे का सार खाते में ----------
+     मुफ़्त, अपने-आप — login हो तो हर final-submit का सार server पर; फ़ोन बदलने
+     पर भी नतीजा साथ चले। function अभी deploy न हो/network fail = चुपचाप —
+     नतीजा (device-local) कभी न रुके। */
+  function saveResultToAccount(prev) {
+    function go() {
+      httpsCallable(functions, "saveAptitudeResult")({ prev: prev }).catch(function (e) {
+        console && console.warn && console.warn("saveAptitudeResult:", e && e.message);
+      });
+    }
+    if (auth.currentUser) { go(); return; }
+    var un = onAuthStateChanged(auth, function (u) { if (u) { try { un(); } catch (e) {} go(); } });
+  }
+  /* खाते से सबसे नया नतीजा-सार (मुफ़्त) — नए फ़ोन पर "पिछला हिसाब" इसी से।
+     login न हो/जवाब न आए तो 4s में cb(null) — पन्ना कभी न अटके। */
+  function fetchLatestResult(cb) {
+    var fired = false;
+    function done(v) { if (fired) return; fired = true; cb(v); }
+    function go() {
+      httpsCallable(functions, "latestAptitudeResult")({}).then(function (res) {
+        var d = (res && res.data) || {};
+        done(d.found ? d : null);
+      }).catch(function () { done(null); });
+    }
+    if (auth.currentUser) { go(); }
+    else {
+      var un = onAuthStateChanged(auth, function (u) { if (u) { try { un(); } catch (e) {} go(); } });
+      setTimeout(function () { done(null); }, 4000);
+    }
+  }
+
   window.ACS_APT_PAY = {
     consume: function () {
       httpsCallable(functions, "consumeAptitudeAttempt")({}).catch(function (e) {
@@ -191,6 +225,8 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
     },
     saveReport: saveReport,
     fetchLatestReport: fetchLatestReport,
+    saveResult: saveResultToAccount,
+    latestResult: fetchLatestResult,
     whenLoggedIn: function (cb) {
       if (auth.currentUser) { cb(auth.currentUser); return; }
       onAuthStateChanged(auth, function (u) { if (u) cb(u); });

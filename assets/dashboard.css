@@ -251,3 +251,34 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .lvbtn.blue{background:var(--blue)} .lvbtn.green{background:var(--green)}
 .lvbtn.gold{background:var(--gold);color:var(--navy)}
 @media(max-width:560px){ .lvrow{flex-wrap:wrap} .lvact{flex-direction:row;width:100%} .lvact .lvbtn{flex:1} }
+
+
+/* ═══ (30-Jul होल-2, Founder-आदेश) game-कार्ड center-align + 6-tile + कोर्स-ग्राफ ═══
+   रंग-अनुशासन v5.1-क8: नीला=कार्य/चालू · हरा=प्रगति/पूरा · गोल्ड=इनाम/बैज। */
+.pubcard.g3 .gcol{text-align:center}
+.pubcard.g3 .pubrow{text-align:center}
+.pgrid6{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.ptile{background:rgba(255,255,255,.07);border:1.5px solid rgba(249,168,37,.35);border-radius:14px;
+  padding:12px 8px;text-align:center;position:relative;overflow:hidden}
+.ptile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--green))}
+.ptile .pico{font-size:26px;line-height:1.2}
+.ptile .pnum{font-size:30px;font-weight:900;color:var(--gold);line-height:1.15;word-break:break-word}
+.ptile .pnum.sm{font-size:19px;color:#F5F7FA}
+.ptile .plbl{font-size:16px;color:#cdd9ea;font-weight:700;margin-top:2px}
+.ptile.wide{grid-column:1/-1}
+/* कोर्स-प्रगति ग्राफ — सफ़ेद आधार card; हर कोर्स की % पट्टी (सब center) */
+.crsgraph{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;margin:10px 0;text-align:center}
+.cgh{font-size:20px;font-weight:900;color:var(--navy);margin-bottom:10px}
+.cgrow{margin:12px 0}
+.cgname{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:5px}
+.cgbar{position:relative;height:28px;background:#E8EDF5;border-radius:14px;overflow:hidden}
+.cgbar i{position:absolute;left:0;top:0;bottom:0;border-radius:14px;
+  background:linear-gradient(90deg,#1565C0,#42A5F5);transition:width .6s}
+.cgbar.done i{background:linear-gradient(90deg,#2E7D32,#66BB6A)}
+.cgpc{position:absolute;right:12px;top:0;line-height:28px;font-size:16px;font-weight:900;color:var(--navy)}
+/* मेरे-कोर्स के सब आँकड़े center (Founder 30-Jul: सब डाटा center-align) */
+.lvsum{text-align:center}
+.lvrow .lvmain{text-align:center}
+.lvrow .lvbar{margin-left:auto;margin-right:auto}
+.lvrow .lvpct{text-align:center}
