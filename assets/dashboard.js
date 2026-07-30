@@ -1444,6 +1444,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       const out = await httpsCallable(functions, "startCourseExam")({ courseId: cid });
       const d = out.data || {};
       EX_STATE = { attemptId: d.attemptId, cid: cid, name: d.name, total: d.total, pass: d.pass,
+        attemptsUsed: d.attemptsUsed || 0, maxAttempts: d.maxAttempts || 0,
         questions: d.questions || [], idx: 0, answers: new Array(d.total).fill(-1) };
       examRenderServer();
     } catch (e) {
@@ -1459,7 +1460,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const answered = S.answers.filter(function (a) { return a >= 0; }).length;
     const pct = Math.round((S.idx + 1) * 100 / S.total);
     let h = '<div class="examTop"><div class="examTopRow">'+
-      '<div><div class="examName">'+esc(S.name)+'</div><div class="examPassNote">पास होने के लिए '+S.pass+'% चाहिए</div></div>'+
+      '<div><div class="examName">'+esc(S.name)+'</div><div class="examPassNote">पास होने के लिए '+S.pass+'% चाहिए'+
+        (S.maxAttempts ? ' · यह चांस '+(S.attemptsUsed+1)+'/'+S.maxAttempts : '')+'</div></div>'+
       '<button class="examExitBtn" id="examExitBtn" type="button" aria-label="बंद करें">✕</button>'+
       '</div>'+
       '<div class="examCountWrap"><span class="examQNum">'+(S.idx + 1)+'</span><span class="examQTot">/ '+S.total+'</span>'+
