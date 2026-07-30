@@ -128,9 +128,8 @@ const P_COURSES = (
     '<div class="pcard panel" id="pnl-courses" data-nav="📚 मेरे कोर्स" style="grid-column:1/-1">' +
     '<div class="ph">📚 मेरे कोर्स</div>' +
 
-    '<div class="ph" style="margin-top:14px">📖 मेरी पढ़ाई — शुरू किए कोर्स</div>' +
-    '<div class="pd">जो कोर्स आपने पढ़ना शुरू किया, वह अपने-आप यहाँ दिखता है — कितना पढ़ा, आगे क्या।</div>' +
-    '<div id="crsMine"><span class="note">यह पैनल खोलने पर आता है…</span></div>' +
+    '<div class="ph" style="margin-top:14px">📖 मेरी कोर्स प्रगति</div>' +
+    '<div id="crsMine"><span class="note">प्रगति खाते से आ रही है…</span></div>' +
     '<div class="ph" style="margin-top:14px">🧭 आपकी रिपोर्ट के कोर्स</div>' +
     '<div id="crsReport"><span class="note">…</span></div>' +
     '<div class="ph" style="margin-top:14px">🟢 अभी पढ़ने लायक़ कोर्स (पाठ बने हुए)</div>' +
