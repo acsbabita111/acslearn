@@ -1,6 +1,9 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
-   ACS Firestore Security Rules — v10
+   ACS Firestore Security Rules — v11
+   v11 (30-Jul, सुधार-4): learnProgress — पढ़ाई-प्रगति की server-सच्चाई
+   (syncLearnProgress union); पढ़े: मालिक · Founder · active-Admin;
+   लिखे: कोई नहीं (सिर्फ़ server)।
    v10 (30-Jul, होल-1): aptitudeResults — final-submit पर server-save
    हुआ नतीजा-सार; पढ़े: मालिक (uid) · Founder · active-Admin; लिखे:
    कोई नहीं (सिर्फ़ server-functions)। deploy office से।
@@ -134,6 +137,12 @@ service cloud.firestore {
     }
     /* ── (30-Jul v10, होल-1) अभिरुचि-नतीजा सार — मुफ़्त server-save ── */
     match /aptitudeResults/{rid} {
+      allow read: if request.auth != null &&
+        (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
+      allow write: if false;
+    }
+    /* ── (30-Jul v11, सुधार-4) पढ़ाई-प्रगति — server-सच्चाई (union) ── */
+    match /learnProgress/{rid} {
       allow read: if request.auth != null &&
         (resource.data.uid == request.auth.uid || isFounder() || isActiveAdmin());
       allow write: if false;
