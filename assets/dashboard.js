@@ -1176,6 +1176,20 @@ window.doLogout = async ()=>{ try{ await signOut(auth); }catch(e){} try{ localSt
 if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0])>-1) {
   const TRAINEE_ROLE = ALLOWED[0];
 
+  /* होल-बंदी (31-Jul, Founder-screenshot "loadRazorpay is not defined"): असली फ़ंक्शन
+     बैज-इंजन के अपने block-scope (नीचे ~1705) में है — यह प्रशिक्षु-इंजन block उसे नहीं देखता
+     (ES-module block-scope; rb-bug v5.6.2 जैसा ही पैटर्न)। यहीं अपनी local-copy — cert-order
+     बटन (₹125 प्रमाण पत्र) इसी scope में है, इसी की ज़रूरत है। */
+  function loadRazorpay(){
+    return new Promise((res,rej)=>{
+      if(window.Razorpay){ res(); return; }
+      const s=document.createElement("script");
+      s.src="https://checkout.razorpay.com/v1/checkout.js";
+      s.onload=()=>res(); s.onerror=()=>rej(new Error("भुगतान-पृष्ठ नहीं खुला — network जाँचें"));
+      document.body.appendChild(s);
+    });
+  }
+
   window.__acsExtReady = function(reg){
     try{
       const d = new Date(String(reg.dob||""));
