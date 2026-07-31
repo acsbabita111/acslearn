@@ -1389,7 +1389,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 /* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
      पूर्ण-स्क्रीन ओवरले (table-row के भीतर नहीं) — बड़े छूने-लायक़ विकल्प,
      अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
-  const SERVER_EXAM_COURSES = { PJ016: true, SE009: true };
+  const SERVER_EXAM_COURSES = { PJ016: true };
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
   const OPT_LABEL = ["अ","ब","स","द"];
   function ensureExamStyle() {
@@ -2398,13 +2398,22 @@ if (MODE==="external" && ALLOWED.length>=1) {
         A.filter(function(c){return c._sc;})
           .forEach(function(c){ opt(g3,c.id,rb(c.name_hi||c.name_en||c.id)); });
         var w=$("ofCourseWrap"); if(w) w.style.display=""; }
-      var NCERT = window.ACADEMIC_SUBJECTS || { jr: [], sr: [] };   /* साझा घर — assets/academic_subjects.js (31-Jul) */
+      var NCERT = window.ACADEMIC_SUBJECTS || {};   /* साझा घर — assets/academic_subjects.js (v2.0, 31-Jul) */
       function subBox(){ return $("ofSubBox"); }
+      function subjList(cid){   /* नया ढाँचा — courses/hi/index.html के subjectsForClass() जैसा ही तर्क */
+        if(cid.indexOf("AC-UG-")===0){ var fac=cid.replace("AC-UG-",""); return (NCERT.ugc&&NCERT.ugc[fac])||[]; }
+        var n=parseInt(cid.replace("AC",""),10);
+        if(n>=11){ var s=NCERT.senior||{}, out=[];
+          if(s.science) out=out.concat(s.science); if(s.commerce) out=out.concat(s.commerce);
+          if(s.arts) out=out.concat(s.arts); if(s.skill) out=out.concat(s.skill);
+          return out; }
+        if(n>=9) return NCERT.secondary||[];
+        return NCERT.middle||[];
+      }
       function drawSubs(cid){
         var box=subBox(); if(!box) return;
-        var n=parseInt(cid.replace("AC",""),10);
-        var L=(n>=11)?NCERT.sr:NCERT.jr;
-        var h='<label style="font-size:16px;font-weight:700;color:var(--navy);display:block;margin-bottom:6px">NCERT-विषय चुनें:</label><div class="k9subs">'+
+        var L=subjList(cid);
+        var h='<label style="font-size:16px;font-weight:700;color:var(--navy);display:block;margin-bottom:6px">विषय चुनें:</label><div class="k9subs">'+
           '<label><input type="checkbox" id="ofSubAll"> ✅ सभी विषय</label>';
         L.forEach(function(sub,i){ h+='<label><input type="checkbox" class="ofSub" value="'+sub+'"> '+sub+'</label>'; });
         h+='</div>'; box.innerHTML=h; box.style.display="";
@@ -2431,7 +2440,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         sec.onchange=function(){ if(sec.value) fillSector(sec.value); };
       };
       sel.onchange=function(){ var sb=subBox(); if(sb){ sb.style.display="none"; sb.innerHTML=""; }
-        if(cat.value==="ac" && /^AC\d+$/.test(sel.value)) drawSubs(sel.value); };
+        if(cat.value==="ac" && /^AC/.test(sel.value)) drawSubs(sel.value); };
       /* अंतिम-तिथि अपने-आप: समय-सीमा (माह/दिन/साल) + प्रारंभ-तिथि */
       function autoEnd(){
         var st=$("ofStart"), en=$("ofEnd"), du=$("ofDur");
