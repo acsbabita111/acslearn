@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>सलाह — सही रास्ता चुनें | Applied Computer School™</title>
+<title>करियर सलाह — सही रास्ता चुनें | Applied Computer School™</title>
 <meta name="description" content="ACS सलाह — अभिरुचि परखें, 5 करियर रास्ते (सरकारी/कॉर्पोरेट/प्राइवेट नौकरी, व्यवसाय, स्वरोजगार) समझें, और विशेषज्ञ काउंसलर से मुफ़्त बात करें।">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://acslearn.com/hi/salah.html">
@@ -21,6 +21,28 @@
 <link rel="stylesheet" href="/acs-universal.css">
 <link rel="stylesheet" href="/acs-style.css">
 <link rel="stylesheet" href="/assets/aptitude-test.css">
+<style>
+/* सलाह-पेज बूस्टर CSS (31-Jul, Founder-टोका "टूटा हुआ है") — असली जड़: यह पेज acs-style.css/
+   acs-universal.css load करता है, जिनमें .notice-card/.content-grid/.section-container/.page-hero
+   जैसे classes परिभाषित ही नहीं थे (सिर्फ़ root /style.css में हैं, वह यहाँ load नहीं होता)।
+   body{color:var(--navy);background:var(--navy)} है — बिना card-background के टेक्स्ट navy-पर-navy
+   बनकर पूरी तरह अदृश्य हो गया था (चिह्न/emoji दिखते रहे क्योंकि वे रंग-ग्लिफ़ हैं, CSS color से अछूते)।
+   नीचे वही classes root style.css से हूबहू (ब्रांड-एकरूपता) — सिर्फ़ इसी पेज के लिए, स्वतंत्र। */
+:root{ --border:#E8EDF5; --radius:16px; --primary:#1565C0; --muted:#475569; --gold-bg:#FFF4D6; --white:#FFFFFF; }
+.page-hero{background:#F3F4F6;background-image:radial-gradient(rgba(21,101,192,.08) 1px,transparent 0);background-size:24px 24px;text-align:center;padding:36px 16px;border-radius:0 0 28px 28px}
+.page-hero-inner{max-width:640px;margin:auto}
+.page-hero h1{font-size:clamp(28px,6vw,40px);font-weight:900;margin:10px 0 6px;line-height:1.2}
+.notice-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:0 4px 12px #0b1f3a0f}
+.content-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.section-container{padding:36px 16px;max-width:1200px;margin:auto}
+.section-title-block{text-align:center;margin-bottom:22px}
+.section-title-block h2{font-size:22px}
+.hero-secondary-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-width:160px;padding:14px 20px;border-radius:999px;font-weight:900;font-size:16px;text-align:center;box-shadow:0 4px 10px #0001}
+.btn-primary{background:var(--green);color:#fff}
+.btn-accent{background:var(--primary);color:#fff}
+.btn-gold{background:var(--gold);color:var(--navy)}
+</style>
 </head>
 <body>
 
@@ -52,7 +74,7 @@
 <section class="page-hero" style="padding:34px 16px">
   <div class="page-hero-inner">
     <div style="font-size:2.6rem">🧭</div>
-    <h1 style="color:var(--navy)">सलाह</h1>
+    <h1 style="color:var(--navy)">करियर सलाह</h1>
     <p style="color:var(--muted);max-width:640px;margin:6px auto 0">
       सही रास्ता चुनें — अभिरुचि परखें, रास्ते समझें, और काउंसलर (counselor) से बात करें।
     </p>
