@@ -56,11 +56,18 @@ function acsUniversalInit(){
     var items = (L.build ? L.build(lang) : (L.menu||[]));
     var login = L.login||{icon:"🔑",href:"/dashboard/",label:{hi:"लॉगिन / डैशबोर्ड",en:"Login / Dashboard"}};
     var dl=document.getElementById("acsMenuList"), fm=document.getElementById("acsFooterMenu");
+    /* साइट-व्यापी दोहरा-मेनू bug (31-Jul, Founder-टोका salah.html पर) — जड़: कई generator (udyam/lesson/
+       special-पेज) #acsMenuList/#acsFooterMenu में मेनू पहले से बेक कर देते हैं, फिर यह runtime-कोड
+       दोबारा जोड़ देता था (हर पेज पर 2× मेनू)। इलाज: पहले से भरा हो तो दोबारा न जोड़ें — यह एक साझा-फ़ाइल
+       पैच पूरी साइट (हज़ारों पेज) पर एक साथ असर करता है। ध्यान: fm को null नहीं करते — नीचे legal-पंक्ति
+       fm पर निर्भर है, पुराने बेक-किए footer वाले पेजों पर वह पंक्ति फिर भी जुड़नी चाहिए। */
+    var dlEmpty = !dl || dl.children.length === 0;
+    var fmEmpty = !fm || fm.children.length === 0;
     items.forEach(function(m){
       var label = m.text || m.label;
-      if(dl){ var a=document.createElement("a"); a.href=m.href;
+      if(dl && dlEmpty){ var a=document.createElement("a"); a.href=m.href;
         a.innerHTML='<span class="e">'+m.icon+'</span>'+label; a.onclick=window.acsCloseMenu; dl.appendChild(a); }
-      if(fm){ var b=document.createElement("a"); b.href=m.href;
+      if(fm && fmEmpty){ var b=document.createElement("a"); b.href=m.href;
         b.innerHTML="<span>"+m.icon+"</span>"+label; fm.appendChild(b); }
     });
     /* legal-पंक्ति (काम-11-पूर्व, 19-Jul-2026): Razorpay-अनुपालन — refund/privacy/terms हर पेज के footer से */
