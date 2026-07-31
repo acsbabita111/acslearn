@@ -120,20 +120,43 @@
   </div>
 </div>
 
-<!-- TAB BAR -->
+<!-- TAB BAR — नेचुरल-क्रम (Founder, 31-Jul): एकेडमिक → सरकारी → प्राइवेट(कॉर्पोरेट) → स्थानीय → स्वरोजगार
+     (id-नंबर पुराने ही रखे — सिर्फ़ दिखने का क्रम बदला, JS में कहीं टूटा नहीं) -->
 <div class="tab-bar">
   <div class="tab-inner">
-    <div class="tab active" id="tab1" onclick="goTab(1)"><span class="tab-icon">🏪</span>स्वरोजगार</div>
+    <div class="tab active" id="tab5" onclick="goTab(5)"><span class="tab-icon">📖</span>एकेडमिक</div>
+    <div class="tab" id="tab4" onclick="goTab(4)"><span class="tab-icon">🏛️</span>सरकारी नौकरी</div>
     <div class="tab" id="tab2" onclick="goTab(2)"><span class="tab-icon">🏢</span>प्राइवेट नौकरी</div>
     <div class="tab" id="tab3" onclick="goTab(3)"><span class="tab-icon">🛒</span>स्थानीय नौकरी</div>
-    <div class="tab" id="tab4" onclick="goTab(4)"><span class="tab-icon">🏛️</span>सरकारी नौकरी</div>
+    <div class="tab" id="tab1" onclick="goTab(1)"><span class="tab-icon">🏪</span>स्वरोजगार</div>
   </div>
 </div>
 
 <div class="main">
 
+  <!-- ══ TAB 5: एकेडमिक (कक्षा 6-12) — नया, 31-Jul ══ -->
+  <div class="sec active" id="sec5">
+    <div class="sec-title">📖 एकेडमिक कोर्स (कक्षा 6-12)</div>
+    <div class="sec-sub">स्कूल के हर विषय की मुफ़्त ऑनलाइन पढ़ाई — घर बैठे, अपनी भाषा में।<br/>
+    NCERT-आधारित; केंद्र पर coaching भी उपलब्ध।</div>
+
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="search5"
+        placeholder="🔍 कक्षा खोजें... जैसे: कक्षा 9, कक्षा 12..."
+        oninput="applyFilters(5)"/>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-pill"><span class="sp-num" id="count5">16</span> <span class="sp-lbl">एकेडमिक-विकल्प उपलब्ध</span></div>
+      <div class="stat-pill"><span class="sp-num">✅</span> <span class="sp-lbl">Online Free</span></div>
+      <div class="stat-pill"><span class="sp-num">🏫</span> <span class="sp-lbl">Centre Paid</span></div>
+    </div>
+
+    <div class="course-grid" id="grid5"></div>
+  </div>
+
   <!-- ══ TAB 1: स्वरोजगार ══ -->
-  <div class="sec active" id="sec1">
+  <div class="sec" id="sec1">
     <div class="sec-title">🏪 स्वरोजगार कोर्स</div>
     <div class="sec-sub">खुद का व्यवसाय (Business) शुरू करने के लिए। Boss बनें — Employee नहीं।<br/>
     ₹0 से शुरू → धीरे-धीरे ₹200 करोड़ तक।</div>
@@ -154,7 +177,7 @@
     </div>
 
     <div class="stats-bar">
-      <div class="stat-pill"><span class="sp-num" id="count1">65</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
+      <div class="stat-pill"><span class="sp-num" id="count1">950</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
       <div class="stat-pill"><span class="sp-num">✅</span> <span class="sp-lbl">Online Free</span></div>
       <div class="stat-pill"><span class="sp-num">🏫</span> <span class="sp-lbl">Centre Paid</span></div>
     </div>
@@ -184,7 +207,7 @@
     </div>
 
     <div class="stats-bar">
-      <div class="stat-pill"><span class="sp-num" id="count2">15</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
+      <div class="stat-pill"><span class="sp-num" id="count2">950</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
       <div class="stat-pill"><span class="sp-num">✅</span> <span class="sp-lbl">Online Free</span></div>
     </div>
 
@@ -202,6 +225,8 @@
       <select class="edu-select" id="eduFilter3" onchange="applyFilters(3)">
         <option value="all">— सभी शिक्षा स्तर —</option>
       </select>
+      <div class="filter-title" style="margin-top:10px">📂 Category से Filter करें</div>
+      <div class="filter-row" id="mgFilter3"></div>
     </div>
 
     <div class="search-wrap">
@@ -211,7 +236,7 @@
     </div>
 
     <div class="stats-bar">
-      <div class="stat-pill"><span class="sp-num" id="count3">15</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
+      <div class="stat-pill"><span class="sp-num" id="count3">950</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
       <div class="stat-pill"><span class="sp-num">✅</span> <span class="sp-lbl">Online Free</span></div>
     </div>
 
@@ -238,7 +263,7 @@
     </div>
 
     <div class="stats-bar">
-      <div class="stat-pill"><span class="sp-num" id="count4">15</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
+      <div class="stat-pill"><span class="sp-num" id="count4">49</span> <span class="sp-lbl">कोर्स उपलब्ध</span></div>
       <div class="stat-pill"><span class="sp-num">✅</span> <span class="sp-lbl">Online Free</span></div>
     </div>
 
@@ -347,27 +372,73 @@
 
 <!-- data + render (4-tab: SELF_EMP/PRIVATE/LOCAL/GOVT + mg filter) — ज्यों-का-त्यों -->
 <script src="/assets/courses_data.js"></script>
+<!-- शैक्षणिक-विषय — एकमात्र घर (31-Jul, Founder-आदेश: हर जगह एक-समान विषय-नाम) -->
+<script src="/assets/academic_subjects.js"></script>
+<!-- MG-नाम (24/24) व 950-उद्यम — कॉर्पोरेट/स्थानीय/स्वरोजगार तीनों की साझा सूची (31-Jul, Founder-आदेश) -->
+<script src="/assets/mg_names.js"></script>
+<script src="/assets/udyam_data.js"></script>
 <script>
 // ══ MG NAMES ══
-const MG_NAMES = {
-  1:'🌾 कृषि', 2:'⛏️ खनन', 3:'🏭 विनिर्माण',
-  4:'🏗️ निर्माण', 5:'🧵 वस्त्र', 6:'💊 स्वास्थ्य',
-  7:'💻 प्रौद्योगिकी', 8:'🚗 परिवहन', 9:'🛍️ व्यापार',
-  10:'🎭 सेवाएं', 11:'📚 शिक्षा', 24:'🛡️ सुरक्षा',
-};
+const MG_NAMES = {};
+(function(){
+  var M = window.MG_NAMES || {};   /* साझा घर: /assets/mg_names.js (24/24) — courses/hi का पुराना 12/24 अधूरा-copy हटाया (31-Jul) */
+  Object.keys(M).forEach(function(k){ MG_NAMES[k] = (M[k].e||"") + " " + (M[k].n||""); });
+})();
+
+/* 950-उद्यम को कार्ड-टेम्पलेट के अनुकूल रूप में ढालना — कॉर्पोरेट/स्थानीय/स्वरोजगार तीनों यहीं से (31-Jul, Founder-आदेश:
+   "इस तीनों मे एक ही सूची 24 सेक्टर 950 उद्यम को दिखाना है")। एक चीज़=एक जगह — udyam_data.js ही स्रोत। */
+function udyamAsCourseShape(){
+  var U = (typeof ALL_SECTORS !== 'undefined') ? ALL_SECTORS : [];
+  return U.map(function(u){
+    return {
+      id: 'UDY-' + u.n,
+      name_hi: u.name,
+      mg: u.mg,
+      invest: u.invest,
+      url: u.course || u.intro   /* बना-हुआ कोर्स हो तो वही, वरना 950 में से उसका परिचय-पेज (दोनों जीवित) */
+    };
+  });
+}
 
 // ══ DATA MAP ══
 const TAB_DATA = {
-  1: () => typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
-  2: () => typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : [],
-  3: () => typeof LOCAL_JOB_COURSES !== 'undefined' ? LOCAL_JOB_COURSES : [],
-  4: () => typeof GOVT_JOB_COURSES !== 'undefined' ? GOVT_JOB_COURSES : [],
+  1: udyamAsCourseShape,   /* स्वरोजगार — साझा 950-उद्यम सूची */
+  2: udyamAsCourseShape,   /* प्राइवेट/कॉर्पोरेट — वही साझा सूची */
+  3: udyamAsCourseShape,   /* स्थानीय नौकरी — वही साझा सूची */
+  4: () => [].concat(
+        typeof GOVT_JOB_COURSES !== 'undefined' ? GOVT_JOB_COURSES : [],
+        typeof GOVT_SCHOLAR_COURSES !== 'undefined' ? GOVT_SCHOLAR_COURSES : []
+      ),   /* पुराना होल: छात्रवृत्ति-कोर्स (6) यहाँ कभी नहीं जुड़े थे — 31-Jul में पकड़ा-बंद */
+  5: () => typeof ACADEMIC_COURSES !== 'undefined' ? ACADEMIC_COURSES : [],
 };
+
+/* कक्षा/संकाय-कोड से विषय-सूची — नया ढाँचा (31-Jul): middle(6-8) · secondary(9-10) ·
+   senior की 3 स्ट्रीम (11-12, सभी दिखें — कोई न छूटे) · AC-UG-* = UGC संकाय। एक चीज़=एक जगह। */
+function subjectsForClass(courseId){
+  const AS = window.ACADEMIC_SUBJECTS || {};
+  const id = String(courseId);
+  if(id.indexOf('AC-UG-') === 0){
+    const fac = id.replace('AC-UG-','');
+    return (AS.ugc && AS.ugc[fac]) || [];
+  }
+  const n = parseInt(id.replace('AC',''),10);
+  if(n>=11){
+    const s = AS.senior || {};
+    const rows = [];
+    if(s.science) rows.push('🔬 विज्ञान: ' + s.science.join(', '));
+    if(s.commerce) rows.push('💼 वाणिज्य: ' + s.commerce.join(', '));
+    if(s.arts) rows.push('🎭 कला: ' + s.arts.join(', '));
+    if(s.skill) rows.push('🛠️ नया-कौशल: ' + s.skill.join(', '));
+    return rows;   /* स्ट्रीम-लेबल-सहित पंक्तियाँ — कार्ड में हर पंक्ति अलग दिखे */
+  }
+  if(n>=9) return AS.secondary || [];
+  return AS.middle || [];
+}
 
 // ══ INIT ══
 function init() {
   // Education dropdowns
-  [1,2,3,4].forEach(tab => {
+  [1,2,3,4,5].forEach(tab => {
     const sel = document.getElementById('eduFilter'+tab);
     if(!sel) return;
     if(typeof EDU_LEVELS !== 'undefined') {
@@ -380,8 +451,8 @@ function init() {
     }
   });
 
-  // MG filters for tab 1 & 2
-  [1,2].forEach(tab => {
+  // MG filters for tab 1, 2 & 3 (31-Jul: तीनों साझा 950-उद्यम सूची दिखाते हैं)
+  [1,2,3].forEach(tab => {
     const div = document.getElementById('mgFilter'+tab);
     if(!div) return;
     div.innerHTML = '<button class="filter-btn active" onclick="setMG('+tab+',\'all\',this)">सब</button>';
@@ -397,10 +468,10 @@ function init() {
   });
 
   // Render all
-  [1,2,3,4].forEach(renderTab);
+  [1,2,3,4,5].forEach(renderTab);
 }
 
-const activeMG = {1:'all', 2:'all'};
+const activeMG = {1:'all', 2:'all', 3:'all'};
 
 window.setMG = function(tab, mg, el) {
   activeMG[tab] = mg;
@@ -421,7 +492,7 @@ function renderTab(tab) {
   const mg = activeMG[tab] || 'all';
 
   const filtered = data.filter(c => {
-    const matchEdu = eduVal === 'all' || (c.edu && c.edu.includes(eduVal));
+    const matchEdu = eduVal === 'all' || !c.edu || c.edu.includes(eduVal);
     const matchMG = mg === 'all' || c.mg === mg;
     const name = (c.name_hi || '').toLowerCase();
     const matchSearch = !searchVal || name.includes(searchVal);
@@ -459,9 +530,11 @@ function renderTab(tab) {
         ${c.lessons ? `<span class="cc-tag tag-lessons">📖 ${c.lessons} पाठ</span>` : ''}
         ${c.level ? `<span class="cc-tag tag-level">📊 ${fx(c.level)}</span>` : ''}
         ${c.salary ? `<span class="cc-tag tag-salary">💰 ${fx(c.salary)}</span>` : ''}
+        ${c.invest ? `<span class="cc-tag tag-salary">💰 ${fx(c.invest)}</span>` : ''}
         ${c.exam ? `<span class="cc-tag tag-level">📝 ${fx(c.exam)}</span>` : ''}
       </div>
       ${eduNames ? `<div style="font-size:16px;color:var(--gray);margin-bottom:10px">🎓 ${eduNames}</div>` : ''}
+      ${/^AC/.test(c.id) ? `<div style="font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.7"><b>📚 विषय:</b><br>${subjectsForClass(c.id).join('<br>')}${!/^AC-UG-/.test(c.id) ? `<br><span style="color:var(--gray)">+ 22 भाषा-विकल्पों में से चुनाव (हिंदी/अंग्रेज़ी/क्षेत्रीय)</span>` : ''}</div>` : ''}
       <div class="cc-btns">
         <button class="cc-btn btn-free" onclick="openCourse('${c.id}','online')">📱 Online पढ़ें</button>
         <button class="cc-btn btn-center" onclick="openCourse('${c.id}','center')">🏫 Center Join</button>
@@ -474,10 +547,10 @@ window.openCourse = function(id, type) {
   if(type === 'online') {
     /* url-नियम (Addendum v2.4): बटन सिर्फ़ url से खुले — मरा पता कभी नहीं */
     const all = [].concat(
-      typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
-      typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : [],
-      typeof LOCAL_JOB_COURSES !== 'undefined' ? LOCAL_JOB_COURSES : [],
-      typeof GOVT_JOB_COURSES !== 'undefined' ? GOVT_JOB_COURSES : []
+      typeof GOVT_JOB_COURSES !== 'undefined' ? GOVT_JOB_COURSES : [],
+      typeof GOVT_SCHOLAR_COURSES !== 'undefined' ? GOVT_SCHOLAR_COURSES : [],
+      typeof ACADEMIC_COURSES !== 'undefined' ? ACADEMIC_COURSES : [],
+      udyamAsCourseShape()   /* कॉर्पोरेट/स्थानीय/स्वरोजगार — साझा 950-उद्यम (31-Jul) */
     );
     const c = all.find(x => x.id === id);
     if(c && c.url){ window.location.href = c.url; }
@@ -488,7 +561,7 @@ window.openCourse = function(id, type) {
 };
 
 window.goTab = function(n) {
-  [1,2,3,4].forEach(i => {
+  [1,2,3,4,5].forEach(i => {
     document.getElementById('sec'+i).classList.toggle('active', i===n);
     document.getElementById('tab'+i).classList.toggle('active', i===n);
   });
