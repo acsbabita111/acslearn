@@ -592,6 +592,35 @@ async function guardTeamRender(user, team, desig){
 }
 
 /* ═══ registration पढ़ना — स्रोत: registrations (एकमात्र सही collection) ═══ */
+/* ═══ मेरे-विषय picker (31-Jul) — साझा, 8 पैनल इसी से भरते हैं ═══
+   window.ACADEMIC_SUBJECTS (jr+sr) का flat-अद्वितीय जोड़ — checkbox +
+   "सभी चुनें"; सेव registrations/{regNo}.subjects (server saveMySubjects)। */
+function mySubjFlatList(){
+  const AS = window.ACADEMIC_SUBJECTS || {jr:[],sr:[]};
+  const seen = {}, out = [];
+  (AS.jr||[]).concat(AS.sr||[]).forEach(function(s){ if(!seen[s]){ seen[s]=1; out.push(s); } });
+  return out;
+}
+function fillMySubjects(saved){
+  const box = $("mySubjBox"); if(!box) return;
+  const list = mySubjFlatList();
+  const savedSet = {}; (saved||[]).forEach(function(s){ savedSet[s]=1; });
+  let h = '<label style="display:block;margin-bottom:8px"><input type="checkbox" id="mySubjAll"> ✅ सभी चुनें</label><div class="k9subs">';
+  list.forEach(function(s){
+    h += '<label><input type="checkbox" class="mySubjChk" value="'+esc(s)+'"'+(savedSet[s]?' checked':'')+'> '+esc(s)+'</label>';
+  });
+  h += '</div>';
+  box.innerHTML = h;
+  const all = $("mySubjAll");
+  const allChecked = list.length>0 && list.every(function(s){ return savedSet[s]; });
+  if(all) all.checked = allChecked;
+  function paint(){ box.querySelectorAll(".k9subs label").forEach(function(l){
+    const c=l.querySelector("input"); l.className=c&&c.checked?"on":""; }); }
+  if(all) all.onchange=function(){ box.querySelectorAll(".mySubjChk").forEach(function(c){ c.checked=all.checked; }); paint(); };
+  box.querySelectorAll(".mySubjChk").forEach(function(c){ c.onchange=function(){
+    if(all) all.checked = box.querySelectorAll(".mySubjChk:checked").length===list.length; paint(); }; });
+  paint();
+}
 async function loadRegistration(user){
   const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
   let latest=null, t0=0;
@@ -611,6 +640,7 @@ async function loadRegistration(user){
   const wrap = $("docWrap"); wrap.innerHTML="";
   if(keys.length===0){ setTxt("docNote", "आवेदन में कोई दस्तावेज़-link दर्ज नहीं।"); }
   else{ wrap.innerHTML = docChips(docs); setTxt("docNote", ""); }
+  fillMySubjects(latest.subjects || []);
   /* (19-Jul Founder-आदेश) team-प्रोफ़ाइल की DP भी registration के doc_photo से */
   try{
     const dp=regDocPhoto(latest);
@@ -1544,6 +1574,14 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       const r=document.querySelector('input[name="exq"]:checked');
       if(!r){ const m=$("exMsg"); if(m) m.textContent="जवाब चुनें, फिर अगला।"; return; }
       examSaveCurrent(); if(S.idx<S.total-1) S.idx++; examRenderServer(); return; }
+    const msb=ev.target.closest("#mySubjSave");
+    if(msb){ const box=$("mySubjBox"); if(!box) return;
+      const subs=[]; box.querySelectorAll(".mySubjChk:checked").forEach(function(c){ subs.push(c.value); });
+      msb.disabled=true; const m=$("mySubjMsg"); if(m) m.textContent="⏳ सहेजा जा रहा है…";
+      try{ const out=await httpsCallable(functions,"saveMySubjects")({subjects:subs});
+        const d=out.data||{}; if(m) m.textContent="✅ सहेजा गया — "+d.count+" विषय";
+      }catch(e){ if(m) m.textContent="त्रुटि: "+((e&&e.message)||e); }
+      msb.disabled=false; return; }
     const eex=ev.target.closest("#examExitBtn");
     if(eex){ const S=EX_STATE; if(!S) return; examSaveCurrent();
       const foot=document.querySelector(".examFoot"); const msg=$("exMsg");
@@ -2360,8 +2398,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         A.filter(function(c){return c._sc;})
           .forEach(function(c){ opt(g3,c.id,rb(c.name_hi||c.name_en||c.id)); });
         var w=$("ofCourseWrap"); if(w) w.style.display=""; }
-      var NCERT={ jr:["हिंदी","अंग्रेज़ी","संस्कृत","उर्दू","गणित","विज्ञान","सामाजिक विज्ञान","कंप्यूटर","कला","शारीरिक शिक्षा"],
-        sr:["हिंदी","अंग्रेज़ी","संस्कृत","उर्दू","भौतिकी","रसायन","जीव विज्ञान","गणित","कंप्यूटर विज्ञान","सूचना प्रौद्योगिकी","लेखाशास्त्र","व्यवसाय अध्ययन","अर्थशास्त्र","उद्यमिता","इतिहास","भूगोल","राजनीति विज्ञान","समाजशास्त्र","मनोविज्ञान","गृह विज्ञान","कृषि","शारीरिक शिक्षा","संगीत","चित्रकला"] };
+      var NCERT = window.ACADEMIC_SUBJECTS || { jr: [], sr: [] };   /* साझा घर — assets/academic_subjects.js (31-Jul) */
       function subBox(){ return $("ofSubBox"); }
       function drawSubs(cid){
         var box=subBox(); if(!box) return;
