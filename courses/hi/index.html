@@ -364,6 +364,7 @@
 <script src="/assets/courses_data.js"></script>
 <!-- शैक्षणिक-विषय — एकमात्र घर (31-Jul, Founder-आदेश: हर जगह एक-समान विषय-नाम) -->
 <script src="/assets/academic_subjects.js"></script>
+<script src="/assets/subject_slugs.js"></script>
 <!-- MG-नाम (24/24) व 950-उद्यम — कॉर्पोरेट/स्थानीय/स्वरोजगार तीनों की साझा सूची (31-Jul, Founder-आदेश) -->
 <script src="/assets/mg_names.js"></script>
 <script src="/assets/udyam_data.js"></script>
@@ -404,25 +405,33 @@ const TAB_DATA = {
 
 /* कक्षा/संकाय-कोड से विषय-सूची — नया ढाँचा (31-Jul): middle(6-8) · secondary(9-10) ·
    senior की 3 स्ट्रीम (11-12, सभी दिखें — कोई न छूटे) · AC-UG-* = UGC संकाय। एक चीज़=एक जगह। */
+/* विषय-नाम पर hyperlink (01-Aug-2026, Founder-आदेश: "सभी को हाइपरलिंक से जोड़ दो") —
+   हर विषय अपने placeholder-पेज से जुड़े (/courses/hi/subject/{slug}.html)। slug न मिले
+   (कोई भूला-हुआ नाम) तो लिंक-रहित सादा टेक्स्ट — गूँगा-टूटा-लिंक कभी नहीं (होल-सूची में दर्ज)। */
+function linkSubject(name){
+  const SL = window.SUBJECT_SLUGS || {};
+  const slug = SL[name];
+  return slug ? `<a href="/courses/hi/subject/${slug}.html" style="color:var(--blue);text-decoration:underline">${name}</a>` : name;
+}
 function subjectsForClass(courseId){
   const AS = window.ACADEMIC_SUBJECTS || {};
   const id = String(courseId);
   if(id.indexOf('AC-UG-') === 0){
     const fac = id.replace('AC-UG-','');
-    return (AS.ugc && AS.ugc[fac]) || [];
+    return ((AS.ugc && AS.ugc[fac]) || []).map(linkSubject);
   }
   const n = parseInt(id.replace('AC',''),10);
   if(n>=11){
     const s = AS.senior || {};
     const rows = [];
-    if(s.science) rows.push('🔬 विज्ञान: ' + s.science.join(', '));
-    if(s.commerce) rows.push('💼 वाणिज्य: ' + s.commerce.join(', '));
-    if(s.arts) rows.push('🎭 कला: ' + s.arts.join(', '));
-    if(s.skill) rows.push('🛠️ नया-कौशल: ' + s.skill.join(', '));
+    if(s.science) rows.push('🔬 विज्ञान: ' + s.science.map(linkSubject).join(', '));
+    if(s.commerce) rows.push('💼 वाणिज्य: ' + s.commerce.map(linkSubject).join(', '));
+    if(s.arts) rows.push('🎭 कला: ' + s.arts.map(linkSubject).join(', '));
+    if(s.skill) rows.push('🛠️ नया-कौशल: ' + s.skill.map(linkSubject).join(', '));
     return rows;   /* स्ट्रीम-लेबल-सहित पंक्तियाँ — कार्ड में हर पंक्ति अलग दिखे */
   }
-  if(n>=9) return AS.secondary || [];
-  return AS.middle || [];
+  if(n>=9) return (AS.secondary || []).map(linkSubject);
+  return (AS.middle || []).map(linkSubject);
 }
 
 // ══ INIT ══
