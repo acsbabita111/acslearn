@@ -146,12 +146,18 @@
     <div class="card">
       <h3>1️⃣ अपनी जानकारी भरें</h3>
 
-      <div class="row"><label>नाम — हिंदी में <span style="font-weight:normal">(नीचे English में नाम लिखते ही यह अपने-आप सही बनेगा — चाहें तो यहाँ सुधार लें)</span></label><input type="text" id="nameLocal" placeholder="जैसे: राजेश कुमार"></div>
+      <div class="row" id="hindiNameWrap"><label>नाम — हिंदी में <span style="font-weight:normal">(नीचे English में नाम लिखते ही यह अपने-आप सही बनेगा — चाहें तो यहाँ सुधार लें)</span></label><input type="text" id="nameLocal" placeholder="जैसे: राजेश कुमार"></div>
       <div class="row">
-        <label>Name — ROMAN CAPITAL में (database के लिए)</label>
+        <label id="nameRomanLabel">Name — ROMAN CAPITAL में (database के लिए)</label>
         <input type="text" id="nameRoman" placeholder="e.g. RAJESH KUMAR">
         <div class="hint">सिर्फ़ A-Z अक्षर व space।</div>
         <div class="badrow" id="nameBad">⚠️ कृपया सिर्फ़ ROMAN CAPITAL अक्षर (A-Z) में भरें।</div>
+      </div>
+      <div class="row" id="fatherNameRow" style="display:none">
+        <label>पिता/माता का नाम — Father's/Mother's Name (ROMAN CAPITAL में)</label>
+        <input type="text" id="fatherNameRoman" placeholder="e.g. SURESH KUMAR">
+        <div class="hint">सिर्फ़ A-Z अक्षर व space।</div>
+        <div class="badrow" id="fatherNameBad">⚠️ कृपया सिर्फ़ ROMAN CAPITAL अक्षर (A-Z) में भरें।</div>
       </div>
       <div class="row">
         <label>मोबाइल नंबर</label>
@@ -499,6 +505,29 @@
   function emailValid(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
   var nameLocal=document.getElementById('nameLocal'), nameRoman=document.getElementById('nameRoman'), nameBad=document.getElementById('nameBad');
+  /* (31-Jul, Founder) Learner-परिवार (student/jobseeker/entrepreneur) के लिए हिंदी-नाम हटाकर
+     दो Roman-fields: candidate-नाम + पिता/माता-नाम। बाक़ी 11 भूमिकाओं पर पुराना हिंदी+Roman ढाँचा यथावत। */
+  var hindiNameWrap=document.getElementById('hindiNameWrap'), fatherNameRow=document.getElementById('fatherNameRow');
+  var fatherNameRoman=document.getElementById('fatherNameRoman'), fatherNameBad=document.getElementById('fatherNameBad');
+  var nameRomanLabel=document.getElementById('nameRomanLabel');
+  var LEARNER_ROMAN_ONLY = ['student','jobseeker','entrepreneur'];
+  function isLearnerRomanOnly(){ return LEARNER_ROMAN_ONLY.indexOf(roleSel.value)>-1; }
+  function applyNameFieldMode(){
+    if(isLearnerRomanOnly()){
+      hindiNameWrap.style.display='none';
+      fatherNameRow.style.display='block';
+      nameRomanLabel.textContent = 'उम्मीदवार का नाम — Candidate Name (ROMAN CAPITAL में)';
+    } else {
+      hindiNameWrap.style.display='block';
+      fatherNameRow.style.display='none';
+      nameRomanLabel.textContent = 'Name — ROMAN CAPITAL में (database के लिए)';
+    }
+    validateStep1();
+  }
+  fatherNameRoman.addEventListener('input', function(){
+    this.value=this.value.toUpperCase().replace(/[^A-Z ]/g,'');
+    validateStep1();
+  });
   /* (10-Jul-2026, form-logic) नाम-घालमेल बंद, ताला-1: Roman-खाने में सिर्फ़ A-Z व space —
      देवनागरी/अंक/चिह्न टाइप या paste होते ही तुरंत हटें */
   nameRoman.addEventListener('input', function(){
@@ -660,11 +689,21 @@
     var minor = isMinorNow();
     if(minor && guardianMobile.value && !mobileValid(guardianMobile.value)) guardianBad.classList.add('show'); else guardianBad.classList.remove('show');
     var guardianOk = !minor || mobileValid(guardianMobile.value);
-    /* (10-Jul-2026, form-logic) ताला-2: हिंदी-नाम में देवनागरी हो और A-Z न बचा हो —
-       वरना OTP-बटन बंद (transliteration API न चले तो user ख़ुद देवनागरी लिखे) */
-    var devOk = /[\u0900-\u097F]/.test(nameLocal.value) && !/[A-Za-z0-9]/.test(nameLocal.value);
-    if(nameLocal.value.trim() && !devOk){ localBadRow.style.display='block'; } else { localBadRow.style.display='none'; }
-    var ok = nameLocal.value.trim().length>0 && devOk && romanValid(nameRoman.value) && mobileValid(mobile.value)
+    var learnerMode = isLearnerRomanOnly();
+    /* (31-Jul, Founder) Learner-mode: हिंदी-नाम field ही नहीं — उसकी जाँच छोड़ो; पिता/माता-नाम जाँचो */
+    var nameOk, devOk = true;
+    if(learnerMode){
+      if(fatherNameRoman.value && !romanValid(fatherNameRoman.value)) fatherNameBad.classList.add('show'); else fatherNameBad.classList.remove('show');
+      nameOk = romanValid(nameRoman.value) && romanValid(fatherNameRoman.value);
+    } else {
+      fatherNameBad.classList.remove('show');
+      /* (10-Jul-2026, form-logic) ताला-2: हिंदी-नाम में देवनागरी हो और A-Z न बचा हो —
+         वरना OTP-बटन बंद (transliteration API न चले तो user ख़ुद देवनागरी लिखे) */
+      devOk = /[\u0900-\u097F]/.test(nameLocal.value) && !/[A-Za-z0-9]/.test(nameLocal.value);
+      if(nameLocal.value.trim() && !devOk){ localBadRow.style.display='block'; } else { localBadRow.style.display='none'; }
+      nameOk = nameLocal.value.trim().length>0 && devOk && romanValid(nameRoman.value);
+    }
+    var ok = nameOk && mobileValid(mobile.value)
       && emailValid(email.value) && !!dobEl.value && guardianOk
       && pwdAllOk() && pwd.value===pwd2.value && pwd.value.length>0;
     sendOtpBtn.className = 'big ' + (ok?'btn-on':'btn-off'); sendOtpBtn.disabled = !ok;
@@ -680,8 +719,10 @@
   });
   nameRoman.addEventListener('input', function(){
     this.value=this.value.toUpperCase().replace(/[^A-Z ]/g,'');
-    clearTimeout(romanTimer);
-    romanTimer = setTimeout(autoFillHindiFromRoman, 600);    /* English भरते ही हिंदी अपने-आप */
+    if(!isLearnerRomanOnly()){
+      clearTimeout(romanTimer);
+      romanTimer = setTimeout(autoFillHindiFromRoman, 600);    /* English भरते ही हिंदी अपने-आप */
+    }
     validateStep1();
   });
   mobile.addEventListener('input', function(){ this.value=this.value.replace(/[^0-9]/g,''); validateStep1(); });
@@ -1105,6 +1146,7 @@
 
   function onRoleChange(){
     resetCascade();
+    applyNameFieldMode();   /* (31-Jul) Learner-roles पर हिंदी-नाम हटाकर पिता/माता-नाम दिखाना */
     var r = roleSel.value;
     if(!r){ renderDocPrereq(null); return; }
     var card = R.byKey(r);
@@ -1753,9 +1795,13 @@
   function buildReview(){
     var box = document.getElementById('reviewBox');
     var roleLabel = roleSel.options[roleSel.selectedIndex] ? roleSel.options[roleSel.selectedIndex].text : '—';
+    var nameRows = isLearnerRomanOnly()
+      ? '<div><b>उम्मीदवार का नाम / Candidate Name:</b> '+ (nameRoman.value||'—') +'</div>'+
+        "<div><b>पिता/माता का नाम / Father's/Mother's Name:</b> "+ (fatherNameRoman.value||'—') +"</div>"
+      : '<div><b>नाम (हिंदी):</b> '+ (nameLocal.value||'—') +'</div>'+
+        '<div><b>Name (Roman):</b> '+ (nameRoman.value||'—') +'</div>';
     var html =
-      '<div><b>नाम (हिंदी):</b> '+ (nameLocal.value||'—') +'</div>'+
-      '<div><b>Name (Roman):</b> '+ (nameRoman.value||'—') +'</div>'+
+      nameRows+
       '<div><b>मोबाइल:</b> '+ (mobile.value||'—') +'</div>'+
       '<div><b>जन्मतिथि:</b> '+ (dobEl.value||'—') +'</div>'+
       (isMinorNow() ? '<div><b>Guardian मोबाइल:</b> '+ (guardianMobile.value||'—') +'</div>' : '')+
@@ -1949,7 +1995,8 @@
     submitBtn.disabled = true; submitBtn.textContent = '⏳ सेव किया जा रहा है…';
 
     var payload = {
-      name_local: nameLocal.value, name_roman: nameRoman.value,
+      name_local: isLearnerRomanOnly() ? '' : nameLocal.value, name_roman: nameRoman.value,
+      father_name: isLearnerRomanOnly() ? fatherNameRoman.value : '',
       mobile: mobile.value, email: email.value,
       dob: dobEl.value, guardian_mobile: guardianMobile.value,
       password: pwd.value,   /* (रास्ता A) server इसी से Auth-खाता बनाता है — provisional login के लिए */
