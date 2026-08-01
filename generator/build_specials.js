@@ -49,7 +49,7 @@ function check(name, content) {
 
 /* ---- वर्ग-6 भाषा-फ़िल्टर (सख़्त) — सिर्फ़ langStrict पेजों पर ----
    फेल लाइन पर पेज बनता ही नहीं; कोई लाइन कभी हटाई/बदली नहीं जाती। */
-const LANG_OK = ["लूर","ACS","Razorpay","OTP","escrow","QR","PDF","GST","CIN","WhatsApp","Green","Tick","RM","ZM","HQ","ISO","DPDP","UNCITRAL","POCSO","POSH","Firebase","Firestore"];
+const LANG_OK = ["लूर","ACS","Razorpay","OTP","escrow","QR","PDF","GST","CIN","WhatsApp","Green","Tick","RM","ZM","HQ","ISO","DPDP","UNCITRAL","POCSO","POSH","Firebase","Firestore","NCERT"];
 const LANG_HARD = {"प्रावधान":"नियम","अधिनियम":"कानून","तत्पश्चात":"उसके बाद","यथाशीघ्र":"जल्दी","उपरोक्त":"ऊपर बताई","निम्नलिखित":"नीचे दी","सुनिश्चित":"पक्का","अनुपालन":"पालन","व्यपगत":"ख़त्म","देय":"चुकाना","प्रतिपूर्ति":"वापसी","अध्यधीन":"के अधीन","तदनुसार":"उसी तरह","प्रयोजन":"मक़सद","समादेश":"आदेश"};
 function langLines(html) {
   return html
@@ -601,3 +601,7 @@ buildSpecial({
   ],
   content: SALAH_CONTENT
 });
+
+/* ---- 95 विषय-placeholder-पेज (01-Aug-2026, Founder-आदेश) ---- */
+require("./build_subject_pages.js")(buildSpecial);
+
