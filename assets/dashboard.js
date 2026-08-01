@@ -1659,32 +1659,356 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const db2=ev.target.closest("[data-certdl]");
     if(db2){ certDraw(JSON.parse(db2.getAttribute("data-certdl"))); return; }
   });
-  function certDraw(c){
-    const cv=document.createElement("canvas"); cv.width=1000; cv.height=700;
+  /* होल-बंदी (31-Jul, Founder-screenshot "बहुत सुधार करना होगा"): पुराने प्रमाणपत्र में तीन असली दोष थे —
+     (1) "Online" नंगा-Roman (लिपि-bracket नियम टूटा) (2) courseName में server का आंतरिक तंत्र-विवरण
+     "(360 पाठ से 120 बेतरतीब)" दिखता था — औपचारिक दस्तावेज़ पर अनुचित (3) QR सिर्फ़ "(अगले दौर में)"
+     placeholder था जबकि Constitution में हर certificate पर असली QR अनिवार्य है। तीनों यहाँ ठीक किए। */
+  /* होल-बंदी (31-Jul, Founder-screenshot "बहुत सुधार करना होगा"): पुराने प्रमाणपत्र में तीन असली दोष थे —
+     (1) "Online" नंगा-Roman (लिपि-bracket नियम टूटा) (2) courseName में server का आंतरिक तंत्र-विवरण
+     "(360 पाठ से 120 बेतरतीब)" दिखता था — औपचारिक दस्तावेज़ पर अनुचित (3) QR सिर्फ़ "(अगले दौर में)"
+     placeholder था जबकि Constitution में हर certificate पर असली QR अनिवार्य है। तीनों यहाँ ठीक किए। */
+  function cleanCourseName(nm){
+    nm = String(nm||"—");
+    nm = nm.replace(/\s*\([^()]*\d[^()]*(पाठ|बेतरतीब|random)[^()]*\)\s*$/i, "");
+    nm = nm.replace(/\s*[—-]\s*प्रमाणपत्र\s*परीक्षा\s*$/, "");
+    return nm.trim() || "—";
+  }
+  /* पूरा-नाम खोज (31-Jul, Founder: "डीसीए के बदले डिप्लोमा इन कंप्यूटर एप्लीकेशन होना चाहिए" +
+     "दो भाषा मे, हिंदी और अंग्रेज़ी") — courseId से courses_data.js में खोजकर असली पूरा name_hi/name_en
+     निकालना — एक चीज़=एक जगह; भविष्य के किसी भी संक्षिप्त-नाम वाले कोर्स पर भी अपने-आप सही काम करेगा। */
+  function findCourseName(courseId, fallback){
+    try{
+      var all=[].concat(
+        (typeof SELF_EMP_COURSES!=="undefined")?SELF_EMP_COURSES:[],
+        (typeof PRIVATE_JOB_COURSES!=="undefined")?PRIVATE_JOB_COURSES:[],
+        (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[],
+        (typeof GOVT_JOB_COURSES!=="undefined")?GOVT_JOB_COURSES:[],
+        (typeof GOVT_SCHOLAR_COURSES!=="undefined")?GOVT_SCHOLAR_COURSES:[],
+        (typeof ACADEMIC_COURSES!=="undefined")?ACADEMIC_COURSES:[]
+      );
+      var hit = all.find(function(x){ return x.id===courseId; });
+      if(hit && hit.name_hi) return { hi: cleanCourseName(hit.name_hi), en: hit.name_en||"" };
+    }catch(e){}
+    return { hi: cleanCourseName(fallback), en: "" };
+  }
+  function loadQR(){
+    return new Promise((res,rej)=>{
+      if(window.QRious){ res(); return; }
+      const s=document.createElement("script");
+      s.src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js";
+      s.onload=()=>res(); s.onerror=()=>rej(new Error("QR-लाइब्रेरी नहीं खुली"));
+      document.body.appendChild(s);
+    });
+  }
+  /* jsPDF-loader (31-Jul, Founder: "a4 साइज़ पेज का pdf तैयार करो") — canvas को A4-PDF में लपेटने के
+     लिए। Devanagari कभी jsPDF के native-text से नहीं लिखी जाती (उसके built-in 14 font सिर्फ़ ASCII) —
+     पूरा canvas एक raster-image की तरह PDF-पेज में जड़ा जाता है (स्थापित सीख: "Devanagari सिर्फ़
+     Chromium/canvas-रास्ते से ठीक बनती है")। exact-pin v4.0.0 — @latest कभी नहीं। */
+  function loadPDFLib(){
+    return new Promise((res,rej)=>{
+      if(window.jspdf && window.jspdf.jsPDF){ res(); return; }
+      const s=document.createElement("script");
+      s.src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.0.0/jspdf.umd.min.js";
+      s.onload=()=>res(); s.onerror=()=>rej(new Error("PDF-लाइब्रेरी नहीं खुली"));
+      document.body.appendChild(s);
+    });
+  }
+  function loadImg(src){
+    return new Promise((res)=>{
+      const im=new Image(); im.crossOrigin="anonymous";
+      im.onload=()=>res(im); im.onerror=()=>res(null);   /* लोगो न मिले तो भी crash नहीं — जगह ख़ाली रहे */
+      im.src=src;
+    });
+  }
+  /* बुनियादी Devanagari→Roman लिप्यंतरण (31-Jul, Founder: "नाम हिंदी और अंग्रेज़ी दोनों") — पूर्ण-भाषिक
+     शुद्धता की गारंटी नहीं (schwa-deletion जटिल नियम पूरी तरह लागू नहीं), पर आम भारतीय नामों पर ठीक
+     काम करता है ("राजूकुमार"→"Rajukumar", "सुनीता देवी"→"Sunita Devi")। कोई नई registration-field नहीं
+     चाहिए — मौजूदा हिंदी-नाम से ही अपने-आप बनता है। */
+  function devToRoman(s){
+    var vowels={"अ":"a","आ":"a","इ":"i","ई":"i","उ":"u","ऊ":"u","ऋ":"ri","ए":"e","ऐ":"ai","ओ":"o","औ":"au"};
+    var matras={"ा":"a","ि":"i","ी":"i","ु":"u","ू":"u","ृ":"ri","े":"e","ै":"ai","ो":"o","ौ":"au","ं":"n","ः":"h","ँ":"n"};
+    var cons={"क":"k","ख":"kh","ग":"g","घ":"gh","ङ":"ng","च":"ch","छ":"chh","ज":"j","झ":"jh","ञ":"n","ट":"t","ठ":"th","ड":"d","ढ":"dh","ण":"n","त":"t","थ":"th","द":"d","ध":"dh","न":"n","प":"p","फ":"ph","ब":"b","भ":"bh","म":"m","य":"y","र":"r","ल":"l","व":"v","श":"sh","ष":"sh","स":"s","ह":"h","ड़":"r","ढ़":"rh"};
+    var halant="्", out="", i=0, atWordStart=true;
+    while(i<s.length){
+      var ch=s[i], i0=atWordStart?0:1;
+      var cap=function(w){ return i0<=0?w[0].toUpperCase()+w.slice(1):w; };
+      if(vowels[ch]){ out+=cap(vowels[ch]); atWordStart=false; i++; continue; }
+      if(cons[ch]){
+        var cr=cons[ch], next=s[i+1];
+        if(next===halant){ out+=cap(cr); atWordStart=false; i+=2; continue; }
+        if(next && matras[next]){ out+=cap(cr)+matras[next]; atWordStart=false; i+=2; continue; }
+        var isLast=(i+1>=s.length)||(s[i+1]===" ");
+        out+=cap(cr)+(isLast?"":"a"); atWordStart=false; i++; continue;
+      }
+      if(ch===" "){ out+=" "; atWordStart=true; i++; continue; }
+      out+=ch; atWordStart=false; i++;
+    }
+    return out;
+  }
+  /* लंबे-नाम की centered word-wrap */
+  function wrapCentered(ctx, text, cx, y, maxW, lh, font){
+    ctx.font = font;
+    var words = String(text).split(" "), lines=[], cur="";
+    words.forEach(function(w){
+      var test = cur ? cur+" "+w : w;
+      if(ctx.measureText(test).width > maxW && cur){ lines.push(cur); cur=w; } else cur=test;
+    });
+    if(cur) lines.push(cur);
+    lines.forEach(function(ln,i){ ctx.fillText(ln, cx, y + i*lh); });
+    return lines.length;
+  }
+  /* rich-text centered word-wrap (31-Jul, Founder-लिखा पैराग्राफ़-प्रारूप) — कई अलग-अलग रंग/वज़न के
+     शब्दों को एक साथ बहते वाक्य में wrap करता है (नाम/कोर्स/तारीख़/% इनलाइन-हाइलाइट के लिए)। */
+  function wrapRichCentered(ctx, segments, cx, y, maxW, lh){
+    var words=[];
+    segments.forEach(function(seg){ String(seg.text).split(" ").forEach(function(w){ words.push({w:w,font:seg.font,color:seg.color}); }); });
+    var lines=[[]], curWidth=0;
+    words.forEach(function(item){
+      ctx.font=item.font; var wWidth=ctx.measureText(item.w+" ").width;
+      if(curWidth+wWidth>maxW && lines[lines.length-1].length>0){ lines.push([]); curWidth=0; }
+      lines[lines.length-1].push(item); curWidth+=wWidth;
+    });
+    lines.forEach(function(line,li){
+      var totalW=0; line.forEach(function(item){ ctx.font=item.font; totalW+=ctx.measureText(item.w+" ").width; });
+      var startX=cx-totalW/2; ctx.textAlign="left";
+      line.forEach(function(item){ ctx.font=item.font; ctx.fillStyle=item.color; ctx.fillText(item.w,startX,y+li*lh); startX+=ctx.measureText(item.w+" ").width; });
+    });
+    ctx.textAlign="center";
+    return lines.length;
+  }
+  function drawSeal(x,cx,cy,r,line1,line2){
+    x.save(); x.strokeStyle="#0B1F3A55"; x.lineWidth=2.5; x.setLineDash([5,4]);
+    x.beginPath(); x.arc(cx,cy,r,0,7); x.stroke(); x.setLineDash([]);
+    x.strokeStyle="#0B1F3A33"; x.lineWidth=1.2;
+    x.beginPath(); x.arc(cx,cy,r-10,0,7); x.stroke();
+    x.fillStyle="#0B1F3A99"; x.textAlign="center";
+    x.font="800 20px 'Noto Sans Devanagari',sans-serif"; x.fillText(line1,cx,cy-2);
+    x.font="700 13px 'Noto Sans Devanagari',sans-serif"; x.fillText(line2,cx,cy+20);
+    x.restore();
+  }
+  function drawSignature(x,cx,y,scale){
+    scale=scale||1; x.save();
+    x.strokeStyle="#1a2b4a"; x.lineWidth=3; x.lineCap="round";
+    x.beginPath();
+    x.moveTo(cx-70*scale,y);
+    x.bezierCurveTo(cx-52*scale,y-28*scale, cx-32*scale,y+23*scale, cx-10*scale,y-13*scale);
+    x.bezierCurveTo(cx+6*scale,y-32*scale, cx+19*scale,y+13*scale, cx+38*scale,y-6*scale);
+    x.bezierCurveTo(cx+51*scale,y-15*scale, cx+61*scale,y+3*scale, cx+74*scale,y-10*scale);
+    x.stroke(); x.restore();
+  }
+  function roundRectPath(x,rx,ry,rw,rh,r){
+    x.beginPath(); x.moveTo(rx+r,ry);
+    x.arcTo(rx+rw,ry,rx+rw,ry+rh,r); x.arcTo(rx+rw,ry+rh,rx,ry+rh,r);
+    x.arcTo(rx,ry+rh,rx,ry,r); x.arcTo(rx,ry,rx+rw,ry,r); x.closePath();
+  }
+  /* चौथा-दौर (31-Jul, Founder — A4-PDF + Founder-लिखा rich-paragraph प्रारूप + पिता-का-नाम + border
+     वापस + trademark-जैसा watermark + पूरा-पेज भराव): असली node-canvas+असली-फ़ॉन्ट से कई दौर जाँचा।
+     🟠 पिता/अभिभावक का नाम अभी भी placeholder (________) है — registrations में सिर्फ़ guardian का
+     मोबाइल-नंबर लिया जाता है, नाम कहीं नहीं — server-side नई field चाहिए (Founder को बताया)। */
+  /* पाँचवाँ-दौर — Founder-अनुमोदित अंतिम डिज़ाइन (31-Jul): पोर्ट्रेट A4-PDF, दोनों लोगो कोनों में,
+     संस्था-नाम केंद्र में बड़े, प्रमाणपत्र-शीर्षक अकेली-पंक्ति, learner-नाम मुख्य-फ़ोकस (बड़ा/बोल्ड/हरा,
+     हिंदी+अंग्रेज़ी दोनों), पिता-नाम placeholder, rich-paragraph प्रमाणीकरण-वाक्य (हिंदी+अंग्रेज़ी),
+     बड़ा प्रमाणपत्र-नंबर, QR बायें+हस्ताक्षर-मुहर दायें ("प्रधान ट्रस्टी, FFGPMT"), मान्यता एक-लाइन में
+     3-सूचना, बोल्ड-मोटा स्लोगन "80+ भाषा में, गाँव से ग्लोबल साउथ तक!" लंबी रेखा के साथ, मुख्यालय-पता
+     सबसे नीचे, चारों कोनों में ACS के 4 ब्रांड-रंग त्रिकोण, केंद्र में बड़ा ट्रेडमार्क-जैसा watermark +
+     सघन दोहराया-पैटर्न। पाँच दौर के असली node-canvas+असली-Devanagari-फ़ॉन्ट preview से जाँचा।
+     🟠 पिता/अभिभावक का नाम अभी भी placeholder (________) है — registrations में सिर्फ़ guardian का
+     मोबाइल-नंबर लिया जाता है, नाम कहीं नहीं — server-side नई field चाहिए (Founder को बताया)। */
+  async function certDraw(c){
+    const W=1240,H=1754;   /* A4 पोर्ट्रेट @ 150dpi */
+    const cv=document.createElement("canvas"); cv.width=W; cv.height=H;
     const x=cv.getContext("2d");
-    x.fillStyle="#F5F7FA"; x.fillRect(0,0,1000,700);
-    x.strokeStyle="#F9A825"; x.lineWidth=14; x.strokeRect(20,20,960,660);
-    x.strokeStyle="#0B1F3A"; x.lineWidth=3; x.strokeRect(42,42,916,616);
-    x.fillStyle="#0B1F3A"; x.textAlign="center";
-    x.font="800 34px 'Noto Sans Devanagari',sans-serif";
-    x.fillText("अप्लाइड कंप्यूटर स्कूल™ · FFGPMTrust",500,110);
-    x.font="800 44px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#1565C0";
-    x.fillText("Online कोर्स-पूर्णता प्रमाणपत्र",500,180);
-    x.fillStyle="#0B1F3A"; x.font="700 26px 'Noto Sans Devanagari',sans-serif";
-    x.fillText("प्रमाणित किया जाता है कि",500,240);
-    x.font="800 40px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#2E7D32";
-    x.fillText(c.name||"—",500,300);
-    x.fillStyle="#0B1F3A"; x.font="700 26px 'Noto Sans Devanagari',sans-serif";
-    x.fillText("ने यह online परीक्षा "+c.pct+"% अंकों से पास की:",500,350);
-    x.font="800 30px 'Noto Sans Devanagari',sans-serif";
-    x.fillText(c.courseName||c.courseId,500,400);
-    x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#B71C1C";
-    x.fillText("(इन्होंने अभी तक प्रैक्टिकल नहीं किया है।)",500,450);
-    x.fillStyle="#0B1F3A"; x.font="700 22px monospace";
-    x.fillText("प्रमाणपत्र नं: "+c.certNo+" · तिथि: "+new Date().toLocaleDateString("hi-IN"),500,510);
-    x.font="700 20px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
-    x.fillText("verify: acslearn.com (QR अगले दौर में) · From Village to World 🌍",500,560);
-    const a=document.createElement("a"); a.download=c.certNo+".png"; a.href=cv.toDataURL("image/png"); a.click();
+    x.fillStyle="#F5F7FA"; x.fillRect(0,0,W,H);
+
+    const [acsLogo, ffLogo] = await Promise.all([loadImg("/logo.png"), loadImg("/assets/cert/ffgpmt-logo.png")]);
+
+    /* बड़ा trademark-जैसा watermark — केंद्र में बड़ा हल्का ACS-सील + सघन दोहराया-पैटर्न */
+    if(acsLogo){
+      x.save(); x.globalAlpha=0.15;
+      const wmSize=760;
+      x.drawImage(acsLogo, W/2-wmSize/2, H/2-wmSize/2, wmSize, wmSize);
+      x.restore();
+    }
+    x.save();
+    x.translate(W/2,H/2); x.rotate(-0.4); x.translate(-W/2,-H/2);
+    x.fillStyle="rgba(11,31,58,0.06)"; x.font="700 32px 'Noto Sans Devanagari',sans-serif"; x.textAlign="center";
+    for(let wy=-200; wy<H+400; wy+=85){ for(let wx=-200; wx<W+400; wx+=200){ x.fillText("ACS · FFGPMT", wx, wy); } }
+    x.restore();
+
+    /* border — मोटी गोल्ड बाहरी + पतली नेवी भीतरी, गोल-कोनों के साथ */
+    x.save();
+    x.shadowColor="rgba(11,31,58,0.15)"; x.shadowBlur=20; x.shadowOffsetY=6;
+    roundRectPath(x, 20, 20, W-40, H-40, 18);
+    x.fillStyle="#ffffff"; x.fill();
+    x.restore();
+    roundRectPath(x, 26, 26, W-52, H-52, 14);
+    x.strokeStyle="#F9A825"; x.lineWidth=16; x.stroke();
+    roundRectPath(x, 50, 50, W-100, H-100, 6);
+    x.strokeStyle="#0B1F3A"; x.lineWidth=3; x.stroke();
+    /* चारों कोनों में ACS के 4 ब्रांड-रंग त्रिकोण (Founder: "कॉर्नर ग्राफिक्स वापस करो") */
+    x.fillStyle="#F9A825";
+    x.beginPath(); x.moveTo(W-50,50); x.lineTo(W-50,120); x.lineTo(W-120,50); x.closePath(); x.fill();
+    x.fillStyle="#1565C0";
+    x.beginPath(); x.moveTo(50,H-50); x.lineTo(50,H-120); x.lineTo(120,H-50); x.closePath(); x.fill();
+    x.fillStyle="#0B1F3A";
+    x.beginPath(); x.moveTo(50,50); x.lineTo(50,110); x.lineTo(110,50); x.closePath(); x.fill();
+    x.fillStyle="#2E7D32";
+    x.beginPath(); x.moveTo(W-50,H-50); x.lineTo(W-50,H-110); x.lineTo(W-110,H-50); x.closePath(); x.fill();
+
+    const CX = W/2;
+    x.textAlign="center";
+
+    /* दोनों लोगो कोनों में (Founder: "ऊपर-लेफ्ट व राइट कॉर्नर मे शिफ्ट करो") */
+    x.fillStyle="#fff"; x.beginPath(); x.arc(150,155,82,0,7); x.fill();
+    if(acsLogo) x.drawImage(acsLogo,150-72,83,144,144);
+    x.fillStyle="#fff"; x.beginPath(); x.arc(W-150,155,82,0,7); x.fill();
+    if(ffLogo) x.drawImage(ffLogo,W-150-68,87,136,136);
+
+    /* संस्था-नाम केंद्र में — अंग्रेज़ी नाम बड़ा (Founder: "और बड़ा करो") */
+    let y=110;
+    x.font="800 46px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("अप्लाइड कंप्यूटर स्कूल™",CX,y); y+=42;
+    x.font="800 27px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("Applied Computer School™",CX,y); y+=36;
+    x.font="800 30px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#1565C0";
+    x.fillText("&",CX,y); y+=6;
+    x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("फ़्रीडम फ़ाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट",CX,y); y+=32;
+    x.font="700 19px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("(FFGPMTrust)",CX,y); y+=28;
+    x.font="700 19px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#5a6b80";
+    x.fillText("Freedom Fighter Gangadhar Prasad Memorial Trust",CX,y); y+=35;
+    x.strokeStyle="#F9A825"; x.lineWidth=4;
+    x.beginPath(); x.moveTo(CX-240,y); x.lineTo(CX+240,y); x.stroke(); y+=65;
+
+    /* प्रमाणपत्र-शीर्षक अकेली प्रमुख-पंक्ति में (Founder: "1 लाइन और अकेला") */
+    x.font="800 46px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#1565C0";
+    x.fillText("ऑनलाइन कोर्स-पूर्णता प्रमाणपत्र",CX,y); y+=54;
+    x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#1565C0";
+    x.fillText("Online Course Completion Certificate",CX,y); y+=79;
+
+    /* learner-नाम मुख्य-फ़ोकस — पैराग्राफ़ से अलग, बड़ा, बोल्ड, हरा (Founder: "मेन फोकस मिलना चाहिए") */
+    const fn = findCourseName(c.courseId, c.courseName||c.courseId);
+    const nameEn = devToRoman(c.name||"");
+    const fatherPh = "________";
+
+    x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("प्रमाणित किया जाता है कि",CX,y); y+=65;
+
+    x.font="800 56px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#2E7D32";
+    x.fillText(c.name||"—",CX,y); y+=10;
+    x.strokeStyle="#2E7D32"; x.lineWidth=3;
+    x.beginPath(); x.moveTo(CX-240,y); x.lineTo(CX+240,y); x.stroke(); y+=44;
+    x.font="800 26px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("पिता "+fatherPh,CX,y); y+=32;
+    x.font="italic 800 22px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#2E7D32";
+    x.fillText(nameEn||"—",CX,y); y+=8;
+    x.font="italic 700 17px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
+    x.fillText("S/o "+fatherPh,CX,y); y+=54;
+
+    /* Founder-लिखा rich-paragraph प्रारूप, दोनों भाषा */
+    const navy="700 26px 'Noto Sans Devanagari',sans-serif", navyB="800 28px 'Noto Sans Devanagari',sans-serif";
+    const nHi = wrapRichCentered(x, [
+      {text:"ने", font:navy, color:"#0B1F3A"},
+      {text:fn.hi, font:navyB, color:"#1565C0"},
+      {text:"की दिनांक 31 जुलाई 2026 को आयोजित ऑनलाइन परीक्षा", font:navy, color:"#0B1F3A"},
+      {text:(c.pct!=null?c.pct:"—")+"%", font:navyB, color:"#2E7D32"},
+      {text:"अंकों से पास की।", font:navy, color:"#0B1F3A"},
+    ], CX, y, W-260, 44);
+    y += (nHi-1)*44 + 50;
+
+    const eng="italic 700 18px 'Noto Sans Devanagari',sans-serif", engB="italic 800 19px 'Noto Sans Devanagari',sans-serif";
+    const nEn = wrapRichCentered(x, [
+      {text:"has passed the online examination for", font:eng, color:"#4a5a70"},
+      {text:fn.en||fn.hi, font:engB, color:"#1565C0"},
+      {text:"held on 31 July 2026, with", font:eng, color:"#4a5a70"},
+      {text:(c.pct!=null?c.pct:"—")+"%", font:engB, color:"#2E7D32"},
+      {text:"marks.", font:eng, color:"#4a5a70"},
+    ], CX, y, W-260, 29);
+    y += (nEn-1)*29 + 48;
+
+    x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("हम इनके उज्ज्वल भविष्य की कामना करते हैं।",CX,y); y+=40;
+    x.font="italic 700 16px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#6b7a90";
+    x.fillText("We wish him/her a bright future.",CX,y); y+=89;
+
+    /* प्रमाणपत्र-नंबर बड़ा (Founder: "बहुत छोटा है") */
+    x.fillStyle="#0B1F3A"; x.font="800 32px monospace";
+    x.fillText(c.certNo,CX,y); y+=35;
+    x.font="700 19px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
+    x.fillText("प्रमाणपत्र नं / Certificate No",CX,y); y+=96;
+
+    /* QR बायीं तरफ़, सिर्फ़ FFGPMT का हस्ताक्षर+मुहर दायीं तरफ़ ("प्रधान ट्रस्टी, FFGPMT") */
+    const rowY=y;
+    const leftX=CX-300, rightX=CX+260;
+    x.strokeStyle="#0B1F3A22"; x.lineWidth=1.5; x.strokeRect(leftX-72,rowY,144,144);
+    try{
+      await loadQR();
+      const verifyUrl = "https://acslearn.com/verify/?cert="+encodeURIComponent(c.certNo||"");
+      const qcv=document.createElement("canvas");
+      new window.QRious({ element:qcv, value:verifyUrl, size:144, background:"#F5F7FA", foreground:"#0B1F3A" });
+      x.drawImage(qcv,leftX-72,rowY,144,144);
+    }catch(e){
+      x.fillStyle="#9aa4b0"; x.font="700 15px 'Noto Sans Devanagari',sans-serif";
+      x.fillText("QR",leftX,rowY+76);
+    }
+    x.font="700 16px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("स्कैन कर सत्यापित करें",leftX,rowY+172);
+    x.font="italic 700 14px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#6b7a90";
+    x.fillText("Scan to verify",leftX,rowY+192);
+
+    drawSignature(x, rightX, rowY+55, 1.1);
+    x.strokeStyle="#0B1F3A55"; x.lineWidth=1.3;
+    x.beginPath(); x.moveTo(rightX-86,rowY+74); x.lineTo(rightX+86,rowY+74); x.stroke();
+    x.font="700 17px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("प्राधिकृत हस्ताक्षर",rightX,rowY+98);
+    x.font="italic 700 14px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#6b7a90";
+    x.fillText("Authorized Signatory",rightX,rowY+118);
+    x.font="800 20px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.fillText("प्रधान ट्रस्टी, FFGPMT",rightX,rowY+140);
+    x.font="italic 700 13px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#6b7a90";
+    x.fillText("Chief Trustee, FFGPMT",rightX,rowY+158);
+    drawSeal(x, rightX, rowY+13, 36, "FFGPMT", "Digital Seal");
+
+    y=rowY+240;
+    x.font="700 17px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    const nV1=wrapRichCentered(x,[{text:"इस प्रमाणपत्र की सत्यता acslearn.com/verify पर ऊपर लिखे प्रमाणपत्र-नंबर से जाँची जा सकती है।",font:"700 17px 'Noto Sans Devanagari',sans-serif",color:"#0B1F3A"}],CX,y,W-260,23);
+    y += (nV1-1)*23 + 32;
+    x.font="italic 700 14px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#6b7a90";
+    x.fillText("This certificate can be verified at acslearn.com/verify using the certificate number above.",CX,y);
+    y += 70;
+
+    /* मान्यता एवं पंजीकरण — अब एक-लाइन में 3 सूचना (Founder: "एक लाइन मे 3 सूचना") */
+    x.strokeStyle="#0B1F3A18"; x.lineWidth=1.5;
+    x.beginPath(); x.moveTo(90,y-20); x.lineTo(W-90,y-20); x.stroke();
+    x.fillStyle="#4a5a70"; x.font="700 17px 'Noto Sans Devanagari',sans-serif";
+    x.fillText("मान्यता एवं पंजीकरण / Registrations & Accreditations",CX,y+8); y+=54;
+    x.font="700 16px monospace"; x.fillStyle="#5a6b80";
+    x.fillText("ISO 9001:2015  |  UDYAM-BR-17-0000507  |  Trademark App. 6167674",CX,y); y+=69;
+
+    /* स्लोगन — बोल्ड-मोटा (stroke-outline से) + बहुत लंबी रेखा (Founder-निर्देश) */
+    x.font="800 40px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
+    x.lineWidth=1.4; x.strokeStyle="#0B1F3A";
+    x.strokeText("80+ भाषा में, गाँव से ग्लोबल साउथ तक!",CX,y);
+    x.fillText("80+ भाषा में, गाँव से ग्लोबल साउथ तक!",CX,y); y+=58;
+    x.strokeStyle="#F9A825"; x.lineWidth=3;
+    x.beginPath(); x.moveTo(90,y); x.lineTo(W-90,y); x.stroke(); y+=40;
+
+    /* मुख्यालय-पता सबसे नीचे एक पंक्ति में (Founder: "पता कहीं भी नहीं लिखे हो") */
+    x.font="700 16px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
+    x.fillText("मुख्यालय / Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201",CX,y);
+
+    /* A4-PDF के रूप में देना — canvas को raster-image की तरह PDF-पेज में जड़ना */
+    try{
+      await loadPDFLib();
+      const JsPDFCtor = window.jspdf.jsPDF;
+      const doc = new JsPDFCtor({ orientation:"portrait", unit:"mm", format:"a4" });
+      doc.addImage(cv.toDataURL("image/png"), "PNG", 0, 0, 210, 297);
+      doc.save(c.certNo+".pdf");
+    }catch(e){
+      /* honest-fallback — PDF-लाइब्रेरी न खुले तो भी PNG मिल जाए, ख़ाली-हाथ न लौटे */
+      const a=document.createElement("a"); a.download=c.certNo+".png"; a.href=cv.toDataURL("image/png"); a.click();
+    }
   }
   LAZY["pnl-courses"] = function(){
     if(CRS_LOADED) return; CRS_LOADED=true;
