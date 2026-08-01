@@ -106,57 +106,40 @@
 <div id="coursesApp">
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-title">सही कोर्स चुनें,<br/><em>सही रास्ते पर चलें।</em></div>
+    <div class="hero-title" style="text-align:center">
+      <span style="color:var(--gold)">सही कोर्स चुनें,</span><br/>
+      <span style="color:#fff">सही रास्ते पर चलें,</span><br/>
+      <a href="javascript:void(0)" onclick="goTab(0)" class="btn btn-primary" style="display:inline-block;margin-top:14px;font-size:clamp(22px,4.4vw,32px);padding:12px 26px">अभी पढ़ना शुरू करें!</a>
+    </div>
   </div>
 </div>
 
-<!-- 5 पूरे-तैयार कोर्स — Founder-आदेश (01-Aug): "हर संभावित जगह बटन लगाओ" —
-     945 परिचय-पेजों से साफ़ अलग दिखे, ताकि जो पूरा पाठ-दर-पाठ कोर्स चाहता है
-     वह सीधे यहीं पहुँचे (5-tab में scroll करने की ज़रूरत नहीं) -->
-<div id="live-ready-courses" style="background:#fff;border:2px solid var(--green);border-radius:18px;padding:18px;margin:16px auto;max-width:900px;scroll-margin-top:90px">
-  <div style="font-weight:900;color:var(--green);font-size:20px;margin-bottom:12px;text-align:center">✅ अभी 5 कोर्स पूरी तरह तैयार हैं!</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
-      <span style="font-weight:700;font-size:15px">💻 डीसीए</span>
-      <a href="/courses/hi/digital/dca/index.html" class="btn btn-primary" style="min-width:auto;padding:7px 12px;font-size:14px">अभी पढ़ना शुरू करें!</a>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
-      <span style="font-weight:700;font-size:15px">🤖 AI डिजिटल मास्टर</span>
-      <a href="/courses/hi/digital/ai-digital-master/index.html" class="btn btn-primary" style="min-width:auto;padding:7px 12px;font-size:14px">अभी पढ़ना शुरू करें!</a>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
-      <span style="font-weight:700;font-size:15px">🛒 ई-कॉमर्स</span>
-      <a href="/courses/hi/digital/ecom/index.html" class="btn btn-primary" style="min-width:auto;padding:7px 12px;font-size:14px">अभी पढ़ना शुरू करें!</a>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
-      <span style="font-weight:700;font-size:15px">🖨️ प्रिंटर मरम्मत</span>
-      <a href="/courses/hi/vocational/printer/index.html" class="btn btn-primary" style="min-width:auto;padding:7px 12px;font-size:14px">अभी पढ़ना शुरू करें!</a>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
-      <span style="font-weight:700;font-size:15px">🔥 वेल्डिंग</span>
-      <a href="/courses/hi/welding/index.html" class="btn btn-primary" style="min-width:auto;padding:7px 12px;font-size:14px">अभी पढ़ना शुरू करें!</a>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:10px;font-size:14px;color:var(--muted)">बाक़ी 945 उद्यमों पर विस्तृत परिचय (बाज़ार, कमाई-सीढ़ी, बड़े नाम) पढ़ने को मिलेगा — नीचे देखें।</div>
-</div>
-
-
-<!-- TAB BAR — नेचुरल-क्रम (Founder, 31-Jul): एकेडमिक → सरकारी → प्राइवेट(कॉर्पोरेट) → स्थानीय → स्वरोजगार
-     (id-नंबर पुराने ही रखे — सिर्फ़ दिखने का क्रम बदला, JS में कहीं टूटा नहीं) -->
+<!-- TAB BAR — अब 6 tab (Founder, 01-Aug): "अभी पढ़ना शुरू करें!" सबसे पहला व default-active,
+     बाक़ी नाम भी नए (कॉर्पोरेट/स्थानीय/सरकारी के साथ "के लिए कोर्स") -->
 <div class="tab-bar">
   <div class="tab-inner">
-    <div class="tab active" id="tab5" onclick="goTab(5)"><span class="tab-icon">📖</span>एकेडमिक</div>
-    <div class="tab" id="tab4" onclick="goTab(4)"><span class="tab-icon">🏛️</span>सरकारी नौकरी</div>
-    <div class="tab" id="tab2" onclick="goTab(2)"><span class="tab-icon">🏢</span>प्राइवेट नौकरी</div>
-    <div class="tab" id="tab3" onclick="goTab(3)"><span class="tab-icon">🛒</span>स्थानीय नौकरी</div>
-    <div class="tab" id="tab1" onclick="goTab(1)"><span class="tab-icon">🏪</span>स्वरोजगार</div>
+    <div class="tab active" id="tab0" onclick="goTab(0)"><span class="tab-icon">✅</span>अभी पढ़ना शुरू करें!</div>
+    <div class="tab" id="tab5" onclick="goTab(5)"><span class="tab-icon">📖</span>एकेडमिक कोर्स</div>
+    <div class="tab" id="tab1" onclick="goTab(1)"><span class="tab-icon">🏪</span>स्वरोजगार कोर्स</div>
+    <div class="tab" id="tab3" onclick="goTab(3)"><span class="tab-icon">🛒</span>स्थानीय नौकरी के लिए कोर्स</div>
+    <div class="tab" id="tab2" onclick="goTab(2)"><span class="tab-icon">🏢</span>कॉर्पोरेट नौकरी के लिए कोर्स</div>
+    <div class="tab" id="tab4" onclick="goTab(4)"><span class="tab-icon">🏛️</span>सरकारी नौकरी के लिए कोर्स</div>
   </div>
 </div>
 
 <div class="main">
 
+  <!-- ══ TAB 0: अभी पढ़ना शुरू करें! (5 पूरे-तैयार कोर्स) — नया, 01-Aug ══ -->
+  <div class="sec active" id="sec0">
+    <div class="sec-title">✅ अभी पढ़ना शुरू करें!</div>
+    <div class="sec-sub">यह 5 कोर्स पूरी तरह तैयार हैं — पाठ-दर-पाठ, परीक्षा व प्रमाण पत्र सहित।<br/>
+    बाक़ी उद्यमों पर विस्तृत परिचय (बाज़ार, कमाई-सीढ़ी, बड़े नाम) — बाक़ी टैब में देखें।</div>
+    <div class="course-grid" id="grid0"></div>
+  </div>
+
+
   <!-- ══ TAB 5: एकेडमिक (कक्षा 6-12) — नया, 31-Jul ══ -->
-  <div class="sec active" id="sec5">
+  <div class="sec" id="sec5">
     <div class="sec-title">📖 एकेडमिक कोर्स (कक्षा 6-12)</div>
     <div class="sec-sub">स्कूल के हर विषय की मुफ़्त ऑनलाइन पढ़ाई — घर बैठे, अपनी भाषा में।<br/>
     NCERT-आधारित; केंद्र पर coaching भी उपलब्ध।</div>
@@ -346,20 +329,20 @@
 .course-grid{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:480px){.course-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:720px){.course-grid{grid-template-columns:1fr 1fr 1fr}}
-.course-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:16px;transition:.2s;display:flex;flex-direction:column}
+.course-card{background:#fff;border:2px solid var(--gold);border-radius:14px;padding:16px;transition:.2s;display:flex;flex-direction:column;text-align:center}
 .course-card:hover{border-color:var(--blue);box-shadow:0 4px 14px rgba(0,0,0,.1);transform:translateY(-2px)}
-.cc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+.cc-top{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
 .cc-id{font-size:16px;font-weight:700;color:var(--muted);letter-spacing:1px}
 .cc-free{background:#E8F5E9;color:var(--green);font-size:16px;font-weight:800;padding:2px 8px;border-radius:10px}
-.cc-name{font-size:16px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:8px}
-.cc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.cc-name{font-size:16px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:8px;text-align:center}
+.cc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;justify-content:center}
 .cc-tag{font-size:16px;font-weight:700;padding:3px 8px;border-radius:10px}
 .tag-duration{background:#EEF4FF;color:var(--blue)}
 .tag-lessons{background:#F3E5F5;color:var(--purple)}
 .tag-level{background:#FFF3E0;color:var(--orange)}
 .tag-salary{background:#E8F5E9;color:var(--green)}
 .tag-edu{background:#F5F5F5;color:var(--muted)}
-.cc-btns{display:flex;gap:6px;margin-top:auto}
+.cc-btns{display:flex;gap:6px;margin-top:auto;justify-content:center}
 .cc-btn{flex:1;padding:11px 10px;border-radius:8px;font-size:16px;font-weight:800;cursor:pointer;border:none;font-family:inherit;text-align:center;transition:.2s}
 .btn-free{background:#E8F5E9;color:var(--green)}
 .btn-free:hover{background:var(--green);color:#fff}
@@ -424,6 +407,15 @@ function udyamAsCourseShape(){
 
 // ══ DATA MAP ══
 const TAB_DATA = {
+  0: () => {
+    /* 5 पूरे-तैयार कोर्स — असली SELF_EMP_COURSES/PRIVATE_JOB_COURSES से ID मिलाकर (एक चीज़=एक जगह) */
+    const READY_IDS = ['SE009','SE017','SE021','PJ016','PJ017'];
+    const all = [].concat(
+      typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
+      typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : []
+    );
+    return READY_IDS.map(id => all.find(c => c.id === id)).filter(Boolean);
+  },
   1: udyamAsCourseShape,   /* स्वरोजगार — साझा 950-उद्यम सूची */
   2: udyamAsCourseShape,   /* प्राइवेट/कॉर्पोरेट — वही साझा सूची */
   3: udyamAsCourseShape,   /* स्थानीय नौकरी — वही साझा सूची */
@@ -498,7 +490,7 @@ function init() {
   });
 
   // Render all
-  [1,2,3,4,5].forEach(renderTab);
+  [0,1,2,3,4,5].forEach(renderTab);
 }
 
 const activeMG = {1:'all', 2:'all', 3:'all'};
@@ -563,8 +555,8 @@ function renderTab(tab) {
         ${c.invest ? `<span class="cc-tag tag-salary">💰 ${fx(c.invest)}</span>` : ''}
         ${c.exam ? `<span class="cc-tag tag-level">📝 ${fx(c.exam)}</span>` : ''}
       </div>
-      ${eduNames ? `<div style="font-size:16px;color:var(--muted);margin-bottom:10px">🎓 ${eduNames}</div>` : ''}
-      ${/^AC/.test(c.id) ? `<div style="font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.7"><b>📚 विषय:</b><br>${subjectsForClass(c.id).join('<br>')}${!/^AC-UG-/.test(c.id) ? `<br><span style="color:var(--muted)">+ 22 भाषा-विकल्पों में से चुनाव (हिंदी/अंग्रेज़ी/क्षेत्रीय)</span>` : ''}</div>` : ''}
+      ${eduNames ? `<div style="font-size:16px;color:var(--muted);margin-bottom:10px;text-align:center">🎓 ${eduNames}</div>` : ''}
+      ${/^AC/.test(c.id) ? `<div style="font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.7;text-align:center"><b>📚 विषय:</b><br>${subjectsForClass(c.id).join('<br>')}${!/^AC-UG-/.test(c.id) ? `<br><span style="color:var(--muted)">+ 22 भाषा-विकल्पों में से चुनाव (हिंदी/अंग्रेज़ी/क्षेत्रीय)</span>` : ''}</div>` : ''}
       <div class="cc-btns">
         <button class="cc-btn btn-free" onclick="openCourse('${c.id}','online')">📱 Online पढ़ें</button>
         <button class="cc-btn btn-center" onclick="openCourse('${c.id}','center')">🏫 Center Join</button>
@@ -575,8 +567,12 @@ function renderTab(tab) {
 
 window.openCourse = function(id, type) {
   if(type === 'online') {
-    /* url-नियम (Addendum v2.4): बटन सिर्फ़ url से खुले — मरा पता कभी नहीं */
+    /* url-नियम (Addendum v2.4): बटन सिर्फ़ url से खुले — मरा पता कभी नहीं
+       (01-Aug सुधार: SELF_EMP_COURSES/PRIVATE_JOB_COURSES यहाँ छूट गए थे — tab-0 के
+       5 तैयार-कोर्स का SE.../PJ... id इसी list से खोजा जाता है, वरना क्लिक टूट जाता) */
     const all = [].concat(
+      typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
+      typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : [],
       typeof GOVT_JOB_COURSES !== 'undefined' ? GOVT_JOB_COURSES : [],
       typeof GOVT_SCHOLAR_COURSES !== 'undefined' ? GOVT_SCHOLAR_COURSES : [],
       typeof ACADEMIC_COURSES !== 'undefined' ? ACADEMIC_COURSES : [],
@@ -591,7 +587,7 @@ window.openCourse = function(id, type) {
 };
 
 window.goTab = function(n) {
-  [1,2,3,4,5].forEach(i => {
+  [0,1,2,3,4,5].forEach(i => {
     document.getElementById('sec'+i).classList.toggle('active', i===n);
     document.getElementById('tab'+i).classList.toggle('active', i===n);
   });
