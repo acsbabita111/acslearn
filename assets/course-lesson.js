@@ -1,5 +1,7 @@
 /* ============================================================
-   ACS course-lesson.js v1.3 — आवाज़ 🔊 + प्रगति-दर्ज + तैरती ⏱ सक्रिय-घड़ी
+   ACS course-lesson.js v1.4 — आवाज़ 🔊 + प्रगति-दर्ज + ⏱ घड़ी + twv-हीरो loader
+   v1.4 · 03-Aug-2026 (Founder हीरो-आदेश): सिर्फ़ two-wheeler पाठों पर
+   /assets/twv-hero.js load — बाक़ी कोर्सों पर शून्य असर, शून्य वज़न।
    v1.3 · 30-Jul-2026 (Founder हलचल-नियम): 10s हलचल-शून्य/छिपा-tab = ⏸;
    25s-दर्ज सक्रिय-सेकंड से; छत 30 मि/पेज; d.time-बचत; दो-घड़ी टकराव हटा।
    v1.2 · 30-Jul-2026 (Founder: "अंधा पेज") — हर पाठ पर तैरता timer:
@@ -242,5 +244,16 @@
       "font-weight:800;font-size:17px;padding:10px 16px;border-radius:999px;text-decoration:none;"+
       "box-shadow:0 4px 12px rgba(0,0,0,.35);font-family:'Noto Sans Devanagari',sans-serif";
     document.body.appendChild(a);
+  }catch(e){}
+})();
+
+/* ═══ (03-Aug, Founder) टू-व्हीलर हीरो-इमेज loader — साझा-असेट-लाभ नियम (v3.2-घ4):
+   466 पाठ-HTML अछूते; चित्र-लाइब्रेरी सिर्फ़ इसी कोर्स के पेजों पर उतरती है। ═══ */
+(function(){
+  try{
+    if(location.pathname.indexOf("/courses/hi/two-wheeler/")!==0) return;
+    var sc=document.createElement("script");
+    sc.src="/assets/twv-hero.js"; sc.defer=true;
+    document.head.appendChild(sc);
   }catch(e){}
 })();
