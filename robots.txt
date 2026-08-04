@@ -1,8 +1,9 @@
-# ACS acslearn.com — robots.txt (v263)
+# ACS acslearn.com — robots.txt (v264 · 04-Aug-2026)
+# S1-सुधार: /assets/ अब खुला — Google पेज render करने के लिए JS/CSS पढ़ता है;
+# CSS/JS को block करना Google-guideline के विरुद्ध था (v263 की चूक)।
 User-agent: *
 Allow: /
 Disallow: /dashboard/
-Disallow: /assets/
 
 Sitemap: https://acslearn.com/sitemap.xml
 
