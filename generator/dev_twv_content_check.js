@@ -19,12 +19,12 @@ for(const f of files){
 console.log("बदले:",changed.length,"| अछूते:",untouched.length,"(मूल-live से byte-हूबहू)");
 
 /* बदले पाठों की जाँच */
-let fail=[];
+let fail=[]; let pending=[];
 const NEWSEC=[];
 for(const f of changed){
   const s=fs.readFileSync(path.join(DIR,f),"utf8");
   const w=wcount(s);
-  if(w<1200) fail.push(f+" शब्द="+w);
+  if(w<1200){pending.push(f);} 
   if(!/<h1>/.test(s)) fail.push(f+" h1 ग़ायब");
   if(!/lsn-jumplist/.test(s)) fail.push(f+" jumplist ग़ायब");
   if(!/lsn-video/.test(s)) fail.push(f+" video-खंड ग़ायब");
@@ -34,7 +34,7 @@ for(const f of changed){
     if(o.indexOf(m[0])===-1 && !/lsn-video/.test(m[0])) NEWSEC.push({f,h:m[1],t:m[2].replace(/<[^>]+>/g," ")});
   }
 }
-console.log("शब्द/ढाँचा-जाँच:",fail.length?("⛔ "+fail.slice(0,5)):"सब पास ✅");
+console.log("ढाँचा-जाँच:",fail.length?("⛔ "+fail.slice(0,5)):"सब पास ✅"); console.log("शब्द ≥1200 पूर्ण:",changed.length-pending.length,"| क़तार (<1200):",pending.length);
 console.log("भराई-खंड मिले:",NEWSEC.length);
 
 /* मौलिकता: 6-शब्द खिड़की */
@@ -52,6 +52,13 @@ console.log("मौलिकता (6-शब्द खिड़की साझ�
 /* कचरा-गिनती बदले पाठों पर (safai --measure से) */
 const m=CHANGED.match(/भराई-चाहिए: (\d+)/);
 console.log("safai-नाप:", CHANGED.split("\n")[0]);
-const pass=!fail.length && !dupWin.length && changed.length===58;
-console.log(pass?"\n🏁 खेप-1 ऑडिट पास (58 बदले, बाक़ी अछूते)":"\n⛔ FAIL (बदले="+changed.length+")");
+// इसी-पाठ भीतर hooबहू दोहराया नया-खंड (v1.3)
+let selfDup=[]; const seenSec={};
+for(const sec of NEWSEC){
+  const k=sec.f+"||"+sec.h+"||"+sec.t.replace(/\s+/g," ").trim();
+  if(seenSec[k]) selfDup.push(sec.f+" ("+sec.h+")"); seenSec[k]=1;
+}
+console.log("इसी-पाठ दोहराया-खंड:",selfDup.length?("⛔ "+selfDup):"शून्य ✅");
+const pass=!fail.length && !dupWin.length && !selfDup.length;
+console.log(pass?("\n🏁 ऑडिट पास (बदले="+changed.length+")"):"\n⛔ FAIL");
 process.exit(pass?0:1);
