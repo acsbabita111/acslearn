@@ -21,6 +21,17 @@
 <link rel="stylesheet" href="/acs-universal.css">
 <link rel="stylesheet" href="/acs-style.css">
 <link rel="stylesheet" href="/assets/course-lesson.css">
+<style>
+/* अध्याय-accordion (v1.0) — टच करो, पाठ-सूची खुले */
+.twvAcc h2{cursor:pointer;-webkit-user-select:none;user-select:none;position:relative;padding-right:52px;border-radius:10px;transition:background .15s}
+.twvAcc h2:active{background:rgba(21,101,192,.10)}
+.twvAcc h2 .twvArr{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:34px;height:34px;line-height:34px;text-align:center;border-radius:50%;background:#1565C0;color:#F5F7FA;font-size:19px;transition:transform .2s}
+.twvAcc.twvOpen h2 .twvArr{transform:translateY(-50%) rotate(180deg);background:#2E7D32}
+.twvAcc h2 .twvCnt{font-size:16px;color:#2E7D32;background:rgba(46,125,50,.12);border-radius:999px;padding:2px 10px;margin-left:8px;white-space:nowrap}
+.twvAcc ul{overflow:hidden}
+.twvAcc.twvShut ul{display:none}
+.twvHint{font-size:17px;color:#0B1F3A;background:#F5F7FA;border-left:4px solid #F9A825;border-radius:8px;padding:10px 12px;margin:14px 0}
+</style>
 </head>
 <body>
 
@@ -748,5 +759,38 @@
 <script src="/assets/acs-universal.js"></script>
 
 <script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script>
+(function(){
+  /* अध्याय-accordion: JS न चले तो पूरी सूची वैसी ही खुली रहती है (fallback) */
+  try{
+    var secs=document.querySelectorAll('section.lsn-sec'), made=0;
+    for(var i=0;i<secs.length;i++){
+      var sec=secs[i], h=sec.querySelector('h2'), ul=sec.querySelector('ul');
+      if(!h||!ul) continue;
+      var n=ul.querySelectorAll('li').length;
+      sec.className+=' twvAcc twvShut';
+      var cnt=document.createElement('span'); cnt.className='twvCnt'; cnt.appendChild(document.createTextNode(n+' पाठ'));
+      var arr=document.createElement('span'); arr.className='twvArr'; arr.appendChild(document.createTextNode('▾'));
+      h.appendChild(cnt); h.appendChild(arr);
+      (function(sec){
+        h.onclick=function(){
+          if(sec.className.indexOf('twvShut')>-1){
+            sec.className=sec.className.replace(' twvShut',' twvOpen');
+          }else{
+            sec.className=sec.className.replace(' twvOpen',' twvShut');
+          }
+        };
+      })(sec);
+      made++;
+    }
+    if(made>0){
+      var hd=document.querySelector('header'), note=document.createElement('p');
+      note.className='twvHint';
+      note.appendChild(document.createTextNode('👇 अध्याय के नाम पर टच करें — उस अध्याय की पाठ-सूची खुल जाएगी। दोबारा टच करें — बंद।'));
+      if(hd&&hd.parentNode){ hd.parentNode.insertBefore(note,hd.nextSibling); }
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
