@@ -37,6 +37,27 @@ for (let mg = 1; mg <= 24; mg++) {
   Object.assign(UDYAM_INTRO, piece);
 }
 
+/* v1.2 (04-Aug-2026, नाम-टक्कर SEO-सुधार): एक ही नाम दो MG में हो तो
+   title/description/h1/og/JSON-LD में MG-संदर्भ जुड़े — MG-नाम का एकमात्र
+   घर assets/mg_names.js (एक चीज़ = एक जगह)। बाक़ी पेज byte-अछूते। */
+const vm = require("vm");
+const _w = {};
+vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/mg_names.js"), "utf8"), { window: _w });
+const MG_LABEL = _w.MG_NAMES || {};
+/* नाम-टक्कर: MG-संदर्भ सिर्फ़ दोहरे नाम पर — module-स्तर helper (साझा-scope नियम v2.3) */
+function seoNameOf(u){
+  return u.title_hi + ((NAME_DUP[u.title_hi] > 1 && MG_LABEL[u.mg]) ? " — " + MG_LABEL[u.mg].n + " क्षेत्र" : "");
+}
+const NAME_DUP = {};
+{
+  const _seen = {};
+  for (const _k in UDYAM_INTRO) {
+    const _t = UDYAM_INTRO[_k] && UDYAM_INTRO[_k].title_hi;
+    if (_t) _seen[_t] = (_seen[_t] || 0) + 1;
+  }
+  Object.assign(NAME_DUP, _seen);
+}
+
 const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
 const STAMP = "23-Jul-2026";
 const GEN_NOTE =
@@ -160,7 +181,7 @@ function buildBody(n, udy){
   return '\n<article class="lsn-wrap udy-wrap">\n' +
     '<header class="lsn-head">\n' +
     '<p class="lsn-crumb"><a href="/udyam/">उद्यम</a> › ' + udy.title_hi + "</p>\n" +
-    "<h1>" + udy.title_hi + "</h1>\n" +
+    "<h1>" + seoNameOf(udy) + "</h1>\n" +
     '<p class="lsn-meta">उद्यम-सूची क्रमांक ' + n + " · " + udy.title_note + " · मुफ़्त परिचय, बिना login</p>\n" +
     "</header>\n\n" +
     mgBlock + secsHtml + "\n\n" +
@@ -175,6 +196,7 @@ function buildBody(n, udy){
 
 /* ---------- मुख्य पेज-निर्माण ---------- */
 function buildPage(n, udy){
+  const seoName = seoNameOf(udy);
   const body = buildBody(n, udy);
   const { words, holes } = checkRobot(body);
   if (holes.length){
@@ -190,23 +212,23 @@ function buildPage(n, udy){
   let page = TPL.slice(0, a + S.length) + "\n" + body + "\n" + TPL.slice(b);
 
   const canonical = "https://acslearn.com/udyam/" + udy.slug + ".html";
-  const metaDesc = udy.title_hi + " — परिचय, बाज़ार, कमाई-सीढ़ी, योग्यता व सरकारी योजनाएँ, सरल हिंदी में, ACS पर मुफ़्त।";
+  const metaDesc = seoName + " — परिचय, बाज़ार, कमाई-सीढ़ी, योग्यता व सरकारी योजनाएँ, सरल हिंदी में, ACS पर मुफ़्त।";
   page = page.replace(/<title>[\s\S]*?<\/title>/,
-    "<title>" + udy.title_hi + " — पूरी जानकारी | ACS</title>\n" +
+    "<title>" + seoName + " — पूरी जानकारी | ACS</title>\n" +
     '<meta name="description" content="' + metaDesc + '">\n' +
     '<meta name="robots" content="index, follow, max-image-preview:large">\n' +
     '<link rel="canonical" href="' + canonical + '">');
 
   const ld = { "@context": "https://schema.org", "@type": "Article",
-    "headline": udy.title_hi, "description": metaDesc, "inLanguage": "hi", "url": canonical,
+    "headline": seoName, "description": metaDesc, "inLanguage": "hi", "url": canonical,
     "publisher": { "@type": "Organization", "name": "Applied Computer School (ACS)", "url": "https://acslearn.com" } };
   const bc = { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "होम", "item": "https://acslearn.com/" },
     { "@type": "ListItem", "position": 2, "name": "उद्यम", "item": "https://acslearn.com/udyam/" },
-    { "@type": "ListItem", "position": 3, "name": udy.title_hi, "item": canonical } ] };
+    { "@type": "ListItem", "position": 3, "name": seoName, "item": canonical } ] };
 
   page = page.replace("</head>",
-    '<meta property="og:title" content="' + udy.title_hi + '">\n' +
+    '<meta property="og:title" content="' + seoName + '">\n' +
     '<meta property="og:description" content="' + metaDesc + '">\n' +
     '<meta property="og:type" content="article">\n' +
     '<meta property="og:url" content="' + canonical + '">\n' +
