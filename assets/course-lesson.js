@@ -247,6 +247,24 @@
   }catch(e){}
 })();
 
+/* ═══ (05-Aug, Founder-ऑडिट) नीचे-nav में "अध्याय-सूची" वापसी-बटन — सब कोर्सों पर।
+   होल: पाठ के अंत में सिर्फ़ ←पिछला/अगला→ थे; सूची-वापसी कड़ी सिर्फ़ ऊपर थी।
+   इलाज साझा-असेट से (v3.2-घ4) — कोई पाठ-HTML regen नहीं; './' = उसी कोर्स का index। ═══ */
+(function(){
+  try{
+    if(document.getElementById("lsnBackList")) return;
+    var nav=document.querySelector("nav.lsn-nav");
+    if(!nav) return; /* पुराने ढाँचे के पाठ — उनका exit-nav अलग दर्ज होल */
+    var a=document.createElement("a");
+    a.id="lsnBackList"; a.href="./";
+    a.className="lsn-navbtn";
+    a.textContent="📚 अध्याय-सूची";
+    a.style.cssText="background:#F9A825;color:#0B1F3A;font-weight:800";
+    var nxt=nav.querySelector(".lsn-next");
+    if(nxt){ nav.insertBefore(a,nxt); } else { nav.appendChild(a); }
+  }catch(e){}
+})();
+
 /* ═══ (03-Aug, Founder) टू-व्हीलर हीरो-इमेज loader — साझा-असेट-लाभ नियम (v3.2-घ4):
    466 पाठ-HTML अछूते; चित्र-लाइब्रेरी सिर्फ़ इसी कोर्स के पेजों पर उतरती है। ═══ */
 (function(){
