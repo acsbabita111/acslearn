@@ -26,6 +26,13 @@
 - नोट: पिछले पाँचों zip (a17-v1.0 · a17-a14-v2.0 · a17-a14-a10-v3.0 · 4adhyay-v4.0 ·
   5adhyay-v5.0) upload नहीं हुए — यह v6.0 zip छहों खेपें समेटे है; पाँचों पुराने निरस्त।
 
+## 🎓 120-प्रश्न फ़ाइनल-परीक्षा (05-Aug — server-पक्ष जीवित)
+- पैटर्न = DCA server-बैंक: functions/twv_bank.js (2330, 30 shards का मशीन-मर्ज, GitHub पर कभी नहीं) ·
+  SERVER_EXAM_BANKS/BANKS_BY_COURSE में SE022 · हर attempt 120 बेतरतीब · pass 60% ·
+  maxAttempts 10 · सही-उत्तर client को कभी नहीं · ₹125 प्रमाणपत्र-इंजन वही।
+- client: dashboard.js v6.0 (SERVER_EXAM_COURSES + SE022) · exam_data.js v1.4 (द्वार-प्रविष्टि,
+  q ख़ाली) · sw v336। भंडार बदले तो: shards सुधारो → twv_bank regen → दोनों functions re-deploy।
+
 ## 📝 पाठ-प्रश्न भंडार (05-Aug से — लक्ष्य 466×5 = 2,330)
 - ढाँचा: /assets/twv_quiz/twvq_ch(अध्याय).js shards (परत-3) · इंजन course-lesson.js (साझा) ·
   यंत्र generator/dev_twv_quiz_check.js · यही भंडार = भावी 120-प्रश्न फ़ाइनल-परीक्षा का स्रोत।
