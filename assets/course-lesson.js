@@ -265,6 +265,78 @@
   }catch(e){}
 })();
 
+/* ═══ (05-Aug, Founder) पाठ-अंत 5-प्रश्न quiz-इंजन v1.0 — साझा-असेट (v3.2-घ4)।
+   प्रश्न परत-3 shards में: /assets/twv_quiz/twvq_ch(अध्याय).js — वही भंडार आगे
+   120-प्रश्न परीक्षा का स्रोत (एक चीज़ = एक जगह)। shard न बना हो तो पेज चुपचाप
+   पहले जैसा (ईमानदार-चुप); जवाब-जाँच device पर, कोई server नहीं। ═══ */
+(function(){
+  try{
+    if(location.pathname.indexOf("/courses/hi/two-wheeler/")!==0) return;
+    var m=location.pathname.match(/twv-([0-9]+[a-z]?)-/);
+    if(!m) return;
+    var ch=m[1], file=location.pathname.split("/").pop();
+    var sc=document.createElement("script");
+    sc.src="/assets/twv_quiz/twvq_ch"+ch+".js";
+    sc.onload=function(){
+      try{
+        var bank=(window.TWV_QUIZ||{})["ch"+ch]; if(!bank) return;
+        var qs=bank[file]; if(!qs||qs.length!==5) return;
+        var nav=document.querySelector("nav.lsn-nav"); if(!nav||document.getElementById("twvQuiz")) return;
+        var box=document.createElement("section");
+        box.id="twvQuiz"; box.className="lsn-sec";
+        box.style.cssText="border:2px solid #1565C0;border-radius:14px;background:#F5F7FA;padding:14px";
+        var h=document.createElement("h2"); h.textContent="📝 पाठ-परीक्षा — 5 प्रश्न"; box.appendChild(h);
+        var tip=document.createElement("p"); tip.style.fontSize="17px";
+        tip.textContent="हर प्रश्न में सही उत्तर पर टच करें। यही प्रश्न आगे कोर्स की बड़ी परीक्षा में भी आ सकते हैं।";
+        box.appendChild(tip);
+        var score=0, done=0;
+        function mkQ(idx,item){
+          var wrap=document.createElement("div");
+          wrap.style.cssText="margin:14px 0;padding:10px;border-radius:10px;background:#fff;border:1px solid rgba(11,31,58,.15)";
+          var qp=document.createElement("p");
+          qp.style.cssText="font-weight:800;font-size:18px;color:#0B1F3A;margin:0 0 8px";
+          qp.textContent="प्रश्न-"+(idx+1)+": "+item.q; wrap.appendChild(qp);
+          var locked=false;
+          for(var j=0;j<item.o.length;j++){
+            (function(j){
+              var b=document.createElement("button");
+              b.type="button"; b.textContent=item.o[j];
+              b.style.cssText="display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;"+
+                "font-size:17px;border-radius:9px;border:1px solid #1565C0;background:#fff;color:#0B1F3A;"+
+                "font-family:inherit;cursor:pointer";
+              b.onclick=function(){
+                if(locked) return; locked=true; done++;
+                var kids=wrap.getElementsByTagName("button");
+                for(var k=0;k<kids.length;k++){ kids[k].disabled=true; kids[k].style.cursor="default"; }
+                if(j===item.a){ score++; b.style.background="#2E7D32"; b.style.color="#F5F7FA"; b.textContent="✅ "+item.o[j]; }
+                else{
+                  b.style.background="#8b1a1a"; b.style.color="#F5F7FA"; b.textContent="❌ "+item.o[j];
+                  var c=kids[item.a]; c.style.background="#2E7D32"; c.style.color="#F5F7FA"; c.textContent="✅ "+item.o[item.a];
+                }
+                if(done===5){
+                  var r=document.getElementById("twvQuizRes");
+                  r.textContent=(score===5?"🏆 ":"")+"आपके अंक: "+score+" / 5"+(score<5?" — ग़लत वालों के खंड दोबारा पढ़ लें।":" — शाबाश!");
+                  r.style.display="block";
+                }
+              };
+              wrap.appendChild(b);
+            })(j);
+          }
+          return wrap;
+        }
+        for(var i=0;i<5;i++){ box.appendChild(mkQ(i,qs[i])); }
+        var res=document.createElement("p"); res.id="twvQuizRes";
+        res.style.cssText="display:none;font-size:19px;font-weight:800;color:#0B1F3A;background:rgba(249,168,37,.25);"+
+          "border-left:4px solid #F9A825;border-radius:8px;padding:10px 12px";
+        box.appendChild(res);
+        nav.parentNode.insertBefore(box,nav);
+      }catch(e){}
+    };
+    sc.onerror=function(){}; /* shard अभी न बना हो — पेज वैसा ही */
+    document.head.appendChild(sc);
+  }catch(e){}
+})();
+
 /* ═══ (03-Aug, Founder) टू-व्हीलर हीरो-इमेज loader — साझा-असेट-लाभ नियम (v3.2-घ4):
    466 पाठ-HTML अछूते; चित्र-लाइब्रेरी सिर्फ़ इसी कोर्स के पेजों पर उतरती है। ═══ */
 (function(){
