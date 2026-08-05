@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.0 · 05-Aug-2026 (टू-व्हीलर server-परीक्षा) — SE022 SERVER_EXAM_COURSES में:
+        466 पाठ के quiz-भंडार (server-निजी twv_bank, 2330) से हर attempt 120
+        बेतरतीब; सही-उत्तर client को कभी नहीं; इंजन/जमा-रास्ता byte-अपरिवर्तित।
    v5.9 · 30-Jul-2026 (DCA-परीक्षा) — बड़े प्रश्न-बैंक (setSize) पर परीक्षा 3-सेट
         शीर्षकों में बँटी दिखे (सेट-1/2/3 × 40); इंजन/जमा-रास्ता अपरिवर्तित।
    v5.8 · 30-Jul-2026 (Founder-सुधार-8, ⏱ समय-तंत्र) — पाठ-घड़ी का समय
@@ -1403,7 +1406,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 /* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
      पूर्ण-स्क्रीन ओवरले (table-row के भीतर नहीं) — बड़े छूने-लायक़ विकल्प,
      अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
-  const SERVER_EXAM_COURSES = { PJ016: true };
+  const SERVER_EXAM_COURSES = { PJ016: true, SE022: true };   /* (05-Aug, Founder) टू-व्हीलर 120-प्रश्न server-परीक्षा जुड़ी */
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
   const OPT_LABEL = ["अ","ब","स","द"];
   function ensureExamStyle() {
