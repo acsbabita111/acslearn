@@ -1,5 +1,5 @@
 /* ============================================================
-   ACS msh-progress.js v1.1 · 13-Aug-2026 — मशरूम-कोर्स प्रगति-रंग
+   ACS msh-progress.js v1.2 · 13-Aug-2026 — मशरूम-कोर्स प्रगति-रंग
    ------------------------------------------------------------
    Founder-नियम (13-Aug-2026):
    • पढ़ा + योग्यता-जाँच पूरी  → सूची में पाठ-title हरा
@@ -30,6 +30,15 @@
     ".ci-drop>summary .ci-arrow{color:#F9A825;font-size:18px;transition:transform .2s}" +
     ".ci-drop[open]>summary .ci-arrow{transform:rotate(180deg)}" +
     ".ci-drop .ci-list{padding:10px 16px}" +
+    ".msh-quiz{border:2px solid #1565C0;border-radius:14px;padding:16px;margin:22px 0;background:#FFFFFF}" +
+    ".msh-quiz h2{color:#0B1F3A;font-size:22px;margin:0 0 6px}" +
+    ".msh-qq{font-size:19px;font-weight:700;color:#0B1F3A;margin:16px 0 8px}" +
+    ".msh-qo{display:block;width:100%;text-align:left;font-size:18px;padding:10px 12px;margin:6px 0;" +
+    "border:1px solid #1565C0;border-radius:10px;background:#F5F7FA;color:#0B1F3A;cursor:pointer}" +
+    ".msh-qo[disabled]{cursor:default;opacity:.92}" +
+    ".msh-qo.ok{background:#2E7D32;color:#FFFFFF;border-color:#2E7D32}" +
+    ".msh-qo.no{background:#FFF8E1;border-color:#F9A825;text-decoration:line-through}" +
+    ".msh-qscore{font-size:19px;font-weight:700;color:#2E7D32;margin-top:12px}" +
     ".msh-tbl th,.msh-tbl td{border:1px solid #1565C0;padding:8px 10px;text-align:left}" +
     ".msh-tbl th{background:#0B1F3A;color:#F5F7FA}" +
     "a.msh-lsn{color:inherit}" +
@@ -41,6 +50,73 @@
   document.head.appendChild(st);
 
   var path = location.pathname;
+
+  /* खंड-सीमाएँ (पाठ → quiz-shard) — mushroom_course_data से मेल */
+  var MSH_PARTS = [[1,39],[40,73],[74,123],[124,177],[178,233],[234,293],[294,359],[360,413],[414,461],[462,493],[494,559],[560,627]];
+  function khandOf(n){
+    for (var i = 0; i < MSH_PARTS.length; i++) {
+      if (n >= MSH_PARTS[i][0] && n <= MSH_PARTS[i][1]) return i + 1;
+    }
+    return 0;
+  }
+  /* 🧪 अभ्यास-प्रश्न: shard मिले तभी दिखें — मरा डिब्बा कभी नहीं (ईमानदार-पैनल) */
+  function renderQuiz(art, num){
+    var k = khandOf(num);
+    if (!k) return;
+    var kk = (k < 10 ? "0" : "") + k;
+    var sc = document.createElement("script");
+    sc.src = "/assets/msh_quiz_k" + kk + ".js";
+    sc.onerror = function(){};
+    sc.onload = function(){
+      var bank = window["MSH_QUIZ_K" + kk];
+      var list = bank && bank[String(num)];
+      if (!list || !list.length) return;
+      var nav = document.querySelector(".lsn-nav");
+      var box = document.createElement("section");
+      box.className = "msh-quiz";
+      var html = "<h2>🧪 अभ्यास-प्रश्न (" + list.length + ")</h2>" +
+        '<p style="font-size:17px;margin:0">हर प्रश्न में एक सही उत्तर चुनिए — जाँच तुरंत दिखेगी। यह अभ्यास है, परीक्षा नहीं।</p>';
+      var i, j;
+      for (i = 0; i < list.length; i++) {
+        html += '<p class="msh-qq">' + (i + 1) + ". " + list[i].q + "</p>";
+        for (j = 0; j < list[i].o.length; j++) {
+          html += '<button type="button" class="msh-qo" data-q="' + i + '" data-o="' + j + '">' +
+            "(" + "कखगघ".charAt(j) + ") " + list[i].o[j] + "</button>";
+        }
+      }
+      html += '<p class="msh-qscore" id="mshQScore"></p>';
+      box.innerHTML = html;
+      if (nav && nav.parentNode) nav.parentNode.insertBefore(box, nav);
+      else art.appendChild(box);
+      var doneQ = {}, right = 0;
+      box.addEventListener("click", function (ev) {
+        var b = ev.target;
+        if (!b || !b.getAttribute || b.getAttribute("data-q") === null) return;
+        var qi = parseInt(b.getAttribute("data-q"), 10);
+        var oi = parseInt(b.getAttribute("data-o"), 10);
+        if (doneQ[qi]) return;
+        doneQ[qi] = true;
+        var correct = list[qi].a;
+        if (oi === correct) right++;
+        var btns = box.querySelectorAll('.msh-qo[data-q="' + qi + '"]');
+        for (var x = 0; x < btns.length; x++) {
+          btns[x].setAttribute("disabled", "");
+          var xo = parseInt(btns[x].getAttribute("data-o"), 10);
+          if (xo === correct) btns[x].className = "msh-qo ok";
+          else if (xo === oi) btns[x].className = "msh-qo no";
+        }
+        var total = 0; for (var y in doneQ) if (doneQ.hasOwnProperty(y)) total++;
+        if (total === list.length) {
+          var sc2 = document.getElementById("mshQScore");
+          if (sc2) sc2.textContent = "आपका अभ्यास-फल: " + right + " / " + list.length +
+            (right === list.length ? " — शाबाश! 🎉" : " — ग़लत वाले हिस्से दोबारा पढ़कर समझ लीजिए।");
+        }
+      });
+    };
+    document.head.appendChild(sc);
+  }
+  var lsnArt = document.querySelector("[data-lsn-num]");
+  if (lsnArt) renderQuiz(lsnArt, parseInt(lsnArt.getAttribute("data-lsn-num"), 10));
 
   /* ---------- (क) पाठ-पेज: checkbox सहेजना ---------- */
   var qs = document.querySelectorAll("input.msh-q");
