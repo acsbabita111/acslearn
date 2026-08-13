@@ -1,5 +1,5 @@
 /* ============================================================
-   ACS msh-progress.js v1.0 · 13-Aug-2026 — मशरूम-कोर्स प्रगति-रंग
+   ACS msh-progress.js v1.1 · 13-Aug-2026 — मशरूम-कोर्स प्रगति-रंग
    ------------------------------------------------------------
    Founder-नियम (13-Aug-2026):
    • पढ़ा + योग्यता-जाँच पूरी  → सूची में पाठ-title हरा
@@ -22,7 +22,14 @@
     ".msh-chk input{width:22px;height:22px;margin-right:8px;vertical-align:middle;accent-color:#2E7D32}" +
     ".msh-chkbox{background:#F5F7FA;border:1px solid #1565C0;border-radius:12px;padding:12px 14px}" +
     ".msh-done-note{margin-top:10px;font-size:18px;font-weight:700;color:#2E7D32}" +
-    ".msh-tblwrap{overflow-x:auto}.msh-tbl{border-collapse:collapse;min-width:60%;font-size:17px}" +
+    ".msh-tblwrap{overflow-x:auto}.msh-tbl{border-collapse:collapse;min-width:60%;font-size:17px;margin:0 auto}" +
+    ".ci-drop{border:1px solid #1565C0;border-radius:14px;margin:14px 0;background:#FFFFFF;overflow:hidden}" +
+    ".ci-drop>summary{cursor:pointer;list-style:none;padding:16px 18px;font-size:21px;font-weight:700;" +
+    "color:#F5F7FA;background:#0B1F3A;display:flex;justify-content:space-between;align-items:center;gap:10px}" +
+    ".ci-drop>summary::-webkit-details-marker{display:none}" +
+    ".ci-drop>summary .ci-arrow{color:#F9A825;font-size:18px;transition:transform .2s}" +
+    ".ci-drop[open]>summary .ci-arrow{transform:rotate(180deg)}" +
+    ".ci-drop .ci-list{padding:10px 16px}" +
     ".msh-tbl th,.msh-tbl td{border:1px solid #1565C0;padding:8px 10px;text-align:left}" +
     ".msh-tbl th{background:#0B1F3A;color:#F5F7FA}" +
     "a.msh-lsn{color:inherit}" +
@@ -88,6 +95,14 @@
       if (info[i].done) info[i].a.className += " msh-g";
       else if (info[i].n < maxTouched) info[i].a.className += " msh-r";
       /* बाक़ी काले ही रहें */
+    }
+    /* चालू-खंड का dropdown अपने-आप खुले (नया पढ़ने वाला = खंड-1) */
+    var drops = document.querySelectorAll("details.ci-drop[data-from]");
+    var target = maxTouched > 0 ? maxTouched : 1;
+    for (i = 0; i < drops.length; i++) {
+      var a1 = parseInt(drops[i].getAttribute("data-from"), 10);
+      var b1 = parseInt(drops[i].getAttribute("data-to"), 10);
+      if (target >= a1 && target <= b1) { drops[i].setAttribute("open", ""); break; }
     }
   }
 })();
