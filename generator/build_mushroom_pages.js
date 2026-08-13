@@ -74,7 +74,11 @@ function slugify(t){
   return s || "paath";
 }
 function pad3(n){ return String(n).padStart(3, "0"); }
+/* slug-पिन नियम (13-Aug ऑडिट-सीख): live हो चुका पता कभी न बदले —
+   शीर्षक सुधरे तो भी फ़ाइल-नाम वही (SEO/कड़ी-स्थिरता)। */
+const SLUG_PIN = { 368: "thndi-kadai-ki-puri-janjir-aur-tapaman-rajistar" };
 function fileName(l){
+  if (SLUG_PIN[l.num]) l.slug = SLUG_PIN[l.num];
   let base = C.code + "-" + pad3(l.num) + "-" + l.slug;
   if (base.length > 60) base = base.slice(0, 60).replace(/-$/, "");
   if (!/^[a-z0-9-]+$/.test(base)) throw new Error("slug-नियम टूटा: " + base);
@@ -547,7 +551,6 @@ function buildIndex(all){
     "<p>पढ़ाई का रास्ता सीधा है — <b>पहले यहाँ मुफ़्त पढ़ो</b>, साथ-साथ छोटे-छोटे काम करते चलो। हर पाठ के अंत में योग्यता-जाँच के डिब्बे हैं — उन्हें टिक करते चलो।</p>\n" +
     '<p class="msh-legend"><b>रंग का मतलब:</b> <span class="lg lg-done">हरा = पढ़ा और जाँच पूरी</span> · <span class="lg lg-todo">काला = अभी बाक़ी</span> · <span class="lg lg-miss">लाल = छूट गया (आगे बढ़ गए पर यह अधूरा)</span></p>\n' +
     "</section>\n\n" +
-    all && "" +
     C.parts.map(partBlock).join("") +
     "</article>\n";
   const canonical = "https://acslearn.com/courses/" + C.lang + "/" + C.slug + "/";
