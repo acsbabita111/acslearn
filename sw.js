@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v338'; // 13-Aug: msh-progress.js v1.1 (सुरक्षा-पत्रक बीच-पेज + dropdown-सूची) cache-first ⇒ bump। // 13-Aug: मशरूम-कोर्स SE023/n-951 — courses_data.js व udyam_data.js बदले (cache-first) + नया msh-progress.js। // 05-Aug: टू-व्हीलर 120-प्रश्न server-परीक्षा — dashboard.js v6.0 (SE022 server-मोड) + exam_data.js v1.4 (द्वार-प्रविष्टि); दोनों cache-first ⇒ bump अनिवार्य।
+const CACHE_VERSION = 'v339'; // 13-Aug: msh-progress.js v1.1 (सुरक्षा-पत्रक बीच-पेज + dropdown-सूची) cache-first ⇒ bump। // 13-Aug: मशरूम-कोर्स SE023/n-951 — courses_data.js व udyam_data.js बदले (cache-first) + नया msh-progress.js। // 05-Aug: टू-व्हीलर 120-प्रश्न server-परीक्षा — dashboard.js v6.0 (SE022 server-मोड) + exam_data.js v1.4 (द्वार-प्रविष्टि); दोनों cache-first ⇒ bump अनिवार्य।
   // पुराना v335 (03-Aug-3): twv-hero.js v2.0 — शिक्षण-रेखा-चित्र (label-सहित आरेख); Founder-सुधार से v1 का सजावटी रूप निरस्त।
   // पुराना v330: टू-व्हीलर कोर्स (SE022) — courses_data.js व udyam_data.js बदले (cache-first)।
   // पुराना v329 (01-Aug): tab-0 का पूरा उप-वाक्य (3 लाइन) पूरी तरह
