@@ -535,9 +535,10 @@ function buildIndex(all){
       '<li class="ci-item"><a class="msh-lsn" data-num="' + l.num + '" href="' + fileName(l) + '">पाठ-' + l.num + ": " + esc(l.title) +
       '</a><span class="ci-min">' + l.minutes + " मिनट</span></li>"
     ).join("\n");
-    return '<section class="lsn-sec">\n<h2>खंड-' + pt.no + ": " + esc(pt.name) +
-      " (पाठ " + pt.from + "-" + pt.to + ")</h2>\n" +
-      '<ul class="ci-list">\n' + items + '\n</ul>\n<p class="ci-soon">खंड-' + pt.no + " पूरा ✅</p>\n</section>\n\n";
+    return '<details class="ci-drop" data-from="' + pt.from + '" data-to="' + pt.to + '">\n' +
+      '<summary><span>खंड-' + pt.no + ": " + esc(pt.name) +
+      '</span><span class="ci-arrow">▼ पाठ ' + pt.from + "-" + pt.to + '</span></summary>\n' +
+      '<ul class="ci-list">\n' + items + '\n</ul>\n</details>\n\n';
   }
   const body = '\n<article class="lsn-wrap ci-wrap" data-msh-index>\n' +
     '<header class="lsn-head">\n' +
