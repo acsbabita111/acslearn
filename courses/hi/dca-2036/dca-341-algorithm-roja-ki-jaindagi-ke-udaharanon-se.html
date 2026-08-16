@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_dca_pages.js v1.0 · 16-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-341: Algorithm — रोज़ की ज़िंदगी के उदाहरणों से | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS</title>
+<meta name="description" content="Algorithm — रोज़ की ज़िंदगी के उदाहरणों से — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/dca-2036/dca-341-algorithm-roja-ki-jaindagi-ke-udaharanon-se.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-341: Algorithm — रोज़ की ज़िंदगी के उदाहरणों से | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS">
+<meta property="og:description" content="Algorithm — रोज़ की ज़िंदगी के उदाहरणों से — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/dca-2036/dca-341-algorithm-roja-ki-jaindagi-ke-udaharanon-se.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-341: Algorithm — रोज़ की ज़िंदगी के उदाहरणों से","description":"Algorithm — रोज़ की ज़िंदगी के उदाहरणों से — डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/dca-2036/dca-341-algorithm-roja-ki-jaindagi-ke-udaharanon-se.html","isPartOf":{"@type":"Course","name":"डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA)","description":"गाँव-क़स्बे का विद्यार्थी → कंप्यूटर-ज्ञान → अभ्यास → पहली कमाई। 22 खंड, हर पाठ ≈ 1 घंटा — कक्षा-6 हिंदी में, AI-युग के लिए।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="341">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) › खंड-14: कंप्यूटर की अगली सीढ़ी — Database, वेब व कोड-सोच</p>
+<h1>पाठ-341: Algorithm — रोज़ की ज़िंदगी के उदाहरणों से</h1>
+<p class="lsn-meta">पढ़ने का समय: 11 मिनट · पूरा पाठ (पढ़ना + आज का काम) ≈ 1 घंटा · पाठ 341 / 498 · 🅑 DIGITAL · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dca-334-database-detabes-kya-hai-rajistar-se-aage-excel-se-k.html">पाठ-334</a> <a href="dca-335-talika-soch-field-record-v-unique-pahachan.html">पाठ-335</a> <a href="dca-336-pahala-detabes-banana-form-sahit-access-base-jhalak.html">पाठ-336</a> <a href="dca-337-query-deta-se-saval-puchhana.html">पाठ-337</a> <a href="dca-338-report-deta-se-chhapane-layaka-natija.html">पाठ-338</a> <a href="dca-339-detabes-abhyas-apani-grahak-suchi-ka-chhota-detabes.html">पाठ-339</a> <a href="dca-340-kod-soch-computational-thinking-kam-ko-kaadamon-men.html">पाठ-340</a> <span class="lsn-jumpcur">पाठ-341 (यही)</span> <a href="dca-342-block-koding-ki-jhalak-pahala-chhota-program.html">पाठ-342</a> <a href="dca-343-kod-soch-ai-behatar-prompt-ka-rishta.html">पाठ-343</a> <a href="dca-344-veb-pej-kaise-banata-hai-html-ki-pahali-jhalak.html">पाठ-344</a> <a href="dca-345-apana-ek-pej-parichay-html-men.html">पाठ-345</a> <a href="dca-346-network-ki-jhalak-lan-wifi-ip-ki-saral-samajh.html">पाठ-346</a> <a href="dca-347-command-ki-jhalak-dos-linux-ke-buniyadi-aadesh.html">पाठ-347</a> <a href="dca-348-khand-14-doharav-v-abhyas-pariksha.html">पाठ-348</a> <a href="index.html">📖 पूरी सूची (498 पाठ)</a>
+</div>
+</details>
+
+<figure class="lsn-fig lsn-hero">
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="440" fill="#F5F7FA"/>
+<text x="400" y="40" font-size="22" fill="#0B1F3A" text-anchor="middle" font-weight="bold">Algorithm की संरचना</text>
+<rect x="60" y="90" width="200" height="120" rx="10" fill="#1565C0"/>
+<text x="160" y="130" font-size="16" fill="#F5F7FA" text-anchor="middle">Input</text>
+<text x="160" y="165" font-size="16" fill="#F5F7FA" text-anchor="middle">शुरुआती सामग्री/जानकारी</text>
+<rect x="300" y="90" width="200" height="120" rx="10" fill="#2E7D32"/>
+<text x="400" y="130" font-size="16" fill="#F5F7FA" text-anchor="middle">Process</text>
+<text x="400" y="165" font-size="16" fill="#F5F7FA" text-anchor="middle">क्रम-बद्ध क़दम</text>
+<rect x="540" y="90" width="200" height="120" rx="10" fill="#F9A825"/>
+<text x="640" y="130" font-size="16" fill="#0B1F3A" text-anchor="middle">Output</text>
+<text x="640" y="165" font-size="16" fill="#0B1F3A" text-anchor="middle">तैयार नतीजा</text>
+<rect x="150" y="250" width="500" height="140" rx="10" fill="#ffffff" stroke="#0B1F3A" stroke-width="2"/>
+<text x="400" y="290" font-size="16" fill="#0B1F3A" text-anchor="middle" font-weight="bold">एक अच्छे Algorithm की तीन शर्तें</text>
+<text x="400" y="325" font-size="16" fill="#0B1F3A" text-anchor="middle">स्पष्टता · सही क्रम · पूर्णता (हर स्थिति के लिए)</text>
+</svg>
+<figcaption>पाठ-चित्र: मुख्य बात — एक नज़र में</figcaption>
+</figure>
+
+<section class="lsn-sec">
+<h2>उद्देश्य</h2>
+<p>पाठ-340 में हमने Algorithm का संकेत दिया था। आज हम इसे गहराई से, कई रोज़मर्रा के उदाहरणों से समझेंगे। पाठ के बाद आप किसी भी काम के लिए, अपना ख़ुद का Algorithm लिख पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात</h2>
+<p>Algorithm, क़दमों का एक स्पष्ट, क्रम-बद्ध, दोहराया जा सकने वाला तरीक़ा है, जो किसी समस्या को हल करता है या कोई काम पूरा करता है। एक अच्छे Algorithm की तीन ख़ासियतें होती हैं — (एक) स्पष्टता — हर क़दम बिल्कुल साफ़ होना चाहिए, कोई अस्पष्टता नहीं; (दो) सही क्रम — क़दम, सही तरतीब में होने चाहिए, वरना नतीजा ग़लत आ सकता है; (तीन) पूर्णता — Algorithm, हर संभावित स्थिति को ध्यान में रखे (जैसे "अगर पानी न हो तो क्या करें")।</p>
+<p>Algorithm, सिर्फ़ कंप्यूटर तक सीमित नहीं — एक खाना बनाने की विधि (Recipe), एक यात्रा का नक़्शा, या एक सिलाई-पैटर्न, सब असल में Algorithm ही हैं। पाठ-राँधी की तरह, हर Recipe (पाठ-राँधी) में सामग्री (Input), क़दम (Process), व तैयार पकवान (Output) होता है — यही किसी भी Algorithm की बुनियादी संरचना है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2अ. एक भारतीय उदाहरण</h2>
+<p>सोचें, "रोटी बनाना" का Algorithm — (Input) आटा, पानी, नमक; (Process) आटा गूँधें → लोई बनाएँ → बेलें → तवे पर सेकें → पलटें → आँच पर फुलाएँ; (Output) तैयार रोटी। हर क़दम स्पष्ट है, सही क्रम में है, व इसे कोई भी, बार-बार, वही नतीजा पाने के लिए दोहरा सकता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2ब. एक और भारतीय उदाहरण</h2>
+<p>सोचें, "ATM से पैसे निकालना" का Algorithm — कार्ड डालें → PIN डालें → राशि चुनें → पैसे लें → कार्ड वापस लें → रसीद लें। अगर कोई क़दम छूट जाए (जैसे PIN ग़लत हो), Algorithm को यह भी बताना चाहिए कि उस स्थिति में क्या करना है (जैसे "दोबारा कोशिश करें" या "3 बार ग़लत होने पर कार्ड रुक जाएगा")।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2स. गहरी समझ के लिए</h2>
+<p>इसके अलावा, यह भी जानना उपयोगी है कि GPS-नेविगेशन (जैसे Google Maps का रास्ता बताना), असल में एक बहुत जटिल Algorithm ही है, जो लाखों संभावित रास्तों में से, सबसे तेज़/छोटा रास्ता चुनता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2ट. व्यावहारिक तरीक़ा</h2>
+<p>व्यावहारिक तरीक़े से सोचें — जब भी कोई नई विधि (Recipe) या प्रक्रिया सीखें, उसे Input-Process-Output के ढाँचे में समझने की कोशिश करें। इस पाठ के अभ्यास से, यह विश्वास मज़बूत होता है कि दुनिया की हर जटिल, तकनीकी प्रणाली (चाहे बैंकिंग हो या यातायात), पीछे से, सरल, समझने योग्य Algorithm पर ही टिकी है। आगे बढ़ते हुए, हर काम को, स्पष्ट, क्रम-बद्ध Algorithm की तरह सोचें। यह पाठ यहीं समाप्त होता है — अगला पाठ, Block-कोडिंग की झलक देगा। व्यावहारिक जीवन में, यह समझ, हर प्रक्रिया को स्पष्ट बनाएगी। यह समझ, आपको हर प्रक्रिया के पीछे की तार्किकता देखने वाला बनाती है। यह पाठ, आपको यह भी सिखाता है कि रोज़मर्रा की, सबसे साधारण लगने वाली चीज़ें (जैसे चाय बनाना) भी, गहराई से देखने पर, एक व्यवस्थित, तार्किक प्रक्रिया छुपाए होती हैं — यह नज़रिया, दुनिया को देखने का एक नया तरीक़ा देता है। आज ही, किसी एक विधि (Recipe) को, Algorithm की तरह लिखने की कोशिश करें। यह छोटा प्रयास, आपकी Algorithm-समझ गहरी करेगा, निश्चित रूप से। Algorithm की यह समझ, आगे हर उलझी प्रक्रिया को सुलझाएगी। याद रखें, हर व्यवस्थित प्रक्रिया के पीछे, एक स्पष्ट Algorithm छुपा है। हर स्पष्ट Algorithm, काम आसान करता है। आगे बढ़ें, तार्किकता से। Algorithm लिखने का यह अभ्यास, जितनी बार करेंगे, उतना ही आसान, उतना ही स्वाभाविक लगने लगेगा। Algorithm-समझ, मज़बूत बने। Algorithm लिखने का यह अभ्यास, रसोई से लेकर दफ़्तर तक, हर तरह के काम पर आज़माएँ — यह विविधता, आपकी समझ को मज़बूत, बहुमुखी बनाएगी। याद रखें, स्पष्ट Algorithm, हमेशा भरोसेमंद नतीजा देता है। आज ही, किसी एक रोज़मर्रा के काम का Algorithm, पूरा लिखकर देखें। यह छोटा अभ्यास, गहरी समझ देगा। Algorithm-सोच, हर प्रक्रिया को पारदर्शी बनाती है। शुभकामनाएँ, इस गहरी समझ के लिए। तार्किक सोच, हमेशा साथ रहे। यह Algorithm-समझ, आगे किसी भी नई तकनीक को जल्दी समझने में मदद करेगी। यह समझ, स्थायी रूप से मददगार रहे। क्रम-बद्ध सोच मज़बूत हो। Algorithm-समझ, पक्की होती जाए। आपका हर क़दम तार्किक हो। Algorithm, हर व्यवस्थित काम के पीछे छिपा, अदृश्य नक़्शा होता है। यह समझ, हर उलझी प्रक्रिया को, आसानी से सुलझाने में मदद करती है। यह समझ, दुनिया की हर व्यवस्थित प्रक्रिया को स्पष्ट करती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज का काम</h2>
+<p>अपनी कॉपी में, किसी एक रोज़मर्रा के काम (जैसे "चाय बनाना", "स्कूल जाना") का, Input-Process-Output के साथ, पूरा Algorithm लिखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3ब. दूसरा अभ्यास</h2>
+<p>अपनी कॉपी में लिखें — आपके Algorithm में, अगर कोई अनपेक्षित स्थिति (जैसे "दूध न हो") आए, तो क्या क़दम जोड़ना पड़ेगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3स. तीसरा अभ्यास</h2>
+<p>अपनी कॉपी में लिखें कि Google Maps जैसा Algorithm, आपकी रोज़ की ज़िंदगी में कैसे मदद करता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>नाप</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>Algorithm का मतलब व संरचना समझी</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="1"> <span>तीन ख़ासियतें (स्पष्टता, क्रम, पूर्णता) याद हो गईं</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="2"> <span>एक रोज़मर्रा के काम का Algorithm लिखा</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="3"> <span>अनपेक्षित स्थिति के लिए भी सोचा</span></label></div>
+</section>
+
+<section class="lsn-sec">
+<h2>4स. एक और नाप-बिंदु</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>आप सोचें कि कौन-सा Algorithm, आपकी रोज़ की ज़िंदगी में सबसे ज़्यादा इस्तेमाल होता है।</span></label></div>
+</section>
+
+<section class="lsn-sec">
+<h2>सबूत</h2>
+<p>अपनी कॉपी में अपना पूरा Algorithm (Input-Process-Output के साथ) लिखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI-सहायक</h2>
+<p>AI से पूछें — "एक अच्छे Algorithm व एक ख़राब, अस्पष्ट Algorithm में मुख्य फ़र्क़ क्या होता है, एक उदाहरण के साथ?"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम ग़लती</h2>
+<p>आम ग़लती है — Algorithm में क़दम छोड़ देना, यह मानकर कि "यह तो सब जानते हैं।" एक अच्छा Algorithm, हर ज़रूरी क़दम स्पष्ट रूप से बताता है, कुछ भी अनकहा नहीं छोड़ता।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7ब. दूसरी आम ग़लती</h2>
+<p>एक और ग़लती है, क़दमों को ग़लत क्रम में रखना (जैसे "तवा गरम करें" के पहले "रोटी बेलें" लिख देना), जिससे पूरा नतीजा प्रभावित हो सकता है। हर क़दम, सही, तार्किक क्रम में होना ज़रूरी है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7स. तीसरी आम ग़लती</h2>
+<p>एक तीसरी ग़लती है, Algorithm लिखते समय, सिर्फ़ 'सामान्य स्थिति' सोचना, 'असामान्य स्थिति' (जैसे कोई सामग्री न हो) को नज़रअंदाज़ करना। एक मज़बूत Algorithm, दोनों तरह की स्थितियों के लिए तैयार होता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुरक्षा-पत्रक</h2>
+<p>कुछ Algorithm, संवेदनशील प्रक्रियाओं (जैसे ATM-लेन-देन) से जुड़े होते हैं — इन्हें समझना, धोखाधड़ी (पाठ-254-256) को भी बेहतर पहचानने में मदद करता है, क्योंकि आप जानते हैं कि "सही प्रक्रिया" कैसी दिखती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>8ब. एक और सुरक्षा-बात</h2>
+<p>किसी वित्तीय/बैंकिंग Algorithm (जैसे ATM-प्रक्रिया) को समझते समय, इसका इस्तेमाल सिर्फ़ बेहतर समझ के लिए करें — इसे किसी को धोखा देने या नक़ल करने के लिए इस्तेमाल करना, गंभीर अपराध है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>स्रोत</h2>
+<p>यह जानकारी सामान्य Algorithm सिद्धांतों पर आधारित है (देखा गया 15-08-2026)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>योग्यता-जाँच</h2>
+<ol><li>Algorithm क्या है?</li><li>Input-Process-Output का क्या मतलब है?</li><li>एक अच्छे Algorithm की तीन शर्तें क्या हैं?</li><li>क़दम छोड़ना क्यों ग़लत है?</li><li>ग़लत क्रम, नतीजे को कैसे प्रभावित कर सकता है?</li></ol>
+</section>
+
+<section class="lsn-sec">
+<h2>समापन-विचार</h2>
+<p>Algorithm-सोच, अब आपके पास एक स्थायी, जीवन-भर काम आने वाला हुनर है — चाहे कोई भी काम हो, इसे स्पष्ट, क्रम-बद्ध क़दमों में देखने की क्षमता, हर जगह उपयोगी साबित होगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक अंतिम विचार</h2>
+<p>Algorithm-सोच, अब आपकी एक स्थायी क्षमता है — किसी भी उलझी हुई समस्या को, स्पष्ट, क्रम-बद्ध क़दमों में देखने की यह ताक़त, हमेशा काम आएगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक भावनात्मक टिप्पणी</h2>
+<p>यह जानना कि हर बड़ी, जटिल चीज़ (जैसे GPS), असल में छोटे, समझने योग्य क़दमों से बनी है, एक बहुत सशक्त, प्रेरणादायक एहसास देता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक व्यापक दृष्टिकोण</h2>
+<p>यह भी सोचें कि हर बड़ी तकनीकी उपलब्धि — चाहे चाँद पर जाना हो या कोई नई दवा बनाना — पीछे से, एक बहुत बड़े, पर उतने ही व्यवस्थित, क़दम-बद्ध Algorithm पर टिकी होती है।</p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=Algorithm%20%E2%80%94%20%E0%A4%B0%E0%A5%8B%E0%A4%9C%E0%A4%BC%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BC%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A4%97%E0%A5%80%20%E0%A4%95%E0%A5%87%20%E0%A4%89%E0%A4%A6%E0%A4%BE%E0%A4%B9%E0%A4%B0%E0%A4%A3%E0%A5%8B%E0%A4%82%20%E0%A4%B8%E0%A5%87%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.nielit.gov.in" target="_blank" rel="noopener">🏛️ NIELIT — सरकारी कंप्यूटर-शिक्षा संस्थान</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में — बाहरी site, जानकारी ख़ुद verify करें; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dca-340-kod-soch-computational-thinking-kam-ko-kaadamon-men.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dca-342-block-koding-ki-jhalak-pahala-chhota-program.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script>window.ACS_CP={code:"dca",parts:[[1,25],[26,50],[51,75],[76,105],[106,130],[131,161],[162,193],[194,213],[214,243],[244,263],[264,288],[289,313],[314,333],[334,348],[349,368],[369,388],[389,408],[409,428],[429,438],[439,458],[459,468],[469,498]],quizSrc:"/assets/dca_quiz/dca_quiz_k",quizVar:"DCA_QUIZ_K"};</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/course-progress.js" defer></script>
+</body>
+</html>
