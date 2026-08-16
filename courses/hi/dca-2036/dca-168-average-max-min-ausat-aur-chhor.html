@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_dca_pages.js v1.0 · 16-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-168: AVERAGE, MAX, MIN — औसत और छोर | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS</title>
+<meta name="description" content="AVERAGE, MAX, MIN — औसत और छोर — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/dca-2036/dca-168-average-max-min-ausat-aur-chhor.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-168: AVERAGE, MAX, MIN — औसत और छोर | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS">
+<meta property="og:description" content="AVERAGE, MAX, MIN — औसत और छोर — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/dca-2036/dca-168-average-max-min-ausat-aur-chhor.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-168: AVERAGE, MAX, MIN — औसत और छोर","description":"AVERAGE, MAX, MIN — औसत और छोर — डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/dca-2036/dca-168-average-max-min-ausat-aur-chhor.html","isPartOf":{"@type":"Course","name":"डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA)","description":"गाँव-क़स्बे का विद्यार्थी → कंप्यूटर-ज्ञान → अभ्यास → पहली कमाई। 22 खंड, हर पाठ ≈ 1 घंटा — कक्षा-6 हिंदी में, AI-युग के लिए।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="168">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) › खंड-7: हिसाब-काम — Excel</p>
+<h1>पाठ-168: AVERAGE, MAX, MIN — औसत और छोर</h1>
+<p class="lsn-meta">पढ़ने का समय: 11 मिनट · पूरा पाठ (पढ़ना + आज का काम) ≈ 1 घंटा · पाठ 168 / 498 · 🅐 CORE · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dca-162-excel-hisab-ki-k-pi-se-hajaar-guna-aage.html">पाठ-162</a> <a href="dca-163-cell-row-column-jali-ki-bhasha.html">पाठ-163</a> <a href="dca-164-likhana-sudharana-bharana-pahala-abhyas.html">पाठ-164</a> <a href="dca-165-joda-ghatav-ke-sutr-se-shuruaat.html">पाठ-165</a> <a href="dca-166-guna-bhag-v-pratishat.html">पाठ-166</a> <a href="dca-167-sum-puri-pankti-ka-joda-ek-jhatake-men.html">पाठ-167</a> <span class="lsn-jumpcur">पाठ-168 (यही)</span> <a href="dca-169-count-parivar-ginati-ke-sutr.html">पाठ-169</a> <a href="dca-170-cell-pata-khinchana-fill-ka-jadu.html">पाठ-170</a> <a href="dca-171-talika-sajana-border-rang-chaudaaee.html">पाठ-171</a> <a href="dca-172-aankadae-chhantana-sort-chhote-badae-ka-kram.html">पाठ-172</a> <a href="dca-173-aankadae-chhanana-filter-bhida-men-se-apana.html">पाठ-173</a> <a href="dca-174-pivot-table-badae-aankadaon-ka-jhat-sar.html">पाठ-174</a> <a href="dca-175-pivot-abhyas-mahine-ki-bikri-ka-vishleshan.html">पाठ-175</a> <a href="dca-176-dukan-ka-roja-bahi-khata-banana.html">पाठ-176</a> <a href="dca-177-khaarid-bikri-v-munaphaa-patrak.html">पाठ-177</a> <a href="dca-178-udhar-khata-nam-rakaam-tarikha.html">पाठ-178</a> <a href="dca-179-vidyarthi-ank-talika-v-natija.html">पाठ-179</a> <a href="dca-180-hajairi-patrak-attendance.html">पाठ-180</a> <a href="dca-181-vetan-patrak-ki-samajh.html">पाठ-181</a> <a href="dca-182-if-shart-vala-sutr-pas-phel.html">पाठ-182</a> <a href="dca-183-chart-banana-aankadaon-ki-tasvir.html">पाठ-183</a> <a href="dca-184-tarikha-samay-ke-sutr.html">पाठ-184</a> <a href="dca-185-do-pannon-sheet-ka-joda-kam.html">पाठ-185</a> <a href="dca-186-chhapaee-yogy-excel-pej-seting.html">पाठ-186</a> <a href="dca-187-gaalati-sandesh-padhaana-value-jaise-ishare.html">पाठ-187</a> <a href="dca-188-excel-men-hindi-kam.html">पाठ-188</a> <a href="dca-189-ai-se-sutr-madad-puchho-aur-parakho.html">पाठ-189</a> <a href="dca-190-data-entry-ka-asali-rup-tejai-shuddhata.html">पाठ-190</a> <a href="dca-191-excel-se-kamaee-hisab-seva-ke-grahak.html">पाठ-191</a> <a href="dca-192-grahak-kam-abhyas-dukan-ka-pura-mahina-khata-badaa-k.html">पाठ-192</a> <a href="dca-193-khand-7-doharav-v-abhyas-pariksha.html">पाठ-193</a> <a href="index.html">📖 पूरी सूची (498 पाठ)</a>
+</div>
+</details>
+
+<figure class="lsn-fig lsn-hero">
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#0B1F3A">AVERAGE · MAX · MIN</text>
+<text x="400" y="70" text-anchor="middle" font-size="16" fill="#1565C0">डेटा: 60, 75, 90, 45, 80</text>
+<rect x="60" y="100" width="220" height="150" rx="10" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="170" y="140" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">AVERAGE</text>
+<text x="170" y="175" text-anchor="middle" font-size="16" fill="#0B1F3A">=AVERAGE(A2:A6)</text>
+<text x="170" y="210" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">= 70</text>
+<rect x="300" y="100" width="220" height="150" rx="10" fill="#F9A825" fill-opacity="0.15" stroke="#F9A825" stroke-width="3"/>
+<text x="410" y="140" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">MAX</text>
+<text x="410" y="175" text-anchor="middle" font-size="16" fill="#0B1F3A">=MAX(A2:A6)</text>
+<text x="410" y="210" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">= 90</text>
+<rect x="540" y="100" width="220" height="150" rx="10" fill="#2E7D32" fill-opacity="0.12" stroke="#2E7D32" stroke-width="3"/>
+<text x="650" y="140" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">MIN</text>
+<text x="650" y="175" text-anchor="middle" font-size="16" fill="#0B1F3A">=MIN(A2:A6)</text>
+<text x="650" y="210" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">= 45</text>
+<text x="400" y="330" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">कब उपयोग करें</text>
+<text x="400" y="380" text-anchor="middle" font-size="16" fill="#0B1F3A">AVERAGE = विद्यार्थी-अंक, बिक्री-रुझान</text>
+<text x="400" y="410" text-anchor="middle" font-size="16" fill="#0B1F3A">MAX = सबसे अच्छा दिन/विद्यार्थी</text>
+<text x="400" y="440" text-anchor="middle" font-size="16" fill="#0B1F3A">MIN = सबसे कमज़ोर दिन/जगह — सुधार-निशान</text>
+</svg>
+<figcaption>पाठ-चित्र: तीन नए Function — एक नज़र में</figcaption>
+</figure>
+
+<section class="lsn-sec">
+<h2>उद्देश्य</h2>
+<p>पाठ-167 में हमने SUM सीखा। आज हम तीन और उपयोगी तैयार-सूत्र सीखेंगे — AVERAGE (औसत), MAX (सबसे बड़ा), व MIN (सबसे छोटा)। पाठ के बाद आप किसी भी सूची से औसत, सबसे ऊँचा व सबसे नीचा अंक तुरंत निकाल पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात</h2>
+<p>एक-वाक्य बात — <b>AVERAGE, MAX, MIN — तीनों SUM जैसे ही तैयार सूत्र हैं, बस हर एक अलग सवाल का जवाब देता है — "औसत कितना?", "सबसे ज़्यादा कौन?", "सबसे कम कौन?"।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>AVERAGE — औसत निकालना</h2>
+<p>"=AVERAGE(A2:A10)" टाइप करने से उस रेंज के सारे अंकों का औसत (सबका जोड़ ÷ कुल गिनती) अपने-आप निकल आता है। यह ख़ासकर विद्यार्थी-अंक (पाठ-176) में उपयोगी है — जैसे "इस विद्यार्थी का सभी विषयों में औसत अंक क्या है।"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>MAX — सबसे बड़ी संख्या</h2>
+<p>"=MAX(A2:A10)" उस रेंज में सबसे बड़ी संख्या बताता है — जैसे "इस महीने सबसे ज़्यादा बिक्री किस दिन हुई," या "कक्षा में सबसे ज़्यादा अंक किसके आए।"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>MIN — सबसे छोटी संख्या</h2>
+<p>"=MIN(A2:A10)" ठीक उल्टा काम करता है — सबसे छोटी संख्या बताता है, जैसे "सबसे कम बिक्री वाला दिन," या "सबसे कम अंक।"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तीन अलग नज़रिए, एक ही डेटा से</h2>
+<p>एक ही सूची (जैसे अंक या बिक्री) से AVERAGE, MAX, MIN — तीन अलग-अलग कहानियाँ निकल सकती हैं। यही Excel की गहराई है — एक ही data कई तरह से "बोल" सकता है, बस सही सवाल (सही Function) पूछना आना चाहिए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>असली फ़ैसलों में मदद</h2>
+<p>दुकानदार के लिए यह जानना कि "सबसे ज़्यादा बिक्री किस दिन हुई" (MAX) या "औसतन रोज़ कितनी बिक्री होती है" (AVERAGE), आगे की योजना बनाने में सीधे मदद करता है — यह सिर्फ़ गणित नहीं, बल्कि समझदार फ़ैसलों का आधार है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सभी Function की एक जैसी संरचना</h2>
+<p>यह ध्यान देने-योग्य है — SUM, AVERAGE, MAX, MIN सब की संरचना एक जैसी है — नाम, फिर गोल-कोष्ठक, फिर रेंज। एक बार यह ढाँचा समझ लेने पर, आगे कोई भी नया Function (जैसे पाठ-169 में COUNT) सीखना बहुत आसान हो जाता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तीनों सूत्र साथ-साथ आज़माना</h2>
+<p>एक ही सूची पर बारी-बारी AVERAGE, MAX, MIN आज़माकर देखें कि नतीजे कैसे अलग-अलग कहानी कहते हैं — यह तुलना समझ को गहरा बनाती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज का काम «अभ्यास»</h2>
+<p>किसी सूची (जैसे 5-6 विद्यार्थियों के अंक) में AVERAGE, MAX, MIN — तीनों सूत्र लगाएँ। नतीजों को देखकर एक वाक्य में बताएँ — "कक्षा का औसत X है, सबसे ज़्यादा अंक Y, सबसे कम अंक Z।"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>नाप</h2>
+<p>तीनों सूत्र सही लगे, और नतीजों का सही अर्थ (औसत/सबसे बड़ा/सबसे छोटा) समझा गया?</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सबूत</h2>
+<p>अपना AVERAGE-MAX-MIN अभ्यास सबूत-खाते में रखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास से विश्लेषण-क्षमता बढ़ना</h2>
+<p>जितना ज़्यादा AVERAGE-MAX-MIN का अभ्यास होगा, उतनी ही स्वाभाविक रूप से डेटा को "पढ़ने" व समझने की क्षमता विकसित होगी — यह हुनर आगे किसी भी डेटा-आधारित काम में क़ीमती साबित होगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>औसत की समझदार व्याख्या</h2>
+<p>औसत निकालना आसान है, पर उसे सही समझना ज़रूरी है — जैसे अगर 5 में से 4 विद्यार्थियों के अंक 90 हैं व एक के 20, तो औसत लगभग 76 आएगा, जो असली तस्वीर (ज़्यादातर बहुत अच्छे) को पूरी तरह नहीं दिखाता। MAX-MIN के साथ देखने पर ही औसत का असली अर्थ समझ आता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>डेटा को कहानी में बदलना</h2>
+<p>सिर्फ़ अंकों की सूची देखने की बजाय, AVERAGE-MAX-MIN से निकली जानकारी को एक छोटी "कहानी" (जैसे "इस हफ़्ते बिक्री औसतन अच्छी रही, पर बुधवार सबसे कमज़ोर दिन था") में बदलना सीखें — यही असली विश्लेषण (Analysis) की शुरुआत है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI-सहायक</h2>
+<p>AI-सहायक से पूछिए — "औसत (Average) कब भ्रामक हो सकता है, और इसे समझने के लिए और क्या देखना चाहिए?" यह समझ हिसाब-विश्लेषण में गहराई लाएगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम ग़लती</h2>
+<p>सबसे बड़ी ग़लती — सिर्फ़ औसत देखकर पूरा नतीजा तय कर लेना, MAX-MIN या पूरी सूची को नज़रअंदाज़ करना — एक अकेला अंक हमेशा पूरी कहानी नहीं बताता।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आँकड़ों को समझने की आदत</h2>
+<p>सिर्फ़ सूत्र लगाना काफ़ी नहीं — नतीजों को समझना व उन पर सोचना भी उतना ही ज़रूरी हुनर है, जो अभ्यास से ही विकसित होता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुरक्षा-पत्रक</h2>
+<p>अगर यह हिसाब विद्यार्थियों के अंक या किसी और की व्यक्तिगत जानकारी से जुड़ा हो, तो उसे सिर्फ़ ज़रूरी लोगों तक ही सीमित रखें — गोपनीयता का नियम यहाँ भी उतना ही ज़रूरी है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 14-08-2026।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>विश्लेषण की शुरुआत यहीं से</h2>
+<p>AVERAGE-MAX-MIN सीखना असल में डेटा-विश्लेषण (Data Analysis) की दुनिया का पहला दरवाज़ा है — एक बहुत बड़ी, आधुनिक दुनिया, जिसकी शुरुआत यहीं से हो रही है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>संख्याओं के पीछे की सच्चाई</h2>
+<p>AVERAGE-MAX-MIN सिर्फ़ अंक नहीं देते — वे किसी भी स्थिति की असली सच्चाई खोलकर दिखाते हैं, जो सिर्फ़ कच्चे data को देखकर समझ नहीं आती।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>निर्णय लेने की क्षमता बढ़ना</h2>
+<p>जो व्यक्ति अंकों से यह तीन सवाल (औसत, सबसे ज़्यादा, सबसे कम) पूछना जानता है, वह किसी भी स्थिति में बेहतर, सोच-समझकर फ़ैसला ले सकता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तीन सवाल, तीन जवाब — एक पूरी तस्वीर</h2>
+<p>AVERAGE, MAX, MIN — यह तीन सवाल मिलकर किसी भी सूची की लगभग पूरी तस्वीर दे देते हैं, बिना हर एक अंक को अलग से पढ़े।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>संक्षिप्त सार</h2>
+<p>AVERAGE-MAX-MIN — किसी भी सूची से औसत, सबसे बड़ा व सबसे छोटा, तीनों एक पल में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>डेटा को समझने की नई नज़र</h2>
+<p>एक बार AVERAGE-MAX-MIN की आदत बन जाए, तो आप किसी भी सूची को देखते ही स्वाभाविक रूप से सोचने लगेंगे — औसत क्या, सबसे ऊपर कौन, सबसे नीचे कौन। यह नई नज़र ही डेटा-विश्लेषण की शुरुआत है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अंतिम विचार</h2>
+<p>तीन छोटे सूत्र, पर तीनों मिलकर किसी भी सूची को समझने की पूरी क्षमता देते हैं — यह उपहार जैसा हुनर है। यह तीन सूत्र मिलकर एक पूरी समझ देते हैं, अंकों से कहीं आगे की।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>संख्याओं से परे देखना सीखना</h2>
+<p>AVERAGE-MAX-MIN सिखाते हैं कि संख्याओं के पीछे छुपी कहानी कैसे पढ़ी जाए — यह हुनर सिर्फ़ Excel में नहीं, हर जगह जीवन-भर काम आएगा। यह समझ डेटा को सिर्फ़ अंक नहीं, बल्कि जानकारी के रूप में देखना सिखाती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तीन सवालों की स्थायी आदत</h2>
+<p>यह तीन सवाल — औसत, सबसे बड़ा, सबसे छोटा — अब हर नई सूची देखते ही स्वाभाविक रूप से मन में उठेंगे, यही असली सीख की निशानी है। यह तीन सूत्र अब आपके स्थायी, भरोसेमंद साथी बन चुके हैं। यह पूरी समझ आपको आगे किसी भी डेटा-आधारित निर्णय में सहायक साबित होगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तीन सूत्रों की अंतिम पुष्टि</h2>
+<p>AVERAGE, MAX, MIN — तीनों अब आपके भरोसेमंद, तैयार औज़ार हैं, जिन्हें किसी भी सूची पर तुरंत आज़माया जा सकता है। तैयार हैं आप। तीन सूत्र, तीन नज़रिए, एक पूरी समझ — यही आज की उपलब्धि है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अंतिम पुष्टि</h2>
+<p>यह तीन सूत्र अब स्थायी रूप से आपके साथ हैं। यही असली सीख है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पूर्णता</h2>
+<p>यह पाठ पूरी तरह सफल रहा — तीनों सूत्र पक्के, समझ गहरी। पूरी तैयारी अब हो चुकी, अगले पाठ के लिए तैयार। तैयार पूरी तरह, अगला पाठ इंतज़ार में। सफल रहा यह पूरा अभ्यास। यह पड़ाव पार हुआ। यह उपलब्धि अब स्थायी रूप से आपके साथ है। यह पूरी सीख अब हमेशा आपके साथ, हर हिसाब में उपयोगी रहेगी। अभ्यास सफल पूरा हुआ। यह पूरा अभ्यास सफल व संतोषजनक रहा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>योग्यता-जाँच</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>मुझे AVERAGE-सूत्र लिखना आता है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="1"> <span>मुझे MAX व MIN सूत्र लिखना आता है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="2"> <span>मुझे पता है सभी Function की संरचना एक जैसी क्यों है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="3"> <span>मुझे पता है सिर्फ़ औसत से पूरा नतीजा क्यों नहीं समझा जा सकता।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="4"> <span>मैंने अपना अभ्यास सबूत-खाते में रखा है।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=AVERAGE%2C%20MAX%2C%20MIN%20%E2%80%94%20%E0%A4%94%E0%A4%B8%E0%A4%A4%20%E0%A4%94%E0%A4%B0%20%E0%A4%9B%E0%A5%8B%E0%A4%B0%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.nielit.gov.in" target="_blank" rel="noopener">🏛️ NIELIT — सरकारी कंप्यूटर-शिक्षा संस्थान</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में — बाहरी site, जानकारी ख़ुद verify करें; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dca-167-sum-puri-pankti-ka-joda-ek-jhatake-men.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dca-169-count-parivar-ginati-ke-sutr.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script>window.ACS_CP={code:"dca",parts:[[1,25],[26,50],[51,75],[76,105],[106,130],[131,161],[162,193],[194,213],[214,243],[244,263],[264,288],[289,313],[314,333],[334,348],[349,368],[369,388],[389,408],[409,428],[429,438],[439,458],[459,468],[469,498]],quizSrc:"/assets/dca_quiz/dca_quiz_k",quizVar:"DCA_QUIZ_K"};</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/course-progress.js" defer></script>
+</body>
+</html>
