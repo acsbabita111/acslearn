@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_dca_pages.js v1.0 · 16-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-335: तालिका-सोच — Field, Record व Unique पहचान | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS</title>
+<meta name="description" content="तालिका-सोच — Field, Record व Unique पहचान — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/dca-2036/dca-335-talika-soch-field-record-v-unique-pahachan.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-335: तालिका-सोच — Field, Record व Unique पहचान | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS">
+<meta property="og:description" content="तालिका-सोच — Field, Record व Unique पहचान — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/dca-2036/dca-335-talika-soch-field-record-v-unique-pahachan.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-335: तालिका-सोच — Field, Record व Unique पहचान","description":"तालिका-सोच — Field, Record व Unique पहचान — डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/dca-2036/dca-335-talika-soch-field-record-v-unique-pahachan.html","isPartOf":{"@type":"Course","name":"डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA)","description":"गाँव-क़स्बे का विद्यार्थी → कंप्यूटर-ज्ञान → अभ्यास → पहली कमाई। 22 खंड, हर पाठ ≈ 1 घंटा — कक्षा-6 हिंदी में, AI-युग के लिए।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="335">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) › खंड-14: कंप्यूटर की अगली सीढ़ी — Database, वेब व कोड-सोच</p>
+<h1>पाठ-335: तालिका-सोच — Field, Record व Unique पहचान</h1>
+<p class="lsn-meta">पढ़ने का समय: 11 मिनट · पूरा पाठ (पढ़ना + आज का काम) ≈ 1 घंटा · पाठ 335 / 498 · 🅑 DIGITAL · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dca-334-database-detabes-kya-hai-rajistar-se-aage-excel-se-k.html">पाठ-334</a> <span class="lsn-jumpcur">पाठ-335 (यही)</span> <a href="dca-336-pahala-detabes-banana-form-sahit-access-base-jhalak.html">पाठ-336</a> <a href="dca-337-query-deta-se-saval-puchhana.html">पाठ-337</a> <a href="dca-338-report-deta-se-chhapane-layaka-natija.html">पाठ-338</a> <a href="dca-339-detabes-abhyas-apani-grahak-suchi-ka-chhota-detabes.html">पाठ-339</a> <a href="dca-340-kod-soch-computational-thinking-kam-ko-kaadamon-men.html">पाठ-340</a> <a href="dca-341-algorithm-roja-ki-jaindagi-ke-udaharanon-se.html">पाठ-341</a> <a href="dca-342-block-koding-ki-jhalak-pahala-chhota-program.html">पाठ-342</a> <a href="dca-343-kod-soch-ai-behatar-prompt-ka-rishta.html">पाठ-343</a> <a href="dca-344-veb-pej-kaise-banata-hai-html-ki-pahali-jhalak.html">पाठ-344</a> <a href="dca-345-apana-ek-pej-parichay-html-men.html">पाठ-345</a> <a href="dca-346-network-ki-jhalak-lan-wifi-ip-ki-saral-samajh.html">पाठ-346</a> <a href="dca-347-command-ki-jhalak-dos-linux-ke-buniyadi-aadesh.html">पाठ-347</a> <a href="dca-348-khand-14-doharav-v-abhyas-pariksha.html">पाठ-348</a> <a href="index.html">📖 पूरी सूची (498 पाठ)</a>
+</div>
+</details>
+
+<figure class="lsn-fig lsn-hero">
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="440" fill="#F5F7FA"/>
+<text x="400" y="40" font-size="22" fill="#0B1F3A" text-anchor="middle" font-weight="bold">Field, Record व Unique पहचान</text>
+<rect x="60" y="90" width="680" height="140" rx="10" fill="#ffffff" stroke="#0B1F3A" stroke-width="2"/>
+<text x="90" y="115" font-size="16" fill="#0B1F3A" font-weight="bold">ग्राहक-नंबर | नाम | फ़ोन-नंबर | शहर</text>
+<text x="90" y="150" font-size="16" fill="#1565C0">C001 | राम | 98765xxxxx | पटना</text>
+<text x="90" y="180" font-size="16" fill="#2E7D32">C002 | राम | 91234xxxxx | गया</text>
+<text x="90" y="210" font-size="16" fill="#0B1F3A">↑Unique पहचान (Field) ↑Field ↑Field ↑Field — हर पंक्ति = एक Record</text>
+<rect x="150" y="260" width="500" height="130" rx="10" fill="#F9A825"/>
+<text x="400" y="300" font-size="16" fill="#0B1F3A" text-anchor="middle" font-weight="bold">दो "राम" — पर अलग-अलग पहचान</text>
+<text x="400" y="335" font-size="16" fill="#0B1F3A" text-anchor="middle">C001 व C002 — कभी न दोहराए जाने वाले नंबर</text>
+</svg>
+<figcaption>पाठ-चित्र: मुख्य बात — एक नज़र में</figcaption>
+</figure>
+
+<section class="lsn-sec">
+<h2>उद्देश्य</h2>
+<p>आज हम Database की बुनियादी "तालिका-सोच" (Table Thinking) सीखेंगे — Field, Record, व Unique पहचान की समझ। पाठ के बाद आप किसी भी Database-तालिका की बुनियादी संरचना समझ पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात</h2>
+<p>हर Database, "तालिका" (Table) में जानकारी रखता है, जो देखने में Excel-शीट जैसी ही लगती है — पर इसके पीछे की सोच, ज़्यादा सख़्त, ज़्यादा व्यवस्थित होती है। तीन बुनियादी शब्द समझना ज़रूरी है — "Field" (हर स्तंभ/Column, जैसे "नाम", "फ़ोन-नंबर"); "Record" (हर पंक्ति/Row, यानी एक पूरे व्यक्ति/चीज़ की पूरी जानकारी); व "Unique पहचान" (Primary Key, यानी हर Record को अलग पहचानने वाला एक विशेष Field, जैसे "ग्राहक-नंबर", जो कभी दोहराया न जाए)।</p>
+<p>Unique पहचान, तालिका-सोच का सबसे ज़रूरी हिस्सा है — क्योंकि नाम जैसे Field दोहराए जा सकते हैं (दो ग्राहकों का नाम "राम" हो सकता है), पर एक "ग्राहक-नंबर" जैसा Unique Field, हर व्यक्ति को अलग, पक्के तौर पर पहचानता है, चाहे उनका नाम कुछ भी हो।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2अ. एक भारतीय उदाहरण</h2>
+<p>सोचें, एक स्कूल में, दो विद्यार्थियों का नाम "सुनीता" है — अगर सिर्फ़ नाम से पहचान की जाए, तो भ्रम हो सकता है। पर हर विद्यार्थी को एक अलग "Roll Number" (जो कभी न दोहराया जाए) देकर, दोनों "सुनीता" को हमेशा, बिना किसी ग़लती के, अलग-अलग पहचाना जा सकता है — यही Unique पहचान का असली उदाहरण है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2ब. एक और भारतीय उदाहरण</h2>
+<p>सोचें, आधार-नंबर (पाठ-52-53 में सीखा) भी, ठीक इसी सिद्धांत पर बना है — देश के हर व्यक्ति को, चाहे उनका नाम कुछ भी हो, एक अलग, कभी न दोहराया जाने वाला 12-अंकी नंबर मिलता है, जो उन्हें बाक़ी सबसे अलग पहचानता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2स. गहरी समझ के लिए</h2>
+<p>इसके अलावा, यह भी जानना उपयोगी है कि कभी-कभी एक ही Field, अलग-अलग Record में, ख़ाली (Empty) भी रह सकता है — जैसे किसी ग्राहक का ईमेल-पता न हो, तो वह Field ख़ाली छोड़ा जा सकता है, यह पूरी तरह सामान्य है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2ट. व्यावहारिक तरीक़ा</h2>
+<p>व्यावहारिक तरीक़े से सोचें — किसी भी नए Database की योजना बनाते समय, सबसे पहले, काग़ज़ पर, सारे ज़रूरी Field व Unique पहचान की सूची बनाएँ। इस पाठ के अभ्यास से, यह समझ मज़बूत होती है कि व्यवस्थित सोच, सिर्फ़ कंप्यूटर के लिए नहीं — रोज़ की ज़िंदगी में भी, हर व्यक्ति व चीज़ को स्पष्ट, अलग पहचान देना, भ्रम व ग़लतियाँ, दोनों कम करता है। आगे बढ़ते हुए, हर नई तालिका बनाते समय, Field व Unique पहचान को पहले सोचें। यह पाठ यहीं समाप्त होता है — अगला पाठ, पहला असली Database बनाना सिखाएगा। व्यावहारिक जीवन में, यह सोच, हर व्यवस्थित काम में झलकेगी। यह हुनर, आपको हर जानकारी को, स्पष्ट, व्यवस्थित रूप में देखने की क्षमता देता है। यह पाठ, आपको सिखाता है कि हर बड़ी व्यवस्था, चाहे वह कोई Database हो या कोई संस्था, तभी सुचारू रूप से चलती है जब हर हिस्से की, हर व्यक्ति की, एक स्पष्ट, बिना-दोहराव वाली पहचान हो। आज ही, एक काल्पनिक तालिका बनाकर, Unique पहचान का अभ्यास करें। यह छोटा अभ्यास, आपकी तालिका-सोच को मज़बूत करेगा, निश्चित रूप से। Field व Record की यह समझ, आगे हर Database-काम में, आपका सबसे भरोसेमंद औज़ार बनेगी। याद रखें, स्पष्ट पहचान, हर व्यवस्था की नींव है — चाहे Database हो या ज़िंदगी। तालिका-सोच, हर काम में स्पष्टता लाती है। आगे बढ़ें, स्पष्टता से। Field व Record की यह बुनियादी समझ, इतनी मज़बूत बनाएँ कि आगे कोई भी जटिल Database देखकर, आप तुरंत उसकी संरचना पहचान सकें। Field-Record की यह समझ, पक्की हो। Field व Record की यह समझ, इतनी बुनियादी है कि यह हर आगे की Database-अवधारणा में, बार-बार काम आएगी — इसे कई बार दोहराकर, अच्छी तरह पक्का कर लें, ताकि आगे कोई भ्रम न रहे। याद रखें, अच्छी बुनियाद, हमेशा बड़ी इमारत सँभालती है। आज ही, एक बार, अपने ख़ुद के नाम व Roll Number/ID की Unique पहचान के बारे में सोचें। यह छोटा प्रयास, बड़ी स्पष्टता लाएगा। Field-Record की यह जोड़ी, हर बड़ी व्यवस्था की कुंजी है। शुभकामनाएँ, इस नई समझ के लिए। तालिका-सोच, हमेशा साथ रहे। यह पाठ, आपकी डेटा-समझ को, हर दिन थोड़ा और गहरा बनाता रहेगा। यह ज्ञान, ठोस, स्थायी बुनियाद है। फ़ील्ड-सोच, हर काम में झलके। तालिका-समझ, गहरी बनती जाए। आपकी हर कोशिश सफल हो। यह छोटा पाठ, आगे की हर Database-समझ का आधार बनता है। यह पहचान-सोच, बचपन से लेकर बुढ़ापे तक, हर दस्तावेज़ में काम आती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज का काम</h2>
+<p>अपनी कॉपी में, एक काल्पनिक "ग्राहक-तालिका" बनाएँ — कम-से-कम चार Field (जैसे ग्राहक-नंबर, नाम, फ़ोन, शहर) व तीन Record (तीन काल्पनिक ग्राहक)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3ब. दूसरा अभ्यास</h2>
+<p>अपनी कॉपी में लिखें — रोज़मर्रा में, आपने किन-किन जगहों पर "Unique पहचान" (जैसे Roll Number, आधार, मोबाइल-नंबर) देखी/इस्तेमाल की है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3स. तीसरा अभ्यास</h2>
+<p>अपनी कॉपी में लिखें कि आपकी काल्पनिक तालिका में, कौन-सा Field, कभी ख़ाली रह सकता है, व क्यों।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>नाप</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>Field व Record का फ़र्क़ समझा</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="1"> <span>Unique पहचान (Primary Key) का महत्व समझा</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="2"> <span>एक काल्पनिक तालिका बनाई</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="3"> <span>रोज़मर्रा की Unique पहचान के उदाहरण सोचे</span></label></div>
+</section>
+
+<section class="lsn-sec">
+<h2>4स. एक और नाप-बिंदु</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>आप अपनी काल्पनिक तालिका में, एक और Field जोड़ने की कोशिश करें।</span></label></div>
+</section>
+
+<section class="lsn-sec">
+<h2>सबूत</h2>
+<p>अपनी कॉपी में अपनी काल्पनिक तालिका व Unique-पहचान उदाहरण लिखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI-सहायक</h2>
+<p>AI से पूछें — "Primary Key के अलावा, Database में और किस तरह की 'Key' होती हैं?"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम ग़लती</h2>
+<p>आम ग़लती है — नाम या फ़ोन-नंबर को ही Unique पहचान मान लेना, बिना यह सोचे कि दो लोगों का नाम एक जैसा हो सकता है, या कोई फ़ोन-नंबर बदल सकता है। हमेशा एक स्थिर, कभी न बदलने वाला, अनोखा नंबर (जैसे ग्राहक-ID) ही असली Unique पहचान बनाएँ।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7ब. दूसरी आम ग़लती</h2>
+<p>एक और ग़लती है, एक ही तालिका में, एक जैसी जानकारी बार-बार, अलग-अलग Record में लिखना (जैसे एक ही ग्राहक का नाम दो बार, थोड़े अलग स्पेलिंग में)। हर Record, साफ़, सही, एक बार लिखा होना चाहिए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7स. तीसरी आम ग़लती</h2>
+<p>एक तीसरी ग़लती है, दो अलग-अलग तरह की जानकारी (जैसे 'नाम' व 'फ़ोन-नंबर') को एक ही Field में मिलाकर लिख देना। हर तरह की जानकारी का अपना, अलग Field होना चाहिए, ताकि आगे Query व Report आसान रहें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुरक्षा-पत्रक</h2>
+<p>अगर Unique पहचान के लिए कोई संवेदनशील नंबर (जैसे आधार-नंबर सीधे) इस्तेमाल करें, तो उस तालिका की सुरक्षा (पासवर्ड, सीमित पहुँच) और भी ज़्यादा गंभीरता से लें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>8ब. एक और सुरक्षा-बात</h2>
+<p>अगर किसी Field में संवेदनशील जानकारी (जैसे किसी का वेतन) रखनी हो, उस Field/तालिका तक पहुँच, सिर्फ़ ज़रूरी लोगों तक सीमित रखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>स्रोत</h2>
+<p>यह जानकारी सामान्य Database-डिज़ाइन सिद्धांतों पर आधारित है (देखा गया 15-08-2026)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>योग्यता-जाँच</h2>
+<ol><li>Field क्या है?</li><li>Record क्या है?</li><li>Unique पहचान (Primary Key) क्यों ज़रूरी है?</li><li>नाम को Unique पहचान क्यों नहीं मानना चाहिए?</li><li>आधार-नंबर, Unique पहचान का कैसा उदाहरण है?</li></ol>
+</section>
+
+<section class="lsn-sec">
+<h2>समापन-विचार</h2>
+<p>यह "तालिका-सोच", हर आगे के Database-पाठ की बुनियाद है — एक बार Field, Record, व Unique पहचान की समझ पक्की हो जाए, आगे का हर क़दम आसान लगने लगेगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक अंतिम विचार</h2>
+<p>यह तालिका-सोच, इतनी बुनियादी है कि इसे एक बार समझ लेने पर, आप किसी भी Database, चाहे कितना भी जटिल हो, उसकी संरचना आसानी से समझ पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक भावनात्मक टिप्पणी</h2>
+<p>हर व्यक्ति, हर चीज़ को, एक अनोखी, सम्मानजनक पहचान देना — यह सिर्फ़ तकनीकी सिद्धांत नहीं, एक गहरी, मानवीय सोच भी है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक व्यापक दृष्टिकोण</h2>
+<p>यह भी सोचें कि Unique पहचान का यह सिद्धांत, सिर्फ़ Database तक सीमित नहीं — हर देश, अपने नागरिकों को अलग पहचानने के लिए, कोई न कोई Unique-सिस्टम (जैसे भारत में आधार) इस्तेमाल करता है।</p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%A4%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%95%E0%A4%BE-%E0%A4%B8%E0%A5%8B%E0%A4%9A%20%E2%80%94%20Field%2C%20Record%20%E0%A4%B5%20Unique%20%E0%A4%AA%E0%A4%B9%E0%A4%9A%E0%A4%BE%E0%A4%A8%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.nielit.gov.in" target="_blank" rel="noopener">🏛️ NIELIT — सरकारी कंप्यूटर-शिक्षा संस्थान</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में — बाहरी site, जानकारी ख़ुद verify करें; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dca-334-database-detabes-kya-hai-rajistar-se-aage-excel-se-k.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dca-336-pahala-detabes-banana-form-sahit-access-base-jhalak.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script>window.ACS_CP={code:"dca",parts:[[1,25],[26,50],[51,75],[76,105],[106,130],[131,161],[162,193],[194,213],[214,243],[244,263],[264,288],[289,313],[314,333],[334,348],[349,368],[369,388],[389,408],[409,428],[429,438],[439,458],[459,468],[469,498]],quizSrc:"/assets/dca_quiz/dca_quiz_k",quizVar:"DCA_QUIZ_K"};</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/course-progress.js" defer></script>
+</body>
+</html>
