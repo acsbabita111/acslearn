@@ -11,7 +11,7 @@
           नमूना: node generator/build_dca_pages.js --only 1,7
           आंशिक (जब तक 498 पूरे न हों, सिर्फ़ जाँच हेतु): --partial
           (--partial में index/kyon नहीं बनते — अधूरी सूची कभी live नहीं)
-   नतीजा: /courses/hi/dca-2036/dca-NNN-slug.html + index.html + kyon.html
+   नतीजा: /courses/hi/digital/dca/dca-NNN-slug.html + index.html + kyon.html
 
    check-robot (fail = पेज बनेगा ही नहीं):
    1. हर पाठ ≥ 1150 दिखने वाले शब्द (svg/चेकबॉक्स-पंक्ति छोड़कर)
