@@ -11,7 +11,8 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v341'; // 16-Aug: DCA-2036 cutover — /courses/hi/dca-2036/ (498 पाठ), course-progress.js, dca_quiz shards, exam_data v1.5, courses_data/udyam_data कड़ी
+const CACHE_VERSION = 'v342'; // 17-Aug: DCA-2036 पता-सुधार (Founder-अ) — /courses/hi/digital/dca/ पर; dca-2036 folder व redirect-पर्चियाँ हटीं
+// v341 // 16-Aug: DCA-2036 cutover — /courses/hi/dca-2036/ (498 पाठ), course-progress.js, dca_quiz shards, exam_data v1.5, courses_data/udyam_data कड़ी
 // v340 // 13-Aug: SE023 मशरूम 120-प्रश्न server-परीक्षा — dashboard.js v6.1 (SERVER_EXAM_COURSES) +
 // exam_data.js द्वार-प्रविष्टि + msh_quiz_k01-12.js पैडिंग-सुधार (172 विकल्प); सब cache-first ⇒ bump। // 13-Aug: msh-progress.js v1.1 (सुरक्षा-पत्रक बीच-पेज + dropdown-सूची) cache-first ⇒ bump। // 13-Aug: मशरूम-कोर्स SE023/n-951 — courses_data.js व udyam_data.js बदले (cache-first) + नया msh-progress.js। // 05-Aug: टू-व्हीलर 120-प्रश्न server-परीक्षा — dashboard.js v6.0 (SE022 server-मोड) + exam_data.js v1.4 (द्वार-प्रविष्टि); दोनों cache-first ⇒ bump अनिवार्य।
   // पुराना v335 (03-Aug-3): twv-hero.js v2.0 — शिक्षण-रेखा-चित्र (label-सहित आरेख); Founder-सुधार से v1 का सजावटी रूप निरस्त।
