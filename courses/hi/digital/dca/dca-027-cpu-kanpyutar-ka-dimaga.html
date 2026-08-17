@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_dca_pages.js v1.0 · 16-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-27: CPU — कंप्यूटर का दिमाग़ | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS</title>
+<meta name="description" content="CPU — कंप्यूटर का दिमाग़ — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital/dca/dca-027-cpu-kanpyutar-ka-dimaga.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-27: CPU — कंप्यूटर का दिमाग़ | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS">
+<meta property="og:description" content="CPU — कंप्यूटर का दिमाग़ — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital/dca/dca-027-cpu-kanpyutar-ka-dimaga.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-27: CPU — कंप्यूटर का दिमाग़","description":"CPU — कंप्यूटर का दिमाग़ — डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital/dca/dca-027-cpu-kanpyutar-ka-dimaga.html","isPartOf":{"@type":"Course","name":"डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA)","description":"गाँव-क़स्बे का विद्यार्थी → कंप्यूटर-ज्ञान → अभ्यास → पहली कमाई। 22 खंड, हर पाठ ≈ 1 घंटा — कक्षा-6 हिंदी में, AI-युग के लिए।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="27">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) › खंड-2: मशीन को जानो — हार्डवेयर</p>
+<h1>पाठ-27: CPU — कंप्यूटर का दिमाग़</h1>
+<p class="lsn-meta">पढ़ने का समय: 11 मिनट · पूरा पाठ (पढ़ना + आज का काम) ≈ 1 घंटा · पाठ 27 / 498 · 🅐 CORE · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dca-026-kanpyutar-ke-ang-sharir-ki-tarah-samajho.html">पाठ-26</a> <span class="lsn-jumpcur">पाठ-27 (यही)</span> <a href="dca-028-ram-kam-karane-ki-meja.html">पाठ-28</a> <a href="dca-029-hard-disk-v-ssd-saman-rakhane-ki-alamari.html">पाठ-29</a> <a href="dca-030-madarabord-sabako-jodaane-vala-aadhar.html">पाठ-30</a> <a href="dca-031-m-nitar-skrin-prakar-aur-dekhabhal.html">पाठ-31</a> <a href="dca-032-kibord-maus-ke-prakar-aur-chunav.html">पाठ-32</a> <a href="dca-033-smps-v-bijali-aapurti-ki-samajh.html">पाठ-33</a> <a href="dca-034-usb-port-v-taron-ki-pahachan.html">पाठ-34</a> <a href="dca-035-pen-draiv-v-memori-kard-ka-sahi-upayog.html">पाठ-35</a> <a href="dca-036-printar-ke-prakar-inkajet-lejaar-d-t-maitriks.html">पाठ-36</a> <a href="dca-037-skainar-v-vebakaim-ki-pahachan.html">पाठ-37</a> <a href="dca-038-spikar-maik-v-hedaphaon.html">पाठ-38</a> <a href="dca-039-laipat-p-ke-khaas-ang-baitari-charjar-tachapaid.html">पाठ-39</a> <a href="dca-040-mobail-ke-bhitar-bhi-kanpyutar-sajha-ang.html">पाठ-40</a> <a href="dca-041-kaun-sa-ang-kamajaor-ho-to-kya-lakshan-dikhata-hai.html">पाठ-41</a> <a href="dca-042-ram-storej-badhaavana-kab-jaaruri-kab-phaijaul.html">पाठ-42</a> <a href="dca-043-dhul-saphaaee-bhitar-bahar-surakshit-tarikae-se.html">पाठ-43</a> <a href="dca-044-hardaveyar-ki-chhoti-marammat-kya-khaud-kya-mistri-s.html">पाठ-44</a> <a href="dca-045-sekand-haind-purjae-parakhana-bajaar-ki-samajh.html">पाठ-45</a> <a href="dca-046-e-kachara-e-waste-purane-kanpyutar-ka-sahi-thikana.html">पाठ-46</a> <a href="dca-047-bijali-bachat-vala-kanpyutar-upayog.html">पाठ-47</a> <a href="dca-048-hardaveyar-jnan-se-kamaee-salah-v-chhoti-seva.html">पाठ-48</a> <a href="dca-049-apane-kanpyutar-ka-pura-hardaveyar-patrak-banana-bad.html">पाठ-49</a> <a href="dca-050-khand-2-doharav-v-abhyas-pariksha.html">पाठ-50</a> <a href="index.html">📖 पूरी सूची (498 पाठ)</a>
+</div>
+</details>
+
+<figure class="lsn-fig lsn-hero">
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="26" font-weight="bold" fill="#0B1F3A">CPU — छोटा पुर्ज़ा, बड़ा काम</text>
+<text x="400" y="76" text-anchor="middle" font-size="17" fill="#1565C0">सोना = CPU · ठोस तीर = आदेश की चाल</text>
+<rect x="320" y="330" width="160" height="160" rx="10" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="405" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">CPU</text>
+<text x="400" y="430" text-anchor="middle" font-size="17" fill="#0B1F3A">दिमाग़</text>
+<rect x="60" y="130" width="180" height="70" rx="10" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/><text x="150" y="172" text-anchor="middle" font-size="17" fill="#0B1F3A">क्लिक/टाइप</text>
+<rect x="560" y="130" width="180" height="70" rx="10" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/><text x="650" y="172" text-anchor="middle" font-size="17" fill="#0B1F3A">RAM को आदेश</text>
+<rect x="60" y="600" width="180" height="70" rx="10" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/><text x="150" y="642" text-anchor="middle" font-size="17" fill="#0B1F3A">मॉनिटर को आदेश</text>
+<rect x="560" y="600" width="180" height="70" rx="10" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/><text x="650" y="642" text-anchor="middle" font-size="17" fill="#0B1F3A">स्पीकर को आदेश</text>
+<line x1="240" y1="180" x2="330" y2="360" stroke="#0B1F3A" stroke-width="3" marker-end="url(#a27)"/>
+<line x1="480" y1="380" x2="600" y2="200" stroke="#0B1F3A" stroke-width="2" stroke-dasharray="6,6"/>
+<line x1="330" y1="460" x2="240" y2="600" stroke="#0B1F3A" stroke-width="2" stroke-dasharray="6,6"/>
+<line x1="480" y1="480" x2="600" y2="600" stroke="#0B1F3A" stroke-width="2" stroke-dasharray="6,6"/>
+<defs><marker id="a27" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#0B1F3A"/></marker></defs>
+</svg>
+<figcaption>पाठ-चित्र: CPU: छोटा पुर्ज़ा, बड़ा काम — एक नज़र में</figcaption>
+</figure>
+
+<section class="lsn-sec">
+<h2>उद्देश्य</h2>
+<p>आज हम कंप्यूटर के सबसे ज़रूरी अंग — CPU — को गहराई से समझेंगे। पाठ के बाद आप बता पाएँगे कि CPU क्या काम करता है, यह कैसा दिखता है, और CPU की "स्पीड" व "कोर" जैसे शब्दों का सरल मतलब समझ पाएँगे — ताकि आगे जब भी कोई दुकानदार यह शब्द बोले, आप उलझन में न पड़ें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात</h2>
+<p>CPU का पूरा नाम है Central Processing Unit — यानी केंद्रीय प्रक्रिया-इकाई। एक-वाक्य बात — <b>CPU कंप्यूटर का दिमाग़ है — हर हिसाब, हर फ़ैसला, हर आदेश यहीं समझा व निभाया जाता है, बाक़ी सारे अंग सिर्फ़ CPU की मदद के लिए काम करते हैं।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>CPU असल में करता क्या है</h2>
+<p>जब आप माउस से किसी आइकन पर क्लिक करते हैं, वह "क्लिक हुआ" की जानकारी बिजली के इशारे के रूप में CPU तक पहुँचती है। CPU यह तय करता है कि इस क्लिक का मतलब क्या है — कौन-सा प्रोग्राम खोलना है, स्क्रीन पर क्या दिखाना है — और फिर बाक़ी अंगों (RAM, मॉनिटर) को आदेश भेजता है। यह सब कुछ इतनी तेज़ी से होता है कि हमें कोई देरी महसूस नहीं होती — एक सेकंड में CPU करोड़ों ऐसे छोटे-छोटे हिसाब कर सकता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>CPU कैसा दिखता है</h2>
+<p>CPU एक छोटा, चौकोर, चपटा-सा पुर्ज़ा होता है — आमतौर पर 4-5 सेंटीमीटर चौड़ा, जो मदरबोर्ड पर एक ख़ास जगह (सॉकेट) में फ़िट होता है। यह इतना छोटा दिखता है कि पहली बार देखने पर विश्वास करना मुश्किल होता है कि यही "कंप्यूटर का दिमाग़" है। CPU के ऊपर आमतौर पर एक पंखा व धातु का एक टुकड़ा (Heat Sink, गर्मी सोखने वाला) लगा होता है, क्योंकि CPU काम करते समय बहुत गर्म हो जाता है — ठीक वैसे जैसे बहुत सोचने पर हमारा दिमाग़ भी "थक" जाता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>"स्पीड" व "कोर" — दो शब्द जो अक्सर सुनने को मिलते हैं</h2>
+<p>दुकानदार अक्सर कहते हैं "यह 3 गीगाहर्ट्ज़ का CPU है" या "यह 4-कोर वाला है।" <b>स्पीड (गीगाहर्ट्ज़, GHz)</b> का सरल मतलब है — CPU एक सेकंड में कितनी बार हिसाब कर सकता है; संख्या जितनी बड़ी, CPU उतना तेज़। <b>कोर (Core)</b> का मतलब है — CPU के भीतर कितने "छोटे दिमाग़" एक साथ काम कर रहे हैं; जैसे एक व्यक्ति अकेले काम करने की बजाय, अगर 4 लोग मिलकर एक साथ काम करें, तो काम तेज़ी से होता है। ज़्यादा कोर वाला CPU आमतौर पर एक साथ कई काम (जैसे गाना बजाना + टाइप करना) बेहतर तरीक़े से सँभालता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>CPU गर्म क्यों होता है, और इसका ध्यान क्यों रखें</h2>
+<p>जितना ज़्यादा हिसाब CPU करता है, उतनी ज़्यादा गर्मी पैदा होती है — यह बिजली के हर उपकरण का स्वाभाविक गुण है। अगर CPU बहुत ज़्यादा गर्म हो जाए और उसे ठंडा होने का मौक़ा न मिले, तो कंप्यूटर धीमा पड़ सकता है या अचानक बंद हो सकता है — यह हम पाठ-10 में सीखे "सही जगह" के नियम से भी जुड़ा है। यही वजह है कि CPU के ऊपर हमेशा एक पंखा लगा होता है, और मशीन को हवादार जगह पर रखना (पाठ-10) व अंदर की धूल साफ़ रखना (पाठ-43) दोनों CPU की सेहत के लिए बहुत ज़रूरी हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तेज़ CPU बनाम धीमा CPU — व्यावहारिक फ़र्क़</h2>
+<p>अगर आपका काम सिर्फ़ टाइपिंग, हिसाब व साधारण इंटरनेट-उपयोग तक सीमित है, तो एक सामान्य CPU काफ़ी है — बहुत महंगा, तेज़ CPU ख़रीदना ज़रूरी नहीं। पर अगर भविष्य में आप भारी काम (जैसे बहुत सारी फ़ाइलें एक साथ खोलना, वीडियो-सम्पादन) करने की सोच रहे हों, तो तेज़ व ज़्यादा-कोर वाला CPU फ़ायदेमंद रहेगा। यह ठीक वैसा ही फ़ैसला है जैसे पाठ-7 में हमने सीखा था — पहले अपनी ज़रूरत समझें, फिर उसी हिसाब से चुनें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज का काम «अभ्यास»</h2>
+<p>अगर आपके पास कोई कंप्यूटर उपलब्ध है, उसकी जानकारी में देखिए (या किसी जानकार से पूछिए) कि उसमें कौन-सा CPU लगा है, उसकी स्पीड व कोर कितने हैं। न मिले तो, किसी दुकान के दाम-पत्रक से दो-तीन अलग-अलग CPU के नाम व स्पीड नोट कीजिए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>नाप</h2>
+<p>CPU का नाम, स्पीड व कोर — तीनों जानकारी नोट की है?</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सबूत</h2>
+<p>यह जानकारी सबूत-खाते में जोड़िए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI-सहायक</h2>
+<p>AI-सहायक से पूछिए — "CPU की स्पीड (GHz) और कोर (Core) का सरल मतलब क्या है?" जवाब को इस पाठ की समझ से मिलाइए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम ग़लती</h2>
+<p>सबसे बड़ी ग़लती — यह सोचना कि "जितनी बड़ी संख्या (GHz), उतना ही हमेशा बेहतर।" असल में अपनी ज़रूरत के हिसाब से सही संतुलन ढूँढना ज़्यादा समझदारी है, बेवजह सबसे महंगा CPU लेना फ़िज़ूलख़र्ची हो सकती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुरक्षा-पत्रक</h2>
+<p>CPU के ऊपर लगा पंखा कभी हाथ से रोकने की कोशिश न करें, चाहे मशीन चालू हो या बंद — यह नाज़ुक पुर्ज़ा है और आसानी से टूट सकता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक असली उदाहरण — रसोई से समझना</h2>
+<p>मान लो आप एक रसोई की कल्पना करें, जहाँ एक रसोइया (CPU) हर आदेश सुनकर खाना बनाता है। एक सहायक (RAM) उसे बर्तन व सामग्री जल्दी से थमाता है, ताकि रसोइया को बार-बार भंडार-घर (हार्ड-डिस्क) तक न दौड़ना पड़े। एक तेज़ रसोइया व एक अच्छा सहायक मिलकर बहुत जल्दी खाना बना सकते हैं, ठीक वैसे ही जैसे तेज़ CPU व पर्याप्त RAM मिलकर कंप्यूटर को तेज़ बनाते हैं। यह तुलना आपको आगे भी याद रहेगी, जब भी कोई CPU-RAM की बात करेगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>दुकान में CPU के नाम पहचानना</h2>
+<p>बाज़ार में अक्सर CPU के कुछ मशहूर नाम (कंपनियों के नाम) सुनने को मिलते हैं। शुरुआत में इन नामों को याद रखने की ज़रूरत नहीं — बस इतना समझ लेना काफ़ी है कि हर कंपनी अलग-अलग स्तर (कमज़ोर से तेज़) के CPU बनाती है, और दुकानदार से अपनी ज़रूरत बताकर सही सुझाव लिया जा सकता है। जो व्यक्ति अपनी ज़रूरत साफ़ बता सकता है, वह हमेशा बेहतर सलाह पाता है — चाहे नाम याद हों या न हों।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>दुकानदार की भाषा समझने का आत्मविश्वास</h2>
+<p>आगे जब आप किसी दुकान में जाएँगे और दुकानदार "यह CPU इतने GHz का है, इतने कोर का है" कहेगा, आप अब घबराएँगे नहीं। आप पूछ सकेंगे — "मेरे काम (टाइपिंग, हिसाब, हल्का इंटरनेट) के लिए यह ठीक रहेगा?" यही आत्मविश्वास आज के पाठ की सबसे बड़ी उपलब्धि है — तकनीकी शब्द अब आपको डराते नहीं, बल्कि आप उनका उपयोग अपने फ़ायदे के लिए कर पाते हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक और बात — गर्मी के मौसम में CPU</h2>
+<p>गर्मी के मौसम में, अगर आपका कमरा पहले से गर्म है, CPU के लिए ठंडा रहना और मुश्किल हो जाता है। ऐसे मौसम में पंखे या कूलर से कमरे को थोड़ा ठंडा रखना, सिर्फ़ आपके आराम के लिए नहीं, बल्कि मशीन की सेहत के लिए भी फ़ायदेमंद है। यह एक और उदाहरण है कि कैसे खंड-1 की "सही जगह" वाली सीख (पाठ-10), खंड-2 के हर अंग की समझ के साथ और गहरी होती जाती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>CPU व RAM का आपसी तालमेल</h2>
+<p>CPU व RAM हमेशा साथ-साथ काम करते हैं — एक बहुत तेज़ CPU भी बहुत कम RAM के साथ पूरी क्षमता से काम नहीं कर पाता, ठीक वैसे ही जैसे एक तेज़ रसोइया भी बहुत छोटी मेज़ पर पूरी रफ़्तार से काम नहीं कर सकता। इसलिए जब भी मशीन ख़रीदें या सुझाव दें, दोनों (CPU व RAM) को एक साथ, संतुलित तरीक़े से देखना ज़रूरी है — सिर्फ़ एक को बहुत अच्छा व दूसरे को कमज़ोर छोड़ना, पूरा फ़ायदा नहीं देता।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 14-08-2026।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>योग्यता-जाँच</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>मैं बता सकता हूँ कि CPU क्या काम करता है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="1"> <span>मैं जानता हूँ कि CPU कैसा दिखता है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="2"> <span>मैं "स्पीड" व "कोर" शब्दों का सरल मतलब समझा सकता हूँ।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="3"> <span>मैं जानता हूँ कि CPU गर्म क्यों होता है व इसकी देखभाल क्यों ज़रूरी है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="4"> <span>मैंने अपनी मशीन/दुकान की CPU-जानकारी सबूत-खाते में रखी है।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=CPU%20%E2%80%94%20%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%95%E0%A4%BE%20%E0%A4%A6%E0%A4%BF%E0%A4%AE%E0%A4%BE%E0%A4%97%E0%A4%BC%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.nielit.gov.in" target="_blank" rel="noopener">🏛️ NIELIT — सरकारी कंप्यूटर-शिक्षा संस्थान</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में — बाहरी site, जानकारी ख़ुद verify करें; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dca-026-kanpyutar-ke-ang-sharir-ki-tarah-samajho.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dca-028-ram-kam-karane-ki-meja.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script>window.ACS_CP={code:"dca",parts:[[1,25],[26,50],[51,75],[76,105],[106,130],[131,161],[162,193],[194,213],[214,243],[244,263],[264,288],[289,313],[314,333],[334,348],[349,368],[369,388],[389,408],[409,428],[429,438],[439,458],[459,468],[469,498]],quizSrc:"/assets/dca_quiz/dca_quiz_k",quizVar:"DCA_QUIZ_K"};</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/course-progress.js" defer></script>
+</body>
+</html>
