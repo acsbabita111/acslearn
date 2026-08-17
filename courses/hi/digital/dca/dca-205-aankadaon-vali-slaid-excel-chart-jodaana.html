@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_dca_pages.js v1.0 · 16-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-205: आँकड़ों वाली स्लाइड — Excel-चार्ट जोड़ना | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS</title>
+<meta name="description" content="आँकड़ों वाली स्लाइड — Excel-चार्ट जोड़ना — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital/dca/dca-205-aankadaon-vali-slaid-excel-chart-jodaana.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-205: आँकड़ों वाली स्लाइड — Excel-चार्ट जोड़ना | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS">
+<meta property="og:description" content="आँकड़ों वाली स्लाइड — Excel-चार्ट जोड़ना — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital/dca/dca-205-aankadaon-vali-slaid-excel-chart-jodaana.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-205: आँकड़ों वाली स्लाइड — Excel-चार्ट जोड़ना","description":"आँकड़ों वाली स्लाइड — Excel-चार्ट जोड़ना — डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital/dca/dca-205-aankadaon-vali-slaid-excel-chart-jodaana.html","isPartOf":{"@type":"Course","name":"डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA)","description":"गाँव-क़स्बे का विद्यार्थी → कंप्यूटर-ज्ञान → अभ्यास → पहली कमाई। 22 खंड, हर पाठ ≈ 1 घंटा — कक्षा-6 हिंदी में, AI-युग के लिए।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="205">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) › खंड-8: बात रखने का हुनर — Presentation</p>
+<h1>पाठ-205: आँकड़ों वाली स्लाइड — Excel-चार्ट जोड़ना</h1>
+<p class="lsn-meta">पढ़ने का समय: 11 मिनट · पूरा पाठ (पढ़ना + आज का काम) ≈ 1 घंटा · पाठ 205 / 498 · 🅐 CORE · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dca-194-presentation-bat-ko-aankhon-se-samajhana.html">पाठ-194</a> <a href="dca-195-pahali-slaid-shirshak-v-nam.html">पाठ-195</a> <a href="dca-196-naee-slaid-dhancha-chunav-kram.html">पाठ-196</a> <a href="dca-197-likhavat-niyam-kam-shabd-badaa-akshar.html">पाठ-197</a> <a href="dca-198-chitr-v-aaikan-jodaana.html">पाठ-198</a> <a href="dca-199-rang-sanyam-3-4-rang-ki-maryada.html">पाठ-199</a> <a href="dca-200-slide-show-chalana-batan-v-tarikaa.html">पाठ-200</a> <a href="dca-201-transition-v-animation-namak-jitana-hi.html">पाठ-201</a> <a href="dca-202-skul-project-ki-slaid-banana.html">पाठ-202</a> <a href="dca-203-dukan-dhandhe-ka-parichay-presentation.html">पाठ-203</a> <a href="dca-204-svayan-sahayata-samuh-panchayat-ke-lie-slaid.html">पाठ-204</a> <span class="lsn-jumpcur">पाठ-205 (यही)</span> <a href="dca-206-bolane-ki-taiyari-slaid-nahin-aap-mukhy.html">पाठ-206</a> <a href="dca-207-ai-se-slaid-dhancha-masauda-lo-apana-banao.html">पाठ-207</a> <a href="dca-208-slaid-ko-pdf-chitr-banana.html">पाठ-208</a> <a href="dca-209-projektar-tv-se-jodaakar-dikhana.html">पाठ-209</a> <a href="dca-210-mobail-par-presentation-halka-rasta.html">पाठ-210</a> <a href="dca-211-presentation-se-kamaee-koching-dukan-aayojan.html">पाठ-211</a> <a href="dca-212-apana-10-slaid-parichay-banana-badaa-kam.html">पाठ-212</a> <a href="dca-213-khand-8-doharav-v-abhyas-pariksha.html">पाठ-213</a> <a href="index.html">📖 पूरी सूची (498 पाठ)</a>
+</div>
+</details>
+
+<figure class="lsn-fig lsn-hero">
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="52" text-anchor="middle" font-size="27" font-weight="bold" fill="#0B1F3A">आँकड़ों वाली स्लाइड — कौन-सी बात, कौन-सा रूप</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">चार्ट सबूत · ऊपर की पंक्ति निष्कर्ष · सोना = सबसे आम ग़लती से बचाव</text>
+<g font-size="16" fill="#0B1F3A" text-anchor="middle">
+<rect x="40" y="120" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="125" y="150" font-weight="bold">बढ़त/गिरावट</text>
+<polyline points="60,280 95,250 130,262 165,215 195,190" fill="none" stroke="#2E7D32" stroke-width="4"/>
+<text x="125" y="305">रेखा-चार्ट</text>
+<rect x="225" y="120" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="310" y="150" font-weight="bold">तुलना</text>
+<rect x="245" y="230" width="30" height="55" fill="#1565C0"/><rect x="285" y="200" width="30" height="85" fill="#1565C0"/><rect x="325" y="245" width="30" height="40" fill="#1565C0"/><rect x="365" y="180" width="20" height="105" fill="#F9A825"/>
+<text x="310" y="305">खंभा-चार्ट</text>
+<rect x="410" y="120" width="170" height="200" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="495" y="150" font-weight="bold">हिस्सा (कुल का)</text>
+<circle cx="495" cy="235" r="45" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2"/>
+<path d="M495,235 L495,190 A45,45 0 0,1 538,250 z" fill="#F9A825"/>
+<path d="M495,235 L538,250 A45,45 0 0,1 460,265 z" fill="#1565C0"/>
+<text x="495" y="305">गोला-चार्ट (≤4 हिस्से)</text>
+<rect x="595" y="120" width="170" height="200" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="680" y="150" font-weight="bold">एक ही बात</text>
+<text x="680" y="245" font-size="42" font-weight="bold">58%</text>
+<text x="680" y="305">सिर्फ़ बड़ी संख्या</text>
+</g>
+<rect x="60" y="360" width="680" height="200" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="400" y="394" text-anchor="middle" font-size="19" font-weight="bold" fill="#0B1F3A">स्लाइड का ढाँचा</text>
+<rect x="90" y="410" width="620" height="40" rx="8" fill="#F9A825"/>
+<text x="400" y="437" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">↑ निष्कर्ष-पंक्ति: "जुलाई में बिक्री 30 प्रतिशत बढ़ी"</text>
+<rect x="90" y="460" width="380" height="85" rx="8" fill="#F5F7FA" stroke="#1565C0" stroke-width="2"/>
+<text x="280" y="508" text-anchor="middle" font-size="16" fill="#1565C0">चार्ट (चित्र-रूप, थीम के रंग, अक्षर 20+)</text>
+<rect x="490" y="460" width="220" height="85" rx="8" fill="#F5F7FA" stroke="#1565C0" stroke-width="2"/>
+<text x="600" y="495" text-anchor="middle" font-size="16" fill="#0B1F3A">स्रोत: रोज़-बही</text><text x="600" y="520" text-anchor="middle" font-size="16" fill="#0B1F3A">मई-जुलाई 2026</text>
+<rect x="60" y="600" width="680" height="100" rx="14" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="636" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">तीन रास्ते: चित्र (दिखाने को) · चिपका (सुधार को) · जुड़ा (काम की फ़ाइल में)</text>
+<text x="400" y="672" text-anchor="middle" font-size="16" fill="#1565C0">दिखाने वाली फ़ाइल में हमेशा चित्र-रूप — कहीं भी खुले, वैसा ही दिखे</text>
+<text x="400" y="770" text-anchor="middle" font-size="16" fill="#2E7D32">पढ़ाई मुफ़्त — acslearn.com</text>
+</svg>
+<figcaption>पाठ-चित्र: कौन-सा आँकड़ा, कौन-सा रूप — एक नज़र में</figcaption>
+</figure>
+
+<section class="lsn-sec">
+<h2>उद्देश्य</h2>
+<p>पाठ 202-204 में तीनों जगह एक स्लाइड बार-बार आई — "आँकड़े"। आज उसे ठीक से बनाना — Excel का चार्ट (पाठ-183) स्लाइड पर लाना, उसे थीम से मिलाना, और आँकड़े को दर्शक की एक नज़र में समझने लायक़ बनाना। पाठ के बाद आप तीन बातें कर पाएँगे — Excel-चार्ट को स्लाइड पर तीन तरीक़ों से ला पाएँगे और जान पाएँगे कौन कब; चार्ट को स्लाइड के रंग-अक्षर से मिला पाएँगे; और तय कर पाएँगे कि किस आँकड़े को चार्ट, किसे एक बड़ी संख्या, किसे छोटी तालिका चाहिए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात</h2>
+<p>आँकड़ा तभी बोलता है जब उसका रूप बात से मेल खाए — बढ़त दिखानी है तो रेखा, तुलना है तो खंभे, हिस्सा है तो गोला, और एक ही बात है तो सिर्फ़ बड़ी संख्या। एक-वाक्य बात — <b>Excel में चार्ट बनाओ, स्लाइड पर चित्र-रूप में लाओ, थीम के रंग-अक्षर से मिलाओ, और चार्ट के ऊपर एक पंक्ति में वह बात लिखो जो दर्शक को चार्ट से निकालनी है — चार्ट सबूत है, पंक्ति निष्कर्ष।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>तीन तरीक़े — चित्र, चिपका, जुड़ा</h2>
+<p>Excel में चार्ट चुनिए (पाठ-183), Ctrl+C। PowerPoint में Home → Paste के तीर के नीचे विकल्प: <b>चित्र (Picture)</b> — चार्ट फ़ोटो बनकर आता है; हल्का, हर कंप्यूटर पर वैसा ही, पर बाद में आँकड़ा बदले तो दोबारा लाना — ज़्यादातर काम के लिए यही सही। <b>चिपका (Embed)</b> — चार्ट के साथ उसका डेटा भी स्लाइड में आ जाता है; स्लाइड के भीतर सुधार हो सकता है, पर फ़ाइल भारी और दूसरे कंप्यूटर पर कभी-कभी टूटता है। <b>जुड़ा (Link)</b> — स्लाइड Excel-फ़ाइल से जुड़ी रहती है; Excel बदला तो स्लाइड बदले — पर फ़ाइल साथ न हो (पेन-ड्राइव में सिर्फ़ प्रेज़ेंटेशन ले गए) तो चार्ट ख़ाली। नियम: दिखाने वाली फ़ाइल में चित्र-रूप; अपनी काम की फ़ाइल में जुड़ा रखा जा सकता है, पर दिखाने से पहले चित्र में बदलो। स्लाइड के भीतर भी चार्ट बनता है (Insert → Chart, अपना छोटा Excel खुलता है) — छोटे आँकड़ों के लिए ठीक, बड़े हिसाब Excel में ही।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चार्ट को स्लाइड से मिलाना</h2>
+<p>Excel का चार्ट अपने रंग-अक्षर लेकर आता है — नीला-नारंगी, अक्षर 10। स्लाइड पर लाने से पहले Excel में ही ठीक कीजिए: रंग वही चार जो थीम के (पाठ-199 — बढ़त हरी, ज़ोर सोना), अक्षर 20 से बड़े (धुरी, नाम, आँकड़े — दूर से पढ़े जाएँ), जाली की रेखाएँ हल्की या हटाएँ, legend तभी जब दो-तीन चीज़ें हों। शीर्षक चार्ट के भीतर नहीं — स्लाइड की निष्कर्ष-पंक्ति में ("जुलाई में बिक्री 30 प्रतिशत बढ़ी"), क्योंकि दर्शक को नतीजा चाहिए, "बिक्री-चार्ट" जैसा नाम नहीं। चार्ट स्लाइड की आधी से ज़्यादा जगह ले — कोने का छोटा चार्ट पढ़ा नहीं जाता (पाठ-198 का वही आकार-नियम)। नीचे छोटे अक्षर (20) में स्रोत — "रोज़-बही, मई-जुलाई 2026" — बैंक-मैनेजर और मास्टर जी दोनों यही पूछते हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आँकड़ों में ईमानदारी — धुरी और चुनाव</h2>
+<p>दो चूकें भरोसा तोड़ती हैं। पहली — खड़ी धुरी शून्य से शुरू न करना: 40,000 से 42,000 की बढ़त धुरी 39,000 से शुरू करें तो पहाड़ लगती है; बैंक-मैनेजर धुरी देखता है और आगे कुछ नहीं मानता। धुरी शून्य से। दूसरी — सिर्फ़ अच्छे महीने चुनना (पाठ-203 में कहा) — गिरावट का महीना छिपा दिया तो सवाल में पकड़ में आता है। सारे महीने, वैसे जैसे हैं; गिरावट हो तो निष्कर्ष-पंक्ति में उसका कारण एक शब्द में। पाठ-229 का दो-स्रोत नियम यहाँ आँकड़े के लिए — जो संख्या स्लाइड पर, वही Excel में, वही रोज़-बही में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पंचायत और स्कूल के लिए भी वही चार्ट-नियम</h2>
+<p>पाठ-204 की समूह-बैठक में बचत का चार्ट — खंभे नहीं, गोला या एक बड़ी संख्या, अक्षर 36+ (उस दर्शक का नियम); पाठ-202 के प्रोजेक्ट में नाप का चार्ट — रेखा (10 दिन की पौधे की ऊँचाई) या खंभे (तीन गमलों की तुलना), और निष्कर्ष-पंक्ति में वही जो आपको मिला, न कि जो होना चाहिए था। दर्शक बदलता है, चार्ट का आकार बदलता है — रूप-चुनाव, धुरी-ईमानदारी और निष्कर्ष-पंक्ति नहीं बदलतीं। एक और छोटी बात — रंग-अंधता वाले दर्शक के लिए हर खंभे/हिस्से पर संख्या भी लिखी हो (पाठ-199), सिर्फ़ रंग से बात न कही जाए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज का काम «अभ्यास»</h2>
+<p>पाठ-203 की बैंक-रूप फ़ाइल खोलिए। Excel में तीन महीने की बिक्री का खंभा-चार्ट (या रेखा) बनाइए — पाठ-183 के तरीक़े से — फिर उसे थीम-रंग, अक्षर 20+, धुरी शून्य से, बिना जाली, स्लाइड-6 पर चित्र-रूप में लाइए; ऊपर निष्कर्ष-पंक्ति, नीचे स्रोत। फिर उसी आँकड़े को दूसरी स्लाइड पर सिर्फ़ एक बड़ी संख्या के रूप में ("जुलाई: ₹51,000, +30 प्रतिशत") बनाइए और तीसरी स्लाइड पर 3×3 की छोटी तालिका। तीनों देखकर तय कीजिए कौन-सा रूप बैंक-मैनेजर के लिए सही — कॉपी में कारण। बाक़ी दो हटाइए या Notes में रखिए। पाठ-204 की समूह-फ़ाइल में भी बचत का एक चार्ट लगाइए — गोला या खंभा। सहेजिए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>नाप</h2>
+<p>सफल = चार्ट चित्र-रूप में; थीम के रंग; अक्षर 20+ (दूर से पढ़ा जाए); धुरी शून्य से; निष्कर्ष-पंक्ति और स्रोत-पंक्ति दोनों; तीन रूपों में से चुनाव का कारण लिखा; समूह-फ़ाइल में एक चार्ट। पीछे-की-पंक्ति परीक्षा — चार्ट की सबसे छोटी लिखाई पीछे से पढ़ी जाए। समय: 40 मिनट।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सबूत</h2>
+<p>सबूत-खाते में Excel-फ़ाइल (मूल आँकड़े + चार्ट), स्लाइड का स्क्रीनशॉट, और चुनाव के कारण की पंक्तियाँ। Excel-फ़ाइल साथ रखना ज़रूरी — चार्ट का स्रोत यही है, और आगे आँकड़े बदलें तो यहीं से नया चार्ट बनेगा (हर तिमाही, पाठ-203)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI-सहायक</h2>
+<p>AI से पूछिए — "मेरे पास तीन महीने की बिक्री है (संख्याएँ, बेनाम); बैंक-मैनेजर को दिखाने के लिए रेखा, खंभा, गोला या सिर्फ़ बड़ी संख्या — कौन-सा और क्यों?" — कारण मिलाइए। दूसरा — "इस चार्ट के लिए एक-पंक्ति का निष्कर्ष लिखो जो दावा न लगे, तथ्य लगे" — फिर पाठ-229 से जाँचिए कि निष्कर्ष आँकड़े से निकलता है, आगे नहीं जाता ("30 प्रतिशत बढ़ी" ठीक; "हर महीने बढ़ेगी" नहीं)। धुरी और महीनों की ईमानदारी AI नहीं जाँचेगा — आप।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम ग़लती</h2>
+<p>पहली — Excel से "जुड़ा" चार्ट, पेन-ड्राइव में सिर्फ़ प्रेज़ेंटेशन — मंच पर चार्ट ख़ाली। दूसरी — चार्ट Excel के अपने रंग-10-अक्षर में जस-का-तस — स्लाइड से लड़ता, दूर से अंधा। तीसरी — धुरी शून्य से न शुरू करके छोटी बढ़त पहाड़ दिखाना। चौथी — छह-सात रंगों का गोला-चार्ट दस हिस्सों में — कोई हिस्सा पढ़ा नहीं जाता; गोला 4 हिस्से तक। पाँचवीं — चार्ट के ऊपर "बिक्री-चार्ट" शीर्षक; निष्कर्ष कोई नहीं — दर्शक सोचे "तो?"।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुरक्षा-पत्रक</h2>
+<p>आँकड़े जिसके हैं, उसकी अनुमति से स्लाइड पर; समूह के आँकड़ों में सदस्य-नाम नहीं (पाठ-204)। चार्ट चित्र-रूप में लाने का एक फ़ायदा सुरक्षा भी है — चिपके/जुड़े चार्ट के पीछे पूरा Excel-डेटा छिपा रहता है, जो फ़ाइल पाने वाला दो क्लिक में खोल सकता है; दिखाने-भेजने वाली फ़ाइल में हमेशा चित्र। ग़लत धुरी या चुने हुए महीने भी एक तरह का झूठ हैं — पाठ-241 का नियम-5 यहाँ आँकड़े पर। नाबालिग विद्यार्थी परिवार के धंधे के आँकड़े अभिभावक की अनुमति से।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 16-08-2026। चार्ट-रूप का चुनाव (रेखा-बढ़त, खंभा-तुलना, गोला-हिस्सा) आँकड़ा-प्रस्तुति का आम मानक; धुरी-शून्य नियम ईमानदार चार्ट का बुनियादी नियम। Excel-चार्ट बनाना पाठ-183 में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>योग्यता-जाँच</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>मैं चित्र, चिपका, जुड़ा — तीनों तरीक़ों का फ़र्क़ बता सकता हूँ।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="1"> <span>मैंने चार्ट को थीम-रंग व 20+ अक्षर से मिलाया है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="2"> <span>मेरे चार्ट की धुरी शून्य से शुरू होती है और सब महीने दिखते हैं।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="3"> <span>मैंने निष्कर्ष-पंक्ति और स्रोत-पंक्ति लिखी है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="4"> <span>मैंने रेखा/खंभा/गोला/बड़ी संख्या में सही रूप चुनकर कारण लिखा है।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%86%E0%A4%81%E0%A4%95%E0%A4%A1%E0%A4%BC%E0%A5%8B%E0%A4%82%20%E0%A4%B5%E0%A4%BE%E0%A4%B2%E0%A5%80%20%E0%A4%B8%E0%A5%8D%E0%A4%B2%E0%A4%BE%E0%A4%87%E0%A4%A1%20%E2%80%94%20Excel-%E0%A4%9A%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%9F%20%E0%A4%9C%E0%A5%8B%E0%A4%A1%E0%A4%BC%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.nielit.gov.in" target="_blank" rel="noopener">🏛️ NIELIT — सरकारी कंप्यूटर-शिक्षा संस्थान</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में — बाहरी site, जानकारी ख़ुद verify करें; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dca-204-svayan-sahayata-samuh-panchayat-ke-lie-slaid.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dca-206-bolane-ki-taiyari-slaid-nahin-aap-mukhy.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script>window.ACS_CP={code:"dca",parts:[[1,25],[26,50],[51,75],[76,105],[106,130],[131,161],[162,193],[194,213],[214,243],[244,263],[264,288],[289,313],[314,333],[334,348],[349,368],[369,388],[389,408],[409,428],[429,438],[439,458],[459,468],[469,498]],quizSrc:"/assets/dca_quiz/dca_quiz_k",quizVar:"DCA_QUIZ_K"};</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/course-progress.js" defer></script>
+</body>
+</html>
