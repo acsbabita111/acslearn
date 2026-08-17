@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_dca_pages.js v1.0 · 16-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-9: बिजली की समस्या और UPS/इन्वर्टर की समझ | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS</title>
+<meta name="description" content="बिजली की समस्या और UPS/इन्वर्टर की समझ — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital/dca/dca-009-bijali-ki-samasya-aur-ups-invartar-ki-samajh.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-9: बिजली की समस्या और UPS/इन्वर्टर की समझ | डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) | ACS">
+<meta property="og:description" content="बिजली की समस्या और UPS/इन्वर्टर की समझ — मुफ़्त हिंदी पाठ, DCA-2036: कंप्यूटर, AI व डिजिटल-उद्यमिता (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital/dca/dca-009-bijali-ki-samasya-aur-ups-invartar-ki-samajh.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-9: बिजली की समस्या और UPS/इन्वर्टर की समझ","description":"बिजली की समस्या और UPS/इन्वर्टर की समझ — डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital/dca/dca-009-bijali-ki-samasya-aur-ups-invartar-ki-samajh.html","isPartOf":{"@type":"Course","name":"डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA)","description":"गाँव-क़स्बे का विद्यार्थी → कंप्यूटर-ज्ञान → अभ्यास → पहली कमाई। 22 खंड, हर पाठ ≈ 1 घंटा — कक्षा-6 हिंदी में, AI-युग के लिए।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="9">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डीसीए — डिप्लोमा इन कंप्यूटर एप्लिकेशन (DCA) › खंड-1: कंप्यूटर की दुनिया में प्रवेश</p>
+<h1>पाठ-9: बिजली की समस्या और UPS/इन्वर्टर की समझ</h1>
+<p class="lsn-meta">पढ़ने का समय: 10 मिनट · पूरा पाठ (पढ़ना + आज का काम) ≈ 1 घंटा · पाठ 9 / 498 · 🅐 CORE · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dca-001-kanpyutar-kya-hai-ganv-ke-kam-ki-mashin.html">पाठ-1</a> <a href="dca-002-kanpyutar-hamari-jaindagi-men-kahan-kahan-hai.html">पाठ-2</a> <a href="dca-003-mobail-banam-kanpyutar-kaun-kis-kam-ka.html">पाठ-3</a> <a href="dca-004-kanpyutar-se-kamaee-ke-das-raste-kors-ka-nakasha.html">पाठ-4</a> <a href="dca-005-kanpyutar-ke-prakar-deskat-p-laipat-p-taibalet.html">पाठ-5</a> <a href="dca-006-purana-sekand-haind-kanpyutar-samajhadari-se-khaarid.html">पाठ-6</a> <a href="dca-007-naya-kanpyutar-khaaridate-samay-kya-dekhen.html">पाठ-7</a> <a href="dca-008-kam-bajat-men-pura-setaap-asali-hisab.html">पाठ-8</a> <span class="lsn-jumpcur">पाठ-9 (यही)</span> <a href="dca-010-kanpyutar-rakhane-ki-sahi-jagah-dhul-nami-garmi-se-b.html">पाठ-10</a> <a href="dca-011-kanpyutar-jodaana-tar-dar-tar-pahala-setaap.html">पाठ-11</a> <a href="dca-012-pahali-bar-chalu-karana-dar-hatao-dosti-karo.html">पाठ-12</a> <a href="dca-013-sahi-tarikae-se-band-karana-aur-kyon.html">पाठ-13</a> <a href="dca-014-maus-ki-puri-pakada-klik-dabal-klik-draig.html">पाठ-14</a> <a href="dca-015-kibord-se-pahali-pahachan-kunjiyon-ka-nakasha.html">पाठ-15</a> <a href="dca-016-skrin-ki-bhasha-aaikan-vindo-batan.html">पाठ-16</a> <a href="dca-017-kanpyutar-ki-dekhabhal-roja-haphata-mahina.html">पाठ-17</a> <a href="dca-018-kanpyutar-khaarab-lage-to-pahale-ye-panch-janch.html">पाठ-18</a> <a href="dca-019-duniya-men-kanpyutar-ka-saphaar-chhota-itihas-badai.html">पाठ-19</a> <a href="dca-020-aaj-ka-trend-ai-yug-men-kanpyutar-jnan-kyon-dugana-k.html">पाठ-20</a> <a href="dca-021-global-south-men-kanpyutar-hamare-jaise-deshon-ki-as.html">पाठ-21</a> <a href="dca-022-kanpyutar-sentar-saibar-kaiphae-pahali-kamaee-ki-jha.html">पाठ-22</a> <a href="dca-023-sikhane-ka-tarikaa-roja-1-ghanta-abhyas-khata-sabut.html">पाठ-23</a> <a href="dca-024-apana-sikhane-ka-kona-banana-aaj-ka-badaa-kam.html">पाठ-24</a> <a href="dca-025-khand-1-doharav-v-abhyas-pariksha.html">पाठ-25</a> <a href="index.html">📖 पूरी सूची (498 पाठ)</a>
+</div>
+</details>
+
+<figure class="lsn-fig lsn-hero">
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="50" text-anchor="middle" font-size="26" font-weight="bold" fill="#0B1F3A">बिजली-सुरक्षा की दो परतें</text>
+<text x="400" y="80" text-anchor="middle" font-size="17" fill="#1565C0">ठोस तीर = बिजली की चाल · सोना = सबसे पहली सुरक्षा</text>
+<rect x="80" y="200" width="620" height="90" rx="14" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="400" y="255" text-anchor="middle" font-size="20" fill="#0B1F3A">बिजली-लाइन (कभी भी जा सकती है)</text>
+<rect x="220" y="360" width="360" height="100" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="400" text-anchor="middle" font-size="20" font-weight="bold" fill="#0B1F3A">UPS</text>
+<text x="400" y="428" text-anchor="middle" font-size="17" fill="#0B1F3A">5-20 मिनट · झटका-रहित · सेव का समय</text>
+<rect x="120" y="540" width="260" height="90" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/>
+<text x="250" y="580" text-anchor="middle" font-size="18" fill="#0B1F3A">कंप्यूटर</text>
+<text x="250" y="605" text-anchor="middle" font-size="17" fill="#2E7D32">✓ सुरक्षित</text>
+<rect x="420" y="540" width="260" height="90" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/>
+<text x="550" y="580" text-anchor="middle" font-size="18" fill="#0B1F3A">इन्वर्टर</text>
+<text x="550" y="605" text-anchor="middle" font-size="17" fill="#0B1F3A">घंटों — पंखा-बल्ब</text>
+<line x1="400" y1="290" x2="400" y2="360" stroke="#0B1F3A" stroke-width="3" marker-end="url(#a9)"/>
+<line x1="350" y1="460" x2="270" y2="540" stroke="#0B1F3A" stroke-width="3" marker-end="url(#a9)"/>
+<line x1="450" y1="460" x2="530" y2="540" stroke="#0B1F3A" stroke-width="2" stroke-dasharray="6,6"/>
+<defs><marker id="a9" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#0B1F3A"/></marker></defs>
+</svg>
+<figcaption>पाठ-चित्र: बिजली-सुरक्षा की दो परतें — एक नज़र में</figcaption>
+</figure>
+
+<section class="lsn-sec">
+<h2>उद्देश्य</h2>
+<p>गाँव-क़स्बों में बिजली जाना आम बात है — और यह सबसे बड़ी चिंता बनती है। पाठ के बाद आप UPS और इन्वर्टर में फ़र्क़ बता पाएँगे, यह तय कर पाएँगे कि आपके इलाक़े के लिए क्या ज़्यादा ज़रूरी है, और बिजली-कटौती से डेटा-नुक़सान बचाने का तरीक़ा जान पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>मुख्य बात</h2>
+<p>बिजली अचानक जाना कंप्यूटर के लिए सिर्फ़ रुकावट नहीं, ख़तरा भी है — अधूरा-सेव काम खो सकता है, और कभी-कभी मशीन को भी झटका लग सकता है। एक-वाक्य बात — <b>UPS = कुछ मिनट का बीमा, ताकि काम सेव कर सकें; इन्वर्टर = घंटों की बिजली, ताकि काम चलता रहे।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>UPS क्या है, इन्वर्टर क्या है</h2>
+<p>UPS (यूपीएस) एक छोटी बैटरी-मशीन है जो कंप्यूटर से सीधे जुड़ती है। बिजली जाते ही यह तुरंत, बिना एक सेकंड रुके, बैटरी से बिजली देना शुरू कर देती है — इतना समय काफ़ी है कि आप अपना खुला काम सेव करके मशीन सही तरीक़े से बंद कर सकें। पर UPS की बैटरी छोटी होती है — आमतौर पर 5 से 20 मिनट ही चलती है। इन्वर्टर (Inverter) एक बड़ी बैटरी-व्यवस्था है जो पूरे घर या दुकान को घंटों बिजली दे सकती है — पंखा, बल्ब, और कंप्यूटर सब चला सकती है, पर बिजली जाने के झटके में तुरंत नहीं बदलता (थोड़ा समय लगता है), इसलिए कंप्यूटर के लिए अकेला इन्वर्टर काफ़ी सुरक्षित नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>दोनों साथ — सबसे सुरक्षित रास्ता</h2>
+<p>सबसे अच्छा इंतज़ाम है — छोटा UPS सीधे कंप्यूटर से जुड़ा हो (झटका-रहित बदलाव व सेव करने का समय), और इन्वर्टर बाक़ी बिजली (पंखा-बल्ब) के लिए हो। जिनके बजट में सिर्फ़ एक चीज़ आ सकती है, उनके लिए कंप्यूटर की सुरक्षा को प्राथमिकता देते हुए UPS पहले चुनना समझदारी है — क्योंकि यही डेटा-नुक़सान से बचाता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बार-बार सेव करने की आदत — सबसे सस्ता बीमा</h2>
+<p>कोई भी बिजली-सुरक्षा उपकरण न हो, तब भी एक आदत आपको बचा सकती है — काम करते समय हर कुछ मिनट में अपने दस्तावेज़ को सेव (Save) करने की आदत डालें। यह आदत हम खंड-6 (Word) में विस्तार से अभ्यास करेंगे, पर आज से ही मन में बिठा लें — "जब भी याद आए, Ctrl और S दबाओ।"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अपने इलाक़े की बिजली-स्थिति को समझना</h2>
+<p>हर इलाक़े में बिजली-कटौती का ढंग अलग होता है — कहीं थोड़ी देर, कहीं घंटों। अपने इलाक़े की स्थिति समझकर ही तय करें कि UPS काफ़ी है या इन्वर्टर भी ज़रूरी। यह capstone-पाठ 445 में बिजली-त्रिकोण (सरकारी कनेक्शन, सोलर, जनरेटर) के साथ मिलकर पूरी योजना बनेगी — आज बस बुनियाद समझें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बैटरी की क्षमता समझना — VA और वाट</h2>
+<p>जब आप UPS या इन्वर्टर ख़रीदने जाएँ, दुकानदार अक्सर "VA" (वोल्ट-एम्पियर) या "वाट (Watt)" जैसे शब्द बोलेगा — यह बैटरी की ताक़त नापने की इकाई है। सरल समझ के लिए, आप जितने भी उपकरण (कंप्यूटर, पंखा, बल्ब) एक साथ चलाना चाहते हैं, उन सबकी ज़रूरत जोड़कर उससे थोड़ी बड़ी क्षमता का UPS/इन्वर्टर लेना चाहिए। सिर्फ़ कंप्यूटर के लिए एक छोटा UPS (जैसे 600VA के आसपास) आमतौर पर काफ़ी होता है — दुकानदार से अपनी सही ज़रूरत बताकर सलाह लें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>दुकानदार को अपनी सही ज़रूरत बताना</h2>
+<p>UPS/इन्वर्टर ख़रीदते समय दुकानदार को साफ़-साफ़ बताएँ कि आप इसे किस लिए उपयोग करेंगे — "सिर्फ़ कंप्यूटर के लिए" या "कंप्यूटर के साथ पंखा-बल्ब भी।" जितनी सटीक जानकारी आप देंगे, दुकानदार उतनी ही सही सलाह दे पाएगा। ग़लत या बहुत बड़ी क्षमता का उपकरण ख़रीदने से पैसा बेकार ख़र्च होता है, और बहुत छोटी क्षमता का उपकरण ज़रूरत पूरी नहीं करता — सही संतुलन ही समझदारी है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>भविष्य की ज़रूरत भी थोड़ी सोचकर रखें</h2>
+<p>आज भले आपको सिर्फ़ एक कंप्यूटर के लिए UPS चाहिए, पर अगर आने वाले महीनों में प्रिंटर या कोई और उपकरण जोड़ने की योजना है, तो थोड़ी बड़ी क्षमता का उपकरण लेना समझदारी हो सकती है — इससे बार-बार उपकरण बदलने का ख़र्च बचता है। यह फ़ैसला अपने बजट व भविष्य की योजना दोनों को ध्यान में रखकर लें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अनुभवी लोगों की सलाह का महत्व</h2>
+<p>जो लोग पहले से बिजली-उपकरण उपयोग कर रहे हैं, उनसे सलाह लेना बहुत मददगार है — वे अपने अनुभव से बता सकते हैं कि किस ब्रांड ने अच्छा साथ दिया, किसमें दिक़्क़त आई। यह जानकारी किसी विज्ञापन से ज़्यादा भरोसेमंद होती है, क्योंकि यह असली उपयोग के अनुभव से आती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>लिखित सलाह भी सहेज कर रखें</h2>
+<p>जब भी कोई अनुभवी व्यक्ति आपको कोई तकनीकी सलाह दे, उसे अपनी अभ्यास-कॉपी में नोट कर लें। समय के साथ आप भूल सकते हैं, पर लिखी हुई बात हमेशा वापस पढ़ी जा सकती है — यह छोटी आदत आगे बहुत उपयोगी साबित होगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सोलर बिजली-बैकअप — एक उभरता विकल्प</h2>
+<p>जिन इलाक़ों में धूप भरपूर मिलती है, वहाँ सोलर पैनल के साथ बैटरी-बैकअप एक बढ़िया विकल्प बनता जा रहा है — यह न सिर्फ़ बिजली-कटौती से बचाता है, बल्कि बिजली के बिल में भी बचत करता है। शुरुआती लागत ज़्यादा हो सकती है, पर लंबे समय में यह फ़ायदेमंद साबित हो सकता है। यह विषय हम capstone-पाठ 445 (बिजली-त्रिकोण) में विस्तार से सीखेंगे — आज बस इतना जान लीजिए कि यह एक तीसरा विकल्प भी मौजूद है, सिर्फ़ UPS-इन्वर्टर तक सीमित नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बैटरी की देखभाल भी ज़रूरी</h2>
+<p>UPS व इन्वर्टर, दोनों की बैटरी को समय-समय पर देखभाल चाहिए — पानी वाली बैटरी में पानी का स्तर जाँचना, बैटरी को बहुत गर्म जगह से दूर रखना। बैटरी की सही देखभाल से उसकी उम्र कई साल तक बढ़ जाती है, जबकि लापरवाही से यह जल्दी ख़राब हो सकती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आज का काम «अभ्यास»</h2>
+<p>अपने घर या इलाक़े में एक हफ़्ते बिजली कितनी बार व कितनी देर के लिए जाती है, इसका एक छोटा रिकॉर्ड बनाइए (तारीख़, समय, कितनी देर)। इससे आपको अपने इलाक़े की असली तस्वीर मिलेगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>नाप</h2>
+<p>कम-से-कम तीन दिन का रिकॉर्ड भरा है? भरा = अच्छा अभ्यास। पूरे हफ़्ते का भरा हो तो बेहतरीन।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सबूत</h2>
+<p>यह रिकॉर्ड सबूत-खाते में जोड़िए — आगे capstone-बिजली-योजना में यही आँकड़ा आपकी मदद करेगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AI-सहायक</h2>
+<p>AI-सहायक से पूछिए — "UPS और इन्वर्टर में क्या फ़र्क़ है, छोटी दुकान के लिए कौन सही है?" — जवाब को इस पाठ से मिलाइए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आम ग़लती</h2>
+<p>सबसे बड़ी ग़लती — यह सोचना कि "इन्वर्टर है तो UPS की ज़रूरत नहीं।" इन्वर्टर का बदलाव झटके-सहित होता है, जो कंप्यूटर के लिए नुक़सानदेह हो सकता है — दोनों के अपने-अपने काम हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुरक्षा-पत्रक</h2>
+<p>कभी भी गीले हाथ से बिजली के प्लग या UPS को न छुएँ; UPS/इन्वर्टर की बैटरी के पास खुली आग या चिंगारी से दूर रखें।</p>
+<p>अंत में, बिजली-सुरक्षा में किया गया निवेश कभी बेकार नहीं जाता — यह मशीन व आपकी मेहनत दोनों की रक्षा करता है।</p>
+<p>बिजली-सुरक्षा में किया गया यह छोटा शुरुआती निवेश, आगे चलकर कई गुना बड़े नुक़सान से आपको व आपकी मशीन को बचाता रहेगा — यह सोच हमेशा याद रखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 14-08-2026।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>योग्यता-जाँच</h2>
+<div class="msh-chkbox"><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="0"> <span>मैं UPS व इन्वर्टर में फ़र्क़ बता सकता हूँ।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="1"> <span>मैं जानता हूँ कि कंप्यूटर के लिए UPS पहली प्राथमिकता क्यों है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="2"> <span>मुझे बार-बार सेव करने की आदत की अहमियत समझ आई।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="3"> <span>मैंने अपने इलाक़े का बिजली-रिकॉर्ड सबूत-खाते में रखा है।</span></label><label class="msh-chk"><input type="checkbox" class="msh-q" data-q="4"> <span>मैं अपने इलाक़े के लिए सही बिजली-सुरक्षा तय कर सकता हूँ।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%AC%E0%A4%BF%E0%A4%9C%E0%A4%B2%E0%A5%80%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%AF%E0%A4%BE%20%E0%A4%94%E0%A4%B0%20UPS%2F%E0%A4%87%E0%A4%A8%E0%A5%8D%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%9F%E0%A4%B0%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A4%AE%E0%A4%9D%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80%20%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.nielit.gov.in" target="_blank" rel="noopener">🏛️ NIELIT — सरकारी कंप्यूटर-शिक्षा संस्थान</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में — बाहरी site, जानकारी ख़ुद verify करें; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dca-008-kam-bajat-men-pura-setaap-asali-hisab.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dca-010-kanpyutar-rakhane-ki-sahi-jagah-dhul-nami-garmi-se-b.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script>window.ACS_CP={code:"dca",parts:[[1,25],[26,50],[51,75],[76,105],[106,130],[131,161],[162,193],[194,213],[214,243],[244,263],[264,288],[289,313],[314,333],[334,348],[349,368],[369,388],[389,408],[409,428],[429,438],[439,458],[459,468],[469,498]],quizSrc:"/assets/dca_quiz/dca_quiz_k",quizVar:"DCA_QUIZ_K"};</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/course-progress.js" defer></script>
+</body>
+</html>
