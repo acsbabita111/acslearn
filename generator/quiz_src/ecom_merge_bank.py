@@ -24,7 +24,7 @@ hdr=('/* ecom_bank.js — ACS ई-कॉमर्स मास्टरी (SE00
  '   रूप: [{id, ch, t, o:[4], a:0-3}] — dca_bank/twv_bank/msh_bank जैसा · GitHub पर कभी नहीं (office-निजी)\n'
  '   हाथ से सुधार नहीं — स्रोत shard सुधारो, फिर generator/quiz_src/ecom_merge_bank.py चलाओ\n'
  '   परीक्षा: startCourseExam हर बार इस बैंक से 120 बेतरतीब चुने (pass 60%%, 10 चांस) */\n"use strict";\n')%(len(bank),len(lessons))
-js=hdr+'const ECOM_BANK = '+json.dumps(bank,ensure_ascii=False)+';\nmodule.exports = { ECOM_BANK: ECOM_BANK, BANK: ECOM_BANK };\n'
+js=hdr+'const ECOM_BANK = '+json.dumps(bank,ensure_ascii=False)+';\n/* export = सीधा array (index.js का BANKS_BY_COURSE bankArr.map चलाता है) + .BANK/.ECOM_BANK props */\nmodule.exports = ECOM_BANK; module.exports.BANK = ECOM_BANK; module.exports.ECOM_BANK = ECOM_BANK;\n'
 os.makedirs(os.path.dirname(os.path.abspath(out)),exist_ok=True)
 open(out,'w',encoding='utf-8').write(js)
 print("ecom_bank.js:",len(bank),"प्रश्न,",len(lessons),"पाठ,",len(js)//1024,"KB →",out)
