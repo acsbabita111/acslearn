@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_ecom_pages.js v1.0 · 18-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-17: AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना | ACS ई-कॉमर्स मास्टरी | ACS</title>
+<meta name="description" content="AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital/ecom/ecm-017-ai-se-prishthabhumi-hatana-v-phaoto-sapha-karana.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-17: AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना | ACS ई-कॉमर्स मास्टरी | ACS">
+<meta property="og:description" content="AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital/ecom/ecm-017-ai-se-prishthabhumi-hatana-v-phaoto-sapha-karana.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-17: AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना","description":"AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना — ACS ई-कॉमर्स मास्टरी (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital/ecom/ecm-017-ai-se-prishthabhumi-hatana-v-phaoto-sapha-karana.html","isPartOf":{"@type":"Course","name":"ACS ई-कॉमर्स मास्टरी","description":"WhatsApp से Amazon तक, गाँव की दुकान से विश्व-बाज़ार तक — 326 पाठों की पूरी, मुफ़्त हिंदी पढ़ाई।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="17">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ACS ई-कॉमर्स मास्टरी › खंड-2: उत्पाद, फ़ोटो, सामग्री व Product-Data — AI-कारख़ाना</p>
+<h1>पाठ-17: AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना</h1>
+<p class="lsn-meta">पढ़ाई का समय: लगभग 11 मिनट · योग्यता-स्तर: F/O · रास्ता: A,B · ⚡ तेज़ बदलने वाला विषय (Δ) — तिमाही जाँच · पाठ 17 / 326 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="ecm-013-nalain-yogy-utpad-hara-pila-lal-shreni.html">पाठ-13</a> <a href="ecm-014-pratibndhit-v-jokhim-vale-utpad-jo-kabhi-nahin.html">पाठ-14</a> <a href="ecm-015-dukanadar-se-sahamati-v-utpad-janakari-pha-rm.html">पाठ-15</a> <a href="ecm-016-mobail-se-utpad-phaoto-panch-kon-saphaed-prishthabhu.html">पाठ-16</a> <span class="lsn-jumpcur">पाठ-17 (यही)</span> <a href="ecm-018-ai-se-lifestyle-v-infographic-chitr-maryada-v-disclo.html">पाठ-18</a> <a href="ecm-019-mnch-var-phaoto-manak-aakar-anupat-vajaan-kb.html">पाठ-19</a> <a href="ecm-020-ek-phaoto-se-puri-listing-ai-se-shirshak-bulet-vivar.html">पाठ-20</a> <a href="ecm-021-ek-samagri-tin-dhng-amazon-flipkart-meesho-rup-skill.html">पाठ-21</a> <a href="ecm-024-hsn-aur-gst-dar-ai-sujhav-lo-aadhikarik-suchi-se-mil.html">पाठ-24</a> <a href="ecm-025-product-data-feed-mashin-pathaniy-kaital-g-agentic-c.html">पाठ-25</a> <a href="ecm-026-mastar-utpad-shit-excel-ek-srot-har-mnch-ka-rup.html">पाठ-26</a> <a href="ecm-027-bulk-listing-ki-taiyari-50-utpad-ek-shit-se.html">पाठ-27</a> <a href="ecm-030-khnd-2-doharav-aujaar-suchi-chhah-saval-chhalani-v-a.html">पाठ-30</a> <a href="index.html">📖 पूरी सूची (326 पाठ)</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>1. उद्देश्य</h2>
+<p>पाठ-16 की पाँच "कच्ची" फ़ोटो अब AI-कारख़ाने में जाएँगी। यह पाठ कोर्स का पहला "AI हाथ से काम" पाठ है — जहाँ AI आपकी मेहनत को घंटों से मिनटों में बदल देता है, बशर्ते जाँच आपकी बनी रहे। पाठ के बाद आप तीन बातें कर पाएँगे — किसी भी फ़ोटो की पृष्ठभूमि AI से मुफ़्त हटा पाएँगे; फ़ोटो की चमक-सफ़ाई हल्के AI-सुधार से बेहतर बना पाएँगे; और यह जान पाएँगे कि सुधार कितना करना है, कहाँ रुकना है — ताकि उत्पाद असली दिखे, झूठा नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2. मुख्य बात</h2>
+<p>पाँच साल पहले पृष्ठभूमि हटाने के लिए महँगा सॉफ़्टवेयर और घंटों का हुनर चाहिए था — आज मुफ़्त AI-औज़ार 10 सेकंड में करते हैं। एक-वाक्य बात — <b>AI से पृष्ठभूमि सफ़ेद/पारदर्शी करो, हल्की चमक-सफ़ाई करो — पर उत्पाद का असली आकार, रंग, बनावट कभी मत बदलो; "साफ़ करना" ठीक है, "झूठ बनाना" कभी नहीं।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>पृष्ठभूमि हटाना — तीन कदम</h2>
+<p>(1) कच्ची फ़ोटो (पाठ-16) को AI पृष्ठभूमि-हटाने वाले औज़ार में डालिए — यह उत्पाद के किनारे पहचानकर पीछे की हर चीज़ मिटा देता है, बचता है सिर्फ़ उत्पाद, पारदर्शी या सफ़ेद पृष्ठभूमि पर। (2) नतीजा ज़ूम करके जाँचिए — कहीं उत्पाद का हिस्सा भी कट तो नहीं गया (झालरदार कपड़े, बालों जैसी बारीक चीज़ में AI कभी-कभी ग़लती करता है), या पृष्ठभूमि का कोई टुकड़ा बच तो नहीं गया — दोबारा कोशिश करें, या ऐसे कोण चुनें जो AI के लिए आसान हों। (3) साफ़ पृष्ठभूमि पर उत्पाद को नई सफ़ेद (या मंच-मानक के अनुसार) पृष्ठभूमि पर रखिए — यह अब "मुख्य फ़ोटो" के लिए मंच-तैयार है (पाठ-19 में मंच-मानक)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चित्र — AI-सफ़ाई के तीन कदम और सीमा-रेखा</h2>
+<figure class="lsn-fig lsn-hero"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="52" text-anchor="middle" font-size="27" font-weight="bold" fill="#0B1F3A">AI से पृष्ठभूमि हटाना व फ़ोटो साफ़ करना</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">बाएँ से दाएँ तीन कदम · सोना = सीमा-रेखा — यहाँ रुको</text>
+<g font-size="16" fill="#0B1F3A" text-anchor="middle">
+<rect x="40" y="120" width="210" height="220" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="145" y="150" font-size="18" font-weight="bold">1. कच्ची फ़ोटो</text>
+<rect x="65" y="170" width="160" height="120" rx="6" fill="#F5F7FA" stroke="#0B1F3A"/>
+<circle cx="145" cy="230" r="35" fill="#F9A825"/>
+<text x="145" y="310">रंगीन/असली पृष्ठभूमि</text>
+<rect x="295" y="120" width="210" height="220" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="400" y="150" font-size="18" font-weight="bold">2. AI-हटाना</text>
+<rect x="320" y="170" width="160" height="120" rx="6" fill="#FFFFFF" stroke="#0B1F3A" stroke-dasharray="4 4"/>
+<circle cx="400" cy="230" r="35" fill="#F9A825"/>
+<text x="400" y="310">पीछे पारदर्शी/सफ़ेद</text>
+<rect x="550" y="120" width="210" height="220" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="655" y="150" font-size="18" font-weight="bold">3. जाँचो + रखो</text>
+<rect x="575" y="170" width="160" height="120" rx="6" fill="#FFFFFF" stroke="#0B1F3A"/>
+<circle cx="655" cy="230" r="35" fill="#F9A825" stroke="#0B1F3A" stroke-width="2"/>
+<text x="655" y="310">किनारे साबुत? रंग सही?</text>
+</g>
+<line x1="250" y1="230" x2="285" y2="230" stroke="#0B1F3A" stroke-width="4"/><polygon points="293,230 277,220 277,240" fill="#0B1F3A"/>
+<line x1="505" y1="230" x2="540" y2="230" stroke="#0B1F3A" stroke-width="4"/><polygon points="548,230 532,220 532,240" fill="#0B1F3A"/>
+<rect x="60" y="380" width="330" height="230" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="225" y="415" text-anchor="middle" font-size="18" font-weight="bold" fill="#2E7D32">✓ ठीक — साफ़ करना</text>
+<g font-size="16" fill="#0B1F3A">
+<text x="90" y="450">पृष्ठभूमि हटाना/बदलना (सफ़ेद)</text>
+<text x="90" y="480">हल्की चमक-कंट्रास्ट सुधार</text>
+<text x="90" y="510">सीधा करना (तिरछा फ़्रेम)</text>
+<text x="90" y="540">धूल/दाग़ का धब्बा हटाना</text>
+<text x="90" y="570">आकार 1:1/मंच-नाप में काटना</text>
+</g>
+<rect x="410" y="380" width="330" height="230" rx="14" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
+<text x="575" y="415" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">✗ मना — झूठ बनाना</text>
+<g font-size="16" fill="#0B1F3A">
+<text x="440" y="450">रंग बदलना (नीला को लाल)</text>
+<text x="440" y="480">नाप/आकार बड़ा-छोटा दिखाना</text>
+<text x="440" y="510">दाग़-ख़राबी छिपाकर नया दिखाना</text>
+<text x="440" y="540">नक़ली चमक/नई-जैसी चीज़ बनाना</text>
+<text x="440" y="570">कोई और सामान जोड़ना (छेड़छाड़)</text>
+</g>
+<rect x="60" y="630" width="680" height="65" rx="14" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="662" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">जो ग्राहक को घर आकर मिले, फ़ोटो वैसी ही दिखनी चाहिए</text>
+<text x="400" y="770" text-anchor="middle" font-size="16" fill="#2E7D32">पढ़ाई मुफ़्त — acslearn.com</text>
+</svg></figure>
+</section>
+
+<section class="lsn-sec">
+<h2>हल्की सफ़ाई — चमक, सीधापन, दाग़-धब्बा</h2>
+<p>पृष्ठभूमि हटाने के बाद फ़ोटो में और तीन हल्के सुधार आम तौर पर AI-औज़ार में साथ मिलते हैं — <b>चमक-कंट्रास्ट</b> (बहुत गहरी/धुँधली फ़ोटो को सामान्य करना), <b>सीधा करना</b> (अगर फ़ोन तिरछा था तो फ़ोटो को सीधा घुमाना), <b>धूल-दाग़ हटाना</b> (फ़ोटो में धूल का कण या फ़ोन-लेंस का दाग़, उत्पाद का दाग़ नहीं)। ये तीनों "साफ़ करना" हैं — असली उत्पाद वैसा ही दिखता है, बस फ़ोटो बेहतर बनी। इसके आगे मत जाइए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सीमा-रेखा — कहाँ रुकना है</h2>
+<p>यही इस पाठ की सबसे बड़ी सीख है। <b>कभी न करें:</b> रंग बदलना (कपड़ा असल में हल्का नीला है, फ़ोटो में गहरा नीला बना देना), नाप-आकार बड़ा दिखाना (छोटा बैग बड़ा दिखे), उत्पाद का असली दाग़/ख़राबी छिपाकर "नया-जैसा" बना देना, नक़ली चमक जोड़ना (पुराने बर्तन को चमकदार नया दिखाना), या फ़ोटो में कुछ ऐसा जोड़ना जो उत्पाद के साथ नहीं आता (मुफ़्त उपहार दिखाना जो असल में नहीं मिलता)। सादा नियम — <b>जो ग्राहक को घर आकर मिले, फ़ोटो वैसी ही दिखनी चाहिए।</b> इस सीमा को पार करना "AI reality-check" के उल्टा काम है — यहाँ आप ख़ुद वह ग़लती कर रहे हैं जो पाठ-28 में पकड़नी सिखाई जाएगी। इस सीमा-रेखा का उल्लंघन मंच-नीति में "भ्रामक फ़ोटो" के तहत आता है और खाता-बंद तक ले जा सकता है (खंड-20)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>यह पाठ HIGH-volatility क्यों — औज़ार बदलते हैं, नियम नहीं</h2>
+<p>कौन-सा मुफ़्त AI-फ़ोटो-औज़ार सबसे अच्छा है, यह हर कुछ महीनों में बदलता है — नए औज़ार आते हैं, पुराने पैसे माँगने लगते हैं। इसलिए इस पाठ पर Δ है और औज़ार का कोई एक नाम पाठ में स्थायी नहीं लिखा — छह-सवाल छलनी (पाठ-26) से अपने समय का सबसे अच्छा मुफ़्त औज़ार चुनिए, कोर्स-index पर "आज के सुझाए औज़ार" सूची भी देखिए (तिमाही ताज़ा होती है)। जो नहीं बदलता — तीन-कदम तरीक़ा और साफ़ करना बनाम झूठ बनाना की सीमा-रेखा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3. आज का काम «काम-कार्ड»</h2>
+<p>पाठ-16 की पाँच कच्ची फ़ोटो में से मुख्य फ़ोटो (सामने वाली) लीजिए। किसी मुफ़्त AI-पृष्ठभूमि-हटाने वाले औज़ार में डालिए (छह-सवाल छलनी लगाकर चुनिए), पृष्ठभूमि हटाइए/सफ़ेद कीजिए। ज़ूम करके जाँचिए — किनारे साबुत हैं? रंग बदला तो नहीं? फिर हल्की चमक-सफ़ाई कीजिए अगर ज़रूरत हो। "पहले" और "बाद" दोनों फ़ोटो साथ रखिए और कॉपी में तीन पंक्ति लिखिए — क्या सुधरा, क्या सीमा-रेखा के अंदर रहा (जाँच), और क्या इसे "साफ़ किया" कह सकते हैं ईमानदारी से। बाक़ी चार फ़ोटो पर भी यही दोहराइए अगर समय हो, वरना अगले पाठ में जारी रखें। जाँच-सूची: ☐ छह-सवाल छलनी से औज़ार चुना ☐ पृष्ठभूमि हटाई/सफ़ेद की ☐ किनारे-रंग जाँचे ☐ पहले-बाद साथ रखे ☐ ईमानदारी-जाँच लिखी ☐ फ़ोटो सबूत-खाते में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>4. नाप</h2>
+<p>सफल = मुख्य फ़ोटो की पृष्ठभूमि साफ़ सफ़ेद/पारदर्शी, किनारे साबुत (कोई हिस्सा कटा नहीं), रंग असली जैसा; "पहले-बाद" तुलना में कोई झूठ-बनाना नहीं (नाप/रंग/दाग़ नहीं बदला); तीन पंक्ति ईमानदार जाँच। समय: 35 मिनट।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>5. सबूत</h2>
+<p>सबूत-खाते में "पहले" और "बाद" दोनों फ़ोटो साथ। यह जोड़ी पाठ-28 (AI reality-check) में एक नमूने की तरह वापस आएगी — तब आप ख़ुद अपने काम को जाँचेंगे कि कहीं सीमा-रेखा पार तो नहीं हुई।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>6. AI-सहायक</h2>
+<p>यह पूरा पाठ AI-सहायक पर है। अतिरिक्त उपयोग — फ़ोटो-औज़ार में "पृष्ठभूमि सफ़ेद करो" के अलावा कुछ औज़ार टेक्स्ट-निर्देश भी लेते हैं ("halka background, product clear") — सरल अंग्रेज़ी में लिखिए। एक जाँच-सवाल AI से भी पूछ सकते हैं — "इस फ़ोटो में पृष्ठभूमि हटाने के बाद कहीं उत्पाद का हिस्सा कटा दिख रहा है?" (फ़ोटो साथ देकर, बशर्ते उसमें निजी बात न हो) — पर अंतिम जाँच आपकी आँख से।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7. आम ग़लती</h2>
+<p>पहली — पृष्ठभूमि हटाने के बाद किनारे न जाँचना — बारीक झालर/धागे कटे रह जाते हैं, ग्राहक को अधूरा उत्पाद दिखता है। दूसरी — "थोड़ा और चमकीला/सुंदर" करने के लालच में रंग बदल देना — यह भ्रामक है। तीसरी — पुराने/इस्तेमाल किए सामान का दाग़ AI से मिटाकर "नया" दिखाना — धोखा, पकड़े जाने पर रिटर्न-भरमार और ख़राब रिव्यू। चौथी — हर फ़ोटो पर बहुत ज़्यादा सुधार करके फ़ोटो नक़ली/कार्टून जैसी बना देना। पाँचवीं — मूल कच्ची फ़ोटो मिटा देना — हमेशा प्रति सुरक्षित रखिए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>8. सुरक्षा-पत्रक</h2>
+<p>AI-फ़ोटो-औज़ार को फ़ोटो अपलोड करने से पहले देख लीजिए कि उसमें दुकानदार का चेहरा, घर का अंदर का दृश्य, कोई दस्तावेज़ न दिखे — सिर्फ़ उत्पाद। मुफ़्त औज़ार अक्सर आपकी अपलोड की फ़ोटो अपने सर्वर पर रखते हैं — नीति पढ़िए (छह-सवाल छलनी में यही सवाल)। सीमा-रेखा पार करना (नाप-रंग-दाग़ झूठ) सिर्फ़ नैतिक ग़लती नहीं, कई मंचों पर सीधा नीति-उल्लंघन है और उपभोक्ता-कानून के तहत शिकायत का कारण बन सकता है (खंड-20)। 18 से कम: फ़ोटो-सुधार अभ्यास ठीक है, पर असली दुकानदार की फ़ोटो पर काम अभिभावक/उस्ताद की निगरानी में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>9. स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 17-08-2026। AI-फ़ोटो-औज़ारों के नाम/सुविधाएँ बदलते रहते हैं — कोर्स में कोई एक नाम स्थायी नहीं; कोर्स-index पर "आज के सुझाए मुफ़्त औज़ार" तिमाही ताज़ा होते हैं। 📎 मूल-कोर्स-कड़ी: भ्रामक फ़ोटो पर मंच-नीति की समझ के लिए Amazon Seller University का "Image guidelines/Prohibited image content" हिस्सा — <a href="https://sell.amazon.in/learn/seller-university" target="_blank" rel="noopener">https://sell.amazon.in/learn/seller-university</a> — जाँच-तारीख़ 08/2026। बाहरी site — जानकारी ख़ुद verify करें। (metadata: core_skill=ai-photo-cleanup · platform=none · level=F,O · path=A,B · volatility=HIGH · status=ACTIVE · next_review=11/2026)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>10. योग्यता-जाँच</h2>
+<div class="ecm-chkbox"><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="0"> <span>मैंने AI से एक फ़ोटो की पृष्ठभूमि हटाई/सफ़ेद की है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="1"> <span>मैंने किनारे और रंग की जाँच ज़ूम करके की है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="2"> <span>मैं "साफ़ करना" और "झूठ बनाना" में पाँच-पाँच उदाहरण बता सकता हूँ।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="3"> <span>मेरे पास "पहले-बाद" की जोड़ी सबूत-खाते में है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="4"> <span>मैं जानता हूँ कि यह पाठ Δ क्यों है और औज़ार कैसे चुनना है।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%88-%E0%A4%95%E0%A5%89%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B8%20AI%20%E0%A4%B8%E0%A5%87%20%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0%E0%A4%AD%E0%A5%82%E0%A4%AE%E0%A4%BF%20%E0%A4%B9%E0%A4%9F%E0%A4%BE%E0%A4%A8%E0%A4%BE%20%E0%A4%B5%20%E0%A4%AB%E0%A4%BC%E0%A5%8B%E0%A4%9F%E0%A5%8B%20%E0%A4%B8%E0%A4%BE%E0%A4%AB%E0%A4%BC%20%E0%A4%95%E0%A4%B0%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.ondc.org" target="_blank" rel="noopener">🏛️ ONDC — सरकारी खुला e-commerce नेटवर्क</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="ecm-016-mobail-se-utpad-phaoto-panch-kon-saphaed-prishthabhu.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="ecm-018-ai-se-lifestyle-v-infographic-chitr-maryada-v-disclo.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/ecom-progress.js" defer></script>
+</body>
+</html>

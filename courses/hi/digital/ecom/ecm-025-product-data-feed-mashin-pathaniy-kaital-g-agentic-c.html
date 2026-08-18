@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_ecom_pages.js v1.0 · 18-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-25: Product Data Feed — मशीन-पठनीय कैटलॉग (agentic-commerce की नींव) | ACS ई-कॉमर्स मास्टरी | ACS</title>
+<meta name="description" content="Product Data Feed — मशीन-पठनीय कैटलॉग (agentic-commerce की नींव) — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital/ecom/ecm-025-product-data-feed-mashin-pathaniy-kaital-g-agentic-c.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-25: Product Data Feed — मशीन-पठनीय कैटलॉग (agentic-commerce की नींव) | ACS ई-कॉमर्स मास्टरी | ACS">
+<meta property="og:description" content="Product Data Feed — मशीन-पठनीय कैटलॉग (agentic-commerce की नींव) — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital/ecom/ecm-025-product-data-feed-mashin-pathaniy-kaital-g-agentic-c.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-25: Product Data Feed — मशीन-पठनीय कैटलॉग (agentic-commerce की नींव)","description":"Product Data Feed — मशीन-पठनीय कैटलॉग (agentic-commerce की नींव) — ACS ई-कॉमर्स मास्टरी (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital/ecom/ecm-025-product-data-feed-mashin-pathaniy-kaital-g-agentic-c.html","isPartOf":{"@type":"Course","name":"ACS ई-कॉमर्स मास्टरी","description":"WhatsApp से Amazon तक, गाँव की दुकान से विश्व-बाज़ार तक — 326 पाठों की पूरी, मुफ़्त हिंदी पढ़ाई।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="25">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ACS ई-कॉमर्स मास्टरी › खंड-2: उत्पाद, फ़ोटो, सामग्री व Product-Data — AI-कारख़ाना</p>
+<h1>पाठ-25: Product Data Feed — मशीन-पठनीय कैटलॉग (agentic-commerce की नींव)</h1>
+<p class="lsn-meta">पढ़ाई का समय: लगभग 11 मिनट · योग्यता-स्तर: O/S · रास्ता: A,B · 🔄 बदल सकने वाला विषय — छमाही जाँच · पाठ 25 / 326 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="ecm-013-nalain-yogy-utpad-hara-pila-lal-shreni.html">पाठ-13</a> <a href="ecm-014-pratibndhit-v-jokhim-vale-utpad-jo-kabhi-nahin.html">पाठ-14</a> <a href="ecm-015-dukanadar-se-sahamati-v-utpad-janakari-pha-rm.html">पाठ-15</a> <a href="ecm-016-mobail-se-utpad-phaoto-panch-kon-saphaed-prishthabhu.html">पाठ-16</a> <a href="ecm-017-ai-se-prishthabhumi-hatana-v-phaoto-sapha-karana.html">पाठ-17</a> <a href="ecm-018-ai-se-lifestyle-v-infographic-chitr-maryada-v-disclo.html">पाठ-18</a> <a href="ecm-019-mnch-var-phaoto-manak-aakar-anupat-vajaan-kb.html">पाठ-19</a> <a href="ecm-020-ek-phaoto-se-puri-listing-ai-se-shirshak-bulet-vivar.html">पाठ-20</a> <a href="ecm-021-ek-samagri-tin-dhng-amazon-flipkart-meesho-rup-skill.html">पाठ-21</a> <a href="ecm-024-hsn-aur-gst-dar-ai-sujhav-lo-aadhikarik-suchi-se-mil.html">पाठ-24</a> <span class="lsn-jumpcur">पाठ-25 (यही)</span> <a href="ecm-026-mastar-utpad-shit-excel-ek-srot-har-mnch-ka-rup.html">पाठ-26</a> <a href="ecm-027-bulk-listing-ki-taiyari-50-utpad-ek-shit-se.html">पाठ-27</a> <a href="ecm-030-khnd-2-doharav-aujaar-suchi-chhah-saval-chhalani-v-a.html">पाठ-30</a> <a href="index.html">📖 पूरी सूची (326 पाठ)</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>1. उद्देश्य</h2>
+<p>पाठ-24 तक हमने इंसान के पढ़ने के लिए लिस्टिंग बनाई; आज सीखेंगे कि वही जानकारी "मशीन के पढ़ने" के लिए कैसे तैयार होती है — क्योंकि आज ख़रीदारी सिर्फ़ इंसान नहीं, AI-सहायक और आने वाले AI-agent भी करेंगे (पाठ-2, 315-316)। पाठ के बाद आप तीन बातें कर पाएँगे — "Product Data Feed" क्या है और यह साधारण लिस्टिंग से कैसे अलग है, बता पाएँगे; अपनी उत्पाद-जानकारी को मशीन-पठनीय रूप (structured fields) में सजा पाएँगे; और समझ पाएँगे कि आज की यह मेहनत आने वाले "AI ख़ुद ख़रीदारी करे" युग की नींव क्यों है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2. मुख्य बात</h2>
+<p>इंसान लिस्टिंग "पढ़ता" है — वाक्य, कहानी, भाव समझकर; मशीन लिस्टिंग "छाँटती" है — हर जानकारी अपने तय खाने में चाहिए। एक-वाक्य बात — <b>Product Data Feed का मतलब है हर जानकारी (नाम, दाम, उपलब्धता, शिपिंग, वापसी-नीति, ब्रांड, गुण) को एक तय खाने (field) में, तय रूप में रखना — जैसे फ़ॉर्म का हर खाना अलग सवाल का जवाब — ताकि मशीन बिना ग़लती समझे, चुने, दिखाए।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>साधारण लिस्टिंग बनाम Data Feed — फ़र्क़ उदाहरण से</h2>
+<p><b>साधारण लिस्टिंग (इंसान के लिए):</b> "यह ख़ूबसूरत नीली कुर्ती हाथ से कढ़ी हुई है, M साइज़ में उपलब्ध, कीमत मात्र ₹450, 5-7 दिन में डिलीवरी।" यह पढ़ने में अच्छा है, पर मशीन के लिए उलझा हुआ — कहाँ दाम है, कहाँ रंग, कहाँ शिपिंग-समय, वाक्य में घुला हुआ। <b>Data Feed (मशीन के लिए):</b> हर जानकारी अलग खाने में — title: "हाथ की कढ़ाई कॉटन कुर्ती नीली", color: "नीला", size: "M", price: "450", currency: "INR", availability: "in_stock", shipping_days: "5-7", brand: "(अगर है)", GTIN/SKU: "KURTI-NEELA-M"। यही वह रूप है जो Merchant Center, बड़े मार्केटप्लेस के bulk-सिस्टम, और AI-agent तीनों समझते हैं — पाठ-26 की मास्टर-शीट असल में इसी data-feed सोच पर बनी थी, आज हम उसे औपचारिक रूप देंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चित्र — वाक्य से खाने तक</h2>
+<figure class="lsn-fig lsn-hero"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="52" text-anchor="middle" font-size="27" font-weight="bold" fill="#0B1F3A">Product Data Feed — वाक्य से खाने तक</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">बाएँ इंसान पढ़े · दाएँ मशीन छाँटे · सोना = agentic-commerce की नींव</text>
+<rect x="40" y="120" width="320" height="180" rx="14" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="200" y="152" text-anchor="middle" font-size="18" font-weight="bold">साधारण लिस्टिंग</text>
+<text x="60" y="185" font-size="16">"यह ख़ूबसूरत नीली कुर्ती</text>
+<text x="60" y="208" font-size="16">हाथ से कढ़ी, M साइज़,</text>
+<text x="60" y="231" font-size="16">कीमत ₹450, 5-7 दिन में"</text>
+<text x="60" y="265" font-size="16" fill="#1565C0">इंसान पढ़े, समझे, महसूस करे</text>
+<rect x="440" y="120" width="320" height="440" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="600" y="152" text-anchor="middle" font-size="18" font-weight="bold">Product Data Feed</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="460" y="170" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="190">title: हाथ-कढ़ाई कुर्ती नीली</text>
+<rect x="460" y="204" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="224">color: नीला</text>
+<rect x="460" y="238" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="258">size: M</text>
+<rect x="460" y="272" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="292">price: 450, INR</text>
+<rect x="460" y="306" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="326">availability: in_stock</text>
+<rect x="460" y="340" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="360">shipping_days: 5-7</text>
+<rect x="460" y="374" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="394">SKU: KURTI-NEELA-M</text>
+<rect x="460" y="408" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="428">return_policy: 7-दिन</text>
+<rect x="460" y="442" width="280" height="30" fill="#FFFFFF" stroke="#0B1F3A"/><text x="470" y="462">image_url: /फ़ोटो-1/front.jpg</text>
+</g>
+<text x="600" y="530" text-anchor="middle" font-size="16" fill="#0B1F3A">मशीन/AI-agent छाँटे, तुलना करे, सुझाए</text>
+<line x1="360" y1="210" x2="430" y2="210" stroke="#0B1F3A" stroke-width="4"/><polygon points="438,210 422,200 422,220" fill="#0B1F3A"/>
+<rect x="60" y="590" width="680" height="90" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="400" y="622" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">यह अभी क्यों — भविष्य की तैयारी</text>
+<text x="400" y="655" text-anchor="middle" font-size="16" fill="#0B1F3A">AI-agent (पाठ-315-316) ख़रीदारी करेंगे — साफ़ खाने वाला डेटा ही पढ़ पाएँगे</text>
+<text x="400" y="770" text-anchor="middle" font-size="16" fill="#2E7D32">पढ़ाई मुफ़्त — acslearn.com</text>
+</svg></figure>
+</section>
+
+<section class="lsn-sec">
+<h2>आम खाने (fields) — क्या-क्या शामिल हों</h2>
+<p>हर Product Data Feed में आम तौर पर ये खाने होते हैं — <b>title</b> (शीर्षक, मशीन-पढ़ने-योग्य छोटा रूप), <b>description</b> (विवरण), <b>price + currency</b> (दाम, मुद्रा — भारत में INR), <b>availability</b> (उपलब्ध है/नहीं, कितनी मात्रा), <b>shipping</b> (कितने दिन, कहाँ तक), <b>returns</b> (वापसी-नीति कितने दिन), <b>GTIN/SKU</b> (विश्व-मानक बार-कोड अगर है, या अपना SKU — पाठ-27), <b>brand</b> (ब्रांड, या "no-brand" स्थानीय उत्पाद के लिए), <b>attributes</b> (रंग, नाप, सामग्री — हर एक अलग खाने में), <b>images/video</b> (फ़ोटो की सीधी कड़ी, वीडियो अगर है)। यह लगभग वही जानकारी है जो पाठ-15 के फ़ॉर्म और पाठ-26 (आगे) की मास्टर-शीट में है — आज सिर्फ़ इसे "मशीन-मानक" खानों के नाम से पहचानना और सजाना सीखेंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>यह अभी क्यों सीखें — agentic-commerce की तैयारी</h2>
+<p>पाठ-2 में सीखा था कि ग्राहक अब AI-सहायक से बातचीत-खोज करता है; आगे (पाठ-315-316) सीखेंगे कि निकट भविष्य में AI-agent पूरी ख़रीदारी ख़ुद कर सकता है — ग्राहक कहेगा "मेरे लिए एक अच्छी कॉटन कुर्ती ₹500 के अंदर ढूँढो और मँगवा दो", और AI कई दुकानों का data-feed पढ़कर फ़ैसला करेगा। जिस दुकान का data साफ़-सजा-मशीन-पढ़ने-योग्य है, उसे AI आसानी से "समझ" पाएगा और सुझाएगा; जिसका डेटा सिर्फ़ सुंदर वाक्यों में उलझा है, उसे AI छोड़ सकता है। इसलिए आज सीखा यह हुनर "भविष्य-निवेश" है — अभी हर मंच पूरी तरह इसकी माँग नहीं करता, पर Google Merchant Center (खंड-8) पहले से इसी रूप में डेटा माँगता है, और यह चलन बढ़ेगा (इसीलिए यह पाठ MEDIUM-volatility है — माँग बढ़ती जाएगी)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3. आज का काम «काम-कार्ड»</h2>
+<p>अपने उस एक उत्पाद (जो पाठ 13-24 में विस्तार से बनाया) की सारी जानकारी लीजिए — फ़ॉर्म (15), फ़ोटो-कड़ी (16-19), लिस्टिंग (20-22), कीवर्ड (23), HSN-GST (24)। इन्हें ऊपर बताए 10 "खानों" (title, description, price, currency, availability, shipping, returns, SKU, attributes जैसे color-size, image_url) में अलग-अलग, साफ़ रूप में कॉपी/Excel में सजाइए — हर खाना एक अलग पंक्ति या स्तंभ में, वाक्य नहीं, सीधा शब्द/संख्या। कॉपी में लिखिए — इनमें से किन खानों की जानकारी आपके पास पहले से पूरी थी, कौन-सी आज पहली बार सोचनी पड़ी (जैसे "returns" — वापसी-नीति शायद अभी तय नहीं थी)। जाँच-सूची: ☐ 10 खानों में जानकारी सजाई ☐ हर खाना साफ़-छोटा, वाक्य नहीं ☐ पुराना-नया की सूची ☐ SKU शामिल ☐ फ़ोटो सबूत-खाते में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>4. नाप</h2>
+<p>सफल = सभी 10 खाने भरे (जो जानकारी नहीं मिली, वहाँ "अभी तय नहीं" ईमानदारी से लिखा, गढ़ा नहीं); हर खाना छोटा-सीधा (वाक्य नहीं); "पुराना-नया" सूची में कम-से-कम एक नई सोची गई जानकारी (अक्सर "returns" या "shipping_days")। समय: 30 मिनट।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>5. सबूत</h2>
+<p>सबूत-खाते में भरे 10-खाने और "पुराना-नया" सूची। यह data-feed अगले पाठ (26 मास्टर-शीट) में सीधे उसी शीट के स्तंभों का आधार बनेगा — और खंड-8 (Google Merchant Center, पाठ-108) में इसी सजावट को असली मंच-फ़ॉर्म में डालना सीखेंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>6. AI-सहायक</h2>
+<p>AI से पूछिए — "यह मेरी लिस्टिंग है (चिपकाइए) — इसे Product Data Feed के 10 आम खानों (title, description, price, currency, availability, shipping, returns, SKU, attributes, image) में अलग-अलग बाँट दो, कोई नई जानकारी मत जोड़ना" — यह काम AI तेज़ी से कर सकता है क्योंकि यह सिर्फ़ मौजूदा जानकारी को अलग-अलग खानों में बाँटना है, नया गढ़ना नहीं (कम जोखिम-भरा AI-काम)। फिर भी पाँच-सवाल reality-check (पाठ-28) यहाँ भी लगाइए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7. आम ग़लती</h2>
+<p>पहली — खानों में भी पूरे वाक्य लिख देना ("price" खाने में "सिर्फ़ ₹450 में!" लिखना) — मशीन को सिर्फ़ संख्या "450" चाहिए, बाक़ी शोर है। दूसरी — "returns/shipping" जैसे खाने ख़ाली छोड़ देना क्योंकि "अभी तय नहीं" — यह ठीक है लिखना, पर बिल्कुल ख़ाली छोड़ना मशीन को उलझाता है। तीसरी — SKU को हर मंच पर अलग रखना — पाठ-27 में सीखेंगे, एक SKU कई जगह इस्तेमाल करना बेहतर। चौथी — इस पाठ को "अभी की ज़रूरत नहीं, आगे देखेंगे" कहकर छोड़ देना — छोटी शुरुआत आज, बड़ा फ़ायदा कल (agentic-commerce बढ़ते ही)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>8. सुरक्षा-पत्रक</h2>
+<p>Data Feed में ग़लत/गढ़ी जानकारी (जैसे "availability: in_stock" जबकि माल नहीं है) मशीन-स्तर पर तेज़ी से फैलती है — AI-agent और मंच दोनों इसी डेटा पर भरोसा करते हैं, इंसान की तरह "शायद ग़लत होगा" सोचकर दोबारा नहीं जाँचते। इसलिए यहाँ सच्चाई और भी ज़्यादा ज़रूरी है। SKU/डेटा-फ़ाइल में दुकानदार की निजी जानकारी न रखें — सिर्फ़ उत्पाद-जानकारी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>9. स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 17-08-2026। Product Data Feed की माँग और मानक मंचों/AI-कंपनियों की ओर से बढ़ रहे हैं — तेज़ी से बदल सकते हैं। 📎 मूल-कोर्स-कड़ी: Google Merchant Center Product Data Specification — <a href="https://support.google.com/merchants" target="_blank" rel="noopener">https://support.google.com/merchants</a> — जाँच-तारीख़ 08/2026। बाहरी site — जानकारी ख़ुद verify करें। (metadata: core_skill=product-data-feed · platform=multi · level=O,S · path=A,B · volatility=MEDIUM · status=ACTIVE · next_review=11/2026)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>10. योग्यता-जाँच</h2>
+<div class="ecm-chkbox"><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="0"> <span>मैं Product Data Feed और साधारण लिस्टिंग का फ़र्क़ बता सकता हूँ।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="1"> <span>मैंने अपने उत्पाद की जानकारी 10 खानों में सजाई है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="2"> <span>मेरे हर खाने में सीधा शब्द/संख्या है, वाक्य नहीं।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="3"> <span>मैं जानता हूँ कि यह agentic-commerce की नींव क्यों है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="4"> <span>मैं जानता हूँ कि ग़लत data-feed मशीन-स्तर पर क्यों ज़्यादा जोखिम-भरा है।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%88-%E0%A4%95%E0%A5%89%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B8%20Product%20Data%20Feed%20%E2%80%94%20%E0%A4%AE%E0%A4%B6%E0%A5%80%E0%A4%A8-%E0%A4%AA%E0%A4%A0%E0%A4%A8%E0%A5%80%E0%A4%AF%20%E0%A4%95%E0%A5%88%E0%A4%9F%E0%A4%B2%E0%A5%89%E0%A4%97%20(agentic-commerce%20%E0%A4%95%E0%A5%80%20%E0%A4%A8%E0%A5%80%E0%A4%82%E0%A4%B5)%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.ondc.org" target="_blank" rel="noopener">🏛️ ONDC — सरकारी खुला e-commerce नेटवर्क</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="ecm-024-hsn-aur-gst-dar-ai-sujhav-lo-aadhikarik-suchi-se-mil.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="ecm-026-mastar-utpad-shit-excel-ek-srot-har-mnch-ka-rup.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/ecom-progress.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_ecom_pages.js v1.0 · 18-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-79: chatbot-flow — FAQ, order-track, cart-recovery बिना कोड | ACS ई-कॉमर्स मास्टरी | ACS</title>
+<meta name="description" content="chatbot-flow — FAQ, order-track, cart-recovery बिना कोड — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital/ecom/ecm-079-chatbot-flow-faq-order-track-cart-recovery-bina-kod.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-79: chatbot-flow — FAQ, order-track, cart-recovery बिना कोड | ACS ई-कॉमर्स मास्टरी | ACS">
+<meta property="og:description" content="chatbot-flow — FAQ, order-track, cart-recovery बिना कोड — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital/ecom/ecm-079-chatbot-flow-faq-order-track-cart-recovery-bina-kod.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-79: chatbot-flow — FAQ, order-track, cart-recovery बिना कोड","description":"chatbot-flow — FAQ, order-track, cart-recovery बिना कोड — ACS ई-कॉमर्स मास्टरी (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital/ecom/ecm-079-chatbot-flow-faq-order-track-cart-recovery-bina-kod.html","isPartOf":{"@type":"Course","name":"ACS ई-कॉमर्स मास्टरी","description":"WhatsApp से Amazon तक, गाँव की दुकान से विश्व-बाज़ार तक — 326 पाठों की पूरी, मुफ़्त हिंदी पढ़ाई।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="79">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ACS ई-कॉमर्स मास्टरी › खंड-6: WhatsApp Platform/API, Flows व स्वचालन — बढ़ती दुकान</p>
+<h1>पाठ-79: chatbot-flow — FAQ, order-track, cart-recovery बिना कोड</h1>
+<p class="lsn-meta">पढ़ाई का समय: लगभग 12 मिनट · योग्यता-स्तर: S · रास्ता: A,B · ⚡ तेज़ बदलने वाला विषय (Δ) — तिमाही जाँच · पाठ 79 / 326 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="ecm-074-aip-se-platform-api-kab-jaen-8-phaaisala-karak.html">पाठ-74</a> <a href="ecm-075-bsp-chunana-chhah-saval-dam-bharatiy-vikalp.html">पाठ-75</a> <a href="ecm-076-cloud-api-v-coexistence-aip-aur-api-sath-sath.html">पाठ-76</a> <a href="ecm-077-template-sndesh-marketing-utility-authentication-24.html">पाठ-77</a> <a href="ecm-078-prati-sndesh-dam-v-mahine-ka-hisab.html">पाठ-78</a> <span class="lsn-jumpcur">पाठ-79 (यही)</span> <a href="ecm-080-whatsapp-flows-chait-bhitar-pha-rm-buking-pata-sngra.html">पाठ-80</a> <a href="ecm-081-carousel-webview-v-chait-bhitar-bhugatan.html">पाठ-81</a> <a href="ecm-082-click-to-whatsapp-vijnapan-se-lid-aur-attribution.html">पाठ-82</a> <a href="ecm-083-opt-in-niyam-spam-rok-v-ban-bachav.html">पाठ-83</a> <a href="ecm-084-api-ka-masik-rakh-rakhav-kam-kard.html">पाठ-84</a> <a href="ecm-085-khnd-6-doharav-v-abhyas-pariksha.html">पाठ-85</a> <a href="index.html">📖 पूरी सूची (326 पाठ)</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>1. उद्देश्य</h2>
+<p>Platform का सबसे दिखने वाला फ़ायदा — chatbot, यानी अपने-आप चलने वाली बातचीत। पर खंड-4 में Business AI भी था; तो यह अलग क्या है? पाठ के बाद आप तीन बातें कर पाएँगे — नियम-आधारित chatbot-flow और Business AI का फ़र्क़ बता पाएँगे; BSP-dashboard में बिना कोड के तीन आम flow (FAQ, ऑर्डर-track, cart-recovery) का नक़्शा बना पाएँगे; और यह तय कर पाएँगे कि कहाँ chatbot, कहाँ AI, कहाँ इंसान।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2. मुख्य बात</h2>
+<p>Business AI (खंड-4) ख़ुद समझकर जवाब बनाता है; chatbot-flow वही करता है जो आपने बटन-दर-बटन तय किया है — जैसे रेलवे-पूछताछ की मशीन: "1 दबाएँ, 2 दबाएँ"। एक-वाक्य बात — <b>chatbot-flow = आपका बनाया रास्ता, हर मोड़ पर तय जवाब — यह AI से कम चतुर पर ज़्यादा भरोसेमंद है; रोज़ के दोहराए सवालों के लिए यही सबसे सस्ता औज़ार है।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>दोनों का फ़र्क़ — कब कौन</h2>
+<p><b>नियम-आधारित flow:</b> ग्राहक "1" दबाए तो दाम-सूची, "2" तो दुकान का समय, "3" तो ऑर्डर-स्थिति। हर जवाब आपने पहले लिखा; गढ़ने की कोई गुंजाइश नहीं (पाठ-56 की चिंता यहाँ नहीं)। कमी — ग्राहक कुछ अलग पूछे तो flow अटक जाता है। <b>Business AI:</b> ग्राहक "क्या यह साड़ी शादी में पहनने लायक़ है?" जैसा खुला सवाल पूछे तो कैटलॉग पढ़कर जवाब बनाता है; पर दाम-वादे में सावधानी चाहिए (पाठ-51)। <b>इंसान:</b> शिकायत, मोल-भाव, नाज़ुक बात (पाठ-54)। सही दुकान तीनों की सीढ़ी बनाती है — पहले flow (सस्ता, पक्का), वह न सँभाले तो AI, वह भी न सँभाले तो इंसान। BSP-dashboard में यही "fallback" (आगे सौंपना) सेट होता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>तीन आम flow — नक़्शा</h2>
+<p><b>flow-1 FAQ (आम सवाल):</b> स्वागत-संदेश → मेनू के 4-5 बटन (दाम-सूची, समय-पता, डिलीवरी-क्षेत्र, भुगतान-तरीक़ा, इंसान से बात) → हर बटन का तय जवाब → अंत में "और कुछ?" यह पाठ-36 की Quick-reply सूची का स्वचालित रूप है — नई जानकारी नहीं, वही जानकारी बटन पर। <b>flow-2 ऑर्डर-track:</b> ग्राहक "मेरा ऑर्डर कहाँ है?" चुने → flow ऑर्डर-नंबर या फ़ोन-नंबर माँगे → billing-software/शीट से स्थिति निकाले (यहाँ BSP का जुड़ाव चाहिए — पाठ-74 का चौथा कारक) → "भेजा गया, कल तक पहुँचेगा" → न मिले तो इंसान को सौंपे। <b>flow-3 cart-recovery (छूटा हुआ ऑर्डर):</b> ग्राहक ने cart में सामान डाला (पाठ-40) पर भुगतान नहीं किया → तय समय बाद (मान लो 2 घंटे) एक विनम्र utility/marketing template — "आपकी टोकरी में यह रखा है, पूरा करना चाहें तो यहाँ" → जवाब आए तो भुगतान-कड़ी (पाठ-41) → न आए तो एक बार और, फिर चुप। यह flow सबसे ज़्यादा बिक्री लौटाता है और सबसे ज़्यादा spam-जोखिम भी रखता है — दो से ज़्यादा याद-दिलाना नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बिना कोड कैसे बनता है</h2>
+<p>BSP-dashboard में आमतौर पर "flow builder" या "chatbot" नाम का हिस्सा होता है — पर्दे पर डिब्बे (संदेश) और तीर (अगला कदम) खींचकर रास्ता बनता है, जैसे काग़ज़ पर नक़्शा। आपका असली काम dashboard से पहले काग़ज़ पर होता है — हर डिब्बे में क्या लिखा होगा, हर बटन कहाँ ले जाएगा, कहाँ रुककर इंसान को देना है। काग़ज़ का नक़्शा साफ़ हो तो dashboard पर उतारना एक-दो घंटे का काम है; नक़्शा गड़बड़ हो तो dashboard पर हफ़्ता लगेगा। यही सेवा-सहायक की असली विशेषज्ञता — नक़्शा, click नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चार परखें flow चालू करने से पहले</h2>
+<p>1. हर रास्ते के अंत में इंसान तक पहुँचने का बटन है? (ग्राहक फँसे नहीं।) 2. हर संदेश छोटा, सादी हिंदी, बटन-नाम ग्राहक-भाषा में (पाठ-34 का सबक़)? 3. ऐसा कोई जवाब नहीं जो दाम/स्टॉक/डिलीवरी-तारीख़ पक्के तौर पर वादा करे बिना असली आँकड़े के? 4. अपने दूसरे फ़ोन से पूरा flow तीन बार चलाया — सीधा रास्ता, ग़लत जवाब, बीच में छोड़ना — तीनों?</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सेवा-सहायक की आँख</h2>
+<p>"FAQ-flow, ऑर्डर-track-flow, cart-recovery-flow — तीनों का नक़्शा + dashboard पर चालू + तीन जाँच-दौर" — यह एक बिकने वाला पैकेज है। पर ईमानदार पंक्ति साथ रखिए — flow से कर्मचारी की ज़रूरत घटती है, ख़त्म नहीं होती; इंसान वाला बटन हमेशा रहेगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चित्र — तीन flow, तीन सीढ़ियाँ</h2>
+<figure class="lsn-fig lsn-hero"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="52" text-anchor="middle" font-size="27" font-weight="bold" fill="#0B1F3A">chatbot-flow — बिना कोड, काग़ज़ के नक़्शे से</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">सीढ़ी: पहले flow (पक्का) → फिर AI (चतुर) → फिर इंसान (नाज़ुक)</text>
+<g font-size="17" fill="#0B1F3A">
+<rect x="40" y="120" width="225" height="230" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="152" y="155" text-anchor="middle" font-size="19" font-weight="bold">flow-1 FAQ</text>
+<text x="60" y="190">स्वागत → मेनू</text>
+<text x="60" y="218">1 दाम · 2 समय</text>
+<text x="60" y="246">3 डिलीवरी · 4 भुगतान</text>
+<text x="60" y="274">5 इंसान से बात</text>
+<text x="60" y="310">= Quick-reply का</text>
+<text x="60" y="336">स्वचालित रूप</text>
+<rect x="288" y="120" width="225" height="230" rx="14" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="400" y="155" text-anchor="middle" font-size="19" font-weight="bold" fill="#1565C0">flow-2 ऑर्डर-track</text>
+<text x="308" y="190">"ऑर्डर कहाँ?"</text>
+<text x="308" y="218">→ नंबर माँगो</text>
+<text x="308" y="246">→ शीट से स्थिति</text>
+<text x="308" y="274">→ "कल तक पहुँचेगा"</text>
+<text x="308" y="310">न मिले → इंसान</text>
+<rect x="536" y="120" width="225" height="230" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="648" y="155" text-anchor="middle" font-size="19" font-weight="bold" fill="#2E7D32">flow-3 cart-recovery</text>
+<text x="556" y="190">टोकरी में सामान</text>
+<text x="556" y="218">भुगतान नहीं</text>
+<text x="556" y="246">→ 2 घंटे बाद याद</text>
+<text x="556" y="274">→ भुगतान-कड़ी</text>
+<text x="556" y="310">दो बार से ज़्यादा नहीं</text>
+</g>
+<rect x="60" y="390" width="680" height="130" rx="14" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="425" text-anchor="middle" font-size="19" font-weight="bold" fill="#0B1F3A">flow बनाम AI बनाम इंसान</text>
+<text x="400" y="460" text-anchor="middle" font-size="16" fill="#0B1F3A">flow = तय जवाब, गढ़ता नहीं · AI = खुला सवाल समझे, वादे में सावधानी</text>
+<text x="400" y="492" text-anchor="middle" font-size="16" fill="#0B1F3A">इंसान = शिकायत, मोल-भाव, नाज़ुक बात (पाठ-54)</text>
+<rect x="60" y="550" width="680" height="110" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="585" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">चार परखें चालू करने से पहले</text>
+<text x="400" y="618" text-anchor="middle" font-size="16" fill="#0B1F3A">इंसान-बटन हर अंत में · छोटा-सादा · कोई पक्का वादा नहीं</text>
+<text x="400" y="645" text-anchor="middle" font-size="16" fill="#0B1F3A">दूसरे फ़ोन से तीन बार पूरा चलाया</text>
+<rect x="60" y="690" width="680" height="70" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="400" y="733" text-anchor="middle" font-size="17" font-weight="bold" fill="#2E7D32">असली काम काग़ज़ का नक़्शा है — click नहीं</text>
+</svg></figure>
+</section>
+
+<section class="lsn-sec">
+<h2>नक़्शे की भाषा — तीन डिब्बे, एक तीर</h2>
+<p>काग़ज़ पर flow बनाने की एक सादी भाषा अपनाइए, ताकि आप, दुकानदार और BSP-सहायक तीनों एक ही चीज़ पढ़ें। गोल डिब्बा = ग्राहक का कदम (बटन दबाना, नंबर लिखना)। चौकोर डिब्बा = आपका तय संदेश। तिरछा डिब्बा = फ़ैसला (जैसे "ऑर्डर मिला? हाँ/ना")। तीर = अगला कदम, और तीर पर लिखा हो कि किस जवाब पर यह तीर चलेगा। हर तीर का अंत किसी डिब्बे पर हो — हवा में लटका तीर = फँसा हुआ ग्राहक। नक़्शे के कोने में एक छोटी तालिका — कुल डिब्बे कितने, इंसान-बटन कितनी जगह, कहाँ-कहाँ template चाहिए (24-घंटे खिड़की के बाहर वाले संदेश)। यह तालिका पाठ-78 के बिल-अनुमान से सीधे जुड़ती है — जितने template-डिब्बे, उतना दाम। इस भाषा में बना नक़्शा किसी भी BSP-dashboard पर बिना बदले उतरता है, और छह महीने बाद जब कोई नया कर्मचारी flow सुधारे, तो उसे बातचीत नहीं, बस यह काग़ज़ पढ़ना होगा — यही दस्तावेज़ का असली फ़ायदा है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3. आज का काम «काम-कार्ड»</h2>
+<p>काग़ज़ पर अपनी दुकान का FAQ-flow बनाइए — स्वागत-संदेश, पाँच बटन, हर बटन का तय जवाब (पाठ-36 की सूची से), और "इंसान से बात" का रास्ता; डिब्बे-तीर से नक़्शा। फिर cart-recovery-flow के दो संदेश लिखिए (पहला याद, दूसरा आख़िरी) और उनकी श्रेणी (पाठ-77) तय कीजिए। अगर किसी BSP का मुफ़्त परीक्षण मिला हो, तो FAQ-flow dashboard पर उतारकर दूसरे फ़ोन से चलाइए; न मिला हो तो नक़्शा ही काफ़ी। जाँच-सूची: ☐ FAQ-flow नक़्शा पाँच बटन सहित ☐ इंसान-बटन हर अंत में ☐ cart-recovery के दो संदेश श्रेणी सहित ☐ चार परखें लगाईं ☐ फ़ोटो सबूत-खाते में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>4. नाप</h2>
+<p>सफल = नक़्शा ऐसा कि दुकानदार पढ़कर बिना पूछे समझ जाए; कोई रास्ता बिना अंत के नहीं। समय: 40 मिनट।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>5. सबूत</h2>
+<p>सबूत-खाते में "FAQ-flow नक़्शा v1" और "cart-recovery संदेश"। पाठ-80 में Flows (फ़ॉर्म) इसी नक़्शे में जुड़ेंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>6. AI-सहायक</h2>
+<p>AI से कहिए — "मेरी (उत्पाद) की दुकान के लिए WhatsApp chatbot का FAQ-मेनू पाँच बटन में सादी हिंदी में बनाओ; हर बटन का जवाब 20 शब्दों में।" — मसौदा लीजिए, हर जवाब अपनी असली दुकान-जानकारी से बदलिए; AI के दिए दाम/समय कभी सीधे न रखें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7. आम ग़लती</h2>
+<p>पहली — flow को AI समझ लेना और उससे खुले सवालों की उम्मीद करना — वह मेनू से बाहर नहीं जाता। दूसरी — इंसान वाला बटन न रखना — ग्राहक गोल-गोल घूमकर चला जाता है। तीसरी — cart-recovery में चार-पाँच बार याद दिलाना — शिकायत, block, गुणवत्ता-अंक गिरना। चौथी — बिना दूसरे फ़ोन से चलाए "चालू" कर देना — पहली ग़लती ग्राहक पकड़ता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>8. सुरक्षा-पत्रक</h2>
+<p>ऑर्डर-track-flow ग्राहक की स्थिति तभी बताए जब वह अपना ऑर्डर-नंबर या पंजीकृत फ़ोन दे — किसी को दूसरे का ऑर्डर न दिखे। flow में भुगतान-कड़ी हमेशा असली भुगतान-सेवा की (पाठ-41/62), किसी की गढ़ी नहीं। cart-recovery marketing-श्रेणी हो तो opt-in वालों को ही (पाठ-83)। नाबालिग विद्यार्थी flow सिर्फ़ अभ्यास-मोड में — असली ग्राहक-चैट पर नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>9. स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 17-08-2026। flow-builder हर BSP में थोड़ा अलग दिखता है — नक़्शा एक-सा रहता है। 📎 मूल-कोर्स-कड़ी: WhatsApp Business Platform — Interactive Messages दस्तावेज़ — <a href="https://developers.facebook.com/docs/whatsapp/guides/interactive-messages" target="_blank" rel="noopener">https://developers.facebook.com/docs/whatsapp/guides/interactive-messages</a> — जाँच-तारीख़ 08/2026। बाहरी site — जानकारी ख़ुद verify करें। (metadata: core_skill=rule-based-chatbot-flow-design · platform=whatsapp · level=S · path=A,B · volatility=HIGH · status=ACTIVE · next_review=11/2026)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>10. योग्यता-जाँच</h2>
+<div class="ecm-chkbox"><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="0"> <span>मैं flow, AI और इंसान की सीढ़ी समझा सकता हूँ।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="1"> <span>मैंने अपनी दुकान का FAQ-flow नक़्शा बनाया है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="2"> <span>मैंने cart-recovery के दो संदेश श्रेणी सहित लिखे हैं।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="3"> <span>मैं चार परखें बिना देखे गिना सकता हूँ।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="4"> <span>मैं जानता हूँ इंसान-बटन क्यों हर अंत में चाहिए।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%88-%E0%A4%95%E0%A5%89%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B8%20chatbot-flow%20%E2%80%94%20FAQ%2C%20order-track%2C%20cart-recovery%20%E0%A4%AC%E0%A4%BF%E0%A4%A8%E0%A4%BE%20%E0%A4%95%E0%A5%8B%E0%A4%A1%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.ondc.org" target="_blank" rel="noopener">🏛️ ONDC — सरकारी खुला e-commerce नेटवर्क</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="ecm-078-prati-sndesh-dam-v-mahine-ka-hisab.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="ecm-080-whatsapp-flows-chait-bhitar-pha-rm-buking-pata-sngra.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/ecom-progress.js" defer></script>
+</body>
+</html>

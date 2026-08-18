@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_ecom_pages.js v1.0 · 18-Aug-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पाठ-76: Cloud API व coexistence — ऐप और API साथ-साथ | ACS ई-कॉमर्स मास्टरी | ACS</title>
+<meta name="description" content="Cloud API व coexistence — ऐप और API साथ-साथ — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital/ecom/ecm-076-cloud-api-v-coexistence-aip-aur-api-sath-sath.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="पाठ-76: Cloud API व coexistence — ऐप और API साथ-साथ | ACS ई-कॉमर्स मास्टरी | ACS">
+<meta property="og:description" content="Cloud API व coexistence — ऐप और API साथ-साथ — मुफ़्त हिंदी पाठ, ACS ई-कॉमर्स मास्टरी (ACS)। कक्षा-6 स्तर की सरल भाषा में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital/ecom/ecm-076-cloud-api-v-coexistence-aip-aur-api-sath-sath.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-76: Cloud API व coexistence — ऐप और API साथ-साथ","description":"Cloud API व coexistence — ऐप और API साथ-साथ — ACS ई-कॉमर्स मास्टरी (मुफ़्त हिंदी पाठ)","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital/ecom/ecm-076-cloud-api-v-coexistence-aip-aur-api-sath-sath.html","isPartOf":{"@type":"Course","name":"ACS ई-कॉमर्स मास्टरी","description":"WhatsApp से Amazon तक, गाँव की दुकान से विश्व-बाज़ार तक — 326 पाठों की पूरी, मुफ़्त हिंदी पढ़ाई।","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">80+ भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="76">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ACS ई-कॉमर्स मास्टरी › खंड-6: WhatsApp Platform/API, Flows व स्वचालन — बढ़ती दुकान</p>
+<h1>पाठ-76: Cloud API व coexistence — ऐप और API साथ-साथ</h1>
+<p class="lsn-meta">पढ़ाई का समय: लगभग 12 मिनट · योग्यता-स्तर: S · रास्ता: A,B · ⚡ तेज़ बदलने वाला विषय (Δ) — तिमाही जाँच · पाठ 76 / 326 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="ecm-074-aip-se-platform-api-kab-jaen-8-phaaisala-karak.html">पाठ-74</a> <a href="ecm-075-bsp-chunana-chhah-saval-dam-bharatiy-vikalp.html">पाठ-75</a> <span class="lsn-jumpcur">पाठ-76 (यही)</span> <a href="ecm-077-template-sndesh-marketing-utility-authentication-24.html">पाठ-77</a> <a href="ecm-078-prati-sndesh-dam-v-mahine-ka-hisab.html">पाठ-78</a> <a href="ecm-079-chatbot-flow-faq-order-track-cart-recovery-bina-kod.html">पाठ-79</a> <a href="ecm-080-whatsapp-flows-chait-bhitar-pha-rm-buking-pata-sngra.html">पाठ-80</a> <a href="ecm-081-carousel-webview-v-chait-bhitar-bhugatan.html">पाठ-81</a> <a href="ecm-082-click-to-whatsapp-vijnapan-se-lid-aur-attribution.html">पाठ-82</a> <a href="ecm-083-opt-in-niyam-spam-rok-v-ban-bachav.html">पाठ-83</a> <a href="ecm-084-api-ka-masik-rakh-rakhav-kam-kard.html">पाठ-84</a> <a href="ecm-085-khnd-6-doharav-v-abhyas-pariksha.html">पाठ-85</a> <a href="index.html">📖 पूरी सूची (326 पाठ)</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>1. उद्देश्य</h2>
+<p>BSP चुनने के बाद असली सवाल — मेरा वही पुराना नंबर रहेगा या नया लेना पड़ेगा? पुरानी चैट-कैटलॉग का क्या होगा? पाठ के बाद आप तीन बातें कर पाएँगे — Cloud API का सादा अर्थ बता पाएँगे; coexistence (साथ-साथ चलना) से Business ऐप और Platform एक ही नंबर पर कैसे चलते हैं, समझ पाएँगे; और सेटअप के दिन की तैयारी-सूची बना पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>2. मुख्य बात</h2>
+<p>पहले Platform पर जाना मतलब Business ऐप छोड़ना — नंबर ऐप से हटता, फ़ोन में WhatsApp बंद हो जाता। अब ऐसा नहीं। एक-वाक्य बात — <b>coexistence से आपका वही नंबर Business ऐप में भी चलता रहता है और Platform (Cloud API) से भी — फ़ोन पर हाथ का काम, dashboard से बड़ा काम, दोनों साथ।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>Cloud API — सादे शब्दों में</h2>
+<p>पहले Platform चलाने के लिए कंपनी को अपना server रखना पड़ता था — इसे On-premises कहते थे। यह महँगा और झंझट भरा था। अब Meta ख़ुद अपने cloud (बादल — यानी उनके server) पर यह पाइप देता है — यही Cloud API। आपको या BSP को कुछ नहीं रखना पड़ता, बस जुड़ना पड़ता है। इसीलिए दाम घटे और छोटी दुकानें भी पहुँच सकीं। आप जब BSP का dashboard खोलते हैं, तो पीछे यही Cloud API काम कर रहा होता है। आपको code नहीं देखना; पर यह नाम इसलिए जानिए कि BSP या कोई ठेकेदार "On-premises चाहिए, महँगा पड़ेगा" कहकर बहकाए तो आप पूछ सकें — "Cloud API क्यों नहीं?"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>coexistence — क्या रहता, क्या बदलता</h2>
+<p>मान लो आपकी दुकान का नंबर 98xxx है, जिस पर खंड-3 का पूरा काम बना — प्रोफ़ाइल, कैटलॉग, Labels, Broadcast-सूची, Business AI। coexistence से यही नंबर Platform से जुड़ता है। <b>रहता है:</b> आपका फ़ोन-ऐप चालू, पुरानी चैट-इतिहास (एक तय अवधि का, नियम बदलते हैं — जाँच-तारीख़ देखिए), कैटलॉग, प्रोफ़ाइल, ग्राहकों के लिए वही नंबर। <b>जुड़ता है:</b> BSP का dashboard, जहाँ से template, chatbot, कई agent, रिपोर्ट। <b>बदलता है:</b> कुछ काम अब दोनों जगह दिखते हैं — कर्मचारी dashboard से जवाब दे तो फ़ोन-ऐप में भी दिखेगा। <b>सावधानी:</b> कुछ ऐप-सुविधाएँ coexistence में सीमित हो सकती हैं (जैसे Business AI का व्यवहार, Communities) — सेटअप से पहले BSP से लिखित में पूछिए "कौन-सी ऐप-सुविधा बंद या बदल जाएगी?" यह Δ-बिंदु है — Meta हर तिमाही इसमें बदलाव करता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सेटअप का दिन — तैयारी-सूची</h2>
+<p>1. Meta Business Manager/Portfolio खाता — दुकान-मालिक के नाम, असली email, दो-कदम-सत्यापन चालू (पाठ-10 के नियम)। 2. दुकान का सत्यापन-दस्तावेज़ तैयार — Udyam/GST/बिजली-बिल जैसा नाम-पता-प्रमाण (पाठ-9 की थैली)। 3. Business ऐप का पूरा backup — फ़ोन-सेटिंग से चैट-backup, कैटलॉग की फ़ोटो-सूची (पाठ-33 की मास्टर-शीट पहले से है)। 4. Broadcast-सूची व Labels की एक फ़ोटो-प्रति — coexistence में कुछ ठीक न बैठे तो हाथ में रहे। 5. जुड़ने का समय — शाम की कम-चैट वाली घड़ी, ताकि ग्राहक न रुके। 6. BSP का सहायक फ़ोन/WhatsApp पर उपलब्ध — जुड़ते समय एक बार QR/OTP से नंबर की पुष्टि होगी; यह OTP आप ख़ुद डालेंगे, किसी को बताएँगे नहीं। 7. जुड़ने के बाद पहली जाँच — अपने दूसरे फ़ोन से एक संदेश भेजकर देखिए कि वह ऐप और dashboard दोनों में आया।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>जब coexistence न मिले</h2>
+<p>हर नंबर या देश पर coexistence तुरंत उपलब्ध नहीं होता — कभी नंबर-प्रकार, कभी क्षेत्र, कभी ऐप-संस्करण की शर्त। तब दो रास्ते — (अ) एक अलग नया नंबर Platform के लिए, पुराना ऐप जैसा-का-तैसा; ग्राहकों को धीरे-धीरे नया नंबर बताएँ। (ब) पुराने नंबर को पूरी तरह Platform पर ले जाएँ — तब ऐप बंद, सब काम dashboard से; यह तभी जब कर्मचारी-टीम तैयार हो। ईमानदार सलाह — रास्ता-अ सुरक्षित है, छोटी दुकान वहीं से शुरू करे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सेवा-सहायक की आँख</h2>
+<p>सेटअप का दिन आपकी सेवा का सबसे नाज़ुक दिन है — दुकानदार डरा हुआ है कि "मेरा WhatsApp चला न जाए"। ऊपर की सात-कदम सूची छापकर, हर कदम पर उसके सामने टिक लगाइए। OTP दुकानदार ख़ुद डाले — आपके हाथ में उसका फ़ोन न हो। यह छोटी बात आपको उन "एजेंसियों" से अलग करती है जो पहले दिन ही मालिक का पूरा नियंत्रण अपने पास ले लेती हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चित्र — एक नंबर, दो दरवाज़े</h2>
+<figure class="lsn-fig lsn-hero"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="52" text-anchor="middle" font-size="27" font-weight="bold" fill="#0B1F3A">coexistence — एक नंबर, दो दरवाज़े</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">फ़ोन-ऐप से हाथ का काम · dashboard से बड़ा काम · ग्राहक को एक ही नंबर</text>
+<rect x="290" y="120" width="220" height="90" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="400" y="158" text-anchor="middle" font-size="20" font-weight="bold" fill="#0B1F3A">दुकान का नंबर</text>
+<text x="400" y="188" text-anchor="middle" font-size="17" fill="#0B1F3A">वही पुराना 98xxx</text>
+<line x1="330" y1="210" x2="180" y2="290" stroke="#0B1F3A" stroke-width="3"/>
+<line x1="470" y1="210" x2="620" y2="290" stroke="#0B1F3A" stroke-width="3"/>
+<rect x="40" y="290" width="300" height="230" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="190" y="325" text-anchor="middle" font-size="19" font-weight="bold" fill="#2E7D32">Business ऐप (फ़ोन)</text>
+<g font-size="17" fill="#0B1F3A">
+<text x="60" y="360">कैटलॉग · प्रोफ़ाइल · Labels</text>
+<text x="60" y="390">हाथ से जवाब</text>
+<text x="60" y="420">Business AI (खंड-4)</text>
+<text x="60" y="450">पुरानी चैट रहती है</text>
+<text x="60" y="490" font-weight="bold">= रोज़ का काम</text>
+</g>
+<rect x="460" y="290" width="300" height="230" rx="14" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="610" y="325" text-anchor="middle" font-size="19" font-weight="bold" fill="#1565C0">Platform (Cloud API)</text>
+<g font-size="17" fill="#0B1F3A">
+<text x="480" y="360">BSP dashboard</text>
+<text x="480" y="390">template · chatbot · Flows</text>
+<text x="480" y="420">कई agent एक साथ</text>
+<text x="480" y="450">रिपोर्ट व analytics</text>
+<text x="480" y="490" font-weight="bold">= बड़ा काम</text>
+</g>
+<rect x="60" y="560" width="680" height="90" rx="14" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="595" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">सेटअप-दिन की सात तैयारियाँ</text>
+<text x="400" y="628" text-anchor="middle" font-size="16" fill="#0B1F3A">Business Manager · दस्तावेज़ · backup · Labels-प्रति · शाम का समय · BSP-सहायक · पहली जाँच</text>
+<rect x="60" y="680" width="680" height="80" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="712" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">OTP दुकानदार ख़ुद डाले — किसी को कभी नहीं</text>
+<text x="400" y="742" text-anchor="middle" font-size="16" fill="#0B1F3A">coexistence न मिले तो अलग नया नंबर सुरक्षित रास्ता</text>
+</svg></figure>
+</section>
+
+<section class="lsn-sec">
+<h2>coexistence का असली फ़ायदा — एक दिन का दृश्य</h2>
+<p>मान लो सुबह 9 बजे — दुकानदार अपने फ़ोन-ऐप से पुराने ग्राहक को दाम की फ़ोटो भेजता है, हमेशा की तरह। 11 बजे — dashboard से कर्मचारी उन 800 ग्राहकों को उत्पाद-सूचना का utility template भेजता है जिन्होंने पिछले हफ़्ते ऑर्डर किया था; फ़ोन-ऐप में हर भेजा संदेश दिखता है, कोई अलग नंबर नहीं। दोपहर 2 बजे — एक ग्राहक जवाब देता है, कर्मचारी dashboard से उत्तर देता है, दुकानदार फ़ोन में वही बातचीत देखकर बीच में एक निजी वाक्य जोड़ देता है। रात 10 बजे — Business AI (खंड-4) फ़ोन-ऐप की ओर से आम सवालों के जवाब देता रहता है, अगर coexistence में वह सुविधा चालू है। यह पूरा दृश्य एक ही नंबर, एक ही ग्राहक-सूची पर चला। यही coexistence का असली मतलब — छोटी दुकान की आत्मीयता + बड़ी दुकान का पैमाना, बिना ग्राहक को दो नंबर याद कराए। पर याद रखिए — यह दृश्य तब सच है जब आपके क्षेत्र-नंबर पर coexistence उपलब्ध हो और BSP उसे सही जोड़े; इसीलिए लिखित पुष्टि माँगना ज़रूरी है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>3. आज का काम «काम-कार्ड»</h2>
+<p>अभ्यास-मोड में (असली जुड़ाव नहीं) सेटअप-दिन की सात-कदम सूची अपनी दुकान के लिए भरिए — हर कदम के आगे "तैयार/बाक़ी" और क्या चाहिए। BSP-तुलना (पाठ-75) के अपने पहली-पसंद BSP की help-पेज पर देखिए कि वे coexistence देते हैं या नहीं — एक-पंक्ति में लिखिए। नीचे लिखिए — coexistence न मिले तो आप रास्ता-अ लेंगे या ब, और क्यों। जाँच-सूची: ☐ सात कदम तैयार/बाक़ी सहित ☐ BSP की coexistence-स्थिति ☐ रास्ता अ/ब का फ़ैसला ☐ फ़ोटो सबूत-खाते में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>4. नाप</h2>
+<p>सफल = सात में से कम-से-कम पाँच कदम "तैयार"; coexistence-स्थिति असली help-पेज से। समय: 30 मिनट।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>5. सबूत</h2>
+<p>सबूत-खाते में "सेटअप-दिन तैयारी-पन्ना"। असली सेटअप के दिन यही छापकर हाथ में रखना है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>6. AI-सहायक</h2>
+<p>AI से पूछिए — "WhatsApp Business ऐप और Cloud API का coexistence क्या है, इसमें कौन-सी ऐप-सुविधाएँ सीमित हो सकती हैं?" — जवाब की तुलना BSP के help-पेज से कीजिए; दोनों में फ़र्क़ हो तो help-पेज को मानिए, वह ताज़ा है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>7. आम ग़लती</h2>
+<p>पहली — बिना backup के जुड़ना और फिर पुरानी चैट या Broadcast-सूची खोकर पछताना। दूसरी — दिन के व्यस्त समय में जुड़ना — ग्राहक के संदेश बीच में लटक जाते हैं। तीसरी — OTP किसी "सहायक" को बता देना — यही खाता-चोरी की सबसे आम राह है। चौथी — coexistence मिलते ही यह मान लेना कि ऐप की हर सुविधा जस-की-तस चलेगी — बिना लिखित पुष्टि के नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>8. सुरक्षा-पत्रक</h2>
+<p>Meta Business Manager दुकान-मालिक के नाम व नियंत्रण में; सेवा-सहायक को सिर्फ़ ज़रूरी भूमिका (employee/partner), admin नहीं। दो-कदम-सत्यापन जुड़ने से पहले चालू। सेटअप के दिन फ़ोन मालिक के हाथ में रहे। कोई भी बदलाव के बाद अपने दूसरे नंबर से जाँच — बिना जाँच "हो गया" न मानें।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>9. स्रोत</h2>
+<p>इस पाठ की जानकारी ACS पाठ्यक्रम-दल ने तैयार की है: acslearn.com — देखा गया 17-08-2026। coexistence की शर्तें क्षेत्र-नंबर से बदलती हैं — help-पेज ही अंतिम। 📎 मूल-कोर्स-कड़ी: WhatsApp Cloud API दस्तावेज़ — <a href="https://developers.facebook.com/docs/whatsapp/cloud-api" target="_blank" rel="noopener">https://developers.facebook.com/docs/whatsapp/cloud-api</a> — जाँच-तारीख़ 08/2026। बाहरी site — जानकारी ख़ुद verify करें। (metadata: core_skill=platform-onboarding-coexistence · platform=whatsapp · level=S · path=A,B · volatility=HIGH · status=ACTIVE · next_review=11/2026)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>10. योग्यता-जाँच</h2>
+<div class="ecm-chkbox"><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="0"> <span>मैं Cloud API को दो वाक्य में समझा सकता हूँ।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="1"> <span>मैं coexistence में क्या रहता-बदलता है, बता सकता हूँ।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="2"> <span>मैंने सेटअप-दिन की सात-कदम सूची भरी है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="3"> <span>मैं जानता हूँ coexistence न मिले तो कौन-सा रास्ता सुरक्षित है।</span></label><label class="ecm-chk"><input type="checkbox" class="ecm-q" data-q="4"> <span>मैं जानता हूँ OTP सिर्फ़ मालिक डालेगा।</span></label></div>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%88-%E0%A4%95%E0%A5%89%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B8%20Cloud%20API%20%E0%A4%B5%20coexistence%20%E2%80%94%20%E0%A4%90%E0%A4%AA%20%E0%A4%94%E0%A4%B0%20API%20%E0%A4%B8%E0%A4%BE%E0%A4%A5-%E0%A4%B8%E0%A4%BE%E0%A4%A5%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> <a class="lsn-vidbtn lsn-vidgov" href="https://www.ondc.org" target="_blank" rel="noopener">🏛️ ONDC — सरकारी खुला e-commerce नेटवर्क</a></p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="ecm-075-bsp-chunana-chhah-saval-dam-bharatiy-vikalp.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="ecm-077-template-sndesh-marketing-utility-authentication-24.html" data-nextlsn>अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">80+ भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:acs.chautham@gmail.com">acs.chautham@gmail.com</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+<script src="/assets/ecom-progress.js" defer></script>
+</body>
+</html>
