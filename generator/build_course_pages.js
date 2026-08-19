@@ -1,5 +1,7 @@
 /* ============================================================
    build_course_pages.js — कोर्स-पाठ पेजों का generator (परत-4)
+   v1.3 · 19-Aug-2026 (वेल्डिंग-पूर्ति: article पर data-lsn-num/data-course, index पर data-course-index + a.crs-lsn[data-num],
+               course.progressJs हो तो <script> जुड़े — प्रगति-रंग व अभ्यास-प्रश्न के लिए; अछूते कोर्स byte-अछूते)। पहले का:
    v1.2 · 16-Jul-2026 (काम-कोर्स-2: + videoUrl/videoNote-खाना — प्रति-पाठ सत्यापित वीडियो;
               बिना-वीडियो पाठों में सत्यापित BharatSkills सरकारी-मंच कड़ी। पहले का:
    v1.1 · 16-Jul-2026 (+ कोर्स-परिचय पेज (index.html) निर्माण;
@@ -121,7 +123,7 @@ function lessonBody(course, l, prevFile, nextFile){
     ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '">अगला पाठ →</a>'
     : '<span class="lsn-navbtn lsn-soon">अगला पाठ — जल्द</span>';
 
-  return '\n<article class="lsn-wrap">\n' +
+  return '\n<article class="lsn-wrap" data-lsn-num="' + l.num + '" data-course="' + course.slug + '">\n' +
     '<header class="lsn-head">\n' +
     '<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ' + course.title + " › " +
       "हिस्सा-" + PART(l.num).no + ": " + PART(l.num).name + "</p>\n" +
@@ -194,7 +196,7 @@ function buildPage(course, l, prevFile, nextFile){
     '<script type="application/ld+json">' + JSON.stringify(bc) + "</scr" + "ipt>\n" +
     '<link rel="stylesheet" href="/assets/course-lesson.css">\n</head>');
   page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
-  page = page.replace("</body>", MENU_FALLBACK_JS + '\n<script src="/assets/course-lesson.js" defer></scr' + 'ipt>\n</body>');
+  page = page.replace("</body>", MENU_FALLBACK_JS + '\n<script src="/assets/course-lesson.js" defer></scr' + 'ipt>' + (course.progressJs ? '\n<script src="' + course.progressJs + '" defer></scr' + 'ipt>' : '') + '\n</body>');
   /* ── (30-Jul स्थायी-नियम, Founder) घड़ी+प्रगति-इंजन का लोहे का पहरा ──
      भविष्य का हर कोर्स-पाठ इसी नियम पर: course-lesson.css+js अनिवार्य।
      टेम्पलेट-बदलाव से कड़ी छूटे = build यहीं fail (पेज बनेगा ही नहीं)।
@@ -234,7 +236,7 @@ function buildCourseIndex(course, lessons){
     const inPart = lessons.filter(l => l.num >= pt.from && l.num <= pt.to);
     if (!inPart.length) return "";
     const items = inPart.map(l =>
-      '<li class="ci-item"><a href="' + fileName(course, l) + '">पाठ-' + l.num + ": " + l.title +
+      '<li class="ci-item"><a class="crs-lsn" data-num="' + l.num + '" href="' + fileName(course, l) + '">पाठ-' + l.num + ": " + l.title +
       '</a><span class="ci-min">' + l.minutes + " मिनट</span></li>"
     ).join("\n");
     const last = inPart[inPart.length - 1].num;
@@ -247,7 +249,7 @@ function buildCourseIndex(course, lessons){
   }
   const partSections = course.parts.map(partBlock).join("");
 
-  const body = '\n<article class="lsn-wrap ci-wrap">\n' +
+  const body = '\n<article class="lsn-wrap ci-wrap" data-course-index="' + course.slug + '">\n' +
     '<header class="lsn-head">\n' +
     '<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ' + course.title + "</p>\n" +
     "<h1>" + course.title + "</h1>\n" +
@@ -288,7 +290,7 @@ function buildCourseIndex(course, lessons){
     '<link rel="stylesheet" href="/assets/course-lesson.css">\n' +
     "<style>.ci-list{list-style:none;padding:0;margin:12px 0}.ci-item{display:flex;justify-content:space-between;gap:10px;padding:12px 4px;border-bottom:1px solid #E2E8F0;font-size:18px}.ci-item a{color:#1565C0;text-decoration:none;font-weight:600}.ci-min{color:#2E7D32;font-size:16px;white-space:nowrap}.ci-soon{color:#0B1F3A;font-size:17px;font-weight:600;margin-top:10px}</style>\n</head>");
   page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
-  page = page.replace("</body>", MENU_FALLBACK_JS + "\n</body>");
+  page = page.replace("</body>", MENU_FALLBACK_JS + (course.progressJs ? '\n<script src="' + course.progressJs + '" defer></scr' + 'ipt>' : "") + "\n</body>");
   page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE_IDX);
   fs.writeFileSync(path.join(outDir, "index.html"), page, "utf8");
   console.log("✅ कोर्स-परिचय → courses/" + course.lang + "/" + course.slug + "/index.html");
