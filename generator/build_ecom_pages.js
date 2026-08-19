@@ -159,6 +159,13 @@ function checkRobot(l, contentHtml){
   const words = wordCount(contentHtml);
   if (words < 1150) holes.push("शब्द-गिनती " + words + " (< 1150)");
   if (!/<svg[\s>]/.test(contentHtml)) holes.push("रेखा-चित्र (svg) नहीं");
+  /* svg XML-वैधता (18-Aug सीख: कच्चा & व बिना-जोड़ी </g> ब्राउज़र में चित्र तोड़ते हैं) */
+  (contentHtml.match(/<svg[\s\S]*?<\/svg>/g) || []).forEach((sv, i) => {
+    if (/&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)/.test(sv)) holes.push("svg-" + (i+1) + ": कच्चा & (&amp; लिखो)");
+    const open = (sv.match(/<g[\s>]/g) || []).length, close = (sv.match(/<\/g>/g) || []).length;
+    if (open !== close) holes.push("svg-" + (i+1) + ": <g> " + open + " बनाम </g> " + close);
+    if (/<rect[^>]*height="(2[5-9]|[3-9]\d|\d{3,})"[^>]*width="(1[5-9]\d|[2-9]\d\d)"[^>]*\/>/.test(sv)) {}
+  });
   const vis = visibleText(contentHtml);
   if (/[\[\]]/.test(vis)) holes.push("दिखने वाले text में square bracket");
   const small = contentHtml.match(/font(?:-size)?\s*[:=]\s*["']?0*([0-9]{1,2})(?:\.[0-9]+)?(?:px)?["']?/gi) || [];
