@@ -11,7 +11,8 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v343'; // 18-Aug: ई-कॉमर्स मास्टरी 326-पाठ cutover (ecom-progress.js नया, exam_data/dashboard/courses_data बदले)
+const CACHE_VERSION = 'v344'; // 19-Aug: वेल्डिंग quiz/प्रगति (wld-progress.js नया, exam_data/dashboard बदले)
+// पुराना: const CACHE_VERSION = 'v343'; // 18-Aug: ई-कॉमर्स मास्टरी 326-पाठ cutover (ecom-progress.js नया, exam_data/dashboard/courses_data बदले)
 // पुराना: const CACHE_VERSION = 'v342'; // 17-Aug: DCA-2036 पता-सुधार (Founder-अ) — /courses/hi/digital/dca/ पर; dca-2036 folder व redirect-पर्चियाँ हटीं
 // v341 // 16-Aug: DCA-2036 cutover — /courses/hi/dca-2036/ (498 पाठ), course-progress.js, dca_quiz shards, exam_data v1.5, courses_data/udyam_data कड़ी
 // v340 // 13-Aug: SE023 मशरूम 120-प्रश्न server-परीक्षा — dashboard.js v6.1 (SERVER_EXAM_COURSES) +
