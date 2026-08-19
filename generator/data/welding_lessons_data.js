@@ -13,6 +13,7 @@
 const WELDING_COURSE = {
   code: "wld",                       /* internal — UI में कभी नहीं */
   slug: "welding",
+  progressJs: "/assets/wld-progress.js",   /* v1.6 (19-Aug): प्रगति-रंग + 5 अभ्यास-प्रश्न/पाठ (assets/wld_quiz/) */
   lang: "hi",
   origLang: "हिंदी",
   title: "वेल्डिंग (Welding) कोर्स",
