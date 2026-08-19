@@ -109,28 +109,81 @@
 <h2>चित्र — Conversational Attributes, पहले बनाम बाद</h2>
 <figure class="lsn-fig lsn-hero"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
 <rect width="800" height="800" fill="#F5F7FA"/>
-<text x="400" y="52" text-anchor="middle" font-size="27" font-weight="bold" fill="#0B1F3A">Conversational Attributes — AI-agent के लिए</text>
-<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">विस्तृत गुण = बारीक़ सवालों का सही जवाब</text>
-<g font-size="16" fill="#0B1F3A">
-<rect x="40" y="115" width="330" height="180" rx="14" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
-<text x="205" y="150" text-anchor="middle" font-weight="bold">पहले — सादा विवरण</text>
-<text x="60" y="190">"सुंदर सूती साड़ी,</text><text x="60" y="216">अच्छी क्वालिटी"</text>
-<text x="60" y="255" font-weight="bold">✗ बारीक़ सवाल का जवाब नहीं</text>
-<rect x="430" y="115" width="330" height="180" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
-<text x="595" y="150" text-anchor="middle" font-weight="bold">बाद — structured</text>
-<text x="450" y="185">रंग: नीला · सामग्री: सूती</text><text x="450" y="210">अवसर: रोज़मर्रा</text><text x="450" y="235">मौसम: गर्मी · ₹500-1000</text>
-<text x="450" y="265" font-weight="bold">✓ बारीक़ सवाल से मेल</text>
-</g>
-<rect x="60" y="320" width="680" height="180" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
-<text x="400" y="355" text-anchor="middle" font-size="19" font-weight="bold" fill="#2E7D32">उदाहरण-गुण — श्रेणी-अनुसार</text>
-<g font-size="16" fill="#0B1F3A">
-<text x="90" y="390">कपड़े — रंग, सामग्री, आकार, अवसर, मौसम</text>
-<text x="90" y="420">खाना — शाकाहारी/माँसाहारी, मसाला-स्तर, शेल्फ़-लाइफ़</text>
-<text x="90" y="450">हस्तशिल्प — हाथ से/मशीन से, कच्चा-माल, परंपरा</text>
-</g>
-<rect x="60" y="520" width="680" height="100" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
-<text x="400" y="560" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">Δ — तकनीक नई व बदलती, मूल सोच स्थिर</text>
-<text x="400" y="592" text-anchor="middle" font-size="16" fill="#0B1F3A">विस्तृत गुण = बेहतर AI-मेल, नाम चाहे जो बदले</text>
+<text x="400" y="44" font-size="24" fill="#0B1F3A" text-anchor="middle" font-weight="bold">Conversational Attributes व structured-data —</text>
+<text x="400" y="74" font-size="24" fill="#0B1F3A" text-anchor="middle" font-weight="bold">AI-agent के लिए</text>
+<text x="400" y="102" font-size="16" fill="#1565C0" text-anchor="middle">Conversational Attributes उत्पाद-स्तर पर वही काम करते हैं — जब कोई AI-ख़रीदार-सहायक…</text>
+<rect x="40" y="134" width="224" height="250" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="152" y="164" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">structured-data —</text>
+<text x="152" y="186" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">मशीन-पढ़ने-योग्य जानकारी</text>
+<text x="52" y="216" font-size="16" fill="#0B1F3A">"Structured data" का</text>
+<text x="52" y="237" font-size="16" fill="#0B1F3A">मतलब है जानकारी को एक तय,</text>
+<text x="52" y="258" font-size="16" fill="#0B1F3A">मशीन-समझने-योग्य ढाँचे में</text>
+<text x="52" y="279" font-size="16" fill="#0B1F3A">लिखना — जैसे "रंग: नीला" अलग</text>
+<text x="52" y="300" font-size="16" fill="#0B1F3A">खाने में, "सामग्र</text>
+<line x1="267" y1="259" x2="277" y2="259" stroke="#0B1F3A" stroke-width="3"/><polygon points="285,259 275,253 275,265" fill="#0B1F3A"/>
+<rect x="288" y="134" width="224" height="250" rx="12" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="164" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">किन गुणों को जोड़ना उपयोगी है</text>
+<text x="400" y="186" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">— उदाहरण-सूची</text>
+<text x="300" y="216" font-size="16" fill="#0B1F3A">कपड़ों के लिए — रंग, सामग्री</text>
+<text x="300" y="237" font-size="16" fill="#0B1F3A">(सूती/सिल्क), आकार, अवसर</text>
+<text x="300" y="258" font-size="16" fill="#0B1F3A">(शादी/रोज़मर्रा/त्योहार),</text>
+<text x="300" y="279" font-size="16" fill="#0B1F3A">मौसम (गर्मी/सर्दी)</text>
+<line x1="515" y1="259" x2="525" y2="259" stroke="#0B1F3A" stroke-width="3"/><polygon points="533,259 523,253 523,265" fill="#0B1F3A"/>
+<rect x="536" y="134" width="224" height="250" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="648" y="164" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">एक व्यावहारिक उदाहरण —</text>
+<text x="648" y="186" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">पहले बनाम बाद</text>
+<text x="548" y="216" font-size="16" fill="#0B1F3A">पहले (सादा विवरण): "सुंदर</text>
+<text x="548" y="237" font-size="16" fill="#0B1F3A">सूती साड़ी, अच्छी क्वालिटी।" —</text>
+<text x="548" y="258" font-size="16" fill="#0B1F3A">यह वाक्य किसी भी बारीक़ सवाल</text>
+<text x="548" y="279" font-size="16" fill="#0B1F3A">का जवाब नहीं दे सकता</text>
+<rect x="40" y="406" width="720" height="97" rx="12" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2"/>
+<text x="54" y="428" font-size="16" fill="#0B1F3A" font-weight="bold">आम ग़लती — इनसे बचो</text>
+<text x="54" y="451" font-size="16" fill="#0B1F3A">✗ गुण गढ़ना (जैसे "सामग्री: सिल्क" जबकि असल में सूती है) — यह पाठ-16 के "गढ़ा दावा" नियम का…</text>
+<text x="54" y="474" font-size="16" fill="#0B1F3A">✗ बहुत कम गुण (सिर्फ़ एक-दो) जोड़ना, जिससे कोई बारीक़ सवाल मेल नहीं खाता</text>
+<text x="54" y="497" font-size="16" fill="#0B1F3A">✗ सभी उत्पादों के लिए एक जैसे गुण कॉपी-पेस्ट करना, बिना असली फ़र्क़ जाँचे</text>
+<rect x="40" y="517" width="720" height="60" rx="12" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="54" y="539" font-size="16" fill="#2E7D32">🛡 गुण-विवरण में कोई भी दावा जो सच न हो (जैसे "100% ऑर्गेनिक" बिना प्रमाण) कभी न जोड़ें — यह पाठ-100</text>
+<text x="54" y="561" font-size="16" fill="#2E7D32">के Meta-नीति जैसा ही जोखिम Google पर भी ला</text>
+<rect x="40" y="589" width="720" height="60" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="2"/>
+<text x="54" y="611" font-size="16" fill="#0B1F3A">सेवा-सहायक की आँख: "हर उत्पाद के पाँच-छह प्रासंगिक गुण जोड़ना" एक श्रमसाध्य पर बहुत मूल्यवान सेवा</text>
+<text x="54" y="633" font-size="16" fill="#0B1F3A">है — यह ठीक वैसा ही निवेश है जैसे पाठ-17 की मंच-वार फ़ोटो-मान</text>
+<text x="40" y="677" font-size="16" fill="#0B1F3A" font-weight="bold">जुड़े पाठ:</text>
+<rect x="116.4" y="661" width="69.2" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="151" y="678" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-16</text>
+<rect x="193.6" y="661" width="69.2" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="228.2" y="678" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-17</text>
+<rect x="270.8" y="661" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="310.2" y="678" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-100</text>
+<rect x="357.6" y="661" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="397" y="678" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-105</text>
+<rect x="444.4" y="661" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="483.8" y="678" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-108</text>
+<rect x="531.2" y="661" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="570.6" y="678" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-110</text>
+<rect x="40" y="714" width="720" height="1" fill="#0B1F3A"/>
+<rect x="40" y="724" width="22" height="16" rx="4" fill="#F9A825" stroke="#0B1F3A" stroke-width="2"/>
+<text x="70" y="738" font-size="16" fill="#0B1F3A">मुख्य</text>
+<rect x="127.2" y="724" width="22" height="16" rx="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2"/>
+<text x="157.2" y="738" font-size="16" fill="#0B1F3A">विवरण</text>
+<rect x="220.8" y="724" width="22" height="16" rx="4" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/>
+<text x="250.8" y="738" font-size="16" fill="#0B1F3A">सुरक्षा/नियम</text>
+<text x="362.4" y="738" font-size="16" fill="#0B1F3A">✗ = ग़लती</text>
+<text x="40" y="767" font-size="16" fill="#1565C0">खंड-8 में जगह: पाठ 109/117</text>
+<circle cx="266.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="288.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="310.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="332.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="354.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="376.8" cy="762" r="6" fill="#F9A825" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="398.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="420.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="442.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="464.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="486.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="508.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="530.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="552.8" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<text x="760" y="792" font-size="16" fill="#2E7D32" text-anchor="end">पढ़ाई मुफ़्त — acslearn.com</text>
 </svg></figure>
 </section>
 

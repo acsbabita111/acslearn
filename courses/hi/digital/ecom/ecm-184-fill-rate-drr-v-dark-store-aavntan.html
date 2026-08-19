@@ -104,24 +104,81 @@
 <h2>चित्र — fill-rate, DRR व dark-store-आवंटन</h2>
 <figure class="lsn-fig lsn-hero"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans Devanagari, Inter">
 <rect width="800" height="800" fill="#F5F7FA"/>
-<text x="400" y="52" text-anchor="middle" font-size="27" font-weight="bold" fill="#0B1F3A">fill-rate, DRR व dark-store-आवंटन</text>
-<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">Quick-commerce के दो सबसे ज़रूरी नाप</text>
-<rect x="60" y="115" width="330" height="180" rx="14" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
-<text x="225" y="150" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">fill-rate</text>
-<text x="80" y="185" font-size="16" fill="#0B1F3A">100 पीस ऑर्डर, 85 भेजे</text>
-<text x="80" y="215" font-size="16" fill="#0B1F3A">= 85% fill-rate</text>
-<text x="80" y="250" font-size="16" fill="#0B1F3A" font-weight="bold">कम = ख़ाली dark-store, नुक़सान</text>
-<rect x="410" y="115" width="330" height="180" rx="14" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
-<text x="575" y="150" text-anchor="middle" font-size="18" font-weight="bold" fill="#1565C0">DRR</text>
-<text x="430" y="185" font-size="16" fill="#0B1F3A">Daily Run Rate</text>
-<text x="430" y="215" font-size="16" fill="#0B1F3A">रोज़ औसत बिक्री (जैसे 20/दिन)</text>
-<text x="430" y="250" font-size="16" fill="#0B1F3A" font-weight="bold">ऊँचा = ज़्यादा जगह मिलने की संभावना</text>
-<rect x="60" y="330" width="680" height="150" rx="14" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
-<text x="400" y="365" text-anchor="middle" font-size="19" font-weight="bold" fill="#0B1F3A">dark-store-आवंटन-चक्र</text>
-<text x="400" y="400" text-anchor="middle" font-size="16" fill="#0B1F3A">अच्छा fill-rate+DRR → ज़्यादा जगह → बड़ा स्टॉक</text>
-<text x="400" y="430" text-anchor="middle" font-size="16" fill="#0B1F3A">कमज़ोर प्रदर्शन → सीमित/हटना</text>
-<rect x="60" y="510" width="680" height="90" rx="14" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
-<text x="400" y="550" text-anchor="middle" font-size="16" font-weight="bold" fill="#2E7D32">एक बार जगह मिलना काफ़ी नहीं — निरंतर प्रदर्शन ज़रूरी</text>
+<text x="400" y="44" font-size="24" fill="#0B1F3A" text-anchor="middle" font-weight="bold">fill-rate, DRR व dark-store आवंटन</text>
+<text x="400" y="72" font-size="16" fill="#1565C0" text-anchor="middle">Quick-commerce के दो सबसे महत्वपूर्ण प्रदर्शन-नाप हैं — fill-rate (आपने ऑर्डर किए गए…</text>
+<rect x="40" y="104" width="224" height="250" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="152" y="134" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">fill-rate — क्या और</text>
+<text x="152" y="156" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">क्यों सबसे ज़रूरी</text>
+<text x="52" y="186" font-size="16" fill="#0B1F3A">मान लो मंच ने आपसे 100 पीस का</text>
+<text x="52" y="207" font-size="16" fill="#0B1F3A">ऑर्डर दिया (PO-model,</text>
+<text x="52" y="228" font-size="16" fill="#0B1F3A">पाठ-181), और आपने सिर्फ़</text>
+<text x="52" y="249" font-size="16" fill="#0B1F3A">85 पीस समय पर भेजे —</text>
+<text x="52" y="270" font-size="16" fill="#0B1F3A">fill-rate 85% हुआ</text>
+<line x1="267" y1="229" x2="277" y2="229" stroke="#0B1F3A" stroke-width="3"/><polygon points="285,229 275,223 275,235" fill="#0B1F3A"/>
+<rect x="288" y="104" width="224" height="250" rx="12" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="134" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">DRR — बिक्री की रफ़्तार का</text>
+<text x="400" y="156" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">नाप</text>
+<text x="300" y="186" font-size="16" fill="#0B1F3A">DRR यह बताता है कि आपका</text>
+<text x="300" y="207" font-size="16" fill="#0B1F3A">उत्पाद रोज़ औसतन कितना बिकता</text>
+<text x="300" y="228" font-size="16" fill="#0B1F3A">है (जैसे 20 पीस/दिन)</text>
+<line x1="515" y1="229" x2="525" y2="229" stroke="#0B1F3A" stroke-width="3"/><polygon points="533,229 523,223 523,235" fill="#0B1F3A"/>
+<rect x="536" y="104" width="224" height="250" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="648" y="134" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">dark-store-आवंटन —</text>
+<text x="648" y="156" font-size="17" fill="#0B1F3A" text-anchor="middle" font-weight="bold">कैसे तय होता है</text>
+<text x="548" y="186" font-size="16" fill="#0B1F3A">पाठ-180 के "5-10 SKU से</text>
+<text x="548" y="207" font-size="16" fill="#0B1F3A">शुरुआत" के बाद,</text>
+<text x="548" y="228" font-size="16" fill="#0B1F3A">dark-store-आवंटन इन्हीं</text>
+<text x="548" y="249" font-size="16" fill="#0B1F3A">दो नापों (fill-rate+DRR)</text>
+<text x="548" y="270" font-size="16" fill="#0B1F3A">पर टिका है</text>
+<rect x="40" y="376" width="720" height="97" rx="12" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2"/>
+<text x="54" y="398" font-size="16" fill="#0B1F3A" font-weight="bold">आम ग़लती — इनसे बचो</text>
+<text x="54" y="421" font-size="16" fill="#0B1F3A">✗ fill-rate को नज़रअंदाज़ करना, स्टॉक-प्रबंधन में ढील देना</text>
+<text x="54" y="444" font-size="16" fill="#0B1F3A">✗ DRR को एक बार देखकर भूल जाना, नियमित निगरानी न करना</text>
+<text x="54" y="467" font-size="16" fill="#0B1F3A">✗ कम DRR वाले उत्पाद पर ज़्यादा निवेश करते रहना, बदलाव न करना</text>
+<rect x="40" y="487" width="720" height="38" rx="12" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="54" y="509" font-size="16" fill="#2E7D32">🛡 स्टॉक-अनुमान बढ़ा-चढ़ाकर न बताएँ — ग़लत fill-rate-वादा बाद में मंच से भरोसा तोड़ सकता है</text>
+<rect x="40" y="537" width="720" height="60" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="2"/>
+<text x="54" y="559" font-size="16" fill="#0B1F3A">सेवा-सहायक की आँख: "fill-rate व DRR की निगरानी + dark-store-विस्तार की रणनीति" एक उन्नत,</text>
+<text x="54" y="581" font-size="16" fill="#0B1F3A">निरंतर-सक्रिय सेवा है — यह Quick-commerce पर टिके रहने और बढ़ने की असल</text>
+<text x="40" y="625" font-size="16" fill="#0B1F3A" font-weight="bold">जुड़े पाठ:</text>
+<rect x="116.4" y="609" width="69.2" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="151" y="626" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-99</text>
+<rect x="193.6" y="609" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="233" y="626" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-136</text>
+<rect x="280.4" y="609" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="319.8" y="626" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-171</text>
+<rect x="367.2" y="609" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="406.6" y="626" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-180</text>
+<rect x="454" y="609" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="493.4" y="626" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-181</text>
+<rect x="540.8" y="609" width="78.8" height="24" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+<text x="580.2" y="626" font-size="16" fill="#1565C0" text-anchor="middle">पाठ-185</text>
+<rect x="40" y="647" width="720" height="30" rx="12" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/>
+<text x="54" y="667" font-size="16" fill="#2E7D32">आज का काम: fill-rate व DRR का सादा अर्थ अपने शब्दों में लिखिए, एक-एक उदाहरण के साथ</text>
+<rect x="40" y="714" width="720" height="1" fill="#0B1F3A"/>
+<rect x="40" y="724" width="22" height="16" rx="4" fill="#F9A825" stroke="#0B1F3A" stroke-width="2"/>
+<text x="70" y="738" font-size="16" fill="#0B1F3A">मुख्य</text>
+<rect x="127.2" y="724" width="22" height="16" rx="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2"/>
+<text x="157.2" y="738" font-size="16" fill="#0B1F3A">विवरण</text>
+<rect x="220.8" y="724" width="22" height="16" rx="4" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2"/>
+<text x="250.8" y="738" font-size="16" fill="#0B1F3A">सुरक्षा/नियम</text>
+<text x="362.4" y="738" font-size="16" fill="#0B1F3A">✗ = ग़लती</text>
+<text x="40" y="767" font-size="16" fill="#1565C0">खंड-12 में जगह: पाठ 184/191</text>
+<circle cx="276.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="298.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="320.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="342.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="364.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="386.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="408.4" cy="762" r="6" fill="#F9A825" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="430.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="452.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="474.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="496.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="518.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="540.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<circle cx="562.4" cy="762" r="4" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1"/>
+<text x="760" y="792" font-size="16" fill="#2E7D32" text-anchor="end">पढ़ाई मुफ़्त — acslearn.com</text>
 </svg></figure>
 </section>
 
