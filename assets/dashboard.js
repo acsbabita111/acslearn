@@ -1410,7 +1410,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 /* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
      पूर्ण-स्क्रीन ओवरले (table-row के भीतर नहीं) — बड़े छूने-लायक़ विकल्प,
      अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
-  const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true };   /* (13-Aug, Founder) मशरूम 120-प्रश्न server-परीक्षा जुड़ी (msh_bank, 3135) */
+  const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true, SE021: true };   /* (13-Aug, Founder) मशरूम 120-प्रश्न server-परीक्षा जुड़ी (msh_bank, 3135) */
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
   const OPT_LABEL = ["अ","ब","स","द"];
   function ensureExamStyle() {
