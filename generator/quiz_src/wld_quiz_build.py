@@ -12,11 +12,11 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 OUTDIR = os.path.join(ROOT, "assets", "wld_quiz")
 
 def parts():
-    # welding_lessons_data.js की parts-सूची (4 दर्ज; 300-पाठ पूरा होने पर 8)
-    src = open(os.path.join(ROOT, "generator", "data", "welding_lessons_data.js"), encoding="utf-8").read()
-    m = re.search(r"parts:\s*(\[[\s\S]*?\])\s*\n\s*\}", src)
-    arr = json.loads(re.sub(r'(\w+):', r'"\1":', m.group(1)))
-    return [(p["no"], p["from"], p["to"]) for p in arr]
+    # v1.1 (25-Aug): parts-सूची node से (regex नहीं — data-फ़ाइल का रूप बदल सकता है); कुंजी n/no दोनों
+    import subprocess
+    js = subprocess.run(["node", "-e", "const {WELDING_COURSE:C}=require(process.argv[1]);process.stdout.write(JSON.stringify(C.parts))",
+                         os.path.join(ROOT, "generator", "data", "welding_lessons_data.js")], capture_output=True, text=True, check=True).stdout
+    return [(p.get("n", p.get("no")), p["from"], p["to"]) for p in json.loads(js)]
 
 def load(path):
     spec = importlib.util.spec_from_file_location("m", path); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m.L

@@ -7,7 +7,7 @@ import json,sys,os
 root=sys.argv[1] if len(sys.argv)>1 else '.'
 out=sys.argv[2] if len(sys.argv)>2 else 'wld_bank.js'
 bank=[]; lessons=set()
-for k in range(1,9):
+for k in range(1,13):  # v1.1 (25-Aug): 12 shards, 630 पाठ
     kk='%02d'%k
     p=os.path.join(root,'assets/wld_quiz/wld_quiz_k%s.js'%kk)
     if not os.path.exists(p): continue
