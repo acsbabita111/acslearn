@@ -30,9 +30,9 @@ window.COURSE_EXAMS = {
        स्रोत-भंडार = /assets/dca_quiz/ shards (22) — बदलाव वहीं, फिर server-बैंक regen। */
   ] },
   "SE021": { name: "वेल्डिंग व्यवसाय — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
-    /* server-मोड कोर्स (v1.7, 19-Aug) — 120 प्रश्न server-निजी बैंक (wld_bank; अभी 100 पाठ×5=500, 300 पाठ पर 1,500) से हर बार बेतरतीब;
+    /* server-मोड कोर्स (v1.8, 25-Aug) — 120 प्रश्न server-निजी बैंक (wld_bank; 630 पाठ×5 = 3,150) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
-       स्रोत-भंडार = /assets/wld_quiz/wld_quiz_k01–k08.js shards — बदलाव वहीं, फिर wld_merge_bank.py से server-बैंक regen।
+       स्रोत-भंडार = /assets/wld_quiz/wld_quiz_k01–k12.js shards — बदलाव वहीं, फिर wld_merge_bank.py से server-बैंक regen।
        पुराने 10 inline "सुरक्षा-परीक्षा" प्रश्न हटे। */
   ] },
   "SE022": { name: "टू-व्हीलर सर्विसिंग, EV एवं उद्यमिता — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
