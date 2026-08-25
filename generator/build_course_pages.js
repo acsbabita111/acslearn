@@ -65,8 +65,12 @@ function wordCount(html){
 /* ---------- check-robot ---------- */
 function checkRobot(course, l, contentHtml){
   const holes = [];
+  /* v3.1 नियम-11: हर पाठ पर हुनर-टैग; (R)-पाठ में disclaimer-पंक्ति अनिवार्य */
+  if (!l.tag || !/^[KDPAR+]+$/.test(l.tag)) holes.push("हुनर-टैग नहीं/ग़लत: " + l.tag);
+  if (l.tag && l.tag.split("+").indexOf("R") !== -1 && visibleText(contentHtml).indexOf("यह परिचय है") === -1)
+    holes.push("(R)-पाठ में परिचय-disclaimer पंक्ति नहीं");
   const words = wordCount(contentHtml);
-  if (words < 1200) holes.push("शब्द-गिनती " + words + " (< 1200)");
+  /* शब्द-जाँच अब buildPage में coreHtml पर (24-Aug फ़िक्स) */
   if (!/<svg[\s>]/.test(contentHtml)) holes.push("रेखा-चित्र (svg) नहीं मिला");
   const vis = visibleText(contentHtml);
   if (/[\[\]]/.test(vis)) holes.push("दिखने वाले text में square bracket");
@@ -80,6 +84,12 @@ function checkRobot(course, l, contentHtml){
   for (const m of svgFonts){
     const n = parseInt(m.match(/([0-9]{1,2})px/i)[1], 10);
     if (n < 16) holes.push("svg font " + n + "px (< 16px)");
+  }
+  /* svg font-size="NNpx" attribute-रूप भी जाँचो (20-Aug होल-फ़िक्स: पहले सिर्फ़ CSS-रूप देखता था) */
+  const svgFontAttrs = contentHtml.match(/font-size\s*=\s*"0*([0-9]{1,2})px"/gi) || [];
+  for (const m of svgFontAttrs){
+    const n = parseInt(m.match(/([0-9]{1,2})px/i)[1], 10);
+    if (n < 16) holes.push("svg font-size attribute " + n + "px (< 16px): " + m.trim());
   }
   const codeRe = new RegExp("\\b" + course.code + "\\b", "i");
   if (codeRe.test(vis)) holes.push("कूट-नाम (" + course.code + ") दिखने वाले text में");
@@ -154,7 +164,11 @@ function lessonBody(course, l, prevFile, nextFile){
 /* ---------- टेम्पलेट में जड़ना ---------- */
 function buildPage(course, l, prevFile, nextFile){
   const body = lessonBody(course, l, prevFile, nextFile);
-  const { words, holes } = checkRobot(course, l, body);
+  /* 24-Aug robot-फ़िक्स: शब्द-गिनती सिर्फ़ पाठ-सामग्री (sections) पर — jumplist/ढाँचा-पाठ गिनती से बाहर */
+  const coreHtml = l.sections.map(s => s.t + " " + s.h).join(" ");
+  const { holes } = checkRobot(course, l, body);
+  const coreWords = wordCount(coreHtml);
+  if (coreWords < 1200) holes.push("शब्द-गिनती (सिर्फ़ सामग्री) " + coreWords + " (< 1200)");
   if (holes.length){
     console.error("❌ पाठ-" + l.num + " check-robot fail:");
     holes.forEach(h => console.error("   • " + h));
@@ -206,7 +220,7 @@ function buildPage(course, l, prevFile, nextFile){
     throw new Error("स्थायी-नियम भंग: course-lesson इंजन-कड़ी पाठ-पेज में नहीं — " + (l && l.id));
 
   page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE);
-  return { page, words };
+  return { page, words: coreWords };
 }
 
 /* ---------- मुख्य ---------- */
