@@ -1,5 +1,7 @@
 /* ============================================================
    /assets/kkb.js — v0.2 (26-Aug-2026) · "ACS काम की भाषा" कोर्स-इंजन — भाषा-निरपेक्ष (एक इंजन, हर भाषा)
+   v0.7: कोरियाई (kkb_ko_data.js) — script "korean": हांगुल शब्दों में स्पेस होते हैं (जापानी/चीनी से अलग), पर एक शब्द के भीतर कई अक्षर-ब्लॉक (음절) एक-साथ लिखे होते हैं
+         जिन्हें माइक-पहचान अलग-अलग लौटा सकती है — इसलिए यहाँ भी अक्षर-दर-अक्षर मिलान सुरक्षित है (word-split से ज़्यादा सहनशील)।
    v0.6: norm() में ZWNJ/ZWJ (U+200C/U+200D) हटाना — तेलुगु में loanword+प्रत्यय (డ్రైవర్‌ని) के लिए ZWNJ सही वर्तनी है,
          पर speech-recognizer उसे नहीं लौटाता; दोनों तरफ़ हटाकर मिलान (सब भाषाओं पर सामान्य नियम)।
    v0.5: जापानी (kkb_ja_data.js) — script "japanese": अक्षर-दर-अक्षर मिलान ("han" जैसा — जापानी में भी शब्दों के बीच space नहीं);
@@ -73,7 +75,7 @@
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   function norm(s) {
     s = spoken(s).toLowerCase().replace(/[\u200c\u200d]/g, "").replace(/[.,!?;:"'“”‘’()\-।॥_。，！？、；：؟،؛]/g, " "); /* ZWNJ/ZWJ (तेलुगु/मराठी/बांग्ला loanword-जोड़) माइक-मिलान से पहले हटें */ /* अंत में अरबी ؟ (सवाल) ، (कॉमा) ؛ (सेमीकोलन) भी */
-    if (LANG.script === "han" || LANG.script === "japanese") return s.replace(/\s+/g, "").split("").filter(Boolean); /* चीनी/जापानी: अक्षर-दर-अक्षर (कोई शब्द-space नहीं) */
+    if (LANG.script === "han" || LANG.script === "japanese" || LANG.script === "korean") return s.replace(/\s+/g, "").split("").filter(Boolean); /* चीनी/जापानी/कोरियाई: अक्षर-दर-अक्षर मिलान */
     return s.split(/\s+/).filter(Boolean);
   }
   function similarity(a, b) {
