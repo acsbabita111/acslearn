@@ -1,5 +1,6 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
+   v1.8 · 26-Aug-2026 (काम की भाषा: + बांग्ला /courses/hi/bhasha/bengali/ — KKB_LANGS में छठी पंक्ति; IVR-मॉडल, redirect नहीं)
    v1.7 · 26-Aug-2026 (काम की भाषा: bhasha-परिवार-folder — पाँचों कोर्स /courses/hi/bhasha/<भाषा>/ पर; पुराने पतों पर redirect-पर्ची kkbRedirect)
    v1.6 · 26-Aug-2026 (काम की भाषा: + अरबी/MENA /courses/hi/kaam-ki-bhasha-arabic/ — KKB_LANGS में पाँचवीं पंक्ति; RTL kkb.js/kkb.css में जुड़ा)
    v1.5 · 26-Aug-2026 (काम की भाषा: + Spanish /courses/hi/kaam-ki-bhasha-spanish/ — KKB_LANGS में चौथी पंक्ति; testStep2/check1 चीनी-मॉडल पर)
@@ -634,7 +635,11 @@ const KKB_LANGS = [
   { code: "ar", label: "अरबी", h1: "अरबी बोलना सीखें (Arabic for Work — MENA)", data: "/assets/kkb_ar_data.js", out: "courses/hi/bhasha/arabic/index.html", old: "courses/hi/kaam-ki-bhasha-arabic/index.html",
     title: "ACS काम की भाषा — अरबी बोलना सीखें (Arabic for Work, मध्य-पूर्व/MENA, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से अरबी बोलना सीखें — खाड़ी देश या MENA क्षेत्र में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
-    line1: "यह अरबी बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो खाड़ी देश या मध्य-पूर्व/उत्तर-अफ़्रीका (MENA) में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
+    line1: "यह अरबी बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो खाड़ी देश या मध्य-पूर्व/उत्तर-अफ़्रीका (MENA) में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
+  { code: "bn", label: "बांग्ला", h1: "बांग्ला बोलना सीखें (Bengali for Work — बंगाल व बांग्लादेश)", data: "/assets/kkb_bn_data.js", out: "courses/hi/bhasha/bengali/index.html",
+    title: "ACS काम की भाषा — बांग्ला बोलना सीखें (Bengali for Work, पश्चिम बंगाल व बांग्लादेश, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
+    desc: "हिंदी से बांग्ला बोलना सीखें — कोलकाता/पश्चिम बंगाल या बांग्लादेश में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और फ़ोन पर टेस्ट। मुफ़्त।",
+    line1: "यह बांग्ला (Bengali) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो पश्चिम बंगाल (कोलकाता आदि) या बांग्लादेश में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
 ];
 function kkbContent(c) {
   return '<section class="kkb-intro" style="max-width:560px;margin:18px auto 0;padding:0 16px;color:#fff">' +
@@ -660,6 +665,7 @@ KKB_LANGS.forEach(c => buildSpecial({
    (dca-2036 → digital/dca वाली विधि): noindex + canonical नया + meta-refresh + JS (hash यानी सप्ताह/दिन साथ ले जाए)।
    पर्ची universal ढाँचे पर नहीं (sitemap उसे नहीं गिनता) — यह पेज नहीं, सिर्फ़ रास्ता-निशान है। */
 function kkbRedirect(c) {
+  if (!c.old) return; /* नई भाषा (bhasha/ में जन्मी) — कोई पुराना पता नहीं, पर्ची नहीं */
   const to = "/" + c.out.replace(/index\.html$/, "");
   const html = '<!DOCTYPE html>\n' + GEN_NOTE + '\n<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">' +
     '<title>यह कोर्स नए पते पर है — ' + c.label + ' | ACS</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://acslearn.com' + to + '">' +
