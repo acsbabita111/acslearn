@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v2.5 (26-Aug-2026; + तुर्की tr) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v2.6 (26-Aug-2026; + कोरियाई ko) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -30,7 +30,8 @@ const KKB_SETS = [
   { code: "mr", data: "assets/kkb_mr_data.js", page: "courses/hi/bhasha/marathi/index.html", id: "PJ027", url: "/courses/hi/bhasha/marathi/" },
   { code: "te", data: "assets/kkb_te_data.js", page: "courses/hi/bhasha/telugu/index.html", id: "PJ028", url: "/courses/hi/bhasha/telugu/" },
   { code: "ta", data: "assets/kkb_ta_data.js", page: "courses/hi/bhasha/tamil/index.html", id: "PJ029", url: "/courses/hi/bhasha/tamil/" },
-  { code: "tr", data: "assets/kkb_tr_data.js", page: "courses/hi/bhasha/turkish/index.html", id: "PJ030", url: "/courses/hi/bhasha/turkish/" }
+  { code: "tr", data: "assets/kkb_tr_data.js", page: "courses/hi/bhasha/turkish/index.html", id: "PJ030", url: "/courses/hi/bhasha/turkish/" },
+  { code: "ko", data: "assets/kkb_ko_data.js", page: "courses/hi/bhasha/korean/index.html", id: "PJ031", url: "/courses/hi/bhasha/korean/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
