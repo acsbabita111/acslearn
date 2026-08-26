@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v2.2 (26-Aug-2026; + तेलुगु te) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v2.4 (26-Aug-2026; + हिंदी-दर्पण नियम — हर भाषा का हिंदी-अर्थ/शीर्षक English-आधार से हूबहू) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -19,7 +19,7 @@ const fails = [];
 const ok = (c, m) => { if (!c) fails.push(m); };
 const KKB_SETS = [
   { code: "en", data: "assets/kkb_data.js", page: "courses/hi/bhasha/english/index.html", old: "courses/hi/kaam-ki-bhasha/index.html", id: "PJ018", url: "/courses/hi/bhasha/english/" },
-  { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/bhasha/kannada/index.html", old: "courses/hi/kaam-ki-bhasha-kannada/index.html", id: "PJ019", url: "/courses/hi/bhasha/kannada/" },
+  { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/bhasha/kannada/index.html", old: "courses/hi/kaam-ki-bhasha-kannada/index.html", id: "PJ019", url: "/courses/hi/bhasha/kannada/", hiAdapted: true /* कन्नड (v0.2, live): हवाई-अड्डा-दिन घरेलू रूप में ढला — बस-अड्डा/आधार/टिकट; जान-बूझकर, दर्पण-नियम से छूट */ },
   { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/bhasha/mandarin/index.html", old: "courses/hi/kaam-ki-bhasha-mandarin/index.html", id: "PJ020", url: "/courses/hi/bhasha/mandarin/" },
   { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/bhasha/spanish/index.html", old: "courses/hi/kaam-ki-bhasha-spanish/index.html", id: "PJ021", url: "/courses/hi/bhasha/spanish/" },
   { code: "ar", data: "assets/kkb_ar_data.js", page: "courses/hi/bhasha/arabic/index.html", old: "courses/hi/kaam-ki-bhasha-arabic/index.html", id: "PJ022", url: "/courses/hi/bhasha/arabic/" },
@@ -28,7 +28,8 @@ const KKB_SETS = [
   { code: "id", data: "assets/kkb_id_data.js", page: "courses/hi/bhasha/indonesian/index.html", id: "PJ025", url: "/courses/hi/bhasha/indonesian/" },
   { code: "ja", data: "assets/kkb_ja_data.js", page: "courses/hi/bhasha/japanese/index.html", id: "PJ026", url: "/courses/hi/bhasha/japanese/" },
   { code: "mr", data: "assets/kkb_mr_data.js", page: "courses/hi/bhasha/marathi/index.html", id: "PJ027", url: "/courses/hi/bhasha/marathi/" },
-  { code: "te", data: "assets/kkb_te_data.js", page: "courses/hi/bhasha/telugu/index.html", id: "PJ028", url: "/courses/hi/bhasha/telugu/" }
+  { code: "te", data: "assets/kkb_te_data.js", page: "courses/hi/bhasha/telugu/index.html", id: "PJ028", url: "/courses/hi/bhasha/telugu/" },
+  { code: "ta", data: "assets/kkb_ta_data.js", page: "courses/hi/bhasha/tamil/index.html", id: "PJ029", url: "/courses/hi/bhasha/tamil/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
@@ -38,6 +39,8 @@ const cd = R("assets/courses_data.js"), readyIds = R("courses/hi/index.html");
 const swSrc = R("sw.js"), cv = (swSrc.match(/const CACHE_VERSION = '(v\d+)';([^\n]*)/) || []);
 ok(cv[1] && /kkb|काम की भाषा/.test(cv[2] || ""), "sw.js CACHE_VERSION इस दौर के लिए bump नहीं (cache-first असर-नियम)");
 const intentHi = {}; /* साझा-भाषा नियम: id-क्रम पर हिंदी-अर्थ/दिशा भाषाओं में मेल (कुछ छूट: भाषा-नाम वाले वाक्य) */
+let EN_BASE = null;
+try { const s0 = R("assets/kkb_data.js"); EN_BASE = JSON.parse(s0.slice(s0.indexOf("window.KKB_DATA = ") + 18).trim().replace(/;$/, "")); } catch (e) { EN_BASE = null; }
 KKB_SETS.forEach(SET => {
 const tag = "(" + SET.code + ") ";
 
@@ -114,6 +117,27 @@ if (fs.existsSync(path.join(ROOT, PAGE))) {
   ok(pg.includes("मूल भाषा: हिंदी"), "मूल-भाषा निशान नहीं");
   const vis = pg.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<style[\s\S]*?<\/style>/g, " ").replace(/<[^>]+>/g, " ");
   ok(!/[\[\]]/.test(vis), "पेज के दिखने वाले पाठ में square bracket");
+}
+
+/* (5a) हिंदी-दर्पण नियम (26-Aug, तमिल-ऑडिट की सीख): हर गैर-English सेट का हिंदी-अर्थ, दिन-शीर्षक व सप्ताह-नाम
+   English-आधार (kkb_data.js) से हूबहू हों — सिर्फ़ "अंग्रेज़ी" → भाषा-नाम की छूट। (एक regex ने 47 हिंदी-खाने
+   चुपचाप बिगाड़ दिए थे — "चाहिए" → "साहिए" — और robot पास दे गया; अब यह पकड़ेगा।) */
+if (SET.code !== "en" && EN_BASE && !SET.hiAdapted) {
+  let mism = 0, tmism = 0;
+  D.weeks.forEach((W, wi) => {
+    const WE = EN_BASE.weeks[wi]; if (!WE) return;
+    if (W.hi !== WE.hi) tmism++;
+    (W.days || []).forEach((day, di) => {
+      const dE = WE.days[di]; if (!dE) return;
+      if (day.title !== dE.title) tmism++;
+      (day.items || []).forEach((it, ii) => {
+        const a = dE.items[ii]; if (!a) return;
+        if (a[2].replace(/अंग्रेज़ी/g, D.lang.label) !== it[2] || a[3] !== it[3]) mism++;
+      });
+    });
+  });
+  ok(mism === 0, tag + "हिंदी-अर्थ/दिशा English-आधार से बेमेल: " + mism + " वाक्य");
+  ok(tmism === 0, tag + "दिन-शीर्षक/सप्ताह-नाम English-आधार से बेमेल: " + tmism);
 }
 
 /* (5b) redirect-पर्ची: पुराना पता → नया (noindex + canonical + refresh), universal ढाँचा नहीं */
