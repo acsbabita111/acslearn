@@ -1,0 +1,120 @@
+/* ============================================================
+   /assets/kkb.css — v0.1 (26-Aug-2026) · "ACS काम की भाषा" कोर्स-इंजन की सजावट
+   नियम: कुछ भी 16px से छोटा नहीं · सिर्फ़ ACS 5-रंग (नेवी/नीला/सोना/हरा/ऑफ-व्हाइट) ·
+   kkb- नाम-घेरा (root style/acs-style से टकराव नहीं) · गहरी पृष्ठभूमि पर अपना हल्का पर्दा (v2.3 नियम)।
+   ============================================================ */
+.kkb-app{max-width:560px;margin:14px auto 30px;background:#F5F7FA;border-radius:18px;overflow:hidden;color:#0B1F3A;font-size:17px;line-height:1.55}
+.kkb-app *{box-sizing:border-box}
+.kkb-app button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.kkb-app button:focus-visible,.kkb-app a:focus-visible{outline:3px solid #F9A825;outline-offset:2px}
+.kkb-app p{margin:0 0 10px}
+.kkb-muted{color:#475569}
+.kkb-small{font-size:16px}
+/* शीर्ष-पट्टी */
+.kkb-bar{background:#0B1F3A;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px;position:relative}
+.kkb-bar .kkb-back{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.14);font-size:24px;flex:none}
+.kkb-bar .kkb-brand{font-weight:800;font-size:18px}
+.kkb-bar .kkb-sub{font-size:16px;opacity:.8}
+.kkb-bar .kkb-stripe{position:absolute;left:0;right:0;bottom:0;height:4px;background:repeating-linear-gradient(90deg,#F9A825 0 18px,#0B1F3A 18px 30px)}
+.kkb-main{padding:16px}
+.kkb-app h1{font-size:26px;line-height:1.25;margin:8px 0 6px;font-weight:800;color:#0B1F3A}
+.kkb-app h2{font-size:20px;margin:22px 0 10px;font-weight:800;color:#0B1F3A}
+.kkb-card{background:#fff;border:1px solid #E3E7EE;border-radius:16px;padding:16px}
+.kkb-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 18px;border-radius:14px;font-weight:700;font-size:17px;width:100%;text-decoration:none}
+.kkb-btn.kkb-primary{background:#F9A825;color:#0B1F3A}
+.kkb-btn.kkb-ghost{background:#fff;border:2px solid #E3E7EE;color:#0B1F3A}
+.kkb-btn.kkb-dark{background:#0B1F3A;color:#fff}
+.kkb-btn[disabled]{opacity:.45;cursor:default}
+.kkb-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* होम */
+.kkb-hero{background:#0B1F3A;color:#fff;border-radius:16px;padding:22px 18px 18px;position:relative;overflow:hidden}
+.kkb-hero .kkb-eyebrow{font-size:16px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;font-weight:700}
+.kkb-hero h1{color:#fff;font-size:30px;margin:6px 0 4px}
+.kkb-hero .kkb-thesis{font-size:21px;font-weight:800;color:#F9A825;margin:10px 0 6px}
+.kkb-hero .kkb-demo{position:absolute;right:-34px;top:16px;background:#F9A825;color:#0B1F3A;font-size:16px;font-weight:800;padding:4px 44px;transform:rotate(30deg);letter-spacing:.06em}
+.kkb-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 6px}
+.kkb-step{background:#fff;border:1px solid #E3E7EE;border-radius:12px;padding:12px 6px;text-align:center}
+.kkb-step b{display:block;font-size:24px}
+.kkb-step span{font-size:16px;color:#475569}
+.kkb-wk{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1px solid #E3E7EE;border-radius:16px;margin-bottom:10px;width:100%;text-align:left}
+.kkb-wk .kkb-n{width:46px;height:46px;border-radius:12px;background:#0B1F3A;color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;flex:none}
+.kkb-wk .kkb-t{font-weight:800}
+.kkb-wk .kkb-d{font-size:16px;color:#475569}
+.kkb-wk .kkb-bar2{height:6px;background:#E3E7EE;border-radius:3px;margin-top:6px;overflow:hidden}
+.kkb-wk .kkb-bar2 i{display:block;height:100%;background:#2E7D32}
+.kkb-wk .kkb-arrow{margin-left:auto;color:#475569;font-size:22px}
+/* सप्ताह के 7 दिन */
+.kkb-days{display:flex;flex-direction:column;gap:8px}
+.kkb-day{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #E3E7EE;border-radius:14px;padding:12px 14px;width:100%;text-align:left}
+.kkb-day .kkb-dn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex:none;border:2px solid #0B1F3A;color:#0B1F3A;font-size:16px;line-height:1.05;text-align:center}
+.kkb-day.kkb-practice .kkb-dn{border-style:dashed}
+.kkb-day.kkb-test .kkb-dn{background:#F9A825;border-color:#F9A825;color:#0B1F3A;font-size:20px}
+.kkb-day .kkb-dt{font-weight:700}
+.kkb-day .kkb-ds{font-size:16px;color:#475569}
+.kkb-day .kkb-done{margin-left:auto;color:#2E7D32;font-weight:800;font-size:20px}
+/* वाक्य-कार्ड */
+.kkb-counter{display:flex;justify-content:space-between;align-items:center;font-size:16px;color:#475569;margin:2px 0 10px;gap:8px}
+.kkb-counter button{color:#0B1F3A;text-decoration:underline;text-underline-offset:3px}
+.kkb-prog{height:6px;background:#E3E7EE;border-radius:3px;overflow:hidden;margin-bottom:14px}
+.kkb-prog i{display:block;height:100%;background:#F9A825}
+.kkb-sent{background:#fff;border:1px solid #E3E7EE;border-radius:20px;padding:20px 18px 18px;position:relative;min-height:260px;display:flex;flex-direction:column}
+.kkb-chip{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:800;padding:5px 12px;border-radius:999px;align-self:flex-start}
+.kkb-chip.kkb-S{background:#F9A825;color:#0B1F3A}
+.kkb-chip.kkb-L{background:#0B1F3A;color:#fff}
+.kkb-chip small{font-weight:600;opacity:.85;font-size:16px}
+.kkb-dev{font-size:29px;font-weight:800;line-height:1.35;margin:16px 0 8px;color:#0B1F3A}
+.kkb-hi{font-size:19px;color:#1E2E4F;margin:0 0 8px}
+.kkb-en{font-size:16px;color:#475569;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.kkb-en.kkb-hidden{visibility:hidden}
+.kkb-speak{display:flex;gap:10px;margin-top:auto;padding-top:16px}
+.kkb-speak .kkb-big{flex:1;min-height:64px;border-radius:16px;background:#F9A825;color:#0B1F3A;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;gap:8px}
+.kkb-speak .kkb-big.kkb-slow{background:#fff;border:2px solid #F9A825;color:#0B1F3A}
+.kkb-speak .kkb-big .kkb-ic{font-size:24px}
+.kkb-mic{margin-top:10px}
+.kkb-heard{margin-top:10px;padding:12px 14px;border-radius:12px;background:#F5F7FA;font-size:16px}
+.kkb-heard.kkb-ok{background:#E6F4EC;color:#2E7D32;font-weight:700}
+.kkb-heard.kkb-bad{background:#FDECEA;color:#B42318;font-weight:700}
+.kkb-nav{display:flex;gap:10px;margin-top:14px}
+.kkb-tools{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:16px;flex-wrap:wrap;gap:8px}
+.kkb-tools button{color:#0B1F3A;text-decoration:underline;text-underline-offset:3px;padding:6px 0}
+/* सूची-रूप */
+.kkb-list{display:flex;flex-direction:column;gap:8px}
+.kkb-li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #E3E7EE;border-radius:12px;padding:10px 12px}
+.kkb-li .kkb-tag{width:44px;height:44px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800}
+.kkb-li .kkb-tag.kkb-S{background:#F9A825;color:#0B1F3A}
+.kkb-li .kkb-tag.kkb-L{background:#0B1F3A;color:#fff}
+.kkb-li .kkb-l1{font-weight:800;font-size:17px}
+.kkb-li .kkb-l2{font-size:16px;color:#1E2E4F}
+.kkb-li .kkb-l3{font-size:16px;color:#475569;font-family:Inter,system-ui,sans-serif}
+.kkb-li .kkb-sp{margin-left:auto;width:44px;height:44px;border-radius:50%;background:#F5F7FA;font-size:20px;flex:none}
+/* अभ्यास */
+.kkb-modes{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.kkb-mode{display:flex;gap:14px;align-items:center;background:#fff;border:2px solid #E3E7EE;border-radius:14px;padding:14px;text-align:left;width:100%}
+.kkb-mode .kkb-ic{font-size:28px}
+.kkb-mode b{display:block}
+.kkb-mode span{font-size:16px;color:#475569}
+.kkb-prompt{font-size:26px;font-weight:800;line-height:1.35;margin:14px 0}
+.kkb-answer{border-top:2px dashed #E3E7EE;margin-top:8px;padding-top:12px}
+.kkb-score{text-align:center;padding:24px 10px}
+.kkb-score .kkb-n{font-size:56px;font-weight:800;line-height:1}
+.kkb-score .kkb-l{color:#475569}
+/* फोन-टेस्ट */
+.kkb-tstep{display:flex;gap:12px;margin-bottom:12px}
+.kkb-tstep .kkb-k{width:34px;height:34px;border-radius:50%;background:#0B1F3A;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;font-size:16px}
+.kkb-callbox{background:#fff;border:2px solid #F9A825;border-radius:14px;padding:14px}
+.kkb-line{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #E3E7EE}
+.kkb-line:last-child{border-bottom:0}
+.kkb-line .kkb-tx{flex:1}
+.kkb-line .kkb-tx b{display:block;font-size:17px}
+.kkb-line .kkb-tx span{font-size:16px;color:#475569;font-family:Inter,system-ui,sans-serif}
+.kkb-line .kkb-sp{width:44px;height:44px;border-radius:50%;background:#F9A825;font-size:18px;flex:none}
+.kkb-check{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #E3E7EE}
+.kkb-check input{width:24px;height:24px;margin-top:2px;flex:none;accent-color:#2E7D32}
+.kkb-check label{flex:1}
+.kkb-note{background:#FFF7DF;border-left:4px solid #F9A825;padding:10px 12px;border-radius:8px;font-size:16px;margin:12px 0}
+.kkb-result{border-radius:14px;padding:16px;text-align:center;margin-top:14px;font-weight:800;font-size:18px}
+.kkb-result.kkb-pass{background:#E6F4EC;color:#2E7D32}
+.kkb-result.kkb-fail{background:#FDECEA;color:#B42318}
+.kkb-foot{padding:14px 16px 18px;font-size:16px;color:#475569;text-align:center}
+.kkb-foot button{text-decoration:underline;color:#475569}
+@media (prefers-reduced-motion:no-preference){.kkb-sent{animation:kkbIn .18s ease-out}@keyframes kkbIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
