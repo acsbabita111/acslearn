@@ -1,5 +1,6 @@
 /* ============================================================
    /assets/kkb.js — v0.2 (26-Aug-2026) · "ACS काम की भाषा" कोर्स-इंजन — भाषा-निरपेक्ष (एक इंजन, हर भाषा)
+   v0.4: अरबी (kkb_ar_data.js) — script "arabic": RTL प्रदर्शन (DIRw हेल्पर) + माइक-जाँच में अरबी विराम-चिह्न भी हटें।
    v0.3: चीनी/Mandarin (kkb_zh_data.js) — script "han": अक्षर-दर-अक्षर मिलान; spoken() अंत का (pinyin) आवाज़/माइक से काटे;
          दिन-7 के data-खाने testShort/testStep1/testStep2/check1 (जहाँ IVR नहीं)।
    v0.2: भाषा-खाना data से (lang.code/label/tts/sr/script) — English (kkb_data.js) व कन्नड (kkb_kn_data.js) एक ही इंजन;
@@ -25,6 +26,8 @@
   var HELP = DATA.help || [];
   var STORE_KEY = "acs_kkb_" + LANG.code + "_v01";
   function spoken(t) { return String(t).replace(/\s*\([^()]*\)\s*$/, ""); } /* अंत का (pinyin/नोट) आवाज़-माइक में नहीं */
+  var RTL = LANG.script === "arabic";
+  function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* लक्ष्य-भाषा वाले खाने पर — देवनागरी/हिंदी हमेशा LTR रहें */
   ROOT.setAttribute("data-script", LANG.script || "latin");
 
   /* ---- ढाँचा ---- */
@@ -65,7 +68,7 @@
   /* ---- माइक-जाँच ---- */
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   function norm(s) {
-    s = spoken(s).toLowerCase().replace(/[.,!?;:"'“”‘’()\-।॥_。，！？、；：]/g, " ");
+    s = spoken(s).toLowerCase().replace(/[.,!?;:"'“”‘’()\-।॥_。，！？、；：؟،؛]/g, " "); /* अंत में अरबी ؟ (सवाल) ، (कॉमा) ؛ (सेमीकोलन) भी */
     if (LANG.script === "han") return s.replace(/\s+/g, "").split("").filter(Boolean); /* चीनी: अक्षर-दर-अक्षर */
     return s.split(/\s+/).filter(Boolean);
   }
@@ -167,7 +170,7 @@
       '<div class="kkb-prog"><i style="width:' + Math.round((idx + 1) / 20 * 100) + '%"></i></div>' +
       '<div class="kkb-sent">' + chip +
       '<div class="kkb-dev">' + esc(it[1]) + '</div><div class="kkb-hi">' + esc(it[2]) + '</div>' +
-      '<div class="kkb-en' + (showEN ? "" : " kkb-hidden") + '">' + esc(it[0]) + '</div>' +
+      '<div class="kkb-en' + (showEN ? "" : " kkb-hidden") + '"' + DIRw() + '>' + esc(it[0]) + '</div>' +
       '<div class="kkb-speak"><button type="button" class="kkb-big kkb-slow" onclick="kkbSay(' + jsArg(it[0]) + ',true)"><span class="kkb-ic">🔊</span>धीरे सुनो</button>' +
       '<button type="button" class="kkb-big" onclick="kkbSay(' + jsArg(it[0]) + ',false)"><span class="kkb-ic">🔊</span>सुनो</button></div>' +
       '<button type="button" class="kkb-btn kkb-ghost kkb-mic" onclick="kkbListen(' + jsArg(it[0]) + ')">🎤 बोलकर जाँचो</button>' +
@@ -182,7 +185,7 @@
     var D = DATA.weeks[w - 1].days[d - 1];
     $("kkb-main").innerHTML = '<div class="kkb-counter"><span>' + D.title + '</span><button type="button" onclick="kkbCard(' + w + ',' + d + ',0,false)">एक-एक करके ›</button></div>' +
       '<div class="kkb-list">' + D.items.map(function (it) {
-        return '<div class="kkb-li"><div class="kkb-tag kkb-' + it[3] + '">' + (it[3] === "S" ? "बोलो" : "सुनो") + '</div><div><div class="kkb-l1">' + esc(it[1]) + '</div><div class="kkb-l2">' + esc(it[2]) + '</div><div class="kkb-l3' + (showEN ? "" : " kkb-hidden") + '">' + esc(it[0]) + '</div></div>' +
+        return '<div class="kkb-li"><div class="kkb-tag kkb-' + it[3] + '">' + (it[3] === "S" ? "बोलो" : "सुनो") + '</div><div><div class="kkb-l1">' + esc(it[1]) + '</div><div class="kkb-l2">' + esc(it[2]) + '</div><div class="kkb-l3' + (showEN ? "" : " kkb-hidden") + '"' + DIRw() + '>' + esc(it[0]) + '</div></div>' +
           '<button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(it[0]) + ',false)" aria-label="सुनो">🔊</button></div>';
       }).join("") + '</div>' +
       '<div class="kkb-nav"><button type="button" class="kkb-btn kkb-primary" onclick="kkbDone(\'w' + w + 'd' + d + '\',\'#w' + w + '\')">✔ आज का पाठ पूरा</button></div>';
@@ -222,7 +225,7 @@
     var it = q[i];
     var prompt = mode === "A" ? '<div class="kkb-prompt">' + esc(it[2]) + '</div><p class="kkb-muted">अब ' + L + ' में ज़ोर से बोलिए।</p>'
       : '<button type="button" class="kkb-btn kkb-primary" onclick="kkbSay(' + jsArg(it[0]) + ',false)">🔊 सुनो</button><p class="kkb-muted" style="margin-top:10px">सुनकर हिंदी में मतलब बोलिए।</p>';
-    var answer = PR.shown ? '<div class="kkb-answer"><div class="kkb-dev" style="font-size:24px;margin:6px 0">' + esc(it[1]) + '</div><div class="kkb-hi">' + esc(it[2]) + '</div><div class="kkb-en">' + esc(it[0]) + '</div>' +
+    var answer = PR.shown ? '<div class="kkb-answer"><div class="kkb-dev" style="font-size:24px;margin:6px 0">' + esc(it[1]) + '</div><div class="kkb-hi">' + esc(it[2]) + '</div><div class="kkb-en"' + DIRw() + '>' + esc(it[0]) + '</div>' +
       '<div class="kkb-grid2" style="margin-top:14px"><button type="button" class="kkb-btn kkb-ghost" onclick="kkbPr(\'no\')">✘ गलत था</button><button type="button" class="kkb-btn kkb-primary" onclick="kkbPr(\'ok\')">✔ सही था</button></div></div>'
       : '<div class="kkb-nav"><button type="button" class="kkb-btn kkb-dark" onclick="kkbPr(\'show\')">जवाब देखो</button></div>';
     $("kkb-main").innerHTML = '<div class="kkb-counter"><span>' + (mode === "A" ? "हिंदी → " + L : L + " → हिंदी") + '</span><span><b>' + (i + 1) + '</b> / ' + q.length + ' · सही ' + ok + '</span></div>' +
@@ -242,7 +245,7 @@
       '<div class="kkb-tstep"><div class="kkb-k">2</div><div>' + (DATA.testStep2 || ('<b>IVR में ' + L + ' चुनिए।</b> <span class="kkb-small kkb-muted">फ़ोन उठते ही भाषा-चुनाव की आवाज़ आती है — उसमें ' + L + ' वाला नंबर दबाइए।</span>')) + '</div></div>' +
       '<div class="kkb-tstep"><div class="kkb-k">3</div><div><b>ये वाक्य बोलिए।</b> <span class="kkb-small kkb-muted">' + T.goal + '</span></div></div>' +
       '<div class="kkb-callbox">' + T.lines.map(function (l) {
-        return '<div class="kkb-line"><div class="kkb-tx"><b>' + esc(l[1]) + '</b><span>' + esc(l[0]) + '</span></div><button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(l[0].replace(/___/g, "Ram")) + ',true)" aria-label="सुनो">🔊</button></div>';
+        return '<div class="kkb-line"><div class="kkb-tx"><b>' + esc(l[1]) + '</b><span' + DIRw() + '>' + esc(l[0]) + '</span></div><button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(l[0].replace(/___/g, "Ram")) + ',true)" aria-label="सुनो">🔊</button></div>';
       }).join("") + '</div>' +
       '<div class="kkb-note">समझ न आए तो घबराइए नहीं: ' + helpTxt + ' — यही असली test है।</div>' +
       '<div class="kkb-tstep"><div class="kkb-k">4</div><div><b>कॉल के बाद ईमानदारी से टिक कीजिए।</b></div></div>' +
