@@ -67,6 +67,7 @@
 .kkb-en{font-size:16px;color:#475569;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .kkb-en.kkb-hidden{visibility:hidden}
 /* v0.2: लक्ष्य-भाषा की लिपि (कन्नड आदि) — system font, थोड़ा बड़ा */
+.kkb-app[data-script="han"] .kkb-en,.kkb-app[data-script="han"] .kkb-l3,.kkb-app[data-script="han"] .kkb-line .kkb-tx span{font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
 .kkb-app[data-script="kannada"] .kkb-en,.kkb-app[data-script="kannada"] .kkb-l3,.kkb-app[data-script="kannada"] .kkb-line .kkb-tx span{font-family:"Noto Sans Kannada","Tunga",system-ui,sans-serif;font-size:18px;color:#1E2E4F}
 .kkb-speak{display:flex;gap:10px;margin-top:auto;padding-top:16px}
 .kkb-speak .kkb-big{flex:1;min-height:64px;border-radius:16px;background:#F9A825;color:#0B1F3A;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;gap:8px}

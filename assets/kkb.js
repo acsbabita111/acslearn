@@ -1,5 +1,7 @@
 /* ============================================================
    /assets/kkb.js — v0.2 (26-Aug-2026) · "ACS काम की भाषा" कोर्स-इंजन — भाषा-निरपेक्ष (एक इंजन, हर भाषा)
+   v0.3: चीनी/Mandarin (kkb_zh_data.js) — script "han": अक्षर-दर-अक्षर मिलान; spoken() अंत का (pinyin) आवाज़/माइक से काटे;
+         दिन-7 के data-खाने testShort/testStep1/testStep2/check1 (जहाँ IVR नहीं)।
    v0.2: भाषा-खाना data से (lang.code/label/tts/sr/script) — English (kkb_data.js) व कन्नड (kkb_kn_data.js) एक ही इंजन;
          वही ACS-GSU id दोनों भाषाओं में = एक intent (साझा-भाषा नियम)। प्रगति-कुंजी भाषा-वार।
    data: window.KKB_DATA (पेज अपनी भाषा की एक data-फ़ाइल बुलाए) · सजावट: /assets/kkb.css
@@ -22,6 +24,7 @@
   var L = LANG.label, BRAND = DATA.brand || "ACS काम की भाषा", SUB = DATA.sub || (L + " for Work");
   var HELP = DATA.help || [];
   var STORE_KEY = "acs_kkb_" + LANG.code + "_v01";
+  function spoken(t) { return String(t).replace(/\s*\([^()]*\)\s*$/, ""); } /* अंत का (pinyin/नोट) आवाज़-माइक में नहीं */
   ROOT.setAttribute("data-script", LANG.script || "latin");
 
   /* ---- ढाँचा ---- */
@@ -53,7 +56,7 @@
   function say(text, slow) {
     if (!("speechSynthesis" in window)) { alert("इस फ़ोन/ब्राउज़र में आवाज़ नहीं है। Chrome में खोलें।"); return; }
     speechSynthesis.cancel();
-    var u = new SpeechSynthesisUtterance(text);
+    var u = new SpeechSynthesisUtterance(spoken(text));
     u.lang = LANG.tts; if (voice) u.voice = voice; u.rate = slow ? 0.7 : 0.95; u.pitch = 1;
     speechSynthesis.speak(u);
   }
@@ -61,7 +64,11 @@
 
   /* ---- माइक-जाँच ---- */
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  function norm(s) { return String(s).toLowerCase().replace(/[.,!?;:"'“”‘’()\-।॥_]/g, " ").split(/\s+/).filter(Boolean); }
+  function norm(s) {
+    s = spoken(s).toLowerCase().replace(/[.,!?;:"'“”‘’()\-।॥_。，！？、；：]/g, " ");
+    if (LANG.script === "han") return s.replace(/\s+/g, "").split("").filter(Boolean); /* चीनी: अक्षर-दर-अक्षर */
+    return s.split(/\s+/).filter(Boolean);
+  }
   function similarity(a, b) {
     var A = norm(a), B = norm(b); if (!A.length) return 0;
     var hit = 0, used = {};
@@ -137,7 +144,7 @@
         '<div><div class="kkb-dt">' + d.title + '</div><div class="kkb-ds">20 वाक्य · लगभग 10 मिनट</div></div>' + (P[k] ? '<div class="kkb-done">✔</div>' : "") + '</button>';
     });
     days += '<button type="button" class="kkb-day kkb-practice" onclick="kkbGo(\'#w' + w + 'p\')"><div class="kkb-dn">दिन<br>6</div><div><div class="kkb-dt">अभ्यास</div><div class="kkb-ds">इस सप्ताह के 100 वाक्यों में से 20 — बिना देखे बोलो</div></div>' + (P["w" + w + "p"] ? '<div class="kkb-done">✔</div>' : "") + '</button>';
-    days += '<button type="button" class="kkb-day kkb-test" onclick="kkbGo(\'#w' + w + 't\')"><div class="kkb-dn">📞</div><div><div class="kkb-dt">दिन 7 · फ़ोन टेस्ट</div><div class="kkb-ds">अपने मोबाइल से customer care को कॉल करके ' + L + ' में बात</div></div>' + (P["w" + w + "t"] !== undefined ? '<div class="kkb-done">' + P["w" + w + "t"] + '/10</div>' : "") + '</button>';
+    days += '<button type="button" class="kkb-day kkb-test" onclick="kkbGo(\'#w' + w + 't\')"><div class="kkb-dn">📞</div><div><div class="kkb-dt">दिन 7 · फ़ोन टेस्ट</div><div class="kkb-ds">' + (DATA.testShort || ('अपने मोबाइल से customer care को कॉल करके ' + L + ' में बात')) + '</div></div>' + (P["w" + w + "t"] !== undefined ? '<div class="kkb-done">' + P["w" + w + "t"] + '/10</div>' : "") + '</button>';
     $("kkb-main").innerHTML = '<h1>' + W.title + '</h1><p class="kkb-muted">' + W.hi + '। एक दिन में एक पाठ। पहले सुनो, फिर ज़ोर से बोलो, फिर अगला।</p><div class="kkb-days">' + days + '</div>';
   }
 
@@ -223,7 +230,7 @@
   }
 
   /* ---- फ़ोन-टेस्ट (दिन 7) ---- */
-  var CHECKS = ["IVR में " + L + " विकल्प चुना", "अभिवादन " + L + " में किया", "अपना नाम " + L + " में बताया", "अपनी बात या समस्या " + L + " में कही", "सामने वाले की बात समझ में आई", "न समझने पर " + L + " में दोहराने को कहा", "हिंदी में बदलने की ज़रूरत नहीं पड़ी (या पड़ी तो फिर " + L + " में लौटा)", "नंबर, राशि या तारीख़ समझ में आई", "अंत में " + L + " में धन्यवाद कहा", "कॉल पूरी होने तक बात की, बीच में नहीं काटी"];
+  var CHECKS = [DATA.check1 || ("IVR में " + L + " विकल्प चुना"), "अभिवादन " + L + " में किया", "अपना नाम " + L + " में बताया", "अपनी बात या समस्या " + L + " में कही", "सामने वाले की बात समझ में आई", "न समझने पर " + L + " में दोहराने को कहा", "हिंदी में बदलने की ज़रूरत नहीं पड़ी (या पड़ी तो फिर " + L + " में लौटा)", "नंबर, राशि या तारीख़ समझ में आई", "अंत में " + L + " में धन्यवाद कहा", "कॉल पूरी होने तक बात की, बीच में नहीं काटी"];
   function renderTest(w) {
     var W = DATA.weeks[w - 1]; if (!W) return renderHome();
     var T = W.test, prev = P["w" + w + "t"];
@@ -231,8 +238,8 @@
     var wa = "https://wa.me/" + TRAINER_WA + "?text=" + encodeURIComponent(BRAND + " (" + SUB + ") — सप्ताह " + w + " फ़ोन टेस्ट। मेरा स्कोर: __/10। कॉल का voice note साथ भेज रहा हूँ।");
     var helpTxt = HELP.map(function (h) { return "<b>“" + esc(h[1]) + "”</b>"; }).join(" या ");
     $("kkb-main").innerHTML = '<h1>फ़ोन टेस्ट</h1><p class="kkb-muted">आज असली इंसान से ' + L + ' में बात। सिर्फ़ अपना फ़ोन चाहिए।</p>' +
-      '<div class="kkb-tstep"><div class="kkb-k">1</div><div><b>कॉल कीजिए:</b> ' + T.target + '।<br><span class="kkb-small kkb-muted">कॉल का सच्चा मक़सद रखिए — customer care का समय व्यर्थ न करें।</span></div></div>' +
-      '<div class="kkb-tstep"><div class="kkb-k">2</div><div><b>IVR में ' + L + ' चुनिए।</b> <span class="kkb-small kkb-muted">फ़ोन उठते ही भाषा-चुनाव की आवाज़ आती है — उसमें ' + L + ' वाला नंबर दबाइए।</span></div></div>' +
+      '<div class="kkb-tstep"><div class="kkb-k">1</div><div><b>कॉल कीजिए:</b> ' + T.target + '।<br><span class="kkb-small kkb-muted">' + (DATA.testStep1 || 'कॉल का सच्चा मक़सद रखिए — customer care का समय व्यर्थ न करें।') + '</span></div></div>' +
+      '<div class="kkb-tstep"><div class="kkb-k">2</div><div>' + (DATA.testStep2 || ('<b>IVR में ' + L + ' चुनिए।</b> <span class="kkb-small kkb-muted">फ़ोन उठते ही भाषा-चुनाव की आवाज़ आती है — उसमें ' + L + ' वाला नंबर दबाइए।</span>')) + '</div></div>' +
       '<div class="kkb-tstep"><div class="kkb-k">3</div><div><b>ये वाक्य बोलिए।</b> <span class="kkb-small kkb-muted">' + T.goal + '</span></div></div>' +
       '<div class="kkb-callbox">' + T.lines.map(function (l) {
         return '<div class="kkb-line"><div class="kkb-tx"><b>' + esc(l[1]) + '</b><span>' + esc(l[0]) + '</span></div><button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(l[0].replace(/___/g, "Ram")) + ',true)" aria-label="सुनो">🔊</button></div>';
