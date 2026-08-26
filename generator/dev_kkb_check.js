@@ -25,7 +25,8 @@ const KKB_SETS = [
   { code: "ar", data: "assets/kkb_ar_data.js", page: "courses/hi/bhasha/arabic/index.html", old: "courses/hi/kaam-ki-bhasha-arabic/index.html", id: "PJ022", url: "/courses/hi/bhasha/arabic/" },
   { code: "bn", data: "assets/kkb_bn_data.js", page: "courses/hi/bhasha/bengali/index.html", id: "PJ023", url: "/courses/hi/bhasha/bengali/" },
   { code: "pt", data: "assets/kkb_pt_data.js", page: "courses/hi/bhasha/portuguese/index.html", id: "PJ024", url: "/courses/hi/bhasha/portuguese/" },
-  { code: "id", data: "assets/kkb_id_data.js", page: "courses/hi/bhasha/indonesian/index.html", id: "PJ025", url: "/courses/hi/bhasha/indonesian/" }
+  { code: "id", data: "assets/kkb_id_data.js", page: "courses/hi/bhasha/indonesian/index.html", id: "PJ025", url: "/courses/hi/bhasha/indonesian/" },
+  { code: "ja", data: "assets/kkb_ja_data.js", page: "courses/hi/bhasha/japanese/index.html", id: "PJ026", url: "/courses/hi/bhasha/japanese/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
