@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v1.3 (26-Aug-2026; + Spanish es) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v1.5 (26-Aug-2026; + भाषा-नाम नियम व देवनागरी-लिपि नियम) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -21,7 +21,8 @@ const KKB_SETS = [
   { code: "en", data: "assets/kkb_data.js", page: "courses/hi/kaam-ki-bhasha/index.html", id: "PJ018", url: "/courses/hi/kaam-ki-bhasha/" },
   { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/kaam-ki-bhasha-kannada/index.html", id: "PJ019", url: "/courses/hi/kaam-ki-bhasha-kannada/" },
   { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/kaam-ki-bhasha-mandarin/index.html", id: "PJ020", url: "/courses/hi/kaam-ki-bhasha-mandarin/" },
-  { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/kaam-ki-bhasha-spanish/index.html", id: "PJ021", url: "/courses/hi/kaam-ki-bhasha-spanish/" }
+  { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/kaam-ki-bhasha-spanish/index.html", id: "PJ021", url: "/courses/hi/kaam-ki-bhasha-spanish/" },
+  { code: "ar", data: "assets/kkb_ar_data.js", page: "courses/hi/kaam-ki-bhasha-arabic/index.html", id: "PJ022", url: "/courses/hi/kaam-ki-bhasha-arabic/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
@@ -53,6 +54,12 @@ let total = 0;
       ok(Array.isArray(it) && it.length === 4 && it.every(x => typeof x === "string" && x.trim()), "वाक्य " + total + ": 4 खाने भरे नहीं");
       ok(it[3] === "S" || it[3] === "L", "वाक्य " + total + ": दिशा S/L नहीं");
       ok(!/[\[\]]/.test(it.join(" ")), "वाक्य " + total + ": square bracket");
+      /* भाषा-नाम नियम (26-Aug, चौथी बार पकड़े होल से): English-आधार से हिंदी-अर्थ हूबहू उठता है, पर
+         "मैं थोड़ी अंग्रेज़ी बोलता हूँ" जैसे वाक्यों में भाषा-नाम लक्ष्य-भाषा का होना चाहिए —
+         गैर-English सेट में हिंदी-अर्थ में "अंग्रेज़ी" = अर्थ-होल (चीनी/Spanish/अरबी तीनों में मिला था)। */
+      if (SET.code !== "en") ok(!/अंग्रेज़ी|अंग्रेजी|English/.test(it[2]), tag + "वाक्य " + total + ": हिंदी-अर्थ में 'अंग्रेज़ी' — लक्ष्य-भाषा का नाम चाहिए");
+      /* लिपि-नियम: देवनागरी-खाने में Roman अक्षर नहीं (___ रिक्त-स्थान छोड़कर) */
+      ok(!/[A-Za-z]/.test(String(it[1]).replace(/___/g, "")), tag + "वाक्य " + total + ": देवनागरी-खाने में Roman अक्षर");
     });
   });
   const T = w.test;
