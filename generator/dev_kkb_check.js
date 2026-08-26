@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v1.2 (26-Aug-2026; + चीनी zh) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v1.3 (26-Aug-2026; + Spanish es) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -20,7 +20,8 @@ const ok = (c, m) => { if (!c) fails.push(m); };
 const KKB_SETS = [
   { code: "en", data: "assets/kkb_data.js", page: "courses/hi/kaam-ki-bhasha/index.html", id: "PJ018", url: "/courses/hi/kaam-ki-bhasha/" },
   { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/kaam-ki-bhasha-kannada/index.html", id: "PJ019", url: "/courses/hi/kaam-ki-bhasha-kannada/" },
-  { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/kaam-ki-bhasha-mandarin/index.html", id: "PJ020", url: "/courses/hi/kaam-ki-bhasha-mandarin/" }
+  { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/kaam-ki-bhasha-mandarin/index.html", id: "PJ020", url: "/courses/hi/kaam-ki-bhasha-mandarin/" },
+  { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/kaam-ki-bhasha-spanish/index.html", id: "PJ021", url: "/courses/hi/kaam-ki-bhasha-spanish/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
