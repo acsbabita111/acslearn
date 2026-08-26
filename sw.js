@@ -11,7 +11,7 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v346'; // 26-Aug: "काम की भाषा" कोर्स (PJ018) — courses_data.js बदला (cache-first) + नए kkb_data/kkb.js/kkb.css
+const CACHE_VERSION = 'v347'; // 26-Aug: "काम की भाषा" कोर्स — English (PJ018) + कन्नड (PJ019, kkb_kn_data.js) — courses_data.js/kkb.js/kkb.css बदले (cache-first)
 // पुराना: const CACHE_VERSION = 'v345'; // 25-Aug: वेल्डिंग 630 quiz-shards k04-k12 + wld-progress v1.1 (12 हिस्से) + exam_data/sitemap
 // पुराना: const CACHE_VERSION = 'v344'; // 19-Aug: वेल्डिंग quiz/प्रगति (wld-progress.js नया, exam_data/dashboard बदले)
 // पुराना: const CACHE_VERSION = 'v343'; // 18-Aug: ई-कॉमर्स मास्टरी 326-पाठ cutover (ecom-progress.js नया, exam_data/dashboard/courses_data बदले)
