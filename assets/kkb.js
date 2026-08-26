@@ -1,5 +1,7 @@
 /* ============================================================
    /assets/kkb.js — v0.2 (26-Aug-2026) · "ACS काम की भाषा" कोर्स-इंजन — भाषा-निरपेक्ष (एक इंजन, हर भाषा)
+   v0.5: जापानी (kkb_ja_data.js) — script "japanese": अक्षर-दर-अक्षर मिलान ("han" जैसा — जापानी में भी शब्दों के बीच space नहीं);
+         रोमाजी कोष्ठक में — spoken()/norm() दोनों उसे पहले ही काट देते हैं (चीनी-pinyin वाला नियम सामान्य है, भाषा-विशेष नहीं)।
    v0.4: अरबी (kkb_ar_data.js) — script "arabic": RTL प्रदर्शन (DIRw हेल्पर) + माइक-जाँच में अरबी विराम-चिह्न भी हटें।
    v0.3: चीनी/Mandarin (kkb_zh_data.js) — script "han": अक्षर-दर-अक्षर मिलान; spoken() अंत का (pinyin) आवाज़/माइक से काटे;
          दिन-7 के data-खाने testShort/testStep1/testStep2/check1 (जहाँ IVR नहीं)।
@@ -69,7 +71,7 @@
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   function norm(s) {
     s = spoken(s).toLowerCase().replace(/[.,!?;:"'“”‘’()\-।॥_。，！？、；：؟،؛]/g, " "); /* अंत में अरबी ؟ (सवाल) ، (कॉमा) ؛ (सेमीकोलन) भी */
-    if (LANG.script === "han") return s.replace(/\s+/g, "").split("").filter(Boolean); /* चीनी: अक्षर-दर-अक्षर */
+    if (LANG.script === "han" || LANG.script === "japanese") return s.replace(/\s+/g, "").split("").filter(Boolean); /* चीनी/जापानी: अक्षर-दर-अक्षर (कोई शब्द-space नहीं) */
     return s.split(/\s+/).filter(Boolean);
   }
   function similarity(a, b) {
