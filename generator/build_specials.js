@@ -1,5 +1,6 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
+   v1.10 · 26-Aug-2026 (काम की भाषा: + इंडोनेशियाई /courses/hi/bhasha/indonesian/ — KKB_LANGS में आठवीं पंक्ति; video-call टेस्ट)
    v1.9 · 26-Aug-2026 (काम की भाषा: + पुर्तगाली /courses/hi/bhasha/portuguese/ — KKB_LANGS में सातवीं पंक्ति; video-call टेस्ट, कोई CSS-नियम नहीं चाहिए)
    v1.8 · 26-Aug-2026 (काम की भाषा: + बांग्ला /courses/hi/bhasha/bengali/ — KKB_LANGS में छठी पंक्ति; IVR-मॉडल, redirect नहीं)
    v1.7 · 26-Aug-2026 (काम की भाषा: bhasha-परिवार-folder — पाँचों कोर्स /courses/hi/bhasha/<भाषा>/ पर; पुराने पतों पर redirect-पर्ची kkbRedirect)
@@ -644,7 +645,11 @@ const KKB_LANGS = [
   { code: "pt", label: "पुर्तगाली", h1: "पुर्तगाली बोलना सीखें (Portuguese for Work — ब्राज़ील, अंगोला, मोज़ाम्बीक)", data: "/assets/kkb_pt_data.js", out: "courses/hi/bhasha/portuguese/index.html",
     title: "ACS काम की भाषा — पुर्तगाली बोलना सीखें (Portuguese for Work, ब्राज़ील/अंगोला/मोज़ाम्बीक, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से पुर्तगाली बोलना सीखें — ब्राज़ील, अंगोला या मोज़ाम्बीक में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
-    line1: "यह पुर्तगाली (Portuguese) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो ब्राज़ील, अंगोला या मोज़ाम्बीक में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
+    line1: "यह पुर्तगाली (Portuguese) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो ब्राज़ील, अंगोला या मोज़ाम्बीक में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
+  { code: "id", label: "इंडोनेशियाई", h1: "इंडोनेशियाई बोलना सीखें (Indonesian/Bahasa for Work)", data: "/assets/kkb_id_data.js", out: "courses/hi/bhasha/indonesian/index.html",
+    title: "ACS काम की भाषा — इंडोनेशियाई बोलना सीखें (Bahasa Indonesia for Work, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
+    desc: "हिंदी से इंडोनेशियाई (Bahasa Indonesia) बोलना सीखें — इंडोनेशिया में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
+    line1: "यह इंडोनेशियाई (Bahasa Indonesia) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो इंडोनेशिया में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
 ];
 function kkbContent(c) {
   return '<section class="kkb-intro" style="max-width:560px;margin:18px auto 0;padding:0 16px;color:#fff">' +
