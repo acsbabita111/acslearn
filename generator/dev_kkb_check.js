@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v1.5 (26-Aug-2026; + भाषा-नाम नियम व देवनागरी-लिपि नियम) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v1.6 (26-Aug-2026; + bhasha-परिवार पते व redirect-पर्ची जाँच) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -18,11 +18,11 @@ const R = f => fs.readFileSync(path.join(ROOT, f), "utf8");
 const fails = [];
 const ok = (c, m) => { if (!c) fails.push(m); };
 const KKB_SETS = [
-  { code: "en", data: "assets/kkb_data.js", page: "courses/hi/kaam-ki-bhasha/index.html", id: "PJ018", url: "/courses/hi/kaam-ki-bhasha/" },
-  { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/kaam-ki-bhasha-kannada/index.html", id: "PJ019", url: "/courses/hi/kaam-ki-bhasha-kannada/" },
-  { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/kaam-ki-bhasha-mandarin/index.html", id: "PJ020", url: "/courses/hi/kaam-ki-bhasha-mandarin/" },
-  { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/kaam-ki-bhasha-spanish/index.html", id: "PJ021", url: "/courses/hi/kaam-ki-bhasha-spanish/" },
-  { code: "ar", data: "assets/kkb_ar_data.js", page: "courses/hi/kaam-ki-bhasha-arabic/index.html", id: "PJ022", url: "/courses/hi/kaam-ki-bhasha-arabic/" }
+  { code: "en", data: "assets/kkb_data.js", page: "courses/hi/bhasha/english/index.html", old: "courses/hi/kaam-ki-bhasha/index.html", id: "PJ018", url: "/courses/hi/bhasha/english/" },
+  { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/bhasha/kannada/index.html", old: "courses/hi/kaam-ki-bhasha-kannada/index.html", id: "PJ019", url: "/courses/hi/bhasha/kannada/" },
+  { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/bhasha/mandarin/index.html", old: "courses/hi/kaam-ki-bhasha-mandarin/index.html", id: "PJ020", url: "/courses/hi/bhasha/mandarin/" },
+  { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/bhasha/spanish/index.html", old: "courses/hi/kaam-ki-bhasha-spanish/index.html", id: "PJ021", url: "/courses/hi/bhasha/spanish/" },
+  { code: "ar", data: "assets/kkb_ar_data.js", page: "courses/hi/bhasha/arabic/index.html", old: "courses/hi/kaam-ki-bhasha-arabic/index.html", id: "PJ022", url: "/courses/hi/bhasha/arabic/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
@@ -108,6 +108,16 @@ if (fs.existsSync(path.join(ROOT, PAGE))) {
   ok(pg.includes("मूल भाषा: हिंदी"), "मूल-भाषा निशान नहीं");
   const vis = pg.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<style[\s\S]*?<\/style>/g, " ").replace(/<[^>]+>/g, " ");
   ok(!/[\[\]]/.test(vis), "पेज के दिखने वाले पाठ में square bracket");
+}
+
+/* (5b) redirect-पर्ची: पुराना पता → नया (noindex + canonical + refresh), universal ढाँचा नहीं */
+if (SET.old) {
+  ok(fs.existsSync(path.join(ROOT, SET.old)), tag + "redirect-पर्ची नहीं: " + SET.old);
+  if (fs.existsSync(path.join(ROOT, SET.old))) {
+    const rd = R(SET.old);
+    ok(rd.includes('content="0; url=' + SET.url + '"') && rd.includes('canonical" href="https://acslearn.com' + SET.url + '"') && rd.includes("noindex"), tag + "redirect-पर्ची ग़लत पते/robots पर");
+    ok(!rd.includes("/assets/acs-universal.js"), tag + "redirect-पर्ची universal ढाँचे पर है — sitemap में घुस जाएगी");
+  }
 }
 
 /* (6) courses_data + READY_IDS */
