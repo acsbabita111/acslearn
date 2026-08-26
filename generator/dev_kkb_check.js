@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v1.9 (26-Aug-2026; + इंडोनेशियाई id) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v2.1 (26-Aug-2026; + जापानी ja, + मराठी mr — mr में it[0]/it[1] same-script भाषा में एक-से हो सकते हैं) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -26,7 +26,8 @@ const KKB_SETS = [
   { code: "bn", data: "assets/kkb_bn_data.js", page: "courses/hi/bhasha/bengali/index.html", id: "PJ023", url: "/courses/hi/bhasha/bengali/" },
   { code: "pt", data: "assets/kkb_pt_data.js", page: "courses/hi/bhasha/portuguese/index.html", id: "PJ024", url: "/courses/hi/bhasha/portuguese/" },
   { code: "id", data: "assets/kkb_id_data.js", page: "courses/hi/bhasha/indonesian/index.html", id: "PJ025", url: "/courses/hi/bhasha/indonesian/" },
-  { code: "ja", data: "assets/kkb_ja_data.js", page: "courses/hi/bhasha/japanese/index.html", id: "PJ026", url: "/courses/hi/bhasha/japanese/" }
+  { code: "ja", data: "assets/kkb_ja_data.js", page: "courses/hi/bhasha/japanese/index.html", id: "PJ026", url: "/courses/hi/bhasha/japanese/" },
+  { code: "mr", data: "assets/kkb_mr_data.js", page: "courses/hi/bhasha/marathi/index.html", id: "PJ027", url: "/courses/hi/bhasha/marathi/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
