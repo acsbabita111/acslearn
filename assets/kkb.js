@@ -6,7 +6,7 @@
    v0.2: भाषा-खाना data से (lang.code/label/tts/sr/script) — English (kkb_data.js) व कन्नड (kkb_kn_data.js) एक ही इंजन;
          वही ACS-GSU id दोनों भाषाओं में = एक intent (साझा-भाषा नियम)। प्रगति-कुंजी भाषा-वार।
    data: window.KKB_DATA (पेज अपनी भाषा की एक data-फ़ाइल बुलाए) · सजावट: /assets/kkb.css
-   पेज: /courses/hi/kaam-ki-bhasha/ (English) · /courses/hi/kaam-ki-bhasha-kannada/ (कन्नड)
+   पेज: /courses/hi/bhasha/<भाषा>/ (english · kannada · mandarin · spanish · arabic) — परिवार-folder, 26-Aug
    device-local: प्रगति सिर्फ़ फ़ोन में (localStorage) — server पर कुछ नहीं (DPDP)।
    आवाज़: browser की speechSynthesis (en-IN) — असली course में trainer-recording (audio-खाना data में आरक्षित)।
    माइक-जाँच: SpeechRecognition हो तो; न हो तो ईमानदार संदेश (गूँगा-fallback निषेध)।
