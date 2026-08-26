@@ -1,5 +1,6 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
+   v1.3 · 26-Aug-2026 (काम की भाषा: + /courses/hi/kaam-ki-bhasha/index.html — 500-वाक्य speaking-कोर्स demo; kkb_data/kkb.css/kkb.js; उप-folder हेतु mkdir)
    v1.2 · 20-Jul-2026 (नींव-दौर: aptitude-test पन्ने में पूरा-टेस्ट session-द्वार + apt-session.js)\n   v1.1 · 20-Jul-2026 (काम-12: + /aptitude-test.html — अभिरुचि-टेस्ट मुफ़्त-झलक)
    v1.0 · 18-Jul-2026 (काम-9+; + रिज़्यूमे-फ़ोटो: device-local canvas-resize)
    ------------------------------------------------------------
@@ -96,6 +97,7 @@ function buildSpecial(spec) {
   page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
   page = page.replace("</body>", MENU_FALLBACK_JS + "\n" + spec.foot.join("\n") + "\n</body>");
   page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE);
+  fs.mkdirSync(path.dirname(path.join(ROOT, spec.out)), { recursive: true }); /* v1.3: उप-folder पेज */
   fs.writeFileSync(path.join(ROOT, spec.out), page, "utf8");
   console.log("✅ विशेष पेज → /" + spec.out);
 }
@@ -600,6 +602,36 @@ buildSpecial({
     '<script type="module" src="/assets/apt-pay.js"></scr' + 'ipt>'
   ],
   content: SALAH_CONTENT
+});
+
+/* ===================== काम की भाषा — English for Work (26-Aug-2026) =====================
+   कूट-नाम kkb (सिर्फ़ फ़ाइल-नाम/internal) · public नाम "ACS काम की भाषा — English for Work"।
+   500 वाक्य × (English + देवनागरी + हिंदी + आवाज़) · 5 सप्ताह · दिन 1-5 पाठ, दिन 6 अभ्यास, दिन 7 फ़ोन-टेस्ट।
+   परत-3 data: /assets/kkb_data.js · इंजन: /assets/kkb.js · सजावट: /assets/kkb.css।
+   langStrict नहीं: यह English सिखाने वाला पेज है — English शब्द जान-बूझकर नंगे हैं (व्याख्या नीचे hero में)।
+   check-robot (square-bracket / font<16) यथावत लागू। */
+const KKB_CONTENT =
+'<section class="kkb-intro" style="max-width:560px;margin:18px auto 0;padding:0 16px;color:#fff">' +
+'<h1 style="font-size:28px;line-height:1.25;margin:10px 0 6px;color:#fff">ACS काम की भाषा — English for Work</h1>' +
+'<p style="font-size:19px;line-height:1.7;margin:0 0 10px;opacity:.92">यह English speaking (बोलने) का कोर्स है। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।</p>' +
+'<p style="font-size:19px;line-height:1.7;margin:0 0 10px;opacity:.92">हर वाक्य देवनागरी में दिखता है, हिंदी में मतलब है, और आवाज़ है। 5वीं पास भी आज से बोल सकता है।</p>' +
+'<p style="font-size:19px;line-height:1.7;margin:0 0 10px;opacity:.92">500 वाक्य, 5 सप्ताह। हर सप्ताह में 5 पाठ (20-20 वाक्य), दिन 6 अभ्यास, दिन 7 फ़ोन पर टेस्ट। यह demo (नमूना) रूप है। सब कुछ मुफ़्त है।</p>' +
+'</section>' +
+'<div id="kkb-app" class="kkb-app">' +
+'<noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript>' +
+'<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
+'</div>';
+
+buildSpecial({
+  out: "courses/hi/kaam-ki-bhasha/index.html", langStrict: false,
+  title: "ACS काम की भाषा — English for Work (500 वाक्य, देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
+  desc: "5वीं पास के लिए English बोलने का मुफ़्त कोर्स — 500 वाक्य देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और फ़ोन पर टेस्ट।",
+  head: ['<link rel="stylesheet" href="/assets/kkb.css">'],
+  foot: [
+    '<script src="/assets/kkb_data.js"></scr' + 'ipt>',
+    '<script src="/assets/kkb.js" defer></scr' + 'ipt>'
+  ],
+  content: KKB_CONTENT
 });
 
 /* ---- 95 विषय-placeholder-पेज (01-Aug-2026, Founder-आदेश) ---- */
