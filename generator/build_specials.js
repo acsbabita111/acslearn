@@ -1,5 +1,6 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
+   v1.4 · 26-Aug-2026 (काम की भाषा: + चीनी/Mandarin /courses/hi/kaam-ki-bhasha-mandarin/ — KKB_LANGS में तीसरी पंक्ति)
    v1.3 · 26-Aug-2026 (काम की भाषा: KKB_LANGS — English /courses/hi/kaam-ki-bhasha/ + कन्नड /courses/hi/kaam-ki-bhasha-kannada/; एक इंजन kkb.js, भाषा-वार data; उप-folder हेतु mkdir)
    v1.2 · 20-Jul-2026 (नींव-दौर: aptitude-test पन्ने में पूरा-टेस्ट session-द्वार + apt-session.js)\n   v1.1 · 20-Jul-2026 (काम-12: + /aptitude-test.html — अभिरुचि-टेस्ट मुफ़्त-झलक)
    v1.0 · 18-Jul-2026 (काम-9+; + रिज़्यूमे-फ़ोटो: device-local canvas-resize)
@@ -618,7 +619,11 @@ const KKB_LANGS = [
   { code: "kn", label: "कन्नड", h1: "कन्नड बोलना सीखें (Kannada for Work)", data: "/assets/kkb_kn_data.js", out: "courses/hi/kaam-ki-bhasha-kannada/index.html",
     title: "ACS काम की भाषा — कन्नड बोलना सीखें (Kannada for Work, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से कन्नड बोलना सीखें — कर्नाटक में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और फ़ोन पर टेस्ट। मुफ़्त।",
-    line1: "यह कन्नड (Kannada) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो कर्नाटक में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
+    line1: "यह कन्नड (Kannada) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो कर्नाटक में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
+  { code: "zh", label: "चीनी", h1: "चीनी बोलना सीखें (Mandarin for Work)", data: "/assets/kkb_zh_data.js", out: "courses/hi/kaam-ki-bhasha-mandarin/index.html",
+    title: "ACS काम की भाषा — चीनी बोलना सीखें (Mandarin for Work, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
+    desc: "हिंदी से चीनी (Mandarin) बोलना सीखें — चीन या चीनी कंपनी में काम के लिए 500 वाक्य, देवनागरी उच्चारण, pinyin, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
+    line1: "यह चीनी (Mandarin Chinese) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो चीन या किसी चीनी कंपनी/कारख़ाने में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
 ];
 function kkbContent(c) {
   return '<section class="kkb-intro" style="max-width:560px;margin:18px auto 0;padding:0 16px;color:#fff">' +
