@@ -68,6 +68,7 @@
 .kkb-en.kkb-hidden{visibility:hidden}
 /* v0.2: लक्ष्य-भाषा की लिपि (कन्नड आदि) — system font, थोड़ा बड़ा */
 .kkb-app[data-script="han"] .kkb-en,.kkb-app[data-script="han"] .kkb-l3,.kkb-app[data-script="han"] .kkb-line .kkb-tx span{font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
+.kkb-app[data-script="nan"] .kkb-en,.kkb-app[data-script="nan"] .kkb-l3,.kkb-app[data-script="nan"] .kkb-line .kkb-tx span{font-family:"Noto Sans TC","Noto Sans CJK TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* मीनान — ताईवान की परंपरागत (traditional) चीनी लिपि, मैंडरिन (SC) से अलग font-stack */
 .kkb-app[data-script="bengali"] .kkb-en,.kkb-app[data-script="bengali"] .kkb-l3,.kkb-app[data-script="bengali"] .kkb-line .kkb-tx span{font-family:"Noto Sans Bengali","Vrinda",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
 .kkb-app[data-script="arabic"] .kkb-en,.kkb-app[data-script="arabic"] .kkb-l3,.kkb-app[data-script="arabic"] .kkb-line .kkb-tx span{font-family:"Noto Sans Arabic","Noto Naskh Arabic",system-ui,sans-serif;font-size:20px;line-height:1.9;color:#1E2E4F}
 .kkb-app[data-script="persian"] .kkb-en,.kkb-app[data-script="persian"] .kkb-l3,.kkb-app[data-script="persian"] .kkb-line .kkb-tx span{font-family:"Noto Sans Arabic","Vazirmatn","Noto Naskh Arabic",system-ui,sans-serif;font-size:20px;line-height:1.9;color:#1E2E4F}
@@ -76,6 +77,7 @@
 .kkb-app[data-script="tamil"] .kkb-en,.kkb-app[data-script="tamil"] .kkb-l3,.kkb-app[data-script="tamil"] .kkb-line .kkb-tx span{font-family:"Noto Sans Tamil","Latha",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
 .kkb-app[data-script="korean"] .kkb-en,.kkb-app[data-script="korean"] .kkb-l3,.kkb-app[data-script="korean"] .kkb-line .kkb-tx span{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;font-size:19px;line-height:1.8;color:#1E2E4F}
 .kkb-app[data-script="gujarati"] .kkb-en,.kkb-app[data-script="gujarati"] .kkb-l3,.kkb-app[data-script="gujarati"] .kkb-line .kkb-tx span{font-family:"Noto Sans Gujarati","Shruti",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
+.kkb-app[data-script="gurmukhi"] .kkb-en,.kkb-app[data-script="gurmukhi"] .kkb-l3,.kkb-app[data-script="gurmukhi"] .kkb-line .kkb-tx span{font-family:"Noto Sans Gurmukhi","Raavi",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
 .kkb-app[data-script="kannada"] .kkb-en,.kkb-app[data-script="kannada"] .kkb-l3,.kkb-app[data-script="kannada"] .kkb-line .kkb-tx span{font-family:"Noto Sans Kannada","Tunga",system-ui,sans-serif;font-size:18px;color:#1E2E4F}
 .kkb-speak{display:flex;gap:10px;margin-top:auto;padding-top:16px}
 .kkb-speak .kkb-big{flex:1;min-height:64px;border-radius:16px;background:#F9A825;color:#0B1F3A;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;gap:8px}
