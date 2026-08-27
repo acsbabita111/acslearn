@@ -11,7 +11,9 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v367'; // 26-Aug: हाउसा-ऑडिट — kkb.js norm() अपॉस्ट्रॉफ़ी-फ़िक्स (सब भाषाओं पर, मुख्यतः हाउसा के लिए) (cache-first)
+const CACHE_VERSION = 'v369'; // 26-Aug: मीनान-गहन-ऑडिट — kkb_nan_data.js में Tâi-lô रोमनीकरण जोड़ी गई (मैंडरिन-परिपाटी अनुसार) (cache-first)
+// पुराना: const CACHE_VERSION = 'v368'; // 26-Aug: "काम की भाषा" + मीनान चीनी (PJ037, kkb_nan_data.js, script nan) — courses_data.js/kkb.js/kkb.css बदले (cache-first)
+// पुराना: const CACHE_VERSION = 'v367'; // 26-Aug: हाउसा-ऑडिट — kkb.js norm() अपॉस्ट्रॉफ़ी-फ़िक्स (सब भाषाओं पर, मुख्यतः हाउसा के लिए) (cache-first)
 // पुराना: const CACHE_VERSION = 'v366'; // 26-Aug: "काम की भाषा" + हाउसा (PJ036, kkb_ha_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v365'; // 26-Aug: "काम की भाषा" + फ़ारसी (PJ035, kkb_fa_data.js, RTL) — courses_data.js/kkb.js/kkb.css बदले (cache-first)
 // पुराना: const CACHE_VERSION = 'v364'; // 26-Aug: "काम की भाषा" + जावानीज़ (PJ034, kkb_jv_data.js) — courses_data.js बदला (cache-first)
