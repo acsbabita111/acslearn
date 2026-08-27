@@ -11,7 +11,8 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v372'; // 26-Aug: "काम की भाषा" + छत्तीसगढ़ी (PJ040, kkb_hne_data.js) — courses_data.js बदला (cache-first)
+const CACHE_VERSION = 'v373'; // 26-Aug: "काम की भाषा" + असमिया (PJ041, kkb_as_data.js, script assamese) — courses_data.js/kkb.css बदले (cache-first)
+// पुराना: const CACHE_VERSION = 'v372'; // 26-Aug: "काम की भाषा" + छत्तीसगढ़ी (PJ040, kkb_hne_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v371'; // 26-Aug: "काम की भाषा" + पंजाबी (PJ039, kkb_pa_data.js) — courses_data.js/kkb.css बदले (cache-first)
 // पुराना: const CACHE_VERSION = 'v370'; // 26-Aug: "काम की भाषा" + भोजपुरी (PJ038, kkb_bho_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v369'; // 26-Aug: मीनान-गहन-ऑडिट — kkb_nan_data.js में Tâi-lô रोमनीकरण जोड़ी गई (मैंडरिन-परिपाटी अनुसार) (cache-first)
