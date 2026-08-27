@@ -11,7 +11,8 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v381'; // 27-Aug: "काम की भाषा" + सिंधी (PJ049, kkb_sd_data.js) — courses_data.js बदला (cache-first)
+const CACHE_VERSION = 'v382'; // 27-Aug: "काम की भाषा" + डोगरी (PJ050, kkb_doi_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v381'; // 27-Aug: "काम की भाषा" + सिंधी (PJ049, kkb_sd_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v380'; // 27-Aug: "काम की भाषा" + कोंकणी (PJ048, kkb_gom_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v379'; // 27-Aug: "काम की भाषा" + नेपाली (PJ047, kkb_ne_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v378'; // 26-Aug: "काम की भाषा" + कश्मीरी (PJ046, kkb_ks_data.js) — courses_data.js बदला (cache-first)
