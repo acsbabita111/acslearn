@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v2.9 (26-Aug-2026; + जावानीज़ jv) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v3.0 (26-Aug-2026; + फ़ारसी fa) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -34,7 +34,8 @@ const KKB_SETS = [
   { code: "ko", data: "assets/kkb_ko_data.js", page: "courses/hi/bhasha/korean/index.html", id: "PJ031", url: "/courses/hi/bhasha/korean/" },
   { code: "sw", data: "assets/kkb_sw_data.js", page: "courses/hi/bhasha/swahili/index.html", id: "PJ032", url: "/courses/hi/bhasha/swahili/" },
   { code: "gu", data: "assets/kkb_gu_data.js", page: "courses/hi/bhasha/gujarati/index.html", id: "PJ033", url: "/courses/hi/bhasha/gujarati/" },
-  { code: "jv", data: "assets/kkb_jv_data.js", page: "courses/hi/bhasha/javanese/index.html", id: "PJ034", url: "/courses/hi/bhasha/javanese/" }
+  { code: "jv", data: "assets/kkb_jv_data.js", page: "courses/hi/bhasha/javanese/index.html", id: "PJ034", url: "/courses/hi/bhasha/javanese/" },
+  { code: "fa", data: "assets/kkb_fa_data.js", page: "courses/hi/bhasha/persian/index.html", id: "PJ035", url: "/courses/hi/bhasha/persian/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {

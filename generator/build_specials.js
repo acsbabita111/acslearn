@@ -1,6 +1,7 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
    v1.10 · 26-Aug-2026 (काम की भाषा: + इंडोनेशियाई /courses/hi/bhasha/indonesian/ — KKB_LANGS में आठवीं पंक्ति; video-call टेस्ट)
+   v3.0 · 26-Aug-2026 (काम की भाषा: + फ़ारसी /courses/hi/bhasha/persian/ — KKB_LANGS में अठारहवीं पंक्ति; script "persian" — RTL kkb.js में जुड़ा, kkb.css में font-नियम)
    v2.9 · 26-Aug-2026 (काम की भाषा: + जावानीज़ /courses/hi/bhasha/javanese/ — KKB_LANGS में सत्रहवीं पंक्ति; latin script, कोई CSS/इंजन-बदलाव नहीं)
    v2.8 · 26-Aug-2026 (काम की भाषा: + गुजराती /courses/hi/bhasha/gujarati/ — KKB_LANGS में सोलहवीं पंक्ति; script "gujarati" kkb.css में जुड़ा)
    v2.7 · 26-Aug-2026 (काम की भाषा: + स्वाहिली /courses/hi/bhasha/swahili/ — KKB_LANGS में पंद्रहवीं पंक्ति; latin script, कोई CSS/इंजन-बदलाव नहीं)
@@ -695,7 +696,11 @@ const KKB_LANGS = [
   { code: "jv", label: "जावानीज़", h1: "जावानीज़ बोलना सीखें (Javanese for Work — जावा द्वीप)", data: "/assets/kkb_jv_data.js", out: "courses/hi/bhasha/javanese/index.html",
     title: "ACS काम की भाषा — जावानीज़ बोलना सीखें (Javanese for Work, जावा द्वीप, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से जावानीज़ बोलना सीखें — इंडोनेशिया के जावा द्वीप में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
-    line1: "यह जावानीज़ बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो इंडोनेशिया के जावा द्वीप में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
+    line1: "यह जावानीज़ बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो इंडोनेशिया के जावा द्वीप में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
+  { code: "fa", label: "फ़ारसी", h1: "फ़ारसी बोलना सीखें (Persian/Farsi for Work — ईरान व मध्य एशिया)", data: "/assets/kkb_fa_data.js", out: "courses/hi/bhasha/persian/index.html",
+    title: "ACS काम की भाषा — फ़ारसी बोलना सीखें (Persian/Farsi for Work, ईरान, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
+    desc: "हिंदी से फ़ारसी बोलना सीखें — ईरान या मध्य एशिया में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
+    line1: "यह फ़ारसी बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो ईरान या मध्य एशिया में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" }
 ];
 function kkbContent(c) {
   return '<section class="kkb-intro" style="max-width:560px;margin:18px auto 0;padding:0 16px;color:#fff">' +
