@@ -11,7 +11,11 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v392'; // 27-Aug: "काम की भाषा" + मगही (PJ060, kkb_mag_data.js) — courses_data.js बदला (cache-first)
+const CACHE_VERSION = 'v396'; // 27-Aug: "काम की भाषा" + दारी (PJ064, kkb_prs_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v395'; // 27-Aug: "काम की भाषा" + बलूची (PJ063, kkb_bal_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v394'; // 27-Aug: "काम की भाषा" + पश्तो (PJ062, kkb_ps_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v393'; // 27-Aug: "काम की भाषा" + सिंहली (PJ061, kkb_si_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v392'; // 27-Aug: "काम की भाषा" + मगही (PJ060, kkb_mag_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v391'; // 27-Aug: "काम की भाषा" + अवधी (PJ059, kkb_awa_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v390'; // 27-Aug: "काम की भाषा" + बोडो (PJ058, kkb_brx_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v389'; // 27-Aug: "काम की भाषा" + उड़िया (PJ057, kkb_or_data.js) — courses_data.js बदला (cache-first)
