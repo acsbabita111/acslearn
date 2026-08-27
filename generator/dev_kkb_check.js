@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v4.5 (27-Aug-2026; + डोगरी doi) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v4.6 (27-Aug-2026; + मणिपुरी mni) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -50,7 +50,8 @@ const KKB_SETS = [
   { code: "ne", data: "assets/kkb_ne_data.js", page: "courses/hi/bhasha/nepali/index.html", id: "PJ047", url: "/courses/hi/bhasha/nepali/" },
   { code: "gom", data: "assets/kkb_gom_data.js", page: "courses/hi/bhasha/konkani/index.html", id: "PJ048", url: "/courses/hi/bhasha/konkani/" },
   { code: "sd", data: "assets/kkb_sd_data.js", page: "courses/hi/bhasha/sindhi/index.html", id: "PJ049", url: "/courses/hi/bhasha/sindhi/" },
-  { code: "doi", data: "assets/kkb_doi_data.js", page: "courses/hi/bhasha/dogri/index.html", id: "PJ050", url: "/courses/hi/bhasha/dogri/" }
+  { code: "doi", data: "assets/kkb_doi_data.js", page: "courses/hi/bhasha/dogri/index.html", id: "PJ050", url: "/courses/hi/bhasha/dogri/" },
+  { code: "mni", data: "assets/kkb_mni_data.js", page: "courses/hi/bhasha/manipuri/index.html", id: "PJ051", url: "/courses/hi/bhasha/manipuri/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
