@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v3.3 (26-Aug-2026; + भोजपुरी bho) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v3.4 (26-Aug-2026; + पंजाबी pa) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -38,7 +38,8 @@ const KKB_SETS = [
   { code: "fa", data: "assets/kkb_fa_data.js", page: "courses/hi/bhasha/persian/index.html", id: "PJ035", url: "/courses/hi/bhasha/persian/" },
   { code: "ha", data: "assets/kkb_ha_data.js", page: "courses/hi/bhasha/hausa/index.html", id: "PJ036", url: "/courses/hi/bhasha/hausa/" },
   { code: "nan", data: "assets/kkb_nan_data.js", page: "courses/hi/bhasha/minnan/index.html", id: "PJ037", url: "/courses/hi/bhasha/minnan/" },
-  { code: "bho", data: "assets/kkb_bho_data.js", page: "courses/hi/bhasha/bhojpuri/index.html", id: "PJ038", url: "/courses/hi/bhasha/bhojpuri/" }
+  { code: "bho", data: "assets/kkb_bho_data.js", page: "courses/hi/bhasha/bhojpuri/index.html", id: "PJ038", url: "/courses/hi/bhasha/bhojpuri/" },
+  { code: "pa", data: "assets/kkb_pa_data.js", page: "courses/hi/bhasha/punjabi/index.html", id: "PJ039", url: "/courses/hi/bhasha/punjabi/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
