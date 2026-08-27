@@ -1,5 +1,7 @@
 /* ============================================================
    /assets/kkb.js — v0.2 (26-Aug-2026) · "ACS काम की भाषा" कोर्स-इंजन — भाषा-निरपेक्ष (एक इंजन, हर भाषा)
+   v0.8: फ़ारसी (kkb_fa_data.js) — script "persian": अरबी जैसा RTL (DIRw का दायरा बढ़ाया) — फ़ारसी अरबी-लिपि पर आधारित है
+         पर چ/پ/ژ/گ अतिरिक्त अक्षर रखती है; माइक/विराम-चिह्न नियम अरबी वाले ही पर्याप्त (्।/?/, common)।
    v0.7: कोरियाई (kkb_ko_data.js) — script "korean": हांगुल शब्दों में स्पेस होते हैं (जापानी/चीनी से अलग), पर एक शब्द के भीतर कई अक्षर-ब्लॉक (음절) एक-साथ लिखे होते हैं
          जिन्हें माइक-पहचान अलग-अलग लौटा सकती है — इसलिए यहाँ भी अक्षर-दर-अक्षर मिलान सुरक्षित है (word-split से ज़्यादा सहनशील)।
    v0.6: norm() में ZWNJ/ZWJ (U+200C/U+200D) हटाना — तेलुगु में loanword+प्रत्यय (డ్రైవర్‌ని) के लिए ZWNJ सही वर्तनी है,
@@ -32,7 +34,7 @@
   var HELP = DATA.help || [];
   var STORE_KEY = "acs_kkb_" + LANG.code + "_v01";
   function spoken(t) { return String(t).replace(/\s*\([^()]*\)\s*$/, ""); } /* अंत का (pinyin/नोट) आवाज़-माइक में नहीं */
-  var RTL = LANG.script === "arabic";
+  var RTL = LANG.script === "arabic" || LANG.script === "persian";
   function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* लक्ष्य-भाषा वाले खाने पर — देवनागरी/हिंदी हमेशा LTR रहें */
   ROOT.setAttribute("data-script", LANG.script || "latin");
 
