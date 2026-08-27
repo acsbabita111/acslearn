@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v5.5 (27-Aug-2026; + मगही mag) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v5.9 (27-Aug-2026; + दारी prs) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -60,7 +60,11 @@ const KKB_SETS = [
   { code: "or", data: "assets/kkb_or_data.js", page: "courses/hi/bhasha/odia/index.html", id: "PJ057", url: "/courses/hi/bhasha/odia/" },
   { code: "brx", data: "assets/kkb_brx_data.js", page: "courses/hi/bhasha/bodo/index.html", id: "PJ058", url: "/courses/hi/bhasha/bodo/" },
   { code: "awa", data: "assets/kkb_awa_data.js", page: "courses/hi/bhasha/awadhi/index.html", id: "PJ059", url: "/courses/hi/bhasha/awadhi/" },
-  { code: "mag", data: "assets/kkb_mag_data.js", page: "courses/hi/bhasha/magahi/index.html", id: "PJ060", url: "/courses/hi/bhasha/magahi/" }
+  { code: "mag", data: "assets/kkb_mag_data.js", page: "courses/hi/bhasha/magahi/index.html", id: "PJ060", url: "/courses/hi/bhasha/magahi/" },
+  { code: "si", data: "assets/kkb_si_data.js", page: "courses/hi/bhasha/sinhala/index.html", id: "PJ061", url: "/courses/hi/bhasha/sinhala/" },
+  { code: "ps", data: "assets/kkb_ps_data.js", page: "courses/hi/bhasha/pashto/index.html", id: "PJ062", url: "/courses/hi/bhasha/pashto/" },
+  { code: "bal", data: "assets/kkb_bal_data.js", page: "courses/hi/bhasha/balochi/index.html", id: "PJ063", url: "/courses/hi/bhasha/balochi/" },
+  { code: "prs", data: "assets/kkb_prs_data.js", page: "courses/hi/bhasha/dari/index.html", id: "PJ064", url: "/courses/hi/bhasha/dari/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
