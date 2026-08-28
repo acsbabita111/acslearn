@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v7.0 (27-Aug-2026; + तिब्बती bo — 11-भाषा शृंखला पूर्ण) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v7.8 (28-Aug-2026; + मालागासी mg) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -75,7 +75,21 @@ const KKB_SETS = [
   { code: "su", data: "assets/kkb_su_data.js", page: "courses/hi/bhasha/sundanese/index.html", id: "PJ072", url: "/courses/hi/bhasha/sundanese/" },
   { code: "ceb", data: "assets/kkb_ceb_data.js", page: "courses/hi/bhasha/cebuano/index.html", id: "PJ073", url: "/courses/hi/bhasha/cebuano/" },
   { code: "mn", data: "assets/kkb_mn_data.js", page: "courses/hi/bhasha/mongolian/index.html", id: "PJ074", url: "/courses/hi/bhasha/mongolian/" },
-  { code: "bo", data: "assets/kkb_bo_data.js", page: "courses/hi/bhasha/tibetan/index.html", id: "PJ075", url: "/courses/hi/bhasha/tibetan/" }
+  { code: "bo", data: "assets/kkb_bo_data.js", page: "courses/hi/bhasha/tibetan/index.html", id: "PJ075", url: "/courses/hi/bhasha/tibetan/" },
+  { code: "yo", data: "assets/kkb_yo_data.js", page: "courses/hi/bhasha/yoruba/index.html", id: "PJ076", url: "/courses/hi/bhasha/yoruba/" },
+  { code: "ig", data: "assets/kkb_ig_data.js", page: "courses/hi/bhasha/igbo/index.html", id: "PJ077", url: "/courses/hi/bhasha/igbo/" },
+  { code: "zu", data: "assets/kkb_zu_data.js", page: "courses/hi/bhasha/zulu/index.html", id: "PJ078", url: "/courses/hi/bhasha/zulu/" },
+  { code: "xh", data: "assets/kkb_xh_data.js", page: "courses/hi/bhasha/xhosa/index.html", id: "PJ079", url: "/courses/hi/bhasha/xhosa/" },
+  { code: "am", data: "assets/kkb_am_data.js", page: "courses/hi/bhasha/amharic/index.html", id: "PJ080", url: "/courses/hi/bhasha/amharic/" },
+  { code: "om", data: "assets/kkb_om_data.js", page: "courses/hi/bhasha/oromo/index.html", id: "PJ081", url: "/courses/hi/bhasha/oromo/" },
+  { code: "so", data: "assets/kkb_so_data.js", page: "courses/hi/bhasha/somali/index.html", id: "PJ082", url: "/courses/hi/bhasha/somali/" },
+  { code: "mg", data: "assets/kkb_mg_data.js", page: "courses/hi/bhasha/malagasy/index.html", id: "PJ083", url: "/courses/hi/bhasha/malagasy/" },
+  { code: "rw", data: "assets/kkb_rw_data.js", page: "courses/hi/bhasha/kinyarwanda/index.html", id: "PJ084", url: "/courses/hi/bhasha/kinyarwanda/" },
+  { code: "tw", data: "assets/kkb_tw_data.js", page: "courses/hi/bhasha/twi/index.html", id: "PJ085", url: "/courses/hi/bhasha/twi/" },
+  { code: "fr", data: "assets/kkb_fr_data.js", page: "courses/hi/bhasha/french/index.html", id: "PJ086", url: "/courses/hi/bhasha/french/" },
+  { code: "af", data: "assets/kkb_af_data.js", page: "courses/hi/bhasha/afrikaans/index.html", id: "PJ087", url: "/courses/hi/bhasha/afrikaans/" },
+  { code: "lg", data: "assets/kkb_lg_data.js", page: "courses/hi/bhasha/luganda/index.html", id: "PJ088", url: "/courses/hi/bhasha/luganda/" },
+  { code: "ny", data: "assets/kkb_ny_data.js", page: "courses/hi/bhasha/chichewa/index.html", id: "PJ089", url: "/courses/hi/bhasha/chichewa/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
