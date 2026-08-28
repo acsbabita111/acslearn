@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v5.9 (27-Aug-2026; + दारी prs) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v7.0 (27-Aug-2026; + तिब्बती bo — 11-भाषा शृंखला पूर्ण) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -64,7 +64,18 @@ const KKB_SETS = [
   { code: "si", data: "assets/kkb_si_data.js", page: "courses/hi/bhasha/sinhala/index.html", id: "PJ061", url: "/courses/hi/bhasha/sinhala/" },
   { code: "ps", data: "assets/kkb_ps_data.js", page: "courses/hi/bhasha/pashto/index.html", id: "PJ062", url: "/courses/hi/bhasha/pashto/" },
   { code: "bal", data: "assets/kkb_bal_data.js", page: "courses/hi/bhasha/balochi/index.html", id: "PJ063", url: "/courses/hi/bhasha/balochi/" },
-  { code: "prs", data: "assets/kkb_prs_data.js", page: "courses/hi/bhasha/dari/index.html", id: "PJ064", url: "/courses/hi/bhasha/dari/" }
+  { code: "prs", data: "assets/kkb_prs_data.js", page: "courses/hi/bhasha/dari/index.html", id: "PJ064", url: "/courses/hi/bhasha/dari/" },
+  { code: "vi", data: "assets/kkb_vi_data.js", page: "courses/hi/bhasha/vietnamese/index.html", id: "PJ065", url: "/courses/hi/bhasha/vietnamese/" },
+  { code: "th", data: "assets/kkb_th_data.js", page: "courses/hi/bhasha/thai/index.html", id: "PJ066", url: "/courses/hi/bhasha/thai/" },
+  { code: "my", data: "assets/kkb_my_data.js", page: "courses/hi/bhasha/burmese/index.html", id: "PJ067", url: "/courses/hi/bhasha/burmese/" },
+  { code: "km", data: "assets/kkb_km_data.js", page: "courses/hi/bhasha/khmer/index.html", id: "PJ068", url: "/courses/hi/bhasha/khmer/" },
+  { code: "lo", data: "assets/kkb_lo_data.js", page: "courses/hi/bhasha/lao/index.html", id: "PJ069", url: "/courses/hi/bhasha/lao/" },
+  { code: "ms", data: "assets/kkb_ms_data.js", page: "courses/hi/bhasha/malay/index.html", id: "PJ070", url: "/courses/hi/bhasha/malay/" },
+  { code: "tl", data: "assets/kkb_tl_data.js", page: "courses/hi/bhasha/tagalog/index.html", id: "PJ071", url: "/courses/hi/bhasha/tagalog/" },
+  { code: "su", data: "assets/kkb_su_data.js", page: "courses/hi/bhasha/sundanese/index.html", id: "PJ072", url: "/courses/hi/bhasha/sundanese/" },
+  { code: "ceb", data: "assets/kkb_ceb_data.js", page: "courses/hi/bhasha/cebuano/index.html", id: "PJ073", url: "/courses/hi/bhasha/cebuano/" },
+  { code: "mn", data: "assets/kkb_mn_data.js", page: "courses/hi/bhasha/mongolian/index.html", id: "PJ074", url: "/courses/hi/bhasha/mongolian/" },
+  { code: "bo", data: "assets/kkb_bo_data.js", page: "courses/hi/bhasha/tibetan/index.html", id: "PJ075", url: "/courses/hi/bhasha/tibetan/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
