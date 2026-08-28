@@ -11,7 +11,18 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v396'; // 27-Aug: "काम की भाषा" + दारी (PJ064, kkb_prs_data.js) — courses_data.js बदला (cache-first)
+const CACHE_VERSION = 'v407'; // 27-Aug: "काम की भाषा" + तिब्बती (PJ075, kkb_bo_data.js) — courses_data.js बदला (cache-first) — 11-भाषा दक्षिण-पूर्व/पूर्व एशिया शृंखला पूर्ण
+// पुराना: const CACHE_VERSION = 'v406'; // 27-Aug: "काम की भाषा" + मंगोलियाई (PJ074, kkb_mn_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v405'; // 27-Aug: "काम की भाषा" + सिबुआनो (PJ073, kkb_ceb_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v404'; // 27-Aug: "काम की भाषा" + सुंडानी (PJ072, kkb_su_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v403'; // 27-Aug: "काम की भाषा" + तागालोग (PJ071, kkb_tl_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v402'; // 27-Aug: "काम की भाषा" + मलय (PJ070, kkb_ms_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v401'; // 27-Aug: "काम की भाषा" + लाओ (PJ069, kkb_lo_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v400'; // 27-Aug: "काम की भाषा" + खमेर (PJ068, kkb_km_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v399'; // 27-Aug: "काम की भाषा" + बर्मी (PJ067, kkb_my_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v398'; // 27-Aug: "काम की भाषा" + थाई (PJ066, kkb_th_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v397'; // 27-Aug: "काम की भाषा" + वियतनामी (PJ065, kkb_vi_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v396'; // 27-Aug: "काम की भाषा" + दारी (PJ064, kkb_prs_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v395'; // 27-Aug: "काम की भाषा" + बलूची (PJ063, kkb_bal_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v394'; // 27-Aug: "काम की भाषा" + पश्तो (PJ062, kkb_ps_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v393'; // 27-Aug: "काम की भाषा" + सिंहली (PJ061, kkb_si_data.js) — courses_data.js बदला (cache-first)
