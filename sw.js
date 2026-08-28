@@ -11,7 +11,16 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v407'; // 27-Aug: "काम की भाषा" + तिब्बती (PJ075, kkb_bo_data.js) — courses_data.js बदला (cache-first) — 11-भाषा दक्षिण-पूर्व/पूर्व एशिया शृंखला पूर्ण
+const CACHE_VERSION = 'v416'; // 28-Aug: संरचना-सुधार — सभी 19 kkb_*_data.js में it[0]=मूल-लिपि (Founder-audit)
+// पुराना: const CACHE_VERSION = 'v415'; // 28-Aug: "काम की भाषा" + मालागासी (PJ083, kkb_mg_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v414'; // 28-Aug: "काम की भाषा" + सोमाली (PJ082, kkb_so_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v413'; // 28-Aug: "काम की भाषा" + ओरोमो (PJ081, kkb_om_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v412'; // 28-Aug: "काम की भाषा" + अम्हारिक (PJ080, kkb_am_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v411'; // 28-Aug: "काम की भाषा" + षोसा (PJ079, kkb_xh_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v410'; // 28-Aug: "काम की भाषा" + ज़ुलु (PJ078, kkb_zu_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v409'; // 28-Aug: "काम की भाषा" + इग्बो (PJ077, kkb_ig_data.js) — courses_data.js बदला (cache-first)
+// पुराना: const CACHE_VERSION = 'v408'; // 28-Aug: "काम की भाषा" + योरूबा (PJ076, kkb_yo_data.js) — courses_data.js बदला (cache-first) — अफ़्रीका-शृंखला शुरू
+// पुराना: const CACHE_VERSION = 'v407'; // 27-Aug: "काम की भाषा" + तिब्बती (PJ075, kkb_bo_data.js) — courses_data.js बदला (cache-first) — 11-भाषा दक्षिण-पूर्व/पूर्व एशिया शृंखला पूर्ण
 // पुराना: const CACHE_VERSION = 'v406'; // 27-Aug: "काम की भाषा" + मंगोलियाई (PJ074, kkb_mn_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v405'; // 27-Aug: "काम की भाषा" + सिबुआनो (PJ073, kkb_ceb_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v404'; // 27-Aug: "काम की भाषा" + सुंडानी (PJ072, kkb_su_data.js) — courses_data.js बदला (cache-first)
