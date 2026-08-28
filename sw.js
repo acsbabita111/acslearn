@@ -11,7 +11,19 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v422'; // 28-Aug: चिचेवा (PJ089, kkb_ny_data.js) जुड़ा — 14-भाषा अफ़्रीका-शृंखला पूरी
+const CACHE_VERSION = 'v434'; // 28-Aug: kkb काम की भाषा — मायन (PJ101) जुड़ा — 12-भाषा बैच पूरा
+// पुराना: const CACHE_VERSION = 'v433'; // 28-Aug: kkb काम की भाषा — आयमारा (PJ100) जुड़ा
+// पुराना: const CACHE_VERSION = 'v432'; // 28-Aug: kkb काम की भाषा — क्वेशुआ (PJ099) जुड़ा
+// पुराना: const CACHE_VERSION = 'v431'; // 28-Aug: kkb काम की भाषा — गुआरानी (PJ098) जुड़ा
+// पुराना: const CACHE_VERSION = 'v430'; // 28-Aug: kkb काम की भाषा — हाईटियन क्रियोल (PJ097) जुड़ा
+// पुराना: const CACHE_VERSION = 'v429'; // 28-Aug: kkb काम की भाषा — उइघुर (PJ096) जुड़ा
+// पुराना: const CACHE_VERSION = 'v428'; // 28-Aug: kkb काम की भाषा — किर्गिज़ (PJ095) जुड़ा
+// पुराना: const CACHE_VERSION = 'v427'; // 28-Aug: kkb काम की भाषा — ताजिक (PJ094) जुड़ा
+// पुराना: const CACHE_VERSION = 'v426'; // 28-Aug: kkb काम की भाषा — अज़रबैजानी (PJ093) जुड़ा
+// पुराना: const CACHE_VERSION = 'v425'; // 28-Aug: कज़ाख (PJ092, kkb_kk_data.js) जुड़ा
+// पुराना: const CACHE_VERSION = 'v424'; // 28-Aug: उज़्बेक (PJ091, kkb_uz_data.js) जुड़ा
+// पुराना: const CACHE_VERSION = 'v423'; // 28-Aug: कुर्दिश (PJ090, kkb_ku_data.js) जुड़ा
+// पुराना: const CACHE_VERSION = 'v422'; // 28-Aug: चिचेवा (PJ089, kkb_ny_data.js) जुड़ा — 14-भाषा अफ़्रीका-शृंखला पूरी
 // पुराना: const CACHE_VERSION = 'v421'; // 28-Aug: लुगांडा (PJ088, kkb_lg_data.js) जुड़ा
 // पुराना: const CACHE_VERSION = 'v420'; // 28-Aug: अफ़्रीकांस (PJ087, kkb_af_data.js) जुड़ा
 // पुराना: const CACHE_VERSION = 'v419'; // 28-Aug: फ़्रेंच (PJ086, kkb_fr_data.js) जुड़ा
