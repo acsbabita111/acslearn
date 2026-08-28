@@ -11,7 +11,13 @@
    ⚠️ CSS/JS बदलें तो नीचे CACHE_VERSION ज़रूर बढ़ाएँ (v4 → v5 …)।
    ========================================================================== */
 
-const CACHE_VERSION = 'v416'; // 28-Aug: संरचना-सुधार — सभी 19 kkb_*_data.js में it[0]=मूल-लिपि (Founder-audit)
+const CACHE_VERSION = 'v422'; // 28-Aug: चिचेवा (PJ089, kkb_ny_data.js) जुड़ा — 14-भाषा अफ़्रीका-शृंखला पूरी
+// पुराना: const CACHE_VERSION = 'v421'; // 28-Aug: लुगांडा (PJ088, kkb_lg_data.js) जुड़ा
+// पुराना: const CACHE_VERSION = 'v420'; // 28-Aug: अफ़्रीकांस (PJ087, kkb_af_data.js) जुड़ा
+// पुराना: const CACHE_VERSION = 'v419'; // 28-Aug: फ़्रेंच (PJ086, kkb_fr_data.js) जुड़ा
+// पुराना: const CACHE_VERSION = 'v418'; // 28-Aug: अकान/त्वी (PJ085, kkb_tw_data.js) जुड़ा
+// पुराना: const CACHE_VERSION = 'v417'; // 28-Aug: "काम की भाषा" + किन्यारवांडा (PJ084, kkb_rw_data.js) — सही-संरचना से शुरू से बनी
+// पुराना: const CACHE_VERSION = 'v416'; // 28-Aug: संरचना-सुधार — सभी 19 kkb_*_data.js में it[0]=मूल-लिपि (Founder-audit)
 // पुराना: const CACHE_VERSION = 'v415'; // 28-Aug: "काम की भाषा" + मालागासी (PJ083, kkb_mg_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v414'; // 28-Aug: "काम की भाषा" + सोमाली (PJ082, kkb_so_data.js) — courses_data.js बदला (cache-first)
 // पुराना: const CACHE_VERSION = 'v413'; // 28-Aug: "काम की भाषा" + ओरोमो (PJ081, kkb_om_data.js) — courses_data.js बदला (cache-first)
