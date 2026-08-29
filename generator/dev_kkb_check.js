@@ -113,7 +113,8 @@ const KKB_SETS = [
   { code: "tt", data: "assets/kkb_tt_data.js", page: "courses/hi/bhasha/tatar/index.html", id: "PJ110", url: "/courses/hi/bhasha/tatar/" },
   { code: "apc", data: "assets/kkb_apc_data.js", page: "courses/hi/bhasha/levantine-arabic/index.html", id: "PJ111", url: "/courses/hi/bhasha/levantine-arabic/" },
   { code: "acm", data: "assets/kkb_acm_data.js", page: "courses/hi/bhasha/mesopotamian-arabic/index.html", id: "PJ112", url: "/courses/hi/bhasha/mesopotamian-arabic/" },
-  { code: "acw", data: "assets/kkb_acw_data.js", page: "courses/hi/bhasha/hejazi-arabic/index.html", id: "PJ113", url: "/courses/hi/bhasha/hejazi-arabic/" }
+  { code: "acw", data: "assets/kkb_acw_data.js", page: "courses/hi/bhasha/hejazi-arabic/index.html", id: "PJ113", url: "/courses/hi/bhasha/hejazi-arabic/" },
+  { code: "yue", data: "assets/kkb_yue_data.js", page: "courses/hi/bhasha/cantonese/index.html", id: "PJ114", url: "/courses/hi/bhasha/cantonese/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
