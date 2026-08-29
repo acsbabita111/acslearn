@@ -114,7 +114,17 @@ const KKB_SETS = [
   { code: "apc", data: "assets/kkb_apc_data.js", page: "courses/hi/bhasha/levantine-arabic/index.html", id: "PJ111", url: "/courses/hi/bhasha/levantine-arabic/" },
   { code: "acm", data: "assets/kkb_acm_data.js", page: "courses/hi/bhasha/mesopotamian-arabic/index.html", id: "PJ112", url: "/courses/hi/bhasha/mesopotamian-arabic/" },
   { code: "acw", data: "assets/kkb_acw_data.js", page: "courses/hi/bhasha/hejazi-arabic/index.html", id: "PJ113", url: "/courses/hi/bhasha/hejazi-arabic/" },
-  { code: "yue", data: "assets/kkb_yue_data.js", page: "courses/hi/bhasha/cantonese/index.html", id: "PJ114", url: "/courses/hi/bhasha/cantonese/" }
+  { code: "yue", data: "assets/kkb_yue_data.js", page: "courses/hi/bhasha/cantonese/index.html", id: "PJ114", url: "/courses/hi/bhasha/cantonese/" },
+  { code: "arz", data: "assets/kkb_arz_data.js", page: "courses/hi/bhasha/egyptian-arabic/index.html", id: "PJ115", url: "/courses/hi/bhasha/egyptian-arabic/" },
+  { code: "apd", data: "assets/kkb_apd_data.js", page: "courses/hi/bhasha/sudanese-arabic/index.html", id: "PJ116", url: "/courses/hi/bhasha/sudanese-arabic/" },
+  { code: "arq", data: "assets/kkb_arq_data.js", page: "courses/hi/bhasha/algerian-arabic/index.html", id: "PJ117", url: "/courses/hi/bhasha/algerian-arabic/" },
+  { code: "ary", data: "assets/kkb_ary_data.js", page: "courses/hi/bhasha/moroccan-arabic/index.html", id: "PJ118", url: "/courses/hi/bhasha/moroccan-arabic/" },
+  { code: "aec", data: "assets/kkb_aec_data.js", page: "courses/hi/bhasha/saidi-arabic/index.html", id: "PJ119", url: "/courses/hi/bhasha/saidi-arabic/" },
+  { code: "pcm", data: "assets/kkb_pcm_data.js", page: "courses/hi/bhasha/nigerian-pidgin/index.html", id: "PJ120", url: "/courses/hi/bhasha/nigerian-pidgin/" },
+  { code: "sn", data: "assets/kkb_sn_data.js", page: "courses/hi/bhasha/shona/index.html", id: "PJ121", url: "/courses/hi/bhasha/shona/" },
+  { code: "mfe", data: "assets/kkb_mfe_data.js", page: "courses/hi/bhasha/mauritian-creole/index.html", id: "PJ122", url: "/courses/hi/bhasha/mauritian-creole/" },
+  { code: "bm", data: "assets/kkb_bm_data.js", page: "courses/hi/bhasha/bambara/index.html", id: "PJ123", url: "/courses/hi/bhasha/bambara/" },
+  { code: "wo", data: "assets/kkb_wo_data.js", page: "courses/hi/bhasha/wolof/index.html", id: "PJ124", url: "/courses/hi/bhasha/wolof/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
