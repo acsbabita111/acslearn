@@ -89,7 +89,24 @@ const KKB_SETS = [
   { code: "fr", data: "assets/kkb_fr_data.js", page: "courses/hi/bhasha/french/index.html", id: "PJ086", url: "/courses/hi/bhasha/french/" },
   { code: "af", data: "assets/kkb_af_data.js", page: "courses/hi/bhasha/afrikaans/index.html", id: "PJ087", url: "/courses/hi/bhasha/afrikaans/" },
   { code: "lg", data: "assets/kkb_lg_data.js", page: "courses/hi/bhasha/luganda/index.html", id: "PJ088", url: "/courses/hi/bhasha/luganda/" },
-  { code: "ny", data: "assets/kkb_ny_data.js", page: "courses/hi/bhasha/chichewa/index.html", id: "PJ089", url: "/courses/hi/bhasha/chichewa/" }
+  { code: "ny", data: "assets/kkb_ny_data.js", page: "courses/hi/bhasha/chichewa/index.html", id: "PJ089", url: "/courses/hi/bhasha/chichewa/" },
+  { code: "ku", data: "assets/kkb_ku_data.js", page: "courses/hi/bhasha/kurdish/index.html", id: "PJ090", url: "/courses/hi/bhasha/kurdish/" },
+  { code: "uz", data: "assets/kkb_uz_data.js", page: "courses/hi/bhasha/uzbek/index.html", id: "PJ091", url: "/courses/hi/bhasha/uzbek/" },
+  { code: "kk", data: "assets/kkb_kk_data.js", page: "courses/hi/bhasha/kazakh/index.html", id: "PJ092", url: "/courses/hi/bhasha/kazakh/" },
+  { code: "az", data: "assets/kkb_az_data.js", page: "courses/hi/bhasha/azerbaijani/index.html", id: "PJ093", url: "/courses/hi/bhasha/azerbaijani/" },
+  { code: "tg", data: "assets/kkb_tg_data.js", page: "courses/hi/bhasha/tajik/index.html", id: "PJ094", url: "/courses/hi/bhasha/tajik/" },
+  { code: "ky", data: "assets/kkb_ky_data.js", page: "courses/hi/bhasha/kyrgyz/index.html", id: "PJ095", url: "/courses/hi/bhasha/kyrgyz/" },
+  { code: "ug", data: "assets/kkb_ug_data.js", page: "courses/hi/bhasha/uyghur/index.html", id: "PJ096", url: "/courses/hi/bhasha/uyghur/" },
+  { code: "ht", data: "assets/kkb_ht_data.js", page: "courses/hi/bhasha/haitian-creole/index.html", id: "PJ097", url: "/courses/hi/bhasha/haitian-creole/" },
+  { code: "gn", data: "assets/kkb_gn_data.js", page: "courses/hi/bhasha/guarani/index.html", id: "PJ098", url: "/courses/hi/bhasha/guarani/" },
+  { code: "qu", data: "assets/kkb_qu_data.js", page: "courses/hi/bhasha/quechua/index.html", id: "PJ099", url: "/courses/hi/bhasha/quechua/" },
+  { code: "ay", data: "assets/kkb_ay_data.js", page: "courses/hi/bhasha/aymara/index.html", id: "PJ100", url: "/courses/hi/bhasha/aymara/" },
+  { code: "myn", data: "assets/kkb_myn_data.js", page: "courses/hi/bhasha/mayan/index.html", id: "PJ101", url: "/courses/hi/bhasha/mayan/" },
+  { code: "anp", data: "assets/kkb_anp_data.js", page: "courses/hi/bhasha/angika/index.html", id: "PJ102", url: "/courses/hi/bhasha/angika/" },
+  { code: "bjj", data: "assets/kkb_bjj_data.js", page: "courses/hi/bhasha/bajjika/index.html", id: "PJ103", url: "/courses/hi/bhasha/bajjika/" },
+  { code: "bhb", data: "assets/kkb_bhb_data.js", page: "courses/hi/bhasha/bhili/index.html", id: "PJ104", url: "/courses/hi/bhasha/bhili/" },
+  { code: "tcy", data: "assets/kkb_tcy_data.js", page: "courses/hi/bhasha/tulu/index.html", id: "PJ105", url: "/courses/hi/bhasha/tulu/" },
+  { code: "gon", data: "assets/kkb_gon_data.js", page: "courses/hi/bhasha/gondi/index.html", id: "PJ106", url: "/courses/hi/bhasha/gondi/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
