@@ -106,7 +106,14 @@ const KKB_SETS = [
   { code: "bjj", data: "assets/kkb_bjj_data.js", page: "courses/hi/bhasha/bajjika/index.html", id: "PJ103", url: "/courses/hi/bhasha/bajjika/" },
   { code: "bhb", data: "assets/kkb_bhb_data.js", page: "courses/hi/bhasha/bhili/index.html", id: "PJ104", url: "/courses/hi/bhasha/bhili/" },
   { code: "tcy", data: "assets/kkb_tcy_data.js", page: "courses/hi/bhasha/tulu/index.html", id: "PJ105", url: "/courses/hi/bhasha/tulu/" },
-  { code: "gon", data: "assets/kkb_gon_data.js", page: "courses/hi/bhasha/gondi/index.html", id: "PJ106", url: "/courses/hi/bhasha/gondi/" }
+  { code: "gon", data: "assets/kkb_gon_data.js", page: "courses/hi/bhasha/gondi/index.html", id: "PJ106", url: "/courses/hi/bhasha/gondi/" },
+  { code: "pnb", data: "assets/kkb_pnb_data.js", page: "courses/hi/bhasha/western-punjabi/index.html", id: "PJ107", url: "/courses/hi/bhasha/western-punjabi/" },
+  { code: "skr", data: "assets/kkb_skr_data.js", page: "courses/hi/bhasha/saraiki/index.html", id: "PJ108", url: "/courses/hi/bhasha/saraiki/" },
+  { code: "syl", data: "assets/kkb_syl_data.js", page: "courses/hi/bhasha/sylheti/index.html", id: "PJ109", url: "/courses/hi/bhasha/sylheti/" },
+  { code: "tt", data: "assets/kkb_tt_data.js", page: "courses/hi/bhasha/tatar/index.html", id: "PJ110", url: "/courses/hi/bhasha/tatar/" },
+  { code: "apc", data: "assets/kkb_apc_data.js", page: "courses/hi/bhasha/levantine-arabic/index.html", id: "PJ111", url: "/courses/hi/bhasha/levantine-arabic/" },
+  { code: "acm", data: "assets/kkb_acm_data.js", page: "courses/hi/bhasha/mesopotamian-arabic/index.html", id: "PJ112", url: "/courses/hi/bhasha/mesopotamian-arabic/" },
+  { code: "acw", data: "assets/kkb_acw_data.js", page: "courses/hi/bhasha/hejazi-arabic/index.html", id: "PJ113", url: "/courses/hi/bhasha/hejazi-arabic/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
