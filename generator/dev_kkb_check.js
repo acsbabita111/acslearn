@@ -271,5 +271,14 @@ const dirs = []; D.weeks.forEach(w => w.days.forEach(d => d.items.forEach(it => 
 if (!intentHi.dirs) intentHi.dirs = dirs; else ok(intentHi.dirs.join("") === dirs.join(""), tag + "दिशा-क्रम (S/L) पहली भाषा से नहीं मिलता — id-intent टूटा");
 }); /* KKB_SETS */
 
+/* (7) courses_data.js — कोई भी "id" दोहरा नहीं (PJ071-डुप्लिकेट जैसा bug पकड़ने हेतु, 29-Aug ऑडिट) */
+{
+  const allIds = (cd.match(/"id":\s*"[^"]+"/g) || []).map(s => s.match(/"([^"]+)"$/)[1]);
+  const seen = {}, dupIds = [];
+  allIds.forEach(id => { seen[id] = (seen[id]||0)+1; });
+  Object.keys(seen).forEach(id => { if (seen[id] > 1) dupIds.push(id + " x" + seen[id]); });
+  ok(dupIds.length === 0, "courses_data.js में दोहरे id: " + dupIds.join(", "));
+}
+
 if (fails.length) { console.error("❌ dev_kkb_check FAIL:\n - " + fails.join("\n - ")); process.exit(1); }
 console.log("🏁 dev_kkb_check: सब पास — 500 वाक्य · 5×5×20 · पेज generator से · असेट/कड़ी/sw ठीक (" + (cv[1] || "?") + ")");
