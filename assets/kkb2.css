@@ -1,0 +1,37 @@
+/* /assets/kkb2.css — v1.0 (30-Aug-2026) · KKB स्तर-2 (A2) इंजन-सजावट
+   self-contained (kkb.css से अलग नाम-परिवार kkb2-*) · ACS-5 रंग · कुछ भी <16px नहीं */
+.kkb2-app{max-width:560px;margin:14px auto 40px;padding:0 12px;font-family:'Noto Sans Devanagari',Inter,sans-serif}
+.kkb2-card{background:#F5F7FA;color:#0B1F3A;border-radius:14px;padding:14px 14px 12px;margin:12px 0;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.kkb2-card h2{font-size:22px;line-height:1.35;margin:0 0 8px;color:#0B1F3A}
+.kkb2-card h3{font-size:19px;line-height:1.4;margin:0 0 6px;color:#0B1F3A}
+.kkb2-card p{font-size:17px;line-height:1.7;margin:6px 0}
+.kkb2-muted{opacity:.8;font-size:16px}
+.kkb2-btn{display:inline-block;border:0;border-radius:12px;background:#1565C0;color:#fff;font-size:19px;font-weight:700;padding:12px 16px;margin:6px 6px 4px 0;cursor:pointer;font-family:inherit}
+.kkb2-btn.gold{background:#F9A825;color:#0B1F3A}
+.kkb2-btn.green{background:#2E7D32}
+.kkb2-btn.ghost{background:#fff;color:#0B1F3A;border:2px solid #0B1F3A}
+.kkb2-btn[disabled]{opacity:.45;cursor:not-allowed}
+.kkb2-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.kkb2-week{display:block;width:100%;text-align:left;border:0;border-radius:12px;background:#0B1F3A;color:#fff;font-size:18px;line-height:1.5;padding:12px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+.kkb2-week small{display:block;font-size:16px;opacity:.85}
+.kkb2-week.done{background:#2E7D32}
+.kkb2-item{background:#fff;border:1px solid #d7dde6;border-radius:12px;padding:12px;margin:10px 0}
+.kkb2-en{font-size:21px;line-height:1.5;font-weight:800;color:#0B1F3A;margin:0 0 4px}
+.kkb2-dev{font-size:18px;line-height:1.6;color:#1565C0;margin:0 0 2px}
+.kkb2-hi{font-size:17px;line-height:1.6;color:#0B1F3A;margin:0 0 8px}
+.kkb2-chip{display:inline-block;font-size:16px;font-weight:700;border-radius:999px;padding:2px 10px;margin-right:6px}
+.kkb2-chip.A{background:#F9A825;color:#0B1F3A}
+.kkb2-chip.B{background:#1565C0;color:#fff}
+.kkb2-chip.C{background:#e3e9f2;color:#0B1F3A}
+.kkb2-chip.L{background:#0B1F3A;color:#fff}
+.kkb2-tw{background:#0B1F3A;color:#fff;border-radius:12px;padding:10px 12px;margin:10px 0}
+.kkb2-tw b{font-size:18px}
+.kkb2-tw span{display:inline-block;font-size:17px;line-height:1.7;margin-right:12px}
+.kkb2-bar{background:#F9A825;color:#0B1F3A;border-radius:10px;padding:8px 12px;font-size:17px;font-weight:700;margin:10px 0}
+.kkb2-crumb{font-size:17px;margin:8px 0}
+.kkb2-crumb a{color:#F9A825;text-decoration:none;font-weight:700}
+.kkb2-dline{font-size:18px;line-height:1.7;margin:6px 0}
+.kkb2-dline b{color:#1565C0}
+.kkb2-ok{color:#2E7D32;font-weight:800;font-size:17px}
+.kkb2-prog{height:10px;background:#e3e9f2;border-radius:999px;overflow:hidden;margin:8px 0}
+.kkb2-prog i{display:block;height:100%;background:#2E7D32}
