@@ -1410,7 +1410,24 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 /* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
      पूर्ण-स्क्रीन ओवरले (table-row के भीतर नहीं) — बड़े छूने-लायक़ विकल्प,
      अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
-  const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true, SE021: true, PJ018: true };   /* (30-Aug, Founder) Spoken English 120-प्रश्न server-परीक्षा जुड़ी (eng_bank, 2150) */   /* (13-Aug, Founder) मशरूम 120-प्रश्न server-परीक्षा जुड़ी (msh_bank, 3135) */
+  const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true, SE021: true, PJ018: true };
+  /* (30-Aug) सुनो-प्रश्न: प्रश्न-पाठ में ((AU:वाक्य)) निशान → 🔊-बटन; पुराने बैंकों में निशान नहीं = शून्य असर */
+  window.__examSay = function (b) {
+    if (!("speechSynthesis" in window)) { alert("इस फ़ोन में आवाज़ नहीं चल रही। Chrome में खोलें।"); return; }
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(b.getAttribute("data-t"));
+    u.lang = "en-IN"; u.rate = b.getAttribute("data-slow") ? 0.65 : 0.9;
+    var vs = speechSynthesis.getVoices();
+    var v = vs.filter(function (x) { return x.lang === "en-IN" || x.lang === "en_IN"; })[0] || vs.filter(function (x) { return /^en/.test(x.lang); })[0];
+    if (v) u.voice = v;
+    speechSynthesis.speak(u);
+  };
+  function examQHtml(t) {
+    var m = /\(\(AU:([\s\S]*?)\)\)/.exec(t || "");
+    if (!m) return esc(t);
+    var rest = t.replace(m[0], "").replace(/\s+$/, "");
+    return esc(rest) + '<div style="margin-top:8px"><button type="button" class="crsgo" style="font-size:18px" onclick="__examSay(this)" data-t="' + esc(m[1]) + '">🔊 वाक्य सुनिए</button> <button type="button" class="crsgo" style="font-size:18px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A" onclick="__examSay(this)" data-slow="1" data-t="' + esc(m[1]) + '">🐢 धीरे</button></div>';
+  }   /* (30-Aug, Founder) Spoken English 120-प्रश्न server-परीक्षा जुड़ी (eng_bank, 2150) */   /* (13-Aug, Founder) मशरूम 120-प्रश्न server-परीक्षा जुड़ी (msh_bank, 3135) */
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
   const OPT_LABEL = ["अ","ब","स","द"];
   function ensureExamStyle() {
@@ -1520,7 +1537,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       '<div class="examProgWrap"><div class="examProgBar" style="width:'+pct+'%"></div></div>'+
       '</div>';
     h += '<div class="examBody"><div class="examQArea">'+
-      '<div class="examQText">'+esc(q.t)+'</div>';
+      '<div class="examQText">'+examQHtml(q.t)+'</div>';
     q.o.forEach(function (op, j) {
       const sel = S.answers[S.idx] === j;
       h += '<label class="examOptRow'+(sel ? ' sel' : '')+'">'+
