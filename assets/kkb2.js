@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/kkb2.js — v2.0 (30-Aug-2026) · ACS Spoken English — एक कोर्स, 90 दिन
+   /assets/kkb2.js — v2.1 (30-Aug-2026) · + आवाज़-चयन (फ़ोन की उपलब्ध English आवाज़ों में से; device-निर्भर) · ACS Spoken English — एक कोर्स, 90 दिन
    Founder-आदेश: L1 (500) + स्तर-2 (1,650) = 2,150 वाक्य एक-साथ; 3 महीने;
    महीना-1 = 20 वाक्य/दिन (ठीक 600) · महीना-2/3 = बढ़ती चाल (20→30)।
    data: window.KKB_DATA (स्तर-1, frozen) + window.KKB2_DATA (स्तर-2, frozen) —
@@ -52,12 +52,38 @@
   function gsu(n) { return "ACS-GSU-" + ("000000" + n).slice(-6); }
 
   /* ---- आवाज़ ---- */
-  var voice = null;
+  var voice = null, VKEY = "acs_kkb2_voice_v1";
+  function enVoices() {
+    if (!("speechSynthesis" in window)) return [];
+    return speechSynthesis.getVoices().filter(function (v) { return /^en/i.test(v.lang); });
+  }
   function pickVoice() {
     if (!("speechSynthesis" in window)) return;
-    var vs = speechSynthesis.getVoices();
-    voice = vs.filter(function (v) { return v.lang === "en-IN" || v.lang === "en_IN"; })[0] ||
+    var vs = speechSynthesis.getVoices(), savedURI = "";
+    try { savedURI = localStorage.getItem(VKEY) || ""; } catch (e) { }
+    voice = null;
+    if (savedURI) voice = vs.filter(function (v) { return v.voiceURI === savedURI; })[0] || null;
+    if (!voice) voice = vs.filter(function (v) { return v.lang === "en-IN" || v.lang === "en_IN"; })[0] ||
       vs.filter(function (v) { return /^en/.test(v.lang); })[0] || null;
+  }
+  window.kkb2Voice = function (uri) {
+    try { localStorage.setItem(VKEY, uri); } catch (e) { }
+    pickVoice();
+    say("Hello! My name is A C S. I will speak English with you.", false);
+  };
+  window.kkb2VoiceBtn = function (b) { window.kkb2Voice(b.getAttribute("data-v")); window.kkb2Go("home"); };
+  function voiceCard() {
+    var L = enVoices();
+    if (!("speechSynthesis" in window)) return "";
+    if (L.length <= 1) return '<div class="kkb2-card soft"><p class="kkb2-muted">🗣️ इस फ़ोन में English की एक ही आवाज़ है — वही चलेगी। (आवाज़ें फ़ोन की अपनी होती हैं; Google Text-to-speech अपडेट करने से और आवाज़ें मिल सकती हैं।)</p></div>';
+    var savedURI = ""; try { savedURI = localStorage.getItem(VKEY) || ""; } catch (e) { }
+    var h = '<div class="kkb2-card soft"><h3>🗣️ आवाज़ चुनें</h3><p class="kkb2-muted">आपके फ़ोन में ' + L.length + ' English आवाज़ें हैं — चुनते ही नमूना सुनाई देगा; चुनाव याद रहेगा।</p><div class="kkb2-row">';
+    for (var vi = 0; vi < L.length && vi < 6; vi++) {
+      var on = (savedURI ? savedURI === L[vi].voiceURI : (voice && voice.voiceURI === L[vi].voiceURI));
+      h += '<button class="kkb2-btn ' + (on ? "gold" : "ghost") + '" onclick="kkb2VoiceBtn(this)" data-v="' + esc(L[vi].voiceURI) + '">' + (on ? "✔ " : "") + esc(L[vi].name.replace(/English|Google|Microsoft/g, "").trim() || L[vi].lang) + ' <small>(' + esc(L[vi].lang) + ')</small></button>';
+    }
+    h += '</div></div>';
+    return h;
   }
   if ("speechSynthesis" in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
   function say(text, slow) {
@@ -117,6 +143,7 @@
         '<span class="kkb2-prog"><i style="width:' + mp + '%"></i></span>' +
         '<small class="kkb2-mdone">' + md + '/30 दिन' + (md === 30 ? ' ✅' : '') + '</small></span></button>';
     }
+    h += voiceCard();
     h += '<div class="kkb2-card soft"><p class="kkb2-muted">प्रगति सिर्फ़ इसी फ़ोन में रहती है (आपकी निजता)। माइक से बोल-जाँच अगले संस्करण में जुड़ेगी — अभी दोस्त/परिवार के सामने बोलकर अभ्यास कीजिए। <button class="kkb2-btn ghost" onclick="kkb2Reset()">प्रगति मिटाएँ</button></p></div>';
     view(h);
   }
