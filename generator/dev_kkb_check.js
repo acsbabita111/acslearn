@@ -124,7 +124,19 @@ const KKB_SETS = [
   { code: "sn", data: "assets/kkb_sn_data.js", page: "courses/hi/bhasha/shona/index.html", id: "PJ121", url: "/courses/hi/bhasha/shona/" },
   { code: "mfe", data: "assets/kkb_mfe_data.js", page: "courses/hi/bhasha/mauritian-creole/index.html", id: "PJ122", url: "/courses/hi/bhasha/mauritian-creole/" },
   { code: "bm", data: "assets/kkb_bm_data.js", page: "courses/hi/bhasha/bambara/index.html", id: "PJ123", url: "/courses/hi/bhasha/bambara/" },
-  { code: "wo", data: "assets/kkb_wo_data.js", page: "courses/hi/bhasha/wolof/index.html", id: "PJ124", url: "/courses/hi/bhasha/wolof/" }
+  { code: "wo", data: "assets/kkb_wo_data.js", page: "courses/hi/bhasha/wolof/index.html", id: "PJ124", url: "/courses/hi/bhasha/wolof/" },
+  { code: "de", data: "assets/kkb_de_data.js", page: "courses/hi/bhasha/german/index.html", id: "PJ125", url: "/courses/hi/bhasha/german/" },
+  { code: "it", data: "assets/kkb_it_data.js", page: "courses/hi/bhasha/italian/index.html", id: "PJ126", url: "/courses/hi/bhasha/italian/" },
+  { code: "pl", data: "assets/kkb_pl_data.js", page: "courses/hi/bhasha/polish/index.html", id: "PJ127", url: "/courses/hi/bhasha/polish/" },
+  { code: "uk", data: "assets/kkb_uk_data.js", page: "courses/hi/bhasha/ukrainian/index.html", id: "PJ128", url: "/courses/hi/bhasha/ukrainian/" },
+  { code: "ro", data: "assets/kkb_ro_data.js", page: "courses/hi/bhasha/romanian/index.html", id: "PJ129", url: "/courses/hi/bhasha/romanian/" },
+  { code: "nl", data: "assets/kkb_nl_data.js", page: "courses/hi/bhasha/dutch/index.html", id: "PJ130", url: "/courses/hi/bhasha/dutch/" },
+  { code: "el", data: "assets/kkb_el_data.js", page: "courses/hi/bhasha/greek/index.html", id: "PJ131", url: "/courses/hi/bhasha/greek/" },
+  { code: "hu", data: "assets/kkb_hu_data.js", page: "courses/hi/bhasha/hungarian/index.html", id: "PJ132", url: "/courses/hi/bhasha/hungarian/" },
+  { code: "cs", data: "assets/kkb_cs_data.js", page: "courses/hi/bhasha/czech/index.html", id: "PJ133", url: "/courses/hi/bhasha/czech/" },
+  { code: "be", data: "assets/kkb_be_data.js", page: "courses/hi/bhasha/belarusian/index.html", id: "PJ134", url: "/courses/hi/bhasha/belarusian/" },
+  { code: "sv", data: "assets/kkb_sv_data.js", page: "courses/hi/bhasha/swedish/index.html", id: "PJ135", url: "/courses/hi/bhasha/swedish/" },
+  { code: "bg", data: "assets/kkb_bg_data.js", page: "courses/hi/bhasha/bulgarian/index.html", id: "PJ136", url: "/courses/hi/bhasha/bulgarian/" }
 ];
 const js = R("assets/kkb.js"), css = R("assets/kkb.css");
 (css.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || []).forEach(m => {
