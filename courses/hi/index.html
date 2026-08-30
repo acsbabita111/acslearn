@@ -520,11 +520,11 @@ const KKB_GROUPS = [
  {t:'पड़ोसी देश', e:'🏔️', ids:['PJ047','PJ061','PJ062','PJ063','PJ064','PJ067','PJ075','PJ107','PJ108','PJ109']},
  {t:'खाड़ी व अरब देश (सबसे बड़ा कमाई-गलियारा)', e:'🕌', ids:['PJ022','PJ030','PJ035','PJ090','PJ111','PJ112','PJ113','PJ115','PJ116','PJ117','PJ118','PJ119']},
  {t:'एशिया', e:'🌏', ids:['PJ020','PJ025','PJ026','PJ031','PJ034','PJ037','PJ065','PJ066','PJ068','PJ069','PJ070','PJ071','PJ072','PJ073','PJ074','PJ091','PJ092','PJ093','PJ094','PJ095','PJ096','PJ110','PJ114']},
- {t:'यूरोप व अमेरिका', e:'🌍', ids:['PJ018','PJ021','PJ024','PJ052','PJ086','PJ097','PJ098','PJ099','PJ100','PJ101','PJ125','PJ126','PJ127','PJ128','PJ129','PJ130','PJ131','PJ132','PJ133','PJ134','PJ135','PJ136','PJ137']},
+ {t:'यूरोप व अमेरिका', e:'🌍', ids:['PJ018','PJ021','PJ024','PJ052','PJ086','PJ097','PJ098','PJ099','PJ100','PJ101','PJ125','PJ126','PJ127','PJ128','PJ129','PJ130','PJ131','PJ132','PJ133','PJ134','PJ135','PJ136']},
  {t:'अफ़्रीका', e:'🌍', ids:['PJ032','PJ036','PJ076','PJ077','PJ078','PJ079','PJ080','PJ081','PJ082','PJ083','PJ084','PJ085','PJ087','PJ088','PJ089','PJ120','PJ121','PJ122','PJ123','PJ124']}
 ];
-const KKB_POPULAR = ['PJ018','PJ137','PJ022','PJ086','PJ021','PJ026','PJ031','PJ125','PJ052']; /* सबसे माँग वाली */
-function kkbName(c){ if(c.id==='PJ137')return 'English स्तर-2 (A2)'; var n=c.name_hi||''; if(n.indexOf('—')>-1){n=n.split('—')[1];} n=n.split('(')[0].replace('बोलना','').trim(); return n; }
+const KKB_POPULAR = ['PJ018','PJ022','PJ086','PJ021','PJ026','PJ031','PJ125','PJ052']; /* सबसे माँग वाली */
+function kkbName(c){ var n=c.name_hi||''; if(n.indexOf('—')>-1){n=n.split('—')[1];} n=n.split('(')[0].replace('बोलना','').trim(); return n; }
 function kkbCourse(id){ var L=(typeof PRIVATE_JOB_COURSES!=='undefined')?PRIVATE_JOB_COURSES:[]; for(var i=0;i<L.length;i++){if(L[i].id===id)return L[i];} return null; }
 function bhChip(id){ var c=kkbCourse(id); if(!c)return ''; return '<button class="bh-chip" data-nm="'+kkbName(c)+'" onclick="openCourse(\''+id+'\',\'online\')">'+kkbName(c)+'</button>'; }
 function renderBhasha(){
