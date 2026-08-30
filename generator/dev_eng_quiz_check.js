@@ -12,17 +12,17 @@ B.forEach(function (Q, i2) {
   else if (idSeen[Q.id]) { console.log("⛔ id-दोहराव " + Q.id); fail++; }
   else idSeen[Q.id] = 1;
 });
-var tCount = {}; B.forEach(function (Q) { tCount[Q.t] = (tCount[Q.t] || 0) + 1; });
+var tCount = {}; B.forEach(function (Q) { tCount[Q.typ] = (tCount[Q.typ] || 0) + 1; });
 for (var t = 1; t <= 12; t++) if (!tCount[t] || tCount[t] < 20) { console.log("⛔ प्रकार-" + t + " कम/ग़ायब"); fail++; }
-var first24 = {}; B.slice(0, 24).forEach(function (Q) { first24[Q.t] = 1; });
+var first24 = {}; B.slice(0, 24).forEach(function (Q) { first24[Q.typ] = 1; });
 if (Object.keys(first24).length < 10) { console.log("⛔ शुरुआती क्रम में प्रकार नहीं घूमते"); fail++; }
 console.log("12-प्रकार गिनती: " + JSON.stringify(tCount));
 var biased = 0, eligible = 0;
 B.forEach(function (Q, i) {
-  if (!Q.q || Q.o.length !== 4 || Q.a < 0 || Q.a > 3) { console.log("⛔ ढाँचा q#" + i); fail++; }
+  if (!Q.t || Q.o.length !== 4 || Q.a < 0 || Q.a > 3) { console.log("⛔ ढाँचा q#" + i); fail++; }
   var seen = {};
   Q.o.forEach(function (t) { if (seen[t]) { console.log("⛔ विकल्प-दोहराव q#" + i); fail++; } seen[t] = 1; });
-  if ((Q.q + Q.o.join("")).indexOf("[") > -1) { console.log("⛔ चौकोर-कोष्ठक q#" + i); fail++; }
+  if ((Q.t + Q.o.join("")).indexOf("[") > -1) { console.log("⛔ चौकोर-कोष्ठक q#" + i); fail++; }
   var mx = -1, mi = -1, tie = false;
   Q.o.forEach(function (t, ix) { if (t.length > mx) { mx = t.length; mi = ix; tie = false; } else if (t.length === mx) tie = true; });
   if (!tie) { eligible++; if (mi === Q.a) biased++; }

@@ -52,7 +52,7 @@ function pick3(pool, correct, getT) {
 function mkQ(t, q, correct, ds) {
   var pos = Math.floor(rnd() * 4), o = [];
   for (var p = 0, di = 0; p < 4; p++) o.push(p === pos ? correct : ds[di++]);
-  return { t: t, q: q, o: o, a: pos };
+  return { typ: t, t: q, o: o, a: pos };  /* client प्रश्न-पाठ .t से छापता (dashboard.js:1523) */
 }
 function words(en) { return en.replace(/[.,!?"'’—]/g, " ").split(/\s+/).filter(function (x) { return x.length > 0; }); }
 
@@ -104,7 +104,7 @@ B[11] = function (p) { var ds = pick3(DLG.concat(ALL.slice(500, 900).map(functio
 /* ---- मुख्य-धारा: 2,150 वाक्यों पर 8 प्रकार (1-7, 12) घूमते हुए ---- */
 var ROT = [1, 2, 3, 4, 5, 6, 7, 12];
 var BANK = [], typeCount = {};
-function push(Q) { if (!Q) return false; BANK.push(Q); typeCount[Q.t] = (typeCount[Q.t] || 0) + 1; return true; }
+function push(Q) { if (!Q) return false; BANK.push(Q); typeCount[Q.typ] = (typeCount[Q.typ] || 0) + 1; return true; }
 for (var i = 0; i < ALL.length; i++) {
   var ok = false;
   for (var r2 = 0; r2 < ROT.length && !ok; r2++) ok = push(B[ROT[(i + r2) % ROT.length]](ALL[i]));
@@ -115,7 +115,7 @@ for (i = 0; i < LIS.length; i++) if (!push(B[10](LIS[i]))) { console.log("⛔ li
 for (i = 0; i < DLG.length; i++) if (!push(B[11](DLG[i]))) { console.log("⛔ dialog-प्रश्न fail"); process.exit(1); }
 
 /* ---- अंतिम गूँथाई: बैंक-क्रम में भी प्रकार घूमता चले (round-robin interleave) ---- */
-var byType = {}; BANK.forEach(function (Q) { (byType[Q.t] = byType[Q.t] || []).push(Q); });
+var byType = {}; BANK.forEach(function (Q) { (byType[Q.typ] = byType[Q.typ] || []).push(Q); });
 var order = [1, 8, 3, 10, 5, 2, 9, 6, 11, 4, 7, 12], MIX = [], left = BANK.length;
 while (left > 0) for (var o2 = 0; o2 < order.length; o2++) { var arr = byType[order[o2]]; if (arr && arr.length) { MIX.push(arr.shift()); left--; } }
 BANK = MIX;
