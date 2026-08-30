@@ -25,9 +25,9 @@ function renderKkbEmbassy(){
     var m = (location.pathname||'').match(/\/bhasha\/([a-z-]+)\//);
     var slug = m ? m[1] : '';
     var corr = KKB_CORRIDORS[slug] || [];
-    var h = '<h2 style="font-size:20px;font-weight:800;text-align:center;color:#0B1F3A;margin:0 0 6px">🏛️ विदेश में काम — दूतावास व सुरक्षा-कड़ियाँ</h2>';
+    var h = '<h2 style="font-size:20px;font-weight:800;text-align:center;color:#ffffff;margin:0 0 6px">🏛️ विदेश में काम — दूतावास व सुरक्षा-कड़ियाँ</h2>';
     if(corr.length){
-      h += '<p style="text-align:center;margin:0 0 10px">इस भाषा के मुख्य कमाई-देश और वहाँ मदद के ठिकाने:</p>';
+      h += '<p style="text-align:center;color:#ffffff;margin:0 0 10px">इस भाषा के मुख्य कमाई-देश और वहाँ मदद के ठिकाने:</p>';
       for(var i=0;i<corr.length;i++){
         var c = corr[i];
         var ind = (typeof EMBASSIES!=='undefined') ? EMBASSIES[c] : null;
@@ -55,7 +55,7 @@ function renderKkbEmbassy(){
       h += '<div style="margin-top:4px">✅ <a href="' + KKB_SAFETY[j].u + '" target="_blank" rel="noopener" style="color:#1565C0;font-weight:700">' + KKB_SAFETY[j].t + '</a></div>';
     }
     h += '</div>'
-      + '<p style="font-size:16px;color:#5a6675;text-align:center;margin:8px 0 0">जानकारी अगस्त 2026 की है — ये बाहरी site हैं, यात्रा से पहले ख़ुद verify करें।</p>';
+      + '<p style="font-size:16px;color:#d7dde6;text-align:center;margin:8px 0 0">जानकारी अगस्त 2026 की है — ये बाहरी site हैं, यात्रा से पहले ख़ुद verify करें।</p>';
     var sec = document.createElement('section');
     sec.id = 'kkb-embassy';
     sec.setAttribute('style','max-width:760px;margin:18px auto 30px;padding:0 12px;font-size:16px;line-height:1.8;color:#0B1F3A');
