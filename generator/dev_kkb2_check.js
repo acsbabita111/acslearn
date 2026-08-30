@@ -46,6 +46,11 @@ function mkEl(id) {
 }
 global.document = { getElementById: function (id) { return mkEl(id); } };
 global.window.KKB2_DATA = D;
+eval(fs.readFileSync("assets/kkb_data.js", "utf8").replace("window.KKB_DATA", "global.window.KKB_DATA"));
+var D1 = global.window.KKB_DATA;
+var l1c = 0; D1.weeks.forEach(function (w) { w.days.forEach(function (dd) { l1c += dd.items.length; }); });
+if (l1c !== 500 || D1.weeks.length !== 5) { console.log("⛔ L1-data " + l1c); process.exit(1); }
+console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकीकृत कुल: " + (l1c + total) + " वाक्य · 90 पाठ-दिन");
 global.window.scrollTo = function () { };
 global.localStorage = { getItem: function () { return null; }, setItem: function () { }, removeItem: function () { } };
 global.alert = function () { };
@@ -56,9 +61,10 @@ try {
   eval(fs.readFileSync("assets/kkb2.js", "utf8"));
 } catch (e) { console.log("⛔ इंजन-boot त्रुटि: " + e.message); fail++; }
 var html = root._h || "";
-if (html.indexOf("सप्ताह-13") < 0) { console.log("⛔ home में सप्ताह-13 नहीं"); fail++; }
-if (html.indexOf("ज़रूर-बोलो अभ्यास (308") < 0) { console.log("⛔ ⭐-बटन/A-गिनती नहीं"); fail++; }
-if (html.indexOf("kkb2-week") < 0) { console.log("⛔ सप्ताह-कार्ड नहीं"); fail++; }
+if (html.indexOf("तीसरा महीना") < 0) { console.log("⛔ home में महीना-3 नहीं"); fail++; }
+if (html.indexOf("2,150") < 0) { console.log("⛔ home में 2,150 नहीं"); fail++; }
+if (html.indexOf("ज़रूर-बोलो (308") < 0) { console.log("⛔ ⭐-बटन/A-गिनती नहीं"); fail++; }
+if (html.indexOf("kkb2-month") < 0) { console.log("⛔ महीना-कार्ड नहीं"); fail++; }
 console.log("इंजन-boot: home render " + (html.length > 500 ? "✅" : "⛔") + " (" + html.length + " chars)");
 /* गहरे दृश्य */
 function shot(args, mustHave, naam) {
@@ -67,11 +73,15 @@ function shot(args, mustHave, naam) {
   for (var m = 0; m < mustHave.length; m++) if (h2.indexOf(mustHave[m]) < 0) { console.log("⛔ " + naam + " में नहीं: " + mustHave[m]); fail++; }
   console.log(naam + " render ✅ (" + h2.length + " chars)");
 }
-shot(["d", 0, 0], ["ACS-GSU-000501", "लक्ष्य-शब्द", "मैंने बोला", "🎧"], "दिन-1");
-shot(["lis", 0, 0], ["सुनो-जवाब जाँच", "बोलने-अभ्यास", "दिन पूरा हुआ"], "🎧-जाँच");
+shot(["m", 0], ["स्तर-1", "दिन", "📞"], "महीना-1");
+shot(["d", 0], ["ACS-GSU-000001", "मैंने बोला", "दिन 1 / 90"], "दिन-1(स्तर-1)");
+shot(["d", 25], ["ACS-GSU-000501", "लक्ष्य-शब्द", "🎧"], "दिन-26(स्तर-2 पहला)");
+shot(["d", 89], ["ACS-GSU-002150", "दिन 90 / 90"], "दिन-90(आख़िरी)");
+shot(["lis", 25], ["सुनो-जवाब जाँच", "बोलने-अभ्यास", "दिन पूरा हुआ"], "🎧-जाँच");
 shot(["dlg", 0], ["संवाद", "🔊"], "🗣️-संवाद");
-shot(["t", 0], ["wa.me", "सहारा-पंक्तियाँ"], "📞-टेस्ट");
-shot(["must"], ["ज़रूर-बोलो", "सप्ताह-1"], "⭐-अभ्यास");
+shot(["t", 1, 0], ["wa.me", "सहारा-पंक्तियाँ"], "📞-टेस्ट(स्तर-1)");
+shot(["t", 2, 12], ["wa.me", "सहारा-पंक्तियाँ"], "📞-टेस्ट(स्तर-2)");
+shot(["must"], ["ज़रूर-बोलो", "मेरा परिवार"], "⭐-अभ्यास");
 if (fail) { console.log("⛔ कुल fail: " + fail); process.exit(1); }
 
 /* ---- demo-guard (स्थायी): रेपो पर demo-वर्जन शब्द कहीं न लौटे ---- */
