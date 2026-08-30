@@ -1,4 +1,4 @@
-/* /assets/kkb2.css — v2.1 (30-Aug-2026) · वाक्य-कार्ड center-align (Founder-सुझाव) · ACS Spoken English 90-दिन — नया रूप
+/* /assets/kkb2.css — v2.2 (30-Aug-2026) · center-align + तीनों पंक्तियाँ बराबर 22px, भेद सिर्फ़ रंग से: English नेवी · उच्चारण नीला · अर्थ हरा (Founder-सुझाव) · ACS Spoken English 90-दिन — नया रूप
    ACS-5 रंग ही · कुछ भी <16px नहीं · Android-8 सुरक्षित (सादा CSS, कोई grid/var नहीं) */
 .kkb2-app{max-width:600px;margin:14px auto 48px;padding:0 12px;font-family:'Noto Sans Devanagari',Inter,sans-serif}
 
@@ -48,8 +48,8 @@
 .kkb2-item{background:#fff;border:1px solid #dfe5ee;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.12);text-align:center}
 .kkb2-item .kkb2-row{justify-content:center}
 .kkb2-en{font-size:22px;line-height:1.45;font-weight:800;color:#0B1F3A;margin:6px 0 4px;font-family:Inter,'Noto Sans Devanagari',sans-serif}
-.kkb2-dev{font-size:19px;line-height:1.6;color:#1565C0;font-weight:600;margin:0 0 2px}
-.kkb2-hi{font-size:17px;line-height:1.6;color:#33415c;margin:0 0 10px}
+.kkb2-dev{font-size:22px;line-height:1.55;color:#1565C0;font-weight:700;margin:0 0 4px}
+.kkb2-hi{font-size:22px;line-height:1.55;color:#2E7D32;font-weight:600;margin:0 0 10px}
 .kkb2-gsu{font-size:16px;opacity:.5;margin:8px 0 0;font-family:Inter,sans-serif}
 .kkb2-chip{display:inline-block;font-size:16px;font-weight:700;border-radius:999px;padding:3px 11px;margin:0 6px 6px 0}
 .kkb2-chip.A{background:#F9A825;color:#0B1F3A}
