@@ -105,11 +105,22 @@
     <!-- ════════ कोर्स (courses) — बीच का content (data-driven: 4-tab) ════════ -->
 <div id="coursesApp">
 <div class="hero">
-  <div class="hero-inner">
-    <div class="hero-title" style="text-align:center">
-      <span style="color:var(--gold)">सही कोर्स चुनें,</span><br/>
-      <span style="color:#fff">सही रास्ते पर चलें,</span><br/>
-      <span style="color:var(--green)">अभी पढ़ना शुरू करें!</span>
+  <div class="hero-inner" style="max-width:900px">
+    <div class="hero-slogan">
+      <span style="color:var(--gold)">सही कोर्स चुनें,</span>
+      <span style="color:#fff">सही रास्ते पर चलें,</span>
+      <span style="color:#81C784">अभी पढ़ना शुरू करें!</span>
+    </div>
+    <!-- सफलता-सूत्र कार्ड (Founder, 30-Aug: नीले hero में ही — नीचे का दोहरा कार्ड हटा) -->
+    <div class="formula-strip" style="margin:0 auto">
+      <div class="fs-title">🎯 सफलता का सूत्र — 1 हुनर + 1 भाषा</div>
+      <div class="fs-steps">
+        <span class="fs-step">1️⃣ पहले 1 हुनर सीखो<br><small>(जैसे वेल्डिंग, ई-कॉमर्स)</small></span>
+        <span class="fs-arrow">➜</span>
+        <span class="fs-step">2️⃣ फिर 1 ग़ैर-देवनागरी भाषा सीखो<br><small>(जैसे English, अरबी)</small></span>
+        <span class="fs-arrow">➜</span>
+        <span class="fs-step">3️⃣ देश-विदेश में जॉब की संभावना कई गुना!</span>
+      </div>
     </div>
   </div>
 </div>
@@ -132,18 +143,6 @@
   <!-- ══ TAB 0: अभी पढ़ना शुरू करें! — 3 खंड (30-Aug, Founder: सर्टिफिकेट/डिप्लोमा नाम-नियम + भाषा-समूह) ══ -->
   <div class="sec active" id="sec0">
     <div class="sec-title">✅ अभी पढ़ना शुरू करें!</div>
-
-    <!-- सफलता-सूत्र पट्टी (Founder बिंदु-5) -->
-    <div class="formula-strip">
-      <div class="fs-title">🎯 सफलता का सूत्र — 1 हुनर + 1 भाषा</div>
-      <div class="fs-steps">
-        <span class="fs-step">1️⃣ पहले 1 हुनर सीखो<br><small>(जैसे वेल्डिंग, ई-कॉमर्स)</small></span>
-        <span class="fs-arrow">➜</span>
-        <span class="fs-step">2️⃣ फिर 1 ग़ैर-देवनागरी भाषा सीखो<br><small>(जैसे English, अरबी)</small></span>
-        <span class="fs-arrow">➜</span>
-        <span class="fs-step">3️⃣ देश-विदेश में जॉब की संभावना कई गुना!</span>
-      </div>
-    </div>
 
     <!-- नाम-नियम पट्टी (सर्टिफिकेट बनाम डिप्लोमा) -->
     <div class="naam-strip">
@@ -321,6 +320,7 @@
 .hero-tag{display:inline-block;background:rgba(249,168,37,.15);border:1px solid rgba(249,168,37,.3);color:var(--gold);font-size:16px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:12px}
 .hero-title{font-size:clamp(28px,6vw,44px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:10px}
 .hero-title em{color:var(--gold);font-style:normal}
+.hero-slogan{font-size:clamp(18px,4vw,26px);font-weight:900;line-height:1.6;margin-bottom:14px;text-align:center}
 .hero-sub{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:16px;line-height:1.7}
 .hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .hero-badge{padding:10px 18px;border-radius:20px;font-size:16px;font-weight:700}
