@@ -119,6 +119,8 @@ var byType = {}; BANK.forEach(function (Q) { (byType[Q.t] = byType[Q.t] || []).p
 var order = [1, 8, 3, 10, 5, 2, 9, 6, 11, 4, 7, 12], MIX = [], left = BANK.length;
 while (left > 0) for (var o2 = 0; o2 < order.length; o2++) { var arr = byType[order[o2]]; if (arr && arr.length) { MIX.push(arr.shift()); left--; } }
 BANK = MIX;
+/* server-इंजन हर प्रश्न में स्थायी id माँगता है (attempt की qids-सूची इसी से) */
+BANK.forEach(function (Q, qi) { Q.id = "eng-" + ("0000" + (qi + 1)).slice(-4); });
 
 /* ---- नाप: लंबाई-पक्षपात + विविधता ---- */
 var biased = 0, eligible = 0;

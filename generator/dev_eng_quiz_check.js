@@ -6,6 +6,12 @@
 var fs = require("fs"), fail = 0;
 var B = require("../functions/eng_bank.js");
 if (B.length !== 2619) { console.log("⛔ गिनती " + B.length); fail++; }
+var idSeen = {};
+B.forEach(function (Q, i2) {
+  if (!Q.id) { console.log("⛔ id नहीं q#" + i2); fail++; }
+  else if (idSeen[Q.id]) { console.log("⛔ id-दोहराव " + Q.id); fail++; }
+  else idSeen[Q.id] = 1;
+});
 var tCount = {}; B.forEach(function (Q) { tCount[Q.t] = (tCount[Q.t] || 0) + 1; });
 for (var t = 1; t <= 12; t++) if (!tCount[t] || tCount[t] < 20) { console.log("⛔ प्रकार-" + t + " कम/ग़ायब"); fail++; }
 var first24 = {}; B.slice(0, 24).forEach(function (Q) { first24[Q.t] = 1; });
