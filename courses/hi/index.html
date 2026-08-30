@@ -129,10 +129,46 @@
 
 <div class="main">
 
-  <!-- ══ TAB 0: अभी पढ़ना शुरू करें! (6 पूरे-तैयार कोर्स — टू-व्हीलर जुड़ा, 03-Aug) ══ -->
+  <!-- ══ TAB 0: अभी पढ़ना शुरू करें! — 3 खंड (30-Aug, Founder: सर्टिफिकेट/डिप्लोमा नाम-नियम + भाषा-समूह) ══ -->
   <div class="sec active" id="sec0">
     <div class="sec-title">✅ अभी पढ़ना शुरू करें!</div>
+
+    <!-- सफलता-सूत्र पट्टी (Founder बिंदु-5) -->
+    <div class="formula-strip">
+      <div class="fs-title">🎯 सफलता का सूत्र — 1 हुनर + 1 भाषा</div>
+      <div class="fs-steps">
+        <span class="fs-step">1️⃣ पहले 1 हुनर सीखो<br><small>(जैसे वेल्डिंग, ई-कॉमर्स)</small></span>
+        <span class="fs-arrow">➜</span>
+        <span class="fs-step">2️⃣ फिर 1 ग़ैर-देवनागरी भाषा सीखो<br><small>(जैसे English, अरबी)</small></span>
+        <span class="fs-arrow">➜</span>
+        <span class="fs-step">3️⃣ देश-विदेश में जॉब की संभावना कई गुना!</span>
+      </div>
+    </div>
+
+    <!-- नाम-नियम पट्टी (सर्टिफिकेट बनाम डिप्लोमा) -->
+    <div class="naam-strip">
+      <span class="ns-item">📜 <b>सर्टिफिकेट प्रोग्राम</b> = ऑनलाइन पढ़ाई (मुफ़्त) + ऑनलाइन परीक्षा</span>
+      <span class="ns-item">🎓 <b>डिप्लोमा</b> = केंद्र/वर्कशॉप से practical (प्रैक्टिकल) समेत पूरा करने पर</span>
+    </div>
+
+    <!-- खंड-अ: हुनर सर्टिफिकेट प्रोग्राम -->
+    <div class="khand-title">🛠️ हुनर सर्टिफिकेट प्रोग्राम</div>
     <div class="course-grid" id="grid0"></div>
+
+    <!-- खंड-ब: भाषा सर्टिफिकेट प्रोग्राम (काम की भाषा) -->
+    <div class="khand-title">🗣️ भाषा सर्टिफिकेट प्रोग्राम (काम की भाषा)</div>
+    <div class="khand-sub">दुनिया की 119 भाषाएँ — 5 सप्ताह में काम-चलाऊ बोलना सीखो। समूह खोलकर अपनी भाषा चुनो।</div>
+    <div class="search-wrap"><input type="text" class="search-input" id="bhashaSearch" placeholder="🔍 भाषा खोजें... जैसे: English, अरबी, जापानी" oninput="filterBhasha()"/></div>
+    <div class="bh-popular" id="bhPopular"></div>
+    <div id="bhashaGroups"></div>
+
+    <!-- खंड-स: डिप्लोमा -->
+    <div class="khand-title">🎓 डिप्लोमा (केंद्र/वर्कशॉप से)</div>
+    <div class="diploma-strip">
+      ऊपर का कोई भी हुनर-कोर्स अपने पास के केंद्र/वर्कशॉप से जुड़कर practical (प्रैक्टिकल) समेत पूरा करो।
+      उस्ताद का हुनर-प्रमाण + परीक्षा — दोनों के बाद डिप्लोमा मिलेगा।
+      <div style="margin-top:10px"><button class="cc-btn btn-center" style="max-width:320px" onclick="window.location.href='/join.html'">🏫 केंद्र/वर्कशॉप से जुड़ें</button></div>
+    </div>
   </div>
 
 
@@ -337,6 +373,27 @@
 .cc-tag{font-size:16px;font-weight:700;padding:3px 8px;border-radius:10px}
 .tag-duration{background:#EEF4FF;color:var(--blue)}
 .tag-lessons{background:#F3E5F5;color:var(--purple)}
+/* ── tab-0 तीन-खंड (30-Aug) ── */
+.formula-strip{background:#fff;border:2px solid var(--gold,#F9A825);border-radius:14px;padding:16px;margin:14px auto;max-width:860px;text-align:center}
+.fs-title{font-size:19px;font-weight:800;color:#0B1F3A;margin-bottom:10px}
+.fs-steps{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;font-size:16px;font-weight:700;color:#0B1F3A;line-height:1.6}
+.fs-step{background:#F5F7FA;border:1px solid #d7dde6;border-radius:10px;padding:10px 12px}
+.fs-step small{font-weight:600;color:#5a6675;font-size:16px}
+.fs-arrow{color:#2E7D32;font-size:20px;font-weight:800}
+.naam-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 auto 8px;max-width:860px}
+.ns-item{background:#F5F7FA;border:1px solid #d7dde6;border-left:5px solid #1565C0;border-radius:8px;padding:9px 12px;font-size:16px;color:#0B1F3A}
+.khand-title{font-size:20px;font-weight:800;color:#0B1F3A;text-align:center;margin:26px 0 4px}
+.khand-sub{font-size:16px;color:#5a6675;text-align:center;margin-bottom:10px}
+.bh-popular{max-width:860px;margin:0 auto 12px;text-align:center}
+.bh-pop-title{font-size:16px;font-weight:700;color:#0B1F3A;margin-bottom:6px}
+.bh-group{max-width:860px;margin:0 auto 10px;background:#fff;border:1px solid #d7dde6;border-radius:12px;overflow:hidden}
+.bh-group summary{cursor:pointer;padding:13px 16px;font-size:17px;font-weight:800;color:#0B1F3A;background:#F5F7FA;list-style-position:inside}
+.bh-group[open] summary{border-bottom:1px solid #d7dde6;color:#1565C0}
+.bh-count{font-weight:600;color:#5a6675;font-size:16px}
+.bh-chips{padding:12px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.bh-chip{background:#fff;border:1.5px solid #1565C0;color:#1565C0;border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit}
+.bh-chip:hover{background:#1565C0;color:#fff}
+.diploma-strip{background:#fff;border:1px solid #d7dde6;border-left:6px solid #2E7D32;border-radius:12px;padding:14px 16px;margin:0 auto 20px;max-width:860px;font-size:16px;color:#0B1F3A;line-height:1.8;text-align:center}
 .tag-level{background:#FFF3E0;color:var(--orange)}
 .tag-salary{background:#E8F5E9;color:var(--green)}
 .tag-edu{background:#F5F5F5;color:var(--muted)}
@@ -407,7 +464,7 @@ function udyamAsCourseShape(){
 const TAB_DATA = {
   0: () => {
     /* 6 पूरे-तैयार कोर्स — असली SELF_EMP_COURSES/PRIVATE_JOB_COURSES से ID मिलाकर (एक चीज़=एक जगह) */
-    const READY_IDS = ['SE009','SE017','SE021','SE022','SE023','PJ016','PJ017','PJ018','PJ019','PJ020','PJ021','PJ022','PJ023','PJ024','PJ025','PJ026','PJ027','PJ028','PJ029','PJ030','PJ031','PJ032','PJ033','PJ034','PJ035','PJ036','PJ037','PJ038','PJ039','PJ040','PJ041','PJ042','PJ043','PJ044','PJ045','PJ046','PJ047','PJ048','PJ049','PJ050','PJ051','PJ052','PJ053','PJ054','PJ055','PJ056','PJ057','PJ058','PJ059','PJ060','PJ061','PJ062','PJ063','PJ064','PJ065','PJ066','PJ067','PJ068','PJ069','PJ070','PJ071','PJ072','PJ073','PJ074','PJ075','PJ076','PJ077','PJ078','PJ079','PJ080','PJ081','PJ082','PJ083','PJ084','PJ085','PJ086','PJ087','PJ088','PJ089','PJ090','PJ091','PJ092','PJ093','PJ094','PJ095','PJ096','PJ097','PJ098','PJ099','PJ100','PJ101','PJ102','PJ103','PJ104','PJ105','PJ106','PJ107','PJ108','PJ109','PJ110','PJ111','PJ112','PJ113','PJ114','PJ115','PJ116','PJ117','PJ118','PJ119','PJ120','PJ121','PJ122','PJ123','PJ124','PJ125','PJ126','PJ127','PJ128','PJ129','PJ130','PJ131','PJ132','PJ133','PJ134','PJ135','PJ136'];
+    const READY_IDS = ['SE009','SE017','SE021','SE022','SE023','PJ016','PJ017']; /* हुनर सर्टिफिकेट प्रोग्राम — भाषा-कोर्स (PJ018-PJ136) अब खंड-ब के समूहों में, renderBhasha से (30-Aug, Founder) */
     const all = [].concat(
       typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
       typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : []
@@ -455,8 +512,40 @@ function subjectsForClass(courseId){
   return (AS.middle || []).map(linkSubject);
 }
 
+// ══ भाषा-समूह (काम की भाषा) — 30-Aug-2026, Founder-समूहन (कमाई-गलियारा आधारित) ══
+/* सिर्फ़ id यहाँ — नाम courses_data से (एक चीज़ = एक जगह)। नया भाषा-कोर्स = सही समूह में id जोड़ो। */
+const KKB_GROUPS = [
+ {t:'भारतीय भाषाएँ — देवनागरी लिपि', e:'🇮🇳', ids:['PJ027','PJ038','PJ040','PJ042','PJ043','PJ044','PJ048','PJ050','PJ053','PJ054','PJ058','PJ059','PJ060','PJ102','PJ103','PJ104','PJ106']},
+ {t:'भारतीय भाषाएँ — अन्य लिपि', e:'🇮🇳', ids:['PJ019','PJ023','PJ028','PJ029','PJ033','PJ039','PJ041','PJ045','PJ046','PJ049','PJ051','PJ055','PJ056','PJ057','PJ105']},
+ {t:'पड़ोसी देश', e:'🏔️', ids:['PJ047','PJ061','PJ062','PJ063','PJ064','PJ067','PJ075','PJ107','PJ108','PJ109']},
+ {t:'खाड़ी व अरब देश (सबसे बड़ा कमाई-गलियारा)', e:'🕌', ids:['PJ022','PJ030','PJ035','PJ090','PJ111','PJ112','PJ113','PJ115','PJ116','PJ117','PJ118','PJ119']},
+ {t:'एशिया', e:'🌏', ids:['PJ020','PJ025','PJ026','PJ031','PJ034','PJ037','PJ065','PJ066','PJ068','PJ069','PJ070','PJ071','PJ072','PJ073','PJ074','PJ091','PJ092','PJ093','PJ094','PJ095','PJ096','PJ110','PJ114']},
+ {t:'यूरोप व अमेरिका', e:'🌍', ids:['PJ018','PJ021','PJ024','PJ052','PJ086','PJ097','PJ098','PJ099','PJ100','PJ101','PJ125','PJ126','PJ127','PJ128','PJ129','PJ130','PJ131','PJ132','PJ133','PJ134','PJ135','PJ136']},
+ {t:'अफ़्रीका', e:'🌍', ids:['PJ032','PJ036','PJ076','PJ077','PJ078','PJ079','PJ080','PJ081','PJ082','PJ083','PJ084','PJ085','PJ087','PJ088','PJ089','PJ120','PJ121','PJ122','PJ123','PJ124']}
+];
+const KKB_POPULAR = ['PJ018','PJ022','PJ086','PJ021','PJ026','PJ031','PJ125','PJ052']; /* सबसे माँग वाली */
+function kkbName(c){ var n=c.name_hi||''; if(n.indexOf('—')>-1){n=n.split('—')[1];} n=n.split('(')[0].replace('बोलना','').trim(); return n; }
+function kkbCourse(id){ var L=(typeof PRIVATE_JOB_COURSES!=='undefined')?PRIVATE_JOB_COURSES:[]; for(var i=0;i<L.length;i++){if(L[i].id===id)return L[i];} return null; }
+function bhChip(id){ var c=kkbCourse(id); if(!c)return ''; return '<button class="bh-chip" data-nm="'+kkbName(c)+'" onclick="openCourse(\''+id+'\',\'online\')">'+kkbName(c)+'</button>'; }
+function renderBhasha(){
+  var pop=document.getElementById('bhPopular'); if(!pop) return;
+  pop.innerHTML='<div class="bh-pop-title">⭐ सबसे ज़्यादा माँग वाली:</div>'+KKB_POPULAR.map(bhChip).join('');
+  var host=document.getElementById('bhashaGroups');
+  host.innerHTML=KKB_GROUPS.map(function(g){
+    return '<details class="bh-group"><summary>'+g.e+' '+g.t+' <span class="bh-count">('+g.ids.length+' भाषाएँ)</span></summary><div class="bh-chips">'+g.ids.map(bhChip).join('')+'</div></details>';
+  }).join('');
+}
+function filterBhasha(){
+  var q=(document.getElementById('bhashaSearch').value||'').trim().toLowerCase();
+  var chips=document.querySelectorAll('#bhashaGroups .bh-chip, #bhPopular .bh-chip');
+  var groups=document.querySelectorAll('#bhashaGroups .bh-group');
+  for(var i=0;i<chips.length;i++){ var nm=(chips[i].getAttribute('data-nm')||'').toLowerCase(); chips[i].style.display=(!q||nm.indexOf(q)>-1)?'':'none'; }
+  for(var j=0;j<groups.length;j++){ var vis=groups[j].querySelectorAll('.bh-chip:not([style*="none"])').length; groups[j].style.display=vis?'':'none'; if(q&&vis)groups[j].setAttribute('open',''); if(!q)groups[j].removeAttribute('open'); }
+}
+
 // ══ INIT ══
 function init() {
+  renderBhasha();
   // Education dropdowns
   [1,2,3,4,5].forEach(tab => {
     const sel = document.getElementById('eduFilter'+tab);
