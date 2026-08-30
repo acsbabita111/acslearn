@@ -42,7 +42,7 @@
 
   /* ---- ढाँचा ---- */
   ROOT.innerHTML = '<div class="kkb-bar" id="kkb-bar"></div><div class="kkb-main" id="kkb-main"></div>' +
-    '<div class="kkb-foot">' + BRAND + ' · ' + SUB + ' · demo संस्करण 0.1 · 500 वाक्य · <button type="button" id="kkb-reset">प्रगति मिटाएँ</button></div>';
+    '<div class="kkb-foot">' + BRAND + ' · ' + SUB + ' · स्तर-1 · 500 वाक्य · <button type="button" id="kkb-reset">प्रगति मिटाएँ</button></div>';
   var $ = function (id) { return document.getElementById(id); };
 
   /* ---- प्रगति (device-local) ---- */
@@ -138,13 +138,13 @@
         '<div class="kkb-bar2"><i style="width:' + Math.round(done / 7 * 100) + '%"></i></div></div><div class="kkb-arrow">›</div></button>';
     }).join("");
     $("kkb-main").innerHTML =
-      '<div class="kkb-hero"><div class="kkb-demo">DEMO</div><div class="kkb-eyebrow">Applied Computer School</div>' +
+      '<div class="kkb-hero"><div class="kkb-eyebrow">Applied Computer School</div>' +
       '<h1>काम की भाषा</h1><div class="kkb-thesis">' + L + ' पढ़ो मत। सुनो और बोलो।</div>' +
       '<p style="opacity:.88;margin:0">500 वाक्य · 5 सप्ताह · हर वाक्य देवनागरी में, हिंदी अर्थ और आवाज़ के साथ। 5वीं पास भी आज से बोलना शुरू कर सकता है।</p></div>' +
       '<div class="kkb-steps"><div class="kkb-step"><b>👁️</b><span>देवनागरी में देखो</span></div><div class="kkb-step"><b>🔊</b><span>आवाज़ सुनो</span></div><div class="kkb-step"><b>🗣️</b><span>ज़ोर से बोलो</span></div></div>' +
       '<p class="kkb-small kkb-muted" style="margin:6px 2px 16px">हर सप्ताह: दिन 1–5 में 20-20 वाक्य · दिन 6 अभ्यास · दिन 7 फ़ोन पर टेस्ट</p>' +
       weeks +
-      '<div class="kkb-card" style="margin-top:14px"><b>यह demo है।</b> <span class="kkb-muted kkb-small">वाक्य अभी प्रारंभिक मसौदा हैं। असली course के वाक्य research और ' + L + ' जानने वाले trainer की जाँच के बाद तय होंगे। आवाज़ इस समय फ़ोन की अपनी ' + L + ' आवाज़ है। असली course में trainer की रिकॉर्डिंग होगी।</span></div>';
+      '<div class="kkb-card" style="margin-top:14px"><b>सूचना:</b> <span class="kkb-muted kkb-small">आवाज़ इस समय फ़ोन की अपनी ' + L + ' आवाज़ है। आगे trainer की रिकॉर्डिंग जुड़ेगी।</span></div>';
   }
 
   /* ---- सप्ताह ---- */
