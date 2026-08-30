@@ -80,6 +80,12 @@
 .kkb-app[data-script="gujarati"] .kkb-en,.kkb-app[data-script="gujarati"] .kkb-l3,.kkb-app[data-script="gujarati"] .kkb-line .kkb-tx span{font-family:"Noto Sans Gujarati","Shruti",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
 .kkb-app[data-script="gurmukhi"] .kkb-en,.kkb-app[data-script="gurmukhi"] .kkb-l3,.kkb-app[data-script="gurmukhi"] .kkb-line .kkb-tx span{font-family:"Noto Sans Gurmukhi","Raavi",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
 .kkb-app[data-script="kannada"] .kkb-en,.kkb-app[data-script="kannada"] .kkb-l3,.kkb-app[data-script="kannada"] .kkb-line .kkb-tx span{font-family:"Noto Sans Kannada","Tunga",system-ui,sans-serif;font-size:18px;color:#1E2E4F}
+.kkb-app[data-script="ethiopic"] .kkb-en,.kkb-app[data-script="ethiopic"] .kkb-l3,.kkb-app[data-script="ethiopic"] .kkb-line .kkb-tx span{font-family:"Noto Sans Ethiopic","Nyala",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* अम्हारिक — गीज़ लिपि */
+.kkb-app[data-script="tibetan"] .kkb-en,.kkb-app[data-script="tibetan"] .kkb-l3,.kkb-app[data-script="tibetan"] .kkb-line .kkb-tx span{font-family:"Noto Sans Tibetan","Microsoft Himalaya",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* तिब्बती लिपि */
+.kkb-app[data-script="khmer"] .kkb-en,.kkb-app[data-script="khmer"] .kkb-l3,.kkb-app[data-script="khmer"] .kkb-line .kkb-tx span{font-family:"Noto Sans Khmer","Khmer OS",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* खमेर लिपि */
+.kkb-app[data-script="lao"] .kkb-en,.kkb-app[data-script="lao"] .kkb-l3,.kkb-app[data-script="lao"] .kkb-line .kkb-tx span{font-family:"Noto Sans Lao","Saysettha OT",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* लाओ लिपि */
+.kkb-app[data-script="myanmar"] .kkb-en,.kkb-app[data-script="myanmar"] .kkb-l3,.kkb-app[data-script="myanmar"] .kkb-line .kkb-tx span{font-family:"Noto Sans Myanmar","Myanmar Text",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* बर्मी/म्यांमार लिपि */
+.kkb-app[data-script="thai"] .kkb-en,.kkb-app[data-script="thai"] .kkb-l3,.kkb-app[data-script="thai"] .kkb-line .kkb-tx span{font-family:"Noto Sans Thai","Leelawadee UI",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* थाई लिपि */
 .kkb-speak{display:flex;gap:10px;margin-top:auto;padding-top:16px}
 .kkb-speak .kkb-big{flex:1;min-height:64px;border-radius:16px;background:#F9A825;color:#0B1F3A;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;gap:8px}
 .kkb-speak .kkb-big.kkb-slow{background:#fff;border:2px solid #F9A825;color:#0B1F3A}
