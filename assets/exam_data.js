@@ -45,4 +45,9 @@ window.COURSE_EXAMS = {
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/msh_quiz_k01.js–k12.js shards — बदलाव वहीं, फिर server-बैंक regen। */
   ] },
+  "PJ018": { name: "ACS Certificate in Spoken English — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
+    /* server-मोड कोर्स — 120 प्रश्न server-निजी बैंक (eng_bank, 2619 — 12 प्रकार) से हर बार बेतरतीब;
+       q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
+       स्रोत = frozen corpus (kkb_data+kkb2_data) — regen: generator/build_eng_bank.js। */
+  ] },
 };
