@@ -91,4 +91,17 @@ dfiles.forEach(function (f) {
 if (dvf) fail += dvf;
 console.log("demo-guard: kkb.js ✅ · भाषा-पेज " + langs.length + "/" + langs.length + " ✅ · data-version " + dfiles.length + " फ़ाइलें ✅ (जापानी/डच के असली-भाषा शब्द छूट में)");
 if (fail) { console.log("⛔ demo-guard fail: " + fail); process.exit(1); }
+/* ---- सूची-guard (स्थायी): हर भाषा-कोर्स (mg 11) कोर्स-सूची पेज की KKB-सूची में दर्ज हो ---- */
+var cd = fs.readFileSync("assets/courses_data.js", "utf8");
+global.PRIVATE_JOB_COURSES = undefined;
+(0, eval)(cd.replace(/const /g, "var ")); /* indirect-eval: strict-फ़ाइल में भी var global पर पहुँचे */
+var page = fs.readFileSync("courses/hi/index.html", "utf8");
+var missing = [];
+var PJC = global.PRIVATE_JOB_COURSES || [];
+if (!PJC.length) { console.log("⛔ सूची-guard: courses_data पढ़ी नहीं गई (सूची ख़ाली)"); process.exit(1); } /* झूठे-पास पर स्थायी ताला */
+PJC.forEach(function (c) {
+  if (c.mg === 11 && /^PJ/.test(c.id) && page.indexOf("'" + c.id + "'") < 0) missing.push(c.id);
+});
+if (missing.length) { console.log("⛔ कोर्स-सूची से छूटी भाषाएँ: " + missing.join(",")); process.exit(1); }
+console.log("सूची-guard: सब भाषा-कोर्स कोर्स-सूची पेज में दर्ज ✅");
 console.log("🏁🏁 dev_kkb2_check: सब जाँचें पास");
