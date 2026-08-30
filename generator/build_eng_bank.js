@@ -94,6 +94,14 @@ B[12] = function (it) { /* सही शब्द-क्रम: ग़लत व
   if (ds.length < 3) return null;
   return mkQ(12, "सही शब्द-क्रम वाला English वाक्य चुनिए (अर्थ: " + it.hi + ")", ws.join(" "), ds);
 };
+B[13] = function (it) { /* सुनो→अर्थ: वाक्य सिर्फ़ आवाज़ से — पाठ में नहीं */
+  var ds = pick3(ALL, it.hi, function (x) { return x.hi; });
+  return ds && mkQ(13, "🔊 सुनो-प्रश्न: नीचे बटन दबाकर English वाक्य सिर्फ़ कान से सुनिए (पढ़ने को नहीं मिलेगा) — फिर उसका सही हिंदी अर्थ चुनिए ((AU:" + it.en + "))", it.hi, ds);
+};
+B[14] = function (it) { /* सुनो→उच्चारण पहचानो */
+  var ds = pick3(ALL, it.dev, function (x) { return x.dev; });
+  return ds && mkQ(14, "🔊 सुनो-प्रश्न: बटन दबाकर वाक्य सुनिए — जो सुना, उसका सही उच्चारण चुनिए ((AU:" + it.en + "))", it.dev, ds);
+};
 /* tw-धारा */
 B[8] = function (t) { var ds = pick3(TW, t.hi, function (x) { return x.hi; }); return ds && mkQ(8, "English शब्द \u201C" + t.w + "\u201D (" + t.dev + ") का सही हिंदी अर्थ चुनिए", t.hi, ds); };
 B[9] = function (t) { var ds = pick3(TW, t.w, function (x) { return x.w; }); return ds && mkQ(9, "जिस English शब्द का अर्थ \u201C" + t.hi + "\u201D है, वह चुनिए", t.w, ds); };
@@ -110,13 +118,19 @@ for (var i = 0; i < ALL.length; i++) {
   for (var r2 = 0; r2 < ROT.length && !ok; r2++) ok = push(B[ROT[(i + r2) % ROT.length]](ALL[i]));
   if (!ok) { console.log("⛔ कोई प्रकार नहीं बना: " + ALL[i].en); process.exit(1); }
 }
+var au13 = 0, au14 = 0;
+for (i = 3; i < ALL.length && (au13 < 150 || au14 < 150); i += 7) {
+  if (au13 <= au14 && au13 < 150) { if (push(B[13](ALL[i]))) au13++; }
+  else if (au14 < 150) { if (push(B[14](ALL[i]))) au14++; }
+}
+if (au13 < 150 || au14 < 150) { console.log("⛔ सुनो-प्रश्न कम: " + au13 + "/" + au14); process.exit(1); }
 for (i = 0; i < TW.length; i++) if (!push(B[i % 2 === 0 ? 8 : 9](TW[i])) && !push(B[i % 2 === 0 ? 9 : 8](TW[i]))) { console.log("⛔ tw-प्रश्न fail"); process.exit(1); }
 for (i = 0; i < LIS.length; i++) if (!push(B[10](LIS[i]))) { console.log("⛔ listen-प्रश्न fail"); process.exit(1); }
 for (i = 0; i < DLG.length; i++) if (!push(B[11](DLG[i]))) { console.log("⛔ dialog-प्रश्न fail"); process.exit(1); }
 
 /* ---- अंतिम गूँथाई: बैंक-क्रम में भी प्रकार घूमता चले (round-robin interleave) ---- */
 var byType = {}; BANK.forEach(function (Q) { (byType[Q.typ] = byType[Q.typ] || []).push(Q); });
-var order = [1, 8, 3, 10, 5, 2, 9, 6, 11, 4, 7, 12], MIX = [], left = BANK.length;
+var order = [1, 13, 8, 3, 10, 5, 14, 2, 9, 6, 11, 4, 7, 12], MIX = [], left = BANK.length;
 while (left > 0) for (var o2 = 0; o2 < order.length; o2++) { var arr = byType[order[o2]]; if (arr && arr.length) { MIX.push(arr.shift()); left--; } }
 BANK = MIX;
 /* server-इंजन हर प्रश्न में स्थायी id माँगता है (attempt की qids-सूची इसी से) */
@@ -130,11 +144,11 @@ BANK.forEach(function (Q) {
   if (!tie) { eligible++; if (mi === Q.a) biased++; }
 });
 var rate = Math.round(biased * 1000 / eligible) / 10;
-var tc = []; for (var t3 = 1; t3 <= 12; t3++) tc.push("T" + t3 + ":" + (typeCount[t3] || 0));
+var tc = []; for (var t3 = 1; t3 <= 14; t3++) tc.push("T" + t3 + ":" + (typeCount[t3] || 0));
 console.log("बैंक: " + BANK.length + " प्रश्न · 12 प्रकार [" + tc.join(" ") + "]");
 console.log("अकेला-सबसे-लंबा=सही दर: " + rate + "% (खिड़की 15-35%)");
 if (rate < 15 || rate > 35) { console.log("⛔ लंबाई-पक्षपात"); process.exit(1); }
-for (t3 = 1; t3 <= 12; t3++) if (!typeCount[t3] || typeCount[t3] < 20) { console.log("⛔ प्रकार-" + t3 + " बहुत कम"); process.exit(1); }
+for (t3 = 1; t3 <= 14; t3++) if (!typeCount[t3] || typeCount[t3] < 20) { console.log("⛔ प्रकार-" + t3 + " बहुत कम"); process.exit(1); }
 
 var out = "/* functions/eng_bank.js — ACS Spoken English (PJ018) server-परीक्षा बैंक v2.0\n" +
   "   " + BANK.length + " प्रश्न · 12 प्रकार घूमते क्रम में (मशीन-गिनती dev_eng_quiz_check से)\n" +

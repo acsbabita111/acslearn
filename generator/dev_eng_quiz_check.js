@@ -5,7 +5,7 @@
 "use strict";
 var fs = require("fs"), fail = 0;
 var B = require("../functions/eng_bank.js");
-if (B.length !== 2619) { console.log("⛔ गिनती " + B.length); fail++; }
+if (B.length !== 2919) { console.log("⛔ गिनती " + B.length); fail++; }
 var idSeen = {};
 B.forEach(function (Q, i2) {
   if (!Q.id) { console.log("⛔ id नहीं q#" + i2); fail++; }
@@ -13,9 +13,19 @@ B.forEach(function (Q, i2) {
   else idSeen[Q.id] = 1;
 });
 var tCount = {}; B.forEach(function (Q) { tCount[Q.typ] = (tCount[Q.typ] || 0) + 1; });
-for (var t = 1; t <= 12; t++) if (!tCount[t] || tCount[t] < 20) { console.log("⛔ प्रकार-" + t + " कम/ग़ायब"); fail++; }
+for (var t = 1; t <= 14; t++) if (!tCount[t] || tCount[t] < 20) { console.log("⛔ प्रकार-" + t + " कम/ग़ायब"); fail++; }
+var auOK = 0;
+B.forEach(function (Q, i3) {
+  if (Q.typ === 13 || Q.typ === 14) {
+    var m = /\(\(AU:([^)]+)\)\)/.exec(Q.t);
+    if (!m || !m[1] || /[\u0900-\u097F]/.test(m[1])) { console.log("⛔ AU-निशान ग़लत q#" + i3); fail++; }
+    else if (Q.t.replace(m[0], "").indexOf(m[1]) > -1) { console.log("⛔ सुनो-वाक्य पाठ में खुला q#" + i3); fail++; }
+    else auOK++;
+  } else if (Q.t.indexOf("((AU:") > -1) { console.log("⛔ ग़ैर-सुनो प्रश्न में AU q#" + i3); fail++; }
+});
+if (auOK !== 300) { console.log("⛔ सुनो-प्रश्न " + auOK + "/300"); fail++; }
 var first24 = {}; B.slice(0, 24).forEach(function (Q) { first24[Q.typ] = 1; });
-if (Object.keys(first24).length < 10) { console.log("⛔ शुरुआती क्रम में प्रकार नहीं घूमते"); fail++; }
+if (Object.keys(first24).length < 12) { console.log("⛔ शुरुआती क्रम में प्रकार नहीं घूमते"); fail++; }
 console.log("12-प्रकार गिनती: " + JSON.stringify(tCount));
 var biased = 0, eligible = 0;
 B.forEach(function (Q, i) {
@@ -33,6 +43,6 @@ if (rate < 15 || rate > 35) { console.log("⛔ लंबाई-पक्षप�
 var dj = fs.readFileSync("../assets/dashboard.js", "utf8");
 if (dj.indexOf("PJ018: true") < 0) { console.log("⛔ dashboard-द्वार नहीं"); fail++; }
 var ed = fs.readFileSync("../assets/exam_data.js", "utf8");
-if (ed.indexOf('"PJ018"') < 0 || ed.indexOf("eng_bank, 2619") < 0) { console.log("⛔ exam_data-द्वार नहीं"); fail++; }
+if (ed.indexOf('"PJ018"') < 0 || ed.indexOf("eng_bank, 2919") < 0) { console.log("⛔ exam_data-द्वार नहीं"); fail++; }
 if (fail) { console.log("⛔ कुल fail: " + fail); process.exit(1); }
 console.log("🏁🏁 dev_eng_quiz_check: सब जाँचें पास");
