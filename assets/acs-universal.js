@@ -223,3 +223,18 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
     }catch(e){}
   });
 })();
+
+/* ── kkb-embassy hook (Addendum v6.1-घ, 30-Aug-2026): भाषा-कोर्स पेज (#kkb-app) पर
+   govt_jobs_embassy.js आलसी-load — 119 HTML व kkb.js अछूते (साझा-असेट-लाभ नियम) ── */
+(function(){
+  function go(){
+    try{
+      if(!document.getElementById('kkb-app')) return;
+      var s = document.createElement('script');
+      s.src = '/assets/govt_jobs_embassy.js';
+      document.body.appendChild(s);
+    }catch(e){}
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
+  else go();
+})();
