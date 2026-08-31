@@ -1,4 +1,5 @@
-/* ═══ ACS कोर्स-परीक्षा भंडार v1.4 (05-Aug-2026) — टेस्ट-मोड: सभी द्वार खुले ═══
+/* ═══ ACS कोर्स-परीक्षा भंडार v1.5 (31-Aug-2026) — +7 KKB भाषा-द्वार (PJ022/086/021/026/031/125/052) ═══
+   v1.4 (05-Aug-2026) — टेस्ट-मोड: सभी द्वार खुले ═══
    v1.4: +SE022 टू-व्हीलर द्वार-प्रविष्टि (server-मोड, q ख़ाली — प्रश्न server-निजी
    twv_bank से)। minLessons:0 टेस्ट-मोड; असली-फ़ीस युग का मान Founder तय करें।
    v1.3 (Founder-आदेश, 31-Jul): साइट अभी टेस्ट-मोड — असली-फ़ीस शुरू होने तक
@@ -50,4 +51,12 @@ window.COURSE_EXAMS = {
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत = frozen corpus (kkb_data+kkb2_data) — regen: generator/build_eng_bank.js। */
   ] },
+  /* (31-Aug) KKB मास्टर-प्रतिकृति — 7 भाषा-परीक्षाएँ, PJ018-रूप server-मोड: q ख़ाली (प्रश्न server-निजी <code>_bank से; regen: generator/build_kkb_bank.js <code>) */
+  "PJ022": { name: "ACS Certificate in Spoken Arabic — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ086": { name: "ACS Certificate in Spoken French — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ021": { name: "ACS Certificate in Spoken Spanish — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ026": { name: "ACS Certificate in Spoken Japanese — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ031": { name: "ACS Certificate in Spoken Korean — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ125": { name: "ACS Certificate in Spoken German — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ052": { name: "ACS Certificate in Spoken Russian — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
 };

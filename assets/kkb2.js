@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/kkb2.js — v2.1 (30-Aug-2026) · + आवाज़-चयन (फ़ोन की उपलब्ध English आवाज़ों में से; device-निर्भर) · ACS Spoken English — एक कोर्स, 90 दिन
+   /assets/kkb2.js — v3.0 (31-Aug-2026) · भाषा-सामान्यीकरण: 8 भाषाएँ (en मास्टर + ar/fr/es/ja/ko/de/ru) — lang-meta data से; en-व्यवहार पहले जैसा · देवनागरी-native (ru) = hi-IN आवाज़ · जापानी (romaji) आवाज़ में कटे · अरबी RTL · ACS KKB मास्टर-इंजन — एक कोर्स, 90 दिन
    Founder-आदेश: L1 (500) + स्तर-2 (1,650) = 2,150 वाक्य एक-साथ; 3 महीने;
    महीना-1 = 20 वाक्य/दिन (ठीक 600) · महीना-2/3 = बढ़ती चाल (20→30)।
    data: window.KKB_DATA (स्तर-1, frozen) + window.KKB2_DATA (स्तर-2, frozen) —
@@ -13,6 +13,15 @@
   var ROOT = document.getElementById("kkb2-app");
   if (!D1 || !D2 || !ROOT) return;
   var TRAINER_WA = "919431210092";
+
+  /* ---- भाषा (v3.0): data से — D2.lang प्राथमिक; en पर व्यवहार पहले जैसा ---- */
+  var LANG = (D2 && D2.lang) || (D1 && D1.lang) || { code: "en", label: "English", tts: "en-IN", sr: "en-IN", script: "latin" };
+  var EN = LANG.code === "en";
+  var TTSL = LANG.script === "devanagari-native" ? "hi-IN" : LANG.tts; /* देवनागरी-फ़ोनेटिक भाषा (रूसी): hi-IN आवाज़ (Founder-मुहर 31-Aug) */
+  var TBASE = TTSL.split("-")[0].toLowerCase();
+  var RTL = LANG.script === "arabic" || LANG.script === "persian";
+  function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* सिर्फ़ लक्ष्य-भाषा पंक्ति पर — देवनागरी/हिंदी LTR */
+  function spoken(t) { t = String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, ""); if (LANG.script === "japanese") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* जापानी: अंत का (romaji) आवाज़ में नहीं */
 
   /* ---- 90-दिन नक़्शा (master अछूता — सिर्फ़ क्रम-सूची) ---- */
   var DAYS = [], w, d;
@@ -35,7 +44,7 @@
   ];
 
   /* ---- प्रगति (device-local) ---- */
-  var STORE = "acs_kkb2_full_en_v2";
+  var STORE = "acs_kkb2_full_" + LANG.code + "_v2";
   var P = {};
   try { P = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { P = {}; }
   if (!P.day) P.day = {}; if (!P.dlg) P.dlg = {}; if (!P.tst) P.tst = {};
@@ -52,10 +61,10 @@
   function gsu(n) { return "ACS-GSU-" + ("000000" + n).slice(-6); }
 
   /* ---- आवाज़ ---- */
-  var voice = null, VKEY = "acs_kkb2_voice_v1";
+  var voice = null, VKEY = EN ? "acs_kkb2_voice_v1" : "acs_kkb2_voice_" + LANG.code + "_v1";
   function enVoices() {
     if (!("speechSynthesis" in window)) return [];
-    return speechSynthesis.getVoices().filter(function (v) { return /^en/i.test(v.lang); });
+    return speechSynthesis.getVoices().filter(function (v) { return v.lang && v.lang.replace("_", "-").toLowerCase().indexOf(TBASE) === 0; });
   }
   function pickVoice() {
     if (!("speechSynthesis" in window)) return;
@@ -63,21 +72,21 @@
     try { savedURI = localStorage.getItem(VKEY) || ""; } catch (e) { }
     voice = null;
     if (savedURI) voice = vs.filter(function (v) { return v.voiceURI === savedURI; })[0] || null;
-    if (!voice) voice = vs.filter(function (v) { return v.lang === "en-IN" || v.lang === "en_IN"; })[0] ||
-      vs.filter(function (v) { return /^en/.test(v.lang); })[0] || null;
+    if (!voice) voice = vs.filter(function (v) { return v.lang === TTSL || v.lang === TTSL.replace("-", "_"); })[0] ||
+      vs.filter(function (v) { return v.lang && v.lang.replace("_", "-").toLowerCase().indexOf(TBASE) === 0; })[0] || null;
   }
   window.kkb2Voice = function (uri) {
     try { localStorage.setItem(VKEY, uri); } catch (e) { }
     pickVoice();
-    say("Hello! My name is A C S. I will speak English with you.", false);
+    say(EN ? "Hello! My name is A C S. I will speak English with you." : spoken(D1.weeks[0].days[0].items[0][0]), false);
   };
   window.kkb2VoiceBtn = function (b) { window.kkb2Voice(b.getAttribute("data-v")); window.kkb2Go("home"); };
   function voiceCard() {
     var L = enVoices();
     if (!("speechSynthesis" in window)) return "";
-    if (L.length <= 1) return '<div class="kkb2-card soft"><p class="kkb2-muted">🗣️ इस फ़ोन में English की एक ही आवाज़ है — वही चलेगी। (आवाज़ें फ़ोन की अपनी होती हैं; Google Text-to-speech अपडेट करने से और आवाज़ें मिल सकती हैं।)</p></div>';
+    if (L.length <= 1) return '<div class="kkb2-card soft"><p class="kkb2-muted">🗣️ इस फ़ोन में ' + esc(LANG.label) + ' की एक ही आवाज़ है — वही चलेगी। (आवाज़ें फ़ोन की अपनी होती हैं; Google Text-to-speech अपडेट करने से और आवाज़ें मिल सकती हैं।)</p></div>';
     var savedURI = ""; try { savedURI = localStorage.getItem(VKEY) || ""; } catch (e) { }
-    var h = '<div class="kkb2-card soft"><h3>🗣️ आवाज़ चुनें</h3><p class="kkb2-muted">आपके फ़ोन में ' + L.length + ' English आवाज़ें हैं — चुनते ही नमूना सुनाई देगा; चुनाव याद रहेगा।</p><div class="kkb2-row">';
+    var h = '<div class="kkb2-card soft"><h3>🗣️ आवाज़ चुनें</h3><p class="kkb2-muted">आपके फ़ोन में ' + L.length + ' ' + esc(LANG.label) + ' आवाज़ें हैं — चुनते ही नमूना सुनाई देगा; चुनाव याद रहेगा।</p><div class="kkb2-row">';
     for (var vi = 0; vi < L.length && vi < 6; vi++) {
       var on = (savedURI ? savedURI === L[vi].voiceURI : (voice && voice.voiceURI === L[vi].voiceURI));
       h += '<button class="kkb2-btn ' + (on ? "gold" : "ghost") + '" onclick="kkb2VoiceBtn(this)" data-v="' + esc(L[vi].voiceURI) + '">' + (on ? "✔ " : "") + esc(L[vi].name.replace(/English|Google|Microsoft/g, "").trim() || L[vi].lang) + ' <small>(' + esc(L[vi].lang) + ')</small></button>';
@@ -89,8 +98,8 @@
   function say(text, slow) {
     if (!("speechSynthesis" in window)) { alert("इस फ़ोन में आवाज़ नहीं चल रही। Chrome में खोलें।"); return false; }
     speechSynthesis.cancel();
-    var u = new SpeechSynthesisUtterance(String(text).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, ""));
-    u.lang = "en-IN"; if (voice) u.voice = voice; u.rate = slow ? 0.7 : 0.95;
+    var u = new SpeechSynthesisUtterance(spoken(text));
+    u.lang = TTSL; if (voice) u.voice = voice; u.rate = slow ? 0.7 : 0.95;
     speechSynthesis.speak(u); return true;
   }
   window.say2 = function (t) { say(t, false); };
@@ -103,7 +112,7 @@
     var el = document.getElementById("ok-" + key); if (el) el.innerHTML = '<span class="kkb2-ok">बोला ✔</span>';
   };
 
-  function view(html) { ROOT.innerHTML = '<div class="kkb2-app">' + html + '</div>'; window.scrollTo(0, ROOT.offsetTop - 10); }
+  function view(html) { ROOT.innerHTML = '<div class="kkb2-app" data-script="' + (LANG.script || "latin") + '">' + html + '</div>'; window.scrollTo(0, ROOT.offsetTop - 10); }
   function crumb(h) { return '<p class="kkb2-crumb">' + h + '</p>'; }
   function chipRow(it) {
     var pr = it[4], h = "";
@@ -119,10 +128,10 @@
     var dn = doneDays(), pct = Math.round(dn * 100 / TOTAL_DAYS);
     var h = '<div class="kkb2-hero">' +
       '<div class="kkb2-hero-kicker">ACS · Applied Computer School™</div>' +
-      '<h2 class="kkb2-hero-title">Certificate in Spoken English</h2>' +
-      '<div class="kkb2-hero-sub">अंग्रेज़ी बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2</div>' +
+      '<h2 class="kkb2-hero-title"' + DIRw() + '>' + esc(D2.heroTitle || "Certificate in Spoken English") + '</h2>' +
+      '<div class="kkb2-hero-sub">' + esc(D2.heroSub || "अंग्रेज़ी बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2") + '</div>' +
       '<div class="kkb2-stats">' +
-      '<span class="kkb2-stat"><b>2,150</b>वाक्य</span>' +
+      '<span class="kkb2-stat"><b>' + String(TOTAL_ITEMS).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</b>वाक्य</span>' +
       '<span class="kkb2-stat"><b>90</b>दिन · 3 महीने</span>' +
       '<span class="kkb2-stat"><b>100%</b>मुफ़्त</span>' +
       '<span class="kkb2-stat"><b>A2</b>CEFR पर आधारित</span>' +
@@ -200,7 +209,7 @@
     for (var k = 0; k < D.items.length; k++) {
       var it = D.items[k], key = g + "_" + k, id = gsu(base + k + 1);
       h += '<div class="kkb2-item">' + chipRow(it) +
-        '<p class="kkb2-en">' + esc(it[0]) + '</p>' +
+        '<p class="kkb2-en"' + DIRw() + '>' + esc(it[0]) + '</p>' +
         '<p class="kkb2-dev">' + esc(it[1]) + '</p>' +
         '<p class="kkb2-hi">' + esc(it[2]) + '</p>' +
         '<div class="kkb2-row">' +
@@ -231,7 +240,7 @@
       h += '<div class="kkb2-item"><p class="kkb2-hi">सवाल-' + (p + 1) + '</p>' +
         '<div class="kkb2-row"><button class="kkb2-btn" onclick="kkb2Hear(\'' + kk + '\',this.getAttribute(\'data-t\'),false)" data-t="' + esc(q) + '">🔊 सवाल सुनो</button>' +
         '<button class="kkb2-btn ghost" id="sp-' + kk + '" disabled onclick="kkb2Show(\'' + kk + '\')">जवाब देखें</button></div>' +
-        '<div id="ans-' + kk + '" style="display:none"><p class="kkb2-en">' + esc(a.replace(/^\(बोलो\)\s*/, "")) + '</p>' +
+        '<div id="ans-' + kk + '" style="display:none"><p class="kkb2-en"' + DIRw() + '>' + esc(a.replace(/^\(बोलो\)\s*/, "")) + '</p>' +
         '<button class="kkb2-btn green" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(a) + '">🔊 जवाब सुनो</button></div></div>';
     }
     h += '<div class="kkb2-card"><h3>🎯 आज का बोलने-अभ्यास</h3><p>' + esc(D.drill.hi) + '</p>';
@@ -266,10 +275,10 @@
     var h = crumb('<a onclick="kkb2Go(\'m\',' + monthOf(back) + ')" href="javascript:void(0)">← महीना</a>') +
       '<div class="kkb2-card head"><h2>📞 ' + esc(T.target) + '</h2><p>' + esc(T.goal) + '</p></div><div class="kkb2-card"><h3>सहारा-पंक्तियाँ:</h3>';
     for (var p = 0; p < T.lines.length; p++) {
-      h += '<div class="kkb2-item"><p class="kkb2-en">' + esc(T.lines[p][0]) + '</p><p class="kkb2-dev">' + esc(T.lines[p][1]) + '</p>' +
+      h += '<div class="kkb2-item"><p class="kkb2-en"' + DIRw() + '>' + esc(T.lines[p][0]) + '</p><p class="kkb2-dev">' + esc(T.lines[p][1]) + '</p>' +
         '<button class="kkb2-btn" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(T.lines[p][0]) + '">🔊 सुनो</button></div>';
     }
-    var msg = encodeURIComponent("ACS Spoken English (90-दिन) — " + (src === 1 ? "स्तर-1" : "स्तर-2") + " सप्ताह-" + W.n + " का टेस्ट पूरा किया। (" + T.target + ")");
+    var msg = encodeURIComponent((EN ? "ACS Spoken English (90-दिन)" : "ACS काम की भाषा — " + LANG.label + " (90-दिन)") + " — " + (src === 1 ? "स्तर-1" : "स्तर-2") + " सप्ताह-" + W.n + " का टेस्ट पूरा किया। (" + T.target + ")");
     h += '<a class="kkb2-btn gold big" href="https://wa.me/' + TRAINER_WA + '?text=' + msg + '" onclick="kkb2TstDone(' + src + ',' + wi + ')">✅ टेस्ट पूरा — WhatsApp पर बताएँ</a></div>';
     view(h);
   }
@@ -285,7 +294,7 @@
         var IT = D2.weeks[w2].days[d2].items;
         for (var k2 = 0; k2 < IT.length; k2++) if (IT[k2][4] === "A") {
           if (!head) { h += '<div class="kkb2-wkhead">' + esc(D2.weeks[w2].hi) + '</div>'; head = 1; }
-          h += '<div class="kkb2-item"><p class="kkb2-en">' + esc(IT[k2][0]) + '</p><p class="kkb2-dev">' + esc(IT[k2][1]) + '</p><p class="kkb2-hi">' + esc(IT[k2][2]) + '</p>' +
+          h += '<div class="kkb2-item"><p class="kkb2-en"' + DIRw() + '>' + esc(IT[k2][0]) + '</p><p class="kkb2-dev">' + esc(IT[k2][1]) + '</p><p class="kkb2-hi">' + esc(IT[k2][2]) + '</p>' +
             '<button class="kkb2-btn" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(IT[k2][0]) + '">🔊</button></div>';
         }
       }

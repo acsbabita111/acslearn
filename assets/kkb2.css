@@ -1,4 +1,4 @@
-/* /assets/kkb2.css — v2.2 (30-Aug-2026) · center-align + तीनों पंक्तियाँ बराबर 22px, भेद सिर्फ़ रंग से: English नेवी · उच्चारण नीला · अर्थ हरा (Founder-सुझाव) · ACS Spoken English 90-दिन — नया रूप
+/* /assets/kkb2.css — v2.3 (30-Aug-2026) · center-align + तीनों पंक्तियाँ बराबर 22px, भेद सिर्फ़ रंग से: English नेवी · उच्चारण नीला · अर्थ हरा (Founder-सुझाव) · ACS Spoken English 90-दिन — नया रूप
    ACS-5 रंग ही · कुछ भी <16px नहीं · Android-8 सुरक्षित (सादा CSS, कोई grid/var नहीं) */
 .kkb2-app{max-width:600px;margin:14px auto 48px;padding:0 12px;font-family:'Noto Sans Devanagari',Inter,sans-serif}
 
@@ -48,6 +48,12 @@
 .kkb2-item{background:#fff;border:1px solid #dfe5ee;border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 6px rgba(0,0,0,.12);text-align:center}
 .kkb2-item .kkb2-row{justify-content:center}
 .kkb2-en{font-size:22px;line-height:1.45;font-weight:800;color:#0B1F3A;margin:6px 0 4px;font-family:Inter,'Noto Sans Devanagari',sans-serif}
+/* v2.3 (31-Aug): भाषा-लिपि फ़ॉन्ट-नियम — kkb.css की तर्ज़; सब ≥16px, ACS-रंग */
+[data-script="arabic"] .kkb2-en{font-family:"Noto Sans Arabic","Noto Naskh Arabic",system-ui,sans-serif;line-height:1.9}
+[data-script="japanese"] .kkb2-en{font-family:"Noto Sans JP","Hiragino Sans",system-ui,sans-serif;line-height:1.8}
+[data-script="korean"] .kkb2-en{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.8}
+[data-script="devanagari-native"] .kkb2-en{font-family:'Noto Sans Devanagari',Inter,sans-serif}
+[data-script="latin-native"] .kkb2-en{font-family:Inter,'Noto Sans Devanagari',sans-serif}
 .kkb2-dev{font-size:22px;line-height:1.55;color:#1565C0;font-weight:700;margin:0 0 4px}
 .kkb2-hi{font-size:22px;line-height:1.55;color:#2E7D32;font-weight:600;margin:0 0 10px}
 .kkb2-gsu{font-size:16px;opacity:.5;margin:8px 0 0;font-family:Inter,sans-serif}
