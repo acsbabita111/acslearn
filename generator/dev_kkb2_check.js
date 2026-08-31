@@ -1,11 +1,17 @@
-/* generator/dev_kkb2_check.js — v1.0 (30-Aug-2026)
-   KKB स्तर-2 (A2) का स्थायी check-robot। चलाना: node generator/dev_kkb2_check.js (repo-रूट से)
+/* generator/dev_kkb2_check.js — v2.0 (31-Aug-2026)
+   KKB मास्टर (90-दिन) का स्थायी check-robot — 8 भाषाएँ।
+   चलाना: node generator/dev_kkb2_check.js [en|ar|fr|es|ja|ko|de|ru] (repo-रूट से; बिना arg = en)
+   v2.0: भाषा-arg + L1/L2 भाषा-वार फ़ाइलें + लिपि-शुद्धता जाँच (ru=शून्य-सिरिलिक दोनों खाने ·
+   ar/ja/ko=उच्चारण-खाने में लक्ष्य-लिपि शून्य) + heroTitle-render जाँच
    जाँचें: (1) data v2.0-FINAL — 1,650 वाक्य · A=308 · schema · listen×13 · dialog×13 · [ ] शून्य
    (2) इंजन-boot नक़ली-DOM पर — home में 13 सप्ताह-कार्ड + ⭐ बटन render हों */
 "use strict";
 var fs = require("fs");
+var CODE = (process.argv[2] || "en").toLowerCase();
+var F2 = CODE === "en" ? "assets/kkb2_data.js" : "assets/kkb2_" + CODE + "_data.js";
+var F1 = CODE === "en" ? "assets/kkb_data.js" : "assets/kkb_" + CODE + "_data.js";
 global.window = {};
-eval(fs.readFileSync("assets/kkb2_data.js", "utf8"));
+eval(fs.readFileSync(F2, "utf8"));
 var D = global.window.KKB2_DATA;
 var fail = 0, total = 0, A = 0, B = 0, C = 0;
 if (!D || !D.weeks || D.weeks.length !== 13) { console.log("⛔ 13 सप्ताह नहीं"); process.exit(1); }
@@ -46,11 +52,27 @@ function mkEl(id) {
 }
 global.document = { getElementById: function (id) { return mkEl(id); } };
 global.window.KKB2_DATA = D;
-eval(fs.readFileSync("assets/kkb_data.js", "utf8").replace("window.KKB_DATA", "global.window.KKB_DATA"));
+eval(fs.readFileSync(F1, "utf8").replace("window.KKB_DATA", "global.window.KKB_DATA"));
 var D1 = global.window.KKB_DATA;
 var l1c = 0; D1.weeks.forEach(function (w) { w.days.forEach(function (dd) { l1c += dd.items.length; }); });
 if (l1c !== 500 || D1.weeks.length !== 5) { console.log("⛔ L1-data " + l1c); process.exit(1); }
 console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकीकृत कुल: " + (l1c + total) + " वाक्य · 90 पाठ-दिन");
+/* ---- लिपि-शुद्धता (v2.0) — दोनों स्तरों के सब items पर ---- */
+(function () {
+  var CYR = /[\u0400-\u04FF]/, ARB = /[\u0600-\u06FF]/, KANA = /[\u3040-\u30FF\u4E00-\u9FFF]/, HANG = /[\uAC00-\uD7AF\u1100-\u11FF]/;
+  var bad = 0;
+  function scanD(DD, tag) {
+    DD.weeks.forEach(function (w) { w.days.forEach(function (dd) { dd.items.forEach(function (it) {
+      if (CODE === "ru" && (CYR.test(it[0]) || CYR.test(it[1]))) { console.log("⛔ सिरिलिक (" + tag + "): " + it[0]); bad++; }
+      if (CODE === "ar" && ARB.test(it[1])) { console.log("⛔ उच्चारण-खाने में अरबी (" + tag + "): " + it[1]); bad++; }
+      if (CODE === "ja" && KANA.test(it[1])) { console.log("⛔ उच्चारण-खाने में काना/कांजी (" + tag + "): " + it[1]); bad++; }
+      if (CODE === "ko" && HANG.test(it[1])) { console.log("⛔ उच्चारण-खाने में हांगुल (" + tag + "): " + it[1]); bad++; }
+    }); }); });
+  }
+  scanD(D, "स्तर-2"); scanD(D1, "स्तर-1");
+  if (CODE === "ru") { var raw2 = fs.readFileSync(F2, "utf8"); if (CYR.test(raw2)) { console.log("⛔ रूसी फ़ाइल में कहीं सिरिलिक"); bad++; } }
+  if (bad) { fail += bad; } else console.log("लिपि-शुद्धता (" + CODE + "): ✅");
+})();
 global.window.scrollTo = function () { };
 global.localStorage = { getItem: function () { return null; }, setItem: function () { }, removeItem: function () { } };
 global.alert = function () { };
@@ -63,6 +85,7 @@ try {
 var html = root._h || "";
 if (html.indexOf("तीसरा महीना") < 0) { console.log("⛔ home में महीना-3 नहीं"); fail++; }
 if (html.indexOf("2,150") < 0) { console.log("⛔ home में 2,150 नहीं"); fail++; }
+if (CODE !== "en" && D.heroTitle && html.indexOf(D.heroTitle.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")) < 0) { console.log("⛔ home में heroTitle नहीं"); fail++; }
 if (html.indexOf("ज़रूर-बोलो (308") < 0) { console.log("⛔ ⭐-बटन/A-गिनती नहीं"); fail++; }
 if (html.indexOf("kkb2-month") < 0) { console.log("⛔ महीना-कार्ड नहीं"); fail++; }
 console.log("इंजन-boot: home render " + (html.length > 500 ? "✅" : "⛔") + " (" + html.length + " chars)");

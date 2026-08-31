@@ -1,5 +1,10 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
+   v8.0 · 31-Aug-2026 (KKB मास्टर-प्रतिकृति: en+7 भाषाएँ (ar/fr/es/ja/ko/de/ru) के 90-दिन एकीकृत कोर्स-पेज
+   KKB2_LANGS से बनते हैं — kkb2.css/kkb2.js + भाषा-वार L1+L2 data; KKB_LANGS की इन 8 प्रविष्टियों का L1-पेज
+   निर्माण बंद (KKB2_CODES-छलनी) — पुरानी redirect-पर्चियाँ यथावत। english पेज अब generator-मुहर में (30-Aug
+   का हाथ-सुधार यहीं समाहित — generator-पिछड़ाव होल बंद)। अगला-स्तर कड़ी v6.1-ग: ja=JFT-Basic/JLPT · ko=TOPIK ·
+   de=Goethe · fr=DELF · es=DELE · ru=TORFL · ar=ईमानदार-पंक्ति · en=IELTS/Cambridge — सब 31-Aug वेब-जाँच से)
    v1.10 · 26-Aug-2026 (काम की भाषा: + इंडोनेशियाई /courses/hi/bhasha/indonesian/ — KKB_LANGS में आठवीं पंक्ति; video-call टेस्ट)
    v6.6 · 27-Aug-2026 (काम की भाषा: + तागालोग /courses/hi/bhasha/tagalog/ — KKB_LANGS में चौवनवीं पंक्ति; Devanagari-उच्चारण-रूप; रजिस्टर-सीमा दर्ज — "po"/"kayo" कहीं इस्तेमाल नहीं हुआ, native-speaker-पुष्टि में प्राथमिकता)
    v6.8 · 27-Aug-2026 (काम की भाषा: + सिबुआनो /courses/hi/bhasha/cebuano/ — KKB_LANGS में छप्पनवीं पंक्ति; Devanagari-उच्चारण-रूप; तागालोग-सगी-भाषा जाँच — 2.6% ओवरलैप, पैन-फ़िलिपिनो साझा-शब्द)
@@ -1159,19 +1164,20 @@ function kkbContent(c) {
     '<h1 style="font-size:28px;line-height:1.25;margin:10px 0 6px;color:#fff">ACS काम की भाषा — ' + c.h1 + '</h1>' +
     '<p style="font-size:19px;line-height:1.7;margin:0 0 10px;opacity:.92">' + c.line1 + '</p>' +
     '<p style="font-size:19px;line-height:1.7;margin:0 0 10px;opacity:.92">हर वाक्य देवनागरी में दिखता है, हिंदी में मतलब है, और आवाज़ है। 5वीं पास भी आज से बोल सकता है।</p>' +
-    '<p style="font-size:19px;line-height:1.7;margin:0 0 10px;opacity:.92">500 वाक्य, 5 सप्ताह। हर सप्ताह में 5 पाठ (20-20 वाक्य), दिन 6 अभ्यास, दिन 7 फ़ोन पर टेस्ट। यह demo (नमूना) रूप है। सब कुछ मुफ़्त है।</p>' +
+    '<p style="font-size:19px;line-height:1.7;margin:0 0 10px;opacity:.92">500 वाक्य, 5 सप्ताह। हर सप्ताह में 5 पाठ (20-20 वाक्य), दिन 6 अभ्यास, दिन 7 फ़ोन पर टेस्ट। सब कुछ मुफ़्त है।</p>' +
     '</section>' +
     '<div id="kkb-app" class="kkb-app">' +
     '<noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript>' +
     '<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
     '</div>';
 }
-KKB_LANGS.forEach(c => buildSpecial({
+const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं */
+KKB_LANGS.forEach(c => { if (KKB2_CODES[c.code]) return; buildSpecial({
   out: c.out, langStrict: false, title: c.title, desc: c.desc,
   head: ['<link rel="stylesheet" href="/assets/kkb.css">'],
   foot: ['<script src="' + c.data + '"></scr' + 'ipt>', '<script src="/assets/kkb.js" defer></scr' + 'ipt>'],
   content: kkbContent(c)
-}));
+}); });
 
 /* ---- bhasha-परिवार (26-Aug, Founder-आदेश): सब भाषा-कोर्स /courses/hi/bhasha/<भाषा>/ में — digital/ व vocational/ जैसा परिवार-folder।
    पुराने पते (/courses/hi/kaam-ki-bhasha… पाँचों) 3 घंटे live रहे — मरा पता कभी नहीं: हर पुराने पते पर redirect-पर्ची
@@ -1189,6 +1195,50 @@ function kkbRedirect(c) {
   console.log("↪ redirect-पर्ची → /" + c.old + " → " + to);
 }
 KKB_LANGS.forEach(kkbRedirect);
+
+/* ---- KKB2 मास्टर-परिवार (31-Aug, Founder-मुहर): 90-दिन एकीकृत कोर्स — en मास्टर + 7 भाषाएँ।
+   हर पेज = वही ढाँचा: intro (h1 + अगला-स्तर कड़ी + CEFR-नोट) + #kkb2-app;
+   data = kkb_<code>_data.js (स्तर-1, 500) + kkb2_<code>_data.js (स्तर-2, 1,650); इंजन kkb2.js साझा।
+   सुरक्षा-कड़ियाँ (v6.1-घ4): eMigrate · MADAD हर पेज पर। कड़ियाँ 31-Aug वेब-जाँच से जीवित-पुष्ट। */
+const KKB2_SAFE = 'विदेश-काम सुरक्षा: <a href="https://emigrate.gov.in" target="_blank" rel="noopener" style="color:#F9A825">eMigrate</a> · <a href="https://www.madad.gov.in" target="_blank" rel="noopener" style="color:#F9A825">MADAD</a>। (बाहरी site — ख़ुद verify करें।)';
+function kkb2Link(u, t) { return '<a href="' + u + '" target="_blank" rel="noopener" style="color:#F9A825">' + t + '</a>'; }
+const KKB2_LANGS = [
+  { code: "en", slug: "english", en_name: "English", hi_name: "अंग्रेज़ी",
+    next: 'आगे का रास्ता: कोर्स पूरा करके IELTS (आयल्ट्स) — ' + kkb2Link("https://ielts.org", "ielts.org") + ' — या Cambridge A2 Key — ' + kkb2Link("https://www.cambridgeenglish.org", "cambridgeenglish.org") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "ar", slug: "arabic", en_name: "Arabic", hi_name: "अरबी",
+    next: 'आगे का रास्ता: अरबी की कोई एक विश्व-परीक्षा सब देशों में प्रचलित नहीं — जिस देश में काम करना है, वहाँ के नियोक्ता/दूतावास की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "fr", slug: "french", en_name: "French", hi_name: "फ़्रेंच",
+    next: 'आगे का रास्ता: कोर्स पूरा करके DELF A2 (डेल्फ़) — ' + kkb2Link("https://www.france-education-international.fr", "france-education-international.fr") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "es", slug: "spanish", en_name: "Spanish", hi_name: "स्पेनिश",
+    next: 'आगे का रास्ता: कोर्स पूरा करके DELE A2 (देले) — ' + kkb2Link("https://www.dele.org", "dele.org") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "ja", slug: "japanese", en_name: "Japanese", hi_name: "जापानी",
+    next: 'आगे का रास्ता: कोर्स पूरा करके JFT-Basic (जे-एफ़-टी बेसिक — जापान के SSW वीज़ा का A2-द्वार) — ' + kkb2Link("https://www.jpf.go.jp/jft-basic/e/", "jpf.go.jp/jft-basic") + ' — या JLPT (जे-एल-पी-टी) — ' + kkb2Link("https://www.jlpt.jp/e/", "jlpt.jp") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "ko", slug: "korean", en_name: "Korean", hi_name: "कोरियाई",
+    next: 'आगे का रास्ता: कोर्स पूरा करके TOPIK (टॉपिक) — ' + kkb2Link("https://www.topik.go.kr", "topik.go.kr") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "de", slug: "german", en_name: "German", hi_name: "जर्मन",
+    next: 'आगे का रास्ता: कोर्स पूरा करके Goethe-Zertifikat A2 (गोएथे-ज़र्टिफ़िकाट) — ' + kkb2Link("https://www.goethe.de/en/spr/prf.html", "goethe.de") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "ru", slug: "russian", en_name: "Russian", hi_name: "रूसी",
+    next: 'आगे का रास्ता: कोर्स पूरा करके TORFL (तोर्फ़ल — रूसी भाषा की सरकारी परीक्षा) — ' + kkb2Link("https://testingcenter.spbu.ru/en/", "testingcenter.spbu.ru") + ' — की तैयारी। ' + KKB2_SAFE }
+];
+function kkb2Content(c) {
+  return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
+    '<h1 style="font-size:26px;line-height:1.3;margin:8px 0 6px;color:#fff">' + c.hi_name + ' बोलने का पूरा कोर्स — एक ही जगह</h1>' +
+    '<p style="font-size:18px;line-height:1.7;margin:0 0 8px;opacity:.92">पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना। हर वाक्य देवनागरी में, हिंदी अर्थ और आवाज़ 🔊 के साथ। 5वीं पास भी आज से शुरू करे।</p>' +
+    '<p style="font-size:16px;line-height:1.7;margin:0 0 4px;opacity:.8">' + c.next + '</p>' +
+    '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
+    '</section>' +
+    '<div id="kkb2-app" class="kkb2-app"><noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript><p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p></div>';
+}
+KKB2_LANGS.forEach(c => buildSpecial({
+  out: "courses/hi/bhasha/" + c.slug + "/index.html", langStrict: false,
+  title: "ACS Certificate in Spoken " + c.en_name + " — " + c.hi_name + " बोलने का पूरा कोर्स (90 दिन, 2,150 वाक्य, CEFR A2 पर आधारित) | अप्लाइड कंप्यूटर स्कूल",
+  desc: c.hi_name + " बोलने का पूरा मुफ़्त कोर्स — 90 दिन, 3 महीने, 2,150 वाक्य देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। स्तर 1+2 एक साथ; CEFR A2 पर आधारित। 5वीं पास भी आज से बोले।",
+  head: ['<link rel="stylesheet" href="/assets/kkb2.css">'],
+  foot: ['<script src="' + (c.code === "en" ? "/assets/kkb_data.js" : "/assets/kkb_" + c.code + "_data.js") + '"></scr' + 'ipt>',
+         '<script src="' + (c.code === "en" ? "/assets/kkb2_data.js" : "/assets/kkb2_" + c.code + "_data.js") + '"></scr' + 'ipt>',
+         '<script src="/assets/kkb2.js" defer></scr' + 'ipt>'],
+  content: kkb2Content(c)
+}));
 
 /* ---- 95 विषय-placeholder-पेज (01-Aug-2026, Founder-आदेश) ---- */
 require("./build_subject_pages.js")(buildSpecial);

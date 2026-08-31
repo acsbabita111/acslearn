@@ -1,0 +1,176 @@
+/* generator/build_kkb_bank.js — v1.0 (31-Aug-2026) · Founder-मुहर: 7 भाषाओं के server-परीक्षा बैंक
+   ACS Certificate in Spoken <भाषा> — build_eng_bank.js (v2.0) का भाषा-सामान्यीकरण। English बैंक अछूता (वही eng-generator से)।
+   चलाना: node generator/build_kkb_bank.js <ar|fr|es|ja|ko|de|ru>   (repo-रूट से)
+   स्रोत (सब frozen corpus से — कुछ गढ़ा नहीं): 2,150 वाक्य + लक्ष्य-शब्द + सुनो-जवाब जोड़े + संवाद-जोड़ियाँ।
+   प्रकार (t:1-14) English-मास्टर जैसे; भाषा-नियम:
+   - जापानी (ja): शब्द-आधारित प्रकार 5/6/7/12 नहीं (space-रहित लिपि; कोष्ठक-romaji पर ख़ाली-जगह बेमानी) — ROT=[1,2,3,4]
+   - रूसी (ru): it[0]=it[1] (देवनागरी-फ़ोनेटिक) → प्रकार 3/4 बेमानी (उत्तर=प्रश्न) — ROT=[1,2,5,6,7,12]; 13/14 रहें (सुनो-प्रश्न वैध)
+   - सुनो-प्रश्न (13/14) का ((AU:...)) पाठ = spoken-रूप (जापानी में अंत का romaji कटा) — client-TTS भाषा कोर्स-वार (dashboard v6.2)
+   लंबाई-पक्षपात रोक (v5.2 होल): distractor लंबाई-खिड़की + tiny-टोकरी; सही-स्थान बेतरतीब; 15-35% खिड़की मशीन-जाँच।
+   देय: functions/<code>_bank.js — server-only, GitHub पर कभी नहीं (eng_bank.js-नियम)। */
+"use strict";
+var fs = require("fs");
+var CODE = (process.argv[2] || "").toLowerCase();
+var CFG = {
+  ar: { label: "अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  fr: { label: "फ़्रेंच", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  es: { label: "स्पेनिश", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  ja: { label: "जापानी", rot: [1, 2, 3, 4], au: true },
+  ko: { label: "कोरियाई", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  de: { label: "जर्मन", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  ru: { label: "रूसी", rot: [1, 2, 5, 6, 7, 12], au: true }
+};
+if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru"); process.exit(1); }
+var L = CFG[CODE].label;
+global.window = {};
+eval(fs.readFileSync("assets/kkb_" + CODE + "_data.js", "utf8").replace("window.KKB_DATA", "global.window.KKB_DATA"));
+eval(fs.readFileSync("assets/kkb2_" + CODE + "_data.js", "utf8").replace("window.KKB2_DATA", "global.window.KKB2_DATA"));
+var D1 = global.window.KKB_DATA, D2 = global.window.KKB2_DATA;
+function clean(t) { return String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, ""); }
+function spokenT(t) { t = clean(t); if (CODE === "ja") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; }
+var ALL = [], TW = [], LIS = [], DLG = [];
+[D1, D2].forEach(function (D) {
+  D.weeks.forEach(function (w) {
+    w.days.forEach(function (d) {
+      d.items.forEach(function (it) { ALL.push({ en: clean(it[0]), dev: it[1], hi: it[2] }); });
+      (d.tw || []).forEach(function (t) { TW.push({ w: t[0], dev: t[1], hi: t[2] }); });
+    });
+    (w.listen || []).forEach(function (p) { LIS.push({ q: clean(p[0]), a: clean(p[1]) }); });
+    if (w.dialog) for (var p2 = 0; p2 < w.dialog.length - 1; p2++)
+      DLG.push({ ask: clean(w.dialog[p2][1]), rep: clean(w.dialog[p2 + 1][1]) });
+  });
+});
+if (ALL.length !== 2150) { console.log("⛔ corpus " + ALL.length); process.exit(1); }
+
+/* स्थिर बेतरतीबी (regen = वही बैंक) — भाषा-वार अलग seed */
+var SALT = { ar: 0, fr: 0, es: 0, ja: 0, ko: 0, de: 0, ru: 0 };
+var UPX = CODE === "ru" ? 0.0 : 0.12; /* ru: distractor का ऊपरी लंबाई-भत्ता कम — वरना सही-उत्तर लगभग कभी सबसे-लंबा नहीं (उल्टा-पक्षपात, दर<15%) */
+var seed = 90210 + CODE.charCodeAt(0) * 977 + CODE.charCodeAt(1) * 31 + (SALT[CODE] || 0) * 10007;
+function rnd() { seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5; return ((seed >>> 0) % 100000) / 100000; }
+
+/* लंबाई-संतुलित distractor-चुनाई (v5.2 होल-रोक) */
+function pick3(pool, correct, getT) {
+  var cl = correct.length, out = [], tries = 0, win = 0.28, tiny = cl < 8;
+  while (out.length < 3 && tries < 9000) {
+    tries++;
+    if (tries % 900 === 0) win += 0.2;
+    var t = getT(pool[Math.floor(rnd() * pool.length)]);
+    if (!t || t === correct) continue;
+    if (tiny) { if (t.length > 16) continue; }
+    else { var r = t.length / cl; if (r < 1 - win || r > 1 + win + UPX) continue; }
+    var dup = false;
+    for (var k = 0; k < out.length; k++) if (out[k] === t) dup = true;
+    if (!dup) out.push(t);
+  }
+  return out.length === 3 ? out : null;
+}
+function mkQ(t, q, correct, ds) {
+  var pos = Math.floor(rnd() * 4), o = [];
+  for (var p = 0, di = 0; p < 4; p++) o.push(p === pos ? correct : ds[di++]);
+  return { typ: t, t: q, o: o, a: pos };  /* client प्रश्न-पाठ .t से छापता (server field-मानचित्र {id,t,o,a}) */
+}
+function words(en) { return en.replace(/[.,!?"'’—،؟]/g, " ").split(/\s+/).filter(function (x) { return x.length > 0; }); }
+
+/* ---- प्रकार-builders (null = इस सामग्री पर लागू नहीं → अगला प्रकार) ---- */
+var B = {};
+B[1] = function (it) { var ds = pick3(ALL, it.hi, function (x) { return x.hi; }); return ds && mkQ(1, "इस " + L + " वाक्य का सही हिंदी अर्थ चुनिए — \u201C" + it.en + "\u201D", it.hi, ds); };
+B[2] = function (it) { var ds = pick3(ALL, it.en, function (x) { return x.en; }); return ds && mkQ(2, "\u201C" + it.hi + "\u201D — इस बात का सही " + L + " वाक्य चुनिए", it.en, ds); };
+B[3] = function (it) { var ds = pick3(ALL, it.en, function (x) { return x.en; }); return ds && mkQ(3, "जिस " + L + " वाक्य का उच्चारण \u201C" + it.dev + "\u201D है, वह चुनिए", it.en, ds); };
+B[4] = function (it) { var ds = pick3(ALL, it.dev, function (x) { return x.dev; }); return ds && mkQ(4, "\u201C" + it.en + "\u201D — इस वाक्य का सही उच्चारण चुनिए", it.dev, ds); };
+B[5] = function (it) { /* ख़ाली-जगह */
+  var ws = words(it.en).filter(function (w) { return w.length >= 4 && it.en.split(w).length === 2; });
+  if (!ws.length) return null;
+  var w = ws[Math.floor(rnd() * ws.length)];
+  var ds = pick3(ALL, w, function (x) { var c = words(x.en).filter(function (y) { return y.length >= 3 && y.toLowerCase() !== w.toLowerCase(); }); return c.length ? c[Math.floor(rnd() * c.length)] : null; });
+  return ds && mkQ(5, "ख़ाली जगह में सही शब्द चुनिए — \u201C" + it.en.replace(w, "______") + "\u201D (अर्थ: " + it.hi + ")", w, ds);
+};
+B[6] = function (it) { /* पहला-शब्द */
+  var w = words(it.en)[0]; if (!w || words(it.en).length < 3) return null;
+  var ds = pick3(ALL, w, function (x) { var f = words(x.en)[0]; return (f && f.toLowerCase() !== w.toLowerCase()) ? f : null; });
+  return ds && mkQ(6, "\u201C" + it.hi + "\u201D — " + L + " में यह वाक्य किस शब्द से शुरू होगा?", w, ds);
+};
+B[7] = function (it) { /* वाक्य-पूर्ति (अंतिम हिस्सा) */
+  var ws = words(it.en); if (ws.length < 5) return null;
+  var tail = ws.slice(-2).join(" "), head = it.en.slice(0, it.en.lastIndexOf(ws[ws.length - 2]));
+  var ds = pick3(ALL, tail, function (x) { var xw = words(x.en); if (xw.length < 5) return null; var t2 = xw.slice(-2).join(" "); return t2.toLowerCase() !== tail.toLowerCase() ? t2 : null; });
+  return ds && mkQ(7, "वाक्य पूरा कीजिए — \u201C" + head + "______\u201D (अर्थ: " + it.hi + ")", tail, ds);
+};
+B[12] = function (it) { /* सही शब्द-क्रम: ग़लत विकल्प = उसी वाक्य के मशीन-उलटे क्रम */
+  var ws = words(it.en); if (ws.length < 5 || ws.length > 9) return null;
+  var seen = {}; seen[ws.join(" ").toLowerCase()] = 1;
+  var ds = [], guard = 0;
+  while (ds.length < 3 && guard < 200) {
+    guard++;
+    var c = ws.slice();
+    for (var s2 = c.length - 1; s2 > 0; s2--) { var j2 = Math.floor(rnd() * (s2 + 1)); var tmp = c[s2]; c[s2] = c[j2]; c[j2] = tmp; }
+    var str = c.join(" ");
+    if (!seen[str.toLowerCase()]) { seen[str.toLowerCase()] = 1; ds.push(str); }
+  }
+  if (ds.length < 3) return null;
+  return mkQ(12, "सही शब्द-क्रम वाला " + L + " वाक्य चुनिए (अर्थ: " + it.hi + ")", ws.join(" "), ds);
+};
+B[13] = function (it) { /* सुनो→अर्थ: वाक्य सिर्फ़ आवाज़ से — पाठ में नहीं */
+  var ds = pick3(ALL, it.hi, function (x) { return x.hi; });
+  return ds && mkQ(13, "🔊 सुनो-प्रश्न: नीचे बटन दबाकर " + L + " वाक्य सिर्फ़ कान से सुनिए (पढ़ने को नहीं मिलेगा) — फिर उसका सही हिंदी अर्थ चुनिए ((AU:" + spokenT(it.en) + "))", it.hi, ds);
+};
+B[14] = function (it) { /* सुनो→उच्चारण पहचानो */
+  var ds = pick3(ALL, it.dev, function (x) { return x.dev; });
+  return ds && mkQ(14, "🔊 सुनो-प्रश्न: बटन दबाकर वाक्य सुनिए — जो सुना, उसका सही उच्चारण चुनिए ((AU:" + spokenT(it.en) + "))", it.dev, ds);
+};
+/* tw-धारा */
+B[8] = function (t) { var ds = pick3(TW, t.hi, function (x) { return x.hi; }); return ds && mkQ(8, L + " शब्द \u201C" + t.w + "\u201D (" + t.dev + ") का सही हिंदी अर्थ चुनिए", t.hi, ds); };
+B[9] = function (t) { var ds = pick3(TW, t.w, function (x) { return x.w; }); return ds && mkQ(9, "जिस " + L + " शब्द का अर्थ \u201C" + t.hi + "\u201D है, वह चुनिए", t.w, ds); };
+/* listen/dialog-धारा */
+B[10] = function (p) { var ds = pick3(LIS.concat(ALL.slice(0, 400).map(function (x) { return { a: x.en }; })), p.a, function (x) { return x.a; }); return ds && mkQ(10, "सवाल — \u201C" + p.q + "\u201D — सबसे सही जवाब चुनिए", p.a, ds); };
+B[11] = function (p) { var ds = pick3(DLG.concat(ALL.slice(500, 900).map(function (x) { return { rep: x.en }; })), p.rep, function (x) { return x.rep; }); return ds && mkQ(11, "बातचीत में पहला व्यक्ति कहता है — \u201C" + p.ask + "\u201D — दूसरे का सबसे सही जवाब चुनिए", p.rep, ds); };
+
+/* ---- मुख्य-धारा: 2,150 वाक्यों पर भाषा-वार ROT घूमते हुए ---- */
+var ROT = CFG[CODE].rot;
+var BANK = [], typeCount = {};
+function push(Q) { if (!Q) return false; BANK.push(Q); typeCount[Q.typ] = (typeCount[Q.typ] || 0) + 1; return true; }
+for (var i = 0; i < ALL.length; i++) {
+  var ok = false;
+  for (var r2 = 0; r2 < ROT.length && !ok; r2++) ok = push(B[ROT[(i + r2) % ROT.length]](ALL[i]));
+  if (!ok) { console.log("⛔ कोई प्रकार नहीं बना: " + ALL[i].en); process.exit(1); }
+}
+var au13 = 0, au14 = 0;
+for (i = 3; i < ALL.length && (au13 < 150 || au14 < 150); i += 7) {
+  if (au13 <= au14 && au13 < 150) { if (push(B[13](ALL[i]))) au13++; }
+  else if (au14 < 150) { if (push(B[14](ALL[i]))) au14++; }
+}
+if (au13 < 150 || au14 < 150) { console.log("⛔ सुनो-प्रश्न कम: " + au13 + "/" + au14); process.exit(1); }
+for (i = 0; i < TW.length; i++) if (!push(B[i % 2 === 0 ? 8 : 9](TW[i])) && !push(B[i % 2 === 0 ? 9 : 8](TW[i]))) { console.log("⛔ tw-प्रश्न fail"); process.exit(1); }
+for (i = 0; i < LIS.length; i++) if (!push(B[10](LIS[i]))) { console.log("⛔ listen-प्रश्न fail"); process.exit(1); }
+for (i = 0; i < DLG.length; i++) if (!push(B[11](DLG[i]))) { console.log("⛔ dialog-प्रश्न fail"); process.exit(1); }
+
+/* ---- अंतिम गूँथाई: बैंक-क्रम में भी प्रकार घूमता चले ---- */
+var byType = {}; BANK.forEach(function (Q) { (byType[Q.typ] = byType[Q.typ] || []).push(Q); });
+var order = [1, 13, 8, 3, 10, 5, 14, 2, 9, 6, 11, 4, 7, 12], MIX = [], left = BANK.length;
+while (left > 0) for (var o2 = 0; o2 < order.length; o2++) { var arr = byType[order[o2]]; if (arr && arr.length) { MIX.push(arr.shift()); left--; } }
+BANK = MIX;
+/* server-इंजन हर प्रश्न में स्थायी id माँगता है (attempt की qids-सूची इसी से) */
+BANK.forEach(function (Q, qi) { Q.id = CODE + "-" + ("0000" + (qi + 1)).slice(-4); });
+
+/* ---- नाप: लंबाई-पक्षपात + विविधता ---- */
+var biased = 0, eligible = 0;
+BANK.forEach(function (Q) {
+  var mx = -1, mi = -1, tie = false;
+  Q.o.forEach(function (t2, ix) { if (t2.length > mx) { mx = t2.length; mi = ix; tie = false; } else if (t2.length === mx) tie = true; });
+  if (!tie) { eligible++; if (mi === Q.a) biased++; }
+});
+var rate = Math.round(biased * 1000 / eligible) / 10;
+var tc = []; for (var t3 = 1; t3 <= 14; t3++) if (typeCount[t3]) tc.push("T" + t3 + ":" + typeCount[t3]);
+console.log("(" + CODE + ") बैंक: " + BANK.length + " प्रश्न · प्रकार [" + tc.join(" ") + "]");
+console.log("अकेला-सबसे-लंबा=सही दर: " + rate + "% (खिड़की 15-35%)");
+if (rate < 15 || rate > 35) { console.log("⛔ लंबाई-पक्षपात"); process.exit(1); }
+var NEED = ROT.concat([8, 9, 10, 11, 13, 14]);
+NEED.forEach(function (t4) { if (!typeCount[t4] || typeCount[t4] < 20) { console.log("⛔ प्रकार-" + t4 + " बहुत कम (" + (typeCount[t4] || 0) + ")"); process.exit(1); } });
+
+if (!fs.existsSync("functions")) fs.mkdirSync("functions");
+var out = "/* functions/" + CODE + "_bank.js — ACS Certificate in Spoken " + CODE.toUpperCase() + " server-परीक्षा बैंक v1.0\n" +
+  "   " + BANK.length + " प्रश्न · प्रकार घूमते क्रम में (मशीन-गिनती dev_kkb_quiz_check से)\n" +
+  "   GitHub पर कभी नहीं — सिर्फ़ functions/ में (eng_bank.js-नियम)। स्रोत: frozen corpus (" + L + ") ·\n" +
+  "   regen: node generator/build_kkb_bank.js " + CODE + " · लंबाई-संतुलित (v5.2 होल-मुक्त)। */\n" +
+  "module.exports = " + JSON.stringify(BANK) + ";\n";
+fs.writeFileSync("functions/" + CODE + "_bank.js", out);
+console.log("✅ functions/" + CODE + "_bank.js लिखा (" + Math.round(out.length / 1024) + " KB)");
