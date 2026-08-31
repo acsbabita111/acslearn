@@ -17,7 +17,7 @@
   /* ---- भाषा (v3.0): data से — D2.lang प्राथमिक; en पर व्यवहार पहले जैसा ---- */
   var LANG = (D2 && D2.lang) || (D1 && D1.lang) || { code: "en", label: "English", tts: "en-IN", sr: "en-IN", script: "latin" };
   var EN = LANG.code === "en";
-  var TTSL = LANG.script === "devanagari-native" ? "hi-IN" : LANG.tts; /* देवनागरी-फ़ोनेटिक भाषा (रूसी): hi-IN आवाज़ (Founder-मुहर 31-Aug) */
+  var TTSL = LANG.script === "devanagari-native" ? "hi-IN" : LANG.tts; /* देवनागरी-फ़ोनेटिक भाषा: hi-IN आवाज़; रूसी v2.0 से cyrillic ⇒ ru-RU (Founder-आदेश 31-Aug) */
   var TBASE = TTSL.split("-")[0].toLowerCase();
   var RTL = LANG.script === "arabic" || LANG.script === "persian";
   function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* सिर्फ़ लक्ष्य-भाषा पंक्ति पर — देवनागरी/हिंदी LTR */

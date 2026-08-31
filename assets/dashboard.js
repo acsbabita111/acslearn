@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
-   v6.2 · 31-Aug-2026 (KKB मास्टर-प्रतिकृति) — 7 भाषा-परीक्षा द्वार (PJ022/086/021/026/031/125/052)
+   v6.3 · 31-Aug-2026 (रूसी सिरिलिक: PJ052 आवाज़ ru-RU) · v6.2 (KKB मास्टर-प्रतिकृति) — 7 भाषा-परीक्षा द्वार (PJ022/086/021/026/031/125/052)
         SERVER_EXAM_COURSES में + __examSay की आवाज़ कोर्स-वार (EXAM_TTS; रूसी=hi-IN — देवनागरी-फ़ोनेटिक)
    v6.1 · 13-Aug-2026 (मशरूम server-परीक्षा) — SE023 SERVER_EXAM_COURSES में:
         627 पाठ के quiz-भंडार (server-निजी msh_bank, 3135) से हर attempt 120
@@ -1414,8 +1414,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
   const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true, SE021: true, PJ018: true,
     PJ022: true, PJ086: true, PJ021: true, PJ026: true, PJ031: true, PJ125: true, PJ052: true }; /* (31-Aug) KKB मास्टर-प्रतिकृति: 7 भाषा-परीक्षाएँ (ar/fr/es/ja/ko/de/ru बैंक) */
-  /* (31-Aug) सुनो-प्रश्न की आवाज़ कोर्स-वार — रूसी (PJ052) = देवनागरी-फ़ोनेटिक, इसलिए hi-IN (Founder-मुहर) */
-  const EXAM_TTS = { PJ018: "en-IN", PJ022: "ar-SA", PJ086: "fr-FR", PJ021: "es-ES", PJ026: "ja-JP", PJ031: "ko-KR", PJ125: "de-DE", PJ052: "hi-IN" };
+  /* (31-Aug) सुनो-प्रश्न की आवाज़ कोर्स-वार — रूसी v2.0: असली सिरिलिक ⇒ ru-RU (Founder-आदेश) */
+  const EXAM_TTS = { PJ018: "en-IN", PJ022: "ar-SA", PJ086: "fr-FR", PJ021: "es-ES", PJ026: "ja-JP", PJ031: "ko-KR", PJ125: "de-DE", PJ052: "ru-RU" };
   /* (30-Aug) सुनो-प्रश्न: प्रश्न-पाठ में ((AU:वाक्य)) निशान → 🔊-बटन; पुराने बैंकों में निशान नहीं = शून्य असर */
   window.__examSay = function (b) {
     if (!("speechSynthesis" in window)) { alert("इस फ़ोन में आवाज़ नहीं चल रही। Chrome में खोलें।"); return; }

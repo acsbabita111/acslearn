@@ -67,6 +67,7 @@
 .kkb-en{font-size:16px;color:#475569;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .kkb-en.kkb-hidden{visibility:hidden}
 /* v0.2: लक्ष्य-भाषा की लिपि (कन्नड आदि) — system font, थोड़ा बड़ा */
+.kkb-app[data-script="cyrillic"] .kkb-en,.kkb-app[data-script="cyrillic"] .kkb-l3,.kkb-app[data-script="cyrillic"] .kkb-line .kkb-tx span{font-family:Inter,"Noto Sans",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* रूसी v2.0 (31-Aug): item[0] असली सिरिलिक */
 .kkb-app[data-script="han"] .kkb-en,.kkb-app[data-script="han"] .kkb-l3,.kkb-app[data-script="han"] .kkb-line .kkb-tx span{font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;font-size:19px;color:#1E2E4F}
 .kkb-app[data-script="nan"] .kkb-en,.kkb-app[data-script="nan"] .kkb-l3,.kkb-app[data-script="nan"] .kkb-line .kkb-tx span{font-family:"Noto Sans TC","Noto Sans CJK TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* मीनान — ताईवान की परंपरागत (traditional) चीनी लिपि, मैंडरिन (SC) से अलग font-stack */
 .kkb-app[data-script="assamese"] .kkb-en,.kkb-app[data-script="assamese"] .kkb-l3,.kkb-app[data-script="assamese"] .kkb-line .kkb-tx span{font-family:"Noto Sans Bengali","Noto Sans Assamese",system-ui,sans-serif;font-size:19px;color:#1E2E4F} /* असमिया — बांग्ला-लिपि-परिवार पर ৰ/ৱ जैसे भाषा-विशेष अक्षर; Noto Sans Bengali में ये अक्षर सही रेंडर होते हैं */
