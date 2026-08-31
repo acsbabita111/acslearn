@@ -4,7 +4,7 @@
    स्रोत (सब frozen corpus से — कुछ गढ़ा नहीं): 2,150 वाक्य + लक्ष्य-शब्द + सुनो-जवाब जोड़े + संवाद-जोड़ियाँ।
    प्रकार (t:1-14) English-मास्टर जैसे; भाषा-नियम:
    - जापानी (ja): शब्द-आधारित प्रकार 5/6/7/12 नहीं (space-रहित लिपि; कोष्ठक-romaji पर ख़ाली-जगह बेमानी) — ROT=[1,2,3,4]
-   - रूसी (ru): it[0]=it[1] (देवनागरी-फ़ोनेटिक) → प्रकार 3/4 बेमानी (उत्तर=प्रश्न) — ROT=[1,2,5,6,7,12]; 13/14 रहें (सुनो-प्रश्न वैध)
+   - रूसी (ru) v2.0 (31-Aug, Founder-आदेश): it[0]=असली सिरिलिक → पूर्ण ROT [1..7,12]; पुराना [1,2,5,6,7,12]+UPX=0 निरस्त
    - सुनो-प्रश्न (13/14) का ((AU:...)) पाठ = spoken-रूप (जापानी में अंत का romaji कटा) — client-TTS भाषा कोर्स-वार (dashboard v6.2)
    लंबाई-पक्षपात रोक (v5.2 होल): distractor लंबाई-खिड़की + tiny-टोकरी; सही-स्थान बेतरतीब; 15-35% खिड़की मशीन-जाँच।
    देय: functions/<code>_bank.js — server-only, GitHub पर कभी नहीं (eng_bank.js-नियम)। */
@@ -18,7 +18,7 @@ var CFG = {
   ja: { label: "जापानी", rot: [1, 2, 3, 4], au: true },
   ko: { label: "कोरियाई", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   de: { label: "जर्मन", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
-  ru: { label: "रूसी", rot: [1, 2, 5, 6, 7, 12], au: true }
+  ru: { label: "रूसी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true } /* v2.0 (31-Aug): it[0]=सिरिलिक ⇒ 3/4 अब वैध */
 };
 if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru"); process.exit(1); }
 var L = CFG[CODE].label;
@@ -44,7 +44,7 @@ if (ALL.length !== 2150) { console.log("⛔ corpus " + ALL.length); process.exit
 
 /* स्थिर बेतरतीबी (regen = वही बैंक) — भाषा-वार अलग seed */
 var SALT = { ar: 0, fr: 0, es: 0, ja: 0, ko: 0, de: 0, ru: 0 };
-var UPX = CODE === "ru" ? 0.0 : 0.12; /* ru: distractor का ऊपरी लंबाई-भत्ता कम — वरना सही-उत्तर लगभग कभी सबसे-लंबा नहीं (उल्टा-पक्षपात, दर<15%) */
+var UPX = 0.12; /* v2.0 (31-Aug): ru अब सिरिलिक — विशेष UPX-छूट निरस्त, default सब पर */
 var seed = 90210 + CODE.charCodeAt(0) * 977 + CODE.charCodeAt(1) * 31 + (SALT[CODE] || 0) * 10007;
 function rnd() { seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5; return ((seed >>> 0) % 100000) / 100000; }
 

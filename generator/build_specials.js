@@ -1223,7 +1223,7 @@ const KKB2_LANGS = [
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
     '<h1 style="font-size:26px;line-height:1.3;margin:8px 0 6px;color:#fff">' + c.hi_name + ' बोलने का पूरा कोर्स — एक ही जगह</h1>' +
-    '<p style="font-size:18px;line-height:1.7;margin:0 0 8px;opacity:.92">पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना। हर वाक्य देवनागरी में, हिंदी अर्थ और आवाज़ 🔊 के साथ। 5वीं पास भी आज से शुरू करे।</p>' +
+    '<p style="font-size:18px;line-height:1.7;margin:0 0 8px;opacity:.92">पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना। हर वाक्य असली लिपि में + देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ 🔊 के साथ। 5वीं पास भी आज से शुरू करे।</p>' +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 4px;opacity:.8">' + c.next + '</p>' +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
@@ -1232,7 +1232,7 @@ function kkb2Content(c) {
 KKB2_LANGS.forEach(c => buildSpecial({
   out: "courses/hi/bhasha/" + c.slug + "/index.html", langStrict: false,
   title: "ACS Certificate in Spoken " + c.en_name + " — " + c.hi_name + " बोलने का पूरा कोर्स (90 दिन, 2,150 वाक्य, CEFR A2 पर आधारित) | अप्लाइड कंप्यूटर स्कूल",
-  desc: c.hi_name + " बोलने का पूरा मुफ़्त कोर्स — 90 दिन, 3 महीने, 2,150 वाक्य देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। स्तर 1+2 एक साथ; CEFR A2 पर आधारित। 5वीं पास भी आज से बोले।",
+  desc: c.hi_name + " बोलने का पूरा मुफ़्त कोर्स — 90 दिन, 3 महीने, 2,150 वाक्य असली लिपि + देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। स्तर 1+2 एक साथ; CEFR A2 पर आधारित। 5वीं पास भी आज से बोले।",
   head: ['<link rel="stylesheet" href="/assets/kkb2.css">'],
   foot: ['<script src="' + (c.code === "en" ? "/assets/kkb_data.js" : "/assets/kkb_" + c.code + "_data.js") + '"></scr' + 'ipt>',
          '<script src="' + (c.code === "en" ? "/assets/kkb2_data.js" : "/assets/kkb2_" + c.code + "_data.js") + '"></scr' + 'ipt>',

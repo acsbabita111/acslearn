@@ -1,7 +1,8 @@
 /* generator/dev_kkb2_check.js — v2.0 (31-Aug-2026)
    KKB मास्टर (90-दिन) का स्थायी check-robot — 8 भाषाएँ।
    चलाना: node generator/dev_kkb2_check.js [en|ar|fr|es|ja|ko|de|ru] (repo-रूट से; बिना arg = en)
-   v2.0: भाषा-arg + L1/L2 भाषा-वार फ़ाइलें + लिपि-शुद्धता जाँच (ru=शून्य-सिरिलिक दोनों खाने ·
+   v3.0 (31-Aug): ru = item[0] सिरिलिक अनिवार्य + item[1] शून्य-सिरिलिक (Founder-आदेश; पुराना देवनागरी-only निरस्त) ·
+   v2.0: भाषा-arg + L1/L2 भाषा-वार फ़ाइलें + लिपि-शुद्धता जाँच (
    ar/ja/ko=उच्चारण-खाने में लक्ष्य-लिपि शून्य) + heroTitle-render जाँच
    जाँचें: (1) data v2.0-FINAL — 1,650 वाक्य · A=308 · schema · listen×13 · dialog×13 · [ ] शून्य
    (2) इंजन-boot नक़ली-DOM पर — home में 13 सप्ताह-कार्ड + ⭐ बटन render हों */
@@ -63,14 +64,15 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   var bad = 0;
   function scanD(DD, tag) {
     DD.weeks.forEach(function (w) { w.days.forEach(function (dd) { dd.items.forEach(function (it) {
-      if (CODE === "ru" && (CYR.test(it[0]) || CYR.test(it[1]))) { console.log("⛔ सिरिलिक (" + tag + "): " + it[0]); bad++; }
+      if (CODE === "ru" && !CYR.test(it[0])) { console.log("⛔ item[0] में सिरिलिक नहीं (" + tag + "): " + it[0]); bad++; }
+      if (CODE === "ru" && CYR.test(it[1])) { console.log("⛔ उच्चारण-खाने में सिरिलिक (" + tag + "): " + it[1]); bad++; }
       if (CODE === "ar" && ARB.test(it[1])) { console.log("⛔ उच्चारण-खाने में अरबी (" + tag + "): " + it[1]); bad++; }
       if (CODE === "ja" && KANA.test(it[1])) { console.log("⛔ उच्चारण-खाने में काना/कांजी (" + tag + "): " + it[1]); bad++; }
       if (CODE === "ko" && HANG.test(it[1])) { console.log("⛔ उच्चारण-खाने में हांगुल (" + tag + "): " + it[1]); bad++; }
     }); }); });
   }
   scanD(D, "स्तर-2"); scanD(D1, "स्तर-1");
-  if (CODE === "ru") { var raw2 = fs.readFileSync(F2, "utf8"); if (CYR.test(raw2)) { console.log("⛔ रूसी फ़ाइल में कहीं सिरिलिक"); bad++; } }
+  /* v3.0 (31-Aug, Founder-आदेश): रूसी item[0] = असली सिरिलिक — पुरानी शून्य-सिरिलिक पूरी-फ़ाइल जाँच निरस्त */
   if (bad) { fail += bad; } else console.log("लिपि-शुद्धता (" + CODE + "): ✅");
 })();
 global.window.scrollTo = function () { };

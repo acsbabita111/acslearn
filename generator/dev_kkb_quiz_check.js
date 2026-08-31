@@ -5,7 +5,7 @@
    (2) विकल्प-दोहराव शून्य · सही-उत्तर विकल्पों में · [ ] square-bracket शून्य
    (3) लंबाई-पक्षपात: अकेला-सबसे-लंबा=सही 15-35% (v5.2 होल)
    (4) ((AU:...)) निशान सिर्फ़ सुनो-प्रश्नों में — और हर AU-पाठ corpus के असली वाक्य का spoken-रूप
-   (5) भाषा-नियम: ja के AU-पाठ में अंत-कोष्ठक (romaji) नहीं; ru बैंक में सिरिलिक शून्य
+   (5) भाषा-नियम: ja के AU-पाठ में अंत-कोष्ठक (romaji) नहीं; ru v2.0: प्रश्न/विकल्प में सिरिलिक अनिवार्य (au-छूट)
    (6) client-द्वार: dashboard.js की SERVER_EXAM_COURSES में कोर्स-id + exam_data.js में प्रविष्टि (q ख़ाली)
    fail = कोई भी upload/deploy नहीं। */
 "use strict";
@@ -39,7 +39,7 @@ BANK.forEach(function (Q, i) {
   var seen = {};
   Q.o.forEach(function (t) { ok(!seen[t], "विकल्प-दोहराव #" + i); seen[t] = 1; });
   ok(!/[\[\]]/.test(Q.t + Q.o.join("")), "square-bracket #" + i);
-  if (CODE === "ru") ok(!CYR.test(Q.t + Q.o.join("")), "सिरिलिक #" + i);
+  if (CODE === "ru") ok(CYR.test(Q.t + Q.o.join("")) || Q.au, "सिरिलिक-अनुपस्थित #" + i); /* v2.0 (31-Aug): सिरिलिक अनिवार्य (au-सुनो-प्रश्न छूट) */
   var m = /\(\(AU:([\s\S]*?)\)\)/.exec(Q.t);
   if (m) {
     au++;
