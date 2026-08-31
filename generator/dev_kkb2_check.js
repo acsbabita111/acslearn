@@ -60,20 +60,74 @@ if (l1c !== 500 || D1.weeks.length !== 5) { console.log("⛔ L1-data " + l1c); p
 console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकीकृत कुल: " + (l1c + total) + " वाक्य · 90 पाठ-दिन");
 /* ---- लिपि-शुद्धता (v2.0) — दोनों स्तरों के सब items पर ---- */
 (function () {
-  var CYR = /[\u0400-\u04FF]/, ARB = /[\u0600-\u06FF]/, KANA = /[\u3040-\u30FF\u4E00-\u9FFF]/, HANG = /[\uAC00-\uD7AF\u1100-\u11FF]/;
+  /* v4.0 (31-Aug, Founder-आदेश) — तीन-स्तंभ लोहे का नियम, fail-closed:
+     item[0] = असली भाषा (उसकी अपनी लिपि/वर्तनी) — देवनागरी शून्य
+     item[1] = सिर्फ़ देवनागरी-उच्चारण — लक्ष्य-लिपि शून्य
+     item[2] = हिंदी अर्थ — देवनागरी अनिवार्य
+     हर भाषा SCRIPT_RULES में दर्ज हो; अनजान भाषा/लिपि = तुरंत FAIL (मौन-पास निषिद्ध)। */
+  var DEV = /[\u0900-\u097F]/;
+  var SCRIPT_RULES = {
+    en: { native: /[A-Za-z]/, name: "Latin",   devInItem0: true  }, /* English मास्टर: [0] में देवनागरी-निशान (कोष्ठक) मान्य */
+    fr: { native: /[A-Za-z]/, name: "Latin",   devInItem0: false },
+    es: { native: /[A-Za-z]/, name: "Latin",   devInItem0: false },
+    de: { native: /[A-Za-z]/, name: "Latin",   devInItem0: false },
+    ar: { native: /[\u0600-\u06FF]/, name: "Arabic",   devInItem0: false },
+    ja: { native: /[\u3040-\u30FF\u4E00-\u9FFF]/, name: "Kana/Kanji", devInItem0: false },
+    ko: { native: /[\uAC00-\uD7AF\u1100-\u11FF]/, name: "Hangul",  devInItem0: false },
+    ru: { native: /[\u0400-\u04FF]/, name: "Cyrillic", devInItem0: false }
+  };
+  var R = SCRIPT_RULES[CODE];
+  if (!R) { console.log("⛔ SCRIPT_RULES में भाषा '" + CODE + "' दर्ज नहीं — नई भाषा जोड़ने से पहले यहाँ नियम लिखो (fail-closed)"); fail++; return; }
   var bad = 0;
   function scanD(DD, tag) {
     DD.weeks.forEach(function (w) { w.days.forEach(function (dd) { dd.items.forEach(function (it) {
-      if (CODE === "ru" && !CYR.test(it[0])) { console.log("⛔ item[0] में सिरिलिक नहीं (" + tag + "): " + it[0]); bad++; }
-      if (CODE === "ru" && CYR.test(it[1])) { console.log("⛔ उच्चारण-खाने में सिरिलिक (" + tag + "): " + it[1]); bad++; }
-      if (CODE === "ar" && ARB.test(it[1])) { console.log("⛔ उच्चारण-खाने में अरबी (" + tag + "): " + it[1]); bad++; }
-      if (CODE === "ja" && KANA.test(it[1])) { console.log("⛔ उच्चारण-खाने में काना/कांजी (" + tag + "): " + it[1]); bad++; }
-      if (CODE === "ko" && HANG.test(it[1])) { console.log("⛔ उच्चारण-खाने में हांगुल (" + tag + "): " + it[1]); bad++; }
+      if (!R.native.test(it[0])) { console.log("⛔ item[0] में " + R.name + " नहीं (" + tag + "): " + it[0]); bad++; }
+      if (!R.devInItem0 && DEV.test(it[0]) && CODE !== "en") { console.log("⛔ item[0] में देवनागरी (" + tag + "): " + it[0]); bad++; }
+      if (R.native !== SCRIPT_RULES.fr.native && R.native.test(it[1])) { console.log("⛔ उच्चारण-खाने [1] में " + R.name + " (" + tag + "): " + it[1]); bad++; } /* Latin-भाषाओं में [1] के भीतर कोष्ठक-Roman मान्य */
+      if (!DEV.test(it[1])) { console.log("⛔ उच्चारण-खाना [1] देवनागरी-रहित (" + tag + "): " + it[1]); bad++; }
+      if (!DEV.test(it[2])) { console.log("⛔ हिंदी-खाना [2] देवनागरी-रहित (" + tag + "): " + it[2]); bad++; }
     }); }); });
   }
   scanD(D, "स्तर-2"); scanD(D1, "स्तर-1");
-  /* v3.0 (31-Aug, Founder-आदेश): रूसी item[0] = असली सिरिलिक — पुरानी शून्य-सिरिलिक पूरी-फ़ाइल जाँच निरस्त */
-  if (bad) { fail += bad; } else console.log("लिपि-शुद्धता (" + CODE + "): ✅");
+  if (bad) { fail += bad; } else console.log("लिपि-शुद्धता v4.0 (" + CODE + "/" + R.name + "): ✅ [0]=असली · [1]=देवनागरी · [2]=हिंदी");
+})();
+/* ---- v4.1 (31-Aug, Founder-आदेश): मास्टर-दर्पण जाँच — हर भाषा English मास्टर
+   की हूबहू प्रतिकृति हो: ढाँचा (सप्ताह/दिन/items/tw/listen/dialog/test की गिनती)
+   + हिंदी-अर्थ स्तंभ item[2] byte-बराबर। एक भी पंक्ति अलग = FAIL। ---- */
+(function () {
+  if (CODE === "en") return;
+  var ME = {};
+  eval(fs.readFileSync("assets/kkb_data.js", "utf8").replace("window.KKB_DATA", "ME.L1"));
+  eval(fs.readFileSync("assets/kkb2_data.js", "utf8").replace("window.KKB2_DATA", "ME.L2"));
+  var bad = 0, warn = 0;
+  /* भाषा-नाम-प्रतिस्थापन छूट (Global South substitution): "अंग्रेज़ी/English" ⇄ अपनी भाषा का नाम —
+     सिर्फ़ यही अंतर मान्य; बाक़ी हिंदी-पंक्ति byte-बराबर हो */
+  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी" };
+  function norm(t) { return String(t).replace(new RegExp((LNAME[CODE] || "§") + "|अंग्रेज़ी|English", "g"), "⟨भाषा⟩"); }
+  /* दर्ज-छूट सूची (Founder-मान्य प्रासंगिक प्रतिस्थापन — इनके अलावा एक भी पंक्ति अलग = FAIL):
+     L2 w4d4#16: मास्टर "हिंदी में बोलो…" → भाषा-कोर्स "⟨भाषा⟩ में बोलो…" (AI-app प्रसंग) */
+  var ALLOWED = { "स्तर-2|4|4|16": 1 };
+  function mirror(A, B, tag) {
+    if (A.weeks.length !== B.weeks.length) { console.log("⛔ " + tag + " सप्ताह-गिनती " + A.weeks.length + "≠" + B.weeks.length); bad++; return; }
+    A.weeks.forEach(function (w, wi) {
+      var mw = B.weeks[wi];
+      if (w.days.length !== mw.days.length) { console.log("⛔ " + tag + " w" + wi + " दिन-गिनती"); bad++; return; }
+      w.days.forEach(function (d, di) {
+        var md = mw.days[di];
+        if (d.items.length !== md.items.length) { console.log("⛔ " + tag + " w" + wi + "d" + di + " item-गिनती " + d.items.length + "≠" + md.items.length); bad++; return; }
+        d.items.forEach(function (it, i) {
+          if (norm(it[2]) !== norm(md.items[i][2]) && !ALLOWED[tag + "|" + wi + "|" + di + "|" + i]) { console.log("⛔ " + tag + " w" + wi + "d" + di + "#" + i + " हिंदी-स्तंभ मास्टर से अलग: " + it[2]); bad++; }
+        });
+        if ((d.tw || []).length !== (md.tw || []).length) { console.log("⚠️ " + tag + " w" + wi + "d" + di + " tw-गिनती मास्टर-भंडारण से अलग"); warn++; }
+      });
+      if ((w.listen || []).length !== (mw.listen || []).length) { console.log("⚠️ " + tag + " w" + wi + " listen-भंडारण-रूप मास्टर से अलग (ऐतिहासिक — सामग्री-स्तर दर्पण items पर लागू)"); warn++; }
+      if ((w.dialog || []).length !== (mw.dialog || []).length) { console.log("⚠️ " + tag + " w" + wi + " dialog-भंडारण-रूप मास्टर से अलग"); warn++; }
+      var tl = (w.test && w.test.lines) ? w.test.lines.length : 0, mtl = (mw.test && mw.test.lines) ? mw.test.lines.length : 0;
+      if (tl !== mtl) { console.log("⚠️ " + tag + " w" + wi + " test-भंडारण-रूप मास्टर से अलग (" + tl + "≠" + mtl + ")"); warn++; }
+    });
+  }
+  mirror(D1, ME.L1, "स्तर-1"); mirror(D, ME.L2, "स्तर-2");
+  if (bad) { fail += bad; } else console.log("मास्टर-दर्पण v4.1 (" + CODE + "): ✅ 2,150 वाक्य-ढाँचा + हिंदी-स्तंभ English मास्टर से हूबहू (भाषा-नाम छूट)" + (warn ? " · ⚠️×" + warn + " भंडारण-रूप नोट" : ""));
 })();
 global.window.scrollTo = function () { };
 global.localStorage = { getItem: function () { return null; }, setItem: function () { }, removeItem: function () { } };
