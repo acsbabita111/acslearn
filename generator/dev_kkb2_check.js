@@ -74,7 +74,8 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
     ar: { native: /[\u0600-\u06FF]/, name: "Arabic",   devInItem0: false },
     ja: { native: /[\u3040-\u30FF\u4E00-\u9FFF]/, name: "Kana/Kanji", devInItem0: false },
     ko: { native: /[\uAC00-\uD7AF\u1100-\u11FF]/, name: "Hangul",  devInItem0: false },
-    ru: { native: /[\u0400-\u04FF]/, name: "Cyrillic", devInItem0: false }
+    ru: { native: /[\u0400-\u04FF]/, name: "Cyrillic", devInItem0: false },
+    he: { native: /[\u0590-\u05FF]/, name: "Hebrew",   devInItem0: false } /* हिब्रू L2 (01-Sep) — RTL, fail-closed प्रविष्टि पहले */
   };
   var R = SCRIPT_RULES[CODE];
   if (!R) { console.log("⛔ SCRIPT_RULES में भाषा '" + CODE + "' दर्ज नहीं — नई भाषा जोड़ने से पहले यहाँ नियम लिखो (fail-closed)"); fail++; return; }
@@ -102,7 +103,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   var bad = 0, warn = 0;
   /* भाषा-नाम-प्रतिस्थापन छूट (Global South substitution): "अंग्रेज़ी/English" ⇄ अपनी भाषा का नाम —
      सिर्फ़ यही अंतर मान्य; बाक़ी हिंदी-पंक्ति byte-बराबर हो */
-  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी" };
+  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू" };
   function norm(t) { return String(t).replace(new RegExp((LNAME[CODE] || "§") + "|अंग्रेज़ी|English", "g"), "⟨भाषा⟩"); }
   /* दर्ज-छूट सूची (Founder-मान्य प्रासंगिक प्रतिस्थापन — इनके अलावा एक भी पंक्ति अलग = FAIL):
      L2 w4d4#16: मास्टर "हिंदी में बोलो…" → भाषा-कोर्स "⟨भाषा⟩ में बोलो…" (AI-app प्रसंग) */

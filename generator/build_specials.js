@@ -1258,7 +1258,9 @@ const KKB2_LANGS = [
   { code: "de", slug: "german", en_name: "German", hi_name: "जर्मन",
     next: 'आगे का रास्ता: कोर्स पूरा करके Goethe-Zertifikat A2 (गोएथे-ज़र्टिफ़िकाट) — ' + kkb2Link("https://www.goethe.de/en/spr/prf.html", "goethe.de") + ' — की तैयारी। ' + KKB2_SAFE },
   { code: "ru", slug: "russian", en_name: "Russian", hi_name: "रूसी",
-    next: 'आगे का रास्ता: कोर्स पूरा करके TORFL (तोर्फ़ल — रूसी भाषा की सरकारी परीक्षा) — ' + kkb2Link("https://testingcenter.spbu.ru/en/", "testingcenter.spbu.ru") + ' — की तैयारी। ' + KKB2_SAFE }
+    next: 'आगे का रास्ता: कोर्स पूरा करके TORFL (तोर्फ़ल — रूसी भाषा की सरकारी परीक्षा) — ' + kkb2Link("https://testingcenter.spbu.ru/en/", "testingcenter.spbu.ru") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "he", slug: "hebrew", en_name: "Hebrew", hi_name: "हिब्रू", /* 01-Sep: 9वीं L2 भाषा — इज़राइल (सरकारी G2G भर्ती-गलियारा) */
+    next: 'आगे का रास्ता: हिब्रू की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — इज़राइल में काम की भाषा-माँग नियोक्ता/भर्ती-एजेंसी (सरकारी G2G) से ख़ुद जाँचें। ' + KKB2_SAFE }
 ];
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +

@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_kkb_check.js v8.0 (31-Aug-2026; KKB2 मास्टर-परिवार en+7 की पेज-जाँच kkb2-ढाँचे पर; v7.8 = + मालागासी mg) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
+   dev_kkb_check.js v8.1 (01-Sep-2026; KKB2FAM + he; KKB2 मास्टर-परिवार en+7 की पेज-जाँच kkb2-ढाँचे पर; v7.8 = + मालागासी mg) — "ACS काम की भाषा" कोर्स का check-robot (हर भाषा: KKB_SETS)
    चलाना: repo-रूट से → node generator/dev_kkb_check.js
    जाँचें: (1) data 5 सप्ताह × 5 दिन × 20 = 500, हर वाक्य के 4 खाने भरे, दिशा S/L
    (2) हर सप्ताह का test-खाना (target/goal/lines, हर line = English+देवनागरी)
@@ -230,7 +230,7 @@ if (fs.existsSync(path.join(ROOT, PAGE))) {
   ok(pg.includes("generator से बना (build_specials.js"), "पेज पर generator-निशान नहीं");
   ok(pg.includes("/assets/acs-universal.js"), "पेज universal ढाँचे पर नहीं");
   /* v8.0 (31-Aug): KKB2 मास्टर-परिवार (en+7) के पेज kkb2-ढाँचे पर — वहाँ kkb2-असेट व #kkb2-app जाँचें (गहरी जाँच dev_kkb2_check में) */
-  const KKB2FAM = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1 };
+  const KKB2FAM = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1 }; /* 01-Sep: + हिब्रू (9वीं) */
   if (KKB2FAM[SET.code]) {
     ["/assets/kkb2.css", "/assets/kkb2.js"].forEach(a => ok(pg.includes(a), tag + "पेज " + a + " नहीं बुलाता"));
     ok(pg.includes('id="kkb2-app"'), tag + "पेज में kkb2-app डिब्बा नहीं");
