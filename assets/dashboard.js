@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.5 · 01-Sep-2026 (Founder-आदेश: "मेरे कोर्स" प्रजेंटेशन v2 — पूरे-बने कोर्स रेल · 90-दिन भाषा रेल · 120 भाषा चिप-ग्रिड+खोज (KKB_GROUPS एक-घर courses_data) · जल्द-आने-वाले गिनती)
    v6.4 · 01-Sep-2026 (हिब्रू परीक्षा-द्वार: PJ137 SERVER_EXAM_COURSES में, आवाज़ he-IL)
    v6.3 · 31-Aug-2026 (रूसी सिरिलिक: PJ052 आवाज़ ru-RU) · v6.2 (KKB मास्टर-प्रतिकृति) — 7 भाषा-परीक्षा द्वार (PJ022/086/021/026/031/125/052)
         SERVER_EXAM_COURSES में + __examSay की आवाज़ कोर्स-वार (EXAM_TTS; रूसी=hi-IN — देवनागरी-फ़ोनेटिक)
@@ -1235,52 +1236,81 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     CRS_ALL=[]; G.forEach(g=>{ (g[1]||[]).forEach(c=>CRS_ALL.push({g:g[0], c:c})); });
   }
 
+  /* ══ (01-Sep, Founder-आदेश "प्रजेंटेशन सुधारो") कोर्स-सूची v2 — विश्व-EdTech पैटर्न:
+     ① "पूरे बने कोर्स" पहले, अलग-अलग रंग-पट्टी + चिह्न + प्रगति (Coursera/Udemy-शैली कार्ड-रेल)
+     ② 90-दिन भाषा-कोर्स अलग रेल (झंडा-चिह्न, CEFR/परीक्षा-चिप)
+     ③ 120 शुरुआती भाषाएँ = Duolingo-शैली चिप-ग्रिड + खोज + गलियारा-समूह (एक घर: window.KKB_GROUPS)
+     ④ बिना-पाठ कोर्स = सिर्फ़ गिनती-पंक्ति (ईमानदार-पैनल; मरा बटन नहीं)
+     पुराना 50-50 खेप-मॉडल हटा — कार्ड ≤20, चिप 120 (हल्के) — scale-नियम बचा। */
+  const CRS_ICON = { SE009:"🛒", SE017:"🖨️", SE021:"🔥", SE022:"🛵", SE023:"🍄", PJ016:"💻", PJ017:"🤖", LJ011:"🔧",
+    PJ018:"🇬🇧", PJ022:"🇸🇦", PJ086:"🇫🇷", PJ021:"🇪🇸", PJ026:"🇯🇵", PJ031:"🇰🇷", PJ125:"🇩🇪", PJ052:"🇷🇺", PJ137:"🇮🇱" };
+  const CRS_BAND = ["linear-gradient(135deg,var(--navy),var(--blue))","linear-gradient(135deg,var(--green),#1B5E20)",
+    "linear-gradient(135deg,var(--blue),var(--navy))","linear-gradient(135deg,#1B5E20,var(--blue))"];
+  function isLangCourse(c){ return /काम की भाषा|Certificate in Spoken/.test(String(c.name_hi||"")); }
+  function isLang90(c){ return /Certificate in Spoken/.test(String(c.name_hi||"")); }
+  function langShort(c){ let n=String(c.name_hi||""); if(n.indexOf("—")>-1) n=n.split("—")[1]; return n.split("(")[0].replace("बोलने का पूरा कोर्स","").replace("बोलना","").trim(); }
+  function crsCard(c, i){
+    const ENR=enrGet(); const joined=!!ENR[c.id];
+    let read=0; try{ read=cntRead(((JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"))||{}).read||{}, c.url); }catch(e){}
+    const tot=Number(c.lessons)||0, pc=tot?Math.min(100,Math.round(read*100/tot)):0;
+    const exam=!!((window.COURSE_EXAMS||{})[c.id]);
+    const lang=isLang90(c);
+    const title = lang ? (langShort(c)+" — पूरा कोर्स") : noSq(c.name_hi||c.name_en||"—");
+    const chips = (exam?'<span class="crschip gold">🎓 प्रमाणपत्र-परीक्षा</span>':'')+
+      (lang?'<span class="crschip">CEFR A2 पर आधारित</span>':'<span class="crschip">📴 offline भी</span>');
+    const meta = [c.lessons?("📄 "+c.lessons+" पाठ"):"", c.duration?("⏱️ "+noSq(c.duration)):""].filter(Boolean).join(" · ")+
+      (((window.__crsAlso||{})[c.id]||[]).length?'<br>🔗 '+window.__crsAlso[c.id].join(", ")+' — इसी कोर्स के भीतर':"");
+    const prog = joined||read ? '<div class="crsprog"><div class="crsbar"><i style="width:'+pc+'%"></i></div><span>'+pc+'% पूरा'+(read?" · "+read+"/"+tot:"")+'</span></div>' : "";
+    return '<div class="crscard v2"><div class="crsban" style="background:'+CRS_BAND[i%CRS_BAND.length]+'">'+(CRS_ICON[c.id]||"📚")+'</div>'+
+      '<div class="crsbody"><div class="crschips">'+chips+'</div><div class="crsname">'+title+'</div><div class="crsmeta">'+meta+'</div>'+prog+
+      '<div class="crsact"><a class="crsgo" href="'+c.url+'">'+(read?"▶ जारी रखें":"▶ पढ़ें — मुफ़्त")+'</a>'+
+      (joined?'<span class="crsstep on crsjoined">✅ जुड़ गया</span>':'<button class="abtn crsjoinbtn" type="button" data-enroll="'+c.id+'">➕ जोड़ें</button>')+
+      '</div></div></div>';
+  }
+  function crsRail(title, sub, list){
+    if(!list.length) return "";
+    const ENR=enrGet(); list=list.slice().sort(function(a,b){ return (ENR[b.id]?1:0)-(ENR[a.id]?1:0); });
+    return '<div class="crssec"><div class="ph">'+title+' <span class="crscount">'+list.length+'</span></div>'+(sub?'<div class="crssub">'+sub+'</div>':"")+
+      '<div class="crsrail">'+list.map(crsCard).join("")+'</div></div>';
+  }
+  function crsChip(c){ const j=!!enrGet()[c.id]; return '<a class="bhchip'+(j?" on":"")+'" href="'+c.url+'" data-nm="'+langShort(c).toLowerCase()+'">'+(j?"✅ ":"")+langShort(c)+'</a>'; }
   function crsDrawMore(){
     const box=$("crsList"); if(!box) return;
-    if(CRS_SHOWN===0) box.innerHTML="";
-    const old=$("crsMoreWrap"); if(old) old.remove();
-    let lastG = CRS_SHOWN>0 ? CRS_ALL[CRS_SHOWN-1].g : "";
-    const end = Math.min(CRS_SHOWN+CRS_PAGE, CRS_ALL.length);
-    for(let i=CRS_SHOWN;i<end;i++){
-      const it=CRS_ALL[i], c=it.c;
-      if(it.g!==lastG){
-        lastG=it.g;
-        const h=document.createElement("div");
-        h.className="ph"; h.style.marginTop="12px"; h.textContent=it.g;
-        box.appendChild(h);
-      }
-      const row=document.createElement("div");
-      row.className="crscard"; row.style.display="inline-block"; row.style.width="min(260px,100%)"; row.style.margin="6px"; row.style.verticalAlign="top";
-      const meta=[c.duration?("⏱️ "+noSq(c.duration)):"", c.lessons?("📄 "+c.lessons+" पाठ"):"",
-        "🗣️ हिंदी","📴 पढ़े पाठ offline भी"].filter(Boolean).join(" · ");
-      const right = c.url
-        ? '<a class="abtn ok" style="display:inline-block;text-decoration:none" href="'+c.url+'">📖 पढ़ें (मुफ़्त)</a>'
-        : '<span class="note" style="margin-top:0">पाठ जल्द जुड़ेंगे</span>';
-      row.innerHTML = '<div class="crsban">📚</div><div class="crsbody">'+
-        '<div class="crsname">'+noSq(c.name_hi||c.name_en||"—")+'</div>'+
-        '<div class="crsmeta">'+meta+'</div>'+
-        (c.url?'<a class="crsgo" href="'+c.url+'">▶ पढ़ें — मुफ़्त</a>'+
-          (enrGet()[c.id]
-            ? '<span class="crsstep on crsjoined">✅ जुड़ गया</span>'
-            : '<button class="abtn crsjoinbtn" type="button" data-enroll="'+c.id+'">➕ मेरी पढ़ाई में जोड़ें</button>')
-          :'<span class="note">पाठ जल्द जुड़ेंगे</span>')+
-        '</div>';
-      box.appendChild(row);
-    }
-    CRS_SHOWN=end;
-    const w=document.createElement("div"); w.id="crsMoreWrap";
-    if(CRS_SHOWN<CRS_ALL.length){
-      const mb=document.createElement("button");
-      mb.className="abtn ok"; mb.style.background="var(--blue)"; mb.style.marginTop="10px";
-      mb.textContent="⬇️ और कोर्स देखें ("+(CRS_ALL.length-CRS_SHOWN)+" बाक़ी)";
-      mb.addEventListener("click", crsDrawMore);
-      w.appendChild(mb);
-    } else {
-      const nt=document.createElement("div"); nt.className="note";
-      nt.textContent="कुल "+CRS_ALL.length+" कोर्स — सूची पूरी। नए कोर्स जुड़ते ही यहीं दिखेंगे।";
-      w.appendChild(nt);
-    }
-    box.appendChild(w);
+    const all=CRS_ALL.map(function(x){return x.c;});
+    const byId={}; all.forEach(function(c){ byId[c.id]=c; });
+    /* pointer-कोर्स (एक ही url, जैसे LJ011 वेल्डर-सहायक → वेल्डिंग): अलग कार्ड नहीं — मुख्य कार्ड पर "🔗 …भी यहीं" (गिनती-ईमानदारी, 01-Sep Founder-पकड़) */
+    const byUrl={}, ALSO={};
+    all.forEach(function(c){ if(!c.url) return; const k=c.url.replace(/index\.html$/,""); if(byUrl[k]){ (ALSO[byUrl[k].id]=ALSO[byUrl[k].id]||[]).push(noSq(c.name_hi||"").split("(")[0].trim()); } else byUrl[k]=c; });
+    window.__crsAlso=ALSO;
+    const skill=all.filter(function(c){ return c.url && !isLangCourse(c) && byUrl[c.url.replace(/index\.html$/,"")]===c; });
+    const lang90=all.filter(function(c){ return c.url && isLang90(c); });
+    const G=(window.KKB_GROUPS||[]); const seen={};
+    let langHtml=""; let nL1=0;
+    G.forEach(function(g,gi){
+      const L=g.ids.map(function(id){return byId[id];}).filter(function(c){ return c && c.url && !isLang90(c) && !seen[c.id] && (seen[c.id]=1); });
+      if(!L.length) return; nL1+=L.length;
+      langHtml+='<details class="bhgrp"'+(gi===0?" open":"")+'><summary>'+g.e+' '+g.t+' <span class="crscount">'+L.length+'</span></summary><div class="bhchips">'+L.map(crsChip).join("")+'</div></details>';
+    });
+    /* समूह-बाहर छूटी भाषा (नया कोर्स जिसकी id KKB_GROUPS में अभी नहीं) — छिपे नहीं */
+    const orphan=all.filter(function(c){ return c.url && isLangCourse(c) && !isLang90(c) && !seen[c.id]; });
+    if(orphan.length){ nL1+=orphan.length; langHtml+='<details class="bhgrp"><summary>🌐 अन्य भाषाएँ <span class="crscount">'+orphan.length+'</span></summary><div class="bhchips">'+orphan.map(crsChip).join("")+'</div></details>'; }
+    /* बिना-पाठ कोर्स की गिनती सीधी सूचियों से (CRS_ALL पहले ही url-छना हुआ है) */
+    let soon=0; [typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[], typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],
+      typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[]].forEach(function(L){ (L||[]).forEach(function(c){ if(c&&!c.url) soon++; }); });
+    box.innerHTML =
+      crsRail("🏆 पूरे बने हुनर-कोर्स", "पाठ + चित्र + प्रश्न-अभ्यास + प्रमाणपत्र-परीक्षा — पढ़ना हमेशा मुफ़्त।", skill) +
+      crsRail("🗣️ भाषा — 90-दिन पूरा कोर्स", "स्तर 1+2 · 2,150 वाक्य असली लिपि + देवनागरी उच्चारण + आवाज़ · अंत में प्रमाणपत्र-परीक्षा।", lang90) +
+      (nL1?'<div class="crssec"><div class="ph">🌍 काम की भाषा — 5-सप्ताह शुरुआती <span class="crscount">'+nL1+'</span></div>'+
+        '<div class="crssub">500 वाक्य, 35 दिन — विदेश/दूसरे राज्य में पहले दिन से काम-चलाऊ बोली। नाम दबाओ, कोर्स खुले।</div>'+
+        '<input class="bhsearch" id="bhSearch" type="search" placeholder="🔍 भाषा खोजें — जैसे जापानी, तमिल, स्वाहिली" autocomplete="off">'+langHtml+'</div>':"") +
+      (soon?'<div class="crssec"><div class="ph">🔜 जल्द आने वाले</div><div class="crssub">'+soon+' और कोर्स सूची में हैं — पाठ बनते ही यहीं खुलेंगे। पूरी सूची: <a href="/courses/hi/" style="color:var(--blue);font-weight:800">🌐 कोर्स-पेज</a></div></div>':"");
+    const si=$("bhSearch");
+    if(si) si.addEventListener("input", function(){
+      const q=si.value.trim().toLowerCase(); const chips=box.querySelectorAll(".bhchip"); const grps=box.querySelectorAll(".bhgrp");
+      chips.forEach(function(ch){ ch.style.display=(!q||ch.getAttribute("data-nm").indexOf(q)>-1)?"":"none"; });
+      grps.forEach(function(g){ const vis=Array.prototype.some.call(g.querySelectorAll(".bhchip"),function(ch){return ch.style.display!=="none";}); g.style.display=vis?"":"none"; if(q) g.open=true; });
+    });
+    CRS_SHOWN=CRS_ALL.length;
   }
 
   /* ── (29-Jul, Founder) 📖 मेरी पढ़ाई: प्रगति-मीटर + परीक्षा-सीढ़ी ──

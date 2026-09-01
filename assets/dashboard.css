@@ -241,10 +241,10 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
   display:flex;align-items:center;justify-content:center;font-size:26px;flex:none}
 .lvmain{flex:1;min-width:0}
 .lvname{font-size:18px;font-weight:800;color:var(--navy)}
-.lvsub{font-size:15px;color:#5b6b80;margin:2px 0 6px}
+.lvsub{font-size:16px;color:#5b6b80;margin:2px 0 6px}
 .lvbar{background:#e8edf4;border-radius:999px;height:12px;overflow:hidden}
 .lvbar i{display:block;height:12px;background:var(--green);border-radius:999px}
-.lvpct{font-size:15px;font-weight:800;color:var(--green);margin-top:4px}
+.lvpct{font-size:16px;font-weight:800;color:var(--green);margin-top:4px}
 .lvact{display:flex;flex-direction:column;gap:8px;flex:none;align-items:stretch}
 .lvbtn{border:none;border-radius:10px;font-weight:800;font-size:16px;padding:10px 14px;
   cursor:pointer;color:#fff;text-align:center}
@@ -325,3 +325,35 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .crsjoined{display:block;width:max-content;max-width:100%;margin:8px auto 0;
   white-space:nowrap;font-size:16px}
 .crsjoinbtn{display:block;width:max-content;max-width:100%;margin:8px auto 0;white-space:nowrap}
+
+/* ══ (01-Sep-2026) "मेरे कोर्स" v2 — कार्ड-रेल + भाषा चिप-ग्रिड (Founder-आदेश: प्रजेंटेशन सुधार) ══
+   नियम: फ़ॉन्ट ≥16px · सिर्फ़ ACS-5 रंग · mobile-first (रेल = अंगुली से खिसकाओ, laptop = ग्रिड) */
+.crssec{margin:14px 0 6px}
+.crssec .ph{display:flex;align-items:center;gap:8px;font-size:20px}
+.crscount{font-size:16px;font-weight:800;color:var(--blue);background:#E3ECF7;border-radius:999px;padding:2px 10px}
+.crssub{font-size:16px;color:#4a5a70;line-height:1.6;margin:2px 0 10px}
+.crsrail{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.crsrail .crscard{flex:0 0 min(78vw,300px);scroll-snap-align:start;margin:0;display:flex;flex-direction:column}
+.crscard.v2 .crsban{height:84px;font-size:44px;position:relative}
+.crscard.v2 .crsban:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--gold)}
+.crscard.v2 .crsbody{text-align:left;padding:10px 14px 14px;display:flex;flex-direction:column;flex:1}
+.crscard.v2 .crsname{font-size:18px;line-height:1.35;min-height:2.7em}
+.crschips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.crschip{font-size:16px;font-weight:700;color:var(--navy);background:#E3ECF7;border-radius:999px;padding:3px 10px}
+.crschip.gold{background:var(--gold);color:var(--navy)}
+.crsprog{margin:4px 0 8px;font-size:16px;color:#4a5a70}
+.crsbar{height:9px;background:#E3ECF7;border-radius:999px;overflow:hidden;margin-bottom:4px}
+.crsbar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:999px}
+.crsact{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.crsact .crsgo{flex:1;text-align:center;margin:0}
+.crsact .abtn{margin:0;padding:8px 12px;font-size:16px}
+@media(min-width:760px){.crsrail{flex-wrap:wrap;overflow:visible}.crsrail .crscard{flex:0 0 calc(33.33% - 8px)}}
+@media(min-width:1100px){.crsrail .crscard{flex:0 0 calc(25% - 9px)}}
+.bhsearch{width:100%;font:inherit;font-size:17px;padding:11px 14px;border:1.5px solid #c9d4e3;border-radius:12px;margin:0 0 10px;background:#fff}
+.bhgrp{background:#fff;border:1.5px solid #dfe7f1;border-radius:14px;margin:0 0 8px;overflow:hidden}
+.bhgrp summary{cursor:pointer;padding:12px 14px;font-size:17px;font-weight:800;color:var(--navy);background:var(--offwhite);list-style-position:inside;display:flex;align-items:center;gap:8px}
+.bhgrp[open] summary{border-bottom:1px solid #dfe7f1;color:var(--blue)}
+.bhchips{display:flex;flex-wrap:wrap;gap:8px;padding:12px}
+.bhchip{font-size:16px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid #c9d4e3;border-radius:999px;padding:8px 14px;text-decoration:none;line-height:1.3}
+.bhchip:active{background:#E3ECF7}
+.bhchip.on{border-color:var(--green);background:#E8F5E9;color:var(--green)}
