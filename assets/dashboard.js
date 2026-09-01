@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.6.1 · 02-Sep-2026 (Founder-screenshot: बोलो-प्रश्न पर "अगला" रुकता था — radio-जाँच में पहचाना-text उत्तर मान्य; भरे-गिनती; 2-कोशिश संदेश एक बार, बटन धूसर)
    v6.6 · 01-Sep-2026 (Founder-नियम 40/40/40: 🎤 बोलो-प्रश्न — ((MIC)) → SpeechRecognition, पहचाना text उत्तर; 2 कोशिश)
    v6.5 · 01-Sep-2026 (Founder-आदेश: "मेरे कोर्स" प्रजेंटेशन v2 — पूरे-बने कोर्स रेल · 90-दिन भाषा रेल · 120 भाषा चिप-ग्रिड+खोज (KKB_GROUPS एक-घर courses_data) · जल्द-आने-वाले गिनती)
    v6.4 · 01-Sep-2026 (हिब्रू परीक्षा-द्वार: PJ137 SERVER_EXAM_COURSES में, आवाज़ he-IL)
@@ -1470,7 +1471,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     var out = document.getElementById("exMicOut");
     if (!SR) { if (out) out.innerHTML = '<span style="color:#B71C1C">इस browser में बोली-पहचान नहीं चलती — Chrome (Android) में परीक्षा दें।</span>'; return; }
     S.micTries = S.micTries || {}; var tries = S.micTries[S.idx] || 0;
-    if (tries >= 2) { if (out) out.innerHTML += '<br><span style="color:#B71C1C">2 कोशिश पूरी — अगला प्रश्न।</span>'; return; }
+    if (tries >= 2) { b.disabled = true; b.textContent = "🎤 कोशिश पूरी"; if (out && out.innerHTML.indexOf("2 कोशिश पूरी") < 0) out.innerHTML += '<br><span style="color:#B71C1C">2 कोशिश पूरी — ▶ अगला दबाएँ।</span>'; return; }
     try { speechSynthesis.cancel(); } catch (e) {}
     var r = new SR(); r.lang = EXAM_TTS[S.cid] || "en-IN"; r.interimResults = false; r.maxAlternatives = 1; r.continuous = false;
     b.disabled = true; b.textContent = "🎙️ सुन रहा हूँ… बोलिए";
@@ -1484,13 +1485,13 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       else if (out) out.innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया — दोबारा बोलिए।</span>';
     };
     r.onerror = function (ev) { S.micTries[idxAt] = (S.micTries[idxAt] || 0); if (out) out.innerHTML = '<span style="color:#B71C1C">माइक-त्रुटि: ' + esc(ev.error || "") + ' — माइक की अनुमति दें, फिर दोबारा।</span>'; };
-    r.onend = function () { b.disabled = false; b.textContent = (S.micTries[idxAt] || 0) >= 2 ? "🎤 कोशिश पूरी" : "🎤 बोलिए"; if (!got && out && !/त्रुटि/.test(out.textContent)) out.innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया — दोबारा बोलिए।</span>'; };
+    r.onend = function () { var done = (S.micTries[idxAt] || 0) >= 2; b.disabled = done; b.textContent = done ? "🎤 कोशिश पूरी" : "🎤 बोलिए"; if (!got && out && !/त्रुटि/.test(out.textContent)) out.innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया — दोबारा बोलिए।</span>'; };
     try { r.start(); } catch (e) { b.disabled = false; b.textContent = "🎤 बोलिए"; if (out) out.innerHTML = '<span style="color:#B71C1C">माइक शुरू नहीं हुआ — दोबारा दबाएँ।</span>'; }
   };
   function examMicHtml() {
     var S = EX_STATE, cur = S && typeof S.answers[S.idx] === "string" ? S.answers[S.idx] : "";
     return '<div style="margin-top:10px;padding:12px;border:2px dashed var(--blue);border-radius:14px;background:#F5F7FA">' +
-      '<button type="button" class="crsgo" style="font-size:19px;background:var(--navy)" onclick="__examMic(this)">🎤 बोलिए</button>' +
+      '<button type="button" class="crsgo" style="font-size:19px;background:var(--navy)" onclick="__examMic(this)"' + ((S && S.micTries && (S.micTries[S.idx] || 0) >= 2) ? ' disabled' : '') + '>' + ((S && S.micTries && (S.micTries[S.idx] || 0) >= 2) ? '🎤 कोशिश पूरी' : '🎤 बोलिए') + '</button>' +
       '<div id="exMicOut" style="margin-top:8px;font-size:17px;line-height:1.6">' + (cur ? '✅ फ़ोन ने सुना: <b dir="auto">' + esc(cur) + '</b>' : 'माइक-बटन दबाकर ज़ोर से, साफ़ बोलिए। 2 कोशिश मिलेंगी।') + '</div></div>';
   }
   function examQHtml(t) {
@@ -1598,7 +1599,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const S = EX_STATE; if (!S) return;
     const { card } = examOverlayEls();
     const q = S.questions[S.idx];
-    const answered = S.answers.filter(function (a) { return a >= 0; }).length;
+    const answered = S.answers.filter(function (a) { return a >= 0 || (typeof a === "string" && a.length > 0); }).length;   /* (02-Sep) बोलो-उत्तर (text) भी भरा */
     const pct = Math.round((S.idx + 1) * 100 / S.total);
     let h = '<div class="examTop"><div class="examTopRow">'+
       '<div><div class="examName">'+esc(S.name)+'</div><div class="examPassNote">पास होने के लिए '+S.pass+'% चाहिए'+
@@ -1683,7 +1684,9 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const enx=ev.target.closest("#exNext");
     if(enx){ const S=EX_STATE; if(!S) return;
       const r=document.querySelector('input[name="exq"]:checked');
-      if(!r){ const m=$("exMsg"); if(m) m.textContent="जवाब चुनें, फिर अगला।"; return; }
+      const spoken = typeof S.answers[S.idx]==="string" && S.answers[S.idx].length>0;   /* (02-Sep) बोलो-प्रश्न: पहचाना text = उत्तर, radio नहीं होता */
+      const isMic = !!document.getElementById("exMicOut");
+      if(!r && !spoken){ const m=$("exMsg"); if(m) m.textContent = isMic ? "पहले 🎤 दबाकर बोलिए, फिर अगला।" : "जवाब चुनें, फिर अगला।"; return; }
       examSaveCurrent(); if(S.idx<S.total-1) S.idx++; examRenderServer(); return; }
     const msb=ev.target.closest("#mySubjSave");
     if(msb){ const box=$("mySubjBox"); if(!box) return;
