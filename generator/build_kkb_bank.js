@@ -1,4 +1,4 @@
-/* generator/build_kkb_bank.js — v1.0 (31-Aug-2026) · Founder-मुहर: 7 भाषाओं के server-परीक्षा बैंक
+/* generator/build_kkb_bank.js — v1.1 (01-Sep-2026: + हिब्रू he) · v1.0 (31-Aug-2026) · Founder-मुहर: 7 भाषाओं के server-परीक्षा बैंक
    ACS Certificate in Spoken <भाषा> — build_eng_bank.js (v2.0) का भाषा-सामान्यीकरण। English बैंक अछूता (वही eng-generator से)।
    चलाना: node generator/build_kkb_bank.js <ar|fr|es|ja|ko|de|ru>   (repo-रूट से)
    स्रोत (सब frozen corpus से — कुछ गढ़ा नहीं): 2,150 वाक्य + लक्ष्य-शब्द + सुनो-जवाब जोड़े + संवाद-जोड़ियाँ।
@@ -18,9 +18,10 @@ var CFG = {
   ja: { label: "जापानी", rot: [1, 2, 3, 4], au: true },
   ko: { label: "कोरियाई", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   de: { label: "जर्मन", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
-  ru: { label: "रूसी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true } /* v2.0 (31-Aug): it[0]=सिरिलिक ⇒ 3/4 अब वैध */
+  ru: { label: "रूसी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v2.0 (31-Aug): it[0]=सिरिलिक ⇒ 3/4 अब वैध */
+  he: { label: "हिब्रू", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true, skipLatinTw: true } /* v1.1 (01-Sep): हिब्रू — असली-लिपि, space-विभाजित ⇒ पूर्ण ROT */
 };
-if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru"); process.exit(1); }
+if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he"); process.exit(1); }
 var L = CFG[CODE].label;
 global.window = {};
 eval(fs.readFileSync("assets/kkb_" + CODE + "_data.js", "utf8").replace("window.KKB_DATA", "global.window.KKB_DATA"));
@@ -33,7 +34,7 @@ var ALL = [], TW = [], LIS = [], DLG = [];
   D.weeks.forEach(function (w) {
     w.days.forEach(function (d) {
       d.items.forEach(function (it) { ALL.push({ en: clean(it[0]), dev: it[1], hi: it[2] }); });
-      (d.tw || []).forEach(function (t) { TW.push({ w: t[0], dev: t[1], hi: t[2] }); });
+      (d.tw || []).forEach(function (t) { if (CFG[CODE].skipLatinTw && /^[A-Za-z][A-Za-z-]*$/.test(t[0])) return; /* v1.1: Latin brand-शब्द (UPI/OTP/eMigrate…) — असली-लिपि भाषाओं में शब्द-प्रश्न बेमानी, छोड़ो */ TW.push({ w: t[0], dev: t[1], hi: t[2] }); });
     });
     (w.listen || []).forEach(function (p) { LIS.push({ q: clean(p[0]), a: clean(p[1]) }); });
     if (w.dialog) for (var p2 = 0; p2 < w.dialog.length - 1; p2++)
@@ -43,7 +44,7 @@ var ALL = [], TW = [], LIS = [], DLG = [];
 if (ALL.length !== 2150) { console.log("⛔ corpus " + ALL.length); process.exit(1); }
 
 /* स्थिर बेतरतीबी (regen = वही बैंक) — भाषा-वार अलग seed */
-var SALT = { ar: 0, fr: 0, es: 0, ja: 0, ko: 0, de: 0, ru: 0 };
+var SALT = { ar: 0, fr: 0, es: 0, ja: 0, ko: 0, de: 0, ru: 0, he: 0 };
 var UPX = 0.12; /* v2.0 (31-Aug): ru अब सिरिलिक — विशेष UPX-छूट निरस्त, default सब पर */
 var seed = 90210 + CODE.charCodeAt(0) * 977 + CODE.charCodeAt(1) * 31 + (SALT[CODE] || 0) * 10007;
 function rnd() { seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5; return ((seed >>> 0) % 100000) / 100000; }

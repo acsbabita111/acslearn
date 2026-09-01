@@ -11,8 +11,8 @@
 "use strict";
 var fs = require("fs");
 var CODE = (process.argv[2] || "").toLowerCase();
-var PID = { ar: "PJ022", fr: "PJ086", es: "PJ021", ja: "PJ026", ko: "PJ031", de: "PJ125", ru: "PJ052" }[CODE];
-if (!PID) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru"); process.exit(1); }
+var PID = { ar: "PJ022", fr: "PJ086", es: "PJ021", ja: "PJ026", ko: "PJ031", de: "PJ125", ru: "PJ052", he: "PJ137" }[CODE];
+if (!PID) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he"); process.exit(1); }
 var fail = 0;
 function ok(c, m) { if (!c) { console.log("⛔ " + m); fail++; } }
 var BANK = require(process.cwd() + "/functions/" + CODE + "_bank.js");
@@ -39,7 +39,8 @@ BANK.forEach(function (Q, i) {
   var seen = {};
   Q.o.forEach(function (t) { ok(!seen[t], "विकल्प-दोहराव #" + i); seen[t] = 1; });
   ok(!/[\[\]]/.test(Q.t + Q.o.join("")), "square-bracket #" + i);
-  if (CODE === "ru") ok(CYR.test(Q.t + Q.o.join("")) || Q.au, "सिरिलिक-अनुपस्थित #" + i); /* v2.0 (31-Aug): सिरिलिक अनिवार्य (au-सुनो-प्रश्न छूट) */
+  if (CODE === "ru") ok(CYR.test(Q.t + Q.o.join("")) || Q.au, "सिरिलिक-अनुपस्थित #" + i);
+  if (CODE === "he") ok(/[\u0590-\u05FF]/.test(Q.t + Q.o.join("")) || Q.au, "हिब्रू-अनुपस्थित #" + i); /* 01-Sep: हिब्रू असली-लिपि अनिवार्य (au-छूट) */ /* v2.0 (31-Aug): सिरिलिक अनिवार्य (au-सुनो-प्रश्न छूट) */
   var m = /\(\(AU:([\s\S]*?)\)\)/.exec(Q.t);
   if (m) {
     au++;
