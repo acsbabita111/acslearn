@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.6 · 01-Sep-2026 (Founder-नियम 40/40/40: 🎤 बोलो-प्रश्न — ((MIC)) → SpeechRecognition, पहचाना text उत्तर; 2 कोशिश)
    v6.5 · 01-Sep-2026 (Founder-आदेश: "मेरे कोर्स" प्रजेंटेशन v2 — पूरे-बने कोर्स रेल · 90-दिन भाषा रेल · 120 भाषा चिप-ग्रिड+खोज (KKB_GROUPS एक-घर courses_data) · जल्द-आने-वाले गिनती)
    v6.4 · 01-Sep-2026 (हिब्रू परीक्षा-द्वार: PJ137 SERVER_EXAM_COURSES में, आवाज़ he-IL)
    v6.3 · 31-Aug-2026 (रूसी सिरिलिक: PJ052 आवाज़ ru-RU) · v6.2 (KKB मास्टर-प्रतिकृति) — 7 भाषा-परीक्षा द्वार (PJ022/086/021/026/031/125/052)
@@ -1460,11 +1461,45 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     if (v) u.voice = v;
     speechSynthesis.speak(u);
   };
+  /* (01-Sep, Founder-नियम 40/40/40) 🎤 बोलो-प्रश्न: पाठ में ((MIC)) निशान → माइक-बटन; फ़ोन की बोली-पहचान (SpeechRecognition,
+     भाषा = EXAM_TTS[cid]) से पहचाना text S.answers में (आवाज़ कहीं नहीं जाती — सिर्फ़ text server को, DPDP)। 2 कोशिश, बेहतर रखो।
+     पहचान न हो (पुराना browser/iPhone-Safari) = ईमानदार संदेश; अंक शून्य — दर्ज होल, इलाज: Chrome में दें। */
+  window.__examMic = function (b) {
+    var S = EX_STATE; if (!S) return;
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var out = document.getElementById("exMicOut");
+    if (!SR) { if (out) out.innerHTML = '<span style="color:#B71C1C">इस browser में बोली-पहचान नहीं चलती — Chrome (Android) में परीक्षा दें।</span>'; return; }
+    S.micTries = S.micTries || {}; var tries = S.micTries[S.idx] || 0;
+    if (tries >= 2) { if (out) out.innerHTML += '<br><span style="color:#B71C1C">2 कोशिश पूरी — अगला प्रश्न।</span>'; return; }
+    try { speechSynthesis.cancel(); } catch (e) {}
+    var r = new SR(); r.lang = EXAM_TTS[S.cid] || "en-IN"; r.interimResults = false; r.maxAlternatives = 1; r.continuous = false;
+    b.disabled = true; b.textContent = "🎙️ सुन रहा हूँ… बोलिए";
+    if (out) out.innerHTML = '<span style="color:#1565C0">माइक चालू — साफ़ बोलिए, फिर रुकिए।</span>';
+    var got = false, idxAt = S.idx;
+    r.onresult = function (ev) {
+      var t = ""; try { t = ev.results[0][0].transcript; } catch (e) {}
+      got = true; S.micTries[idxAt] = (S.micTries[idxAt] || 0) + 1;
+      if (t && String(t).trim()) { S.answers[idxAt] = String(t).trim();
+        if (out) out.innerHTML = '✅ फ़ोन ने सुना: <b dir="auto">' + esc(t) + '</b>' + (S.micTries[idxAt] < 2 ? '<br><span class="note" style="margin:0">ठीक नहीं लगा? एक बार और बोल सकते हैं।</span>' : ''); }
+      else if (out) out.innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया — दोबारा बोलिए।</span>';
+    };
+    r.onerror = function (ev) { S.micTries[idxAt] = (S.micTries[idxAt] || 0); if (out) out.innerHTML = '<span style="color:#B71C1C">माइक-त्रुटि: ' + esc(ev.error || "") + ' — माइक की अनुमति दें, फिर दोबारा।</span>'; };
+    r.onend = function () { b.disabled = false; b.textContent = (S.micTries[idxAt] || 0) >= 2 ? "🎤 कोशिश पूरी" : "🎤 बोलिए"; if (!got && out && !/त्रुटि/.test(out.textContent)) out.innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया — दोबारा बोलिए।</span>'; };
+    try { r.start(); } catch (e) { b.disabled = false; b.textContent = "🎤 बोलिए"; if (out) out.innerHTML = '<span style="color:#B71C1C">माइक शुरू नहीं हुआ — दोबारा दबाएँ।</span>'; }
+  };
+  function examMicHtml() {
+    var S = EX_STATE, cur = S && typeof S.answers[S.idx] === "string" ? S.answers[S.idx] : "";
+    return '<div style="margin-top:10px;padding:12px;border:2px dashed var(--blue);border-radius:14px;background:#F5F7FA">' +
+      '<button type="button" class="crsgo" style="font-size:19px;background:var(--navy)" onclick="__examMic(this)">🎤 बोलिए</button>' +
+      '<div id="exMicOut" style="margin-top:8px;font-size:17px;line-height:1.6">' + (cur ? '✅ फ़ोन ने सुना: <b dir="auto">' + esc(cur) + '</b>' : 'माइक-बटन दबाकर ज़ोर से, साफ़ बोलिए। 2 कोशिश मिलेंगी।') + '</div></div>';
+  }
   function examQHtml(t) {
+    var mic = /\(\(MIC\)\)/.test(t || "");
+    t = String(t || "").replace(/\s*\(\(MIC\)\)/, "");
     var m = /\(\(AU:([\s\S]*?)\)\)/.exec(t || "");
-    if (!m) return esc(t);
+    if (!m) return esc(t) + (mic ? examMicHtml() : "");
     var rest = t.replace(m[0], "").replace(/\s+$/, "");
-    return esc(rest) + '<div style="margin-top:8px"><button type="button" class="crsgo" style="font-size:18px" onclick="__examSay(this)" data-t="' + esc(m[1]) + '">🔊 वाक्य सुनिए</button> <button type="button" class="crsgo" style="font-size:18px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A" onclick="__examSay(this)" data-slow="1" data-t="' + esc(m[1]) + '">🐢 धीरे</button></div>';
+    return esc(rest) + '<div style="margin-top:8px"><button type="button" class="crsgo" style="font-size:18px" onclick="__examSay(this)" data-t="' + esc(m[1]) + '">🔊 वाक्य सुनिए</button> <button type="button" class="crsgo" style="font-size:18px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A" onclick="__examSay(this)" data-slow="1" data-t="' + esc(m[1]) + '">🐢 धीरे</button></div>' + (mic ? examMicHtml() : "");
   }   /* (30-Aug, Founder) Spoken English 120-प्रश्न server-परीक्षा जुड़ी (eng_bank, 2150) */   /* (13-Aug, Founder) मशरूम 120-प्रश्न server-परीक्षा जुड़ी (msh_bank, 3135) */
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
   const OPT_LABEL = ["अ","ब","स","द"];
