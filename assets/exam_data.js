@@ -1,4 +1,5 @@
-/* ═══ ACS कोर्स-परीक्षा भंडार v1.5 (31-Aug-2026) — +7 KKB भाषा-द्वार (PJ022/086/021/026/031/125/052) ═══
+/* ═══ ACS कोर्स-परीक्षा भंडार v1.6 (01-Sep-2026) — + हिब्रू द्वार PJ137 (he_bank)
+   v1.5 (31-Aug-2026) — +7 KKB भाषा-द्वार (PJ022/086/021/026/031/125/052) ═══
    v1.4 (05-Aug-2026) — टेस्ट-मोड: सभी द्वार खुले ═══
    v1.4: +SE022 टू-व्हीलर द्वार-प्रविष्टि (server-मोड, q ख़ाली — प्रश्न server-निजी
    twv_bank से)। minLessons:0 टेस्ट-मोड; असली-फ़ीस युग का मान Founder तय करें।
@@ -59,4 +60,5 @@ window.COURSE_EXAMS = {
   "PJ031": { name: "ACS Certificate in Spoken Korean — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
   "PJ125": { name: "ACS Certificate in Spoken German — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
   "PJ052": { name: "ACS Certificate in Spoken Russian — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ137": { name: "ACS Certificate in Spoken Hebrew — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
 };
