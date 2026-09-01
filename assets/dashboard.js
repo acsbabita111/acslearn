@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.6.2 · 02-Sep-2026 (संस्करण-पट्टी पन्ने के नीचे — cache-पुराना/नया एक नज़र में; DASH_VER नियम)
    v6.6.1 · 02-Sep-2026 (Founder-screenshot: बोलो-प्रश्न पर "अगला" रुकता था — radio-जाँच में पहचाना-text उत्तर मान्य; भरे-गिनती; 2-कोशिश संदेश एक बार, बटन धूसर)
    v6.6 · 01-Sep-2026 (Founder-नियम 40/40/40: 🎤 बोलो-प्रश्न — ((MIC)) → SpeechRecognition, पहचाना text उत्तर; 2 कोशिश)
    v6.5 · 01-Sep-2026 (Founder-आदेश: "मेरे कोर्स" प्रजेंटेशन v2 — पूरे-बने कोर्स रेल · 90-दिन भाषा रेल · 120 भाषा चिप-ग्रिड+खोज (KKB_GROUPS एक-घर courses_data) · जल्द-आने-वाले गिनती)
@@ -102,6 +103,12 @@ const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",auth
 const auth = getAuth(app), db = getFirestore(app);
 const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
+/* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
+   (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
+const DASH_VER = "v6.6.2";
+try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
+  vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
+  if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
 /* v4.5 (19-Jul-2026, Laxmi-केस राउंड-2 की सीख): null-सुरक्षित setters —
    बासी-cache/CDN-मिश्रण से कोई सजावटी element ग़ायब हो तो पूरा dashboard न गिरे;
    console में चेतावनी दर्ज हो (गूँगा-fallback निषेध: चुप्पी नहीं, पर मौत भी नहीं)। */
