@@ -186,12 +186,17 @@ var cd = fs.readFileSync("assets/courses_data.js", "utf8");
 global.PRIVATE_JOB_COURSES = undefined;
 (0, eval)(cd.replace(/const /g, "var ")); /* indirect-eval: strict-फ़ाइल में भी var global पर पहुँचे */
 var page = fs.readFileSync("courses/hi/index.html", "utf8");
+/* v4.2 (02-Sep): KKB_GROUPS का एकमात्र घर अब courses_data.js (window.KKB_GROUPS) — index.html सिर्फ़ pointer;
+   robot वहीं से पढ़े (एक चीज़ = एक जगह); pointer न हो तो FAIL */
+var grpIds = {}; try { var W = {}; (new Function("window", cd.replace(/const /g, "var ")))(W); (W.KKB_GROUPS || []).forEach(function (g) { g.ids.forEach(function (i) { grpIds[i] = 1; }); }); } catch (e) {}
+if (!Object.keys(grpIds).length) { console.log("⛔ सूची-guard: courses_data में window.KKB_GROUPS नहीं/ख़ाली"); process.exit(1); }
+if (page.indexOf("window.KKB_GROUPS") < 0) { console.log("⛔ सूची-guard: courses/hi/index.html KKB_GROUPS को courses_data से नहीं पढ़ता (pointer ग़ायब)"); process.exit(1); }
 var missing = [];
 var PJC = global.PRIVATE_JOB_COURSES || [];
 if (!PJC.length) { console.log("⛔ सूची-guard: courses_data पढ़ी नहीं गई (सूची ख़ाली)"); process.exit(1); } /* झूठे-पास पर स्थायी ताला */
 PJC.forEach(function (c) {
-  if (c.mg === 11 && /^PJ/.test(c.id) && page.indexOf("'" + c.id + "'") < 0) missing.push(c.id);
+  if (c.mg === 11 && /^PJ/.test(c.id) && !grpIds[c.id]) missing.push(c.id);
 });
 if (missing.length) { console.log("⛔ कोर्स-सूची से छूटी भाषाएँ: " + missing.join(",")); process.exit(1); }
-console.log("सूची-guard: सब भाषा-कोर्स कोर्स-सूची पेज में दर्ज ✅");
+console.log("सूची-guard: सब भाषा-कोर्स KKB_GROUPS (courses_data, एक-घर) में दर्ज ✅");
 console.log("🏁🏁 dev_kkb2_check: सब जाँचें पास");
