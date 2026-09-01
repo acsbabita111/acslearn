@@ -357,3 +357,17 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .bhchip{font-size:16px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid #c9d4e3;border-radius:999px;padding:8px 14px;text-decoration:none;line-height:1.3}
 .bhchip:active{background:#E3ECF7}
 .bhchip.on{border-color:var(--green);background:#E8F5E9;color:var(--green)}
+
+/* ══ (02-Sep, Founder-आदेश) "मेरी कोर्स प्रगति" — हर कोर्स अलग गोल्डन 3D-कार्ड; पतली अलगाव-रेखा निरस्त ══
+   रंग सिर्फ़ ACS-5: गोल्ड-किनारा, नेवी-छाया, सफ़ेद; फ़ॉन्ट अछूता (≥16px) */
+.lvtbl{background:transparent;border:0;padding:0;margin:10px 0}
+.lvtbl .lvtrow{background:#fff;border:2.5px solid var(--gold);border-radius:18px;margin:14px 0;padding:16px 14px;
+  box-shadow:0 6px 0 #C48A00,0 10px 22px rgba(11,31,58,.18);position:relative}
+.lvtbl .lvtrow:last-of-type{border-bottom:2.5px solid var(--gold)}
+.lvtbl .lvtrow::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;border-radius:16px 0 0 16px;
+  background:linear-gradient(180deg,var(--gold),#C48A00)}
+.lvtbl .lvtrow:active{transform:translateY(3px);box-shadow:0 3px 0 #C48A00,0 6px 14px rgba(11,31,58,.18)}
+.lvthead{background:var(--navy);color:#F5F7FA;border:0;border-radius:14px;padding:12px 14px}
+.lvthead span{color:#F5F7FA}
+.lvtbl .lvic2{border-color:var(--gold);background:#FFF8E1}
+@media(max-width:759px){ .lvtbl .lvtrow{padding:16px 14px 16px 20px} }
