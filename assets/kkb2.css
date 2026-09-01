@@ -53,6 +53,7 @@
 [data-script="japanese"] .kkb2-en{font-family:"Noto Sans JP","Hiragino Sans",system-ui,sans-serif;line-height:1.8}
 [data-script="korean"] .kkb2-en{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.8}
 [data-script="devanagari-native"] .kkb2-en{font-family:'Noto Sans Devanagari',Inter,sans-serif}
+[data-script="hebrew"] .kkb2-en{font-family:"Noto Sans Hebrew","Arial Hebrew",system-ui,sans-serif;line-height:1.9} /* हिब्रू — RTL, अरबी-तर्ज़ (01-Sep) */
 [data-script="cyrillic"] .kkb2-en{font-family:Inter,"Noto Sans",system-ui,sans-serif;line-height:1.6}
 [data-script="latin-native"] .kkb2-en{font-family:Inter,'Noto Sans Devanagari',sans-serif}
 .kkb2-dev{font-size:22px;line-height:1.55;color:#1565C0;font-weight:700;margin:0 0 4px}

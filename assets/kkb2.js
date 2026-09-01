@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/kkb2.js — v3.0 (31-Aug-2026) · भाषा-सामान्यीकरण: 8 भाषाएँ (en मास्टर + ar/fr/es/ja/ko/de/ru) — lang-meta data से; en-व्यवहार पहले जैसा · देवनागरी-native (ru) = hi-IN आवाज़ · जापानी (romaji) आवाज़ में कटे · अरबी RTL · ACS KKB मास्टर-इंजन — एक कोर्स, 90 दिन
+   /assets/kkb2.js — v3.1 (01-Sep-2026) · हिब्रू RTL जुड़ा (9वीं भाषा)
+   v3.0 (31-Aug-2026) · भाषा-सामान्यीकरण: 8 भाषाएँ (en मास्टर + ar/fr/es/ja/ko/de/ru) — lang-meta data से; en-व्यवहार पहले जैसा · देवनागरी-native (ru) = hi-IN आवाज़ · जापानी (romaji) आवाज़ में कटे · अरबी RTL · ACS KKB मास्टर-इंजन — एक कोर्स, 90 दिन
    Founder-आदेश: L1 (500) + स्तर-2 (1,650) = 2,150 वाक्य एक-साथ; 3 महीने;
    महीना-1 = 20 वाक्य/दिन (ठीक 600) · महीना-2/3 = बढ़ती चाल (20→30)।
    data: window.KKB_DATA (स्तर-1, frozen) + window.KKB2_DATA (स्तर-2, frozen) —
@@ -19,7 +20,7 @@
   var EN = LANG.code === "en";
   var TTSL = LANG.script === "devanagari-native" ? "hi-IN" : LANG.tts; /* देवनागरी-फ़ोनेटिक भाषा: hi-IN आवाज़; रूसी v2.0 से cyrillic ⇒ ru-RU (Founder-आदेश 31-Aug) */
   var TBASE = TTSL.split("-")[0].toLowerCase();
-  var RTL = LANG.script === "arabic" || LANG.script === "persian";
+  var RTL = LANG.script === "arabic" || LANG.script === "persian" || LANG.script === "hebrew"; /* 01-Sep: हिब्रू RTL (kkb.js v-हिब्रू के अनुरूप) */
   function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* सिर्फ़ लक्ष्य-भाषा पंक्ति पर — देवनागरी/हिंदी LTR */
   function spoken(t) { t = String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, ""); if (LANG.script === "japanese") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* जापानी: अंत का (romaji) आवाज़ में नहीं */
 
