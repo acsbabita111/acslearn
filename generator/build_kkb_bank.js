@@ -20,9 +20,20 @@ var CFG = {
   de: { label: "जर्मन", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   ru: { label: "रूसी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v2.0 (31-Aug): it[0]=सिरिलिक ⇒ 3/4 अब वैध */
   he: { label: "हिब्रू", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true, skipLatinTw: true },
-  en: { label: "अंग्रेज़ी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true, data: ["assets/kkb_data.js", "assets/kkb2_data.js"] } /* v2.0: English मास्टर भी इसी इंजन से (eng_bank.js) */ /* v1.1 (01-Sep): हिब्रू — असली-लिपि, space-विभाजित ⇒ पूर्ण ROT */
+  en: { label: "अंग्रेज़ी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true, data: ["assets/kkb_data.js", "assets/kkb2_data.js"] }, /* v2.0: English मास्टर भी इसी इंजन से (eng_bank.js) */ /* v1.1 (01-Sep): हिब्रू — असली-लिपि, space-विभाजित ⇒ पूर्ण ROT */
+  /* v2.1 (02-Sep, 10-भाषा बैच): सब असली-लिपि + space-विभाजित Brahmic/Latin ⇒ पूर्ण ROT (ja-जैसा अपवाद नहीं) */
+  pt: { label: "पुर्तगाली", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  kn: { label: "कन्नड़", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  ta: { label: "तमिल", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  te: { label: "तेलुगु", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  bn: { label: "बांग्ला", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  or: { label: "उड़िया", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  as: { label: "असमिया", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  pa: { label: "पंजाबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  gu: { label: "गुजराती", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  ml: { label: "मलयालम", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }
 };
-if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|en"); process.exit(1); }
+if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|en|pt|kn|ta|te|bn|or|as|pa|gu|ml"); process.exit(1); }
 var L = CFG[CODE].label;
 global.window = {};
 var DP = CFG[CODE].data || ["assets/kkb_" + CODE + "_data.js", "assets/kkb2_" + CODE + "_data.js"];

@@ -1,4 +1,4 @@
-/* generator/dev_kkb2_check.js — v2.0 (31-Aug-2026)
+/* generator/dev_kkb2_check.js — v4.2 (02-Sep-2026: +11 भाषा SCRIPT_RULES/LNAME — pt kn ta ml te bn or as pa gu ur)
    KKB मास्टर (90-दिन) का स्थायी check-robot — 8 भाषाएँ।
    चलाना: node generator/dev_kkb2_check.js [en|ar|fr|es|ja|ko|de|ru] (repo-रूट से; बिना arg = en)
    v3.0 (31-Aug): ru = item[0] सिरिलिक अनिवार्य + item[1] शून्य-सिरिलिक (Founder-आदेश; पुराना देवनागरी-only निरस्त) ·
@@ -65,7 +65,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
      item[1] = सिर्फ़ देवनागरी-उच्चारण — लक्ष्य-लिपि शून्य
      item[2] = हिंदी अर्थ — देवनागरी अनिवार्य
      हर भाषा SCRIPT_RULES में दर्ज हो; अनजान भाषा/लिपि = तुरंत FAIL (मौन-पास निषिद्ध)। */
-  var DEV = /[\u0900-\u097F]/;
+  var DEV = /[\u0900-\u0963\u0966-\u097F]/; /* danda/double-danda ।॥ (U+0964-0965) excluded — shared punctuation reused by bn/or/as, not a script-purity signal */
   var SCRIPT_RULES = {
     en: { native: /[A-Za-z]/, name: "Latin",   devInItem0: true  }, /* English मास्टर: [0] में देवनागरी-निशान (कोष्ठक) मान्य */
     fr: { native: /[A-Za-z]/, name: "Latin",   devInItem0: false },
@@ -75,7 +75,19 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
     ja: { native: /[\u3040-\u30FF\u4E00-\u9FFF]/, name: "Kana/Kanji", devInItem0: false },
     ko: { native: /[\uAC00-\uD7AF\u1100-\u11FF]/, name: "Hangul",  devInItem0: false },
     ru: { native: /[\u0400-\u04FF]/, name: "Cyrillic", devInItem0: false },
-    he: { native: /[\u0590-\u05FF]/, name: "Hebrew",   devInItem0: false } /* हिब्रू L2 (01-Sep) — RTL, fail-closed प्रविष्टि पहले */
+    he: { native: /[\u0590-\u05FF]/, name: "Hebrew",   devInItem0: false } /* हिब्रू L2 (01-Sep) — RTL, fail-closed प्रविष्टि पहले */,
+    /* 11-भाषा L2 खेप (02-Sep, Founder-सूची) — fail-closed प्रविष्टि पहले (v6.3-क2) */
+    pt: { native: /[A-Za-z]/, name: "Latin",    devInItem0: false },
+    kn: { native: /[\u0C80-\u0CFF]/, name: "Kannada",  devInItem0: false },
+    ta: { native: /[\u0B80-\u0BFF]/, name: "Tamil",    devInItem0: false },
+    ml: { native: /[\u0D00-\u0D7F]/, name: "Malayalam", devInItem0: false },
+    te: { native: /[\u0C00-\u0C7F]/, name: "Telugu",   devInItem0: false },
+    bn: { native: /[\u0980-\u09FF]/, name: "Bengali",  devInItem0: false },
+    or: { native: /[\u0B00-\u0B7F]/, name: "Odia",     devInItem0: false },
+    as: { native: /[\u0980-\u09FF]/, name: "Assamese", devInItem0: false },
+    pa: { native: /[\u0A00-\u0A7F]/, name: "Gurmukhi", devInItem0: false },
+    gu: { native: /[\u0A80-\u0AFF]/, name: "Gujarati", devInItem0: false },
+    ur: { native: /[\u0600-\u06FF]/, name: "Urdu",     devInItem0: false }
   };
   var R = SCRIPT_RULES[CODE];
   if (!R) { console.log("⛔ SCRIPT_RULES में भाषा '" + CODE + "' दर्ज नहीं — नई भाषा जोड़ने से पहले यहाँ नियम लिखो (fail-closed)"); fail++; return; }
@@ -103,7 +115,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   var bad = 0, warn = 0;
   /* भाषा-नाम-प्रतिस्थापन छूट (Global South substitution): "अंग्रेज़ी/English" ⇄ अपनी भाषा का नाम —
      सिर्फ़ यही अंतर मान्य; बाक़ी हिंदी-पंक्ति byte-बराबर हो */
-  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू" };
+  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू", pt: "पुर्तगाली", kn: "कन्नड", ta: "तमिल", ml: "मलयालम", te: "तेलुगु", bn: "बांग्ला", or: "उड़िया", as: "असमिया", pa: "पंजाबी", gu: "गुजराती", ur: "उर्दू" };
   function norm(t) { return String(t).replace(new RegExp((LNAME[CODE] || "§") + "|अंग्रेज़ी|English", "g"), "⟨भाषा⟩"); }
   /* दर्ज-छूट सूची (Founder-मान्य प्रासंगिक प्रतिस्थापन — इनके अलावा एक भी पंक्ति अलग = FAIL):
      L2 w4d4#16: मास्टर "हिंदी में बोलो…" → भाषा-कोर्स "⟨भाषा⟩ में बोलो…" (AI-app प्रसंग) */
