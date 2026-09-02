@@ -53,7 +53,16 @@
 [data-script="japanese"] .kkb2-en{font-family:"Noto Sans JP","Hiragino Sans",system-ui,sans-serif;line-height:1.8}
 [data-script="korean"] .kkb2-en{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.8}
 [data-script="devanagari-native"] .kkb2-en{font-family:'Noto Sans Devanagari',Inter,sans-serif}
-[data-script="hebrew"] .kkb2-en{font-family:"Noto Sans Hebrew","Arial Hebrew",system-ui,sans-serif;line-height:1.9} /* हिब्रू — RTL, अरबी-तर्ज़ (01-Sep) */
+[data-script="hebrew"] .kkb2-en{font-family:"Noto Sans Hebrew","Arial Hebrew",system-ui,sans-serif;line-height:1.9} /* हिब्रू — RTL, अरबी-तर्ज़ (01-Sep) */ /* 02-Sep: 9 भारतीय-लिपि नियम नीचे — kkb.css L1-फ़ॉन्ट से मेल */
+[data-script="kannada"] .kkb2-en{font-family:"Noto Sans Kannada","Tunga",system-ui,sans-serif;line-height:1.9}
+[data-script="tamil"] .kkb2-en{font-family:"Noto Sans Tamil","Latha",system-ui,sans-serif;line-height:1.9}
+[data-script="telugu"] .kkb2-en{font-family:"Noto Sans Telugu","Gautami",system-ui,sans-serif;line-height:1.9}
+[data-script="bengali"] .kkb2-en{font-family:"Noto Sans Bengali","Vrinda",system-ui,sans-serif;line-height:1.9}
+[data-script="odia"] .kkb2-en{font-family:"Noto Sans Oriya","Kalinga",system-ui,sans-serif;line-height:1.9}
+[data-script="assamese"] .kkb2-en{font-family:"Noto Sans Bengali","Noto Sans Assamese",system-ui,sans-serif;line-height:1.9}
+[data-script="gurmukhi"] .kkb2-en{font-family:"Noto Sans Gurmukhi","Raavi",system-ui,sans-serif;line-height:1.9}
+[data-script="gujarati"] .kkb2-en{font-family:"Noto Sans Gujarati","Shruti",system-ui,sans-serif;line-height:1.9}
+[data-script="malayalam"] .kkb2-en{font-family:"Noto Sans Malayalam","Kartika",system-ui,sans-serif;line-height:1.9}
 [data-script="cyrillic"] .kkb2-en{font-family:Inter,"Noto Sans",system-ui,sans-serif;line-height:1.6}
 [data-script="latin-native"] .kkb2-en{font-family:Inter,'Noto Sans Devanagari',sans-serif}
 .kkb2-dev{font-size:22px;line-height:1.55;color:#1565C0;font-weight:700;margin:0 0 4px}
