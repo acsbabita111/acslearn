@@ -1,7 +1,7 @@
 /* ============================================================
-   generator/dev_embassy_check.js — v1.0 (30-Aug-2026)
+   generator/dev_embassy_check.js — v1.1 (02-Sep-2026: पिन-मुक्त गिनती; +10 भाषा)
    दूतावास-कड़ी नियम (Addendum v6.1-घ) का check-robot।
-   जाँचें: (1) KKB_CORRIDORS = ठीक वही 119 slug जो courses/hi/bhasha/ में हैं
+   जाँचें: (1) KKB_CORRIDORS = ठीक वही slug जो courses/hi/bhasha/ में हैं
    (2) हर गलियारा-देश EMBASSIES में मौजूद (3) हर विदेशी/सुरक्षा कड़ी https
    (4) render-यंत्र: 3 दृश्य (गलियारा-सहित · विदेशी-कड़ी-रहित देश · ख़ाली-गलियारा)
    चलाना: node generator/dev_embassy_check.js   (repo-रूट से)
@@ -25,13 +25,13 @@ new Function('document', 'location', src + '\n;__out(EMBASSIES, EMB_COUNTRY_HI, 
   });
 var E = sandbox.E, HI = sandbox.HI, F = sandbox.F, C = sandbox.C, S = sandbox.S;
 
-console.log('— जाँच-1: 119-slug कवरेज —');
+console.log('— जाँच-1: slug कवरेज (folder-व्युत्पन्न) —');
 var folders = fs.readdirSync(path.join(ROOTDIR, 'courses/hi/bhasha')).filter(function (d) {
   return fs.statSync(path.join(ROOTDIR, 'courses/hi/bhasha', d)).isDirectory();
 }).sort();
 var keys = Object.keys(C).sort();
-ok('folder-गिनती 119', folders.length === 119, String(folders.length));
-ok('गलियारा-keys 119', keys.length === 119, String(keys.length));
+ok('folder-गिनती > 0', folders.length > 0, String(folders.length)); /* v1.1 (02-Sep): हाथ-पिन 119 हटा — गिनती folder-सूची से व्युत्पन्न (v4.5 header-नियम); असली जाँच नीचे set-मिलान है */
+ok('गलियारा-keys = folder-गिनती', keys.length === folders.length, keys.length + ' — ' + folders.length);
 var miss = folders.filter(function (f2) { return !(f2 in C); });
 var extra = keys.filter(function (k) { return folders.indexOf(k) < 0; });
 ok('कोई slug छूटा नहीं', miss.length === 0, miss.join(','));
