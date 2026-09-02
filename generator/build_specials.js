@@ -1211,7 +1211,7 @@ function kkbContent(c) {
     '<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
     '</div>';
 }
-const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं */
+const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 02-Sep: + he + 10 नई (pt kn ta te bn or as pa gu ml) */
 KKB_LANGS.forEach(c => { if (KKB2_CODES[c.code]) return; buildSpecial({
   out: c.out, langStrict: false, title: c.title, desc: c.desc,
   head: ['<link rel="stylesheet" href="/assets/kkb.css">'],
@@ -1260,7 +1260,27 @@ const KKB2_LANGS = [
   { code: "ru", slug: "russian", en_name: "Russian", hi_name: "रूसी",
     next: 'आगे का रास्ता: कोर्स पूरा करके TORFL (तोर्फ़ल — रूसी भाषा की सरकारी परीक्षा) — ' + kkb2Link("https://testingcenter.spbu.ru/en/", "testingcenter.spbu.ru") + ' — की तैयारी। ' + KKB2_SAFE },
   { code: "he", slug: "hebrew", en_name: "Hebrew", hi_name: "हिब्रू", /* 01-Sep: 9वीं L2 भाषा — इज़राइल (सरकारी G2G भर्ती-गलियारा) */
-    next: 'आगे का रास्ता: हिब्रू की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — इज़राइल में काम की भाषा-माँग नियोक्ता/भर्ती-एजेंसी (सरकारी G2G) से ख़ुद जाँचें। ' + KKB2_SAFE }
+    next: 'आगे का रास्ता: हिब्रू की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — इज़राइल में काम की भाषा-माँग नियोक्ता/भर्ती-एजेंसी (सरकारी G2G) से ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "pt", slug: "portuguese", en_name: "Portuguese", hi_name: "पुर्तगाली", /* 02-Sep: L2 भाषा — ब्राज़ील, अंगोला, मोज़ाम्बीक */
+    next: 'आगे का रास्ता: कोर्स पूरा करके Celpe-Bras (सेल्पे-ब्रास — ब्राज़ील सरकार की आधिकारिक पुर्तगाली परीक्षा) — ' + kkb2Link("https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/celpe-bras", "gov.br/inep") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "kn", slug: "kannada", en_name: "Kannada", hi_name: "कन्नड", /* 02-Sep: L2 भाषा — कर्नाटक */
+    next: 'आगे का रास्ता: कन्नड की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ta", slug: "tamil", en_name: "Tamil", hi_name: "तमिल", /* 02-Sep: L2 भाषा — तमिलनाडु, श्रीलंका, सिंगापुर */
+    next: 'आगे का रास्ता: तमिल की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "te", slug: "telugu", en_name: "Telugu", hi_name: "तेलुगु", /* 02-Sep: L2 भाषा — आंध्र प्रदेश व तेलंगाना */
+    next: 'आगे का रास्ता: तेलुगु की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "bn", slug: "bengali", en_name: "Bengali", hi_name: "बांग्ला", /* 02-Sep: L2 भाषा — बंगाल व बांग्लादेश */
+    next: 'आगे का रास्ता: बांग्ला की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "or", slug: "odia", en_name: "Odia", hi_name: "उड़िया", /* 02-Sep: L2 भाषा — ओडिशा */
+    next: 'आगे का रास्ता: उड़िया की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "as", slug: "assamese", en_name: "Assamese", hi_name: "असमिया", /* 02-Sep: L2 भाषा — असम */
+    next: 'आगे का रास्ता: असमिया की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "pa", slug: "punjabi", en_name: "Punjabi", hi_name: "पंजाबी", /* 02-Sep: L2 भाषा — पंजाब */
+    next: 'आगे का रास्ता: पंजाबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "gu", slug: "gujarati", en_name: "Gujarati", hi_name: "गुजराती", /* 02-Sep: L2 भाषा — गुजरात */
+    next: 'आगे का रास्ता: गुजराती की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ml", slug: "malayalam", en_name: "Malayalam", hi_name: "मलयालम", /* 02-Sep: L2 भाषा — केरल */
+    next: 'आगे का रास्ता: मलयालम की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE }
 ];
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
