@@ -36,7 +36,7 @@
   var HELP = DATA.help || [];
   var STORE_KEY = "acs_kkb_" + LANG.code + "_v01";
   function spoken(t) { return String(t).replace(/\s*\([^()]*\)\s*$/, ""); } /* अंत का (pinyin/नोट) आवाज़-माइक में नहीं */
-  var RTL = LANG.script === "arabic" || LANG.script === "persian" || LANG.script === "hebrew"; /* 01-Sep: हिब्रू RTL */
+  var RTL = LANG.script === "arabic" || LANG.script === "persian" || LANG.script === "hebrew" || LANG.script === "urdu" || LANG.script === "kashmiri" || LANG.script === "sindhi"; /* 01-Sep: हिब्रू RTL */ /* 02-Sep RTL-परिवार: उर्दू/कश्मीरी/सिंधी */
   function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* लक्ष्य-भाषा वाले खाने पर — देवनागरी/हिंदी हमेशा LTR रहें */
   ROOT.setAttribute("data-script", LANG.script || "latin");
 

@@ -20,7 +20,7 @@
   var EN = LANG.code === "en";
   var TTSL = LANG.script === "devanagari-native" ? "hi-IN" : LANG.tts; /* देवनागरी-फ़ोनेटिक भाषा: hi-IN आवाज़; रूसी v2.0 से cyrillic ⇒ ru-RU (Founder-आदेश 31-Aug) */
   var TBASE = TTSL.split("-")[0].toLowerCase();
-  var RTL = LANG.script === "arabic" || LANG.script === "persian" || LANG.script === "hebrew"; /* 01-Sep: हिब्रू RTL (kkb.js v-हिब्रू के अनुरूप) */
+  var RTL = LANG.script === "arabic" || LANG.script === "persian" || LANG.script === "hebrew" || LANG.script === "urdu" || LANG.script === "kashmiri" || LANG.script === "sindhi"; /* 01-Sep: हिब्रू RTL (kkb.js v-हिब्रू के अनुरूप) */ /* 02-Sep RTL-परिवार: उर्दू/कश्मीरी/सिंधी */
   function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* सिर्फ़ लक्ष्य-भाषा पंक्ति पर — देवनागरी/हिंदी LTR */
   function spoken(t) { t = String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, ""); if (LANG.script === "japanese") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* जापानी: अंत का (romaji) आवाज़ में नहीं */
 

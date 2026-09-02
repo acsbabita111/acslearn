@@ -62,6 +62,7 @@ window.COURSE_EXAMS = {
   "PJ052": { name: "ACS Certificate in Spoken Russian — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
   "PJ137": { name: "ACS Certificate in Spoken Hebrew — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
   "PJ024": { name: "ACS Certificate in Spoken Portuguese — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+"PJ055": { name: "ACS Certificate in Spoken Urdu — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
   "PJ019": { name: "ACS Certificate in Spoken Kannada — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
   "PJ029": { name: "ACS Certificate in Spoken Tamil — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
   "PJ028": { name: "ACS Certificate in Spoken Telugu — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },

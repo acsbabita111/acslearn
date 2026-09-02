@@ -143,3 +143,4 @@
 .kkb-foot{padding:14px 16px 18px;font-size:16px;color:#475569;text-align:center}
 .kkb-foot button{text-decoration:underline;color:#475569}
 @media (prefers-reduced-motion:no-preference){.kkb-sent{animation:kkbIn .18s ease-out}@keyframes kkbIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+.kkb-app[data-script="urdu"] .kkb-en,.kkb-app[data-script="kashmiri"] .kkb-en,.kkb-app[data-script="sindhi"] .kkb-en,.kkb-app[data-script="urdu"] .kkb-l3,.kkb-app[data-script="kashmiri"] .kkb-l3,.kkb-app[data-script="sindhi"] .kkb-l3,.kkb-app[data-script="urdu"] .kkb-line .kkb-tx span,.kkb-app[data-script="kashmiri"] .kkb-line .kkb-tx span,.kkb-app[data-script="sindhi"] .kkb-line .kkb-tx span{font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq","Noto Naskh Arabic",system-ui,sans-serif;line-height:2.2} /* 02-Sep RTL-परिवार — नस्तालीक़ को ऊँची line-height चाहिए */
