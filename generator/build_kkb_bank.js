@@ -23,6 +23,7 @@ var CFG = {
   en: { label: "अंग्रेज़ी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true, data: ["assets/kkb_data.js", "assets/kkb2_data.js"] }, /* v2.0: English मास्टर भी इसी इंजन से (eng_bank.js) */ /* v1.1 (01-Sep): हिब्रू — असली-लिपि, space-विभाजित ⇒ पूर्ण ROT */
   /* v2.1 (02-Sep, 10-भाषा बैच): सब असली-लिपि + space-विभाजित Brahmic/Latin ⇒ पूर्ण ROT (ja-जैसा अपवाद नहीं) */
   pt: { label: "पुर्तगाली", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
+  ur: { label: "उर्दू", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v2.2 (02-Sep RTL-परिवार): असली उर्दू-लिपि, space-विभाजित ⇒ अरबी-जैसा पूर्ण ROT */
   kn: { label: "कन्नड़", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   ta: { label: "तमिल", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   te: { label: "तेलुगु", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
