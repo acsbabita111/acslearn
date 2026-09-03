@@ -528,7 +528,7 @@ function subjectsForClass(courseId){
 /* सिर्फ़ id यहाँ — नाम courses_data से (एक चीज़ = एक जगह)। नया भाषा-कोर्स = सही समूह में id जोड़ो। */
 const KKB_GROUPS = window.KKB_GROUPS || [];   /* 01-Sep: एकमात्र घर अब courses_data.js (dashboard भी वही पढ़ता है) */
 const KKB_POPULAR = window.KKB_POPULAR || []; /* सबसे माँग वाली */
-function kkbName(c){ var n=c.name_hi||''; if(n.indexOf('—')>-1){n=n.split('—')[1];} n=n.split('(')[0].replace('बोलना','').trim(); return n; }
+function kkbName(c){ var n=c.name_hi||''; n=n.split('·')[0]; /* 04-Sep नाम-नियम: पहला हिंदी-हिस्सा */ if(n.indexOf('प्रमाणपत्र कोर्स')>-1){ n=n.split('बोलने')[0]; } else if(n.indexOf('—')>-1){ n=n.split('—')[1]; } n=n.split('(')[0].replace('बोलना','').trim(); return n; }
 function kkbCourse(id){ var L=(typeof PRIVATE_JOB_COURSES!=='undefined')?PRIVATE_JOB_COURSES:[]; for(var i=0;i<L.length;i++){if(L[i].id===id)return L[i];} return null; }
 function bhChip(id){ var c=kkbCourse(id); if(!c)return ''; return '<button class="bh-chip" data-nm="'+kkbName(c)+'" onclick="openCourse(\''+id+'\',\'online\')">'+kkbName(c)+'</button>'; }
 function renderBhasha(){
