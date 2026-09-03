@@ -59,6 +59,7 @@
 [data-script="tamil"] .kkb2-en{font-family:"Noto Sans Tamil","Latha",system-ui,sans-serif;line-height:1.9}
 [data-script="telugu"] .kkb2-en{font-family:"Noto Sans Telugu","Gautami",system-ui,sans-serif;line-height:1.9}
 [data-script="bengali"] .kkb2-en{font-family:"Noto Sans Bengali","Vrinda",system-ui,sans-serif;line-height:1.9}
+[data-script="devanagari"] .kkb2-en{font-family:"Noto Sans Devanagari",system-ui,sans-serif;line-height:1.9} /* v-mr: मराठी आदि देव-L2 */
 [data-script="odia"] .kkb2-en{font-family:"Noto Sans Oriya","Kalinga",system-ui,sans-serif;line-height:1.9}
 [data-script="assamese"] .kkb2-en{font-family:"Noto Sans Bengali","Noto Sans Assamese",system-ui,sans-serif;line-height:1.9}
 [data-script="gurmukhi"] .kkb2-en{font-family:"Noto Sans Gurmukhi","Raavi",system-ui,sans-serif;line-height:1.9}

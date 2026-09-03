@@ -4,7 +4,7 @@
    v6.6.1 · 02-Sep-2026 (Founder-screenshot: बोलो-प्रश्न पर "अगला" रुकता था — radio-जाँच में पहचाना-text उत्तर मान्य; भरे-गिनती; 2-कोशिश संदेश एक बार, बटन धूसर)
    v6.6 · 01-Sep-2026 (Founder-नियम 40/40/40: 🎤 बोलो-प्रश्न — ((MIC)) → SpeechRecognition, पहचाना text उत्तर; 2 कोशिश)
    v6.5 · 01-Sep-2026 (Founder-आदेश: "मेरे कोर्स" प्रजेंटेशन v2 — पूरे-बने कोर्स रेल · 90-दिन भाषा रेल · 120 भाषा चिप-ग्रिड+खोज (KKB_GROUPS एक-घर courses_data) · जल्द-आने-वाले गिनती)
-   v6.9 · 02-Sep-2026 (RTL-परिवार: PJ035 फ़ारसी परीक्षा-द्वार) · v6.8 · 02-Sep-2026 (RTL-परिवार: PJ055 उर्दू परीक्षा-द्वार) · v6.7 · 02-Sep-2026 (10-भाषा परीक्षा-द्वार: PJ024/019/029/028/023/057/041/039/033/056 SERVER_EXAM_COURSES+EXAM_TTS+CRS_ICON में)
+   v7.5 (03-Sep: +भोजपुरी PJ038) · v7.4 · 03-Sep-2026 (4-भाषा खेप: PJ032 स्वाहिली परीक्षा-द्वार, Latin) · v7.3 · 03-Sep-2026 (4-भाषा खेप: PJ047 नेपाली परीक्षा-द्वार) · v7.2 · 03-Sep-2026 (4-भाषा खेप: PJ027 मराठी परीक्षा-द्वार) · v7.1 · 03-Sep-2026 (RTL-परिवार: PJ046 कश्मीरी परीक्षा-द्वार) · v7.0 · 03-Sep-2026 (RTL-परिवार: PJ049 सिंधी परीक्षा-द्वार) · v6.9 · 02-Sep-2026 (RTL-परिवार: PJ035 फ़ारसी परीक्षा-द्वार) · v6.8 · 02-Sep-2026 (RTL-परिवार: PJ055 उर्दू परीक्षा-द्वार) · v6.7 · 02-Sep-2026 (10-भाषा परीक्षा-द्वार: PJ024/019/029/028/023/057/041/039/033/056 SERVER_EXAM_COURSES+EXAM_TTS+CRS_ICON में)
    v6.4 · 01-Sep-2026 (हिब्रू परीक्षा-द्वार: PJ137 SERVER_EXAM_COURSES में, आवाज़ he-IL)
    v6.3 · 31-Aug-2026 (रूसी सिरिलिक: PJ052 आवाज़ ru-RU) · v6.2 (KKB मास्टर-प्रतिकृति) — 7 भाषा-परीक्षा द्वार (PJ022/086/021/026/031/125/052)
         SERVER_EXAM_COURSES में + __examSay की आवाज़ कोर्स-वार (EXAM_TTS; रूसी=hi-IN — देवनागरी-फ़ोनेटिक)
@@ -1253,7 +1253,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      ④ बिना-पाठ कोर्स = सिर्फ़ गिनती-पंक्ति (ईमानदार-पैनल; मरा बटन नहीं)
      पुराना 50-50 खेप-मॉडल हटा — कार्ड ≤20, चिप 120 (हल्के) — scale-नियम बचा। */
   const CRS_ICON = { SE009:"🛒", SE017:"🖨️", SE021:"🔥", SE022:"🛵", SE023:"🍄", PJ016:"💻", PJ017:"🤖", LJ011:"🔧",
-    PJ018:"🇬🇧", PJ022:"🇸🇦", PJ086:"🇫🇷", PJ021:"🇪🇸", PJ026:"🇯🇵", PJ031:"🇰🇷", PJ125:"🇩🇪", PJ052:"🇷🇺", PJ137:"🇮🇱", PJ024:"🇧🇷", PJ019:"🇮🇳", PJ029:"🇮🇳", PJ028:"🇮🇳", PJ023:"🇮🇳", PJ057:"🇮🇳", PJ041:"🇮🇳", PJ039:"🇮🇳", PJ033:"🇮🇳", PJ056:"🇮🇳", PJ055:"🇮🇳", PJ035:"🇮🇷" };
+    PJ018:"🇬🇧", PJ022:"🇸🇦", PJ086:"🇫🇷", PJ021:"🇪🇸", PJ026:"🇯🇵", PJ031:"🇰🇷", PJ125:"🇩🇪", PJ052:"🇷🇺", PJ137:"🇮🇱", PJ024:"🇧🇷", PJ019:"🇮🇳", PJ029:"🇮🇳", PJ028:"🇮🇳", PJ023:"🇮🇳", PJ057:"🇮🇳", PJ041:"🇮🇳", PJ039:"🇮🇳", PJ033:"🇮🇳", PJ056:"🇮🇳", PJ055:"🇮🇳", PJ035:"🇮🇷", PJ049:"🇮🇳", PJ046:"🇮🇳", PJ027:"🇮🇳", PJ047:"🇳🇵", PJ032:"🇰🇪", PJ038:"🇮🇳" };
   const CRS_BAND = ["linear-gradient(135deg,var(--navy),var(--blue))","linear-gradient(135deg,var(--green),#1B5E20)",
     "linear-gradient(135deg,var(--blue),var(--navy))","linear-gradient(135deg,#1B5E20,var(--blue))"];
   function isLangCourse(c){ return /काम की भाषा|Certificate in Spoken/.test(String(c.name_hi||"")); }
@@ -1455,10 +1455,10 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
   const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true, SE021: true, PJ018: true,
     PJ022: true, PJ086: true, PJ021: true, PJ026: true, PJ031: true, PJ125: true, PJ052: true, PJ137: true,
-    PJ024: true, PJ019: true, PJ029: true, PJ028: true, PJ023: true, PJ057: true, PJ041: true, PJ039: true, PJ033: true, PJ056: true, PJ055: true, PJ035: true /* (02-Sep) + 10 KKB भाषाएँ + उर्दू/फ़ारसी (ur_bank/fa_bank, RTL-परिवार) */ }; /* (01-Sep) + हिब्रू PJ137 (he_bank) */ /* (31-Aug) KKB मास्टर-प्रतिकृति: 7 भाषा-परीक्षाएँ (ar/fr/es/ja/ko/de/ru बैंक) */
+    PJ024: true, PJ019: true, PJ029: true, PJ028: true, PJ023: true, PJ057: true, PJ041: true, PJ039: true, PJ033: true, PJ056: true, PJ055: true, PJ035: true, PJ049: true, PJ046: true, PJ027: true, PJ047: true, PJ032: true, PJ038: true /* (03-Sep) + मराठी mr_bank + नेपाली ne_bank + स्वाहिली sw_bank + भोजपुरी bho_bank */ /* पूर्व: + सिंधी sd_bank + कश्मीरी ks_bank */ /* (02-Sep) + 10 KKB भाषाएँ + उर्दू/फ़ारसी (ur_bank/fa_bank, RTL-परिवार) */ }; /* (01-Sep) + हिब्रू PJ137 (he_bank) */ /* (31-Aug) KKB मास्टर-प्रतिकृति: 7 भाषा-परीक्षाएँ (ar/fr/es/ja/ko/de/ru बैंक) */
   /* (31-Aug) सुनो-प्रश्न की आवाज़ कोर्स-वार — रूसी v2.0: असली सिरिलिक ⇒ ru-RU (Founder-आदेश) */
   const EXAM_TTS = { PJ018: "en-IN", PJ022: "ar-SA", PJ086: "fr-FR", PJ021: "es-ES", PJ026: "ja-JP", PJ031: "ko-KR", PJ125: "de-DE", PJ052: "ru-RU", PJ137: "he-IL",
-    PJ024: "pt-BR", PJ019: "kn-IN", PJ029: "ta-IN", PJ028: "te-IN", PJ023: "bn-IN", PJ057: "or-IN", PJ041: "as-IN", PJ039: "pa-IN", PJ033: "gu-IN", PJ056: "ml-IN", PJ055: "ur-IN", PJ035: "fa-IR" };  /* (02-Sep) 10 भारतीय+pt आवाज़ें */
+    PJ024: "pt-BR", PJ019: "kn-IN", PJ029: "ta-IN", PJ028: "te-IN", PJ023: "bn-IN", PJ057: "or-IN", PJ041: "as-IN", PJ039: "pa-IN", PJ033: "gu-IN", PJ056: "ml-IN", PJ055: "ur-IN", PJ035: "fa-IR", PJ049: "sd-IN", PJ046: "ks-IN", PJ027: "mr-IN", PJ047: "ne-NP", PJ032: "sw-KE", PJ038: "hi-IN" };  /* (02-Sep) 10 भारतीय+pt आवाज़ें */
   /* (30-Aug) सुनो-प्रश्न: प्रश्न-पाठ में ((AU:वाक्य)) निशान → 🔊-बटन; पुराने बैंकों में निशान नहीं = शून्य असर */
   window.__examSay = function (b) {
     if (!("speechSynthesis" in window)) { alert("इस फ़ोन में आवाज़ नहीं चल रही। Chrome में खोलें।"); return; }
