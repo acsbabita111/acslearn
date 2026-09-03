@@ -90,7 +90,12 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
     ur: { native: /[\u0600-\u06FF]/, name: "Urdu",     devInItem0: false },
   ks: { native: /[\u0600-\u06FF]/, name: "Kashmiri", devInItem0: false },   /* 02-Sep RTL-परिवार: फ़ारसी-अरबी लिपि (कश्मीरी स्वर-चिह्न ٲ ۆ ۄ इसी range में) */
   fa: { native: /[\u0600-\u06FF]/, name: "Persian",  devInItem0: false },
-  sd: { native: /[\u0600-\u06FF]/, name: "Sindhi",   devInItem0: false }    /* सिंधी अतिरिक्त अक्षर ڄ ڃ ڪ ڳ ڱ ٻ ڀ ٺ ٿ ٽ ڏ ڌ ڍ ڊ इसी range में */
+  sd: { native: /[\u0600-\u06FF]/, name: "Sindhi",   devInItem0: false },   /* सिंधी अतिरिक्त अक्षर ڄ ڃ ڪ ڳ ڱ ٻ ڀ ٺ ٿ ٽ ڏ ڌ ڍ ڊ इसी range में */
+    /* 03-Sep 4-भाषा खेप (Founder-आदेश): देवनागरी-लिपि भाषाएँ (मराठी/नेपाली/भोजपुरी) — devLang:true = [0] देवनागरी ही सही; स्वाहिली Latin */
+    mr:  { native: /[\u0900-\u097F]/, name: "Devanagari", devInItem0: true, devLang: true },
+    ne:  { native: /[\u0900-\u097F]/, name: "Devanagari", devInItem0: true, devLang: true },
+    bho: { native: /[\u0900-\u097F]/, name: "Devanagari", devInItem0: true, devLang: true },
+    sw:  { native: /[A-Za-z]/, name: "Latin", devInItem0: false }
   };
   var R = SCRIPT_RULES[CODE];
   if (!R) { console.log("⛔ SCRIPT_RULES में भाषा '" + CODE + "' दर्ज नहीं — नई भाषा जोड़ने से पहले यहाँ नियम लिखो (fail-closed)"); fail++; return; }
@@ -99,7 +104,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
     DD.weeks.forEach(function (w) { w.days.forEach(function (dd) { dd.items.forEach(function (it) {
       if (!R.native.test(it[0])) { console.log("⛔ item[0] में " + R.name + " नहीं (" + tag + "): " + it[0]); bad++; }
       if (!R.devInItem0 && DEV.test(it[0]) && CODE !== "en") { console.log("⛔ item[0] में देवनागरी (" + tag + "): " + it[0]); bad++; }
-      if (R.native !== SCRIPT_RULES.fr.native && R.native.test(it[1])) { console.log("⛔ उच्चारण-खाने [1] में " + R.name + " (" + tag + "): " + it[1]); bad++; } /* Latin-भाषाओं में [1] के भीतर कोष्ठक-Roman मान्य */
+      if (!R.devLang && R.native !== SCRIPT_RULES.fr.native && R.native.test(it[1])) { console.log("⛔ उच्चारण-खाने [1] में " + R.name + " (" + tag + "): " + it[1]); bad++; } /* Latin-भाषाओं में [1] के भीतर कोष्ठक-Roman मान्य */
       if (!DEV.test(it[1])) { console.log("⛔ उच्चारण-खाना [1] देवनागरी-रहित (" + tag + "): " + it[1]); bad++; }
       if (!DEV.test(it[2])) { console.log("⛔ हिंदी-खाना [2] देवनागरी-रहित (" + tag + "): " + it[2]); bad++; }
     }); }); });
@@ -118,7 +123,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   var bad = 0, warn = 0;
   /* भाषा-नाम-प्रतिस्थापन छूट (Global South substitution): "अंग्रेज़ी/English" ⇄ अपनी भाषा का नाम —
      सिर्फ़ यही अंतर मान्य; बाक़ी हिंदी-पंक्ति byte-बराबर हो */
-  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू", pt: "पुर्तगाली", kn: "कन्नड", ta: "तमिल", ml: "मलयालम", te: "तेलुगु", bn: "बांग्ला", or: "उड़िया", as: "असमिया", pa: "पंजाबी", gu: "गुजराती", ur: "उर्दू" , ks: "कश्मीरी" , fa: "फ़ारसी" , sd: "सिंधी" };
+  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू", pt: "पुर्तगाली", kn: "कन्नड", ta: "तमिल", ml: "मलयालम", te: "तेलुगु", bn: "बांग्ला", or: "उड़िया", as: "असमिया", pa: "पंजाबी", gu: "गुजराती", ur: "उर्दू" , ks: "कश्मीरी" , fa: "फ़ारसी" , sd: "सिंधी" , mr: "मराठी" , ne: "नेपाली" , bho: "भोजपुरी" , sw: "स्वाहिली" };
   function norm(t) { return String(t).replace(new RegExp((LNAME[CODE] || "§") + "|अंग्रेज़ी|English", "g"), "⟨भाषा⟩"); }
   /* दर्ज-छूट सूची (Founder-मान्य प्रासंगिक प्रतिस्थापन — इनके अलावा एक भी पंक्ति अलग = FAIL):
      L2 w4d4#16: मास्टर "हिंदी में बोलो…" → भाषा-कोर्स "⟨भाषा⟩ में बोलो…" (AI-app प्रसंग) */
