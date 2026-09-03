@@ -150,13 +150,25 @@
       <span class="ns-item">🎓 <b>डिप्लोमा</b> = केंद्र/वर्कशॉप से practical (प्रैक्टिकल) समेत पूरा करने पर</span>
     </div>
 
+    <!-- राह-पट्टी (04-Sep, Founder: कम पढ़े-लिखे को पहला सवाल — क्या सीखना है? EdTech goal-first नियम) -->
+    <div class="khand-title" style="text-align:center">आपको क्या सीखना है? नीचे दबाओ 👇</div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:8px 0 18px">
+      <button class="cc-btn btn-online" style="max-width:260px;font-size:20px" onclick="document.getElementById('khandA').scrollIntoView({behavior:'smooth'})">🛠️ काम-धंधा सीखना है</button>
+      <button class="cc-btn btn-online" style="max-width:260px;font-size:20px" onclick="document.getElementById('khandB').scrollIntoView({behavior:'smooth'})">🗣️ दूसरी भाषा सीखनी है</button>
+      <button class="cc-btn btn-center" style="max-width:260px;font-size:20px" onclick="goTab(5)">📖 स्कूल की पढ़ाई (कक्षा 6-12)</button>
+    </div>
+    <!-- शुरू के 3 कदम (04-Sep: तुरंत-मूल्य नियम — पहला पाठ 2 दबाव में) -->
+    <div class="ns-strip" style="margin-top:0">
+      <span class="ns-item">शुरू कैसे करें? 1️⃣ नीचे अपना कोर्स दबाओ 2️⃣ पाठ-1 पढ़ो 3️⃣ रोज़ थोड़ा-थोड़ा पढ़ो</span>
+    </div>
+
     <!-- खंड-अ: हुनर सर्टिफिकेट प्रोग्राम -->
-    <div class="khand-title">🛠️ हुनर सर्टिफिकेट प्रोग्राम</div>
+    <div class="khand-title" id="khandA">🛠️ हुनर सर्टिफिकेट प्रोग्राम</div>
     <div class="course-grid" id="grid0"></div>
 
     <!-- खंड-ब: भाषा सर्टिफिकेट प्रोग्राम (काम की भाषा) -->
-    <div class="khand-title">🗣️ भाषा सर्टिफिकेट प्रोग्राम (काम की भाषा)</div>
-    <div class="khand-sub">दुनिया की 119 भाषाएँ — 5 सप्ताह में काम-चलाऊ बोलना सीखो। समूह खोलकर अपनी भाषा चुनो।</div>
+    <div class="khand-title" id="khandB">🗣️ भाषा सर्टिफिकेट प्रोग्राम (काम की भाषा)</div>
+    <div class="khand-sub">दुनिया की 129 भाषाएँ। 27 भाषाओं का पूरा कोर्स (90 दिन) तैयार है। बाक़ी का छोटा कोर्स (5 सप्ताह) है। नीचे डिब्बा दबाओ, अपनी भाषा चुनो।</div>
     <div class="search-wrap"><input type="text" class="search-input" id="bhashaSearch" placeholder="🔍 भाषा खोजें... जैसे: English, अरबी, जापानी" oninput="filterBhasha()"/></div>
     <div class="bh-popular" id="bhPopular"></div>
     <div id="bhashaGroups"></div>
