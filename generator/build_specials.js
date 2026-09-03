@@ -1211,7 +1211,7 @@ function kkbContent(c) {
     '<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
     '</div>';
 }
-const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 02-Sep: + he + 10 नई (pt kn ta te bn or as pa gu ml) */
+const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 02-Sep: + he + 10 नई (pt kn ta te bn or as pa gu ml) */
 KKB_LANGS.forEach(c => { if (KKB2_CODES[c.code]) return; buildSpecial({
   out: c.out, langStrict: false, title: c.title, desc: c.desc,
   head: ['<link rel="stylesheet" href="/assets/kkb.css">'],
@@ -1265,6 +1265,8 @@ const KKB2_LANGS = [
     next: 'आगे का रास्ता: कोर्स पूरा करके Celpe-Bras (सेल्पे-ब्रास — ब्राज़ील सरकार की आधिकारिक पुर्तगाली परीक्षा) — ' + kkb2Link("https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/celpe-bras", "gov.br/inep") + ' — की तैयारी। ' + KKB2_SAFE },
   { code: "ur", slug: "urdu", en_name: "Urdu", hi_name: "उर्दू", /* 02-Sep RTL-परिवार: L2 भाषा — उर्दू-भाषी क्षेत्र व खाड़ी */
     next: 'आगे का रास्ता: उर्दू की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "fa", slug: "persian", en_name: "Persian", hi_name: "फ़ारसी", /* 02-Sep RTL-परिवार: L2 भाषा — ईरान व मध्य एशिया */
+    next: 'आगे का रास्ता: फ़ारसी की कोई एक विश्व-प्रचलित A2-परीक्षा भारत में सहज उपलब्ध नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "kn", slug: "kannada", en_name: "Kannada", hi_name: "कन्नड", /* 02-Sep: L2 भाषा — कर्नाटक */
     next: 'आगे का रास्ता: कन्नड की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "ta", slug: "tamil", en_name: "Tamil", hi_name: "तमिल", /* 02-Sep: L2 भाषा — तमिलनाडु, श्रीलंका, सिंगापुर */

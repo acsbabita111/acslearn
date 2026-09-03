@@ -13,7 +13,7 @@
 var fs = require("fs");
 var CODE = (process.argv[2] || "").toLowerCase();
 var PID = { ar: "PJ022", fr: "PJ086", es: "PJ021", ja: "PJ026", ko: "PJ031", de: "PJ125", ru: "PJ052", he: "PJ137", en: "PJ018",
-  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055" }[CODE]; /* 02-Sep: +10; + ur (RTL-परिवार) */
+  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055", fa: "PJ035" }[CODE]; /* 02-Sep: +10; + ur/fa (RTL-परिवार) */
 if (!PID) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|pt|kn|ta|te|bn|or|as|pa|gu|ml"); process.exit(1); }
 var fail = 0;
 function ok(c, m) { if (!c) { console.log("⛔ " + m); fail++; } }
