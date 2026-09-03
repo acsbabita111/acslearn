@@ -20,7 +20,7 @@
    गिनती मशीन से (dev_apt_check-तर्ज़); pass = 60%। एकमात्र घर यही फ़ाइल।
    कूट-नाम UI पर कभी नहीं — प्रदर्शन-नाम name-खाने से। */
 window.COURSE_EXAMS = {
-  "SE009": { name: "ई-कॉमर्स मास्टरी — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
+  "SE009": { name: "ई-कॉमर्स का प्रमाणपत्र कोर्स (Certificate in E-Commerce Mastery) — प्रमाणपत्र परीक्षा", minLessons: 0, pass: 60, q: [
     /* server-मोड कोर्स (v1.6, 18-Aug) — 120 प्रश्न server-निजी बैंक (ecom_bank; 326 पाठ×5 लक्ष्य) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/ecom_quiz/ecom_quiz_k01–k24.js shards — बदलाव वहीं, फिर ecom_merge_bank.py से server-बैंक regen।
@@ -31,52 +31,52 @@ window.COURSE_EXAMS = {
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/dca_quiz/ shards (22) — बदलाव वहीं, फिर server-बैंक regen। */
   ] },
-  "SE021": { name: "वेल्डिंग व्यवसाय — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
+  "SE021": { name: "वेल्डिंग व्यवसाय का प्रमाणपत्र कोर्स (Certificate in Welding Business) — प्रमाणपत्र परीक्षा", minLessons: 0, pass: 60, q: [
     /* server-मोड कोर्स (v1.8, 25-Aug) — 120 प्रश्न server-निजी बैंक (wld_bank; 630 पाठ×5 = 3,150) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/wld_quiz/wld_quiz_k01–k12.js shards — बदलाव वहीं, फिर wld_merge_bank.py से server-बैंक regen।
        पुराने 10 inline "सुरक्षा-परीक्षा" प्रश्न हटे। */
   ] },
-  "SE022": { name: "टू-व्हीलर सर्विसिंग, EV एवं उद्यमिता — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
+  "SE022": { name: "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का प्रमाणपत्र कोर्स (Certificate in Two-Wheeler Servicing & EV) — प्रमाणपत्र परीक्षा", minLessons: 0, pass: 60, q: [
     /* server-मोड कोर्स — 120 प्रश्न server-निजी बैंक (twv_bank, 2330) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/twv_quiz/ shards — बदलाव वहीं, फिर server-बैंक regen। */
   ] },
-  "SE023": { name: "मशरूम: खेती, व्यापार और उद्यमिता — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
+  "SE023": { name: "मशरूम उत्पादन व विपणन का प्रमाणपत्र कोर्स (Certificate in Mushroom Farming & Business) — प्रमाणपत्र परीक्षा", minLessons: 0, pass: 60, q: [
     /* server-मोड कोर्स — 120 प्रश्न server-निजी बैंक (msh_bank, 3135) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/msh_quiz_k01.js–k12.js shards — बदलाव वहीं, फिर server-बैंक regen। */
   ] },
-  "PJ018": { name: "ACS Certificate in Spoken English — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [
+  "PJ018": { name: "अंग्रेज़ी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken English) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [
     /* server-मोड कोर्स — 120 प्रश्न server-निजी बैंक (eng_bank, 2919 — 14 प्रकार, 300 सुनो-प्रश्न) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत = frozen corpus (kkb_data+kkb2_data) — regen: generator/build_eng_bank.js। */
   ] },
   /* (31-Aug) KKB मास्टर-प्रतिकृति — 7 भाषा-परीक्षाएँ, PJ018-रूप server-मोड: q ख़ाली (प्रश्न server-निजी <code>_bank से; regen: generator/build_kkb_bank.js <code>) */
-  "PJ022": { name: "ACS Certificate in Spoken Arabic — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ086": { name: "ACS Certificate in Spoken French — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ021": { name: "ACS Certificate in Spoken Spanish — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ026": { name: "ACS Certificate in Spoken Japanese — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ031": { name: "ACS Certificate in Spoken Korean — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ125": { name: "ACS Certificate in Spoken German — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ052": { name: "ACS Certificate in Spoken Russian — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ137": { name: "ACS Certificate in Spoken Hebrew — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ024": { name: "ACS Certificate in Spoken Portuguese — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ055": { name: "ACS Certificate in Spoken Urdu — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ035": { name: "ACS Certificate in Spoken Persian — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ049": { name: "ACS Certificate in Spoken Sindhi — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ046": { name: "ACS Certificate in Spoken Kashmiri — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ027": { name: "ACS Certificate in Spoken Marathi — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ047": { name: "ACS Certificate in Spoken Nepali — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ032": { name: "ACS Certificate in Spoken Swahili — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-"PJ038": { name: "ACS Certificate in Spoken Bhojpuri — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ019": { name: "ACS Certificate in Spoken Kannada — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ029": { name: "ACS Certificate in Spoken Tamil — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ028": { name: "ACS Certificate in Spoken Telugu — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ023": { name: "ACS Certificate in Spoken Bengali — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ057": { name: "ACS Certificate in Spoken Odia — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ041": { name: "ACS Certificate in Spoken Assamese — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ039": { name: "ACS Certificate in Spoken Punjabi — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ033": { name: "ACS Certificate in Spoken Gujarati — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
-  "PJ056": { name: "ACS Certificate in Spoken Malayalam — प्रमाणपत्र परीक्षा (टेस्ट-मोड: बिना पाठ-पूरे भी)", minLessons: 0, pass: 60, q: [] },
+  "PJ022": { name: "अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ086": { name: "फ़्रेंच बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken French) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ021": { name: "स्पेनिश बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Spanish) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ026": { name: "जापानी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Japanese) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ031": { name: "कोरियाई बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Korean) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ125": { name: "जर्मन बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken German) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ052": { name: "रूसी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Russian) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ137": { name: "हिब्रू बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Hebrew) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ024": { name: "पुर्तगाली बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Portuguese) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ055": { name: "उर्दू बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Urdu) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ035": { name: "फ़ारसी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Persian) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ049": { name: "सिंधी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Sindhi) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ046": { name: "कश्मीरी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Kashmiri) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ027": { name: "मराठी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Marathi) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ047": { name: "नेपाली बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Nepali) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ032": { name: "स्वाहिली बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Swahili) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ038": { name: "भोजपुरी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Bhojpuri) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ019": { name: "कन्नड बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Kannada) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ029": { name: "तमिल बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Tamil) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ028": { name: "तेलुगु बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Telugu) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ023": { name: "बांग्ला बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Bengali) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ057": { name: "उड़िया बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Odia) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ041": { name: "असमिया बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Assamese) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ039": { name: "पंजाबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Punjabi) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ033": { name: "गुजराती बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Gujarati) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+  "PJ056": { name: "मलयालम बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Malayalam) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
 };
