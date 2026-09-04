@@ -13,7 +13,7 @@
 var fs = require("fs");
 var CODE = (process.argv[2] || "").toLowerCase();
 var PID = { ar: "PJ022", fr: "PJ086", es: "PJ021", ja: "PJ026", ko: "PJ031", de: "PJ125", ru: "PJ052", he: "PJ137", en: "PJ018",
-  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055", fa: "PJ035", sd: "PJ049", ks: "PJ046", mr: "PJ027", ne: "PJ047", sw: "PJ032", bho: "PJ038", zh: "PJ020" }[CODE]; /* 02-Sep: +10; + ur/fa/sd/ks (RTL-परिवार) */
+  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055", fa: "PJ035", sd: "PJ049", ks: "PJ046", mr: "PJ027", ne: "PJ047", sw: "PJ032", bho: "PJ038", zh: "PJ020", id: "PJ025", tr: "PJ030", mai: "PJ042" }[CODE]; /* 02-Sep: +10; + ur/fa/sd/ks (RTL-परिवार) */
 if (!PID) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|pt|kn|ta|te|bn|or|as|pa|gu|ml"); process.exit(1); }
 var fail = 0;
 function ok(c, m) { if (!c) { console.log("⛔ " + m); fail++; } }

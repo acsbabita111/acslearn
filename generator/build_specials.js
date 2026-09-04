@@ -1211,7 +1211,7 @@ function kkbContent(c) {
     '<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
     '</div>';
 }
-const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 02-Sep: + he + 10 नई (pt kn ta te bn or as pa gu ml) */
+const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 , id: 1 , tr: 1 , mai: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 04-Sep: + mai (मैथिली, देवनागरी) */
 KKB_LANGS.forEach(c => { if (KKB2_CODES[c.code]) return; buildSpecial({
   out: c.out, langStrict: false, title: c.title, desc: c.desc,
   head: ['<link rel="stylesheet" href="/assets/kkb.css">'],
@@ -1281,6 +1281,10 @@ const KKB2_LANGS = [
     next: 'आगे का रास्ता: भोजपुरी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "zh", slug: "mandarin", en_name: "Mandarin", hi_name: "चीनी", /* 04-Sep अगली-8 खेप का पहला: CJK, pinyin+देवनागरी-उच्चारण */
     next: 'आगे का रास्ता: HSK (Hanyu Shuiping Kaoshi) चीनी सरकार की आधिकारिक चीनी-भाषा परीक्षा है — काम के लिए HSK-3/4 स्तर उपयोगी। ' + KKB2_SAFE },
+  { code: "id", slug: "indonesian", en_name: "Indonesian", hi_name: "इंडोनेशियाई", /* 04-Sep अगली-8 खेप का दूसरा: Latin, Roman-लिपि */
+    next: 'आगे का रास्ता: इंडोनेशियाई की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "tr", slug: "turkish", en_name: "Turkish", hi_name: "तुर्की", /* 04-Sep अगली-8 का तीसरा: Latin+ğüşıöç */
+    next: 'आगे का रास्ता: तुर्की की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "kn", slug: "kannada", en_name: "Kannada", hi_name: "कन्नड", /* 02-Sep: L2 भाषा — कर्नाटक */
     next: 'आगे का रास्ता: कन्नड की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "ta", slug: "tamil", en_name: "Tamil", hi_name: "तमिल", /* 02-Sep: L2 भाषा — तमिलनाडु, श्रीलंका, सिंगापुर */
@@ -1298,7 +1302,9 @@ const KKB2_LANGS = [
   { code: "gu", slug: "gujarati", en_name: "Gujarati", hi_name: "गुजराती", /* 02-Sep: L2 भाषा — गुजरात */
     next: 'आगे का रास्ता: गुजराती की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "ml", slug: "malayalam", en_name: "Malayalam", hi_name: "मलयालम", /* 02-Sep: L2 भाषा — केरल */
-    next: 'आगे का रास्ता: मलयालम की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE }
+    next: 'आगे का रास्ता: मलयालम की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "mai", slug: "maithili", en_name: "Maithili", hi_name: "मैथिली", /* 04-Sep: L2 भाषा — मिथिला, बिहार (देवनागरी) */
+    next: 'आगे का रास्ता: मैथिली की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE }
 ];
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
