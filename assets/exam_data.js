@@ -70,6 +70,7 @@ window.COURSE_EXAMS = {
 "PJ047": { name: "नेपाली बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Nepali) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
 "PJ032": { name: "स्वाहिली बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Swahili) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
 "PJ038": { name: "भोजपुरी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Bhojpuri) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
+"PJ020": { name: "चीनी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Mandarin) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
   "PJ019": { name: "कन्नड बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Kannada) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
   "PJ029": { name: "तमिल बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Tamil) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
   "PJ028": { name: "तेलुगु बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Telugu) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] },
