@@ -630,6 +630,17 @@ function renderTab(tab) {
 
   /* गोल-bracket नियम: data के [ ] प्रदर्शन में ( ) — udyam-grid जैसा (सुधार-2, 17-Jul-2026) */
   const fx = s => String(s).replace(/\[/g,'(').replace(/\]/g,')');
+
+  /* 05-Sep (Founder): TAB-0 हुनर-कोर्स भी भाषा-चिप वाले एक-design में —
+     एक पेज = एक बटन-भाषा। सातों पूरे कोर्स = 🎓 सुनहरी चिप। */
+  if(tab===0){
+    grid.innerHTML = '<div class="bh-chips" style="grid-column:1/-1;padding:4px 0">'+
+      filtered.map(function(c){
+        var nm=fx((c.name_hi||'').split('·')[0].split('—')[0]).split(' का प्रमाणपत्र')[0].trim(); /* चिप छोटी — भाषा-चिप जैसी */
+        return '<button class="bh-chip bh-chip-full" data-nm="'+nm+'" onclick="openCourse(\''+c.id+'\',\'online\')">🎓 '+nm+'</button>';
+      }).join('')+'</div>';
+    return;
+  }
   grid.innerHTML = filtered.map(c => {
     const eduNames = c.edu ? c.edu.map(e => {
       const found = typeof EDU_LEVELS !== 'undefined' ? EDU_LEVELS.find(l=>l.id===e) : null;
