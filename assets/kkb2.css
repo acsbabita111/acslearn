@@ -51,6 +51,7 @@
 /* v2.3 (31-Aug): भाषा-लिपि फ़ॉन्ट-नियम — kkb.css की तर्ज़; सब ≥16px, ACS-रंग */
 [data-script="arabic"] .kkb2-en{font-family:"Noto Sans Arabic","Noto Naskh Arabic",system-ui,sans-serif;line-height:1.9}
 [data-script="japanese"] .kkb2-en{font-family:"Noto Sans JP","Hiragino Sans",system-ui,sans-serif;line-height:1.8}
+[data-script="chinese"] .kkb2-en{font-family:"Noto Sans SC","PingFang SC",system-ui,sans-serif;line-height:1.8}
 [data-script="korean"] .kkb2-en{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.8}
 [data-script="devanagari-native"] .kkb2-en{font-family:'Noto Sans Devanagari',Inter,sans-serif}
 [data-script="hebrew"] .kkb2-en{font-family:"Noto Sans Hebrew","Arial Hebrew",system-ui,sans-serif;line-height:1.9}
