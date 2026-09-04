@@ -43,7 +43,11 @@ var CFG = {
   pa: { label: "पंजाबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   gu: { label: "गुजराती", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   ml: { label: "मलयालम", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
-  mai: { label: "मैथिली", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true } /* v3.3 (04-Sep) — देवनागरी [0]=[1] */
+  mai: { label: "मैथिली", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.3 (04-Sep) — देवनागरी [0]=[1] */
+  it: { label: "इतालवी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.4 (04-Sep) — Latin, अगली-8 खेप का तीसरा */
+  ms: { label: "मलय", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.5 (04-Sep) — Latin, अगली-8 खेप का चौथा */
+  vi: { label: "वियतनामी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.6 (04-Sep) — Latin+tone-marks, अगली-8 खेप का पाँचवाँ */
+  th: { label: "थाई", rot: [1, 2, 3, 4], au: true } /* v3.7 (05-Sep) — थाई-लिपि (space-रहित, जापानी जैसा) — rot में 6/7/12 (word-count-आधारित) शामिल नहीं, अगली-8 खेप का आठवाँ व अंतिम */
 };
 if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|en|pt|kn|ta|te|bn|or|as|pa|gu|ml"); process.exit(1); }
 var L = CFG[CODE].label;
@@ -181,7 +185,7 @@ if (au13 < 150 || au14 < 150) { console.log("⛔ सुनो-प्रश्न
 var sp15 = 0, sp16 = 0, spSeen = {};
 for (i = 5; i < ALL.length && (sp15 < 120 || sp16 < 120); i += 9) {
   if (spSeen[ALL[i].en]) continue; spSeen[ALL[i].en] = 1;
-  var ws15 = ALL[i].en.split(/\s+/).length; if (CODE !== "ja" && (ws15 < 3 || ws15 > 10)) continue;
+  var ws15 = ALL[i].en.split(/\s+/).length; if (CODE !== "ja" && CODE !== "th" && (ws15 < 3 || ws15 > 10)) continue;
   if (sp15 <= sp16 && sp15 < 120) { if (push(B[15](ALL[i]))) sp15++; }
   else if (sp16 < 120) { if (push(B[16](ALL[i]))) sp16++; }
 }

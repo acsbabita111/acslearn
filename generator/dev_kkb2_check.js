@@ -101,7 +101,11 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
     zh:  { native: /[\u4E00-\u9FFF\u3400-\u4DBF]/, name: "Han (Chinese)", devInItem0: false },
     id:  { native: /[A-Za-z]/, name: "Latin", devInItem0: false }, /* 04-Sep अगली-8 का दूसरा — इंडोनेशियाई */
     tr:  { native: /[A-Za-zğüşıöçĞÜŞİÖÇ]/, name: "Latin (Turkish)", devInItem0: false }, /* 04-Sep अगली-8 का तीसरा — तुर्की */
-    mai: { native: /[\u0900-\u097F]/, name: "Devanagari (Maithili)", devInItem0: true, devLang: true } /* 04-Sep अगली-8 का चौथा — मैथिली */
+    mai: { native: /[\u0900-\u097F]/, name: "Devanagari (Maithili)", devInItem0: true, devLang: true }, /* 04-Sep अगली-8 का चौथा — मैथिली */
+    it:  { native: /[A-Za-zàèéìòù]/, name: "Latin (Italian)", devInItem0: false }, /* 04-Sep अगली-8 का पाँचवाँ — इतालवी */
+    ms:  { native: /[A-Za-z]/, name: "Latin (Malay)", devInItem0: false }, /* 04-Sep अगली-8 का छठा — मलय */
+    vi:  { native: /[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]/, name: "Latin (Vietnamese, tone-marks)", devInItem0: false }, /* 04-Sep अगली-8 का सातवाँ — वियतनामी; Ạ-ỹ = U+1EA0-U+1EF9 (Vietnamese-only block) — U+0900 देवनागरी इस दायरे से बाहर */
+    th:  { native: /[\u0E00-\u0E7F]/, name: "Thai", devInItem0: false } /* 05-Sep अगली-8 का आठवाँ व अंतिम — थाई; U+0E00-U+0E7F देवनागरी (U+0900) से टकराव-मुक्त */
   };
   var R = SCRIPT_RULES[CODE];
   if (!R) { console.log("⛔ SCRIPT_RULES में भाषा '" + CODE + "' दर्ज नहीं — नई भाषा जोड़ने से पहले यहाँ नियम लिखो (fail-closed)"); fail++; return; }
@@ -129,7 +133,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   var bad = 0, warn = 0;
   /* भाषा-नाम-प्रतिस्थापन छूट (Global South substitution): "अंग्रेज़ी/English" ⇄ अपनी भाषा का नाम —
      सिर्फ़ यही अंतर मान्य; बाक़ी हिंदी-पंक्ति byte-बराबर हो */
-  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू", pt: "पुर्तगाली", kn: "कन्नड", ta: "तमिल", ml: "मलयालम", te: "तेलुगु", bn: "बांग्ला", or: "उड़िया", as: "असमिया", pa: "पंजाबी", gu: "गुजराती", ur: "उर्दू" , ks: "कश्मीरी" , fa: "फ़ारसी" , sd: "सिंधी" , mr: "मराठी" , ne: "नेपाली" , bho: "भोजपुरी" , sw: "स्वाहिली" , zh: "चीनी" , id: "इंडोनेशियाई" , tr: "तुर्की" , mai: "मैथिली" };
+  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू", pt: "पुर्तगाली", kn: "कन्नड", ta: "तमिल", ml: "मलयालम", te: "तेलुगु", bn: "बांग्ला", or: "उड़िया", as: "असमिया", pa: "पंजाबी", gu: "गुजराती", ur: "उर्दू" , ks: "कश्मीरी" , fa: "फ़ारसी" , sd: "सिंधी" , mr: "मराठी" , ne: "नेपाली" , bho: "भोजपुरी" , sw: "स्वाहिली" , zh: "चीनी" , id: "इंडोनेशियाई" , tr: "तुर्की" , mai: "मैथिली" , it: "इतालवी" , ms: "मलय" , vi: "वियतनामी" , th: "थाई" };
   function norm(t) { return String(t).replace(new RegExp((LNAME[CODE] || "§") + "|अंग्रेज़ी|English", "g"), "⟨भाषा⟩"); }
   /* दर्ज-छूट सूची (Founder-मान्य प्रासंगिक प्रतिस्थापन — इनके अलावा एक भी पंक्ति अलग = FAIL):
      L2 w4d4#16: मास्टर "हिंदी में बोलो…" → भाषा-कोर्स "⟨भाषा⟩ में बोलो…" (AI-app प्रसंग) */

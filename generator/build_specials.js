@@ -1211,7 +1211,7 @@ function kkbContent(c) {
     '<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
     '</div>';
 }
-const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 , id: 1 , tr: 1 , mai: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 04-Sep: + mai (मैथिली, देवनागरी) */
+const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 , id: 1 , tr: 1 , mai: 1 , it: 1 , ms: 1 , vi: 1 , th: 1 }; /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 05-Sep: + th (थाई-लिपि) */
 KKB_LANGS.forEach(c => { if (KKB2_CODES[c.code]) return; buildSpecial({
   out: c.out, langStrict: false, title: c.title, desc: c.desc,
   head: ['<link rel="stylesheet" href="/assets/kkb.css">'],
@@ -1304,7 +1304,15 @@ const KKB2_LANGS = [
   { code: "ml", slug: "malayalam", en_name: "Malayalam", hi_name: "मलयालम", /* 02-Sep: L2 भाषा — केरल */
     next: 'आगे का रास्ता: मलयालम की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "mai", slug: "maithili", en_name: "Maithili", hi_name: "मैथिली", /* 04-Sep: L2 भाषा — मिथिला, बिहार (देवनागरी) */
-    next: 'आगे का रास्ता: मैथिली की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE }
+    next: 'आगे का रास्ता: मैथिली की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "it", slug: "italian", en_name: "Italian", hi_name: "इतालवी", /* 04-Sep: अगली-8 खेप का तीसरा — Latin */
+    next: 'आगे का रास्ता: कोर्स पूरा करके CILS A2 या CELI A2 — ' + kkb2Link("https://cils.unistrasi.it", "cils.unistrasi.it") + ' — की तैयारी। ' + KKB2_SAFE },
+  { code: "ms", slug: "malay", en_name: "Malay", hi_name: "मलय", /* 04-Sep: अगली-8 खेप का चौथा — Latin, मलेशिया */
+    next: 'आगे का रास्ता: मलय की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "vi", slug: "vietnamese", en_name: "Vietnamese", hi_name: "वियतनामी", /* 04-Sep: अगली-8 खेप का पाँचवाँ — Latin, वियतनाम */
+    next: 'आगे का रास्ता: वियतनामी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "th", slug: "thai", en_name: "Thai", hi_name: "थाई", /* 05-Sep: अगली-8 खेप का आठवाँ व अंतिम — थाई-लिपि, थाईलैंड */
+    next: 'आगे का रास्ता: थाई की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE }
 ];
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
