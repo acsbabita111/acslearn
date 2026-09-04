@@ -53,6 +53,7 @@
 [data-script="japanese"] .kkb2-en{font-family:"Noto Sans JP","Hiragino Sans",system-ui,sans-serif;line-height:1.8}
 [data-script="chinese"] .kkb2-en{font-family:"Noto Sans SC","PingFang SC",system-ui,sans-serif;line-height:1.8}
 [data-script="korean"] .kkb2-en{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.8}
+[data-script="thai"] .kkb2-en{font-family:"Noto Sans Thai","Leelawadee UI",system-ui,sans-serif;line-height:1.9} /* 05-Sep थाई — अगली-8 खेप का आठवाँ व अंतिम, space-रहित लिपि */
 [data-script="devanagari-native"] .kkb2-en{font-family:'Noto Sans Devanagari',Inter,sans-serif}
 [data-script="hebrew"] .kkb2-en{font-family:"Noto Sans Hebrew","Arial Hebrew",system-ui,sans-serif;line-height:1.9}
 [data-script="urdu"] .kkb2-en,[data-script="kashmiri"] .kkb2-en,[data-script="sindhi"] .kkb2-en{font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq","Noto Naskh Arabic",system-ui,sans-serif;line-height:2.2} /* 02-Sep RTL-परिवार */ /* हिब्रू — RTL, अरबी-तर्ज़ (01-Sep) */ /* 02-Sep: 9 भारतीय-लिपि नियम नीचे — kkb.css L1-फ़ॉन्ट से मेल */
