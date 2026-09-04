@@ -13,7 +13,7 @@
 var fs = require("fs");
 var CODE = (process.argv[2] || "").toLowerCase();
 var PID = { ar: "PJ022", fr: "PJ086", es: "PJ021", ja: "PJ026", ko: "PJ031", de: "PJ125", ru: "PJ052", he: "PJ137", en: "PJ018",
-  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055", fa: "PJ035", sd: "PJ049", ks: "PJ046", mr: "PJ027", ne: "PJ047", sw: "PJ032", bho: "PJ038" }[CODE]; /* 02-Sep: +10; + ur/fa/sd/ks (RTL-परिवार) */
+  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055", fa: "PJ035", sd: "PJ049", ks: "PJ046", mr: "PJ027", ne: "PJ047", sw: "PJ032", bho: "PJ038", zh: "PJ020" }[CODE]; /* 02-Sep: +10; + ur/fa/sd/ks (RTL-परिवार) */
 if (!PID) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|pt|kn|ta|te|bn|or|as|pa|gu|ml"); process.exit(1); }
 var fail = 0;
 function ok(c, m) { if (!c) { console.log("⛔ " + m); fail++; } }
@@ -26,7 +26,7 @@ eval(fs.readFileSync(CODE === "en" ? "assets/kkb_data.js" : "assets/kkb_" + CODE
 eval(fs.readFileSync(CODE === "en" ? "assets/kkb2_data.js" : "assets/kkb2_" + CODE + "_data.js", "utf8"));
 var SPOK = {};
 function clean(t) { return String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, "").replace(/^\([^()\s]{1,8}\)\s*/, "").replace(/\s*\([^()]*[\u0900-\u097F][^()]*\)\s*$/, ""); } /* v2.0: (שמע)/(דבר)-जैसे लिपि-टैग व अंत का (देवनागरी-उच्चारण) भी हटे — listen-भंडारण-रूप */
-function spokenT(t) { t = clean(t); if (CODE === "ja") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; }
+function spokenT(t) { t = clean(t); if (CODE === "ja" || CODE === "zh") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* 04-Sep: zh भी pinyin-कोष्ठक AU-टकराव-मुक्त */
 [global.window.KKB_DATA, global.window.KKB2_DATA].forEach(function (D) {
   D.weeks.forEach(function (w) { w.days.forEach(function (d) { d.items.forEach(function (it) { SPOK[spokenT(it[0])] = 1; }); });
     (w.listen || []).forEach(function (p) { SPOK[spokenT(p[0])] = 1; SPOK[spokenT(p[1])] = 1; });   /* v2.0: T17 के सवाल-जवाब listen/dialog से */

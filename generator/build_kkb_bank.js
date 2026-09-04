@@ -34,7 +34,8 @@ var CFG = {
   mr: { label: "मराठी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v2.6 (03-Sep 4-भाषा खेप): देवनागरी [0]=[1] */
   ne: { label: "नेपाली", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v2.7 (03-Sep 4-भाषा खेप): देवनागरी [0]=[1] */
   sw: { label: "स्वाहिली", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
-  bho: { label: "भोजपुरी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v2.9 (03-Sep) — देवनागरी [0]=[1] */ /* v2.8 (03-Sep 4-भाषा खेप): Latin — [0] स्वाहिली, [1] देवनागरी-उच्चारण */
+  bho: { label: "भोजपुरी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v2.9 (03-Sep) — देवनागरी [0]=[1] */
+  zh: { label: "चीनी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.0 (04-Sep) — असली=[0], देवनागरी=[1] */ /* v2.8 (03-Sep 4-भाषा खेप): Latin — [0] स्वाहिली, [1] देवनागरी-उच्चारण */
   or: { label: "उड़िया", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   as: { label: "असमिया", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   pa: { label: "पंजाबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
@@ -49,7 +50,7 @@ eval(fs.readFileSync(DP[0], "utf8").replace("window.KKB_DATA", "global.window.KK
 eval(fs.readFileSync(DP[1], "utf8").replace("window.KKB2_DATA", "global.window.KKB2_DATA"));
 var D1 = global.window.KKB_DATA, D2 = global.window.KKB2_DATA;
 function clean(t) { return String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, "").replace(/^\([^()\s]{1,8}\)\s*/, "").replace(/\s*\([^()]*[\u0900-\u097F][^()]*\)\s*$/, ""); } /* v2.0: (שמע)/(דבר)-जैसे लिपि-टैग व अंत का (देवनागरी-उच्चारण) भी हटे — listen-भंडारण-रूप */
-function spokenT(t) { t = clean(t); if (CODE === "ja") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; }
+function spokenT(t) { t = clean(t); if (CODE === "ja" || CODE === "zh") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* 04-Sep: zh भी pinyin-कोष्ठक AU-टकराव-मुक्त */
 var ALL = [], TW = [], LIS = [], DLG = [];
 [D1, D2].forEach(function (D) {
   D.weeks.forEach(function (w) {
