@@ -39,6 +39,7 @@ const KKB_SETS = [
   { code: "ha", data: "assets/kkb_ha_data.js", page: "courses/hi/bhasha/hausa/index.html", id: "PJ036", url: "/courses/hi/bhasha/hausa/" },
   { code: "nan", data: "assets/kkb_nan_data.js", page: "courses/hi/bhasha/minnan/index.html", id: "PJ037", url: "/courses/hi/bhasha/minnan/" },
   { code: "bho", data: "assets/kkb_bho_data.js", page: "courses/hi/bhasha/bhojpuri/index.html", id: "PJ038", url: "/courses/hi/bhasha/bhojpuri/" },
+  { code: "sa", data: "assets/kkb_sa_data.js", page: "courses/hi/bhasha/sanskrit/index.html", id: "PJ147", url: "/courses/hi/bhasha/sanskrit/" }, /* 05-Sep: संस्कृत */
   { code: "pa", data: "assets/kkb_pa_data.js", page: "courses/hi/bhasha/punjabi/index.html", id: "PJ039", url: "/courses/hi/bhasha/punjabi/" },
   { code: "hne", data: "assets/kkb_hne_data.js", page: "courses/hi/bhasha/chhattisgarhi/index.html", id: "PJ040", url: "/courses/hi/bhasha/chhattisgarhi/" },
   { code: "as", data: "assets/kkb_as_data.js", page: "courses/hi/bhasha/assamese/index.html", id: "PJ041", url: "/courses/hi/bhasha/assamese/" },
@@ -230,7 +231,7 @@ if (fs.existsSync(path.join(ROOT, PAGE))) {
   ok(pg.includes("generator से बना (build_specials.js"), "पेज पर generator-निशान नहीं");
   ok(pg.includes("/assets/acs-universal.js"), "पेज universal ढाँचे पर नहीं");
   /* v8.0 (31-Aug): KKB2 मास्टर-परिवार (en+7) के पेज kkb2-ढाँचे पर — वहाँ kkb2-असेट व #kkb2-app जाँचें (गहरी जाँच dev_kkb2_check में) */
-  const KKB2FAM = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1, ur: 1, fa: 1, sd: 1, ks: 1, mr: 1, ne: 1, sw: 1, bho: 1, zh: 1, id: 1, tr: 1, mai: 1, it: 1, ms: 1, vi: 1, th: 1 }; /* 05-Sep: + th (परिवार 35, आठवें व अंतिम) */ /* 04-Sep: + vi (परिवार 34) */ /* 04-Sep: + ms (परिवार 33) */ /* 04-Sep: + it (परिवार 32) */ /* 04-Sep: + mai (परिवार 31) */ /* 04-Sep: + tr (परिवार 30) */ /* 03-Sep: + bho (परिवार 27) */ /* 03-Sep: + sw (4-भाषा खेप — मास्टर-दर्पण परिवार 26, पहली Latin) */
+  const KKB2FAM = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1, ur: 1, fa: 1, sd: 1, ks: 1, mr: 1, ne: 1, sw: 1, bho: 1, zh: 1, id: 1, tr: 1, mai: 1, it: 1, ms: 1, vi: 1, th: 1, sa: 1 }; /* 05-Sep: + sa संस्कृत (परिवार 36) */ /* 05-Sep: + th (परिवार 35, आठवें व अंतिम) */ /* 04-Sep: + vi (परिवार 34) */ /* 04-Sep: + ms (परिवार 33) */ /* 04-Sep: + it (परिवार 32) */ /* 04-Sep: + mai (परिवार 31) */ /* 04-Sep: + tr (परिवार 30) */ /* 03-Sep: + bho (परिवार 27) */ /* 03-Sep: + sw (4-भाषा खेप — मास्टर-दर्पण परिवार 26, पहली Latin) */
   if (KKB2FAM[SET.code]) {
     ["/assets/kkb2.css", "/assets/kkb2.js"].forEach(a => ok(pg.includes(a), tag + "पेज " + a + " नहीं बुलाता"));
     ok(pg.includes('id="kkb2-app"'), tag + "पेज में kkb2-app डिब्बा नहीं");

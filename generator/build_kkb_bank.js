@@ -47,7 +47,8 @@ var CFG = {
   it: { label: "इतालवी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.4 (04-Sep) — Latin, अगली-8 खेप का तीसरा */
   ms: { label: "मलय", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.5 (04-Sep) — Latin, अगली-8 खेप का चौथा */
   vi: { label: "वियतनामी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* v3.6 (04-Sep) — Latin+tone-marks, अगली-8 खेप का पाँचवाँ */
-  th: { label: "थाई", rot: [1, 2, 3, 4], au: true } /* v3.7 (05-Sep) — थाई-लिपि (space-रहित, जापानी जैसा) — rot में 6/7/12 (word-count-आधारित) शामिल नहीं, अगली-8 खेप का आठवाँ व अंतिम */
+  th: { label: "थाई", rot: [1, 2, 3, 4], au: true }, /* v3.7 */
+  sa: { label: "संस्कृत", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true } /* v3.8 (05-Sep) — देवनागरी [0]=[1], देव-भाषा परिवार */ /* v3.7 (05-Sep) — थाई-लिपि (space-रहित, जापानी जैसा) — rot में 6/7/12 (word-count-आधारित) शामिल नहीं, अगली-8 खेप का आठवाँ व अंतिम */
 };
 if (!CFG[CODE]) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|en|pt|kn|ta|te|bn|or|as|pa|gu|ml"); process.exit(1); }
 var L = CFG[CODE].label;
