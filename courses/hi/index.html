@@ -171,7 +171,8 @@
     <div class="khand-sub">दुनिया की 129 भाषाएँ। 35 भाषाओं का पूरा कोर्स (90 दिन) तैयार है। बाक़ी का छोटा कोर्स (5 सप्ताह) है। नीचे डिब्बा दबाओ, अपनी भाषा चुनो।</div>
     <div class="search-wrap"><input type="text" class="search-input" id="bhashaSearch" placeholder="🔍 भाषा खोजें... जैसे: English, अरबी, जापानी" oninput="filterBhasha()"/></div>
     <div class="bh-popular" id="bhPopular"></div>
-    <div id="bhashaGroups"></div>
+    <div id="bhLegend" class="bh-legend"></div>
+<div id="bhashaGroups"></div>
 
     <!-- खंड-स: डिप्लोमा -->
     <div class="khand-title">🎓 डिप्लोमा (केंद्र/वर्कशॉप से)</div>
@@ -405,6 +406,9 @@
 .bh-chips{padding:12px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .bh-chip{background:#fff;border:1.5px solid #1565C0;color:#1565C0;border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit}
 .bh-chip:hover{background:#1565C0;color:#fff}
+.bh-chip-full{background:#FFF8E1;border:2px solid #F9A825;color:#0B1F3A}
+.bh-chip-full:hover{background:#F9A825;color:#0B1F3A}
+.bh-legend{text-align:center;font-size:16px;color:#0B1F3A;margin:0 0 10px;line-height:1.8}
 .diploma-strip{background:#fff;border:1px solid #d7dde6;border-left:6px solid #2E7D32;border-radius:12px;padding:14px 16px;margin:0 auto 20px;max-width:860px;font-size:16px;color:#0B1F3A;line-height:1.8;text-align:center}
 .tag-level{background:#FFF3E0;color:var(--orange)}
 .tag-salary{background:#E8F5E9;color:var(--green)}
@@ -530,10 +534,11 @@ const KKB_GROUPS = window.KKB_GROUPS || [];   /* 01-Sep: एकमात्र �
 const KKB_POPULAR = window.KKB_POPULAR || []; /* सबसे माँग वाली */
 function kkbName(c){ var n=c.name_hi||''; n=n.split('·')[0]; /* 04-Sep नाम-नियम: पहला हिंदी-हिस्सा */ if(n.indexOf('प्रमाणपत्र कोर्स')>-1){ n=n.split('बोलने')[0]; } else if(n.indexOf('—')>-1){ n=n.split('—')[1]; } n=n.split('(')[0].replace('बोलना','').trim(); return n; }
 function kkbCourse(id){ var L=(typeof PRIVATE_JOB_COURSES!=='undefined')?PRIVATE_JOB_COURSES:[]; for(var i=0;i<L.length;i++){if(L[i].id===id)return L[i];} return null; }
-function bhChip(id){ var c=kkbCourse(id); if(!c)return ''; return '<button class="bh-chip" data-nm="'+kkbName(c)+'" onclick="openCourse(\''+id+'\',\'online\')">'+kkbName(c)+'</button>'; }
+function bhChip(id){ var c=kkbCourse(id); if(!c)return ''; var full=(c.name_hi||'').indexOf('प्रमाणपत्र कोर्स')>-1; /* 05-Sep: पूरा-कोर्स (90 दिन) की मशीन-पहचान courses_data नाम-रूप से — एक चीज़=एक जगह */ return '<button class="bh-chip'+(full?' bh-chip-full':'')+'" data-nm="'+kkbName(c)+'" onclick="openCourse(\''+id+'\',\'online\')">'+(full?'🎓 ':'')+kkbName(c)+'</button>'; }
 function renderBhasha(){
   var pop=document.getElementById('bhPopular'); if(!pop) return;
   pop.innerHTML='<div class="bh-pop-title">⭐ सबसे ज़्यादा माँग वाली:</div>'+KKB_POPULAR.map(bhChip).join('');
+  var lg=document.getElementById('bhLegend'); if(lg){ lg.innerHTML='🎓 सुनहरा डिब्बा = पूरा कोर्स (90 दिन)। सादा डिब्बा = छोटा कोर्स (5 सप्ताह)।'; }
   var host=document.getElementById('bhashaGroups');
   host.innerHTML=KKB_GROUPS.map(function(g){
     return '<details class="bh-group"><summary>'+g.e+' '+g.t+' <span class="bh-count">('+g.ids.length+' भाषाएँ)</span></summary><div class="bh-chips">'+g.ids.map(bhChip).join('')+'</div></details>';
