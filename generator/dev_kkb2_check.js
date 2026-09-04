@@ -159,6 +159,32 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
     });
   }
   mirror(D1, ME.L1, "स्तर-1"); mirror(D, ME.L2, "स्तर-2");
+  /* v4.2 (05-Sep, mai-होल से "नियम = robot-नियम") — दायरा सिर्फ़ देव-भाषा (mr/ne/bho/mai/sa):
+     (क) item[0]===item[1] व tw[0]===tw[1] अनिवार्य; (ख) CJK/fullwidth विराम (。？！，) निषिद्ध —
+     देवनागरी-पाठ में CJK-विराम = copy-paste contamination (mai-प्रकरण); zh/ja में 。 वैध, इसलिए वहाँ जाँच नहीं;
+     (ग) heroTitle देवनागरी हो (root-branding contamination-रोक)। */
+  (function () {
+    var DEVLANG = { mr: 1, ne: 1, bho: 1, mai: 1, sa: 1 }; /* देव-भाषा परिवार — SCRIPT_RULES.devLang का स्थानीय दर्पण (scope-भिन्न IIFE) */
+    var SR2 = { devLang: DEVLANG[CODE] }; var b2 = 0; var CJK = /[。？！，：；]/;
+    if (!SR2.devLang) { return; } /* दायरा: सिर्फ़ देव-भाषा परिवार */
+    function scanTxt(t, tag) { if (CJK.test(String(t))) { console.log("⛔ " + tag + " में CJK/fullwidth विराम: " + String(t).slice(0, 40)); b2++; } }
+    [D, D1].forEach(function (X, xi) {
+      var LV = xi ? "स्तर-1" : "स्तर-2";
+      scanTxt(X.heroTitle || "", LV + " heroTitle"); scanTxt(X.module || "", LV + " module");
+      (X.help || []).forEach(function (h) { scanTxt(h[0], LV + " help"); scanTxt(h[1], LV + " help"); });
+      X.weeks.forEach(function (w, wi) {
+        w.days.forEach(function (d, di) {
+          d.items.forEach(function (it, i) {
+            scanTxt(it[0], LV + " w" + wi + "d" + di + "#" + i + " [0]"); scanTxt(it[1], LV + " w" + wi + "d" + di + "#" + i + " [1]");
+            if (SR2.devLang && it[0] !== it[1]) { console.log("⛔ " + LV + " w" + wi + "d" + di + "#" + i + " देव-भाषा दर्पण-भंग [0]≠[1]: " + it[1]); b2++; }
+          });
+          (d.tw || []).forEach(function (t, i) { if (SR2.devLang && t[0] !== t[1]) { console.log("⛔ " + LV + " w" + wi + "d" + di + " tw#" + i + " देव-भाषा tw-भंग"); b2++; } });
+        });
+      });
+    });
+    if (SR2.devLang && D.heroTitle && !/[\u0900-\u097F]/.test(D.heroTitle)) { console.log("⛔ देव-भाषा heroTitle देवनागरी नहीं: " + D.heroTitle); b2++; }
+    if (b2) { fail += b2; } else console.log("शुद्धता-जाँच v4.2 (" + CODE + "): ✅ CJK-विराम शून्य · देव-भाषा [0]===[1] · root-branding देवनागरी");
+  })();
   if (bad) { fail += bad; } else console.log("मास्टर-दर्पण v4.1 (" + CODE + "): ✅ 2,150 वाक्य-ढाँचा + हिंदी-स्तंभ English मास्टर से हूबहू (भाषा-नाम छूट)" + (warn ? " · ⚠️×" + warn + " भंडारण-रूप नोट" : ""));
 })();
 global.window.scrollTo = function () { };
