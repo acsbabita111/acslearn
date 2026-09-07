@@ -50,9 +50,10 @@ lessons.forEach(f => {
 
 /* index-कड़ियाँ */
 const idx = fs.readFileSync(path.join(DIR,"index.html"),"utf8");
-const re=/href="(fwd-[a-z0-9-]+\.html)"/g; let m; let idxLinks=0;
-while((m=re.exec(idx))){ idxLinks++; if(!fileSet[m[1]]) holes.push("index: मरी कड़ी "+m[1]); }
-if (idxLinks !== 440) holes.push("index कड़ी-गिनती "+idxLinks+" (440 चाहिए)");
+const re=/href="(fwd-[a-z0-9-]+\.html)"/g; let m; const idxTargets={};
+while((m=re.exec(idx))){ idxTargets[m[1]]=1; if(!fileSet[m[1]]) holes.push("index: मरी कड़ी "+m[1]); }
+const idxLinks=Object.keys(idxTargets).length;
+if (idxLinks !== 440) holes.push("index अनोखी-कड़ी गिनती "+idxLinks+" (440 चाहिए)");
 if (/[\[\]]/.test(vis(idx.slice(idx.indexOf("PAGE-CONTENT-START"),idx.indexOf("PAGE-CONTENT-END"))))) holes.push("index: square bracket");
 
 /* अगला-पाठ ज़ंजीर: हर पाठ (अंतिम छोड़) में data-nextlsn हो */

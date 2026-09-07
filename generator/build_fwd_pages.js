@@ -40,7 +40,7 @@ const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
 
 const STAMP = "07-Sep-2026";
 const GEN_NOTE =
-  "<!-- ⚙️ यह पेज generator से बना है (generator/build_fwd_pages.js v1.0 · " + STAMP + ") —\n" +
+  "<!-- ⚙️ यह पेज generator से बना है (generator/build_fwd_pages.js v1.1 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->";
 
 /* ---------- देवनागरी → Roman slug (mushroom v1.0 से हूबहू) ---------- */
@@ -434,32 +434,175 @@ function buildLessonPage(l, all, i){
   return { page, words };
 }
 
-/* ---------- कोर्स-index ---------- */
+/* ---------- कोर्स-index (v1.1 — Founder-सुधार: पहला पेज = दिल + दृश्य + रास्ता) ---------- */
+const CH_ICONS = ["🚗","🛡️","🤝","⚠️","🎛️","🚦","👁️","🔧","⚡","🔍","🌧️","💪","⛑️","🆘","🧳","📦","⛽","📱","📜","💰","🌏","🛂","🧮","🗺️","🗣️","🏦","🪜","🚀"];
+const CH_LINE = [
+  "गाड़ी चलाने वाले से वैश्विक पेशेवर तक का पहला क़दम",
+  "जान सबसे पहले — सोच जो हर पाठ में साथ चलेगी",
+  "मीठी ज़बान और पक्का समय — कमाई का असली राज़",
+  "जिन ग़लतियों से करियर डूबता है — पहले ही जान लो",
+  "गियर, ब्रेक, स्टीयरिंग — गाड़ी को अपना दोस्त बनाओ",
+  "संकेत और नियम — सड़क की भाषा सीखो",
+  "ख़तरा आने से पहले दिखे — यही असली हुनर है",
+  "इंजन से डैशबोर्ड तक — गाड़ी के भीतर की दुनिया",
+  "ईवी और नई तकनीक — कल की गाड़ी आज सीखो",
+  "रोज़ की जाँच — बड़ी ख़राबी से पहले पकड़ो",
+  "बारिश, कोहरा, पहाड़, रात — हर हाल में सुरक्षित",
+  "चालक की सेहत — नींद, थकान और शरीर की रक्षा",
+  "दुर्घटना हो जाए तो — पहले मिनटों का ज्ञान",
+  "गाड़ी बीच रास्ते रुके तो — घबराओ नहीं, सँभालो",
+  "यात्री ख़ुश तो काम पक्का — सेवा की कला",
+  "सामान की सुरक्षा — भरोसे की कमाई",
+  "कम तेल में ज़्यादा दूरी — जेब की सीधी बचत",
+  "मोबाइल और ऐप — डिजिटल ज़माने का चालक",
+  "काग़ज़ पूरे तो डर किस बात का — क़ानून की समझ",
+  "टैक्सी से फ़्लीट तक — कमाई के सब रास्ते",
+  "विदेश में चालक-नौकरी — सपने की तैयारी",
+  "पासपोर्ट, वीज़ा और धोखे से बचाव — आँखें खोलो",
+  "विदेश जाने का पूरा हिसाब — फ़ायदे-नुक़सान साफ़",
+  "हर देश के अपने नियम — जाने से पहले जानो",
+  "एक हुनर + एक भाषा = दुगुनी कमाई",
+  "कमाई को संपत्ति बनाओ — पैसे की समझ",
+  "चालक से मालिक तक — अपनी सीढ़ी ख़ुद चढ़ो",
+  "आगे की दुनिया — और उसमें आपकी जगह"
+];
+
+function heroBanner(){
+  let s = '<svg viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="गाँव से विदेश तक — चालक का सफ़र">';
+  s += '<rect width="800" height="430" rx="20" fill="' + CLR.off + '"/>';
+  /* आसमान-पट्टी + सूरज */
+  s += '<rect x="14" y="14" width="772" height="250" rx="16" fill="#FFFFFF" stroke="' + CLR.blue + '" stroke-width="2"/>';
+  s += '<circle cx="700" cy="70" r="34" fill="' + CLR.gold + '"/>';
+  /* गाँव (बाएँ): झोपड़ी */
+  s += '<g stroke="' + CLR.navy + '" stroke-width="4" fill="none">';
+  s += '<path d="M60 190 L60 150 L100 120 L140 150 L140 190 Z"/><path d="M60 150 L140 150"/><rect x="88" y="158" width="24" height="32"/>';
+  /* शहर (बीच): इमारतें */
+  s += '<rect x="330" y="110" width="40" height="80"/><rect x="380" y="90" width="44" height="100"/><rect x="434" y="125" width="36" height="65"/>';
+  s += '<path d="M340 125 h20 M340 140 h20 M390 105 h24 M390 120 h24 M390 135 h24"/>';
+  /* हवाई जहाज़ (दाएँ) */
+  s += '<path d="M640 120 l60 -18 l-8 14 l30 4 l-34 10 l-4 16 l-10 -12 l-40 6 z" fill="' + CLR.blue + '" stroke="' + CLR.navy + '"/>';
+  s += '</g>';
+  /* नाम-पट्टियाँ */
+  s += '<text x="100" y="220" font-size="18" font-weight="700" fill="' + CLR.green + '" text-anchor="middle">गाँव</text>';
+  s += '<text x="400" y="220" font-size="18" font-weight="700" fill="' + CLR.blue + '" text-anchor="middle">शहर</text>';
+  s += '<text x="690" y="175" font-size="18" font-weight="700" fill="' + CLR.navy + '" text-anchor="middle">विदेश</text>';
+  /* सड़क */
+  s += '<rect x="14" y="270" width="772" height="86" rx="14" fill="' + CLR.navy + '"/>';
+  s += '<path d="M40 313 H760" stroke="' + CLR.gold + '" stroke-width="6" stroke-dasharray="34 26"/>';
+  /* गाड़ी */
+  s += '<g transform="translate(300 282)">';
+  s += '<path d="M10 44 q4 -22 30 -26 l18 -14 q6 -5 16 -5 h44 q10 0 16 6 l16 13 q28 3 32 26 l0 8 h-172 z" fill="' + CLR.gold + '" stroke="#FFFFFF" stroke-width="3"/>';
+  s += '<rect x="66" y="8" width="30" height="16" rx="3" fill="' + CLR.off + '"/><rect x="102" y="8" width="26" height="16" rx="3" fill="' + CLR.off + '"/>';
+  s += '<circle cx="48" cy="54" r="13" fill="' + CLR.off + '" stroke="' + CLR.navy + '" stroke-width="5"/><circle cx="148" cy="54" r="13" fill="' + CLR.off + '" stroke="' + CLR.navy + '" stroke-width="5"/>';
+  s += '</g>';
+  /* नारा-पट्टी */
+  s += '<rect x="14" y="368" width="772" height="48" rx="14" fill="#FFF8E1" stroke="' + CLR.gold + '" stroke-width="3"/>';
+  s += '<text x="400" y="399" font-size="21" font-weight="700" fill="' + CLR.navy + '" text-anchor="middle">गाड़ी चलाना हुनर है — और सच्चा हुनर सरहद नहीं देखता।</text>';
+  s += '</svg>';
+  return s;
+}
+
+function ladderSVG(){
+  const steps = [
+    ["📖","पहले मुफ़्त पढ़ो","यहीं, आज से"],
+    ["🚗","स्थानीय काम","गाँव-शहर में कमाई"],
+    ["🚕","टैक्सी व फ़्लीट","अपनी गाड़ी, अपना धंधा"],
+    ["🌏","विदेश-नौकरी","देश से विदेश तक"]
+  ];
+  let s = '<svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="कमाई की सीढ़ी">';
+  s += '<rect width="800" height="250" rx="18" fill="#FFFFFF" stroke="' + CLR.blue + '" stroke-width="2"/>';
+  s += '<defs><marker id="arL" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="24" refX="20" refY="12" orient="auto"><path d="M2,2 L24,12 L2,22 z" fill="' + CLR.gold + '" stroke="' + CLR.navy + '" stroke-width="2"/></marker></defs>';
+  const xs=[105,300,495,690];
+  steps.forEach((st,i)=>{
+    const y = 150 - i*22;
+    s += '<rect x="'+(xs[i]-88)+'" y="'+y+'" width="176" height="78" rx="14" fill="'+(i===3?CLR.green:CLR.off)+'" stroke="'+CLR.blue+'"/>';
+    s += '<text x="'+xs[i]+'" y="'+(y+30)+'" font-size="24" text-anchor="middle">'+st[0]+'</text>';
+    s += '<text x="'+xs[i]+'" y="'+(y+52)+'" font-size="17" font-weight="700" fill="'+(i===3?'#FFFFFF':CLR.navy)+'" text-anchor="middle">'+st[1]+'</text>';
+    s += '<text x="'+xs[i]+'" y="'+(y+70)+'" font-size="16" fill="'+(i===3?'#FFF8E1':CLR.blue)+'" text-anchor="middle">'+st[2]+'</text>';
+    if(i<3) s += '<line x1="'+(xs[i]+90)+'" y1="'+(y+18)+'" x2="'+(xs[i+1]-92)+'" y2="'+(y-6)+'" stroke="'+CLR.gold+'" stroke-width="6" marker-end="url(#arL)"/>';
+  });
+  s += '<text x="400" y="36" font-size="20" font-weight="700" fill="'+CLR.navy+'" text-anchor="middle">कमाई की सीढ़ी — एक-एक पायदान, साफ़ रास्ता</text>';
+  s += '</svg>';
+  return s;
+}
+
+const IDX_CSS =
+'<style>' +
+'.fw-stats{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}' +
+'.fw-stat{flex:1 1 160px;background:#FFFFFF;border:2px solid #1565C0;border-radius:16px;padding:14px 10px;text-align:center}' +
+'.fw-stat b{display:block;font-size:26px;color:#0B1F3A}' +
+'.fw-stat span{font-size:16px;color:#1565C0}' +
+'.fw-cta{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}' +
+'.fw-btn{flex:1 1 200px;display:block;text-align:center;padding:16px 12px;border-radius:14px;font-size:19px;font-weight:700;text-decoration:none}' +
+'.fw-btn-go{background:#F9A825;color:#0B1F3A;border:2px solid #0B1F3A}' +
+'.fw-btn-alt{background:#FFFFFF;color:#1565C0;border:2px solid #1565C0}' +
+'.fw-heart{background:#FFF8E1;border:2px solid #F9A825;border-radius:16px;padding:16px 18px;margin:16px 0}' +
+'.fw-lvl{border-radius:14px;padding:10px 16px;margin:26px 0 10px;color:#F5F7FA;font-size:20px;font-weight:700}' +
+'.fw-chline{display:block;font-size:16px;color:#2E7D32;margin-top:2px}' +
+'</style>';
+
 function buildIndex(all){
   function chapterBlock(c){
     const items = all.filter(l => l.ch === c.no).map(l =>
       '<li class="ci-item"><a class="msh-lsn" data-num="' + l.key + '" href="' + fileName(l) + '">पाठ-' + l.key + ": " + esc(l.title) +
       '</a><span class="ci-min">12 मिनट</span></li>'
     ).join("\n");
-    const lv = levelOf(c.no);
     return '<details class="ci-drop">\n' +
-      '<summary><span>अध्याय-' + c.no + ": " + esc(c.name) +
-      '</span><span class="ci-arrow">▼ ' + c.count + " पाठ · स्तर-" + lv.no + '</span></summary>\n' +
-      '<ul class="ci-list">\n' + items + '\n</ul>\n</details>\n\n';
+      '<summary><span>' + CH_ICONS[c.no-1] + ' अध्याय-' + c.no + ": " + esc(c.name) +
+      '<span class="fw-chline">' + CH_LINE[c.no-1] + '</span></span>' +
+      '<span class="ci-arrow">▼ ' + c.count + ' पाठ</span></summary>\n' +
+      '<ul class="ci-list">\n' + items + '\n</ul>\n</details>\n';
   }
-  const body = '\n<article class="lsn-wrap ci-wrap" data-msh-index>\n' +
+  const lvlColors = { 1:"#2E7D32", 2:"#1565C0", 3:"#0B1F3A", 4:"#F9A825" };
+  const lvlText   = { 1:"#F5F7FA", 2:"#F5F7FA", 3:"#F5F7FA", 4:"#0B1F3A" };
+  const lvlSub = {
+    1: "गाड़ी छूने से पहले — सोच, सुरक्षा और इरादा",
+    2: "स्टीयरिंग से सड़क तक — असली ड्राइविंग की पूरी विद्या",
+    3: "अब कमाई की बारी — यात्री, सामान, ऐप और क़ानून",
+    4: "देश से विदेश तक — पासपोर्ट, भाषा, पैसा और मालिक बनने की राह"
+  };
+  const firstFile = fileName(all[0]);
+  const levelsHtml = C.levels.map(lv =>
+    '<div class="fw-lvl" style="background:' + lvlColors[lv.no] + ';color:' + lvlText[lv.no] + '">' +
+    '🎓 स्तर-' + lv.no + ": " + esc(lv.name) + ' — <span style="font-weight:600;font-size:17px">' + lvlSub[lv.no] + '</span></div>\n' +
+    C.chapters.filter(c => c.no >= lv.from && c.no <= lv.to).map(chapterBlock).join("")
+  ).join("\n");
+
+  const body = '\n<article class="lsn-wrap ci-wrap" data-msh-index>\n' + IDX_CSS + '\n' +
     '<header class="lsn-head">\n' +
     '<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ' + esc(C.title) + "</p>\n" +
     "<h1>" + esc(C.title) + "</h1>\n" +
-    '<p class="lsn-meta">ऑनलाइन पढ़ाई पूरी तरह मुफ़्त · बिना login · अपनी गति से · कुल ' + C.totalLessons + " पाठ · 28 अध्याय · 4 स्तर</p>\n" +
+    '<p class="lsn-meta">जो हाथ स्टीयरिंग थामना जानते हैं, उनके लिए दुनिया में कहीं भी काम है।</p>\n' +
     "</header>\n\n" +
+    '<figure class="lsn-fig">' + heroBanner() + '</figure>\n\n' +
+    '<div class="fw-stats">' +
+    '<div class="fw-stat"><b>440</b><span>पाठ — सब मुफ़्त</span></div>' +
+    '<div class="fw-stat"><b>28</b><span>अध्याय · 4 स्तर</span></div>' +
+    '<div class="fw-stat"><b>0 रुपये</b><span>बिना login पढ़ो</span></div>' +
+    '<div class="fw-stat"><b>🌏</b><span>देश से विदेश तक</span></div>' +
+    '</div>\n' +
+    '<div class="fw-cta">' +
+    '<a class="fw-btn fw-btn-go" href="' + firstFile + '">🚀 पाठ-1 से अभी शुरू करें</a>' +
+    '<a class="fw-btn fw-btn-alt" href="#fwlist">📖 पूरी पाठ-सूची देखें</a>' +
+    '<a class="fw-btn fw-btn-alt" href="/aptitude-test.html">🧭 पहले अपनी रुचि जाँचें</a>' +
+    '</div>\n\n' +
+    '<div class="fw-heart">\n' +
+    '<p><b>एक छोटी-सी बात, दिल से।</b> हमारे इलाक़े में रामदीन चाचा तीस साल से स्कूल की गाड़ी चलाते हैं। तीस साल में एक भी बच्चे को खरोंच नहीं आई। आज पूरा इलाक़ा उन्हें सलाम करता है, और उनके बेटे के पास तीन गाड़ियाँ हैं।</p>\n' +
+    '<p>यह इज़्ज़त और यह कमाई किसी जादू से नहीं आई — <b>सीखे हुए हुनर</b> से आई। वही हुनर, पूरा का पूरा, इन 440 पाठों में है। आपकी अपनी भाषा में। बिल्कुल मुफ़्त।</p>\n' +
+    '<p>कोई किताब नहीं ख़रीदनी। कोई फ़ीस नहीं। बस रोज़ थोड़ा पढ़िए — और अपने सपने की गाड़ी ख़ुद चलाइए।</p>\n' +
+    '</div>\n\n' +
+    '<figure class="lsn-fig">' + ladderSVG() + '</figure>\n\n' +
     '<section class="lsn-sec">\n<h2>यह कोर्स किसके लिए है</h2>\n' +
-    "<p>यह कोर्स उनके लिए है जो गाड़ी चलाकर इज़्ज़त की कमाई करना चाहते हैं — नए सीखने वाले, चलते चालक, टैक्सी (Taxi)-मालिक बनने का सपना देखने वाले, और विदेश में चालक-नौकरी चाहने वाले। पढ़ने के लिए कक्षा-6 तक की हिंदी काफ़ी है।</p>\n" +
-    "<p>पढ़ाई का रास्ता सीधा है — <b>पहले यहाँ मुफ़्त पढ़ो</b>, साथ-साथ अभ्यास करते चलो। कोर्स पूरा करने पर ऑनलाइन परीक्षा से प्रमाणपत्र का रास्ता खुलता है; गाड़ी का असली अभ्यास हमेशा किसी सिखाने वाले की देख-रेख में, खुली-सुरक्षित जगह पर।</p>\n" +
+    "<p><b>उस युवा के लिए</b> जो नया सीखकर पहली कमाई चाहता है। <b>उस चलते चालक के लिए</b> जो और आगे — टैक्सी, फ़्लीट, विदेश — जाना चाहता है। <b>उस परिवार के लिए</b> जो अपने बेटे-बेटी को सुरक्षित, इज़्ज़तदार हुनर देना चाहता है। पढ़ने के लिए कक्षा-6 तक की हिंदी काफ़ी है।</p>\n" +
+    "<p>कोर्स पूरा करने पर ऑनलाइन परीक्षा से प्रमाणपत्र का रास्ता खुलता है। गाड़ी का असली अभ्यास हमेशा किसी सिखाने वाले की देख-रेख में, खुली-सुरक्षित जगह पर।</p>\n" +
     "<p><b>" + esc(C.licenceLine) + "</b></p>\n" +
     '<p class="msh-legend"><b>रंग का मतलब:</b> <span class="lg lg-done">हरा = पढ़ा</span> · <span class="lg lg-todo">काला = अभी बाक़ी</span> · <span class="lg lg-miss">लाल = छूट गया</span></p>\n' +
     "</section>\n\n" +
-    C.chapters.map(chapterBlock).join("") +
+    '<h2 id="fwlist" style="color:#0B1F3A">📖 पूरी पाठ-सूची — अपनी गति से, अपने रास्ते</h2>\n' +
+    levelsHtml + '\n' +
+    '<div class="fw-cta">' +
+    '<a class="fw-btn fw-btn-go" href="' + firstFile + '">🚀 अभी पाठ-1 से शुरू करें — पहला क़दम आज</a>' +
+    '</div>\n' +
     "</article>\n";
   const canonical = "https://acslearn.com/courses/" + C.lang + "/" + C.slug + "/";
   return assemble(body, {
