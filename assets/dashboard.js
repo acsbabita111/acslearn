@@ -1453,7 +1453,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 /* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
      पूर्ण-स्क्रीन ओवरले (table-row के भीतर नहीं) — बड़े छूने-लायक़ विकल्प,
      अ/ब/स/द देवनागरी-बैज, ACS के मौजूदा 5 रंगों में ही (कोई नया रंग नहीं)। */
-  const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true, SE021: true, PJ018: true,
+  const SERVER_EXAM_COURSES = { PJ016: true, SE022: true, SE023: true, SE009: true, SE021: true, SE024: true, PJ018: true,
     PJ022: true, PJ086: true, PJ021: true, PJ026: true, PJ031: true, PJ125: true, PJ052: true, PJ137: true,
     PJ024: true, PJ019: true, PJ029: true, PJ028: true, PJ023: true, PJ057: true, PJ041: true, PJ039: true, PJ033: true, PJ056: true, PJ055: true, PJ035: true, PJ049: true, PJ046: true, PJ027: true, PJ047: true, PJ032: true, PJ038: true, PJ020: true, PJ025: true, PJ030: true, PJ042: true, PJ126: true, PJ070: true, PJ065: true, PJ066: true, PJ147: true /* (05-Sep) + संस्कृत sa_bank — देव-भाषा */ /* (05-Sep) + थाई th_bank — अगली-8 खेप का आठवाँ व अंतिम */ /* (04-Sep) + वियतनामी vi_bank */ /* (04-Sep) + मलय ms_bank */ /* (04-Sep) + इतालवी it_bank */ /* (04-Sep) + मैथिली mai_bank */ /* (04-Sep) + तुर्की tr_bank — अगली-8 खेप का तीसरा */ /* पूर्व: + सिंधी sd_bank + कश्मीरी ks_bank */ /* (02-Sep) + 10 KKB भाषाएँ + उर्दू/फ़ारसी (ur_bank/fa_bank, RTL-परिवार) */ }; /* (01-Sep) + हिब्रू PJ137 (he_bank) */ /* (31-Aug) KKB मास्टर-प्रतिकृति: 7 भाषा-परीक्षाएँ (ar/fr/es/ja/ko/de/ru बैंक) */
   /* (31-Aug) सुनो-प्रश्न की आवाज़ कोर्स-वार — रूसी v2.0: असली सिरिलिक ⇒ ru-RU (Founder-आदेश) */
