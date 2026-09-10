@@ -1301,9 +1301,13 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const tot=Number(c.lessons)||90, pc=tot?Math.min(100,Math.round(read*100/tot)):0;
     const exam=!!((window.COURSE_EXAMS||{})[c.id]);
     const nm=langShort(c), rom=langRoman(c);
-    return '<article class="lgcard" data-g="'+(gi>=0?gi:"x")+'" data-nm="'+(nm+" "+rom).toLowerCase()+'" style="--tint:'+(LG_TINT[gi]||"#F5F7FA")+'">'+
-      '<div class="lgtop"><span class="lgglyph'+(langGlyph(c).length>3?" long":"")+'" aria-hidden="true">'+langGlyph(c)+'</span>'+(glabel?'<span class="lgcor">'+glabel+'</span>':"")+'</div>'+
-      '<div class="lgbody"><div class="lgname">'+nm+(rom?'<small>'+rom+'</small>':"")+'</div>'+
+    const gl=langGlyph(c);
+    /* 10-Sep (Founder-आदेश): नाम केंद्र में, सुनहरे 3D switch पर, बड़ा — एक नज़र में पहचान; नीचे "कौन-सा प्रमाणपत्र मिलेगा" अनिवार्य (v6.1-क नाम-नियम: X बोलने का प्रमाणपत्र = Certificate in Spoken X; CEFR A2 पर आधारित) */
+    return '<article class="lgcard v3" data-g="'+(gi>=0?gi:"x")+'" data-nm="'+(nm+" "+rom).toLowerCase()+'" style="--tint:'+(LG_TINT[gi]||"#F5F7FA")+'">'+
+      '<div class="lgtop"><span class="lgglyph'+(gl.length>3?" long":"")+'" aria-hidden="true">'+gl+'</span>'+(glabel?'<span class="lgcor">'+glabel+'</span>':"")+'</div>'+
+      '<div class="lgswitch"><span class="lgsw-hi">'+nm+'</span>'+(rom?'<span class="lgsw-en">'+rom+'</span>':"")+'</div>'+
+      '<div class="lgbody">'+
+      '<div class="lgcert"><span class="lgcert-k">पूरा करने पर मिलेगा:</span><span class="lgcert-hi">'+nm+' बोलने का प्रमाणपत्र</span>'+(rom?'<span class="lgcert-en">Certificate in Spoken '+rom+' (CEFR A2 पर आधारित)</span>':"")+'</div>'+
       '<div class="lgmeta">90 दिन में 2,150 वाक्य — असली लिपि, देवनागरी उच्चारण, आवाज़ के साथ</div>'+
       (read?'<div class="lgprog"><div class="bar"><i style="width:'+pc+'%"></i></div>'+pc+'% पढ़ा — '+read+'/'+tot+' पाठ</div>':"")+
       '<a class="lggo" href="'+c.url+'">'+(read?"▶ जारी रखें":"▶ पढ़ें — मुफ़्त")+'</a>'+

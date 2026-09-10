@@ -397,3 +397,22 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .lggo:focus-visible,.lgf:focus-visible,.lgjoin:focus-visible,#lgSearch:focus-visible{outline:3px solid var(--gold,#F9A825);outline-offset:2px}
 @media(min-width:900px){.lgsec .lggrid{grid-template-columns:repeat(auto-fill,minmax(196px,1fr))}}
 @media(prefers-reduced-motion:no-preference){.lggo,.lgf{transition:background-color .15s}}
+
+/* ── भाषा-कार्ड v3 (10-Sep-2026, Founder-आदेश): नाम केंद्र में · सुनहरा 3D switch · प्रमाणपत्र-पंक्ति ── */
+.lgcard.v3{text-align:center}
+.lgcard.v3 .lgtop{border-bottom:0;justify-content:center;align-items:center;min-height:104px;padding:16px 14px 30px}
+.lgcard.v3 .lgglyph{font-size:58px}.lgcard.v3 .lgglyph.long{font-size:42px}
+.lgswitch{margin:-26px 12px 0;position:relative;z-index:1;border-radius:18px;padding:10px 14px 12px;
+  background:linear-gradient(180deg,#FFE28A 0%,#F9A825 48%,#E8930F 100%);
+  border:1.5px solid #C97A05;
+  box-shadow:0 5px 0 #A86400,0 9px 18px rgba(11,31,58,.22),inset 0 2px 0 rgba(255,255,255,.65),inset 0 -2px 0 rgba(0,0,0,.08)}
+.lgsw-hi{display:block;font-size:26px;font-weight:900;line-height:1.15;color:var(--navy,#0B1F3A);text-shadow:0 1px 0 rgba(255,255,255,.55);word-break:break-word}
+.lgsw-en{display:block;font-size:16px;font-weight:700;color:rgba(11,31,58,.82);font-family:Inter,system-ui,sans-serif;margin-top:2px;letter-spacing:.2px}
+.lgcard.v3 .lgbody{padding:16px 14px 14px;gap:9px}
+.lgcert{display:flex;flex-direction:column;gap:2px;padding:8px 10px;border-radius:12px;background:#F5F7FA;border:1px dashed #C9D4E3}
+.lgcert-k{font-size:16px;color:rgba(11,31,58,.68)}
+.lgcert-hi{font-size:17px;font-weight:800;color:var(--navy,#0B1F3A);line-height:1.35}
+.lgcert-en{font-size:16px;color:rgba(11,31,58,.7);font-family:Inter,system-ui,sans-serif;line-height:1.35}
+.lgcard.v3 .lgmeta{font-size:16px}
+.lgcard.v3 .lgfoot{justify-content:center}
+@media(min-width:900px){.lgsw-hi{font-size:28px}}
