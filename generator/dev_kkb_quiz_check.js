@@ -13,7 +13,7 @@
 var fs = require("fs");
 var CODE = (process.argv[2] || "").toLowerCase();
 var PID = { ar: "PJ022", fr: "PJ086", es: "PJ021", ja: "PJ026", ko: "PJ031", de: "PJ125", ru: "PJ052", he: "PJ137", en: "PJ018",
-  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055", fa: "PJ035", sd: "PJ049", ks: "PJ046", mr: "PJ027", ne: "PJ047", sw: "PJ032", bho: "PJ038", zh: "PJ020", id: "PJ025", tr: "PJ030", mai: "PJ042", it: "PJ126", ms: "PJ070", vi: "PJ065", th: "PJ066", sa: "PJ147" }[CODE]; /* 05-Sep: + sa संस्कृत */ /* 02-Sep: +10; + ur/fa/sd/ks (RTL-परिवार) */
+  pt: "PJ024", kn: "PJ019", ta: "PJ029", te: "PJ028", bn: "PJ023", or: "PJ057", as: "PJ041", pa: "PJ039", gu: "PJ033", ml: "PJ056", ur: "PJ055", fa: "PJ035", sd: "PJ049", ks: "PJ046", mr: "PJ027", ne: "PJ047", sw: "PJ032", bho: "PJ038", zh: "PJ020", id: "PJ025", tr: "PJ030", mai: "PJ042", it: "PJ126", ms: "PJ070", vi: "PJ065", th: "PJ066", sa: "PJ147", pl: "PJ127", uk: "PJ128", hr: "PJ138", sr: "PJ139", lt: "PJ141", sk: "PJ143", fi: "PJ142", ka: "PJ144", awa: "PJ059", bgc: "PJ043", bhb: "PJ104", bjj: "PJ103", doi: "PJ050", gbm: "PJ053", kfy: "PJ054", hne: "PJ040", mag: "PJ060", gom: "PJ048", mwr: "PJ044", mni: "PJ051", skr: "PJ108", pnb: "PJ107", syl: "PJ109", tcy: "PJ105", gon: "PJ106", sat: "PJ045", anp: "PJ102", af: "PJ087", ha: "PJ036", so: "PJ082", wo: "PJ124", lg: "PJ088", rw: "PJ084", ny: "PJ089", sn: "PJ121", tw: "PJ085", om: "PJ081", bm: "PJ123", mg: "PJ083", am: "PJ080", ti: "PJ146", yo: "PJ076", ig: "PJ077", zu: "PJ078", xh: "PJ079", bo: "PJ075", ceb: "PJ073", jv: "PJ034", km: "PJ068", lo: "PJ069", mn: "PJ074", my: "PJ067", nan: "PJ037", su: "PJ072", tl: "PJ071", yue: "PJ114" }[CODE]; /* 10-Sep merge-दौर: + SE-एशिया 11 (bo/ceb/jv/km/lo/mn/my/nan/su/tl/yue) */ /* 07-Sep: + pl/uk पोलिश/यूक्रेनी */ /* 05-Sep: + sa संस्कृत */ /* 02-Sep: +10; + ur/fa/sd/ks (RTL-परिवार) */
 if (!PID) { console.log("⛔ भाषा-code दीजिए: ar|fr|es|ja|ko|de|ru|he|pt|kn|ta|te|bn|or|as|pa|gu|ml"); process.exit(1); }
 var fail = 0;
 function ok(c, m) { if (!c) { console.log("⛔ " + m); fail++; } }
@@ -26,7 +26,7 @@ eval(fs.readFileSync(CODE === "en" ? "assets/kkb_data.js" : "assets/kkb_" + CODE
 eval(fs.readFileSync(CODE === "en" ? "assets/kkb2_data.js" : "assets/kkb2_" + CODE + "_data.js", "utf8"));
 var SPOK = {};
 function clean(t) { return String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, "").replace(/^\([^()\s]{1,8}\)\s*/, "").replace(/\s*\([^()]*[\u0900-\u097F][^()]*\)\s*$/, ""); } /* v2.0: (שמע)/(דבר)-जैसे लिपि-टैग व अंत का (देवनागरी-उच्चारण) भी हटे — listen-भंडारण-रूप */
-function spokenT(t) { t = clean(t); if (CODE === "ja" || CODE === "zh") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* 04-Sep: zh भी pinyin-कोष्ठक AU-टकराव-मुक्त */
+function spokenT(t) { t = clean(t); if (CODE === "ja" || CODE === "zh" || CODE === "nan") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* 04-Sep: zh भी pinyin-कोष्ठक AU-टकराव-मुक्त */
 [global.window.KKB_DATA, global.window.KKB2_DATA].forEach(function (D) {
   D.weeks.forEach(function (w) { w.days.forEach(function (d) { d.items.forEach(function (it) { SPOK[spokenT(it[0])] = 1; }); });
     (w.listen || []).forEach(function (p) { SPOK[spokenT(p[0])] = 1; SPOK[spokenT(p[1])] = 1; });   /* v2.0: T17 के सवाल-जवाब listen/dialog से */

@@ -102,11 +102,48 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
     zh:  { native: /[\u4E00-\u9FFF\u3400-\u4DBF]/, name: "Han (Chinese)", devInItem0: false },
     id:  { native: /[A-Za-z]/, name: "Latin", devInItem0: false }, /* 04-Sep अगली-8 का दूसरा — इंडोनेशियाई */
     tr:  { native: /[A-Za-zğüşıöçĞÜŞİÖÇ]/, name: "Latin (Turkish)", devInItem0: false }, /* 04-Sep अगली-8 का तीसरा — तुर्की */
-    mai: { native: /[\u0900-\u097F]/, name: "Devanagari (Maithili)", devInItem0: true, devLang: true }, /* 04-Sep अगली-8 का चौथा — मैथिली */
+    mai: { native: /[\u0900-\u097F]/, name: "Devanagari (Maithili)", devInItem0: true, devLang: true }, awa: { native: /[\u0900-\u097F]/, name: "Devanagari (Awadhi)", devInItem0: true, devLang: true }, bgc: { native: /[\u0900-\u097F]/, name: "Devanagari (Haryanvi)", devInItem0: true, devLang: true }, bhb: { native: /[\u0900-\u097F]/, name: "Devanagari (Bhili)", devInItem0: true, devLang: true }, bjj: { native: /[\u0900-\u097F]/, name: "Devanagari (Bajjika)", devInItem0: true, devLang: true }, doi: { native: /[\u0900-\u097F]/, name: "Devanagari (Dogri)", devInItem0: true, devLang: true }, gbm: { native: /[\u0900-\u097F]/, name: "Devanagari (Garhwali)", devInItem0: true, devLang: true }, kfy: { native: /[\u0900-\u097F]/, name: "Devanagari (Kumaoni)", devInItem0: true, devLang: true }, hne: { native: /[\u0900-\u097F]/, name: "Devanagari (Chhattisgarhi)", devInItem0: true, devLang: true }, mag: { native: /[\u0900-\u097F]/, name: "Devanagari (Magahi)", devInItem0: true, devLang: true }, gom: { native: /[\u0900-\u097F]/, name: "Devanagari (Konkani)", devInItem0: true, devLang: true }, mwr: { native: /[\u0900-\u097F]/, name: "Devanagari (Marwari)", devInItem0: true, devLang: true }, mni: { native: /[\u0900-\u097F]/, name: "Devanagari (Manipuri)", devInItem0: true, devLang: true }, skr: { native: /[\u0900-\u097F]/, name: "Devanagari (Saraiki)", devInItem0: true, devLang: true }, pnb: { native: /[\u0900-\u097F]/, name: "Devanagari (Western Punjabi)", devInItem0: true, devLang: true }, syl: { native: /[\u0900-\u097F]/, name: "Devanagari (Sylheti)", devInItem0: true, devLang: true }, tcy: { native: /[\u0900-\u097F]/, name: "Devanagari (Tulu)", devInItem0: true, devLang: true }, gon: { native: /[\u0900-\u097F]/, name: "Devanagari (Gondi)", devInItem0: true, devLang: true }, sat: { native: /[\u0900-\u097F]/, name: "Devanagari (Santali)", devInItem0: true, devLang: true }, anp: { native: /[\u0900-\u097F]/, name: "Devanagari (Angika)", devInItem0: true, devLang: true }, /* 04-Sep अगली-8 का चौथा — मैथिली */
     it:  { native: /[A-Za-zàèéìòù]/, name: "Latin (Italian)", devInItem0: false }, /* 04-Sep अगली-8 का पाँचवाँ — इतालवी */
     ms:  { native: /[A-Za-z]/, name: "Latin (Malay)", devInItem0: false }, /* 04-Sep अगली-8 का छठा — मलय */
     vi:  { native: /[A-Za-zÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]/, name: "Latin (Vietnamese, tone-marks)", devInItem0: false }, /* 04-Sep अगली-8 का सातवाँ — वियतनामी; Ạ-ỹ = U+1EA0-U+1EF9 (Vietnamese-only block) — U+0900 देवनागरी इस दायरे से बाहर */
-    th:  { native: /[\u0E00-\u0E7F]/, name: "Thai", devInItem0: false } /* 05-Sep अगली-8 का आठवाँ व अंतिम — थाई; U+0E00-U+0E7F देवनागरी (U+0900) से टकराव-मुक्त */
+    th:  { native: /[\u0E00-\u0E7F]/, name: "Thai", devInItem0: false }, /* 05-Sep अगली-8 का आठवाँ व अंतिम — थाई; U+0E00-U+0E7F देवनागरी (U+0900) से टकराव-मुक्त */
+    pl:  { native: /[A-Za-z\u0104\u0105\u0106\u0107\u0118\u0119\u0141\u0142\u0143\u0144\u00d3\u00f3\u015a\u015b\u0179\u017a\u017b\u017c]/, name: "Latin (Polish)", devInItem0: false }, /* 07-Sep: पूर्वी-यूरोप-खेप-1 — पोलिश; Unicode-escape से लिखा (टाइपो-रोक) */
+    uk:  { native: /[\u0400-\u04FF]/, name: "Cyrillic (Ukrainian)", devInItem0: false }, /* 07-Sep: पूर्वी-यूरोप-खेप-2 — यूक्रेनी */
+    hr:  { native: /[A-Za-z\u0106\u0107\u010c\u010d\u0110\u0111\u0160\u0161\u017d\u017e]/, name: "Latin (Croatian)", devInItem0: false }, /* 07-Sep: पूर्वी-यूरोप-खेप-3 — क्रोएशियाई */
+    sr:  { native: /[\u0400-\u04FF]/, name: "Cyrillic (Serbian)", devInItem0: false }, /* 07-Sep: पूर्वी-यूरोप-खेप-4 — सर्बियाई (L1 जैसा Cyrillic) */
+    lt:  { native: /[A-Za-z\u0104\u0105\u010C\u010D\u0116\u0117\u0118\u0119\u012E\u012F\u0160\u0161\u0172\u0173\u016A\u016B\u017D\u017E]/, name: "Latin (Lithuanian)", devInItem0: false }, /* 07-Sep: पूर्वी-यूरोप-खेप-5 — लिथुआनियाई */
+    sk:  { native: /[A-Za-z\u00C1\u00E1\u00C4\u00E4\u010C\u010D\u00C9\u00E9\u00CD\u00ED\u013D\u013E\u0139\u013A\u0147\u0148\u00D3\u00F3\u0154\u0155\u0160\u0161\u0164\u0165\u00DA\u00FA\u00DD\u00FD\u017D\u017E]/, name: "Latin (Slovak)", devInItem0: false }, /* 07-Sep: पूर्वी-यूरोप-खेप-6 — स्लोवाक */
+    fi:  { native: /[A-Za-z\u00C4\u00E4\u00D6\u00F6]/, name: "Latin (Finnish)", devInItem0: false } /* 07-Sep: उत्तर-यूरोप — फ़िनिश */,
+    ka:  { native: /[\u10A0-\u10FF]/, name: "Georgian (Mkhedruli)", devInItem0: false } /* 08-Sep: जॉर्जियाई — Georgian script, non-Latin */ /* 07-Sep: उत्तर-यूरोप — फ़िनिश */ /* 07-Sep: पूर्वी-यूरोप-खेप-6 — स्लोवाक */,
+    af: { native: /[A-Za-z]/, name: "Latin (Afrikaans)", devInItem0: false },
+    am: { native: /[\u1200-\u137F]/, name: "Ethiopic (Amharic)", devInItem0: false },
+    bm: { native: /[A-Za-z]/, name: "Latin (Bambara)", devInItem0: false },
+    ha: { native: /[A-Za-z]/, name: "Latin (Hausa)", devInItem0: false },
+    ig: { native: /[A-Za-z\u1E00-\u1EFF]/, name: "Latin (Igbo)", devInItem0: false },
+    lg: { native: /[A-Za-z]/, name: "Latin (Luganda)", devInItem0: false },
+    mg: { native: /[A-Za-z]/, name: "Latin (Malagasy)", devInItem0: false },
+    ny: { native: /[A-Za-z]/, name: "Latin (Chichewa)", devInItem0: false },
+    om: { native: /[A-Za-z]/, name: "Latin (Oromo)", devInItem0: false },
+    rw: { native: /[A-Za-z]/, name: "Latin (Kinyarwanda)", devInItem0: false },
+    sn: { native: /[A-Za-z]/, name: "Latin (Shona)", devInItem0: false },
+    so: { native: /[A-Za-z]/, name: "Latin (Somali)", devInItem0: false },
+    ti: { native: /[\u1200-\u137F]/, name: "Ethiopic (Tigrinya)", devInItem0: false },
+    tw: { native: /[A-Za-z]/, name: "Latin (Akan/Twi)", devInItem0: false },
+    wo: { native: /[A-Za-z]/, name: "Latin (Wolof)", devInItem0: false },
+    xh: { native: /[A-Za-z]/, name: "Latin (Xhosa)", devInItem0: false },
+    yo: { native: /[A-Za-z\u1E00-\u1EFF]/, name: "Latin (Yoruba)", devInItem0: false },
+    zu: { native: /[A-Za-z]/, name: "Latin (Zulu)", devInItem0: false },
+    bo:  { native: /[\u0F00-\u0FFF]/, name: "Tibetan", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का पहला — Tibetan Uchen लिपि; pyewts (Wylie) आधारित transliterator, silent-prefix सरलीकरण */
+    ceb: { native: /[A-Za-z]/, name: "Latin (Cebuano)", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का दूसरा — फ़िलीपींस, अत्यंत ध्वन्यात्मक */
+    jv:  { native: /[A-Za-z]/, name: "Latin (Javanese)", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का तीसरा — इंडोनेशिया, L1 पहले से साफ़ (कोई corruption नहीं मिला) */
+    km:  { native: /[\u1780-\u17FF]/, name: "Khmer", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का चौथा — कंबोडिया; कोई automatic transliteration library नहीं मिली, हर वाक्य manually दोनों कॉलम में लिखा गया */
+    lo:  { native: /[\u0E80-\u0EFF]/, name: "Lao", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का पाँचवाँ — लाओस; कोई automatic transliteration library नहीं मिली (aksharamukha टूटा output), हर वाक्य manually दोनों कॉलम में लिखा गया */
+    mn:  { native: /[А-Яа-яЁёӨөҮү]/, name: "Cyrillic (Mongolian)", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का छठा — मंगोलिया, Cyrillic space-विभाजित; अपना transliterator बनाया, L1-corpus से calibrate किया */
+    my:  { native: /[\u1000-\u109F]/, name: "Myanmar", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का सातवाँ — म्यांमार, space-रहित; कोई automatic transliteration library नहीं मिली (aksharamukha academic IAST), हर वाक्य manually दोनों कॉलम में लिखा गया */
+    nan: { native: /[\u4E00-\u9FFF\u3400-\u4DBF]/, name: "Han (Min Nan/Hokkien)", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का आठवाँ — मीनान चीनी/Hokkien, Han-script space-रहित; L1-corpus में Han+POJ रोमनीकरण साथ दिया गया — इसी पैटर्न से manually लिखा; ⚠️ कम-दस्तावेज़ीकृत बोली-भाषा, भविष्य में Hokkien-भाषी समीक्षक से सत्यापन ज़रूरी */
+    su:  { native: /[A-Za-z]/, name: "Latin (Sundanese)", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का नौवाँ — इंडोनेशिया, Latin native, L1 पहले से साफ़ */
+    tl:  { native: /[A-Za-z]/, name: "Latin (Tagalog)", devInItem0: false }, /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का दसवाँ — फ़िलीपींस, Latin native, L1 पहले से साफ़ */
+    yue: { native: /[\u4E00-\u9FFF\u3400-\u4DBF]/, name: "Han (Cantonese)", devInItem0: false } /* 10-Sep पूर्व/दक्षिण-पूर्व एशिया खेप का ग्यारहवाँ व अंतिम — हांगकांग/ग्वांगदोंग, Han-script space-रहित; L1 में कोई parenthetical romanization नहीं (Mandarin/nan से अलग) */
   };
   var R = SCRIPT_RULES[CODE];
   if (!R) { console.log("⛔ SCRIPT_RULES में भाषा '" + CODE + "' दर्ज नहीं — नई भाषा जोड़ने से पहले यहाँ नियम लिखो (fail-closed)"); fail++; return; }
@@ -134,7 +171,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   var bad = 0, warn = 0;
   /* भाषा-नाम-प्रतिस्थापन छूट (Global South substitution): "अंग्रेज़ी/English" ⇄ अपनी भाषा का नाम —
      सिर्फ़ यही अंतर मान्य; बाक़ी हिंदी-पंक्ति byte-बराबर हो */
-  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू", pt: "पुर्तगाली", kn: "कन्नड", ta: "तमिल", ml: "मलयालम", te: "तेलुगु", bn: "बांग्ला", or: "उड़िया", as: "असमिया", pa: "पंजाबी", gu: "गुजराती", ur: "उर्दू" , ks: "कश्मीरी" , fa: "फ़ारसी" , sd: "सिंधी" , mr: "मराठी" , ne: "नेपाली" , bho: "भोजपुरी" , sw: "स्वाहिली" , zh: "चीनी" , id: "इंडोनेशियाई" , tr: "तुर्की" , mai: "मैथिली" , it: "इतालवी" , ms: "मलय" , vi: "वियतनामी" , th: "थाई" , sa: "संस्कृत" };
+  var LNAME = { ar: "अरबी", fr: "फ़्रेंच", es: "स्पेनिश", ja: "जापानी", ko: "कोरियाई", de: "जर्मन", ru: "रूसी", he: "हिब्रू", pt: "पुर्तगाली", kn: "कन्नड", ta: "तमिल", ml: "मलयालम", te: "तेलुगु", bn: "बांग्ला", or: "उड़िया", as: "असमिया", pa: "पंजाबी", gu: "गुजराती", ur: "उर्दू" , ks: "कश्मीरी" , fa: "फ़ारसी" , sd: "सिंधी" , mr: "मराठी" , ne: "नेपाली" , bho: "भोजपुरी" , sw: "स्वाहिली" , zh: "चीनी" , id: "इंडोनेशियाई" , tr: "तुर्की" , mai: "मैथिली" , awa: "अवधी" , bgc: "हरियाणवी" , bhb: "भीली" , bjj: "बज्जिका" , doi: "डोगरी" , gbm: "गढ़वाली" , kfy: "कुमाऊंनी" , hne: "छत्तीसगढ़ी" , mag: "मगही" , gom: "कोंकणी" , mwr: "मारवाड़ी" , mni: "मणिपुरी" , skr: "सराइकी" , pnb: "पश्चिमी पंजाबी" , syl: "सिल्हटी" , tcy: "तुलु" , gon: "गोंडी" , sat: "संथाली" , anp: "अंगिका" , it: "इतालवी" , ms: "मलय" , vi: "वियतनामी" , th: "थाई" , sa: "संस्कृत" , pl: "पोलिश" , uk: "यूक्रेनी" , hr: "क्रोएशियाई" , sr: "सर्बियाई" , lt: "लिथुआनियाई" , sk: "स्लोवाक" , fi: "फ़िनिश" , ka: "जॉर्जियाई" , af: "अफ़्रीकांस" , am: "अम्हारिक" , bm: "बमबारा" , ha: "हाउसा" , ig: "इग्बो" , lg: "लुगांडा" , mg: "मालागासी" , ny: "चिचेवा" , om: "ओरोमो" , rw: "किन्यारवांडा" , sn: "शोना" , so: "सोमाली" , ti: "तिग्रीन्या" , tw: "अकान/त्वी" , wo: "वोलोफ़" , xh: "षोसा" , yo: "योरूबा" , zu: "ज़ुलु", bo: "तिब्बती", ceb: "सिबुआनो", jv: "जावानीज़", km: "खमेर", lo: "लाओ", mn: "मंगोलियाई", my: "बर्मी", nan: "मीनान चीनी", su: "सुंडानी", tl: "तागालोग", yue: "कैंटोनीज़" }; /* 09-Sep: + अफ़्रीका-खेप 18 भाषाएँ */
   function norm(t) { return String(t).replace(new RegExp((LNAME[CODE] || "§") + "|अंग्रेज़ी|English", "g"), "⟨भाषा⟩"); }
   /* दर्ज-छूट सूची (Founder-मान्य प्रासंगिक प्रतिस्थापन — इनके अलावा एक भी पंक्ति अलग = FAIL):
      L2 w4d4#16: मास्टर "हिंदी में बोलो…" → भाषा-कोर्स "⟨भाषा⟩ में बोलो…" (AI-app प्रसंग) */
@@ -164,7 +201,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
      देवनागरी-पाठ में CJK-विराम = copy-paste contamination (mai-प्रकरण); zh/ja में 。 वैध, इसलिए वहाँ जाँच नहीं;
      (ग) heroTitle देवनागरी हो (root-branding contamination-रोक)। */
   (function () {
-    var DEVLANG = { mr: 1, ne: 1, bho: 1, mai: 1, sa: 1 }; /* देव-भाषा परिवार — SCRIPT_RULES.devLang का स्थानीय दर्पण (scope-भिन्न IIFE) */
+    var DEVLANG = { mr: 1, ne: 1, bho: 1, mai: 1, sa: 1, awa: 1, bgc: 1, bhb: 1, bjj: 1, doi: 1, gbm: 1, kfy: 1, hne: 1, mag: 1, gom: 1, mwr: 1, mni: 1, skr: 1, pnb: 1, syl: 1, tcy: 1, gon: 1, sat: 1, anp: 1 }; /* देव-भाषा परिवार — SCRIPT_RULES.devLang का स्थानीय दर्पण (scope-भिन्न IIFE) */
     var SR2 = { devLang: DEVLANG[CODE] }; var b2 = 0; var CJK = /[。？！，：；]/;
     if (!SR2.devLang) { return; } /* दायरा: सिर्फ़ देव-भाषा परिवार */
     function scanTxt(t, tag) { if (CJK.test(String(t))) { console.log("⛔ " + tag + " में CJK/fullwidth विराम: " + String(t).slice(0, 40)); b2++; } }
