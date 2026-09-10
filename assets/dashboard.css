@@ -335,6 +335,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .crsrail{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
 .crsrail .crscard{flex:0 0 min(78vw,300px);scroll-snap-align:start;margin:0;display:flex;flex-direction:column}
 .crscard.v2 .crsban{height:84px;font-size:44px;position:relative}
+.crsban.lang{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 10px;text-align:center}.crsban.lang .crsln{font-size:24px;font-weight:900;color:#fff;line-height:1.25;text-shadow:0 1px 2px rgba(0,0,0,.35)}.crsban.lang .crslr{font-size:16px;font-weight:700;color:rgba(255,255,255,.92);letter-spacing:.3px} /* 10-Sep: भाषा-कार्ड पट्टी = नाम देवनागरी+Roman (झंडा नहीं) — फ़ॉन्ट ≥16 */
 .crscard.v2 .crsban:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--gold)}
 .crscard.v2 .crsbody{text-align:left;padding:10px 14px 14px;display:flex;flex-direction:column;flex:1}
 .crscard.v2 .crsname{font-size:18px;line-height:1.35;min-height:2.7em}
@@ -371,3 +372,28 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .lvthead span{color:#F5F7FA}
 .lvtbl .lvic2{border-color:var(--gold);background:#FFF8E1}
 @media(max-width:759px){ .lvtbl .lvtrow{padding:16px 14px 16px 20px} }
+
+/* ── भाषा-कार्ड v2 (10-Sep-2026, Founder: "सुंदर design") — यादगार = भाषा का अपना अक्षर; नाम देवनागरी (Roman); गलियारा-टैग; सोना = सिर्फ़ प्रमाणपत्र-रेखा; हरा = सिर्फ़ बटन; सब फ़ॉन्ट ≥16px ── */
+.lgsec .lggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(164px,1fr));gap:12px;margin-top:10px}
+.lgcard{background:#fff;border-radius:16px;box-shadow:0 1px 2px rgba(11,31,58,.06),0 8px 22px rgba(11,31,58,.07);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.lgtop{background:var(--tint,#F5F7FA);padding:14px 14px 10px;position:relative;border-bottom:3px solid var(--gold,#F9A825);min-height:98px;display:flex;align-items:flex-end}
+.lgglyph{font-size:54px;line-height:1;font-weight:900;color:var(--navy,#0B1F3A);letter-spacing:-.02em;font-family:"Noto Sans Devanagari","Noto Sans",Inter,system-ui,sans-serif}
+.lgglyph.long{font-size:40px;line-height:1.1}
+.lgcor{position:absolute;top:10px;right:10px;font-size:16px;font-weight:700;color:var(--blue,#1565C0);background:rgba(255,255,255,.78);border-radius:999px;padding:2px 9px;max-width:62%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lgbody{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.lgname{font-size:22px;font-weight:800;color:var(--navy,#0B1F3A);line-height:1.2;word-break:break-word}
+.lgname small{display:block;font-size:16px;font-weight:600;color:rgba(11,31,58,.62);font-family:Inter,system-ui,sans-serif;margin-top:2px}
+.lgmeta{font-size:16px;color:rgba(11,31,58,.78);line-height:1.5}
+.lgprog{font-size:16px;color:var(--navy,#0B1F3A)}.lgprog .bar{height:8px;background:#E6EAF0;border-radius:999px;overflow:hidden;margin-bottom:4px}.lgprog .bar i{display:block;height:100%;background:var(--green,#2E7D32);border-radius:999px}
+.lggo{display:block;text-align:center;background:var(--green,#2E7D32);color:#fff;font-size:18px;font-weight:800;padding:12px;border-radius:12px;text-decoration:none;margin-top:auto}
+.lggo:hover{background:#256b29}
+.lgfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:16px;color:rgba(11,31,58,.7);flex-wrap:wrap}
+.lgjoin{font:inherit;font-size:16px;font-weight:700;color:var(--blue,#1565C0);background:#fff;border:1.5px solid var(--blue,#1565C0);border-radius:999px;padding:4px 12px;cursor:pointer}
+.lgjoined{font-weight:800;color:var(--green,#2E7D32)}
+.lgfilters{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 4px}
+.lgf{font:inherit;font-size:16px;font-weight:700;color:var(--navy,#0B1F3A);background:#fff;border:1.5px solid #c9d4e3;border-radius:999px;padding:6px 12px;cursor:pointer}
+.lgf.on{background:var(--navy,#0B1F3A);color:#fff;border-color:var(--navy,#0B1F3A)}
+.lgempty{grid-column:1/-1;padding:24px;text-align:center;font-size:17px;color:rgba(11,31,58,.7);background:#fff;border-radius:16px}
+.lggo:focus-visible,.lgf:focus-visible,.lgjoin:focus-visible,#lgSearch:focus-visible{outline:3px solid var(--gold,#F9A825);outline-offset:2px}
+@media(min-width:900px){.lgsec .lggrid{grid-template-columns:repeat(auto-fill,minmax(196px,1fr))}}
+@media(prefers-reduced-motion:no-preference){.lggo,.lgf{transition:background-color .15s}}

@@ -1258,24 +1258,69 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     "linear-gradient(135deg,var(--blue),var(--navy))","linear-gradient(135deg,#1B5E20,var(--blue))"];
   function isLangCourse(c){ return /काम की भाषा|Certificate in Spoken/.test(String(c.name_hi||"")); }
   function isLang90(c){ return /Certificate in Spoken/.test(String(c.name_hi||"")); }
-  function langShort(c){ let n=String(c.name_hi||""); if(n.indexOf("—")>-1) n=n.split("—")[1]; return n.split("(")[0].replace("बोलने का पूरा कोर्स","").replace("बोलना","").trim(); }
+  function langShort(c){ /* 10-Sep (Founder-टोक): नए v6.1 नाम-रूप "X बोलने का प्रमाणपत्र कोर्स (…) — स्तर 1+2" पर पुराना तर्क "स्तर 1+2" पकड़ता था — अब पहला हिंदी-हिस्सा, फिर "बोलने" से पहले का नाम (courses/hi के kkbName से एकरूप) */ let n=String(c.name_hi||"").split("·")[0]; if(n.indexOf("प्रमाणपत्र कोर्स")>-1){ n=n.split("बोलने")[0]; if(n.indexOf("—")>-1) n=n.split("—").pop(); } else if(n.indexOf("—")>-1) n=n.split("—")[1]; return n.split("(")[0].replace("बोलने का पूरा कोर्स","").replace("बोलना","").trim(); }
+  function langRoman(c){ /* name_en "ACS Certificate in Spoken X (Level…)" → "X" — सादगी-नियम v1.9-क5: देवनागरी (Roman) */ const m=String(c.name_en||"").match(/Spoken\s+([^(]+?)\s*(\(|$)/); return m?m[1].trim():""; }
   function crsCard(c, i){
     const ENR=enrGet(); const joined=!!ENR[c.id];
     let read=0; try{ read=cntRead(((JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"))||{}).read||{}, c.url); }catch(e){}
     const tot=Number(c.lessons)||0, pc=tot?Math.min(100,Math.round(read*100/tot)):0;
     const exam=!!((window.COURSE_EXAMS||{})[c.id]);
     const lang=isLang90(c);
-    const title = lang ? (langShort(c)+" — पूरा कोर्स") : noSq(c.name_hi||c.name_en||"—");
+    const lname = lang ? langShort(c) : ""; const lrom = lang ? langRoman(c) : "";
+    const title = lang ? (lname+(lrom?" ("+lrom+")":"")+" — पूरा कोर्स") : noSq(c.name_hi||c.name_en||"—");
     const chips = (exam?'<span class="crschip gold">🎓 प्रमाणपत्र-परीक्षा</span>':'')+
       (lang?'<span class="crschip">CEFR A2 पर आधारित</span>':'<span class="crschip">📴 offline भी</span>');
     const meta = [c.lessons?("📄 "+c.lessons+" पाठ"):"", c.duration?("⏱️ "+noSq(c.duration)):""].filter(Boolean).join(" · ")+
       (((window.__crsAlso||{})[c.id]||[]).length?'<br>🔗 '+window.__crsAlso[c.id].join(", ")+' — इसी कोर्स के भीतर':"");
     const prog = joined||read ? '<div class="crsprog"><div class="crsbar"><i style="width:'+pc+'%"></i></div><span>'+pc+'% पूरा'+(read?" · "+read+"/"+tot:"")+'</span></div>' : "";
-    return '<div class="crscard v2"><div class="crsban" style="background:'+CRS_BAND[i%CRS_BAND.length]+'">'+(CRS_ICON[c.id]||"📚")+'</div>'+
+    return '<div class="crscard v2"><div class="crsban'+(lang?" lang":"")+'" style="background:'+CRS_BAND[i%CRS_BAND.length]+'">'+(lang?('<span class="crsln">'+lname+'</span>'+(lrom?'<span class="crslr">'+lrom+'</span>':"")):(CRS_ICON[c.id]||"📚"))+'</div>'+ /* 10-Sep: भाषा-कार्ड की पट्टी = नाम (झंडा-emoji नहीं — Windows पर अक्षर, 🇮🇳 20 भाषाओं पर एक-सा; learner नाम से पहचाने) */
       '<div class="crsbody"><div class="crschips">'+chips+'</div><div class="crsname">'+title+'</div><div class="crsmeta">'+meta+'</div>'+prog+
       '<div class="crsact"><a class="crsgo" href="'+c.url+'">'+(read?"▶ जारी रखें":"▶ पढ़ें — मुफ़्त")+'</a>'+
       (joined?'<span class="crsstep on crsjoined">✅ जुड़ गया</span>':'<button class="abtn crsjoinbtn" type="button" data-enroll="'+c.id+'">➕ जोड़ें</button>')+
       '</div></div></div>';
+  }
+  /* ── भाषा-कार्ड v2 (10-Sep-2026, Founder: "सुंदर design") ──
+     यादगार चीज़ = उस भाषा का अपना अक्षर (glyph) — झंडा/देश-कोड नहीं (Windows पर अक्षर, 🇮🇳 बीस भाषाओं पर एक-सा)।
+     नाम देवनागरी (Roman) · गलियारा-टैग = जानकारी · काग़ज़-रंग गलियारे से (ACS 5-रंग के हल्के tint)।
+     सोना = सिर्फ़ प्रमाणपत्र-रेखा, हरा = सिर्फ़ बटन। grid + 🔍 खोज + गलियारा-filter (scale-नियम v1.8-ख2)। */
+  const LG_GLYPH = { english:"Aa", afrikaans:"Ee", tagalog:"Ng", cebuano:"Ng", javanese:"Dh", sundanese:"Eu", malay:"Ny", indonesian:"Ny", vietnamese:"Ơ", turkish:"Ğ",
+    italian:"Gl", french:"É", spanish:"Ñ", german:"ß", portuguese:"Ã", polish:"Ł", croatian:"Č", lithuanian:"Ė", slovak:"Ľ", finnish:"Ä",
+    swahili:"Ng", hausa:"Ƙ", somali:"Dh", wolof:"Ñ", luganda:"Ny", kinyarwanda:"Ny", chichewa:"Ch", shona:"Sv", twi:"Ɛ", oromo:"Dh", bambara:"Ɲ", malagasy:"Ny",
+    yoruba:"Ẹ", igbo:"Ị", zulu:"Hl", xhosa:"Xh", arabic:"ع", persian:"پ", urdu:"ٹ", sindhi:"ڏ", kashmiri:"ۄ", hebrew:"א", russian:"Я", ukrainian:"Ї", serbian:"Ђ", mongolian:"Ө",
+    tibetan:"ཀ", khmer:"ក", lao:"ກ", burmese:"က", thai:"ก", japanese:"あ", korean:"한", mandarin:"文", cantonese:"粵", minnan:"閩", georgian:"ა", amharic:"አ", tigrinya:"ት",
+    kannada:"ಕ", tamil:"த", telugu:"త", bengali:"ব", odia:"ଓ", assamese:"অ", punjabi:"ਗ", gujarati:"ગ", malayalam:"മ" }; /* बाक़ी (देवनागरी-लिपि भाषाएँ) = नाम का पहला अक्षर */
+  function devAkshara(n){ n=String(n||""); if(!n) return "अ"; let i=1; const isMark=ch=>/[\u0900-\u0903\u093A-\u094F\u0951-\u0957\u0962\u0963]/.test(ch);
+    while(i<n.length){ if(isMark(n[i])){ i++; if(n[i-1]==="\u094D" && i<n.length && /[\u0915-\u0939\u0958-\u095F]/.test(n[i])) i++; } else break; } return n.slice(0,i); }
+  function langGlyph(c){ const m=String(c.url||"").match(/\/bhasha\/([a-z-]+)\//); const slug=m?m[1]:""; if(LG_GLYPH[slug]) return LG_GLYPH[slug]; const n=langShort(c); const a=devAkshara(n); const b=devAkshara(n.slice(a.length)); return (a+(/^[\u0900-\u097F]/.test(b)?b:"")).trim(); /* देवनागरी-भाषाएँ: दो अक्षर — "मग"/"मणि"/"मरा" अलग-अलग दिखें */ }
+  const LG_TINT=["#FFF3D1","#FFF8E6","#E4F2E5","#E3ECF9","#EEF6EF","#EAF0F8","#E9ECF2"]; /* 7 गलियारे — gold/green/blue/navy के हल्के रूप */
+  function lgGroups(){ const G=(window.KKB_GROUPS||[]); const byId={}; G.forEach(function(g,i){ (g.ids||[]).forEach(function(id){ byId[id]=i; }); });
+    const label=function(g){ return String(g.t||"").split("(")[0].replace("भारतीय भाषाएँ — ","भारतीय: ").trim(); }; return {G:G, byId:byId, label:label}; }
+  function langCard(c, gi, glabel){
+    const ENR=enrGet(); const joined=!!ENR[c.id];
+    let read=0; try{ read=cntRead(((JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"))||{}).read||{}, c.url); }catch(e){}
+    const tot=Number(c.lessons)||90, pc=tot?Math.min(100,Math.round(read*100/tot)):0;
+    const exam=!!((window.COURSE_EXAMS||{})[c.id]);
+    const nm=langShort(c), rom=langRoman(c);
+    return '<article class="lgcard" data-g="'+(gi>=0?gi:"x")+'" data-nm="'+(nm+" "+rom).toLowerCase()+'" style="--tint:'+(LG_TINT[gi]||"#F5F7FA")+'">'+
+      '<div class="lgtop"><span class="lgglyph'+(langGlyph(c).length>3?" long":"")+'" aria-hidden="true">'+langGlyph(c)+'</span>'+(glabel?'<span class="lgcor">'+glabel+'</span>':"")+'</div>'+
+      '<div class="lgbody"><div class="lgname">'+nm+(rom?'<small>'+rom+'</small>':"")+'</div>'+
+      '<div class="lgmeta">90 दिन में 2,150 वाक्य — असली लिपि, देवनागरी उच्चारण, आवाज़ के साथ</div>'+
+      (read?'<div class="lgprog"><div class="bar"><i style="width:'+pc+'%"></i></div>'+pc+'% पढ़ा — '+read+'/'+tot+' पाठ</div>':"")+
+      '<a class="lggo" href="'+c.url+'">'+(read?"▶ जारी रखें":"▶ पढ़ें — मुफ़्त")+'</a>'+
+      '<div class="lgfoot">'+(joined?'<span class="lgjoined">✔ जुड़ गया</span>':'<button class="lgjoin" type="button" data-enroll="'+c.id+'">➕ मेरी सूची में जोड़ें</button>')+
+      (exam?'<span>🎓 अंत में परीक्षा</span>':"")+'</div></div></article>';
+  }
+  function langRail(list){
+    if(!list.length) return "";
+    const ENR=enrGet(); list=list.slice().sort(function(a,b){ return (ENR[b.id]?1:0)-(ENR[a.id]?1:0); });
+    const g=lgGroups();
+    const filters='<div class="lgfilters"><button class="lgf on" type="button" data-g="all">सब '+list.length+'</button>'+
+      g.G.map(function(gr,i){ const n=list.filter(function(c){ return g.byId[c.id]===i; }).length; return n?'<button class="lgf" type="button" data-g="'+i+'">'+g.label(gr)+' '+n+'</button>':""; }).join("")+'</div>';
+    return '<div class="crssec lgsec"><div class="ph">🗣️ भाषा — 90-दिन पूरा कोर्स <span class="crscount">'+list.length+'</span></div>'+
+      '<div class="crssub">हर कोर्स: 2,150 वाक्य — असली लिपि, देवनागरी उच्चारण और आवाज़ के साथ। पढ़ना मुफ़्त; अंत में प्रमाणपत्र-परीक्षा (CEFR A2 पर आधारित)।</div>'+
+      '<input class="bhsearch" id="lgSearch" type="search" placeholder="🔍 भाषा खोजें — जैसे अरबी, Japanese, तमिल" autocomplete="off">'+filters+
+      '<div class="lggrid" id="lgGrid">'+list.map(function(c){ const gi=(c.id in g.byId)?g.byId[c.id]:-1; return langCard(c, gi, gi>=0?g.label(g.G[gi]):""); }).join("")+
+      '<div class="lgempty" id="lgEmpty" style="display:none">इस नाम की भाषा नहीं मिली — दूसरा नाम लिखो, या ऊपर "सब" दबाओ।</div></div></div>';
   }
   function crsRail(title, sub, list){
     if(!list.length) return "";
@@ -1309,7 +1354,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[]].forEach(function(L){ (L||[]).forEach(function(c){ if(c&&!c.url) soon++; }); });
     box.innerHTML =
       crsRail("🏆 पूरे बने हुनर-कोर्स", "पाठ + चित्र + प्रश्न-अभ्यास + प्रमाणपत्र-परीक्षा — पढ़ना हमेशा मुफ़्त।", skill) +
-      crsRail("🗣️ भाषा — 90-दिन पूरा कोर्स", "स्तर 1+2 · 2,150 वाक्य असली लिपि + देवनागरी उच्चारण + आवाज़ · अंत में प्रमाणपत्र-परीक्षा।", lang90) +
+      langRail(lang90) +
       (nL1?'<div class="crssec"><div class="ph">🌍 काम की भाषा — 5-सप्ताह शुरुआती <span class="crscount">'+nL1+'</span></div>'+
         '<div class="crssub">500 वाक्य, 35 दिन — विदेश/दूसरे राज्य में पहले दिन से काम-चलाऊ बोली। नाम दबाओ, कोर्स खुले।</div>'+
         '<input class="bhsearch" id="bhSearch" type="search" placeholder="🔍 भाषा खोजें — जैसे जापानी, तमिल, स्वाहिली" autocomplete="off">'+langHtml+'</div>':"") +
@@ -1320,6 +1365,16 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       chips.forEach(function(ch){ ch.style.display=(!q||ch.getAttribute("data-nm").indexOf(q)>-1)?"":"none"; });
       grps.forEach(function(g){ const vis=Array.prototype.some.call(g.querySelectorAll(".bhchip"),function(ch){return ch.style.display!=="none";}); g.style.display=vis?"":"none"; if(q) g.open=true; });
     });
+    /* भाषा-कार्ड v2: खोज + गलियारा-filter (एक साथ) */
+    const lgS=$("lgSearch"), lgG=$("lgGrid");
+    if(lgS && lgG){
+      let lgSel="all";
+      const lgApply=function(){ const q=lgS.value.trim().toLowerCase(); let vis=0;
+        lgG.querySelectorAll(".lgcard").forEach(function(cd){ const okG=(lgSel==="all"||cd.getAttribute("data-g")===lgSel); const okQ=(!q||cd.getAttribute("data-nm").indexOf(q)>-1); const on=okG&&okQ; cd.style.display=on?"":"none"; if(on) vis++; });
+        const em=$("lgEmpty"); if(em) em.style.display=vis?"none":""; };
+      lgS.addEventListener("input", lgApply);
+      box.querySelectorAll(".lgf").forEach(function(b){ b.addEventListener("click", function(){ lgSel=b.getAttribute("data-g"); box.querySelectorAll(".lgf").forEach(function(x){ x.classList.toggle("on", x===b); }); lgApply(); }); });
+    }
     CRS_SHOWN=CRS_ALL.length;
   }
 
