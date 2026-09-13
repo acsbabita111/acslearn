@@ -1,6 +1,6 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
-const CACHE_VERSION = 'v594'                                           ;
+const CACHE_VERSION = 'v595'; /* (14-Sep) सफ़ाई-दौर: kaam-ki-bhasha 5 folder हटे → 404.html redirect-नक़्शा; /hi/ redirect-stub; kkb (काम की भाषा) L1/L2 असेट अछूते — पूरा इतिहास CHANGELOG-sw.md */
 
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
