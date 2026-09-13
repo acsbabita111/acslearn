@@ -268,7 +268,7 @@ window.sendContact = async function(){
   <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
   <script>
   (function () {
-    document.getElementById("acsYear").textContent = new Date().getFullYear();
+    var acsYearEl = document.getElementById("acsYear"); if (acsYearEl) acsYearEl.textContent = new Date().getFullYear(); /* 13-Sep: universal-टेम्पलेट में यह element नहीं — null-guard, वरना पूरा login-script रुकता था (गूँगा-fallback निषेध) */
 
     var modal     = document.getElementById("acsLoginModal");
     var openBtn   = document.getElementById("acsLoginBtn");
@@ -324,6 +324,7 @@ window.sendContact = async function(){
     }
     function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
 
+    if (!openBtn || !closeBtn || !modal) { return; } /* 13-Sep (ऑडिट H3): universal-navbar में login-बटन नहीं — login /dashboard/ से; यहाँ modal-script चुपचाप न टूटे */
     openBtn.addEventListener("click", openModal);
     closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
