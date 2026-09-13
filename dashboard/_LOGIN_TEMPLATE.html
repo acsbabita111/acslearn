@@ -744,6 +744,7 @@ window.oldGteInitDisabled=function(){new google.translate.TranslateElement({page
 <script>
 (function(){
   const nc=document.querySelector('.nav-controls');
+  if(!nc) return; /* 13-Sep: universal-navbar में .nav-controls नहीं — null-guard (insertBefore त्रुटि) */
   const btn=document.createElement('button');
   btn.id='lang-btn';
   btn.className='btn-translate';
