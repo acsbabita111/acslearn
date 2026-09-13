@@ -47,6 +47,45 @@ window.COURSE_EXAMS = {
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/msh_quiz_k01.js–k12.js shards — बदलाव वहीं, फिर server-बैंक regen। */
   ] },
+  "PJ058": { name: "बोडो बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Bodo) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 10-Sep kkb_l2_register */
+  "PJ090": { name: "कुर्दिश बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Kurdish) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 10-Sep kkb_l2_register */
+  "PJ111": { name: "लेवांटाइन अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Levantine Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 10-Sep kkb_l2_register */
+  "PJ113": { name: "हिजाज़ी अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Hejazi Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ112": { name: "मेसोपोटामिया अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Mesopotamian Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ064": { name: "दारी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Dari) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ062": { name: "पश्तो बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Pashto) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 13-Sep kkb_l2_register */
+  "PJ117": { name: "अल्जीरियाई अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Algerian Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 13-Sep kkb_l2_register */
+  "PJ118": { name: "मोरक्कन अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Moroccan Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 13-Sep kkb_l2_register */
+  "PJ129": { name: "रोमानियाई बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Romanian) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ130": { name: "डच बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Dutch) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ135": { name: "स्वीडिश बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Swedish) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ120": { name: "नाइजीरियन पिजिन बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Nigerian Pidgin) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ097": { name: "हाईटियन क्रियोल बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Haitian Creole) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ115": { name: "मिस्री अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Egyptian Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ119": { name: "सैदी अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Saidi Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ116": { name: "सूडानी अरबी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Sudanese Arabic) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ091": { name: "उज़्बेक बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Uzbek) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ093": { name: "अज़रबैजानी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Azerbaijani) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ132": { name: "हंगेरियन बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Hungarian) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ133": { name: "चेक बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Czech) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ136": { name: "बुल्गारियाई बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Bulgarian) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ058": { name: "बोडो बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Bodo) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ098": { name: "गुआरानी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Guarani) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 11-Sep kkb_l2_register */
+  "PJ122": { name: "मॉरीशियन क्रीओल बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Mauritian Creole) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ140": { name: "माल्टीज़ बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Maltese) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ099": { name: "क्वेशुआ बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Quechua) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ100": { name: "आयमारा बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Aymara) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ101": { name: "मायन बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Yucatec Maya) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ134": { name: "बेलारूसी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Belarusian) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ095": { name: "किर्गिज़ बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Kyrgyz) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ110": { name: "तातार बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Tatar) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ092": { name: "कज़ाख बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Kazakh) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ094": { name: "ताजिक बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Tajik) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ131": { name: "ग्रीक बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Greek) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ145": { name: "अर्मेनियाई बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Armenian) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ061": { name: "सिंहली बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Sinhala) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
+  "PJ063": { name: "बलूची बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Balochi) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 13-Sep kkb_l2_register */
+  "PJ096": { name: "उइघुर बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Uyghur) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 13-Sep kkb_l2_register */
   "PJ018": { name: "अंग्रेज़ी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken English) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [
     /* server-मोड कोर्स — 120 प्रश्न server-निजी बैंक (eng_bank, 2919 — 14 प्रकार, 300 सुनो-प्रश्न) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।

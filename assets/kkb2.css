@@ -60,6 +60,10 @@
 [data-script="myanmar"] .kkb2-en{font-family:"Noto Sans Myanmar","Myanmar Text",system-ui,sans-serif;line-height:2.0} /* 10-Sep बर्मी space-रहित */
 [data-script="han"] .kkb2-en{font-family:"Noto Sans HK","Noto Sans TC","PingFang TC",system-ui,sans-serif;line-height:1.8} /* 10-Sep मीनान/कैंटोनीज़ Han space-रहित */
 [data-script="cyrillic-native"] .kkb2-en{font-family:"Noto Sans",Inter,system-ui,sans-serif;line-height:1.8} /* 10-Sep मंगोलियाई/यूक्रेनी Cyrillic-native */
+[data-script="greek"] .kkb2-en{font-family:"Noto Sans","Noto Sans Greek",Inter,system-ui,sans-serif;line-height:1.8} /* 12-Sep ग्रीक */
+[data-script="perso-arabic"] .kkb2-en{font-family:"Noto Sans Arabic","Noto Naskh Arabic",system-ui,sans-serif;line-height:1.9;direction:rtl} /* 13-Sep उइघुर */
+[data-script="sinhala"] .kkb2-en{font-family:"Noto Sans Sinhala","Noto Sans",system-ui,sans-serif;line-height:1.9} /* 13-Sep सिंहली */
+[data-script="armenian"] .kkb2-en{font-family:"Noto Sans","Noto Sans Armenian",Inter,system-ui,sans-serif;line-height:1.8} /* 12-Sep अर्मेनियाई */
 [data-script="georgian"] .kkb2-en{font-family:"Noto Sans Georgian","Sylfaen",system-ui,sans-serif;line-height:1.9} /* 10-Sep जॉर्जियाई */
 [data-script="ethiopic"] .kkb2-en{font-family:"Noto Sans Ethiopic","Nyala",system-ui,sans-serif;line-height:2.0} /* 10-Sep अम्हारिक/तिग्रीन्या Geez */ /* 05-Sep थाई — अगली-8 खेप का आठवाँ व अंतिम, space-रहित लिपि */
 [data-script="devanagari-native"] .kkb2-en{font-family:'Noto Sans Devanagari',Inter,sans-serif}
