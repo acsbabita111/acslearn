@@ -12,6 +12,44 @@
 var fs = require("fs");
 var CODE = (process.argv[2] || "").toLowerCase();
 var CFG = {
+  uz: { label: "उज़्बेक", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  ug: { label: "उइघुर", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — perso-arabic, space-विभाजित, पूर्ण ROT */
+  tt: { label: "तातार", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — cyrillic-native, space-विभाजित, पूर्ण ROT */
+  tg: { label: "ताजिक", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — cyrillic-native, space-विभाजित, पूर्ण ROT */
+  sv: { label: "स्वीडिश", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  si: { label: "सिंहली", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — असली-लिपि (13-Sep), space-विभाजित, पूर्ण ROT */
+  ro: { label: "रोमानियाई", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  qu: { label: "क्वेशुआ", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  ps: { label: "पश्तो", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — असली-लिपि (13-Sep), space-विभाजित, पूर्ण ROT */
+  prs: { label: "दारी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — असली-लिपि (13-Sep), space-विभाजित, पूर्ण ROT */
+  pcm: { label: "नाइजीरियन पिजिन", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  nl: { label: "डच", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  myn: { label: "मायन", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  mt: { label: "माल्टीज़", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  mfe: { label: "मॉरीशियन क्रीओल", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  ky: { label: "किर्गिज़", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — cyrillic-native, space-विभाजित, पूर्ण ROT */
+  ku: { label: "कुर्दिश", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  kk: { label: "कज़ाख", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — cyrillic-native, space-विभाजित, पूर्ण ROT */
+  hy: { label: "अर्मेनियाई", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — armenian, space-विभाजित, पूर्ण ROT */
+  hu: { label: "हंगेरियन", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  ht: { label: "हाईटियन क्रियोल", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  gn: { label: "गुआरानी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  el: { label: "ग्रीक", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — greek, space-विभाजित, पूर्ण ROT */
+  cs: { label: "चेक", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  brx: { label: "बोडो", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — devanagari-native, space-विभाजित, पूर्ण ROT */
+  bg: { label: "बुल्गारियाई", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — cyrillic-native, space-विभाजित, पूर्ण ROT */
+  be: { label: "बेलारूसी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — cyrillic-native, space-विभाजित, पूर्ण ROT */
+  bal: { label: "बलूची", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — असली-लिपि (13-Sep), space-विभाजित, पूर्ण ROT */
+  az: { label: "अज़रबैजानी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  ay: { label: "आयमारा", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — latin-native, space-विभाजित, पूर्ण ROT */
+  arz: { label: "मिस्री अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
+  ary: { label: "मोरक्कन अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
+  arq: { label: "अल्जीरियाई अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
+  apd: { label: "सूडानी अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
+  apc: { label: "लेवांटाइन अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
+  aec: { label: "सैदी अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
+  acw: { label: "हिजाज़ी अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
+  acm: { label: "मेसोपोटामिया अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true }, /* 13-Sep kkb_l2_register — arabic, space-विभाजित, पूर्ण ROT */
   ar: { label: "अरबी", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   fr: { label: "फ़्रेंच", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },
   es: { label: "स्पेनिश", rot: [1, 2, 3, 4, 5, 6, 7, 12], au: true },

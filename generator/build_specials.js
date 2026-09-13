@@ -1215,7 +1215,7 @@ function kkbContent(c) {
     '<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
     '</div>';
 }
-const KKB2_CODES = { en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 , id: 1 , tr: 1 , mai: 1 , it: 1 , ms: 1 , vi: 1 , th: 1 , sa: 1 , bo: 1 , ceb: 1 , jv: 1 , km: 1 , lo: 1 , mn: 1 , my: 1 , nan: 1 , su: 1 , tl: 1 , yue: 1 }; /* pl अभी L1-मात्र — KKB2_CODES में नहीं (L2 बनने तक KKB_LANGS-सामान्य पैटर्न से पेज बने) */ /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 05-Sep: + th (थाई-लिपि) */
+const KKB2_CODES = { uz: 1, ug: 1, tt: 1, tg: 1, sv: 1, si: 1, ro: 1, qu: 1, ps: 1, prs: 1, pcm: 1, nl: 1, myn: 1, mt: 1, mfe: 1, ky: 1, ku: 1, kk: 1, hy: 1, hu: 1, ht: 1, gn: 1, el: 1, cs: 1, brx: 1, bg: 1, be: 1, bal: 1, az: 1, ay: 1, arz: 1, ary: 1, arq: 1, apd: 1, apc: 1, aec: 1, acw: 1, acm: 1, en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 , id: 1 , tr: 1 , mai: 1 , it: 1 , ms: 1 , vi: 1 , th: 1 , sa: 1 , bo: 1 , ceb: 1 , jv: 1 , km: 1 , lo: 1 , mn: 1 , my: 1 , nan: 1 , su: 1 , tl: 1 , yue: 1 }; /* pl अभी L1-मात्र — KKB2_CODES में नहीं (L2 बनने तक KKB_LANGS-सामान्य पैटर्न से पेज बने) */ /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 05-Sep: + th (थाई-लिपि) */
 KKB_LANGS.forEach(c => { if (KKB2_CODES[c.code]) return; buildSpecial({
   out: c.out, langStrict: false, title: c.title, desc: c.desc,
   head: ['<link rel="stylesheet" href="/assets/kkb.css">'],
@@ -1247,6 +1247,82 @@ KKB_LANGS.forEach(kkbRedirect);
 const KKB2_SAFE = 'विदेश-काम सुरक्षा: <a href="https://emigrate.gov.in" target="_blank" rel="noopener" style="color:#F9A825">eMigrate</a> · <a href="https://www.madad.gov.in" target="_blank" rel="noopener" style="color:#F9A825">MADAD</a>। (बाहरी site — ख़ुद verify करें।)';
 function kkb2Link(u, t) { return '<a href="' + u + '" target="_blank" rel="noopener" style="color:#F9A825">' + t + '</a>'; }
 const KKB2_LANGS = [
+  { code: "uz", slug: "uzbek", en_name: "Uzbek", hi_name: "उज़्बेक", /* 13-Sep kkb_l2_register: L2 भाषा — एशिया, latin-native */
+    next: 'आगे का रास्ता: उज़्बेक की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ug", slug: "uyghur", en_name: "Uyghur", hi_name: "उइघुर", /* 13-Sep kkb_l2_register: L2 भाषा — एशिया, perso-arabic */
+    next: 'आगे का रास्ता: उइघुर की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "tt", slug: "tatar", en_name: "Tatar", hi_name: "तातार", /* 13-Sep kkb_l2_register: L2 भाषा — एशिया, cyrillic-native */
+    next: 'आगे का रास्ता: तातार की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "tg", slug: "tajik", en_name: "Tajik", hi_name: "ताजिक", /* 13-Sep kkb_l2_register: L2 भाषा — एशिया, cyrillic-native */
+    next: 'आगे का रास्ता: ताजिक की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "sv", slug: "swedish", en_name: "Swedish", hi_name: "स्वीडिश", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: कोर्स पूरा करके Swedex — Folkuniversitetet — ' + kkb2Link("https://www.folkuniversitetet.se/in-english/swedex-swedish-examinations/about-swedex/", "folkuniversitetet.se") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "si", slug: "sinhala", en_name: "Sinhala", hi_name: "सिंहली", /* 13-Sep kkb_l2_register: L2 भाषा — पड़ोसी देश, असली-लिपि (13-Sep) */
+    next: 'आगे का रास्ता: सिंहली की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ro", slug: "romanian", en_name: "Romanian", hi_name: "रोमानियाई", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: कोर्स पूरा करके Institutul Limbii Române (ILR) — atestare limba română — ' + kkb2Link("https://www.ilr.ro/", "ilr.ro") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "qu", slug: "quechua", en_name: "Quechua", hi_name: "क्वेशुआ", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: क्वेशुआ की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ps", slug: "pashto", en_name: "Pashto", hi_name: "पश्तो", /* 13-Sep kkb_l2_register: L2 भाषा — पड़ोसी देश, असली-लिपि (13-Sep) */
+    next: 'आगे का रास्ता: पश्तो की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "prs", slug: "dari", en_name: "Dari", hi_name: "दारी", /* 13-Sep kkb_l2_register: L2 भाषा — पड़ोसी देश, असली-लिपि (13-Sep) */
+    next: 'आगे का रास्ता: दारी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "pcm", slug: "nigerian-pidgin", en_name: "Nigerian Pidgin", hi_name: "नाइजीरियन पिजिन", /* 13-Sep kkb_l2_register: L2 भाषा — अफ़्रीका, latin-native */
+    next: 'आगे का रास्ता: नाइजीरियन पिजिन की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "nl", slug: "dutch", en_name: "Dutch", hi_name: "डच", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: कोर्स पूरा करके CNaVT (Certificaat Nederlands als Vreemde Taal) — Nederlandse Taalunie — ' + kkb2Link("https://cnavt.org/", "cnavt.org") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "myn", slug: "mayan", en_name: "Yucatec Maya", hi_name: "मायन", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: मायन की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "mt", slug: "maltese", en_name: "Maltese", hi_name: "माल्टीज़", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: माल्टीज़ की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "mfe", slug: "mauritian-creole", en_name: "Mauritian Creole", hi_name: "मॉरीशियन क्रीओल", /* 13-Sep kkb_l2_register: L2 भाषा — अफ़्रीका, latin-native */
+    next: 'आगे का रास्ता: मॉरीशियन क्रीओल की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ky", slug: "kyrgyz", en_name: "Kyrgyz", hi_name: "किर्गिज़", /* 13-Sep kkb_l2_register: L2 भाषा — एशिया, cyrillic-native */
+    next: 'आगे का रास्ता: किर्गिज़ की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ku", slug: "kurdish", en_name: "Kurdish", hi_name: "कुर्दिश", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, latin-native */
+    next: 'आगे का रास्ता: कुर्दिश की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "kk", slug: "kazakh", en_name: "Kazakh", hi_name: "कज़ाख", /* 13-Sep kkb_l2_register: L2 भाषा — एशिया, cyrillic-native */
+    next: 'आगे का रास्ता: कोर्स पूरा करके KAZTEST (ҚАЗТЕСТ) — राष्ट्रीय परीक्षण केंद्र (National Testing Center) — ' + kkb2Link("https://app.testcenter.kz", "app.testcenter.kz") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "hy", slug: "armenian", en_name: "Armenian", hi_name: "अर्मेनियाई", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, armenian */
+    next: 'आगे का रास्ता: अर्मेनियाई की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "hu", slug: "hungarian", en_name: "Hungarian", hi_name: "हंगेरियन", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: कोर्स पूरा करके ECL (हंगेरियन) — University of Pécs — ' + kkb2Link("https://ecl.hu/", "ecl.hu") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "ht", slug: "haitian-creole", en_name: "Haitian Creole", hi_name: "हाईटियन क्रियोल", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: हाईटियन क्रियोल की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "gn", slug: "guarani", en_name: "Guarani", hi_name: "गुआरानी", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: गुआरानी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "el", slug: "greek", en_name: "Greek", hi_name: "ग्रीक", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, greek */
+    next: 'आगे का रास्ता: कोर्स पूरा करके Πιστοποίηση Ελληνομάθειας (Certificate of Attainment in Greek) — Centre for the Greek Language — ' + kkb2Link("https://www.greek-language.gr/certification", "greek-language.gr") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "cs", slug: "czech", en_name: "Czech", hi_name: "चेक", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: कोर्स पूरा करके CCE (Czech Language Certificate Exam) — ÚJOP, Charles University — ' + kkb2Link("https://ujop.cuni.cz/en/exam/czech-language-certificate-exam", "ujop.cuni.cz") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "brx", slug: "bodo", en_name: "Bodo", hi_name: "बोडो", /* 13-Sep kkb_l2_register: L2 भाषा — भारतीय भाषाएँ — देवनागरी लिपि, devanagari-native */
+    next: 'आगे का रास्ता: बोडो की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "bg", slug: "bulgarian", en_name: "Bulgarian", hi_name: "बुल्गारियाई", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, cyrillic-native */
+    next: 'आगे का रास्ता: कोर्स पूरा करके ECL (बुल्गारियाई) — University of Pécs — ' + kkb2Link("https://ecl.hu/", "ecl.hu") + ' — की तैयारी (कड़ी 13 Sep 2026 को जाँची — शुल्क/तारीख़ आधिकारिक site से ख़ुद verify करें)। ' + KKB2_SAFE },
+  { code: "be", slug: "belarusian", en_name: "Belarusian", hi_name: "बेलारूसी", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, cyrillic-native */
+    next: 'आगे का रास्ता: बेलारूसी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "bal", slug: "balochi", en_name: "Balochi", hi_name: "बलूची", /* 13-Sep kkb_l2_register: L2 भाषा — पड़ोसी देश, असली-लिपि (13-Sep) */
+    next: 'आगे का रास्ता: बलूची की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "az", slug: "azerbaijani", en_name: "Azerbaijani", hi_name: "अज़रबैजानी", /* 13-Sep kkb_l2_register: L2 भाषा — एशिया, latin-native */
+    next: 'आगे का रास्ता: अज़रबैजानी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ay", slug: "aymara", en_name: "Aymara", hi_name: "आयमारा", /* 13-Sep kkb_l2_register: L2 भाषा — यूरोप व अमेरिका, latin-native */
+    next: 'आगे का रास्ता: आयमारा की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "arz", slug: "egyptian-arabic", en_name: "Egyptian Arabic", hi_name: "मिस्री अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: मिस्री अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "ary", slug: "moroccan-arabic", en_name: "Moroccan Arabic", hi_name: "मोरक्कन अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: मोरक्कन अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "arq", slug: "algerian-arabic", en_name: "Algerian Arabic", hi_name: "अल्जीरियाई अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: अल्जीरियाई अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "apd", slug: "sudanese-arabic", en_name: "Sudanese Arabic", hi_name: "सूडानी अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: सूडानी अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "apc", slug: "levantine-arabic", en_name: "Levantine Arabic", hi_name: "लेवांटाइन अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: लेवांटाइन अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "aec", slug: "saidi-arabic", en_name: "Saidi Arabic", hi_name: "सैदी अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: सैदी अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "acw", slug: "hejazi-arabic", en_name: "Hejazi Arabic", hi_name: "हिजाज़ी अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: हिजाज़ी अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
+  { code: "acm", slug: "mesopotamian-arabic", en_name: "Mesopotamian Arabic", hi_name: "मेसोपोटामिया अरबी", /* 13-Sep kkb_l2_register: L2 भाषा — खाड़ी व अरब देश, arabic */
+    next: 'आगे का रास्ता: मेसोपोटामिया अरबी की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
   { code: "en", slug: "english", en_name: "English", hi_name: "अंग्रेज़ी",
     next: 'आगे का रास्ता: कोर्स पूरा करके IELTS (आयल्ट्स) — ' + kkb2Link("https://ielts.org", "ielts.org") + ' — या Cambridge A2 Key — ' + kkb2Link("https://www.cambridgeenglish.org", "cambridgeenglish.org") + ' — की तैयारी। ' + KKB2_SAFE },
   { code: "ar", slug: "arabic", en_name: "Arabic", hi_name: "अरबी",
