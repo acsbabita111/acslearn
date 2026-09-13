@@ -108,7 +108,7 @@
   <div class="hero-inner">
     <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
     <div class="hero-tag">🌍 उद्यम केंद्र</div>
-    <div class="hero-title">अपना रास्ता चुनें,<br/><em>सफलता यहीं से शुरू होती है।</em></div>
+    <h1 class="hero-title" style="margin:0 0 10px">अपना रास्ता चुनें,<br/><em>सफलता यहीं से शुरू होती है।</em></h1>
     <div class="hero-sub">स्वरोजगार से सरकारी नौकरी तक — हर रास्ता यहाँ मिलेगा।</div>
     <div class="hero-stats">
       <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">सेक्टर</div></div>
@@ -582,16 +582,17 @@ document.getElementById('mgFilter').innerHTML=
     onclick="filterMG('${m.id}',this)">${m.name}</button>`).join('');
 
 window.filterMG=function(id,el){
-  activeMG=id==='all'?'all':parseInt(id)||id;
+  activeMG=id==='all'?'all':parseInt(id)||id; UDY_BATCH=1;
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   el.classList.add('active');renderSectors();
 };
 
 window.filterSectors=function(){
-  searchQ=document.getElementById('searchInput').value.toLowerCase();
+  searchQ=document.getElementById('searchInput').value.toLowerCase(); UDY_BATCH=1;
   renderSectors();
 };
 
+var UDY_BATCH=1; /* 13-Sep: 50-खेप गिनती (renderSectors से पहले घोषित — TDZ-रोक) */
 function renderSectors(){
   // Use ALL_SECTORS from external JS file
   const data=typeof ALL_SECTORS!=='undefined'?ALL_SECTORS:[];
@@ -602,7 +603,9 @@ function renderSectors(){
   });
   document.getElementById('sectorCount').textContent=
     filtered.length===950?'सभी 950 उद्यम':`${filtered.length} उद्यम मिले`;
-  document.getElementById('sectorGrid').innerHTML=filtered.map(s=>`
+  /* 13-Sep (ऑडिट H1): 50-50 खेप (scale-नियम v1.8-ख2) — 950 कार्ड एक साथ नहीं (DOM 6,800 → ~500) */
+  const BATCH=50; const shown=Math.min(filtered.length, UDY_BATCH*BATCH);
+  document.getElementById('sectorGrid').innerHTML=filtered.slice(0,shown).map(s=>`
     <div class="sector-card" onclick="openSector(${s.n},'${s.name.replace(/'/g,"\\'")}')">
       <div class="s-num">सेक्टर ${String(s.n).padStart(3,'0')}</div>
       <div class="s-name">${s.name.replace(/\[/g,'(').replace(/\]/g,')')}</div>
@@ -610,7 +613,7 @@ function renderSectors(){
       ${s.intro?`<a href="${s.intro}" onclick="event.stopPropagation()" style="display:block;color:var(--blue);font-weight:700;font-size:16px;margin-top:6px;text-decoration:none">📖 पूरी जानकारी पढ़ें →</a>`:''}
       ${s.course?`<a href="${s.course}" onclick="event.stopPropagation()" style="display:block;color:var(--green);font-weight:700;font-size:16px;margin-top:6px;text-decoration:none">📚 मुफ़्त कोर्स पढ़ें →</a>`:''}
       <div class="s-link">विस्तृत जानकारी →</div>
-    </div>`).join('')||
+    </div>`).join('')+(shown<filtered.length?`<div style="grid-column:1/-1;text-align:center;padding:8px 0"><button type="button" onclick="UDY_BATCH++;renderSectors()" style="font-family:inherit;font-size:18px;font-weight:800;padding:12px 22px;border-radius:12px;border:2px solid var(--blue);background:#fff;color:var(--blue);cursor:pointer">और देखें ➜ (${shown} / ${filtered.length})</button></div>`:'')||
     '<div style="text-align:center;padding:40px;color:var(--gray);grid-column:1/-1">कोई सेक्टर नहीं मिला।</div>';
 }
 
@@ -925,7 +928,7 @@ renderSectors();
   <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
   <script>
   (function () {
-    document.getElementById("acsYear").textContent = new Date().getFullYear();
+    var acsYearEl = document.getElementById("acsYear"); if (acsYearEl) acsYearEl.textContent = new Date().getFullYear(); /* 13-Sep: universal-टेम्पलेट में यह element नहीं — null-guard, वरना पूरा login-script रुकता था (गूँगा-fallback निषेध) */
 
     var modal     = document.getElementById("acsLoginModal");
     var openBtn   = document.getElementById("acsLoginBtn");
@@ -981,6 +984,7 @@ renderSectors();
     }
     function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
 
+    if (!openBtn || !closeBtn || !modal) { return; } /* 13-Sep (ऑडिट H3): universal-navbar में login-बटन नहीं — login /dashboard/ से; यहाँ modal-script चुपचाप न टूटे */
     openBtn.addEventListener("click", openModal);
     closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
