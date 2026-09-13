@@ -281,7 +281,9 @@ ok(!!m, tag + "courses_data.js में " + SET.id + " नहीं");
 if (m) {
   const u = (m[0].match(/"url": "([^"]+)"/) || [])[1];
   ok(u === SET.url, tag + SET.id + " url ग़लत: " + u);
-  ok(!/[\[\]]/.test(m[0].replace(/"edu": \[[^\]]*\]/, "")), tag + SET.id + " नाम में square bracket");
+  /* 13-Sep: t3 (तीन-लिपि नाम) भी array-ढाँचा है — edu की तरह ढाँचा हटाकर जाँच; भीतर की हर पंक्ति अलग से [ ]-मुक्त हो */
+  ok(!/[\[\]]/.test(m[0].replace(/"edu": \[[^\]]*\]/, "").replace(/"t3": \[[^\]]*\]/, "")), tag + SET.id + " नाम में square bracket");
+  try { const t3 = JSON.parse(m[0]).t3 || []; ok(t3.every(x => !/[\[\]]/.test(String(x))), tag + SET.id + " t3 में square bracket"); } catch (e) {}
 }
 ok(cd.includes("'" + SET.id + "'"), tag + "courses_data.js KKB_GROUPS में " + SET.id + " नहीं"); /* 02-Sep: भाषा-कोर्स अब READY_IDS में नहीं — v467 refactor से एकमात्र घर = courses_data KKB_GROUPS (renderBhasha); पुरानी readyIds-जाँच निरस्त */
 /* intent-मेल: दिशा (S/L) हर भाषा में एक-सी */

@@ -1,4 +1,4 @@
-/* dev_courses_page_check.js v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
+/* dev_courses_page_check.js v1.1 (13-Sep-2026: तीन-लिपि कार्ड नियम t3/seal + नाम-एकरूपता + ACS-टैग निषेध) · v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
    जन्म-कारण: ALL27-शृंखला की courses_data में `}, , {` ख़ाली-slot (PJ138 हटाते-सरकाते छूटा) —
    node --check इसे वैध मानता है, data-गिनती वाले यंत्र इसे छोड़ देते हैं, पर browser में
    kkbCourse() की for-loop `undefined.id` पर टूटती है → renderBhasha रुका → init() अधूरा →
@@ -73,6 +73,12 @@ ok(chips(groupsHtml) === gIds.length, "भाषा-समूह chips " + chips
 ok(gold(groupsHtml) === goldExpected, "सुनहरी chips " + gold(groupsHtml) + " ≠ अपेक्षित " + goldExpected);
 ok(chips((store.bhPopular || {}).innerHTML) === arrs.POP.length, "⭐ popular chips " + chips((store.bhPopular || {}).innerHTML) + " ≠ " + arrs.POP.length);
 ok(/<details/.test(String(groupsHtml)) && (String(groupsHtml).match(/<details/g) || []).length === arrs.G.length, "समूह-accordion गिनती ≠ " + arrs.G.length);
+/* v1.1 (13-Sep): तीन-लिपि कार्ड नियम — हर भाषा-प्रविष्टि में t3 (3-4 पंक्तियाँ) + seal; render में lc-hi/lc-nat/lc-en हर कार्ड पर */
+gIds.forEach(id => { const c = byId[id] || {}; ok(Array.isArray(c.t3) && c.t3.length >= 3 && c.t3.length <= 4 && c.t3.every(x => x && String(x).trim()), "t3 (तीन-लिपि नाम) अधूरा: " + id); ok(c.seal && String(c.seal).trim(), "seal (लिपि-मुहर) नहीं: " + id); ok(!/ACS काम की भाषा/.test(c.name_hi || ""), "पुराना 'ACS काम की भाषा' टैग बचा: " + id); ok(/बोलने का प्रमाणपत्र कोर्स \(Certificate in Spoken /.test(c.name_hi || ""), "नाम-एकरूपता टूटी: " + id); });
+const cnt = (h, cls) => (String(h || "").match(new RegExp('class="' + cls + '"', "g")) || []).length;
+ok(cnt(groupsHtml, "lc-hi") === gIds.length && cnt(groupsHtml, "lc-nat") === gIds.length && cnt(groupsHtml, "lc-en") === gIds.length, "कार्ड में तीन-लिपि पंक्तियाँ अधूरी (hi/nat/en ≠ " + gIds.length + ")");
+ok(cnt(groupsHtml, "lc-alt") === gIds.filter(id => (byId[id].t3 || []).length === 4).length, "चार-लिपि कार्ड गिनती ≠ data");
+ok(!/\[\s*[\u0900-\u097F]/.test(String(groupsHtml)), "कार्ड-पाठ में चौकोर कोष्ठक");
 /* tab-0 हुनर-सूची + बाक़ी tab */
 const g0 = (store.grid0 || {}).innerHTML || "";
 ok(chips(g0) > 0, "tab-0 हुनर-सूची ख़ाली (grid0)");
