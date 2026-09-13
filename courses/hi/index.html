@@ -608,6 +608,11 @@ function renderBhasha(){
   host.innerHTML=KKB_GROUPS.map(function(g,gi){
     return '<details class="bh-group" data-gi="'+gi+'" open><summary>'+esc(g.e)+' '+esc(g.t)+' <span class="bh-count">('+g.ids.length+' भाषाएँ)</span></summary><div class="bh-chips">'+g.ids.map(bhChip).join('')+'</div></details>';
   }).join('');
+  /* 13-Sep SEO: 130 भाषा-कोर्स की ItemList (schema.org) — data से runtime, दोहराव नहीं */
+  try{ var ld=document.createElement('script'); ld.type='application/ld+json';
+    var items=[]; KKB_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ var c=kkbCourse(id); if(c&&c.url) items.push({"@type":"ListItem","position":items.length+1,"name":(c.t3||[c.name_hi])[0],"url":"https://acslearn.com"+c.url}); }); });
+    ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"ItemList","name":"130 भाषाएँ बोलना सीखो — ACS काम की भाषा (हिंदी से)","numberOfItems":items.length,"itemListElement":items});
+    document.head.appendChild(ld); }catch(e){}
   var cor=document.getElementById('bhCorridors');
   if(cor){ cor.innerHTML='<button class="bh-cor active" type="button" onclick="setCorridor(-1,this)">🌍 सब 130</button>'+KKB_GROUPS.map(function(g,gi){ return '<button class="bh-cor" type="button" onclick="setCorridor('+gi+',this)">'+esc(g.e)+' '+esc(g.t.split(' (')[0].replace('भारतीय भाषाएँ — ','भारत: '))+' ('+g.ids.length+')</button>'; }).join(''); }
 }
@@ -660,20 +665,21 @@ function init() {
   });
 
   // Render all
-  [0,1,2,3,4,5].forEach(renderTab);
+  /* 13-Sep (ऑडिट H1): आलसी-render — init पर सिर्फ़ tab-0; बाक़ी tab पहली बार खुलने पर (DOM 31k → ~1.5k nodes) */
+  renderTab(0);
 }
 
 const activeMG = {1:'all', 2:'all', 3:'all'};
 
 window.setMG = function(tab, mg, el) {
-  activeMG[tab] = mg;
+  activeMG[tab] = mg; BATCH_N[tab] = 1;
   const div = document.getElementById('mgFilter'+tab);
   if(div) div.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   if(el) el.classList.add('active');
   renderTab(tab);
 };
 
-window.applyFilters = function(tab) { renderTab(tab); };
+window.applyFilters = function(tab) { BATCH_N[tab] = 1; renderTab(tab); };
 
 function renderTab(tab) {
   const data = TAB_DATA[tab]();
@@ -730,7 +736,9 @@ function renderTab(tab) {
       }).join('')+'</div>';
     return;
   }
-  grid.innerHTML = filtered.map(c => {
+  /* 13-Sep (ऑडिट H1): 50-50 खेप (scale-नियम v1.8-ख2) — पूरी 950-सूची एक साथ कभी नहीं */
+  const BATCH = 50; const shown = Math.min(filtered.length, (BATCH_N[tab] || 1) * BATCH);
+  grid.innerHTML = filtered.slice(0, shown).map(c => {
     const eduNames = c.edu ? c.edu.map(e => {
       const found = typeof EDU_LEVELS !== 'undefined' ? EDU_LEVELS.find(l=>l.id===e) : null;
       return found ? found.hi.split('[')[0].trim() : e;
@@ -758,8 +766,10 @@ function renderTab(tab) {
         <button class="cc-btn btn-center" onclick="openCourse('${c.id}','center')">🏫 Center Join</button>
       </div>
     </div>`;
-  }).join('');
+  }).join('') + (shown < filtered.length ? `<div style="grid-column:1/-1;text-align:center;padding:8px 0 4px"><button class="cc-btn btn-center" style="max-width:360px;font-size:18px" onclick="showMore(${tab})">और देखें ➜ (${shown} / ${filtered.length})</button></div>` : '');
 }
+const BATCH_N = {};
+window.showMore = function(tab){ BATCH_N[tab] = (BATCH_N[tab] || 1) + 1; renderTab(tab); };
 
 window.openCourse = function(id, type) {
   if(type === 'online') {
@@ -782,7 +792,9 @@ window.openCourse = function(id, type) {
   }
 };
 
+const RENDERED = {0:true};
 window.goTab = function(n) {
+  if(!RENDERED[n]){ RENDERED[n]=true; renderTab(n); }
   [0,1,2,3,4,5].forEach(i => {
     document.getElementById('sec'+i).classList.toggle('active', i===n);
     document.getElementById('tab'+i).classList.toggle('active', i===n);
@@ -893,7 +905,7 @@ init();
   <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
   <script>
   (function () {
-    document.getElementById("acsYear").textContent = new Date().getFullYear();
+    var acsYearEl = document.getElementById("acsYear"); if (acsYearEl) acsYearEl.textContent = new Date().getFullYear(); /* 13-Sep: universal-टेम्पलेट में यह element नहीं — null-guard, वरना पूरा login-script रुकता था (गूँगा-fallback निषेध) */
 
     var modal     = document.getElementById("acsLoginModal");
     var openBtn   = document.getElementById("acsLoginBtn");
@@ -949,6 +961,7 @@ init();
     }
     function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
 
+    if (!openBtn || !closeBtn || !modal) { return; } /* 13-Sep (ऑडिट H3): universal-navbar में login-बटन नहीं — login /dashboard/ से; यहाँ modal-script चुपचाप न टूटे */
     openBtn.addEventListener("click", openModal);
     closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
