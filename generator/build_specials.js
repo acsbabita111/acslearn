@@ -162,7 +162,7 @@ function buildSpecial(spec) {
   page = page.replace(/<title>[\s\S]*?<\/title>/,
     "<title>" + spec.title + "</title>\n" +
     '<meta name="description" content="' + spec.desc + '">\n' +
-    '<meta name="robots" content="index, follow">\n' +
+    '<meta name="robots" content="' + (spec.robots || "index, follow") + '">\n' +
     '<link rel="canonical" href="https://acslearn.com/' + spec.out + '">' +
     /* 13-Sep (ऑडिट/SEO): Open Graph + JSON-LD — हर विशेष-पेज पर (share-preview व rich-result) */
     '\n<meta property="og:type" content="website">' +
@@ -691,23 +691,23 @@ buildSpecial({
    नई भाषा जोड़ना = KKB_LANGS में एक पंक्ति + /assets/kkb_<code>_data.js — इंजन/टेम्पलेट अछूते।
    langStrict नहीं: लक्ष्य-भाषा के शब्द जान-बूझकर नंगे हैं। check-robot (square-bracket / font<16) यथावत। */
 const KKB_LANGS = [
-  { code: "en", label: "English", h1: "English for Work", data: "/assets/kkb_data.js", out: "courses/hi/bhasha/english/index.html", old: "courses/hi/kaam-ki-bhasha/index.html",
+  { code: "en", label: "English", h1: "English for Work", data: "/assets/kkb_data.js", out: "courses/hi/bhasha/english/index.html",
     title: "ACS काम की भाषा — English for Work (500 वाक्य, देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "5वीं पास के लिए English बोलने का मुफ़्त कोर्स — 500 वाक्य देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और फ़ोन पर टेस्ट।",
     line1: "यह English speaking (बोलने) का कोर्स है। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
-  { code: "kn", label: "कन्नड", h1: "कन्नड बोलना सीखें (Kannada for Work)", data: "/assets/kkb_kn_data.js", out: "courses/hi/bhasha/kannada/index.html", old: "courses/hi/kaam-ki-bhasha-kannada/index.html",
+  { code: "kn", label: "कन्नड", h1: "कन्नड बोलना सीखें (Kannada for Work)", data: "/assets/kkb_kn_data.js", out: "courses/hi/bhasha/kannada/index.html",
     title: "ACS काम की भाषा — कन्नड बोलना सीखें (Kannada for Work, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से कन्नड बोलना सीखें — कर्नाटक में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और फ़ोन पर टेस्ट। मुफ़्त।",
     line1: "यह कन्नड (Kannada) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो कर्नाटक में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
-  { code: "zh", label: "चीनी", h1: "चीनी बोलना सीखें (Mandarin for Work)", data: "/assets/kkb_zh_data.js", out: "courses/hi/bhasha/mandarin/index.html", old: "courses/hi/kaam-ki-bhasha-mandarin/index.html",
+  { code: "zh", label: "चीनी", h1: "चीनी बोलना सीखें (Mandarin for Work)", data: "/assets/kkb_zh_data.js", out: "courses/hi/bhasha/mandarin/index.html",
     title: "ACS काम की भाषा — चीनी बोलना सीखें (Mandarin for Work, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से चीनी (Mandarin) बोलना सीखें — चीन या चीनी कंपनी में काम के लिए 500 वाक्य, देवनागरी उच्चारण, pinyin, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
     line1: "यह चीनी (Mandarin Chinese) बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो चीन या किसी चीनी कंपनी/कारख़ाने में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
-  { code: "es", label: "स्पेनिश", h1: "स्पेनिश बोलना सीखें (Spanish for Work)", data: "/assets/kkb_es_data.js", out: "courses/hi/bhasha/spanish/index.html", old: "courses/hi/kaam-ki-bhasha-spanish/index.html",
+  { code: "es", label: "स्पेनिश", h1: "स्पेनिश बोलना सीखें (Spanish for Work)", data: "/assets/kkb_es_data.js", out: "courses/hi/bhasha/spanish/index.html",
     title: "ACS काम की भाषा — स्पेनिश बोलना सीखें (Spanish for Work, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से Spanish बोलना सीखें — स्पेन/लैटिन अमेरिका या Spanish बोलने वाली कंपनी में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
     line1: "यह Spanish बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो स्पेन, लैटिन अमेरिका या किसी Spanish बोलने वाली कंपनी में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
-  { code: "ar", label: "अरबी", h1: "अरबी बोलना सीखें (Arabic for Work — MENA)", data: "/assets/kkb_ar_data.js", out: "courses/hi/bhasha/arabic/index.html", old: "courses/hi/kaam-ki-bhasha-arabic/index.html",
+  { code: "ar", label: "अरबी", h1: "अरबी बोलना सीखें (Arabic for Work — MENA)", data: "/assets/kkb_ar_data.js", out: "courses/hi/bhasha/arabic/index.html",
     title: "ACS काम की भाषा — अरबी बोलना सीखें (Arabic for Work, मध्य-पूर्व/MENA, 500 वाक्य देवनागरी में) | अप्लाइड कंप्यूटर स्कूल",
     desc: "हिंदी से अरबी बोलना सीखें — खाड़ी देश या MENA क्षेत्र में काम के लिए 500 वाक्य, देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। 5 सप्ताह: पाठ, अभ्यास और video-call टेस्ट। मुफ़्त।",
     line1: "यह अरबी बोलने का कोर्स है — हिंदी जानने वालों के लिए, जो खाड़ी देश या मध्य-पूर्व/उत्तर-अफ़्रीका (MENA) में काम करने जा रहे हैं। पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना।" },
@@ -1555,3 +1555,33 @@ KKB2_LANGS.forEach(c => buildSpecial({
 /* ---- 95 विषय-placeholder-पेज (01-Aug-2026, Founder-आदेश) ---- */
 require("./build_subject_pages.js")(buildSpecial);
 
+/* ===================== 404.html (14-Sep, सफ़ाई-दौर) =====================
+   GitHub Pages हर अनजान पते पर रूट 404.html देता है। काम: (1) पुराने/हटाए पतों का JS-redirect नक़्शा
+   (kaam-ki-bhasha 5 folder हटे — पुरानी कड़ियाँ यहीं सँभलें); (2) बाक़ी पर सादा हिंदी "पेज नहीं मिला" + आगे के रास्ते।
+   noindex; sitemap में नहीं। नया पुराना-पता हटाओ = OLD_MAP में एक पंक्ति। */
+const OLD_MAP = {
+  "/courses/hi/kaam-ki-bhasha/": "/courses/hi/bhasha/english/",
+  "/courses/hi/kaam-ki-bhasha-arabic/": "/courses/hi/bhasha/arabic/",
+  "/courses/hi/kaam-ki-bhasha-kannada/": "/courses/hi/bhasha/kannada/",
+  "/courses/hi/kaam-ki-bhasha-mandarin/": "/courses/hi/bhasha/mandarin/",
+  "/courses/hi/kaam-ki-bhasha-spanish/": "/courses/hi/bhasha/spanish/",
+  "/hi/": "/",
+  "/courses/": "/courses/hi/",
+  "/contact/": "/contact/hi/"
+};
+buildSpecial({
+  out: "404.html", langStrict: false, robots: "noindex, follow",
+  title: "पेज नहीं मिला — अप्लाइड कंप्यूटर स्कूल",
+  desc: "यह पता site पर नहीं है। होम, 130 भाषा-कोर्स, 950 उद्यम या संपर्क पर जाएँ।",
+  head: ['<script>(function(){var p=location.pathname.replace(/index\\.html$/,"");if(!/\\/$/.test(p))p+="/";var M=' + JSON.stringify(OLD_MAP) + ';var t=M[p]||M[p.replace(/\\/$/,"")+"/"];if(t){location.replace(t+location.search+location.hash);}})();</script>'],
+  foot: [],
+  content: '<section style="max-width:720px;margin:24px auto;padding:0 16px;text-align:center">' +
+    '<h1 style="font-size:30px;color:#F9A825;margin:16px 0 8px">यह पेज नहीं मिला</h1>' +
+    '<p style="font-size:19px;line-height:1.7;color:#F5F7FA">जो पता आपने खोला, वह site पर नहीं है — शायद पुराना हो गया या टाइप में चूक हुई। नीचे से आगे बढ़ें।</p>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:18px 0">' +
+    '<a href="/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#F9A825;color:#0B1F3A;text-decoration:none">🏠 होम</a>' +
+    '<a href="/courses/hi/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#2E7D32;color:#fff;text-decoration:none">🗣️ 130 भाषा-कोर्स</a>' +
+    '<a href="/udyam/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#1565C0;color:#fff;text-decoration:none">🌍 950 उद्यम</a>' +
+    '<a href="/contact/hi/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#F5F7FA;color:#0B1F3A;text-decoration:none">📞 संपर्क</a>' +
+    '</div><p style="font-size:16px;color:#F5F7FA;opacity:.85">मूल भाषा: हिंदी</p></section>'
+});

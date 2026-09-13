@@ -18,11 +18,11 @@ const R = f => fs.readFileSync(path.join(ROOT, f), "utf8");
 const fails = [];
 const ok = (c, m) => { if (!c) fails.push(m); };
 const KKB_SETS = [
-  { code: "en", data: "assets/kkb_data.js", page: "courses/hi/bhasha/english/index.html", old: "courses/hi/kaam-ki-bhasha/index.html", id: "PJ018", url: "/courses/hi/bhasha/english/" },
-  { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/bhasha/kannada/index.html", old: "courses/hi/kaam-ki-bhasha-kannada/index.html", id: "PJ019", url: "/courses/hi/bhasha/kannada/", hiAdapted: true /* कन्नड (v0.2, live): हवाई-अड्डा-दिन घरेलू रूप में ढला — बस-अड्डा/आधार/टिकट; जान-बूझकर, दर्पण-नियम से छूट */ },
-  { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/bhasha/mandarin/index.html", old: "courses/hi/kaam-ki-bhasha-mandarin/index.html", id: "PJ020", url: "/courses/hi/bhasha/mandarin/" },
-  { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/bhasha/spanish/index.html", old: "courses/hi/kaam-ki-bhasha-spanish/index.html", id: "PJ021", url: "/courses/hi/bhasha/spanish/" },
-  { code: "ar", data: "assets/kkb_ar_data.js", page: "courses/hi/bhasha/arabic/index.html", old: "courses/hi/kaam-ki-bhasha-arabic/index.html", id: "PJ022", url: "/courses/hi/bhasha/arabic/" },
+  { code: "en", data: "assets/kkb_data.js", page: "courses/hi/bhasha/english/index.html", id: "PJ018", url: "/courses/hi/bhasha/english/" },
+  { code: "kn", data: "assets/kkb_kn_data.js", page: "courses/hi/bhasha/kannada/index.html", id: "PJ019", url: "/courses/hi/bhasha/kannada/", hiAdapted: true /* कन्नड (v0.2, live): हवाई-अड्डा-दिन घरेलू रूप में ढला — बस-अड्डा/आधार/टिकट; जान-बूझकर, दर्पण-नियम से छूट */ },
+  { code: "zh", data: "assets/kkb_zh_data.js", page: "courses/hi/bhasha/mandarin/index.html", id: "PJ020", url: "/courses/hi/bhasha/mandarin/" },
+  { code: "es", data: "assets/kkb_es_data.js", page: "courses/hi/bhasha/spanish/index.html", id: "PJ021", url: "/courses/hi/bhasha/spanish/" },
+  { code: "ar", data: "assets/kkb_ar_data.js", page: "courses/hi/bhasha/arabic/index.html", id: "PJ022", url: "/courses/hi/bhasha/arabic/" },
   { code: "bn", data: "assets/kkb_bn_data.js", page: "courses/hi/bhasha/bengali/index.html", id: "PJ023", url: "/courses/hi/bhasha/bengali/" },
   { code: "pt", data: "assets/kkb_pt_data.js", page: "courses/hi/bhasha/portuguese/index.html", id: "PJ024", url: "/courses/hi/bhasha/portuguese/" },
   { code: "id", data: "assets/kkb_id_data.js", page: "courses/hi/bhasha/indonesian/index.html", id: "PJ025", url: "/courses/hi/bhasha/indonesian/" },
