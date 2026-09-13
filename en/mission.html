@@ -113,6 +113,7 @@
       <span style="display:block;color:#fff">This isn't just a slogan,</span>
       <span style="display:block;color:#66BB6A">it's our story!</span>
     </h1>
+<p class="acs-orig-lang" style="font-size:16px;font-weight:600;text-align:center;margin:6px 0;opacity:.9">Original language: Hindi (हिंदी) — this page is a translation.</p>
     <p style="color:#F5F7FA;opacity:.88;max-width:640px;margin:0 auto">From 2011 to today — one dream, one mission, one path.</p>
   </div>
 </section>
@@ -477,7 +478,7 @@
   <!-- ══ Login + OTP (7 roles) + single-session — Firebase सिर्फ़ ज़रूरत पर ══ -->
   <script>
   (function () {
-    document.getElementById("acsYear").textContent = new Date().getFullYear();
+    var acsYearEl = document.getElementById("acsYear"); if (acsYearEl) acsYearEl.textContent = new Date().getFullYear(); /* 13-Sep: universal-टेम्पलेट में यह element नहीं — null-guard, वरना पूरा login-script रुकता था (गूँगा-fallback निषेध) */
 
     var modal     = document.getElementById("acsLoginModal");
     var openBtn   = document.getElementById("acsLoginBtn");
@@ -533,6 +534,7 @@
     }
     function closeModal(){ modal.classList.remove("open"); if(otpTimer) clearInterval(otpTimer); }
 
+    if (!openBtn || !closeBtn || !modal) { return; } /* 13-Sep (ऑडिट H3): universal-navbar में login-बटन नहीं — login /dashboard/ से; यहाँ modal-script चुपचाप न टूटे */
     openBtn.addEventListener("click", openModal);
     closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e){ if (e.target === modal) closeModal(); });
