@@ -1,4 +1,4 @@
-/* dev_courses_page_check.js v1.1 (13-Sep-2026: तीन-लिपि कार्ड नियम t3/seal + नाम-एकरूपता + ACS-टैग निषेध) · v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
+/* dev_courses_page_check.js v1.2 (13-Sep-2026 रात: आलसी-render + 50-खेप जाँच, ऑडिट H1) · v1.1 (13-Sep-2026: तीन-लिपि कार्ड नियम t3/seal + नाम-एकरूपता + ACS-टैग निषेध) · v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
    जन्म-कारण: ALL27-शृंखला की courses_data में `}, , {` ख़ाली-slot (PJ138 हटाते-सरकाते छूटा) —
    node --check इसे वैध मानता है, data-गिनती वाले यंत्र इसे छोड़ देते हैं, पर browser में
    kkbCourse() की for-loop `undefined.id` पर टूटती है → renderBhasha रुका → init() अधूरा →
@@ -59,11 +59,11 @@ const fakeDoc = { getElementById: el, querySelectorAll() { return []; }, querySe
 /* पेज के script-क्रम से (courses_data → academic_subjects → subject_slugs → mg_names → udyam_data → inline) */
 const seq = ["assets/courses_data.js", "assets/academic_subjects.js", "assets/subject_slugs.js", "assets/mg_names.js", "assets/udyam_data.js"];
 seq.forEach(f => ok(fs.existsSync(path.join(ROOT, f)), "asset नहीं: " + f));
-let initErr = null;
+let initErr = null; let renderTabRef = [];
 try {
-  const code = seq.map(f => R(f)).join("\n;\n") + "\n;\n" + inline + "\n;\n try { init(); } catch (e) { __initErr(e); }";
-  new Function("window", "document", "location", "localStorage", "sessionStorage", "navigator", "addEventListener", "__initErr", code)
-    (fakeWin, fakeDoc, fakeWin.location, fakeWin.localStorage, fakeWin.sessionStorage, fakeWin.navigator, fakeWin.addEventListener, e => { initErr = e; });
+  const code = seq.map(f => R(f)).join("\n;\n") + "\n;\n" + inline + "\n;\n try { init(); } catch (e) { __initErr(e); }\n __renderTabRef([1,2,3,4,5].map(t => () => renderTab(t)));";
+  new Function("window", "document", "location", "localStorage", "sessionStorage", "navigator", "addEventListener", "__initErr", "__renderTabRef", code)
+    (fakeWin, fakeDoc, fakeWin.location, fakeWin.localStorage, fakeWin.sessionStorage, fakeWin.navigator, fakeWin.addEventListener, e => { initErr = e; }, arr => { renderTabRef = arr; });
 } catch (e) { initErr = e; }
 ok(!initErr, "पेज-JS टूटा: " + (initErr && (initErr.message + " @ " + String(initErr.stack).split("\n")[1])));
 const chips = h => (String(h || "").match(/class="bh-chip[" ]/g) || []).length;
@@ -83,7 +83,11 @@ ok(!/\[\s*[\u0900-\u097F]/.test(String(groupsHtml)), "कार्ड-पाठ 
 const g0 = (store.grid0 || {}).innerHTML || "";
 ok(chips(g0) > 0, "tab-0 हुनर-सूची ख़ाली (grid0)");
 warn(chips(g0) >= 6, "tab-0 हुनर chips " + chips(g0) + " < 6 (पूरे हुनर-कोर्स)");
+/* v1.2 (13-Sep, ऑडिट H1): आलसी-render — init पर सिर्फ़ tab-0; बाक़ी tab renderTab(t) से; 50-खेप में "और देखें" अनिवार्य जब सूची >50 */
+[1, 2, 3, 4, 5].forEach(t => ok(((store["grid" + t] || {}).innerHTML || "").length === 0, "tab-" + t + " init पर render हुआ (आलसी-render नियम टूटा)"));
+try { renderTabRef.forEach(fn => fn()); } catch (e) { ok(false, "renderTab(1..5) टूटा: " + e.message); }
 [1, 2, 3, 4, 5].forEach(t => ok(((store["grid" + t] || {}).innerHTML || "").length > 50, "tab-" + t + " grid ख़ाली"));
+[1, 2, 3].forEach(t => { const h = (store["grid" + t] || {}).innerHTML || ""; ok((h.match(/class="course-card"/g) || []).length <= 50 && /और देखें/.test(h), "tab-" + t + " 50-खेप नियम टूटा (कार्ड " + (h.match(/class="course-card"/g) || []).length + ")"); });
 /* पेज-गिनती वाक्य data से मेल */
 const mCnt = html.match(/(\d+) भाषाओं का पूरा कोर्स/); const mAll = html.match(/दुनिया की (\d+) भाषाएँ/);
 ok(mCnt && +mCnt[1] === goldExpected, "पेज-वाक्य '" + (mCnt && mCnt[0]) + "' ≠ data सुनहरी " + goldExpected);

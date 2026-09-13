@@ -4,6 +4,8 @@
    client-द्वार (dashboard SERVER_EXAM_COURSES + exam_data प्रविष्टि) */
 "use strict";
 var fs = require("fs"), fail = 0;
+var fs0 = require("fs"), path0 = require("path");
+if (!fs0.existsSync(path0.join(__dirname, "../functions/eng_bank.js"))) { console.log("⚠️ functions/eng_bank.js repo में नहीं (office-only, eng_bank.js-नियम) — यह robot office-प्रति पर चलाएँ; यहाँ skip (13-Sep: ताज़ा-clone crash-होल बंद)"); process.exit(0); }
 var B = require("../functions/eng_bank.js");
 if (B.length !== 2919) { console.log("⛔ गिनती " + B.length); fail++; }
 var idSeen = {};

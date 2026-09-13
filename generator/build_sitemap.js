@@ -18,8 +18,10 @@ const main = [
   "/", "/hi/mission.html", "/hi/salah.html", "/udyam/", "/courses/hi/",
   "/join.html", "/verify/", "/hi/network.html", "/vani/", "/contact/hi/",
   "/aptitude-test.html", "/career-kit.html", "/registration-guide.html",
-  "/refund.html", "/privacy.html", "/terms.html"
-];
+  "/refund.html", "/privacy.html", "/terms.html",
+  /* 13-Sep SEO: English पेज (मूल→अंग्रेज़ी→बाक़ी क्रम) + उद्यम-विकी + rules-consent 27 (registration के सार्वजनिक नियम) */
+  "/en/", "/en/mission.html", "/en/counseling.html", "/en/industries/", "/vani/en/", "/udyam/wiki.html"
+].concat(fs.readdirSync(ROOT).filter(f => /^rules-consent-.*\.html$/.test(f)).sort().map(f => "/" + f));
 
 const data = fs.readFileSync(path.join(ROOT, "assets/udyam_data.js"), "utf8");
 const intros = [...data.matchAll(/"intro": "(\/udyam\/[^"]+)"/g)].map(m => m[1]);
@@ -40,14 +42,17 @@ const coursePages = walk(path.join(ROOT, "courses"), [])
   .sort();
 console.log("नई-प्रणाली कोर्स-पेज:", coursePages.length);
 
-const today = new Date().toISOString().slice(0, 10);
+/* 13-Sep (ऑडिट/SEO): (क) lastmod हटा — हर URL पर "आज" की तारीख़ झूठी थी; Google गलत lastmod को अनदेखा करता है (sitemaps guideline: सिर्फ़ सटीक हो तो दें)।
+   (ख) legacy कोर्स-परिवार के 3 प्रवेश-पेज (index) जुड़े — 1,500+ पाठ migration तक बाहर (27-Jul नियम), पर प्रवेश-द्वार खोज में मिलें। */
+const LEGACY_INDEX = ["/courses/hi/digital/dca/", "/courses/hi/digital/ai-digital-master/", "/courses/hi/vocational/printer/"].filter(u => fs.existsSync(path.join(ROOT, u.slice(1), "index.html")));
 const urls = [...main, ...intros, ...coursePages];
+LEGACY_INDEX.forEach(u => { if (!urls.includes(u) && !urls.includes(u + "index.html")) urls.push(u); });
 const seen = new Set();
 let xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 for (const u of urls) {
   if (seen.has(u)) continue; seen.add(u);
-  xml += "  <url><loc>" + BASE + u + "</loc><lastmod>" + today + "</lastmod></url>\n";
+  xml += "  <url><loc>" + BASE + u + "</loc></url>\n";
 }
 xml += "</urlset>\n";
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), xml);

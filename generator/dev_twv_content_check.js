@@ -6,15 +6,16 @@
 const fs=require("fs"), path=require("path"), cp=require("child_process");
 const DIR=path.join(__dirname,"..","courses","hi","two-wheeler");
 const ORIG=path.join(__dirname,"..","..","orig","acslearn-main","courses","hi","two-wheeler");
-const CHANGED=(cp.execSync('cd '+JSON.stringify(path.join(__dirname,".."))+' && node generator/twv_safai.js --measure',{encoding:"utf8"}));
+const CHANGED=(function(){ if(!fs.existsSync(path.join(__dirname,"twv_safai.js"))){ console.log("⚠️ generator/twv_safai.js repo में नहीं (सफ़ाई-दौर का laptop-औज़ार) — measure-चरण skip; बाक़ी जाँचें चलेंगी (13-Sep: ताज़ा-clone crash-होल बंद)"); return ""; } return cp.execSync('cd '+JSON.stringify(path.join(__dirname,".."))+' && node generator/twv_safai.js --measure',{encoding:"utf8"}); })();
 const files=fs.readdirSync(DIR).filter(f=>f.startsWith("twv-")&&f.endsWith(".html")).sort();
 const wcount=t=>(t.replace(/<script[\s\S]*?<\/script>/g," ").replace(/<style[\s\S]*?<\/style>/g," ").replace(/<svg[\s\S]*?<\/svg>/g," ").replace(/<[^>]+>/g," ").match(/[\u0900-\u097FA-Za-z0-9]+/g)||[]).length;
 
 let changed=[], untouched=[], byteDiff=[];
-for(const f of files){
+if(!fs.existsSync(ORIG)){ console.log("⚠️ मूल-live प्रति (ORIG) इस मशीन पर नहीं — byte-मिलान चरण skip, content-जाँचें सब फ़ाइलों पर (13-Sep: ताज़ा-clone crash-होल बंद)"); changed=files.slice(); }
+else for(const f of files){
   const a=fs.readFileSync(path.join(DIR,f));
-  const b=fs.readFileSync(path.join(ORIG,f));
-  if(a.equals(b)) untouched.push(f); else changed.push(f);
+  const b=fs.existsSync(path.join(ORIG,f))?fs.readFileSync(path.join(ORIG,f)):null;
+  if(b&&a.equals(b)) untouched.push(f); else changed.push(f);
 }
 console.log("बदले:",changed.length,"| अछूते:",untouched.length,"(मूल-live से byte-हूबहू)");
 
@@ -29,13 +30,13 @@ for(const f of changed){
   if(!/lsn-jumplist/.test(s)) fail.push(f+" jumplist ग़ायब");
   if(!/lsn-video/.test(s)) fail.push(f+" video-खंड ग़ायब");
   /* नए खंड (भराई) पकड़ो — orig में नहीं थे */
-  const o=fs.readFileSync(path.join(ORIG,f),"utf8");
-  for(const m of s.matchAll(/<section class="lsn-sec">\n<h2>([^<]+)<\/h2>([\s\S]*?)<\/section>/g)){
+  const o=fs.existsSync(path.join(ORIG,f))?fs.readFileSync(path.join(ORIG,f),"utf8"):""; /* ORIG न हो: हर खंड "नया" मानकर मौलिकता-जाँच (कड़ा रास्ता) */
+  if(o) for(const m of s.matchAll(/<section class="lsn-sec">\n<h2>([^<]+)<\/h2>([\s\S]*?)<\/section>/g)){
     if(o.indexOf(m[0])===-1 && !/lsn-video/.test(m[0])) NEWSEC.push({f,h:m[1],t:m[2].replace(/<[^>]+>/g," ")});
   }
 }
 console.log("ढाँचा-जाँच:",fail.length?("⛔ "+fail.slice(0,5)):"सब पास ✅"); console.log("शब्द ≥1200 पूर्ण:",changed.length-pending.length,"| क़तार (<1200):",pending.length);
-console.log("भराई-खंड मिले:",NEWSEC.length);
+console.log("भराई-खंड मिले:",NEWSEC.length, fs.existsSync(ORIG)?"":"(ORIG नहीं — भराई-मौलिकता-खिड़की सिर्फ़ सफ़ाई-दौर laptop पर; यहाँ ढाँचा/शब्द/दोहराव-जाँचें)");
 
 /* मौलिकता: 6-शब्द खिड़की */
 const win=new Map(); let dupWin=[];

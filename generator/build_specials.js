@@ -163,7 +163,16 @@ function buildSpecial(spec) {
     "<title>" + spec.title + "</title>\n" +
     '<meta name="description" content="' + spec.desc + '">\n' +
     '<meta name="robots" content="index, follow">\n' +
-    '<link rel="canonical" href="https://acslearn.com/' + spec.out + '">');
+    '<link rel="canonical" href="https://acslearn.com/' + spec.out + '">' +
+    /* 13-Sep (ऑडिट/SEO): Open Graph + JSON-LD — हर विशेष-पेज पर (share-preview व rich-result) */
+    '\n<meta property="og:type" content="website">' +
+    '\n<meta property="og:url" content="https://acslearn.com/' + spec.out.replace(/index\.html$/, "") + '">' +
+    '\n<meta property="og:title" content="' + spec.title.replace(/"/g, "&quot;") + '">' +
+    '\n<meta property="og:description" content="' + spec.desc.replace(/"/g, "&quot;") + '">' +
+    '\n<meta property="og:image" content="https://acslearn.com/logo.png">' +
+    '\n<meta property="og:locale" content="hi_IN">' +
+    '\n<meta name="twitter:card" content="summary">' +
+    (spec.jsonld ? '\n<script type="application/ld+json">' + JSON.stringify(spec.jsonld) + '</scr' + 'ipt>' : ''));
   spec.head.forEach(h => { page = page.replace("</head>", h + "\n</head>"); });
   page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
   page = page.replace("</body>", MENU_FALLBACK_JS + "\n" + spec.foot.join("\n") + "\n</body>");
@@ -1522,6 +1531,21 @@ KKB2_LANGS.forEach(c => buildSpecial({
   title: "ACS Certificate in Spoken " + c.en_name + " — " + c.hi_name + " बोलने का पूरा कोर्स (90 दिन, 2,150 वाक्य, CEFR A2 पर आधारित) | अप्लाइड कंप्यूटर स्कूल",
   desc: c.hi_name + " बोलने का पूरा मुफ़्त कोर्स — 90 दिन, 3 महीने, 2,150 वाक्य असली लिपि + देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। स्तर 1+2 एक साथ; CEFR A2 पर आधारित। 5वीं पास भी आज से बोले।",
   head: ['<link rel="stylesheet" href="/assets/kkb2.css">'],
+  /* 13-Sep SEO: schema.org Course + BreadcrumbList (Google Course rich-result: name/description/provider अनिवार्य) — दावे सिर्फ़ दर्ज तथ्य: मुफ़्त, 90 दिन, 2,150 वाक्य, "CEFR A2 पर आधारित" */
+  jsonld: [
+    { "@context": "https://schema.org", "@type": "Course",
+      "name": "ACS Certificate in Spoken " + c.en_name + " — " + c.hi_name + " बोलने का पूरा कोर्स",
+      "description": c.hi_name + " बोलने का पूरा मुफ़्त कोर्स — 90 दिन, 2,150 वाक्य असली लिपि + देवनागरी उच्चारण + हिंदी अर्थ + आवाज़; ऑनलाइन परीक्षा; प्रमाणपत्र CEFR A2 पर आधारित/प्रेरित (CEFR-प्रमाणित नहीं)।",
+      "url": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/",
+      "inLanguage": "hi", "teaches": "Spoken " + c.en_name + " (" + c.hi_name + ")", "isAccessibleForFree": true,
+      "educationalLevel": "Beginner (based on CEFR A2)",
+      "provider": { "@type": "Organization", "name": "Applied Computer School", "alternateName": "अप्लाइड कंप्यूटर स्कूल", "url": "https://acslearn.com/" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/" },
+      "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online", "courseWorkload": "P90D", "inLanguage": "hi" } },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "होम", "item": "https://acslearn.com/" },
+      { "@type": "ListItem", "position": 2, "name": "कोर्स", "item": "https://acslearn.com/courses/hi/" },
+      { "@type": "ListItem", "position": 3, "name": c.hi_name + " बोलने का प्रमाणपत्र कोर्स", "item": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/" } ] } ],
   foot: ['<script src="' + (c.code === "en" ? "/assets/kkb_data.js" : "/assets/kkb_" + c.code + "_data.js") + '"></scr' + 'ipt>',
          '<script src="' + (c.code === "en" ? "/assets/kkb2_data.js" : "/assets/kkb2_" + c.code + "_data.js") + '"></scr' + 'ipt>',
          '<script src="/assets/kkb2.js" defer></scr' + 'ipt>'],
