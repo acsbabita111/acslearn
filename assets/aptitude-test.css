@@ -5,6 +5,7 @@
    गहरी लिखाई अदृश्य थी — Founder-screenshot से पकड़ी)।
    नियम: कुछ भी 16px से छोटा नहीं · सिर्फ़ ACS रंग · apt- नाम-घेरा
    ============================================================ */
+#apt-box{min-height:70vh} /* 13-Sep ऑडिट H2: प्रश्न-डिब्बा भरने से नीचे का पाठ न खिसके — CLS 0.81 → 0 */
 .apt-wrap{max-width:760px;margin:14px auto 30px;padding:16px 14px 24px;font-size:19px;line-height:1.75;color:#0B1F3A;background:#F5F7FA;border-radius:18px}
 .apt-wrap h1{color:#0B1F3A}
 .apt-lead{font-size:19px}

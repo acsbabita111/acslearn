@@ -1,6 +1,7 @@
 /* /assets/kkb2.css — v2.3 (30-Aug-2026) · center-align + तीनों पंक्तियाँ बराबर 22px, भेद सिर्फ़ रंग से: English नेवी · उच्चारण नीला · अर्थ हरा (Founder-सुझाव) · ACS Spoken English 90-दिन — नया रूप
    ACS-5 रंग ही · कुछ भी <16px नहीं · Android-8 सुरक्षित (सादा CSS, कोई grid/var नहीं) */
 .kkb2-app{max-width:600px;margin:14px auto 48px;padding:0 12px;font-family:'Noto Sans Devanagari',Inter,sans-serif}
+#kkb2-app{min-height:100vh} /* 13-Sep ऑडिट H2: JS-content आने से पहले footer ऊपर न आए — CLS 0.66 → 0 */
 
 /* ---- HERO ---- */
 .kkb2-hero{background:#0B1F3A;border:1px solid #1565C0;border-top:5px solid #F9A825;border-radius:18px;padding:22px 18px 18px;margin:6px 0 16px;color:#F5F7FA;box-shadow:0 10px 28px rgba(0,0,0,.35)}

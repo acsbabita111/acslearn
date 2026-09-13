@@ -124,15 +124,22 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       var h1 = document.querySelector("h1");
       var mN = document.body.textContent.match(/उद्यम-सूची क्रमांक (\d+)/);
       var uN = mN ? parseInt(mN[1],10) : 0;
+      /* 13-Sep (ऑडिट H2, CLS 0.136 → 0): hero-डिब्बा DOMContentLoaded पर ही h1 के नीचे बैठे (जगह आरक्षित, aspect-ratio CSS से);
+         data-फ़ाइल आने पर सिर्फ़ भीतर भरे — पाठ नीचे नहीं खिसकता */
+      var hero = document.createElement("div");
+      hero.className = "udy-hero";
+      hero.setAttribute("aria-hidden","true");
+      var head = h1 ? (h1.closest ? h1.closest(".lsn-head") : h1.parentNode) : null;
+      if(head){ head.appendChild(hero); head.classList.add("has-hero"); } /* ::after placeholder की जगह पर ही, अंत में */
+      else if(h1 && h1.parentNode) h1.parentNode.insertBefore(hero, h1.nextSibling);
       var s = document.createElement("script");
       s.src = "/assets/udyam_hero_data.js";
+      s.onerror = function(){ if(hero.parentNode) hero.parentNode.removeChild(hero); if(head) head.classList.remove("has-hero"); }; /* data न आए → डिब्बा हटे (गूँगा-ख़ाली नहीं) */
       s.onload = function(){
         try{
           var H = (window.ACS_UDYAM_HERO||{})[uN] || {e:"🏭", mg:0, img:""};
           var PAL = window.ACS_UDYAM_HERO_PAL || {};
           var pal = PAL[H.mg] || PAL[0] || ["#0B1F3A","#1565C0","#2E7D32"];
-          var hero = document.createElement("div");
-          hero.className = "udy-hero";
           if(H.img){
             var im = document.createElement("img");
             im.src = H.img; im.alt = (h1?h1.textContent:"उद्यम")+" — चित्र";
@@ -167,10 +174,21 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
               +'<text x="'+(v===1?70:300)+'" y="137" font-size="19" font-weight="600" fill="#F9A825">ACS उद्यम-परिचय</text>'
               +'</svg>';
           }
-          if(h1 && h1.parentNode) h1.parentNode.insertBefore(hero, h1.nextSibling);
+          if(H.img){ hero.removeAttribute("aria-hidden"); }
         }catch(e){}
       };
       document.head.appendChild(s);
+    }catch(e){}
+
+    /* ---------- (1b) 13-Sep SEO: उद्यम-परिचय पर Article + BreadcrumbList JSON-LD (runtime — 950 पेज बिना regen) ---------- */
+    if(doUdyam) try{
+      var h1s = document.querySelector("h1"); var dsc = document.querySelector('meta[name="description"]');
+      var ld = document.createElement("script"); ld.type = "application/ld+json";
+      ld.textContent = JSON.stringify([
+        { "@context":"https://schema.org", "@type":"Article", "headline": h1s ? h1s.textContent.trim() : document.title, "description": dsc ? dsc.content : "", "inLanguage":"hi", "isAccessibleForFree": true, "mainEntityOfPage": location.origin + location.pathname,
+          "author": { "@type":"Organization", "name":"Applied Computer School", "url":"https://acslearn.com/" }, "publisher": { "@type":"Organization", "name":"Applied Computer School", "logo": { "@type":"ImageObject", "url":"https://acslearn.com/logo.png" } } },
+        { "@context":"https://schema.org", "@type":"BreadcrumbList", "itemListElement":[ { "@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/" }, { "@type":"ListItem","position":2,"name":"उद्यम","item":"https://acslearn.com/udyam/" }, { "@type":"ListItem","position":3,"name": h1s ? h1s.textContent.trim() : "उद्यम-परिचय","item": location.origin + location.pathname } ] } ]);
+      document.head.appendChild(ld);
     }catch(e){}
 
     /* ---------- (2) 🔊 सुनो-बटन — हर अनुच्छेद पर ---------- */
