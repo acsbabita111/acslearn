@@ -106,10 +106,10 @@
 <div id="coursesApp">
 <div class="hero hero-130">
   <div class="hero-inner">
-    <p class="h130-kicker">दुनिया का पहला ऐसा मंच — हिंदी बोलने वालों के लिए</p>
+    <p class="h130-kicker">हिंदी बोलने वालों के लिए — हिंदी-माध्यम से सबसे ज़्यादा भाषाएँ, पूरे कोर्स और प्रमाणपत्र के साथ</p>
     <h1 class="h130-title"><span class="h130-num">130</span><span class="h130-words">भाषाएँ<br>बोलना सीखो</span></h1>
-    <div class="h130-seals" aria-hidden="true" id="heroSeals"></div>
-    <p class="h130-claim">हर भाषा का पूरा कोर्स — <b>90 दिन · 2,150 वाक्य</b> · ऑनलाइन परीक्षा · <b>प्रमाणपत्र</b> (CEFR A2 पर आधारित)। पढ़ाई मुफ़्त।</p>
+    <p class="h130-claim">हर भाषा का पूरा कोर्स — <b>90 दिन · 2,150 वाक्य</b> · ऑनलाइन परीक्षा<br><b>प्रमाणपत्र</b> (CEFR A2 पर आधारित) · पढ़ाई मुफ़्त</p>
+    <p class="h130-proof">हमारी वेब-खोज (13 सितंबर 2026) में हिंदी से इतनी भाषाओं का पूरा कोर्स + प्रमाणपत्र देने वाला कोई दूसरा मंच नहीं मिला — अगला सबसे बड़ा 50 भाषाएँ (बिना प्रमाणपत्र)।</p>
     <div class="h130-cta">
       <button class="h130-btn h130-btn-gold" type="button" onclick="document.getElementById('khandB').scrollIntoView({behavior:'smooth'})">🗣️ अपनी भाषा चुनो</button>
       <button class="h130-btn h130-btn-line" type="button" onclick="document.getElementById('khandA').scrollIntoView({behavior:'smooth'})">🛠️ हुनर कोर्स देखो</button>
@@ -117,11 +117,11 @@
     <div class="formula-strip">
       <div class="fs-title">🎯 सफलता का सूत्र — 1 हुनर + 1 भाषा</div>
       <div class="fs-steps">
-        <span class="fs-step">1️⃣ पहले 1 हुनर सीखो<br><small>(जैसे वेल्डिंग, ई-कॉमर्स)</small></span>
+        <a class="fs-step" href="#khandA" onclick="document.getElementById('khandA').scrollIntoView({behavior:'smooth'});return false;">1️⃣ पहले 1 हुनर सीखो<br><small>(जैसे वेल्डिंग, ई-कॉमर्स)</small></a>
         <span class="fs-arrow">➜</span>
-        <span class="fs-step">2️⃣ फिर 1 ग़ैर-देवनागरी भाषा सीखो<br><small>(जैसे English, अरबी)</small></span>
+        <a class="fs-step" href="#khandB" onclick="document.getElementById('khandB').scrollIntoView({behavior:'smooth'});return false;">2️⃣ फिर 1 ग़ैर-देवनागरी भाषा सीखो<br><small>(जैसे English, अरबी)</small></a>
         <span class="fs-arrow">➜</span>
-        <span class="fs-step">3️⃣ देश-विदेश में जॉब की संभावना कई गुना!</span>
+        <a class="fs-step" href="/hi/network.html">3️⃣ देश-विदेश में जॉब की संभावना कई गुना!</a>
       </div>
     </div>
   </div>
@@ -144,14 +144,6 @@
 
   <!-- ══ TAB 0: अभी पढ़ना शुरू करें! — 3 खंड (30-Aug, Founder: सर्टिफिकेट/डिप्लोमा नाम-नियम + भाषा-समूह) ══ -->
   <div class="sec active" id="sec0">
-    <div class="sec-title sec-title-130">✅ अभी पढ़ना शुरू करें!</div>
-
-    <!-- नाम-नियम पट्टी (सर्टिफिकेट बनाम डिप्लोमा) -->
-    <div class="naam-strip">
-      <span class="ns-item">📜 <b>सर्टिफिकेट प्रोग्राम</b> = ऑनलाइन पढ़ाई (मुफ़्त) + ऑनलाइन परीक्षा</span>
-      <span class="ns-item">🎓 <b>डिप्लोमा</b> = केंद्र/वर्कशॉप से practical (प्रैक्टिकल) समेत पूरा करने पर</span>
-    </div>
-
     <!-- राह-पट्टी: पहला सवाल — क्या सीखना है? (EdTech goal-first नियम) -->
     <div class="khand-title" style="text-align:center">आपको क्या सीखना है? नीचे दबाओ 👇</div>
     <div class="raah-row">
@@ -178,7 +170,7 @@
     <!-- खंड-अ: हुनर सर्टिफिकेट प्रोग्राम -->
     <div class="khand-title" id="khandA">🛠️ हुनर सर्टिफिकेट प्रोग्राम</div>
     <div class="khand-sub">पूरे 7 हुनर-कोर्स — पाठ, चित्र, वीडियो, quiz (क्विज़) और ऑनलाइन परीक्षा के साथ।</div>
-    <div class="course-grid" id="grid0"></div>
+    <div class="bh-chips hunar-grid" id="grid0"></div>
 
     <!-- खंड-स: डिप्लोमा -->
     <div class="khand-title">🎓 डिप्लोमा (केंद्र/वर्कशॉप से)</div>
@@ -399,10 +391,9 @@
 .h130-title{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 14px;line-height:1;flex-wrap:wrap}
 .h130-num{font-family:Inter,"Noto Sans Devanagari",sans-serif;font-weight:900;font-size:clamp(84px,20vw,168px);color:#F9A825;line-height:.9;letter-spacing:-4px;text-shadow:0 6px 0 #1565C0}
 .h130-words{font-size:clamp(28px,7vw,54px);font-weight:900;color:#fff;text-align:left;line-height:1.1}
-.h130-seals{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:6px auto 14px;max-width:760px}
-.h130-seals .lc-seal{position:static;width:42px;height:42px;font-size:19px;box-shadow:0 3px 0 #F9A825}
 .h130-claim{font-size:clamp(17px,2.6vw,21px);line-height:1.7;max-width:720px;margin:0 auto 16px;color:#F5F7FA}
 .h130-claim b{color:#F9A825}
+.h130-proof{font-size:16px;line-height:1.6;max-width:720px;margin:-6px auto 16px;color:#F5F7FA;opacity:.9}
 .h130-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
 .h130-btn{font-family:inherit;font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;cursor:pointer;border:3px solid #F9A825;transition:transform .15s}
 .h130-btn-gold{background:#F9A825;color:#0B1F3A;box-shadow:0 6px 0 #1565C0}
@@ -446,13 +437,17 @@
 .lc-nat{font-size:21px;font-weight:700;color:#1565C0;line-height:1.5;font-family:"Noto Sans","Noto Sans Devanagari",Inter,system-ui,sans-serif;unicode-bidi:plaintext}
 .lc-alt{font-size:16px;font-weight:600;color:#0B1F3A;opacity:.85;line-height:1.5;unicode-bidi:plaintext}
 .lc-en{font-family:Inter,sans-serif;font-size:16px;font-weight:700;color:#2E7D32;line-height:1.4}
+.lc-meta{font-size:16px;font-weight:700;color:#0B1F3A;opacity:.85}
+.hunar-grid{padding:18px 0 4px}
+.hunar-card .lc-en{font-size:18px}
 .lc-go{margin-top:6px;font-size:16px;font-weight:800;color:#fff;background:#2E7D32;border-radius:10px;padding:8px 12px;text-align:center}
 @media(prefers-reduced-motion:reduce){.lang-card,.h130-btn,.raah-btn{transition:none}.lang-card:hover{transform:none}}
 /* ── tab-0 तीन-खंड (30-Aug) ── */
 .formula-strip{background:#fff;border:2px solid var(--gold,#F9A825);border-radius:14px;padding:16px;margin:14px auto;max-width:860px;text-align:center}
 .fs-title{font-size:19px;font-weight:800;color:#0B1F3A;margin-bottom:10px}
 .fs-steps{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;font-size:16px;font-weight:700;color:#0B1F3A;line-height:1.6}
-.fs-step{background:#F5F7FA;border:1px solid #d7dde6;border-radius:10px;padding:10px 12px}
+.fs-step{background:#F5F7FA;border:2px solid #0B1F3A;border-radius:10px;padding:10px 12px;color:#0B1F3A;text-decoration:none;display:inline-block}
+.fs-step:hover{background:#F9A825}
 .fs-step small{font-weight:600;color:#5a6675;font-size:16px}
 .fs-arrow{color:#2E7D32;font-size:20px;font-weight:800}
 .naam-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 auto 8px;max-width:860px}
@@ -615,8 +610,6 @@ function renderBhasha(){
   }).join('');
   var cor=document.getElementById('bhCorridors');
   if(cor){ cor.innerHTML='<button class="bh-cor active" type="button" onclick="setCorridor(-1,this)">🌍 सब 130</button>'+KKB_GROUPS.map(function(g,gi){ return '<button class="bh-cor" type="button" onclick="setCorridor('+gi+',this)">'+esc(g.e)+' '+esc(g.t.split(' (')[0].replace('भारतीय भाषाएँ — ','भारत: '))+' ('+g.ids.length+')</button>'; }).join(''); }
-  var hs=document.getElementById('heroSeals');
-  if(hs){ var ids=['PJ023','PJ022','PJ020','PJ026','PJ031','PJ052','PJ029','PJ131','PJ144','PJ066','PJ080','PJ137','PJ061','PJ096','PJ145','PJ018']; hs.innerHTML=ids.map(function(id){var c=kkbCourse(id);return c?'<span class="lc-seal">'+esc(c.seal)+'</span>':'';}).join(''); }
 }
 window.setCorridor=function(gi,el){
   var btns=document.querySelectorAll('#bhCorridors .bh-cor'); for(var i=0;i<btns.length;i++) btns[i].classList.remove('active'); if(el) el.classList.add('active');
@@ -703,6 +696,21 @@ function renderTab(tab) {
 
   const grid = document.getElementById('grid'+tab);
   if(!grid) return;
+  /* 13-Sep (Founder): tab-0 हुनर-कोर्स = 3D कार्ड, नाम हिंदी + English (courses_data.t2, एक चीज़ = एक जगह); class bh-chip robot-गिनती हेतु */
+  if(tab === 0){
+    grid.innerHTML = filtered.map(function(c){
+      var t2 = c.t2 || [c.name_hi || '', c.name_en || ''];
+      var href = c.url || '#';
+      return '<a class="bh-chip bh-chip-full lang-card hunar-card" href="' + esc(href) + '">'
+        + '<span class="lc-seal" aria-hidden="true">' + esc(c.seal || '🎓') + '</span>'
+        + '<span class="lc-hi">' + esc(t2[0]) + '</span>'
+        + '<span class="lc-en">' + esc(t2[1]) + '</span>'
+        + '<span class="lc-meta">' + (c.lessons ? esc(String(c.lessons)) + ' पाठ · ' : '') + 'ऑनलाइन मुफ़्त · परीक्षा · प्रमाणपत्र</span>'
+        + '<span class="lc-go">पढ़ना शुरू करें ➜</span>'
+        + '</a>';
+    }).join('');
+    return;
+  }
 
   if(filtered.length === 0) {
     grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);font-size:16px">कोई कोर्स नहीं मिला। Filter बदलें।</div>';
