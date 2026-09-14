@@ -180,7 +180,7 @@ Applied Computer School™ | acslearn.com | FFGPMTrust
 
 **आगे और कुछ चाहिए?**
 - पूरी वेबसाइट: acslearn.com
-- सवाल-सुझाव: WhatsApp wa.me/919431210092 · acs.chautham@gmail.com
+- सवाल-सुझाव: WhatsApp wa.me/919431210092 · info@ffgpmt.org
 - संस्था, केंद्र या साझेदारी की बात: इसी पते पर लिखिए
 
 ---
