@@ -1517,6 +1517,33 @@ const KKB2_LANGS = [
   { code: "yue", slug: "cantonese", en_name: "Cantonese", hi_name: "कैंटोनीज़", /* 10-Sep: L2 भाषा — हांगकांग-ग्वांगदोंग, Han space-रहित (ROT-प्रतिबंधित); merge-दौर में KKB2_LANGS-पंजीकरण (SE-एशिया खेप का छूटा हिस्सा) */
     next: 'आगे का रास्ता: कैंटोनीज़ की कोई एक विश्व-प्रचलित A2-परीक्षा नहीं — जहाँ काम करना है, वहाँ के नियोक्ता की भाषा-माँग ख़ुद जाँचें। ' + KKB2_SAFE },
 ];
+/* ===== 14-Sep (Founder: "परिचय पेज विश्व-स्तरीय") — app के नीचे स्थिर परिचय: 6 अंक · 4 कदम · यह भाषा क्यों (गलियारा-data) · विश्व-मानक · FAQ (FAQPage JSON-LD) · आगे ===== */
+const KKB_FAQ = [
+  ["क्या यह कोर्स सच में मुफ़्त है?", "हाँ। पढ़ना, सुनना, बोलना, साप्ताहिक परीक्षा — सब मुफ़्त, बिना login। सिर्फ़ प्रमाणपत्र-PDF ₹125 का है, वह भी मर्ज़ी से।"],
+  ["मैं सिर्फ़ 5वीं पास हूँ, क्या कर पाऊँगा/पाऊँगी?", "हाँ। हर वाक्य देवनागरी में उच्चारण और हिंदी में अर्थ के साथ है। रोज़ 20–30 वाक्य सुनो और बोलो — बस।"],
+  ["रोज़ कितना समय लगेगा और कुल कितने दिन?", "रोज़ 15–20 मिनट। 90 दिन में 2,150 वाक्य। छूट जाए तो जहाँ छोड़ा था वहीं से चलता है।"],
+  ["प्रमाणपत्र किस काम आएगा?", "यह बोलने-तैयारी का ACS-प्रमाणपत्र है (FFGPMTrust, QR से जाँच)। यह सरकारी भाषा-परीक्षा या वीज़ा की गारंटी नहीं — उनकी तैयारी है; आगे की मान्य परीक्षा की कड़ी इसी पेज पर है।"],
+  ["क्या यह बिना internet चलेगा?", "एक बार खोलने के बाद पाठ फ़ोन में रहते हैं (offline)। आवाज़ फ़ोन की अपनी TTS से आती है — पुराने फ़ोन में कोई भाषा न हो तो देवनागरी-उच्चारण पढ़ लो।"],
+  ["इस कोर्स का ढाँचा किस पर आधारित है?", "CEFR A1–A2 के 'मैं कर सकता हूँ' कथन, जापान (Irodori/JFT-Basic) और कोरिया (EPS-TOPIK) के कामगार-भाषा कार्यक्रमों की तर्ज़ पर — 'आधारित/प्रेरित', उनकी प्रति नहीं।"]
+];
+function kkb2IntroBelow(c) {
+  const cor = (typeof CORR !== "undefined" ? CORR[c.slug] : null) || []; const hiC = cor.map(k => (typeof EMB_HI !== "undefined" && EMB_HI[k]) || k);
+  const why = cor.length
+    ? '<p>' + c.hi_name + ' बोलने वालों के मुख्य रोजगार-देश: <b>' + hiC.join(", ") + '</b>। वहाँ काम माँगने, समझने, अपने हक़ की बात रखने और सुरक्षित रहने के लिए भाषा पहला औज़ार है। ACS का सूत्र: <b>1 हुनर + 1 भाषा = पहली कमाई</b>।</p>'
+    : '<p>' + c.hi_name + ' किसी एक विदेशी रोजगार-गलियारे से नहीं जुड़ी — यह अपने राज्य/देश, व्यापार, परिवार और पहचान की भाषा है। यहाँ भाषा सीखना = अपने लोगों से उनकी बोली में जुड़ना और स्थानीय बाज़ार में काम पाना।</p>';
+  const faqHtml = KKB_FAQ.map(q => '<details class="kkb-faq"><summary>' + q[0] + '</summary><p>' + q[1] + '</p></details>').join("");
+  return '<section class="kkb-below">' +
+    '<h2>यह कोर्स एक नज़र में</h2><div class="kkb-num">' +
+    '<div><b>2,150</b><span>वाक्य, असली लिपि + उच्चारण + अर्थ</span></div><div><b>90</b><span>दिन · रोज़ 20–30 वाक्य</span></div><div><b>🔊</b><span>हर वाक्य पर आवाज़, धीरे भी</span></div>' +
+    '<div><b>40/40/40</b><span>सुनो · बोलो · पढ़ो — ऑनलाइन परीक्षा</span></div><div><b>₹0</b><span>पढ़ाई मुफ़्त, बिना login</span></div><div><b>₹125</b><span>प्रमाणपत्र (QR से जाँच), मर्ज़ी से</span></div></div>' +
+    '<h2>कैसे चलता है — 4 कदम</h2><ol class="kkb-steps"><li><b>सुनो</b> — 🔊 दबाओ, धीरे भी सुन सकते हो।</li><li><b>बोलो</b> — साथ-साथ 3 बार, फिर "मैंने बोला"।</li><li><b>लिखो</b> — हफ़्ते की छपने-योग्य किताब में वही वाक्य (जहाँ बनी है)।</li><li><b>परखो</b> — हर हफ़्ते छोटी परीक्षा; 90 दिन बाद 40/40/40 और प्रमाणपत्र।</li></ol>' +
+    '<h2>' + c.hi_name + ' क्यों सीखें</h2>' + why +
+    '<h2>दुनिया के मानक से मेल</h2><p>72 "मैं कर सकता/सकती हूँ" लक्ष्य (ऊपर 🎯 में), स्तर-1 = A1, स्तर-2 = A2 पर आधारित। यही ढाँचा जापान-कोरिया के सरकारी कामगार-भाषा कार्यक्रमों में है — हिंदी-माध्यम में यह ACS ही देता है। हर पेज पर मूल भाषा का निशान; अनुवाद का क्रम हिंदी → अंग्रेज़ी → बाक़ी।</p>' +
+    '<h2>अक्सर पूछे सवाल</h2>' + faqHtml +
+    '<p class="kkb-below-note">मूल भाषा: हिंदी · संस्था: Applied Computer School™ (FFGPMTrust, ISO 9001:2015), खगड़िया, बिहार · <a href="/courses/hi/bhasha/' + c.slug + '/brief/">एक-पन्ना परिचय (हिंदी + English)</a></p>' +
+    '</section>';
+}
+const KKB_BELOW_CSS = '<style>.kkb-below{max-width:600px;margin:18px auto 30px;padding:14px 16px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.kkb-below h2{font-size:21px;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:10px}.kkb-below h2:first-child{margin-top:0}.kkb-num{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.kkb-num div{background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:10px;text-align:center}.kkb-num b{display:block;font-size:26px;color:#1565C0}.kkb-num span{font-size:16px;color:#334155}.kkb-steps{padding-left:22px}.kkb-steps li{margin:4px 0}.kkb-faq{background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:6px 12px;margin:6px 0}.kkb-faq summary{cursor:pointer;font-weight:800;font-size:18px}.kkb-faq p{margin:6px 0 4px;font-size:17px}.kkb-below-note{font-size:16px;color:#334155;margin-top:12px}.kkb-below a{color:#1565C0}</style>';
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
     '<h1 style="font-size:26px;line-height:1.3;margin:8px 0 6px;color:#fff">' + c.hi_name + ' बोलने का पूरा कोर्स — एक ही जगह</h1>' +
@@ -1528,7 +1555,8 @@ function kkb2Content(c) {
     (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "lipi/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/lipi/" style="color:#F9A825;font-weight:800;text-decoration:underline">✍️ पहली बार ' + c.hi_name + ' के अक्षर देख रहे हो? पहले लिपि-परिचय workbook (मुफ़्त, छपने-योग्य)</a></p>' : '') +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
-    '<div id="kkb2-app" class="kkb2-app"><noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript><p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p></div>';
+    '<div id="kkb2-app" class="kkb2-app"><noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript><p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p></div>' +
+    kkb2IntroBelow(c);
 }
 /* ===== 14-Sep कदम-1 (दूतावास-योग्यता): Can-do asset-प्रति + हर भाषा का एक-पन्ना brief (हिंदी+English) ===== */
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -1580,7 +1608,7 @@ KKB2_LANGS.forEach(c => buildSpecial({
   out: "courses/hi/bhasha/" + c.slug + "/index.html", langStrict: false,
   title: "ACS Certificate in Spoken " + c.en_name + " — " + c.hi_name + " बोलने का पूरा कोर्स (90 दिन, 2,150 वाक्य, CEFR A2 पर आधारित) | अप्लाइड कंप्यूटर स्कूल",
   desc: c.hi_name + " बोलने का पूरा मुफ़्त कोर्स — 90 दिन, 3 महीने, 2,150 वाक्य असली लिपि + देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। स्तर 1+2 एक साथ; CEFR A2 पर आधारित। 5वीं पास भी आज से बोले।",
-  head: ['<link rel="stylesheet" href="/assets/kkb2.css">'],
+  head: ['<link rel="stylesheet" href="/assets/kkb2.css">', KKB_BELOW_CSS],
   /* 13-Sep SEO: schema.org Course + BreadcrumbList (Google Course rich-result: name/description/provider अनिवार्य) — दावे सिर्फ़ दर्ज तथ्य: मुफ़्त, 90 दिन, 2,150 वाक्य, "CEFR A2 पर आधारित" */
   jsonld: [
     { "@context": "https://schema.org", "@type": "Course",
@@ -1595,7 +1623,8 @@ KKB2_LANGS.forEach(c => buildSpecial({
     { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "होम", "item": "https://acslearn.com/" },
       { "@type": "ListItem", "position": 2, "name": "कोर्स", "item": "https://acslearn.com/courses/hi/" },
-      { "@type": "ListItem", "position": 3, "name": c.hi_name + " बोलने का प्रमाणपत्र कोर्स", "item": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/" } ] } ],
+      { "@type": "ListItem", "position": 3, "name": c.hi_name + " बोलने का प्रमाणपत्र कोर्स", "item": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/" } ] },
+    { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": KKB_FAQ.map(q => ({ "@type": "Question", "name": q[0], "acceptedAnswer": { "@type": "Answer", "text": q[1] } })) } ],
   foot: ['<script>window.KKB2_META=' + JSON.stringify({ hi: c.hi_name, en: c.en_name, slug: c.slug, brief: "/courses/hi/bhasha/" + c.slug + "/brief/" }) + ';</scr' + 'ipt>', /* 14-Sep कदम-1: Can-do/दूतावास-पैनल व brief-कड़ी हेतु */
          '<script src="/assets/kkb_cando.js"></scr' + 'ipt>',
          '<script src="' + (c.code === "en" ? "/assets/kkb_data.js" : "/assets/kkb_" + c.code + "_data.js") + '"></scr' + 'ipt>',
