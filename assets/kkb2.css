@@ -116,3 +116,16 @@
 .kkb2-dline{font-size:18px;line-height:1.8;margin:8px 0}
 .kkb2-dline b{color:#1565C0}
 .kkb2-ok{color:#2E7D32;font-weight:800;font-size:17px}
+
+/* 14-Sep कदम-1: Can-do + दूतावास-खंड */
+.kkb2-cando h3,.kkb2-emb h3{font-size:20px;margin:0 0 6px}
+.kkb2-cando details{margin:6px 0}.kkb2-cando summary{cursor:pointer;font-size:18px;padding:6px 0}
+.kkb2-cando-wk summary{font-size:17px;color:#1565C0}.kkb2-cando ul{margin:4px 0 8px 18px;padding:0}.kkb2-cando li{font-size:17px;line-height:1.6;margin:3px 0}
+.kkb2-emb-c{border:1px solid #CBD5E1;border-radius:10px;padding:8px 10px;margin:8px 0;font-size:17px;line-height:1.6}
+.kkb2-emb-c a{color:#1565C0}
+
+/* 14-Sep kkb2-float-fix: कोर्स-पेज पर तैरते ⬆/← बटन छोटे-पारदर्शी, ताकि कार्ड का 🔊 सुनो बटन न ढँके (ऑडिट-होल); ← कोर्स-पेज पर छिपा — कोर्स की अपनी वापसी-कड़ी है */
+body.kkb2-page .udy-float{bottom:84px;gap:6px}
+body.kkb2-page .udy-float .udy-fbtn{width:40px;height:40px;line-height:40px;font-size:18px;opacity:.72}
+body.kkb2-page .udy-float .udy-fbtn:active,body.kkb2-page .udy-float .udy-fbtn:hover{opacity:1}
+body.kkb2-page .udy-float a.udy-fbtn[href="javascript:history.back()"],body.kkb2-page .udy-float .udy-fbtn.back{display:none}

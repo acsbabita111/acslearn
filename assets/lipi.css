@@ -1,0 +1,59 @@
+/* lipi.css v1.0 · 14-Sep-2026 — लिपि-परिचय workbook (सब 130 भाषाओं का साझा design) · रंग: ACS 5-रंग · कुछ भी <16px नहीं · print = A4 workbook */
+.lipi-wrap{max-width:820px;margin:0 auto;padding:12px 14px 40px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:19px;line-height:1.75}
+.lipi-crumb{font-size:16px;color:#1565C0;margin:6px 0}.lipi-crumb a{color:#1565C0;text-decoration:none}
+.lipi-wrap h1{font-size:26px;line-height:1.35;margin:8px 0 10px;color:#0B1F3A}
+.lipi-wrap h2{font-size:22px;margin:26px 0 8px;color:#0B1F3A;border-left:6px solid #F9A825;padding-left:10px}
+.lipi-wrap h3{font-size:19px;margin:16px 0 6px;color:#1565C0}
+.lipi-lead{font-size:19px}.lipi-note{font-size:16px;color:#334155;margin:8px 0}
+.lipi-actions{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.lipi-btn{font-family:inherit;font-size:19px;font-weight:800;padding:12px 18px;border-radius:12px;border:0;background:#F9A825;color:#0B1F3A;cursor:pointer;text-decoration:none;display:inline-block}
+.lipi-btn2{background:#2E7D32;color:#fff}
+.lipi-sec{margin:10px 0 18px}
+.lipi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin:10px 0}
+.lipi-cell{font-family:inherit;background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:8px 4px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.lipi-cell.swar{border-color:#C62828;background:#FFF5F5}
+.lipi-cell .big{font-family:Inter,'Noto Sans',sans-serif;font-size:30px;font-weight:700;line-height:1.1}
+.lipi-cell .nm{font-size:18px;font-weight:800;color:#1565C0}.lipi-cell .aw{font-size:16px;color:#2E7D32}
+.lipi-card{background:#fff;border:2px solid #0B1F3A;border-radius:14px;padding:12px;margin:14px 0}
+.lipi-card-top{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start}
+.lipi-show{display:flex;gap:6px;flex-wrap:wrap}
+.lipi-info{flex:1;min-width:240px}.lipi-n{font-size:20px;margin:0 0 6px}
+.lipi-p{margin:4px 0;font-size:18px}.lipi-small{font-size:16px;color:#334155}.lipi-dhyan{color:#7A2E00}
+.lipi-sp{font-family:inherit;font-size:18px;border:1px solid #CBD5E1;background:#F5F7FA;border-radius:8px;padding:2px 8px;cursor:pointer}
+.lipi-words{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 0}
+.lipi-word{font-family:inherit;background:#F5F7FA;border:2px solid #1565C0;border-radius:10px;padding:6px 10px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-width:120px}
+.lipi-word .w{font-family:Inter,'Noto Sans',sans-serif;font-size:22px;font-weight:700;color:#0B1F3A}.lipi-word .d{font-size:17px;color:#1565C0}.lipi-word .m{font-size:17px;color:#2E7D32}
+.lipi-tl{font-size:16px;color:#334155;margin:10px 0 2px}
+.lipi-trace{display:flex;flex-wrap:wrap;gap:4px;align-items:flex-end;background:#fff}
+.lipi-g{display:block;background:#fff}
+.lipi-g line{stroke:#CBD5E1;stroke-width:1}.lipi-g .l-base{stroke:#94A3B8;stroke-width:1.6}
+.g-solid path{fill:#0B1F3A}
+.g-faint path{fill:#CBD5E1}
+.g-dot path{fill:none;stroke:#1565C0;stroke-width:2.2;stroke-dasharray:5 5;stroke-linecap:round}
+.lipi-blank{flex:1;min-width:120px;background-image:repeating-linear-gradient(to bottom,transparent 0 24%,#CBD5E1 24% 25%,transparent 25% 49%,#CBD5E1 49% 50%,transparent 50% 74%,#94A3B8 74% 75.5%,transparent 75.5% 99%,#CBD5E1 99% 100%)}
+.lipi-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.lipi-anktrace .lipi-trace{flex:1 1 100%}
+.lipi-pairs{display:flex;flex-wrap:wrap;gap:10px}
+.lipi-pair{display:flex;align-items:center;gap:6px;background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:6px 10px}
+.lipi-pair .vs{font-size:16px;color:#334155}.lipi-pair .big{font-family:Inter,sans-serif;font-size:56px;font-weight:700}
+.lipi-ex{display:flex;flex-wrap:wrap;gap:10px 18px;margin:6px 0 12px}
+.lipi-exi{font-size:19px;background:#fff;border:1px solid #CBD5E1;border-radius:8px;padding:6px 10px}
+.lipi-box{display:inline-block;width:44px;height:30px;border:2px dashed #94A3B8;border-radius:6px;vertical-align:middle}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff!important}
+  .acs-nav,.acs-freebar,.acs-translate-panel,.acs-footer,.acs-scrim,.acs-drawer,.acs-wa,.udy-float,.tiranga-bar,.lipi-actions,.lipi-sp{display:none!important}
+  .lipi-wrap{max-width:none;background:#fff;color:#000;padding:0;font-size:16px}
+  .lipi-card{break-inside:avoid;page-break-inside:avoid;border-color:#000;padding:8px;margin:8px 0}
+  .lipi-show .lipi-g{height:80px;width:auto}
+  .lipi-trace .lipi-g{height:64px;width:auto}
+  .lipi-blank{height:64px!important;min-width:100%}
+  .lipi-words{gap:6px}.lipi-word{padding:3px 8px;min-width:100px}.lipi-word .w{font-size:18px}.lipi-word .d,.lipi-word .m{font-size:16px}
+  .lipi-p,.lipi-n{font-size:16px;margin:2px 0}
+  .lipi-grid{grid-template-columns:repeat(7,1fr)}.lipi-cell .big{font-size:24px}
+  .lipi-sec{break-before:auto}
+  .g-solid path,.lipi-cell .big{fill:#000;color:#000}
+  .g-dot path{stroke:#555}
+  .lipi-cell,.lipi-word{border-color:#000}
+  a[href]:after{content:""}
+}

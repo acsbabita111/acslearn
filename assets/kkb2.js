@@ -125,6 +125,48 @@
   }
 
   /* ---------- HOME (हीरो + 3 महीने) ---------- */
+  /* ---------- 14-Sep (कदम-1, दूतावास-योग्यता): Can-do + दूतावास-खंड — data: /assets/kkb_cando.js (generator-प्रति) + /assets/govt_jobs_embassy.js (आलसी-load, सिर्फ़ गलियारा-भाषा) ---------- */
+  var META = window.KKB2_META || {};
+  try { document.body.classList.add("kkb2-page"); } catch (e) {} /* kkb2-float-fix (kkb2.css) */ /* generator: {hi:"अंग्रेज़ी", slug:"english", brief:"/courses/hi/bhasha/english/brief/"} */
+  function candoCard() {
+    var C = window.KKB_CANDO; if (!C || !C.weeks) return "";
+    var L = META.hi || (LANG.label || "इस भाषा"); var n = 0, a1 = "", a2 = "";
+    for (var i = 0; i < C.weeks.length; i++) { var W = C.weeks[i]; var li = "";
+      for (var j = 0; j < W.can.length; j++) { n++; li += "<li>" + esc(W.can[j].replace(/\{L\}/g, L)) + "</li>"; }
+      var blk = '<details class="kkb2-cando-wk"><summary>सप्ताह ' + W.w + ' · ' + esc(W.title) + '</summary><ul>' + li + '</ul></details>';
+      if (W.level === "A1") a1 += blk; else a2 += blk; }
+    return '<div class="kkb2-card kkb2-cando"><h3>🎯 इस कोर्स के बाद आप क्या कर सकेंगे (' + n + ' बातें)</h3>' +
+      '<p class="kkb2-muted">यह सूची "मैं कर सकता/सकती हूँ" (Can-do) शैली में है — CEFR A1/A2 और जापान-कोरिया के कामगार-भाषा कार्यक्रमों की तर्ज़ पर; ACS-प्रमाणपत्र इन्हीं पर परखता है।</p>' +
+      '<details open><summary><b>स्तर-1 (A1 पर आधारित) — दिन 1–25 · 20 बातें</b></summary>' + a1 + '</details>' +
+      '<details><summary><b>स्तर-2 (A2 पर आधारित) — दिन 26–90 · 52 बातें</b></summary>' + a2 + '</details>' +
+      (META.brief ? '<p style="margin:10px 0 0"><a class="kkb2-btn ghost" href="' + META.brief + '">📄 एक-पन्ना परिचय (दूतावास/नियोक्ता के लिए, हिंदी+English)</a></p>' : '') + '</div>';
+  }
+  function embassyCard() {
+    if (!META.slug) return "";
+    /* डिब्बा पहले (जगह आरक्षित नहीं — नीचे है, CLS नहीं); data आने पर भरे; गलियारा-रहित भाषा पर डिब्बा हटे (ईमानदार-पैनल) */
+    setTimeout(function () {
+      var box = document.getElementById("kkb2-emb"); if (!box) return;
+      function fill() {
+        try {
+          var cor = (typeof KKB_CORRIDORS !== "undefined") ? (KKB_CORRIDORS[META.slug] || []) : [];
+          if (!cor.length) { box.parentNode.removeChild(box); return; }
+          var h = '<h3>🌍 रोजगार-देश और दूतावास</h3><p class="kkb2-muted">' + esc(META.hi || "") + ' बोलने वालों के मुख्य रोजगार-देश। जाने से पहले ई-माइग्रेट पंजीकरण और नीचे के नंबर अपने फ़ोन में रखो।</p>';
+          for (var i = 0; i < cor.length; i++) { var c = cor[i]; var E = (typeof EMBASSIES !== "undefined") && EMBASSIES[c]; var F = (typeof FOREIGN_EMB_IN_INDIA !== "undefined") && FOREIGN_EMB_IN_INDIA[c]; var hn = (typeof EMB_COUNTRY_HI !== "undefined" && EMB_COUNTRY_HI[c]) || c;
+            h += '<div class="kkb2-emb-c"><b>' + (E && E.flag ? E.flag + " " : "") + esc(hn) + ' (' + esc(c) + ')</b>';
+            if (E) h += '<div>🇮🇳 भारतीय दूतावास/मिशन, ' + esc(E.city) + (E.phone ? ' · ☎ <a href="tel:' + esc(E.phone.replace(/\s/g, "")) + '">' + esc(E.phone) + '</a>' : '') + (E.website ? ' · <a href="' + esc(E.website) + '" target="_blank" rel="noopener">website</a>' : '') + '</div>';
+            if (F && F.url) h += '<div>🏛️ भारत में ' + esc(hn) + ' का दूतावास · <a href="' + esc(F.url) + '" target="_blank" rel="noopener">website</a></div>';
+            h += '</div>'; }
+          if (typeof KKB_SAFETY !== "undefined") { h += '<div class="kkb2-emb-c"><b>🛡️ सुरक्षा-कड़ियाँ (भारत सरकार)</b>'; for (var k = 0; k < KKB_SAFETY.length; k++) h += '<div><a href="' + esc(KKB_SAFETY[k].u) + '" target="_blank" rel="noopener">' + esc(KKB_SAFETY[k].t) + '</a></div>'; h += '</div>'; }
+          h += '<p class="kkb2-muted">जानकारी जाँची: सितंबर 2026 — बाहरी site, नंबर/पता ख़ुद verify करें (दूतावास-कड़ी नियम v6.1)।</p>';
+          box.innerHTML = h;
+        } catch (e) { if (box.parentNode) box.parentNode.removeChild(box); }
+      }
+      if (typeof KKB_CORRIDORS !== "undefined") { fill(); return; }
+      var sc = document.createElement("script"); sc.src = "/assets/govt_jobs_embassy.js"; sc.onload = fill; sc.onerror = function () { if (box.parentNode) box.parentNode.removeChild(box); }; document.head.appendChild(sc);
+    }, 0);
+    return '<div class="kkb2-card kkb2-emb" id="kkb2-emb"><h3>🌍 रोजगार-देश और दूतावास</h3><p class="kkb2-muted">जानकारी आ रही है…</p></div>';
+  }
+
   function home() {
     var dn = doneDays(), pct = Math.round(dn * 100 / TOTAL_DAYS);
     var h = '<div class="kkb2-hero">' +
@@ -154,6 +196,7 @@
         '<small class="kkb2-mdone">' + md + '/30 दिन' + (md === 30 ? ' ✅' : '') + '</small></span></button>';
     }
     h += voiceCard();
+    h += candoCard() + embassyCard();
     h += '<div class="kkb2-card soft"><p class="kkb2-muted">प्रगति सिर्फ़ इसी फ़ोन में रहती है (आपकी निजता)। माइक से बोल-जाँच अगले संस्करण में जुड़ेगी — अभी दोस्त/परिवार के सामने बोलकर अभ्यास कीजिए। <button class="kkb2-btn ghost" onclick="kkb2Reset()">प्रगति मिटाएँ</button></p></div>';
     view(h);
   }

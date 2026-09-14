@@ -70,7 +70,7 @@ const ACS_CONFIG = {
     iso:         "ISO 9001:2015",
 
     website:     "acslearn.com",
-    email:       "acs.chautham@gmail.com",
+    email:       "info@ffgpmt.org",
     phone:       "+91-9431210092",
     whatsapp:    "https://wa.me/919431210092",
     youtube:     "https://youtube.com/@AppliedComputerSchool",

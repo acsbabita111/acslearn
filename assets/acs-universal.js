@@ -191,6 +191,16 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       document.head.appendChild(ld);
     }catch(e){}
 
+    /* ---------- (1c) 14-Sep ईमेल-सेतु (अस्थायी): Founder-आदेश — site का ईमेल info@ffgpmt.org। 5,100+ पुराने generated पेजों की पूरी regen git से चढ़ेगी;
+       तब तक पुराने footer/पाठ में दिखा acs.chautham@gmail.com इसी सेतु से बदले (DOM में; source नहीं)। पूरा regen live होते ही यह block हटाया जाए। ---------- */
+    try {
+      var OLD_MAIL = "acs.chautham@gmail.com", NEW_MAIL = "info@ffgpmt.org";
+      var links = document.querySelectorAll('a[href*="' + OLD_MAIL + '"]');
+      for (var li = 0; li < links.length; li++) links[li].href = links[li].href.split(OLD_MAIL).join(NEW_MAIL);
+      var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), tn;
+      while ((tn = walker.nextNode())) { if (tn.nodeValue && tn.nodeValue.indexOf(OLD_MAIL) >= 0) tn.nodeValue = tn.nodeValue.split(OLD_MAIL).join(NEW_MAIL); }
+    } catch (e) {}
+
     /* ---------- (2) 🔊 सुनो-बटन — हर अनुच्छेद पर ---------- */
     if(doUdyam) try{
       if("speechSynthesis" in window){
