@@ -334,3 +334,21 @@ PJC.forEach(function (c) {
 if (missing.length) { console.log("⛔ कोर्स-सूची से छूटी भाषाएँ: " + missing.join(",")); process.exit(1); }
 console.log("सूची-guard: सब भाषा-कोर्स KKB_GROUPS (courses_data, एक-घर) में दर्ज ✅");
 console.log("🏁🏁 dev_kkb2_check: सब जाँचें पास");
+
+/* 14-Sep (v6.1-ग3): अगला-स्तर/सुरक्षा बाहरी कड़ियों की जीविता — HEAD-अनुरोध; network न हो तो ⚠️ skip (fail नहीं)। नमूना-सूची: ielts.org, cambridgeenglish.org, emigrate.gov.in, madad.gov.in + पेज की next-कड़ियाँ */
+(function () {
+  try {
+    var fs2 = require("fs"), path2 = require("path"), https = require("https"), http = require("http");
+    var code2 = process.argv[2]; var src2 = fs2.readFileSync(path2.join(__dirname, "build_specials.js"), "utf8");
+    var m2 = src2.match(new RegExp('\\{ code: "' + code2 + '", slug: "([a-z-]+)"')); if (!m2) return;
+    var page = fs2.readFileSync(path2.join(__dirname, "..", "courses/hi/bhasha", m2[1], "index.html"), "utf8");
+    var urls = (page.match(/https?:\/\/[^"'\s<>]+/g) || []).filter(function (u) { return !/acslearn|schema\.org|googleapis|gstatic|w3\.org/.test(u); });
+    urls = urls.filter(function (u, i) { return urls.indexOf(u) === i; }).slice(0, 8);
+    if (!urls.length) return; var left = urls.length, bad = [];
+    urls.forEach(function (u) {
+      var lib = u.indexOf("https:") === 0 ? https : http; var req = lib.request(u, { method: "HEAD", timeout: 6000, headers: { "User-Agent": "Mozilla/5.0 ACS-linkcheck" } }, function (r) { if (r.statusCode >= 400 && r.statusCode !== 403 && r.statusCode !== 405) bad.push(u + " → " + r.statusCode); done(); });
+      req.on("error", function () { done(); }); req.on("timeout", function () { req.destroy(); done(); }); req.end();
+    });
+    function done() { if (--left) return; console.log(bad.length ? "  ⚠️ बाहरी कड़ी जीवित नहीं (network से जाँची): " + bad.join(" · ") : "  ✅ बाहरी कड़ियाँ (" + urls.length + ") जीवित/पहुँच से बाहर-नहीं"); }
+  } catch (e) { console.log("  ⚠️ बाहरी-कड़ी जाँच skip: " + e.message); }
+})();

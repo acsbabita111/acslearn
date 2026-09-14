@@ -615,7 +615,7 @@ const SALAH_CONTENT = `    <!-- ════════ सलाह (salah) �
       <div style="margin:8px 0;color:var(--muted)">सभी कोर्स · सोमवार–शनिवार · सुबह 6 — रात 8</div>
       <div class="hero-secondary-links" style="justify-content:flex-start">
         <a href="https://wa.me/919431210092" target="_blank" rel="noopener" class="btn btn-primary" style="min-width:auto;padding:10px 16px">💬 WhatsApp</a>
-        <a href="mailto:acs.chautham@gmail.com" class="btn btn-accent" style="min-width:auto;padding:10px 16px">✉️ Email</a>
+        <a href="mailto:info@ffgpmt.org" class="btn btn-accent" style="min-width:auto;padding:10px 16px">✉️ Email</a>
       </div>
     </div>
     <div class="notice-card">
@@ -1522,10 +1522,60 @@ function kkb2Content(c) {
     '<h1 style="font-size:26px;line-height:1.3;margin:8px 0 6px;color:#fff">' + c.hi_name + ' बोलने का पूरा कोर्स — एक ही जगह</h1>' +
     '<p style="font-size:18px;line-height:1.7;margin:0 0 8px;opacity:.92">पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना। हर वाक्य असली लिपि में + देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ 🔊 के साथ। 5वीं पास भी आज से शुरू करे।</p>' +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 4px;opacity:.8">' + c.next + '</p>' +
+    '<p style="font-size:18px;line-height:1.6;margin:6px 0 4px"><a href="/courses/hi/bhasha/' + c.slug + '/brief/" style="color:#F9A825;font-weight:800;text-decoration:underline">📄 एक-पन्ना परिचय — दूतावास/नियोक्ता के लिए (हिंदी + English)</a></p>' +
+    /* 14-Sep: लिपि-परिचय workbook (build_lipi_pages) बना हो तो पहली-बार वालों के लिए द्वार — मौजूदगी से, hardcode नहीं */
+    (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "workbook/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 4px"><a href="/courses/hi/bhasha/' + c.slug + '/workbook/" style="color:#F9A825;font-weight:800;text-decoration:underline">📘 लिखो-workbook — हर हफ़्ते की छपने-योग्य किताब + शब्दकोश (मुफ़्त PDF, छूकर download)</a></p>' : '') +
+    (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "lipi/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/lipi/" style="color:#F9A825;font-weight:800;text-decoration:underline">✍️ पहली बार ' + c.hi_name + ' के अक्षर देख रहे हो? पहले लिपि-परिचय workbook (मुफ़्त, छपने-योग्य)</a></p>' : '') +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
     '<div id="kkb2-app" class="kkb2-app"><noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript><p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p></div>';
 }
+/* ===== 14-Sep कदम-1 (दूतावास-योग्यता): Can-do asset-प्रति + हर भाषा का एक-पन्ना brief (हिंदी+English) ===== */
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const KKB_CANDO = require("./data/kkb_cando.js");
+fs.writeFileSync(path.join(ROOT, "assets", "kkb_cando.js"), "/* generator-प्रति — मूल: generator/data/kkb_cando.js (हाथ से न बदलें) */\nwindow.KKB_CANDO = " + JSON.stringify(KKB_CANDO) + ";\n", "utf8");
+const EMB_SRC = fs.readFileSync(path.join(ROOT, "assets", "govt_jobs_embassy.js"), "utf8");
+function embGet(name) { const m = EMB_SRC.match(new RegExp("(?:var|const|let)\\s+" + name + "\\s*=\\s*(\\{[\\s\\S]*?\\}|\\[[\\s\\S]*?\\]);\\s*\\n")); try { return JSON.parse(m[1]); } catch (e) { return null; } }
+const CORR = embGet("KKB_CORRIDORS") || {}, EMBS = embGet("EMBASSIES") || {}, EMB_HI = embGet("EMB_COUNTRY_HI") || {}, FEMB = embGet("FOREIGN_EMB_IN_INDIA") || {};
+function countItems(code) { let n = 0; for (const f of [code === "en" ? "kkb_data.js" : "kkb_" + code + "_data.js", code === "en" ? "kkb2_data.js" : "kkb2_" + code + "_data.js"]) { const p = path.join(ROOT, "assets", f); if (!fs.existsSync(p)) continue; const w = {}; try { new Function("window", "self", "module", fs.readFileSync(p, "utf8") + ";")(w, w, {}); } catch (e) { continue; } const D = w.KKB2_DATA || w.KKB_DATA; if (D && D.weeks) D.weeks.forEach(wk => wk.days.forEach(d => n += (d.items || []).length)); } return n; }
+function briefContent(c) {
+  const url = "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/"; const items = countItems(c.code); const cor = CORR[c.slug] || [];
+  const canN = KKB_CANDO.weeks.reduce((a, w) => a + w.can.length, 0);
+  const nextTxt = (c.next || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  const corHtml = cor.length ? '<ul>' + cor.map(k => { const E = EMBS[k] || {}, F = FEMB[k]; return '<li><b>' + (E.flag ? E.flag + ' ' : '') + esc(EMB_HI[k] || k) + ' (' + esc(k) + ')</b> — भारतीय मिशन ' + esc(E.city || '') + (E.phone ? ', ☎ ' + esc(E.phone) : '') + (E.website ? ' · <a href="' + esc(E.website) + '" target="_blank" rel="noopener">' + esc(E.website.replace(/^https?:\/\//, '')) + '</a>' : '') + (F && F.url ? ' · भारत में दूतावास: <a href="' + esc(F.url) + '" target="_blank" rel="noopener">कड़ी</a>' : '') + '</li>'; }).join('') + '</ul>' : '<p>यह भाषा किसी एक विदेशी रोजगार-गलियारे से नहीं जुड़ी (भारतीय/क्षेत्रीय भाषा, या गलियारा अभी दर्ज नहीं) — इसलिए दूतावास-खंड नहीं (ईमानदार-पैनल नियम)।</p>';
+  const corEn = cor.length ? '<ul>' + cor.map(k => { const E = EMBS[k] || {}; return '<li><b>' + (E.flag ? E.flag + ' ' : '') + esc(k) + '</b> — Indian Mission, ' + esc(E.city || '') + (E.phone ? ', ' + esc(E.phone) : '') + (E.website ? ' · <a href="' + esc(E.website) + '" target="_blank" rel="noopener">' + esc(E.website.replace(/^https?:\/\//, '')) + '</a>' : '') + '</li>'; }).join('') + '</ul>' : '<p>No single overseas employment corridor is linked to this language (regional language, or corridor not yet recorded).</p>';
+  const canList = KKB_CANDO.weeks.map(w => '<li><b>सप्ताह ' + w.w + ' (' + w.level + ') ' + esc(w.title) + ':</b> ' + w.can.map(x => esc(x.replace(/\{L\}/g, c.hi_name))).join(' ') + '</li>').join('');
+  const box = (t, b) => '<section class="bf-sec"><h2>' + t + '</h2>' + b + '</section>';
+  let hi = '<article class="bf-wrap" id="bf-hi">' +
+    '<p class="bf-kicker">अप्लाइड कंप्यूटर स्कूल™ · FFGPMTrust · ACS काम की भाषा</p>' +
+    '<h1>' + esc(c.hi_name) + ' बोलने का प्रमाणपत्र कोर्स — एक-पन्ना परिचय (दूतावास, नियोक्ता व भर्ती-एजेंसी के लिए)</h1>' +
+    '<div class="bf-actions"><a class="bf-btn" href="#bf-en">English version ↓</a><button type="button" class="bf-btn bf-btn2" onclick="window.print()">🖨️ छापें / PDF</button><a class="bf-btn bf-btn3" href="' + url + '">🗣️ कोर्स खोलें</a></div>' +
+    box('1. कोर्स एक नज़र में', '<table class="bf-t"><tr><td>भाषा</td><td>' + esc(c.hi_name) + ' (' + esc(c.en_name) + ')</td></tr><tr><td>माध्यम</td><td>हिंदी (देवनागरी उच्चारण + हिंदी अर्थ + असली लिपि)</td></tr><tr><td>स्तर</td><td>CEFR A1–A2 पर आधारित/प्रेरित (CEFR-प्रमाणित नहीं)</td></tr><tr><td>अवधि</td><td>90 दिन · 3 महीने · रोज़ 20–30 वाक्य</td></tr><tr><td>सामग्री</td><td>' + items.toLocaleString("en-IN") + ' वाक्य (स्तर-1: 500 · स्तर-2: 1,650), संवाद, साप्ताहिक शब्दकोश, हर वाक्य पर आवाज़</td></tr><tr><td>परीक्षा</td><td>ऑनलाइन: 40 सुनो + 40 बोलो + 40 पढ़ो (प्रश्न-बैंक लगभग 3,000; हर बार नए)</td></tr><tr><td>प्रमाणपत्र</td><td>FFGPMTrust द्वारा, unique नंबर + QR से दुनिया में कहीं से जाँच; कोर्स मुफ़्त, प्रमाणपत्र ₹125</td></tr><tr><td>पता</td><td><a href="' + url + '">' + esc(url) + '</a></td></tr></table>') +
+    box('2. कोर्स पूरा करने पर learner क्या कर सकेगा (' + canN + ' Can-do कथन)', '<ul class="bf-can">' + canList + '</ul>') +
+    box('3. विषय-नक़्शा', '<p>स्तर-1 (दिन 1–25): पहली ज़रूरत · रोज़ की ज़िंदगी · काम की जगह · पैसा-यात्रा-सुरक्षा · नौकरी-फ़ोन-पेशा। स्तर-2 (दिन 26–90): परिवार-घर · दिनचर्या · पड़ोस · आदतें-समय · मेरा काम-हुनर · पैसा-दोस्त-तरक्की · काम की जगहें-ठिकाना-हक़ · इंटरव्यू-रिपोर्ट · बाज़ार · बस-ट्रेन-सफ़र · वीज़ा-हवाई-अड्डा · आराम-ख़ुशी · जीवन-रक्षा-आवाज़-हक़ (सुरक्षा व शोषण-बचाव परिशिष्ट)।</p>') +
+    box('4. आगे की मान्य परीक्षा (ACS कोर्स = तैयारी; वही परीक्षा नहीं)', '<p>' + esc(nextTxt) + '</p>') +
+    box('5. रोजगार-देश और दूतावास', corHtml + '<p class="bf-note">सुरक्षा-कड़ियाँ: <a href="https://emigrate.gov.in" target="_blank" rel="noopener">eMigrate</a> · <a href="https://www.madad.gov.in" target="_blank" rel="noopener">MADAD</a> · <a href="https://www.mea.gov.in" target="_blank" rel="noopener">विदेश मंत्रालय</a>। जानकारी जाँची: सितंबर 2026 — बाहरी site, ख़ुद verify करें।</p>') +
+    box('6. संस्था', '<p>Applied Computer School™ (acslearn.com) — FFGPMTrust (ffgpmt.org, ISO 9001:2015) की परियोजना। ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar 851201 · +91-9431210092 · info@ffgpmt.org। कोर्स सभी के लिए निःशुल्क; offline चलता है; login के बिना पढ़ाई।</p><p class="bf-note">ईमानदारी-पंक्ति: यह बोलने की तैयारी का कोर्स है — किसी सरकारी भाषा-परीक्षा, वीज़ा या नौकरी की गारंटी नहीं। मूल भाषा: हिंदी।</p>') +
+    '</article>';
+  let en = '<article class="bf-wrap bf-en" id="bf-en" lang="en">' +
+    '<p class="bf-kicker">Applied Computer School™ · FFGPMTrust · ACS Language for Work</p>' +
+    '<h1>ACS Certificate in Spoken ' + esc(c.en_name) + ' — one-page brief (for embassies, employers, recruiters)</h1>' +
+    box('1. At a glance', '<table class="bf-t"><tr><td>Language</td><td>' + esc(c.en_name) + ' (' + esc(c.hi_name) + ')</td></tr><tr><td>Medium of instruction</td><td>Hindi (Devanagari pronunciation + Hindi meaning + native script)</td></tr><tr><td>Level</td><td>Based on / inspired by CEFR A1–A2 (not CEFR-certified)</td></tr><tr><td>Duration</td><td>90 days · 3 months · 20–30 sentences a day</td></tr><tr><td>Content</td><td>' + items.toLocaleString("en-IN") + ' sentences (Level 1: 500 · Level 2: 1,650), dialogues, weekly word lists, audio for every sentence</td></tr><tr><td>Assessment</td><td>Online exam: 40 listening + 40 speaking + 40 reading (bank of about 3,000 items, randomised)</td></tr><tr><td>Certificate</td><td>Issued by FFGPMTrust; unique number + QR, verifiable worldwide; course free, certificate ₹125</td></tr><tr><td>URL</td><td><a href="' + url + '">' + esc(url) + '</a></td></tr></table>') +
+    box('2. Learner outcomes', '<p>' + canN + ' Can-do statements (A1: weeks 1–5 · A2: weeks 6–18) covering first needs, daily life, workplace instructions, money and banking, safety, job interviews, phone calls, family, habits, markets, travel, visa and airport, and workers\' rights. Full list in the Hindi section above.</p>') +
+    box('3. Employment corridors and Indian Missions', corEn + '<p class="bf-note">Safety links: <a href="https://emigrate.gov.in" target="_blank" rel="noopener">eMigrate</a> · <a href="https://www.madad.gov.in" target="_blank" rel="noopener">MADAD</a> · <a href="https://www.mea.gov.in" target="_blank" rel="noopener">MEA</a>. Verified: September 2026 — external sites, please re-verify.</p>') +
+    box('4. Institution', '<p>Applied Computer School™ (acslearn.com), a project of FFGPMTrust (ffgpmt.org, ISO 9001:2015). ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar 851201, India · +91-9431210092 · info@ffgpmt.org. The course is free for all, works offline, no login needed to study.</p><p class="bf-note">Honesty line: this course prepares learners to speak; it does not guarantee any government language test, visa or job. Original language: Hindi — this section is a translation.</p>') +
+    '</article>';
+  return hi + en;
+}
+const BRIEF_CSS = '<style>.bf-wrap{max-width:820px;margin:0 auto;padding:12px 14px 28px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.bf-en{margin-top:14px;border-top:6px solid #F9A825}.bf-kicker{font-size:16px;font-weight:800;color:#1565C0;margin:4px 0}.bf-wrap h1{font-size:24px;line-height:1.35;margin:6px 0 10px}.bf-wrap h2{font-size:20px;margin:16px 0 6px;border-left:6px solid #F9A825;padding-left:10px}.bf-actions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px}.bf-btn{font-family:inherit;font-size:18px;font-weight:800;padding:10px 14px;border-radius:12px;border:0;background:#0B1F3A;color:#fff;text-decoration:none;cursor:pointer}.bf-btn2{background:#F9A825;color:#0B1F3A}.bf-btn3{background:#2E7D32}.bf-t{width:100%;border-collapse:collapse;table-layout:fixed}.bf-t td{overflow-wrap:anywhere;word-break:break-word}.bf-t td{border-bottom:1px solid #CBD5E1;padding:6px 8px;vertical-align:top;font-size:17px}.bf-t td:first-child{font-weight:800;width:32%}.bf-can{padding-left:18px}.bf-can li{margin:4px 0;font-size:17px}.bf-note{font-size:16px;color:#334155}.bf-wrap a{color:#1565C0}.bf-wrap a.bf-btn{color:#fff}.bf-wrap a.bf-btn2,.bf-wrap .bf-btn2{color:#0B1F3A}@media print{@page{size:A4;margin:12mm}.acs-nav,.acs-freebar,.acs-translate-panel,.acs-footer,.acs-scrim,.acs-drawer,.acs-wa,.udy-float,.tiranga-bar,.bf-actions{display:none!important}body{background:#fff!important}.bf-wrap{background:#fff;color:#000;padding:0;font-size:16px}.bf-en{break-before:page}.bf-t td{font-size:16px}.bf-can li{font-size:16px}}</style>';
+KKB2_LANGS.forEach(c => buildSpecial({
+  out: "courses/hi/bhasha/" + c.slug + "/brief/index.html", langStrict: false,
+  title: c.hi_name + " बोलने का प्रमाणपत्र कोर्स — एक-पन्ना परिचय (ACS Certificate in Spoken " + c.en_name + " — Brief for embassies & employers) | अप्लाइड कंप्यूटर स्कूल",
+  desc: c.hi_name + " (" + c.en_name + ") के 90-दिन, 2,150-वाक्य बोलने-कोर्स का एक-पन्ना परिचय: स्तर (CEFR A1–A2 पर आधारित), 72 Can-do कथन, परीक्षा 40/40/40, प्रमाणपत्र, रोजगार-देश व दूतावास, संस्था — हिंदी और English।",
+  head: [BRIEF_CSS],
+  jsonld: [{ "@context": "https://schema.org", "@type": "WebPage", "name": "ACS Certificate in Spoken " + c.en_name + " — brief", "inLanguage": ["hi", "en"], "isPartOf": { "@type": "Course", "name": "ACS Certificate in Spoken " + c.en_name, "url": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/" }, "publisher": { "@type": "Organization", "name": "Applied Computer School", "url": "https://acslearn.com/" } }],
+  foot: [], content: briefContent(c)
+}));
 KKB2_LANGS.forEach(c => buildSpecial({
   out: "courses/hi/bhasha/" + c.slug + "/index.html", langStrict: false,
   title: "ACS Certificate in Spoken " + c.en_name + " — " + c.hi_name + " बोलने का पूरा कोर्स (90 दिन, 2,150 वाक्य, CEFR A2 पर आधारित) | अप्लाइड कंप्यूटर स्कूल",
@@ -1546,7 +1596,9 @@ KKB2_LANGS.forEach(c => buildSpecial({
       { "@type": "ListItem", "position": 1, "name": "होम", "item": "https://acslearn.com/" },
       { "@type": "ListItem", "position": 2, "name": "कोर्स", "item": "https://acslearn.com/courses/hi/" },
       { "@type": "ListItem", "position": 3, "name": c.hi_name + " बोलने का प्रमाणपत्र कोर्स", "item": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/" } ] } ],
-  foot: ['<script src="' + (c.code === "en" ? "/assets/kkb_data.js" : "/assets/kkb_" + c.code + "_data.js") + '"></scr' + 'ipt>',
+  foot: ['<script>window.KKB2_META=' + JSON.stringify({ hi: c.hi_name, en: c.en_name, slug: c.slug, brief: "/courses/hi/bhasha/" + c.slug + "/brief/" }) + ';</scr' + 'ipt>', /* 14-Sep कदम-1: Can-do/दूतावास-पैनल व brief-कड़ी हेतु */
+         '<script src="/assets/kkb_cando.js"></scr' + 'ipt>',
+         '<script src="' + (c.code === "en" ? "/assets/kkb_data.js" : "/assets/kkb_" + c.code + "_data.js") + '"></scr' + 'ipt>',
          '<script src="' + (c.code === "en" ? "/assets/kkb2_data.js" : "/assets/kkb2_" + c.code + "_data.js") + '"></scr' + 'ipt>',
          '<script src="/assets/kkb2.js" defer></scr' + 'ipt>'],
   content: kkb2Content(c)

@@ -220,7 +220,7 @@ const P_HELP = (
     '<div class="ph">🆘 सहायता व शिकायत</div>' +
     '<div class="pd">कोई दिक़्क़त, सवाल या शिकायत हो — सीधे लिखें। शिकायत की स्वतंत्र सुनवाई ACS की Trust Policy का हिस्सा है।</div>' +
     '<a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092">💬 WhatsApp पर लिखें</a> ' +
-    '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="mailto:acs.chautham@gmail.com">✉️ Email भेजें</a>' +
+    '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="mailto:info@ffgpmt.org">✉️ Email भेजें</a>' +
     '</div>');
 
 /* --- सिर्फ़ विद्यार्थी --- */

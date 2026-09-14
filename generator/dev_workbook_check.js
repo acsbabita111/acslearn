@@ -1,0 +1,26 @@
+/* dev_workbook_check.js v1.0 · 14-Sep-2026 — लिखो-workbook का check-robot (🏁-द्वार)
+   जाँचें: 22 PDF मौजूद (18 सप्ताह + 3 महीना + शब्दकोश) · हर PDF >20 KB और %PDF-header · download-पेज generator-निशान/22 कड़ियाँ (download-attr)/[ ]/16px/मूल-भाषा/JSON-LD ·
+   शब्दकोश-पूर्णता (missing-सूची "कोई नहीं") · बोलने-कोर्स पेज से कड़ी · sitemap में पेज */
+const fs = require("fs"), path = require("path"); const ROOT = path.join(__dirname, "..");
+const src = fs.readFileSync(path.join(__dirname, "build_workbook.js"), "utf8");
+const langs = eval("(" + src.match(/const WB_LANGS = (\[[\s\S]*?\]);/)[1] + ")");
+let fail = 0; const ok = (c, m) => { console.log((c ? "  ✅ " : "  ❌ ") + m); if (!c) fail++; };
+const only = process.argv[2]; const sm = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+for (const L of langs.filter(l => !only || l.code === only)) {
+  console.log("— " + L.code + " (" + L.hi + ") —");
+  const dir = path.join(ROOT, "courses/hi/bhasha", L.slug, "workbook");
+  const want = []; for (let w = 1; w <= 18; w++) want.push("week-" + String(w).padStart(2, "0") + ".pdf"); for (let m = 1; m <= 3; m++) want.push("month-" + m + ".pdf"); want.push("shabdkosh.pdf");
+  let bad = 0; want.forEach(f => { const p = path.join(dir, f); if (!fs.existsSync(p) || fs.statSync(p).size < 20000 || fs.readFileSync(p).slice(0, 5).toString() !== "%PDF-") bad++; });
+  ok(bad === 0, "22 PDF मौजूद/वैध (" + (22 - bad) + "/22)");
+  const ip = path.join(dir, "index.html"); ok(fs.existsSync(ip), "download-पेज"); if (!fs.existsSync(ip)) continue;
+  const s = fs.readFileSync(ip, "utf8");
+  ok(/generator से बना \(build_workbook\.js/.test(s), "generator-निशान");
+  ok((s.match(/\.pdf" download/g) || []).length === 22, "22 download-कड़ियाँ (" + (s.match(/\.pdf" download/g) || []).length + ")");
+  const vis = s.replace(/<svg[\s\S]*?<\/svg>|<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>|<[^>]+>/g, " ");
+  ok(!/[\[\]]/.test(vis), "square bracket शून्य"); ok(!(s.match(/font(?:-size)?\s*:\s*0*([0-9]|1[0-5])px/gi) || []).length, "<16px शून्य");
+  ok(/मूल भाषा: हिंदी/.test(s), "मूल-भाषा निशान"); ok(/LearningResource/.test(s), "JSON-LD");
+  const mp = path.join(__dirname, "data", "lipi", L.code + "_missing_words.txt"); ok(fs.existsSync(mp) && fs.readFileSync(mp, "utf8").trim() === "(कोई नहीं)", "शब्दकोश पूरा (मतलब-रहित शब्द शून्य)");
+  ok(fs.readFileSync(path.join(ROOT, "courses/hi/bhasha", L.slug, "index.html"), "utf8").indexOf("/workbook/") >= 0, "बोलने-कोर्स पेज से कड़ी");
+  ok(sm.indexOf("/courses/hi/bhasha/" + L.slug + "/workbook/") >= 0, "sitemap में");
+}
+console.log(fail ? "⛔ " + fail + " जाँच फेल" : "🏁 dev_workbook_check: सब पास"); process.exit(fail ? 1 : 0);
