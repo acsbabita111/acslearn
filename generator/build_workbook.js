@@ -7,7 +7,8 @@
    PDF: Chromium (playwright, python) — build-समय; repo में PDF output (generator-निर्मित, हाथ से नहीं)। नई भाषा = WB_LANGS में एक पंक्ति। */
 const fs = require("fs"), path = require("path"), cp = require("child_process");
 const ROOT = path.join(__dirname, "..");
-const VER = "1.3";
+const VER = "1.4";
+/* 02-Oct v1.4: WB_PAGES_ONLY=1 मोड — PDF न बनें (वे Releases पर हैं), सिर्फ़ download-पेज regen; आकार outDir की फ़ाइलों (असली या exact-नाप stub) से। */
 /* 14-Sep v1.3 (Founder-फ़ैसला: "रिलीज़ में ही डालो"): PDF repo में नहीं — GitHub Releases में (repo-size में नहीं गिनते, Pages की 1 GB सीमा बची)।
    हर भाषा = एक release, tag workbook-<slug>; PDF-कड़ी = RELEASE_BASE/workbook-<slug>/<file>। PDF यहाँ बनते हैं: RELEASE_OUT/<slug>/ (repo के बाहर) → office से `gh release create` (release_workbooks.md)।
    repo में सिर्फ़ download-पेज (index.html)। पुराना मोड (PDF repo में) = env WB_LOCAL=1। */
@@ -202,11 +203,13 @@ function build(L) {
   }
   const full = buildDict(days, twAll, KOSH, devAll, L.script);
   jobs.push({ html: doc(L, coverHTML(L, "शब्दकोश", "90 दिन · " + full.rows.length + " शब्द", days, "कोर्स के हर वाक्य का हर शब्द — जिस क्रम में पहली बार आया") + dictHTML("पूरा शब्दकोश (90 दिन)", full.rows, "शब्द · कैसे बोलें (देवनागरी) · मतलब — कोर्स में पहली बार आने के क्रम में।")), pdf: path.join(outDir, "shabdkosh.pdf") });
+  if (!process.env.WB_PAGES_ONLY) {
   htmlToPdf(jobs);
   /* v1.2: महीना = 6 साप्ताहिक PDF का जोड़ (pypdf) — Chromium-समय आधा, सामग्री वही */
   const mp = path.join(require("os").tmpdir(), "wb-merge-" + L.code + ".json"); fs.writeFileSync(mp, JSON.stringify(monthPlan));
   const r = cp.spawnSync("python3", ["-c", "import json,sys\nfrom pypdf import PdfWriter\nfor j in json.load(open(sys.argv[1])):\n    w=PdfWriter()\n    [w.append(p) for p in j['parts']]\n    w.write(j['out'])", mp], { encoding: "utf8" });
   if (r.status !== 0) throw new Error("month-merge fail: " + r.stderr.slice(-300));
+  }
   downloadPage(L, weeks, months, path.join(outDir, "shabdkosh.pdf"), full.rows, full.missing);
   const allPdf = fs.readdirSync(outDir).filter(f => f.endsWith(".pdf")); const total = allPdf.reduce((a, f) => a + fs.statSync(path.join(outDir, f)).size, 0);
   console.log("✅ " + L.code + ": " + allPdf.length + " PDF (" + Math.round(total / 1024) + " KB) · शब्दकोश " + full.rows.length + " शब्द, मतलब-रहित " + full.missing.length + (full.missing.length ? " → " + full.missing.slice(0, 20).join(",") + (full.missing.length > 20 ? "…" : "") : ""));
