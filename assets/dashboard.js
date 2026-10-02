@@ -1978,7 +1978,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      संस्था-नाम केंद्र में बड़े, प्रमाणपत्र-शीर्षक अकेली-पंक्ति, learner-नाम मुख्य-फ़ोकस (बड़ा/बोल्ड/हरा,
      हिंदी+अंग्रेज़ी दोनों), पिता-नाम placeholder, rich-paragraph प्रमाणीकरण-वाक्य (हिंदी+अंग्रेज़ी),
      बड़ा प्रमाणपत्र-नंबर, QR बायें+हस्ताक्षर-मुहर दायें ("प्रधान ट्रस्टी, FFGPMT"), मान्यता एक-लाइन में
-     3-सूचना, बोल्ड-मोटा स्लोगन "80+ भाषा में, गाँव से ग्लोबल साउथ तक!" लंबी रेखा के साथ, मुख्यालय-पता
+     3-सूचना, बोल्ड-मोटा स्लोगन "130 भाषा में, गाँव से ग्लोबल साउथ तक!" लंबी रेखा के साथ, मुख्यालय-पता
      सबसे नीचे, चारों कोनों में ACS के 4 ब्रांड-रंग त्रिकोण, केंद्र में बड़ा ट्रेडमार्क-जैसा watermark +
      सघन दोहराया-पैटर्न। पाँच दौर के असली node-canvas+असली-Devanagari-फ़ॉन्ट preview से जाँचा।
      🟠 पिता/अभिभावक का नाम अभी भी placeholder (________) है — registrations में सिर्फ़ guardian का
@@ -2158,8 +2158,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     /* स्लोगन — बोल्ड-मोटा (stroke-outline से) + बहुत लंबी रेखा (Founder-निर्देश) */
     x.font="800 40px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
     x.lineWidth=1.4; x.strokeStyle="#0B1F3A";
-    x.strokeText("80+ भाषा में, गाँव से ग्लोबल साउथ तक!",CX,y);
-    x.fillText("80+ भाषा में, गाँव से ग्लोबल साउथ तक!",CX,y); y+=58;
+    x.strokeText("130 भाषा में, गाँव से ग्लोबल साउथ तक!",CX,y);
+    x.fillText("130 भाषा में, गाँव से ग्लोबल साउथ तक!",CX,y); y+=58;
     x.strokeStyle="#F9A825"; x.lineWidth=3;
     x.beginPath(); x.moveTo(90,y); x.lineTo(W-90,y); x.stroke(); y+=40;
 
