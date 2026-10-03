@@ -1145,6 +1145,11 @@ async function guardExternalRender(user, reg){
   setTxt("tlNote", "");
 
   show("appView");
+  /* ── वाणी-context (v4.8 · 04-Oct): बाहरी-परिवार में भी — team-रास्ते (604) जैसा ही;
+       बिना इसके vani.js 6-सेकंड बाद "लोड नहीं हो पाई" देता था (केंद्र-जाँच में पकड़ा होल) ── */
+  try{ window.__ACS_VANI = { app, auth, functions, httpsCallable,
+    firestore:{ getFirestore, collection, query, orderBy, onSnapshot },
+    uid:user.uid, lang:"hi" }; }catch(e){}
   initNav("ext");
   /* (19-Jul) बैज-निशान: engine का hook हो तो चलाओ — न हो तो चुप (गूँगा-fallback नहीं, वैकल्पिक-सजावट) */
   if(typeof window.__acsBadgeMark==="function"){ try{ window.__acsBadgeMark(); }catch(e){} }
