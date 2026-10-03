@@ -143,13 +143,14 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
     var rows = '', last = '';
     (M.teams || []).filter(function(t){ return t.registrable; }).forEach(function(t){
       if(t.level !== last){
-        rows += '<tr><td class="lvl" colspan="3">' + (LVL_HI[t.level] || t.level) + '</td></tr>';
+        rows += '<tr><td class="lvl" colspan="4">' + (LVL_HI[t.level] || t.level) + '</td></tr>';
         last = t.level;
       }
-      rows += '<tr><td>' + (t.public_label || t.label) + '</td><td>' + (t.qualification || '—') + '</td><td>' + (t.min_age ? t.min_age + '+' : '—') + '</td></tr>';
+      rows += '<tr><td>' + (t.public_label || t.label) + '</td><td>' + (t.qualification || '—') + '</td><td>' + (t.min_age ? t.min_age + '+' : '—') + '</td>'
+        + '<td>' + (t.ruleFile ? '<a class="ruleLink" href="/' + t.ruleFile + '" target="_blank" rel="noopener">📜 नियम</a>' : '—') + '</td></tr>';
     });
     return '<h4>🎓 पदों की योग्यता व न्यूनतम उम्र (पद form के अंदर चुनेंगे)</h4>'
-      + '<table class="qual"><tr><th>पद</th><th>योग्यता</th><th>उम्र</th></tr>' + rows + '</table>';
+      + '<table class="qual"><tr><th>पद</th><th>योग्यता</th><th>उम्र</th><th>नियम</th></tr>' + rows + '</table>';
   }
 
   (M.cards || []).forEach(function(c){
@@ -158,6 +159,7 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
     var ruleFile = (card && card.ruleFile) || c.ruleFile || '';
     var sec = document.createElement('div');
     sec.className = 'acc';
+    sec.id = 'acc-' + c.key; /* (03-Oct) join की नियम-कड़ी #hash से सीधे इस खंड पर */
     sec.innerHTML =
       '<button type="button" class="acc-head"><span class="ic">' + ((card && card.icon) || ICON[c.key] || '⭐') + '</span>'  /* (18-Jul चरण-5 · होल-N) icon का पहला घर roles.js-कार्ड */
       + '<span class="nm">' + (c.public_label || c.label) + '</span><span class="ar">▼</span></button>'
@@ -181,6 +183,15 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
   });
   home.removeChild(home.firstChild); /* "सूची बन रही है…" text-node हटाना */
 })();
+
+  /* (03-Oct-2026) #hash से सीधा खंड खोलना — जैसे /registration-guide.html#team */
+  try{
+    var hk = (location.hash||'').replace('#','');
+    if(hk){
+      var tgt = document.getElementById('acc-'+hk);
+      if(tgt){ tgt.classList.add('open'); setTimeout(function(){ tgt.scrollIntoView({behavior:'smooth',block:'start'}); },150); }
+    }
+  }catch(e){}
 </script>
 </body>
 </html>
