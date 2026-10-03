@@ -1,5 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════
-   /assets/vani.js v3.0 — वाणी साझा घटक (चरण-2 + 🎙️ आवाज़-पुल + 📹 विडियो-call, 03-Oct-2026)
+   /assets/vani.js v4.0 — वाणी (🎙️ आवाज़-पुल + 📹 विडियो + भाषा-स्विच + ✓✓ + 📎 फ़ाइल, 04-Oct-2026)
+   v4 जोड़: call-पर्दे पर भाषा-स्विच (kind:"lang" से दोनों तरफ़ तुरंत नियम-बदल) ·
+   ✓ काला = server-दर्ज, ✓✓ हरा = सामने वाले ने देखा (kind:"seen", 2.5s-घूँट) ·
+   📎 चालू call में फ़ोटो/PDF (vaniFile, 2MB) — माँगा-दस्तावेज़ वहीं मिले।
    📹 नियम: एक भाषा = सीधी आवाज़ (शून्य देरी) · अलग भाषा = मूल आवाज़ चुप,
    अनुवादित आवाज़ 🎙️ बोलो-रास्ते से 3-8 सेकंड में (UN-दुभाषिया शैली)।
    signaling = vaniRtc → उसी messages-धारा में via:"rtc" (chat में अदृश्य)।
@@ -73,6 +76,11 @@
       '    <video id="v-local" autoplay playsinline muted style="position:absolute;right:8px;bottom:8px;width:28%;max-width:120px;border:2px solid #fff;border-radius:8px;background:#222"></video>'+
       '    <div id="v-vhint" style="position:absolute;left:8px;top:8px;right:140px;background:rgba(11,31,58,.75);color:#fff;font-size:12px;padding:4px 8px;border-radius:8px"></div>'+
       '    <button id="v-vorig" style="position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:5px 9px;font-size:12px;display:none">🔇 मूल आवाज़ बंद है</button>'+
+      '    <div style="display:flex;gap:8px;align-items:center;background:#0B1F3A;padding:8px">'+
+      '      <select id="v-clang" style="flex:1;min-height:42px;padding:7px;border-radius:8px;border:2px solid #F9A825;background:#fff;font-size:15px;font-weight:700"></select>'+
+      '      <button id="v-file" style="flex-shrink:0;background:#F9A825;color:#0B1F3A;border:none;border-radius:8px;padding:0 14px;font-weight:800;font-size:15px;min-height:42px">📎 फ़ाइल</button>'+
+      '      <input id="v-fin" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" style="display:none"/>'+
+      '    </div>'+
       '  </div>'+
       '  <div id="v-ring" style="display:none;background:#FFF6DC;border:1px solid #f3e3ad;border-radius:12px;padding:10px;margin-top:10px;text-align:center">'+
       '    <div style="font-weight:800;margin-bottom:8px">📹 विडियो-call आ रही है…</div>'+
@@ -150,6 +158,28 @@
 
     // ---- render + translate ----
     function sysline(t){ const d=document.createElement("div"); d.style.cssText="align-self:center;background:#FFF6DC;border:1px solid #f3e3ad;color:#7a5b00;font-size:12px;font-weight:700;padding:5px 12px;border-radius:16px"; d.textContent=t; $("#v-chat").appendChild(d); sc(); }
+    // ---- ✓/✓✓ (v4): अपने संदेश पर tick; सामने वाले के देखते ही हरा ----
+    let ownTicks=[], seenSentAt=0;
+    function tickSpan(){ const t=document.createElement("span");
+      t.textContent="✓"; t.style.cssText="margin-left:6px;font-weight:900;color:#37474F";
+      ownTicks.push(t); return t; }
+    function markSeen(){ ownTicks.forEach(function(t){ t.textContent="✓✓"; t.style.color="#2E7D32"; }); }
+    function sendSeen(){ if(!roomId) return; const now=Date.now();
+      if(now-seenSentAt<2500) return; seenSentAt=now;
+      httpsCallable(functions,"vaniRtc")({roomId, kind:"seen", lang:myLang}).catch(function(){}); }
+    function renderFile(m, mine){
+      const b=document.createElement("div");
+      b.style.cssText = "max-width:85%;padding:10px 13px;border-radius:14px;font-size:16px;line-height:1.5;"+
+        (mine ? "align-self:flex-end;background:#E3F2FD;border:1px solid #b9dcff" : "align-self:flex-start;background:#fff;border:1px solid #E8EDF5");
+      const nm = m.byName ? esc(m.byName) : (mine?"आप":"सदस्य");
+      const kb = m.size ? " · "+Math.max(1,Math.round(m.size/1024))+" KB" : "";
+      b.innerHTML = '<div class="v-hdr" style="font-size:11px;font-weight:700;opacity:.65;margin-bottom:3px">📎 '+nm+'</div>'+
+        '<div>📄 '+esc(m.name||"file")+kb+'</div>'+
+        '<a href="'+(m.url||"#")+'" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;background:#1565C0;color:#fff;border-radius:8px;padding:7px 14px;font-weight:800;text-decoration:none">खोलें / सहेजें</a>';
+      if(mine) b.querySelector(".v-hdr").appendChild(tickSpan());
+      $("#v-chat").appendChild(b); sc();
+      if(!mine) sendSeen();
+    }
     function playUrl(u, fbTxt){
       try{ const a=new Audio(u); a.play().catch(function(){ if(fbTxt) speak(fbTxt, byc(myLang)[3]); }); }
       catch(e){ if(fbTxt) speak(fbTxt, byc(myLang)[3]); }
@@ -167,7 +197,9 @@
         const o=document.createElement("div"); o.style.cssText="font-size:12px;color:#607D8B;margin-top:4px";
         o.textContent="मूल ("+byc(m.srcLang)[2]+"): "+m.text; b.appendChild(o);
       }
+      if(mine){ const h=b.querySelector("div"); if(h) h.appendChild(tickSpan()); }
       $("#v-chat").appendChild(b); sc();
+      if(!mine) sendSeen();
       const url = (my && my.audio) || null;
       b.querySelector(".v-spk").onclick = function(){ if(url) playUrl(url, shown); else speak(shown, byc(myLang)[3]); };
       if(!mine){ if(url) playUrl(url, shown); else speak(shown, byc(myLang)[3]); }
@@ -175,6 +207,7 @@
     async function render(m, mine){
       if(m.via==="rtc"){ handleRtc(m, mine); return; }
       if(m.srcLang) langsSeen.add(m.srcLang);
+      if(m.via==="file"){ renderFile(m, mine); return; }
       if(m.via==="voice"){ renderVoice(m, mine); return; }
       const b=document.createElement("div");
       b.style.cssText = "max-width:85%;padding:10px 13px;border-radius:14px;font-size:16px;line-height:1.5;"+
@@ -183,7 +216,9 @@
       const tag = mine ? "" : " · "+byc(m.srcLang)[2];
       b.innerHTML = '<div style="font-size:11px;font-weight:700;opacity:.65;margin-bottom:3px">'+nm+tag+' <button class="v-spk" style="border:none;background:rgba(0,0,0,.05);border-radius:6px;padding:1px 6px;cursor:pointer">🔊</button></div>'+
                     '<div class="v-body">'+esc(m.text)+'</div>';
+      if(mine){ const h=b.querySelector("div"); if(h) h.appendChild(tickSpan()); }
       $("#v-chat").appendChild(b); sc();
+      if(!mine) sendSeen();
       let out = m.text;
       if(!mine && m.srcLang && m.srcLang!==myLang){
         out = await tr(m.text, byc(m.srcLang)[1], byc(myLang)[1]);
@@ -285,8 +320,37 @@
       if(m.kind==="answer"){ if(pc && isCaller){ remoteLang=m.srcLang||null;
         pc.setRemoteDescription({type:"answer", sdp:m.sdp}).then(applyLangRule)
           .catch(function(){ vhint("जुड़ाव-त्रुटि — दोनों call काटकर दोबारा।"); }); } return; }
+      if(m.kind==="lang"){ remoteLang=m.srcLang||remoteLang;
+        applyLangRule(); sysline("सामने वाले ने भाषा बदली: "+byc(remoteLang)[2]); return; }
+      if(m.kind==="seen"){ markSeen(); return; }
       if(m.kind==="end"){ if(pc){ endCall(false); sysline("सामने वाले ने call समाप्त की।"); }
         ring.style.display="none"; pendingOffer=null; }
+    }
+    // ---- v4: call-पर्दे का भाषा-स्विच + 📎 फ़ाइल ----
+    const clang=$("#v-clang"), fbtn=$("#v-file"), fin=$("#v-fin");
+    if(clang){ L.forEach(function(l){ const o=document.createElement("option");
+        o.value=l[0]; o.textContent=l[2]; clang.appendChild(o); });
+      clang.value=myLang;
+      clang.onchange=function(){ myLang=clang.value; sel.value=myLang;
+        applyLangRule();
+        if(roomId) httpsCallable(functions,"vaniRtc")({roomId, kind:"lang", lang:myLang}).catch(function(){});
+        sysline("आपकी भाषा अब: "+byc(myLang)[2]); };
+    }
+    sel.addEventListener("change", function(){ if(clang) clang.value=myLang; });
+    if(fbtn && fin){
+      fbtn.onclick=function(){ fin.click(); };
+      fin.onchange=function(){
+        const f=fin.files && fin.files[0]; fin.value=""; if(!f||!roomId) return;
+        if(f.size>2*1024*1024){ sysline("फ़ाइल 2MB से बड़ी है — छोटी भेजें।"); return; }
+        sysline("📎 भेज रहे हैं: "+f.name+" …");
+        const rd=new FileReader();
+        rd.onload=function(){
+          const b64=String(rd.result).split(",")[1]||"";
+          httpsCallable(functions,"vaniFile")({roomId, name:f.name, mime:f.type, dataB64:b64, lang:myLang})
+            .catch(function(e){ sysline("फ़ाइल नहीं गई: "+niceErr(e)); });
+        };
+        rd.readAsDataURL(f);
+      };
     }
     if(vb) vb.onclick=startCall;
     const ab=$("#v-accept"); if(ab) ab.onclick=acceptCall;
