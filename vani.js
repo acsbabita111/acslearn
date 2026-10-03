@@ -1,10 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   /assets/vani.js v4.0 — वाणी (🎙️ आवाज़-पुल + 📹 विडियो + भाषा-स्विच + ✓✓ + 📎 फ़ाइल, 04-Oct-2026)
-   v4 जोड़: call-पर्दे पर भाषा-स्विच (kind:"lang" से दोनों तरफ़ तुरंत नियम-बदल) ·
-   ✓ काला = server-दर्ज, ✓✓ हरा = सामने वाले ने देखा (kind:"seen", 2.5s-घूँट) ·
-   📎 चालू call में फ़ोटो/PDF (vaniFile, 2MB) — माँगा-दस्तावेज़ वहीं मिले।
-   📹 नियम: एक भाषा = सीधी आवाज़ (शून्य देरी) · अलग भाषा = मूल आवाज़ चुप,
-   अनुवादित आवाज़ 🎙️ बोलो-रास्ते से 3-8 सेकंड में (UN-दुभाषिया शैली)।
+   /assets/vani.js v5.0 — वाणी mesh-बैठक (6 तक) + refresh-वापसी, 04-Oct-2026
+   v5: 1↔1 → हर-से-हर mesh (join/offer-to/answer-to/leave) · किसी के निकलने पर
+   सिर्फ़ उसकी खिड़की बंद (होल-3 बंद) · अपने 🎤/📷 + हर साथी पर 🔊 (होल-2 बंद) ·
+   refresh पर कमरा auto-वापसी (sessionStorage; call दोबारा 📹 से) ·
+   भाषा-नियम अब प्रति-साथी: उसकी भाषा ≠ मेरी ⇒ उसकी मूल आवाज़ default-चुप।
    signaling = vaniRtc → उसी messages-धारा में via:"rtc" (chat में अदृश्य)।
    सीमा दर्ज: अलग नेटवर्क पर बिना TURN जुड़ाव अनिश्चित — पहली जाँच एक WiFi पर।
    एकमात्र घर। हर dashboard में #pnl-vani पैनल इसी से जीता होता है।
@@ -71,20 +70,20 @@
       '    <button id="v-vid" style="background:#F9A825;color:#0B1F3A;border:none;border-radius:8px;padding:7px 12px;font-weight:800;min-height:38px">📹 विडियो</button>'+
       '    <button id="v-leave" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:7px 12px;font-weight:700;min-height:38px">छोड़ें</button>'+
       '  </div>'+
-      '  <div id="v-stage" style="display:none;position:relative;background:#000;border-radius:12px;overflow:hidden;margin-top:10px">'+
-      '    <video id="v-remote" autoplay playsinline style="width:100%;max-height:300px;display:block;background:#000"></video>'+
-      '    <video id="v-local" autoplay playsinline muted style="position:absolute;right:8px;bottom:8px;width:28%;max-width:120px;border:2px solid #fff;border-radius:8px;background:#222"></video>'+
-      '    <div id="v-vhint" style="position:absolute;left:8px;top:8px;right:140px;background:rgba(11,31,58,.75);color:#fff;font-size:12px;padding:4px 8px;border-radius:8px"></div>'+
-      '    <button id="v-vorig" style="position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:5px 9px;font-size:12px;display:none">🔇 मूल आवाज़ बंद है</button>'+
-      '    <div style="display:flex;gap:8px;align-items:center;background:#0B1F3A;padding:8px">'+
-      '      <select id="v-clang" style="flex:1;min-height:42px;padding:7px;border-radius:8px;border:2px solid #F9A825;background:#fff;font-size:15px;font-weight:700"></select>'+
-      '      <button id="v-file" style="flex-shrink:0;background:#F9A825;color:#0B1F3A;border:none;border-radius:8px;padding:0 14px;font-weight:800;font-size:15px;min-height:42px">📎 फ़ाइल</button>'+
+      '  <div id="v-stage" style="display:none;background:#000;border-radius:12px;overflow:hidden;margin-top:10px">'+
+      '    <div id="v-grid" style="display:flex;flex-wrap:wrap;gap:4px;padding:4px;background:#000"></div>'+
+      '    <div style="display:flex;gap:6px;align-items:center;background:#0B1F3A;padding:8px;flex-wrap:wrap">'+
+      '      <button id="v-mic2" style="flex-shrink:0;width:46px;min-height:42px;border:none;border-radius:8px;background:#2E7D32;color:#fff;font-size:18px">🎤</button>'+
+      '      <button id="v-cam"  style="flex-shrink:0;width:46px;min-height:42px;border:none;border-radius:8px;background:#2E7D32;color:#fff;font-size:18px">📷</button>'+
+      '      <select id="v-clang" style="flex:1;min-width:110px;min-height:42px;padding:7px;border-radius:8px;border:2px solid #F9A825;background:#fff;font-size:15px;font-weight:700"></select>'+
+      '      <button id="v-file" style="flex-shrink:0;background:#F9A825;color:#0B1F3A;border:none;border-radius:8px;padding:0 12px;font-weight:800;font-size:15px;min-height:42px">📎</button>'+
+      '      <button id="v-hang" style="flex-shrink:0;background:#C62828;color:#fff;border:none;border-radius:8px;padding:0 12px;font-weight:800;font-size:15px;min-height:42px">⏹ निकलें</button>'+
       '      <input id="v-fin" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" style="display:none"/>'+
       '    </div>'+
       '  </div>'+
       '  <div id="v-ring" style="display:none;background:#FFF6DC;border:1px solid #f3e3ad;border-radius:12px;padding:10px;margin-top:10px;text-align:center">'+
-      '    <div style="font-weight:800;margin-bottom:8px">📹 विडियो-call आ रही है…</div>'+
-      '    <button id="v-accept" style="background:#2E7D32;color:#fff;border:none;border-radius:10px;padding:11px 20px;font-weight:800;min-height:46px">उठाएँ</button>'+
+      '    <div id="v-ringtxt" style="font-weight:800;margin-bottom:8px">📹 विडियो-call…</div>'+
+      '    <button id="v-accept" style="background:#2E7D32;color:#fff;border:none;border-radius:10px;padding:11px 20px;font-weight:800;min-height:46px">जुड़ें</button>'+
       '  </div>'+
       '  <div id="v-chat" style="min-height:180px;max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:10px 2px"></div>'+
       '  <div id="v-talkrow" style="margin:0 0 8px">'+
@@ -121,6 +120,7 @@
         $("#v-room").textContent = d.code;
         show(true); keepAwake(true); seen = new Set();
         sysline(code ? "कमरे में जुड़ गए।" : "कमरा बना — कोड बताएँ।");
+        try{ sessionStorage.setItem("acs_vani_room", d.code); }catch(e){}
         listen();
       }catch(e){ say(niceErr(e)); }
       finally{ opening=false; if(cb)cb.disabled=false; if(jb)jb.disabled=false; }
@@ -241,102 +241,177 @@
     function esc(s){ const d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
     function sc(){ const c=$("#v-chat"); c.scrollTop=c.scrollHeight; }
 
-    // ---- 📹 विडियो-call (WebRTC, 1↔1; signaling via:"rtc") ----
-    let pc=null, localSt=null, isCaller=false, remoteLang=null, pendingOffer=null;
-    const vb=$("#v-vid"), stage=$("#v-stage"), ring=$("#v-ring"),
-          rv=$("#v-remote"), lv2=$("#v-local"), vh=$("#v-vhint"), vo=$("#v-vorig");
+    // ---- 📹 विडियो mesh-बैठक (v5: ≤6, हर-से-हर; signaling via:"rtc"+to) ----
+    let inCall=false, myStream=null, pcs={}, tiles={}, peerLang={}, peerName={},
+        pendingOffers={}, micOn=true, camOn=true;
+    const vb=$("#v-vid"), stage=$("#v-stage"), grid=$("#v-grid"),
+          ring=$("#v-ring"), ringtxt=$("#v-ringtxt"),
+          micB=$("#v-mic2"), camB=$("#v-cam"), hangB=$("#v-hang"),
+          clang=$("#v-clang"), fbtn=$("#v-file"), fin=$("#v-fin");
     const RTC = window.RTCPeerConnection;
     if(!RTC && vb) vb.style.display="none";
-    function vhint(t){ if(vh) vh.textContent=t||""; }
     function waitIce(p){ return new Promise(function(res){
       if(p.iceGatheringState==="complete") return res();
       const t=setTimeout(res,3000);
-      p.addEventListener("icegatheringstatechange",function f(){
+      p.addEventListener("icegatheringstatechange",function(){
         if(p.iceGatheringState==="complete"){ clearTimeout(t); res(); } });
     }); }
-    function applyLangRule(){
-      if(!rv) return;
-      if(remoteLang && remoteLang!==myLang){
-        rv.muted=true; vo.style.display="block"; vo.textContent="🔇 मूल आवाज़ बंद है — सुनने के लिए दबाएँ";
-        vhint("अलग भाषा ("+byc(remoteLang)[2]+") — 🎙️ बोलो दबाकर बोलें; अनुवादित आवाज़ 3-8 सेकंड में बजेगी।");
-      } else {
-        rv.muted=false; vo.style.display="none";
-        vhint("एक भाषा — सीधी आवाज़, शून्य देरी।");
-      }
+    function rtcSend(kind, extra){
+      const d={roomId:roomId, kind:kind, lang:myLang};
+      if(extra){ for(const k in extra) d[k]=extra[k]; }
+      return httpsCallable(functions,"vaniRtc")(d).catch(function(){});
     }
-    if(vo) vo.onclick=function(){ rv.muted=!rv.muted;
-      vo.textContent = rv.muted ? "🔇 मूल आवाज़ बंद है — सुनने के लिए दबाएँ" : "🔊 मूल आवाज़ चालू — बंद करने के लिए दबाएँ"; };
-    async function makePc(){
-      pc=new RTC({iceServers:[{urls:["stun:stun.l.google.com:19302","stun:stun1.l.google.com:19302"]}]});
-      pc.ontrack=function(ev){ if(ev.streams&&ev.streams[0]){ rv.srcObject=ev.streams[0]; applyLangRule(); } };
+    function mkTile(id, self){
+      if(tiles[id]) return tiles[id];
+      const w=document.createElement("div");
+      w.style.cssText="position:relative;flex:1 1 46%;min-width:140px;background:#111;border-radius:8px;overflow:hidden";
+      const v=document.createElement("video");
+      v.autoplay=true; v.playsInline=true; v.setAttribute("playsinline","");
+      if(self) v.muted=true;
+      v.style.cssText="width:100%;height:100%;min-height:150px;object-fit:cover;background:#111;display:block";
+      const lb=document.createElement("div");
+      lb.style.cssText="position:absolute;left:4px;bottom:4px;background:rgba(11,31,58,.75);color:#fff;font-size:11px;padding:2px 7px;border-radius:7px;max-width:88%";
+      const bd=document.createElement("div");
+      bd.style.cssText="position:absolute;left:4px;top:4px;background:rgba(11,31,58,.75);color:#F9A825;font-size:10px;padding:2px 6px;border-radius:7px";
+      w.appendChild(v); w.appendChild(lb); w.appendChild(bd);
+      let sp=null;
+      if(!self){
+        sp=document.createElement("button");
+        sp.style.cssText="position:absolute;right:4px;top:4px;background:rgba(255,255,255,.25);color:#fff;border:none;border-radius:7px;padding:4px 8px;font-size:13px";
+        sp.onclick=function(){ v.muted=!v.muted; sp.textContent=v.muted?"🔇":"🔊"; };
+        w.appendChild(sp);
+      }
+      grid.appendChild(w);
+      tiles[id]={el:w, video:v, label:lb, badge:bd, spk:sp};
+      refreshTile(id, self);
+      return tiles[id];
+    }
+    function refreshTile(id, self){
+      const t=tiles[id]; if(!t) return;
+      t.label.textContent = (self?"आप":(peerName[id]||"सदस्य"))+" · "+byc(self?myLang:(peerLang[id]||"hi"))[2];
+      if(self){ t.badge.textContent = (micOn?"":"🎤✖ ")+(camOn?"":"📷✖"); return; }
+      const diff = peerLang[id] && peerLang[id]!==myLang;
+      if(diff && t.spk && t.video.muted!==false){ /* default-चुप सिर्फ़ शुरुआत में */ }
+      if(diff){ t.badge.textContent="🌐 अलग भाषा — 🎙️ अनुवाद-रास्ता";
+        if(t.spk && t.spk.textContent===""){ t.video.muted=true; } }
+      else t.badge.textContent="एक भाषा — सीधी आवाज़";
+      if(t.spk && t.spk.textContent==="") t.spk.textContent = t.video.muted?"🔇":"🔊";
+      else if(t.spk) t.spk.textContent = t.video.muted?"🔇":"🔊";
+    }
+    function newPc(id){
+      const pc=new RTC({iceServers:[{urls:["stun:stun.l.google.com:19302","stun:stun1.l.google.com:19302"]}]});
+      pc.ontrack=function(ev){ if(ev.streams&&ev.streams[0]){
+        const t=mkTile(id,false); t.video.srcObject=ev.streams[0];
+        if(peerLang[id] && peerLang[id]!==myLang){ t.video.muted=true; }
+        refreshTile(id,false); } };
       pc.onconnectionstatechange=function(){
-        if(pc && (pc.connectionState==="failed"||pc.connectionState==="disconnected"))
-          vhint("जुड़ाव टूटा — एक ही WiFi पर दोबारा आज़माएँ (TURN अगला दौर)।");
+        if(pc.connectionState==="failed")
+          sysline((peerName[id]||"सदस्य")+" से जुड़ाव नहीं बना — एक ही WiFi पर आज़माएँ (TURN अगला दौर)।");
       };
-      try{ localSt=await navigator.mediaDevices.getUserMedia({
+      myStream.getTracks().forEach(function(tr){ pc.addTrack(tr, myStream); });
+      pcs[id]=pc; return pc;
+    }
+    function closePeer(id, tell){
+      try{ pcs[id]&&pcs[id].close(); }catch(e){}
+      delete pcs[id]; delete pendingOffers[id];
+      if(tiles[id]){ try{ tiles[id].el.remove(); }catch(e){} delete tiles[id]; }
+      if(tell) sysline((peerName[id]||"एक सदस्य")+" call से निकले — बाक़ी जुड़े रहें।");
+    }
+    async function ensureMedia(){
+      if(myStream) return true;
+      try{ myStream=await navigator.mediaDevices.getUserMedia({
         video:{width:{ideal:320},height:{ideal:240},frameRate:{ideal:12}},
         audio:{echoCancellation:true,noiseSuppression:true}}); }
-      catch(e){ sysline("कैमरा/माइक की अनुमति नहीं मिली।"); endCall(false); return false; }
-      lv2.srcObject=localSt;
-      localSt.getTracks().forEach(function(t){ pc.addTrack(t, localSt); });
+      catch(e){ sysline("कैमरा/माइक की अनुमति नहीं मिली।"); return false; }
+      const t=mkTile("__me",true); t.video.srcObject=myStream;
       stage.style.display="block"; keepAwake(true); return true;
     }
-    function endCall(tell){
-      try{ pc&&pc.close(); }catch(e){}
-      try{ localSt&&localSt.getTracks().forEach(function(t){t.stop();}); }catch(e){}
-      pc=null; localSt=null; isCaller=false; remoteLang=null; pendingOffer=null;
-      if(stage) stage.style.display="none"; if(ring) ring.style.display="none";
-      if(rv) rv.srcObject=null; if(lv2) lv2.srcObject=null;
-      if(vb){ vb.textContent="📹 विडियो"; }
-      if(tell && roomId) httpsCallable(functions,"vaniRtc")({roomId, kind:"end", lang:myLang}).catch(function(){});
+    async function enterCall(){
+      if(inCall) return;
+      if(!roomId){ sysline("पहले कमरा खोलें/जुड़ें।"); return; }
+      if(!(await ensureMedia())) return;
+      inCall=true; ring.style.display="none"; if(vb) vb.style.display="none";
+      await rtcSend("join");
+      for(const id in pendingOffers){ answerTo(id, pendingOffers[id]); delete pendingOffers[id]; }
     }
-    async function startCall(){
-      if(pc){ endCall(true); sysline("विडियो-call समाप्त।"); return; }
-      isCaller=true;
-      if(!(await makePc())) return;
-      vb.textContent="⏹ call बंद करें"; vhint("सामने वाले के उठाने की प्रतीक्षा…");
+    async function offerTo(id){
+      if(pcs[id] || id===uid) return;
+      if(Object.keys(pcs).length>=5){ sysline("बैठक-सीमा (6) भर गई।"); return; }
+      const pc=newPc(id);
       const off=await pc.createOffer(); await pc.setLocalDescription(off); await waitIce(pc);
-      try{ await httpsCallable(functions,"vaniRtc")({roomId, kind:"offer", sdp:pc.localDescription.sdp, lang:myLang}); }
-      catch(e){ sysline("call नहीं लगी: "+niceErr(e)); endCall(false); }
+      rtcSend("offer",{to:id, sdp:pc.localDescription.sdp});
     }
-    async function acceptCall(){
-      if(!pendingOffer) return;
-      ring.style.display="none"; isCaller=false;
-      remoteLang=pendingOffer.lang||null;
-      if(!(await makePc())) return;
-      vb.textContent="⏹ call बंद करें";
-      await pc.setRemoteDescription({type:"offer", sdp:pendingOffer.sdp});
+    async function answerTo(id, sdp){
+      if(id===uid) return;
+      if(Object.keys(pcs).length>=5){ sysline("बैठक-सीमा (6) भर गई।"); return; }
+      const pc=pcs[id]||newPc(id);
+      await pc.setRemoteDescription({type:"offer", sdp:sdp});
       const ans=await pc.createAnswer(); await pc.setLocalDescription(ans); await waitIce(pc);
-      try{ await httpsCallable(functions,"vaniRtc")({roomId, kind:"answer", sdp:pc.localDescription.sdp, lang:myLang}); }
-      catch(e){ sysline("उठा नहीं पाए: "+niceErr(e)); endCall(false); }
-      pendingOffer=null; applyLangRule();
+      rtcSend("answer",{to:id, sdp:pc.localDescription.sdp});
+    }
+    function hangUp(tell){
+      if(tell) rtcSend("leave");
+      for(const id in pcs) closePeer(id,false);
+      try{ myStream&&myStream.getTracks().forEach(function(t){t.stop();}); }catch(e){}
+      myStream=null; inCall=false; pendingOffers={};
+      if(tiles.__me){ try{ tiles.__me.el.remove(); }catch(e){} delete tiles.__me; }
+      grid.innerHTML=""; tiles={};
+      stage.style.display="none"; ring.style.display="none";
+      micOn=true; camOn=true;
+      if(micB){ micB.textContent="🎤"; micB.style.background="#2E7D32"; }
+      if(camB){ camB.textContent="📷"; camB.style.background="#2E7D32"; }
+      if(vb){ vb.style.display=""; vb.textContent="📹 विडियो"; }
     }
     function handleRtc(m, mine){
-      const ts = (m.at && m.at.toMillis) ? m.at.toMillis() : 0;
-      if(ts && Date.now()-ts > 120000) return;           // बासी signaling छोड़ो
-      if(mine) return;
-      if(m.kind==="offer"){ pendingOffer={sdp:m.sdp, lang:m.srcLang};
-        if(!pc){ ring.style.display="block"; } return; }
-      if(m.kind==="answer"){ if(pc && isCaller){ remoteLang=m.srcLang||null;
-        pc.setRemoteDescription({type:"answer", sdp:m.sdp}).then(applyLangRule)
-          .catch(function(){ vhint("जुड़ाव-त्रुटि — दोनों call काटकर दोबारा।"); }); } return; }
-      if(m.kind==="lang"){ remoteLang=m.srcLang||remoteLang;
-        applyLangRule(); sysline("सामने वाले ने भाषा बदली: "+byc(remoteLang)[2]); return; }
+      const ts=(m.at&&m.at.toMillis)?m.at.toMillis():0;
+      if(ts && Date.now()-ts>120000) return;
+      if(m.by===uid) return;
+      if(m.byName) peerName[m.by]=m.byName;
+      if(m.srcLang) peerLang[m.by]=m.srcLang;
       if(m.kind==="seen"){ markSeen(); return; }
-      if(m.kind==="end"){ if(pc){ endCall(false); sysline("सामने वाले ने call समाप्त की।"); }
-        ring.style.display="none"; pendingOffer=null; }
+      if(m.kind==="lang"){ if(tiles[m.by]) refreshTile(m.by,false);
+        if(inCall||tiles[m.by]) sysline((peerName[m.by]||"सदस्य")+" की भाषा अब: "+byc(m.srcLang)[2]); return; }
+      if(m.kind==="join"){
+        if(inCall){ offerTo(m.by); }
+        else { ringtxt.textContent="📹 "+(peerName[m.by]||"सदस्य")+" ने विडियो-call शुरू की — जुड़ें?";
+               ring.style.display="block"; }
+        return; }
+      if(m.kind==="offer"){ if(m.to && m.to!==uid) return;
+        if(inCall) answerTo(m.by, m.sdp);
+        else { pendingOffers[m.by]=m.sdp;
+               ringtxt.textContent="📹 "+(peerName[m.by]||"सदस्य")+" ने विडियो-call शुरू की — जुड़ें?";
+               ring.style.display="block"; }
+        return; }
+      if(m.kind==="answer"){ if(m.to && m.to!==uid) return;
+        if(pcs[m.by]) pcs[m.by].setRemoteDescription({type:"answer", sdp:m.sdp})
+          .then(function(){ refreshTile(m.by,false); })
+          .catch(function(){ sysline("जुड़ाव-त्रुटि — दोनों निकलकर दोबारा जुड़ें।"); });
+        return; }
+      if(m.kind==="leave" || m.kind==="end"){
+        closePeer(m.by, inCall||!!tiles[m.by]);
+        if(!inCall && !Object.keys(tiles).length){ ring.style.display="none"; }
+        return; }
     }
-    // ---- v4: call-पर्दे का भाषा-स्विच + 📎 फ़ाइल ----
-    const clang=$("#v-clang"), fbtn=$("#v-file"), fin=$("#v-fin");
+    if(vb) vb.onclick=enterCall;
+    const ab=$("#v-accept"); if(ab) ab.onclick=enterCall;
+    if(hangB) hangB.onclick=function(){ hangUp(true); sysline("आप call से निकल गए — बाक़ी की बैठक चलती रहे।"); };
+    if(micB) micB.onclick=function(){ if(!myStream) return; micOn=!micOn;
+      myStream.getAudioTracks().forEach(function(t){t.enabled=micOn;});
+      micB.textContent=micOn?"🎤":"🎤✖"; micB.style.background=micOn?"#2E7D32":"#C62828"; refreshTile("__me",true); };
+    if(camB) camB.onclick=function(){ if(!myStream) return; camOn=!camOn;
+      myStream.getVideoTracks().forEach(function(t){t.enabled=camOn;});
+      camB.textContent=camOn?"📷":"📷✖"; camB.style.background=camOn?"#2E7D32":"#C62828"; refreshTile("__me",true); };
     if(clang){ L.forEach(function(l){ const o=document.createElement("option");
         o.value=l[0]; o.textContent=l[2]; clang.appendChild(o); });
       clang.value=myLang;
       clang.onchange=function(){ myLang=clang.value; sel.value=myLang;
-        applyLangRule();
-        if(roomId) httpsCallable(functions,"vaniRtc")({roomId, kind:"lang", lang:myLang}).catch(function(){});
+        for(const id in tiles){ if(id!=="__me") refreshTile(id,false); }
+        refreshTile("__me",true);
+        if(roomId) rtcSend("lang");
         sysline("आपकी भाषा अब: "+byc(myLang)[2]); };
     }
-    sel.addEventListener("change", function(){ if(clang) clang.value=myLang; });
+    sel.addEventListener("change", function(){ if(clang) clang.value=myLang;
+      for(const id in tiles){ if(id!=="__me") refreshTile(id,false); } });
     if(fbtn && fin){
       fbtn.onclick=function(){ fin.click(); };
       fin.onchange=function(){
@@ -346,16 +421,16 @@
         const rd=new FileReader();
         rd.onload=function(){
           const b64=String(rd.result).split(",")[1]||"";
-          httpsCallable(functions,"vaniFile")({roomId, name:f.name, mime:f.type, dataB64:b64, lang:myLang})
+          httpsCallable(functions,"vaniFile")({roomId:roomId, name:f.name, mime:f.type, dataB64:b64, lang:myLang})
             .catch(function(e){ sysline("फ़ाइल नहीं गई: "+niceErr(e)); });
         };
         rd.readAsDataURL(f);
       };
     }
-    if(vb) vb.onclick=startCall;
-    const ab=$("#v-accept"); if(ab) ab.onclick=acceptCall;
     const oldLeave=$("#v-leave").onclick;
-    $("#v-leave").onclick=async function(){ endCall(true); if(oldLeave) await oldLeave(); };
+    $("#v-leave").onclick=async function(){ if(inCall) hangUp(true);
+      try{ sessionStorage.removeItem("acs_vani_room"); }catch(e){}
+      if(oldLeave) await oldLeave(); };
 
     // ---- 🎙️ असली आवाज़ — भाषिणी-रास्ता (vaniSpeak) ----
     (function(){
@@ -438,6 +513,11 @@
         rec.onend=()=>{ listening=false; mic.style.background="#2E7D32"; };
         rec.start(); }; }
     else { mic.style.display="none"; hint.textContent="इस फ़ोन में माइक नहीं — लिखकर भेजें।"; }
+
+    // ---- v5: refresh-वापसी — कमरा याद हो तो चुपचाप दोबारा जुड़ो (call दोबारा 📹 से) ----
+    try{ const sv=sessionStorage.getItem("acs_vani_room");
+      if(sv && /^\d{4}$/.test(sv)){ open(sv).then(function(){
+        sysline("refresh के बाद कमरे में वापसी हो गई — call दोबारा 📹 से।"); }); } }catch(e){}
 
     function niceErr(e){ const c=(e&&e.code)||""; const m=(e&&e.message)||"त्रुटि";
       if(/unauthenticated/.test(c)) return "पहले login ज़रूरी।";
