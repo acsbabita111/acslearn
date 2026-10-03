@@ -65,7 +65,7 @@ fs.readdirSync('assets/apt_sets').forEach(function (f) {
 var ALLQ = BASE_D.questions.concat(window.APT_POOL);
 var seen4 = {}, dup4 = 0;
 ALLQ.forEach(function (q) { if (seen4[q.id]) dup4++; seen4[q.id] = 1; });
-if (ALLQ.length !== 10374 || dup4) throw new Error('विभाजन-अखंडता फेल: कुल ' + ALLQ.length + ' दोहराव ' + dup4);
+if (ALLQ.length !== 18943 || dup4) throw new Error('विभाजन-अखंडता फेल: कुल ' + ALLQ.length + ' दोहराव ' + dup4);
 console.log('जाँच-4 विभाजन-अखंडता ✅ | आधार ' + BASE_D.questions.length + ' + टुकड़े ' + window.APT_POOL.length + ' = ' + ALLQ.length + ' | दोहराव 0');
 
 /* ---------- जाँच-5: session पूरा सफ़र (नक़ली DOM) ---------- */
@@ -179,7 +179,7 @@ console.log('जाँच-4 विभाजन-अखंडता ✅ | आध�
     (boxS.innerHTML.indexOf('यह कोर्स माँगें') >= 0 ? 'हाँ' : 'ना') + ' | ' + avail);
 })();
 
-/* ---------- जाँच-6: मौलिकता (सब 10374 पर) ---------- */
+/* ---------- जाँच-6: मौलिकता (सब 18943 पर) ---------- */
 (function maulikta() {
   function norm(t) { return String(t || '').replace(/[^\u0900-\u097F0-9A-Za-z ]/g, ' ').replace(/\s+/g, ' ').trim(); }
   /* विधि-पंक्तियाँ (जवाब देने का तरीक़ा — प्रश्न-शरीर नहीं) — दर्ज छूट-सूची।
