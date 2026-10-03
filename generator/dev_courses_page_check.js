@@ -47,11 +47,11 @@ ok(start > 0 && end > start, "inline <script> नहीं मिला");
 const inline = lines.slice(start + 1, end).join("\n");
 const store = {};
 const mkEl = id => ({ id, innerHTML: "", textContent: "", value: "", style: {}, children: [], appendChild() {}, querySelectorAll() { return []; }, querySelector() { return null; },
-  classList: { add() {}, remove() {}, contains() { return false; } }, setAttribute() {}, removeAttribute() {}, getAttribute() { return ""; }, addEventListener() {} });
+  classList: { add() {}, remove() {}, toggle() {}, contains() { return false; } }, setAttribute() {}, removeAttribute() {}, getAttribute() { return ""; }, addEventListener() {} });
 const idsInHtml = new Set((html.match(/\sid="([^"]+)"/g) || []).map(x => x.replace(/^\sid="|"$/g, "")));
 const el = id => { if (!idsInHtml.has(id)) return null; /* असली DOM-नियम: अनजान id = null */
   if (!store[id]) { store[id] = mkEl(id); if (/^eduFilter\d$/.test(id)) store[id].value = "all"; } return store[id]; };
-const fakeWin = { location: { hash: "", search: "", pathname: "/courses/hi/" }, addEventListener() {}, navigator: { language: "hi" },
+const fakeWin = { location: { hash: "", search: "", pathname: "/courses/hi/" }, addEventListener() {}, scrollTo() {}, navigator: { language: "hi" },
   localStorage: { getItem() { return null; }, setItem() {}, removeItem() {} } };
 fakeWin.sessionStorage = fakeWin.localStorage;
 const fakeDoc = { getElementById: el, querySelectorAll() { return []; }, querySelector() { return null; }, addEventListener() {}, readyState: "complete", body: {},
@@ -61,7 +61,7 @@ const seq = ["assets/courses_data.js", "assets/academic_subjects.js", "assets/su
 seq.forEach(f => ok(fs.existsSync(path.join(ROOT, f)), "asset नहीं: " + f));
 let initErr = null; let renderTabRef = [];
 try {
-  const code = seq.map(f => R(f)).join("\n;\n") + "\n;\n" + inline + "\n;\n try { init(); } catch (e) { __initErr(e); }\n __renderTabRef([1,2,3,4,5].map(t => () => renderTab(t)));";
+  const code = seq.map(f => R(f)).join("\n;\n") + "\n;\n" + inline + "\n;\n try { init(); } catch (e) { __initErr(e); }\n try { window.goTab(6); } catch (e) { __initErr(e); }\n __renderTabRef([1,2,3,4,5].map(t => () => renderTab(t)));";
   new Function("window", "document", "location", "localStorage", "sessionStorage", "navigator", "addEventListener", "__initErr", "__renderTabRef", code)
     (fakeWin, fakeDoc, fakeWin.location, fakeWin.localStorage, fakeWin.sessionStorage, fakeWin.navigator, fakeWin.addEventListener, e => { initErr = e; }, arr => { renderTabRef = arr; });
 } catch (e) { initErr = e; }
@@ -79,10 +79,10 @@ const cnt = (h, cls) => (String(h || "").match(new RegExp('class="' + cls + '"',
 ok(cnt(groupsHtml, "lc-hi") === gIds.length && cnt(groupsHtml, "lc-nat") === gIds.length && cnt(groupsHtml, "lc-en") === gIds.length, "कार्ड में तीन-लिपि पंक्तियाँ अधूरी (hi/nat/en ≠ " + gIds.length + ")");
 ok(cnt(groupsHtml, "lc-alt") === gIds.filter(id => (byId[id].t3 || []).length === 4).length, "चार-लिपि कार्ड गिनती ≠ data");
 ok(!/\[\s*[\u0900-\u097F]/.test(String(groupsHtml)), "कार्ड-पाठ में चौकोर कोष्ठक");
-/* tab-0 हुनर-सूची + बाक़ी tab */
-const g0 = (store.grid0 || {}).innerHTML || "";
-ok(chips(g0) > 0, "tab-0 हुनर-सूची ख़ाली (grid0)");
-warn(chips(g0) >= 6, "tab-0 हुनर chips " + chips(g0) + " < 6 (पूरे हुनर-कोर्स)");
+/* tab-6 हुनर-सूची (03-Oct: भाषा tab-0, हुनर tab-6 — अलग-अलग) + बाक़ी tab */
+const g0 = (store.grid6 || {}).innerHTML || "";
+ok(chips(g0) > 0, "tab-6 हुनर-सूची ख़ाली (grid6)");
+ok(chips(g0) >= 8, "tab-6 हुनर chips " + chips(g0) + " < 8 (SE024 समेत पूरे हुनर-कोर्स)");
 /* v1.2 (13-Sep, ऑडिट H1): आलसी-render — init पर सिर्फ़ tab-0; बाक़ी tab renderTab(t) से; 50-खेप में "और देखें" अनिवार्य जब सूची >50 */
 [1, 2, 3, 4, 5].forEach(t => ok(((store["grid" + t] || {}).innerHTML || "").length === 0, "tab-" + t + " init पर render हुआ (आलसी-render नियम टूटा)"));
 try { renderTabRef.forEach(fn => fn()); } catch (e) { ok(false, "renderTab(1..5) टूटा: " + e.message); }
@@ -93,6 +93,6 @@ const mCnt = html.match(/(\d+) भाषाओं का पूरा कोर�
 ok(mCnt && +mCnt[1] === goldExpected, "पेज-वाक्य '" + (mCnt && mCnt[0]) + "' ≠ data सुनहरी " + goldExpected);
 ok(mAll && +mAll[1] === gIds.length, "पेज-वाक्य '" + (mAll && mAll[0]) + "' ≠ data भाषाएँ " + gIds.length);
 
-console.log("dev_courses_page_check: भाषा " + gIds.length + " · सुनहरी " + goldExpected + " · popular " + arrs.POP.length + " · tab-0 chips " + chips(g0) + " · समूह " + arrs.G.length);
+console.log("dev_courses_page_check: भाषा " + gIds.length + " · सुनहरी " + goldExpected + " · popular " + arrs.POP.length + " · tab-6 chips " + chips(g0) + " · समूह " + arrs.G.length);
 if (fails) { console.log("⛔ dev_courses_page_check: " + fails + " fail — upload नहीं"); process.exit(1); }
 console.log("🏁 dev_courses_page_check: पेज असली-render पास" + (warns ? " · ⚠️ " + warns : ""));

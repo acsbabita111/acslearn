@@ -127,11 +127,11 @@
   </div>
 </div>
 
-<!-- TAB BAR — अब 6 tab (Founder, 01-Aug): "अभी पढ़ना शुरू करें!" सबसे पहला व default-active,
-     बाक़ी नाम भी नए (कॉर्पोरेट/स्थानीय/सरकारी के साथ "के लिए कोर्स") -->
+<!-- TAB BAR — अब 7 tab (Founder, 03-Oct): भाषा tab-0 default · हुनर tab-6 अलग; बाक़ी यथावत -->
 <div class="tab-bar">
   <div class="tab-inner">
-    <div class="tab active" id="tab0" onclick="goTab(0)"><span class="tab-icon">✅</span>अभी पढ़ना शुरू करें!</div>
+    <div class="tab active" id="tab0" onclick="goTab(0)"><span class="tab-icon">🗣️</span>भाषा कोर्स</div>
+    <div class="tab" id="tab6" onclick="goTab(6)"><span class="tab-icon">🛠️</span>हुनर कोर्स</div>
     <div class="tab" id="tab5" onclick="goTab(5)"><span class="tab-icon">📖</span>एकेडमिक कोर्स</div>
     <div class="tab" id="tab1" onclick="goTab(1)"><span class="tab-icon">🏪</span>स्वरोजगार कोर्स</div>
     <div class="tab" id="tab3" onclick="goTab(3)"><span class="tab-icon">🛒</span>स्थानीय नौकरी के लिए कोर्स</div>
@@ -142,35 +142,33 @@
 
 <div class="main">
 
-  <!-- ══ TAB 0: अभी पढ़ना शुरू करें! — 3 खंड (30-Aug, Founder: सर्टिफिकेट/डिप्लोमा नाम-नियम + भाषा-समूह) ══ -->
+  <!-- ══ TAB 0: भाषा कोर्स (03-Oct, Founder: भाषा/हुनर अलग टैब) ══ -->
   <div class="sec active" id="sec0">
     <!-- राह-पट्टी: पहला सवाल — क्या सीखना है? (EdTech goal-first नियम) -->
     <div class="khand-title" style="text-align:center">आपको क्या सीखना है? नीचे दबाओ 👇</div>
     <div class="raah-row">
       <button class="raah-btn raah-bhasha" onclick="document.getElementById('khandB').scrollIntoView({behavior:'smooth'})">🗣️ दूसरी भाषा सीखनी है</button>
-      <button class="raah-btn raah-hunar" onclick="document.getElementById('khandA').scrollIntoView({behavior:'smooth'})">🛠️ काम-धंधा सीखना है</button>
+      <button class="raah-btn raah-hunar" onclick="goTab(6)">🛠️ काम-धंधा सीखना है</button>
       <button class="raah-btn raah-school" onclick="goTab(5)">📖 स्कूल की पढ़ाई (कक्षा 6-12)</button>
-    </div>
-    <div class="ns-strip" style="margin-top:0">
-      <span class="ns-item">शुरू कैसे करें? 1️⃣ नीचे अपना कोर्स दबाओ 2️⃣ पाठ-1 पढ़ो 3️⃣ रोज़ थोड़ा-थोड़ा पढ़ो</span>
     </div>
 
     <!-- खंड-ब: भाषा सर्टिफिकेट प्रोग्राम (काम की भाषा) — अब पहला खंड (13-Sep, Founder: भाषा = मुख्य काम) -->
     <div class="bh-head" id="khandB">
       <div class="khand-title bh-title">🗣️ भाषा सर्टिफिकेट प्रोग्राम — काम की भाषा</div>
       <div class="bh-sub">दुनिया की 130 भाषाएँ। 130 भाषाओं का पूरा कोर्स तैयार है — हर भाषा में <b>90 दिन · 2,150 वाक्य</b> · ऑनलाइन परीक्षा · प्रमाणपत्र (CEFR A2 पर आधारित)। नीचे कार्ड दबाओ, आज ही शुरू करो।</div>
-      <div class="bh-legend3">हर कार्ड पर नाम तीन लिपियों में — हिंदी · उस भाषा की अपनी लिपि · English (जहाँ दूसरी चलन-लिपि भी है, वहाँ चार)।</div>
     </div>
     <div class="search-wrap bh-search"><input type="text" class="search-input" id="bhashaSearch" placeholder="🔍 भाषा खोजें… जैसे: English, अरबी, জাপানী" oninput="filterBhasha()"/></div>
     <div class="bh-corridors" id="bhCorridors"></div>
     <div class="bh-popular" id="bhPopular"></div>
-    <div id="bhLegend" class="bh-legend"></div>
 <div id="bhashaGroups"></div>
 
-    <!-- खंड-अ: हुनर सर्टिफिकेट प्रोग्राम -->
+  </div>
+
+  <!-- ══ TAB 6: हुनर कोर्स — अलग टैब (03-Oct, Founder: भाषा/हुनर अलग-अलग) ══ -->
+  <div class="sec" id="sec6">
     <div class="khand-title" id="khandA">🛠️ हुनर सर्टिफिकेट प्रोग्राम</div>
-    <div class="khand-sub">पूरे 7 हुनर-कोर्स — पाठ, चित्र, वीडियो, quiz (क्विज़) और ऑनलाइन परीक्षा के साथ।</div>
-    <div class="bh-chips hunar-grid" id="grid0"></div>
+    <div class="khand-sub">पूरे 8 हुनर-कोर्स — पाठ, चित्र, वीडियो, quiz (क्विज़) और ऑनलाइन परीक्षा के साथ। कार्ड दबाओ, आज ही शुरू करो।</div>
+    <div class="bh-chips hunar-grid" id="grid6"></div>
 
     <!-- खंड-स: डिप्लोमा -->
     <div class="khand-title">🎓 डिप्लोमा (केंद्र/वर्कशॉप से)</div>
@@ -529,7 +527,7 @@ function udyamAsCourseShape(){
 const TAB_DATA = {
   0: () => {
     /* 6 पूरे-तैयार कोर्स — असली SELF_EMP_COURSES/PRIVATE_JOB_COURSES से ID मिलाकर (एक चीज़=एक जगह) */
-    const READY_IDS = ['SE009','SE017','SE021','SE022','SE023','PJ016','PJ017']; /* हुनर सर्टिफिकेट प्रोग्राम — भाषा-कोर्स (PJ018-PJ136) अब खंड-ब के समूहों में, renderBhasha से (30-Aug, Founder) */
+    const READY_IDS = ['SE009','SE017','SE021','SE022','SE023','SE024','PJ016','PJ017']; /* हुनर सर्टिफिकेट प्रोग्राम — भाषा-कोर्स (PJ018-PJ136) अब खंड-ब के समूहों में, renderBhasha से (30-Aug, Founder) */
     const all = [].concat(
       typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
       typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : []
@@ -669,6 +667,8 @@ function init() {
   renderTab(0);
 }
 
+TAB_DATA[6] = TAB_DATA[0];
+
 const activeMG = {1:'all', 2:'all', 3:'all'};
 
 window.setMG = function(tab, mg, el) {
@@ -703,7 +703,7 @@ function renderTab(tab) {
   const grid = document.getElementById('grid'+tab);
   if(!grid) return;
   /* 13-Sep (Founder): tab-0 हुनर-कोर्स = 3D कार्ड, नाम हिंदी + English (courses_data.t2, एक चीज़ = एक जगह); class bh-chip robot-गिनती हेतु */
-  if(tab === 0){
+  if(tab === 0 || tab === 6){
     grid.innerHTML = filtered.map(function(c){
       var t2 = c.t2 || [c.name_hi || '', c.name_en || ''];
       var href = c.url || '#';
@@ -795,7 +795,7 @@ window.openCourse = function(id, type) {
 const RENDERED = {0:true};
 window.goTab = function(n) {
   if(!RENDERED[n]){ RENDERED[n]=true; renderTab(n); }
-  [0,1,2,3,4,5].forEach(i => {
+  [0,1,2,3,4,5,6].forEach(i => {
     document.getElementById('sec'+i).classList.toggle('active', i===n);
     document.getElementById('tab'+i).classList.toggle('active', i===n);
   });
