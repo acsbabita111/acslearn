@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   generator/dev_vani_check.js v1.0 — वाणी (assets/vani.js) का जाँच-यंत्र
+   generator/dev_vani_check.js v1.1 — वाणी (assets/vani.js) का जाँच-यंत्र
    काम-acs-call-2 (04-Oct-2026) से जन्मा। चलाना:  node generator/dev_vani_check.js
    🏁 के बिना vani.js का कोई देय नहीं (v6.3-क3 🏁-द्वार नियम का वाणी-रूप)।
    भाग-1 static (फ़ाइल-पाठ): ICE_SERVERS एकमात्र-घर · TURN-प्रविष्टियाँ ·
@@ -45,7 +45,8 @@ chk("ICE-सूची पार्स हुई", !!m);
 chk("TURN-प्रविष्टियाँ ≥ 3 (80 · 443 · 443?tcp)", turnN >= 3, "मिलीं: " + turnN);
 chk("हर TURN पर username+credential", credOk);
 chk("STUN-रास्ता भी साथ (fallback)", stunOk);
-chk("openrelay.metered.ca पते", count(src, "openrelay.metered.ca") >= 4, String(count(src, "openrelay.metered.ca")));
+chk("अपना metered-TURN (global.relay.metered.ca) ≥ 4", count(src, "global.relay.metered.ca") >= 4, String(count(src, "global.relay.metered.ca")));
+chk("मरा सार्वजनिक Open Relay (openrelayproject) = 0", count(src, "openrelayproject") === 0);
 
 /* 4. बासी-सत्य (static-पाठ) सुधार */
 chk("बासी \"TURN अगला दौर\" = 0", count(src, "TURN अगला दौर") === 0);
@@ -65,7 +66,7 @@ chk("mesh-इंजन (offerTo/answerTo/closePeer) यथावत",
     count(src, "function offerTo(") === 1 && count(src, "function answerTo(") === 1 && count(src, "function closePeer(") === 1);
 chk("vaniOpen/vaniSay/vaniLeave रास्ते यथावत",
     count(src, '"vaniOpen"') >= 1 && count(src, '"vaniSay"') >= 1 && count(src, '"vaniLeave"') >= 1);
-chk("संस्करण-पंक्ति v5.1", count(src, "vani.js v5.1") === 1);
+chk("संस्करण-पंक्ति v5.2", count(src, "vani.js v5.2") === 1);
 
 /* ─────────── भाग-2: runtime (नक़ली DOM + नक़ली Firebase) ─────────── */
 console.log("— भाग-2: runtime जाँचें —");
@@ -150,5 +151,5 @@ chk("runtime: v-talk2 click → साझा vaniSpeak-रास्ता (\"प
 
 /* निचोड़ */
 console.log("");
-if(fails === 0) console.log("🏁 सब जाँचें पास — vani.js v5.1 देय-योग्य।");
+if(fails === 0) console.log("🏁 सब जाँचें पास — vani.js देय-योग्य।");
 else { console.log("⛔ " + fails + " जाँच(ें) फेल — देय रोकें।"); process.exit(1); }
