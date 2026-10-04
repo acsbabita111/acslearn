@@ -1,6 +1,6 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
-const CACHE_VERSION = 'v622'; /* (04-Oct-ब) vani.js v5.1: ICE_SERVERS एकमात्र-घर + Open Relay TURN (best-effort) + call-पट्टी 🎙️ (acs-call-2) */ /* (04-Oct) dashboard.js: बाहरी-परिवार में __ACS_VANI context (वाणी-होल बंद) */ /* (14-Sep) ईमेल-बदलाव: सब acs.chautham@gmail.com → info@ffgpmt.org (acs-config.js cache-first, इसलिए bump) + कदम-1 (Can-do/दूतावास/brief 130) + en/English workbook/lipi/kkb — इतिहास CHANGELOG-sw.md */
+const CACHE_VERSION = 'v623'; /* (04-Oct-स) vani.js v5.2: मरा Open Relay → अपना metered-TURN (acslearn/acs-vani) */ /* (04-Oct-ब) vani.js v5.1: ICE_SERVERS एकमात्र-घर + Open Relay TURN (best-effort) + call-पट्टी 🎙️ (acs-call-2) */ /* (04-Oct) dashboard.js: बाहरी-परिवार में __ACS_VANI context (वाणी-होल बंद) */ /* (14-Sep) ईमेल-बदलाव: सब acs.chautham@gmail.com → info@ffgpmt.org (acs-config.js cache-first, इसलिए bump) + कदम-1 (Can-do/दूतावास/brief 130) + en/English workbook/lipi/kkb — इतिहास CHANGELOG-sw.md */
 
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
