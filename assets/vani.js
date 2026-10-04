@@ -1,13 +1,13 @@
 /* ═══════════════════════════════════════════════════════════════
-   /assets/vani.js v5.1 — mesh-बैठक + TURN-relay (best-effort) + call-पट्टी 🎙️, 04-Oct-2026
+   /assets/vani.js v5.2 — mesh-बैठक + अपना metered-TURN (acslearn खाता) + call-पट्टी 🎙️, 04-Oct-2026
    v5: 1↔1 → हर-से-हर mesh (join/offer-to/answer-to/leave) · किसी के निकलने पर
    सिर्फ़ उसकी खिड़की बंद (होल-3 बंद) · अपने 🎤/📷 + हर साथी पर 🔊 (होल-2 बंद) ·
    refresh पर कमरा auto-वापसी (sessionStorage; call दोबारा 📹 से) ·
    भाषा-नियम अब प्रति-साथी: उसकी भाषा ≠ मेरी ⇒ उसकी मूल आवाज़ default-चुप।
    signaling = vaniRtc → उसी messages-धारा में via:"rtc" (chat में अदृश्य)।
-   v5.1: ICE_SERVERS (एकमात्र घर) = Google STUN + Open Relay TURN (मुफ़्त सार्वजनिक,
-   best-effort — भरोसा अनिश्चित; पक्का रास्ता = अपना TURN-खाता, दर्ज होल)। call-पट्टी
-   में 🎙️ (v-talk2) — वही vaniSpeak रास्ता, नया इंजन नहीं।
+   v5.2: ICE_SERVERS (एकमात्र घर) = Google STUN + अपना metered-TURN (खाता acslearn,
+   credential acs-vani, Global-routing, 500MB/माह trial — usage dashboard.metered.ca पर)।
+   v5.1 का मरा सार्वजनिक Open Relay हटा। call-पट्टी 🎙️ (v-talk2) = वही vaniSpeak रास्ता।
    एकमात्र घर। हर dashboard में #pnl-vani पैनल इसी से जीता होता है।
    ----------------------------------------------------------------
    नियम-आधार:
@@ -253,15 +253,18 @@
           clang=$("#v-clang"), fbtn=$("#v-file"), fin=$("#v-fin");
     const RTC = window.RTCPeerConnection;
     if(!RTC && vb) vb.style.display="none";
-    /* v5.1: ICE-सूची का एकमात्र घर — TURN बदलना/हटाना हो तो सिर्फ़ यहीं।
-       Open Relay (metered) = सार्वजनिक मुफ़्त relay, best-effort: चले तो अलग-नेटवर्क/4G
-       call जुड़े; न चले तो STUN-रास्ता पहले जैसा चलता रहे — call इस पर कभी न रुके। */
+    /* v5.2: ICE-सूची का एकमात्र घर — TURN बदलना/हटाना हो तो सिर्फ़ यहीं।
+       अपना metered-TURN (खाता acslearn · credential acs-vani · Global-routing):
+       सीधा/STUN-रास्ता पहले आज़माया जाता है (मुफ़्त); relay सिर्फ़ अटके जोड़ों पर लगे।
+       नोट: यह TURN-credential browser-code में रहना ही TURN का तरीक़ा है — तिजोरी-चाबी
+       नहीं (Secret-Manager नियम लागू नहीं); रिसाव-शक हो तो dashboard से delete कर नया। */
     const ICE_SERVERS=[
       {urls:["stun:stun.l.google.com:19302","stun:stun1.l.google.com:19302"]},
-      {urls:"stun:openrelay.metered.ca:80"},
-      {urls:"turn:openrelay.metered.ca:80",username:"openrelayproject",credential:"openrelayproject"},
-      {urls:"turn:openrelay.metered.ca:443",username:"openrelayproject",credential:"openrelayproject"},
-      {urls:"turn:openrelay.metered.ca:443?transport=tcp",username:"openrelayproject",credential:"openrelayproject"}
+      {urls:"stun:stun.relay.metered.ca:80"},
+      {urls:"turn:global.relay.metered.ca:80",username:"30d7eadaff73a664ac00b38f",credential:"SZUcg9SkZwQEAZLD"},
+      {urls:"turn:global.relay.metered.ca:80?transport=tcp",username:"30d7eadaff73a664ac00b38f",credential:"SZUcg9SkZwQEAZLD"},
+      {urls:"turn:global.relay.metered.ca:443",username:"30d7eadaff73a664ac00b38f",credential:"SZUcg9SkZwQEAZLD"},
+      {urls:"turns:global.relay.metered.ca:443?transport=tcp",username:"30d7eadaff73a664ac00b38f",credential:"SZUcg9SkZwQEAZLD"}
     ];
     function waitIce(p){ return new Promise(function(res){
       if(p.iceGatheringState==="complete") return res();
