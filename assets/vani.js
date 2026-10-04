@@ -1,11 +1,13 @@
 /* ═══════════════════════════════════════════════════════════════
-   /assets/vani.js v5.0 — वाणी mesh-बैठक (6 तक) + refresh-वापसी, 04-Oct-2026
+   /assets/vani.js v5.1 — mesh-बैठक + TURN-relay (best-effort) + call-पट्टी 🎙️, 04-Oct-2026
    v5: 1↔1 → हर-से-हर mesh (join/offer-to/answer-to/leave) · किसी के निकलने पर
    सिर्फ़ उसकी खिड़की बंद (होल-3 बंद) · अपने 🎤/📷 + हर साथी पर 🔊 (होल-2 बंद) ·
    refresh पर कमरा auto-वापसी (sessionStorage; call दोबारा 📹 से) ·
    भाषा-नियम अब प्रति-साथी: उसकी भाषा ≠ मेरी ⇒ उसकी मूल आवाज़ default-चुप।
    signaling = vaniRtc → उसी messages-धारा में via:"rtc" (chat में अदृश्य)।
-   सीमा दर्ज: अलग नेटवर्क पर बिना TURN जुड़ाव अनिश्चित — पहली जाँच एक WiFi पर।
+   v5.1: ICE_SERVERS (एकमात्र घर) = Google STUN + Open Relay TURN (मुफ़्त सार्वजनिक,
+   best-effort — भरोसा अनिश्चित; पक्का रास्ता = अपना TURN-खाता, दर्ज होल)। call-पट्टी
+   में 🎙️ (v-talk2) — वही vaniSpeak रास्ता, नया इंजन नहीं।
    एकमात्र घर। हर dashboard में #pnl-vani पैनल इसी से जीता होता है।
    ----------------------------------------------------------------
    नियम-आधार:
@@ -75,6 +77,7 @@
       '    <div style="display:flex;gap:6px;align-items:center;background:#0B1F3A;padding:8px;flex-wrap:wrap">'+
       '      <button id="v-mic2" style="flex-shrink:0;width:46px;min-height:42px;border:none;border-radius:8px;background:#2E7D32;color:#fff;font-size:18px">🎤</button>'+
       '      <button id="v-cam"  style="flex-shrink:0;width:46px;min-height:42px;border:none;border-radius:8px;background:#2E7D32;color:#fff;font-size:18px">📷</button>'+
+      '      <button id="v-talk2" title="बोलो — अनुवाद-आवाज़" style="flex-shrink:0;width:46px;min-height:42px;border:2px solid #F9A825;border-radius:8px;background:#0B1F3A;color:#F9A825;font-size:18px">🎙️</button>'+
       '      <select id="v-clang" style="flex:1;min-width:110px;min-height:42px;padding:7px;border-radius:8px;border:2px solid #F9A825;background:#fff;font-size:15px;font-weight:700"></select>'+
       '      <button id="v-file" style="flex-shrink:0;background:#F9A825;color:#0B1F3A;border:none;border-radius:8px;padding:0 12px;font-weight:800;font-size:15px;min-height:42px">📎</button>'+
       '      <button id="v-hang" style="flex-shrink:0;background:#C62828;color:#fff;border:none;border-radius:8px;padding:0 12px;font-weight:800;font-size:15px;min-height:42px">⏹ निकलें</button>'+
@@ -250,6 +253,16 @@
           clang=$("#v-clang"), fbtn=$("#v-file"), fin=$("#v-fin");
     const RTC = window.RTCPeerConnection;
     if(!RTC && vb) vb.style.display="none";
+    /* v5.1: ICE-सूची का एकमात्र घर — TURN बदलना/हटाना हो तो सिर्फ़ यहीं।
+       Open Relay (metered) = सार्वजनिक मुफ़्त relay, best-effort: चले तो अलग-नेटवर्क/4G
+       call जुड़े; न चले तो STUN-रास्ता पहले जैसा चलता रहे — call इस पर कभी न रुके। */
+    const ICE_SERVERS=[
+      {urls:["stun:stun.l.google.com:19302","stun:stun1.l.google.com:19302"]},
+      {urls:"stun:openrelay.metered.ca:80"},
+      {urls:"turn:openrelay.metered.ca:80",username:"openrelayproject",credential:"openrelayproject"},
+      {urls:"turn:openrelay.metered.ca:443",username:"openrelayproject",credential:"openrelayproject"},
+      {urls:"turn:openrelay.metered.ca:443?transport=tcp",username:"openrelayproject",credential:"openrelayproject"}
+    ];
     function waitIce(p){ return new Promise(function(res){
       if(p.iceGatheringState==="complete") return res();
       const t=setTimeout(res,3000);
@@ -299,14 +312,14 @@
       else if(t.spk) t.spk.textContent = t.video.muted?"🔇":"🔊";
     }
     function newPc(id){
-      const pc=new RTC({iceServers:[{urls:["stun:stun.l.google.com:19302","stun:stun1.l.google.com:19302"]}]});
+      const pc=new RTC({iceServers:ICE_SERVERS});
       pc.ontrack=function(ev){ if(ev.streams&&ev.streams[0]){
         const t=mkTile(id,false); t.video.srcObject=ev.streams[0];
         if(peerLang[id] && peerLang[id]!==myLang){ t.video.muted=true; }
         refreshTile(id,false); } };
       pc.onconnectionstatechange=function(){
         if(pc.connectionState==="failed")
-          sysline((peerName[id]||"सदस्य")+" से जुड़ाव नहीं बना — एक ही WiFi पर आज़माएँ (TURN अगला दौर)।");
+          sysline((peerName[id]||"सदस्य")+" से जुड़ाव नहीं बना — 📹 दोबारा दबाएँ; फिर भी न जुड़े तो एक ही WiFi पर आज़माएँ।");
       };
       myStream.getTracks().forEach(function(tr){ pc.addTrack(tr, myStream); });
       pcs[id]=pc; return pc;
@@ -434,11 +447,11 @@
 
     // ---- 🎙️ असली आवाज़ — भाषिणी-रास्ता (vaniSpeak) ----
     (function(){
-      const tb=$("#v-talk"), ts=$("#v-talkst"), row=$("#v-talkrow");
+      const tb=$("#v-talk"), ts=$("#v-talkst"), row=$("#v-talkrow"), tb2=$("#v-talk2");
       const AC = window.AudioContext || window.webkitAudioContext;
       if(!tb) return;
       if(!AC || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-        row.style.display="none"; return;  // पुराना रास्ता चलता रहे — बात कभी न रुके
+        row.style.display="none"; if(tb2) tb2.style.display="none"; return;  // पुराना रास्ता चलता रहे — बात कभी न रुके
       }
       let ctx=null, src=null, proc=null, stream=null, bufs=[], on=false, t0=0, tick=null, rate=48000;
       function st(t){ ts.textContent=t||""; }
@@ -467,6 +480,7 @@
         proc=src=stream=ctx=null; on=false;
         tb.textContent="🎙️ बोलो — दबाएँ, बोलें, फिर दबाएँ";
         tb.style.background="#0B1F3A"; tb.style.color="#F9A825";
+        if(tb2){ tb2.textContent="🎙️"; tb2.style.background="#0B1F3A"; tb2.style.color="#F9A825"; }
       }
       async function start(){
         if(!roomId){ st("पहले कमरा खोलें/जुड़ें।"); return; }
@@ -479,6 +493,7 @@
         src.connect(proc); proc.connect(ctx.destination);
         tb.textContent="⏺ बोल रहे हैं… रोकने के लिए फिर दबाएँ";
         tb.style.background="#C62828"; tb.style.color="#fff";
+        if(tb2){ tb2.textContent="⏺"; tb2.style.background="#C62828"; tb2.style.color="#fff"; }
         tick=setInterval(function(){
           const sec=Math.floor((Date.now()-t0)/1000);
           st(sec+" सेकंड (अधिकतम 20)");
@@ -499,6 +514,7 @@
         }catch(e){ st("भेजा नहीं गया: "+niceErr(e)); }
       }
       tb.onclick=function(){ if(on) stop(true); else start(); };
+      if(tb2) tb2.onclick=tb.onclick;  // v5.1: call-पट्टी का 🎙️ — वही vaniSpeak रास्ता
     })();
 
     // ---- mic (best-effort) ----
