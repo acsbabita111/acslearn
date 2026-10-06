@@ -3264,6 +3264,18 @@ function kkb2IntroBelow(c) {
     '</section>';
 }
 const KKB_BELOW_CSS = '<style>.kkb-below{max-width:600px;margin:18px auto 30px;padding:14px 16px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.kkb-below h2{font-size:21px;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:10px}.kkb-below h2:first-child{margin-top:0}.kkb-num{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.kkb-num div{background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:10px;text-align:center}.kkb-num b{display:block;font-size:26px;color:#1565C0}.kkb-num span{font-size:16px;color:#334155}.kkb-steps{padding-left:22px}.kkb-steps li{margin:4px 0}.kkb-faq{background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:6px 12px;margin:6px 0}.kkb-faq summary{cursor:pointer;font-weight:800;font-size:18px}.kkb-faq p{margin:6px 0 4px;font-size:17px}.kkb-below-note{font-size:16px;color:#334155;margin-top:12px}.kkb-below a{color:#1565C0}</style>';
+/* ---- AI-सहयोग पट्टी (06-Oct-2026, Founder-आदेश): अंदाज़े/उथले content वाली भाषाओं पर disclaimer +
+   भाषाविद-निमंत्रण (WhatsApp, भाषा-नाम pre-भरा)। एकमात्र घर: data/ai_sahyog_flags.js —
+   भाषा सुधर-मुहर पाए तो कोड वहाँ से हटे, पट्टी अपने-आप उतरे। फ़ाइल न मिले = build रुके (fail-closed)। */
+const AI_FLAGS = new Set(require("./data/ai_sahyog_flags.js").flags);
+function aiSahyogNote(c) {
+  if (!AI_FLAGS.has(c.code)) return '';
+  const msg = encodeURIComponent('नमस्ते ACS — मैं ' + c.hi_name + ' (' + c.en_name + ', कोड ' + c.code + ') भाषा का/की जानकार हूँ। इस भाषा के संवर्धन में सहयोग करना चाहता/चाहती हूँ।');
+  return '<div class="kkb-ai-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;color:#0B1F3A">' +
+    '<p style="font-size:17px;line-height:1.7;margin:0">🤖 <b>ज़रूरी सूचना:</b> यह कोर्स AI (मशीन) के सहयोग से तैयार हुआ है। भाषाविद का सहयोग अपेक्षित है।</p>' +
+    '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">ACS इस भाषा के संवर्धन के लिए भाषाविदों को आमंत्रित करता है — <a href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener" style="color:#1565C0;font-weight:800">🙏 जुड़ने के लिए क्लिक करें</a></p>' +
+    '</div>';
+}
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
     '<h1 style="font-size:26px;line-height:1.3;margin:8px 0 6px;color:#fff">' + c.hi_name + ' बोलने का पूरा कोर्स — एक ही जगह</h1>' +
@@ -3275,6 +3287,7 @@ function kkb2Content(c) {
     (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "lipi/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/lipi/" style="color:#F9A825;font-weight:800;text-decoration:underline">✍️ पहली बार ' + c.hi_name + ' के अक्षर देख रहे हो? पहले लिपि-परिचय workbook (मुफ़्त, छपने-योग्य)</a></p>' : '') +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
+    aiSahyogNote(c) +
     '<div id="kkb2-app" class="kkb2-app"><noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript><p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p></div>' +
     kkb2IntroBelow(c);
 }
