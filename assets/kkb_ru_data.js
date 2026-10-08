@@ -1,9 +1,3 @@
-/* ============================================================
-   /assets/kkb_ru_data.js — v2.0 (31-Aug-2026) · परत-3 (शुद्ध जानकारी)
-   कोर्स: ACS काम की भाषा — रूसी (Russian for Work) · स्तर-1 · 500 वाक्य (5×5×20)
-   v2.0 (Founder-आदेश 31-Aug): item[0] = असली रूसी (सिरिलिक) — पुराना देवनागरी-only नियम निरस्त;
-   item[1] = देवनागरी-उच्चारण (अपरिवर्तित) · item[2] = हिंदी-अर्थ · गिनती मशीन से (dev_kkb_check)
-   ============================================================ */
 window.KKB_DATA = {
  "module": "ACS काम की भाषा — Russian for Work",
  "version": "1.0",
@@ -33,7 +27,7 @@ window.KKB_DATA = {
  "weeks": [
   {
    "n": 1,
-   "title": "Survival Russian",
+   "title": "पहली जरूरत की बातें",
    "hi": "पहली जरूरत की बातें",
    "days": [
     {
@@ -695,7 +689,7 @@ window.KKB_DATA = {
   },
   {
    "n": 2,
-   "title": "Daily Life Russian",
+   "title": "रोज़ की जिंदगी",
    "hi": "रोज़ की जिंदगी",
    "days": [
     {
@@ -1353,7 +1347,7 @@ window.KKB_DATA = {
   },
   {
    "n": 3,
-   "title": "Work Russian",
+   "title": "काम की जगह पर",
    "hi": "काम की जगह पर",
    "days": [
     {
@@ -2015,7 +2009,7 @@ window.KKB_DATA = {
   },
   {
    "n": 4,
-   "title": "Money, Travel & Safety",
+   "title": "पैसा, यात्रा और सुरक्षा",
    "hi": "पैसा, यात्रा और सुरक्षा",
    "days": [
     {
@@ -2673,7 +2667,7 @@ window.KKB_DATA = {
   },
   {
    "n": 5,
-   "title": "Employment & Occupation",
+   "title": "नौकरी, फोन और पेशा",
    "hi": "नौकरी, फोन और पेशा",
    "days": [
     {
