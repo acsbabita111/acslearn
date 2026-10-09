@@ -198,7 +198,7 @@ function main() {
     const dict = require(dictPath);
     const words = new Set();
     function clean(s) {
-      return s.replace(/[.,?!"'।;:()_]/g, "").trim();
+      return s.replace(/[.,?!"'।;:()_،؟۔!—–]/g, "").trim();
     }
     sets.forEach((d) =>
       d.weeks.forEach((w) =>

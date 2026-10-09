@@ -19,7 +19,8 @@
 const fs = require("fs");
 
 function clean(s) {
-  return s.replace(/[.,?!"'।;:()_]/g, "").trim();
+  // लैटिन+देवनागरी विराम-चिह्न + अरबी/उर्दू-लिपि विराम-चिह्न (۔ पूर्ण-विराम, ، अल्पविराम, ؟ प्रश्न-चिह्न, ! विस्मय)
+  return s.replace(/[.,?!"'।;:()_،؟۔!—–]/g, "").trim();
 }
 
 function extractWords(weekJsonPath) {
