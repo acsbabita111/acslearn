@@ -54,7 +54,7 @@ function days90(D) {
   D.L2.weeks.forEach(w => w.days.forEach(d => { n++; out.push({ n, level: 2, wk: w.n, wkTitle: w.hi || w.title, title: d.title, items: d.items, tw: d.tw || [] }); }));
   return out;
 }
-const clean = s => String(s).replace(/[.,?!"'।;:()]/g, "").trim();
+const clean = s => String(s).replace(/[.,?!"'।;:()_،؟۔!—–]/g, "").trim();
 function wordDev(items) { /* वाक्य → शब्द-दर-शब्द देवनागरी (गिनती मिले तो) */
   const m = new Map();
   items.forEach(it => { const en = clean(it[0]).split(/\s+/).filter(Boolean), dv = clean(it[1]).split(/\s+/).filter(Boolean); if (en.length === dv.length) en.forEach((e, i) => { const k = e.toLowerCase(); if (!m.has(k)) m.set(k, dv[i]); }); });
