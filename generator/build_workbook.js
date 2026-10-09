@@ -15,7 +15,7 @@ const VER = "1.4";
 const RELEASE_BASE = "https://github.com/acsbabita111/acslearn/releases/download";
 const RELEASE_OUT = process.env.WB_OUT || path.join(ROOT, "..", "workbook-release");
 const LOCAL_MODE = !!process.env.WB_LOCAL;
-/* 14-Sep v1.2: 130 भाषाएँ — सूची build_specials की KKB2_LANGS से (एक घर), लिपि kkb2_<code>_data.js के lang.script से; font/दिशा लिपि-नक़्शे से */
+/* 09-Oct v1.3: सुरक्षित-kb (pages-only) + size-वैकल्पिक card + puppeteer-fallback इंजन\n   14-Sep v1.2: 130 भाषाएँ — सूची build_specials की KKB2_LANGS से (एक घर), लिपि kkb2_<code>_data.js के lang.script से; font/दिशा लिपि-नक़्शे से */
 const SCRIPT_FONT = {
   "latin": "'Noto Sans', Inter, Arial, sans-serif", "latin-native": "'Noto Sans', Inter, Arial, sans-serif", "greek": "'Noto Sans', sans-serif", "cyrillic": "'Noto Sans', sans-serif", "cyrillic-native": "'Noto Sans', sans-serif",
   "devanagari": "'Noto Sans Devanagari', sans-serif", "devanagari-native": "'Noto Sans Devanagari', sans-serif",
@@ -141,8 +141,12 @@ with sync_playwright() as p:
     b.close()
 print('ok',len(jobs))`;
   fs.writeFileSync(path.join(tmp, "run.py"), py);
-  const r = cp.spawnSync("python3", [path.join(tmp, "run.py"), path.join(tmp, "jobs.json")], { encoding: "utf8" });
-  if (r.status !== 0) throw new Error("PDF fail: " + r.stderr.slice(-400));
+  let r = cp.spawnSync("python3", [path.join(tmp, "run.py"), path.join(tmp, "jobs.json")], { encoding: "utf8" });
+  if (r.status !== 0 && /playwright|ModuleNotFound/i.test((r.stderr || "") + (r.stdout || ""))) {
+    /* v1.3 fallback — पिन-नुस्ख़ा (v1.5-Addendum): puppeteer-core@24.10.2 + @sparticuz/chromium@138.0.2; NODE_PATH से modules */
+    r = cp.spawnSync("node", [path.join(__dirname, "wb_pdf_puppeteer.js"), path.join(tmp, "jobs.json")], { encoding: "utf8" });
+  }
+  if (r.status !== 0) throw new Error("PDF fail: " + ((r.stderr || "").slice(-400) || (r.stdout || "").slice(-400)));
 }
 
 /* ---- download-पेज (universal) ---- */
@@ -150,11 +154,11 @@ const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
 function loadMenu() { const src = fs.readFileSync(path.join(ROOT, "assets", "links.js"), "utf8"); const box = {}; new Function("window", src + "; window.__L = (typeof ACS_LINKS !== 'undefined') ? ACS_LINKS : null;")(box); return box.__L.menu; }
 const MENU_HTML = loadMenu().map(m => '<a class="acs-mitem" href="' + m.href + '"><span class="e">' + m.icon + "</span> " + m.label + "</a>").join("\n");
 const MENU_FALLBACK_JS = '<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};}</scr' + 'ipt>';
-function kb(p) { return Math.max(1, Math.round(fs.statSync(p).size / 1024)); }
+function kb(p) { try { return Math.max(1, Math.round(fs.statSync(p).size / 1024)); } catch (e) { return 0; } } /* v1.3: WB_PAGES_ONLY — PDF release पर, local नहीं */
 function downloadPage(L, weeks, months, dictPdf, dictRows, missing) {
   const base = LOCAL_MODE ? "/courses/hi/bhasha/" + L.slug + "/workbook/" : RELEASE_BASE + "/workbook-" + L.slug + "/";
   const pageBase = "/courses/hi/bhasha/" + L.slug + "/workbook/";
-  const card = (href, icon, title, sub, size) => `<a class="wb-card" href="${href}" download target="_blank" rel="noopener"><span class="wb-ic">${icon}</span><span class="wb-t">${esc(title)}</span><span class="wb-s">${esc(sub)} · ${size} KB · PDF</span><span class="wb-dl">⬇️ छूकर download</span></a>`;
+  const card = (href, icon, title, sub, size) => `<a class="wb-card" href="${href}" download target="_blank" rel="noopener"><span class="wb-ic">${icon}</span><span class="wb-t">${esc(title)}</span><span class="wb-s">${esc(sub)}${size ? ` · ${size} KB` : ""} · PDF</span><span class="wb-dl">⬇️ छूकर download</span></a>`;
   let h = `<article class="wb-wrap"><p class="wb-crumb"><a href="/courses/hi/">कोर्स</a> › <a href="/courses/hi/bhasha/${L.slug}/">${esc(L.hi)} बोलने का कोर्स</a> › लिखो-workbook</p>
 <h1>${esc(L.hi)} — लिखो-workbook और शब्दकोश (छपने-योग्य PDF)</h1>
 <p class="wb-lead">फ़ोन पर सुनो-बोलो, काग़ज़ पर लिखो। हर दिन के पाठ का हर वाक्य बड़े अक्षरों में ऊपर, नीचे 5 लाइनें आपके लिए। हर हफ़्ते की किताब अलग — छूते ही download; दुकान पर छपवाओ (A4, ₹1–2/पन्ना) या फ़ोन में रखो।</p>
