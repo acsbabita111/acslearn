@@ -1,6 +1,6 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
-const CACHE_VERSION = 'v664'; /* (09-Oct) pnb (पश्चिमी पंजाबी) पूरा पुनर्निर्माण: पुराना देवनागरी-कचरा content हटाकर असली Shahmukhi (2150 वाक्य + dialog + tw + listen) से बदला — assets/kkb_pnb_data.js व kkb2_pnb_data.js cache-first हैं, इसलिए version-bump अनिवार्य */
+const CACHE_VERSION = 'v666'; /* (09-Oct) kkb-pnb परिवार-ढाँचा मरम्मत v2.1/v2.2: kkb_pnb व kkb2_pnb में week{n,hi,pace} + 18 test-ब्लॉक + A/B/C (A=308) + 65 drill + hi/दिशा मास्टर-दर्पण — दोनों cache-first data-फ़ाइलें फिर बदलीं, इसलिए bump */
 
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
