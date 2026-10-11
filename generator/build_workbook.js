@@ -19,16 +19,16 @@ const LOCAL_MODE = !!process.env.WB_LOCAL;
 const SCRIPT_FONT = {
   "latin": "'Noto Sans', Inter, Arial, sans-serif", "latin-native": "'Noto Sans', Inter, Arial, sans-serif", "greek": "'Noto Sans', sans-serif", "cyrillic": "'Noto Sans', sans-serif", "cyrillic-native": "'Noto Sans', sans-serif",
   "devanagari": "'Noto Sans Devanagari', sans-serif", "devanagari-native": "'Noto Sans Devanagari', sans-serif",
-  "arabic": "'Noto Sans Arabic', sans-serif", "perso-arabic": "'Noto Sans Arabic', sans-serif", "persian": "'Noto Sans Arabic', sans-serif", "urdu": "'Noto Nastaliq Urdu', 'Noto Sans Arabic', sans-serif", "sindhi": "'Noto Sans Arabic', sans-serif", "kashmiri": "'Noto Nastaliq Urdu', 'Noto Sans Arabic', sans-serif", "hebrew": "'Noto Sans Hebrew', sans-serif",
+  "arabic": "'Noto Sans Arabic', sans-serif", "perso-arabic": "'Noto Sans Arabic', sans-serif", "persian": "'Noto Sans Arabic', sans-serif", "urdu": "'Noto Nastaliq Urdu', 'Noto Sans Arabic', sans-serif", "sindhi": "'Noto Sans Arabic', sans-serif", "kashmiri": "'Noto Nastaliq Urdu', 'Noto Sans Arabic', sans-serif", "hebrew": "'Noto Sans Hebrew', sans-serif", "thaana": "'Noto Sans Thaana', 'MV Boli', 'Faruma', FreeSerif, sans-serif",
   "bengali": "'Noto Sans Bengali', sans-serif", "assamese": "'Noto Sans Bengali', sans-serif", "gurmukhi": "'Noto Sans Gurmukhi', sans-serif", "gujarati": "'Noto Sans Gujarati', sans-serif", "odia": "'Noto Sans Oriya', sans-serif", "tamil": "'Noto Sans Tamil', sans-serif", "telugu": "'Noto Sans Telugu', sans-serif", "kannada": "'Noto Sans Kannada', sans-serif", "malayalam": "'Noto Sans Malayalam', sans-serif", "sinhala": "'Noto Sans Sinhala', sans-serif",
   "thai": "'Noto Sans Thai', sans-serif", "lao": "'Noto Sans Lao', sans-serif", "khmer": "'Noto Sans Khmer', sans-serif", "myanmar": "'Noto Sans Myanmar', sans-serif", "tibetan": "'Noto Serif Tibetan', 'Noto Sans Tibetan', sans-serif", "ethiopic": "'Noto Sans Ethiopic', sans-serif", "armenian": "'Noto Sans Armenian', sans-serif", "georgian": "'Noto Sans Georgian', sans-serif",
   "japanese": "'Noto Sans CJK JP', sans-serif", "korean": "'Noto Sans CJK KR', sans-serif", "chinese": "'Noto Sans CJK SC', sans-serif", "han": "'Noto Sans CJK TC', sans-serif"
 };
-const RTL = { "arabic": 1, "perso-arabic": 1, "persian": 1, "urdu": 1, "sindhi": 1, "kashmiri": 1, "hebrew": 1 };
+const RTL = { "thaana": 1, "arabic": 1, "perso-arabic": 1, "persian": 1, "urdu": 1, "sindhi": 1, "kashmiri": 1, "hebrew": 1 };
 function loadLangs() {
   const src = fs.readFileSync(path.join(__dirname, "build_specials.js"), "utf8");
   const m = src.match(/const KKB2_LANGS = \[([\s\S]*?)\n\];/); const rows = [];
-  const re = /\{ code: "([a-z]+)", slug: "([a-z\-]+)", en_name: "([^"]+)", hi_name: "([^"]+)"/g; let x;
+  const re = /\{ code: "([a-z]+)", slug: "([a-zA-Z\-]+)", en_name: "([^"]+)", hi_name: "([^"]+)"/g; let x;
   while ((x = re.exec(m[1]))) {
     const code = x[1]; const f = path.join(ROOT, "assets", code === "en" ? "kkb2_data.js" : "kkb2_" + code + "_data.js"); let script = "latin";
     try { const w = {}; new Function("window", "self", "module", fs.readFileSync(f, "utf8") + ";")(w, w, {}); script = (w.KKB2_DATA && w.KKB2_DATA.lang && w.KKB2_DATA.lang.script) || "latin"; } catch (e) {}
