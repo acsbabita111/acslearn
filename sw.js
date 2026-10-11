@@ -1,6 +1,6 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
-const CACHE_VERSION = 'v667'; /* (09-Oct) kkb हल्की-32 मरम्मत (पड़ाव-द काम-द-1): 16 भाषाओं के massShare-वाक्य ठेठ बोली-रूप में मौलिक पुनर्लेखन (kkb2_*_data.js cache-first) + 32 शब्दकोशों से पहचान-नक़लें साफ़ — v665/v666 RO-v2.0 zip के लिए आरक्षित (छलाँग-नियम) */
+const CACHE_VERSION = 'v680'; /* (11-Oct) NEXT50 सब-50-भाषा upload: 33 नई/सुधरी kkb-data (cache-first) + Thaana/RTL kkb.js/kkb2.js/css — v668-v679 छलाँग-नियम से छोड़े (RO-v2.0 आदि के आरक्षित zip) */ /* (09-Oct) kkb हल्की-32 मरम्मत (पड़ाव-द काम-द-1): 16 भाषाओं के massShare-वाक्य ठेठ बोली-रूप में मौलिक पुनर्लेखन (kkb2_*_data.js cache-first) + 32 शब्दकोशों से पहचान-नक़लें साफ़ — v665/v666 RO-v2.0 zip के लिए आरक्षित (छलाँग-नियम) */
 
 const CACHE_NAME    = 'acs-' + CACHE_VERSION;
 const OFFLINE_URL   = '/offline.html';
