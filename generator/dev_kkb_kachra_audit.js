@@ -10,6 +10,7 @@
 const fs = require("fs"), path = require("path");
 const ROOT = process.cwd();
 const DEV = /[\u0900-\u097F]/;
+const DEVC = /[\u0900-\u0963\u0966-\u097F]/; /* v1.2 (12-Oct): दंड U+0964/0965 साझा-Indic चिह्न — hiClone/dict जाँच से बाहर (bn/pa/or/as झूठी-पकड़ बंद) */
 
 function listCodes() {
   return fs.readdirSync(path.join(ROOT, "assets"))
@@ -42,7 +43,7 @@ codes.forEach(c => {
   let hiClone = 0, xClone = 0, toks = 0, uniq = new Set();
   its.forEach(it => {
     const s = String(it[0] || "");
-    if (!DEVLANG.has(c) && (DEV.test(s) || hiMaster.has(s))) hiClone++;
+    if (!DEVLANG.has(c) && (DEVC.test(s) || hiMaster.has(s))) hiClone++;
     if (s.length > 12 && (sentCount.get(s) || 0) >= 10) xClone++; /* v1.1 massShare: ≥10 भाषाओं में हूबहू */
     s.split(/\s+/).forEach(t => { if (t) { toks++; uniq.add(t.toLowerCase()); } });
   });
@@ -54,7 +55,7 @@ codes.forEach(c => {
     const pairs = [...t.matchAll(/"([^"]+)"\s*:\s*"([^"]*)"/g)];
     if (pairs.length) {
       let bad = 0;
-      pairs.forEach(m => { const k = m[1], v = m[2]; if (!v || k === v || (!DEVLANG.has(c) && !DEV.test(k) === false && DEV.test(k) && DEV.test(v) && k !== v ? false : k === v)) bad += (k === v || !v) ? 1 : 0; if (!DEVLANG.has(c) && DEV.test(k)) bad++; });
+      pairs.forEach(m => { const k = m[1], v = m[2]; if (!v || k === v || (!DEVLANG.has(c) && !DEV.test(k) === false && DEV.test(k) && DEV.test(v) && k !== v ? false : k === v)) bad += (k === v || !v) ? 1 : 0; if (!DEVLANG.has(c) && DEVC.test(k)) bad++; });
       dictBad = Math.min(100, Math.round(100 * bad / pairs.length));
     }
   }
@@ -72,4 +73,4 @@ const csv = ["code,sentences,hiClone_pct,xClone_pct,dictBad_pct,tokenDiversity_p
   .concat(rows.map(r => [r.c, r.n, r.hiP, r.xP, r.dictBad, r.shallow, r.sev].join(","))).join("\n");
 fs.writeFileSync("/tmp/kachra_queue.csv", csv);
 console.log("क़तार-CSV: /tmp/kachra_queue.csv (severity घटते क्रम)");
-console.log("🏁 dev_kkb_kachra_audit v1.0");
+console.log("🏁 dev_kkb_kachra_audit v1.2");
