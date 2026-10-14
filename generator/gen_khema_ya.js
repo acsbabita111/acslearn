@@ -26,7 +26,7 @@ function loadPivot(p) {
 }
 
 /* ---- Latin शब्द-सीमा (accented समेत) ---- */
-const LCH = "A-Za-z\\u00C0-\\u024F\\u02BB\\u02BC\\u2018\\u2019'’";
+const LCH = "A-Za-z\\u00C0-\\u024F\\u1E00-\\u1EFF\\u02BB\\u02BC\\u2018\\u2019'’"; /* 14-Oct खेमा-र: +Latin-Ext-Additional (ve ṱḓṋḽ) */
 function wb(w) {
   return new RegExp("(?<![" + LCH + "])" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![" + LCH + "])", "g");
 }
