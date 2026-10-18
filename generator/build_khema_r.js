@@ -13,7 +13,8 @@ const LANGS = Object.assign({},
   safeReq("./langs_r_phil.js"),
   safeReq("./langs_r_pacif.js"),
   safeReq("./langs_r_india.js"),
-  safeReq("./langs_r_misc.js")
+  safeReq("./langs_r_misc.js"),
+  safeReq("./langs_r_c13.js")
 );
 function safeReq(f) { try { return require(f); } catch (e) { return {}; } }
 
