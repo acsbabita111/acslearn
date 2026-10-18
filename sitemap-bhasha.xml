@@ -459,6 +459,7 @@
   <url><loc>https://acslearn.com/courses/hi/bhasha/hmong/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/ho/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/ho/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/ho/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/hungarian/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/hungarian/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/hungarian/workbook/index.html</loc></url>
@@ -536,6 +537,7 @@
   <url><loc>https://acslearn.com/courses/hi/bhasha/kazakh/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/khakas/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/khakas/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/khakas/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/khasi/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/khasi/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/khasi/workbook/index.html</loc></url>
@@ -761,6 +763,7 @@
   <url><loc>https://acslearn.com/courses/hi/bhasha/moroccan-arabic/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/mundari/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/mundari/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/mundari/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/muong/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/muong/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/nahuatl/brief/index.html</loc></url>
@@ -1085,6 +1088,7 @@
   <url><loc>https://acslearn.com/courses/hi/bhasha/tuvaluan/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/tuvan/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/tuvan/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/tuvan/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/twi/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/twi/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/twi/workbook/index.html</loc></url>
@@ -1138,6 +1142,7 @@
   <url><loc>https://acslearn.com/courses/hi/bhasha/yaeyama/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/yakut/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/yakut/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/yakut/workbook/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/yapese/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/yapese/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/yiddish/brief/index.html</loc></url>
@@ -1155,4 +1160,14 @@
   <url><loc>https://acslearn.com/courses/hi/bhasha/zulu/brief/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/zulu/index.html</loc></url>
   <url><loc>https://acslearn.com/courses/hi/bhasha/zulu/workbook/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/marshallese/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/gilbertese/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/palauan/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/moore/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/ga/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/yapese/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/chuukese/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/pohnpeian/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/nauruan/index.html</loc></url>
+  <url><loc>https://acslearn.com/courses/hi/bhasha/kosraean/index.html</loc></url>
 </urlset>
