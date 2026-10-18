@@ -28,7 +28,7 @@ CODES.forEach(code => {
     (w.test && w.test.lines || []).forEach(l => { });   /* test की हिंदी नहीं — छोड़ो */
   }));
   const label = L1.lang.label;
-  let out = "/* " + label + " (" + code + ") शब्दकोश v2.0 (14-Oct-2026, काम-खेमा-द) — नए पूर्ण-पुनर्लेखन content की\n   वाक्य-जोड़ी शब्द-सीध से (deterministic); गिनती मशीन से देखें (dev_kkb_kachra_audit) */\n";
+  let out = "/* " + label + " (" + code + ") शब्दकोश v2.0 ("+(process.env.KD_DATE||"14-Oct-2026")+", "+(process.env.KD_LABEL||"काम-खेमा-द")+") — नए पूर्ण-पुनर्लेखन content की\n   वाक्य-जोड़ी शब्द-सीध से (deterministic); गिनती मशीन से देखें (dev_kkb_kachra_audit) */\n";
   const VAR = code.toUpperCase() + "_SHABDKOSH";
   out += "const " + VAR + "={\n";
   let n = 0;
