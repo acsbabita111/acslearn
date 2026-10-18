@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/aptitude-test.css — v1.3 (अभिरुचि-टेस्ट पन्ने की सजावट + session)
+   /assets/aptitude-test.css — v1.4 (अभिरुचि-टेस्ट पन्ने की सजावट + session)
+   v1.4 · 18-Oct-2026: लॉन्चिंग-पेज परत (apl- नाम-घेरा) — हीरो · टॉप-10 कार्ड · तुलना।
    v1.2 · 20-Jul-2026: ↩ Dashboard वापसी-कड़ी + चित्र-चौखट (position-सुधार)।
    v1.1 · 20-Jul-2026: पूरा हिस्सा हल्के पर्दे पर (गहरी पृष्ठभूमि पर
    गहरी लिखाई अदृश्य थी — Founder-screenshot से पकड़ी)।
@@ -89,3 +90,37 @@
 .apt-story{grid-template-columns:1fr;max-width:520px}
 /* नतीजा/शुरुआत-कार्ड के भीतर की सूचियाँ पठनीयता हेतु left ही रहें */
 .apt-row{text-align:left}
+
+/* --- v1.4 जोड़ (18-Oct-2026, लॉन्चिंग-पेज): apl- नाम-घेरा — कुछ भी <16px नहीं · सिर्फ़ ACS 5 रंग --- */
+.apl-hero{background:linear-gradient(135deg,#0B1F3A,#1565C0);color:#fff;border-radius:18px;padding:22px 16px;text-align:center;margin:4px 0 16px;box-shadow:0 3px 10px rgba(11,31,58,.25)}
+.apl-hero h1{color:#fff;font-size:27px;margin:0 0 8px}
+.apl-hero p{margin:4px 0;font-size:18px;color:#F5F7FA}
+.apl-big{font-size:21px;font-weight:800;color:#F9A825 !important}
+.apl-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;justify-content:center}
+.apl-btn{flex:1;min-width:210px;display:block;text-decoration:none;text-align:center;font-size:19px;font-weight:800;padding:14px 10px;border-radius:14px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.apl-btn.green{background:#2E7D32;color:#fff}
+.apl-btn.gold{background:#F9A825;color:#0B1F3A}
+.apl-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 14px}
+.apl-stat{background:#fff;border:2px solid #0B1F3A22;border-radius:14px;padding:12px 8px;text-align:center;box-shadow:0 2px 6px rgba(11,31,58,.08)}
+.apl-stat b{display:block;font-size:24px;color:#1565C0}
+.apl-stat span{font-size:16px;font-weight:700;color:#0B1F3A}
+.apl-sec{background:#fff;border:2px solid #0B1F3A22;border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 2px 8px #0B1F3A14}
+.apl-sec h2{font-size:23px;margin:0 0 10px;color:#0B1F3A;text-align:center}
+.apl-sec>p{margin:6px 0}
+.apl-card{display:flex;align-items:stretch;gap:10px;border:2px solid #0B1F3A22;border-radius:14px;padding:12px;margin:10px 0;background:linear-gradient(180deg,#ffffff,#f4f7fb);box-shadow:0 2px 6px rgba(11,31,58,.08);flex-wrap:wrap;text-align:left}
+.apl-rank{flex:0 0 40px;height:40px;line-height:40px;border-radius:50%;background:#0B1F3A;color:#F9A825;font-size:20px;font-weight:900;text-align:center;align-self:center}
+.apl-body{flex:1;min-width:200px}
+.apl-nm{font-size:19px;color:#0B1F3A}
+.apl-desc{font-size:17px;margin:4px 0;text-align:left}
+.apl-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.apl-fee{display:inline-block;font-size:16px;font-weight:800;border-radius:999px;padding:3px 12px;background:#F9A82522;border:1px solid #F9A825;color:#0B1F3A}
+.apl-fee.free{background:#2E7D3218;border-color:#2E7D32;color:#2E7D32}
+.apl-site{font-size:16px;font-weight:700;color:#1565C0}
+.apl-go{flex:0 0 auto;align-self:center;font-size:17px;font-weight:800;text-decoration:none;background:#1565C0;color:#fff;border-radius:12px;padding:10px 14px}
+.apl-india{background:#2E7D3212;border:2px solid #2E7D32;border-radius:14px;padding:12px;font-size:17px;margin-top:10px;text-align:left}
+.apl-row{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid #0B1F3A22;padding:8px 0;font-size:17px;text-align:left}
+.apl-row .l{flex:0 0 150px;font-weight:800}
+.apl-row .a{flex:1;min-width:170px;color:#0B1F3A}
+.apl-row .b{flex:1;min-width:170px;color:#2E7D32;font-weight:700}
+.apl-small{font-size:16px;color:#0B1F3A;margin-top:8px}
+@media(max-width:420px){.apl-hero h1{font-size:24px}.apl-row .l{flex:0 0 100%}}
