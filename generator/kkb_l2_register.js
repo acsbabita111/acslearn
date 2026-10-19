@@ -86,8 +86,8 @@ function registerOne(code) {
   edit("assets/exam_data.js", '\n  "PJ018": {', '\n  "' + L.id + '": { name: "' + L.hi + ' बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken ' + L.en + ') — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* ' + today + ' kkb_l2_register */\n  "PJ018": {', "exam_data." + L.id);
   /* ── (8) dashboard: CRS_ICON · SERVER_EXAM_COURSES · EXAM_TTS ── */
   edit("assets/dashboard.js", 'PJ018:"🇬🇧",', L.id + ':"🗣️", PJ018:"🇬🇧",', "CRS_ICON." + L.id);
-  edit("assets/dashboard.js", "SERVER_EXAM_COURSES = { PJ016: true,", "SERVER_EXAM_COURSES = { " + L.id + ": true, PJ016: true,", "SERVER_EXAM_COURSES." + L.id);
-  edit("assets/dashboard.js", 'EXAM_TTS = { PJ018: "en-IN",', 'EXAM_TTS = { ' + L.id + ': "' + tts + '", PJ018: "en-IN",', "EXAM_TTS." + L.id);
+  edit("assets/dashboard.js", "SERVER_EXAM_COURSES = { ", "SERVER_EXAM_COURSES = { " + L.id + ": true, ", "SERVER_EXAM_COURSES." + L.id);
+  edit("assets/dashboard.js", 'EXAM_TTS = { ', 'EXAM_TTS = { ' + L.id + ': "' + tts + '", ', "EXAM_TTS." + L.id);
   /* ── (9) courses/hi गिनती ── */
   {
     const s = R("courses/hi/index.html"); const m = s.match(/(\d+) भाषाओं का पूरा कोर्स/);

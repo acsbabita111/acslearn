@@ -17,6 +17,8 @@ var fs = require("fs"), cp = require("child_process");
 var CODE = (process.argv[2] || "").toLowerCase();
 if (!CODE) { console.log("⛔ भाषा-code दीजिए: जैसे he | ar | en"); process.exit(1); }
 var fail = 0, warn = 0;
+var TWIN = { kl: "kal", bts: "btx" }; /* 19-Oct लाल20: जुड़वाँ — 1 content 2 पंक्तियाँ; कार्ड/द्वार/बैंक मुख्य-कोड के (खेप-2 C12-नियम) */
+var MAIN = TWIN[CODE] || null;
 function ok(c, m) { if (c) console.log("  ✅ " + m); else { console.log("  ⛔ " + m); fail++; } }
 function wn(c, m) { if (c) console.log("  ✅ " + m); else { console.log("  ⚠️ " + m); warn++; } }
 function rd(p) { return fs.existsSync(p) ? fs.readFileSync(p, "utf8") : ""; }
@@ -60,13 +62,17 @@ if (RTL) ok(new RegExp('LANG\\.script === "' + LANG.script + '"').test(k2js), "k
 else console.log("  ℹ️ LTR लिपि (" + LANG.script + ") — RTL-जाँच लागू नहीं");
 wn(LANG.script === "latin" || new RegExp('\\[data-script="' + LANG.script + '"\\]').test(k2css), "kkb2.css में [data-script=\"" + LANG.script + "\"] फ़ॉन्ट-नियम");
 
+var src0 = rd("generator/build_specials.js");
 console.log("═══ E सूची/sitemap ═══");
 var cd = rd("assets/courses_data.js"); global.window = {};
 try { eval(cd.replace(/^const /gm, "global.")); } catch (e) {}
 var all = [].concat(global.PRIVATE_JOB_COURSES || []);
 var url = slug ? "/courses/hi/bhasha/" + slug + "/" : null;
+var mainUrl = null;
+if (MAIN) { var msl = (src0.match(new RegExp('\\{ code: "' + MAIN + '", slug: "([a-zA-Z\\-]+)"')) || [])[1]; if (msl) mainUrl = "/courses/hi/bhasha/" + msl + "/"; }
 var ent = all.filter(function (c) { return c.url === url; })[0];
-ok(ent, "courses_data में प्रविष्टि (url " + url + ")" + (ent ? " = " + ent.id : ""));
+if (!ent && mainUrl) ent = all.filter(function (c) { return c.url === mainUrl; })[0];
+ok(ent, "courses_data में प्रविष्टि (url " + (ent && mainUrl && ent.url === mainUrl ? mainUrl + " — जुड़वाँ " + CODE + "→" + MAIN : url) + ")" + (ent ? " = " + ent.id : ""));
 ok(ent && /90/.test(String(ent.duration)) && Number(ent.lessons) === 90, "courses_data 90-दिन रूप (duration/lessons)");
 ok(ent && /Certificate in Spoken/.test(ent.name_hi), "नाम 'Certificate in Spoken …' (सर्टिफिकेट नाम-नियम v6.1-क)");
 var G = global.window.KKB_GROUPS || []; var inG = ent && G.some(function (g) { return g.ids.indexOf(ent.id) > -1; });
@@ -79,11 +85,12 @@ var ed = rd("assets/exam_data.js"), dj = rd("assets/dashboard.js");
 ok(PID && ed.indexOf('"' + PID + '"') > -1, "exam_data में " + PID);
 ok(PID && new RegExp(PID + ":\\s*true").test(dj), "dashboard SERVER_EXAM_COURSES में " + PID);
 ok(PID && new RegExp(PID + ':\\s*"' + LANG.tts + '"').test(dj), "dashboard EXAM_TTS " + PID + " = " + LANG.tts);
-var bankP = "functions/" + (EN ? "eng" : CODE) + "_bank.js";
+var bankCode = MAIN || CODE;
+var bankP = "functions/" + (EN ? "eng" : bankCode) + "_bank.js";
 if (fs.existsSync(bankP)) {
-  var q = cp.spawnSync("node", ["generator/dev_kkb_quiz_check.js", CODE], { encoding: "utf8" });
-  ok(q.status === 0 && /🏁/.test(q.stdout), "dev_kkb_quiz_check " + CODE + " 🏁 — " + (q.stdout.trim().split("\n").pop() || "").slice(0, 110));
-} else ok(false, bankP + " नहीं — बैंक बनाओ: node generator/build_kkb_bank.js " + CODE + " (बिना परीक्षा भाषा 'पूरी' नहीं)");
+  var q = cp.spawnSync("node", ["generator/dev_kkb_quiz_check.js", bankCode], { encoding: "utf8" });
+  ok(q.status === 0 && /🏁/.test(q.stdout), "dev_kkb_quiz_check " + bankCode + (MAIN ? " (जुड़वाँ-मुख्य)" : "") + " 🏁 — " + (q.stdout.trim().split("\n").pop() || "").slice(0, 110));
+} else ok(false, bankP + " नहीं — बैंक बनाओ: node generator/build_kkb_bank.js " + bankCode + " (बिना परीक्षा भाषा 'पूरी' नहीं)");
 
 console.log("═══ G sw ═══");
 var sw = rd("sw.js"); var swl = (sw.match(/const CACHE_VERSION = '[^']*'[^\n]*/) || [""])[0];

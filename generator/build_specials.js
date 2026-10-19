@@ -122,7 +122,7 @@ function check(name, content) {
 
 /* ---- वर्ग-6 भाषा-फ़िल्टर (सख़्त) — सिर्फ़ langStrict पेजों पर ----
    फेल लाइन पर पेज बनता ही नहीं; कोई लाइन कभी हटाई/बदली नहीं जाती। */
-const LANG_OK = ["लूर","ACS","Razorpay","OTP","escrow","QR","PDF","GST","CIN","WhatsApp","Green","Tick","RM","ZM","HQ","ISO","DPDP","UNCITRAL","POCSO","POSH","Firebase","Firestore","NCERT"];
+const LANG_OK = ["लूर","ACS","Razorpay","OTP","escrow","QR","PDF","GST","CIN","WhatsApp","Green","Tick","RM","ZM","HQ","ISO","DPDP","UNCITRAL","POCSO","POSH","Firebase","Firestore","NCERT","verify","mynextmove.org","16personalities.com","personalities.com","careerexplorer.com","123test.com","test.com","truity.com","self-directed-search.com","mbtionline.com","store.gallup.com","youscience.com","assessment.com","mindler.com"];
 const LANG_HARD = {"प्रावधान":"नियम","अधिनियम":"कानून","तत्पश्चात":"उसके बाद","यथाशीघ्र":"जल्दी","उपरोक्त":"ऊपर बताई","निम्नलिखित":"नीचे दी","सुनिश्चित":"पक्का","अनुपालन":"पालन","व्यपगत":"ख़त्म","देय":"चुकाना","प्रतिपूर्ति":"वापसी","अध्यधीन":"के अधीन","तदनुसार":"उसी तरह","प्रयोजन":"मक़सद","समादेश":"आदेश"};
 function langLines(html) {
   return html
@@ -498,17 +498,17 @@ const APT_CONTENT =
 'से टेस्ट कराती हैं।</p><p>गाँव-देहात में बहुत लोगों को पता ही नहीं कि ऐसा टेस्ट भी होता है।</p><p><b>अब आप जान गए — और यह सुविधा आपके अपने फ़ोन पर है।' +
 '</b></p></div><div class="apl-sec" id="apl-world"><h2>🌍 दुनिया के टॉप 10 अभिरुचि-टेस्ट</h2><p>हमने दुनिया की 20 बड़ी टेस्ट-साइटों की जाँच की।</p><p>उन' +
 'में से 10 सबसे जानी-मानी यहाँ हैं — नाम, पता और फीस के साथ।</p><div class="apl-card"><div class="apl-rank">1</div><div class="apl-body"><b class="apl-' +
-'nm">ओ-नेट इंटरेस्ट प्रोफ़ाइलर (O*NET Interest Profiler)</b><p class="apl-desc">अमेरिकी सरकार का टेस्ट। रायसेक (RIASEC) विज्ञान पर बना — हमारा टेस्ट भी' +
+'nm">ओ-नेट इंटरेस्ट प्रोफ़ाइलर (O*NET Interest Profiler)</b><p class="apl-desc">अमेरिकी सरकार का टेस्ट।<br>रायसेक (RIASEC) विज्ञान पर बना — हमारा टेस्ट भी' +
 ' इसी विज्ञान से प्रेरित है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">mynextmove.org</span></div></' +
 'div><a class="apl-go" href="https://www.mynextmove.org/explore/ip" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="a' +
-'pl-rank">2</div><div class="apl-body"><b class="apl-nm">सिक्स्टीन पर्सनैलिटीज़ (16Personalities)</b><p class="apl-desc">स्वभाव बताने वाला मशहूर टेस्ट।' +
-' करोड़ों लोग ले चुके हैं। हिंदी में भी मिलता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">16person' +
+'pl-rank">2</div><div class="apl-body"><b class="apl-nm">सिक्स्टीन पर्सनैलिटीज़ (16Personalities)</b><p class="apl-desc">स्वभाव बताने वाला मशहूर टेस्ट।<br>' +
+' करोड़ों लोग ले चुके हैं।<br>हिंदी में भी मिलता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">16person' +
 'alities.com</span></div></div><a class="apl-go" href="https://www.16personalities.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl' +
 '-card"><div class="apl-rank">3</div><div class="apl-body"><b class="apl-nm">करियर एक्सप्लोरर (CareerExplorer)</b><p class="apl-desc">बड़ा टेस्ट — सैकड' +
 '़ों करियर से आपका मिलान करता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: शुरुआत मुफ़्त · गहरी रिपोर्ट के पैसे</span><span class="apl-' +
 'site">careerexplorer.com</span></div></div><a class="apl-go" href="https://www.careerexplorer.com" target="_blank" rel="noopener">🔗 खोलें</a></div><di' +
 'v class="apl-card"><div class="apl-rank">4</div><div class="apl-body"><b class="apl-nm">वन-टू-थ्री टेस्ट (123test)</b><p class="apl-desc">चित्रों वाला' +
-' छोटा टेस्ट। जल्दी नतीजा देता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">123test.com</span></div' +
+' छोटा टेस्ट।<br>जल्दी नतीजा देता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">123test.com</span></div' +
 '></div><a class="apl-go" href="https://www.123test.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">5<' +
 '/div><div class="apl-body"><b class="apl-nm">ट्रूइटी (Truity)</b><p class="apl-desc">94 प्रश्नों का जाना-माना करियर-टेस्ट।</p><div class="apl-meta"><s' +
 'pan class="apl-fee">फीस: टेस्ट मुफ़्त · पूरी रिपोर्ट लगभग $19-$29 (लगभग ₹1,700-₹2,600)</span><span class="apl-site">truity.com</span></div></div><a cl' +
@@ -520,23 +520,23 @@ const APT_CONTENT =
 ' टेस्ट — यही उसका आधिकारिक घर है।</p><div class="apl-meta"><span class="apl-fee">फीस: $59.95 (लगभग ₹5,300)</span><span class="apl-site">mbtionline.com' +
 '</span></div></div><a class="apl-go" href="https://www.mbtionline.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div clas' +
 's="apl-rank">8</div><div class="apl-body"><b class="apl-nm">क्लिफ़्टन स्ट्रेंथ्स (CliftonStrengths)</b><p class="apl-desc">गैलप (Gallup) कंपनी का टेस्' +
-'ट — आपकी 34 ताक़तें नापता है। बड़े दफ़्तरों में चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $24.99-$59.99 (लगभग ₹2,200-₹5,300)</span>' +
+'ट — आपकी 34 ताक़तें नापता है।<br>बड़े दफ़्तरों में चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $24.99-$59.99 (लगभग ₹2,200-₹5,300)</span>' +
 '<span class="apl-site">store.gallup.com</span></div></div><a class="apl-go" href="https://store.gallup.com" target="_blank" rel="noopener">🔗 खोलें</a>' +
 '</div><div class="apl-card"><div class="apl-rank">9</div><div class="apl-body"><b class="apl-nm">यू-साइंस (YouScience)</b><p class="apl-desc">11 दिमाग' +
-'़ी खेलों से असली योग्यता नापता है। स्कूलों में ख़ूब चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $49 (लगभग ₹4,300)</span><span class="' +
+'़ी खेलों से असली योग्यता नापता है।<br>स्कूलों में ख़ूब चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $49 (लगभग ₹4,300)</span><span class="' +
 'apl-site">youscience.com</span></div></div><a class="apl-go" href="https://www.youscience.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div cl' +
-'ass="apl-card"><div class="apl-rank">10</div><div class="apl-body"><b class="apl-nm">मैप (MAPP)</b><p class="apl-desc">काम की प्रेरणा नापता है। 1 करोड' +
+'ass="apl-card"><div class="apl-rank">10</div><div class="apl-body"><b class="apl-nm">मैप (MAPP)</b><p class="apl-desc">काम की प्रेरणा नापता है।<br>1 करोड' +
 '़ से ज़्यादा लोग ले चुके — साइट का दावा।</p><div class="apl-meta"><span class="apl-fee">फीस: झलक मुफ़्त · रिपोर्ट $89.95-$149.95 (लगभग ₹8,000-₹13,200)' +
 '</span><span class="apl-site">assessment.com</span></div></div><a class="apl-go" href="https://www.assessment.com" target="_blank" rel="noopener">🔗 खो' +
-'लें</a></div><div class="apt-note">⚠️ ये सब बाहरी साइटें हैं — जानकारी ख़ुद verify करें। फीस बदलती रहती है। जानकारी: अक्टूबर 2026 की। ज़्यादातर टेस्ट ' +
-'अंग्रेज़ी में हैं।</div><div class="apl-india">🇮🇳 भारत में भी: <b>माइंडलर (Mindler)</b> — स्कूल के बच्चों का करियर-टेस्ट और सलाहकार-सेवा। दाम लगभग ₹1,' +
-'500 से शुरू। पता: <a href="https://www.mindler.com" target="_blank" rel="noopener">mindler.com</a></div></div><div class="apl-sec"><h2>⚖️ वहाँ और यहाँ' +
+'लें</a></div><div class="apt-note">⚠️ ये सब बाहरी साइटें हैं — जानकारी ख़ुद verify करें।<br>फीस बदलती रहती है।<br>जानकारी: अक्टूबर 2026 की।<br>ज़्यादातर टेस्ट ' +
+'अंग्रेज़ी में हैं।</div><div class="apl-india">🇮🇳 भारत में भी: <b>माइंडलर (Mindler)</b> — स्कूल के बच्चों का करियर-टेस्ट और सलाहकार-सेवा।<br>दाम लगभग ₹1,' +
+'500 से शुरू।<br>पता: <a href="https://www.mindler.com" target="_blank" rel="noopener">mindler.com</a></div></div><div class="apl-sec"><h2>⚖️ वहाँ और यहाँ' +
 ' — फ़र्क़ देखिए</h2><div class="apl-row"><span class="l">💰 फीस</span><span class="a">वहाँ: लगभग ₹900 से ₹13,000 तक</span><span class="b">यहाँ: झलक मुफ' +
 '़्त · पूरा टेस्ट बैज (badge) से मुफ़्त</span></div><div class="apl-row"><span class="l">🗣️ भाषा</span><span class="a">वहाँ: ज़्यादातर अंग्रेज़ी</span>' +
 '<span class="b">यहाँ: सरल हिंदी</span></div><div class="apl-row"><span class="l">👤 खाता</span><span class="a">वहाँ: ज़्यादातर में खाता और ईमेल (email)' +
 ' ज़रूरी</span><span class="b">यहाँ: झलक बिना खाते के</span></div><div class="apl-row"><span class="l">🔒 आपके जवाब</span><span class="a">वहाँ: उनके सर्' +
 'वर (server) पर</span><span class="b">यहाँ: सिर्फ़ आपके फ़ोन में</span></div><div class="apl-row"><span class="l">📜 प्रमाण पत्र</span><span class="a">व' +
-'हाँ: अलग-अलग नियम</span><span class="b">यहाँ: ₹125 में — मर्ज़ी हो तो लें</span></div><p class="apl-small">यह तुलना अक्टूबर 2026 की जाँच पर है। हर साइ' +
+'हाँ: अलग-अलग नियम</span><span class="b">यहाँ: ₹125 में — मर्ज़ी हो तो लें</span></div><p class="apl-small">यह तुलना अक्टूबर 2026 की जाँच पर है।<br>हर साइ' +
 'ट की अपनी ख़ूबी है — मन करे तो वे भी आज़माइए।</p></div><div class="apl-sec" id="apt-start"><h2>🆓 मुफ़्त झलक — अभी, यहीं</h2><p class="apt-lead">यह जान' +
 'ने का खेल है कि आपका मन किन कामों में लगता है।</p><p>कोई जवाब सही या ग़लत नहीं होता — बस अपनी पसंद बताइए।</p><p>यह मुफ़्त झलक है — 24 प्रश्न और बीच मे' +
 'ं दो कहानियाँ।</p></div><div class="apt-note">🔒 आपके जवाब सिर्फ़ आपके फ़ोन में रहते हैं — कहीं भेजे नहीं जाते।</div><div class="apt-note" id="apt-dumm' +
@@ -545,7 +545,7 @@ const APT_CONTENT =
 ' है।</div><div id="apt-full-info"><h2 style="font-size:24px;margin:22px 0 4px">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</h2><p>रजिस्ट्रेशन ज़रूरी है।</p><p>बि' +
 'ना बैज (badge): ₹100 में 1 चांस।</p><p>बैज (badge) वालों को मुफ़्त — 365 दिन, जितनी बार चाहें।</p><p>घड़ी 90 मिनट की है।</p><p>पन्ना बंद करें तो घड़ी ' +
 'रुक जाती है।</p><p>खंड 1 — आपकी रुचि के समूह।</p><p>खंड 2 — उनकी गहराई।</p><p>खंड 3 — कोर्स का चुनाव।</p></div><div id="apt-sess-box" class="apt-card"' +
-'><p>पूरा टेस्ट खुल रहा है…</p></div><div class="apt-note">🧪 यह टेस्ट रायसेक (RIASEC) रुचि-विज्ञान (1959) पर आधारित/प्रेरित है — ऊपर के कई बड़े टेस्ट भ' +
+'><p>पूरा टेस्ट खुल रहा है…</p></div><div class="apt-note">🧪 यह टेस्ट रायसेक (RIASEC) रुचि-विज्ञान (1959) पर आधारित/प्रेरित है।<br>ऊपर के कई बड़े टेस्ट भ' +
 'ी इसी विज्ञान पर बने हैं।</div></div>';
 
 buildSpecial({
@@ -2407,7 +2407,7 @@ function kkbContent(c) {
     '<p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p>' +
     '</div>';
 }
-const KKB2_CODES = { uz: 1, ug: 1, tt: 1, tg: 1, sv: 1, si: 1, ro: 1, qu: 1, ps: 1, prs: 1, pcm: 1, nl: 1, myn: 1, mt: 1, mfe: 1, ky: 1, ku: 1, kk: 1, hy: 1, hu: 1, ht: 1, gn: 1, el: 1, cs: 1, brx: 1, bg: 1, be: 1, bal: 1, az: 1, ay: 1, arz: 1, ary: 1, arq: 1, apd: 1, apc: 1, aec: 1, acw: 1, acm: 1, en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 , id: 1 , tr: 1 , mai: 1 , it: 1 , ms: 1 , vi: 1 , th: 1 , sa: 1 , bo: 1 , ceb: 1 , jv: 1 , km: 1 , lo: 1 , mn: 1 , my: 1 , nan: 1 , su: 1 , tl: 1 , yue: 1 }; /* pl अभी L1-मात्र — KKB2_CODES में नहीं (L2 बनने तक KKB_LANGS-सामान्य पैटर्न से पेज बने) */ /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 05-Sep: + th (थाई-लिपि) */
+const KKB2_CODES = { fuv: 1, dis: 1, apt: 1, njh: 1, mam: 1, kek: 1, uz: 1, ug: 1, tt: 1, tg: 1, sv: 1, si: 1, ro: 1, qu: 1, ps: 1, prs: 1, pcm: 1, nl: 1, myn: 1, mt: 1, mfe: 1, ky: 1, ku: 1, kk: 1, hy: 1, hu: 1, ht: 1, gn: 1, el: 1, cs: 1, brx: 1, bg: 1, be: 1, bal: 1, az: 1, ay: 1, arz: 1, ary: 1, arq: 1, apd: 1, apc: 1, aec: 1, acw: 1, acm: 1, en: 1, ar: 1, fr: 1, es: 1, ja: 1, ko: 1, de: 1, ru: 1, he: 1, pt: 1, kn: 1, ta: 1, te: 1, bn: 1, or: 1, as: 1, pa: 1, gu: 1, ml: 1 , ur: 1 , fa: 1 , sd: 1 , ks: 1 , mr: 1 , ne: 1 , sw: 1 , bho: 1 , zh: 1 , id: 1 , tr: 1 , mai: 1 , it: 1 , ms: 1 , vi: 1 , th: 1 , sa: 1 , bo: 1 , ceb: 1 , jv: 1 , km: 1 , lo: 1 , mn: 1 , my: 1 , nan: 1 , su: 1 , tl: 1 , yue: 1 }; /* pl अभी L1-मात्र — KKB2_CODES में नहीं (L2 बनने तक KKB_LANGS-सामान्य पैटर्न से पेज बने) */ /* 90-दिन मास्टर-परिवार — KKB2_LANGS से बनते हैं; 05-Sep: + th (थाई-लिपि) */
 KKB_LANGS.forEach(c => { if (KKB2_CODES[c.code]) return; buildSpecial({
   out: c.out, langStrict: false, title: c.title, desc: c.desc,
   head: ['<link rel="stylesheet" href="/assets/kkb.css">'],

@@ -86,6 +86,8 @@ window.COURSE_EXAMS = {
   "PJ061": { name: "सिंहली बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Sinhala) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 12-Sep kkb_l2_register */
   "PJ063": { name: "बलूची बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Balochi) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 13-Sep kkb_l2_register */
   "PJ096": { name: "उइघुर बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Uyghur) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 13-Sep kkb_l2_register */
+  "PJ423": { name: "क़ेक़्ची बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Q'eqchi') — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 19-Oct kkb_l2_register */
+  "PJ424": { name: "माम बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Mam) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 19-Oct kkb_l2_register */
   "PJ018": { name: "अंग्रेज़ी बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken English) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [
     /* server-मोड कोर्स — 120 प्रश्न server-निजी बैंक (eng_bank, 2919 — 14 प्रकार, 300 सुनो-प्रश्न) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
