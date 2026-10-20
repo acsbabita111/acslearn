@@ -187,6 +187,7 @@ function build(L) {
   const twAll = new Map(); D.L2.weeks.forEach(w => w.days.forEach(d => (d.tw || []).forEach(t => twAll.set(String(t[0]).toLowerCase(), t))));
   /* शब्दकोश-फ़ाइलें: <code>_shabdkosh.js, _2.js, _3.js … — सब जुड़कर एक */
   const KOSH = {}; for (const suf of ["", "_2", "_3", "_4"]) { const kp = path.join(__dirname, "data", "lipi", L.code + "_shabdkosh" + suf + ".js"); if (fs.existsSync(kp)) Object.assign(KOSH, require(kp)); }
+  for (const kk of Object.keys(KOSH)) { const lk = kk.toLowerCase(); if (!(lk in KOSH)) KOSH[lk] = KOSH[kk]; } /* 20-Oct लाल10: kd-कोश Capitalized-कुंजी → lowercase-दर्पण (lookup lowercase है) */
   const devAll = wordDev(days.flatMap(d => d.items));
   const pageDir = path.join(ROOT, "courses/hi/bhasha", L.slug, "workbook"); fs.mkdirSync(pageDir, { recursive: true });
   const outDir = LOCAL_MODE ? pageDir : path.join(RELEASE_OUT, L.slug); fs.mkdirSync(outDir, { recursive: true });
