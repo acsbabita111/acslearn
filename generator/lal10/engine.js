@@ -160,6 +160,8 @@ function makeLang(P){
     if(tense==="prog"&&P.prog) v=P.prog.replace("%V",v);
     else if(tense==="fut"&&P.fut) v=P.fut.replace("%V",v);
     else if(tense==="past"&&P.past) v=P.past.replace("%V",v);
+    else if(tense==="imp"&&P.imp) v=P.imp.replace("%V",v); /* 20-Oct लाल10-ब additive: imp-साँचा (grt) — पुराने profiles में key नहीं, शून्य-असर */
+    else if((tense==="pres"||tense==="hab")&&P.pres) v=P.pres.replace("%V",v); /* 20-Oct लाल10-ब additive: pres-साँचा (grt) */
     if(neg&&P.neg) v=P.neg.replace("%V",v);
     return v;
   }
@@ -263,6 +265,25 @@ function regen(P){
     for(const d of w.days) d.items=d.items.map(it=>{const[l,dv]=pair(it[2]);const o=it.slice();o[0]=l;o[1]=dv;return o;});
   });
   L1.help=[[E.tSent("धीरे बोलो।"),"धीरे बोलो।"],[E.tSent("क्या आप मेरी मदद कर सकते हैं?"),"क्या आप मेरी मदद कर सकते हैं?"]];
+  /* 20-Oct काम-लाल10-ब खेप-2 additive: L1 का w.test/listen/dialog भी regen — पहले अछूता रह जाता था (lal10-व्यापी होल; grt-ऑडिट से पकड़ा) */
+  for(const w of L1.weeks){
+    if(w.test&&Array.isArray(w.test.lines)) w.test.lines=w.test.lines.map(l=>{
+      const hiSrc=anp2hi(/[\u0900-\u097F]/.test(l[0])?l[0]:(l[1]||l[0]));
+      const lat=/[\u0900-\u097F]/.test(hiSrc)?E.tSent(hiSrc):hiSrc;
+      return [lat,E.latSent2dev(lat)];
+    });
+    if(w.test&&typeof w.test.goal==="string") w.test.goal=w.test.goal.replace(/अंगिका|चांग|अंगामी/g,P.labelHi);
+    if(Array.isArray(w.listen)) w.listen=w.listen.map(q=>{
+      const a=anp2hi(q[0].replace(/^\(सुनो\)\s*/,"")), b=anp2hi(q[1].replace(/^\(बोलो\)\s*/,""));
+      const qa=/[\u0900-\u097F]/.test(a)?E.tSent(a):a, qb=/[\u0900-\u097F]/.test(b)?E.tSent(b):b;
+      return ["(सुनो) "+qa,"(बोलो) "+qb];
+    });
+    if(Array.isArray(w.dialog)) w.dialog=w.dialog.map(d=>{
+      const sp=d[0]; const hiSrc=anp2hi(d[1]);
+      const lat=/[\u0900-\u097F]/.test(hiSrc)?E.tSent(hiSrc):hiSrc;
+      return [sp,lat,E.latSent2dev(lat)];
+    });
+  }
 
   L2.lang=LANG;
   L2.heroTitle=P.labelHi+" ("+P.labelEn+") बोलने का सर्टिफिकेट कोर्स";
@@ -313,14 +334,14 @@ function regen(P){
   console.log("  नमूना:",JSON.stringify(L2.weeks[0].days[0].items[0].slice(0,3)));
   console.log("  listen:",JSON.stringify(L2.weeks[0].listen[0]));
   const uk=Object.entries(UNK).sort((a,b)=>b[1]-a[1]);
-  if(uk.length) console.log("  ⚠️ unknown-token ("+uk.length+"): "+uk.slice(0,15).map(e=>e[0]+"×"+e[1]).join(" "));
+  if(uk.length) console.log("  ⚠️ unknown-token ("+uk.length+"): "+uk.slice(0,70).map(e=>e[0]+"×"+e[1]).join(" "));
   UNK={};
   /* 20-Oct लाल10: workbook-कोश पूरक — LEX-उल्टा + V-उल्टा + ROM2HI (loan-रोमन→हिंदी) */
   const K2={};
   for(const [hi,lt] of Object.entries(P.LEX||{})){ const v=String(lt).trim(); if(!v||/\s/.test(v)) continue; const lk=v.toLowerCase(); if(!(lk in K2)) K2[lk]=hi; }
   for(const [hi,lt] of Object.entries(P.V||{})){ const v=String(lt).trim(); if(!v||/\s/.test(v)) continue; const lk=v.toLowerCase(); if(!(lk in K2)) K2[lk]=hi; }
   for(const [hi,lt] of Object.entries(P.V||{})){ const v=String(lt).trim(); if(!v||/\s/.test(v)) continue;
-    for(const tpl of [P.past,P.fut,P.prog,P.neg,P.can,P.want]){ if(!tpl||tpl.indexOf("%V")<0) continue;
+    for(const tpl of [P.past,P.fut,P.prog,P.neg,P.can,P.want,P.pres,P.imp]){ if(!tpl||tpl.indexOf("%V")<0) continue; /* 20-Oct लाल10-ब खेप-2 सुधार: pres/imp कोश-लूप में छूट गए थे (grt-kachra 182 की जड़) */
       const f=tpl.replace("%V",v); if(/\s/.test(f)) continue; const fk=f.toLowerCase(); if(!(fk in K2)) K2[fk]=hi; } }
   for(const [rom,hi] of Object.entries(ROM2HI)){ if(!(rom in K2)) K2[rom]=hi; }
   fs.writeFileSync(REPO+"/generator/data/lipi/"+P.code+"_shabdkosh_2.js",

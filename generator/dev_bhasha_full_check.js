@@ -77,7 +77,7 @@ ok(ent && /90/.test(String(ent.duration)) && Number(ent.lessons) === 90, "course
 ok(ent && /Certificate in Spoken/.test(ent.name_hi), "नाम 'Certificate in Spoken …' (सर्टिफिकेट नाम-नियम v6.1-क)");
 var G = global.window.KKB_GROUPS || []; var inG = ent && G.some(function (g) { return g.ids.indexOf(ent.id) > -1; });
 ok(inG, "KKB_GROUPS (courses_data) में " + (ent ? ent.id : "?"));
-ok(slug && rd("sitemap.xml").indexOf("/courses/hi/bhasha/" + slug + "/index.html") > -1, "sitemap.xml में पेज");
+ok(slug && (rd("sitemap.xml") + rd("sitemap-bhasha.xml")).indexOf("/courses/hi/bhasha/" + slug + "/index.html") > -1, "sitemap(-bhasha).xml में पेज"); /* 20-Oct लाल10-ब: sitemap अब index-फ़ाइल — असली URL sitemap-bhasha.xml में (पुरानी जाँच हर भाषा पर झूठा-fail देती थी) */
 
 console.log("═══ F परीक्षा-द्वार (40/40/40) ═══");
 var PID = ent ? ent.id : null;
