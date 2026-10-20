@@ -1,1 +1,16407 @@
-window.KKB2_DATA = {"weeks":[{"n":1,"title":"My Family and Home","hi":"मेरा परिवार, मेरा घर","pace":20,"days":[{"tw":[["lelapa","लेलापा","परिवार","क"],["batsadi","बात्सादी","माता-पिता","क"],["mogolole","मोगोलोले","बड़ा (भाई/बहन)","क"],["kgaitsadiake","क्गाइत्सादीअके","छोटा (भाई/बहन)","क"],["mmogo","म्मोगो","साथ में","क"],["opora","ओपोरा","सहारा","क"]],"drill":{"type":"pairSwap","hi":"जोड़ी बदलो — Ke से O, फिर O/Ene: वाक्य वही, रूप बदले।","rows":[["Ke nna le lelapa la me.","O nna le lelapa la gago.","O nna le lelapa la gagwe."],["Ke bua le mmê wa me.","O bua le mmê wa gago.","O bua le mmê wa gagwe."]]},"items":[["Mo lelapeng la me go na le batho ba batlhano.","मो लेलापेंग ला मे खो ना ले बाथो बा बात्लानो।","मेरे परिवार में पाँच लोग हैं।","S","B"],["Ke nna le batsadi ba me.","के न्ना ले बात्सादी बा मे।","मैं अपने माता-पिता के साथ रहता हूँ।","S","A"],["Rre wa me e ne e le molemi.","र्रे वा मे ए ने ए ले मोलेमी।","मेरे पिता किसान थे।","S","B"],["Mme wa me o tlhokomela lelapa.","म्मे वा मे ओ त्लोकोमेला लेलापा।","मेरी माँ घर सँभालती हैं।","S","B"],["Mogolole wa me o dira kwa Delhi.","मोगोलोले वा मे ओ दिरा क्वा देल्ही।","मेरा बड़ा भाई दिल्ली में काम करता है।","S","B"],["Nnake wa me o ya sekolong.","न्नाके वा मे ओ या सेकोलोंग।","मेरी छोटी बहन स्कूल जाती है।","S","B"],["Bana ba me ba babedi ba ithuta sekolong.","बाना बा मे बा बाबेदी बा इथुता सेकोलोंग।","मेरे दोनों बच्चे स्कूल में पढ़ते हैं।","S","B"],["Morwa wa me o na le dingwaga tse some.","मोर्वा वा मे ओ ना ले दिंग्वागा त्से सोमे।","मेरा बेटा दस साल का है।","S","B"],["Morwadia me o batla go nna ngaka.","मोर्वादिआ मे ओ बात्ला खो न्ना ंगाका।","मेरी बेटी डॉक्टर बनना चाहती है।","S","B"],["Mo lelapeng la gago go na le batho ba le kae?","मो लेलापेंग ला गागो खो ना ले बाथो बा ले काए?","आपके परिवार में कितने लोग हैं?","L","B"],["A o nna le lelapa la gago?","आ ओ न्ना ले लेलापा ला गागो?","क्या आप अपने परिवार के साथ रहते हैं?","L","B"],["Nnyaa, lelapa la me le nna motseng.","न्न्याआ, लेलापा ला मे ले न्ना मोत्सेंग।","नहीं, मेरा परिवार गाँव में रहता है।","S","A"],["Kgwedi le kgwedi ke romela lelapa la me madi.","ख्वेदी ले ख्वेदी के रोमेला लेलापा ला मे मादी।","मैं हर महीने अपने परिवार को पैसे भेजता हूँ।","S","B"],["Maitseboa otlhe ke bua le mme wa me.","माइत्सेबोआ ओत्ले के बुआ ले म्मे वा मे।","मैं हर शाम अपनी माँ से बात करता हूँ।","S","B"],["Rremogolo wa me o na le dingwaga tse masome a robedi.","र्रेमोगोलो वा मे ओ ना ले दिंग्वागा त्से मासोमे आ रोबेदी।","मेरे दादा अस्सी साल के हैं।","S","B"],["Rotlhe re ja dijo tsa maitseboa mmogo.","रोत्ले रे जा दिजो त्सा माइत्सेबोआ म्मोगो।","हम सब साथ में रात का खाना खाते हैं।","S","B"],["Mosadi wa me le ene o a dira.","मोसादी वा मे ले एने ओ आ दिरा।","मेरी पत्नी भी काम करती हैं।","S","B"],["Ke mang yo mo setshwantshong?","के मांग यो मो सेत्श्वांत्शोंग?","फोटो में यह कौन है?","L","B"],["Ke lelapa la rangwane e.","के लेलापा ला रांग्वाने ए।","यह मेरे चाचा का परिवार है।","S","B"],["Lelapa ke thotloetso e kgolo go gaisa.","लेलापा के थोत्लोएत्सो ए ख्गोलो खो गाइसा।","परिवार सबसे बड़ा सहारा है।","S","C"]]},{"tw":[["muti","मूती","गाँव","क"],["ntlwaneng","न्त्ल्वानेंग","किराये का कमरा","क"],["mogatleng","मोगात्लेंग","मंज़िल","क"],["kwa morago","क्वा मोरागो","पीछे","क"],["kwa pele","क्वा पेले","सामने","क"],["marulelong","मारूलेलोंग","छत","क"]],"drill":{"type":"preposition","hi":"जगह बताओ — mo / kwa godimo ga / gaufi le / kwa morago ga सही खाने में बैठाओ।","rows":[["Tanka e ___ marulelong.","kwa godimo ga"],["Motse wa me o ___ noka.","gaufi le"],["Sekolo se ___ ntlo ya me.","kwa morago ga"],["Re nna ___ phaposi e le nngwe.","mo"]]},"items":[["Ntlo ya me e mo motseng o monnye.","न्त्लो या मे ए मो मोत्सेंग ओ मोन्ये।","मेरा घर एक छोटे गाँव में है।","S","B"],["Mo ntlong ya rona go na le diphaposi tse tharo.","मो न्त्लोंग या रोना खो ना ले दिफ़ापोसी त्से थारो।","हमारे घर में तीन कमरे हैं।","S","B"],["Go na le pompo gaufi le ntlo ya me.","खो ना ले पोम्पो गाउफ़ी ले न्त्लो या मे।","मेरे घर के पास एक चापाकल है।","S","B"],["Re na le tshimo e nnye.","रे ना ले चिमो ए न्न्ये।","हमारे पास एक छोटा खेत है।","S","B"],["Motse wa me o gaufi le noka.","मोत्से वा मे ओ गाउफ़ी ले नोका।","मेरा गाँव नदी के पास है।","S","B"],["Sekolo se kwa morago ga ntlo ya me.","सेकोलो से क्वा मोरागो खा न्त्लो या मे।","स्कूल मेरे घर के पीछे है।","S","B"],["Mmaraka o kwa pele ga tempele.","म्माराका ओ क्वा पेले खा तेम्पेले।","बाजार मंदिर के सामने है।","S","C"],["Motse wa gago o kae?","मोत्से वा गागो ओ काए?","आपका गाँव कहाँ है?","L","B"],["Motse wa me o mo Bihar.","मोत्से वा मे ओ मो बिहार।","मेरा गाँव बिहार में है।","S","B"],["O kgakala le Patna ka diura tse pedi.","ओ ख्गाकाला ले पात्ना का दिउरा त्से पेदी।","यह पटना से दो घंटे दूर है।","S","C"],["Jaanong ke nna mo ntlwaneng ya rente.","जाआनोंग के न्ना मो न्त्ल्वानेंग या रेंते।","अभी मैं किराये के कमरे में रहता हूँ।","S","B"],["Rona ba le bararo re nna mo phaposing e le nngwe.","रोना बा ले बाराओ रे न्ना मो फ़ापोसिंग ए ले न्ंग्वे।","हम तीन लोग एक कमरे में रहते हैं।","S","C"],["Phaposi ya rona e mo lekgatlhong la bobedi.","फ़ापोसी या रोना ए मो लेख्गात्लोंग ला बोबेदी।","हमारा कमरा दूसरी मंज़िल पर है।","S","B"],["Ntlo ya go apaya e nnye thata.","न्त्लो या खो आपाया ए न्न्ये थाता।","रसोई बहुत छोटी है।","S","C"],["Re apaya bosigo.","रे आपाया बोसिगो।","हम रात में खाना बनाते हैं।","S","B"],["Go na le tanka ya metsi mo marulelong.","खो ना ले तांका या मेत्सी मो मारुलेलोंग।","छत पर पानी की टंकी है।","S","C"],["Motse wa me o montle go gaisa toropo.","मोत्से वा मे ओ मोंत्ले खो गाइसा तोरोपो।","मेरा गाँव शहर से ज़्यादा सुंदर है।","S","B"],["Ke gopola motse wa me.","के गोपोला मोत्से वा मे।","मुझे अपने गाँव की याद आती है।","S","B"],["Ke tla ya motseng wa me ka moletlo.","के त्ला या मोत्सेंग वा मे का मोलेत्लो।","मैं त्योहार में अपने गाँव जाऊँगा।","S","B"],["O tla ya gae leng?","ओ त्ला या गाए लेंग?","आप घर कब जाएँगे?","L","B"]]},{"tw":[["tolo","तोलो","बीता कल","क"],["tsogile","त्सोगीले","उठा","क"],["ile","इले","गया","क"],["rekile","रेकीले","खरीदा","ग"],["kopane","कोपाने","मिला","क"],["bosigo","बोसीगो","कल रात","क"]],"drill":{"type":"timeSwap","hi":"समय बदलो — आज की बात को बीते कल में कहो।","rows":[["Gompieno ke a dira.","Maabane ke dirile."],["Gompieno ke ya mmarakeng.","Maabane ke ile mmarakeng."],["Gompieno ke ja raese.","Maabane ke jele raese."]]},"items":[["Maabane ke ne ka tsoga ka nako ya botlhano.","माआबाने के ने का त्सोगा का नाको या बोत्लानो।","कल मैं पाँच बजे उठा।","S","B"],["Ke tlhapile sefatlhego ka tlhapa.","के त्लापीले सेफ़ात्लेगो का त्लापा।","मैंने मुँह धोया और नहाया।","S","B"],["Ke jele raese le dinawa mo mosong.","के जेले राएसे ले दिनावा मो मोसोंग।","मैंने सुबह चावल-दाल खाया।","S","B"],["Ke ne ka ya tirong ka nako ya robedi.","के ने का या तिरोंग का नाको या रोबेदी।","मैं आठ बजे काम पर गया।","S","B"],["Maabane ke dirile diura tse some.","माआबाने के दिरीले दिउरा त्से सोमे।","मैंने कल दस घंटे काम किया।","S","B"],["Ke ne ka boela gae bosigo.","के ने का बोएला गाए बोसिगो।","मैं रात को घर लौटा।","S","B"],["Ke ne ke lapile thata.","के ने के लापीले थाता।","मैं बहुत थका हुआ था।","S","A"],["Maabane bosigo ke robetse ka bonako.","माआबाने बोसिगो के रोबेत्से का बोनाको।","मैं कल रात जल्दी सो गया।","S","B"],["O dirile eng maabane?","ओ दिरीले एंग माआबाने?","आपने कल क्या किया?","L","B"],["O ne wa ya kae ka Sontaga?","ओ ने वा या काए का सोंतागा?","आप रविवार को कहाँ गए?","L","B"],["Ke ne ka ya mmarakeng ka Sontaga.","के ने का या म्माराकेंग का सोंतागा।","मैं रविवार को बाजार गया।","S","B"],["Ke rekile merogo le raese.","के रेकीले मेरोगो ले राएसे।","मैंने सब्ज़ी और चावल खरीदा।","S","B"],["Maabane ke kopane le tsala ya me ya kgale.","माआबाने के कोपाने ले त्साला या मे या ख्गाले।","मैं कल अपने पुराने दोस्त से मिला।","S","B"],["Re buile diura tse pedi.","रे बुइले दिउरा त्से पेदी।","हमने दो घंटे बात की।","S","B"],["Kgwedi e e fetileng ke ne ka ya motseng wa me.","ख्वेदी ए ए फ़ेतीलेंग के ने का या मोत्सेंग वा मे।","पिछले महीने मैं अपने गाँव गया।","S","B"],["Ga ke a dira maabane.","खा के आ दिरा माआबाने।","मैंने कल काम नहीं किया।","S","B"],["Maabane bosigo go nele pula e kgolo.","माआबाने बोसिगो खो नेले पुला ए ख्गोलो।","कल रात बहुत बारिश हुई।","S","C"],["Ka bothata jwa bogote ga ke a robala sentle.","का बोथाता ज्वा बोगोते खा के आ रोबाला सेंत्ले।","गर्मी में मुझे नींद नहीं आई।","S","B"],["A o jele mo mosong?","आ ओ जेले मो मोसोंग?","क्या आपने सुबह खाना खाया?","L","B"],["Ee, ke jele pele ga ke tla.","ए, के जेले पेले खा के त्ला।","हाँ, मैंने आने से पहले खा लिया।","S","B"]]},{"tw":[["mundzuku","मून्द्ज़ूकू","आने वाला कल","क"],["ta","ता","करूँगा (आगे की बात)","क"],["vhiki","व्हीकी","अगला हफ़्ता","क"],["bokgoni","बोक्गोनी","हुनर","ख"],["leka","लेका","कोशिश करना","क"],["ambarela","अम्बारेला","छाता","क"]],"drill":{"type":"timeSwap","hi":"समय बदलो — आज की बात को आने वाले कल में कहो।","rows":[["Gompieno ke a dira.","Kamoso ke tla dira."],["Gompieno ke ya gae.","Kamoso ke tla ya gae."],["Gompieno ke leletsa mme.","Kamoso ke tla leletsa mme."]]},"items":[["Kamoso ke tla tsoga ka bonako.","कामोसो के त्ला त्सोगा का बोनाको।","कल मैं जल्दी उठूँगा।","S","A"],["Letsatsi le letsatsi ke tla ithuta mafoko a mafsa a some.","लेत्सात्सी ले लेत्सात्सी के त्ला इथुता मोफ़ोको आ मफ़सा आ सोमे।","मैं रोज़ दस नए शब्द सीखूँगा।","S","B"],["Kamoso ke ya kwa pankeng.","कामोसो के या क्वा पांकेंग।","मैं कल बैंक जा रहा हूँ।","S","A"],["Ke tla romela madi gae ka Mosupologo.","के त्ला रोमेला मादी गाए का मोसुपोलोगो।","मैं सोमवार को घर पैसे भेजूँगा।","S","B"],["Ngwaga o o tlang ke tla reka baesekele.","ंग्वागा ओ ओ त्लांग के त्ला रेका बाएसेकेले।","अगले साल मैं साइकिल खरीदूँगा।","S","B"],["Ke batla go ithuta bokgoni jo bosha.","के बात्ला खो इथुता बोख्गोनी जो बोशा।","मैं एक नया हुनर सीखना चाहता हूँ।","S","A"],["O tla dira eng kamoso?","ओ त्ला दिरा एंग कामोसो?","आप कल क्या करेंगे?","L","B"],["A o tla tla tirong ka Sontaga?","आ ओ त्ला त्ला तिरोंग का सोंतागा?","क्या आप रविवार को काम पर आएँगे?","L","B"],["Ee, ke tla tla ka nako ya robong.","ए, के त्ला त्ला का नाको या रोबोंग।","हाँ, मैं नौ बजे आऊँगा।","S","B"],["Nnyaa, ka Sontaga ke tla ikhutsa.","न्न्याआ, का सोंतागा के त्ला इखुत्सा।","नहीं, रविवार को मैं आराम करूँगा।","S","A"],["Ke tla go leletsa kamoso mo mosong.","के त्ला खो लेलेत्सा कामोसो मो मोसोंग।","मैं आपको कल सुबह फोन करूँगा।","S","A"],["Re tla fetsa tiro e ka maitseboa.","रे त्ला फ़ेत्सा तिरो ए का माइत्सेबोआ।","हम शाम तक यह काम पूरा कर देंगे।","S","B"],["Mogolole wa me o tla tla beke e e tlang.","मोगोलोले वा मे ओ त्ला त्ला बेके ए ए त्लांग।","मेरा भाई अगले हफ़्ते आएगा।","S","B"],["Ke tla bula lebenkele le lennye.","के त्ला बुला लेबेंकेले ले लेन्ये।","मैं एक छोटी दुकान खोलने वाला हूँ।","S","A"],["Ka letsatsi lengwe ke tla aga ntlo ya me.","का लेत्सात्सी लेंग्वे के त्ला आगा न्त्लो या मे।","एक दिन मैं अपना घर बनाऊँगा।","S","B"],["Kamoso ga ke kitla ke diega.","कामोसो खा के कित्ला के दिएगा।","कल मैं देर नहीं करूँगा।","S","A"],["Gompieno pula e tla na.","गोम्पिएनो पुला ए त्ला ना।","आज बारिश होगी।","L","B"],["Tsaya samboerela ya gago.","त्साया साम्बोएरेला या गागो।","अपने साथ छाता ले जाओ।","L","B"],["Ke tla leka ka natla yotlhe.","के त्ला लेका का नात्ला योत्ले।","मैं पूरी कोशिश करूँगा।","S","B"],["Tsotlhe di tla siama.","त्सोत्ले दि त्ला सिआमा।","सब ठीक हो जाएगा।","S","C"]]},{"tw":[["leswaku","लेस्वाकू","क्योंकि","क"],["jalo","जालो","इसलिए","क"],["lebaka","लेबाका","कारण","क"],["diegile","दीएगीले","देर","क"],["boikhutso","बोइखूत्सो","छुट्टी","ख"],["hlayisa mali","ह्लायीसा माली","पैसे बचाना","ग"]],"drill":{"type":"joinReason","hi":"दो छोटे वाक्य जोड़ो — ka ntlha ya gore या ka jalo लगाकर एक बनाओ।","rows":[["Ke ne ke lapile. Ke robetse ka bonako.","Ke ne ke lapile, ka jalo ke robetse ka bonako."],["Ke diegile. Bese e ne e diegile.","Ke diegile ka ntlha ya gore bese e ne e diegile."],["Ke bolokile madi. Nka ya gae.","Ke bolokile madi, ka jalo nka ya gae."]]},"items":[["Ke diegile ka gonne bese e tsile morago ga nako.","के दिएगीले का गोन्ने बेसे ए त्सिले मोरागो खा नाको।","मुझे देर हुई क्योंकि बस देर से आई।","S","B"],["O tsile morago ga nako gompieno ka eng?","ओ त्सिले मोरागो खा नाको गोम्पिएनो का एंग?","आज आप देर से क्यों आए?","L","B"],["Ga ke a kgona go tla ka gonne ke ne ke lwala.","खा के आ ख्गोना खो त्ला का गोन्ने के ने के ल्वाला।","मैं नहीं आ सका क्योंकि मैं बीमार था।","S","B"],["Ke dira ka natla ka ntlha ya lelapa la me.","के दिरा का नात्ला का न्त्ला या लेलापा ला मे।","मैं अपने परिवार के लिए मेहनत करता हूँ।","S","B"],["O batla go ithuta Sekgoa ka eng?","ओ बात्ला खो इथुता सेक्गोआ का एंग?","आप अंग्रेज़ी क्यों सीखना चाहते हैं?","L","B"],["Ke ithuta Sekgoa ka gonne ke tlhoka tiro e e botoka.","के इथुता सेक्गोआ का गोन्ने के त्लोका तिरो ए ए बोतोका।","मैं अंग्रेज़ी सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।","S","A"],["Lebenkele le tswetswe ka gonne gompieno ke letsatsi la boikhutso.","लेबेंकेले ले त्स्वेत्स्वे का गोन्ने गोम्पिएनो के लेत्सात्सी ला बोइखुत्सो।","दुकान बंद है क्योंकि आज छुट्टी है।","L","B"],["Ke ne ke lapile, ka moo ke robetseng ka bonako.","के ने के लापीले, का मोओ के रोबेत्सेंग का बोनाको।","मैं थका था, इसलिए जल्दी सो गया।","S","B"],["Pula e ne e na, ka moo ke neng ka nna gae.","पुला ए ने ए ना, का मोओ के नेंग का न्ना गाए।","बारिश हो रही थी, इसलिए मैं घर पर रहा।","S","B"],["Ke bolokile madi, ka moo nka yang gae.","के बोलोकीले मादी, का मोओ न्का यांग गाए।","मैंने पैसे बचाए, इसलिए घर जा सकता हूँ।","S","B"],["O tlogetse phaposi eo ka eng?","ओ त्लोगेत्से फ़ापोसी एओ का एंग?","आपने वह कमरा क्यों छोड़ा?","L","B"],["Ke e tlogetse ka gonne rente e ne e le kgolo.","के ए त्लोगेत्से का गोन्ने रेंते ए ने ए ले ख्गोलो।","मैंने छोड़ा क्योंकि किराया ज़्यादा था।","S","B"],["Ke rata tiro e ka gonne moputso o montle.","के राता तिरो ए का गोन्ने मोपुत्सो ओ मोंत्ले।","मुझे यह काम पसंद है क्योंकि मज़दूरी अच्छी है।","S","B"],["O itumetse ka gonne o amogetse tiro.","ओ इतुमेत्से का गोन्ने ओ आमोगेत्से तिरो।","वह खुश है क्योंकि उसे नौकरी मिल गई।","S","C"],["Ke tsoga ka bonako gore ke se ke ka diega.","के त्सोगा का बोनाको गोरे के से के का दिएगा।","मैं जल्दी उठता हूँ ताकि देर न हो।","S","B"],["Tsweetswee, mpolelele lebaka.","त्स्वीत्स्वी, म्पोलेलेले लेबाका।","कृपया कारण बताइए।","L","B"],["Ke ka moo ke go leleditseng.","के का मोओ के खो लेलेदीत्सेंग।","इसीलिए मैंने आपको फोन किया।","S","B"],["Ke boloka madi a lenyalo la nnake.","के बोलोका मादी आ लेन्यालो ला न्नाके।","मैं अपनी बहन की शादी के लिए पैसे बचा रहा हूँ।","S","B"],["Motšhene o timeditswe ka eng?","मोत्शेने ओ तिमेदित्स्वे का एंग?","मशीन बंद क्यों है?","L","B"],["O timeditswe ka gonne ga go na motlakase.","ओ तिमेदित्स्वे का गोन्ने खा खो ना मोत्लाकासे।","यह बंद है क्योंकि बिजली नहीं है।","S","B"]]}],"test":{"target":"Leloko la lelapa kgotsa tsala (ka founo)","goal":"Ka Setswana bolela — maabane o dirile eng, kamoso o tla dira eng. Supa mola o le mongwe wa 'ka ntlha ya gore'.","lines":[["Maabane ke dirile diura di le some.","माआबाने के दिरीले दीउरा दी ले सोमे।"],["Ke ne ke lapile thata.","के ने के लापीले थाता।"],["Kamoso ke tla tsoga ka bonako.","कामोसो के त्ला त्सोगा का बोनाको।"],["Ke tla go leletsa kamoso mo mosong.","के त्ला खो लेलेत्सा कामोसो मो मोसोंग।"],["Ke ithuta Sekgoa ka ntlha ya gore ke tlhoka tiro e e botoka.","के इथुता सेक्गोआ का न्त्ला या गोरे के त्लोका तिरो ए ए बोतोका।"]]},"listen":[["(reetsa) O tsoga ka nako mang?","(araba) Ke tsoga ka nako ya botlhano mo mosong."],["(reetsa) Baeng ba tla tla leng?","(araba) Ba tla tla ka Sontaga."]],"dialog":[["Wena","Dumela, o kae?"],["Tsala","Ke teng, wena?"],["Wena","Le nna ke teng, ke a leboga."],["Tsala","Re kopane gape."],["Wena","Ee, sala sentle."]]},{"n":2,"title":"My Daily Life","hi":"मेरी रोज़ की जिंदगी","pace":20,"days":[{"tw":[["gale","गाले","हमेशा","क"],["gantsi","गान्त्सी","आम तौर पर","क"],["dinako","दीनाको","कभी-कभी","क"],["gasepe","गासेपे","कभी नहीं","क"],["maoto","माओतो","पैदल","ग"],["siku","सीकू","रोज़","क"]],"drill":{"type":"freqLadder","hi":"बार-बार की सीढ़ी — एक वाक्य को ka gale, gantsi, ka dinako dingwe, le ka motlha से बदल-बदलकर बोलो।","rows":[["Ke nwa tee ka gale mo mosong.","Ke nwa tee gantsi mo mosong.","Ke nwa tee ka dinako dingwe mo mosong.","Ga ke nwe tee ka motlha mo mosong."]]},"items":[["Ke tsoga ka metlha pele ga letsatsi le tlhaba.","के त्सोगा का मेत्ला पेले खा लेत्सात्सी ले त्लाबा।","मैं हमेशा सूरज उगने से पहले उठता हूँ।","S","B"],["Gantsi ke fitlha tirong ka nako ya robedi.","गांत्सी के फ़ित्ला तिरोंग का नाको या रोबेदी।","मैं आम तौर पर आठ बजे काम पहुँचता हूँ।","S","B"],["Ka dinako dingwe ke dira bosigo.","का दिनाको दिंग्वे के दिरा बोसिगो।","कभी-कभी मैं रात में काम करता हूँ।","S","B"],["Ga ke kitla ke goga motsoko.","खा के कित्ला के गोगा मोत्सोको।","मैं कभी धूम्रपान नहीं करता।","S","B"],["O tsoga ka nako mang?","ओ त्सोगा का नाको मांग?","आप कितने बजे उठते हैं?","L","B"],["Ke tsoga letsatsi le letsatsi ka nako ya botlhano.","के त्सोगा लेत्सात्सी ले लेत्सात्सी का नाको या बोत्लानो।","मैं रोज़ पाँच बजे उठता हूँ।","S","B"],["Pele ke tlhapa sefatlhego.","पेले के त्लापा सेफ़ात्लेगो।","पहले मैं मुँह धोता हूँ।","S","B"],["Morago ke apaya tee.","मोरागो के आपाया ती।","फिर मैं चाय बनाता हूँ।","S","B"],["Morago ga moo ke ya tirong.","मोरागो खा मोओ के या तिरोंग।","उसके बाद मैं काम पर जाता हूँ।","S","B"],["Ke ikhutsa go le gonnye ka nako ya bongwe.","के इखुत्सा खो ले गोन्ये का नाको या बोंग्वे।","मैं एक बजे थोड़ा आराम करता हूँ।","S","B"],["Ke tlhatswa diaparo ka Sontaga.","के त्लात्स्वा दिआपारो का सोंतागा।","मैं रविवार को कपड़े धोता हूँ।","S","B"],["Ke robala ka nako ya some.","के रोबाला का नाको या सोमे।","मैं दस बजे सोता हूँ।","S","B"],["O ya tirong jang?","ओ या तिरोंग जांग?","आप काम पर कैसे जाते हैं?","L","B"],["Ke ya tirong ka dinao.","के या तिरोंग का दिनाओ।","मैं पैदल काम पर जाता हूँ।","S","A"],["Go tsaya metsotso e masome a mabedi.","खो त्साया मेत्सोत्सो ए मासोमे आ माबेदी।","बीस मिनट लगते हैं।","S","C"],["Letsatsi le letsatsi ke ithuta Sekgoa metsotso e masome a mararo.","लेत्सात्सी ले लेत्सात्सी के इथुता सेक्गोआ मेत्सोत्सो ए मासोमे आ मारारो।","मैं रोज़ आधा घंटा अंग्रेज़ी सीखता हूँ।","S","B"],["Ke leletsa gae gabedi ka beke.","के लेलेत्सा गाए गाबेदी का बेके।","मैं हफ़्ते में दो बार घर फोन करता हूँ।","S","A"],["Ka Sontaga ke ikhutsa letsatsi lotlhe.","का सोंतागा के इखुत्सा लेत्सात्सी लोत्ले।","रविवार को मैं पूरा दिन आराम करता हूँ।","S","B"],["Letsatsi la me le simolola ka bonako mme le fela morago ga nako.","लेत्सात्सी ला मे ले सिमोलोला का बोनाको म्मे ले फ़ेला मोरागो खा नाको।","मेरा दिन जल्दी शुरू होकर देर से ख़त्म होता है।","S","B"],["Natla ga e nke e nyelela.","नात्ला खा ए न्के ए न्येलेला।","मेहनत कभी बेकार नहीं जाती।","S","C"]]},{"tw":[["apaya","अपाया","खाना बनाना","क"],["beletsa","बेलेत्सा","उबालना","क"],["sega","सेगा","काटना","क"],["sotlhe","सोत्ल्हे","स्वादिष्ट","क"],["silindara","सीलीन्दारा","ख़ाली","क"],["bago","बागो","बारी","क"]],"drill":{"type":"orderSteps","hi":"क्रम बताओ — Pele, Morago, Morago ga moo लगाकर काम का सही क्रम बोलो।","rows":[["Pele tlhapa sefatlhego.","Morago apaya tee.","Morago ga moo ya tirong."]]},"items":[["O apeile eng gompieno?","ओ आपेइले एंग गोम्पिएनो?","आज आपने क्या बनाया?","L","B"],["Ke apeile raese le moroho wa ditapole.","के आपेइले राएसे ले मोरोहो वा दितापोले।","मैंने चावल और आलू की सब्ज़ी बनाई।","S","B"],["Pele tlhatswa raese sentle.","पेले त्लात्स्वा राएसे सेंत्ले।","पहले चावल अच्छे से धोओ।","L","B"],["Pele bedisa metsi.","पेले बेदिसा मेत्सी।","पहले पानी उबालो।","L","B"],["Seha anyanisi dikarolwaneng tse nnye.","सेहा आन्यानिसी दिकारोल्वानेंग त्से न्न्ये।","प्याज़ छोटे टुकड़ों में काटो।","L","B"],["Tsenya letswai go le gonnye.","त्सेन्या लेत्स्वाइ खो ले गोन्ये।","थोड़ा नमक डालो।","L","B"],["Dijo di siame.","दिजो दि सिआमे।","खाना तैयार है।","S","C"],["Moroho o, o monate thata.","मोरोहो ओ, ओ मोनाते थाता।","यह सब्ज़ी बहुत स्वादिष्ट है।","S","C"],["Raese ga a a apewa sentle.","राएसे खा आ आ आपेवा सेंत्ले।","चावल ठीक से नहीं पका है।","S","C"],["Re tlhoka leokwane le ditswaiso.","रे त्लोका लेओक्वाने ले दित्स्वाइसो।","हमें तेल और मसाले चाहिए।","S","B"],["Silindara ya gase e lotse.","सिलिंदारा या गासे ए लोत्से।","गैस सिलिंडर ख़ाली है।","S","C"],["Ke tla tlisa silindara e ntšha.","के त्ला त्लिसा सिलिंदारा ए न्त्शा।","मैं नया सिलिंडर लाऊँगा।","S","B"],["Gompieno re tla apaya mmogo.","गोम्पिएनो रे त्ला आपाया म्मोगो।","आज हम साथ मिलकर खाना बनाएँगे।","S","B"],["Tiro ya go apaya gompieno ke ya mang?","तिरो या खो आपाया गोम्पिएनो के या मांग?","आज खाना बनाने की बारी किसकी है?","L","B"],["Gompieno ke tiro ya me.","गोम्पिएनो के तिरो या मे।","आज मेरी बारी है।","S","B"],["O se ke wa senya dijo.","ओ से के वा सेन्या दिजो।","खाना बर्बाद मत करो।","L","B"],["Khurumeletsa dijo.","खुरुमेलेत्सा दिजो।","खाना ढककर रखो।","L","B"],["Gompieno ke jele thata.","गोम्पिएनो के जेले थाता।","आज मैंने ज़्यादा खा लिया।","S","B"],["Dijo tsa gae di monate go gaisa tsa hotele.","दिजो त्सा गाए दि मोनाते खो गाइसा त्सा होतेले।","घर का खाना होटल से अच्छा होता है।","S","C"],["Nwa metsi a a phepa fela.","न्वा मेत्सी आ आ फ़ेपा फ़ेला।","सिर्फ़ साफ़ पानी पियो।","L","B"]]},{"tw":[["letshoroma","लेचोरोमा","बुखार","क"],["kgapetla","क्गापेत्ला","गोली","क"],["kgohlolo","क्गोह्लोलो","खाँसी","क"],["botoka","बोतोका","बेहतर","क"],["ikhutsa","इखूत्सा","आराम","क"],["gaufi","गाउफ़ी","पास में","ग"]],"drill":{"type":"dialogueFill","hi":"संवाद पूरा करो — ngaka ya kgwedi, ख़ाली जगह बोलकर भरो।","rows":[["Ngaka: O lwala go tswa leng?","Wena: Go tswa maabane."],["Ngaka: Nwa molemo morago ga go ja.","Wena: Go siame, ke a leboga ngaka."]]},"items":[["Ke na le letshoroma go tswa maabane.","के ना ले लेत्शोरोमा खो त्स्वा माआबाने।","मुझे कल से बुखार है।","S","B"],["Tlhogo ya me e a opa.","त्लोगो या मे ए आ ओपा।","मेरा सिर दर्द कर रहा है।","S","B"],["Ke na le sehuba le mofitlho.","के ना ले सेहुबा ले मोफ़ित्लो।","मुझे खाँसी और ज़ुकाम है।","S","A"],["Mmele wa me otlhe o a opa.","म्मेले वा मे ओत्ले ओ आ ओपा।","मेरा पूरा बदन दर्द कर रहा है।","S","A"],["O lwala go tswa leng?","ओ ल्वाला खो त्स्वा लेंग?","आप कब से बीमार हैं?","L","B"],["Ntshupetse loleme lwa gago.","न्त्शुपेत्से लोलेमे ल्वा गागो।","अपनी जीभ दिखाइए।","L","B"],["Nwa molemo o morago ga go ja.","न्वा मोलेमो ओ मोरागो खा खो जा।","यह दवा खाने के बाद लीजिए।","L","B"],["Nwa pilisi e le nngwe mo mosong, e nngwe bosigo.","न्वा पिलिसी ए ले न्ंग्वे मो मोसोंग, ए न्ंग्वे बोसिगो।","एक गोली सुबह, एक रात में लीजिए।","L","B"],["Nwa metsi a a bothitho.","न्वा मेत्सी आ आ बोथितो।","गुनगुना पानी पियो।","L","B"],["Ikhutse malatsi a mabedi.","इखुत्से मालात्सी आ माबेदी।","दो दिन आराम कीजिए।","L","B"],["Ke nwele molemo ka nako.","के न्वेले मोलेमो का नाको।","मैंने समय पर दवा ली।","S","B"],["Jaanong ke ikutlwa botoka.","जाआनोंग के इकुत्ल्वा बोतोका।","अब मैं बेहतर महसूस कर रहा हूँ।","S","B"],["Ka ntlha ya letshoroma ga ke a kgona go ya tirong.","का न्त्ला या लेत्शोरोमा खा के आ ख्गोना खो या तिरोंग।","बुखार की वजह से मैं काम पर नहीं जा सका।","S","B"],["Molemo o, o bokae?","मोलेमो ओ, ओ बोकाए?","यह दवा कितने की है?","S","B"],["A go na le sepatela sa mmuso gaufi?","आ खो ना ले सेपातेला सा म्मुसो गाउफ़ी?","क्या पास में सरकारी अस्पताल है?","S","A"],["Ngaka e tla ka nako ya some.","ंगाका ए त्ला का नाको या सोमे।","डॉक्टर दस बजे आते हैं।","L","B"],["Tsweetswee, kwalela ngaka leina la me.","त्स्वीत्स्वी, क्वालेला ंगाका लेइना ला मे।","कृपया डॉक्टर के लिए मेरा नाम लिख दीजिए।","S","A"],["Ja ka nako mme o robale sentle.","जा का नाको म्मे ओ रोबाले सेंत्ले।","समय पर खाओ और अच्छी नींद लो।","L","B"],["Tlhapa diatla pele ga go ja.","त्लापा दिआत्ला पेले खा खो जा।","खाने से पहले हाथ धोओ।","L","B"],["Botsogo ke khumo ya nnete.","बोत्सोगो के खुमो या न्नेते।","सेहत ही असली दौलत है।","S","C"]]},{"tw":[["bosa","बोसा","मौसम","क"],["mariga","मारीगा","सर्दी","क"],["kolobile","कोलोबीले","भीगा हुआ","क"],["phefo","फेफ़ो","आँधी","क"],["saese","साएसे","नाप","ग"],["boingwe","बोइंग्वे","अलग से","क"]],"drill":{"type":"compare","hi":"तुलना करो — go gaisa लगाकर दो चीज़ों की तुलना बोलो।","rows":[["Toropo e bonako go gaisa motse."]]},"items":[["Gompieno go thata go gaisa maabane.","गोम्पिएनो खो थाता खो गाइसा माआबाने।","आज कल से ज़्यादा गर्मी है।","S","C"],["Mo mosong fa jaanong go tsididi thata.","मो मोसोंग फ़ा जाआनोंग खो त्सिदिदि थाता।","आजकल सुबह बहुत ठंड होती है।","S","C"],["Serame se a tla.","सेरामे से आ त्ला।","सर्दी आ रही है।","S","C"],["Apara diaparo tse di bothitho.","आपारा दिआपारो त्से दि बोथितो।","गरम कपड़े पहनो।","L","B"],["Ke rekile sweta beke e e fetileng.","के रेकीले स्वेता बेके ए ए फ़ेतीलेंग।","मैंने पिछले हफ़्ते स्वेटर खरीदा।","S","B"],["Omisa diaparo mo letsatsing.","ओमिसा दिआपारो मो लेत्सात्सिंग।","कपड़े धूप में सुखाओ।","L","B"],["Diaparo tsa me di kolobile ke pula.","दिआपारो त्सा मे दि कोलोबीले के पुला।","बारिश में मेरे कपड़े भीग गए।","S","B"],["Kgwedi e e tlang pula e tla simolola.","ख्वेदी ए ए त्लांग पुला ए त्ला सिमोलोला।","अगले महीने बरसात शुरू होगी।","S","C"],["Maabane bosigo go ne ga nela phefo e kgolo.","माआबाने बोसिगो खो ने खा नेला फ़ेफ़ो ए ख्गोलो।","कल रात आँधी आई।","S","C"],["Boemo jwa bosa gompieno bo jang?","बोएमो ज्वा बोसा गोम्पिएनो बो जांग?","आज मौसम कैसा है?","L","B"],["Boemo jwa bosa gompieno bo montle thata.","बोएमो ज्वा बोसा गोम्पिएनो बो मोंत्ले थाता।","आज मौसम बहुत अच्छा है।","S","C"],["O se ke wa dira mo letsatsing le le fisang thata.","ओ से के वा दिरा मो लेत्सात्सिंग ले ले फ़िसांग थाता।","तेज़ धूप में काम मत करो।","L","B"],["Nwa metsi a mantsi mo bogoteng.","न्वा मेत्सी आ मांत्सी मो बोगोतेंग।","गर्मी में ज़्यादा पानी पियो।","L","B"],["Khurumetsa tlhogo mo letsatsing.","खुरुमेत्सा त्लोगो मो लेत्सात्सिंग।","धूप में सिर ढको।","L","B"],["Diaparo tse di nnye mo go nna.","दिआपारो त्से दि न्न्ये मो खो न्ना।","ये कपड़े मुझे छोटे हैं।","S","B"],["Ke tlhoka selekanyo se segolo.","के त्लोका सेलेकान्यो से सेगोलो।","मुझे बड़ा साइज़ चाहिए।","S","A"],["Hempe e e ntshwanela.","हेम्पे ए ए न्त्श्वानेला।","यह कमीज़ मुझे ठीक आती है।","S","B"],["Tlhatswa hempe e kwa thoko.","त्लात्स्वा हेम्पे ए क्वा थोको।","यह कमीज़ अलग धोओ।","L","B"],["Ditlhako tsa me di gagogile.","दित्लाको त्सा मे दि गागोगीले।","मेरे जूते फट गए हैं।","S","B"],["Ka letsatsi la moputso ke tla reka ditlhako tse disha.","का लेत्सात्सी ला मोपुत्सो के त्ला रेका दित्लाको त्से दिशा।","तनख़्वाह के दिन मैं नए जूते खरीदूँगा।","S","B"]]},{"tw":[["motsotswana","मोत्सोत्स्वाना","लाइन पर रुकना","क"],["nomoro","नोमोरो","ग़लत नंबर","क"],["molaetsa","मोलाएत्सा","संदेश","क"],["bateri","बातेरी","बैटरी","क"],["netweke","नेत्वेके","नेटवर्क","क"],["kwa godimo","क्वा गोदीमो","ज़ोर से","क"]],"drill":{"type":"showTell","hi":"फ़ोन के 3 वाक्य — अपना नाम भरकर पूरी शुरुआत बोलो।","rows":[["Dumela, ke ___ yo o buang.","Ke lefelo le na.","Ndza kombela ___ ka phone."]]},"items":[["A nka bua le mong?","आ न्का बुआ ले मोंग?","क्या मालिक से बात हो सकती है?","S","A"],["Tsweetswee, ema mo moleng motsotso.","त्स्वीत्स्वी, एमा मो मोलेंग मोत्सोत्सो।","कृपया एक मिनट लाइन पर रुकिए।","L","B"],["Ga ba yo fano jaanong.","खा बा यो फ़ानो जाआनोंग।","वे अभी यहाँ नहीं हैं।","S","C"],["Tsweetswee, leletsa morago ga ura.","त्स्वीत्स्वी, लेलेत्सा मोरागो खा उरा।","कृपया एक घंटे बाद फोन कीजिए।","S","A"],["Ntshwarele, o letseditse nomoro e e phoso.","न्त्श्वारेले, ओ लेत्सेदीत्से नोमोरो ए ए फ़ोसो।","माफ़ कीजिए, आपने ग़लत नंबर लगाया है।","S","A"],["Nomoro e e ne ya nthaya mme e tswa koloing.","नोमोरो ए ए ने या न्थाया म्मे ए त्स्वा कोलोइंग।","इस नंबर से मुझे मिस्ड कॉल आई थी।","S","B"],["Ke mang yo o ne a nleletsa mo mosong?","के मांग यो ओ ने आ न्लेलेत्सा मो मोसोंग?","सुबह मुझे किसने फोन किया था?","S","B"],["Tsweetswee, nromela molaetsa.","त्स्वीत्स्वी, न्रोमेला मोलाएत्सा।","कृपया मुझे संदेश भेज दीजिए।","S","A"],["Ke tla go romela aterese mo WhatsApp.","के त्ला खो रोमेला आतेरेसे मो व्हाट्सऐप।","मैं आपको व्हाट्सऐप पर पता भेज दूँगा।","S","B"],["Tsweetswee, nromela setshwantshi sa lokwalo.","त्स्वीत्स्वी, न्रोमेला सेत्श्वांत्शी सा लोक्वालो।","कृपया मुझे कागज़ की फोटो भेज दीजिए।","S","A"],["Palogare ya founo ya me e fedile.","पालोगारे या फ़ाउनो या मे ए फ़ेदीले।","मेरा फोन बैलेंस ख़त्म हो गया है।","S","A"],["Patiri ya me e kwa tlase.","पातिरी या मे ए क्वा त्लासे।","मेरी बैटरी कम है।","S","B"],["Kgokagano fano e bokoa.","ख्गोकागानो फ़ानो ए बोकोआ।","यहाँ नेटवर्क कमज़ोर है।","S","C"],["Founo e khutlile.","फ़ाउनो ए खुत्लीले।","फोन कट गया।","S","C"],["Ke tla leletsa gape ka metsotso e tlhano.","के त्ला लेलेत्सा गापे का मेत्सोत्सो ए त्लानो।","मैं पाँच मिनट में फिर फोन करूँगा।","S","B"],["Tsweetswee, boloka nomoro ya me.","त्स्वीत्स्वी, बोलोका नोमोरो या मे।","कृपया मेरा नंबर सेव कर लीजिए।","S","A"],["Kwala nomoro e.","क्वाला नोमोरो ए।","यह नंबर लिख लीजिए।","L","B"],["Bua go le gonnye ka lentswe le legolo.","बुआ खो ले गोन्ये का लेंत्स्वे ले लेगोलो।","थोड़ा ज़ोर से बोलिए।","S","B"],["Ke ne ka go romela molaetsa maabane.","के ने का खो रोमेला मोलाएत्सा माआबाने।","मैंने आपको कल संदेश भेजा था।","S","B"],["A o amogetse molaetsa wa me?","आ ओ आमोगेत्से मोलाएत्सा वा मे?","क्या आपको मेरा संदेश मिला?","S","B"]]}],"test":{"target":"Ba mo gae (ka founo)","goal":"Ka Setswana bolela thulaganyo ya gago yotlhe ya letsatsi le letsatsi — o tsoga leng, o ya tirong jang, o lela gae gabedi ka beke.","lines":[["Ke tsoga pele ga letsatsi le tlhaba.","के त्सोगा पेले खा लेत्सात्सी ले त्लाबा।"],["Ke ya tirong ka dinao.","के या तिरोंग का दिनाओ।"],["Ke leletsa gae gabedi ka beke.","के लेलेत्सा गाए गाबेदी का बेके।"],["Ke robala ka nako ya some.","के रोबाला का नाको या सोमे।"]]},"listen":[["(reetsa) O ya tirong jang?","(araba) Ke ya tirong ka dinao."],["(reetsa) O robala ka nako mang?","(araba) Ke robala ka nako ya some."]],"dialog":[["Wena","O tsogile leng gompieno?"],["Tsala","Ke tsogile ka nako ya tlhano."],["Wena","Ijoo, ke bonako!"],["Tsala","Ee, tiro e simolola ka bonako."],["Wena","Go siame, tsamaya sentle."]]},{"n":3,"title":"Family, Neighbours and Feelings","hi":"परिवार, पड़ोस और दिल की बात","pace":20,"days":[{"tw":[["ntirho ya kaya","न्तीर्हो या काया","गृहकार्य","क"],["dintlha","दीन्त्ल्हा","अंक","क"],["ikgantsha","इक्गान्त्शा","गर्व","क"],["tura","तूरा","महँगा","ग"],["ditsela","दीत्सेला","शिक्षा","क"],["dyondzisa","द्योन्द्ज़ीसा","पढ़ाना","क"]],"drill":{"type":"whoAmI","hi":"मैं कौन हूँ — तीन सुराग सुनो, जवाब बोलो।","rows":[["Ke dira ka diatla, ke aga dintlo.","Mmetli."],["Ke apaya dijo tsa hotele.","Moapei."]]},"items":[["Bana ba me ba ya sekolong sa mmuso.","बाना बा मे बा या सेकोलोंग सा म्मुसो।","मेरे बच्चे सरकारी स्कूल जाते हैं।","S","B"],["Sekolo se simolola ka nako ya robong.","सेकोलो से सिमोलोला का नाको या रोबोंग।","स्कूल नौ बजे शुरू होता है।","S","C"],["Morwadia me o mo mophatong wa botlhano.","मोर्वादिआ मे ओ मो मोफ़ातोंग वा बोत्लानो।","मेरी बेटी पाँचवीं कक्षा में है।","S","B"],["O montle mo thutong.","ओ मोंत्ले मो थुतोंग।","वह पढ़ाई में अच्छी है।","S","C"],["Morwa wa me o dira tiro ya gae bosigo.","मोर्वा वा मे ओ दिरा तिरो या गाए बोसिगो।","मेरा बेटा रात में गृहकार्य करता है।","S","B"],["A o fedisitse tiro ya gago ya gae?","आ ओ फ़ेदिसीत्से तिरो या गागो या गाए?","क्या तुमने गृहकार्य पूरा किया?","S","B"],["Ithuta letsatsi le letsatsi, e seng fela pele ga tlhahlobo.","इथुता लेत्सात्सी ले लेत्सात्सी, ए सेंग फ़ेला पेले खा त्लाल्लोबो।","रोज़ पढ़ो, सिर्फ़ परीक्षा से पहले नहीं।","S","C"],["Tlhahlobo e tla simolola kgwedi e e tlang.","त्लाल्लोबो ए त्ला सिमोलोला ख्वेदी ए ए त्लांग।","परीक्षा अगले महीने शुरू होगी।","L","B"],["Morwadia me o amogetse dintlha tse dintle.","मोर्वादिआ मे ओ आमोगेत्से दिंत्ला त्से दिंत्ले।","मेरी बेटी को अच्छे अंक मिले।","S","A"],["Ke ikgantsha ka bana ba me.","के इख्गांत्शा का बाना बा मे।","मुझे अपने बच्चों पर गर्व है।","S","A"],["Dibuka le dibukana jaanong di a tura.","दिबुका ले दिबुकाना जाआनोंग दि आ तुरा।","किताब-कॉपी अब महँगी हैं।","S","C"],["Ke rekile mokotla wa sekolo wa morwa wa me.","के रेकीले मोकोत्ला वा सेकोलो वा मोर्वा वा मे।","मैंने बेटे के लिए स्कूल बैग खरीदा।","S","B"],["Bana ba amogela dijo sekolong.","बाना बा आमोगेला दिजो सेकोलोंग।","बच्चों को स्कूल में खाना मिलता है।","S","C"],["Romela bana sekolong letsatsi le letsatsi.","रोमेला बाना सेकोलोंग लेत्सात्सी ले लेत्सात्सी।","बच्चों को रोज़ स्कूल भेजो।","L","B"],["Ga ke a kgona go ithuta thata.","खा के आ ख्गोना खो इथुता थाता।","मैं ज़्यादा पढ़ नहीं सका।","S","B"],["Mme bana ba me ba tla ithuta thata.","म्मे बाना बा मे बा त्ला इथुता थाता।","पर मेरे बच्चे ख़ूब पढ़ेंगे।","S","B"],["Thuto e bula ditsela tse dintsi.","थुतो ए बुला दित्सेला त्से दिंत्सी।","पढ़ाई कई रास्ते खोलती है।","S","C"],["Ke ruta morwadia me maitseboa.","के रुता मोर्वादिआ मे माइत्सेबोआ।","मैं शाम को अपनी बेटी को पढ़ाता हूँ।","S","B"],["Morwa wa gago o mo mophatong mang?","मोर्वा वा गागो ओ मो मोफ़ातोंग मांग?","आपका बेटा किस कक्षा में है?","L","B"],["O mo mophatong wa robedi.","ओ मो मोफ़ातोंग वा रोबेदी।","वह आठवीं कक्षा में है।","S","C"]]},{"tw":[["feela","फ़ेएला","झाड़ू लगाना","क"],["tlhotlha","त्ल्होत्ल्हा","टपकना","क"],["baakanya","बाअकाञा","मरम्मत","ख"],["matlakala","मात्लाकाला","कूड़ा","क"],["bili","बीली","बिल","ग"],["latlhela","लात्ल्हेला","कूड़ेदान","क"]],"drill":{"type":"oneMany","hi":"एक से अनेक — bantsi/diatlhago लगाकर बोलो।","rows":[["lelapa le le lengwe","malapa a mabedi"],["tsala e le nngwe","ditsala tse tharo"],["ngwana o le mongwe","bana ba babedi"]]},"items":[["Letsatsi le letsatsi mo mosong ke phepafatsa phaposi.","लेत्सात्सी ले लेत्सात्सी मो मोसोंग के फ़ेपाफ़ात्सा फ़ापोसी।","मैं रोज़ सुबह कमरा साफ़ करता हूँ।","S","B"],["Pele feela fa fatshe.","पेले फ़ेएला फ़ा फ़ात्शे।","पहले फ़र्श पर झाड़ू लगाओ।","L","B"],["Tlatsa pêile ka metsi.","त्लात्सा पेइले का मेत्सी।","बाल्टी में पानी भरो।","L","B"],["Thapo e a rota.","थापो ए आ रोता।","नल टपक रहा है।","S","C"],["Lebone ga le tuke.","लेबोने खा ले तुके।","बल्ब नहीं जल रहा।","S","C"],["Ke tla fetola lebone gompieno.","के त्ला फ़ेतोला लेबोने गोम्पिएनो।","मैं आज बल्ब बदल दूँगा।","S","B"],["Lonotlelo lwa lebati lo robegile.","लोनोत्लेलो ल्वा लेबाती लो रोबेगीले।","दरवाज़े का ताला टूट गया है।","S","C"],["Bitsa mongwe go baakanya se.","बित्सा मोंग्वे खो बाआकान्या से।","इसे ठीक करने के लिए किसी को बुलाओ।","L","B"],["Tokiso e tla tsaya bokae?","तोकीसो ए त्ला त्साया बोकाए?","मरम्मत में कितना ख़र्च आएगा?","S","B"],["Baya dilo tsa gago mo lefelong.","बाया दिलो त्सा गागो मो लेफ़ेलोंग।","अपनी चीज़ें जगह पर रखो।","L","B"],["Latlha matlakala mo seroweng.","लात्ला मात्लाकाला मो सेरोवेंग।","कूड़ा कूड़ेदान में डालो।","L","B"],["O se ke wa latlha matlakala mo tseleng.","ओ से के वा लात्ला मात्लाकाला मो त्सेलेंग।","सड़क पर कूड़ा मत फेंको।","L","B"],["Tswala thapo morago ga tiriso.","त्स्वाला थापो मोरागो खा तिरीसो।","इस्तेमाल के बाद नल बंद करो।","L","B"],["Tima mabone fa o tswa.","तिमा मबोने फ़ा ओ त्स्वा।","बाहर जाते समय बत्ती बंद करो।","L","B"],["Ke ipaakanyeditse setilo.","के इपाआकान्येदीत्से सेतिलो।","मैंने कुर्सी ख़ुद ठीक की।","S","B"],["Gompieno bili ya motlakase e tsile.","गोम्पिएनो बिली या मोत्लाकासे ए त्सिले।","आज बिजली का बिल आया।","S","C"],["Bili e kwa godimo go gaisa kgwedi e e fetileng.","बिली ए क्वा गोदिमो खो गाइसा ख्वेदी ए ए फ़ेतीलेंग।","बिल पिछले महीने से ज़्यादा है।","S","C"],["Diriso motlakase go le gonnye.","दिरीसो मोत्लाकासे खो ले गोन्ये।","बिजली कम ख़र्च करो।","L","B"],["Ntlo e e phepa e re dira gore re nne botsogo.","न्त्लो ए ए फ़ेपा ए रे दिरा गोरे रे न्ने बोत्सोगो।","साफ़ घर हमें सेहतमंद रखता है।","S","C"],["Botlhe ba tshwanetse go thusa mo tirong ya gae.","बोत्ले बा च्वानेत्से खो थुसा मो तिरोंग या गाए।","घर के काम में सबको हाथ बँटाना चाहिए।","S","B"]]},{"tw":[["muakelani","मूअकेलानी","पड़ोसी","क"],["thusana","थूसाना","एक-दूसरे","क"],["kopano","कोपानो","बैठक","ख"],["rarabolole","राराबोलोले","सुलझाना","क"],["tlotla","त्लोत्ला","सम्मान","क"],["amogeleng","अमोगेलेंग","स्वागत","क"]],"drill":{"type":"yesNo","hi":"हाँ-नहीं जवाब — पूरा छोटा वाक्य बोलो।","rows":[["A baagisani ba gago ba montle?","Ee, ba montle. / Nnyaa, ga ba montle."],["A o itse ngwana yoo?","Ee, ke a mo itse. / Nnyaa, ga ke mo itse."]]},"items":[["Baagisani ba rona ba montle thata.","बाआगिसानी बा रोना बा मोंत्ले थाता।","हमारे पड़ोसी बहुत अच्छे हैं।","S","B"],["Ke mo itse dingwaga tse some.","के मो इत्से दिंग्वागा त्से सोमे।","मैं उसे दस साल से जानता हूँ।","S","A"],["Re thusana.","रे थुसाना।","हम एक-दूसरे की मदद करते हैं।","S","B"],["O mphile baesekele ya gagwe maabane.","ओ म्फीले बाएसेकेले या गाग्वे माआबाने।","उसने कल मुझे अपनी साइकिल दी।","S","B"],["Tsweetswee, tlhokomela phaposi ya me malatsi a mabedi.","त्स्वीत्स्वी, त्लोकोमेला फ़ापोसी या मे मालात्सी आ माबेदी।","कृपया दो दिन मेरे कमरे का ध्यान रखिए।","S","A"],["Gompieno go na le kopano mo motseng.","गोम्पिएनो खो ना ले कोपानो मो मोत्सेंग।","आज गाँव में बैठक है।","L","B"],["Botlhe ba tshwanetse go tla kopanong.","बोत्ले बा च्वानेत्से खो त्ला कोपानोंग।","बैठक में सबको आना चाहिए।","L","B"],["Re phepafaditse letamo la motse mmogo.","रे फ़ेपाफ़ादीत्से लेतामो ला मोत्से म्मोगो।","हमने मिलकर गाँव का तालाब साफ़ किया।","S","B"],["Go na le thata mo bokopanong.","खो ना ले थाता मो बोकोपानोंग।","एकता में बल है।","S","C"],["Morwa wa moagisani wa me o amogetse tiro mo toropong.","मोर्वा वा मोआगिसानी वा मे ओ आमोगेत्से तिरो मो तोरोपोंग।","मेरे पड़ोसी के बेटे को शहर में नौकरी मिली।","S","B"],["Re keditse mmogo.","रे केदीत्से म्मोगो।","हमने साथ मिलकर खुशी मनाई।","S","B"],["O se ke wa lwa ka dilo tse nnye.","ओ से के वा ल्वा का दिलो त्से न्न्ये।","छोटी बातों पर मत लड़ो।","L","B"],["Rarabolola bothata ka go bua.","रारबोलोला बोथाता का खो बुआ।","बात करके समस्या सुलझाओ।","L","B"],["Mogolo o tlhoka thuso ya rona.","मोगोलो ओ त्लोका थुसो या रोना।","बुज़ुर्ग को हमारी मदद चाहिए।","S","B"],["Ke isitse mokotla wa bone go fitlha gae.","के इसीत्से मोकोत्ला वा बोने खो फ़ित्ला गाए।","मैंने उनका थैला घर तक पहुँचाया।","S","B"],["Tlotla bagolo.","त्लोत्ला बागोलो।","बड़ों का सम्मान करो।","L","B"],["Ke mang yo o nnang mo ntlong eo?","के मांग यो ओ न्नांग मो न्त्लोंग एओ?","उस घर में कौन रहता है?","S","B"],["Lelapa le lesha le tsile koo.","लेलापा ले लेशा ले त्सिले कोओ।","वहाँ एक नया परिवार आया है।","S","C"],["A re ba amogeleng.","आ रे बा आमोगेलेंग।","चलो उनका स्वागत करें।","S","C"],["Baagisani ba ba molemo ba tshwana le lelapa.","बाआगिसानी बा बा मोलेमो बा च्वाना ले लेलापा।","अच्छे पड़ोसी परिवार जैसे होते हैं।","S","C"]]},{"tw":[["moletlo","मोलेत्लो","त्योहार","क"],["dimonamone","दीमोनामोने","मिठाई","क"],["boikhutso","बोइखूत्सो","छुट्टी","ख"],["bukela","बूकेला","पहले से टिकट लेना","ग"],["abelana","अबेलाना","बाँटना","क"],["kgethegile","क्गेथेगीले","ख़ास","क"]],"drill":{"type":"soundFamily","hi":"आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।","rows":[["lelapa","gale","tale"],["monate","kgale","bale"]]},"items":[["Ke moletlo ofe o o o ratang go gaisa?","के मोलेत्लो ओफ़े ओ ओ ओ रातांग खो गाइसा?","आपको कौन-सा त्योहार सबसे पसंद है?","L","B"],["Ke rata Chhath le Holi.","के राता छठ ले होली।","मुझे छठ और होली पसंद है।","S","B"],["Moletlo o a tla beke e e tlang.","मोलेत्लो ओ आ त्ला बेके ए ए त्लांग।","अगले हफ़्ते त्योहार आ रहा है।","S","C"],["Re tla phepafatsa ntlo yotlhe.","रे त्ला फ़ेपाफ़ात्सा न्त्लो योत्ले।","हम पूरा घर साफ़ करेंगे।","S","B"],["Mme wa me o tla apaya didiabo.","म्मे वा मे ओ त्ला आपाया दिदिआबो।","मेरी माँ मिठाई बनाएँगी।","S","B"],["Re rekile diaparo tse disha tsa bana.","रे रेकीले दिआपारो त्से दिशा त्सा बाना।","हमने बच्चों के लिए नए कपड़े खरीदे।","S","B"],["Ke tla amogela maikhutso a malatsi a mararo.","के त्ला आमोगेला माइखुत्सो आ मालात्सी आ मारारो।","मुझे तीन दिन की छुट्टी मिलेगी।","S","B"],["Dithekete tsa setimela di tladitswe pele.","दितेकेते त्सा सेतिमेला दि त्लादित्स्वे पेले।","ट्रेन की टिकटें पहले से भरी हैं।","S","C"],["Ke beeletse thekete kgwedi e e fetileng.","के बेएलेत्से तेकेते ख्वेदी ए ए फ़ेतीलेंग।","मैंने पिछले महीने टिकट बुक कर ली।","S","B"],["Botlhe ba tla tla gae ka moletlo.","बोत्ले बा त्ला त्ला गाए का मोलेत्लो।","त्योहार में सब घर आएँगे।","S","C"],["Re tla kopana morago ga ngwaga.","रे त्ला कोपाना मोरागो खा ंग्वागा।","हम एक साल बाद मिलेंगे।","S","A"],["Motse otlhe o lebega o montle.","मोत्से ओत्ले ओ लेबेगा ओ मोंत्ले।","पूरा गाँव सुंदर लगता है।","S","C"],["Ditumediso tsa moletlo mo go wena le lelapa la gago.","दितुमेदिसो त्सा मोलेत्लो मो खो वेना ले लेलापा ला गागो।","आपको और परिवार को त्योहार की शुभकामनाएँ।","S","A"],["Le wena gape.","ले वेना गापे।","आपको भी।","L","B"],["Re tshubile dipone maitseboa.","रे त्शुबीले दिपोने माइत्सेबोआ।","हमने शाम को दीये जलाए।","S","B"],["Bana ba tshamekile letsatsi lotlhe.","बाना बा च्हामेकीले लेत्सात्सी लोत्ले।","बच्चे पूरा दिन खेलते रहे।","S","C"],["Re abetse baagisani didiabo.","रे आबेत्से बाआगिसानी दिदिआबो।","हमने पड़ोसियों में मिठाई बाँटी।","S","B"],["Meletlo e kopanya batho.","मेलेत्लो ए कोपान्या बाथो।","त्योहार लोगों को जोड़ते हैं।","S","C"],["Morago ga moletlo ke tla boela tirong.","मोरागो खा मोलेत्लो के त्ला बोएला तिरोंग।","त्योहार के बाद मैं काम पर लौटूँगा।","S","B"],["Ngwaga ono moletlo o ne o le kgethegile thata.","ंग्वागा ओनो मोलेत्लो ओ ने ओ ले ख्गेथेगीले थाता।","इस साल त्योहार बहुत ख़ास रहा।","S","C"]]},{"tw":[["itumetse","इतूमेत्से","खुश","क"],["tshwenyegile","च्वेञेगीले","उदास","क"],["tshwentswe","च्वेन्त्स्वे","चिंतित","क"],["galefile","गालेफ़ीले","गुस्सा","क"],["boifa","बोइफ़ा","डरा हुआ","क"],["tsholofelo","चोलोफ़ेलो","उम्मीद","क"]],"drill":{"type":"opposites","hi":"उलटे जोड़े — शब्द सुनो, उलटा बोलो।","rows":[["itumetse","tshwentswe"],["montle","bosula"],["kgolo","nnye"]]},"items":[["Gompieno ke itumetse thata.","गोम्पिएनो के इतुमेत्से थाता।","आज मैं बहुत खुश हूँ।","S","A"],["O hutsafetse ka eng?","ओ हुत्सफ़ेत्से का एंग?","आप उदास क्यों हैं?","L","B"],["Ke tshwenyegile ka madi.","के च्वेन्येगीले का मादी।","मुझे पैसों की चिंता है।","S","A"],["O se ke wa tshwenyega, tsotlhe di tla siama.","ओ से के वा च्वेन्येगा, त्सोत्ले दि त्ला सिआमा।","चिंता मत करो, सब ठीक होगा।","L","B"],["Ke gopola lelapa la me.","के गोपोला लेलापा ला मे।","मुझे अपने परिवार की याद आ रही है।","S","A"],["Mo toropong ke ne ke ikutlwa ke le esi thata.","मो तोरोपोंग के ने के इकुत्ल्वा के ले एसी थाता।","शहर में मुझे बहुत अकेलापन लगा।","S","B"],["Ditsala tsa me di ntshegisitse.","दित्साला त्सा मे दि न्त्शेगिसीत्से।","मेरे दोस्तों ने मुझे हँसाया।","S","B"],["Ke ne ke galefile, mme ka didimala.","के ने के गालेफ़ीले, म्मे का दिदिमाला।","मैं गुस्से में था, पर चुप रहा।","S","B"],["Bogale bo senya tiro.","बोगाले बो सेन्या तिरो।","गुस्सा काम बिगाड़ देता है।","S","C"],["Ke tshaba go latlhegelwa ke tiro e.","के चाबा खो लात्लेगेल्वा के तिरो ए।","मुझे यह नौकरी छूटने का डर है।","S","A"],["O se ke wa boifa, dira ka kelotlhoko.","ओ से के वा बोइफ़ा, दिरा का केलोत्लोको।","डरो मत, ध्यान से काम करो।","L","B"],["Ke ikgantshitse fa morwa a atlega tlhahlobo.","के इख्गांत्शीत्से फ़ा मोर्वा आ आत्लेगा त्लाल्लोबो।","बेटे के पास होने पर मुझे गर्व हुआ।","S","B"],["Ke a leboga ka go nna le nna.","के आ लेबोखा का खो न्ना ले न्ना।","मेरा साथ देने के लिए धन्यवाद।","S","A"],["Matsatsi mangwe a thata.","मात्सात्सी मांग्वे आ थाता।","कुछ दिन मुश्किल होते हैं।","S","C"],["Mme matsatsi a a thata a a feta.","म्मे मात्सात्सी आ आ थाता आ आ फ़ेता।","पर मुश्किल दिन भी गुज़र जाते हैं।","S","C"],["Fa o hutsahetse, bua le mongwe.","फ़ा ओ हुत्सहेत्से, बुआ ले मोंग्वे।","उदास हो तो किसी से बात करो।","L","B"],["Puo e e molemo e lokisa pelo.","पुओ ए ए मोलेमो ए लोकीसा पेलो।","अच्छी बातचीत मन हल्का कर देती है।","S","C"],["Ke itumela fa ke leletsa gae.","के इतुमेला फ़ा के लेलेत्सा गाए।","घर फोन करके मुझे खुशी मिलती है।","S","B"],["Nyenya mme o simolole letsatsi.","न्येन्या म्मे ओ सिमोलोले लेत्सात्सी।","मुस्कुराओ और दिन शुरू करो।","L","B"],["Tsholofelo e re isa pele.","त्शोलोफ़ेलो ए रे इसा पेले।","उम्मीद हमें आगे बढ़ाती है।","S","C"]]}],"test":{"target":"Moletlo wa lelapa (munghana a mongwe)","goal":"Ka Setswana dumedisa, botsa ka lelapa, bolela selo se le sengwe se se go itumeditseng — dirisa mola o le mongwe wa 'ka ntlha ya gore'.","lines":[["Dumedisa wena le lelapa la gago ka moletlo.","दुमेदीसा वेना ले लेलापा ला गागो का मोलेत्लो।"],["Botlhe ba kae gae?","बोत्ले बा काए गाए?"],["Gompieno ke itumetse ka ntlha ya gore morwadia me o fentse tlhahlobo.","गोम्पिएनो के इतुमेत्से का न्त्ला या गोरे मोर्वादिआ मे ओ फ़ेंत्से त्लाल्लोबो।"],["Re tla kopana morago ga ngwaga.","रे त्ला कोपाना मोरागो खा ंग्वागा।"]]},"listen":[["(reetsa) O itumetse ka eng gompieno?","(araba) Morwadia me o fentse tlhahlobo."],["(reetsa) A lebone le a dira?","(araba) Ee, mmetli o le baakantse."]],"dialog":[["Moagisani","Lebone la rona le timile."],["Wena","La rona le lona le timile."],["Moagisani","Ke tla leletsa ofisi."],["Wena","Go siame, ke tla leta fano."],["Moagisani","Ba rile ura e le nngwe."]]},{"n":4,"title":"Good Habits, Time and Messages","hi":"आदतें, समय और घर का संदेश","pace":20,"days":[{"tw":[["tlwaelo","त्ल्वाएलो","आदत","क"],["metlha","मेत्ल्हा","सच","क"],["seabe","सेअबे","अभ्यास","क"],["seabe","सेअबे","नतीजा","क"],["senya","सेञा","बर्बाद करना","क"],["khumo","खूमो","पूँजी","क"]],"drill":{"type":"sortHabit","hi":"छाँटो — सुनकर बोलो: tlwaelo e ntle kana e e bosula?","rows":[["Bua boammaaruri.","Mokgwa o o molemo"],["Senya madi mo gutka.","Mokgwa o o bosula"],["Boloka madi beke le beke.","Mokgwa o o molemo"],["Fitlha tirong ka mo go diegileng.","Mokgwa o o bosula"]]},"items":[["Mekgwa e e molemo e dira botshelo jo bo molemo.","मेक्गवा ए ए मोलेमो ए दिरा बोत्शेलो जो बो मोलेमो।","अच्छी आदतें अच्छी ज़िंदगी बनाती हैं।","S","C"],["Tsoga ka bonako letsatsi le letsatsi.","त्सोगा का बोनाको लेत्सात्सी ले लेत्सात्सी।","रोज़ जल्दी उठो।","L","B"],["Tlhapa meno gabedi ka letsatsi.","त्लापा मेनो गाबेदी का लेत्सात्सी।","दिन में दो बार दाँत साफ़ करो।","L","B"],["Tlhapa letsatsi le letsatsi.","त्लापा लेत्सात्सी ले लेत्सात्सी।","रोज़ नहाओ।","L","B"],["Kgaola manala a gago.","ख्गाओला मानाला आ गागो।","नाख़ून कटे रखो।","L","B"],["Bua boammaaruri ka metlha.","बुआ बोआम्माआरुरी का मेत्ला।","हमेशा सच बोलो।","L","B"],["Fitlha tirong ka nako.","फ़ित्ला तिरोंग का नाको।","समय पर काम पहुँचो।","L","B"],["O se ke wa senya madi mo mekgweng e e bosula.","ओ से के वा सेन्या मादी मो मेक्गवेंग ए ए बोसुला।","बुरी आदतों पर पैसे मत उड़ाओ।","L","B"],["Nna kgakala le gutka le bojalwa.","न्ना ख्गाकाला ले गुत्का ले बोजाल्वा।","गुटखा और शराब से दूर रहो।","L","B"],["Boloka madi go le gonnye beke le beke.","बोलोका मादी खो ले गोन्ये बेके ले बेके।","हर हफ़्ते थोड़े पैसे बचाओ।","L","B"],["Ke tlogetse go nwa tee bosigo.","के त्लोगेत्से खो न्वा ती बोसिगो।","मैंने रात में चाय पीना छोड़ दिया।","S","B"],["Jaanong ke robala sentle.","जाआनोंग के रोबाला सेंत्ले।","अब मुझे अच्छी नींद आती है।","S","B"],["Tsamaya metsotso e masome a mabedi letsatsi le letsatsi.","त्सामाया मेत्सोत्सो ए मासोमे आ माबेदी लेत्सात्सी ले लेत्सात्सी।","रोज़ बीस मिनट टहलो।","L","B"],["Bala sengwe se sesha letsatsi le letsatsi.","बाला सेंग्वे से सेशा लेत्सात्सी ले लेत्सात्सी।","रोज़ कुछ नया पढ़ो।","L","B"],["Ke itlwaetsa Sekgoa fa ke tsamaya.","के इत्लवाएत्सा सेक्गोआ फ़ा के त्सामाया।","मैं टहलते-टहलते अंग्रेज़ी का अभ्यास करता हूँ।","S","B"],["Tlwaetso e nnye letsatsi le letsatsi e naya maungo a magolo.","त्लवाएत्सो ए न्न्ये लेत्सात्सी ले लेत्सात्सी ए नाया माउंगो आ मागोलो।","रोज़ थोड़ा अभ्यास बड़ा फल देता है।","S","C"],["Baya founo kgakala fa o dira.","बाया फ़ाउनो ख्गाकाला फ़ा ओ दिरा।","काम करते समय फोन दूर रखो।","L","B"],["Mekgwa e e bosula e motlhofo go simolola, e thata go tlogela.","मेक्गवा ए ए बोसुला ए मोत्लोफ़ो खो सिमोलोला, ए थाता खो त्लोगेला।","बुरी आदतें शुरू करना आसान, छोड़ना मुश्किल।","S","C"],["Fetola mokgwa o le mongwe o monnye beke e.","फ़ेतोला मोक्गवा ओ ले मोंग्वे ओ मोन्ये बेके ए।","इस हफ़्ते एक छोटी आदत बदलो।","L","B"],["Mekgwa ya me e e molemo ke khumo ya me.","मेक्गवा या मे ए ए मोलेमो के खुमो या मे।","मेरी अच्छी आदतें ही मेरी पूँजी हैं।","S","B"]]},{"tw":[["siku","सीकू","तारीख़","क"],["ku duelwa","कू दूएल्वा","देना है (देय)","ग"],["halofo","हालोफ़ो","साढ़े","क"],["paka-ya-robong","पाका-या-रोबोंग","पौने","क"],["gabosigo","गाबोसीगो","ठीक-ठीक","क"],["tsalwa","त्साल्वा","जन्मतिथि","ख"]],"drill":{"type":"timeRead","hi":"nako bolela — nako reetsa, bua ka Setswana.","rows":[["6:30","halofo go feta borataro"],["4:45","go sala metsotso e some-le-tlhano go ya botlhano"],["9:15","robong le karolwana"]]},"items":[["Letsatsi la kgwedi gompieno ke lefe?","लेत्सात्सी ला ख्वेदी गोम्पिएनो के लेफ़े?","आज तारीख़ क्या है?","S","A"],["Gompieno ke la botlhano Mopitlo.","गोम्पिएनो के ला बोत्लानो मोपित्लो।","आज पाँच मार्च है।","L","B"],["Tefo ya me e tla ka letsatsi la bosupa.","तेफ़ो या मे ए त्ला का लेत्सात्सी ला बोसुपा।","मेरा भुगतान सात तारीख़ को आता है।","S","A"],["Rente e duelwa ka letsatsi la ntlha.","रेंते ए दुएल्वा का लेत्सात्सी ला न्त्ला।","किराया पहली तारीख़ को देना है।","S","C"],["Ke tshotswe ka 1995.","के त्शोत्स्वे का १९९५।","मेरा जन्म उन्नीस सौ पचानबे में हुआ।","S","B"],["Letsatsi la gago la botsalo ke lefe?","लेत्सात्सी ला गागो ला बोत्सालो के लेफ़े?","आपकी जन्मतिथि क्या है?","L","B"],["Ofisi e tswetswe ka Matlhatso wa bobedi.","ओफ़िसी ए त्स्वेत्स्वे का मात्लात्सो वा बोबेदी।","दफ़्तर दूसरे शनिवार को बंद रहता है।","L","B"],["Tla ka nako ya robong le halofo tlhamalalo.","त्ला का नाको या रोबोंग ले हालोफ़ो त्लामालालो।","ठीक साढ़े नौ बजे आइए।","L","B"],["Jaanong ke nako ya bonnelokapele go botlhano.","जाआनोंग के नाको या बोन्नेलोकापेले खो बोत्लानो।","अभी पौने पाँच बजे हैं।","L","B"],["Bese e bula ka nako ya borataro le halofo.","बेसे ए बुला का नाको या बोरातारो ले हालोफ़ो।","बस साढ़े छह बजे खुलती है।","L","B"],["Ke tla fitlha ka ura le halofo.","के त्ला फ़ित्ला का उरा ले हालोफ़ो।","मैं डेढ़ घंटे में पहुँच जाऊँगा।","S","B"],["Re diegile ka metsotso e some.","रे दिएगीले का मेत्सोत्सो ए सोमे।","हमें दस मिनट की देर हो गई है।","S","B"],["Tla metsotso e tlhano pele.","त्ला मेत्सोत्सो ए त्लानो पेले।","पाँच मिनट पहले आओ।","L","B"],["Maikhutso a me a simolola ka letsatsi la masome a mabedi.","माइखुत्सो आ मे आ सिमोलोला का लेत्सात्सी ला मासोमे आ माबेदी।","मेरी छुट्टी बीस तारीख़ से शुरू होती है।","S","B"],["Kgwedi e e na le malatsi a makae?","ख्वेदी ए ए ना ले मालात्सी आ माकाए?","इस महीने में कितने दिन हैं?","S","B"],["Kgwedi e e na le malatsi a masome a mararo le motso.","ख्वेदी ए ए ना ले मालात्सी आ मासोमे आ मारारो ले मोत्सो।","इस महीने में इकतीस दिन हैं।","L","B"],["Letsatsi la some-le-tlhano ke letsatsi lefe la beke?","लेत्सात्सी ला सोमे-ले-त्लानो के लेत्सात्सी लेफ़े ला बेके?","पंद्रह तारीख़ को कौन-सा दिन है?","S","B"],["Ke Labotlhano.","के लाबोत्लानो।","वह शुक्रवार है।","L","B"],["Kwala letsatsi mo lokwalong.","क्वाला लेत्सात्सी मो लोक्वालोंग।","कागज़ पर तारीख़ लिखो।","L","B"],["Nako e e fetileng ga e boe.","नाको ए ए फ़ेतीलेंग खा ए बोए।","गया समय लौटकर नहीं आता।","S","C"]]},{"tw":[["molaetsa","मोलाएत्सा","आवाज़-संदेश","क"],["hlamula","ह्लामूला","जवाब","क"],["rakgolo","राक्गोलो","प्रणाम, आदर","क"],["maatla","माअत्ला","हिम्मत","क"],["amukela","अमूकेला","पाना","क"],["hi lerato","ही लेरातो","सप्रेम","क"]],"drill":{"type":"messageFrame","hi":"mola o mone wa lekwalo la gae — ख़ाली जगह अपनी बात से भरकर बोलो।","rows":[["Dumela mme, ke teng ___.","Tiro e tsamaya ___.","Ke tla tla gae ka ___.","Itlhokomele."]]},"items":[["Dumela mme, ke teng fano.","दुमेला म्मे, के तेंग फ़ानो।","हैलो माँ, मैं यहाँ ठीक हूँ।","S","A"],["Ke amogetse molaetsa wa gago maabane.","के आमोगेत्से मोलाएत्सा वा गागो माआबाने।","मुझे कल आपका संदेश मिला।","S","B"],["Ntshwarele ka go araba ka mo go diegileng.","न्त्श्वारेले का खो आराबा का मो खो दिएगीलेंग।","देर से जवाब के लिए माफ़ी।","S","A"],["Tiro e tsamaya sentle fano.","तिरो ए त्सामाया सेंत्ले फ़ानो।","यहाँ काम अच्छा चल रहा है।","S","A"],["Ke romeletse dirupiya tse dikete tse tlhano.","के रोमेलेत्से दिरुपिया त्से दिकेते त्से त्लानो।","मैंने पाँच हज़ार रुपये भेजे हैं।","S","B"],["Tsweetswee, sekaseka mme o mpolelele.","त्स्वीत्स्वी, सेकासेका म्मे ओ म्पोलेलेले।","कृपया जाँचकर बताइए।","S","A"],["Rre o jang jaanong?","र्रे ओ जांग जाआनोंग?","पिताजी की तबीयत अब कैसी है?","S","B"],["Mo bolelele gore a nwe molemo letsatsi le letsatsi.","मो बोलेलेले गोरे आ न्वे मोलेमो लेत्सात्सी ले लेत्सात्सी।","उनसे कहिए रोज़ दवा लें।","S","C"],["Thuto ya bana e tsamaya jang?","थुतो या बाना ए त्सामाया जांग?","बच्चों की पढ़ाई कैसी चल रही है?","S","B"],["Ke tla tla gae kgwedi e e tlang.","के त्ला त्ला गाए ख्वेदी ए ए त्लांग।","मैं अगले महीने घर आऊँगा।","S","A"],["Ke tla tlisetsa botlhe diaparo.","के त्ला त्लिसेत्सा बोत्ले दिआपारो।","मैं सबके लिए कपड़े लाऊँगा।","S","B"],["Itlhokomele.","इत्लोकोमेले।","अपना ध्यान रखिए।","S","C"],["Mo rayele rremogolo tumediso ya me.","मो रायेले र्रेमोगोलो तुमेदिसो या मे।","दादाजी को मेरा प्रणाम कहिए।","S","A"],["Ke tla romela molaetsa wa lentswe ka Sontaga.","के त्ला रोमेला मोलाएत्सा वा लेंत्स्वे का सोंतागा।","मैं रविवार को आवाज़-संदेश भेजूँगा।","S","B"],["Fa o na le nako, araba.","फ़ा ओ ना ले नाको, आराबा।","समय मिले तो जवाब दीजिए।","S","B"],["Nromela setshwantshi sa botlhe.","न्रोमेला सेत्श्वांत्शी सा बोत्ले।","मुझे सबकी एक फोटो भेजिए।","S","B"],["Balela mme molaetsa o.","बालेला म्मे मोलाएत्सा ओ।","यह संदेश माँ को पढ़कर सुनाओ।","S","C"],["Ke romeletse molaetsa o moleele morago ga malatsi a mantsi.","के रोमेलेत्से मोलाएत्सा ओ मोलेएले मोरागो खा मालात्सी आ मांत्सी।","मैंने बहुत दिनों बाद लंबा संदेश भेजा।","S","B"],["Mafoko a gago a mpha maatla.","मफ़ोको आ गागो आ म्फ़ा माआत्ला।","आपकी बातें मुझे हिम्मत देती हैं।","S","B"],["Ke gopola dijo tsa gae thata.","के गोपोला दिजो त्सा गाए थाता।","मुझे घर के खाने की बहुत याद आती है।","S","B"]]},{"tw":[["muendzi","मूएन्द्ज़ी","मेहमान","क"],["setulo","सेतूलो","बैठने की जगह","क"],["tshwaregile","च्वारेगीले","व्यस्त","ख"],["ruri","रूरी","ज़रूर","क"],["nkitse","न्कीत्से","याद रखना","क"],["nakambe","नाकाम्बे","फिर से","क"]],"drill":{"type":"dialogueFill","hi":"संवाद पूरा करो — moeng-polelo, ख़ाली जगह बोलकर भरो।","rows":[["Moeng: Dumela, ke kae phaposi?","Mong: Tsena, nna fa."],["Moeng: O rata tee kgotsa metsi?","Mong: Fa o rata, tee e siame."]]},"items":[["O amogetswe mo ntlong ya rona.","ओ आमोगेत्स्वे मो न्त्लोंग या रोना।","हमारे घर में आपका स्वागत है।","S","B"],["Tsweetswee, nna fa fatshe.","त्स्वीत्स्वी, न्ना फ़ा फ़ात्शे।","कृपया बैठिए।","S","A"],["O rata tee kgotsa metsi?","ओ राता ती ख्होत्सा मेत्सी?","आप चाय लेंगे या पानी?","S","B"],["Metsi fela, ke a leboga.","मेत्सी फ़ेला, के आ लेबोखा।","सिर्फ़ पानी, धन्यवाद।","L","B"],["Botlhe ba jang mo gae?","बोत्ले बा जांग मो गाए?","घर में सब कैसे हैं?","S","A"],["Ka tlotlego ya Modimo, botlhe ba siame.","का त्लोत्लेगो या मोदिमो, बोत्ले बा सिआमे।","भगवान की कृपा से सब ठीक हैं।","L","B"],["O tsile morago ga malatsi a mantsi.","ओ त्सिले मोरागो खा मालात्सी आ मांत्सी।","आप बहुत दिनों बाद आए।","S","B"],["Ke ne ke tshwaregile ka tiro.","के ने के च्वारेगीले का तिरो।","मैं काम में व्यस्त था।","L","B"],["Ja dijo tsa maitseboa pele ga o tsamaya.","जा दिजो त्सा माइत्सेबोआ पेले खा ओ त्सामाया।","रात का खाना खाकर जाइए।","S","A"],["Nnyaa, ke tshwanetse go tsamaya ka bonako.","न्न्याआ, के च्वानेत्से खो त्सामाया का बोनाको।","नहीं, मुझे जल्दी निकलना है।","L","A"],["Tlang gape le lelapa.","त्लांग गापे ले लेलापा।","फिर परिवार के साथ आइए।","S","B"],["Ke tla tla ruri.","के त्ला त्ला रुरी।","मैं ज़रूर आऊँगा।","L","B"],["Re kopanye kwa lenyalong ngwaga o o fetileng.","रे कोपान्ये क्वा लेन्यालोंग ंग्वागा ओ ओ फ़ेतीलेंग।","हम पिछले साल शादी में मिले थे।","S","B"],["A o a nitse?","आ ओ आ नित्से?","क्या आप मुझे पहचानते हैं?","S","B"],["Ee, ke a go itse.","ए, के आ खो इत्से।","हाँ, बिल्कुल पहचानता हूँ।","L","B"],["Go itumedisa go kopana le wena gape.","खो इतुमेदिसा खो कोपाना ले वेना गापे।","आपसे दोबारा मिलकर बहुत अच्छा लगा।","S","B"],["Ntumedisetse botlhe mo gae.","न्तुमेदिसेत्से बोत्ले मो गाए।","घर में सबको मेरा नमस्ते कहिएगा।","S","B"],["Baeti ke Modimo mo go rona.","बाएती के मोदिमो मो खो रोना।","मेहमान हमारे लिए भगवान समान हैं।","S","C"],["Nleletsa fa o fitlha gae.","न्लेलेत्सा फ़ा ओ फ़ित्ला गाए।","घर पहुँचकर मुझे फोन कीजिएगा।","S","B"],["Maitseboa a ne a le monate thata.","माइत्सेबोआ आ ने आ ले मोनाते थाता।","शाम बहुत अच्छी रही।","S","C"]]},{"tw":[["mathomong","माथोमोंग","शुरुआत","क"],["hi bonya","ही बोञा","धीरे-धीरे","क"],["isagwe","इसाग्वे","भविष्य","ख"],["riendzo","रीएन्द्ज़ो","सफ़र","ग"],["mathomong","माथोमोंग","कठिन","क"],["hi phepa","ही फेपा","साफ़-साफ़","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka ntlha ya gore या go gaisa लगाकर दो बातें एक वाक्य में बोलो।","rows":[["Ke tsile fano. Ga go na tiro gae.","Ke tsile fano ka ntlha ya gore ga go na tiro gae."],["Toropo e bonako. Motse o bonya.","Toropo e bonako go gaisa motse."]]},"items":[["Ngwaga o o fetileng ke ne ke le motseng, jaanong ke mo toropong.","ंग्वागा ओ ओ फ़ेतीलेंग के ने के ले मोत्सेंग, जाआनोंग के मो तोरोपोंग।","पिछले साल मैं गाँव में था, अब शहर में हूँ।","S","B"],["Botshelo jwa toropo bo bonako go gaisa jwa motse.","बोत्शेलो ज्वा तोरोपो बो बोनाको खो गाइसा ज्वा मोत्से।","शहर की ज़िंदगी गाँव से तेज़ है।","S","C"],["Ke tsile fano ka gonne go ne go se na tiro gae.","के त्सिले फ़ानो का गोन्ने खो ने खो से ना तिरो गाए।","मैं यहाँ आया क्योंकि घर पर काम नहीं था।","S","B"],["Mo tshimologong tsotlhe di ne di le thata.","मो च्हिमोलोगोंग त्सोत्ले दि ने दि ले थाता।","शुरुआत में सब कुछ मुश्किल था।","S","C"],["Ka iketlo ke ithutile tiro.","का इकेत्लो के इथुतीले तिरो।","धीरे-धीरे मैंने काम सीख लिया।","S","B"],["Jaanong tiro ya me e botoka go gaisa pele.","जाआनोंग तिरो या मे ए बोतोका खो गाइसा पेले।","अब मेरा काम पहले से बेहतर है।","S","B"],["Kgwedi le kgwedi ke boloka dirupiya tse dikete tse pedi.","ख्वेदी ले ख्वेदी के बोलोका दिरुपिया त्से दिकेते त्से पेदी।","मैं हर महीने दो हज़ार रुपये बचाता हूँ।","S","B"],["Ngwaga o o tlang ke tla tlisa lelapa fano.","ंग्वागा ओ ओ त्लांग के त्ला त्लिसा लेलापा फ़ानो।","अगले साल मैं परिवार को यहाँ ले आऊँगा।","S","B"],["Bana ba me ba tla ithuta sekolong se se molemo.","बाना बा मे बा त्ला इथुता सेकोलोंग से से मोलेमो।","मेरे बच्चे अच्छे स्कूल में पढ़ेंगे।","S","B"],["Maabane ke buile le molaodi ka Sekgoa.","माआबाने के बुइले ले मोलाओदी का सेक्गोआ।","कल मैंने सुपरवाइज़र से अंग्रेज़ी में बात की।","S","B"],["O ne a itumela ka gonne ke buile sentle.","ओ ने आ इतुमेला का गोन्ने के बुइले सेंत्ले।","वे खुश हुए क्योंकि मैंने साफ़ बोला।","S","B"],["Sekgoa se mphulela ditsela tse disha.","सेक्गोआ से म्फुलेला दित्सेला त्से दिशा।","अंग्रेज़ी मेरे लिए नए रास्ते खोल रही है।","S","B"],["Ke fedile kgwedi e le nngwe ya thuto e.","के फ़ेदीले ख्वेदी ए ले न्ंग्वे या थुतो ए।","मैंने इस कोर्स का एक महीना पूरा किया।","S","B"],["Ke ithutile mafoko a masome a mane a mafsa.","के इथुतीले मफ़ोको आ मासोमे आ माने आ मफ़सा।","मैंने चार सौ नए वाक्य सीखे।","S","B"],["Go tswa kamoso ke tla ithuta mafoko a masome a mararo letsatsi le letsatsi.","खो त्स्वा कामोसो के त्ला इथुता मफ़ोको आ मासोमे आ मारारो लेत्सात्सी ले लेत्सात्सी।","कल से मैं रोज़ तीस वाक्य सीखूँगा।","S","B"],["Tlwaetso e dira tsotlhe go nna motlhofo.","त्लवाएत्सो ए दिरा त्सोत्ले खो न्ना मोत्लोफ़ो।","अभ्यास सब आसान कर देता है।","S","C"],["Lelapa la me le ikgantsha ka nna.","लेलापा ला मे ले इख्गांत्शा का न्ना।","मेरे परिवार को मुझ पर गर्व है।","S","B"],["Ke aga isago ya me ka diatla tsa me.","के आगा इसागो या मे का दिआत्ला त्सा मे।","मैं अपना भविष्य अपने हाथों बना रहा हूँ।","S","B"],["Fa go na le thato, go na le tsela.","फ़ा खो ना ले थातो, खो ना ले त्सेला।","जहाँ चाह, वहाँ राह।","S","C"],["Loeto lwa me lo tswa go simolola.","लोएतो ल्वा मे लो त्स्वा खो सिमोलोला।","मेरा सफ़र अभी शुरू हुआ है।","S","B"]]}],"test":{"target":"Lekwalo la gae (ka SMS)","goal":"Ka Setswana kwala — rihanyo jwa gago, o dirileng maabane, thulaganyo e e tlang, mola o le mongwe wa 'ka ntlha ya gore', le tumediso.","lines":[["Dumela mme, ke teng fano.","दुमेला म्मे, के तेंग फ़ानो।"],["Tiro e tsamaya sentle.","तिरो ए त्सामाया सेंत्ले।"],["Maabane ke dirile diura di le some.","माआबाने के दिरीले दीउरा दी ले सोमे।"],["Ke tla tla gae kgwedi e e tlang.","के त्ला त्ला गाए ख्वेदी ए ए त्लांग।"],["Itlhokomele.","इत्लोकोमेले।"]]},"listen":[["(reetsa) O tla tla gae leng?","(araba) Ke tla tla gae kgwedi e e tlang."],["(reetsa) A rre o siame jaanong?","(araba) Ee, o nwa molemo letsatsi le letsatsi."]],"dialog":[["Moeng","Dumela, a nka tsena?"],["Wena","Amogelesegang, nna fa fatshe."],["Moeng","Ke rata metsi fela."],["Wena","Fano, metsi a gago."],["Moeng","Ke a leboga."]]},{"n":5,"title":"My Work, My Skill","hi":"मेरा काम, मेरा हुनर","pace":30,"days":[{"tw":[["mmetli","म्मेत्ली","राजमिस्त्री","ख"],["mobeiteletsi","मोबेइतेलेत्सी","वेल्डर","ख"],["modeiliwa","मोदेइलीवा","दर्ज़ी","ख"],["ntokoto","न्तोकोतो","अनुभव","ख"],["ku tloga","कू त्लोगा","तब से","ख"],["okeditsweng","ओकेदीत्स्वेंग","अतिरिक्त काम","ख"]],"drill":{"type":"pairSwap","hi":"पेशा बदलो — सवाल वही, जवाब में अपना काम बोलो।","rows":[["O dira tiro efe?","Ke mmetli."],["O dira tiro efe?","Ke moweledi."],["O dira tiro efe?","Ke kgweetsa auto."]]},"items":[["O dira tiro efe?","ओ दिरा तिरो एफ़े?","आप क्या काम करते हैं?","L","B"],["Ke moweledi mo weresoping.","के मोवेलेदी मो वेरेसोपिंग।","मैं वर्कशॉप में वेल्डर हूँ।","S","A"],["Ke dira tiro ya mmaseni.","के दिरा तिरो या म्मासेनी।","मैं राजमिस्त्री का काम करता हूँ।","S","A"],["Tsala ya me ke moroki.","त्साला या मे के मोरोकी।","मेरा दोस्त दर्ज़ी है।","S","B"],["O dira mo fektoring ya diaparo.","ओ दिरा मो फ़ेक्तोरिंग या दिआपारो।","वह कपड़ा फैक्ट्री में काम करती है।","S","C"],["Ke dira tiro e go tswa ka 2020.","के दिरा तिरो ए खो त्स्वा का 2020।","मैं यह काम 2020 से कर रहा हूँ।","S","B"],["Ke na le maitemogelo a dingwaga tse tlhano.","के ना ले माइतेमोगेलो आ दिंग्वागा त्से त्लानो।","मुझे पाँच साल का अनुभव है।","S","A"],["O na le maitemogelo a makae?","ओ ना ले माइतेमोगेलो आ माकाए?","आपको कितना अनुभव है?","L","B"],["Ke ithutile tiro e mo mothusaring wa me.","के इथुतीले तिरो ए मो मोथुसारिंग वा मे।","मैंने यह काम अपने उस्ताद से सीखा।","S","B"],["Nka dira weleding le fiting.","न्का दिरा वेलेदिंग ले फ़िटिंग।","मैं वेल्डिंग और फिटिंग दोनों कर सकता हूँ।","S","B"],["Jaanong ke ithuta motšhene o montšha.","जाआनोंग के इथुता मोत्शेने ओ मोंत्शा।","मैं अभी नई मशीन सीख रहा हूँ।","S","A"],["O dira kae jaanong?","ओ दिरा काए जाआनोंग?","आजकल आप कहाँ काम करते हैं?","L","B"],["Ke dira kwa lefelong la go aga ntlo.","के दिरा क्वा लेफ़ेलोंग ला खो आगा न्त्लो।","मैं इमारत बनने की जगह पर काम करता हूँ।","S","A"],["Khamphani ya rona e dira dikgoro tsa tshipi.","खाम्फ़ानी या रोना ए दिरा दिख्गोरो त्सा चिपी।","हमारी कंपनी लोहे के गेट बनाती है।","S","B"],["Ke kgweetsa auto mo toropong.","के ख्वेएत्सा आउतो मो तोरोपोंग।","मैं शहर में ऑटो चलाता हूँ।","S","B"],["Mogolole wa me o baakanya difounu.","मोगोलोले वा मे ओ बाआकान्या दिफ़ाउनु।","मेरा भाई मोबाइल ठीक करता है।","S","B"],["Se ke tiro ya bokgoni.","से के तिरो या बोख्गोनी।","यह हुनर का काम है।","S","C"],["Tiro e ntle e tlisa madi a mantsi.","तिरो ए न्त्ले ए त्लिसा मादी आ मांत्सी।","अच्छा काम अच्छा पैसा लाता है।","S","C"],["Ke dira diura tse robedi ka letsatsi.","के दिरा दिउरा त्से रोबेदी का लेत्सात्सी।","मैं दिन में आठ घंटे काम करता हूँ।","S","A"],["Ka dinako dingwe ke dira tiro e e okeditsweng.","का दिनाको दिंग्वे के दिरा तिरो ए ए ओकेदित्स्वेंग।","कभी-कभी मुझे ओवरटाइम मिलता है।","S","B"],["Rre wa gago o dira tiro efe?","र्रे वा गागो ओ दिरा तिरो एफ़े?","आपके पिता क्या काम करते हैं?","L","B"],["Ke molemi mo motseng.","के मोलेमी मो मोत्सेंग।","वे गाँव में किसान हैं।","S","C"],["Letsatsi lengwe ke batla go nna moruti.","लेत्सात्सी लेंग्वे के बात्ला खो न्ना मोरुती।","मैं एक दिन उस्ताद बनना चाहता हूँ।","S","A"],["Tiro nngwe le nngwe e na le tlotlo.","तिरो न्ंग्वे ले न्ंग्वे ए ना ले त्लोत्लो।","हर काम की इज़्ज़त होती है।","S","C"],["Ke dira tiro ya me ka pelo yotlhe.","के दिरा तिरो या मे का पेलो योत्ले।","मैं अपना काम पूरे मन से करता हूँ।","S","B"],["Tiro ya me ke boitseanape jwa me.","तिरो या मे के बोइत्सेआनापे ज्वा मे।","मेरा काम ही मेरी पहचान है।","S","B"],["A o mosha fano?","आ ओ मोशा फ़ानो?","क्या आप यहाँ नए हैं?","L","B"],["Ee, ke tsenye beke e e fetileng.","ए, के त्सेन्ये बेके ए ए फ़ेतीलेंग।","हाँ, मैं पिछले हफ़्ते जुड़ा।","S","B"],["O amogetswe mo setlhopheng sa rona.","ओ आमोगेत्स्वे मो सेत्लोफ़ेंग सा रोना।","हमारी टीम में स्वागत है।","L","B"],["Ke a leboga, ke tla ithuta ka bonako.","के आ लेबोखा, के त्ला इथुता का बोनाको।","धन्यवाद, मैं जल्दी सीख लूँगा।","S","A"]]},{"tw":[["bulegilweng","बूलेगील्वेंग","ख़ाली जगह","ख"],["siku","सीकू","रोज़ की मज़दूरी","ख"],["mogwebi","मोग्वेबी","ठेकेदार","ख"],["laboraro","लाबोरारो","काम पर लगना","ख"],["hakelo","हाकेलो","भुगतान","ख"],["leka","लेका","परख","ख"]],"drill":{"type":"dialogueFill","hi":"काम माँगने का संवाद — ख़ाली जगह बोलकर भरो।","rows":[["Wena: A o tlhoka badiri?","Mong: Ee, re tlhoka bathusi ba babedi."],["Wena: Moputso wa letsatsi ke eng?","Mong: Dirupiya tse makgolo a marataro."]]},"items":[["A o tlhoka badiri?","आ ओ त्लोका बादिरी?","क्या आपको मज़दूर चाहिए?","S","B"],["A go na le lefelo le le bulegileng fano?","आ खो ना ले लेफ़ेलो ले ले बुलेगीलेंग फ़ानो?","क्या यहाँ कोई ख़ाली जगह है?","S","B"],["Re tlhoka bathusi ba babedi.","रे त्लोका बाथुसी बा बाबेदी।","हमें दो सहायक चाहिए।","L","B"],["Ke tshwanetse go dira eng?","के च्वानेत्से खो दिरा एंग?","मुझे क्या काम करना होगा?","S","B"],["O tla thusa moagi.","ओ त्ला थुसा मोआगी।","तुम राजमिस्त्री की मदद करोगे।","L","B"],["Moputso wa letsatsi ke eng?","मोपुत्सो वा लेत्सात्सी के एंग?","रोज़ की मज़दूरी क्या है?","S","B"],["Dirupiya tse makgolo a marataro ka letsatsi.","दिरुपिया त्से माक्खोलो आ मारातारो का लेत्सात्सी।","छह सौ रुपये रोज़।","L","B"],["A dijo le bonno di akareditswe?","आ दिजो ले बोन्नो दि आकारेदित्स्वे?","क्या खाना-रहना साथ में है?","S","B"],["Tefo e tla fiwa leng?","तेफ़ो ए त्ला फ़िवा लेंग?","भुगतान कब मिलेगा?","S","B"],["Tefo e dirwa Matlhatso otlhe.","तेफ़ो ए दिर्वा मात्लात्सो ओत्ले।","भुगतान हर शनिवार को होता है।","L","B"],["A nka simolola go tswa kamoso?","आ न्का सिमोलोला खो त्स्वा कामोसो?","क्या मैं कल से शुरू कर सकता हूँ?","S","A"],["Ee, tla ka nako ya robedi mo mosong.","ए, त्ला का नाको या रोबेदी मो मोसोंग।","हाँ, सुबह आठ बजे आ जाओ।","L","B"],["Tlisa karata ya gago ya Aadhaar.","त्लिसा कराता या गागो या आधार।","अपना आधार कार्ड लाना।","L","B"],["Ke itse ka tiro e go tswa go tsala ya me.","के इत्से का तिरो ए खो त्स्वा खो त्साला या मे।","मुझे इस काम के बारे में दोस्त से पता चला।","S","B"],["Mokgweetsi wa tiro o a nitse sentle.","मोक्ग्वेएत्सी वा तिरो ओ आ नित्से सेंत्ले।","ठेकेदार मुझे अच्छी तरह जानता है।","S","B"],["Tlhomamisa moputso pele ga tiro e simolola.","त्लोमामिसा मोपुत्सो पेले खा तिरो ए सिमोलोला।","काम शुरू करने से पहले मज़दूरी तय कर लो।","L","B"],["Tsaya tefo ya gago ka nako.","त्साया तेफ़ो या गागो का नाको।","अपना भुगतान समय पर लो।","L","B"],["O se ke wa dira o sa botsa bokae.","ओ से के वा दिरा ओ सा बोत्सा बोकाए।","दाम पूछे बिना काम मत करो।","L","B"],["Ke batla tiro gaufi le phaposi ya me.","के बात्ला तिरो गाउफ़ी ले फ़ापोसी या मे।","मैं अपने कमरे के पास काम खोज रहा हूँ।","S","B"],["Tiro e, e kgakala le ntlo ya me.","तिरो ए, ए ख्गाकाला ले न्त्लो या मे।","यह काम मेरे घर से दूर है।","S","B"],["A go na le tiro ya bosigo gape?","आ खो ना ले तिरो या बोसिगो गापे?","क्या रात की ड्यूटी भी है?","S","B"],["Tiro ya bosigo e nama bokgolo.","तिरो या बोसिगो ए नामा बोख्गोलो।","रात की ड्यूटी में ज़्यादा मिलता है।","L","B"],["Nka tsaya sepheo se se boima.","न्का त्साया सेफ़ेओ से से बोइमा।","मैं भारी सामान उठा सकता हूँ।","S","A"],["Ke itse go bala dithalo.","के इत्से खो बाला दिथालो।","मुझे नक़्शा पढ़ना आता है।","S","B"],["Mphe tshono, rra.","म्फे चोनो, र्रा।","मुझे एक मौका दीजिए, सर।","S","B"],["Dira letsatsi le le lengwe, re tla bona.","दिरा लेत्सात्सी ले ले लेंग्वे, रे त्ला बोना।","एक दिन काम करो, फिर देखेंगे।","L","B"],["Ke dirile tiro ya go lekwa sentle.","के दिरीले तिरो या खो लेक्वा सेंत्ले।","मैंने परख का काम अच्छा किया।","S","B"],["O tlhophilwe.","ओ त्लोफ़िल्वे।","तुम चुन लिए गए।","L","B"],["Ke amogetse tiro ka ntlha ya bokgoni jwa me.","के आमोगेत्से तिरो का न्त्ला या बोख्गोनी ज्वा मे।","मुझे काम मेरे हुनर की वजह से मिला।","S","B"],["O se ke wa fa madi go amogela tiro.","ओ से के वा फ़ा मादी खो आमोगेला तिरो।","नौकरी पाने के लिए कभी पैसे मत दो।","L","B"]]},{"tw":[["mufambisi","मूफ़ाम्बीसी","काम-प्रमुख","ख"],["tlhaloganyitse","त्ल्हालोगाञीत्से","निर्देश","ख"],["tlhaloganya","त्ल्हालोगाञा","समझना","क"],["boeletsa","बोएलेत्सा","दोहराना","क"],["phoso","फोसो","ग़लती","ख"],["byela","ब्येला","ख़बर देना","ख"]],"drill":{"type":"showTell","hi":"काम की रिपोर्ट — तीन वाक्य में अपने काम की ख़बर दो।","rows":[["Rra, tiro ya gompieno ke efe?","Ke fedile.","Tsweetswee, sekaseka tiro ya me."]]},"items":[["Rra, tiro ya gompieno ke efe?","र्रा, तिरो या गोम्पिएनो के एफ़े?","सर, आज का काम क्या है?","S","A"],["Pele fetsa tiro ya maabane.","पेले फ़ेत्सा तिरो या माआबाने।","पहले कल का काम पूरा करो।","L","B"],["Ke tlhaloganya ditaelo.","के त्लालोगान्या दितालो।","मैं निर्देश समझ गया।","S","B"],["Ntshwarele, ga ke a tlhaloganya.","न्त्श्वारेले, खा के आ त्लालोगान्या।","माफ़ कीजिए, मैं समझा नहीं।","S","A"],["Tsweetswee, boeletsa go le gonnye ka iketlo.","त्स्वीत्स्वी, बोएलेत्सा खो ले गोन्ये का इकेत्लो।","कृपया धीरे से दोहराइए।","S","A"],["Tsweetswee, dira gangwe o nkontshupetse.","त्स्वीत्स्वी, दिरा गांग्वे ओ न्कोंत्शुपेत्से।","कृपया एक बार करके दिखाइए।","S","A"],["Jaanong ke tla dira ka bonna.","जाआनोंग के त्ला दिरा का बोन्ना।","अब मैं ख़ुद करूँगा।","S","B"],["Rra, tiro e fedile.","र्रा, तिरो ए फ़ेदीले।","सर, काम हो गया।","S","A"],["Rra, tsweetswee sekaseka tiro ya me gangwe.","र्रा, त्स्वीत्स्वी सेकासेका तिरो या मे गांग्वे।","सर, कृपया एक बार मेरा काम जाँच लीजिए।","S","A"],["O dirile tiro e ntle.","ओ दिरीले तिरो ए न्त्ले।","तुमने अच्छा काम किया है।","L","B"],["Go na le phoso e nnye fano.","खो ना ले फ़ोसो ए न्न्ये फ़ानो।","यहाँ एक छोटी ग़लती है।","L","B"],["Ke tla baakanya se jaanong.","के त्ला बाआकान्या से जाआनोंग।","मैं इसे अभी ठीक करता हूँ।","S","B"],["Ke dirile phoso, ntshwarele rra.","के दिरीले फ़ोसो, न्त्श्वारेले र्रा।","मुझसे ग़लती हुई, माफ़ कीजिए सर।","S","B"],["O se ke wa boa wa dira phoso e gape.","ओ से के वा बोआ वा दिरा फ़ोसो ए गापे।","यह ग़लती दोबारा मत करना।","L","B"],["Lotsheng ke tla nna kelotlhoko.","लोत्शेंग के त्ला न्ना केलोत्लोको।","अगली बार मैं सावधान रहूँगा।","S","B"],["Rra, didiriswa di fedile.","र्रा, दिदिरिस्वा दि फ़ेदीले।","सर, सामान ख़त्म हो गया है।","S","B"],["Re tlhoka samente e nngwe.","रे त्लोका सामेंते ए न्ंग्वे।","हमें और सीमेंट चाहिए।","S","B"],["Motšhene o emile.","मोत्शेने ओ एमीले।","मशीन रुक गई है।","S","C"],["Ke bolelele bothata ka bonako.","के बोलेलेले बोथाता का बोनाको।","मैंने तुरंत समस्या की ख़बर दी।","S","B"],["Bitsa mekanika go sekaseka.","बित्सा मेकानिका खो सेकासेका।","मैकेनिक को जाँचने के लिए बुलाओ।","L","B"],["Tiro e, e tla tsaya nako e kae?","तिरो ए, ए त्ला त्साया नाको ए काए?","इस काम में कितना समय लगेगा?","L","B"],["Go tla tsaya diura tse pedi gape.","खो त्ला त्साया दिउरा त्से पेदी गापे।","इसमें दो घंटे और लगेंगे।","S","C"],["A nka ya gae ka bonako gompieno?","आ न्का या गाए का बोनाको गोम्पिएनो?","क्या मैं आज जल्दी घर जा सकता हूँ?","S","A"],["Fetsa karolo e, morago o ye.","फ़ेत्सा कारोलो ए, मोरागो ओ ये।","यह हिस्सा पूरा करो, फिर जाओ।","L","B"],["Rra, tsweetswee tlhalosa thalo e ntšha.","र्रा, त्स्वीत्स्वी त्लालोसा थालो ए न्त्शा।","सर, कृपया नया नक़्शा समझाइए।","S","B"],["Fa o na le potso, mpotse.","फ़ा ओ ना ले पोत्सो, म्पोत्से।","कोई शंका हो तो मुझसे पूछो।","L","B"],["Go botsa go botoka go gaisa go dira phoso.","खो बोत्सा खो बोतोका खो गाइसा खो दिरा फ़ोसो।","ग़लती करने से पूछना बेहतर है।","S","C"],["Ke fedile tiro pele ga nako.","के फ़ेदीले तिरो पेले खा नाको।","मैंने समय से पहले काम पूरा किया।","S","B"],["Gompieno molaodi o mpoleleditse.","गोम्पिएनो मोलाओदी ओ म्पोलेलेदीत्से।","आज सुपरवाइज़र ने मेरी तारीफ़ की।","S","B"],["Puo e e phepa e boloka nako.","पुओ ए ए फ़ेपा ए बोलोका नाको।","साफ़ बात समय बचाती है।","S","C"]]},{"tw":[["didiriswa","दीदीरीस्वा","औज़ार","ख"],["hamore","हामोरे","हथौड़ा","ख"],["lekanyetsa","लेकाञेत्सा","नापना","ख"],["hemete","हेमेते","सुरक्षा-टोपी","ख"],["digalofo","दीगालोफ़ो","दस्ताने","ख"],["kelotlhoko","केलोत्ल्होको","सावधान","क"]],"drill":{"type":"preposition","hi":"औज़ार कहाँ है — mo / godimo ga / tlase ga / gaufi le सही खाने में बैठाओ।","rows":[["Hamore e ___ lebokoso.","mo"],["Pana e ___ tafole.","godimo ga"],["Lere le ___ lebati.","gaufi le"],["Ke e bone ___ tafole.","tlase ga"]]},"items":[["Didirisiwa tsa me di kae?","दिदिरिसिवा त्सा मे दि काए?","मेरे औज़ार कहाँ हैं?","S","B"],["Hamore e mo lebokosong.","हामोरे ए मो लेबोकोसोंग।","हथौड़ा डिब्बे में है।","L","B"],["Mphe pana eo.","म्फे पाना एओ।","मुझे वह पाना दो।","S","B"],["Tshwara lere thata.","च्वारा लेरे थाता।","सीढ़ी कसकर पकड़ो।","L","B"],["Pele lekanya lebota.","पेले लेकान्या लेबोता।","पहले दीवार नापो।","L","B"],["Le, le botelele ba dinao tse some.","ले, ले बोतेलेले बा दिनाओ त्से सोमे।","यह दस फीट लंबी है।","S","C"],["Kgaola thupa fa dinao di le tlhano.","खाओला थुपा फ़ा दिनाओ दि ले त्लानो।","छड़ को पाँच फीट पर काटो।","L","B"],["Dipeiti ga di bogale.","दिपेइती खा दि बोगाले।","ब्लेड तेज़ नहीं है।","S","C"],["Fetola dipeiti pele ga go kgaola.","फ़ेतोला दिपेइती पेले खा खो खाओला।","काटने से पहले ब्लेड बदलो।","L","B"],["Apara helemete ya gago ya tshireletso.","आपारा हेलेमेते या गागो या चिरेलेत्सो।","अपनी सुरक्षा-टोपी पहनो।","L","B"],["Apara digalofo ka metlha mo tirong e.","आपारा दिगालोफ़ो का मेत्ला मो तिरोंग ए।","इस काम में हमेशा दस्ताने पहनो।","L","B"],["Nna kelotlhoko ka motšhene.","न्ना केलोत्लोको का मोत्शेने।","मशीन से सावधान रहो।","L","B"],["Tima motšhene pele ga phepafatso.","तिमा मोत्शेने पेले खा फ़ेपाफ़ात्सो।","सफ़ाई से पहले मशीन बंद करो।","L","B"],["Boloka fa fatshe fa fatshe o le komame.","बोलोका फ़ा फ़ात्शे फ़ा फ़ात्शे ओ ले कोमामे।","फ़र्श सूखा रखो।","L","B"],["O ka wela mo fatshe fa fatshe fo ko kolobile.","ओ का वेला मो फ़ात्शे फ़ा फ़ात्शे फ़ो को कोलोबीले।","गीले फ़र्श पर गिर सकते हैं।","L","B"],["Lebokoso la thuso ya ntlha le kae?","लेबोकोसो ला थुसो या न्त्ला ले काए?","मरहम-पट्टी का डिब्बा कहाँ रखा है?","S","A"],["Le fa dikgoro tsa ofisi.","ले फ़ा दिख्गोरो त्सा ओफ़िसी।","वह दफ़्तर के दरवाज़े के पास है।","L","B"],["Phepafatsa didirisiwa morago ga tiro.","फ़ेपाफ़ात्सा दिदिरिस्वा मोरागो खा तिरो।","काम के बाद औज़ार साफ़ करो।","L","B"],["Bala didirisiwa pele ga o tsamaya.","बाला दिदिरिस्वा पेले खा ओ त्सामाया।","जाने से पहले औज़ार गिन लो।","L","B"],["Pana e nngwe e latlhegile.","पाना ए न्ंग्वे ए लात्लेगीले।","एक पाना गुम है।","S","C"],["Ke e bone kwa tlase ga tafole.","के ए बोने क्वा त्लासे खा तफ़ोले।","वह मुझे मेज़ के नीचे मिला।","S","B"],["Motšhene o, o mosha, o dirise ka kelotlhoko.","मोत्शेने ओ, ओ मोशा, ओ दिरिसे का केलोत्लोको।","यह मशीन नई है, सँभालकर चलाओ।","L","B"],["Tsenya leokwane mo motšheneng beke le beke.","त्सेन्या लेओक्वाने मो मोत्शेनेंग बेके ले बेके।","मशीन में हर हफ़्ते तेल डालो।","L","B"],["Didiriswa di tsile ka terake.","दिदिरिस्वा दि त्सिले का तेराके।","सामान ट्रक में आया।","S","C"],["Folotsa dikoloto ka kelotlhoko.","फ़ोलोत्सा दिकोलोतो का केलोत्लोको।","बोरियाँ सावधानी से उतारो।","L","B"],["O se ke wa tsholetsa boima jo bogolo o le esi.","ओ से के वा त्शोलेत्सा बोइमा जो बोगोलो ओ ले एसी।","भारी वज़न अकेले मत उठाओ।","L","B"],["Kopa thuso fa go tlhokega.","कोपा थुसो फ़ा खो त्लोकेगा।","ज़रूरत पड़े तो मदद माँगो।","L","B"],["Didirisiwa tse di molemo di dira tiro go nna motlhofo.","दिदिरिस्वा त्से दि मोलेमो दि दिरा तिरो खो न्ना मोत्लोफ़ो।","अच्छे औज़ार काम आसान करते हैं।","S","C"],["Tshireletso pele, tiro morago.","चिरेलेत्सो पेले, तिरो मोरागो।","पहले सुरक्षा, फिर काम।","L","B"],["Modiri yo o kelotlhoko o fitlha gae a babalesegile.","मोदिरी यो ओ केलोत्लोको ओ फ़ित्ला गाए आ बाबालेसेगीले।","सावधान मज़दूर सुरक्षित घर पहुँचता है।","S","C"]]},{"tw":[["kopo","कोपो","छुट्टी की अर्ज़ी","ख"],["pakang","पाकांग","ज़रूरी","ख"],["tetla","तेत्ला","अनुमति","ख"],["ai","अइ","एआई ऐप","ख"],["sekaseka","सेकासेका","जाँचना","क"],["romele","रोमेले","टाइप करना","ख"]],"drill":{"type":"messageFrame","hi":"चार-पंक्ति अर्ज़ी — ख़ाली जगह अपनी बात से भरकर बोलो।","rows":[["Rra, ke tlhoka letsatsi le le lengwe la maikhutso ka ___.","Ke tshwanetse go ya ___.","Ke tla boa tirong ka ___.","Ke a leboga, rra."]]},"items":[["Rra, ke tlhoka letsatsi le le lengwe la maikhutso.","र्रा, के त्लोका लेत्सात्सी ले ले लेंग्वे ला माइखुत्सो।","सर, मुझे एक दिन की छुट्टी चाहिए।","S","A"],["Ke tlhoka maikhutso ka Mosupologo.","के त्लोका माइखुत्सो का मोसुपोलोगो।","मुझे सोमवार को छुट्टी चाहिए।","S","A"],["Go na le tiro e e botlhokwa gae.","खो ना ले तिरो ए ए बोत्लोक्वा गाए।","घर पर ज़रूरी काम है।","S","C"],["Rre wa me ga a siama.","र्रे वा मे खा आ सिआमे।","मेरे पिताजी की तबीयत ठीक नहीं है।","S","B"],["Ke tshwanetse go ya kwa pankeng.","के च्वानेत्से खो या क्वा पांकेंग।","मुझे बैंक जाना है।","S","A"],["A nka tsaya maikhutso a letsatsi le le gare?","आ न्का त्साया माइखुत्सो आ लेत्सात्सी ले ले गारे?","क्या मैं आधे दिन की छुट्टी ले सकता हूँ?","S","A"],["Tsweetswee, mphe tumelo, rra.","त्स्वीत्स्वी, म्फे तुमेलो, र्रा।","कृपया अनुमति दीजिए, सर।","S","A"],["Ke tla boa tirong ka Laboraro.","के त्ला बोआ तिरोंग का लाबोरारो।","मैं बुधवार को वापस काम पर आऊँगा।","S","A"],["Pele ke tsamaya ke tla fetsa tiro ya me.","पेले के त्सामाया के त्ला फ़ेत्सा तिरो या मे।","जाने से पहले मैं अपना काम पूरा कर दूँगा।","S","B"],["Maikhutso a dumeletswe.","माइखुत्सो आ दुमेलेत्स्वे।","छुट्टी मंज़ूर है।","L","B"],["Mpolelele letsatsi le le lengwe pele.","म्पोलेलेले लेत्सात्सी ले ले लेंग्वे पेले।","एक दिन पहले बता देना।","L","B"],["Kwala kopo ya maikhutso.","क्वाला कोपो या माइखुत्सो।","छुट्टी की अर्ज़ी लिखो।","L","B"],["Ga ke itse go kwala se.","खा के इत्से खो क्वाला से।","मुझे यह लिखना नहीं आता।","S","B"],["Aepo ya AI e ka go thusa.","आएपो या एआई ए का खो थुसा।","एआई ऐप तुम्हारी मदद कर सकता है।","L","B"],["Ke dirile kopo ya me ka aepo ya AI.","के दिरीले कोपो या मे का आएपो या एआई।","मैंने एआई ऐप से अपनी अर्ज़ी लिखवाई।","S","B"],["Bolelela aepo leina la gago le lebaka.","बोलेलेला आएपो लेइना ला गागो ले लेबाका।","ऐप को अपना नाम और कारण बताओ।","L","B"],["Bua Sehindi, e tla kwala Sekgoa.","बुआ सेहिंदी, ए त्ला क्वाला सेक्गोआ।","हिंदी में बोलो, वह अंग्रेज़ी में लिख देगा।","L","B"],["Bala pele ga o romela ka metlha.","बाला पेले खा ओ रोमेला का मेत्ला।","भेजने से पहले हमेशा पढ़ लो।","L","B"],["Sekaseka leina le letsatsi ka bowena.","सेकासेका लेइना ले लेत्सात्सी का बोवेना।","नाम और तारीख़ ख़ुद जाँचो।","L","B"],["AI le yone e ka dira phoso.","एआई ले योने ए का दिरा फ़ोसो।","एआई भी ग़लती कर सकता है।","L","B"],["Ke sekaseka Sekgoa sa me ka aepo ya AI.","के सेकासेका सेक्गोआ सा मे का आएपो या एआई।","मैं एआई ऐप से अपनी अंग्रेज़ी जँचवाता हूँ।","S","B"],["Ke itlwaetsa go bua le aepo ya AI.","के इत्लवाएत्सा खो बुआ ले आएपो या एआई।","मैं एआई ऐप के साथ बोलने का अभ्यास करता हूँ।","S","B"],["Kwala molaetsa wa gago mme o romele.","क्वाला मोलाएत्सा वा गागो म्मे ओ रोमेले।","अपना संदेश टाइप करो और भेजो।","L","B"],["Ke romeletse kopo kwa WhatsApp.","के रोमेलेत्से कोपो क्वा व्हाट्सऐप।","मैंने अर्ज़ी व्हाट्सऐप पर भेजी।","S","B"],["Rra o dumeleditse maikhutso a me mo founong.","र्रा ओ दुमेलेदीत्से माइखुत्सो आ मे मो फ़ाउनोंग।","सर ने फोन पर मेरी छुट्टी मंज़ूर की।","S","B"],["O se ke wa tsaya maikhutso o sa bolelela.","ओ से के वा त्साया माइखुत्सो ओ सा बोलेलेला।","बिना बताए छुट्टी मत लो।","L","B"],["Maikhutso a mantsi a kgaola tefo.","माइखुत्सो आ मांत्सी आ खाओला तेफ़ो।","ज़्यादा छुट्टियाँ भुगतान काटती हैं।","L","B"],["Rulaganya maikhutso pele ga moletlo.","रुलागान्या माइखुत्सो पेले खा मोलेत्लो।","त्योहार से पहले छुट्टी की योजना बनाओ।","L","B"],["Lebaka la nnete le tlisa tshepo.","लेबाका ला न्नेते ले त्लिसा त्शेपो।","सच्चा कारण भरोसा जिताता है।","S","C"],["Lobaka lo losha, didirisiwa tse disha — ithuta pele.","लोबाका लो लोशा, दिदिरिस्वा त्से दिशा — इथुता पेले।","नया ज़माना, नए औज़ार — सीखते रहो।","S","C"]]}],"test":{"target":"Rra wa tiro (loko modiri le mong)","goal":"Ka Setswana itsise, bua ka tiro ya gago le maitemogelo, botsa moputso le nako ya tiro, mme o leboge — mela e le tsheletsho.","lines":[["Dumela rra, ke Ramesh.","दुमेला र्रा, के रमेश।"],["Ke mobeiteletsi, ke na le dingwaga tse tlhano tsa maitemogelo.","के मोबेइतेलेत्सी, के ना ले दिंग्वागा त्से त्लानो त्सा माइतेमोगेलो।"],["Moputso wa kgwedi ke eng?","मोपुत्सो वा ख्वेदी के एंग?"],["Nka simolola go tswa Mosupologo.","न्का सिमोलोला खो त्स्वा मोसुपोलोगो।"],["Ke a leboga ka go bua le nna, rra.","के आ लेबोखा का खो बुआ ले न्ना, र्रा।"]]},"listen":[["(reetsa) O na le maitemogelo a makae?","(araba) Ke na le dingwaga tse tlhano."],["(reetsa) Moputso wa kgwedi ke eng?","(araba) Dirupiya tse lesome le mabedi."]],"dialog":[["Mong","O tseba tiro efe?"],["Wena","Ke beiteletsa, dingwaga tse tlhano."],["Mong","Moputso dirupiya tse lesome le mabedi."],["Wena","O duela leng?"],["Mong","Pele ga bosupa."],["Wena","Nka simolola go tswa Mosupologo."]]},{"n":6,"title":"Money, Friends and Growth","hi":"पैसा, दोस्त और तरक्की","pace":30,"days":[{"tw":[["muholo","मूहोलो","वेतन","ख"],["hlaya","ह्लाया","गिनना","क"],["kgaolo","क्गाओलो","कटौती","ख"],["peshentswana","पेशेन्त्स्वाना","पेशगी","ख"],["kakaretso","काकारेत्सो","कुल","ग"],["risiti","रीसीती","रसीद","ग"]],"drill":{"type":"moneyCount","hi":"पैसे बोलो — रक़म सुनो, Setswana में कहो।","rows":[["550","makgolo-matlhano le masome-matlhano"],["1200","sekete le makgolo-mabedi"],["2050","dikete tse pedi le masome-matlhano"]]},"items":[["Gompieno ke letsatsi la moputso.","गोम्पिएनो के लेत्सात्सी ला मोपुत्सो।","आज भुगतान का दिन है।","S","C"],["Gompieno ke amogetse moputso.","गोम्पिएनो के आमोगेत्से मोपुत्सो।","आज मुझे वेतन मिला।","S","A"],["Bala madi pele ga o tsamaya.","बाला मादी पेले खा ओ त्सामाया।","जाने से पहले पैसे गिन लो।","L","B"],["Ke balile gabedi.","के बालीले गाबेदी।","मैंने दो बार गिना।","S","B"],["Dirupiya tse makgolo a mabedi di a tlhaela.","दिरुपिया त्से माक्खोलो आ माबेदी दि आ त्लाएला।","दो सौ रुपये कम हैं।","S","C"],["Rra, tsweetswee sekaseka palo gape.","र्रा, त्स्वीत्स्वी सेकासेका पालो गापे।","सर, कृपया कुल फिर से जाँचिए।","S","B"],["Maikhutso a mabedi a kgaotswe.","माइखुत्सो आ माबेदी आ खाओत्स्वे।","दो छुट्टियों की कटौती हुई।","S","C"],["Jaanong palo e siame.","जाआनोंग पालो ए सिआमे।","अब कुल सही है।","S","C"],["Tiro e e okeditsweng ke bokae?","तिरो ए ए ओकेदित्स्वेंग के बोकाए?","ओवरटाइम के कितने मिले?","S","B"],["Ke amogetse tse di okeditsweng dirupiya tse makgolo a robedi.","के आमोगेत्से त्से दि ओकेदित्स्वेंग दिरुपिया त्से माक्खोलो आ रोबेदी।","मुझे आठ सौ अतिरिक्त मिले।","S","B"],["Ke tsere peshentswana beke e e fetileng.","के त्सेरे पेशेंत्स्वाना बेके ए ए फ़ेतीलेंग।","मैंने पिछले हफ़्ते थोड़ी पेशगी ली थी।","S","B"],["Peshentswana e kgaotswe mo moputsong wa me.","पेशेंत्स्वाना ए खाओत्स्वे मो मोपुत्सोंग वा मे।","पेशगी मेरे वेतन से कटी।","S","B"],["Tsweetswee, mphe risiti ya moputso.","त्स्वीत्स्वी, म्फे रिसिती या मोपुत्सो।","कृपया मुझे वेतन की रसीद दीजिए।","S","A"],["Boloka risiti nngwe le nngwe.","बोलोका रिसिती न्ंग्वे ले न्ंग्वे।","हर रसीद सँभालकर रखो।","L","B"],["Kwala tiro ya gago ya letsatsi mo bukaneng.","क्वाला तिरो या गागो या लेत्सात्सी मो बुकानेंग।","अपना रोज़ का काम कॉपी में लिखो।","L","B"],["Palo ya me le ya bone di ne di sa tshwane.","पालो या मे ले या बोने दि ने दि सा च्वाने।","मेरा और उनका हिसाब अलग निकला।","S","B"],["Re sekasekile bukana mmogo.","रे सेकासेकीले बुकाना म्मोगो।","हमने साथ में कॉपी जाँची।","S","B"],["Phoso e ne e le mo kwalong go le gongwe.","फ़ोसो ए ने ए ले मो क्वालोंग खो ले गोंग्वे।","ग़लती एक लिखावट में थी।","S","C"],["Ba ntshitse madi otlhe.","बा न्त्शीत्से मादी ओत्ले।","उन्होंने पूरा पैसा दिया।","S","C"],["Madi a a baliwang ga a tlise ntwa.","मादी आ आ बालीवांग खा आ त्लिसे न्त्वा।","गिना हुआ पैसा झगड़ा नहीं लाता।","S","C"],["Go dira jo ke bokae?","खो दिरा जो के बोकाए?","खाने पर कितना ख़र्च होता है?","L","B"],["Ke dirisa dikete tse tharo mo dijong.","के दिरिसा दिकेते त्से थारो मो दिजोंग।","खाने पर तीन हज़ार ख़र्च होते हैं।","S","B"],["Rente ya phaposi ke dikete tse pedi.","रेंते या फ़ापोसी के दिकेते त्से पेदी।","कमरे का किराया दो हज़ार है।","S","C"],["Letsatsi le letsatsi bosigo ke kwala ditshenyegelo tsa me.","लेत्सात्सी ले लेत्सात्सी बोसिगो के क्वाला दित्शेन्येगेलो त्सा मे।","मैं रोज़ रात अपना ख़र्च लिखता हूँ।","S","B"],["Ditshenyegelo tse nnye di ja madi a magolo.","दित्शेन्येगेलो त्से न्न्ये दि जा मादी आ मागोलो।","छोटे-छोटे ख़र्च बड़ा पैसा खा जाते हैं।","S","C"],["O se ke wa tsaya kadimo go bontsha.","ओ से के वा त्साया कादिमो खो बोंत्शा।","दिखावे के लिए कर्ज़ मत लो।","L","B"],["Pele lefa kadimo.","पेले लेफ़ा कादिमो।","पहले कर्ज़ चुकाओ।","L","B"],["Kgwedi e ke bolokile dikete tse tharo.","ख्वेदी ए के बोलोकीले दिकेते त्से थारो।","इस महीने मैंने तीन हज़ार बचाए।","S","B"],["Madi a a bolokilweng le ona ke madi a a dirilweng.","मादी आ आ बोलोकील्वेंग ले ओना के मादी आ आ दिरील्वेंग।","बचाया पैसा भी कमाया पैसा है।","S","C"],["Go bala go le molemo go dira dikamano go nna monate.","खो बाला खो ले मोलेमो खो दिरा दिकामानो खो न्ना मोनाते।","साफ़ हिसाब रिश्ते मीठे रखता है।","S","C"]]},{"tw":[["akhaonto","अखाओन्तो","खाता","ग"],["atm","एटीएम","एटीएम","ग"],["upi","यूपीआई","यूपीआई","ग"],["tlatsa","त्लात्सा","पैसा भेजना","ग"],["otp","ओत्प","ओटीपी","ग"],["palansi","पालान्सी","बचा पैसा","ग"]],"drill":{"type":"dialogueFill","hi":"बैंक-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Wena: Ke batla go romela bokae?","Mobapanki: Dikete tse nne."],["Wena: Nomoro ya akhaonto?","Mobapanki: E mo foromong e."]]},"items":[["Ke na le akhaonto ya panka.","के ना ले आखाओंतो या पांका।","मेरा बैंक खाता है।","S","A"],["Akhaonto ya me e mo pankeng ya motse.","आखाओंतो या मे ए मो पांकेंग या मोत्से।","मेरा खाता गाँव के बैंक में है।","S","B"],["Tlatsa foromo e go romela madi.","त्लात्सा फ़ोरोमो ए खो रोमेला मादी।","पैसा भेजने के लिए यह फ़ॉर्म भरो।","L","B"],["Kwala nomoro ya akhaonto ka kelotlhoko.","क्वाला नोमोरो या आखाओंतो का केलोत्लोको।","खाता नंबर ध्यान से लिखो।","L","B"],["Nomoro e le nngwe e e phoso e ka romela madi go motho yo o sa itsiweng.","नोमोरो ए ले न्ंग्वे ए ए फ़ोसो ए का रोमेला मादी खो मोथो यो ओ सा इत्सिवेंग।","एक ग़लत अंक पैसा किसी अनजान को भेज सकता है।","L","B"],["Ke romeletse dikete tse nne ka UPI.","के रोमेलेत्से दिकेते त्से न्ने का UPI।","मैंने यूपीआई से चार हज़ार भेजे।","S","A"],["Madi a fitlhile mo motsotsong.","मादी आ फ़ित्लीले मो मोत्सोत्सोंग।","पैसा एक मिनट में पहुँच गया।","S","C"],["Molaetsa o tsile mo founong ya mme.","मोलाएत्सा ओ त्सिले मो फ़ाउनोंग या म्मे।","माँ के फोन पर संदेश आ गया।","S","C"],["Sekaseka madi a a setseng morago ga go romela.","सेकासेका मादी आ आ सेत्सेंग मोरागो खा खो रोमेला।","भेजने के बाद बचा पैसा जाँचो।","L","B"],["Jaanong madi a a setseng ke dikete tse tsharo.","जाआनोंग मादी आ आ सेत्सेंग के दिकेते त्से छरो।","अब मेरा बचा पैसा छह हज़ार है।","S","B"],["ATM e e gaufi go gaisa e kae?","एटीएम ए ए गाउफ़ी खो गाइसा ए काए?","सबसे पास का एटीएम कहाँ है?","S","A"],["ATM e gaufi le mmaraka.","एटीएम ए गाउफ़ी ले म्माराका।","एटीएम बाजार के बगल में है।","L","B"],["Ke ntshitse dikete tse pedi kwa ATM.","के न्त्शीत्से दिकेते त्से पेदी क्वा एटीएम।","मैंने एटीएम से दो हज़ार निकाले।","S","B"],["Khurumeletsa seatla fa o tsenya PIN.","खुरुमेलेत्सा सेअत्ला फ़ा ओ त्सेन्या पीन।","पिन डालते समय हाथ ढको।","L","B"],["O se ke wa bolelela ope PIN ya gago.","ओ से के वा बोलेलेला ओपे पीन या गागो।","अपना पिन किसी को कभी मत बताओ।","L","B"],["O se ke wa abelana OTP mo founong.","ओ से के वा आबेलाना OTP मो फ़ाउनोंग।","फोन पर ओटीपी कभी साझा मत करो।","L","A"],["Panka ga e botse OTP leng.","पांका खा ए बोत्से OTP लेंग।","बैंक कभी ओटीपी नहीं माँगता।","L","A"],["Mogala oo e ne e le tsietso.","मोगाला ओओ ए ने ए ले त्सिएत्सो।","वह फोन धोखे का था।","S","C"],["Ke khutlile mogala ka bonako.","के खुत्लीले मोगाला का बोनाको।","मैंने तुरंत फोन काट दिया।","S","B"],["Fa madi a a utswilwe, bolelela panka.","फ़ा मादी आ आ उत्सविल्वे, बोलेलेला पांका।","पैसा चोरी हो तो बैंक को बताओ।","L","A"],["A panka e butswe ka Matlhatso?","आ पांका ए बुत्स्वे का मात्लात्सो?","क्या बैंक शनिवार को खुला है?","S","B"],["Panka e bula ka nako ya some.","पांका ए बुला का नाको या सोमे।","बैंक दस बजे खुलता है।","L","B"],["Tlisa pukana go e kwadisa.","त्लिसा पुकाना खो ए क्वादिसा।","लिखवाने के लिए पासबुक लाओ।","L","B"],["Gompieno ke kwadisitse pukana.","गोम्पिएनो के क्वादिसीत्से पुकाना।","मैंने आज पासबुक में लिखवाया।","S","B"],["Golaganya nomoro ya seatla le akhaonto.","गोलागान्या नोमोरो या सेअत्ला ले आखाओंतो।","मोबाइल नंबर खाते से जुड़वाओ।","L","B"],["Letsatsi la ntlha la Sontaga ke romela madi gae.","लेत्सात्सी ला न्त्ला ला सोंतागा के रोमेला मादी गाए।","मैं पहले रविवार को घर पैसे भेजता हूँ।","S","B"],["Halofo ya moputso e ya gae, halofo e nna fano.","हालोफ़ो या मोपुत्सो ए या गाए, हालोफ़ो ए न्ना फ़ानो।","आधा वेतन घर जाता है, आधा यहाँ रहता है।","S","C"],["Bulela mosadi wa gago akhaonto le ene.","बुलेला मोसादी वा गागो आखाओंतो ले एने।","पत्नी का भी खाता खुलवाओ।","L","B"],["Madi a mo pankeng a babalesega go gaisa a mo lepokising.","मादी आ मो पांकेंग आ बाबालेसेगा खो गाइसा आ मो लेपोकिसींग।","बैंक का पैसा जेब से ज़्यादा सुरक्षित है।","S","C"],["Menwana e e kelotlhoko e boloka madi a babalesegile.","मेन्वाना ए ए केलोत्लोको ए बोलोका मादी आ बाबालेसेगीले।","सावधान उँगलियाँ पैसा सुरक्षित रखती हैं।","S","C"]]},{"tw":[["ntwa","न्त्वा","झगड़ा","ख"],["didimetseng","दीदीमेत्सेंग","शांत","क"],["maitshwarelo","माइच्वारेलो","माफ़ी","क"],["maitshwarelo","माइच्वारेलो","दोष","ख"],["dumalana","दूमालाना","सहमत होना","ख"],["pelotelele","पेलोतेलेले","धैर्य","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka jalo या mme लगाकर दो बातें एक वाक्य में बोलो।","rows":[["O kopile tshwarelo. Ke lebetse yone.","O kopile tshwarelo, ka jalo ke lebetse yone."],["Ke ne ke galefile. Ke ne ke didimetse.","Ke ne ke galefile, mme ke ne ke didimetse."]]},"items":[["Gompieno go na le kgang mo tirong.","गोम्पिएनो खो ना ले खांग मो तिरोंग।","आज काम पर झगड़ा हुआ।","S","C"],["Badiri ba babedi ba ne ba goa.","बादिरी बा बाबेदी बा ने बा गोआ।","दो मज़दूर चिल्ला रहे थे।","S","C"],["Mogolo, nna tsididi.","मोगोलो, न्ना त्सिदिदि।","भाई, शांत हो जाओ।","S","A"],["O se ke wa goa, bua ka iketlo.","ओ से के वा गोआ, बुआ का इकेत्लो।","चिल्लाओ मत, धीरे बात करो।","L","B"],["Kgang ke eng?","खांग के एंग?","बात क्या है?","L","B"],["O tsere didirisiwa tsa me a sa botse.","ओ त्सेरे दिदिरिस्वा त्सा मे आ सा बोत्से।","उसने बिना पूछे मेरे औज़ार ले लिए।","S","B"],["E ne e le phoso ya me, ntshwarele.","ए ने ए ले फ़ोसो या मे, न्त्श्वारेले।","मेरी ग़लती थी, माफ़ करना।","S","B"],["Rotsheng botsa nna pele.","रोत्शेंग बोत्सा न्ना पेले।","अगली बार पहले मुझसे पूछ लेना।","S","B"],["Go siame, ke a dumalana.","खो सिआमे, के आ दुमालाना।","ठीक है, मैं सहमत हूँ।","S","B"],["Tshwara diatla mme o lebale.","च्वारा दिआत्ला म्मे ओ लेबाले।","हाथ मिलाओ और भूल जाओ।","L","B"],["Re setlhopha se le sengwe.","रे सेत्लोफ़ा से ले सेंग्वे।","हम एक टीम हैं।","S","B"],["Kgang e senya letsatsi lotlhe.","खांग ए सेन्या लेत्सात्सी लोत्ले।","लड़ाई पूरा दिन बिगाड़ देती है।","S","C"],["Pele reetsa, morago bua.","पेले रीत्सा, मोरागो बुआ।","पहले सुनो, फिर बोलो।","L","B"],["Gongwe o ne a sa dire ka bomo.","गोंग्वे ओ ने आ सा दिरे का बोमो।","शायद उसने जान-बूझकर नहीं किया।","S","C"],["Mo fe tshono ya go itlhalosa.","मो फ़े चोनो या खो इत्लालोसा।","उसे समझाने का एक मौका दो।","L","B"],["Ke kopile tshwarelo mme a nyenya.","के कोपीले च्वारेलो म्मे आ न्येन्या।","मैंने माफ़ी माँगी और वह मुस्कुराया।","S","B"],["Tshwarelo e nnye e boloka kgang e kgolo.","च्वारेलो ए न्न्ये ए बोलोका खांग ए ख्गोलो।","छोटी माफ़ी बड़ा झगड़ा बचा लेती है।","S","B"],["Pelotelele ke tsala ya modiri.","पेलोतेलेले के त्साला या मोदिरी।","धैर्य मज़दूर का दोस्त है।","S","C"],["O se ke wa isa bogale kwa motšheneng.","ओ से के वा इसा बोगाले क्वा मोत्शेनेंग।","गुस्सा मशीन तक मत ले जाओ।","L","B"],["Diatla tsa bogale di dira dikotsi.","दिआत्ला त्सा बोगाले दि दिरा दिकोत्सी।","गुस्से के हाथ दुर्घटना करते हैं।","L","B"],["Fa kgang e kgolo, bua le molaodi.","फ़ा खांग ए ख्गोलो, बुआ ले मोलाओदी।","बात बड़ी हो तो सुपरवाइज़र से बात करो।","L","B"],["Ba rarabolotse kgang mo metsotsong e tlhano.","बा रारबोलोत्से खांग मो मेत्सोत्सोंग ए त्लानो।","उन्होंने पाँच मिनट में बात सुलझा दी।","S","C"],["Lona ba babedi lo bakgoni ba ba molemo.","लोना बा बाबेदी लो बाख्गोनी बा बा मोलेमो।","तुम दोनों अच्छे कारीगर हो।","L","B"],["Dira mmogo, bona madi mmogo.","दिरा म्मोगो, बोना मादी म्मोगो।","साथ काम करो, साथ कमाओ।","L","B"],["O se ke wa lwa ka motse kgotsa losika.","ओ से के वा ल्वा का मोत्से ख्होत्सा लोसीका।","गाँव या जात पर मत लड़ो।","L","B"],["Rotlhe re dira ka ntlha ya malapa a rona.","रोत्ले रे दिरा का न्त्ला या मालापा आ रोना।","हम सब अपने परिवार के लिए काम करते हैं।","S","B"],["Morago ga kgang re noele tee mmogo.","मोरागो खा खांग रे नोएले ती म्मोगो।","झगड़े के बाद हमने साथ चाय पी।","S","B"],["Jaanong re a mo tshega.","जाआनोंग रे आ मो त्शेगा।","अब हम उस पर हँसते हैं।","S","B"],["Pelo e e kgutsitseng e dira tiro e ntle go gaisa.","पेलो ए ए ख्गुत्सीत्सेंग ए दिरा तिरो ए न्त्ले खो गाइसा।","शांत मन सबसे अच्छा काम करता है।","S","C"],["Kagiso mo tirong, kagiso mo gae.","कागिसो मो तिरोंग, कागिसो मो गाए।","काम पर शांति, घर में शांति।","S","C"]]},{"tw":[["mokopani","मोकोपानी","साथ काम करने वाला","ख"],["itsise","इत्सीसे","परिचय कराना","ख"],["tee","तेए","चाय की छुट्टी","ख"],["muti wa kaya","मूती वा काया","मूल गाँव-घर","ख"],["tshepo","चेपो","भरोसा","क"],["a na esi","अ ना एसी","अकेला","क"]],"drill":{"type":"showTell","hi":"नए साथी से परिचय — तीन वाक्य में अपनी बात बोलो।","rows":[["Dumela, ke ___ tsala ya gago.","Ke tsenye tiro e beke e fetileng.","Ke a leboga ka thuso ya gago."]]},"items":[["Yo ke Ramesh, yo o dirang le nna.","यो के रमेश, यो ओ दिरांग ले न्ना।","यह मेरे साथ काम करने वाला रमेश है।","S","B"],["Tla, ke go itse setlhopheng.","त्ला, के खो इत्से सेत्लोफ़ेंग।","चलो, टीम से तुम्हारा परिचय कराता हूँ।","S","B"],["Mogolo, o tswa kae?","मोगोलो, ओ त्स्वा काए?","भाई, आप कहाँ से हैं?","L","B"],["Ke tswa Khagaria.","के त्स्वा खगड़िया।","मैं खगड़िया से हूँ।","S","A"],["Ijoo, re tswa ka distrikiti e le nngwe!","इजो, रे त्स्वा का दिस्त्रिकिती ए ले न्ंग्वे!","अरे, हम एक ही जिले के हैं!","S","B"],["Tlang, re noweng tee mmogo.","त्लांग, रे नोवेंग ती म्मोगो।","आओ, हमारे साथ चाय पियो।","S","C"],["Re tsaya tee ka nako ya bone.","रे त्साया ती का नाको या बोने।","हम चार बजे चाय की छुट्टी लेते हैं।","S","B"],["O abetse dijo tsa gagwe le nna.","ओ आबेत्से दिजो त्सा गाग्वे ले न्ना।","उसने अपना खाना मेरे साथ बाँटा।","S","B"],["Letsatsi la ntlha ke ne ke le esi thata.","लेत्सात्सी ला न्त्ला के ने के ले एसी थाता।","पहले दिन मैं बहुत अकेला था।","S","B"],["O mpontshitse lefelo lotlhe.","ओ म्पोंत्शीत्से लेफ़ेलो लोत्ले।","उसने मुझे पूरी जगह दिखाई।","S","B"],["Ditsala tse di molemo di dira tiro e e boima go nna bonolo.","दित्साला त्से दि मोलेमो दि दिरा तिरो ए ए बोइमा खो न्ना बोनोलो।","अच्छे दोस्त कठिन काम हल्का कर देते हैं।","S","C"],["A o ka nthuta motšhene o?","आ ओ का न्थुता मोत्शेने ओ?","क्या तुम मुझे यह मशीन सिखा सकते हो?","S","B"],["Ammaaruri, leba diatla tsa me.","आम्माआरुरी, लेबा दिआत्ला त्सा मे।","ज़रूर, मेरे हाथ देखो।","L","B"],["Ka iketlo o tla ithuta tsotlhe.","का इकेत्लो ओ त्ला इथुता त्सोत्ले।","धीरे-धीरे तुम सब सीख जाओगे।","L","B"],["Mogolo, ke a leboga ka thuso ya gago yotlhe.","मोगोलो, के आ लेबोखा का थुसो या गागो योत्ले।","भाई, तुम्हारी सारी मदद के लिए धन्यवाद।","S","B"],["Morago ga tiro re ya mo phaposing mmogo.","मोरागो खा तिरो रे या मो फ़ापोसिंग म्मोगो।","काम के बाद हम साथ कमरे जाते हैं।","S","B"],["Ka Sontaga re apaya dijo tse dikgethegileng mmogo.","का सोंतागा रे आपाया दिजो त्से दिख्गेथेगीलेंग म्मोगो।","रविवार को हम साथ ख़ास खाना बनाते हैं।","S","B"],["Mo nakong e e thata o nnaya madi.","मो नाकोंग ए ए थाता ओ न्नाया मादी।","मुश्किल समय में उसने मुझे पैसे दिए।","S","B"],["Ke buseditse ka letsatsi la moputso.","के बुसेदीत्से का लेत्सात्सी ला मोपुत्सो।","मैंने भुगतान के दिन लौटा दिए।","S","B"],["Busa madi a kadimo ka nako.","बुसा मादी आ कादिमो का नाको।","उधार पैसा समय पर लौटाओ।","L","B"],["Tshepo e tsaya dingwaga go aga, metsotso go roba.","त्शेपो ए त्साया दिंग्वागा खो आगा, मेत्सोत्सो खो रोबा।","भरोसा बनने में साल, टूटने में मिनट लगता है।","S","C"],["O se ke wa bua ka mongwe kwa morago.","ओ से के वा बुआ का मोंग्वे क्वा मोरागो।","किसी की पीठ पीछे बात मत करो।","L","B"],["Baka tsala pele ga botlhe.","बाका त्साला पेले खा बोत्ले।","दोस्त की तारीफ़ सबके सामने करो।","L","B"],["Bolelela phoso ya gagwe go ene fela.","बोलेलेला फ़ोसो या गाग्वे खो एने फ़ेला।","उसकी ग़लती सिर्फ़ उसे बताओ।","L","B"],["Re ditsala tse tlhano go tswa dipusong tse tlhano.","रे दित्साला त्से त्लानो खो त्स्वा दिपुसोंग त्से त्लानो।","हम पाँच राज्यों के पाँच दोस्त हैं।","S","B"],["Re ithuta puo ya mongwe le mongwe.","रे इथुता पुओ या मोंग्वे ले मोंग्वे।","हम एक-दूसरे की बोली सीखते हैं।","S","B"],["O nthutile mafoko a Sekannada a some.","ओ न्थुतीले मफ़ोको आ सेकन्नादा आ सोमे।","उसने मुझे दस कन्नड़ शब्द सिखाए।","S","B"],["Ke mo rutile mafoko a Sehindi a some.","के मो रुतीले मफ़ोको आ सेहिंदी आ सोमे।","मैंने उसे दस हिंदी शब्द सिखाए।","S","B"],["Kgakala le gae, ditsala ke lelapa.","ख्गाकाला ले गाए, दित्साला के लेलापा।","घर से दूर, दोस्त ही परिवार हैं।","S","C"],["Tsala ya nnete ke khumo e kgolo.","त्साला या न्नेते के खुमो ए ख्गोलो।","सच्चा दोस्त बड़ी दौलत है।","S","C"]]},{"tw":[["tsholeditswe","चोलेदीत्स्वे","तरक्की","ख"],["tokiso","तोकीसो","वेतन-बढ़ोतरी","ख"],["boikarabelo","बोइकाराबेलो","ज़िम्मेदारी","ख"],["setifikeiti","सेतीफ़ीकेइती","प्रमाणपत्र","ख"],["khoso","खोसो","कोर्स","ख"],["toro","तोरो","सपना","क"]],"drill":{"type":"timeSwap","hi":"तरक्की की सीढ़ी — बीता कल, आज, आने वाला कल तीनों बोलो।","rows":[["Kgwedi e e fetileng ke ne ke mothusi.","Gompieno ke mmetli.","Dingwaga tse di tlang ke tla nna mong."]]},"items":[["Ke batla go gatela pele mo tirong ya me.","के बात्ला खो गातेला पेले मो तिरोंग या मे।","मैं अपने काम में आगे बढ़ना चाहता हूँ।","S","A"],["Ke simolotse e le mothusi, jaanong ke misiri.","के सिमोलोत्से ए ले मोथुसी, जाआनोंग के मिसिरी।","सहायक से मैं मिस्त्री बन गया।","S","B"],["Go ntsere dingwaga tse tharo.","खो न्त्सेरे दिंग्वागा त्से थारो।","मुझे तीन साल लगे।","S","B"],["Rra, ke ithutile ditšhene tsotlhe.","र्रा, के इथुतीले दित्शेने त्सोत्ले।","सर, मैंने सारी मशीनें सीख ली हैं।","S","B"],["Tsweetswee, mphe boikarabelo jo bogolo.","त्स्वीत्स्वी, म्फे बोइकाराबेलो जो बोगोलो।","कृपया मुझे और ज़िम्मेदारी दीजिए।","S","A"],["A moputso wa me o ka godisiwa ngwaga ono?","आ मोपुत्सो वा मे ओ का गोदिसिवा ंग्वागा ओनो?","क्या इस साल मेरी बढ़ोतरी हो सकती है?","S","A"],["Pele ntshupetse tiro, morago kopa go godisiwa.","पेले न्त्शुपेत्से तिरो, मोरागो कोपा खो गोदिसिवा।","पहले काम दिखाओ, फिर बढ़ोतरी माँगो।","L","B"],["Tiro ya me e ipuela.","तिरो या मे ए इपुएला।","मेरा काम ख़ुद बोलता है।","S","B"],["Kgwedi e e fetileng ke godisitswe.","ख्वेदी ए ए फ़ेतीलेंग के गोदिसीत्स्वे।","पिछले महीने मेरी तरक्की हुई।","S","B"],["Jaanong ke laola setlhopha sa batho ba bane.","जाआनोंग के लाओला सेत्लोफ़ा सा बाथो बा बाने।","अब मैं चार लोगों की टीम चलाता हूँ।","S","B"],["Moeteledipele yo o molemo o dira ka bowena pele.","मोएतेलेदिपेले यो ओ मोलेमो ओ दिरा का बोवेना पेले।","अच्छा अगुआ पहले ख़ुद काम करता है।","S","C"],["Ke dira thuto ya mahala ya inthanete.","के दिरा थुतो या महाला या इंथानेते।","मैं मुफ़्त ऑनलाइन कोर्स कर रहा हूँ।","S","A"],["Ke bala mo founong bosigo.","के बाला मो फ़ाउनोंग बोसिगो।","मैं रात में फोन पर पढ़ता हूँ।","S","B"],["Ke tla amogela setifikeiti morago ga tlhahlobo.","के त्ला आमोगेला सेतिफ़िकेइती मोरागो खा त्लाल्लोबो।","परीक्षा के बाद मुझे प्रमाणपत्र मिलेगा।","S","B"],["Setifikeiti se bula dikgoro tse disha.","सेतिफ़िकेइती से बुला दिख्गोरो त्से दिशा।","प्रमाणपत्र नए दरवाज़े खोलता है।","S","C"],["Tiro e kgolo e tlhoka Sekgoa.","तिरो ए ख्गोलो ए त्लोका सेक्गोआ।","बड़े काम के लिए अंग्रेज़ी चाहिए।","S","C"],["Ke itlwaetsa Sekgoa le badiri ka nna.","के इत्लवाएत्सा सेक्गोआ ले बादिरी का न्ना।","मैं साथियों के साथ अंग्रेज़ी का अभ्यास करता हूँ।","S","B"],["Bokgoni le puo ke moloko o o nonofileng.","बोख्गोनी ले पुओ के मोलोको ओ ओ नोनोफ़ीलेंग।","एक हुनर और एक भाषा मज़बूत जोड़ी है।","S","C"],["Toro ya me ke go nna le weresopo ya me.","तोरो या मे के खो न्ना ले वेरेसोपो या मे।","मेरा सपना अपनी वर्कशॉप है।","S","B"],["Ke boloka madi a didirisiwa.","के बोलोका मादी आ दिदिरिस्वा।","मैं औज़ारों के लिए पैसे जोड़ रहा हूँ।","S","A"],["Pele mosiri, morago moruti, morago mong.","पेले मोसिरी, मोरागो मोरुती, मोरागो मोंग।","पहले कारीगर, फिर उस्ताद, फिर मालिक।","S","C"],["Lere le ya godimo kgato ka kgato.","लेरे ले या गोदिमो खातो का खातो।","सीढ़ी कदम-कदम ऊपर जाती है।","S","C"],["O se ke wa bapisa letsatsi la gago la ntlha le ngwaga wa gagwe wa some.","ओ से के वा बापिसा लेत्सात्सी ला गागो ला न्त्ला ले ंग्वागा वा गाग्वे वा सोमे।","अपने पहले दिन की तुलना उसके दसवें साल से मत करो।","S","B"],["Ithuta sengwe se sesha kgwedi nngwe le nngwe.","इथुता सेंग्वे से सेशा ख्वेदी न्ंग्वे ले न्ंग्वे।","हर महीने एक नई चीज़ सीखो।","L","B"],["Ruta mothusi yo mosha ka lorato.","रुता मोथुसी यो मोशा का लोराटो।","नए सहायक को प्यार से सिखाओ।","L","B"],["Mothusi wa gompieno ke moruti wa kamoso.","मोथुसी वा गोम्पिएनो के मोरुती वा कामोसो।","आज का सहायक कल का उस्ताद है।","S","C"],["Molaodi wa me o a ntshepa.","मोलाओदी वा मे ओ आ न्त्शेपा।","मेरे सुपरवाइज़र को मुझ पर भरोसा है।","S","B"],["Ga ke kitla ke roba tshepo e.","खा के कित्ला के रोबा त्शेपो ए।","मैं यह भरोसा नहीं तोड़ूँगा।","S","A"],["Natla le thuto di kopana go dira katlego.","नात्ला ले थुतो दि कोपाना खो दिरा कात्लेगो।","मेहनत और सीख मिलकर तरक्की बनती है।","S","C"],["Isago ya me e kgolo go gaisa maabane a me.","इसागो या मे ए ख्गोलो खो गाइसा माआबाने आ मे।","मेरा भविष्य मेरे बीते कल से बड़ा है।","S","B"]]}],"test":{"target":"Pankeng (ka founo)","goal":"Ka Setswana bolela — o amogetse moputso, o rometse bokae (ka UPI), mme o dyondzise va kaya go itshireletsa OTP.","lines":[["Gompieno ke amogetse moputso.","गोम्पिएनो के आमोगेत्से मोपुत्सो।"],["Ke rometse dikete tse nne ka UPI.","के रोमेत्से दिकेते त्से न्ने का UPI।"],["Sekaseka molaetsa mo founong ya gago.","सेकासेका मोलाएत्सा मो फ़ाउनोंग या गागो।"],["O se ke wa abelana OTP mo founong.","ओ से के वा आबेलाना OTP मो फ़ाउनोंग।"],["Panka ga e botse OTP leng.","पांका खा ए बोत्से OTP लेंग।"]]},"listen":[["(reetsa) Madi a fitlhile leng?","(araba) A fitlhile mo motsotsong."],["(reetsa) Lo loana ka eng?","(araba) E ne e le phoso ya me, ke kopa tshwarelo."]],"dialog":[["Wena","Ke batla go romela dikete tse nne."],["Mobapanki","Nomoro ya akhaonto?"],["Wena","E mo pampitshaneng e."],["Mobapanki","Go dirilwe, sekaseka molaetsa."],["Wena","Ke a leboga, mma."]]},{"n":7,"title":"Work Places, Safe Stay and Rights","hi":"काम की जगहें, सुरक्षित ठिकाना और हक़","pace":30,"days":[{"tw":[["febereking","फ़ेबेरेकींग","कारख़ाना","ख"],["sefosong","सेफ़ोसोंग","पारी","ख"],["kgoro","क्गोरो","गेट पास","ख"],["yunifomo","यूनीफ़ोमो","वर्दी","ख"],["maikaelelo","माइकाएलेलो","लक्ष्य","ख"],["molelo","मोलेलो","आग का निकास","ख"]],"drill":{"type":"dialogueFill","hi":"गेट पर संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Molebedi: Mpontshe pase ya gago.","Wena: Fano e, rra."],["Molebedi: Lenaneo lefe?","Wena: Lenaneo la go roka, motšhene nomoro lesome-le-bobedi."]]},"items":[["Ke dira mo fektoring ya diaparo.","के दिरा मो फ़ेक्तोरिंग या दिआपारो।","मैं कपड़ा कारख़ाने में काम करता हूँ।","S","A"],["Shifi ya me e simolola ka nako ya bosupa.","शिफ़ी या मे ए सिमोलोला का नाको या बोसुपा।","मेरी पारी सात बजे शुरू होती है।","S","B"],["Beke e ke mo shifing ya mosong.","बेके ए के मो शिफ़िंग या मोसोंग।","इस हफ़्ते मैं सुबह की पारी में हूँ।","S","B"],["Ntshupetse pasa ya gago ya kgoro fa kgorong.","न्त्शुपेत्से पासा या गागो या ख्गोरो फ़ा ख्गोरोंग।","गेट पर अपना गेट पास दिखाओ।","L","B"],["Gompieno ke lebetse pasa ya me ya kgoro.","गोम्पिएनो के लेबेत्से पासा या मे या ख्गोरो।","आज मैं गेट पास भूल गया।","S","B"],["Tsweetswee, nthusetse karata e ntšha.","त्स्वीत्स्वी, न्थुसेत्से कराता ए न्त्शा।","कृपया मेरा नया कार्ड बनवा दीजिए।","S","A"],["Apara yunifomo ka fa gare ga fektori.","आपारा युनिफ़ोमो का फ़ा गारे खा फ़ेक्तोरी।","कारख़ाने के अंदर वर्दी पहनो।","L","B"],["Baya founo mo lokareng.","बाया फ़ाउनो मो लोकारेंग।","फोन लॉकर में रखो।","L","B"],["Motšhene wa me ke nomoro ya some-le-bobedi.","मोत्शेने वा मे के नोमोरो या सोमे-ले-बोबेदी।","मेरी मशीन नंबर बारह है।","S","B"],["Ke dira mo lenaneong la go roka.","के दिरा मो लेनानेओंग ला खो रोका।","मैं सिलाई लाइन पर काम करता हूँ।","S","A"],["Fa motšhene o le mongwe o emisa, lenaneo lotlhe le a ema.","फ़ा मोत्शेने ओ ले मोंग्वे ओ एमिसा, लेनानेओ लोत्ले ले आ एमा।","एक मशीन रुके तो पूरी लाइन रुकती है।","S","C"],["Sepheo sa gompieno ke dikopi tse makgolo a mabedi.","सेफ़ेओ सा गोम्पिएनो के दिकोपी त्से माक्खोलो आ माबेदी।","आज का लक्ष्य दो सौ नग है।","L","B"],["Re fedile sepheo pele ga nako.","रे फ़ेदीले सेफ़ेओ पेले खा नाको।","हमने समय से पहले लक्ष्य पूरा किया।","S","B"],["Mosekaseki o amogetse dikopi tsa me.","मोसेकासेकी ओ आमोगेत्से दिकोपी त्सा मे।","जाँच वाले ने मेरे नग पास किए।","S","B"],["Dikopi tse pedi di boile go baakangwa.","दिकोपी त्से पेदी दि बोइले खो बाआकांग्वा।","दो नग सुधार के लिए वापस आए।","S","C"],["Ke tla di roka gape ka kelotlhoko.","के त्ला दि रोका गापे का केलोत्लोको।","मैं उन्हें फिर से ध्यान से सिलूँगा।","S","B"],["Maikhutso a go ja ke go tswa ka nako ya bongwe go ya nako ya bobedi.","माइखुत्सो आ खो जा के खो त्स्वा का नाको या बोंग्वे खो या नाको या बोबेदी।","खाने की छुट्टी एक से दो बजे है।","L","B"],["Dijo tsa khantini di tlhofofala.","दिजो त्सा खांतिनी दि त्लोफ़ोफ़ाला।","कैंटीन का खाना सस्ता है।","S","C"],["Nwa metsi oura nngwe le nngwe mo bogoteng.","न्वा मेत्सी ओउरा न्ंग्वे ले न्ंग्वे मो बोगोतेंग।","गर्मी में हर घंटे पानी पियो।","L","B"],["O se ke wa ama lebanta le le tsamayang.","ओ से के वा आमा लेबांता ले ले त्सामायांग।","चलती पट्टी को मत छुओ।","L","B"],["Bofa moriri fa o le gaufi le motšhene.","बोफ़ा मोरिरी फ़ा ओ ले गाउफ़ी ले मोत्शेने।","मशीन के पास बाल बाँधकर रखो।","L","B"],["Fa go na le phororosego kgotsa monko, bega ka bonako.","फ़ा खो ना ले फ़ोरोरोसेगो ख्होत्सा मोन्को, बेगा का बोनाको।","कोई रिसाव या गंध हो तो तुरंत ख़बर दो।","L","B"],["Tsela ya go tswa mo molelong e kwa molemeng.","त्सेला या खो त्स्वा मो मोलेलोंग ए क्वा मोलेमेंग।","आग का निकास बाईं ओर है।","L","B"],["O se ke wa tswala lebati la go tswa leng.","ओ से के वा त्स्वाला लेबाती ला खो त्स्वा लेंग।","निकास का दरवाज़ा कभी बंद मत करो।","L","B"],["Gompieno re dirile tlwaetso ya molelo.","गोम्पिएनो रे दिरीले त्लवाएत्सो या मोलेलो।","आज हमने आग-अभ्यास किया।","S","B"],["Saena mo gistareng pele ga o tsamaya.","साएना मो गिस्तारेंग पेले खा ओ त्सामाया।","जाने से पहले रजिस्टर पर दस्तख़त करो।","L","B"],["Fano tiro e e okeditsweng e duelwa go farologana.","फ़ानो तिरो ए ए ओकेदित्स्वेंग ए दुएल्वा खो फ़ारोलोगाना।","यहाँ ओवरटाइम का अलग पैसा मिलता है।","S","C"],["Kopa karata ya gago ya ESI.","कोपा कराता या गागो या ESI।","अपना ईएसआई कार्ड माँगो।","L","B"],["Fektori e naya PF gape.","फ़ेक्तोरी ए नाया PF गापे।","कारख़ाना पीएफ भी देता है।","S","C"],["Itse ditshwanelo tsa gago, dira tiro ya gago.","इत्से दित्श्वानेलो त्सा गागो, दिरा तिरो या गागो।","अपने हक़ जानो, अपना काम करो।","S","B"]]},{"tw":[["moreki","मोरेकी","ग्राहक","ग"],["pampitshaneng","पाम्पीचानेंग","दाम","ग"],["tokiso","तोकीसो","छूट","ग"],["oda","ओदा","ऑर्डर","ग"],["hoteleng","होतेलेंग","परोसना","ख"],["maikokotlelo","माइकोकोत्लेलो","विनम्र","क"]],"drill":{"type":"pairSwap","hi":"विनम्र-रूप बोलो — वाक्य सुनो, tsweetswee लगाकर मीठा बनाओ।","rows":[["Mphe seo.","Tsweetswee mphe seo."],["Ema.","Tsweetswee ema, rra."],["Duela bili.","Tsweetswee duela bili, rra."]]},"items":[["Ke dira kwa lebenkeleng la founu.","के दिरा क्वा लेबेंकेलेंग ला फ़ाउनु।","मैं मोबाइल की दुकान में काम करता हूँ।","S","A"],["Tlang, o tlhoka eng?","त्लांग, ओ त्लोका एंग?","आइए, आपको क्या चाहिए?","S","B"],["Tsweetswee, leba mmodeli o o mosha.","त्स्वीत्स्वी, लेबा म्मोदेली ओ ओ मोशा।","कृपया यह नया मॉडल देखिए।","S","A"],["Tlhwatlhwa ya ona ke eng?","त्लावात्लावा या ओना के एंग?","इसका दाम क्या है?","L","B"],["Tlhwatlhwa e kwadilwe mo pampiring.","त्लावात्लावा ए क्वादिल्वे मो पम्पिरिंग।","दाम पर्ची पर लिखा है।","S","C"],["A go na le kgokgonyo e e tla fiwang?","आ खो ना ले ख्गोख्गोन्यो ए ए त्ला फ़िवांग?","क्या कुछ छूट मिलेगी?","L","B"],["Nka fa kgokgonyo ya diperesente tse tlhano.","न्का फ़ा ख्गोख्गोन्यो या दिपेरेसेंते त्से त्लानो।","मैं पाँच प्रतिशत छूट दे सकता हूँ।","S","B"],["Moreki o nna wa ntlha ka metlha.","मोरेकी ओ न्ना वा न्त्ला का मेत्ला।","ग्राहक हमेशा पहले है।","S","C"],["Bua le moreki mongwe le mongwe ka boikokobetso.","बुआ ले मोरेकी मोंग्वे ले मोंग्वे का बोइकोकोबेत्सो।","हर ग्राहक से विनम्रता से बोलो।","L","B"],["Nyenyo e busetsa moreki.","न्येन्यो ए बुसेत्सा मोरेकी।","मुस्कान ग्राहक को वापस लाती है।","S","C"],["Rra, oto ya gago e siametse.","र्रा, ओतो या गागो ए सिआमेत्से।","सर, आपका ऑर्डर तैयार है।","S","B"],["Ke abela tee le dijo tsa mosong mo hotele.","के आबेला ती ले दिजो त्सा मोसोंग मो होतेले।","मैं होटल में चाय-नाश्ता परोसता हूँ।","S","B"],["Tsweetswee, leta, tafole ya gago e a lokollwa.","त्स्वीत्स्वी, लेता, तफ़ोले या गागो ए आ लोकोल्ल्वा।","कृपया रुकिए, आपकी मेज़ ख़ाली हो रही है।","S","A"],["Phepafatsa tafole ka bonako.","फ़ेपाफ़ात्सा तफ़ोले का बोनाको।","मेज़ जल्दी साफ़ करो।","L","B"],["Tlhapa diatla pele ga go abela.","त्लापा दिआत्ला पेले खा खो आबेला।","परोसने से पहले हाथ धोओ।","L","B"],["A ke phuthele se?","आ के फुथेले से?","क्या पैक करके दूँ?","S","B"],["Rra, ke bili ya gago e.","र्रा, के बिली या गागो ए।","सर, यह आपका बिल है।","S","B"],["A o na le madi a a setseng?","आ ओ ना ले मादी आ आ सेत्सेंग?","क्या आपके पास खुले पैसे हैं?","S","B"],["O ka duela ka UPI gape.","ओ का दुएला का UPI गापे।","आप यूपीआई से भी दे सकते हैं।","S","B"],["Tsweetswee, skena khoutu e.","त्स्वीत्स्वी, स्केना खोउतु ए।","कृपया यह कोड स्कैन कीजिए।","S","A"],["Ke a leboga, tlang gape.","के आ लेबोखा, त्लांग गापे।","धन्यवाद, फिर आइएगा।","S","A"],["Bala dithoto maitseboa otlhe.","बाला दिथोतो माइत्सेबोआ ओत्ले।","हर शाम माल गिनो।","L","B"],["Mo dithotong go tlhaela dibokoso tse pedi.","मो दिथोतोंग खो त्लाएला दिबोकोसो त्से पेदी।","माल में दो डिब्बे कम हैं।","S","C"],["Mo bolelele mong gompieno fela.","मो बोलेलेले मोंग गोम्पिएनो फ़ेला।","मालिक को आज ही बताओ।","L","B"],["Boloka lebenkele le phepa le le phatsimang.","बोलोका लेबेंकेले ले फ़ेपा ले ले फ़ात्सिमांग।","दुकान साफ़ और चमकदार रखो।","L","B"],["Baya dithoto tse disha kwa pele.","बाया दिथोतो त्से दिशा क्वा पेले।","नया सामान आगे सजाओ।","L","B"],["Moreki yo o galefileng o tlhoka tsenyo e e kgutsitseng.","मोरेकी यो ओ गालेफ़ीलेंग ओ त्लोका त्सेन्यो ए ए ख्गुत्सीत्सेंग।","नाराज़ ग्राहक को ठंडा कान चाहिए।","S","C"],["Ntshwarele rra, re tla fetola jaanong.","न्त्श्वारेले र्रा, रे त्ला फ़ेतोला जाआनोंग।","माफ़ कीजिए सर, हम अभी बदल देते हैं।","S","A"],["Lebenkele le le ikanyegang, moreki yo o boang.","लेबेंकेले ले ले इकान्येगांग, मोरेकी यो ओ बोआंग।","ईमानदार दुकान, लौटता ग्राहक।","S","C"],["Tirelo e e tswang pelong e rekisa go gaisa.","तिरेलो ए ए त्स्वांग पेलोंग ए रेकिसा खो गाइसा।","दिल से सेवा सबसे ज़्यादा बिकवाती है।","S","C"]]},{"tw":[["thobo","थोबो","कटाई","ख"],["korong","कोरोंग","बोना","ख"],["peo","पेओ","फ़सल","ख"],["mogolo","मोगोलो","मंडी","ग"],["nxavo","न्क्सावो","भाव","ग"],["kala","काला","तौलना","ग"]],"drill":{"type":"orderSteps","hi":"खेती का क्रम — Pele, Morago, Morago ga moo लगाकर बोलो।","rows":[["Pele jala peo.","Morago nosetsa tshimo.","Morago ga moo roba thobo."]]},"items":[["Ke dira mo tshimong ka pula.","के दिरा मो च्हिमोंग का पुला।","मैं मौसम में खेत पर काम करता हूँ।","S","B"],["Nako e, ke ya go jala.","नाको ए, के या खो जाला।","यह बुवाई का समय है।","S","C"],["Re jala korong ka Novemere.","रे जाला कोरोंग का नोवेमेरे।","हम नवंबर में गेहूँ बोते हैं।","S","B"],["Peo e e molemo e naya thobo e ntle.","पेओ ए ए मोलेमो ए नाया थोबो ए न्त्ले।","अच्छा बीज अच्छी फ़सल देता है।","S","C"],["Reka peo kwa lebenkeleng le le laesenseng.","रेका पेओ क्वा लेबेंकेलेंग ले ले लाएसेंसेंग।","बीज लाइसेंस वाली दुकान से खरीदो।","L","B"],["Boloka bili ya peo le monontsha.","बोलोका बिली या पेओ ले मोनोंत्शा।","बीज और खाद का बिल रखो।","L","B"],["Nosetsa tshimo maitseboa.","नोसेत्सा च्हिमो माइत्सेबोआ।","शाम को खेत में पानी दो।","L","B"],["Ponpo e dira ka motlakase.","पोंपो ए दिरा का मोत्लाकासे।","पंप बिजली से चलता है।","S","C"],["Pula e ka na, khurumeletsa dijo tsa tshimo.","पुला ए का ना, खुरुमेलेत्सा दिजो त्सा च्हिमो।","बारिश हो सकती है, अनाज ढको।","L","B"],["Thobo e siame go robiwa.","थोबो ए सिआमे खो रोबिवा।","फ़सल कटाई के लिए तैयार है।","S","C"],["Re tla simolola go roba go tswa ka Mosupologo.","रे त्ला सिमोलोला खो रोबा खो त्स्वा का मोसुपोलोगो।","हम सोमवार से कटाई शुरू करेंगे।","S","B"],["Badiri ba masome a mabedi ba tsile go roba.","बादिरी बा मासोमे आ माबेदी बा त्सिले खो रोबा।","कटाई के लिए बीस मज़दूर आए।","S","C"],["Tefo ya go roba ke ya letsatsi kgotsa ya tshimo?","तेफ़ो या खो रोबा के या लेत्सात्सी ख्होत्सा या च्हिमो?","कटाई की मज़दूरी रोज़ की है या बीघे की?","S","B"],["Tlhomamisa sentle pele ga tiro.","त्लोमामिसा सेंत्ले पेले खा तिरो।","काम से पहले साफ़-साफ़ तय करो।","L","B"],["Tlhwatlhwa ya mmaraka gompieno ke eng?","त्लावात्लावा या म्माराका गोम्पिएनो के एंग?","आज मंडी का भाव क्या है?","S","A"],["Pele leba tlhwatlhwa mo founong.","पेले लेबा त्लावात्लावा मो फ़ाउनोंग।","पहले फोन पर भाव देखो।","L","B"],["Mmaraka o mogolo o na le tlhwatlhwa e e botoka.","म्माराका ओ मोगोलो ओ ना ले त्लावात्लावा ए ए बोतोका।","बड़ी मंडी में भाव बेहतर है।","S","C"],["Lekanya dikgetse fa pele ga gago.","लेकान्या दिख्गेत्से फ़ा पेले खा गागो।","बोरियाँ अपने सामने तौलवाओ।","L","B"],["Tsaya risiti ya tekanyo le ya tefo.","त्साया रिसिती या तेकान्यो ले या तेफ़ो।","तौल-पर्ची और भुगतान-पर्ची लो।","L","B"],["O se ke wa itlhaganela, rekisa ka tlhwatlhwa e e siameng.","ओ से के वा इत्लागानेला, रेकिसा का त्लावात्लावा ए ए सिआमेंग।","जल्दबाज़ी में नहीं, सही भाव पर बेचो।","L","B"],["Boloka dijo mo lefelong le le omeletseng.","बोलोका दिजो मो लेफ़ेलोंग ले ले ओमेलेत्सेंग।","अनाज सूखी जगह रखो।","L","B"],["Dipeba di ka senya dijo tse di bolokilweng.","दिपेबा दि का सेन्या दिजो त्से दि बोलोकील्वेंग।","चूहे रखा अनाज ख़राब कर सकते हैं।","L","B"],["Morago ga paka ke ya kwa toropong go dira tiro.","मोरागो खा पाका के या क्वा तोरोपोंग खो दिरा तिरो।","मौसम के बाद मैं काम के लिए शहर जाता हूँ।","S","B"],["Temo le tiro ya toropo di dira ntlo ya me mmogo.","तेमो ले तिरो या तोरोपो दि दिरा न्त्लो या मे म्मोगो।","खेती और शहर का काम मिलकर मेरा घर चलाते हैं।","S","B"],["Temo ya mashoroom e tlhoka lefatshe le lennye.","तेमो या माशोरूम ए त्लोका लेफ़ात्शे ले लेन्ये।","मशरूम की खेती को थोड़ी ज़मीन चाहिए।","S","C"],["Ke badile ka se mo thutong ya mahala ya inthanete.","के बादीले का से मो थुतोंग या महाला या इंथानेते।","मैंने मुफ़्त ऑनलाइन कोर्स में इसके बारे में पढ़ा।","S","B"],["Temo e ntšha e ka menagantsha madi a mabedi.","तेमो ए न्त्शा ए का मेनागांत्शा मादी आ माबेदी।","नई खेती कमाई दोगुनी कर सकती है।","S","C"],["Botsa linae ya balemi ka kgakololo.","बोत्सा लिनाए या बालेमी का ख्गाकोलोलो।","सलाह के लिए किसान हेल्पलाइन से पूछो।","L","B"],["Mmu ke mme wa rona.","म्मु के म्मे वा रोना।","मिट्टी हमारी माँ है।","S","B"],["Diatla tse di tiisegileng di mela dijo tsa naga.","दिआत्ला त्से दि तीसेगीलेंग दि मेला दिजो त्सा नागा।","मेहनती हाथ देश का अन्न उगाते हैं।","S","C"]]},{"tw":[["kopana","कोपाना","मकान-मालिक","क"],["tumalano","तूमालानो","लिखा-पढ़ी","क"],["tjhelete","त्ज्हेलेते","जमा-राशि","क"],["thapo ya motlakase","थापो या मोत्लाकासे","बिजली-तार","क"],["nee","नेए","अनजान","क"],["aterese","अतेरेसे","पता","क"]],"drill":{"type":"yesNo","hi":"कमरा-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।","rows":[["A lonotlelo lo a dira?","Ee, lo a dira. / Nnyaa, ga lo dire."],["A diwaere di khurumeditswe?","Ee, di khurumeditswe. / Nnyaa, ga di a khurumediwa."]]},"items":[["Ke batla phaposi e e babalesegileng.","के बात्ला फ़ापोसी ए ए बाबालेसेगीलेंग।","मैं सुरक्षित कमरा खोज रहा हूँ।","S","A"],["Rente le madi a pele ke bokae?","रेंते ले मादी आ पेले के बोकाए?","किराया और जमा-राशि कितनी है?","S","B"],["Tsaya risiti ya madi a pele.","त्साया रिसिती या मादी आ पेले।","जमा-राशि की रसीद लो।","L","B"],["Kopa tumalano e e sa raraaneng.","कोपा तुमालानो ए ए सा रारानेंग।","सादी लिखा-पढ़ी माँगो।","L","A"],["Bala pele ga o saena.","बाला पेले खा ओ साएना।","दस्तख़त से पहले पढ़ लो।","L","B"],["O se ke wa bua le moemedi fela, kopana le mong wa ntlo.","ओ से के वा बुआ ले मोएमेदी फ़ेला, कोपाना ले मोंग वा न्त्लो।","सिर्फ़ दलाल से नहीं, मकान-मालिक से मिलो।","L","B"],["Leba phaposi ka lesedi la letsatsi.","लेबा फ़ापोसी का लेसेदी ला लेत्सात्सी।","कमरा दिन की रोशनी में देखो।","L","B"],["Sekaseka lonotlelo le letswalo la lefestere.","सेकासेका लोनोत्लेलो ले लेत्स्वालो ला लेफ़ेस्तेरे।","दरवाज़े का ताला और खिड़की जाँचो।","L","A"],["A go na le metsi a a phepa fano?","आ खो ना ले मेत्सी आ आ फ़ेपा फ़ानो?","क्या यहाँ साफ़ पानी है?","S","B"],["Ntlo ya go tlhapa le ntlwana di kae?","न्त्लो या खो त्लापा ले न्त्ल्वाना दि काए?","स्नानघर और शौचालय कहाँ है?","S","A"],["Sekaseka diwaere tsa motlakase tsa phaposi.","सेकासेका दिवाएरे त्सा मोत्लाकासे त्सा फ़ापोसी।","कमरे के बिजली-तार जाँचो।","L","B"],["Diwaere tsa kgale tse di bulegileng di ka tlhabisa molelo.","दिवाएरे त्सा ख्गाले त्से दि बुलेगीलेंग दि का त्लाबिसा मोलेलो।","पुराने खुले तार आग लगा सकते हैं।","L","B"],["Itse tsela ya go tswa mo kagong.","इत्से त्सेला या खो त्स्वा मो कागोंग।","इमारत का निकास-रास्ता जान लो।","L","B"],["O se ke wa thiba ditepisi ka dithoto.","ओ से के वा थीबा दितेपिसी का दिथोतो।","सीढ़ियाँ सामान से मत रोको।","L","B"],["Tima gase morago ga go apaya.","तिमा गासे मोरागो खा खो आपाया।","खाना बनाकर गैस बंद करो।","L","B"],["O se ke wa robala le setofo se se tukang.","ओ से के वा रोबाला ले सेतोफ़ो से से तुकांग।","चूल्हा जलता छोड़कर मत सोओ।","L","B"],["Abelana phaposi le batho ba o ba itseng fela.","आबेलाना फ़ापोसी ले बाथो बा ओ बा इत्सेंग फ़ेला।","कमरा सिर्फ़ जान-पहचान वालों से बाँटो।","L","B"],["O se ke wa dumeletsa mongwe yo o sa itsiweng bosigo.","ओ से के वा दुमेलेत्सा मोंग्वे यो ओ सा इत्सिवेंग बोसिगो।","अनजान को रात में मत ठहराओ।","L","B"],["Fa fotokopi, se se nnete ga se ke se ka fiwa.","फ़ा फ़ोतोकोपी, से से न्नेते खा से के से का फ़िवा।","छायाप्रति दो, असली कागज़ कभी नहीं।","L","B"],["Kwala tiro le letsatsi mo fotokoping.","क्वाला तिरो ले लेत्सात्सी मो फ़ोतोकोपिंग।","छायाप्रति पर काम और तारीख़ लिख दो।","L","B"],["Tlatsa foromo ya sepodisi ka nnete.","त्लात्सा फ़ोरोमो या सेपोदिसी का न्नेते।","पुलिस-सत्यापन फ़ॉर्म सच-सच भरो।","L","A"],["Boloka nomoro ya mong wa ntlo mo founong.","बोलोका नोमोरो या मोंग वा न्त्लो मो फ़ाउनोंग।","मकान-मालिक का नंबर फोन में रखो।","L","B"],["Romela aterese e e feletseng kwa gae.","रोमेला आतेरेसे ए ए फ़ेलेत्सेंग क्वा गाए।","अपना पूरा पता घरवालों को भेज दो।","L","A"],["Itse baagisani ka maina.","इत्से बाआगिसानी का माइना।","पड़ोसियों को नाम से जानो।","L","B"],["Boela pele ga go diega thata.","बोएला पेले खा खो दिएगा थाता।","बहुत देर होने से पहले लौट आओ।","L","B"],["Boloka madi go le gonnye mo mafelong a mabedi.","बोलोका मादी खो ले गोन्ये मो मफ़ेलोंग आ माबेदी।","थोड़े पैसे दो जगह रखो।","L","B"],["Tsaya risiti ya rente kgwedi nngwe le nngwe.","त्साया रिसिती या रेंते ख्वेदी न्ंग्वे ले न्ंग्वे।","हर महीने किराये की रसीद लो।","L","B"],["Kwala palo ya mitara letsatsi la ntlha.","क्वाला पालो या मितारा लेत्सात्सी ला न्त्ला।","पहले दिन मीटर की गिनती लिख लो।","L","B"],["Phaposi e e babalesegileng e naya boroko jo bo siameng.","फ़ापोसी ए ए बाबालेसेगीलेंग ए नाया बोरोको जो बो सिआमेंग।","सुरक्षित कमरा अच्छी नींद देता है।","S","C"],["Lefelo le le babalesegileng, tiro e e nonofileng.","लेफ़ेलो ले ले बाबालेसेगीलेंग, तिरो ए ए नोनोफ़ीलेंग।","सुरक्षित ठिकाना, मज़बूत काम।","S","A"]]},{"tw":[["karata","काराता","श्रमिक कार्ड","ख"],["hesiboe","हेसीबोए","हेल्पलाइन","ख"],["lenaneo","लेनानेओ","योजना","ख"],["mahala","माहाला","मुफ़्त","क"],["tshwanelo","च्वानेलो","हक़","ख"],["kgetse","क्गेत्से","शिकायत","ख"]],"drill":{"type":"numberSay","hi":"ज़रूरी नंबर बोलो — अंक सुनो, Setswana में कहो।","rows":[["112","lekgolo-le-lesome-le-pedi"],["108","lekgolo-le-robedi"],["1930","sekete-le-makgolo-mabedi-le-masome-mararo"]]},"items":[["Dira karata ya gago ya modiri.","दिरा कराता या गागो या मोदिरी।","अपना श्रमिक कार्ड बनवाओ।","L","B"],["Karata ya e-Shram e dirwa mahala.","कराता या e-Shram ए दिर्वा महाला।","ई-श्रम कार्ड मुफ़्त बनता है।","L","A"],["E dirwa ka Aadhaar le founo.","ए दिर्वा का धार ले फ़ाउनो।","यह आधार और मोबाइल से बनता है।","L","B"],["Foromo e tladitswe mo setheong sa inthanete.","फ़ोरोमो ए त्लादित्स्वे मो सेथेओंग सा इंथानेते।","फ़ॉर्म ऑनलाइन-केंद्र पर भरा जाता है।","L","B"],["O se ke wa duela thata ka karata e e mahala.","ओ से के वा दुएला थाता का कराता ए ए महाला।","मुफ़्त कार्ड के लिए ज़्यादा पैसे मत दो।","L","B"],["Dithulaganyo tsa mmuso di thusa badiri ba ba humanegileng.","दिथुलागान्यो त्सा म्मुसो दि थुसा बादिरी बा बा हुमानेगीलेंग।","सरकारी योजनाएँ ग़रीब मज़दूरों की मदद करती हैं।","S","B"],["Botsa ka thulaganyo kwa ofising ya kgaolo.","बोत्सा का थुलागान्यो क्वा ओफ़िसिंग या ख्गाओलो।","योजना के बारे में प्रखंड-दफ़्तर में पूछो।","L","B"],["Boloka dikwalo tsa gago mo folateng e le nngwe.","बोलोका दिक्वालो त्सा गागो मो फ़ोलातेंग ए ले न्ंग्वे।","अपने कागज़ एक फ़ोल्डर में रखो।","L","B"],["Aadhaar, pukana ya panka, le setshwantshi ke dikwalo tsa botlhokwa.","धार, पुकाना या पांका, ले सेत्श्वांत्शी के दिक्वालो त्सा बोत्लोक्वा।","आधार, बैंक-पासबुक और फोटो मुख्य कागज़ हैं।","L","B"],["Morwadia me o amogetse chelesheipi.","मोर्वादिआ मे ओ आमोगेत्से चेलेशेइपी।","मेरी बेटी को छात्रवृत्ति मिली।","S","B"],["Lebenkele la raashani le bula ka nako.","लेबेंकेले ला राशनी ले बुला का नाको।","राशन दुकान समय पर खुलती है।","S","C"],["Sekaseka tekanyo ya raashani.","सेकासेका तेकान्यो या राशनी।","राशन का तौल जाँचो।","L","B"],["Tekanyo e tlase? Ipelaetse.","तेकान्यो ए त्लासे? इपेलाएत्से।","तौल कम? शिकायत करो।","L","B"],["Pelaelo ke tshwanelo ya gago, e seng kgang.","पेलाएलो के च्वानेलो या गागो, ए सेंग खांग।","शिकायत आपका हक़ है, झगड़ा नहीं।","S","B"],["Kwala nomoro ya thuso.","क्वाला नोमोरो या थुसो।","हेल्पलाइन नंबर लिख लो।","L","B"],["Mo tshoganetsong nngwe le nngwe, leletsa lekgolo-le-lesome-le-pedi.","मो त्शोगानेत्सोंग न्ंग्वे ले न्ंग्वे, लेलेत्सा लेक्खोलो-ले-लेसोमे-ले-पेदी।","किसी भी आपात में एक सौ बारह मिलाओ।","L","A"],["Nomoro ya ambulense ke lekgolo-le-robedi.","नोमोरो या अम्बुलेन्से के लेक्खोलो-ले-रोबेदी।","एम्बुलेंस का नंबर एक सौ आठ है।","L","A"],["Karata ya botsogo e naya kalafi e e mahala.","कराता या बोत्सोगो ए नाया कालाफ़ी ए ए महाला।","स्वास्थ्य कार्ड मुफ़्त इलाज देता है।","L","B"],["Botsa ka karata kwa fensetereng ya sepatela.","बोत्सा का कराता क्वा फ़ेन्सेतेरेंग या सेपातेला।","कार्ड के बारे में अस्पताल की खिड़की पर पूछो।","L","A"],["O se ke wa saena mo lokwalong lo lo se nang sepe.","ओ से के वा साएना मो लोक्वालोंग लो लो से नांग सेपे।","ख़ाली कागज़ पर दस्तख़त मत करो।","L","B"],["Bala kgotsa dumalela mongwe go bala pele ga go saena.","बाला ख्होत्सा दुमालेला मोंग्वे खो बाला पेले खा खो साएना।","दस्तख़त से पहले पढ़ो या पढ़वाओ।","L","B"],["Sebele sa gago le sona ke mosaeno wa gago.","सेबेले सा गागो ले सोना के मोसाएनो वा गागो।","आपका अँगूठा भी आपका दस्तख़त है।","L","B"],["Tiro e e kwa tlase ga tefo e e tshwanetseng e phoso.","तिरो ए ए क्वा त्लासे खा तेफ़ो ए ए च्वानेत्सेंग ए फ़ोसो।","तय दर से कम मज़दूरी ग़लत है।","L","B"],["Bua mmogo, kopa mmogo.","बुआ म्मोगो, कोपा म्मोगो।","मिलकर बात करो, मिलकर माँगो।","L","B"],["Ofisi ya tiro e reetsa badiri.","ओफ़िसी या तिरो ए रीत्सा बादिरी।","श्रम-दफ़्तर मज़दूरों की सुनता है।","S","C"],["Boloka bosupi jwa malatsi a tiro ya gago.","बोलोका बोसुपी ज्वा मालात्सी आ तिरो या गागो।","अपने काम के दिनों का सबूत रखो।","L","B"],["Setshwantshi sa lefelo la tiro se ka nna bosupi.","सेत्श्वांत्शी सा लेफ़ेलो ला तिरो से का न्ना बोसुपी।","काम की जगह की फोटो सबूत बन सकती है।","L","B"],["Molao o eme le modiri yo o ikanyegang.","मोलाओ ओ एमे ले मोदिरी यो ओ इकान्येगांग।","कानून ईमानदार मज़दूर के साथ है।","S","C"],["Itse thulaganyo, kgona thulaganyo.","इत्से थुलागान्यो, ख्गोना थुलागान्यो।","योजना जानो, योजना का लाभ लो।","L","B"],["Modiri yo o itseng o nonofile.","मोदिरी यो ओ इत्सेंग ओ नोनोफ़ीले।","जागरूक मज़दूर मज़बूत मज़दूर है।","S","C"]]}],"test":{"target":"Mothusi yo o fitlhileng toropong e ntšha (ka founo)","goal":"Ka Setswana mpolelele dintlha tse tharo tsa bonno jo bo babalesegileng, ruta dinomoro tsa tshoganetso, mme o kgothaletse karata ya modiri e e mahala.","lines":[["Sekaseka lonotlelo le lefestere.","सेकासेका लोनोत्लेलो ले लेफ़ेस्तेरे।"],["Kopa tumalano e e kwadilweng e e tlhamalalo.","कोपा तुमालानो ए ए क्वादिल्वेंग ए ए त्लामालालो।"],["Romela aterese ya gago yotlhe kwa lelapeng.","रोमेला आतेरेसे या गागो योत्ले क्वा लेलापेंग।"],["Mo tshoganetsong nngwe le nngwe, leletsa lekgolo-le-lesome-le-pedi.","मो त्शोगानेत्सोंग न्ंग्वे ले न्ंग्वे, लेलेत्सा लेक्खोलो-ले-लेसोमे-ले-पेदी।"],["Karata ya e-Shram e dirwa mahala.","कराता या e-Shram ए दिर्वा महाला।"],["Bonno jo bo babalesegileng, tiro e e nonofileng.","बोन्नो जो बो बाबालेसेगीलेंग, तिरो ए ए नोनोफ़ीलेंग।"]]},"listen":[["(reetsa) O dira kae?","(araba) Ke dira mo lenaneong la go roka."],["(reetsa) A phaposi e babalesegile?","(araba) Ee, ke sekasekile lonotlelo le diwaere."]],"dialog":[["Wena","Rente ke bokae?"],["Mong wa ntlo","Dikete tse pedi, le metsi."],["Wena","Ke batla tumalano e e kwadilweng."],["Mong wa ntlo","Go siame, ta kamoso."],["Wena","Ke a leboga."]]},{"n":8,"title":"Interview, Report and My Story","hi":"इंटरव्यू, रिपोर्ट और मेरी कहानी","pace":30,"days":[{"tw":[["kopo","कोपो","आवेदन करना","ख"],["boife","बोइफ़े","आत्मविश्वासी","ख"],["motlhokomedi","मोत्ल्होकोमेदी","मेहनती","ख"],["motlhokomedi","मोत्ल्होकोमेदी","ईमानदार","क"],["suresh","सूरेश","हवाला","ख"],["leka","लेका","परख","ख"]],"drill":{"type":"showTell","hi":"इंटरव्यू-परिचय — तीन वाक्य में अपनी बात बोलो।","rows":[["Dumela mosong rra, ke ___ yo o buang.","Ke ___ yo o nang le dingwaga tse ___ tsa maitemogelo.","Ke ipaakanyeditse go lekwa letsatsi lefe fela."]]},"items":[["Ke bone pego ya tiro ya gago mo WhatsApp.","के बोने पेगो या तिरो या गागो मो व्हाट्सऐप।","मैंने व्हाट्सऐप पर आपकी नौकरी की ख़बर देखी।","S","B"],["Ke batla go dira kopo ya maemo a moweledi.","के बात्ला खो दिरा कोपो या माएमो आ मोवेलेदी।","मैं वेल्डर पद के लिए आवेदन करना चाहता हूँ।","S","A"],["Dumela rra, ke Ramesh yo o buang.","दुमेला र्रा, के रमेश यो ओ बुआंग।","सुप्रभात सर, मैं रमेश बोल रहा हूँ।","S","A"],["A go siame go bua jaanong?","आ खो सिआमे खो बुआ जाआनोंग?","क्या अभी बात करना ठीक रहेगा?","S","B"],["Tsweetswee, mpolelele ka wena.","त्स्वीत्स्वी, म्पोलेलेले का वेना।","कृपया अपने बारे में बताइए।","L","B"],["Ke tswa Bihar mme ke mofiti.","के त्स्वा बिहार म्मे के मोफ़िती।","मैं बिहार से हूँ और फिटर हूँ।","S","A"],["Ke dirile mo dikhamphaning tse pedi.","के दिरीले मो दिखाम्फ़ानिंग त्से पेदी।","मैंने दो कंपनियों में काम किया है।","S","A"],["Ke natla mme ke mothokgamedi.","के नात्ला म्मे के मोथोख्गामेदी।","मैं मेहनती और ईमानदार हूँ।","S","A"],["Ke ithuta tiro e ntšha ka bonako.","के इथुता तिरो ए न्त्शा का बोनाको।","मैं नया काम जल्दी सीखता हूँ।","S","B"],["Ke tla ka metlha ka nako.","के त्ला का मेत्ला का नाको।","मैं हमेशा समय पर आता हूँ।","S","B"],["Nka bala dithalo tse di tlhamalalo.","न्का बाला दिथालो त्से दि त्लामालालो।","मैं सादे नक़्शे पढ़ सकता हूँ।","S","A"],["Nka bua Sekgoa se se tlhamalalo.","न्का बुआ सेक्गोआ से से त्लामालालो।","मैं सादी अंग्रेज़ी बोल सकता हूँ।","S","A"],["Bua ka iketlo, ke tla tlhaloganya.","बुआ का इकेत्लो, के त्ला त्लालोगान्या।","धीरे बोलिए, मैं समझ लूँगा।","S","B"],["O tlogetse tiro ya pele ka eng?","ओ त्लोगेत्से तिरो या पेले का एंग?","आपने पिछला काम क्यों छोड़ा?","L","B"],["Tiro ya mo lefelong e ne ya fela.","तिरो या मो लेफ़ेलोंग ए ने या फ़ेला।","वहाँ साइट का काम पूरा हो गया था।","S","C"],["A o na le setifikeiti?","आ ओ ना ले सेतिफ़िकेइती?","क्या आपके पास कोई प्रमाणपत्र है?","L","B"],["Ee, ke na le setifikeiti sa weleding.","ए, के ना ले सेतिफ़िकेइती सा वेलेदिंग।","हाँ, मेरे पास वेल्डिंग का प्रमाणपत्र है।","S","B"],["Nka romela setshwantshi sa sona jaanong.","न्का रोमेला सेत्श्वांत्शी सा सोना जाआनोंग।","मैं अभी उसकी फोटो भेज सकता हूँ।","S","A"],["Ke mang yo o go boleletseng ka rona?","के मांग यो ओ खो बोलेलेत्सेंग का रोना?","आपको हमारे बारे में किसने बताया?","L","B"],["Mosiri wa lona wa kgale, Suresh, o mpoleleditse.","मोसिरी वा लोना वा ख्गाले, सुरेश, ओ म्पोलेलेदीत्से।","आपके पुराने कारीगर सुरेश मेरा हवाला हैं।","S","B"],["A o ka dira bosigo?","आ ओ का दिरा बोसिगो?","क्या आप रात की पारी में काम कर सकते हैं?","L","B"],["Ee rra, bosigo go siametse.","ए र्रा, बोसिगो खो सिआमेत्से।","हाँ सर, रात की पारी मुझे ठीक है।","S","A"],["A o ka tsholetsa dikgetse tsa kilo tse masome a mabedi?","आ ओ का त्शोलेत्सा दिख्गेत्से त्सा किलो त्से मासोमे आ माबेदी?","क्या आप बीस किलो की बोरियाँ उठा सकते हैं?","L","B"],["Ee, ke dira jalo letsatsi le letsatsi.","ए, के दिरा जालो लेत्सात्सी ले लेत्सात्सी।","हाँ, मैं रोज़ करता हूँ।","S","B"],["Nna le boikanyo, o se ke wa boifa.","न्ना ले बोइकान्यो, ओ से के वा बोइफ़ा।","आत्मविश्वास रखो, डरो मत।","L","B"],["Akanya metsotswana e mmedi, morago araba.","आकान्या मेत्सोत्स्वाना ए म्मेदी, मोरागो आराबा।","दो पल सोचो, फिर जवाब दो।","L","B"],["Dikarabo tse khutshwane le tsa boammaaruri di fenya.","दिकाराबो त्से खुत्श्वाने ले त्सा बोआम्माआरुरी दि फेन्या।","छोटे और सच्चे जवाब जीतते हैं।","S","C"],["O se ke wa bua bosula ka mong wa gago wa kgale.","ओ से के वा बुआ बोसुला का मोंग वा गागो वा ख्गाले।","पुराने मालिक की बुराई मत करो।","L","B"],["Rra, ke a leboga ka go bua le nna.","र्रा, के आ लेबोखा का खो बुआ ले न्ना।","सर, बात करने के लिए धन्यवाद।","S","A"],["Ke ipaakanyeditse go lekwa letsatsi lefe fela.","के इपाआकान्येदीत्से खो लेक्वा लेत्सात्सी लेफ़े फ़ेला।","मैं किसी भी दिन परख के लिए तैयार हूँ।","S","B"]]},{"tw":[["xivutiso","क्सीवूतीसो","सवाल","क"],["mese","मेसे","महीने का","ख"],["kwaletse","क्वालेत्से","समय","ख"],["lefelo","लेफ़ेलो","जगह","ख"],["netefatsa","नेतेफ़ात्सा","पक्का करना","ख"],["letsa","लेत्सा","वापस फोन","ख"]],"drill":{"type":"dialogueFill","hi":"वेतन-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Wena: Muholo wa kgwedi ke eng?","Mong: Dikete tse lesome le mabedi."],["Wena: A Sontaga ke letsatsi la maikhutso?","Mong: Ee, Sontaga ke letsatsi la maikhutso."]]},"items":[["Rra, a nka botsa dipotso tse pedi?","र्रा, आ न्का बोत्सा दिपोत्सो त्से पेदी?","सर, क्या मैं दो सवाल पूछ सकता हूँ?","S","B"],["Moputso wa kgwedi ke eng?","मोपुत्सो वा ख्वेदी के एंग?","महीने का वेतन क्या है?","S","A"],["A moputso o tlhomamisitswe kgotsa ke wa dikopi?","आ मोपुत्सो ओ त्लोमामिसीत्स्वे ख्होत्सा के वा दिकोपी?","वेतन बँधा है या नग के हिसाब से?","S","B"],["Nako ya tiro ke eng?","नाको या तिरो के एंग?","ड्यूटी का समय क्या है?","S","A"],["Tiro e tswa go robong go ya go borataro.","तिरो ए त्स्वा खो रोबोंग खो या खो बोरातारो।","ड्यूटी नौ से छह है।","L","B"],["A Sontaga ke letsatsi la maikhutso?","आ सोंतागा के लेत्सात्सी ला माइखुत्सो?","क्या रविवार छुट्टी है?","S","B"],["Lefelo la tiro le kae?","लेफ़ेलो ला तिरो ले काए?","काम की जगह कहाँ है?","S","A"],["Tsweetswee, romela lefelo kwa WhatsApp.","त्स्वीत्स्वी, रोमेला लेफ़ेलो क्वा व्हाट्सऐप।","कृपया जगह व्हाट्सऐप पर भेज दीजिए।","S","A"],["A go na le thulaganyo ya bonno?","आ खो ना ले थुलागान्यो या बोन्नो?","क्या रहने की सुविधा है?","S","B"],["Phaposi ke mahala, dijo ke tsa gago.","फ़ापोसी के महाला, दिजो के त्सा गागो।","कमरा मुफ़्त, खाना आपका।","L","B"],["Moputso o duelwa leng?","मोपुत्सो ओ दुएल्वा लेंग?","वेतन कब मिलता है?","S","B"],["Moputso o goroga pele ga letsatsi la bosupa.","मोपुत्सो ओ गोरोगा पेले खा लेत्सात्सी ला बोसुपा।","वेतन सात तारीख़ तक आ जाता है।","L","B"],["A o goroga mo akhaontong ya panka?","आ ओ गोरोगा मो आखाओंतोंग या पांका?","क्या यह बैंक खाते में आता है?","S","B"],["Ee, moputso otlhe mo akhaontong.","ए, मोपुत्सो ओत्ले मो आखाओंतोंग।","हाँ, पूरा वेतन खाते में।","L","B"],["Se se molemo go nna.","से से मोलेमो खो न्ना।","यह मेरे लिए अच्छा है।","S","B"],["O ka simolola go tswa leng?","ओ का सिमोलोला खो त्स्वा लेंग?","आप कब से आ सकते हैं?","L","B"],["Nka simolola go tswa Mosupologo.","न्का सिमोलोला खो त्स्वा मोसुपोलोगो।","मैं सोमवार से आ सकता हूँ।","S","A"],["Pele tla letsatsi le le lengwe la go lekwa.","पेले त्ला लेत्सात्सी ले ले लेंग्वे ला खो लेक्वा।","पहले एक दिन की परख पर आओ।","L","B"],["Ammaaruri rra, ke tla tla kamoso ka nako ya robong.","आम्माआरुरी र्रा, के त्ला त्ला कामोसो का नाको या रोबोंग।","ज़रूर सर, मैं कल नौ बजे आऊँगा।","S","B"],["Tsweetswee, tlhomamisa ka nomoro e.","त्स्वीत्स्वी, त्लोमामिसा का नोमोरो ए।","कृपया इसी नंबर पर पक्का कर दीजिए।","S","A"],["Ke tla leletsa gape ka maitseboa.","के त्ला लेलेत्सा गापे का माइत्सेबोआ।","मैं शाम तक वापस फोन करूँगा।","L","B"],["Fa founo ya gago e sa amogela, ke tla leletsa gape.","फ़ा फ़ाउनो या गागो ए सा आमोगेला, के त्ला लेलेत्सा गापे।","आपका फोन छूट जाए तो मैं फिर करूँगा।","S","B"],["Tsweetswee, kwala nomoro ya me.","त्स्वीत्स्वी, क्वाला नोमोरो या मे।","कृपया मेरा नंबर लिख लीजिए।","S","B"],["Nomoro ya me e mo molaetsing.","नोमोरो या मे ए मो मोलाएत्सिंग।","मेरा नंबर संदेश में है।","S","B"],["Botsa tsotlhe pele ga o dumela.","बोत्सा त्सोत्ले पेले खा ओ दुमेला।","हाँ कहने से पहले सब पूछ लो।","L","B"],["Go botsa dipotso tse di phepa ga se ditlhong.","खो बोत्सा दिपोत्सो त्से दि फ़ेपा खा से दित्लोंग।","साफ़ सवाल पूछना शर्म नहीं है।","S","C"],["Kwala leina la yo o leletsang.","क्वाला लेइना ला यो ओ लेलेत्सांग।","फोन करने वाले का नाम लिख लो।","L","B"],["O se ke wa ya lefelong le o sa le itseng o le esi bosigo.","ओ से के वा या लेफ़ेलोंग ले ओ सा ले इत्सेंग ओ ले एसी बोसिगो।","रात में अनजान जगह अकेले मत जाओ।","L","B"],["Bolelela tsala pele ga o ya go lekwa.","बोलेलेला त्साला पेले खा ओ या खो लेक्वा।","परख पर जाने से पहले किसी दोस्त को बता दो।","L","B"],["Dipotso tse di molemo ke sesupo sa mosiri yo o botlhale.","दिपोत्सो त्से दि मोलेमो के सेसुपो सा मोसिरी यो ओ बोत्लाले।","अच्छे सवाल समझदार कारीगर की पहचान हैं।","S","C"]]},{"tw":[["setshwantsho","सेच्वान्त्शो","फोटो-रिपोर्ट","ख"],["morago","मोरागो","पहले-बाद","ख"],["setlhopheng","सेत्ल्होफेंग","समूह","ख"],["fetisetse","फ़ेतीसेत्से","आगे भेजना","ख"],["phimola","फीमोला","मिटाना","ख"],["molaetsa","मोलाएत्सा","आवाज़-संदेश","ख"]],"drill":{"type":"orderSteps","hi":"रिपोर्ट का क्रम — Pele, Morago, Morago ga moo लगाकर बोलो।","rows":[["Pele tsaya setshwantshi se se phepa.","Morago kwala mola o le mongwe.","Morago ga moo romela rra."]]},"items":[["Rra o kopile pego ya ditshwantshi.","र्रा ओ कोपीले पेगो या दित्श्वांत्शी।","सर ने फोटो-रिपोर्ट माँगी।","S","B"],["Tsaya setshwantshi pele ga tiro.","त्साया सेत्श्वांत्शी पेले खा तिरो।","काम से पहले फोटो लो।","L","B"],["Tsaya setshwantshi se sele morago ga tiro.","त्साया सेत्श्वांत्शी से सेले मोरागो खा तिरो।","काम के बाद दूसरी फोटो लो।","L","B"],["Ditshwantshi tsa pele le morago di supa tiro ya gago.","दित्श्वांत्शी त्सा पेले ले मोरागो दि सुपा तिरो या गागो।","पहले-बाद की फोटो आपका काम दिखाती हैं।","S","B"],["Phimola lense pele ga setshwantshi.","फ़िमोला लेन्से पेले खा सेत्श्वांत्शी।","फोटो से पहले लेंस पोंछ लो।","L","B"],["Tsaya setshwantshi mo leseding le le siameng.","त्साया सेत्श्वांत्शी मो लेसेदिंग ले ले सिआमेंग।","अच्छी रोशनी में फोटो लो।","L","B"],["Setshwantshi se se phepa se ipuela.","सेत्श्वांत्शी से से फ़ेपा से इपुएला।","साफ़ फोटो ख़ुद बोलती है।","S","C"],["Ke romeletse ditshwantshi tse tlhano mo setlhopheng.","के रोमेलेत्से दित्श्वांत्शी त्से त्लानो मो सेत्लोफ़ेंग।","मैंने समूह में पाँच फोटो भेजीं।","S","B"],["Kwala mola o le mongwe le setshwantshi.","क्वाला मोला ओ ले मोंग्वे ले सेत्श्वांत्शी।","फोटो के साथ एक पंक्ति लिखो।","L","B"],["Tiro ya kgoro e fedile, gompieno dikopi tse some.","तिरो या ख्गोरो ए फ़ेदीले, गोम्पिएनो दिकोपी त्से सोमे।","गेट का काम पूरा, आज दस नग।","S","C"],["Rra o ratile pego ya me.","र्रा ओ रातीले पेगो या मे।","सर को मेरी रिपोर्ट पसंद आई।","S","B"],["Romela pego ka nako e le nngwe letsatsi le letsatsi.","रोमेला पेगो का नाको ए ले न्ंग्वे लेत्सात्सी ले लेत्सात्सी।","रिपोर्ट रोज़ एक ही समय भेजो।","L","B"],["Ke romela ka nako ya maitseboa borataro letsatsi le letsatsi.","के रोमेला का नाको या माइत्सेबोआ बोरातारो लेत्सात्सी ले लेत्सात्सी।","मैं रोज़ शाम छह बजे भेजता हूँ।","S","B"],["O se ke wa romela ditshwantshi tsa ofisi kwa ntle.","ओ से के वा रोमेला दित्श्वांत्शी त्सा ओफ़िसी क्वा न्त्ले।","दफ़्तर की फोटो बाहर आगे मत भेजो।","L","B"],["Mafelo mangwe ga a letle ditshwantshi.","मफ़ेलो मांग्वे खा आ लेत्ले दित्श्वांत्शी।","कुछ जगहों पर फोटो मना होती है।","L","B"],["Botsa pele ga o tsaya setshwantshi koo.","बोत्सा पेले खा ओ त्साया सेत्श्वांत्शी कोओ।","वहाँ फोटो लेने से पहले पूछो।","L","B"],["O se ke wa tsaya setshwantshi sa motho a sa botse.","ओ से के वा त्साया सेत्श्वांत्शी सा मोथो आ सा बोत्से।","बिना पूछे किसी व्यक्ति की फोटो कभी मत लो।","L","B"],["Phimola setshwantshi se se phoso ka bonako.","फ़िमोला सेत्श्वांत्शी से से फ़ोसो का बोनाको।","ग़लत फोटो तुरंत मिटाओ।","L","B"],["Lefelo la founo ya me le tladitswe.","लेफ़ेलो ला फ़ाउनो या मे ले त्लादित्स्वे।","मेरे फोन की जगह भर गई है।","S","B"],["Phimola dividio tsa kgale, boloka ditshwantshi tsa tiro.","फ़िमोला दिविदिओ त्सा ख्गाले, बोलोका दित्श्वांत्शी त्सा तिरो।","पुराने वीडियो मिटाओ, काम की फोटो रखो।","L","B"],["Ke dirile folata ya ditshwantshi tsa tiro.","के दिरीले फ़ोलाता या दित्श्वांत्शी त्सा तिरो।","मैंने काम की फोटो का फ़ोल्डर बनाया।","S","B"],["Ditshwantshi tse ke bosupi jwa tiro ya me.","दित्श्वांत्शी त्से के बोसुपी ज्वा तिरो या मे।","ये फोटो मेरे काम का सबूत हैं।","S","B"],["Ke romeletse rra molaetsa wa lentswe.","के रोमेलेत्से र्रा मोलाएत्सा वा लेंत्स्वे।","मैंने सर को आवाज़-संदेश भेजा।","S","B"],["Mo molaetsing wa lentswe bua go le khutshwane le phepa.","मो मोलाएत्सिंग वा लेंत्स्वे बुआ खो ले खुत्श्वाने ले फ़ेपा।","आवाज़-संदेश में छोटा और साफ़ बोलो।","L","B"],["Rra, tsweetswee reetsa molaetsa wa me wa lentswe.","र्रा, त्स्वीत्स्वी रीत्सा मोलाएत्सा या मे वा लेंत्स्वे।","सर, कृपया मेरा आवाज़-संदेश सुन लीजिए।","S","B"],["Fa go siame, romela tiki.","फ़ा खो सिआमे, रोमेला तिकी।","ठीक हो तो टिक भेज दीजिए।","S","C"],["Ke romeletse rra lefelo la me la mmatota.","के रोमेलेत्से र्रा लेफ़ेलो या मे ला म्मातोता।","मैंने सर को अपनी लाइव जगह भेजी।","S","B"],["Romela lefelo go ba o ba tshepang fela.","रोमेला लेफ़ेलो खो बा ओ बा च्हेपांग फ़ेला।","जगह सिर्फ़ भरोसे वालों को भेजो।","L","B"],["Pego e e ntle e dira leina le le ntle.","पेगो ए ए न्त्ले ए दिरा लेइना ले ले न्त्ले।","अच्छी रिपोर्ट अच्छा नाम बनाती है।","S","C"],["Founo mo seatleng, bosupi mo seatleng.","फ़ाउनो मो सेअत्लेंग, बोसुपी मो सेअत्लेंग।","हाथ में फोन, हाथ में सबूत।","S","C"]]},{"tw":[["setei","सेतेइ","रेलवे स्टेशन","ग"],["sim","सीम","सिम","ग"],["tlatso","त्लात्सो","रिचार्ज","ग"],["nkgwa","न्क्ग्वा","नक़्शा","ग"],["mese","मेसे","भोजनालय","ख"],["tlhoma","त्ल्होमा","जमना","क"]],"drill":{"type":"soundFamily","hi":"आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।","rows":[["tiro","ditiro","batiro"],["phoso","dipoho","thoso"]]},"items":[["Ke tsile toropong ka setimela.","के त्सिले तोरोपोंग का सेतिमेला।","मैं ट्रेन से शहर पहुँचा।","S","B"],["Tsala o nkopane kwa seteišeneng.","त्साला ओ न्कोपाने क्वा सेतेइशेनेंग।","दोस्त मुझे रेलवे स्टेशन पर मिला।","S","B"],["Letsatsi la ntlha baya mokotla kwa pele.","लेत्सात्सी ला न्त्ला बाया मोकोत्ला क्वा पेले।","पहले दिन थैला आगे रखो।","L","B"],["O se ke wa amogela thuso go batho ba o sa ba itseng.","ओ से के वा आमोगेला थुसो खो बाथो बा ओ सा बा इत्सेंग।","अनजान दलालों से मदद मत लो।","L","B"],["Ke amogetse SIM e ntšha ka Aadhaar.","के आमोगेत्से SIM ए न्त्शा का धार।","मैंने आधार से नई सिम ली।","S","B"],["SIM e simolotse go dira mo diureng tse pedi.","SIM ए सिमोलोत्से खो दिरा मो दिउरेंग त्से पेदी।","सिम दो घंटे में चालू हो गई।","S","C"],["Ke dirile tlatso ya makgolo a mabedi.","के दिरीले त्लात्सो या माक्खोलो आ माबेदी।","मैंने दो सौ का रिचार्ज किया।","S","B"],["Ke romeletse nomoro e ntšha kwa gae.","के रोमेलेत्से नोमोरो ए न्त्शा क्वा गाए।","मैंने नया नंबर घर भेज दिया।","S","B"],["Letsatsi la bobedi ke bone phaposi le tsala.","लेत्सात्सी ला बोबेदी के बोने फ़ापोसी ले त्साला।","दूसरे दिन दोस्त के साथ कमरा मिला।","S","B"],["Pele ke sekasekile phaposi ka lesedi la letsatsi.","पेले के सेकासेकीले फ़ापोसी का लेसेदी ला लेत्सात्सी।","मैंने पहले कमरा दिन की रोशनी में जाँचा।","S","B"],["Letsatsi la boraro ke jele mo lefelong le le aturang.","लेत्सात्सी ला बोराओ के जेले मो लेफ़ेलोंग ले ले आतुरांग।","तीसरे दिन मैंने सस्ते भोजनालय में खाया।","S","B"],["Dijo tsa kgwedi di aturafala go gaisa tsa hotele.","दिजो त्सा ख्वेदी दि आतुराफ़ाला खो गाइसा त्सा होतेले।","महीने का भोजनालय होटल से सस्ता है।","S","C"],["Ke ithutile tsela mo thalong ya founo.","के इथुतीले त्सेला मो थालोंग या फ़ाउनो।","मैंने फोन के नक़्शे पर रास्ता सीखा।","S","B"],["Thalo e supa dinomoro tsa dibese gape.","थालो ए सुपा दिनोमोरो त्सा दिबेसे गापे।","नक़्शा बस नंबर भी दिखाता है।","S","C"],["Letsatsi la bone ke ne ke ya go lekwa.","लेत्सात्सी ला बोने के ने के या खो लेक्वा।","चौथे दिन मैं काम की परख पर गया।","S","B"],["Ke fitlhile metsotso e masome a mararo pele.","के फ़ित्लीले मेत्सोत्सो ए मासोमे आ मारारो पेले।","मैं तीस मिनट पहले पहुँचा।","S","B"],["Mong o ratile tiro ya me.","मोंग ओ रातीले तिरो या मे।","मालिक को मेरा काम पसंद आया।","S","B"],["Letsatsi la botlhano ke simolotse tiro e ntšha.","लेत्सात्सी ला बोत्लानो के सिमोलोत्से तिरो ए न्त्शा।","पाँचवें दिन मैंने नया काम शुरू किया।","S","B"],["Ke kwadile tefo le nako mo bukaneng ya me.","के क्वादीले तेफ़ो ले नाको मो बुकानेंग या मे।","मैंने दर और समय अपनी कॉपी में लिखा।","S","B"],["Letsatsi la borataro ke tlhomamisitse dijo tsa kgwedi.","लेत्सात्सी ला बोरातारो के त्लोमामिसीत्से दिजो त्सा ख्वेदी।","छठे दिन मैंने महीने का भोजनालय तय किया।","S","B"],["Ke bone sepatela le ntlo ya sepodisi e e gaufi.","के बोने सेपातेला ले न्त्लो या सेपोदिसी ए ए गाउफ़ी।","मैंने पास का अस्पताल और पुलिस चौकी देख ली।","S","A"],["Letsatsi la bosupa ke leletsitse gae ka dikgang tsotlhe.","लेत्सात्सी ला बोसुपा के लेलेत्सीत्से गाए का दिखांग त्सोत्ले।","सातवें दिन मैंने घर पूरी ख़बर के साथ फोन किया।","S","B"],["Mme o itumetse mme a lela go le gonnye.","म्मे ओ इतुमेत्से म्मे आ लेला खो ले गोन्ये।","माँ खुश हुईं और थोड़ा रोईं।","S","C"],["Mo bekeng e le nngwe toropo e simolotse go nna ya me.","मो बेकेंग ए ले न्ंग्वे तोरोपो ए सिमोलोत्से खो न्ना या मे।","एक हफ़्ते में शहर थोड़ा अपना हो गया।","S","C"],["Ka iketlo ke tla tsenya dinao fano.","का इकेत्लो के त्ला त्सेन्या दिनाओ फ़ानो।","धीरे-धीरे मैं यहाँ जम जाऊँगा।","S","B"],["Boloka thekete le dikwalo tsa loeto.","बोलोका थेकेते ले दिक्वालो त्सा लोएतो।","सफ़र की टिकट और कागज़ रखो।","L","B"],["Ithuta maina a some: mmila, lebenkele, boemelo.","इथुता माइना आ सोमे: म्मिला, लेबेंकेले, बोएमेलो।","दस नाम सीखो: सड़क, दुकान, पड़ाव।","L","B"],["Tsela e e itsiweng ke tsela e e babalesegileng.","त्सेला ए ए इत्सिवेंग के त्सेला ए ए बाबालेसेगीलेंग।","जाना-पहचाना रास्ता सुरक्षित रास्ता है।","S","C"],["Beke ya ntlha e thata, kgwedi ya ntlha e motlhofo.","बेके या न्त्ला ए थाता, ख्वेदी या न्त्ला ए मोत्लोफ़ो।","पहला हफ़्ता कठिन, पहला महीना आसान।","S","C"],["Toropo nngwe le nngwe e kgolo e simolola letsatsi la ntlha.","तोरोपो न्ंग्वे ले न्ंग्वे ए ख्गोलो ए सिमोलोला लेत्सात्सी ला न्त्ला।","हर बड़ा शहर पहले दिन से शुरू होता है।","S","C"]]},{"tw":[["bosupi","बोसूपी","सबूत","ख"],["nsirhelelo","न्सीर्हेलेलो","सुरक्षा","ख"],["tsholeditswe","चोलेदीत्स्वे","तरक्की","ख"],["endla mali","एन्दला माली","कमाना","ख"],["setlhopha","सेत्ल्होफा","टीम","ख"],["fetoga","फ़ेतोगा","कहानी","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka jalo या mme लगाकर दो बातें एक वाक्य में बोलो।","rows":[["Ke ithutile Sekgoa. Ke bona tiro e e botoka.","Ke ithutile Sekgoa, ka jalo ke bona tiro e e botoka."],["Tiro e ne e le thata. Ke ne ke sa ema.","Tiro e ne e le thata, mme ke ne ke sa ema."]]},"items":[["Dikgwedi tse pedi tsa go ithuta di fedile.","दिख्वेदी त्से पेदी त्सा खो इथुता दि फ़ेदीले।","सीखने के दो महीने पूरे हुए।","S","C"],["Jaanong nka bua ka tiro ya me ka Sekgoa.","जाआनोंग न्का बुआ का तिरो या मे का सेक्गोआ।","अब मैं अपने काम की बात अंग्रेज़ी में कर सकता हूँ।","S","B"],["Beke e e fetileng ke dirile selekanyo sa founo.","बेके ए ए फ़ेतीलेंग के दिरीले सेलेकान्यो सा फ़ाउनो।","मैंने पिछले हफ़्ते फोन-इंटरव्यू दिया।","S","B"],["Ke botsitse moputso le nako ka phepahadi.","के बोत्सीत्से मोपुत्सो ले नाको का फ़ेपाहादी।","मैंने वेतन और समय साफ़-साफ़ पूछा।","S","B"],["Mong o buile gore Sekgoa sa me se a tokafala.","मोंग ओ बुइले गोरे सेक्गोआ सा मे से आ तोकाफ़ाला।","मालिक ने कहा मेरी अंग्रेज़ी सुधर रही है।","S","B"],["Letsatsi le letsatsi ke romela pego ya me ya setshwantshi.","लेत्सात्सी ले लेत्सात्सी के रोमेला पेगो या मे या सेत्श्वांत्शी।","मैं रोज़ अपनी फोटो-रिपोर्ट भेजता हूँ।","S","B"],["Bukana ya me ya tiro e na le bosupi jwa letsatsi le letsatsi.","बुकाना या मे या तिरो ए ना ले बोसुपी ज्वा लेत्सात्सी ले लेत्सात्सी।","मेरी काम-कॉपी में हर दिन का सबूत है।","S","B"],["Ke apara helemete le digalofo tsa me letsatsi le letsatsi.","के आपारा हेलेमेते ले दिगालोफ़ो त्सा मे लेत्सात्सी ले लेत्सात्सी।","मैं रोज़ अपनी टोपी और दस्ताने पहनता हूँ।","S","B"],["Tshireletso jaanong ke mokgwa wa me.","चिरेलेत्सो जाआनोंग के मोक्ग्वा वा मे।","सुरक्षा अब मेरी आदत बन गई है।","S","B"],["Setlhopha sa rona se fedile taelo e kgolo.","सेत्लोफ़ा सा रोना से फ़ेदीले ताएलो ए ख्गोलो।","हमारी टीम ने बड़ा ऑर्डर पूरा किया।","S","B"],["Mong o neile setlhopha didiabo.","मोंग ओ नेइले सेत्लोफ़ा दिदिआबो।","मालिक ने टीम को मिठाई दी।","S","C"],["Ke bona madi a mantsi go gaisa ngwaga o o fetileng.","के बोना मादी आ मांत्सी खो गाइसा ंग्वागा ओ ओ फ़ेतीलेंग।","मैं पिछले साल से ज़्यादा कमाता हूँ।","S","B"],["Kgwedi e ke romeletse gae madi a mantsi.","ख्वेदी ए के रोमेलेत्से गाए मादी आ मांत्सी।","इस महीने मैंने घर ज़्यादा पैसे भेजे।","S","B"],["Rre wa me o baakantse marulelo a ntlo.","र्रे वा मे ओ बाआकांत्से मारुलेलो आ न्त्लो।","पिताजी ने घर की छत ठीक करवाई।","S","C"],["Nnake wa me o simolotse thuto ya khomphiutara.","न्नाके वा मे ओ सिमोलोत्से थुतो या खोम्फ़िउतारा।","मेरी बहन ने कंप्यूटर कोर्स शुरू किया।","S","B"],["Mafoko a Sekgoa jaanong a a tlhofofala mo go nna.","मफ़ोको आ सेक्गोआ जाआनोंग आ आ त्लोफ़ोफ़ाला मो खो न्ना।","अंग्रेज़ी शब्द अब मुझे आसानी से आते हैं।","S","B"],["Ka dinako dingwe ke akanya ka mela e e khutshwane ya Sekgoa.","का दिनाको दिंग्वे के आकान्या का मेला ए ए खुत्श्वाने या सेक्गोआ।","कभी-कभी मैं छोटी अंग्रेज़ी पंक्तियों में सोचता हूँ।","S","B"],["Badiri ba mmogo ba mpotsa mafoko.","बादिरी बा म्मोगो बा म्पोत्सा मफ़ोको।","साथी मुझसे शब्द पूछते हैं।","S","B"],["Ke ba ruta ka maikhutso a tee.","के बा रुता का माइखुत्सो आ ती।","मैं उन्हें चाय की छुट्टी में सिखाता हूँ।","S","B"],["Go ruta go dira thuto ya me go nna nonofileng.","खो रुता खो दिरा थुतो या मे खो न्ना नोनोफ़ीलेंग।","सिखाने से मेरी अपनी सीख पक्की होती है।","S","B"],["Kgwedi e e tlang ke tla ithuta Sekgoa sa mmaraka.","ख्वेदी ए ए त्लांग के त्ला इथुता सेक्गोआ सा म्माराका।","अगले महीने मैं बाजार की अंग्रेज़ी सीखूँगा।","S","B"],["Morago Sekgoa sa loeto lwa setimela le bese.","मोरागो सेक्गोआ सा लोएतो ल्वा सेतिमेला ले बेसे।","फिर ट्रेन-बस के सफ़र की अंग्रेज़ी।","S","C"],["Pego ya me e fetoga ka iketlo.","पेगो या मे ए फ़ेतोगा का इकेत्लो।","मेरी कहानी धीरे-धीरे बदल रही है।","S","B"],["Go tswa poifong go ya tshepong, kgato ka kgato.","खो त्स्वा पोइफ़ोंग खो या च्हेपोंग, खाटो का खाटो।","डर से आत्मविश्वास तक, कदम-कदम।","S","C"],["Ditsala tsa motse di mpotsa sephiri sa me.","दित्साला त्सा मोत्से दि म्पोत्सा सेफ़िरी सा मे।","गाँव के दोस्त मेरा राज़ पूछते हैं।","S","B"],["Ke a bolelela: mafoko a masome a mararo letsatsi le letsatsi.","के आ बोलेलेला: मफ़ोको आ मासोमे आ मारारो लेत्सात्सी ले लेत्सात्सी।","मैं बताता हूँ: रोज़ तीस वाक्य।","S","B"],["Thuto ya mahala, nako ya gago fela ke tefo.","थुतो या महाला, नाको या गागो फ़ेला के तेफ़ो।","मुफ़्त कोर्स, बस आपका समय ही फीस है।","S","B"],["Ithuta gompieno, bona madi kamoso.","इथुता गोम्पिएनो, बोना मादी कामोसो।","आज सीखो, कल कमाओ।","S","C"],["Halofo ya thuto e fedile, halofo ya toro e atlega.","हालोफ़ो या थुतो ए फ़ेदीले, हालोफ़ो या तोरो ए आत्लेगा।","आधा कोर्स पूरा, आधा सपना पास।","S","C"],["Sekgoa sa me, nonofo ya me.","सेक्गोआ सा मे, नोनोफ़ो या मे।","मेरी अंग्रेज़ी, मेरी ताक़त।","S","B"]]}],"test":{"target":"Kakanyo ya selekanyo yotlhe (le mong a mongwe)","goal":"Ka Setswana tshameka selekanyo yotlhe — itsise, maitemogelo, dipotso tse pedi tsa moputso-nako, tsena mme o leboge.","lines":[["Dumela mosong rra, ke Ramesh yo o buang.","दुमेला मोसोंग र्रा, के रमेश यो ओ बुआंग।"],["Ke batla go dira kopo ya maemo a moweledi.","के बात्ला खो दिरा कोपो या माएमो आ मोवेलेदी।"],["Ke na le dingwaga tse tlhano tsa maitemogelo.","के ना ले दिंग्वागा त्से त्लानो त्सा माइतेमोगेलो।"],["Moputso wa kgwedi ke eng?","मोपुत्सो वा ख्वेदी के एंग?"],["Nako ya tiro ke eng?","नाको या तिरो के एंग?"],["Nka simolola go tswa Mosupologo.","न्का सिमोलोला खो त्स्वा मोसुपोलोगो।"],["Ke a leboga ka go bua le nna, rra.","के आ लेबोखा का खो बुआ ले न्ना, र्रा।"]]},"listen":[["(reetsa) A o ka dira bosigo?","(araba) Ee rra, bosigo go siametse."],["(reetsa) O rometse ditshwantshi di le kae?","(araba) Ke romeletse di le tlhano mo setlhopheng."]],"dialog":[["Mong","O tseba tiro efe?"],["Wena","Ke beiteletsa, dingwaga tse tlhano."],["Mong","Moputso dikete tse lesome le mabedi."],["Wena","O duela leng?"],["Mong","Pele a bosupa."],["Wena","Nka simolola go tswa Mosupologo."]]},{"n":9,"title":"Market and Smart Buying","hi":"बाजार और समझदार ख़रीदारी","pace":30,"days":[{"tw":[["ditsha","दीचा","ताज़ा","ग"],["tamati","तामाती","सड़ा हुआ","ग"],["kilo","कीलो","किलो","ग"],["sekale","सेकाले","तराज़ू","ग"],["dozene","दोज़ेने","दर्जन","ग"],["paka","पाका","मौसमी","ग"]],"drill":{"type":"dialogueFill","hi":"सब्ज़ी-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Wena: Tlhwatlhwa ya ditamati ke eng?","Morekisi: Dipula tse masome-mane kilo."],["Wena: E, e bodile.","Morekisi: Ntshwarele, ke tla e fetola."]]},"items":[["Tamati e tekanyo ya eng?","तामाती ए तेकान्यो या एंग?","टमाटर का भाव क्या है?","S","A"],["Dirupiya tse masome a mane kilo.","दिरुपिया त्से मासोमे आ माने किलो।","चालीस रुपये किलो।","L","B"],["Mphe kilo e le nngwe ya tamati.","म्फे किलो ए ले न्ंग्वे या तामाती।","एक किलो टमाटर देना।","S","B"],["Mphe halofo kilo ya peperi e tala.","म्फे हालोफ़ो किलो या पेपेरी ए ताला।","आधा किलो हरी मिर्च देना।","S","C"],["A merogo e e, e ntšha?","आ मेरोगो ए ए, ए न्त्शा?","क्या ये सब्ज़ियाँ ताज़ी हैं?","S","B"],["E tsile gompieno mo mosong.","ए त्सिले गोम्पिएनो मो मोसोंग।","ये आज सुबह आई हैं।","L","B"],["Tamati e, e bolile, e fetole.","तामाती ए, ए बोलीले, ए फ़ेतोले।","यह टमाटर सड़ा है, बदल दो।","S","C"],["Ntetle ke itlhophele ka seatla sa me.","न्तेत्ले के इत्लोफ़ेले का सेअत्ला सा मे।","मुझे अपने हाथ से चुनने दो।","S","B"],["Beke e anyanisi e a tura.","बेके ए आन्यानिसी ए आ तुरा।","इस हफ़्ते प्याज़ महँगा है।","S","C"],["Ditapole di aturafala go gaisa beke e e fetileng.","दितापोले दि आतुराफ़ाला खो गाइसा बेके ए ए फ़ेतीलेंग।","आलू पिछले हफ़्ते से सस्ता है।","S","C"],["Reka merogo ya paka, e aturafala.","रेका मेरोगो या पाका, ए आतुराफ़ाला।","मौसमी सब्ज़ी खरीदो, सस्ती होती है।","L","B"],["Ke enywa efe e e monate gompieno?","के एन्यवा एफ़े ए ए मोनाते गोम्पिएनो?","आज कौन-सा फल अच्छा है?","S","B"],["Dibanana di monate mme di aturafala.","दिबानाना दि मोनाते म्मे दि आतुराफ़ाला।","केले मीठे और सस्ते हैं।","L","B"],["Mphe seroba sa dibanana.","म्फे सेरोबा सा दिबानाना।","एक दर्जन केले देना।","S","C"],["Sekaseka selekanyo mo tekanyong.","सेकासेका सेलेकान्यो मो तेकान्योंग।","तराज़ू पर तौल जाँचो।","L","B"],["Tekanyo e tshwanetse go simolola ka lefela.","तेकान्यो ए च्वानेत्से खो सिमोलोला का लेफ़ेला।","तराज़ू पहले शून्य दिखाए।","L","B"],["Tekanyo ya gago e supa go le gonnye.","तेकान्यो या गागो ए सुपा खो ले गोन्ये।","तुम्हारा तराज़ू कम दिखा रहा है।","S","B"],["Tsweetswee, lekanya gape.","त्स्वीत्स्वी, लेकान्या गापे।","कृपया फिर से तौलो।","S","A"],["Jaanong tekanyo e siame.","जाआनोंग तेकान्यो ए सिआमे।","अब तौल सही है।","S","C"],["Palo yotlhe ke lekgolo le masome a mabedi.","पालो योत्ले के लेक्खोलो ले मासोमे आ माबेदी।","कुल एक सौ बीस हुए।","L","B"],["Ke abetse pampiri ya makgolo a matlhano.","के आबेत्से पम्पिरी या माक्खोलो आ मात्लानो।","मैंने पाँच सौ का नोट दिया।","S","B"],["Mphe madi a makgolo a mararo le masome a robedi kwa morago.","म्फे मादी आ माक्खोलो आ मारारो ले मासोमे आ रोबेदी क्वा मोरागो।","तीन सौ अस्सी वापस करो।","S","C"],["Bala madi a a setseng pele ga o tsamaya.","बाला मादी आ आ सेत्सेंग पेले खा ओ त्सामाया।","जाने से पहले खुले पैसे गिन लो।","L","A"],["Baya merogo mo mokotleng wa seaparo.","बाया मेरोगो मो मोकोत्लेंग वा सेआपारो।","सब्ज़ियाँ कपड़े के थैले में रखो।","L","B"],["Gana mokotla wa plastiki.","गाना मोकोत्ला वा प्लास्तिकी।","प्लास्टिक थैली को मना करो।","L","B"],["Tlhatswa merogo pele ga o apaya.","त्लात्स्वा मेरोगो पेले खा ओ आपाया।","पकाने से पहले सब्ज़ियाँ धोओ।","L","B"],["Mmaraka wa maitseboa ka dinako dingwe o aturafala.","म्माराका वा माइत्सेबोआ का दिनाको दिंग्वे ओ आतुराफ़ाला।","शाम का बाजार कभी-कभी सस्ता होता है।","S","C"],["Ke reka merogo ya beke yotlhe.","के रेका मेरोगो या बेके योत्ले।","मैं पूरे हफ़्ते की सब्ज़ी खरीदता हूँ।","S","B"],["Moreki yo o botlhale o botsa dilebenkele tse pedi.","मोरेकी यो ओ बोत्लाले ओ बोत्सा दिलेबेंकेले त्से पेदी।","समझदार ख़रीदार दो दुकानों से पूछता है।","S","C"],["Dijo tse ditšha, mmele o o itekanetseng.","दिजो त्से दित्शा, म्मेले ओ ओ इतेकानेत्सेंग।","ताज़ा खाना, सेहतमंद शरीर।","S","C"]]},{"tw":[["raseine","रासेइने","किराना","ग"],["lenane","लेनाने","सूची","ग"],["paketi","पाकेती","पैकेट","ग"],["feletswe","फ़ेलेत्स्वे","मियाद-तारीख़","ग"],["mrp","म्र्प","छपा दाम","ग"],["phuthetswang","फूथेत्स्वांग","खुला (बिना पैकेट)","ग"]],"drill":{"type":"oneMany","hi":"एक से अनेक — bontsi लगाकर बोलो।","rows":[["paketi e le nngwe","dipaketi tse pedi"],["sesepa se le sengwe","disepa tse tharo"],["kgetsana e le nngwe","dikgetsana tse tlhano"]]},"items":[["Kwala lelenaneo pele ga go reka.","क्वाला लेलेनानेओ पेले खा खो रेका।","ख़रीदारी से पहले सूची बनाओ।","L","B"],["Lelenaneo le boloka madi le nako.","लेलेनानेओ ले बोलोका मादी ले नाको।","सूची पैसा और समय बचाती है।","S","C"],["Ke tlhoka raese, dinawa le leokwane.","के त्लोका राएसे, दिनावा ले लेओक्वाने।","मुझे चावल, दाल और तेल चाहिए।","S","A"],["Mphe raese ya kilo tse tlhano go tswa mo kgetseng eo.","म्फे राएसे या किलो त्से त्लानो खो त्स्वा मो ख्गेत्सेंग एओ।","उस बोरे से पाँच किलो चावल देना।","S","C"],["A dinawa tse di bulegileng di aturafala go gaisa tse di phuthetsweng?","आ दिनावा त्से दि बुलेगीलेंग दि आतुराफ़ाला खो गाइसा त्से दि फुथेत्स्वेंग?","क्या खुली दाल पैकेट से सस्ती है?","S","B"],["Sekaseka letsatsi la go tlhaela mo thotong.","सेकासेका लेत्सात्सी ला खो त्लाएला मो थोतोंग।","पैकेट पर मियाद-तारीख़ जाँचो।","L","B"],["Thoto e, e gaufi le letsatsi la go tlhaela.","थोतो ए, ए गाउफ़ी ले लेत्सात्सी ला खो त्लाएला।","यह पैकेट मियाद के पास है।","S","C"],["Mphe thoto e ntšha.","म्फे थोतो ए न्त्शा।","मुझे नया पैकेट देना।","S","B"],["O se ke wa fa thata go gaisa tlhwatlhwa e e kwadilweng.","ओ से के वा फ़ा थाता खो गाइसा त्लावात्लावा ए ए क्वादिल्वेंग।","छपे दाम से ज़्यादा कभी मत दो।","L","B"],["Tlhwatlhwa e e kwadilweng e mo thotong.","त्लावात्लावा ए ए क्वादिल्वेंग ए मो थोतोंग।","छपा दाम पैकेट पर लिखा होता है।","L","B"],["O ntseela go feta tlhwatlhwa e e kwadilweng.","ओ न्त्सेएला खो फ़ेता त्लावात्लावा ए ए क्वादिल्वेंग।","तुम छपे दाम से ज़्यादा ले रहे हो।","S","B"],["Go rekisa go feta tlhwatlhwa e e kwadilweng ga go a siama.","खो रेकिसा खो फ़ेता त्लावात्लावा ए ए क्वादिल्वेंग खा खो आ सिआमा।","ठंडा छपे दाम से ज़्यादा बेचना ग़लत है।","L","B"],["A go na le dipoutšhe tse dinnye tsa leokwane?","आ खो ना ले दिपाउत्शे त्से दिन्न्ये त्सा लेओक्वाने?","क्या छोटे तेल-पाउच हैं?","S","B"],["Thoto e kgolo e aturafala ka kilo.","थोतो ए ख्गोलो ए आतुराफ़ाला का किलो।","बड़ा पैकेट किलो के हिसाब से सस्ता पड़ता है।","S","C"],["Tsenya sesepa se le sengwe le tutupeiti e le nngwe.","त्सेन्या सेसेपा से ले सेंग्वे ले तुतुपेइती ए ले न्ंग्वे।","एक साबुन और एक पेस्ट जोड़ दो।","S","C"],["Bili yotlhe ke bokae?","बिली योत्ले के बोकाए?","कुल बिल कितना हुआ?","S","B"],["Tsweetswee, dira bili e e kwadilweng.","त्स्वीत्स्वी, दिरा बिली ए ए क्वादिल्वेंग।","कृपया लिखा हुआ बिल बनाओ।","S","A"],["Sekaseka dilo tsa bili nngwe le nngwe.","सेकासेका दिलो त्सा बिली न्ंग्वे ले न्ंग्वे।","बिल की चीज़ें एक-एक कर जाँचो।","L","B"],["O kwadile swikiri gabedi.","ओ क्वादीले स्विकिरी गाबेदी।","तुमने चीनी दो बार लिखी है।","S","B"],["Ntshwarele, ke tla phumula.","न्त्श्वारेले, के त्ला फुमुला।","माफ़ करना, काट देता हूँ।","L","A"],["A nka duela beke e e tlang?","आ न्का दुएला बेके ए ए त्लांग?","क्या मैं अगले हफ़्ते दे सकता हूँ?","S","A"],["Reka fela se o se ka duelang.","रेका फ़ेला से ओ से का दुएलांग।","उतना ही खरीदो जितना चुका सको।","L","B"],["Kwala raashani ya kgwedi mo bukaneng.","क्वाला राशनी या ख्वेदी मो बुकानेंग।","महीने का राशन कॉपी में लिखो।","L","B"],["Tsamaisanya tlhwatlhwa ya dilebenkele tse pedi.","त्सामाइसान्या त्लावात्लावा या दिलेबेंकेले त्से पेदी।","दो दुकानों का भाव मिलाओ।","L","B"],["Lebenkele la kgolo le aturafala mo thotong e kgolo.","लेबेंकेले ला ख्गोलो ले आतुराफ़ाला मो थोतोंग ए ख्गोलो।","थोक दुकान ज़्यादा माल पर सस्ती है।","S","C"],["Re le batho ba batlhano re reka raashani mmogo.","रे ले बाथो बा बात्लानो रे रेका राशनी म्मोगो।","हम पाँच लोग साथ राशन खरीदते हैं।","S","C"],["Go reka mmogo go naya tlhwatlhwa e e botoka.","खो रेका म्मोगो खो नाया त्लावात्लावा ए ए बोतोका।","साथ खरीदने पर बेहतर भाव मिलता है।","S","B"],["Boloka raashani e e omeletseng kgakala le metsi.","बोलोका राशनी ए ए ओमेलेत्सेंग ख्गाकाला ले मेत्सी।","सूखा राशन पानी से दूर रखो।","L","B"],["Bili e e kwadilweng ke bosupi jwa gago.","बिली ए ए क्वादिल्वेंग के बोसुपी ज्वा गागो।","लिखा बिल आपका सबूत है।","S","B"],["Go reka ka tlhaloganyo ke halofo ya go boloka.","खो रेका का त्लालोगान्यो के हालोफ़ो या खो बोलोका।","सोच-समझकर ख़रीदना आधी बचत है।","S","C"]]},{"tw":[["fenyana","फ़ेञाना","मोलभाव","ग"],["nxavo","न्क्सावो","आख़िरी भाव","ग"],["leka","लेका","कपड़ा-परख कमरा","ग"],["mmala","म्माला","रंग","ग"],["tsholofetso","चोलोफ़ेत्सो","गारंटी","ग"],["pere","पेरे","जोड़ी","ग"]],"drill":{"type":"dialogueFill","hi":"मोलभाव-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Morekisi: Makgolo-marataro, tlhwatlhwa ya bofelo.","Wena: Ke tla fa makgolo-a-mane."],["Morekisi: Tsaya ka makgolo-a-mane-le-halofo.","Wena: Go siame, phutha."]]},"items":[["Ke tlhoka hempe ya tiro ya letsatsi le letsatsi.","के त्लोका हेम्पे या तिरो या लेत्सात्सी ले लेत्सात्सी।","मुझे रोज़ के काम की कमीज़ चाहिए।","S","A"],["Ntshupetse letsela le le nonofileng.","न्त्शुपेत्से लेत्सेला ले ले नोनोफ़ीलेंग।","कोई मज़बूत कपड़ा दिखाओ।","S","B"],["Hempe e, tlhwatlhwa ke eng?","हेम्पे ए, त्लावात्लावा के एंग?","इस कमीज़ का भाव क्या है?","S","A"],["Makgolo a marataro, tlhwatlhwa ya bofelo.","माक्खोलो आ मारातारो, त्लावात्लावा या बोफ़ेलो।","छह सौ, आख़िरी भाव।","L","B"],["Se se tsenya thata mo go nna.","से से त्सेन्या थाता मो खो न्ना।","यह मेरे लिए बहुत ज़्यादा है।","S","A"],["Ke tla fa makgolo a mane.","के त्ला फ़ा माक्खोलो आ माने।","मैं चार सौ दूँगा।","S","A"],["Oketsa masome a matlhano, tsaya mo makgolong a mane le halofo.","ओकेत्सा मासोमे आ मात्लानो, त्साया मो माक्खोलोंग आ माने ले हालोफ़ो।","पचास बढ़ाओ, साढ़े चार सौ में ले जाओ।","L","B"],["Go siame, phutha mo makgolong a mane le halofo.","खो सिआमे, फुथा मो माक्खोलोंग आ माने ले हालोफ़ो।","ठीक है, साढ़े चार सौ में पैक कर दो।","S","C"],["Thekego e dirwe ka nyenyo, e seng ka kgang.","थेकेगो ए दिर्वे का न्येन्यो, ए सेंग का खांग।","मोलभाव मुस्कान से करो, लड़ाई से नहीं।","L","B"],["A nka apara mo phaposing ya go leka?","आ न्का आपारा मो फ़ापोसिंग या खो लेका?","क्या मैं परख-कमरे में पहनकर देख लूँ?","S","A"],["Letsogo le botelele go le gonnye.","लेत्सोगो ले बोतेलेले खो ले गोन्ये।","आस्तीन थोड़ी लंबी है।","S","C"],["A e mo mmaleng wa bobududu?","आ ए मो म्मालेंग वा बोबुदुदु?","क्या यह नीले रंग में है?","S","B"],["A mmala o tla tswa fa go tlhatswiwa?","आ म्माला ओ त्ला त्स्वा फ़ा खो त्लात्स्विवा?","क्या धोने में रंग निकलेगा?","S","B"],["Nnyaa, mmala o nonofile.","न्न्याआ, म्माला ओ नोनोफ़ीले।","नहीं, रंग पक्का है।","L","A"],["Ke tlhoka ditlhako tse pedi tsa tiro.","के त्लोका दित्लाको त्से पेदी त्सा तिरो।","मुझे काम के जूतों की जोड़ी चाहिए।","S","A"],["Selekanyo sa me ke robedi.","सेलेकान्यो सा मे के रोबेदी।","मेरा नाप आठ नंबर है।","S","B"],["Tsaya dikgato tse pedi o leke.","त्साया दिखातो त्से पेदी ओ लेके।","दो कदम चलकर देखो।","L","B"],["Setlhako sa molemeng se tsenya thata.","सेत्लाको सा मोलेमेंग से त्सेन्या थाता।","बायाँ जूता कस रहा है।","S","C"],["Mphe selekanyo se sele ka bongwe.","म्फे सेलेकान्यो से सेले का बोंग्वे।","एक नंबर बड़ा दो।","S","C"],["A go na le kgwetlhego mo go se?","आ खो ना ले ख्वेत्लेगो मो खो से?","क्या इस पर कोई गारंटी है?","S","B"],["Kgwetlhego ya kgwedi mo motshokong.","ख्वेत्लेगो या ख्वेदी मो मोत्शोकोंग।","सिलाई पर एक महीने की गारंटी।","L","B"],["Kwala kgwetlhego mo biling.","क्वाला ख्वेत्लेगो मो बिलिंग।","गारंटी बिल पर लिख दो।","L","B"],["Reka pele ga tiro, go bontsha go tla morago.","रेका पेले खा तिरो, खो बोंत्शा खो त्ला मोरागो।","पहले काम के लिए खरीदो, दिखावे के लिए बाद में।","L","B"],["Dihempe tse pedi tse boammaaruri di botoka go gaisa e le nngwe ya tura.","दिहेम्पे त्से पेदी त्से बोआम्माआरुरी दि बोतोका खो गाइसा ए ले न्ंग्वे या तुरा।","दो सादी कमीज़ें एक महँगी से बेहतर हैं।","S","C"],["Thekiso ya moletlo e naya kgokgonyo ya nnete.","थेकिसो या मोलेत्लो ए नाया ख्गोख्गोन्यो या न्नेते।","त्योहार की सेल में असली छूट मिलती है।","S","C"],["Diperetlwa dingwe di supa kgokgonyo e e sa nnelang nnete.","दिपेरेत्ल्वा दिंग्वे दि सुपा ख्गोख्गोन्यो ए ए सा न्नेलांग न्नेते।","कुछ बोर्ड नक़ली छूट दिखाते हैं।","L","B"],["Sekaseka tlhwatlhwa ya pele le e e kgaotsweng.","सेकासेका त्लावात्लावा या पेले ले ए ए खाओत्स्वेंग।","पहले का दाम और कटा दाम दोनों जाँचो।","L","B"],["Ke rekile le diaparo tsa bana.","के रेकीले ले दिआपारो त्सा बाना।","मैंने बच्चों के लिए भी कपड़े लिए।","S","B"],["Thekego e e ntle, tepa e e itumedileng.","थेकेगो ए ए न्त्ले, तेपा ए ए इतुमेदीलेंग।","अच्छा मोलभाव, खुश जेब।","S","C"],["Pele tlhokego, morago thato.","पेले त्लोकेगो, मोरागो थातो।","पहले ज़रूरत, फिर इच्छा।","S","C"]]},{"tw":[["tsholofetso","चोलोफ़ेत्सो","वारंटी","ग"],["lebokoso","लेबोकोसो","डिब्बा","ग"],["kgale","क्गाले","पुराना (इस्तेमाल किया)","ग"],["tsamao","त्सामाओ","किस्त","ग"],["bapisa","बापीसा","मिलान करना","ग"],["dinonofo","दीनोनोफ़ो","ख़ूबियाँ","ग"]],"drill":{"type":"compare","hi":"तुलना करो — go gaisa लगाकर दो चीज़ों की तुलना बोलो।","rows":[["Thoto ya madi a diatla e tlhwatlhwa e kwa tlase go gaisa ya dikarolo."]]},"items":[["Lefestere la founo ya me ya kgale le robegile.","लेफ़ेस्तेरे ला फ़ाउनो या मे या ख्गाले ले रोबेगीले।","मेरे पुराने फोन की स्क्रीन टूट गई है।","S","B"],["Go baakanya kgotsa e ntšha, efe e botoka?","खो बाआकान्या ख्होत्सा ए न्त्शा, एफ़े ए बोतोका?","मरम्मत या नया, क्या बेहतर है?","S","B"],["Tokiso e tsenya dikete tse pedi.","तोकीसो ए त्सेन्या दिकेते त्से पेदी।","मरम्मत का ख़र्च दो हज़ार है।","S","C"],["Founo e ntšha e simolola ka dikete tse supa.","फ़ाउनो ए न्त्शा ए सिमोलोला का दिकेते त्से सुपा।","नया फोन सात हज़ार से शुरू है।","S","C"],["Ntshupetse founo e e nang le patiri e kgolo.","न्त्शुपेत्से फ़ाउनो ए ए नांग ले पातिरी ए ख्गोलो।","बड़ी बैटरी वाला फोन दिखाओ।","S","B"],["Tsamaisanya mmodeli e mmedi pele ga o reka.","त्सामाइसान्या म्मोदेली ए म्मेदी पेले खा ओ रेका।","खरीदने से पहले दो मॉडल मिलाओ।","L","B"],["Dikgoni tsa yona ke eng?","दिख्गोनी त्सा योना के एंग?","इसकी ख़ूबियाँ क्या हैं?","S","B"],["Leba le tlhwatlhwa mo inthaneteng.","लेबा ले त्लावात्लावा मो इंथानेतेंग।","भाव ऑनलाइन भी देख लो।","L","B"],["A founo e, e na le waranti?","आ फ़ाउनो ए, ए ना ले वारांती?","क्या इस फोन पर वारंटी है?","S","B"],["Waranti ya khamphani ya ngwaga o le mongwe.","वारांती या खाम्फ़ानी या ंग्वागा ओ ले मोंग्वे।","एक साल कंपनी वारंटी।","L","B"],["Tsaya lebokoso lotlhe le bili.","त्साया लेबोकोसो लोत्ले ले बिली।","बिल के साथ पूरा डिब्बा लो।","L","B"],["Mo lebokosong go na le tjhaja le lokwalo.","मो लेबोकोसोंग खो ना ले त्यहाजा ले लोक्वालो।","डिब्बे में चार्जर और कागज़ है।","S","C"],["Tsamaisanya nomoro ya lebokoso le ya founo.","त्सामाइसान्या नोमोरो या लेबोकोसो ले या फ़ाउनो।","डिब्बे का नंबर फोन से मिलाओ।","L","B"],["Boloka bili ya waranti.","बोलोका बिली या वारांती।","वारंटी के लिए बिल सँभालो।","L","B"],["A o reka difounu tsa kgale?","आ ओ रेका दिफ़ाउनु त्सा ख्गाले?","क्या आप पुराने फोन बेचते हैं?","S","B"],["Reka ya kgale fela go tswa lebenkeleng le lo le itseng.","रेका या ख्गाले फ़ेला खो त्स्वा लेबेंकेलेंग ले लो ले इत्सेंग।","पुराना सिर्फ़ जानी-पहचानी दुकान से लो।","L","B"],["Founo e e utswilweng e tlisa bothata jwa sepodisi.","फ़ाउनो ए ए उत्स्विल्वेंग ए त्लिसा बोथाता ज्वा सेपोदिसी।","चोरी का फोन पुलिस-मुसीबत लाता है।","L","A"],["A nka duela ka dikarolo?","आ न्का दुएला का दिकारोलो?","क्या मैं किस्त में दे सकता हूँ?","S","A"],["Dikarolo di motlhofo gompieno, di boima kamoso.","दिकारोलो दि मोत्लोफ़ो गोम्पिएनो, दि बोइमा कामोसो।","किस्त आज आसान, कल भारी।","L","B"],["Pele kopanya tshenyegelo yotlhe ya dikarolo.","पेले कोपान्या त्शेन्येगेलो योत्ले या दिकारोलो।","पहले किस्त का कुल ख़र्च जोड़ो।","L","B"],["Tlhwatlhwa ya madi a diatla e kwa tlase ga ya dikarolo.","त्लावात्लावा या मादी आ दिआत्ला ए क्वा त्लासे खा या दिकारोलो।","नकद दाम किस्त-दाम से कम होता है।","S","C"],["Ke tla boloka dikgwedi tse pedi, ke duele ka madi a diatla.","के त्ला बोलोका दिख्वेदी त्से पेदी, के दुएले का मादी आ दिआत्ला।","मैं दो महीने बचाकर नकद दूँगा।","S","B"],["Letsatsi la ntlha tsenya tšhaba le khirini.","लेत्सात्सी ला न्त्ला त्सेन्या त्शाबा ले खिरिनी।","पहले दिन कवर और शीशा लगवाओ।","L","B"],["Loga seatlo mo founong e ntšha.","लोगा सेअत्लो मो फ़ाउनोंग ए न्त्शा।","नए फोन पर ताला लगाओ।","L","B"],["Kwala nomoro ya IMEI ya founo.","क्वाला नोमोरो या IMEI या फ़ाउनो।","फोन का आईएमईआई नंबर लिख लो।","L","B"],["E thusa fa founo e latlhega.","ए थुसा फ़ा फ़ाउनो ए लात्लेगा।","फोन खोने पर यह काम आता है।","L","B"],["Phimola tsotlhe pele ga o rekisa founo ya kgale.","फ़िमोला त्सोत्ले पेले खा ओ रेकिसा फ़ाउनो या ख्गाले।","सब मिटाकर ही पुराना फोन बेचो।","L","B"],["Theko e kgolo e tlhoka tlhaloganyo e e kgutsitseng.","थेको ए ख्गोलो ए त्लोका त्लालोगान्यो ए ए ख्गुत्सीत्सेंग।","बड़ी ख़रीद को ठंडा दिमाग़ चाहिए।","S","C"],["Pele ga theko e kgolo robala bosigo.","पेले खा थेको ए ख्गोलो रोबाला बोसिगो।","बड़ी ख़रीद से पहले एक रात सो लो।","L","B"],["Go akanya gabedi ke madi a a bolokilweng.","खो आकान्या गाबेदी के मादी आ आ बोलोकील्वेंग।","दो बार सोचा पैसा बचा पैसा है।","S","C"]]},{"tw":[["muxavisi","मूक्सावीसी","बदली","ग"],["khoutu","खोउतू","खोट","ग"],["sekoko","सेकोको","सील","ग"],["nnepe","न्नेपे","नक़ली","ग"],["boemong","बोएमोंग","पैसा-वापसी","ग"],["khuetso","खूएत्सो","असली","ग"]],"drill":{"type":"yesNo","hi":"ख़रीद-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।","rows":[["A sekoko se, se siame?","Ee, se siame. / Nnyaa, ga se siama."],["A o na le bili?","Ee, ke na le yone. / Nnyaa, ga ke na yone."]]},"items":[["Go na le khot mo hempeng e.","खो ना ले खोत मो हेम्पेंग ए।","इस कमीज़ में खोट है।","S","C"],["Letsela le le lengwe la go roka le bulegile.","लेत्सेला ले ले लेंग्वे ला खो रोका ले बुलेगीले।","एक तरफ़ की सिलाई खुली है।","S","C"],["Ke batla go fetola se.","के बात्ला खो फ़ेतोला से।","मैं इसे बदलना चाहता हूँ।","S","A"],["Ke bili ya maabane e.","के बिली या माआबाने ए।","यह कल का बिल है।","S","C"],["Phetolo e motlhofo fa go na le bili.","फ़ेतोलो ए मोत्लोफ़ो फ़ा खो ना ले बिली।","बिल के साथ बदली आसान होती है।","S","C"],["Ntshwarele, re tla fetola jaanong.","न्त्श्वारेले, रे त्ला फ़ेतोला जाआनोंग।","माफ़ कीजिए, हम अभी बदल देते हैं।","L","A"],["A nka busetsa madi fa go fetolwa?","आ न्का बुसेत्सा मादी फ़ा खो फ़ेतोल्वा?","क्या बदले में पैसा-वापसी मिल सकती है?","S","A"],["Madi a a busetswang a tla mo malatsing a mararo.","मादी आ आ बुसेत्स्वांग आ त्ला मो मालात्सिंग आ मारारो।","पैसा-वापसी तीन दिन में आती है।","L","B"],["Sekaseka mohei pele ga o reka.","सेकासेका मोहेइ पेले खा ओ रेका।","खरीदने से पहले सील जाँचो।","L","B"],["Mohei o o robegileng o kaya thoto e e bulegileng.","मोहेइ ओ ओ रोबेगीलेंग ओ काया थोतो ए ए बुलेगीलेंग।","टूटी सील मतलब खुला पैकेट।","L","B"],["Botlolo e, e lebega e le ya maaka.","बोत्लोलो ए, ए लेबेगा ए ले या माआका।","यह बोतल नक़ली लगती है।","S","C"],["Thoto ya nnete e na le khinso e e phepa.","थोतो या न्नेते ए ना ले खिन्सो ए ए फ़ेपा।","असली पर छपाई साफ़ होती है।","L","B"],["Ditlhaka tse di phoso ke sesupo se segolo sa maaka.","दित्लाका त्से दि फ़ोसो के सेसुपो से सेगोलो सा माआका।","ग़लत अक्षर नक़ली की बड़ी पहचान है।","L","B"],["Thata ya ntlha e ka nna ya maaka thata.","थाता या न्त्ला ए का न्ना या माआका थाता।","बहुत सस्ता बहुत नक़ली हो सकता है।","L","B"],["O se ke wa reka molemo mo mmileng.","ओ से के वा रेका मोलेमो मो म्मीलेंग।","फुटपाथ से दवा मत खरीदो।","L","B"],["Kopa bili ya thoto nngwe le nngwe e kgolo.","कोपा बिली या थोतो न्ंग्वे ले न्ंग्वे ए ख्गोलो।","हर बड़ी चीज़ का बिल माँगो।","L","B"],["Go se na bili go kaya go se na bosupi.","खो से ना बिली खो काया खो से ना बोसुपी।","बिल नहीं तो सबूत नहीं।","L","B"],["Morekisi o ganne phetolo.","मोरेकिसी ओ गान्ने फ़ेतोलो।","दुकानदार ने बदली से मना किया।","S","C"],["Bua ka boikokobetso mme ka thata.","बुआ का बोइकोकोबेत्सो म्मे का थाता।","विनम्र पर मज़बूत होकर बात करो।","L","B"],["E le moreki, ke tshwanelo ya me.","ए ले मोरेकी, के च्वानेलो या मे।","ख़रीदार के नाते यह मेरा हक़ है।","S","B"],["Ke tla ipelaetsa kwa linaeng ya bareki.","के त्ला इपेलाएत्सा क्वा लिनाएंग या बारेकी।","मैं उपभोक्ता हेल्पलाइन पर शिकायत करूँगा।","S","B"],["Linae ya bareki ke lekgolo-le-lesome-le-motso.","लिनाए या बारेकी के लेक्खोलो-ले-लेसोमे-ले-मोत्सो।","उपभोक्ता हेल्पलाइन एक नौ एक पाँच है।","L","B"],["Fa a utlwa jalo a fetola hempe.","फ़ा आ उत्ल्वा जालो आ फ़ेतोला हेम्पे।","यह सुनकर उसने कमीज़ बदल दी।","S","C"],["Taelo ya inthanete e tlhoka kelotlhoko e e menagantsweng.","ताएलो या इंथानेते ए त्लोका केलोत्लोको ए ए मेनागांत्स्वेंग।","ऑनलाइन ऑर्डर में दोगुनी सावधानी चाहिए।","L","B"],["Tsaya dividio fa o bula phasele.","त्साया दिविदिओ फ़ा ओ बुला फ़ासेले।","पार्सल खोलते समय वीडियो बनाओ।","L","B"],["Dividio ke bosupi jwa go busediwa.","दिविदिओ के बोसुपी ज्वा खो बुसेदिवा।","वीडियो वापसी का सबूत है।","L","B"],["Sekaseka phasele pele moromedi a tsamaya.","सेकासेका फ़ासेले पेले मोरोमेदी आ त्सामाया।","डिलीवरी वाले के जाने से पहले पार्सल जाँचो।","L","B"],["Moreki yo o tlhokometseng ga a tsietswe gabedi.","मोरेकी यो ओ त्लोकोमेत्सेंग खा आ त्सिएत्स्वे गाबेदी।","जागरूक ख़रीदार दो बार नहीं ठगा जाता।","S","C"],["Madi a gago, lentswe la gago.","मादी आ गागो, लेंत्स्वे ला गागो।","आपका पैसा, आपकी आवाज़।","S","B"],["Reka o bulegile matlho, robala o le kgutsitse.","रेका ओ बुलेगीले मात्लो, रोबाला ओ ले ख्गुत्सीत्से।","आँखें खोलकर खरीदो, हल्के मन से सोओ।","S","C"]]}],"test":{"target":"Kakanyo ya go reka yotlhe (le mong a morekisi)","goal":"Ka Setswana tshameka go reka yotlhe — botsa tlhwatlhwa, kopa kalo, dira thekego, kopa bili, bala madi a a setseng.","lines":[["Tamati e tekanyo ya eng?","तामाती ए तेकान्यो या एंग?"],["Tsweetswee, lekanya gape.","त्स्वीत्स्वी, लेकान्या गापे।"],["Se se tsenya thata mo go nna.","से से त्सेन्या थाता मो खो न्ना।"],["Ke tla fa makgolo a mane.","के त्ला फ़ा माक्खोलो आ माने।"],["Tsweetswee, dira bili e e kwadilweng.","त्स्वीत्स्वी, दिरा बिली ए ए क्वादिल्वेंग।"],["Bala madi a a setseng pele ga o tsamaya.","बाला मादी आ आ सेत्सेंग पेले खा ओ त्सामाया।"]]},"listen":[["(reetsa) Kilo e le nngwe ke bokae?","(araba) Ke dirupiya tse masome a mane."],["(reetsa) O ntshwarela ka eng?","(araba) Hempe e, e na le khot."]],"dialog":[["Wena","Tlhwatlhwa ya hempe ke eng?"],["Morekisi","Makgolo a marataro."],["Wena","Ke tla fa makgolo a mane."],["Morekisi","Tsaya ka makgolo-a-mane-le-halofo."],["Wena","Go siame, phutha."]]},{"n":10,"title":"Bus, Train and Safe Journey","hi":"बस, ट्रेन और सुरक्षित सफ़र","pace":30,"days":[{"tw":[["dinouto","दीनोउतो","किराया","ग"],["mokonteraka","मोकोन्तेराका","कंडक्टर","ग"],["boemelo","बोएमेलो","पड़ाव","ग"],["setulo","सेतूलो","खिड़की-सीट","ग"],["tletse","त्लेत्से","भीड़-भरा","ग"],["fologa","फ़ोलोगा","उतरना","ग"]],"drill":{"type":"dialogueFill","hi":"बस-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Wena: A e ya mmarakeng?","Mokonteraka: Ee, tlhatlogela ka bonako."],["Wena: Tlhwatlhwa ke eng?","Mokonteraka: Dirupiya tse masome a mabedi fela."]]},"items":[["Bese e, e ya kae?","बेसे ए, ए या काए?","यह बस कहाँ जाती है?","S","B"],["A e ya kwa lefelong la diindasteri?","आ ए या क्वा लेफ़ेलोंग ला दिइंदास्तेरी?","क्या यह औद्योगिक क्षेत्र जाती है?","S","B"],["Ee, tlhatlogela ka bonako.","ए, त्लात्लोगेला का बोनाको।","हाँ, जल्दी चढ़ो।","L","B"],["Tefo go ya mmarakeng ke eng?","तेफ़ो खो या म्माराकेंग के एंग?","बाजार तक किराया क्या है?","S","A"],["Dirupiya tse masome a mabedi fela.","दिरुपिया त्से मासोमे आ माबेदी फ़ेला।","सिर्फ़ बीस रुपये।","L","B"],["Thekete e le nngwe go ya boemelong jwa bofelo.","थेकेते ए ले न्ंग्वे खो या बोएमेलोंग ज्वा बोफ़ेलो।","आख़िरी पड़ाव की एक टिकट।","S","C"],["Boloka thekete go fitlha o fologa.","बोलोका थेकेते खो फ़ित्ला ओ फ़ोलोगा।","उतरने तक टिकट रखो।","L","B"],["Mosekaseki wa dithekete o sekaseka.","मोसेकासेकी वा दितेकेते ओ सेकासेका।","कंडक्टर टिकटें जाँचता है।","S","C"],["A bodulo jo bo bulegile?","आ बोदुलो जो बो बुलेगीले?","क्या यह सीट ख़ाली है?","S","B"],["Tsweetswee, suta go le gonnye.","त्स्वीत्स्वी, सुता खो ले गोन्ये।","कृपया थोड़ा खिसकिए।","S","A"],["Ke rata bodulo jwa fa lefestereng.","के राता बोदुलो ज्वा फ़ा लेफ़ेस्तेरेंग।","मुझे खिड़की-सीट पसंद है।","S","B"],["Gompieno bese e tletse batho.","गोम्पिएनो बेसे ए त्लेत्से बाथो।","आज बस बहुत भीड़-भरी है।","S","C"],["Tshwara thupa fa bese e tsamaya.","च्वारा थुपा फ़ा बेसे ए त्सामाया।","चलती बस में डंडा पकड़ो।","L","B"],["O se ke wa ema fa kgorong.","ओ से के वा एमा फ़ा ख्गोरोंग।","गेट पर मत खड़े हो।","L","B"],["Fa bagolo bodulo.","फ़ा बागोलो बोदुलो।","बड़ों को सीट दो।","L","B"],["Boemelo jo bo yang kwa sepatela se segolo ke bofe?","बोएमेलो जो बो यांग क्वा सेपातेला से सेगोलो के बोफ़े?","बड़े अस्पताल के लिए कौन-सा पड़ाव?","S","A"],["Fologa fa boemelong jo bo latelang.","फ़ोलोगा फ़ा बोएमेलोंग जो बो लातेलांग।","अगले पड़ाव पर उतरो।","L","B"],["Mpolelele fa re fitlha.","म्पोलेलेले फ़ा रे फ़ित्ला।","आने पर मुझे बता दीजिएगा।","S","A"],["Letsa tshipi pele ga boemelo jwa gago.","लेत्सा चिपी पेले खा बोएमेलो ज्वा गागो।","अपने पड़ाव से पहले घंटी बजाओ।","L","B"],["Bese ya bofelo e bula ka nako ya some.","बेसे या बोफ़ेलो ए बुला का नाको या सोमे।","आख़िरी बस दस बजे खुलती है।","L","B"],["Bese ya me e nkgaotse ka metsotso e mebedi.","बेसे या मे ए न्काओत्से का मेत्सोत्सो ए मेबेदी।","दो मिनट से मेरी बस छूट गई।","S","B"],["Bese e e latelang e tla ka halofo ya ura.","बेसे ए ए लातेलांग ए त्ला का हालोफ़ो या उरा।","अगली बस आधे घंटे में आती है।","S","C"],["Tshwara mokotla mo maakeng.","च्वारा मोकोत्ला मो माआकेंग।","थैला गोद में रखो।","L","B"],["Sekaseka patšhe ya gago mo gare ga batho.","सेकासेका पात्शे या गागो मो गारे खा बाथो।","भीड़ में अपनी जेब देखो।","L","B"],["Pasa ya kgwedi ya bese e boloka madi.","पासा या ख्वेदी या बेसे ए बोलोका मादी।","महीने का बस-पास पैसा बचाता है।","S","C"],["Dira pasa ka setshwantshi se le sengwe.","दिरा पासा का सेत्श्वांत्शी से ले सेंग्वे।","एक फोटो से पास बनवाओ।","L","B"],["Letsatsi le letsatsi ke ya tirong ka bese.","लेत्सात्सी ले लेत्सात्सी के या तिरोंग का बेसे।","मैं रोज़ बस से काम जाता हूँ।","S","B"],["Bese e aturafala go gaisa oto.","बेसे ए आतुराफ़ाला खो गाइसा ओतो।","बस ऑटो से सस्ती है।","S","C"],["Gopola dinomoro tsa dibese tsa tsela ya gago.","गोपोला दिनोमोरो त्सा दिबेसे त्सा त्सेला या गागो।","अपने रास्ते के बस नंबर याद करो।","L","B"],["Bese e e siameng, nako e e siameng, botshelo jo bo motlhofo.","बेसे ए ए सिआमेंग, नाको ए ए सिआमेंग, बोत्शेलो जो बो मोत्लोफ़ो।","सही बस, सही समय, आसान ज़िंदगी।","S","C"]]},{"tw":[["tlhomamiso","त्ल्होमामीसो","आरक्षण","ग"],["peteforomo","पेतेफ़ोरोमो","प्लेटफॉर्म","ग"],["mogatla","मोगात्ला","साधारण डिब्बा","ग"],["pnr","प्न्र","पीएनआर","ग"],["leta","लेता","प्रतीक्षा","ग"],["fenstereng","फ़ेन्स्तेरेंग","पूछताछ","ग"]],"drill":{"type":"numberSay","hi":"सफ़र के नंबर बोलो — अंक सुनो, Setswana में कहो।","rows":[["139","lekgolo-le-masome-mararo-le-robong"],["22","masome-mabedi-le-bobedi"],["3","boraro"]]},"items":[["Ke tshwanetse go ya gae kgwedi e e tlang.","के च्वानेत्से खो या गाए ख्वेदी ए ए त्लांग।","मुझे अगले महीने घर जाना है।","S","A"],["Beeletsa thekete ya setimela ka bonako.","बेएलेत्सा थेकेते या सेतिमेला का बोनाको।","ट्रेन टिकट जल्दी बुक करो।","L","B"],["Go beeletsa ka bonako go naya bodulo jo bo tlhomamisitsweng.","खो बेएलेत्सा का बोनाको खो नाया बोदुलो जो बो त्लोमामिसीत्स्वेंग।","जल्दी बुकिंग से पक्की सीट मिलती है।","L","B"],["Ke beeleditse ka aepo ya founo.","के बेएलेदीत्से का आएपो या फ़ाउनो।","मैंने फोन ऐप से बुक की।","S","A"],["Thekete ya me e mo letoting.","थेकेते या मे ए मो लेतोतिंग।","मेरी टिकट प्रतीक्षा में है।","S","B"],["Leba boemo jwa PNR letsatsi le letsatsi.","लेबा बोएमो ज्वा PNR लेत्सात्सी ले लेत्सात्सी।","पीएनआर की स्थिति रोज़ देखो।","L","B"],["Gompieno letoti le tlhomamisitswe.","गोम्पिएनो लेतोती ले त्लोमामिसीत्स्वे।","आज प्रतीक्षा पक्की हो गई।","S","A"],["Setimela sa Patna se mo polatefomong efe?","सेतिमेला सा पात्ना से मो पोलातेफ़ोमोंग एफ़े?","पटना वाली ट्रेन किस प्लेटफॉर्म पर?","S","B"],["Polatefomo nomoro ya boraro.","पोलातेफ़ोमो नोमोरो या बोराओ।","प्लेटफॉर्म नंबर तीन।","L","B"],["Botsa kwa fensetereng ya dipotso.","बोत्सा क्वा फ़ेन्सेतेरेंग या दिपोत्सो।","पूछताछ खिड़की पर पूछो।","L","B"],["Setimela se diegile ka ura e le nngwe.","सेतिमेला से दिएगीले का उरा ए ले न्ंग्वे।","ट्रेन एक घंटा देर से है।","S","C"],["Leba nako ya setimela mo bodinting.","लेबा नाको या सेतिमेला मो बोदिंतिंग।","बोर्ड पर ट्रेन का समय देखो।","L","B"],["Koloto ya tlwaelo e kwa pele.","कोलोतो या त्लवाएलो ए क्वा पेले।","साधारण डिब्बा आगे की ओर है।","L","B"],["Koloto ya me ke S-nne.","कोलोतो या मे के S-ने।","मेरा डिब्बा एस-चार है।","S","B"],["Lenaane la dikoloto le gaufi le borogo.","लेनाने ला दिकोलोतो ले गाउफ़ी ले बोरोगो।","डिब्बा-सूची पुल के पास है।","L","B"],["Kgabaganya ka borogo jwa godimo fela.","ख्गाबागान्या का बोरोगो ज्वा गोदिमो फ़ेला।","सिर्फ़ ऊपर वाले पुल से पार करो।","L","B"],["O se ke wa kgabaganya ditsela tsa setimela leng.","ओ से के वा ख्गाबागान्या दित्सेला त्सा सेतिमेला लेंग।","रेल की पटरी कभी पार मत करो।","L","B"],["Ema kwa morago ga mola o mosweu.","एमा क्वा मोरागो खा मोला ओ मोस्वेउ।","पीली रेखा के पीछे खड़े हो।","L","B"],["Setimela se ema fano metsotso e mebedi.","सेतिमेला से एमा फ़ानो मेत्सोत्सो ए मेबेदी।","ट्रेन यहाँ दो मिनट रुकती है।","L","B"],["Tlhatloga ka kgutso le batho.","त्लात्लोगा का ख्गुत्सो ले बाथो।","भीड़ के साथ शांति से चढ़ो।","L","B"],["O se ke wa taboga morago ga setimela se se tsamayang.","ओ से के वा ताबोगा मोरागो खा सेतिमेला से से त्सामायांग।","चलती ट्रेन के पीछे मत भागो।","L","B"],["Go na le setimela se sengwe bosigo.","खो ना ले सेतिमेला से सेंग्वे बोसिगो।","रात में एक और ट्रेन है।","S","C"],["Tsaya thekete ya tlwaelo kwa fensetereng.","त्साया थेकेते या त्लवाएलो क्वा फ़ेन्सेतेरेंग।","साधारण टिकट खिड़की से लो।","L","B"],["Aepo ya UTS le yona e naya thekete ya tlwaelo.","आएपो या UTS ले योना ए नाया थेकेते या त्लवाएलो।","यूटीएस ऐप से भी साधारण टिकट मिलती है।","L","B"],["O se ke wa tsamaya o se na thekete leng.","ओ से के वा त्सामाया ओ से ना थेकेते लेंग।","बिना टिकट कभी यात्रा मत करो।","L","B"],["Kotlhao e kgolo go gaisa tefo.","कोत्लाओ ए ख्गोलो खो गाइसा तेफ़ो।","जुर्माना किराये से बड़ा होता है।","L","B"],["Boloka setshwantshi sa thekete mo founong.","बोलोका सेत्श्वांत्शी सा थेकेते मो फ़ाउनोंग।","टिकट की फोटो फोन में रखो।","L","B"],["Fitlha kwa seteišeneng metsotso e masome a mararo pele.","फ़ित्ला क्वा सेतेइशेनेंग मेत्सोत्सो ए मासोमे आ मारारो पेले।","स्टेशन तीस मिनट पहले पहुँचो।","L","A"],["Tshimologo e e kgutsitseng e dira loeto lo lo molemo.","त्शिमोलोगो ए ए ख्गुत्सीत्सेंग ए दिरा लोएतो लो लो मोलेमो।","शांत शुरुआत अच्छा सफ़र बनाती है।","S","C"],["Thekete mo poketing, tlhobaelo kwa ntle.","थेकेते मो पोकेतिंग, त्लोबाएलो क्वा न्त्ले।","जेब में टिकट, चिंता बाहर।","S","C"]]},{"tw":[["magareng","मागारेंग","शयन-सीट","ग"],["tt","त्त","टिकट-जाँच बाबू","ग"],["tshipi","चीपी","ज़ंजीर","ग"],["tshwaya","च्वाया","सामान","ग"],["magareng","मागारेंग","बीच वाली सीट","ग"],["mogatleng","मोगात्लेंग","मंज़िल","ग"]],"drill":{"type":"yesNo","hi":"सफ़र-सुरक्षा जाँच — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।","rows":[["A dikgetse di tlhomilwe hi keiti?","Ee, di tlhomilwe. / Nnyaa, ga di a tlhoma."],["A o sekasekile sekoko sa metsi?","Ee, ke se sekasekile. / Nnyaa, ga ke a se sekaseka."]]},"items":[["Bodulo jwa me ke jwa godimo, nomoro masome a mabedi le bobedi.","बोदुलो ज्वा मे के ज्वा गोदिमो, नोमोरो मासोमे आ माबेदी ले बोबेदी।","मेरी सीट ऊपर वाली, नंबर बाईस है।","S","B"],["Reetsa, se ke bodulo jwa me.","रीत्सा, से के बोदुलो ज्वा मे।","सुनिए, यह मेरी सीट है।","S","B"],["Tsweetswee, ntshupetse thekete ya gago.","त्स्वीत्स्वी, न्त्शुपेत्से थेकेते या गागो।","कृपया अपनी टिकट दिखाइए।","L","B"],["Morago ga seteišene se se latelang TT o tla tla.","मोरागो खा सेतेइशेने से से लातेलांग TT ओ त्ला त्ला।","अगले स्टेशन के बाद टीटी आएँगे।","S","C"],["Rra, thekete ya me le Aadhaar ya me.","र्रा, थेकेते या मे ले धार या मे।","सर, मेरी टिकट और मेरा आधार।","S","B"],["Bodulo jwa magareng bo bulwa bosigo.","बोदुलो ज्वा मगारेंग बो बुल्वा बोसिगो।","बीच वाली सीट रात में खुलती है।","L","B"],["Mo mosong tswala bodulo jwa magareng.","मो मोसोंग त्स्वाला बोदुलो ज्वा मगारेंग।","सुबह बीच वाली सीट बंद कर दो।","L","B"],["Bofa dithoto mo tlase ga bodulo ka keiti.","बोफ़ा दिथोतो मो त्लासे खा बोदुलो का केइती।","सामान सीट के नीचे ज़ंजीर से बाँधो।","L","A"],["Ke tsile le lonotlelo le keiti e nnye.","के त्सिले ले लोनोत्लेलो ले केइती ए न्न्ये।","मैं छोटा ताला और ज़ंजीर लाया हूँ।","S","B"],["Robala o na le mokotla gaufi le tlhogo ya gago.","रोबाला ओ ना ले मोकोत्ला गाउफ़ी ले त्लोगो या गागो।","थैला सिर के पास रखकर सोओ।","L","B"],["O se ke wa amogela dijo go batho ba o sa ba itseng.","ओ से के वा आमोगेला दिजो खो बाथो बा ओ सा बा इत्सेंग।","अनजान लोगों से खाना मत लो।","L","A"],["Masenyi mangwe a naya dijo tse di tsenyeditsweng molemo.","मासेन्यी मांग्वे आ नाया दिजो त्से दि त्सेन्येदीत्स्वेंग मोलेमो।","कुछ चोर दवा मिला खाना देते हैं।","L","B"],["Tsaya metsi go tswa stola kgotsa IRCTC.","त्साया मेत्सी खो त्स्वा स्तोला ख्होत्सा IRCTC।","पानी स्टॉल या आईआरसीटीसी से लो।","L","B"],["Sekaseka khinso ya botlolo ya metsi.","सेकासेका खिन्सो या बोत्लोलो या मेत्सी।","पानी की बोतल की सील जाँचो।","L","B"],["Lefelo la go tjhaja le kae?","लेफ़ेलो ला खो त्यहाजा ले काए?","चार्जिंग की जगह कहाँ है?","S","A"],["Le fa kgorong.","ले फ़ा ख्गोरोंग।","वह गेट की तरफ़ है।","L","B"],["O se ke wa tlogela founo e e tjhajang o le esi.","ओ से के वा त्लोगेला फ़ाउनो ए ए त्यहाजांग ओ ले एसी।","फोन चार्जिंग पर अकेला मत छोड़ो।","L","B"],["Keiti ke ya kotsi ya nnete fela.","केइती के या कोत्सी या न्नेते फ़ेला।","ज़ंजीर सिर्फ़ असली ख़तरे के लिए है।","L","B"],["Go goga keiti e e phoso go na le kotlhao.","खो गोगा केइती ए ए फ़ोसो खो ना ले कोत्लाओ।","ग़लत ज़ंजीर खींचने पर जुर्माना है।","L","B"],["Jaanong seteišene sefe se a tla?","जाआनोंग सेतेइशेने सेफ़े से आ त्ला?","अब कौन-सा स्टेशन आ रहा है?","S","B"],["Lefelo la me le fitlha ka nako ya botlhano mo mosong.","लेफ़ेलो ला मे ले फ़ित्ला का नाको या बोत्लानो मो मोसोंग।","मेरी मंज़िल सुबह पाँच बजे आती है।","S","B"],["Beya alama ura e le nngwe pele.","बेया अलामा उरा ए ले न्ंग्वे पेले।","एक घंटा पहले का अलार्म लगाओ।","L","B"],["Bofa dithoto pele ga seteišene.","बोफ़ा दिथोतो पेले खा सेतेइशेने।","स्टेशन से पहले सामान बाँध लो।","L","B"],["Bala mikotla ya gago: e nngwe, e pedi, e tharo.","बाला मिकोत्ला या गागो: ए न्ंग्वे, ए पेदी, ए थारो।","अपने थैले गिनो: एक, दो, तीन।","L","B"],["Mo letsatsing ke abelana bodulo jwa me.","मो लेत्सात्सिंग के आबेलाना बोदुलो ज्वा मे।","दिन में मैं अपनी सीट बाँट लेता हूँ।","S","B"],["Go abelana bodulo ke mokgwa o o molemo.","खो आबेलाना बोदुलो के मोक्ग्वा ओ ओ मोलेमो।","सीट बाँटना अच्छा व्यवहार है।","S","C"],["Bua go le gonnye ka madi mo setimeleng.","बुआ खो ले गोन्ये का मादी मो सेतिमेलेंग।","ट्रेन में अपने पैसों की बात कम करो।","L","B"],["Mo loetong ke bala mafoko a me a Sekgoa.","मो लोएतोंग के बाला मफ़ोको आ मे आ सेक्गोआ।","मैं सफ़र में अपने अंग्रेज़ी वाक्य पढ़ता हूँ।","S","B"],["Loeto ke sekolo se se tsamayang.","लोएतो के सेकोलो से से त्सामायांग।","सफ़र चलता-फिरता स्कूल है।","S","C"],["Loeto lo lo babalesegileng, lelapa le le itumetseng.","लोएतो लो लो बाबालेसेगीलेंग, लेलापा ले ले इतुमेत्सेंग।","सुरक्षित सफ़र, खुश परिवार।","S","C"]]},{"tw":[["auto","अउतो","साझा ऑटो","ग"],["mitara","मीतारा","मीटर","ग"],["tlhamalalo","त्ल्हामालालो","सीधा","ग"],["tempeleng","तेम्पेलेंग","मुड़ना","ग"],["itsegeng","इत्सेगेंग","पहचान-जगह","ग"],["maoto","माओतो","पैदल-दूरी","ग"]],"drill":{"type":"directionSay","hi":"रास्ता बोलो — हिंदी सुनो, Setswana में दिशा बताओ।","rows":[["बाएँ मुड़ो","Fetola kwa molemeng."],["सीधा जाओ","Tsamaya tlhamalalo."],["दाएँ मुड़ो","Fetola kwa mojeng."]]},"items":[["A o ka ya Labour Chowk?","आ ओ का या लेबोर चोक?","लेबर चौक चलोगे?","S","B"],["O tla tsaya bokae?","ओ त्ला त्साया बोकाए?","कितना लोगे?","S","B"],["Dirupiya tse masome a robedi, tlhomamisitswe.","दिरुपिया त्से मासोमे आ रोबेदी, त्लोमामिसीत्स्वे।","अस्सी रुपये, पक्का।","L","B"],["Auto e e abelanang e tsaya masome a mabedi.","आउतो ए ए आबेलानांग ए त्साया मासोमे आ माबेदी।","साझा ऑटो बीस लेता है।","S","C"],["Ke tla tsamaya ka auto e e abelanang.","के त्ला त्सामाया का आउतो ए ए आबेलानांग।","मैं साझा ऑटो से जाऊँगा।","S","B"],["A auto e, e na le mitara?","आ आउतो ए, ए ना ले मितारा?","क्या इस ऑटो में मीटर है?","S","B"],["Tsweetswee, simolola mitara.","त्स्वीत्स्वी, सिमोलोला मितारा।","कृपया मीटर चालू करो।","S","A"],["Tlhomamisa tefo pele ga o tsena.","त्लोमामिसा तेफ़ो पेले खा ओ त्सेना।","बैठने से पहले किराया तय करो।","L","B"],["Mogolo, ke ya kolecheng ya ITI jang?","मोगोलो, के या कोलेचेंग या ITI जांग?","भाई, आईटीआई कॉलेज कैसे जाऊँ?","S","B"],["Tsamaya tlhamalalo go ya ponkeng ya peterole.","त्सामाया त्लामालालो खो या पोंकेंग या पेतेरोले।","पेट्रोल पंप तक सीधा जाओ।","L","B"],["Morago fetola molemeng kwa tempeleng.","मोरागो फ़ेतोला मोलेमेंग क्वा तेम्पेलेंग।","फिर मंदिर से बाएँ मुड़ो।","L","B"],["Morago tsaya tselana ya bobedi ya mojeng.","मोरागो त्साया त्सेलाना या बोबेदी या मोजेंग।","उसके बाद दूसरी दाईं गली लो।","L","B"],["Kolecheng e fa thoko ga tanka ya metsi.","कोलेचेंग ए फ़ा थोको खा तांका या मेत्सी।","कॉलेज पानी की टंकी के बगल में है।","L","B"],["A go kgakala go tswa fano ka maoto?","आ खो ख्गाकाला खो त्स्वा फ़ानो का माओतो?","क्या यहाँ से पैदल-दूरी है?","S","B"],["Ee, ka maoto metsotso e lesome fela.","ए, का माओतो मेत्सोत्सो ए लेसोमे फ़ेला।","हाँ, पैदल सिर्फ़ दस मिनट।","L","B"],["Gopola sesupo sa lefelo nngwe le nngwe.","गोपोला सेसुपो सा लेफ़ेलो न्ंग्वे ले न्ंग्वे।","हर जगह की एक पहचान-जगह याद रखो।","L","B"],["Phaposi ya me e kwa morago ga mmoski o mogolo.","फ़ापोसी या मे ए क्वा मोरागो खा म्मोस्की ओ मोगोलो।","मेरा कमरा बड़ी मस्जिद के पीछे है।","S","B"],["O se ke wa bua leina la mmila fela, naya sesupo.","ओ से के वा बुआ लेइना ला म्मिला फ़ेला, नाया सेसुपो।","सिर्फ़ सड़क-नाम नहीं, पहचान-जगह बताओ।","L","B"],["Ke go romela lefelo la me la mmatota.","के खो रोमेला लेफ़ेलो या मे ला म्मातोता।","मैं आपको अपनी लाइव जगह भेज रहा हूँ।","S","B"],["Latela letheba le le talalerwa mo thalong.","लातेला लेथेबा ले ले तालालेर्वा मो थालोंग।","नक़्शे पर नीली बिंदी के पीछे चलो।","L","B"],["Ke eme fa kgorong e kgolo.","के एमे फ़ा ख्गोरोंग ए ख्गोलो।","मैं मुख्य गेट पर खड़ा हूँ।","S","A"],["Ema foo, ke tla ka metsotso e tlhano.","एमा फ़ू, के त्ला का मेत्सोत्सो ए त्लानो।","वहीं रुको, मैं पाँच मिनट में आ रहा हूँ।","S","B"],["Mmila o tswetswe ka ntlha ya tokiso.","म्मिला ओ त्स्वेत्स्वे का न्त्ला या तोकीसो।","सड़क मरम्मत के लिए बंद है।","S","C"],["Tsaya tselana ya thoko ka kelotlhoko.","त्साया त्सेलाना या थोको का केलोत्लोको।","बगल वाली गली सावधानी से लो।","L","B"],["Kgabaganya mmila ka mela ya pitse.","ख्गाबागान्या म्मिला का मेला या पित्से।","सड़क ज़ेब्रा-पट्टी से पार करो।","L","B"],["Leba molema le moja, morago kgabaganya.","लेबा मोलेमा ले मोजा, मोरागो ख्गाबागान्या।","दाएँ-बाएँ देखो, फिर पार करो।","L","B"],["Apara helemete mo baeseklelong.","आपारा हेलेमेते मो बाएसेक्लेलोंग।","बाइक पर हेलमेट पहनो।","L","B"],["O se ke wa nna ba bararo mo baeseklelong e le nngwe.","ओ से के वा न्ना बा बाराओ मो बाएसेक्लेलोंग ए ले न्ंग्वे।","एक बाइक पर तीन मत बैठो।","L","B"],["Lesupo le le itsiweng ga le dumelele go latlhegela.","लेसुपो ले ले इत्सिवेंग खा ले दुमेलेले खो लात्लेगेला।","जानी पहचान-जगह कभी भटकने नहीं देती।","S","B"],["Botsa gabedi, tsamaya gangwe.","बोत्सा गाबेदी, त्सामाया गांग्वे।","दो बार पूछो, एक बार चलो।","S","C"]]},{"tw":[["hesiboe","हेसीबोए","रेलवे हेल्पलाइन","ग"],["latlhegile","लात्ल्हेगीले","खोया","ग"],["kopane","कोपाने","मिला","ग"],["kitsiso","कीत्सीसो","घोषणा","ग"],["peteforomo","पेतेफ़ोरोमो","प्लेटफॉर्म टिकट","ग"],["ditlhaloso","दीत्ल्हालोसो","पूरी जानकारी","ग"]],"drill":{"type":"showTell","hi":"खोया-सामान रिपोर्ट — तीन वाक्य में अपनी बात बोलो।","rows":[["Mokotla wa me o latlhegile kwa seteišeneng.","O montsho, o na le khibu e khibidu.","Nomoro ya founo ya me e mo thoton."]]},"items":[["Linae ya tiro ya terene ke lekgolo-le-mararo-le-robong.","लिनाए या तिरो या तेरेने के लेक्खोलो-ले-मारारो-ले-रोबोंग।","रेलवे हेल्पलाइन एक तीन नौ है।","L","B"],["Letsa nomoro e mo bothateng jwa setimela.","लेत्सा नोमोरो ए मो बोथातेंग ज्वा सेतिमेला।","ट्रेन की किसी भी परेशानी में इसे मिलाओ।","L","B"],["Mokotla wa me o latlhegile kwa seteišeneng.","मोकोत्ला वा मे ओ लात्लेगीले क्वा सेतेइशेनेंग।","मेरा थैला स्टेशन पर खो गया।","S","B"],["Ya kwa kamoreng ya sepodisi sa setimela.","या क्वा कामोरेंग या सेपोदिसी सा सेतिमेला।","रेलवे पुलिस कक्ष में जाओ।","L","A"],["Kwala pelaelo le tshedimosetso yotlhe.","क्वाला पेलाएलो ले त्शेदिमोसेत्सो योत्ले।","पूरी जानकारी के साथ शिकायत लिखो।","L","B"],["Mokotla wa me o montsho, o na le khibu e khibidu.","मोकोत्ला वा मे ओ मोंत्शो, ओ ना ले खिबु ए खिबिदु।","मेरा थैला काला है, लाल पट्टी वाला।","S","B"],["Ba biditse leina la me.","बा बिदीत्से लेइना ला मे।","उन्होंने मेरा नाम पुकारा।","S","B"],["Reetsa tsebiso nngwe le nngwe ka kelotlhoko.","रीत्सा त्सेबिसो न्ंग्वे ले न्ंग्वे का केलोत्लोको।","हर घोषणा ध्यान से सुनो।","L","B"],["Mokotla o o bonweng o boile mo go nna.","मोकोत्ला ओ ओ बोनवेंग ओ बोइले मो खो न्ना।","मिला हुआ थैला मुझे वापस मिल गया।","S","B"],["Ke a leboga, sepodisi sa setimela.","के आ लेबोखा, सेपोदिसी सा सेतिमेला।","धन्यवाद, रेलवे पुलिस।","S","A"],["Kwala leina la gago mo mokotleng.","क्वाला लेइना ला गागो मो मोकोत्लेंग।","थैले के अंदर अपना नाम लिखो।","L","B"],["Kgomaretsa papetlana ya nomoro ya founo mo dithotong.","खोमारेत्सा पापेत्लाना या नोमोरो या फ़ाउनो मो दिथोतोंग।","सामान पर फोन-नंबर की पर्ची लगाओ।","L","B"],["O se ke wa tlhatloga setimela se se phoso ka pogo.","ओ से के वा त्लात्लोगा सेतिमेला से से फ़ोसो का पोगो।","जल्दबाज़ी में ग़लत ट्रेन मत चढ़ो।","L","B"],["Tlhomamisa leina le nomoro ya setimela.","त्लोमामिसा लेइना ले नोमोरो या सेतिमेला।","ट्रेन का नाम और नंबर पक्का करो।","L","B"],["Tsaya thekete ya polatefomo go ya kwa teng.","त्साया थेकेते या पोलातेफ़ोमो खो या क्वा तेंग।","प्लेटफॉर्म पर जाने के लिए प्लेटफॉर्म टिकट लो।","L","B"],["Thusa mme a na le ngwana.","थुसा म्मे आ ना ले ंग्वाना।","बच्चे वाली माँ की मदद करो।","L","A"],["Ba ne ba sa bone koloto ya bone.","बा ने बा सा बोने कोलोतो या बोने।","उन्हें अपना डिब्बा नहीं मिल रहा था।","S","C"],["Ke bone thekete mme ka ba supetsa koloto.","के बोने थेकेते म्मे का बा सुपेत्सा कोलोतो।","मैंने टिकट देखकर उन्हें डिब्बा दिखाया।","S","B"],["Thuso e nnye e dira thapelo e kgolo.","थुसो ए न्न्ये ए दिरा थापेलो ए ख्गोलो।","छोटी मदद बड़ी दुआ बनती है।","S","B"],["Mo kotsing, ya kwa gare ga batho le lesedi.","मो कोत्सिंग, या क्वा गारे खा बाथो ले लेसेदी।","ख़तरे में भीड़ और रोशनी की ओर जाओ।","L","B"],["Kwala koloto le bodulo jwa tsala.","क्वाला कोलोतो ले बोदुलो ज्वा त्साला।","दोस्त का डिब्बा और सीट लिख लो।","L","B"],["Re tsamaya mmogo go tswa motseng.","रे त्सामाया म्मोगो खो त्स्वा मोत्सेंग।","हम गाँव से साथ यात्रा करते हैं।","S","B"],["Loeto lwa mmogo ke loeto lo lo babalesegileng.","लोएतो ल्वा म्मोगो के लोएतो लो लो बाबालेसेगीलेंग।","साथ का सफ़र सुरक्षित सफ़र है।","S","C"],["Boloka dipampiri tse dinnye tsa tefo.","बोलोका दिपम्पिरी त्से दिन्न्ये त्सा तेफ़ो।","किराये के लिए छोटे नोट रखो।","L","B"],["O se ke wa supa sekgwama sotlhe fa pele ga botlhe.","ओ से के वा सुपा सेख्वामा सोत्ले फ़ा पेले खा बोत्ले।","सबके सामने पूरा बटुआ मत दिखाओ।","L","B"],["Nwa metsi loetong, o je go le gonnye.","न्वा मेत्सी लोएतोंग, ओ जे खो ले गोन्ये।","सफ़र में पानी पियो, हल्का खाओ।","L","B"],["Fa o fitlha, leletsa gae.","फ़ा ओ फ़ित्ला, लेलेत्सा गाए।","पहुँचकर घर फोन करो।","L","B"],["Ke fitlhile ke babalesegile, o se ke wa tshwenyega.","के फ़ित्लीले के बाबालेसेगीले, ओ से के वा त्श्वेन्येगा।","मैं सुरक्षित पहुँच गया, चिंता मत करो।","S","A"],["Loeto lo a fela, thuto e a sala.","लोएतो लो आ फ़ेला, थुतो ए आ साला।","सफ़र ख़त्म होता है, सीख रह जाती है।","S","C"],["Beke e e tlang: lefatshe la dipotso tsa visa.","बेके ए ए त्लांग: लेफ़ात्शे ला दिपोत्सो त्सा विसा।","अगले हफ़्ते: वीज़ा-इंटरव्यू की दुनिया।","S","C"]]}],"test":{"target":"Gae ka founo (letsatsi la ntlha la loeto)","goal":"Ka Setswana bolela kaelo ya loeto lwa gago — thekete e tlhomame, nako ya seteišene, tshireletso ya dikgetse, le tsholofetso ya go leletsa fa o fitlha.","lines":[["Ke beeleditse ka aepo ya founo.","के बेएलेदीत्से का आएपो या फ़ाउनो।"],["Boemo jwa go leta bo fetogile bo tlhomame gompieno.","बोएमो ज्वा खो लेता बो फ़ेतोगीले बो त्लोमामे गोम्पिएनो।"],["Fitlha kwa seteišeneng metsotso e masome a mararo pele.","फ़ित्ला क्वा सेतेइशेनेंग मेत्सोत्सो ए मासोमे आ मारारो पेले।"],["Bofa dithoto ka keiti kwa tlase ga bodulo.","बोफ़ा दिथोतो का केइती क्वा त्लासे खा बोदुलो।"],["Fa o fitlha, leletsa gae ka bonako.","फ़ा ओ फ़ित्ला, लेलेत्सा गाए का बोनाको।"]]},"listen":[["(reetsa) Polatefomo efe ya setimela?","(araba) Polatefomo nomoro ya boraro."],["(reetsa) O fologe kae?","(araba) Fologa fa boemelong jo bo latelang."]],"dialog":[["Wena","A o ka ya Labour Chowk?"],["Mokgweetsi","Dirupiya tse masome a robedi."],["Wena","Auto e e abelanang e tsaya masome a mabedi."],["Mokgweetsi","Go siame, masome-a-marataro."],["Wena","Ee, ke tla tsamaya ka auto e e abelanang."]]},{"n":11,"title":"Visa, Airport and Going Abroad","hi":"वीज़ा, हवाई-अड्डा और विदेश-द्वार","pace":30,"days":[{"tw":[["pasepoto","पासेपोतो","पासपोर्ट","ग"],["visa","वीसा","वीज़ा","ग"],["visa","वीसा","काम का वीज़ा","ग"],["mongkhamphani","मोंग्खाम्प्हानी","मालिक-कंपनी","ग"],["konteraka","कोन्तेराका","क़रार","ग"],["moindia","मोइन्दीअ","भारतीय","ग"]],"drill":{"type":"dialogueFill","hi":"वीज़ा-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Modirisi: O lebatla go ya Dubai ka eng?","Wena: Ke na le tiro ya go beiteletsa teng."],["Modirisi: Tumalano ya gago ke ya nako e kae?","Wena: Tumalano ya me ke ya dingwaga tse pedi."]]},"items":[["Ke batla go dira tiro mo nageng ya Gulf.","के बात्ला खो दिरा तिरो मो नागेंग या गल्फ़।","मैं खाड़ी के देश में काम करना चाहता हूँ।","S","A"],["Ke Moindia.","के मोइंदिया।","मैं भारतीय हूँ।","S","A"],["Se ke pasepoto ya me.","से के पासेपोतो या मे।","यह मेरा पासपोर्ट है।","S","A"],["Visa ya me ke visa ya tiro.","विसा या मे के विसा या तिरो।","मेरा वीज़ा काम का वीज़ा है।","S","B"],["O batla go ya Dubai ka eng?","ओ बात्ला खो या दुबई का एंग?","आप दुबई क्यों जाना चाहते हैं?","L","B"],["Ke na le tiro ya go weleda koo.","के ना ले तिरो या खो वेलेदा कोओ।","वहाँ मेरी वेल्डर की नौकरी है।","S","A"],["Khamphani ya gago ke efe?","खाम्फ़ानी या गागो के एफ़े?","आपकी मालिक-कंपनी कौन है?","L","B"],["Khamphani ya me ke khamphani ya tshipi.","खाम्फ़ानी या मे के खाम्फ़ानी या चिपी।","मेरी मालिक-कंपनी एक स्टील कंपनी है।","S","B"],["Leina la khamphani le mo lokwalong lwa me lwa tiro.","लेइना ला खाम्फ़ानी ले मो लोक्वालोंग ल्वा मे ल्वा तिरो।","कंपनी का नाम मेरे ऑफर-पत्र पर है।","S","B"],["Moputso wa gago koo e tla nna eng?","मोपुत्सो वा गागो कोओ ए त्ला न्ना एंग?","वहाँ आपका वेतन क्या होगा?","L","B"],["Dirham tse lekgolo-le-matlhano kgwedi.","दिरहम त्से लेक्खोलो-ले-मात्लानो ख्वेदी।","पंद्रह सौ दिरहम महीना।","S","C"],["Dijo le phaposi di tswa go khamphani.","दिजो ले फ़ापोसी दि त्स्वा खो खाम्फ़ानी।","खाना और कमरा कंपनी से है।","S","C"],["Tumalano ya gago e tla tsaya nako e kae?","तुमालानो या गागो ए त्ला त्साया नाको ए काए?","आपका क़रार कितने समय का है?","L","B"],["Tumalano ya me ke ya dingwaga tse pedi.","तुमालानो या मे के या दिंग्वागा त्से पेदी।","मेरा क़रार दो साल का है।","S","A"],["Ke badile tumalano ya me.","के बादीले तुमालानो या मे।","मैंने अपना क़रार पढ़ा है।","S","A"],["Lekanya mongwe a go balele tumalano pele ga o saena.","लेकान्या मोंग्वे आ खो बालेले तुमालानो पेले खा ओ साएना।","दस्तख़त से पहले क़रार पढ़वा लो।","L","B"],["O dirile tiro efe kwa India?","ओ दिरीले तिरो एफ़े क्वा इंदिया?","भारत में आपने क्या काम किया?","L","B"],["Ke dirile weleding dingwaga tse tlhano.","के दिरीले वेलेदिंग दिंग्वागा त्से त्लानो।","मैंने पाँच साल वेल्डिंग की।","S","B"],["A o kile wa ya kwa ntle ga naga pele?","आ ओ किले वा या क्वा न्त्ले खा नागा पेले?","क्या आप पहले विदेश गए हैं?","L","B"],["Nnyaa, lona ke loeto lwa me lwa ntlha.","न्न्याआ, लोना के लोएतो ल्वा मे ल्वा न्त्ला।","नहीं, यह मेरी पहली बार है।","S","A"],["Lelapa la gago le na le bomang?","लेलापा ला गागो ले ना ले बोमांग?","आपके परिवार में कौन-कौन हैं?","L","B"],["Mosadi wa me le bana ba babedi ba mo motseng.","मोसादी वा मे ले बाना बा बाबेदी बा मो मोत्सेंग।","मेरी पत्नी और दो बच्चे गाँव में हैं।","S","B"],["Araba ka mela e e khutshwane le e e tlhamalalo.","आराबा का मेला ए ए खुत्श्वाने ले ए ए त्लामालालो।","छोटी-सादी पंक्तियों में जवाब दो।","L","B"],["Bua o leba moemedi.","बुआ ओ लेबा मोएमेदी।","अधिकारी की ओर देखकर बोलो।","L","B"],["Nna o eme sentle, nna o kgutsitse.","न्ना ओ एमे सेंत्ले, न्ना ओ ख्गुत्सीत्से।","सीधा बैठो, शांत रहो।","L","B"],["Fa o sa tlhaloganye bua 'Sorry, please repeat'.","फ़ा ओ सा त्लालोगान्ये बुआ 'Sorry, please repeat'।","न समझो तो 'सॉरी, प्लीज़ रिपीट' कहो।","L","B"],["Moemedi o ne a botsa, ke neile karabo e e phepa.","मोएमेदी ओ ने आ बोत्सा, के नेइले काराबो ए ए फ़ेपा।","अधिकारी ने पूछा, मैंने साफ़ जवाब दिया।","S","B"],["Dikwalo tsa me di feletse, di boammaaruri.","दिक्वालो त्सा मे दि फ़ेलेत्से, दि बोआम्माआरुरी।","मेरे कागज़ पूरे और सच्चे हैं।","S","A"],["Itlwaetse dikarabo tse le tsala.","इत्लवाएत्से दिकाराबो त्से ले त्साला।","ये जवाब दोस्त के साथ अभ्यास करो।","L","B"],["Dikarabo tse di ipaakantsweng, selekanyo se se motlhofo.","दिकाराबो त्से दि इपाआकांत्स्वेंग, सेलेकान्यो से से मोत्लोफ़ो।","तैयार जवाब, आसान इंटरव्यू।","S","C"]]},{"tw":[["maaka","माअका","झूठ","ग"],["leaka","लेअका","रद्द","ग"],["moemedi","मोएमेदी","एजेंट","ग"],["meretse","मेरेत्से","मेडिकल-जाँच","ग"],["morwakgoa","मोर्वाक्गोअ","उँगली-छाप","ग"],["vuya","वूया","वापसी-योजना","ग"]],"drill":{"type":"yesNo","hi":"सच-जवाब अभ्यास — सवाल सुनो, सच्चा पूरा वाक्य बोलो।","rows":[["A o ne wa ya kwa ntle ga naga pele?","Nnyaa, lo ke lekgetlo la me la ntlha."],["A o fentse tlhahlobo ya kalafi?","Ee, kalafi ya me e siame."]]},"items":[["O se ke wa aka selekanyong leng.","ओ से के वा आका सेलेकान्योंग लेंग।","इंटरव्यू में कभी झूठ मत बोलो।","L","B"],["Maaka a le mongwe a ka senya visa.","माआका आ ले मोंग्वे आ का सेन्या विसा।","एक झूठ वीज़ा रद्द करा सकता है।","L","B"],["Boammaaruri bo ka bo bonya, mme bo babalesegile.","बोआम्माआरुरी बो का बो बोन्या, म्मे बो बाबालेसेगीले।","सच धीमा हो सकता है, पर सुरक्षित है।","S","C"],["Fa o sa itse, bua jalo.","फ़ा ओ सा इत्से, बुआ जालो।","न जानो तो कह दो।","L","B"],["Ntshwarele rra, ga ke itse se.","न्त्श्वारेले र्रा, खा के इत्से से।","माफ़ कीजिए सर, मुझे यह नहीं पता।","S","A"],["Ke mang yo o tladitseng thekete ya gago?","के मांग यो ओ त्लादीत्सेंग थेकेते या गागो?","आपकी टिकट किसने भरी?","L","B"],["Khamphani e tladitse thekete ya me.","खाम्फ़ानी ए त्लादीत्से थेकेते या मे।","कंपनी ने मेरी टिकट भरी।","S","A"],["O neile moemedi bokae?","ओ नेइले मोएमेदी बोकाए?","आपने एजेंट को कितना दिया?","L","B"],["Bua madi a boammaaruri fela.","बुआ मादी आ बोआम्माआरुरी फ़ेला।","सिर्फ़ सच्ची रक़म बताओ।","L","B"],["Moemedi wa me o na le laesense.","मोएमेदी वा मे ओ ना ले लाएसेन्से।","मेरा एजेंट लाइसेंस वाला है।","S","B"],["A o tla boela kwa India?","आ ओ त्ला बोएला क्वा इंदिया?","क्या आप भारत लौटेंगे?","L","B"],["Ee, morago ga tumalano ke tla boa.","ए, मोरागो खा तुमालानो के त्ला बोआ।","हाँ, क़रार के बाद मैं लौटूँगा।","S","A"],["Lelapa la me le lefatshe la me di mo India.","लेलापा ला मे ले लेफ़ात्शे ला मे दि मो इंदिया।","मेरा परिवार और ज़मीन भारत में है।","S","B"],["Leano la me la go boa le phepa.","लेआनो ला मे ला खो बोआ ले फ़ेपा।","मेरी वापसी-योजना साफ़ है।","S","B"],["A tlhahlobo ya gago ya kalafi e fentse?","आ त्लाल्लोबो या गागो या कालाफ़ी ए फ़ेंत्से?","क्या आपकी मेडिकल-जाँच पास हुई?","L","B"],["Ee, kalafi ya me e siame.","ए, कालाफ़ी या मे ए सिआमे।","हाँ, मेरी मेडिकल फिट है।","S","B"],["Kalafi e dirilwe kwa lefelong le le dumeleditsweng.","कालाफ़ी ए दिरिल्वे क्वा लेफ़ेलोंग ले ले दुमेलेदीत्स्वेंग।","मेडिकल मान्यता वाले केंद्र पर हुई।","S","C"],["Ba tla tsaya leswao la monwana wa gago.","बा त्ला त्साया लेस्वाओ ला मोनवाना वा गागो।","वे आपकी उँगली-छाप लेंगे।","L","B"],["Baya monwana wa gago mo motšheneng ka tlhamalalo.","बाया मोनवाना वा गागो मो मोत्शेनेंग का त्लामालालो।","उँगली मशीन पर सीधी रखो।","L","B"],["Leba khamera go tsaya setshwantshi.","लेबा खामेरा खो त्साया सेत्श्वांत्शी।","फोटो के लिए कैमरे में देखो।","L","B"],["A o ka bua leina le tiro ya gago?","आ ओ का बुआ लेइना ले तिरो या गागो?","अपना नाम और काम बता सकते हैं?","L","B"],["Leina la me ke Ramesh, ke moweledi.","लेइना ला मे के रमेश, के मोवेलेदी।","मेरा नाम रमेश है, मैं वेल्डर हूँ।","S","A"],["O tla nna mo toropong efe?","ओ त्ला न्ना मो तोरोपोंग एफ़े?","आप किस शहर में रहेंगे?","L","B"],["Ke tla nna mo khampeng ya khamphani.","के त्ला न्ना मो खाम्पेंग या खाम्फ़ानी।","मैं कंपनी के कैम्प में रहूँगा।","S","B"],["O se ke wa ganetsana le moemedi.","ओ से के वा गानेत्साना ले मोएमेदी।","अधिकारी से बहस मत करो।","L","B"],["Fa a gana, botsa lebaka ka boikokobetso.","फ़ा आ गाना, बोत्सा लेबाका का बोइकोकोबेत्सो।","मना हो तो कारण विनम्रता से पूछो।","L","B"],["O ka dira kopo gape ka dikwalo tse di feletseng.","ओ का दिरा कोपो गापे का दिक्वालो त्से दि फ़ेलेत्सेंग।","पूरे कागज़ों से दोबारा आवेदन कर सकते हो।","L","B"],["Dikarabo tsa me di tshwana le dikwalo tsa me.","दिकाराबो त्सा मे दि च्वाना ले दिक्वालो त्सा मे।","मेरे जवाब मेरे कागज़ों से मिले।","S","B"],["Dikwalo le mohutšha e nngwe fela ya nnete.","दिक्वालो ले मोहुत्शा ए न्ंग्वे फ़ेला या न्नेते।","कागज़ और ज़ुबान में एक ही सच।","S","C"],["Visa e tsile, toro e gatela pele.","विसा ए त्सिले, तोरो ए गातेला पेले।","वीज़ा आया, सपना आगे बढ़ा।","S","C"]]},{"tw":[["dumetse","दूमेत्से","मान्य","ग"],["folata","फ़ोलाता","फाइल","ग"],["sepodisi","सेपोदीसी","पुलिस-सत्यापन","ग"],["inshorense","इन्स्होरेन्से","बीमा","ग"],["kgolagano ya mhangu","क्गोलागानो या म्हांगू","आपात-संपर्क","ग"],["khopi","खोपी","छायाप्रति","ग"]],"drill":{"type":"orderSteps","hi":"विदेश-कागज़ का क्रम — Pele, Morago, Morago ga moo लगाकर बोलो।","rows":[["Pele dira pasepoto.","Morago fenya tlhahlobo ya kalafi.","Morago ga moo dira kopo ya visa."]]},"items":[["Pasepoto ke selotlelo sa gago sa ntlha.","पासेपोतो के सेलोत्लेलो सा गागो सा न्त्ला।","पासपोर्ट आपकी पहली चाबी है।","S","B"],["Dira kopo ka setheo sa mmuso fela.","दिरा कोपो का सेथेओ सा म्मुसो फ़ेला।","सिर्फ़ सरकारी वेबसाइट से आवेदन करो।","L","B"],["Ofisi ya pasepoto e bitsitse go tswa ka dikwalo.","ओफ़िसी या पासेपोतो ए बित्सीत्से खो त्स्वा का दिक्वालो।","पासपोर्ट-दफ़्तर ने कागज़ों के लिए बुलाया।","S","B"],["Tlhomamiso ya sepodisi e tsile kwa gae.","त्लोमामिसो या सेपोदिसी ए त्सिले क्वा गाए।","पुलिस-सत्यापन मेरे घर आया।","S","A"],["Bolelela sepodisi aterese e e boammaaruri.","बोलेलेला सेपोदिसी आतेरेसे ए ए बोआम्माआरुरी।","पुलिस को सही पता बताओ।","L","A"],["Pasepoto ya me e siame dingwaga tse some.","पासेपोतो या मे ए सिआमे दिंग्वागा त्से सोमे।","मेरा पासपोर्ट दस साल मान्य है।","S","A"],["Sekaseka boleng pele ga visa.","सेकासेका बोलेंग पेले खा विसा।","वीज़ा से पहले मान्यता जाँचो।","L","B"],["Boleng jwa dikgwedi tse thataro bo a tlhokega.","बोलेंग ज्वा दिख्वेदी त्से थातारो बो आ त्लोकेगा।","छह महीने की मान्यता ज़रूरी है।","L","B"],["Boloka pasepoto mo folateng ya plastiki.","बोलोका पासेपोतो मो फ़ोलातेंग या प्लास्तिकी।","पासपोर्ट प्लास्टिक फाइल में रखो।","L","B"],["Dira dikopi tse tharo tsa lokwalo nngwe le nngwe.","दिरा दिकोपी त्से थारो त्सा लोक्वालो न्ंग्वे ले न्ंग्वे।","हर कागज़ की तीन छायाप्रति बनाओ।","L","B"],["Boloka seto se le sengwe sa dikopi gae.","बोलोका सेतो से ले सेंग्वे सा दिकोपी गाए।","एक प्रति-सेट घर पर रखो।","L","B"],["Boloka seto se le sengwe sa dikopi mo founong ya gago.","बोलोका सेतो से ले सेंग्वे सा दिकोपी मो फ़ाउनोंग या गागो।","एक प्रति-सेट अपने फोन में रखो।","L","B"],["O se ke wa fa moemedi pasepoto ya nnete leng.","ओ से के वा फ़ा मोएमेदी पासेपोतो या न्नेते लेंग।","असली पासपोर्ट एजेंट को कभी मत दो।","L","B"],["Pasepoto e tshwanetse go nna mo seatleng sa gago.","पासेपोतो ए च्वानेत्से खो न्ना मो सेअत्लेंग सा गागो।","पासपोर्ट आपके हाथ में रहे।","L","B"],["Khamphani kwa ntle ga naga ga e ka tsaya pasepoto ya gago.","खाम्फ़ानी क्वा न्त्ले खा नागा खा ए का त्साया पासेपोतो या गागो।","विदेश में कंपनी आपका पासपोर्ट नहीं रख सकती।","L","B"],["Se ke tshwanelo ya gago ka molao.","से के च्वानेलो या गागो का मोलाओ।","कानून से यह आपका हक़ है।","L","B"],["Folata ya me ya kalafi e na le dipego tsotlhe.","फ़ोलाता या मे या कालाफ़ी ए ना ले दिपेगो त्सोत्ले।","मेरी मेडिकल फाइल में सब रिपोर्ट हैं।","S","B"],["Tlhahlobo ya madi le matlho di fedile.","त्लाल्लोबो या मादी ले मात्लो दि फ़ेदीले।","खून और आँख की जाँच हो गई।","S","C"],["Tsaya inshorense ya loeto ya dingwaga tse pedi.","त्साया इंशोरेन्से या लोएतो या दिंग्वागा त्से पेदी।","दो साल का यात्रा-बीमा लो।","L","B"],["Inshorense e thusa fa o lwala kwa ntle ga naga.","इंशोरेन्से ए थुसा फ़ा ओ ल्वाला क्वा न्त्ले खा नागा।","विदेश में बीमारी पर बीमा काम आता है।","L","B"],["Kwala dikgokagano tse pedi tsa tshoganetso.","क्वाला दिख्गोकागानो त्से पेदी त्सा त्शोगानेत्सो।","दो आपात-संपर्क लिखो।","L","B"],["E nngwe ya gae, e nngwe ya ofisi ya India.","ए न्ंग्वे या गाए, ए न्ंग्वे या ओफ़िसी या इंदिया।","एक घर का, एक भारत-दफ़्तर का नंबर।","L","B"],["Gopola nomoro ya pasepoto ka molomo.","गोपोला नोमोरो या पासेपोतो का मोलोमो।","पासपोर्ट नंबर ज़ुबानी याद करो।","L","B"],["Saena mo lefelong le le supiwang fela.","साएना मो लेफ़ेलोंग ले ले सुपिवांग फ़ेला।","सिर्फ़ दिखाई जगह पर दस्तख़त करो।","L","B"],["Bala tsebe nngwe le nngwe pele ga o saena.","बाला त्सेबे न्ंग्वे ले न्ंग्वे पेले खा ओ साएना।","दस्तख़त से पहले हर पन्ना पढ़ो।","L","B"],["Tsamaisanya maina mo dikwalong tsotlhe.","त्सामाइसान्या माइना मो दिक्वालोंग त्सोत्ले।","सब कागज़ों पर नाम मिलाओ।","L","B"],["Tlhaka e le nngwe e e phoso e ka emisa folata.","त्लाका ए ले न्ंग्वे ए ए फ़ोसो ए का एमिसा फ़ोलाता।","एक ग़लत अक्षर फाइल रोक देता है।","L","B"],["Baakanya ka bonako mo ofising.","बाआकान्या का बोनाको मो ओफ़िसिंग।","दफ़्तर में जल्दी सुधरवाओ।","L","B"],["Folata e feletse, tlhobaelo ga e yo.","फ़ोलाता ए फ़ेलेत्से, त्लोबाएलो खा ए यो।","पूरी फाइल, कोई चिंता नहीं।","S","B"],["Dikwalo di ipaakantse, diphuka di ipaakantse.","दिक्वालो दि इपाआकांत्से, दिफुका दि इपाआकांत्से।","कागज़ तैयार, पंख तैयार।","S","C"]]},{"tw":[["ku tsena","कू त्सेना","चेक-इन","ग"],["boarding","बोअर्दींग","बोर्डिंग पास","ग"],["nsirhelelo","न्सीर्हेलेलो","सुरक्षा-जाँच","ग"],["dikgolo","दीक्गोलो","प्रस्थान","ग"],["khontareng","खोन्तारेंग","इमिग्रेशन","ग"],["setulo","सेतूलो","सीट-पट्टी","ग"]],"drill":{"type":"signRead","hi":"बोर्ड पढ़ो — bodo reetsa, hindi mathale bua.","rows":[["Tsamao","जाने वालों के लिए"],["Goroga","आने वालों के लिए"],["Go goga ga go dumelelwa","धूम्रपान मना"],["Kwa ntle","बाहर जाने का रास्ता"]]},"items":[["Re fitlhile kwa boemafofaneng diura tse tharo pele.","रे फ़ित्लीले क्वा बोएमाफ़ोफ़ानेंग दिउरा त्से थारो पेले।","हम तीन घंटे पहले एयरपोर्ट पहुँचे।","S","B"],["Bala diperetlwa tse dikgolo: Departures le Arrivals.","बाला दिपेरेत्ल्वा त्से दिख्गोलो: Departures ले Arrivals।","बड़े बोर्ड पढ़ो: प्रस्थान और आगमन।","L","B"],["Go tsamaya ke Departures, go tla ke Arrivals.","खो त्सामाया के Departures, खो त्ला के Arrivals।","जाने के लिए प्रस्थान, आने के लिए आगमन।","L","B"],["Ema mo mothalong kwa khaontareng ya go check-in.","एमा मो मोथालोंग क्वा खाओंतारेंग या खो चेक-इन।","चेक-इन काउंटर पर कतार में लगो।","L","B"],["Ntshupetse pasepoto le thekete.","न्त्शुपेत्से पासेपोतो ले थेकेते।","पासपोर्ट और टिकट दिखाओ।","L","B"],["Baya mokotla o mogolo mo bele.","बाया मोकोत्ला ओ मोगोलो मो बेले।","बड़ा थैला पट्टे पर रखो।","L","B"],["Bokete jo bo dumeletsweng jwa mokotla ke kilo tse masome a mararo.","बोकेते जो बो दुमेलेत्स्वेंग ज्वा मोकोत्ला के किलो त्से मासोमे आ मारारो।","थैले की तौल-सीमा तीस किलो है।","L","B"],["Mokotla wa me o kilo tse pedi go feta.","मोकोत्ला वा मे ओ किलो त्से पेदी खो फ़ेता।","मेरा थैला दो किलो ज़्यादा है।","S","B"],["Ntsha dilo dingwe kgotsa duela madi a mangwe.","न्त्शा दिलो दिंग्वे ख्होत्सा दुएला मादी आ मांग्वे।","कुछ सामान निकालो या ज़्यादा पैसे दो।","L","B"],["Se ke boarding pass ya gago.","से के बोर्डिंग पास या गागो।","यह आपका बोर्डिंग पास है।","L","B"],["Nomoro ya kgoro e mo boarding pass.","नोमोरो या ख्गोरो ए मो बोर्डिंग पास।","गेट नंबर बोर्डिंग पास पर है।","L","B"],["Se se latelang ke tlhahlobo ya tshireletso.","से से लातेलांग के त्लाल्लोबो या चिरेलेत्सो।","अगली है सुरक्षा-जाँच।","S","C"],["Baya founo le dilo tsa poketing mo tereing.","बाया फ़ाउनो ले दिलो त्सा पोकेतिंग मो तेरेइंग।","फोन और पेटी ट्रे में रखो।","L","B"],["Botlolo ya metsi ga e dumelelwe ka fa gare.","बोत्लोलो या मेत्सी खा ए दुमेलेल्वे का फ़ा गारे।","पानी की बोतल अंदर मना है।","L","B"],["Tsholetsa diatla go tlhahlojwa.","त्शोलेत्सा दिआत्ला खो त्लाल्लोज्वा।","जाँच के लिए हाथ ऊपर करो।","L","B"],["Mafelo otlhe a kwadile 'go goga ga go dumelelwa'.","मफ़ेलो ओत्ले आ क्वादीले 'खो गोगा खा खो दुमेलेल्वा'।","हर जगह 'धूम्रपान मना' लिखा है।","L","B"],["Peretlwa e e tala e supa tsela ya go tswa.","पेरेत्ल्वा ए ए ताला ए सुपा त्सेला या खो त्स्वा।","हरा एग्ज़िट बोर्ड बाहर का रास्ता दिखाता है।","L","B"],["Jaanong ya kwa khaontareng ya immigration.","जाआनोंग या क्वा खाओंतारेंग या इमिग्रेशन।","अब इमिग्रेशन काउंटर जाओ।","L","B"],["Moemedi o botsitse: o ya kae?","मोएमेदी ओ बोत्सीत्से: ओ या काए?","अधिकारी ने पूछा: कहाँ जा रहे हो?","S","B"],["Ke ya Dubai ka ntlha ya tiro.","के या दुबई का न्त्ला या तिरो।","मैं काम के लिए दुबई जा रहा हूँ।","S","A"],["Ba teile pasepoto ya me.","बा तेइले पासेपोतो या मे।","उन्होंने मेरे पासपोर्ट पर मुहर लगाई।","S","A"],["Ema fa kgorong nomoro ya some-le-bobedi.","एमा फ़ा ख्गोरोंग नोमोरो या सोमे-ले-बोबेदी।","गेट नंबर बारह पर रुको।","L","B"],["Reetsa tsebiso ya sefofane sa gago.","रीत्सा त्सेबिसो या सेफ़ोफ़ाने सा गागो।","अपनी उड़ान की घोषणा सुनो।","L","B"],["Boarding e simolotse, ntshupetse pasa gape.","बोर्डिंग ए सिमोलोत्से, न्त्शुपेत्से पासा गापे।","बोर्डिंग शुरू, पास फिर दिखाओ।","L","B"],["Bodulo jwa me ke masome a mararo-le-nne-A, fa lefestereng.","बोदुलो ज्वा मे के मासोमे आ मारारो-ले-नने-A, फ़ा लेफ़ेस्तेरेंग।","मेरी सीट चौंतीस-ए, खिड़की की ओर है।","S","B"],["Bofa lebanta la bodulo jaana.","बोफ़ा लेबांता ला बोदुलो जाना।","सीट-पट्टी ऐसे बाँधो।","L","B"],["Baya founo mo modong wa go fofa.","बाया फ़ाउनो मो मोदोंग वा खो फ़ोफ़ा।","फोन उड़ान-मोड पर रखो।","L","B"],["Sefofane se fofile, pelo ya me ya nyenya.","सेफ़ोफ़ाने से फ़ोफ़ीले, पेलो या मे या न्येन्या।","विमान उड़ा, मेरा दिल मुस्कुराया।","S","B"],["Ke apere hempe e tala, re kopane kwa ntle.","के आपेरे हेम्पे ए ताला, रे कोपाने क्वा न्त्ले।","मैंने नीली कमीज़ पहनी है, बाहर मिलना।","S","B"],["Go tswa motseng go ya legodimong.","खो त्स्वा मोत्सेंग खो या लेगोदिमोंग।","गाँव से आसमान तक।","S","C"]]},{"tw":[["emigrate","एमीग्राते","ई-माइग्रेट","ग"],["madad","मादाद","मदद पोर्टल","ग"],["kwadisitsweng","क्वादीसीत्स्वेंग","पंजीकृत","ग"],["kgonsulate","क्गोन्सूलाते","दूतावास","ग"],["letsietsi","लेत्सीएत्सी","ठग","ग"],["khombo","खोम्बो","वादा","ग"]],"drill":{"type":"showTell","hi":"जाने से पहले परिवार को तीन बातें बोलो।","rows":[["Sefofane sa me ke ka Sontaga ka nako ya some.","Khampe ya khamphani e kwa Dubai.","Ke tla go leletsa morago ga go fofa."]]},"items":[["Ya kwa ntle ga naga ka moemedi yo o kwadisitsweng fela.","या क्वा न्त्ले खा नागा का मोएमेदी यो ओ क्वादिसीत्स्वेंग फ़ेला।","सिर्फ़ पंजीकृत एजेंट से विदेश जाओ।","L","B"],["Sekaseka moemedi mo setheong sa eMigrate.","सेकासेका मोएमेदी मो सेथेओंग सा eMigrate।","एजेंट को ई-माइग्रेट वेबसाइट पर जाँचो।","L","B"],["Moemedi wa nnete o na le nomoro ya laesense.","मोएमेदी वा न्नेते ओ ना ले नोमोरो या लाएसेन्से।","सच्चे एजेंट के पास लाइसेंस नंबर होता है।","L","B"],["Kopa laesense mme o e kwale.","कोपा लाएसेन्से म्मे ओ ए क्वाले।","लाइसेंस माँगो और लिख लो।","L","B"],["Motsietsi o taboga potso e.","मोत्सिएत्सी ओ ताबोगा पोत्सो ए।","ठग इस सवाल से भागता है।","L","B"],["Ga go na se se bidiwang 'free visa'.","खा खो ना से से बिदिवांग 'free visa'।","'फ्री वीज़ा' जैसा कुछ नहीं होता।","L","B"],["Tsholofetso e kgolo, kotsi e kgolo.","त्शोलोफ़ेत्सो ए ख्गोलो, कोत्सी ए ख्गोलो।","बड़ा वादा, बड़ा ख़तरा।","L","B"],["Tsaya risiti ya tefo nngwe le nngwe.","त्साया रिसिती या तेफ़ो न्ंग्वे ले न्ंग्वे।","हर भुगतान की रसीद लो।","L","B"],["Duela ka panka, e seng ka madi a diatla fela.","दुएला का पांका, ए सेंग का मादी आ दिआत्ला फ़ेला।","बैंक से दो, सिर्फ़ नकद नहीं।","L","B"],["Tefo ya panka ke bosupi jwa gago.","तेफ़ो या पांका के बोसुपी ज्वा गागो।","बैंक-भुगतान आपका सबूत है।","L","B"],["Bua le badiri ba babedi ba khamphani eo.","बुआ ले बादिरी बा बाबेदी बा खाम्फ़ानी एओ।","उस कंपनी के दो कामगारों से बात करो।","L","B"],["Ba botse ka moputso le phaposi.","बा बोत्से का मोपुत्सो ले फ़ापोसी।","उनसे वेतन और कमरे के बारे में पूछो।","L","B"],["Mogala wa dividio o supa khampe ya nnete.","मोगाला वा दिविदिओ ओ सुपा खाम्पे या न्नेते।","वीडियो कॉल असली कैम्प दिखाती है।","L","B"],["Visa ya setori ya tiro ke serai.","विसा या सेतोरी या तिरो के सेराइ।","काम के लिए टूरिस्ट वीज़ा जाल है।","L","B"],["Dira tiro ka visa ya tiro fela.","दिरा तिरो का विसा या तिरो फ़ेला।","सिर्फ़ काम के वीज़ा पर काम करो।","L","B"],["Boloka nomoro ya legofisi la Moindia kwa nageng eo.","बोलोका नोमोरो या लेगोफ़िसी ला मोइंदिया क्वा नागेंग एओ।","उस देश में भारतीय दूतावास का नंबर रखो।","L","B"],["Legofisi la Moindia le thusa Maindia kwa ntle ga naga.","लेगोफ़िसी ला मोइंदिया ले थुसा माइंदिया क्वा न्त्ले खा नागा।","भारतीय दूतावास विदेश में भारतीयों की मदद करता है।","L","B"],["Madad ke setheo sa thuso sa mmuso.","मदाद के सेथेओ सा थुसो सा म्मुसो।","मदद सरकार का सहायता-पोर्टल है।","L","B"],["Kwala bothata jwa gago mo setheong sa Madad.","क्वाला बोथाता ज्वा गागो मो सेथेओंग सा मदाद।","अपनी परेशानी मदद पोर्टल पर लिखो।","L","B"],["Ga o a amogela moputso? Ipelaetse foo.","खा ओ आ आमोगेला मोपुत्सो? इपेलाएत्से फ़ू।","वेतन नहीं मिला? वहीं शिकायत करो।","L","B"],["Tsenya lelapa mo leanong nngwe le nngwe.","त्सेन्या लेलापा मो लेआनोंग न्ंग्वे ले न्ंग्वे।","हर योजना में परिवार को साथ रखो।","L","B"],["Ba romele tshedimosetso ya moemedi le khamphani.","बा रोमेले त्शेदिमोसेत्सो या मोएमेदी ले खाम्फ़ानी।","उन्हें एजेंट और कंपनी की जानकारी भेजो।","L","B"],["Ba bolelele sefofane le aterese ya khampe ya gago.","बा बोलेलेले सेफ़ोफ़ाने ले आतेरेसे या खाम्पे या गागो।","अपनी उड़ान और कैम्प का पता बताओ।","L","B"],["Kwa ntle ga naga, leletsa gae gabedi ka beke.","क्वा न्त्ले खा नागा, लेलेत्सा गाए गाबेदी का बेके।","विदेश से हफ़्ते में दो बार घर फोन करो।","L","B"],["Fa o le mo mathateng, o se ke wa fitlha.","फ़ा ओ ले मो माथातेंग, ओ से के वा फ़ित्ला।","मुसीबत में हो तो छिपाओ मत।","L","B"],["Lelapa, legofisi le thuso — dikgoro tsa gago tse tharo.","लेलापा, लेगोफ़िसी ले थुसो — दिख्गोरो त्सा गागो त्से थारो।","परिवार, दूतावास और मदद — आपके तीन दरवाज़े।","L","B"],["Pelo e e ipaakantseng ga e nke e le esi.","पेलो ए ए इपाआकांत्सेंग खा ए न्के ए ले एसी।","तैयार मन कभी अकेला नहीं होता।","S","C"],["Bona madi kwa ntle ga naga, aga gae.","बोना मादी क्वा न्त्ले खा नागा, आगा गाए।","विदेश में कमाओ, घर में बनाओ।","S","C"],["Tsamaya le dikwalo, boa ka boikgantsho.","त्सामाया ले दिक्वालो, बोआ का बोइख्गांत्शो।","कागज़ों के साथ जाओ, गर्व के साथ लौटो।","S","C"],["Go tsamaya ka tshireletso, go boa ka tlhomamiso.","खो त्सामाया का चिरेलेत्सो, खो बोआ का त्लोमामिसो।","सुरक्षित जाना, पक्का लौटना।","S","C"]]}],"test":{"target":"Selekanyo sa visa yotlhe (le mong a modirisi)","goal":"Tshameka selekanyo sa visa yotlhe ka Setswana — itsise ka naga, tiro, tumalano, thekete, thulaganyo ya go boa le go leboga — mela e le supa, tsotlhe tsa boammaaruri.","lines":[["Ke Moindia.","के मोइंदिया।"],["Ke na le tiro ya go beiteletsa teng.","के ना ले तिरो या खो बेइतेलेत्सा तेंग।"],["Tumalano ya me ke ya dingwaga tse pedi.","तुमालानो या मे के या दिंग्वागा त्से पेदी।"],["Khamphani e dueletse thekete ya me.","खाम्फ़ानी ए दुएलेत्से थेकेते या मे।"],["Ee, morago ga tumalano ke tla boa.","ए, मोरागो खा तुमालानो के त्ला बोआ।"],["Dikwalo tsa me di feletse e bile di boammaaruri.","दिक्वालो त्सा मे दि फ़ेलेत्से ए बीले दि बोआम्माआरुरी।"],["Ke a leboga, rra.","के आ लेबोखा, र्रा।"]]},"listen":[["(reetsa) O ya kae?","(araba) Ke ya Dubai go dira tiro."],["(reetsa) Ke mang yo o dueletseng thekete ya gago?","(araba) Khamphani e dueletse thekete ya me."]],"dialog":[["Modirisi","Mpontshe pasepoto ya gago, tsweetswee."],["Wena","Rra, fano ke pasepoto ya me."],["Modirisi","O tsile go dira eng?"],["Wena","Ke tsile go dira fano."],["Modirisi","Go siame, ya kwa kgorong nomoro lesome-le-pedi."]]},{"n":12,"title":"Rest, Joy and New Beginning","hi":"आराम, खुशी और नई शुरुआत (समापन)","pace":10,"days":[{"tw":[["letlotlo","लेत्लोत्लो","शौक़","क"],["nkarhi","न्कार्ही","फुर्सत","क"],["letlotlo","लेत्लोत्लो","गीत","क"],["motshameko","मोचामेको","खेल","क"],["ikhutsa","इखूत्सा","आराम","क"],["moopedi","मोओपेदी","पसंदीदा","क"]],"drill":{"type":"showTell","hi":"अपना शौक़ — तीन वाक्य में बोलो।","rows":[["Boitumelo jwa me ke go ___.","Ke tshameka ___ ka Sontaga.","Tsela e ntsha mogopolo o montšha."]]},"items":[["O dira eng ka nako ya boikhutso?","ओ दिरा एंग का नाको या बोइखुत्सो?","फुर्सत में आप क्या करते हैं?","L","B"],["Boitumelo jwa me ke go reetsa dipina.","बोइतुमेलो ज्वा मे के खो रीत्सा दिपीना।","मेरा शौक़ गीत सुनना है।","S","B"],["Ke tshameka kriketi ka Sontaga mo mosong.","के च्हामेका क्रिकेती का सोंतागा मो मोसोंग।","मैं रविवार सुबह क्रिकेट खेलता हूँ।","S","B"],["Setlhopha sa rona se fentse metshameko ya motse.","सेत्लोफ़ा सा रोना से फ़ेंत्से मेत्शामेको या मोत्से।","हमारी टीम ने स्थानीय खेल जीता।","S","B"],["Moopedi wa me yo o ratwang o tswa Bihar.","मोओपेदी वा मे यो ओ रात्वांग ओ त्स्वा बिहार।","मेरा पसंदीदा गायक बिहार से है।","S","B"],["Ke leba filimi kgwedi nngwe le nngwe.","के लेबा फ़िलिमी ख्वेदी न्ंग्वे ले न्ंग्वे।","मैं महीने में एक फ़िल्म देखता हूँ।","S","B"],["Boikhutso le bona ke karolo ya tiro.","बोइखुत्सो ले बोना के कारोलो या तिरो।","आराम भी काम का हिस्सा है।","S","C"],["Maikhutsong ke robala ura e le nngwe go feta.","माइखुत्सोंग के रोबाला उरा ए ले न्ंग्वे खो फ़ेता।","छुट्टी में मैं एक घंटा ज़्यादा सोता हूँ।","S","B"],["Boitumelo bo tshwarisa pelo e ntšha.","बोइतुमेलो बो त्श्वारिसा पेलो ए न्त्शा।","शौक़ मन को ताज़ा रखते हैं।","S","C"],["Tiro e ntsi, boikhutso bo botoka, nyenyo letsatsi le letsatsi.","तिरो ए न्त्सी, बोइखुत्सो बो बोतोका, न्येन्यो लेत्सात्सी ले लेत्सात्सी।","ख़ूब काम, अच्छा आराम, रोज़ मुस्कान।","S","C"]]},{"tw":[["menyu","मेञू","मेन्यू","ग"],["thali","थाली","थाली","ग"],["nnoke","न्नोके","तीखा","ग"],["parsele","पार्सेले","पार्सल","ग"],["roti","रोती","परोसने वाला","ग"],["nandziha","नान्द्ज़ीहा","मीठा","क"]],"drill":{"type":"dialogueFill","hi":"होटल-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Modirisi: O tla tsaya eng?","Wena: Thali e le nngwe le lassi e le nngwe, tsweetswee."],["Modirisi: A go na le se se monate?","Wena: Ee, gulab jamun e le nngwe."]]},"items":[["Tsweetswee, ntshupetse lenaane la dijo.","त्स्वीत्स्वी, न्त्शुपेत्से लेनाने ला दिजो।","कृपया मेन्यू दिखाइए।","S","A"],["Thali ya merogo ke tlhwatlhwa efe?","थाली या मेरोगो के त्लावात्लावा एफ़े?","वेज थाली कितने की है?","S","B"],["Mphe thali e le nngwe le lassi e le nngwe.","म्फे थाली ए ले न्ंग्वे ले लस्सी ए ले न्ंग्वे।","एक थाली और एक लस्सी देना।","S","B"],["Tsweetswee, apaya se se sa togang thata.","त्स्वीत्स्वी, आपाया से से सा तोगांग थाता।","कृपया कम तीखा बनाना।","S","B"],["Mogolo, roti e nngwe gape.","मोगोलो, रोती ए न्ंग्वे गापे।","भाई, एक रोटी और।","S","C"],["Gompieno dinawa di monate thata.","गोम्पिएनो दिनावा दि मोनाते थाता।","आज दाल बहुत स्वादिष्ट है।","S","C"],["Phutha thali e le nngwe ya go tsamaya.","फुथा थाली ए ले न्ंग्वे या खो त्सामाया।","एक थाली पार्सल बाँध देना।","S","C"],["Morago ga go ja, go na le sengwe se se monate?","मोरागो खा खो जा, खो ना ले सेंग्वे से से मोनाते?","खाने के बाद कुछ मीठा?","S","B"],["Tlisa bili le se se monate.","त्लिसा बिली ले से से मोनाते।","मीठे के साथ बिल लाना।","S","C"],["Dijo tse di molemo, pelo e e molemo.","दिजो त्से दि मोलेमो, पेलो ए ए मोलेमो।","अच्छा खाना, अच्छा मन।","S","C"]]},{"tw":[["motlhobolo","मोत्ल्होबोलो","लंबा","क"],["monnye","मोन्ञे","नाटा","क"],["ditedu","दीतेदू","दाढ़ी","क"],["khipi","खीपी","टोपी","क"],["pelonomi","पेलोनोमी","दयालु","क"],["natla","नात्ला","जवान","क"]],"drill":{"type":"showTell","hi":"किसी का हुलिया — तीन वाक्य में बोलो।","rows":[["O moleele e bile o motlhobolo.","O apara helemete e ntsho.","Batla monna yo o aparang hempe e khibidu."]]},"items":[["Mogolole wa me o moleele, o motlhasana.","मोगोलोले वा मे ओ मोलेएले, ओ मोत्लासाना।","मेरा भाई लंबा और दुबला है।","S","B"],["Ke mokhutshwanyana.","के मोखुत्श्वान्याना।","मैं थोड़ा नाटा हूँ।","S","A"],["Moruti wa rona o na le ntlebe e tshweu.","मोरुती वा रोना ओ ना ले न्त्लेबे ए त्श्वेउ।","हमारे उस्ताद की सफ़ेद दाढ़ी है।","S","B"],["O apara helemete e ntsho ka metlha.","ओ आपारा हेलेमेते ए न्त्शो का मेत्ला।","वे हमेशा काली टोपी पहनते हैं।","S","C"],["O mosha mme o natla.","ओ मोशा म्मे ओ नात्ला।","वह जवान और मेहनती है।","S","C"],["Tsala ya me o na le moriri o o gwintsang.","त्साला या मे ओ ना ले मोरिरी ओ ओ ग्विंत्सांग।","मेरे दोस्त के घुँघराले बाल हैं।","S","B"],["Mothusi yo mosha o na le pelo e e borutho mme o kgutsitse.","मोथुसी यो मोशा ओ ना ले पेलो ए ए बोरुतो म्मे ओ ख्गुत्सीत्से।","नया सहायक दयालु और शांत है।","S","C"],["Batla monna yo o aparang hempe e khibidu.","बात्ला मोन्ना यो ओ आपारांग हेम्पे ए खिबिदु।","लाल कमीज़ वाले आदमी को खोजो।","S","C"],["Ke na le mokotla o monnye le helemete e tala.","के ना ले मोकोत्ला ओ मोन्ये ले हेलेमेते ए ताला।","मेरे पास छोटा थैला और नीली टोपी है।","S","B"],["Mafoko a dira setshwantshi sa motho.","मफ़ोको आ दिरा सेत्श्वांत्शी सा मोथो।","शब्द इंसान की तस्वीर बना देते हैं।","S","C"]]},{"tw":[["laletsa","लालेत्सा","न्योता देना","क"],["moletlong","मोलेत्लोंग","दावत","क"],["amukela","अमूकेला","स्वीकार करना","ख"],["laletsa","लालेत्सा","जन्मदिन","क"],["ruri","रूरी","पक्का","क"],["latelang","लातेलांग","अगली बार","क"]],"drill":{"type":"dialogueFill","hi":"न्योता-संवाद पूरा करो — हाँ वाला और ना वाला, दोनों बोलो।","rows":[["Tsala: Ndza kombela ta ka Sontaga.","Wena: Ke a leboga, ke tla tla ruri."],["Tsala: A o tla tla gompieno?","Wena: Ntshwarele, ke na le shifi ya bosigo."]]},"items":[["Letsatsi la botsalo la morwa wa me, o laleditswe.","लेत्सात्सी ला बोत्सालो ला मोर्वा वा मे, ओ लालेदीत्स्वे।","मेरे बेटे के जन्मदिन पर आपको न्योता है।","S","B"],["Moletlo o Sontaga maitseboa.","मोलेत्लो ओ सोंतागा माइत्सेबोआ।","दावत रविवार शाम को है।","S","C"],["Tlang le lelapa.","त्लांग ले लेलापा।","परिवार के साथ आइए।","S","A"],["Ke a leboga, ke tla tla ruri.","के आ लेबोखा, के त्ला त्ला रुरी।","धन्यवाद, मैं ज़रूर आऊँगा।","S","A"],["Ke amogela taletso ya gago ka boitumelo.","के आमोगेला तालेत्सो या गागो का बोइतुमेलो।","मैं आपका न्योता खुशी से स्वीकार करता हूँ।","S","B"],["Ntshwarele, letsatsi leo ke na le shifi ya bosigo.","न्त्श्वारेले, लेत्सात्सी लेओ के ना ले शिफ़ी या बोसिगो।","माफ़ करना, उस दिन मेरी रात की ड्यूटी है।","S","A"],["Lotsheng ke tla kopana le lona ruri.","लोत्शेंग के त्ला कोपाना ले लोना रुरी।","अगली बार पक्का मिलूँगा।","S","B"],["Ke a leboga ka go tla moletlong.","के आ लेबोखा का खो त्ला मोलेत्लोंग।","दावत में आने के लिए धन्यवाद।","S","C"],["Go tla ga lona go re itumedisitse.","खो त्ला खा लोना खो रे इतुमेदिसीत्से।","आपके आने से हमें खुशी हुई।","S","B"],["Ditaletso di kopanya dipelo.","दितालेत्सो दि कोपान्या दिपेलो।","न्योते दिल जोड़ते हैं।","S","C"]]},{"tw":[["feditswe","फ़ेदीत्स्वे","पूरा","ख"],["mogato","मोगातो","स्तर","ख"],["tlhatlhobo","त्ल्हात्ल्होबो","परीक्षा","ख"],["ikgantsha","इक्गान्त्शा","गर्व","क"],["mathomong","माथोमोंग","शुरुआत","क"],["diphuka","दीफूका","पंख","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka jalo या mme लगाकर अपनी कहानी बोलो।","rows":[["Ke feditse khoso. Ke tla dira tlhahlobo.","Ke feditse khoso, ka jalo ke tla dira tlhahlobo."],["Sekgoa se ne se le thata. Ga ke a ema.","Sekgoa se ne se le thata, mme ga ke a ema."]]},"items":[["Gompieno thuto ya me ya A2 e fedile.","गोम्पिएनो थुतो या मे या A2 ए फ़ेदीले।","आज मेरा ए-टू कोर्स पूरा हुआ।","S","B"],["Ke ithutile mafoko a masome a a tlhano a mafsa.","के इथुतीले मफ़ोको आ मासोमे आ आ त्लानो आ मफ़सा।","मैंने पंद्रह सौ नए वाक्य सीखे।","S","B"],["Nka bua gae, tirong, mmarakeng le boemafofaneng.","न्का बुआ गाए, तिरोंग, म्माराकेंग ले बोएमाफ़ोफ़ानेंग।","मैं घर, काम, बाजार और एयरपोर्ट पर बोल सकता हूँ।","S","A"],["Jaanong ke tla tsenya tlhahlobo ya inthanete.","जाआनोंग के त्ला त्सेन्या त्लाल्लोबो या इंथानेते।","अब मैं ऑनलाइन परीक्षा दूँगा।","S","B"],["Setifikeiti se tla bula dikgoro tse disha.","सेतिफ़िकेइती से त्ला बुला दिख्गोरो त्से दिशा।","प्रमाणपत्र नए दरवाज़े खोलेगा।","S","C"],["Motse wa me otlhe o ikgantsha ka nna.","मोत्से वा मे ओत्ले ओ इख्गांत्शा का न्ना।","मेरे पूरे गाँव को मुझ पर गर्व है।","S","A"],["Selekelo se se latelang ke tlhahlobo ya lefatshe.","सेलेकेलो से से लातेलांग के त्लाल्लोबो या लेफ़ात्शे।","अगला स्तर विश्व-परीक्षा है।","S","C"],["Ke tla itlwaetsa metsotso e lesome letsatsi le letsatsi ka metlha.","के त्ला इत्लवाएत्सा मेत्सोत्सो ए लेसोमे लेत्सात्सी ले लेत्सात्सी का मेत्ला।","मैं हमेशा रोज़ दस मिनट अभ्यास करूँगा।","S","B"],["Bofelo bo, ke tshimologo e ntšha.","बोफ़ेलो बो, के त्शिमोलोगो ए न्त्शा।","यह अंत नई शुरुआत है।","S","A"],["Puo ya me, diphuka tsa me.","पुओ या मे, दिफुका त्सा मे।","मेरी भाषा, मेरे पंख।","S","A"]]}],"test":{"target":"Tlhahlobo ya bofelo: kgang ya gago yotlhe (le lelapa/ditsala)","goal":"Metsotso e mebedi ka Setswana bolela kgang ya gago ya dikgwedi tse tharo — boifo jwa tshimologo, thuto ya tiro-mmaraka-loeto-visa, mme o bolele toro e e tlang.","lines":[["Dikgwedi tse tharo tse di fetileng Sekgoa se ne se le thata mo go nna.","दिख्वेदी त्से थारो त्से दि फ़ेतीलेंग सेक्गोआ से ने से ले थाता मो खो न्ना।"],["Ke ithutile mafoko a masome a mararo letsatsi le letsatsi.","के इथुतीले मफ़ोको आ मासोमे आ मारारो लेत्सात्सी ले लेत्सात्सी।"],["Nka bua gae, tirong, mmarakeng le boemafofaneng.","न्का बुआ गाए, तिरोंग, म्माराकेंग ले बोएमाफ़ोफ़ानेंग।"],["Ke dirile dikarabo tsa selekanyo sa visa.","के दिरीले दिकाराबो त्सा सेलेकान्यो सा विसा।"],["Motse wa me otlhe o ikgantsha ka nna.","मोत्से वा मे ओत्ले ओ इख्गांत्शा का न्ना।"],["Bofelo bo, ke tshimologo e ntšha.","बोफ़ेलो बो, के त्शिमोलोगो ए न्त्शा।"],["Sekgoa sa me, nonofo ya me.","सेक्गोआ सा मे, नोनोफ़ो या मे।"]]},"listen":[["(reetsa) Boitumelo jwa gago ke eng?","(araba) Boitumelo jwa me ke go reetsa dipina."],["(reetsa) A o tla tla moletlong?","(araba) Ke a leboga, ke tla tla ruri."]],"dialog":[["Modirisi","O tla tsaya eng?"],["Wena","Thali e le nngwe le lassi e le nngwe, tsweetswee."],["Modirisi","A go na le se se monate?"],["Wena","Ee, gulab jamun e le nngwe."],["Modirisi","Metsotso e tlhano, rra."]]},{"n":13,"title":"Survival, Voice and Rights","hi":"जीवन-रक्षा, आवाज़ और हक़ (परिशिष्ट — दिन-1 से साथ चले)","pace":30,"days":[{"tw":[["mhangu","म्हांगू","आपात","क"],["gobetse","गोबेत्से","घायल","क"],["ambulense","अम्बूलेन्से","एम्बुलेंस","क"],["molelo","मोलेलो","आग","क"],["utswitswe","उत्स्वीत्स्वे","चोरी हुआ","क"],["hema","हेमा","साँस लेना","क"]],"drill":{"type":"listenRespond","hi":"सुनो-जवाब दो — सवाल सुनते ही, बिना पढ़े, तुरंत बोलो।","rows":[["Go diragetseng?","Ke gobetse."],["O kae?","Ke eme fa kgorong e kgolo."]]},"items":[["Nthuse, tla ka bonako!","न्थुसे, त्ला का बोनाको!","मदद करो, जल्दी आओ!","S","A"],["Mongwe a nthuse!","मोंग्वे आ न्थुसे!","कोई मेरी मदद करो!","S","A"],["Ke gobetse thata.","के गोबेत्से थाता।","मैं बुरी तरह घायल हूँ।","S","A"],["Madi a a elela go tswa mo seatleng sa me.","मादी आ आ एलेला खो त्स्वा मो सेअत्लेंग सा मे।","मेरे हाथ से खून बह रहा है।","S","A"],["Ke tlhoka ambulense.","के त्लोका अम्बुलेन्से।","मुझे एम्बुलेंस चाहिए।","S","A"],["Bitsa sepodisi.","बित्सा सेपोदिसी।","पुलिस बुलाओ।","S","A"],["Go na le molelo.","खो ना ले मोलेलो।","आग लगी है।","S","A"],["Molelo! Tabogelang kwa ntle jaanong!","मोलेलो! ताबोगेलांग क्वा न्त्ले जाआनोंग!","आग! अभी बाहर भागो!","S","A"],["Ga ke kgone go hema.","खा के ख्गोने खो हेमा।","मुझे साँस नहीं आ रही।","S","A"],["Tsala ya me o wetse.","त्साला या मे ओ वेत्से।","मेरा दोस्त गिर गया।","S","A"],["Ga a tshikinyege.","खा आ च्हिकिन्येगे।","वह हिल नहीं रहा।","S","A"],["O se ke wa ama diwaere!","ओ से के वा आमा दिवाएरे!","तार मत छुओ!","S","A"],["Tima motšhene!","तिमा मोत्शेने!","मशीन बंद करो!","S","A"],["Ke latlhegile mo tseleng.","के लात्लेगीले मो त्सेलेंग।","मैं रास्ता भटक गया हूँ।","S","A"],["Ga ke bone phaposi ya me.","खा के बोने फ़ापोसी या मे।","मुझे अपना कमरा नहीं मिल रहा।","S","A"],["Pasepoto ya me e latlhegile.","पासेपोतो या मे ए लात्लेगीले।","मेरा पासपोर्ट खो गया है।","S","A"],["Founo ya me e utswitswe.","फ़ाउनो या मे ए उत्स्वित्स्वे।","मेरा फोन चोरी हो गया।","S","A"],["Madi a me a utswitswe.","मादी आ मे आ उत्स्वित्स्वे।","मेरे पैसे चोरी हो गए।","S","A"],["Mongwe o a ntshala morago.","मोंग्वे ओ आ न्त्शाला मोरागो।","कोई मेरा पीछा कर रहा है।","S","A"],["Tsweetswee, nna le nna.","त्स्वीत्स्वी, न्ना ले न्ना।","कृपया मेरे साथ रहो।","S","A"],["Nkise kwa sepatela.","न्किसे क्वा सेपातेला।","मुझे अस्पताल ले चलो।","S","A"],["Botlhoko bo mo fano fela.","बोत्लोको बो मो फ़ानो फ़ेला।","ठीक यहाँ दर्द है।","S","A"],["Lerumo la me le a opa thata.","लेरुमो ला मे ले आ ओपा थाता।","मेरी टाँग में बहुत दर्द है।","S","A"],["Ke tsenngwa ke sefako.","के त्सेंंग्वा के सेफ़ाको।","मुझे चक्कर आ रहा है।","S","A"],["Tlisa metsi ka bonako.","त्लिसा मेत्सी का बोनाको।","जल्दी पानी लाओ।","S","A"],["Leletsa mogolole wa me mo nomorong e.","लेलेत्सा मोगोलोले वा मे मो नोमोरोंग ए।","इस नंबर पर मेरे भाई को फोन करो।","S","A"],["Molemo wa me o mo mokotleng wa me.","मोलेमो वा मे ओ मो मोकोत्लेंग वा मे।","मेरी दवा मेरे थैले में है।","S","A"],["Tsela ya tshoganetso e kae?","त्सेला या त्शोगानेत्सो ए काए?","आपात-निकास कहाँ है?","S","A"],["Nna o kgutsitse, thuso e e tla.","न्ना ओ ख्गुत्सीत्से, थुसो ए ए त्ला।","शांत रहो, मदद आ रही है।","S","A"],["Lentswe le legolo mo kotsing le boloka botshelo.","लेंत्स्वे ले लेगोलो मो कोत्सिंग ले बोलोका बोत्शेलो।","ख़तरे में ऊँची आवाज़ जान बचाती है।","S","A"]]},{"tw":[["tlhaloganya","त्ल्हालोगाञा","समझना","क"],["tlhalosa","त्ल्हालोसा","समझाना","ख"],["nsirhelelo","न्सीर्हेलेलो","सुरक्षा-सामान","ख"],["gana","गाना","मना करना","ख"],["boeletsa","बोएलेत्सा","दोहराना","क"],["tlotlo","त्लोत्लो","इज़्ज़त","क"]],"drill":{"type":"listenRespond","hi":"सुनो-जवाब दो — आदेश सुनो, ज़रूरत पर विनम्र 'नहीं' बोलो।","rows":[["Mphe pasepoto ya gago.","Ntshwarele, ga nke ke e fa."],["Dira tiro kwa ntle ga helemete gompieno.","Ga nke ke dira se kwa ntle ga didirisiwa tsa tshireletso."]]},"items":[["Ga ke a tlhaloganya.","खा के आ त्लालोगान्या।","मैं नहीं समझा।","S","A"],["Tsweetswee, tlhalosa gape.","त्स्वीत्स्वी, त्लालोसा गापे।","कृपया एक बार और समझाइए।","S","A"],["Tsweetswee, bua ka iketlo go le gonnye.","त्स्वीत्स्वी, बुआ का इकेत्लो खो ले गोन्ये।","कृपया थोड़ा धीरे बोलिए।","S","A"],["Tsweetswee, boeletsa taba ya bofelo.","त्स्वीत्स्वी, बोएलेत्सा ताबा या बोफ़ेलो।","कृपया आख़िरी बात दोहराइए।","S","A"],["Lefoko le, le kaya eng?","लेफ़ोको ले, ले काया एंग?","इस शब्द का मतलब क्या है?","S","A"],["Tsweetswee, kwala gore ke bone.","त्स्वीत्स्वी, क्वाला गोरे के बोने।","कृपया इसे लिखकर दीजिए।","S","A"],["Ga nke ke dira se ke sena didirisiwa tsa tshireletso.","खा न्के के दिरा से के सेना दिदिरिस्वा त्सा चिरेलेत्सो।","बिना सुरक्षा-सामान मैं यह नहीं कर सकता।","S","A"],["Tsweetswee, mphe digalofo le digalase.","त्स्वीत्स्वी, म्फे दिगालोफ़ो ले दिगालासे।","कृपया दस्ताने और चश्मा दीजिए।","S","A"],["Tiro e, ga e babalesegile.","तिरो ए, खा ए बाबालेसेगीले।","यह काम सुरक्षित नहीं है।","S","A"],["Morago ga tlhahlobo ya tshireletso ke tla dira se.","मोरागो खा त्लाल्लोबो या चिरेलेत्सो के त्ला दिरा से।","सुरक्षा-जाँच के बाद मैं यह करूँगा।","S","A"],["Nnyaa, ga nke ke dira se.","न्न्याआ, खा न्के के दिरा से।","नहीं, मैं यह नहीं कर सकता।","S","A"],["Go bua 'nnyaa' ga se molato.","खो बुआ 'न्न्याआ' खा से मोलातो।","ना कहना अपराध नहीं है।","S","A"],["Ke tlhoka tefo ya me.","के त्लोका तेफ़ो या मे।","मुझे मेरा भुगतान चाहिए।","S","A"],["Tsweetswee, ke tlhoka gompieno fela.","त्स्वीत्स्वी, के त्लोका गोम्पिएनो फ़ेला।","कृपया मुझे आज ही चाहिए।","S","A"],["Ke batla go bona tumalano.","के बात्ला खो बोना तुमालानो।","मैं लिखा-पढ़ी देखना चाहता हूँ।","S","A"],["Ga nke ke go neye pasepoto ya me.","खा न्के के खो नेये पासेपोतो या मे।","मैं आपको अपना पासपोर्ट नहीं दूँगा।","S","A"],["Tsweetswee, mphe pasepoto ya me.","त्स्वीत्स्वी, म्फे पासेपोतो या मे।","कृपया मेरा पासपोर्ट लौटाइए।","S","A"],["Tsweetswee, mphe dikwalo tsa me gompieno.","त्स्वीत्स्वी, म्फे दिक्वालो त्सा मे गोम्पिएनो।","कृपया मेरे कागज़ आज लौटाइए।","S","A"],["Ga ke a dumalana le se.","खा के आ दुमालाना ले से।","मैं इस पर सहमत नहीं था।","S","A"],["Se ne se se yo mo puong ya rona.","से ने से से यो मो पुओंग या रोना।","हमारी बात में यह नहीं था।","S","A"],["Ke tla botsa legofisi la me.","के त्ला बोत्सा लेगोफ़िसी ला मे।","मैं अपने दूतावास से पूछूँगा।","S","A"],["Ke itse ditshwanelo tsa me.","के इत्से दित्श्वानेलो त्सा मे।","मैं अपने हक़ जानता हूँ।","S","A"],["Tsweetswee, bua ka tlotlo.","त्स्वीत्स्वी, बुआ का त्लोत्लो।","कृपया इज़्ज़त से बात कीजिए।","S","A"],["O se ke wa nkgoela.","ओ से के वा न्खोएला।","मुझ पर मत चिल्लाइए।","S","A"],["Ke botsa ka boikokobetso.","के बोत्सा का बोइकोकोबेत्सो।","मैं विनम्रता से पूछ रहा हूँ।","S","A"],["Mphe motsotso o le mongwe go akanya.","म्फे मोत्सोत्सो ओ ले मोंग्वे खो आकान्या।","मुझे सोचने का एक मिनट दीजिए।","S","A"],["Ke tla araba morago ga go bala.","के त्ला आराबा मोरागो खा खो बाला।","पढ़कर जवाब दूँगा।","S","A"],["A nka botsa potso e le nngwe?","आ न्का बोत्सा पोत्सो ए ले न्ंग्वे?","क्या मैं एक सवाल पूछूँ?","S","A"],["Potso ya gompieno e boloka tatlhegelo ya kamoso.","पोत्सो या गोम्पिएनो ए बोलोका तत्लेगेलो या कामोसो।","आज का सवाल कल का नुक़सान बचाता है।","S","A"],["Lentswe le bonolo, taba e nonofileng.","लेंत्स्वे ले बोनोलो, ताबा ए नोनोफ़ीलेंग।","नरम आवाज़, मज़बूत बात।","S","A"]]},{"tw":[["kgaolo","क्गाओलो","कटौती","ख"],["setse","सेत्से","बकाया","ख"],["ura","उरा","प्रति घंटा","ख"],["kwadilweng","क्वादील्वेंग","लिखित","ख"],["paki","पाकी","गवाह","ख"],["hakelo ya nkarhi e e okeditsweng","हाकेलो या न्कार्ही ए ए ओकेदीत्स्वेंग","ओवरटाइम-पैसा","ख"]],"drill":{"type":"listenRespond","hi":"सुनो-जवाब दो — मालिक की बात सुनो, अपना हक़ शांति से बोलो।","rows":[["Ke tla go duela kgwedi e e tlang.","Tefo ya me e setse e sa dirwe malatsi a lesome."],["Madi a kgaotswe kgwedi e.","Tsweetswee tlhalosa kgaotso e."]]},"items":[["Moputso wa me ke eng?","मोपुत्सो वा मे के एंग?","मेरा वेतन कितना है?","S","A"],["O tla nduela leng?","ओ त्ला न्दुएला लेंग?","आप मुझे कब भुगतान करेंगे?","S","A"],["Tefo ya me e setse e sa dirwe malatsi a lesome.","तेफ़ो या मे ए सेत्से ए सा दिर्वे मालात्सी आ लेसोमे।","मेरा भुगतान दस दिन से बकाया है।","S","A"],["Maabane ke dirile tiro e e okeditsweng.","माआबाने के दिरीले तिरो ए ए ओकेदित्स्वेंग।","मैंने कल ओवरटाइम किया।","S","A"],["A fano go dua madi a tiro e e okeditsweng?","आ फ़ानो खो दुआ मादी आ तिरो ए ए ओकेदित्स्वेंग?","क्या यहाँ ओवरटाइम का पैसा मिलता है?","S","A"],["Moputso wa ura nngwe le nngwe ke eng?","मोपुत्सो वा उरा न्ंग्वे ले न्ंग्वे के एंग?","प्रति घंटा दर क्या है?","S","A"],["Tsweetswee, ntshupetse tumalano ya me.","त्स्वीत्स्वी, न्त्शुपेत्से तुमालानो या मे।","कृपया मेरा क़रार दिखाइए।","S","A"],["Ke tlhoka kopi ya tumalano ya me.","के त्लोका कोपी या तुमालानो या मे।","मुझे अपने क़रार की प्रति चाहिए।","S","A"],["Madi a kgaotswe ka eng?","मादी आ खाओत्स्वे का एंग?","पैसा क्यों काटा गया?","S","A"],["Tsweetswee, tlhalosa kgaotso e.","त्स्वीत्स्वी, त्लालोसा खाओत्सो ए।","कृपया यह कटौती समझाइए।","S","A"],["Ntshupetse kgaotso e e kwadilweng.","न्त्शुपेत्से खाओत्सो ए ए क्वादिल्वेंग।","कटौती लिखकर दिखाइए।","S","A"],["Ke tlhoka karabo e e kwadilweng.","के त्लोका काराबो ए ए क्वादिल्वेंग।","मुझे लिखित जवाब चाहिए।","S","A"],["Palo ya me e bua makgolo a robong.","पालो या मे ए बुआ माक्खोलो आ रोबोंग।","मेरा हिसाब नौ सौ कहता है।","S","A"],["A re sekaseke mmogo.","आ रे सेकासेके म्मोगो।","आइए साथ में जाँच लें।","S","A"],["Tsala ya me ke paki ya me.","त्साला या मे के पाकी या मे।","मेरा दोस्त मेरा गवाह है।","S","A"],["O bone tiro yotlhe ya me.","ओ बोने तिरो योत्ले या मे।","उसने मेरा पूरा काम देखा।","S","A"],["Ke na le ditshwantshi tsa malatsi a tiro.","के ना ले दित्श्वांत्शी त्सा मालात्सी आ तिरो।","मेरे पास काम के दिनों की फोटो हैं।","S","A"],["Se ke bukana ya me ya go tla.","से के बुकाना या मे या खो त्ला।","यह मेरी हाज़िरी-कॉपी है।","S","A"],["Halofo ya tefo ga se tefo yotlhe.","हालोफ़ो या तेफ़ो खा से तेफ़ो योत्ले।","आधा भुगतान पूरा भुगतान नहीं है।","S","A"],["Ke tla tsaya tse di setseng beke e e tlang, ka go kwalwa.","के त्ला त्साया त्से दि सेत्सेंग बेके ए ए त्लांग, का खो क्वाल्वा।","बाक़ी अगले हफ़्ते लूँगा, लिखित में।","S","A"],["Kgaotso e e se nang lebaka ga e a siama.","खाओत्सो ए ए से नांग लेबाका खा ए आ सिआमा।","बिना कारण कटौती ग़लत है।","S","A"],["Tefo ya moemedi e setse e dirilwe.","तेफ़ो या मोएमेदी ए सेत्से ए दिरिल्वे।","एजेंट की फीस पहले ही दी जा चुकी है।","S","A"],["Ke na le risiti.","के ना ले रिसिती।","रसीद मेरे पास है।","S","A"],["Tsweetswee, ntlisetsa mo akhaontong ya panka.","त्स्वीत्स्वी, न्त्लिसेत्सा मो आखाओंतोंग या पांका।","कृपया मेरे बैंक खाते में दीजिए।","S","A"],["Madi a diatla a se na risiti ke kotsi.","मादी आ दिआत्ला आ से ना रिसिती के कोत्सी।","बिना रसीद नकद जोखिम है।","S","A"],["Ke tla ipelaetsa kwa ofising ya tiro.","के त्ला इपेलाएत्सा क्वा ओफ़िसिंग या तिरो।","मैं श्रम-दफ़्तर में शिकायत करूँगा।","S","A"],["Pele puo, morago ipelaetso.","पेले पुओ, मोरागो इपेलाएत्सो।","पहले बात, फिर शिकायत।","S","A"],["Rra, ke tlotla wena le tiro ya me.","र्रा, के त्लोत्ला वेना ले तिरो या मे।","सर, मैं आपकी और अपने काम की इज़्ज़त करता हूँ।","S","A"],["Moputso o o siameng o dira tiro e e nonofileng.","मोपुत्सो ओ ओ सिआमेंग ओ दिरा तिरो ए ए नोनोफ़ीलेंग।","सही मज़दूरी मज़बूत काम बनाती है।","S","A"],["Mofufutso wa me, tshwanelo ya me.","मोफुफुत्सो वा मे, च्वानेलो या मे।","मेरा पसीना, मेरा हक़।","S","A"]]},{"tw":[["hlamula","ह्लामूला","जवाब देना","ख"],["ateresing","अतेरेसींग","ठहरना","ख"],["didiriswa","दीदीरीस्वा","औज़ार","ख"],["heta","हेता","पूरा करना","ख"],["motshegare","मोचेगारे","सौंपा काम","ख"],["nhlamulo","न्ह्लामूलो","उत्तर","ख"]],"drill":{"type":"listenRespond","hi":"पूरा अभिनय — दोस्त (reetsa)-पंक्ति बोले, आप बिना पढ़े (araba)-पंक्ति।","rows":[["Mpontshe pasepoto ya gago.","Rra, fano ke pasepoto ya me."],["Fetsa tiro e pele ga dijo tsa motshegare.","Ke tla e fetsa pele ga dijo tsa motshegare."]]},"items":[["(Reetsa) Tsweetswee, ntshupetse pasepoto ya gago.","(रीत्सा) त्स्वीत्स्वी, न्त्शुपेत्से पासेपोतो या गागो।","(सुनो-समझो) कृपया अपना पासपोर्ट दिखाइए।","L","B"],["(Karabo) Rra, se ke pasepoto ya me.","(काराबो) र्रा, से के पासेपोतो या मे।","(जवाब) सर, यह मेरा पासपोर्ट है।","S","A"],["(Reetsa) O tsile fano ka eng?","(रीत्सा) ओ त्सिले फ़ानो का एंग?","(सुनो-समझो) आप यहाँ क्यों आए हैं?","L","B"],["(Karabo) Ke tsile go dira tiro fano.","(काराबो) के त्सिले खो दिरा तिरो फ़ानो।","(जवाब) मैं यहाँ काम करने आया हूँ।","S","A"],["(Reetsa) O tla nna kae?","(रीत्सा) ओ त्ला न्ना काए?","(सुनो-समझो) आप कहाँ ठहरेंगे?","L","B"],["(Karabo) Ke tla nna kwa aterese e.","(काराबो) के त्ला न्ना क्वा आतेरेसे ए।","(जवाब) मैं इस पते पर ठहरूँगा।","S","A"],["(Reetsa) Ke mang yo o go emetseng kwa ntle?","(रीत्सा) के मांग यो ओ खो एमेत्सेंग क्वा न्त्ले?","(सुनो-समझो) बाहर आपका कौन इंतज़ार कर रहा है?","L","B"],["(Karabo) Motho wa khamphani ya me o kwa ntle.","(काराबो) मोथो वा खाम्फ़ानी या मे ओ क्वा न्त्ले।","(जवाब) मेरी कंपनी का आदमी बाहर है।","S","A"],["(Reetsa) Bula mokotla go tlhahlojwa.","(रीत्सा) बुला मोकोत्ला खो त्लाल्लोज्वा।","(सुनो-समझो) जाँच के लिए थैला खोलिए।","L","B"],["(Karabo) Rra, o bulegile.","(काराबो) र्रा, ओ बुलेगीले।","(जवाब) जी सर, यह खुला है।","S","A"],["(Reetsa) Tla ka nako ya bosupa kamoso, o se ke wa diega.","(रीत्सा) त्ला का नाको या बोसुपा कामोसो, ओ से के वा दिएगा।","(सुनो-समझो) कल सात बजे आना, देर मत करना।","L","B"],["(Karabo) Go siame rra, ke tla tla ka nako ya bosupa.","(काराबो) खो सिआमे र्रा, के त्ला त्ला का नाको या बोसुपा।","(जवाब) ठीक सर, मैं सात बजे आऊँगा।","S","A"],["(Reetsa) Tsaya didirisiwa tse.","(रीत्सा) त्साया दिदिरिस्वा त्से।","(सुनो-समझो) यह औज़ार लो।","L","B"],["(Karabo) Didirisiwa dife rra, tse dikhibidu?","(काराबो) दिदिरिस्वा दिफ़े र्रा, त्से दिखिबिदु?","(जवाब) कौन-सा औज़ार सर, लाल वाला?","S","A"],["(Reetsa) Ee, tse dikhibidu, mme simolola jaanong.","(रीत्सा) ए, त्से दिखिबिदु, म्मे सिमोलोला जाआनोंग।","(सुनो-समझो) हाँ, लाल वाला, और अभी शुरू करो।","L","B"],["(Karabo) Go siame rra, ke simolola jaanong.","(काराबो) खो सिआमे र्रा, के सिमोलोला जाआनोंग।","(जवाब) ठीक सर, अभी शुरू करता हूँ।","S","A"],["(Reetsa) Fetsa tiro e pele ga go ja.","(रीत्सा) फ़ेत्सा तिरो ए पेले खा खो जा।","(सुनो-समझो) यह काम खाने से पहले पूरा करो।","L","B"],["(Karabo) Ke tla e fetsa pele ga go ja.","(काराबो) के त्ला ए फ़ेत्सा पेले खा खो जा।","(जवाब) मैं खाने से पहले पूरा कर दूँगा।","S","A"],["(Reetsa) Phepafatsa lefelo morago ga tiro.","(रीत्सा) फ़ेपाफ़ात्सा लेफ़ेलो मोरागो खा तिरो।","(सुनो-समझो) काम के बाद जगह साफ़ करो।","L","B"],["(Karabo) Ammaaruri rra, ke tla phepafatsa.","(काराबो) आम्माआरुरी र्रा, के त्ला फ़ेपाफ़ात्सा।","(जवाब) ज़रूर सर, मैं साफ़ कर दूँगा।","S","A"],["(Reetsa) Gompieno tiro ya gago ke ya shifi ya bosigo.","(रीत्सा) गोम्पिएनो तिरो या गागो के या शिफ़ी या बोसिगो।","(सुनो-समझो) आज आपकी ड्यूटी रात की पारी में है।","L","B"],["(Karabo) Go siame, ke tla robala motshegare.","(काराबो) खो सिआमे, के त्ला रोबाला मोत्शेगारे।","(जवाब) ठीक, मैं दिन में सो लूँगा।","S","A"],["(Reetsa) Bese e bula ka metsotso e tlhano.","(रीत्सा) बेसे ए बुला का मेत्सोत्सो ए त्लानो।","(सुनो-समझो) बस पाँच मिनट में खुलेगी।","L","B"],["(Karabo) Ke etla, tsweetswee ema.","(काराबो) के एतला, त्स्वीत्स्वी एमा।","(जवाब) मैं आ रहा हूँ, कृपया रुकिए।","S","A"],["(Reetsa) Tla kwa ofising o tsere karata ya gago.","(रीत्सा) त्ला क्वा ओफ़िसिंग ओ त्सेरे कराता या गागो।","(सुनो-समझो) अपना कार्ड लेकर दफ़्तर आओ।","L","B"],["(Karabo) Rra, ke tla le karata ya me.","(काराबो) र्रा, के त्ला ले कराता या मे।","(जवाब) सर, मैं अपना कार्ड ला रहा हूँ।","S","A"],["(Reetsa) Apara helemete pele ga o tsena ka fa gare.","(रीत्सा) आपारा हेलेमेते पेले खा ओ त्सेना का फ़ा गारे।","(सुनो-समझो) अंदर जाने से पहले हेलमेट पहनो।","L","B"],["(Karabo) Rra, ke a apara.","(काराबो) र्रा, के आ आपारा।","(जवाब) सर, मैं पहन रहा हूँ।","S","A"],["Pele tsebe, morago loleme.","पेले त्सेबे, मोरागो लोलेमे।","पहले कान, फिर ज़ुबान।","S","A"],["Reetsa tsotlhe, araba ka khutshwane.","रीत्सा त्सोत्ले, आराबा का खुत्श्वाने।","पूरा सुनो, छोटा जवाब दो।","S","A"]]},{"tw":[["setlwaedi","सेत्ल्वाएदी","साँचा","ख"],["bulegilweng","बूलेगील्वेंग","ख़ाली जगह","ख"],["rito","रीतो","शब्द","क"],["xivulwa","क्सीवूल्वा","वाक्य","क"],["a wena","अ वेना","अपना","क"],["maemong","माएमोंग","परिस्थिति","ख"]],"drill":{"type":"patternSay","hi":"साँचा बोलो — ख़ाली जगह में अपना शब्द डालकर पाँच नए वाक्य बनाओ।","rows":[["Ke tlhoka ___","Ke tlhoka teksi. / Ke tlhoka ngaka."],["___ e kae?","Kgoro ya go tswa e kae?"],["A nka ___?","A nka tsamaya ka nako ya tlhano?"]]},"items":[["Ithuta sebopego, dira molatofatso wa gago.","इथुता सेबोपेगो, दिरा मोलातोफ़ात्सो वा गागो।","साँचा सीखो, अपना वाक्य बनाओ।","L","B"],["Sebopego sa ntlha: Ke tlhoka (---).","सेबोपेगो सा न्त्ला: के त्लोका (---)।","साँचा एक: मुझे (---) चाहिए।","L","B"],["Ke tlhoka teksi.","के त्लोका तेक्सी।","मुझे टैक्सी चाहिए।","S","A"],["Ke tlhoka ngaka jaanong.","के त्लोका ंगाका जाआनोंग।","मुझे अभी डॉक्टर चाहिए।","S","A"],["Ke tlhoka phaposi ya kgwedi e le nngwe.","के त्लोका फ़ापोसी या ख्वेदी ए ले न्ंग्वे।","मुझे एक महीने के लिए कमरा चाहिए।","S","A"],["Sebopego sa bobedi: (---) e kae?","सेबोपेगो सा बोबेदी: (---) ए काए?","साँचा दो: (---) कहाँ है?","L","B"],["Mahisi wa metsi o kae?","माहिसी वा मेत्सी ओ काए?","पानी का कूलर कहाँ है?","S","A"],["Ofisi ya lefelo le kae?","ओफ़िसी या लेफ़ेलो ले काए?","साइट-दफ़्तर कहाँ है?","S","A"],["Kgoro ya go tswa e kae?","ख्गोरो या खो त्स्वा ए काए?","निकास-गेट कहाँ है?","S","A"],["Sebopego sa boraro: A nka (---)?","सेबोपेगो सा बोराओ: आ न्का (---)?","साँचा तीन: क्या मैं (---)?","L","B"],["A nka nna fa fano motsotso o le mongwe?","आ न्का न्ना फ़ा फ़ानो मोत्सोत्सो ओ ले मोंग्वे?","क्या मैं एक मिनट यहाँ बैठ जाऊँ?","S","A"],["A nka tsamaya gompieno ka nako ya botlhano?","आ न्का त्सामाया गोम्पिएनो का नाको या बोत्लानो?","क्या आज पाँच बजे जा सकता हूँ?","S","A"],["A nka leletsa gae jaanong?","आ न्का लेलेत्सा गाए जाआनोंग?","क्या अभी घर फोन कर लूँ?","S","A"],["Sebopego sa bone: (---) e tlhwatlhwa ya eng?","सेबोपेगो सा बोने: (---) ए त्लावात्लावा या एंग?","साँचा चार: (---) कितने का है?","L","B"],["Bosigo jo le bongwe fano ke tlhwatlhwa ya eng?","बोसिगो जो ले बोंग्वे फ़ानो के त्लावात्लावा या एंग?","यहाँ एक रात कितने की है?","S","B"],["Teksi go ya khampeng ke tlhwatlhwa ya eng?","तेक्सी खो या खाम्पेंग के त्लावात्लावा या एंग?","कैम्प तक टैक्सी कितने की?","S","B"],["Sebopego sa botlhano: Tsweetswee, (---).","सेबोपेगो सा बोत्लानो: त्स्वीत्स्वी, (---)।","साँचा पाँच: कृपया (---)।","L","B"],["Tsweetswee, bula kgoro.","त्स्वीत्स्वी, बुला ख्गोरो।","कृपया गेट खोलिए।","S","A"],["Tsweetswee, bitsa molaodi.","त्स्वीत्स्वी, बित्सा मोलाओदी।","कृपया सुपरवाइज़र को बुलाइए।","S","A"],["Tsweetswee, leba leina la me mo lenaaneng.","त्स्वीत्स्वी, लेबा लेइना ला मे मो लेनानेंग।","कृपया सूची में मेरा नाम देखिए।","S","A"],["Sebopego sa borataro: Nka (---).","सेबोपेगो सा बोरातारो: न्का (---)।","साँचा छह: मैं (---) सकता हूँ।","L","B"],["Nka simolola gompieno fela.","न्का सिमोलोला गोम्पिएनो फ़ेला।","मैं आज ही शुरू कर सकता हूँ।","S","A"],["Fa go tlhokega, nka dira le Sontaga.","फ़ा खो त्लोकेगा, न्का दिरा ले सोंतागा।","ज़रूरत हो तो रविवार भी काम कर सकता हूँ।","S","A"],["Sebopego se le sengwe se naya mela e lesome.","सेबोपेगो से ले सेंग्वे से नाया मेला ए लेसोमे।","एक साँचा दस वाक्य देता है।","S","C"],["Fetola lefoko le le lengwe, dira mola o mosha.","फ़ेतोला लेफ़ोको ले ले लेंग्वे, दिरा मोला ओ मोशा।","एक शब्द बदलो, नई पंक्ति बनाओ।","L","B"],["Bua sebopego mo maemong a gago.","बुआ सेबोपेगो मो माएमोंग आ गागो।","अपनी परिस्थिति में साँचा बोलो।","L","B"],["Itlwaetsa sebopego se le sengwe letsatsi le letsatsi.","इत्लवाएत्सा सेबोपेगो से ले सेंग्वे लेत्सात्सी ले लेत्सात्सी।","रोज़ एक साँचा अभ्यास करो।","L","B"],["Dibopego di golola loleme.","दिबोपेगो दि गोलोला लोलेमे।","साँचे ज़ुबान को आज़ाद करते हैं।","S","C"],["Mafoko ke ditena, dibopego ke dibota.","मफ़ोको के दितेना, दिबोपेगो के दिबोता।","शब्द ईंटें हैं, साँचे दीवारें।","S","C"],["Mola wa gago, nonofo ya gago.","मोला वा गागो, नोनोफ़ो या गागो।","आपका वाक्य, आपकी ताक़त।","S","B"]]}],"test":{"target":"Tlhahlobo ya go boloka botshelo (ka mong a bolelele)","goal":"Mong a bue mela ya (reetsa) ka go rulaganya — araba ka bonako kwa ntle ga go bala; morago bua mela e tlhano ya tshoganetso ka pelo e e tsidifetseng.","lines":[["Nthuse, tla ka bonako!","न्थुसे, त्ला का बोनाको!"],["Ke gobetse.","के गोबेत्से।"],["Ke tlhoka ambulense.","के त्लोका अम्बुलेन्से।"],["Pasepoto ya me e latlhegile.","पासेपोतो या मे ए लात्लेगीले।"],["Mphe pasepoto ya me.","म्फे पासेपोतो या मे।"],["Ke tlhoka moputso wa me.","के त्लोका मोपुत्सो वा मे।"],["Rra, fano ke pasepoto ya me.","र्रा, फ़ानो के पासेपोतो या मे।"],["Ke tla e fetsa pele ga dijo tsa motshegare.","के त्ला ए फ़ेत्सा पेले खा दिजो त्सा मोत्शेगारे।"]]},"listen":[["(reetsa) Go diragetseng?","(araba) Tsala ya me o wetse fatshe."],["(reetsa) A o tlhoka ngaka?","(araba) Ee, ke tlhoka ambulense."]],"dialog":[["Wena","Nthuse, tla ka bonako!"],["Mothusi","Go diragetseng?"],["Wena","Tsala ya me o wetse fatshe."],["Mothusi","Ke bitsa ambulense."],["Wena","Ke a leboga, tsweetswee nna le nna."]]}],"lang":{"code":"ts","label":"Setswana","tts":"en-ZA","sr":"en-ZA","script":"latin"},"brand":"ACS काम की भाषा","heroTitle":"Setifiketi ya go Bua Setswana — सेतिफ़िकेती या खो बुआ सेत्स्वाना (Certificate in Spoken Tswana)","module":"ACS काम की भाषा — Setswana for Work","heroSub":"Setswana बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2","sub":"Tsonga स्तर-2 (A2)","help":[["Ndza kombela, vulavula hi ku nonoka.","न्द्ज़ा कोम्बेला, वूलावूला ही कू नोनोका।"],["Ndza kombela, phindha nakambe.","न्द्ज़ा कोम्बेला, फीन्द्हा नाकाम्बे।"]],"version":"2.0 (13-Oct-2026 खेमा-अ पूर्ण-पुनर्लेखन — 13 सप्ताह · 1,650 वाक्य · असली Tsonga; 🟡 AI-draft, मूल-वक्ता-समीक्षा अनिवार्य)"};
+/* KKB L2 — ACS काम की भाषा · त्सोंगा (Tsonga) · v2.0 (20-Oct-2026, काम-लाल10)
+   असली Latin-लिपि तीन-स्तंभ — AI-draft, मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
+window.KKB2_DATA = {
+ "heroTitle": "त्सोंगा (Tsonga) बोलने का सर्टिफिकेट कोर्स",
+ "heroSub": "त्सोंगा बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2",
+ "module": "त्सोंगा बोलने का सर्टिफिकेट कोर्स (स्तर-2)",
+ "level": "CEFR स्तर A2 पर आधारित",
+ "version": "2.0 (20-Oct, लाल10 — असली Tsonga Latin तीन-स्तंभ, master-mirror; AI-draft मूल-वक्ता जाँच बाक़ी)",
+ "lang": {
+  "code": "ts",
+  "label": "त्सोंगा",
+  "tts": "en-ZA",
+  "sr": "en-ZA",
+  "script": "latin"
+ },
+ "brand": "ACS काम की भाषा",
+ "sub": "त्सोंगा स्तर-2 (A2)",
+ "help": [
+  [
+   "Ndza kombela hi ku nonoka vulavula.",
+   "कृपया धीरे बोलो।"
+  ],
+  [
+   "Ndza kombela nakambe ku suka eka vulavula.",
+   "कृपया फिर से बोलिए।"
+  ]
+ ],
+ "weeks": [
+  {
+   "n": 1,
+   "title": "My Family and Home",
+   "hi": "मेरा परिवार, मेरा घर",
+   "pace": 20,
+   "days": [
+    {
+     "title": "मेरा परिवार (बड़ी बातें)",
+     "tw": [
+      [
+       "Ndyangu",
+       "न्द्यङु",
+       "परिवार",
+       "क"
+      ],
+      [
+       "Vatswari",
+       "वत्सऺअरि",
+       "माता-पिता",
+       "क"
+      ],
+      [
+       "Makwerhu lonkulu",
+       "मकऺएर्हु लोन्कुलु",
+       "बड़ा भाई",
+       "क"
+      ],
+      [
+       "Makwerhu lontsongo wa xisati",
+       "मकऺएर्हु लोन्त्सोङो व क्सिसति",
+       "छोटी बहन",
+       "क"
+      ],
+      [
+       "Na eka",
+       "न एक",
+       "साथ में",
+       "क"
+      ],
+      [
+       "Sahara",
+       "सहर",
+       "सहारा",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "pairSwap",
+      "hi": "जोड़ी बदलो — I से You, फिर He/She: वाक्य वही, रूप बदले।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina ndyangu eka 5 vanhu va.",
+       "व मिन न्द्यङु एक 5 वन्हु व।",
+       "मेरे परिवार में पाँच लोग हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina vatswari na tshama.",
+       "मिन वत्सऺअरि न त्स्हम।",
+       "मैं अपने माता-पिता के साथ रहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina tatana kisan vaile.",
+       "व मिन ततन किसन् वैले।",
+       "मेरे पिता किसान थे।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina manana yindlu sanbhalati va.",
+       "व मिन मनन यिन्द्लु सन्भलति व।",
+       "मेरी माँ घर सँभालती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina makwerhu lonkulu dilli eka tirha.",
+       "व मिन मकऺएर्हु लोन्कुलु दिल्लि एक तिर्ह।",
+       "मेरा बड़ा भाई दिल्ली में काम करता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina makwerhu lontsongo wa xisati xikolo famba.",
+       "व मिन मकऺएर्हु लोन्त्सोङो व क्सिसति क्सिकोलो फ़म्ब।",
+       "मेरी छोटी बहन स्कूल जाती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina havumbirhi vana xikolo eka hlaya.",
+       "व मिन हवुम्बिर्हि वन क्सिकोलो एक ह्लय।",
+       "मेरे दोनों बच्चे स्कूल में पढ़ते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina n'wana wa jaha 10 lembe va.",
+       "व मिन न्'वन व जह 10 लेम्बे व।",
+       "मेरा बेटा दस साल का है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina n'wana wa nhwanyana dokodela banana lava ku lava.",
+       "व मिन न्'वन व न्हऺअञन दोकोदेल बनन लव कु लव।",
+       "मेरी बेटी डॉक्टर बनना चाहती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa n'wina ndyangu eka mangani vanhu va?",
+       "व न्'विन न्द्यङु एक मङनि वन्हु व?",
+       "आपके परिवार में कितने लोग हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Yini N'wina ndyangu na tshama?",
+       "यिनि न्'विन न्द्यङु न त्स्हम?",
+       "क्या आप अपने परिवार के साथ रहते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "E-e wa mina ndyangu muti eka tshama.",
+       "ए-ए व मिन न्द्यङु मुति एक त्स्हम।",
+       "नहीं, मेरा परिवार गाँव में रहता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina un'wana ni un'wana n'hweti ndyangu mali rhumela.",
+       "मिन उन्'वन नि उन्'वन न्'हऺएति न्द्यङु मलि र्हुमेल।",
+       "मैं हर महीने अपने परिवार को पैसे भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina un'wana ni un'wana madyambu manana ku suka eka mhaka endla.",
+       "मिन उन्'वन नि उन्'वन मद्यम्बु मनन कु सुक एक म्हक एन्द्ल।",
+       "मैं हर शाम अपनी माँ से बात करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina dada 80 lembe va.",
+       "व मिन दद 80 लेम्बे व।",
+       "मेरे दादा अस्सी साल के हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina hinkwaswo na eka vusiku swakudya dya.",
+       "हिन हिन्कऺअसऺओ न एक वुसिकु सऺअकुद्य द्य।",
+       "हम सब साथ में रात का खाना खाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina nsati na yena tirha.",
+       "व मिन न्सति न येन तिर्ह।",
+       "मेरी पत्नी भी काम करती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Xifaniso eka Leswi mani va?",
+       "क्सिफ़निसो एक लेसऺइ मनि व?",
+       "फोटो में यह कौन है?",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi wa mina chacha ndyangu va.",
+       "लेसऺइ व मिन चच न्द्यङु व।",
+       "यह मेरे चाचा का परिवार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndyangu ku tlula hinkwaswo kulu sahara va.",
+       "न्द्यङु कु त्लुल हिन्कऺअसऺओ कुलु सहर व।",
+       "परिवार सबसे बड़ा सहारा है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "मेरा घर और गाँव",
+     "tw": [
+      [
+       "Muti",
+       "मुति",
+       "गाँव",
+       "क"
+      ],
+      [
+       "Rhenti kamara",
+       "र्हेन्ति कमर",
+       "किराये का कमरा",
+       "क"
+      ],
+      [
+       "Manzil",
+       "मन्ज़िल्",
+       "मंज़िल",
+       "क"
+      ],
+      [
+       "Endzhaku",
+       "एन्द्झ़कु",
+       "पीछे",
+       "क"
+      ],
+      [
+       "Emahlweni ka",
+       "एमह्लऺएनि क",
+       "सामने",
+       "क"
+      ],
+      [
+       "Chhat",
+       "छत्",
+       "छत",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "preposition",
+      "hi": "जगह बताओ — in / on / near / behind सही खाने में बैठाओ।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina yindlu 1 tsongo muti eka va.",
+       "व मिन यिन्द्लु 1 त्सोङो मुति एक व।",
+       "मेरा घर एक छोटे गाँव में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa hina yindlu eka 3 kamara va.",
+       "व हिन यिन्द्लु एक 3 कमर व।",
+       "हमारे घर में तीन कमरे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina yindlu ekusuhi 1 chapakal va.",
+       "व मिन यिन्द्लु एकुसुहि 1 चपकल् व।",
+       "मेरे घर के पास एक चापाकल है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa hina ekusuhi 1 tsongo nsimu va.",
+       "व हिन एकुसुहि 1 त्सोङो न्सिमु व।",
+       "हमारे पास एक छोटा खेत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina muti nadi ekusuhi va.",
+       "व मिन मुति नदि एकुसुहि व।",
+       "मेरा गाँव नदी के पास है।",
+       "S",
+       "B"
+      ],
+      [
+       "Xikolo wa mina yindlu endzhaku va.",
+       "क्सिकोलो व मिन यिन्द्लु एन्द्झ़कु व।",
+       "स्कूल मेरे घर के पीछे है।",
+       "S",
+       "B"
+      ],
+      [
+       "Makete mandir emahlweni ka va.",
+       "मकेते मन्दिर् एमह्लऺएनि क व।",
+       "बाजार मंदिर के सामने है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa n'wina muti vula?",
+       "व न्'विन मुति वुल?",
+       "आपका गाँव कहाँ है?",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina muti Bihar eka va.",
+       "व मिन मुति बिहर् एक व।",
+       "मेरा गाँव बिहार में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi patana ku suka eka 2 awara kule va.",
+       "लेसऺइ पतन कु सुक एक 2 ऑअर कुले व।",
+       "यह पटना से दो घंटे दूर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Sweswi Mina rhenti kamara eka tshama.",
+       "सऺएसऺइ मिन र्हेन्ति कमर एक त्स्हम।",
+       "अभी मैं किराये के कमरे में रहता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina 3 vanhu 1 kamara eka tshama.",
+       "हिन 3 वन्हु 1 कमर एक त्स्हम।",
+       "हम तीन लोग एक कमरे में रहते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa hina kamara wun'wana manzil kambe va.",
+       "व हिन कमर वुन्'वन मन्ज़िल् कम्बे व।",
+       "हमारा कमरा दूसरी मंज़िल पर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Rasoi ngopfu tsongo va.",
+       "रसोइ ङोप्फु त्सोङो व।",
+       "रसोई बहुत छोटी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina vusiku eka swakudya aka.",
+       "हिन वुसिकु एक सऺअकुद्य अक।",
+       "हम रात में खाना बनाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Chhat kambe mati tanki va.",
+       "छत् कम्बे मति तन्कि व।",
+       "छत पर पानी की टंकी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina muti doropa ku suka eka ku tala sundar va.",
+       "व मिन मुति दोरोप कु सुक एक कु तल सुन्दर् व।",
+       "मेरा गाँव शहर से ज़्यादा सुंदर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina muti yad ta.",
+       "मिन मुति यद् त।",
+       "मुझे अपने गाँव की याद आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina nkhuvo eka muti ta famba.",
+       "मिन न्खुवो एक मुति त फ़म्ब।",
+       "मैं त्योहार में अपने गाँव जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina yindlu rini ta famba?",
+       "न्'विन यिन्द्लु रिनि त फ़म्ब?",
+       "आप घर कब जाएँगे?",
+       "L",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "बीता कल (कल क्या किया)",
+     "tw": [
+      [
+       "Bita mundzuku",
+       "बित मुन्द्ज़ुकु",
+       "बीता कल",
+       "क"
+      ],
+      [
+       "Utha",
+       "उथ",
+       "उठा",
+       "क"
+      ],
+      [
+       "Fambile",
+       "फ़म्बिले",
+       "गया",
+       "क"
+      ],
+      [
+       "Kharida",
+       "खरिद",
+       "खरीदा",
+       "ग"
+      ],
+      [
+       "Kumile",
+       "कुमिले",
+       "मिला",
+       "क"
+      ],
+      [
+       "Mundzuku vusiku",
+       "मुन्द्ज़ुकु वुसिकु",
+       "कल रात",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "timeSwap",
+      "hi": "समय बदलो — आज की बात को बीते कल में कहो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mundzuku Mina 5 awara pfuka.",
+       "मुन्द्ज़ुकु मिन 5 ऑअर प्फुक।",
+       "कल मैं पाँच बजे उठा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina munh dhoya na nahaya.",
+       "मिन मुन्ह् धोय न नहय।",
+       "मैंने मुँह धोया और नहाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina mixo chaval-dal dya.",
+       "मिन मिक्सो चवल्-दल् द्य।",
+       "मैंने सुबह चावल-दाल खाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 8 awara ntirho kambe fambile.",
+       "मिन 8 ऑअर न्तिर्हो कम्बे फ़म्बिले।",
+       "मैं आठ बजे काम पर गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina mundzuku 10 awara ntirho endlile.",
+       "मिन मुन्द्ज़ुकु 10 ऑअर न्तिर्हो एन्द्लिले।",
+       "मैंने कल दस घंटे काम किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina vusiku yindlu lauta.",
+       "मिन वुसिकु यिन्द्लु लौत।",
+       "मैं रात को घर लौटा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ngopfu thaka humelerile vaile.",
+       "मिन ङोप्फु थक हुमेलेरिले वैले।",
+       "मैं बहुत थका हुआ था।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina mundzuku vusiku hatlisa etlelaile.",
+       "मिन मुन्द्ज़ुकु वुसिकु हत्लिस एत्लेलैले।",
+       "मैं कल रात जल्दी सो गया।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina mundzuku yini endlile?",
+       "न्'विन मुन्द्ज़ुकु यिनि एन्द्लिले?",
+       "आपने कल क्या किया?",
+       "L",
+       "B"
+      ],
+      [
+       "N'wina Sonto vulaile?",
+       "न्'विन सोन्तो वुलैले?",
+       "आप रविवार को कहाँ गए?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Sonto makete fambile.",
+       "मिन सोन्तो मकेते फ़म्बिले।",
+       "मैं रविवार को बाजार गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina matsavu na rhayisi xava.",
+       "मिन मत्सवु न र्हयिसि क्सव।",
+       "मैंने सब्ज़ी और चावल खरीदा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina mundzuku khale munghana ku suka eka hlangana.",
+       "मिन मुन्द्ज़ुकु खले मुङ्हन कु सुक एक ह्लङन।",
+       "मैं कल अपने पुराने दोस्त से मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina 2 awara mhaka.",
+       "हिन 2 ऑअर म्हक।",
+       "हमने दो घंटे बात की।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi nga hundza n'hweti Mina muti fambile.",
+       "लेयि ङ हुन्द्ज़ न्'हऺएति मिन मुति फ़म्बिले।",
+       "पिछले महीने मैं अपने गाँव गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina mundzuku ntirho endlile e-e.",
+       "मिन मुन्द्ज़ुकु न्तिर्हो एन्द्लिले ए-ए।",
+       "मैंने कल काम नहीं किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mundzuku vusiku ngopfu mpfula humelerile.",
+       "मुन्द्ज़ुकु वुसिकु ङोप्फु म्प्फुल हुमेलेरिले।",
+       "कल रात बहुत बारिश हुई।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku hisa eka mina nind tile e-e.",
+       "कु हिस एक मिन निन्द् तिले ए-ए।",
+       "गर्मी में मुझे नींद नहीं आई।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini N'wina mixo swakudya dya?",
+       "यिनि न्'विन मिक्सो सऺअकुद्य द्य?",
+       "क्या आपने सुबह खाना खाया?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina Mina ku ta ku suka eka ku sungula kha tekile.",
+       "इन मिन कु त कु सुक एक कु सुङुल ख तेकिले।",
+       "हाँ, मैंने आने से पहले खा लिया।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "आने वाला कल (आगे की योजना)",
+     "tw": [
+      [
+       "Ku ta mundzuku",
+       "कु त मुन्द्ज़ुकु",
+       "आने वाला कल",
+       "क"
+      ],
+      [
+       "Karunga (aage bat)",
+       "करुङ (आगे बत्)",
+       "करूँगा (आगे की बात)",
+       "क"
+      ],
+      [
+       "Agala vhiki",
+       "अगल व्हिकि",
+       "अगला हफ़्ता",
+       "क"
+      ],
+      [
+       "Vutshila",
+       "वुत्स्हिल",
+       "हुनर",
+       "ख"
+      ],
+      [
+       "Koshish karana",
+       "कोशिश् करन",
+       "कोशिश करना",
+       "क"
+      ],
+      [
+       "Chhata",
+       "छत",
+       "छाता",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "timeSwap",
+      "hi": "समय बदलो — आज की बात को आने वाले कल में कहो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mundzuku Mina hatlisa ta pfuka.",
+       "मुन्द्ज़ुकु मिन हत्लिस त प्फुक।",
+       "कल मैं जल्दी उठूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana 10 ntshwa rito ta dyondza.",
+       "मिन सिकु रिन्'वन नि रिन्'वन 10 न्त्स्हऺअ रितो त द्योन्द्ज़।",
+       "मैं रोज़ दस नए शब्द सीखूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina mundzuku bangi famba.",
+       "मिन मुन्द्ज़ुकु बङि फ़म्ब।",
+       "मैं कल बैंक जा रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina Musumbhunuku yindlu mali ta rhumela.",
+       "मिन मुसुम्ब्हुनुकु यिन्द्लु मलि त र्हुमेल।",
+       "मैं सोमवार को घर पैसे भेजूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi taka lembe Mina saikil ta xava.",
+       "लेयि तक लेम्बे मिन सैकिल् त क्सव।",
+       "अगले साल मैं साइकिल खरीदूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 1 ntshwa vutshila sikhana lava ku lava.",
+       "मिन 1 न्त्स्हऺअ वुत्स्हिल सिखन लव कु लव।",
+       "मैं एक नया हुनर सीखना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina mundzuku yini hi ta endla?",
+       "न्'विन मुन्द्ज़ुकु यिनि हि त एन्द्ल?",
+       "आप कल क्या करेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Yini N'wina Sonto ntirho kambe ta ta?",
+       "यिनि न्'विन सोन्तो न्तिर्हो कम्बे त त?",
+       "क्या आप रविवार को काम पर आएँगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina Mina 9 awara ta ta.",
+       "इन मिन 9 ऑअर त त।",
+       "हाँ, मैं नौ बजे आऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "E-e Sonto Mina wisa ta endla.",
+       "ए-ए सोन्तो मिन विस त एन्द्ल।",
+       "नहीं, रविवार को मैं आराम करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina n'wina mundzuku mixo ta fonela.",
+       "मिन न्'विन मुन्द्ज़ुकु मिक्सो त फ़ोनेल।",
+       "मैं आपको कल सुबह फोन करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Hina madyambu ku fika eka Leswi ntirho hinkwaswo endla denge.",
+       "हिन मद्यम्बु कु फ़िक एक लेसऺइ न्तिर्हो हिन्कऺअसऺओ एन्द्ल देङे।",
+       "हम शाम तक यह काम पूरा कर देंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina makwerhu leyi taka vhiki ta ta.",
+       "व मिन मकऺएर्हु लेयि तक व्हिकि त त।",
+       "मेरा भाई अगले हफ़्ते आएगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 1 tsongo vhengele kholane va.",
+       "मिन 1 त्सोङो व्हेङेले खोलने व।",
+       "मैं एक छोटी दुकान खोलने वाला हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "1 siku Mina yindlu ta aka.",
+       "1 सिकु मिन यिन्द्लु त अक।",
+       "एक दिन मैं अपना घर बनाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mundzuku Mina hlwela a ta endla.",
+       "मुन्द्ज़ुकु मिन ह्लऺएल अ त एन्द्ल।",
+       "कल मैं देर नहीं करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Namuntlha mpfula hogi.",
+       "नमुन्त्ल्ह म्प्फुल होगि।",
+       "आज बारिश होगी।",
+       "L",
+       "B"
+      ],
+      [
+       "Na chhata teka.",
+       "न छत तेक।",
+       "अपने साथ छाता ले जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina hinkwaswo ta ringeta.",
+       "मिन हिन्कऺअसऺओ त रिङेत।",
+       "मैं पूरी कोशिश करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hinkwaswo kahle ta va.",
+       "हिन्कऺअसऺओ कह्ले त व।",
+       "सब ठीक हो जाएगा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "कारण बताना (क्योंकि, इसलिए)",
+     "tw": [
+      [
+       "Hikuva",
+       "हिकुव",
+       "क्योंकि",
+       "क"
+      ],
+      [
+       "Isalie",
+       "इसलिए",
+       "इसलिए",
+       "क"
+      ],
+      [
+       "Xivangelo",
+       "क्सिवङेलो",
+       "कारण",
+       "क"
+      ],
+      [
+       "Hlwela",
+       "ह्लऺएल",
+       "देर",
+       "क"
+      ],
+      [
+       "Holideyi",
+       "होलिदेयि",
+       "छुट्टी",
+       "ख"
+      ],
+      [
+       "Mali bachana",
+       "मलि बचन",
+       "पैसे बचाना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "joinReason",
+      "hi": "दो छोटे वाक्य जोड़ो — because या so लगाकर एक बनाओ।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina hlwela humelerile hikuva bazi hlwela ku suka eka tile.",
+       "मिन ह्लऺएल हुमेलेरिले हिकुव बज़ि ह्लऺएल कु सुक एक तिले।",
+       "मुझे देर हुई क्योंकि बस देर से आई।",
+       "S",
+       "B"
+      ],
+      [
+       "Namuntlha N'wina hlwela ku suka eka ha yini tile?",
+       "नमुन्त्ल्ह न्'विन ह्लऺएल कु सुक एक ह यिनि तिले?",
+       "आज आप देर से क्यों आए?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina aa saka hikuva Mina vabya a vaile.",
+       "मिन आ सक हिकुव मिन वब्य अ वैले।",
+       "मैं नहीं आ सका क्योंकि मैं बीमार था।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ndyangu hikwalaho ka matimba endla.",
+       "मिन न्द्यङु हिकऺअलहो क मतिम्ब एन्द्ल।",
+       "मैं अपने परिवार के लिए मेहनत करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina Xitsonga ha yini sikhana lava ku lava?",
+       "न्'विन क्सित्सोङ ह यिनि सिखन लव कु लव?",
+       "आप त्सोंगा क्यों सीखना चाहते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Xitsonga dyondzo raha i hikuva mina antswa ntirho lava.",
+       "मिन क्सित्सोङ द्योन्द्ज़ो रह इ हिकुव मिन अन्त्सऺअ न्तिर्हो लव।",
+       "मैं त्सोंगा सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Vhengele pfariwile i hikuva namuntlha holideyi va.",
+       "व्हेङेले प्फरिविले इ हिकुव नमुन्त्ल्ह होलिदेयि व।",
+       "दुकान बंद है क्योंकि आज छुट्टी है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina thaka tha isalie hatlisa etlelaile.",
+       "मिन थक थ इसलिए हत्लिस एत्लेलैले।",
+       "मैं थका था, इसलिए जल्दी सो गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mpfula i rahi thi isalie Mina yindlu kambe tshama.",
+       "म्प्फुल इ रहि थि इसलिए मिन यिन्द्लु कम्बे त्स्हम।",
+       "बारिश हो रही थी, इसलिए मैं घर पर रहा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina mali bachae isalie yindlu nga famba.",
+       "मिन मलि बचै इसलिए यिन्द्लु ङ फ़म्ब।",
+       "मैंने पैसे बचाए, इसलिए घर जा सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina Yena kamara ha yini chhora?",
+       "न्'विन येन कमर ह यिनि छोर?",
+       "आपने वह कमरा क्यों छोड़ा?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina chhora hikuva rhenti ku tala vaile.",
+       "मिन छोर हिकुव र्हेन्ति कु तल वैले।",
+       "मैंने छोड़ा क्योंकि किराया ज़्यादा था।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina Leswi ntirho pasand i hikuva muholo kahle va.",
+       "मिन लेसऺइ न्तिर्हो पसन्द् इ हिकुव मुहोलो कह्ले व।",
+       "मुझे यह काम पसंद है क्योंकि मज़दूरी अच्छी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yena tsaka i hikuva yena ntirho hlanganaile.",
+       "येन त्सक इ हिकुव येन न्तिर्हो ह्लङनैले।",
+       "वह खुश है क्योंकि उसे नौकरी मिल गई।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina hatlisa uthata i taki hlwela n va.",
+       "मिन हत्लिस उथत इ तकि ह्लऺएल न् व।",
+       "मैं जल्दी उठता हूँ ताकि देर न हो।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela xivangelo byelani.",
+       "न्द्ज़ कोम्बेल क्सिवङेलो ब्येलनि।",
+       "कृपया कारण बताइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Isilie Mina n'wina foni endlile.",
+       "इसिलिए मिन न्'विन फ़ोनि एन्द्लिले।",
+       "इसीलिए मैंने आपको फोन किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina makwerhu wa xisati shadi hikwalaho ka mali salile tshama.",
+       "मिन मकऺएर्हु व क्सिसति शदि हिकऺअलहो क मलि सलिले त्स्हम।",
+       "मैं अपनी बहन की शादी के लिए पैसे बचा रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Muchini pfariwile ha yini va?",
+       "मुचिनि प्फरिविले ह यिनि व?",
+       "मशीन बंद क्यों है?",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi pfariwile i hikuva gezi a va.",
+       "लेसऺइ प्फरिविले इ हिकुव गेज़ि अ व।",
+       "यह बंद है क्योंकि बिजली नहीं है।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Sweswi yindlu eka mani va?",
+     "(बोलो) Wa mina manana na wa mina makwerhu wa xisati yindlu eka va."
+    ],
+    [
+     "(सुनो) Yena tatana kisan va?",
+     "(बोलो) Ina Yena nsimu eka tirha."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Avuxeni manana Yena njhani va?",
+     "अवुक्सेनि मनन येन न्झनि व?"
+    ],
+    [
+     "माँ",
+     "Hina kahle i Yena dya?",
+     "हिन कह्ले इ येन द्य?"
+    ],
+    [
+     "आप",
+     "Ina Hina rhayisi na dal dya.",
+     "इन हिन र्हयिसि न दल् द्य।"
+    ],
+    [
+     "माँ",
+     "Hatlisa soo n'wana wa jaha.",
+     "हत्लिस सोओ न्'वन व जह।"
+    ],
+    [
+     "आप",
+     "Kahle i manana kahle vusiku.",
+     "कह्ले इ मनन कह्ले वुसिकु।"
+    ]
+   ],
+   "test": {
+    "target": "अपने घर का कोई सदस्य या दोस्त (फ़ोन पर)",
+    "goal": "त्सोंगा में बताइए — कल आपने क्या किया, और आने वाले कल आप क्या करेंगे। कम-से-कम एक वाक्य because वाला हो।",
+    "lines": [
+     [
+      "Hina mundzuku 10 awara ntirho endlile.",
+      "हिन मुन्द्ज़ुकु 10 ऑअर न्तिर्हो एन्द्लिले।"
+     ],
+     [
+      "Hina bar thaka chhalaun.",
+      "हिन बर् थक छलौन्।"
+     ],
+     [
+      "Mundzuku Hina hatlisa ta pfuka.",
+      "मुन्द्ज़ुकु हिन हत्लिस त प्फुक।"
+     ],
+     [
+      "Hina Yena mundzuku mixo eka foni karonga.",
+      "हिन येन मुन्द्ज़ुकु मिक्सो एक फ़ोनि करोङ।"
+     ],
+     [
+      "Hina English sikhata i hikuva wa mina kahle ntirho lava.",
+      "हिन एङ्लिश् सिखत इ हिकुव व मिन कह्ले न्तिर्हो लव।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 2,
+   "title": "My Daily Life",
+   "hi": "मेरी रोज़ की जिंदगी",
+   "pace": 20,
+   "days": [
+    {
+     "title": "मेरी दिनचर्या (कितनी बार)",
+     "tw": [
+      [
+       "Minkarhi hinkwayo",
+       "मिन्कर्हि हिन्कऺअयो",
+       "हमेशा",
+       "क"
+      ],
+      [
+       "Aam taur kambe",
+       "आम् तौर् कम्बे",
+       "आम तौर पर",
+       "क"
+      ],
+      [
+       "Minkarhi yin'wana",
+       "मिन्कर्हि यिन्'वन",
+       "कभी-कभी",
+       "क"
+      ],
+      [
+       "Minkarhi yin'wana e-e",
+       "मिन्कर्हि यिन्'वन ए-ए",
+       "कभी नहीं",
+       "क"
+      ],
+      [
+       "Hi milenge",
+       "हि मिलेङे",
+       "पैदल",
+       "ग"
+      ],
+      [
+       "Siku rin'wana ni rin'wana",
+       "सिकु रिन्'वन नि रिन्'वन",
+       "रोज़",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "freqLadder",
+      "hi": "बार-बार की सीढ़ी — एक ही वाक्य को always, usually, sometimes, never से बदल-बदलकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina minkarhi hinkwayo suraj ugane ku suka eka ku sungula pfuka.",
+       "मिन मिन्कर्हि हिन्कऺअयो सुरज् उगने कु सुक एक कु सुङुल प्फुक।",
+       "मैं हमेशा सूरज उगने से पहले उठता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina aam taur kambe 8 awara ntirho fika.",
+       "मिन आम् तौर् कम्बे 8 ऑअर न्तिर्हो फ़िक।",
+       "मैं आम तौर पर आठ बजे काम पहुँचता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Minkarhi yin'wana Mina vusiku eka tirha.",
+       "मिन्कर्हि यिन्'वन मिन वुसिकु एक तिर्ह।",
+       "कभी-कभी मैं रात में काम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina minkarhi yin'wana dhumrapan a endla.",
+       "मिन मिन्कर्हि यिन्'वन धुम्रपन् अ एन्द्ल।",
+       "मैं कभी धूम्रपान नहीं करता।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina mangani awara pfuka?",
+       "न्'विन मङनि ऑअर प्फुक?",
+       "आप कितने बजे उठते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana 5 awara pfuka.",
+       "मिन सिकु रिन्'वन नि रिन्'वन 5 ऑअर प्फुक।",
+       "मैं रोज़ पाँच बजे उठता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku sungula Mina munh hlantswa.",
+       "कु सुङुल मिन मुन्ह् ह्लन्त्सऺअ।",
+       "पहले मैं मुँह धोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Nakambe Mina tiya aka.",
+       "नकम्बे मिन तिय अक।",
+       "फिर मैं चाय बनाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa yena endzhaku Mina ntirho kambe famba.",
+       "व येन एन्द्झ़कु मिन न्तिर्हो कम्बे फ़म्ब।",
+       "उसके बाद मैं काम पर जाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 1 awara switsongo wisa endla.",
+       "मिन 1 ऑअर सऺइत्सोङो विस एन्द्ल।",
+       "मैं एक बजे थोड़ा आराम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina Sonto tinguvu hlantswa.",
+       "मिन सोन्तो तिङुवु ह्लन्त्सऺअ।",
+       "मैं रविवार को कपड़े धोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 10 awara etlela.",
+       "मिन 10 ऑअर एत्लेल।",
+       "मैं दस बजे सोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina ntirho kambe njhani famba?",
+       "न्'विन न्तिर्हो कम्बे न्झनि फ़म्ब?",
+       "आप काम पर कैसे जाते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina hi milenge ntirho kambe famba.",
+       "मिन हि मिलेङे न्तिर्हो कम्बे फ़म्ब।",
+       "मैं पैदल काम पर जाता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "20 minete lagate va.",
+       "20 मिनेते लगते व।",
+       "बीस मिनट लगते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana hafu awara Xitsonga dyondza.",
+       "मिन सिकु रिन्'वन नि रिन्'वन हफ़ु ऑअर क्सित्सोङ द्योन्द्ज़।",
+       "मैं रोज़ आधा घंटा त्सोंगा सीखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina vhiki eka 2 nkarhi wun'we yindlu fonela.",
+       "मिन व्हिकि एक 2 न्कर्हि वुन्'वे यिन्द्लु फ़ोनेल।",
+       "मैं हफ़्ते में दो बार घर फोन करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Sonto Mina hinkwaswo siku wisa endla.",
+       "सोन्तो मिन हिन्कऺअसऺओ सिकु विस एन्द्ल।",
+       "रविवार को मैं पूरा दिन आराम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina siku hatlisa shuru hokar hlwela ku suka eka khatm va.",
+       "व मिन सिकु हत्लिस शुरु होकर् ह्लऺएल कु सुक एक खत्म् व।",
+       "मेरा दिन जल्दी शुरू होकर देर से ख़त्म होता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Matimba minkarhi yin'wana bekar a famba.",
+       "मतिम्ब मिन्कर्हि यिन्'वन बेकर् अ फ़म्ब।",
+       "मेहनत कभी बेकार नहीं जाती।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "खाना और रसोई",
+     "tw": [
+      [
+       "Swakudya banana",
+       "सऺअकुद्य बनन",
+       "खाना बनाना",
+       "क"
+      ],
+      [
+       "Ubalana",
+       "उबलन",
+       "उबालना",
+       "क"
+      ],
+      [
+       "Katana",
+       "कतन",
+       "काटना",
+       "क"
+      ],
+      [
+       "Svadisht",
+       "स्वदिश्त्",
+       "स्वादिष्ट",
+       "क"
+      ],
+      [
+       "Ku nga ri na nchumu",
+       "कु ङ रि न न्चुमु",
+       "ख़ाली",
+       "क"
+      ],
+      [
+       "Bari",
+       "बरि",
+       "बारी",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "क्रम बताओ — First, Then, After that लगाकर काम का सही क्रम बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Namuntlha N'wina yini aka?",
+       "नमुन्त्ल्ह न्'विन यिनि अक?",
+       "आज आपने क्या बनाया?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina rhayisi na aalu matsavu banai.",
+       "मिन र्हयिसि न आलु मत्सवु बनै।",
+       "मैंने चावल और आलू की सब्ज़ी बनाई।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku sungula rhayisi kahle ku suka eka hlantswa.",
+       "कु सुङुल र्हयिसि कह्ले कु सुक एक ह्लन्त्सऺअ।",
+       "पहले चावल अच्छे से धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku sungula mati ubalo.",
+       "कु सुङुल मति उबलो।",
+       "पहले पानी उबालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pyaz tsongo tukaron eka kato.",
+       "प्यज़् त्सोङो तुकरोन् एक कतो।",
+       "प्याज़ छोटे टुकड़ों में काटो।",
+       "L",
+       "B"
+      ],
+      [
+       "Switsongo namak chela.",
+       "सऺइत्सोङो नमक् चेल।",
+       "थोड़ा नमक डालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Swakudya lunghekile va.",
+       "सऺअकुद्य लुङ्हेकिले व।",
+       "खाना तैयार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Leswi matsavu ngopfu svadisht va.",
+       "लेसऺइ मत्सवु ङोप्फु स्वदिश्त् व।",
+       "यह सब्ज़ी बहुत स्वादिष्ट है।",
+       "S",
+       "C"
+      ],
+      [
+       "Rhayisi kahle ku suka eka a sweka.",
+       "र्हयिसि कह्ले कु सुक एक अ सऺएक।",
+       "चावल ठीक से नहीं पका है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina tel na masale lava.",
+       "हिन तेल् न मसले लव।",
+       "हमें तेल और मसाले चाहिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Gais silindar ku nga ri na nchumu va.",
+       "गैस् सिलिन्दर् कु ङ रि न न्चुमु व।",
+       "गैस सिलिंडर ख़ाली है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina ntshwa silindar ta tisa.",
+       "मिन न्त्स्हऺअ सिलिन्दर् त तिस।",
+       "मैं नया सिलिंडर लाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Namuntlha Hina na swin'we swakudya ta aka.",
+       "नमुन्त्ल्ह हिन न सऺइन्'वे सऺअकुद्य त अक।",
+       "आज हम साथ मिलकर खाना बनाएँगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Namuntlha swakudya banane bari kisaki va?",
+       "नमुन्त्ल्ह सऺअकुद्य बनने बरि किसकि व?",
+       "आज खाना बनाने की बारी किसकी है?",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha wa mina bari va.",
+       "नमुन्त्ल्ह व मिन बरि व।",
+       "आज मेरी बारी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Swakudya barbad a endla.",
+       "सऺअकुद्य बर्बद् अ एन्द्ल।",
+       "खाना बर्बाद मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Swakudya dhakakar veka.",
+       "सऺअकुद्य धककर् वेक।",
+       "खाना ढककर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha Mina ku tala kha tekile.",
+       "नमुन्त्ल्ह मिन कु तल ख तेकिले।",
+       "आज मैंने ज़्यादा खा लिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Yindlu swakudya hodela ku suka eka kahle va.",
+       "यिन्द्लु सऺअकुद्य होदेल कु सुक एक कह्ले व।",
+       "घर का खाना होटल से अच्छा होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ntsena basa mati nwa.",
+       "न्त्सेन बस मति नऺअ।",
+       "सिर्फ़ साफ़ पानी पियो।",
+       "L",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "तबीयत और दवा (बड़ी बातें)",
+     "tw": [
+      [
+       "Dzedzedze",
+       "द्ज़ेद्ज़ेद्ज़े",
+       "बुखार",
+       "क"
+      ],
+      [
+       "Goli",
+       "गोलि",
+       "गोली",
+       "क"
+      ],
+      [
+       "Khansi",
+       "खन्सि",
+       "खाँसी",
+       "क"
+      ],
+      [
+       "Antswa",
+       "अन्त्सऺअ",
+       "बेहतर",
+       "क"
+      ],
+      [
+       "Wisa",
+       "विस",
+       "आराम",
+       "क"
+      ],
+      [
+       "Ekusuhi eka",
+       "एकुसुहि एक",
+       "पास में",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "संवाद पूरा करो — डॉक्टर के पास की छोटी बातचीत, ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina mundzuku ku suka eka dzedzedze va.",
+       "मिन मुन्द्ज़ुकु कु सुक एक द्ज़ेद्ज़ेद्ज़े व।",
+       "मुझे कल से बुखार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina nhloko ku vava endla.",
+       "व मिन न्ह्लोको कु वव एन्द्ल।",
+       "मेरा सिर दर्द कर रहा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina khansi na zukam va.",
+       "मिन खन्सि न ज़ुकम् व।",
+       "मुझे खाँसी और ज़ुकाम है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina hinkwaswo badan ku vava endla.",
+       "व मिन हिन्कऺअसऺओ बदन् कु वव एन्द्ल।",
+       "मेरा पूरा बदन दर्द कर रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina rini ku suka eka vabya va?",
+       "न्'विन रिनि कु सुक एक वब्य व?",
+       "आप कब से बीमार हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Jibh kombani.",
+       "जिभ् कोम्बनि।",
+       "अपनी जीभ दिखाइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi murhi ku dya endzhaku tekani.",
+       "लेसऺइ मुर्हि कु द्य एन्द्झ़कु तेकनि।",
+       "यह दवा खाने के बाद लीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "1 goli mixo 1 vusiku eka tekani.",
+       "1 गोलि मिक्सो 1 वुसिकु एक तेकनि।",
+       "एक गोली सुबह, एक रात में लीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Gunaguna mati nwa.",
+       "गुनगुन मति नऺअ।",
+       "गुनगुना पानी पियो।",
+       "L",
+       "B"
+      ],
+      [
+       "2 siku wisa endlani.",
+       "2 सिकु विस एन्द्लनि।",
+       "दो दिन आराम कीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina nkarhi kambe murhi tekile.",
+       "मिन न्कर्हि कम्बे मुर्हि तेकिले।",
+       "मैंने समय पर दवा ली।",
+       "S",
+       "B"
+      ],
+      [
+       "Sweswi Mina antswa mahasus endla.",
+       "सऺएसऺइ मिन अन्त्सऺअ महसुस् एन्द्ल।",
+       "अब मैं बेहतर महसूस कर रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Dzedzedze vajah ku suka eka Mina ntirho kambe ja saka e-e.",
+       "द्ज़ेद्ज़ेद्ज़े वजह् कु सुक एक मिन न्तिर्हो कम्बे ज सक ए-ए।",
+       "बुखार की वजह से मैं काम पर नहीं जा सका।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi murhi mangani va?",
+       "लेसऺइ मुर्हि मङनि व?",
+       "यह दवा कितने की है?",
+       "S",
+       "B"
+      ],
+      [
+       "Yini ekusuhi eka sarakari xibedlhele va?",
+       "यिनि एकुसुहि एक सरकरि क्सिबेद्ल्हेले व?",
+       "क्या पास में सरकारी अस्पताल है?",
+       "S",
+       "A"
+      ],
+      [
+       "Dokodela 10 awara ta.",
+       "दोकोदेल 10 ऑअर त।",
+       "डॉक्टर दस बजे आते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Ndza kombela dokodela hikwalaho ka wa mina vito tsala.",
+       "न्द्ज़ कोम्बेल दोकोदेल हिकऺअलहो क व मिन वितो त्सल।",
+       "कृपया डॉक्टर के लिए मेरा नाम लिख दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Nkarhi kambe khao na kahle nind teka.",
+       "न्कर्हि कम्बे खओ न कह्ले निन्द् तेक।",
+       "समय पर खाओ और अच्छी नींद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku dya ku suka eka ku sungula voko hlantswa.",
+       "कु द्य कु सुक एक कु सुङुल वोको ह्लन्त्सऺअ।",
+       "खाने से पहले हाथ धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Sehat ntiyiso daulat va.",
+       "सेहत् न्तियिसो दौलत् व।",
+       "सेहत ही असली दौलत है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "मौसम और कपड़े",
+     "tw": [
+      [
+       "Maxelo",
+       "मक्सेलो",
+       "मौसम",
+       "क"
+      ],
+      [
+       "Sardi",
+       "सर्दि",
+       "सर्दी",
+       "क"
+      ],
+      [
+       "Bhiga humelerile",
+       "भिग हुमेलेरिले",
+       "भीगा हुआ",
+       "क"
+      ],
+      [
+       "Aandhi",
+       "आन्द्हि",
+       "आँधी",
+       "क"
+      ],
+      [
+       "Nap",
+       "नप्",
+       "नाप",
+       "ग"
+      ],
+      [
+       "Hambana ku suka eka",
+       "हम्बन कु सुक एक",
+       "अलग से",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "compare",
+      "hi": "तुलना करो — than लगाकर दो चीज़ों की तुलना बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Namuntlha mundzuku ku suka eka ku tala ku hisa va.",
+       "नमुन्त्ल्ह मुन्द्ज़ुकु कु सुक एक कु तल कु हिस व।",
+       "आज कल से ज़्यादा गर्मी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Aajakal mixo ngopfu thand va.",
+       "आजकल् मिक्सो ङोप्फु थन्द् व।",
+       "आजकल सुबह बहुत ठंड होती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Sardi ta.",
+       "सर्दि त।",
+       "सर्दी आ रही है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kufumela tinguvu ambala.",
+       "कुफ़ुमेल तिङुवु अम्बल।",
+       "गरम कपड़े पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina leyi nga hundza vhiki svetar xava.",
+       "मिन लेयि ङ हुन्द्ज़ व्हिकि स्वेतर् क्सव।",
+       "मैंने पिछले हफ़्ते स्वेटर खरीदा।",
+       "S",
+       "B"
+      ],
+      [
+       "Tinguvu dyambu eka sukhao.",
+       "तिङुवु द्यम्बु एक सुखओ।",
+       "कपड़े धूप में सुखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mpfula eka wa mina tinguvu bhig fambile.",
+       "म्प्फुल एक व मिन तिङुवु भिग् फ़म्बिले।",
+       "बारिश में मेरे कपड़े भीग गए।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi taka n'hweti barasat shuru hogi.",
+       "लेयि तक न्'हऺएति बरसत् शुरु होगि।",
+       "अगले महीने बरसात शुरू होगी।",
+       "S",
+       "C"
+      ],
+      [
+       "Mundzuku vusiku aandhi tile.",
+       "मुन्द्ज़ुकु वुसिकु आन्द्हि तिले।",
+       "कल रात आँधी आई।",
+       "S",
+       "C"
+      ],
+      [
+       "Namuntlha maxelo njhani va?",
+       "नमुन्त्ल्ह मक्सेलो न्झनि व?",
+       "आज मौसम कैसा है?",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha maxelo ngopfu kahle va.",
+       "नमुन्त्ल्ह मक्सेलो ङोप्फु कह्ले व।",
+       "आज मौसम बहुत अच्छा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tez dyambu eka a tirha.",
+       "तेज़् द्यम्बु एक अ तिर्ह।",
+       "तेज़ धूप में काम मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku hisa eka ku tala mati nwa.",
+       "कु हिस एक कु तल मति नऺअ।",
+       "गर्मी में ज़्यादा पानी पियो।",
+       "L",
+       "B"
+      ],
+      [
+       "Dyambu eka nhloko funengeta.",
+       "द्यम्बु एक न्ह्लोको फ़ुनेङेत।",
+       "धूप में सिर ढको।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi tinguvu mina tsongo va.",
+       "लेसऺइ तिङुवु मिन त्सोङो व।",
+       "ये कपड़े मुझे छोटे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina kulu saiz lava.",
+       "मिन कुलु सैज़् लव।",
+       "मुझे बड़ा साइज़ चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi hembe mina kahle ta.",
+       "लेसऺइ हेम्बे मिन कह्ले त।",
+       "यह कमीज़ मुझे ठीक आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi hembe hambana hlantswa.",
+       "लेसऺइ हेम्बे हम्बन ह्लन्त्सऺअ।",
+       "यह कमीज़ अलग धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina jute phat fambile va.",
+       "व मिन जुते फत् फ़म्बिले व।",
+       "मेरे जूते फट गए हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Tanakhvah siku Mina ntshwa jute ta xava.",
+       "तनख्वह् सिकु मिन न्त्स्हऺअ जुते त क्सव।",
+       "तनख़्वाह के दिन मैं नए जूते खरीदूँगा।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "फ़ोन और संदेश (बड़ी बातें)",
+     "tw": [
+      [
+       "Layini kambe rukana",
+       "लयिनि कम्बे रुकन",
+       "लाइन पर रुकना",
+       "क"
+      ],
+      [
+       "Hoxa nomboro",
+       "होक्स नोम्बोरो",
+       "ग़लत नंबर",
+       "क"
+      ],
+      [
+       "Rungula",
+       "रुङुल",
+       "संदेश",
+       "क"
+      ],
+      [
+       "Baitari",
+       "बैतरि",
+       "बैटरी",
+       "क"
+      ],
+      [
+       "Netavark",
+       "नेतवर्क्",
+       "नेटवर्क",
+       "क"
+      ],
+      [
+       "Zor ku suka eka",
+       "ज़ोर् कु सुक एक",
+       "ज़ोर से",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "फ़ोन के 3 वाक्य — अपना नाम भरकर पूरी शुरुआत बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Yini n'wini ku suka eka mhaka nga va?",
+       "यिनि न्'विनि कु सुक एक म्हक ङ व?",
+       "क्या मालिक से बात हो सकती है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela 1 minete layini kambe yima.",
+       "न्द्ज़ कोम्बेल 1 मिनेते लयिनि कम्बे यिम।",
+       "कृपया एक मिनट लाइन पर रुकिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Vona sweswi laha a va.",
+       "वोन सऺएसऺइ लह अ व।",
+       "वे अभी यहाँ नहीं हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Ndza kombela 1 awara endzhaku foni endlani.",
+       "न्द्ज़ कोम्बेल 1 ऑअर एन्द्झ़कु फ़ोनि एन्द्लनि।",
+       "कृपया एक घंटे बाद फोन कीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndzi khomeli endlani N'wina hoxa nomboro lagaya va.",
+       "न्द्ज़ि खोमेलि एन्द्लनि न्'विन होक्स नोम्बोरो लगय व।",
+       "माफ़ कीजिए, आपने ग़लत नंबर लगाया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi nomboro ku suka eka mina misd riqingho tile vaile.",
+       "लेसऺइ नोम्बोरो कु सुक एक मिन मिस्द् रिक़िङ्हो तिले वैले।",
+       "इस नंबर से मुझे मिस्ड कॉल आई थी।",
+       "S",
+       "B"
+      ],
+      [
+       "Mixo mina kisane foni endlile vaile?",
+       "मिक्सो मिन किसने फ़ोनि एन्द्लिले वैले?",
+       "सुबह मुझे किसने फोन किया था?",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela mina rungula rhumela.",
+       "न्द्ज़ कोम्बेल मिन रुङुल र्हुमेल।",
+       "कृपया मुझे संदेश भेज दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina n'wina WhatsApp kambe adirese bhej ndzi ta nyika.",
+       "मिन न्'विन व्हत्सप्प् कम्बे अदिरेसे भेज् न्द्ज़ि त ञिक।",
+       "मैं आपको व्हाट्सऐप पर पता भेज दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela mina phepha xifaniso rhumela.",
+       "न्द्ज़ कोम्बेल मिन फेफ क्सिफ़निसो र्हुमेल।",
+       "कृपया मुझे कागज़ की फोटो भेज दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina foni bailens khatm vaile.",
+       "व मिन फ़ोनि बैलेन्स् खत्म् वैले।",
+       "मेरा फोन बैलेंस ख़त्म हो गया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina baitari switsongo va.",
+       "व मिन बैतरि सऺइत्सोङो व।",
+       "मेरी बैटरी कम है।",
+       "S",
+       "B"
+      ],
+      [
+       "Laha netavark kamazor va.",
+       "लह नेतवर्क् कमज़ोर् व।",
+       "यहाँ नेटवर्क कमज़ोर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Foni kat fambile.",
+       "फ़ोनि कत् फ़म्बिले।",
+       "फोन कट गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina 5 minete eka nakambe ta fonela.",
+       "मिन 5 मिनेते एक नकम्बे त फ़ोनेल।",
+       "मैं पाँच मिनट में फिर फोन करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela wa mina nomboro sev endla tekani.",
+       "न्द्ज़ कोम्बेल व मिन नोम्बोरो सेव् एन्द्ल तेकनि।",
+       "कृपया मेरा नंबर सेव कर लीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi nomboro likh tekani.",
+       "लेसऺइ नोम्बोरो लिख् तेकनि।",
+       "यह नंबर लिख लीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Switsongo zor ku suka eka vulavula.",
+       "सऺइत्सोङो ज़ोर् कु सुक एक वुलवुल।",
+       "थोड़ा ज़ोर से बोलिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina n'wina mundzuku rungula rhumela.",
+       "मिन न्'विन मुन्द्ज़ुकु रुङुल र्हुमेल।",
+       "मैंने आपको कल संदेश भेजा था।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini n'wina wa mina rungula hlangana?",
+       "यिनि न्'विन व मिन रुङुल ह्लङन?",
+       "क्या आपको मेरा संदेश मिला?",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena mangani awara pfuka?",
+     "(बोलो) Hina mixo eka 5 awara pfuka."
+    ],
+    [
+     "(सुनो) Cili barakha hoy tshama?",
+     "(बोलो) Ina chhata lay famba."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Wa mina mundzuku ku suka eka dzedzedze va.",
+     "व मिन मुन्द्ज़ुकु कु सुक एक द्ज़ेद्ज़ेद्ज़े व।"
+    ],
+    [
+     "दोस्त",
+     "Yena dokodela ekusuhi gayaaun?",
+     "येन दोकोदेल एकुसुहि गयाउन्?"
+    ],
+    [
+     "आप",
+     "Sweswi ku fika eka gayaaun sweswi jaonga e-e.",
+     "सऺएसऺइ कु फ़िक एक गयाउन् सऺएसऺइ जओङ ए-ए।"
+    ],
+    [
+     "दोस्त",
+     "Davai khao na wisa endla.",
+     "दवै खओ न विस एन्द्ल।"
+    ],
+    [
+     "आप",
+     "Hatlisa kahle i makwerhu.",
+     "हत्लिस कह्ले इ मकऺएर्हु।"
+    ]
+   ],
+   "test": {
+    "target": "घर का कोई सदस्य (फ़ोन पर)",
+    "goal": "त्सोंगा में अपनी पूरी दिनचर्या बताइए — कब उठते हैं, क्या खाते हैं, कैसे काम जाते हैं; और तबीयत का हाल पूछिए।",
+    "lines": [
+     [
+      "Hina un'wana ni un'wana siku 5 awara pfuka.",
+      "हिन उन्'वन नि उन्'वन सिकु 5 ऑअर प्फुक।"
+     ],
+     [
+      "Hina hi milenge ntirho kambe famba.",
+      "हिन हि मिलेङे न्तिर्हो कम्बे फ़म्ब।"
+     ],
+     [
+      "Hina haphta eka 2 nkarhi wun'we yindlu fonela.",
+      "हिन हफ्त एक 2 न्कर्हि वुन्'वे यिन्द्लु फ़ोनेल।"
+     ],
+     [
+      "Yena sharir njhani va?",
+      "येन शरिर् न्झनि व?"
+     ],
+     [
+      "Nkarhi kambe Yena davai khao.",
+      "न्कर्हि कम्बे येन दवै खओ।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 3,
+   "title": "Family, Neighbours and Feelings",
+   "hi": "परिवार, पड़ोस और दिल की बात",
+   "pace": 20,
+   "days": [
+    {
+     "title": "बच्चों की पढ़ाई",
+     "tw": [
+      [
+       "Grihakary",
+       "ग्रिहकर्य्",
+       "गृहकार्य",
+       "क"
+      ],
+      [
+       "Ank",
+       "अन्क्",
+       "अंक",
+       "क"
+      ],
+      [
+       "Ku tinyungubyisa",
+       "कु तिञुङुब्यिस",
+       "गर्व",
+       "क"
+      ],
+      [
+       "Durha",
+       "दुर्ह",
+       "महँगा",
+       "ग"
+      ],
+      [
+       "Shiksha",
+       "शिक्श",
+       "शिक्षा",
+       "क"
+      ],
+      [
+       "Parhana",
+       "पर्हन",
+       "पढ़ाना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "whoAmI",
+      "hi": "मैं कौन हूँ — तीन सुराग सुनो, जवाब बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina vana sarakari xikolo famba.",
+       "व मिन वन सरकरि क्सिकोलो फ़म्ब।",
+       "मेरे बच्चे सरकारी स्कूल जाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Xikolo 9 awara shuru va.",
+       "क्सिकोलो 9 ऑअर शुरु व।",
+       "स्कूल नौ बजे शुरू होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina n'wana wa nhwanyana panchavin kaksha eka va.",
+       "व मिन न्'वन व न्हऺअञन पन्चविन् कक्श एक व।",
+       "मेरी बेटी पाँचवीं कक्षा में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yena parhai eka kahle va.",
+       "येन पर्है एक कह्ले व।",
+       "वह पढ़ाई में अच्छी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina n'wana wa jaha vusiku eka grihakary endla.",
+       "व मिन न्'वन व जह वुसिकु एक ग्रिहकर्य् एन्द्ल।",
+       "मेरा बेटा रात में गृहकार्य करता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini tumane grihakary hinkwaswo endlile?",
+       "यिनि तुमने ग्रिहकर्य् हिन्कऺअसऺओ एन्द्लिले?",
+       "क्या तुमने गृहकार्य पूरा किया?",
+       "S",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana parho ntsena xikambelo ku suka eka ku sungula e-e.",
+       "सिकु रिन्'वन नि रिन्'वन पर्हो न्त्सेन क्सिकम्बेलो कु सुक एक कु सुङुल ए-ए।",
+       "रोज़ पढ़ो, सिर्फ़ परीक्षा से पहले नहीं।",
+       "S",
+       "C"
+      ],
+      [
+       "Xikambelo leyi taka n'hweti shuru hogi.",
+       "क्सिकम्बेलो लेयि तक न्'हऺएति शुरु होगि।",
+       "परीक्षा अगले महीने शुरू होगी।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina n'wana wa nhwanyana kahle ank hlangana.",
+       "व मिन न्'वन व न्हऺअञन कह्ले अन्क् ह्लङन।",
+       "मेरी बेटी को अच्छे अंक मिले।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina vana kambe ku tinyungubyisa va.",
+       "मिन वन कम्बे कु तिञुङुब्यिस व।",
+       "मुझे अपने बच्चों पर गर्व है।",
+       "S",
+       "A"
+      ],
+      [
+       "Kitab-kopi sweswi mahangi va.",
+       "कितब्-कोपि सऺएसऺइ महङि व।",
+       "किताब-कॉपी अब महँगी हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina bete hikwalaho ka xikolo nkwama xava.",
+       "मिन बेते हिकऺअलहो क क्सिकोलो न्कऺअम क्सव।",
+       "मैंने बेटे के लिए स्कूल बैग खरीदा।",
+       "S",
+       "B"
+      ],
+      [
+       "Vana xikolo eka swakudya hlangana.",
+       "वन क्सिकोलो एक सऺअकुद्य ह्लङन।",
+       "बच्चों को स्कूल में खाना मिलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Vana siku rin'wana ni rin'wana xikolo rhumela.",
+       "वन सिकु रिन्'वन नि रिन्'वन क्सिकोलो र्हुमेल।",
+       "बच्चों को रोज़ स्कूल भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina ku tala parh saka e-e.",
+       "मिन कु तल पर्ह् सक ए-ए।",
+       "मैं ज़्यादा पढ़ नहीं सका।",
+       "S",
+       "B"
+      ],
+      [
+       "Kambe wa mina vana khub parhenge.",
+       "कम्बे व मिन वन खुब् पर्हेङे।",
+       "पर मेरे बच्चे ख़ूब पढ़ेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Parhai kai raste pfula.",
+       "पर्है कै रस्ते प्फुल।",
+       "पढ़ाई कई रास्ते खोलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina madyambu n'wana wa nhwanyana hlaya.",
+       "मिन मद्यम्बु न्'वन व न्हऺअञन ह्लय।",
+       "मैं शाम को अपनी बेटी को पढ़ाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa n'wina n'wana wa jaha kis kaksha eka va?",
+       "व न्'विन न्'वन व जह किस् कक्श एक व?",
+       "आपका बेटा किस कक्षा में है?",
+       "L",
+       "B"
+      ],
+      [
+       "Yena aathavin kaksha eka va.",
+       "येन आथविन् कक्श एक व।",
+       "वह आठवीं कक्षा में है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "घर के काम और मरम्मत",
+     "tw": [
+      [
+       "Jharu lagana",
+       "झरु लगन",
+       "झाड़ू लगाना",
+       "क"
+      ],
+      [
+       "Tapakana",
+       "तपकन",
+       "टपकना",
+       "क"
+      ],
+      [
+       "Lungisa",
+       "लुङिस",
+       "मरम्मत",
+       "ख"
+      ],
+      [
+       "Thyaka",
+       "थ्यक",
+       "कूड़ा",
+       "क"
+      ],
+      [
+       "Xitarhati",
+       "क्सितर्हति",
+       "बिल",
+       "ग"
+      ],
+      [
+       "Bini ra thyaka",
+       "बिनि र थ्यक",
+       "कूड़ेदान",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "oneMany",
+      "hi": "एक से अनेक — s लगाकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina siku rin'wana ni rin'wana mixo kamara basa endla.",
+       "मिन सिकु रिन्'वन नि रिन्'वन मिक्सो कमर बस एन्द्ल।",
+       "मैं रोज़ सुबह कमरा साफ़ करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku sungula farsh kambe jharu lagao.",
+       "कु सुङुल फ़र्श् कम्बे झरु लगओ।",
+       "पहले फ़र्श पर झाड़ू लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Balti eka mati bharo.",
+       "बल्ति एक मति भरो।",
+       "बाल्टी में पानी भरो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nal tapak tshama.",
+       "नल् तपक् त्स्हम।",
+       "नल टपक रहा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Balb jal a tshama.",
+       "बल्ब् जल् अ त्स्हम।",
+       "बल्ब नहीं जल रहा।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina namuntlha balb cinca ndzi ta nyika.",
+       "मिन नमुन्त्ल्ह बल्ब् किन्क न्द्ज़ि त ञिक।",
+       "मैं आज बल्ब बदल दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Nyangwa xilotlelo tut fambile va.",
+       "ञङऺअ क्सिलोत्लेलो तुत् फ़म्बिले व।",
+       "दरवाज़े का ताला टूट गया है।",
+       "S",
+       "C"
+      ],
+      [
+       "Leswi kahle ku endla hikwalaho ka un'wana bulao.",
+       "लेसऺइ कह्ले कु एन्द्ल हिकऺअलहो क उन्'वन बुलओ।",
+       "इसे ठीक करने के लिए किसी को बुलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Lungisa eka mangani ku tirhisa mali ta ta?",
+       "लुङिस एक मङनि कु तिर्हिस मलि त त?",
+       "मरम्मत में कितना ख़र्च आएगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Swilo ndhawu kambe veka.",
+       "सऺइलो न्द्हॉउ कम्बे वेक।",
+       "अपनी चीज़ें जगह पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thyaka bini ra thyaka eka chela.",
+       "थ्यक बिनि र थ्यक एक चेल।",
+       "कूड़ा कूड़ेदान में डालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Patu kambe thyaka phenko e-e.",
+       "पतु कम्बे थ्यक फेन्को ए-ए।",
+       "सड़क पर कूड़ा मत फेंको।",
+       "L",
+       "B"
+      ],
+      [
+       "Istemal endzhaku nal pfala.",
+       "इस्तेमल् एन्द्झ़कु नल् प्फल।",
+       "इस्तेमाल के बाद नल बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ehandle jate nkarhi batti pfala.",
+       "एहन्द्ले जते न्कर्हि बत्ति प्फल।",
+       "बाहर जाते समय बत्ती बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina kursi hi byakwe kahle.",
+       "मिन कुर्सि हि ब्यकऺए कह्ले।",
+       "मैंने कुर्सी ख़ुद ठीक की।",
+       "S",
+       "B"
+      ],
+      [
+       "Namuntlha gezi xitarhati taile.",
+       "नमुन्त्ल्ह गेज़ि क्सितर्हति तैले।",
+       "आज बिजली का बिल आया।",
+       "S",
+       "C"
+      ],
+      [
+       "Xitarhati leyi nga hundza n'hweti ku suka eka ku tala va.",
+       "क्सितर्हति लेयि ङ हुन्द्ज़ न्'हऺएति कु सुक एक कु तल व।",
+       "बिल पिछले महीने से ज़्यादा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Gezi switsongo ku tirhisa mali endla.",
+       "गेज़ि सऺइत्सोङो कु तिर्हिस मलि एन्द्ल।",
+       "बिजली कम ख़र्च करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Basa yindlu hina sehatamand veka.",
+       "बस यिन्द्लु हिन सेहतमन्द् वेक।",
+       "साफ़ घर हमें सेहतमंद रखता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Yindlu ntirho eka sabako voko bantana lava.",
+       "यिन्द्लु न्तिर्हो एक सबको वोको बन्तन लव।",
+       "घर के काम में सबको हाथ बँटाना चाहिए।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "पड़ोसी और गाँव-समाज",
+     "tw": [
+      [
+       "Muakelani",
+       "मुअकेलनि",
+       "पड़ोसी",
+       "क"
+      ],
+      [
+       "Ek-dusare",
+       "एक्-दुसरे",
+       "एक-दूसरे",
+       "क"
+      ],
+      [
+       "Baithak",
+       "बैथक्",
+       "बैठक",
+       "ख"
+      ],
+      [
+       "Sulajhana",
+       "सुलझन",
+       "सुलझाना",
+       "क"
+      ],
+      [
+       "Samman",
+       "सम्मन्",
+       "सम्मान",
+       "क"
+      ],
+      [
+       "Amukela",
+       "अमुकेल",
+       "स्वागत",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "हाँ-नहीं जवाब — पूरा छोटा वाक्य बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa hina muakelani ngopfu kahle va.",
+       "व हिन मुअकेलनि ङोप्फु कह्ले व।",
+       "हमारे पड़ोसी बहुत अच्छे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina yena 10 lembe ku suka eka tiva.",
+       "मिन येन 10 लेम्बे कु सुक एक तिव।",
+       "मैं उसे दस साल से जानता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hina ek-dusare pfuna.",
+       "हिन एक्-दुसरे प्फुन।",
+       "हम एक-दूसरे की मदद करते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Yena mundzuku mina saikil nyikile.",
+       "येन मुन्द्ज़ुकु मिन सैकिल् ञिकिले।",
+       "उसने कल मुझे अपनी साइकिल दी।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela 2 siku wa mina kamara nyingiso veka.",
+       "न्द्ज़ कोम्बेल 2 सिकु व मिन कमर ञिङिसो वेक।",
+       "कृपया दो दिन मेरे कमरे का ध्यान रखिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Namuntlha muti eka baithak va.",
+       "नमुन्त्ल्ह मुति एक बैथक् व।",
+       "आज गाँव में बैठक है।",
+       "L",
+       "B"
+      ],
+      [
+       "Baithak eka sabako aana lava.",
+       "बैथक् एक सबको आन लव।",
+       "बैठक में सबको आना चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina swin'we muti talab basa endlile.",
+       "हिन सऺइन्'वे मुति तलब् बस एन्द्लिले।",
+       "हमने मिलकर गाँव का तालाब साफ़ किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ekata eka bal va.",
+       "एकत एक बल् व।",
+       "एकता में बल है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina muakelani bete doropa eka ntirho hlangana.",
+       "व मिन मुअकेलनि बेते दोरोप एक न्तिर्हो ह्लङन।",
+       "मेरे पड़ोसी के बेटे को शहर में नौकरी मिली।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina na swin'we ntsako manai.",
+       "हिन न सऺइन्'वे न्त्सको मनै।",
+       "हमने साथ मिलकर खुशी मनाई।",
+       "S",
+       "B"
+      ],
+      [
+       "Tsongo baton kambe laro e-e.",
+       "त्सोङो बतोन् कम्बे लरो ए-ए।",
+       "छोटी बातों पर मत लड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mhaka hi ku endla samasya sulajhao.",
+       "म्हक हि कु एन्द्ल समस्य सुलझओ।",
+       "बात करके समस्या सुलझाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Buzurg wa hina mpfuno lava.",
+       "बुज़ुर्ग् व हिन म्प्फुनो लव।",
+       "बुज़ुर्ग को हमारी मदद चाहिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina unaka nkwama yindlu ku fika eka fika.",
+       "मिन उनक न्कऺअम यिन्द्लु कु फ़िक एक फ़िक।",
+       "मैंने उनका थैला घर तक पहुँचाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Baron samman endla.",
+       "बरोन् सम्मन् एन्द्ल।",
+       "बड़ों का सम्मान करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lewiya yindlu eka mani tshama?",
+       "लेविय यिन्द्लु एक मनि त्स्हम?",
+       "उस घर में कौन रहता है?",
+       "S",
+       "B"
+      ],
+      [
+       "Kwale 1 ntshwa ndyangu taile.",
+       "कऺअले 1 न्त्स्हऺअ न्द्यङु तैले।",
+       "वहाँ एक नया परिवार आया है।",
+       "S",
+       "C"
+      ],
+      [
+       "A hi fambeni unaka amukela endla.",
+       "अ हि फ़म्बेनि उनक अमुकेल एन्द्ल।",
+       "चलो उनका स्वागत करें।",
+       "S",
+       "C"
+      ],
+      [
+       "Kahle muakelani ndyangu jaise va.",
+       "कह्ले मुअकेलनि न्द्यङु जैसे व।",
+       "अच्छे पड़ोसी परिवार जैसे होते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "त्योहार और खुशी",
+     "tw": [
+      [
+       "Nkhuvo",
+       "न्खुवो",
+       "त्योहार",
+       "क"
+      ],
+      [
+       "Mithai",
+       "मिथै",
+       "मिठाई",
+       "क"
+      ],
+      [
+       "Holideyi",
+       "होलिदेयि",
+       "छुट्टी",
+       "ख"
+      ],
+      [
+       "Ku sungula ku suka eka thikithi lena",
+       "कु सुङुल कु सुक एक थिकिथि लेन",
+       "पहले से टिकट लेना",
+       "ग"
+      ],
+      [
+       "Bantana",
+       "बन्तन",
+       "बाँटना",
+       "क"
+      ],
+      [
+       "Khas",
+       "खस्",
+       "ख़ास",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "soundFamily",
+      "hi": "आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "N'wina yihi nkhuvo ku tlula hinkwaswo pasand va?",
+       "न्'विन यिहि न्खुवो कु त्लुल हिन्कऺअसऺओ पसन्द् व?",
+       "आपको कौन-सा त्योहार सबसे पसंद है?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina chhath na holi pasand va.",
+       "मिन छथ् न होलि पसन्द् व।",
+       "मुझे छठ और होली पसंद है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi taka vhiki nkhuvo ta.",
+       "लेयि तक व्हिकि न्खुवो त।",
+       "अगले हफ़्ते त्योहार आ रहा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina hinkwaswo yindlu basa hi ta endla.",
+       "हिन हिन्कऺअसऺओ यिन्द्लु बस हि त एन्द्ल।",
+       "हम पूरा घर साफ़ करेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina manana mithai banaengi.",
+       "व मिन मनन मिथै बनैङि।",
+       "मेरी माँ मिठाई बनाएँगी।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina vana hikwalaho ka ntshwa tinguvu xava.",
+       "हिन वन हिकऺअलहो क न्त्स्हऺअ तिङुवु क्सव।",
+       "हमने बच्चों के लिए नए कपड़े खरीदे।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 3 siku holideyi milegi.",
+       "मिन 3 सिकु होलिदेयि मिलेगि।",
+       "मुझे तीन दिन की छुट्टी मिलेगी।",
+       "S",
+       "B"
+      ],
+      [
+       "Xitimela tikaten ku sungula ku suka eka bhari va.",
+       "क्सितिमेल तिकतेन् कु सुङुल कु सुक एक भरि व।",
+       "ट्रेन की टिकटें पहले से भरी हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina leyi nga hundza n'hweti thikithi buk endla tekile.",
+       "मिन लेयि ङ हुन्द्ज़ न्'हऺएति थिकिथि बुक् एन्द्ल तेकिले।",
+       "मैंने पिछले महीने टिकट बुक कर ली।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkhuvo eka hinkwaswo yindlu ta ta.",
+       "न्खुवो एक हिन्कऺअसऺओ यिन्द्लु त त।",
+       "त्योहार में सब घर आएँगे।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina 1 lembe endzhaku milenge.",
+       "हिन 1 लेम्बे एन्द्झ़कु मिलेङे।",
+       "हम एक साल बाद मिलेंगे।",
+       "S",
+       "A"
+      ],
+      [
+       "Hinkwaswo muti sundar lagata va.",
+       "हिन्कऺअसऺओ मुति सुन्दर् लगत व।",
+       "पूरा गाँव सुंदर लगता है।",
+       "S",
+       "C"
+      ],
+      [
+       "N'wina na ndyangu nkhuvo shubhakamanaen.",
+       "न्'विन न न्द्यङु न्खुवो शुभकमनैन्।",
+       "आपको और परिवार को त्योहार की शुभकामनाएँ।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina na yena.",
+       "न्'विन न येन।",
+       "आपको भी।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina madyambu diye jalae.",
+       "हिन मद्यम्बु दिये जलै।",
+       "हमने शाम को दीये जलाए।",
+       "S",
+       "B"
+      ],
+      [
+       "Vana hinkwaswo siku khelate tshama.",
+       "वन हिन्कऺअसऺओ सिकु खेलते त्स्हम।",
+       "बच्चे पूरा दिन खेलते रहे।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina parosiyon eka mithai banti.",
+       "हिन परोसियोन् एक मिथै बन्ति।",
+       "हमने पड़ोसियों में मिठाई बाँटी।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkhuvo vanhu jorate va.",
+       "न्खुवो वन्हु जोरते व।",
+       "त्योहार लोगों को जोड़ते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkhuvo endzhaku Mina ntirho kambe lautunga.",
+       "न्खुवो एन्द्झ़कु मिन न्तिर्हो कम्बे लौतुङ।",
+       "त्योहार के बाद मैं काम पर लौटूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi lembe nkhuvo ngopfu khas tshama.",
+       "लेसऺइ लेम्बे न्खुवो ङोप्फु खस् त्स्हम।",
+       "इस साल त्योहार बहुत ख़ास रहा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "दिल की बात (भावनाएँ)",
+     "tw": [
+      [
+       "Tsaka",
+       "त्सक",
+       "खुश",
+       "क"
+      ],
+      [
+       "Udas",
+       "उदस्",
+       "उदास",
+       "क"
+      ],
+      [
+       "Chintit",
+       "चिन्तित्",
+       "चिंतित",
+       "क"
+      ],
+      [
+       "Gussa",
+       "गुस्स",
+       "गुस्सा",
+       "क"
+      ],
+      [
+       "Dara humelerile",
+       "दर हुमेलेरिले",
+       "डरा हुआ",
+       "क"
+      ],
+      [
+       "Ummid",
+       "उम्मिद्",
+       "उम्मीद",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "opposites",
+      "hi": "उलटे जोड़े — शब्द सुनो, उलटा बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Namuntlha Mina ngopfu tsaka va.",
+       "नमुन्त्ल्ह मिन ङोप्फु त्सक व।",
+       "आज मैं बहुत खुश हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina udas ha yini va?",
+       "न्'विन उदस् ह यिनि व?",
+       "आप उदास क्यों हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina paison ku vilela va.",
+       "मिन पैसोन् कु विलेल व।",
+       "मुझे पैसों की चिंता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku vilela endla hinkwaswo kahle hoga e-e.",
+       "कु विलेल एन्द्ल हिन्कऺअसऺओ कह्ले होग ए-ए।",
+       "चिंता मत करो, सब ठीक होगा।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina ndyangu yad ta.",
+       "मिन न्द्यङु यद् त।",
+       "मुझे अपने परिवार की याद आ रही है।",
+       "S",
+       "A"
+      ],
+      [
+       "Doropa eka mina ngopfu akelapan laga.",
+       "दोरोप एक मिन ङोप्फु अकेलपन् लग।",
+       "शहर में मुझे बहुत अकेलापन लगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina vanghana mina hansaya.",
+       "व मिन वङ्हन मिन हन्सय।",
+       "मेरे दोस्तों ने मुझे हँसाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina gusse eka tha kambe chup tshama.",
+       "मिन गुस्से एक थ कम्बे चुप् त्स्हम।",
+       "मैं गुस्से में था, पर चुप रहा।",
+       "S",
+       "B"
+      ],
+      [
+       "Gussa ntirho bigar nyika.",
+       "गुस्स न्तिर्हो बिगर् ञिक।",
+       "गुस्सा काम बिगाड़ देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina Leswi ntirho chhutane dar va.",
+       "मिन लेसऺइ न्तिर्हो छुतने दर् व।",
+       "मुझे यह नौकरी छूटने का डर है।",
+       "S",
+       "A"
+      ],
+      [
+       "Daro mat nyingiso ku suka eka tirha.",
+       "दरो मत् ञिङिसो कु सुक एक तिर्ह।",
+       "डरो मत, ध्यान से काम करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bete ekusuhi hone kambe mina ku tinyungubyisa humelerile.",
+       "बेते एकुसुहि होने कम्बे मिन कु तिञुङुब्यिस हुमेलेरिले।",
+       "बेटे के पास होने पर मुझे गर्व हुआ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina na dene hikwalaho ka Inkomu.",
+       "व मिन न देने हिकऺअलहो क इन्कोमु।",
+       "मेरा साथ देने के लिए धन्यवाद।",
+       "S",
+       "A"
+      ],
+      [
+       "Xin'wana siku tika va.",
+       "क्सिन्'वन सिकु तिक व।",
+       "कुछ दिन मुश्किल होते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Kambe tika siku na yena guzar famba.",
+       "कम्बे तिक सिकु न येन गुज़र् फ़म्ब।",
+       "पर मुश्किल दिन भी गुज़र जाते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Udas i un'wana ku suka eka mhaka endla.",
+       "उदस् इ उन्'वन कु सुक एक म्हक एन्द्ल।",
+       "उदास हो तो किसी से बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kahle batachit mbilu olova endla nyika.",
+       "कह्ले बतचित् म्बिलु ओलोव एन्द्ल ञिक।",
+       "अच्छी बातचीत मन हल्का कर देती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Yindlu foni hi ku endla mina ntsako hlangana.",
+       "यिन्द्लु फ़ोनि हि कु एन्द्ल मिन न्त्सको ह्लङन।",
+       "घर फोन करके मुझे खुशी मिलती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Muskurao na siku sungula.",
+       "मुस्कुरओ न सिकु सुङुल।",
+       "मुस्कुराओ और दिन शुरू करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ummid hina emahlweni barhati va.",
+       "उम्मिद् हिन एमह्लऺएनि बर्हति व।",
+       "उम्मीद हमें आगे बढ़ाती है।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Namuntlha Yena hikuva tsaka va?",
+     "(बोलो) Wa mina n'wana wa nhwanyana xikambelo eka ekusuhi hape."
+    ],
+    [
+     "(सुनो) Pankha sweswi famba?",
+     "(बोलो) Ina mistri kahle endlile."
+    ]
+   ],
+   "dialog": [
+    [
+     "पड़ोसी",
+     "Wa mina gezi fambaile.",
+     "व मिन गेज़ि फ़म्बैले।"
+    ],
+    [
+     "आप",
+     "Wa mina gezi fambaile.",
+     "व मिन गेज़ि फ़म्बैले।"
+    ],
+    [
+     "पड़ोसी",
+     "Hina daphtar foni karonga.",
+     "हिन दफ्तर् फ़ोनि करोङ।"
+    ],
+    [
+     "आप",
+     "Kahle i Hina laha ta tshama.",
+     "कह्ले इ हिन लह त त्स्हम।"
+    ],
+    [
+     "पड़ोसी",
+     "Yena 1 awara vula.",
+     "येन 1 ऑअर वुल।"
+    ]
+   ],
+   "test": {
+    "target": "कोई पड़ोसी या दोस्त (फ़ोन पर)",
+    "goal": "त्सोंगा में त्योहार की बधाई दीजिए, परिवार का हाल पूछिए, और अपनी एक खुशी की बात बताइए।",
+    "lines": [
+     [
+      "Yena na Yena ndyangu nkhuvo mubarakabad.",
+      "येन न येन न्द्यङु न्खुवो मुबरकबद्।"
+     ],
+     [
+      "Yindlu eka hinkwaswo njhani va?",
+      "यिन्द्लु एक हिन्कऺअसऺओ न्झनि व?"
+     ],
+     [
+      "Namuntlha Hina ngopfu tsaka va.",
+      "नमुन्त्ल्ह हिन ङोप्फु त्सक व।"
+     ],
+     [
+      "Wa mina n'wana wa nhwanyana kahle nomboro lelak.",
+      "व मिन न्'वन व न्हऺअञन कह्ले नोम्बोरो लेलक्।"
+     ],
+     [
+      "Hina hinkwaswo 1 lembe endzhaku ta hlangana.",
+      "हिन हिन्कऺअसऺओ 1 लेम्बे एन्द्झ़कु त ह्लङन।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 4,
+   "title": "Good Habits, Time and Messages",
+   "hi": "आदतें, समय और घर का संदेश",
+   "pace": 20,
+   "days": [
+    {
+     "title": "अच्छी आदतें",
+     "tw": [
+      [
+       "Aadat",
+       "आदत्",
+       "आदत",
+       "क"
+      ],
+      [
+       "Ntiyiso",
+       "न्तियिसो",
+       "सच",
+       "क"
+      ],
+      [
+       "Ku titoloveta",
+       "कु तितोलोवेत",
+       "अभ्यास",
+       "क"
+      ],
+      [
+       "Natija",
+       "नतिज",
+       "नतीजा",
+       "क"
+      ],
+      [
+       "Barbad karana",
+       "बर्बद् करन",
+       "बर्बाद करना",
+       "क"
+      ],
+      [
+       "Punji",
+       "पुन्जि",
+       "पूँजी",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "sortHabit",
+      "hi": "छाँटो — सुनकर बोलो: अच्छी आदत या बुरी आदत?",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Kahle aadaten kahle zindagi aka.",
+       "कह्ले आदतेन् कह्ले ज़िन्दगि अक।",
+       "अच्छी आदतें अच्छी ज़िंदगी बनाती हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Siku rin'wana ni rin'wana hatlisa pfuka.",
+       "सिकु रिन्'वन नि रिन्'वन हत्लिस प्फुक।",
+       "रोज़ जल्दी उठो।",
+       "L",
+       "B"
+      ],
+      [
+       "Siku eka 2 nkarhi wun'we dant basa endla.",
+       "सिकु एक 2 न्कर्हि वुन्'वे दन्त् बस एन्द्ल।",
+       "दिन में दो बार दाँत साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana nahao.",
+       "सिकु रिन्'वन नि रिन्'वन नहओ।",
+       "रोज़ नहाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Nakhun kate veka.",
+       "नखुन् कते वेक।",
+       "नाख़ून कटे रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Minkarhi hinkwayo ntiyiso vulavula.",
+       "मिन्कर्हि हिन्कऺअयो न्तियिसो वुलवुल।",
+       "हमेशा सच बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nkarhi kambe ntirho fika.",
+       "न्कर्हि कम्बे न्तिर्हो फ़िक।",
+       "समय पर काम पहुँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Buri aadaton kambe mali urao e-e.",
+       "बुरि आदतोन् कम्बे मलि उरओ ए-ए।",
+       "बुरी आदतों पर पैसे मत उड़ाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Gutakha na sharab ku suka eka kule tshama.",
+       "गुतख न शरब् कु सुक एक कुले त्स्हम।",
+       "गुटखा और शराब से दूर रहो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana vhiki thore mali bachao.",
+       "उन्'वन नि उन्'वन व्हिकि थोरे मलि बचओ।",
+       "हर हफ़्ते थोड़े पैसे बचाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina vusiku eka tiya pina chhor nyikile.",
+       "मिन वुसिकु एक तिय पिन छोर् ञिकिले।",
+       "मैंने रात में चाय पीना छोड़ दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Sweswi mina kahle nind ta.",
+       "सऺएसऺइ मिन कह्ले निन्द् त।",
+       "अब मुझे अच्छी नींद आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana 20 minete tahalo.",
+       "सिकु रिन्'वन नि रिन्'वन 20 मिनेते तहलो।",
+       "रोज़ बीस मिनट टहलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana xin'wana ntshwa hlaya.",
+       "सिकु रिन्'वन नि रिन्'वन क्सिन्'वन न्त्स्हऺअ ह्लय।",
+       "रोज़ कुछ नया पढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina tahalate-tahalate Xitsonga ku titoloveta endla.",
+       "मिन तहलते-तहलते क्सित्सोङ कु तितोलोवेत एन्द्ल।",
+       "मैं टहलते-टहलते त्सोंगा का अभ्यास करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana switsongo ku titoloveta kulu phal nyika.",
+       "सिकु रिन्'वन नि रिन्'वन सऺइत्सोङो कु तितोलोवेत कुलु फल् ञिक।",
+       "रोज़ थोड़ा अभ्यास बड़ा फल देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ntirho karate nkarhi foni kule veka.",
+       "न्तिर्हो करते न्कर्हि फ़ोनि कुले वेक।",
+       "काम करते समय फोन दूर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Buri aadaten shuru karana olova chhorana tika.",
+       "बुरि आदतेन् शुरु करन ओलोव छोरन तिक।",
+       "बुरी आदतें शुरू करना आसान, छोड़ना मुश्किल।",
+       "S",
+       "C"
+      ],
+      [
+       "Leswi vhiki 1 tsongo aadat badalo.",
+       "लेसऺइ व्हिकि 1 त्सोङो आदत् बदलो।",
+       "इस हफ़्ते एक छोटी आदत बदलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina kahle aadaten wa mina punji va.",
+       "व मिन कह्ले आदतेन् व मिन पुन्जि व।",
+       "मेरी अच्छी आदतें ही मेरी पूँजी हैं।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "समय और तारीख़",
+     "tw": [
+      [
+       "Siku",
+       "सिकु",
+       "तारीख़",
+       "क"
+      ],
+      [
+       "Dena i (dey)",
+       "देन इ (देय्)",
+       "देना है (देय)",
+       "ग"
+      ],
+      [
+       "Ni hafu",
+       "नि हफ़ु",
+       "साढ़े",
+       "क"
+      ],
+      [
+       "Paune",
+       "पौने",
+       "पौने",
+       "क"
+      ],
+      [
+       "Thik-thik",
+       "थिक्-थिक्",
+       "ठीक-ठीक",
+       "क"
+      ],
+      [
+       "Janmatithi",
+       "जन्मतिथि",
+       "जन्मतिथि",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "timeRead",
+      "hi": "घड़ी बोलो — समय सुनो, त्सोंगा में कहो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Namuntlha siku yini va?",
+       "नमुन्त्ल्ह सिकु यिनि व?",
+       "आज तारीख़ क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Namuntlha 5 march va.",
+       "नमुन्त्ल्ह 5 मर्च् व।",
+       "आज पाँच मार्च है।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina hakelo 7 siku ta.",
+       "व मिन हकेलो 7 सिकु त।",
+       "मेरा भुगतान सात तारीख़ को आता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Rhenti wo sungula siku nyika.",
+       "र्हेन्ति वो सुङुल सिकु ञिक।",
+       "किराया पहली तारीख़ को देना है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina janm unnis 100 pachanabe eka humelerile.",
+       "व मिन जन्म् उन्निस् 100 पचनबे एक हुमेलेरिले।",
+       "मेरा जन्म उन्नीस सौ पचानबे में हुआ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa n'wina janmatithi yini va?",
+       "व न्'विन जन्मतिथि यिनि व?",
+       "आपकी जन्मतिथि क्या है?",
+       "L",
+       "B"
+      ],
+      [
+       "Hofisi wun'wana shanivar pfariwile tshama.",
+       "होफ़िसि वुन्'वन शनिवर् प्फरिविले त्स्हम।",
+       "दफ़्तर दूसरे शनिवार को बंद रहता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Kahle ni hafu 9 awara tanani.",
+       "कह्ले नि हफ़ु 9 ऑअर तननि।",
+       "ठीक साढ़े नौ बजे आइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Sweswi paune 5 awara va.",
+       "सऺएसऺइ पौने 5 ऑअर व।",
+       "अभी पौने पाँच बजे हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Bazi ni hafu 6 awara khulati va.",
+       "बज़ि नि हफ़ु 6 ऑअर खुलति व।",
+       "बस साढ़े छह बजे खुलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina derh awara eka pahunch ta famba.",
+       "मिन देर्ह् ऑअर एक पहुन्च् त फ़म्ब।",
+       "मैं डेढ़ घंटे में पहुँच जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina 10 minete hlwela vaile.",
+       "हिन 10 मिनेते ह्लऺएल वैले।",
+       "हमें दस मिनट की देर हो गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "5 minete ku sungula tana.",
+       "5 मिनेते कु सुङुल तन।",
+       "पाँच मिनट पहले आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina holideyi 20 siku ku suka eka shuru va.",
+       "व मिन होलिदेयि 20 सिकु कु सुक एक शुरु व।",
+       "मेरी छुट्टी बीस तारीख़ से शुरू होती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi n'hweti eka mangani siku va?",
+       "लेसऺइ न्'हऺएति एक मङनि सिकु व?",
+       "इस महीने में कितने दिन हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi n'hweti eka ikatis siku va.",
+       "लेसऺइ न्'हऺएति एक इकतिस् सिकु व।",
+       "इस महीने में इकतीस दिन हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "15 siku yihi siku va?",
+       "15 सिकु यिहि सिकु व?",
+       "पंद्रह तारीख़ को कौन-सा दिन है?",
+       "S",
+       "B"
+      ],
+      [
+       "Yena shukravar va.",
+       "येन शुक्रवर् व।",
+       "वह शुक्रवार है।",
+       "L",
+       "B"
+      ],
+      [
+       "Phepha kambe siku tsala.",
+       "फेफ कम्बे सिकु त्सल।",
+       "कागज़ पर तारीख़ लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Fambile nkarhi lautakar a ta.",
+       "फ़म्बिले न्कर्हि लौतकर् अ त।",
+       "गया समय लौटकर नहीं आता।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "घर को संदेश (आज की चिट्ठी)",
+     "tw": [
+      [
+       "Rungula ra rito",
+       "रुङुल र रितो",
+       "आवाज़-संदेश",
+       "क"
+      ],
+      [
+       "Nhlamulo",
+       "न्ह्लमुलो",
+       "जवाब",
+       "क"
+      ],
+      [
+       "Pranam, aadar",
+       "प्रनम्, आदर्",
+       "प्रणाम, आदर",
+       "क"
+      ],
+      [
+       "Himmat",
+       "हिम्मत्",
+       "हिम्मत",
+       "क"
+      ],
+      [
+       "Pana",
+       "पन",
+       "पाना",
+       "क"
+      ],
+      [
+       "Saprem",
+       "सप्रेम्",
+       "सप्रेम",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "messageFrame",
+      "hi": "चार-पंक्ति घर-संदेश — ख़ाली जगह अपनी बात से भरकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hailo manana Mina laha kahle va.",
+       "हैलो मनन मिन लह कह्ले व।",
+       "हैलो माँ, मैं यहाँ ठीक हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina mundzuku wa n'wina rungula hlangana.",
+       "मिन मुन्द्ज़ुकु व न्'विन रुङुल ह्लङन।",
+       "मुझे कल आपका संदेश मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Hlwela ku suka eka nhlamulo hikwalaho ka mafi.",
+       "ह्लऺएल कु सुक एक न्ह्लमुलो हिकऺअलहो क मफ़ि।",
+       "देर से जवाब के लिए माफ़ी।",
+       "S",
+       "A"
+      ],
+      [
+       "Laha ntirho kahle famba.",
+       "लह न्तिर्हो कह्ले फ़म्ब।",
+       "यहाँ काम अच्छा चल रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina 5 1000 mali rhumela.",
+       "मिन 5 1000 मलि र्हुमेल।",
+       "मैंने पाँच हज़ार रुपये भेजे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela janchakar byelani.",
+       "न्द्ज़ कोम्बेल जन्चकर् ब्येलनि।",
+       "कृपया जाँचकर बताइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tatana tabiyat sweswi njhani va?",
+       "ततन तबियत् सऺएसऺइ न्झनि व?",
+       "पिताजी की तबीयत अब कैसी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Unase kahie siku rin'wana ni rin'wana murhi teka.",
+       "उनसे कहिए सिकु रिन्'वन नि रिन्'वन मुर्हि तेक।",
+       "उनसे कहिए रोज़ दवा लें।",
+       "S",
+       "C"
+      ],
+      [
+       "Vana parhai njhani famba?",
+       "वन पर्है न्झनि फ़म्ब?",
+       "बच्चों की पढ़ाई कैसी चल रही है?",
+       "S",
+       "B"
+      ],
+      [
+       "Mina leyi taka n'hweti yindlu ta ta.",
+       "मिन लेयि तक न्'हऺएति यिन्द्लु त त।",
+       "मैं अगले महीने घर आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina sabake hikwalaho ka tinguvu ta tisa.",
+       "मिन सबके हिकऺअलहो क तिङुवु त तिस।",
+       "मैं सबके लिए कपड़े लाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Nyingiso veka.",
+       "ञिङिसो वेक।",
+       "अपना ध्यान रखिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Dadaji wa mina pranam vula.",
+       "ददजि व मिन प्रनम् वुल।",
+       "दादाजी को मेरा प्रणाम कहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina Sonto rungula ra rito ta rhumela.",
+       "मिन सोन्तो रुङुल र रितो त र्हुमेल।",
+       "मैं रविवार को आवाज़-संदेश भेजूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkarhi mile nhlamulo nyikani.",
+       "न्कर्हि मिले न्ह्लमुलो ञिकनि।",
+       "समय मिले तो जवाब दीजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina sabaki 1 xifaniso rhumela.",
+       "मिन सबकि 1 क्सिफ़निसो र्हुमेल।",
+       "मुझे सबकी एक फोटो भेजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi rungula manana parhakar sunao.",
+       "लेसऺइ रुङुल मनन पर्हकर् सुनओ।",
+       "यह संदेश माँ को पढ़कर सुनाओ।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina ngopfu dinon endzhaku lanba rungula rhumela.",
+       "मिन ङोप्फु दिनोन् एन्द्झ़कु लन्ब रुङुल र्हुमेल।",
+       "मैंने बहुत दिनों बाद लंबा संदेश भेजा।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa n'wina baten mina himmat nyika.",
+       "व न्'विन बतेन् मिन हिम्मत् ञिक।",
+       "आपकी बातें मुझे हिम्मत देती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina yindlu ku dya ngopfu yad ta.",
+       "मिन यिन्द्लु कु द्य ङोप्फु यद् त।",
+       "मुझे घर के खाने की बहुत याद आती है।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "मेहमान और मिलना-जुलना",
+     "tw": [
+      [
+       "Mehaman",
+       "मेहमन्",
+       "मेहमान",
+       "क"
+      ],
+      [
+       "Baithane ndhawu",
+       "बैथने न्द्हॉउ",
+       "बैठने की जगह",
+       "क"
+      ],
+      [
+       "Vyast",
+       "व्यस्त्",
+       "व्यस्त",
+       "ख"
+      ],
+      [
+       "Hakunene",
+       "हकुनेने",
+       "ज़रूर",
+       "क"
+      ],
+      [
+       "Yad rakhana",
+       "यद् रखन",
+       "याद रखना",
+       "क"
+      ],
+      [
+       "Nakambe ku suka eka",
+       "नकम्बे कु सुक एक",
+       "फिर से",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "मेहमान-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa hina yindlu eka wa n'wina amukela va.",
+       "व हिन यिन्द्लु एक व न्'विन अमुकेल व।",
+       "हमारे घर में आपका स्वागत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela tshama.",
+       "न्द्ज़ कोम्बेल त्स्हम।",
+       "कृपया बैठिए।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina tiya lenge kumbe mati?",
+       "न्'विन तिय लेङे कुम्बे मति?",
+       "आप चाय लेंगे या पानी?",
+       "S",
+       "B"
+      ],
+      [
+       "Ntsena mati Inkomu.",
+       "न्त्सेन मति इन्कोमु।",
+       "सिर्फ़ पानी, धन्यवाद।",
+       "L",
+       "B"
+      ],
+      [
+       "Yindlu eka hinkwaswo njhani va?",
+       "यिन्द्लु एक हिन्कऺअसऺओ न्झनि व?",
+       "घर में सब कैसे हैं?",
+       "S",
+       "A"
+      ],
+      [
+       "Bhagavan kripa ku suka eka hinkwaswo kahle va.",
+       "भगवन् क्रिप कु सुक एक हिन्कऺअसऺओ कह्ले व।",
+       "भगवान की कृपा से सब ठीक हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "N'wina ngopfu dinon endzhaku tile.",
+       "न्'विन ङोप्फु दिनोन् एन्द्झ़कु तिले।",
+       "आप बहुत दिनों बाद आए।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ntirho eka vyast vaile.",
+       "मिन न्तिर्हो एक व्यस्त् वैले।",
+       "मैं काम में व्यस्त था।",
+       "L",
+       "B"
+      ],
+      [
+       "Vusiku swakudya khakar jaie.",
+       "वुसिकु सऺअकुद्य खकर् जैए।",
+       "रात का खाना खाकर जाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "E-e mina hatlisa nikalana va.",
+       "ए-ए मिन हत्लिस निकलन व।",
+       "नहीं, मुझे जल्दी निकलना है।",
+       "L",
+       "A"
+      ],
+      [
+       "Nakambe ndyangu na tanani.",
+       "नकम्बे न्द्यङु न तननि।",
+       "फिर परिवार के साथ आइए।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina hakunene ta ta.",
+       "मिन हकुनेने त त।",
+       "मैं ज़रूर आऊँगा।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina leyi nga hundza lembe shadi eka hlangana.",
+       "हिन लेयि ङ हुन्द्ज़ लेम्बे शदि एक ह्लङन।",
+       "हम पिछले साल शादी में मिले थे।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini N'wina mina pahachanate va?",
+       "यिनि न्'विन मिन पहचनते व?",
+       "क्या आप मुझे पहचानते हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Ina bilkul pahachanata va.",
+       "इन बिल्कुल् पहचनत व।",
+       "हाँ, बिल्कुल पहचानता हूँ।",
+       "L",
+       "B"
+      ],
+      [
+       "Aapase nakambe swin'we ngopfu kahle laga.",
+       "आपसे नकम्बे सऺइन्'वे ङोप्फु कह्ले लग।",
+       "आपसे दोबारा मिलकर बहुत अच्छा लगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Yindlu eka sabako wa mina Avuxeni ta vula.",
+       "यिन्द्लु एक सबको व मिन अवुक्सेनि त वुल।",
+       "घर में सबको मेरा नमस्ते कहिएगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mehaman wa hina hikwalaho ka bhagavan saman va.",
+       "मेहमन् व हिन हिकऺअलहो क भगवन् समन् व।",
+       "मेहमान हमारे लिए भगवान समान हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Yindlu pahunchakar mina foni kijiega.",
+       "यिन्द्लु पहुन्चकर् मिन फ़ोनि किजिएग।",
+       "घर पहुँचकर मुझे फोन कीजिएगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Madyambu ngopfu kahle tshama.",
+       "मद्यम्बु ङोप्फु कह्ले त्स्हम।",
+       "शाम बहुत अच्छी रही।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "महीना-1 का समेट (मेरी कहानी)",
+     "tw": [
+      [
+       "Masungulo",
+       "मसुङुलो",
+       "शुरुआत",
+       "क"
+      ],
+      [
+       "Hakatsongo-tsongo",
+       "हकत्सोङो-त्सोङो",
+       "धीरे-धीरे",
+       "क"
+      ],
+      [
+       "Bhavishy",
+       "भविश्य्",
+       "भविष्य",
+       "ख"
+      ],
+      [
+       "Riendzo",
+       "रिएन्द्ज़ो",
+       "सफ़र",
+       "ग"
+      ],
+      [
+       "Kathin",
+       "कथिन्",
+       "कठिन",
+       "क"
+      ],
+      [
+       "Saf-saf",
+       "सफ़्-सफ़्",
+       "साफ़-साफ़",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — because, so या than लगाकर दो बातें एक वाक्य में बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Leyi nga hundza lembe Mina muti eka tha sweswi doropa eka va.",
+       "लेयि ङ हुन्द्ज़ लेम्बे मिन मुति एक थ सऺएसऺइ दोरोप एक व।",
+       "पिछले साल मैं गाँव में था, अब शहर में हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Doropa zindagi muti ku suka eka tez va.",
+       "दोरोप ज़िन्दगि मुति कु सुक एक तेज़् व।",
+       "शहर की ज़िंदगी गाँव से तेज़ है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina laha tile hikuva yindlu kambe ntirho a vaile.",
+       "मिन लह तिले हिकुव यिन्द्लु कम्बे न्तिर्हो अ वैले।",
+       "मैं यहाँ आया क्योंकि घर पर काम नहीं था।",
+       "S",
+       "B"
+      ],
+      [
+       "Masungulo eka hinkwaswo xin'wana tika vaile.",
+       "मसुङुलो एक हिन्कऺअसऺओ क्सिन्'वन तिक वैले।",
+       "शुरुआत में सब कुछ मुश्किल था।",
+       "S",
+       "C"
+      ],
+      [
+       "Hakatsongo-tsongo Mina ntirho dyondzo tekile.",
+       "हकत्सोङो-त्सोङो मिन न्तिर्हो द्योन्द्ज़ो तेकिले।",
+       "धीरे-धीरे मैंने काम सीख लिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Sweswi wa mina ntirho ku sungula ku suka eka antswa va.",
+       "सऺएसऺइ व मिन न्तिर्हो कु सुङुल कु सुक एक अन्त्सऺअ व।",
+       "अब मेरा काम पहले से बेहतर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina un'wana ni un'wana n'hweti 2 1000 mali bachata va.",
+       "मिन उन्'वन नि उन्'वन न्'हऺएति 2 1000 मलि बचत व।",
+       "मैं हर महीने दो हज़ार रुपये बचाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi taka lembe Mina ndyangu laha teka ta ta.",
+       "लेयि तक लेम्बे मिन न्द्यङु लह तेक त त।",
+       "अगले साल मैं परिवार को यहाँ ले आऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina vana kahle xikolo eka parhenge.",
+       "व मिन वन कह्ले क्सिकोलो एक पर्हेङे।",
+       "मेरे बच्चे अच्छे स्कूल में पढ़ेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Mundzuku Mina mulanguteri ku suka eka Xitsonga eka mhaka.",
+       "मुन्द्ज़ुकु मिन मुलङुतेरि कु सुक एक क्सित्सोङ एक म्हक।",
+       "कल मैंने सुपरवाइज़र से त्सोंगा में बात की।",
+       "S",
+       "B"
+      ],
+      [
+       "Vona tsaka humelerile hikuva Mina basa vulavula.",
+       "वोन त्सक हुमेलेरिले हिकुव मिन बस वुलवुल।",
+       "वे खुश हुए क्योंकि मैंने साफ़ बोला।",
+       "S",
+       "B"
+      ],
+      [
+       "Xitsonga wa mina hikwalaho ka ntshwa raste pfula.",
+       "क्सित्सोङ व मिन हिकऺअलहो क न्त्स्हऺअ रस्ते प्फुल।",
+       "त्सोंगा मेरे लिए नए रास्ते खोल रही है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina leswi khoso 1 n'hweti hinkwaswo endlile.",
+       "मिन लेसऺइ खोसो 1 न्'हऺएति हिन्कऺअसऺओ एन्द्लिले।",
+       "मैंने इस कोर्स का एक महीना पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 4 100 ntshwa xivulwa dyondza.",
+       "मिन 4 100 न्त्स्हऺअ क्सिवुलऺअ द्योन्द्ज़।",
+       "मैंने चार सौ नए वाक्य सीखे।",
+       "S",
+       "B"
+      ],
+      [
+       "Mundzuku ku suka eka Mina siku rin'wana ni rin'wana 30 xivulwa ta dyondza.",
+       "मुन्द्ज़ुकु कु सुक एक मिन सिकु रिन्'वन नि रिन्'वन 30 क्सिवुलऺअ त द्योन्द्ज़।",
+       "कल से मैं रोज़ तीस वाक्य सीखूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku titoloveta hinkwaswo olova endla nyika.",
+       "कु तितोलोवेत हिन्कऺअसऺओ ओलोव एन्द्ल ञिक।",
+       "अभ्यास सब आसान कर देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina ndyangu mujh kambe ku tinyungubyisa va.",
+       "व मिन न्द्यङु मुझ् कम्बे कु तिञुङुब्यिस व।",
+       "मेरे परिवार को मुझ पर गर्व है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina bhavishy hathon aka.",
+       "मिन भविश्य् हथोन् अक।",
+       "मैं अपना भविष्य अपने हाथों बना रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Jahan chah kwale rah.",
+       "जहन् चह् कऺअले रह्।",
+       "जहाँ चाह, वहाँ राह।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina riendzo sweswi shuru humelerile va.",
+       "व मिन रिएन्द्ज़ो सऺएसऺइ शुरु हुमेलेरिले व।",
+       "मेरा सफ़र अभी शुरू हुआ है।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena mangani awara pfuka?",
+     "(बोलो) Hina mixo eka 5 awara pfuka."
+    ],
+    [
+     "(सुनो) Mehaman rini ta ta?",
+     "(बोलो) Yena Sonto ta ta."
+    ]
+   ],
+   "dialog": [
+    [
+     "मेहमान",
+     "Hina endzeni aabi?",
+     "हिन एन्द्ज़ेनि आबि?"
+    ],
+    [
+     "आप",
+     "Amukela i tshama.",
+     "अमुकेल इ त्स्हम।"
+    ],
+    [
+     "मेहमान",
+     "Mati Inkomu.",
+     "मति इन्कोमु।"
+    ],
+    [
+     "आप",
+     "Laha mati na lava.",
+     "लह मति न लव।"
+    ],
+    [
+     "मेहमान",
+     "Inkomu.",
+     "इन्कोमु।"
+    ]
+   ],
+   "test": {
+    "target": "घर पर फ़ोन — महीना-1 की बड़ी परीक्षा",
+    "goal": "घर-संदेश शैली में त्सोंगा में पूरा हाल बोलिए: अपना हाल, कल क्या किया, आगे की योजना, एक because-वाक्य, और प्रणाम — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Avuxeni manana Hina laha kahle va.",
+      "अवुक्सेनि मनन हिन लह कह्ले व।"
+     ],
+     [
+      "Laha ntirho kahle famba.",
+      "लह न्तिर्हो कह्ले फ़म्ब।"
+     ],
+     [
+      "Hina mundzuku 10 awara ntirho endlile.",
+      "हिन मुन्द्ज़ुकु 10 ऑअर न्तिर्हो एन्द्लिले।"
+     ],
+     [
+      "Hina agila n'hweti yindlu aaonga.",
+      "हिन अगिल न्'हऺएति यिन्द्लु आओङ।"
+     ],
+     [
+      "Hina English sikhata i hikuva wa mina kahle ntirho lava.",
+      "हिन एङ्लिश् सिखत इ हिकुव व मिन कह्ले न्तिर्हो लव।"
+     ],
+     [
+      "Dada wa mina Avuxeni vula.",
+      "दद व मिन अवुक्सेनि वुल।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 5,
+   "title": "My Work, My Skill",
+   "hi": "मेरा काम, मेरा हुनर",
+   "pace": 30,
+   "days": [
+    {
+     "title": "पेशा-परिचय (आप क्या काम करते हैं)",
+     "tw": [
+      [
+       "Rajamistri",
+       "रजमिस्त्रि",
+       "राजमिस्त्री",
+       "ख"
+      ],
+      [
+       "Muweldi",
+       "मुवेल्दि",
+       "वेल्डर",
+       "ख"
+      ],
+      [
+       "Darzi",
+       "दर्ज़ि",
+       "दर्ज़ी",
+       "ख"
+      ],
+      [
+       "Ntokoto",
+       "न्तोकोतो",
+       "अनुभव",
+       "ख"
+      ],
+      [
+       "Tab ku suka eka",
+       "तब् कु सुक एक",
+       "तब से",
+       "ख"
+      ],
+      [
+       "Atirikt ntirho",
+       "अतिरिक्त् न्तिर्हो",
+       "अतिरिक्त काम",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "pairSwap",
+      "hi": "पेशा बदलो — सवाल वही, जवाब में अपना काम बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "N'wina yini tirha?",
+       "न्'विन यिनि तिर्ह?",
+       "आप क्या काम करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina varkashop eka muweldi va.",
+       "मिन वर्कशोप् एक मुवेल्दि व।",
+       "मैं वर्कशॉप में वेल्डर हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina rajamistri tirha.",
+       "मिन रजमिस्त्रि तिर्ह।",
+       "मैं राजमिस्त्री का काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina munghana darzi va.",
+       "व मिन मुङ्हन दर्ज़ि व।",
+       "मेरा दोस्त दर्ज़ी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yena nguvu phaiktri eka tirha.",
+       "येन ङुवु फैक्त्रि एक तिर्ह।",
+       "वह कपड़ा फैक्ट्री में काम करती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina Leswi ntirho 2020 ku suka eka endla.",
+       "मिन लेसऺइ न्तिर्हो 2020 कु सुक एक एन्द्ल।",
+       "मैं यह काम 2020 से कर रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 5 lembe ntokoto va.",
+       "मिन 5 लेम्बे न्तोकोतो व।",
+       "मुझे पाँच साल का अनुभव है।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina mangani ntokoto va?",
+       "न्'विन मङनि न्तोकोतो व?",
+       "आपको कितना अनुभव है?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Leswi ntirho mudyondzisi ku suka eka dyondza.",
+       "मिन लेसऺइ न्तिर्हो मुद्योन्द्ज़िसि कु सुक एक द्योन्द्ज़।",
+       "मैंने यह काम अपने उस्ताद से सीखा।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ku welda na phiting havumbirhi nga endla.",
+       "मिन कु वेल्द न फितिङ् हवुम्बिर्हि ङ एन्द्ल।",
+       "मैं वेल्डिंग और फिटिंग दोनों कर सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina sweswi ntshwa muchini dyondza.",
+       "मिन सऺएसऺइ न्त्स्हऺअ मुचिनि द्योन्द्ज़।",
+       "मैं अभी नई मशीन सीख रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Aajakal N'wina kwihi tirha?",
+       "आजकल् न्'विन कऺइहि तिर्ह?",
+       "आजकल आप कहाँ काम करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina imarat banane ndhawu kambe tirha.",
+       "मिन इमरत् बनने न्द्हॉउ कम्बे तिर्ह।",
+       "मैं इमारत बनने की जगह पर काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa hina khampani lohe nyangwa aka.",
+       "व हिन खम्पनि लोहे ञङऺअ अक।",
+       "हमारी कंपनी लोहे के गेट बनाती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina doropa eka thekisi famba.",
+       "मिन दोरोप एक थेकिसि फ़म्ब।",
+       "मैं शहर में ऑटो चलाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina makwerhu foni kahle endla.",
+       "व मिन मकऺएर्हु फ़ोनि कह्ले एन्द्ल।",
+       "मेरा भाई मोबाइल ठीक करता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi vutshila ntirho va.",
+       "लेसऺइ वुत्स्हिल न्तिर्हो व।",
+       "यह हुनर का काम है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kahle ntirho kahle mali tisa.",
+       "कह्ले न्तिर्हो कह्ले मलि तिस।",
+       "अच्छा काम अच्छा पैसा लाता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina siku eka 8 awara tirha.",
+       "मिन सिकु एक 8 ऑअर तिर्ह।",
+       "मैं दिन में आठ घंटे काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Minkarhi yin'wana mina nkarhi wo engetela hlangana.",
+       "मिन्कर्हि यिन्'वन मिन न्कर्हि वो एङेतेल ह्लङन।",
+       "कभी-कभी मुझे ओवरटाइम मिलता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa n'wina tatana yini tirha?",
+       "व न्'विन ततन यिनि तिर्ह?",
+       "आपके पिता क्या काम करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Vona muti eka kisan va.",
+       "वोन मुति एक किसन् व।",
+       "वे गाँव में किसान हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina 1 siku mudyondzisi banana lava ku lava.",
+       "मिन 1 सिकु मुद्योन्द्ज़िसि बनन लव कु लव।",
+       "मैं एक दिन उस्ताद बनना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Un'wana ni un'wana ntirho izzat va.",
+       "उन्'वन नि उन्'वन न्तिर्हो इज़्ज़त् व।",
+       "हर काम की इज़्ज़त होती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina ntirho hinkwaswo mbilu ku suka eka endla.",
+       "मिन न्तिर्हो हिन्कऺअसऺओ म्बिलु कु सुक एक एन्द्ल।",
+       "मैं अपना काम पूरे मन से करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina ntirho wa mina pahachan va.",
+       "व मिन न्तिर्हो व मिन पहचन् व।",
+       "मेरा काम ही मेरी पहचान है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini N'wina laha ntshwa va?",
+       "यिनि न्'विन लह न्त्स्हऺअ व?",
+       "क्या आप यहाँ नए हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina Mina leyi nga hundza vhiki jura.",
+       "इन मिन लेयि ङ हुन्द्ज़ व्हिकि जुर।",
+       "हाँ, मैं पिछले हफ़्ते जुड़ा।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa hina ntlawa eka amukela va.",
+       "व हिन न्त्लॉअ एक अमुकेल व।",
+       "हमारी टीम में स्वागत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Inkomu Mina hatlisa dyondzo lunga.",
+       "इन्कोमु मिन हत्लिस द्योन्द्ज़ो लुङ।",
+       "धन्यवाद, मैं जल्दी सीख लूँगा।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "काम खोजना (मज़दूरी तय करना)",
+     "tw": [
+      [
+       "Ku nga ri na nchumu ndhawu",
+       "कु ङ रि न न्चुमु न्द्हॉउ",
+       "ख़ाली जगह",
+       "ख"
+      ],
+      [
+       "Siku rin'wana ni rin'wana muholo",
+       "सिकु रिन्'वन नि रिन्'वन मुहोलो",
+       "रोज़ की मज़दूरी",
+       "ख"
+      ],
+      [
+       "Thekedar",
+       "थेकेदर्",
+       "ठेकेदार",
+       "ख"
+      ],
+      [
+       "Ntirho kambe lagana",
+       "न्तिर्हो कम्बे लगन",
+       "काम पर लगना",
+       "ख"
+      ],
+      [
+       "Hakelo",
+       "हकेलो",
+       "भुगतान",
+       "ख"
+      ],
+      [
+       "Kamba",
+       "कम्ब",
+       "परख",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "काम माँगने का संवाद — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Yini n'wina mutirhi lava?",
+       "यिनि न्'विन मुतिर्हि लव?",
+       "क्या आपको मज़दूर चाहिए?",
+       "S",
+       "B"
+      ],
+      [
+       "Yini laha un'wana ku nga ri na nchumu ndhawu va?",
+       "यिनि लह उन्'वन कु ङ रि न न्चुमु न्द्हॉउ व?",
+       "क्या यहाँ कोई ख़ाली जगह है?",
+       "S",
+       "B"
+      ],
+      [
+       "Hina 2 mupfuni lava.",
+       "हिन 2 मुप्फुनि लव।",
+       "हमें दो सहायक चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina yini ntirho karana hoga?",
+       "मिन यिनि न्तिर्हो करन होग?",
+       "मुझे क्या काम करना होगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Wena rajamistri mpfuno karoge.",
+       "वेन रजमिस्त्रि म्प्फुनो करोगे।",
+       "तुम राजमिस्त्री की मदद करोगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana muholo yini va?",
+       "सिकु रिन्'वन नि रिन्'वन मुहोलो यिनि व?",
+       "रोज़ की मज़दूरी क्या है?",
+       "S",
+       "B"
+      ],
+      [
+       "6 100 mali siku rin'wana ni rin'wana.",
+       "6 100 मलि सिकु रिन्'वन नि रिन्'वन।",
+       "छह सौ रुपये रोज़।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini khana-rahana na eka va?",
+       "यिनि खन-रहन न एक व?",
+       "क्या खाना-रहना साथ में है?",
+       "S",
+       "B"
+      ],
+      [
+       "Hakelo rini u ta kuma?",
+       "हकेलो रिनि उ त कुम?",
+       "भुगतान कब मिलेगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Hakelo un'wana ni un'wana shanivar va.",
+       "हकेलो उन्'वन नि उन्'वन शनिवर् व।",
+       "भुगतान हर शनिवार को होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini Mina mundzuku ku suka eka nga sungula?",
+       "यिनि मिन मुन्द्ज़ुकु कु सुक एक ङ सुङुल?",
+       "क्या मैं कल से शुरू कर सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Ina mixo 8 awara ta.",
+       "इन मिक्सो 8 ऑअर त।",
+       "हाँ, सुबह आठ बजे आ जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Aadhaar khadi tisa.",
+       "आधार् खदि तिस।",
+       "अपना आधार कार्ड लाना।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina leswi ntirho mayelana na eka munghana ku suka eka adirese famba.",
+       "मिन लेसऺइ न्तिर्हो मयेलन न एक मुङ्हन कु सुक एक अदिरेसे फ़म्ब।",
+       "मुझे इस काम के बारे में दोस्त से पता चला।",
+       "S",
+       "B"
+      ],
+      [
+       "Thekedar mina kahle tarah tiva.",
+       "थेकेदर् मिन कह्ले तरह् तिव।",
+       "ठेकेदार मुझे अच्छी तरह जानता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntirho shuru ku endla ku suka eka ku sungula muholo vekiwile endla.",
+       "न्तिर्हो शुरु कु एन्द्ल कु सुक एक कु सुङुल मुहोलो वेकिविले एन्द्ल।",
+       "काम शुरू करने से पहले मज़दूरी तय कर लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hakelo nkarhi kambe teka.",
+       "हकेलो न्कर्हि कम्बे तेक।",
+       "अपना भुगतान समय पर लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nxavo puchhe handle ka a tirha.",
+       "न्क्सवो पुछे हन्द्ले क अ तिर्ह।",
+       "दाम पूछे बिना काम मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina kamara ekusuhi ntirho khoj tshama.",
+       "मिन कमर एकुसुहि न्तिर्हो खोज् त्स्हम।",
+       "मैं अपने कमरे के पास काम खोज रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi ntirho wa mina yindlu ku suka eka kule va.",
+       "लेसऺइ न्तिर्हो व मिन यिन्द्लु कु सुक एक कुले व।",
+       "यह काम मेरे घर से दूर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini vusiku xikhati xa ntirho na yena va?",
+       "यिनि वुसिकु क्सिखति क्स न्तिर्हो न येन व?",
+       "क्या रात की ड्यूटी भी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Vusiku xikhati xa ntirho eka ku tala hlangana.",
+       "वुसिकु क्सिखति क्स न्तिर्हो एक कु तल ह्लङन।",
+       "रात की ड्यूटी में ज़्यादा मिलता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina tika swilo nga pfuka.",
+       "मिन तिक सऺइलो ङ प्फुक।",
+       "मैं भारी सामान उठा सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina naqsha parhana ta.",
+       "मिन नक़्श पर्हन त।",
+       "मुझे नक़्शा पढ़ना आता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 1 mauka nyikani nkulukumba.",
+       "मिन 1 मौक ञिकनि न्कुलुकुम्ब।",
+       "मुझे एक मौका दीजिए, सर।",
+       "S",
+       "B"
+      ],
+      [
+       "1 siku ntirho endla nakambe dekhenge.",
+       "1 सिकु न्तिर्हो एन्द्ल नकम्बे देखेङे।",
+       "एक दिन काम करो, फिर देखेंगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina kamba ntirho kahle endlile.",
+       "मिन कम्ब न्तिर्हो कह्ले एन्द्लिले।",
+       "मैंने परख का काम अच्छा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Wena chun hikwalaho ka fambile.",
+       "वेन चुन् हिकऺअलहो क फ़म्बिले।",
+       "तुम चुन लिए गए।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina ntirho wa mina vutshila vajah ku suka eka hlangana.",
+       "मिन न्तिर्हो व मिन वुत्स्हिल वजह् कु सुक एक ह्लङन।",
+       "मुझे काम मेरे हुनर की वजह से मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntirho pane hikwalaho ka minkarhi yin'wana mali 2 e-e.",
+       "न्तिर्हो पने हिकऺअलहो क मिन्कर्हि यिन्'वन मलि 2 ए-ए।",
+       "नौकरी पाने के लिए कभी पैसे मत दो।",
+       "L",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "काम-प्रमुख से बात (निर्देश समझना)",
+     "tw": [
+      [
+       "Kam-pramukh",
+       "कम्-प्रमुख्",
+       "काम-प्रमुख",
+       "ख"
+      ],
+      [
+       "Nirdesh",
+       "निर्देश्",
+       "निर्देश",
+       "ख"
+      ],
+      [
+       "Samajhana",
+       "समझन",
+       "समझना",
+       "क"
+      ],
+      [
+       "Doharana",
+       "दोहरन",
+       "दोहराना",
+       "क"
+      ],
+      [
+       "Xihoxo",
+       "क्सिहोक्सो",
+       "ग़लती",
+       "ख"
+      ],
+      [
+       "Mahungu dena",
+       "महुङु देन",
+       "ख़बर देना",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "काम की रिपोर्ट — तीन वाक्य में अपने काम की ख़बर दो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Nkulukumba namuntlha ntirho yini va?",
+       "न्कुलुकुम्ब नमुन्त्ल्ह न्तिर्हो यिनि व?",
+       "सर, आज का काम क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ku sungula mundzuku ntirho hinkwaswo endla.",
+       "कु सुङुल मुन्द्ज़ुकु न्तिर्हो हिन्कऺअसऺओ एन्द्ल।",
+       "पहले कल का काम पूरा करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina nirdesh twisisaile.",
+       "मिन निर्देश् तऺइसिसैले।",
+       "मैं निर्देश समझ गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndzi khomeli endlani Mina a twisisa.",
+       "न्द्ज़ि खोमेलि एन्द्लनि मिन अ तऺइसिस।",
+       "माफ़ कीजिए, मैं समझा नहीं।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela hi ku nonoka ku suka eka doharaie.",
+       "न्द्ज़ कोम्बेल हि कु नोनोक कु सुक एक दोहरैए।",
+       "कृपया धीरे से दोहराइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela 1 nkarhi wun'we hi ku endla kombani.",
+       "न्द्ज़ कोम्बेल 1 न्कर्हि वुन्'वे हि कु एन्द्ल कोम्बनि।",
+       "कृपया एक बार करके दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Sweswi Mina hi byakwe ta endla.",
+       "सऺएसऺइ मिन हि ब्यकऺए त एन्द्ल।",
+       "अब मैं ख़ुद करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkulukumba ntirho vaile.",
+       "न्कुलुकुम्ब न्तिर्हो वैले।",
+       "सर, काम हो गया।",
+       "S",
+       "A"
+      ],
+      [
+       "Nkulukumba Ndza kombela 1 nkarhi wun'we wa mina ntirho kamba tekani.",
+       "न्कुलुकुम्ब न्द्ज़ कोम्बेल 1 न्कर्हि वुन्'वे व मिन न्तिर्हो कम्ब तेकनि।",
+       "सर, कृपया एक बार मेरा काम जाँच लीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tumane kahle ntirho endlile va.",
+       "तुमने कह्ले न्तिर्हो एन्द्लिले व।",
+       "तुमने अच्छा काम किया है।",
+       "L",
+       "B"
+      ],
+      [
+       "Laha 1 tsongo xihoxo va.",
+       "लह 1 त्सोङो क्सिहोक्सो व।",
+       "यहाँ एक छोटी ग़लती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina leswi sweswi kahle endla.",
+       "मिन लेसऺइ सऺएसऺइ कह्ले एन्द्ल।",
+       "मैं इसे अभी ठीक करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Eka mina xihoxo humelerile Ndzi khomeli endlani nkulukumba.",
+       "एक मिन क्सिहोक्सो हुमेलेरिले न्द्ज़ि खोमेलि एन्द्लनि न्कुलुकुम्ब।",
+       "मुझसे ग़लती हुई, माफ़ कीजिए सर।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi xihoxo nakambe a endla.",
+       "लेसऺइ क्सिहोक्सो नकम्बे अ एन्द्ल।",
+       "यह ग़लती दोबारा मत करना।",
+       "L",
+       "B"
+      ],
+      [
+       "Leyi taka nkarhi wun'we Mina tivonele ta tshama.",
+       "लेयि तक न्कर्हि वुन्'वे मिन तिवोनेले त त्स्हम।",
+       "अगली बार मैं सावधान रहूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkulukumba swilo khatm vaile.",
+       "न्कुलुकुम्ब सऺइलो खत्म् वैले।",
+       "सर, सामान ख़त्म हो गया है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina na siment lava.",
+       "हिन न सिमेन्त् लव।",
+       "हमें और सीमेंट चाहिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Muchini yimaile.",
+       "मुचिनि यिमैले।",
+       "मशीन रुक गई है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina hi ku hatlisa samasya mahungu nyikile.",
+       "मिन हि कु हत्लिस समस्य महुङु ञिकिले।",
+       "मैंने तुरंत समस्या की ख़बर दी।",
+       "S",
+       "B"
+      ],
+      [
+       "Maikenik janchane hikwalaho ka bulao.",
+       "मैकेनिक् जन्चने हिकऺअलहो क बुलओ।",
+       "मैकेनिक को जाँचने के लिए बुलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi ntirho eka mangani nkarhi lagega?",
+       "लेसऺइ न्तिर्हो एक मङनि न्कर्हि लगेग?",
+       "इस काम में कितना समय लगेगा?",
+       "L",
+       "B"
+      ],
+      [
+       "Isamen 2 awara na lagenge.",
+       "इसमेन् 2 ऑअर न लगेङे।",
+       "इसमें दो घंटे और लगेंगे।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini Mina namuntlha hatlisa yindlu nga famba?",
+       "यिनि मिन नमुन्त्ल्ह हत्लिस यिन्द्लु ङ फ़म्ब?",
+       "क्या मैं आज जल्दी घर जा सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi hissa hinkwaswo endla nakambe famba.",
+       "लेसऺइ हिस्स हिन्कऺअसऺओ एन्द्ल नकम्बे फ़म्ब।",
+       "यह हिस्सा पूरा करो, फिर जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Nkulukumba Ndza kombela ntshwa naqsha samajhaie.",
+       "न्कुलुकुम्ब न्द्ज़ कोम्बेल न्त्स्हऺअ नक़्श समझैए।",
+       "सर, कृपया नया नक़्शा समझाइए।",
+       "S",
+       "B"
+      ],
+      [
+       "Un'wana shanka i eka mina vutisa.",
+       "उन्'वन शन्क इ एक मिन वुतिस।",
+       "कोई शंका हो तो मुझसे पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xihoxo ku endla ku suka eka puchhana antswa va.",
+       "क्सिहोक्सो कु एन्द्ल कु सुक एक पुछन अन्त्सऺअ व।",
+       "ग़लती करने से पूछना बेहतर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina nkarhi ku suka eka ku sungula ntirho hinkwaswo endlile.",
+       "मिन न्कर्हि कु सुक एक कु सुङुल न्तिर्हो हिन्कऺअसऺओ एन्द्लिले।",
+       "मैंने समय से पहले काम पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Namuntlha mulanguteri wa mina tarif.",
+       "नमुन्त्ल्ह मुलङुतेरि व मिन तरिफ़्।",
+       "आज सुपरवाइज़र ने मेरी तारीफ़ की।",
+       "S",
+       "B"
+      ],
+      [
+       "Basa mhaka nkarhi bachati va.",
+       "बस म्हक न्कर्हि बचति व।",
+       "साफ़ बात समय बचाती है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "औज़ार, सामान और काम की जगह",
+     "tw": [
+      [
+       "Switirhisiwa",
+       "सऺइतिर्हिसिव",
+       "औज़ार",
+       "ख"
+      ],
+      [
+       "Hathaura",
+       "हथौर",
+       "हथौड़ा",
+       "ख"
+      ],
+      [
+       "Napana",
+       "नपन",
+       "नापना",
+       "ख"
+      ],
+      [
+       "Suraksha-topi",
+       "सुरक्श-तोपि",
+       "सुरक्षा-टोपी",
+       "ख"
+      ],
+      [
+       "Tigilavhu",
+       "तिगिलव्हु",
+       "दस्ताने",
+       "ख"
+      ],
+      [
+       "Tivonele",
+       "तिवोनेले",
+       "सावधान",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "preposition",
+      "hi": "औज़ार कहाँ है — in / on / under / near सही खाने में बैठाओ।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina switirhisiwa vula?",
+       "व मिन सऺइतिर्हिसिव वुल?",
+       "मेरे औज़ार कहाँ हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Hathaura mabokisi eka va.",
+       "हथौर मबोकिसि एक व।",
+       "हथौड़ा डिब्बे में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Yena pana 2.",
+       "मिन येन पन 2।",
+       "मुझे वह पाना दो।",
+       "S",
+       "B"
+      ],
+      [
+       "Xitepisi hi ku tiya khoma.",
+       "क्सितेपिसि हि कु तिय खोम।",
+       "सीढ़ी कसकर पकड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku sungula divar napo.",
+       "कु सुङुल दिवर् नपो।",
+       "पहले दीवार नापो।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi 10 phit lanbi va.",
+       "लेसऺइ 10 फित् लन्बि व।",
+       "यह दस फीट लंबी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Chhar 5 phit kambe kato.",
+       "छर् 5 फित् कम्बे कतो।",
+       "छड़ को पाँच फीट पर काटो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bled tez a va.",
+       "ब्लेद् तेज़् अ व।",
+       "ब्लेड तेज़ नहीं है।",
+       "S",
+       "C"
+      ],
+      [
+       "Katane ku suka eka ku sungula bled badalo.",
+       "कतने कु सुक एक कु सुङुल ब्लेद् बदलो।",
+       "काटने से पहले ब्लेड बदलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Suraksha-topi ambala.",
+       "सुरक्श-तोपि अम्बल।",
+       "अपनी सुरक्षा-टोपी पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi ntirho eka minkarhi hinkwayo tigilavhu ambala.",
+       "लेसऺइ न्तिर्हो एक मिन्कर्हि हिन्कऺअयो तिगिलव्हु अम्बल।",
+       "इस काम में हमेशा दस्ताने पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Muchini ku suka eka tivonele tshama.",
+       "मुचिनि कु सुक एक तिवोनेले त्स्हम।",
+       "मशीन से सावधान रहो।",
+       "L",
+       "B"
+      ],
+      [
+       "Safai ku suka eka ku sungula muchini pfala.",
+       "सफ़ै कु सुक एक कु सुङुल मुचिनि प्फल।",
+       "सफ़ाई से पहले मशीन बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Farsh sukha veka.",
+       "फ़र्श् सुख वेक।",
+       "फ़र्श सूखा रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Gile farsh kambe wile sakate va.",
+       "गिले फ़र्श् कम्बे विले सकते व।",
+       "गीले फ़र्श पर गिर सकते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Maraham-patti bokisi kwihi veka?",
+       "मरहम्-पत्ति बोकिसि कऺइहि वेक?",
+       "मरहम-पट्टी का डिब्बा कहाँ रखा है?",
+       "S",
+       "A"
+      ],
+      [
+       "Yena hofisi nyangwa ekusuhi va.",
+       "येन होफ़िसि ञङऺअ एकुसुहि व।",
+       "वह दफ़्तर के दरवाज़े के पास है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntirho endzhaku switirhisiwa basa endla.",
+       "न्तिर्हो एन्द्झ़कु सऺइतिर्हिसिव बस एन्द्ल।",
+       "काम के बाद औज़ार साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku famba ku suka eka ku sungula switirhisiwa gin teka.",
+       "कु फ़म्ब कु सुक एक कु सुङुल सऺइतिर्हिसिव गिन् तेक।",
+       "जाने से पहले औज़ार गिन लो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 pana gum va.",
+       "1 पन गुम् व।",
+       "एक पाना गुम है।",
+       "S",
+       "C"
+      ],
+      [
+       "Yena mina mez ehansi hlangana.",
+       "येन मिन मेज़् एहन्सि ह्लङन।",
+       "वह मुझे मेज़ के नीचे मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi muchini ntshwa i sanbhalakar chalao.",
+       "लेसऺइ मुचिनि न्त्स्हऺअ इ सन्भलकर् चलओ।",
+       "यह मशीन नई है, सँभालकर चलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Muchini eka un'wana ni un'wana vhiki tel chela.",
+       "मुचिनि एक उन्'वन नि उन्'वन व्हिकि तेल् चेल।",
+       "मशीन में हर हफ़्ते तेल डालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Swilo trak eka taile.",
+       "सऺइलो त्रक् एक तैले।",
+       "सामान ट्रक में आया।",
+       "S",
+       "C"
+      ],
+      [
+       "Masaka vukheta ku suka eka xika.",
+       "मसक वुखेत कु सुक एक क्सिक।",
+       "बोरियाँ सावधानी से उतारो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tika vazan akele uthao e-e.",
+       "तिक वज़न् अकेले उथओ ए-ए।",
+       "भारी वज़न अकेले मत उठाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Zarurat pare mpfuno kombela.",
+       "ज़रुरत् परे म्प्फुनो कोम्बेल।",
+       "ज़रूरत पड़े तो मदद माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kahle switirhisiwa ntirho olova endla.",
+       "कह्ले सऺइतिर्हिसिव न्तिर्हो ओलोव एन्द्ल।",
+       "अच्छे औज़ार काम आसान करते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku sungula suraksha nakambe ntirho.",
+       "कु सुङुल सुरक्श नकम्बे न्तिर्हो।",
+       "पहले सुरक्षा, फिर काम।",
+       "L",
+       "B"
+      ],
+      [
+       "Tivonele mutirhi hlayisekile yindlu fika.",
+       "तिवोनेले मुतिर्हि ह्लयिसेकिले यिन्द्लु फ़िक।",
+       "सावधान मज़दूर सुरक्षित घर पहुँचता है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "छुट्टी की अर्ज़ी और एआई-मदद",
+     "tw": [
+      [
+       "Holideyi arzi",
+       "होलिदेयि अर्ज़ि",
+       "छुट्टी की अर्ज़ी",
+       "ख"
+      ],
+      [
+       "Zaruri",
+       "ज़रुरि",
+       "ज़रूरी",
+       "ख"
+      ],
+      [
+       "Anumati",
+       "अनुमति",
+       "अनुमति",
+       "ख"
+      ],
+      [
+       "AI app",
+       "ऐ अप्प्",
+       "एआई ऐप",
+       "ख"
+      ],
+      [
+       "Janchana",
+       "जन्चन",
+       "जाँचना",
+       "क"
+      ],
+      [
+       "Taip karana",
+       "तैप् करन",
+       "टाइप करना",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "messageFrame",
+      "hi": "चार-पंक्ति अर्ज़ी — ख़ाली जगह अपनी बात से भरकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Nkulukumba mina 1 siku holideyi lava.",
+       "न्कुलुकुम्ब मिन 1 सिकु होलिदेयि लव।",
+       "सर, मुझे एक दिन की छुट्टी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina Musumbhunuku holideyi lava.",
+       "मिन मुसुम्ब्हुनुकु होलिदेयि लव।",
+       "मुझे सोमवार को छुट्टी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Yindlu kambe zaruri ntirho va.",
+       "यिन्द्लु कम्बे ज़रुरि न्तिर्हो व।",
+       "घर पर ज़रूरी काम है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina tatana tabiyat kahle a va.",
+       "व मिन ततन तबियत् कह्ले अ व।",
+       "मेरे पिताजी की तबीयत ठीक नहीं है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina bangi famba.",
+       "मिन बङि फ़म्ब।",
+       "मुझे बैंक जाना है।",
+       "S",
+       "A"
+      ],
+      [
+       "Yini Mina aadhe siku holideyi nga teka?",
+       "यिनि मिन आधे सिकु होलिदेयि ङ तेक?",
+       "क्या मैं आधे दिन की छुट्टी ले सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela anumati nyikani nkulukumba.",
+       "न्द्ज़ कोम्बेल अनुमति ञिकनि न्कुलुकुम्ब।",
+       "कृपया अनुमति दीजिए, सर।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina budhavar vuya ntirho kambe ta ta.",
+       "मिन बुधवर् वुय न्तिर्हो कम्बे त त।",
+       "मैं बुधवार को वापस काम पर आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku famba ku suka eka ku sungula Mina ntirho hinkwaswo endla ndzi ta nyika.",
+       "कु फ़म्ब कु सुक एक कु सुङुल मिन न्तिर्हो हिन्कऺअसऺओ एन्द्ल न्द्ज़ि त ञिक।",
+       "जाने से पहले मैं अपना काम पूरा कर दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Holideyi manzur va.",
+       "होलिदेयि मन्ज़ुर् व।",
+       "छुट्टी मंज़ूर है।",
+       "L",
+       "B"
+      ],
+      [
+       "1 siku ku sungula byela nyika.",
+       "1 सिकु कु सुङुल ब्येल ञिक।",
+       "एक दिन पहले बता देना।",
+       "L",
+       "B"
+      ],
+      [
+       "Holideyi arzi tsala.",
+       "होलिदेयि अर्ज़ि त्सल।",
+       "छुट्टी की अर्ज़ी लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Leswi likhana a ta.",
+       "मिन लेसऺइ लिखन अ त।",
+       "मुझे यह लिखना नहीं आता।",
+       "S",
+       "B"
+      ],
+      [
+       "AI app tumhari nga pfuna.",
+       "ऐ अप्प् तुम्हरि ङ प्फुन।",
+       "एआई ऐप तुम्हारी मदद कर सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina AI app ku suka eka arzi likhavai.",
+       "मिन ऐ अप्प् कु सुक एक अर्ज़ि लिखवै।",
+       "मैंने एआई ऐप से अपनी अर्ज़ी लिखवाई।",
+       "S",
+       "B"
+      ],
+      [
+       "App vito na xivangelo byela.",
+       "अप्प् वितो न क्सिवङेलो ब्येल।",
+       "ऐप को अपना नाम और कारण बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hindi eka bolo Yena Xitsonga eka likh dega.",
+       "हिन्दि एक बोलो येन क्सित्सोङ एक लिख् देग।",
+       "हिंदी में बोलो, वह त्सोंगा में लिख देगा।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku rhumela ku suka eka ku sungula minkarhi hinkwayo hlaya.",
+       "कु र्हुमेल कु सुक एक कु सुङुल मिन्कर्हि हिन्कऺअयो ह्लय।",
+       "भेजने से पहले हमेशा पढ़ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vito na siku hi byakwe kamba.",
+       "वितो न सिकु हि ब्यकऺए कम्ब।",
+       "नाम और तारीख़ ख़ुद जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "AI na yena xihoxo nga endla.",
+       "ऐ न येन क्सिहोक्सो ङ एन्द्ल।",
+       "एआई भी ग़लती कर सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina AI app ku suka eka Xitsonga janchavata va.",
+       "मिन ऐ अप्प् कु सुक एक क्सित्सोङ जन्चवत व।",
+       "मैं एआई ऐप से अपनी त्सोंगा जँचवाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina AI app na bolane ku titoloveta endla.",
+       "मिन ऐ अप्प् न बोलने कु तितोलोवेत एन्द्ल।",
+       "मैं एआई ऐप के साथ बोलने का अभ्यास करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Rungula taip endla na rhumela.",
+       "रुङुल तैप् एन्द्ल न र्हुमेल।",
+       "अपना संदेश टाइप करो और भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina arzi WhatsApp kambe rhumela.",
+       "मिन अर्ज़ि व्हत्सप्प् कम्बे र्हुमेल।",
+       "मैंने अर्ज़ी व्हाट्सऐप पर भेजी।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkulukumba foni kambe wa mina holideyi manzur.",
+       "न्कुलुकुम्ब फ़ोनि कम्बे व मिन होलिदेयि मन्ज़ुर्।",
+       "सर ने फोन पर मेरी छुट्टी मंज़ूर की।",
+       "S",
+       "B"
+      ],
+      [
+       "Handle ka batae holideyi teka e-e.",
+       "हन्द्ले क बतै होलिदेयि तेक ए-ए।",
+       "बिना बताए छुट्टी मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku tala chhuttiyan hakelo katati va.",
+       "कु तल छुत्तियन् हकेलो कतति व।",
+       "ज़्यादा छुट्टियाँ भुगतान काटती हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Nkhuvo ku suka eka ku sungula holideyi kungu aka.",
+       "न्खुवो कु सुक एक कु सुङुल होलिदेयि कुङु अक।",
+       "त्योहार से पहले छुट्टी की योजना बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Sachcha xivangelo ntshembo jitata va.",
+       "सच्च क्सिवङेलो न्त्स्हेम्बो जितत व।",
+       "सच्चा कारण भरोसा जिताता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ntshwa zamana ntshwa switirhisiwa — sikhate tshama.",
+       "न्त्स्हऺअ ज़मन न्त्स्हऺअ सऺइतिर्हिसिव — सिखते त्स्हम।",
+       "नया ज़माना, नए औज़ार — सीखते रहो।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Nkulukumba Yena dubai hikuva ku famba lava ku lava?",
+     "(बोलो) Hina laha wa mina muweldi nokari va."
+    ],
+    [
+     "(सुनो) Nkulukumba Yena mangani lembe ntwanano va?",
+     "(बोलो) Hina wa mina ntwanano 2 lembe va."
+    ]
+   ],
+   "dialog": [
+    [
+     "कामगार",
+     "Yena ntirho bujhay va?",
+     "येन न्तिर्हो बुझय् व?"
+    ],
+    [
+     "सुपरवाइज़र",
+     "Ku welda 5 lembe.",
+     "कु वेल्द 5 लेम्बे।"
+    ],
+    [
+     "कामगार",
+     "Muholo 12 1000.",
+     "मुहोलो 12 1000।"
+    ],
+    [
+     "सुपरवाइज़र",
+     "Rini bhetat?",
+     "रिनि भेतत्?"
+    ],
+    [
+     "कामगार",
+     "7 siku ku fika eka.",
+     "7 सिकु कु फ़िक एक।"
+    ]
+   ],
+   "test": {
+    "target": "काम-प्रमुख (supervisor) से आमने-सामने या फ़ोन पर",
+    "goal": "त्सोंगा में अपना परिचय दीजिए (काम+अनुभव), आज का काम पूछिए, काम पूरा होने की रिपोर्ट दीजिए, और एक दिन की छुट्टी माँगिए — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Hina muweldi i wa mina 5 lembe ntokoto va.",
+      "हिन मुवेल्दि इ व मिन 5 लेम्बे न्तोकोतो व।"
+     ],
+     [
+      "Nkulukumba namuntlha ntirho va?",
+      "न्कुलुकुम्ब नमुन्त्ल्ह न्तिर्हो व?"
+     ],
+     [
+      "Nkulukumba ntirho vaile.",
+      "न्कुलुकुम्ब न्तिर्हो वैले।"
+     ],
+     [
+      "Nkulukumba 1 nkarhi wun'we wa mina ntirho vona.",
+      "न्कुलुकुम्ब 1 न्कर्हि वुन्'वे व मिन न्तिर्हो वोन।"
+     ],
+     [
+      "Nkulukumba wa mina 1 siku holideyi lava.",
+      "न्कुलुकुम्ब व मिन 1 सिकु होलिदेयि लव।"
+     ],
+     [
+      "Hina budhavar ntirho kambe vuya aaonga.",
+      "हिन बुधवर् न्तिर्हो कम्बे वुय आओङ।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 6,
+   "title": "Money, Friends and Growth",
+   "hi": "पैसा, दोस्त और तरक्की",
+   "pace": 30,
+   "days": [
+    {
+     "title": "वेतन और हिसाब",
+     "tw": [
+      [
+       "Muholo",
+       "मुहोलो",
+       "वेतन",
+       "ख"
+      ],
+      [
+       "Ginana",
+       "गिनन",
+       "गिनना",
+       "क"
+      ],
+      [
+       "Ku hunguta",
+       "कु हुङुत",
+       "कटौती",
+       "ख"
+      ],
+      [
+       "Peshagi",
+       "पेशगि",
+       "पेशगी",
+       "ख"
+      ],
+      [
+       "Hinkwaswo",
+       "हिन्कऺअसऺओ",
+       "कुल",
+       "ग"
+      ],
+      [
+       "Risiti",
+       "रिसिति",
+       "रसीद",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "moneyCount",
+      "hi": "पैसे बोलो — रक़म सुनो, त्सोंगा में कहो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Namuntlha hakelo siku va.",
+       "नमुन्त्ल्ह हकेलो सिकु व।",
+       "आज भुगतान का दिन है।",
+       "S",
+       "C"
+      ],
+      [
+       "Namuntlha mina muholo hlangana.",
+       "नमुन्त्ल्ह मिन मुहोलो ह्लङन।",
+       "आज मुझे वेतन मिला।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku famba ku suka eka ku sungula mali gin teka.",
+       "कु फ़म्ब कु सुक एक कु सुङुल मलि गिन् तेक।",
+       "जाने से पहले पैसे गिन लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina 2 nkarhi wun'we gina.",
+       "मिन 2 न्कर्हि वुन्'वे गिन।",
+       "मैंने दो बार गिना।",
+       "S",
+       "B"
+      ],
+      [
+       "2 100 mali switsongo va.",
+       "2 100 मलि सऺइत्सोङो व।",
+       "दो सौ रुपये कम हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkulukumba Ndza kombela hinkwaswo nakambe ku suka eka janchie.",
+       "न्कुलुकुम्ब न्द्ज़ कोम्बेल हिन्कऺअसऺओ नकम्बे कु सुक एक जन्चिए।",
+       "सर, कृपया कुल फिर से जाँचिए।",
+       "S",
+       "B"
+      ],
+      [
+       "2 chhuttiyon ku hunguta humelerile.",
+       "2 छुत्तियोन् कु हुङुत हुमेलेरिले।",
+       "दो छुट्टियों की कटौती हुई।",
+       "S",
+       "C"
+      ],
+      [
+       "Sweswi hinkwaswo lulama va.",
+       "सऺएसऺइ हिन्कऺअसऺओ लुलम व।",
+       "अब कुल सही है।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkarhi wo engetela mangani hlangana?",
+       "न्कर्हि वो एङेतेल मङनि ह्लङन?",
+       "ओवरटाइम के कितने मिले?",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 8 100 atirikt hlangana.",
+       "मिन 8 100 अतिरिक्त् ह्लङन।",
+       "मुझे आठ सौ अतिरिक्त मिले।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina leyi nga hundza vhiki switsongo peshagi tekile vaile.",
+       "मिन लेयि ङ हुन्द्ज़ व्हिकि सऺइत्सोङो पेशगि तेकिले वैले।",
+       "मैंने पिछले हफ़्ते थोड़ी पेशगी ली थी।",
+       "S",
+       "B"
+      ],
+      [
+       "Peshagi wa mina muholo ku suka eka kati.",
+       "पेशगि व मिन मुहोलो कु सुक एक कति।",
+       "पेशगी मेरे वेतन से कटी।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela mina muholo risiti nyikani.",
+       "न्द्ज़ कोम्बेल मिन मुहोलो रिसिति ञिकनि।",
+       "कृपया मुझे वेतन की रसीद दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Un'wana ni un'wana risiti sanbhalakar veka.",
+       "उन्'वन नि उन्'वन रिसिति सन्भलकर् वेक।",
+       "हर रसीद सँभालकर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana ntirho kopi eka tsala.",
+       "सिकु रिन्'वन नि रिन्'वन न्तिर्हो कोपि एक त्सल।",
+       "अपना रोज़ का काम कॉपी में लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina na unaka nhlayo hambana nikala.",
+       "व मिन न उनक न्ह्लयो हम्बन निकल।",
+       "मेरा और उनका हिसाब अलग निकला।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina na eka kopi janchi.",
+       "हिन न एक कोपि जन्चि।",
+       "हमने साथ में कॉपी जाँची।",
+       "S",
+       "B"
+      ],
+      [
+       "Xihoxo 1 likhavat eka vaile.",
+       "क्सिहोक्सो 1 लिखवत् एक वैले।",
+       "ग़लती एक लिखावट में थी।",
+       "S",
+       "C"
+      ],
+      [
+       "Vona hinkwaswo mali nyikile.",
+       "वोन हिन्कऺअसऺओ मलि ञिकिले।",
+       "उन्होंने पूरा पैसा दिया।",
+       "S",
+       "C"
+      ],
+      [
+       "Gina humelerile mali holova a tisa.",
+       "गिन हुमेलेरिले मलि होलोव अ तिस।",
+       "गिना हुआ पैसा झगड़ा नहीं लाता।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku dya kambe mangani ku tirhisa mali va?",
+       "कु द्य कम्बे मङनि कु तिर्हिस मलि व?",
+       "खाने पर कितना ख़र्च होता है?",
+       "L",
+       "B"
+      ],
+      [
+       "Ku dya kambe 3 1000 ku tirhisa mali va.",
+       "कु द्य कम्बे 3 1000 कु तिर्हिस मलि व।",
+       "खाने पर तीन हज़ार ख़र्च होते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Kamara rhenti 2 1000 va.",
+       "कमर र्हेन्ति 2 1000 व।",
+       "कमरे का किराया दो हज़ार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana vusiku ku tirhisa mali tsala.",
+       "मिन सिकु रिन्'वन नि रिन्'वन वुसिकु कु तिर्हिस मलि त्सल।",
+       "मैं रोज़ रात अपना ख़र्च लिखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Chhote-chhote ku tirhisa mali kulu mali kha famba.",
+       "छोते-छोते कु तिर्हिस मलि कुलु मलि ख फ़म्ब।",
+       "छोटे-छोटे ख़र्च बड़ा पैसा खा जाते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Dikhave hikwalaho ka karz teka e-e.",
+       "दिखवे हिकऺअलहो क कर्ज़् तेक ए-ए।",
+       "दिखावे के लिए कर्ज़ मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku sungula karz chukao.",
+       "कु सुङुल कर्ज़् चुकओ।",
+       "पहले कर्ज़ चुकाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi n'hweti Mina 3 1000 bachae.",
+       "लेसऺइ न्'हऺएति मिन 3 1000 बचै।",
+       "इस महीने मैंने तीन हज़ार बचाए।",
+       "S",
+       "B"
+      ],
+      [
+       "Bachaya mali na yena kamaya mali va.",
+       "बचय मलि न येन कमय मलि व।",
+       "बचाया पैसा भी कमाया पैसा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Basa nhlayo rishte mithe veka.",
+       "बस न्ह्लयो रिश्ते मिथे वेक।",
+       "साफ़ हिसाब रिश्ते मीठे रखता है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "बैंक, यूपीआई और घर पैसा भेजना",
+     "tw": [
+      [
+       "Akhawunti",
+       "अखॉउन्ति",
+       "खाता",
+       "ग"
+      ],
+      [
+       "ATM",
+       "अत्म्",
+       "एटीएम",
+       "ग"
+      ],
+      [
+       "UPI",
+       "उपि",
+       "यूपीआई",
+       "ग"
+      ],
+      [
+       "Mali bhejana",
+       "मलि भेजन",
+       "पैसा भेजना",
+       "ग"
+      ],
+      [
+       "OTP",
+       "ओत्प्",
+       "ओटीपी",
+       "ग"
+      ],
+      [
+       "Salile mali",
+       "सलिले मलि",
+       "बचा पैसा",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "बैंक-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina bangi dya.",
+       "व मिन बङि द्य।",
+       "मेरा बैंक खाता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina akhawunti muti bangi eka va.",
+       "व मिन अखॉउन्ति मुति बङि एक व।",
+       "मेरा खाता गाँव के बैंक में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mali ku rhumela hikwalaho ka Leswi fomo bharo.",
+       "मलि कु र्हुमेल हिकऺअलहो क लेसऺइ फ़ोमो भरो।",
+       "पैसा भेजने के लिए यह फ़ॉर्म भरो।",
+       "L",
+       "B"
+      ],
+      [
+       "Akhawunti nomboro nyingiso ku suka eka tsala.",
+       "अखॉउन्ति नोम्बोरो ञिङिसो कु सुक एक त्सल।",
+       "खाता नंबर ध्यान से लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 hoxa ank mali un'wana loyi a nga tiviwiki nga rhumela.",
+       "1 होक्स अन्क् मलि उन्'वन लोयि अ ङ तिविविकि ङ र्हुमेल।",
+       "एक ग़लत अंक पैसा किसी अनजान को भेज सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina UPI ku suka eka 4 1000 rhumela.",
+       "मिन उपि कु सुक एक 4 1000 र्हुमेल।",
+       "मैंने यूपीआई से चार हज़ार भेजे।",
+       "S",
+       "A"
+      ],
+      [
+       "Mali 1 minete eka fikaile.",
+       "मलि 1 मिनेते एक फ़िकैले।",
+       "पैसा एक मिनट में पहुँच गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Manana foni kambe rungula taile.",
+       "मनन फ़ोनि कम्बे रुङुल तैले।",
+       "माँ के फोन पर संदेश आ गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku rhumela endzhaku salile mali kamba.",
+       "कु र्हुमेल एन्द्झ़कु सलिले मलि कम्ब।",
+       "भेजने के बाद बचा पैसा जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sweswi wa mina salile mali 6 1000 va.",
+       "सऺएसऺइ व मिन सलिले मलि 6 1000 व।",
+       "अब मेरा बचा पैसा छह हज़ार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku tlula hinkwaswo ekusuhi ATM vula?",
+       "कु त्लुल हिन्कऺअसऺओ एकुसुहि अत्म् वुल?",
+       "सबसे पास का एटीएम कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "ATM makete bagal eka va.",
+       "अत्म् मकेते बगल् एक व।",
+       "एटीएम बाजार के बगल में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina ATM ku suka eka 2 1000 nikale.",
+       "मिन अत्म् कु सुक एक 2 1000 निकले।",
+       "मैंने एटीएम से दो हज़ार निकाले।",
+       "S",
+       "B"
+      ],
+      [
+       "Pin dalate nkarhi voko funengeta.",
+       "पिन् दलते न्कर्हि वोको फ़ुनेङेत।",
+       "पिन डालते समय हाथ ढको।",
+       "L",
+       "B"
+      ],
+      [
+       "Pin un'wana minkarhi yin'wana byela e-e.",
+       "पिन् उन्'वन मिन्कर्हि यिन्'वन ब्येल ए-ए।",
+       "अपना पिन किसी को कभी मत बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Foni kambe OTP minkarhi yin'wana sajha a endla.",
+       "फ़ोनि कम्बे ओत्प् मिन्कर्हि यिन्'वन सझ अ एन्द्ल।",
+       "फोन पर ओटीपी कभी साझा मत करो।",
+       "L",
+       "A"
+      ],
+      [
+       "Bangi minkarhi yin'wana OTP a kombela.",
+       "बङि मिन्कर्हि यिन्'वन ओत्प् अ कोम्बेल।",
+       "बैंक कभी ओटीपी नहीं माँगता।",
+       "L",
+       "A"
+      ],
+      [
+       "Yena foni dhokhe vaile.",
+       "येन फ़ोनि धोखे वैले।",
+       "वह फोन धोखे का था।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina hi ku hatlisa foni kat nyikile.",
+       "मिन हि कु हत्लिस फ़ोनि कत् ञिकिले।",
+       "मैंने तुरंत फोन काट दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mali vukhamba i bangi byela.",
+       "मलि वुखम्ब इ बङि ब्येल।",
+       "पैसा चोरी हो तो बैंक को बताओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Yini bangi shanivar pfulekile va?",
+       "यिनि बङि शनिवर् प्फुलेकिले व?",
+       "क्या बैंक शनिवार को खुला है?",
+       "S",
+       "B"
+      ],
+      [
+       "Bangi 10 awara khulata va.",
+       "बङि 10 ऑअर खुलत व।",
+       "बैंक दस बजे खुलता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Likhavane hikwalaho ka pasabuk tisa.",
+       "लिखवने हिकऺअलहो क पसबुक् तिस।",
+       "लिखवाने के लिए पासबुक लाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina namuntlha pasabuk eka likhavaya.",
+       "मिन नमुन्त्ल्ह पसबुक् एक लिखवय।",
+       "मैंने आज पासबुक में लिखवाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Foni nomboro akhawunti ku suka eka juravao.",
+       "फ़ोनि नोम्बोरो अखॉउन्ति कु सुक एक जुरवओ।",
+       "मोबाइल नंबर खाते से जुड़वाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina ku sungula Sonto yindlu mali rhumela.",
+       "मिन कु सुङुल सोन्तो यिन्द्लु मलि र्हुमेल।",
+       "मैं पहले रविवार को घर पैसे भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hafu muholo yindlu jata i hafu laha tshama.",
+       "हफ़ु मुहोलो यिन्द्लु जत इ हफ़ु लह त्स्हम।",
+       "आधा वेतन घर जाता है, आधा यहाँ रहता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Nsati na yena akhawunti khulavao.",
+       "न्सति न येन अखॉउन्ति खुलवओ।",
+       "पत्नी का भी खाता खुलवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Bangi mali jeb ku suka eka ku tala hlayisekile va.",
+       "बङि मलि जेब् कु सुक एक कु तल ह्लयिसेकिले व।",
+       "बैंक का पैसा जेब से ज़्यादा सुरक्षित है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tivonele ungaliyan mali hlayisekile veka.",
+       "तिवोनेले उङलियन् मलि ह्लयिसेकिले वेक।",
+       "सावधान उँगलियाँ पैसा सुरक्षित रखती हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "झगड़ा और सुलह",
+     "tw": [
+      [
+       "Holova",
+       "होलोव",
+       "झगड़ा",
+       "ख"
+      ],
+      [
+       "Rhula",
+       "र्हुल",
+       "शांत",
+       "क"
+      ],
+      [
+       "Mafi",
+       "मफ़ि",
+       "माफ़ी",
+       "क"
+      ],
+      [
+       "Dosh",
+       "दोश्",
+       "दोष",
+       "ख"
+      ],
+      [
+       "Sahamat hona",
+       "सहमत् होन",
+       "सहमत होना",
+       "ख"
+      ],
+      [
+       "Dhairy",
+       "धैर्य्",
+       "धैर्य",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Namuntlha ntirho kambe holova humelerile.",
+       "नमुन्त्ल्ह न्तिर्हो कम्बे होलोव हुमेलेरिले।",
+       "आज काम पर झगड़ा हुआ।",
+       "S",
+       "C"
+      ],
+      [
+       "2 mutirhi chilla tshama.",
+       "2 मुतिर्हि चिल्ल त्स्हम।",
+       "दो मज़दूर चिल्ला रहे थे।",
+       "S",
+       "C"
+      ],
+      [
+       "Makwerhu rhula va.",
+       "मकऺएर्हु र्हुल व।",
+       "भाई, शांत हो जाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Chillao mat hi ku nonoka mhaka endla.",
+       "चिल्लओ मत् हि कु नोनोक म्हक एन्द्ल।",
+       "चिल्लाओ मत, धीरे बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mhaka yini va?",
+       "म्हक यिनि व?",
+       "बात क्या है?",
+       "L",
+       "B"
+      ],
+      [
+       "Yena handle ka puchhe wa mina switirhisiwa teka hikwalaho ka.",
+       "येन हन्द्ले क पुछे व मिन सऺइतिर्हिसिव तेक हिकऺअलहो क।",
+       "उसने बिना पूछे मेरे औज़ार ले लिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina xihoxo thi Ndzi khomeli endla.",
+       "व मिन क्सिहोक्सो थि न्द्ज़ि खोमेलि एन्द्ल।",
+       "मेरी ग़लती थी, माफ़ करना।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi taka nkarhi wun'we ku sungula eka mina puchh teka.",
+       "लेयि तक न्कर्हि वुन्'वे कु सुङुल एक मिन पुछ् तेक।",
+       "अगली बार पहले मुझसे पूछ लेना।",
+       "S",
+       "B"
+      ],
+      [
+       "Kahle i Mina sahamat va.",
+       "कह्ले इ मिन सहमत् व।",
+       "ठीक है, मैं सहमत हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Voko hlanganisa na bhul famba.",
+       "वोको ह्लङनिस न भुल् फ़म्ब।",
+       "हाथ मिलाओ और भूल जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina 1 ntlawa va.",
+       "हिन 1 न्त्लॉअ व।",
+       "हम एक टीम हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Larai hinkwaswo siku bigar nyika.",
+       "लरै हिन्कऺअसऺओ सिकु बिगर् ञिक।",
+       "लड़ाई पूरा दिन बिगाड़ देती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku sungula suno nakambe vulavula.",
+       "कु सुङुल सुनो नकम्बे वुलवुल।",
+       "पहले सुनो, फिर बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Shayad Yena jan-bujhakar endlile e-e.",
+       "शयद् येन जन्-बुझकर् एन्द्लिले ए-ए।",
+       "शायद उसने जान-बूझकर नहीं किया।",
+       "S",
+       "C"
+      ],
+      [
+       "Yena samajhane 1 mauka 2.",
+       "येन समझने 1 मौक 2।",
+       "उसे समझाने का एक मौका दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina mafi mangi na Yena muskuraya.",
+       "मिन मफ़ि मङि न येन मुस्कुरय।",
+       "मैंने माफ़ी माँगी और वह मुस्कुराया।",
+       "S",
+       "B"
+      ],
+      [
+       "Tsongo mafi kulu holova salile teka.",
+       "त्सोङो मफ़ि कुलु होलोव सलिले तेक।",
+       "छोटी माफ़ी बड़ा झगड़ा बचा लेती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Dhairy mutirhi munghana va.",
+       "धैर्य् मुतिर्हि मुङ्हन व।",
+       "धैर्य मज़दूर का दोस्त है।",
+       "S",
+       "C"
+      ],
+      [
+       "Gussa muchini ku fika eka a teka.",
+       "गुस्स मुचिनि कु फ़िक एक अ तेक।",
+       "गुस्सा मशीन तक मत ले जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Gusse voko durghatana endla.",
+       "गुस्से वोको दुर्घतन एन्द्ल।",
+       "गुस्से के हाथ दुर्घटना करते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Mhaka kulu i mulanguteri ku suka eka mhaka endla.",
+       "म्हक कुलु इ मुलङुतेरि कु सुक एक म्हक एन्द्ल।",
+       "बात बड़ी हो तो सुपरवाइज़र से बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vona 5 minete eka mhaka sulajha nyikile.",
+       "वोन 5 मिनेते एक म्हक सुलझ ञिकिले।",
+       "उन्होंने पाँच मिनट में बात सुलझा दी।",
+       "S",
+       "C"
+      ],
+      [
+       "Wena havumbirhi kahle karigar va.",
+       "वेन हवुम्बिर्हि कह्ले करिगर् व।",
+       "तुम दोनों अच्छे कारीगर हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Na ntirho endla na kamao.",
+       "न न्तिर्हो एन्द्ल न कमओ।",
+       "साथ काम करो, साथ कमाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Muti kumbe jat kambe laro e-e.",
+       "मुति कुम्बे जत् कम्बे लरो ए-ए।",
+       "गाँव या जात पर मत लड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina hinkwaswo ndyangu hikwalaho ka tirha.",
+       "हिन हिन्कऺअसऺओ न्द्यङु हिकऺअलहो क तिर्ह।",
+       "हम सब अपने परिवार के लिए काम करते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Jhagare endzhaku Hina na tiya nwa.",
+       "झगरे एन्द्झ़कु हिन न तिय नऺअ।",
+       "झगड़े के बाद हमने साथ चाय पी।",
+       "S",
+       "B"
+      ],
+      [
+       "Sweswi Hina lewiya kambe hansate va.",
+       "सऺएसऺइ हिन लेविय कम्बे हन्सते व।",
+       "अब हम उस पर हँसते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Rhula mbilu ku tlula hinkwaswo kahle tirha.",
+       "र्हुल म्बिलु कु त्लुल हिन्कऺअसऺओ कह्ले तिर्ह।",
+       "शांत मन सबसे अच्छा काम करता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ntirho kambe shanti yindlu eka shanti.",
+       "न्तिर्हो कम्बे शन्ति यिन्द्लु एक शन्ति।",
+       "काम पर शांति, घर में शांति।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "नए साथी और दोस्ती",
+     "tw": [
+      [
+       "Na ntirho ku endla",
+       "न न्तिर्हो कु एन्द्ल",
+       "साथ काम करने वाला",
+       "ख"
+      ],
+      [
+       "Parichay karana",
+       "परिचय् करन",
+       "परिचय कराना",
+       "ख"
+      ],
+      [
+       "Tiya holideyi",
+       "तिय होलिदेयि",
+       "चाय की छुट्टी",
+       "ख"
+      ],
+      [
+       "Mul ganv-ghar",
+       "मुल् गन्व्-घर्",
+       "मूल गाँव-घर",
+       "ख"
+      ],
+      [
+       "Ntshembo",
+       "न्त्स्हेम्बो",
+       "भरोसा",
+       "क"
+      ],
+      [
+       "Akela",
+       "अकेल",
+       "अकेला",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "नए साथी से परिचय — तीन वाक्य में अपनी बात बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Leswi wa mina na ntirho ku endla ramesh va.",
+       "लेसऺइ व मिन न न्तिर्हो कु एन्द्ल रमेश् व।",
+       "यह मेरे साथ काम करने वाला रमेश है।",
+       "S",
+       "B"
+      ],
+      [
+       "A hi fambeni ntlawa ku suka eka wa wena parichay endla.",
+       "अ हि फ़म्बेनि न्त्लॉअ कु सुक एक व वेन परिचय् एन्द्ल।",
+       "चलो, टीम से तुम्हारा परिचय कराता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Makwerhu N'wina kwihi ku suka eka va?",
+       "मकऺएर्हु न्'विन कऺइहि कु सुक एक व?",
+       "भाई, आप कहाँ से हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina khagariya ku suka eka va.",
+       "मिन खगरिय कु सुक एक व।",
+       "मैं खगड़िया से हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Are Hina 1 jile va.",
+       "अरे हिन 1 जिले व।",
+       "अरे, हम एक ही जिले के हैं!",
+       "S",
+       "B"
+      ],
+      [
+       "Tana wa hina na tiya nwa.",
+       "तन व हिन न तिय नऺअ।",
+       "आओ, हमारे साथ चाय पियो।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina 4 awara tiya holideyi teka.",
+       "हिन 4 ऑअर तिय होलिदेयि तेक।",
+       "हम चार बजे चाय की छुट्टी लेते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Yena swakudya wa mina na banta.",
+       "येन सऺअकुद्य व मिन न बन्त।",
+       "उसने अपना खाना मेरे साथ बाँटा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku sungula siku Mina ngopfu akela vaile.",
+       "कु सुङुल सिकु मिन ङोप्फु अकेल वैले।",
+       "पहले दिन मैं बहुत अकेला था।",
+       "S",
+       "B"
+      ],
+      [
+       "Yena mina hinkwaswo ndhawu dikhai.",
+       "येन मिन हिन्कऺअसऺओ न्द्हॉउ दिखै।",
+       "उसने मुझे पूरी जगह दिखाई।",
+       "S",
+       "B"
+      ],
+      [
+       "Kahle munghana kathin ntirho olova endla nyika.",
+       "कह्ले मुङ्हन कथिन् न्तिर्हो ओलोव एन्द्ल ञिक।",
+       "अच्छे दोस्त कठिन काम हल्का कर देते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini Wena mina Leswi muchini nga dyondzisa?",
+       "यिनि वेन मिन लेसऺइ मुचिनि ङ द्योन्द्ज़िस?",
+       "क्या तुम मुझे यह मशीन सिखा सकते हो?",
+       "S",
+       "B"
+      ],
+      [
+       "Hakunene wa mina voko vona.",
+       "हकुनेने व मिन वोको वोन।",
+       "ज़रूर, मेरे हाथ देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hakatsongo-tsongo Wena hinkwaswo dyondzo jaoge.",
+       "हकत्सोङो-त्सोङो वेन हिन्कऺअसऺओ द्योन्द्ज़ो जओगे।",
+       "धीरे-धीरे तुम सब सीख जाओगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Makwerhu tumhari sari mpfuno hikwalaho ka Inkomu.",
+       "मकऺएर्हु तुम्हरि सरि म्प्फुनो हिकऺअलहो क इन्कोमु।",
+       "भाई, तुम्हारी सारी मदद के लिए धन्यवाद।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntirho endzhaku Hina na kamara famba.",
+       "न्तिर्हो एन्द्झ़कु हिन न कमर फ़म्ब।",
+       "काम के बाद हम साथ कमरे जाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Sonto Hina na khas swakudya aka.",
+       "सोन्तो हिन न खस् सऺअकुद्य अक।",
+       "रविवार को हम साथ ख़ास खाना बनाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Tika nkarhi eka Yena mina mali die.",
+       "तिक न्कर्हि एक येन मिन मलि दिए।",
+       "मुश्किल समय में उसने मुझे पैसे दिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina hakelo siku lauta die.",
+       "मिन हकेलो सिकु लौत दिए।",
+       "मैंने भुगतान के दिन लौटा दिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Udhar mali nkarhi kambe lautao.",
+       "उधर् मलि न्कर्हि कम्बे लौतओ।",
+       "उधार पैसा समय पर लौटाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntshembo banane eka lembe tutane eka minete lagata va.",
+       "न्त्स्हेम्बो बनने एक लेम्बे तुतने एक मिनेते लगत व।",
+       "भरोसा बनने में साल, टूटने में मिनट लगता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Un'wana pith endzhaku mhaka a endla.",
+       "उन्'वन पिथ् एन्द्झ़कु म्हक अ एन्द्ल।",
+       "किसी की पीठ पीछे बात मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Munghana tarif sabake emahlweni ka endla.",
+       "मुङ्हन तरिफ़् सबके एमह्लऺएनि क एन्द्ल।",
+       "दोस्त की तारीफ़ सबके सामने करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa yena xihoxo ntsena yena byela.",
+       "व येन क्सिहोक्सो न्त्सेन येन ब्येल।",
+       "उसकी ग़लती सिर्फ़ उसे बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina 5 rajyon 5 munghana va.",
+       "हिन 5 रज्योन् 5 मुङ्हन व।",
+       "हम पाँच राज्यों के पाँच दोस्त हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Hina ek-dusare boli dyondza.",
+       "हिन एक्-दुसरे बोलि द्योन्द्ज़।",
+       "हम एक-दूसरे की बोली सीखते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Yena mina 10 kannar rito sikhae.",
+       "येन मिन 10 कन्नर् रितो सिखै।",
+       "उसने मुझे दस कन्नड़ शब्द सिखाए।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina yena 10 hindi rito sikhae.",
+       "मिन येन 10 हिन्दि रितो सिखै।",
+       "मैंने उसे दस हिंदी शब्द सिखाए।",
+       "S",
+       "B"
+      ],
+      [
+       "Yindlu ku suka eka kule munghana ndyangu va.",
+       "यिन्द्लु कु सुक एक कुले मुङ्हन न्द्यङु व।",
+       "घर से दूर, दोस्त ही परिवार हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Sachcha munghana kulu daulat va.",
+       "सच्च मुङ्हन कुलु दौलत् व।",
+       "सच्चा दोस्त बड़ी दौलत है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "काम में तरक्की (आगे की सीढ़ी)",
+     "tw": [
+      [
+       "Tarakki",
+       "तरक्कि",
+       "तरक्की",
+       "ख"
+      ],
+      [
+       "Vetan-barhotari",
+       "वेतन्-बर्होतरि",
+       "वेतन-बढ़ोतरी",
+       "ख"
+      ],
+      [
+       "Zimmedari",
+       "ज़िम्मेदरि",
+       "ज़िम्मेदारी",
+       "ख"
+      ],
+      [
+       "Satifikheti",
+       "सतिफ़िखेति",
+       "प्रमाणपत्र",
+       "ख"
+      ],
+      [
+       "Khoso",
+       "खोसो",
+       "कोर्स",
+       "ख"
+      ],
+      [
+       "Norho",
+       "नोर्हो",
+       "सपना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "timeSwap",
+      "hi": "तरक्की की सीढ़ी — बीता कल, आज, आने वाला कल तीनों बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina ntirho eka emahlweni barhana lava ku lava.",
+       "मिन न्तिर्हो एक एमह्लऺएनि बर्हन लव कु लव।",
+       "मैं अपने काम में आगे बढ़ना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mupfuni ku suka eka Mina mistri ban fambile.",
+       "मुप्फुनि कु सुक एक मिन मिस्त्रि बन् फ़म्बिले।",
+       "सहायक से मैं मिस्त्री बन गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 3 lembe lage.",
+       "मिन 3 लेम्बे लगे।",
+       "मुझे तीन साल लगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkulukumba Mina sari mashinen dyondzo tekile va.",
+       "न्कुलुकुम्ब मिन सरि मशिनेन् द्योन्द्ज़ो तेकिले व।",
+       "सर, मैंने सारी मशीनें सीख ली हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela mina na zimmedari nyikani.",
+       "न्द्ज़ कोम्बेल मिन न ज़िम्मेदरि ञिकनि।",
+       "कृपया मुझे और ज़िम्मेदारी दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Yini leswi lembe wa mina barhotari nga va?",
+       "यिनि लेसऺइ लेम्बे व मिन बर्होतरि ङ व?",
+       "क्या इस साल मेरी बढ़ोतरी हो सकती है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ku sungula ntirho komba nakambe barhotari kombela.",
+       "कु सुङुल न्तिर्हो कोम्ब नकम्बे बर्होतरि कोम्बेल।",
+       "पहले काम दिखाओ, फिर बढ़ोतरी माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina ntirho hi byakwe vulavula.",
+       "व मिन न्तिर्हो हि ब्यकऺए वुलवुल।",
+       "मेरा काम ख़ुद बोलता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi nga hundza n'hweti wa mina tarakki humelerile.",
+       "लेयि ङ हुन्द्ज़ न्'हऺएति व मिन तरक्कि हुमेलेरिले।",
+       "पिछले महीने मेरी तरक्की हुई।",
+       "S",
+       "B"
+      ],
+      [
+       "Sweswi Mina 4 vanhu ntlawa famba.",
+       "सऺएसऺइ मिन 4 वन्हु न्त्लॉअ फ़म्ब।",
+       "अब मैं चार लोगों की टीम चलाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Kahle aguaa ku sungula hi byakwe tirha.",
+       "कह्ले अगुआ कु सुङुल हि ब्यकऺए तिर्ह।",
+       "अच्छा अगुआ पहले ख़ुद काम करता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina mahala onlayini khoso endla.",
+       "मिन महल ओन्लयिनि खोसो एन्द्ल।",
+       "मैं मुफ़्त ऑनलाइन कोर्स कर रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina vusiku eka foni kambe hlaya.",
+       "मिन वुसिकु एक फ़ोनि कम्बे ह्लय।",
+       "मैं रात में फोन पर पढ़ता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Xikambelo endzhaku mina satifikheti u ta kuma.",
+       "क्सिकम्बेलो एन्द्झ़कु मिन सतिफ़िखेति उ त कुम।",
+       "परीक्षा के बाद मुझे प्रमाणपत्र मिलेगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Satifikheti ntshwa nyangwa pfula.",
+       "सतिफ़िखेति न्त्स्हऺअ ञङऺअ प्फुल।",
+       "प्रमाणपत्र नए दरवाज़े खोलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kulu ntirho hikwalaho ka Xitsonga lava.",
+       "कुलु न्तिर्हो हिकऺअलहो क क्सित्सोङ लव।",
+       "बड़े काम के लिए त्सोंगा चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina sathiyon na Xitsonga ku titoloveta endla.",
+       "मिन सथियोन् न क्सित्सोङ कु तितोलोवेत एन्द्ल।",
+       "मैं साथियों के साथ त्सोंगा का अभ्यास करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "1 vutshila na 1 ririmi tiya jori va.",
+       "1 वुत्स्हिल न 1 रिरिमि तिय जोरि व।",
+       "एक हुनर और एक भाषा मज़बूत जोड़ी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina norho varkashop va.",
+       "व मिन नोर्हो वर्कशोप् व।",
+       "मेरा सपना अपनी वर्कशॉप है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina auzaron hikwalaho ka mali jor tshama.",
+       "मिन औज़रोन् हिकऺअलहो क मलि जोर् त्स्हम।",
+       "मैं औज़ारों के लिए पैसे जोड़ रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku sungula karigar nakambe mudyondzisi nakambe n'wini.",
+       "कु सुङुल करिगर् नकम्बे मुद्योन्द्ज़िसि नकम्बे न्'विनि।",
+       "पहले कारीगर, फिर उस्ताद, फिर मालिक।",
+       "S",
+       "C"
+      ],
+      [
+       "Xitepisi kadam-kadam ehenhla famba.",
+       "क्सितेपिसि कदम्-कदम् एहेन्ह्ल फ़म्ब।",
+       "सीढ़ी कदम-कदम ऊपर जाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku sungula siku tulana wa yena dasaven lembe ku suka eka a endla.",
+       "कु सुङुल सिकु तुलन व येन दसवेन् लेम्बे कु सुक एक अ एन्द्ल।",
+       "अपने पहले दिन की तुलना उसके दसवें साल से मत करो।",
+       "S",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana n'hweti 1 ntshwa xilo dyondza.",
+       "उन्'वन नि उन्'वन न्'हऺएति 1 न्त्स्हऺअ क्सिलो द्योन्द्ज़।",
+       "हर महीने एक नई चीज़ सीखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntshwa mupfuni pyar ku suka eka sikhao.",
+       "न्त्स्हऺअ मुप्फुनि प्यर् कु सुक एक सिखओ।",
+       "नए सहायक को प्यार से सिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha mupfuni mundzuku mudyondzisi va.",
+       "नमुन्त्ल्ह मुप्फुनि मुन्द्ज़ुकु मुद्योन्द्ज़िसि व।",
+       "आज का सहायक कल का उस्ताद है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina mulanguteri mujh kambe ntshembo va.",
+       "व मिन मुलङुतेरि मुझ् कम्बे न्त्स्हेम्बो व।",
+       "मेरे सुपरवाइज़र को मुझ पर भरोसा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina Leswi ntshembo torunga e-e.",
+       "मिन लेसऺइ न्त्स्हेम्बो तोरुङ ए-ए।",
+       "मैं यह भरोसा नहीं तोड़ूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Matimba na dyondzo swin'we tarakki banati va.",
+       "मतिम्ब न द्योन्द्ज़ो सऺइन्'वे तरक्कि बनति व।",
+       "मेहनत और सीख मिलकर तरक्की बनती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina bhavishy wa mina bite mundzuku ku suka eka kulu va.",
+       "व मिन भविश्य् व मिन बिते मुन्द्ज़ुकु कु सुक एक कुलु व।",
+       "मेरा भविष्य मेरे बीते कल से बड़ा है।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Mali yindlu fika?",
+     "(बोलो) Ina manana foni kambe rungula taile."
+    ],
+    [
+     "(सुनो) Yena havumbirhi hikuva holova endla?",
+     "(बोलो) Wa mina xihoxo chhal maphi."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "4 1000 bhejanai va.",
+     "4 1000 भेजनै व।"
+    ],
+    [
+     "बैंक",
+     "Akhawunti nomboro?",
+     "अखॉउन्ति नोम्बोरो?"
+    ],
+    [
+     "आप",
+     "Leswi kagaj kambe va.",
+     "लेसऺइ कगज् कम्बे व।"
+    ],
+    [
+     "बैंक",
+     "Kahle i rungula kamba.",
+     "कह्ले इ रुङुल कम्ब।"
+    ],
+    [
+     "आप",
+     "Inkomu.",
+     "इन्कोमु।"
+    ]
+   ],
+   "test": {
+    "target": "घर पर फ़ोन (वेतन-दिन की शाम)",
+    "goal": "त्सोंगा में बताइए — वेतन मिला, कितना भेजा (यूपीआई से), और घरवालों को ओटीपी-धोखे से बचने की सीख दीजिए — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Namuntlha wa mina muholo bhetal.",
+      "नमुन्त्ल्ह व मिन मुहोलो भेतल्।"
+     ],
+     [
+      "Hina UPI ku suka eka 4 1000 bhejalaun.",
+      "हिन उपि कु सुक एक 4 1000 भेजलौन्।"
+     ],
+     [
+      "Rungula foni kambe kamba.",
+      "रुङुल फ़ोनि कम्बे कम्ब।"
+     ],
+     [
+      "Foni kambe OTP un'wana byela e-e.",
+      "फ़ोनि कम्बे ओत्प् उन्'वन ब्येल ए-ए।"
+     ],
+     [
+      "Bangi kabo OTP mangay a va.",
+      "बङि कबो ओत्प् मङय् अ व।"
+     ],
+     [
+      "Hina aujar hikwalaho ka mali bachabi va.",
+      "हिन औजर् हिकऺअलहो क मलि बचबि व।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 7,
+   "title": "Work Places, Safe Stay and Rights",
+   "hi": "काम की जगहें, सुरक्षित ठिकाना और हक़",
+   "pace": 30,
+   "days": [
+    {
+     "title": "फैक्ट्री में काम की बोली",
+     "tw": [
+      [
+       "Karakhana",
+       "करखन",
+       "कारख़ाना",
+       "ख"
+      ],
+      [
+       "Xikhati",
+       "क्सिखति",
+       "पारी",
+       "ख"
+      ],
+      [
+       "Nyangwa ekusuhi",
+       "ञङऺअ एकुसुहि",
+       "गेट पास",
+       "ख"
+      ],
+      [
+       "Vardi",
+       "वर्दि",
+       "वर्दी",
+       "ख"
+      ],
+      [
+       "Lakshy",
+       "लक्श्य्",
+       "लक्ष्य",
+       "ख"
+      ],
+      [
+       "Ndzilo nikas",
+       "न्द्ज़िलो निकस्",
+       "आग का निकास",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "गेट पर संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina nguvu karakhane eka tirha.",
+       "मिन ङुवु करखने एक तिर्ह।",
+       "मैं कपड़ा कारख़ाने में काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina xikhati 7 awara shuru va.",
+       "व मिन क्सिखति 7 ऑअर शुरु व।",
+       "मेरी पारी सात बजे शुरू होती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi vhiki Mina mixo xikhati eka va.",
+       "लेसऺइ व्हिकि मिन मिक्सो क्सिखति एक व।",
+       "इस हफ़्ते मैं सुबह की पारी में हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Nyangwa kambe nyangwa ekusuhi komba.",
+       "ञङऺअ कम्बे ञङऺअ एकुसुहि कोम्ब।",
+       "गेट पर अपना गेट पास दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha Mina nyangwa ekusuhi bhul fambile.",
+       "नमुन्त्ल्ह मिन ञङऺअ एकुसुहि भुल् फ़म्बिले।",
+       "आज मैं गेट पास भूल गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela wa mina ntshwa khadi banava nyikani.",
+       "न्द्ज़ कोम्बेल व मिन न्त्स्हऺअ खदि बनव ञिकनि।",
+       "कृपया मेरा नया कार्ड बनवा दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Karakhane endzeni vardi ambala.",
+       "करखने एन्द्ज़ेनि वर्दि अम्बल।",
+       "कारख़ाने के अंदर वर्दी पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Foni lokar eka veka.",
+       "फ़ोनि लोकर् एक वेक।",
+       "फोन लॉकर में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina muchini nomboro 12 va.",
+       "व मिन मुचिनि नोम्बोरो 12 व।",
+       "मेरी मशीन नंबर बारह है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina silai layini kambe tirha.",
+       "मिन सिलै लयिनि कम्बे तिर्ह।",
+       "मैं सिलाई लाइन पर काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "1 muchini ruke hinkwaswo layini yima.",
+       "1 मुचिनि रुके हिन्कऺअसऺओ लयिनि यिम।",
+       "एक मशीन रुके तो पूरी लाइन रुकती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Namuntlha lakshy 2 100 nag va.",
+       "नमुन्त्ल्ह लक्श्य् 2 100 नग् व।",
+       "आज का लक्ष्य दो सौ नग है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina nkarhi ku suka eka ku sungula lakshy hinkwaswo endlile.",
+       "हिन न्कर्हि कु सुक एक कु सुङुल लक्श्य् हिन्कऺअसऺओ एन्द्लिले।",
+       "हमने समय से पहले लक्ष्य पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Kamba wa mina nag ekusuhi kie.",
+       "कम्ब व मिन नग् एकुसुहि किए।",
+       "जाँच वाले ने मेरे नग पास किए।",
+       "S",
+       "B"
+      ],
+      [
+       "2 nag sudhar hikwalaho ka vuya tile.",
+       "2 नग् सुधर् हिकऺअलहो क वुय तिले।",
+       "दो नग सुधार के लिए वापस आए।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina vona nakambe ku suka eka nyingiso ku suka eka silunga.",
+       "मिन वोन नकम्बे कु सुक एक ञिङिसो कु सुक एक सिलुङ।",
+       "मैं उन्हें फिर से ध्यान से सिलूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku dya holideyi 1 ku suka eka 2 awara va.",
+       "कु द्य होलिदेयि 1 कु सुक एक 2 ऑअर व।",
+       "खाने की छुट्टी एक से दो बजे है।",
+       "L",
+       "B"
+      ],
+      [
+       "Kaintin swakudya a durhi va.",
+       "कैन्तिन् सऺअकुद्य अ दुर्हि व।",
+       "कैंटीन का खाना सस्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku hisa eka un'wana ni un'wana awara mati nwa.",
+       "कु हिस एक उन्'वन नि उन्'वन ऑअर मति नऺअ।",
+       "गर्मी में हर घंटे पानी पियो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chalati patti chhuo e-e.",
+       "चलति पत्ति छुओ ए-ए।",
+       "चलती पट्टी को मत छुओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Muchini ekusuhi bal bandhakar veka.",
+       "मुचिनि एकुसुहि बल् बन्द्हकर् वेक।",
+       "मशीन के पास बाल बाँधकर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana risav kumbe gandh i hi ku hatlisa mahungu 2.",
+       "उन्'वन रिसव् कुम्बे गन्द्ह् इ हि कु हत्लिस महुङु 2।",
+       "कोई रिसाव या गंध हो तो तुरंत ख़बर दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ndzilo nikas bain or va.",
+       "न्द्ज़िलो निकस् बैन् ओर् व।",
+       "आग का निकास बाईं ओर है।",
+       "L",
+       "B"
+      ],
+      [
+       "Nikas nyangwa minkarhi yin'wana a pfala.",
+       "निकस् ञङऺअ मिन्कर्हि यिन्'वन अ प्फल।",
+       "निकास का दरवाज़ा कभी बंद मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha Hina aag-abhyas endlile.",
+       "नमुन्त्ल्ह हिन आग्-अभ्यस् एन्द्लिले।",
+       "आज हमने आग-अभ्यास किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku famba ku suka eka ku sungula rajistar kambe sayina endla.",
+       "कु फ़म्ब कु सुक एक कु सुङुल रजिस्तर् कम्बे सयिन एन्द्ल।",
+       "जाने से पहले रजिस्टर पर दस्तख़त करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Laha nkarhi wo engetela hambana mali hlangana.",
+       "लह न्कर्हि वो एङेतेल हम्बन मलि ह्लङन।",
+       "यहाँ ओवरटाइम का अलग पैसा मिलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Iesaaai khadi kombela.",
+       "इएसाऐ खदि कोम्बेल।",
+       "अपना ईएसआई कार्ड माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Karakhana pieph na yena nyika.",
+       "करखन पिएफ् न येन ञिक।",
+       "कारख़ाना पीएफ भी देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mfanelo jano tirha.",
+       "म्फ़नेलो जनो तिर्ह।",
+       "अपने हक़ जानो, अपना काम करो।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "दुकान और होटल-सेवा की बोली",
+     "tw": [
+      [
+       "Muxavi",
+       "मुक्सवि",
+       "ग्राहक",
+       "ग"
+      ],
+      [
+       "Nxavo",
+       "न्क्सवो",
+       "दाम",
+       "ग"
+      ],
+      [
+       "Xiphemu",
+       "क्सिफेमु",
+       "छूट",
+       "ग"
+      ],
+      [
+       "Ordar",
+       "ओर्दर्",
+       "ऑर्डर",
+       "ग"
+      ],
+      [
+       "Parosana",
+       "परोसन",
+       "परोसना",
+       "ख"
+      ],
+      [
+       "Vinamr",
+       "विनम्र्",
+       "विनम्र",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "pairSwap",
+      "hi": "विनम्र-रूप बोलो — रूखा वाक्य सुनो, please लगाकर मीठा बनाओ।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina foni vhengele eka tirha.",
+       "मिन फ़ोनि व्हेङेले एक तिर्ह।",
+       "मैं मोबाइल की दुकान में काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Tanani n'wina yini lava?",
+       "तननि न्'विन यिनि लव?",
+       "आइए, आपको क्या चाहिए?",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela Leswi ntshwa modal vona.",
+       "न्द्ज़ कोम्बेल लेसऺइ न्त्स्हऺअ मोदल् वोन।",
+       "कृपया यह नया मॉडल देखिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa leswi nxavo yini va?",
+       "व लेसऺइ न्क्सवो यिनि व?",
+       "इसका दाम क्या है?",
+       "L",
+       "B"
+      ],
+      [
+       "Nxavo parchi kambe tsala.",
+       "न्क्सवो पर्चि कम्बे त्सल।",
+       "दाम पर्ची पर लिखा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini xin'wana xiphemu milegi?",
+       "यिनि क्सिन्'वन क्सिफेमु मिलेगि?",
+       "क्या कुछ छूट मिलेगी?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina 5 pratishat xiphemu nga nyika.",
+       "मिन 5 प्रतिशत् क्सिफेमु ङ ञिक।",
+       "मैं पाँच प्रतिशत छूट दे सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Muxavi minkarhi hinkwayo ku sungula va.",
+       "मुक्सवि मिन्कर्हि हिन्कऺअयो कु सुङुल व।",
+       "ग्राहक हमेशा पहले है।",
+       "S",
+       "C"
+      ],
+      [
+       "Un'wana ni un'wana muxavi ku suka eka vinamrata ku suka eka vulavula.",
+       "उन्'वन नि उन्'वन मुक्सवि कु सुक एक विनम्रत कु सुक एक वुलवुल।",
+       "हर ग्राहक से विनम्रता से बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Muskan muxavi vuya tisa.",
+       "मुस्कन् मुक्सवि वुय तिस।",
+       "मुस्कान ग्राहक को वापस लाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkulukumba wa n'wina ordar lunghekile va.",
+       "न्कुलुकुम्ब व न्'विन ओर्दर् लुङ्हेकिले व।",
+       "सर, आपका ऑर्डर तैयार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina hodela eka chay-nashta parosata va.",
+       "मिन होदेल एक चय्-नश्त परोसत व।",
+       "मैं होटल में चाय-नाश्ता परोसता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela rukie wa n'wina mez ku nga ri na nchumu va.",
+       "न्द्ज़ कोम्बेल रुकिए व न्'विन मेज़् कु ङ रि न न्चुमु व।",
+       "कृपया रुकिए, आपकी मेज़ ख़ाली हो रही है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mez hatlisa basa endla.",
+       "मेज़् हत्लिस बस एन्द्ल।",
+       "मेज़ जल्दी साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Parosane ku suka eka ku sungula voko hlantswa.",
+       "परोसने कु सुक एक कु सुङुल वोको ह्लन्त्सऺअ।",
+       "परोसने से पहले हाथ धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini paik hi ku endla dun?",
+       "यिनि पैक् हि कु एन्द्ल दुन्?",
+       "क्या पैक करके दूँ?",
+       "S",
+       "B"
+      ],
+      [
+       "Nkulukumba Leswi wa n'wina xitarhati va.",
+       "न्कुलुकुम्ब लेसऺइ व न्'विन क्सितर्हति व।",
+       "सर, यह आपका बिल है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini wa n'wina ekusuhi pfulekile mali va?",
+       "यिनि व न्'विन एकुसुहि प्फुलेकिले मलि व?",
+       "क्या आपके पास खुले पैसे हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina UPI ku suka eka na yena nga nyika.",
+       "न्'विन उपि कु सुक एक न येन ङ ञिक।",
+       "आप यूपीआई से भी दे सकते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela Leswi kod skain endlani.",
+       "न्द्ज़ कोम्बेल लेसऺइ कोद् स्कैन् एन्द्लनि।",
+       "कृपया यह कोड स्कैन कीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Inkomu nakambe aaiega.",
+       "इन्कोमु नकम्बे आइएग।",
+       "धन्यवाद, फिर आइएगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Un'wana ni un'wana madyambu mal hlaya.",
+       "उन्'वन नि उन्'वन मद्यम्बु मल् ह्लय।",
+       "हर शाम माल गिनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mal eka 2 mabokisi switsongo va.",
+       "मल् एक 2 मबोकिसि सऺइत्सोङो व।",
+       "माल में दो डिब्बे कम हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "N'wini namuntlha byela.",
+       "न्'विनि नमुन्त्ल्ह ब्येल।",
+       "मालिक को आज ही बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Vhengele basa na chamakadar veka.",
+       "व्हेङेले बस न चमकदर् वेक।",
+       "दुकान साफ़ और चमकदार रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntshwa swilo emahlweni sajao.",
+       "न्त्स्हऺअ सऺइलो एमह्लऺएनि सजओ।",
+       "नया सामान आगे सजाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Naraz muxavi titimela kan lava.",
+       "नरज़् मुक्सवि तितिमेल कन् लव।",
+       "नाराज़ ग्राहक को ठंडा कान चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Ndzi khomeli endlani nkulukumba Hina sweswi cinca nyika.",
+       "न्द्ज़ि खोमेलि एन्द्लनि न्कुलुकुम्ब हिन सऺएसऺइ किन्क ञिक।",
+       "माफ़ कीजिए सर, हम अभी बदल देते हैं।",
+       "S",
+       "A"
+      ],
+      [
+       "Tshembeka vhengele lautata muxavi.",
+       "त्स्हेम्बेक व्हेङेले लौतत मुक्सवि।",
+       "ईमानदार दुकान, लौटता ग्राहक।",
+       "S",
+       "C"
+      ],
+      [
+       "Dil ku suka eka seva ku tlula hinkwaswo ku tala bikavati va.",
+       "दिल् कु सुक एक सेव कु त्लुल हिन्कऺअसऺओ कु तल बिकवति व।",
+       "दिल से सेवा सबसे ज़्यादा बिकवाती है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "खेत और मौसमी काम की बोली",
+     "tw": [
+      [
+       "Katai",
+       "कतै",
+       "कटाई",
+       "ख"
+      ],
+      [
+       "Bona",
+       "बोन",
+       "बोना",
+       "ख"
+      ],
+      [
+       "Fasal",
+       "फ़सल्",
+       "फ़सल",
+       "ख"
+      ],
+      [
+       "Mandi",
+       "मन्दि",
+       "मंडी",
+       "ग"
+      ],
+      [
+       "Nxavo",
+       "न्क्सवो",
+       "भाव",
+       "ग"
+      ],
+      [
+       "Taulana",
+       "तौलन",
+       "तौलना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "खेती का क्रम — First, Then, After that लगाकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina maxelo eka nsimu kambe tirha.",
+       "मिन मक्सेलो एक न्सिमु कम्बे तिर्ह।",
+       "मैं मौसम में खेत पर काम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi buvai nkarhi va.",
+       "लेसऺइ बुवै न्कर्हि व।",
+       "यह बुवाई का समय है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina navanbar eka gehun bote va.",
+       "हिन नवन्बर् एक गेहुन् बोते व।",
+       "हम नवंबर में गेहूँ बोते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Kahle bij kahle fasal nyika.",
+       "कह्ले बिज् कह्ले फ़सल् ञिक।",
+       "अच्छा बीज अच्छी फ़सल देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Bij layisense vhengele ku suka eka xava.",
+       "बिज् लयिसेन्से व्हेङेले कु सुक एक क्सव।",
+       "बीज लाइसेंस वाली दुकान से खरीदो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bij na khad xitarhati veka.",
+       "बिज् न खद् क्सितर्हति वेक।",
+       "बीज और खाद का बिल रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Madyambu nsimu eka mati 2.",
+       "मद्यम्बु न्सिमु एक मति 2।",
+       "शाम को खेत में पानी दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Panp gezi ku suka eka famba.",
+       "पन्प् गेज़ि कु सुक एक फ़म्ब।",
+       "पंप बिजली से चलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mpfula i sakati i anaj funengeta.",
+       "म्प्फुल इ सकति इ अनज् फ़ुनेङेत।",
+       "बारिश हो सकती है, अनाज ढको।",
+       "L",
+       "B"
+      ],
+      [
+       "Fasal katai hikwalaho ka lunghekile va.",
+       "फ़सल् कतै हिकऺअलहो क लुङ्हेकिले व।",
+       "फ़सल कटाई के लिए तैयार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina Musumbhunuku ku suka eka katai shuru hi ta endla.",
+       "हिन मुसुम्ब्हुनुकु कु सुक एक कतै शुरु हि त एन्द्ल।",
+       "हम सोमवार से कटाई शुरू करेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Katai hikwalaho ka 20 mutirhi tile.",
+       "कतै हिकऺअलहो क 20 मुतिर्हि तिले।",
+       "कटाई के लिए बीस मज़दूर आए।",
+       "S",
+       "C"
+      ],
+      [
+       "Katai muholo siku rin'wana ni rin'wana i kumbe bighe?",
+       "कतै मुहोलो सिकु रिन्'वन नि रिन्'वन इ कुम्बे बिघे?",
+       "कटाई की मज़दूरी रोज़ की है या बीघे की?",
+       "S",
+       "B"
+      ],
+      [
+       "Ntirho ku suka eka ku sungula saf-saf vekiwile endla.",
+       "न्तिर्हो कु सुक एक कु सुङुल सफ़्-सफ़् वेकिविले एन्द्ल।",
+       "काम से पहले साफ़-साफ़ तय करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha mandi nxavo yini va?",
+       "नमुन्त्ल्ह मन्दि न्क्सवो यिनि व?",
+       "आज मंडी का भाव क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ku sungula foni kambe nxavo vona.",
+       "कु सुङुल फ़ोनि कम्बे न्क्सवो वोन।",
+       "पहले फोन पर भाव देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kulu mandi eka nxavo antswa va.",
+       "कुलु मन्दि एक न्क्सवो अन्त्सऺअ व।",
+       "बड़ी मंडी में भाव बेहतर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Masaka emahlweni ka taulavao.",
+       "मसक एमह्लऺएनि क तौलवओ।",
+       "बोरियाँ अपने सामने तौलवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Taul-parchi na bhugatan-parchi teka.",
+       "तौल्-पर्चि न भुगतन्-पर्चि तेक।",
+       "तौल-पर्ची और भुगतान-पर्ची लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Jaldabazi eka e-e lulama nxavo kambe xavisa.",
+       "जल्दबज़ि एक ए-ए लुलम न्क्सवो कम्बे क्सविस।",
+       "जल्दबाज़ी में नहीं, सही भाव पर बेचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Anaj sukhi ndhawu veka.",
+       "अनज् सुखि न्द्हॉउ वेक।",
+       "अनाज सूखी जगह रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chuhe rakha anaj kharab nga endla.",
+       "चुहे रख अनज् खरब् ङ एन्द्ल।",
+       "चूहे रखा अनाज ख़राब कर सकते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Maxelo endzhaku Mina ntirho hikwalaho ka doropa famba.",
+       "मक्सेलो एन्द्झ़कु मिन न्तिर्हो हिकऺअलहो क दोरोप फ़म्ब।",
+       "मौसम के बाद मैं काम के लिए शहर जाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Kheti na doropa ntirho swin'we wa mina yindlu famba.",
+       "खेति न दोरोप न्तिर्हो सऺइन्'वे व मिन यिन्द्लु फ़म्ब।",
+       "खेती और शहर का काम मिलकर मेरा घर चलाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Masharum kheti switsongo zamin lava.",
+       "मशरुम् खेति सऺइत्सोङो ज़मिन् लव।",
+       "मशरूम की खेती को थोड़ी ज़मीन चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina mahala onlayini khoso eka wa leswi mayelana na eka hlaya.",
+       "मिन महल ओन्लयिनि खोसो एक व लेसऺइ मयेलन न एक ह्लय।",
+       "मैंने मुफ़्त ऑनलाइन कोर्स में इसके बारे में पढ़ा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntshwa kheti kamai doguni nga endla.",
+       "न्त्स्हऺअ खेति कमै दोगुनि ङ एन्द्ल।",
+       "नई खेती कमाई दोगुनी कर सकती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Salah hikwalaho ka kisan layini ya mpfuno ku suka eka vutisa.",
+       "सलह् हिकऺअलहो क किसन् लयिनि य म्प्फुनो कु सुक एक वुतिस।",
+       "सलाह के लिए किसान हेल्पलाइन से पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mitti wa hina manana va.",
+       "मित्ति व हिन मनन व।",
+       "मिट्टी हमारी माँ है।",
+       "S",
+       "B"
+      ],
+      [
+       "Tirha hi matimba voko desh ann ugate va.",
+       "तिर्ह हि मतिम्ब वोको देश् अन्न् उगते व।",
+       "मेहनती हाथ देश का अन्न उगाते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "परदेश में सुरक्षित ठिकाना (कमरा-सुरक्षा)",
+     "tw": [
+      [
+       "Makan-malik",
+       "मकन्-मलिक्",
+       "मकान-मालिक",
+       "क"
+      ],
+      [
+       "Likha-parhi",
+       "लिख-पर्हि",
+       "लिखा-पढ़ी",
+       "क"
+      ],
+      [
+       "Jama-rashi",
+       "जम-रशि",
+       "जमा-राशि",
+       "क"
+      ],
+      [
+       "Bijali-tar",
+       "बिजलि-तर्",
+       "बिजली-तार",
+       "क"
+      ],
+      [
+       "Loyi a nga tiviwiki",
+       "लोयि अ ङ तिविविकि",
+       "अनजान",
+       "क"
+      ],
+      [
+       "Adirese",
+       "अदिरेसे",
+       "पता",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "कमरा-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina hlayisekile kamara khoj tshama.",
+       "मिन ह्लयिसेकिले कमर खोज् त्स्हम।",
+       "मैं सुरक्षित कमरा खोज रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Rhenti na jama-rashi mangani va?",
+       "र्हेन्ति न जम-रशि मङनि व?",
+       "किराया और जमा-राशि कितनी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Jama-rashi risiti teka.",
+       "जम-रशि रिसिति तेक।",
+       "जमा-राशि की रसीद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sadi likha-parhi kombela.",
+       "सदि लिख-पर्हि कोम्बेल।",
+       "सादी लिखा-पढ़ी माँगो।",
+       "L",
+       "A"
+      ],
+      [
+       "Sayina ku suka eka ku sungula hlaya.",
+       "सयिन कु सुक एक कु सुङुल ह्लय।",
+       "दस्तख़त से पहले पढ़ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntsena dalal ku suka eka e-e makan-malik ku suka eka hlangana.",
+       "न्त्सेन दलल् कु सुक एक ए-ए मकन्-मलिक् कु सुक एक ह्लङन।",
+       "सिर्फ़ दलाल से नहीं, मकान-मालिक से मिलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kamara siku roshani eka vona.",
+       "कमर सिकु रोशनि एक वोन।",
+       "कमरा दिन की रोशनी में देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nyangwa xilotlelo na fasitere kamba.",
+       "ञङऺअ क्सिलोत्लेलो न फ़सितेरे कम्ब।",
+       "दरवाज़े का ताला और खिड़की जाँचो।",
+       "L",
+       "A"
+      ],
+      [
+       "Yini laha basa mati va?",
+       "यिनि लह बस मति व?",
+       "क्या यहाँ साफ़ पानी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Snanaghar na shauchalay vula?",
+       "स्ननघर् न शौचलय् वुल?",
+       "स्नानघर और शौचालय कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Kamara bijali-tar kamba.",
+       "कमर बिजलि-तर् कम्ब।",
+       "कमरे के बिजली-तार जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Khale pfulekile tar ndzilo laga sakate va.",
+       "खले प्फुलेकिले तर् न्द्ज़िलो लग सकते व।",
+       "पुराने खुले तार आग लगा सकते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Imarat nikas-rasta tiva.",
+       "इमरत् निकस्-रस्त तिव।",
+       "इमारत का निकास-रास्ता जान लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sirhiyan swilo ku suka eka roko e-e.",
+       "सिर्हियन् सऺइलो कु सुक एक रोको ए-ए।",
+       "सीढ़ियाँ सामान से मत रोको।",
+       "L",
+       "B"
+      ],
+      [
+       "Swakudya banakar gais pfala.",
+       "सऺअकुद्य बनकर् गैस् प्फल।",
+       "खाना बनाकर गैस बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chulha jalata chhorakar soo e-e.",
+       "चुल्ह जलत छोरकर् सोओ ए-ए।",
+       "चूल्हा जलता छोड़कर मत सोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Kamara ntsena jan-pahachan valon ku suka eka banto.",
+       "कमर न्त्सेन जन्-पहचन् वलोन् कु सुक एक बन्तो।",
+       "कमरा सिर्फ़ जान-पहचान वालों से बाँटो।",
+       "L",
+       "B"
+      ],
+      [
+       "Loyi a nga tiviwiki vusiku eka thaharao e-e.",
+       "लोयि अ ङ तिविविकि वुसिकु एक थहरओ ए-ए।",
+       "अनजान को रात में मत ठहराओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhayaprati 2 ntiyiso phepha minkarhi yin'wana e-e.",
+       "छयप्रति 2 न्तियिसो फेफ मिन्कर्हि यिन्'वन ए-ए।",
+       "छायाप्रति दो, असली कागज़ कभी नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhayaprati kambe ntirho na siku tsala.",
+       "छयप्रति कम्बे न्तिर्हो न सिकु त्सल।",
+       "छायाप्रति पर काम और तारीख़ लिख दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pulis-satyapan fomo sach-sach bharo.",
+       "पुलिस्-सत्यपन् फ़ोमो सच्-सच् भरो।",
+       "पुलिस-सत्यापन फ़ॉर्म सच-सच भरो।",
+       "L",
+       "A"
+      ],
+      [
+       "Makan-malik nomboro foni eka veka.",
+       "मकन्-मलिक् नोम्बोरो फ़ोनि एक वेक।",
+       "मकान-मालिक का नंबर फोन में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hinkwaswo adirese gharavalon rhumela.",
+       "हिन्कऺअसऺओ अदिरेसे घरवलोन् र्हुमेल।",
+       "अपना पूरा पता घरवालों को भेज दो।",
+       "L",
+       "A"
+      ],
+      [
+       "Parosiyon vito ku suka eka tiva.",
+       "परोसियोन् वितो कु सुक एक तिव।",
+       "पड़ोसियों को नाम से जानो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ngopfu hlwela hone ku suka eka ku sungula laut tana.",
+       "ङोप्फु ह्लऺएल होने कु सुक एक कु सुङुल लौत् तन।",
+       "बहुत देर होने से पहले लौट आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Thore mali 2 ndhawu veka.",
+       "थोरे मलि 2 न्द्हॉउ वेक।",
+       "थोड़े पैसे दो जगह रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana n'hweti rhenti risiti teka.",
+       "उन्'वन नि उन्'वन न्'हऺएति र्हेन्ति रिसिति तेक।",
+       "हर महीने किराये की रसीद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku sungula siku mitara ginati tsala.",
+       "कु सुङुल सिकु मितर गिनति त्सल।",
+       "पहले दिन मीटर की गिनती लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hlayisekile kamara kahle nind nyika.",
+       "ह्लयिसेकिले कमर कह्ले निन्द् ञिक।",
+       "सुरक्षित कमरा अच्छी नींद देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hlayisekile thikana tiya ntirho.",
+       "ह्लयिसेकिले थिकन तिय न्तिर्हो।",
+       "सुरक्षित ठिकाना, मज़बूत काम।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "सरकारी मदद और मज़दूर के हक़",
+     "tw": [
+      [
+       "Shramik khadi",
+       "श्रमिक् खदि",
+       "श्रमिक कार्ड",
+       "ख"
+      ],
+      [
+       "Layini ya mpfuno",
+       "लयिनि य म्प्फुनो",
+       "हेल्पलाइन",
+       "ख"
+      ],
+      [
+       "Kungu",
+       "कुङु",
+       "योजना",
+       "ख"
+      ],
+      [
+       "Mahala",
+       "महल",
+       "मुफ़्त",
+       "क"
+      ],
+      [
+       "Mfanelo",
+       "म्फ़नेलो",
+       "हक़",
+       "ख"
+      ],
+      [
+       "Xivilelo",
+       "क्सिविलेलो",
+       "शिकायत",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "numberSay",
+      "hi": "ज़रूरी नंबर बोलो — अंक सुनो, त्सोंगा में कहो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Shramik khadi banavao.",
+       "श्रमिक् खदि बनवओ।",
+       "अपना श्रमिक कार्ड बनवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "I-shram khadi mahala banata va.",
+       "इ-श्रम् खदि महल बनत व।",
+       "ई-श्रम कार्ड मुफ़्त बनता है।",
+       "L",
+       "A"
+      ],
+      [
+       "Leswi Aadhaar na foni ku suka eka banata va.",
+       "लेसऺइ आधार् न फ़ोनि कु सुक एक बनत व।",
+       "यह आधार और मोबाइल से बनता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Fomo onalain-kendr kambe bhara famba.",
+       "फ़ोमो ओनलैन्-केन्द्र् कम्बे भर फ़म्ब।",
+       "फ़ॉर्म ऑनलाइन-केंद्र पर भरा जाता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mahala khadi hikwalaho ka ku tala mali 2 e-e.",
+       "महल खदि हिकऺअलहो क कु तल मलि 2 ए-ए।",
+       "मुफ़्त कार्ड के लिए ज़्यादा पैसे मत दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sarakari yojanaen xisiwana mazaduron pfuna.",
+       "सरकरि योजनैन् क्सिसिवन मज़दुरोन् प्फुन।",
+       "सरकारी योजनाएँ ग़रीब मज़दूरों की मदद करती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Kungu mayelana na eka prakhand-daftar eka vutisa.",
+       "कुङु मयेलन न एक प्रखन्द्-दफ़्तर् एक वुतिस।",
+       "योजना के बारे में प्रखंड-दफ़्तर में पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Phepha 1 foldar eka veka.",
+       "फेफ 1 फ़ोल्दर् एक वेक।",
+       "अपने कागज़ एक फ़ोल्डर में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Aadhaar baink-pasabuk na xifaniso mukhy phepha va.",
+       "आधार् बैन्क्-पसबुक् न क्सिफ़निसो मुख्य् फेफ व।",
+       "आधार, बैंक-पासबुक और फोटो मुख्य कागज़ हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina n'wana wa nhwanyana chhatravritti hlangana.",
+       "व मिन न्'वन व न्हऺअञन छत्रव्रित्ति ह्लङन।",
+       "मेरी बेटी को छात्रवृत्ति मिली।",
+       "S",
+       "B"
+      ],
+      [
+       "Rashan vhengele nkarhi kambe khulati va.",
+       "रशन् व्हेङेले न्कर्हि कम्बे खुलति व।",
+       "राशन दुकान समय पर खुलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Rashan taul kamba.",
+       "रशन् तौल् कम्ब।",
+       "राशन का तौल जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Taul kam? xivilelo endla.",
+       "तौल् कम्? क्सिविलेलो एन्द्ल।",
+       "तौल कम? शिकायत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xivilelo wa n'wina mfanelo i holova e-e.",
+       "क्सिविलेलो व न्'विन म्फ़नेलो इ होलोव ए-ए।",
+       "शिकायत आपका हक़ है, झगड़ा नहीं।",
+       "S",
+       "B"
+      ],
+      [
+       "Layini ya mpfuno nomboro tsala.",
+       "लयिनि य म्प्फुनो नोम्बोरो त्सल।",
+       "हेल्पलाइन नंबर लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana na yena aapat eka 1 100 12 hlanganisa.",
+       "उन्'वन न येन आपत् एक 1 100 12 ह्लङनिस।",
+       "किसी भी आपात में एक सौ बारह मिलाओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Ambulense nomboro 1 100 8 va.",
+       "अम्बुलेन्से नोम्बोरो 1 100 8 व।",
+       "एम्बुलेंस का नंबर एक सौ आठ है।",
+       "L",
+       "A"
+      ],
+      [
+       "Svasthy khadi mahala ilaj nyika.",
+       "स्वस्थ्य् खदि महल इलज् ञिक।",
+       "स्वास्थ्य कार्ड मुफ़्त इलाज देता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Khadi mayelana na eka xibedlhele fasitere kambe vutisa.",
+       "खदि मयेलन न एक क्सिबेद्ल्हेले फ़सितेरे कम्बे वुतिस।",
+       "कार्ड के बारे में अस्पताल की खिड़की पर पूछो।",
+       "L",
+       "A"
+      ],
+      [
+       "Ku nga ri na nchumu phepha kambe sayina a endla.",
+       "कु ङ रि न न्चुमु फेफ कम्बे सयिन अ एन्द्ल।",
+       "ख़ाली कागज़ पर दस्तख़त मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sayina ku suka eka ku sungula parho kumbe parhavao.",
+       "सयिन कु सुक एक कु सुङुल पर्हो कुम्बे पर्हवओ।",
+       "दस्तख़त से पहले पढ़ो या पढ़वाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa n'wina angutha na yena wa n'wina sayina va.",
+       "व न्'विन अङुथ न येन व न्'विन सयिन व।",
+       "आपका अँगूठा भी आपका दस्तख़त है।",
+       "L",
+       "B"
+      ],
+      [
+       "Vekiwile dar ku suka eka switsongo muholo hoxa va.",
+       "वेकिविले दर् कु सुक एक सऺइत्सोङो मुहोलो होक्स व।",
+       "तय दर से कम मज़दूरी ग़लत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Swin'we mhaka endla swin'we kombela.",
+       "सऺइन्'वे म्हक एन्द्ल सऺइन्'वे कोम्बेल।",
+       "मिलकर बात करो, मिलकर माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Shram-daftar mazaduron twa.",
+       "श्रम्-दफ़्तर् मज़दुरोन् तऺअ।",
+       "श्रम-दफ़्तर मज़दूरों की सुनता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ntirho dinon vumbhoni veka.",
+       "न्तिर्हो दिनोन् वुम्ब्होनि वेक।",
+       "अपने काम के दिनों का सबूत रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntirho ndhawu xifaniso vumbhoni ban sakati va.",
+       "न्तिर्हो न्द्हॉउ क्सिफ़निसो वुम्ब्होनि बन् सकति व।",
+       "काम की जगह की फोटो सबूत बन सकती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Kanun tshembeka mutirhi na va.",
+       "कनुन् त्स्हेम्बेक मुतिर्हि न व।",
+       "कानून ईमानदार मज़दूर के साथ है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kungu jano kungu labh teka.",
+       "कुङु जनो कुङु लभ् तेक।",
+       "योजना जानो, योजना का लाभ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Jagaruk mutirhi tiya mutirhi va.",
+       "जगरुक् मुतिर्हि तिय मुतिर्हि व।",
+       "जागरूक मज़दूर मज़बूत मज़दूर है।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena yihi layini eka tirha?",
+     "(बोलो) Hina silai layini eka tirha."
+    ],
+    [
+     "(सुनो) Kamara hlayisekile va?",
+     "(बोलो) Ina Hina xilotlelo na tar janchalaun."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Bhara mangani va?",
+     "भर मङनि व?"
+    ],
+    [
+     "मकान-मालिक",
+     "2 1000 mati na.",
+     "2 1000 मति न।"
+    ],
+    [
+     "आप",
+     "Wa mina likhat lava.",
+     "व मिन लिखत् लव।"
+    ],
+    [
+     "मकान-मालिक",
+     "Kahle i mundzuku tana.",
+     "कह्ले इ मुन्द्ज़ुकु तन।"
+    ],
+    [
+     "आप",
+     "Inkomu.",
+     "इन्कोमु।"
+    ]
+   ],
+   "test": {
+    "target": "नए शहर पहुँचा दोस्त (फ़ोन पर)",
+    "goal": "त्सोंगा में दोस्त को सुरक्षित ठिकाने की तीन जाँच-बातें बताइए, आपात-नंबर सिखाइए, और मुफ़्त श्रमिक-कार्ड की सलाह दीजिए — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Daravaja xilotlelo na fasitere kamba.",
+      "दरवज क्सिलोत्लेलो न फ़सितेरे कम्ब।"
+     ],
+     [
+      "Saph likhat kombela.",
+      "सफ् लिखत् कोम्बेल।"
+     ],
+     [
+      "Yena hinkwaswo adirese yindlu rhumela.",
+      "येन हिन्कऺअसऺओ अदिरेसे यिन्द्लु र्हुमेल।"
+     ],
+     [
+      "Un'wana aapatakal eka 1 100 12 dayal endla.",
+      "उन्'वन आपतकल् एक 1 100 12 दयल् एन्द्ल।"
+     ],
+     [
+      "I-shram khadi mahala banay va.",
+      "इ-श्रम् खदि महल बनय् व।"
+     ],
+     [
+      "Hlayisekile ndhawu tiya ntirho.",
+      "ह्लयिसेकिले न्द्हॉउ तिय न्तिर्हो।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 8,
+   "title": "Interview, Report and My Story",
+   "hi": "इंटरव्यू, रिपोर्ट और मेरी कहानी",
+   "pace": 30,
+   "days": [
+    {
+     "title": "फ़ोन-इंटरव्यू (अपनी बात रखना)",
+     "tw": [
+      [
+       "Aavedan karana",
+       "आवेदन् करन",
+       "आवेदन करना",
+       "ख"
+      ],
+      [
+       "Aatmavishvasi",
+       "आत्मविश्वसि",
+       "आत्मविश्वासी",
+       "ख"
+      ],
+      [
+       "Tirha hi matimba",
+       "तिर्ह हि मतिम्ब",
+       "मेहनती",
+       "ख"
+      ],
+      [
+       "Tshembeka",
+       "त्स्हेम्बेक",
+       "ईमानदार",
+       "क"
+      ],
+      [
+       "Havala",
+       "हवल",
+       "हवाला",
+       "ख"
+      ],
+      [
+       "Kamba",
+       "कम्ब",
+       "परख",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "इंटरव्यू-परिचय — तीन वाक्य में अपनी बात बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina WhatsApp kambe wa n'wina ntirho mahungu vona.",
+       "मिन व्हत्सप्प् कम्बे व न्'विन न्तिर्हो महुङु वोन।",
+       "मैंने व्हाट्सऐप पर आपकी नौकरी की ख़बर देखी।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina muweldi pad hikwalaho ka aavedan karana lava ku lava.",
+       "मिन मुवेल्दि पद् हिकऺअलहो क आवेदन् करन लव कु लव।",
+       "मैं वेल्डर पद के लिए आवेदन करना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Avuxeni nkulukumba Mina ramesh vulavula.",
+       "अवुक्सेनि न्कुलुकुम्ब मिन रमेश् वुलवुल।",
+       "सुप्रभात सर, मैं रमेश बोल रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Yini sweswi mhaka karana kahle rahega?",
+       "यिनि सऺएसऺइ म्हक करन कह्ले रहेग?",
+       "क्या अभी बात करना ठीक रहेगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela mayelana na eka byelani.",
+       "न्द्ज़ कोम्बेल मयेलन न एक ब्येलनि।",
+       "कृपया अपने बारे में बताइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Bihar ku suka eka i na phitar va.",
+       "मिन बिहर् कु सुक एक इ न फितर् व।",
+       "मैं बिहार से हूँ और फिटर हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina 2 kanpaniyon eka ntirho endlile va.",
+       "मिन 2 कन्पनियोन् एक न्तिर्हो एन्द्लिले व।",
+       "मैंने दो कंपनियों में काम किया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina tirha hi matimba na tshembeka va.",
+       "मिन तिर्ह हि मतिम्ब न त्स्हेम्बेक व।",
+       "मैं मेहनती और ईमानदार हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina ntshwa ntirho hatlisa dyondza.",
+       "मिन न्त्स्हऺअ न्तिर्हो हत्लिस द्योन्द्ज़।",
+       "मैं नया काम जल्दी सीखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina minkarhi hinkwayo nkarhi kambe ta.",
+       "मिन मिन्कर्हि हिन्कऺअयो न्कर्हि कम्बे त।",
+       "मैं हमेशा समय पर आता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina sade naqshe nga hlaya.",
+       "मिन सदे नक़्शे ङ ह्लय।",
+       "मैं सादे नक़्शे पढ़ सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina sadi Xitsonga nga vulavula.",
+       "मिन सदि क्सित्सोङ ङ वुलवुल।",
+       "मैं सादी त्सोंगा बोल सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hi ku nonoka bolie Mina samajh lunga.",
+       "हि कु नोनोक बोलिए मिन समझ् लुङ।",
+       "धीरे बोलिए, मैं समझ लूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina leyi nga hundza ntirho ha yini chhora?",
+       "न्'विन लेयि ङ हुन्द्ज़ न्तिर्हो ह यिनि छोर?",
+       "आपने पिछला काम क्यों छोड़ा?",
+       "L",
+       "B"
+      ],
+      [
+       "Kwale sait ntirho hinkwaswo vaile.",
+       "कऺअले सैत् न्तिर्हो हिन्कऺअसऺओ वैले।",
+       "वहाँ साइट का काम पूरा हो गया था।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini wa n'wina ekusuhi un'wana satifikheti va?",
+       "यिनि व न्'विन एकुसुहि उन्'वन सतिफ़िखेति व?",
+       "क्या आपके पास कोई प्रमाणपत्र है?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina wa mina ekusuhi ku welda satifikheti va.",
+       "इन व मिन एकुसुहि कु वेल्द सतिफ़िखेति व।",
+       "हाँ, मेरे पास वेल्डिंग का प्रमाणपत्र है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina sweswi wa yena xifaniso nga rhumela.",
+       "मिन सऺएसऺइ व येन क्सिफ़निसो ङ र्हुमेल।",
+       "मैं अभी उसकी फोटो भेज सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina wa hina mayelana na eka kisane bataya?",
+       "न्'विन व हिन मयेलन न एक किसने बतय?",
+       "आपको हमारे बारे में किसने बताया?",
+       "L",
+       "B"
+      ],
+      [
+       "Wa n'wina khale karigar suresh wa mina havala va.",
+       "व न्'विन खले करिगर् सुरेश् व मिन हवल व।",
+       "आपके पुराने कारीगर सुरेश मेरा हवाला हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini N'wina vusiku xikhati eka nga tirha?",
+       "यिनि न्'विन वुसिकु क्सिखति एक ङ तिर्ह?",
+       "क्या आप रात की पारी में काम कर सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina nkulukumba vusiku xikhati mina kahle va.",
+       "इन न्कुलुकुम्ब वुसिकु क्सिखति मिन कह्ले व।",
+       "हाँ सर, रात की पारी मुझे ठीक है।",
+       "S",
+       "A"
+      ],
+      [
+       "Yini N'wina 20 khilo masaka nga pfuka?",
+       "यिनि न्'विन 20 खिलो मसक ङ प्फुक?",
+       "क्या आप बीस किलो की बोरियाँ उठा सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina Mina siku rin'wana ni rin'wana endla.",
+       "इन मिन सिकु रिन्'वन नि रिन्'वन एन्द्ल।",
+       "हाँ, मैं रोज़ करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Aatmavishvas rakho daro e-e.",
+       "आत्मविश्वस् रखो दरो ए-ए।",
+       "आत्मविश्वास रखो, डरो मत।",
+       "L",
+       "B"
+      ],
+      [
+       "2 pal socho nakambe nhlamulo 2.",
+       "2 पल् सोचो नकम्बे न्ह्लमुलो 2।",
+       "दो पल सोचो, फिर जवाब दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tsongo na sachche nhlamulo jitate va.",
+       "त्सोङो न सच्चे न्ह्लमुलो जितते व।",
+       "छोटे और सच्चे जवाब जीतते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Khale n'wini burai a endla.",
+       "खले न्'विनि बुरै अ एन्द्ल।",
+       "पुराने मालिक की बुराई मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nkulukumba mhaka ku endla hikwalaho ka Inkomu.",
+       "न्कुलुकुम्ब म्हक कु एन्द्ल हिकऺअलहो क इन्कोमु।",
+       "सर, बात करने के लिए धन्यवाद।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina un'wana na yena siku kamba hikwalaho ka lunghekile va.",
+       "मिन उन्'वन न येन सिकु कम्ब हिकऺअलहो क लुङ्हेकिले व।",
+       "मैं किसी भी दिन परख के लिए तैयार हूँ।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "इंटरव्यू में सवाल पूछना (वेतन-समय-जगह)",
+     "tw": [
+      [
+       "Xivutiso",
+       "क्सिवुतिसो",
+       "सवाल",
+       "क"
+      ],
+      [
+       "N'hweti",
+       "न्'हऺएति",
+       "महीने का",
+       "ख"
+      ],
+      [
+       "Nkarhi",
+       "न्कर्हि",
+       "समय",
+       "ख"
+      ],
+      [
+       "Ndhawu",
+       "न्द्हॉउ",
+       "जगह",
+       "ख"
+      ],
+      [
+       "Ntiyiso karana",
+       "न्तियिसो करन",
+       "पक्का करना",
+       "ख"
+      ],
+      [
+       "Vuya foni",
+       "वुय फ़ोनि",
+       "वापस फोन",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "वेतन-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Nkulukumba yini Mina 2 xivutiso nga vutisa?",
+       "न्कुलुकुम्ब यिनि मिन 2 क्सिवुतिसो ङ वुतिस?",
+       "सर, क्या मैं दो सवाल पूछ सकता हूँ?",
+       "S",
+       "B"
+      ],
+      [
+       "N'hweti muholo yini va?",
+       "न्'हऺएति मुहोलो यिनि व?",
+       "महीने का वेतन क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Muholo bandha i kumbe nag nhlayo ku suka eka?",
+       "मुहोलो बन्द्ह इ कुम्बे नग् न्ह्लयो कु सुक एक?",
+       "वेतन बँधा है या नग के हिसाब से?",
+       "S",
+       "B"
+      ],
+      [
+       "Xikhati xa ntirho nkarhi yini va?",
+       "क्सिखति क्स न्तिर्हो न्कर्हि यिनि व?",
+       "ड्यूटी का समय क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Xikhati xa ntirho 9 ku suka eka 6 va.",
+       "क्सिखति क्स न्तिर्हो 9 कु सुक एक 6 व।",
+       "ड्यूटी नौ से छह है।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini Sonto holideyi va?",
+       "यिनि सोन्तो होलिदेयि व?",
+       "क्या रविवार छुट्टी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ntirho ndhawu vula?",
+       "न्तिर्हो न्द्हॉउ वुल?",
+       "काम की जगह कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela ndhawu WhatsApp kambe rhumela.",
+       "न्द्ज़ कोम्बेल न्द्हॉउ व्हत्सप्प् कम्बे र्हुमेल।",
+       "कृपया जगह व्हाट्सऐप पर भेज दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Yini rahane suvidha va?",
+       "यिनि रहने सुविध व?",
+       "क्या रहने की सुविधा है?",
+       "S",
+       "B"
+      ],
+      [
+       "Kamara mahala swakudya wa n'wina.",
+       "कमर महल सऺअकुद्य व न्'विन।",
+       "कमरा मुफ़्त, खाना आपका।",
+       "L",
+       "B"
+      ],
+      [
+       "Muholo rini hlangana?",
+       "मुहोलो रिनि ह्लङन?",
+       "वेतन कब मिलता है?",
+       "S",
+       "B"
+      ],
+      [
+       "Muholo 7 siku ku fika eka aa famba.",
+       "मुहोलो 7 सिकु कु फ़िक एक आ फ़म्ब।",
+       "वेतन सात तारीख़ तक आ जाता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini Leswi bangi akhawunti eka ta?",
+       "यिनि लेसऺइ बङि अखॉउन्ति एक त?",
+       "क्या यह बैंक खाते में आता है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ina hinkwaswo muholo akhawunti eka.",
+       "इन हिन्कऺअसऺओ मुहोलो अखॉउन्ति एक।",
+       "हाँ, पूरा वेतन खाते में।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi wa mina hikwalaho ka kahle va.",
+       "लेसऺइ व मिन हिकऺअलहो क कह्ले व।",
+       "यह मेरे लिए अच्छा है।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina rini ku suka eka nga ta?",
+       "न्'विन रिनि कु सुक एक ङ त?",
+       "आप कब से आ सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Musumbhunuku ku suka eka nga ta.",
+       "मिन मुसुम्ब्हुनुकु कु सुक एक ङ त।",
+       "मैं सोमवार से आ सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku sungula 1 siku kamba kambe tana.",
+       "कु सुङुल 1 सिकु कम्ब कम्बे तन।",
+       "पहले एक दिन की परख पर आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hakunene nkulukumba Mina mundzuku 9 awara ta ta.",
+       "हकुनेने न्कुलुकुम्ब मिन मुन्द्ज़ुकु 9 ऑअर त त।",
+       "ज़रूर सर, मैं कल नौ बजे आऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela isi nomboro kambe ntiyiso endla.",
+       "न्द्ज़ कोम्बेल इसि नोम्बोरो कम्बे न्तियिसो एन्द्ल।",
+       "कृपया इसी नंबर पर पक्का कर दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina madyambu ku fika eka vuya ta fonela.",
+       "मिन मद्यम्बु कु फ़िक एक वुय त फ़ोनेल।",
+       "मैं शाम तक वापस फोन करूँगा।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa n'wina foni xiphemu jae Mina nakambe ta endla.",
+       "व न्'विन फ़ोनि क्सिफेमु जै मिन नकम्बे त एन्द्ल।",
+       "आपका फोन छूट जाए तो मैं फिर करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela wa mina nomboro likh tekani.",
+       "न्द्ज़ कोम्बेल व मिन नोम्बोरो लिख् तेकनि।",
+       "कृपया मेरा नंबर लिख लीजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina nomboro rungula eka va.",
+       "व मिन नोम्बोरो रुङुल एक व।",
+       "मेरा नंबर संदेश में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ina kahane ku suka eka ku sungula hinkwaswo vutisa.",
+       "इन कहने कु सुक एक कु सुङुल हिन्कऺअसऺओ वुतिस।",
+       "हाँ कहने से पहले सब पूछ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Basa xivutiso puchhana sharm a va.",
+       "बस क्सिवुतिसो पुछन शर्म् अ व।",
+       "साफ़ सवाल पूछना शर्म नहीं है।",
+       "S",
+       "C"
+      ],
+      [
+       "Foni ku endla vito tsala.",
+       "फ़ोनि कु एन्द्ल वितो त्सल।",
+       "फोन करने वाले का नाम लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vusiku eka loyi a nga tiviwiki ndhawu akele famba e-e.",
+       "वुसिकु एक लोयि अ ङ तिविविकि न्द्हॉउ अकेले फ़म्ब ए-ए।",
+       "रात में अनजान जगह अकेले मत जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Kamba kambe ku famba ku suka eka ku sungula un'wana munghana byela 2.",
+       "कम्ब कम्बे कु फ़म्ब कु सुक एक कु सुङुल उन्'वन मुङ्हन ब्येल 2।",
+       "परख पर जाने से पहले किसी दोस्त को बता दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kahle xivutiso samajhadar karigar pahachan va.",
+       "कह्ले क्सिवुतिसो समझदर् करिगर् पहचन् व।",
+       "अच्छे सवाल समझदार कारीगर की पहचान हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "काम की फोटो-रिपोर्ट (व्हाट्सऐप पर)",
+     "tw": [
+      [
+       "Photo-riport",
+       "फोतो-रिपोर्त्",
+       "फोटो-रिपोर्ट",
+       "ख"
+      ],
+      [
+       "Pahale-bad",
+       "पहले-बद्",
+       "पहले-बाद",
+       "ख"
+      ],
+      [
+       "Samuh",
+       "समुह्",
+       "समूह",
+       "क"
+      ],
+      [
+       "Emahlweni bhejana",
+       "एमह्लऺएनि भेजन",
+       "आगे भेजना",
+       "ख"
+      ],
+      [
+       "Mitana",
+       "मितन",
+       "मिटाना",
+       "क"
+      ],
+      [
+       "Rungula ra rito",
+       "रुङुल र रितो",
+       "आवाज़-संदेश",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "रिपोर्ट का क्रम — First, Then, After that लगाकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Nkulukumba photo-riport kombela.",
+       "न्कुलुकुम्ब फोतो-रिपोर्त् कोम्बेल।",
+       "सर ने फोटो-रिपोर्ट माँगी।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntirho ku suka eka ku sungula xifaniso teka.",
+       "न्तिर्हो कु सुक एक कु सुङुल क्सिफ़निसो तेक।",
+       "काम से पहले फोटो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntirho endzhaku wun'wana xifaniso teka.",
+       "न्तिर्हो एन्द्झ़कु वुन्'वन क्सिफ़निसो तेक।",
+       "काम के बाद दूसरी फोटो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pahale-bad xifaniso wa n'wina ntirho dikhati va.",
+       "पहले-बद् क्सिफ़निसो व न्'विन न्तिर्हो दिखति व।",
+       "पहले-बाद की फोटो आपका काम दिखाती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Xifaniso ku suka eka ku sungula lens ponchh teka.",
+       "क्सिफ़निसो कु सुक एक कु सुङुल लेन्स् पोन्छ् तेक।",
+       "फोटो से पहले लेंस पोंछ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kahle roshani eka xifaniso teka.",
+       "कह्ले रोशनि एक क्सिफ़निसो तेक।",
+       "अच्छी रोशनी में फोटो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Basa xifaniso hi byakwe vulavula.",
+       "बस क्सिफ़निसो हि ब्यकऺए वुलवुल।",
+       "साफ़ फोटो ख़ुद बोलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina samuh eka 5 xifaniso rhumela.",
+       "मिन समुह् एक 5 क्सिफ़निसो र्हुमेल।",
+       "मैंने समूह में पाँच फोटो भेजीं।",
+       "S",
+       "B"
+      ],
+      [
+       "Xifaniso na 1 pankti tsala.",
+       "क्सिफ़निसो न 1 पन्क्ति त्सल।",
+       "फोटो के साथ एक पंक्ति लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nyangwa ntirho hinkwaswo namuntlha 10 nag.",
+       "ञङऺअ न्तिर्हो हिन्कऺअसऺओ नमुन्त्ल्ह 10 नग्।",
+       "गेट का काम पूरा, आज दस नग।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkulukumba wa mina riport pasand tile.",
+       "न्कुलुकुम्ब व मिन रिपोर्त् पसन्द् तिले।",
+       "सर को मेरी रिपोर्ट पसंद आई।",
+       "S",
+       "B"
+      ],
+      [
+       "Riport siku rin'wana ni rin'wana 1 nkarhi rhumela.",
+       "रिपोर्त् सिकु रिन्'वन नि रिन्'वन 1 न्कर्हि र्हुमेल।",
+       "रिपोर्ट रोज़ एक ही समय भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana madyambu 6 awara rhumela.",
+       "मिन सिकु रिन्'वन नि रिन्'वन मद्यम्बु 6 ऑअर र्हुमेल।",
+       "मैं रोज़ शाम छह बजे भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hofisi xifaniso ehandle emahlweni a rhumela.",
+       "होफ़िसि क्सिफ़निसो एहन्द्ले एमह्लऺएनि अ र्हुमेल।",
+       "दफ़्तर की फोटो बाहर आगे मत भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xin'wana jagahon kambe xifaniso yirisiwile va.",
+       "क्सिन्'वन जगहोन् कम्बे क्सिफ़निसो यिरिसिविले व।",
+       "कुछ जगहों पर फोटो मना होती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Kwale xifaniso lene ku suka eka ku sungula vutisa.",
+       "कऺअले क्सिफ़निसो लेने कु सुक एक कु सुङुल वुतिस।",
+       "वहाँ फोटो लेने से पहले पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Handle ka puchhe un'wana vyakti xifaniso minkarhi yin'wana teka e-e.",
+       "हन्द्ले क पुछे उन्'वन व्यक्ति क्सिफ़निसो मिन्कर्हि यिन्'वन तेक ए-ए।",
+       "बिना पूछे किसी व्यक्ति की फोटो कभी मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hoxa xifaniso hi ku hatlisa mitao.",
+       "होक्स क्सिफ़निसो हि कु हत्लिस मितओ।",
+       "ग़लत फोटो तुरंत मिटाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina foni ndhawu bhar fambile va.",
+       "व मिन फ़ोनि न्द्हॉउ भर् फ़म्बिले व।",
+       "मेरे फोन की जगह भर गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "Khale vidiyo mitao ntirho xifaniso veka.",
+       "खले विदियो मितओ न्तिर्हो क्सिफ़निसो वेक।",
+       "पुराने वीडियो मिटाओ, काम की फोटो रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina ntirho xifaniso foldar aka.",
+       "मिन न्तिर्हो क्सिफ़निसो फ़ोल्दर् अक।",
+       "मैंने काम की फोटो का फ़ोल्डर बनाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi xifaniso wa mina ntirho vumbhoni va.",
+       "लेसऺइ क्सिफ़निसो व मिन न्तिर्हो वुम्ब्होनि व।",
+       "ये फोटो मेरे काम का सबूत हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina nkulukumba rungula ra rito rhumela.",
+       "मिन न्कुलुकुम्ब रुङुल र रितो र्हुमेल।",
+       "मैंने सर को आवाज़-संदेश भेजा।",
+       "S",
+       "B"
+      ],
+      [
+       "Rungula ra rito eka tsongo na basa vulavula.",
+       "रुङुल र रितो एक त्सोङो न बस वुलवुल।",
+       "आवाज़-संदेश में छोटा और साफ़ बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nkulukumba Ndza kombela wa mina rungula ra rito sun tekani.",
+       "न्कुलुकुम्ब न्द्ज़ कोम्बेल व मिन रुङुल र रितो सुन् तेकनि।",
+       "सर, कृपया मेरा आवाज़-संदेश सुन लीजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Kahle i tik rhumela.",
+       "कह्ले इ तिक् र्हुमेल।",
+       "ठीक हो तो टिक भेज दीजिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina nkulukumba laiv ndhawu rhumela.",
+       "मिन न्कुलुकुम्ब लैव् न्द्हॉउ र्हुमेल।",
+       "मैंने सर को अपनी लाइव जगह भेजी।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndhawu ntsena bharose valon rhumela.",
+       "न्द्हॉउ न्त्सेन भरोसे वलोन् र्हुमेल।",
+       "जगह सिर्फ़ भरोसे वालों को भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kahle riport kahle vito aka.",
+       "कह्ले रिपोर्त् कह्ले वितो अक।",
+       "अच्छी रिपोर्ट अच्छा नाम बनाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Voko eka foni voko eka vumbhoni.",
+       "वोको एक फ़ोनि वोको एक वुम्ब्होनि।",
+       "हाथ में फोन, हाथ में सबूत।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "नए शहर के पहले सात दिन",
+     "tw": [
+      [
+       "Xitimela xiteshini",
+       "क्सितिमेल क्सितेशिनि",
+       "रेलवे स्टेशन",
+       "ग"
+      ],
+      [
+       "SIM",
+       "सिम्",
+       "सिम",
+       "ग"
+      ],
+      [
+       "Richaji",
+       "रिचजि",
+       "रिचार्ज",
+       "ग"
+      ],
+      [
+       "Naqsha",
+       "नक़्श",
+       "नक़्शा",
+       "ग"
+      ],
+      [
+       "Bhojanalay",
+       "भोजनलय्",
+       "भोजनालय",
+       "ख"
+      ],
+      [
+       "Jamana",
+       "जमन",
+       "जमना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "soundFamily",
+      "hi": "आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina xitimela ku suka eka doropa fika.",
+       "मिन क्सितिमेल कु सुक एक दोरोप फ़िक।",
+       "मैं ट्रेन से शहर पहुँचा।",
+       "S",
+       "B"
+      ],
+      [
+       "Munghana mina xitimela xiteshini kambe hlangana.",
+       "मुङ्हन मिन क्सितिमेल क्सितेशिनि कम्बे ह्लङन।",
+       "दोस्त मुझे रेलवे स्टेशन पर मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku sungula siku nkwama emahlweni veka.",
+       "कु सुङुल सिकु न्कऺअम एमह्लऺएनि वेक।",
+       "पहले दिन थैला आगे रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Loyi a nga tiviwiki dalalon ku suka eka mpfuno teka e-e.",
+       "लोयि अ ङ तिविविकि दललोन् कु सुक एक म्प्फुनो तेक ए-ए।",
+       "अनजान दलालों से मदद मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina Aadhaar ku suka eka ntshwa SIM tekile.",
+       "मिन आधार् कु सुक एक न्त्स्हऺअ सिम् तेकिले।",
+       "मैंने आधार से नई सिम ली।",
+       "S",
+       "B"
+      ],
+      [
+       "SIM 2 awara eka chalu vaile.",
+       "सिम् 2 ऑअर एक चलु वैले।",
+       "सिम दो घंटे में चालू हो गई।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina 2 100 richaji endlile.",
+       "मिन 2 100 रिचजि एन्द्लिले।",
+       "मैंने दो सौ का रिचार्ज किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ntshwa nomboro yindlu bhej nyikile.",
+       "मिन न्त्स्हऺअ नोम्बोरो यिन्द्लु भेज् ञिकिले।",
+       "मैंने नया नंबर घर भेज दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Wun'wana siku munghana na kamara hlangana.",
+       "वुन्'वन सिकु मुङ्हन न कमर ह्लङन।",
+       "दूसरे दिन दोस्त के साथ कमरा मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ku sungula kamara siku roshani eka jancha.",
+       "मिन कु सुङुल कमर सिकु रोशनि एक जन्च।",
+       "मैंने पहले कमरा दिन की रोशनी में जाँचा।",
+       "S",
+       "B"
+      ],
+      [
+       "Tisare siku Mina saste bhojanalay eka dya.",
+       "तिसरे सिकु मिन सस्ते भोजनलय् एक द्य।",
+       "तीसरे दिन मैंने सस्ते भोजनालय में खाया।",
+       "S",
+       "B"
+      ],
+      [
+       "N'hweti bhojanalay hodela ku suka eka a durhi va.",
+       "न्'हऺएति भोजनलय् होदेल कु सुक एक अ दुर्हि व।",
+       "महीने का भोजनालय होटल से सस्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina foni naqshe kambe ndlela dyondza.",
+       "मिन फ़ोनि नक़्शे कम्बे न्द्लेल द्योन्द्ज़।",
+       "मैंने फोन के नक़्शे पर रास्ता सीखा।",
+       "S",
+       "B"
+      ],
+      [
+       "Naqsha bazi nomboro na yena dikhata va.",
+       "नक़्श बज़ि नोम्बोरो न येन दिखत व।",
+       "नक़्शा बस नंबर भी दिखाता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Chauthe siku Mina ntirho kamba kambe fambile.",
+       "चौथे सिकु मिन न्तिर्हो कम्ब कम्बे फ़म्बिले।",
+       "चौथे दिन मैं काम की परख पर गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 30 minete ku sungula fika.",
+       "मिन 30 मिनेते कु सुङुल फ़िक।",
+       "मैं तीस मिनट पहले पहुँचा।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wini wa mina ntirho pasand taile.",
+       "न्'विनि व मिन न्तिर्हो पसन्द् तैले।",
+       "मालिक को मेरा काम पसंद आया।",
+       "S",
+       "B"
+      ],
+      [
+       "Panchaven siku Mina ntshwa ntirho shuru endlile.",
+       "पन्चवेन् सिकु मिन न्त्स्हऺअ न्तिर्हो शुरु एन्द्लिले।",
+       "पाँचवें दिन मैंने नया काम शुरू किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina dar na nkarhi kopi eka tsala.",
+       "मिन दर् न न्कर्हि कोपि एक त्सल।",
+       "मैंने दर और समय अपनी कॉपी में लिखा।",
+       "S",
+       "B"
+      ],
+      [
+       "Chhathe siku Mina n'hweti bhojanalay vekiwile endlile.",
+       "छथे सिकु मिन न्'हऺएति भोजनलय् वेकिविले एन्द्लिले।",
+       "छठे दिन मैंने महीने का भोजनालय तय किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ekusuhi xibedlhele na maphorisa chauki dekh tekile.",
+       "मिन एकुसुहि क्सिबेद्ल्हेले न मफोरिस चौकि देख् तेकिले।",
+       "मैंने पास का अस्पताल और पुलिस चौकी देख ली।",
+       "S",
+       "A"
+      ],
+      [
+       "Sataven siku Mina yindlu hinkwaswo mahungu na foni endlile.",
+       "सतवेन् सिकु मिन यिन्द्लु हिन्कऺअसऺओ महुङु न फ़ोनि एन्द्लिले।",
+       "सातवें दिन मैंने घर पूरी ख़बर के साथ फोन किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Manana tsaka huin na switsongo roin.",
+       "मनन त्सक हुइन् न सऺइत्सोङो रोइन्।",
+       "माँ खुश हुईं और थोड़ा रोईं।",
+       "S",
+       "C"
+      ],
+      [
+       "1 vhiki eka doropa switsongo vaile.",
+       "1 व्हिकि एक दोरोप सऺइत्सोङो वैले।",
+       "एक हफ़्ते में शहर थोड़ा अपना हो गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Hakatsongo-tsongo Mina laha jam ta famba.",
+       "हकत्सोङो-त्सोङो मिन लह जम् त फ़म्ब।",
+       "धीरे-धीरे मैं यहाँ जम जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Riendzo thikithi na phepha veka.",
+       "रिएन्द्ज़ो थिकिथि न फेफ वेक।",
+       "सफ़र की टिकट और कागज़ रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "10 vito sikho patu vhengele xitopo.",
+       "10 वितो सिखो पतु व्हेङेले क्सितोपो।",
+       "दस नाम सीखो: सड़क, दुकान, पड़ाव।",
+       "L",
+       "B"
+      ],
+      [
+       "Jana-pahachana ndlela hlayisekile ndlela va.",
+       "जन-पहचन न्द्लेल ह्लयिसेकिले न्द्लेल व।",
+       "जाना-पहचाना रास्ता सुरक्षित रास्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wo sungula vhiki kathin wo sungula n'hweti olova.",
+       "वो सुङुल व्हिकि कथिन् वो सुङुल न्'हऺएति ओलोव।",
+       "पहला हफ़्ता कठिन, पहला महीना आसान।",
+       "S",
+       "C"
+      ],
+      [
+       "Un'wana ni un'wana kulu doropa ku sungula siku ku suka eka shuru va.",
+       "उन्'वन नि उन्'वन कुलु दोरोप कु सुङुल सिकु कु सुक एक शुरु व।",
+       "हर बड़ा शहर पहले दिन से शुरू होता है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "महीना-2 का समेट (काम की मेरी कहानी)",
+     "tw": [
+      [
+       "Vumbhoni",
+       "वुम्ब्होनि",
+       "सबूत",
+       "ख"
+      ],
+      [
+       "Suraksha",
+       "सुरक्श",
+       "सुरक्षा",
+       "ख"
+      ],
+      [
+       "Tarakki",
+       "तरक्कि",
+       "तरक्की",
+       "ख"
+      ],
+      [
+       "Kamana",
+       "कमन",
+       "कमाना",
+       "क"
+      ],
+      [
+       "Ntlawa",
+       "न्त्लॉअ",
+       "टीम",
+       "क"
+      ],
+      [
+       "Kahani",
+       "कहनि",
+       "कहानी",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Sikhane 2 n'hweti hinkwaswo humelerile.",
+       "सिखने 2 न्'हऺएति हिन्कऺअसऺओ हुमेलेरिले।",
+       "सीखने के दो महीने पूरे हुए।",
+       "S",
+       "C"
+      ],
+      [
+       "Sweswi Mina ntirho mhaka Xitsonga eka nga endla.",
+       "सऺएसऺइ मिन न्तिर्हो म्हक क्सित्सोङ एक ङ एन्द्ल।",
+       "अब मैं अपने काम की बात त्सोंगा में कर सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina leyi nga hundza vhiki phon-intaravyu nyikile.",
+       "मिन लेयि ङ हुन्द्ज़ व्हिकि फोन्-इन्तरव्यु ञिकिले।",
+       "मैंने पिछले हफ़्ते फोन-इंटरव्यू दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina muholo na nkarhi saf-saf vutisa.",
+       "मिन मुहोलो न न्कर्हि सफ़्-सफ़् वुतिस।",
+       "मैंने वेतन और समय साफ़-साफ़ पूछा।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wini kaha wa mina Xitsonga sudhar tshama.",
+       "न्'विनि कह व मिन क्सित्सोङ सुधर् त्स्हम।",
+       "मालिक ने कहा मेरी त्सोंगा सुधर रही है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana photo-riport rhumela.",
+       "मिन सिकु रिन्'वन नि रिन्'वन फोतो-रिपोर्त् र्हुमेल।",
+       "मैं रोज़ अपनी फोटो-रिपोर्ट भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina kam-kopi eka un'wana ni un'wana siku vumbhoni va.",
+       "व मिन कम्-कोपि एक उन्'वन नि उन्'वन सिकु वुम्ब्होनि व।",
+       "मेरी काम-कॉपी में हर दिन का सबूत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana topi na tigilavhu pahanata va.",
+       "मिन सिकु रिन्'वन नि रिन्'वन तोपि न तिगिलव्हु पहनत व।",
+       "मैं रोज़ अपनी टोपी और दस्ताने पहनता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Suraksha sweswi wa mina aadat ban fambile va.",
+       "सुरक्श सऺएसऺइ व मिन आदत् बन् फ़म्बिले व।",
+       "सुरक्षा अब मेरी आदत बन गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa hina ntlawa kulu ordar hinkwaswo endlile.",
+       "व हिन न्त्लॉअ कुलु ओर्दर् हिन्कऺअसऺओ एन्द्लिले।",
+       "हमारी टीम ने बड़ा ऑर्डर पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wini ntlawa mithai nyikile.",
+       "न्'विनि न्त्लॉअ मिथै ञिकिले।",
+       "मालिक ने टीम को मिठाई दी।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina leyi nga hundza lembe ku suka eka ku tala kamata va.",
+       "मिन लेयि ङ हुन्द्ज़ लेम्बे कु सुक एक कु तल कमत व।",
+       "मैं पिछले साल से ज़्यादा कमाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi n'hweti Mina yindlu ku tala mali rhumela.",
+       "लेसऺइ न्'हऺएति मिन यिन्द्लु कु तल मलि र्हुमेल।",
+       "इस महीने मैंने घर ज़्यादा पैसे भेजे।",
+       "S",
+       "B"
+      ],
+      [
+       "Tatana yindlu chhat kahle karavai.",
+       "ततन यिन्द्लु छत् कह्ले करवै।",
+       "पिताजी ने घर की छत ठीक करवाई।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina makwerhu wa xisati kanpyutar khoso shuru endlile.",
+       "व मिन मकऺएर्हु व क्सिसति कन्प्युतर् खोसो शुरु एन्द्लिले।",
+       "मेरी बहन ने कंप्यूटर कोर्स शुरू किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Xitsonga rito sweswi mina aasani ku suka eka ta.",
+       "क्सित्सोङ रितो सऺएसऺइ मिन आसनि कु सुक एक त।",
+       "त्सोंगा शब्द अब मुझे आसानी से आते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Minkarhi yin'wana Mina tsongo Xitsonga panktiyon eka sochata va.",
+       "मिन्कर्हि यिन्'वन मिन त्सोङो क्सित्सोङ पन्क्तियोन् एक सोचत व।",
+       "कभी-कभी मैं छोटी त्सोंगा पंक्तियों में सोचता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Sathi eka mina rito vutisa.",
+       "सथि एक मिन रितो वुतिस।",
+       "साथी मुझसे शब्द पूछते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina vona tiya holideyi eka dyondzisa.",
+       "मिन वोन तिय होलिदेयि एक द्योन्द्ज़िस।",
+       "मैं उन्हें चाय की छुट्टी में सिखाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Sikhane ku suka eka wa mina dyondzo pakki va.",
+       "सिखने कु सुक एक व मिन द्योन्द्ज़ो पक्कि व।",
+       "सिखाने से मेरी अपनी सीख पक्की होती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi taka n'hweti Mina makete Xitsonga ta dyondza.",
+       "लेयि तक न्'हऺएति मिन मकेते क्सित्सोङ त द्योन्द्ज़।",
+       "अगले महीने मैं बाजार की त्सोंगा सीखूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Nakambe tren-bas riendzo Xitsonga.",
+       "नकम्बे त्रेन्-बस् रिएन्द्ज़ो क्सित्सोङ।",
+       "फिर ट्रेन-बस के सफ़र की त्सोंगा।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina kahani hakatsongo-tsongo cinca tshama.",
+       "व मिन कहनि हकत्सोङो-त्सोङो किन्क त्स्हम।",
+       "मेरी कहानी धीरे-धीरे बदल रही है।",
+       "S",
+       "B"
+      ],
+      [
+       "Dar ku suka eka aatmavishvas ku fika eka kadam-kadam.",
+       "दर् कु सुक एक आत्मविश्वस् कु फ़िक एक कदम्-कदम्।",
+       "डर से आत्मविश्वास तक, कदम-कदम।",
+       "S",
+       "C"
+      ],
+      [
+       "Muti munghana wa mina raz vutisa.",
+       "मुति मुङ्हन व मिन रज़् वुतिस।",
+       "गाँव के दोस्त मेरा राज़ पूछते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina batata i siku rin'wana ni rin'wana 30 xivulwa.",
+       "मिन बतत इ सिकु रिन्'वन नि रिन्'वन 30 क्सिवुलऺअ।",
+       "मैं बताता हूँ: रोज़ तीस वाक्य।",
+       "S",
+       "B"
+      ],
+      [
+       "Mahala khoso bazi wa n'wina nkarhi phis va.",
+       "महल खोसो बज़ि व न्'विन न्कर्हि फिस् व।",
+       "मुफ़्त कोर्स, बस आपका समय ही फीस है।",
+       "S",
+       "B"
+      ],
+      [
+       "Namuntlha sikho mundzuku kamao.",
+       "नमुन्त्ल्ह सिखो मुन्द्ज़ुकु कमओ।",
+       "आज सीखो, कल कमाओ।",
+       "S",
+       "C"
+      ],
+      [
+       "Hafu khoso hinkwaswo hafu norho ekusuhi.",
+       "हफ़ु खोसो हिन्कऺअसऺओ हफ़ु नोर्हो एकुसुहि।",
+       "आधा कोर्स पूरा, आधा सपना पास।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina Xitsonga wa mina taqat.",
+       "व मिन क्सित्सोङ व मिन तक़त्।",
+       "मेरी त्सोंगा, मेरी ताक़त।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena vusiku shipht eka ntirho hi ku endla sakay va?",
+     "(बोलो) Ina nkulukumba vusiku shipht wa mina famba."
+    ],
+    [
+     "(सुनो) Yena photo-riport bhejalaun?",
+     "(बोलो) Ina Hina grup eka 5 xifaniso bhejalaun."
+    ]
+   ],
+   "dialog": [
+    [
+     "मालिक",
+     "Yena ntirho bujhay va?",
+     "येन न्तिर्हो बुझय् व?"
+    ],
+    [
+     "आप",
+     "Ku welda 5 lembe.",
+     "कु वेल्द 5 लेम्बे।"
+    ],
+    [
+     "मालिक",
+     "Muholo 12 1000.",
+     "मुहोलो 12 1000।"
+    ],
+    [
+     "आप",
+     "Rini bhetat?",
+     "रिनि भेतत्?"
+    ],
+    [
+     "मालिक",
+     "7 siku ku fika eka.",
+     "7 सिकु कु फ़िक एक।"
+    ],
+    [
+     "आप",
+     "Hina Musumbhunuku ku suka eka shuru hi ku endla saki va.",
+     "हिन मुसुम्ब्हुनुकु कु सुक एक शुरु हि कु एन्द्ल सकि व।"
+    ]
+   ],
+   "test": {
+    "target": "फ़ोन-इंटरव्यू का पूरा अभ्यास (दोस्त मालिक बने)",
+    "goal": "पूरा इंटरव्यू त्सोंगा में खेलिए — परिचय, अनुभव, दो सवाल (वेतन-समय), joining और धन्यवाद — कम-से-कम सात वाक्य।",
+    "lines": [
+     [
+      "Avuxeni nkulukumba Hina ramesh bolay va.",
+      "अवुक्सेनि न्कुलुकुम्ब हिन रमेश् बोलय् व।"
+     ],
+     [
+      "Hina phitar i wa mina 5 lembe ntokoto va.",
+      "हिन फितर् इ व मिन 5 लेम्बे न्तोकोतो व।"
+     ],
+     [
+      "N'hweti muholo mangani va?",
+      "न्'हऺएति मुहोलो मङनि व?"
+     ],
+     [
+      "Ntirho ndhawu eve va?",
+      "न्तिर्हो न्द्हॉउ एवे व?"
+     ],
+     [
+      "Hina Musumbhunuku ku suka eka aate saki va.",
+      "हिन मुसुम्ब्हुनुकु कु सुक एक आते सकि व।"
+     ],
+     [
+      "Nkulukumba mhaka karate hikwalaho ka Inkomu.",
+      "न्कुलुकुम्ब म्हक करते हिकऺअलहो क इन्कोमु।"
+     ],
+     [
+      "Hina un'wana siku xikambelo hikwalaho ka lunghekile va.",
+      "हिन उन्'वन सिकु क्सिकम्बेलो हिकऺअलहो क लुङ्हेकिले व।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 9,
+   "title": "Market and Smart Buying",
+   "hi": "बाजार और समझदार ख़रीदारी",
+   "pace": 30,
+   "days": [
+    {
+     "title": "सब्ज़ी-फल की ख़रीद",
+     "tw": [
+      [
+       "Taza",
+       "तज़",
+       "ताज़ा",
+       "ग"
+      ],
+      [
+       "Sara humelerile",
+       "सर हुमेलेरिले",
+       "सड़ा हुआ",
+       "ग"
+      ],
+      [
+       "Khilo",
+       "खिलो",
+       "किलो",
+       "ग"
+      ],
+      [
+       "Tarazu",
+       "तरज़ु",
+       "तराज़ू",
+       "ग"
+      ],
+      [
+       "Darjan",
+       "दर्जन्",
+       "दर्जन",
+       "ग"
+      ],
+      [
+       "Mausami",
+       "मौसमि",
+       "मौसमी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "सब्ज़ी-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Tamatar nxavo yini va?",
+       "तमतर् न्क्सवो यिनि व?",
+       "टमाटर का भाव क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "40 mali khilo.",
+       "40 मलि खिलो।",
+       "चालीस रुपये किलो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 khilo tamatar nyika.",
+       "1 खिलो तमतर् ञिक।",
+       "एक किलो टमाटर देना।",
+       "S",
+       "B"
+      ],
+      [
+       "Hafu khilo hari mirch nyika.",
+       "हफ़ु खिलो हरि मिर्च् ञिक।",
+       "आधा किलो हरी मिर्च देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini leswi sabziyan tazi va?",
+       "यिनि लेसऺइ सब्ज़ियन् तज़ि व?",
+       "क्या ये सब्ज़ियाँ ताज़ी हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi namuntlha mixo tile va.",
+       "लेसऺइ नमुन्त्ल्ह मिक्सो तिले व।",
+       "ये आज सुबह आई हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi tamatar sara i cinca 2.",
+       "लेसऺइ तमतर् सर इ किन्क 2।",
+       "यह टमाटर सड़ा है, बदल दो।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina voko ku suka eka chunane 2.",
+       "मिन वोको कु सुक एक चुनने 2।",
+       "मुझे अपने हाथ से चुनने दो।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi vhiki pyaz durha va.",
+       "लेसऺइ व्हिकि प्यज़् दुर्ह व।",
+       "इस हफ़्ते प्याज़ महँगा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Aalu leyi nga hundza vhiki ku suka eka a durhi va.",
+       "आलु लेयि ङ हुन्द्ज़ व्हिकि कु सुक एक अ दुर्हि व।",
+       "आलू पिछले हफ़्ते से सस्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mausami matsavu xava sasti va.",
+       "मौसमि मत्सवु क्सव सस्ति व।",
+       "मौसमी सब्ज़ी खरीदो, सस्ती होती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha yihi phal kahle va?",
+       "नमुन्त्ल्ह यिहि फल् कह्ले व?",
+       "आज कौन-सा फल अच्छा है?",
+       "S",
+       "B"
+      ],
+      [
+       "Kele mithe na saste va.",
+       "केले मिथे न सस्ते व।",
+       "केले मीठे और सस्ते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "1 darjan kele nyika.",
+       "1 दर्जन् केले ञिक।",
+       "एक दर्जन केले देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Tarazu kambe taul kamba.",
+       "तरज़ु कम्बे तौल् कम्ब।",
+       "तराज़ू पर तौल जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tarazu ku sungula shuny dikhae.",
+       "तरज़ु कु सुङुल शुञ् दिखै।",
+       "तराज़ू पहले शून्य दिखाए।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa wena tarazu switsongo dikha tshama.",
+       "व वेन तरज़ु सऺइत्सोङो दिख त्स्हम।",
+       "तुम्हारा तराज़ू कम दिखा रहा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela nakambe ku suka eka taulo.",
+       "न्द्ज़ कोम्बेल नकम्बे कु सुक एक तौलो।",
+       "कृपया फिर से तौलो।",
+       "S",
+       "A"
+      ],
+      [
+       "Sweswi taul lulama va.",
+       "सऺएसऺइ तौल् लुलम व।",
+       "अब तौल सही है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hinkwaswo 1 100 20 humelerile.",
+       "हिन्कऺअसऺओ 1 100 20 हुमेलेरिले।",
+       "कुल एक सौ बीस हुए।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina 5 100 not nyikile.",
+       "मिन 5 100 नोत् ञिकिले।",
+       "मैंने पाँच सौ का नोट दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "3 100 80 vuya endla.",
+       "3 100 80 वुय एन्द्ल।",
+       "तीन सौ अस्सी वापस करो।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku famba ku suka eka ku sungula pfulekile mali gin teka.",
+       "कु फ़म्ब कु सुक एक कु सुङुल प्फुलेकिले मलि गिन् तेक।",
+       "जाने से पहले खुले पैसे गिन लो।",
+       "L",
+       "A"
+      ],
+      [
+       "Sabziyan tinguvu mikwama eka veka.",
+       "सब्ज़ियन् तिङुवु मिकऺअम एक वेक।",
+       "सब्ज़ियाँ कपड़े के थैले में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Plastik thaili yirisiwile endla.",
+       "प्लस्तिक् थैलि यिरिसिविले एन्द्ल।",
+       "प्लास्टिक थैली को मना करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pakane ku suka eka ku sungula sabziyan hlantswa.",
+       "पकने कु सुक एक कु सुङुल सब्ज़ियन् ह्लन्त्सऺअ।",
+       "पकाने से पहले सब्ज़ियाँ धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Madyambu makete minkarhi yin'wana a durhi va.",
+       "मद्यम्बु मकेते मिन्कर्हि यिन्'वन अ दुर्हि व।",
+       "शाम का बाजार कभी-कभी सस्ता होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina hinkwaswo vhiki matsavu xava.",
+       "मिन हिन्कऺअसऺओ व्हिकि मत्सवु क्सव।",
+       "मैं पूरे हफ़्ते की सब्ज़ी खरीदता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Samajhadar kharidar 2 dukanon ku suka eka vutisa.",
+       "समझदर् खरिदर् 2 दुकनोन् कु सुक एक वुतिस।",
+       "समझदार ख़रीदार दो दुकानों से पूछता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Taza swakudya sehatamand sharir.",
+       "तज़ सऺअकुद्य सेहतमन्द् शरिर्।",
+       "ताज़ा खाना, सेहतमंद शरीर।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "राशन-किराना (सूची और छपा दाम)",
+     "tw": [
+      [
+       "Kirana",
+       "किरन",
+       "किराना",
+       "ग"
+      ],
+      [
+       "Suchi",
+       "सुचि",
+       "सूची",
+       "ग"
+      ],
+      [
+       "Phakete",
+       "फकेते",
+       "पैकेट",
+       "ग"
+      ],
+      [
+       "Miyad-tarikh",
+       "मियद्-तरिख्",
+       "मियाद-तारीख़",
+       "ग"
+      ],
+      [
+       "Chhapa nxavo",
+       "छप न्क्सवो",
+       "छपा दाम",
+       "ग"
+      ],
+      [
+       "Pfulekile (bina paiket)",
+       "प्फुलेकिले (बिन पैकेत्)",
+       "खुला (बिना पैकेट)",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "oneMany",
+      "hi": "एक से अनेक — s लगाकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Kharidari ku suka eka ku sungula suchi aka.",
+       "खरिदरि कु सुक एक कु सुङुल सुचि अक।",
+       "ख़रीदारी से पहले सूची बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Suchi mali na nkarhi bachati va.",
+       "सुचि मलि न न्कर्हि बचति व।",
+       "सूची पैसा और समय बचाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina rhayisi dal na tel lava.",
+       "मिन र्हयिसि दल् न तेल् लव।",
+       "मुझे चावल, दाल और तेल चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Lewiya bore ku suka eka 5 khilo rhayisi nyika.",
+       "लेविय बोरे कु सुक एक 5 खिलो र्हयिसि ञिक।",
+       "उस बोरे से पाँच किलो चावल देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini khuli dal phakete ku suka eka sasti va?",
+       "यिनि खुलि दल् फकेते कु सुक एक सस्ति व?",
+       "क्या खुली दाल पैकेट से सस्ती है?",
+       "S",
+       "B"
+      ],
+      [
+       "Phakete kambe miyad-tarikh kamba.",
+       "फकेते कम्बे मियद्-तरिख् कम्ब।",
+       "पैकेट पर मियाद-तारीख़ जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi phakete miyad ekusuhi va.",
+       "लेसऺइ फकेते मियद् एकुसुहि व।",
+       "यह पैकेट मियाद के पास है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina ntshwa phakete nyika.",
+       "मिन न्त्स्हऺअ फकेते ञिक।",
+       "मुझे नया पैकेट देना।",
+       "S",
+       "B"
+      ],
+      [
+       "Chhape nxavo ku suka eka ku tala minkarhi yin'wana 2 e-e.",
+       "छपे न्क्सवो कु सुक एक कु तल मिन्कर्हि यिन्'वन 2 ए-ए।",
+       "छपे दाम से ज़्यादा कभी मत दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhapa nxavo phakete kambe likha va.",
+       "छप न्क्सवो फकेते कम्बे लिख व।",
+       "छपा दाम पैकेट पर लिखा होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Wena chhape nxavo ku suka eka ku tala teka.",
+       "वेन छपे न्क्सवो कु सुक एक कु तल तेक।",
+       "तुम छपे दाम से ज़्यादा ले रहे हो।",
+       "S",
+       "B"
+      ],
+      [
+       "Titimela chhape nxavo ku suka eka ku tala bechana hoxa va.",
+       "तितिमेल छपे न्क्सवो कु सुक एक कु तल बेचन होक्स व।",
+       "ठंडा छपे दाम से ज़्यादा बेचना ग़लत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini tsongo tel-pauch va?",
+       "यिनि त्सोङो तेल्-पौच् व?",
+       "क्या छोटे तेल-पाउच हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Kulu phakete khilo nhlayo ku suka eka a durhi parata va.",
+       "कुलु फकेते खिलो न्ह्लयो कु सुक एक अ दुर्हि परत व।",
+       "बड़ा पैकेट किलो के हिसाब से सस्ता पड़ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 sabun na 1 pest jor 2.",
+       "1 सबुन् न 1 पेस्त् जोर् 2।",
+       "एक साबुन और एक पेस्ट जोड़ दो।",
+       "S",
+       "C"
+      ],
+      [
+       "Hinkwaswo xitarhati mangani humelerile?",
+       "हिन्कऺअसऺओ क्सितर्हति मङनि हुमेलेरिले?",
+       "कुल बिल कितना हुआ?",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela likha humelerile xitarhati aka.",
+       "न्द्ज़ कोम्बेल लिख हुमेलेरिले क्सितर्हति अक।",
+       "कृपया लिखा हुआ बिल बनाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Xitarhati swilo ek-ek endla kamba.",
+       "क्सितर्हति सऺइलो एक्-एक् एन्द्ल कम्ब।",
+       "बिल की चीज़ें एक-एक कर जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tumane chini 2 nkarhi wun'we tsala.",
+       "तुमने चिनि 2 न्कर्हि वुन्'वे त्सल।",
+       "तुमने चीनी दो बार लिखी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndzi khomeli karana kat nyika.",
+       "न्द्ज़ि खोमेलि करन कत् ञिक।",
+       "माफ़ करना, काट देता हूँ।",
+       "L",
+       "A"
+      ],
+      [
+       "Yini Mina leyi taka vhiki nga nyika?",
+       "यिनि मिन लेयि तक व्हिकि ङ ञिक?",
+       "क्या मैं अगले हफ़्ते दे सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Sweswo xava hilaha hakela nga.",
+       "सऺएसऺओ क्सव हिलह हकेल ङ।",
+       "उतना ही खरीदो जितना चुका सको।",
+       "L",
+       "B"
+      ],
+      [
+       "N'hweti rashan kopi eka tsala.",
+       "न्'हऺएति रशन् कोपि एक त्सल।",
+       "महीने का राशन कॉपी में लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "2 dukanon nxavo hlanganisa.",
+       "2 दुकनोन् न्क्सवो ह्लङनिस।",
+       "दो दुकानों का भाव मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Thok vhengele ku tala mal kambe sasti va.",
+       "थोक् व्हेङेले कु तल मल् कम्बे सस्ति व।",
+       "थोक दुकान ज़्यादा माल पर सस्ती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hina 5 vanhu na rashan xava.",
+       "हिन 5 वन्हु न रशन् क्सव।",
+       "हम पाँच लोग साथ राशन खरीदते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Na kharidane kambe antswa nxavo hlangana.",
+       "न खरिदने कम्बे अन्त्सऺअ न्क्सवो ह्लङन।",
+       "साथ खरीदने पर बेहतर भाव मिलता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Sukha rashan mati ku suka eka kule veka.",
+       "सुख रशन् मति कु सुक एक कुले वेक।",
+       "सूखा राशन पानी से दूर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Likha xitarhati wa n'wina vumbhoni va.",
+       "लिख क्सितर्हति व न्'विन वुम्ब्होनि व।",
+       "लिखा बिल आपका सबूत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Soch-samajhakar kharidana aadhi bachat va.",
+       "सोच्-समझकर् खरिदन आधि बचत् व।",
+       "सोच-समझकर ख़रीदना आधी बचत है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "कपड़ा-जूता और मोलभाव",
+     "tw": [
+      [
+       "Molabhav",
+       "मोलभव्",
+       "मोलभाव",
+       "ग"
+      ],
+      [
+       "Aakhiri nxavo",
+       "आखिरि न्क्सवो",
+       "आख़िरी भाव",
+       "ग"
+      ],
+      [
+       "Kapara-parakh kamara",
+       "कपर-परख् कमर",
+       "कपड़ा-परख कमरा",
+       "ग"
+      ],
+      [
+       "Rang",
+       "रङ्",
+       "रंग",
+       "ग"
+      ],
+      [
+       "Garanti",
+       "गरन्ति",
+       "गारंटी",
+       "ग"
+      ],
+      [
+       "Jori",
+       "जोरि",
+       "जोड़ी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "मोलभाव-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina siku rin'wana ni rin'wana ntirho hembe lava.",
+       "मिन सिकु रिन्'वन नि रिन्'वन न्तिर्हो हेम्बे लव।",
+       "मुझे रोज़ के काम की कमीज़ चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Un'wana tiya nguvu komba.",
+       "उन्'वन तिय ङुवु कोम्ब।",
+       "कोई मज़बूत कपड़ा दिखाओ।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi hembe nxavo yini va?",
+       "लेसऺइ हेम्बे न्क्सवो यिनि व?",
+       "इस कमीज़ का भाव क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "6 100 aakhiri nxavo.",
+       "6 100 आखिरि न्क्सवो।",
+       "छह सौ, आख़िरी भाव।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi wa mina hikwalaho ka ngopfu ku tala va.",
+       "लेसऺइ व मिन हिकऺअलहो क ङोप्फु कु तल व।",
+       "यह मेरे लिए बहुत ज़्यादा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina 4 100 ndzi ta nyika.",
+       "मिन 4 100 न्द्ज़ि त ञिक।",
+       "मैं चार सौ दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "50 barhao ni hafu 4 100 eka teka.",
+       "50 बर्हओ नि हफ़ु 4 100 एक तेक।",
+       "पचास बढ़ाओ, साढ़े चार सौ में ले जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Kahle i ni hafu 4 100 eka paik endla.",
+       "कह्ले इ नि हफ़ु 4 100 एक पैक् एन्द्ल।",
+       "ठीक है, साढ़े चार सौ में पैक कर दो।",
+       "S",
+       "C"
+      ],
+      [
+       "Molabhav muskan ku suka eka endla larai ku suka eka e-e.",
+       "मोलभव् मुस्कन् कु सुक एक एन्द्ल लरै कु सुक एक ए-ए।",
+       "मोलभाव मुस्कान से करो, लड़ाई से नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini Mina parakh-kamare eka pahanakar dekh lun?",
+       "यिनि मिन परख्-कमरे एक पहनकर् देख् लुन्?",
+       "क्या मैं परख-कमरे में पहनकर देख लूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Aastin switsongo lanbi va.",
+       "आस्तिन् सऺइत्सोङो लन्बि व।",
+       "आस्तीन थोड़ी लंबी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini Leswi nile rang eka va?",
+       "यिनि लेसऺइ निले रङ् एक व?",
+       "क्या यह नीले रंग में है?",
+       "S",
+       "B"
+      ],
+      [
+       "Yini dhone eka rang nikalega?",
+       "यिनि धोने एक रङ् निकलेग?",
+       "क्या धोने में रंग निकलेगा?",
+       "S",
+       "B"
+      ],
+      [
+       "E-e rang ntiyiso va.",
+       "ए-ए रङ् न्तियिसो व।",
+       "नहीं, रंग पक्का है।",
+       "L",
+       "A"
+      ],
+      [
+       "Mina ntirho juton jori lava.",
+       "मिन न्तिर्हो जुतोन् जोरि लव।",
+       "मुझे काम के जूतों की जोड़ी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina nap 8 nomboro va.",
+       "व मिन नप् 8 नोम्बोरो व।",
+       "मेरा नाप आठ नंबर है।",
+       "S",
+       "B"
+      ],
+      [
+       "2 kadam chalakar vona.",
+       "2 कदम् चलकर् वोन।",
+       "दो कदम चलकर देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bayan juta kas tshama.",
+       "बयन् जुत कस् त्स्हम।",
+       "बायाँ जूता कस रहा है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 nomboro kulu 2.",
+       "1 नोम्बोरो कुलु 2।",
+       "एक नंबर बड़ा दो।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini leswi kambe un'wana garanti va?",
+       "यिनि लेसऺइ कम्बे उन्'वन गरन्ति व?",
+       "क्या इस पर कोई गारंटी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Silai kambe 1 n'hweti garanti.",
+       "सिलै कम्बे 1 न्'हऺएति गरन्ति।",
+       "सिलाई पर एक महीने की गारंटी।",
+       "L",
+       "B"
+      ],
+      [
+       "Garanti xitarhati kambe tsala.",
+       "गरन्ति क्सितर्हति कम्बे त्सल।",
+       "गारंटी बिल पर लिख दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku sungula ntirho hikwalaho ka xava dikhave hikwalaho ka endzhaku eka.",
+       "कु सुङुल न्तिर्हो हिकऺअलहो क क्सव दिखवे हिकऺअलहो क एन्द्झ़कु एक।",
+       "पहले काम के लिए खरीदो, दिखावे के लिए बाद में।",
+       "L",
+       "B"
+      ],
+      [
+       "2 sadi kamizen 1 mahangi ku suka eka antswa va.",
+       "2 सदि कमिज़ेन् 1 महङि कु सुक एक अन्त्सऺअ व।",
+       "दो सादी कमीज़ें एक महँगी से बेहतर हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkhuvo sel eka ntiyiso xiphemu hlangana.",
+       "न्खुवो सेल् एक न्तियिसो क्सिफेमु ह्लङन।",
+       "त्योहार की सेल में असली छूट मिलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Xin'wana bord naqali xiphemu dikhate va.",
+       "क्सिन्'वन बोर्द् नक़लि क्सिफेमु दिखते व।",
+       "कुछ बोर्ड नक़ली छूट दिखाते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku sungula nxavo na kata nxavo havumbirhi kamba.",
+       "कु सुङुल न्क्सवो न कत न्क्सवो हवुम्बिर्हि कम्ब।",
+       "पहले का दाम और कटा दाम दोनों जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina vana hikwalaho ka na yena tinguvu hikwalaho ka.",
+       "मिन वन हिकऺअलहो क न येन तिङुवु हिकऺअलहो क।",
+       "मैंने बच्चों के लिए भी कपड़े लिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Kahle molabhav tsaka jeb.",
+       "कह्ले मोलभव् त्सक जेब्।",
+       "अच्छा मोलभाव, खुश जेब।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku sungula zarurat nakambe ichchha.",
+       "कु सुङुल ज़रुरत् नकम्बे इच्छ।",
+       "पहले ज़रूरत, फिर इच्छा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "मोबाइल और बड़ी ख़रीद",
+     "tw": [
+      [
+       "Varanti",
+       "वरन्ति",
+       "वारंटी",
+       "ग"
+      ],
+      [
+       "Bokisi",
+       "बोकिसि",
+       "डिब्बा",
+       "ग"
+      ],
+      [
+       "Khale (istemal kiya)",
+       "खले (इस्तेमल् किय)",
+       "पुराना (इस्तेमाल किया)",
+       "ग"
+      ],
+      [
+       "Kist",
+       "किस्त्",
+       "किस्त",
+       "ग"
+      ],
+      [
+       "Milan karana",
+       "मिलन् करन",
+       "मिलान करना",
+       "ग"
+      ],
+      [
+       "Khubiyan",
+       "खुबियन्",
+       "ख़ूबियाँ",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "compare",
+      "hi": "तुलना करो — than लगाकर दो चीज़ों की तुलना बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina khale foni skrin tut fambile va.",
+       "व मिन खले फ़ोनि स्क्रिन् तुत् फ़म्बिले व।",
+       "मेरे पुराने फोन की स्क्रीन टूट गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "Lungisa kumbe ntshwa yini antswa va?",
+       "लुङिस कुम्बे न्त्स्हऺअ यिनि अन्त्सऺअ व?",
+       "मरम्मत या नया, क्या बेहतर है?",
+       "S",
+       "B"
+      ],
+      [
+       "Lungisa ku tirhisa mali 2 1000 va.",
+       "लुङिस कु तिर्हिस मलि 2 1000 व।",
+       "मरम्मत का ख़र्च दो हज़ार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ntshwa foni 7 1000 ku suka eka shuru va.",
+       "न्त्स्हऺअ फ़ोनि 7 1000 कु सुक एक शुरु व।",
+       "नया फोन सात हज़ार से शुरू है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kulu baitari foni komba.",
+       "कुलु बैतरि फ़ोनि कोम्ब।",
+       "बड़ी बैटरी वाला फोन दिखाओ।",
+       "S",
+       "B"
+      ],
+      [
+       "Kharidane ku suka eka ku sungula 2 modal hlanganisa.",
+       "खरिदने कु सुक एक कु सुङुल 2 मोदल् ह्लङनिस।",
+       "खरीदने से पहले दो मॉडल मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa leswi khubiyan yini va?",
+       "व लेसऺइ खुबियन् यिनि व?",
+       "इसकी ख़ूबियाँ क्या हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Nxavo onlayini na yena vona.",
+       "न्क्सवो ओन्लयिनि न येन वोन।",
+       "भाव ऑनलाइन भी देख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini leswi foni kambe varanti va?",
+       "यिनि लेसऺइ फ़ोनि कम्बे वरन्ति व?",
+       "क्या इस फोन पर वारंटी है?",
+       "S",
+       "B"
+      ],
+      [
+       "1 lembe khampani varanti.",
+       "1 लेम्बे खम्पनि वरन्ति।",
+       "एक साल कंपनी वारंटी।",
+       "L",
+       "B"
+      ],
+      [
+       "Xitarhati na hinkwaswo bokisi teka.",
+       "क्सितर्हति न हिन्कऺअसऺओ बोकिसि तेक।",
+       "बिल के साथ पूरा डिब्बा लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mabokisi eka charjar na phepha va.",
+       "मबोकिसि एक चर्जर् न फेफ व।",
+       "डिब्बे में चार्जर और कागज़ है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mabokisi nomboro foni ku suka eka hlanganisa.",
+       "मबोकिसि नोम्बोरो फ़ोनि कु सुक एक ह्लङनिस।",
+       "डिब्बे का नंबर फोन से मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Varanti hikwalaho ka xitarhati sanbhalo.",
+       "वरन्ति हिकऺअलहो क क्सितर्हति सन्भलो।",
+       "वारंटी के लिए बिल सँभालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini N'wina khale foni xavisa?",
+       "यिनि न्'विन खले फ़ोनि क्सविस?",
+       "क्या आप पुराने फोन बेचते हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Khale ntsena jani-pahachani vhengele ku suka eka teka.",
+       "खले न्त्सेन जनि-पहचनि व्हेङेले कु सुक एक तेक।",
+       "पुराना सिर्फ़ जानी-पहचानी दुकान से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vukhamba foni pulis-musibat tisa.",
+       "वुखम्ब फ़ोनि पुलिस्-मुसिबत् तिस।",
+       "चोरी का फोन पुलिस-मुसीबत लाता है।",
+       "L",
+       "A"
+      ],
+      [
+       "Yini Mina kist eka nga nyika?",
+       "यिनि मिन किस्त् एक ङ ञिक?",
+       "क्या मैं किस्त में दे सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Kist namuntlha olova mundzuku tika.",
+       "किस्त् नमुन्त्ल्ह ओलोव मुन्द्ज़ुकु तिक।",
+       "किस्त आज आसान, कल भारी।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku sungula kist hinkwaswo ku tirhisa mali joro.",
+       "कु सुङुल किस्त् हिन्कऺअसऺओ कु तिर्हिस मलि जोरो।",
+       "पहले किस्त का कुल ख़र्च जोड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mali ya xandla nxavo kist-dam ku suka eka switsongo va.",
+       "मलि य क्सन्द्ल न्क्सवो किस्त्-दम् कु सुक एक सऺइत्सोङो व।",
+       "नकद दाम किस्त-दाम से कम होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina 2 n'hweti bachakar mali ya xandla ndzi ta nyika.",
+       "मिन 2 न्'हऺएति बचकर् मलि य क्सन्द्ल न्द्ज़ि त ञिक।",
+       "मैं दो महीने बचाकर नकद दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ku sungula siku kavar na shisha lagavao.",
+       "कु सुङुल सिकु कवर् न शिश लगवओ।",
+       "पहले दिन कवर और शीशा लगवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntshwa foni kambe xilotlelo lagao.",
+       "न्त्स्हऺअ फ़ोनि कम्बे क्सिलोत्लेलो लगओ।",
+       "नए फोन पर ताला लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Foni aaiemaiaai nomboro tsala.",
+       "फ़ोनि आइएमैआइ नोम्बोरो त्सल।",
+       "फोन का आईएमईआई नंबर लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Foni khone kambe Leswi ntirho ta.",
+       "फ़ोनि खोने कम्बे लेसऺइ न्तिर्हो त।",
+       "फोन खोने पर यह काम आता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hinkwaswo mitakar khale foni xavisa.",
+       "हिन्कऺअसऺओ मितकर् खले फ़ोनि क्सविस।",
+       "सब मिटाकर ही पुराना फोन बेचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kulu kharid titimela dimag lava.",
+       "कुलु खरिद् तितिमेल दिमग् लव।",
+       "बड़ी ख़रीद को ठंडा दिमाग़ चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Kulu kharid ku suka eka ku sungula 1 vusiku etlela.",
+       "कुलु खरिद् कु सुक एक कु सुङुल 1 वुसिकु एत्लेल।",
+       "बड़ी ख़रीद से पहले एक रात सो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "2 nkarhi wun'we socha mali salile mali va.",
+       "2 न्कर्हि वुन्'वे सोच मलि सलिले मलि व।",
+       "दो बार सोचा पैसा बचा पैसा है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "वापसी-बदली और ठगी-बचाव",
+     "tw": [
+      [
+       "Badali",
+       "बदलि",
+       "बदली",
+       "ग"
+      ],
+      [
+       "Khot",
+       "खोत्",
+       "खोट",
+       "ग"
+      ],
+      [
+       "Sil",
+       "सिल्",
+       "सील",
+       "ग"
+      ],
+      [
+       "Naqali",
+       "नक़लि",
+       "नक़ली",
+       "ग"
+      ],
+      [
+       "Paisa-vapasi",
+       "पैस-वपसि",
+       "पैसा-वापसी",
+       "ग"
+      ],
+      [
+       "Ntiyiso",
+       "न्तियिसो",
+       "असली",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "ख़रीद-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Leswi hembe eka khot va.",
+       "लेसऺइ हेम्बे एक खोत् व।",
+       "इस कमीज़ में खोट है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 taraf silai khuli va.",
+       "1 तरफ़् सिलै खुलि व।",
+       "एक तरफ़ की सिलाई खुली है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina leswi badalana lava ku lava.",
+       "मिन लेसऺइ बदलन लव कु लव।",
+       "मैं इसे बदलना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi mundzuku xitarhati va.",
+       "लेसऺइ मुन्द्ज़ुकु क्सितर्हति व।",
+       "यह कल का बिल है।",
+       "S",
+       "C"
+      ],
+      [
+       "Xitarhati na badali olova va.",
+       "क्सितर्हति न बदलि ओलोव व।",
+       "बिल के साथ बदली आसान होती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ndzi khomeli endlani Hina sweswi cinca nyika.",
+       "न्द्ज़ि खोमेलि एन्द्लनि हिन सऺएसऺइ किन्क ञिक।",
+       "माफ़ कीजिए, हम अभी बदल देते हैं।",
+       "L",
+       "A"
+      ],
+      [
+       "Yini badale eka paisa-vapasi nga hlangana?",
+       "यिनि बदले एक पैस-वपसि ङ ह्लङन?",
+       "क्या बदले में पैसा-वापसी मिल सकती है?",
+       "S",
+       "A"
+      ],
+      [
+       "Paisa-vapasi 3 siku eka ta.",
+       "पैस-वपसि 3 सिकु एक त।",
+       "पैसा-वापसी तीन दिन में आती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Kharidane ku suka eka ku sungula sil kamba.",
+       "खरिदने कु सुक एक कु सुङुल सिल् कम्ब।",
+       "खरीदने से पहले सील जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tuti sil matalab pfulekile phakete.",
+       "तुति सिल् मतलब् प्फुलेकिले फकेते।",
+       "टूटी सील मतलब खुला पैकेट।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi botal naqali lagati va.",
+       "लेसऺइ बोतल् नक़लि लगति व।",
+       "यह बोतल नक़ली लगती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ntiyiso kambe chhapai basa va.",
+       "न्तियिसो कम्बे छपै बस व।",
+       "असली पर छपाई साफ़ होती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hoxa akshar naqali kulu pahachan va.",
+       "होक्स अक्शर् नक़लि कुलु पहचन् व।",
+       "ग़लत अक्षर नक़ली की बड़ी पहचान है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ngopfu a durhi ngopfu naqali nga va.",
+       "ङोप्फु अ दुर्हि ङोप्फु नक़लि ङ व।",
+       "बहुत सस्ता बहुत नक़ली हो सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Phutapath ku suka eka murhi a xava.",
+       "फुतपथ् कु सुक एक मुर्हि अ क्सव।",
+       "फुटपाथ से दवा मत खरीदो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana kulu xilo xitarhati kombela.",
+       "उन्'वन नि उन्'वन कुलु क्सिलो क्सितर्हति कोम्बेल।",
+       "हर बड़ी चीज़ का बिल माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xitarhati vumbhoni e-e.",
+       "क्सितर्हति वुम्ब्होनि ए-ए।",
+       "बिल नहीं तो सबूत नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Dukanadar badali ku suka eka yirisiwile endlile.",
+       "दुकनदर् बदलि कु सुक एक यिरिसिविले एन्द्लिले।",
+       "दुकानदार ने बदली से मना किया।",
+       "S",
+       "C"
+      ],
+      [
+       "Vinamr kambe tiya hokar mhaka endla.",
+       "विनम्र् कम्बे तिय होकर् म्हक एन्द्ल।",
+       "विनम्र पर मज़बूत होकर बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kharidar nate Leswi wa mina mfanelo va.",
+       "खरिदर् नते लेसऺइ व मिन म्फ़नेलो व।",
+       "ख़रीदार के नाते यह मेरा हक़ है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina upabhokta layini ya mpfuno kambe xivilelo ta endla.",
+       "मिन उपभोक्त लयिनि य म्प्फुनो कम्बे क्सिविलेलो त एन्द्ल।",
+       "मैं उपभोक्ता हेल्पलाइन पर शिकायत करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Upabhokta layini ya mpfuno 1 9 1 5 va.",
+       "उपभोक्त लयिनि य म्प्फुनो 1 9 1 5 व।",
+       "उपभोक्ता हेल्पलाइन एक नौ एक पाँच है।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi sunakar Yena hembe cinca nyikile.",
+       "लेसऺइ सुनकर् येन हेम्बे किन्क ञिकिले।",
+       "यह सुनकर उसने कमीज़ बदल दी।",
+       "S",
+       "C"
+      ],
+      [
+       "Onlayini ordar eka doguni vukheta lava.",
+       "ओन्लयिनि ओर्दर् एक दोगुनि वुखेत लव।",
+       "ऑनलाइन ऑर्डर में दोगुनी सावधानी चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Parsal kholate nkarhi vidiyo aka.",
+       "पर्सल् खोलते न्कर्हि विदियो अक।",
+       "पार्सल खोलते समय वीडियो बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Vidiyo vapasi vumbhoni va.",
+       "विदियो वपसि वुम्ब्होनि व।",
+       "वीडियो वापसी का सबूत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Dilivari ku famba ku suka eka ku sungula parsal kamba.",
+       "दिलिवरि कु फ़म्ब कु सुक एक कु सुङुल पर्सल् कम्ब।",
+       "डिलीवरी वाले के जाने से पहले पार्सल जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Jagaruk kharidar 2 nkarhi wun'we thaga a famba.",
+       "जगरुक् खरिदर् 2 न्कर्हि वुन्'वे थग अ फ़म्ब।",
+       "जागरूक ख़रीदार दो बार नहीं ठगा जाता।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa n'wina mali wa n'wina rito.",
+       "व न्'विन मलि व न्'विन रितो।",
+       "आपका पैसा, आपकी आवाज़।",
+       "S",
+       "B"
+      ],
+      [
+       "Aankhen kholakar xava halke mbilu ku suka eka soo.",
+       "आन्खेन् खोलकर् क्सव हल्के म्बिलु कु सुक एक सोओ।",
+       "आँखें खोलकर खरीदो, हल्के मन से सोओ।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena mangani khilo lava?",
+     "(बोलो) 1 khilo wa mina emahlweni ka taulu."
+    ],
+    [
+     "(सुनो) Yena Leswi hikuva vuya karate lava ku lava?",
+     "(बोलो) Leswi kamij eka kharabi va."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Leswi kamij nxavo mangani va?",
+     "लेसऺइ कमिज् न्क्सवो मङनि व?"
+    ],
+    [
+     "दुकानदार",
+     "6 100.",
+     "6 100।"
+    ],
+    [
+     "आप",
+     "Hina 4 100 donga.",
+     "हिन 4 100 दोङ।"
+    ],
+    [
+     "दुकानदार",
+     "Ni hafu 4 100 eka libu.",
+     "नि हफ़ु 4 100 एक लिबु।"
+    ],
+    [
+     "आप",
+     "Kahle i paik endla.",
+     "कह्ले इ पैक् एन्द्ल।"
+    ]
+   ],
+   "test": {
+    "target": "बाजार का पूरा अभ्यास (दोस्त दुकानदार बने)",
+    "goal": "त्सोंगा में पूरी ख़रीद खेलिए — भाव पूछो, तौल जँचवाओ, मोलभाव करो, बिल माँगो, खुले पैसे गिनो — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Tamatar nxavo mangani va?",
+      "तमतर् न्क्सवो मङनि व?"
+     ],
+     [
+      "Phin taulu.",
+      "फिन् तौलु।"
+     ],
+     [
+      "Leswi wa mina hikwalaho ka ngopfu jade va.",
+      "लेसऺइ व मिन हिकऺअलहो क ङोप्फु जदे व।"
+     ],
+     [
+      "Hina 4 100 donga.",
+      "हिन 4 100 दोङ।"
+     ],
+     [
+      "Likhal xitarhati banau.",
+      "लिखल् क्सितर्हति बनौ।"
+     ],
+     [
+      "Ku famba ku suka eka ku sungula pfulekile mali hlaya.",
+      "कु फ़म्ब कु सुक एक कु सुङुल प्फुलेकिले मलि ह्लय।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 10,
+   "title": "Bus, Train and Safe Journey",
+   "hi": "बस, ट्रेन और सुरक्षित सफ़र",
+   "pace": 30,
+   "days": [
+    {
+     "title": "बस का सफ़र",
+     "tw": [
+      [
+       "Rhenti",
+       "र्हेन्ति",
+       "किराया",
+       "ग"
+      ],
+      [
+       "Kandaktar",
+       "कन्दक्तर्",
+       "कंडक्टर",
+       "ग"
+      ],
+      [
+       "Xitopo",
+       "क्सितोपो",
+       "पड़ाव",
+       "ग"
+      ],
+      [
+       "Khiraki-sit",
+       "खिरकि-सित्",
+       "खिड़की-सीट",
+       "ग"
+      ],
+      [
+       "Bhir-bhara",
+       "भिर्-भर",
+       "भीड़-भरा",
+       "ग"
+      ],
+      [
+       "Utarana",
+       "उतरन",
+       "उतरना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "बस-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Leswi bazi kwihi famba?",
+       "लेसऺइ बज़ि कऺइहि फ़म्ब?",
+       "यह बस कहाँ जाती है?",
+       "S",
+       "B"
+      ],
+      [
+       "Yini Leswi audyogik kshetr famba?",
+       "यिनि लेसऺइ औद्योगिक् क्शेत्र् फ़म्ब?",
+       "क्या यह औद्योगिक क्षेत्र जाती है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ina hatlisa charho.",
+       "इन हत्लिस चर्हो।",
+       "हाँ, जल्दी चढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Makete ku fika eka rhenti yini va?",
+       "मकेते कु फ़िक एक र्हेन्ति यिनि व?",
+       "बाजार तक किराया क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ntsena 20 mali.",
+       "न्त्सेन 20 मलि।",
+       "सिर्फ़ बीस रुपये।",
+       "L",
+       "B"
+      ],
+      [
+       "Aakhiri xitopo 1 thikithi.",
+       "आखिरि क्सितोपो 1 थिकिथि।",
+       "आख़िरी पड़ाव की एक टिकट।",
+       "S",
+       "C"
+      ],
+      [
+       "Utarane ku fika eka thikithi veka.",
+       "उतरने कु फ़िक एक थिकिथि वेक।",
+       "उतरने तक टिकट रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kandaktar tikaten janchata va.",
+       "कन्दक्तर् तिकतेन् जन्चत व।",
+       "कंडक्टर टिकटें जाँचता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Yini Leswi xitshamo ku nga ri na nchumu va?",
+       "यिनि लेसऺइ क्सित्स्हमो कु ङ रि न न्चुमु व?",
+       "क्या यह सीट ख़ाली है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela switsongo khisakie.",
+       "न्द्ज़ कोम्बेल सऺइत्सोङो खिसकिए।",
+       "कृपया थोड़ा खिसकिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina khiraki-sit pasand va.",
+       "मिन खिरकि-सित् पसन्द् व।",
+       "मुझे खिड़की-सीट पसंद है।",
+       "S",
+       "B"
+      ],
+      [
+       "Namuntlha bazi ngopfu bhir-bhari va.",
+       "नमुन्त्ल्ह बज़ि ङोप्फु भिर्-भरि व।",
+       "आज बस बहुत भीड़-भरी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Chalati bazi eka danda khoma.",
+       "चलति बज़ि एक दन्द खोम।",
+       "चलती बस में डंडा पकड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nyangwa kambe a yima.",
+       "ञङऺअ कम्बे अ यिम।",
+       "गेट पर मत खड़े हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Baron xitshamo 2.",
+       "बरोन् क्सित्स्हमो 2।",
+       "बड़ों को सीट दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kulu xibedlhele hikwalaho ka yihi xitopo?",
+       "कुलु क्सिबेद्ल्हेले हिकऺअलहो क यिहि क्सितोपो?",
+       "बड़े अस्पताल के लिए कौन-सा पड़ाव?",
+       "S",
+       "A"
+      ],
+      [
+       "Leyi taka xitopo kambe utaro.",
+       "लेयि तक क्सितोपो कम्बे उतरो।",
+       "अगले पड़ाव पर उतरो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku ta kambe mina byela dijiega.",
+       "कु त कम्बे मिन ब्येल दिजिएग।",
+       "आने पर मुझे बता दीजिएगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Xitopo ku suka eka ku sungula ghanti bajao.",
+       "क्सितोपो कु सुक एक कु सुङुल घन्ति बजओ।",
+       "अपने पड़ाव से पहले घंटी बजाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Aakhiri bazi 10 awara khulati va.",
+       "आखिरि बज़ि 10 ऑअर खुलति व।",
+       "आख़िरी बस दस बजे खुलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "2 minete ku suka eka wa mina bazi xiphemu fambile.",
+       "2 मिनेते कु सुक एक व मिन बज़ि क्सिफेमु फ़म्बिले।",
+       "दो मिनट से मेरी बस छूट गई।",
+       "S",
+       "B"
+      ],
+      [
+       "Leyi taka bazi aadhe awara eka ta.",
+       "लेयि तक बज़ि आधे ऑअर एक त।",
+       "अगली बस आधे घंटे में आती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkwama god eka veka.",
+       "न्कऺअम गोद् एक वेक।",
+       "थैला गोद में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bhir eka jeb vona.",
+       "भिर् एक जेब् वोन।",
+       "भीड़ में अपनी जेब देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "N'hweti bas-pas mali bachata va.",
+       "न्'हऺएति बस्-पस् मलि बचत व।",
+       "महीने का बस-पास पैसा बचाता है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 xifaniso ku suka eka ekusuhi banavao.",
+       "1 क्सिफ़निसो कु सुक एक एकुसुहि बनवओ।",
+       "एक फोटो से पास बनवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina siku rin'wana ni rin'wana bazi ku suka eka ntirho famba.",
+       "मिन सिकु रिन्'वन नि रिन्'वन बज़ि कु सुक एक न्तिर्हो फ़म्ब।",
+       "मैं रोज़ बस से काम जाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Bazi thekisi ku suka eka sasti va.",
+       "बज़ि थेकिसि कु सुक एक सस्ति व।",
+       "बस ऑटो से सस्ती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Raste bazi nomboro tsundzuka.",
+       "रस्ते बज़ि नोम्बोरो त्सुन्द्ज़ुक।",
+       "अपने रास्ते के बस नंबर याद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lulama bazi lulama nkarhi olova zindagi.",
+       "लुलम बज़ि लुलम न्कर्हि ओलोव ज़िन्दगि।",
+       "सही बस, सही समय, आसान ज़िंदगी।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ट्रेन-टिकट और स्टेशन",
+     "tw": [
+      [
+       "Aarakshan",
+       "आरक्शन्",
+       "आरक्षण",
+       "ग"
+      ],
+      [
+       "Pulatifomo",
+       "पुलतिफ़ोमो",
+       "प्लेटफॉर्म",
+       "ग"
+      ],
+      [
+       "Sadharan bokisi",
+       "सधरन् बोकिसि",
+       "साधारण डिब्बा",
+       "ग"
+      ],
+      [
+       "Pienaaar",
+       "पिएनाअर्",
+       "पीएनआर",
+       "ग"
+      ],
+      [
+       "Pratiksha",
+       "प्रतिक्श",
+       "प्रतीक्षा",
+       "ग"
+      ],
+      [
+       "Puchhatachh",
+       "पुछतछ्",
+       "पूछताछ",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "numberSay",
+      "hi": "सफ़र के नंबर बोलो — अंक सुनो, त्सोंगा में कहो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina leyi taka n'hweti yindlu famba.",
+       "मिन लेयि तक न्'हऺएति यिन्द्लु फ़म्ब।",
+       "मुझे अगले महीने घर जाना है।",
+       "S",
+       "A"
+      ],
+      [
+       "Xitimela thikithi hatlisa buk endla.",
+       "क्सितिमेल थिकिथि हत्लिस बुक् एन्द्ल।",
+       "ट्रेन टिकट जल्दी बुक करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hatlisa buking ku suka eka pakki xitshamo hlangana.",
+       "हत्लिस बुकिङ् कु सुक एक पक्कि क्सित्स्हमो ह्लङन।",
+       "जल्दी बुकिंग से पक्की सीट मिलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina foni app ku suka eka buk.",
+       "मिन फ़ोनि अप्प् कु सुक एक बुक्।",
+       "मैंने फोन ऐप से बुक की।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina thikithi pratiksha eka va.",
+       "व मिन थिकिथि प्रतिक्श एक व।",
+       "मेरी टिकट प्रतीक्षा में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Pienaaar sthiti siku rin'wana ni rin'wana vona.",
+       "पिएनाअर् स्थिति सिकु रिन्'वन नि रिन्'वन वोन।",
+       "पीएनआर की स्थिति रोज़ देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Namuntlha pratiksha pakki vaile.",
+       "नमुन्त्ल्ह प्रतिक्श पक्कि वैले।",
+       "आज प्रतीक्षा पक्की हो गई।",
+       "S",
+       "A"
+      ],
+      [
+       "Patana xitimela kis pulatifomo kambe?",
+       "पतन क्सितिमेल किस् पुलतिफ़ोमो कम्बे?",
+       "पटना वाली ट्रेन किस प्लेटफॉर्म पर?",
+       "S",
+       "B"
+      ],
+      [
+       "Pulatifomo nomboro 3.",
+       "पुलतिफ़ोमो नोम्बोरो 3।",
+       "प्लेटफॉर्म नंबर तीन।",
+       "L",
+       "B"
+      ],
+      [
+       "Puchhatachh fasitere kambe vutisa.",
+       "पुछतछ् फ़सितेरे कम्बे वुतिस।",
+       "पूछताछ खिड़की पर पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xitimela 1 awara hlwela ku suka eka va.",
+       "क्सितिमेल 1 ऑअर ह्लऺएल कु सुक एक व।",
+       "ट्रेन एक घंटा देर से है।",
+       "S",
+       "C"
+      ],
+      [
+       "Bord kambe xitimela nkarhi vona.",
+       "बोर्द् कम्बे क्सितिमेल न्कर्हि वोन।",
+       "बोर्ड पर ट्रेन का समय देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sadharan bokisi emahlweni or va.",
+       "सधरन् बोकिसि एमह्लऺएनि ओर् व।",
+       "साधारण डिब्बा आगे की ओर है।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina bokisi es-char va.",
+       "व मिन बोकिसि एस्-चर् व।",
+       "मेरा डिब्बा एस-चार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Dibba-suchi pul ekusuhi va.",
+       "दिब्ब-सुचि पुल् एकुसुहि व।",
+       "डिब्बा-सूची पुल के पास है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntsena ehenhla pul ku suka eka par endla.",
+       "न्त्सेन एहेन्ह्ल पुल् कु सुक एक पर् एन्द्ल।",
+       "सिर्फ़ ऊपर वाले पुल से पार करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xitimela patari minkarhi yin'wana par a endla.",
+       "क्सितिमेल पतरि मिन्कर्हि यिन्'वन पर् अ एन्द्ल।",
+       "रेल की पटरी कभी पार मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pili rekha endzhaku yima.",
+       "पिलि रेख एन्द्झ़कु यिम।",
+       "पीली रेखा के पीछे खड़े हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xitimela laha 2 minete yima.",
+       "क्सितिमेल लह 2 मिनेते यिम।",
+       "ट्रेन यहाँ दो मिनट रुकती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Bhir na shanti ku suka eka charho.",
+       "भिर् न शन्ति कु सुक एक चर्हो।",
+       "भीड़ के साथ शांति से चढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chalati xitimela endzhaku bhago e-e.",
+       "चलति क्सितिमेल एन्द्झ़कु भगो ए-ए।",
+       "चलती ट्रेन के पीछे मत भागो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vusiku eka 1 na xitimela va.",
+       "वुसिकु एक 1 न क्सितिमेल व।",
+       "रात में एक और ट्रेन है।",
+       "S",
+       "C"
+      ],
+      [
+       "Sadharan thikithi fasitere ku suka eka teka.",
+       "सधरन् थिकिथि फ़सितेरे कु सुक एक तेक।",
+       "साधारण टिकट खिड़की से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Yuties app ku suka eka na yena sadharan thikithi hlangana.",
+       "युतिएस् अप्प् कु सुक एक न येन सधरन् थिकिथि ह्लङन।",
+       "यूटीएस ऐप से भी साधारण टिकट मिलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Handle ka thikithi minkarhi yin'wana riendzo a endla.",
+       "हन्द्ले क थिकिथि मिन्कर्हि यिन्'वन रिएन्द्ज़ो अ एन्द्ल।",
+       "बिना टिकट कभी यात्रा मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Jurmana rhenti ku suka eka kulu va.",
+       "जुर्मन र्हेन्ति कु सुक एक कुलु व।",
+       "जुर्माना किराये से बड़ा होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Thikithi xifaniso foni eka veka.",
+       "थिकिथि क्सिफ़निसो फ़ोनि एक वेक।",
+       "टिकट की फोटो फोन में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xiteshini 30 minete ku sungula fika.",
+       "क्सितेशिनि 30 मिनेते कु सुङुल फ़िक।",
+       "स्टेशन तीस मिनट पहले पहुँचो।",
+       "L",
+       "A"
+      ],
+      [
+       "Rhula masungulo kahle riendzo aka.",
+       "र्हुल मसुङुलो कह्ले रिएन्द्ज़ो अक।",
+       "शांत शुरुआत अच्छा सफ़र बनाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Jeb eka thikithi ku vilela ehandle.",
+       "जेब् एक थिकिथि कु विलेल एहन्द्ले।",
+       "जेब में टिकट, चिंता बाहर।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ट्रेन के भीतर का सफ़र",
+     "tw": [
+      [
+       "Shayan-sit",
+       "शयन्-सित्",
+       "शयन-सीट",
+       "ग"
+      ],
+      [
+       "Tikat-janch babu",
+       "तिकत्-जन्च् बबु",
+       "टिकट-जाँच बाबू",
+       "ग"
+      ],
+      [
+       "Zanjir",
+       "ज़न्जिर्",
+       "ज़ंजीर",
+       "ग"
+      ],
+      [
+       "Swilo",
+       "सऺइलो",
+       "सामान",
+       "ग"
+      ],
+      [
+       "Bich xitshamo",
+       "बिच् क्सित्स्हमो",
+       "बीच वाली सीट",
+       "ग"
+      ],
+      [
+       "Manzil",
+       "मन्ज़िल्",
+       "मंज़िल",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "सफ़र-सुरक्षा जाँच — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina xitshamo ehenhla nomboro bais va.",
+       "व मिन क्सित्स्हमो एहेन्ह्ल नोम्बोरो बैस् व।",
+       "मेरी सीट ऊपर वाली, नंबर बाईस है।",
+       "S",
+       "B"
+      ],
+      [
+       "Sunie Leswi wa mina xitshamo va.",
+       "सुनिए लेसऺइ व मिन क्सित्स्हमो व।",
+       "सुनिए, यह मेरी सीट है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela thikithi kombani.",
+       "न्द्ज़ कोम्बेल थिकिथि कोम्बनि।",
+       "कृपया अपनी टिकट दिखाइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Leyi taka xiteshini endzhaku titi ta ta.",
+       "लेयि तक क्सितेशिनि एन्द्झ़कु तिति त त।",
+       "अगले स्टेशन के बाद टीटी आएँगे।",
+       "S",
+       "C"
+      ],
+      [
+       "Nkulukumba wa mina thikithi na wa mina Aadhaar.",
+       "न्कुलुकुम्ब व मिन थिकिथि न व मिन आधार्।",
+       "सर, मेरी टिकट और मेरा आधार।",
+       "S",
+       "B"
+      ],
+      [
+       "Bich xitshamo vusiku eka khulati va.",
+       "बिच् क्सित्स्हमो वुसिकु एक खुलति व।",
+       "बीच वाली सीट रात में खुलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mixo bich xitshamo pfala.",
+       "मिक्सो बिच् क्सित्स्हमो प्फल।",
+       "सुबह बीच वाली सीट बंद कर दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Swilo xitshamo ehansi zanjir ku suka eka boha.",
+       "सऺइलो क्सित्स्हमो एहन्सि ज़न्जिर् कु सुक एक बोह।",
+       "सामान सीट के नीचे ज़ंजीर से बाँधो।",
+       "L",
+       "A"
+      ],
+      [
+       "Mina tsongo xilotlelo na zanjir tisa.",
+       "मिन त्सोङो क्सिलोत्लेलो न ज़न्जिर् तिस।",
+       "मैं छोटा ताला और ज़ंजीर लाया हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Nkwama nhloko ekusuhi rakhakar soo.",
+       "न्कऺअम न्ह्लोको एकुसुहि रखकर् सोओ।",
+       "थैला सिर के पास रखकर सोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Loyi a nga tiviwiki vanhu ku suka eka a dya.",
+       "लोयि अ ङ तिविविकि वन्हु कु सुक एक अ द्य।",
+       "अनजान लोगों से खाना मत लो।",
+       "L",
+       "A"
+      ],
+      [
+       "Xin'wana chor murhi kumile swakudya nyika.",
+       "क्सिन्'वन चोर् मुर्हि कुमिले सऺअकुद्य ञिक।",
+       "कुछ चोर दवा मिला खाना देते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Mati stol kumbe aaiaarasitisi ku suka eka teka.",
+       "मति स्तोल् कुम्बे आइयाअरसितिसि कु सुक एक तेक।",
+       "पानी स्टॉल या आईआरसीटीसी से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mati botal sil kamba.",
+       "मति बोतल् सिल् कम्ब।",
+       "पानी की बोतल की सील जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Charjing ndhawu vula?",
+       "चर्जिङ् न्द्हॉउ वुल?",
+       "चार्जिंग की जगह कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Yena nyangwa taraf va.",
+       "येन ञङऺअ तरफ़् व।",
+       "वह गेट की तरफ़ है।",
+       "L",
+       "B"
+      ],
+      [
+       "Foni charjing kambe akela chhoro e-e.",
+       "फ़ोनि चर्जिङ् कम्बे अकेल छोरो ए-ए।",
+       "फोन चार्जिंग पर अकेला मत छोड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Zanjir ntsena ntiyiso khatare hikwalaho ka va.",
+       "ज़न्जिर् न्त्सेन न्तियिसो खतरे हिकऺअलहो क व।",
+       "ज़ंजीर सिर्फ़ असली ख़तरे के लिए है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hoxa zanjir khinchane kambe jurmana va.",
+       "होक्स ज़न्जिर् खिन्चने कम्बे जुर्मन व।",
+       "ग़लत ज़ंजीर खींचने पर जुर्माना है।",
+       "L",
+       "B"
+      ],
+      [
+       "Sweswi yihi xiteshini ta?",
+       "सऺएसऺइ यिहि क्सितेशिनि त?",
+       "अब कौन-सा स्टेशन आ रहा है?",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina manzil mixo 5 awara ta.",
+       "व मिन मन्ज़िल् मिक्सो 5 ऑअर त।",
+       "मेरी मंज़िल सुबह पाँच बजे आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "1 awara ku sungula alarm lagao.",
+       "1 ऑअर कु सुङुल अलर्म् लगओ।",
+       "एक घंटा पहले का अलार्म लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Xiteshini ku suka eka ku sungula swilo bandh teka.",
+       "क्सितेशिनि कु सुक एक कु सुङुल सऺइलो बन्द्ह् तेक।",
+       "स्टेशन से पहले सामान बाँध लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mikwama hlaya 1 2 3.",
+       "मिकऺअम ह्लय 1 2 3।",
+       "अपने थैले गिनो: एक, दो, तीन।",
+       "L",
+       "B"
+      ],
+      [
+       "Siku eka Mina xitshamo bant teka.",
+       "सिकु एक मिन क्सित्स्हमो बन्त् तेक।",
+       "दिन में मैं अपनी सीट बाँट लेता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Xitshamo bantana kahle vyavahar va.",
+       "क्सित्स्हमो बन्तन कह्ले व्यवहर् व।",
+       "सीट बाँटना अच्छा व्यवहार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Xitimela eka paison mhaka switsongo endla.",
+       "क्सितिमेल एक पैसोन् म्हक सऺइत्सोङो एन्द्ल।",
+       "ट्रेन में अपने पैसों की बात कम करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina riendzo eka Xitsonga xivulwa hlaya.",
+       "मिन रिएन्द्ज़ो एक क्सित्सोङ क्सिवुलऺअ ह्लय।",
+       "मैं सफ़र में अपने त्सोंगा वाक्य पढ़ता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Riendzo chalata-phirata xikolo va.",
+       "रिएन्द्ज़ो चलत-फिरत क्सिकोलो व।",
+       "सफ़र चलता-फिरता स्कूल है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hlayisekile riendzo tsaka ndyangu.",
+       "ह्लयिसेकिले रिएन्द्ज़ो त्सक न्द्यङु।",
+       "सुरक्षित सफ़र, खुश परिवार।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ऑटो और रास्ता पूछना",
+     "tw": [
+      [
+       "Sajha thekisi",
+       "सझ थेकिसि",
+       "साझा ऑटो",
+       "ग"
+      ],
+      [
+       "Mitara",
+       "मितर",
+       "मीटर",
+       "ग"
+      ],
+      [
+       "Kongoma",
+       "कोङोम",
+       "सीधा",
+       "ग"
+      ],
+      [
+       "Murana",
+       "मुरन",
+       "मुड़ना",
+       "ग"
+      ],
+      [
+       "Pahachan-jagah",
+       "पहचन्-जगह्",
+       "पहचान-जगह",
+       "ग"
+      ],
+      [
+       "Paidal-duri",
+       "पैदल्-दुरि",
+       "पैदल-दूरी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "directionSay",
+      "hi": "रास्ता बोलो — हिंदी सुनो, त्सोंगा में दिशा बताओ।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mutirhi xivandla xana u ta famba?",
+       "मुतिर्हि क्सिवन्द्ल क्सन उ त फ़म्ब?",
+       "लेबर चौक चलोगे?",
+       "S",
+       "B"
+      ],
+      [
+       "Mangani loge?",
+       "मङनि लोगे?",
+       "कितना लोगे?",
+       "S",
+       "B"
+      ],
+      [
+       "80 mali ntiyiso.",
+       "80 मलि न्तियिसो।",
+       "अस्सी रुपये, पक्का।",
+       "L",
+       "B"
+      ],
+      [
+       "Sajha thekisi 20 teka.",
+       "सझ थेकिसि 20 तेक।",
+       "साझा ऑटो बीस लेता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina sajha thekisi ku suka eka ta famba.",
+       "मिन सझ थेकिसि कु सुक एक त फ़म्ब।",
+       "मैं साझा ऑटो से जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini leswi thekisi eka mitara va?",
+       "यिनि लेसऺइ थेकिसि एक मितर व?",
+       "क्या इस ऑटो में मीटर है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela mitara chalu endla.",
+       "न्द्ज़ कोम्बेल मितर चलु एन्द्ल।",
+       "कृपया मीटर चालू करो।",
+       "S",
+       "A"
+      ],
+      [
+       "Baithane ku suka eka ku sungula rhenti vekiwile endla.",
+       "बैथने कु सुक एक कु सुङुल र्हेन्ति वेकिविले एन्द्ल।",
+       "बैठने से पहले किराया तय करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Makwerhu aaitiaai kolej njhani jaun?",
+       "मकऺएर्हु आइतियाऐ कोलेज् न्झनि जौन्?",
+       "भाई, आईटीआई कॉलेज कैसे जाऊँ?",
+       "S",
+       "B"
+      ],
+      [
+       "Petrol panp ku fika eka kongoma famba.",
+       "पेत्रोल् पन्प् कु फ़िक एक कोङोम फ़म्ब।",
+       "पेट्रोल पंप तक सीधा जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Nakambe mandir ku suka eka eximatsini muro.",
+       "नकम्बे मन्दिर् कु सुक एक एक्सिमत्सिनि मुरो।",
+       "फिर मंदिर से बाएँ मुड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa yena endzhaku wun'wana dain gali teka.",
+       "व येन एन्द्झ़कु वुन्'वन दैन् गलि तेक।",
+       "उसके बाद दूसरी दाईं गली लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kolej mati tanki bagal eka va.",
+       "कोलेज् मति तन्कि बगल् एक व।",
+       "कॉलेज पानी की टंकी के बगल में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Yini laha ku suka eka paidal-duri va?",
+       "यिनि लह कु सुक एक पैदल्-दुरि व?",
+       "क्या यहाँ से पैदल-दूरी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ina hi milenge ntsena 10 minete.",
+       "इन हि मिलेङे न्त्सेन 10 मिनेते।",
+       "हाँ, पैदल सिर्फ़ दस मिनट।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana ndhawu 1 pahachan-jagah tsundzuka.",
+       "उन्'वन नि उन्'वन न्द्हॉउ 1 पहचन्-जगह् त्सुन्द्ज़ुक।",
+       "हर जगह की एक पहचान-जगह याद रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina kamara kulu masjid endzhaku va.",
+       "व मिन कमर कुलु मस्जिद् एन्द्झ़कु व।",
+       "मेरा कमरा बड़ी मस्जिद के पीछे है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntsena sarak-nam e-e pahachan-jagah byela.",
+       "न्त्सेन सरक्-नम् ए-ए पहचन्-जगह् ब्येल।",
+       "सिर्फ़ सड़क-नाम नहीं, पहचान-जगह बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina n'wina laiv ndhawu rhumela.",
+       "मिन न्'विन लैव् न्द्हॉउ र्हुमेल।",
+       "मैं आपको अपनी लाइव जगह भेज रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Naqshe kambe nili bindi endzhaku famba.",
+       "नक़्शे कम्बे निलि बिन्दि एन्द्झ़कु फ़म्ब।",
+       "नक़्शे पर नीली बिंदी के पीछे चलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina mukhy nyangwa kambe khara va.",
+       "मिन मुख्य् ञङऺअ कम्बे खर व।",
+       "मैं मुख्य गेट पर खड़ा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Vahin ruko Mina 5 minete eka ta.",
+       "वहिन् रुको मिन 5 मिनेते एक त।",
+       "वहीं रुको, मैं पाँच मिनट में आ रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Patu lungisa hikwalaho ka pfariwile va.",
+       "पतु लुङिस हिकऺअलहो क प्फरिविले व।",
+       "सड़क मरम्मत के लिए बंद है।",
+       "S",
+       "C"
+      ],
+      [
+       "Bagal gali vukheta ku suka eka teka.",
+       "बगल् गलि वुखेत कु सुक एक तेक।",
+       "बगल वाली गली सावधानी से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Patu zebra-patti ku suka eka par endla.",
+       "पतु ज़ेब्र-पत्ति कु सुक एक पर् एन्द्ल।",
+       "सड़क ज़ेब्रा-पट्टी से पार करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Daen-baen dekho nakambe par endla.",
+       "दैन्-बैन् देखो नकम्बे पर् एन्द्ल।",
+       "दाएँ-बाएँ देखो, फिर पार करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Baik kambe helamet ambala.",
+       "बैक् कम्बे हेलमेत् अम्बल।",
+       "बाइक पर हेलमेट पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 baik kambe 3 a tshama.",
+       "1 बैक् कम्बे 3 अ त्स्हम।",
+       "एक बाइक पर तीन मत बैठो।",
+       "L",
+       "B"
+      ],
+      [
+       "Jani pahachan-jagah minkarhi yin'wana bhatakane a nyika.",
+       "जनि पहचन्-जगह् मिन्कर्हि यिन्'वन भतकने अ ञिक।",
+       "जानी पहचान-जगह कभी भटकने नहीं देती।",
+       "S",
+       "B"
+      ],
+      [
+       "2 nkarhi wun'we puchho 1 nkarhi wun'we famba.",
+       "2 न्कर्हि वुन्'वे पुछो 1 न्कर्हि वुन्'वे फ़म्ब।",
+       "दो बार पूछो, एक बार चलो।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "सफ़र-सुरक्षा और मदद",
+     "tw": [
+      [
+       "Xitimela layini ya mpfuno",
+       "क्सितिमेल लयिनि य म्प्फुनो",
+       "रेलवे हेल्पलाइन",
+       "ग"
+      ],
+      [
+       "Khoya",
+       "खोय",
+       "खोया",
+       "ग"
+      ],
+      [
+       "Kumile",
+       "कुमिले",
+       "मिला",
+       "ग"
+      ],
+      [
+       "Ghoshana",
+       "घोशन",
+       "घोषणा",
+       "ग"
+      ],
+      [
+       "Pulatifomo thikithi",
+       "पुलतिफ़ोमो थिकिथि",
+       "प्लेटफॉर्म टिकट",
+       "ग"
+      ],
+      [
+       "Hinkwaswo janakari",
+       "हिन्कऺअसऺओ जनकरि",
+       "पूरी जानकारी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "खोया-सामान रिपोर्ट — तीन वाक्य में अपनी बात बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Xitimela layini ya mpfuno 1 3 9 va.",
+       "क्सितिमेल लयिनि य म्प्फुनो 1 3 9 व।",
+       "रेलवे हेल्पलाइन एक तीन नौ है।",
+       "L",
+       "B"
+      ],
+      [
+       "Xitimela un'wana na yena pareshani eka leswi hlanganisa.",
+       "क्सितिमेल उन्'वन न येन परेशनि एक लेसऺइ ह्लङनिस।",
+       "ट्रेन की किसी भी परेशानी में इसे मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina nkwama xiteshini kambe lahlekile fambile.",
+       "व मिन न्कऺअम क्सितेशिनि कम्बे लह्लेकिले फ़म्बिले।",
+       "मेरा थैला स्टेशन पर खो गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Xitimela maphorisa kaksh eka famba.",
+       "क्सितिमेल मफोरिस कक्श् एक फ़म्ब।",
+       "रेलवे पुलिस कक्ष में जाओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Hinkwaswo janakari na xivilelo tsala.",
+       "हिन्कऺअसऺओ जनकरि न क्सिविलेलो त्सल।",
+       "पूरी जानकारी के साथ शिकायत लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina nkwama kala i lal patti.",
+       "व मिन न्कऺअम कल इ लल् पत्ति।",
+       "मेरा थैला काला है, लाल पट्टी वाला।",
+       "S",
+       "B"
+      ],
+      [
+       "Vona wa mina vito pukara.",
+       "वोन व मिन वितो पुकर।",
+       "उन्होंने मेरा नाम पुकारा।",
+       "S",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana ghoshana nyingiso ku suka eka twa.",
+       "उन्'वन नि उन्'वन घोशन ञिङिसो कु सुक एक तऺअ।",
+       "हर घोषणा ध्यान से सुनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kumile humelerile nkwama mina vuya hlanganaile.",
+       "कुमिले हुमेलेरिले न्कऺअम मिन वुय ह्लङनैले।",
+       "मिला हुआ थैला मुझे वापस मिल गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Inkomu xitimela maphorisa.",
+       "इन्कोमु क्सितिमेल मफोरिस।",
+       "धन्यवाद, रेलवे पुलिस।",
+       "S",
+       "A"
+      ],
+      [
+       "Mikwama endzeni vito tsala.",
+       "मिकऺअम एन्द्ज़ेनि वितो त्सल।",
+       "थैले के अंदर अपना नाम लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Swilo kambe phon-nanbar parchi lagao.",
+       "सऺइलो कम्बे फोन्-नन्बर् पर्चि लगओ।",
+       "सामान पर फोन-नंबर की पर्ची लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Jaldabazi eka hoxa xitimela charho e-e.",
+       "जल्दबज़ि एक होक्स क्सितिमेल चर्हो ए-ए।",
+       "जल्दबाज़ी में ग़लत ट्रेन मत चढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xitimela vito na nomboro ntiyiso endla.",
+       "क्सितिमेल वितो न नोम्बोरो न्तियिसो एन्द्ल।",
+       "ट्रेन का नाम और नंबर पक्का करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pulatifomo kambe ku famba hikwalaho ka pulatifomo thikithi teka.",
+       "पुलतिफ़ोमो कम्बे कु फ़म्ब हिकऺअलहो क पुलतिफ़ोमो थिकिथि तेक।",
+       "प्लेटफॉर्म पर जाने के लिए प्लेटफॉर्म टिकट लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vana manana pfuna.",
+       "वन मनन प्फुन।",
+       "बच्चे वाली माँ की मदद करो।",
+       "L",
+       "A"
+      ],
+      [
+       "Vona bokisi a hlangana.",
+       "वोन बोकिसि अ ह्लङन।",
+       "उन्हें अपना डिब्बा नहीं मिल रहा था।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina thikithi dekhakar vona bokisi dikhaya.",
+       "मिन थिकिथि देखकर् वोन बोकिसि दिखय।",
+       "मैंने टिकट देखकर उन्हें डिब्बा दिखाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Tsongo mpfuno kulu duaa banati va.",
+       "त्सोङो म्प्फुनो कुलु दुआ बनति व।",
+       "छोटी मदद बड़ी दुआ बनती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Khatare eka bhir na roshani or famba.",
+       "खतरे एक भिर् न रोशनि ओर् फ़म्ब।",
+       "ख़तरे में भीड़ और रोशनी की ओर जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Munghana bokisi na xitshamo tsala.",
+       "मुङ्हन बोकिसि न क्सित्स्हमो त्सल।",
+       "दोस्त का डिब्बा और सीट लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hina muti ku suka eka na riendzo endla.",
+       "हिन मुति कु सुक एक न रिएन्द्ज़ो एन्द्ल।",
+       "हम गाँव से साथ यात्रा करते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Na riendzo hlayisekile riendzo va.",
+       "न रिएन्द्ज़ो ह्लयिसेकिले रिएन्द्ज़ो व।",
+       "साथ का सफ़र सुरक्षित सफ़र है।",
+       "S",
+       "C"
+      ],
+      [
+       "Rhenti hikwalaho ka tsongo not veka.",
+       "र्हेन्ति हिकऺअलहो क त्सोङो नोत् वेक।",
+       "किराये के लिए छोटे नोट रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sabake emahlweni ka hinkwaswo batuaa komba e-e.",
+       "सबके एमह्लऺएनि क हिन्कऺअसऺओ बतुआ कोम्ब ए-ए।",
+       "सबके सामने पूरा बटुआ मत दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Riendzo eka mati nwa olova khao.",
+       "रिएन्द्ज़ो एक मति नऺअ ओलोव खओ।",
+       "सफ़र में पानी पियो, हल्का खाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Pahunchakar yindlu fonela.",
+       "पहुन्चकर् यिन्द्लु फ़ोनेल।",
+       "पहुँचकर घर फोन करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina hlayisekile pahunch fambile ku vilela a endla.",
+       "मिन ह्लयिसेकिले पहुन्च् फ़म्बिले कु विलेल अ एन्द्ल।",
+       "मैं सुरक्षित पहुँच गया, चिंता मत करो।",
+       "S",
+       "A"
+      ],
+      [
+       "Riendzo khatm hota i dyondzo rah famba.",
+       "रिएन्द्ज़ो खत्म् होत इ द्योन्द्ज़ो रह् फ़म्ब।",
+       "सफ़र ख़त्म होता है, सीख रह जाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Leyi taka vhiki viza-intaravyu duniya.",
+       "लेयि तक व्हिकि विज़-इन्तरव्यु दुनिय।",
+       "अगले हफ़्ते: वीज़ा-इंटरव्यू की दुनिया।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena xitimela yihi pletapharm kambe va?",
+     "(बोलो) Pletapharm nomboro 3."
+    ],
+    [
+     "(सुनो) Wa mina eve utarana va?",
+     "(बोलो) Agila stop kambe utaru."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Mutirhi xivandla tiva?",
+     "मुतिर्हि क्सिवन्द्ल तिव?"
+    ],
+    [
+     "चालक",
+     "80 rupaiya.",
+     "80 रुपैय।"
+    ],
+    [
+     "आप",
+     "Sheyar thekisi 20 ley va.",
+     "शेयर् थेकिसि 20 लेय् व।"
+    ],
+    [
+     "चालक",
+     "Kahle i 60.",
+     "कह्ले इ 60।"
+    ],
+    [
+     "आप",
+     "E-e Hina sheyar thekisi ku suka eka jaonga.",
+     "ए-ए हिन शेयर् थेकिसि कु सुक एक जओङ।"
+    ]
+   ],
+   "test": {
+    "target": "घर पर फ़ोन (यात्रा से एक दिन पहले)",
+    "goal": "त्सोंगा में अपनी घर-यात्रा की तैयारी बताइए — टिकट पक्की, स्टेशन-समय, सामान-सुरक्षा, और पहुँचकर फोन का वादा — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Hina foni app ku suka eka buk endlile.",
+      "हिन फ़ोनि अप्प् कु सुक एक बुक् एन्द्लिले।"
+     ],
+     [
+      "Namuntlha veting pakki vaile.",
+      "नमुन्त्ल्ह वेतिङ् पक्कि वैले।"
+     ],
+     [
+      "Xiteshini kambe 30 minete ku sungula tana.",
+      "क्सितेशिनि कम्बे 30 मिनेते कु सुङुल तन।"
+     ],
+     [
+      "Swilo xitshamo nicha chen ku suka eka bandhu.",
+      "सऺइलो क्सित्स्हमो निच चेन् कु सुक एक बन्द्हु।"
+     ],
+     [
+      "Loyi a nga tiviwiki ku suka eka swakudya libu e-e.",
+      "लोयि अ ङ तिविविकि कु सुक एक सऺअकुद्य लिबु ए-ए।"
+     ],
+     [
+      "Hina hlayisekile pahunchaaun ku vilela a endla.",
+      "हिन ह्लयिसेकिले पहुन्चाउन् कु विलेल अ एन्द्ल।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 11,
+   "title": "Visa, Airport and Going Abroad",
+   "hi": "वीज़ा, हवाई-अड्डा और विदेश-द्वार",
+   "pace": 30,
+   "days": [
+    {
+     "title": "वीज़ा-इंटरव्यू (अपनी बात, अपना देश)",
+     "tw": [
+      [
+       "Phasipoto",
+       "फसिपोतो",
+       "पासपोर्ट",
+       "ग"
+      ],
+      [
+       "Visa",
+       "विस",
+       "वीज़ा",
+       "ग"
+      ],
+      [
+       "Ntirho visa",
+       "न्तिर्हो विस",
+       "काम का वीज़ा",
+       "ग"
+      ],
+      [
+       "Malik-kanpani",
+       "मलिक्-कन्पनि",
+       "मालिक-कंपनी",
+       "ग"
+      ],
+      [
+       "Ntwanano",
+       "न्तऺअननो",
+       "क़रार",
+       "ग"
+      ],
+      [
+       "Bharatiy",
+       "भरतिय्",
+       "भारतीय",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "वीज़ा-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina khari desh eka ntirho karana lava ku lava.",
+       "मिन खरि देश् एक न्तिर्हो करन लव कु लव।",
+       "मैं खाड़ी के देश में काम करना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina bharatiy va.",
+       "मिन भरतिय् व।",
+       "मैं भारतीय हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi wa mina phasipoto va.",
+       "लेसऺइ व मिन फसिपोतो व।",
+       "यह मेरा पासपोर्ट है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina visa ntirho visa va.",
+       "व मिन विस न्तिर्हो विस व।",
+       "मेरा वीज़ा काम का वीज़ा है।",
+       "S",
+       "B"
+      ],
+      [
+       "N'wina dubai ha yini jana lava ku lava?",
+       "न्'विन दुबै ह यिनि जन लव कु लव?",
+       "आप दुबई क्यों जाना चाहते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Kwale wa mina muweldi ntirho va.",
+       "कऺअले व मिन मुवेल्दि न्तिर्हो व।",
+       "वहाँ मेरी वेल्डर की नौकरी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa n'wina malik-kanpani mani va?",
+       "व न्'विन मलिक्-कन्पनि मनि व?",
+       "आपकी मालिक-कंपनी कौन है?",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina malik-kanpani 1 stil khampani va.",
+       "व मिन मलिक्-कन्पनि 1 स्तिल् खम्पनि व।",
+       "मेरी मालिक-कंपनी एक स्टील कंपनी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Khampani vito wa mina ophar-patr kambe va.",
+       "खम्पनि वितो व मिन ओफर्-पत्र् कम्बे व।",
+       "कंपनी का नाम मेरे ऑफर-पत्र पर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Kwale wa n'wina muholo yini hoga?",
+       "कऺअले व न्'विन मुहोलो यिनि होग?",
+       "वहाँ आपका वेतन क्या होगा?",
+       "L",
+       "B"
+      ],
+      [
+       "15 100 diraham n'hweti.",
+       "15 100 दिरहम् न्'हऺएति।",
+       "पंद्रह सौ दिरहम महीना।",
+       "S",
+       "C"
+      ],
+      [
+       "Swakudya na kamara khampani ku suka eka va.",
+       "सऺअकुद्य न कमर खम्पनि कु सुक एक व।",
+       "खाना और कमरा कंपनी से है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa n'wina ntwanano mangani nkarhi va?",
+       "व न्'विन न्तऺअननो मङनि न्कर्हि व?",
+       "आपका क़रार कितने समय का है?",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina ntwanano 2 lembe va.",
+       "व मिन न्तऺअननो 2 लेम्बे व।",
+       "मेरा क़रार दो साल का है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina ntwanano hlaya.",
+       "मिन न्तऺअननो ह्लय।",
+       "मैंने अपना क़रार पढ़ा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Sayina ku suka eka ku sungula ntwanano parhava teka.",
+       "सयिन कु सुक एक कु सुङुल न्तऺअननो पर्हव तेक।",
+       "दस्तख़त से पहले क़रार पढ़वा लो।",
+       "L",
+       "B"
+      ],
+      [
+       "India eka N'wina yini ntirho endlile?",
+       "इन्दिया एक न्'विन यिनि न्तिर्हो एन्द्लिले?",
+       "भारत में आपने क्या काम किया?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina 5 lembe ku welda.",
+       "मिन 5 लेम्बे कु वेल्द।",
+       "मैंने पाँच साल वेल्डिंग की।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini N'wina ku sungula tiko rin'wana fambile va?",
+       "यिनि न्'विन कु सुङुल तिको रिन्'वन फ़म्बिले व?",
+       "क्या आप पहले विदेश गए हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "E-e Leswi wa mina wo sungula nkarhi wun'we va.",
+       "ए-ए लेसऺइ व मिन वो सुङुल न्कर्हि वुन्'वे व।",
+       "नहीं, यह मेरी पहली बार है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa n'wina ndyangu eka kaun-kaun va?",
+       "व न्'विन न्द्यङु एक कौन्-कौन् व?",
+       "आपके परिवार में कौन-कौन हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina nsati na 2 vana muti eka va.",
+       "व मिन न्सति न 2 वन मुति एक व।",
+       "मेरी पत्नी और दो बच्चे गाँव में हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Chhoti-sadi panktiyon eka nhlamulo 2.",
+       "छोति-सदि पन्क्तियोन् एक न्ह्लमुलो 2।",
+       "छोटी-सादी पंक्तियों में जवाब दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Adhikari or dekhakar vulavula.",
+       "अधिकरि ओर् देखकर् वुलवुल।",
+       "अधिकारी की ओर देखकर बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kongoma baitho rhula tshama.",
+       "कोङोम बैथो र्हुल त्स्हम।",
+       "सीधा बैठो, शांत रहो।",
+       "L",
+       "B"
+      ],
+      [
+       "N samajho sori pliz ripit vula.",
+       "न् समझो सोरि प्लिज़् रिपित् वुल।",
+       "न समझो तो 'सॉरी, प्लीज़ रिपीट' कहो।",
+       "L",
+       "B"
+      ],
+      [
+       "Adhikari puchha Mina basa nhlamulo nyikile.",
+       "अधिकरि पुछ मिन बस न्ह्लमुलो ञिकिले।",
+       "अधिकारी ने पूछा, मैंने साफ़ जवाब दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina phepha hinkwaswo na sachche va.",
+       "व मिन फेफ हिन्कऺअसऺओ न सच्चे व।",
+       "मेरे कागज़ पूरे और सच्चे हैं।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi nhlamulo munghana na ku titoloveta endla.",
+       "लेसऺइ न्ह्लमुलो मुङ्हन न कु तितोलोवेत एन्द्ल।",
+       "ये जवाब दोस्त के साथ अभ्यास करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lunghekile nhlamulo olova intaravyu.",
+       "लुङ्हेकिले न्ह्लमुलो ओलोव इन्तरव्यु।",
+       "तैयार जवाब, आसान इंटरव्यू।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "वीज़ा-इंटरव्यू (सच का नियम)",
+     "tw": [
+      [
+       "Jhuth",
+       "झुथ्",
+       "झूठ",
+       "ग"
+      ],
+      [
+       "Radd",
+       "रद्द्",
+       "रद्द",
+       "ग"
+      ],
+      [
+       "Ejenti",
+       "एजेन्ति",
+       "एजेंट",
+       "ग"
+      ],
+      [
+       "Medikal-janch",
+       "मेदिकल्-जन्च्",
+       "मेडिकल-जाँच",
+       "ग"
+      ],
+      [
+       "Ungali-chhap",
+       "उङलि-छप्",
+       "उँगली-छाप",
+       "ग"
+      ],
+      [
+       "Vapasi-yojana",
+       "वपसि-योजन",
+       "वापसी-योजना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "सच-जवाब अभ्यास — सवाल सुनो, सच्चा पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Intaravyu eka minkarhi yin'wana jhuth a vulavula.",
+       "इन्तरव्यु एक मिन्कर्हि यिन्'वन झुथ् अ वुलवुल।",
+       "इंटरव्यू में कभी झूठ मत बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 jhuth visa radd nga endla.",
+       "1 झुथ् विस रद्द् ङ एन्द्ल।",
+       "एक झूठ वीज़ा रद्द करा सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntiyiso dhima i sakata i kambe hlayisekile va.",
+       "न्तियिसो धिम इ सकत इ कम्बे ह्लयिसेकिले व।",
+       "सच धीमा हो सकता है, पर सुरक्षित है।",
+       "S",
+       "C"
+      ],
+      [
+       "N jano vula.",
+       "न् जनो वुल।",
+       "न जानो तो कह दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ndzi khomeli endlani nkulukumba mina Leswi adirese e-e.",
+       "न्द्ज़ि खोमेलि एन्द्लनि न्कुलुकुम्ब मिन लेसऺइ अदिरेसे ए-ए।",
+       "माफ़ कीजिए सर, मुझे यह नहीं पता।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa n'wina thikithi kisane bhari?",
+       "व न्'विन थिकिथि किसने भरि?",
+       "आपकी टिकट किसने भरी?",
+       "L",
+       "B"
+      ],
+      [
+       "Khampani wa mina thikithi bhari.",
+       "खम्पनि व मिन थिकिथि भरि।",
+       "कंपनी ने मेरी टिकट भरी।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina ejenti mangani nyikile?",
+       "न्'विन एजेन्ति मङनि ञिकिले?",
+       "आपने एजेंट को कितना दिया?",
+       "L",
+       "B"
+      ],
+      [
+       "Ntsena sachchi raqam byela.",
+       "न्त्सेन सच्चि रक़म् ब्येल।",
+       "सिर्फ़ सच्ची रक़म बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina ejenti layisense va.",
+       "व मिन एजेन्ति लयिसेन्से व।",
+       "मेरा एजेंट लाइसेंस वाला है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini N'wina India lautenge?",
+       "यिनि न्'विन इन्दिया लौतेङे?",
+       "क्या आप भारत लौटेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina ntwanano endzhaku Mina lautunga.",
+       "इन न्तऺअननो एन्द्झ़कु मिन लौतुङ।",
+       "हाँ, क़रार के बाद मैं लौटूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina ndyangu na zamin India eka va.",
+       "व मिन न्द्यङु न ज़मिन् इन्दिया एक व।",
+       "मेरा परिवार और ज़मीन भारत में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina vapasi-yojana basa va.",
+       "व मिन वपसि-योजन बस व।",
+       "मेरी वापसी-योजना साफ़ है।",
+       "S",
+       "B"
+      ],
+      [
+       "Yini wa n'wina medikal-janch ekusuhi humelerile?",
+       "यिनि व न्'विन मेदिकल्-जन्च् एकुसुहि हुमेलेरिले?",
+       "क्या आपकी मेडिकल-जाँच पास हुई?",
+       "L",
+       "B"
+      ],
+      [
+       "Ina wa mina medikal phit va.",
+       "इन व मिन मेदिकल् फित् व।",
+       "हाँ, मेरी मेडिकल फिट है।",
+       "S",
+       "B"
+      ],
+      [
+       "Medikal manyata kendr kambe humelerile.",
+       "मेदिकल् मञत केन्द्र् कम्बे हुमेलेरिले।",
+       "मेडिकल मान्यता वाले केंद्र पर हुई।",
+       "S",
+       "C"
+      ],
+      [
+       "Vona wa n'wina ungali-chhap lenge.",
+       "वोन व न्'विन उङलि-छप् लेङे।",
+       "वे आपकी उँगली-छाप लेंगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Ungali muchini kambe sidhi veka.",
+       "उङलि मुचिनि कम्बे सिधि वेक।",
+       "उँगली मशीन पर सीधी रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Xifaniso hikwalaho ka kaimare eka vona.",
+       "क्सिफ़निसो हिकऺअलहो क कैमरे एक वोन।",
+       "फोटो के लिए कैमरे में देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vito na ntirho byela sakate va?",
+       "वितो न न्तिर्हो ब्येल सकते व?",
+       "अपना नाम और काम बता सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina vito ramesh i Mina muweldi va.",
+       "व मिन वितो रमेश् इ मिन मुवेल्दि व।",
+       "मेरा नाम रमेश है, मैं वेल्डर हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina kis doropa eka rahenge?",
+       "न्'विन किस् दोरोप एक रहेङे?",
+       "आप किस शहर में रहेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Mina khampani kaimp eka ta tshama.",
+       "मिन खम्पनि कैम्प् एक त त्स्हम।",
+       "मैं कंपनी के कैम्प में रहूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Adhikari ku suka eka bahas a endla.",
+       "अधिकरि कु सुक एक बहस् अ एन्द्ल।",
+       "अधिकारी से बहस मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Yirisiwile i xivangelo vinamrata ku suka eka vutisa.",
+       "यिरिसिविले इ क्सिवङेलो विनम्रत कु सुक एक वुतिस।",
+       "मना हो तो कारण विनम्रता से पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hinkwaswo kagazon ku suka eka nakambe aavedan nga endla.",
+       "हिन्कऺअसऺओ कगज़ोन् कु सुक एक नकम्बे आवेदन् ङ एन्द्ल।",
+       "पूरे कागज़ों से दोबारा आवेदन कर सकते हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina nhlamulo wa mina kagazon ku suka eka hlangana.",
+       "व मिन न्ह्लमुलो व मिन कगज़ोन् कु सुक एक ह्लङन।",
+       "मेरे जवाब मेरे कागज़ों से मिले।",
+       "S",
+       "B"
+      ],
+      [
+       "Phepha na zuban eka 1 ntiyiso.",
+       "फेफ न ज़ुबन् एक 1 न्तियिसो।",
+       "कागज़ और ज़ुबान में एक ही सच।",
+       "S",
+       "C"
+      ],
+      [
+       "Visa tile norho emahlweni barha.",
+       "विस तिले नोर्हो एमह्लऺएनि बर्ह।",
+       "वीज़ा आया, सपना आगे बढ़ा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "पासपोर्ट, कागज़ और मेडिकल",
+     "tw": [
+      [
+       "Many",
+       "मञ्",
+       "मान्य",
+       "ग"
+      ],
+      [
+       "Phail",
+       "फैल्",
+       "फाइल",
+       "ग"
+      ],
+      [
+       "Pulis-satyapan",
+       "पुलिस्-सत्यपन्",
+       "पुलिस-सत्यापन",
+       "ग"
+      ],
+      [
+       "Bima",
+       "बिम",
+       "बीमा",
+       "ग"
+      ],
+      [
+       "Aapat-sanpark",
+       "आपत्-सन्पर्क्",
+       "आपात-संपर्क",
+       "ग"
+      ],
+      [
+       "Chhayaprati",
+       "छयप्रति",
+       "छायाप्रति",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "विदेश-कागज़ का क्रम — First, Then, After that लगाकर बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Phasipoto wa n'wina wo sungula chabi va.",
+       "फसिपोतो व न्'विन वो सुङुल चबि व।",
+       "पासपोर्ट आपकी पहली चाबी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntsena sarakari vebasait ku suka eka aavedan endla.",
+       "न्त्सेन सरकरि वेबसैत् कु सुक एक आवेदन् एन्द्ल।",
+       "सिर्फ़ सरकारी वेबसाइट से आवेदन करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pasaport-daftar kagazon hikwalaho ka bulaya.",
+       "पसपोर्त्-दफ़्तर् कगज़ोन् हिकऺअलहो क बुलय।",
+       "पासपोर्ट-दफ़्तर ने कागज़ों के लिए बुलाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Pulis-satyapan wa mina yindlu taile.",
+       "पुलिस्-सत्यपन् व मिन यिन्द्लु तैले।",
+       "पुलिस-सत्यापन मेरे घर आया।",
+       "S",
+       "A"
+      ],
+      [
+       "Maphorisa lulama adirese byela.",
+       "मफोरिस लुलम अदिरेसे ब्येल।",
+       "पुलिस को सही पता बताओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Wa mina phasipoto 10 lembe many va.",
+       "व मिन फसिपोतो 10 लेम्बे मञ् व।",
+       "मेरा पासपोर्ट दस साल मान्य है।",
+       "S",
+       "A"
+      ],
+      [
+       "Visa ku suka eka ku sungula manyata kamba.",
+       "विस कु सुक एक कु सुङुल मञत कम्ब।",
+       "वीज़ा से पहले मान्यता जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "6 n'hweti manyata zaruri va.",
+       "6 न्'हऺएति मञत ज़रुरि व।",
+       "छह महीने की मान्यता ज़रूरी है।",
+       "L",
+       "B"
+      ],
+      [
+       "Phasipoto plastik phail eka veka.",
+       "फसिपोतो प्लस्तिक् फैल् एक वेक।",
+       "पासपोर्ट प्लास्टिक फाइल में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana phepha 3 chhayaprati aka.",
+       "उन्'वन नि उन्'वन फेफ 3 छयप्रति अक।",
+       "हर कागज़ की तीन छायाप्रति बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "1 prati-set yindlu kambe veka.",
+       "1 प्रति-सेत् यिन्द्लु कम्बे वेक।",
+       "एक प्रति-सेट घर पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 prati-set foni eka veka.",
+       "1 प्रति-सेत् फ़ोनि एक वेक।",
+       "एक प्रति-सेट अपने फोन में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntiyiso phasipoto ejenti minkarhi yin'wana 2 e-e.",
+       "न्तियिसो फसिपोतो एजेन्ति मिन्कर्हि यिन्'वन 2 ए-ए।",
+       "असली पासपोर्ट एजेंट को कभी मत दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Phasipoto wa n'wina voko eka tshama.",
+       "फसिपोतो व न्'विन वोको एक त्स्हम।",
+       "पासपोर्ट आपके हाथ में रहे।",
+       "L",
+       "B"
+      ],
+      [
+       "Tiko rin'wana eka khampani wa n'wina phasipoto a nga veka.",
+       "तिको रिन्'वन एक खम्पनि व न्'विन फसिपोतो अ ङ वेक।",
+       "विदेश में कंपनी आपका पासपोर्ट नहीं रख सकती।",
+       "L",
+       "B"
+      ],
+      [
+       "Kanun ku suka eka Leswi wa n'wina mfanelo va.",
+       "कनुन् कु सुक एक लेसऺइ व न्'विन म्फ़नेलो व।",
+       "कानून से यह आपका हक़ है।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina medikal phail eka hinkwaswo riport va.",
+       "व मिन मेदिकल् फैल् एक हिन्कऺअसऺओ रिपोर्त् व।",
+       "मेरी मेडिकल फाइल में सब रिपोर्ट हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Khun na aankh kamba vaile.",
+       "खुन् न आन्ख् कम्ब वैले।",
+       "खून और आँख की जाँच हो गई।",
+       "S",
+       "C"
+      ],
+      [
+       "2 lembe yatra-bima teka.",
+       "2 लेम्बे यत्र-बिम तेक।",
+       "दो साल का यात्रा-बीमा लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tiko rin'wana eka bimari kambe bima ntirho ta.",
+       "तिको रिन्'वन एक बिमरि कम्बे बिम न्तिर्हो त।",
+       "विदेश में बीमारी पर बीमा काम आता है।",
+       "L",
+       "B"
+      ],
+      [
+       "2 aapat-sanpark tsala.",
+       "2 आपत्-सन्पर्क् त्सल।",
+       "दो आपात-संपर्क लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 yindlu 1 bharat-daftar nomboro.",
+       "1 यिन्द्लु 1 भरत्-दफ़्तर् नोम्बोरो।",
+       "एक घर का, एक भारत-दफ़्तर का नंबर।",
+       "L",
+       "B"
+      ],
+      [
+       "Phasipoto nomboro zubani tsundzuka.",
+       "फसिपोतो नोम्बोरो ज़ुबनि त्सुन्द्ज़ुक।",
+       "पासपोर्ट नंबर ज़ुबानी याद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntsena dikhai ndhawu kambe sayina endla.",
+       "न्त्सेन दिखै न्द्हॉउ कम्बे सयिन एन्द्ल।",
+       "सिर्फ़ दिखाई जगह पर दस्तख़त करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sayina ku suka eka ku sungula un'wana ni un'wana panna hlaya.",
+       "सयिन कु सुक एक कु सुङुल उन्'वन नि उन्'वन पन्न ह्लय।",
+       "दस्तख़त से पहले हर पन्ना पढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hinkwaswo kagazon kambe vito hlanganisa.",
+       "हिन्कऺअसऺओ कगज़ोन् कम्बे वितो ह्लङनिस।",
+       "सब कागज़ों पर नाम मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "1 hoxa akshar phail rok nyika.",
+       "1 होक्स अक्शर् फैल् रोक् ञिक।",
+       "एक ग़लत अक्षर फाइल रोक देता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hofisi eka hatlisa sudharavao.",
+       "होफ़िसि एक हत्लिस सुधरवओ।",
+       "दफ़्तर में जल्दी सुधरवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hinkwaswo phail un'wana ku vilela e-e.",
+       "हिन्कऺअसऺओ फैल् उन्'वन कु विलेल ए-ए।",
+       "पूरी फाइल, कोई चिंता नहीं।",
+       "S",
+       "B"
+      ],
+      [
+       "Phepha lunghekile pankh lunghekile.",
+       "फेफ लुङ्हेकिले पन्ख् लुङ्हेकिले।",
+       "कागज़ तैयार, पंख तैयार।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "हवाई-अड्डे का पूरा सीन",
+     "tw": [
+      [
+       "Chek-in",
+       "चेक्-इन्",
+       "चेक-इन",
+       "ग"
+      ],
+      [
+       "Bording ekusuhi",
+       "बोर्दिङ् एकुसुहि",
+       "बोर्डिंग पास",
+       "ग"
+      ],
+      [
+       "Suraksha-janch",
+       "सुरक्श-जन्च्",
+       "सुरक्षा-जाँच",
+       "ग"
+      ],
+      [
+       "Prasthan",
+       "प्रस्थन्",
+       "प्रस्थान",
+       "ग"
+      ],
+      [
+       "Imigreshan",
+       "इमिग्रेशन्",
+       "इमिग्रेशन",
+       "ग"
+      ],
+      [
+       "Bandhi ra xitshamo",
+       "बन्द्हि र क्सित्स्हमो",
+       "सीट-पट्टी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "signRead",
+      "hi": "बोर्ड पढ़ो — त्सोंगा बोर्ड सुनो, हिंदी मतलब बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hina 3 awara ku sungula eyaraport fika.",
+       "हिन 3 ऑअर कु सुङुल एयरपोर्त् फ़िक।",
+       "हम तीन घंटे पहले एयरपोर्ट पहुँचे।",
+       "S",
+       "B"
+      ],
+      [
+       "Kulu bord parho prasthan na aagaman.",
+       "कुलु बोर्द् पर्हो प्रस्थन् न आगमन्।",
+       "बड़े बोर्ड पढ़ो: प्रस्थान और आगमन।",
+       "L",
+       "B"
+      ],
+      [
+       "Ku famba hikwalaho ka prasthan ku ta hikwalaho ka aagaman.",
+       "कु फ़म्ब हिकऺअलहो क प्रस्थन् कु त हिकऺअलहो क आगमन्।",
+       "जाने के लिए प्रस्थान, आने के लिए आगमन।",
+       "L",
+       "B"
+      ],
+      [
+       "Chek-in kauntar kambe katar eka lago.",
+       "चेक्-इन् कौन्तर् कम्बे कतर् एक लगो।",
+       "चेक-इन काउंटर पर कतार में लगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Phasipoto na thikithi komba.",
+       "फसिपोतो न थिकिथि कोम्ब।",
+       "पासपोर्ट और टिकट दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Kulu nkwama patte kambe veka.",
+       "कुलु न्कऺअम पत्ते कम्बे वेक।",
+       "बड़ा थैला पट्टे पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mikwama taul-sima 30 khilo va.",
+       "मिकऺअम तौल्-सिम 30 खिलो व।",
+       "थैले की तौल-सीमा तीस किलो है।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina nkwama 2 khilo ku tala va.",
+       "व मिन न्कऺअम 2 खिलो कु तल व।",
+       "मेरा थैला दो किलो ज़्यादा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Xin'wana swilo nikalo kumbe ku tala mali 2.",
+       "क्सिन्'वन सऺइलो निकलो कुम्बे कु तल मलि 2।",
+       "कुछ सामान निकालो या ज़्यादा पैसे दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Leswi wa n'wina bording ekusuhi va.",
+       "लेसऺइ व न्'विन बोर्दिङ् एकुसुहि व।",
+       "यह आपका बोर्डिंग पास है।",
+       "L",
+       "B"
+      ],
+      [
+       "Nyangwa nomboro bording ekusuhi kambe va.",
+       "ञङऺअ नोम्बोरो बोर्दिङ् एकुसुहि कम्बे व।",
+       "गेट नंबर बोर्डिंग पास पर है।",
+       "L",
+       "B"
+      ],
+      [
+       "Leyi taka i suraksha-janch.",
+       "लेयि तक इ सुरक्श-जन्च्।",
+       "अगली है सुरक्षा-जाँच।",
+       "S",
+       "C"
+      ],
+      [
+       "Foni na peti tre eka veka.",
+       "फ़ोनि न पेति त्रे एक वेक।",
+       "फोन और पेटी ट्रे में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mati botal endzeni yirisiwile va.",
+       "मति बोतल् एन्द्ज़ेनि यिरिसिविले व।",
+       "पानी की बोतल अंदर मना है।",
+       "L",
+       "B"
+      ],
+      [
+       "Kamba hikwalaho ka voko ehenhla endla.",
+       "कम्ब हिकऺअलहो क वोको एहेन्ह्ल एन्द्ल।",
+       "जाँच के लिए हाथ ऊपर करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana ndhawu dhumrapan yirisiwile tsala.",
+       "उन्'वन नि उन्'वन न्द्हॉउ धुम्रपन् यिरिसिविले त्सल।",
+       "हर जगह 'धूम्रपान मना' लिखा है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hara egzit bord ehandle ndlela dikhata va.",
+       "हर एग्ज़ित् बोर्द् एहन्द्ले न्द्लेल दिखत व।",
+       "हरा एग्ज़िट बोर्ड बाहर का रास्ता दिखाता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Sweswi imigreshan kauntar famba.",
+       "सऺएसऺइ इमिग्रेशन् कौन्तर् फ़म्ब।",
+       "अब इमिग्रेशन काउंटर जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Adhikari puchha kwihi famba?",
+       "अधिकरि पुछ कऺइहि फ़म्ब?",
+       "अधिकारी ने पूछा: कहाँ जा रहे हो?",
+       "S",
+       "B"
+      ],
+      [
+       "Mina ntirho hikwalaho ka dubai famba.",
+       "मिन न्तिर्हो हिकऺअलहो क दुबै फ़म्ब।",
+       "मैं काम के लिए दुबई जा रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Vona wa mina phasipoto kambe muhar lagai.",
+       "वोन व मिन फसिपोतो कम्बे मुहर् लगै।",
+       "उन्होंने मेरे पासपोर्ट पर मुहर लगाई।",
+       "S",
+       "A"
+      ],
+      [
+       "Nyangwa nomboro 12 kambe yima.",
+       "ञङऺअ नोम्बोरो 12 कम्बे यिम।",
+       "गेट नंबर बारह पर रुको।",
+       "L",
+       "B"
+      ],
+      [
+       "Uran ghoshana twa.",
+       "उरन् घोशन तऺअ।",
+       "अपनी उड़ान की घोषणा सुनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bording shuru ekusuhi nakambe komba.",
+       "बोर्दिङ् शुरु एकुसुहि नकम्बे कोम्ब।",
+       "बोर्डिंग शुरू, पास फिर दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina xitshamo chauntis-e fasitere or va.",
+       "व मिन क्सित्स्हमो चौन्तिस्-ए फ़सितेरे ओर् व।",
+       "मेरी सीट चौंतीस-ए, खिड़की की ओर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Bandhi ra xitshamo hi ndlela leyi boha.",
+       "बन्द्हि र क्सित्स्हमो हि न्द्लेल लेयि बोह।",
+       "सीट-पट्टी ऐसे बाँधो।",
+       "L",
+       "B"
+      ],
+      [
+       "Foni uran-mod kambe veka.",
+       "फ़ोनि उरन्-मोद् कम्बे वेक।",
+       "फोन उड़ान-मोड पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Viman ura wa mina dil muskuraya.",
+       "विमन् उर व मिन दिल् मुस्कुरय।",
+       "विमान उड़ा, मेरा दिल मुस्कुराया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina nili hembe pahani i ehandle hlangana.",
+       "मिन निलि हेम्बे पहनि इ एहन्द्ले ह्लङन।",
+       "मैंने नीली कमीज़ पहनी है, बाहर मिलना।",
+       "S",
+       "B"
+      ],
+      [
+       "Muti ku suka eka aasaman ku fika eka.",
+       "मुति कु सुक एक आसमन् कु फ़िक एक।",
+       "गाँव से आसमान तक।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ई-माइग्रेट, मदद और ठग-एजेंट बचाव",
+     "tw": [
+      [
+       "I-maigret",
+       "इ-मैग्रेत्",
+       "ई-माइग्रेट",
+       "ग"
+      ],
+      [
+       "Mpfuno portal",
+       "म्प्फुनो पोर्तल्",
+       "मदद पोर्टल",
+       "ग"
+      ],
+      [
+       "Panjikrit",
+       "पन्जिक्रित्",
+       "पंजीकृत",
+       "ग"
+      ],
+      [
+       "Dutavas",
+       "दुतवस्",
+       "दूतावास",
+       "ग"
+      ],
+      [
+       "Thag",
+       "थग्",
+       "ठग",
+       "ग"
+      ],
+      [
+       "Vada",
+       "वद",
+       "वादा",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "जाने से पहले परिवार को तीन बातें बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ntsena panjikrit ejenti ku suka eka tiko rin'wana famba.",
+       "न्त्सेन पन्जिक्रित् एजेन्ति कु सुक एक तिको रिन्'वन फ़म्ब।",
+       "सिर्फ़ पंजीकृत एजेंट से विदेश जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ejenti i-maigret vebasait kambe kamba.",
+       "एजेन्ति इ-मैग्रेत् वेबसैत् कम्बे कम्ब।",
+       "एजेंट को ई-माइग्रेट वेबसाइट पर जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sachche ejenti ekusuhi layisense nomboro va.",
+       "सच्चे एजेन्ति एकुसुहि लयिसेन्से नोम्बोरो व।",
+       "सच्चे एजेंट के पास लाइसेंस नंबर होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Layisense mango na tsala.",
+       "लयिसेन्से मङो न त्सल।",
+       "लाइसेंस माँगो और लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thag leswi xivutiso ku suka eka bhagata va.",
+       "थग् लेसऺइ क्सिवुतिसो कु सुक एक भगत व।",
+       "ठग इस सवाल से भागता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Phri visa jaisa xin'wana a va.",
+       "फ्रि विस जैस क्सिन्'वन अ व।",
+       "'फ्री वीज़ा' जैसा कुछ नहीं होता।",
+       "L",
+       "B"
+      ],
+      [
+       "Kulu vada kulu khombo.",
+       "कुलु वद कुलु खोम्बो।",
+       "बड़ा वादा, बड़ा ख़तरा।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana hakelo risiti teka.",
+       "उन्'वन नि उन्'वन हकेलो रिसिति तेक।",
+       "हर भुगतान की रसीद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bangi ku suka eka 2 ntsena mali ya xandla e-e.",
+       "बङि कु सुक एक 2 न्त्सेन मलि य क्सन्द्ल ए-ए।",
+       "बैंक से दो, सिर्फ़ नकद नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Baink-bhugatan wa n'wina vumbhoni va.",
+       "बैन्क्-भुगतन् व न्'विन वुम्ब्होनि व।",
+       "बैंक-भुगतान आपका सबूत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Lewiya khampani 2 kamagaron ku suka eka mhaka endla.",
+       "लेविय खम्पनि 2 कमगरोन् कु सुक एक म्हक एन्द्ल।",
+       "उस कंपनी के दो कामगारों से बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Unase muholo na kamara mayelana na eka vutisa.",
+       "उनसे मुहोलो न कमर मयेलन न एक वुतिस।",
+       "उनसे वेतन और कमरे के बारे में पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vidiyo riqingho ntiyiso kaimp dikhati va.",
+       "विदियो रिक़िङ्हो न्तियिसो कैम्प् दिखति व।",
+       "वीडियो कॉल असली कैम्प दिखाती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntirho hikwalaho ka turist visa jal va.",
+       "न्तिर्हो हिकऺअलहो क तुरिस्त् विस जल् व।",
+       "काम के लिए टूरिस्ट वीज़ा जाल है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ntsena ntirho visa kambe tirha.",
+       "न्त्सेन न्तिर्हो विस कम्बे तिर्ह।",
+       "सिर्फ़ काम के वीज़ा पर काम करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lewiya desh eka bharatiy dutavas nomboro veka.",
+       "लेविय देश् एक भरतिय् दुतवस् नोम्बोरो वेक।",
+       "उस देश में भारतीय दूतावास का नंबर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bharatiy dutavas tiko rin'wana eka bharatiyon pfuna.",
+       "भरतिय् दुतवस् तिको रिन्'वन एक भरतियोन् प्फुन।",
+       "भारतीय दूतावास विदेश में भारतीयों की मदद करता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mpfuno sarakar sahayata-portal va.",
+       "म्प्फुनो सरकर् सहयत-पोर्तल् व।",
+       "मदद सरकार का सहायता-पोर्टल है।",
+       "L",
+       "B"
+      ],
+      [
+       "Pareshani mpfuno portal kambe tsala.",
+       "परेशनि म्प्फुनो पोर्तल् कम्बे त्सल।",
+       "अपनी परेशानी मदद पोर्टल पर लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Muholo mila? vahin xivilelo a endla.",
+       "मुहोलो मिल? वहिन् क्सिविलेलो अ एन्द्ल।",
+       "वेतन नहीं मिला? वहीं शिकायत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Un'wana ni un'wana kungu eka ndyangu na veka.",
+       "उन्'वन नि उन्'वन कुङु एक न्द्यङु न वेक।",
+       "हर योजना में परिवार को साथ रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vona ejenti na khampani janakari rhumela.",
+       "वोन एजेन्ति न खम्पनि जनकरि र्हुमेल।",
+       "उन्हें एजेंट और कंपनी की जानकारी भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Uran na kaimp adirese byela.",
+       "उरन् न कैम्प् अदिरेसे ब्येल।",
+       "अपनी उड़ान और कैम्प का पता बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Tiko rin'wana ku suka eka vhiki eka 2 nkarhi wun'we yindlu fonela.",
+       "तिको रिन्'वन कु सुक एक व्हिकि एक 2 न्कर्हि वुन्'वे यिन्द्लु फ़ोनेल।",
+       "विदेश से हफ़्ते में दो बार घर फोन करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Musibat eka i chhipao e-e.",
+       "मुसिबत् एक इ छिपओ ए-ए।",
+       "मुसीबत में हो तो छिपाओ मत।",
+       "L",
+       "B"
+      ],
+      [
+       "Ndyangu dutavas na mpfuno — wa n'wina 3 nyangwa.",
+       "न्द्यङु दुतवस् न म्प्फुनो — व न्'विन 3 ञङऺअ।",
+       "परिवार, दूतावास और मदद — आपके तीन दरवाज़े।",
+       "L",
+       "B"
+      ],
+      [
+       "Lunghekile mbilu minkarhi yin'wana akela a va.",
+       "लुङ्हेकिले म्बिलु मिन्कर्हि यिन्'वन अकेल अ व।",
+       "तैयार मन कभी अकेला नहीं होता।",
+       "S",
+       "C"
+      ],
+      [
+       "Tiko rin'wana eka kamao yindlu eka aka.",
+       "तिको रिन्'वन एक कमओ यिन्द्लु एक अक।",
+       "विदेश में कमाओ, घर में बनाओ।",
+       "S",
+       "C"
+      ],
+      [
+       "Kagazon na famba ku tinyungubyisa na lauto.",
+       "कगज़ोन् न फ़म्ब कु तिञुङुब्यिस न लौतो।",
+       "कागज़ों के साथ जाओ, गर्व के साथ लौटो।",
+       "S",
+       "C"
+      ],
+      [
+       "Hlayisekile jana ntiyiso lautana.",
+       "ह्लयिसेकिले जन न्तियिसो लौतन।",
+       "सुरक्षित जाना, पक्का लौटना।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena eve tiva?",
+     "(बोलो) Hina ntirho hikwalaho ka dubai tiva."
+    ],
+    [
+     "(सुनो) Yena thikithi bharalak?",
+     "(बोलो) Khampani wa mina thikithi bharalak."
+    ]
+   ],
+   "dialog": [
+    [
+     "अधिकारी",
+     "Phasipoto komba.",
+     "फसिपोतो कोम्ब।"
+    ],
+    [
+     "आप",
+     "Nkulukumba Leswi wa mina phasipoto va.",
+     "न्कुलुकुम्ब लेसऺइ व मिन फसिपोतो व।"
+    ],
+    [
+     "अधिकारी",
+     "Yena laha hikuva aayaaun?",
+     "येन लह हिकुव आयाउन्?"
+    ],
+    [
+     "आप",
+     "Hina laha ntirho hikwalaho ka aayaaun.",
+     "हिन लह न्तिर्हो हिकऺअलहो क आयाउन्।"
+    ],
+    [
+     "अधिकारी",
+     "Kahle i nyangwa nomboro 12 kambe famba.",
+     "कह्ले इ ञङऺअ नोम्बोरो 12 कम्बे फ़म्ब।"
+    ]
+   ],
+   "test": {
+    "target": "वीज़ा-इंटरव्यू का पूरा अभ्यास (दोस्त अधिकारी बने)",
+    "goal": "पूरा वीज़ा-इंटरव्यू त्सोंगा में खेलिए — देश-परिचय, काम, क़रार, टिकट, वापसी-योजना और धन्यवाद — कम-से-कम सात वाक्य, सब सच।",
+    "lines": [
+     [
+      "Hina bharatiy va.",
+      "हिन भरतिय् व।"
+     ],
+     [
+      "Laha wa mina muweldi nokari va.",
+      "लह व मिन मुवेल्दि नोकरि व।"
+     ],
+     [
+      "Wa mina ntwanano 2 lembe va.",
+      "व मिन न्तऺअननो 2 लेम्बे व।"
+     ],
+     [
+      "Khampani wa mina thikithi bharalak.",
+      "खम्पनि व मिन थिकिथि भरलक्।"
+     ],
+     [
+      "Ina ntwanano endzhaku Hina vuya aaonga.",
+      "इन न्तऺअननो एन्द्झ़कु हिन वुय आओङ।"
+     ],
+     [
+      "Wa mina kagaj hinkwaswo na ntiyiso va.",
+      "व मिन कगज् हिन्कऺअसऺओ न न्तियिसो व।"
+     ],
+     [
+      "Inkomu nkulukumba.",
+      "इन्कोमु न्कुलुकुम्ब।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 12,
+   "title": "Rest, Joy and New Beginning",
+   "hi": "आराम, खुशी और नई शुरुआत (समापन)",
+   "pace": 10,
+   "days": [
+    {
+     "title": "फुर्सत और शौक़",
+     "tw": [
+      [
+       "Shauq",
+       "शौक़्",
+       "शौक़",
+       "क"
+      ],
+      [
+       "Phursat",
+       "फुर्सत्",
+       "फुर्सत",
+       "क"
+      ],
+      [
+       "Git",
+       "गित्",
+       "गीत",
+       "क"
+      ],
+      [
+       "Khel",
+       "खेल्",
+       "खेल",
+       "क"
+      ],
+      [
+       "Wisa",
+       "विस",
+       "आराम",
+       "क"
+      ],
+      [
+       "Pasandida",
+       "पसन्दिद",
+       "पसंदीदा",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "अपना शौक़ — तीन वाक्य में बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Phursat eka N'wina yini endla?",
+       "फुर्सत् एक न्'विन यिनि एन्द्ल?",
+       "फुर्सत में आप क्या करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Wa mina shauq git twa.",
+       "व मिन शौक़् गित् तऺअ।",
+       "मेरा शौक़ गीत सुनना है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina Sonto mixo kriket khelata va.",
+       "मिन सोन्तो मिक्सो क्रिकेत् खेलत व।",
+       "मैं रविवार सुबह क्रिकेट खेलता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa hina ntlawa sthaniy khel jita.",
+       "व हिन न्त्लॉअ स्थनिय् खेल् जित।",
+       "हमारी टीम ने स्थानीय खेल जीता।",
+       "S",
+       "B"
+      ],
+      [
+       "Wa mina pasandida gayak Bihar ku suka eka va.",
+       "व मिन पसन्दिद गयक् बिहर् कु सुक एक व।",
+       "मेरा पसंदीदा गायक बिहार से है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina n'hweti eka 1 film vona.",
+       "मिन न्'हऺएति एक 1 फ़िल्म् वोन।",
+       "मैं महीने में एक फ़िल्म देखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Wisa na yena ntirho hissa va.",
+       "विस न येन न्तिर्हो हिस्स व।",
+       "आराम भी काम का हिस्सा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Holideyi eka Mina 1 awara ku tala etlela.",
+       "होलिदेयि एक मिन 1 ऑअर कु तल एत्लेल।",
+       "छुट्टी में मैं एक घंटा ज़्यादा सोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Shauq mbilu taza veka.",
+       "शौक़् म्बिलु तज़ वेक।",
+       "शौक़ मन को ताज़ा रखते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Khub ntirho kahle wisa siku rin'wana ni rin'wana muskan.",
+       "खुब् न्तिर्हो कह्ले विस सिकु रिन्'वन नि रिन्'वन मुस्कन्।",
+       "ख़ूब काम, अच्छा आराम, रोज़ मुस्कान।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "होटल में खाना ऑर्डर करना",
+     "tw": [
+      [
+       "Menyu",
+       "मेञु",
+       "मेन्यू",
+       "ग"
+      ],
+      [
+       "Thali",
+       "थलि",
+       "थाली",
+       "ग"
+      ],
+      [
+       "Tikha",
+       "तिख",
+       "तीखा",
+       "ग"
+      ],
+      [
+       "Parsal",
+       "पर्सल्",
+       "पार्सल",
+       "ग"
+      ],
+      [
+       "Parosane",
+       "परोसने",
+       "परोसने वाला",
+       "ग"
+      ],
+      [
+       "Mitha",
+       "मिथ",
+       "मीठा",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "होटल-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ndza kombela menyu kombani.",
+       "न्द्ज़ कोम्बेल मेञु कोम्बनि।",
+       "कृपया मेन्यू दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Vej thali mangani va?",
+       "वेज् थलि मङनि व?",
+       "वेज थाली कितने की है?",
+       "S",
+       "B"
+      ],
+      [
+       "1 thali na 1 lassi nyika.",
+       "1 थलि न 1 लस्सि ञिक।",
+       "एक थाली और एक लस्सी देना।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndza kombela switsongo tikha aka.",
+       "न्द्ज़ कोम्बेल सऺइत्सोङो तिख अक।",
+       "कृपया कम तीखा बनाना।",
+       "S",
+       "B"
+      ],
+      [
+       "Makwerhu 1 roti na.",
+       "मकऺएर्हु 1 रोति न।",
+       "भाई, एक रोटी और।",
+       "S",
+       "C"
+      ],
+      [
+       "Namuntlha dal ngopfu svadisht va.",
+       "नमुन्त्ल्ह दल् ङोप्फु स्वदिश्त् व।",
+       "आज दाल बहुत स्वादिष्ट है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 thali parsal bandh nyika.",
+       "1 थलि पर्सल् बन्द्ह् ञिक।",
+       "एक थाली पार्सल बाँध देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Ku dya endzhaku xin'wana mitha?",
+       "कु द्य एन्द्झ़कु क्सिन्'वन मिथ?",
+       "खाने के बाद कुछ मीठा?",
+       "S",
+       "B"
+      ],
+      [
+       "Mithe na xitarhati tisa.",
+       "मिथे न क्सितर्हति तिस।",
+       "मीठे के साथ बिल लाना।",
+       "S",
+       "C"
+      ],
+      [
+       "Kahle swakudya kahle mbilu.",
+       "कह्ले सऺअकुद्य कह्ले म्बिलु।",
+       "अच्छा खाना, अच्छा मन।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "हुलिया बताना (शब्दों से तस्वीर)",
+     "tw": [
+      [
+       "Lanba",
+       "लन्ब",
+       "लंबा",
+       "क"
+      ],
+      [
+       "Nata",
+       "नत",
+       "नाटा",
+       "क"
+      ],
+      [
+       "Darhi",
+       "दर्हि",
+       "दाढ़ी",
+       "क"
+      ],
+      [
+       "Topi",
+       "तोपि",
+       "टोपी",
+       "क"
+      ],
+      [
+       "Dayalu",
+       "दयलु",
+       "दयालु",
+       "क"
+      ],
+      [
+       "Javan",
+       "जवन्",
+       "जवान",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "किसी का हुलिया — तीन वाक्य में बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina makwerhu lanba na dubala va.",
+       "व मिन मकऺएर्हु लन्ब न दुबल व।",
+       "मेरा भाई लंबा और दुबला है।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina switsongo nata va.",
+       "मिन सऺइत्सोङो नत व।",
+       "मैं थोड़ा नाटा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa hina mudyondzisi safed darhi va.",
+       "व हिन मुद्योन्द्ज़िसि सफ़ेद् दर्हि व।",
+       "हमारे उस्ताद की सफ़ेद दाढ़ी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Vona minkarhi hinkwayo kali topi pahanate va.",
+       "वोन मिन्कर्हि हिन्कऺअयो कलि तोपि पहनते व।",
+       "वे हमेशा काली टोपी पहनते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Yena javan na tirha hi matimba va.",
+       "येन जवन् न तिर्ह हि मतिम्ब व।",
+       "वह जवान और मेहनती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina munghana ghungharale bal va.",
+       "व मिन मुङ्हन घुङ्हरले बल् व।",
+       "मेरे दोस्त के घुँघराले बाल हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ntshwa mupfuni dayalu na rhula va.",
+       "न्त्स्हऺअ मुप्फुनि दयलु न र्हुल व।",
+       "नया सहायक दयालु और शांत है।",
+       "S",
+       "C"
+      ],
+      [
+       "Lal hembe munhu khojo.",
+       "लल् हेम्बे मुन्हु खोजो।",
+       "लाल कमीज़ वाले आदमी को खोजो।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina ekusuhi tsongo nkwama na nili topi va.",
+       "व मिन एकुसुहि त्सोङो न्कऺअम न निलि तोपि व।",
+       "मेरे पास छोटा थैला और नीली टोपी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Rito insan tasvir bana nyika.",
+       "रितो इन्सन् तस्विर् बन ञिक।",
+       "शब्द इंसान की तस्वीर बना देते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "न्योता देना और लेना",
+     "tw": [
+      [
+       "Nyota",
+       "ञोत",
+       "न्योता",
+       "क"
+      ],
+      [
+       "Davat",
+       "दवत्",
+       "दावत",
+       "क"
+      ],
+      [
+       "Svikar karana",
+       "स्विकर् करन",
+       "स्वीकार करना",
+       "ख"
+      ],
+      [
+       "Janmadin",
+       "जन्मदिन्",
+       "जन्मदिन",
+       "क"
+      ],
+      [
+       "Hakunene",
+       "हकुनेने",
+       "ज़रूर",
+       "क"
+      ],
+      [
+       "Leyi taka nkarhi wun'we",
+       "लेयि तक न्कर्हि वुन्'वे",
+       "अगली बार",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "न्योता-संवाद पूरा करो — हाँ वाला और ना वाला, दोनों बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina bete janmadin kambe n'wina nyota va.",
+       "व मिन बेते जन्मदिन् कम्बे न्'विन ञोत व।",
+       "मेरे बेटे के जन्मदिन पर आपको न्योता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Davat Sonto madyambu va.",
+       "दवत् सोन्तो मद्यम्बु व।",
+       "दावत रविवार शाम को है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ndyangu na tanani.",
+       "न्द्यङु न तननि।",
+       "परिवार के साथ आइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Inkomu Mina hakunene ta ta.",
+       "इन्कोमु मिन हकुनेने त त।",
+       "धन्यवाद, मैं ज़रूर आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina wa n'wina nyota ntsako ku suka eka svikar endla.",
+       "मिन व न्'विन ञोत न्त्सको कु सुक एक स्विकर् एन्द्ल।",
+       "मैं आपका न्योता खुशी से स्वीकार करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ndzi khomeli karana lewiya siku wa mina vusiku xikhati xa ntirho va.",
+       "न्द्ज़ि खोमेलि करन लेविय सिकु व मिन वुसिकु क्सिखति क्स न्तिर्हो व।",
+       "माफ़ करना, उस दिन मेरी रात की ड्यूटी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Leyi taka nkarhi wun'we ntiyiso ta hlangana.",
+       "लेयि तक न्कर्हि वुन्'वे न्तियिसो त ह्लङन।",
+       "अगली बार पक्का मिलूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Davat eka ku ta hikwalaho ka Inkomu.",
+       "दवत् एक कु त हिकऺअलहो क इन्कोमु।",
+       "दावत में आने के लिए धन्यवाद।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa n'wina ku ta ku suka eka hina ntsako humelerile.",
+       "व न्'विन कु त कु सुक एक हिन न्त्सको हुमेलेरिले।",
+       "आपके आने से हमें खुशी हुई।",
+       "S",
+       "B"
+      ],
+      [
+       "Nyote dil jorate va.",
+       "ञोते दिल् जोरते व।",
+       "न्योते दिल जोड़ते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "पूरा कोर्स समेट — नई शुरुआत",
+     "tw": [
+      [
+       "Hinkwaswo",
+       "हिन्कऺअसऺओ",
+       "पूरा",
+       "ख"
+      ],
+      [
+       "Star",
+       "स्तर्",
+       "स्तर",
+       "ख"
+      ],
+      [
+       "Xikambelo",
+       "क्सिकम्बेलो",
+       "परीक्षा",
+       "ख"
+      ],
+      [
+       "Ku tinyungubyisa",
+       "कु तिञुङुब्यिस",
+       "गर्व",
+       "क"
+      ],
+      [
+       "Masungulo",
+       "मसुङुलो",
+       "शुरुआत",
+       "क"
+      ],
+      [
+       "Pankh",
+       "पन्ख्",
+       "पंख",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — so या but लगाकर अपनी कहानी बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Namuntlha wa mina e-tu khoso hinkwaswo humelerile.",
+       "नमुन्त्ल्ह व मिन ए-तु खोसो हिन्कऺअसऺओ हुमेलेरिले।",
+       "आज मेरा ए-टू कोर्स पूरा हुआ।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina 15 100 ntshwa xivulwa dyondza.",
+       "मिन 15 100 न्त्स्हऺअ क्सिवुलऺअ द्योन्द्ज़।",
+       "मैंने पंद्रह सौ नए वाक्य सीखे।",
+       "S",
+       "B"
+      ],
+      [
+       "Mina yindlu ntirho makete na eyaraport kambe nga vulavula.",
+       "मिन यिन्द्लु न्तिर्हो मकेते न एयरपोर्त् कम्बे ङ वुलवुल।",
+       "मैं घर, काम, बाजार और एयरपोर्ट पर बोल सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Sweswi Mina onlayini xikambelo ndzi ta nyika.",
+       "सऺएसऺइ मिन ओन्लयिनि क्सिकम्बेलो न्द्ज़ि त ञिक।",
+       "अब मैं ऑनलाइन परीक्षा दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Satifikheti ntshwa nyangwa kholega.",
+       "सतिफ़िखेति न्त्स्हऺअ ञङऺअ खोलेग।",
+       "प्रमाणपत्र नए दरवाज़े खोलेगा।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa mina hinkwaswo muti mujh kambe ku tinyungubyisa va.",
+       "व मिन हिन्कऺअसऺओ मुति मुझ् कम्बे कु तिञुङुब्यिस व।",
+       "मेरे पूरे गाँव को मुझ पर गर्व है।",
+       "S",
+       "A"
+      ],
+      [
+       "Agala star vishv-pariksha va.",
+       "अगल स्तर् विश्व्-परिक्श व।",
+       "अगला स्तर विश्व-परीक्षा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Mina minkarhi hinkwayo siku rin'wana ni rin'wana 10 minete ku titoloveta ta endla.",
+       "मिन मिन्कर्हि हिन्कऺअयो सिकु रिन्'वन नि रिन्'वन 10 मिनेते कु तितोलोवेत त एन्द्ल।",
+       "मैं हमेशा रोज़ दस मिनट अभ्यास करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Leswi ant ntshwa masungulo va.",
+       "लेसऺइ अन्त् न्त्स्हऺअ मसुङुलो व।",
+       "यह अंत नई शुरुआत है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina ririmi wa mina pankh.",
+       "व मिन रिरिमि व मिन पन्ख्।",
+       "मेरी भाषा, मेरे पंख।",
+       "S",
+       "A"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Yena shauk va?",
+     "(बोलो) Wa mina shauk gana sunanai va."
+    ],
+    [
+     "(सुनो) Yena swakudya eka aaonga?",
+     "(बोलो) Inkomu Hina hakunene aaonga."
+    ]
+   ],
+   "dialog": [
+    [
+     "वेटर",
+     "Leb?",
+     "लेब्?"
+    ],
+    [
+     "आप",
+     "1 thali na 1 lassi Inkomu.",
+     "1 थलि न 1 लस्सि इन्कोमु।"
+    ],
+    [
+     "वेटर",
+     "Mitha va?",
+     "मिथ व?"
+    ],
+    [
+     "आप",
+     "Ina 1 gulab jamun.",
+     "इन 1 गुलब् जमुन्।"
+    ],
+    [
+     "वेटर",
+     "5 minete nkulukumba.",
+     "5 मिनेते न्कुलुकुम्ब।"
+    ]
+   ],
+   "test": {
+    "target": "समापन-परीक्षा: अपनी पूरी कहानी (परिवार/दोस्तों के सामने)",
+    "goal": "दो मिनट त्सोंगा में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
+    "lines": [
+     [
+      "3 n'hweti ku sungula English wa mina hikwalaho ka divar chhal.",
+      "3 न्'हऺएति कु सुङुल एङ्लिश् व मिन हिकऺअलहो क दिवर् छल्।"
+     ],
+     [
+      "Un'wana ni un'wana siku Hina 30 xivulwa sikhalaun.",
+      "उन्'वन नि उन्'वन सिकु हिन 30 क्सिवुलऺअ सिखलौन्।"
+     ],
+     [
+      "Hina yindlu ntirho makete na eyaraport eka mhaka hi ku endla saki va.",
+      "हिन यिन्द्लु न्तिर्हो मकेते न एयरपोर्त् एक म्हक हि कु एन्द्ल सकि व।"
+     ],
+     [
+      "Hina English eka phon-intaravyu delaun.",
+      "हिन एङ्लिश् एक फोन्-इन्तरव्यु देलौन्।"
+     ],
+     [
+      "Hina vija-intaravyu nhlamulo sikhalaun.",
+      "हिन विज-इन्तरव्यु न्ह्लमुलो सिखलौन्।"
+     ],
+     [
+      "Wa mina hinkwaswo muti wa mina kambe ku tinyungubyisa va.",
+      "व मिन हिन्कऺअसऺओ मुति व मिन कम्बे कु तिञुङुब्यिस व।"
+     ],
+     [
+      "Leswi khatam e-e ntshwa masungulo va.",
+      "लेसऺइ खतम् ए-ए न्त्स्हऺअ मसुङुलो व।"
+     ],
+     [
+      "Wa mina ririmi wa mina pankh.",
+      "व मिन रिरिमि व मिन पन्ख्।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 13,
+   "title": "Survival, Voice and Rights",
+   "hi": "जीवन-रक्षा, आवाज़ और हक़ (परिशिष्ट — दिन-1 से साथ चले)",
+   "pace": 30,
+   "days": [
+    {
+     "title": "आपात तुरंत-बोल (बिना सोचे बोलना)",
+     "tw": [
+      [
+       "Aapat",
+       "आपत्",
+       "आपात",
+       "क"
+      ],
+      [
+       "Vavisekile",
+       "वविसेकिले",
+       "घायल",
+       "क"
+      ],
+      [
+       "Ambulense",
+       "अम्बुलेन्से",
+       "एम्बुलेंस",
+       "क"
+      ],
+      [
+       "Ndzilo",
+       "न्द्ज़िलो",
+       "आग",
+       "क"
+      ],
+      [
+       "Vukhamba humelerile",
+       "वुखम्ब हुमेलेरिले",
+       "चोरी हुआ",
+       "क"
+      ],
+      [
+       "Sans lena",
+       "सन्स् लेन",
+       "साँस लेना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "सुनो-जवाब दो — सवाल सुनते ही, बिना पढ़े, तुरंत बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mpfuno endla hatlisa tana.",
+       "म्प्फुनो एन्द्ल हत्लिस तन।",
+       "मदद करो, जल्दी आओ!",
+       "S",
+       "A"
+      ],
+      [
+       "Un'wana wa mina pfuna!",
+       "उन्'वन व मिन प्फुन!",
+       "कोई मेरी मदद करो!",
+       "S",
+       "A"
+      ],
+      [
+       "Mina buri tarah vavisekile va.",
+       "मिन बुरि तरह् वविसेकिले व।",
+       "मैं बुरी तरह घायल हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina voko ku suka eka khun bah tshama.",
+       "व मिन वोको कु सुक एक खुन् बह् त्स्हम।",
+       "मेरे हाथ से खून बह रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina ambulense lava.",
+       "मिन अम्बुलेन्से लव।",
+       "मुझे एम्बुलेंस चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Maphorisa bulao.",
+       "मफोरिस बुलओ।",
+       "पुलिस बुलाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndzilo lagi va.",
+       "न्द्ज़िलो लगि व।",
+       "आग लगी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Aag! sweswi ehandle bhago.",
+       "आग्! सऺएसऺइ एहन्द्ले भगो।",
+       "आग! अभी बाहर भागो!",
+       "S",
+       "A"
+      ],
+      [
+       "Mina sans a ta.",
+       "मिन सन्स् अ त।",
+       "मुझे साँस नहीं आ रही।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina munghana wile fambile.",
+       "व मिन मुङ्हन विले फ़म्बिले।",
+       "मेरा दोस्त गिर गया।",
+       "S",
+       "A"
+      ],
+      [
+       "Yena hil a tshama.",
+       "येन हिल् अ त्स्हम।",
+       "वह हिल नहीं रहा।",
+       "S",
+       "A"
+      ],
+      [
+       "Tar chhuo e-e.",
+       "तर् छुओ ए-ए।",
+       "तार मत छुओ!",
+       "S",
+       "A"
+      ],
+      [
+       "Muchini pfala!",
+       "मुचिनि प्फल!",
+       "मशीन बंद करो!",
+       "S",
+       "A"
+      ],
+      [
+       "Mina ndlela bhatak fambile va.",
+       "मिन न्द्लेल भतक् फ़म्बिले व।",
+       "मैं रास्ता भटक गया हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina kamara a hlangana.",
+       "मिन कमर अ ह्लङन।",
+       "मुझे अपना कमरा नहीं मिल रहा।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina phasipoto lahlekile fambile va.",
+       "व मिन फसिपोतो लह्लेकिले फ़म्बिले व।",
+       "मेरा पासपोर्ट खो गया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina foni vukhamba vaile.",
+       "व मिन फ़ोनि वुखम्ब वैले।",
+       "मेरा फोन चोरी हो गया।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina mali vukhamba vaile.",
+       "व मिन मलि वुखम्ब वैले।",
+       "मेरे पैसे चोरी हो गए।",
+       "S",
+       "A"
+      ],
+      [
+       "Un'wana wa mina pichha endla.",
+       "उन्'वन व मिन पिछ एन्द्ल।",
+       "कोई मेरा पीछा कर रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela wa mina na tshama.",
+       "न्द्ज़ कोम्बेल व मिन न त्स्हम।",
+       "कृपया मेरे साथ रहो।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina xibedlhele teka famba.",
+       "मिन क्सिबेद्ल्हेले तेक फ़म्ब।",
+       "मुझे अस्पताल ले चलो।",
+       "S",
+       "A"
+      ],
+      [
+       "Kahle laha ku vava va.",
+       "कह्ले लह कु वव व।",
+       "ठीक यहाँ दर्द है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina tang eka ngopfu ku vava va.",
+       "व मिन तङ् एक ङोप्फु कु वव व।",
+       "मेरी टाँग में बहुत दर्द है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina chakkar ta.",
+       "मिन चक्कर् त।",
+       "मुझे चक्कर आ रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Hatlisa mati tisa.",
+       "हत्लिस मति तिस।",
+       "जल्दी पानी लाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi nomboro kambe wa mina makwerhu fonela.",
+       "लेसऺइ नोम्बोरो कम्बे व मिन मकऺएर्हु फ़ोनेल।",
+       "इस नंबर पर मेरे भाई को फोन करो।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina murhi wa mina mikwama eka va.",
+       "व मिन मुर्हि व मिन मिकऺअम एक व।",
+       "मेरी दवा मेरे थैले में है।",
+       "S",
+       "A"
+      ],
+      [
+       "Aapat-nikas vula?",
+       "आपत्-निकस् वुल?",
+       "आपात-निकास कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Rhula raho mpfuno ta.",
+       "र्हुल रहो म्प्फुनो त।",
+       "शांत रहो, मदद आ रही है।",
+       "S",
+       "A"
+      ],
+      [
+       "Khatare eka unchi rito jan bachati va.",
+       "खतरे एक उन्चि रितो जन् बचति व।",
+       "ख़तरे में ऊँची आवाज़ जान बचाती है।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "ना कहना और सवाल पूछना (अपनी आवाज़)",
+     "tw": [
+      [
+       "Samajhana",
+       "समझन",
+       "समझना",
+       "क"
+      ],
+      [
+       "Samajhana",
+       "समझन",
+       "समझाना",
+       "ख"
+      ],
+      [
+       "Suraksha-saman",
+       "सुरक्श-समन्",
+       "सुरक्षा-सामान",
+       "ख"
+      ],
+      [
+       "Yirisiwile karana",
+       "यिरिसिविले करन",
+       "मना करना",
+       "ख"
+      ],
+      [
+       "Doharana",
+       "दोहरन",
+       "दोहराना",
+       "क"
+      ],
+      [
+       "Izzat",
+       "इज़्ज़त्",
+       "इज़्ज़त",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "सुनो-जवाब दो — आदेश सुनो, ज़रूरत पर विनम्र 'ना' बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Mina a twisisa.",
+       "मिन अ तऺइसिस।",
+       "मैं नहीं समझा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela 1 nkarhi wun'we na samajhaie.",
+       "न्द्ज़ कोम्बेल 1 न्कर्हि वुन्'वे न समझैए।",
+       "कृपया एक बार और समझाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela switsongo hi ku nonoka vulavula.",
+       "न्द्ज़ कोम्बेल सऺइत्सोङो हि कु नोनोक वुलवुल।",
+       "कृपया थोड़ा धीरे बोलिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela aakhiri mhaka doharaie.",
+       "न्द्ज़ कोम्बेल आखिरि म्हक दोहरैए।",
+       "कृपया आख़िरी बात दोहराइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi rito matalab yini va?",
+       "लेसऺइ रितो मतलब् यिनि व?",
+       "इस शब्द का मतलब क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela leswi likhakar nyikani.",
+       "न्द्ज़ कोम्बेल लेसऺइ लिखकर् ञिकनि।",
+       "कृपया इसे लिखकर दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Handle ka suraksha-saman Mina Leswi a nga endla.",
+       "हन्द्ले क सुरक्श-समन् मिन लेसऺइ अ ङ एन्द्ल।",
+       "बिना सुरक्षा-सामान मैं यह नहीं कर सकता।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela tigilavhu na chashma nyikani.",
+       "न्द्ज़ कोम्बेल तिगिलव्हु न चश्म ञिकनि।",
+       "कृपया दस्ताने और चश्मा दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi ntirho hlayisekile a va.",
+       "लेसऺइ न्तिर्हो ह्लयिसेकिले अ व।",
+       "यह काम सुरक्षित नहीं है।",
+       "S",
+       "A"
+      ],
+      [
+       "Suraksha-janch endzhaku Mina Leswi ta endla.",
+       "सुरक्श-जन्च् एन्द्झ़कु मिन लेसऺइ त एन्द्ल।",
+       "सुरक्षा-जाँच के बाद मैं यह करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "E-e Mina Leswi a nga endla.",
+       "ए-ए मिन लेसऺइ अ ङ एन्द्ल।",
+       "नहीं, मैं यह नहीं कर सकता।",
+       "S",
+       "A"
+      ],
+      [
+       "Na kahana aparadh a va.",
+       "न कहन अपरध् अ व।",
+       "ना कहना अपराध नहीं है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina wa mina hakelo lava.",
+       "मिन व मिन हकेलो लव।",
+       "मुझे मेरा भुगतान चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela mina namuntlha lava.",
+       "न्द्ज़ कोम्बेल मिन नमुन्त्ल्ह लव।",
+       "कृपया मुझे आज ही चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina likha-parhi dekhana lava ku lava.",
+       "मिन लिख-पर्हि देखन लव कु लव।",
+       "मैं लिखा-पढ़ी देखना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina n'wina phasipoto ndzi ta nyika e-e.",
+       "मिन न्'विन फसिपोतो न्द्ज़ि त ञिक ए-ए।",
+       "मैं आपको अपना पासपोर्ट नहीं दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela wa mina phasipoto lautaie.",
+       "न्द्ज़ कोम्बेल व मिन फसिपोतो लौतैए।",
+       "कृपया मेरा पासपोर्ट लौटाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela wa mina phepha namuntlha lautaie.",
+       "न्द्ज़ कोम्बेल व मिन फेफ नमुन्त्ल्ह लौतैए।",
+       "कृपया मेरे कागज़ आज लौटाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina leswi kambe sahamat a vaile.",
+       "मिन लेसऺइ कम्बे सहमत् अ वैले।",
+       "मैं इस पर सहमत नहीं था।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa hina mhaka eka Leswi a vaile.",
+       "व हिन म्हक एक लेसऺइ अ वैले।",
+       "हमारी बात में यह नहीं था।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina dutavas ku suka eka ta vutisa.",
+       "मिन दुतवस् कु सुक एक त वुतिस।",
+       "मैं अपने दूतावास से पूछूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina mfanelo tiva.",
+       "मिन म्फ़नेलो तिव।",
+       "मैं अपने हक़ जानता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela izzat ku suka eka mhaka endlani.",
+       "न्द्ज़ कोम्बेल इज़्ज़त् कु सुक एक म्हक एन्द्लनि।",
+       "कृपया इज़्ज़त से बात कीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mujh kambe chillaie e-e.",
+       "मुझ् कम्बे चिल्लैए ए-ए।",
+       "मुझ पर मत चिल्लाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina vinamrata ku suka eka vutisa.",
+       "मिन विनम्रत कु सुक एक वुतिस।",
+       "मैं विनम्रता से पूछ रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina sochane 1 minete nyikani.",
+       "मिन सोचने 1 मिनेते ञिकनि।",
+       "मुझे सोचने का एक मिनट दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Parhakar nhlamulo ndzi ta nyika.",
+       "पर्हकर् न्ह्लमुलो न्द्ज़ि त ञिक।",
+       "पढ़कर जवाब दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Yini Mina 1 xivutiso vutisa?",
+       "यिनि मिन 1 क्सिवुतिसो वुतिस?",
+       "क्या मैं एक सवाल पूछूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Namuntlha xivutiso mundzuku nuqasan bachata va.",
+       "नमुन्त्ल्ह क्सिवुतिसो मुन्द्ज़ुकु नुक़सन् बचत व।",
+       "आज का सवाल कल का नुक़सान बचाता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Naram rito tiya mhaka.",
+       "नरम् रितो तिय म्हक।",
+       "नरम आवाज़, मज़बूत बात।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "कमाई-रक्षा की अंग्रेज़ी (शोषण-बचाव)",
+     "tw": [
+      [
+       "Ku hunguta",
+       "कु हुङुत",
+       "कटौती",
+       "ख"
+      ],
+      [
+       "Bakaya",
+       "बकय",
+       "बकाया",
+       "ख"
+      ],
+      [
+       "Hi awara",
+       "हि ऑअर",
+       "प्रति घंटा",
+       "ख"
+      ],
+      [
+       "Likhit",
+       "लिखित्",
+       "लिखित",
+       "ख"
+      ],
+      [
+       "Gavah",
+       "गवह्",
+       "गवाह",
+       "ख"
+      ],
+      [
+       "Ovarataim-paisa",
+       "ओवरतैम्-पैस",
+       "ओवरटाइम-पैसा",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "सुनो-जवाब दो — मालिक की बात सुनो, अपना हक़ शांति से बोलो।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Wa mina muholo mangani va?",
+       "व मिन मुहोलो मङनि व?",
+       "मेरा वेतन कितना है?",
+       "S",
+       "A"
+      ],
+      [
+       "N'wina mina rini hakelo hi ta endla?",
+       "न्'विन मिन रिनि हकेलो हि त एन्द्ल?",
+       "आप मुझे कब भुगतान करेंगे?",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina hakelo 10 siku ku suka eka bakaya va.",
+       "व मिन हकेलो 10 सिकु कु सुक एक बकय व।",
+       "मेरा भुगतान दस दिन से बकाया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina mundzuku nkarhi wo engetela endlile.",
+       "मिन मुन्द्ज़ुकु न्कर्हि वो एङेतेल एन्द्लिले।",
+       "मैंने कल ओवरटाइम किया।",
+       "S",
+       "A"
+      ],
+      [
+       "Yini laha nkarhi wo engetela mali hlangana?",
+       "यिनि लह न्कर्हि वो एङेतेल मलि ह्लङन?",
+       "क्या यहाँ ओवरटाइम का पैसा मिलता है?",
+       "S",
+       "A"
+      ],
+      [
+       "Hi awara dar yini va?",
+       "हि ऑअर दर् यिनि व?",
+       "प्रति घंटा दर क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela wa mina ntwanano kombani.",
+       "न्द्ज़ कोम्बेल व मिन न्तऺअननो कोम्बनि।",
+       "कृपया मेरा क़रार दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina ntwanano hi lava.",
+       "मिन न्तऺअननो हि लव।",
+       "मुझे अपने क़रार की प्रति चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mali ha yini kata fambile?",
+       "मलि ह यिनि कत फ़म्बिले?",
+       "पैसा क्यों काटा गया?",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela Leswi ku hunguta samajhaie.",
+       "न्द्ज़ कोम्बेल लेसऺइ कु हुङुत समझैए।",
+       "कृपया यह कटौती समझाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku hunguta likhakar kombani.",
+       "कु हुङुत लिखकर् कोम्बनि।",
+       "कटौती लिखकर दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina likhit nhlamulo lava.",
+       "मिन लिखित् न्ह्लमुलो लव।",
+       "मुझे लिखित जवाब चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina nhlayo 9 100 vula.",
+       "व मिन न्ह्लयो 9 100 वुल।",
+       "मेरा हिसाब नौ सौ कहता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Tanani na eka kamba teka.",
+       "तननि न एक कम्ब तेक।",
+       "आइए साथ में जाँच लें।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina munghana wa mina gavah va.",
+       "व मिन मुङ्हन व मिन गवह् व।",
+       "मेरा दोस्त मेरा गवाह है।",
+       "S",
+       "A"
+      ],
+      [
+       "Yena wa mina hinkwaswo ntirho vona.",
+       "येन व मिन हिन्कऺअसऺओ न्तिर्हो वोन।",
+       "उसने मेरा पूरा काम देखा।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina ekusuhi ntirho dinon xifaniso va.",
+       "व मिन एकुसुहि न्तिर्हो दिनोन् क्सिफ़निसो व।",
+       "मेरे पास काम के दिनों की फोटो हैं।",
+       "S",
+       "A"
+      ],
+      [
+       "Leswi wa mina haziri-kopi va.",
+       "लेसऺइ व मिन हज़िरि-कोपि व।",
+       "यह मेरी हाज़िरी-कॉपी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Hafu hakelo hinkwaswo hakelo a va.",
+       "हफ़ु हकेलो हिन्कऺअसऺओ हकेलो अ व।",
+       "आधा भुगतान पूरा भुगतान नहीं है।",
+       "S",
+       "A"
+      ],
+      [
+       "Baqi leyi taka vhiki lunga likhit eka.",
+       "बक़ि लेयि तक व्हिकि लुङ लिखित् एक।",
+       "बाक़ी अगले हफ़्ते लूँगा, लिखित में।",
+       "S",
+       "A"
+      ],
+      [
+       "Handle ka xivangelo ku hunguta hoxa va.",
+       "हन्द्ले क क्सिवङेलो कु हुङुत होक्स व।",
+       "बिना कारण कटौती ग़लत है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ejenti phis ku sungula nyikile famba.",
+       "एजेन्ति फिस् कु सुङुल ञिकिले फ़म्ब।",
+       "एजेंट की फीस पहले ही दी जा चुकी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Risiti wa mina ekusuhi va.",
+       "रिसिति व मिन एकुसुहि व।",
+       "रसीद मेरे पास है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela wa mina bangi akhawunti eka nyikani.",
+       "न्द्ज़ कोम्बेल व मिन बङि अखॉउन्ति एक ञिकनि।",
+       "कृपया मेरे बैंक खाते में दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Handle ka risiti mali ya xandla jokhim va.",
+       "हन्द्ले क रिसिति मलि य क्सन्द्ल जोखिम् व।",
+       "बिना रसीद नकद जोखिम है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina shram-daftar eka xivilelo ta endla.",
+       "मिन श्रम्-दफ़्तर् एक क्सिविलेलो त एन्द्ल।",
+       "मैं श्रम-दफ़्तर में शिकायत करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku sungula mhaka nakambe xivilelo.",
+       "कु सुङुल म्हक नकम्बे क्सिविलेलो।",
+       "पहले बात, फिर शिकायत।",
+       "S",
+       "A"
+      ],
+      [
+       "Nkulukumba Mina wa n'wina na ntirho izzat endla.",
+       "न्कुलुकुम्ब मिन व न्'विन न न्तिर्हो इज़्ज़त् एन्द्ल।",
+       "सर, मैं आपकी और अपने काम की इज़्ज़त करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Lulama muholo tiya ntirho aka.",
+       "लुलम मुहोलो तिय न्तिर्हो अक।",
+       "सही मज़दूरी मज़बूत काम बनाती है।",
+       "S",
+       "A"
+      ],
+      [
+       "Wa mina pasina wa mina mfanelo.",
+       "व मिन पसिन व मिन म्फ़नेलो।",
+       "मेरा पसीना, मेरा हक़।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "सुनो-समझो-जवाब दो (एयरपोर्ट व सुपरवाइज़र-अभिनय)",
+     "tw": [
+      [
+       "Nhlamulo dena",
+       "न्ह्लमुलो देन",
+       "जवाब देना",
+       "ख"
+      ],
+      [
+       "Thaharana",
+       "थहरन",
+       "ठहरना",
+       "ख"
+      ],
+      [
+       "Switirhisiwa",
+       "सऺइतिर्हिसिव",
+       "औज़ार",
+       "ख"
+      ],
+      [
+       "Hinkwaswo karana",
+       "हिन्कऺअसऺओ करन",
+       "पूरा करना",
+       "ख"
+      ],
+      [
+       "Saunpa ntirho",
+       "सौन्प न्तिर्हो",
+       "सौंपा काम",
+       "ख"
+      ],
+      [
+       "Uttar",
+       "उत्तर्",
+       "उत्तर",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "पूरा अभिनय — दोस्त (सुनो)-पंक्ति बोले, आप बिना पढ़े (बोलो)-पंक्ति।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Yingisa u twisisa Ndza kombela phasipoto kombani.",
+       "यिङिस उ तऺइसिस न्द्ज़ कोम्बेल फसिपोतो कोम्बनि।",
+       "(सुनो-समझो) कृपया अपना पासपोर्ट दिखाइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo nkulukumba Leswi wa mina phasipoto va.",
+       "न्ह्लमुलो न्कुलुकुम्ब लेसऺइ व मिन फसिपोतो व।",
+       "(जवाब) सर, यह मेरा पासपोर्ट है।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa N'wina laha ha yini tile va?",
+       "यिङिस उ तऺइसिस न्'विन लह ह यिनि तिले व?",
+       "(सुनो-समझो) आप यहाँ क्यों आए हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo Mina laha ntirho ku endla taile.",
+       "न्ह्लमुलो मिन लह न्तिर्हो कु एन्द्ल तैले।",
+       "(जवाब) मैं यहाँ काम करने आया हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa N'wina kwihi thaharenge?",
+       "यिङिस उ तऺइसिस न्'विन कऺइहि थहरेङे?",
+       "(सुनो-समझो) आप कहाँ ठहरेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo Mina leswi pate kambe thaharunga.",
+       "न्ह्लमुलो मिन लेसऺइ पते कम्बे थहरुङ।",
+       "(जवाब) मैं इस पते पर ठहरूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa ehandle wa n'wina mani yimela?",
+       "यिङिस उ तऺइसिस एहन्द्ले व न्'विन मनि यिमेल?",
+       "(सुनो-समझो) बाहर आपका कौन इंतज़ार कर रहा है?",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo wa mina khampani munhu ehandle va.",
+       "न्ह्लमुलो व मिन खम्पनि मुन्हु एहन्द्ले व।",
+       "(जवाब) मेरी कंपनी का आदमी बाहर है।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa kamba hikwalaho ka nkwama pfula.",
+       "यिङिस उ तऺइसिस कम्ब हिकऺअलहो क न्कऺअम प्फुल।",
+       "(सुनो-समझो) जाँच के लिए थैला खोलिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo nkulukumba Leswi pfulekile va.",
+       "न्ह्लमुलो न्कुलुकुम्ब लेसऺइ प्फुलेकिले व।",
+       "(जवाब) जी सर, यह खुला है।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa mundzuku 7 awara aana hlwela a endla.",
+       "यिङिस उ तऺइसिस मुन्द्ज़ुकु 7 ऑअर आन ह्लऺएल अ एन्द्ल।",
+       "(सुनो-समझो) कल सात बजे आना, देर मत करना।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo kahle nkulukumba Mina 7 awara ta ta.",
+       "न्ह्लमुलो कह्ले न्कुलुकुम्ब मिन 7 ऑअर त त।",
+       "(जवाब) ठीक सर, मैं सात बजे आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa Leswi switirhisiwa teka.",
+       "यिङिस उ तऺइसिस लेसऺइ सऺइतिर्हिसिव तेक।",
+       "(सुनो-समझो) यह औज़ार लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo yihi switirhisiwa nkulukumba lal?",
+       "न्ह्लमुलो यिहि सऺइतिर्हिसिव न्कुलुकुम्ब लल्?",
+       "(जवाब) कौन-सा औज़ार सर, लाल वाला?",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa Ina lal na sweswi sungula.",
+       "यिङिस उ तऺइसिस इन लल् न सऺएसऺइ सुङुल।",
+       "(सुनो-समझो) हाँ, लाल वाला, और अभी शुरू करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo kahle nkulukumba sweswi sungula.",
+       "न्ह्लमुलो कह्ले न्कुलुकुम्ब सऺएसऺइ सुङुल।",
+       "(जवाब) ठीक सर, अभी शुरू करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa Leswi ntirho ku dya ku suka eka ku sungula hinkwaswo endla.",
+       "यिङिस उ तऺइसिस लेसऺइ न्तिर्हो कु द्य कु सुक एक कु सुङुल हिन्कऺअसऺओ एन्द्ल।",
+       "(सुनो-समझो) यह काम खाने से पहले पूरा करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo Mina ku dya ku suka eka ku sungula hinkwaswo endla ndzi ta nyika.",
+       "न्ह्लमुलो मिन कु द्य कु सुक एक कु सुङुल हिन्कऺअसऺओ एन्द्ल न्द्ज़ि त ञिक।",
+       "(जवाब) मैं खाने से पहले पूरा कर दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa ntirho endzhaku ndhawu basa endla.",
+       "यिङिस उ तऺइसिस न्तिर्हो एन्द्झ़कु न्द्हॉउ बस एन्द्ल।",
+       "(सुनो-समझो) काम के बाद जगह साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo hakunene nkulukumba Mina basa endla ndzi ta nyika.",
+       "न्ह्लमुलो हकुनेने न्कुलुकुम्ब मिन बस एन्द्ल न्द्ज़ि त ञिक।",
+       "(जवाब) ज़रूर सर, मैं साफ़ कर दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa namuntlha wa n'wina xikhati xa ntirho vusiku xikhati eka va.",
+       "यिङिस उ तऺइसिस नमुन्त्ल्ह व न्'विन क्सिखति क्स न्तिर्हो वुसिकु क्सिखति एक व।",
+       "(सुनो-समझो) आज आपकी ड्यूटी रात की पारी में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo kahle Mina siku eka so lunga.",
+       "न्ह्लमुलो कह्ले मिन सिकु एक सो लुङ।",
+       "(जवाब) ठीक, मैं दिन में सो लूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa bazi 5 minete eka khulegi.",
+       "यिङिस उ तऺइसिस बज़ि 5 मिनेते एक खुलेगि।",
+       "(सुनो-समझो) बस पाँच मिनट में खुलेगी।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo Mina aa raha i Ndza kombela yima.",
+       "न्ह्लमुलो मिन आ रह इ न्द्ज़ कोम्बेल यिम।",
+       "(जवाब) मैं आ रहा हूँ, कृपया रुकिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa khadi lekar hofisi tana.",
+       "यिङिस उ तऺइसिस खदि लेकर् होफ़िसि तन।",
+       "(सुनो-समझो) अपना कार्ड लेकर दफ़्तर आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo nkulukumba Mina khadi tisa.",
+       "न्ह्लमुलो न्कुलुकुम्ब मिन खदि तिस।",
+       "(जवाब) सर, मैं अपना कार्ड ला रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Yingisa u twisisa endzeni ku famba ku suka eka ku sungula helamet ambala.",
+       "यिङिस उ तऺइसिस एन्द्ज़ेनि कु फ़म्ब कु सुक एक कु सुङुल हेलमेत् अम्बल।",
+       "(सुनो-समझो) अंदर जाने से पहले हेलमेट पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nhlamulo nkulukumba Mina pahan tshama.",
+       "न्ह्लमुलो न्कुलुकुम्ब मिन पहन् त्स्हम।",
+       "(जवाब) सर, मैं पहन रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ku sungula kan nakambe zuban.",
+       "कु सुङुल कन् नकम्बे ज़ुबन्।",
+       "पहले कान, फिर ज़ुबान।",
+       "S",
+       "A"
+      ],
+      [
+       "Hinkwaswo suno tsongo nhlamulo 2.",
+       "हिन्कऺअसऺओ सुनो त्सोङो न्ह्लमुलो 2।",
+       "पूरा सुनो, छोटा जवाब दो।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "साँचा-अभ्यास (एक साँचा, दस वाक्य)",
+     "tw": [
+      [
+       "Xikombiso",
+       "क्सिकोम्बिसो",
+       "साँचा",
+       "ख"
+      ],
+      [
+       "Ku nga ri na nchumu ndhawu",
+       "कु ङ रि न न्चुमु न्द्हॉउ",
+       "ख़ाली जगह",
+       "ख"
+      ],
+      [
+       "Rito",
+       "रितो",
+       "शब्द",
+       "क"
+      ],
+      [
+       "Xivulwa",
+       "क्सिवुलऺअ",
+       "वाक्य",
+       "क"
+      ],
+      [
+       "—",
+       "—",
+       "अपना",
+       "क"
+      ],
+      [
+       "Paristhiti",
+       "परिस्थिति",
+       "परिस्थिति",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "patternSay",
+      "hi": "साँचा बोलो — ख़ाली जगह में अपना शब्द डालकर पाँच नए वाक्य बनाओ।",
+      "rows": [
+       [
+        "Mina ndyangu na tshama.",
+        "N'wina ndyangu na tshama.",
+        "Yena ndyangu na tshama."
+       ],
+       [
+        "Mina manana fonela.",
+        "N'wina manana fonela.",
+        "Yena manana fonela."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Xikombiso sikho xivulwa aka.",
+       "क्सिकोम्बिसो सिखो क्सिवुलऺअ अक।",
+       "साँचा सीखो, अपना वाक्य बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Xikombiso 1 mina --- lava.",
+       "क्सिकोम्बिसो 1 मिन --- लव।",
+       "साँचा एक: मुझे (---) चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina taiksi lava.",
+       "मिन तैक्सि लव।",
+       "मुझे टैक्सी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina sweswi dokodela lava.",
+       "मिन सऺएसऺइ दोकोदेल लव।",
+       "मुझे अभी डॉक्टर चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Mina 1 n'hweti hikwalaho ka kamara lava.",
+       "मिन 1 न्'हऺएति हिकऺअलहो क कमर लव।",
+       "मुझे एक महीने के लिए कमरा चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Xikombiso 2 --- vula?",
+       "क्सिकोम्बिसो 2 --- वुल?",
+       "साँचा दो: (---) कहाँ है?",
+       "L",
+       "B"
+      ],
+      [
+       "Mati kular vula?",
+       "मति कुलर् वुल?",
+       "पानी का कूलर कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Sait-daftar vula?",
+       "सैत्-दफ़्तर् वुल?",
+       "साइट-दफ़्तर कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Nikas-get vula?",
+       "निकस्-गेत् वुल?",
+       "निकास-गेट कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Xikombiso 3 yini Mina ---?",
+       "क्सिकोम्बिसो 3 यिनि मिन ---?",
+       "साँचा तीन: क्या मैं (---)?",
+       "L",
+       "B"
+      ],
+      [
+       "Yini Mina 1 minete laha baith jaun?",
+       "यिनि मिन 1 मिनेते लह बैथ् जौन्?",
+       "क्या मैं एक मिनट यहाँ बैठ जाऊँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Yini namuntlha 5 awara nga famba?",
+       "यिनि नमुन्त्ल्ह 5 ऑअर ङ फ़म्ब?",
+       "क्या आज पाँच बजे जा सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Yini sweswi yindlu foni endla lun?",
+       "यिनि सऺएसऺइ यिन्द्लु फ़ोनि एन्द्ल लुन्?",
+       "क्या अभी घर फोन कर लूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Xikombiso 4 --- mangani va?",
+       "क्सिकोम्बिसो 4 --- मङनि व?",
+       "साँचा चार: (---) कितने का है?",
+       "L",
+       "B"
+      ],
+      [
+       "Laha 1 vusiku mangani va?",
+       "लह 1 वुसिकु मङनि व?",
+       "यहाँ एक रात कितने की है?",
+       "S",
+       "B"
+      ],
+      [
+       "Kaimp ku fika eka taiksi mangani?",
+       "कैम्प् कु फ़िक एक तैक्सि मङनि?",
+       "कैम्प तक टैक्सी कितने की?",
+       "S",
+       "B"
+      ],
+      [
+       "Xikombiso 5 Ndza kombela ---.",
+       "क्सिकोम्बिसो 5 न्द्ज़ कोम्बेल ---।",
+       "साँचा पाँच: कृपया (---)।",
+       "L",
+       "B"
+      ],
+      [
+       "Ndza kombela nyangwa pfula.",
+       "न्द्ज़ कोम्बेल ञङऺअ प्फुल।",
+       "कृपया गेट खोलिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela mulanguteri bulaie.",
+       "न्द्ज़ कोम्बेल मुलङुतेरि बुलैए।",
+       "कृपया सुपरवाइज़र को बुलाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ndza kombela suchi eka wa mina vito vona.",
+       "न्द्ज़ कोम्बेल सुचि एक व मिन वितो वोन।",
+       "कृपया सूची में मेरा नाम देखिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Xikombiso 6 Mina --- sakata va.",
+       "क्सिकोम्बिसो 6 मिन --- सकत व।",
+       "साँचा छह: मैं (---) सकता हूँ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mina namuntlha nga sungula.",
+       "मिन नमुन्त्ल्ह ङ सुङुल।",
+       "मैं आज ही शुरू कर सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Zarurat i Sonto na yena nga tirha.",
+       "ज़रुरत् इ सोन्तो न येन ङ तिर्ह।",
+       "ज़रूरत हो तो रविवार भी काम कर सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "1 xikombiso 10 xivulwa nyika.",
+       "1 क्सिकोम्बिसो 10 क्सिवुलऺअ ञिक।",
+       "एक साँचा दस वाक्य देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 rito badalo ntshwa pankti aka.",
+       "1 रितो बदलो न्त्स्हऺअ पन्क्ति अक।",
+       "एक शब्द बदलो, नई पंक्ति बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Paristhiti eka xikombiso vulavula.",
+       "परिस्थिति एक क्सिकोम्बिसो वुलवुल।",
+       "अपनी परिस्थिति में साँचा बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Siku rin'wana ni rin'wana 1 xikombiso ku titoloveta endla.",
+       "सिकु रिन्'वन नि रिन्'वन 1 क्सिकोम्बिसो कु तितोलोवेत एन्द्ल।",
+       "रोज़ एक साँचा अभ्यास करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sanche zuban aazad endla.",
+       "सन्चे ज़ुबन् आज़द् एन्द्ल।",
+       "साँचे ज़ुबान को आज़ाद करते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Rito switina i sanche divaren.",
+       "रितो सऺइतिन इ सन्चे दिवरेन्।",
+       "शब्द ईंटें हैं, साँचे दीवारें।",
+       "S",
+       "C"
+      ],
+      [
+       "Wa n'wina xivulwa wa n'wina taqat.",
+       "व न्'विन क्सिवुलऺअ व न्'विन तक़त्।",
+       "आपका वाक्य, आपकी ताक़त।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Hape?",
+     "(बोलो) Wa mina sathi wile gayaa."
+    ],
+    [
+     "(सुनो) Yena dokodela lava?",
+     "(बोलो) Ina wa mina ambulense lava."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Mpfuno endla hatlisa tana.",
+     "म्प्फुनो एन्द्ल हत्लिस तन।"
+    ],
+    [
+     "राहगीर",
+     "Hape?",
+     "हपे?"
+    ],
+    [
+     "आप",
+     "Wa mina sathi wile gayaa.",
+     "व मिन सथि विले गया।"
+    ],
+    [
+     "राहगीर",
+     "Hina ambulense bolabaun.",
+     "हिन अम्बुलेन्से बोलबौन्।"
+    ],
+    [
+     "आप",
+     "Inkomu Yena wa mina na tshama.",
+     "इन्कोमु येन व मिन न त्स्हम।"
+    ]
+   ],
+   "test": {
+    "target": "जीवन-रक्षा परीक्षा (दोस्त बिना बताए त्सोंगा में बोले)",
+    "goal": "दोस्त (सुनो)-पंक्तियाँ बेतरतीब बोले — आप बिना पढ़े तुरंत जवाब दो; फिर आपात के पाँच वाक्य एक साँस में बोलो।",
+    "lines": [
+     [
+      "Mpfuno endla hatlisa tana.",
+      "म्प्फुनो एन्द्ल हत्लिस तन।"
+     ],
+     [
+      "Hina vavisekile i gayaaun.",
+      "हिन वविसेकिले इ गयाउन्।"
+     ],
+     [
+      "Wa mina ambulense lava.",
+      "व मिन अम्बुलेन्से लव।"
+     ],
+     [
+      "Wa mina phasipoto gum vaile.",
+      "व मिन फसिपोतो गुम् वैले।"
+     ],
+     [
+      "Hina Yena wa mina phasipoto donga e-e.",
+      "हिन येन व मिन फसिपोतो दोङ ए-ए।"
+     ],
+     [
+      "Wa mina wa mina muholo lava.",
+      "व मिन व मिन मुहोलो लव।"
+     ],
+     [
+      "Nkulukumba Leswi wa mina phasipoto va.",
+      "न्कुलुकुम्ब लेसऺइ व मिन फसिपोतो व।"
+     ],
+     [
+      "Nkulukumba Hina swakudya khayala ku suka eka ku sungula hinkwaswo karonga.",
+      "न्कुलुकुम्ब हिन सऺअकुद्य खयल कु सुक एक कु सुङुल हिन्कऺअसऺओ करोङ।"
+     ]
+    ]
+   }
+  }
+ ]
+};

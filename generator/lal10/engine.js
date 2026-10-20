@@ -69,14 +69,14 @@ function mkLat2dev(extra){
         i+=c.length;
         let v=null;
         for(const vl of EVO) if(s.startsWith(vl,i)){v=vl;break;}
-        if(!v && EVm[s[i]])v=s[i];
+        if(!v && EVm[s[i]]!==undefined)v=s[i]; /* 20-Oct लाल10-स: ь/ъ ख़ाली-मान भी vowel-सूची से उठे */
         if(v){ out+= (v==="a"? EC[c] : EC[c]+EVm[v]); i+=v.length; }
         else out+=EC[c]+"्";
         continue;
       }
       let v=null;
       for(const vl of EVO) if(s.startsWith(vl,i)){v=vl;break;}
-      if(!v && EVi[s[i]])v=s[i];
+      if(!v && EVi[s[i]]!==undefined)v=s[i]; /* 20-Oct लाल10-स: वही */
       if(v){out+=EVi[v];i+=v.length;continue;}
       out+=s[i];i++;
     }
@@ -153,6 +153,7 @@ function tenseOf(tail){
 /* ---------- मुख्य: profile से भाषा-इंजन बनाओ ---------- */
 function makeLang(P){
   const latSent2dev = mkLat2dev(P.translit||{});
+  const DEVP=/^devanagari/.test(P.script||""); /* 20-Oct खेप-2: देवनागरी-लक्ष्य भाषा — miss/loan देव जस-का-तस, [0] विराम '।' ⇒ [0]==[1] दर्पण */
   const MULTI = Object.keys(P.LEX).filter(k=>k.includes(" ")).sort((a,b)=>b.length-a.length);
   function vRoot(key){ return (P.V&&P.V[key]) || (P.V&&P.V["करना"]) || "chü"; }
   function conj(root,tense,neg){
@@ -210,8 +211,8 @@ function makeLang(P){
       if(/^[0-9]+$/.test(t)){out.push(t);continue;}
       if(NUMW[t]){out.push(NUMW[t]);continue;}
       if(P.LEX[t]!==undefined){ if(P.LEX[t]!=="")out.push(P.LEX[t]); continue;}
-      if(KEEP_LOAN.has(t)){out.push(LOAN_MAP[t]||dev2lat(t));continue;}
-      if(/[\u0900-\u097F]/.test(t)) {UNK[t]=(UNK[t]||0)+1; const rr=dev2lat(t); if(!(rr.toLowerCase() in ROM2HI)) ROM2HI[rr.toLowerCase()]=t; out.push(rr);}
+      if(KEEP_LOAN.has(t)){out.push(DEVP?t:(LOAN_MAP[t]||dev2lat(t)));continue;}
+      if(/[\u0900-\u097F]/.test(t)) {UNK[t]=(UNK[t]||0)+1; if(DEVP){out.push(t);} else {const rr=dev2lat(t); if(!(rr.toLowerCase() in ROM2HI)) ROM2HI[rr.toLowerCase()]=t; out.push(rr);}}
       else out.push(t);
     }
     if(verbKey){
@@ -227,7 +228,9 @@ function makeLang(P){
     else if(tense==="imp"&&verbKey) sent+= excl?"!":".";
     else sent+= P.decl? " "+P.decl+"." : ".";
     sent=sent.charAt(0).toUpperCase()+sent.slice(1);
-    return sent.replace(/\s+([?.!])/g,"$1");
+    if(DEVP) sent=sent.replace(/\.$/,"\u0964").replace(/\.(\s)/g,"\u0964$1");
+    else sent=sent.replace(/\u0964/g,".");  /* 20-Oct खेप-2: non-देव [0] में बीच-वाक्य । कभी नहीं */
+    return sent.replace(/\s+([?.!\u0964])/g,"$1");
   }
   function tWord(hi){
     let b=" "+hi.replace(/[।?!]/g,"").trim()+" ";
@@ -238,8 +241,8 @@ function makeLang(P){
       if(/^[0-9]+$/.test(t)){out.push(t);continue;}
       if(NUMW[t]){out.push(NUMW[t]);continue;}
       if(P.LEX[t]!==undefined){if(P.LEX[t]!=="")out.push(P.LEX[t]);continue;}
-      if(KEEP_LOAN.has(t)){out.push(LOAN_MAP[t]||dev2lat(t));continue;}
-      if(/[\u0900-\u097F]/.test(t)){UNK[t]=(UNK[t]||0)+1; const rr=dev2lat(t); if(!(rr.toLowerCase() in ROM2HI)) ROM2HI[rr.toLowerCase()]=t; out.push(rr);} else out.push(t);
+      if(KEEP_LOAN.has(t)){out.push(DEVP?t:(LOAN_MAP[t]||dev2lat(t)));continue;}
+      if(/[\u0900-\u097F]/.test(t)){UNK[t]=(UNK[t]||0)+1; if(DEVP){out.push(t);} else {const rr=dev2lat(t); if(!(rr.toLowerCase() in ROM2HI)) ROM2HI[rr.toLowerCase()]=t; out.push(rr);}} else out.push(t);
     }
     let w=out.join(" ").trim()||"—";
     return w.charAt(0).toUpperCase()+w.slice(1);
@@ -254,12 +257,12 @@ function regen(P){
   function load(p){global.window={};eval(fs.readFileSync(p,"utf8"));const d=window.KKB_DATA||window.KKB2_DATA;delete window.KKB_DATA;delete window.KKB2_DATA;return d;}
   const L1=load(PRIS+"/kkb_"+P.code+"_data.js");
   const L2=load(PRIS+"/kkb2_"+P.code+"_data.js");
-  const LANG={code:P.code,label:P.labelHi,tts:P.tts||"en-IN",sr:P.tts||"en-IN",script:"latin"};
+  const LANG={code:P.code,label:P.labelHi,tts:P.tts||"en-IN",sr:P.tts||"en-IN",script:P.script||"latin" /* 20-Oct लाल10-स: Cyrillic-native profiles */};
   const pair=h=>{const l=E.tSent(h);return [l,E.latSent2dev(l)];};
   const pairW=h=>{const l=E.tWord(h);return [l,E.latSent2dev(l)];};
 
   L1.lang=LANG;
-  L1.version="2.0 (20-Oct, लाल10 — असली "+P.labelEn+" Latin, AI-draft मूल-वक्ता जाँच बाक़ी)";
+  L1.version="2.0 (20-Oct, लाल10 — असली "+P.labelEn+" "+(P.scriptName||"Latin")+", AI-draft मूल-वक्ता जाँच बाक़ी)";
   const T1=["Survival "+P.labelEn,"Daily Life "+P.labelEn,"Work "+P.labelEn,"Money, Travel & Safety","Employment & Occupation"];
   L1.weeks.forEach((w,i)=>{ if(T1[i])w.title=T1[i];
     for(const d of w.days) d.items=d.items.map(it=>{const[l,dv]=pair(it[2]);const o=it.slice();o[0]=l;o[1]=dv;return o;});
@@ -289,7 +292,7 @@ function regen(P){
   L2.heroTitle=P.labelHi+" ("+P.labelEn+") बोलने का सर्टिफिकेट कोर्स";
   L2.heroSub=P.labelHi+" बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2";
   L2.module=P.labelHi+" बोलने का सर्टिफिकेट कोर्स (स्तर-2)";
-  L2.version="2.0 (20-Oct, लाल10 — असली "+P.labelEn+" Latin तीन-स्तंभ, master-mirror; AI-draft मूल-वक्ता जाँच बाक़ी)";
+  L2.version="2.0 (20-Oct, लाल10 — असली "+P.labelEn+" "+(P.scriptName||"Latin")+" तीन-स्तंभ, master-mirror; AI-draft मूल-वक्ता जाँच बाक़ी)";
   L2.sub=P.labelHi+" स्तर-2 (A2)";
   L2.help=[[E.tSent("कृपया धीरे बोलिए।"),"कृपया धीरे बोलो।"],[E.tSent("कृपया फिर से बोलिए।"),"कृपया फिर से बोलिए।"]];
   for(const w of L2.weeks){
