@@ -6,6 +6,8 @@
   const fs = require("fs");
   const jobs = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
   const chromium = require("@sparticuz/chromium"); chromium.setGraphicsMode = false;
+  /* v1.1 (20-Oct लाल10-द खेप-2): WB_FONTS env (comma-अलग .ttf पथ) — sparticuz-chromium में देवनागरी shaping हेतु Noto फ़ॉन्ट load */
+  for (const f of (process.env.WB_FONTS || "").split(",").filter(Boolean)) { await chromium.font(f); }
   const pptr = require("puppeteer-core");
   const b = await pptr.launch({ executablePath: await chromium.executablePath(), args: chromium.args, headless: "shell" });
   const pg = await b.newPage();
