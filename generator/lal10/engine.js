@@ -1,7 +1,7 @@
 /* lal10 साझा-इंजन — हर भाषा profile (LEX/particles/translit/नाम) देती है।
    विधि lal20-सिद्ध: items/tw/listen/dialog/test/drill/help regen; हिंदी-स्तंभ [2] अछूता। */
 "use strict";
-const fs = require("fs");
+const fs = require("fs"); const path = require("path");
 const REPO = "/home/claude/repo";
 const PRIS = "/home/claude/lal10/pristine";
 
@@ -217,12 +217,12 @@ function makeLang(P){
     }
     if(verbKey){
       let v=vRoot(verbKey);
-      if(want&&P.want) v=P.want.replace("%V",v);
+      if(want&&P.want&&verbKey!=="चाहना") v=P.want.replace("%V",v); /* 21-Oct: चाहना-क्रिया पर साँचा दोबारा नहीं (बӧтьӧ बӧтьӧ दोष) */
       if(canDo&&P.can) v=P.can.replace("%V",v);
       v=conj(v,tense,neg);
       if(P.svo && out.length>1){ out.splice(1,0,v); } else out.push(v);
     } else if(neg&&P.negWord){ out.push(P.negWord); }
-    let sent=out.join(" ").replace(/\s+/g," ").trim();
+    let sent=out.join(" ").replace(/\s+/g," ").trim(); sent=sent.split(" ").filter((w,i,arr)=>i===0||w.toLowerCase()!==arr[i-1].toLowerCase()).join(" "); /* 21-Oct: लगातार दोहराया शब्द एक */
     if(!sent) sent=P.yes||"—";
     if(isQ) sent+= P.q? " "+P.q+"?" : "?";
     else if(tense==="imp"&&verbKey) sent+= excl?"!":".";
@@ -253,6 +253,10 @@ function makeLang(P){
 /* ---------- regen-runner ---------- */
 function regen(P){
   CURP=P; UNK={}; ROM2HI={};
+  /* 21-Oct: रूसी-उधार fallback (सिर्फ़ Cyrillic-native भाषा; मूल-वक्ता शब्द आने तक) — LEX में जो नहीं, वही भरता है; रोमन-हिंदी रिसाव बंद */
+  try{ if(P.script==="cyrillic-native"){ const fb=JSON.parse(fs.readFileSync(path.join(__dirname,"..","data","ru_fallback.json"),"utf8")); P.RUFB=0; for(const k in fb){ if(P.LEX[k]===undefined){ P.LEX[k]=fb[k]; P.RUFB++; } } } }catch(e){}
+  /* 21-Oct: अनुवादक-भरी शब्द-सूची (generator/data/lex_extra/<code>.json = {"हिंदी":"अनुवाद"}) — सिर्फ़ मूल-वक्ता-सत्यापित प्रविष्टियाँ */
+  try{ const lx=JSON.parse(fs.readFileSync(path.join(__dirname,"..","data","lex_extra",P.code+".json"),"utf8")); for(const k in lx){ if(lx[k]) P.LEX[k]=lx[k]; } }catch(e){}
   const E=makeLang(P);
   function load(p){global.window={};eval(fs.readFileSync(p,"utf8"));const d=window.KKB_DATA||window.KKB2_DATA;delete window.KKB_DATA;delete window.KKB2_DATA;return d;}
   const L1=load(PRIS+"/kkb_"+P.code+"_data.js");
@@ -337,6 +341,7 @@ function regen(P){
   console.log("  नमूना:",JSON.stringify(L2.weeks[0].days[0].items[0].slice(0,3)));
   console.log("  listen:",JSON.stringify(L2.weeks[0].listen[0]));
   const uk=Object.entries(UNK).sort((a,b)=>b[1]-a[1]);
+  try{require("fs").writeFileSync("/tmp/unk_"+P.code+".json",JSON.stringify(uk));}catch(e){}
   if(uk.length) console.log("  ⚠️ unknown-token ("+uk.length+"): "+uk.slice(0,70).map(e=>e[0]+"×"+e[1]).join(" "));
   UNK={};
   /* 20-Oct लाल10: workbook-कोश पूरक — LEX-उल्टा + V-उल्टा + ROM2HI (loan-रोमन→हिंदी) */
@@ -346,6 +351,8 @@ function regen(P){
   for(const [hi,lt] of Object.entries(P.V||{})){ const v=String(lt).trim(); if(!v||/\s/.test(v)) continue;
     for(const tpl of [P.past,P.fut,P.prog,P.neg,P.can,P.want,P.pres,P.imp]){ if(!tpl||tpl.indexOf("%V")<0) continue; /* 20-Oct लाल10-ब खेप-2 सुधार: pres/imp कोश-लूप में छूट गए थे (grt-kachra 182 की जड़) */
       const f=tpl.replace("%V",v); if(/\s/.test(f)) continue; const fk=f.toLowerCase(); if(!(fk in K2)) K2[fk]=hi; } }
+  /* 21-Oct: बहु-शब्द मान (जैसे "у вас") के हर शब्द को अर्थ — "—" नहीं; मूल हिंदी-शब्द + (समूह का भाग) */
+  for(const [hi,lt] of Object.entries(P.LEX||{})){ const v=String(lt).trim(); if(!v||!/\s/.test(v)) continue; for(const w of v.toLowerCase().replace(/[.,?!:;()"]/g," ").split(/\s+/).filter(Boolean)){ if(!(w in K2)) K2[w]=hi+" (शब्द-समूह का भाग)"; } }
   for(const [rom,hi] of Object.entries(ROM2HI)){ if(!(rom in K2)) K2[rom]=hi; }
   fs.writeFileSync(REPO+"/generator/data/lipi/"+P.code+"_shabdkosh_2.js",
     "/* "+P.labelHi+" ("+P.code+") workbook-कोश पूरक v1.0 (20-Oct लाल10, engine-regen से — हाथ से नहीं)\n   LEX-उल्टा + क्रिया-उल्टा + हिंदी-loan रोमन→मूल। गिनती मशीन से देखें। */\n"+
