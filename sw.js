@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v732'; // 21-Oct लाल10-फ: kru kmj kfp biy kfb nit pci gdb brh zum पूर्ण-पुनर्लेखन — 🔴 60→40
+const CACHE_VERSION = 'v733'; // 21-Oct लाल10-ग: C05 कोंध-गुच्छा uki kxv kfj peg mha kff (Oriya/Telugu block-shift ORYX/TELX) — 🔴 40→34
+// पिछला v732; // 21-Oct लाल10-फ: kru kmj kfp biy kfb nit pci gdb brh zum पूर्ण-पुनर्लेखन — 🔴 60→40
 // पिछला v731; // 21-Oct लाल10-ई खेप-2+3: ab niv dar haz lrc पूर्ण-पुनर्लेखन — 10/10 नक़ली-मुक्त
 /* v719 (20-Oct खेप-2 पूर्ण) grt+tiv: engine-कोश-लूप सुधार (pres/imp टेम्पलेट कोश-generation में जुड़े — grt-kachra 182→148) → kkb/kkb2 data दोबारा-regen + बैंक दोबारा-build; kkb_grt/kkb2_grt data बदले */
 
