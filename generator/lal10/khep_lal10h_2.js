@@ -269,7 +269,7 @@ const fsI=require("fs");
   console.log("dv identity +",n);
 })();
 
-module.exports={KNDX,THAX,JPNX,CANX,KFA,DV,AIN,RYU,CRK,IKU};
+module.exports={KNDX,THAX,JPNX,CANX,KFA,DV,AIN,RYU,CRK,IKU,D2J,addIdent};
 if(require.main===module){
   const M={kfa:KFA,dv:DV,ain:AIN,ryu:RYU,crk:CRK,iku:IKU};
   const w=process.argv[2];
