@@ -1,7 +1,7 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v735'; // 21-Oct लाल10-इ (research-आधारित): gwr zgh jje aii nqo chr ryn mvi rys yoi — नई SYRX/NKOX/CHRX/HANGX/TFNX + D2S/D2N/D2Ch/D2H/D2T identity; स्रोत-आभार कोश-PDF में; नया द्वार PJ431-एनको — 🔴 24→14
+const CACHE_VERSION = 'v736'; // 21-Oct लाल10-इ (research-आधारित): gwr zgh jje aii nqo chr ryn mvi rys yoi — नई SYRX/NKOX/CHRX/HANGX/TFNX + D2S/D2N/D2Ch/D2H/D2T identity; स्रोत-आभार कोश-PDF में; नया द्वार PJ431-एनको — 🔴 24→14
 // पिछला v734; // 21-Oct लाल10-ह: pjt oji lkt rmt kfa dv ain ryu crk iku — 4 नई लिपि-परतें (THAX/JPNX/CANX/KNDX) + D2J/D2C/D2V identity — 🔴 34→24
 // पिछला v733; // 21-Oct लाल10-ग: C05 कोंध-गुच्छा uki kxv kfj peg mha kff (Oriya/Telugu block-shift ORYX/TELX) — 🔴 40→34
 // पिछला v732; // 21-Oct लाल10-फ: kru kmj kfp biy kfb nit pci gdb brh zum पूर्ण-पुनर्लेखन — 🔴 60→40
