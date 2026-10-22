@@ -23,6 +23,7 @@ for (const L of langs.filter(l => !only || l.code === only)) {
   ok(/मूल भाषा: हिंदी/.test(s), "मूल-भाषा निशान"); ok(/LearningResource/.test(s), "JSON-LD");
   const mp = path.join(__dirname, "data", "lipi", L.code + "_missing_words.txt"); const missTxt = fs.existsSync(mp) ? fs.readFileSync(mp, "utf8").trim() : ""; const missN = missTxt === "(कोई नहीं)" ? 0 : missTxt.split("\n").filter(Boolean).length;
   if (L.code === "en") ok(missN === 0, "शब्दकोश पूरा (मतलब-रहित शब्द शून्य)"); else console.log((missN ? "  ⚠️ " : "  ✅ ") + "शब्दकोश: मतलब-रहित " + missN + " (अर्थ-खेप बाक़ी; पेज पर ईमानदार पंक्ति)");
+  { const pm = s.match(/\((\d+) शब्दों का मतलब अगली खेप में जुड़ेगा/); const pageN = pm ? +pm[1] : 0; ok(pageN === missN, "पेज की मतलब-रहित गिनती = शब्दकोश-फ़ाइल (" + pageN + "/" + missN + ")"); } /* v1.x (22-Oct): बासी "अगली खेप" पंक्ति-पहरा */
   ok(fs.readFileSync(path.join(ROOT, "courses/hi/bhasha", L.slug, "index.html"), "utf8").indexOf("/workbook/") >= 0, "बोलने-कोर्स पेज से कड़ी");
   ok(sm.indexOf("/courses/hi/bhasha/" + L.slug + "/workbook/") >= 0, "sitemap में");
 }

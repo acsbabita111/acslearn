@@ -4,6 +4,7 @@ qanoq
 ateqarpit
 bihar-imiuvunga
 india-miuvunga
+suminngaaneerpit
 suliffeqartuuvunga
 angallatitaasuuvunga
 suliffissamut
@@ -526,7 +527,7 @@ qaanngilaq
 pissut
 naammassisimavoq
 ataataga
-savaaqatigisuuvoq
+savaateqartuuvoq
 illuvut
 paarisarpaa
 angajuga
@@ -1129,6 +1130,7 @@ mobile-innik
 sanavoq
 ilinniagaqartoq
 pisarpoq
+savaaqatigisuuvoq
 maannakkorpiap
 suliassaanik
 iliorumavunga
