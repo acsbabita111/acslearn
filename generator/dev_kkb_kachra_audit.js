@@ -1,4 +1,4 @@
-/* generator/dev_kkb_kachra_audit.js — v1.1 (09-Oct-2026: xClone → massShare≥10 — बोली-परिवार की जायज़ साझेदारी छूट, Addendum v7.0 पड़ाव-द का औज़ार)
+/* generator/dev_kkb_kachra_audit.js — v1.3 (09-Oct-2026: xClone → massShare≥10 — बोली-परिवार की जायज़ साझेदारी छूट, Addendum v7.0 पड़ाव-द का औज़ार)
    271-कचरा संसार का मशीन-नाप — हर भाषा पर 4 बीमारियाँ:
    (1) hiClone%  — item[0] में देवनागरी/हिंदी-घुसपैठ (ग़ैर-देव भाषाओं में)
    (2) xClone    — दूसरी भाषाओं से हूबहू नक़ल वाक्य (भाषाओं-के-बीच copy-paste)
@@ -55,7 +55,11 @@ codes.forEach(c => {
     const pairs = [...t.matchAll(/"([^"]+)"\s*:\s*"([^"]*)"/g)];
     if (pairs.length) {
       let bad = 0;
-      pairs.forEach(m => { const k = m[1], v = m[2]; if (!v || k === v || (!DEVLANG.has(c) && !DEV.test(k) === false && DEV.test(k) && DEV.test(v) && k !== v ? false : k === v)) bad += (k === v || !v) ? 1 : 0; if (!DEVLANG.has(c) && DEVC.test(k)) bad++; });
+      /* v1.3 (21-Oct): देव-भाषा में k===v वैध (बोली-साझा शब्द: "पानी":"पानी") — bad सिर्फ़ ख़ाली-अर्थ;
+         ग़ैर-देव भाषा में bad = ख़ाली-अर्थ, पहचान-नक़ल (k===v), या देवनागरी-कुंजी (कुंजी उस भाषा की लिपि में हो) */
+      pairs.forEach(m => { const k = m[1], v = m[2];
+        if (DEVLANG.has(c)) { if (!v) bad++; }
+        else { if (!v || k === v) bad++; else if (DEVC.test(k)) bad++; } });
       dictBad = Math.min(100, Math.round(100 * bad / pairs.length));
     }
   }
