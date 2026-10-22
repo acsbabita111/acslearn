@@ -7,7 +7,7 @@
    PDF: Chromium (playwright, python) — build-समय; repo में PDF output (generator-निर्मित, हाथ से नहीं)। नई भाषा = WB_LANGS में एक पंक्ति। */
 const fs = require("fs"), path = require("path"), cp = require("child_process");
 const ROOT = path.join(__dirname, "..");
-const VER = "1.4";
+const VER = "1.5";
 /* 02-Oct v1.4: WB_PAGES_ONLY=1 मोड — PDF न बनें (वे Releases पर हैं), सिर्फ़ download-पेज regen; आकार outDir की फ़ाइलों (असली या exact-नाप stub) से। */
 /* 14-Sep v1.3 (Founder-फ़ैसला: "रिलीज़ में ही डालो"): PDF repo में नहीं — GitHub Releases में (repo-size में नहीं गिनते, Pages की 1 GB सीमा बची)।
    हर भाषा = एक release, tag workbook-<slug>; PDF-कड़ी = RELEASE_BASE/workbook-<slug>/<file>। PDF यहाँ बनते हैं: RELEASE_OUT/<slug>/ (repo के बाहर) → office से `gh release create` (release_workbooks.md)।
@@ -60,13 +60,14 @@ function wordDev(items) { /* वाक्य → शब्द-दर-शब्�
   items.forEach(it => { const en = clean(it[0]).split(/\s+/).filter(Boolean), dv = clean(it[1]).split(/\s+/).filter(Boolean); if (en.length === dv.length) en.forEach((e, i) => { const k = e.toLowerCase(); if (!m.has(k)) m.set(k, dv[i]); }); });
   return m;
 }
+let KOSH_FIRST = false; /* 22-Oct v1.5: शब्दकोश-फ़ाइल के शीर्ष पर "हाथ-gloss" हो तो वही प्रथम-स्रोत */
 const NO_SPACE = { japanese: 1, chinese: 1, han: 1, thai: 1, lao: 1, khmer: 1, myanmar: 1, tibetan: 1 }; /* बिना-space लिपियाँ: वाक्य-से-शब्द नहीं निकलते — शब्दकोश सिर्फ़ tw से */
 function buildDict(days, twAll, KOSH, devAll, script) {
   const seen = new Set(); const rows = []; const missing = new Set();
   if (NO_SPACE[script]) { days.forEach(d => (d.tw || []).forEach(t => { const k = String(t[0]).trim(); if (!seen.has(k)) { seen.add(k); rows.push([k, String(t[1] || ""), String(t[2] || "—")]); } })); return { rows, missing: [] }; }
   days.forEach(d => d.items.forEach(it => clean(it[0]).split(/\s+/).filter(Boolean).forEach(w => {
     const k = w.toLowerCase(); if (seen.has(k) || /^\d+$/.test(k)) return; seen.add(k);
-    const tw = twAll.get(k); const dev = tw ? tw[1] : (devAll.get(k) || ""); const mean = tw ? tw[2] : (KOSH[k] || "");
+    const tw = twAll.get(k); const dev = tw ? tw[1] : (devAll.get(k) || ""); const mean = (KOSH_FIRST && KOSH[k]) ? KOSH[k] : (tw ? tw[2] : (KOSH[k] || "")); /* 22-Oct: हाथ-gloss शब्दकोश tw के बेमेल अर्थ से पहले */
     if (!mean) missing.add(k);
     rows.push([w.toLowerCase(), dev, mean || "—"]);
   })));
@@ -187,6 +188,7 @@ function build(L) {
   const twAll = new Map(); D.L2.weeks.forEach(w => w.days.forEach(d => (d.tw || []).forEach(t => twAll.set(String(t[0]).toLowerCase(), t))));
   /* शब्दकोश-फ़ाइलें: <code>_shabdkosh.js, _2.js, _3.js … — सब जुड़कर एक */
   const KOSH = {}; for (const suf of ["", "_2", "_3", "_4"]) { const kp = path.join(__dirname, "data", "lipi", L.code + "_shabdkosh" + suf + ".js"); if (fs.existsSync(kp)) Object.assign(KOSH, require(kp)); }
+  KOSH_FIRST = (() => { const kp = path.join(__dirname, "data", "lipi", L.code + "_shabdkosh.js"); return fs.existsSync(kp) && /हाथ-gloss/.test(fs.readFileSync(kp, "utf8").slice(0, 400)); })();
   for (const kk of Object.keys(KOSH)) { const lk = kk.toLowerCase(); if (!(lk in KOSH)) KOSH[lk] = KOSH[kk]; } /* 20-Oct लाल10: kd-कोश Capitalized-कुंजी → lowercase-दर्पण (lookup lowercase है) */
   const devAll = wordDev(days.flatMap(d => d.items));
   const pageDir = path.join(ROOT, "courses/hi/bhasha", L.slug, "workbook"); fs.mkdirSync(pageDir, { recursive: true });
