@@ -1,4 +1,5 @@
-/* generator/dev_kkb2_check.js — v4.4 (13-Sep-2026: +38 भाषा SCRIPT_RULES/LNAME (kkb_l2_register) · interim-छूट = लाउड ⚠️ (मौन नहीं) · DEVLANG + brx/si/ps/bal/prs)
+/* generator/dev_kkb2_check.js — v4.5 (22-Oct-2026: घुसपैठ-पहरा — drill देवनागरी-साँचा + heroTitle "सिखना री")
+   v4.4 (13-Sep-2026: +38 भाषा SCRIPT_RULES/LNAME (kkb_l2_register) · interim-छूट = लाउड ⚠️ (मौन नहीं) · DEVLANG + brx/si/ps/bal/prs)
    v4.3 (04-Sep-2026: +zh चीनी SCRIPT_RULES — अगली-8 खेप का पहला)
    v4.2 (02-Sep-2026: +11 भाषा SCRIPT_RULES/LNAME — pt kn ta ml te bn or as pa gu ur)
    KKB मास्टर (90-दिन) का स्थायी check-robot — 8 भाषाएँ।
@@ -35,6 +36,21 @@ D.weeks.forEach(function (w, wi) {
     });
   });
 });
+/* v4.5 (22-Oct): घुसपैठ-पहरा — (क) लैटिन-भाषा के drill में लक्ष्य-लिपि की जगह देवनागरी-साँचा (मैथिली-तर्ज़)
+   (ख) heroTitle में "सिखना री" (मारवाड़ी-साँचा)। साफ़ भाषाओं में design वाले 1-2 drill ही ऐसे होते हैं; 10+ = घुसपैठ। */
+(function () {
+  var lat = 0, all = 0;
+  D.weeks.forEach(function (w) { w.days.forEach(function (d) { d.items.forEach(function (it) { all++; if (/[A-Za-z]{2,}/.test(it[0])) lat++; }); }); });
+  if (all && lat / all > 0.8) {
+    var bad = 0;
+    D.weeks.forEach(function (w) { w.days.forEach(function (d) { var dr = d.drill; if (!dr || !dr.rows) return;
+      var tx = JSON.stringify(dr.rows).replace(/\([^)]*\)/g, "");
+      var dv = (tx.match(/[\u0900-\u0963\u0966-\u097F]+/g) || []).length, lt = (tx.match(/[A-Za-z\u00C0-\u024F\u02BC']{2,}/g) || []).length;
+      if (dv > lt * 2 + 2) bad++; }); });
+    if (bad >= 10) { console.log("⛔ drill-घुसपैठ: " + bad + " drill में लक्ष्य-भाषा की जगह देवनागरी-साँचा"); fail++; }
+  }
+  if (/सिखना री/.test(D.heroTitle || "")) { console.log("⛔ heroTitle-घुसपैठ: " + D.heroTitle); fail++; }
+})();
 if (total !== 1650) { console.log("⛔ कुल " + total + " (1650 चाहिए)"); fail++; }
 if (A !== 308) { console.log("⛔ A=" + A + " (308 चाहिए)"); fail++; }
 console.log("data: " + total + " वाक्य · A/B/C " + A + "/" + B + "/" + C + " · listen×13 · dialog×13");
