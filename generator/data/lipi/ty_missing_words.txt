@@ -17,8 +17,6 @@ na
 pāoru
 faahoi
 tiaa
-āe
-aroha
 faaroo
 meneti
 faaaturia
@@ -42,10 +40,8 @@ tūa
 pahi
 māete
 hīoi
-anei
 pirihimana
 pēe
-tuhia
 āu
 tao
 hoi
@@ -66,9 +62,7 @@ ma
 faaaetia
 vaiho
 toea
-tirohia
 tīiti
-āhea
 ae
 nei
 ina
@@ -90,15 +84,11 @@ maariri
 faaviri
 feao
 ao
-timata
 raatira
-pēnei
 tiina
 taohia
-tūria
 faapaia
 faaotia
-āfinatia
 pēnā
 tia
 ātahi
@@ -109,13 +99,10 @@ paaru
 faaarahia
 faamatea
 mutu
-rātapu
-tapahia
 ehara
 ore
 hamumu
 faaaro
-paraire
 pūete
 faamua
 tii
@@ -128,7 +115,6 @@ faaī
 varevare
 pin
 puapua
-haina
 haerea
 reta
 tāe
@@ -144,7 +130,6 @@ fītii
 mate
 titiro
 faamuri
-pupuri
 paari
 taitahi
 putaa
@@ -165,7 +150,6 @@ faea
 umar
 patna
 aoraa
-delhi
 faarere
 tamarii
 ināianei
@@ -289,7 +273,6 @@ raa
 araahia
 maa
 rama
-nau
 faaohipaa
 otahitaa
 ave
@@ -339,7 +322,6 @@ toi
 apa
 outou
 aiperei
-aadhaar
 aifaatau
 hii
 faamātau
@@ -366,9 +348,7 @@ vehea
 itea
 raro
 tēpu
-hinuhia
 taraa
-tonoa
 faaaetaa
 venerei
 faaoti
@@ -439,7 +419,6 @@ aitirotiro
 herea
 maave
 faaharatau
-esi
 pf
 tapaa
 ōrau
@@ -593,7 +572,6 @@ faaurua
 faapūmautia
 manaaitaa
 gulf
-dubai
 dirham
 tāvāhi
 āpiha
