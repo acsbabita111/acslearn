@@ -1,4 +1,6 @@
-/* generator/dev_kkb2_check.js — v4.5 (22-Oct-2026: घुसपैठ-पहरा — drill देवनागरी-साँचा + heroTitle "सिखना री")
+/* generator/dev_kkb2_check.js — v4.7 (22-Oct-2026: अनुस्वार/हलंत-शुरू पहरा)
+   v4.6 (22-Oct-2026: टूटा-उच्चारण पहरा — मात्रा से शुरू शब्द = ❌)
+   v4.5 (22-Oct-2026: घुसपैठ-पहरा — drill देवनागरी-साँचा + heroTitle "सिखना री")
    v4.4 (13-Sep-2026: +38 भाषा SCRIPT_RULES/LNAME (kkb_l2_register) · interim-छूट = लाउड ⚠️ (मौन नहीं) · DEVLANG + brx/si/ps/bal/prs)
    v4.3 (04-Sep-2026: +zh चीनी SCRIPT_RULES — अगली-8 खेप का पहला)
    v4.2 (02-Sep-2026: +11 भाषा SCRIPT_RULES/LNAME — pt kn ta ml te bn or as pa gu ur)
@@ -50,6 +52,16 @@ D.weeks.forEach(function (w, wi) {
     if (bad >= 10) { console.log("⛔ drill-घुसपैठ: " + bad + " drill में लक्ष्य-भाषा की जगह देवनागरी-साँचा"); fail++; }
   }
   if (/सिखना री/.test(D.heroTitle || "")) { console.log("⛔ heroTitle-घुसपैठ: " + D.heroTitle); fail++; }
+  /* v4.6 (22-Oct): टूटा-उच्चारण पहरा — शब्द मात्रा से शुरू (जैसे "ाउ") = ❌; सही रूप स्वतंत्र स्वर ("आउ") */
+  [F1, F2].forEach(function (f) { if (!fs.existsSync(f)) return; var s = fs.readFileSync(f, "utf8");
+    var m = s.match(/(^|[^\u0900-\u097F\u200c\u200d])[\u093E-\u094C]/gm) || [];
+    if (m.length) { console.log("⛔ टूटा-उच्चारण (मात्रा से शुरू): " + m.length + " जगह — " + f); fail++; } });
+  /* v4.7 (22-Oct): अनुस्वार/हलंत पहरा — शब्द "ं" या "्" से शुरू = ❌ (सही: पंचमाक्षर "ङ्ग/न्द/म्ब", "ङ+मात्रा", अनुस्वार पिछले शब्द से जुड़ा) */
+  [F1, F2].forEach(function (f) { if (!fs.existsSync(f)) return; var s = fs.readFileSync(f, "utf8");
+    var a = (s.match(/[\u0900-\u097F0-9] \u0902/g) || []).length + (s.match(/(^|["'(])\u0902/gm) || []).length;
+    var h = (s.match(/(^|[\s"'(0-9])\u094D/gm) || []).length;
+    if (a) { console.log("⛔ टूटा-उच्चारण (अनुस्वार से शुरू): " + a + " जगह — " + f); fail++; }
+    if (h) { console.log("⛔ टूटा-उच्चारण (हलंत से शुरू): " + h + " जगह — " + f); fail++; } });
 })();
 if (total !== 1650) { console.log("⛔ कुल " + total + " (1650 चाहिए)"); fail++; }
 if (A !== 308) { console.log("⛔ A=" + A + " (308 चाहिए)"); fail++; }
