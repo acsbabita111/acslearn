@@ -1,1 +1,16407 @@
-window.KKB2_DATA = {"weeks":[{"n":1,"title":"My Family and Home","hi":"मेरा परिवार, मेरा घर","pace":20,"days":[{"tw":[["chhungkua","छूङ्कूअ","परिवार","क"],["batsadi","बात्सादी","माता-पिता","क"],["mogolole","मोगोलोले","बड़ा (भाई/बहन)","क"],["kgaitsadiake","क्गाइत्सादीअके","छोटा (भाई/बहन)","क"],["mmogo","म्मोगो","साथ में","क"],["opora","ओपोरा","सहारा","क"]],"drill":{"type":"pairSwap","hi":"जोड़ी बदलो — Ke से O, फिर O/Ene: वाक्य वही, रूप बदले।","rows":[["Ka chhungkua nen ka awm.","I chhungkua nen i awm.","A chhungkua nen a awm."],["Ka nu nen ka sawi.","I nu nen i sawi.","A nu nen a sawi."]]},"items":[["Ka chhungkuaah mi panga an awm.","का छुंगकुआआह मि पांगा आन आउम।","मेरे परिवार में पाँच लोग हैं।","S","B"],["Ka nu leh pa nen ka awm.","का नु लेह पा नेन का आउम।","मैं अपने माता-पिता के साथ रहता हूँ।","S","A"],["Ka pa chu lo neitu a ni.","का पा चु लो नेइतु आ नि।","मेरे पिता किसान थे।","S","B"],["Ka nu chu in enkawl a ni.","का नु चु इन एनकॉल आ नि।","मेरी माँ घर सँभालती हैं।","S","B"],["Ka u chu Delhi-ah hna a thawk.","का उ चु दिल्ली-आह ह्ना आ थॉक।","मेरा बड़ा भाई दिल्ली में काम करता है।","S","B"],["Ka naunu chu school a kal.","का नाउनु चु स्कूल आ कल।","मेरी छोटी बहन स्कूल जाती है।","S","B"],["Ka fate pahnih chu school-ah an zir.","का फाते पह्निह चु स्कूल-आह आन ज़िर।","मेरे दोनों बच्चे स्कूल में पढ़ते हैं।","S","B"],["Ka fapa chu kum sawm a ni.","का फापा चु कुम सावम आ नि।","मेरा बेटा दस साल का है।","S","B"],["Ka fanu chu doctor a ni duh.","का फानु चु डॉक्टर आ नि दुह।","मेरी बेटी डॉक्टर बनना चाहती है।","S","B"],["I chhungkuaah mi engzat an awm?","इ छुंगकुआआह मि एंगज़त आन आउम?","आपके परिवार में कितने लोग हैं?","L","B"],["I chhungkua nen i awm em?","इ छुंगकुआ नेन इ आउम एम?","क्या आप अपने परिवार के साथ रहते हैं?","L","B"],["Ani lo, ka chhungkua chu khuaah an awm.","आनि लो, का छुंगकुआ चु खुआआह आन आउम।","नहीं, मेरा परिवार गाँव में रहता है।","S","A"],["Thla tin ka chhungkua tanah sum ka thawn.","थ्ला तिन का छुंगकुआ तानाह सुम का थॉन।","मैं हर महीने अपने परिवार को पैसे भेजता हूँ।","S","B"],["Zan tin ka nu chu ka biak.","ज़ान तिन का नु चु का बिआक।","मैं हर शाम अपनी माँ से बात करता हूँ।","S","B"],["Ka pu chu kum sawm riat a ni.","का पु चु कुम सावम रिआत आ नि।","मेरे दादा अस्सी साल के हैं।","S","B"],["Kan vawng chu kan zan buh kan ei.","कन वॉंग चु कन ज़ान बुह कन एइ।","हम सब साथ में रात का खाना खाते हैं।","S","B"],["Ka nupui pawh hna a thawk.","का नुपुइ पॉह ह्ना आ थॉक।","मेरी पत्नी भी काम करती हैं।","S","B"],["Hei pictures-ah hian tu nge ni?","हेइ पिक्चर्स-आह हिआन तु ङ्गे नि?","फोटो में यह कौन है?","L","B"],["Hei hi ka pu chhungkua a ni.","हेइ हि का पु छुंगकुआ आ नि।","यह मेरे चाचा का परिवार है।","S","B"],["Chhungkua chu thuamna lianpui a ni.","छुंगकुआ चु थुआम्ना लिआनपुइ आ नि।","परिवार सबसे बड़ा सहारा है।","S","C"]],"title":"मेरा परिवार (बड़ी बातें)"},{"tw":[["khua","खूअ","गाँव","क"],["ntlwaneng","न्त्ल्वानेङ","किराये का कमरा","क"],["mogatleng","मोगात्लेङ","मंज़िल","क"],["ah hnu","अह ह्नू","पीछे","क"],["ah hma","अह ह्मा","सामने","क"],["marulelong","मारूलेलोङ","छत","क"]],"drill":{"type":"preposition","hi":"जगह बताओ — mo / kwa godimo ga / gaufi le / kwa morago ga सही खाने में बैठाओ।","rows":[["Tui tank chu rual chung ___ a awm.","chunga"],["Ka khua chu lui ___ a awm.","hnaih"],["Zirna in chu ka in ___ a awm.","hnuah"],["Kan phaposi pakhat ___ kan awm."," ah"]]},"items":[["Ka in chu khua te-ah a awm.","का इन चु खुआ ते-आह आ आउम।","मेरा घर एक छोटे गाँव में है।","S","B"],["Kan in-ah room thum a awm.","कन इन-आह रूम थुम आ आउम।","हमारे घर में तीन कमरे हैं।","S","B"],["Ka in bul ah tui chhun na a awm.","का इन बुल आह तुइ छुन ना आ आउम।","मेरे घर के पास एक चापाकल है।","S","B"],["Kan nei lo te a awm.","कन नेइ लो ते आ आउम।","हमारे पास एक छोटा खेत है।","S","B"],["Ka khua chu lui bul ah a awm.","का खुआ चु लुइ बुल आह आ आउम।","मेरा गाँव नदी के पास है।","S","B"],["School chu ka in hnung lam ah a awm.","स्कूल चु का इन ह्नुंग लाम आह आ आउम।","स्कूल मेरे घर के पीछे है।","S","B"],["Bazar chu biakin hmaah a awm.","बाज़ार चु बिआकिन ह्माआह आ आउम।","बाजार मंदिर के सामने है।","S","C"],["I khua chu khawiah nge?","इ खुआ चु खावियाह ङ्गे?","आपका गाँव कहाँ है?","L","B"],["Ka khua chu Bihar-ah a awm.","का खुआ चु बिहार-आह आ आउम।","मेरा गाँव बिहार में है।","S","B"],["Patna atanga dar hnih a hla.","पटना आतांगा दार ह्निह आ ह्ला।","यह पटना से दो घंटे दूर है।","S","C"],["Tunah rent room-ah ka awm.","तुनाह रेंट रूम-आह का आउम।","अभी मैं किराये के कमरे में रहता हूँ।","S","B"],["Kan mi thum room khatah kan awm.","कन मि थुम रूम खताह कन आउम।","हम तीन लोग एक कमरे में रहते हैं।","S","C"],["Kan room chu storey pahnihna-ah a awm.","कन रूम चु स्टोरी पह्निह्ना-आह आ आउम।","हमारा कमरा दूसरी मंज़िल पर है।","S","B"],["Chaw siam na chu a te zet.","छॉ सिआम ना चु आ ते ज़ेत।","रसोई बहुत छोटी है।","S","C"],["Zanah chaw kan siam.","ज़ानाह छॉ कन सिआम।","हम रात में खाना बनाते हैं।","S","B"],["In chung ah tui tank a awm.","इन छुंग आह तुइ टैंक आ आउम।","छत पर पानी की टंकी है।","S","C"],["Ka khua chu khawpui aiin a hmel tha zawk.","का खुआ चु खावपुइ आइइन आ ह्मेल था ज़ॉक।","मेरा गाँव शहर से ज़्यादा सुंदर है।","S","B"],["Ka khua chu ka hriat.","का खुआ चु का ह्रिआत।","मुझे अपने गाँव की याद आती है।","S","B"],["Kut hun-ah ka khua ka kal ang.","कुत हुन-आह का खुआ का कल आंग।","मैं त्योहार में अपने गाँव जाऊँगा।","S","B"],["Engtikah nge i khua i kal ang?","एंगतिकाह ङ्गे इ खुआ इ कल आंग?","आप घर कब जाएँगे?","L","B"]],"title":"मेरा घर और गाँव"},{"tw":[["nimin","नीमीन","बीता कल","क"],["tsogile","त्सोगीले","उठा","क"],["ile","इले","गया","क"],["rekile","रेकीले","खरीदा","ग"],["kopane","कोपाने","मिला","क"],["zan","ज़ान","कल रात","क"]],"drill":{"type":"timeSwap","hi":"समय बदलो — आज की बात को बीते कल में कहो।","rows":[["Tuni ka thawk.","Tlawhlui ka thawk ta."],["Tuni bazar ka kal.","Tlawhlui bazar ka kal ta."],["Tuni buh ka ei.","Tlawhlui buh ka ei ta."]]},"items":[["Nizan dar panga-ah ka tho.","निज़ान दार पांगा-आह का थो।","कल मैं पाँच बजे उठा।","S","B"],["Ka hmai ka sil a, ka inchhi.","का ह्माइ का सिल आ, का इनछि।","मैंने मुँह धोया और नहाया।","S","B"],["Zing chu buh leh bal ka ei.","ज़िंग चु बुह लेह बल का एइ।","मैंने सुबह चावल-दाल खाया।","S","B"],["Dar riat-ah hna ka kal.","दार रिआत-आह ह्ना का कल।","मैं आठ बजे काम पर गया।","S","B"],["Nizan dar sawm chhung hna ka thawk.","निज़ान दार सावम छुंग ह्ना का थॉक।","मैंने कल दस घंटे काम किया।","S","B"],["Zanah in-ah ka lo kal leh.","ज़ानाह इन-आह का लो कल लेह।","मैं रात को घर लौटा।","S","B"],["Ka chau tak zet.","का छाउ तक ज़ेत।","मैं बहुत थका हुआ था।","S","A"],["Nizan zan chu chakin ka mut.","निज़ान ज़ान चु छाकिन का मुत।","मैं कल रात जल्दी सो गया।","S","B"],["Nizan engnge i ti?","निज़ान एंगंगे इ ति?","आपने कल क्या किया?","L","B"],["Pathianni i kal khawiah nge?","पथियन्नि इ कल खावियाह ङ्गे?","आप रविवार को कहाँ गए?","L","B"],["Pathianni bazar-ah ka kal.","पथियन्नि बाज़ार-आह का कल।","मैं रविवार को बाजार गया।","S","B"],["Antam leh buh ka lei.","आनताम लेह बुह का लेइ।","मैंने सब्ज़ी और चावल खरीदा।","S","B"],["Nizan ka ṭhian hmasa ber ka hmu.","निज़ान का थ्यान ह्मासा बेर का ह्मु।","मैं कल अपने पुराने दोस्त से मिला।","S","B"],["Dar hnih chhung kan inbiak.","दार ह्निह छुंग कन इनबिआक।","हमने दो घंटे बात की।","S","B"],["Thla kal ta chu ka khua-ah ka kal.","थ्ला कल ता चु का खुआ-आह का कल।","पिछले महीने मैं अपने गाँव गया।","S","B"],["Nizan hna ka thawk lo.","निज़ान ह्ना का थॉक लो।","मैंने कल काम नहीं किया।","S","B"],["Nizan zan ruah a sur tak zet.","निज़ान ज़ान रुआह आ सुर तक ज़ेत।","कल रात बहुत बारिश हुई।","S","C"],["A lum avangin mut ka theih lo.","आ लुम आवांगिन मुत का थेइह लो।","गर्मी में मुझे नींद नहीं आई।","S","B"],["Zingah i ei tawh em?","ज़िंगाह इ एइ तॉह एम?","क्या आपने सुबह खाना खाया?","L","B"],["Aw, ka lo kal hma ka ei tawh.","आउ, का लो कल ह्मा का एइ तॉह।","हाँ, मैंने आने से पहले खा लिया।","S","B"]],"title":"बीता कल (कल क्या किया)"},{"tw":[["naktuk","नाक्तूक","आने वाला कल","क"],["lo kal","लो काल","करूँगा (आगे की बात)","क"],["chawlhkar","चॉल्ह्कार","अगला हफ़्ता","क"],["bokgoni","बोक्गोनी","हुनर","ख"],["leka","लेका","कोशिश करना","क"],["ambarela","अम्बारेला","छाता","क"]],"drill":{"type":"timeSwap","hi":"समय बदलो — आज की बात को आने वाले कल में कहो।","rows":[["Tuni ka thawk.","Naktuk ka thawk ang."],["Tuni in ka kal.","Naktuk in ka kal ang."],["Tuni ka nu ka sawm.","Naktuk ka nu ka sawm ang."]]},"items":[["Naktukah chakin ka tho ang.","नक्तुकाह छाकिन का थो आंग।","कल मैं जल्दी उठूँगा।","S","A"],["Ni tin ṭawng thar sawm ka zir ang.","नि तिन तॉंग थार सावम का ज़िर आंग।","मैं रोज़ दस नए शब्द सीखूँगा।","S","B"],["Naktukah bank-ah ka kal ang.","नक्तुकाह बैंक-आह का कल आंग।","मैं कल बैंक जा रहा हूँ।","S","A"],["Monday-ah in lamah sum ka thawn ang.","मंडे-आह इन लामाह सुम का थॉन आंग।","मैं सोमवार को घर पैसे भेजूँगा।","S","B"],["Kum hnu ah cycle ka lei ang.","कुम ह्नु आह साइकल का लेइ आंग।","अगले साल मैं साइकिल खरीदूँगा।","S","B"],["Hna thiam thar ka zir duh.","ह्ना थिआम थार का ज़िर दुह।","मैं एक नया हुनर सीखना चाहता हूँ।","S","A"],["Naktukah engnge i ti ang?","नक्तुकाह एंगंगे इ ति आंग?","आप कल क्या करेंगे?","L","B"],["Pathianni-ah hna-ah i lo kal ang em?","पथियन्नि-आह ह्ना-आह इ लो कल आंग एम?","क्या आप रविवार को काम पर आएँगे?","L","B"],["Aw, dar pakua-ah ka lo kal ang.","आउ, दार पकुआ-आह का लो कल आंग।","हाँ, मैं नौ बजे आऊँगा।","S","B"],["Ani lo, Pathianni-ah ka chawlh ang.","आनि लो, पथियन्नि-आह का छॉल्ह आंग।","नहीं, रविवार को मैं आराम करूँगा।","S","A"],["Naktuk zingah ka ko ang che.","नक्तुक ज़िंगाह का को आंग छे।","मैं आपको कल सुबह फोन करूँगा।","S","A"],["Tlaithleng thleng hei hna hi kan zawhtir ang.","त्लाइथ्लेंग थ्लेंग हेइ ह्ना हि कन ज़ॉह्तिर आंग।","हम शाम तक यह काम पूरा कर देंगे।","S","B"],["Ka u chu week hnu-ah a lo kal ang.","का उ चु वीक ह्नु-आह आ लो कल आंग।","मेरा भाई अगले हफ़्ते आएगा।","S","B"],["Dawr te ka hawng dawn a ni.","दॉर ते का हॉंग दॉन आ नि।","मैं एक छोटी दुकान खोलने वाला हूँ।","S","A"],["Ni khat chu ka in ka sa ang.","नि खत चु का इन का सा आंग।","एक दिन मैं अपना घर बनाऊँगा।","S","B"],["Naktukah ka la dawn lo.","नक्तुकाह का ला दॉन लो।","कल मैं देर नहीं करूँगा।","S","A"],["Tuni ruah a sur ang.","तुनि रुआह आ सुर आंग।","आज बारिश होगी।","L","B"],["I umbrella la rawh.","इ अम्ब्रेला ला रॉह।","अपने साथ छाता ले जाओ।","L","B"],["Ka theihnathiam zawng ka hman ang.","का थेइह्नाथिआम ज़ॉंग का ह्मान आंग।","मैं पूरी कोशिश करूँगा।","S","B"],["A va ṭha ang.","आ वा त्हा आंग।","सब ठीक हो जाएगा।","S","C"]],"title":"आने वाला कल (आगे की योजना)"},{"tw":[["tih","तीह","क्योंकि","क"],["jalo","जालो","इसलिए","क"],["lebaka","लेबाका","कारण","क"],["diegile","दीएगीले","देर","क"],["chawlh","चॉल्ह","छुट्टी","ख"],["dah sum","दाह सूम","पैसे बचाना","ग"]],"drill":{"type":"joinReason","hi":"दो छोटे वाक्य जोड़ो — ka ntlha ya gore या ka jalo लगाकर एक बनाओ।","rows":[["Ka buai hle. Ka chawlh.","Ka buai hle avangin ka chawlh."],["Ka diel ta. Bus a diel ta.","Bus a diel ta avangin ka diel ta."],["Sum ka khawl. Ka in kal thei.","Sum ka khawl avangin ka in kal thei."]]},"items":[["Bus a la avangin ka la.","बस आ ला आवांगिन का ला।","मुझे देर हुई क्योंकि बस देर से आई।","S","B"],["Tuni engati nge i la?","तुनि एंगति ङ्गे इ ला?","आज आप देर से क्यों आए?","L","B"],["Ka dam loh avangin ka lo kal thei lo.","का दाम लोह आवांगिन का लो कल थेइ लो।","मैं नहीं आ सका क्योंकि मैं बीमार था।","S","B"],["Ka chhungkua atan thawhrim takin hna ka thawk.","का छुंगकुआ आतान थॉह्रिम तकिन ह्ना का थॉक।","मैं अपने परिवार के लिए मेहनत करता हूँ।","S","B"],["Engati nge Mizo ṭawng i zir duh?","एंगति ङ्गे मिज़ो तॉंग इ ज़िर दुह?","आप मिज़ो क्यों सीखना चाहते हैं?","L","B"],["Hna ṭha zawk ka mamawh avangin Mizo ṭawng ka zir mek.","ह्ना त्हा ज़ॉक का ममॉह आवांगिन मिज़ो तॉंग का ज़िर मेक।","मैं मिज़ो सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।","S","A"],["Tuni kut ni avangin dawr a khar.","तुनि कुत नि आवांगिन दॉर आ खर।","दुकान बंद है क्योंकि आज छुट्टी है।","L","B"],["Ka chau avangin chakin ka mut.","का छाउ आवांगिन छाकिन का मुत।","मैं थका था, इसलिए जल्दी सो गया।","S","B"],["Ruah a sur avangin in-ah ka awm.","रुआह आ सुर आवांगिन इन-आह का आउम।","बारिश हो रही थी, इसलिए मैं घर पर रहा।","S","B"],["Sum ka khawl avangin ka khua-ah ka kal thei.","सुम का खॉल आवांगिन का खुआ-आह का कल थेइ।","मैंने पैसे बचाए, इसलिए घर जा सकता हूँ।","S","B"],["Engati nge chu room chu i chhuah?","एंगति ङ्गे चु रूम चु इ छुआह?","आपने वह कमरा क्यों छोड़ा?","L","B"],["Rent a tam avangin ka chhuah.","रेंट आ तम आवांगिन का छुआह।","मैंने छोड़ा क्योंकि किराया ज़्यादा था।","S","B"],["Hlawh a tha avangin hei hna hi ka duh.","ह्लॉह आ था आवांगिन हेइ ह्ना हि का दुह।","मुझे यह काम पसंद है क्योंकि मज़दूरी अच्छी है।","S","B"],["Hna a dawng avangin a lawm.","ह्ना आ दॉंग आवांगिन आ लॉम।","वह खुश है क्योंकि उसे नौकरी मिल गई।","S","C"],["Ka la loh na tur chakin ka tho.","का ला लोह ना तुर छाकिन का थो।","मैं जल्दी उठता हूँ ताकि देर न हो।","S","B"],["Chhan min hrilh teh.","छान मिन ह्रिल्ह तेह।","कृपया कारण बताइए।","L","B"],["Chu avangin ka ko che.","चु आवांगिन का को छे।","इसीलिए मैंने आपको फोन किया।","S","B"],["Ka naunu inneihna atan sum ka khawl mek.","का नाउनु इन्नेइह्ना आतान सुम का खॉल मेक।","मैं अपनी बहन की शादी के लिए पैसे बचा रहा हूँ।","S","B"],["Engati nge machine a khar?","एंगति ङ्गे मशीन आ खर?","मशीन बंद क्यों है?","L","B"],["Electricity a awm loh avangin a khar.","इलेक्ट्रिसिटी आ आउम लोह आवांगिन आ खर।","यह बंद है क्योंकि बिजली नहीं है।","S","B"]],"title":"कारण बताना (क्योंकि, इसलिए)"}],"test":{"target":"Chhungkua ṭhian emaw hnenah (phone hmangin)","goal":"Mizo ṭawngin sawi — nizan i thawk eng, naktuk i thawk ang eng. 'avangin' zarah mola pakhat hman ve.","lines":[["Nizan dar sawm chhung ka thawk ta.","निज़ान दार सावम छुंग का थॉक ता।"],["Ka buai hle.","का बुआइ ह्ले।"],["Naktuk dar panga ah ka tho ang.","नक्तुक दार पांगा आह का थो आंग।"],["Naktuk dar li ah i ko ang.","नक्तुक दार लि आह इ को आंग।"],["Lät tha hmu nan Sekgoa ka zir mek.","लात था ह्मु नान सेक्गोआ का ज़िर मेक।"]]},"listen":[["(ngaithla) Engtik hun hian i tho?","(chhang) Dar panga hian ka tho."],["(ngaithla) Kuamahte chuan engtikah nge ko?","(chhang) Sontaga ah an lo kal ang."]],"dialog":[["Nangma","Chibai, i dam em?"],["Ṭhian","Ka dam e, nangma?"],["Nangma","Ka dam ve, ka lawm e."],["Ṭhian","Kan hmu leh ang."],["Nangma","Aw, dam takin kal rawh."]]},{"n":2,"title":"My Daily Life","hi":"मेरी रोज़ की जिंदगी","pace":20,"days":[{"tw":[["gale","गाले","हमेशा","क"],["gantsi","गान्त्सी","आम तौर पर","क"],["dinako","दीनाको","कभी-कभी","क"],["gasepe","गासेपे","कभी नहीं","क"],["ke","के","पैदल","ग"],["ni","नी","रोज़","क"]],"drill":{"type":"freqLadder","hi":"बार-बार की सीढ़ी — एक वाक्य को ka gale, gantsi, ka dinako dingwe, le ka motlha से बदल-बदलकर बोलो।","rows":[["Ni tin hian zing lam ah tea ka in."]]},"items":[["Ni tin ni ni suih hma hian ka tho.","नि तिन नि नि सुइह ह्मा हिआन का थो।","मैं हमेशा सूरज उगने से पहले उठता हूँ।","S","B"],["A vul ah dar riat-ah hna ka thleng.","आ वुल आह दार रिआत-आह ह्ना का थ्लेंग।","मैं आम तौर पर आठ बजे काम पहुँचता हूँ।","S","B"],["A ṭhenah zanah hna ka thawk.","आ थ्हेनाह ज़ानाह ह्ना का थॉक।","कभी-कभी मैं रात में काम करता हूँ।","S","B"],["Cigarette ka fak ngai lo.","सिगरेट का फक ङ्गाइ लो।","मैं कभी धूम्रपान नहीं करता।","S","B"],["Engtikah nge i tho?","एंगतिकाह ङ्गे इ थो?","आप कितने बजे उठते हैं?","L","B"],["Ni tin dar panga-ah ka tho.","नि तिन दार पांगा-आह का थो।","मैं रोज़ पाँच बजे उठता हूँ।","S","B"],["Hmasain ka hmai ka sil.","ह्मासाइन का ह्माइ का सिल।","पहले मैं मुँह धोता हूँ।","S","B"],["Chuan tui ka chhum.","छुआन तुइ का छुम।","फिर मैं चाय बनाता हूँ।","S","B"],["Chu hnuah hna-ah ka kal.","चु ह्नुआह ह्ना-आह का कल।","उसके बाद मैं काम पर जाता हूँ।","S","B"],["Dar khatah chhung ka chawlh tlem.","दार खताह छुंग का छॉल्ह त्लेम।","मैं एक बजे थोड़ा आराम करता हूँ।","S","B"],["Pathianni-ah silfiam ka sil.","पथियन्नि-आह सिल्फियाम का सिल।","मैं रविवार को कपड़े धोता हूँ।","S","B"],["Dar sawm-ah ka mut.","दार सावम-आह का मुत।","मैं दस बजे सोता हूँ।","S","B"],["Engtin nge i hna i kal?","एंगतिन ङ्गे इ ह्ना इ कल?","आप काम पर कैसे जाते हैं?","L","B"],["Kekal in hna-ah ka kal.","केकल इन ह्ना-आह का कल।","मैं पैदल काम पर जाता हूँ।","S","A"],["Minute 20 a la ang.","मिनिट २० आ ला आंग।","बीस मिनट लगते हैं।","S","C"],["Ni tin minute 30 Mizo ṭawng ka zir.","नि तिन मिनिट ३० मिज़ो तॉंग का ज़िर।","मैं रोज़ आधा घंटा मिज़ो सीखता हूँ।","S","B"],["Week khatah vawi hnih in lamah ka ko.","वीक खताह वावि ह्निह इन लामाह का को।","मैं हफ़्ते में दो बार घर फोन करता हूँ।","S","A"],["Pathianni chu ni khawng ka chawlh.","पथियन्नि चु नि खॉंग का छॉल्ह।","रविवार को मैं पूरा दिन आराम करता हूँ।","S","B"],["Ka ni chu chakin a hong ṭan a, a la a zawh.","का नि चु छाकिन आ होंग थ्हान आ, आ ला आ ज़ॉह।","मेरा दिन जल्दी शुरू होकर देर से ख़त्म होता है।","S","B"],["Thawhrim chu a bo ngai lo.","थॉह्रिम चु आ बो ङ्गाइ लो।","मेहनत कभी बेकार नहीं जाती।","S","C"]],"title":"मेरी दिनचर्या (कितनी बार)"},{"tw":[["chhum","छूम","खाना बनाना","क"],["beletsa","बेलेत्सा","उबालना","क"],["sega","सेगा","काटना","क"],["sotlhe","सोत्ल्हे","स्वादिष्ट","क"],["silindara","सीलीन्दारा","ख़ाली","क"],["bago","बागो","बारी","क"]],"drill":{"type":"orderSteps","hi":"क्रम बताओ — Pele, Morago, Morago ga moo लगाकर काम का सही क्रम बोलो।","rows":[["Hmasain hmai ka sil.","Chuan tea ka chhum.","Chu hnuah lät ah ka kal."]]},"items":[["Tuni engnge i siam?","तुनि एंगंगे इ सिआम?","आज आपने क्या बनाया?","L","B"],["Buh leh aluh curry ka siam.","बुह लेह आलुह करी का सिआम।","मैंने चावल और आलू की सब्ज़ी बनाई।","S","B"],["Hmasain buh ṭha takin sil rawh.","ह्मासाइन बुह त्हा तकिन सिल रॉह।","पहले चावल अच्छे से धोओ।","L","B"],["Hmasain tui chhum rawh.","ह्मासाइन तुइ छुम रॉह।","पहले पानी उबालो।","L","B"],["Purun te tein tan rawh.","पुरुन ते तेइन तान रॉह।","प्याज़ छोटे टुकड़ों में काटो।","L","B"],["Chi tlem thun rawh.","छि त्लेम थुन रॉह।","थोड़ा नमक डालो।","L","B"],["Chaw a siam zo.","छॉ आ सिआम ज़ो।","खाना तैयार है।","S","C"],["Hei curry hi a tui tak zet.","हेइ करी हि आ तुइ तक ज़ेत।","यह सब्ज़ी बहुत स्वादिष्ट है।","S","C"],["Buh a siam ṭha lo.","बुह आ सिआम त्हा लो।","चावल ठीक से नहीं पका है।","S","C"],["Si leh thuam kan mamawh.","सि लेह थुआम कन ममॉह।","हमें तेल और मसाले चाहिए।","S","B"],["Gas cylinder a chhiar.","गैस सिलिंडर आ छिआर।","गैस सिलिंडर ख़ाली है।","S","C"],["Cylinder thar ka la kal ang.","सिलिंडर थार का ला कल आंग।","मैं नया सिलिंडर लाऊँगा।","S","B"],["Tuni chaw kan siam khawm ang.","तुनि छॉ कन सिआम खॉम आंग।","आज हम साथ मिलकर खाना बनाएँगे।","S","B"],["Tuni chaw siam tur chu tu nge?","तुनि छॉ सिआम तुर चु तु ङ्गे?","आज खाना बनाने की बारी किसकी है?","L","B"],["Tuni hi ka turn a ni.","तुनि हि का टर्न आ नि।","आज मेरी बारी है।","S","B"],["Chaw hlum suh.","छॉ ह्लुम सुह।","खाना बर्बाद मत करो।","L","B"],["Chaw khuh rawh.","छॉ खुह रॉह।","खाना ढककर रखो।","L","B"],["Tuni chu a tam takin ka ei.","तुनि चु आ तम तकिन का एइ।","आज मैंने ज़्यादा खा लिया।","S","B"],["In chaw chu hotel chaw aiin a tha zawk.","इन छॉ चु होटल छॉ आइइन आ था ज़ॉक।","घर का खाना होटल से अच्छा होता है।","S","C"],["Tui thianghlim chauh in rawh.","तुइ थिआंग्ह्लिम छाउह इन रॉह।","सिर्फ़ साफ़ पानी पियो।","L","B"]],"title":"खाना और रसोई"},{"tw":[["letshoroma","लेचोरोमा","बुखार","क"],["kgapetla","क्गापेत्ला","गोली","क"],["kgohlolo","क्गोह्लोलो","खाँसी","क"],["botoka","बोतोका","बेहतर","क"],["ikhutsa","इखूत्सा","आराम","क"],["hnaih","ह्नाइह","पास में","ग"]],"drill":{"type":"dialogueFill","hi":"संवाद पूरा करो — ngaka ya kgwedi, ख़ाली जगह बोलकर भरो।","rows":[["Doctor: Enge lo thleng?","Nangma: Tlawhlui aṭanga."],["Doctor: Ei hnuah damdawi i lo.","Nangma: A ṭha e, ka lawm e doctor."]]},"items":[["Nizan atanga ka ṭawk.","निज़ान आतांगा का त्हॉक।","मुझे कल से बुखार है।","S","B"],["Ka lu a na.","का लु आ ना।","मेरा सिर दर्द कर रहा है।","S","B"],["Ka khawih leh hnawih a awm.","का खावीह लेह ह्नावीह आ आउम।","मुझे खाँसी और ज़ुकाम है।","S","A"],["Ka taksa pumin a na.","का तक्सा पुमिन आ ना।","मेरा पूरा बदन दर्द कर रहा है।","S","A"],["Engtik atang nge i dam lo?","एंगतिक आतांग ङ्गे इ दाम लो?","आप कब से बीमार हैं?","L","B"],["I lei min entir teh.","इ लेइ मिन एंतिर तेह।","अपनी जीभ दिखाइए।","L","B"],["Ei zoh hnuah hei damdawi hi la rawh.","एइ ज़ोह ह्नुआह हेइ दामदावि हि ला रॉह।","यह दवा खाने के बाद लीजिए।","L","B"],["Tui khat zingah, khat zanah lo rawh.","तुइ खत ज़िंगाह, खत ज़ानाह लो रॉह।","एक गोली सुबह, एक रात में लीजिए।","L","B"],["Tui bawt tlem in rawh.","तुइ बवत त्लेम इन रॉह।","गुनगुना पानी पियो।","L","B"],["Ni hnih chawlh rawh.","नि ह्निह छॉल्ह रॉह।","दो दिन आराम कीजिए।","L","B"],["Hun takin damdawi ka lo la.","हुन तकिन दामदावि का लो ला।","मैंने समय पर दवा ली।","S","B"],["Tunah ka ṭha deuh.","तुनाह का त्हा देउह।","अब मैं बेहतर महसूस कर रहा हूँ।","S","B"],["Ka ṭawk avangin hna-ah ka kal thei lo.","का त्हॉक आवांगिन ह्ना-आह का कल थेइ लो।","बुखार की वजह से मैं काम पर नहीं जा सका।","S","B"],["Hei damdawi hi eng nge a man?","हेइ दामदावि हि एंग ङ्गे आ मान?","यह दवा कितने की है?","S","B"],["Sorkar damdawi-in a naih em?","सोर्कार दामदावि-इन आ नाइह एम?","क्या पास में सरकारी अस्पताल है?","S","A"],["Doctor chu dar sawm-ah a lo kal.","डॉक्टर चु दार सावम-आह आ लो कल।","डॉक्टर दस बजे आते हैं।","L","B"],["Doctor tan ka hming ziak teh.","डॉक्टर तान का ह्मिंग ज़िआक तेह।","कृपया डॉक्टर के लिए मेरा नाम लिख दीजिए।","S","A"],["Hun takin ei la, mut tha rawh.","हुन तकिन एइ ला, मुत था रॉह।","समय पर खाओ और अच्छी नींद लो।","L","B"],["Ei hma ah kut sil rawh.","एइ ह्मा आह कुत सिल रॉह।","खाने से पहले हाथ धोओ।","L","B"],["Damna chu sum nghet tak a ni.","दाम्ना चु सुम ङ्गेत तक आ नि।","सेहत ही असली दौलत है।","S","C"]],"title":"तबीयत और दवा (बड़ी बातें)"},{"tw":[["bosa","बोसा","मौसम","क"],["mariga","मारीगा","सर्दी","क"],["kolobile","कोलोबीले","भीगा हुआ","क"],["thli","थ्ली","आँधी","क"],["saese","साएसे","नाप","ग"],["boingwe","बोइङ्वे","अलग से","क"]],"drill":{"type":"compare","hi":"तुलना करो — go gaisa लगाकर दो चीज़ों की तुलना बोलो।","rows":[["Khawpui chu bo aṭangin a lawan."]]},"items":[["Tuni chu nizan aiin a lum zawk.","तुनि चु निज़ान आइइन आ लुम ज़ॉक।","आज कल से ज़्यादा गर्मी है।","S","C"],["Tuna hin zing tin chu a vuar hle.","तुना हिन ज़िंग तिन चु आ वुआर ह्ले।","आजकल सुबह बहुत ठंड होती है।","S","C"],["Favang a lo thleng dawn.","फावांग आ लो थ्लेंग दॉन।","सर्दी आ रही है।","S","C"],["Silfiam bawm bun rawh.","सिल्फियाम बॉम बुन रॉह।","गरम कपड़े पहनो।","L","B"],["Zalhlui ah sweater ka lei.","ज़ल्ह्लुइ आह स्वेटर का लेइ।","मैंने पिछले हफ़्ते स्वेटर खरीदा।","S","B"],["Silfiam ni-ah kang rawh.","सिल्फियाम नि-आह कांग रॉह।","कपड़े धूप में सुखाओ।","L","B"],["Ka silfiam ruahin a ti rilh.","का सिल्फियाम रुआहिन आ ति रिल्ह।","बारिश में मेरे कपड़े भीग गए।","S","B"],["Thla hnu ah ruah a hong tan dawn.","थ्ला ह्नु आह रुआह आ होंग तान दॉन।","अगले महीने बरसात शुरू होगी।","S","C"],["Nizan zan chu thlipui nasa tak a lo thleng.","निज़ान ज़ान चु थ्लिपुइ नसा तक आ लो थ्लेंग।","कल रात आँधी आई।","S","C"],["Tuni thlipui dinhmun chu engtin nge?","तुनि थ्लिपुइ दिन्ह्मुन चु एंगतिन ङ्गे?","आज मौसम कैसा है?","L","B"],["Tuni thlipui a tha tak zet.","तुनि थ्लिपुइ आ था तक ज़ेत।","आज मौसम बहुत अच्छा है।","S","C"],["Ni nasa takah hna thawk suh.","नि नसा तकाह ह्ना थॉक सुह।","तेज़ धूप में काम मत करो।","L","B"],["A lum takah tui tam zawk in rawh.","आ लुम तकाह तुइ तम ज़ॉक इन रॉह।","गर्मी में ज़्यादा पानी पियो।","L","B"],["Ni ah i lu khuh rawh.","नि आह इ लु खुह रॉह।","धूप में सिर ढको।","L","B"],["Hei silfiam hi ka tan a te lutuk.","हेइ सिल्फियाम हि का तान आ ते लुतुक।","ये कपड़े मुझे छोटे हैं।","S","B"],["Size lian zawk ka mamawh.","साइज़ लिआन ज़ॉक का ममॉह।","मुझे बड़ा साइज़ चाहिए।","S","A"],["Hei shirt hi ka tan a pawm hle.","हेइ शर्ट हि का तान आ पॉम ह्ले।","यह कमीज़ मुझे ठीक आती है।","S","B"],["Hei shirt hi danglam takin sil rawh.","हेइ शर्ट हि दांगलाम तकिन सिल रॉह।","यह कमीज़ अलग धोओ।","L","B"],["Ka kebawk a chim.","का केबॉक आ छिम।","मेरे जूते फट गए हैं।","S","B"],["Hlawh ni-ah kebawk thar ka lei ang.","ह्लॉह नि-आह केबॉक थार का लेइ आंग।","तनख़्वाह के दिन मैं नए जूते खरीदूँगा।","S","B"]],"title":"मौसम और कपड़े"},{"tw":[["motsotswana","मोत्सोत्स्वाना","लाइन पर रुकना","क"],["number","नूम्बेर","ग़लत नंबर","क"],["molaetsa","मोलाएत्सा","संदेश","क"],["bateri","बातेरी","बैटरी","क"],["netweke","नेत्वेके","नेटवर्क","क"],["ah chung","अह चूङ","ज़ोर से","क"]],"drill":{"type":"showTell","hi":"फ़ोन के 3 वाक्य — अपना नाम भरकर पूरी शुरुआत बोलो।","rows":[["Chibai, hian ___ ka ni.","Ka awm na hmun hi a ni.","Hei number ah min ko rawh."]]},"items":[["Pu nen ka biak thei em?","पु नेन का बिआक थेइ एम?","क्या मालिक से बात हो सकती है?","S","A"],["Minute khat chhung dawn rawh.","मिनिट खत छुंग दॉन रॉह।","कृपया एक मिनट लाइन पर रुकिए।","L","B"],["Ani tunah a awm lo.","आनि तुनाह आ आउम लो।","वे अभी यहाँ नहीं हैं।","S","C"],["Dar khat hnuah ko leh teh.","दार खत ह्नुआह को लेह तेह।","कृपया एक घंटे बाद फोन कीजिए।","S","A"],["Ngaihdam, number i sual.","ङ्गाइह्दाम, नम्बर इ सुआल।","माफ़ कीजिए, आपने ग़लत नंबर लगाया है।","S","A"],["Hei number aṭanga miss call ka dawng.","हेइ नम्बर आत्हांगा मिस कॉल का दॉंग।","इस नंबर से मुझे मिस्ड कॉल आई थी।","S","B"],["Zingah tu nge min ko?","ज़िंगाह तु ङ्गे मिन को?","सुबह मुझे किसने फोन किया था?","S","B"],["Message min thawn teh.","मेसेज मिन थॉन तेह।","कृपया मुझे संदेश भेज दीजिए।","S","A"],["WhatsApp-in address ka thawn ang che.","व्हाट्सऐप-इन एड्रेस का थॉन आंग छे।","मैं आपको व्हाट्सऐप पर पता भेज दूँगा।","S","B"],["Lehkha photo min thawn teh.","लेह्खा फोटो मिन थॉन तेह।","कृपया मुझे कागज़ की फोटो भेज दीजिए।","S","A"],["Ka phone balance a zo.","का फोन बैलेंस आ ज़ो।","मेरा फोन बैलेंस ख़त्म हो गया है।","S","A"],["Ka battery a tlem.","का बैटरी आ त्लेम।","मेरी बैटरी कम है।","S","B"],["Hetah network a chak lo.","हेताह नेटवर्क आ छाक लो।","यहाँ नेटवर्क कमज़ोर है।","S","C"],["Call a kap.","कॉल आ काप।","फोन कट गया।","S","C"],["Minute panga hnuah ka ko leh ang.","मिनिट पांगा ह्नुआह का को लेह आंग।","मैं पाँच मिनट में फिर फोन करूँगा।","S","B"],["Ka number save rawh.","का नम्बर सेव रॉह।","कृपया मेरा नंबर सेव कर लीजिए।","S","A"],["Hei number ziak rawh.","हेइ नम्बर ज़िआक रॉह।","यह नंबर लिख लीजिए।","L","B"],["Aw sang zawk in sawi teh.","आउ सांग ज़ॉक इन सावि तेह।","थोड़ा ज़ोर से बोलिए।","S","B"],["Nizan message ka thawn che.","निज़ान मेसेज का थॉन छे।","मैंने आपको कल संदेश भेजा था।","S","B"],["Ka message i dawng em?","का मेसेज इ दॉंग एम?","क्या आपको मेरा संदेश मिला?","S","B"]],"title":"फ़ोन और संदेश (बड़ी बातें)"}],"test":{"target":"Khawpui ṭhian (phone hmangin)","goal":"Mizo ṭawngin ni tin kawng hril — engtikah nge i tho, lät ah engtin nge i kal, week khatah vawi hnih in i ko.","lines":[["Ni tin hmaro lo thleng hma kha ka tho."," नि तिन ह्मारो लो थ्लेंग ह्मा खा का थो।"],["Ke kalin lät ah ka kal.","के कलिन लात आह का कल।"],["Dar sawm ah ka mut.","दार सावम आह का मुत।"],["Sontaga ah ka chawlh."," सोंतागा आह का छॉल्ह।"]]},"listen":[["(ngaithla) Lät ah engtin nge i kal?","(chhang) Ke kalin ka kal."],["(ngaithla) Engtikah nge i mut?","(chhang) Dar sawm ah ka mut."]],"dialog":[["Nangma","Engtikah nge tuni i tho?"],["Ṭhian","Dar panga ah ka tho."],["Nangma","Lawm e, a lawan!"],["Ṭhian","Aw, lät a hong tan ke kalin."],["Nangma","A ṭha e, ka lawm e."]]},{"n":3,"title":"Family, Neighbours and Feelings","hi":"परिवार, पड़ोस और दिल की बात","pace":20,"days":[{"tw":[["hna gae","ह्ना गाए","गृहकार्य","क"],["dintlha","दीन्त्ल्हा","अंक","क"],["ikgantsha","इक्गान्त्शा","गर्व","क"],["to","तो","महँगा","ग"],["ditsela","दीत्सेला","शिक्षा","क"],["zirtir","ज़ीर्तीर","पढ़ाना","क"]],"drill":{"type":"whoAmI","hi":"मैं कौन हूँ — तीन सुराग सुनो, जवाब बोलो।","rows":[["Kut hmangin ka thawk, in ka siam.","Mason."],["Hotel miëth ka siam.","Cook."]]},"items":[["Ka fate chu sorkar school an kal.","का फाते चु सोर्कार स्कूल आन कल।","मेरे बच्चे सरकारी स्कूल जाते हैं।","S","B"],["School chu dar pakua-ah a hong tan.","स्कूल चु दार पकुआ-आह आ होंग तान।","स्कूल नौ बजे शुरू होता है।","S","C"],["Ka fanu chu class panga-ah a awm.","का फानु चु क्लास पांगा-आह आ आउम।","मेरी बेटी पाँचवीं कक्षा में है।","S","B"],["Zirna-ah a ṭha.","ज़िर्ना-आह आ त्हा।","वह पढ़ाई में अच्छी है।","S","C"],["Ka fapa chu zanah homework a ti.","का फापा चु ज़ानाह होमवर्क आ ति।","मेरा बेटा रात में गृहकार्य करता है।","S","B"],["Homework i ti zo em?","होमवर्क इ ति ज़ो एम?","क्या तुमने गृहकार्य पूरा किया?","S","B"],["Ni tin zir rawh, exam hma chauh ni lo.","नि तिन ज़िर रॉह, एग्ज़ाम ह्मा छाउह नि लो।","रोज़ पढ़ो, सिर्फ़ परीक्षा से पहले नहीं।","S","C"],["Thla hnu ah exam a hong tan dawn.","थ्ला ह्नु आह एग्ज़ाम आ होंग तान दॉन।","परीक्षा अगले महीने शुरू होगी।","L","B"],["Ka fanu chu number tha a chang.","का फानु चु नम्बर था आ छांग।","मेरी बेटी को अच्छे अंक मिले।","S","A"],["Ka fate kan ka hlimawm.","का फाते कन का ह्लिमॉम।","मुझे अपने बच्चों पर गर्व है।","S","A"],["Lehkhabu leh notebook tunah a man tam.","लेह्खाबु लेह नोटबुक तुनाह आ मान तम।","किताब-कॉपी अब महँगी हैं।","S","C"],["Ka fapa tan school bag ka lei.","का फापा तान स्कूल बैग का लेइ।","मैंने बेटे के लिए स्कूल बैग खरीदा।","S","B"],["Fate chu school-ah chaw an dawng.","फाते चु स्कूल-आह छॉ आन दॉंग।","बच्चों को स्कूल में खाना मिलता है।","S","C"],["Ni tin fate school kal tir rawh.","नि तिन फाते स्कूल कल तिर रॉह।","बच्चों को रोज़ स्कूल भेजो।","L","B"],["Ka zir tam lo.","का ज़िर तम लो।","मैं ज़्यादा पढ़ नहीं सका।","S","B"],["Mahse ka fate chu an zir tam ang.","मह्से का फाते चु आन ज़िर तम आंग।","पर मेरे बच्चे ख़ूब पढ़ेंगे।","S","B"],["Zirna chuan kawng tam tak a hawng.","ज़िर्ना छुआन कॉंग तम तक आ हॉंग।","पढ़ाई कई रास्ते खोलती है।","S","C"],["Tlaithleng ka fanu ka zirtir.","त्लाइथ्लेंग का फानु का ज़िर्तिर।","मैं शाम को अपनी बेटी को पढ़ाता हूँ।","S","B"],["I fapa chu class engnge-ah a awm?","इ फापा चु क्लास एंगंगे-आह आ आउम?","आपका बेटा किस कक्षा में है?","L","B"],["Class riat-ah a awm.","क्लास रिआत-आह आ आउम।","वह आठवीं कक्षा में है।","S","C"]],"title":"बच्चों की पढ़ाई"},{"tw":[["feela","फ़ेएला","झाड़ू लगाना","क"],["tlhotlha","त्ल्होत्ल्हा","टपकना","क"],["siamṭha","सीअम्ठा","मरम्मत","ख"],["matlakala","मात्लाकाला","कूड़ा","क"],["bili","बीली","बिल","ग"],["latlhela","लात्ल्हेला","कूड़ेदान","क"]],"drill":{"type":"oneMany","hi":"एक से अनेक — bantsi/diatlhago लगाकर बोलो।","rows":[["chhungkua khat","chhungkua pahnih"],["ṭhian khat","ṭhian pathum"],["naupang khat","naupang pahnih"]]},"items":[["Zing tin room ka then.","ज़िंग तिन रूम का थेन।","मैं रोज़ सुबह कमरा साफ़ करता हूँ।","S","B"],["Hmasain in chhung phiah rawh.","ह्मासाइन इन छुंग फिआह रॉह।","पहले फ़र्श पर झाड़ू लगाओ।","L","B"],["Bucket-ah tui thun rawh.","बकेट-आह तुइ थुन रॉह।","बाल्टी में पानी भरो।","L","B"],["Tui pipe a chhuak.","तुइ पाइप आ छुआक।","नल टपक रहा है।","S","C"],["Bulb a en lo.","बल्ब आ एन लो।","बल्ब नहीं जल रहा।","S","C"],["Tuni bulb ka thlak ang.","तुनि बल्ब का थ्लाक आंग।","मैं आज बल्ब बदल दूँगा।","S","B"],["Kongka lock a chim.","कोंगका लॉक आ छिम।","दरवाज़े का ताला टूट गया है।","S","C"],["Tidik tu mi ko rawh.","तिदिक तु मि को रॉह।","इसे ठीक करने के लिए किसी को बुलाओ।","L","B"],["Tidik man chu eng nge ni ang?","तिदिक मान चु एंग ङ्गे नि आंग?","मरम्मत में कितना ख़र्च आएगा?","S","B"],["I thil te hmun takah dah rawh.","इ थिल ते ह्मुन तकाह दाह रॉह।","अपनी चीज़ें जगह पर रखो।","L","B"],["Ruk chu bin-ah paih rawh.","रुक चु बिन-आह पाइह रॉह।","कूड़ा कूड़ेदान में डालो।","L","B"],["Kawngah ruk paih suh.","कॉंगाह रुक पाइह सुह।","सड़क पर कूड़ा मत फेंको।","L","B"],["Hman zoh hnuah tui pipe kha rawh.","ह्मान ज़ोह ह्नुआह तुइ पाइप खा रॉह।","इस्तेमाल के बाद नल बंद करो।","L","B"],["Chhuak hian meichher tifim rawh.","छुआक हिआन मेइछेर तिफिम रॉह।","बाहर जाते समय बत्ती बंद करो।","L","B"],["Thingpuan chu kamah ka tidik.","थिंगपुआन चु कमाह का तिदिक।","मैंने कुर्सी ख़ुद ठीक की।","S","B"],["Tuni electricity bill a lo thleng.","तुनि इलेक्ट्रिसिटी बिल आ लो थ्लेंग।","आज बिजली का बिल आया।","S","C"],["Thla kal ta aiin bill a tam zawk.","थ्ला कल ता आइइन बिल आ तम ज़ॉक।","बिल पिछले महीने से ज़्यादा है।","S","C"],["Electricity tlem zawk hman rawh.","इलेक्ट्रिसिटी त्लेम ज़ॉक ह्मान रॉह।","बिजली कम ख़र्च करो।","L","B"],["In thianghlim chuan min dam tir.","इन थिआंग्ह्लिम छुआन मिन दाम तिर।","साफ़ घर हमें सेहतमंद रखता है।","S","C"],["Mi zawng zawngin in hna an ṭanpui tur a ni.","मि ज़ॉंग ज़ॉंगिन इन ह्ना आन त्हानपुइ तुर आ नि।","घर के काम में सबको हाथ बँटाना चाहिए।","S","B"]],"title":"घर के काम और मरम्मत"},{"tw":[["ṭhenawm","ठेनॉम","पड़ोसी","क"],["thusana","थूसाना","एक-दूसरे","क"],["kopano","कोपानो","बैठक","ख"],["rarabolole","राराबोलोले","सुलझाना","क"],["tlotla","त्लोत्ला","सम्मान","क"],["amogeleng","अमोगेलेङ","स्वागत","क"]],"drill":{"type":"yesNo","hi":"हाँ-नहीं जवाब — पूरा छोटा वाक्य बोलो।","rows":[["I ṭhenawm te chu an ṭha em?","An ṭha e. / An ṭha lo."],["Chu naupang chu i hre em?","Ka hre e. / Ka hre lo."]]},"items":[["Kan ṭhenawm chu an tha tak zet.","कन थ्हेनॉम चु आन था तक ज़ेत।","हमारे पड़ोसी बहुत अच्छे हैं।","S","B"],["Kum sawm ka hriat tawh.","कुम सावम का ह्रिआत तॉह।","मैं उसे दस साल से जानता हूँ।","S","A"],["Kan inṭanpui.","कन इनत्हानपुइ।","हम एक-दूसरे की मदद करते हैं।","S","B"],["Nizan a cycle min pe.","निज़ान आ साइकल मिन पे।","उसने कल मुझे अपनी साइकिल दी।","S","B"],["Ni hnih chhung ka room i enkawl ve teh.","नि ह्निह छुंग का रूम इ एनकॉल वे तेह।","कृपया दो दिन मेरे कमरे का ध्यान रखिए।","S","A"],["Tuni khuaah inkhawm a awm.","तुनि खुआआह इनखॉम आ आउम।","आज गाँव में बैठक है।","L","B"],["Mi zawng zawng inkhawm-ah an kal tur a ni.","मि ज़ॉंग ज़ॉंग इनखॉम-आह आन कल तुर आ नि।","बैठक में सबको आना चाहिए।","L","B"],["Khua dil chu kan then khawm.","खुआ दिल चु कन थेन खॉम।","हमने मिलकर गाँव का तालाब साफ़ किया।","S","B"],["Inpumkhatna chuan thiltih thei a nei.","इनपुमखत्ना छुआन थिल्तिह थेइ आ नेइ।","एकता में बल है।","S","C"],["Ka ṭhenawm fapa chu khawpui-ah hna a dawng.","का थ्हेनॉम फापा चु खावपुइ-आह ह्ना आ दॉंग।","मेरे पड़ोसी के बेटे को शहर में नौकरी मिली।","S","B"],["Kan hlim khawm.","कन ह्लिम खॉम।","हमने साथ मिलकर खुशी मनाई।","S","B"],["Thil te avangin indo suh.","थिल ते आवांगिन इन्दो सुह।","छोटी बातों पर मत लड़ो।","L","B"],["Inbiak hnathawk hian harsatna chhuah rawh.","इनबिआक ह्नाथॉक हिआन हर्सत्ना छुआह रॉह।","बात करके समस्या सुलझाओ।","L","B"],["Upa tein kan ṭanpuina an mamawh.","उपा तेइन कन त्हानपुइना आन ममॉह।","बुज़ुर्ग को हमारी मदद चाहिए।","S","B"],["A ip chu a in thleng ka put.","आ इप चु आ इन थ्लेंग का पुत।","मैंने उनका थैला घर तक पहुँचाया।","S","B"],["Upa tein zah rawh.","उपा तेइन ज़ाह रॉह।","बड़ों का सम्मान करो।","L","B"],["Chu in-ah tu nge awm?","चु इन-आह तु ङ्गे आउम?","उस घर में कौन रहता है?","S","B"],["Chhungkua thar an lo kal.","छुंगकुआ थार आन लो कल।","वहाँ एक नया परिवार आया है।","S","C"],["Kan lawmpui ang u.","कन लॉमपुइ आंग उ।","चलो उनका स्वागत करें।","S","C"],["Ṭhenawm ṭha chu chhungkua ang a ni.","थ्हेनॉम त्हा चु छुंगकुआ आंग आ नि।","अच्छे पड़ोसी परिवार जैसे होते हैं।","S","C"]],"title":"पड़ोसी और गाँव-समाज"},{"tw":[["moletlo","मोलेत्लो","त्योहार","क"],["dimonamone","दीमोनामोने","मिठाई","क"],["chawlh","चॉल्ह","छुट्टी","ख"],["bukela","बूकेला","पहले से टिकट लेना","ग"],["abelana","अबेलाना","बाँटना","क"],["kgethegile","क्गेथेगीले","ख़ास","क"]],"drill":{"type":"soundFamily","hi":"आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।","rows":[["chhungkua","tuni","hnahthlak"],["ṭha","buai","pawm"]]},"items":[["Kut engnge nge i duh ber?","कुत एंगंगे ङ्गे इ दुह बेर?","आपको कौन-सा त्योहार सबसे पसंद है?","L","B"],["Chhath leh Holi ka duh.","छठ लेह होली का दुह।","मुझे छठ और होली पसंद है।","S","B"],["Week hnu ah kut a lo thleng dawn.","वीक ह्नु आह कुत आ लो थ्लेंग दॉन।","अगले हफ़्ते त्योहार आ रहा है।","S","C"],["In pumpelh kan then ang.","इन पुमपेल्ह कन थेन आंग।","हम पूरा घर साफ़ करेंगे।","S","B"],["Ka nu chuan sweet a siam ang.","का नु छुआन स्वीट आ सिआम आंग।","मेरी माँ मिठाई बनाएँगी।","S","B"],["Fate tan silfiam thar kan lei.","फाते तान सिल्फियाम थार कन लेइ।","हमने बच्चों के लिए नए कपड़े खरीदे।","S","B"],["Ni thum chawlh hun ka dawng ang.","नि थुम छॉल्ह हुन का दॉंग आंग।","मुझे तीन दिन की छुट्टी मिलेगी।","S","B"],["Train ticket a khat tawh.","ट्रेन टिकट आ खत तॉह।","ट्रेन की टिकटें पहले से भरी हैं।","S","C"],["Thla kal ta ka ticket ka book.","थ्ला कल ता का टिकट का बुक।","मैंने पिछले महीने टिकट बुक कर ली।","S","B"],["Kut hun-ah mi zawng zawng in lamah an lo kal ang.","कुत हुन-आह मि ज़ॉंग ज़ॉंग इन लामाह आन लो कल आंग।","त्योहार में सब घर आएँगे।","S","C"],["Kum khat hnuah kan inhmu leh ang.","कुम खत ह्नुआह कन इन्ह्मु लेह आंग।","हम एक साल बाद मिलेंगे।","S","A"],["Khua pumpelh a hmel tha.","खुआ पुमपेल्ह आ ह्मेल था।","पूरा गाँव सुंदर लगता है।","S","C"],["I chhungkua leh nangmah tan kut lawmman.","इ छुंगकुआ लेह नांगमाह तान कुत लॉम्मान।","आपको और परिवार को त्योहार की शुभकामनाएँ।","S","A"],["Nangmahah pawh.","नांगमाहाह पॉह।","आपको भी।","L","B"],["Zanah meichher kan ti en.","ज़ानाह मेइछेर कन ति एन।","हमने शाम को दीये जलाए।","S","B"],["Fate chu ni khawng an inven.","फाते चु नि खॉंग आन इन्वेन।","बच्चे पूरा दिन खेलते रहे।","S","C"],["Ṭhenawm tan sweet kan sem.","थ्हेनॉम तान स्वीट कन सेम।","हमने पड़ोसियों में मिठाई बाँटी।","S","B"],["Kut te chuan mite an inkhawmtir.","कुत ते छुआन मिते आन इनखॉम्तिर।","त्योहार लोगों को जोड़ते हैं।","S","C"],["Kut hnuah hna-ah ka kal leh ang.","कुत ह्नुआह ह्ना-आह का कल लेह आंग।","त्योहार के बाद मैं काम पर लौटूँगा।","S","B"],["Kum hi kut chu a danglam zet.","कुम हि कुत चु आ दांगलाम ज़ेत।","इस साल त्योहार बहुत ख़ास रहा।","S","C"]],"title":"त्योहार और खुशी"},{"tw":[["itumetse","इतूमेत्से","खुश","क"],["tshwenyegile","च्वेञेगीले","उदास","क"],["tshwentswe","च्वेन्त्स्वे","चिंतित","क"],["galefile","गालेफ़ीले","गुस्सा","क"],["boifa","बोइफ़ा","डरा हुआ","क"],["tsholofelo","चोलोफ़ेलो","उम्मीद","क"]],"drill":{"type":"opposites","hi":"उलटे जोड़े — शब्द सुनो, उलटा बोलो।","rows":[["lawm","buai"],["ṭha","ṭha lo"],["lian","te"]]},"items":[["Tuni chu ka lawm tak zet.","तुनि चु का लॉम तक ज़ेत।","आज मैं बहुत खुश हूँ।","S","A"],["Engati nge i lungngai?","एंगति ङ्गे इ लुंग्ंगाइ?","आप उदास क्यों हैं?","L","B"],["Sum avangin ka ngaihtuah.","सुम आवांगिन का ङ्गाइह्तुआह।","मुझे पैसों की चिंता है।","S","A"],["Ngaihtuah suh, a va ṭha ang.","ङ्गाइह्तुआह सुह, आ वा त्हा आंग।","चिंता मत करो, सब ठीक होगा।","L","B"],["Ka chhungkua ka hriat.","का छुंगकुआ का ह्रिआत।","मुझे अपने परिवार की याद आ रही है।","S","A"],["Khawpui-ah changkhat deuhvin ka awm.","खावपुइ-आह छांगखत देउह्विन का आउम।","शहर में मुझे बहुत अकेलापन लगा।","S","B"],["Ka ṭhiante min nuihsan tir.","का थ्यांते मिन नुइह्सान तिर।","मेरे दोस्तों ने मुझे हँसाया।","S","B"],["Ka thinur mahse ka thip.","का थिनुर मह्से का थिप।","मैं गुस्से में था, पर चुप रहा।","S","B"],["Thinurna chuan hna a tisual.","थिनुर्ना छुआन ह्ना आ तिसुआल।","गुस्सा काम बिगाड़ देता है।","S","C"],["Hei hna hi ka chan loh ka tih hlau.","हेइ ह्ना हि का छान लोह का तिह ह्लाउ।","मुझे यह नौकरी छूटने का डर है।","S","A"],["Hlau suh, fimkhur takin hna thawk rawh.","ह्लाउ सुह, फिम्खुर तकिन ह्ना थॉक रॉह।","डरो मत, ध्यान से काम करो।","L","B"],["Fapa exam a hlawhtling chun ka hlimawm.","फापा एग्ज़ाम आ ह्लॉह्तलिंग छुन का ह्लिमॉम।","बेटे के पास होने पर मुझे गर्व हुआ।","S","B"],["Ka hnenah i awm avangin ka lawm e.","का ह्नेनाह इ आउम आवांगिन का लॉम ए।","मेरा साथ देने के लिए धन्यवाद।","S","A"],["Ni ṭhenkhat chu a har.","नि थ्हेनखत चु आ हार।","कुछ दिन मुश्किल होते हैं।","S","C"],["Mahse ni har te pawh an kal zo ṭheuh.","मह्से नि हार ते पॉह आन कल ज़ो थ्हेउह।","पर मुश्किल दिन भी गुज़र जाते हैं।","S","C"],["I lungngai chuan mikhat hnenah sawi teh.","इ लुंग्ंगाइ छुआन मिखत ह्नेनाह सावि तेह।","उदास हो तो किसी से बात करो।","L","B"],["Inbiakna tha chuan thinlung a tizawl.","इनबिआक्ना था छुआन थिन्लुंग आ तिज़ॉल।","अच्छी बातचीत मन हल्का कर देती है।","S","C"],["In lamah ka ko hian ka lawm.","इन लामाह का को हिआन का लॉम।","घर फोन करके मुझे खुशी मिलती है।","S","B"],["Nuihnem lak in ni ṭan rawh.","नुइह्नेम लाक इन नि थ्हान रॉह।","मुस्कुराओ और दिन शुरू करो।","L","B"],["Beiseina chuan min hruaipui.","बेइसेइना छुआन मिन ह्रुआइपुइ।","उम्मीद हमें आगे बढ़ाती है।","S","C"]],"title":"दिल की बात (भावनाएँ)"}],"test":{"target":"Chhungkua poi (ṭhian khat hnenah)","goal":"Mizo ṭawngin chibai sawi, chhungkua zawt, lawmna lam khat sawi — 'avangin' mola pakhat hman ve.","lines":[["I chhungkua pumpelh poi hian ka chibai sawi che.","इ छुंगकुआ पुमपेल्ह पोइ हिआन का चिबाइ सावि छे।"],["An chhungkua chu khuaah nge an awm?","आन छुंगकुआ चु खुआआह ङ्गे आन आउम?"],["Tuni ka lawm hle, ka fanu chuan tlangval a hneh avangin.","तुनि का लॉम ह्ले, का फानु छुआन त्लांगवल आ ह्नेह आवांगिन।"],["Kum khat hnuah kan hmu leh ang."," कुम खत ह्नुआह कन ह्मु लेह आंग।"]]},"listen":[["(ngaithla) Engati nge tuni i lawm?","(chhang) Ka fanu chuan tlangval a hneh."],["(ngaithla) Meichher zoh em?","(chhang) E, mason chuan a tihdik."]],"dialog":[["Ṭhenawm","Kan meichher a thim ta."],["Nangma","Kan ta pawh a thim ve."],["Ṭhenawm","Office ka ko ang."],["Nangma","A ṭha e, hian ka leng ang."],["Ṭhenawm","Dar khat chhungin a lo kal."]]},{"n":4,"title":"Good Habits, Time and Messages","hi":"आदतें, समय और घर का संदेश","pace":20,"days":[{"tw":[["tlwaelo","त्ल्वाएलो","आदत","क"],["metlha","मेत्ल्हा","सच","क"],["seabe","सेअबे","अभ्यास","क"],["seabe","सेअबे","नतीजा","क"],["tihchhiat","तीह्छीअत","बर्बाद करना","क"],["khumo","खूमो","पूँजी","क"]],"drill":{"type":"sortHabit","hi":"छाँटो — सुनकर बोलो: tlwaelo e ntle kana e e bosula?","rows":[["Dik takin sawi rawh.","Nungchang ṭha"],["Gutka ah sum senga.","Nungchang sual"],["Ni tin sum tlem khawl.","Nungchang ṭha"],["Lät ah diel takin thleng.","Nungchang sual"]]},"items":[["Nungchang tha chuan nunphung tha a siam.","नुंगछांग था छुआन नुन्फुंग था आ सिआम।","अच्छी आदतें अच्छी ज़िंदगी बनाती हैं।","S","C"],["Ni tin chakin tho rawh.","नि तिन छाकिन थो रॉह।","रोज़ जल्दी उठो।","L","B"],["Ni khatah vawi hnih ha sil rawh.","नि खताह वावि ह्निह हा सिल रॉह।","दिन में दो बार दाँत साफ़ करो।","L","B"],["Ni tin inchhi rawh.","नि तिन इनछि रॉह।","रोज़ नहाओ।","L","B"],["Tin at reng rawh.","तिन आत रेंग रॉह।","नाख़ून कटे रखो।","L","B"],["Engtik hun pawh dik taka sawi rawh.","एंगतिक हुन पॉह दिक तका सावि रॉह।","हमेशा सच बोलो।","L","B"],["Hun takin hna-ah thleng rawh.","हुन तकिन ह्ना-आह थ्लेंग रॉह।","समय पर काम पहुँचो।","L","B"],["Nungchang sual-ah sum seng suh.","नुंगछांग सुआल-आह सुम सेंग सुह।","बुरी आदतों पर पैसे मत उड़ाओ।","L","B"],["Gutka leh zu atangin hla takin awm rawh.","गुटका लेह ज़ु आतांगिन ह्ला तकिन आउम रॉह।","गुटखा और शराब से दूर रहो।","L","B"],["Week tin sum tlem khawl rawh.","वीक तिन सुम त्लेम खॉल रॉह।","हर हफ़्ते थोड़े पैसे बचाओ।","L","B"],["Zanah tea in chu ka tawp ta.","ज़ानाह टी इन चु का तॉप ता।","मैंने रात में चाय पीना छोड़ दिया।","S","B"],["Tunah ka mut tha ta.","तुनाह का मुत था ता।","अब मुझे अच्छी नींद आती है।","S","B"],["Ni tin minute 20 chhuak rawh.","नि तिन मिनिट २० छुआक रॉह।","रोज़ बीस मिनट टहलो।","L","B"],["Ni tin thil thar chhiar rawh.","नि तिन थिल थार छिआर रॉह।","रोज़ कुछ नया पढ़ो।","L","B"],["Ka kal let Mizo ṭawng ka theihnathiam.","का कल लेत मिज़ो तॉंग का थेइह्नाथिआम।","मैं टहलते-टहलते मिज़ो का अभ्यास करता हूँ।","S","B"],["Ni tin theihnathiam tlemte chuan rah lian a nei.","नि तिन थेइह्नाथिआम त्लेमते छुआन राह लिआन आ नेइ।","रोज़ थोड़ा अभ्यास बड़ा फल देता है।","S","C"],["Hna thawk let phone hla takah dah rawh.","ह्ना थॉक लेत फोन ह्ला तकाह दाह रॉह।","काम करते समय फोन दूर रखो।","L","B"],["Nungchang sual ṭanna a awlsam, tawpna a har.","नुंगछांग सुआल थ्हानना आ आउल्साम, तॉप्ना आ हार।","बुरी आदतें शुरू करना आसान, छोड़ना मुश्किल।","S","C"],["Week-ah hian nungchang te khat thlak rawh.","वीक-आह हिआन नुंगछांग ते खत थ्लाक रॉह।","इस हफ़्ते एक छोटी आदत बदलो।","L","B"],["Ka nungchang tha hi ka sum a ni.","का नुंगछांग था हि का सुम आ नि।","मेरी अच्छी आदतें ही मेरी पूँजी हैं।","S","B"]],"title":"अच्छी आदतें"},{"tw":[["ni","नी","तारीख़","क"],["go duelwa","गो दूएल्वा","देना है (देय)","ग"],["halofo","हालोफ़ो","साढ़े","क"],["paka-ya-robong","पाका-या-रोबोङ","पौने","क"],["gabosigo","गाबोसीगो","ठीक-ठीक","क"],["tsalwa","त्साल्वा","जन्मतिथि","ख"]],"drill":{"type":"timeRead","hi":"समय बताओ — समय सुनो, Mizo ṭawngin sawi rawh।","rows":[["6:30","dar paruk le sawm panga"],["4:45","dar panga tling hnuhnung minute sawm le panga"],["9:15","dar sarih le minute sawm le panga"]]},"items":[["Tuni chu ni engnge?","तुनि चु नि एंगंगे?","आज तारीख़ क्या है?","S","A"],["Tuni chu March ni panga a ni.","तुनि चु मार्च नि पांगा आ नि।","आज पाँच मार्च है।","L","B"],["Ka hlawh chu ni sarih-ah a lo thleng.","का ह्लॉह चु नि सरिह-आह आ लो थ्लेंग।","मेरा भुगतान सात तारीख़ को आता है।","S","A"],["Rent chu ni khatnaah pe tur a ni.","रेंट चु नि खत्नाआह पे तुर आ नि।","किराया पहली तारीख़ को देना है।","S","C"],["1995-ah ka piang.","१९९५-आह का पिआंग।","मेरा जन्म उन्नीस सौ पचानबे में हुआ।","S","B"],["I piang ni chu engnge?","इ पिआंग नि चु एंगंगे?","आपकी जन्मतिथि क्या है?","L","B"],["Office chu Saturday pahnihnaah a khar.","ऑफिस चु सैटरडे पह्निह्नाआह आ खर।","दफ़्तर दूसरे शनिवार को बंद रहता है।","L","B"],["Dar pakua leh zawnhvel takin lo kal rawh.","दार पकुआ लेह ज़ॉन्हवेल तकिन लो कल रॉह।","ठीक साढ़े नौ बजे आइए।","L","B"],["Tunah dar panga a lo neih tawh.","तुनाह दार पांगा आ लो नेइह तॉह।","अभी पौने पाँच बजे हैं।","L","B"],["Bus chu dar paruk leh zawnhvel-ah a hong.","बस चु दार परुक लेह ज़ॉन्हवेल-आह आ होंग।","बस साढ़े छह बजे खुलती है।","L","B"],["Dar khat leh zawnhvel chhungin ka thleng ang.","दार खत लेह ज़ॉन्हवेल छुंगिन का थ्लेंग आंग।","मैं डेढ़ घंटे में पहुँच जाऊँगा।","S","B"],["Minute sawm kan la ta.","मिनिट सावम कन ला ता।","हमें दस मिनट की देर हो गई है।","S","B"],["Minute panga hmain lo kal rawh.","मिनिट पांगा ह्माइन लो कल रॉह।","पाँच मिनट पहले आओ।","L","B"],["Ka chawlh hun chu ni sawm leh pahnih-ah a hong tan.","का छॉल्ह हुन चु नि सावम लेह पह्निह-आह आ होंग तान।","मेरी छुट्टी बीस तारीख़ से शुरू होती है।","S","B"],["Thla hi ni engzat nei?","थ्ला हि नि एंगज़त नेइ?","इस महीने में कितने दिन हैं?","S","B"],["Thla hi ni sawm leh pathum nei.","थ्ला हि नि सावम लेह पथुम नेइ।","इस महीने में इकतीस दिन हैं।","L","B"],["Ni sawm leh panga chu ni engnge?","नि सावम लेह पांगा चु नि एंगंगे?","पंद्रह तारीख़ को कौन-सा दिन है?","S","B"],["Chu Friday a ni.","चु फ्राइडे आ नि।","वह शुक्रवार है।","L","B"],["Lehkha-ah ni ziak rawh.","लेह्खा-आह नि ज़िआक रॉह।","कागज़ पर तारीख़ लिखो।","L","B"],["Hun kal ta chu a hong kir leh ngai lo.","हुन कल ता चु आ होंग किर लेह ङ्गाइ लो।","गया समय लौटकर नहीं आता।","S","C"]],"title":"समय और तारीख़"},{"tw":[["molaetsa","मोलाएत्सा","आवाज़-संदेश","क"],["chhang","छाङ","जवाब","क"],["rakgolo","राक्गोलो","प्रणाम, आदर","क"],["maatla","माअत्ला","हिम्मत","क"],["amogela","अमोगेला","पाना","क"],["lerato","लेरातो","सप्रेम","क"]],"drill":{"type":"messageFrame","hi":"mola o mone — ख़ाली जगह अपनी बात से भरकर बोलो।","rows":[["Nu, hian ka ___ tha.","Lät hi a ___ a ni.","Naktuk ___ in ah ka kal leh ang.","Nangmah i ngaihtuah ve rawh."]]},"items":[["Hello nu, hian ka dam.","हेलो नु, हिआन का दाम।","हैलो माँ, मैं यहाँ ठीक हूँ।","S","A"],["Nizan i message ka dawng.","निज़ान इ मेसेज का दॉंग।","मुझे कल आपका संदेश मिला।","S","B"],["Araban la avangin ngaihdam.","आराबान ला आवांगिन ङ्गाइह्दाम।","देर से जवाब के लिए माफ़ी।","S","A"],["Hetah hna a kal ṭha mek.","हेताह ह्ना आ कल त्हा मेक।","यहाँ काम अच्छा चल रहा है।","S","A"],["Rupee 5000 ka thawn tawh.","रुपी ५००० का थॉन तॉह।","मैंने पाँच हज़ार रुपये भेजे हैं।","S","B"],["En la min hrilh teh.","एन ला मिन ह्रिल्ह तेह।","कृपया जाँचकर बताइए।","S","A"],["Pa dam dan chu tunah engtin nge?","पा दाम दान चु तुनाह एंगतिन ङ्गे?","पिताजी की तबीयत अब कैसी है?","S","B"],["Amah hnenah ni tin damdawi la tur sawi teh.","अमाह ह्नेनाह नि तिन दामदावि ला तुर सावि तेह।","उनसे कहिए रोज़ दवा लें।","S","C"],["Fate zirna chu engtin nge a kal mek?","फाते ज़िर्ना चु एंगतिन ङ्गे आ कल मेक?","बच्चों की पढ़ाई कैसी चल रही है?","S","B"],["Thla hnu-ah in-ah ka lo kal ang.","थ्ला ह्नु-आह इन-आह का लो कल आंग।","मैं अगले महीने घर आऊँगा।","S","A"],["Mi zawng zawng tan silfiam ka la lo kal ang.","मि ज़ॉंग ज़ॉंग तान सिल्फियाम का ला लो कल आंग।","मैं सबके लिए कपड़े लाऊँगा।","S","B"],["Inenkawl rawh.","इनेनकॉल रॉह।","अपना ध्यान रखिए।","S","C"],["Pu hnenah ka chibai sawi teh.","पु ह्नेनाह का चिबाइ सावि तेह।","दादाजी को मेरा प्रणाम कहिए।","S","A"],["Pathianni-ah aw message ka thawn ang.","पथियन्नि-आह आउ मेसेज का थॉन आंग।","मैं रविवार को आवाज़-संदेश भेजूँगा।","S","B"],["Hun i neih chuan chhang rawh.","हुन इ नेइह छुआन छांग रॉह।","समय मिले तो जवाब दीजिए।","S","B"],["Mi zawng zawng picture khat min thawn teh.","मि ज़ॉंग ज़ॉंग पिक्चर खत मिन थॉन तेह।","मुझे सबकी एक फोटो भेजिए।","S","B"],["Hei message hi nu hnenah chhiar sak rawh.","हेइ मेसेज हि नु ह्नेनाह छिआर साक रॉह।","यह संदेश माँ को पढ़कर सुनाओ।","S","C"],["Hun rei tak hnuah message rei tak ka thawn.","हुन रेइ तक ह्नुआह मेसेज रेइ तक का थॉन।","मैंने बहुत दिनों बाद लंबा संदेश भेजा।","S","B"],["I thu ten chuan huaisenna min pe.","इ थु तेन छुआन हुआइसेन्ना मिन पे।","आपकी बातें मुझे हिम्मत देती हैं।","S","B"],["In chaw chu ka hriat hle.","इन छॉ चु का ह्रिआत ह्ले।","मुझे घर के खाने की बहुत याद आती है।","S","B"]],"title":"घर को संदेश (आज की चिट्ठी)"},{"tw":[["mikhual","मीखूअल","मेहमान","क"],["ṭhutthleng","ठूत्थ्लेङ","बैठने की जगह","क"],["tshwaregile","च्वारेगीले","व्यस्त","ख"],["ruri","रूरी","ज़रूर","क"],["nkitse","न्कीत्से","याद रखना","क"],["leh","लेह","फिर से","क"]],"drill":{"type":"dialogueFill","hi":"संवाद पूरा करो — moeng-polelo, ख़ाली जगह बोलकर भरो।","rows":[["Ṭhenawm: Phaposi hi a hawng em?","Nangma: Hei hi a ni, lut rawh."],["Ṭhenawm: Tea i duh em?","Nangma: E, ka lawm e."]]},"items":[["Kan in-ah i lawmpui a ni.","कन इन-आह इ लॉमपुइ आ नि।","हमारे घर में आपका स्वागत है।","S","B"],["Ṭhu rawh.","थ्हु रॉह।","कृपया बैठिए।","S","A"],["Tea em a nih loh leh tui em?","टी एम आ निह लोह लेह तुइ एम?","आप चाय लेंगे या पानी?","S","B"],["Tui chauh, ka lawm e.","तुइ छाउह, का लॉम ए।","सिर्फ़ पानी, धन्यवाद।","L","B"],["In-ah mi zawng zawng engtin nge an awm?","इन-आह मि ज़ॉंग ज़ॉंग एंगतिन ङ्गे आन आउम?","घर में सब कैसे हैं?","S","A"],["Pathian khawngaihna avangin an dam tha.","पथियन खॉंगाइह्ना आवांगिन आन दाम था।","भगवान की कृपा से सब ठीक हैं।","L","B"],["Hun rei tak hnuah i lo kal.","हुन रेइ तक ह्नुआह इ लो कल।","आप बहुत दिनों बाद आए।","S","B"],["Hna-ah ka buai.","ह्ना-आह का बुआइ।","मैं काम में व्यस्त था।","L","B"],["Zan chaw ei a, chuan kal rawh.","ज़ान छॉ एइ आ, छुआन कल रॉह।","रात का खाना खाकर जाइए।","S","A"],["Ani lo, chak takin ka kal a ngai.","आनि लो, छाक तकिन का कल आ ङ्गाइ।","नहीं, मुझे जल्दी निकलना है।","L","A"],["Chhungkua nen bai lo kal leh teh.","छुंगकुआ नेन बाइ लो कल लेह तेह।","फिर परिवार के साथ आइए।","S","B"],["Ngeih takin ka lo kal ang.","ङ्गेइह तकिन का लो कल आंग।","मैं ज़रूर आऊँगा।","L","B"],["Kum kal ta chuan inneihna-ah kan inhmu.","कुम कल ता छुआन इन्नेइह्ना-आह कन इन्ह्मु।","हम पिछले साल शादी में मिले थे।","S","B"],["I min hre em?","इ मिन ह्रे एम?","क्या आप मुझे पहचानते हैं?","S","B"],["Aw, ka hre ngei.","आउ, का ह्रे ङ्गेइ।","हाँ, बिल्कुल पहचानता हूँ।","L","B"],["I hmuh leh hi a lawm hle.","इ ह्मुह लेह हि आ लॉम ह्ले।","आपसे दोबारा मिलकर बहुत अच्छा लगा।","S","B"],["In-ah mi zawng zawng tan ka chibai sawi teh.","इन-आह मि ज़ॉंग ज़ॉंग तान का चिबाइ सावि तेह।","घर में सबको मेरा नमस्ते कहिएगा।","S","B"],["Khual chu Pathian angin kan ngai.","खुआल चु पथियन आंगिन कन ङ्गाइ।","मेहमान हमारे लिए भगवान समान हैं।","S","C"],["In i thleng hian min ko teh.","इन इ थ्लेंग हिआन मिन को तेह।","घर पहुँचकर मुझे फोन कीजिएगा।","S","B"],["Tlaithleng chu a tha hle.","त्लाइथ्लेंग चु आ था ह्ले।","शाम बहुत अच्छी रही।","S","C"]],"title":"मेहमान और मिलना-जुलना"},{"tw":[["mathomong","माथोमोङ","शुरुआत","क"],["muang","मूअङ","धीरे-धीरे","क"],["isagwe","इसाग्वे","भविष्य","ख"],["loeto","लोएतो","सफ़र","ग"],["mathomong","माथोमोङ","कठिन","क"],["thianghlim","थीअङ्ह्लीम","साफ़-साफ़","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka ntlha ya gore या go gaisa लगाकर दो बातें एक वाक्य में बोलो।","rows":[["Hian ka lo kal. Lät a awm lo avangin.","Hian ka lo kal, lät a awm lo avangin."],["Khawpui a lawan. Khawpui a lawan zawk."]]},"items":[["Kum kal ta chuan khuaah ka awm, tunah khawpuiah ka awm.","कुम कल ता छुआन खुआआह का आउम, तुनाह खावपुइआह का आउम।","पिछले साल मैं गाँव में था, अब शहर में हूँ।","S","B"],["Khawpui nun chu khua aiin a chak zawk.","खावपुइ नुन चु खुआ आइइन आ छाक ज़ॉक।","शहर की ज़िंदगी गाँव से तेज़ है।","S","C"],["Khua-ah hna a awm loh avangin hetah ka lo kal.","खुआ-आह ह्ना आ आउम लोह आवांगिन हेताह का लो कल।","मैं यहाँ आया क्योंकि घर पर काम नहीं था।","S","B"],["Ṭannaah chuan engkim a har.","थ्हान्नाआह छुआन एंगकिम आ हार।","शुरुआत में सब कुछ मुश्किल था।","S","C"],["Tawite maiin hna ka zir ta.","तावित माइन ह्ना का ज़िर ता।","धीरे-धीरे मैंने काम सीख लिया।","S","B"],["Tunah ka hna chu hmasa aiin a tha zawk.","तुनाह का ह्ना चु ह्मासा आइइन आ था ज़ॉक।","अब मेरा काम पहले से बेहतर है।","S","B"],["Thla tin rupee 2000 ka khawl.","थ्ला तिन रुपी २००० का खॉल।","मैं हर महीने दो हज़ार रुपये बचाता हूँ।","S","B"],["Kum hnu ah chhungkua hi ka la lo kal ang.","कुम ह्नु आह छुंगकुआ हि का ला लो कल आंग।","अगले साल मैं परिवार को यहाँ ले आऊँगा।","S","B"],["Ka fate chu school ṭha-ah an zir ang.","का फाते चु स्कूल त्हा-आह आन ज़िर आंग।","मेरे बच्चे अच्छे स्कूल में पढ़ेंगे।","S","B"],["Nizan supervisor nen Mizo ṭawngin ka inbiak.","निज़ान सुपरवाइज़र नेन मिज़ो तॉंगिन का इनबिआक।","कल मैंने सुपरवाइज़र से मिज़ो में बात की।","S","B"],["Fiah takin ka sawi avangin a lawm.","फिआह तकिन का सावि आवांगिन आ लॉम।","वे खुश हुए क्योंकि मैंने साफ़ बोला।","S","B"],["Mizo ṭawng chuan kawng thar min hawng pui.","मिज़ो तॉंग छुआन कॉंग थार मिन हॉंग पुइ।","मिज़ो मेरे लिए नए रास्ते खोल रही है।","S","B"],["Hei course thla khat ka zawh.","हेइ कोर्स थ्ला खत का ज़ॉह।","मैंने इस कोर्स का एक महीना पूरा किया।","S","B"],["Ṭawngkam thar 400 ka zir.","तॉंगकाम थार ४०० का ज़िर।","मैंने चार सौ नए वाक्य सीखे।","S","B"],["Naktuk atangin ni tin ṭawngkam 30 ka zir ang.","नक्तुक आतांगिन नि तिन तॉंगकाम ३० का ज़िर आंग।","कल से मैं रोज़ तीस वाक्य सीखूँगा।","S","B"],["Theihnathiam chuan engkim a awlsamtir.","थेइह्नाथिआम छुआन एंगकिम आ आउल्सामतिर।","अभ्यास सब आसान कर देता है।","S","C"],["Ka chhungkua chu ka chungah an hlimawm.","का छुंगकुआ चु का छुंगाह आन ह्लिमॉम।","मेरे परिवार को मुझ पर गर्व है।","S","B"],["Ka nitlak hun chu kamah ka siam mek.","का निट्लाक हुन चु कमाह का सिआम मेक।","मैं अपना भविष्य अपने हाथों बना रहा हूँ।","S","B"],["Duhzawng hian kawng a awm.","दुह्ज़ॉंग हिआन कॉंग आ आउम।","जहाँ चाह, वहाँ राह।","S","C"],["Ka kawng chu ṭan hun a ni mek.","का कॉंग चु थ्हान हुन आ नि मेक।","मेरा सफ़र अभी शुरू हुआ है।","S","B"]],"title":"महीना-1 का समेट (मेरी कहानी)"}],"test":{"target":"In lehkha (SMS hmangin)","goal":"Mizo ṭawngin ziak — i dam dan, nizan i thawk, hun kal tur, 'avangin' mola, le chibai.","lines":[["Nu, hian ka dam e.","नु, हिआन का दाम ए।"],["Lät a dik takin a kal.","लात आ दिक तकिन आ कल।"],["Nizan dar sawm chhung ka thawk.","निज़ान दार सावम छुंग का थॉक।"],["Thla khat hnuah in ah ka kal ang.","थ्ला खत ह्नुआह इन आह का कल आंग।"],["Nangmah i ngaihtuah ve rawh.","नांगमाह इ ङ्गाइह्तुआह वे रॉह।"]]},"listen":[["(ngaithla) Engtikah nge in ah i kal ang?","(chhang) Thla khat hnuah in ah ka kal ang."],["(ngaithla) Pa a dam em tunah?","(chhang) A dam, ei hnuah damdawi a lo."]],"dialog":[["Ṭhenawm","Chibai, a nka tsena?"],["Nangma","Amogelesegang, nna fa fatshe."],["Ṭhenawm","Tui chauh ka duh."],["Nangma","Hei hi, i tui."],["Ṭhenawm","Ka lawm e."]]},{"n":5,"title":"My Work, My Skill","hi":"मेरा काम, मेरा हुनर","pace":30,"days":[{"tw":[["mmetli","म्मेत्ली","राजमिस्त्री","ख"],["mobeiteletsi","मोबेइतेलेत्सी","वेल्डर","ख"],["modeiliwa","मोदेइलीवा","दर्ज़ी","ख"],["maitemogelo","माइतेमोगेलो","अनुभव","ख"],["go tloga","गो त्लोगा","तब से","ख"],["okeditsweng","ओकेदीत्स्वेङ","अतिरिक्त काम","ख"]],"drill":{"type":"pairSwap","hi":"पेशा बदलो — सवाल वही, जवाब में अपना काम बोलो।","rows":[["Lät engnge nge i thawk?","Mason ka ni."],["Lät engnge nge i thawk?","Welder ka ni."],["Lät engnge nge i thawk?","Auto ka kalpui."]]},"items":[["Eng hna nge i thawk?","एंग ह्ना ङ्गे इ थॉक?","आप क्या काम करते हैं?","L","B"],["Workshop-ah welder ka ni.","वर्कशॉप-आह वेल्डर का नि।","मैं वर्कशॉप में वेल्डर हूँ।","S","A"],["Mason hna ka thawk.","मेसन ह्ना का थॉक।","मैं राजमिस्त्री का काम करता हूँ।","S","A"],["Ka ṭhian chu tailor a ni.","का थ्यान चु टेलर आ नि।","मेरा दोस्त दर्ज़ी है।","S","B"],["Ani chu puan factory-ah hna a thawk.","अनि चु पुआन फैक्टरी-आह ह्ना आ थॉक।","वह कपड़ा फैक्ट्री में काम करती है।","S","C"],["Hei hna hi 2020 atangin ka thawk.","हेइ ह्ना हि २०२० आतांगिन का थॉक।","मैं यह काम 2020 से कर रहा हूँ।","S","B"],["Kum panga chhung hna ka thawk tawh.","कुम पांगा छुंग ह्ना का थॉक तॉह।","मुझे पाँच साल का अनुभव है।","S","A"],["Nangin kum engzat nge i thawk tawh?","नांगिन कुम एंगज़त ङ्गे इ थॉक तॉह?","आपको कितना अनुभव है?","L","B"],["Ka sara hnenah hei hna hi ka zir.","का सरा ह्नेनाह हेइ ह्ना हि का ज़िर।","मैंने यह काम अपने उस्ताद से सीखा।","S","B"],["Welding leh fitting ka ti thei ve.","वेल्डिंग लेह फिटिंग का ति थेइ वे।","मैं वेल्डिंग और फिटिंग दोनों कर सकता हूँ।","S","B"],["Tunah machine thar ka zir mek.","तुनाह मशीन थार का ज़िर मेक।","मैं अभी नई मशीन सीख रहा हूँ।","S","A"],["Tuna hian khawiah nge i hna i thawk?","तुना हिआन खावियाह ङ्गे इ ह्ना इ थॉक?","आजकल आप कहाँ काम करते हैं?","L","B"],["In sa na hmun-ah hna ka thawk.","इन सा ना ह्मुन-आह ह्ना का थॉक।","मैं इमारत बनने की जगह पर काम करता हूँ।","S","A"],["Kan company chuan thir kongka an siam.","कन कंपनी छुआन थिर कोंगका आन सिआम।","हमारी कंपनी लोहे के गेट बनाती है।","S","B"],["Khawpui-ah auto ka kalpui.","खावपुइ-आह ऑटो का कलपुइ।","मैं शहर में ऑटो चलाता हूँ।","S","B"],["Ka u chuan mobile a tidik.","का उ छुआन मोबाइल आ तिदिक।","मेरा भाई मोबाइल ठीक करता है।","S","B"],["Hei hi hna thiam a ngai.","हेइ हि ह्ना थिआम आ ङ्गाइ।","यह हुनर का काम है।","S","C"],["Hna ṭha chuan sum ṭha a hlan.","ह्ना त्हा छुआन सुम त्हा आ ह्लान।","अच्छा काम अच्छा पैसा लाता है।","S","C"],["Ni khatah dar riat hna ka thawk.","नि खताह दार रिआत ह्ना का थॉक।","मैं दिन में आठ घंटे काम करता हूँ।","S","A"],["A ṭhenah overtime ka dawng.","आ थ्हेनाह ओवरटाइम का दॉंग।","कभी-कभी मुझे ओवरटाइम मिलता है।","S","B"],["I pa chuan hna engnge a thawk?","इ पा छुआन ह्ना एंगंगे आ थॉक?","आपके पिता क्या काम करते हैं?","L","B"],["Khuaah lo neitu a ni.","खुआआह लो नेइतु आ नि।","वे गाँव में किसान हैं।","S","C"],["Ni khat chu sara ka ni duh.","नि खत चु सरा का नि दुह।","मैं एक दिन उस्ताद बनना चाहता हूँ।","S","A"],["Hna zawng zawngin zahawmna an nei.","ह्ना ज़ॉंग ज़ॉंगिन ज़होम्ना आन नेइ।","हर काम की इज़्ज़त होती है।","S","C"],["Ka hna chu thinlung pumin ka thawk.","का ह्ना चु थिन्लुंग पुमिन का थॉक।","मैं अपना काम पूरे मन से करता हूँ।","S","B"],["Ka hna hi ka hriatna a ni.","का ह्ना हि का ह्रिआत्ना आ नि।","मेरा काम ही मेरी पहचान है।","S","B"],["Hetah i thar em?","हेताह इ थार एम?","क्या आप यहाँ नए हैं?","L","B"],["Aw, week kal ta-ah ka lo lut.","आउ, वीक कल ता-आह का लो लुत।","हाँ, मैं पिछले हफ़्ते जुड़ा।","S","B"],["Kan team-ah i lawmpui.","कन टीम-आह इ लॉमपुइ।","हमारी टीम में स्वागत है।","L","B"],["Ka lawm e, chakin ka zir ang.","का लॉम ए, छाकिन का ज़िर आंग।","धन्यवाद, मैं जल्दी सीख लूँगा।","S","A"]],"title":"पेशा-परिचय (आप क्या काम करते हैं)"},{"tw":[["bulegilweng","बूलेगील्वेङ","ख़ाली जगह","ख"],["ni","नी","रोज़ की मज़दूरी","ख"],["mogwebi","मोग्वेबी","ठेकेदार","ख"],["laboraro","लाबोरारो","काम पर लगना","ख"],["hlawh","ह्लॉह","भुगतान","ख"],["leka","लेका","परख","ख"]],"drill":{"type":"dialogueFill","hi":"काम माँगने का संवाद — ख़ाली जगह बोलकर भरो।","rows":[["Nangma: Hna thawktu i mamawh em?","Neitu: E, ṭanpuitu pahnih kan mamawh."],["Nangma: Ni khat manu chu engnge?","Neitu: Rupee zaa ruk."]]},"items":[["Mi thawk tu i mamawh em?","मि थॉक तु इ ममॉह एम?","क्या आपको मज़दूर चाहिए?","S","B"],["Hetah hna a awm em?","हेताह ह्ना आ आउम एम?","क्या यहाँ कोई ख़ाली जगह है?","S","B"],["Kan helper pahnih kan mamawh.","कन हेल्पर पह्निह कन ममॉह।","हमें दो सहायक चाहिए।","L","B"],["Eng hna nge ka thawk tur?","एंग ह्ना ङ्गे का थॉक तुर?","मुझे क्या काम करना होगा?","S","B"],["Mason i ṭanpui ang.","मेसन इ त्हानपुइ आंग।","तुम राजमिस्त्री की मदद करोगे।","L","B"],["Ni tin hlawh chu engnge?","नि तिन ह्लॉह चु एंगंगे?","रोज़ की मज़दूरी क्या है?","S","B"],["Ni khatah rupee 600.","नि खताह रुपी ६००।","छह सौ रुपये रोज़।","L","B"],["Ei leh awm nan a tel em?","एइ लेह आउम नान आ तेल एम?","क्या खाना-रहना साथ में है?","S","B"],["Hlawh chu engtikah nge a lo thleng?","ह्लॉह चु एंगतिकाह ङ्गे आ लो थ्लेंग?","भुगतान कब मिलेगा?","S","B"],["Saturday tin-ah hlawh a awm.","सैटरडे तिन-आह ह्लॉह आ आउम।","भुगतान हर शनिवार को होता है।","L","B"],["Naktukah ka thawk tan thei em?","नक्तुकाह का थॉक तान थेइ एम?","क्या मैं कल से शुरू कर सकता हूँ?","S","A"],["Aw, zingah dar riat-ah lo kal rawh.","आउ, ज़िंगाह दार रिआत-आह लो कल रॉह।","हाँ, सुबह आठ बजे आ जाओ।","L","B"],["I Aadhar card la kal rawh.","इ आधार कार्ड ला कल रॉह।","अपना आधार कार्ड लाना।","L","B"],["Hei hna hi ka ṭhian hnenah ka hre.","हेइ ह्ना हि का थ्यान ह्नेनाह का ह्रे।","मुझे इस काम के बारे में दोस्त से पता चला।","S","B"],["Thekedar chuan ka ṭha takin a hre.","थेकेदार छुआन का त्हा तकिन आ ह्रे।","ठेकेदार मुझे अच्छी तरह जानता है।","S","B"],["Hna thawk hma ah hlawh tiam rawh.","ह्ना थॉक ह्मा आह ह्लॉह तिआम रॉह।","काम शुरू करने से पहले मज़दूरी तय कर लो।","L","B"],["Hun takin i hlawh la rawh.","हुन तकिन इ ह्लॉह ला रॉह।","अपना भुगतान समय पर लो।","L","B"],["Hlawh zawt lovin hna thawk suh.","ह्लॉह ज़वत लोविन ह्ना थॉक सुह।","दाम पूछे बिना काम मत करो।","L","B"],["Ka room naih lam ah hna ka zawng.","का रूम नाइह लाम आह ह्ना का ज़ॉंग।","मैं अपने कमरे के पास काम खोज रहा हूँ।","S","B"],["Hei hna hi ka in aṭanga a hla.","हेइ ह्ना हि का इन आत्हांगा आ ह्ला।","यह काम मेरे घर से दूर है।","S","B"],["Zan duty pawh a awm em?","ज़ान ड्यूटी पॉह आ आउम एम?","क्या रात की ड्यूटी भी है?","S","B"],["Zan duty-ah a tam zawk.","ज़ान ड्यूटी-आह आ तम ज़ॉक।","रात की ड्यूटी में ज़्यादा मिलता है।","L","B"],["Thil rit ka put thei.","थिल रित का पुत थेइ।","मैं भारी सामान उठा सकता हूँ।","S","A"],["Map ka chhiar thei.","मैप का छिआर थेइ।","मुझे नक़्शा पढ़ना आता है।","S","B"],["Hun min pe teh, pu.","हुन मिन पे तेह, पु।","मुझे एक मौका दीजिए, सर।","S","B"],["Ni khat hna thawk teh, chuan kan en ang.","नि खत ह्ना थॉक तेह, छुआन कन एन आंग।","एक दिन काम करो, फिर देखेंगे।","L","B"],["Parakh hna ka ti ṭha.","परख ह्ना का ति त्हा।","मैंने परख का काम अच्छा किया।","S","B"],["I thlang a ni.","इ थ्लांग आ नि।","तुम चुन लिए गए।","L","B"],["Ka hna thiam avangin hna ka dawng.","का ह्ना थिआम आवांगिन ह्ना का दॉंग।","मुझे काम मेरे हुनर की वजह से मिला।","S","B"],["Hna dawng nan sum pe ngai lo.","ह्ना दॉंग नान सुम पे ङ्गाइ लो।","नौकरी पाने के लिए कभी पैसे मत दो।","L","B"]],"title":"काम खोजना (मज़दूरी तय करना)"},{"tw":[["motsamaisi","मोत्सामाइसी","काम-प्रमुख","ख"],["tlhaloganyitse","त्ल्हालोगाञीत्से","निर्देश","ख"],["hrethiam","ह्रेथीअम","समझना","क"],["boeletsa","बोएलेत्सा","दोहराना","क"],["phoso","फोसो","ग़लती","ख"],["bolelela","बोलेलेला","ख़बर देना","ख"]],"drill":{"type":"showTell","hi":"काम की रिपोर्ट — तीन वाक्य में अपने काम की ख़बर दो।","rows":[["Pu, tuni lät chu engnge?","Ka zo ta.","Tsweetswee, ka lät en teh."]]},"items":[["Pu, tuni hna chu engnge?","पु, तुनि ह्ना चु एंगंगे?","सर, आज का काम क्या है?","S","A"],["Hmasain nizan hna zawh rawh.","ह्मासाइन निज़ान ह्ना ज़ॉह रॉह।","पहले कल का काम पूरा करो।","L","B"],["Thupêk ka hria.","थुपेक का ह्रिया।","मैं निर्देश समझ गया।","S","B"],["Ngaihdam, ka hria lo.","ङ्गाइह्दाम, का ह्रिया लो।","माफ़ कीजिए, मैं समझा नहीं।","S","A"],["Tawite maiin leh sawi teh.","तावित माइन लेह सावि तेह।","कृपया धीरे से दोहराइए।","S","A"],["Vawi khat ti la, min entir teh.","वावि खत ति ला, मिन एंतिर तेह।","कृपया एक बार करके दिखाइए।","S","A"],["Tunah kamah ka ti ang.","तुनाह कमाह का ति आंग।","अब मैं ख़ुद करूँगा।","S","B"],["Pu, hna a zo.","पु, ह्ना आ ज़ो।","सर, काम हो गया।","S","A"],["Pu, ka hna vawi khat en teh.","पु, का ह्ना वावि खत एन तेह।","सर, कृपया एक बार मेरा काम जाँच लीजिए।","S","A"],["Hna ṭha i ti.","ह्ना त्हा इ ति।","तुमने अच्छा काम किया है।","L","B"],["Hetah suala te a awm.","हेताह सुआला ते आ आउम।","यहाँ एक छोटी ग़लती है।","L","B"],["Tunah hi ka tidik ang.","तुनाह हि का तिदिक आंग।","मैं इसे अभी ठीक करता हूँ।","S","B"],["Ka suala, ngaihdam pu.","का सुआला, ङ्गाइह्दाम पु।","मुझसे ग़लती हुई, माफ़ कीजिए सर।","S","B"],["Hei suala hi bai ti suh.","हेइ सुआला हि बाइ ति सुह।","यह ग़लती दोबारा मत करना।","L","B"],["A hnuah ka fimkhur ang.","आ ह्नुआह का फिम्खुर आंग।","अगली बार मैं सावधान रहूँगा।","S","B"],["Pu, material a zo.","पु, मैटेरियल आ ज़ो।","सर, सामान ख़त्म हो गया है।","S","B"],["Cement belh kan mamawh.","सीमेंट बेल्ह कन ममॉह।","हमें और सीमेंट चाहिए।","S","B"],["Machine a tang.","मशीन आ तांग।","मशीन रुक गई है।","S","C"],["Harsatna chu lawkin ka hrilh.","हर्सत्ना चु लॉकिन का ह्रिल्ह।","मैंने तुरंत समस्या की ख़बर दी।","S","B"],["Mechanic ko rawh, en tur.","मेकेनिक को रॉह, एन तुर।","मैकेनिक को जाँचने के लिए बुलाओ।","L","B"],["Hei hna hian hun engzat nge a la ang?","हेइ ह्ना हिआन हुन एंगज़त ङ्गे आ ला आंग?","इस काम में कितना समय लगेगा?","L","B"],["Dar hnih belh a la ang.","दार ह्निह बेल्ह आ ला आंग।","इसमें दो घंटे और लगेंगे।","S","C"],["Tuni hian in-ah ka kal hma thei em?","तुनि हिआन इन-आह का कल ह्मा थेइ एम?","क्या मैं आज जल्दी घर जा सकता हूँ?","S","A"],["Hei part hi zawh la, chuan kal rawh.","हेइ पार्ट हि ज़ॉह ला, छुआन कल रॉह।","यह हिस्सा पूरा करो, फिर जाओ।","L","B"],["Pu, map thar hi min hrilhfiah teh.","पु, मैप थार हि मिन ह्रिल्हफिआह तेह।","सर, कृपया नया नक़्शा समझाइए।","S","B"],["Pangngaihna i neih chuan min zawt rawh.","पांग्ंगाइह्ना इ नेइह छुआन मिन ज़वत रॉह।","कोई शंका हो तो मुझसे पूछो।","L","B"],["Suala tih aiin zawtna a tha zawk.","सुआला तिह आइइन ज़वत्ना आ था ज़ॉक।","ग़लती करने से पूछना बेहतर है।","S","C"],["Hun hma ah hna ka zawh.","हुन ह्मा आह ह्ना का ज़ॉह।","मैंने समय से पहले काम पूरा किया।","S","B"],["Tuni supervisor chuan min fak.","तुनि सुपरवाइज़र छुआन मिन फाक।","आज सुपरवाइज़र ने मेरी तारीफ़ की।","S","B"],["Thu fiah takin hun a khawl.","थु फिआह तकिन हुन आ खॉल।","साफ़ बात समय बचाती है।","S","C"]],"title":"काम-प्रमुख से बात (निर्देश समझना)"},{"tw":[["didiriswa","दीदीरीस्वा","औज़ार","ख"],["hamore","हामोरे","हथौड़ा","ख"],["lekanyetsa","लेकाञेत्सा","नापना","ख"],["helmet","हेल्मेत","सुरक्षा-टोपी","ख"],["digalofo","दीगालोफ़ो","दस्ताने","ख"],["kelotlhoko","केलोत्ल्होको","सावधान","क"]],"drill":{"type":"preposition","hi":"औज़ार कहाँ है — mo / godimo ga / tlase ga / gaufi le सही खाने में बैठाओ।","rows":[["Hamore chu ___ a awm.","bawm ah"],["Spanner chu ___ a awm.","chungah"],["Lere chu ___ a awm.","hnaiah"],["Ka hmu chu ___ a awm.","hnuaiah"]]},"items":[["Ka tool te chu khawiah nge?","का टूल ते चु खावियाह ङ्गे?","मेरे औज़ार कहाँ हैं?","S","B"],["Hammer chu box-ah a awm.","हैमर चु बॉक्स-आह आ आउम।","हथौड़ा डिब्बे में है।","L","B"],["Chu wrench min pe teh.","चु रेंच मिन पे तेह।","मुझे वह पाना दो।","S","B"],["Ladder khai takin vuan rawh.","लैडर खाइ तकिन वुआन रॉह।","सीढ़ी कसकर पकड़ो।","L","B"],["Hmasain wall bang rawh.","ह्मासाइन वॉल बांग रॉह।","पहले दीवार नापो।","L","B"],["Hei hi feet sawm a sei.","हेइ हि फीट सावम आ सेइ।","यह दस फीट लंबी है।","S","C"],["Rod chu feet panga-ah at rawh.","रॉड चु फीट पांगा-आह आत रॉह।","छड़ को पाँच फीट पर काटो।","L","B"],["Blade chu a hriam lo.","ब्लेड चु आ ह्रिआम लो।","ब्लेड तेज़ नहीं है।","S","C"],["At hma ah blade thlak rawh.","आत ह्मा आह ब्लेड थ्लाक रॉह।","काटने से पहले ब्लेड बदलो।","L","B"],["I safety cap bun rawh.","इ सेफ्टी कैप बुन रॉह।","अपनी सुरक्षा-टोपी पहनो।","L","B"],["Hei hna-ah gloves bun reng rawh.","हेइ ह्ना-आह ग्लव्स बुन रेंग रॉह।","इस काम में हमेशा दस्ताने पहनो।","L","B"],["Machine atangin fimkhur rawh.","मशीन आतांगिन फिम्खुर रॉह।","मशीन से सावधान रहो।","L","B"],["Then hma ah machine tifim rawh.","थेन ह्मा आह मशीन तिफिम रॉह।","सफ़ाई से पहले मशीन बंद करो।","L","B"],["Kan thawhna hmun chu tui lo awm hle rawh.","कन थॉह्ना ह्मुन चु तुइ लो आउम ह्ले रॉह।","फ़र्श सूखा रखो।","L","B"],["Tui awm hmunah i tla thei.","तुइ आउम ह्मुनाह इ त्ला थेइ।","गीले फ़र्श पर गिर सकते हैं।","L","B"],["First aid box chu khawiah nge?","फर्स्ट एड बॉक्स चु खावियाह ङ्गे?","मरहम-पट्टी का डिब्बा कहाँ रखा है?","S","A"],["Office kongka naih-ah a awm.","ऑफिस कोंगका नाइह-आह आ आउम।","वह दफ़्तर के दरवाज़े के पास है।","L","B"],["Hna zoh hnuah tool te then rawh.","ह्ना ज़ोह ह्नुआह टूल ते थेन रॉह।","काम के बाद औज़ार साफ़ करो।","L","B"],["Kal hma ah tool te sim rawh.","कल ह्मा आह टूल ते सिम रॉह।","जाने से पहले औज़ार गिन लो।","L","B"],["Wrench khat a bo.","रेंच खत आ बो।","एक पाना गुम है।","S","C"],["Table nuai ah ka hmu.","टेबल नुआइ आह का ह्मु।","वह मुझे मेज़ के नीचे मिला।","S","B"],["Hei machine hi a thar, fimkhur takin hman rawh.","हेइ मशीन हि आ थार, फिम्खुर तकिन ह्मान रॉह।","यह मशीन नई है, सँभालकर चलाओ।","L","B"],["Week tin machine-ah si thun rawh.","वीक तिन मशीन-आह सि थुन रॉह।","मशीन में हर हफ़्ते तेल डालो।","L","B"],["Material chu truck-in a lo thleng.","मैटेरियल चु ट्रक-इन आ लो थ्लेंग।","सामान ट्रक में आया।","S","C"],["Ip te fimkhur takin chhuah rawh.","इप ते फिम्खुर तकिन छुआह रॉह।","बोरियाँ सावधानी से उतारो।","L","B"],["Rit tak chu changkhat hian put suh.","रित तक चु छांगखत हिआन पुत सुह।","भारी वज़न अकेले मत उठाओ।","L","B"],["Mamawh chuan ṭanpuina zawt rawh.","ममॉह छुआन त्हानपुइना ज़वत रॉह।","ज़रूरत पड़े तो मदद माँगो।","L","B"],["Tool ṭha chuan hna a awlsamtir.","टूल त्हा छुआन ह्ना आ आउल्सामतिर।","अच्छे औज़ार काम आसान करते हैं।","S","C"],["Himna hmasa, hna a hnu.","हिम्ना ह्मासा, ह्ना आ ह्नु।","पहले सुरक्षा, फिर काम।","L","B"],["Fimkhur mi thawk chuan in a thleng him.","फिम्खुर मि थॉक छुआन इन आ थ्लेंग हिम।","सावधान मज़दूर सुरक्षित घर पहुँचता है।","S","C"]],"title":"औज़ार, सामान और काम की जगह"},{"tw":[["kopo","कोपो","छुट्टी की अर्ज़ी","ख"],["pakang","पाकाङ","ज़रूरी","ख"],["tetla","तेत्ला","अनुमति","ख"],["ai","अइ","एआई ऐप","ख"],["sekaseka","सेकासेका","जाँचना","क"],["romele","रोमेले","टाइप करना","ख"]],"drill":{"type":"messageFrame","hi":"चार-पंक्ति अर्ज़ी — ख़ाली जगह अपनी बात से भरकर बोलो।","rows":[["Pu, ni khat maikhutso ka mamawh ___.","Ka kal a ngai ___.","Lät ah ka kir leh ang ___.","Ka lawm e, pu."]]},"items":[["Pu, ni khat chawlh hun ka mamawh.","पु, नि खत छॉल्ह हुन का ममॉह।","सर, मुझे एक दिन की छुट्टी चाहिए।","S","A"],["Monday-ah chawlh hun ka mamawh.","मंडे-आह छॉल्ह हुन का ममॉह।","मुझे सोमवार को छुट्टी चाहिए।","S","A"],["In-ah thil pawimawh a awm.","इन-आह थिल पॉइमॉह आ आउम।","घर पर ज़रूरी काम है।","S","C"],["Ka pa a dam lo.","का पा आ दाम लो।","मेरे पिताजी की तबीयत ठीक नहीं है।","S","B"],["Bank-ah ka kal a ngai.","बैंक-आह का कल आ ङ्गाइ।","मुझे बैंक जाना है।","S","A"],["Ni chanve chawlh ka la thei em?","नि छान्वे छॉल्ह का ला थेइ एम?","क्या मैं आधे दिन की छुट्टी ले सकता हूँ?","S","A"],["Phalna min pe teh, pu.","फाल्ना मिन पे तेह, पु।","कृपया अनुमति दीजिए, सर।","S","A"],["Wednesday-ah hna-ah ka lo kal leh ang.","वेडन्सडे-आह ह्ना-आह का लो कल लेह आंग।","मैं बुधवार को वापस काम पर आऊँगा।","S","A"],["Ka kal hma ah ka hna ka zawhtir ang.","का कल ह्मा आह का ह्ना का ज़ॉह्तिर आंग।","जाने से पहले मैं अपना काम पूरा कर दूँगा।","S","B"],["Chawlh hun phal a ni.","छॉल्ह हुन फाल आ नि।","छुट्टी मंज़ूर है।","L","B"],["Ni khat hmain hrilh rawh.","नि खत ह्माइन ह्रिल्ह रॉह।","एक दिन पहले बता देना।","L","B"],["Chawlh hun ngenna ziak rawh.","छॉल्ह हुन ङ्गेन्ना ज़िआक रॉह।","छुट्टी की अर्ज़ी लिखो।","L","B"],["Hei ziak dan ka hre lo.","हेइ ज़िआक दान का ह्रे लो।","मुझे यह लिखना नहीं आता।","S","B"],["AI app chuan min ṭanpui thei.","AI ऐप छुआन मिन त्हानपुइ थेइ।","एआई ऐप तुम्हारी मदद कर सकता है।","L","B"],["AI app-in ka ngenna min ziaktir.","AI ऐप-इन का ङ्गेन्ना मिन ज़िआक्तिर।","मैंने एआई ऐप से अपनी अर्ज़ी लिखवाई।","S","B"],["App hnenah i hming leh chhan hrilh rawh.","ऐप ह्नेनाह इ ह्मिंग लेह छान ह्रिल्ह रॉह।","ऐप को अपना नाम और कारण बताओ।","L","B"],["Hindi ṭawngin sawi rawh, Mizo ṭawngin a ziak ang.","हिंदी तॉंगिन सावि रॉह, मिज़ो तॉंगिन आ ज़िआक आंग।","हिंदी में बोलो, वह मिज़ो में लिख देगा।","L","B"],["Thawn hma ah zawng zawng chhiar rawh.","थॉन ह्मा आह ज़ॉंग ज़ॉंग छिआर रॉह।","भेजने से पहले हमेशा पढ़ लो।","L","B"],["Hming leh ni chu kamah i en tur a ni.","ह्मिंग लेह नि चु कमाह इ एन तुर आ नि।","नाम और तारीख़ ख़ुद जाँचो।","L","B"],["AI pawh suala a ti thei.","AI पॉह सुआला आ ति थेइ।","एआई भी ग़लती कर सकता है।","L","B"],["Ka Mizo chu AI app-in ka en tir.","का मिज़ो चु AI ऐप-इन का एन तिर।","मैं एआई ऐप से अपनी मिज़ो जँचवाता हूँ।","S","B"],["AI app nen sawi theihnathiam ka ti.","AI ऐप नेन सावि थेइह्नाथिआम का ति।","मैं एआई ऐप के साथ बोलने का अभ्यास करता हूँ।","S","B"],["I message type la, thawn rawh.","इ मेसेज टाइप ला, थॉन रॉह।","अपना संदेश टाइप करो और भेजो।","L","B"],["Ngenna chu WhatsApp-in ka thawn.","ङ्गेन्ना चु व्हाट्सऐप-इन का थॉन।","मैंने अर्ज़ी व्हाट्सऐप पर भेजी।","S","B"],["Pu chuan phone-in ka chawlh hun a phal.","पु छुआन फोन-इन का छॉल्ह हुन आ फाल।","सर ने फोन पर मेरी छुट्टी मंज़ूर की।","S","B"],["Hrilh lovin chawlh hun la suh.","ह्रिल्ह लोविन छॉल्ह हुन ला सुह।","बिना बताए छुट्टी मत लो।","L","B"],["Chawlh hun tam deuh chuan hlawh a tihniam.","छॉल्ह हुन तम देउह छुआन ह्लॉह आ तिह्निआम।","ज़्यादा छुट्टियाँ भुगतान काटती हैं।","L","B"],["Kut hma ah chawlh hun ruat rawh.","कुत ह्मा आह छॉल्ह हुन रुआत रॉह।","त्योहार से पहले छुट्टी की योजना बनाओ।","L","B"],["Chhan dik chuan rinawmna a siam.","छान दिक छुआन रिनॉम्ना आ सिआम।","सच्चा कारण भरोसा जिताता है।","S","C"],["Hun thar, tool thar — zir reng rawh.","हुन थार, टूल थार — ज़िर रेंग रॉह।","नया ज़माना, नए औज़ार — सीखते रहो।","S","C"]],"title":"छुट्टी की अर्ज़ी और एआई-मदद"}],"test":{"target":"Neitu hnenah (pu khat hnenah)","goal":"Mizo ṭawngin chibai sawi, lät thiam sawi, manu-hun zawt, dik takin sawi — mela sarih.","lines":[["Chibai pu, Ramesh ka ni.","चिबाइ पु, रमेश का नि।"],["Welder ka ni, kum panga ka thiam.","वेल्डर का नि, कुम पांगा का थिआम।"],["Ni khat manu chu engnge?","नि खत मनु चु एंगंगे?"],["Mosupologo aṭangin ka thawk tan thei ang.","मोसुपोलोगो आत्हांगिन का थॉक तान थेइ आंग।"],["Lät ah engtin nge?","लात आह एंगतिन ङ्गे?"],["Bosupa hma ah ka kal leh ang.","बोसुपा ह्मा आह का कल लेह आंग।"],["Nangma nen i inbiak avangin ka lawm e, pu.","नांगमा नेन इ इनबिआक आवांगिन का लॉम ए, पु।"]]},"listen":[["(ngaithla) I thiam dan chu engzat nge?","(chhang) Kum panga ka thiam."],["(ngaithla) Manu chu engzat nge?","(chhang) Rupee zaa ruk le pahnih."]],"dialog":[["Neitu","I hre bik tiro ngai em?"],["Nangma","Welder, kum panga."],["Neitu","Manu zaa ruk le pahnih."],["Nangma","Engtikah nge manu?"],["Neitu","Bosupa hma ah."],["Nangma","Mosupologo aṭangin ka thawk tan thei ang."]]},{"n":6,"title":"Money, Friends and Growth","hi":"पैसा, दोस्त और तरक्की","pace":30,"days":[{"tw":[["hlawh","ह्लॉह","वेतन","ख"],["chhiar","छीअर","गिनना","क"],["kgaolo","क्गाओलो","कटौती","ख"],["peshentswana","पेशेन्त्स्वाना","पेशगी","ख"],["kakaretso","काकारेत्सो","कुल","ग"],["risiti","रीसीती","रसीद","ग"]],"drill":{"type":"moneyCount","hi":"पैसे बोलो — रक़म सुनो, Mizo ṭawngin sawi rawh।","rows":[["550","zanga le sawm panga"],["1200","sangkhat le zahnih"],["2050","sangnih le sawm panga"]]},"items":[["Tuni chu hlawh pek ni a ni.","तुनि चु ह्लॉह पेक नि आ नि।","आज भुगतान का दिन है।","S","C"],["Tuni ka hlawh ka dawng.","तुनि का ह्लॉह का दॉंग।","आज मुझे वेतन मिला।","S","A"],["Kal hma ah sum sim rawh.","कल ह्मा आह सुम सिम रॉह।","जाने से पहले पैसे गिन लो।","L","B"],["Vawi hnih ka sim.","वावि ह्निह का सिम।","मैंने दो बार गिना।","S","B"],["Rupee 200 a tlem.","रुपी २०० आ त्लेम।","दो सौ रुपये कम हैं।","S","C"],["Pu, zawng zawng bai en teh.","पु, ज़ॉंग ज़ॉंग बाइ एन तेह।","सर, कृपया कुल फिर से जाँचिए।","S","B"],["Chawlh hun hnih kalsan a ni.","छॉल्ह हुन ह्निह कल्सान आ नि।","दो छुट्टियों की कटौती हुई।","S","C"],["Tunah zawng zawng a dik.","तुनाह ज़ॉंग ज़ॉंग आ दिक।","अब कुल सही है।","S","C"],["Overtime chu eng nge?","ओवरटाइम चु एंग ङ्गे?","ओवरटाइम के कितने मिले?","S","B"],["Rupee 800 belh ka dawng.","रुपी ८०० बेल्ह का दॉंग।","मुझे आठ सौ अतिरिक्त मिले।","S","B"],["Zalhlui sum hmasa tlem ka la.","ज़ल्ह्लुइ सुम ह्मासा त्लेम का ला।","मैंने पिछले हफ़्ते थोड़ी पेशगी ली थी।","S","B"],["Sum hmasa chu ka hlawh atangin a kalsan.","सुम ह्मासा चु का ह्लॉह आतांगिन आ कल्सान।","पेशगी मेरे वेतन से कटी।","S","B"],["Hlawh receipt min pe teh.","ह्लॉह रिसीट मिन पे तेह।","कृपया मुझे वेतन की रसीद दीजिए।","S","A"],["Receipt tin fimkhur takin dah rawh.","रिसीट तिन फिम्खुर तकिन दाह रॉह।","हर रसीद सँभालकर रखो।","L","B"],["I ni tin hna chu notebook-ah ziak rawh.","इ नि तिन ह्ना चु नोटबुक-आह ज़िआक रॉह।","अपना रोज़ का काम कॉपी में लिखो।","L","B"],["Ka account leh anni ta chu a danglam.","का अकाउंट लेह अन्नि ता चु आ दांगलाम।","मेरा और उनका हिसाब अलग निकला।","S","B"],["Notebook kan en khawm.","नोटबुक कन एन खॉम।","हमने साथ में कॉपी जाँची।","S","B"],["Suala chu entry khatah a awm.","सुआला चु एंट्री खताह आ आउम।","ग़लती एक लिखावट में थी।","S","C"],["Sum zawng zawng an pe.","सुम ज़ॉंग ज़ॉंग आन पे।","उन्होंने पूरा पैसा दिया।","S","C"],["Sum simin chu indona a tlawm.","सुम सिमिन चु इन्दोना आ त्लॉम।","गिना हुआ पैसा झगड़ा नहीं लाता।","S","C"],["Ei tur-ah eng nge a sengna?","एइ तुर-आह एंग ङ्गे आ सेंग्ना?","खाने पर कितना ख़र्च होता है?","L","B"],["Ei tur-ah rupee 3000 a seng.","एइ तुर-आह रुपी ३००० आ सेंग।","खाने पर तीन हज़ार ख़र्च होते हैं।","S","B"],["Room rent chu rupee 2000 a ni.","रूम रेंट चु रुपी २००० आ नि।","कमरे का किराया दो हज़ार है।","S","C"],["Zan tin ka sengna te ka ziak.","ज़ान तिन का सेंग्ना ते का ज़िआक।","मैं रोज़ रात अपना ख़र्च लिखता हूँ।","S","B"],["Sengna te te chuan sum tam a ei.","सेंग्ना ते ते छुआन सुम तम आ एइ।","छोटे-छोटे ख़र्च बड़ा पैसा खा जाते हैं।","S","C"],["Intihchhuah tur chuan ba la suh.","इनतिहछुआह तुर छुआन बा ला सुह।","दिखावे के लिए कर्ज़ मत लो।","L","B"],["Ba hmasa chhuahsak rawh.","बा ह्मासा छुआहसाक रॉह।","पहले कर्ज़ चुकाओ।","L","B"],["Thla ah hian rupee 3000 ka khawl.","थ्ला आह हिआन रुपी ३००० का खॉल।","इस महीने मैंने तीन हज़ार बचाए।","S","B"],["Khawl sum pawh chu hlawh sum a ni.","खॉल सुम पॉह चु ह्लॉह सुम आ नि।","बचाया पैसा भी कमाया पैसा है।","S","C"],["Sum fiah chuan inlaichinna a titui.","सुम फिआह छुआन इनलाइछिन्ना आ तितुइ।","साफ़ हिसाब रिश्ते मीठे रखता है।","S","C"]],"title":"वेतन और हिसाब"},{"tw":[["akhaonto","अखाओन्तो","खाता","ग"],["atm","एटीएम","एटीएम","ग"],["upi","यूपीआई","यूपीआई","ग"],["tlatsa","त्लात्सा","पैसा भेजना","ग"],["otp","ओत्प","ओटीपी","ग"],["palansi","पालान्सी","बचा पैसा","ग"]],"drill":{"type":"dialogueFill","hi":"बैंक-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Nangma: Khawiah nge wëu thawn tur?","Bank mi: Sangli."],["Nangma: Account number chu engnge?","Bank mi: Hei form ah a awm."]]},"items":[["Bank account ka nei.","बैंक अकाउंट का नेइ।","मेरा बैंक खाता है।","S","A"],["Ka account chu khua bank-ah a awm.","का अकाउंट चु खुआ बैंक-आह आ आउम।","मेरा खाता गाँव के बैंक में है।","S","B"],["Sum thawn na tur hei form hi sian rawh.","सुम थॉन ना तुर हेइ फॉर्म हि सिआन रॉह।","पैसा भेजने के लिए यह फ़ॉर्म भरो।","L","B"],["Account number fimkhur takin ziak rawh.","अकाउंट नम्बर फिम्खुर तकिन ज़िआक रॉह।","खाता नंबर ध्यान से लिखो।","L","B"],["Number khat shut chuan sum hi hriat lo hnenah a thawn thei.","नम्बर खत शुत छुआन सुम हि ह्रिआत लो ह्नेनाह आ थॉन थेइ।","एक ग़लत अंक पैसा किसी अनजान को भेज सकता है।","L","B"],["UPI-in rupee 4000 ka thawn.","UPI-इन रुपी ४००० का थॉन।","मैंने यूपीआई से चार हज़ार भेजे।","S","A"],["Minute khatin a thleng.","मिनिट खतिन आ थ्लेंग।","पैसा एक मिनट में पहुँच गया।","S","C"],["Nu phone-ah message a lo thleng.","नु फोन-आह मेसेज आ लो थ्लेंग।","माँ के फोन पर संदेश आ गया।","S","C"],["Thawn zoh hian sum la chu en rawh.","थॉन ज़ोह हिआन सुम ला चु एन रॉह।","भेजने के बाद बचा पैसा जाँचो।","L","B"],["Tunah ka sum la chu rupee 6000 a ni.","तुनाह का सुम ला चु रुपी ६००० आ नि।","अब मेरा बचा पैसा छह हज़ार है।","S","B"],["ATM naih ber chu khawiah nge?","एटीएम नाइह बेर चु खावियाह ङ्गे?","सबसे पास का एटीएम कहाँ है?","S","A"],["ATM chu bazar bul ah a awm.","एटीएम चु बाज़ार बुल आह आ आउम।","एटीएम बाजार के बगल में है।","L","B"],["ATM atangin rupee 2000 ka chhuah.","एटीएम आतांगिन रुपी २००० का छुआह।","मैंने एटीएम से दो हज़ार निकाले।","S","B"],["PIN i thun hian kut khuh rawh.","पिन इ थुन हिआन कुत खुह रॉह।","पिन डालते समय हाथ ढको।","L","B"],["I PIN tu hnenah pawh hrilh ngai suh.","इ पिन तु ह्नेनाह पॉह ह्रिल्ह ङ्गाइ सुह।","अपना पिन किसी को कभी मत बताओ।","L","B"],["Phone-ah OTP share ngai suh.","फोन-आह OTP शेयर ङ्गाइ सुह।","फोन पर ओटीपी कभी साझा मत करो।","L","A"],["Bank chuan OTP a zawt ngai lo.","बैंक छुआन OTP आ ज़वत ङ्गाइ लो।","बैंक कभी ओटीपी नहीं माँगता।","L","A"],["Chu call chu dawtna a ni.","चु कॉल चु दॉत्ना आ नि।","वह फोन धोखे का था।","S","C"],["Lawkin call ka kap.","लॉकिन कॉल का काप।","मैंने तुरंत फोन काट दिया।","S","B"],["Sum i la a nih chuan bank hrilh rawh.","सुम इ ला आ निह छुआन बैंक ह्रिल्ह रॉह।","पैसा चोरी हो तो बैंक को बताओ।","L","A"],["Saturday-ah bank a hong em?","सैटरडे-आह बैंक आ होंग एम?","क्या बैंक शनिवार को खुला है?","S","B"],["Bank chu dar sawm-ah a hong.","बैंक चु दार सावम-आह आ होंग।","बैंक दस बजे खुलता है।","L","B"],["Ziaktir tur passbook la kal rawh.","ज़िआक्तिर तुर पासबुक ला कल रॉह।","लिखवाने के लिए पासबुक लाओ।","L","B"],["Tuni passbook-ah ka ziaktir.","तुनि पासबुक-आह का ज़िआक्तिर।","मैंने आज पासबुक में लिखवाया।","S","B"],["Mobile number chu account-ah zawm rawh.","मोबाइल नम्बर चु अकाउंट-आह ज़ॉम रॉह।","मोबाइल नंबर खाते से जुड़वाओ।","L","B"],["Pathianni hmasa berah in lamah sum ka thawn.","पथियन्नि ह्मासा बेराह इन लामाह सुम का थॉन।","मैं पहले रविवार को घर पैसे भेजता हूँ।","S","B"],["Hlawh chanve chu in-ah a kal, chanve chu hetah a awm.","ह्लॉह छान्वे चु इन-आह आ कल, छान्वे चु हेताह आ आउम।","आधा वेतन घर जाता है, आधा यहाँ रहता है।","S","C"],["Nupui account pawh hong tir rawh.","नुपुइ अकाउंट पॉह होंग तिर रॉह।","पत्नी का भी खाता खुलवाओ।","L","B"],["Bank sum chu poketi aiin a him zawk.","बैंक सुम चु पोकेती आइइन आ हिम ज़ॉक।","बैंक का पैसा जेब से ज़्यादा सुरक्षित है।","S","C"],["Fimkhur lak chuan sum a him tir.","फिम्खुर लाक छुआन सुम आ हिम तिर।","सावधान उँगलियाँ पैसा सुरक्षित रखती हैं।","S","C"]],"title":"बैंक, यूपीआई और घर पैसा भेजना"},{"tw":[["ntwa","न्त्वा","झगड़ा","ख"],["didimetseng","दीदीमेत्सेङ","शांत","क"],["maitshwarelo","माइच्वारेलो","माफ़ी","क"],["maitshwarelo","माइच्वारेलो","दोष","ख"],["dumalana","दूमालाना","सहमत होना","ख"],["pelotelele","पेलोतेलेले","धैर्य","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka jalo या mme लगाकर दो बातें एक वाक्य में बोलो।","rows":[["I tawpna i zawt. Ka theihnghilh ta.","I tawpna i zawt avangin ka theihnghilh ta."],["Ka thin a ur. Ka thip a ni.","Ka thin a ur, mahse ka thip a ni."]]},"items":[["Tuni hna-ah indonna a awm.","तुनि ह्ना-आह इन्दोन्ना आ आउम।","आज काम पर झगड़ा हुआ।","S","C"],["Mi thawk pahnih an au.","मि थॉक पह्निह आन आउ।","दो मज़दूर चिल्ला रहे थे।","S","C"],["U, hal rawh.","उ, हाल रॉह।","भाई, शांत हो जाओ।","S","A"],["Au suh, tawite maiin sawi rawh.","आउ सुह, तावित माइन सावि रॉह।","चिल्लाओ मत, धीरे बात करो।","L","B"],["Eng nge a awm?","एंग ङ्गे आ आउम?","बात क्या है?","L","B"],["A zawt lovin ka tool a la.","आ ज़वत लोविन का टूल आ ला।","उसने बिना पूछे मेरे औज़ार ले लिए।","S","B"],["Ka suala a ni, ngaihdam.","का सुआला आ नि, ङ्गाइह्दाम।","मेरी ग़लती थी, माफ़ करना।","S","B"],["A hnuah hmasain min zawt rawh.","आ ह्नुआह ह्मासाइन मिन ज़वत रॉह।","अगली बार पहले मुझसे पूछ लेना।","S","B"],["A ṭha, ka pawm.","आ त्हा, का पॉम।","ठीक है, मैं सहमत हूँ।","S","B"],["Kut inkam la, theihnghilh rawh.","कुत इन्काम ला, थेइह्न्गिल्ह रॉह।","हाथ मिलाओ और भूल जाओ।","L","B"],["Kan team khat kan ni.","कन टीम खत कन नि।","हम एक टीम हैं।","S","B"],["Indonna chuan ni pumpelh a tisual.","इन्दोन्ना छुआन नि पुमपेल्ह आ तिसुआल।","लड़ाई पूरा दिन बिगाड़ देती है।","S","C"],["Hmasain ngaithla, chuan sawi.","ह्मासाइन ङ्गाइथ्ला, छुआन सावि।","पहले सुनो, फिर बोलो।","L","B"],["A duh takin a ti lo mai thei.","आ दुह तकिन आ ति लो माइ थेइ।","शायद उसने जान-बूझकर नहीं किया।","S","C"],["A hrilhfiah theih nan hun pe rawh.","आ ह्रिल्हफिआह थेइह नान हुन पे रॉह।","उसे समझाने का एक मौका दो।","L","B"],["Ngaihdamna ka zawt a, a nuihsan.","ङ्गाइह्दाम्ना का ज़वत आ, आ नुइह्सान।","मैंने माफ़ी माँगी और वह मुस्कुराया।","S","B"],["Ngaihdamna te chuan indonna lian a chhan tir.","ङ्गाइह्दाम्ना ते छुआन इन्दोन्ना लिआन आ छान तिर।","छोटी माफ़ी बड़ा झगड़ा बचा लेती है।","S","B"],["Thuhniam chuan mi thawk ṭhian a ni.","थुह्निआम छुआन मि थॉक थ्यान आ नि।","धैर्य मज़दूर का दोस्त है।","S","C"],["Thinurna chu machine hnaih ah la suh.","थिनुर्ना चु मशीन हनाइह आह ला सुह।","गुस्सा मशीन तक मत ले जाओ।","L","B"],["Thinur lak chuan accident a tihchhuah.","थिनुर लाक छुआन एक्सिडेंट आ तिहछुआह।","गुस्से के हाथ दुर्घटना करते हैं।","L","B"],["Thu a lian chuan supervisor hnenah sawi rawh.","थु आ लिआन छुआन सुपरवाइज़र ह्नेनाह सावि रॉह।","बात बड़ी हो तो सुपरवाइज़र से बात करो।","L","B"],["Minute panga chhungin thu an rem tir.","मिनिट पांगा छुंगिन थु आन रेम तिर।","उन्होंने पाँच मिनट में बात सुलझा दी।","S","C"],["Nangni pahnih zawng in hna thiam.","नांग्नि पह्निह ज़ॉंग इन ह्ना थिआम।","तुम दोनों अच्छे कारीगर हो।","L","B"],["Inṭanpuin hna thawk, inṭanpuin sum hmu.","इनत्हानपुइन ह्ना थॉक, इनत्हानपुइन सुम ह्मु।","साथ काम करो, साथ कमाओ।","L","B"],["Khua emaw chi emaw avangin indo suh.","खुआ एमॉ छि एमॉ आवांगिन इन्दो सुह।","गाँव या जात पर मत लड़ो।","L","B"],["Kan zawng zawngin kan chhungkua atan hna kan thawk.","कन ज़ॉंग ज़ॉंगिन कन छुंगकुआ आतान ह्ना कन थॉक।","हम सब अपने परिवार के लिए काम करते हैं।","S","B"],["Indonna hnuah tea kan in khawm.","इन्दोन्ना ह्नुआह टी कन इन खॉम।","झगड़े के बाद हमने साथ चाय पी।","S","B"],["Tunah chu kan hnuihsan.","तुनाह चु कन ह्नुइह्सान।","अब हम उस पर हँसते हैं।","S","B"],["Thinlung muang chuan hna a tha ber ti.","थिन्लुंग मुआंग छुआन ह्ना आ था बेर ति।","शांत मन सबसे अच्छा काम करता है।","S","C"],["Hna-ah remna, in-ah remna.","ह्ना-आह रेम्ना, इन-आह रेम्ना।","काम पर शांति, घर में शांति।","S","C"]],"title":"झगड़ा और सुलह"},{"tw":[["mokopani","मोकोपानी","साथ काम करने वाला","ख"],["itsise","इत्सीसे","परिचय कराना","ख"],["thingpui","थीङ्पूइ","चाय की छुट्टी","ख"],["khua gae","खूअ गाए","मूल गाँव-घर","ख"],["tshepo","चेपो","भरोसा","क"],["a leh esi","अ लेह एसी","अकेला","क"]],"drill":{"type":"showTell","hi":"नए साथी से परिचय — तीन वाक्य में अपनी बात बोलो।","rows":[["Chibai, i ___ ka ni.","Week khat kal ta ah lät ah ka lo lut.","Ka lawm e i ṭanpuina avangin."]]},"items":[["Hei hi ka hna thawkpui Ramesh a ni.","हेइ हि का ह्ना थॉक्पुइ रमेश आ नि।","यह मेरे साथ काम करने वाला रमेश है।","S","B"],["Team hnenah ka hriattir che ang.","टीम ह्नेनाह का ह्रिआत्तिर छे आंग।","चलो, टीम से तुम्हारा परिचय कराता हूँ।","S","B"],["U, khawiah nge i chhuak?","उ, खावियाह ङ्गे इ छुआक?","भाई, आप कहाँ से हैं?","L","B"],["Khagaria atangin ka lo kal.","खगड़िया आतांगिन का लो कल।","मैं खगड़िया से हूँ।","S","A"],["Kan district khat kan ni!","कन डिस्ट्रिक्ट खत कन नि!","अरे, हम एक ही जिले के हैं!","S","B"],["Lo kal in, tea kan in khawm.","लो कल इन, टी कन इन खॉम।","आओ, हमारे साथ चाय पियो।","S","C"],["Dar li-ah tea chawlh kan nei.","दार लि-आह टी छॉल्ह कन नेइ।","हम चार बजे चाय की छुट्टी लेते हैं।","S","B"],["A chaw min share pui.","आ छॉ मिन शेयर पुइ।","उसने अपना खाना मेरे साथ बाँटा।","S","B"],["Ni khatnaah changkhat deuhvin ka awm.","नि खत्नाआह छांगखत देउह्विन का आउम।","पहले दिन मैं बहुत अकेला था।","S","B"],["Hmun pumpelh min entir.","ह्मुन पुमपेल्ह मिन एंतिर।","उसने मुझे पूरी जगह दिखाई।","S","B"],["Ṭhian ṭha chuan hna har a tizawl.","थ्यान त्हा छुआन ह्ना हार आ तिज़ॉल।","अच्छे दोस्त कठिन काम हल्का कर देते हैं।","S","C"],["Hei machine hi min zirtir thei em?","हेइ मशीन हि मिन ज़िर्तिर थेइ एम?","क्या तुम मुझे यह मशीन सिखा सकते हो?","S","B"],["Ngeih takin, ka kut en rawh.","ङ्गेइह तकिन, का कुत एन रॉह।","ज़रूर, मेरे हाथ देखो।","L","B"],["Tawite maiin in zawng zawng in zir vek ang.","तावित माइन इन ज़ॉंग ज़ॉंग इन ज़िर वेक आंग।","धीरे-धीरे तुम सब सीख जाओगे।","L","B"],["U, i ṭanpuina zawng zawng avangin ka lawm e.","उ, इ त्हानपुइना ज़ॉंग ज़ॉंग आवांगिन का लॉम ए।","भाई, तुम्हारी सारी मदद के लिए धन्यवाद।","S","B"],["Hna zoh hnuah room-ah kan kal khawm.","ह्ना ज़ोह ह्नुआह रूम-आह कन कल खॉम।","काम के बाद हम साथ कमरे जाते हैं।","S","B"],["Pathianni-ah chaw danglam kan siam khawm.","पथियन्नि-आह छॉ दांगलाम कन सिआम खॉम।","रविवार को हम साथ ख़ास खाना बनाते हैं।","S","B"],["Hun harsa-ah sum min pe.","हुन हर्सा-आह सुम मिन पे।","मुश्किल समय में उसने मुझे पैसे दिए।","S","B"],["Hlawh ni-ah ka tihruai leh.","ह्लॉह नि-आह का तिह्रुआइ लेह।","मैंने भुगतान के दिन लौटा दिए।","S","B"],["Ba la chu hun takin tihruai leh rawh.","बा ला चु हुन तकिन तिह्रुआइ लेह रॉह।","उधार पैसा समय पर लौटाओ।","L","B"],["Rinawmna chu kum tamin a lo awm, minute khatin a bo thei.","रिनॉम्ना चु कुम तमिन आ लो आउम, मिनिट खतिन आ बो थेइ।","भरोसा बनने में साल, टूटने में मिनट लगता है।","S","C"],["Mi hnung lam-ah thu sawi suh.","मि ह्नुंग लाम-आह थु सावि सुह।","किसी की पीठ पीछे बात मत करो।","L","B"],["Ṭhian fakna chu mi zawng zawng hmaah ti rawh.","थ्यान फाक्ना चु मि ज़ॉंग ज़ॉंग ह्माआह ति रॉह।","दोस्त की तारीफ़ सबके सामने करो।","L","B"],["A suala chu amah chauh hnenah hrilh rawh.","आ सुआला चु अमाह छाउह ह्नेनाह ह्रिल्ह रॉह।","उसकी ग़लती सिर्फ़ उसे बताओ।","L","B"],["Kan state panga atanga ṭhian panga kan ni.","कन स्टेट पांगा आतांगा थ्यान पांगा कन नि।","हम पाँच राज्यों के पाँच दोस्त हैं।","S","B"],["Kan inzir inṭawng.","कन इन्ज़िर इनत्हॉंग।","हम एक-दूसरे की बोली सीखते हैं।","S","B"],["Kannada ṭawngkam sawm min zirtir.","कन्नड़ तॉंगकाम सावम मिन ज़िर्तिर।","उसने मुझे दस कन्नड़ शब्द सिखाए।","S","B"],["Hindi ṭawngkam sawm ka zirtir.","हिंदी तॉंगकाम सावम का ज़िर्तिर।","मैंने उसे दस हिंदी शब्द सिखाए।","S","B"],["In atanga hla hian ṭhian chu chhungkua a ni.","इन आतांगा ह्ला हिआन थ्यान चु छुंगकुआ आ नि।","घर से दूर, दोस्त ही परिवार हैं।","S","C"],["Ṭhian dik chu sum lian a ni.","थ्यान दिक चु सुम लिआन आ नि।","सच्चा दोस्त बड़ी दौलत है।","S","C"]],"title":"नए साथी और दोस्ती"},{"tw":[["tsholeditswe","चोलेदीत्स्वे","तरक्की","ख"],["tokiso","तोकीसो","वेतन-बढ़ोतरी","ख"],["boikarabelo","बोइकाराबेलो","ज़िम्मेदारी","ख"],["setifikeiti","सेतीफ़ीकेइती","प्रमाणपत्र","ख"],["khoso","खोसो","कोर्स","ख"],["toro","तोरो","सपना","क"]],"drill":{"type":"timeSwap","hi":"तरक्की की सीढ़ी — बीता कल, आज, आने वाला कल तीनों बोलो।","rows":[["Thla kal ta ah ka ṭanpuitu ka ni.","Tuni ka mason ka ni.","Kum hnih hnuah ka neitu ka ni."]]},"items":[["Ka hna-ah ka zoh zel duh.","का ह्ना-आह का ज़ोह ज़ेल दुह।","मैं अपने काम में आगे बढ़ना चाहता हूँ।","S","A"],["Helper atangin mason ka ni ta.","हेल्पर आतांगिन मेसन का नि ता।","सहायक से मैं मिस्त्री बन गया।","S","B"],["Kum thum a la.","कुम थुम आ ला।","मुझे तीन साल लगे।","S","B"],["Pu, machine zawng zawng ka zir zo.","पु, मशीन ज़ॉंग ज़ॉंग का ज़िर ज़ो।","सर, मैंने सारी मशीनें सीख ली हैं।","S","B"],["Mawhphurhna belh min pe teh.","मॉह्फुर्ह्ना बेल्ह मिन पे तेह।","कृपया मुझे और ज़िम्मेदारी दीजिए।","S","A"],["Kum hi ka hlawh sang thei em?","कुम हि का ह्लॉह सांग थेइ एम?","क्या इस साल मेरी बढ़ोतरी हो सकती है?","S","A"],["Hna hmasain entir la, chuan hlawh sang zawt.","ह्ना ह्मासाइन एंतिर ला, छुआन ह्लॉह सांग ज़वत।","पहले काम दिखाओ, फिर बढ़ोतरी माँगो।","L","B"],["Ka hna chuan amah a sawipui.","का ह्ना छुआन अमाह आ सावीपुइ।","मेरा काम ख़ुद बोलता है।","S","B"],["Thla kal ta chuan ka chang sang.","थ्ला कल ता छुआन का छांग सांग।","पिछले महीने मेरी तरक्की हुई।","S","B"],["Tunah mi pali team ka hruai.","तुनाह मि पलि टीम का ह्रुआइ।","अब मैं चार लोगों की टीम चलाता हूँ।","S","B"],["Hruaitu ṭha chuan amah a hmasain hna a thawk.","ह्रुआइतु त्हा छुआन अमाह आ ह्मासाइन ह्ना आ थॉक।","अच्छा अगुआ पहले ख़ुद काम करता है।","S","C"],["Mahala online course ka thawk mek.","महाला ऑनलाइन कोर्स का थॉक मेक।","मैं मुफ़्त ऑनलाइन कोर्स कर रहा हूँ।","S","A"],["Zanah phone-ah ka zir.","ज़ानाह फोन-आह का ज़िर।","मैं रात में फोन पर पढ़ता हूँ।","S","B"],["Exam hnuah certificate ka dawng ang.","एग्ज़ाम ह्नुआह सर्टिफिकेट का दॉंग आंग।","परीक्षा के बाद मुझे प्रमाणपत्र मिलेगा।","S","B"],["Certificate chuan kongka thar a hawng.","सर्टिफिकेट छुआन कोंगका थार आ हॉंग।","प्रमाणपत्र नए दरवाज़े खोलता है।","S","C"],["Hna lian atan Mizo ṭawng a ngai.","ह्ना लिआन आतान मिज़ो तॉंग आ ङ्गाइ।","बड़े काम के लिए मिज़ो चाहिए।","S","C"],["Ṭhiante nen Mizo ṭawng ka theihnathiam.","थ्यांते नेन मिज़ो तॉंग का थेइह्नाथिआम।","मैं साथियों के साथ मिज़ो का अभ्यास करता हूँ।","S","B"],["Hna thiam khat leh ṭawng khat chu inrem tak a ni.","ह्ना थिआम खत लेह तॉंग खत चु इनरेम तक आ नि।","एक हुनर और एक भाषा मज़बूत जोड़ी है।","S","C"],["Ka mang chu ka workshop a ni.","का मांग चु का वर्कशॉप आ नि।","मेरा सपना अपनी वर्कशॉप है।","S","B"],["Tool atan sum ka khawl mek.","टूल आतान सुम का खॉल मेक।","मैं औज़ारों के लिए पैसे जोड़ रहा हूँ।","S","A"],["Hmasa karigar, chuan sara, chuan neitu.","ह्मासा करिगर, छुआन सरा, छुआन नेइतु।","पहले कारीगर, फिर उस्ताद, फिर मालिक।","S","C"],["Ladder chu kalsak kalsak in a kal chuang.","लैडर चु कल्साक कल्साक इन आ कल छुआंग।","सीढ़ी कदम-कदम ऊपर जाती है।","S","C"],["I ni khatna chu amah kum sawmna nen khaikhin suh.","इ नि खत्ना चु अमाह कुम सावम्ना नेन खाइखिन सुह।","अपने पहले दिन की तुलना उसके दसवें साल से मत करो।","S","B"],["Thla tin thil thar khat zir rawh.","थ्ला तिन थिल थार खत ज़िर रॉह।","हर महीने एक नई चीज़ सीखो।","L","B"],["Helper thar hmangaihna hmangin zirtir rawh.","हेल्पर थार ह्मांगाइह्ना ह्मांगिन ज़िर्तिर रॉह।","नए सहायक को प्यार से सिखाओ।","L","B"],["Tuni helper chu naktuk sara a ni.","तुनि हेल्पर चु नक्तुक सरा आ नि।","आज का सहायक कल का उस्ताद है।","S","C"],["Ka supervisor chuan min ring.","का सुपरवाइज़र छुआन मिन रिंग।","मेरे सुपरवाइज़र को मुझ पर भरोसा है।","S","B"],["Hei rinawmna hi ka tichhe lo.","हेइ रिनॉम्ना हि का तिछे लो।","मैं यह भरोसा नहीं तोड़ूँगा।","S","A"],["Thawhrim leh zirna inkopin hlawhtlinna a siam.","थॉह्रिम लेह ज़िर्ना इनकोपिन ह्लॉह्तलिन्ना आ सिआम।","मेहनत और सीख मिलकर तरक्की बनती है।","S","C"],["Ka hma lam chu ka hnu lam aiin a lian zawk.","का ह्मा लाम चु का ह्नु लाम आइइन आ लिआन ज़ॉक।","मेरा भविष्य मेरे बीते कल से बड़ा है।","S","B"]],"title":"काम में तरक्की (आगे की सीढ़ी)"}],"test":{"target":"Bank-ah (phone hmangin)","goal":"Mizo ṭawngin sawi — moputso i dawng, engzat i thawn (UPI), OTP chungchangah chhungkua hril.","lines":[["Tuni ka lät manu ka dawng.","तुनि का लात मनु का दॉंग।"],["UPI hmangin sangli ka thawn.","UPI ह्मांगिन सांगलि का थॉन।"],["I phone-ah message en rawh.","इ फोन-आह मेसेज एन रॉह।"],["Phone-ah OTP share suh.","फोन-आह OTP शेयर सुह।"],["Bank chuan OTP a zawt ngai lo."," बैंक छुआन OTP आ ज़वत ङ्गाइ लो।"]]},"listen":[["(ngaithla) Wëu chu engtikah nge thleng?","(chhang) Minute khatin thleng."],["(ngaithla) Indonna chu engati nge?","(chhang) Ka suala a ni, ngaihdam ka duh."]],"dialog":[["Nangma","Sangli thawn ka duh."],["Bank mi","Account number chu engnge?"],["Nangma","Hei lehkha ah a awm."],["Bank mi","A zo ta, message en teh."],["Nangma","Ka lawm e, nu."]]},{"n":7,"title":"Work Places, Safe Stay and Rights","hi":"काम की जगहें, सुरक्षित ठिकाना और हक़","pace":30,"days":[{"tw":[["febereking","फ़ेबेरेकीङ","कारख़ाना","ख"],["sefosong","सेफ़ोसोङ","पारी","ख"],["kgoro","क्गोरो","गेट पास","ख"],["yunifomo","यूनीफ़ोमो","वर्दी","ख"],["maikaelelo","माइकाएलेलो","लक्ष्य","ख"],["molelo","मोलेलो","आग का निकास","ख"]],"drill":{"type":"dialogueFill","hi":"गेट पर संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Enveituu: Gate pass i entir rawh.","Nangma: Hei hi a ni, pu."],["Enveituu: Line engnge ah i thawk?","Nangma: Tah line ah, machine number sawm le hnih."]]},"items":[["Puan factory-ah hna ka thawk.","पुआन फैक्टरी-आह ह्ना का थॉक।","मैं कपड़ा कारख़ाने में काम करता हूँ।","S","A"],["Ka shift chu dar sarih-ah a hong tan.","का शिफ्ट चु दार सरिह-आह आ होंग तान।","मेरी पारी सात बजे शुरू होती है।","S","B"],["Week hian zing shift-ah ka awm.","वीक हिआन ज़िंग शिफ्ट-आह का आउम।","इस हफ़्ते मैं सुबह की पारी में हूँ।","S","B"],["Kongka-ah i gate pass entir rawh.","कोंगका-आह इ गेट पास एंतिर रॉह।","गेट पर अपना गेट पास दिखाओ।","L","B"],["Tuni ka gate pass ka theihnghilh.","तुनि का गेट पास का थेइह्न्गिल्ह।","आज मैं गेट पास भूल गया।","S","B"],["Ka card thar siam min ṭanpui teh.","का कार्ड थार सिआम मिन त्हानपुइ तेह।","कृपया मेरा नया कार्ड बनवा दीजिए।","S","A"],["Factory chhung ah uniform bun rawh.","फैक्टरी छुंग आह यूनिफॉर्म बुन रॉह।","कारख़ाने के अंदर वर्दी पहनो।","L","B"],["Phone chu locker-ah dah rawh.","फोन चु लॉकर-आह दाह रॉह।","फोन लॉकर में रखो।","L","B"],["Ka machine number chu sawm leh pahnih a ni.","का मशीन नम्बर चु सावम लेह पह्निह आ नि।","मेरी मशीन नंबर बारह है।","S","B"],["Tah line-ah hna ka thawk.","ताह लाइन-आह ह्ना का थॉक।","मैं सिलाई लाइन पर काम करता हूँ।","S","A"],["Machine khat a tang chuan line pumpelh a tang.","मशीन खत आ तांग छुआन लाइन पुमपेल्ह आ तांग।","एक मशीन रुके तो पूरी लाइन रुकती है।","S","C"],["Tuni target chu nga 200 a ni.","तुनि टार्गेट चु ङ्गा २०० आ नि।","आज का लक्ष्य दो सौ नग है।","L","B"],["Hun hma ah target kan zawh.","हुन ह्मा आह टार्गेट कन ज़ॉह।","हमने समय से पहले लक्ष्य पूरा किया।","S","B"],["En tu chuan ka nga te a pawm.","एन तु छुआन का ङ्गा ते आ पॉम।","जाँच वाले ने मेरे नग पास किए।","S","B"],["Nga pahnih tidik tur a kir leh.","ङ्गा पह्निह तिदिक तुर आ किर लेह।","दो नग सुधार के लिए वापस आए।","S","C"],["Fimkhur takin leh ka tah leh ang.","फिम्खुर तकिन लेह का ताह लेह आंग।","मैं उन्हें फिर से ध्यान से सिलूँगा।","S","B"],["Ei chawlh chu dar khat atanga dar hnih a ni.","एइ छॉल्ह चु दार खत आतांगा दार ह्निह आ नि।","खाने की छुट्टी एक से दो बजे है।","L","B"],["Canteen chaw chu a man tlem.","कैंटीन छॉ चु आ मान त्लेम।","कैंटीन का खाना सस्ता है।","S","C"],["A lum ahchuan dar tin tui in rawh.","आ लुम आह्छुआन दार तिन तुइ इन रॉह।","गर्मी में हर घंटे पानी पियो।","L","B"],["Kal mek belt khoih suh.","कल मेक बेल्ट खोइह सुह।","चलती पट्टी को मत छुओ।","L","B"],["Machine hnaih ah sam chi khung rawh.","मशीन हनाइह आह साम छि खुंग रॉह।","मशीन के पास बाल बाँधकर रखो।","L","B"],["Chhuak emaw rim emaw a awm chuan lawkin hrilh rawh.","छुआक एमॉ रिम एमॉ आ आउम छुआन लॉकिन ह्रिल्ह रॉह।","कोई रिसाव या गंध हो तो तुरंत ख़बर दो।","L","B"],["Mei pawtna kawng chu vei lam ah a awm.","मेइ पॉत्ना कॉंग चु वेइ लाम आह आ आउम।","आग का निकास बाईं ओर है।","L","B"],["Pawtna kongka chu khar ngai suh.","पॉत्ना कोंगका चु खर ङ्गाइ सुह।","निकास का दरवाज़ा कभी बंद मत करो।","L","B"],["Tuni mei theihnathiam kan ti.","तुनि मेइ थेइह्नाथिआम कन ति।","आज हमने आग-अभ्यास किया।","S","B"],["Kal hma ah register-ah signature siam rawh.","कल ह्मा आह रजिस्टर-आह सिग्नेचर सिआम रॉह।","जाने से पहले रजिस्टर पर दस्तख़त करो।","L","B"],["Hetah overtime sum danglam an pe.","हेताह ओवरटाइम सुम दांगलाम आन पे।","यहाँ ओवरटाइम का अलग पैसा मिलता है।","S","C"],["I ESI card zawt rawh.","इ ESI कार्ड ज़वत रॉह।","अपना ईएसआई कार्ड माँगो।","L","B"],["Factory chuan PF pawh a pe.","फैक्टरी छुआन PF पॉह आ पे।","कारख़ाना पीएफ भी देता है।","S","C"],["I dikna hre la, i hna thawk rawh.","इ दिक्ना ह्रे ला, इ ह्ना थॉक रॉह।","अपने हक़ जानो, अपना काम करो।","S","B"]],"title":"फैक्ट्री में काम की बोली"},{"tw":[["moreki","मोरेकी","ग्राहक","ग"],["pampitshaneng","पाम्पीचानेङ","दाम","ग"],["tokiso","तोकीसो","छूट","ग"],["oda","ओदा","ऑर्डर","ग"],["hoteleng","होतेलेङ","परोसना","ख"],["maikokotlelo","माइकोकोत्लेलो","विनम्र","क"]],"drill":{"type":"pairSwap","hi":"विनम्र-रूप बोलो — वाक्य सुनो, tsweetswee लगाकर मीठा बनाओ।","rows":[["Hei hi min pe rawh.","Tsweetswee, hei hi min pe rawh."],["Ngah rawh.","Tsweetswee, ngah rawh, pu."],["Bill chhuah teh.","Tsweetswee, bill chhuah teh, pu."]]},"items":[["Mobile dawr-ah hna ka thawk.","मोबाइल दॉर-आह ह्ना का थॉक।","मैं मोबाइल की दुकान में काम करता हूँ।","S","A"],["Lo kal in, eng nge i mamawh?","लो कल इन, एंग ङ्गे इ ममॉह?","आइए, आपको क्या चाहिए?","S","B"],["Hei model thar hi en teh.","हेइ मॉडल थार हि एन तेह।","कृपया यह नया मॉडल देखिए।","S","A"],["Hei man chu eng nge?","हेइ मान चु एंग ङ्गे?","इसका दाम क्या है?","L","B"],["Man chu lehkha-ah a ziak.","मान चु लेह्खा-आह आ ज़िआक।","दाम पर्ची पर लिखा है।","S","C"],["Danglamna tlem a awm em?","दांगलाम्ना त्लेम आ आउम एम?","क्या कुछ छूट मिलेगी?","L","B"],["Percent panga danglamna ka pe thei.","पर्सेंट पांगा दांगलाम्ना का पे थेइ।","मैं पाँच प्रतिशत छूट दे सकता हूँ।","S","B"],["Leitu chu engtik hun pawh a hmasa ber.","लेइतु चु एंगतिक हुन पॉह आ ह्मासा बेर।","ग्राहक हमेशा पहले है।","S","C"],["Leitu tin hnenah inngaitlawm takin sawi rawh.","लेइतु तिन ह्नेनाह इन्ंगाइत्लॉम तकिन सावि रॉह।","हर ग्राहक से विनम्रता से बोलो।","L","B"],["Nuihnem chuan leitu a kir leh tir.","नुइह्नेम छुआन लेइतु आ किर लेह तिर।","मुस्कान ग्राहक को वापस लाती है।","S","C"],["Pu, i order a siam zo.","पु, इ ऑर्डर आ सिआम ज़ो।","सर, आपका ऑर्डर तैयार है।","S","B"],["Hotel-ah tea leh zingchaw ka pe.","होटल-आह टी लेह ज़िंगछॉ का पे।","मैं होटल में चाय-नाश्ता परोसता हूँ।","S","B"],["Dawn rawh, i table a hong hawngtlang mek.","दॉन रॉह, इ टेबल आ होंग हॉंगत्लांग मेक।","कृपया रुकिए, आपकी मेज़ ख़ाली हो रही है।","S","A"],["Table chakin then rawh.","टेबल छाकिन थेन रॉह।","मेज़ जल्दी साफ़ करो।","L","B"],["Pek hma ah kut sil rawh.","पेक ह्मा आह कुत सिल रॉह।","परोसने से पहले हाथ धोओ।","L","B"],["Pawk tir ang maw?","पॉक तिर आंग मॉ?","क्या पैक करके दूँ?","S","B"],["Pu, hei hi i bill a ni.","पु, हेइ हि इ बिल आ नि।","सर, यह आपका बिल है।","S","B"],["Sum tlem i nei em?","सुम त्लेम इ नेइ एम?","क्या आपके पास खुले पैसे हैं?","S","B"],["UPI-in pawh i pe thei.","UPI-इन पॉह इ पे थेइ।","आप यूपीआई से भी दे सकते हैं।","S","B"],["Hei code hi scan rawh.","हेइ कोड हि स्कैन रॉह।","कृपया यह कोड स्कैन कीजिए।","S","A"],["Ka lawm e, bai lo kal leh teh.","का लॉम ए, बाइ लो कल लेह तेह।","धन्यवाद, फिर आइएगा।","S","A"],["Zan tin thil te sim rawh.","ज़ान तिन थिल ते सिम रॉह।","हर शाम माल गिनो।","L","B"],["Thil te-ah box hnih a tlem.","थिल ते-आह बॉक्स ह्निह आ त्लेम।","माल में दो डिब्बे कम हैं।","S","C"],["Neitu hnenah tuni hian hrilh rawh.","नेइतु ह्नेनाह तुनि हिआन ह्रिल्ह रॉह।","मालिक को आज ही बताओ।","L","B"],["Dawr chu thianghlim leh en nawm takin dah rawh.","दॉर चु थिआंग्ह्लिम लेह एन नॉम तकिन दाह रॉह।","दुकान साफ़ और चमकदार रखो।","L","B"],["Thil thar te hmai lamah siam rawh.","थिल थार ते ह्माइ लामाह सिआम रॉह।","नया सामान आगे सजाओ।","L","B"],["Leitu thinur chu hna vuar a mamawh.","लेइतु थिनुर चु ह्ना वुआर आ ममॉह।","नाराज़ ग्राहक को ठंडा कान चाहिए।","S","C"],["Ngaihdam, pu, tunah kan thlak dawn.","ङ्गाइह्दाम, पु, तुनाह कन थ्लाक दॉन।","माफ़ कीजिए सर, हम अभी बदल देते हैं।","S","A"],["Dawr rinawm, leitu a kir leh ṭheuh.","दॉर रिनॉम, लेइतु आ किर लेह थ्हेउह।","ईमानदार दुकान, लौटता ग्राहक।","S","C"],["Thinlung in hna thawk chuan zuar a tam zawk.","थिन्लुंग इन ह्ना थॉक छुआन ज़ुआर आ तम ज़ॉक।","दिल से सेवा सबसे ज़्यादा बिकवाती है।","S","C"]],"title":"दुकान और होटल-सेवा की बोली"},{"tw":[["thobo","थोबो","कटाई","ख"],["korong","कोरोङ","बोना","ख"],["peo","पेओ","फ़सल","ख"],["mogolo","मोगोलो","मंडी","ग"],["tlhwatlhwa","त्ल्ह्वात्ल्ह्वा","भाव","ग"],["kala","काला","तौलना","ग"]],"drill":{"type":"orderSteps","hi":"खेती का क्रम — Pele, Morago, Morago ga moo लगाकर बोलो।","rows":[["Hmasain buh thlai rawh.","Chuan lo tui rawh.","Chu hnuah thlai at rawh."]]},"items":[["Favang chhungin lo-ah hna ka thawk.","फावांग छुंगिन लो-आह ह्ना का थॉक।","मैं मौसम में खेत पर काम करता हूँ।","S","B"],["Hei hi thlai hun a ni.","हेइ हि थ्लाइ हुन आ नि।","यह बुवाई का समय है।","S","C"],["November-ah buh kan thlai.","नवंबर-आह बुह कन थ्लाइ।","हम नवंबर में गेहूँ बोते हैं।","S","B"],["Chi ṭha chuan rah ṭha a pe.","छि त्हा छुआन राह त्हा आ पे।","अच्छा बीज अच्छी फ़सल देता है।","S","C"],["License nei dawr-ah chi lei rawh.","लाइसेंस नेइ दॉर-आह छि लेइ रॉह।","बीज लाइसेंस वाली दुकान से खरीदो।","L","B"],["Chi leh fertilizer bill dah rawh.","छि लेह फर्टिलाइज़र बिल दाह रॉह।","बीज और खाद का बिल रखो।","L","B"],["Tlaithleng-ah lo-ah tui thun rawh.","त्लाइथ्लेंग-आह लो-आह तुइ थुन रॉह।","शाम को खेत में पानी दो।","L","B"],["Pump chu electricity-in a kal.","पम्प चु इलेक्ट्रिसिटी-इन आ कल।","पंप बिजली से चलता है।","S","C"],["Ruah a sur thei, buh khuh rawh.","रुआह आ सुर थेइ, बुह खुह रॉह।","बारिश हो सकती है, अनाज ढको।","L","B"],["Rah chu at tur in a siam zo.","राह चु आत तुर इन आ सिआम ज़ो।","फ़सल कटाई के लिए तैयार है।","S","C"],["Monday atangin at kan tan ang.","मंडे आतांगिन आत कन तान आंग।","हम सोमवार से कटाई शुरू करेंगे।","S","B"],["At tur mi thawk 20 an lo kal.","आत तुर मि थॉक २० आन लो कल।","कटाई के लिए बीस मज़दूर आए।","S","C"],["At hlawh chu ni khatah em a nih loh leh bigha khatah em?","आत ह्लॉह चु नि खताह एम आ निह लोह लेह बीघा खताह एम?","कटाई की मज़दूरी रोज़ की है या बीघे की?","S","B"],["Hna thawk hma ah fiah takin tiam rawh.","ह्ना थॉक ह्मा आह फिआह तकिन तिआम रॉह।","काम से पहले साफ़-साफ़ तय करो।","L","B"],["Tuni mandi man chu eng nge?","तुनि मंडी मान चु एंग ङ्गे?","आज मंडी का भाव क्या है?","S","A"],["Hmasain phone-ah man en rawh.","ह्मासाइन फोन-आह मान एन रॉह।","पहले फोन पर भाव देखो।","L","B"],["Mandi lian-ah man a tha zawk.","मंडी लिआन-आह मान आ था ज़ॉक।","बड़ी मंडी में भाव बेहतर है।","S","C"],["Ip te i hmaah tahna rawh.","इप ते इ ह्माआह ताह्ना रॉह।","बोरियाँ अपने सामने तौलवाओ।","L","B"],["Tahna lehkha leh hlawh lehkha la rawh.","ताह्ना लेह्खा लेह ह्लॉह लेह्खा ला रॉह।","तौल-पर्ची और भुगतान-पर्ची लो।","L","B"],["Chakna-in ni lo, man dikah zuar rawh.","छाक्ना-इन नि लो, मान दिकाह ज़ुआर रॉह।","जल्दबाज़ी में नहीं, सही भाव पर बेचो।","L","B"],["Buh chu hmun kang-ah dah rawh.","बुह चु ह्मुन कांग-आह दाह रॉह।","अनाज सूखी जगह रखो।","L","B"],["Chhuak-in buh dah tawh a tisual thei.","छुआक-इन बुह दाह तॉह आ तिसुआल थेइ।","चूहे रखा अनाज ख़राब कर सकते हैं।","L","B"],["Favang hnuah khawpui-ah hna atan ka kal.","फावांग ह्नुआह खावपुइ-आह ह्ना आतान का कल।","मौसम के बाद मैं काम के लिए शहर जाता हूँ।","S","B"],["Lo neih leh khawpui hna inkopin ka in a kalpui.","लो नेइह लेह खावपुइ ह्ना इनकोपिन का इन आ कलपुइ।","खेती और शहर का काम मिलकर मेरा घर चलाते हैं।","S","B"],["Mushroom thlah chuan lei tlem a mamawh.","मशरूम थ्लाह छुआन लेइ त्लेम आ ममॉह।","मशरूम की खेती को थोड़ी ज़मीन चाहिए।","S","C"],["Mahala online course-ah hei chungchang ka chhiar.","महाला ऑनलाइन कोर्स-आह हेइ छुंगछांग का छिआर।","मैंने मुफ़्त ऑनलाइन कोर्स में इसके बारे में पढ़ा।","S","B"],["Lo neih dan thar chuan hlawh a vawi hnihin a tisang thei.","लो नेइह दान थार छुआन ह्लॉह आ वावि ह्निहिन आ तिसांग थेइ।","नई खेती कमाई दोगुनी कर सकती है।","S","C"],["Thurin tur lo neitu helpline hnenah zawt rawh.","थुरिन तुर लो नेइतु हेल्पलाइन ह्नेनाह ज़वत रॉह।","सलाह के लिए किसान हेल्पलाइन से पूछो।","L","B"],["Lei chu kan nu a ni.","लेइ चु कन नु आ नि।","मिट्टी हमारी माँ है।","S","B"],["Thawhrim lak chuan ram buh an vawt.","थॉह्रिम लाक छुआन राम बुह आन ववत।","मेहनती हाथ देश का अन्न उगाते हैं।","S","C"]],"title":"खेत और मौसमी काम की बोली"},{"tw":[["kopana","कोपाना","मकान-मालिक","क"],["tumalano","तूमालानो","लिखा-पढ़ी","क"],["tjhelete","त्ज्हेलेते","जमा-राशि","क"],["thapo motlakase","थापो मोत्लाकासे","बिजली-तार","क"],["nee","नेए","अनजान","क"],["address","अद्द्रेस्स","पता","क"]],"drill":{"type":"yesNo","hi":"कमरा-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।","rows":[["Lock chu a tha em?","A tha e. / A tha lo."],["Wire khuh em?","A khuh e. / A khuh lo."]]},"items":[["Him room ka zawng mek.","हिम रूम का ज़ॉंग मेक।","मैं सुरक्षित कमरा खोज रहा हूँ।","S","A"],["Rent leh deposit chu engzat nge?","रेंट लेह डिपॉज़िट चु एंगज़त ङ्गे?","किराया और जमा-राशि कितनी है?","S","B"],["Deposit receipt la rawh.","डिपॉज़िट रिसीट ला रॉह।","जमा-राशि की रसीद लो।","L","B"],["Remna ziak fiah zawt rawh.","रेम्ना ज़िआक फिआह ज़वत रॉह।","सादी लिखा-पढ़ी माँगो।","L","A"],["Signature siam hma ah chhiar rawh.","सिग्नेचर सिआम ह्मा आह छिआर रॉह।","दस्तख़त से पहले पढ़ लो।","L","B"],["Dalal chauh ni lo, in neitu hmu rawh.","दलाल छाउह नि लो, इन नेइतु ह्मु रॉह।","सिर्फ़ दलाल से नहीं, मकान-मालिक से मिलो।","L","B"],["Room chu khawvel ni ah en rawh.","रूम चु खावेल नि आह एन रॉह।","कमरा दिन की रोशनी में देखो।","L","B"],["Kongka lock leh thlalet en rawh.","कोंगका लॉक लेह थ्लालेत एन रॉह।","दरवाज़े का ताला और खिड़की जाँचो।","L","A"],["Hetah tui thianghlim a awm em?","हेताह तुइ थिआंग्ह्लिम आ आउम एम?","क्या यहाँ साफ़ पानी है?","S","B"],["Inchhi na leh toilet khawiah nge?","इनछि ना लेह टॉइलेट खावियाह ङ्गे?","स्नानघर और शौचालय कहाँ है?","S","A"],["Room electricity wire en rawh.","रूम इलेक्ट्रिसिटी वायर एन रॉह।","कमरे के बिजली-तार जाँचो।","L","B"],["Wire hong hawng tawh chuan mei a tihchhuak thei.","वायर होंग हॉंग तॉह छुआन मेइ आ तिहछुआक थेइ।","पुराने खुले तार आग लगा सकते हैं।","L","B"],["In pawtna kawng hre rawh.","इन पॉत्ना कॉंग ह्रे रॉह।","इमारत का निकास-रास्ता जान लो।","L","B"],["Chemal thil hian thiba suh.","छेमाल थिल हिआन थिबा सुह।","सीढ़ियाँ सामान से मत रोको।","L","B"],["Chaw siam zoh hian gas tifim rawh.","छॉ सिआम ज़ोह हिआन गैस तिफिम रॉह।","खाना बनाकर गैस बंद करो।","L","B"],["Chhak a kang mekin mut suh.","छाक आ कांग मेकिन मुत सुह।","चूल्हा जलता छोड़कर मत सोओ।","L","B"],["Room chu hre tawh mi nen chauh abelana rawh.","रूम चु ह्रे तॉह मि नेन छाउह आबेलाना रॉह।","कमरा सिर्फ़ जान-पहचान वालों से बाँटो।","L","B"],["Hre lo mi zan-ah awmtir suh.","ह्रे लो मि ज़ान-आह आउम्तिर सुह।","अनजान को रात में मत ठहराओ।","L","B"],["Photocopy pe la, lehkha dik chu ngai lo.","फोटोकॉपी पे ला, लेह्खा दिक चु ङ्गाइ लो।","छायाप्रति दो, असली कागज़ कभी नहीं।","L","B"],["Photocopy-ah hna leh ni ziak rawh.","फोटोकॉपी-आह ह्ना लेह नि ज़िआक रॉह।","छायाप्रति पर काम और तारीख़ लिख दो।","L","B"],["Police verification form dik takin sian rawh.","पुलिस वेरिफिकेशन फॉर्म दिक तकिन सिआन रॉह।","पुलिस-सत्यापन फ़ॉर्म सच-सच भरो।","L","A"],["In neitu number phone-ah dah rawh.","इन नेइतु नम्बर फोन-आह दाह रॉह।","मकान-मालिक का नंबर फोन में रखो।","L","B"],["I address feleng in mite hnenah thawn rawh.","इ एड्रेस फेलेंग इन मिते ह्नेनाह थॉन रॉह।","अपना पूरा पता घरवालों को भेज दो।","L","A"],["Ṭhenawm te hming hre rawh.","थ्हेनॉम ते ह्मिंग ह्रे रॉह।","पड़ोसियों को नाम से जानो।","L","B"],["A la lutuk hma ah kir leh rawh.","आ ला लुतुक ह्मा आह किर लेह रॉह।","बहुत देर होने से पहले लौट आओ।","L","B"],["Sum tlem hmun pahnih-ah dah rawh.","सुम त्लेम ह्मुन पह्निह-आह दाह रॉह।","थोड़े पैसे दो जगह रखो।","L","B"],["Thla tin rent receipt la rawh.","थ्ला तिन रेंट रिसीट ला रॉह।","हर महीने किराये की रसीद लो।","L","B"],["Ni khatnaah meter sim ziak rawh.","नि खत्नाआह मीटर सिम ज़िआक रॉह।","पहले दिन मीटर की गिनती लिख लो।","L","B"],["Room him chuan mut tha a pe.","रूम हिम छुआन मुत था आ पे।","सुरक्षित कमरा अच्छी नींद देता है।","S","C"],["Hmun him, hna chak.","ह्मुन हिम, ह्ना छाक।","सुरक्षित ठिकाना, मज़बूत काम।","S","A"]],"title":"परदेश में सुरक्षित ठिकाना (कमरा-सुरक्षा)"},{"tw":[["card","चार्द","श्रमिक कार्ड","ख"],["hesiboe","हेसीबोए","हेल्पलाइन","ख"],["lenaneo","लेनानेओ","योजना","ख"],["mahala","माहाला","मुफ़्त","क"],["dikna","दीक्ना","हक़","ख"],["kgetse","क्गेत्से","शिकायत","ख"]],"drill":{"type":"numberSay","hi":"ज़रूरी नंबर बोलो — अंक सुनो, Mizo ṭawngin sawi rawh।","rows":[["112","zakhat le sawmhnih"],["108","zakhat le sarih"],["1930","sangkhat le zahnih le sawmthum"]]},"items":[["I mi thawk card siam rawh.","इ मि थॉक कार्ड सिआम रॉह।","अपना श्रमिक कार्ड बनवाओ।","L","B"],["e-Shram card mahala a siam.","e-Shram कार्ड महाला आ सिआम।","ई-श्रम कार्ड मुफ़्त बनता है।","L","A"],["Hei hi Aadhar leh mobile-in a siam.","हेइ हि आधार लेह मोबाइल-इन आ सिआम।","यह आधार और मोबाइल से बनता है।","L","B"],["Form chu online center-ah sian a ni.","फॉर्म चु ऑनलाइन सेंटर-आह सिआन आ नि।","फ़ॉर्म ऑनलाइन-केंद्र पर भरा जाता है।","L","B"],["Mahala card atan sum tam pe suh.","महाला कार्ड आतान सुम तम पे सुह।","मुफ़्त कार्ड के लिए ज़्यादा पैसे मत दो।","L","B"],["Sorkar thiltih chuan mi thawk retheih te an ṭanpui.","सोर्कार थिल्तिह छुआन मि थॉक रेथेइह ते आन त्हानपुइ।","सरकारी योजनाएँ ग़रीब मज़दूरों की मदद करती हैं।","S","B"],["Thiltih chungchang block office-ah zawt rawh.","थिल्तिह छुंगछांग ब्लॉक ऑफिस-आह ज़वत रॉह।","योजना के बारे में प्रखंड-दफ़्तर में पूछो।","L","B"],["I lehkha te folder khatah dah rawh.","इ लेह्खा ते फोल्डर खताह दाह रॉह।","अपने कागज़ एक फ़ोल्डर में रखो।","L","B"],["Aadhar, bank passbook leh photo chu lehkha pawimawh a ni.","आधार, बैंक पासबुक लेह फोटो चु लेह्खा पॉइमॉह आ नि।","आधार, बैंक-पासबुक और फोटो मुख्य कागज़ हैं।","L","B"],["Ka fanu chuan scholarship a dawng.","का फानु छुआन स्कॉलरशिप आ दॉंग।","मेरी बेटी को छात्रवृत्ति मिली।","S","B"],["Ration dawr chu hun takin a hong.","रेशन दॉर चु हुन तकिन आ होंग।","राशन दुकान समय पर खुलती है।","S","C"],["Ration tahna en rawh.","रेशन ताह्ना एन रॉह।","राशन का तौल जाँचो।","L","B"],["Tahna a tlem em? Phawrh rawh.","ताह्ना आ त्लेम एम? फॉर्ह रॉह।","तौल कम? शिकायत करो।","L","B"],["Phawrhna chu i dikna a ni, indonna a ni lo.","फॉर्ह्ना चु इ दिक्ना आ नि, इन्दोन्ना आ नि लो।","शिकायत आपका हक़ है, झगड़ा नहीं।","S","B"],["Helpline number ziak rawh.","हेल्पलाइन नम्बर ज़िआक रॉह।","हेल्पलाइन नंबर लिख लो।","L","B"],["Harsatna eng pawh a awm chuan 112 letsa rawh.","हर्सत्ना एंग पॉह आ आउम छुआन ११२ लेत्सा रॉह।","किसी भी आपात में एक सौ बारह मिलाओ।","L","A"],["Ambulance number chu 108 a ni.","एम्बुलेंस नम्बर चु १०८ आ नि।","एम्बुलेंस का नंबर एक सौ आठ है।","L","A"],["Health card chuan tihdam mahala a pe.","हेल्थ कार्ड छुआन तिह्दाम महाला आ पे।","स्वास्थ्य कार्ड मुफ़्त इलाज देता है।","L","B"],["Card chungchang damdawi-in fensetere-ah zawt rawh.","कार्ड छुंगछांग दामदावि-इन फेंसेतेरे-आह ज़वत रॉह।","कार्ड के बारे में अस्पताल की खिड़की पर पूछो।","L","A"],["Lehkha hawngtlang-ah signature siam suh.","लेह्खा हॉंगत्लांग-आह सिग्नेचर सिआम सुह।","ख़ाली कागज़ पर दस्तख़त मत करो।","L","B"],["Signature siam hma ah chhiar la em a nih loh chhiarsak teh.","सिग्नेचर सिआम ह्मा आह छिआर ला एम आ निह लोह छिआर्साक तेह।","दस्तख़त से पहले पढ़ो या पढ़वाओ।","L","B"],["I ku pawh i signature a ni.","इ कु पॉह इ सिग्नेचर आ नि।","आपका अँगूठा भी आपका दस्तख़त है।","L","B"],["Tiam hlawh aia tlem chu a dik lo.","तिआम ह्लॉह आइआ त्लेम चु आ दिक लो।","तय दर से कम मज़दूरी ग़लत है।","L","B"],["Inkopin sawi rawh, inkopin zawt rawh.","इनकोपिन सावि रॉह, इनकोपिन ज़वत रॉह।","मिलकर बात करो, मिलकर माँगो।","L","B"],["Labour office chuan mi thawk te thu an ngaithla.","लेबर ऑफिस छुआन मि थॉक ते थु आन ङ्गाइथ्ला।","श्रम-दफ़्तर मज़दूरों की सुनता है।","S","C"],["I hna ni te finna dah rawh.","इ ह्ना नि ते फिन्ना दाह रॉह।","अपने काम के दिनों का सबूत रखो।","L","B"],["Hna hmun photo chu finna a ni thei.","ह्ना ह्मुन फोटो चु फिन्ना आ नि थेइ।","काम की जगह की फोटो सबूत बन सकती है।","L","B"],["Dan chu mi thawk rinawm nen a awm.","दान चु मि थॉक रिनॉम नेन आ आउम।","कानून ईमानदार मज़दूर के साथ है।","S","C"],["Thiltih hre la, thiltih hlutna la rawh.","थिल्तिह ह्रे ला, थिल्तिह ह्लुत्ना ला रॉह।","योजना जानो, योजना का लाभ लो।","L","B"],["Mi thawk hriatchian chu mi thawk chak a ni.","मि थॉक ह्रिआत्छिआन चु मि थॉक छाक आ नि।","जागरूक मज़दूर मज़बूत मज़दूर है।","S","C"]],"title":"सरकारी मदद और मज़दूर के हक़"}],"test":{"target":"Lät thawkpui a thleng ṭhian (phone hmangin)","goal":"Mizo ṭawngin dintlha pathum sawi himna chungchangah, mi thawk card chungchang hril, maikhutso a mamawh.","lines":[["Lock le wire en rawh.","लॉक ले वायर एन रॉह।"],["Remna ziak tlhamalalo kop teh.","रेम्ना ज़िआक त्लामालालो कोप तेह।"],["I address feleng chhungkua hnenah thawn rawh.","इ एड्रेस फेलेंग छुंगकुआ ह्नेनाह थॉन रॉह।"],["Tshoganetso tin ah zakhat le sawmhnih ko rawh.","त्शोगानेत्सो तिन आह ज़खत ले सावम्ह्निह को रॉह।"],["e-Shram card chu mahalain siam a ni.","e-Shram कार्ड चु महालाइन सिआम आ नि।"],["Himna hmun, lät chak.","हिम्ना ह्मुन, लात छाक।"]]},"listen":[["(ngaithla) Khawiah nge i thawk?","(chhang) Tah line ah ka thawk."],["(ngaithla) Phaposi a him em?","(chhang) A him e, lock le wire ka en zo."]],"dialog":[["Nangma","Rent chu engnge?"],["In neitu","Sangli, tui pawh tel."],["Nangma","Remna ziak tlhamalalo ka duh."],["In neitu","A ṭha e, naktuk thleng rawh."],["Nangma","Ka lawm e."]]},{"n":8,"title":"Interview, Report and My Story","hi":"इंटरव्यू, रिपोर्ट और मेरी कहानी","pace":30,"days":[{"tw":[["kopo","कोपो","आवेदन करना","ख"],["boife","बोइफ़े","आत्मविश्वासी","ख"],["motlhokomedi","मोत्ल्होकोमेदी","मेहनती","ख"],["motlhokomedi","मोत्ल्होकोमेदी","ईमानदार","क"],["suresh","सूरेश","हवाला","ख"],["leka","लेका","परख","ख"]],"drill":{"type":"showTell","hi":"इंटरव्यू-परिचय — तीन वाक्य में अपनी बात बोलो।","rows":[["Chibai pu, ___ ka ni ka sawi mek.","Kum ___ a maitemogelo ka nei.","Ni khat emaw hmai ah inbiak ka inpeih."]]},"items":[["WhatsApp-ah i hna thuziak ka hmu.","व्हाट्सऐप-आह इ ह्ना थुज़िआक का ह्मु।","मैंने व्हाट्सऐप पर आपकी नौकरी की ख़बर देखी।","S","B"],["Welder hna atan ngenna ka siam duh.","वेल्डर ह्ना आतान ङ्गेन्ना का सिआम दुह।","मैं वेल्डर पद के लिए आवेदन करना चाहता हूँ।","S","A"],["Chibai pu, Ramesh ka ni, ka sawi mek.","चिबाइ पु, रमेश का नि, का सावि मेक।","सुप्रभात सर, मैं रमेश बोल रहा हूँ।","S","A"],["Tunah sawi hi a tha ang em?","तुनाह सावि हि आ त्हा आंग एम?","क्या अभी बात करना ठीक रहेगा?","S","B"],["I chungchang sawi teh.","इ छुंगछांग सावि तेह।","कृपया अपने बारे में बताइए।","L","B"],["Bihar atangin ka lo kal a, fitter ka ni.","बिहार आतांगिन का लो कल आ, फिटर का नि।","मैं बिहार से हूँ और फिटर हूँ।","S","A"],["Company pahnih-ah hna ka thawk tawh.","कंपनी पह्निह-आह ह्ना का थॉक तॉह।","मैंने दो कंपनियों में काम किया है।","S","A"],["Thawhrim leh rinawm ka ni.","थॉह्रिम लेह रिनॉम का नि।","मैं मेहनती और ईमानदार हूँ।","S","A"],["Hna thar chakin ka zir.","ह्ना थार छाकिन का ज़िर।","मैं नया काम जल्दी सीखता हूँ।","S","B"],["Engtik hun pawh hun takin ka lo kal.","एंगतिक हुन पॉह हुन तकिन का लो कल।","मैं हमेशा समय पर आता हूँ।","S","B"],["Map fiah ka chhiar thei.","मैप फिआह का छिआर थेइ।","मैं सादे नक़्शे पढ़ सकता हूँ।","S","A"],["Mizo ṭawng fiah ka sawi thei.","मिज़ो तॉंग फिआह का सावि थेइ।","मैं सादी मिज़ो बोल सकता हूँ।","S","A"],["Tawite maiin sawi teh, ka hria ang.","तावित माइन सावि तेह, का ह्रिया आंग।","धीरे बोलिए, मैं समझ लूँगा।","S","B"],["Engati nge hna hmasa i chhuah?","एंगति ङ्गे ह्ना ह्मासा इ छुआह?","आपने पिछला काम क्यों छोड़ा?","L","B"],["Chu site hna chu a zawh ta.","चु साइट ह्ना चु आ ज़ॉह ता।","वहाँ साइट का काम पूरा हो गया था।","S","C"],["Certificate i nei em?","सर्टिफिकेट इ नेइ एम?","क्या आपके पास कोई प्रमाणपत्र है?","L","B"],["Aw, welding certificate ka nei.","आउ, वेल्डिंग सर्टिफिकेट का नेइ।","हाँ, मेरे पास वेल्डिंग का प्रमाणपत्र है।","S","B"],["Tunah a photo ka thawn thei.","तुनाह आ फोटो का थॉन थेइ।","मैं अभी उसकी फोटो भेज सकता हूँ।","S","A"],["Tu nge kan chungchang min hrilh?","तु ङ्गे कन छुंगछांग मिन ह्रिल्ह?","आपको हमारे बारे में किसने बताया?","L","B"],["I karigar kgale Suresh chu ka reference a ni.","इ करिगर ख्गाले सुरेश चु का रेफरेंस आ नि।","आपके पुराने कारीगर सुरेश मेरा हवाला हैं।","S","B"],["Zan shift-ah i thawk thei em?","ज़ान शिफ्ट-आह इ थॉक थेइ एम?","क्या आप रात की पारी में काम कर सकते हैं?","L","B"],["Aw pu, zan shift chu a tha.","आउ पु, ज़ान शिफ्ट चु आ त्हा।","हाँ सर, रात की पारी मुझे ठीक है।","S","A"],["Kilo 20 ip i put thei em?","किलो २० इप इ पुत थेइ एम?","क्या आप बीस किलो की बोरियाँ उठा सकते हैं?","L","B"],["Aw, ni tin ka ti.","आउ, नि तिन का ति।","हाँ, मैं रोज़ करता हूँ।","S","B"],["Inring in awm la, hlau suh.","इनरिंग इन आउम ला, ह्लाउ सुह।","आत्मविश्वास रखो, डरो मत।","L","B"],["Chi hnih ngaihtuah la, chuan chhang rawh.","छि ह्निह ङ्गाइह्तुआह ला, छुआन छांग रॉह।","दो पल सोचो, फिर जवाब दो।","L","B"],["Chhang te leh dik chuan an hlawhtling.","छांग ते लेह दिक छुआन आन ह्लॉह्तलिंग।","छोटे और सच्चे जवाब जीतते हैं।","S","C"],["Neitu kgale sual sawi suh.","नेइतु ख्गाले सुआल सावि सुह।","पुराने मालिक की बुराई मत करो।","L","B"],["Pu, inbiak avangin ka lawm e.","पु, इनबिआक आवांगिन का लॉम ए।","सर, बात करने के लिए धन्यवाद।","S","A"],["Ni engkim parakh atan ka inpeih.","नि एंगकिम परख आतान का इनपेइह।","मैं किसी भी दिन परख के लिए तैयार हूँ।","S","B"]],"title":"फ़ोन-इंटरव्यू (अपनी बात रखना)"},{"tw":[["potso","पोत्सो","सवाल","क"],["mese","मेसे","महीने का","ख"],["kwaletse","क्वालेत्से","समय","ख"],["hmun","ह्मून","जगह","ख"],["netefatsa","नेतेफ़ात्सा","पक्का करना","ख"],["phone","फोने","वापस फोन","ख"]],"drill":{"type":"dialogueFill","hi":"वेतन-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Nangma: Thla khat moputso chu engnge?","Pu: Sangli le zahnih."],["Nangma: Sontaga chu maikhutso ni em?","Pu: E, Sontaga maikhutso a ni."]]},"items":[["Pu, zawhna pahnih ka zawt thei em?","पु, ज़ॉह्ना पह्निह का ज़वत थेइ एम?","सर, क्या मैं दो सवाल पूछ सकता हूँ?","S","B"],["Thla hlawh chu eng nge?","थ्ला ह्लॉह चु एंग ङ्गे?","महीने का वेतन क्या है?","S","A"],["Hlawh chu tiam em a nih loh leh nga angin em?","ह्लॉह चु तिआम एम आ निह लोह लेह ङ्गा आंगिन एम?","वेतन बँधा है या नग के हिसाब से?","S","B"],["Duty hun chu eng nge?","ड्यूटी हुन चु एंग ङ्गे?","ड्यूटी का समय क्या है?","S","A"],["Duty chu dar pakua atanga dar paruk a ni.","ड्यूटी चु दार पकुआ आतांगा दार परुक आ नि।","ड्यूटी नौ से छह है।","L","B"],["Pathianni chawlh ni a ni em?","पथियन्नि छॉल्ह नि आ नि एम?","क्या रविवार छुट्टी है?","S","B"],["Hna hmun chu khawiah nge?","ह्ना ह्मुन चु खावियाह ङ्गे?","काम की जगह कहाँ है?","S","A"],["Hmun WhatsApp-ah thawn teh.","ह्मुन व्हाट्सऐप-आह थॉन तेह।","कृपया जगह व्हाट्सऐप पर भेज दीजिए।","S","A"],["Awm na a awm em?","आउम ना आ आउम एम?","क्या रहने की सुविधा है?","S","B"],["Room mahala, chaw chu nangmah.","रूम महाला, छॉ चु नांग्माह।","कमरा मुफ़्त, खाना आपका।","L","B"],["Hlawh chu engtikah nge a lo thleng?","ह्लॉह चु एंगतिकाह ङ्गे आ लो थ्लेंग?","वेतन कब मिलता है?","S","B"],["Hlawh chu ni sarih thleng a lo thleng.","ह्लॉह चु नि सरिह थ्लेंग आ लो थ्लेंग।","वेतन सात तारीख़ तक आ जाता है।","L","B"],["Bank account-ah a lo thleng em?","बैंक अकाउंट-आह आ लो थ्लेंग एम?","क्या यह बैंक खाते में आता है?","S","B"],["Aw, hlawh pumpelh account-ah.","आउ, ह्लॉह पुमपेल्ह अकाउंट-आह।","हाँ, पूरा वेतन खाते में।","L","B"],["Hei hi ka tan a tha.","हेइ हि का तान आ त्हा।","यह मेरे लिए अच्छा है।","S","B"],["Engtikah atangin nge i lo kal thei?","एंगतिकाह आतांगिन ङ्गे इ लो कल थेइ?","आप कब से आ सकते हैं?","L","B"],["Monday atangin ka lo kal thei.","मंडे आतांगिन का लो कल थेइ।","मैं सोमवार से आ सकता हूँ।","S","A"],["Hmasain ni khat parakh atan lo kal rawh.","ह्मासाइन नि खत परख आतान लो कल रॉह।","पहले एक दिन की परख पर आओ।","L","B"],["Ngeih takin pu, naktuk dar pakua-ah ka lo kal ang.","ङ्गेइह तकिन पु, नक्तुक दार पकुआ-आह का लो कल आंग।","ज़रूर सर, मैं कल नौ बजे आऊँगा।","S","B"],["Hei number hian tiam min siam teh.","हेइ नम्बर हिआन तिआम मिन सिआम तेह।","कृपया इसी नंबर पर पक्का कर दीजिए।","S","A"],["Tlaithleng thleng ka ko leh ang.","त्लाइथ्लेंग थ्लेंग का को लेह आंग।","मैं शाम तक वापस फोन करूँगा।","L","B"],["I phone i la loh chuan ka ko leh ang.","इ फोन इ ला लोह छुआन का को लेह आंग।","आपका फोन छूट जाए तो मैं फिर करूँगा।","S","B"],["Ka number ziak rawh.","का नम्बर ज़िआक रॉह।","कृपया मेरा नंबर लिख लीजिए।","S","B"],["Ka number message-ah a awm.","का नम्बर मेसेज-आह आ आउम।","मेरा नंबर संदेश में है।","S","B"],["Aw tih hma ah zawng zawng zawt rawh.","आउ तिह ह्मा आह ज़ॉंग ज़ॉंग ज़वत रॉह।","हाँ कहने से पहले सब पूछ लो।","L","B"],["Zawhna fiah zawtna chu zahthlâk a ni lo.","ज़ॉह्ना फिआह ज़वत्ना चु ज़ह्थ्लाक आ नि लो।","साफ़ सवाल पूछना शर्म नहीं है।","S","C"],["Ko tu hming ziak rawh.","को तु ह्मिंग ज़िआक रॉह।","फोन करने वाले का नाम लिख लो।","L","B"],["Zanah hmun hre lo-ah changkhat hian kal suh.","ज़ानाह ह्मुन ह्रे लो-आह छांगखत हिआन कल सुह।","रात में अनजान जगह अकेले मत जाओ।","L","B"],["Parakh kal hma ah ṭhian hnenah hrilh rawh.","परख कल ह्मा आह थ्यान ह्नेनाह ह्रिल्ह रॉह।","परख पर जाने से पहले किसी दोस्त को बता दो।","L","B"],["Zawhna ṭha chu karigar fing hriatna a ni.","ज़ॉह्ना त्हा चु करिगर फिंग ह्रिआत्ना आ नि।","अच्छे सवाल समझदार कारीगर की पहचान हैं।","S","C"]],"title":"इंटरव्यू में सवाल पूछना (वेतन-समय-जगह)"},{"tw":[["setshwantsho","सेच्वान्त्शो","फोटो-रिपोर्ट","ख"],["hnu","ह्नू","पहले-बाद","ख"],["setlhopheng","सेत्ल्होफेङ","समूह","ख"],["fetisetse","फ़ेतीसेत्से","आगे भेजना","ख"],["phimola","फीमोला","मिटाना","ख"],["molaetsa","मोलाएत्सा","आवाज़-संदेश","ख"]],"drill":{"type":"orderSteps","hi":"रिपोर्ट का क्रम — Pele, Morago, Morago ga moo लगाकर बोलो।","rows":[["Hmasain mel tha setshwantshi lak rawh.","Chuan mola khat ziak rawh.","Chu hnuah pu hnenah thawn rawh."]]},"items":[["Pu chuan photo report a zawt.","पु छुआन फोटो रिपोर्ट आ ज़वत।","सर ने फोटो-रिपोर्ट माँगी।","S","B"],["Hna hma ah photo tang rawh.","ह्ना ह्मा आह फोटो तांग रॉह।","काम से पहले फोटो लो।","L","B"],["Hna hnuah photo pahnihna tang rawh.","ह्ना ह्नुआह फोटो पह्निह्ना तांग रॉह।","काम के बाद दूसरी फोटो लो।","L","B"],["Hma leh hnu photo chuan i hna an entir.","ह्मा लेह ह्नु फोटो छुआन इ ह्ना आन एंतिर।","पहले-बाद की फोटो आपका काम दिखाती हैं।","S","B"],["Photo tang hma ah lens phiah rawh.","फोटो तांग ह्मा आह लेंस फिआह रॉह।","फोटो से पहले लेंस पोंछ लो।","L","B"],["Khawvak tha-ah photo tang rawh.","खाववाक त्हा-आह फोटो तांग रॉह।","अच्छी रोशनी में फोटो लो।","L","B"],["Photo fiah chuan amah a sawipui.","फोटो फिआह छुआन अमाह आ सावीपुइ।","साफ़ फोटो ख़ुद बोलती है।","S","C"],["Group-ah photo panga ka thawn.","ग्रुप-आह फोटो पांगा का थॉन।","मैंने समूह में पाँच फोटो भेजीं।","S","B"],["Photo nen ziarkam khat ziak rawh.","फोटो नेन ज़िआर्काम खत ज़िआक रॉह।","फोटो के साथ एक पंक्ति लिखो।","L","B"],["Kongka hna a zawh, tuni nga sawm.","कोंगका ह्ना आ ज़ॉह, तुनि ङ्गा सावम।","गेट का काम पूरा, आज दस नग।","S","C"],["Pu chuan ka report a duh.","पु छुआन का रिपोर्ट आ दुह।","सर को मेरी रिपोर्ट पसंद आई।","S","B"],["Report chu ni tin hun khatah thawn rawh.","रिपोर्ट चु नि तिन हुन खताह थॉन रॉह।","रिपोर्ट रोज़ एक ही समय भेजो।","L","B"],["Ni tin tlaithleng dar paruk-ah ka thawn.","नि तिन त्लाइथ्लेंग दार परुक-आह का थॉन।","मैं रोज़ शाम छह बजे भेजता हूँ।","S","B"],["Office photo chu pawn lamah thawn suh.","ऑफिस फोटो चु पॉन लामाह थॉन सुह।","दफ़्तर की फोटो बाहर आगे मत भेजो।","L","B"],["Hmun ṭhenkhatah photo tang phal lo.","ह्मुन थ्हेनखताह फोटो तांग फाल लो।","कुछ जगहों पर फोटो मना होती है।","L","B"],["Photo tang hma ah zawt rawh.","फोटो तांग ह्मा आह ज़वत रॉह।","वहाँ फोटो लेने से पहले पूछो।","L","B"],["Zawt lovin mi photo tang ngai suh.","ज़वत लोविन मि फोटो तांग ङ्गाइ सुह।","बिना पूछे किसी व्यक्ति की फोटो कभी मत लो।","L","B"],["Photo shut lawkin paih rawh.","फोटो शुत लॉकिन पाइह रॉह।","ग़लत फोटो तुरंत मिटाओ।","L","B"],["Ka phone hmun a khat.","का फोन ह्मुन आ खत।","मेरे फोन की जगह भर गई है।","S","B"],["Video kgale paih la, hna photo dah rawh.","विडियो ख्गाले पाइह ला, ह्ना फोटो दाह रॉह।","पुराने वीडियो मिटाओ, काम की फोटो रखो।","L","B"],["Hna photo folder ka siam.","ह्ना फोटो फोल्डर का सिआम।","मैंने काम की फोटो का फ़ोल्डर बनाया।","S","B"],["Hei photo te hi ka hna finna a ni.","हेइ फोटो ते हि का ह्ना फिन्ना आ नि।","ये फोटो मेरे काम का सबूत हैं।","S","B"],["Pu hnenah aw message ka thawn.","पु ह्नेनाह आउ मेसेज का थॉन।","मैंने सर को आवाज़-संदेश भेजा।","S","B"],["Aw message-ah tawite leh fiah takin sawi rawh.","आउ मेसेज-आह तावित लेह फिआह तकिन सावि रॉह।","आवाज़-संदेश में छोटा और साफ़ बोलो।","L","B"],["Pu, ka aw message ngaithla teh.","पु, का आउ मेसेज ङ्गाइथ्ला तेह।","सर, कृपया मेरा आवाज़-संदेश सुन लीजिए।","S","B"],["A ṭha chuan tick thawn teh.","आ त्हा छुआन टिक थॉन तेह।","ठीक हो तो टिक भेज दीजिए।","S","C"],["Pu hnenah ka live location ka thawn.","पु ह्नेनाह का लाइव लोकेशन का थॉन।","मैंने सर को अपनी लाइव जगह भेजी।","S","B"],["Location chu rinawm mi hnenah chauh thawn rawh.","लोकेशन चु रिनॉम मि ह्नेनाह छाउह थॉन रॉह।","जगह सिर्फ़ भरोसे वालों को भेजो।","L","B"],["Report ṭha chuan hming ṭha a siam.","रिपोर्ट त्हा छुआन ह्मिंग त्हा आ सिआम।","अच्छी रिपोर्ट अच्छा नाम बनाती है।","S","C"],["Kutah phone, kutah finna.","कुताह फोन, कुताह फिन्ना।","हाथ में फोन, हाथ में सबूत।","S","C"]],"title":"काम की फोटो-रिपोर्ट (व्हाट्सऐप पर)"},{"tw":[["setei","सेतेइ","रेलवे स्टेशन","ग"],["sim","सीम","सिम","ग"],["tlatso","त्लात्सो","रिचार्ज","ग"],["nkgwa","न्क्ग्वा","नक़्शा","ग"],["mese","मेसे","भोजनालय","ख"],["tlhoma","त्ल्होमा","जमना","क"]],"drill":{"type":"soundFamily","hi":"आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।","rows":[["lät","lät dangte","lät mi"],["suala","suala te","suala lo"]]},"items":[["Train-in khawpui ka thleng.","ट्रेन-इन खावपुइ का थ्लेंग।","मैं ट्रेन से शहर पहुँचा।","S","B"],["Railway station-ah ṭhian ka hmu.","रेलवे स्टेशन-आह थ्यान का ह्मु।","दोस्त मुझे रेलवे स्टेशन पर मिला।","S","B"],["Ni khatnaah ip hmai lamah dah rawh.","नि खत्नाआह इप ह्माइ लामाह दाह रॉह।","पहले दिन थैला आगे रखो।","L","B"],["Dalal hre lo hnenah ṭanpuina la suh.","दलाल ह्रे लो ह्नेनाह त्हानपुइना ला सुह।","अनजान दलालों से मदद मत लो।","L","B"],["Aadhar-in SIM thar ka la.","आधार-इन सिम थार का ला।","मैंने आधार से नई सिम ली।","S","B"],["SIM chu dar hnih chhungin a thawk ta.","सिम चु दार ह्निह छुंगिन आ थॉक ता।","सिम दो घंटे में चालू हो गई।","S","C"],["Rupee 200 recharge ka ti.","रुपी २०० रीचार्ज का ति।","मैंने दो सौ का रिचार्ज किया।","S","B"],["Number thar in-ah ka thawn.","नम्बर थार इन-आह का थॉन।","मैंने नया नंबर घर भेज दिया।","S","B"],["Ni pahnihnaah ṭhian nen room ka hmu.","नि पह्निह्नाआह थ्यान नेन रूम का ह्मु।","दूसरे दिन दोस्त के साथ कमरा मिला।","S","B"],["Hmasain room chu ni khawvak-ah ka en.","ह्मासाइन रूम चु नि खाववाक-आह का एन।","मैंने पहले कमरा दिन की रोशनी में जाँचा।","S","B"],["Ni thumnaah dawrkan man tlem-ah ka ei.","नि थुम्नाआह दॉर्कान मान त्लेम-आह का एइ।","तीसरे दिन मैंने सस्ते भोजनालय में खाया।","S","B"],["Thla dawrkan chu hotel aiin a man tlem zawk.","थ्ला दॉर्कान चु होटल आइइन आ मान त्लेम ज़ॉक।","महीने का भोजनालय होटल से सस्ता है।","S","C"],["Phone map-ah kawng ka zir.","फोन मैप-आह कॉंग का ज़िर।","मैंने फोन के नक़्शे पर रास्ता सीखा।","S","B"],["Map chuan bus number pawh a entir.","मैप छुआन बस नम्बर पॉह आ एंतिर।","नक़्शा बस नंबर भी दिखाता है।","S","C"],["Ni palinaah hna parakh-ah ka kal.","नि पलिनाआह ह्ना परख-आह का कल।","चौथे दिन मैं काम की परख पर गया।","S","B"],["Minute 30 hma in ka thleng.","मिनिट ३० ह्मा इन का थ्लेंग।","मैं तीस मिनट पहले पहुँचा।","S","B"],["Neitu chuan ka hna a duh.","नेइतु छुआन का ह्ना आ दुह।","मालिक को मेरा काम पसंद आया।","S","B"],["Ni pangananaah hna thar ka thawk tan.","नि पंगानानाआह ह्ना थार का थॉक तान।","पाँचवें दिन मैंने नया काम शुरू किया।","S","B"],["Man leh hun chu ka notebook-ah ka ziak.","मान लेह हुन चु का नोटबुक-आह का ज़िआक।","मैंने दर और समय अपनी कॉपी में लिखा।","S","B"],["Ni parukna-ah thla dawrkan ka tiam.","नि परुक्ना-आह थ्ला दॉर्कान का तिआम।","छठे दिन मैंने महीने का भोजनालय तय किया।","S","B"],["Damdawi-in leh police station naih ka en tawh.","दामदावि-इन लेह पुलिस स्टेशन नाइह का एन तॉह।","मैंने पास का अस्पताल और पुलिस चौकी देख ली।","S","A"],["Ni sarihnaah in-ah thuziak feleng nen ka ko.","नि सरिह्नाआह इन-आह थुज़िआक फेलेंग नेन का को।","सातवें दिन मैंने घर पूरी ख़बर के साथ फोन किया।","S","B"],["Nu a lawm a, kachyi mi a tap.","नु आ लॉम आ, कच्यि मि आ ताप।","माँ खुश हुईं और थोड़ा रोईं।","S","C"],["Week khatin khawpui chu ka ta deuh ta.","वीक खतिन खावपुइ चु का ता देउह ता।","एक हफ़्ते में शहर थोड़ा अपना हो गया।","S","C"],["Tawite maiin hetah ka hong awm chak ang.","तावित माइन हेताह का होंग आउम छाक आंग।","धीरे-धीरे मैं यहाँ जम जाऊँगा।","S","B"],["Kawngkal ticket leh lehkha dah rawh.","कॉंगकल टिकट लेह लेह्खा दाह रॉह।","सफ़र की टिकट और कागज़ रखो।","L","B"],["Hming sawm zir rawh: kawng, dawr, dawn na.","ह्मिंग सावम ज़िर रॉह: कॉंग, दॉर, दॉन ना।","दस नाम सीखो: सड़क, दुकान, पड़ाव।","L","B"],["Kawng hre tawh chu kawng him a ni.","कॉंग ह्रे तॉह चु कॉंग हिम आ नि।","जाना-पहचाना रास्ता सुरक्षित रास्ता है।","S","C"],["Week khatna a har, thla khatna a awlsam.","वीक खत्ना आ हार, थ्ला खत्ना आ आउल्साम।","पहला हफ़्ता कठिन, पहला महीना आसान।","S","C"],["Khawpui lian tin chu ni khatna atangin a hong tan.","खावपुइ लिआन तिन चु नि खत्ना आतांगिन आ होंग तान।","हर बड़ा शहर पहले दिन से शुरू होता है।","S","C"]],"title":"नए शहर के पहले सात दिन"},{"tw":[["bosupi","बोसूपी","सबूत","ख"],["himna","हीम्ना","सुरक्षा","ख"],["tsholeditswe","चोलेदीत्स्वे","तरक्की","ख"],["ti sum","ती सूम","कमाना","ख"],["setlhopha","सेत्ल्होफा","टीम","ख"],["fetoga","फ़ेतोगा","कहानी","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka jalo या mme लगाकर दो बातें एक वाक्य में बोलो।","rows":[["Sekgoa ka zir, lät ṭha ka hmu.","Sekgoa ka zir avangin lät ṭha ka hmu."],["Lät a har a, ka dawt lo.","Lät a har mahse ka dawt lo."]]},"items":[["Zirna thla hnih a zo.","ज़िर्ना थ्ला ह्निह आ ज़ो।","सीखने के दो महीने पूरे हुए।","S","C"],["Tunah ka hna chungchang Mizo ṭawngin ka sawi thei.","तुनाह का ह्ना छुंगछांग मिज़ो तॉंगिन का सावि थेइ।","अब मैं अपने काम की बात मिज़ो में कर सकता हूँ।","S","B"],["Zalhlui phone interview ka siam.","ज़ल्ह्लुइ फोन इंटरव्यू का सिआम।","मैंने पिछले हफ़्ते फोन-इंटरव्यू दिया।","S","B"],["Hlawh leh hun fiah takin ka zawt.","ह्लॉह लेह हुन फिआह तकिन का ज़वत।","मैंने वेतन और समय साफ़-साफ़ पूछा।","S","B"],["Neitu chuan ka Mizo a hong tha zawk tiin a sawi.","नेइतु छुआन का मिज़ो आ होंग त्हा ज़ॉक तिइन आ सावि।","मालिक ने कहा मेरी मिज़ो सुधर रही है।","S","B"],["Ni tin ka photo report ka thawn.","नि तिन का फोटो रिपोर्ट का थॉन।","मैं रोज़ अपनी फोटो-रिपोर्ट भेजता हूँ।","S","B"],["Ka hna notebook-ah ni tin finna a awm.","का ह्ना नोटबुक-आह नि तिन फिन्ना आ आउम।","मेरी काम-कॉपी में हर दिन का सबूत है।","S","B"],["Ni tin ka cap leh gloves ka bun.","नि तिन का कैप लेह ग्लव्स का बुन।","मैं रोज़ अपनी टोपी और दस्ताने पहनता हूँ।","S","B"],["Himna chu tunah ka nungchang a ni ta.","हिम्ना चु तुनाह का नुंगछांग आ नि ता।","सुरक्षा अब मेरी आदत बन गई है।","S","B"],["Kan team chuan order lian a zawh.","कन टीम छुआन ऑर्डर लिआन आ ज़ॉह।","हमारी टीम ने बड़ा ऑर्डर पूरा किया।","S","B"],["Neitu chuan team hnenah sweet a pe.","नेइतु छुआन टीम ह्नेनाह स्वीट आ पे।","मालिक ने टीम को मिठाई दी।","S","C"],["Kum kal ta aiin tam zawk ka hmu.","कुम कल ता आइइन तम ज़ॉक का ह्मु।","मैं पिछले साल से ज़्यादा कमाता हूँ।","S","B"],["Thla hian in lamah sum tam zawk ka thawn.","थ्ला हिआन इन लामाह सुम तम ज़ॉक का थॉन।","इस महीने मैंने घर ज़्यादा पैसे भेजे।","S","B"],["Pa chuan in chung chu a tidik tir.","पा छुआन इन छुंग चु आ तिदिक तिर।","पिताजी ने घर की छत ठीक करवाई।","S","C"],["Ka naunu chuan computer course a thawk tan.","का नाउनु छुआन कंप्यूटर कोर्स आ थॉक तान।","मेरी बहन ने कंप्यूटर कोर्स शुरू किया।","S","B"],["Mizo ṭawngkam te tunah awlsam takin an lo kal.","मिज़ो तॉंगकाम ते तुनाह आउल्साम तकिन आन लो कल।","मिज़ो शब्द अब मुझे आसानी से आते हैं।","S","B"],["A ṭhenah Mizo ziarkam tete-in ka ngaihtuah.","आ थ्हेनाह मिज़ो ज़िआर्काम तेते-इन का ङ्गाइह्तुआह।","कभी-कभी मैं छोटी मिज़ो पंक्तियों में सोचता हूँ।","S","B"],["Ṭhian te chuan ṭawngkam min zawt.","थ्यान ते छुआन तॉंगकाम मिन ज़वत।","साथी मुझसे शब्द पूछते हैं।","S","B"],["Tea chawlh-ah ka zirtir.","टी छॉल्ह-आह का ज़िर्तिर।","मैं उन्हें चाय की छुट्टी में सिखाता हूँ।","S","B"],["Zirtir hian ka zirna a nghet tir.","ज़िर्तिर हिआन का ज़िर्ना आ ङ्गेत तिर।","सिखाने से मेरी अपनी सीख पक्की होती है।","S","B"],["Thla hnu-ah bazar Mizo ṭawng ka zir ang.","थ्ला ह्नु-आह बाज़ार मिज़ो तॉंग का ज़िर आंग।","अगले महीने मैं बाजार की मिज़ो सीखूँगा।","S","B"],["Chu hnuah train-bus kawngkal Mizo ṭawng.","चु ह्नुआह ट्रेन-बस कॉंगकल मिज़ो तॉंग।","फिर ट्रेन-बस के सफ़र की मिज़ो।","S","C"],["Ka thawnthu chu tawite maiin a danglam mek.","का थॉन्थु चु तावित माइन आ दांगलाम मेक।","मेरी कहानी धीरे-धीरे बदल रही है।","S","B"],["Hlauna atanga inringawm thleng, kalsak kalsak in.","ह्लाउना आतांगा इनरिंगावम थ्लेंग, कल्साक कल्साक इन।","डर से आत्मविश्वास तक, कदम-कदम।","S","C"],["Khua ṭhiante chuan ka thuhlimna min zawt.","खुआ थ्यांते छुआन का थुह्लिम्ना मिन ज़वत।","गाँव के दोस्त मेरा राज़ पूछते हैं।","S","B"],["Ka hrilh: ni tin ṭawngkam 30.","का ह्रिल्ह: नि तिन तॉंगकाम ३०।","मैं बताता हूँ: रोज़ तीस वाक्य।","S","B"],["Mahala course, i hun chauh a man a ni.","महाला कोर्स, इ हुन छाउह आ मान आ नि।","मुफ़्त कोर्स, बस आपका समय ही फीस है।","S","B"],["Tuni zir la, naktuk hmu rawh.","तुनि ज़िर ला, नक्तुक ह्मु रॉह।","आज सीखो, कल कमाओ।","S","C"],["Course chanve a zo, mang chanve a naih ta.","कोर्स छान्वे आ ज़ो, मांग छान्वे आ नाइह ता।","आधा कोर्स पूरा, आधा सपना पास।","S","C"],["Ka Mizo ṭawng, ka chakna.","का मिज़ो तॉंग, का छाक्ना।","मेरी मिज़ो, मेरी ताक़त।","S","B"]],"title":"महीना-2 का समेट (काम की मेरी कहानी)"}],"test":{"target":"Inbiak zawng zawng (pu khat hnenah)","goal":"Mizo ṭawngin inbiak zo — chibai, maitemogelo, zawhna pahnih moputso-hun, lut rawh leh lawm.","lines":[["Chibai pu, Ramesh ka ni ka sawi mek.","चिबाइ पु, रमेश का नि का सावि मेक।"],["Welder lät atan ngenna ka siam duh.","वेल्डर लात आतान ङ्गेन्ना का सिआम दुह।"],["Kum panga a maitemogelo ka nei.","कुम पांगा आ माइतेमोगेलो का नेइ।"],["Thla khat moputso chu engnge?","थ्ला खत मोपुत्सो चु एंगंगे?"],["Lät hun chu engnge?","लात हुन चु एंगंगे?"],["Mosupologo aṭangin ka thawk tan thei ang.","मोसुपोलोगो आत्हांगिन का थॉक तान थेइ आंग।"],["Ka lawm e ka sawipui avangin, pu.","का लॉम ए का सावीपुइ आवांगिन, पु।"]]},"listen":[["(ngaithla) Zan duty i ṭanpui thei em?","(chhang) E pu, zan duty a ṭha."],["(ngaithla) I setshwantshi chu engzat nge i thawn?","(chhang) Pangai nga ka thawn mek."]],"dialog":[["Pu","Lät engnge nge i thiam?"],["Nangma","Weldering, kum panga."],["Pu","Moputso sangli le zahnih."],["Nangma","Engtikah nge i duel?"],["Pu","Bosupa hma ah."],["Nangma","Mosupologo aṭangin ka thawk tan thei ang."]]},{"n":9,"title":"Market and Smart Buying","hi":"बाजार और समझदार ख़रीदारी","pace":30,"days":[{"tw":[["ditsha","दीचा","ताज़ा","ग"],["tamati","तामाती","सड़ा हुआ","ग"],["kilo","कीलो","किलो","ग"],["sekale","सेकाले","तराज़ू","ग"],["dozene","दोज़ेने","दर्जन","ग"],["paka","पाका","मौसमी","ग"]],"drill":{"type":"dialogueFill","hi":"सब्ज़ी-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Nangma: Rawtuan manu chu engnge?","Zuartu: Dirupiya sawm li."],["Nangma: Hei rawtuan hi a bo.","Zuartu: Ngaihdam, ka thlak ve ang."]]},"items":[["Rawtuan man chu eng nge?","रॉतुआन मान चु एंग ङ्गे?","टमाटर का भाव क्या है?","S","A"],["Rupee 40 kilo khatah.","रुपी ४० किलो खताह।","चालीस रुपये किलो।","L","B"],["Rawtuan kilo khat min pe teh.","रॉतुआन किलो खत मिन पे तेह।","एक किलो टमाटर देना।","S","B"],["Hmarchi hring kilo chanve min pe teh.","ह्मार्छि ह्रिंग किलो छान्वे मिन पे तेह।","आधा किलो हरी मिर्च देना।","S","C"],["Hei antam te hi a thar em?","हेइ आनताम ते हि आ थार एम?","क्या ये सब्ज़ियाँ ताज़ी हैं?","S","B"],["Tuni zingah a lo thleng.","तुनि ज़िंगाह आ लो थ्लेंग।","ये आज सुबह आई हैं।","L","B"],["Hei rawtuan hi a chhe, thlak rawh.","हेइ रॉतुआन हि आ छे, थ्लाक रॉह।","यह टमाटर सड़ा है, बदल दो।","S","C"],["Kamah ka thlang ve rawng.","कमाह का थ्लांग वे रॉंग।","मुझे अपने हाथ से चुनने दो।","S","B"],["Week-ah purun a man tam.","वीक-आह पुरुन आ मान तम।","इस हफ़्ते प्याज़ महँगा है।","S","C"],["Aluh chu week kal ta aiin a man tlem zawk.","आलुह चु वीक कल ता आइइन आ मान त्लेम ज़ॉक।","आलू पिछले हफ़्ते से सस्ता है।","S","C"],["Favang antam lei rawh, a man tlem.","फावांग आनताम लेइ रॉह, आ मान त्लेम।","मौसमी सब्ज़ी खरीदो, सस्ती होती है।","L","B"],["Tuni rah engnge a tha?","तुनि राह एंगंगे आ त्हा?","आज कौन-सा फल अच्छा है?","S","B"],["Banana a tui a, a man tlem.","बनाना आ तुइ आ, आ मान त्लेम।","केले मीठे और सस्ते हैं।","L","B"],["Banana dozen khat min pe teh.","बनाना डज़न खत मिन पे तेह।","एक दर्जन केले देना।","S","C"],["Tahna-ah tahna en rawh.","ताह्ना-आह ताह्ना एन रॉह।","तराज़ू पर तौल जाँचो।","L","B"],["Tahna chuan hmasain zero a entir tur.","ताह्ना छुआन ह्मासाइन ज़ीरो आ एंतिर तुर।","तराज़ू पहले शून्य दिखाए।","L","B"],["I tahna chuan a tlem a entir.","इ ताह्ना छुआन आ त्लेम आ एंतिर।","तुम्हारा तराज़ू कम दिखा रहा है।","S","B"],["Bai tah leh teh.","बाइ ताह लेह तेह।","कृपया फिर से तौलो।","S","A"],["Tunah tahna a dik.","तुनाह ताह्ना आ दिक।","अब तौल सही है।","S","C"],["Zawng zawng rupee 120 a ni.","ज़ॉंग ज़ॉंग रुपी १२० आ नि।","कुल एक सौ बीस हुए।","L","B"],["Rupee 500 note ka pe.","रुपी ५०० नोट का पे।","मैंने पाँच सौ का नोट दिया।","S","B"],["Rupee 380 bai pe rawh.","रुपी ३८० बाइ पे रॉह।","तीन सौ अस्सी वापस करो।","S","C"],["Kal hma ah sum tlem sim rawh.","कल ह्मा आह सुम त्लेम सिम रॉह।","जाने से पहले खुले पैसे गिन लो।","L","A"],["Antam te puan ip-ah dah rawh.","आनताम ते पुआन इप-आह दाह रॉह।","सब्ज़ियाँ कपड़े के थैले में रखो।","L","B"],["Plastic ip gan rawh.","प्लास्टिक इप गान रॉह।","प्लास्टिक थैली को मना करो।","L","B"],["Siam hma ah antam sil rawh.","सिआम ह्मा आह आनताम सिल रॉह।","पकाने से पहले सब्ज़ियाँ धोओ।","L","B"],["Tlaithleng bazar chu a ṭhenah a man tlem.","त्लाइथ्लेंग बाज़ार चु आ थ्हेनाह आ मान त्लेम।","शाम का बाजार कभी-कभी सस्ता होता है।","S","C"],["Week pumpelh antam ka lei.","वीक पुमपेल्ह आनताम का लेइ।","मैं पूरे हफ़्ते की सब्ज़ी खरीदता हूँ।","S","B"],["Leitu fing chuan dawr pahnih-ah a zawt.","लेइतु फिंग छुआन दॉर पह्निह-आह आ ज़वत।","समझदार ख़रीदार दो दुकानों से पूछता है।","S","C"],["Chaw thar, taksa dam.","छॉ थार, तक्सा दाम।","ताज़ा खाना, सेहतमंद शरीर।","S","C"]],"title":"सब्ज़ी-फल की ख़रीद"},{"tw":[["raseine","रासेइने","किराना","ग"],["lenane","लेनाने","सूची","ग"],["paketi","पाकेती","पैकेट","ग"],["feletswe","फ़ेलेत्स्वे","मियाद-तारीख़","ग"],["mrp","म्र्प","छपा दाम","ग"],["phuthetswang","फूथेत्स्वाङ","खुला (बिना पैकेट)","ग"]],"drill":{"type":"oneMany","hi":"एक से अनेक — bontsi लगाकर बोलो।","rows":[["ip khat","ip pahnih"],["si khat","si pathum"],["kgetsana khat","kgetsana panga"]]},"items":[["Lei hma ah list siam rawh.","लेइ ह्मा आह लिस्ट सिआम रॉह।","ख़रीदारी से पहले सूची बनाओ।","L","B"],["List chuan sum leh hun a khawltir.","लिस्ट छुआन सुम लेह हुन आ खॉल्तिर।","सूची पैसा और समय बचाती है।","S","C"],["Buh, bal leh si ka mamawh.","बुह, बल लेह सि का ममॉह।","मुझे चावल, दाल और तेल चाहिए।","S","A"],["Chu ip atanga buh kilo panga min pe teh.","चु इप आतांगा बुह किलो पांगा मिन पे तेह।","उस बोरे से पाँच किलो चावल देना।","S","C"],["Bal hawngtlang chu packet aiin a man tlem em?","बल हॉंगत्लांग चु पैकेट आइइन आ मान त्लेम एम?","क्या खुली दाल पैकेट से सस्ती है?","S","B"],["Packet-ah expiry date en rawh.","पैकेट-आह एक्सपायरी डेट एन रॉह।","पैकेट पर मियाद-तारीख़ जाँचो।","L","B"],["Hei packet hi expiry a naih.","हेइ पैकेट हि एक्सपायरी आ नाइह।","यह पैकेट मियाद के पास है।","S","C"],["Packet thar min pe teh.","पैकेट थार मिन पे तेह।","मुझे नया पैकेट देना।","S","B"],["Man ziak aiin tam pe ngai suh.","मान ज़िआक आइइन तम पे ङ्गाइ सुह।","छपे दाम से ज़्यादा कभी मत दो।","L","B"],["Man ziak chu packet-ah a awm.","मान ज़िआक चु पैकेट-आह आ आउम।","छपा दाम पैकेट पर लिखा होता है।","L","B"],["Man ziak aiin tam i la mek.","मान ज़िआक आइइन तम इ ला मेक।","तुम छपे दाम से ज़्यादा ले रहे हो।","S","B"],["Vuar ziak man aiin zuar tam chu a dik lo.","वुआर ज़िआक मान आइइन ज़ुआर तम चु आ दिक लो।","ठंडा छपे दाम से ज़्यादा बेचना ग़लत है।","L","B"],["Si pouch te a awm em?","सि पाउच ते आ आउम एम?","क्या छोटे तेल-पाउच हैं?","S","B"],["Packet lian chu kilo angin a man tlem zawk.","पैकेट लिआन चु किलो आंगिन आ मान त्लेम ज़ॉक।","बड़ा पैकेट किलो के हिसाब से सस्ता पड़ता है।","S","C"],["Soap khat leh paste khat belh rawh.","सोप खत लेह पेस्ट खत बेल्ह रॉह।","एक साबुन और एक पेस्ट जोड़ दो।","S","C"],["Bill vawng chu engzat a ni?","बिल ववंग चु एंगज़त आ नि?","कुल बिल कितना हुआ?","S","B"],["Bill ziak siam teh.","बिल ज़िआक सिआम तेह।","कृपया लिखा हुआ बिल बनाओ।","S","A"],["Bill thil te pakhat zel en rawh.","बिल थिल ते पखत ज़ेल एन रॉह।","बिल की चीज़ें एक-एक कर जाँचो।","L","B"],["Chi vawi hnih i ziak.","छि वावि ह्निह इ ज़िआक।","तुमने चीनी दो बार लिखी है।","S","B"],["Ngaihdam, ka phiar ang.","ङ्गाइह्दाम, का फिआर आंग।","माफ़ करना, काट देता हूँ।","L","A"],["Week hnu-ah ka pe thei em?","वीक ह्नु-आह का पे थेइ एम?","क्या मैं अगले हफ़्ते दे सकता हूँ?","S","A"],["I pe theih zat chauh lei rawh.","इ पे थेइह ज़त छाउह लेइ रॉह।","उतना ही खरीदो जितना चुका सको।","L","B"],["Thla ration notebook-ah ziak rawh.","थ्ला रेशन नोटबुक-आह ज़िआक रॉह।","महीने का राशन कॉपी में लिखो।","L","B"],["Dawr pahnih man tehkhin rawh.","दॉर पह्निह मान तेह्खिन रॉह।","दो दुकानों का भाव मिलाओ।","L","B"],["Wholesale dawr chu thil tam-ah a man tlem.","होलसेल दॉर चु थिल तम-आह आ मान त्लेम।","थोक दुकान ज़्यादा माल पर सस्ती है।","S","C"],["Kan mi panga inkopin ration kan lei.","कन मि पांगा इनकोपिन रेशन कन लेइ।","हम पाँच लोग साथ राशन खरीदते हैं।","S","C"],["Inkopin lei chuan man ṭha a hlan.","इनकोपिन लेइ छुआन मान त्हा आ ह्लान।","साथ खरीदने पर बेहतर भाव मिलता है।","S","B"],["Ration kang chu tui atangin hla takin dah rawh.","रेशन कांग चु तुइ आतांगिन ह्ला तकिन दाह रॉह।","सूखा राशन पानी से दूर रखो।","L","B"],["Bill ziak chu i finna a ni.","बिल ज़िआक चु इ फिन्ना आ नि।","लिखा बिल आपका सबूत है।","S","B"],["Ngaihtuah taka lei chu khawlna chanve a ni.","ङ्गाइह्तुआह तका लेइ चु खॉल्ना छान्वे आ नि।","सोच-समझकर ख़रीदना आधी बचत है।","S","C"]],"title":"राशन-किराना (सूची और छपा दाम)"},{"tw":[["fenyana","फ़ेञाना","मोलभाव","ग"],["tlhwatlhwa","त्ल्ह्वात्ल्ह्वा","आख़िरी भाव","ग"],["leka","लेका","कपड़ा-परख कमरा","ग"],["mmala","म्माला","रंग","ग"],["tsholofetso","चोलोफ़ेत्सो","गारंटी","ग"],["pere","पेरे","जोड़ी","ग"]],"drill":{"type":"dialogueFill","hi":"मोलभाव-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Zuartu: Zakhat le sawmhnih, tawpna manu.","Nangma: Zakhat le sawmli ka pe ang."],["Zuartu: Zakhat le sawmnga ah la ta.","Nangma: A ṭha e, phutha teh."]]},"items":[["Ni tin hna atan shirt ka mamawh.","नि तिन ह्ना आतान शर्ट का ममॉह।","मुझे रोज़ के काम की कमीज़ चाहिए।","S","A"],["Puan chak entir rawh.","पुआन छाक एंतिर रॉह।","कोई मज़बूत कपड़ा दिखाओ।","S","B"],["Hei shirt man chu eng nge?","हेइ शर्ट मान चु एंग ङ्गे?","इस कमीज़ का भाव क्या है?","S","A"],["Rupee 600, man tawpna.","रुपी ६००, मान तॉप्ना।","छह सौ, आख़िरी भाव।","L","B"],["Hei hi ka tan a tam lutuk.","हेइ हि का तान आ तम लुतुक।","यह मेरे लिए बहुत ज़्यादा है।","S","A"],["Rupee 400 ka pe ang.","रुपी ४०० का पे आंग।","मैं चार सौ दूँगा।","S","A"],["Rupee 50 belh la, 450-ah la rawh.","रुपी ५० बेल्ह ला, ४५०-आह ला रॉह।","पचास बढ़ाओ, साढ़े चार सौ में ले जाओ।","L","B"],["A ṭha, 450-ah pawk rawh.","आ त्हा, ४५०-आह पॉक रॉह।","ठीक है, साढ़े चार सौ में पैक कर दो।","S","C"],["Man zawhna nuihnem hmangin ti rawh, indonna hmangin ni lo.","मान ज़ॉह्ना नुइह्नेम ह्मांगिन ति रॉह, इन्दोन्ना ह्मांगिन नि लो।","मोलभाव मुस्कान से करो, लड़ाई से नहीं।","L","B"],["Trial room-ah bun ka en thei em?","ट्रायल रूम-आह बुन का एन थेइ एम?","क्या मैं परख-कमरे में पहनकर देख लूँ?","S","A"],["Kut hnar a sei deuh.","कुत ह्नार आ सेइ देउह।","आस्तीन थोड़ी लंबी है।","S","C"],["Hei hi rawng var-ah a awm em?","हेइ हि रॉंग वार-आह आ आउम एम?","क्या यह नीले रंग में है?","S","B"],["Sil-ah rawng a chhuak dawn em?","सिल-आह रॉंग आ छुआक दॉन एम?","क्या धोने में रंग निकलेगा?","S","B"],["Ani lo, rawng a nghet.","आनि लो, रॉंग आ ङ्गेत।","नहीं, रंग पक्का है।","L","A"],["Hna kebawk khat ka mamawh.","ह्ना केबॉक खत का ममॉह।","मुझे काम के जूतों की जोड़ी चाहिए।","S","A"],["Ka size chu number riat a ni.","का साइज़ चु नम्बर रिआत आ नि।","मेरा नाप आठ नंबर है।","S","B"],["Kalna hnih hian kal in en teh.","कल्ना ह्निह हिआन कल इन एन तेह।","दो कदम चलकर देखो।","L","B"],["Vei lam kebawk chu a het.","वेइ लाम केबॉक चु आ हेत।","बायाँ जूता कस रहा है।","S","C"],["Number khat lian zawk pe rawh.","नम्बर खत लिआन ज़ॉक पे रॉह।","एक नंबर बड़ा दो।","S","C"],["Guarantee a awm em?","गारंटी आ आउम एम?","क्या इस पर कोई गारंटी है?","S","B"],["Tah-ah thla khat guarantee.","ताह-आह थ्ला खत गारंटी।","सिलाई पर एक महीने की गारंटी।","L","B"],["Guarantee bill-ah ziak rawh.","गारंटी बिल-आह ज़िआक रॉह।","गारंटी बिल पर लिख दो।","L","B"],["Hmasain hna atan lei la, entirna atan a hnuah.","ह्मासाइन ह्ना आतान लेइ ला, एंतिर्ना आतान आ ह्नुआह।","पहले काम के लिए खरीदो, दिखावे के लिए बाद में।","L","B"],["Shirt fiah pahnih chu shirt man tam khat aiin a tha zawk.","शर्ट फिआह पह्निह चु शर्ट मान तम खत आइइन आ त्हा ज़ॉक।","दो सादी कमीज़ें एक महँगी से बेहतर हैं।","S","C"],["Kut sale-ah danglamna dik an pe.","कुत सेल-आह दांगलाम्ना दिक आन पे।","त्योहार की सेल में असली छूट मिलती है।","S","C"],["Board ṭhenkhat chuan danglamna dik lo an entir.","बोर्ड थ्हेनखत छुआन दांगलाम्ना दिक लो आन एंतिर।","कुछ बोर्ड नक़ली छूट दिखाते हैं।","L","B"],["Man hmasa leh man tihniam pahnih zawng en rawh.","मान ह्मासा लेह मान तिह्निआम पह्निह ज़ॉंग एन रॉह।","पहले का दाम और कटा दाम दोनों जाँचो।","L","B"],["Fate tan silfiam pawh ka lei.","फाते तान सिल्फियाम पॉह का लेइ।","मैंने बच्चों के लिए भी कपड़े लिए।","S","B"],["Man zawhna tha, poketi lawm.","मान ज़ॉह्ना था, पोकेती लॉम।","अच्छा मोलभाव, खुश जेब।","S","C"],["Mamawhna hmasa, duhzawng a hnu.","ममॉह्ना ह्मासा, दुह्ज़ॉंग आ ह्नु।","पहले ज़रूरत, फिर इच्छा।","S","C"]],"title":"कपड़ा-जूता और मोलभाव"},{"tw":[["tsholofetso","चोलोफ़ेत्सो","वारंटी","ग"],["lebokoso","लेबोकोसो","डिब्बा","ग"],["kgale","क्गाले","पुराना (इस्तेमाल किया)","ग"],["tsamao","त्सामाओ","किस्त","ग"],["bapisa","बापीसा","मिलान करना","ग"],["dinonofo","दीनोनोफ़ो","ख़ूबियाँ","ग"]],"drill":{"type":"compare","hi":"तुलना करो — go gaisa लगाकर दो चीज़ों की तुलना बोलो।","rows":[["Madi a diatla te manu chu a tlem zawk."]]},"items":[["Ka phone hlui screen a chim.","का फोन ह्लुइ स्क्रीन आ छिम।","मेरे पुराने फोन की स्क्रीन टूट गई है।","S","B"],["Tidik em a nih loh thar em, engnge a tha zawk?","तिदिक एम आ निह लोह थार एम, एंगंगे आ त्हा ज़ॉक?","मरम्मत या नया, क्या बेहतर है?","S","B"],["Tidik man chu rupee 2000 a ni.","तिदिक मान चु रुपी २००० आ नि।","मरम्मत का ख़र्च दो हज़ार है।","S","C"],["Phone thar chu rupee 7000 atangin a hong tan.","फोन थार चु रुपी ७००० आतांगिन आ होंग तान।","नया फोन सात हज़ार से शुरू है।","S","C"],["Battery lian nei phone entir rawh.","बैटरी लिआन नेइ फोन एंतिर रॉह।","बड़ी बैटरी वाला फोन दिखाओ।","S","B"],["Lei hma ah model pahnih tehkhin rawh.","लेइ ह्मा आह मॉडल पह्निह तेह्खिन रॉह।","खरीदने से पहले दो मॉडल मिलाओ।","L","B"],["Hei feature te chu eng nge?","हेइ फीचर ते चु एंग ङ्गे?","इसकी ख़ूबियाँ क्या हैं?","S","B"],["Online-ah pawh man en rawh.","ऑनलाइन-आह पॉह मान एन रॉह।","भाव ऑनलाइन भी देख लो।","L","B"],["Hei phone-ah warranty a awm em?","हेइ फोन-आह वारंटी आ आउम एम?","क्या इस फोन पर वारंटी है?","S","B"],["Kum khat company warranty.","कुम खत कंपनी वारंटी।","एक साल कंपनी वारंटी।","L","B"],["Bill nen box pumpelh la rawh.","बिल नेन बॉक्स पुमपेल्ह ला रॉह।","बिल के साथ पूरा डिब्बा लो।","L","B"],["Box-ah charger leh lehkha a awm.","बॉक्स-आह चार्जर लेह लेह्खा आ आउम।","डिब्बे में चार्जर और कागज़ है।","S","C"],["Box number phone nen tehkhin rawh.","बॉक्स नम्बर फोन नेन तेह्खिन रॉह।","डिब्बे का नंबर फोन से मिलाओ।","L","B"],["Warranty atan bill vawng rawh.","वारंटी आतान बिल ववंग रॉह।","वारंटी के लिए बिल सँभालो।","L","B"],["Phone hlui i zuar em?","फोन ह्लुइ इ ज़ुआर एम?","क्या आप पुराने फोन बेचते हैं?","S","B"],["Hlui chu dawr hre tawh aṭanga chauh la rawh.","ह्लुइ चु दॉर ह्रे तॉह आत्हांगा छाउह ला रॉह।","पुराना सिर्फ़ जानी-पहचानी दुकान से लो।","L","B"],["Phone rûk chuan police harsatna a tihchhuak.","फोन रूक छुआन पुलिस हर्सत्ना आ तिहछुआक।","चोरी का फोन पुलिस-मुसीबत लाता है।","L","A"],["Installment-in ka pe thei em?","इंस्टॉलमेंट-इन का पे थेइ एम?","क्या मैं किस्त में दे सकता हूँ?","S","A"],["Installment tuni a awlsam, naktuk a rit.","इंस्टॉलमेंट तुनि आ आउल्साम, नक्तुक आ रित।","किस्त आज आसान, कल भारी।","L","B"],["Hmasain installment vawng pumpelh belh rawh.","ह्मासाइन इंस्टॉलमेंट ववंग पुमपेल्ह बेल्ह रॉह।","पहले किस्त का कुल ख़र्च जोड़ो।","L","B"],["Cash man chu installment man aiin a tlem zawk.","कैश मान चु इंस्टॉलमेंट मान आइइन आ त्लेम ज़ॉक।","नकद दाम किस्त-दाम से कम होता है।","S","C"],["Thla hnih khawlin cash ka pe ang.","थ्ला ह्निह खॉलिन कैश का पे आंग।","मैं दो महीने बचाकर नकद दूँगा।","S","B"],["Ni khatnaah cover leh screen guard dah tir rawh.","नि खत्नाआह कवर लेह स्क्रीन गार्ड दाह तिर रॉह।","पहले दिन कवर और शीशा लगवाओ।","L","B"],["Phone thar-ah lock dah rawh.","फोन थार-आह लॉक दाह रॉह।","नए फोन पर ताला लगाओ।","L","B"],["Phone IMEI number ziak rawh.","फोन IMEI नम्बर ज़िआक रॉह।","फोन का आईएमईआई नंबर लिख लो।","L","B"],["Phone bo chuan hei hi a hlawh.","फोन बो छुआन हेइ हि आ ह्लॉह।","फोन खोने पर यह काम आता है।","L","B"],["Zawng zawng paih zo hian phone hlui zuar rawh.","ज़ॉंग ज़ॉंग पाइह ज़ो हिआन फोन ह्लुइ ज़ुआर रॉह।","सब मिटाकर ही पुराना फोन बेचो।","L","B"],["Lei lian chuan thinlung vuar a mamawh.","लेइ लिआन छुआन थिन्लुंग वुआर आ ममॉह।","बड़ी ख़रीद को ठंडा दिमाग़ चाहिए।","S","C"],["Lei lian hma ah zan khat mut la.","लेइ लिआन ह्मा आह ज़ान खत मुत ला।","बड़ी ख़रीद से पहले एक रात सो लो।","L","B"],["Vawi hnih ngaihtuah sum chu sum khawl a ni.","वावि ह्निह ङ्गाइह्तुआह सुम चु सुम खॉल आ नि।","दो बार सोचा पैसा बचा पैसा है।","S","C"]],"title":"मोबाइल और बड़ी ख़रीद"},{"tw":[["morekisi","मोरेकीसी","बदली","ग"],["khoutu","खोउतू","खोट","ग"],["sekoko","सेकोको","सील","ग"],["nnepe","न्नेपे","नक़ली","ग"],["boemong","बोएमोङ","पैसा-वापसी","ग"],["khuetso","खूएत्सो","असली","ग"]],"drill":{"type":"yesNo","hi":"ख़रीद-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।","rows":[["Seal a ṭha em?","A ṭha e. / A ṭha lo."],["Bill i nei em?","Ka nei e. / Ka nei lo."]]},"items":[["Hei shirt hian suala a awm.","हेइ शर्ट हिआन सुआला आ आउम।","इस कमीज़ में खोट है।","S","C"],["Lam khatah tah a hong.","लाम खताह ताह आ होंग।","एक तरफ़ की सिलाई खुली है।","S","C"],["Hei thlak ka duh.","हेइ थ्लाक का दुह।","मैं इसे बदलना चाहता हूँ।","S","A"],["Hei hi nizan bill a ni.","हेइ हि निज़ान बिल आ नि।","यह कल का बिल है।","S","C"],["Bill nen thlak a awlsam.","बिल नेन थ्लाक आ आउल्साम।","बिल के साथ बदली आसान होती है।","S","C"],["Ngaihdam, tunah kan thlak dawn.","ङ्गाइह्दाम, तुनाह कन थ्लाक दॉन।","माफ़ कीजिए, हम अभी बदल देते हैं।","L","A"],["Sum pek leh ka dawng thei em?","सुम पेक लेह का दॉंग थेइ एम?","क्या बदले में पैसा-वापसी मिल सकती है?","S","A"],["Sum pek leh chu ni thum chhungin a thleng.","सुम पेक लेह चु नि थुम छुंगिन आ थ्लेंग।","पैसा-वापसी तीन दिन में आती है।","L","B"],["Lei hma ah seal en rawh.","लेइ ह्मा आह सील एन रॉह।","खरीदने से पहले सील जाँचो।","L","B"],["Seal chim chu packet hong a ni tihna a ni.","सील छिम चु पैकेट होंग आ नि तिह्ना आ नि।","टूटी सील मतलब खुला पैकेट।","L","B"],["Hei botal hi a dik lo ang.","हेइ बोटल हि आ दिक लो आंग।","यह बोतल नक़ली लगती है।","S","C"],["Dik-ah ziahna a fiah.","दिक-आह ज़िआह्ना आ फिआह।","असली पर छपाई साफ़ होती है।","L","B"],["Letter shut chu dik lo hriatna lian a ni.","लेटर शुत चु दिक लो ह्रिआत्ना लिआन आ नि।","ग़लत अक्षर नक़ली की बड़ी पहचान है।","L","B"],["A man tlem lutuk chuan a dik lo a ni thei.","आ मान त्लेम लुतुक छुआन आ दिक लो आ नि थेइ।","बहुत सस्ता बहुत नक़ली हो सकता है।","L","B"],["Kawng bula atangin damdawi lei suh.","कॉंग बुला आतांगिन दामदावि लेइ सुह।","फुटपाथ से दवा मत खरीदो।","L","B"],["Thil lian tin bill zawt rawh.","थिल लिआन तिन बिल ज़वत रॉह।","हर बड़ी चीज़ का बिल माँगो।","L","B"],["Bill a awm loh chuan finna a awm lo.","बिल आ आउम लोह छुआन फिन्ना आ आउम लो।","बिल नहीं तो सबूत नहीं।","L","B"],["Dawr neitu chuan thlak a gan.","दॉर नेइतु छुआन थ्लाक आ गान।","दुकानदार ने बदली से मना किया।","S","C"],["Inngaitlawm mahse chak takin sawi rawh.","इन्ंगाइत्लॉम मह्से छाक तकिन सावि रॉह।","विनम्र पर मज़बूत होकर बात करो।","L","B"],["Leitu angin hei hi ka dikna a ni.","लेइतु आंगिन हेइ हि का दिक्ना आ नि।","ख़रीदार के नाते यह मेरा हक़ है।","S","B"],["Consumer helpline-ah ka phawrh ang.","कन्ज़्यूमर हेल्पलाइन-आह का फॉर्ह आंग।","मैं उपभोक्ता हेल्पलाइन पर शिकायत करूँगा।","S","B"],["Consumer helpline chu 1915 a ni.","कन्ज़्यूमर हेल्पलाइन चु १९१५ आ नि।","उपभोक्ता हेल्पलाइन एक नौ एक पाँच है।","L","B"],["Hei a hriat chuan shirt a thlak.","हेइ आ ह्रिआत छुआन शर्ट आ थ्लाक।","यह सुनकर उसने कमीज़ बदल दी।","S","C"],["Online order-ah fimkhurna vawi hnih a mamawh.","ऑनलाइन ऑर्डर-आह फिम्खुर्ना वावि ह्निह आ ममॉह।","ऑनलाइन ऑर्डर में दोगुनी सावधानी चाहिए।","L","B"],["Parcel hawng lai video tang rawh.","पार्सल हॉंग लाइ विडियो तांग रॉह।","पार्सल खोलते समय वीडियो बनाओ।","L","B"],["Video chu pek leh finna a ni.","विडियो चु पेक लेह फिन्ना आ नि।","वीडियो वापसी का सबूत है।","L","B"],["Delivery tu kal hma ah parcel en rawh.","डिलीवरी तु कल ह्मा आह पार्सल एन रॉह।","डिलीवरी वाले के जाने से पहले पार्सल जाँचो।","L","B"],["Leitu hriatchian chu vawi hnihin dawt lo.","लेइतु ह्रिआत्छिआन चु वावि ह्निहिन दॉत लो।","जागरूक ख़रीदार दो बार नहीं ठगा जाता।","S","C"],["I sum, i aw.","इ सुम, इ आउ।","आपका पैसा, आपकी आवाज़।","S","B"],["Mit hawng in lei la, thinlung muang takin mut rawh.","मित हॉंग इन लेइ ला, थिन्लुंग मुआंग तकिन मुत रॉह।","आँखें खोलकर खरीदो, हल्के मन से सोओ।","S","C"]],"title":"वापसी-बदली और ठगी-बचाव"}],"test":{"target":"Zawhna yotlhe (zuartu khat hnenah)","goal":"Mizo ṭawngin manu zawt, tahna ngen, thekego ti, bill ngen, wëu a la hre.","lines":[["Tamati manu chu engnge?","तामाती मनु चु एंगंगे?"],["Tsweetswee, lekanya gap.","त्स्वीत्स्वी, लेकान्या गाप।"],["Hei hi ka atan a tur lutuk.","हेइ हि का आतान आ तुर लुतुक।"],["Zakhat le sawmli ka pe ang.","ज़खत ले सावमलि का पे आंग।"],["Tsweetswee, bill tlhamalalo kop teh.","त्स्वीत्स्वी, बिल त्लामालालो कोप तेह।"],["Wëu a la hre chuan khawl ve.","वेउ आ ला ह्रे छुआन खॉल वे।"]]},"listen":[["(ngaithla) Kilo khat manu chu engnge?","(chhang) Dirupiya sawm li."],["(ngaithla) Engati nge ni thlak dawn?","(chhang) Hempe hi khot a awm."]],"dialog":[["Nangma","Hempe manu chu engnge?"],["Zuartu","Zakhat le sawmruk."],["Nangma","Zakhat le sawmli ka pe ang."],["Zuartu","Zakhat le sawmli le halofo ah la teh."],["Nangma","A ṭha e, phutha teh."]]},{"n":10,"title":"Bus, Train and Safe Journey","hi":"बस, ट्रेन और सुरक्षित सफ़र","pace":30,"days":[{"tw":[["dinouto","दीनोउतो","किराया","ग"],["mokonteraka","मोकोन्तेराका","कंडक्टर","ग"],["station","स्तातीओन","पड़ाव","ग"],["ṭhutthleng","ठूत्थ्लेङ","खिड़की-सीट","ग"],["tletse","त्लेत्से","भीड़-भरा","ग"],["fologa","फ़ोलोगा","उतरना","ग"]],"drill":{"type":"dialogueFill","hi":"बस-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Nangma: Hei bus hi bazar kal em?","Mi thawk: E, lawan takin lut rawh."],["Nangma: Gaak manu chu engnge?","Mi thawk: Rupee sawmhnih chauh."]]},"items":[["Hei bus hi khawiah nge a kal?","हेइ बस हि खावियाह ङ्गे आ कल?","यह बस कहाँ जाती है?","S","B"],["Industrial area-ah a kal em?","इंडस्ट्रियल एरिया-आह आ कल एम?","क्या यह औद्योगिक क्षेत्र जाती है?","S","B"],["Aw, chakin lut rawh.","आउ, छाकिन लुत रॉह।","हाँ, जल्दी चढ़ो।","L","B"],["Bazar thleng man chu eng nge?","बाज़ार थ्लेंग मान चु एंग ङ्गे?","बाजार तक किराया क्या है?","S","A"],["Rupee 20 chauh.","रुपी २० छाउह।","सिर्फ़ बीस रुपये।","L","B"],["Dawn na hnuhnung ticket khat.","दॉन ना ह्नुह्नुंग टिकट खत।","आख़िरी पड़ाव की एक टिकट।","S","C"],["Chhuk thleng ticket dah rawh.","छुक थ्लेंग टिकट दाह रॉह।","उतरने तक टिकट रखो।","L","B"],["Conductor chuan ticket a en.","कंडक्टर छुआन टिकट आ एन।","कंडक्टर टिकटें जाँचता है।","S","C"],["Hei dung hmun hi a hawng em?","हेइ दुंग ह्मुन हि आ हॉंग एम?","क्या यह सीट ख़ाली है?","S","B"],["Tlem mi suan teh.","त्लेम मि सुआन तेह।","कृपया थोड़ा खिसकिए।","S","A"],["Thlalet hnai dung hmun ka duh.","थ्लालेत ह्नाइ दुंग ह्मुन का दुह।","मुझे खिड़की-सीट पसंद है।","S","B"],["Tuni bus mi a khat tak zet.","तुनि बस मि आ खत तक ज़ेत।","आज बस बहुत भीड़-भरी है।","S","C"],["Bus kal mek-ah thing khai vuan rawh.","बस कल मेक-आह थिंग खाइ वुआन रॉह।","चलती बस में डंडा पकड़ो।","L","B"],["Kongka-ah ding suh.","कोंगका-आह दिंग सुह।","गेट पर मत खड़े हो।","L","B"],["Upa te hnenah dung hmun pe rawh.","उपा ते ह्नेनाह दुंग ह्मुन पे रॉह।","बड़ों को सीट दो।","L","B"],["Damdawi-in lian atan dawn na chu engnge?","दामदावि-इन लिआन आतान दॉन ना चु एंगंगे?","बड़े अस्पताल के लिए कौन-सा पड़ाव?","S","A"],["Dawn na hnu lamah chhuk rawh.","दॉन ना ह्नु लामाह छुक रॉह।","अगले पड़ाव पर उतरो।","L","B"],["Thleng chuan min hrilh teh.","थ्लेंग छुआन मिन ह्रिल्ह तेह।","आने पर मुझे बता दीजिएगा।","S","A"],["I dawn na hma ah darbu khawng rawh.","इ दॉन ना ह्मा आह दार्बु खॉंग रॉह।","अपने पड़ाव से पहले घंटी बजाओ।","L","B"],["Bus hnuhnung chu dar sawm-ah a hong.","बस ह्नुह्नुंग चु दार सावम-आह आ होंग।","आख़िरी बस दस बजे खुलती है।","L","B"],["Minute hnih chuan ka bus ka la.","मिनिट ह्निह छुआन का बस का ला।","दो मिनट से मेरी बस छूट गई।","S","B"],["Bus hnu lam chu dar chanve chhungin a lo kal.","बस ह्नु लाम चु दार छान्वे छुंगिन आ लो कल।","अगली बस आधे घंटे में आती है।","S","C"],["Ip phai-ah dah rawh.","इप फाइ-आह दाह रॉह।","थैला गोद में रखो।","L","B"],["Mi khat-ah i poketi en reng rawh.","मि खत-आह इ पोकेती एन रेंग रॉह।","भीड़ में अपनी जेब देखो।","L","B"],["Thla bus pass chuan sum a khawltir.","थ्ला बस पास छुआन सुम आ खॉल्तिर।","महीने का बस-पास पैसा बचाता है।","S","C"],["Photo khatin pass siam tir rawh.","फोटो खतिन पास सिआम तिर रॉह।","एक फोटो से पास बनवाओ।","L","B"],["Ni tin bus-in hna ka kal.","नि तिन बस-इन ह्ना का कल।","मैं रोज़ बस से काम जाता हूँ।","S","B"],["Bus chu auto aiin a man tlem zawk.","बस चु ऑटो आइइन आ मान त्लेम ज़ॉक।","बस ऑटो से सस्ती है।","S","C"],["I kawng bus number hriat reng rawh.","इ कॉंग बस नम्बर ह्रिआत रेंग रॉह।","अपने रास्ते के बस नंबर याद करो।","L","B"],["Bus dik, hun dik, nun awlsam.","बस दिक, हुन दिक, नुन आउल्साम।","सही बस, सही समय, आसान ज़िंदगी।","S","C"]],"title":"बस का सफ़र"},{"tw":[["tlhomamiso","त्ल्होमामीसो","आरक्षण","ग"],["peteforomo","पेतेफ़ोरोमो","प्लेटफॉर्म","ग"],["mogatla","मोगात्ला","साधारण डिब्बा","ग"],["pnr","प्न्र","पीएनआर","ग"],["nghak","ङ्हाक","प्रतीक्षा","ग"],["fenstereng","फ़ेन्स्तेरेङ","पूछताछ","ग"]],"drill":{"type":"numberSay","hi":"सफ़र के नंबर बोलो — अंक सुनो, Mizo ṭawngin sawi rawh।","rows":[["139","zakhat le sawmthum le ko"],["22","sawmhnih le pahnih"],["3","pathum"]]},"items":[["Thla hnu-ah in-ah ka kal a ngai.","थ्ला ह्नु-आह इन-आह का कल आ ङ्गाइ।","मुझे अगले महीने घर जाना है।","S","A"],["Train ticket chakin book rawh.","ट्रेन टिकट छाकिन बुक रॉह।","ट्रेन टिकट जल्दी बुक करो।","L","B"],["Chak taka booking chuan dung hmun nghet a pe.","छाक तका बुकिंग छुआन दुंग ह्मुन ङ्गेत आ पे।","जल्दी बुकिंग से पक्की सीट मिलती है।","L","B"],["Phone app-in ka book.","फोन ऐप-इन का बुक।","मैंने फोन ऐप से बुक की।","S","A"],["Ka ticket waiting-ah a awm.","का टिकट वेटिंग-आह आ आउम।","मेरी टिकट प्रतीक्षा में है।","S","B"],["Ni tin PNR status en rawh.","नि तिन PNR स्टेटस एन रॉह।","पीएनआर की स्थिति रोज़ देखो।","L","B"],["Tuni waiting chu a nghet ta.","तुनि वेटिंग चु आ ङ्गेत ता।","आज प्रतीक्षा पक्की हो गई।","S","A"],["Patna train chu platform engnge-ah nge?","पटना ट्रेन चु प्लेटफॉर्म एंगंगे-आह ङ्गे?","पटना वाली ट्रेन किस प्लेटफॉर्म पर?","S","B"],["Platform number thum.","प्लेटफॉर्म नम्बर थुम।","प्लेटफॉर्म नंबर तीन।","L","B"],["Enquiry fensetere-ah zawt rawh.","इनक्वायरी फेंसेतेरे-आह ज़वत रॉह।","पूछताछ खिड़की पर पूछो।","L","B"],["Train chu dar khat a la.","ट्रेन चु दार खत आ ला।","ट्रेन एक घंटा देर से है।","S","C"],["Board-ah train hun en rawh.","बोर्ड-आह ट्रेन हुन एन रॉह।","बोर्ड पर ट्रेन का समय देखो।","L","B"],["General coach chu hmai lamah a awm.","जनरल कोच चु ह्माइ लामाह आ आउम।","साधारण डिब्बा आगे की ओर है।","L","B"],["Ka coach chu S-4 a ni.","का कोच चु S-4 आ नि।","मेरा डिब्बा एस-चार है।","S","B"],["Coach list chu kawtkhar hnaih-ah a awm.","कोच लिस्ट चु कॉत्खार हनाइह-आह आ आउम।","डिब्बा-सूची पुल के पास है।","L","B"],["Chung lam kawtkhar atang chauh kan rawh.","छुंग लाम कॉत्खार आतांग छाउह कान रॉह।","सिर्फ़ ऊपर वाले पुल से पार करो।","L","B"],["Train lam kan ngai suh.","ट्रेन लाम कान ङ्गाइ सुह।","रेल की पटरी कभी पार मत करो।","L","B"],["Mola rang eng hnung lamah ding rawh.","मोला रांग एंग ह्नुंग लामाह दिंग रॉह।","पीली रेखा के पीछे खड़े हो।","L","B"],["Train hian minute hnih a hong hal.","ट्रेन हिआन मिनिट ह्निह आ होंग हाल।","ट्रेन यहाँ दो मिनट रुकती है।","L","B"],["Mi khat nen muang takin lut rawh.","मि खत नेन मुआंग तकिन लुत रॉह।","भीड़ के साथ शांति से चढ़ो।","L","B"],["Kal mek train hnung lamah taboga suh.","कल मेक ट्रेन ह्नुंग लामाह तबोगा सुह।","चलती ट्रेन के पीछे मत भागो।","L","B"],["Zanah train dang pawh a awm.","ज़ानाह ट्रेन दांग पॉह आ आउम।","रात में एक और ट्रेन है।","S","C"],["General ticket fensetere-ah la rawh.","जनरल टिकट फेंसेतेरे-आह ला रॉह।","साधारण टिकट खिड़की से लो।","L","B"],["UTS app-in pawh general ticket a awm.","UTS ऐप-इन पॉह जनरल टिकट आ आउम।","यूटीएस ऐप से भी साधारण टिकट मिलती है।","L","B"],["Ticket lovin kal ngai suh.","टिकट लोविन कल ङ्गाइ सुह।","बिना टिकट कभी यात्रा मत करो।","L","B"],["Dang chu man aiin a lian zawk.","दांग चु मान आइइन आ लिआन ज़ॉक।","जुर्माना किराये से बड़ा होता है।","L","B"],["Ticket photo phone-ah dah rawh.","टिकट फोटो फोन-आह दाह रॉह।","टिकट की फोटो फोन में रखो।","L","B"],["Minute 30 hma in station-ah thleng rawh.","मिनिट ३० ह्मा इन स्टेशन-आह थ्लेंग रॉह।","स्टेशन तीस मिनट पहले पहुँचो।","L","A"],["Ṭanna muang chuan kawngkal ṭha a siam.","थ्हान्ना मुआंग छुआन कॉंगकल त्हा आ सिआम।","शांत शुरुआत अच्छा सफ़र बनाती है।","S","C"],["Poketi-ah ticket, ngaihtuahna pawn lamah.","पोकेती-आह टिकट, ङ्गाइह्तुआह्ना पॉन लामाह।","जेब में टिकट, चिंता बाहर।","S","C"]],"title":"ट्रेन-टिकट और स्टेशन"},{"tw":[["magareng","मागारेङ","शयन-सीट","ग"],["tt","त्त","टिकट-जाँच बाबू","ग"],["tshipi","चीपी","ज़ंजीर","ग"],["tshwaya","च्वाया","सामान","ग"],["magareng","मागारेङ","बीच वाली सीट","ग"],["mogatleng","मोगात्लेङ","मंज़िल","ग"]],"drill":{"type":"yesNo","hi":"सफ़र-सुरक्षा जाँच — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।","rows":[["Thil te keiti hmangin khung em?","A khung e. / A khung lo."],["Sekoko tui i en zo em?","Ka en zo e. / Ka en zo lo."]]},"items":[["Ka dung hmun chu chung lam, number 22 a ni.","का दुंग ह्मुन चु छुंग लाम, नम्बर २२ आ नि।","मेरी सीट ऊपर वाली, नंबर बाईस है।","S","B"],["Ngaithla teh, hei hi ka dung hmun a ni.","ङ्गाइथ्ला तेह, हेइ हि का दुंग ह्मुन आ नि।","सुनिए, यह मेरी सीट है।","S","B"],["I ticket entir teh.","इ टिकट एंतिर तेह।","कृपया अपनी टिकट दिखाइए।","L","B"],["Station hnu lam hnuah TT an lo kal ang.","स्टेशन ह्नु लाम ह्नुआह TT आन लो कल आंग।","अगले स्टेशन के बाद टीटी आएँगे।","S","C"],["Pu, ka ticket leh ka Aadhar.","पु, का टिकट लेह का आधार।","सर, मेरी टिकट और मेरा आधार।","S","B"],["Laizawn dung hmun chu zanah a hong.","लाइज़ॉन दुंग ह्मुन चु ज़ानाह आ होंग।","बीच वाली सीट रात में खुलती है।","L","B"],["Zingah laizawn dung hmun kha rawh.","ज़िंगाह लाइज़ॉन दुंग ह्मुन खा रॉह।","सुबह बीच वाली सीट बंद कर दो।","L","B"],["Thil chu dung hmun nuaiah chain-in khung rawh.","थिल चु दुंग ह्मुन नुआइआह चेन-इन खुंग रॉह।","सामान सीट के नीचे ज़ंजीर से बाँधो।","L","A"],["Lock te leh chain ka lo kalpui.","लॉक ते लेह चेन का लो कलपुइ।","मैं छोटा ताला और ज़ंजीर लाया हूँ।","S","B"],["Ip chu lu hnaih-ah dah la mut rawh.","इप चु लु हनाइह-आह दाह ला मुत रॉह।","थैला सिर के पास रखकर सोओ।","L","B"],["Mi hre lo hnenah chaw la suh.","मि ह्रे लो ह्नेनाह छॉ ला सुह।","अनजान लोगों से खाना मत लो।","L","A"],["Rûktu ṭhenkhat chuan damdawi zawm chaw an pe.","रूक्तु थ्हेनखत छुआन दामदावि ज़ॉम छॉ आन पे।","कुछ चोर दवा मिला खाना देते हैं।","L","B"],["Tui stall emaw IRCTC emaw-ah la rawh.","तुइ स्टॉल एमॉ IRCTC एमॉ-आह ला रॉह।","पानी स्टॉल या आईआरसीटीसी से लो।","L","B"],["Tui botal seal en rawh.","तुइ बोटल सील एन रॉह।","पानी की बोतल की सील जाँचो।","L","B"],["Charging hmun chu khawiah nge?","चार्जिंग ह्मुन चु खावियाह ङ्गे?","चार्जिंग की जगह कहाँ है?","S","A"],["Chu kongka lam ah a awm.","चु कोंगका लाम आह आ आउम।","वह गेट की तरफ़ है।","L","B"],["Phone charging-ah amah changin kalsan suh.","फोन चार्जिंग-आह अमाह छांगिन कल्सान सुह।","फोन चार्जिंग पर अकेला मत छोड़ो।","L","B"],["Chain chu hlauhawm dik atan chauh a ni.","चेन चु ह्लाउहॉम दिक आतान छाउह आ नि।","ज़ंजीर सिर्फ़ असली ख़तरे के लिए है।","L","B"],["Chain shut kaih chuan dang a awm.","चेन शुत काइह छुआन दांग आ आउम।","ग़लत ज़ंजीर खींचने पर जुर्माना है।","L","B"],["Tunah station engnge a lo thleng?","तुनाह स्टेशन एंगंगे आ लो थ्लेंग?","अब कौन-सा स्टेशन आ रहा है?","S","B"],["Ka kal na hmun chu zingah dar panga a lo thleng.","का कल ना ह्मुन चु ज़िंगाह दार पांगा आ लो थ्लेंग।","मेरी मंज़िल सुबह पाँच बजे आती है।","S","B"],["Dar khat hma alarm dah rawh.","दार खत ह्मा अलार्म दाह रॉह।","एक घंटा पहले का अलार्म लगाओ।","L","B"],["Station hma ah thil khung rawh.","स्टेशन ह्मा आह थिल खुंग रॉह।","स्टेशन से पहले सामान बाँध लो।","L","B"],["I ip te sim rawh: khat, hnih, thum.","इ इप ते सिम रॉह: खत, ह्निह, थुम।","अपने थैले गिनो: एक, दो, तीन।","L","B"],["Chhun lamah ka dung hmun ka insem ve.","छुन लामाह का दुंग ह्मुन का इन्सेम वे।","दिन में मैं अपनी सीट बाँट लेता हूँ।","S","B"],["Dung hmun insemna chu nungchang ṭha a ni.","दुंग ह्मुन इन्सेम्ना चु नुंगछांग त्हा आ नि।","सीट बाँटना अच्छा व्यवहार है।","S","C"],["Train-ah i sum chungchang tlawm takin sawi rawh.","ट्रेन-आह इ सुम छुंगछांग त्लॉम तकिन सावि रॉह।","ट्रेन में अपने पैसों की बात कम करो।","L","B"],["Kawngkal-ah ka Mizo ṭawngkam ka chhiar.","कॉंगकल-आह का मिज़ो तॉंगकाम का छिआर।","मैं सफ़र में अपने मिज़ो वाक्य पढ़ता हूँ।","S","B"],["Kawngkal chu kal mek school a ni.","कॉंगकल चु कल मेक स्कूल आ नि।","सफ़र चलता-फिरता स्कूल है।","S","C"],["Kawngkal him, chhungkua lawm.","कॉंगकल हिम, छुंगकुआ लॉम।","सुरक्षित सफ़र, खुश परिवार।","S","C"]],"title":"ट्रेन के भीतर का सफ़र"},{"tw":[["auto","अउतो","साझा ऑटो","ग"],["mitara","मीतारा","मीटर","ग"],["tlhamalalo","त्ल्हामालालो","सीधा","ग"],["tempeleng","तेम्पेलेङ","मुड़ना","ग"],["itsegeng","इत्सेगेङ","पहचान-जगह","ग"],["ke","के","पैदल-दूरी","ग"]],"drill":{"type":"directionSay","hi":"रास्ता बोलो — हिंदी सुनो, Mizo ṭawngin sawi rawh।","rows":[["बाएँ मुड़ो","Vei lamah kir rawh."],["सीधा जाओ","Tlhamalalo kal rawh."],["दाएँ मुड़ो","Ding lamah kir rawh."]]},"items":[["Labour Chowk i kal thei em?","लेबर चौक इ कल थेइ एम?","लेबर चौक चलोगे?","S","B"],["Engzat nge i la ang?","एंगज़त ङ्गे इ ला आंग?","कितना लोगे?","S","B"],["Rupee 80, tiam takin.","रुपी ८०, तिआम तकिन।","अस्सी रुपये, पक्का।","L","B"],["Share auto chuan rupee 20 a la.","शेयर ऑटो छुआन रुपी २० आ ला।","साझा ऑटो बीस लेता है।","S","C"],["Share auto-in ka kal ang.","शेयर ऑटो-इन का कल आंग।","मैं साझा ऑटो से जाऊँगा।","S","B"],["Hei auto hian meter a awm em?","हेइ ऑटो हिआन मीटर आ आउम एम?","क्या इस ऑटो में मीटर है?","S","B"],["Meter hong tan rawh.","मीटर होंग तान रॉह।","कृपया मीटर चालू करो।","S","A"],["Ṭhu hma ah man tiam rawh.","थ्हु ह्मा आह मान तिआम रॉह।","बैठने से पहले किराया तय करो।","L","B"],["U, ITI college engtin nge ka kal ang?","उ, ITI कॉलेज एंगतिन ङ्गे का कल आंग?","भाई, आईटीआई कॉलेज कैसे जाऊँ?","S","B"],["Petrol pump thleng chakin kal rawh.","पेट्रोल पम्प थ्लेंग छाकिन कल रॉह।","पेट्रोल पंप तक सीधा जाओ।","L","B"],["Chu hnuah biakin atangin vei lamah kir rawh.","चु ह्नुआह बिआकिन आतांगिन वेइ लामाह किर रॉह।","फिर मंदिर से बाएँ मुड़ो।","L","B"],["Chu hnuah kawng pahnihna ding lam la rawh.","चु ह्नुआह कॉंग पह्निह्ना दिंग लाम ला रॉह।","उसके बाद दूसरी दाईं गली लो।","L","B"],["College chu tui tank bul ah a awm.","कॉलेज चु तुइ टैंक बुल आह आ आउम।","कॉलेज पानी की टंकी के बगल में है।","L","B"],["Hetah atangin kekalin a naih em?","हेताह आतांगिन केकलिन आ नाइह एम?","क्या यहाँ से पैदल-दूरी है?","S","B"],["Aw, kekalin minute sawm chauh.","आउ, केकलिन मिनिट सावम छाउह।","हाँ, पैदल सिर्फ़ दस मिनट।","L","B"],["Hmun tin hriatna awmchhuak khat hriat reng rawh.","ह्मुन तिन ह्रिआत्ना आउमछुआक खत ह्रिआत रेंग रॉह।","हर जगह की एक पहचान-जगह याद रखो।","L","B"],["Ka room chu mosque lian hnung lamah a awm.","का रूम चु मॉस्क लिआन ह्नुंग लामाह आ आउम।","मेरा कमरा बड़ी मस्जिद के पीछे है।","S","B"],["Kawng hming chauh ni lo, hriatna hmun hrilh rawh.","कॉंग ह्मिंग छाउह नि लो, ह्रिआत्ना ह्मुन ह्रिल्ह रॉह।","सिर्फ़ सड़क-नाम नहीं, पहचान-जगह बताओ।","L","B"],["Ka live location ka thawn mek.","का लाइव लोकेशन का थॉन मेक।","मैं आपको अपनी लाइव जगह भेज रहा हूँ।","S","B"],["Map-ah var dot hnung lamah kal rawh.","मैप-आह वार डॉट ह्नुंग लामाह कल रॉह।","नक़्शे पर नीली बिंदी के पीछे चलो।","L","B"],["Kongka pawimawh-ah ka ding.","कोंगका पॉइमॉह-आह का दिंग।","मैं मुख्य गेट पर खड़ा हूँ।","S","A"],["Chutah dawn rawh, minute panga-ah ka thleng ang.","छुताह दॉन रॉह, मिनिट पांगा-आह का थ्लेंग आंग।","वहीं रुको, मैं पाँच मिनट में आ रहा हूँ।","S","B"],["Kawng chu tidik atan a khar.","कॉंग चु तिदिक आतान आ खर।","सड़क मरम्मत के लिए बंद है।","S","C"],["Kawng bula fimkhur takin la rawh.","कॉंग बुला फिम्खुर तकिन ला रॉह।","बगल वाली गली सावधानी से लो।","L","B"],["Kawng zebra crossing-in kan rawh.","कॉंग ज़ेब्रा क्रॉसिंग-इन कान रॉह।","सड़क ज़ेब्रा-पट्टी से पार करो।","L","B"],["Ding lam leh vei lam en la, chuan kan rawh.","दिंग लाम लेह वेइ लाम एन ला, छुआन कान रॉह।","दाएँ-बाएँ देखो, फिर पार करो।","L","B"],["Bike-ah helmet bun rawh.","बाइक-आह हेल्मेट बुन रॉह।","बाइक पर हेलमेट पहनो।","L","B"],["Bike khatah mi thum ṭhu suh.","बाइक खताह मि थुम थ्हु सुह।","एक बाइक पर तीन मत बैठो।","L","B"],["Hriatna hmun chuan kawng hlawh a dumtir ngai lo.","ह्रिआत्ना ह्मुन छुआन कॉंग ह्लॉह आ दुम्तिर ङ्गाइ लो।","जानी पहचान-जगह कभी भटकने नहीं देती।","S","B"],["Vawi hnih zawt la, vawi khat kal rawh.","वावि ह्निह ज़वत ला, वावि खत कल रॉह।","दो बार पूछो, एक बार चलो।","S","C"]],"title":"ऑटो और रास्ता पूछना"},{"tw":[["hesiboe","हेसीबोए","रेलवे हेल्पलाइन","ग"],["latlhegile","लात्ल्हेगीले","खोया","ग"],["kopane","कोपाने","मिला","ग"],["kitsiso","कीत्सीसो","घोषणा","ग"],["peteforomo","पेतेफ़ोरोमो","प्लेटफॉर्म टिकट","ग"],["ditlhaloso","दीत्ल्हालोसो","पूरी जानकारी","ग"]],"drill":{"type":"showTell","hi":"खोया-सामान रिपोर्ट — तीन वाक्य में अपनी बात बोलो।","rows":[["Ka ip chu station ah bo.","A dum, chain nei."],["Ka phone number chu lehkha ah a awm."]]},"items":[["Railway helpline chu 139 a ni.","रेलवे हेल्पलाइन चु १३९ आ नि।","रेलवे हेल्पलाइन एक तीन नौ है।","L","B"],["Train harsatna eng pawh a awm chuan hei letsa rawh.","ट्रेन हर्सत्ना एंग पॉह आ आउम छुआन हेइ लेत्सा रॉह।","ट्रेन की किसी भी परेशानी में इसे मिलाओ।","L","B"],["Ka ip station-ah a bo.","का इप स्टेशन-आह आ बो।","मेरा थैला स्टेशन पर खो गया।","S","B"],["Railway police kamra-ah kal rawh.","रेलवे पुलिस कामरा-आह कल रॉह।","रेलवे पुलिस कक्ष में जाओ।","L","A"],["Thu feleng nen phawrhna ziak rawh.","थु फेलेंग नेन फॉर्ह्ना ज़िआक रॉह।","पूरी जानकारी के साथ शिकायत लिखो।","L","B"],["Ka ip chu a dum, ziarkam senrawng nei.","का इप चु आ दुम, ज़िआर्काम सेनरॉंग नेइ।","मेरा थैला काला है, लाल पट्टी वाला।","S","B"],["An ka hming ko.","आन का ह्मिंग को।","उन्होंने मेरा नाम पुकारा।","S","B"],["Tsebiso tin fimkhur takin ngaithla rawh.","त्सेबिसो तिन फिम्खुर तकिन ङ्गाइथ्ला रॉह।","हर घोषणा ध्यान से सुनो।","L","B"],["Hmuh ip chu ka hmu leh ta.","ह्मुह इप चु का ह्मु लेह ता।","मिला हुआ थैला मुझे वापस मिल गया।","S","B"],["Ka lawm e, railway police.","का लॉम ए, रेलवे पुलिस।","धन्यवाद, रेलवे पुलिस।","S","A"],["Ip chhungah i hming ziak rawh.","इप छुंगाह इ ह्मिंग ज़िआक रॉह।","थैले के अंदर अपना नाम लिखो।","L","B"],["Thil-ah phone number lehkha khai rawh.","थिल-आह फोन नम्बर लेह्खा खाइ रॉह।","सामान पर फोन-नंबर की पर्ची लगाओ।","L","B"],["Chakna-in train shut lut suh.","छाक्ना-इन ट्रेन शुत लुत सुह।","जल्दबाज़ी में ग़लत ट्रेन मत चढ़ो।","L","B"],["Train hming leh number tiam min siam.","ट्रेन ह्मिंग लेह नम्बर तिआम मिन सिआम।","ट्रेन का नाम और नंबर पक्का करो।","L","B"],["Platform-ah kal tur platform ticket la rawh.","प्लेटफॉर्म-आह कल तुर प्लेटफॉर्म टिकट ला रॉह।","प्लेटफॉर्म पर जाने के लिए प्लेटफॉर्म टिकट लो।","L","B"],["Fa nei nu ṭanpui rawh.","फा नेइ नु त्हानपुइ रॉह।","बच्चे वाली माँ की मदद करो।","L","A"],["A coach a hmu lo.","आ कोच आ ह्मु लो।","उन्हें अपना डिब्बा नहीं मिल रहा था।","S","C"],["Ticket en chuan a coach ka entir.","टिकट एन छुआन आ कोच का एंतिर।","मैंने टिकट देखकर उन्हें डिब्बा दिखाया।","S","B"],["Ṭanpuina te chuan chibai lian a siam.","त्हानपुइना ते छुआन चिबाइ लिआन आ सिआम।","छोटी मदद बड़ी दुआ बनती है।","S","B"],["Hlauhawm chuan mi khat leh khawvak lamah kal rawh.","ह्लाउहॉम छुआन मि खत लेह खाववाक लामाह कल रॉह।","ख़तरे में भीड़ और रोशनी की ओर जाओ।","L","B"],["Ṭhian coach leh dung hmun ziak rawh.","थ्यान कोच लेह दुंग ह्मुन ज़िआक रॉह।","दोस्त का डिब्बा और सीट लिख लो।","L","B"],["Khua atangin inkopin kan kal.","खुआ आतांगिन इनकोपिन कान कल।","हम गाँव से साथ यात्रा करते हैं।","S","B"],["Inkop kawngkal chu kawngkal him a ni.","इनकोप कॉंगकल चु कॉंगकल हिम आ नि।","साथ का सफ़र सुरक्षित सफ़र है।","S","C"],["Man atan note tete dah rawh.","मान आतान नोट तेते दाह रॉह।","किराये के लिए छोटे नोट रखो।","L","B"],["Mi zawng zawng hmaah sum ip pumpelh entir suh.","मि ज़ॉंग ज़ॉंग ह्माआह सुम इप पुमपेल्ह एंतिर सुह।","सबके सामने पूरा बटुआ मत दिखाओ।","L","B"],["Kawngkal-ah tui in la, tlem mi ei rawh.","कॉंगकल-आह तुइ इन ला, त्लेम मि एइ रॉह।","सफ़र में पानी पियो, हल्का खाओ।","L","B"],["Thleng chuan in-ah ko rawh.","थ्लेंग छुआन इन-आह को रॉह।","पहुँचकर घर फोन करो।","L","B"],["Himin ka thleng, ngaihtuah suh.","हिमिन का थ्लेंग, ङ्गाइह्तुआह सुह।","मैं सुरक्षित पहुँच गया, चिंता मत करो।","S","A"],["Kawngkal a zo, zirna a la awm.","कॉंगकल आ ज़ो, ज़िर्ना आ ला आउम।","सफ़र ख़त्म होता है, सीख रह जाती है।","S","C"],["Week hnu-ah: visa interview khawvel.","वीक ह्नु-आह: विसा इंटरव्यू खावेल।","अगले हफ़्ते: वीज़ा-इंटरव्यू की दुनिया।","S","C"]],"title":"सफ़र-सुरक्षा और मदद"}],"test":{"target":"In ah phone hmangin (kal hmasa ni)","goal":"Mizo ṭawngin loeto lam hril — ticket i tiam, dar i en theuh, thil i him, du ah i ko ang.","lines":[["App hmangin ticket ka la.","ऐप ह्मांगिन टिकट का ला।"],["PNR status chu ni tin ka en."," PNR स्टेटस चु नि तिन का एन।"],["Station hma ah minute sawm le pathum ka thleng ang.","स्टेशन ह्मा आह मिनिट सावम ले पथुम का थ्लेंग आंग।"],["Thil te chu keitiin khung rawh.","थिल ते चु केइतीइन खुंग रॉह।"],["Thleng hian in ah ka ko ang.","थ्लेंग हिआन इन आह का को आंग।"]]},"listen":[["(ngaithla) Platform number chu engnge?","(chhang) Platform number pathum."],["(ngaithla) Khawiah nge chhuk?","(chhang) Dung hmun hnuhnung ah chhuk rawh."]],"dialog":[["Nangma","Labour chowk kal em?"],["Mi thawk","Rupee zakhat."],["Nangma","Auto inchhawp chuan sawmhnih a la."],["Mi thawk","A ṭha e, zakhat le sawmruk la."],["Nangma","E, auto inchhawp hmangin ka kal ang."]]},{"n":11,"title":"Visa, Airport and Going Abroad","hi":"वीज़ा, हवाई-अड्डा और विदेश-द्वार","pace":30,"days":[{"tw":[["pasepoto","पासेपोतो","पासपोर्ट","ग"],["visa","वीसा","वीज़ा","ग"],["visa","वीसा","काम का वीज़ा","ग"],["mongkhamphani","मोङ्खाम्प्हानी","मालिक-कंपनी","ग"],["contract","चोन्त्राच्त","क़रार","ग"],["moindia","मोइन्दीअ","भारतीय","ग"]],"drill":{"type":"dialogueFill","hi":"वीज़ा-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Mi thawk: Dubai engati nge i kal duh?","Nangma: Welder lät chu ka nei chutah."],["Mi thawk: I tiam chu hun engzat nge?","Nangma: Ka tiam chu kum hnih a ni."]]},"items":[["Gulf ram-ah hna thawk ka duh.","गल्फ़ राम-आह ह्ना थॉक का दुह।","मैं खाड़ी के देश में काम करना चाहता हूँ।","S","A"],["India mi ka ni.","इंडिया मि का नि।","मैं भारतीय हूँ।","S","A"],["Hei hi ka passport a ni.","हेइ हि का पासपोर्ट आ नि।","यह मेरा पासपोर्ट है।","S","A"],["Ka visa chu hna visa a ni.","का विसा चु ह्ना विसा आ नि।","मेरा वीज़ा काम का वीज़ा है।","S","B"],["Engati nge Dubai i kal duh?","एंगति ङ्गे दुबई इ कल दुह?","आप दुबई क्यों जाना चाहते हैं?","L","B"],["Chutah welder hna ka nei.","छुताह वेल्डर ह्ना का नेइ।","वहाँ मेरी वेल्डर की नौकरी है।","S","A"],["I neitu company chu engnge?","इ नेइतु कंपनी चु एंगंगे?","आपकी मालिक-कंपनी कौन है?","L","B"],["Ka neitu company chu thir company a ni.","का नेइतु कंपनी चु थिर कंपनी आ नि।","मेरी मालिक-कंपनी एक स्टील कंपनी है।","S","B"],["Company hming chu ka offer letter-ah a awm.","कंपनी ह्मिंग चु का ऑफर लेटर-आह आ आउम।","कंपनी का नाम मेरे ऑफर-पत्र पर है।","S","B"],["Chutah i hlawh chu eng nge ni ang?","छुताह इ ह्लॉह चु एंग ङ्गे नि आंग?","वहाँ आपका वेतन क्या होगा?","L","B"],["Dirham 1500 thla khatah.","दिरहम १५०० थ्ला खताह।","पंद्रह सौ दिरहम महीना।","S","C"],["Chaw leh room chu company atanga a ni.","छॉ लेह रूम चु कंपनी आतांगा आ नि।","खाना और कमरा कंपनी से है।","S","C"],["I tiam chu hun engzat nge?","इ तिआम चु हुन एंगज़त ङ्गे?","आपका क़रार कितने समय का है?","L","B"],["Ka tiam chu kum hnih a ni.","का तिआम चु कुम ह्निह आ नि।","मेरा क़रार दो साल का है।","S","A"],["Ka tiam ka chhiar tawh.","का तिआम का छिआर तॉह।","मैंने अपना क़रार पढ़ा है।","S","A"],["Signature siam hma ah tiam chhiarsak rawh.","सिग्नेचर सिआम ह्मा आह तिआम छिआर्साक रॉह।","दस्तख़त से पहले क़रार पढ़वा लो।","L","B"],["India-ah engnge i thawk?","इंडिया-आह एंगंगे इ थॉक?","भारत में आपने क्या काम किया?","L","B"],["Kum panga chhung welding ka thawk.","कुम पांगा छुंग वेल्डिंग का थॉक।","मैंने पाँच साल वेल्डिंग की।","S","B"],["Hmasain ram danga i kal tawh em?","ह्मासाइन राम दांगा इ कल तॉह एम?","क्या आप पहले विदेश गए हैं?","L","B"],["Ani lo, hei hi ka vawi khatna a ni.","आनि लो, हेइ हि का वावि खत्ना आ नि।","नहीं, यह मेरी पहली बार है।","S","A"],["I chhungkuaah tu nge an awm?","इ छुंगकुआआह तु ङ्गे आन आउम?","आपके परिवार में कौन-कौन हैं?","L","B"],["Ka nupui leh fate pahnih khuaah an awm.","का नुपुइ लेह फाते पह्निह खुआआह आन आउम।","मेरी पत्नी और दो बच्चे गाँव में हैं।","S","B"],["Chhang te leh fiah takin chhang rawh.","छांग ते लेह फिआह तकिन छांग रॉह।","छोटी-सादी पंक्तियों में जवाब दो।","L","B"],["Officer lamah en in sawi rawh.","ऑफिसर लामाह एन इन सावि रॉह।","अधिकारी की ओर देखकर बोलो।","L","B"],["Dik takin ṭhu la, muang takin awm rawh.","दिक तकिन थ्हु ला, मुआंग तकिन आउम रॉह।","सीधा बैठो, शांत रहो।","L","B"],["I hria loh chuan 'Sorry, please repeat' tih rawh.","इ ह्रिया लोह छुआन 'Sorry, please repeat' तिह रॉह।","न समझो तो 'सॉरी, प्लीज़ रिपीट' कहो।","L","B"],["Officer a zawt a, fiah takin ka chhang.","ऑफिसर आ ज़वत आ, फिआह तकिन का छांग।","अधिकारी ने पूछा, मैंने साफ़ जवाब दिया।","S","B"],["Ka lehkha te feleng leh dik an ni.","का लेह्खा ते फेलेंग लेह दिक आन नि।","मेरे कागज़ पूरे और सच्चे हैं।","S","A"],["Hei chhang te ṭhian nen theihnathiam rawh.","हेइ छांग ते थ्यान नेन थेइह्नाथिआम रॉह।","ये जवाब दोस्त के साथ अभ्यास करो।","L","B"],["Chhang ṭhan, interview awlsam.","छांग थ्हान, इंटरव्यू आउल्साम।","तैयार जवाब, आसान इंटरव्यू।","S","C"]],"title":"वीज़ा-इंटरव्यू (अपनी बात, अपना देश)"},{"tw":[["maaka","माअका","झूठ","ग"],["leaka","लेअका","रद्द","ग"],["moemedi","मोएमेदी","एजेंट","ग"],["meretse","मेरेत्से","मेडिकल-जाँच","ग"],["morwakgoa","मोर्वाक्गोअ","उँगली-छाप","ग"],["kir","कीर","वापसी-योजना","ग"]],"drill":{"type":"yesNo","hi":"सच-जवाब अभ्यास — सवाल सुनो, सच्चा पूरा वाक्य बोलो।","rows":[["Ram dang i kal tawh em?","Nnyaa, hei hi ka vawi khatna a ni."],["I kalafi a fentse em?","E, ka kalafi a ṭha."]]},"items":[["Interview-ah dawt ngai suh.","इंटरव्यू-आह दॉत ङ्गाइ सुह।","इंटरव्यू में कभी झूठ मत बोलो।","L","B"],["Dawt khat chuan visa a tihbo thei.","दॉत खत छुआन विसा आ तिह्बो थेइ।","एक झूठ वीज़ा रद्द करा सकता है।","L","B"],["Dik chu a be thei, mahse a him.","दिक चु आ बे थेइ, मह्से आ हिम।","सच धीमा हो सकता है, पर सुरक्षित है।","S","C"],["I hre loh chuan sawi rawh.","इ ह्रे लोह छुआन सावि रॉह।","न जानो तो कह दो।","L","B"],["Ngaihdam pu, hei hi ka hre lo.","ङ्गाइह्दाम पु, हेइ हि का ह्रे लो।","माफ़ कीजिए सर, मुझे यह नहीं पता।","S","A"],["Tu nge i ticket a pek?","तु ङ्गे इ टिकट आ पेक?","आपकी टिकट किसने भरी?","L","B"],["Company chuan ka ticket a pek.","कंपनी छुआन का टिकट आ पेक।","कंपनी ने मेरी टिकट भरी।","S","A"],["Agent hnenah engzat nge i pe?","एजेंट ह्नेनाह एंगज़त ङ्गे इ पे?","आपने एजेंट को कितना दिया?","L","B"],["Sum dik chauh hrilh rawh.","सुम दिक छाउह ह्रिल्ह रॉह।","सिर्फ़ सच्ची रक़म बताओ।","L","B"],["Ka agent chu license nei a ni.","का एजेंट चु लाइसेंस नेइ आ नि।","मेरा एजेंट लाइसेंस वाला है।","S","B"],["India-ah i kir leh ang em?","इंडिया-आह इ किर लेह आंग एम?","क्या आप भारत लौटेंगे?","L","B"],["Aw, tiam zoh hnuah ka kir leh ang.","आउ, तिआम ज़ोह ह्नुआह का किर लेह आंग।","हाँ, क़रार के बाद मैं लौटूँगा।","S","A"],["Ka chhungkua leh lei chu India-ah a awm.","का छुंगकुआ लेह लेइ चु इंडिया-आह आ आउम।","मेरा परिवार और ज़मीन भारत में है।","S","B"],["Ka kir leh ruahman chu a fiah.","का किर लेह रुआह्मान चु आ फिआह।","मेरी वापसी-योजना साफ़ है।","S","B"],["I medical check a hlawhtling em?","इ मेडिकल चेक आ ह्लॉह्तलिंग एम?","क्या आपकी मेडिकल-जाँच पास हुई?","L","B"],["Aw, ka medical a fit.","आउ, का मेडिकल आ फिट।","हाँ, मेरी मेडिकल फिट है।","S","B"],["Medical chu phal center-ah ka thawk.","मेडिकल चु फाल सेंटर-आह का थॉक।","मेडिकल मान्यता वाले केंद्र पर हुई।","S","C"],["An kut zung an la ang.","आन कुत ज़ुंग आन ला आंग।","वे आपकी उँगली-छाप लेंगे।","L","B"],["Kut zung machine-ah dik takin dah rawh.","कुत ज़ुंग मशीन-आह दिक तकिन दाह रॉह।","उँगली मशीन पर सीधी रखो।","L","B"],["Photo atan camera-ah en rawh.","फोटो आतान कैमरा-आह एन रॉह।","फोटो के लिए कैमरे में देखो।","L","B"],["I hming leh hna i hrilh thei em?","इ ह्मिंग लेह ह्ना इ ह्रिल्ह थेइ एम?","अपना नाम और काम बता सकते हैं?","L","B"],["Ka hming Ramesh a ni, welder ka ni.","का ह्मिंग रमेश आ नि, वेल्डर का नि।","मेरा नाम रमेश है, मैं वेल्डर हूँ।","S","A"],["Khawpui engnge-ah nge i awm ang?","खावपुइ एंगंगे-आह ङ्गे इ आउम आंग?","आप किस शहर में रहेंगे?","L","B"],["Company camp-ah ka awm ang.","कंपनी कैम्प-आह का आउम आंग।","मैं कंपनी के कैम्प में रहूँगा।","S","B"],["Officer nen inchei suh.","ऑफिसर नेन इनछेइ सुह।","अधिकारी से बहस मत करो।","L","B"],["Phal loh chuan chhan inngaitlawm takin zawt rawh.","फाल लोह छुआन छान इन्ंगाइत्लॉम तकिन ज़वत रॉह।","मना हो तो कारण विनम्रता से पूछो।","L","B"],["Lehkha feleng nen bai ngenna i siam thei.","लेह्खा फेलेंग नेन बाइ ङ्गेन्ना इ सिआम थेइ।","पूरे कागज़ों से दोबारा आवेदन कर सकते हो।","L","B"],["Ka chhang te leh ka lehkha te an inbung.","का छांग ते लेह का लेह्खा ते आन इन्बुंग।","मेरे जवाब मेरे कागज़ों से मिले।","S","B"],["Lehkha leh kam-in dik khat chauh.","लेह्खा लेह काम-इन दिक खत छाउह।","कागज़ और ज़ुबान में एक ही सच।","S","C"],["Visa a thleng, mang a zoh zel.","विसा आ थ्लेंग, मांग आ ज़ोह ज़ेल।","वीज़ा आया, सपना आगे बढ़ा।","S","C"]],"title":"वीज़ा-इंटरव्यू (सच का नियम)"},{"tw":[["dumetse","दूमेत्से","मान्य","ग"],["folata","फ़ोलाता","फाइल","ग"],["sepodisi","सेपोदीसी","पुलिस-सत्यापन","ग"],["inshorense","इन्स्होरेन्से","बीमा","ग"],["kgolagano tshoganyetso","क्गोलागानो चोगाञेत्सो","आपात-संपर्क","ग"],["khopi","खोपी","छायाप्रति","ग"]],"drill":{"type":"orderSteps","hi":"विदेश-कागज़ का क्रम — Pele, Morago, Morago ga moo लगाकर बोलो।","rows":[["Hmasain passport siam rawh.","Chuan kalafi check hmachhawn rawh.","Chu hnuah visa kopo siam rawh."]]},"items":[["Passport chu i chabi hmasa ber a ni.","पासपोर्ट चु इ छाबी ह्मासा बेर आ नि।","पासपोर्ट आपकी पहली चाबी है।","S","B"],["Sorkar website-in chauh ngenna siam rawh.","सोर्कार वेबसाइट-इन छाउह ङ्गेन्ना सिआम रॉह।","सिर्फ़ सरकारी वेबसाइट से आवेदन करो।","L","B"],["Passport office chuan lehkha atan min ko.","पासपोर्ट ऑफिस छुआन लेह्खा आतान मिन को।","पासपोर्ट-दफ़्तर ने कागज़ों के लिए बुलाया।","S","B"],["Police verification ka in-ah a lo kal.","पुलिस वेरिफिकेशन का इन-आह आ लो कल।","पुलिस-सत्यापन मेरे घर आया।","S","A"],["Police hnenah address dik hrilh rawh.","पुलिस ह्नेनाह एड्रेस दिक ह्रिल्ह रॉह।","पुलिस को सही पता बताओ।","L","A"],["Ka passport chu kum sawm phal a ni.","का पासपोर्ट चु कुम सावम फाल आ नि।","मेरा पासपोर्ट दस साल मान्य है।","S","A"],["Visa hma ah validity en rawh.","विसा ह्मा आह वैलिडिटी एन रॉह।","वीज़ा से पहले मान्यता जाँचो।","L","B"],["Thla paruk validity a mamawh.","थ्ला परुक वैलिडिटी आ ममॉह।","छह महीने की मान्यता ज़रूरी है।","L","B"],["Passport plastic file-ah dah rawh.","पासपोर्ट प्लास्टिक फाइल-आह दाह रॉह।","पासपोर्ट प्लास्टिक फाइल में रखो।","L","B"],["Lehkha tin photocopy thum siam rawh.","लेह्खा तिन फोटोकॉपी थुम सिआम रॉह।","हर कागज़ की तीन छायाप्रति बनाओ।","L","B"],["Kopi set khat in-ah dah rawh.","कोपी सेट खत इन-आह दाह रॉह।","एक प्रति-सेट घर पर रखो।","L","B"],["Kopi set khat i phone-ah dah rawh.","कोपी सेट खत इ फोन-आह दाह रॉह।","एक प्रति-सेट अपने फोन में रखो।","L","B"],["Passport dik agent hnenah pe ngai suh.","पासपोर्ट दिक एजेंट ह्नेनाह पे ङ्गाइ सुह।","असली पासपोर्ट एजेंट को कभी मत दो।","L","B"],["Passport chu i kutah awm reng tur.","पासपोर्ट चु इ कुताह आउम रेंग तुर।","पासपोर्ट आपके हाथ में रहे।","L","B"],["Ram dangah company chuan i passport a vawng thei lo.","राम दांगाह कंपनी छुआन इ पासपोर्ट आ ववंग थेइ लो।","विदेश में कंपनी आपका पासपोर्ट नहीं रख सकती।","L","B"],["Dan angin hei hi i dikna a ni.","दान आंगिन हेइ हि इ दिक्ना आ नि।","कानून से यह आपका हक़ है।","L","B"],["Ka medical file-ah report zawng zawng a awm.","का मेडिकल फाइल-आह रिपोर्ट ज़ॉंग ज़ॉंग आ आउम।","मेरी मेडिकल फाइल में सब रिपोर्ट हैं।","S","B"],["Thisen leh mit check a zo.","थिसेन लेह मित चेक आ ज़ो।","खून और आँख की जाँच हो गई।","S","C"],["Kum hnih kawngkal insurance la rawh.","कुम ह्निह कॉंगकल इंश्योरेंस ला रॉह।","दो साल का यात्रा-बीमा लो।","L","B"],["Ram dangah damlo chuan insurance a hlawh.","राम दांगाह दामलो छुआन इंश्योरेंस आ ह्लॉह।","विदेश में बीमारी पर बीमा काम आता है।","L","B"],["Harsatna contact pahnih ziak rawh.","हर्सत्ना कॉन्टैक्ट पह्निह ज़िआक रॉह।","दो आपात-संपर्क लिखो।","L","B"],["Khat in a, khat India office a.","खत इन आ, खत इंडिया ऑफिस आ।","एक घर का, एक भारत-दफ़्तर का नंबर।","L","B"],["Passport number kam-in hriat reng rawh.","पासपोर्ट नम्बर काम-इन ह्रिआत रेंग रॉह।","पासपोर्ट नंबर ज़ुबानी याद करो।","L","B"],["Entir hmun-ah chauh signature siam rawh.","एंतिर ह्मुन-आह छाउह सिग्नेचर सिआम रॉह।","सिर्फ़ दिखाई जगह पर दस्तख़त करो।","L","B"],["Signature siam hma ah phek tin chhiar rawh.","सिग्नेचर सिआम ह्मा आह फेक तिन छिआर रॉह।","दस्तख़त से पहले हर पन्ना पढ़ो।","L","B"],["Lehkha zawng zawng-ah hming tehkhin rawh.","लेह्खा ज़ॉंग ज़ॉंग-आह ह्मिंग तेह्खिन रॉह।","सब कागज़ों पर नाम मिलाओ।","L","B"],["Letter shut khat chuan file a tibawr.","लेटर शुत खत छुआन फाइल आ तिबॉर।","एक ग़लत अक्षर फाइल रोक देता है।","L","B"],["Office-ah chakin tidik tir rawh.","ऑफिस-आह छाकिन तिदिक तिर रॉह।","दफ़्तर में जल्दी सुधरवाओ।","L","B"],["File feleng, ngaihtuahna a awm lo.","फाइल फेलेंग, ङ्गाइह्तुआह्ना आ आउम लो।","पूरी फाइल, कोई चिंता नहीं।","S","B"],["Lehkha ṭhan, thlir ṭhan.","लेह्खा थ्हान, थ्लिर थ्हान।","कागज़ तैयार, पंख तैयार।","S","C"]],"title":"पासपोर्ट, कागज़ और मेडिकल"},{"tw":[["go lut","गो लूत","चेक-इन","ग"],["boarding","बोअर्दीङ","बोर्डिंग पास","ग"],["himna","हीम्ना","सुरक्षा-जाँच","ग"],["dikgolo","दीक्गोलो","प्रस्थान","ग"],["khontareng","खोन्तारेङ","इमिग्रेशन","ग"],["ṭhutthleng","ठूत्थ्लेङ","सीट-पट्टी","ग"]],"drill":{"type":"signRead","hi":"बोर्ड पढ़ो — bodo reetsa, hindi mathale bua.","rows":[["Tsamao","जाने वालों के लिए"],["Goroga","आने वालों के लिए"],["Go goga ga go dumelelwa","धूम्रपान मना"],["Kwa ntle","बाहर जाने का रास्ता"]]},"items":[["Dar thum hma in airport kan thleng.","दार थुम ह्मा इन एयरपोर्ट कान थ्लेंग।","हम तीन घंटे पहले एयरपोर्ट पहुँचे।","S","B"],["Board lian chhiar rawh: Departures leh Arrivals.","बोर्ड लिआन छिआर रॉह: Departures लेह Arrivals।","बड़े बोर्ड पढ़ो: प्रस्थान और आगमन।","L","B"],["Kal atan Departures, lo kal atan Arrivals.","कल आतान Departures, लो कल आतान Arrivals।","जाने के लिए प्रस्थान, आने के लिए आगमन।","L","B"],["Check-in counter-ah line-ah ding rawh.","चेक-इन काउंटर-आह लाइन-आह दिंग रॉह।","चेक-इन काउंटर पर कतार में लगो।","L","B"],["Passport leh ticket entir rawh.","पासपोर्ट लेह टिकट एंतिर रॉह।","पासपोर्ट और टिकट दिखाओ।","L","B"],["Ip lian belt-ah dah rawh.","इप लिआन बेल्ट-आह दाह रॉह।","बड़ा थैला पट्टे पर रखो।","L","B"],["Ip tahna kilo 30 a ni.","इप ताह्ना किलो ३० आ नि।","थैले की तौल-सीमा तीस किलो है।","L","B"],["Ka ip kilo hnih a tam.","का इप किलो ह्निह आ तम।","मेरा थैला दो किलो ज़्यादा है।","S","B"],["Thil ṭhenkhat chhuah la em a nih loh sum tam pe.","थिल थ्हेनखत छुआह ला एम आ निह लोह सुम तम पे।","कुछ सामान निकालो या ज़्यादा पैसे दो।","L","B"],["Hei hi i boarding pass a ni.","हेइ हि इ बोर्डिंग पास आ नि।","यह आपका बोर्डिंग पास है।","L","B"],["Gate number chu boarding pass-ah a awm.","गेट नम्बर चु बोर्डिंग पास-आह आ आउम।","गेट नंबर बोर्डिंग पास पर है।","L","B"],["A hnu chu security check a ni.","आ ह्नु चु सिक्योरिटी चेक आ नि।","अगली है सुरक्षा-जाँच।","S","C"],["Phone leh poketi tray-ah dah rawh.","फोन लेह पोकेती ट्रे-आह दाह रॉह।","फोन और पेटी ट्रे में रखो।","L","B"],["Tui botal chhung lamah phal lo.","तुइ बोटल छुंग लामाह फाल लो।","पानी की बोतल अंदर मना है।","L","B"],["Check atan kut chung lamah tsholetsa rawh.","चेक आतान कुत छुंग लामाह त्शोलेत्सा रॉह।","जाँच के लिए हाथ ऊपर करो।","L","B"],["Hmun tinah 'Smoking phal lo' a ziak.","ह्मुन तिनाह 'Smoking phal lo' आ ज़िआक।","हर जगह 'धूम्रपान मना' लिखा है।","L","B"],["Exit board hring chuan pawn lam kawng a entir.","एग्ज़िट बोर्ड ह्रिंग छुआन पॉन लाम कॉंग आ एंतिर।","हरा एग्ज़िट बोर्ड बाहर का रास्ता दिखाता है।","L","B"],["Tunah immigration counter-ah kal rawh.","तुनाह इमिग्रेशन काउंटर-आह कल रॉह।","अब इमिग्रेशन काउंटर जाओ।","L","B"],["Officer-in a zawt: khawiah nge i kal?","ऑफिसर-इन आ ज़वत: खावियाह ङ्गे इ कल?","अधिकारी ने पूछा: कहाँ जा रहे हो?","S","B"],["Hna atan Dubai-ah ka kal.","ह्ना आतान दुबई-आह का कल।","मैं काम के लिए दुबई जा रहा हूँ।","S","A"],["Ka passport-ah seal an dah.","का पासपोर्ट-आह सील आन दाह।","उन्होंने मेरे पासपोर्ट पर मुहर लगाई।","S","A"],["Gate number sawm leh pahnih-ah dawn rawh.","गेट नम्बर सावम लेह पह्निह-आह दॉन रॉह।","गेट नंबर बारह पर रुको।","L","B"],["I flight tsebiso ngaithla rawh.","इ फ़्लाइट त्सेबिसो ङ्गाइथ्ला रॉह।","अपनी उड़ान की घोषणा सुनो।","L","B"],["Boarding a hong tan, pass bai entir rawh.","बोर्डिंग आ होंग तान, पास बाइ एंतिर रॉह।","बोर्डिंग शुरू, पास फिर दिखाओ।","L","B"],["Ka dung hmun 34-A, thlalet lamah a awm.","का दुंग ह्मुन ३४-ए, थ्लालेत लामाह आ आउम।","मेरी सीट चौंतीस-ए, खिड़की की ओर है।","S","B"],["Dung hmun belt hetiang hian khung rawh.","दुंग ह्मुन बेल्ट हेतिआंग हिआन खुंग रॉह।","सीट-पट्टी ऐसे बाँधो।","L","B"],["Phone flight mode-ah dah rawh.","फोन फ़्लाइट मोड-आह दाह रॉह।","फोन उड़ान-मोड पर रखो।","L","B"],["Sefofane a tlan, ka thinlung a nuihsan.","सेफोफाने आ त्लान, का थिन्लुंग आ नुइह्सान।","विमान उड़ा, मेरा दिल मुस्कुराया।","S","B"],["Shirt var ka bun, pawn lamah hmu rawh.","शर्ट वार का बुन, पॉन लामाह ह्मु रॉह।","मैंने नीली कमीज़ पहनी है, बाहर मिलना।","S","B"],["Khua atanga lei thleng.","खुआ आतांगा लेइ थ्लेंग।","गाँव से आसमान तक।","S","C"]],"title":"हवाई-अड्डे का पूरा सीन"},{"tw":[["emigrate","एमीग्राते","ई-माइग्रेट","ग"],["madad","मादाद","मदद पोर्टल","ग"],["kwadisitsweng","क्वादीसीत्स्वेङ","पंजीकृत","ग"],["kgonsulate","क्गोन्सूलाते","दूतावास","ग"],["letsietsi","लेत्सीएत्सी","ठग","ग"],["hlauhawm","ह्लाउहॉम","वादा","ग"]],"drill":{"type":"showTell","hi":"जाने से पहले परिवार को तीन बातें बोलो।","rows":[["Ka sefofane chu Sontaga dar sawm a ni.","Khampe chu Dubai ah a awm.","Ka fofa hnuah ka ko ang."]]},"items":[["Agent registered nen chauh ram dang kal rawh.","एजेंट रजिस्टर्ड नेन छाउह राम दांग कल रॉह।","सिर्फ़ पंजीकृत एजेंट से विदेश जाओ।","L","B"],["Agent chu eMigrate website-ah en rawh.","एजेंट चु eMigrate वेबसाइट-आह एन रॉह।","एजेंट को ई-माइग्रेट वेबसाइट पर जाँचो।","L","B"],["Agent dik chuan license number a nei.","एजेंट दिक छुआन लाइसेंस नम्बर आ नेइ।","सच्चे एजेंट के पास लाइसेंस नंबर होता है।","L","B"],["License zawt la ziak rawh.","लाइसेंस ज़वत ला ज़िआक रॉह।","लाइसेंस माँगो और लिख लो।","L","B"],["Dawtu chuan hei zawhna hi a tihbial.","दॉतु छुआन हेइ ज़ॉह्ना हि आ तिह्बिआल।","ठग इस सवाल से भागता है।","L","B"],["'Free visa' tih hian hrang hrang a awm lo.","'Free visa' तिह हिआन ह्रांग ह्रांग आ आउम लो।","'फ्री वीज़ा' जैसा कुछ नहीं होता।","L","B"],["Tiamna lian, hlauhawm lian.","तिआम्ना लिआन, ह्लाउहॉम लिआन।","बड़ा वादा, बड़ा ख़तरा।","L","B"],["Tefo tin receipt la rawh.","तेफो तिन रिसीट ला रॉह।","हर भुगतान की रसीद लो।","L","B"],["Bank-in pe la, cash chauh ni lo.","बैंक-इन पे ला, कैश छाउह नि लो।","बैंक से दो, सिर्फ़ नकद नहीं।","L","B"],["Bank tefo chu i finna a ni.","बैंक तेफो चु इ फिन्ना आ नि।","बैंक-भुगतान आपका सबूत है।","L","B"],["Chu company mi thawk pahnih nen inbiak rawh.","चु कंपनी मि थॉक पह्निह नेन इनबिआक रॉह।","उस कंपनी के दो कामगारों से बात करो।","L","B"],["An hnenah hlawh leh room chungchang zawt rawh.","आन ह्नेनाह ह्लॉह लेह रूम छुंगछांग ज़वत रॉह।","उनसे वेतन और कमरे के बारे में पूछो।","L","B"],["Video call chuan camp dik a entir.","विडियो कॉल छुआन कैम्प दिक आ एंतिर।","वीडियो कॉल असली कैम्प दिखाती है।","L","B"],["Hna atan tourist visa chu thang a ni.","ह्ना आतान टूरिस्ट विसा चु थांग आ नि।","काम के लिए टूरिस्ट वीज़ा जाल है।","L","B"],["Hna visa-ah chauh hna thawk rawh.","ह्ना विसा-आह छाउह ह्ना थॉक रॉह।","सिर्फ़ काम के वीज़ा पर काम करो।","L","B"],["Chu ram-ah India embassy number dah rawh.","चु राम-आह इंडिया एम्बेसी नम्बर दाह रॉह।","उस देश में भारतीय दूतावास का नंबर रखो।","L","B"],["India embassy chuan ram dangah India mi te a ṭanpui.","इंडिया एम्बेसी छुआन राम दांगाह इंडिया मि ते आ त्हानपुइ।","भारतीय दूतावास विदेश में भारतीयों की मदद करता है।","L","B"],["Madad chu sorkar ṭanpui portal a ni.","मदाद चु सोर्कार त्हानपुइ पोर्टल आ नि।","मदद सरकार का सहायता-पोर्टल है।","L","B"],["I harsatna Madad portal-ah ziak rawh.","इ हर्सत्ना मदाद पोर्टल-आह ज़िआक रॉह।","अपनी परेशानी मदद पोर्टल पर लिखो।","L","B"],["Hlawh i dawng lo? Chutah phawrh rawh.","ह्लॉह इ दॉंग लो? छुताह फॉर्ह रॉह।","वेतन नहीं मिला? वहीं शिकायत करो।","L","B"],["Ruahman tinah chhungkua tel tir rawh.","रुआह्मान तिनाह छुंगकुआ तेल तिर रॉह।","हर योजना में परिवार को साथ रखो।","L","B"],["An hnenah agent leh company chungchang thawn rawh.","आन ह्नेनाह एजेंट लेह कंपनी छुंगछांग थॉन रॉह।","उन्हें एजेंट और कंपनी की जानकारी भेजो।","L","B"],["I flight leh camp address hrilh rawh.","इ फ़्लाइट लेह कैम्प एड्रेस ह्रिल्ह रॉह।","अपनी उड़ान और कैम्प का पता बताओ।","L","B"],["Ram dang atangin week khatah vawi hnih in lamah ko rawh.","राम दांग आतांगिन वीक खताह वावि ह्निह इन लामाह को रॉह।","विदेश से हफ़्ते में दो बार घर फोन करो।","L","B"],["Harsatna i tawk chuan thup suh.","हर्सत्ना इ तॉक छुआन थुप सुह।","मुसीबत में हो तो छिपाओ मत।","L","B"],["Chhungkua, embassy leh Madad — i kongka pathum.","छुंगकुआ, एम्बेसी लेह मदाद — इ कोंगका पथुम।","परिवार, दूतावास और मदद — आपके तीन दरवाज़े।","L","B"],["Thinlung inpeih chu changkhat a ni ngai lo.","थिन्लुंग इनपेइह चु छांगखत आ नि ङ्गाइ लो।","तैयार मन कभी अकेला नहीं होता।","S","C"],["Ram dangah hmu la, in-ah sa rawh.","राम दांगाह ह्मु ला, इन-आह सा रॉह।","विदेश में कमाओ, घर में बनाओ।","S","C"],["Lehkha nen kal la, ngaihhlutna nen kir leh rawh.","लेह्खा नेन कल ला, ङ्गाइह्ह्लुत्ना नेन किर लेह रॉह।","कागज़ों के साथ जाओ, गर्व के साथ लौटो।","S","C"],["Himin kal, ngeihin kir leh.","हिमिन कल, ङ्गेइहिन किर लेह।","सुरक्षित जाना, पक्का लौटना।","S","C"]],"title":"ई-माइग्रेट, मदद और ठग-एजेंट बचाव"}],"test":{"target":"Visa inbiak zawng zawng (mi thawk khat hnenah)","goal":"Mizo ṭawngin ram, lät, tiam, ticket, kir leh dan, lawmna sawi — mela sarih, boammaaruri zawng zawng.","lines":[["India mi ka ni.","इंडिया मि का नि।"],["Dubai ah welder lät ka nei chutah.","दुबई आह वेल्डर लात का नेइ छुताह।"],["Ka tiam chu kum hnih a ni.","का तिआम चु कुम ह्निह आ नि।"],["Khamphani chuan ticket min pe.","खाम्फनी छुआन टिकट मिन पे।"],["E, tiam hnuah ka kir leh ang.","ए, तिआम ह्नुआह का किर लेह आंग।"],["Ka lehkha te a zo a boammaaruri ve.","का लेह्खा ते आ ज़ो आ बोआम्माआरुरी वे।"],["Ka lawm e, pu.","का लॉम ए, पु।"]]},"listen":[["(ngaithla) Khawiah nge i kal?","(chhang) Dubai ah lät atan ka kal."],["(ngaithla) Tu nge ticket la?","(chhang) Khamphani chuan ticket min pe."]],"dialog":[["Mi thawk","I passport entir rawh."],["Nangma","Pu, hei hi, ka passport."],["Mi thawk","Engnge tur i lo kal?"],["Nangma","Lät thawk tur ka lo kal."],["Mi thawk","A ṭha e, kongka number sawm le hnih ah kal rawh."]]},{"n":12,"title":"Rest, Joy and New Beginning","hi":"आराम, खुशी और नई शुरुआत (समापन)","pace":10,"days":[{"tw":[["letlotlo","लेत्लोत्लो","शौक़","क"],["hun","हून","फुर्सत","क"],["letlotlo","लेत्लोत्लो","गीत","क"],["motshameko","मोचामेको","खेल","क"],["ikhutsa","इखूत्सा","आराम","क"],["moopedi","मोओपेदी","पसंदीदा","क"]],"drill":{"type":"showTell","hi":"अपना शौक़ — तीन वाक्य में बोलो।","rows":[["Ka lawmna chu ___ a ni.","Ka Sontaga ___ ka inven.","Nuihnem lak in thinlung tiṭha ve."]]},"items":[["Hun hun chhung engnge i ti?","हुन हुन छुंग एंगंगे इ ति?","फुर्सत में आप क्या करते हैं?","L","B"],["Ka duhzawng chu hla ngaithlak a ni.","का दुह्ज़ॉंग चु ह्ला ङ्गाइथ्लाक आ नि।","मेरा शौक़ गीत सुनना है।","S","B"],["Pathianni zingah cricket ka inven.","पथियन्नि ज़िंगाह क्रिकेट का इनवेन।","मैं रविवार सुबह क्रिकेट खेलता हूँ।","S","B"],["Kan team chuan khua inveina a hneh.","कन टीम छुआन खुआ इनवेइना आ ह्नेह।","हमारी टीम ने स्थानीय खेल जीता।","S","B"],["Ka hla sak duh chu Bihar atanga a ni.","का ह्ला साक दुह चु बिहार आतांगा आ नि।","मेरा पसंदीदा गायक बिहार से है।","S","B"],["Thla khatin film khat ka en.","थ्ला खतिन फिल्म खत का एन।","मैं महीने में एक फ़िल्म देखता हूँ।","S","B"],["Chawlhna pawh hna chanve a ni.","छॉल्ह्ना पॉह ह्ना छान्वे आ नि।","आराम भी काम का हिस्सा है।","S","C"],["Chawlh niah dar khat tam zawk ka mut.","छॉल्ह निआह दार खत तम ज़ॉक का मुत।","छुट्टी में मैं एक घंटा ज़्यादा सोता हूँ।","S","B"],["Duhzawng te chuan thinlung a titharin a dah.","दुह्ज़ॉंग ते छुआन थिन्लुंग आ तिथारिन आ दाह।","शौक़ मन को ताज़ा रखते हैं।","S","C"],["Hna chak, chawlh tha, ni tin nuihnem.","ह्ना छाक, छॉल्ह था, नि तिन नुइह्नेम।","ख़ूब काम, अच्छा आराम, रोज़ मुस्कान।","S","C"]],"title":"फुर्सत और शौक़"},{"tw":[["menyu","मेञू","मेन्यू","ग"],["thali","थाली","थाली","ग"],["nnoke","न्नोके","तीखा","ग"],["parsele","पार्सेले","पार्सल","ग"],["roti","रोती","परोसने वाला","ग"],["tui","तूइ","मीठा","क"]],"drill":{"type":"dialogueFill","hi":"होटल-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।","rows":[["Rra: Eng nge i duh?","Nangma: Thali khat le lassi khat, tsweetswee."],["Rra: Monate dang i duh em?","Nangma: E, gulab jamun khat."]]},"items":[["Menu entir teh.","मेनू एंतिर तेह।","कृपया मेन्यू दिखाइए।","S","A"],["Veg thali chu eng nge?","वेज थाली चु एंग ङ्गे?","वेज थाली कितने की है?","S","B"],["Thali khat leh lassi khat min pe teh.","थाली खत लेह लस्सी खत मिन पे तेह।","एक थाली और एक लस्सी देना।","S","B"],["Hring tlem siam teh.","ह्रिंग त्लेम सिआम तेह।","कृपया कम तीखा बनाना।","S","B"],["U, roti khat belh.","उ, रोटी खत बेल्ह।","भाई, एक रोटी और।","S","C"],["Tuni bal a tui tak zet.","तुनि बल आ तुइ तक ज़ेत।","आज दाल बहुत स्वादिष्ट है।","S","C"],["Thali khat parcel pawk teh.","थाली खत पार्सल पॉक तेह।","एक थाली पार्सल बाँध देना।","S","C"],["Ei zoh hnuah sweet eng emaw?","एइ ज़ोह ह्नुआह स्वीट एंग एमॉ?","खाने के बाद कुछ मीठा?","S","B"],["Sweet nen bill la kal teh.","स्वीट नेन बिल ला कल तेह।","मीठे के साथ बिल लाना।","S","C"],["Chaw tha, thinlung tha.","छॉ था, थिन्लुंग था।","अच्छा खाना, अच्छा मन।","S","C"]],"title":"होटल में खाना ऑर्डर करना"},{"tw":[["motlhobolo","मोत्ल्होबोलो","लंबा","क"],["monnye","मोन्ञे","नाटा","क"],["ditedu","दीतेदू","दाढ़ी","क"],["khipi","खीपी","टोपी","क"],["pelonomi","पेलोनोमी","दयालु","क"],["natla","नात्ला","जवान","क"]],"drill":{"type":"showTell","hi":"किसी का हुलिया — तीन वाक्य में बोलो।","rows":[["A sang e a chau zia.","A helemete hmuh a nei.","Mi hempe sen aparang chu zawng rawh."]]},"items":[["Ka u chu a sang a, a chau zia.","का उ चु आ सांग आ, आ छाउ ज़िया।","मेरा भाई लंबा और दुबला है।","S","B"],["Ka tlem tawi deuh.","का त्लेम तावि देउह।","मैं थोड़ा नाटा हूँ।","S","A"],["Kan sara chuan khamul var a nei.","कन सरा छुआन खामुल वार आ नेइ।","हमारे उस्ताद की सफ़ेद दाढ़ी है।","S","B"],["Engtik hun pawh lu-ah dum an bun.","एंगतिक हुन पॉह लु-आह दुम आन बुन।","वे हमेशा काली टोपी पहनते हैं।","S","C"],["Ama chu a naupang a, thawhrim a nei.","अमा चु आ नाउपांग आ, थॉह्रिम आ नेइ।","वह जवान और मेहनती है।","S","C"],["Ka ṭhian chuan sam kawi a nei.","का थ्यान छुआन साम कावि आ नेइ।","मेरे दोस्त के घुँघराले बाल हैं।","S","B"],["Thawhpuitu thar chu khawngaih a, muang a ni.","थॉह्पुइतु थार चु खॉंगाइह आ, मुआंग आ नि।","नया सहायक दयालु और शांत है।","S","C"],["Shirt sen bun mipa zawng rawh.","शर्ट सेन बुन मिपा ज़ॉंग रॉह।","लाल कमीज़ वाले आदमी को खोजो।","S","C"],["Ka kaw ip te leh lu khuh var a awm.","का काउ इप ते लेह लु खुह वार आ आउम।","मेरे पास छोटा थैला और नीली टोपी है।","S","B"],["Ṭawngkam chuan mihring entirna a siam.","तॉंगकाम छुआन मिह्रिंग एंतिर्ना आ सिआम।","शब्द इंसान की तस्वीर बना देते हैं।","S","C"]],"title":"हुलिया बताना (शब्दों से तस्वीर)"},{"tw":[["laletsa","लालेत्सा","न्योता देना","क"],["moletlong","मोलेत्लोङ","दावत","क"],["amogela","अमोगेला","स्वीकार करना","ख"],["laletsa","लालेत्सा","जन्मदिन","क"],["ruri","रूरी","पक्का","क"],["latelang","लातेलाङ","अगली बार","क"]],"drill":{"type":"dialogueFill","hi":"न्योता-संवाद पूरा करो — हाँ वाला और ना वाला, दोनों बोलो।","rows":[["Ṭhenawm: Sontaga lo kal rawh.","Nangma: Ka lawm e, ngeih takin ka lo kal ang."],["Ṭhenawm: Tuni i lo kal thei em?","Nangma: Ngaihdam, zan shift ka nei."]]},"items":[["Ka fapa piang ni ah koh ka ni che.","का फापा पिआंग नि आह को का नि छे।","मेरे बेटे के जन्मदिन पर आपको न्योता है।","S","B"],["Hmangaihna chu Pathianni tlaithleng-ah a ni.","ह्मांगाइह्ना चु पथियन्नि त्लाइथ्लेंग-आह आ नि।","दावत रविवार शाम को है।","S","C"],["Chhungkua nen lo kal rawh.","छुंगकुआ नेन लो कल रॉह।","परिवार के साथ आइए।","S","A"],["Ka lawm e, ngeih takin ka lo kal ang.","का लॉम ए, ङ्गेइह तकिन का लो कल आंग।","धन्यवाद, मैं ज़रूर आऊँगा।","S","A"],["I koh chu kabu takin ka pawm.","इ को चु काबु तकिन का पॉम।","मैं आपका न्योता खुशी से स्वीकार करता हूँ।","S","B"],["Ngaihdam, chu niah zan duty ka nei.","ङ्गाइह्दाम, चु निआह ज़ान ड्यूटी का नेइ।","माफ़ करना, उस दिन मेरी रात की ड्यूटी है।","S","A"],["A hnuah ngeih takin kan inhmu ang.","आ ह्नुआह ङ्गेइह तकिन कान इन्ह्मु आंग।","अगली बार पक्का मिलूँगा।","S","B"],["Hmangaihna-ah kal avangin ka lawm e.","ह्मांगाइह्ना-आह कल आवांगिन का लॉम ए।","दावत में आने के लिए धन्यवाद।","S","C"],["I lo kal avangin kan lawm.","इ लो कल आवांगिन कान लॉम।","आपके आने से हमें खुशी हुई।","S","B"],["Koh te chuan thinlung an inkopin.","को ते छुआन थिन्लुंग आन इनकोपिन।","न्योते दिल जोड़ते हैं।","S","C"]],"title":"न्योता देना और लेना"},{"tw":[["feditswe","फ़ेदीत्स्वे","पूरा","ख"],["mogato","मोगातो","स्तर","ख"],["tlhatlhobo","त्ल्हात्ल्होबो","परीक्षा","ख"],["ikgantsha","इक्गान्त्शा","गर्व","क"],["mathomong","माथोमोङ","शुरुआत","क"],["diphuka","दीफूका","पंख","क"]],"drill":{"type":"joinMix","hi":"जोड़-अभ्यास — ka jalo या mme लगाकर अपनी कहानी बोलो।","rows":[["Khoso ka zo ta. Tlhahlobo ka ti ang.","Khoso ka zo ta avangin tlhahlobo ka ti ang."],["Sekgoa a har hle. Ka chingfel lo.","Sekgoa a har hle mahse ka chingfel lo."]]},"items":[["Tuni ka A2 course a zo.","तुनि का A2 कोर्स आ ज़ो।","आज मेरा ए-टू कोर्स पूरा हुआ।","S","B"],["Ṭawngkam thar 1500 ka zir.","तॉंगकाम थार १५०० का ज़िर।","मैंने पंद्रह सौ नए वाक्य सीखे।","S","B"],["In, hna, bazar leh airport-ah ka sawi thei.","इन, ह्ना, बाज़ार लेह एयरपोर्ट-आह का सावि थेइ।","मैं घर, काम, बाजार और एयरपोर्ट पर बोल सकता हूँ।","S","A"],["Tunah online exam ka siam ang.","तुनाह ऑनलाइन एग्ज़ाम का सिआम आंग।","अब मैं ऑनलाइन परीक्षा दूँगा।","S","B"],["Certificate chuan kongka thar a hawng ang.","सर्टिफिकेट छुआन कोंगका थार आ हॉंग आंग।","प्रमाणपत्र नए दरवाज़े खोलेगा।","S","C"],["Ka khua pumpelh chuan ka chungah an hlimawm.","का खुआ पुमपेल्ह छुआन का छुंगाह आन ह्लिमॉम।","मेरे पूरे गाँव को मुझ पर गर्व है।","S","A"],["A hnu lam chu khawvel exam a ni.","आ ह्नु लाम चु खावेल एग्ज़ाम आ नि।","अगला स्तर विश्व-परीक्षा है।","S","C"],["Engtik hun pawh ni tin minute sawm theihnathiam ka ti reng ang.","एंगतिक हुन पॉह नि तिन मिनिट सावम थेइह्नाथिआम का ति रेंग आंग।","मैं हमेशा रोज़ दस मिनट अभ्यास करूँगा।","S","B"],["Hei tawpna hi ṭanna thar a ni.","हेइ तॉप्ना हि थ्हान्ना थार आ नि।","यह अंत नई शुरुआत है।","S","A"],["Ka ṭawng, ka thlir.","का तॉंग, का थ्लिर।","मेरी भाषा, मेरे पंख।","S","A"]],"title":"पूरा कोर्स समेट — नई शुरुआत"}],"test":{"target":"Tawpna: I thawnthu zawng zawng (chhungkua/ṭhian hnenah)","goal":"Minute hnih chhung Mizo ṭawngin i thawnthu thla thum chhung sawi — tihlau hmasa, zirna lät-mmaraka-loeto-visa, le toro tur.","lines":[["Thla thum kal ta chhungin Sekgoa a har hle ka tan.","थ्ला थुम कल ता छुंगिन सेक्गोआ आ हार ह्ले का तान।"],["Ni tin ṭawngkam sawmthum ka zir."," नि तिन तॉंगकाम सावमथुम का ज़िर।"],["In, lät, mmaraka le station ah ka sawi thei."," इन, लात, म्मारका ले स्टेशन आह का सावि थेइ।"],["Online exam ka siam ang.","ऑनलाइन एग्ज़ाम का सिआम आंग।"],["Ka khua pumpelh chuan ka thlir hlim."," का खुआ पुमपेल्ह छुआन का थ्लिर ह्लिम।"],["Tawpna hi ṭanna thar a ni.","तॉपना हि त्हान्ना थार आ नि।"],["Ka Sekgoa, ka nonofo.","का सेक्गोआ, का नोनोफो।"]]},"listen":[["(ngaithla) Eng nge i lawmna?","(chhang) Hla ngaithlak ka duh."],["(ngaithla) Poi ah i kal ang em?","(chhang) Ka lawm e, ngeih takin ka lo kal ang."]],"dialog":[["Rra","Eng nge i duh?"],["Nangma","Thali khat le lassi khat, tsweetswee."],["Rra","Monate dang i duh em?"],["Nangma","E, gulab jamun khat."],["Rra","Minute panga ah a lo kal ang, pu."]]},{"n":13,"title":"Survival, Voice and Rights","hi":"जीवन-रक्षा, आवाज़ और हक़ (परिशिष्ट — दिन-1 से साथ चले)","pace":30,"days":[{"tw":[["tshoganyetso","चोगाञेत्सो","आपात","क"],["gobetse","गोबेत्से","घायल","क"],["ambulance","अम्बूलान्चे","एम्बुलेंस","क"],["molelo","मोलेलो","आग","क"],["utswitswe","उत्स्वीत्स्वे","चोरी हुआ","क"],["hema","हेमा","साँस लेना","क"]],"drill":{"type":"listenRespond","hi":"सुनो-जवाब दो — सवाल सुनते ही, बिना पढ़े, तुरंत बोलो।","rows":[["Eng nge lo thleng?","Ka ṭla hliam."],["Khawiah nge i awm?","Kongka lianpui hnaiah ka ding."]]},"items":[["Min ṭanpui rawh, chakin lo kal rawh!","मिन त्हानपुइ रॉह, छाकिन लो कल रॉह!","मदद करो, जल्दी आओ!","S","A"],["Mikhat min ṭanpui rawh!","मिखत मिन त्हानपुइ रॉह!","कोई मेरी मदद करो!","S","A"],["Ka hliam tak zet.","का ह्लिआम तक ज़ेत।","मैं बुरी तरह घायल हूँ।","S","A"],["Ka kut atangin thisen a lo chhuak.","का कुत आतांगिन थिसेन आ लो छुआक।","मेरे हाथ से खून बह रहा है।","S","A"],["Ambulance ka mamawh.","एम्बुलेंस का ममॉह।","मुझे एम्बुलेंस चाहिए।","S","A"],["Police ko rawh.","पुलिस को रॉह।","पुलिस बुलाओ।","S","A"],["Mei a kang.","मेइ आ कांग।","आग लगी है।","S","A"],["Mei! Tunah pawn lamah taboga rawh!","मेइ! तुनाह पॉन लामाह तबोगा रॉह!","आग! अभी बाहर भागो!","S","A"],["Ka thaw thei lo.","का थाउ थेइ लो।","मुझे साँस नहीं आ रही।","S","A"],["Ka ṭhian a ṭla.","का थ्यान आ त्ला।","मेरा दोस्त गिर गया।","S","A"],["A tihawi lo.","आ तिहावि लो।","वह हिल नहीं रहा।","S","A"],["Wire khoih suh!","वायर खोइह सुह!","तार मत छुओ!","S","A"],["Machine tifim rawh!","मशीन तिफिम रॉह!","मशीन बंद करो!","S","A"],["Kawng ka hlawh.","कॉंग का ह्लॉह।","मैं रास्ता भटक गया हूँ।","S","A"],["Ka room ka hmu thei lo.","का रूम का ह्मु थेइ लो।","मुझे अपना कमरा नहीं मिल रहा।","S","A"],["Ka passport a bo.","का पासपोर्ट आ बो।","मेरा पासपोर्ट खो गया है।","S","A"],["Ka phone a rûk.","का फोन आ रूक।","मेरा फोन चोरी हो गया।","S","A"],["Ka sum a rûk.","का सुम आ रूक।","मेरे पैसे चोरी हो गए।","S","A"],["Mikhat chuan min zui mek.","मिखत छुआन मिन ज़ुइ मेक।","कोई मेरा पीछा कर रहा है।","S","A"],["Ka hnenah awm reng rawh.","का ह्नेनाह आउम रेंग रॉह।","कृपया मेरे साथ रहो।","S","A"],["Damdawi-in-ah min kalpui rawh.","दामदावि-इन-आह मिन कलपुइ रॉह।","मुझे अस्पताल ले चलो।","S","A"],["Hetah tak a na.","हेताह तक आ ना।","ठीक यहाँ दर्द है।","S","A"],["Ka ke a na tak zet.","का के आ ना तक ज़ेत।","मेरी टाँग में बहुत दर्द है।","S","A"],["Ka lu a lerawk.","का लु आ लेरावक।","मुझे चक्कर आ रहा है।","S","A"],["Chakin tui la kal rawh.","छाकिन तुइ ला कल रॉह।","जल्दी पानी लाओ।","S","A"],["Hei number hian ka u ko rawh.","हेइ नम्बर हिआन का उ को रॉह।","इस नंबर पर मेरे भाई को फोन करो।","S","A"],["Ka damdawi ka ip-ah a awm.","का दामदावि का इप-आह आ आउम।","मेरी दवा मेरे थैले में है।","S","A"],["Harsatna pawtna kongka chu khawiah nge?","हर्सत्ना पॉत्ना कोंगका चु खावियाह ङ्गे?","आपात-निकास कहाँ है?","S","A"],["Muang takin awm rawh, ṭanpuina a lo kal mek.","मुआंग तकिन आउम रॉह, त्हानपुइना आ लो कल मेक।","शांत रहो, मदद आ रही है।","S","A"],["Hlauhawm-ah aw sang chuan nunna a chhandam.","ह्लाउहॉम-आह आउ सांग छुआन नुन्ना आ छान्दाम।","ख़तरे में ऊँची आवाज़ जान बचाती है।","S","A"]],"title":"आपात तुरंत-बोल (बिना सोचे बोलना)"},{"tw":[["hrethiam","ह्रेथीअम","समझना","क"],["hrilhfiah","ह्रील्ह्फ़ीअह","समझाना","ख"],["himna","हीम्ना","सुरक्षा-सामान","ख"],["gana","गाना","मना करना","ख"],["boeletsa","बोएलेत्सा","दोहराना","क"],["tlotlo","त्लोत्लो","इज़्ज़त","क"]],"drill":{"type":"listenRespond","hi":"सुनो-जवाब दो — आदेश सुनो, ज़रूरत पर विनम्र 'नहीं' बोलो।","rows":[["I passport min pe rawh.","Ngaihdam, ka pe thei lo."],["Tuni helmet lovin lät thawk rawh.","Ka tanpuina didiriswa lovin ka thawk thei lo."]]},"items":[["Ka hria lo.","का ह्रिया लो।","मैं नहीं समझा।","S","A"],["Vawi khat belh hrilhfiah teh.","वावि खत बेल्ह ह्रिल्हफिआह तेह।","कृपया एक बार और समझाइए।","S","A"],["Tawite maiin sawi teh.","तावित माइन सावि तेह।","कृपया थोड़ा धीरे बोलिए।","S","A"],["Thu hnuhnung bai sawi teh.","थु ह्नुह्नुंग बाइ सावि तेह।","कृपया आख़िरी बात दोहराइए।","S","A"],["Hei ṭawngkam tihna chu eng nge?","हेइ तॉंगकाम तिह्ना चु एंग ङ्गे?","इस शब्द का मतलब क्या है?","S","A"],["Ziak in min pe teh.","ज़िआक इन मिन पे तेह।","कृपया इसे लिखकर दीजिए।","S","A"],["Safety thil lovin hei hi ka ti thei lo.","सेफ्टी थिल लोविन हेइ हि का ति थेइ लो।","बिना सुरक्षा-सामान मैं यह नहीं कर सकता।","S","A"],["Gloves leh mit hliah min pe teh.","ग्लव्स लेह मित ह्लिआह मिन पे तेह।","कृपया दस्ताने और चश्मा दीजिए।","S","A"],["Hei hna hi a him lo.","हेइ ह्ना हि आ हिम लो।","यह काम सुरक्षित नहीं है।","S","A"],["Safety check hnuah hei hi ka ti ang.","सेफ्टी चेक ह्नुआह हेइ हि का ति आंग।","सुरक्षा-जाँच के बाद मैं यह करूँगा।","S","A"],["Ani lo, hei hi ka ti thei lo.","आनि लो, हेइ हि का ति थेइ लो।","नहीं, मैं यह नहीं कर सकता।","S","A"],["'Ani lo' tih chu suala a ni lo.","'आनि लो' तिह चु सुआला आ नि लो।","ना कहना अपराध नहीं है।","S","A"],["Ka hlawh ka mamawh.","का ह्लॉह का ममॉह।","मुझे मेरा भुगतान चाहिए।","S","A"],["Tuni hian ka mamawh.","तुनि हिआन का ममॉह।","कृपया मुझे आज ही चाहिए।","S","A"],["Remna ziak en ka duh.","रेम्ना ज़िआक एन का दुह।","मैं लिखा-पढ़ी देखना चाहता हूँ।","S","A"],["Ka passport ka pe dawn lo.","का पासपोर्ट का पे दॉन लो।","मैं आपको अपना पासपोर्ट नहीं दूँगा।","S","A"],["Ka passport min pe kir teh.","का पासपोर्ट मिन पे किर तेह।","कृपया मेरा पासपोर्ट लौटाइए।","S","A"],["Ka lehkha te tuni hian min pe kir teh.","का लेह्खा ते तुनि हिआन मिन पे किर तेह।","कृपया मेरे कागज़ आज लौटाइए।","S","A"],["Hei hi ka pawm lo.","हेइ हि का पॉम लो।","मैं इस पर सहमत नहीं था।","S","A"],["Kan inbiak-ah hei hi a awm lo.","कन इनबिआक-आह हेइ हि आ आउम लो।","हमारी बात में यह नहीं था।","S","A"],["Ka embassy hnenah ka zawt ang.","का एम्बेसी ह्नेनाह का ज़वत आंग।","मैं अपने दूतावास से पूछूँगा।","S","A"],["Ka dikna ka hre.","का दिक्ना का ह्रे।","मैं अपने हक़ जानता हूँ।","S","A"],["Zahawm takin min biak teh.","ज़होम तकिन मिन बिआक तेह।","कृपया इज़्ज़त से बात कीजिए।","S","A"],["Ka chungah au suh.","का छुंगाह आउ सुह।","मुझ पर मत चिल्लाइए।","S","A"],["Inngaitlawm takin ka zawt mek.","इन्ंगाइत्लॉम तकिन का ज़वत मेक।","मैं विनम्रता से पूछ रहा हूँ।","S","A"],["Ngaihtuah atan minute khat min pe teh.","ङ्गाइह्तुआह आतान मिनिट खत मिन पे तेह।","मुझे सोचने का एक मिनट दीजिए।","S","A"],["Chhiar zoh hian ka chhang ang.","छिआर ज़ोह हिआन का छांग आंग।","पढ़कर जवाब दूँगा।","S","A"],["Zawhna khat ka zawt thei em?","ज़ॉह्ना खत का ज़वत थेइ एम?","क्या मैं एक सवाल पूछूँ?","S","A"],["Tuni zawhna chuan naktuk tihchhiatna a khawltir.","तुनि ज़ॉह्ना छुआन नक्तुक तिहछिआत्ना आ खॉल्तिर।","आज का सवाल कल का नुक़सान बचाता है।","S","A"],["Aw ṭha, thu chak.","आउ त्हा, थु छाक।","नरम आवाज़, मज़बूत बात।","S","A"]],"title":"ना कहना और सवाल पूछना (अपनी आवाज़)"},{"tw":[["kgaolo","क्गाओलो","कटौती","ख"],["setse","सेत्से","बकाया","ख"],["dar","दार","प्रति घंटा","ख"],["kwadilweng","क्वादील्वेङ","लिखित","ख"],["paki","पाकी","गवाह","ख"],["hlawh hun a a okeditsweng","ह्लॉह हून अ अ ओकेदीत्स्वेङ","ओवरटाइम-पैसा","ख"]],"drill":{"type":"listenRespond","hi":"सुनो-जवाब दो — मालिक की बात सुनो, अपना हक़ शांति से बोलो।","rows":[["Thla hnu ah wëu i pe ang.","Ka lät manu chu ni sawm atanga a awm."],["Tsweetswee, kalsanna gap en teh.","Ngaihdam, kalsanna ziak gap min pe rawh."]]},"items":[["Ka hlawh chu engzat nge?","का ह्लॉह चु एंगज़त ङ्गे?","मेरा वेतन कितना है?","S","A"],["Engtikah nge min pe ang?","एंगतिकाह ङ्गे मिन पे आंग?","आप मुझे कब भुगतान करेंगे?","S","A"],["Ka hlawh ni sawm atanga a la awm.","का ह्लॉह नि सावम आतांगा आ ला आउम।","मेरा भुगतान दस दिन से बकाया है।","S","A"],["Nizan overtime ka thawk.","निज़ान ओवरटाइम का थॉक।","मैंने कल ओवरटाइम किया।","S","A"],["Hetah overtime sum an pe em?","हेताह ओवरटाइम सुम आन पे एम?","क्या यहाँ ओवरटाइम का पैसा मिलता है?","S","A"],["Dar khatah man chu eng nge?","दार खताह मान चु एंग ङ्गे?","प्रति घंटा दर क्या है?","S","A"],["Ka tiam entir teh.","का तिआम एंतिर तेह।","कृपया मेरा क़रार दिखाइए।","S","A"],["Ka tiam kopi ka mamawh.","का तिआम कोपी का ममॉह।","मुझे अपने क़रार की प्रति चाहिए।","S","A"],["Engati nge sum a kalsan?","एंगति ङ्गे सुम आ कल्सान?","पैसा क्यों काटा गया?","S","A"],["Hei kalsanna hrilhfiah teh.","हेइ कल्सान्ना ह्रिल्हफिआह तेह।","कृपया यह कटौती समझाइए।","S","A"],["Kalsanna ziak entir teh.","कल्सान्ना ज़िआक एंतिर तेह।","कटौती लिखकर दिखाइए।","S","A"],["Chhang ziak ka mamawh.","छांग ज़िआक का ममॉह।","मुझे लिखित जवाब चाहिए।","S","A"],["Ka sim chuan rupee 900 a sawi.","का सिम छुआन रुपी ९०० आ सावि।","मेरा हिसाब नौ सौ कहता है।","S","A"],["Inkopin en ta ila.","इनकोपिन एन ता इला।","आइए साथ में जाँच लें।","S","A"],["Ka ṭhian chu ka finna a ni.","का थ्यान चु का फिन्ना आ नि।","मेरा दोस्त मेरा गवाह है।","S","A"],["Ka hna pumpelh a hmu.","का ह्ना पुमपेल्ह आ ह्मु।","उसने मेरा पूरा काम देखा।","S","A"],["Hna ni te photo ka nei.","ह्ना नि ते फोटो का नेइ।","मेरे पास काम के दिनों की फोटो हैं।","S","A"],["Hei hi ka attendance notebook a ni.","हेइ हि का अटेंडेंस नोटबुक आ नि।","यह मेरी हाज़िरी-कॉपी है।","S","A"],["Hlawh chanve chu hlawh feleng a ni lo.","ह्लॉह छान्वे चु ह्लॉह फेलेंग आ नि लो।","आधा भुगतान पूरा भुगतान नहीं है।","S","A"],["A la chu week hnu-ah ka la ang, ziak in.","आ ला चु वीक ह्नु-आह का ला आंग, ज़िआक इन।","बाक़ी अगले हफ़्ते लूँगा, लिखित में।","S","A"],["Chhan lovin kalsanna chu a dik lo.","छान लोविन कल्सान्ना चु आ दिक लो।","बिना कारण कटौती ग़लत है।","S","A"],["Agent man chu ka pe tawh.","एजेंट मान चु का पे तॉह।","एजेंट की फीस पहले ही दी जा चुकी है।","S","A"],["Receipt ka nei.","रिसीट का नेइ।","रसीद मेरे पास है।","S","A"],["Ka bank account-ah min pe teh.","का बैंक अकाउंट-आह मिन पे तेह।","कृपया मेरे बैंक खाते में दीजिए।","S","A"],["Receipt lovin cash chu kotsi a ni.","रिसीट लोविन कैश चु कोत्सी आ नि।","बिना रसीद नकद जोखिम है।","S","A"],["Labour office-ah ka phawrh ang.","लेबर ऑफिस-आह का फॉर्ह आंग।","मैं श्रम-दफ़्तर में शिकायत करूँगा।","S","A"],["Hmasain sawi, chuan phawrh.","ह्मासाइन सावि, छुआन फॉर्ह।","पहले बात, फिर शिकायत।","S","A"],["Pu, nangmah leh ka hna ka zah.","पु, नांग्माह लेह का ह्ना का ज़ाह।","सर, मैं आपकी और अपने काम की इज़्ज़त करता हूँ।","S","A"],["Hlawh dik chuan hna chak a siam.","ह्लॉह दिक छुआन ह्ना छाक आ सिआम।","सही मज़दूरी मज़बूत काम बनाती है।","S","A"],["Ka mathli, ka dikna.","का मथ्लि, का दिक्ना।","मेरा पसीना, मेरा हक़।","S","A"]],"title":"कमाई-रक्षा की अंग्रेज़ी (शोषण-बचाव)"},{"tw":[["chhang","छाङ","जवाब देना","ख"],["ateresing","अतेरेसीङ","ठहरना","ख"],["didiriswa","दीदीरीस्वा","औज़ार","ख"],["zo","ज़ो","पूरा करना","ख"],["chhun","छून","सौंपा काम","ख"],["karabo","काराबो","उत्तर","ख"]],"drill":{"type":"listenRespond","hi":"पूरा अभिनय — दोस्त (reetsa)-पंक्ति बोले, आप बिना पढ़े (araba)-पंक्ति।","rows":[["I passport entir rawh.","Pu, hei hi, ka passport."],["Ei hma ah lät ka zo ngai.","Ei hma ah lät ka zoh ang."]]},"items":[["(Na) I passport entir teh.","(ना) इ पासपोर्ट एंतिर तेह।","(सुनो-समझो) कृपया अपना पासपोर्ट दिखाइए।","L","B"],["(Araba) Pu, hei hi ka passport a ni.","(आराबा) पु, हेइ हि का पासपोर्ट आ नि।","(जवाब) सर, यह मेरा पासपोर्ट है।","S","A"],["(Na) Engati nge hetah i lo kal?","(ना) एंगति ङ्गे हेताह इ लो कल?","(सुनो-समझो) आप यहाँ क्यों आए हैं?","L","B"],["(Araba) Hna thawk atan hetah ka lo kal.","(आराबा) ह्ना थॉक आतान हेताह का लो कल।","(जवाब) मैं यहाँ काम करने आया हूँ।","S","A"],["(Na) Khawiah nge i awm ang?","(ना) खावियाह ङ्गे इ आउम आंग?","(सुनो-समझो) आप कहाँ ठहरेंगे?","L","B"],["(Araba) Hei address-ah ka awm ang.","(आराबा) हेइ एड्रेस-आह का आउम आंग।","(जवाब) मैं इस पते पर ठहरूँगा।","S","A"],["(Na) Pawn lamah tu nge i dawn?","(ना) पॉन लामाह तु ङ्गे इ दॉन?","(सुनो-समझो) बाहर आपका कौन इंतज़ार कर रहा है?","L","B"],["(Araba) Ka company mipa chu pawn lamah a awm.","(आराबा) का कंपनी मिपा चु पॉन लामाह आ आउम।","(जवाब) मेरी कंपनी का आदमी बाहर है।","S","A"],["(Na) Check atan ip hong teh.","(ना) चेक आतान इप होंग तेह।","(सुनो-समझो) जाँच के लिए थैला खोलिए।","L","B"],["(Araba) Aw pu, hei hi a hong.","(आराबा) आउ पु, हेइ हि आ होंग।","(जवाब) जी सर, यह खुला है।","S","A"],["(Na) Naktuk dar sarih-ah lo kal rawh, la suh.","(ना) नक्तुक दार सरिह-आह लो कल रॉह, ला सुह।","(सुनो-समझो) कल सात बजे आना, देर मत करना।","L","B"],["(Araba) A ṭha pu, dar sarih-ah ka lo kal ang.","(आराबा) आ त्हा पु, दार सरिह-आह का लो कल आंग।","(जवाब) ठीक सर, मैं सात बजे आऊँगा।","S","A"],["(Na) Hei tool hi la rawh.","(ना) हेइ टूल हि ला रॉह।","(सुनो-समझो) यह औज़ार लो।","L","B"],["(Araba) Tool engnge pu, a sen chu?","(आराबा) टूल एंगंगे पु, आ सेन चु?","(जवाब) कौन-सा औज़ार सर, लाल वाला?","S","A"],["(Na) Aw, a sen chu, tunah thawk tan rawh.","(ना) आउ, आ सेन चु, तुनाह थॉक तान रॉह।","(सुनो-समझो) हाँ, लाल वाला, और अभी शुरू करो।","L","B"],["(Araba) A ṭha pu, tunah ka thawk tan ang.","(आराबा) आ त्हा पु, तुनाह का थॉक तान आंग।","(जवाब) ठीक सर, अभी शुरू करता हूँ।","S","A"],["(Na) Hei hna hi ei hma ah zawh rawh.","(ना) हेइ ह्ना हि एइ ह्मा आह ज़ॉह रॉह।","(सुनो-समझो) यह काम खाने से पहले पूरा करो।","L","B"],["(Araba) Ei hma ah ka zawhtir ang.","(आराबा) एइ ह्मा आह का ज़ॉह्तिर आंग।","(जवाब) मैं खाने से पहले पूरा कर दूँगा।","S","A"],["(Na) Hna hnuah hmun then rawh.","(ना) ह्ना ह्नुआह ह्मुन थेन रॉह।","(सुनो-समझो) काम के बाद जगह साफ़ करो।","L","B"],["(Araba) Ngeih takin pu, ka then ang.","(आराबा) ङ्गेइह तकिन पु, का थेन आंग।","(जवाब) ज़रूर सर, मैं साफ़ कर दूँगा।","S","A"],["(Na) Tuni i duty chu zan shift-ah a ni.","(ना) तुनि इ ड्यूटी चु ज़ान शिफ्ट-आह आ नि।","(सुनो-समझो) आज आपकी ड्यूटी रात की पारी में है।","L","B"],["(Araba) A ṭha, chhun lamah ka mut ang.","(आराबा) आ त्हा, छुन लामाह का मुत आंग।","(जवाब) ठीक, मैं दिन में सो लूँगा।","S","A"],["(Na) Bus chu minute panga-ah a hong ang.","(ना) बस चु मिनिट पांगा-आह आ होंग आंग।","(सुनो-समझो) बस पाँच मिनट में खुलेगी।","L","B"],["(Araba) Ka lo kal mek, dawn rawh.","(आराबा) का लो कल मेक, दॉन रॉह।","(जवाब) मैं आ रहा हूँ, कृपया रुकिए।","S","A"],["(Na) I card la in office-ah lo kal rawh.","(ना) इ कार्ड ला इन ऑफिस-आह लो कल रॉह।","(सुनो-समझो) अपना कार्ड लेकर दफ़्तर आओ।","L","B"],["(Araba) Pu, ka card ka la kalpui mek.","(आराबा) पु, का कार्ड का ला कलपुइ मेक।","(जवाब) सर, मैं अपना कार्ड ला रहा हूँ।","S","A"],["(Na) Chhung lut hma ah helmet bun rawh.","(ना) छुंग लुत ह्मा आह हेल्मेट बुन रॉह।","(सुनो-समझो) अंदर जाने से पहले हेलमेट पहनो।","L","B"],["(Araba) Pu, ka bun mek.","(आराबा) पु, का बुन मेक।","(जवाब) सर, मैं पहन रहा हूँ।","S","A"],["Hmasain beng, chuan kam.","ह्मासाइन बेंग, छुआन काम।","पहले कान, फिर ज़ुबान।","S","A"],["Feleng ngaithla la, chhang te pe rawh.","फेलेंग ङ्गाइथ्ला ला, छांग ते पे रॉह।","पूरा सुनो, छोटा जवाब दो।","S","A"]],"title":"सुनो-समझो-जवाब दो (एयरपोर्ट व सुपरवाइज़र-अभिनय)"},{"tw":[["setlwaedi","सेत्ल्वाएदी","साँचा","ख"],["bulegilweng","बूलेगील्वेङ","ख़ाली जगह","ख"],["lefoko","लेफ़ोको","शब्द","क"],["polelo","पोलेलो","वाक्य","क"],["lo i","लो इ","अपना","क"],["maemong","माएमोङ","परिस्थिति","ख"]],"drill":{"type":"patternSay","hi":"साँचा बोलो — ख़ाली जगह में अपना शब्द डालकर पाँच नए वाक्य बनाओ।","rows":[["Ka ___ ka duh.","Taxi ka duh. / Doctor ka duh."],["___ chu khawiah nge?","Pawtna kongka chu khawiah nge?"],["Ka ___ thei em?","Dar panga ah ka kal thei em?"]]},"items":[["Mela zir la, i ṭawngkam siam rawh.","मेला ज़िर ला, इ तॉंगकाम सिआम रॉह।","साँचा सीखो, अपना वाक्य बनाओ।","L","B"],["Mela khat: (---) ka mamawh.","मेला खत: (---) का ममॉह।","साँचा एक: मुझे (---) चाहिए।","L","B"],["Taxi ka mamawh.","टैक्सी का ममॉह।","मुझे टैक्सी चाहिए।","S","A"],["Tunah doctor ka mamawh.","तुनाह डॉक्टर का ममॉह।","मुझे अभी डॉक्टर चाहिए।","S","A"],["Thla khat atan room ka mamawh.","थ्ला खत आतान रूम का ममॉह।","मुझे एक महीने के लिए कमरा चाहिए।","S","A"],["Mela hnih: (---) chu khawiah nge?","मेला ह्निह: (---) चु खावियाह ङ्गे?","साँचा दो: (---) कहाँ है?","L","B"],["Tui cooler chu khawiah nge?","तुइ कूलर चु खावियाह ङ्गे?","पानी का कूलर कहाँ है?","S","A"],["Site office chu khawiah nge?","साइट ऑफिस चु खावियाह ङ्गे?","साइट-दफ़्तर कहाँ है?","S","A"],["Pawtna kongka chu khawiah nge?","पॉत्ना कोंगका चु खावियाह ङ्गे?","निकास-गेट कहाँ है?","S","A"],["Mela thum: (---) ka thei em?","मेला थुम: (---) का थेइ एम?","साँचा तीन: क्या मैं (---)?","L","B"],["Minute khat hetah ka ṭhu thei em?","मिनिट खत हेताह का थ्हु थेइ एम?","क्या मैं एक मिनट यहाँ बैठ जाऊँ?","S","A"],["Tuni dar panga-ah ka kal thei em?","तुनि दार पांगा-आह का कल थेइ एम?","क्या आज पाँच बजे जा सकता हूँ?","S","A"],["Tunah in-ah ka ko thei em?","तुनाह इन-आह का को थेइ एम?","क्या अभी घर फोन कर लूँ?","S","A"],["Mela li: (---) chu eng nge a man?","मेला लि: (---) चु एंग ङ्गे आ मान?","साँचा चार: (---) कितने का है?","L","B"],["Zan khat man chu eng nge?","ज़ान खत मान चु एंग ङ्गे?","यहाँ एक रात कितने की है?","S","B"],["Camp thleng taxi man chu eng nge?","कैम्प थ्लेंग टैक्सी मान चु एंग ङ्गे?","कैम्प तक टैक्सी कितने की?","S","B"],["Mela panga: (---) teh.","मेला पांगा: (---) तेह।","साँचा पाँच: कृपया (---)।","L","B"],["Kongka hong teh.","कोंगका होंग तेह।","कृपया गेट खोलिए।","S","A"],["Supervisor ko teh.","सुपरवाइज़र को तेह।","कृपया सुपरवाइज़र को बुलाइए।","S","A"],["List-ah ka hming en teh.","लिस्ट-आह का ह्मिंग एन तेह।","कृपया सूची में मेरा नाम देखिए।","S","A"],["Mela paruk: (---) ka thei.","मेला परुक: (---) का थेइ।","साँचा छह: मैं (---) सकता हूँ।","L","B"],["Tuni hian thawk tan ka thei.","तुनि हिआन थॉक तान का थेइ।","मैं आज ही शुरू कर सकता हूँ।","S","A"],["Mamawh chuan Pathianni pawh ka thawk thei.","ममॉह छुआन पथियन्नि पॉह का थॉक थेइ।","ज़रूरत हो तो रविवार भी काम कर सकता हूँ।","S","A"],["Mela khatin ṭawngkam sawm a pe.","मेला खतिन तॉंगकाम सावम आ पे।","एक साँचा दस वाक्य देता है।","S","C"],["Ṭawngkam khat thlak la, ziarkam thar siam rawh.","तॉंगकाम खत थ्लाक ला, ज़िआर्काम थार सिआम रॉह।","एक शब्द बदलो, नई पंक्ति बनाओ।","L","B"],["I awmdan angin mela sawi rawh.","इ आउम्दान आंगिन मेला सावि रॉह।","अपनी परिस्थिति में साँचा बोलो।","L","B"],["Ni tin mela khat theihnathiam rawh.","नि तिन मेला खत थेइह्नाथिआम रॉह।","रोज़ एक साँचा अभ्यास करो।","L","B"],["Mela te chuan kam a zalen tir.","मेला ते छुआन काम आ ज़ालेन तिर।","साँचे ज़ुबान को आज़ाद करते हैं।","S","C"],["Ṭawngkam ten chu inṭhen a ni, mela te chu pal a ni.","तॉंगकाम तेन चु इंत्हेन आ नि, मेला ते चु पाल आ नि।","शब्द ईंटें हैं, साँचे दीवारें।","S","C"],["I ṭawngkam, i chakna.","इ तॉंगकाम, इ छाक्ना।","आपका वाक्य, आपकी ताक़त।","S","B"]],"title":"साँचा-अभ्यास (एक साँचा, दस वाक्य)"}],"test":{"target":"Nunna chhandam (ṭhian sawi-chhan)","goal":"Ṭhian 'ngaithla'-mela sawi, i hre lovin 'chhan'-mela bai sawi; a tawpnaah mela panga tihlau chungchang a thinlung muanga sawi.","lines":[["Min ṭanpui, lawan takin lo kal rawh!","मिन त्हानपुइ, लावान तकिन लो कल रॉह!"],["Ka ṭla hliam.","का त्ला ह्लिआम।"],["Ambulance ka mamawh.","एम्बुलेंस का ममॉह।"],["Ka passport a bo.","का पासपोर्ट आ बो।"],["I passport min pe rawh.","इ पासपोर्ट मिन पे रॉह।"],["Ka lät manu ka mamawh.","का लात मनु का ममॉह।"],["Pu, hei hi, ka passport.","पु, हेइ हि, का पासपोर्ट।"],["Ei hma ah lät ka zoh ang.","एइ ह्मा आह लात का ज़ॉह आंग।"]]},"listen":[["(ngaithla) Eng nge lo thleng?","(chhang) Ka ṭhian a ṭla."],["(ngaithla) Doctor i mamawh em?","(chhang) E, ambulance ka mamawh."]],"dialog":[["Nangma","Min ṭanpui, lawan takin lo kal rawh!"],["Ṭanpuitu","Eng nge lo thleng?"],["Nangma","Ka ṭhian a ṭla."],["Ṭanpuitu","Ambulance ka ko ang."],["Nangma","Ka lawm e, ka hnenah awm reng rawh."]]}],"lang":{"code":"lus","label":"मिज़ो","tts":"en-IN","sr":"en-IN","script":"latin"},"brand":"ACS काम की भाषा","heroTitle":"Mizo Ṭawng Sawi Theihna Certificate — मिज़ो टॉङ सवी थेइना सर्टिफ़िकेट (Certificate in Spoken Mizo)","module":"ACS काम की भाषा — मिज़ो for Work","heroSub":"Mizo बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2","sub":"मिज़ो स्तर-2 (A2)","help":[["Khawngaihin muang tein sawi rawh.","खॉङाइहीन मूअङ तेइन सॉइ रॉह।"],["Khawngaihin sawi nawn leh rawh.","खॉङाइहीन सॉइ नॉन लेह रॉह।"]],"version":"2.0 (13-Oct-2026 खेमा-अ पूर्ण-पुनर्लेखन — 13 सप्ताह · 1,650 वाक्य · असली मिज़ो; 🟡 AI-draft, मूल-वक्ता-समीक्षा अनिवार्य)"};
+/* KKB L2 — ACS काम की भाषा · मिज़ो (Mizo) · v2.0 (20-Oct-2026, काम-लाल10)
+   असली Latin-लिपि तीन-स्तंभ — AI-draft, मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
+window.KKB2_DATA = {
+ "heroTitle": "मिज़ो (Mizo) बोलने का सर्टिफिकेट कोर्स",
+ "heroSub": "मिज़ो बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2",
+ "module": "मिज़ो बोलने का सर्टिफिकेट कोर्स (स्तर-2)",
+ "level": "CEFR स्तर A2 पर आधारित",
+ "version": "2.0 (20-Oct, लाल10 — असली Mizo Latin तीन-स्तंभ, master-mirror; AI-draft मूल-वक्ता जाँच बाक़ी)",
+ "lang": {
+  "code": "lus",
+  "label": "मिज़ो",
+  "tts": "en-IN",
+  "sr": "en-IN",
+  "script": "latin"
+ },
+ "brand": "ACS काम की भाषा",
+ "sub": "मिज़ो स्तर-2 (A2)",
+ "help": [
+  [
+   "Khawngaihin zawi sawi rawh.",
+   "कृपया धीरे बोलो।"
+  ],
+  [
+   "Khawngaihin leh ah sawi rawh.",
+   "कृपया फिर से बोलिए।"
+  ]
+ ],
+ "weeks": [
+  {
+   "n": 1,
+   "title": "My Family and Home",
+   "hi": "मेरा परिवार, मेरा घर",
+   "pace": 20,
+   "days": [
+    {
+     "title": "मेरा परिवार (बड़ी बातें)",
+     "tw": [
+      [
+       "Chhungkua",
+       "छुङ्कुअ",
+       "परिवार",
+       "क"
+      ],
+      [
+       "Nu leh pa",
+       "नु लेह् प",
+       "माता-पिता",
+       "क"
+      ],
+      [
+       "U",
+       "उ",
+       "बड़ा भाई",
+       "क"
+      ],
+      [
+       "Nau",
+       "नौ",
+       "छोटी बहन",
+       "क"
+      ],
+      [
+       "Nen ah",
+       "नेन् अह्",
+       "साथ में",
+       "क"
+      ],
+      [
+       "Tanpuina",
+       "तन्पुइन",
+       "सहारा",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "pairSwap",
+      "hi": "जोड़ी बदलो — I से You, फिर He/She: वाक्य वही, रूप बदले।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka chhungkua ah 5 mite a ni.",
+       "क छुङ्कुअ अह् 5 मिते अ नि।",
+       "मेरे परिवार में पाँच लोग हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nu leh pa nen awm.",
+       "क नु लेह् प नेन् ऑम्।",
+       "मैं अपने माता-पिता के साथ रहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka pa loneitu a ni tawh.",
+       "क प लोनेइतु अ नि तॉह्।",
+       "मेरे पिता किसान थे।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nu in enkawl a ni.",
+       "क नु इन् एन्कॉल् अ नि।",
+       "मेरी माँ घर सँभालती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka u Delhi ah hna thawk.",
+       "क उ दिल्ली अह् ह्न थॉक्।",
+       "मेरा बड़ा भाई दिल्ली में काम करता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nau sikul kal.",
+       "क नौ सिकुल् कल्।",
+       "मेरी छोटी बहन स्कूल जाती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka pahnih naupangte sikul ah chhiar.",
+       "क पह्निह् नौपङ्ते सिकुल् अह् छियार्।",
+       "मेरे दोनों बच्चे स्कूल में पढ़ते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka fapa 10 kum a ni.",
+       "क फ़प 10 कुम् अ नि।",
+       "मेरा बेटा दस साल का है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka fanu doctor nih duh.",
+       "क फ़नु डॉक्टर निह् दुह्।",
+       "मेरी बेटी डॉक्टर बनना चाहती है।",
+       "S",
+       "B"
+      ],
+      [
+       "I chhungkua ah engzat mite a ni em?",
+       "इ छुङ्कुअ अह् एङ्ज़त् मिते अ नि एम्?",
+       "आपके परिवार में कितने लोग हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Eng I chhungkua nen awm em?",
+       "एङ् इ छुङ्कुअ नेन् ऑम् एम्?",
+       "क्या आप अपने परिवार के साथ रहते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Aih ka chhungkua khua ah awm.",
+       "ऐह् क छुङ्कुअ खुअ अह् ऑम्।",
+       "नहीं, मेरा परिवार गाँव में रहता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka tin thla chhungkua pawisa thawn.",
+       "क तिन् थ्ल छुङ्कुअ पॉइस थॉन्।",
+       "मैं हर महीने अपने परिवार को पैसे भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tin tlai nu ah thu ti.",
+       "क तिन् त्लै नु अह् थु ति।",
+       "मैं हर शाम अपनी माँ से बात करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka pi pu 80 kum a ni.",
+       "क पि पु 80 कुम् अ नि।",
+       "मेरे दादा अस्सी साल के हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan zawng nen ah zan chaw ei.",
+       "कन् ज़ॉङ् नेन् अह् ज़न् चॉ एइ।",
+       "हम सब साथ में रात का खाना खाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nupui pawh hna thawk.",
+       "क नुपुइ पॉह् ह्न थॉक्।",
+       "मेरी पत्नी भी काम करती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Photo ah Hei tu a ni em?",
+       "फ़ोटो अह् हेइ तु अ नि एम्?",
+       "फोटो में यह कौन है?",
+       "L",
+       "B"
+      ],
+      [
+       "Hei ka pu chhungkua a ni.",
+       "हेइ क पु छुङ्कुअ अ नि।",
+       "यह मेरे चाचा का परिवार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Chhungkua ber lian tanpuina a ni.",
+       "छुङ्कुअ बेर् लियान् तन्पुइन अ नि।",
+       "परिवार सबसे बड़ा सहारा है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "मेरा घर और गाँव",
+     "tw": [
+      [
+       "Khua",
+       "खुअ",
+       "गाँव",
+       "क"
+      ],
+      [
+       "Hmun man pindan",
+       "ह्मुन् मन् पिन्दन्",
+       "किराये का कमरा",
+       "क"
+      ],
+      [
+       "Tum",
+       "तुम्",
+       "मंज़िल",
+       "क"
+      ],
+      [
+       "Hnungah",
+       "ह्नुङह्",
+       "पीछे",
+       "क"
+      ],
+      [
+       "Hmaah",
+       "ह्माह्",
+       "सामने",
+       "क"
+      ],
+      [
+       "Inchung",
+       "इन्चुङ्",
+       "छत",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "preposition",
+      "hi": "जगह बताओ — in / on / near / behind सही खाने में बैठाओ।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka in 1 te khua ah a ni.",
+       "क इन् 1 ते खुअ अह् अ नि।",
+       "मेरा घर एक छोटे गाँव में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan in ah 3 pindan a ni.",
+       "कन् इन् अह् 3 पिन्दन् अ नि।",
+       "हमारे घर में तीन कमरे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka in hnaih 1 tuikhur a ni.",
+       "क इन् ह्नैह् 1 तुइखुर् अ नि।",
+       "मेरे घर के पास एक चापाकल है।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan hnaih 1 te lo a ni.",
+       "कन् ह्नैह् 1 ते लो अ नि।",
+       "हमारे पास एक छोटा खेत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka khua lui hnaih a ni.",
+       "क खुअ लुइ ह्नैह् अ नि।",
+       "मेरा गाँव नदी के पास है।",
+       "S",
+       "B"
+      ],
+      [
+       "Sikul ka in hnungah a ni.",
+       "सिकुल् क इन् ह्नुङह् अ नि।",
+       "स्कूल मेरे घर के पीछे है।",
+       "S",
+       "B"
+      ],
+      [
+       "Bazar biak in hmaah a ni.",
+       "बज़र् बियाक् इन् ह्माह् अ नि।",
+       "बाजार मंदिर के सामने है।",
+       "S",
+       "C"
+      ],
+      [
+       "I khua ti em?",
+       "इ खुअ ति एम्?",
+       "आपका गाँव कहाँ है?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka khua Bihar ah a ni.",
+       "क खुअ बिहार अह् अ नि।",
+       "मेरा गाँव बिहार में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei Patna ah 2 darkar hla a ni.",
+       "हेइ पटना अह् 2 दर्कर् ह्ल अ नि।",
+       "यह पटना से दो घंटे दूर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tunah Ka hmun man pindan ah awm.",
+       "तुनह् क ह्मुन् मन् पिन्दन् अह् ऑम्।",
+       "अभी मैं किराये के कमरे में रहता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan 3 mite 1 pindan ah awm.",
+       "कन् 3 मिते 1 पिन्दन् अह् ऑम्।",
+       "हम तीन लोग एक कमरे में रहते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan pindan dang tum ah a ni.",
+       "कन् पिन्दन् दङ् तुम् अह् अ नि।",
+       "हमारा कमरा दूसरी मंज़िल पर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Chawhmeh in tak te a ni.",
+       "चॉह्मेह् इन् तक् ते अ नि।",
+       "रसोई बहुत छोटी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan zan ah chaw siam.",
+       "कन् ज़न् अह् चॉ सियाम्।",
+       "हम रात में खाना बनाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Inchung ah tui tuikhawl a ni.",
+       "इन्चुङ् अह् तुइ तुइखॉल् अ नि।",
+       "छत पर पानी की टंकी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka khua khawpui ah tam mawi a ni.",
+       "क खुअ खॉपुइ अह् तम् मॉइ अ नि।",
+       "मेरा गाँव शहर से ज़्यादा सुंदर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Min khua hre reng lo kal.",
+       "मिन् खुअ ह्रे रेङ् लो कल्।",
+       "मुझे अपने गाँव की याद आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka kut ah khua kal ang.",
+       "क कुत् अह् खुअ कल् अङ्।",
+       "मैं त्योहार में अपने गाँव जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "I in engtikah kal ang em?",
+       "इ इन् एङ्तिकह् कल् अङ् एम्?",
+       "आप घर कब जाएँगे?",
+       "L",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "बीता कल (कल क्या किया)",
+     "tw": [
+      [
+       "Liam naktuk",
+       "लियाम् नक्तुक्",
+       "बीता कल",
+       "क"
+      ],
+      [
+       "Chawi",
+       "चॉइ",
+       "उठा",
+       "क"
+      ],
+      [
+       "Kal tawh",
+       "कल् तॉह्",
+       "गया",
+       "क"
+      ],
+      [
+       "Lei",
+       "लेइ",
+       "खरीदा",
+       "ग"
+      ],
+      [
+       "Hmu tawh",
+       "ह्मु तॉह्",
+       "मिला",
+       "क"
+      ],
+      [
+       "Naktuk zan",
+       "नक्तुक् ज़न्",
+       "कल रात",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "timeSwap",
+      "hi": "समय बदलो — आज की बात को बीते कल में कहो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Naktuk Ka 5 dar tho.",
+       "नक्तुक् क 5 दर् थो।",
+       "कल मैं पाँच बजे उठा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka sil leh inbual.",
+       "क सिल् लेह् इन्बुअल्।",
+       "मैंने मुँह धोया और नहाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka zing buh leh bean ei.",
+       "क ज़िङ् बुह् लेह् बेअन् एइ।",
+       "मैंने सुबह चावल-दाल खाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 8 dar hna ah kal tawh.",
+       "क 8 दर् ह्न अह् कल् तॉह्।",
+       "मैं आठ बजे काम पर गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka naktuk 10 darkar hna ti tawh.",
+       "क नक्तुक् 10 दर्कर् ह्न ति तॉह्।",
+       "मैंने कल दस घंटे काम किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka zan in kir.",
+       "क ज़न् इन् किर्।",
+       "मैं रात को घर लौटा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tak chau a ni tawh a ni tawh.",
+       "क तक् चौ अ नि तॉह् अ नि तॉह्।",
+       "मैं बहुत थका हुआ था।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka naktuk zan rang mu tawh.",
+       "क नक्तुक् ज़न् रङ् मु तॉह्।",
+       "मैं कल रात जल्दी सो गया।",
+       "S",
+       "B"
+      ],
+      [
+       "I naktuk eng ti tawh em?",
+       "इ नक्तुक् एङ् ति तॉह् एम्?",
+       "आपने कल क्या किया?",
+       "L",
+       "B"
+      ],
+      [
+       "I Pathianni ti tawh em?",
+       "इ पथियान्नि ति तॉह् एम्?",
+       "आप रविवार को कहाँ गए?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka Pathianni bazar kal tawh.",
+       "क पथियान्नि बज़र् कल् तॉह्।",
+       "मैं रविवार को बाजार गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka thlai leh buh lei.",
+       "क थ्लै लेह् बुह् लेइ।",
+       "मैंने सब्ज़ी और चावल खरीदा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka naktuk hlui thian ah hmu.",
+       "क नक्तुक् ह्लुइ थियान् अह् ह्मु।",
+       "मैं कल अपने पुराने दोस्त से मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan 2 darkar thu.",
+       "कन् 2 दर्कर् थु।",
+       "हमने दो घंटे बात की।",
+       "S",
+       "B"
+      ],
+      [
+       "Liam ta thla Ka khua kal tawh.",
+       "लियाम् त थ्ल क खुअ कल् तॉह्।",
+       "पिछले महीने मैं अपने गाँव गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka naktuk hna ti tawh lo.",
+       "क नक्तुक् ह्न ति तॉह् लो।",
+       "मैंने कल काम नहीं किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Naktuk zan tak ruah a ni tawh.",
+       "नक्तुक् ज़न् तक् रुअह् अ नि तॉह्।",
+       "कल रात बहुत बारिश हुई।",
+       "S",
+       "C"
+      ],
+      [
+       "Lum ah min muhil lo kal tawh lo.",
+       "लुम् अह् मिन् मुहिल् लो कल् तॉह् लो।",
+       "गर्मी में मुझे नींद नहीं आई।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng I zing chaw ei em?",
+       "एङ् इ ज़िङ् चॉ एइ एम्?",
+       "क्या आपने सुबह खाना खाया?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw Ka lo kal ah hmasa ei la tawh.",
+       "ऑ क लो कल् अह् ह्मस एइ ल तॉह्।",
+       "हाँ, मैंने आने से पहले खा लिया।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "आने वाला कल (आगे की योजना)",
+     "tw": [
+      [
+       "Lo kal naktuk",
+       "लो कल् नक्तुक्",
+       "आने वाला कल",
+       "क"
+      ],
+      [
+       "Ka ti ang (thu dang)",
+       "क ति अङ् (थु दङ्)",
+       "करूँगा (आगे की बात)",
+       "क"
+      ],
+      [
+       "Lo awm leh kar",
+       "लो ऑम् लेह् कर्",
+       "अगला हफ़्ता",
+       "क"
+      ],
+      [
+       "Thiamna",
+       "थियाम्न",
+       "हुनर",
+       "ख"
+      ],
+      [
+       "Bei tih",
+       "बेइ तिह्",
+       "कोशिश करना",
+       "क"
+      ],
+      [
+       "Nihliap",
+       "निह्लियाप्",
+       "छाता",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "timeSwap",
+      "hi": "समय बदलो — आज की बात को आने वाले कल में कहो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Naktuk Ka rang tho ang.",
+       "नक्तुक् क रङ् थो अङ्।",
+       "कल मैं जल्दी उठूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka nitin 10 thar tawngkam zir ang.",
+       "क नितिन् 10 थर् तॉङ्कम् ज़िर् अङ्।",
+       "मैं रोज़ दस नए शब्द सीखूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka naktuk bank kal mek.",
+       "क नक्तुक् बैंक कल् मेक्।",
+       "मैं कल बैंक जा रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka Thawhtanni in pawisa thawn ang.",
+       "क थॉह्तन्नि इन् पॉइस थॉन् अङ्।",
+       "मैं सोमवार को घर पैसे भेजूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo awm leh kum Ka cycle lei ang.",
+       "लो ऑम् लेह् कुम् क साइकिल लेइ अङ्।",
+       "अगले साल मैं साइकिल खरीदूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 1 thar thiamna zir duh.",
+       "क 1 थर् थियाम्न ज़िर् दुह्।",
+       "मैं एक नया हुनर सीखना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "I naktuk eng kan ti ang em?",
+       "इ नक्तुक् एङ् कन् ति अङ् एम्?",
+       "आप कल क्या करेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Eng I Pathianni hna ah lo kal ang em?",
+       "एङ् इ पथियान्नि ह्न अह् लो कल् अङ् एम्?",
+       "क्या आप रविवार को काम पर आएँगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw Ka 9 dar lo kal ang.",
+       "ऑ क 9 दर् लो कल् अङ्।",
+       "हाँ, मैं नौ बजे आऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Aih Pathianni Ka chawl ti ang.",
+       "ऐह् पथियान्नि क चॉल् ति अङ्।",
+       "नहीं, रविवार को मैं आराम करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka che naktuk zing phone ko ang.",
+       "क चे नक्तुक् ज़िङ् फ़ोन को अङ्।",
+       "मैं आपको कल सुबह फोन करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Kan tlai thleng Hei hna zawng ti kan pe ang.",
+       "कन् त्लै थ्लेङ् हेइ ह्न ज़ॉङ् ति कन् पे अङ्।",
+       "हम शाम तक यह काम पूरा कर देंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka unau lo awm leh kar lo kal ang.",
+       "क उनौ लो ऑम् लेह् कर् लो कल् अङ्।",
+       "मेरा भाई अगले हफ़्ते आएगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 1 te dawr hawn a ni.",
+       "क 1 ते दॉर् हॉन् अ नि।",
+       "मैं एक छोटी दुकान खोलने वाला हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "1 ni Ka in siam ang.",
+       "1 नि क इन् सियाम् अङ्।",
+       "एक दिन मैं अपना घर बनाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Naktuk Ka tlai ti ang lo.",
+       "नक्तुक् क त्लै ति अङ् लो।",
+       "कल मैं देर नहीं करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Vawiin ruah a ni ang.",
+       "वॉइइन् रुअह् अ नि अङ्।",
+       "आज बारिश होगी।",
+       "L",
+       "B"
+      ],
+      [
+       "Nen nihliap la rawh.",
+       "नेन् निह्लियाप् ल रॉह्।",
+       "अपने साथ छाता ले जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka zawng bei ang.",
+       "क ज़ॉङ् बेइ अङ्।",
+       "मैं पूरी कोशिश करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Zawng tha a ni ang.",
+       "ज़ॉङ् थ अ नि अङ्।",
+       "सब ठीक हो जाएगा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "कारण बताना (क्योंकि, इसलिए)",
+     "tw": [
+      [
+       "Avangin",
+       "अवङिन्",
+       "क्योंकि",
+       "क"
+      ],
+      [
+       "Chuvangin",
+       "चुवङिन्",
+       "इसलिए",
+       "क"
+      ],
+      [
+       "Chhan",
+       "छन्",
+       "कारण",
+       "क"
+      ],
+      [
+       "Tlai",
+       "त्लै",
+       "देर",
+       "क"
+      ],
+      [
+       "Chawlhni",
+       "चॉल्ह्नि",
+       "छुट्टी",
+       "ख"
+      ],
+      [
+       "Pawisa vawn",
+       "पॉइस वॉन्",
+       "पैसे बचाना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "joinReason",
+      "hi": "दो छोटे वाक्य जोड़ो — because या so लगाकर एक बनाओ।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Min tlai a ni tawh avangin bus tlai ah lo kal tawh.",
+       "मिन् त्लै अ नि तॉह् अवङिन् बस त्लै अह् लो कल् तॉह्।",
+       "मुझे देर हुई क्योंकि बस देर से आई।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawiin I tlai ah engvangin lo kal tawh em?",
+       "वॉइइन् इ त्लै अह् एङ्वङिन् लो कल् तॉह् एम्?",
+       "आज आप देर से क्यों आए?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka lo kal thei avangin Ka dam lo a ni tawh lo.",
+       "क लो कल् थेइ अवङिन् क दम् लो अ नि तॉह् लो।",
+       "मैं नहीं आ सका क्योंकि मैं बीमार था।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka chhungkua tan taimakna ti.",
+       "क छुङ्कुअ तन् तैमक्न ति।",
+       "मैं अपने परिवार के लिए मेहनत करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "I Mizo engvangin zir duh em?",
+       "इ मिज़ो एङ्वङिन् ज़िर् दुह् एम्?",
+       "आप मिज़ो क्यों सीखना चाहते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka Mizo zirna mek ka ni avangin min tha zawk hna duh rawh.",
+       "क मिज़ो ज़िर्न मेक् क नि अवङिन् मिन् थ ज़ॉक् ह्न दुह् रॉह्।",
+       "मैं मिज़ो सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Dawr khar a ni avangin vawiin chawlhni a ni.",
+       "दॉर् खर् अ नि अवङिन् वॉइइन् चॉल्ह्नि अ नि।",
+       "दुकान बंद है क्योंकि आज छुट्टी है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka chau a ni chuvangin rang mu tawh.",
+       "क चौ अ नि चुवङिन् रङ् मु तॉह्।",
+       "मैं थका था, इसलिए जल्दी सो गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ruah i ni mek a ni chuvangin Ka in ah awm.",
+       "रुअह् इ नि मेक् अ नि चुवङिन् क इन् अह् ऑम्।",
+       "बारिश हो रही थी, इसलिए मैं घर पर रहा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka pawisa vawng chuvangin in kal thei.",
+       "क पॉइस वॉङ् चुवङिन् इन् कल् थेइ।",
+       "मैंने पैसे बचाए, इसलिए घर जा सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "I A pindan engvangin kalsan em?",
+       "इ अ पिन्दन् एङ्वङिन् कल्सन् एम्?",
+       "आपने वह कमरा क्यों छोड़ा?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka kalsan avangin hmun man tam a ni tawh.",
+       "क कल्सन् अवङिन् ह्मुन् मन् तम् अ नि तॉह्।",
+       "मैंने छोड़ा क्योंकि किराया ज़्यादा था।",
+       "S",
+       "B"
+      ],
+      [
+       "Min Hei hna duh a ni avangin hlawh tha a ni.",
+       "मिन् हेइ ह्न दुह् अ नि अवङिन् ह्लॉह् थ अ नि।",
+       "मुझे यह काम पसंद है क्योंकि मज़दूरी अच्छी है।",
+       "S",
+       "B"
+      ],
+      [
+       "A lawm a ni avangin amah hna hmu tawh.",
+       "अ लॉम् अ नि अवङिन् अमह् ह्न ह्मु तॉह्।",
+       "वह खुश है क्योंकि उसे नौकरी मिल गई।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka rang tho ka ni tih nan tlai lo a ni.",
+       "क रङ् थो क नि तिह् नन् त्लै लो अ नि।",
+       "मैं जल्दी उठता हूँ ताकि देर न हो।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin chhan min hrilh rawh.",
+       "खॉङैहिन् छन् मिन् ह्रिल्ह् रॉह्।",
+       "कृपया कारण बताइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Chuvangin Ka che phone ti tawh.",
+       "चुवङिन् क चे फ़ोन ति तॉह्।",
+       "इसीलिए मैंने आपको फोन किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka farnu inneihna tan pawisa la bang awm mek.",
+       "क फ़र्नु इन्नेइह्न तन् पॉइस ल बङ् ऑम् मेक्।",
+       "मैं अपनी बहन की शादी के लिए पैसे बचा रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Machine khar engvangin a ni em?",
+       "मशीन खर् एङ्वङिन् अ नि एम्?",
+       "मशीन बंद क्यों है?",
+       "L",
+       "B"
+      ],
+      [
+       "Hei khar a ni avangin electric a ni lo.",
+       "हेइ खर् अ नि अवङिन् इलेक्ट्रिक अ नि लो।",
+       "यह बंद है क्योंकि बिजली नहीं है।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Tunah in ah tu a ni em?",
+     "(बोलो) Ka nu leh ka farnu in ah a ni."
+    ],
+    [
+     "(सुनो) I pa loneitu a ni em?",
+     "(बोलो) Aw lo ah hna thawk."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Chibai nu I engtin a ni em?",
+     "चिबै नु इ एङ्तिन् अ नि एम्?"
+    ],
+    [
+     "माँ",
+     "Kan tha ka ni I ei em?",
+     "कन् थ क नि इ एइ एम्?"
+    ],
+    [
+     "आप",
+     "Aw Kan buh leh bean ei.",
+     "ऑ कन् बुह् लेह् बेअन् एइ।"
+    ],
+    [
+     "माँ",
+     "Rang mu rawh fapa.",
+     "रङ् मु रॉह् फ़प।"
+    ],
+    [
+     "आप",
+     "Tha an ni nu tha zan.",
+     "थ अन् नि नु थ ज़न्।"
+    ]
+   ],
+   "test": {
+    "target": "अपने घर का कोई सदस्य या दोस्त (फ़ोन पर)",
+    "goal": "English में बताइए — कल आपने क्या किया, और आने वाले कल आप क्या करेंगे। कम-से-कम एक वाक्य because वाला हो।",
+    "lines": [
+     [
+      "Kan naktuk 10 darkar hna ti tawh.",
+      "कन् नक्तुक् 10 दर्कर् ह्न ति तॉह्।"
+     ],
+     [
+      "Kan lian chau ka ni.",
+      "कन् लियान् चौ क नि।"
+     ],
+     [
+      "Naktuk Kan rang tho ang.",
+      "नक्तुक् कन् रङ् थो अङ्।"
+     ],
+     [
+      "Kan che naktuk zing ah phone ka ti ang.",
+      "कन् चे नक्तुक् ज़िङ् अह् फ़ोन क ति अङ्।"
+     ],
+     [
+      "Kan Sap tawng zir ka ni avangin min tha hna duh rawh.",
+      "कन् साप तॉङ् ज़िर् क नि अवङिन् मिन् थ ह्न दुह् रॉह्।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 2,
+   "title": "My Daily Life",
+   "hi": "मेरी रोज़ की जिंदगी",
+   "pace": 20,
+   "days": [
+    {
+     "title": "मेरी दिनचर्या (कितनी बार)",
+     "tw": [
+      [
+       "Reng",
+       "रेङ्",
+       "हमेशा",
+       "क"
+      ],
+      [
+       "Pangngai dan ah",
+       "पङ्ङै दन् अह्",
+       "आम तौर पर",
+       "क"
+      ],
+      [
+       "A chang chuan",
+       "अ चङ् चुअन्",
+       "कभी-कभी",
+       "क"
+      ],
+      [
+       "Engtikah mah Aih",
+       "एङ्तिकह् मह् ऐह्",
+       "कभी नहीं",
+       "क"
+      ],
+      [
+       "Ke in",
+       "के इन्",
+       "पैदल",
+       "ग"
+      ],
+      [
+       "Nitin",
+       "नितिन्",
+       "रोज़",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "freqLadder",
+      "hi": "बार-बार की सीढ़ी — एक ही वाक्य को always, usually, sometimes, never से बदल-बदलकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka reng ni chhuak ah hmasa tho.",
+       "क रेङ् नि छुअक् अह् ह्मस थो।",
+       "मैं हमेशा सूरज उगने से पहले उठता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka pangngai dan ah 8 dar hna thleng.",
+       "क पङ्ङै दन् अह् 8 दर् ह्न थ्लेङ्।",
+       "मैं आम तौर पर आठ बजे काम पहुँचता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "A chang chuan Ka zan ah hna thawk.",
+       "अ चङ् चुअन् क ज़न् अह् ह्न थॉक्।",
+       "कभी-कभी मैं रात में काम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka engtikah mah zuk ti lo.",
+       "क एङ्तिकह् मह् ज़ुक् ति लो।",
+       "मैं कभी धूम्रपान नहीं करता।",
+       "S",
+       "B"
+      ],
+      [
+       "I engzat dar tho em?",
+       "इ एङ्ज़त् दर् थो एम्?",
+       "आप कितने बजे उठते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka nitin 5 dar tho.",
+       "क नितिन् 5 दर् थो।",
+       "मैं रोज़ पाँच बजे उठता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmasa Ka sil.",
+       "ह्मस क सिल्।",
+       "पहले मैं मुँह धोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Leh Ka thingpui siam.",
+       "लेह् क थिङ्पुइ सियाम्।",
+       "फिर मैं चाय बनाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "A hnuah Ka hna ah kal.",
+       "अ ह्नुअह् क ह्न अह् कल्।",
+       "उसके बाद मैं काम पर जाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 1 dar tlem chawl ti.",
+       "क 1 दर् त्लेम् चॉल् ति।",
+       "मैं एक बजे थोड़ा आराम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka Pathianni puan sil.",
+       "क पथियान्नि पुअन् सिल्।",
+       "मैं रविवार को कपड़े धोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 10 dar mu.",
+       "क 10 दर् मु।",
+       "मैं दस बजे सोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "I hna ah engtin kal em?",
+       "इ ह्न अह् एङ्तिन् कल् एम्?",
+       "आप काम पर कैसे जाते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka ke in hna ah kal.",
+       "क के इन् ह्न अह् कल्।",
+       "मैं पैदल काम पर जाता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "20 minute a lang a ni.",
+       "20 मिनुते अ लङ् अ नि।",
+       "बीस मिनट लगते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka nitin chanve darkar Mizo zir.",
+       "क नितिन् चन्वे दर्कर् मिज़ो ज़िर्।",
+       "मैं रोज़ आधा घंटा मिज़ो सीखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka kar ah 2 vawi in phone ko.",
+       "क कर् अह् 2 वॉइ इन् फ़ोन को।",
+       "मैं हफ़्ते में दो बार घर फोन करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Pathianni Ka zawng ni chawl ti.",
+       "पथियान्नि क ज़ॉङ् नि चॉल् ति।",
+       "रविवार को मैं पूरा दिन आराम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka ni rang tan nih tlai ah zo a ni.",
+       "क नि रङ् तन् निह् त्लै अह् ज़ो अ नि।",
+       "मेरा दिन जल्दी शुरू होकर देर से ख़त्म होता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Taimakna engtikah mah tangkai lo kal lo.",
+       "तैमक्न एङ्तिकह् मह् तङ्कै लो कल् लो।",
+       "मेहनत कभी बेकार नहीं जाती।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "खाना और रसोई",
+     "tw": [
+      [
+       "Chaw siam",
+       "चॉ सियाम्",
+       "खाना बनाना",
+       "क"
+      ],
+      [
+       "Chhuan",
+       "छुअन्",
+       "उबालना",
+       "क"
+      ],
+      [
+       "Tan",
+       "तन्",
+       "काटना",
+       "क"
+      ],
+      [
+       "Tui",
+       "तुइ",
+       "स्वादिष्ट",
+       "क"
+      ],
+      [
+       "Ruak",
+       "रुअक्",
+       "ख़ाली",
+       "क"
+      ],
+      [
+       "Chhawng",
+       "छॉङ्",
+       "बारी",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "क्रम बताओ — First, Then, After that लगाकर काम का सही क्रम बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Vawiin I eng siam em?",
+       "वॉइइन् इ एङ् सियाम् एम्?",
+       "आज आपने क्या बनाया?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka buh leh alu thlai siam.",
+       "क बुह् लेह् आलू थ्लै सियाम्।",
+       "मैंने चावल और आलू की सब्ज़ी बनाई।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmasa buh tha ah sil rawh.",
+       "ह्मस बुह् थ अह् सिल् रॉह्।",
+       "पहले चावल अच्छे से धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmasa tui chhuan rawh.",
+       "ह्मस तुइ छुअन् रॉह्।",
+       "पहले पानी उबालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Purun te tlam ah tan rawh.",
+       "पुरुन् ते त्लम् अह् तन् रॉह्।",
+       "प्याज़ छोटे टुकड़ों में काटो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tlem chi dah rawh.",
+       "त्लेम् चि दह् रॉह्।",
+       "थोड़ा नमक डालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chaw inpeih a ni.",
+       "चॉ इन्पेइह् अ नि।",
+       "खाना तैयार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hei thlai tak tui a ni.",
+       "हेइ थ्लै तक् तुइ अ नि।",
+       "यह सब्ज़ी बहुत स्वादिष्ट है।",
+       "S",
+       "C"
+      ],
+      [
+       "Buh tha ah chhum lo.",
+       "बुह् थ अह् छुम् लो।",
+       "चावल ठीक से नहीं पका है।",
+       "S",
+       "C"
+      ],
+      [
+       "Min hriak leh spice duh rawh.",
+       "मिन् ह्रियाक् लेह् स्पाइस दुह् रॉह्।",
+       "हमें तेल और मसाले चाहिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Gas cylinder ruak a ni.",
+       "गैस सिलिंडर रुअक् अ नि।",
+       "गैस सिलिंडर ख़ाली है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka thar cylinder rawn ken ang.",
+       "क थर् सिलिंडर रॉन् केन् अङ्।",
+       "मैं नया सिलिंडर लाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawiin Kan nen tangkawpin chaw siam ang.",
+       "वॉइइन् कन् नेन् तङ्कॉपिन् चॉ सियाम् अङ्।",
+       "आज हम साथ मिलकर खाना बनाएँगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawiin chaw siam chhawng tu ta a ni em?",
+       "वॉइइन् चॉ सियाम् छॉङ् तु त अ नि एम्?",
+       "आज खाना बनाने की बारी किसकी है?",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin ka chhawng a ni.",
+       "वॉइइन् क छॉङ् अ नि।",
+       "आज मेरी बारी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Chaw khawhral ti suh.",
+       "चॉ खॉह्रल् ति सुह्।",
+       "खाना बर्बाद मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chaw khuh a dah rawh.",
+       "चॉ खुह् अ दह् रॉह्।",
+       "खाना ढककर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin Ka tam ei la tawh.",
+       "वॉइइन् क तम् एइ ल तॉह्।",
+       "आज मैंने ज़्यादा खा लिया।",
+       "S",
+       "B"
+      ],
+      [
+       "In chaw hotel ah tha a ni.",
+       "इन् चॉ होटल अह् थ अ नि।",
+       "घर का खाना होटल से अच्छा होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Chauh fai tui in rawh.",
+       "चौह् फ़ै तुइ इन् रॉह्।",
+       "सिर्फ़ साफ़ पानी पियो।",
+       "L",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "तबीयत और दवा (बड़ी बातें)",
+     "tw": [
+      [
+       "Khawsik",
+       "खॉसिक्",
+       "बुखार",
+       "क"
+      ],
+      [
+       "Damdawi mum",
+       "दम्दॉइ मुम्",
+       "गोली",
+       "क"
+      ],
+      [
+       "Khuh",
+       "खुह्",
+       "खाँसी",
+       "क"
+      ],
+      [
+       "Tha zawk",
+       "थ ज़ॉक्",
+       "बेहतर",
+       "क"
+      ],
+      [
+       "Chawl",
+       "चॉल्",
+       "आराम",
+       "क"
+      ],
+      [
+       "Hnaih ah",
+       "ह्नैह् अह्",
+       "पास में",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "संवाद पूरा करो — डॉक्टर के पास की छोटी बातचीत, ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Min naktuk ah khawsik a ni.",
+       "मिन् नक्तुक् अह् खॉसिक् अ नि।",
+       "मुझे कल से बुखार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka lu na ti mek.",
+       "क लु न ति मेक्।",
+       "मेरा सिर दर्द कर रहा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Min khuh leh hnar na a ni.",
+       "मिन् खुह् लेह् ह्नर् न अ नि।",
+       "मुझे खाँसी और ज़ुकाम है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka zawng taksa na ti mek.",
+       "क ज़ॉङ् तक्स न ति मेक्।",
+       "मेरा पूरा बदन दर्द कर रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "I engtikah ah dam lo a ni em?",
+       "इ एङ्तिकह् अह् दम् लो अ नि एम्?",
+       "आप कब से बीमार हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Lei min entir rawh.",
+       "लेइ मिन् एन्तिर् रॉह्।",
+       "अपनी जीभ दिखाइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei damdawi ei hnuah la rawh.",
+       "हेइ दम्दॉइ एइ ह्नुअह् ल रॉह्।",
+       "यह दवा खाने के बाद लीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "1 damdawi mum zing 1 zan ah la rawh.",
+       "1 दम्दॉइ मुम् ज़िङ् 1 ज़न् अह् ल रॉह्।",
+       "एक गोली सुबह, एक रात में लीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Lum deuh tui in rawh.",
+       "लुम् देउह् तुइ इन् रॉह्।",
+       "गुनगुना पानी पियो।",
+       "L",
+       "B"
+      ],
+      [
+       "2 ni chawl ti rawh.",
+       "2 नि चॉल् ति रॉह्।",
+       "दो दिन आराम कीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka hun ah damdawi la.",
+       "क हुन् अह् दम्दॉइ ल।",
+       "मैंने समय पर दवा ली।",
+       "S",
+       "B"
+      ],
+      [
+       "Tunah Ka tha zawk hria ti mek.",
+       "तुनह् क थ ज़ॉक् ह्रिया ति मेक्।",
+       "अब मैं बेहतर महसूस कर रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawsik chhan ah Ka hna ah kal thei lo.",
+       "खॉसिक् छन् अह् क ह्न अह् कल् थेइ लो।",
+       "बुखार की वजह से मैं काम पर नहीं जा सका।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei damdawi engzat a ni em?",
+       "हेइ दम्दॉइ एङ्ज़त् अ नि एम्?",
+       "यह दवा कितने की है?",
+       "S",
+       "B"
+      ],
+      [
+       "Eng hnaih ah sorkar damdawiin a ni em?",
+       "एङ् ह्नैह् अह् सोर्कर् दम्दॉइइन् अ नि एम्?",
+       "क्या पास में सरकारी अस्पताल है?",
+       "S",
+       "A"
+      ],
+      [
+       "Doctor 10 dar lo kal.",
+       "डॉक्टर 10 दर् लो कल्।",
+       "डॉक्टर दस बजे आते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Khawngaihin doctor tan ka hming ziak rawh.",
+       "खॉङैहिन् डॉक्टर तन् क ह्मिङ् ज़ियाक् रॉह्।",
+       "कृपया डॉक्टर के लिए मेरा नाम लिख दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Hun ah ei rawh leh tha muhil la rawh.",
+       "हुन् अह् एइ रॉह् लेह् थ मुहिल् ल रॉह्।",
+       "समय पर खाओ और अच्छी नींद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ei ah hmasa kut sil rawh.",
+       "एइ अह् ह्मस कुत् सिल् रॉह्।",
+       "खाने से पहले हाथ धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hriselna dik hausakna a ni.",
+       "ह्रिसेल्न दिक् हौसक्न अ नि।",
+       "सेहत ही असली दौलत है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "मौसम और कपड़े",
+     "tw": [
+      [
+       "Boruak",
+       "बोरुअक्",
+       "मौसम",
+       "क"
+      ],
+      [
+       "Vawt",
+       "वॉत्",
+       "सर्दी",
+       "क"
+      ],
+      [
+       "Huh a ni tawh",
+       "हुह् अ नि तॉह्",
+       "भीगा हुआ",
+       "क"
+      ],
+      [
+       "Thlipui",
+       "थ्लिपुइ",
+       "आँधी",
+       "क"
+      ],
+      [
+       "Teh",
+       "तेह्",
+       "नाप",
+       "ग"
+      ],
+      [
+       "Hrang ah",
+       "ह्रङ् अह्",
+       "अलग से",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "compare",
+      "hi": "तुलना करो — than लगाकर दो चीज़ों की तुलना बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Vawiin naktuk ah tam lum a ni.",
+       "वॉइइन् नक्तुक् अह् तम् लुम् अ नि।",
+       "आज कल से ज़्यादा गर्मी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tunlai zing tak vawt a ni.",
+       "तुन्लै ज़िङ् तक् वॉत् अ नि।",
+       "आजकल सुबह बहुत ठंड होती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Vawt lo kal mek.",
+       "वॉत् लो कल् मेक्।",
+       "सर्दी आ रही है।",
+       "S",
+       "C"
+      ],
+      [
+       "Lum puan ha rawh.",
+       "लुम् पुअन् ह रॉह्।",
+       "गरम कपड़े पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka liam ta kar sweater lei.",
+       "क लियाम् त कर् स्वेटर लेइ।",
+       "मैंने पिछले हफ़्ते स्वेटर खरीदा।",
+       "S",
+       "B"
+      ],
+      [
+       "Puan ni eng ah tihro rawh.",
+       "पुअन् नि एङ् अह् तिह्रो रॉह्।",
+       "कपड़े धूप में सुखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ruah ah ka puan huh kal tawh.",
+       "रुअह् अह् क पुअन् हुह् कल् तॉह्।",
+       "बारिश में मेरे कपड़े भीग गए।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo awm leh thla ruahtui hun tan a ni ang.",
+       "लो ऑम् लेह् थ्ल रुअह्तुइ हुन् तन् अ नि अङ्।",
+       "अगले महीने बरसात शुरू होगी।",
+       "S",
+       "C"
+      ],
+      [
+       "Naktuk zan thlipui lo kal tawh.",
+       "नक्तुक् ज़न् थ्लिपुइ लो कल् तॉह्।",
+       "कल रात आँधी आई।",
+       "S",
+       "C"
+      ],
+      [
+       "Vawiin boruak engtin a ni em?",
+       "वॉइइन् बोरुअक् एङ्तिन् अ नि एम्?",
+       "आज मौसम कैसा है?",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin boruak tak tha a ni.",
+       "वॉइइन् बोरुअक् तक् थ अ नि।",
+       "आज मौसम बहुत अच्छा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Rang ni eng ah hna thawk suh.",
+       "रङ् नि एङ् अह् ह्न थॉक् सुह्।",
+       "तेज़ धूप में काम मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lum ah tam tui in rawh.",
+       "लुम् अह् तम् तुइ इन् रॉह्।",
+       "गर्मी में ज़्यादा पानी पियो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ni eng ah lu khuh rawh.",
+       "नि एङ् अह् लु खुह् रॉह्।",
+       "धूप में सिर ढको।",
+       "L",
+       "B"
+      ],
+      [
+       "Heng puan min te a ni.",
+       "हेङ् पुअन् मिन् ते अ नि।",
+       "ये कपड़े मुझे छोटे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Min lian size duh rawh.",
+       "मिन् लियान् साइज़ दुह् रॉह्।",
+       "मुझे बड़ा साइज़ चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei kawr min tha lo kal.",
+       "हेइ कॉर् मिन् थ लो कल्।",
+       "यह कमीज़ मुझे ठीक आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei kawr hrang sil rawh.",
+       "हेइ कॉर् ह्रङ् सिल् रॉह्।",
+       "यह कमीज़ अलग धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka pheikhawk thler kal tawh a ni.",
+       "क फेइखॉक् थ्लेर् कल् तॉह् अ नि।",
+       "मेरे जूते फट गए हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Hlawh ni Ka thar pheikhawk lei ang.",
+       "ह्लॉह् नि क थर् फेइखॉक् लेइ अङ्।",
+       "तनख़्वाह के दिन मैं नए जूते खरीदूँगा।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "फ़ोन और संदेश (बड़ी बातें)",
+     "tw": [
+      [
+       "Line ah ding",
+       "लाइन अह् दिङ्",
+       "लाइन पर रुकना",
+       "क"
+      ],
+      [
+       "Dik lo nambar",
+       "दिक् लो नम्बर्",
+       "ग़लत नंबर",
+       "क"
+      ],
+      [
+       "Thuchah",
+       "थुचह्",
+       "संदेश",
+       "क"
+      ],
+      [
+       "Battery",
+       "बैटरी",
+       "बैटरी",
+       "क"
+      ],
+      [
+       "Network",
+       "नेटवर्क",
+       "नेटवर्क",
+       "क"
+      ],
+      [
+       "Chak ah",
+       "चक् अह्",
+       "ज़ोर से",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "फ़ोन के 3 वाक्य — अपना नाम भरकर पूरी शुरुआत बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Eng neitu ah thu a ni thei em?",
+       "एङ् नेइतु अह् थु अ नि थेइ एम्?",
+       "क्या मालिक से बात हो सकती है?",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin 1 minute line ah ding rawh.",
+       "खॉङैहिन् 1 मिनुते लाइन अह् दिङ् रॉह्।",
+       "कृपया एक मिनट लाइन पर रुकिए।",
+       "L",
+       "B"
+      ],
+      [
+       "An tunah heta a ni lo.",
+       "अन् तुनह् हेत अ नि लो।",
+       "वे अभी यहाँ नहीं हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Khawngaihin 1 darkar hnuah phone ti rawh.",
+       "खॉङैहिन् 1 दर्कर् ह्नुअह् फ़ोन ति रॉह्।",
+       "कृपया एक घंटे बाद फोन कीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaidam ti rawh I dik lo nambar dah a ni.",
+       "ङैदम् ति रॉह् इ दिक् लो नम्बर् दह् अ नि।",
+       "माफ़ कीजिए, आपने ग़लत नंबर लगाया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei nambar ah min missed call lo kal tawh a ni tawh.",
+       "हेइ नम्बर् अह् मिन् मिस्ड कॉल लो कल् तॉह् अ नि तॉह्।",
+       "इस नंबर से मुझे मिस्ड कॉल आई थी।",
+       "S",
+       "B"
+      ],
+      [
+       "Zing min tuin phone ti tawh a ni tawh em?",
+       "ज़िङ् मिन् तुइन् फ़ोन ति तॉह् अ नि तॉह् एम्?",
+       "सुबह मुझे किसने फोन किया था?",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin min thuchah thawn rawh.",
+       "खॉङैहिन् मिन् थुचह् थॉन् रॉह्।",
+       "कृपया मुझे संदेश भेज दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka che WhatsApp ah address thawn ka pe ang.",
+       "क चे व्हाट्सऐप अह् अद्द्रेस्स् थॉन् क पे अङ्।",
+       "मैं आपको व्हाट्सऐप पर पता भेज दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin min lehkha photo thawn rawh.",
+       "खॉङैहिन् मिन् लेह्ख फ़ोटो थॉन् रॉह्।",
+       "कृपया मुझे कागज़ की फोटो भेज दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka phone balance zo a ni tawh.",
+       "क फ़ोन बैलेंस ज़ो अ नि तॉह्।",
+       "मेरा फोन बैलेंस ख़त्म हो गया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka battery tlem a ni.",
+       "क बैटरी त्लेम् अ नि।",
+       "मेरी बैटरी कम है।",
+       "S",
+       "B"
+      ],
+      [
+       "Heta network chak lo a ni.",
+       "हेत नेटवर्क चक् लो अ नि।",
+       "यहाँ नेटवर्क कमज़ोर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Phone tan kal tawh.",
+       "फ़ोन तन् कल् तॉह्।",
+       "फोन कट गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka 5 minute ah leh phone ko ang.",
+       "क 5 मिनुते अह् लेह् फ़ोन को अङ्।",
+       "मैं पाँच मिनट में फिर फोन करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin ka nambar save ti la rawh.",
+       "खॉङैहिन् क नम्बर् सेव ति ल रॉह्।",
+       "कृपया मेरा नंबर सेव कर लीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei nambar ziak la rawh.",
+       "हेइ नम्बर् ज़ियाक् ल रॉह्।",
+       "यह नंबर लिख लीजिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Tlem chak ah sawi rawh.",
+       "त्लेम् चक् अह् सॉइ रॉह्।",
+       "थोड़ा ज़ोर से बोलिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka che naktuk thuchah thawn.",
+       "क चे नक्तुक् थुचह् थॉन्।",
+       "मैंने आपको कल संदेश भेजा था।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng che ka thuchah hmu em?",
+       "एङ् चे क थुचह् ह्मु एम्?",
+       "क्या आपको मेरा संदेश मिला?",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) I engzat dar tho em?",
+     "(बोलो) Kan zing ah 5 dar tho."
+    ],
+    [
+     "(सुनो) Khatah ruah a ni awm mek em?",
+     "(बोलो) Aw nihliap tan kal rawh."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Min naktuk ah khawsik a ni.",
+     "मिन् नक्तुक् अह् खॉसिक् अ नि।"
+    ],
+    [
+     "दोस्त",
+     "I doctor hnaih ka kal tawh em?",
+     "इ डॉक्टर ह्नैह् क कल् तॉह् एम्?"
+    ],
+    [
+     "आप",
+     "Tunah thleng ka kal tawh tunah ka kal ang lo.",
+     "तुनह् थ्लेङ् क कल् तॉह् तुनह् क कल् अङ् लो।"
+    ],
+    [
+     "दोस्त",
+     "Damdawi ei rawh leh chawl ti rawh.",
+     "दम्दॉइ एइ रॉह् लेह् चॉल् ति रॉह्।"
+    ],
+    [
+     "आप",
+     "Rang tha i ni unau.",
+     "रङ् थ इ नि उनौ।"
+    ]
+   ],
+   "test": {
+    "target": "घर का कोई सदस्य (फ़ोन पर)",
+    "goal": "English में अपनी पूरी दिनचर्या बताइए — कब उठते हैं, क्या खाते हैं, कैसे काम जाते हैं; और तबीयत का हाल पूछिए।",
+    "lines": [
+     [
+      "Kan tin ni 5 dar tho.",
+      "कन् तिन् नि 5 दर् थो।"
+     ],
+     [
+      "Kan ke in hna ah kal.",
+      "कन् के इन् ह्न अह् कल्।"
+     ],
+     [
+      "Kan kar ah 2 vawi in phone ko.",
+      "कन् कर् अह् 2 वॉइ इन् फ़ोन को।"
+     ],
+     [
+      "I taksa engtin a ni em?",
+      "इ तक्स एङ्तिन् अ नि एम्?"
+     ],
+     [
+      "Hun ah i damdawi ei rawh.",
+      "हुन् अह् इ दम्दॉइ एइ रॉह्।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 3,
+   "title": "Family, Neighbours and Feelings",
+   "hi": "परिवार, पड़ोस और दिल की बात",
+   "pace": 20,
+   "days": [
+    {
+     "title": "बच्चों की पढ़ाई",
+     "tw": [
+      [
+       "Homework",
+       "होमवर्क",
+       "गृहकार्य",
+       "क"
+      ],
+      [
+       "Mark",
+       "मार्क",
+       "अंक",
+       "क"
+      ],
+      [
+       "Chapo",
+       "चपो",
+       "गर्व",
+       "क"
+      ],
+      [
+       "To",
+       "तो",
+       "महँगा",
+       "ग"
+      ],
+      [
+       "Zirna",
+       "ज़िर्न",
+       "शिक्षा",
+       "क"
+      ],
+      [
+       "Zirtir",
+       "ज़िर्तिर्",
+       "पढ़ाना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "whoAmI",
+      "hi": "मैं कौन हूँ — तीन सुराग सुनो, जवाब बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka naupangte sorkar sikul kal.",
+       "क नौपङ्ते सोर्कर् सिकुल् कल्।",
+       "मेरे बच्चे सरकारी स्कूल जाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Sikul 9 dar tan a ni.",
+       "सिकुल् 9 दर् तन् अ नि।",
+       "स्कूल नौ बजे शुरू होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka fanu pangana class ah a ni.",
+       "क फ़नु पङन क्लास अह् अ नि।",
+       "मेरी बेटी पाँचवीं कक्षा में है।",
+       "S",
+       "B"
+      ],
+      [
+       "A zirna ah tha a ni.",
+       "अ ज़िर्न अह् थ अ नि।",
+       "वह पढ़ाई में अच्छी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka fapa zan ah homework ti.",
+       "क फ़प ज़न् अह् होमवर्क ति।",
+       "मेरा बेटा रात में गृहकार्य करता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng i homework zawng ti tawh em?",
+       "एङ् इ होमवर्क ज़ॉङ् ति तॉह् एम्?",
+       "क्या तुमने गृहकार्य पूरा किया?",
+       "S",
+       "B"
+      ],
+      [
+       "Nitin chhiar rawh chauh exam ah hmasa lo.",
+       "नितिन् छियार् रॉह् चौह् एक्सम् अह् ह्मस लो।",
+       "रोज़ पढ़ो, सिर्फ़ परीक्षा से पहले नहीं।",
+       "S",
+       "C"
+      ],
+      [
+       "Exam lo awm leh thla tan a ni ang.",
+       "एक्सम् लो ऑम् लेह् थ्ल तन् अ नि अङ्।",
+       "परीक्षा अगले महीने शुरू होगी।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka fanu tha mark hmu.",
+       "क फ़नु थ मार्क ह्मु।",
+       "मेरी बेटी को अच्छे अंक मिले।",
+       "S",
+       "A"
+      ],
+      [
+       "Min naupangte ah chapo a ni.",
+       "मिन् नौपङ्ते अह् चपो अ नि।",
+       "मुझे अपने बच्चों पर गर्व है।",
+       "S",
+       "A"
+      ],
+      [
+       "Lehkhabu leh copy tunah to a ni.",
+       "लेह्खबु लेह् कॉपी तुनह् तो अ नि।",
+       "किताब-कॉपी अब महँगी हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka fapa tan sikul bag lei.",
+       "क फ़प तन् सिकुल् बैग लेइ।",
+       "मैंने बेटे के लिए स्कूल बैग खरीदा।",
+       "S",
+       "B"
+      ],
+      [
+       "Naupangte sikul ah chaw hmu.",
+       "नौपङ्ते सिकुल् अह् चॉ ह्मु।",
+       "बच्चों को स्कूल में खाना मिलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Naupangte nitin sikul thawn rawh.",
+       "नौपङ्ते नितिन् सिकुल् थॉन् रॉह्।",
+       "बच्चों को रोज़ स्कूल भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka tam chhiar thei lo.",
+       "क तम् छियार् थेइ लो।",
+       "मैं ज़्यादा पढ़ नहीं सका।",
+       "S",
+       "B"
+      ],
+      [
+       "Ah ka naupangte tak kan chhiar ang.",
+       "अह् क नौपङ्ते तक् कन् छियार् अङ्।",
+       "पर मेरे बच्चे ख़ूब पढ़ेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Zirna tam tak kawng hawng.",
+       "ज़िर्न तम् तक् कॉङ् हॉङ्।",
+       "पढ़ाई कई रास्ते खोलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka tlai fanu chhiar.",
+       "क त्लै फ़नु छियार्।",
+       "मैं शाम को अपनी बेटी को पढ़ाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "I fapa eng class ah a ni em?",
+       "इ फ़प एङ् क्लास अह् अ नि एम्?",
+       "आपका बेटा किस कक्षा में है?",
+       "L",
+       "B"
+      ],
+      [
+       "A pariatna class ah a ni.",
+       "अ परियात्न क्लास अह् अ नि।",
+       "वह आठवीं कक्षा में है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "घर के काम और मरम्मत",
+     "tw": [
+      [
+       "Phiarna dah",
+       "फियार्न दह्",
+       "झाड़ू लगाना",
+       "क"
+      ],
+      [
+       "Far",
+       "फ़र्",
+       "टपकना",
+       "क"
+      ],
+      [
+       "Siam tha",
+       "सियाम् थ",
+       "मरम्मत",
+       "ख"
+      ],
+      [
+       "Bawlhhlawh",
+       "बॉल्ह्ह्लॉह्",
+       "कूड़ा",
+       "क"
+      ],
+      [
+       "Bill",
+       "बिल",
+       "बिल",
+       "ग"
+      ],
+      [
+       "Bawlhhlawh bawm",
+       "बॉल्ह्ह्लॉह् बॉम्",
+       "कूड़ेदान",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "oneMany",
+      "hi": "एक से अनेक — s लगाकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka nitin zing pindan fai ti.",
+       "क नितिन् ज़िङ् पिन्दन् फ़ै ति।",
+       "मैं रोज़ सुबह कमरा साफ़ करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmasa chhuat ah phiarna dah rawh.",
+       "ह्मस छुअत् अह् फियार्न दह् रॉह्।",
+       "पहले फ़र्श पर झाड़ू लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Bucket ah tui thun rawh.",
+       "बकेट अह् तुइ थुन् रॉह्।",
+       "बाल्टी में पानी भरो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tap far awm mek.",
+       "टैप फ़र् ऑम् मेक्।",
+       "नल टपक रहा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Bulb tui awm lo.",
+       "बल्ब तुइ ऑम् लो।",
+       "बल्ब नहीं जल रहा।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka vawiin bulb thlak ka pe ang.",
+       "क वॉइइन् बल्ब थ्लक् क पे अङ्।",
+       "मैं आज बल्ब बदल दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Kawngkhar tala chim kal tawh a ni.",
+       "कॉङ्खर् तल चिम् कल् तॉह् अ नि।",
+       "दरवाज़े का ताला टूट गया है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hei tha tih tan tu emaw ko rawh.",
+       "हेइ थ तिह् तन् तु एमॉ को रॉह्।",
+       "इसे ठीक करने के लिए किसी को बुलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Siam tha ah engzat senso lo kal ang em?",
+       "सियाम् थ अह् एङ्ज़त् सेन्सो लो कल् अङ् एम्?",
+       "मरम्मत में कितना ख़र्च आएगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Thilte hmun ah dah rawh.",
+       "थिल्ते ह्मुन् अह् दह् रॉह्।",
+       "अपनी चीज़ें जगह पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bawlhhlawh bawm ah dah rawh.",
+       "बॉल्ह्ह्लॉह् बॉम् अह् दह् रॉह्।",
+       "कूड़ा कूड़ेदान में डालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kawngpui ah bawlhhlawh paih rawh lo.",
+       "कॉङ्पुइ अह् बॉल्ह्ह्लॉह् पैह् रॉह् लो।",
+       "सड़क पर कूड़ा मत फेंको।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmang hnuah tap khar rawh.",
+       "ह्मङ् ह्नुअह् टैप खर् रॉह्।",
+       "इस्तेमाल के बाद नल बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pawnah kal hun eng khar rawh.",
+       "पॉनह् कल् हुन् एङ् खर् रॉह्।",
+       "बाहर जाते समय बत्ती बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka thutthleng mahni tha.",
+       "क थुत्थ्लेङ् मह्नि थ।",
+       "मैंने कुर्सी ख़ुद ठीक की।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawiin electric bill lo kal tawh.",
+       "वॉइइन् इलेक्ट्रिक बिल लो कल् तॉह्।",
+       "आज बिजली का बिल आया।",
+       "S",
+       "C"
+      ],
+      [
+       "Bill liam ta thla ah tam a ni.",
+       "बिल लियाम् त थ्ल अह् तम् अ नि।",
+       "बिल पिछले महीने से ज़्यादा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Electric tlem senso ti rawh.",
+       "इलेक्ट्रिक त्लेम् सेन्सो ति रॉह्।",
+       "बिजली कम ख़र्च करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Fai in min hrisel dah.",
+       "फ़ै इन् मिन् ह्रिसेल् दह्।",
+       "साफ़ घर हमें सेहतमंद रखता है।",
+       "S",
+       "C"
+      ],
+      [
+       "In hna ah mi zawng kut insem duh rawh.",
+       "इन् ह्न अह् मि ज़ॉङ् कुत् इन्सेम् दुह् रॉह्।",
+       "घर के काम में सबको हाथ बँटाना चाहिए।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "पड़ोसी और गाँव-समाज",
+     "tw": [
+      [
+       "Vengte",
+       "वेङ्ते",
+       "पड़ोसी",
+       "क"
+      ],
+      [
+       "Inkar",
+       "इन्कर्",
+       "एक-दूसरे",
+       "क"
+      ],
+      [
+       "Inkhawm",
+       "इन्खॉम्",
+       "बैठक",
+       "ख"
+      ],
+      [
+       "Chingfel",
+       "चिङ्फ़ेल्",
+       "सुलझाना",
+       "क"
+      ],
+      [
+       "Zahna",
+       "ज़ह्न",
+       "सम्मान",
+       "क"
+      ],
+      [
+       "Lo kal rawh",
+       "लो कल् रॉह्",
+       "स्वागत",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "हाँ-नहीं जवाब — पूरा छोटा वाक्य बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Kan vengte tak tha a ni.",
+       "कन् वेङ्ते तक् थ अ नि।",
+       "हमारे पड़ोसी बहुत अच्छे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka amah 10 kum ah hria.",
+       "क अमह् 10 कुम् अह् ह्रिया।",
+       "मैं उसे दस साल से जानता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Kan inkar tanpui.",
+       "कन् इन्कर् तन्पुइ।",
+       "हम एक-दूसरे की मदद करते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "A naktuk min cycle pe.",
+       "अ नक्तुक् मिन् साइकिल पे।",
+       "उसने कल मुझे अपनी साइकिल दी।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin 2 ni ka pindan fimkhur dah rawh.",
+       "खॉङैहिन् 2 नि क पिन्दन् फ़िम्खुर् दह् रॉह्।",
+       "कृपया दो दिन मेरे कमरे का ध्यान रखिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Vawiin khua ah inkhawm a ni.",
+       "वॉइइन् खुअ अह् इन्खॉम् अ नि।",
+       "आज गाँव में बैठक है।",
+       "L",
+       "B"
+      ],
+      [
+       "Inkhawm ah mi zawng lo kal duh rawh.",
+       "इन्खॉम् अह् मि ज़ॉङ् लो कल् दुह् रॉह्।",
+       "बैठक में सबको आना चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan tangkawpin khua dil fai ti tawh.",
+       "कन् तङ्कॉपिन् खुअ दिल् फ़ै ति तॉह्।",
+       "हमने मिलकर गाँव का तालाब साफ़ किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Inpumkhatna ah chakna a ni.",
+       "इन्पुम्खत्न अह् चक्न अ नि।",
+       "एकता में बल है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka vengte fapa khawpui ah hna hmu.",
+       "क वेङ्ते फ़प खॉपुइ अह् ह्न ह्मु।",
+       "मेरे पड़ोसी के बेटे को शहर में नौकरी मिली।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan nen tangkawpin hlimna hmang.",
+       "कन् नेन् तङ्कॉपिन् ह्लिम्न ह्मङ्।",
+       "हमने साथ मिलकर खुशी मनाई।",
+       "S",
+       "B"
+      ],
+      [
+       "Te thu ah in hau suh lo.",
+       "ते थु अह् इन् हौ सुह् लो।",
+       "छोटी बातों पर मत लड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thu ti a harsatna chingfel rawh.",
+       "थु ति अ हर्सत्न चिङ्फ़ेल् रॉह्।",
+       "बात करके समस्या सुलझाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Upa kan tanpuina duh rawh.",
+       "उप कन् तन्पुइन दुह् रॉह्।",
+       "बुज़ुर्ग को हमारी मदद चाहिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka an ip in thleng.",
+       "क अन् इप् इन् थ्लेङ्।",
+       "मैंने उनका थैला घर तक पहुँचाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Upate zahna ti rawh.",
+       "उपते ज़ह्न ति रॉह्।",
+       "बड़ों का सम्मान करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chu in ah tu awm em?",
+       "चु इन् अह् तु ऑम् एम्?",
+       "उस घर में कौन रहता है?",
+       "S",
+       "B"
+      ],
+      [
+       "Khata 1 thar chhungkua lo kal tawh.",
+       "खत 1 थर् छुङ्कुअ लो कल् तॉह्।",
+       "वहाँ एक नया परिवार आया है।",
+       "S",
+       "C"
+      ],
+      [
+       "I kal ang u an lo kal rawh ti rawh.",
+       "इ कल् अङ् उ अन् लो कल् रॉह् ति रॉह्।",
+       "चलो उनका स्वागत करें।",
+       "S",
+       "C"
+      ],
+      [
+       "Tha vengte chhungkua ang hian a ni.",
+       "थ वेङ्ते छुङ्कुअ अङ् हियान् अ नि।",
+       "अच्छे पड़ोसी परिवार जैसे होते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "त्योहार और खुशी",
+     "tw": [
+      [
+       "Kut",
+       "कुत्",
+       "त्योहार",
+       "क"
+      ],
+      [
+       "Chhang tui",
+       "छङ् तुइ",
+       "मिठाई",
+       "क"
+      ],
+      [
+       "Chawlhni",
+       "चॉल्ह्नि",
+       "छुट्टी",
+       "ख"
+      ],
+      [
+       "Hmasa ah ticket lak",
+       "ह्मस अह् टिकट लक्",
+       "पहले से टिकट लेना",
+       "ग"
+      ],
+      [
+       "Insem",
+       "इन्सेम्",
+       "बाँटना",
+       "क"
+      ],
+      [
+       "Bik",
+       "बिक्",
+       "ख़ास",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "soundFamily",
+      "hi": "आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Che eng kut ber duh a ni em?",
+       "चे एङ् कुत् बेर् दुह् अ नि एम्?",
+       "आपको कौन-सा त्योहार सबसे पसंद है?",
+       "L",
+       "B"
+      ],
+      [
+       "Min Chhath leh Holi duh a ni.",
+       "मिन् छठ लेह् होली दुह् अ नि।",
+       "मुझे छठ और होली पसंद है।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo awm leh kar kut lo kal mek.",
+       "लो ऑम् लेह् कर् कुत् लो कल् मेक्।",
+       "अगले हफ़्ते त्योहार आ रहा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan zawng in fai kan ti ang.",
+       "कन् ज़ॉङ् इन् फ़ै कन् ति अङ्।",
+       "हम पूरा घर साफ़ करेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nu chhang tui a siam ang.",
+       "क नु छङ् तुइ अ सियाम् अङ्।",
+       "मेरी माँ मिठाई बनाएँगी।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan naupangte tan thar puan lei.",
+       "कन् नौपङ्ते तन् थर् पुअन् लेइ।",
+       "हमने बच्चों के लिए नए कपड़े खरीदे।",
+       "S",
+       "B"
+      ],
+      [
+       "Min 3 ni chawlhni hmu ang.",
+       "मिन् 3 नि चॉल्ह्नि ह्मु अङ्।",
+       "मुझे तीन दिन की छुट्टी मिलेगी।",
+       "S",
+       "B"
+      ],
+      [
+       "Rel ticket hmasa ah khat a ni.",
+       "रेल् टिकट ह्मस अह् खत् अ नि।",
+       "ट्रेन की टिकटें पहले से भरी हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka liam ta thla ticket book ti la.",
+       "क लियाम् त थ्ल टिकट बुक ति ल।",
+       "मैंने पिछले महीने टिकट बुक कर ली।",
+       "S",
+       "B"
+      ],
+      [
+       "Kut ah zawng in lo kal ang.",
+       "कुत् अह् ज़ॉङ् इन् लो कल् अङ्।",
+       "त्योहार में सब घर आएँगे।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan 1 kum hnuah kan inhmu ang.",
+       "कन् 1 कुम् ह्नुअह् कन् इन्ह्मु अङ्।",
+       "हम एक साल बाद मिलेंगे।",
+       "S",
+       "A"
+      ],
+      [
+       "Zawng khua mawi a lang a ni.",
+       "ज़ॉङ् खुअ मॉइ अ लङ् अ नि।",
+       "पूरा गाँव सुंदर लगता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Che leh chhungkua kut duhsakna.",
+       "चे लेह् छुङ्कुअ कुत् दुह्सक्न।",
+       "आपको और परिवार को त्योहार की शुभकामनाएँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Che pawh.",
+       "चे पॉह्।",
+       "आपको भी।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan tlai khawnvar chhi.",
+       "कन् त्लै खॉन्वर् छि।",
+       "हमने शाम को दीये जलाए।",
+       "S",
+       "B"
+      ],
+      [
+       "Naupangte zawng ni infiam awm.",
+       "नौपङ्ते ज़ॉङ् नि इन्फ़ियाम् ऑम्।",
+       "बच्चे पूरा दिन खेलते रहे।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan vengte ah chhang tui sem.",
+       "कन् वेङ्ते अह् छङ् तुइ सेम्।",
+       "हमने पड़ोसियों में मिठाई बाँटी।",
+       "S",
+       "B"
+      ],
+      [
+       "Kut mite belh a ni.",
+       "कुत् मिते बेल्ह् अ नि।",
+       "त्योहार लोगों को जोड़ते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Kut hnuah Ka hna ah ka kir leh ang.",
+       "कुत् ह्नुअह् क ह्न अह् क किर् लेह् अङ्।",
+       "त्योहार के बाद मैं काम पर लौटूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei kum kut tak bik awm.",
+       "हेइ कुम् कुत् तक् बिक् ऑम्।",
+       "इस साल त्योहार बहुत ख़ास रहा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "दिल की बात (भावनाएँ)",
+     "tw": [
+      [
+       "Lawm",
+       "लॉम्",
+       "खुश",
+       "क"
+      ],
+      [
+       "Lungngai",
+       "लुङ्ङै",
+       "उदास",
+       "क"
+      ],
+      [
+       "Lungkham",
+       "लुङ्खम्",
+       "चिंतित",
+       "क"
+      ],
+      [
+       "Thinrim",
+       "थिन्रिम्",
+       "गुस्सा",
+       "क"
+      ],
+      [
+       "Hlau a ni tawh",
+       "ह्लौ अ नि तॉह्",
+       "डरा हुआ",
+       "क"
+      ],
+      [
+       "Beiseina",
+       "बेइसेइन",
+       "उम्मीद",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "opposites",
+      "hi": "उलटे जोड़े — शब्द सुनो, उलटा बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Vawiin Ka tak lawm a ni.",
+       "वॉइइन् क तक् लॉम् अ नि।",
+       "आज मैं बहुत खुश हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "I lungngai engvangin a ni em?",
+       "इ लुङ्ङै एङ्वङिन् अ नि एम्?",
+       "आप उदास क्यों हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Min pawisa lungkham a ni.",
+       "मिन् पॉइस लुङ्खम् अ नि।",
+       "मुझे पैसों की चिंता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Lungkham ti rawh zawng tha a ni ang lo.",
+       "लुङ्खम् ति रॉह् ज़ॉङ् थ अ नि अङ् लो।",
+       "चिंता मत करो, सब ठीक होगा।",
+       "L",
+       "B"
+      ],
+      [
+       "Min chhungkua hre reng lo kal mek.",
+       "मिन् छुङ्कुअ ह्रे रेङ् लो कल् मेक्।",
+       "मुझे अपने परिवार की याद आ रही है।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawpui ah min tak mahni chauh awmna a awm.",
+       "खॉपुइ अह् मिन् तक् मह्नि चौह् ऑम्न अ ऑम्।",
+       "शहर में मुझे बहुत अकेलापन लगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka thiante min nuihtir.",
+       "क थियान्ते मिन् नुइह्तिर्।",
+       "मेरे दोस्तों ने मुझे हँसाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka thinrim ah a ni ah ngawi awm.",
+       "क थिन्रिम् अह् अ नि अह् ङॉइ ऑम्।",
+       "मैं गुस्से में था, पर चुप रहा।",
+       "S",
+       "B"
+      ],
+      [
+       "Thinrim hna tichhe pe.",
+       "थिन्रिम् ह्न तिछे पे।",
+       "गुस्सा काम बिगाड़ देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Min Hei hna bo hlauhna a ni.",
+       "मिन् हेइ ह्न बो ह्लौह्न अ नि।",
+       "मुझे यह नौकरी छूटने का डर है।",
+       "S",
+       "A"
+      ],
+      [
+       "Hlau suh fimkhur ah hna thawk rawh.",
+       "ह्लौ सुह् फ़िम्खुर् अह् ह्न थॉक् रॉह्।",
+       "डरो मत, ध्यान से काम करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Fapa hnaih nih ah min chapo a ni tawh.",
+       "फ़प ह्नैह् निह् अह् मिन् चपो अ नि तॉह्।",
+       "बेटे के पास होने पर मुझे गर्व हुआ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nen pek tan Ka lawm e.",
+       "क नेन् पेक् तन् क लॉम् ए।",
+       "मेरा साथ देने के लिए धन्यवाद।",
+       "S",
+       "A"
+      ],
+      [
+       "Engemaw ni harsa a ni.",
+       "एङेमॉ नि हर्स अ नि।",
+       "कुछ दिन मुश्किल होते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Ah harsa ni pawh liam kal.",
+       "अह् हर्स नि पॉह् लियाम् कल्।",
+       "पर मुश्किल दिन भी गुज़र जाते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Lungngai i ni chuan tu emaw ah thu ti rawh.",
+       "लुङ्ङै इ नि चुअन् तु एमॉ अह् थु ति रॉह्।",
+       "उदास हो तो किसी से बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha inbiakna rilru zang ti pe.",
+       "थ इन्बियाक्न रिल्रु ज़ङ् ति पे।",
+       "अच्छी बातचीत मन हल्का कर देती है।",
+       "S",
+       "C"
+      ],
+      [
+       "In phone ti a min hlimna hmu.",
+       "इन् फ़ोन ति अ मिन् ह्लिम्न ह्मु।",
+       "घर फोन करके मुझे खुशी मिलती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Nui rawh leh ni tan rawh.",
+       "नुइ रॉह् लेह् नि तन् रॉह्।",
+       "मुस्कुराओ और दिन शुरू करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Beiseina min hmaah tipung a ni.",
+       "बेइसेइन मिन् ह्माह् तिपुङ् अ नि।",
+       "उम्मीद हमें आगे बढ़ाती है।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Vawiin I avangin lawm a ni em?",
+     "(बोलो) Ka fanu exam ah hnaih a ni tawh."
+    ],
+    [
+     "(सुनो) Fan tunah kal em?",
+     "(बोलो) Aw mistiri tha ti tawh."
+    ]
+   ],
+   "dialog": [
+    [
+     "पड़ोसी",
+     "Ka electric kal tawh.",
+     "क इलेक्ट्रिक कल् तॉह्।"
+    ],
+    [
+     "आप",
+     "Kan electric kal tawh.",
+     "कन् इलेक्ट्रिक कल् तॉह्।"
+    ],
+    [
+     "पड़ोसी",
+     "Kan office phone ka ti ang.",
+     "कन् ऑफ़िस फ़ोन क ति अङ्।"
+    ],
+    [
+     "आप",
+     "Tha ka ni Kan heta awm ang.",
+     "थ क नि कन् हेत ऑम् अङ्।"
+    ],
+    [
+     "पड़ोसी",
+     "Aw 1 darkar ti.",
+     "ऑ 1 दर्कर् ति।"
+    ]
+   ],
+   "test": {
+    "target": "कोई पड़ोसी या दोस्त (फ़ोन पर)",
+    "goal": "English में त्योहार की बधाई दीजिए, परिवार का हाल पूछिए, और अपनी एक खुशी की बात बताइए।",
+    "lines": [
+     [
+      "Che leh i chhungkua kut lawmthu.",
+      "चे लेह् इ छुङ्कुअ कुत् लॉम्थु।"
+     ],
+     [
+      "In ah zawng engtin a ni em?",
+      "इन् अह् ज़ॉङ् एङ्तिन् अ नि एम्?"
+     ],
+     [
+      "Vawiin Kan tak lawm a ni.",
+      "वॉइइन् कन् तक् लॉम् अ नि।"
+     ],
+     [
+      "Ka fanu tha nambar la.",
+      "क फ़नु थ नम्बर् ल।"
+     ],
+     [
+      "Kan zawng 1 kum hnuah hmu ang.",
+      "कन् ज़ॉङ् 1 कुम् ह्नुअह् ह्मु अङ्।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 4,
+   "title": "Good Habits, Time and Messages",
+   "hi": "आदतें, समय और घर का संदेश",
+   "pace": 20,
+   "days": [
+    {
+     "title": "अच्छी आदतें",
+     "tw": [
+      [
+       "Chin",
+       "चिन्",
+       "आदत",
+       "क"
+      ],
+      [
+       "Thutak",
+       "थुतक्",
+       "सच",
+       "क"
+      ],
+      [
+       "Inzirna",
+       "इन्ज़िर्न",
+       "अभ्यास",
+       "क"
+      ],
+      [
+       "Result",
+       "रिज़ल्ट",
+       "नतीजा",
+       "क"
+      ],
+      [
+       "Khawhral tih",
+       "खॉह्रल् तिह्",
+       "बर्बाद करना",
+       "क"
+      ],
+      [
+       "Sum",
+       "सुम्",
+       "पूँजी",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "sortHabit",
+      "hi": "छाँटो — सुनकर बोलो: अच्छी आदत या बुरी आदत?",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Tha chin tha nunna siam.",
+       "थ चिन् थ नुन्न सियाम्।",
+       "अच्छी आदतें अच्छी ज़िंदगी बनाती हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Nitin rang tho rawh.",
+       "नितिन् रङ् थो रॉह्।",
+       "रोज़ जल्दी उठो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ni ah 2 vawi ha fai ti rawh.",
+       "नि अह् 2 वॉइ ह फ़ै ति रॉह्।",
+       "दिन में दो बार दाँत साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nitin inbual rawh.",
+       "नितिन् इन्बुअल् रॉह्।",
+       "रोज़ नहाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin tan dah rawh.",
+       "तिन् तन् दह् रॉह्।",
+       "नाख़ून कटे रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Reng thutak sawi rawh.",
+       "रेङ् थुतक् सॉइ रॉह्।",
+       "हमेशा सच बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hun ah hna thleng rawh.",
+       "हुन् अह् ह्न थ्लेङ् रॉह्।",
+       "समय पर काम पहुँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha lo chin ah pawisa paih rawh lo.",
+       "थ लो चिन् अह् पॉइस पैह् रॉह् लो।",
+       "बुरी आदतों पर पैसे मत उड़ाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Gutkha leh zu ah hla awm rawh.",
+       "गुटखा लेह् ज़ु अह् ह्ल ऑम् रॉह्।",
+       "गुटखा और शराब से दूर रहो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin kar tlem pawisa vawng rawh.",
+       "तिन् कर् त्लेम् पॉइस वॉङ् रॉह्।",
+       "हर हफ़्ते थोड़े पैसे बचाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka zan ah thingpui in kalsan pe tawh.",
+       "क ज़न् अह् थिङ्पुइ इन् कल्सन् पे तॉह्।",
+       "मैंने रात में चाय पीना छोड़ दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Tunah min tha muhil lo kal.",
+       "तुनह् मिन् थ मुहिल् लो कल्।",
+       "अब मुझे अच्छी नींद आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Nitin 20 minute vak rawh.",
+       "नितिन् 20 मिनुते वक् रॉह्।",
+       "रोज़ बीस मिनट टहलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nitin engemaw thar chhiar rawh.",
+       "नितिन् एङेमॉ थर् छियार् रॉह्।",
+       "रोज़ कुछ नया पढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka vak chungin Mizo inzirna ti.",
+       "क वक् चुङिन् मिज़ो इन्ज़िर्न ति।",
+       "मैं टहलते-टहलते मिज़ो का अभ्यास करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Nitin tlem inzirna lian thei pe.",
+       "नितिन् त्लेम् इन्ज़िर्न लियान् थेइ पे।",
+       "रोज़ थोड़ा अभ्यास बड़ा फल देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hna ti hun phone hla dah rawh.",
+       "ह्न ति हुन् फ़ोन ह्ल दह् रॉह्।",
+       "काम करते समय फोन दूर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha lo chin tan tih awlsam kalsan harsa.",
+       "थ लो चिन् तन् तिह् ऑल्सम् कल्सन् हर्स।",
+       "बुरी आदतें शुरू करना आसान, छोड़ना मुश्किल।",
+       "S",
+       "C"
+      ],
+      [
+       "Hei kar 1 te chin thlak rawh.",
+       "हेइ कर् 1 ते चिन् थ्लक् रॉह्।",
+       "इस हफ़्ते एक छोटी आदत बदलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka tha chin ka sum a ni.",
+       "क थ चिन् क सुम् अ नि।",
+       "मेरी अच्छी आदतें ही मेरी पूँजी हैं।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "समय और तारीख़",
+     "tw": [
+      [
+       "Ni",
+       "नि",
+       "तारीख़",
+       "क"
+      ],
+      [
+       "Pek a ni (pek tur)",
+       "पेक् अ नि (पेक् तुर्)",
+       "देना है (देय)",
+       "ग"
+      ],
+      [
+       "Leh chanve",
+       "लेह् चन्वे",
+       "साढ़े",
+       "क"
+      ],
+      [
+       "Tlem",
+       "त्लेम्",
+       "पौने",
+       "क"
+      ],
+      [
+       "Dik takin",
+       "दिक् तकिन्",
+       "ठीक-ठीक",
+       "क"
+      ],
+      [
+       "Pianni",
+       "पियान्नि",
+       "जन्मतिथि",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "timeRead",
+      "hi": "घड़ी बोलो — समय सुनो, English में कहो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Vawiin ni eng a ni em?",
+       "वॉइइन् नि एङ् अ नि एम्?",
+       "आज तारीख़ क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Vawiin 5 March a ni.",
+       "वॉइइन् 5 मार्च अ नि।",
+       "आज पाँच मार्च है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka pek 7 ni lo kal.",
+       "क पेक् 7 नि लो कल्।",
+       "मेरा भुगतान सात तारीख़ को आता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Hmun man hmasa ber ni pe.",
+       "ह्मुन् मन् ह्मस बेर् नि पे।",
+       "किराया पहली तारीख़ को देना है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka pian sawm pakua 100 sawmkua panga ah a ni tawh.",
+       "क पियान् सॉम् पकुअ 100 सॉम्कुअ पङ अह् अ नि तॉह्।",
+       "मेरा जन्म उन्नीस सौ पचानबे में हुआ।",
+       "S",
+       "B"
+      ],
+      [
+       "I pianni eng a ni em?",
+       "इ पियान्नि एङ् अ नि एम्?",
+       "आपकी जन्मतिथि क्या है?",
+       "L",
+       "B"
+      ],
+      [
+       "Office dang Inrinni khar awm.",
+       "ऑफ़िस दङ् इन्रिन्नि खर् ऑम्।",
+       "दफ़्तर दूसरे शनिवार को बंद रहता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha leh chanve 9 dar lo kal rawh.",
+       "थ लेह् चन्वे 9 दर् लो कल् रॉह्।",
+       "ठीक साढ़े नौ बजे आइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Tunah tlem 5 dar a ni.",
+       "तुनह् त्लेम् 5 दर् अ नि।",
+       "अभी पौने पाँच बजे हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Bus leh chanve 6 dar inhawng a ni.",
+       "बस लेह् चन्वे 6 दर् इन्हॉङ् अ नि।",
+       "बस साढ़े छह बजे खुलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka pakhat leh chanve darkar ah thleng kal ang.",
+       "क पखत् लेह् चन्वे दर्कर् अह् थ्लेङ् कल् अङ्।",
+       "मैं डेढ़ घंटे में पहुँच जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Min 10 minute tlai a ni tawh.",
+       "मिन् 10 मिनुते त्लै अ नि तॉह्।",
+       "हमें दस मिनट की देर हो गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "5 minute hmasa lo kal rawh.",
+       "5 मिनुते ह्मस लो कल् रॉह्।",
+       "पाँच मिनट पहले आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka chawlhni 20 ni ah tan a ni.",
+       "क चॉल्ह्नि 20 नि अह् तन् अ नि।",
+       "मेरी छुट्टी बीस तारीख़ से शुरू होती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei thla ah engzat ni a ni em?",
+       "हेइ थ्ल अह् एङ्ज़त् नि अ नि एम्?",
+       "इस महीने में कितने दिन हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Hei thla ah sawmthum pakhat ni a ni.",
+       "हेइ थ्ल अह् सॉम्थुम् पखत् नि अ नि।",
+       "इस महीने में इकतीस दिन हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "15 ni eng ni a ni em?",
+       "15 नि एङ् नि अ नि एम्?",
+       "पंद्रह तारीख़ को कौन-सा दिन है?",
+       "S",
+       "B"
+      ],
+      [
+       "A Zirtawpni a ni.",
+       "अ ज़िर्तॉप्नि अ नि।",
+       "वह शुक्रवार है।",
+       "L",
+       "B"
+      ],
+      [
+       "Lehkha ah ni ziak rawh.",
+       "लेह्ख अह् नि ज़ियाक् रॉह्।",
+       "कागज़ पर तारीख़ लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kal tawh hun kir leh a lo kal lo.",
+       "कल् तॉह् हुन् किर् लेह् अ लो कल् लो।",
+       "गया समय लौटकर नहीं आता।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "घर को संदेश (आज की चिट्ठी)",
+     "tw": [
+      [
+       "Voice message",
+       "वोइके मेस्सगे",
+       "आवाज़-संदेश",
+       "क"
+      ],
+      [
+       "Chhanna",
+       "छन्न",
+       "जवाब",
+       "क"
+      ],
+      [
+       "Chibai, zahna",
+       "चिबै, ज़ह्न",
+       "प्रणाम, आदर",
+       "क"
+      ],
+      [
+       "Huaisenna",
+       "हुऐसेन्न",
+       "हिम्मत",
+       "क"
+      ],
+      [
+       "Hmuh",
+       "ह्मुह्",
+       "पाना",
+       "क"
+      ],
+      [
+       "Hmangaihna nen",
+       "ह्मङैह्न नेन्",
+       "सप्रेम",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "messageFrame",
+      "hi": "चार-पंक्ति घर-संदेश — ख़ाली जगह अपनी बात से भरकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hello nu Ka heta tha a ni.",
+       "हेलो नु क हेत थ अ नि।",
+       "हैलो माँ, मैं यहाँ ठीक हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Min naktuk i thuchah hmu.",
+       "मिन् नक्तुक् इ थुचह् ह्मु।",
+       "मुझे कल आपका संदेश मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Tlai ah chhanna tan ngaidamna.",
+       "त्लै अह् छन्न तन् ङैदम्न।",
+       "देर से जवाब के लिए माफ़ी।",
+       "S",
+       "A"
+      ],
+      [
+       "Heta hna tha kal mek.",
+       "हेत ह्न थ कल् मेक्।",
+       "यहाँ काम अच्छा चल रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka 5 1000 cheng thawn.",
+       "क 5 1000 चेङ् थॉन्।",
+       "मैंने पाँच हज़ार रुपये भेजे हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin en fiah a min hrilh rawh.",
+       "खॉङैहिन् एन् फ़ियाह् अ मिन् ह्रिल्ह् रॉह्।",
+       "कृपया जाँचकर बताइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Pa hriselna tunah engtin a ni em?",
+       "प ह्रिसेल्न तुनह् एङ्तिन् अ नि एम्?",
+       "पिताजी की तबीयत अब कैसी है?",
+       "S",
+       "B"
+      ],
+      [
+       "An hnen ah sawi rawh nitin damdawi la rawh.",
+       "अन् ह्नेन् अह् सॉइ रॉह् नितिन् दम्दॉइ ल रॉह्।",
+       "उनसे कहिए रोज़ दवा लें।",
+       "S",
+       "C"
+      ],
+      [
+       "Naupangte zirna engtin kal mek em?",
+       "नौपङ्ते ज़िर्न एङ्तिन् कल् मेक् एम्?",
+       "बच्चों की पढ़ाई कैसी चल रही है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ka lo awm leh thla in lo kal ang.",
+       "क लो ऑम् लेह् थ्ल इन् लो कल् अङ्।",
+       "मैं अगले महीने घर आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka mi zawng tan puan rawn ken ang.",
+       "क मि ज़ॉङ् तन् पुअन् रॉन् केन् अङ्।",
+       "मैं सबके लिए कपड़े लाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Fimkhur dah rawh.",
+       "फ़िम्खुर् दह् रॉह्।",
+       "अपना ध्यान रखिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Pu ka Chibai ti rawh.",
+       "पु क चिबै ति रॉह्।",
+       "दादाजी को मेरा प्रणाम कहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka Pathianni voice message thawn ang.",
+       "क पथियान्नि वोइके मेस्सगे थॉन् अङ्।",
+       "मैं रविवार को आवाज़-संदेश भेजूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hun hmu chuan chhanna pe rawh.",
+       "हुन् ह्मु चुअन् छन्न पे रॉह्।",
+       "समय मिले तो जवाब दीजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Min mi zawng 1 photo thawn rawh.",
+       "मिन् मि ज़ॉङ् 1 फ़ोटो थॉन् रॉह्।",
+       "मुझे सबकी एक फोटो भेजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei thuchah nu chhiar a min hrilh rawh.",
+       "हेइ थुचह् नु छियार् अ मिन् ह्रिल्ह् रॉह्।",
+       "यह संदेश माँ को पढ़कर सुनाओ।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka tak ni hnuah sei thuchah thawn.",
+       "क तक् नि ह्नुअह् सेइ थुचह् थॉन्।",
+       "मैंने बहुत दिनों बाद लंबा संदेश भेजा।",
+       "S",
+       "B"
+      ],
+      [
+       "I thu min huaisenna pe.",
+       "इ थु मिन् हुऐसेन्न पे।",
+       "आपकी बातें मुझे हिम्मत देती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Min in ei tak hre reng lo kal.",
+       "मिन् इन् एइ तक् ह्रे रेङ् लो कल्।",
+       "मुझे घर के खाने की बहुत याद आती है।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "मेहमान और मिलना-जुलना",
+     "tw": [
+      [
+       "Khual",
+       "खुअल्",
+       "मेहमान",
+       "क"
+      ],
+      [
+       "Thut hmun",
+       "थुत् ह्मुन्",
+       "बैठने की जगह",
+       "क"
+      ],
+      [
+       "Buai",
+       "बुऐ",
+       "व्यस्त",
+       "ख"
+      ],
+      [
+       "Tak tak",
+       "तक् तक्",
+       "ज़रूर",
+       "क"
+      ],
+      [
+       "Hre reng dah",
+       "ह्रे रेङ् दह्",
+       "याद रखना",
+       "क"
+      ],
+      [
+       "Leh ah",
+       "लेह् अह्",
+       "फिर से",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "मेहमान-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Kan in ah i lo kal rawh a ni.",
+       "कन् इन् अह् इ लो कल् रॉह् अ नि।",
+       "हमारे घर में आपका स्वागत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin thu rawh.",
+       "खॉङैहिन् थु रॉह्।",
+       "कृपया बैठिए।",
+       "S",
+       "A"
+      ],
+      [
+       "I thingpui kan la ang emaw tui em?",
+       "इ थिङ्पुइ कन् ल अङ् एमॉ तुइ एम्?",
+       "आप चाय लेंगे या पानी?",
+       "S",
+       "B"
+      ],
+      [
+       "Chauh tui Ka lawm e.",
+       "चौह् तुइ क लॉम् ए।",
+       "सिर्फ़ पानी, धन्यवाद।",
+       "L",
+       "B"
+      ],
+      [
+       "In ah zawng engtin a ni em?",
+       "इन् अह् ज़ॉङ् एङ्तिन् अ नि एम्?",
+       "घर में सब कैसे हैं?",
+       "S",
+       "A"
+      ],
+      [
+       "Pathian khawngaihna ah zawng tha a ni.",
+       "पथियान् खॉङैह्न अह् ज़ॉङ् थ अ नि।",
+       "भगवान की कृपा से सब ठीक हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "I tak ni hnuah lo kal tawh.",
+       "इ तक् नि ह्नुअह् लो कल् तॉह्।",
+       "आप बहुत दिनों बाद आए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hna ah buai a ni tawh.",
+       "क ह्न अह् बुऐ अ नि तॉह्।",
+       "मैं काम में व्यस्त था।",
+       "L",
+       "B"
+      ],
+      [
+       "Zan chaw ei a kal rawh.",
+       "ज़न् चॉ एइ अ कल् रॉह्।",
+       "रात का खाना खाकर जाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Aih min rang chhuah a ni.",
+       "ऐह् मिन् रङ् छुअह् अ नि।",
+       "नहीं, मुझे जल्दी निकलना है।",
+       "L",
+       "A"
+      ],
+      [
+       "Leh chhungkua nen lo kal rawh.",
+       "लेह् छुङ्कुअ नेन् लो कल् रॉह्।",
+       "फिर परिवार के साथ आइए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tak lo kal ang.",
+       "क तक् लो कल् अङ्।",
+       "मैं ज़रूर आऊँगा।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan liam ta kum inneihna ah hmu.",
+       "कन् लियाम् त कुम् इन्नेइह्न अह् ह्मु।",
+       "हम पिछले साल शादी में मिले थे।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng I min hria a ni em?",
+       "एङ् इ मिन् ह्रिया अ नि एम्?",
+       "क्या आप मुझे पहचानते हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Aw tak hria a ni.",
+       "ऑ तक् ह्रिया अ नि।",
+       "हाँ, बिल्कुल पहचानता हूँ।",
+       "L",
+       "B"
+      ],
+      [
+       "I hnen ah leh tangkawpin tak tha a awm.",
+       "इ ह्नेन् अह् लेह् तङ्कॉपिन् तक् थ अ ऑम्।",
+       "आपसे दोबारा मिलकर बहुत अच्छा लगा।",
+       "S",
+       "B"
+      ],
+      [
+       "In ah mi zawng ka Chibai ti ang.",
+       "इन् अह् मि ज़ॉङ् क चिबै ति अङ्।",
+       "घर में सबको मेरा नमस्ते कहिएगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Khual kan tan Pathian inang a ni.",
+       "खुअल् कन् तन् पथियान् इनङ् अ नि।",
+       "मेहमान हमारे लिए भगवान समान हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "In thleng a min phone ti rawh.",
+       "इन् थ्लेङ् अ मिन् फ़ोन ति रॉह्।",
+       "घर पहुँचकर मुझे फोन कीजिएगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Tlai tak tha awm.",
+       "त्लै तक् थ ऑम्।",
+       "शाम बहुत अच्छी रही।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "महीना-1 का समेट (मेरी कहानी)",
+     "tw": [
+      [
+       "Tirna",
+       "तिर्न",
+       "शुरुआत",
+       "क"
+      ],
+      [
+       "Zawi zawiin",
+       "ज़ॉइ ज़ॉइइन्",
+       "धीरे-धीरे",
+       "क"
+      ],
+      [
+       "Hmalam",
+       "ह्मलम्",
+       "भविष्य",
+       "ख"
+      ],
+      [
+       "Zin",
+       "ज़िन्",
+       "सफ़र",
+       "ग"
+      ],
+      [
+       "Harsa",
+       "हर्स",
+       "कठिन",
+       "क"
+      ],
+      [
+       "Chiang takin",
+       "चियाङ् तकिन्",
+       "साफ़-साफ़",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — because, so या than लगाकर दो बातें एक वाक्य में बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Liam ta kum Ka khua ah a ni tunah khawpui ah a ni.",
+       "लियाम् त कुम् क खुअ अह् अ नि तुनह् खॉपुइ अह् अ नि।",
+       "पिछले साल मैं गाँव में था, अब शहर में हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawpui nunna khua ah rang a ni.",
+       "खॉपुइ नुन्न खुअ अह् रङ् अ नि।",
+       "शहर की ज़िंदगी गाँव से तेज़ है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka heta lo kal tawh avangin in ah hna a ni tawh lo.",
+       "क हेत लो कल् तॉह् अवङिन् इन् अह् ह्न अ नि तॉह् लो।",
+       "मैं यहाँ आया क्योंकि घर पर काम नहीं था।",
+       "S",
+       "B"
+      ],
+      [
+       "Tirna ah zawng engemaw harsa a ni tawh.",
+       "तिर्न अह् ज़ॉङ् एङेमॉ हर्स अ नि तॉह्।",
+       "शुरुआत में सब कुछ मुश्किल था।",
+       "S",
+       "C"
+      ],
+      [
+       "Zawi zawiin Ka hna zirna la tawh.",
+       "ज़ॉइ ज़ॉइइन् क ह्न ज़िर्न ल तॉह्।",
+       "धीरे-धीरे मैंने काम सीख लिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Tunah ka hna hmasa ah tha zawk a ni.",
+       "तुनह् क ह्न ह्मस अह् थ ज़ॉक् अ नि।",
+       "अब मेरा काम पहले से बेहतर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tin thla 2 1000 cheng vawng a ni.",
+       "क तिन् थ्ल 2 1000 चेङ् वॉङ् अ नि।",
+       "मैं हर महीने दो हज़ार रुपये बचाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo awm leh kum Ka chhungkua heta la lo kal ang.",
+       "लो ऑम् लेह् कुम् क छुङ्कुअ हेत ल लो कल् अङ्।",
+       "अगले साल मैं परिवार को यहाँ ले आऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka naupangte tha sikul ah kan chhiar ang.",
+       "क नौपङ्ते थ सिकुल् अह् कन् छियार् अङ्।",
+       "मेरे बच्चे अच्छे स्कूल में पढ़ेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Naktuk Ka supervisor ah Mizo ah thu.",
+       "नक्तुक् क सुपरवाइज़र अह् मिज़ो अह् थु।",
+       "कल मैंने सुपरवाइज़र से मिज़ो में बात की।",
+       "S",
+       "B"
+      ],
+      [
+       "An lawm a ni tawh avangin Ka fai sawi.",
+       "अन् लॉम् अ नि तॉह् अवङिन् क फ़ै सॉइ।",
+       "वे खुश हुए क्योंकि मैंने साफ़ बोला।",
+       "S",
+       "B"
+      ],
+      [
+       "Mizo ka tan thar kawng hawng mek.",
+       "मिज़ो क तन् थर् कॉङ् हॉङ् मेक्।",
+       "मिज़ो मेरे लिए नए रास्ते खोल रही है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hei course 1 thla zawng ti tawh.",
+       "क हेइ कोर्स 1 थ्ल ज़ॉङ् ति तॉह्।",
+       "मैंने इस कोर्स का एक महीना पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 4 100 thar thu zir.",
+       "क 4 100 थर् थु ज़िर्।",
+       "मैंने चार सौ नए वाक्य सीखे।",
+       "S",
+       "B"
+      ],
+      [
+       "Naktuk ah Ka nitin 30 thu zir ang.",
+       "नक्तुक् अह् क नितिन् 30 थु ज़िर् अङ्।",
+       "कल से मैं रोज़ तीस वाक्य सीखूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Inzirna zawng awlsam ti pe.",
+       "इन्ज़िर्न ज़ॉङ् ऑल्सम् ति पे।",
+       "अभ्यास सब आसान कर देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka chhungkua kei ah chapo a ni.",
+       "क छुङ्कुअ केइ अह् चपो अ नि।",
+       "मेरे परिवार को मुझ पर गर्व है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hmalam kut siam mek.",
+       "क ह्मलम् कुत् सियाम् मेक्।",
+       "मैं अपना भविष्य अपने हाथों बना रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawi lai duhna khata kawng.",
+       "खॉइ लै दुह्न खत कॉङ्।",
+       "जहाँ चाह, वहाँ राह।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka zin tunah tan a ni tawh a ni.",
+       "क ज़िन् तुनह् तन् अ नि तॉह् अ नि।",
+       "मेरा सफ़र अभी शुरू हुआ है।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) I engzat dar tho em?",
+     "(बोलो) Kan zing ah 5 dar tho."
+    ],
+    [
+     "(सुनो) Khual engtikah lo kal ang em?",
+     "(बोलो) Aw Pathianni lo kal ang."
+    ]
+   ],
+   "dialog": [
+    [
+     "मेहमान",
+     "Kan chhungah lo kal em?",
+     "कन् छुङह् लो कल् एम्?"
+    ],
+    [
+     "आप",
+     "Lo kal rawh ka ni thu.",
+     "लो कल् रॉह् क नि थु।"
+    ],
+    [
+     "मेहमान",
+     "Tui Ka lawm e.",
+     "तुइ क लॉम् ए।"
+    ],
+    [
+     "आप",
+     "Heta tui leh duh.",
+     "हेत तुइ लेह् दुह्।"
+    ],
+    [
+     "मेहमान",
+     "Ka lawm e.",
+     "क लॉम् ए।"
+    ]
+   ],
+   "test": {
+    "target": "घर पर फ़ोन — महीना-1 की बड़ी परीक्षा",
+    "goal": "घर-संदेश शैली में English में पूरा हाल बोलिए: अपना हाल, कल क्या किया, आगे की योजना, एक because-वाक्य, और प्रणाम — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Chibai nu Kan heta tha a ni.",
+      "चिबै नु कन् हेत थ अ नि।"
+     ],
+     [
+      "Heta hna tha kal.",
+      "हेत ह्न थ कल्।"
+     ],
+     [
+      "Kan naktuk 10 darkar hna ti tawh.",
+      "कन् नक्तुक् 10 दर्कर् ह्न ति तॉह्।"
+     ],
+     [
+      "Kan lo awm leh thla in ka lo kal ang.",
+      "कन् लो ऑम् लेह् थ्ल इन् क लो कल् अङ्।"
+     ],
+     [
+      "Kan Sap tawng zir ka ni avangin min tha hna duh rawh.",
+      "कन् साप तॉङ् ज़िर् क नि अवङिन् मिन् थ ह्न दुह् रॉह्।"
+     ],
+     [
+      "Pi pu ka Chibai ti.",
+      "पि पु क चिबै ति।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 5,
+   "title": "My Work, My Skill",
+   "hi": "मेरा काम, मेरा हुनर",
+   "pace": 30,
+   "days": [
+    {
+     "title": "पेशा-परिचय (आप क्या काम करते हैं)",
+     "tw": [
+      [
+       "Mason",
+       "मेसन",
+       "राजमिस्त्री",
+       "ख"
+      ],
+      [
+       "Welder",
+       "वेल्डर",
+       "वेल्डर",
+       "ख"
+      ],
+      [
+       "Puanthui",
+       "पुअन्थुइ",
+       "दर्ज़ी",
+       "ख"
+      ],
+      [
+       "Tawnhriat",
+       "तॉन्ह्रियात्",
+       "अनुभव",
+       "ख"
+      ],
+      [
+       "Chutah ah",
+       "चुतह् अह्",
+       "तब से",
+       "ख"
+      ],
+      [
+       "Belhchhah hna",
+       "बेल्ह्छह् ह्न",
+       "अतिरिक्त काम",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "pairSwap",
+      "hi": "पेशा बदलो — सवाल वही, जवाब में अपना काम बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "I eng hna thawk em?",
+       "इ एङ् ह्न थॉक् एम्?",
+       "आप क्या काम करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka workshop ah welder a ni.",
+       "क वर्कशॉप अह् वेल्डर अ नि।",
+       "मैं वर्कशॉप में वेल्डर हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka mason hna thawk.",
+       "क मेसन ह्न थॉक्।",
+       "मैं राजमिस्त्री का काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka thian puanthui a ni.",
+       "क थियान् पुअन्थुइ अ नि।",
+       "मेरा दोस्त दर्ज़ी है।",
+       "S",
+       "B"
+      ],
+      [
+       "A puan factory ah hna thawk.",
+       "अ पुअन् फ़ैक्टरी अह् ह्न थॉक्।",
+       "वह कपड़ा फैक्ट्री में काम करती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka Hei hna 2020 ah ti mek.",
+       "क हेइ ह्न 2020 अह् ति मेक्।",
+       "मैं यह काम 2020 से कर रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Min 5 kum tawnhriat a ni.",
+       "मिन् 5 कुम् तॉन्ह्रियात् अ नि।",
+       "मुझे पाँच साल का अनुभव है।",
+       "S",
+       "A"
+      ],
+      [
+       "Che engzat tawnhriat a ni em?",
+       "चे एङ्ज़त् तॉन्ह्रियात् अ नि एम्?",
+       "आपको कितना अनुभव है?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka Hei hna zirtirtu ah zir.",
+       "क हेइ ह्न ज़िर्तिर्तु अह् ज़िर्।",
+       "मैंने यह काम अपने उस्ताद से सीखा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka welding leh fitting pahnih ti thei.",
+       "क वेल्डिंग लेह् फ़िटिंग पह्निह् ति थेइ।",
+       "मैं वेल्डिंग और फिटिंग दोनों कर सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tunah thar machine zir mek.",
+       "क तुनह् थर् मशीन ज़िर् मेक्।",
+       "मैं अभी नई मशीन सीख रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Tunlai I khawiah hna thawk em?",
+       "तुन्लै इ खॉइयाह् ह्न थॉक् एम्?",
+       "आजकल आप कहाँ काम करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka building nih hmun ah hna thawk.",
+       "क बिल्डिंग निह् ह्मुन् अह् ह्न थॉक्।",
+       "मैं इमारत बनने की जगह पर काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Kan company thir gate siam.",
+       "कन् कंपनी थिर् गेट सियाम्।",
+       "हमारी कंपनी लोहे के गेट बनाती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka khawpui ah auto kal.",
+       "क खॉपुइ अह् ऑटो कल्।",
+       "मैं शहर में ऑटो चलाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka unau mobile tha ti.",
+       "क उनौ मोबाइल थ ति।",
+       "मेरा भाई मोबाइल ठीक करता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei thiamna hna a ni.",
+       "हेइ थियाम्न ह्न अ नि।",
+       "यह हुनर का काम है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tha hna tha pawisa rawn ken.",
+       "थ ह्न थ पॉइस रॉन् केन्।",
+       "अच्छा काम अच्छा पैसा लाता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka ni ah 8 darkar hna thawk.",
+       "क नि अह् 8 दर्कर् ह्न थॉक्।",
+       "मैं दिन में आठ घंटे काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "A chang chuan min overtime hmu.",
+       "अ चङ् चुअन् मिन् ओवरटाइम ह्मु।",
+       "कभी-कभी मुझे ओवरटाइम मिलता है।",
+       "S",
+       "B"
+      ],
+      [
+       "I pa eng hna thawk em?",
+       "इ प एङ् ह्न थॉक् एम्?",
+       "आपके पिता क्या काम करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "An khua ah loneitu a ni.",
+       "अन् खुअ अह् लोनेइतु अ नि।",
+       "वे गाँव में किसान हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka 1 ni zirtirtu nih duh.",
+       "क 1 नि ज़िर्तिर्तु निह् दुह्।",
+       "मैं एक दिन उस्ताद बनना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Tin hna zahawmna a ni.",
+       "तिन् ह्न ज़हॉम्न अ नि।",
+       "हर काम की इज़्ज़त होती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka hna zawng rilru ah ti.",
+       "क ह्न ज़ॉङ् रिल्रु अह् ति।",
+       "मैं अपना काम पूरे मन से करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hna ka hriatna a ni.",
+       "क ह्न क ह्रियात्न अ नि।",
+       "मेरा काम ही मेरी पहचान है।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng I heta thar a ni em?",
+       "एङ् इ हेत थर् अ नि एम्?",
+       "क्या आप यहाँ नए हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw Ka liam ta kar inzawm.",
+       "ऑ क लियाम् त कर् इन्ज़ॉम्।",
+       "हाँ, मैं पिछले हफ़्ते जुड़ा।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan team ah lo kal rawh a ni.",
+       "कन् टीम अह् लो कल् रॉह् अ नि।",
+       "हमारी टीम में स्वागत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka lawm e Ka rang zirna ka la ang.",
+       "क लॉम् ए क रङ् ज़िर्न क ल अङ्।",
+       "धन्यवाद, मैं जल्दी सीख लूँगा।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "काम खोजना (मज़दूरी तय करना)",
+     "tw": [
+      [
+       "Ruak hmun",
+       "रुअक् ह्मुन्",
+       "ख़ाली जगह",
+       "ख"
+      ],
+      [
+       "Nitin hlawh",
+       "नितिन् ह्लॉह्",
+       "रोज़ की मज़दूरी",
+       "ख"
+      ],
+      [
+       "Contractor",
+       "कॉन्ट्रैक्टर",
+       "ठेकेदार",
+       "ख"
+      ],
+      [
+       "Hna ah awm",
+       "ह्न अह् ऑम्",
+       "काम पर लगना",
+       "ख"
+      ],
+      [
+       "Pek",
+       "पेक्",
+       "भुगतान",
+       "ख"
+      ],
+      [
+       "Enfiahna",
+       "एन्फ़ियाह्न",
+       "परख",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "काम माँगने का संवाद — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Eng che hnathawktu duh rawh em?",
+       "एङ् चे ह्नथॉक्तु दुह् रॉह् एम्?",
+       "क्या आपको मज़दूर चाहिए?",
+       "S",
+       "B"
+      ],
+      [
+       "Eng heta tu emaw ruak hmun a ni em?",
+       "एङ् हेत तु एमॉ रुअक् ह्मुन् अ नि एम्?",
+       "क्या यहाँ कोई ख़ाली जगह है?",
+       "S",
+       "B"
+      ],
+      [
+       "Min 2 tanpuitu duh rawh.",
+       "मिन् 2 तन्पुइतु दुह् रॉह्।",
+       "हमें दो सहायक चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Min eng hna tih a ni ang em?",
+       "मिन् एङ् ह्न तिह् अ नि अङ् एम्?",
+       "मुझे क्या काम करना होगा?",
+       "S",
+       "B"
+      ],
+      [
+       "I mason tanpuina i ti ang.",
+       "इ मेसन तन्पुइन इ ति अङ्।",
+       "तुम राजमिस्त्री की मदद करोगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Nitin hlawh eng a ni em?",
+       "नितिन् ह्लॉह् एङ् अ नि एम्?",
+       "रोज़ की मज़दूरी क्या है?",
+       "S",
+       "B"
+      ],
+      [
+       "6 100 cheng nitin.",
+       "6 100 चेङ् नितिन्।",
+       "छह सौ रुपये रोज़।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng chaw leh awmna nen ah a ni em?",
+       "एङ् चॉ लेह् ऑम्न नेन् अह् अ नि एम्?",
+       "क्या खाना-रहना साथ में है?",
+       "S",
+       "B"
+      ],
+      [
+       "Pek engtikah hmu ang em?",
+       "पेक् एङ्तिकह् ह्मु अङ् एम्?",
+       "भुगतान कब मिलेगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Pek tin Inrinni a ni.",
+       "पेक् तिन् इन्रिन्नि अ नि।",
+       "भुगतान हर शनिवार को होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng Ka naktuk ah tan thei em?",
+       "एङ् क नक्तुक् अह् तन् थेइ एम्?",
+       "क्या मैं कल से शुरू कर सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Aw zing 8 dar lo kal rawh.",
+       "ऑ ज़िङ् 8 दर् लो कल् रॉह्।",
+       "हाँ, सुबह आठ बजे आ जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Aadhaar card rawn ken rawh.",
+       "आधार कार्ड रॉन् केन् रॉह्।",
+       "अपना आधार कार्ड लाना।",
+       "L",
+       "B"
+      ],
+      [
+       "Min hei hna chungchang ah thian ah address kal.",
+       "मिन् हेइ ह्न चुङ्चङ् अह् थियान् अह् अद्द्रेस्स् कल्।",
+       "मुझे इस काम के बारे में दोस्त से पता चला।",
+       "S",
+       "B"
+      ],
+      [
+       "Contractor min tha ang hria.",
+       "कॉन्ट्रैक्टर मिन् थ अङ् ह्रिया।",
+       "ठेकेदार मुझे अच्छी तरह जानता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hna tan tih ah hmasa hlawh ruat ti rawh.",
+       "ह्न तन् तिह् अह् ह्मस ह्लॉह् रुअत् ति रॉह्।",
+       "काम शुरू करने से पहले मज़दूरी तय कर लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pek hun ah la rawh.",
+       "पेक् हुन् अह् ल रॉह्।",
+       "अपना भुगतान समय पर लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Man zawt lovin hna thawk suh.",
+       "मन् ज़ॉत् लोविन् ह्न थॉक् सुह्।",
+       "दाम पूछे बिना काम मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka pindan hnaih hna zawng awm mek.",
+       "क पिन्दन् ह्नैह् ह्न ज़ॉङ् ऑम् मेक्।",
+       "मैं अपने कमरे के पास काम खोज रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei hna ka in ah hla a ni.",
+       "हेइ ह्न क इन् अह् ह्ल अ नि।",
+       "यह काम मेरे घर से दूर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng zan duty pawh a ni em?",
+       "एङ् ज़न् ड्यूटी पॉह् अ नि एम्?",
+       "क्या रात की ड्यूटी भी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Zan duty ah tam hmu.",
+       "ज़न् ड्यूटी अह् तम् ह्मु।",
+       "रात की ड्यूटी में ज़्यादा मिलता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka rit thil tho thei.",
+       "क रित् थिल् थो थेइ।",
+       "मैं भारी सामान उठा सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Min map chhiar lo kal.",
+       "मिन् मैप छियार् लो कल्।",
+       "मुझे नक़्शा पढ़ना आता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Min 1 hun remchang pe rawh Pu.",
+       "मिन् 1 हुन् रेम्चङ् पे रॉह् पु।",
+       "मुझे एक मौका दीजिए, सर।",
+       "S",
+       "B"
+      ],
+      [
+       "1 ni hna ti rawh leh kan en ang.",
+       "1 नि ह्न ति रॉह् लेह् कन् एन् अङ्।",
+       "एक दिन काम करो, फिर देखेंगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka enfiahna hna tha ti tawh.",
+       "क एन्फ़ियाह्न ह्न थ ति तॉह्।",
+       "मैंने परख का काम अच्छा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "I thlang tan kal tawh.",
+       "इ थ्लङ् तन् कल् तॉह्।",
+       "तुम चुन लिए गए।",
+       "L",
+       "B"
+      ],
+      [
+       "Min hna ka thiamna chhan ah hmu.",
+       "मिन् ह्न क थियाम्न छन् अह् ह्मु।",
+       "मुझे काम मेरे हुनर की वजह से मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Hna hmuh tan engtikah mah pawisa 2 lo.",
+       "ह्न ह्मुह् तन् एङ्तिकह् मह् पॉइस 2 लो।",
+       "नौकरी पाने के लिए कभी पैसे मत दो।",
+       "L",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "काम-प्रमुख से बात (निर्देश समझना)",
+     "tw": [
+      [
+       "Hna hotu",
+       "ह्न होतु",
+       "काम-प्रमुख",
+       "ख"
+      ],
+      [
+       "Hriattirna",
+       "ह्रियात्तिर्न",
+       "निर्देश",
+       "ख"
+      ],
+      [
+       "Hriatthiam",
+       "ह्रियात्थियाम्",
+       "समझना",
+       "क"
+      ],
+      [
+       "Sawi nawn",
+       "सॉइ नॉन्",
+       "दोहराना",
+       "क"
+      ],
+      [
+       "Tihsual",
+       "तिह्सुअल्",
+       "ग़लती",
+       "ख"
+      ],
+      [
+       "Thuthar pek",
+       "थुथर् पेक्",
+       "ख़बर देना",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "काम की रिपोर्ट — तीन वाक्य में अपने काम की ख़बर दो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Pu vawiin hna eng a ni em?",
+       "पु वॉइइन् ह्न एङ् अ नि एम्?",
+       "सर, आज का काम क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Hmasa naktuk hna zawng ti rawh.",
+       "ह्मस नक्तुक् ह्न ज़ॉङ् ति रॉह्।",
+       "पहले कल का काम पूरा करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka hriattirna hrethiam tawh.",
+       "क ह्रियात्तिर्न ह्रेथियाम् तॉह्।",
+       "मैं निर्देश समझ गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ngaidam ti rawh Ka hrethiam lo.",
+       "ङैदम् ति रॉह् क ह्रेथियाम् लो।",
+       "माफ़ कीजिए, मैं समझा नहीं।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin zawi ah sawi nawn rawh.",
+       "खॉङैहिन् ज़ॉइ अह् सॉइ नॉन् रॉह्।",
+       "कृपया धीरे से दोहराइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin 1 vawi ti a min entir rawh.",
+       "खॉङैहिन् 1 वॉइ ति अ मिन् एन्तिर् रॉह्।",
+       "कृपया एक बार करके दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tunah Ka mahni ti ang.",
+       "तुनह् क मह्नि ति अङ्।",
+       "अब मैं ख़ुद करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Pu hna a ni tawh.",
+       "पु ह्न अ नि तॉह्।",
+       "सर, काम हो गया।",
+       "S",
+       "A"
+      ],
+      [
+       "Pu Khawngaihin 1 vawi ka hna enfiahna la rawh.",
+       "पु खॉङैहिन् 1 वॉइ क ह्न एन्फ़ियाह्न ल रॉह्।",
+       "सर, कृपया एक बार मेरा काम जाँच लीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "I tha hna ti tawh a ni.",
+       "इ थ ह्न ति तॉह् अ नि।",
+       "तुमने अच्छा काम किया है।",
+       "L",
+       "B"
+      ],
+      [
+       "Heta 1 te tihsual a ni.",
+       "हेत 1 ते तिह्सुअल् अ नि।",
+       "यहाँ एक छोटी ग़लती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka hei tunah tha ti.",
+       "क हेइ तुनह् थ ति।",
+       "मैं इसे अभी ठीक करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hnen ah tihsual a ni tawh Ngaidam ti rawh Pu.",
+       "क ह्नेन् अह् तिह्सुअल् अ नि तॉह् ङैदम् ति रॉह् पु।",
+       "मुझसे ग़लती हुई, माफ़ कीजिए सर।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei tihsual leh ti suh.",
+       "हेइ तिह्सुअल् लेह् ति सुह्।",
+       "यह ग़लती दोबारा मत करना।",
+       "L",
+       "B"
+      ],
+      [
+       "Lo awm leh vawi Ka fimkhur awm ang.",
+       "लो ऑम् लेह् वॉइ क फ़िम्खुर् ऑम् अङ्।",
+       "अगली बार मैं सावधान रहूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Pu thil zo a ni tawh.",
+       "पु थिल् ज़ो अ नि तॉह्।",
+       "सर, सामान ख़त्म हो गया है।",
+       "S",
+       "B"
+      ],
+      [
+       "Min leh cement duh rawh.",
+       "मिन् लेह् सीमेंट दुह् रॉह्।",
+       "हमें और सीमेंट चाहिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Machine ding tawh.",
+       "मशीन दिङ् तॉह्।",
+       "मशीन रुक गई है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka nghal harsatna thuthar pe.",
+       "क ङ्हल् हर्सत्न थुथर् पे।",
+       "मैंने तुरंत समस्या की ख़बर दी।",
+       "S",
+       "B"
+      ],
+      [
+       "Mechanic en fiah tan ko rawh.",
+       "मैकेनिक एन् फ़ियाह् तन् को रॉह्।",
+       "मैकेनिक को जाँचने के लिए बुलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei hna ah engzat hun a awm ang em?",
+       "हेइ ह्न अह् एङ्ज़त् हुन् अ ऑम् अङ् एम्?",
+       "इस काम में कितना समय लगेगा?",
+       "L",
+       "B"
+      ],
+      [
+       "Hei ah 2 darkar leh a awm ang.",
+       "हेइ अह् 2 दर्कर् लेह् अ ऑम् अङ्।",
+       "इसमें दो घंटे और लगेंगे।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng Ka vawiin rang in kal thei em?",
+       "एङ् क वॉइइन् रङ् इन् कल् थेइ एम्?",
+       "क्या मैं आज जल्दी घर जा सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Hei chanvo zawng ti rawh leh kal rawh.",
+       "हेइ चन्वो ज़ॉङ् ति रॉह् लेह् कल् रॉह्।",
+       "यह हिस्सा पूरा करो, फिर जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Pu Khawngaihin thar map min hrilhfiah rawh.",
+       "पु खॉङैहिन् थर् मैप मिन् ह्रिल्ह्फ़ियाह् रॉह्।",
+       "सर, कृपया नया नक़्शा समझाइए।",
+       "S",
+       "B"
+      ],
+      [
+       "Tu emaw rinhlelhna i ni chuan ka hnen ah zawt rawh.",
+       "तु एमॉ रिन्ह्लेल्ह्न इ नि चुअन् क ह्नेन् अह् ज़ॉत् रॉह्।",
+       "कोई शंका हो तो मुझसे पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tihsual tih ah zawh tha zawk a ni.",
+       "तिह्सुअल् तिह् अह् ज़ॉह् थ ज़ॉक् अ नि।",
+       "ग़लती करने से पूछना बेहतर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka hun ah hmasa hna zawng ti tawh.",
+       "क हुन् अह् ह्मस ह्न ज़ॉङ् ति तॉह्।",
+       "मैंने समय से पहले काम पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawiin supervisor ka fakna.",
+       "वॉइइन् सुपरवाइज़र क फ़क्न।",
+       "आज सुपरवाइज़र ने मेरी तारीफ़ की।",
+       "S",
+       "B"
+      ],
+      [
+       "Fai thu hun vawng a ni.",
+       "फ़ै थु हुन् वॉङ् अ नि।",
+       "साफ़ बात समय बचाती है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "औज़ार, सामान और काम की जगह",
+     "tw": [
+      [
+       "Hmanrua",
+       "ह्मन्रुअ",
+       "औज़ार",
+       "ख"
+      ],
+      [
+       "Hammer",
+       "हैमर",
+       "हथौड़ा",
+       "ख"
+      ],
+      [
+       "Teh",
+       "तेह्",
+       "नापना",
+       "ख"
+      ],
+      [
+       "Helmet",
+       "हेलमेट",
+       "सुरक्षा-टोपी",
+       "ख"
+      ],
+      [
+       "Kutfai",
+       "कुत्फ़ै",
+       "दस्ताने",
+       "ख"
+      ],
+      [
+       "Fimkhur",
+       "फ़िम्खुर्",
+       "सावधान",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "preposition",
+      "hi": "औज़ार कहाँ है — in / on / under / near सही खाने में बैठाओ।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka hmanrua ti em?",
+       "क ह्मन्रुअ ति एम्?",
+       "मेरे औज़ार कहाँ हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Hammer bawm ah a ni.",
+       "हैमर बॉम् अह् अ नि।",
+       "हथौड़ा डिब्बे में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Min A hmuh 2.",
+       "मिन् अ ह्मुह् 2।",
+       "मुझे वह पाना दो।",
+       "S",
+       "B"
+      ],
+      [
+       "Kailawn tak takin man rawh.",
+       "कैलॉन् तक् तकिन् मन् रॉह्।",
+       "सीढ़ी कसकर पकड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmasa bang teh rawh.",
+       "ह्मस बङ् तेह् रॉह्।",
+       "पहले दीवार नापो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei 10 feet sei a ni.",
+       "हेइ 10 फ़ीट सेइ अ नि।",
+       "यह दस फीट लंबी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Rod 5 feet ah tan rawh.",
+       "रॉड 5 फ़ीट अह् तन् रॉह्।",
+       "छड़ को पाँच फीट पर काटो।",
+       "L",
+       "B"
+      ],
+      [
+       "Blade rang a ni lo.",
+       "ब्लेड रङ् अ नि लो।",
+       "ब्लेड तेज़ नहीं है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tan ah hmasa blade thlak rawh.",
+       "तन् अह् ह्मस ब्लेड थ्लक् रॉह्।",
+       "काटने से पहले ब्लेड बदलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Helmet ha rawh.",
+       "हेलमेट ह रॉह्।",
+       "अपनी सुरक्षा-टोपी पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei hna ah reng kutfai ha rawh.",
+       "हेइ ह्न अह् रेङ् कुत्फ़ै ह रॉह्।",
+       "इस काम में हमेशा दस्ताने पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Machine ah fimkhur awm rawh.",
+       "मशीन अह् फ़िम्खुर् ऑम् रॉह्।",
+       "मशीन से सावधान रहो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tihfaina ah hmasa machine khar rawh.",
+       "तिह्फ़ैन अह् ह्मस मशीन खर् रॉह्।",
+       "सफ़ाई से पहले मशीन बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhuat ro dah rawh.",
+       "छुअत् रो दह् रॉह्।",
+       "फ़र्श सूखा रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Huh chhuat ah tla thei a ni.",
+       "हुह् छुअत् अह् त्ल थेइ अ नि।",
+       "गीले फ़र्श पर गिर सकते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Bandage bawm khawiah dah em?",
+       "बैंडेज बॉम् खॉइयाह् दह् एम्?",
+       "मरहम-पट्टी का डिब्बा कहाँ रखा है?",
+       "S",
+       "A"
+      ],
+      [
+       "A office kawngkhar hnaih a ni.",
+       "अ ऑफ़िस कॉङ्खर् ह्नैह् अ नि।",
+       "वह दफ़्तर के दरवाज़े के पास है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hna hnuah hmanrua fai ti rawh.",
+       "ह्न ह्नुअह् ह्मन्रुअ फ़ै ति रॉह्।",
+       "काम के बाद औज़ार साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kal ah hmasa hmanrua chhiar la rawh.",
+       "कल् अह् ह्मस ह्मन्रुअ छियार् ल रॉह्।",
+       "जाने से पहले औज़ार गिन लो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 hmuh bo a ni.",
+       "1 ह्मुह् बो अ नि।",
+       "एक पाना गुम है।",
+       "S",
+       "C"
+      ],
+      [
+       "A min dawhkan hnuaiah hmu.",
+       "अ मिन् दॉह्कन् ह्नुऐअह् ह्मु।",
+       "वह मुझे मेज़ के नीचे मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei machine thar a ni fimkhur takin khalh rawh.",
+       "हेइ मशीन थर् अ नि फ़िम्खुर् तकिन् खल्ह् रॉह्।",
+       "यह मशीन नई है, सँभालकर चलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Machine ah tin kar hriak dah rawh.",
+       "मशीन अह् तिन् कर् ह्रियाक् दह् रॉह्।",
+       "मशीन में हर हफ़्ते तेल डालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thil truck ah lo kal tawh.",
+       "थिल् ट्रक अह् लो कल् तॉह्।",
+       "सामान ट्रक में आया।",
+       "S",
+       "C"
+      ],
+      [
+       "Ip fimkhurna ah chhuktir rawh.",
+       "इप् फ़िम्खुर्न अह् छुक्तिर् रॉह्।",
+       "बोरियाँ सावधानी से उतारो।",
+       "L",
+       "B"
+      ],
+      [
+       "Rit rihna mahni chauhin chawi rawh lo.",
+       "रित् रिह्न मह्नि चौहिन् चॉइ रॉह् लो।",
+       "भारी वज़न अकेले मत उठाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Mamawh tul chuan tanpuina dil rawh.",
+       "ममॉह् तुल् चुअन् तन्पुइन दिल् रॉह्।",
+       "ज़रूरत पड़े तो मदद माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha hmanrua hna awlsam ti.",
+       "थ ह्मन्रुअ ह्न ऑल्सम् ति।",
+       "अच्छे औज़ार काम आसान करते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Hmasa himna leh hna.",
+       "ह्मस हिम्न लेह् ह्न।",
+       "पहले सुरक्षा, फिर काम।",
+       "L",
+       "B"
+      ],
+      [
+       "Fimkhur hnathawktu him in thleng.",
+       "फ़िम्खुर् ह्नथॉक्तु हिम् इन् थ्लेङ्।",
+       "सावधान मज़दूर सुरक्षित घर पहुँचता है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "छुट्टी की अर्ज़ी और एआई-मदद",
+     "tw": [
+      [
+       "Chawlhni dilna",
+       "चॉल्ह्नि दिल्न",
+       "छुट्टी की अर्ज़ी",
+       "ख"
+      ],
+      [
+       "Pawimawh",
+       "पॉइमॉह्",
+       "ज़रूरी",
+       "ख"
+      ],
+      [
+       "Phalna",
+       "फल्न",
+       "अनुमति",
+       "ख"
+      ],
+      [
+       "AI app",
+       "एआई ऐप",
+       "एआई ऐप",
+       "ख"
+      ],
+      [
+       "En fiah",
+       "एन् फ़ियाह्",
+       "जाँचना",
+       "क"
+      ],
+      [
+       "Type tih",
+       "टाइप तिह्",
+       "टाइप करना",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "messageFrame",
+      "hi": "चार-पंक्ति अर्ज़ी — ख़ाली जगह अपनी बात से भरकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Pu min 1 ni chawlhni duh rawh.",
+       "पु मिन् 1 नि चॉल्ह्नि दुह् रॉह्।",
+       "सर, मुझे एक दिन की छुट्टी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Min Thawhtanni chawlhni duh rawh.",
+       "मिन् थॉह्तन्नि चॉल्ह्नि दुह् रॉह्।",
+       "मुझे सोमवार को छुट्टी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "In ah pawimawh hna a ni.",
+       "इन् अह् पॉइमॉह् ह्न अ नि।",
+       "घर पर ज़रूरी काम है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka pa hriselna tha a ni lo.",
+       "क प ह्रिसेल्न थ अ नि लो।",
+       "मेरे पिताजी की तबीयत ठीक नहीं है।",
+       "S",
+       "B"
+      ],
+      [
+       "Min bank kal.",
+       "मिन् बैंक कल्।",
+       "मुझे बैंक जाना है।",
+       "S",
+       "A"
+      ],
+      [
+       "Eng Ka chanve ni chawlhni la thei em?",
+       "एङ् क चन्वे नि चॉल्ह्नि ल थेइ एम्?",
+       "क्या मैं आधे दिन की छुट्टी ले सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin phalna pe rawh Pu.",
+       "खॉङैहिन् फल्न पे रॉह् पु।",
+       "कृपया अनुमति दीजिए, सर।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka Nilaini kir leh hna ah lo kal ang.",
+       "क निलैनि किर् लेह् ह्न अह् लो कल् अङ्।",
+       "मैं बुधवार को वापस काम पर आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Kal ah hmasa Ka hna zawng ti ka pe ang.",
+       "कल् अह् ह्मस क ह्न ज़ॉङ् ति क पे अङ्।",
+       "जाने से पहले मैं अपना काम पूरा कर दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Chawlhni pawm a ni.",
+       "चॉल्ह्नि पॉम् अ नि।",
+       "छुट्टी मंज़ूर है।",
+       "L",
+       "B"
+      ],
+      [
+       "1 ni hmasa hrilh pe rawh.",
+       "1 नि ह्मस ह्रिल्ह् पे रॉह्।",
+       "एक दिन पहले बता देना।",
+       "L",
+       "B"
+      ],
+      [
+       "Chawlhni dilna ziak rawh.",
+       "चॉल्ह्नि दिल्न ज़ियाक् रॉह्।",
+       "छुट्टी की अर्ज़ी लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Min Hei ziak lo kal lo.",
+       "मिन् हेइ ज़ियाक् लो कल् लो।",
+       "मुझे यह लिखना नहीं आता।",
+       "S",
+       "B"
+      ],
+      [
+       "AI app i tanpui thei.",
+       "एआई ऐप इ तन्पुइ थेइ।",
+       "एआई ऐप तुम्हारी मदद कर सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka AI app ah dilna ziaktir.",
+       "क एआई ऐप अह् दिल्न ज़ियाक्तिर्।",
+       "मैंने एआई ऐप से अपनी अर्ज़ी लिखवाई।",
+       "S",
+       "B"
+      ],
+      [
+       "App hming leh chhan min hrilh rawh.",
+       "ऐप ह्मिङ् लेह् छन् मिन् ह्रिल्ह् रॉह्।",
+       "ऐप को अपना नाम और कारण बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hindi ah sawi rawh A Mizo ah ziak a pe ang.",
+       "हिंदी अह् सॉइ रॉह् अ मिज़ो अह् ज़ियाक् अ पे अङ्।",
+       "हिंदी में बोलो, वह मिज़ो में लिख देगा।",
+       "L",
+       "B"
+      ],
+      [
+       "Thawn ah hmasa reng chhiar rawh.",
+       "थॉन् अह् ह्मस रेङ् छियार् रॉह्।",
+       "भेजने से पहले हमेशा पढ़ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hming leh ni mahni en fiah rawh.",
+       "ह्मिङ् लेह् नि मह्नि एन् फ़ियाह् रॉह्।",
+       "नाम और तारीख़ ख़ुद जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "AI pawh tihsual ti thei.",
+       "एआई पॉह् तिह्सुअल् ति थेइ।",
+       "एआई भी ग़लती कर सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka AI app ah Mizo en fiahtir a ni.",
+       "क एआई ऐप अह् मिज़ो एन् फ़ियाह्तिर् अ नि।",
+       "मैं एआई ऐप से अपनी मिज़ो जँचवाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka AI app nen sawi inzirna ti.",
+       "क एआई ऐप नेन् सॉइ इन्ज़िर्न ति।",
+       "मैं एआई ऐप के साथ बोलने का अभ्यास करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Thuchah type ti rawh leh thawn rawh.",
+       "थुचह् टाइप ति रॉह् लेह् थॉन् रॉह्।",
+       "अपना संदेश टाइप करो और भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka dilna WhatsApp ah thawn.",
+       "क दिल्न व्हाट्सऐप अह् थॉन्।",
+       "मैंने अर्ज़ी व्हाट्सऐप पर भेजी।",
+       "S",
+       "B"
+      ],
+      [
+       "Pu phone ah ka chawlhni pawm.",
+       "पु फ़ोन अह् क चॉल्ह्नि पॉम्।",
+       "सर ने फोन पर मेरी छुट्टी मंज़ूर की।",
+       "S",
+       "B"
+      ],
+      [
+       "Lovin hrilh chawlhni la rawh lo.",
+       "लोविन् ह्रिल्ह् चॉल्ह्नि ल रॉह् लो।",
+       "बिना बताए छुट्टी मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tam chawlhni pek tan a ni.",
+       "तम् चॉल्ह्नि पेक् तन् अ नि।",
+       "ज़्यादा छुट्टियाँ भुगतान काटती हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Kut ah hmasa chawlhni ruahmanna siam rawh.",
+       "कुत् अह् ह्मस चॉल्ह्नि रुअह्मन्न सियाम् रॉह्।",
+       "त्योहार से पहले छुट्टी की योजना बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Dik chhan rinna hnehtir a ni.",
+       "दिक् छन् रिन्न ह्नेह्तिर् अ नि।",
+       "सच्चा कारण भरोसा जिताता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Thar hun thar hmanrua — zir awm rawh.",
+       "थर् हुन् थर् ह्मन्रुअ — ज़िर् ऑम् रॉह्।",
+       "नया ज़माना, नए औज़ार — सीखते रहो।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Pu I Dubai avangin kal duh em?",
+     "(बोलो) Kan heta ka welder hna a ni."
+    ],
+    [
+     "(सुनो) Pu i engzat kum inremna a ni em?",
+     "(बोलो) Kan ka inremna 2 kum a ni."
+    ]
+   ],
+   "dialog": [
+    [
+     "कामगार",
+     "I hna hriatthiam a ni em?",
+     "इ ह्न ह्रियात्थियाम् अ नि एम्?"
+    ],
+    [
+     "सुपरवाइज़र",
+     "Welding 5 kum.",
+     "वेल्डिंग 5 कुम्।"
+    ],
+    [
+     "कामगार",
+     "Hlawh 12 1000.",
+     "ह्लॉह् 12 1000।"
+    ],
+    [
+     "सुपरवाइज़र",
+     "Engtikah hmu em?",
+     "एङ्तिकह् ह्मु एम्?"
+    ],
+    [
+     "कामगार",
+     "7 ni thleng.",
+     "7 नि थ्लेङ्।"
+    ]
+   ],
+   "test": {
+    "target": "काम-प्रमुख (supervisor) से आमने-सामने या फ़ोन पर",
+    "goal": "English में अपना परिचय दीजिए (काम+अनुभव), आज का काम पूछिए, काम पूरा होने की रिपोर्ट दीजिए, और एक दिन की छुट्टी माँगिए — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Kan welder ka ni min 5 kum tawnhriat a ni.",
+      "कन् वेल्डर क नि मिन् 5 कुम् तॉन्ह्रियात् अ नि।"
+     ],
+     [
+      "Pu vawiin hna a ni em?",
+      "पु वॉइइन् ह्न अ नि एम्?"
+     ],
+     [
+      "Pu hna a ni tawh.",
+      "पु ह्न अ नि तॉह्।"
+     ],
+     [
+      "Pu 1 vawi ka hna en.",
+      "पु 1 वॉइ क ह्न एन्।"
+     ],
+     [
+      "Pu min 1 ni chawlhni duh rawh.",
+      "पु मिन् 1 नि चॉल्ह्नि दुह् रॉह्।"
+     ],
+     [
+      "Kan Nilaini hna ah kir leh ka lo kal ang.",
+      "कन् निलैनि ह्न अह् किर् लेह् क लो कल् अङ्।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 6,
+   "title": "Money, Friends and Growth",
+   "hi": "पैसा, दोस्त और तरक्की",
+   "pace": 30,
+   "days": [
+    {
+     "title": "वेतन और हिसाब",
+     "tw": [
+      [
+       "Hlawh",
+       "ह्लॉह्",
+       "वेतन",
+       "ख"
+      ],
+      [
+       "Chhiar",
+       "छियार्",
+       "गिनना",
+       "क"
+      ],
+      [
+       "Tihtlem",
+       "तिह्त्लेम्",
+       "कटौती",
+       "ख"
+      ],
+      [
+       "Advance",
+       "एडवांस",
+       "पेशगी",
+       "ख"
+      ],
+      [
+       "A vaiin",
+       "अ वैइन्",
+       "कुल",
+       "ग"
+      ],
+      [
+       "Receipt",
+       "रसीद",
+       "रसीद",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "moneyCount",
+      "hi": "पैसे बोलो — रक़म सुनो, English में कहो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Vawiin pek ni a ni.",
+       "वॉइइन् पेक् नि अ नि।",
+       "आज भुगतान का दिन है।",
+       "S",
+       "C"
+      ],
+      [
+       "Vawiin min hlawh hmu.",
+       "वॉइइन् मिन् ह्लॉह् ह्मु।",
+       "आज मुझे वेतन मिला।",
+       "S",
+       "A"
+      ],
+      [
+       "Kal ah hmasa pawisa chhiar la rawh.",
+       "कल् अह् ह्मस पॉइस छियार् ल रॉह्।",
+       "जाने से पहले पैसे गिन लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka 2 vawi chhiar.",
+       "क 2 वॉइ छियार्।",
+       "मैंने दो बार गिना।",
+       "S",
+       "B"
+      ],
+      [
+       "2 100 cheng tlem a ni.",
+       "2 100 चेङ् त्लेम् अ नि।",
+       "दो सौ रुपये कम हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Pu Khawngaihin a vaiin leh ah en fiah rawh.",
+       "पु खॉङैहिन् अ वैइन् लेह् अह् एन् फ़ियाह् रॉह्।",
+       "सर, कृपया कुल फिर से जाँचिए।",
+       "S",
+       "B"
+      ],
+      [
+       "2 chawlhni tihtlem a ni tawh.",
+       "2 चॉल्ह्नि तिह्त्लेम् अ नि तॉह्।",
+       "दो छुट्टियों की कटौती हुई।",
+       "S",
+       "C"
+      ],
+      [
+       "Tunah a vaiin dik a ni.",
+       "तुनह् अ वैइन् दिक् अ नि।",
+       "अब कुल सही है।",
+       "S",
+       "C"
+      ],
+      [
+       "Overtime engzat hmu em?",
+       "ओवरटाइम एङ्ज़त् ह्मु एम्?",
+       "ओवरटाइम के कितने मिले?",
+       "S",
+       "B"
+      ],
+      [
+       "Min 8 100 belhchhah hmu.",
+       "मिन् 8 100 बेल्ह्छह् ह्मु।",
+       "मुझे आठ सौ अतिरिक्त मिले।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka liam ta kar tlem advance la a ni tawh.",
+       "क लियाम् त कर् त्लेम् एडवांस ल अ नि तॉह्।",
+       "मैंने पिछले हफ़्ते थोड़ी पेशगी ली थी।",
+       "S",
+       "B"
+      ],
+      [
+       "Advance ka hlawh ah tan.",
+       "एडवांस क ह्लॉह् अह् तन्।",
+       "पेशगी मेरे वेतन से कटी।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin min hlawh receipt pe rawh.",
+       "खॉङैहिन् मिन् ह्लॉह् रसीद पे रॉह्।",
+       "कृपया मुझे वेतन की रसीद दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tin receipt fimkhur takin dah rawh.",
+       "तिन् रसीद फ़िम्खुर् तकिन् दह् रॉह्।",
+       "हर रसीद सँभालकर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nitin hna copy ah ziak rawh.",
+       "नितिन् ह्न कॉपी अह् ज़ियाक् रॉह्।",
+       "अपना रोज़ का काम कॉपी में लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka leh an chhut hrang chhuak.",
+       "क लेह् अन् छुत् ह्रङ् छुअक्।",
+       "मेरा और उनका हिसाब अलग निकला।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan nen ah copy en fiah.",
+       "कन् नेन् अह् कॉपी एन् फ़ियाह्।",
+       "हमने साथ में कॉपी जाँची।",
+       "S",
+       "B"
+      ],
+      [
+       "Tihsual 1 ziak dan ah a ni tawh.",
+       "तिह्सुअल् 1 ज़ियाक् दन् अह् अ नि तॉह्।",
+       "ग़लती एक लिखावट में थी।",
+       "S",
+       "C"
+      ],
+      [
+       "An zawng pawisa pe tawh.",
+       "अन् ज़ॉङ् पॉइस पे तॉह्।",
+       "उन्होंने पूरा पैसा दिया।",
+       "S",
+       "C"
+      ],
+      [
+       "Chhiar a ni tawh pawisa inhau rawn ken lo.",
+       "छियार् अ नि तॉह् पॉइस इन्हौ रॉन् केन् लो।",
+       "गिना हुआ पैसा झगड़ा नहीं लाता।",
+       "S",
+       "C"
+      ],
+      [
+       "Ei ah engzat senso a ni em?",
+       "एइ अह् एङ्ज़त् सेन्सो अ नि एम्?",
+       "खाने पर कितना ख़र्च होता है?",
+       "L",
+       "B"
+      ],
+      [
+       "Ei ah 3 1000 senso a ni.",
+       "एइ अह् 3 1000 सेन्सो अ नि।",
+       "खाने पर तीन हज़ार ख़र्च होते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Pindan hmun man 2 1000 a ni.",
+       "पिन्दन् ह्मुन् मन् 2 1000 अ नि।",
+       "कमरे का किराया दो हज़ार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka nitin zan senso ziak.",
+       "क नितिन् ज़न् सेन्सो ज़ियाक्।",
+       "मैं रोज़ रात अपना ख़र्च लिखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Te senso lian pawisa ei kal.",
+       "ते सेन्सो लियान् पॉइस एइ कल्।",
+       "छोटे-छोटे ख़र्च बड़ा पैसा खा जाते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Inlarna tan leiba la rawh lo.",
+       "इन्लर्न तन् लेइब ल रॉह् लो।",
+       "दिखावे के लिए कर्ज़ मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmasa leiba pe rawh.",
+       "ह्मस लेइब पे रॉह्।",
+       "पहले कर्ज़ चुकाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei thla Ka 3 1000 vawng.",
+       "हेइ थ्ल क 3 1000 वॉङ्।",
+       "इस महीने मैंने तीन हज़ार बचाए।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawng pawisa pawh hlawh pawisa a ni.",
+       "वॉङ् पॉइस पॉह् ह्लॉह् पॉइस अ नि।",
+       "बचाया पैसा भी कमाया पैसा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Fai chhut inzawmna thlum dah.",
+       "फ़ै छुत् इन्ज़ॉम्न थ्लुम् दह्।",
+       "साफ़ हिसाब रिश्ते मीठे रखता है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "बैंक, यूपीआई और घर पैसा भेजना",
+     "tw": [
+      [
+       "Account",
+       "अकाउंट",
+       "खाता",
+       "ग"
+      ],
+      [
+       "ATM",
+       "एटीएम",
+       "एटीएम",
+       "ग"
+      ],
+      [
+       "UPI",
+       "यूपीआई",
+       "यूपीआई",
+       "ग"
+      ],
+      [
+       "Pawisa thawn",
+       "पॉइस थॉन्",
+       "पैसा भेजना",
+       "ग"
+      ],
+      [
+       "OTP",
+       "ओटीपी",
+       "ओटीपी",
+       "ग"
+      ],
+      [
+       "La bang pawisa",
+       "ल बङ् पॉइस",
+       "बचा पैसा",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "बैंक-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka bank ei.",
+       "क बैंक एइ।",
+       "मेरा बैंक खाता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka account khua bank ah a ni.",
+       "क अकाउंट खुअ बैंक अह् अ नि।",
+       "मेरा खाता गाँव के बैंक में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Pawisa thawn tan Hei form thun rawh.",
+       "पॉइस थॉन् तन् हेइ फ़ॉर्म थुन् रॉह्।",
+       "पैसा भेजने के लिए यह फ़ॉर्म भरो।",
+       "L",
+       "B"
+      ],
+      [
+       "Account nambar fimkhur ah ziak rawh.",
+       "अकाउंट नम्बर् फ़िम्खुर् अह् ज़ियाक् रॉह्।",
+       "खाता नंबर ध्यान से लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 dik lo mark pawisa tu emaw hriat loh thawn thei.",
+       "1 दिक् लो मार्क पॉइस तु एमॉ ह्रियात् लोह् थॉन् थेइ।",
+       "एक ग़लत अंक पैसा किसी अनजान को भेज सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka UPI ah 4 1000 thawn.",
+       "क यूपीआई अह् 4 1000 थॉन्।",
+       "मैंने यूपीआई से चार हज़ार भेजे।",
+       "S",
+       "A"
+      ],
+      [
+       "Pawisa 1 minute ah thleng tawh.",
+       "पॉइस 1 मिनुते अह् थ्लेङ् तॉह्।",
+       "पैसा एक मिनट में पहुँच गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Nu phone ah thuchah lo kal tawh.",
+       "नु फ़ोन अह् थुचह् लो कल् तॉह्।",
+       "माँ के फोन पर संदेश आ गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Thawn hnuah la bang pawisa en fiah rawh.",
+       "थॉन् ह्नुअह् ल बङ् पॉइस एन् फ़ियाह् रॉह्।",
+       "भेजने के बाद बचा पैसा जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tunah ka la bang pawisa 6 1000 a ni.",
+       "तुनह् क ल बङ् पॉइस 6 1000 अ नि।",
+       "अब मेरा बचा पैसा छह हज़ार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ber hnaih ATM ti em?",
+       "बेर् ह्नैह् एटीएम ति एम्?",
+       "सबसे पास का एटीएम कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "ATM bazar kiang ah a ni.",
+       "एटीएम बज़र् कियाङ् अह् अ नि।",
+       "एटीएम बाजार के बगल में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka ATM ah 2 1000 lak chhuah.",
+       "क एटीएम अह् 2 1000 लक् छुअह्।",
+       "मैंने एटीएम से दो हज़ार निकाले।",
+       "S",
+       "B"
+      ],
+      [
+       "PIN dah hun kut khuh rawh.",
+       "पिन दह् हुन् कुत् खुह् रॉह्।",
+       "पिन डालते समय हाथ ढको।",
+       "L",
+       "B"
+      ],
+      [
+       "PIN tu emaw engtikah mah min hrilh rawh lo.",
+       "पिन तु एमॉ एङ्तिकह् मह् मिन् ह्रिल्ह् रॉह् लो।",
+       "अपना पिन किसी को कभी मत बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Phone ah OTP engtikah mah insem ti suh.",
+       "फ़ोन अह् ओटीपी एङ्तिकह् मह् इन्सेम् ति सुह्।",
+       "फोन पर ओटीपी कभी साझा मत करो।",
+       "L",
+       "A"
+      ],
+      [
+       "Bank engtikah mah OTP dil lo.",
+       "बैंक एङ्तिकह् मह् ओटीपी दिल् लो।",
+       "बैंक कभी ओटीपी नहीं माँगता।",
+       "L",
+       "A"
+      ],
+      [
+       "A phone bumna a ni tawh.",
+       "अ फ़ोन बुम्न अ नि तॉह्।",
+       "वह फोन धोखे का था।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka nghal phone tan pe tawh.",
+       "क ङ्हल् फ़ोन तन् पे तॉह्।",
+       "मैंने तुरंत फोन काट दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Pawisa rukrunna i ni chuan bank min hrilh rawh.",
+       "पॉइस रुक्रुन्न इ नि चुअन् बैंक मिन् ह्रिल्ह् रॉह्।",
+       "पैसा चोरी हो तो बैंक को बताओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Eng bank Inrinni inhawng a ni em?",
+       "एङ् बैंक इन्रिन्नि इन्हॉङ् अ नि एम्?",
+       "क्या बैंक शनिवार को खुला है?",
+       "S",
+       "B"
+      ],
+      [
+       "Bank 10 dar inhawng a ni.",
+       "बैंक 10 दर् इन्हॉङ् अ नि।",
+       "बैंक दस बजे खुलता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ziaktir tan passbook rawn ken rawh.",
+       "ज़ियाक्तिर् तन् पासबुक रॉन् केन् रॉह्।",
+       "लिखवाने के लिए पासबुक लाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka vawiin passbook ah ziaktir.",
+       "क वॉइइन् पासबुक अह् ज़ियाक्तिर्।",
+       "मैंने आज पासबुक में लिखवाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mobile nambar account ah zawmtir rawh.",
+       "मोबाइल नम्बर् अकाउंट अह् ज़ॉम्तिर् रॉह्।",
+       "मोबाइल नंबर खाते से जुड़वाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka hmasa Pathianni in pawisa thawn.",
+       "क ह्मस पथियान्नि इन् पॉइस थॉन्।",
+       "मैं पहले रविवार को घर पैसे भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Chanve hlawh in kal a ni chanve heta awm.",
+       "चन्वे ह्लॉह् इन् कल् अ नि चन्वे हेत ऑम्।",
+       "आधा वेतन घर जाता है, आधा यहाँ रहता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Nupui pawh account hawntir rawh.",
+       "नुपुइ पॉह् अकाउंट हॉन्तिर् रॉह्।",
+       "पत्नी का भी खाता खुलवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Bank pawisa kawrkhawng ah tam him a ni.",
+       "बैंक पॉइस कॉर्खॉङ् अह् तम् हिम् अ नि।",
+       "बैंक का पैसा जेब से ज़्यादा सुरक्षित है।",
+       "S",
+       "C"
+      ],
+      [
+       "Fimkhur kutzung pawisa him dah.",
+       "फ़िम्खुर् कुत्ज़ुङ् पॉइस हिम् दह्।",
+       "सावधान उँगलियाँ पैसा सुरक्षित रखती हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "झगड़ा और सुलह",
+     "tw": [
+      [
+       "Inhau",
+       "इन्हौ",
+       "झगड़ा",
+       "ख"
+      ],
+      [
+       "Reh",
+       "रेह्",
+       "शांत",
+       "क"
+      ],
+      [
+       "Ngaidamna",
+       "ङैदम्न",
+       "माफ़ी",
+       "क"
+      ],
+      [
+       "Sual",
+       "सुअल्",
+       "दोष",
+       "ख"
+      ],
+      [
+       "Pawm nih",
+       "पॉम् निह्",
+       "सहमत होना",
+       "ख"
+      ],
+      [
+       "Dawhtheihna",
+       "दॉह्थेइह्न",
+       "धैर्य",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Vawiin hna ah inhau a ni tawh.",
+       "वॉइइन् ह्न अह् इन्हौ अ नि तॉह्।",
+       "आज काम पर झगड़ा हुआ।",
+       "S",
+       "C"
+      ],
+      [
+       "2 hnathawktu au awm.",
+       "2 ह्नथॉक्तु औ ऑम्।",
+       "दो मज़दूर चिल्ला रहे थे।",
+       "S",
+       "C"
+      ],
+      [
+       "Unau reh a ni rawh.",
+       "उनौ रेह् अ नि रॉह्।",
+       "भाई, शांत हो जाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Au rawh suh zawi thu ti rawh.",
+       "औ रॉह् सुह् ज़ॉइ थु ति रॉह्।",
+       "चिल्लाओ मत, धीरे बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thu eng a ni em?",
+       "थु एङ् अ नि एम्?",
+       "बात क्या है?",
+       "L",
+       "B"
+      ],
+      [
+       "A lovin zawt ka hmanrua la tan.",
+       "अ लोविन् ज़ॉत् क ह्मन्रुअ ल तन्।",
+       "उसने बिना पूछे मेरे औज़ार ले लिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tihsual a ni Ngaidam ti rawh.",
+       "क तिह्सुअल् अ नि ङैदम् ति रॉह्।",
+       "मेरी ग़लती थी, माफ़ करना।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo awm leh vawi hmasa ka hnen ah zawt la rawh.",
+       "लो ऑम् लेह् वॉइ ह्मस क ह्नेन् अह् ज़ॉत् ल रॉह्।",
+       "अगली बार पहले मुझसे पूछ लेना।",
+       "S",
+       "B"
+      ],
+      [
+       "Tha a ni Ka pawm a ni.",
+       "थ अ नि क पॉम् अ नि।",
+       "ठीक है, मैं सहमत हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Kut chawhpawlh rawh leh theihnghilh kal rawh.",
+       "कुत् चॉह्पॉल्ह् रॉह् लेह् थेइह्ङ्हिल्ह् कल् रॉह्।",
+       "हाथ मिलाओ और भूल जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan 1 team a ni.",
+       "कन् 1 टीम अ नि।",
+       "हम एक टीम हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Indona zawng ni tichhe pe.",
+       "इन्दोन ज़ॉङ् नि तिछे पे।",
+       "लड़ाई पूरा दिन बिगाड़ देती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hmasa ngaithla rawh leh sawi rawh.",
+       "ह्मस ङैथ्ल रॉह् लेह् सॉइ रॉह्।",
+       "पहले सुनो, फिर बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "A nih ngei ang A tum rawt takin ti tawh lo.",
+       "अ निह् ङेइ अङ् अ तुम् रॉत् तकिन् ति तॉह् लो।",
+       "शायद उसने जान-बूझकर नहीं किया।",
+       "S",
+       "C"
+      ],
+      [
+       "Amah hrilhfiah 1 hun remchang 2.",
+       "अमह् ह्रिल्ह्फ़ियाह् 1 हुन् रेम्चङ् 2।",
+       "उसे समझाने का एक मौका दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka ngaidamna dil leh A nui.",
+       "क ङैदम्न दिल् लेह् अ नुइ।",
+       "मैंने माफ़ी माँगी और वह मुस्कुराया।",
+       "S",
+       "B"
+      ],
+      [
+       "Te ngaidamna lian inhau la bang la.",
+       "ते ङैदम्न लियान् इन्हौ ल बङ् ल।",
+       "छोटी माफ़ी बड़ा झगड़ा बचा लेती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Dawhtheihna hnathawktu thian a ni.",
+       "दॉह्थेइह्न ह्नथॉक्तु थियान् अ नि।",
+       "धैर्य मज़दूर का दोस्त है।",
+       "S",
+       "C"
+      ],
+      [
+       "Thinrim machine thleng la suh.",
+       "थिन्रिम् मशीन थ्लेङ् ल सुह्।",
+       "गुस्सा मशीन तक मत ले जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Thinrim kut accident ti.",
+       "थिन्रिम् कुत् ऐक्सिडेंट ति।",
+       "गुस्से के हाथ दुर्घटना करते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Thu lian i ni chuan supervisor ah thu ti rawh.",
+       "थु लियान् इ नि चुअन् सुपरवाइज़र अह् थु ति रॉह्।",
+       "बात बड़ी हो तो सुपरवाइज़र से बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "An 5 minute ah thu chingfel pe.",
+       "अन् 5 मिनुते अह् थु चिङ्फ़ेल् पे।",
+       "उन्होंने पाँच मिनट में बात सुलझा दी।",
+       "S",
+       "C"
+      ],
+      [
+       "I pahnih tha thiamthu a ni.",
+       "इ पह्निह् थ थियाम्थु अ नि।",
+       "तुम दोनों अच्छे कारीगर हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nen hna ti rawh nen hlawh la rawh.",
+       "नेन् ह्न ति रॉह् नेन् ह्लॉह् ल रॉह्।",
+       "साथ काम करो, साथ कमाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Khua emaw kal ah in hau suh lo.",
+       "खुअ एमॉ कल् अह् इन् हौ सुह् लो।",
+       "गाँव या जात पर मत लड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan zawng chhungkua tan hna thawk.",
+       "कन् ज़ॉङ् छुङ्कुअ तन् ह्न थॉक्।",
+       "हम सब अपने परिवार के लिए काम करते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Inhau hnuah Kan nen thingpui in.",
+       "इन्हौ ह्नुअह् कन् नेन् थिङ्पुइ इन्।",
+       "झगड़े के बाद हमने साथ चाय पी।",
+       "S",
+       "B"
+      ],
+      [
+       "Tunah Kan chu ah nui a ni.",
+       "तुनह् कन् चु अह् नुइ अ नि।",
+       "अब हम उस पर हँसते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Reh rilru ber tha hna thawk.",
+       "रेह् रिल्रु बेर् थ ह्न थॉक्।",
+       "शांत मन सबसे अच्छा काम करता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hna ah remna in ah remna.",
+       "ह्न अह् रेम्न इन् अह् रेम्न।",
+       "काम पर शांति, घर में शांति।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "नए साथी और दोस्ती",
+     "tw": [
+      [
+       "Nen hna tih",
+       "नेन् ह्न तिह्",
+       "साथ काम करने वाला",
+       "ख"
+      ],
+      [
+       "Inhriattirna titir",
+       "इन्ह्रियात्तिर्न तितिर्",
+       "परिचय कराना",
+       "ख"
+      ],
+      [
+       "Thingpui chawlhni",
+       "थिङ्पुइ चॉल्ह्नि",
+       "चाय की छुट्टी",
+       "ख"
+      ],
+      [
+       "Bul khua leh in",
+       "बुल् खुअ लेह् इन्",
+       "मूल गाँव-घर",
+       "ख"
+      ],
+      [
+       "Rinna",
+       "रिन्न",
+       "भरोसा",
+       "क"
+      ],
+      [
+       "Mahni chauh",
+       "मह्नि चौह्",
+       "अकेला",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "नए साथी से परिचय — तीन वाक्य में अपनी बात बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hei ka nen hna tih Ramesh a ni.",
+       "हेइ क नेन् ह्न तिह् रमेश अ नि।",
+       "यह मेरे साथ काम करने वाला रमेश है।",
+       "S",
+       "B"
+      ],
+      [
+       "I kal ang u team ah i inhriattirna ti.",
+       "इ कल् अङ् उ टीम अह् इ इन्ह्रियात्तिर्न ति।",
+       "चलो, टीम से तुम्हारा परिचय कराता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Unau I khawiah ah a ni em?",
+       "उनौ इ खॉइयाह् अह् अ नि एम्?",
+       "भाई, आप कहाँ से हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka Khagaria ah a ni.",
+       "क खगड़िया अह् अ नि।",
+       "मैं खगड़िया से हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Aw Kan 1 district a ni.",
+       "ऑ कन् 1 डिस्ट्रिक्ट अ नि।",
+       "अरे, हम एक ही जिले के हैं!",
+       "S",
+       "B"
+      ],
+      [
+       "Lo kal rawh kan nen thingpui in rawh.",
+       "लो कल् रॉह् कन् नेन् थिङ्पुइ इन् रॉह्।",
+       "आओ, हमारे साथ चाय पियो।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan 4 dar thingpui chawlhni la.",
+       "कन् 4 दर् थिङ्पुइ चॉल्ह्नि ल।",
+       "हम चार बजे चाय की छुट्टी लेते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "A chaw ka nen sem.",
+       "अ चॉ क नेन् सेम्।",
+       "उसने अपना खाना मेरे साथ बाँटा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmasa ni Ka tak mahni chauh a ni tawh.",
+       "ह्मस नि क तक् मह्नि चौह् अ नि तॉह्।",
+       "पहले दिन मैं बहुत अकेला था।",
+       "S",
+       "B"
+      ],
+      [
+       "A min zawng hmun lang.",
+       "अ मिन् ज़ॉङ् ह्मुन् लङ्।",
+       "उसने मुझे पूरी जगह दिखाई।",
+       "S",
+       "B"
+      ],
+      [
+       "Tha thian harsa hna zang ti pe.",
+       "थ थियान् हर्स ह्न ज़ङ् ति पे।",
+       "अच्छे दोस्त कठिन काम हल्का कर देते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng I min Hei machine zirtir thei em?",
+       "एङ् इ मिन् हेइ मशीन ज़िर्तिर् थेइ एम्?",
+       "क्या तुम मुझे यह मशीन सिखा सकते हो?",
+       "S",
+       "B"
+      ],
+      [
+       "Tak ka kut en rawh.",
+       "तक् क कुत् एन् रॉह्।",
+       "ज़रूर, मेरे हाथ देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Zawi zawiin I zawng zirna i kal ang.",
+       "ज़ॉइ ज़ॉइइन् इ ज़ॉङ् ज़िर्न इ कल् अङ्।",
+       "धीरे-धीरे तुम सब सीख जाओगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Unau i zawng tanpuina tan Ka lawm e.",
+       "उनौ इ ज़ॉङ् तन्पुइन तन् क लॉम् ए।",
+       "भाई, तुम्हारी सारी मदद के लिए धन्यवाद।",
+       "S",
+       "B"
+      ],
+      [
+       "Hna hnuah Kan nen pindan kal.",
+       "ह्न ह्नुअह् कन् नेन् पिन्दन् कल्।",
+       "काम के बाद हम साथ कमरे जाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Pathianni Kan nen bik chaw siam.",
+       "पथियान्नि कन् नेन् बिक् चॉ सियाम्।",
+       "रविवार को हम साथ ख़ास खाना बनाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Harsa hun ah A min pawisa pe.",
+       "हर्स हुन् अह् अ मिन् पॉइस पे।",
+       "मुश्किल समय में उसने मुझे पैसे दिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka pek ni kir pe.",
+       "क पेक् नि किर् पे।",
+       "मैंने भुगतान के दिन लौटा दिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Puk pawisa hun ah pe kir rawh.",
+       "पुक् पॉइस हुन् अह् पे किर् रॉह्।",
+       "उधार पैसा समय पर लौटाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Rinna nih ah kum chim ah minute a lang a ni.",
+       "रिन्न निह् अह् कुम् चिम् अह् मिनुते अ लङ् अ नि।",
+       "भरोसा बनने में साल, टूटने में मिनट लगता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tu emaw hnung hnungah thu ti suh.",
+       "तु एमॉ ह्नुङ् ह्नुङह् थु ति सुह्।",
+       "किसी की पीठ पीछे बात मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thian fakna mi zawng hmaah ti rawh.",
+       "थियान् फ़क्न मि ज़ॉङ् ह्माह् ति रॉह्।",
+       "दोस्त की तारीफ़ सबके सामने करो।",
+       "L",
+       "B"
+      ],
+      [
+       "A tihsual chauh amah min hrilh rawh.",
+       "अ तिह्सुअल् चौह् अमह् मिन् ह्रिल्ह् रॉह्।",
+       "उसकी ग़लती सिर्फ़ उसे बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan 5 state 5 thian a ni.",
+       "कन् 5 स्टेट 5 थियान् अ नि।",
+       "हम पाँच राज्यों के पाँच दोस्त हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan inkar tawng zir.",
+       "कन् इन्कर् तॉङ् ज़िर्।",
+       "हम एक-दूसरे की बोली सीखते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "A min 10 Kannada tawngkam zirtir.",
+       "अ मिन् 10 कन्नड़ तॉङ्कम् ज़िर्तिर्।",
+       "उसने मुझे दस कन्नड़ शब्द सिखाए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka amah 10 Hindi tawngkam zirtir.",
+       "क अमह् 10 हिंदी तॉङ्कम् ज़िर्तिर्।",
+       "मैंने उसे दस हिंदी शब्द सिखाए।",
+       "S",
+       "B"
+      ],
+      [
+       "In ah hla thian chhungkua a ni.",
+       "इन् अह् ह्ल थियान् छुङ्कुअ अ नि।",
+       "घर से दूर, दोस्त ही परिवार हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Dik thian lian hausakna a ni.",
+       "दिक् थियान् लियान् हौसक्न अ नि।",
+       "सच्चा दोस्त बड़ी दौलत है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "काम में तरक्की (आगे की सीढ़ी)",
+     "tw": [
+      [
+       "Hmasawnna",
+       "ह्मसॉन्न",
+       "तरक्की",
+       "ख"
+      ],
+      [
+       "Hlawh punna",
+       "ह्लॉह् पुन्न",
+       "वेतन-बढ़ोतरी",
+       "ख"
+      ],
+      [
+       "Mawhphurhna",
+       "मॉह्फुर्ह्न",
+       "ज़िम्मेदारी",
+       "ख"
+      ],
+      [
+       "Certificate",
+       "सर्टिफ़िकेट",
+       "प्रमाणपत्र",
+       "ख"
+      ],
+      [
+       "Course",
+       "कोर्स",
+       "कोर्स",
+       "ख"
+      ],
+      [
+       "Mumang",
+       "मुमङ्",
+       "सपना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "timeSwap",
+      "hi": "तरक्की की सीढ़ी — बीता कल, आज, आने वाला कल तीनों बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka hna ah hmaah pun duh.",
+       "क ह्न अह् ह्माह् पुन् दुह्।",
+       "मैं अपने काम में आगे बढ़ना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Tanpuitu ah Ka mistiri ni kal tawh.",
+       "तन्पुइतु अह् क मिस्तिरी नि कल् तॉह्।",
+       "सहायक से मैं मिस्त्री बन गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Min 3 kum a awm.",
+       "मिन् 3 कुम् अ ऑम्।",
+       "मुझे तीन साल लगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Pu Ka zawng machine zirna la a ni.",
+       "पु क ज़ॉङ् मशीन ज़िर्न ल अ नि।",
+       "सर, मैंने सारी मशीनें सीख ली हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin min leh mawhphurhna pe rawh.",
+       "खॉङैहिन् मिन् लेह् मॉह्फुर्ह्न पे रॉह्।",
+       "कृपया मुझे और ज़िम्मेदारी दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Eng hei kum ka punna a ni thei em?",
+       "एङ् हेइ कुम् क पुन्न अ नि थेइ एम्?",
+       "क्या इस साल मेरी बढ़ोतरी हो सकती है?",
+       "S",
+       "A"
+      ],
+      [
+       "Hmasa hna min entir rawh leh punna dil rawh.",
+       "ह्मस ह्न मिन् एन्तिर् रॉह् लेह् पुन्न दिल् रॉह्।",
+       "पहले काम दिखाओ, फिर बढ़ोतरी माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka hna mahni sawi.",
+       "क ह्न मह्नि सॉइ।",
+       "मेरा काम ख़ुद बोलता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Liam ta thla ka hmasawnna a ni tawh.",
+       "लियाम् त थ्ल क ह्मसॉन्न अ नि तॉह्।",
+       "पिछले महीने मेरी तरक्की हुई।",
+       "S",
+       "B"
+      ],
+      [
+       "Tunah Ka 4 mite team kal.",
+       "तुनह् क 4 मिते टीम कल्।",
+       "अब मैं चार लोगों की टीम चलाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Tha hruaitu hmasa mahni hna thawk.",
+       "थ ह्रुऐतु ह्मस मह्नि ह्न थॉक्।",
+       "अच्छा अगुआ पहले ख़ुद काम करता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka a thlawnin online course ti mek.",
+       "क अ थ्लॉनिन् ऑनलाइन कोर्स ति मेक्।",
+       "मैं मुफ़्त ऑनलाइन कोर्स कर रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka zan ah phone ah chhiar.",
+       "क ज़न् अह् फ़ोन अह् छियार्।",
+       "मैं रात में फोन पर पढ़ता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Exam hnuah min certificate hmu ang.",
+       "एक्सम् ह्नुअह् मिन् सर्टिफ़िकेट ह्मु अङ्।",
+       "परीक्षा के बाद मुझे प्रमाणपत्र मिलेगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Certificate thar kawngkhar hawng.",
+       "सर्टिफ़िकेट थर् कॉङ्खर् हॉङ्।",
+       "प्रमाणपत्र नए दरवाज़े खोलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Lian hna tan Mizo duh rawh.",
+       "लियान् ह्न तन् मिज़ो दुह् रॉह्।",
+       "बड़े काम के लिए मिज़ो चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka thiante nen Mizo inzirna ti.",
+       "क थियान्ते नेन् मिज़ो इन्ज़िर्न ति।",
+       "मैं साथियों के साथ मिज़ो का अभ्यास करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "1 thiamna leh 1 tawng chak kawp a ni.",
+       "1 थियाम्न लेह् 1 तॉङ् चक् कॉप् अ नि।",
+       "एक हुनर और एक भाषा मज़बूत जोड़ी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka mumang workshop a ni.",
+       "क मुमङ् वर्कशॉप अ नि।",
+       "मेरा सपना अपनी वर्कशॉप है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hmanrua tan pawisa belh awm mek.",
+       "क ह्मन्रुअ तन् पॉइस बेल्ह् ऑम् मेक्।",
+       "मैं औज़ारों के लिए पैसे जोड़ रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hmasa thiamthu leh zirtirtu leh neitu.",
+       "ह्मस थियाम्थु लेह् ज़िर्तिर्तु लेह् नेइतु।",
+       "पहले कारीगर, फिर उस्ताद, फिर मालिक।",
+       "S",
+       "C"
+      ],
+      [
+       "Kailawn pen tin chungah kal.",
+       "कैलॉन् पेन् तिन् चुङह् कल्।",
+       "सीढ़ी कदम-कदम ऊपर जाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hmasa ni khaikhin a sawmna kum ah ti suh.",
+       "ह्मस नि खैखिन् अ सॉम्न कुम् अह् ति सुह्।",
+       "अपने पहले दिन की तुलना उसके दसवें साल से मत करो।",
+       "S",
+       "B"
+      ],
+      [
+       "Tin thla 1 thar thil zir rawh.",
+       "तिन् थ्ल 1 थर् थिल् ज़िर् रॉह्।",
+       "हर महीने एक नई चीज़ सीखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thar tanpuitu hmangaihna ah zirtir rawh.",
+       "थर् तन्पुइतु ह्मङैह्न अह् ज़िर्तिर् रॉह्।",
+       "नए सहायक को प्यार से सिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin tanpuitu naktuk zirtirtu a ni.",
+       "वॉइइन् तन्पुइतु नक्तुक् ज़िर्तिर्तु अ नि।",
+       "आज का सहायक कल का उस्ताद है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka supervisor kei ah rinna a ni.",
+       "क सुपरवाइज़र केइ अह् रिन्न अ नि।",
+       "मेरे सुपरवाइज़र को मुझ पर भरोसा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka Hei rinna ka tichhe ang lo.",
+       "क हेइ रिन्न क तिछे अङ् लो।",
+       "मैं यह भरोसा नहीं तोड़ूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Taimakna leh zirna tangkawpin hmasawnna ni a ni.",
+       "तैमक्न लेह् ज़िर्न तङ्कॉपिन् ह्मसॉन्न नि अ नि।",
+       "मेहनत और सीख मिलकर तरक्की बनती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka hmalam ka liam naktuk ah lian a ni.",
+       "क ह्मलम् क लियाम् नक्तुक् अह् लियान् अ नि।",
+       "मेरा भविष्य मेरे बीते कल से बड़ा है।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Pawisa in thleng em?",
+     "(बोलो) Aw nu phone ah thuchah lo kal tawh."
+    ],
+    [
+     "(सुनो) I pahnih avangin inhau ti em?",
+     "(बोलो) Ka tihsual a ni ngaidamna."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "4 1000 thawn a ni.",
+     "4 1000 थॉन् अ नि।"
+    ],
+    [
+     "बैंक",
+     "Account nambar em?",
+     "अकाउंट नम्बर् एम्?"
+    ],
+    [
+     "आप",
+     "Hei lehkha ah a ni.",
+     "हेइ लेह्ख अह् अ नि।"
+    ],
+    [
+     "बैंक",
+     "Tha ka ni thuchah en fiah rawh.",
+     "थ क नि थुचह् एन् फ़ियाह् रॉह्।"
+    ],
+    [
+     "आप",
+     "Ka lawm e.",
+     "क लॉम् ए।"
+    ]
+   ],
+   "test": {
+    "target": "घर पर फ़ोन (वेतन-दिन की शाम)",
+    "goal": "English में बताइए — वेतन मिला, कितना भेजा (यूपीआई से), और घरवालों को ओटीपी-धोखे से बचने की सीख दीजिए — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Vawiin min hlawh hmu.",
+      "वॉइइन् मिन् ह्लॉह् ह्मु।"
+     ],
+     [
+      "Kan UPI ah 4 1000 thawn.",
+      "कन् यूपीआई अह् 4 1000 थॉन्।"
+     ],
+     [
+      "Thuchah phone ah en fiah rawh.",
+      "थुचह् फ़ोन अह् एन् फ़ियाह् रॉह्।"
+     ],
+     [
+      "Phone ah OTP tu emaw min hrilh rawh lo.",
+      "फ़ोन अह् ओटीपी तु एमॉ मिन् ह्रिल्ह् रॉह् लो।"
+     ],
+     [
+      "Bank engtikah mah OTP dil a ni lo.",
+      "बैंक एङ्तिकह् मह् ओटीपी दिल् अ नि लो।"
+     ],
+     [
+      "Kan hmanrua tan pawisa vawng a ni.",
+      "कन् ह्मन्रुअ तन् पॉइस वॉङ् अ नि।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 7,
+   "title": "Work Places, Safe Stay and Rights",
+   "hi": "काम की जगहें, सुरक्षित ठिकाना और हक़",
+   "pace": 30,
+   "days": [
+    {
+     "title": "फैक्ट्री में काम की बोली",
+     "tw": [
+      [
+       "Factory",
+       "फ़ैक्टरी",
+       "कारख़ाना",
+       "ख"
+      ],
+      [
+       "Shift",
+       "शिफ़्ट",
+       "पारी",
+       "ख"
+      ],
+      [
+       "Gate hnaih",
+       "गेट ह्नैह्",
+       "गेट पास",
+       "ख"
+      ],
+      [
+       "Uniform",
+       "यूनिफ़ॉर्म",
+       "वर्दी",
+       "ख"
+      ],
+      [
+       "Tum",
+       "तुम्",
+       "लक्ष्य",
+       "ख"
+      ],
+      [
+       "Mei chhuahna",
+       "मेइ छुअह्न",
+       "आग का निकास",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "गेट पर संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka puan factory ah hna thawk.",
+       "क पुअन् फ़ैक्टरी अह् ह्न थॉक्।",
+       "मैं कपड़ा कारख़ाने में काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka shift 7 dar tan a ni.",
+       "क शिफ़्ट 7 दर् तन् अ नि।",
+       "मेरी पारी सात बजे शुरू होती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei kar Ka zing shift ah a ni.",
+       "हेइ कर् क ज़िङ् शिफ़्ट अह् अ नि।",
+       "इस हफ़्ते मैं सुबह की पारी में हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Gate ah gate hnaih min entir rawh.",
+       "गेट अह् गेट ह्नैह् मिन् एन्तिर् रॉह्।",
+       "गेट पर अपना गेट पास दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin Ka gate hnaih theihnghilh kal tawh.",
+       "वॉइइन् क गेट ह्नैह् थेइह्ङ्हिल्ह् कल् तॉह्।",
+       "आज मैं गेट पास भूल गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin ka thar card siamtir pe rawh.",
+       "खॉङैहिन् क थर् कार्ड सियाम्तिर् पे रॉह्।",
+       "कृपया मेरा नया कार्ड बनवा दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Factory chhungah uniform ha rawh.",
+       "फ़ैक्टरी छुङह् यूनिफ़ॉर्म ह रॉह्।",
+       "कारख़ाने के अंदर वर्दी पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Phone locker ah dah rawh.",
+       "फ़ोन लॉकर अह् दह् रॉह्।",
+       "फोन लॉकर में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka machine nambar 12 a ni.",
+       "क मशीन नम्बर् 12 अ नि।",
+       "मेरी मशीन नंबर बारह है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka thui line ah hna thawk.",
+       "क थुइ लाइन अह् ह्न थॉक्।",
+       "मैं सिलाई लाइन पर काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "1 machine ding chuan zawng line ding.",
+       "1 मशीन दिङ् चुअन् ज़ॉङ् लाइन दिङ्।",
+       "एक मशीन रुके तो पूरी लाइन रुकती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Vawiin tum 2 100 pakhat a ni.",
+       "वॉइइन् तुम् 2 100 पखत् अ नि।",
+       "आज का लक्ष्य दो सौ नग है।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan hun ah hmasa tum zawng ti tawh.",
+       "कन् हुन् अह् ह्मस तुम् ज़ॉङ् ति तॉह्।",
+       "हमने समय से पहले लक्ष्य पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Enfiahna ka pakhat hnaih ti.",
+       "एन्फ़ियाह्न क पखत् ह्नैह् ति।",
+       "जाँच वाले ने मेरे नग पास किए।",
+       "S",
+       "B"
+      ],
+      [
+       "2 pakhat siamthat tan kir leh lo kal tawh.",
+       "2 पखत् सियाम्थत् तन् किर् लेह् लो कल् तॉह्।",
+       "दो नग सुधार के लिए वापस आए।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka anni leh ah fimkhur ah ka thui ang.",
+       "क अन्नि लेह् अह् फ़िम्खुर् अह् क थुइ अङ्।",
+       "मैं उन्हें फिर से ध्यान से सिलूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ei chawlhni 1 ah 2 dar a ni.",
+       "एइ चॉल्ह्नि 1 अह् 2 दर् अ नि।",
+       "खाने की छुट्टी एक से दो बजे है।",
+       "L",
+       "B"
+      ],
+      [
+       "Canteen chaw tlawm a ni.",
+       "कैंटीन चॉ त्लॉम् अ नि।",
+       "कैंटीन का खाना सस्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Lum ah tin darkar tui in rawh.",
+       "लुम् अह् तिन् दर्कर् तुइ इन् रॉह्।",
+       "गर्मी में हर घंटे पानी पियो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kal hrui khawih rawh lo.",
+       "कल् ह्रुइ खॉइह् रॉह् लो।",
+       "चलती पट्टी को मत छुओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Machine hnaih sam phuar a dah rawh.",
+       "मशीन ह्नैह् सम् फुअर् अ दह् रॉह्।",
+       "मशीन के पास बाल बाँधकर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tu emaw far emaw rim i ni chuan nghal thuthar 2.",
+       "तु एमॉ फ़र् एमॉ रिम् इ नि चुअन् ङ्हल् थुथर् 2।",
+       "कोई रिसाव या गंध हो तो तुरंत ख़बर दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mei chhuahna vei lam a ni.",
+       "मेइ छुअह्न वेइ लम् अ नि।",
+       "आग का निकास बाईं ओर है।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhuahna kawngkhar engtikah mah khar suh.",
+       "छुअह्न कॉङ्खर् एङ्तिकह् मह् खर् सुह्।",
+       "निकास का दरवाज़ा कभी बंद मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin Kan fire drill ti tawh.",
+       "वॉइइन् कन् फ़ायर ड्रिल ति तॉह्।",
+       "आज हमने आग-अभ्यास किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Kal ah hmasa register ah signature ti rawh.",
+       "कल् अह् ह्मस रजिस्टर अह् सिग्नेचर ति रॉह्।",
+       "जाने से पहले रजिस्टर पर दस्तख़त करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Heta overtime hrang pawisa hmu.",
+       "हेत ओवरटाइम ह्रङ् पॉइस ह्मु।",
+       "यहाँ ओवरटाइम का अलग पैसा मिलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "ESI card dil rawh.",
+       "ईएसआई कार्ड दिल् रॉह्।",
+       "अपना ईएसआई कार्ड माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Factory PF pawh pe.",
+       "फ़ैक्टरी पीएफ़ पॉह् पे।",
+       "कारख़ाना पीएफ भी देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Dikna hria rawh hna thawk rawh.",
+       "दिक्न ह्रिया रॉह् ह्न थॉक् रॉह्।",
+       "अपने हक़ जानो, अपना काम करो।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "दुकान और होटल-सेवा की बोली",
+     "tw": [
+      [
+       "Lei tu",
+       "लेइ तु",
+       "ग्राहक",
+       "ग"
+      ],
+      [
+       "Man",
+       "मन्",
+       "दाम",
+       "ग"
+      ],
+      [
+       "Zalenna",
+       "ज़लेन्न",
+       "छूट",
+       "ग"
+      ],
+      [
+       "Order",
+       "ऑर्डर",
+       "ऑर्डर",
+       "ग"
+      ],
+      [
+       "Sem",
+       "सेम्",
+       "परोसना",
+       "ख"
+      ],
+      [
+       "Inngaitlawm",
+       "इन्ङैत्लॉम्",
+       "विनम्र",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "pairSwap",
+      "hi": "विनम्र-रूप बोलो — रूखा वाक्य सुनो, please लगाकर मीठा बनाओ।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka mobile dawr ah hna thawk.",
+       "क मोबाइल दॉर् अह् ह्न थॉक्।",
+       "मैं मोबाइल की दुकान में काम करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Lo kal rawh che eng duh rawh em?",
+       "लो कल् रॉह् चे एङ् दुह् रॉह् एम्?",
+       "आइए, आपको क्या चाहिए?",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin Hei thar model en rawh.",
+       "खॉङैहिन् हेइ थर् मॉडल एन् रॉह्।",
+       "कृपया यह नया मॉडल देखिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei man eng a ni em?",
+       "हेइ मन् एङ् अ नि एम्?",
+       "इसका दाम क्या है?",
+       "L",
+       "B"
+      ],
+      [
+       "Man slip ah ziak.",
+       "मन् स्लिप अह् ज़ियाक्।",
+       "दाम पर्ची पर लिखा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng engemaw zalenna hmu ang em?",
+       "एङ् एङेमॉ ज़लेन्न ह्मु अङ् एम्?",
+       "क्या कुछ छूट मिलेगी?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka 5 percent zalenna pe thei.",
+       "क 5 परसेंट ज़लेन्न पे थेइ।",
+       "मैं पाँच प्रतिशत छूट दे सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Lei tu reng hmasa a ni.",
+       "लेइ तु रेङ् ह्मस अ नि।",
+       "ग्राहक हमेशा पहले है।",
+       "S",
+       "C"
+      ],
+      [
+       "Tin lei tu ah inngaihtlawmna ah sawi rawh.",
+       "तिन् लेइ तु अह् इन्ङैह्त्लॉम्न अह् सॉइ रॉह्।",
+       "हर ग्राहक से विनम्रता से बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nuih lei tu kir leh rawn ken.",
+       "नुइह् लेइ तु किर् लेह् रॉन् केन्।",
+       "मुस्कान ग्राहक को वापस लाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Pu i order inpeih a ni.",
+       "पु इ ऑर्डर इन्पेइह् अ नि।",
+       "सर, आपका ऑर्डर तैयार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hotel ah thingpui leh chaw sem a ni.",
+       "क होटल अह् थिङ्पुइ लेह् चॉ सेम् अ नि।",
+       "मैं होटल में चाय-नाश्ता परोसता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin ding rawh i dawhkan ruak a ni mek.",
+       "खॉङैहिन् दिङ् रॉह् इ दॉह्कन् रुअक् अ नि मेक्।",
+       "कृपया रुकिए, आपकी मेज़ ख़ाली हो रही है।",
+       "S",
+       "A"
+      ],
+      [
+       "Dawhkan rang fai ti rawh.",
+       "दॉह्कन् रङ् फ़ै ति रॉह्।",
+       "मेज़ जल्दी साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sem ah hmasa kut sil rawh.",
+       "सेम् अह् ह्मस कुत् सिल् रॉह्।",
+       "परोसने से पहले हाथ धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng pack ti a ka pe ang em?",
+       "एङ् पैक ति अ क पे अङ् एम्?",
+       "क्या पैक करके दूँ?",
+       "S",
+       "B"
+      ],
+      [
+       "Pu Hei i bill a ni.",
+       "पु हेइ इ बिल अ नि।",
+       "सर, यह आपका बिल है।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng i hnaih inhawng pawisa a ni em?",
+       "एङ् इ ह्नैह् इन्हॉङ् पॉइस अ नि एम्?",
+       "क्या आपके पास खुले पैसे हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "I UPI ah pawh pe thei.",
+       "इ यूपीआई अह् पॉह् पे थेइ।",
+       "आप यूपीआई से भी दे सकते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin Hei code scan ti rawh.",
+       "खॉङैहिन् हेइ कोड स्कैन ति रॉह्।",
+       "कृपया यह कोड स्कैन कीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka lawm e leh lo kal rawh.",
+       "क लॉम् ए लेह् लो कल् रॉह्।",
+       "धन्यवाद, फिर आइएगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Tin tlai thil chhiar rawh.",
+       "तिन् त्लै थिल् छियार् रॉह्।",
+       "हर शाम माल गिनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thil ah 2 bawm tlem a ni.",
+       "थिल् अह् 2 बॉम् त्लेम् अ नि।",
+       "माल में दो डिब्बे कम हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Neitu vawiin min hrilh rawh.",
+       "नेइतु वॉइइन् मिन् ह्रिल्ह् रॉह्।",
+       "मालिक को आज ही बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Dawr fai leh eng dah rawh.",
+       "दॉर् फ़ै लेह् एङ् दह् रॉह्।",
+       "दुकान साफ़ और चमकदार रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thar thil hmaah cheimawi rawh.",
+       "थर् थिल् ह्माह् चेइमॉइ रॉह्।",
+       "नया सामान आगे सजाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Thinrim lei tu vawt beng duh rawh.",
+       "थिन्रिम् लेइ तु वॉत् बेङ् दुह् रॉह्।",
+       "नाराज़ ग्राहक को ठंडा कान चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Ngaidam ti rawh Pu Kan tunah thlak pe.",
+       "ङैदम् ति रॉह् पु कन् तुनह् थ्लक् पे।",
+       "माफ़ कीजिए सर, हम अभी बदल देते हैं।",
+       "S",
+       "A"
+      ],
+      [
+       "Rinawm dawr kir lei tu.",
+       "रिनॉम् दॉर् किर् लेइ तु।",
+       "ईमानदार दुकान, लौटता ग्राहक।",
+       "S",
+       "C"
+      ],
+      [
+       "Thinlung ah rawngbawlna ber tam hralhtir a ni.",
+       "थिन्लुङ् अह् रॉङ्बॉल्न बेर् तम् ह्रल्ह्तिर् अ नि।",
+       "दिल से सेवा सबसे ज़्यादा बिकवाती है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "खेत और मौसमी काम की बोली",
+     "tw": [
+      [
+       "Seng",
+       "सेङ्",
+       "कटाई",
+       "ख"
+      ],
+      [
+       "Tuh",
+       "तुह्",
+       "बोना",
+       "ख"
+      ],
+      [
+       "Thlai",
+       "थ्लै",
+       "फ़सल",
+       "ख"
+      ],
+      [
+       "Bazar",
+       "बज़र्",
+       "मंडी",
+       "ग"
+      ],
+      [
+       "Man",
+       "मन्",
+       "भाव",
+       "ग"
+      ],
+      [
+       "Khai",
+       "खै",
+       "तौलना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "खेती का क्रम — First, Then, After that लगाकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka boruak ah lo ah hna thawk.",
+       "क बोरुअक् अह् लो अह् ह्न थॉक्।",
+       "मैं मौसम में खेत पर काम करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei tuh hun a ni.",
+       "हेइ तुह् हुन् अ नि।",
+       "यह बुवाई का समय है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan November ah wheat tuh a ni.",
+       "कन् नवंबर अह् व्हीट तुह् अ नि।",
+       "हम नवंबर में गेहूँ बोते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Tha chi tha thlai pe.",
+       "थ चि थ थ्लै पे।",
+       "अच्छा बीज अच्छी फ़सल देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Chi license dawr ah lei rawh.",
+       "चि लाइसेंस दॉर् अह् लेइ रॉह्।",
+       "बीज लाइसेंस वाली दुकान से खरीदो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chi leh leilung chaw bill dah rawh.",
+       "चि लेह् लेइलुङ् चॉ बिल दह् रॉह्।",
+       "बीज और खाद का बिल रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tlai lo ah tui 2.",
+       "त्लै लो अह् तुइ 2।",
+       "शाम को खेत में पानी दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pump electric ah kal.",
+       "पंप इलेक्ट्रिक अह् कल्।",
+       "पंप बिजली से चलता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ruah i ni thei a ni buh khuh rawh.",
+       "रुअह् इ नि थेइ अ नि बुह् खुह् रॉह्।",
+       "बारिश हो सकती है, अनाज ढको।",
+       "L",
+       "B"
+      ],
+      [
+       "Thlai seng tan inpeih a ni.",
+       "थ्लै सेङ् तन् इन्पेइह् अ नि।",
+       "फ़सल कटाई के लिए तैयार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan Thawhtanni ah seng tan kan ti ang.",
+       "कन् थॉह्तन्नि अह् सेङ् तन् कन् ति अङ्।",
+       "हम सोमवार से कटाई शुरू करेंगे।",
+       "S",
+       "B"
+      ],
+      [
+       "Seng tan 20 hnathawktu lo kal tawh.",
+       "सेङ् तन् 20 ह्नथॉक्तु लो कल् तॉह्।",
+       "कटाई के लिए बीस मज़दूर आए।",
+       "S",
+       "C"
+      ],
+      [
+       "Seng hlawh nitin a ni emaw bigha em?",
+       "सेङ् ह्लॉह् नितिन् अ नि एमॉ बीघा एम्?",
+       "कटाई की मज़दूरी रोज़ की है या बीघे की?",
+       "S",
+       "B"
+      ],
+      [
+       "Hna ah hmasa chiang takin ruat ti rawh.",
+       "ह्न अह् ह्मस चियाङ् तकिन् रुअत् ति रॉह्।",
+       "काम से पहले साफ़-साफ़ तय करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin bazar man eng a ni em?",
+       "वॉइइन् बज़र् मन् एङ् अ नि एम्?",
+       "आज मंडी का भाव क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Hmasa phone ah man en rawh.",
+       "ह्मस फ़ोन अह् मन् एन् रॉह्।",
+       "पहले फोन पर भाव देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lian bazar ah man tha zawk a ni.",
+       "लियान् बज़र् अह् मन् थ ज़ॉक् अ नि।",
+       "बड़ी मंडी में भाव बेहतर है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ip hmaah khaitir rawh.",
+       "इप् ह्माह् खैतिर् रॉह्।",
+       "बोरियाँ अपने सामने तौलवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Khai slip leh payment slip la rawh.",
+       "खै स्लिप लेह् पेमेंट स्लिप ल रॉह्।",
+       "तौल-पर्ची और भुगतान-पर्ची लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmanhmawhna ah Aih dik man ah hralh rawh.",
+       "ह्मन्ह्मॉह्न अह् ऐह् दिक् मन् अह् ह्रल्ह् रॉह्।",
+       "जल्दबाज़ी में नहीं, सही भाव पर बेचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Buh ro hmun dah rawh.",
+       "बुह् रो ह्मुन् दह् रॉह्।",
+       "अनाज सूखी जगह रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sazu dah buh chhe ti thei.",
+       "सज़ु दह् बुह् छे ति थेइ।",
+       "चूहे रखा अनाज ख़राब कर सकते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Boruak hnuah Ka hna tan khawpui kal.",
+       "बोरुअक् ह्नुअह् क ह्न तन् खॉपुइ कल्।",
+       "मौसम के बाद मैं काम के लिए शहर जाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo neih leh khawpui hna tangkawpin ka in kal.",
+       "लो नेइह् लेह् खॉपुइ ह्न तङ्कॉपिन् क इन् कल्।",
+       "खेती और शहर का काम मिलकर मेरा घर चलाते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Pa lo neih tlem ram duh rawh.",
+       "प लो नेइह् त्लेम् राम दुह् रॉह्।",
+       "मशरूम की खेती को थोड़ी ज़मीन चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka a thlawnin online course ah hei chungchang ah chhiar.",
+       "क अ थ्लॉनिन् ऑनलाइन कोर्स अह् हेइ चुङ्चङ् अह् छियार्।",
+       "मैंने मुफ़्त ऑनलाइन कोर्स में इसके बारे में पढ़ा।",
+       "S",
+       "B"
+      ],
+      [
+       "Thar lo neih sum lakluh let hnih ti thei.",
+       "थर् लो नेइह् सुम् लक्लुह् लेत् ह्निह् ति थेइ।",
+       "नई खेती कमाई दोगुनी कर सकती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Thurawn tan loneitu helpline ah zawt rawh.",
+       "थुरॉन् तन् लोनेइतु हेल्पलाइन अह् ज़ॉत् रॉह्।",
+       "सलाह के लिए किसान हेल्पलाइन से पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lei kan nu a ni.",
+       "लेइ कन् नु अ नि।",
+       "मिट्टी हमारी माँ है।",
+       "S",
+       "B"
+      ],
+      [
+       "Taima kut ram buh tuh a ni.",
+       "तैम कुत् राम बुह् तुह् अ नि।",
+       "मेहनती हाथ देश का अन्न उगाते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "परदेश में सुरक्षित ठिकाना (कमरा-सुरक्षा)",
+     "tw": [
+      [
+       "In neitu",
+       "इन् नेइतु",
+       "मकान-मालिक",
+       "क"
+      ],
+      [
+       "Lehkha thawh",
+       "लेह्ख थॉह्",
+       "लिखा-पढ़ी",
+       "क"
+      ],
+      [
+       "Deposit",
+       "डिपॉज़िट",
+       "जमा-राशि",
+       "क"
+      ],
+      [
+       "Electric hrui",
+       "इलेक्ट्रिक ह्रुइ",
+       "बिजली-तार",
+       "क"
+      ],
+      [
+       "Hriat loh",
+       "ह्रियात् लोह्",
+       "अनजान",
+       "क"
+      ],
+      [
+       "Address",
+       "अद्द्रेस्स्",
+       "पता",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "कमरा-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka him pindan zawng awm mek.",
+       "क हिम् पिन्दन् ज़ॉङ् ऑम् मेक्।",
+       "मैं सुरक्षित कमरा खोज रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hmun man leh deposit engzat a ni em?",
+       "ह्मुन् मन् लेह् डिपॉज़िट एङ्ज़त् अ नि एम्?",
+       "किराया और जमा-राशि कितनी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Deposit receipt la rawh.",
+       "डिपॉज़िट रसीद ल रॉह्।",
+       "जमा-राशि की रसीद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pangngai lehkha thawh dil rawh.",
+       "पङ्ङै लेह्ख थॉह् दिल् रॉह्।",
+       "सादी लिखा-पढ़ी माँगो।",
+       "L",
+       "A"
+      ],
+      [
+       "Signature ah hmasa chhiar rawh.",
+       "सिग्नेचर अह् ह्मस छियार् रॉह्।",
+       "दस्तख़त से पहले पढ़ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chauh dalal ah Aih in neitu ah hmu rawh.",
+       "चौह् दलाल अह् ऐह् इन् नेइतु अह् ह्मु रॉह्।",
+       "सिर्फ़ दलाल से नहीं, मकान-मालिक से मिलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pindan ni eng ah en rawh.",
+       "पिन्दन् नि एङ् अह् एन् रॉह्।",
+       "कमरा दिन की रोशनी में देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kawngkhar tala leh tukverh en fiah rawh.",
+       "कॉङ्खर् तल लेह् तुक्वेर्ह् एन् फ़ियाह् रॉह्।",
+       "दरवाज़े का ताला और खिड़की जाँचो।",
+       "L",
+       "A"
+      ],
+      [
+       "Eng heta fai tui a ni em?",
+       "एङ् हेत फ़ै तुइ अ नि एम्?",
+       "क्या यहाँ साफ़ पानी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Inbualna leh toilet ti em?",
+       "इन्बुअल्न लेह् टॉयलेट ति एम्?",
+       "स्नानघर और शौचालय कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Pindan electric hrui en fiah rawh.",
+       "पिन्दन् इलेक्ट्रिक ह्रुइ एन् फ़ियाह् रॉह्।",
+       "कमरे के बिजली-तार जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hlui inhawng hrui mei a awm thei a ni.",
+       "ह्लुइ इन्हॉङ् ह्रुइ मेइ अ ऑम् थेइ अ नि।",
+       "पुराने खुले तार आग लगा सकते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Building chhuahna kawng hria rawh.",
+       "बिल्डिंग छुअह्न कॉङ् ह्रिया रॉह्।",
+       "इमारत का निकास-रास्ता जान लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kailawn thil ah dang rawh lo.",
+       "कैलॉन् थिल् अह् दङ् रॉह् लो।",
+       "सीढ़ियाँ सामान से मत रोको।",
+       "L",
+       "B"
+      ],
+      [
+       "Chaw siam a gas khar rawh.",
+       "चॉ सियाम् अ गैस खर् रॉह्।",
+       "खाना बनाकर गैस बंद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tap kang kalsan a mu rawh lo.",
+       "टैप कङ् कल्सन् अ मु रॉह् लो।",
+       "चूल्हा जलता छोड़कर मत सोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Pindan chauh inhriatna te ah sem rawh.",
+       "पिन्दन् चौह् इन्ह्रियात्न ते अह् सेम् रॉह्।",
+       "कमरा सिर्फ़ जान-पहचान वालों से बाँटो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hriat loh zan ah ding rawh lo.",
+       "ह्रियात् लोह् ज़न् अह् दिङ् रॉह् लो।",
+       "अनजान को रात में मत ठहराओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Photocopy 2 dik lehkha engtikah mah lo.",
+       "फ़ोटोकॉपी 2 दिक् लेह्ख एङ्तिकह् मह् लो।",
+       "छायाप्रति दो, असली कागज़ कभी नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Photocopy ah hna leh ni ziak rawh.",
+       "फ़ोटोकॉपी अह् ह्न लेह् नि ज़ियाक् रॉह्।",
+       "छायाप्रति पर काम और तारीख़ लिख दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Police verification form dik takin thun rawh.",
+       "पुलिस वेरिफ़िकेशन फ़ॉर्म दिक् तकिन् थुन् रॉह्।",
+       "पुलिस-सत्यापन फ़ॉर्म सच-सच भरो।",
+       "L",
+       "A"
+      ],
+      [
+       "In neitu nambar phone ah dah rawh.",
+       "इन् नेइतु नम्बर् फ़ोन अह् दह् रॉह्।",
+       "मकान-मालिक का नंबर फोन में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Zawng address chhungte thawn rawh.",
+       "ज़ॉङ् अद्द्रेस्स् छुङ्ते थॉन् रॉह्।",
+       "अपना पूरा पता घरवालों को भेज दो।",
+       "L",
+       "A"
+      ],
+      [
+       "Vengte hming ah hria rawh.",
+       "वेङ्ते ह्मिङ् अह् ह्रिया रॉह्।",
+       "पड़ोसियों को नाम से जानो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tak tlai nih ah hmasa kir lo kal rawh.",
+       "तक् त्लै निह् अह् ह्मस किर् लो कल् रॉह्।",
+       "बहुत देर होने से पहले लौट आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Tlem pawisa 2 hmun dah rawh.",
+       "त्लेम् पॉइस 2 ह्मुन् दह् रॉह्।",
+       "थोड़े पैसे दो जगह रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin thla hmun man receipt la rawh.",
+       "तिन् थ्ल ह्मुन् मन् रसीद ल रॉह्।",
+       "हर महीने किराये की रसीद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmasa ni meter chhiarna ziak rawh.",
+       "ह्मस नि मीटर छियार्न ज़ियाक् रॉह्।",
+       "पहले दिन मीटर की गिनती लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Him pindan tha muhil pe.",
+       "हिम् पिन्दन् थ मुहिल् पे।",
+       "सुरक्षित कमरा अच्छी नींद देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Him awmna chak hna.",
+       "हिम् ऑम्न चक् ह्न।",
+       "सुरक्षित ठिकाना, मज़बूत काम।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "सरकारी मदद और मज़दूर के हक़",
+     "tw": [
+      [
+       "Hnathawktu card",
+       "ह्नथॉक्तु कार्ड",
+       "श्रमिक कार्ड",
+       "ख"
+      ],
+      [
+       "Helpline",
+       "हेल्पलाइन",
+       "हेल्पलाइन",
+       "ख"
+      ],
+      [
+       "Ruahmanna",
+       "रुअह्मन्न",
+       "योजना",
+       "ख"
+      ],
+      [
+       "A thlawnin",
+       "अ थ्लॉनिन्",
+       "मुफ़्त",
+       "क"
+      ],
+      [
+       "Dikna",
+       "दिक्न",
+       "हक़",
+       "ख"
+      ],
+      [
+       "Complain",
+       "कम्प्लेन",
+       "शिकायत",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "numberSay",
+      "hi": "ज़रूरी नंबर बोलो — अंक सुनो, English में कहो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hnathawktu card siamtir rawh.",
+       "ह्नथॉक्तु कार्ड सियाम्तिर् रॉह्।",
+       "अपना श्रमिक कार्ड बनवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "E-Shram card a thlawnin ni a ni.",
+       "ए-श्रम् कार्ड अ थ्लॉनिन् नि अ नि।",
+       "ई-श्रम कार्ड मुफ़्त बनता है।",
+       "L",
+       "A"
+      ],
+      [
+       "Hei Aadhaar leh mobile ah ni a ni.",
+       "हेइ आधार लेह् मोबाइल अह् नि अ नि।",
+       "यह आधार और मोबाइल से बनता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Form online centre ah khat kal.",
+       "फ़ॉर्म ऑनलाइन सेंटर अह् खत् कल्।",
+       "फ़ॉर्म ऑनलाइन-केंद्र पर भरा जाता है।",
+       "L",
+       "B"
+      ],
+      [
+       "A thlawnin card tan tam pawisa 2 lo.",
+       "अ थ्लॉनिन् कार्ड तन् तम् पॉइस 2 लो।",
+       "मुफ़्त कार्ड के लिए ज़्यादा पैसे मत दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Sorkar ruahmanna retheih hnathawktute tanpui.",
+       "सोर्कर् रुअह्मन्न रेथेइह् ह्नथॉक्तुते तन्पुइ।",
+       "सरकारी योजनाएँ ग़रीब मज़दूरों की मदद करती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ruahmanna chungchang ah block office ah zawt rawh.",
+       "रुअह्मन्न चुङ्चङ् अह् ब्लॉक ऑफ़िस अह् ज़ॉत् रॉह्।",
+       "योजना के बारे में प्रखंड-दफ़्तर में पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lehkha 1 folder ah dah rawh.",
+       "लेह्ख 1 फ़ोल्डर अह् दह् रॉह्।",
+       "अपने कागज़ एक फ़ोल्डर में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Aadhaar bank passbook leh photo pui lehkha a ni.",
+       "आधार बैंक पासबुक लेह् फ़ोटो पुइ लेह्ख अ नि।",
+       "आधार, बैंक-पासबुक और फोटो मुख्य कागज़ हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka fanu scholarship hmu.",
+       "क फ़नु स्कॉलरशिप ह्मु।",
+       "मेरी बेटी को छात्रवृत्ति मिली।",
+       "S",
+       "B"
+      ],
+      [
+       "Ration dawr hun ah inhawng a ni.",
+       "राशन दॉर् हुन् अह् इन्हॉङ् अ नि।",
+       "राशन दुकान समय पर खुलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ration khai en fiah rawh.",
+       "राशन खै एन् फ़ियाह् रॉह्।",
+       "राशन का तौल जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Khai tlem em? complain ti rawh.",
+       "खै त्लेम् एम्? कम्प्लेन ति रॉह्।",
+       "तौल कम? शिकायत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Complain i dikna a ni inhau lo.",
+       "कम्प्लेन इ दिक्न अ नि इन्हौ लो।",
+       "शिकायत आपका हक़ है, झगड़ा नहीं।",
+       "S",
+       "B"
+      ],
+      [
+       "Helpline nambar ziak rawh.",
+       "हेल्पलाइन नम्बर् ज़ियाक् रॉह्।",
+       "हेल्पलाइन नंबर लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tu emaw pawh emergency ah 1 100 12 chawhpawlh rawh.",
+       "तु एमॉ पॉह् इमरजेंसी अह् 1 100 12 चॉह्पॉल्ह् रॉह्।",
+       "किसी भी आपात में एक सौ बारह मिलाओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Ambulance nambar 1 100 8 a ni.",
+       "एम्बुलेंस नम्बर् 1 100 8 अ नि।",
+       "एम्बुलेंस का नंबर एक सौ आठ है।",
+       "L",
+       "A"
+      ],
+      [
+       "Hriselna card a thlawnin enkawlna pe.",
+       "ह्रिसेल्न कार्ड अ थ्लॉनिन् एन्कॉल्न पे।",
+       "स्वास्थ्य कार्ड मुफ़्त इलाज देता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Card chungchang ah damdawiin tukverh ah zawt rawh.",
+       "कार्ड चुङ्चङ् अह् दम्दॉइइन् तुक्वेर्ह् अह् ज़ॉत् रॉह्।",
+       "कार्ड के बारे में अस्पताल की खिड़की पर पूछो।",
+       "L",
+       "A"
+      ],
+      [
+       "Ruak lehkha ah signature ti suh.",
+       "रुअक् लेह्ख अह् सिग्नेचर ति सुह्।",
+       "ख़ाली कागज़ पर दस्तख़त मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Signature ah hmasa chhiar rawh emaw chhiartir rawh.",
+       "सिग्नेचर अह् ह्मस छियार् रॉह् एमॉ छियार्तिर् रॉह्।",
+       "दस्तख़त से पहले पढ़ो या पढ़वाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "I kutpui pawh i signature a ni.",
+       "इ कुत्पुइ पॉह् इ सिग्नेचर अ नि।",
+       "आपका अँगूठा भी आपका दस्तख़त है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ruat man ah tlem hlawh dik lo a ni.",
+       "रुअत् मन् अह् त्लेम् ह्लॉह् दिक् लो अ नि।",
+       "तय दर से कम मज़दूरी ग़लत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Tangkawpin thu ti rawh tangkawpin dil rawh.",
+       "तङ्कॉपिन् थु ति रॉह् तङ्कॉपिन् दिल् रॉह्।",
+       "मिलकर बात करो, मिलकर माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Labour office hnathawktute ngaithla.",
+       "लेबर ऑफ़िस ह्नथॉक्तुते ङैथ्ल।",
+       "श्रम-दफ़्तर मज़दूरों की सुनता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hna ni finfiahna dah rawh.",
+       "ह्न नि फ़िन्फ़ियाह्न दह् रॉह्।",
+       "अपने काम के दिनों का सबूत रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hna hmun photo finfiahna ni thei a ni.",
+       "ह्न ह्मुन् फ़ोटो फ़िन्फ़ियाह्न नि थेइ अ नि।",
+       "काम की जगह की फोटो सबूत बन सकती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Dan rinawm hnathawktu nen a ni.",
+       "दन् रिनॉम् ह्नथॉक्तु नेन् अ नि।",
+       "कानून ईमानदार मज़दूर के साथ है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ruahmanna hria rawh ruahmanna hlawkna la rawh.",
+       "रुअह्मन्न ह्रिया रॉह् रुअह्मन्न ह्लॉक्न ल रॉह्।",
+       "योजना जानो, योजना का लाभ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Harh hnathawktu chak hnathawktu a ni.",
+       "हर्ह् ह्नथॉक्तु चक् ह्नथॉक्तु अ नि।",
+       "जागरूक मज़दूर मज़बूत मज़दूर है।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) I eng line ah hna thawk em?",
+     "(बोलो) Kan thui line ah hna thawk."
+    ],
+    [
+     "(सुनो) Pindan him a ni em?",
+     "(बोलो) Aw Kan tala leh hrui ka en fiah tawh."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Man engzat a ni em?",
+     "मन् एङ्ज़त् अ नि एम्?"
+    ],
+    [
+     "मकान-मालिक",
+     "2 1000 tui nen.",
+     "2 1000 तुइ नेन्।"
+    ],
+    [
+     "आप",
+     "Min ziak duh rawh.",
+     "मिन् ज़ियाक् दुह् रॉह्।"
+    ],
+    [
+     "मकान-मालिक",
+     "Tha ka ni naktuk lo kal rawh.",
+     "थ क नि नक्तुक् लो कल् रॉह्।"
+    ],
+    [
+     "आप",
+     "Ka lawm e.",
+     "क लॉम् ए।"
+    ]
+   ],
+   "test": {
+    "target": "नए शहर पहुँचा दोस्त (फ़ोन पर)",
+    "goal": "English में दोस्त को सुरक्षित ठिकाने की तीन जाँच-बातें बताइए, आपात-नंबर सिखाइए, और मुफ़्त श्रमिक-कार्ड की सलाह दीजिए — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Kawngkhar tala leh tukverh en fiah rawh.",
+      "कॉङ्खर् तल लेह् तुक्वेर्ह् एन् फ़ियाह् रॉह्।"
+     ],
+     [
+      "Fai ziak dil.",
+      "फ़ै ज़ियाक् दिल्।"
+     ],
+     [
+      "I zawng address in thawn rawh.",
+      "इ ज़ॉङ् अद्द्रेस्स् इन् थॉन् रॉह्।"
+     ],
+     [
+      "Tu emaw emergency ah 1 100 12 dial ti rawh.",
+      "तु एमॉ इमरजेंसी अह् 1 100 12 डायल ति रॉह्।"
+     ],
+     [
+      "E-Shram card a thlawnin ni a ni.",
+      "ए-श्रम् कार्ड अ थ्लॉनिन् नि अ नि।"
+     ],
+     [
+      "Him hmun chak hna.",
+      "हिम् ह्मुन् चक् ह्न।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 8,
+   "title": "Interview, Report and My Story",
+   "hi": "इंटरव्यू, रिपोर्ट और मेरी कहानी",
+   "pace": 30,
+   "days": [
+    {
+     "title": "फ़ोन-इंटरव्यू (अपनी बात रखना)",
+     "tw": [
+      [
+       "Dilna tih",
+       "दिल्न तिह्",
+       "आवेदन करना",
+       "ख"
+      ],
+      [
+       "Inring",
+       "इन्रिङ्",
+       "आत्मविश्वासी",
+       "ख"
+      ],
+      [
+       "Taima",
+       "तैम",
+       "मेहनती",
+       "ख"
+      ],
+      [
+       "Rinawm",
+       "रिनॉम्",
+       "ईमानदार",
+       "क"
+      ],
+      [
+       "Chhan",
+       "छन्",
+       "हवाला",
+       "ख"
+      ],
+      [
+       "Enfiahna",
+       "एन्फ़ियाह्न",
+       "परख",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "इंटरव्यू-परिचय — तीन वाक्य में अपनी बात बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka WhatsApp ah i hna thuthar en.",
+       "क व्हाट्सऐप अह् इ ह्न थुथर् एन्।",
+       "मैंने व्हाट्सऐप पर आपकी नौकरी की ख़बर देखी।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka welder hna tan dilna tih duh.",
+       "क वेल्डर ह्न तन् दिल्न तिह् दुह्।",
+       "मैं वेल्डर पद के लिए आवेदन करना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Chibai, zing tha Pu Ka Ramesh sawi mek.",
+       "चिबै, ज़िङ् थ पु क रमेश सॉइ मेक्।",
+       "सुप्रभात सर, मैं रमेश बोल रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Eng tunah thu tih tha a awm ang em?",
+       "एङ् तुनह् थु तिह् थ अ ऑम् अङ् एम्?",
+       "क्या अभी बात करना ठीक रहेगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin chungchang ah min hrilh rawh.",
+       "खॉङैहिन् चुङ्चङ् अह् मिन् ह्रिल्ह् रॉह्।",
+       "कृपया अपने बारे में बताइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka Bihar ah ka ni leh fitter a ni.",
+       "क बिहार अह् क नि लेह् फ़िटर अ नि।",
+       "मैं बिहार से हूँ और फिटर हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka 2 company ah hna ti tawh a ni.",
+       "क 2 कंपनी अह् ह्न ति तॉह् अ नि।",
+       "मैंने दो कंपनियों में काम किया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka taima leh rinawm a ni.",
+       "क तैम लेह् रिनॉम् अ नि।",
+       "मैं मेहनती और ईमानदार हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka thar hna rang zir.",
+       "क थर् ह्न रङ् ज़िर्।",
+       "मैं नया काम जल्दी सीखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka reng hun ah lo kal.",
+       "क रेङ् हुन् अह् लो कल्।",
+       "मैं हमेशा समय पर आता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka pangngai map chhiar thei.",
+       "क पङ्ङै मैप छियार् थेइ।",
+       "मैं सादे नक़्शे पढ़ सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka pangngai Mizo sawi thei.",
+       "क पङ्ङै मिज़ो सॉइ थेइ।",
+       "मैं सादी मिज़ो बोल सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Zawi sawi rawh Ka hriatthiamna ka la ang.",
+       "ज़ॉइ सॉइ रॉह् क ह्रियात्थियाम्न क ल अङ्।",
+       "धीरे बोलिए, मैं समझ लूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "I liam ta hna engvangin kalsan em?",
+       "इ लियाम् त ह्न एङ्वङिन् कल्सन् एम्?",
+       "आपने पिछला काम क्यों छोड़ा?",
+       "L",
+       "B"
+      ],
+      [
+       "Khata site hna zawng a ni tawh.",
+       "खत साइट ह्न ज़ॉङ् अ नि तॉह्।",
+       "वहाँ साइट का काम पूरा हो गया था।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng i hnaih tu emaw certificate a ni em?",
+       "एङ् इ ह्नैह् तु एमॉ सर्टिफ़िकेट अ नि एम्?",
+       "क्या आपके पास कोई प्रमाणपत्र है?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw ka hnaih welding certificate a ni.",
+       "ऑ क ह्नैह् वेल्डिंग सर्टिफ़िकेट अ नि।",
+       "हाँ, मेरे पास वेल्डिंग का प्रमाणपत्र है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tunah a photo thawn thei.",
+       "क तुनह् अ फ़ोटो थॉन् थेइ।",
+       "मैं अभी उसकी फोटो भेज सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Che kan chungchang ah tuin hrilh em?",
+       "चे कन् चुङ्चङ् अह् तुइन् ह्रिल्ह् एम्?",
+       "आपको हमारे बारे में किसने बताया?",
+       "L",
+       "B"
+      ],
+      [
+       "I hlui thiamthu Suresh ka chhan a ni.",
+       "इ ह्लुइ थियाम्थु सुरेश क छन् अ नि।",
+       "आपके पुराने कारीगर सुरेश मेरा हवाला हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng I zan shift ah hna thawk thei em?",
+       "एङ् इ ज़न् शिफ़्ट अह् ह्न थॉक् थेइ एम्?",
+       "क्या आप रात की पारी में काम कर सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw Pu zan shift min tha a ni.",
+       "ऑ पु ज़न् शिफ़्ट मिन् थ अ नि।",
+       "हाँ सर, रात की पारी मुझे ठीक है।",
+       "S",
+       "A"
+      ],
+      [
+       "Eng I 20 kilo ip tho thei em?",
+       "एङ् इ 20 किलो इप् थो थेइ एम्?",
+       "क्या आप बीस किलो की बोरियाँ उठा सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw Ka nitin ti.",
+       "ऑ क नितिन् ति।",
+       "हाँ, मैं रोज़ करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Inrintawkna dah rawh hlau suh lo.",
+       "इन्रिन्तॉक्न दह् रॉह् ह्लौ सुह् लो।",
+       "आत्मविश्वास रखो, डरो मत।",
+       "L",
+       "B"
+      ],
+      [
+       "2 rei lo ngaihtuah rawh leh chhanna 2.",
+       "2 रेइ लो ङैह्तुअह् रॉह् लेह् छन्न 2।",
+       "दो पल सोचो, फिर जवाब दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Te leh dik chhanna hneh a ni.",
+       "ते लेह् दिक् छन्न ह्नेह् अ नि।",
+       "छोटे और सच्चे जवाब जीतते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Hlui neitu sualna ti suh.",
+       "ह्लुइ नेइतु सुअल्न ति सुह्।",
+       "पुराने मालिक की बुराई मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pu thu tih tan Ka lawm e.",
+       "पु थु तिह् तन् क लॉम् ए।",
+       "सर, बात करने के लिए धन्यवाद।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka tu emaw pawh ni enfiahna tan inpeih a ni.",
+       "क तु एमॉ पॉह् नि एन्फ़ियाह्न तन् इन्पेइह् अ नि।",
+       "मैं किसी भी दिन परख के लिए तैयार हूँ।",
+       "S",
+       "B"
+      ]
+     ]
+    },
+    {
+     "title": "इंटरव्यू में सवाल पूछना (वेतन-समय-जगह)",
+     "tw": [
+      [
+       "Zawhna",
+       "ज़ॉह्न",
+       "सवाल",
+       "क"
+      ],
+      [
+       "Thla",
+       "थ्ल",
+       "महीने का",
+       "ख"
+      ],
+      [
+       "Hun",
+       "हुन्",
+       "समय",
+       "ख"
+      ],
+      [
+       "Hmun",
+       "ह्मुन्",
+       "जगह",
+       "ख"
+      ],
+      [
+       "Chiang tih",
+       "चियाङ् तिह्",
+       "पक्का करना",
+       "ख"
+      ],
+      [
+       "Kir leh phone",
+       "किर् लेह् फ़ोन",
+       "वापस फोन",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "वेतन-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Pu eng Ka 2 zawhna zawt thei em?",
+       "पु एङ् क 2 ज़ॉह्न ज़ॉत् थेइ एम्?",
+       "सर, क्या मैं दो सवाल पूछ सकता हूँ?",
+       "S",
+       "B"
+      ],
+      [
+       "Thla hlawh eng a ni em?",
+       "थ्ल ह्लॉह् एङ् अ नि एम्?",
+       "महीने का वेतन क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Hlawh phuar a ni emaw pakhat chhut ah em?",
+       "ह्लॉह् फुअर् अ नि एमॉ पखत् छुत् अह् एम्?",
+       "वेतन बँधा है या नग के हिसाब से?",
+       "S",
+       "B"
+      ],
+      [
+       "Duty hun eng a ni em?",
+       "ड्यूटी हुन् एङ् अ नि एम्?",
+       "ड्यूटी का समय क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Duty 9 ah 6 a ni.",
+       "ड्यूटी 9 अह् 6 अ नि।",
+       "ड्यूटी नौ से छह है।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng Pathianni chawlhni a ni em?",
+       "एङ् पथियान्नि चॉल्ह्नि अ नि एम्?",
+       "क्या रविवार छुट्टी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Hna hmun ti em?",
+       "ह्न ह्मुन् ति एम्?",
+       "काम की जगह कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin hmun WhatsApp ah thawn rawh.",
+       "खॉङैहिन् ह्मुन् व्हाट्सऐप अह् थॉन् रॉह्।",
+       "कृपया जगह व्हाट्सऐप पर भेज दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Eng awm remchanna a ni em?",
+       "एङ् ऑम् रेम्चन्न अ नि एम्?",
+       "क्या रहने की सुविधा है?",
+       "S",
+       "B"
+      ],
+      [
+       "Pindan a thlawnin chaw i.",
+       "पिन्दन् अ थ्लॉनिन् चॉ इ।",
+       "कमरा मुफ़्त, खाना आपका।",
+       "L",
+       "B"
+      ],
+      [
+       "Hlawh engtikah hmu em?",
+       "ह्लॉह् एङ्तिकह् ह्मु एम्?",
+       "वेतन कब मिलता है?",
+       "S",
+       "B"
+      ],
+      [
+       "Hlawh 7 ni thleng lo kal.",
+       "ह्लॉह् 7 नि थ्लेङ् लो कल्।",
+       "वेतन सात तारीख़ तक आ जाता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng Hei bank account ah lo kal em?",
+       "एङ् हेइ बैंक अकाउंट अह् लो कल् एम्?",
+       "क्या यह बैंक खाते में आता है?",
+       "S",
+       "B"
+      ],
+      [
+       "Aw zawng hlawh account ah.",
+       "ऑ ज़ॉङ् ह्लॉह् अकाउंट अह्।",
+       "हाँ, पूरा वेतन खाते में।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei ka tan tha a ni.",
+       "हेइ क तन् थ अ नि।",
+       "यह मेरे लिए अच्छा है।",
+       "S",
+       "B"
+      ],
+      [
+       "I engtikah ah lo kal thei em?",
+       "इ एङ्तिकह् अह् लो कल् थेइ एम्?",
+       "आप कब से आ सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka Thawhtanni ah lo kal thei.",
+       "क थॉह्तन्नि अह् लो कल् थेइ।",
+       "मैं सोमवार से आ सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hmasa 1 ni enfiahna ah lo kal rawh.",
+       "ह्मस 1 नि एन्फ़ियाह्न अह् लो कल् रॉह्।",
+       "पहले एक दिन की परख पर आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Tak Pu Ka naktuk 9 dar lo kal ang.",
+       "तक् पु क नक्तुक् 9 दर् लो कल् अङ्।",
+       "ज़रूर सर, मैं कल नौ बजे आऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin hei nambar ah chiang ti rawh.",
+       "खॉङैहिन् हेइ नम्बर् अह् चियाङ् ति रॉह्।",
+       "कृपया इसी नंबर पर पक्का कर दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka tlai thleng kir leh phone ko ang.",
+       "क त्लै थ्लेङ् किर् लेह् फ़ोन को अङ्।",
+       "मैं शाम तक वापस फोन करूँगा।",
+       "L",
+       "B"
+      ],
+      [
+       "I phone zalenna kal chuan Ka leh ti ang.",
+       "इ फ़ोन ज़लेन्न कल् चुअन् क लेह् ति अङ्।",
+       "आपका फोन छूट जाए तो मैं फिर करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin ka nambar ziak la rawh.",
+       "खॉङैहिन् क नम्बर् ज़ियाक् ल रॉह्।",
+       "कृपया मेरा नंबर लिख लीजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nambar thuchah ah a ni.",
+       "क नम्बर् थुचह् अह् अ नि।",
+       "मेरा नंबर संदेश में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Aw sawi ah hmasa zawng zawt rawh.",
+       "ऑ सॉइ अह् ह्मस ज़ॉङ् ज़ॉत् रॉह्।",
+       "हाँ कहने से पहले सब पूछ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Fai zawhna zawh zak a ni lo.",
+       "फ़ै ज़ॉह्न ज़ॉह् ज़क् अ नि लो।",
+       "साफ़ सवाल पूछना शर्म नहीं है।",
+       "S",
+       "C"
+      ],
+      [
+       "Phone tih hming ziak rawh.",
+       "फ़ोन तिह् ह्मिङ् ज़ियाक् रॉह्।",
+       "फोन करने वाले का नाम लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Zan ah hriat loh hmun mahni chauhin kal rawh lo.",
+       "ज़न् अह् ह्रियात् लोह् ह्मुन् मह्नि चौहिन् कल् रॉह् लो।",
+       "रात में अनजान जगह अकेले मत जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Enfiahna ah kal ah hmasa tu emaw thian hrilh 2.",
+       "एन्फ़ियाह्न अह् कल् अह् ह्मस तु एमॉ थियान् ह्रिल्ह् 2।",
+       "परख पर जाने से पहले किसी दोस्त को बता दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha zawhna fing thiamthu hriatna a ni.",
+       "थ ज़ॉह्न फ़िङ् थियाम्थु ह्रियात्न अ नि।",
+       "अच्छे सवाल समझदार कारीगर की पहचान हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "काम की फोटो-रिपोर्ट (व्हाट्सऐप पर)",
+     "tw": [
+      [
+       "Photo report",
+       "फ़ोटो रिपोर्ट",
+       "फोटो-रिपोर्ट",
+       "ख"
+      ],
+      [
+       "Hma leh hnu",
+       "ह्म लेह् ह्नु",
+       "पहले-बाद",
+       "ख"
+      ],
+      [
+       "Pawl",
+       "पॉल्",
+       "समूह",
+       "क"
+      ],
+      [
+       "Hmaah thawn",
+       "ह्माह् थॉन्",
+       "आगे भेजना",
+       "ख"
+      ],
+      [
+       "Thai bo",
+       "थै बो",
+       "मिटाना",
+       "क"
+      ],
+      [
+       "Voice message",
+       "वोइके मेस्सगे",
+       "आवाज़-संदेश",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "रिपोर्ट का क्रम — First, Then, After that लगाकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Pu photo report dil.",
+       "पु फ़ोटो रिपोर्ट दिल्।",
+       "सर ने फोटो-रिपोर्ट माँगी।",
+       "S",
+       "B"
+      ],
+      [
+       "Hna ah hmasa photo la rawh.",
+       "ह्न अह् ह्मस फ़ोटो ल रॉह्।",
+       "काम से पहले फोटो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hna hnuah dang photo la rawh.",
+       "ह्न ह्नुअह् दङ् फ़ोटो ल रॉह्।",
+       "काम के बाद दूसरी फोटो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hma leh hnu photo i hna entir a ni.",
+       "ह्म लेह् ह्नु फ़ोटो इ ह्न एन्तिर् अ नि।",
+       "पहले-बाद की फोटो आपका काम दिखाती हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Photo ah hmasa lens hru la rawh.",
+       "फ़ोटो अह् ह्मस लेंस ह्रु ल रॉह्।",
+       "फोटो से पहले लेंस पोंछ लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha eng ah photo la rawh.",
+       "थ एङ् अह् फ़ोटो ल रॉह्।",
+       "अच्छी रोशनी में फोटो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Fai photo mahni sawi.",
+       "फ़ै फ़ोटो मह्नि सॉइ।",
+       "साफ़ फोटो ख़ुद बोलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka pawl ah 5 photo thawn.",
+       "क पॉल् अह् 5 फ़ोटो थॉन्।",
+       "मैंने समूह में पाँच फोटो भेजीं।",
+       "S",
+       "B"
+      ],
+      [
+       "Photo nen 1 tlar ziak rawh.",
+       "फ़ोटो नेन् 1 त्लर् ज़ियाक् रॉह्।",
+       "फोटो के साथ एक पंक्ति लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Gate hna zawng vawiin 10 pakhat.",
+       "गेट ह्न ज़ॉङ् वॉइइन् 10 पखत्।",
+       "गेट का काम पूरा, आज दस नग।",
+       "S",
+       "C"
+      ],
+      [
+       "Pu ka report duh lo kal tawh.",
+       "पु क रिपोर्ट दुह् लो कल् तॉह्।",
+       "सर को मेरी रिपोर्ट पसंद आई।",
+       "S",
+       "B"
+      ],
+      [
+       "Report nitin 1 hun thawn rawh.",
+       "रिपोर्ट नितिन् 1 हुन् थॉन् रॉह्।",
+       "रिपोर्ट रोज़ एक ही समय भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka nitin tlai 6 dar thawn.",
+       "क नितिन् त्लै 6 दर् थॉन्।",
+       "मैं रोज़ शाम छह बजे भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Office photo pawnah hmaah thawn suh.",
+       "ऑफ़िस फ़ोटो पॉनह् ह्माह् थॉन् सुह्।",
+       "दफ़्तर की फोटो बाहर आगे मत भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Engemaw hmun ah photo khap a ni.",
+       "एङेमॉ ह्मुन् अह् फ़ोटो खप् अ नि।",
+       "कुछ जगहों पर फोटो मना होती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Khata photo lak ah hmasa zawt rawh.",
+       "खत फ़ोटो लक् अह् ह्मस ज़ॉत् रॉह्।",
+       "वहाँ फोटो लेने से पहले पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lovin zawt tu emaw mi photo engtikah mah la rawh lo.",
+       "लोविन् ज़ॉत् तु एमॉ मि फ़ोटो एङ्तिकह् मह् ल रॉह् लो।",
+       "बिना पूछे किसी व्यक्ति की फोटो कभी मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Dik lo photo nghal thai bo rawh.",
+       "दिक् लो फ़ोटो ङ्हल् थै बो रॉह्।",
+       "ग़लत फोटो तुरंत मिटाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka phone hmun zawng kal tawh a ni.",
+       "क फ़ोन ह्मुन् ज़ॉङ् कल् तॉह् अ नि।",
+       "मेरे फोन की जगह भर गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hlui video thai bo rawh hna photo dah rawh.",
+       "ह्लुइ वीडियो थै बो रॉह् ह्न फ़ोटो दह् रॉह्।",
+       "पुराने वीडियो मिटाओ, काम की फोटो रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka hna photo folder siam.",
+       "क ह्न फ़ोटो फ़ोल्डर सियाम्।",
+       "मैंने काम की फोटो का फ़ोल्डर बनाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Heng photo ka hna finfiahna a ni.",
+       "हेङ् फ़ोटो क ह्न फ़िन्फ़ियाह्न अ नि।",
+       "ये फोटो मेरे काम का सबूत हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka Pu voice message thawn.",
+       "क पु वोइके मेस्सगे थॉन्।",
+       "मैंने सर को आवाज़-संदेश भेजा।",
+       "S",
+       "B"
+      ],
+      [
+       "Voice message ah te leh fai sawi rawh.",
+       "वोइके मेस्सगे अह् ते लेह् फ़ै सॉइ रॉह्।",
+       "आवाज़-संदेश में छोटा और साफ़ बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pu Khawngaihin ka voice message ngaithla la rawh.",
+       "पु खॉङैहिन् क वोइके मेस्सगे ङैथ्ल ल रॉह्।",
+       "सर, कृपया मेरा आवाज़-संदेश सुन लीजिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Tha i ni chuan awm reng thawn rawh.",
+       "थ इ नि चुअन् ऑम् रेङ् थॉन् रॉह्।",
+       "ठीक हो तो टिक भेज दीजिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka Pu live hmun thawn.",
+       "क पु लाइव ह्मुन् थॉन्।",
+       "मैंने सर को अपनी लाइव जगह भेजी।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmun chauh rinna te thawn rawh.",
+       "ह्मुन् चौह् रिन्न ते थॉन् रॉह्।",
+       "जगह सिर्फ़ भरोसे वालों को भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha report tha hming siam.",
+       "थ रिपोर्ट थ ह्मिङ् सियाम्।",
+       "अच्छी रिपोर्ट अच्छा नाम बनाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kut ah phone kut ah finfiahna.",
+       "कुत् अह् फ़ोन कुत् अह् फ़िन्फ़ियाह्न।",
+       "हाथ में फोन, हाथ में सबूत।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "नए शहर के पहले सात दिन",
+     "tw": [
+      [
+       "Railway station",
+       "रेलवे स्टेशन",
+       "रेलवे स्टेशन",
+       "ग"
+      ],
+      [
+       "SIM",
+       "सिम",
+       "सिम",
+       "ग"
+      ],
+      [
+       "Recharge",
+       "रिचार्ज",
+       "रिचार्ज",
+       "ग"
+      ],
+      [
+       "Map",
+       "मैप",
+       "नक़्शा",
+       "ग"
+      ],
+      [
+       "Chawei in",
+       "चॉएइ इन्",
+       "भोजनालय",
+       "ख"
+      ],
+      [
+       "Khal",
+       "खल्",
+       "जमना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "soundFamily",
+      "hi": "आवाज़-परिवार — एक-सी आवाज़ वाले शब्द ज़ोर से बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka rel ah khawpui thleng.",
+       "क रेल् अह् खॉपुइ थ्लेङ्।",
+       "मैं ट्रेन से शहर पहुँचा।",
+       "S",
+       "B"
+      ],
+      [
+       "Thian min railway station ah hmu.",
+       "थियान् मिन् रेलवे स्टेशन अह् ह्मु।",
+       "दोस्त मुझे रेलवे स्टेशन पर मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmasa ni ip hmaah dah rawh.",
+       "ह्मस नि इप् ह्माह् दह् रॉह्।",
+       "पहले दिन थैला आगे रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hriat loh dalal ah tanpuina la rawh lo.",
+       "ह्रियात् लोह् दलाल अह् तन्पुइन ल रॉह् लो।",
+       "अनजान दलालों से मदद मत लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka Aadhaar ah thar SIM la.",
+       "क आधार अह् थर् सिम ल।",
+       "मैंने आधार से नई सिम ली।",
+       "S",
+       "B"
+      ],
+      [
+       "SIM 2 darkar ah nung a ni tawh.",
+       "सिम 2 दर्कर् अह् नुङ् अ नि तॉह्।",
+       "सिम दो घंटे में चालू हो गई।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka 2 100 recharge ti tawh.",
+       "क 2 100 रिचार्ज ति तॉह्।",
+       "मैंने दो सौ का रिचार्ज किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka thar nambar in thawn pe tawh.",
+       "क थर् नम्बर् इन् थॉन् पे तॉह्।",
+       "मैंने नया नंबर घर भेज दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Dang ni thian nen pindan hmu.",
+       "दङ् नि थियान् नेन् पिन्दन् ह्मु।",
+       "दूसरे दिन दोस्त के साथ कमरा मिला।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hmasa pindan ni eng ah en fiah.",
+       "क ह्मस पिन्दन् नि एङ् अह् एन् फ़ियाह्।",
+       "मैंने पहले कमरा दिन की रोशनी में जाँचा।",
+       "S",
+       "B"
+      ],
+      [
+       "Pathumna ni Ka tlawm chawei in ah ei.",
+       "पथुम्न नि क त्लॉम् चॉएइ इन् अह् एइ।",
+       "तीसरे दिन मैंने सस्ते भोजनालय में खाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Thla chawei in hotel ah tlawm a ni.",
+       "थ्ल चॉएइ इन् होटल अह् त्लॉम् अ नि।",
+       "महीने का भोजनालय होटल से सस्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka phone map ah kawng zir.",
+       "क फ़ोन मैप अह् कॉङ् ज़िर्।",
+       "मैंने फोन के नक़्शे पर रास्ता सीखा।",
+       "S",
+       "B"
+      ],
+      [
+       "Map bus nambar pawh entir a ni.",
+       "मैप बस नम्बर् पॉह् एन्तिर् अ नि।",
+       "नक़्शा बस नंबर भी दिखाता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Palina ni Ka hna enfiahna ah kal tawh.",
+       "पलिन नि क ह्न एन्फ़ियाह्न अह् कल् तॉह्।",
+       "चौथे दिन मैं काम की परख पर गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 30 minute hmasa thleng.",
+       "क 30 मिनुते ह्मस थ्लेङ्।",
+       "मैं तीस मिनट पहले पहुँचा।",
+       "S",
+       "B"
+      ],
+      [
+       "Neitu ka hna duh lo kal tawh.",
+       "नेइतु क ह्न दुह् लो कल् तॉह्।",
+       "मालिक को मेरा काम पसंद आया।",
+       "S",
+       "B"
+      ],
+      [
+       "Pangana ni Ka thar hna tan ti tawh.",
+       "पङन नि क थर् ह्न तन् ति तॉह्।",
+       "पाँचवें दिन मैंने नया काम शुरू किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka man leh hun copy ah ziak.",
+       "क मन् लेह् हुन् कॉपी अह् ज़ियाक्।",
+       "मैंने दर और समय अपनी कॉपी में लिखा।",
+       "S",
+       "B"
+      ],
+      [
+       "Parukna ni Ka thla chawei in ruat ti tawh.",
+       "परुक्न नि क थ्ल चॉएइ इन् रुअत् ति तॉह्।",
+       "छठे दिन मैंने महीने का भोजनालय तय किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hnaih damdawiin leh police post en la.",
+       "क ह्नैह् दम्दॉइइन् लेह् पुलिस पोस्ट एन् ल।",
+       "मैंने पास का अस्पताल और पुलिस चौकी देख ली।",
+       "S",
+       "A"
+      ],
+      [
+       "Pasarihna ni Ka in zawng thuthar nen phone ti tawh.",
+       "पसरिह्न नि क इन् ज़ॉङ् थुथर् नेन् फ़ोन ति तॉह्।",
+       "सातवें दिन मैंने घर पूरी ख़बर के साथ फोन किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Nu lawm a ni tawh leh tlem tap.",
+       "नु लॉम् अ नि तॉह् लेह् त्लेम् टैप।",
+       "माँ खुश हुईं और थोड़ा रोईं।",
+       "S",
+       "C"
+      ],
+      [
+       "1 kar ah khawpui tlem a ni tawh.",
+       "1 कर् अह् खॉपुइ त्लेम् अ नि तॉह्।",
+       "एक हफ़्ते में शहर थोड़ा अपना हो गया।",
+       "S",
+       "C"
+      ],
+      [
+       "Zawi zawiin Ka heta khal kal ang.",
+       "ज़ॉइ ज़ॉइइन् क हेत खल् कल् अङ्।",
+       "धीरे-धीरे मैं यहाँ जम जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Zin ticket leh lehkha dah rawh.",
+       "ज़िन् टिकट लेह् लेह्ख दह् रॉह्।",
+       "सफ़र की टिकट और कागज़ रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "10 hming zir rawh kawngpui dawr chawlhna.",
+       "10 ह्मिङ् ज़िर् रॉह् कॉङ्पुइ दॉर् चॉल्ह्न।",
+       "दस नाम सीखो: सड़क, दुकान, पड़ाव।",
+       "L",
+       "B"
+      ],
+      [
+       "Hriat lar kawng him kawng a ni.",
+       "ह्रियात् लर् कॉङ् हिम् कॉङ् अ नि।",
+       "जाना-पहचाना रास्ता सुरक्षित रास्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hmasa ber kar harsa hmasa ber thla awlsam.",
+       "ह्मस बेर् कर् हर्स ह्मस बेर् थ्ल ऑल्सम्।",
+       "पहला हफ़्ता कठिन, पहला महीना आसान।",
+       "S",
+       "C"
+      ],
+      [
+       "Tin lian khawpui hmasa ni ah tan a ni.",
+       "तिन् लियान् खॉपुइ ह्मस नि अह् तन् अ नि।",
+       "हर बड़ा शहर पहले दिन से शुरू होता है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "महीना-2 का समेट (काम की मेरी कहानी)",
+     "tw": [
+      [
+       "Finfiahna",
+       "फ़िन्फ़ियाह्न",
+       "सबूत",
+       "ख"
+      ],
+      [
+       "Himna",
+       "हिम्न",
+       "सुरक्षा",
+       "ख"
+      ],
+      [
+       "Hmasawnna",
+       "ह्मसॉन्न",
+       "तरक्की",
+       "ख"
+      ],
+      [
+       "Hlawh",
+       "ह्लॉह्",
+       "कमाना",
+       "क"
+      ],
+      [
+       "Team",
+       "टीम",
+       "टीम",
+       "क"
+      ],
+      [
+       "Thawnthu",
+       "थॉन्थु",
+       "कहानी",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Zir 2 thla zawng a ni tawh.",
+       "ज़िर् 2 थ्ल ज़ॉङ् अ नि तॉह्।",
+       "सीखने के दो महीने पूरे हुए।",
+       "S",
+       "C"
+      ],
+      [
+       "Tunah Ka hna thu Mizo ah ti thei.",
+       "तुनह् क ह्न थु मिज़ो अह् ति थेइ।",
+       "अब मैं अपने काम की बात मिज़ो में कर सकता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka liam ta kar phone interview pe tawh.",
+       "क लियाम् त कर् फ़ोन इंटरव्यू पे तॉह्।",
+       "मैंने पिछले हफ़्ते फोन-इंटरव्यू दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hlawh leh hun chiang takin zawt.",
+       "क ह्लॉह् लेह् हुन् चियाङ् तकिन् ज़ॉत्।",
+       "मैंने वेतन और समय साफ़-साफ़ पूछा।",
+       "S",
+       "B"
+      ],
+      [
+       "Neitu sawi ka Mizo tha awm mek.",
+       "नेइतु सॉइ क मिज़ो थ ऑम् मेक्।",
+       "मालिक ने कहा मेरी मिज़ो सुधर रही है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nitin photo report thawn.",
+       "क नितिन् फ़ोटो रिपोर्ट थॉन्।",
+       "मैं रोज़ अपनी फोटो-रिपोर्ट भेजता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hna copy ah tin ni finfiahna a ni.",
+       "क ह्न कॉपी अह् तिन् नि फ़िन्फ़ियाह्न अ नि।",
+       "मेरी काम-कॉपी में हर दिन का सबूत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka nitin lukhum leh kutfai ha a ni.",
+       "क नितिन् लुखुम् लेह् कुत्फ़ै ह अ नि।",
+       "मैं रोज़ अपनी टोपी और दस्ताने पहनता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Himna tunah ka chin ni kal tawh a ni.",
+       "हिम्न तुनह् क चिन् नि कल् तॉह् अ नि।",
+       "सुरक्षा अब मेरी आदत बन गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan team lian order zawng ti tawh.",
+       "कन् टीम लियान् ऑर्डर ज़ॉङ् ति तॉह्।",
+       "हमारी टीम ने बड़ा ऑर्डर पूरा किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Neitu team chhang tui pe.",
+       "नेइतु टीम छङ् तुइ पे।",
+       "मालिक ने टीम को मिठाई दी।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka liam ta kum ah tam hlawh a ni.",
+       "क लियाम् त कुम् अह् तम् ह्लॉह् अ नि।",
+       "मैं पिछले साल से ज़्यादा कमाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei thla Ka in tam pawisa thawn.",
+       "हेइ थ्ल क इन् तम् पॉइस थॉन्।",
+       "इस महीने मैंने घर ज़्यादा पैसे भेजे।",
+       "S",
+       "B"
+      ],
+      [
+       "Pa in inchung tha titir.",
+       "प इन् इन्चुङ् थ तितिर्।",
+       "पिताजी ने घर की छत ठीक करवाई।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka farnu computer course tan ti tawh.",
+       "क फ़र्नु कंप्यूटर कोर्स तन् ति तॉह्।",
+       "मेरी बहन ने कंप्यूटर कोर्स शुरू किया।",
+       "S",
+       "B"
+      ],
+      [
+       "Mizo tawngkam tunah min awlsamna ah lo kal.",
+       "मिज़ो तॉङ्कम् तुनह् मिन् ऑल्सम्न अह् लो कल्।",
+       "मिज़ो शब्द अब मुझे आसानी से आते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "A chang chuan Ka te Mizo tlar ah ngaihtuah a ni.",
+       "अ चङ् चुअन् क ते मिज़ो त्लर् अह् ङैह्तुअह् अ नि।",
+       "कभी-कभी मैं छोटी मिज़ो पंक्तियों में सोचता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Thian ka hnen ah tawngkam zawt.",
+       "थियान् क ह्नेन् अह् तॉङ्कम् ज़ॉत्।",
+       "साथी मुझसे शब्द पूछते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka anni thingpui chawlhni ah zirtir.",
+       "क अन्नि थिङ्पुइ चॉल्ह्नि अह् ज़िर्तिर्।",
+       "मैं उन्हें चाय की छुट्टी में सिखाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Zirtir ah ka zirna chiang a ni.",
+       "ज़िर्तिर् अह् क ज़िर्न चियाङ् अ नि।",
+       "सिखाने से मेरी अपनी सीख पक्की होती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo awm leh thla Ka bazar Mizo zir ang.",
+       "लो ऑम् लेह् थ्ल क बज़र् मिज़ो ज़िर् अङ्।",
+       "अगले महीने मैं बाजार की मिज़ो सीखूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Leh rel leh bus zin Mizo.",
+       "लेह् रेल् लेह् बस ज़िन् मिज़ो।",
+       "फिर ट्रेन-बस के सफ़र की मिज़ो।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka thawnthu zawi zawiin thlak awm mek.",
+       "क थॉन्थु ज़ॉइ ज़ॉइइन् थ्लक् ऑम् मेक्।",
+       "मेरी कहानी धीरे-धीरे बदल रही है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hlauhna ah inrintawkna thleng pen tin.",
+       "ह्लौह्न अह् इन्रिन्तॉक्न थ्लेङ् पेन् तिन्।",
+       "डर से आत्मविश्वास तक, कदम-कदम।",
+       "S",
+       "C"
+      ],
+      [
+       "Khua thian ka thuruk zawt.",
+       "खुअ थियान् क थुरुक् ज़ॉत्।",
+       "गाँव के दोस्त मेरा राज़ पूछते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hrilh ka ni nitin 30 thu.",
+       "क ह्रिल्ह् क नि नितिन् 30 थु।",
+       "मैं बताता हूँ: रोज़ तीस वाक्य।",
+       "S",
+       "B"
+      ],
+      [
+       "A thlawnin course bus i hun fee a ni.",
+       "अ थ्लॉनिन् कोर्स बस इ हुन् फ़ीस अ नि।",
+       "मुफ़्त कोर्स, बस आपका समय ही फीस है।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawiin zir rawh naktuk hlawh la rawh.",
+       "वॉइइन् ज़िर् रॉह् नक्तुक् ह्लॉह् ल रॉह्।",
+       "आज सीखो, कल कमाओ।",
+       "S",
+       "C"
+      ],
+      [
+       "Chanve course zawng chanve mumang hnaih.",
+       "चन्वे कोर्स ज़ॉङ् चन्वे मुमङ् ह्नैह्।",
+       "आधा कोर्स पूरा, आधा सपना पास।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka Mizo ka chakna.",
+       "क मिज़ो क चक्न।",
+       "मेरी मिज़ो, मेरी ताक़त।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) I zan shift ah hna ti a thei a ni em?",
+     "(बोलो) Aw Pu zan shift min kal."
+    ],
+    [
+     "(सुनो) I photo report thawn em?",
+     "(बोलो) Aw Kan group ah 5 photo thawn."
+    ]
+   ],
+   "dialog": [
+    [
+     "मालिक",
+     "I hna hriatthiam a ni em?",
+     "इ ह्न ह्रियात्थियाम् अ नि एम्?"
+    ],
+    [
+     "आप",
+     "Welding 5 kum.",
+     "वेल्डिंग 5 कुम्।"
+    ],
+    [
+     "मालिक",
+     "Hlawh 12 1000.",
+     "ह्लॉह् 12 1000।"
+    ],
+    [
+     "आप",
+     "Engtikah hmu em?",
+     "एङ्तिकह् ह्मु एम्?"
+    ],
+    [
+     "मालिक",
+     "7 ni thleng.",
+     "7 नि थ्लेङ्।"
+    ],
+    [
+     "आप",
+     "Kan Thawhtanni ah tan ti a thei a ni.",
+     "कन् थॉह्तन्नि अह् तन् ति अ थेइ अ नि।"
+    ]
+   ],
+   "test": {
+    "target": "फ़ोन-इंटरव्यू का पूरा अभ्यास (दोस्त मालिक बने)",
+    "goal": "पूरा इंटरव्यू English में खेलिए — परिचय, अनुभव, दो सवाल (वेतन-समय), joining और धन्यवाद — कम-से-कम सात वाक्य।",
+    "lines": [
+     [
+      "Chibai Pu Kan Ramesh sawi a ni.",
+      "चिबै पु कन् रमेश सॉइ अ नि।"
+     ],
+     [
+      "Kan fitter ka ni min 5 kum tawnhriat a ni.",
+      "कन् फ़िटर क नि मिन् 5 कुम् तॉन्ह्रियात् अ नि।"
+     ],
+     [
+      "Thla hlawh engzat a ni em?",
+      "थ्ल ह्लॉह् एङ्ज़त् अ नि एम्?"
+     ],
+     [
+      "Hna hmun ti em?",
+      "ह्न ह्मुन् ति एम्?"
+     ],
+     [
+      "Kan Thawhtanni ah lo kal thei a ni.",
+      "कन् थॉह्तन्नि अह् लो कल् थेइ अ नि।"
+     ],
+     [
+      "Pu thu ti tan Ka lawm e.",
+      "पु थु ति तन् क लॉम् ए।"
+     ],
+     [
+      "Kan tu emaw ni exam tan inpeih a ni.",
+      "कन् तु एमॉ नि एक्सम् तन् इन्पेइह् अ नि।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 9,
+   "title": "Market and Smart Buying",
+   "hi": "बाजार और समझदार ख़रीदारी",
+   "pace": 30,
+   "days": [
+    {
+     "title": "सब्ज़ी-फल की ख़रीद",
+     "tw": [
+      [
+       "Thar",
+       "थर्",
+       "ताज़ा",
+       "ग"
+      ],
+      [
+       "Thu a ni tawh",
+       "थु अ नि तॉह्",
+       "सड़ा हुआ",
+       "ग"
+      ],
+      [
+       "Kilo",
+       "किलो",
+       "किलो",
+       "ग"
+      ],
+      [
+       "Khaina",
+       "खैन",
+       "तराज़ू",
+       "ग"
+      ],
+      [
+       "Dozen",
+       "दर्जन",
+       "दर्जन",
+       "ग"
+      ],
+      [
+       "Hun bik",
+       "हुन् बिक्",
+       "मौसमी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "सब्ज़ी-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Tomato man eng a ni em?",
+       "टमाटर मन् एङ् अ नि एम्?",
+       "टमाटर का भाव क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "40 cheng kilo.",
+       "40 चेङ् किलो।",
+       "चालीस रुपये किलो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 kilo tomato pe rawh.",
+       "1 किलो टमाटर पे रॉह्।",
+       "एक किलो टमाटर देना।",
+       "S",
+       "B"
+      ],
+      [
+       "Chanve kilo hring hmarcha pe rawh.",
+       "चन्वे किलो ह्रिङ् ह्मर्च पे रॉह्।",
+       "आधा किलो हरी मिर्च देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng Heng thlai thar a ni em?",
+       "एङ् हेङ् थ्लै थर् अ नि एम्?",
+       "क्या ये सब्ज़ियाँ ताज़ी हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Heng vawiin zing lo kal tawh a ni.",
+       "हेङ् वॉइइन् ज़िङ् लो कल् तॉह् अ नि।",
+       "ये आज सुबह आई हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei tomato thu a ni thlak 2.",
+       "हेइ टमाटर थु अ नि थ्लक् 2।",
+       "यह टमाटर सड़ा है, बदल दो।",
+       "S",
+       "C"
+      ],
+      [
+       "Min kut ah thlan 2.",
+       "मिन् कुत् अह् थ्लन् 2।",
+       "मुझे अपने हाथ से चुनने दो।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei kar purun to a ni.",
+       "हेइ कर् पुरुन् तो अ नि।",
+       "इस हफ़्ते प्याज़ महँगा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Alu liam ta kar ah tlawm a ni.",
+       "आलू लियाम् त कर् अह् त्लॉम् अ नि।",
+       "आलू पिछले हफ़्ते से सस्ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hun bik thlai lei rawh tlawm a ni.",
+       "हुन् बिक् थ्लै लेइ रॉह् त्लॉम् अ नि।",
+       "मौसमी सब्ज़ी खरीदो, सस्ती होती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin eng thei tha a ni em?",
+       "वॉइइन् एङ् थेइ थ अ नि एम्?",
+       "आज कौन-सा फल अच्छा है?",
+       "S",
+       "B"
+      ],
+      [
+       "Balhla thlum leh tlawm a ni.",
+       "बल्ह्ल थ्लुम् लेह् त्लॉम् अ नि।",
+       "केले मीठे और सस्ते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "1 dozen balhla pe rawh.",
+       "1 दर्जन बल्ह्ल पे रॉह्।",
+       "एक दर्जन केले देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Khaina ah khai en fiah rawh.",
+       "खैन अह् खै एन् फ़ियाह् रॉह्।",
+       "तराज़ू पर तौल जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Khaina hmasa zero entir.",
+       "खैन ह्मस ज़ीरो एन्तिर्।",
+       "तराज़ू पहले शून्य दिखाए।",
+       "L",
+       "B"
+      ],
+      [
+       "I khaina tlem entir awm mek.",
+       "इ खैन त्लेम् एन्तिर् ऑम् मेक्।",
+       "तुम्हारा तराज़ू कम दिखा रहा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin leh ah khai rawh.",
+       "खॉङैहिन् लेह् अह् खै रॉह्।",
+       "कृपया फिर से तौलो।",
+       "S",
+       "A"
+      ],
+      [
+       "Tunah khai dik a ni.",
+       "तुनह् खै दिक् अ नि।",
+       "अब तौल सही है।",
+       "S",
+       "C"
+      ],
+      [
+       "A vaiin 1 100 20 a ni tawh.",
+       "अ वैइन् 1 100 20 अ नि तॉह्।",
+       "कुल एक सौ बीस हुए।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka 5 100 note pe tawh.",
+       "क 5 100 नोट पे तॉह्।",
+       "मैंने पाँच सौ का नोट दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "3 100 80 kir leh ti rawh.",
+       "3 100 80 किर् लेह् ति रॉह्।",
+       "तीन सौ अस्सी वापस करो।",
+       "S",
+       "C"
+      ],
+      [
+       "Kal ah hmasa inhawng pawisa chhiar la rawh.",
+       "कल् अह् ह्मस इन्हॉङ् पॉइस छियार् ल रॉह्।",
+       "जाने से पहले खुले पैसे गिन लो।",
+       "L",
+       "A"
+      ],
+      [
+       "Thlai puan ip ah dah rawh.",
+       "थ्लै पुअन् इप् अह् दह् रॉह्।",
+       "सब्ज़ियाँ कपड़े के थैले में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Plastic ip te khap ti rawh.",
+       "प्लास्टिक इप् ते खप् ति रॉह्।",
+       "प्लास्टिक थैली को मना करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhum ah hmasa thlai sil rawh.",
+       "छुम् अह् ह्मस थ्लै सिल् रॉह्।",
+       "पकाने से पहले सब्ज़ियाँ धोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Tlai bazar a chang chuan tlawm a ni.",
+       "त्लै बज़र् अ चङ् चुअन् त्लॉम् अ नि।",
+       "शाम का बाजार कभी-कभी सस्ता होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka zawng kar thlai lei.",
+       "क ज़ॉङ् कर् थ्लै लेइ।",
+       "मैं पूरे हफ़्ते की सब्ज़ी खरीदता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Fing lei tu 2 dawr ah zawt.",
+       "फ़िङ् लेइ तु 2 दॉर् अह् ज़ॉत्।",
+       "समझदार ख़रीदार दो दुकानों से पूछता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Thar chaw hrisel taksa.",
+       "थर् चॉ ह्रिसेल् तक्स।",
+       "ताज़ा खाना, सेहतमंद शरीर।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "राशन-किराना (सूची और छपा दाम)",
+     "tw": [
+      [
+       "Grocery",
+       "ग्रोसरी",
+       "किराना",
+       "ग"
+      ],
+      [
+       "List",
+       "लिस्ट",
+       "सूची",
+       "ग"
+      ],
+      [
+       "Packet",
+       "पैकेट",
+       "पैकेट",
+       "ग"
+      ],
+      [
+       "Expiry date",
+       "एक्सपायरी डेट",
+       "मियाद-तारीख़",
+       "ग"
+      ],
+      [
+       "Chhut man",
+       "छुत् मन्",
+       "छपा दाम",
+       "ग"
+      ],
+      [
+       "Inhawng (lovin packet)",
+       "इन्हॉङ् (लोविन् पैकेट)",
+       "खुला (बिना पैकेट)",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "oneMany",
+      "hi": "एक से अनेक — s लगाकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Thil lei ah hmasa list siam rawh.",
+       "थिल् लेइ अह् ह्मस लिस्ट सियाम् रॉह्।",
+       "ख़रीदारी से पहले सूची बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "List pawisa leh hun vawng a ni.",
+       "लिस्ट पॉइस लेह् हुन् वॉङ् अ नि।",
+       "सूची पैसा और समय बचाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Min buh bean leh hriak duh rawh.",
+       "मिन् बुह् बेअन् लेह् ह्रियाक् दुह् रॉह्।",
+       "मुझे चावल, दाल और तेल चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Chu ip ah 5 kilo buh pe rawh.",
+       "चु इप् अह् 5 किलो बुह् पे रॉह्।",
+       "उस बोरे से पाँच किलो चावल देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng inhawng bean packet ah tlawm a ni em?",
+       "एङ् इन्हॉङ् बेअन् पैकेट अह् त्लॉम् अ नि एम्?",
+       "क्या खुली दाल पैकेट से सस्ती है?",
+       "S",
+       "B"
+      ],
+      [
+       "Packet ah expiry date en fiah rawh.",
+       "पैकेट अह् एक्सपायरी डेट एन् फ़ियाह् रॉह्।",
+       "पैकेट पर मियाद-तारीख़ जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei packet hun hnaih a ni.",
+       "हेइ पैकेट हुन् ह्नैह् अ नि।",
+       "यह पैकेट मियाद के पास है।",
+       "S",
+       "C"
+      ],
+      [
+       "Min thar packet pe rawh.",
+       "मिन् थर् पैकेट पे रॉह्।",
+       "मुझे नया पैकेट देना।",
+       "S",
+       "B"
+      ],
+      [
+       "Chhut man ah tam engtikah mah 2 lo.",
+       "छुत् मन् अह् तम् एङ्तिकह् मह् 2 लो।",
+       "छपे दाम से ज़्यादा कभी मत दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhut man packet ah ziak a ni.",
+       "छुत् मन् पैकेट अह् ज़ियाक् अ नि।",
+       "छपा दाम पैकेट पर लिखा होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "I chhut man ah tam la mek.",
+       "इ छुत् मन् अह् तम् ल मेक्।",
+       "तुम छपे दाम से ज़्यादा ले रहे हो।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawt chhut man ah tam hralh dik lo a ni.",
+       "वॉत् छुत् मन् अह् तम् ह्रल्ह् दिक् लो अ नि।",
+       "ठंडा छपे दाम से ज़्यादा बेचना ग़लत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng te hriak pouch a ni em?",
+       "एङ् ते ह्रियाक् पाउच अ नि एम्?",
+       "क्या छोटे तेल-पाउच हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Lian packet kilo chhut ah tlawm tul a ni.",
+       "लियान् पैकेट किलो छुत् अह् त्लॉम् तुल् अ नि।",
+       "बड़ा पैकेट किलो के हिसाब से सस्ता पड़ता है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 sahbawn leh 1 paste belh 2.",
+       "1 सह्बॉन् लेह् 1 पेस्ट बेल्ह् 2।",
+       "एक साबुन और एक पेस्ट जोड़ दो।",
+       "S",
+       "C"
+      ],
+      [
+       "A vaiin bill engzat a ni tawh em?",
+       "अ वैइन् बिल एङ्ज़त् अ नि तॉह् एम्?",
+       "कुल बिल कितना हुआ?",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin ziak a ni tawh bill siam rawh.",
+       "खॉङैहिन् ज़ियाक् अ नि तॉह् बिल सियाम् रॉह्।",
+       "कृपया लिखा हुआ बिल बनाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Bill thilte pakhat theuh ti en fiah rawh.",
+       "बिल थिल्ते पखत् थेउह् ति एन् फ़ियाह् रॉह्।",
+       "बिल की चीज़ें एक-एक कर जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "I chini 2 vawi ziak.",
+       "इ चिनि 2 वॉइ ज़ियाक्।",
+       "तुमने चीनी दो बार लिखी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ngaidam tih tan pe.",
+       "ङैदम् तिह् तन् पे।",
+       "माफ़ करना, काट देता हूँ।",
+       "L",
+       "A"
+      ],
+      [
+       "Eng Ka lo awm leh kar pe thei em?",
+       "एङ् क लो ऑम् लेह् कर् पे थेइ एम्?",
+       "क्या मैं अगले हफ़्ते दे सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Chutiang zat lei rawh engzat nge pe zo thei.",
+       "चुतियाङ् ज़त् लेइ रॉह् एङ्ज़त् ङे पे ज़ो थेइ।",
+       "उतना ही खरीदो जितना चुका सको।",
+       "L",
+       "B"
+      ],
+      [
+       "Thla ration copy ah ziak rawh.",
+       "थ्ल राशन कॉपी अह् ज़ियाक् रॉह्।",
+       "महीने का राशन कॉपी में लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "2 dawr man chawhpawlh rawh.",
+       "2 दॉर् मन् चॉह्पॉल्ह् रॉह्।",
+       "दो दुकानों का भाव मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Wholesale dawr tam thil ah tlawm a ni.",
+       "होलसेल दॉर् तम् थिल् अह् त्लॉम् अ नि।",
+       "थोक दुकान ज़्यादा माल पर सस्ती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kan 5 mite nen ration lei.",
+       "कन् 5 मिते नेन् राशन लेइ।",
+       "हम पाँच लोग साथ राशन खरीदते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Nen lei ah tha zawk man hmu.",
+       "नेन् लेइ अह् थ ज़ॉक् मन् ह्मु।",
+       "साथ खरीदने पर बेहतर भाव मिलता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ro ration tui ah hla dah rawh.",
+       "रो राशन तुइ अह् ह्ल दह् रॉह्।",
+       "सूखा राशन पानी से दूर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ziak bill i finfiahna a ni.",
+       "ज़ियाक् बिल इ फ़िन्फ़ियाह्न अ नि।",
+       "लिखा बिल आपका सबूत है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ngaihtuah takin lei chanve khawlkhawm a ni.",
+       "ङैह्तुअह् तकिन् लेइ चन्वे खॉल्खॉम् अ नि।",
+       "सोच-समझकर ख़रीदना आधी बचत है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "कपड़ा-जूता और मोलभाव",
+     "tw": [
+      [
+       "Man inbiak",
+       "मन् इन्बियाक्",
+       "मोलभाव",
+       "ग"
+      ],
+      [
+       "Hnuhnung ber man",
+       "ह्नुह्नुङ् बेर् मन्",
+       "आख़िरी भाव",
+       "ग"
+      ],
+      [
+       "Puan enfiahna pindan",
+       "पुअन् एन्फ़ियाह्न पिन्दन्",
+       "कपड़ा-परख कमरा",
+       "ग"
+      ],
+      [
+       "Rawng",
+       "रॉङ्",
+       "रंग",
+       "ग"
+      ],
+      [
+       "Guarantee",
+       "गारंटी",
+       "गारंटी",
+       "ग"
+      ],
+      [
+       "Kawp",
+       "कॉप्",
+       "जोड़ी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "मोलभाव-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Min nitin hna kawr duh rawh.",
+       "मिन् नितिन् ह्न कॉर् दुह् रॉह्।",
+       "मुझे रोज़ के काम की कमीज़ चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tu emaw chak puan min entir rawh.",
+       "तु एमॉ चक् पुअन् मिन् एन्तिर् रॉह्।",
+       "कोई मज़बूत कपड़ा दिखाओ।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei kawr man eng a ni em?",
+       "हेइ कॉर् मन् एङ् अ नि एम्?",
+       "इस कमीज़ का भाव क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "6 100 hnuhnung ber man.",
+       "6 100 ह्नुह्नुङ् बेर् मन्।",
+       "छह सौ, आख़िरी भाव।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei ka tan tak tam a ni.",
+       "हेइ क तन् तक् तम् अ नि।",
+       "यह मेरे लिए बहुत ज़्यादा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka 4 100 ka pe ang.",
+       "क 4 100 क पे अङ्।",
+       "मैं चार सौ दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "50 tipung rawh leh chanve 4 100 ah la rawh.",
+       "50 तिपुङ् रॉह् लेह् चन्वे 4 100 अह् ल रॉह्।",
+       "पचास बढ़ाओ, साढ़े चार सौ में ले जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Tha a ni leh chanve 4 100 ah pack ti rawh.",
+       "थ अ नि लेह् चन्वे 4 100 अह् पैक ति रॉह्।",
+       "ठीक है, साढ़े चार सौ में पैक कर दो।",
+       "S",
+       "C"
+      ],
+      [
+       "Man inbiak nuih ah ti rawh indona ah lo.",
+       "मन् इन्बियाक् नुइह् अह् ति रॉह् इन्दोन अह् लो।",
+       "मोलभाव मुस्कान से करो, लड़ाई से नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng Ka trial room ah ha a en ka la ang em?",
+       "एङ् क ट्रायल रूम अह् ह अ एन् क ल अङ् एम्?",
+       "क्या मैं परख-कमरे में पहनकर देख लूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Bah tlem sei a ni.",
+       "बह् त्लेम् सेइ अ नि।",
+       "आस्तीन थोड़ी लंबी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng Hei pawl rawng ah a ni em?",
+       "एङ् हेइ पॉल् रॉङ् अह् अ नि एम्?",
+       "क्या यह नीले रंग में है?",
+       "S",
+       "B"
+      ],
+      [
+       "Eng sil ah rawng a chhuak ang em?",
+       "एङ् सिल् अह् रॉङ् अ छुअक् अङ् एम्?",
+       "क्या धोने में रंग निकलेगा?",
+       "S",
+       "B"
+      ],
+      [
+       "Aih rawng chiang a ni.",
+       "ऐह् रॉङ् चियाङ् अ नि।",
+       "नहीं, रंग पक्का है।",
+       "L",
+       "A"
+      ],
+      [
+       "Min hna pheikhawk kawp duh rawh.",
+       "मिन् ह्न फेइखॉक् कॉप् दुह् रॉह्।",
+       "मुझे काम के जूतों की जोड़ी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka teh 8 nambar a ni.",
+       "क तेह् 8 नम्बर् अ नि।",
+       "मेरा नाप आठ नंबर है।",
+       "S",
+       "B"
+      ],
+      [
+       "2 pen kal a en rawh.",
+       "2 पेन् कल् अ एन् रॉह्।",
+       "दो कदम चलकर देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vei pheikhawk phuar awm mek.",
+       "वेइ फेइखॉक् फुअर् ऑम् मेक्।",
+       "बायाँ जूता कस रहा है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 nambar lian 2.",
+       "1 नम्बर् लियान् 2।",
+       "एक नंबर बड़ा दो।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng hei ah tu emaw guarantee a ni em?",
+       "एङ् हेइ अह् तु एमॉ गारंटी अ नि एम्?",
+       "क्या इस पर कोई गारंटी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Thui ah 1 thla guarantee.",
+       "थुइ अह् 1 थ्ल गारंटी।",
+       "सिलाई पर एक महीने की गारंटी।",
+       "L",
+       "B"
+      ],
+      [
+       "Guarantee bill ah ziak rawh.",
+       "गारंटी बिल अह् ज़ियाक् रॉह्।",
+       "गारंटी बिल पर लिख दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmasa hna tan lei rawh inlarna tan hnuah ah.",
+       "ह्मस ह्न तन् लेइ रॉह् इन्लर्न तन् ह्नुअह् अह्।",
+       "पहले काम के लिए खरीदो, दिखावे के लिए बाद में।",
+       "L",
+       "B"
+      ],
+      [
+       "2 pangngai kawr 1 to ah tha zawk a ni.",
+       "2 पङ्ङै कॉर् 1 तो अह् थ ज़ॉक् अ नि।",
+       "दो सादी कमीज़ें एक महँगी से बेहतर हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Kut sale ah dik zalenna hmu.",
+       "कुत् सेल अह् दिक् ज़लेन्न ह्मु।",
+       "त्योहार की सेल में असली छूट मिलती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Engemaw board lem zalenna entir a ni.",
+       "एङेमॉ बोर्ड लेम् ज़लेन्न एन्तिर् अ नि।",
+       "कुछ बोर्ड नक़ली छूट दिखाते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmasa man leh tan man pahnih en fiah rawh.",
+       "ह्मस मन् लेह् तन् मन् पह्निह् एन् फ़ियाह् रॉह्।",
+       "पहले का दाम और कटा दाम दोनों जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka naupangte tan pawh puan tan.",
+       "क नौपङ्ते तन् पॉह् पुअन् तन्।",
+       "मैंने बच्चों के लिए भी कपड़े लिए।",
+       "S",
+       "B"
+      ],
+      [
+       "Tha man inbiak lawm kawrkhawng.",
+       "थ मन् इन्बियाक् लॉम् कॉर्खॉङ्।",
+       "अच्छा मोलभाव, खुश जेब।",
+       "S",
+       "C"
+      ],
+      [
+       "Hmasa mamawh leh duhna.",
+       "ह्मस ममॉह् लेह् दुह्न।",
+       "पहले ज़रूरत, फिर इच्छा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "मोबाइल और बड़ी ख़रीद",
+     "tw": [
+      [
+       "Warranty",
+       "वारंटी",
+       "वारंटी",
+       "ग"
+      ],
+      [
+       "Bawm",
+       "बॉम्",
+       "डिब्बा",
+       "ग"
+      ],
+      [
+       "Hlui (hman tawh)",
+       "ह्लुइ (ह्मन् तॉह्)",
+       "पुराना (इस्तेमाल किया)",
+       "ग"
+      ],
+      [
+       "Installment",
+       "इंस्टॉलमेंट",
+       "किस्त",
+       "ग"
+      ],
+      [
+       "Inmilna tih",
+       "इन्मिल्न तिह्",
+       "मिलान करना",
+       "ग"
+      ],
+      [
+       "Thatna",
+       "थत्न",
+       "ख़ूबियाँ",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "compare",
+      "hi": "तुलना करो — than लगाकर दो चीज़ों की तुलना बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka hlui phone screen chim kal tawh a ni.",
+       "क ह्लुइ फ़ोन स्क्रीन चिम् कल् तॉह् अ नि।",
+       "मेरे पुराने फोन की स्क्रीन टूट गई है।",
+       "S",
+       "B"
+      ],
+      [
+       "Siam tha emaw thar eng tha zawk a ni em?",
+       "सियाम् थ एमॉ थर् एङ् थ ज़ॉक् अ नि एम्?",
+       "मरम्मत या नया, क्या बेहतर है?",
+       "S",
+       "B"
+      ],
+      [
+       "Siam tha senso 2 1000 a ni.",
+       "सियाम् थ सेन्सो 2 1000 अ नि।",
+       "मरम्मत का ख़र्च दो हज़ार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Thar phone 7 1000 ah tan a ni.",
+       "थर् फ़ोन 7 1000 अह् तन् अ नि।",
+       "नया फोन सात हज़ार से शुरू है।",
+       "S",
+       "C"
+      ],
+      [
+       "Lian battery phone min entir rawh.",
+       "लियान् बैटरी फ़ोन मिन् एन्तिर् रॉह्।",
+       "बड़ी बैटरी वाला फोन दिखाओ।",
+       "S",
+       "B"
+      ],
+      [
+       "Lei ah hmasa 2 model chawhpawlh rawh.",
+       "लेइ अह् ह्मस 2 मॉडल चॉह्पॉल्ह् रॉह्।",
+       "खरीदने से पहले दो मॉडल मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei thatna eng a ni em?",
+       "हेइ थत्न एङ् अ नि एम्?",
+       "इसकी ख़ूबियाँ क्या हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Man online pawh en rawh.",
+       "मन् ऑनलाइन पॉह् एन् रॉह्।",
+       "भाव ऑनलाइन भी देख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng hei phone ah warranty a ni em?",
+       "एङ् हेइ फ़ोन अह् वारंटी अ नि एम्?",
+       "क्या इस फोन पर वारंटी है?",
+       "S",
+       "B"
+      ],
+      [
+       "1 kum company warranty.",
+       "1 कुम् कंपनी वारंटी।",
+       "एक साल कंपनी वारंटी।",
+       "L",
+       "B"
+      ],
+      [
+       "Bill nen zawng bawm la rawh.",
+       "बिल नेन् ज़ॉङ् बॉम् ल रॉह्।",
+       "बिल के साथ पूरा डिब्बा लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bawm ah charger leh lehkha a ni.",
+       "बॉम् अह् चार्जर लेह् लेह्ख अ नि।",
+       "डिब्बे में चार्जर और कागज़ है।",
+       "S",
+       "C"
+      ],
+      [
+       "Bawm nambar phone ah chawhpawlh rawh.",
+       "बॉम् नम्बर् फ़ोन अह् चॉह्पॉल्ह् रॉह्।",
+       "डिब्बे का नंबर फोन से मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Warranty tan bill enkawl rawh.",
+       "वारंटी तन् बिल एन्कॉल् रॉह्।",
+       "वारंटी के लिए बिल सँभालो।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng I hlui phone hralh em?",
+       "एङ् इ ह्लुइ फ़ोन ह्रल्ह् एम्?",
+       "क्या आप पुराने फोन बेचते हैं?",
+       "S",
+       "B"
+      ],
+      [
+       "Hlui chauh hriat lar dawr ah la rawh.",
+       "ह्लुइ चौह् ह्रियात् लर् दॉर् अह् ल रॉह्।",
+       "पुराना सिर्फ़ जानी-पहचानी दुकान से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Rukrunna phone police harsatna rawn ken.",
+       "रुक्रुन्न फ़ोन पुलिस हर्सत्न रॉन् केन्।",
+       "चोरी का फोन पुलिस-मुसीबत लाता है।",
+       "L",
+       "A"
+      ],
+      [
+       "Eng Ka installment ah pe thei em?",
+       "एङ् क इंस्टॉलमेंट अह् पे थेइ एम्?",
+       "क्या मैं किस्त में दे सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Installment vawiin awlsam naktuk rit.",
+       "इंस्टॉलमेंट वॉइइन् ऑल्सम् नक्तुक् रित्।",
+       "किस्त आज आसान, कल भारी।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmasa installment a vaiin senso belh rawh.",
+       "ह्मस इंस्टॉलमेंट अ वैइन् सेन्सो बेल्ह् रॉह्।",
+       "पहले किस्त का कुल ख़र्च जोड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Cash man installment man ah tlem a ni.",
+       "कैश मन् इंस्टॉलमेंट मन् अह् त्लेम् अ नि।",
+       "नकद दाम किस्त-दाम से कम होता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka 2 thla vawng a cash ka pe ang.",
+       "क 2 थ्ल वॉङ् अ कैश क पे अङ्।",
+       "मैं दो महीने बचाकर नकद दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmasa ni cover leh darthlalang dahtir rawh.",
+       "ह्मस नि कवर लेह् दर्थ्ललङ् दह्तिर् रॉह्।",
+       "पहले दिन कवर और शीशा लगवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Thar phone ah tala dah rawh.",
+       "थर् फ़ोन अह् तल दह् रॉह्।",
+       "नए फोन पर ताला लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Phone IMEI nambar ziak rawh.",
+       "फ़ोन आईएमईआई नम्बर् ज़ियाक् रॉह्।",
+       "फोन का आईएमईआई नंबर लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Phone bo ah Hei hna lo kal.",
+       "फ़ोन बो अह् हेइ ह्न लो कल्।",
+       "फोन खोने पर यह काम आता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Zawng thai bo a hlui phone hralh rawh.",
+       "ज़ॉङ् थै बो अ ह्लुइ फ़ोन ह्रल्ह् रॉह्।",
+       "सब मिटाकर ही पुराना फोन बेचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lian lei vawt thluak duh rawh.",
+       "लियान् लेइ वॉत् थ्लुअक् दुह् रॉह्।",
+       "बड़ी ख़रीद को ठंडा दिमाग़ चाहिए।",
+       "S",
+       "C"
+      ],
+      [
+       "Lian lei ah hmasa 1 zan mu rawh.",
+       "लियान् लेइ अह् ह्मस 1 ज़न् मु रॉह्।",
+       "बड़ी ख़रीद से पहले एक रात सो लो।",
+       "L",
+       "B"
+      ],
+      [
+       "2 vawi ngaihtuah pawisa la bang pawisa a ni.",
+       "2 वॉइ ङैह्तुअह् पॉइस ल बङ् पॉइस अ नि।",
+       "दो बार सोचा पैसा बचा पैसा है।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "वापसी-बदली और ठगी-बचाव",
+     "tw": [
+      [
+       "Thlak",
+       "थ्लक्",
+       "बदली",
+       "ग"
+      ],
+      [
+       "Fel lohna",
+       "फ़ेल् लोह्न",
+       "खोट",
+       "ग"
+      ],
+      [
+       "Seal",
+       "सील",
+       "सील",
+       "ग"
+      ],
+      [
+       "Lem",
+       "लेम्",
+       "नक़ली",
+       "ग"
+      ],
+      [
+       "Refund",
+       "रिफ़ंड",
+       "पैसा-वापसी",
+       "ग"
+      ],
+      [
+       "Dik",
+       "दिक्",
+       "असली",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "ख़रीद-जाँच सूची — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hei kawr ah fel lohna a ni.",
+       "हेइ कॉर् अह् फ़ेल् लोह्न अ नि।",
+       "इस कमीज़ में खोट है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 lam thui inhawng a ni.",
+       "1 लम् थुइ इन्हॉङ् अ नि।",
+       "एक तरफ़ की सिलाई खुली है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka hei thlak duh.",
+       "क हेइ थ्लक् दुह्।",
+       "मैं इसे बदलना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei naktuk bill a ni.",
+       "हेइ नक्तुक् बिल अ नि।",
+       "यह कल का बिल है।",
+       "S",
+       "C"
+      ],
+      [
+       "Bill nen thlak awlsam a ni.",
+       "बिल नेन् थ्लक् ऑल्सम् अ नि।",
+       "बिल के साथ बदली आसान होती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ngaidam ti rawh Kan tunah thlak pe.",
+       "ङैदम् ति रॉह् कन् तुनह् थ्लक् पे।",
+       "माफ़ कीजिए, हम अभी बदल देते हैं।",
+       "L",
+       "A"
+      ],
+      [
+       "Eng thlak ah refund hmu thei em?",
+       "एङ् थ्लक् अह् रिफ़ंड ह्मु थेइ एम्?",
+       "क्या बदले में पैसा-वापसी मिल सकती है?",
+       "S",
+       "A"
+      ],
+      [
+       "Refund 3 ni ah lo kal.",
+       "रिफ़ंड 3 नि अह् लो कल्।",
+       "पैसा-वापसी तीन दिन में आती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Lei ah hmasa seal en fiah rawh.",
+       "लेइ अह् ह्मस सील एन् फ़ियाह् रॉह्।",
+       "खरीदने से पहले सील जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chim seal awmzia inhawng packet.",
+       "चिम् सील ऑम्ज़िया इन्हॉङ् पैकेट।",
+       "टूटी सील मतलब खुला पैकेट।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei bottle lem a lang a ni.",
+       "हेइ बॉटल लेम् अ लङ् अ नि।",
+       "यह बोतल नक़ली लगती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Dik ah chhutna fai a ni.",
+       "दिक् अह् छुत्न फ़ै अ नि।",
+       "असली पर छपाई साफ़ होती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Dik lo hawrawp lem lian hriatna a ni.",
+       "दिक् लो हॉरॉप् लेम् लियान् ह्रियात्न अ नि।",
+       "ग़लत अक्षर नक़ली की बड़ी पहचान है।",
+       "L",
+       "B"
+      ],
+      [
+       "Tak tlawm tak lem a ni thei.",
+       "तक् त्लॉम् तक् लेम् अ नि थेइ।",
+       "बहुत सस्ता बहुत नक़ली हो सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Footpath ah damdawi lei suh.",
+       "फ़ुटपाथ अह् दम्दॉइ लेइ सुह्।",
+       "फुटपाथ से दवा मत खरीदो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin lian thil bill dil rawh.",
+       "तिन् लियान् थिल् बिल दिल् रॉह्।",
+       "हर बड़ी चीज़ का बिल माँगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bill chuan finfiahna lo.",
+       "बिल चुअन् फ़िन्फ़ियाह्न लो।",
+       "बिल नहीं तो सबूत नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Dawr neitu thlak ah khap ti tawh.",
+       "दॉर् नेइतु थ्लक् अह् खप् ति तॉह्।",
+       "दुकानदार ने बदली से मना किया।",
+       "S",
+       "C"
+      ],
+      [
+       "Inngaitlawm ah chak nih thu ti rawh.",
+       "इन्ङैत्लॉम् अह् चक् निह् थु ति रॉह्।",
+       "विनम्र पर मज़बूत होकर बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lei tu anga Hei ka dikna a ni.",
+       "लेइ तु अङ हेइ क दिक्न अ नि।",
+       "ख़रीदार के नाते यह मेरा हक़ है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hmangtu helpline ah complain ti ang.",
+       "क ह्मङ्तु हेल्पलाइन अह् कम्प्लेन ति अङ्।",
+       "मैं उपभोक्ता हेल्पलाइन पर शिकायत करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hmangtu helpline 1 9 1 5 a ni.",
+       "ह्मङ्तु हेल्पलाइन 1 9 1 5 अ नि।",
+       "उपभोक्ता हेल्पलाइन एक नौ एक पाँच है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei ngaithla a kawr thlak pe.",
+       "हेइ ङैथ्ल अ कॉर् थ्लक् पे।",
+       "यह सुनकर उसने कमीज़ बदल दी।",
+       "S",
+       "C"
+      ],
+      [
+       "Online order ah let hnih fimkhurna duh rawh.",
+       "ऑनलाइन ऑर्डर अह् लेत् ह्निह् फ़िम्खुर्न दुह् रॉह्।",
+       "ऑनलाइन ऑर्डर में दोगुनी सावधानी चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Parcel hawng hun video siam rawh.",
+       "पार्सल हॉङ् हुन् वीडियो सियाम् रॉह्।",
+       "पार्सल खोलते समय वीडियो बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Video kirna finfiahna a ni.",
+       "वीडियो किर्न फ़िन्फ़ियाह्न अ नि।",
+       "वीडियो वापसी का सबूत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Delivery kal ah hmasa parcel en fiah rawh.",
+       "डिलीवरी कल् अह् ह्मस पार्सल एन् फ़ियाह् रॉह्।",
+       "डिलीवरी वाले के जाने से पहले पार्सल जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Harh lei tu 2 vawi bum kal lo.",
+       "हर्ह् लेइ तु 2 वॉइ बुम् कल् लो।",
+       "जागरूक ख़रीदार दो बार नहीं ठगा जाता।",
+       "S",
+       "C"
+      ],
+      [
+       "I pawisa i aw.",
+       "इ पॉइस इ ऑ।",
+       "आपका पैसा, आपकी आवाज़।",
+       "S",
+       "B"
+      ],
+      [
+       "Mit hawng a lei rawh zang rilru ah mu rawh.",
+       "मित् हॉङ् अ लेइ रॉह् ज़ङ् रिल्रु अह् मु रॉह्।",
+       "आँखें खोलकर खरीदो, हल्के मन से सोओ।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) Che engzat kilo duh rawh em?",
+     "(बोलो) 1 kilo ka hmaah ka khai ang."
+    ],
+    [
+     "(सुनो) I Hei avangin kir leh ti duh em?",
+     "(बोलो) Hei kawr ah chhiatna a ni."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Hei kawr man engzat a ni em?",
+     "हेइ कॉर् मन् एङ्ज़त् अ नि एम्?"
+    ],
+    [
+     "दुकानदार",
+     "6 100.",
+     "6 100।"
+    ],
+    [
+     "आप",
+     "Kan 4 100 ka pe ang.",
+     "कन् 4 100 क पे अङ्।"
+    ],
+    [
+     "दुकानदार",
+     "Leh chanve 4 100 ah ka la ang.",
+     "लेह् चन्वे 4 100 अह् क ल अङ्।"
+    ],
+    [
+     "आप",
+     "Tha ka ni pack ti rawh.",
+     "थ क नि पैक ति रॉह्।"
+    ]
+   ],
+   "test": {
+    "target": "बाजार का पूरा अभ्यास (दोस्त दुकानदार बने)",
+    "goal": "English में पूरी ख़रीद खेलिए — भाव पूछो, तौल जँचवाओ, मोलभाव करो, बिल माँगो, खुले पैसे गिनो — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Tomato man engzat a ni em?",
+      "टमाटर मन् एङ्ज़त् अ नि एम्?"
+     ],
+     [
+      "Leh ka khai ang.",
+      "लेह् क खै अङ्।"
+     ],
+     [
+      "Hei min tan tak tam a ni.",
+      "हेइ मिन् तन् तक् तम् अ नि।"
+     ],
+     [
+      "Kan 4 100 ka pe ang.",
+      "कन् 4 100 क पे अङ्।"
+     ],
+     [
+      "Ziak bill ka siam ang.",
+      "ज़ियाक् बिल क सियाम् अङ्।"
+     ],
+     [
+      "Kal ah hmasa inhawng pawisa chhiar rawh.",
+      "कल् अह् ह्मस इन्हॉङ् पॉइस छियार् रॉह्।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 10,
+   "title": "Bus, Train and Safe Journey",
+   "hi": "बस, ट्रेन और सुरक्षित सफ़र",
+   "pace": 30,
+   "days": [
+    {
+     "title": "बस का सफ़र",
+     "tw": [
+      [
+       "Hmun man",
+       "ह्मुन् मन्",
+       "किराया",
+       "ग"
+      ],
+      [
+       "Conductor",
+       "कंडक्टर",
+       "कंडक्टर",
+       "ग"
+      ],
+      [
+       "Chawlhna",
+       "चॉल्ह्न",
+       "पड़ाव",
+       "ग"
+      ],
+      [
+       "Window seat",
+       "विंडो सीट",
+       "खिड़की-सीट",
+       "ग"
+      ],
+      [
+       "Mipui khat",
+       "मिपुइ खत्",
+       "भीड़-भरा",
+       "ग"
+      ],
+      [
+       "Chhuk",
+       "छुक्",
+       "उतरना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "बस-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hei bus khawiah kal em?",
+       "हेइ बस खॉइयाह् कल् एम्?",
+       "यह बस कहाँ जाती है?",
+       "S",
+       "B"
+      ],
+      [
+       "Eng Hei industrial area kal em?",
+       "एङ् हेइ इंडस्ट्रियल एरिया कल् एम्?",
+       "क्या यह औद्योगिक क्षेत्र जाती है?",
+       "S",
+       "B"
+      ],
+      [
+       "Aw rang chuang rawh.",
+       "ऑ रङ् चुअङ् रॉह्।",
+       "हाँ, जल्दी चढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bazar thleng hmun man eng a ni em?",
+       "बज़र् थ्लेङ् ह्मुन् मन् एङ् अ नि एम्?",
+       "बाजार तक किराया क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Chauh 20 cheng.",
+       "चौह् 20 चेङ्।",
+       "सिर्फ़ बीस रुपये।",
+       "L",
+       "B"
+      ],
+      [
+       "Hnuhnung ber chawlhna 1 ticket.",
+       "ह्नुह्नुङ् बेर् चॉल्ह्न 1 टिकट।",
+       "आख़िरी पड़ाव की एक टिकट।",
+       "S",
+       "C"
+      ],
+      [
+       "Chhuk thleng ticket dah rawh.",
+       "छुक् थ्लेङ् टिकट दह् रॉह्।",
+       "उतरने तक टिकट रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Conductor ticket en fiah a ni.",
+       "कंडक्टर टिकट एन् फ़ियाह् अ नि।",
+       "कंडक्टर टिकटें जाँचता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Eng Hei seat ruak a ni em?",
+       "एङ् हेइ सीट रुअक् अ नि एम्?",
+       "क्या यह सीट ख़ाली है?",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin tlem sawn rawh.",
+       "खॉङैहिन् त्लेम् सॉन् रॉह्।",
+       "कृपया थोड़ा खिसकिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Min window seat duh a ni.",
+       "मिन् विंडो सीट दुह् अ नि।",
+       "मुझे खिड़की-सीट पसंद है।",
+       "S",
+       "B"
+      ],
+      [
+       "Vawiin bus tak mipui khat a ni.",
+       "वॉइइन् बस तक् मिपुइ खत् अ नि।",
+       "आज बस बहुत भीड़-भरी है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kal bus ah thing man rawh.",
+       "कल् बस अह् थिङ् मन् रॉह्।",
+       "चलती बस में डंडा पकड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Gate ah ding suh.",
+       "गेट अह् दिङ् सुह्।",
+       "गेट पर मत खड़े हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Upate seat 2.",
+       "उपते सीट 2।",
+       "बड़ों को सीट दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lian damdawiin tan eng chawlhna em?",
+       "लियान् दम्दॉइइन् तन् एङ् चॉल्ह्न एम्?",
+       "बड़े अस्पताल के लिए कौन-सा पड़ाव?",
+       "S",
+       "A"
+      ],
+      [
+       "Lo awm leh chawlhna ah chhuk rawh.",
+       "लो ऑम् लेह् चॉल्ह्न अह् छुक् रॉह्।",
+       "अगले पड़ाव पर उतरो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lo kal ah min hrilh pe rawh.",
+       "लो कल् अह् मिन् ह्रिल्ह् पे रॉह्।",
+       "आने पर मुझे बता दीजिएगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Chawlhna ah hmasa dar vaw rawh.",
+       "चॉल्ह्न अह् ह्मस दर् वॉ रॉह्।",
+       "अपने पड़ाव से पहले घंटी बजाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hnuhnung ber bus 10 dar inhawng a ni.",
+       "ह्नुह्नुङ् बेर् बस 10 दर् इन्हॉङ् अ नि।",
+       "आख़िरी बस दस बजे खुलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "2 minute ah ka bus zalenna kal tawh.",
+       "2 मिनुते अह् क बस ज़लेन्न कल् तॉह्।",
+       "दो मिनट से मेरी बस छूट गई।",
+       "S",
+       "B"
+      ],
+      [
+       "Lo awm leh bus chanve darkar ah lo kal.",
+       "लो ऑम् लेह् बस चन्वे दर्कर् अह् लो कल्।",
+       "अगली बस आधे घंटे में आती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ip pawm ah dah rawh.",
+       "इप् पॉम् अह् दह् रॉह्।",
+       "थैला गोद में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mipui ah kawrkhawng en rawh.",
+       "मिपुइ अह् कॉर्खॉङ् एन् रॉह्।",
+       "भीड़ में अपनी जेब देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thla bus pass pawisa vawng a ni.",
+       "थ्ल बस पास पॉइस वॉङ् अ नि।",
+       "महीने का बस-पास पैसा बचाता है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 photo ah hnaih siamtir rawh.",
+       "1 फ़ोटो अह् ह्नैह् सियाम्तिर् रॉह्।",
+       "एक फोटो से पास बनवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka nitin bus ah hna kal.",
+       "क नितिन् बस अह् ह्न कल्।",
+       "मैं रोज़ बस से काम जाता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Bus auto ah tlawm a ni.",
+       "बस ऑटो अह् त्लॉम् अ नि।",
+       "बस ऑटो से सस्ती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kawng bus nambar hre reng rawh.",
+       "कॉङ् बस नम्बर् ह्रे रेङ् रॉह्।",
+       "अपने रास्ते के बस नंबर याद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Dik bus dik hun awlsam nunna.",
+       "दिक् बस दिक् हुन् ऑल्सम् नुन्न।",
+       "सही बस, सही समय, आसान ज़िंदगी।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ट्रेन-टिकट और स्टेशन",
+     "tw": [
+      [
+       "Reservation",
+       "रिज़र्वेशन",
+       "आरक्षण",
+       "ग"
+      ],
+      [
+       "Platform",
+       "प्लेटफ़ॉर्म",
+       "प्लेटफॉर्म",
+       "ग"
+      ],
+      [
+       "Pangngai bawm",
+       "पङ्ङै बॉम्",
+       "साधारण डिब्बा",
+       "ग"
+      ],
+      [
+       "PNR",
+       "पीएनआर",
+       "पीएनआर",
+       "ग"
+      ],
+      [
+       "Nghak",
+       "ङ्हक्",
+       "प्रतीक्षा",
+       "ग"
+      ],
+      [
+       "Zawhna",
+       "ज़ॉह्न",
+       "पूछताछ",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "numberSay",
+      "hi": "सफ़र के नंबर बोलो — अंक सुनो, English में कहो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Min lo awm leh thla in kal.",
+       "मिन् लो ऑम् लेह् थ्ल इन् कल्।",
+       "मुझे अगले महीने घर जाना है।",
+       "S",
+       "A"
+      ],
+      [
+       "Rel ticket rang book ti rawh.",
+       "रेल् टिकट रङ् बुक ति रॉह्।",
+       "ट्रेन टिकट जल्दी बुक करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Rang booking ah chiang seat hmu.",
+       "रङ् बुकिंग अह् चियाङ् सीट ह्मु।",
+       "जल्दी बुकिंग से पक्की सीट मिलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka phone app ah book.",
+       "क फ़ोन ऐप अह् बुक।",
+       "मैंने फोन ऐप से बुक की।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka ticket nghak ah a ni.",
+       "क टिकट ङ्हक् अह् अ नि।",
+       "मेरी टिकट प्रतीक्षा में है।",
+       "S",
+       "B"
+      ],
+      [
+       "PNR dinhmun nitin en rawh.",
+       "पीएनआर दिन्ह्मुन् नितिन् एन् रॉह्।",
+       "पीएनआर की स्थिति रोज़ देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Vawiin nghak chiang a ni tawh.",
+       "वॉइइन् ङ्हक् चियाङ् अ नि तॉह्।",
+       "आज प्रतीक्षा पक्की हो गई।",
+       "S",
+       "A"
+      ],
+      [
+       "Patna rel eng platform ah em?",
+       "पटना रेल् एङ् प्लेटफ़ॉर्म अह् एम्?",
+       "पटना वाली ट्रेन किस प्लेटफॉर्म पर?",
+       "S",
+       "B"
+      ],
+      [
+       "Platform nambar 3.",
+       "प्लेटफ़ॉर्म नम्बर् 3।",
+       "प्लेटफॉर्म नंबर तीन।",
+       "L",
+       "B"
+      ],
+      [
+       "Zawhna tukverh ah zawt rawh.",
+       "ज़ॉह्न तुक्वेर्ह् अह् ज़ॉत् रॉह्।",
+       "पूछताछ खिड़की पर पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Rel 1 darkar tlai ah a ni.",
+       "रेल् 1 दर्कर् त्लै अह् अ नि।",
+       "ट्रेन एक घंटा देर से है।",
+       "S",
+       "C"
+      ],
+      [
+       "Board ah rel hun en rawh.",
+       "बोर्ड अह् रेल् हुन् एन् रॉह्।",
+       "बोर्ड पर ट्रेन का समय देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Pangngai bawm hmaah lam a ni.",
+       "पङ्ङै बॉम् ह्माह् लम् अ नि।",
+       "साधारण डिब्बा आगे की ओर है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka bawm S-4 a ni.",
+       "क बॉम् स्-4 अ नि।",
+       "मेरा डिब्बा एस-चार है।",
+       "S",
+       "B"
+      ],
+      [
+       "Coach list lei hnaih a ni.",
+       "कोच लिस्ट लेइ ह्नैह् अ नि।",
+       "डिब्बा-सूची पुल के पास है।",
+       "L",
+       "B"
+      ],
+      [
+       "Chauh chungah lei ah kan ti rawh.",
+       "चौह् चुङह् लेइ अह् कन् ति रॉह्।",
+       "सिर्फ़ ऊपर वाले पुल से पार करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Rel kawng engtikah mah kan ti suh.",
+       "रेल् कॉङ् एङ्तिकह् मह् कन् ति सुह्।",
+       "रेल की पटरी कभी पार मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng line hnungah ding rawh.",
+       "एङ् लाइन ह्नुङह् दिङ् रॉह्।",
+       "पीली रेखा के पीछे खड़े हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Rel heta 2 minute ding.",
+       "रेल् हेत 2 मिनुते दिङ्।",
+       "ट्रेन यहाँ दो मिनट रुकती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Mipui nen remna ah chuang rawh.",
+       "मिपुइ नेन् रेम्न अह् चुअङ् रॉह्।",
+       "भीड़ के साथ शांति से चढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kal rel hnungah tlan rawh lo.",
+       "कल् रेल् ह्नुङह् त्लन् रॉह् लो।",
+       "चलती ट्रेन के पीछे मत भागो।",
+       "L",
+       "B"
+      ],
+      [
+       "Zan ah 1 leh rel a ni.",
+       "ज़न् अह् 1 लेह् रेल् अ नि।",
+       "रात में एक और ट्रेन है।",
+       "S",
+       "C"
+      ],
+      [
+       "Pangngai ticket tukverh ah la rawh.",
+       "पङ्ङै टिकट तुक्वेर्ह् अह् ल रॉह्।",
+       "साधारण टिकट खिड़की से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "UTS app ah pawh pangngai ticket hmu.",
+       "यूटीएस ऐप अह् पॉह् पङ्ङै टिकट ह्मु।",
+       "यूटीएस ऐप से भी साधारण टिकट मिलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Lovin ticket engtikah mah zinkawng ti suh.",
+       "लोविन् टिकट एङ्तिकह् मह् ज़िन्कॉङ् ति सुह्।",
+       "बिना टिकट कभी यात्रा मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chawitir hmun man ah lian a ni.",
+       "चॉइतिर् ह्मुन् मन् अह् लियान् अ नि।",
+       "जुर्माना किराये से बड़ा होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ticket photo phone ah dah rawh.",
+       "टिकट फ़ोटो फ़ोन अह् दह् रॉह्।",
+       "टिकट की फोटो फोन में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Station 30 minute hmasa thleng rawh.",
+       "स्टेशन 30 मिनुते ह्मस थ्लेङ् रॉह्।",
+       "स्टेशन तीस मिनट पहले पहुँचो।",
+       "L",
+       "A"
+      ],
+      [
+       "Reh tirna tha zin siam.",
+       "रेह् तिर्न थ ज़िन् सियाम्।",
+       "शांत शुरुआत अच्छा सफ़र बनाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kawrkhawng ah ticket lungkham pawnah.",
+       "कॉर्खॉङ् अह् टिकट लुङ्खम् पॉनह्।",
+       "जेब में टिकट, चिंता बाहर।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ट्रेन के भीतर का सफ़र",
+     "tw": [
+      [
+       "Sleeper seat",
+       "स्लीपर सीट",
+       "शयन-सीट",
+       "ग"
+      ],
+      [
+       "Ticket check pa",
+       "टिकट चेक प",
+       "टिकट-जाँच बाबू",
+       "ग"
+      ],
+      [
+       "Chain",
+       "चेन",
+       "ज़ंजीर",
+       "ग"
+      ],
+      [
+       "Thil",
+       "थिल्",
+       "सामान",
+       "ग"
+      ],
+      [
+       "Inkar seat",
+       "इन्कर् सीट",
+       "बीच वाली सीट",
+       "ग"
+      ],
+      [
+       "Tum",
+       "तुम्",
+       "मंज़िल",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "सफ़र-सुरक्षा जाँच — सवाल सुनो, हाँ-नहीं पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka seat chungah nambar sawmhnih pahnih a ni.",
+       "क सीट चुङह् नम्बर् सॉम्ह्निह् पह्निह् अ नि।",
+       "मेरी सीट ऊपर वाली, नंबर बाईस है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ngaithla rawh Hei ka seat a ni.",
+       "ङैथ्ल रॉह् हेइ क सीट अ नि।",
+       "सुनिए, यह मेरी सीट है।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin ticket min entir rawh.",
+       "खॉङैहिन् टिकट मिन् एन्तिर् रॉह्।",
+       "कृपया अपनी टिकट दिखाइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Lo awm leh station hnuah TT lo kal ang.",
+       "लो ऑम् लेह् स्टेशन ह्नुअह् टीटी लो कल् अङ्।",
+       "अगले स्टेशन के बाद टीटी आएँगे।",
+       "S",
+       "C"
+      ],
+      [
+       "Pu ka ticket leh ka Aadhaar.",
+       "पु क टिकट लेह् क आधार।",
+       "सर, मेरी टिकट और मेरा आधार।",
+       "S",
+       "B"
+      ],
+      [
+       "Inkar seat zan ah inhawng a ni.",
+       "इन्कर् सीट ज़न् अह् इन्हॉङ् अ नि।",
+       "बीच वाली सीट रात में खुलती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Zing inkar seat khar rawh.",
+       "ज़िङ् इन्कर् सीट खर् रॉह्।",
+       "सुबह बीच वाली सीट बंद कर दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thil seat hnuaiah chain ah phuar rawh.",
+       "थिल् सीट ह्नुऐअह् चेन अह् फुअर् रॉह्।",
+       "सामान सीट के नीचे ज़ंजीर से बाँधो।",
+       "L",
+       "A"
+      ],
+      [
+       "Ka te tala leh chain rawn ken.",
+       "क ते तल लेह् चेन रॉन् केन्।",
+       "मैं छोटा ताला और ज़ंजीर लाया हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ip lu hnaih dah a mu rawh.",
+       "इप् लु ह्नैह् दह् अ मु रॉह्।",
+       "थैला सिर के पास रखकर सोओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hriat loh mite ah ei suh.",
+       "ह्रियात् लोह् मिते अह् एइ सुह्।",
+       "अनजान लोगों से खाना मत लो।",
+       "L",
+       "A"
+      ],
+      [
+       "Engemaw rukru damdawi hmu tawh chaw pe.",
+       "एङेमॉ रुक्रु दम्दॉइ ह्मु तॉह् चॉ पे।",
+       "कुछ चोर दवा मिला खाना देते हैं।",
+       "L",
+       "B"
+      ],
+      [
+       "Tui stall emaw IRCTC ah la rawh.",
+       "तुइ स्टॉल एमॉ आईआरसीटीसी अह् ल रॉह्।",
+       "पानी स्टॉल या आईआरसीटीसी से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tui bottle seal en fiah rawh.",
+       "तुइ बॉटल सील एन् फ़ियाह् रॉह्।",
+       "पानी की बोतल की सील जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Charging hmun ti em?",
+       "चार्जिंग ह्मुन् ति एम्?",
+       "चार्जिंग की जगह कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "A gate lam a ni.",
+       "अ गेट लम् अ नि।",
+       "वह गेट की तरफ़ है।",
+       "L",
+       "B"
+      ],
+      [
+       "Phone charging ah mahni chauh kalsan rawh lo.",
+       "फ़ोन चार्जिंग अह् मह्नि चौह् कल्सन् रॉह् लो।",
+       "फोन चार्जिंग पर अकेला मत छोड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chain chauh dik hlauhawm tan a ni.",
+       "चेन चौह् दिक् ह्लौहॉम् तन् अ नि।",
+       "ज़ंजीर सिर्फ़ असली ख़तरे के लिए है।",
+       "L",
+       "B"
+      ],
+      [
+       "Dik lo chain hip ah chawitir a ni.",
+       "दिक् लो चेन हिप् अह् चॉइतिर् अ नि।",
+       "ग़लत ज़ंजीर खींचने पर जुर्माना है।",
+       "L",
+       "B"
+      ],
+      [
+       "Tunah eng station lo kal mek em?",
+       "तुनह् एङ् स्टेशन लो कल् मेक् एम्?",
+       "अब कौन-सा स्टेशन आ रहा है?",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tum zing 5 dar lo kal.",
+       "क तुम् ज़िङ् 5 दर् लो कल्।",
+       "मेरी मंज़िल सुबह पाँच बजे आती है।",
+       "S",
+       "B"
+      ],
+      [
+       "1 darkar hmasa alarm dah rawh.",
+       "1 दर्कर् ह्मस अलार्म दह् रॉह्।",
+       "एक घंटा पहले का अलार्म लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Station ah hmasa thil phuar la rawh.",
+       "स्टेशन अह् ह्मस थिल् फुअर् ल रॉह्।",
+       "स्टेशन से पहले सामान बाँध लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ip chhiar rawh 1 2 3.",
+       "इप् छियार् रॉह् 1 2 3।",
+       "अपने थैले गिनो: एक, दो, तीन।",
+       "L",
+       "B"
+      ],
+      [
+       "Ni ah Ka seat sem la.",
+       "नि अह् क सीट सेम् ल।",
+       "दिन में मैं अपनी सीट बाँट लेता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Seat insem tha nungchang a ni.",
+       "सीट इन्सेम् थ नुङ्चङ् अ नि।",
+       "सीट बाँटना अच्छा व्यवहार है।",
+       "S",
+       "C"
+      ],
+      [
+       "Rel ah pawisa thu tlem ti rawh.",
+       "रेल् अह् पॉइस थु त्लेम् ति रॉह्।",
+       "ट्रेन में अपने पैसों की बात कम करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka zin ah Mizo thu chhiar.",
+       "क ज़िन् अह् मिज़ो थु छियार्।",
+       "मैं सफ़र में अपने मिज़ो वाक्य पढ़ता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Zin kal kual sikul a ni.",
+       "ज़िन् कल् कुअल् सिकुल् अ नि।",
+       "सफ़र चलता-फिरता स्कूल है।",
+       "S",
+       "C"
+      ],
+      [
+       "Him zin lawm chhungkua.",
+       "हिम् ज़िन् लॉम् छुङ्कुअ।",
+       "सुरक्षित सफ़र, खुश परिवार।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ऑटो और रास्ता पूछना",
+     "tw": [
+      [
+       "Insem auto",
+       "इन्सेम् ऑटो",
+       "साझा ऑटो",
+       "ग"
+      ],
+      [
+       "Meter",
+       "मीटर",
+       "मीटर",
+       "ग"
+      ],
+      [
+       "Tluang",
+       "त्लुअङ्",
+       "सीधा",
+       "ग"
+      ],
+      [
+       "Her",
+       "हेर्",
+       "मुड़ना",
+       "ग"
+      ],
+      [
+       "Hmun hriatna",
+       "ह्मुन् ह्रियात्न",
+       "पहचान-जगह",
+       "ग"
+      ],
+      [
+       "Ke in kal theihna",
+       "के इन् कल् थेइह्न",
+       "पैदल-दूरी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "directionSay",
+      "hi": "रास्ता बोलो — हिंदी सुनो, English में दिशा बताओ।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Labour square i kal ang em em?",
+       "लेबर स्क्वेयर इ कल् अङ् एम् एम्?",
+       "लेबर चौक चलोगे?",
+       "S",
+       "B"
+      ],
+      [
+       "Engzat i la ang em em?",
+       "एङ्ज़त् इ ल अङ् एम् एम्?",
+       "कितना लोगे?",
+       "S",
+       "B"
+      ],
+      [
+       "80 cheng chiang.",
+       "80 चेङ् चियाङ्।",
+       "अस्सी रुपये, पक्का।",
+       "L",
+       "B"
+      ],
+      [
+       "Insem auto 20 la.",
+       "इन्सेम् ऑटो 20 ल।",
+       "साझा ऑटो बीस लेता है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka insem auto ah kal ang.",
+       "क इन्सेम् ऑटो अह् कल् अङ्।",
+       "मैं साझा ऑटो से जाऊँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng hei auto ah meter a ni em?",
+       "एङ् हेइ ऑटो अह् मीटर अ नि एम्?",
+       "क्या इस ऑटो में मीटर है?",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin meter nung ti rawh.",
+       "खॉङैहिन् मीटर नुङ् ति रॉह्।",
+       "कृपया मीटर चालू करो।",
+       "S",
+       "A"
+      ],
+      [
+       "Thut ah hmasa hmun man ruat ti rawh.",
+       "थुत् अह् ह्मस ह्मुन् मन् रुअत् ति रॉह्।",
+       "बैठने से पहले किराया तय करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Unau ITI college engtin ka kal ang em em?",
+       "उनौ आईटीआई कॉलेज एङ्तिन् क कल् अङ् एम् एम्?",
+       "भाई, आईटीआई कॉलेज कैसे जाऊँ?",
+       "S",
+       "B"
+      ],
+      [
+       "Petrol pump thleng tluang kal rawh.",
+       "पेट्रोल पंप थ्लेङ् त्लुअङ् कल् रॉह्।",
+       "पेट्रोल पंप तक सीधा जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Leh biak in ah vei lam her rawh.",
+       "लेह् बियाक् इन् अह् वेइ लम् हेर् रॉह्।",
+       "फिर मंदिर से बाएँ मुड़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "A hnuah dang ding lam kawng te la rawh.",
+       "अ ह्नुअह् दङ् दिङ् लम् कॉङ् ते ल रॉह्।",
+       "उसके बाद दूसरी दाईं गली लो।",
+       "L",
+       "B"
+      ],
+      [
+       "College tui tuikhawl kiang ah a ni.",
+       "कॉलेज तुइ तुइखॉल् कियाङ् अह् अ नि।",
+       "कॉलेज पानी की टंकी के बगल में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Eng heta ah ke in kal theihna a ni em?",
+       "एङ् हेत अह् के इन् कल् थेइह्न अ नि एम्?",
+       "क्या यहाँ से पैदल-दूरी है?",
+       "S",
+       "B"
+      ],
+      [
+       "Aw ke in chauh 10 minute.",
+       "ऑ के इन् चौह् 10 मिनुते।",
+       "हाँ, पैदल सिर्फ़ दस मिनट।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin hmun 1 hmun hriatna hre reng rawh.",
+       "तिन् ह्मुन् 1 ह्मुन् ह्रियात्न ह्रे रेङ् रॉह्।",
+       "हर जगह की एक पहचान-जगह याद रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka pindan lian mosque hnungah a ni.",
+       "क पिन्दन् लियान् मस्जिद ह्नुङह् अ नि।",
+       "मेरा कमरा बड़ी मस्जिद के पीछे है।",
+       "S",
+       "B"
+      ],
+      [
+       "Chauh kawng hming Aih hmun hriatna min hrilh rawh.",
+       "चौह् कॉङ् ह्मिङ् ऐह् ह्मुन् ह्रियात्न मिन् ह्रिल्ह् रॉह्।",
+       "सिर्फ़ सड़क-नाम नहीं, पहचान-जगह बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka che live hmun thawn mek.",
+       "क चे लाइव ह्मुन् थॉन् मेक्।",
+       "मैं आपको अपनी लाइव जगह भेज रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Map ah pawl point hnungah kal rawh.",
+       "मैप अह् पॉल् पॉइंट ह्नुङह् कल् रॉह्।",
+       "नक़्शे पर नीली बिंदी के पीछे चलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka pui gate ah ding a ni.",
+       "क पुइ गेट अह् दिङ् अ नि।",
+       "मैं मुख्य गेट पर खड़ा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Chutah ding rawh Ka 5 minute ah lo kal mek.",
+       "चुतह् दिङ् रॉह् क 5 मिनुते अह् लो कल् मेक्।",
+       "वहीं रुको, मैं पाँच मिनट में आ रहा हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Kawngpui siam tha tan khar a ni.",
+       "कॉङ्पुइ सियाम् थ तन् खर् अ नि।",
+       "सड़क मरम्मत के लिए बंद है।",
+       "S",
+       "C"
+      ],
+      [
+       "Kiang kawng te fimkhurna ah la rawh.",
+       "कियाङ् कॉङ् ते फ़िम्खुर्न अह् ल रॉह्।",
+       "बगल वाली गली सावधानी से लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kawngpui zebra crossing ah kan ti rawh.",
+       "कॉङ्पुइ ज़ेब्रा क्रॉसिंग अह् कन् ति रॉह्।",
+       "सड़क ज़ेब्रा-पट्टी से पार करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ding leh vei en rawh leh kan ti rawh.",
+       "दिङ् लेह् वेइ एन् रॉह् लेह् कन् ति रॉह्।",
+       "दाएँ-बाएँ देखो, फिर पार करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bike ah helmet ha rawh.",
+       "बाइक अह् हेलमेट ह रॉह्।",
+       "बाइक पर हेलमेट पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 bike ah 3 thu suh.",
+       "1 बाइक अह् 3 थु सुह्।",
+       "एक बाइक पर तीन मत बैठो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hriat hmun hriatna engtikah mah bo pe lo.",
+       "ह्रियात् ह्मुन् ह्रियात्न एङ्तिकह् मह् बो पे लो।",
+       "जानी पहचान-जगह कभी भटकने नहीं देती।",
+       "S",
+       "B"
+      ],
+      [
+       "2 vawi zawt rawh 1 vawi kal rawh.",
+       "2 वॉइ ज़ॉत् रॉह् 1 वॉइ कल् रॉह्।",
+       "दो बार पूछो, एक बार चलो।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "सफ़र-सुरक्षा और मदद",
+     "tw": [
+      [
+       "Railway helpline",
+       "रेलवे हेल्पलाइन",
+       "रेलवे हेल्पलाइन",
+       "ग"
+      ],
+      [
+       "Bo",
+       "बो",
+       "खोया",
+       "ग"
+      ],
+      [
+       "Hmu tawh",
+       "ह्मु तॉह्",
+       "मिला",
+       "ग"
+      ],
+      [
+       "Puanchhuah",
+       "पुअन्छुअह्",
+       "घोषणा",
+       "ग"
+      ],
+      [
+       "Platform ticket",
+       "प्लेटफ़ॉर्म टिकट",
+       "प्लेटफॉर्म टिकट",
+       "ग"
+      ],
+      [
+       "Zawng zawng hriattirna",
+       "ज़ॉङ् ज़ॉङ् ह्रियात्तिर्न",
+       "पूरी जानकारी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "खोया-सामान रिपोर्ट — तीन वाक्य में अपनी बात बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Railway helpline 1 3 9 a ni.",
+       "रेलवे हेल्पलाइन 1 3 9 अ नि।",
+       "रेलवे हेल्पलाइन एक तीन नौ है।",
+       "L",
+       "B"
+      ],
+      [
+       "Rel tu emaw pawh harsatna ah hei chawhpawlh rawh.",
+       "रेल् तु एमॉ पॉह् हर्सत्न अह् हेइ चॉह्पॉल्ह् रॉह्।",
+       "ट्रेन की किसी भी परेशानी में इसे मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka ip station ah bo kal tawh.",
+       "क इप् स्टेशन अह् बो कल् तॉह्।",
+       "मेरा थैला स्टेशन पर खो गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Railway police pindan ah kal rawh.",
+       "रेलवे पुलिस पिन्दन् अह् कल् रॉह्।",
+       "रेलवे पुलिस कक्ष में जाओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Zawng hriattirna nen complain ziak rawh.",
+       "ज़ॉङ् ह्रियात्तिर्न नेन् कम्प्लेन ज़ियाक् रॉह्।",
+       "पूरी जानकारी के साथ शिकायत लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka ip dum a ni sen hrui.",
+       "क इप् दुम् अ नि सेन् ह्रुइ।",
+       "मेरा थैला काला है, लाल पट्टी वाला।",
+       "S",
+       "B"
+      ],
+      [
+       "An ka hming ko.",
+       "अन् क ह्मिङ् को।",
+       "उन्होंने मेरा नाम पुकारा।",
+       "S",
+       "B"
+      ],
+      [
+       "Tin puanchhuah fimkhur ah ngaithla rawh.",
+       "तिन् पुअन्छुअह् फ़िम्खुर् अह् ङैथ्ल रॉह्।",
+       "हर घोषणा ध्यान से सुनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmu tawh a ni tawh ip min kir leh hmu tawh.",
+       "ह्मु तॉह् अ नि तॉह् इप् मिन् किर् लेह् ह्मु तॉह्।",
+       "मिला हुआ थैला मुझे वापस मिल गया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka lawm e railway police.",
+       "क लॉम् ए रेलवे पुलिस।",
+       "धन्यवाद, रेलवे पुलिस।",
+       "S",
+       "A"
+      ],
+      [
+       "Ip chhungah hming ziak rawh.",
+       "इप् छुङह् ह्मिङ् ज़ियाक् रॉह्।",
+       "थैले के अंदर अपना नाम लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thil ah phone nambar slip dah rawh.",
+       "थिल् अह् फ़ोन नम्बर् स्लिप दह् रॉह्।",
+       "सामान पर फोन-नंबर की पर्ची लगाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Hmanhmawhna ah dik lo rel chuang rawh lo.",
+       "ह्मन्ह्मॉह्न अह् दिक् लो रेल् चुअङ् रॉह् लो।",
+       "जल्दबाज़ी में ग़लत ट्रेन मत चढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Rel hming leh nambar chiang ti rawh.",
+       "रेल् ह्मिङ् लेह् नम्बर् चियाङ् ति रॉह्।",
+       "ट्रेन का नाम और नंबर पक्का करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Platform ah kal tan platform ticket la rawh.",
+       "प्लेटफ़ॉर्म अह् कल् तन् प्लेटफ़ॉर्म टिकट ल रॉह्।",
+       "प्लेटफॉर्म पर जाने के लिए प्लेटफॉर्म टिकट लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Naupangte nu tanpui rawh.",
+       "नौपङ्ते नु तन्पुइ रॉह्।",
+       "बच्चे वाली माँ की मदद करो।",
+       "L",
+       "A"
+      ],
+      [
+       "Anni bawm hmu lo.",
+       "अन्नि बॉम् ह्मु लो।",
+       "उन्हें अपना डिब्बा नहीं मिल रहा था।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka ticket en a anni bawm entir.",
+       "क टिकट एन् अ अन्नि बॉम् एन्तिर्।",
+       "मैंने टिकट देखकर उन्हें डिब्बा दिखाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Te tanpuina lian tawngtaina ni a ni.",
+       "ते तन्पुइन लियान् तॉङ्तैन नि अ नि।",
+       "छोटी मदद बड़ी दुआ बनती है।",
+       "S",
+       "B"
+      ],
+      [
+       "Hlauhawm ah mipui leh eng lam kal rawh.",
+       "ह्लौहॉम् अह् मिपुइ लेह् एङ् लम् कल् रॉह्।",
+       "ख़तरे में भीड़ और रोशनी की ओर जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Thian bawm leh seat ziak rawh.",
+       "थियान् बॉम् लेह् सीट ज़ियाक् रॉह्।",
+       "दोस्त का डिब्बा और सीट लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Kan khua ah nen zinkawng ti.",
+       "कन् खुअ अह् नेन् ज़िन्कॉङ् ति।",
+       "हम गाँव से साथ यात्रा करते हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Nen zin him zin a ni.",
+       "नेन् ज़िन् हिम् ज़िन् अ नि।",
+       "साथ का सफ़र सुरक्षित सफ़र है।",
+       "S",
+       "C"
+      ],
+      [
+       "Hmun man tan te note dah rawh.",
+       "ह्मुन् मन् तन् ते नोट दह् रॉह्।",
+       "किराये के लिए छोटे नोट रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Mi zawng hmaah zawng pawisa ip min entir rawh lo.",
+       "मि ज़ॉङ् ह्माह् ज़ॉङ् पॉइस इप् मिन् एन्तिर् रॉह् लो।",
+       "सबके सामने पूरा बटुआ मत दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Zin ah tui in rawh zang ei rawh.",
+       "ज़िन् अह् तुइ इन् रॉह् ज़ङ् एइ रॉह्।",
+       "सफ़र में पानी पियो, हल्का खाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Thleng a in phone ko rawh.",
+       "थ्लेङ् अ इन् फ़ोन को रॉह्।",
+       "पहुँचकर घर फोन करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka him thleng kal tawh lungkham ti suh.",
+       "क हिम् थ्लेङ् कल् तॉह् लुङ्खम् ति सुह्।",
+       "मैं सुरक्षित पहुँच गया, चिंता मत करो।",
+       "S",
+       "A"
+      ],
+      [
+       "Zin zo a ni a ni zirna awm kal.",
+       "ज़िन् ज़ो अ नि अ नि ज़िर्न ऑम् कल्।",
+       "सफ़र ख़त्म होता है, सीख रह जाती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Lo awm leh kar visa interview khawvel.",
+       "लो ऑम् लेह् कर् वीज़ा इंटरव्यू खॉवेल्।",
+       "अगले हफ़्ते: वीज़ा-इंटरव्यू की दुनिया।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) I rel eng platform ah a ni em?",
+     "(बोलो) Platform nambar 3."
+    ],
+    [
+     "(सुनो) Min khawiah chhuk a ni em?",
+     "(बोलो) Lo awm leh stop ah ka chhuk ang."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Labour square hria em?",
+     "लेबर स्क्वेयर ह्रिया एम्?"
+    ],
+    [
+     "चालक",
+     "80 cheng.",
+     "80 चेङ्।"
+    ],
+    [
+     "आप",
+     "Share auto 20 la a ni.",
+     "शेयर ऑटो 20 ल अ नि।"
+    ],
+    [
+     "चालक",
+     "Tha ka ni 60.",
+     "थ क नि 60।"
+    ],
+    [
+     "आप",
+     "Aih Kan share auto ah ka kal ang.",
+     "ऐह् कन् शेयर ऑटो अह् क कल् अङ्।"
+    ]
+   ],
+   "test": {
+    "target": "घर पर फ़ोन (यात्रा से एक दिन पहले)",
+    "goal": "English में अपनी घर-यात्रा की तैयारी बताइए — टिकट पक्की, स्टेशन-समय, सामान-सुरक्षा, और पहुँचकर फोन का वादा — कम-से-कम छह वाक्य।",
+    "lines": [
+     [
+      "Kan phone app ah book ti tawh.",
+      "कन् फ़ोन ऐप अह् बुक ति तॉह्।"
+     ],
+     [
+      "Vawiin waiting chiang a ni tawh.",
+      "वॉइइन् वेटिंग चियाङ् अ नि तॉह्।"
+     ],
+     [
+      "Station ah 30 minute hmasa lo kal rawh.",
+      "स्टेशन अह् 30 मिनुते ह्मस लो कल् रॉह्।"
+     ],
+     [
+      "Thil seat hniam chain ah ka phuar ang.",
+      "थिल् सीट ह्नियाम् चेन अह् क फुअर् अङ्।"
+     ],
+     [
+      "Hriat loh ah chaw ka la ang lo.",
+      "ह्रियात् लोह् अह् चॉ क ल अङ् लो।"
+     ],
+     [
+      "Kan him ka thleng tawh lungkham ti suh.",
+      "कन् हिम् क थ्लेङ् तॉह् लुङ्खम् ति सुह्।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 11,
+   "title": "Visa, Airport and Going Abroad",
+   "hi": "वीज़ा, हवाई-अड्डा और विदेश-द्वार",
+   "pace": 30,
+   "days": [
+    {
+     "title": "वीज़ा-इंटरव्यू (अपनी बात, अपना देश)",
+     "tw": [
+      [
+       "Passport",
+       "पासपोर्ट",
+       "पासपोर्ट",
+       "ग"
+      ],
+      [
+       "Visa",
+       "वीज़ा",
+       "वीज़ा",
+       "ग"
+      ],
+      [
+       "Hna visa",
+       "ह्न वीज़ा",
+       "काम का वीज़ा",
+       "ग"
+      ],
+      [
+       "Company neitu",
+       "कंपनी नेइतु",
+       "मालिक-कंपनी",
+       "ग"
+      ],
+      [
+       "Inremna",
+       "इन्रेम्न",
+       "क़रार",
+       "ग"
+      ],
+      [
+       "India mi",
+       "इंडिया मि",
+       "भारतीय",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "वीज़ा-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka Gulf ram ah hna tih duh.",
+       "क गल्फ़ राम अह् ह्न तिह् दुह्।",
+       "मैं खाड़ी के देश में काम करना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka India mi a ni.",
+       "क इंडिया मि अ नि।",
+       "मैं भारतीय हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei ka passport a ni.",
+       "हेइ क पासपोर्ट अ नि।",
+       "यह मेरा पासपोर्ट है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka visa hna visa a ni.",
+       "क वीज़ा ह्न वीज़ा अ नि।",
+       "मेरा वीज़ा काम का वीज़ा है।",
+       "S",
+       "B"
+      ],
+      [
+       "I Dubai engvangin kal duh em?",
+       "इ दुबई एङ्वङिन् कल् दुह् एम्?",
+       "आप दुबई क्यों जाना चाहते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Khata ka welder hna a ni.",
+       "खत क वेल्डर ह्न अ नि।",
+       "वहाँ मेरी वेल्डर की नौकरी है।",
+       "S",
+       "A"
+      ],
+      [
+       "I company neitu tu a ni em?",
+       "इ कंपनी नेइतु तु अ नि एम्?",
+       "आपकी मालिक-कंपनी कौन है?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka company neitu 1 steel company a ni.",
+       "क कंपनी नेइतु 1 स्टील कंपनी अ नि।",
+       "मेरी मालिक-कंपनी एक स्टील कंपनी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Company hming ka offer letter ah a ni.",
+       "कंपनी ह्मिङ् क ऑफ़र लेटर अह् अ नि।",
+       "कंपनी का नाम मेरे ऑफर-पत्र पर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Khata i hlawh eng a ni ang em?",
+       "खत इ ह्लॉह् एङ् अ नि अङ् एम्?",
+       "वहाँ आपका वेतन क्या होगा?",
+       "L",
+       "B"
+      ],
+      [
+       "15 100 dirham thla.",
+       "15 100 दिरहम थ्ल।",
+       "पंद्रह सौ दिरहम महीना।",
+       "S",
+       "C"
+      ],
+      [
+       "Chaw leh pindan company ah a ni.",
+       "चॉ लेह् पिन्दन् कंपनी अह् अ नि।",
+       "खाना और कमरा कंपनी से है।",
+       "S",
+       "C"
+      ],
+      [
+       "I inremna engzat hun a ni em?",
+       "इ इन्रेम्न एङ्ज़त् हुन् अ नि एम्?",
+       "आपका क़रार कितने समय का है?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka inremna 2 kum a ni.",
+       "क इन्रेम्न 2 कुम् अ नि।",
+       "मेरा क़रार दो साल का है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka inremna chhiar.",
+       "क इन्रेम्न छियार्।",
+       "मैंने अपना क़रार पढ़ा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Signature ah hmasa inremna chhiartir la rawh.",
+       "सिग्नेचर अह् ह्मस इन्रेम्न छियार्तिर् ल रॉह्।",
+       "दस्तख़त से पहले क़रार पढ़वा लो।",
+       "L",
+       "B"
+      ],
+      [
+       "India ah I eng hna ti tawh em?",
+       "इंडिया अह् इ एङ् ह्न ति तॉह् एम्?",
+       "भारत में आपने क्या काम किया?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka 5 kum welding.",
+       "क 5 कुम् वेल्डिंग।",
+       "मैंने पाँच साल वेल्डिंग की।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng I hmasa ram dang kal tawh a ni em?",
+       "एङ् इ ह्मस राम दङ् कल् तॉह् अ नि एम्?",
+       "क्या आप पहले विदेश गए हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Aih Hei ka hmasa ber vawi a ni.",
+       "ऐह् हेइ क ह्मस बेर् वॉइ अ नि।",
+       "नहीं, यह मेरी पहली बार है।",
+       "S",
+       "A"
+      ],
+      [
+       "I chhungkua ah tute nge a ni em?",
+       "इ छुङ्कुअ अह् तुते ङे अ नि एम्?",
+       "आपके परिवार में कौन-कौन हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka nupui leh 2 naupangte khua ah a ni.",
+       "क नुपुइ लेह् 2 नौपङ्ते खुअ अह् अ नि।",
+       "मेरी पत्नी और दो बच्चे गाँव में हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Te leh pangngai tlar ah chhanna 2.",
+       "ते लेह् पङ्ङै त्लर् अह् छन्न 2।",
+       "छोटी-सादी पंक्तियों में जवाब दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Officer lam en a sawi rawh.",
+       "ऑफ़िसर लम् एन् अ सॉइ रॉह्।",
+       "अधिकारी की ओर देखकर बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tluang thu rawh reh awm rawh.",
+       "त्लुअङ् थु रॉह् रेह् ऑम् रॉह्।",
+       "सीधा बैठो, शांत रहो।",
+       "L",
+       "B"
+      ],
+      [
+       "Lo hrethiam rawh chuan Sorry please repeat ti rawh.",
+       "लो ह्रेथियाम् रॉह् चुअन् सॉरी प्लीज़ रिपीट ति रॉह्।",
+       "न समझो तो 'सॉरी, प्लीज़ रिपीट' कहो।",
+       "L",
+       "B"
+      ],
+      [
+       "Officer zawt Ka fai chhanna pe tawh.",
+       "ऑफ़िसर ज़ॉत् क फ़ै छन्न पे तॉह्।",
+       "अधिकारी ने पूछा, मैंने साफ़ जवाब दिया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka lehkha zawng leh dik a ni.",
+       "क लेह्ख ज़ॉङ् लेह् दिक् अ नि।",
+       "मेरे कागज़ पूरे और सच्चे हैं।",
+       "S",
+       "A"
+      ],
+      [
+       "Heng chhanna thian nen inzirna ti rawh.",
+       "हेङ् छन्न थियान् नेन् इन्ज़िर्न ति रॉह्।",
+       "ये जवाब दोस्त के साथ अभ्यास करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Inpeih chhanna awlsam interview.",
+       "इन्पेइह् छन्न ऑल्सम् इंटरव्यू।",
+       "तैयार जवाब, आसान इंटरव्यू।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "वीज़ा-इंटरव्यू (सच का नियम)",
+     "tw": [
+      [
+       "Dawt",
+       "दॉत्",
+       "झूठ",
+       "ग"
+      ],
+      [
+       "Sut",
+       "सुत्",
+       "रद्द",
+       "ग"
+      ],
+      [
+       "Agent",
+       "एजेंट",
+       "एजेंट",
+       "ग"
+      ],
+      [
+       "Medical check",
+       "मेडिकल चेक",
+       "मेडिकल-जाँच",
+       "ग"
+      ],
+      [
+       "Kutzung chhinchhiahna",
+       "कुत्ज़ुङ् छिन्छियाह्न",
+       "उँगली-छाप",
+       "ग"
+      ],
+      [
+       "Haw ruahmanna",
+       "हॉ रुअह्मन्न",
+       "वापसी-योजना",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "yesNo",
+      "hi": "सच-जवाब अभ्यास — सवाल सुनो, सच्चा पूरा वाक्य बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Interview ah engtikah mah dawt sawi suh.",
+       "इंटरव्यू अह् एङ्तिकह् मह् दॉत् सॉइ सुह्।",
+       "इंटरव्यू में कभी झूठ मत बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 dawt visa sut ti thei.",
+       "1 दॉत् वीज़ा सुत् ति थेइ।",
+       "एक झूठ वीज़ा रद्द करा सकता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Thutak zawi i ni thei a ni ah him a ni.",
+       "थुतक् ज़ॉइ इ नि थेइ अ नि अह् हिम् अ नि।",
+       "सच धीमा हो सकता है, पर सुरक्षित है।",
+       "S",
+       "C"
+      ],
+      [
+       "Lo hria rawh chuan ti rawh.",
+       "लो ह्रिया रॉह् चुअन् ति रॉह्।",
+       "न जानो तो कह दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ngaidam ti rawh Pu min Hei address lo.",
+       "ङैदम् ति रॉह् पु मिन् हेइ अद्द्रेस्स् लो।",
+       "माफ़ कीजिए सर, मुझे यह नहीं पता।",
+       "S",
+       "A"
+      ],
+      [
+       "I ticket tuin khat em?",
+       "इ टिकट तुइन् खत् एम्?",
+       "आपकी टिकट किसने भरी?",
+       "L",
+       "B"
+      ],
+      [
+       "Company ka ticket khat.",
+       "कंपनी क टिकट खत्।",
+       "कंपनी ने मेरी टिकट भरी।",
+       "S",
+       "A"
+      ],
+      [
+       "I agent engzat pe tawh em?",
+       "इ एजेंट एङ्ज़त् पे तॉह् एम्?",
+       "आपने एजेंट को कितना दिया?",
+       "L",
+       "B"
+      ],
+      [
+       "Chauh dik zat min hrilh rawh.",
+       "चौह् दिक् ज़त् मिन् ह्रिल्ह् रॉह्।",
+       "सिर्फ़ सच्ची रक़म बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka agent license a ni.",
+       "क एजेंट लाइसेंस अ नि।",
+       "मेरा एजेंट लाइसेंस वाला है।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng I India kan kir leh ang em?",
+       "एङ् इ इंडिया कन् किर् लेह् अङ् एम्?",
+       "क्या आप भारत लौटेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw inremna hnuah Ka kir leh ang.",
+       "ऑ इन्रेम्न ह्नुअह् क किर् लेह् अङ्।",
+       "हाँ, क़रार के बाद मैं लौटूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka chhungkua leh ram India ah a ni.",
+       "क छुङ्कुअ लेह् राम इंडिया अह् अ नि।",
+       "मेरा परिवार और ज़मीन भारत में है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka haw ruahmanna fai a ni.",
+       "क हॉ रुअह्मन्न फ़ै अ नि।",
+       "मेरी वापसी-योजना साफ़ है।",
+       "S",
+       "B"
+      ],
+      [
+       "Eng i medical check hnaih a ni tawh em?",
+       "एङ् इ मेडिकल चेक ह्नैह् अ नि तॉह् एम्?",
+       "क्या आपकी मेडिकल-जाँच पास हुई?",
+       "L",
+       "B"
+      ],
+      [
+       "Aw ka medical fit a ni.",
+       "ऑ क मेडिकल फ़िट अ नि।",
+       "हाँ, मेरी मेडिकल फिट है।",
+       "S",
+       "B"
+      ],
+      [
+       "Medical pawmna centre ah a ni tawh.",
+       "मेडिकल पॉम्न सेंटर अह् अ नि तॉह्।",
+       "मेडिकल मान्यता वाले केंद्र पर हुई।",
+       "S",
+       "C"
+      ],
+      [
+       "An i kutzung chhinchhiahna kan la ang.",
+       "अन् इ कुत्ज़ुङ् छिन्छियाह्न कन् ल अङ्।",
+       "वे आपकी उँगली-छाप लेंगे।",
+       "L",
+       "B"
+      ],
+      [
+       "Kutzung machine ah tluang dah rawh.",
+       "कुत्ज़ुङ् मशीन अह् त्लुअङ् दह् रॉह्।",
+       "उँगली मशीन पर सीधी रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Photo tan camera ah en rawh.",
+       "फ़ोटो तन् कैमरा अह् एन् रॉह्।",
+       "फोटो के लिए कैमरे में देखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hming leh hna hrilh thei a ni em?",
+       "ह्मिङ् लेह् ह्न ह्रिल्ह् थेइ अ नि एम्?",
+       "अपना नाम और काम बता सकते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka hming Ramesh a ni Ka welder a ni.",
+       "क ह्मिङ् रमेश अ नि क वेल्डर अ नि।",
+       "मेरा नाम रमेश है, मैं वेल्डर हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "I eng khawpui ah kan awm ang em?",
+       "इ एङ् खॉपुइ अह् कन् ऑम् अङ् एम्?",
+       "आप किस शहर में रहेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka company camp ah awm ang.",
+       "क कंपनी कैंप अह् ऑम् अङ्।",
+       "मैं कंपनी के कैम्प में रहूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Officer ah inhnialna ti suh.",
+       "ऑफ़िसर अह् इन्ह्नियाल्न ति सुह्।",
+       "अधिकारी से बहस मत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Khap i ni chuan chhan inngaihtlawmna ah zawt rawh.",
+       "खप् इ नि चुअन् छन् इन्ङैह्त्लॉम्न अह् ज़ॉत् रॉह्।",
+       "मना हो तो कारण विनम्रता से पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Zawng lehkha ah leh dilna ti thei.",
+       "ज़ॉङ् लेह्ख अह् लेह् दिल्न ति थेइ।",
+       "पूरे कागज़ों से दोबारा आवेदन कर सकते हो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka chhanna ka lehkha ah hmu.",
+       "क छन्न क लेह्ख अह् ह्मु।",
+       "मेरे जवाब मेरे कागज़ों से मिले।",
+       "S",
+       "B"
+      ],
+      [
+       "Lehkha leh lei ah 1 thutak.",
+       "लेह्ख लेह् लेइ अह् 1 थुतक्।",
+       "कागज़ और ज़ुबान में एक ही सच।",
+       "S",
+       "C"
+      ],
+      [
+       "Visa lo kal tawh mumang hmaah pung.",
+       "वीज़ा लो कल् तॉह् मुमङ् ह्माह् पुङ्।",
+       "वीज़ा आया, सपना आगे बढ़ा।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "पासपोर्ट, कागज़ और मेडिकल",
+     "tw": [
+      [
+       "Pawm",
+       "पॉम्",
+       "मान्य",
+       "ग"
+      ],
+      [
+       "File",
+       "फ़ाइल",
+       "फाइल",
+       "ग"
+      ],
+      [
+       "Police verification",
+       "पुलिस वेरिफ़िकेशन",
+       "पुलिस-सत्यापन",
+       "ग"
+      ],
+      [
+       "Insurance",
+       "इंश्योरेंस",
+       "बीमा",
+       "ग"
+      ],
+      [
+       "Emergency contact",
+       "इमरजेंसी कॉन्टैक्ट",
+       "आपात-संपर्क",
+       "ग"
+      ],
+      [
+       "Photocopy",
+       "फ़ोटोकॉपी",
+       "छायाप्रति",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "orderSteps",
+      "hi": "विदेश-कागज़ का क्रम — First, Then, After that लगाकर बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Passport i hmasa ber chabi a ni.",
+       "पासपोर्ट इ ह्मस बेर् चबि अ नि।",
+       "पासपोर्ट आपकी पहली चाबी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Chauh sorkar website ah dilna ti rawh.",
+       "चौह् सोर्कर् वेबसाइट अह् दिल्न ति रॉह्।",
+       "सिर्फ़ सरकारी वेबसाइट से आवेदन करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Passport office lehkha tan ko.",
+       "पासपोर्ट ऑफ़िस लेह्ख तन् को।",
+       "पासपोर्ट-दफ़्तर ने कागज़ों के लिए बुलाया।",
+       "S",
+       "B"
+      ],
+      [
+       "Police verification ka in lo kal tawh.",
+       "पुलिस वेरिफ़िकेशन क इन् लो कल् तॉह्।",
+       "पुलिस-सत्यापन मेरे घर आया।",
+       "S",
+       "A"
+      ],
+      [
+       "Police dik address min hrilh rawh.",
+       "पुलिस दिक् अद्द्रेस्स् मिन् ह्रिल्ह् रॉह्।",
+       "पुलिस को सही पता बताओ।",
+       "L",
+       "A"
+      ],
+      [
+       "Ka passport 10 kum pawm a ni.",
+       "क पासपोर्ट 10 कुम् पॉम् अ नि।",
+       "मेरा पासपोर्ट दस साल मान्य है।",
+       "S",
+       "A"
+      ],
+      [
+       "Visa ah hmasa pawmna en fiah rawh.",
+       "वीज़ा अह् ह्मस पॉम्न एन् फ़ियाह् रॉह्।",
+       "वीज़ा से पहले मान्यता जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "6 thla pawmna pawimawh a ni.",
+       "6 थ्ल पॉम्न पॉइमॉह् अ नि।",
+       "छह महीने की मान्यता ज़रूरी है।",
+       "L",
+       "B"
+      ],
+      [
+       "Passport plastic file ah dah rawh.",
+       "पासपोर्ट प्लास्टिक फ़ाइल अह् दह् रॉह्।",
+       "पासपोर्ट प्लास्टिक फाइल में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin lehkha 3 photocopy siam rawh.",
+       "तिन् लेह्ख 3 फ़ोटोकॉपी सियाम् रॉह्।",
+       "हर कागज़ की तीन छायाप्रति बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "1 set tin in ah dah rawh.",
+       "1 सेत् तिन् इन् अह् दह् रॉह्।",
+       "एक प्रति-सेट घर पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 set tin phone ah dah rawh.",
+       "1 सेत् तिन् फ़ोन अह् दह् रॉह्।",
+       "एक प्रति-सेट अपने फोन में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Dik passport agent engtikah mah 2 lo.",
+       "दिक् पासपोर्ट एजेंट एङ्तिकह् मह् 2 लो।",
+       "असली पासपोर्ट एजेंट को कभी मत दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Passport i kut ah awm.",
+       "पासपोर्ट इ कुत् अह् ऑम्।",
+       "पासपोर्ट आपके हाथ में रहे।",
+       "L",
+       "B"
+      ],
+      [
+       "Ram dang ah company i passport dah thei lo.",
+       "राम दङ् अह् कंपनी इ पासपोर्ट दह् थेइ लो।",
+       "विदेश में कंपनी आपका पासपोर्ट नहीं रख सकती।",
+       "L",
+       "B"
+      ],
+      [
+       "Dan ah Hei i dikna a ni.",
+       "दन् अह् हेइ इ दिक्न अ नि।",
+       "कानून से यह आपका हक़ है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka medical file ah zawng report a ni.",
+       "क मेडिकल फ़ाइल अह् ज़ॉङ् रिपोर्ट अ नि।",
+       "मेरी मेडिकल फाइल में सब रिपोर्ट हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Thisen leh mit enfiahna a ni tawh.",
+       "थिसेन् लेह् मित् एन्फ़ियाह्न अ नि तॉह्।",
+       "खून और आँख की जाँच हो गई।",
+       "S",
+       "C"
+      ],
+      [
+       "2 kum travel insurance la rawh.",
+       "2 कुम् ट्रैवल इंश्योरेंस ल रॉह्।",
+       "दो साल का यात्रा-बीमा लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ram dang ah natna ah insurance hna lo kal.",
+       "राम दङ् अह् नत्न अह् इंश्योरेंस ह्न लो कल्।",
+       "विदेश में बीमारी पर बीमा काम आता है।",
+       "L",
+       "B"
+      ],
+      [
+       "2 emergency contact ziak rawh.",
+       "2 इमरजेंसी कॉन्टैक्ट ज़ियाक् रॉह्।",
+       "दो आपात-संपर्क लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "1 in 1 India office nambar.",
+       "1 इन् 1 इंडिया ऑफ़िस नम्बर्।",
+       "एक घर का, एक भारत-दफ़्तर का नंबर।",
+       "L",
+       "B"
+      ],
+      [
+       "Passport nambar kaa in hre reng rawh.",
+       "पासपोर्ट नम्बर् का इन् ह्रे रेङ् रॉह्।",
+       "पासपोर्ट नंबर ज़ुबानी याद करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chauh lang hmun ah signature ti rawh.",
+       "चौह् लङ् ह्मुन् अह् सिग्नेचर ति रॉह्।",
+       "सिर्फ़ दिखाई जगह पर दस्तख़त करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Signature ah hmasa tin phek chhiar rawh.",
+       "सिग्नेचर अह् ह्मस तिन् फेक् छियार् रॉह्।",
+       "दस्तख़त से पहले हर पन्ना पढ़ो।",
+       "L",
+       "B"
+      ],
+      [
+       "Zawng lehkha ah hming chawhpawlh rawh.",
+       "ज़ॉङ् लेह्ख अह् ह्मिङ् चॉह्पॉल्ह् रॉह्।",
+       "सब कागज़ों पर नाम मिलाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "1 dik lo hawrawp file dang pe.",
+       "1 दिक् लो हॉरॉप् फ़ाइल दङ् पे।",
+       "एक ग़लत अक्षर फाइल रोक देता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Office ah rang siamthattir rawh.",
+       "ऑफ़िस अह् रङ् सियाम्थत्तिर् रॉह्।",
+       "दफ़्तर में जल्दी सुधरवाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Zawng file tu emaw lungkham lo.",
+       "ज़ॉङ् फ़ाइल तु एमॉ लुङ्खम् लो।",
+       "पूरी फाइल, कोई चिंता नहीं।",
+       "S",
+       "B"
+      ],
+      [
+       "Lehkha inpeih fan inpeih.",
+       "लेह्ख इन्पेइह् फ़ैन इन्पेइह्।",
+       "कागज़ तैयार, पंख तैयार।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "हवाई-अड्डे का पूरा सीन",
+     "tw": [
+      [
+       "Check-in",
+       "चेक-इन्",
+       "चेक-इन",
+       "ग"
+      ],
+      [
+       "Boarding hnaih",
+       "बोर्डिंग ह्नैह्",
+       "बोर्डिंग पास",
+       "ग"
+      ],
+      [
+       "Security check",
+       "सिक्योरिटी चेक",
+       "सुरक्षा-जाँच",
+       "ग"
+      ],
+      [
+       "Departure",
+       "डिपार्चर",
+       "प्रस्थान",
+       "ग"
+      ],
+      [
+       "Immigration",
+       "इमिग्रेशन",
+       "इमिग्रेशन",
+       "ग"
+      ],
+      [
+       "Seat belt",
+       "सीट बेल्ट",
+       "सीट-पट्टी",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "signRead",
+      "hi": "बोर्ड पढ़ो — English बोर्ड सुनो, हिंदी मतलब बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Kan 3 darkar hmasa airport thleng.",
+       "कन् 3 दर्कर् ह्मस एयरपोर्ट थ्लेङ्।",
+       "हम तीन घंटे पहले एयरपोर्ट पहुँचे।",
+       "S",
+       "B"
+      ],
+      [
+       "Lian board chhiar rawh departure leh arrival.",
+       "लियान् बोर्ड छियार् रॉह् डिपार्चर लेह् अराइवल।",
+       "बड़े बोर्ड पढ़ो: प्रस्थान और आगमन।",
+       "L",
+       "B"
+      ],
+      [
+       "Kal tan departure lo kal tan arrival.",
+       "कल् तन् डिपार्चर लो कल् तन् अराइवल।",
+       "जाने के लिए प्रस्थान, आने के लिए आगमन।",
+       "L",
+       "B"
+      ],
+      [
+       "Check-in counter ah tlar ah ding rawh.",
+       "चेक-इन् काउंटर अह् त्लर् अह् दिङ् रॉह्।",
+       "चेक-इन काउंटर पर कतार में लगो।",
+       "L",
+       "B"
+      ],
+      [
+       "Passport leh ticket min entir rawh.",
+       "पासपोर्ट लेह् टिकट मिन् एन्तिर् रॉह्।",
+       "पासपोर्ट और टिकट दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Lian ip belt ah dah rawh.",
+       "लियान् इप् बेल्ट अह् दह् रॉह्।",
+       "बड़ा थैला पट्टे पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Ip rihna tawp 30 kilo a ni.",
+       "इप् रिह्न तॉप् 30 किलो अ नि।",
+       "थैले की तौल-सीमा तीस किलो है।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka ip 2 kilo tam a ni.",
+       "क इप् 2 किलो तम् अ नि।",
+       "मेरा थैला दो किलो ज़्यादा है।",
+       "S",
+       "B"
+      ],
+      [
+       "Engemaw thil la chhuak rawh emaw tam pawisa 2.",
+       "एङेमॉ थिल् ल छुअक् रॉह् एमॉ तम् पॉइस 2।",
+       "कुछ सामान निकालो या ज़्यादा पैसे दो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hei i boarding hnaih a ni.",
+       "हेइ इ बोर्डिंग ह्नैह् अ नि।",
+       "यह आपका बोर्डिंग पास है।",
+       "L",
+       "B"
+      ],
+      [
+       "Gate nambar boarding hnaih ah a ni.",
+       "गेट नम्बर् बोर्डिंग ह्नैह् अह् अ नि।",
+       "गेट नंबर बोर्डिंग पास पर है।",
+       "L",
+       "B"
+      ],
+      [
+       "Lo awm leh a ni security check.",
+       "लो ऑम् लेह् अ नि सिक्योरिटी चेक।",
+       "अगली है सुरक्षा-जाँच।",
+       "S",
+       "C"
+      ],
+      [
+       "Phone leh bawm tray ah dah rawh.",
+       "फ़ोन लेह् बॉम् ट्रे अह् दह् रॉह्।",
+       "फोन और पेटी ट्रे में रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tui bottle chhungah khap a ni.",
+       "तुइ बॉटल छुङह् खप् अ नि।",
+       "पानी की बोतल अंदर मना है।",
+       "L",
+       "B"
+      ],
+      [
+       "Enfiahna tan kut chungah ti rawh.",
+       "एन्फ़ियाह्न तन् कुत् चुङह् ति रॉह्।",
+       "जाँच के लिए हाथ ऊपर करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin hmun zuk khap ziak.",
+       "तिन् ह्मुन् ज़ुक् खप् ज़ियाक्।",
+       "हर जगह 'धूम्रपान मना' लिखा है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hring exit board pawnah kawng entir a ni.",
+       "ह्रिङ् एग्ज़िट बोर्ड पॉनह् कॉङ् एन्तिर् अ नि।",
+       "हरा एग्ज़िट बोर्ड बाहर का रास्ता दिखाता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Tunah immigration counter kal rawh.",
+       "तुनह् इमिग्रेशन काउंटर कल् रॉह्।",
+       "अब इमिग्रेशन काउंटर जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Officer zawt khawiah kal mek em?",
+       "ऑफ़िसर ज़ॉत् खॉइयाह् कल् मेक् एम्?",
+       "अधिकारी ने पूछा: कहाँ जा रहे हो?",
+       "S",
+       "B"
+      ],
+      [
+       "Ka hna tan Dubai kal mek.",
+       "क ह्न तन् दुबई कल् मेक्।",
+       "मैं काम के लिए दुबई जा रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "An ka passport ah stamp dah.",
+       "अन् क पासपोर्ट अह् स्टैम्प दह्।",
+       "उन्होंने मेरे पासपोर्ट पर मुहर लगाई।",
+       "S",
+       "A"
+      ],
+      [
+       "Gate nambar 12 ah ding rawh.",
+       "गेट नम्बर् 12 अह् दिङ् रॉह्।",
+       "गेट नंबर बारह पर रुको।",
+       "L",
+       "B"
+      ],
+      [
+       "Flight puanchhuah ngaithla rawh.",
+       "फ़्लाइट पुअन्छुअह् ङैथ्ल रॉह्।",
+       "अपनी उड़ान की घोषणा सुनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Boarding tan hnaih leh min entir rawh.",
+       "बोर्डिंग तन् ह्नैह् लेह् मिन् एन्तिर् रॉह्।",
+       "बोर्डिंग शुरू, पास फिर दिखाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka seat 34-A tukverh lam a ni.",
+       "क सीट 34-अ तुक्वेर्ह् लम् अ नि।",
+       "मेरी सीट चौंतीस-ए, खिड़की की ओर है।",
+       "S",
+       "B"
+      ],
+      [
+       "Seat belt hetiang hian phuar rawh.",
+       "सीट बेल्ट हेतियाङ् हियान् फुअर् रॉह्।",
+       "सीट-पट्टी ऐसे बाँधो।",
+       "L",
+       "B"
+      ],
+      [
+       "Phone flight mode ah dah rawh.",
+       "फ़ोन फ़्लाइट मोड अह् दह् रॉह्।",
+       "फोन उड़ान-मोड पर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Thlawhna thlawk ka thinlung nui.",
+       "थ्लॉह्न थ्लॉक् क थिन्लुङ् नुइ।",
+       "विमान उड़ा, मेरा दिल मुस्कुराया।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka pawl kawr ha a ni pawnah hmu rawh.",
+       "क पॉल् कॉर् ह अ नि पॉनह् ह्मु रॉह्।",
+       "मैंने नीली कमीज़ पहनी है, बाहर मिलना।",
+       "S",
+       "B"
+      ],
+      [
+       "Khua ah van thleng.",
+       "खुअ अह् वन् थ्लेङ्।",
+       "गाँव से आसमान तक।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "ई-माइग्रेट, मदद और ठग-एजेंट बचाव",
+     "tw": [
+      [
+       "EMigrate",
+       "ई-माइग्रेट",
+       "ई-माइग्रेट",
+       "ग"
+      ],
+      [
+       "Tanpuina portal",
+       "तन्पुइन पोर्टल",
+       "मदद पोर्टल",
+       "ग"
+      ],
+      [
+       "Registered",
+       "रजिस्टर्ड",
+       "पंजीकृत",
+       "ग"
+      ],
+      [
+       "Embassy",
+       "एम्बेसी",
+       "दूतावास",
+       "ग"
+      ],
+      [
+       "Bum",
+       "बुम्",
+       "ठग",
+       "ग"
+      ],
+      [
+       "Tiam",
+       "तियाम्",
+       "वादा",
+       "ग"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "जाने से पहले परिवार को तीन बातें बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Chauh registered agent ah ram dang kal rawh.",
+       "चौह् रजिस्टर्ड एजेंट अह् राम दङ् कल् रॉह्।",
+       "सिर्फ़ पंजीकृत एजेंट से विदेश जाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Agent eMigrate website ah en fiah rawh.",
+       "एजेंट ई-माइग्रेट वेबसाइट अह् एन् फ़ियाह् रॉह्।",
+       "एजेंट को ई-माइग्रेट वेबसाइट पर जाँचो।",
+       "L",
+       "B"
+      ],
+      [
+       "Dik agent hnaih license nambar a ni.",
+       "दिक् एजेंट ह्नैह् लाइसेंस नम्बर् अ नि।",
+       "सच्चे एजेंट के पास लाइसेंस नंबर होता है।",
+       "L",
+       "B"
+      ],
+      [
+       "License dil rawh leh ziak rawh.",
+       "लाइसेंस दिल् रॉह् लेह् ज़ियाक् रॉह्।",
+       "लाइसेंस माँगो और लिख लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bum hei zawhna ah tlan a ni.",
+       "बुम् हेइ ज़ॉह्न अह् त्लन् अ नि।",
+       "ठग इस सवाल से भागता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Free visa ang engemaw a ni lo.",
+       "फ़्री वीज़ा अङ् एङेमॉ अ नि लो।",
+       "'फ्री वीज़ा' जैसा कुछ नहीं होता।",
+       "L",
+       "B"
+      ],
+      [
+       "Lian tiam lian hlauhawm.",
+       "लियान् तियाम् लियान् ह्लौहॉम्।",
+       "बड़ा वादा, बड़ा ख़तरा।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin pek receipt la rawh.",
+       "तिन् पेक् रसीद ल रॉह्।",
+       "हर भुगतान की रसीद लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Bank ah 2 chauh cash lo.",
+       "बैंक अह् 2 चौह् कैश लो।",
+       "बैंक से दो, सिर्फ़ नकद नहीं।",
+       "L",
+       "B"
+      ],
+      [
+       "Bank payment i finfiahna a ni.",
+       "बैंक पेमेंट इ फ़िन्फ़ियाह्न अ नि।",
+       "बैंक-भुगतान आपका सबूत है।",
+       "L",
+       "B"
+      ],
+      [
+       "Chu company 2 hnathawktute ah thu ti rawh.",
+       "चु कंपनी 2 ह्नथॉक्तुते अह् थु ति रॉह्।",
+       "उस कंपनी के दो कामगारों से बात करो।",
+       "L",
+       "B"
+      ],
+      [
+       "An hnen ah hlawh leh pindan chungchang ah zawt rawh.",
+       "अन् ह्नेन् अह् ह्लॉह् लेह् पिन्दन् चुङ्चङ् अह् ज़ॉत् रॉह्।",
+       "उनसे वेतन और कमरे के बारे में पूछो।",
+       "L",
+       "B"
+      ],
+      [
+       "Video call dik camp entir a ni.",
+       "वीडियो कॉल दिक् कैंप एन्तिर् अ नि।",
+       "वीडियो कॉल असली कैम्प दिखाती है।",
+       "L",
+       "B"
+      ],
+      [
+       "Hna tan tourist visa thang a ni.",
+       "ह्न तन् टूरिस्ट वीज़ा थङ् अ नि।",
+       "काम के लिए टूरिस्ट वीज़ा जाल है।",
+       "L",
+       "B"
+      ],
+      [
+       "Chauh hna visa ah hna thawk rawh.",
+       "चौह् ह्न वीज़ा अह् ह्न थॉक् रॉह्।",
+       "सिर्फ़ काम के वीज़ा पर काम करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chu ram ah India mi embassy nambar dah rawh.",
+       "चु राम अह् इंडिया मि एम्बेसी नम्बर् दह् रॉह्।",
+       "उस देश में भारतीय दूतावास का नंबर रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "India mi embassy ram dang ah India mite tanpui.",
+       "इंडिया मि एम्बेसी राम दङ् अह् इंडिया मिते तन्पुइ।",
+       "भारतीय दूतावास विदेश में भारतीयों की मदद करता है।",
+       "L",
+       "B"
+      ],
+      [
+       "Tanpuina sorkar tanpuina portal a ni.",
+       "तन्पुइन सोर्कर् तन्पुइन पोर्टल अ नि।",
+       "मदद सरकार का सहायता-पोर्टल है।",
+       "L",
+       "B"
+      ],
+      [
+       "Harsatna tanpuina portal ah ziak rawh.",
+       "हर्सत्न तन्पुइन पोर्टल अह् ज़ियाक् रॉह्।",
+       "अपनी परेशानी मदद पोर्टल पर लिखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Hlawh hmu em? chutah complain ti suh.",
+       "ह्लॉह् ह्मु एम्? चुतह् कम्प्लेन ति सुह्।",
+       "वेतन नहीं मिला? वहीं शिकायत करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tin ruahmanna ah chhungkua nen dah rawh.",
+       "तिन् रुअह्मन्न अह् छुङ्कुअ नेन् दह् रॉह्।",
+       "हर योजना में परिवार को साथ रखो।",
+       "L",
+       "B"
+      ],
+      [
+       "Anni agent leh company hriattirna thawn rawh.",
+       "अन्नि एजेंट लेह् कंपनी ह्रियात्तिर्न थॉन् रॉह्।",
+       "उन्हें एजेंट और कंपनी की जानकारी भेजो।",
+       "L",
+       "B"
+      ],
+      [
+       "Flight leh camp address min hrilh rawh.",
+       "फ़्लाइट लेह् कैंप अद्द्रेस्स् मिन् ह्रिल्ह् रॉह्।",
+       "अपनी उड़ान और कैम्प का पता बताओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ram dang ah kar ah 2 vawi in phone ko rawh.",
+       "राम दङ् अह् कर् अह् 2 वॉइ इन् फ़ोन को रॉह्।",
+       "विदेश से हफ़्ते में दो बार घर फोन करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Harsatna ah i ni chuan thup rawh lo.",
+       "हर्सत्न अह् इ नि चुअन् थुप् रॉह् लो।",
+       "मुसीबत में हो तो छिपाओ मत।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhungkua embassy leh tanpuina — i 3 kawngkhar.",
+       "छुङ्कुअ एम्बेसी लेह् तन्पुइन — इ 3 कॉङ्खर्।",
+       "परिवार, दूतावास और मदद — आपके तीन दरवाज़े।",
+       "L",
+       "B"
+      ],
+      [
+       "Inpeih rilru engtikah mah mahni chauh a ni lo.",
+       "इन्पेइह् रिल्रु एङ्तिकह् मह् मह्नि चौह् अ नि लो।",
+       "तैयार मन कभी अकेला नहीं होता।",
+       "S",
+       "C"
+      ],
+      [
+       "Ram dang ah hlawh la rawh in ah siam rawh.",
+       "राम दङ् अह् ह्लॉह् ल रॉह् इन् अह् सियाम् रॉह्।",
+       "विदेश में कमाओ, घर में बनाओ।",
+       "S",
+       "C"
+      ],
+      [
+       "Lehkha nen kal rawh chapo nen kir leh rawh.",
+       "लेह्ख नेन् कल् रॉह् चपो नेन् किर् लेह् रॉह्।",
+       "कागज़ों के साथ जाओ, गर्व के साथ लौटो।",
+       "S",
+       "C"
+      ],
+      [
+       "Him kal chiang kir leh.",
+       "हिम् कल् चियाङ् किर् लेह्।",
+       "सुरक्षित जाना, पक्का लौटना।",
+       "S",
+       "C"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) I khawiah hria em?",
+     "(बोलो) Kan hna tan Dubai hria."
+    ],
+    [
+     "(सुनो) I ticket khat em?",
+     "(बोलो) Company ka ticket khat."
+    ]
+   ],
+   "dialog": [
+    [
+     "अधिकारी",
+     "Passport min entir rawh.",
+     "पासपोर्ट मिन् एन्तिर् रॉह्।"
+    ],
+    [
+     "आप",
+     "Pu Hei ka passport a ni.",
+     "पु हेइ क पासपोर्ट अ नि।"
+    ],
+    [
+     "अधिकारी",
+     "I heta avangin ka lo kal tawh em?",
+     "इ हेत अवङिन् क लो कल् तॉह् एम्?"
+    ],
+    [
+     "आप",
+     "Kan heta hna tan ka lo kal tawh.",
+     "कन् हेत ह्न तन् क लो कल् तॉह्।"
+    ],
+    [
+     "अधिकारी",
+     "Tha ka ni gate nambar 12 ah kal rawh.",
+     "थ क नि गेट नम्बर् 12 अह् कल् रॉह्।"
+    ]
+   ],
+   "test": {
+    "target": "वीज़ा-इंटरव्यू का पूरा अभ्यास (दोस्त अधिकारी बने)",
+    "goal": "पूरा वीज़ा-इंटरव्यू English में खेलिए — देश-परिचय, काम, क़रार, टिकट, वापसी-योजना और धन्यवाद — कम-से-कम सात वाक्य, सब सच।",
+    "lines": [
+     [
+      "Kan India mi a ni.",
+      "कन् इंडिया मि अ नि।"
+     ],
+     [
+      "Heta ka welder hna a ni.",
+      "हेत क वेल्डर ह्न अ नि।"
+     ],
+     [
+      "Ka inremna 2 kum a ni.",
+      "क इन्रेम्न 2 कुम् अ नि।"
+     ],
+     [
+      "Company ka ticket khat.",
+      "कंपनी क टिकट खत्।"
+     ],
+     [
+      "Aw inremna hnuah Kan kir leh ka lo kal ang.",
+      "ऑ इन्रेम्न ह्नुअह् कन् किर् लेह् क लो कल् अङ्।"
+     ],
+     [
+      "Ka lehkha zawng leh thutak a ni.",
+      "क लेह्ख ज़ॉङ् लेह् थुतक् अ नि।"
+     ],
+     [
+      "Ka lawm e Pu.",
+      "क लॉम् ए पु।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 12,
+   "title": "Rest, Joy and New Beginning",
+   "hi": "आराम, खुशी और नई शुरुआत (समापन)",
+   "pace": 10,
+   "days": [
+    {
+     "title": "फुर्सत और शौक़",
+     "tw": [
+      [
+       "Duhzawng",
+       "दुह्ज़ॉङ्",
+       "शौक़",
+       "क"
+      ],
+      [
+       "Hun awl",
+       "हुन् ऑल्",
+       "फुर्सत",
+       "क"
+      ],
+      [
+       "Hla",
+       "ह्ल",
+       "गीत",
+       "क"
+      ],
+      [
+       "Infiamna",
+       "इन्फ़ियाम्न",
+       "खेल",
+       "क"
+      ],
+      [
+       "Chawl",
+       "चॉल्",
+       "आराम",
+       "क"
+      ],
+      [
+       "Duh ber",
+       "दुह् बेर्",
+       "पसंदीदा",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "अपना शौक़ — तीन वाक्य में बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Hun awl ah I eng ti em?",
+       "हुन् ऑल् अह् इ एङ् ति एम्?",
+       "फुर्सत में आप क्या करते हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Ka duhzawng hla ngaithla.",
+       "क दुह्ज़ॉङ् ह्ल ङैथ्ल।",
+       "मेरा शौक़ गीत सुनना है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka Pathianni zing cricket infiam a ni.",
+       "क पथियान्नि ज़िङ् क्रिकेट इन्फ़ियाम् अ नि।",
+       "मैं रविवार सुबह क्रिकेट खेलता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Kan team khawtlang infiamna hneh.",
+       "कन् टीम खॉत्लङ् इन्फ़ियाम्न ह्नेह्।",
+       "हमारी टीम ने स्थानीय खेल जीता।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka duh ber hlasaktu Bihar ah a ni.",
+       "क दुह् बेर् ह्लसक्तु बिहार अह् अ नि।",
+       "मेरा पसंदीदा गायक बिहार से है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka thla ah 1 film en.",
+       "क थ्ल अह् 1 फ़िल्म एन्।",
+       "मैं महीने में एक फ़िल्म देखता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Chawl pawh hna chanvo a ni.",
+       "चॉल् पॉह् ह्न चन्वो अ नि।",
+       "आराम भी काम का हिस्सा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Chawlhni ah Ka 1 darkar tam mu.",
+       "चॉल्ह्नि अह् क 1 दर्कर् तम् मु।",
+       "छुट्टी में मैं एक घंटा ज़्यादा सोता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Duhzawng rilru thar dah.",
+       "दुह्ज़ॉङ् रिल्रु थर् दह्।",
+       "शौक़ मन को ताज़ा रखते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Tak hna tha chawl nitin nuih.",
+       "तक् ह्न थ चॉल् नितिन् नुइह्।",
+       "ख़ूब काम, अच्छा आराम, रोज़ मुस्कान।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "होटल में खाना ऑर्डर करना",
+     "tw": [
+      [
+       "Menu",
+       "मेन्यू",
+       "मेन्यू",
+       "ग"
+      ],
+      [
+       "Thleng",
+       "थ्लेङ्",
+       "थाली",
+       "ग"
+      ],
+      [
+       "Hang",
+       "हङ्",
+       "तीखा",
+       "ग"
+      ],
+      [
+       "Parcel",
+       "पार्सल",
+       "पार्सल",
+       "ग"
+      ],
+      [
+       "Sem",
+       "सेम्",
+       "परोसने वाला",
+       "ग"
+      ],
+      [
+       "Thlum",
+       "थ्लुम्",
+       "मीठा",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "होटल-संवाद पूरा करो — ख़ाली जगह बोलकर भरो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Khawngaihin menu min entir rawh.",
+       "खॉङैहिन् मेन्यू मिन् एन्तिर् रॉह्।",
+       "कृपया मेन्यू दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Veg thleng engzat a ni em?",
+       "वेज थ्लेङ् एङ्ज़त् अ नि एम्?",
+       "वेज थाली कितने की है?",
+       "S",
+       "B"
+      ],
+      [
+       "1 thleng leh 1 lassi pe rawh.",
+       "1 थ्लेङ् लेह् 1 लस्सी पे रॉह्।",
+       "एक थाली और एक लस्सी देना।",
+       "S",
+       "B"
+      ],
+      [
+       "Khawngaihin tlem hang siam rawh.",
+       "खॉङैहिन् त्लेम् हङ् सियाम् रॉह्।",
+       "कृपया कम तीखा बनाना।",
+       "S",
+       "B"
+      ],
+      [
+       "Unau 1 chhang leh.",
+       "उनौ 1 छङ् लेह्।",
+       "भाई, एक रोटी और।",
+       "S",
+       "C"
+      ],
+      [
+       "Vawiin bean tak tui a ni.",
+       "वॉइइन् बेअन् तक् तुइ अ नि।",
+       "आज दाल बहुत स्वादिष्ट है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 thleng parcel phuar pe rawh.",
+       "1 थ्लेङ् पार्सल फुअर् पे रॉह्।",
+       "एक थाली पार्सल बाँध देना।",
+       "S",
+       "C"
+      ],
+      [
+       "Ei hnuah engemaw thlum em?",
+       "एइ ह्नुअह् एङेमॉ थ्लुम् एम्?",
+       "खाने के बाद कुछ मीठा?",
+       "S",
+       "B"
+      ],
+      [
+       "Thlum nen bill rawn ken rawh.",
+       "थ्लुम् नेन् बिल रॉन् केन् रॉह्।",
+       "मीठे के साथ बिल लाना।",
+       "S",
+       "C"
+      ],
+      [
+       "Tha chaw tha rilru.",
+       "थ चॉ थ रिल्रु।",
+       "अच्छा खाना, अच्छा मन।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "हुलिया बताना (शब्दों से तस्वीर)",
+     "tw": [
+      [
+       "Sei",
+       "सेइ",
+       "लंबा",
+       "क"
+      ],
+      [
+       "Tawi",
+       "तॉइ",
+       "नाटा",
+       "क"
+      ],
+      [
+       "Hmul",
+       "ह्मुल्",
+       "दाढ़ी",
+       "क"
+      ],
+      [
+       "Lukhum",
+       "लुखुम्",
+       "टोपी",
+       "क"
+      ],
+      [
+       "Khawngaihthlak",
+       "खॉङैह्थ्लक्",
+       "दयालु",
+       "क"
+      ],
+      [
+       "Tleirawl",
+       "त्लेइरॉल्",
+       "जवान",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "showTell",
+      "hi": "किसी का हुलिया — तीन वाक्य में बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka unau sei leh cher a ni.",
+       "क उनौ सेइ लेह् चेर् अ नि।",
+       "मेरा भाई लंबा और दुबला है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka tlem tawi a ni.",
+       "क त्लेम् तॉइ अ नि।",
+       "मैं थोड़ा नाटा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Kan zirtirtu var hmul a ni.",
+       "कन् ज़िर्तिर्तु वर् ह्मुल् अ नि।",
+       "हमारे उस्ताद की सफ़ेद दाढ़ी है।",
+       "S",
+       "B"
+      ],
+      [
+       "An reng dum lukhum ha a ni.",
+       "अन् रेङ् दुम् लुखुम् ह अ नि।",
+       "वे हमेशा काली टोपी पहनते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "A tleirawl leh taima a ni.",
+       "अ त्लेइरॉल् लेह् तैम अ नि।",
+       "वह जवान और मेहनती है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka thian kawi sam a ni.",
+       "क थियान् कॉइ सम् अ नि।",
+       "मेरे दोस्त के घुँघराले बाल हैं।",
+       "S",
+       "B"
+      ],
+      [
+       "Thar tanpuitu khawngaihthlak leh reh a ni.",
+       "थर् तन्पुइतु खॉङैह्थ्लक् लेह् रेह् अ नि।",
+       "नया सहायक दयालु और शांत है।",
+       "S",
+       "C"
+      ],
+      [
+       "Sen kawr mipa zawng rawh.",
+       "सेन् कॉर् मिप ज़ॉङ् रॉह्।",
+       "लाल कमीज़ वाले आदमी को खोजो।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka hnaih te ip leh pawl lukhum a ni.",
+       "क ह्नैह् ते इप् लेह् पॉल् लुखुम् अ नि।",
+       "मेरे पास छोटा थैला और नीली टोपी है।",
+       "S",
+       "B"
+      ],
+      [
+       "Tawngkam mihring thlalak siam pe.",
+       "तॉङ्कम् मिह्रिङ् थ्ललक् सियाम् पे।",
+       "शब्द इंसान की तस्वीर बना देते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "न्योता देना और लेना",
+     "tw": [
+      [
+       "Sawmna",
+       "सॉम्न",
+       "न्योता",
+       "क"
+      ],
+      [
+       "Ruai",
+       "रुऐ",
+       "दावत",
+       "क"
+      ],
+      [
+       "Pawm tih",
+       "पॉम् तिह्",
+       "स्वीकार करना",
+       "ख"
+      ],
+      [
+       "Pianni",
+       "पियान्नि",
+       "जन्मदिन",
+       "क"
+      ],
+      [
+       "Tak tak",
+       "तक् तक्",
+       "ज़रूर",
+       "क"
+      ],
+      [
+       "Lo awm leh vawi",
+       "लो ऑम् लेह् वॉइ",
+       "अगली बार",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "dialogueFill",
+      "hi": "न्योता-संवाद पूरा करो — हाँ वाला और ना वाला, दोनों बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka fapa pianni ah che sawmna a ni.",
+       "क फ़प पियान्नि अह् चे सॉम्न अ नि।",
+       "मेरे बेटे के जन्मदिन पर आपको न्योता है।",
+       "S",
+       "B"
+      ],
+      [
+       "Ruai Pathianni tlai a ni.",
+       "रुऐ पथियान्नि त्लै अ नि।",
+       "दावत रविवार शाम को है।",
+       "S",
+       "C"
+      ],
+      [
+       "Chhungkua nen lo kal rawh.",
+       "छुङ्कुअ नेन् लो कल् रॉह्।",
+       "परिवार के साथ आइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka lawm e Ka tak lo kal ang.",
+       "क लॉम् ए क तक् लो कल् अङ्।",
+       "धन्यवाद, मैं ज़रूर आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka i sawmna hlimna ah pawm ti.",
+       "क इ सॉम्न ह्लिम्न अह् पॉम् ति।",
+       "मैं आपका न्योता खुशी से स्वीकार करता हूँ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ngaidam tih chu ni ka zan duty a ni.",
+       "ङैदम् तिह् चु नि क ज़न् ड्यूटी अ नि।",
+       "माफ़ करना, उस दिन मेरी रात की ड्यूटी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Lo awm leh vawi chiang hmu ang.",
+       "लो ऑम् लेह् वॉइ चियाङ् ह्मु अङ्।",
+       "अगली बार पक्का मिलूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Ruai ah lo kal tan Ka lawm e.",
+       "रुऐ अह् लो कल् तन् क लॉम् ए।",
+       "दावत में आने के लिए धन्यवाद।",
+       "S",
+       "C"
+      ],
+      [
+       "I lo kal ah min hlimna a ni tawh.",
+       "इ लो कल् अह् मिन् ह्लिम्न अ नि तॉह्।",
+       "आपके आने से हमें खुशी हुई।",
+       "S",
+       "B"
+      ],
+      [
+       "Sawmna thinlung belh a ni.",
+       "सॉम्न थिन्लुङ् बेल्ह् अ नि।",
+       "न्योते दिल जोड़ते हैं।",
+       "S",
+       "C"
+      ]
+     ]
+    },
+    {
+     "title": "पूरा कोर्स समेट — नई शुरुआत",
+     "tw": [
+      [
+       "Zawng zawng",
+       "ज़ॉङ् ज़ॉङ्",
+       "पूरा",
+       "ख"
+      ],
+      [
+       "Level",
+       "लेवल",
+       "स्तर",
+       "ख"
+      ],
+      [
+       "Exam",
+       "एक्सम्",
+       "परीक्षा",
+       "ख"
+      ],
+      [
+       "Chapo",
+       "चपो",
+       "गर्व",
+       "क"
+      ],
+      [
+       "Tirna",
+       "तिर्न",
+       "शुरुआत",
+       "क"
+      ],
+      [
+       "Fan",
+       "फ़ैन",
+       "पंख",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "joinMix",
+      "hi": "जोड़-अभ्यास — so या but लगाकर अपनी कहानी बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Vawiin ka A2 course zawng a ni tawh.",
+       "वॉइइन् क ए2 कोर्स ज़ॉङ् अ नि तॉह्।",
+       "आज मेरा ए-टू कोर्स पूरा हुआ।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka 15 100 thar thu zir.",
+       "क 15 100 थर् थु ज़िर्।",
+       "मैंने पंद्रह सौ नए वाक्य सीखे।",
+       "S",
+       "B"
+      ],
+      [
+       "Ka in hna bazar leh airport ah sawi thei.",
+       "क इन् ह्न बज़र् लेह् एयरपोर्ट अह् सॉइ थेइ।",
+       "मैं घर, काम, बाजार और एयरपोर्ट पर बोल सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Tunah Ka online exam ka pe ang.",
+       "तुनह् क ऑनलाइन एक्सम् क पे अङ्।",
+       "अब मैं ऑनलाइन परीक्षा दूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Certificate thar kawngkhar a hawng ang.",
+       "सर्टिफ़िकेट थर् कॉङ्खर् अ हॉङ् अङ्।",
+       "प्रमाणपत्र नए दरवाज़े खोलेगा।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka zawng khua kei ah chapo a ni.",
+       "क ज़ॉङ् खुअ केइ अह् चपो अ नि।",
+       "मेरे पूरे गाँव को मुझ पर गर्व है।",
+       "S",
+       "A"
+      ],
+      [
+       "Lo awm leh level khawvel exam a ni.",
+       "लो ऑम् लेह् लेवल खॉवेल् एक्सम् अ नि।",
+       "अगला स्तर विश्व-परीक्षा है।",
+       "S",
+       "C"
+      ],
+      [
+       "Ka reng nitin 10 minute inzirna ti ang.",
+       "क रेङ् नितिन् 10 मिनुते इन्ज़िर्न ति अङ्।",
+       "मैं हमेशा रोज़ दस मिनट अभ्यास करूँगा।",
+       "S",
+       "B"
+      ],
+      [
+       "Hei tawpna thar tirna a ni.",
+       "हेइ तॉप्न थर् तिर्न अ नि।",
+       "यह अंत नई शुरुआत है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka tawng ka fan.",
+       "क तॉङ् क फ़ैन।",
+       "मेरी भाषा, मेरे पंख।",
+       "S",
+       "A"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) I duhzawng a ni em?",
+     "(बोलो) Ka duhzawng hla ngaithla a ni."
+    ],
+    [
+     "(सुनो) I chaw ah ka lo kal ang em?",
+     "(बोलो) Ka lawm e Kan tak ka lo kal ang."
+    ]
+   ],
+   "dialog": [
+    [
+     "वेटर",
+     "Ka la ang em?",
+     "क ल अङ् एम्?"
+    ],
+    [
+     "आप",
+     "1 thleng leh 1 lassi Ka lawm e.",
+     "1 थ्लेङ् लेह् 1 लस्सी क लॉम् ए।"
+    ],
+    [
+     "वेटर",
+     "Thlum a ni em?",
+     "थ्लुम् अ नि एम्?"
+    ],
+    [
+     "आप",
+     "Aw 1 rose jamun.",
+     "ऑ 1 रोज़ जामुन।"
+    ],
+    [
+     "वेटर",
+     "5 minute Pu.",
+     "5 मिनुते पु।"
+    ]
+   ],
+   "test": {
+    "target": "समापन-परीक्षा: अपनी पूरी कहानी (परिवार/दोस्तों के सामने)",
+    "goal": "दो मिनट English में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
+    "lines": [
+     [
+      "3 thla hmasa Sap tawng min tan bang a ni.",
+      "3 थ्ल ह्मस साप तॉङ् मिन् तन् बङ् अ नि।"
+     ],
+     [
+      "Tin ni Kan 30 thu ka zir tawh.",
+      "तिन् नि कन् 30 थु क ज़िर् तॉह्।"
+     ],
+     [
+      "Kan in hna bazar leh airport ah thu ti a thei a ni.",
+      "कन् इन् ह्न बज़र् लेह् एयरपोर्ट अह् थु ति अ थेइ अ नि।"
+     ],
+     [
+      "Kan Sap tawng ah phone interview ka pe tawh.",
+      "कन् साप तॉङ् अह् फ़ोन इंटरव्यू क पे तॉह्।"
+     ],
+     [
+      "Kan visa interview chhanna ka zir tawh.",
+      "कन् वीज़ा इंटरव्यू छन्न क ज़िर् तॉह्।"
+     ],
+     [
+      "Ka zawng khua min ah chapo a ni.",
+      "क ज़ॉङ् खुअ मिन् अह् चपो अ नि।"
+     ],
+     [
+      "Hei zo Aih thar tirna a ni.",
+      "हेइ ज़ो ऐह् थर् तिर्न अ नि।"
+     ],
+     [
+      "Ka tawng ka fan.",
+      "क तॉङ् क फ़ैन।"
+     ]
+    ]
+   }
+  },
+  {
+   "n": 13,
+   "title": "Survival, Voice and Rights",
+   "hi": "जीवन-रक्षा, आवाज़ और हक़ (परिशिष्ट — दिन-1 से साथ चले)",
+   "pace": 30,
+   "days": [
+    {
+     "title": "आपात तुरंत-बोल (बिना सोचे बोलना)",
+     "tw": [
+      [
+       "Emergency",
+       "इमरजेंसी",
+       "आपात",
+       "क"
+      ],
+      [
+       "Hliam",
+       "ह्लियाम्",
+       "घायल",
+       "क"
+      ],
+      [
+       "Ambulance",
+       "एम्बुलेंस",
+       "एम्बुलेंस",
+       "क"
+      ],
+      [
+       "Mei",
+       "मेइ",
+       "आग",
+       "क"
+      ],
+      [
+       "Rukrunna a ni tawh",
+       "रुक्रुन्न अ नि तॉह्",
+       "चोरी हुआ",
+       "क"
+      ],
+      [
+       "Thaw lak",
+       "थॉ लक्",
+       "साँस लेना",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "सुनो-जवाब दो — सवाल सुनते ही, बिना पढ़े, तुरंत बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Tanpuina ti rawh rang lo kal rawh.",
+       "तन्पुइन ति रॉह् रङ् लो कल् रॉह्।",
+       "मदद करो, जल्दी आओ!",
+       "S",
+       "A"
+      ],
+      [
+       "Tu emaw ka tanpui rawh!",
+       "तु एमॉ क तन्पुइ रॉह्!",
+       "कोई मेरी मदद करो!",
+       "S",
+       "A"
+      ],
+      [
+       "Ka tha lo ang hliam a ni.",
+       "क थ लो अङ् ह्लियाम् अ नि।",
+       "मैं बुरी तरह घायल हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka kut ah thisen luang awm mek.",
+       "क कुत् अह् थिसेन् लुअङ् ऑम् मेक्।",
+       "मेरे हाथ से खून बह रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Min ambulance duh rawh.",
+       "मिन् एम्बुलेंस दुह् रॉह्।",
+       "मुझे एम्बुलेंस चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Police ko rawh.",
+       "पुलिस को रॉह्।",
+       "पुलिस बुलाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mei a awm a ni.",
+       "मेइ अ ऑम् अ नि।",
+       "आग लगी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Mei! tunah pawnah tlan rawh.",
+       "मेइ! तुनह् पॉनह् त्लन् रॉह्।",
+       "आग! अभी बाहर भागो!",
+       "S",
+       "A"
+      ],
+      [
+       "Min thaw lo kal lo.",
+       "मिन् थॉ लो कल् लो।",
+       "मुझे साँस नहीं आ रही।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka thian tla kal tawh.",
+       "क थियान् त्ल कल् तॉह्।",
+       "मेरा दोस्त गिर गया।",
+       "S",
+       "A"
+      ],
+      [
+       "A nghing awm lo.",
+       "अ ङ्हिङ् ऑम् लो।",
+       "वह हिल नहीं रहा।",
+       "S",
+       "A"
+      ],
+      [
+       "Hrui khawih rawh lo.",
+       "ह्रुइ खॉइह् रॉह् लो।",
+       "तार मत छुओ!",
+       "S",
+       "A"
+      ],
+      [
+       "Machine khar rawh!",
+       "मशीन खर् रॉह्!",
+       "मशीन बंद करो!",
+       "S",
+       "A"
+      ],
+      [
+       "Ka kawng bo kal tawh a ni.",
+       "क कॉङ् बो कल् तॉह् अ नि।",
+       "मैं रास्ता भटक गया हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Min pindan hmu lo.",
+       "मिन् पिन्दन् ह्मु लो।",
+       "मुझे अपना कमरा नहीं मिल रहा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka passport bo kal tawh a ni.",
+       "क पासपोर्ट बो कल् तॉह् अ नि।",
+       "मेरा पासपोर्ट खो गया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka phone rukrunna a ni tawh.",
+       "क फ़ोन रुक्रुन्न अ नि तॉह्।",
+       "मेरा फोन चोरी हो गया।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka pawisa rukrunna a ni tawh.",
+       "क पॉइस रुक्रुन्न अ नि तॉह्।",
+       "मेरे पैसे चोरी हो गए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tu emaw ka um ti mek.",
+       "तु एमॉ क उम् ति मेक्।",
+       "कोई मेरा पीछा कर रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin ka nen awm rawh.",
+       "खॉङैहिन् क नेन् ऑम् रॉह्।",
+       "कृपया मेरे साथ रहो।",
+       "S",
+       "A"
+      ],
+      [
+       "Min damdawiin la kal rawh.",
+       "मिन् दम्दॉइइन् ल कल् रॉह्।",
+       "मुझे अस्पताल ले चलो।",
+       "S",
+       "A"
+      ],
+      [
+       "Tha heta na a ni.",
+       "थ हेत न अ नि।",
+       "ठीक यहाँ दर्द है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka ke ah tak na a ni.",
+       "क के अह् तक् न अ नि।",
+       "मेरी टाँग में बहुत दर्द है।",
+       "S",
+       "A"
+      ],
+      [
+       "Min vir lo kal mek.",
+       "मिन् विर् लो कल् मेक्।",
+       "मुझे चक्कर आ रहा है।",
+       "S",
+       "A"
+      ],
+      [
+       "Rang tui rawn ken rawh.",
+       "रङ् तुइ रॉन् केन् रॉह्।",
+       "जल्दी पानी लाओ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei nambar ah ka unau phone ko rawh.",
+       "हेइ नम्बर् अह् क उनौ फ़ोन को रॉह्।",
+       "इस नंबर पर मेरे भाई को फोन करो।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka damdawi ka ip ah a ni.",
+       "क दम्दॉइ क इप् अह् अ नि।",
+       "मेरी दवा मेरे थैले में है।",
+       "S",
+       "A"
+      ],
+      [
+       "Emergency exit ti em?",
+       "इमरजेंसी एग्ज़िट ति एम्?",
+       "आपात-निकास कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Reh awm rawh tanpuina lo kal mek.",
+       "रेह् ऑम् रॉह् तन्पुइन लो कल् मेक्।",
+       "शांत रहो, मदद आ रही है।",
+       "S",
+       "A"
+      ],
+      [
+       "Hlauhawm ah sang aw nunna vawng a ni.",
+       "ह्लौहॉम् अह् सङ् ऑ नुन्न वॉङ् अ नि।",
+       "ख़तरे में ऊँची आवाज़ जान बचाती है।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "ना कहना और सवाल पूछना (अपनी आवाज़)",
+     "tw": [
+      [
+       "Hriatthiam",
+       "ह्रियात्थियाम्",
+       "समझना",
+       "क"
+      ],
+      [
+       "Hrilhfiah",
+       "ह्रिल्ह्फ़ियाह्",
+       "समझाना",
+       "ख"
+      ],
+      [
+       "Himna thil",
+       "हिम्न थिल्",
+       "सुरक्षा-सामान",
+       "ख"
+      ],
+      [
+       "Khap tih",
+       "खप् तिह्",
+       "मना करना",
+       "ख"
+      ],
+      [
+       "Sawi nawn",
+       "सॉइ नॉन्",
+       "दोहराना",
+       "क"
+      ],
+      [
+       "Zahawmna",
+       "ज़हॉम्न",
+       "इज़्ज़त",
+       "क"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "सुनो-जवाब दो — आदेश सुनो, ज़रूरत पर विनम्र 'ना' बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka hrethiam lo.",
+       "क ह्रेथियाम् लो।",
+       "मैं नहीं समझा।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin 1 vawi leh min hrilhfiah rawh.",
+       "खॉङैहिन् 1 वॉइ लेह् मिन् ह्रिल्ह्फ़ियाह् रॉह्।",
+       "कृपया एक बार और समझाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin tlem zawi sawi rawh.",
+       "खॉङैहिन् त्लेम् ज़ॉइ सॉइ रॉह्।",
+       "कृपया थोड़ा धीरे बोलिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin hnuhnung ber thu sawi nawn rawh.",
+       "खॉङैहिन् ह्नुह्नुङ् बेर् थु सॉइ नॉन् रॉह्।",
+       "कृपया आख़िरी बात दोहराइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei tawngkam awmzia eng a ni em?",
+       "हेइ तॉङ्कम् ऑम्ज़िया एङ् अ नि एम्?",
+       "इस शब्द का मतलब क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin hei ziak a pe rawh.",
+       "खॉङैहिन् हेइ ज़ियाक् अ पे रॉह्।",
+       "कृपया इसे लिखकर दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Lovin himna thil Ka Hei ti thei lo.",
+       "लोविन् हिम्न थिल् क हेइ ति थेइ लो।",
+       "बिना सुरक्षा-सामान मैं यह नहीं कर सकता।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin kutfai leh mitthlalang pe rawh.",
+       "खॉङैहिन् कुत्फ़ै लेह् मित्थ्ललङ् पे रॉह्।",
+       "कृपया दस्ताने और चश्मा दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei hna him a ni lo.",
+       "हेइ ह्न हिम् अ नि लो।",
+       "यह काम सुरक्षित नहीं है।",
+       "S",
+       "A"
+      ],
+      [
+       "Security check hnuah Ka Hei ti ang.",
+       "सिक्योरिटी चेक ह्नुअह् क हेइ ति अङ्।",
+       "सुरक्षा-जाँच के बाद मैं यह करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Aih Ka Hei ti thei lo.",
+       "ऐह् क हेइ ति थेइ लो।",
+       "नहीं, मैं यह नहीं कर सकता।",
+       "S",
+       "A"
+      ],
+      [
+       "Lo sawi sualna a ni lo.",
+       "लो सॉइ सुअल्न अ नि लो।",
+       "ना कहना अपराध नहीं है।",
+       "S",
+       "A"
+      ],
+      [
+       "Min ka pek duh rawh.",
+       "मिन् क पेक् दुह् रॉह्।",
+       "मुझे मेरा भुगतान चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin min vawiin duh rawh.",
+       "खॉङैहिन् मिन् वॉइइन् दुह् रॉह्।",
+       "कृपया मुझे आज ही चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka lehkha thawh en duh.",
+       "क लेह्ख थॉह् एन् दुह्।",
+       "मैं लिखा-पढ़ी देखना चाहता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka che passport ka pe ang lo.",
+       "क चे पासपोर्ट क पे अङ् लो।",
+       "मैं आपको अपना पासपोर्ट नहीं दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin ka passport pe kir rawh.",
+       "खॉङैहिन् क पासपोर्ट पे किर् रॉह्।",
+       "कृपया मेरा पासपोर्ट लौटाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin ka lehkha vawiin pe kir rawh.",
+       "खॉङैहिन् क लेह्ख वॉइइन् पे किर् रॉह्।",
+       "कृपया मेरे कागज़ आज लौटाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka hei ah pawm a ni tawh lo.",
+       "क हेइ अह् पॉम् अ नि तॉह् लो।",
+       "मैं इस पर सहमत नहीं था।",
+       "S",
+       "A"
+      ],
+      [
+       "Kan thu ah Hei a ni tawh lo.",
+       "कन् थु अह् हेइ अ नि तॉह् लो।",
+       "हमारी बात में यह नहीं था।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka embassy ah zawt ang.",
+       "क एम्बेसी अह् ज़ॉत् अङ्।",
+       "मैं अपने दूतावास से पूछूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka dikna hria.",
+       "क दिक्न ह्रिया।",
+       "मैं अपने हक़ जानता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin zahawmna ah thu ti rawh.",
+       "खॉङैहिन् ज़हॉम्न अह् थु ति रॉह्।",
+       "कृपया इज़्ज़त से बात कीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Kei ah au rawh lo.",
+       "केइ अह् औ रॉह् लो।",
+       "मुझ पर मत चिल्लाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka inngaihtlawmna ah zawt mek.",
+       "क इन्ङैह्त्लॉम्न अह् ज़ॉत् मेक्।",
+       "मैं विनम्रता से पूछ रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Min ngaihtuah 1 minute pe rawh.",
+       "मिन् ङैह्तुअह् 1 मिनुते पे रॉह्।",
+       "मुझे सोचने का एक मिनट दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Chhiar a chhanna ka pe ang.",
+       "छियार् अ छन्न क पे अङ्।",
+       "पढ़कर जवाब दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Eng Ka 1 zawhna zawt em?",
+       "एङ् क 1 ज़ॉह्न ज़ॉत् एम्?",
+       "क्या मैं एक सवाल पूछूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Vawiin zawhna naktuk chhiatna vawng a ni.",
+       "वॉइइन् ज़ॉह्न नक्तुक् छियात्न वॉङ् अ नि।",
+       "आज का सवाल कल का नुक़सान बचाता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Nem aw chak thu.",
+       "नेम् ऑ चक् थु।",
+       "नरम आवाज़, मज़बूत बात।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "कमाई-रक्षा की मिज़ो (शोषण-बचाव)",
+     "tw": [
+      [
+       "Tihtlem",
+       "तिह्त्लेम्",
+       "कटौती",
+       "ख"
+      ],
+      [
+       "Bat",
+       "बत्",
+       "बकाया",
+       "ख"
+      ],
+      [
+       "Copy darkar",
+       "कॉपी दर्कर्",
+       "प्रति घंटा",
+       "ख"
+      ],
+      [
+       "Ziak",
+       "ज़ियाक्",
+       "लिखित",
+       "ख"
+      ],
+      [
+       "Thuhretu",
+       "थुह्रेतु",
+       "गवाह",
+       "ख"
+      ],
+      [
+       "Overtime pawisa",
+       "ओवरटाइम पॉइस",
+       "ओवरटाइम-पैसा",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "सुनो-जवाब दो — मालिक की बात सुनो, अपना हक़ शांति से बोलो।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ka hlawh engzat a ni em?",
+       "क ह्लॉह् एङ्ज़त् अ नि एम्?",
+       "मेरा वेतन कितना है?",
+       "S",
+       "A"
+      ],
+      [
+       "I min engtikah pek kan ti ang em?",
+       "इ मिन् एङ्तिकह् पेक् कन् ति अङ् एम्?",
+       "आप मुझे कब भुगतान करेंगे?",
+       "S",
+       "A"
+      ],
+      [
+       "Ka pek 10 ni ah bat a ni.",
+       "क पेक् 10 नि अह् बत् अ नि।",
+       "मेरा भुगतान दस दिन से बकाया है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka naktuk overtime ti tawh.",
+       "क नक्तुक् ओवरटाइम ति तॉह्।",
+       "मैंने कल ओवरटाइम किया।",
+       "S",
+       "A"
+      ],
+      [
+       "Eng heta overtime pawisa hmu em?",
+       "एङ् हेत ओवरटाइम पॉइस ह्मु एम्?",
+       "क्या यहाँ ओवरटाइम का पैसा मिलता है?",
+       "S",
+       "A"
+      ],
+      [
+       "Copy darkar man eng a ni em?",
+       "कॉपी दर्कर् मन् एङ् अ नि एम्?",
+       "प्रति घंटा दर क्या है?",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin ka inremna min entir rawh.",
+       "खॉङैहिन् क इन्रेम्न मिन् एन्तिर् रॉह्।",
+       "कृपया मेरा क़रार दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Min inremna copy duh rawh.",
+       "मिन् इन्रेम्न कॉपी दुह् रॉह्।",
+       "मुझे अपने क़रार की प्रति चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Pawisa engvangin tan kal tawh em?",
+       "पॉइस एङ्वङिन् तन् कल् तॉह् एम्?",
+       "पैसा क्यों काटा गया?",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin Hei tihtlem min hrilhfiah rawh.",
+       "खॉङैहिन् हेइ तिह्त्लेम् मिन् ह्रिल्ह्फ़ियाह् रॉह्।",
+       "कृपया यह कटौती समझाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tihtlem ziak a min entir rawh.",
+       "तिह्त्लेम् ज़ियाक् अ मिन् एन्तिर् रॉह्।",
+       "कटौती लिखकर दिखाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Min ziak chhanna duh rawh.",
+       "मिन् ज़ियाक् छन्न दुह् रॉह्।",
+       "मुझे लिखित जवाब चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka chhut 9 100 ti.",
+       "क छुत् 9 100 ति।",
+       "मेरा हिसाब नौ सौ कहता है।",
+       "S",
+       "A"
+      ],
+      [
+       "Lo kal rawh nen ah enfiahna la rawh.",
+       "लो कल् रॉह् नेन् अह् एन्फ़ियाह्न ल रॉह्।",
+       "आइए साथ में जाँच लें।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka thian ka thuhretu a ni.",
+       "क थियान् क थुह्रेतु अ नि।",
+       "मेरा दोस्त मेरा गवाह है।",
+       "S",
+       "A"
+      ],
+      [
+       "A ka zawng hna en.",
+       "अ क ज़ॉङ् ह्न एन्।",
+       "उसने मेरा पूरा काम देखा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka hnaih hna ni photo a ni.",
+       "क ह्नैह् ह्न नि फ़ोटो अ नि।",
+       "मेरे पास काम के दिनों की फोटो हैं।",
+       "S",
+       "A"
+      ],
+      [
+       "Hei ka attendance copy a ni.",
+       "हेइ क अटेंडेंस कॉपी अ नि।",
+       "यह मेरी हाज़िरी-कॉपी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Chanve pek zawng pek a ni lo.",
+       "चन्वे पेक् ज़ॉङ् पेक् अ नि लो।",
+       "आधा भुगतान पूरा भुगतान नहीं है।",
+       "S",
+       "A"
+      ],
+      [
+       "La bang lo awm leh kar ka la ang ziak ah.",
+       "ल बङ् लो ऑम् लेह् कर् क ल अङ् ज़ियाक् अह्।",
+       "बाक़ी अगले हफ़्ते लूँगा, लिखित में।",
+       "S",
+       "A"
+      ],
+      [
+       "Lovin chhan tihtlem dik lo a ni.",
+       "लोविन् छन् तिह्त्लेम् दिक् लो अ नि।",
+       "बिना कारण कटौती ग़लत है।",
+       "S",
+       "A"
+      ],
+      [
+       "Agent fee hmasa pe kal.",
+       "एजेंट फ़ीस ह्मस पे कल्।",
+       "एजेंट की फीस पहले ही दी जा चुकी है।",
+       "S",
+       "A"
+      ],
+      [
+       "Receipt ka hnaih a ni.",
+       "रसीद क ह्नैह् अ नि।",
+       "रसीद मेरे पास है।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin ka bank account ah pe rawh.",
+       "खॉङैहिन् क बैंक अकाउंट अह् पे रॉह्।",
+       "कृपया मेरे बैंक खाते में दीजिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Lovin receipt cash hlauhawm a ni.",
+       "लोविन् रसीद कैश ह्लौहॉम् अ नि।",
+       "बिना रसीद नकद जोखिम है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka labour office ah complain ti ang.",
+       "क लेबर ऑफ़िस अह् कम्प्लेन ति अङ्।",
+       "मैं श्रम-दफ़्तर में शिकायत करूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Hmasa thu leh complain.",
+       "ह्मस थु लेह् कम्प्लेन।",
+       "पहले बात, फिर शिकायत।",
+       "S",
+       "A"
+      ],
+      [
+       "Pu Ka i leh hna zahawmna ti.",
+       "पु क इ लेह् ह्न ज़हॉम्न ति।",
+       "सर, मैं आपकी और अपने काम की इज़्ज़त करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Dik hlawh chak hna siam.",
+       "दिक् ह्लॉह् चक् ह्न सियाम्।",
+       "सही मज़दूरी मज़बूत काम बनाती है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ka thlan ka dikna.",
+       "क थ्लन् क दिक्न।",
+       "मेरा पसीना, मेरा हक़।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "सुनो-समझो-जवाब दो (एयरपोर्ट व सुपरवाइज़र-अभिनय)",
+     "tw": [
+      [
+       "Chhanna pek",
+       "छन्न पेक्",
+       "जवाब देना",
+       "ख"
+      ],
+      [
+       "Awm",
+       "ऑम्",
+       "ठहरना",
+       "ख"
+      ],
+      [
+       "Hmanrua",
+       "ह्मन्रुअ",
+       "औज़ार",
+       "ख"
+      ],
+      [
+       "Zawng zawng tih",
+       "ज़ॉङ् ज़ॉङ् तिह्",
+       "पूरा करना",
+       "ख"
+      ],
+      [
+       "Hlan hna",
+       "ह्लन् ह्न",
+       "सौंपा काम",
+       "ख"
+      ],
+      [
+       "Chhanna",
+       "छन्न",
+       "उत्तर",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "listenRespond",
+      "hi": "पूरा अभिनय — दोस्त (सुनो)-पंक्ति बोले, आप बिना पढ़े (बोलो)-पंक्ति।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Ngaithla la hrethiam rawh Khawngaihin passport min entir rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् खॉङैहिन् पासपोर्ट मिन् एन्तिर् रॉह्।",
+       "(सुनो-समझो) कृपया अपना पासपोर्ट दिखाइए।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Pu Hei ka passport a ni.",
+       "छन्न पु हेइ क पासपोर्ट अ नि।",
+       "(जवाब) सर, यह मेरा पासपोर्ट है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh I heta engvangin lo kal tawh a ni em?",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् इ हेत एङ्वङिन् लो कल् तॉह् अ नि एम्?",
+       "(सुनो-समझो) आप यहाँ क्यों आए हैं?",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Ka heta hna tih lo kal tawh.",
+       "छन्न क हेत ह्न तिह् लो कल् तॉह्।",
+       "(जवाब) मैं यहाँ काम करने आया हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh I khawiah kan awm ang em?",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् इ खॉइयाह् कन् ऑम् अङ् एम्?",
+       "(सुनो-समझो) आप कहाँ ठहरेंगे?",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Ka hei address ah ka awm ang.",
+       "छन्न क हेइ अद्द्रेस्स् अह् क ऑम् अङ्।",
+       "(जवाब) मैं इस पते पर ठहरूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh pawnah i tu nghak mek em?",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् पॉनह् इ तु ङ्हक् मेक् एम्?",
+       "(सुनो-समझो) बाहर आपका कौन इंतज़ार कर रहा है?",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna ka company mipa pawnah a ni.",
+       "छन्न क कंपनी मिप पॉनह् अ नि।",
+       "(जवाब) मेरी कंपनी का आदमी बाहर है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh enfiahna tan ip hawng rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् एन्फ़ियाह्न तन् इप् हॉङ् रॉह्।",
+       "(सुनो-समझो) जाँच के लिए थैला खोलिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Aw Pu Hei inhawng a ni.",
+       "छन्न ऑ पु हेइ इन्हॉङ् अ नि।",
+       "(जवाब) जी सर, यह खुला है।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh naktuk 7 dar lo kal tlai ti suh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् नक्तुक् 7 दर् लो कल् त्लै ति सुह्।",
+       "(सुनो-समझो) कल सात बजे आना, देर मत करना।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna tha Pu Ka 7 dar lo kal ang.",
+       "छन्न थ पु क 7 दर् लो कल् अङ्।",
+       "(जवाब) ठीक सर, मैं सात बजे आऊँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh Hei hmanrua la rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् हेइ ह्मन्रुअ ल रॉह्।",
+       "(सुनो-समझो) यह औज़ार लो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna eng hmanrua Pu sen em?",
+       "छन्न एङ् ह्मन्रुअ पु सेन् एम्?",
+       "(जवाब) कौन-सा औज़ार सर, लाल वाला?",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh Aw sen leh tunah tan rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् ऑ सेन् लेह् तुनह् तन् रॉह्।",
+       "(सुनो-समझो) हाँ, लाल वाला, और अभी शुरू करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna tha Pu tunah tan.",
+       "छन्न थ पु तुनह् तन्।",
+       "(जवाब) ठीक सर, अभी शुरू करता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh Hei hna ei ah hmasa zawng ti rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् हेइ ह्न एइ अह् ह्मस ज़ॉङ् ति रॉह्।",
+       "(सुनो-समझो) यह काम खाने से पहले पूरा करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Ka ei ah hmasa zawng ti ka pe ang.",
+       "छन्न क एइ अह् ह्मस ज़ॉङ् ति क पे अङ्।",
+       "(जवाब) मैं खाने से पहले पूरा कर दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh hna hnuah hmun fai ti rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् ह्न ह्नुअह् ह्मुन् फ़ै ति रॉह्।",
+       "(सुनो-समझो) काम के बाद जगह साफ़ करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna tak Pu Ka fai ti ka pe ang.",
+       "छन्न तक् पु क फ़ै ति क पे अङ्।",
+       "(जवाब) ज़रूर सर, मैं साफ़ कर दूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh vawiin i duty zan shift ah a ni.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् वॉइइन् इ ड्यूटी ज़न् शिफ़्ट अह् अ नि।",
+       "(सुनो-समझो) आज आपकी ड्यूटी रात की पारी में है।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna tha Ka ni ah mu ka la ang.",
+       "छन्न थ क नि अह् मु क ल अङ्।",
+       "(जवाब) ठीक, मैं दिन में सो लूँगा।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh bus 5 minute ah a inhawng ang.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् बस 5 मिनुते अह् अ इन्हॉङ् अङ्।",
+       "(सुनो-समझो) बस पाँच मिनट में खुलेगी।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Ka lo kal mek ka ni Khawngaihin ding rawh.",
+       "छन्न क लो कल् मेक् क नि खॉङैहिन् दिङ् रॉह्।",
+       "(जवाब) मैं आ रहा हूँ, कृपया रुकिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh card la a office lo kal rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् कार्ड ल अ ऑफ़िस लो कल् रॉह्।",
+       "(सुनो-समझो) अपना कार्ड लेकर दफ़्तर आओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Pu Ka card rawn ken mek.",
+       "छन्न पु क कार्ड रॉन् केन् मेक्।",
+       "(जवाब) सर, मैं अपना कार्ड ला रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Ngaithla la hrethiam rawh chhungah kal ah hmasa helmet ha rawh.",
+       "ङैथ्ल ल ह्रेथियाम् रॉह् छुङह् कल् अह् ह्मस हेलमेट ह रॉह्।",
+       "(सुनो-समझो) अंदर जाने से पहले हेलमेट पहनो।",
+       "L",
+       "B"
+      ],
+      [
+       "Chhanna Pu Ka ha awm mek.",
+       "छन्न पु क ह ऑम् मेक्।",
+       "(जवाब) सर, मैं पहन रहा हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Hmasa beng leh lei.",
+       "ह्मस बेङ् लेह् लेइ।",
+       "पहले कान, फिर ज़ुबान।",
+       "S",
+       "A"
+      ],
+      [
+       "Zawng ngaithla rawh te chhanna 2.",
+       "ज़ॉङ् ङैथ्ल रॉह् ते छन्न 2।",
+       "पूरा सुनो, छोटा जवाब दो।",
+       "S",
+       "A"
+      ]
+     ]
+    },
+    {
+     "title": "साँचा-अभ्यास (एक साँचा, दस वाक्य)",
+     "tw": [
+      [
+       "Tehna",
+       "तेह्न",
+       "साँचा",
+       "ख"
+      ],
+      [
+       "Ruak hmun",
+       "रुअक् ह्मुन्",
+       "ख़ाली जगह",
+       "ख"
+      ],
+      [
+       "Tawngkam",
+       "तॉङ्कम्",
+       "शब्द",
+       "क"
+      ],
+      [
+       "Thu",
+       "थु",
+       "वाक्य",
+       "क"
+      ],
+      [
+       "—",
+       "—",
+       "अपना",
+       "क"
+      ],
+      [
+       "Dinhmun",
+       "दिन्ह्मुन्",
+       "परिस्थिति",
+       "ख"
+      ]
+     ],
+     "drill": {
+      "type": "patternSay",
+      "hi": "साँचा बोलो — ख़ाली जगह में अपना शब्द डालकर पाँच नए वाक्य बनाओ।",
+      "rows": [
+       [
+        "Ka chhungkua nen awm.",
+        "I chhungkua nen awm.",
+        "A chhungkua nen awm."
+       ],
+       [
+        "Ka nu phone ko.",
+        "I nu phone ko.",
+        "A nu phone ko."
+       ]
+      ]
+     },
+     "items": [
+      [
+       "Tehna zir rawh thu siam rawh.",
+       "तेह्न ज़िर् रॉह् थु सियाम् रॉह्।",
+       "साँचा सीखो, अपना वाक्य बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Tehna 1 min --- duh rawh.",
+       "तेह्न 1 मिन् --- दुह् रॉह्।",
+       "साँचा एक: मुझे (---) चाहिए।",
+       "L",
+       "B"
+      ],
+      [
+       "Min taxi duh rawh.",
+       "मिन् टैक्सी दुह् रॉह्।",
+       "मुझे टैक्सी चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Min tunah doctor duh rawh.",
+       "मिन् तुनह् डॉक्टर दुह् रॉह्।",
+       "मुझे अभी डॉक्टर चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Min 1 thla tan pindan duh rawh.",
+       "मिन् 1 थ्ल तन् पिन्दन् दुह् रॉह्।",
+       "मुझे एक महीने के लिए कमरा चाहिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tehna 2 --- ti em?",
+       "तेह्न 2 --- ति एम्?",
+       "साँचा दो: (---) कहाँ है?",
+       "L",
+       "B"
+      ],
+      [
+       "Tui cooler ti em?",
+       "तुइ कूलर ति एम्?",
+       "पानी का कूलर कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Site office ti em?",
+       "साइट ऑफ़िस ति एम्?",
+       "साइट-दफ़्तर कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Exit gate ti em?",
+       "एग्ज़िट गेट ति एम्?",
+       "निकास-गेट कहाँ है?",
+       "S",
+       "A"
+      ],
+      [
+       "Tehna 3 eng Ka --- em?",
+       "तेह्न 3 एङ् क --- एम्?",
+       "साँचा तीन: क्या मैं (---)?",
+       "L",
+       "B"
+      ],
+      [
+       "Eng Ka 1 minute heta thu ka kal ang em em?",
+       "एङ् क 1 मिनुते हेत थु क कल् अङ् एम् एम्?",
+       "क्या मैं एक मिनट यहाँ बैठ जाऊँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Eng vawiin 5 dar kal thei em?",
+       "एङ् वॉइइन् 5 दर् कल् थेइ एम्?",
+       "क्या आज पाँच बजे जा सकता हूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Eng tunah in phone ti ka la ang em?",
+       "एङ् तुनह् इन् फ़ोन ति क ल अङ् एम्?",
+       "क्या अभी घर फोन कर लूँ?",
+       "S",
+       "A"
+      ],
+      [
+       "Tehna 4 --- engzat a ni em?",
+       "तेह्न 4 --- एङ्ज़त् अ नि एम्?",
+       "साँचा चार: (---) कितने का है?",
+       "L",
+       "B"
+      ],
+      [
+       "Heta 1 zan engzat a ni em?",
+       "हेत 1 ज़न् एङ्ज़त् अ नि एम्?",
+       "यहाँ एक रात कितने की है?",
+       "S",
+       "B"
+      ],
+      [
+       "Camp thleng taxi engzat em?",
+       "कैंप थ्लेङ् टैक्सी एङ्ज़त् एम्?",
+       "कैम्प तक टैक्सी कितने की?",
+       "S",
+       "B"
+      ],
+      [
+       "Tehna 5 Khawngaihin ---.",
+       "तेह्न 5 खॉङैहिन् ---।",
+       "साँचा पाँच: कृपया (---)।",
+       "L",
+       "B"
+      ],
+      [
+       "Khawngaihin gate hawng rawh.",
+       "खॉङैहिन् गेट हॉङ् रॉह्।",
+       "कृपया गेट खोलिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin supervisor ko rawh.",
+       "खॉङैहिन् सुपरवाइज़र को रॉह्।",
+       "कृपया सुपरवाइज़र को बुलाइए।",
+       "S",
+       "A"
+      ],
+      [
+       "Khawngaihin list ah ka hming en rawh.",
+       "खॉङैहिन् लिस्ट अह् क ह्मिङ् एन् रॉह्।",
+       "कृपया सूची में मेरा नाम देखिए।",
+       "S",
+       "A"
+      ],
+      [
+       "Tehna 6 Ka --- thei a ni.",
+       "तेह्न 6 क --- थेइ अ नि।",
+       "साँचा छह: मैं (---) सकता हूँ।",
+       "L",
+       "B"
+      ],
+      [
+       "Ka vawiin tan thei.",
+       "क वॉइइन् तन् थेइ।",
+       "मैं आज ही शुरू कर सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "Mamawh i ni chuan Pathianni pawh hna thawk thei.",
+       "ममॉह् इ नि चुअन् पथियान्नि पॉह् ह्न थॉक् थेइ।",
+       "ज़रूरत हो तो रविवार भी काम कर सकता हूँ।",
+       "S",
+       "A"
+      ],
+      [
+       "1 tehna 10 thu pe.",
+       "1 तेह्न 10 थु पे।",
+       "एक साँचा दस वाक्य देता है।",
+       "S",
+       "C"
+      ],
+      [
+       "1 tawngkam thlak rawh thar tlar siam rawh.",
+       "1 तॉङ्कम् थ्लक् रॉह् थर् त्लर् सियाम् रॉह्।",
+       "एक शब्द बदलो, नई पंक्ति बनाओ।",
+       "L",
+       "B"
+      ],
+      [
+       "Dinhmun ah tehna sawi rawh.",
+       "दिन्ह्मुन् अह् तेह्न सॉइ रॉह्।",
+       "अपनी परिस्थिति में साँचा बोलो।",
+       "L",
+       "B"
+      ],
+      [
+       "Nitin 1 tehna inzirna ti rawh.",
+       "नितिन् 1 तेह्न इन्ज़िर्न ति रॉह्।",
+       "रोज़ एक साँचा अभ्यास करो।",
+       "L",
+       "B"
+      ],
+      [
+       "Tehna lei zalen ti.",
+       "तेह्न लेइ ज़लेन् ति।",
+       "साँचे ज़ुबान को आज़ाद करते हैं।",
+       "S",
+       "C"
+      ],
+      [
+       "Tawngkam brick an ni tehna bang.",
+       "तॉङ्कम् ब्रिक अन् नि तेह्न बङ्।",
+       "शब्द ईंटें हैं, साँचे दीवारें।",
+       "S",
+       "C"
+      ],
+      [
+       "I thu i chakna.",
+       "इ थु इ चक्न।",
+       "आपका वाक्य, आपकी ताक़त।",
+       "S",
+       "B"
+      ]
+     ]
+    }
+   ],
+   "listen": [
+    [
+     "(सुनो) A ni tawh em?",
+     "(बोलो) Ka thian tla kal tawh."
+    ],
+    [
+     "(सुनो) Che doctor duh rawh em?",
+     "(बोलो) Aw min ambulance duh rawh."
+    ]
+   ],
+   "dialog": [
+    [
+     "आप",
+     "Tanpuina ti rawh rang lo kal rawh.",
+     "तन्पुइन ति रॉह् रङ् लो कल् रॉह्।"
+    ],
+    [
+     "राहगीर",
+     "A ni tawh em?",
+     "अ नि तॉह् एम्?"
+    ],
+    [
+     "आप",
+     "Ka thian tla kal tawh.",
+     "क थियान् त्ल कल् तॉह्।"
+    ],
+    [
+     "राहगीर",
+     "Kan ambulance ka ko ang.",
+     "कन् एम्बुलेंस क को अङ्।"
+    ],
+    [
+     "आप",
+     "Ka lawm e I ka nen awm.",
+     "क लॉम् ए इ क नेन् ऑम्।"
+    ]
+   ],
+   "test": {
+    "target": "जीवन-रक्षा परीक्षा (दोस्त बिना बताए English में बोले)",
+    "goal": "दोस्त (सुनो)-पंक्तियाँ बेतरतीब बोले — आप बिना पढ़े तुरंत जवाब दो; फिर आपात के पाँच वाक्य एक साँस में बोलो।",
+    "lines": [
+     [
+      "Tanpuina ti rawh rang lo kal rawh.",
+      "तन्पुइन ति रॉह् रङ् लो कल् रॉह्।"
+     ],
+     [
+      "Kan hliam i ni ka kal tawh.",
+      "कन् ह्लियाम् इ नि क कल् तॉह्।"
+     ],
+     [
+      "Min ambulance duh rawh.",
+      "मिन् एम्बुलेंस दुह् रॉह्।"
+     ],
+     [
+      "Ka passport bo a ni tawh.",
+      "क पासपोर्ट बो अ नि तॉह्।"
+     ],
+     [
+      "Kan che ka passport ka pe ang lo.",
+      "कन् चे क पासपोर्ट क पे अङ् लो।"
+     ],
+     [
+      "Min ka hlawh duh rawh.",
+      "मिन् क ह्लॉह् दुह् रॉह्।"
+     ],
+     [
+      "Pu Hei ka passport a ni.",
+      "पु हेइ क पासपोर्ट अ नि।"
+     ],
+     [
+      "Pu Kan chaw ei ah hmasa zawng ka ti ang.",
+      "पु कन् चॉ एइ अह् ह्मस ज़ॉङ् क ति अङ्।"
+     ]
+    ]
+   }
+  }
+ ]
+};

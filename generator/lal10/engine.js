@@ -58,6 +58,7 @@ function mkLat2dev(extra){
   const EVi=Object.assign({},VOW_I,(extra&&extra.vi)||{});
   const ECL=((extra&&extra.clOrder)||[]).concat(CL_ORDER);
   const EVO=((extra&&extra.vOrder)||[]).concat(V_ORDER);
+  const EW=(extra&&extra.words)||{}; /* 23-Oct सुधार-7 additive: पूरा-शब्द उच्चारण-नक़्शा (उधार/संक्षेप — AI→एआई, phone→फ़ोन); key नहीं = शून्य-असर */
   function lat2dev(word){
     if(/^[0-9]+$/.test(word)) return word;
     let s=word.toLowerCase(), out="", i=0;
@@ -87,6 +88,7 @@ function mkLat2dev(extra){
       if(!p||/^\s+$/.test(p)||/^[?,!.\-—:;()"।]$/.test(p))return p;
       if(/^[0-9]+$/.test(p))return p;
       if(/[\u0900-\u097F]/.test(p))return p;
+      if(EW[p.toLowerCase()]!==undefined) return EW[p.toLowerCase()];
       return lat2dev(p);
     }).join("").replace(/\.$/,"।").replace(/\.(\s)/g,"।$1");
   };
@@ -158,6 +160,7 @@ function makeLang(P){
   function vRoot(key){ return (P.V&&P.V[key]) || (P.V&&P.V["करना"]) || "chü"; }
   function conj(root,tense,neg){
     let v=root;
+    if(neg&&tense==="imp"&&P.negImp) return P.negImp.replace("%V",v); /* 23-Oct सुधार-7 additive: निषेध-आज्ञा (मिज़ो "suh") — key नहीं = शून्य-असर */
     if(tense==="prog"&&P.prog) v=P.prog.replace("%V",v);
     else if(tense==="fut"&&P.fut) v=P.fut.replace("%V",v);
     else if(tense==="past"&&P.past) v=P.past.replace("%V",v);
