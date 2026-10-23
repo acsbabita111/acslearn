@@ -8,7 +8,7 @@ window.KKB2_DATA = {
  "version": "2.0 (20-Oct, लाल10 — असली Wu (Shanghainese) Hani तीन-स्तंभ, master-mirror; AI-draft मूल-वक्ता जाँच बाक़ी)",
  "lang": {
   "code": "wuu",
-  "label": "वू-चीनी (शांघाई)",
+  "label": "वू-चीनी",
   "tts": "zh-CN",
   "sr": "zh-CN",
   "script": "hani-native"
