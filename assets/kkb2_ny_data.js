@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Dzulo ndinagwira ntchito maola khumi.",
-      "Dzulo ndinagwira ntchito maola khumi."
+      "द्ज़ुलो न्दिनागविरा न्चितो माओला खुमि।"
      ],
      [
       "Ndatopa kwambiri.",
-      "Ndatopa kwambiri."
+      "न्दातोपा क्वाम्बिरि।"
      ],
      [
       "Mawa ndidzadzuka msanga.",
-      "Mawa ndidzadzuka msanga."
+      "मावा न्दिद्ज़ादज़ुका म्सांगा।"
      ],
      [
       "Mawa ndidzakuyimbirani.",
-      "Mawa ndidzakuyimbirani."
+      "मावा न्दिद्ज़ाकुयिम्बिरानि।"
      ],
      [
       "Ndimaphunzira Chingerezi kuti ndipeze ntchito yabwino.",
-      "Ndimaphunzira Chingerezi kuti ndipeze ntchito yabwino."
+      "न्दिमाफुंज़िरा चिंगेरेज़ि कुति न्दिपेज़े न्चितो याब्विनो।"
      ]
     ]
    }
@@ -2113,23 +2113,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Tsiku lililonse ndimadzuka ola lachisanu.",
-      "Tsiku lililonse ndimadzuka ola lachisanu."
+      "त्सिकु लिलिलोन्से न्दिमादज़ुका ओला लाचिसानु।"
      ],
      [
       "Ndimapita kuntchito ndi mapazi.",
-      "Ndimapita kuntchito ndi mapazi."
+      "न्दिमापिता कुन्चितो न्दि मापाज़ि।"
      ],
      [
       "Kawiri pa sabata ndimaimbira kunyumba.",
-      "Kawiri pa sabata ndimaimbira kunyumba."
+      "कविरि पा सबाता न्दिमाइम्बिरा कुन्युम्बा।"
      ],
      [
       "Kodi thupi lanu lili bwanji?",
-      "Kodi thupi lanu lili bwanji?"
+      "कोदि तुपि लानु लिलि ब्वांजि?"
      ],
      [
       "Mwereni mankhwala anu pa nthawi yake.",
-      "Mwereni mankhwala anu pa nthawi yake."
+      "म्वेरेनि मांखवाला अनु प न्तावि याके।"
      ]
     ]
    }
@@ -3174,23 +3174,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Phwando labwino inu ndi banja lanu.",
-      "Phwando labwino inu ndi banja lanu."
+      "फ्वांदो लाब्विनो इनु न्दि बांजा लानु।"
      ],
      [
       "Kodi nyumba yanu ili bwanji onse?",
-      "Kodi nyumba yanu ili bwanji onse?"
+      "कोदि न्युम्बा यानु इलि ब्वांजि ओन्से?"
      ],
      [
       "Lero ndine wosangalala kwambiri.",
-      "Lero ndine wosangalala kwambiri."
+      "लेरो न्दिने वोसंगालाला क्वाम्बिरि।"
      ],
      [
       "Mwana wanga wamkazi anapeza mfundo zabwino.",
-      "Mwana wanga wamkazi anapeza mfundo zabwino."
+      "म्वाना वांगा वाम्काज़ि आनापेज़ा म्फुंदो ज़ाब्विनो।"
      ],
      [
       "Chaka chikubwera tidzakumana.",
-      "Chaka chikubwera tidzakumana."
+      "चाका चिकुब्वेरा तिद्ज़ाकुमाना।"
      ]
     ]
    }
@@ -4231,27 +4231,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Moni Amayi, ndine bwino kuno.",
-      "Moni Amayi, ndine bwino kuno."
+      "मोनि आमायि, न्दिने ब्विनो कुनो।"
      ],
      [
       "Ntchito ikuyenda bwino kuno.",
-      "Ntchito ikuyenda bwino kuno."
+      "न्चितो इकुयेंदा ब्विनो कुनो।"
      ],
      [
       "Dzulo ndinagwira ntchito maola khumi.",
-      "Dzulo ndinagwira ntchito maola khumi."
+      "द्ज़ुलो न्दिनागविरा न्चितो माओला खुमि।"
      ],
      [
       "Mwezi ukubwera ndidzapita kunyumba.",
-      "Mwezi ukubwera ndidzapita kunyumba."
+      "म्वेज़ि उकुब्वेरा न्दिद्ज़ापिता कुन्युम्बा।"
      ],
      [
       "Chingerezi chimandikulira milatho yatsopano.",
-      "Chingerezi chimandikulira milatho yatsopano."
+      "चिंगेरेज़ि चिमांदिकुलिरा मिलातो यात्सोपानो।"
      ],
      [
       "Ndikupemphera Agogo.",
-      "Ndikupemphera Agogo."
+      "न्दिकुपेम्फेरा आगोगो।"
      ]
     ]
    }
@@ -5644,27 +5644,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ndine wowombera zitsulo, ndili ndi zaka zisanu za chidziwitso.",
-      "Ndine wowombera zitsulo, ndili ndi zaka zisanu za chidziwitso."
+      "न्दिने वोवोम्बेरा ज़ित्सुलो न्दिलि न्दि ज़ाका ज़िसानु ज़ चिद्ज़िवित्सो।"
      ],
      [
       "Boss, kodi ntchito ya lero ndi yanji?",
-      "Boss, kodi ntchito ya lero ndi yanji?"
+      "बोस्, कोदि न्चितो या लेरो न्दि यांजि?"
      ],
      [
       "Boss, ntchito yatha.",
-      "Boss, ntchito yatha."
+      "बोस्, न्चितो याता।"
      ],
      [
       "Boss, onani ntchito yanga kamodzi.",
-      "Boss, onani ntchito yanga kamodzi."
+      "बोस्, ओनानि न्चितो यांगा कामोद्ज़ि।"
      ],
      [
       "Boss, ndikufuna tsiku limodzi lopumula.",
-      "Boss, ndikufuna tsiku limodzi lopumula."
+      "बोस्, न्दिकुफुना त्सिकु लिमोद्ज़ि लोपुमुला।"
      ],
      [
       "Ndidzabwerera ku ntchito Lachitatu.",
-      "Ndidzabwerera ku ntchito Lachitatu."
+      "न्दिद्ज़ाब्वेरेरा कु न्चितो लाचिताटु।"
      ]
     ]
    }
@@ -7047,27 +7047,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Lero ndinalandira malipiro anga.",
-      "Lero ndinalandira malipiro anga."
+      "लेरो न्दिनालांदिरा मालिपिरो अंगा।"
      ],
      [
       "Ndinatumiza zikwi zinayi pa app.",
-      "Ndinatumiza zikwi zinayi pa app."
+      "न्दिनातुमिज़ा ज़िक्वि ज़िनायि पा आप।"
      ],
      [
       "Onani uthenga pa foni.",
-      "Onani uthenga pa foni."
+      "ओनानि उतेंगा प फोनि।"
      ],
      [
       "Musagawane OTP ya foni yanu ndi wina.",
-      "Musagawane OTP ya foni yanu ndi wina."
+      "मुसागावाने ओतीपी या फोनि यानु न्दि विना।"
      ],
      [
       "Banki sifunsa OTP nthawi zonse.",
-      "Banki sifunsa OTP nthawi zonse."
+      "बंकि सिफुंसा ओतीपी न्तावि ज़ोन्से।"
      ],
      [
       "Ndimasunga ndalama za zida.",
-      "Ndimasunga ndalama za zida."
+      "न्दिमासुंगा न्दालामा ज़ा ज़िदा।"
      ]
     ]
    }
@@ -8458,27 +8458,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Onani chotsekera cha khomo ndi mazenera.",
-      "Onani chotsekera cha khomo ndi mazenera."
+      "ओनानि चोत्सेकेरा चा खोमो न्दि मज़ेनेरा।"
      ],
      [
       "Pemphani mgwirizano wolembedwa.",
-      "Pemphani mgwirizano wolembedwa."
+      "पेम्फानि म्ग्विरिज़ानो वोलेम्बेद्वा।"
      ],
      [
       "Tumizani adiresi yanu yeniyeni kunyumba.",
-      "Tumizani adiresi yanu yeniyeni kunyumba."
+      "तुमिज़ानि आदिरेसि यानु येनियेनि कुन्युम्बा।"
      ],
      [
       "Imbani zana limodzi ndi khumi ndi ziwiri pa mavuto onse adzidzidzi.",
-      "Imbani zana limodzi ndi khumi ndi ziwiri pa mavuto onse adzidzidzi."
+      "इम्बानी ज़ाना लिमोद्ज़ि न्दि खुमि न्दि ज़िविरि पा मावुतो ओन्से आद्ज़िद्ज़ि।"
      ],
      [
       "Kadi ya e-Shram ndi yaulere.",
-      "Kadi ya e-Shram ndi yaulere."
+      "कदि या ए-श्राम न्दि याउलेरे।"
      ],
      [
       "Malo otetezeka, ntchito yamphamvu.",
-      "Malo otetezeka, ntchito yamphamvu."
+      "मालो ओतेतेज़ेका, न्चितो याम्फाम्वु।"
      ]
     ]
    }
@@ -9862,31 +9862,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Moni bwana, ndine Ramesh.",
-      "Moni bwana, ndine Ramesh."
+      "मोनि ब्वाना, न्दिने रामेश।"
      ],
      [
       "Ndine fitter, ndili ndi zaka zisanu za chidziwitso.",
-      "Ndine fitter, ndili ndi zaka zisanu za chidziwitso."
+      "न्दिने फिटर न्दिलि न्दि ज़ाका ज़िसानु ज़ चिद्ज़िवित्सो।"
      ],
      [
       "Kodi malipiro amwezi ndi angati?",
-      "Kodi malipiro amwezi ndi angati?"
+      "कोदि मालिपिरो अम्वेज़ि न्दि अंगाति?"
      ],
      [
       "Kodi ntchito ili kuti?",
-      "Kodi ntchito ili kuti?"
+      "कोदि न्चितो इलि कुति?"
      ],
      [
       "Nditha kuyamba Loweruka.",
-      "Nditha kuyamba Loweruka."
+      "न्दिता कुयाम्बा लोवेरुका।"
      ],
      [
       "Zikomo bwana, chifukwa cha mwayi wolankhula.",
-      "Zikomo bwana, chifukwa cha mwayi wolankhula."
+      "ज़िकोमो ब्वाना, चिफुक्वा चा म्वायि वोलांखुला।"
      ],
      [
       "Ndine wokonzeka kuyesedwa tsiku lililonse.",
-      "Ndine wokonzeka kuyesedwa tsiku lililonse."
+      "न्दिने वोकोंज़ेका कुयेसेद्वा त्सिकु लिलिलोन्से।"
      ]
     ]
    }
@@ -11272,27 +11272,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Kodi tomato ndi zingati?",
-      "Kodi tomato ndi zingati?"
+      "कोदि टोमाटो न्दि ज़िंगाति?"
      ],
      [
       "Yezaninso.",
-      "Yezaninso."
+      "येज़ानिन्सो।"
      ],
      [
       "Zimenezi zikundipitirira.",
-      "Zimenezi zikundipitirira."
+      "ज़िमेनेज़ि ज़िकुन्दिपितिरिरा।"
      ],
      [
       "Ndikupatsani mazana anayi.",
-      "Ndikupatsani mazana anayi."
+      "न्दिकुपात्सानी मज़ाना आनायि।"
      ],
      [
       "Werengani monga zalembedwa.",
-      "Werengani monga zalembedwa."
+      "वेरेंगानी मोंगा ज़ालेम्बेद्वा।"
      ],
      [
       "Werengani ndalama musanapite.",
-      "Werengani ndalama musanapite."
+      "वेरेंगानी न्दालामा मुसानापिते।"
      ]
     ]
    }
@@ -12682,27 +12682,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ndinatenga pa app.",
-      "Ndinatenga pa app."
+      "न्दिनातेंगा पा आप।"
      ],
      [
       "Lero mndandanda wavomerezedwa.",
-      "Lero mndandanda wavomerezedwa."
+      "लेरो म्न्दंदंदा वावोमेरेज़ेद्वा।"
      ],
      [
       "Pitani ku platform mphindi makumi atatu m'mbuyo.",
-      "Pitani ku platform mphindi makumi atatu m'mbuyo."
+      "पितानी कु प्लेटफॉर्म म्फिंदि माकुमि आताटु मम्बुयो।"
      ],
      [
       "Mangani zinthu pansi pa mpando ndi unyolo.",
-      "Mangani zinthu pansi pa mpando ndi unyolo."
+      "मंगानी ज़िंतु पान्सि पा म्पांदो न्दि उन्योलो।"
      ],
      [
       "Musalandire chakudya kuchokera kwa munthu wosadziwika.",
-      "Musalandire chakudya kuchokera kwa munthu wosadziwika."
+      "मुसालांदिरे चाकुद्या कुचोकेरा क्वा मुंतु वोसाद्ज़िविका।"
      ],
      [
       "Ndinafika bwino, musadere nkhawa.",
-      "Ndinafika bwino, musadere nkhawa."
+      "न्दिनाफिका ब्विनो, मुसादेरे नखावा।"
      ]
     ]
    }
@@ -14089,31 +14089,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ndine Mhindu.",
-      "Ndine Mhindu."
+      "न्दिने म्हिन्दु।"
      ],
      [
       "Pali ntchito yowombera zitsulo kuno kwa ine.",
-      "Pali ntchito yowombera zitsulo kuno kwa ine."
+      "पालि न्चितो योवोम्बेरा ज़ित्सुलो कुनो क्वा इने।"
      ],
      [
       "Contract yanga ndi zaka ziwiri.",
-      "Contract yanga ndi zaka ziwiri."
+      "कॉन्ट्रैक्ट यांगा न्दि ज़ाका ज़िविरि।"
      ],
      [
       "Kampani yanandilipirira tikiti.",
-      "Kampani yanandilipirira tikiti."
+      "कम्पानी यानान्दिलिपिरिरा तिकिति।"
      ],
      [
       "Inde, contract itatha ndidzabwerera.",
-      "Inde, contract itatha ndidzabwerera."
+      "इन्दे, कॉन्ट्रैक्ट इताता न्दिद्ज़ाब्वेरेरा।"
      ],
      [
       "Mapepala anga onse ndi oona.",
-      "Mapepala anga onse ndi oona."
+      "मापेपाला अंगा ओन्से न्दि ओओना।"
      ],
      [
       "Zikomo bwana.",
-      "Zikomo bwana."
+      "ज़िकोमो ब्वाना।"
      ]
     ]
    }
@@ -14792,35 +14792,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Miyezi itatu yapitayo, Chingerezi chinali ngati khoma kwa ine.",
-      "Miyezi itatu yapitayo, Chingerezi chinali ngati khoma kwa ine."
+      "मियेज़ी इताटु यापितायो चिंगेरेज़ि चिनालि न्गति खोमा क्व इने।"
      ],
      [
       "Tsiku lililonse ndinaphunzira mawu makumi atatu.",
-      "Tsiku lililonse ndinaphunzira mawu makumi atatu."
+      "त्सिकु लिलिलोन्से न्दिनाफुंज़िरा मावु माकुमि आताटु।"
      ],
      [
       "Nditha kulankhula za nyumba, ntchito, msika, ndi eyapoti.",
-      "Nditha kulankhula za nyumba, ntchito, msika, ndi eyapoti."
+      "न्दिता कुलांखुला ज़ा न्युम्बा, न्चितो, म्सिका, न्दि एयापोती।"
      ],
      [
       "Ndinayankha mafunso a visa pa foni.",
-      "Ndinayankha mafunso a visa pa foni."
+      "न्दिनायांखा माफुंसो अ विझा प फोनि।"
      ],
      [
       "Ndinaphunzira mayankho a kukamba kwa visa.",
-      "Ndinaphunzira mayankho a kukamba kwa visa."
+      "न्दिनाफुंज़िरा मायांखो अ कुकम्बा क्व विझा।"
      ],
      [
       "Mudzi wanga wonse umandinyadira.",
-      "Mudzi wanga wonse umandinyadira."
+      "मुद्ज़ि वंगा वोन्से उमांदिन्यादिरा।"
      ],
      [
       "Ichi si mapeto, ndi chiyambi chatsopano.",
-      "Ichi si mapeto, ndi chiyambi chatsopano."
+      "इचि सि मापेतो, न्दि चियाम्बि चात्सोपानो।"
      ],
      [
       "Chinenero changa, mapiko anga.",
-      "Chinenero changa, mapiko anga."
+      "चिनेनेरो चांगा, मापिको अंगा।"
      ]
     ]
    }
@@ -16209,35 +16209,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Thandizeni, bwerani msanga!",
-      "Thandizeni, bwerani msanga!"
+      "तांदिज़ेनी, ब्वेरानी म्सांगा!"
      ],
      [
       "Ndavulala kwambiri.",
-      "Ndavulala kwambiri."
+      "न्दावुलाला क्वाम्बिरि।"
      ],
      [
       "Ndikufuna ambulansi.",
-      "Ndikufuna ambulansi."
+      "न्दिकुफुना अमबुलान्सी।"
      ],
      [
       "Pasipoti yanga yasowa.",
-      "Pasipoti yanga yasowa."
+      "पासिपोती यांगा यासोवा।"
      ],
      [
       "Sindzapereka pasipoti yanga.",
-      "Sindzapereka pasipoti yanga."
+      "सिन्द्ज़ापेरेका पासिपोती यांगा।"
      ],
      [
       "Ndikufuna malipiro anga.",
-      "Ndikufuna malipiro anga."
+      "न्दिकुफुना मालिपिरो अंगा।"
      ],
      [
       "Bwana, iyi ndi pasipoti yanga.",
-      "Bwana, iyi ndi pasipoti yanga."
+      "ब्वाना, इयि न्दि पासिपोती यांगा।"
      ],
      [
       "Bwana, ndidzaimaliza ndisanadye.",
-      "Bwana, ndidzaimaliza ndisanadye."
+      "ब्वाना, न्दिद्ज़ाइमालिज़ा न्दिसानाद्ये।"
      ]
     ]
    }

@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Shalay waxaan shaqeeyay toban saacadood.",
-      "Shalay waxaan shaqeeyay toban saacadood."
+      "शलय वाक्सान शक़ेयय तोबन साकदूद।"
      ],
      [
       "Aad baan u daallanaa.",
-      "Aad baan u daallanaa."
+      "आद बान उ दाल्लना।"
      ],
      [
       "Berri waan kici doonaa goor hore.",
-      "Berri waan kici doonaa goor hore."
+      "बेर्री वान किसी दोना गोर होरे।"
      ],
      [
       "Berri subax waan ku wici doonaa.",
-      "Berri subax waan ku wici doonaa."
+      "बेर्री सुबख वान कु विसी दोना।"
      ],
      [
       "Waxaan u baranayaa Ingiriisiga si aan u helo shaqo wanaagsan.",
-      "Waxaan u baranayaa Ingiriisiga si aan u helo shaqo wanaagsan."
+      "वाक्सान उ बरनया इंगिरीसिगा सी आन उ हेलो शक़ो वनाग्सन्।"
      ]
     ]
    }
@@ -2113,23 +2113,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Maalin kastaba waxaan kacaa shanta.",
-      "Maalin kastaba waxaan kacaa shanta."
+      "मालिन कस्तबा वाक्सान कसा शन्ता।"
      ],
      [
       "Lugaha ayaan shaqada ku tagaa.",
-      "Lugaha ayaan shaqada ku tagaa."
+      "लुगहा अयान शक़दा कु तगा।"
      ],
      [
       "Toddobaadka labo jeer waan wici guriga.",
-      "Toddobaadka labo jeer waan wici guriga."
+      "तोद्दोबाद्का लबो जेर वान विसी गुरिगा।"
      ],
      [
       "Sidee jidhkaagu tahay?",
-      "Sidee jidhkaagu tahay?"
+      "सिी जिधकागु बा्ता?"
      ],
      [
       "Waqtiga dawadaada cun.",
-      "Waqtiga dawadaada cun."
+      "सूब दवादादा कुन।"
      ]
     ]
    }
@@ -3172,23 +3172,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Iid wanaagsan adiga iyo qoyskaaga.",
-      "Iid wanaagsan adiga iyo qoyskaaga."
+      "ईद वनाग्सन अदिगा इयो क़ोयस्कागा।"
      ],
      [
       "Sidee guriga dhammaanteen ku tihiin?",
-      "Sidee guriga dhammaanteen ku tihiin?"
+      "सिदे गुरिगा ढम्मान्तीन कु तिहीन्?"
      ],
      [
       "Maanta aad baan u faraxsanahay.",
-      "Maanta aad baan u faraxsanahay."
+      "मान्ता आद बान उ फ़रख़्सनहय।"
      ],
      [
       "Gabadhaydu waxay heshay dhibco fiican.",
-      "Gabadhaydu waxay heshay dhibco fiican."
+      "गबद्हयदु वाख़य हेश्य ढिब्को फ़ीकन्।"
      ],
      [
       "Sanad ka dib waan is arki doonaa.",
-      "Sanad ka dib waan is arki doonaa."
+      "सनद का दिब वान इस अर्की दोना।"
      ]
     ]
    }
@@ -4229,27 +4229,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Salaan Hooyo, halkan waan fiicanahay.",
-      "Salaan Hooyo, halkan waan fiicanahay."
+      "सलान होयो, हल्कन वान फ़ीकनहय।"
      ],
      [
       "Shaqadu halkan si fiican bay u socotaa.",
-      "Shaqadu halkan si fiican bay u socotaa."
+      "शक़दु हल्कन सी फ़ीकन बय उ सोकोता।"
      ],
      [
       "Shalay waxaan shaqeeyay toban saacadood.",
-      "Shalay waxaan shaqeeyay toban saacadood."
+      "शलय वाक्सान शक़ेयय तोबन साकदूद।"
      ],
      [
       "Bisha soo socota ayaan guriga imanayaa.",
-      "Bisha soo socota ayaan guriga imanayaa."
+      "बिश्हा सो सोकोता अयान गुरिगा इमनया।"
      ],
      [
       "Ingiriisigu albaabbo cusub buu ii furay.",
-      "Ingiriisigu albaabbo cusub buu ii furay."
+      "इंगिरीसिगु अल्बाब्बो कुसुब बू ई फ़ुरय।"
      ],
      [
       "Fadlan salaan iiga sheeg Awoowe.",
-      "Fadlan salaan iiga sheeg Awoowe."
+      "फ़दलान सलान ईगा शेग आवोवे।"
      ]
     ]
    }
@@ -5642,27 +5642,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Waxaan ahay birlaha, shan sano oo khibrad ah baan leeyahay.",
-      "Waxaan ahay birlaha, shan sano oo khibrad ah baan leeyahay."
+      "वाान शाालेे बिर्लहा वाा सनो ओ ख़िब्रद गा्ेे् बान लेयहय।"
      ],
      [
       "Macallin, maxay tahay shaqada maanta?",
-      "Macallin, maxay tahay shaqada maanta?"
+      "मकल्लिन्, मख़य तहय शक़दा मान्ता?"
      ],
      [
       "Macallin, shaqadu way dhammaatay.",
-      "Macallin, shaqadu way dhammaatay."
+      "मकल्लिन्, शक़दु वय ढम्मातय।"
      ],
      [
       "Macallin, mar shaqadayda fiiri.",
-      "Macallin, mar shaqadayda fiiri."
+      "मकल्लिन्, मर शक़दयदा फ़ीरी।"
      ],
      [
       "Macallin, hal maalmood oo fasax ah ayaan u baahanahay.",
-      "Macallin, hal maalmood oo fasax ah ayaan u baahanahay."
+      "मकल्लिन्, हल मल्मूद ओ फ़सख अह अयान उ बाहनहय।"
      ],
      [
       "Arbacada waan ku soo laaban doonaa shaqada.",
-      "Arbacada waan ku soo laaban doonaa shaqada."
+      "अर्बकदा वान कु सो लाबन दोना शक़दा।"
      ]
     ]
    }
@@ -7045,27 +7045,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Maanta mushaarkaygii waan helay.",
-      "Maanta mushaarkaygii waan helay."
+      "मान्ता मुशार्कयगी वान हेलय।"
      ],
      [
       "Afar kun ayaan ku diray abka.",
-      "Afar kun ayaan ku diray abka."
+      "अफ़र कुन अयान कु दिरय अब्का।"
      ],
      [
       "Farriinta telefoonka hubi.",
-      "Farriinta telefoonka hubi."
+      "फ़र्रीन्ता तेलेफ़ून्का इगा।"
      ],
      [
       "OTP-ga telefoonka qofna la wadaagin.",
-      "OTP-ga telefoonka qofna la wadaagin."
+      "ओतीपी-गा तेलेफ़ून्का क़ोफ़ना ला वदागिन्।"
      ],
      [
       "Bangigu marnaba OTP ma weydiiyo.",
-      "Bangigu marnaba OTP ma weydiiyo."
+      "बंगिगु मर्नबा ओतीपी मा वेय्दीयो।"
      ],
      [
       "Waxaan lacag u kaydinayaa alaabta shaqada.",
-      "Waxaan lacag u kaydinayaa alaabta shaqada."
+      "वाक्सान लक़ग उ कयदिनया अलाब्ता शक़दा।"
      ]
     ]
    }
@@ -8456,27 +8456,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Qufulka albaabka iyo daaqadaha fiiri.",
-      "Qufulka albaabka iyo daaqadaha fiiri."
+      "क़ुफ़ुल्का अल्बाब्का इयो दाक़दहा फ़ीरी।"
      ],
      [
       "Heshiis qoran weydii.",
-      "Heshiis qoran weydii."
+      "हेशीस क़ोरन वेय्दी।"
      ],
      [
       "Cinwaankaaga oo dhan guriga u dir.",
-      "Cinwaankaaga oo dhan guriga u dir."
+      "सिन्वान्कागा ओ ढन गुरिगा उ दिर्।"
      ],
      [
       "Wac boqol iyo laba iyo toban wixii degdeg ah oo dhan.",
-      "Wac boqol iyo laba iyo toban wixii degdeg ah oo dhan."
+      "वक् बोक़ोल इयो लबा इयो तोबन विख़ी देग्देग अह ओ ढन्।"
      ],
      [
       "Kaadhka e-Shram waa bilaash.",
-      "Kaadhka e-Shram waa bilaash."
+      "कादह्का ए-श्राम वा बिलाश्।"
      ],
      [
       "Meel ammaan ah, shaqo xoog leh.",
-      "Meel ammaan ah, shaqo xoog leh."
+      "मेल अम्मान अह्, शक़ो ख़ोग लेह्।"
      ]
     ]
    }
@@ -9860,31 +9860,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Salaan mudane, waxaan ahay Ramesh.",
-      "Salaan mudane, waxaan ahay Ramesh."
+      "सलान मुदने, वाक्सान अहय रामेश।"
      ],
      [
       "Waxaan ahay fitter, shan sano oo khibrad ah baan leeyahay.",
-      "Waxaan ahay fitter, shan sano oo khibrad ah baan leeyahay."
+      "वाान शाालेे फ़ित्तर् वाा सनो ओ ख़िब्रद गा्ेे् बान लेयहय।"
      ],
      [
       "Waa maxay mushaarka bishii?",
-      "Waa maxay mushaarka bishii?"
+      "वा मख़य मुशार्का बिशी?"
      ],
      [
       "Xagee shaqadu ku taal?",
-      "Xagee shaqadu ku taal?"
+      "ख़गे शक़दु कु ताल?"
      ],
      [
       "Isniinta ayaan bilaabi karaa.",
-      "Isniinta ayaan bilaabi karaa."
+      "इस्नीन्ता अयान बिलाबी करा।"
      ],
      [
       "Mahadsanid mudane, fursadda hadalka.",
-      "Mahadsanid mudane, fursadda hadalka."
+      "महद्सनिद मुदने, फ़ुर्सद्दा हदल्का।"
      ],
      [
       "Waan diyaar u ahay tijaabo maalin kasta.",
-      "Waan diyaar u ahay tijaabo maalin kasta."
+      "वान दियार उ अहय तिजाबो मालिन कस्ता।"
      ]
     ]
    }
@@ -11270,27 +11270,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Yaanyada qiimaheedu waa immisa?",
-      "Yaanyada qiimaheedu waa immisa?"
+      "यान्यदा क़ीमहेदु वा इम्मिसा?"
      ],
      [
       "Fadlan mar kale miisaan.",
-      "Fadlan mar kale miisaan."
+      "फ़दलान मर कले मीसान्।"
      ],
      [
       "Taasi aad bay iigu badan tahay.",
-      "Taasi aad bay iigu badan tahay."
+      "तासी आद बय ईगु बदन तहय।"
      ],
      [
       "Afar boqol baan siin doonaa.",
-      "Afar boqol baan siin doonaa."
+      "अफ़र बोक़ोल बान सीन दोना।"
      ],
      [
       "Fadlan xisaab u samee sida la qoray.",
-      "Fadlan xisaab u samee sida la qoray."
+      "फ़दलान ख़िसाब उ सामे सिदा ला क़ोरय।"
      ],
      [
       "Lacagta furan tiri ka hor tegidda.",
-      "Lacagta furan tiri ka hor tegidda."
+      "लक़ग्ता फ़ुरन तिरी का होर तेगिद्दा।"
      ]
     ]
    }
@@ -12680,27 +12680,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Waxaan ku qabsaday abka.",
-      "Waxaan ku qabsaday abka."
+      "वाक्सान कु क़ब्सदय अब्का।"
      ],
      [
       "Maanta liiska sugidu waa la xaqiijiyay.",
-      "Maanta liiska sugidu waa la xaqiijiyay."
+      "मान्ता लीस्का सुगिदु वा ला ख़क़ीजियय।"
      ],
      [
       "Saldhigga soddon daqiiqo hore u kaalay.",
-      "Saldhigga soddon daqiiqo hore u kaalay."
+      "सल्दिग्गा सोद्दोन दक़ीक़ो होरे उ कालय।"
      ],
      [
       "Alaabta kursiga hoostiisa silsilad ku xidh.",
-      "Alaabta kursiga hoostiisa silsilad ku xidh."
+      "अलाब्ता कुर्सिगा होस्तीसा सिल्सिलद कु ख़िद्ह्।"
      ],
      [
       "Ha qaadan cunto ajanabi.",
-      "Ha qaadan cunto ajanabi."
+      "हा क़ादन कुन्तो अजनबी।"
      ],
      [
       "Waan ammaan ku gaadhay, ha welwelin.",
-      "Waan ammaan ku gaadhay, ha welwelin."
+      "वान अम्मान कु गाद्हय, हा वेल्वेलिन्।"
      ]
     ]
    }
@@ -14087,31 +14087,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Waxaan ahay Hindi.",
-      "Waxaan ahay Hindi."
+      "वाक्सान अहय हिंदी।"
      ],
      [
       "Halkan waxaan leeyahay shaqo birlah ah.",
-      "Halkan waxaan leeyahay shaqo birlah ah."
+      "हल्कन वाक्सान लेयहय शक़ो बिर्लह अह्।"
      ],
      [
       "Qandaraaskaygu waa laba sano.",
-      "Qandaraaskaygu waa laba sano."
+      "क़न्दारास्कायगु वा लबा सनो।"
      ],
      [
       "Shirkaddaa ayaa bixisay tigidhkayga.",
-      "Shirkaddaa ayaa bixisay tigidhkayga."
+      "शिर्कद्दा अया बिख़िसय तिगिद्ह्कयगा।"
      ],
      [
       "Haa, qandaraaska ka dib waan soo laaban doonaa.",
-      "Haa, qandaraaska ka dib waan soo laaban doonaa."
+      "हा, क़न्दारास्का का दिब वान सो लाबन दोना।"
      ],
      [
       "Waraaqahaygu waa buuxa waana run.",
-      "Waraaqahaygu waa buuxa waana run."
+      "वराक़हायगु वा बूख़ा वाना रुन्।"
      ],
      [
       "Mahadsanid mudane.",
-      "Mahadsanid mudane."
+      "मादसान्ीद गुुदी।"
      ]
     ]
    }
@@ -14790,35 +14790,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Saddex bilood ka hor Ingiriisigu wuxuu ii ahaa darbi.",
-      "Saddex bilood ka hor Ingiriisigu wuxuu ii ahaa darbi."
+      "सद्देक़ बिलूद का होर इंगिरीसिगु वुख़ू गान अहा दर्बी।"
      ],
      [
       "Maalin kastaba soddon jumlo baan bartay.",
-      "Maalin kastaba soddon jumlo baan bartay."
+      "मालिन कस्तबा सोद्दोन जुम्लो बान बर्तय।"
      ],
      [
       "Waan ku hadli karaa guriga, shaqada, suuqa iyo garoonka diyaaradaha.",
-      "Waan ku hadli karaa guriga, shaqada, suuqa iyo garoonka diyaaradaha."
+      "वान कु हद्ली करा गुरिगा, शक़दा, सूक़ा इयो गारून्का दियारदहा।"
      ],
      [
       "Waxaan yeeshay wareysi Ingiriisi ah.",
-      "Waxaan yeeshay wareysi Ingiriisi ah."
+      "वाान येश्य वरेय्सी इंगिरीसी गा्ेे्।"
      ],
      [
       "Waxaan bartay jawaabaha wareysiga visa.",
-      "Waxaan bartay jawaabaha wareysiga visa."
+      "वाान बर्तय जवाबाहा वरेय्सिगा विसा।"
      ],
      [
       "Tuuladayda oo dhan way igu faanaan.",
-      "Tuuladayda oo dhan way igu faanaan."
+      "तूलदयदा ओ ढन वय इगु फ़ानान्।"
      ],
      [
       "Kani ma aha dhammaad, waa bilow cusub.",
-      "Kani ma aha dhammaad, waa bilow cusub."
+      "कनी मा अह ढम्माद्, वा बिलो कुसुब्।"
      ],
      [
       "Afkayga, baalashaydu.",
-      "Afkayga, baalashaydu."
+      "अफ़्कायगा, बालश्हयदु।"
      ]
     ]
    }
@@ -16207,35 +16207,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "I caawi, dhaqso u kaalay!",
-      "I caawi, dhaqso u kaalay!"
+      "इ कावी, ढक़्सो उ कालय!"
      ],
      [
       "Aad baan u dhaawacmay.",
-      "Aad baan u dhaawacmay."
+      "आद बान उ ढावक्मय।"
      ],
      [
       "Waxaan u baahanahay ambulaas.",
-      "Waxaan u baahanahay ambulaas."
+      "वाक्सान उ बाहनहय अमबुलास्।"
      ],
      [
       "Baasaboorkaygu wuu lumay.",
-      "Baasaboorkaygu wuu lumay."
+      "बासबोर्कायगु वू लुमय।"
      ],
      [
       "Ma siin doono baasaboorkayga.",
-      "Ma siin doono baasaboorkayga."
+      "मा सीन दोनो बासबोर्कायगा।"
      ],
      [
       "Waxaan u baahanahay mushaarkayga.",
-      "Waxaan u baahanahay mushaarkayga."
+      "वाक्सान उ बाहनहय मुशार्कायगा।"
      ],
      [
       "Mudane, waa kan baasaboorkayga.",
-      "Mudane, waa kan baasaboorkayga."
+      "मुदने, वा कन बासबोर्कयगा।"
      ],
      [
       "Mudane, waxaan dhammayn doonaa ka hor cuntada.",
-      "Mudane, waxaan dhammayn doonaa ka hor cuntada."
+      "मुदने, वाक्सान ढम्मयन दोना का होर कुन्तदा।"
      ]
     ]
    }

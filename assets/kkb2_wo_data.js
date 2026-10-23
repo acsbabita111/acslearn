@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Démb dama liggéey fukk i waxtu.",
-      "Démb dama liggéey fukk i waxtu."
+      "देम्ब दामा लिग्गेय फ़ुक्क ई वाख्तु।"
      ],
      [
       "Dama sonn lool.",
-      "Dama sonn lool."
+      "दामा सोन्न लोल्।"
      ],
      [
       "Suba dinaa yeewu ndëkk.",
-      "Suba dinaa yeewu ndëkk."
+      "सुबा दिना येवु न्दॉक्क।"
      ],
      [
       "Suba dinaa la woote.",
-      "Suba dinaa la woote."
+      "सुबा दिना ला वोते।"
      ],
      [
       "Dama jàng Angale ngir am liggéey bu baax.",
-      "Dama jàng Angale ngir am liggéey bu baax."
+      "दामा जांग आन्गले न्गीर आम लिग्गेय बु बाख्।"
      ]
     ]
    }
@@ -2113,23 +2113,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Bés bu nekk dama yeewu ci juróom waxtu.",
-      "Bés bu nekk dama yeewu ci juróom waxtu."
+      "बेस बु नेक्क दामा येवु सी जुरोम वाख्तु।"
      ],
      [
       "Damay dem liggéey ci tànk.",
-      "Damay dem liggéey ci tànk."
+      "दमय देम लिग्गेय सी तांक।"
      ],
      [
       "Ñaari yoon ci ayubés damay woote kër gi.",
-      "Ñaari yoon ci ayubés damay woote kër gi."
+      "न्यारी योन सी आयुबेस दमय वोते कॉर गी।"
      ],
      [
       "Naka la sa yaram?",
-      "Naka la sa yaram?"
+      "नाका ला सा यराम?"
      ],
      [
       "Naanal sa garab ci waxtu.",
-      "Naanal sa garab ci waxtu."
+      "नानल सा गराब सी वाख्तु।"
      ]
     ]
    }
@@ -3172,23 +3172,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Màggal gu neex yow ak sa njaboot.",
-      "Màggal gu neex yow ak sa njaboot."
+      "मग्गल गु नेक्स योव अक सा न्जाबोत्।"
      ],
      [
       "Naka la kër gi ñépp?",
-      "Naka la kër gi ñépp?"
+      "नाका ला कॉर गी न्येप्प्?"
      ],
      [
       "Tey dama bég lool.",
-      "Tey dama bég lool."
+      "तेय दामा बेग लोल्।"
      ],
      [
       "Sama doom bu jigéen am na baax nombar.",
-      "Sama doom bu jigéen am na baax nombar."
+      "सामा दोम बु जिगेन आम ना बाख नोम्बार्।"
      ],
      [
       "At mu ñëw dinanu séen.",
-      "At mu ñëw dinanu séen."
+      "आत मु न्यॉव दिनानु सेन्।"
      ]
     ]
    }
@@ -4229,27 +4229,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Salaam Yaay, maa ngi fii baax.",
-      "Salaam Yaay, maa ngi fii baax."
+      "सलाम याय, मा न्गी फ़ी बाख्।"
      ],
      [
       "Liggéey dafa jaar bu baax fii.",
-      "Liggéey dafa jaar bu baax fii."
+      "लिग्गेय दफ़ जार बु बाख फ़ी।"
      ],
      [
       "Démb dama liggéey fukk i waxtu.",
-      "Démb dama liggéey fukk i waxtu."
+      "देम्ब दामा लिग्गेय फ़ुक्क ई वाख्तु।"
      ],
      [
       "At mu ñëw dinaa dellu kër gi.",
-      "At mu ñëw dinaa dellu kër gi."
+      "आत मु न्यॉव दिना देल्लु कॉर गी।"
      ],
      [
       "Angale dafay ubbil ma bunt yu bees.",
-      "Angale dafay ubbil ma bunt yu bees."
+      "आन्गले दफ़य उब्बिल मा बुन्त यु बेस्।"
      ],
      [
       "Nuyul Maam ngir man.",
-      "Nuyul Maam ngir man."
+      "नुयुल माम न्गीर मान्।"
      ]
     ]
    }
@@ -5642,27 +5642,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Man soudeur laa, am naa juróom at ci xareñte.",
-      "Man soudeur laa, am naa juróom at ci xareñte."
+      "मान सुदॉर ला आम ना जुरोम आत सी खरेन्ते।"
      ],
      [
       "Kilifa, lan mooy liggéey bi tey?",
-      "Kilifa, lan mooy liggéey bi tey?"
+      "किलिफ़ा, लन मोय लिग्गेय बी तेय?"
      ],
      [
       "Kilifa, liggéey bi jeex na.",
-      "Kilifa, liggéey bi jeex na."
+      "किलिफ़ा, लिग्गेय बी जेक्स ना।"
      ],
      [
       "Kilifa, xoolal sama liggéey benn yoon.",
-      "Kilifa, xoolal sama liggéey benn yoon."
+      "किलिफ़ा, खोलल सामा लिग्गेय बेन्न योन्।"
      ],
      [
       "Kilifa, dama soxla benn bés bu noppalu.",
-      "Kilifa, dama soxla benn bés bu noppalu."
+      "किलिफ़ा, दामा सोख्ला बेन्न बेस बु नोप्पालु।"
      ],
      [
       "Dinaa dellu liggéey ci allarba.",
-      "Dinaa dellu liggéey ci allarba."
+      "दिना देल्लु लिग्गेय सी अल्लारबा।"
      ]
     ]
    }
@@ -7045,27 +7045,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Tey jot naa sama fays.",
-      "Tey jot naa sama fays."
+      "तेय जोत ना सामा फ़ाय्स्।"
      ],
      [
       "Yónnee naa ñeenti junni ci app bi.",
-      "Yónnee naa ñeenti junni ci app bi."
+      "योन्ने ना न्येन्ती जुन्नी सी आप्प बी।"
      ],
      [
       "Xoolal bataaxal bi ci telefon.",
-      "Xoolal bataaxal bi ci telefon."
+      "खोलल बताखल बी सी तेलेफ़ोन।"
      ],
      [
       "Buleen séddoo OTP bi ci telefon kenn.",
-      "Buleen séddoo OTP bi ci telefon kenn."
+      "बुलेन सेद्दो ओतीपी बी सी तेलेफ़ोन केन्न्।"
      ],
      [
       "Banque bi du laaj OTP mukk.",
-      "Banque bi du laaj OTP mukk."
+      "बांक बी दु लाज ओतीपी मुक्क्।"
      ],
      [
       "Damay denc xaalis ngir jumtukaay.",
-      "Damay denc xaalis ngir jumtukaay."
+      "दमय देन्क खालिस न्गीर जुम्तुकाय्।"
      ]
     ]
    }
@@ -8456,27 +8456,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Xoolal serrure ak palanteer yi.",
-      "Xoolal serrure ak palanteer yi."
+      "खोलल सेर्रुर अक पालांतेर यी।"
      ],
      [
       "Laajal accord bu bind.",
-      "Laajal accord bu bind."
+      "लाजल आकोर्द बु बिन्द्।"
      ],
      [
       "Yónnee sa adres bu mat kër gi.",
-      "Yónnee sa adres bu mat kër gi."
+      "योन्ने सा आद्रेस बु मत कॉर गी।"
      ],
      [
       "Woote téeméer ak fukk-ñaar ngir gaggawal.",
-      "Woote téeméer ak fukk-ñaar ngir gaggawal."
+      "वोते तेमेर अक फ़ुक्क-न्यार न्गीर गग्गावल्।"
      ],
      [
       "Carte e-Shram amul fays.",
-      "Carte e-Shram amul fays."
+      "कार्त ए-श्राम आमुल फ़ाय्स्।"
      ],
      [
       "Bérab bu wottewaay, liggéey bu doole.",
-      "Bérab bu wottewaay, liggéey bu doole."
+      "बेराब बु वोत्तेवाय, लिग्गेय बु दोले।"
      ]
     ]
    }
@@ -9860,31 +9860,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Salaam boroom, Ramesh laa.",
-      "Salaam boroom, Ramesh laa."
+      "सलाम बोरोम, रामेश ला।"
      ],
      [
       "Man fitter laa, am naa juróom at ci xareñte.",
-      "Man fitter laa, am naa juróom at ci xareñte."
+      "मान फ़ित्तर ला आम ना जुरोम आत सी खरेन्ते।"
      ],
      [
       "Lan mooy fays weer bi?",
-      "Lan mooy fays weer bi?"
+      "लन मोय फ़ाय्स वेर बी?"
      ],
      [
       "Fan la liggéey bi nekk?",
-      "Fan la liggéey bi nekk?"
+      "फ़ां ला लिग्गेय बी नेक्क्?"
      ],
      [
       "Mën naa tàmbali altine.",
-      "Mën naa tàmbali altine."
+      "मॉन ना तांबली आल्तिने।"
      ],
      [
       "Jërëjëf boroom, ngir dama ci am waxtaan.",
-      "Jërëjëf boroom, ngir dama ci am waxtaan."
+      "जॉरॉजॉफ़ बोरोम, न्गीर दामा सी आम वाख्तान्।"
      ],
      [
       "Man parey laa ci wut bés bu nekk.",
-      "Man parey laa ci wut bés bu nekk."
+      "मान पारे ला सी वुत बेस बु नेक्क्।"
      ]
     ]
    }
@@ -11270,27 +11270,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ñaata la tamaate bi?",
-      "Ñaata la tamaate bi?"
+      "न्याता ला तमाते बी?"
      ],
      [
       "Naatal ma ko benn yoon ci kanam.",
-      "Naatal ma ko benn yoon ci kanam."
+      "नातल मा को बेन्न योन सी कनम्।"
      ],
      [
       "Loolu dafa ma ëpp.",
-      "Loolu dafa ma ëpp."
+      "लोलु दफ़ मा ऑप्प्।"
      ],
      [
       "Dinaa la jox ñeenti téeméer.",
-      "Dinaa la jox ñeenti téeméer."
+      "दिना ला जोक्स न्येन्ती तेमेर।"
      ],
      [
       "Defal nattu ci lu bind.",
-      "Defal nattu ci lu bind."
+      "देफ़ल नत्तु सी लु बिन्द्।"
      ],
      [
       "Waññil xaalis laata nga dem.",
-      "Waññil xaalis laata nga dem."
+      "वान्न्यिल खालिस लाता न्गा देम्।"
      ]
     ]
    }
@@ -12680,27 +12680,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Jël naa ko ci app bi.",
-      "Jël naa ko ci app bi."
+      "जॉल ना को सी आप्प बी।"
      ],
      [
       "Tey liste xaar bi dafa wóor.",
-      "Tey liste xaar bi dafa wóor."
+      "तेय लिस्त खार बी दफ़ वोर्।"
      ],
      [
       "Ñëwal fanweer simili laata dëkkuwaay bi.",
-      "Ñëwal fanweer simili laata dëkkuwaay bi."
+      "न्यॉवल फ़नवेर सिमिली लाता दॉक्कुवाय बी।"
      ],
      [
       "Boole yëf yi suuf place ak chaine.",
-      "Boole yëf yi suuf place ak chaine."
+      "बोले यॉफ़ यी सूफ़ प्लास अक शेन्।"
      ],
      [
       "Buleen jël lekk ci ken bu réer.",
-      "Buleen jël lekk ci ken bu réer."
+      "बुलेन जॉल लेक्क सी केन बु रेर्।"
      ],
      [
       "Yegg naa bu wottewaay, buleen xalaat.",
-      "Yegg naa bu wottewaay, buleen xalaat."
+      "येग्ग ना बु वोत्तेवाय, बुलेन खलात्।"
      ]
     ]
    }
@@ -14087,31 +14087,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Man Indien laa.",
-      "Man Indien laa."
+      "मान इंदियेन ला।"
      ],
      [
       "Am na liggéey soudeur fii ci man.",
-      "Am na liggéey soudeur fii ci man."
+      "आम ना लिग्गेय सुदॉर फ़ी सी मान्।"
      ],
      [
       "Sama kontraa ñaari at la.",
-      "Sama kontraa ñaari at la."
+      "सामा कोन्त्रा न्यारी आत ला।"
      ],
      [
       "Société bi moo fay sama tikke.",
-      "Société bi moo fay sama tikke."
+      "सोसियेते बी मो फ़ाय सामा तिक्के।"
      ],
      [
       "Waaw, ginnaaw kontraa dinaa dellu.",
-      "Waaw, ginnaaw kontraa dinaa dellu."
+      "वाव्, गिन्नाव कोन्त्रा दिना देल्लु।"
      ],
      [
       "Sama kayit yépp mat nañu te dëgg lañu.",
-      "Sama kayit yépp mat nañu te dëgg lañu."
+      "सामा कयित येप्प मत नान्यु ते दॉग्ग लान्यु।"
      ],
      [
       "Jërëjëf boroom.",
-      "Jërëjëf boroom."
+      "जॉरॉजॉफ़ बोरोम।"
      ]
     ]
    }
@@ -14790,35 +14790,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ñatti weer ci ginnaaw, Angale dafa ma darab la woon.",
-      "Ñatti weer ci ginnaaw, Angale dafa ma darab la woon."
+      "न्यत्ती वेर सी गिन्नाव आन्गले दफ़ा मा दराब ला वोन्।"
      ],
      [
       "Bés bu nekk damay jàng fanweer baat.",
-      "Bés bu nekk damay jàng fanweer baat."
+      "बेस बु नेक्क दामाय जांग फ़नवेर बात।"
      ],
      [
       "Mën naa wax ci kër gi, liggéey bi, marse bi, ak aéroport bi.",
-      "Mën naa wax ci kër gi, liggéey bi, marse bi, ak aéroport bi."
+      "मॉन ना वख सी कॉर गी, लिग्गेय बी, मार्से बी, अक अेरोपोर बी।"
      ],
      [
       "Dama am entretien Angale bu jëkk.",
-      "Dama am entretien Angale bu jëkk."
+      "दामा आम आन्त्रेत्यां आन्गले बु जॉक्क।"
      ],
      [
       "Dama jàng tontu entretien visa yi.",
-      "Dama jàng tontu entretien visa yi."
+      "दामा जांग तोन्तु आन्त्रेत्यां विसा यी।"
      ],
      [
       "Sama dëkk bu ndaw bépp danuy riyaas ci man.",
-      "Sama dëkk bu ndaw bépp danuy riyaas ci man."
+      "सामा दॉक्क बु न्दाव बेप्प दानुय रियास सी मान्।"
      ],
      [
       "Kii du dund bu jeex, dund bu bees la.",
-      "Kii du dund bu jeex, dund bu bees la."
+      "की दु दुन्द बु जेक्स, दुन्द बु बेस ला।"
      ],
      [
       "Sama làkk, sama baal.",
-      "Sama làkk, sama baal."
+      "सामा लक्क, सामा बाल्।"
      ]
     ]
    }
@@ -16207,35 +16207,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Wallal ma, ñëwal bu gaaw!",
-      "Wallal ma, ñëwal bu gaaw!"
+      "वल्लल मा, न्यॉवल बु गाव्!"
      ],
      [
       "Dama am mbugal bu réy.",
-      "Dama am mbugal bu réy."
+      "दामा आम म्बुगल बु रेय्।"
      ],
      [
       "Dama soxla ambulance.",
-      "Dama soxla ambulance."
+      "दामा सोख्ला आम्बुलांस्।"
      ],
      [
       "Sama passeport dafa réer.",
-      "Sama passeport dafa réer."
+      "सामा पासपोर्त दफ़ रेर्।"
      ],
      [
       "Duma jox sama passeport.",
-      "Duma jox sama passeport."
+      "दुमा जोक्स सामा पासपोर्त्।"
      ],
      [
       "Dama soxla sama fays.",
-      "Dama soxla sama fays."
+      "दामा सोख्ला सामा फ़ाय्स्।"
      ],
      [
       "Boroom, ga la sama passeport.",
-      "Boroom, ga la sama passeport."
+      "बोरोम, गा ला सामा पासपोर्त्।"
      ],
      [
       "Boroom, dinaa ko jeexal laata lekk.",
-      "Boroom, dinaa ko jeexal laata lekk."
+      "बोरोम, दिना को जेक्सल लाता लेक्क्।"
      ]
     ]
    }

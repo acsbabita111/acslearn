@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ɔkyena meyɛɛ adwuma nnɔnhwerew edu.",
-      "Ɔkyena meyɛɛ adwuma nnɔnhwerew edu."
+      "ओक्येना मेये अद्वुमा न्नोन्हवेरे एदु।"
      ],
      [
       "Me ho abrɛ paa.",
-      "Me ho abrɛ paa."
+      "मे हो आब्रेइ पा।"
      ],
      [
       "Ɔkyena mɛsɔre ntɛm.",
-      "Ɔkyena mɛsɔre ntɛm."
+      "ओक्येना मेसोरे न्तेइम।"
      ],
      [
       "Ɔkyena mɛfrɛ wo.",
-      "Ɔkyena mɛfrɛ wo."
+      "ओक्येना मेफ्रेइ वो।"
      ],
      [
       "Mesua Borɔfo kasa na manya adwuma pa.",
-      "Mesua Borɔfo kasa na manya adwuma pa."
+      "मेसुआ बोरोफो कसा न मान्या अद्वुमा पा।"
      ]
     ]
    }
@@ -2114,23 +2114,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Daa mesɔre anɔpa akyi 5.",
-      "Daa mesɔre anɔpa akyi 5."
+      "दा मेसोरे आनोपा आक्यी 5।"
      ],
      [
       "Mede me nan kɔ adwuma.",
-      "Mede me nan kɔ adwuma."
+      "मेदे मे नान को अद्वुमा।"
      ],
      [
       "Mprenu wɔ dapɛn mu mefrɛ fie.",
-      "Mprenu wɔ dapɛn mu mefrɛ fie."
+      "म्प्रेनु वो दपेइन मु मेफ्रेइ फ़िये।"
      ],
      [
       "Wo ho te sɛn?",
-      "Wo ho te sɛn?"
+      "वो हो ते सेन?"
      ],
      [
       "Nom wo nnuru wɔ ne bere mu.",
-      "Nom wo nnuru wɔ ne bere mu."
+      "नोम वो न्नुरु वो ने बेरे मु।"
      ]
     ]
    }
@@ -3173,23 +3173,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Afahyɛ pa wo ne w'abusua.",
-      "Afahyɛ pa wo ne w'abusua."
+      "आफ़ह्येइ पा वो ने वाबुसुआ।"
      ],
      [
       "Wo fie te sɛn nyinaa?",
-      "Wo fie te sɛn nyinaa?"
+      "वो फ़िये ते सेन न्यिना?"
      ],
      [
       "Ɛnnɛ m'ani agye paa.",
-      "Ɛnnɛ m'ani agye paa."
+      "एन्नेइ मानि आग्ये पा।"
      ],
      [
       "Me ba baa nyaa nsɛntia pa.",
-      "Me ba baa nyaa nsɛntia pa."
+      "मे बा बा न्या न्सेइन्तिआ पा।"
      ],
      [
       "Afe a ɛreba yɛbɛhyia.",
-      "Afe a ɛreba yɛbɛhyia."
+      "आफ़े आ एरेबा येबेह्यिआ।"
      ]
     ]
    }
@@ -4230,27 +4230,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Maakye Maame, me ho ye ha.",
-      "Maakye Maame, me ho ye ha."
+      "माआक्ये माआमे, मे हो ये हा।"
      ],
      [
       "Adwuma no rekɔ yiye ha.",
-      "Adwuma no rekɔ yiye ha."
+      "अद्वुमा नो रेको यिये हा।"
      ],
      [
       "Ɔkyena meyɛɛ adwuma nnɔnhwerew edu.",
-      "Ɔkyena meyɛɛ adwuma nnɔnhwerew edu."
+      "ओक्येना मेये अद्वुमा न्नोन्हवेरे एदु।"
      ],
      [
       "Ɔbosome a ɛreba mɛkɔ fie.",
-      "Ɔbosome a ɛreba mɛkɔ fie."
+      "ओबोसोमे आ एरेबा मेको फ़िये।"
      ],
      [
       "Borɔfo kasa bue apon foforɔ ma me.",
-      "Borɔfo kasa bue apon foforɔ ma me."
+      "बोरोफो कसा बुये आपोन फोफोरो मा मे।"
      ],
      [
       "Mefrɛ Nana.",
-      "Mefrɛ Nana."
+      "मेफ्रेइ नाना।"
      ]
     ]
    }
@@ -5643,27 +5643,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Meyɛ ɔkyekyerɛ dade, mewɔ mfeɛ enum osuahu.",
-      "Meyɛ ɔkyekyerɛ dade, mewɔ mfeɛ enum osuahu."
+      "मेये ओक्येक्येरेइ दादे मेवो म्फेइ एनुम ओसुआहु।"
      ],
      [
       "Owura, ɛnnɛ adwuma yɛ dɛn?",
-      "Owura, ɛnnɛ adwuma yɛ dɛn?"
+      "ओवुरा, एन्नेइ अद्वुमा ये देन?"
      ],
      [
       "Owura, adwuma no awie.",
-      "Owura, adwuma no awie."
+      "ओवुरा, अद्वुमा नो आवी।"
      ],
      [
       "Owura, hwɛ m'adwuma pɛnkoro.",
-      "Owura, hwɛ m'adwuma pɛnkoro."
+      "ओवुरा, ह्वेइ मादवुमा पेनकोरो।"
      ],
      [
       "Owura, mehia da koro ahomegye.",
-      "Owura, mehia da koro ahomegye."
+      "ओवुरा, मेहिआ दा कोरो आहोमेग्ये।"
      ],
      [
       "Mɛsan aba adwuma Wednesday.",
-      "Mɛsan aba adwuma Wednesday."
+      "मेसान आबा अद्वुमा वेन्ज़्डे।"
      ]
     ]
    }
@@ -7046,27 +7046,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ɛnnɛ menyaa m'akatua.",
-      "Ɛnnɛ menyaa m'akatua."
+      "एन्नेइ मेन्या माकातुआ।"
      ],
      [
       "Mesomaa sika mpem enan wɔ app so.",
-      "Mesomaa sika mpem enan wɔ app so."
+      "मेसोमा सिका म्पेम एनान वो आप सो।"
      ],
      [
       "Hwɛ nkra wɔ telefon so.",
-      "Hwɛ nkra wɔ telefon so."
+      "ह्वेइ न्क्रा वो तेलेफोन सो।"
      ],
      [
       "Nkyɛ wo OTP ne obiara.",
-      "Nkyɛ wo OTP ne obiara."
+      "न्क्येइ वो ओटीपी ने ओबिआरा।"
      ],
      [
       "Sikafie mmisa OTP da biara.",
-      "Sikafie mmisa OTP da biara."
+      "सिकाफ़िये म्मिसा ओटीपी दा बिआरा।"
      ],
      [
       "Mekora sika ma akyekyerɛ nneɛma.",
-      "Mekora sika ma akyekyerɛ nneɛma."
+      "मेकोरा सिका मा आक्येक्येरेइ न्नेइमा।"
      ]
     ]
    }
@@ -8457,27 +8457,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Hwɛ ɔpon lock ne mfɛnsere.",
-      "Hwɛ ɔpon lock ne mfɛnsere."
+      "ह्वेइ ओपोन लॉक ने म्फेइन्सेरे।"
      ],
      [
       "Bisa nhyehyɛeɛ a wɔakyerɛw.",
-      "Bisa nhyehyɛeɛ a wɔakyerɛw."
+      "बिसा न्ह्येह्येये आ वोआक्येरेव।"
      ],
      [
       "Soma w'adireesi ankasa kɔ fie.",
-      "Soma w'adireesi ankasa kɔ fie."
+      "सोमा वादिरेसि आनकासा को फ़िये।"
      ],
      [
       "Frɛ ɔha ne dumienu wɔ ɔhaw biara ho.",
-      "Frɛ ɔha ne dumienu wɔ ɔhaw biara ho."
+      "फ्रेइ ओहा ने दुमियेनु वो ओहाव बिआरा हो।"
      ],
      [
       "e-Shram kaadi ntua ka biara.",
-      "e-Shram kaadi ntua ka biara."
+      "ई-श्राम कादि न्तुआ का बिआरा।"
      ],
      [
       "Baabi ahobammɔ, adwuma ahoɔden.",
-      "Baabi ahobammɔ, adwuma ahoɔden."
+      "बाबि आहोबम्मो, अद्वुमा आहोओदेन।"
      ]
     ]
    }
@@ -9861,31 +9861,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Maakye owura, me din de Ramesh.",
-      "Maakye owura, me din de Ramesh."
+      "माआक्ये ओवुरा, मे दिन दे रामेश।"
      ],
      [
       "Meyɛ ɔkyekyerɛ dade, mewɔ mfeɛ enum osuahu.",
-      "Meyɛ ɔkyekyerɛ dade, mewɔ mfeɛ enum osuahu."
+      "मेये ओक्येक्येरेइ दादे मेवो म्फेइ एनुम ओसुआहु।"
      ],
      [
       "Ɔsram akatua yɛ sɛn?",
-      "Ɔsram akatua yɛ sɛn?"
+      "ओसराम आकातुआ ये सेन?"
      ],
      [
       "Adwuma no wɔ he?",
-      "Adwuma no wɔ he?"
+      "अद्वुमा नो वो हे?"
      ],
      [
       "Metumi afi ase Dwoada.",
-      "Metumi afi ase Dwoada."
+      "मेतुमि आफ़ि आसे द्वोआदा।"
      ],
      [
       "Medaase owura, ɛfiri sɛ woama me ɛkwan sɛ mɛkasa.",
-      "Medaase owura, ɛfiri sɛ woama me ɛkwan sɛ mɛkasa."
+      "मेदासे ओवुरा, एफ़िरि सेइ वोआमा मे एक्वान सेइ मेकसा।"
      ],
      [
       "Mayɛ krado sɛ wɔsɔ me hwɛ da biara.",
-      "Mayɛ krado sɛ wɔsɔ me hwɛ da biara."
+      "मया क्रादो सेइ वोसो मे ह्वेइ दा बिआरा।"
      ]
     ]
    }
@@ -11271,27 +11271,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Tomato bo yɛ sɛn?",
-      "Tomato bo yɛ sɛn?"
+      "टोमाटो बो ये सेन?"
      ],
      [
       "Susu bio.",
-      "Susu bio."
+      "सुसु बिओ।"
      ],
      [
       "Ɛyɛ me dodo.",
-      "Ɛyɛ me dodo."
+      "ये मे दोदो।"
      ],
      [
       "Mɛma wo ahanan.",
-      "Mɛma wo ahanan."
+      "मेमा वो आहानान।"
      ],
      [
       "Kan sɛnea wɔakyerɛw.",
-      "Kan sɛnea wɔakyerɛw."
+      "कान सेनेआ वोआक्येरेव।"
      ],
      [
       "Kan sika ansa na wokɔ.",
-      "Kan sika ansa na wokɔ."
+      "कान सिका आनसा न वोको।"
      ]
     ]
    }
@@ -12681,27 +12681,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Mefaa wɔ app so.",
-      "Mefaa wɔ app so."
+      "मेफ़ा वो आप सो।"
      ],
      [
       "Ɛnnɛ krataa no wɔasi so.",
-      "Ɛnnɛ krataa no wɔasi so."
+      "एन्नेइ क्रताआ नो वोआसि सो।"
      ],
      [
       "Kɔ platform simma aduasa ansa.",
-      "Kɔ platform simma aduasa ansa."
+      "को प्लेटफॉर्म सिम्मा अदुआसा आनसा।"
      ],
      [
       "Kyekyere nneɛma wɔ agua ase ne nhama.",
-      "Kyekyere nneɛma wɔ agua ase ne nhama."
+      "क्येक्येरे न्नेइमा वो आगुआ आसे ने न्हामा।"
      ],
      [
       "Ngye aduane fi obi a wunnim nkyɛn.",
-      "Ngye aduane fi obi a wunnim nkyɛn."
+      "न्ग्ये अदुआने फि ओबि आ वुन्निम न्क्येइन।"
      ],
      [
       "Meduruu yiye, nnwene ho.",
-      "Meduruu yiye, nnwene ho."
+      "मेदुरू यिये, न्न्वेने हो।"
      ]
     ]
    }
@@ -14088,31 +14088,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Meyɛ India ni.",
-      "Meyɛ India ni."
+      "मेये इन्दिया नि।"
      ],
      [
       "Adwuma bɛn wɔ ha ma me sɛ mekyekyerɛ dade.",
-      "Adwuma bɛn wɔ ha ma me sɛ mekyekyerɛ dade."
+      "अद्वुमा बेन वो हा मा मे सेइ मेक्येक्येरेइ दादे।"
      ],
      [
       "Me kontrakt yɛ mfeɛ mmienu.",
-      "Me kontrakt yɛ mfeɛ mmienu."
+      "मे कोन्त्रक्त ये म्फेइ म्मियेनु।"
      ],
      [
       "Kɔmpani tua m'tikiti.",
-      "Kɔmpani tua m'tikiti."
+      "कोम्पानि तुआ मातिकिति।"
      ],
      [
       "Aane, kontrakt awie mɛsan aba.",
-      "Aane, kontrakt awie mɛsan aba."
+      "आने, कोन्त्रक्त आवी मेसान आबा।"
      ],
      [
       "Me nkrataa nyinaa yɛ nokware.",
-      "Me nkrataa nyinaa yɛ nokware."
+      "मे न्क्रताआ न्यिना ये नोक्वारे।"
      ],
      [
       "Medaase owura.",
-      "Medaase owura."
+      "मेदासे ओवुरा।"
      ]
     ]
    }
@@ -14791,35 +14791,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Asram mmiɛnsa a atwam, Borɔfo kasa yɛɛ sɛ ɔfasu ma me.",
-      "Asram mmiɛnsa a atwam, Borɔfo kasa yɛɛ sɛ ɔfasu ma me."
+      "आसराम म्मियेनसा आ आत्वाम बोरोफो कासा ये सेइ ऑफ़ासु मा मे।"
      ],
      [
       "Daa mesuaa nsɛmfua aduasa.",
-      "Daa mesuaa nsɛmfua aduasa."
+      "दा मेसुआ न्सेइम्फुआ अदुआसा।"
      ],
      [
       "Metumi aka fie, adwuma, sotɔɔ, ne airport ho asɛm.",
-      "Metumi aka fie, adwuma, sotɔɔ, ne airport ho asɛm."
+      "मेतुमि आका फ़िये, अद्वुमा, सोतो, ने एयरपोर्ट हो आसेइम।"
      ],
      [
       "Wɔbisaa me visa nsɛmmisa wɔ telefon so.",
-      "Wɔbisaa me visa nsɛmmisa wɔ telefon so."
+      "वोबिसा मे विझा न्सेम्मिसा वो तेलेफोन सो।"
      ],
      [
       "Mesuaa mmuae a wɔde kasakasa visa.",
-      "Mesuaa mmuae a wɔde kasakasa visa."
+      "मेसुआ म्मुआये आ वोदे कसाकसा विझा।"
      ],
      [
       "M'akuraa nyinaa ma m'ani gye.",
-      "M'akuraa nyinaa ma m'ani gye."
+      "माकुरा न्यिना मा मानि ग्ये।"
      ],
      [
       "Eyi nnyɛ awiei, ɛyɛ mfitiaseɛ foforɔ.",
-      "Eyi nnyɛ awiei, ɛyɛ mfitiaseɛ foforɔ."
+      "एयी न्न्ये आवीई, ये म्फितिआसेइ फोफोरो।"
      ],
      [
       "Me kasa, m'ntaban.",
-      "Me kasa, m'ntaban."
+      "मे कसा, मान्तबान।"
      ]
     ]
    }
@@ -16208,35 +16208,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Boa me, bra ntɛm!",
-      "Boa me, bra ntɛm!"
+      "बोआ मे, ब्रा न्तेइम!"
      ],
      [
       "Mapira paa.",
-      "Mapira paa."
+      "मापिरा पा।"
      ],
      [
       "Mehia ambulance.",
-      "Mehia ambulance."
+      "मेहिआ अम्बुलांस।"
      ],
      [
       "M'pasipɔte ayera.",
-      "M'pasipɔte ayera."
+      "मापासिपोते आयेरा।"
      ],
      [
       "Merenyi m'pasipɔte mma obiara.",
-      "Merenyi m'pasipɔte mma obiara."
+      "मेरेन्यी मापासिपोते म्मा ओबिआरा।"
      ],
      [
       "Mepɛ m'akatua.",
-      "Mepɛ m'akatua."
+      "मेपेइ माकातुआ।"
      ],
      [
       "Owura, eyi ne me pasipɔte.",
-      "Owura, eyi ne me pasipɔte."
+      "ओवुरा, एयी ने मे पासिपोते।"
      ],
      [
       "Owura, mɛwie ansa na medi aduane.",
-      "Owura, mɛwie ansa na medi aduane."
+      "ओवुरा, मेवी आनसा न मेदि अदुआने।"
      ]
     ]
    }

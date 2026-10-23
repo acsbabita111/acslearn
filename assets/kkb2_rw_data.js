@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ejo nakoze amasaha icumi.",
-      "Ejo nakoze amasaha icumi."
+      "एजो नाकोझे अमासाहा इचुमी।"
      ],
      [
       "Ndananiwe cyane.",
-      "Ndananiwe cyane."
+      "न्दानानिवे च्याने।"
      ],
      [
       "Ejo hazaza nzabyuka kare.",
-      "Ejo hazaza nzabyuka kare."
+      "एजो हाझाझा न्ज़ाब्युका कारे।"
      ],
      [
       "Ejo hazaza nzaguhamagara.",
-      "Ejo hazaza nzaguhamagara."
+      "एजो हाझाझा न्ज़ागुहामागारा।"
      ],
      [
       "Ndiga icyongereza kugira ngo mbone akazi keza.",
-      "Ndiga icyongereza kugira ngo mbone akazi keza."
+      "न्दिगा इच्योन्गेरेझा कुगीरा न्गो म्बोने आकाझी केझा।"
      ]
     ]
    }
@@ -2113,23 +2113,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Buri munsi mbyuka ku masaha atanu.",
-      "Buri munsi mbyuka ku masaha atanu."
+      "बुरी मुन्सी म्ब्युका कु मासाहा अतानु।"
      ],
      [
       "Njya ku kazi n'amaguru.",
-      "Njya ku kazi n'amaguru."
+      "न्ज्या कु काझी नामागुरु।"
      ],
      [
       "Kabiri mu cyumweru ndahamagara mu rugo.",
-      "Kabiri mu cyumweru ndahamagara mu rugo."
+      "काबिरी मु च्युम्वेरु न्दाहामागारा मु रुगो।"
      ],
      [
       "Umeze ute?",
-      "Umeze ute?"
+      "उमेज़े उते?"
      ],
      [
       "Nywa imiti yawe ku gihe.",
-      "Nywa imiti yawe ku gihe."
+      "न्युवा इमिती यावे कु गिहे।"
      ]
     ]
    }
@@ -3172,23 +3172,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Umunsi mukuru mwiza wowe n'umuryango wawe.",
-      "Umunsi mukuru mwiza wowe n'umuryango wawe."
+      "उमुन्सी मुकुरु म्विझा वोवे नुमुर्यान्गो वावे।"
      ],
      [
       "Urugo rumeze rute rwose?",
-      "Urugo rumeze rute rwose?"
+      "उरुगो रुमेझे रुते र्वोसे?"
      ],
      [
       "None ndishimye cyane.",
-      "None ndishimye cyane."
+      "नोने न्दिशिम्ये च्याने।"
      ],
      [
       "Umukobwa wanjye yabonye amanota meza.",
-      "Umukobwa wanjye yabonye amanota meza."
+      "उमुकोब्वा वान्जे यबोन्ये अमानोता मेझा।"
      ],
      [
       "Umwaka utaha tuzahurira.",
-      "Umwaka utaha tuzahurira."
+      "उम्वाका उताहा तुज़ाहुरिरा।"
      ]
     ]
    }
@@ -4229,27 +4229,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Muraho Mama, ndi neza hano.",
-      "Muraho Mama, ndi neza hano."
+      "मुराहो मामा, न्दि नेझा हानो।"
      ],
      [
       "Umurimo urimo kugenda neza hano.",
-      "Umurimo urimo kugenda neza hano."
+      "उमुरिमो उरिमो कुगेन्दा नेझा हानो।"
      ],
      [
       "Ejo nakoze amasaha icumi.",
-      "Ejo nakoze amasaha icumi."
+      "एजो नाकोझे अमासाहा इचुमी।"
      ],
      [
       "Ukwezi gutaha nzataha mu rugo.",
-      "Ukwezi gutaha nzataha mu rugo."
+      "उक्वेझी गुताहा न्ज़ाताहा मु रुगो।"
      ],
      [
       "Icyongereza kimfungurira imiryango mishya.",
-      "Icyongereza kimfungurira imiryango mishya."
+      "इच्योन्गेरेझा किम्फुन्गुरिरा इमिर्यान्गो मिश्या।"
      ],
      [
       "Muramutsa sogokuru banjye.",
-      "Muramutsa sogokuru banjye."
+      "मुरामुत्सा सोगोकुरु बान्जे।"
      ]
     ]
    }
@@ -5642,27 +5642,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ndi umucuzi w'ibyuma, mfite imyaka itanu y'uburambe.",
-      "Ndi umucuzi w'ibyuma, mfite imyaka itanu y'uburambe."
+      "न्दि उमुचुझी विब्युमा म्फिते इम्याका इतानु युबुराम्बे।"
      ],
      [
       "Umuyobozi, umurimo w'uyu munsi ni uwuhe?",
-      "Umuyobozi, umurimo w'uyu munsi ni uwuhe?"
+      "उमुयोबोझी, उमुरिमो वउयु मुन्सी नि उवुहे?"
      ],
      [
       "Umuyobozi, umurimo warangiye.",
-      "Umuyobozi, umurimo warangiye."
+      "उमुयोबोझी, उमुरिमो वारान्गिये।"
      ],
      [
       "Umuyobozi, genzura umurimo wanjye rimwe.",
-      "Umuyobozi, genzura umurimo wanjye rimwe."
+      "उमुयोबोझी, गेन्ज़ुरा उमुरिमो वान्जे रिम्वे।"
      ],
      [
       "Umuyobozi, nkeneye umunsi umwe wo kuruhuka.",
-      "Umuyobozi, nkeneye umunsi umwe wo kuruhuka."
+      "उमुयोबोझी, न्केनेये उमुन्सी उम्वे वो कुरुहुका।"
      ],
      [
       "Nzagaruka ku kazi ku wa gatatu.",
-      "Nzagaruka ku kazi ku wa gatatu."
+      "न्ज़ागारुका कु काझी कु वा गातातु।"
      ]
     ]
    }
@@ -7045,27 +7045,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "None nabonye umushahara wanjye.",
-      "None nabonye umushahara wanjye."
+      "नोने नाबोन्ये उमुशाहारा वान्जे।"
      ],
      [
       "Nohereje ibihumbi bine kuri app.",
-      "Nohereje ibihumbi bine kuri app."
+      "नोहेरेजे इबिहुम्बी बिने कुरी आप।"
      ],
      [
       "Genzura ubutumwa kuri telefoni.",
-      "Genzura ubutumwa kuri telefoni."
+      "गेन्ज़ुरा उबुतुम्वा कुरी तेलेफोनी।"
      ],
      [
       "Ntumusangire OTP ya telefoni yawe n'undi.",
-      "Ntumusangire OTP ya telefoni yawe n'undi."
+      "न्तुमुसान्गिरे ओतीपी या तेलेफोनी यावे नुन्दी।"
      ],
      [
       "Banki ntabwo ibaza OTP na rimwe.",
-      "Banki ntabwo ibaza OTP na rimwe."
+      "बान्की न्तब्वो इबाझा ओतीपी न रिम्वे।"
      ],
      [
       "Nzigama amafaranga y'ibikoresho.",
-      "Nzigama amafaranga y'ibikoresho."
+      "न्ज़िगामा अमाफारान्गा यिबिकोरेशो।"
      ]
     ]
    }
@@ -8456,27 +8456,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Genzura urufunguzo rw'umuryango n'amadirishya.",
-      "Genzura urufunguzo rw'umuryango n'amadirishya."
+      "गेन्ज़ुरा उरुफुन्गुझो र्वउमुर्यान्गो नामादिरिश्या।"
      ],
      [
       "Saba amasezerano yanditse.",
-      "Saba amasezerano yanditse."
+      "साबा अमासेझेरानो यानदित्से।"
      ],
      [
       "Ohereza aderesi yawe rwose iwacu.",
-      "Ohereza aderesi yawe rwose iwacu."
+      "ओहेरेझा आदेरेसी यावे र्वोसे इवाचु।"
      ],
      [
       "Hamagara ijana n'icumi na bibiri ku byihutirwa byose.",
-      "Hamagara ijana n'icumi na bibiri ku byihutirwa byose."
+      "हामागारा इजाना निचुमी न बिबिरी कु ब्यिहुतिरवा ब्योसे।"
      ],
      [
       "Ikarita ya e-Shram ni ubuntu.",
-      "Ikarita ya e-Shram ni ubuntu."
+      "इकारिता या ए-श्राम नि उबुन्तु।"
      ],
      [
       "Ahantu hakingiye, umurimo w'imbaraga.",
-      "Ahantu hakingiye, umurimo w'imbaraga."
+      "आहान्तु हाकिन्गिये, उमुरिमो विम्बारागा।"
      ]
     ]
    }
@@ -9860,31 +9860,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Muraho mukuru, ndi Ramesh.",
-      "Muraho mukuru, ndi Ramesh."
+      "मुराहो मुकुरु, न्दि रामेश।"
      ],
      [
       "Ndi fitter, mfite imyaka itanu y'uburambe.",
-      "Ndi fitter, mfite imyaka itanu y'uburambe."
+      "न्दि फित्तर म्फिते इम्याका इतानु युबुराम्बे।"
      ],
      [
       "Umushahara w'ukwezi ni angahe?",
-      "Umushahara w'ukwezi ni angahe?"
+      "उमुशाहारा वउक्वेझी नि अन्गाहे?"
      ],
      [
       "Akazi kari he?",
-      "Akazi kari he?"
+      "आकाझी कारी हे?"
      ],
      [
       "Nshobora gutangira ku wa mbere.",
-      "Nshobora gutangira ku wa mbere."
+      "न्शोबोरा गुतान्गिरा कु वा म्बेरे।"
      ],
      [
       "Murakoze mukuru, ku mwanya wo kuvuga.",
-      "Murakoze mukuru, ku mwanya wo kuvuga."
+      "मुराकोझे मुकुरु, कु उम्वान्या वो कुवुगा।"
      ],
      [
       "Nitegura kwipimwa buri munsi.",
-      "Nitegura kwipimwa buri munsi."
+      "नितेगुरा क्विपिम्वा बुरी मुन्सी।"
      ]
     ]
    }
@@ -11270,27 +11270,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Inyanya ni angahe?",
-      "Inyanya ni angahe?"
+      "इन्यान्या नि अन्गाहे?"
      ],
      [
       "Ongera upime.",
-      "Ongera upime."
+      "ओन्गेरा उपिमे।"
      ],
      [
       "Ibyo bimpita byinshi.",
-      "Ibyo bimpita byinshi."
+      "इब्यो बिम्पिता ब्यिन्शी।"
      ],
      [
       "Nzagutanga magana ane.",
-      "Nzagutanga magana ane."
+      "न्ज़ागुतान्गा मागाना आने।"
      ],
      [
       "Bara nk'uko byanditswe.",
-      "Bara nk'uko byanditswe."
+      "बारा नकुको ब्यानदित्स्वे।"
      ],
      [
       "Bara amafaranga mbere yo kugenda.",
-      "Bara amafaranga mbere yo kugenda."
+      "बारा अमाफारान्गा म्बेरे यो कुगेन्दा।"
      ]
     ]
    }
@@ -12680,27 +12680,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Nabikije kuri app.",
-      "Nabikije kuri app."
+      "नाबिकिजे कुरी आप।"
      ],
      [
       "None urutonde rwemejwe.",
-      "None urutonde rwemejwe."
+      "नोने उरुतोन्दे र्वेमेज्वे।"
      ],
      [
       "Genda kuri platform iminota mirongo itatu mbere.",
-      "Genda kuri platform iminota mirongo itatu mbere."
+      "गेन्दा कुरी प्लातफोर्म इमिनोता मिरोन्गो इतातु म्बेरे।"
      ],
      [
       "Boha ibintu munsi y'intebe n'umujigi.",
-      "Boha ibintu munsi y'intebe n'umujigi."
+      "बोहा इबिन्तु मुन्सी यिन्तेबे नउमुजिगी।"
      ],
      [
       "Ntwakire ibiryo ku muntu utamuzi.",
-      "Ntwakire ibiryo ku muntu utamuzi."
+      "न्त्वाकिरे इबिर्यो कु मुन्तु उतामुझी।"
      ],
      [
       "Nageze neza, ntugire impungenge.",
-      "Nageze neza, ntugire impungenge."
+      "नागेझे नेझा, न्तुगीरे इम्पुन्गेन्गे।"
      ]
     ]
    }
@@ -14087,31 +14087,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ndi Umuhinde.",
-      "Ndi Umuhinde."
+      "न्दि उमुहिन्दे।"
      ],
      [
       "Hari akazi k'ubucuzi hano ku njye.",
-      "Hari akazi k'ubucuzi hano ku njye."
+      "हारी आकाझी कउबुचुझी हानो कु न्जे।"
      ],
      [
       "Amasezerano yanjye ni imyaka ibiri.",
-      "Amasezerano yanjye ni imyaka ibiri."
+      "अमासेझेरानो यान्जे नि इम्याका इबिरी।"
      ],
      [
       "Sosiyete niyo yansasuye itike.",
-      "Sosiyete niyo yansasuye itike."
+      "सोसियेते नियो यन्सासुये इतिके।"
      ],
      [
       "Yego, nyuma y'amasezerano nzagaruka.",
-      "Yego, nyuma y'amasezerano nzagaruka."
+      "येगो, न्युमा यमासेझेरानो न्ज़ागारुका।"
      ],
      [
       "Impapuro zanjye zuzuye kandi n'ukuri.",
-      "Impapuro zanjye zuzuye kandi n'ukuri."
+      "इम्पापुरो ज़ान्जे झुझुये कान्दी नुकुरी।"
      ],
      [
       "Murakoze mukuru.",
-      "Murakoze mukuru."
+      "मुराकोझे मुकुरु।"
      ]
     ]
    }
@@ -14790,35 +14790,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Amezi atatu ashize, Icyongereza cyari nk'urukuta ku njye.",
-      "Amezi atatu ashize, Icyongereza cyari nk'urukuta ku njye."
+      "अमेझी अतातु अशिज़े इच्योन्गेरेझा च्यारि न्क'उरुकुता कु न्जे।"
      ],
      [
       "Buri munsi nize amagambo mirongo itatu.",
-      "Buri munsi nize amagambo mirongo itatu."
+      "बुरी मुन्सी निझे अमागाम्बो मिरोन्गो इतातु।"
      ],
      [
       "Nshobora kuvuga ku rugo, akazi, isoko, n'ikibuga cy'indege.",
-      "Nshobora kuvuga ku rugo, akazi, isoko, n'ikibuga cy'indege."
+      "न्शोबोरा कुवुगा कु रुगो, आकाझी, इसोको, निकिबुगा च्यिन्देगे।"
      ],
      [
       "Nabajijwe mu Cyongereza ku telefoni.",
-      "Nabajijwe mu Cyongereza ku telefoni."
+      "नाबाजिज्वे मु च्योन्गेरेझा कु तेलेफोनी।"
      ],
      [
       "Nize ibisubizo by'ikiganiro cya viza.",
-      "Nize ibisubizo by'ikiganiro cya viza."
+      "निझे इबिसुबिज़ो ब्य'इकिगानिरो च्य विझा।"
      ],
      [
       "Umudugudu wanjye wose unshimira.",
-      "Umudugudu wanjye wose unshimira."
+      "उमुदुगुदु वान्जे वोसे उन्शिमिरा।"
      ],
      [
       "Iki ntabwo ari iherezo, ni intangiriro nshya.",
-      "Iki ntabwo ari iherezo, ni intangiriro nshya."
+      "इकी न्तब्वो आरी इहेरेझो, नि इन्तान्गिरिरो न्श्या।"
      ],
      [
       "Ururimi rwanjye, amababa yanjye.",
-      "Ururimi rwanjye, amababa yanjye."
+      "उरुरिमी र्वान्जे, अमाबाबा यान्जे।"
      ]
     ]
    }
@@ -16207,35 +16207,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Mfashe, ngwino vuba!",
-      "Mfashe, ngwino vuba!"
+      "म्फाशे, न्ग्विनो वुबा!"
      ],
      [
       "Nakomeretse cyane.",
-      "Nakomeretse cyane."
+      "नाकोमेरेत्से च्याने।"
      ],
      [
       "Nkeneye ambulansi.",
-      "Nkeneye ambulansi."
+      "न्केनेये आम्बुलान्सी।"
      ],
      [
       "Pasiporo yanjye yazimiye.",
-      "Pasiporo yanjye yazimiye."
+      "पासिपोरो यान्जे याझिमिये।"
      ],
      [
       "Sinzatanga pasiporo yanjye.",
-      "Sinzatanga pasiporo yanjye."
+      "सिन्ज़ातान्गा पासिपोरो यान्जे।"
      ],
      [
       "Nkeneye umushahara wanjye.",
-      "Nkeneye umushahara wanjye."
+      "न्केनेये उमुशाहारा वान्जे।"
      ],
      [
       "Mudamu, iyi ni pasiporo yanjye.",
-      "Mudamu, iyi ni pasiporo yanjye."
+      "मुदामु, इयी नि पासिपोरो यान्जे।"
      ],
      [
       "Mudamu, nzawurangiza ntararya.",
-      "Mudamu, nzawurangiza ntararya."
+      "मुदामु, न्ज़ावुरान्गिझा न्तरार्या।"
      ]
     ]
    }

@@ -84,7 +84,7 @@ window.KKB2_DATA = {
       ],
       [
        "Je vis avec mes parents.",
-       "ज़ ভি अवेक मे पारों।",
+       "ज़ भि अवेक मे पारों।",
        "मैं अपने माता-पिता के साथ रहता हूँ।",
        "S",
        "A"
@@ -975,7 +975,7 @@ window.KKB2_DATA = {
      ],
      [
       "Je vis avec mes parents.",
-      "ज़ ভई अवेक मे पारों।"
+      "ज़ भई अवेक मे पारों।"
      ],
      [
       "Ma maison est dans un petit village.",

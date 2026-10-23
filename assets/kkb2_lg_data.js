@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Jjo nakoze essaawa kkumi.",
-      "Jjo nakoze essaawa kkumi."
+      "ज्जो नकोज़े एस्साआवा क्कुमि।"
      ],
      [
       "Nkoowu nnyo.",
-      "Nkoowu nnyo."
+      "न्कोवु न्न्यो।"
      ],
      [
       "Enkya nzija kuzuukuka mangu.",
-      "Enkya nzija kuzuukuka mangu."
+      "एन्क्या न्ज़िजा कुज़ूकुका मांगु।"
      ],
      [
       "Enkya nzija kukuba ggwe essimu.",
-      "Enkya nzija kukuba ggwe essimu."
+      "एन्क्या न्ज़िजा कुकुबा ग्गवे एस्सिमु।"
      ],
      [
       "Nnyiga Olungereza ndyoke nfune omulimu omulungi.",
-      "Nnyiga Olungereza ndyoke nfune omulimu omulungi."
+      "न्न्यिगा ओलुंगेरेज़ा न्द्योके न्फुने ओमुलिमु ओमुलुंगि।"
      ]
     ]
    }
@@ -2113,23 +2113,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Buli lunaku nzuukuka essaawa ttaano.",
-      "Buli lunaku nzuukuka essaawa ttaano."
+      "बुलि लुनाकु न्ज़ूकुका एस्साआवा त्ताआनो।"
      ],
      [
       "Ntambula n'ebigere okugenda ku mulimu.",
-      "Ntambula n'ebigere okugenda ku mulimu."
+      "न्तम्बुला नेबिगेरे ओकुगेन्दा कु मुलिमु।"
      ],
      [
       "Emirundi ebiri mu wiiki nkuba eka essimu.",
-      "Emirundi ebiri mu wiiki nkuba eka essimu."
+      "एमिरुन्दि एबिरि मु वीकि न्कुबा एका एस्सिमु।"
      ],
      [
       "Omubiri gwo guli gutya?",
-      "Omubiri gwo guli gutya?"
+      "ओमुबिरि ग्वो गुलि गुत्या?"
      ],
      [
       "Nywa eddagala lyo mu kiseera kyalyo.",
-      "Nywa eddagala lyo mu kiseera kyalyo."
+      "न्युवा एद्दागाला ल्यो मु किसेरा क्याल्यो।"
      ]
     ]
    }
@@ -3172,23 +3172,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Embaga ennungi ggwe n'amaka go.",
-      "Embaga ennungi ggwe n'amaka go."
+      "एम्बागा एन्नुंगि ग्गवे नअमाका गो।"
      ],
      [
       "Amaka gali gatya gonna?",
-      "Amaka gali gatya gonna?"
+      "अमाका गलि गात्या गोन्ना?"
      ],
      [
       "Leero nsanyuse nnyo.",
-      "Leero nsanyuse nnyo."
+      "लेरो न्सान्युसे न्न्यो।"
      ],
      [
       "Muwala wange afunye amakulu amalungi.",
-      "Muwala wange afunye amakulu amalungi."
+      "मुवाला वांगे अफुन्ये अमाकुलु अमलुंगि।"
      ],
      [
       "Omwaka oguja tujja kusisinkana.",
-      "Omwaka oguja tujja kusisinkana."
+      "ओम्वाका ओगुजा तुजा कुसिसिंकाना।"
      ]
     ]
    }
@@ -4229,27 +4229,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ki nga maama, ndi wano bulungi.",
-      "Ki nga maama, ndi wano bulungi."
+      "कि न्गा माआमा, न्दि वानो बुलुंगि।"
      ],
      [
       "Omulimu gutambula bulungi wano.",
-      "Omulimu gutambula bulungi wano."
+      "ओमुलिमु गुतम्बुला बुलुंगि वानो।"
      ],
      [
       "Jjo nakoze essaawa kkumi.",
-      "Jjo nakoze essaawa kkumi."
+      "ज्जो नकोज़े एस्साआवा क्कुमि।"
      ],
      [
       "Omwezi ogujja nzija kudda amaka.",
-      "Omwezi ogujja nzija kudda amaka."
+      "ओम्वेज़ि ओगुजा न्ज़िजा कुद्दा अमाका।"
      ],
      [
       "Olungereza lundaggula enzigi empya.",
-      "Olungereza lundaggula enzigi empya."
+      "ओलुंगेरेज़ा लुन्दग्गुला एन्ज़िगि एम्प्या।"
      ],
      [
       "Nsuubiza jjajja.",
-      "Nsuubiza jjajja."
+      "न्सूबिज़ा ज्जाज्जा।"
      ]
     ]
    }
@@ -5642,27 +5642,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ndi mukubi w'ebyuma, nnina emyaka etaano egy'obumanyirivu.",
-      "Ndi mukubi w'ebyuma, nnina emyaka etaano egy'obumanyirivu."
+      "न्दि मुकुबि व्येबयुमा न्निना एम्याका एतानो एग्योबुमान्यिरिवु।"
      ],
      [
       "Mukulembeze, mulimu ki leero?",
-      "Mukulembeze, mulimu ki leero?"
+      "मुकुलेम्बेज़े, मुलिमु कि लेरो?"
      ],
      [
       "Mukulembeze, omulimu guweddeko.",
-      "Mukulembeze, omulimu guweddeko."
+      "मुकुलेम्बेज़े, ओमुलिमु गुवेद्देको।"
      ],
      [
       "Mukulembeze, kebera omulimu gwange omulundi gumu.",
-      "Mukulembeze, kebera omulimu gwange omulundi gumu."
+      "मुकुलेम्बेज़े, केबेरा ओमुलिमु ग्वांगे ओमुलुन्दि गुमु।"
      ],
      [
       "Mukulembeze, nneetaaga olunaku olumu okuwummula.",
-      "Mukulembeze, nneetaaga olunaku olumu okuwummula."
+      "मुकुलेम्बेज़े, न्नेयतागा ओलुनाकु ओलुमु ओकुवुम्मुला।"
      ],
      [
       "Nzija kudda ku mulimu ku lwokusatu.",
-      "Nzija kudda ku mulimu ku lwokusatu."
+      "न्ज़िजा कुद्दा कु मुलिमु कु ल्वोकुसातु।"
      ]
     ]
    }
@@ -7045,27 +7045,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Leero mfunye omusaala gwange.",
-      "Leero mfunye omusaala gwange."
+      "लेरो म्फुन्ये ओमुसाला ग्वांगे।"
      ],
      [
       "Naweereza enkumi nnya ku app.",
-      "Naweereza enkumi nnya ku app."
+      "नवेरेज़ा एन्कुमि न्न्या कु आप।"
      ],
      [
       "Kebera obubaka ku ssimu.",
-      "Kebera obubaka ku ssimu."
+      "केबेरा ओबुबाका कु स्सिमु।"
      ],
      [
       "Tokwaseganya OTP yo ne muntu yenna.",
-      "Tokwaseganya OTP yo ne muntu yenna."
+      "तोक्वासेगान्या ओतीपी यो ने मुन्तु येन्ना।"
      ],
      [
       "Bbanka tebasaba OTP wadde bulijjo.",
-      "Bbanka tebasaba OTP wadde bulijjo."
+      "ब्बंका तेबासाबा ओतीपी वाद्दे बुलिज्जो।"
      ],
      [
       "Nteeka ssente ku bikozesebwa.",
-      "Nteeka ssente ku bikozesebwa."
+      "न्तेका स्सेन्ते कु बिकोज़ेसेब्वा।"
      ]
     ]
    }
@@ -8456,27 +8456,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Kebera ekyasa ky'oluggi n'amadirisa.",
-      "Kebera ekyasa ky'oluggi n'amadirisa."
+      "केबेरा एक्यासा क्योलुग्गि नअमादिरिसा।"
      ],
      [
       "Saba endagaano ey'ekiwandiiko.",
-      "Saba endagaano ey'ekiwandiiko."
+      "साबा एन्दागानो एय्येकिवान्दीको।"
      ],
      [
       "Weereza aders yo eyennyini eka.",
-      "Weereza aders yo eyennyini eka."
+      "वेरेज़ा आद्रेस यो एयेन्न्यिनि एका।"
      ],
      [
       "Kuba kikumi ne kkumi na bbiri olw'ekyokwewuunya kyonna.",
-      "Kuba kikumi ne kkumi na bbiri olw'ekyokwewuunya kyonna."
+      "कुबा किकुमि ने क्कुमि न ब्बिरि ओल्वेक्योक्वेवून्या क्योन्ना।"
      ],
      [
       "Kaadi ya e-Shram tesasulwa.",
-      "Kaadi ya e-Shram tesasulwa."
+      "कादि या ए-श्राम तेसासुल्वा।"
      ],
      [
       "Ekifo ekyekakafu, omulimu gw'amaanyi.",
-      "Ekifo ekyekakafu, omulimu gw'amaanyi."
+      "एकिफो एक्येकाकफु, ओमुलिमु ग्वामान्यि।"
      ]
     ]
    }
@@ -9860,31 +9860,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ki nga mukulembeze, ndi Ramesh.",
-      "Ki nga mukulembeze, ndi Ramesh."
+      "कि न्गा मुकुलेम्बेज़े, न्दि रामेश।"
      ],
      [
       "Ndi fitter, nnina emyaka etaano egy'obumanyirivu.",
-      "Ndi fitter, nnina emyaka etaano egy'obumanyirivu."
+      "न्दि फ़ित्तर् न्निना एम्याका एतानो एग्योबुमान्यिरिवु।"
      ],
      [
       "Omusaala gw'omwezi gwa bwenka?",
-      "Omusaala gw'omwezi gwa bwenka?"
+      "ओमुसाला ग्वओम्वेज़ि ग्वा ब्वेंका?"
      ],
      [
       "Omulimu guli wa?",
-      "Omulimu guli wa?"
+      "ओमुलिमु गुलि वा?"
      ],
      [
       "Nsobola okutandika ku Ssande.",
-      "Nsobola okutandika ku Ssande."
+      "न्सोबोला ओकुतांदिका कु स्सान्दे।"
      ],
      [
       "Webale mukulembeze, olw'akakisa ak'okwogera.",
-      "Webale mukulembeze, olw'akakisa ak'okwogera."
+      "वेबाले मुकुलेम्बेज़े, ओल्वाकाकिसा आकोक्वोगेरा।"
      ],
      [
       "Ndi mwetegefu okugezesebwa buli lunaku.",
-      "Ndi mwetegefu okugezesebwa buli lunaku."
+      "न्दि म्वेतेगेफु ओकुगेज़ेसेब्वा बुलि लुनाकु।"
      ]
     ]
    }
@@ -11270,27 +11270,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ennyanya zigula bwenka?",
-      "Ennyanya zigula bwenka?"
+      "एन्न्यान्या ज़िगुला ब्वेंका?"
      ],
      [
       "Pima nate.",
-      "Pima nate."
+      "पिमा नाते।"
      ],
      [
       "Ekyo kimpita bingi.",
-      "Ekyo kimpita bingi."
+      "एक्यो किम्पिता बिंगि।"
      ],
      [
       "Nzija kukuwa bikumi bina.",
-      "Nzija kukuwa bikumi bina."
+      "न्ज़िजा कुकुवा बिकुमि बिना।"
      ],
      [
       "Kola omugatte nga bwe kiwandiikiddwa.",
-      "Kola omugatte nga bwe kiwandiikiddwa."
+      "कोला ओमुगात्ते न्गा ब्वे किवान्दीकिद्द्वा।"
      ],
      [
       "Bala ssente entono nga tonnagenda.",
-      "Bala ssente entono nga tonnagenda."
+      "बाला स्सेन्ते एन्तोनो न्गा तोन्नागेन्दा।"
      ]
     ]
    }
@@ -12680,27 +12680,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Nakwata ku app.",
-      "Nakwata ku app."
+      "नक्वाता कु आप।"
      ],
      [
       "Leero olukalala lwakkirizibwa.",
-      "Leero olukalala lwakkirizibwa."
+      "लेरो ओलुकालाला ल्वाक्किरिज़िब्वा।"
      ],
      [
       "Jja edakiika amakumi asatu nga sitegeni tennaggwaawo.",
-      "Jja edakiika amakumi asatu nga sitegeni tennaggwaawo."
+      "ज्जा एदकीका अमाकुमि असातु न्गा सितेगेनि तेन्नाग्ग्वावो।"
      ],
      [
       "Sipiirira ebintu wansi w'entebe n'olujegere.",
-      "Sipiirira ebintu wansi w'entebe n'olujegere."
+      "सिपीरिरा एबिन्तु वान्सि वएन्तेबे नओलुजेगेरे।"
      ],
      [
       "Toddiranga mmere ku muntu gw'otomanyi.",
-      "Toddiranga mmere ku muntu gw'otomanyi."
+      "तोद्दिरंगा म्मेरे कु मुन्तु ग्वोतोमान्यि।"
      ],
      [
       "Ntuuse bulungi, tomeriikiriranga.",
-      "Ntuuse bulungi, tomeriikiriranga."
+      "न्तूसे बुलुंगि, तोमेरीकिरंगा।"
      ]
     ]
    }
@@ -14087,31 +14087,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ndi Muhindi.",
-      "Ndi Muhindi."
+      "न्दि मुहिन्दि।"
      ],
      [
       "Waliwo omulimu gw'okukuba ebyuma wano ku nze.",
-      "Waliwo omulimu gw'okukuba ebyuma wano ku nze."
+      "वालिवो ओमुलिमु ग्वओकुकुबा एब्युमा वानो कु न्ज़े।"
      ],
      [
       "Endagaano yange ya myaka ebiri.",
-      "Endagaano yange ya myaka ebiri."
+      "एन्दागानो यांगे या म्याका एबिरि।"
      ],
      [
       "Kampuni ye yansasulira tikiti.",
-      "Kampuni ye yansasulira tikiti."
+      "कम्पुनि ये यन्सासुलिरा तिकिति।"
      ],
      [
       "Yee, oluvannyuma lw'endagaano nzija kuddayo.",
-      "Yee, oluvannyuma lw'endagaano nzija kuddayo."
+      "येये, ओलुवान्न्युमा ल्वएन्दागानो न्ज़िजा कुद्दायो।"
      ],
      [
       "Ebiwandiiko byange bijjuvu era ba mazima.",
-      "Ebiwandiiko byange bijjuvu era ba mazima."
+      "एबिवान्दीको ब्यांगे बिज्जुवु एरा ब मज़िमा।"
      ],
      [
       "Webale mukulembeze.",
-      "Webale mukulembeze."
+      "वेबाले मुकुलेम्बेझे।"
      ]
     ]
    }
@@ -14790,35 +14790,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Emyezi esatu emabega, Olungereza gwali kunkomerera ku nze.",
-      "Emyezi esatu emabega, Olungereza gwali kunkomerera ku nze."
+      "एम्येज़ि एसातु एमाबेगा ओलुंगेरेज़ा ग्वालि कुन्कोमेरेरा कु न्ज़े।"
      ],
      [
       "Buli lunaku nayiga ebigambo asatu.",
-      "Buli lunaku nayiga ebigambo asatu."
+      "बुलि लुनाकु नयिगा एबिगाम्बो असातु।"
      ],
      [
       "Nsobola okwogera ku maka, omulimu, akatale, n'eyapoota.",
-      "Nsobola okwogera ku maka, omulimu, akatale, n'eyapoota."
+      "न्सोबोला ओक्वोगेरा कु माका, ओमुलिमु, आकाताले, नेयापोता।"
      ],
      [
       "Nafuna okubuuzibwa ku ssimu mu Lungereza.",
-      "Nafuna okubuuzibwa ku ssimu mu Lungereza."
+      "नफुना ओकुबूज़िब्वा कु स्सिमु मु लुंगेरेज़ा।"
      ],
      [
       "Nayiga okuddamu okw'okubuuzibwa kwa viza.",
-      "Nayiga okuddamu okw'okubuuzibwa kwa viza."
+      "नयिगा ओकुद्दामु ओक्व'ओकुबूज़िब्वा क्वा विज़ा।"
      ],
      [
       "Ekyalo kyange kyonna kinneenyumiriza.",
-      "Ekyalo kyange kyonna kinneenyumiriza."
+      "एक्यालो क्यांगे क्योन्ना किन्नेन्युमिरिज़ा।"
      ],
      [
       "Kino si kikomekkerezo, kye kitandikwa kipya.",
-      "Kino si kikomekkerezo, kye kitandikwa kipya."
+      "किनो सि किकोमेक्केरेज़ो, क्ये किटांदिक्वा किप्या।"
      ],
      [
       "Olulimi lwange, ebiwaawaatiro byange.",
-      "Olulimi lwange, ebiwaawaatiro byange."
+      "ओलुलिमि ल्वांगे, एबिवावातिरो ब्यांगे।"
      ]
     ]
    }
@@ -16207,35 +16207,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Nyamba, jjangu mangu!",
-      "Nyamba, jjangu mangu!"
+      "न्यम्बा, ज्जांगु मांगु!"
      ],
      [
       "Ndi mubi nnyo.",
-      "Ndi mubi nnyo."
+      "न्दि मुबि न्न्यो।"
      ],
      [
       "Nneetaaga ambulansi.",
-      "Nneetaaga ambulansi."
+      "न्नेयतागा अमबुलान्सि।"
      ],
      [
       "Kaadi yange y'olugendo ebuze.",
-      "Kaadi yange y'olugendo ebuze."
+      "कादि यांगे योलुगेन्दो एबुज़े।"
      ],
      [
       "Sijja kuwa kaadi yange ey'olugendo.",
-      "Sijja kuwa kaadi yange ey'olugendo."
+      "सिज्जा कुवा कादि यांगे एयोलुगेन्दो।"
      ],
      [
       "Nneetaaga omusaala gwange.",
-      "Nneetaaga omusaala gwange."
+      "न्नेयतागा ओमुसाला ग्वांगे।"
      ],
      [
       "Ssebo, eno kaadi yange ey'olugendo.",
-      "Ssebo, eno kaadi yange ey'olugendo."
+      "स्सेबो, एनो कादि यांगे एयोलुगेन्दो।"
      ],
      [
       "Ssebo, nzija kuguamaliriza nga sinnalya.",
-      "Ssebo, nzija kuguamaliriza nga sinnalya."
+      "स्सेबो, न्ज़िजा कुगुामलिरिज़ा न्गा सिन्नाल्या।"
      ]
     ]
    }

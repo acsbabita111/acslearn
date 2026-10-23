@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ek het gister tien uur gewerk.",
-      "Ek het gister tien uur gewerk."
+      "एक हेत खिस्तर तीन ऊर खेवेर्क।"
      ],
      [
       "Ek was baie moeg.",
-      "Ek was baie moeg."
+      "एक वास बाये मूख़।"
      ],
      [
       "Môre gaan ek vroeg opstaan.",
-      "Môre gaan ek vroeg opstaan."
+      "मोरे खान एक फ़रूख़ ओप्स्तान।"
      ],
      [
       "Ek gaan jou môreoggend bel.",
-      "Ek gaan jou môreoggend bel."
+      "एक खान याओ मोरेओख़ेंत बेल।"
      ],
      [
       "Ek leer Engels omdat ek 'n goeie werk wil hê.",
-      "Ek leer Engels omdat ek 'n goeie werk wil hê."
+      "एक लेयर एंखेल्स ओम्दात एक अन ख़ूये वेर्क विल हेय।"
      ]
     ]
    }
@@ -2113,23 +2113,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ek staan elke dag om vyfuur op.",
-      "Ek staan elke dag om vyfuur op."
+      "एक स्तान एल्के दख ओम फ़ेइफ़ूर ओप।"
      ],
      [
       "Ek loop werk toe.",
-      "Ek loop werk toe."
+      "एक लोप वेर्क तू।"
      ],
      [
       "Ek bel twee keer 'n week huis toe.",
-      "Ek bel twee keer 'n week huis toe."
+      "एक बेल त्वेय केयर अन वेयक हुइस तू।"
      ],
      [
       "Hoe voel jy?",
-      "Hoe voel jy?"
+      "हू फूल याय?"
      ],
      [
       "Neem betyds jou medisyne.",
-      "Neem betyds jou medisyne."
+      "नेयम बेतेइद्स याओ मेदिसेइने।"
      ]
     ]
    }
@@ -3172,23 +3172,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Geseënde fees vir jou en jou familie.",
-      "Geseënde fees vir jou en jou familie."
+      "खेसेयंदे फ़ेयस फ़िर याओ एन याओ फ़ामिली।"
      ],
      [
       "Hoe gaan dit met almal by die huis?",
-      "Hoe gaan dit met almal by die huis?"
+      "हू खान दित मेत आल्मल बेइ दी हुइस?"
      ],
      [
       "Vandag is ek baie bly.",
-      "Vandag is ek baie bly."
+      "फ़ानदख इस एक बाये ब्लेइ।"
      ],
      [
       "My dogter het goeie punte gekry.",
-      "My dogter het goeie punte gekry."
+      "माय दोख्तर हेत ख़ूये पुंते खेक्रेइ।"
      ],
      [
       "Ons gaan mekaar na 'n jaar sien.",
-      "Ons gaan mekaar na 'n jaar sien."
+      "ओन्स खान मेकार ना अन यार सीन।"
      ]
     ]
    }
@@ -4229,27 +4229,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Hallo Ma, ek is hier goed.",
-      "Hallo Ma, ek is hier goed."
+      "हालो मा, एक इस हीर ख़ूत।"
      ],
      [
       "Werk gaan hier goed.",
-      "Werk gaan hier goed."
+      "वेर्क खान हीर ख़ूत।"
      ],
      [
       "Ek het gister tien uur gewerk.",
-      "Ek het gister tien uur gewerk."
+      "एक हेत खिस्तर तीन ऊर खेवेर्क।"
      ],
      [
       "Ek gaan volgende maand huis toe kom.",
-      "Ek gaan volgende maand huis toe kom."
+      "एक खान फ़ोल्खेंदे मान्त हुइस तू कोम।"
      ],
      [
       "Engels open nuwe deure vir my.",
-      "Engels open nuwe deure vir my."
+      "एंखेल्स ओपन नूवे देउरे फ़िर माय।"
      ],
      [
       "Groet asseblief Oupa vir my.",
-      "Groet asseblief Oupa vir my."
+      "ख्रूत असेब्लीफ़ ओउपा फ़िर माय।"
      ]
     ]
    }
@@ -5642,27 +5642,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ek is 'n sweiser, ek het vyf jaar se ondervinding.",
-      "Ek is 'n sweiser, ek het vyf jaar se ondervinding."
+      "एक इस अन स्वेइसर एक हेत फेइफ यार से ओंदर्फ़िंदिंख।"
      ],
      [
       "Baas, wat is vandag se werk?",
-      "Baas, wat is vandag se werk?"
+      "बास, वात इस फ़ानदख से वेर्क?"
      ],
      [
       "Baas, die werk is klaar.",
-      "Baas, die werk is klaar."
+      "बास, दी वेर्क इस क्लार।"
      ],
      [
       "Baas, kyk asseblief na my werk.",
-      "Baas, kyk asseblief na my werk."
+      "बास, केइक असेब्लीफ़ ना माय वेर्क।"
      ],
      [
       "Baas, ek het een dag verlof nodig.",
-      "Baas, ek het een dag verlof nodig."
+      "बास, एक हेत एयन दख फ़र्लोफ़ नोदिख।"
      ],
      [
       "Ek gaan Woensdag terug werk toe kom.",
-      "Ek gaan Woensdag terug werk toe kom."
+      "एक खान वूंसदख तेरुख वेर्क तू कोम।"
      ]
     ]
    }
@@ -7045,27 +7045,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ek het vandag my loon gekry.",
-      "Ek het vandag my loon gekry."
+      "एक हेत फ़ानदख माय लोन खेक्रेइ।"
      ],
      [
       "Ek het vierduisend via die app gestuur.",
-      "Ek het vierduisend via die app gestuur."
+      "एक हेत फ़ीरदुइसेंत फ़िया दी आप खेस्तूर।"
      ],
      [
       "Kontroleer die boodskap op die foon.",
-      "Kontroleer die boodskap op die foon."
+      "कोंत्रोलेयर दी बोत्स्कप ओप दी फोन।"
      ],
      [
       "Deel nooit 'n OTP op die foon nie.",
-      "Deel nooit 'n OTP op die foon nie."
+      "देयल नोइत अन ओतेपे ओप दी फ़ोन नी।"
      ],
      [
       "Die bank vra nooit vir 'n OTP nie.",
-      "Die bank vra nooit vir 'n OTP nie."
+      "दी बांक फ़्रा नोइत फ़िर अन ओतेपे नी।"
      ],
      [
       "Ek spaar geld vir gereedskap.",
-      "Ek spaar geld vir gereedskap."
+      "एक स्पार खेल्त फ़िर खेरेयत्स्कप।"
      ]
     ]
    }
@@ -8456,27 +8456,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Kontroleer die deurslot en vensters.",
-      "Kontroleer die deurslot en vensters."
+      "कोंत्रोलेयर दी देउर्स्लोत एन फ़ेंस्तर्स।"
      ],
      [
       "Vra vir 'n skriftelike ooreenkoms.",
-      "Vra vir 'n skriftelike ooreenkoms."
+      "फ़्रा फ़िर अन स्क्रिफ़्तेलिके ओरेयंकोम्स।"
      ],
      [
       "Stuur jou volle adres huis toe.",
-      "Stuur jou volle adres huis toe."
+      "स्तूर याओ फ़ोले आद्रेस हुइस तू।"
      ],
      [
       "Bel een-een-twee vir enige noodgeval.",
-      "Bel een-een-twee vir enige noodgeval."
+      "बेल एयन-एयन-त्वेय फ़िर एनिख़े नोत्खेफ़ाल।"
      ],
      [
       "Die e-arbeidskaart is gratis.",
-      "Die e-arbeidskaart is gratis."
+      "दी ए-आर्बेइद्सकार्त इस ख्रातिस।"
      ],
      [
       "Veilige plek, sterk werk.",
-      "Veilige plek, sterk werk."
+      "फ़ेइलिख़े प्लेक, स्तेर्क वेर्क।"
      ]
     ]
    }
@@ -9860,31 +9860,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Hallo meneer, ek is Ramesh.",
-      "Hallo meneer, ek is Ramesh."
+      "हालो मेनेयर, एक इस रामेस।"
      ],
      [
       "Ek is 'n passer, ek het vyf jaar se ondervinding.",
-      "Ek is 'n passer, ek het vyf jaar se ondervinding."
+      "एक इस अन पासर एक हेत फेइफ यार से ओंदर्फ़िंदिंख।"
      ],
      [
       "Wat is die maandloon?",
-      "Wat is die maandloon?"
+      "वात इस दी मान्त्लोन?"
      ],
      [
       "Waar is die werkplek?",
-      "Waar is die werkplek?"
+      "वार इस दी वेर्क्प्लेक?"
      ],
      [
       "Ek kan Maandag begin.",
-      "Ek kan Maandag begin."
+      "एक कान मान्दख बेखिन।"
      ],
      [
       "Dankie meneer, vir die geleentheid om te praat.",
-      "Dankie meneer, vir die geleentheid om te praat."
+      "दांकी मेनेयर, फ़िर दी खेलेयंत्हेइत ओम ते प्रात।"
      ],
      [
       "Ek is gereed vir 'n toets enige dag.",
-      "Ek is gereed vir 'n toets enige dag."
+      "एक इस खेरेयत फ़िर अन तूत्स एनिख़े दख।"
      ]
     ]
    }
@@ -11270,27 +11270,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Wat kos die tamaties?",
-      "Wat kos die tamaties?"
+      "वात कोस दी तामातीस?"
      ],
      [
       "Weeg dit asseblief weer.",
-      "Weeg dit asseblief weer."
+      "वेयख दित असेब्लीफ़ वेयर।"
      ],
      [
       "Dit is te veel vir my.",
-      "Dit is te veel vir my."
+      "दित इस ते फ़ेयल फ़िर माय।"
      ],
      [
       "Ek sal vierhonderd gee.",
-      "Ek sal vierhonderd gee."
+      "एक साल फ़ीरहोंदर्त खेय।"
      ],
      [
       "Maak asseblief 'n geskrewe rekening.",
-      "Maak asseblief 'n geskrewe rekening."
+      "माक असेब्लीफ़ अन खेस्क्रेवे रेकेनिंख।"
      ],
      [
       "Tel los geld voor jy loop.",
-      "Tel los geld voor jy loop."
+      "तेल लोस खेल्त फ़ोर याय लोप।"
      ]
     ]
    }
@@ -12680,27 +12680,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ek het via die app bespreek.",
-      "Ek het via die app bespreek."
+      "एक हेत फ़िया दी आप बेस्प्रेयक।"
      ],
      [
       "Vandag is die waglys bevestig.",
-      "Vandag is die waglys bevestig."
+      "फ़ानदख इस दी वाख्लेइस बेफ़ेस्तिख।"
      ],
      [
       "Kom dertig minute vroeg by die stasie.",
-      "Kom dertig minute vroeg by die stasie."
+      "कोम देर्तिख मिनूते फ़रूख़ बेइ दी स्तासी।"
      ],
      [
       "Bind goedere onder die sitplek vas met 'n ketting.",
-      "Bind goedere onder die sitplek vas met 'n ketting."
+      "बींत ख़ूदेरे ओंदर दी सितप्लेक फ़ास मेत अन केतिंख।"
      ],
      [
       "Neem geen kos van vreemdelinge nie.",
-      "Neem geen kos van vreemdelinge nie."
+      "नेयम खेयन कोस फ़ान फ़्रेयम्देलिंख़े नी।"
      ],
      [
       "Ek het veilig aangekom, moenie bekommerd wees nie.",
-      "Ek het veilig aangekom, moenie bekommerd wees nie."
+      "एक हेत फ़ेइलिख़ आन्खेकोम, मूनी बेकोमर्त व़ेयस नी।"
      ]
     ]
    }
@@ -14087,31 +14087,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ek is 'n Indiër.",
-      "Ek is 'n Indiër."
+      "एक इस अन इंदीयर।"
      ],
      [
       "Daar is 'n sweiserwerk vir my hier.",
-      "Daar is 'n sweiserwerk vir my hier."
+      "दार इस अन स्वेइसरवेर्क फ़िर माय हीर।"
      ],
      [
       "My kontrak is vir twee jaar.",
-      "My kontrak is vir twee jaar."
+      "माय कोंत्राक इस फ़िर त्वेय यार।"
      ],
      [
       "Die maatskappy het my kaartjie betaal.",
-      "Die maatskappy het my kaartjie betaal."
+      "दी मात्स्कापेइ हेत माय कार्त्यी बेताल।"
      ],
      [
       "Ja, na my kontrak keer ek terug.",
-      "Ja, na my kontrak keer ek terug."
+      "या, ना माय कोंत्राक केयर एक तेरुख।"
      ],
      [
       "My papiere is volledig en waar.",
-      "My papiere is volledig en waar."
+      "माय पापीरे इस फ़ोलेदिख एन वार।"
      ],
      [
       "Dankie meneer.",
-      "Dankie meneer."
+      "दान्की मेनेयर।"
      ]
     ]
    }
@@ -14790,35 +14790,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Drie maande gelede was Engels 'n muur vir my.",
-      "Drie maande gelede was Engels 'n muur vir my."
+      "द्री मांदे ख़ेलेदे वास एंखेल्स अन मूर फिर माय।"
      ],
      [
       "Elke dag het ek dertig sinne geleer.",
-      "Elke dag het ek dertig sinne geleer."
+      "एल्के दख हेत एक देर्तिख सिने खेलेयर।"
      ],
      [
       "Ek kan by die huis, werk, mark en lughawe praat.",
-      "Ek kan by die huis, werk, mark en lughawe praat."
+      "एक कान बेइ दी हुइस, वेर्क, मार्क एन लुख़हावे प्रात।"
      ],
      [
       "Ek het my onderhoud in Engels gedoen.",
-      "Ek het my onderhoud in Engels gedoen."
+      "एक हेत माय ओंदेर्होुत इन एंखेल्स खेदून।"
      ],
      [
       "Ek het my visum-onderhoud antwoorde geleer.",
-      "Ek het my visum-onderhoud antwoorde geleer."
+      "एक हेत माय फ़िसुम-ओन्देरहौत आंतवोर्दे खेलेयर।"
      ],
      [
       "My hele dorp is trots op my.",
-      "My hele dorp is trots op my."
+      "माय हेयले दोर्प इस त्रोत्स ओप माय।"
      ],
      [
       "Dit is nie 'n einde nie, 'n nuwe begin.",
-      "Dit is nie 'n einde nie, 'n nuwe begin."
+      "दित इस नी अन एइंदे नी, अन नूवे बेखिन।"
      ],
      [
       "My taal, my vlerke.",
-      "My taal, my vlerke."
+      "माय तल, माय फ़्लेर्के।"
      ]
     ]
    }
@@ -16207,35 +16207,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Help my, kom gou!",
-      "Help my, kom gou!"
+      "हेल्प माय, कोम ख़ोउ!"
      ],
      [
       "Ek is beseer.",
-      "Ek is beseer."
+      "एक इस बेसेयर।"
      ],
      [
       "Ek het 'n ambulans nodig.",
-      "Ek het 'n ambulans nodig."
+      "एक हेत अन आमबुलांस नोदिख।"
      ],
      [
       "My paspoort is verlore.",
-      "My paspoort is verlore."
+      "माय पास्पोर्त इस फ़र्लोरे।"
      ],
      [
       "Ek sal jou paspoort nie gee nie.",
-      "Ek sal jou paspoort nie gee nie."
+      "एक साल याओ पास्पोर्त नी खेय नी।"
      ],
      [
       "Ek het my loon nodig.",
-      "Ek het my loon nodig."
+      "एक हेत माय लोन नोदिख।"
      ],
      [
       "Meneer, hier is my paspoort.",
-      "Meneer, hier is my paspoort."
+      "मेनेयर, हीर इस माय पास्पोर्त।"
      ],
      [
       "Meneer, ek sal dit voor ete klaarmaak.",
-      "Meneer, ek sal dit voor ete klaarmaak."
+      "मेनेयर, एक साल दित फ़ोर एयते क्लारमाक।"
      ]
     ]
    }

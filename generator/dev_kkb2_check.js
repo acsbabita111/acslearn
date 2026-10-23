@@ -1,4 +1,5 @@
-/* generator/dev_kkb2_check.js — v4.8 (22-Oct-2026: F-10 lo-उच्चारण पहरा)
+/* generator/dev_kkb2_check.js — v4.9 (23-Oct-2026: सुधार-7 फ़ैसला-3अ — tw व test-पंक्तियों का [1] Latin-पहरा + सार्वभौमिक [1]-Latin + test में अंगिका-अवशेष पहरा)
+   v4.8 (22-Oct-2026: F-10 lo-उच्चारण पहरा)
    v4.7 (22-Oct-2026: अनुस्वार/हलंत-शुरू पहरा)
    v4.6 (22-Oct-2026: टूटा-उच्चारण पहरा — मात्रा से शुरू शब्द = ❌)
    v4.5 (22-Oct-2026: घुसपैठ-पहरा — drill देवनागरी-साँचा + heroTitle "सिखना री")
@@ -459,6 +460,9 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   if (!R) { console.log("⛔ SCRIPT_RULES में भाषा '" + CODE + "' दर्ज नहीं — नई भाषा जोड़ने से पहले यहाँ नियम लिखो (fail-closed)"); fail++; return; }
   if (R.interim) { console.log("⚠️ अस्थायी देवनागरी-रूप (" + CODE + "): तीन-स्तंभ नियम v6.3-क1 की असली-लिपि अभी बाक़ी — Founder-फ़ैसला लंबित; यह छूट दर्ज है, मौन नहीं (kkb_l2_pending.json → interim_script)"); }
   var bad = 0;
+  function NONDEV(s) { for (var ch of String(s)) { if (/[\p{L}\p{M}]/u.test(ch) && !/[\u0900-\u097F\uA8E0-\uA8FF\u1CD0-\u1CFF]/.test(ch)) return true; } return false; } /* v4.9: विराम-चिह्न छूट; अक्षर/मात्रा सिर्फ़ देवनागरी */
+  var ANP_EXEMPT = {}; "anp mai mag bho bjj sjp khr sck kyw dhu hdt mr lri gon hne kfy awa".split(" ").forEach(function (c) { ANP_EXEMPT[c] = 1; });
+  var ANP_BAD = /(^|\s)(H|छी|छै|क्नो|हमर|हमरा|अहाँ|अहाँक|छथिन|करै|रहै|गेलौं|खेलौं|कतेक|कतय|मिलत|मिलल|सकैत|सकीं|बैसू|बताऊ|करू|खोजैत|शुक्रबार)([\s।?,!]|$)/;
   function scanD(DD, tag) {
     DD.weeks.forEach(function (w) { w.days.forEach(function (dd) { dd.items.forEach(function (it) {
       if (!R.native.test(it[0])) { console.log("⛔ item[0] में " + R.name + " नहीं (" + tag + "): " + it[0]); bad++; }
@@ -466,7 +470,18 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
       if (!R.devLang && R.native !== SCRIPT_RULES.fr.native && R.native.test(it[1])) { console.log("⛔ उच्चारण-खाने [1] में " + R.name + " (" + tag + "): " + it[1]); bad++; } /* Latin-भाषाओं में [1] के भीतर कोष्ठक-Roman मान्य */
       if (!DEV.test(it[1])) { console.log("⛔ उच्चारण-खाना [1] देवनागरी-रहित (" + tag + "): " + it[1]); bad++; }
       if (!DEV.test(it[2])) { console.log("⛔ हिंदी-खाना [2] देवनागरी-रहित (" + tag + "): " + it[2]); bad++; }
-    }); }); });
+      if (NONDEV(it[1]) && !(!R.devLang && R.native !== SCRIPT_RULES.fr.native && R.native.test(it[1]))) { console.log("⛔ v4.9 उच्चारण-खाने [1] में ग़ैर-देवनागरी अक्षर/मात्रा (" + tag + "): " + it[1]); bad++; }
+    });
+    /* v4.9 (23-Oct-2026, सुधार-7 — Founder फ़ैसला-3अ): tw का [1] भी — पहले robot देखता ही नहीं था */
+    (dd.tw || []).forEach(function (t) { if (NONDEV(t[1] || "")) { console.log("⛔ v4.9 tw-उच्चारण [1] में ग़ैर-देवनागरी (" + tag + "): " + t[0] + " → " + t[1]); bad++; } else if (t[1] && /\p{L}/u.test(t[1]) && !DEV.test(t[1])) { console.log("⛔ v4.9 tw-उच्चारण [1] देवनागरी-रहित (" + tag + "): " + t[1]); bad++; } });
+    }); 
+    /* v4.9: test-पंक्तियों का [1] (Latin-पहरा) + अंगिका-pristine अवशेष पहरा (बिहारी/राजस्थानी/देव-परिवार छूट — वहाँ ये असली शब्द) */
+    (w.test && Array.isArray(w.test.lines) ? w.test.lines : []).forEach(function (l) {
+      if (!Array.isArray(l)) return;
+      if (NONDEV(l[1] || "")) { console.log("⛔ v4.9 test-उच्चारण [1] में ग़ैर-देवनागरी (" + tag + "): " + l[1]); bad++; }
+      if (!ANP_EXEMPT[CODE] && ANP_BAD.test(l[0])) { console.log("⛔ v4.9 test-पंक्ति में अंगिका-pristine अवशेष (" + tag + "): " + l[0]); bad++; }
+    });
+    }); 
   }
   scanD(D, "स्तर-2"); scanD(D1, "स्तर-1");
   if (bad) { fail += bad; } else console.log("लिपि-शुद्धता v4.0 (" + CODE + "/" + R.name + "): ✅ [0]=असली · [1]=देवनागरी · [2]=हिंदी");

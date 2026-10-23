@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Kunun ne ye baara kɛ lɛrɛ tan kɔnɔ.",
-      "Kunun ne ye baara kɛ lɛrɛ tan kɔnɔ."
+      "कुनुं ने ये बारा के लेरे तां कोनो।"
      ],
      [
       "Ne sɛgɛnna kosɛbɛ.",
-      "Ne sɛgɛnna kosɛbɛ."
+      "ने सेगेन्ना कोसेबे।"
      ],
      [
       "Sini ne bɛna wuli joona.",
-      "Sini ne bɛna wuli joona."
+      "सिनी ने बेना वुली जोना।"
      ],
      [
       "Sini ne bɛna i wele.",
-      "Sini ne bɛna i wele."
+      "सिनी ने बेना ई वेले।"
      ],
      [
       "Ne bɛ tubabukan kalan walasa ka baara ɲuman sɔrɔ.",
-      "Ne bɛ tubabukan kalan walasa ka baara ɲuman sɔrɔ."
+      "ने बे तुबाबुकां कलां वालासा क बारा न्युमां सोरो।"
      ]
     ]
    }
@@ -2114,23 +2114,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Don o don ne bɛ wuli lɛrɛ duuru waati.",
-      "Don o don ne bɛ wuli lɛrɛ duuru waati."
+      "दों ओ दों ने बे वुली लेरे दूरू वाती।"
      ],
      [
       "Ne bɛ taa baara la ni sen ye.",
-      "Ne bɛ taa baara la ni sen ye."
+      "ने बे ता बारा ला नि सें ये।"
      ],
      [
       "Dɔgɔkun kɔnɔ siɲɛ fila ne bɛ so wele.",
-      "Dɔgɔkun kɔnɔ siɲɛ fila ne bɛ so wele."
+      "दोगोकुं कोनो सिन्ये फ़िला ने बे सो वेले।"
      ],
      [
       "I farikolo cogo di?",
-      "I farikolo cogo di?"
+      "ई फ़रिकोलो चोगो दी?"
      ],
      [
       "I ka fura min a waati la.",
-      "I ka fura min a waati la."
+      "ई क फुरा मिन अ वाती ला।"
      ]
     ]
    }
@@ -3173,23 +3173,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Seli ɲuman i n'i ka denbaya ye.",
-      "Seli ɲuman i n'i ka denbaya ye."
+      "सेली न्युमां इ नि क देंबाया ये।"
      ],
      [
       "I ka so bɛɛ cogo di?",
-      "I ka so bɛɛ cogo di?"
+      "ई क सो बे चोगो दी?"
      ],
      [
       "Bi ne nisɔndiyara kosɛbɛ.",
-      "Bi ne nisɔndiyara kosɛbɛ."
+      "बि ने निसोंदियारा कोसेबे।"
      ],
      [
       "Ne denmuso ye pointi ɲuman sɔrɔ.",
-      "Ne denmuso ye pointi ɲuman sɔrɔ."
+      "ने देंमुसो ये पोइंती न्युमां सोरो।"
      ],
      [
       "San nata an bɛna ɲɔgɔn ye.",
-      "San nata an bɛna ɲɔgɔn ye."
+      "सां नता अं बेना न्योगों ये।"
      ]
     ]
    }
@@ -4230,27 +4230,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "I ni sɔgɔma ba, ne ka kɛnɛ yan.",
-      "I ni sɔgɔma ba, ne ka kɛnɛ yan."
+      "ई नि सोगोमा बा, ने क केने यां।"
      ],
      [
       "Baara bɛ taa ka ɲɛ yan.",
-      "Baara bɛ taa ka ɲɛ yan."
+      "बारा बे ता क न्ये यां।"
      ],
      [
       "Kunun ne ye baara kɛ lɛrɛ tan kɔnɔ.",
-      "Kunun ne ye baara kɛ lɛrɛ tan kɔnɔ."
+      "कुनुं ने ये बारा के लेरे तां कोनो।"
      ],
      [
       "Kalo nata ne bɛna taa so.",
-      "Kalo nata ne bɛna taa so."
+      "कालो नता ने बेना ता सो।"
      ],
      [
       "Tubabukan bɛ da caman dabɔ ne ye.",
-      "Tubabukan bɛ da caman dabɔ ne ye."
+      "तुबाबुकां बे दा चमां दाबो ने ये।"
      ],
      [
       "Ne bɛ mamamuso wele.",
-      "Ne bɛ mamamuso wele."
+      "ने बे मामामुसो वेले।"
      ]
     ]
    }
@@ -5645,27 +5645,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ne ye nɛgɛ dilanna ye, ne ka dɔnniya bɛ san duuru bɔ.",
-      "Ne ye nɛgɛ dilanna ye, ne ka dɔnniya bɛ san duuru bɔ."
+      "ने ये नेगे दिलान्ना ये ने क दोन्निया बे सां दुरु बो।"
      ],
      [
       "Patrɔn, bi baara ye mun ye?",
-      "Patrɔn, bi baara ye mun ye?"
+      "पत्रों, बि बारा ये मुं ये?"
      ],
      [
       "Patrɔn, baara banna.",
-      "Patrɔn, baara banna."
+      "पत्रों, बारा बान्ना।"
      ],
      [
       "Patrɔn, ne ka baara lajɛ siɲɛ kelen.",
-      "Patrɔn, ne ka baara lajɛ siɲɛ kelen."
+      "पत्रों, ने क बारा लाजे सिन्ये केलें।"
      ],
      [
       "Patrɔn, ne mago bɛ lafiɲɛ don kelen na.",
-      "Patrɔn, ne mago bɛ lafiɲɛ don kelen na."
+      "पत्रों, ने मागो बे लफ़िन्ये दों केलें ना।"
      ],
      [
       "Ne bɛna segin baara la Araba la.",
-      "Ne bɛna segin baara la Araba la."
+      "ने बेना सेगिं बारा ला अराबा ला।"
      ]
     ]
    }
@@ -7048,27 +7048,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Bi ne ye ne ka sara sɔrɔ.",
-      "Bi ne ye ne ka sara sɔrɔ."
+      "बि ने ये ने क सारा सोरो।"
      ],
      [
       "Ne ye wari kɛmɛ naani ci apu kan.",
-      "Ne ye wari kɛmɛ naani ci apu kan."
+      "ने ये वारी केमे नानी ची अपु कां।"
      ],
      [
       "Ci lajɛ telefɔni kan.",
-      "Ci lajɛ telefɔni kan."
+      "सी लाजे तेलेफ़ोनी कां।"
      ],
      [
       "Kana i ka OTP tila mɔgɔ wɛrɛ ye.",
-      "Kana i ka OTP tila mɔgɔ wɛrɛ ye."
+      "कना ई क ओटीपी तिला मोगो वेरे ये।"
      ],
      [
       "Banki tɛ OTP ɲini tuma bɛɛ.",
-      "Banki tɛ OTP ɲini tuma bɛɛ."
+      "बंकी ते ओटीपी न्यिनी तुमा बे।"
      ],
      [
       "Ne muso fana ka konti da.",
-      "Ne muso fana ka konti da."
+      "ने मुसो फ़ना क कोंती दा।"
      ]
     ]
    }
@@ -8459,27 +8459,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Da datugulan n'a fɛnɛgɛtu lajɛ.",
-      "Da datugulan n'a fɛnɛgɛtu lajɛ."
+      "दा दातुगुलां ना फेनेगेतु लाजे।"
      ],
      [
       "Ɲini bɛnkan sɛbɛnnen.",
-      "Ɲini bɛnkan sɛbɛnnen."
+      "न्यिनी बेंकां सेबेन्नें।"
      ],
      [
       "I ka so adrɛsi ci so tiɲɛ na.",
-      "I ka so adrɛsi ci so tiɲɛ na."
+      "ई क सो अद्रेसी ची सो तिन्ये ना।"
      ],
      [
       "Wele kɛmɛ ni tan ni fila hadama gɛlɛya bɛɛ la.",
-      "Wele kɛmɛ ni tan ni fila hadama gɛlɛya bɛɛ la."
+      "वेले केमे नि तां नि फ़िला हादामा गेलेया बे ला।"
      ],
      [
       "e-Shram karti tɛ sara ta.",
-      "e-Shram karti tɛ sara ta."
+      "इ-श्राम कर्ती ते सारा ता।"
      ],
      [
       "Yɔrɔ lakananen, baara fangalen.",
-      "Yɔrɔ lakananen, baara fangalen."
+      "योरो लकानानें, बारा फंगालें।"
      ]
     ]
    }
@@ -9863,31 +9863,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "I ni sɔgɔma patrɔn, ne tɔgɔ Ramesh.",
-      "I ni sɔgɔma patrɔn, ne tɔgɔ Ramesh."
+      "ई नि सोगोमा पत्रों, ने तोगो रामेश।"
      ],
      [
       "Ne ye finidilanna ye, ne ka dɔnniya bɛ san duuru bɔ.",
-      "Ne ye finidilanna ye, ne ka dɔnniya bɛ san duuru bɔ."
+      "ने ये फ़िनिदिलान्ना ये ने क दोन्निया बे सां दुरु बो।"
      ],
      [
       "Sara kalo la ye joli ye?",
-      "Sara kalo la ye joli ye?"
+      "सारा कालो ला ये जोली ये?"
      ],
      [
       "Baara bɛ min?",
-      "Baara bɛ min?"
+      "बारा बे मिं?"
      ],
      [
       "Ne bɛ se ka daminɛ Araba la.",
-      "Ne bɛ se ka daminɛ Araba la."
+      "ने बे से क दामिने अराबा ला।"
      ],
      [
       "I ni ce patrɔn, kuma sɔrɔli kosɔn.",
-      "I ni ce patrɔn, kuma sɔrɔli kosɔn."
+      "ई नि चे पत्रों, कुमा सोरोली कोसों।"
      ],
      [
       "Ne labɛnnen bɛ kɛrɛnkɛrɛnli kama don o don.",
-      "Ne labɛnnen bɛ kɛrɛnkɛrɛnli kama don o don."
+      "ने लाबेन्नें बे केरेंकेरेंली कामा दों ओ दों।"
      ]
     ]
    }
@@ -11273,27 +11273,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Tamati songo ye joli ye?",
-      "Tamati songo ye joli ye?"
+      "तमाती सोंगो ये जोली ये?"
      ],
      [
       "Suma tugun.",
-      "Suma tugun."
+      "सुमा तुगुं।"
      ],
      [
       "Nin bɛ ne bolo caman ta.",
-      "Nin bɛ ne bolo caman ta."
+      "निं बे ने बोलो चमां ता।"
      ],
      [
       "Ne bɛ se ka kɛmɛ naani di i ma.",
-      "Ne bɛ se ka kɛmɛ naani di i ma."
+      "ने बे से क केमे नानी दी इ मा।"
      ],
      [
       "A jate i n'a fɔ a sɛbɛnnen.",
-      "A jate i n'a fɔ a sɛbɛnnen."
+      "अ जाते इ ना फो अ सेबेन्नें।"
      ],
      [
       "Wari jate sanni ka taa.",
-      "Wari jate sanni ka taa."
+      "वारी जाते सन्नी क ता।"
      ]
     ]
    }
@@ -12683,27 +12683,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ne y'a san apu kan.",
-      "Ne y'a san apu kan."
+      "ने या सां अपु कां।"
      ],
      [
       "Bi sigilan sɔnna.",
-      "Bi sigilan sɔnna."
+      "बि सिगिलां सोन्ना।"
      ],
      [
       "Taa plataformu miniti bisaba sanni.",
-      "Taa plataformu miniti bisaba sanni."
+      "ता प्लातफ़ोरमु मिनिती बिसाबा सन्नी।"
      ],
      [
       "Fɛn bila sigilan jukɔrɔ ni juru ye.",
-      "Fɛn bila sigilan jukɔrɔ ni juru ye."
+      "फें बिला सिगिलां जुकोरो नि जुरु ये।"
      ],
      [
       "Kana dumuni minɛ mɔgɔ i ma dɔn.",
-      "Kana dumuni minɛ mɔgɔ i ma dɔn."
+      "कना दुमुनी मिने मोगो इ मा दों।"
      ],
      [
       "Ne sera ka ɲi, kana yɛrɛ ɲagami.",
-      "Ne sera ka ɲi, kana yɛrɛ ɲagami."
+      "ने सेरा क न्यी, कना येरे न्यागामी।"
      ]
     ]
    }
@@ -14090,31 +14090,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ne ye Ɛnduka ye.",
-      "Ne ye Ɛnduka ye."
+      "ने ये एन्दुका ये।"
      ],
      [
       "Nɛgɛ dilanni baara bɛ yan ne ma.",
-      "Nɛgɛ dilanni baara bɛ yan ne ma."
+      "नेगे दिलान्नी बारा बे यां ने मा।"
      ],
      [
       "Ne ka kontraki bɛ san fila bɔ.",
-      "Ne ka kontraki bɛ san fila bɔ."
+      "ने क कोंत्राकी बे सां फ़िला बो।"
      ],
      [
       "Sosiyete ye ne ka tikɛti sara.",
-      "Sosiyete ye ne ka tikɛti sara."
+      "सोसियेते ये ने क तिकेती सारा।"
      ],
      [
       "Awɔ, kontraki banna ne bɛna segin.",
-      "Awɔ, kontraki banna ne bɛna segin."
+      "अवो, कोंत्राकी बान्ना ने बेना सेगिं।"
      ],
      [
       "Ne ka sɛbɛn bɛɛ ye tiɲɛ ye.",
-      "Ne ka sɛbɛn bɛɛ ye tiɲɛ ye."
+      "ने क सेबें बे ये तिन्ये ये।"
      ],
      [
       "I ni ce patrɔn.",
-      "I ni ce patrɔn."
+      "ई नि चे पत्रों।"
      ]
     ]
    }
@@ -14793,35 +14793,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Kalo saba tɛmɛnen, tubabukan tun ye kulusi ye ne ma.",
-      "Kalo saba tɛmɛnen, tubabukan tun ye kulusi ye ne ma."
+      "कलो सबा तेमेनें तुबाबुकां तुं ये कुलुसि ये ने मा।"
      ],
      [
       "Don o don ne ye daɲɛ bisaba kalan.",
-      "Don o don ne ye daɲɛ bisaba kalan."
+      "दों ओ दों ने ये दान्ये बिसाबा कलां।"
      ],
      [
       "Ne bɛ se ka so, baara, sugu, ni ɛrɔpɔrɛ kunko fɔ.",
-      "Ne bɛ se ka so, baara, sugu, ni ɛrɔpɔrɛ kunko fɔ."
+      "ने बे से क सो, बारा, सुगु, नि एरोपोरे कुंको फो।"
      ],
      [
       "U ye ne ɲininka viza kunko telefɔni kan.",
-      "U ye ne ɲininka viza kunko telefɔni kan."
+      "उ ये ने न्यिनिनका विज़ा कुंको तेलेफ़ोनी कां।"
      ],
      [
       "Ne ye jaabiw kalan viza baro kama.",
-      "Ne ye jaabiw kalan viza baro kama."
+      "ने ये जाबिव कलां विज़ा बारो कमा।"
      ],
      [
       "Ne mara dugu bɛɛ bɛ ne dusukun sabu.",
-      "Ne mara dugu bɛɛ bɛ ne dusukun sabu."
+      "ने मारा दुगु बे बे ने दुसुकुं सबु।"
      ],
      [
       "Nin tɛ laban ye, nin ye daminɛ kura ye.",
-      "Nin tɛ laban ye, nin ye daminɛ kura ye."
+      "निं ते लाबां ये, निं ये दामिने कुरा ये।"
      ],
      [
       "Ne ka kan, ne ka fanga.",
-      "Ne ka kan, ne ka fanga."
+      "ने क कां, ने क फंगा।"
      ]
     ]
    }
@@ -16210,35 +16210,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ne dɛmɛ, na joona!",
-      "Ne dɛmɛ, na joona!"
+      "ने देमे, ना जोना!"
      ],
      [
       "Ne joginna kosɛbɛ.",
-      "Ne joginna kosɛbɛ."
+      "ने जोगिन्ना कोसेबे।"
      ],
      [
       "Ne mago bɛ ambilansi la.",
-      "Ne mago bɛ ambilansi la."
+      "ने मागो बे अंबिलांसी ला।"
      ],
      [
       "Ne ka pasipɔri tununna.",
-      "Ne ka pasipɔri tununna."
+      "ने क पासिपोरी तुनुन्ना।"
      ],
      [
       "Ne tɛna ne ka pasipɔri di mɔgɔ si ma.",
-      "Ne tɛna ne ka pasipɔri di mɔgɔ si ma."
+      "ने तेना ने क पासिपोरी दी मोगो सी मा।"
      ],
      [
       "Ne ka sara ye joli ye?",
-      "Ne ka sara ye joli ye?"
+      "ने क सारा ये जोली ये?"
      ],
      [
       "Patrɔn, nin ye ne ka pasipɔri ye.",
-      "Patrɔn, nin ye ne ka pasipɔri ye."
+      "पत्रों, निं ये ने क पासिपोरी ये।"
      ],
      [
       "A ka ɲi patrɔn, ne bɛna a ban sanni ka dumuni kɛ.",
-      "A ka ɲi patrɔn, ne bɛna a ban sanni ka dumuni kɛ."
+      "अ क न्यी पत्रों ने बेना अ बां सन्नी क दुमुनी के।"
      ]
     ]
    }

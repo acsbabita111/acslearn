@@ -1073,23 +1073,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Jiya na yi aiki awa goma.",
-      "Jiya na yi aiki awa goma."
+      "जिया ना यी आइकी आवा गोमा।"
      ],
      [
       "Na gaji sosai.",
-      "Na gaji sosai."
+      "ना गाजी सोसाई।"
      ],
      [
       "Gobe zan tashi da wuri.",
-      "Gobe zan tashi da wuri."
+      "गोबे ज़ान ताशी दा वुरी।"
      ],
      [
       "Zan kira ka gobe da safe.",
-      "Zan kira ka gobe da safe."
+      "ज़ान किरा का गोबे दा साफ़े।"
      ],
      [
       "Ina koyon Turanci don in sami kyakkyawan aiki.",
-      "Ina koyon Turanci don in sami kyakkyawan aiki."
+      "इना कोयोन तुरांची दोन इन सामी क्यक्क्यावान आइकी।"
      ]
     ]
    }
@@ -2113,23 +2113,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ina tashi karfe biyar kowace rana.",
-      "Ina tashi karfe biyar kowace rana."
+      "इना ताशी कर्फ़े बीयार कोवाचे राना।"
      ],
      [
       "Ina tafiya aiki da kafa.",
-      "Ina tafiya aiki da kafa."
+      "इना तफ़िया आइकी दा कफ़ा।"
      ],
      [
       "Ina kiran gida sau biyu a mako.",
-      "Ina kiran gida sau biyu a mako."
+      "इना किरान गिदा साउ बीयू आ मको।"
      ],
      [
       "Yaya jikinka yake?",
-      "Yaya jikinka yake?"
+      "यया जिकिन्का याके?"
      ],
      [
       "Ku sha maganinka a lokacin da ya dace.",
-      "Ku sha maganinka a lokacin da ya dace."
+      "कु शा मगानिन्का आ लोकाचिन दा या दाचे।"
      ]
     ]
    }
@@ -3172,23 +3172,23 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Barka da biki gareka da iyalinka.",
-      "Barka da biki gareka da iyalinka."
+      "बारका दा बीकी गारेका दा इयालिंका।"
      ],
      [
       "Yaya gida yake dukan kowa?",
-      "Yaya gida yake dukan kowa?"
+      "यया गिदा याके दुकान कोवा?"
      ],
      [
       "Yau ina farin ciki sosai.",
-      "Yau ina farin ciki sosai."
+      "याउ इना फ़रिन चिकी सोसाई।"
      ],
      [
       "Diyata ta sami maki mai kyau.",
-      "Diyata ta sami maki mai kyau."
+      "दियाता ता सामी माकी माई क्याउ।"
      ],
      [
       "Za mu ganu bayan shekara.",
-      "Za mu ganu bayan shekara."
+      "ज़ा मु गानु बायान शेकारा।"
      ]
     ]
    }
@@ -4229,27 +4229,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Sannu Mama, ina lafiya nan.",
-      "Sannu Mama, ina lafiya nan."
+      "सन्नु मामा, इना लाफ़िया नान।"
      ],
      [
       "Aiki yana tafiya sosai a nan.",
-      "Aiki yana tafiya sosai a nan."
+      "आइकी याना तफ़िया सोसाई आ नान।"
      ],
      [
       "Jiya na yi aiki awa goma.",
-      "Jiya na yi aiki awa goma."
+      "जिया ना यी आइकी आवा गोमा।"
      ],
      [
       "Zan dawo gida watan mai zuwa.",
-      "Zan dawo gida watan mai zuwa."
+      "ज़ान दावो गिदा वातान माई ज़ुवा।"
      ],
      [
       "Ina koyon Turanci don in sami kyakkyawan aiki.",
-      "Ina koyon Turanci don in sami kyakkyawan aiki."
+      "इना कोयोन तुरांची दोन इन सामी क्यक्क्यावान आइकी।"
      ],
      [
       "Ku ce wa Kaka gaisuwata.",
-      "Ku ce wa Kaka gaisuwata."
+      "कु चे वा काका गाइसुवाता।"
      ]
     ]
    }
@@ -5642,27 +5642,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ni mai walda ne, ina da gogewar shekara biyar.",
-      "Ni mai walda ne, ina da gogewar shekara biyar."
+      "नी माई वाल्दा ने इना दा गोगेवार शेकारा बियार।"
      ],
      [
       "Malam, mene ne aikin yau?",
-      "Malam, mene ne aikin yau?"
+      "मालाम, मेने ने आइकिन याउ?"
      ],
      [
       "Malam, aikin ya kammala.",
-      "Malam, aikin ya kammala."
+      "मालाम, आइकिन या काम्माला।"
      ],
      [
       "Malam, ku duba aikina sau daya.",
-      "Malam, ku duba aikina sau daya."
+      "मालाम, कु दुबा आइकीना साउ दाया।"
      ],
      [
       "Malam, ina bukatar hutu na rana daya.",
-      "Malam, ina bukatar hutu na rana daya."
+      "मालाम, इना बुकातार हुतु ना राना दाया।"
      ],
      [
       "Zan dawo aiki ranar Laraba.",
-      "Zan dawo aiki ranar Laraba."
+      "ज़ान दावो आइकी रानार लाराबा।"
      ]
     ]
    }
@@ -7045,27 +7045,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Yau na sami albashina.",
-      "Yau na sami albashina."
+      "याउ ना सामी अल्बाशीना।"
      ],
      [
       "Na turo dubu hudu ta manhaja.",
-      "Na turo dubu hudu ta manhaja."
+      "ना तुरो दुबु हुदु ता मान्हाजा।"
      ],
      [
       "Ku duba sako a waya.",
-      "Ku duba sako a waya."
+      "कु दुबा साको आ वाया।"
      ],
      [
       "Kada ku raba OTP a wayarka da kowa.",
-      "Kada ku raba OTP a wayarka da kowa."
+      "कदा कु राबा ओतीपी आ वायार्का दा कोवा।"
      ],
      [
       "Banki ba ya taba tambayar OTP.",
-      "Banki ba ya taba tambayar OTP."
+      "बांकी बा या ताबा तांबायार ओतीपी।"
      ],
      [
       "Ina ajiye kudi don kayan aiki.",
-      "Ina ajiye kudi don kayan aiki."
+      "इना आजीये कुदी दोन कायान आइकी।"
      ]
     ]
    }
@@ -8456,27 +8456,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ku duba kulli na kofa da tagogi.",
-      "Ku duba kulli na kofa da tagogi."
+      "कु दुबा कुल्ली ना कोफ़ा दा तागोगी।"
      ],
      [
       "Ku nemi yarjejeniya rubutacce.",
-      "Ku nemi yarjejeniya rubutacce."
+      "कु नेमी यार्जेजेनिया रुबुताच्चे।"
      ],
      [
       "Ku turo cikakken adireshinka gida.",
-      "Ku turo cikakken adireshinka gida."
+      "कु तुरो चिकाक्केन आदिरेशिंका गिदा।"
      ],
      [
       "Ku kira dari da goma sha biyu don gaggawa.",
-      "Ku kira dari da goma sha biyu don gaggawa."
+      "कु किरा दारी दा गोमा शा बीयू दोन गग्गावा।"
      ],
      [
       "Katin e-Shram kyauta ne.",
-      "Katin e-Shram kyauta ne."
+      "कतिन ए-श्राम क्याउता ने।"
      ],
      [
       "Wuri mai aminci, aiki mai karfi.",
-      "Wuri mai aminci, aiki mai karfi."
+      "वुरी माई आमिंची, आइकी माई कर्फ़ी।"
      ]
     ]
    }
@@ -9860,31 +9860,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Sannu malam, ni Ramesh ne.",
-      "Sannu malam, ni Ramesh ne."
+      "सन्नु मालाम, नी रामेश ने।"
      ],
      [
       "Ni fitter ne, ina da gogewar shekara biyar.",
-      "Ni fitter ne, ina da gogewar shekara biyar."
+      "नी फ़ित्तर ने इना दा गोगेवार शेकारा बियार।"
      ],
      [
       "Mene ne albashin wata?",
-      "Mene ne albashin wata?"
+      "मेने ने अल्बाशिन वाता?"
      ],
      [
       "Ina wurin aikin yake?",
-      "Ina wurin aikin yake?"
+      "इना वुरिन आइकिन याके?"
      ],
      [
       "Zan iya farawa Litinin.",
-      "Zan iya farawa Litinin."
+      "ज़ान ईया फ़रावा लितिनिन।"
      ],
      [
       "Na gode malam, don damar yin magana.",
-      "Na gode malam, don damar yin magana."
+      "ना गोदे मालाम, दोन दामार यिन मागाना।"
      ],
      [
       "Ina shirye don gwaji a kowace rana.",
-      "Ina shirye don gwaji a kowace rana."
+      "इना शिर्ये दोन ग्वाजी आ कोवाचे राना।"
      ]
     ]
    }
@@ -11270,27 +11270,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Nawa ne farashin tumatir?",
-      "Nawa ne farashin tumatir?"
+      "नावा ने फ़राशिन तुमातिर?"
      ],
      [
       "Don Allah ku sake auna.",
-      "Don Allah ku sake auna."
+      "दोन अल्लाह कु साके आउना।"
      ],
      [
       "Wannan ya yi yawa gareni.",
-      "Wannan ya yi yawa gareni."
+      "वन्नान या यी यावा गारेनी।"
      ],
      [
       "Zan bayar da naira dari hudu.",
-      "Zan bayar da naira dari hudu."
+      "ज़ान बायार दा नाइरा दारी हुदु।"
      ],
      [
       "Don Allah ku yi lissafi da aka rubuta.",
-      "Don Allah ku yi lissafi da aka rubuta."
+      "दोन अल्लाह कु यी लिस्साफ़ी दा आका रुबुता।"
      ],
      [
       "Ku kirga kudi kadan kafin ku tafi.",
-      "Ku kirga kudi kadan kafin ku tafi."
+      "कु किर्गा कुदी कदान कफ़िन कु ताफ़ी।"
      ]
     ]
    }
@@ -12680,27 +12680,27 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Na yi jigilar ta manhaja.",
-      "Na yi jigilar ta manhaja."
+      "ना यी जिगिलार ता मान्हाजा।"
      ],
      [
       "Yau jerin jira ya tabbata.",
-      "Yau jerin jira ya tabbata."
+      "याउ जेरिन जिरा या तब्बाता।"
      ],
      [
       "Ku zo dandali minti talatin da wuri.",
-      "Ku zo dandali minti talatin da wuri."
+      "कु ज़ो दांदाली मिंती तलातिन दा वुरी।"
      ],
      [
       "Ku dauri kaya karkashin kujera da sarkar.",
-      "Ku dauri kaya karkashin kujera da sarkar."
+      "कु दाउरी काया कर्काशिन कुजेरा दा सार्कार।"
      ],
      [
       "Kada ku dauki abinci daga bakon.",
-      "Kada ku dauki abinci daga bakon."
+      "कदा कु दाउकी आबिंची दागा बाकोन।"
      ],
      [
       "Na isa lafiya, kada ku damu.",
-      "Na isa lafiya, kada ku damu."
+      "ना ईसा लाफ़िया, कदा कु दामु।"
      ]
     ]
    }
@@ -14087,31 +14087,31 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ni dan Indiya ne.",
-      "Ni dan Indiya ne."
+      "नी दान इंडिया ने।"
      ],
      [
       "Akwai aikin welda a nan gareni.",
-      "Akwai aikin welda a nan gareni."
+      "अक्वाई आइकिन वेल्दा आ नान गारेनी।"
      ],
      [
       "Kwangilata shekara biyu ce.",
-      "Kwangilata shekara biyu ce."
+      "क्वांगिलाता शेकारा बीयू चे।"
      ],
      [
       "Kamfanin ya biya tikitina.",
-      "Kamfanin ya biya tikitina."
+      "कामफ़निन या बिया तिकितीना।"
      ],
      [
       "E, bayan kwangila zan koma.",
-      "E, bayan kwangila zan koma."
+      "ए, बायान क्वांगिला ज़ान कोमा।"
      ],
      [
       "Takardu na cikakke ne kuma gaskiya ne.",
-      "Takardu na cikakke ne kuma gaskiya ne."
+      "तकर्दु ना चिकाक्के ने कुमा गास्किया ने।"
      ],
      [
       "Na gode malam.",
-      "Na gode malam."
+      "ना गोदे मालम।"
      ]
     ]
    }
@@ -14790,35 +14790,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Watanni uku da suka wuce, Turanci muri ne gareni.",
-      "Watanni uku da suka wuce, Turanci muri ne gareni."
+      "वातन्नी उकु दा सुका वुचे तुरांची मुरि ने गारेनी।"
      ],
      [
       "Kowace rana na koyi jimloli talatin.",
-      "Kowace rana na koyi jimloli talatin."
+      "कोवाचे राना ना कोयी जिमलोली तलातिन।"
      ],
      [
       "Zan iya magana a gida, aiki, kasuwa da filin jirgi.",
-      "Zan iya magana a gida, aiki, kasuwa da filin jirgi."
+      "ज़ान ईया मागाना आ गिदा, आइकी, कासुवा दा फ़िलिन जिर्गी।"
      ],
      [
       "Na yi hira ta waya a Turanci.",
-      "Na yi hira ta waya a Turanci."
+      "ना यी हीरा ता वाया आ तुरांची।"
      ],
      [
       "Na koyi amsoshin hira ta visa.",
-      "Na koyi amsoshin hira ta visa."
+      "ना कोयी अम्सोशिन हीरा ता विसा।"
      ],
      [
       "Dukan kauyena suna alfahari da ni.",
-      "Dukan kauyena suna alfahari da ni."
+      "दुकान काउयेना सुना अल्फ़हारी दा नी।"
      ],
      [
       "Wannan ba karshe ba ne, sabuwar farawa ce.",
-      "Wannan ba karshe ba ne, sabuwar farawa ce."
+      "वन्नान बा कार्शे बा ने, साबुवार फ़रावा चे।"
      ],
      [
       "Harshena, fikafikaina.",
-      "Harshena, fikafikaina."
+      "हार्शेना, फ़िकाफ़िकाइना।"
      ]
     ]
    }
@@ -16207,35 +16207,35 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Ku taimake ni, ku zo da sauri!",
-      "Ku taimake ni, ku zo da sauri!"
+      "कु तैमाके नी, कु ज़ो दा साउरी!"
      ],
      [
       "Na yi mummunan rauni.",
-      "Na yi mummunan rauni."
+      "ना यी मुम्मुनान राउनी।"
      ],
      [
       "Ina bukatar ambulance.",
-      "Ina bukatar ambulance."
+      "इना बुकातार आम्बुलांस।"
      ],
      [
       "Fasfona ya bata.",
-      "Fasfona ya bata."
+      "फ़स्फ़ोना या बाता।"
      ],
      [
       "Ba zan bada fasfona ba.",
-      "Ba zan bada fasfona ba."
+      "बा ज़ान बादा फ़स्फ़ोना बा।"
      ],
      [
       "Ina bukatar albashina.",
-      "Ina bukatar albashina."
+      "इना बुकातार अल्बाशीना।"
      ],
      [
       "Malam, ga fasfona.",
-      "Malam, ga fasfona."
+      "मालाम, गा फ़स्फ़ोना।"
      ],
      [
       "Malam, zan gama shi kafin cin abinci.",
-      "Malam, zan gama shi kafin cin abinci."
+      "मालाम, ज़ान गामा शी कफ़िन चिन आबिंची।"
      ]
     ]
    }
