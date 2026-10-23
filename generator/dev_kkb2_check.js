@@ -1,4 +1,5 @@
-/* generator/dev_kkb2_check.js — v4.7 (22-Oct-2026: अनुस्वार/हलंत-शुरू पहरा)
+/* generator/dev_kkb2_check.js — v4.8 (22-Oct-2026: F-10 lo-उच्चारण पहरा)
+   v4.7 (22-Oct-2026: अनुस्वार/हलंत-शुरू पहरा)
    v4.6 (22-Oct-2026: टूटा-उच्चारण पहरा — मात्रा से शुरू शब्द = ❌)
    v4.5 (22-Oct-2026: घुसपैठ-पहरा — drill देवनागरी-साँचा + heroTitle "सिखना री")
    v4.4 (13-Sep-2026: +38 भाषा SCRIPT_RULES/LNAME (kkb_l2_register) · interim-छूट = लाउड ⚠️ (मौन नहीं) · DEVLANG + brx/si/ps/bal/prs)
@@ -52,6 +53,11 @@ D.weeks.forEach(function (w, wi) {
     if (bad >= 10) { console.log("⛔ drill-घुसपैठ: " + bad + " drill में लक्ष्य-भाषा की जगह देवनागरी-साँचा"); fail++; }
   }
   if (/सिखना री/.test(D.heroTitle || "")) { console.log("⛔ heroTitle-घुसपैठ: " + D.heroTitle); fail++; }
+  /* v4.8 (22-Oct): F-10 पहरा — lo: लाओ-वाक्य के बग़ल का उच्चारण Latin/दोहरी-मात्रा/मात्रा+हलंत वाला = ❌ (इलाज: node generator/lipi_lao_deva.js --fix) */
+  if (CODE === "lo") { try { var LL = require("./lipi_lao_deva.js"); var nb = 0;
+    [F1, F2].forEach(function (f) { if (!fs.existsSync(f)) return; var w = {}; new Function("window", fs.readFileSync(f, "utf8"))(w); var X = w.KKB_DATA || w.KKB2_DATA;
+      (function walk(o) { if (Array.isArray(o)) { for (var i = 0; i + 1 < o.length; i++) { if (typeof o[i] === "string" && typeof o[i + 1] === "string" && /[\u0E80-\u0EFF]/.test(o[i]) && !/[\u0E80-\u0EFF]/.test(o[i + 1]) && /[\u0900-\u097F]/.test(o[i + 1]) && LL.BROKEN.test(o[i + 1])) nb++; } o.forEach(walk); return; } if (o && typeof o === "object") Object.keys(o).forEach(function (k) { walk(o[k]); }); })(X); });
+    if (nb) { console.log("⛔ lo टूटा-उच्चारण (Latin/दोहरी मात्रा): " + nb + " जगह"); fail++; } } catch (e) { console.log("⛔ lo-पहरा चल न सका: " + e.message); fail++; } }
   /* v4.6 (22-Oct): टूटा-उच्चारण पहरा — शब्द मात्रा से शुरू (जैसे "ाउ") = ❌; सही रूप स्वतंत्र स्वर ("आउ") */
   [F1, F2].forEach(function (f) { if (!fs.existsSync(f)) return; var s = fs.readFileSync(f, "utf8");
     var m = s.match(/(^|[^\u0900-\u097F\u200c\u200d])[\u093E-\u094C]/gm) || [];
