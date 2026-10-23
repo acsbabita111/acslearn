@@ -1,7 +1,7 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v743'; // 22-Oct kkb F-10: lo (लाओ) के 1,926 उच्चारण Lao→देवनागरी इंजन से (Latin-रिसाव 0) — cache-first data
+const CACHE_VERSION = 'v744'; // 22-Oct kkb F-10: lo (लाओ) के 1,926 उच्चारण Lao→देवनागरी इंजन से (Latin-रिसाव 0) — cache-first data
 // पिछला v734; // 21-Oct लाल10-ह: pjt oji lkt rmt kfa dv ain ryu crk iku — 4 नई लिपि-परतें (THAX/JPNX/CANX/KNDX) + D2J/D2C/D2V identity — 🔴 34→24
 // पिछला v733; // 21-Oct लाल10-ग: C05 कोंध-गुच्छा uki kxv kfj peg mha kff (Oriya/Telugu block-shift ORYX/TELX) — 🔴 40→34
 // पिछला v732; // 21-Oct लाल10-फ: kru kmj kfp biy kfb nit pci gdb brh zum पूर्ण-पुनर्लेखन — 🔴 60→40
