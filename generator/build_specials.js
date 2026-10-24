@@ -3323,6 +3323,7 @@ function kkb2Content(c) {
     /* 14-Sep: लिपि-परिचय workbook (build_lipi_pages) बना हो तो पहली-बार वालों के लिए द्वार — मौजूदगी से, hardcode नहीं */
     (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "workbook/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 4px"><a href="/courses/hi/bhasha/' + c.slug + '/workbook/" style="color:#F9A825;font-weight:800;text-decoration:underline">📘 लिखो-workbook — हर हफ़्ते की छपने-योग्य किताब + शब्दकोश (मुफ़्त PDF, छूकर download)</a></p>' : '') +
     (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "lipi/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/lipi/" style="color:#F9A825;font-weight:800;text-decoration:underline">✍️ पहली बार ' + c.hi_name + ' के अक्षर देख रहे हो? पहले लिपि-परिचय workbook (मुफ़्त, छपने-योग्य)</a></p>' : '') +
+    (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "chitra-pustak/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/chitra-pustak/" style="color:#F9A825;font-weight:800;text-decoration:underline">🖼️ मेरी पहली चित्र-पुस्तक — ' + c.hi_name + ' · हिंदी, बोलते चित्र-शब्द (मोबाइल + छपने-योग्य)</a></p>' : '') +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
     aiSahyogNote(c) +

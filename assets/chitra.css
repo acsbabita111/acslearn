@@ -1,0 +1,17 @@
+/* chitra.css — चित्र-पुस्तक (ACS-CP*) web-पन्ना · generator: build_chitra_pustak.js */
+.cp-wrap{max-width:960px;margin:12px auto;padding:14px;font-size:18px;color:#0B1F3A;background:#fff;border-radius:18px}
+.cp-hero{background:linear-gradient(135deg,#0B1F3A,#1565C0);color:#fff;border-radius:18px;padding:18px;text-align:center}
+.cp-hero h1{font-size:34px;margin:4px 0}.cp-hero .gold{color:#F9A825}.cp-code{font-size:16px;color:#FFE082}
+.cp-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+.cp-btn{display:inline-block;background:#2E7D32;color:#fff;border-radius:30px;padding:12px 22px;font-size:20px;font-weight:800;text-decoration:none;border:0;cursor:pointer}
+.cp-btn.b2{background:#1565C0}.cp-btn.b3{background:#F9A825;color:#0B1F3A}
+.cp-sec{margin:22px 0 10px;font-size:26px;color:#1565C0;border-bottom:3px solid #F9A825;padding-bottom:4px}
+.cp-grp{margin:16px 0 8px;font-size:22px;color:#EF6C00}
+.cp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.cp-card{position:relative;border-radius:16px;padding:10px;text-align:center;background:linear-gradient(180deg,#fff,#F5F7FA);box-shadow:0 0 0 2px #1565C0;break-inside:avoid}
+.cp-card img{width:96px;height:96px;object-fit:contain;display:block;margin:6px auto;cursor:pointer}
+.cp-L{font-size:48px;font-weight:900;color:#2E7D32;line-height:1.1}.cp-L small{font-size:30px;color:#1565C0}
+.cp-w{font-size:26px;font-weight:800}.cp-p{font-size:18px;color:#1565C0}.cp-m{font-size:19px;color:#2E7D32}.cp-lab{font-size:16px;color:#555}
+.cp-spk{position:absolute;top:6px;right:6px;border:0;background:#F9A825;border-radius:50%;width:42px;height:42px;font-size:20px;cursor:pointer}
+.cp-info{margin-top:24px;border:2px solid #1565C0;border-radius:14px;padding:12px 14px;background:#F5F7FA;font-size:17px;line-height:1.6}
+@media print{.cp-btns,.cp-spk,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim{display:none!important}.cp-grid{grid-template-columns:repeat(3,1fr)}.cp-sec,.cp-grp{break-after:avoid}}
