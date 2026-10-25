@@ -40,6 +40,8 @@ for (const slug of fs.readdirSync(B).sort()) {
   for (const id of ["kkb-pack", "kkb-samiti", "kkb-raay", "kkb2-app"]) if (h.split('id="' + id + '"').length !== 2) fail(slug, "anchor #" + id + " ठीक एक नहीं");
   if (h.split('class="acs-raay"').length !== 2 || h.indexOf('data-page="ACS-KKB-') < 0) fail(slug, "राय-डिब्बा");
   if (h.split('src="/assets/acs-raay.js"').length !== 2) fail(slug, "acs-raay.js ठीक एक बार नहीं");
+  if (h.split('src="/assets/acs-bolo.js"').length !== 2) fail(slug, "acs-bolo.js (🎙️) ठीक एक बार नहीं");
+  if (pk && !/🎙️<\/span><span class="kpk-tx">[^<]*<\/span><span class="kpk-st">✅/.test(pk[0])) fail(slug, "पैकेज में 🎙️ ✅ नहीं");
   if (h.indexOf("wa.me/919431210092?text=") < 0 || h.indexOf('id="kkb-samiti"') < 0) fail(slug, "समिति-निमंत्रण");
   const can = (h.match(/<link rel="canonical" href="([^"]+)"/) || [])[1], og = (h.match(/<meta property="og:url" content="([^"]+)"/) || [])[1];
   if (!can || can !== og) fail(slug, "og:url ≠ canonical");

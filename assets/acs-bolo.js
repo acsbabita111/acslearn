@@ -1,4 +1,6 @@
-/* acs-bolo.js v1.0 · 25-Oct-2026 — 🎙️ बोलो-अभ्यास (साझा component · परत-5)
+/* acs-bolo.js v1.1 · 25-Oct-2026 — 🎙️ बोलो-अभ्यास (साझा component · परत-5)
+   v1.1: 90-दिन कोर्स (kkb2.js) में जुड़ा — बिना-space लिपियाँ (थाई/लाओ/खमेर/बर्मी/चीनी आदि) अक्षर-दर-अक्षर ·
+         लिपि-पहरा (आवाज़-पहचान ने दूसरी लिपि में लिखा = अंक नहीं, रिकॉर्ड-रास्ता) · forceRec/pr/onSay/onResult विकल्प
    Founder-माँग (25-Oct): पन्ना सिर्फ़ सुनाए नहीं, सुने भी — विद्यार्थी बोले, माइक सुने, स्क्रीन पर टाइप हो,
    हर शब्द: 🟢 हरा = सही बोला · 🔴 लाल = ग़लत (कुछ और सुनाई दिया) · ⚫ काला = बोला ही नहीं;
    सही/ग़लत/छूटा % + गति (शब्द प्रति मिनट) + पिछली 5 कोशिशें (सिर्फ़ फ़ोन में)।
@@ -9,7 +11,7 @@
    निजता: आवाज़ सिर्फ़ browser की आवाज़-सेवा तक; ACS न सहेजता है, न सुनता है। ES5 (Android 8)। */
 (function (G) {
   "use strict";
-  var VER = "1.0";
+  var VER = "1.1";
   var LS_OK = "acs_mic_ok_v1", LS_H = "acs_bolo_v1";
 
   /* ---------------- शुद्ध गणित (robot भी यही जाँचता है) ---------------- */
@@ -23,6 +25,31 @@
   var PUNCT = /[.,!?;:"“”‘’()\[\]{}«»¿¡…।॥،؟、。，！？]/g;
 
   function isEn(lang) { return /^en/i.test(lang || ""); }
+  /* बिना-space लिपियाँ: शब्द नहीं, अक्षर (grapheme) गिनो */
+  var NOSPACE = { th: 1, lo: 1, km: 1, my: 1, bo: 1, zh: 1, cmn: 1, yue: 1, nan: 1, wuu: 1, hak: 1, ja: 1, dz: 1 };
+  var NOSPACE_RE = /[\u0E00-\u0EFF\u1000-\u109F\u1780-\u17FF\u0F00-\u0FFF\u3040-\u30FF\u3400-\u9FFF\uF900-\uFAFF]/;
+  function charMode(text, lang) {
+    var b = String(lang || "").split("-")[0].toLowerCase();
+    return !!NOSPACE[b] || (NOSPACE_RE.test(text) && String(text).trim().split(/\s+/).length <= 2);
+  }
+  function graphemes(t) {
+    t = String(t).replace(PUNCT, "").replace(/[\s'’]/g, "");
+    if (typeof Intl !== "undefined" && Intl.Segmenter) { var out = [], itr = new Intl.Segmenter("und", { granularity: "grapheme" }).segment(t)[Symbol.iterator](), nx; while (!(nx = itr.next()).done) out.push(nx.value.segment); return out; }   /* for-of नहीं — पुराना browser भी पढ़ सके */
+    return Array.from ? Array.from(t) : t.split("");
+  }
+  /* लिपि-पहचान: अक्षरों का मुख्य Unicode-खंड */
+  var SCRIPTS = [["latin", /[A-Za-z\u00C0-\u024F\u1E00-\u1EFF]/], ["devanagari", /[\u0900-\u097F]/], ["bengali", /[\u0980-\u09FF]/], ["gurmukhi", /[\u0A00-\u0A7F]/],
+    ["gujarati", /[\u0A80-\u0AFF]/], ["oriya", /[\u0B00-\u0B7F]/], ["tamil", /[\u0B80-\u0BFF]/], ["telugu", /[\u0C00-\u0C7F]/], ["kannada", /[\u0C80-\u0CFF]/],
+    ["malayalam", /[\u0D00-\u0D7F]/], ["sinhala", /[\u0D80-\u0DFF]/], ["thai", /[\u0E00-\u0E7F]/], ["lao", /[\u0E80-\u0EFF]/], ["tibetan", /[\u0F00-\u0FFF]/],
+    ["myanmar", /[\u1000-\u109F]/], ["georgian", /[\u10A0-\u10FF]/], ["hangul", /[\u1100-\u11FF\uAC00-\uD7AF]/], ["ethiopic", /[\u1200-\u139F]/], ["khmer", /[\u1780-\u17FF]/],
+    ["greek", /[\u0370-\u03FF]/], ["cyrillic", /[\u0400-\u04FF]/], ["armenian", /[\u0530-\u058F]/], ["hebrew", /[\u0590-\u05FF]/], ["arabic", /[\u0600-\u06FF\u0750-\u077F\uFB50-\uFEFF]/],
+    ["kana", /[\u3040-\u30FF]/], ["han", /[\u3400-\u9FFF\uF900-\uFAFF]/]];
+  function scriptOf(t) {
+    var cnt = {}, best = "", n = 0, ch, i, k;
+    t = String(t || ""); for (i = 0; i < t.length; i++) { ch = t.charAt(i); for (k = 0; k < SCRIPTS.length; k++) if (SCRIPTS[k][1].test(ch)) { cnt[SCRIPTS[k][0]] = (cnt[SCRIPTS[k][0]] || 0) + 1; break; } }
+    for (k in cnt) if (cnt[k] > n) { n = cnt[k]; best = k; }
+    return best;
+  }
   function canon(w, lang) {
     var t = String(w).toLowerCase().replace(/[’‘`´]/g, "'").replace(/^(\d+):00(?=\D*$)/, "$1")   /* 8:00 = 8 */
       .replace(PUNCT, "").replace(/^'+|'+$/g, "");
@@ -34,7 +61,8 @@
     return t;
   }
   /* वाक्य → [{c:मानक-टुकड़ा, i:दिखने-वाले-शब्द का क्रम}] ; thirty-one / thirty one / 31 = एक */
-  function flat(text, lang) {
+  function flat(text, lang, cm) {
+    if (cm) { var g = graphemes(text), o2 = []; for (var q = 0; q < g.length; q++) o2.push({ c: g[q].toLowerCase(), i: q }); return { words: g, toks: o2 }; }
     var words = String(text).trim().split(/\s+/), out = [], i, j, parts, c;
     for (i = 0; i < words.length; i++) {
       parts = words[i].split(/[-–—]/);
@@ -74,7 +102,7 @@
     return { g: gp, r: rp, b: bp };
   }
   function score(target, heard, lang) {
-    var T = flat(target, lang), H = flat(heard || "", lang);
+    var cm = charMode(target, lang), T = flat(target, lang, cm), H = flat(heard || "", lang, cm);
     var A = align(T.toks.map(function (x) { return x.c; }), H.toks.map(function (x) { return x.c; }));
     var per = {}, k;
     for (k = 0; k < T.toks.length; k++) { var w = T.toks[k].i; (per[w] = per[w] || []).push(A.st[k]); }
@@ -88,14 +116,14 @@
       words.push({ w: T.words[k], st: st });
     }
     var n = g + r + b, p = pcts(g, r, b, n);
-    return { words: words, n: n, g: g, r: r, b: b, gp: p.g, rp: p.r, bp: p.b, extra: A.ins,
-      spoken: (String(heard || "").trim() ? String(heard).trim().split(/\s+/).length : 0) };
+    return { words: words, n: n, g: g, r: r, b: b, gp: p.g, rp: p.r, bp: p.b, extra: A.ins, unit: cm ? "char" : "word", join: cm ? "" : " ",
+      spoken: cm ? H.words.length : (String(heard || "").trim() ? String(heard).trim().split(/\s+/).length : 0) };
   }
   function wpm(spoken, ms) { return (spoken > 0 && ms >= 400) ? Math.round(spoken * 60000 / ms) : 0; }
 
   /* ---------------- पन्ना-हिस्सा (browser) ---------------- */
   if (typeof document === "undefined") {
-    if (typeof module !== "undefined") module.exports = { score: score, flat: flat, align: align, canon: canon, wpm: wpm, VER: VER };
+    if (typeof module !== "undefined") module.exports = { score: score, flat: flat, align: align, canon: canon, wpm: wpm, scriptOf: scriptOf, charMode: charMode, VER: VER };
     return;
   }
   var SR = G.SpeechRecognition || G.webkitSpeechRecognition || null;
@@ -111,7 +139,7 @@
       ".acs-bolo .ab-code{font-size:16px;color:#555}.acs-bolo .ab-x{margin-left:auto;border:0;background:#F5F7FA;border-radius:50%;width:40px;height:40px;font-size:18px;cursor:pointer}" +
       ".acs-bolo .ab-tg{font-size:22px;font-weight:700;margin:6px 0;word-wrap:break-word}.acs-bolo .ab-tg span{display:inline-block;margin:0 3px 3px 0;padding:0 4px;border-radius:6px}" +
       ".acs-bolo .w-g{color:#1B5E20;background:#E8F5E9}.acs-bolo .w-r{color:#C62828;background:#FFEBEE;text-decoration:underline wavy #C62828}.acs-bolo .w-b{color:#000;background:#ECEFF1;text-decoration:underline dotted #000}" +
-      ".acs-bolo .ab-live{min-height:28px;font-size:18px;color:#1565C0}.acs-bolo .ab-heard{font-size:18px;color:#333}.acs-bolo .ab-heard i{color:#777}" +
+      ".acs-bolo .ab-pr{font-size:18px;color:#1565C0;margin:-2px 0 4px}.acs-bolo .ab-live{min-height:28px;font-size:18px;color:#1565C0}.acs-bolo .ab-heard{font-size:18px;color:#333}.acs-bolo .ab-heard i{color:#777}" +
       ".acs-bolo .ab-st{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.acs-bolo .ab-st span{border-radius:10px;padding:2px 10px;font-weight:700;font-size:17px}" +
       ".acs-bolo .s-g{background:#E8F5E9;color:#1B5E20}.acs-bolo .s-r{background:#FFEBEE;color:#C62828}.acs-bolo .s-b{background:#ECEFF1;color:#000}.acs-bolo .s-w{background:#E3F2FD;color:#0B1F3A}" +
       ".acs-bolo .ab-btns{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.acs-bolo .ab-btns button{border:0;border-radius:24px;padding:9px 16px;font-size:18px;font-weight:700;cursor:pointer;min-height:44px}" +
@@ -162,7 +190,7 @@
       var cls = x.st === "g" ? "w-g" : x.st === "r" ? "w-r" : x.st === "b" ? "w-b" : "";
       var tt = x.st === "g" ? "सही बोला" : x.st === "r" ? "ग़लत — कुछ और सुनाई दिया" : x.st === "b" ? "बोला नहीं" : "";
       return cls ? '<span class="' + cls + '" title="' + tt + '">' + esc(x.w) + "</span>" : esc(x.w);
-    }).join(" ");
+    }).join(res.join);
   }
   function paintHist(o) {
     var a = hist(o.code), el = o.box.querySelector(".ab-hist");
@@ -223,6 +251,12 @@
         if (err === "language-not-supported") { recorder(o, "इस भाषा की आवाज़-पहचान इस ब्राउज़र में नहीं है।"); return; }
         live(o, "🤔 कुछ सुनाई नहीं दिया। माइक के पास साफ़ बोलिए और फिर दबाइए।"); return;
       }
+      var st0 = scriptOf(o.t), st1 = scriptOf(fin);
+      if (st0 && st1 && st0 !== st1 && !(st0 === "han" && st1 === "kana") && !(st0 === "kana" && st1 === "han")) {   /* लिपि-पहरा */
+        o.mode = "rec"; live(o, "");
+        o.box.querySelector(".ab-heard").innerHTML = "⌨️ आवाज़-पहचान ने लिखा: <b>" + esc(fin) + "</b>";
+        recorder(o, "इस फ़ोन की आवाज़-पहचान ने दूसरी लिपि में लिखा, इसलिए सही-ग़लत के अंक नहीं दिए जा सकते।"); return;
+      }
       var res = score(o.t, fin, o.asr);
       var t0 = t.s || t.a, t1 = t.e || t.last;
       var w = wpm(res.spoken, t1 - t0);
@@ -233,10 +267,11 @@
       o.box.querySelector(".ab-st").innerHTML =
         '<span class="s-g">🟢 सही ' + res.gp + "%</span>" + '<span class="s-r">🔴 ग़लत ' + res.rp + "%</span>" +
         '<span class="s-b">⚫ छूटे ' + res.bp + "%</span>" +
-        '<span class="s-w">⏱ गति: ' + (w ? w + " शब्द/मिनट" : "—") + "</span>" +
+        '<span class="s-w">⏱ गति: ' + (w ? w + (res.unit === "char" ? " अक्षर/मिनट" : " शब्द/मिनट") : "—") + "</span>" +
         (res.gp === 100 ? '<span class="s-g">🎉 शाबाश! पूरा सही</span>' : "");
       hist(o.code, { g: res.gp, w: w, at: Date.now() });
       paintHist(o);
+      if (typeof o.onResult === "function") { try { o.onResult(res); } catch (e) {} }
     };
     btnGo(o, "⏹ रुको", true); o.busy = true;
     live(o, "⏳ माइक चालू हो रहा है…");
@@ -252,7 +287,8 @@
       o.box.querySelector(".ab-go").style.display = "none"; return;
     }
     live(o, '<div class="ab-note">ℹ️ ' + esc(why || "इस ब्राउज़र में शब्द-जाँच (रंग, प्रतिशत) नहीं चलती।") +
-      " तब तक यह करें: ⏺ दबाकर वाक्य बोलिए → अपनी आवाज़ सुनिए → 🔊 सही उच्चारण से मिलाइए। रंग-जाँच के लिए एंड्रॉयड (Android) फ़ोन पर क्रोम (Chrome) खोलें।</div>");
+      " तब तक यह करें: ⏺ दबाकर वाक्य बोलिए → अपनी आवाज़ सुनिए → 🔊 सही उच्चारण से मिलाइए।" +
+      (SR ? "" : " रंग-जाँच के लिए एंड्रॉयड (Android) फ़ोन पर क्रोम (Chrome) खोलें।") + "</div>");
     btnGo(o, "⏺ रिकॉर्ड करो", false);
   }
   function recToggle(o) {
@@ -284,27 +320,27 @@
     close();
     var o = { t: opt.t || btn.getAttribute("data-t") || "", asr: opt.asr || btn.getAttribute("data-asr") || "en-IN",
       tts: opt.tts || btn.getAttribute("data-tts") || opt.asr || "en-US", code: opt.code || btn.getAttribute("data-code") || "",
-      host: host, mode: SR ? "sr" : "rec" };
+      host: host, mode: (SR && !opt.forceRec) ? "sr" : "rec", pr: opt.pr || "", onSay: opt.onSay, onResult: opt.onResult, recWhy: opt.recWhy || "" };
     if (!o.t) return;
     var box = document.createElement("div"); box.className = "acs-bolo"; box.setAttribute("role", "region");
     box.setAttribute("aria-label", "बोलो-अभ्यास");
     box.innerHTML = '<div class="ab-top"><b>🎙️ बोलो-अभ्यास</b>' + (o.code ? '<span class="ab-code">वाक्य-कोड: ' + esc(o.code) + "</span>" : "") +
       '<button type="button" class="ab-x" aria-label="बंद करें">✕</button></div>' +
-      '<div class="ab-tg"></div><div class="ab-live" aria-live="polite"></div><div class="ab-heard"></div><div class="ab-st"></div>' +
+      '<div class="ab-tg"></div>' + (o.pr ? '<div class="ab-pr">' + esc(o.pr) + "</div>" : "") + '<div class="ab-live" aria-live="polite"></div><div class="ab-heard"></div><div class="ab-st"></div>' +
       '<div class="ab-btns"><button type="button" class="ab-go">🎙️ बोलो</button><button type="button" class="ab-say">🔊 सही उच्चारण सुनो</button>' +
       (G.ACSRaay && o.code ? '<button type="button" class="ab-cm">💬 इस वाक्य पर राय</button>' : "") + "</div>" +
       '<div class="ab-hist"></div><div class="ab-lg">🟢 हरा = सही बोला · 🔴 लाल = ग़लत (कुछ और सुनाई दिया) · ⚫ काला = बोला नहीं</div>';
     o.box = box; host.appendChild(box); cur = o;
     paintTarget(o, null); paintHist(o);
     box.querySelector(".ab-x").onclick = close;
-    box.querySelector(".ab-say").onclick = function () { stopAll(); say(o.t, o.tts); };
+    box.querySelector(".ab-say").onclick = function () { stopAll(); if (typeof o.onSay === "function") o.onSay(); else say(o.t, o.tts); };
     var cm = box.querySelector(".ab-cm"); if (cm) cm.onclick = function () { G.ACSRaay.comment(o.code); };
     box.querySelector(".ab-go").onclick = function () {
       if (o.mode === "rec") { recToggle(o); return; }
       if (o.busy) { try { o.rec.stop(); } catch (e) {} return; }
       consent(o, function () { listen(o); });
     };
-    if (o.mode === "rec") consent(o, function () { recorder(o, ""); });
+    if (o.mode === "rec") consent(o, function () { recorder(o, o.recWhy); });
     else live(o, "👇 🎙️ बोलो दबाइए, फिर ऊपर का वाक्य साफ़-साफ़ बोलिए।");
     try { box.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) {}
   }

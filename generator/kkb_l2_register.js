@@ -34,6 +34,11 @@ function kkb2SafeLink(u, d) { return "kkb2Link(" + JSON.stringify(u) + ", " + JS
 function registerOne(code) {
   const L = LIST.find(x => x.code === code);
   if (!L) { console.log("⛔ '" + code + "' pending-सूची में नहीं (generator/data/kkb_l2_pending.json)"); process.exit(1); }
+  /* 25-Oct (Founder-नियम): भाषा-नाम ताज़ा मास्टर-स्प्रेडशीट से — bhasha_register.json; कोड न हो = रुको।
+     L.hi/L.en = पूरा रजिस्टर-नाम (सूची/कोर्स-नाम/परीक्षा/प्रमाणपत्र); L.hi_short = कोष्ठक-रहित (वाक्यों में "मैं ___ बोलता हूँ")। */
+  { const RG = JSON.parse(R("generator/data/bhasha_register.json")).langs[code];
+    if (!RG) { console.log("⛔ '" + code + "' भाषा-रजिस्टर में नहीं — पहले मास्टर-स्प्रेडशीट में जोड़ें, फिर नई निकासी (generator/data/bhasha_register.json)"); process.exit(1); }
+    L.hi = RG.hi; L.en = RG.en; L.hi_short = RG.hi.replace(/\s*\([^)]*\)\s*$/, ""); }
   const edits = []; /* {file, old, neu, label} */
   const preRegistered = new RegExp("KKB2_CODES = \\{[^}]*\\b" + code + ": 1").test(R("generator/build_specials.js")); /* गिनती-छूट का फ़ैसला किसी write से पहले */
   function edit(file, old, neu, label) { edits.push({ file, old, neu, label }); }
@@ -48,7 +53,7 @@ function registerOne(code) {
   edit("generator/dev_kkb2_check.js", "SCRIPT_RULES = {\n",
     "SCRIPT_RULES = {\n    " + code + ": { native: " + sr.re + ', name: "' + sr.name + '", devInItem0: ' + sr.dev0 + (sr.devLang ? ", devLang: true" : "") + (sr.interim ? ", interim: true" : "") + " }, /* " + today + " kkb_l2_register: " + L.hi + " — " + (useInterim ? "⚠️ अस्थायी देवनागरी-रूप; लक्ष्य-लिपि " + L.l2_script + " (v6.3-क1) — Founder-फ़ैसला लंबित" : L.l2_script + (L.rtl ? ", RTL" : "")) + " */\n",
     "SCRIPT_RULES." + code);
-  edit("generator/dev_kkb2_check.js", "var LNAME = { ", 'var LNAME = { ' + code + ': "' + L.hi + '", ', "LNAME." + code);
+  edit("generator/dev_kkb2_check.js", "var LNAME = { ", 'var LNAME = { ' + code + ': "' + L.hi_short + '", ', "LNAME." + code);
   /* ── (2) dev_kkb_quiz_check: PID ── */
   edit("generator/dev_kkb_quiz_check.js", "PID = { ", 'PID = { ' + code + ': "' + L.id + '", ', "PID." + code);
   /* ── (3) build_kkb_bank: CFG ── */
@@ -149,7 +154,7 @@ function registerOne(code) {
     if (L.rtl && !useInterim) M.lang.rtl = true;
     if (Array.isArray(M.help)) M.help = M.help.map(h => Array.isArray(h) ? h.map((x, i) => (i <= 1 && typeof x === "string") ? "" : x) : h);
     M.version = String(M.version || "").replace(/MASTER.*$/, "") + "L2-" + code + "-skeleton (" + today + ")";
-    M.module = M.module.replace(/English/g, L.en); M.sub = (M.sub || "").replace(/अंग्रेज़ी/g, L.hi).replace(/English/g, L.en);
+    M.module = M.module.replace(/English/g, L.en); M.sub = (M.sub || "").replace(/अंग्रेज़ी/g, L.hi_short).replace(/English/g, L.en);
     const blank2 = it => { if (Array.isArray(it) && typeof it[0] === "string") { it[0] = ""; if (typeof it[1] === "string") it[1] = ""; } return it; };
     (M.weeks || []).forEach(w => {
       (w.days || []).forEach(d => {
@@ -157,7 +162,7 @@ function registerOne(code) {
         if (d.drill && Array.isArray(d.drill.rows)) d.drill.rows = d.drill.rows.map(r => Array.isArray(r) ? r.map(x => typeof x === "string" ? "" : x) : r);
       });
       if (w.test && Array.isArray(w.test.lines)) w.test.lines.forEach(blank2);
-      if (w.test && typeof w.test.goal === "string") w.test.goal = w.test.goal.replace(/English में बताइए/g, L.hi + " में बताइए");
+      if (w.test && typeof w.test.goal === "string") w.test.goal = w.test.goal.replace(/English में बताइए/g, L.hi_short + " में बताइए");
       const pre = x => typeof x === "string" ? (x.match(/^\((सुनो|बोलो)\)\s*/) || [""])[0] : x;
       if (Array.isArray(w.listen)) w.listen = w.listen.map(x => Array.isArray(x) ? x.map(pre) : pre(x));
       if (Array.isArray(w.dialog)) w.dialog = w.dialog.map(x => Array.isArray(x) && x.length >= 2 ? [x[0], ""] : x);

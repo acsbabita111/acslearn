@@ -1,4 +1,4 @@
-/* dev_bolo_check.js v1.0 · 25-Oct-2026 — 🎙️ बोलो-अभ्यास का गणित-robot (acs-bolo.js)
+/* dev_bolo_check.js v1.1 · 25-Oct-2026 — 🎙️ बोलो-अभ्यास का गणित-robot (acs-bolo.js)
    हरा/लाल/काला, प्रतिशत (कुल 100), संख्या/एक-आवाज़ शब्द, फ़ालतू शब्द, गति। fail = देय नहीं। */
 const B = require("../assets/acs-bolo.js");
 let F = 0, P = 0;
@@ -35,6 +35,12 @@ ok(B.score("I am from Bihar.", "I am from Bihar and I am happy", "en-IN").extra 
 /* ग़ैर-अंग्रेज़ी: संख्या/एक-आवाज़ नियम नहीं, हिंदी विराम हटे */
 { const r = B.score("मैं हिंदी बोलता हूँ।", "मैं हिंदी बोलता हूँ", "hi-IN"); ok(r.gp === 100, "हिंदी । विराम: " + r.gp); }
 { const r = B.score("two", "to", "de-DE"); ok(r.gp === 0, "ग़ैर-अंग्रेज़ी में to=two नहीं होना चाहिए"); }
+/* v1.1: बिना-space लिपियाँ — अक्षर-दर-अक्षर */
+{ const r = B.score("สวัสดีครับ", "สวัสดีครับ", "th-TH"); ok(r.unit === "char" && r.gp === 100, "थाई पूरा सही (अक्षर-मोड): " + r.unit + " " + r.gp); }
+{ const r = B.score("你好吗", "你好", "zh-CN"); ok(r.unit === "char" && r.b === 1 && r.g === 2, "चीनी: एक अक्षर छूटा = काला: g" + r.g + " b" + r.b); }
+{ const r = B.score("I speak Hindi.", "I speak Hindi", "en-IN"); ok(r.unit === "word", "अंग्रेज़ी शब्द-मोड"); }
+/* लिपि-पहचान (लिपि-पहरा का आधार) */
+ok(B.scriptOf("Ez kurdî dizanim") === "latin" && B.scriptOf("मैं हिंदी") === "devanagari" && B.scriptOf("Я говорю") === "cyrillic" && B.scriptOf("مرحبا") === "arabic" && B.scriptOf("สวัสดี") === "thai", "scriptOf: लैटिन/देवनागरी/सिरिलिक/अरबी/थाई");
 ok(B.wpm(4, 2000) === 120, "गति 4 शब्द/2 सेकंड = 120");
 ok(B.wpm(4, 100) === 0 && B.wpm(0, 3000) === 0, "बहुत छोटा समय/शून्य शब्द पर गति — नहीं");
 console.log(F ? `\n❌ bolo-robot: ${F} fail / ${P} pass` : `🏁 bolo-robot: सब ${P} जाँच पास`);

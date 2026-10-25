@@ -85,9 +85,9 @@
   function voiceCard() {
     var L = enVoices();
     if (!("speechSynthesis" in window)) return "";
-    if (L.length <= 1) return '<div class="kkb2-card soft"><p class="kkb2-muted">🗣️ इस फ़ोन में ' + esc(LANG.label) + ' की एक ही आवाज़ है — वही चलेगी। (आवाज़ें फ़ोन की अपनी होती हैं; Google Text-to-speech अपडेट करने से और आवाज़ें मिल सकती हैं।)</p></div>';
+    if (L.length <= 1) return '<div class="kkb2-card soft"><p class="kkb2-muted">🗣️ इस फ़ोन में ' + esc(META.hi || LANG.label) + ' की एक ही आवाज़ है — वही चलेगी। (आवाज़ें फ़ोन की अपनी होती हैं; Google Text-to-speech अपडेट करने से और आवाज़ें मिल सकती हैं।)</p></div>';
     var savedURI = ""; try { savedURI = localStorage.getItem(VKEY) || ""; } catch (e) { }
-    var h = '<div class="kkb2-card soft"><h3>🗣️ आवाज़ चुनें</h3><p class="kkb2-muted">आपके फ़ोन में ' + L.length + ' ' + esc(LANG.label) + ' आवाज़ें हैं — चुनते ही नमूना सुनाई देगा; चुनाव याद रहेगा।</p><div class="kkb2-row">';
+    var h = '<div class="kkb2-card soft"><h3>🗣️ आवाज़ चुनें</h3><p class="kkb2-muted">आपके फ़ोन में ' + L.length + ' ' + esc(META.hi || LANG.label) + ' आवाज़ें हैं — चुनते ही नमूना सुनाई देगा; चुनाव याद रहेगा।</p><div class="kkb2-row">';
     for (var vi = 0; vi < L.length && vi < 6; vi++) {
       var on = (savedURI ? savedURI === L[vi].voiceURI : (voice && voice.voiceURI === L[vi].voiceURI));
       h += '<button class="kkb2-btn ' + (on ? "gold" : "ghost") + '" onclick="kkb2VoiceBtn(this)" data-v="' + esc(L[vi].voiceURI) + '">' + (on ? "✔ " : "") + esc(L[vi].name.replace(/English|Google|Microsoft/g, "").trim() || L[vi].lang) + ' <small>(' + esc(L[vi].lang) + ')</small></button>';
@@ -108,6 +108,23 @@
   /* ---- audio-अनिवार्य ---- */
   var heard = {};
   window.kkb2Hear = function (key, txt, slow) { if (say(txt, slow)) { heard[key] = 1; var b = document.getElementById("sp-" + key); if (b) b.disabled = false; } };
+  /* ---- 25-Oct: 🎙️ बोलो-अभ्यास (साझा assets/acs-bolo.js) ----
+     अंक (हरा/लाल/काला, %) तभी, जब फ़ोन की आवाज़-पहचान इसी भाषा की हो (data का lang.sr इसी भाषा-कोड का)।
+     बाक़ी भाषाओं (जैसे sr = hi-IN/ru-RU सहारा) में ईमानदार रास्ता: रिकॉर्ड करो → अपनी आवाज़ सुनो → मिलाओ।
+     जापानी: लक्ष्य काना में, आवाज़-पहचान कांजी में लिखती है — अंक भ्रामक होते, इसलिए रिकॉर्ड-रास्ता। */
+  var BOLO_SR = String(LANG.sr || LANG.tts || ""), BOLO_BASE = BOLO_SR.split("-")[0].toLowerCase(), BOLO_CODE = String(LANG.code || "").toLowerCase();
+  var BOLO_ALIAS = { tl: "fil", fil: "tl", cmn: "zh", nb: "no", no: "nb", he: "iw", iw: "he", id: "in", "in": "id", yue: "yue",
+    arz: "ar", apc: "ar", acm: "ar", ary: "ar", afb: "ar", ayl: "ar", aeb: "ar", arq: "ar", ajp: "ar", ars: "ar", acw: "ar", ayp: "ar", apd: "ar", abv: "ar", shu: "ar" };
+  var BOLO_NOSCORE = { ja: 1 };
+  var BOLO_OK = !!BOLO_BASE && !BOLO_NOSCORE[BOLO_CODE] && (BOLO_BASE === BOLO_CODE || BOLO_ALIAS[BOLO_CODE] === BOLO_BASE);
+  window.kkb2Bolo = function (btn, key) {
+    if (!window.ACSBolo) { alert("बोलो-अभ्यास अभी लोड नहीं हुआ — पन्ना एक बार दोबारा खोलें।"); return; }
+    var t = btn.getAttribute("data-t"), nm = META.hi || LANG.label || "इस भाषा";
+    ACSBolo.open(btn, { t: t, pr: btn.getAttribute("data-p"), code: btn.getAttribute("data-c"), asr: BOLO_SR, tts: LANG.tts, host: btn.closest ? btn.closest("[data-bolo-host]") : null,
+      forceRec: !BOLO_OK, recWhy: BOLO_OK ? "" : nm + " की आवाज़-पहचान अभी फ़ोन/ब्राउज़र में भरोसेमंद नहीं, इसलिए सही-ग़लत के अंक नहीं।",
+      onSay: function () { kkb2Hear(key, t, false); },
+      onResult: function (res) { if (res && res.gp >= 80) { heard[key] = 1; var el = document.getElementById("ok-" + key); if (el) el.innerHTML = '<span class="kkb2-ok">बोला ✔ 🎙️ ' + res.gp + '%</span>'; } } });
+  };
   window.kkb2Spoke = function (key) {
     if (!heard[key]) { alert("पहले 🔊 दबाकर वाक्य सुनिए — सुनना ज़रूरी है।"); return; }
     var el = document.getElementById("ok-" + key); if (el) el.innerHTML = '<span class="kkb2-ok">बोला ✔</span>';
@@ -249,16 +266,17 @@
       for (var t = 0; t < D.tw.length; t++) h += '<span>' + esc(D.tw[t][0]) + ' (' + esc(D.tw[t][1]) + ') = ' + esc(D.tw[t][2]) + '</span>';
       h += '</div>';
     }
-    h += '<div class="kkb2-rulebar">पहले 🔊 सुनो → साथ-साथ बोलो → फिर "मैंने बोला" दबाओ।</div></div>';
+    h += '<div class="kkb2-rulebar">पहले 🔊 सुनो → साथ-साथ बोलो → फिर "मैंने बोला" दबाओ। 🎙️ बोलो से अपनी जाँच भी कर सकते हो।</div></div>';
     for (var k = 0; k < D.items.length; k++) {
       var it = D.items[k], key = g + "_" + k, id = gsu(base + k + 1);
-      h += '<div class="kkb2-item">' + chipRow(it) +
+      h += '<div class="kkb2-item" data-bolo-host>' + chipRow(it) +
         '<p class="kkb2-en"' + DIRw() + '>' + esc(it[0]) + '</p>' +
         '<p class="kkb2-dev">' + esc(it[1]) + '</p>' +
         '<p class="kkb2-hi">' + esc(it[2]) + '</p>' +
         '<div class="kkb2-row">' +
         '<button class="kkb2-btn" onclick="kkb2Hear(\'' + key + '\',this.getAttribute(\'data-t\'),false)" data-t="' + esc(it[0]) + '">🔊 सुनो</button>' +
         '<button class="kkb2-btn ghost" onclick="kkb2Hear(\'' + key + '\',this.getAttribute(\'data-t\'),true)" data-t="' + esc(it[0]) + '">🐢 धीरे</button>' +
+        '<button class="kkb2-btn ghost" onclick="kkb2Bolo(this,\'' + key + '\')" data-t="' + esc(it[0]) + '" data-p="' + esc(it[1]) + '" data-c="' + esc(id) + '">🎙️ बोलो</button>' +
         '<button class="kkb2-btn green" id="sp-' + key + '" disabled onclick="kkb2Spoke(\'' + key + '\')">मैंने बोला</button>' +
         '<span id="ok-' + key + '"></span></div>' +
         '<p class="kkb2-gsu">' + id + '</p></div>';
@@ -322,7 +340,7 @@
       h += '<div class="kkb2-item"><p class="kkb2-en"' + DIRw() + '>' + esc(T.lines[p][0]) + '</p><p class="kkb2-dev">' + esc(T.lines[p][1]) + '</p>' +
         '<button class="kkb2-btn" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(T.lines[p][0]) + '">🔊 सुनो</button></div>';
     }
-    var msg = encodeURIComponent((EN ? "ACS Spoken English (90-दिन)" : "ACS काम की भाषा — " + LANG.label + " (90-दिन)") + " — " + (src === 1 ? "स्तर-1" : "स्तर-2") + " सप्ताह-" + W.n + " का टेस्ट पूरा किया। (" + T.target + ")");
+    var msg = encodeURIComponent((EN ? "ACS Spoken English (90-दिन)" : "ACS काम की भाषा — " + (META.hi || LANG.label) + " (90-दिन)") + " — " + (src === 1 ? "स्तर-1" : "स्तर-2") + " सप्ताह-" + W.n + " का टेस्ट पूरा किया। (" + T.target + ")");
     h += '<a class="kkb2-btn gold big" href="https://wa.me/' + TRAINER_WA + '?text=' + msg + '" onclick="kkb2TstDone(' + src + ',' + wi + ')">✅ टेस्ट पूरा — WhatsApp पर बताएँ</a></div>';
     view(h);
   }

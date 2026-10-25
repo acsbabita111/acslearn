@@ -7,7 +7,7 @@
    PDF: Chromium (playwright, python) — build-समय; repo में PDF output (generator-निर्मित, हाथ से नहीं)। नई भाषा = WB_LANGS में एक पंक्ति। */
 const fs = require("fs"), path = require("path"), cp = require("child_process");
 const ROOT = path.join(__dirname, "..");
-const VER = "1.5";
+const VER = "1.6";   /* v1.6 (25-Oct): भाषा-नाम bhasha_register.json (ताज़ा स्प्रेडशीट) से */
 /* 02-Oct v1.4: WB_PAGES_ONLY=1 मोड — PDF न बनें (वे Releases पर हैं), सिर्फ़ download-पेज regen; आकार outDir की फ़ाइलों (असली या exact-नाप stub) से। */
 /* 14-Sep v1.3 (Founder-फ़ैसला: "रिलीज़ में ही डालो"): PDF repo में नहीं — GitHub Releases में (repo-size में नहीं गिनते, Pages की 1 GB सीमा बची)।
    हर भाषा = एक release, tag workbook-<slug>; PDF-कड़ी = RELEASE_BASE/workbook-<slug>/<file>। PDF यहाँ बनते हैं: RELEASE_OUT/<slug>/ (repo के बाहर) → office से `gh release create` (release_workbooks.md)।
@@ -25,6 +25,9 @@ const SCRIPT_FONT = {
   "japanese": "'Noto Sans CJK JP', sans-serif", "korean": "'Noto Sans CJK KR', sans-serif", "chinese": "'Noto Sans CJK SC', sans-serif", "han": "'Noto Sans CJK TC', sans-serif"
 };
 const RTL = { "thaana": 1, "arabic": 1, "perso-arabic": 1, "persian": 1, "urdu": 1, "sindhi": 1, "kashmiri": 1, "hebrew": 1 };
+/* 25-Oct (Founder-नियम): भाषा-नाम ताज़ा मास्टर-स्प्रेडशीट से — generator/data/bhasha_register.json; कोड न मिले = रुको */
+const BHASHA_REG = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "bhasha_register.json"), "utf8")).langs;
+function regName(row) { const r = BHASHA_REG[row.code]; if (!r) throw new Error("भाषा-रजिस्टर में कोड नहीं: " + row.code); if (row.hi !== undefined) row.hi = r.hi; if (row.en !== undefined) row.en = r.en; return row; }
 function loadLangs() {
   const src = fs.readFileSync(path.join(__dirname, "build_specials.js"), "utf8");
   const m = src.match(/const KKB2_LANGS = \[([\s\S]*?)\n\];/); const rows = [];
@@ -32,7 +35,7 @@ function loadLangs() {
   while ((x = re.exec(m[1]))) {
     const code = x[1]; const f = path.join(ROOT, "assets", code === "en" ? "kkb2_data.js" : "kkb2_" + code + "_data.js"); let script = "latin";
     try { const w = {}; new Function("window", "self", "module", fs.readFileSync(f, "utf8") + ";")(w, w, {}); script = (w.KKB2_DATA && w.KKB2_DATA.lang && w.KKB2_DATA.lang.script) || "latin"; } catch (e) {}
-    rows.push({ code, slug: x[2], en: x[3], hi: x[4], script, dir: RTL[script] ? "rtl" : "ltr", font: SCRIPT_FONT[script] || "'Noto Sans', sans-serif" });
+    rows.push(regName({ code, slug: x[2], en: x[3], hi: x[4], script, dir: RTL[script] ? "rtl" : "ltr", font: SCRIPT_FONT[script] || "'Noto Sans', sans-serif" }));
   }
   return rows;
 }
