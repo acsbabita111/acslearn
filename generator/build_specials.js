@@ -3389,6 +3389,10 @@ function aiSahyogNote(c) {
 /* ---- नक़ल-सूचना पट्टी (25-Oct-2026, शोध-आधारित): एकमात्र घर data/kkb_nakal_soochna.js (fail-closed: फ़ाइल न मिले = build रुके)।
    copy = वाक्य असल में दूसरी भाषा के (सच्ची सूचना + समिति-न्योता) · alias = शोध में यही भाषा का दूसरा नाम (सादी जानकारी)। ---- */
 const NAKAL = require("./data/kkb_nakal_soochna.js").notes;
+const PUNAR = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "kkb_punarlekhan_pragati.json"), "utf8")).langs;
+function punarLine(c) { const L = PUNAR[c.code]; if (!L || !L.done) return '';
+  const cnt = k => (L.done[k] || []).reduce((s, r) => s + (r[1] - r[0]), 0), a = cnt("L1_items"), b = cnt("L2_items"); if (!a && !b) return '';
+  return '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">✍️ <b>पुनर्लेखन-प्रगति:</b> स्तर-1 के ' + a + '/500 और स्तर-2 के ' + b + '/1,650 वाक्य असली ' + c.hi_name + ' में लिखे जा चुके हैं।</p>'; }
 function nakalNote(c) {
   const n = NAKAL[c.code]; if (!n) return '';
   const src = KKB2_LANGS.find(x => x.code === n.of); if (!src) throw new Error("नक़ल-सूचना: '" + n.of + "' भाषा-सूची में नहीं");
@@ -3398,6 +3402,7 @@ function nakalNote(c) {
   return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFEBEE;border:2px solid #C62828;border-radius:10px;color:#0B1F3A">' +
     '<p style="font-size:17px;line-height:1.7;margin:0">⚠️ <b>सच्ची सूचना:</b> इस कोर्स के ज़्यादातर वाक्य अभी असल में <b>' + src.hi_name + '</b> के वाक्य हैं, ' + c.hi_name + ' के नहीं।</p>' +
     '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">असली ' + c.hi_name + ' में पुनर्लेखन जारी है। तब तक इसे ' + src.hi_name + ' के क़रीब का अभ्यास समझें।</p>' +
+    punarLine(c) +
     '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">आप ' + c.hi_name + ' जानते हैं? <a href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener" style="color:#C62828;font-weight:800;text-decoration:underline">भाषा संवर्धन समिति से जुड़ें</a></p></div>';
 }
 function kkb2Content(c) {

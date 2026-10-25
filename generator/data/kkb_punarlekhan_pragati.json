@@ -1,0 +1,17 @@
+{
+ "_": "नक़ल-भाषाओं का असली पुनर्लेखन — प्रगति का एकमात्र घर (25-Oct-2026 से)। हर खेप के बाद 'done' बढ़े; स्रोत-TSV generator/data/punarlekhan/<code>/ में (समिति-जाँच के लिए)। robot: generator/dev_kkb_punarlekhan_check.js · कोर्स-पेज की नक़ल-पट्टी यहीं से प्रगति दिखाती है।",
+ "order": ["acm", "acw", "apd", "aec", "ary", "arq", "nd", "dyu", "biy", "kfp"],
+ "order_why": "शोध/नीति: खाड़ी-रोजगार गलियारा + उपलब्ध विश्व-स्रोत पहले (इराक़ी — Founder-मुहर 25-Oct; फिर हिजाज़ी/सऊदी), फिर अफ़्रीका; भूमिज-कोरवा अंत में (विश्व-स्रोत कम — मसौदा + मूल-वक्ता जाँच अनिवार्य)",
+ "langs": {
+  "acm": { "source": "apc", "done": { "L1_items": [[0, 200]], "L1_test_weeks": [1, 2] }, "khep": 1 },
+  "acw": { "source": "apc", "done": {}, "khep": 0 },
+  "apd": { "source": "arz", "done": {}, "khep": 0 },
+  "aec": { "source": "arz", "done": {}, "khep": 0 },
+  "ary": { "source": "apc", "done": {}, "khep": 0 },
+  "arq": { "source": "apc", "done": {}, "khep": 0 },
+  "nd":  { "source": "zu",  "done": {}, "khep": 0 },
+  "dyu": { "source": "bm",  "done": {}, "khep": 0 },
+  "biy": { "source": "unr", "done": {}, "khep": 0 },
+  "kfp": { "source": "unr", "done": {}, "khep": 0 }
+ }
+}
