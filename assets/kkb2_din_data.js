@@ -923,15 +923,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Engati Liŋlith yin pioc wic?",
-       "एंगति लिंग्लिथ यिन पिओच विच?",
+       "Engati Thuɔŋjäŋ yin pioc wic?",
+       "एंगति थुओंगजांग यिन पिओच विच?",
        "आप डिंका क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Luoi path zawk puöth avangin Liŋlith öne pioc mek.",
-       "ल्ुओइ पथ ज़व्क प्ुओथ अवंगिन लिंग्लिथ ओने पिओच मेक।",
+       "Luoi path zawk puöth avangin Thuɔŋjäŋ öne pioc mek.",
+       "ल्ुओइ पथ ज़व्क प्ुओथ अवंगिन थुओंगजांग ओने पिओच मेक।",
        "मैं डिंका सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1058,8 +1058,8 @@ window.KKB2_DATA = {
       "रून गेन बि को था लि।"
      ],
      [
-      "Gen thiec Thok Liŋlith piny gen puöth luoi path.",
-      "गेन थ्िएच थोक लिंग्लिथ पिन्य गेन प्ुओथ ल्ुओइ पथ।"
+      "Gen thiec Thok Thuɔŋjäŋ piny gen puöth luoi path.",
+      "गेन थ्िएच थोक थुओंगजांग पिन्य गेन प्ुओथ ल्ुओइ पथ।"
      ]
     ]
    },
@@ -5473,8 +5473,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Hindi ṭawngin luel, Liŋlith ṭawngin got bi.",
-       "हिन्दि टव्ंगिन लुएल, लिंग्लिथ टव्ंगिन गोत बि।",
+       "Hindi ṭawngin luel, Thuɔŋjäŋ ṭawngin got bi.",
+       "हिन्दि टव्ंगिन लुएल, थुओंगजांग टव्ंगिन गोत बि।",
        "हिंदी में बोलो, वह डिंका में लिख देगा।",
        "L",
        "B"
@@ -5501,8 +5501,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Öne Liŋlith ke AI app-got daai tir.",
-       "ओने लिंग्लिथ के ऐ अप्प-गोत दाइ तिर।",
+       "Öne Thuɔŋjäŋ ke AI app-got daai tir.",
+       "ओने थुओंगजांग के ऐ अप्प-गोत दाइ तिर।",
        "मैं एआई ऐप से अपनी डिंका जँचवाता हूँ।",
        "S",
        "B"
@@ -9553,8 +9553,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — ka jalo या mme लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Thok Liŋlith öne pioc, luoi path öne ting.",
-        "Thok Liŋlith öne pioc piny luoi path öne ting."
+        "Thok Thuɔŋjäŋ öne pioc, luoi path öne ting.",
+        "Thok Thuɔŋjäŋ öne pioc piny luoi path öne ting."
        ],
        [
         "Luoi a har a, öne dawt acie.",
@@ -14607,8 +14607,8 @@ window.KKB2_DATA = {
         "Khoso öne thok teno piny tlhahlobo öne ti bi."
        ],
        [
-        "Thok Liŋlith a har hle. Öne chingfel acie.",
-        "Thok Liŋlith a har hle mahse öne chingfel acie."
+        "Thok Thuɔŋjäŋ a har hle. Öne chingfel acie.",
+        "Thok Thuɔŋjäŋ a har hle mahse öne chingfel acie."
        ]
       ]
      },
@@ -14691,8 +14691,8 @@ window.KKB2_DATA = {
     "goal": "Minute hnih chhung डिंका lar jin thawnthu thla thum chhung sawi — tihlau hmasa, zirna lät-mmaraka-loeto-visa, le toro tur.",
     "lines": [
      [
-      "Pei thum lo teno chhungin Thok Liŋlith a har hle öne ne.",
-      "पेइ थुम लो तेनो च्हुंगिन थोक लिंग्लिथ अ हर ह्ले ओने ने।"
+      "Pei thum lo teno chhungin Thok Thuɔŋjäŋ a har hle öne ne.",
+      "पेइ थुम लो तेनो च्हुंगिन थोक थुओंगजांग अ हर ह्ले ओने ने।"
      ],
      [
       "Ne tin ṭawngkam sawmthum öne pioc.",
@@ -14715,8 +14715,8 @@ window.KKB2_DATA = {
       "तव्प्न केने टन्न यम अ ने।"
      ],
      [
-      "Rin Thok Liŋlith, rin nonofo.",
-      "रिन थोक लिंग्लिथ, रिन नोनोफ़ो।"
+      "Rin Thok Thuɔŋjäŋ, rin nonofo.",
+      "रिन थोक थुओंगजांग, रिन नोनोफ़ो।"
      ]
     ]
    },

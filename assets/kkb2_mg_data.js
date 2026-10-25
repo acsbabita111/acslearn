@@ -921,15 +921,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Nahoana ianao no mianatra teny anglisy?",
-       "नहून ईनौ नु मीनत्र तेन्य् अन्ग्लिसि?",
+       "Nahoana ianao no mianatra teny malagasy?",
+       "नहून ईनौ नु मीनत्र तेन्य् मलगसि?",
        "आप मालागासी क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Mianatra teny anglisy aho mba hahazoako asa tsara.",
-       "मीनत्र तेन्य् अन्ग्लिसि अहु म्ब हहज़ूकु अस त्सर.",
+       "Mianatra teny malagasy aho mba hahazoako asa tsara.",
+       "मीनत्र तेन्य् मलगसि अहु म्ब हहज़ूकु अस त्सर.",
        "मैं मालागासी सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1088,8 +1088,8 @@ window.KKB2_DATA = {
       "हीन्त्सु अनौ अहु रहम्पित्सु."
      ],
      [
-      "Mianatra teny anglisy aho mba hahazoako asa tsara.",
-      "मीनत्र तेन्य् अन्ग्लिसि अहु म्ब हहज़ूकु अस त्सर."
+      "Mianatra teny malagasy aho mba hahazoako asa tsara.",
+      "मीनत्र तेन्य् मलगसि अहु म्ब हहज़ूकु अस त्सर."
      ]
     ]
    }
@@ -1259,8 +1259,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Mianatra teny anglisy telopolo minitra isan'andro aho.",
-       "मीनत्र तेन्य् अन्ग्लिसि तेलुपुलु मिनित्र इसनु अहु.",
+       "Mianatra teny malagasy telopolo minitra isan'andro aho.",
+       "मीनत्र तेन्य् मलगसि तेलुपुलु मिनित्र इसनु अहु.",
        "मैं रोज़ आधा घंटा मालागासी सीखता हूँ।",
        "S",
        "B"
@@ -3362,8 +3362,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mianatra teny anglisy mandritra ny mandehanana.",
-       "मीनत्र तेन्य् अन्ग्लिसि मित्र न्य् मन्देहनन.",
+       "Mianatra teny malagasy mandritra ny mandehanana.",
+       "मीनत्र तेन्य् मलगसि मित्र न्य् मन्देहनन.",
        "मैं टहलते-टहलते मालागासी का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4117,8 +4117,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Niresaka teny anglisy tamin'ny patrao aho omaly.",
-       "निरेसक तेन्य् अन्ग्लिसि तमिन्न्य् पत्रौ अहु उमलि.",
+       "Niresaka teny malagasy tamin'ny patrao aho omaly.",
+       "निरेसक तेन्य् मलगसि तमिन्न्य् पत्रौ अहु उमलि.",
        "कल मैंने सुपरवाइज़र से मालागासी में बात की।",
        "S",
        "B"
@@ -4131,8 +4131,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Manokatra varavarana vaovao amiko ny teny anglisy.",
-       "मनुकत्र वरवरन वौवौ अमिकु न्य् तेन्य् अन्ग्लिसि.",
+       "Manokatra varavarana vaovao amiko ny teny malagasy.",
+       "मनुकत्र वरवरन वौवौ अमिकु न्य् तेन्य् मलगसि.",
        "मालागासी मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4249,8 +4249,8 @@ window.KKB2_DATA = {
       "हन्कन्य् अन्-त्रनु अहु अमिन्न्य् वुलन हु अवि."
      ],
      [
-      "Manokatra varavarana vaovao amiko ny teny anglisy.",
-      "मनुकत्र वरवरन वौवौ अमिकु न्य् तेन्य् अन्ग्लिसि."
+      "Manokatra varavarana vaovao amiko ny teny malagasy.",
+      "मनुकत्र वरवरन वौवौ अमिकु न्य् तेन्य् मलगसि."
      ],
      [
       "Miantso an'i Nenitoa aho.",
@@ -5507,8 +5507,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Miteneny malagasy, hanoratra teny anglisy izy.",
-       "मितेनेन्य् मलगसि, हनुरत्र तेन्य् अन्ग्लिसि इज़ि.",
+       "Miteneny malagasy, hanoratra teny malagasy izy.",
+       "मितेनेन्य् मलगसि, हनुरत्र तेन्य् मलगसि इज़ि.",
        "हिंदी में बोलो, वह मालागासी में लिख देगा।",
        "L",
        "B"
@@ -5535,8 +5535,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Manaraka ny teny anglisiko aho amin'ny fampiasana AI.",
-       "मनरक न्य् तेन्य् अन्ग्लिसिकु अहु अमिन्न्य् फ़म्पीसन ऐ.",
+       "Manaraka ny teny malagasiko aho amin'ny fampiasana AI.",
+       "मनरक न्य् तेन्य् मलगसिकु अहु अमिन्न्य् फ़म्पीसन ऐ.",
        "मैं एआई ऐप से अपनी मालागासी जँचवाता हूँ।",
        "S",
        "B"
@@ -8619,8 +8619,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Afaka miteny anglisy tsotra aho.",
-       "अफ़क मितेन्य् अन्ग्लिसि त्सुत्र अहु.",
+       "Afaka miteny malagasy tsotra aho.",
+       "अफ़क मितेन्य् मलगसि त्सुत्र अहु.",
        "मैं सादी मालागासी बोल सकता हूँ।",
        "S",
        "A"
@@ -9598,8 +9598,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Mianatra teny anglisy aho. Tonga asa tsara amiko.",
-        "Mianatra teny anglisy aho, izay no niavian'ny asa tsara amiko."
+        "Mianatra teny malagasy aho. Tonga asa tsara amiko.",
+        "Mianatra teny malagasy aho, izay no niavian'ny asa tsara amiko."
        ],
        [
         "Sarotra ny asa, saingy tsy niala aho.",
@@ -9616,8 +9616,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Ankehitriny afaka miteny momba ny asako amin'ny teny anglisy aho.",
-       "अन्केहित्रिन्य् अफ़क मितेन्य् मुम्ब न्य् असकु अमिन्न्य् तेन्य् अन्ग्लिसि अहु.",
+       "Ankehitriny afaka miteny momba ny asako amin'ny teny malagasy aho.",
+       "अन्केहित्रिन्य् अफ़क मितेन्य् मुम्ब न्य् असकु अमिन्न्य् तेन्य् मलगसि अहु.",
        "अब मैं अपने काम की बात मालागासी में कर सकता हूँ।",
        "S",
        "B"
@@ -9637,8 +9637,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Nilaza ny tompoko fa mandroso tsara ny teny anglisiko.",
-       "निलज़ न्य् तुम्पुकु फ़ मुसु त्सर न्य् तेन्य् अन्ग्लिसिकु.",
+       "Nilaza ny tompoko fa mandroso tsara ny teny malagasiko.",
+       "निलज़ न्य् तुम्पुकु फ़ मुसु त्सर न्य् तेन्य् मलगसिकु.",
        "मालिक ने कहा मेरी मालागासी सुधर रही है।",
        "S",
        "B"
@@ -9714,15 +9714,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mora amiko izao ny teny anglisiny.",
-       "मुर अमिकु इज़ौ न्य् तेन्य् अन्ग्लिसिन्य्.",
+       "Mora amiko izao ny teny malagasiny.",
+       "मुर अमिकु इज़ौ न्य् तेन्य् मलगसिन्य्.",
        "मालागासी शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Indraindray mieritreritra amin'ny teny anglisy fohy aho.",
-       "इैइ मीरित्रेरित्र अमिन्न्य् तेन्य् अन्ग्लिसि फ़ुहि अहु.",
+       "Indraindray mieritreritra amin'ny teny malagasy fohy aho.",
+       "इैइ मीरित्रेरित्र अमिन्न्य् तेन्य् मलगसि फ़ुहि अहु.",
        "कभी-कभी मैं छोटी मालागासी पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9749,15 +9749,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Hianatra teny anglisin'ny tsena aho amin'ny volana ho avy.",
-       "हीनत्र तेन्य् अन्ग्लिसिन्न्य् त्सेन अहु अमिन्न्य् वुलन हु अवि.",
+       "Hianatra teny malagasin'ny tsena aho amin'ny volana ho avy.",
+       "हीनत्र तेन्य् मलगसिन्न्य् त्सेन अहु अमिन्न्य् वुलन हु अवि.",
        "अगले महीने मैं बाजार की मालागासी सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Avy eo teny anglisin'ny lamasinina sy ny fiara.",
-       "अवि ए तेन्य् अन्ग्लिसिन्न्य् लमसिनिन सि न्य् फ़ीर.",
+       "Avy eo teny malagasin'ny lamasinina sy ny fiara.",
+       "अवि ए तेन्य् मलगसिन्न्य् लमसिनिन सि न्य् फ़ीर.",
        "फिर ट्रेन-बस के सफ़र की मालागासी।",
        "S",
        "C"
@@ -9812,8 +9812,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Ny teny anglisiko, ny herikoro.",
-       "न्य् तेन्य् अन्ग्लिसिकु, न्य् हेरिकुरु.",
+       "Ny teny malagasiko, ny herikoro.",
+       "न्य् तेन्य् मलगसिकु, न्य् हेरिकुरु.",
        "मेरी मालागासी, मेरी ताक़त।",
        "S",
        "B"
@@ -12087,8 +12087,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mianatra teny anglisy mandritra ny diako aho.",
-       "मीनत्र तेन्य् अन्ग्लिसि मित्र न्य् दीकु अहु.",
+       "Mianatra teny malagasy mandritra ny diako aho.",
+       "मीनत्र तेन्य् मलगसि मित्र न्य् दीकु अहु.",
        "मैं सफ़र में अपने मालागासी वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -14676,8 +14676,8 @@ window.KKB2_DATA = {
         "Vita ny fianarako, izay no hanaovako fitsapana."
        ],
        [
-        "Sarotra ny teny anglisy, saingy tsy niala aho.",
-        "Sarotra ny teny anglisy, saingy tsy niala aho."
+        "Sarotra ny teny malagasy, saingy tsy niala aho.",
+        "Sarotra ny teny malagasy, saingy tsy niala aho."
        ]
       ]
      },
@@ -14792,8 +14792,8 @@ window.KKB2_DATA = {
     "goal": "दो मिनट English में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
     "lines": [
      [
-      "Telo volana lasa, ny teny anglisy dia toy ny vato lehibe ho ahy.",
-      "तेलु वुलन लस, न्य् तेन्य् अन्ग्लिसि दी तुइ न्य् वतु लेहिबे हु अहि."
+      "Telo volana lasa, ny teny malagasy dia toy ny vato lehibe ho ahy.",
+      "तेलु वुलन लस, न्य् तेन्य् मलगसि दी तुइ न्य् वतु लेहिबे हु अहि."
      ],
      [
       "Isan'andro dia nianatra teny telopolo aho.",

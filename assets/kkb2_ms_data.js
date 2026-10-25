@@ -923,15 +923,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kenapa anda mahu belajar bahasa Inggeris?",
-       "कनापा आन्दा माहू बलाजार बहासा इंग्ग्रिस?",
+       "Kenapa anda mahu belajar bahasa Melayu?",
+       "कनापा आन्दा माहू बलाजार बहासा मलायु?",
        "आप मलय क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Saya sedang belajar bahasa Inggeris kerana saya mahu kerja yang lebih baik.",
-       "साया सदांग बलाजार बहासा इंग्ग्रिस करना साया माहू करजा यांग लेबिह बाइक।",
+       "Saya sedang belajar bahasa Melayu kerana saya mahu kerja yang lebih baik.",
+       "साया सदांग बलाजार बहासा मलायु करना साया माहू करजा यांग लेबिह बाइक।",
        "मैं मलय सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1261,8 +1261,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Saya belajar bahasa Inggeris selama setengah jam setiap hari.",
-       "साया बलाजार बहासा इंग्ग्रिस सलामा सतंगाह जाम सतियाप हारि।",
+       "Saya belajar bahasa Melayu selama setengah jam setiap hari.",
+       "साया बलाजार बहासा मलायु सलामा सतंगाह जाम सतियाप हारि।",
        "मैं रोज़ आधा घंटा मलय सीखता हूँ।",
        "S",
        "B"
@@ -3365,8 +3365,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Saya berlatih bahasa Inggeris semasa berjalan.",
-       "साया बरलातिह बहासा इंग्ग्रिस समासा बरजालन।",
+       "Saya berlatih bahasa Melayu semasa berjalan.",
+       "साया बरलातिह बहासा मलायु समासा बरजालन।",
        "मैं टहलते-टहलते मलय का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4120,8 +4120,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Semalam saya bercakap bahasa Inggeris dengan penyelia saya.",
-       "समालम साया बरचकप बहासा इंग्ग्रिस देंगान पन्येलिया साया।",
+       "Semalam saya bercakap bahasa Melayu dengan penyelia saya.",
+       "समालम साया बरचकप बहासा मलायु देंगान पन्येलिया साया।",
        "कल मैंने सुपरवाइज़र से मलय में बात की।",
        "S",
        "B"
@@ -4134,8 +4134,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Bahasa Inggeris membuka pintu baharu untuk saya.",
-       "बहासा इंग्ग्रिस मम्बुका पिन्तु बाहारु उन्तुक साया।",
+       "Bahasa Melayu membuka pintu baharu untuk saya.",
+       "बहासा मलायु मम्बुका पिन्तु बाहारु उन्तुक साया।",
        "मलय मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -5515,8 +5515,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Bercakap dalam bahasa Hindi, ia akan tulis dalam bahasa Inggeris.",
-       "बरचकप दालम बहासा हिन्दी, इया आकान तुलिस दालम बहासा इंग्ग्रिस।",
+       "Bercakap dalam bahasa Hindi, ia akan tulis dalam bahasa Melayu.",
+       "बरचकप दालम बहासा हिन्दी, इया आकान तुलिस दालम बहासा मलायु।",
        "हिंदी में बोलो, वह मलय में लिख देगा।",
        "L",
        "B"
@@ -5543,8 +5543,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Saya minta aplikasi AI menyemak bahasa Inggeris saya.",
-       "साया मिन्ता आप्लिकासि एआई मन्येमक बहासा इंग्ग्रिस साया।",
+       "Saya minta aplikasi AI menyemak bahasa Melayu saya.",
+       "साया मिन्ता आप्लिकासि एआई मन्येमक बहासा मलायु साया।",
        "मैं एआई ऐप से अपनी मलय जँचवाता हूँ।",
        "S",
        "B"
@@ -6911,15 +6911,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Bahasa Inggeris diperlukan untuk kerja yang lebih besar.",
-       "बहासा इंग्ग्रिस दिपरलुकन उन्तुक करजा यांग लेबिह बसार।",
+       "Bahasa Melayu diperlukan untuk kerja yang lebih besar.",
+       "बहासा मलायु दिपरलुकन उन्तुक करजा यांग लेबिह बसार।",
        "बड़े काम के लिए मलय चाहिए।",
        "S",
        "C"
       ],
       [
-       "Saya berlatih bahasa Inggeris dengan rakan sekerja saya.",
-       "साया बरलातिह बहासा इंग्ग्रिस देंगान रकन सकरजा साया।",
+       "Saya berlatih bahasa Melayu dengan rakan sekerja saya.",
+       "साया बरलातिह बहासा मलायु देंगान रकन सकरजा साया।",
        "मैं साथियों के साथ मलय का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8631,8 +8631,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Saya boleh bercakap bahasa Inggeris yang mudah.",
-       "साया बोलेह बरचकप बहासा इंग्ग्रिस यांग मुदाह।",
+       "Saya boleh bercakap bahasa Melayu yang mudah.",
+       "साया बोलेह बरचकप बहासा मलायु यांग मुदाह।",
        "मैं सादी मलय बोल सकता हूँ।",
        "S",
        "A"
@@ -9610,8 +9610,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — jadi या tetapi लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Saya belajar bahasa Inggeris. Saya dapat kerja yang lebih baik.",
-        "Saya belajar bahasa Inggeris, jadi saya dapat kerja yang lebih baik."
+        "Saya belajar bahasa Melayu. Saya dapat kerja yang lebih baik.",
+        "Saya belajar bahasa Melayu, jadi saya dapat kerja yang lebih baik."
        ],
        [
         "Kerja itu susah. Saya tidak berhenti.",
@@ -9628,8 +9628,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Sekarang saya boleh bercakap tentang kerja saya dalam bahasa Inggeris.",
-       "सकारांग साया बोलेह बरचकप तेंतांग करजा साया दालम बहासा इंग्ग्रिस।",
+       "Sekarang saya boleh bercakap tentang kerja saya dalam bahasa Melayu.",
+       "सकारांग साया बोलेह बरचकप तेंतांग करजा साया दालम बहासा मलायु।",
        "अब मैं अपने काम की बात मलय में कर सकता हूँ।",
        "S",
        "B"
@@ -9649,8 +9649,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Pemilik itu berkata bahasa Inggeris saya semakin baik.",
-       "पमिलिक इतु बरकाता बहासा इंग्ग्रिस साया समाकिन बाइक।",
+       "Pemilik itu berkata bahasa Melayu saya semakin baik.",
+       "पमिलिक इतु बरकाता बहासा मलायु साया समाकिन बाइक।",
        "मालिक ने कहा मेरी मलय सुधर रही है।",
        "S",
        "B"
@@ -9726,15 +9726,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Perkataan bahasa Inggeris kini datang dengan mudah kepada saya.",
-       "परकाताआन बहासा इंग्ग्रिस किनि दातांग देंगान मुदाह कपादा साया।",
+       "Perkataan bahasa Melayu kini datang dengan mudah kepada saya.",
+       "परकाताआन बहासा मलायु किनि दातांग देंगान मुदाह कपादा साया।",
        "मलय शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Kadang-kadang saya berfikir dalam ayat bahasa Inggeris yang kecil.",
-       "कादांग-कादांग साया बरफ़िकिर दालम आयत बहासा इंग्ग्रिस यांग कचिल।",
+       "Kadang-kadang saya berfikir dalam ayat bahasa Melayu yang kecil.",
+       "कादांग-कादांग साया बरफ़िकिर दालम आयत बहासा मलायु यांग कचिल।",
        "कभी-कभी मैं छोटी मलय पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9761,15 +9761,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Bulan depan saya akan belajar bahasa Inggeris pasar.",
-       "बुलान दपन साया आकान बलाजार बहासा इंग्ग्रिस पासार।",
+       "Bulan depan saya akan belajar bahasa Melayu pasar.",
+       "बुलान दपन साया आकान बलाजार बहासा मलायु पासार।",
        "अगले महीने मैं बाजार की मलय सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Kemudian bahasa Inggeris perjalanan untuk kereta api dan bas.",
-       "कमुदियन बहासा इंग्ग्रिस परजालानन उन्तुक केरेता आपि दान बास।",
+       "Kemudian bahasa Melayu perjalanan untuk kereta api dan bas.",
+       "कमुदियन बहासा मलायु परजालानन उन्तुक केरेता आपि दान बास।",
        "फिर ट्रेन-बस के सफ़र की मलय।",
        "S",
        "C"
@@ -9824,8 +9824,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Bahasa Inggeris saya, kuasa saya.",
-       "बहासा इंग्ग्रिस साया, कुआसा साया।",
+       "Bahasa Melayu saya, kuasa saya.",
+       "बहासा मलायु साया, कुआसा साया।",
        "मेरी मलय, मेरी ताक़त।",
        "S",
        "B"
@@ -12099,8 +12099,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Saya baca ayat bahasa Inggeris saya dalam perjalanan itu.",
-       "साया बाचा आयत बहासा इंग्ग्रिस साया दालम परजालानन इतु।",
+       "Saya baca ayat bahasa Melayu saya dalam perjalanan itu.",
+       "साया बाचा आयत बहासा मलायु साया दालम परजालानन इतु।",
        "मैं सफ़र में अपने मलय वाक्य पढ़ता हूँ।",
        "S",
        "B"

@@ -922,15 +922,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Why you wan learn English?",
-       "व्हाय यू वान लर्न इंग्लिश?",
+       "Why you wan learn Pidgin?",
+       "व्हाय यू वान लर्न पिजिन?",
        "आप नाइजीरियन पिजिन क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "I dey learn English because I want better work.",
-       "आय डे लर्न इंग्लिश बिकॉज़ आय वांट बेटर वर्क।",
+       "I dey learn Pidgin because I want better work.",
+       "आय डे लर्न पिजिन बिकॉज़ आय वांट बेटर वर्क।",
        "मैं नाइजीरियन पिजिन सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1057,8 +1057,8 @@ window.KKB2_DATA = {
       "टुमॉरो मॉर्निंग आय गो कॉल यू।"
      ],
      [
-      "I dey learn English because I want better work.",
-      "आय डे लर्न इंग्लिश बिकॉज़ आय वांट बेटर वर्क।"
+      "I dey learn Pidgin because I want better work.",
+      "आय डे लर्न पिजिन बिकॉज़ आय वांट बेटर वर्क।"
      ]
     ]
    },
@@ -1260,8 +1260,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "I dey learn English for half hour every day.",
-       "आय डे लर्न इंग्लिश फ़ॉर हाफ़ आवर एवरी डे।",
+       "I dey learn Pidgin for half hour every day.",
+       "आय डे लर्न पिजिन फ़ॉर हाफ़ आवर एवरी डे।",
        "मैं रोज़ आधा घंटा नाइजीरियन पिजिन सीखता हूँ।",
        "S",
        "B"
@@ -3364,8 +3364,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "I dey practice English while I dey walk.",
-       "आय डे प्रैक्टिस इंग्लिश वाइल आय डे वॉक।",
+       "I dey practice Pidgin while I dey walk.",
+       "आय डे प्रैक्टिस पिजिन वाइल आय डे वॉक।",
        "मैं टहलते-टहलते नाइजीरियन पिजिन का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4119,8 +4119,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Yesterday I speak English with my boss.",
-       "येस्टरडे आय स्पीक इंग्लिश विथ माय बॉस।",
+       "Yesterday I speak Pidgin with my boss.",
+       "येस्टरडे आय स्पीक पिजिन विथ माय बॉस।",
        "कल मैंने सुपरवाइज़र से नाइजीरियन पिजिन में बात की।",
        "S",
        "B"
@@ -4133,8 +4133,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "English dey open new door for me.",
-       "इंग्लिश डे ओपन न्यू डोर फ़ॉर मी।",
+       "Pidgin dey open new door for me.",
+       "पिजिन डे ओपन न्यू डोर फ़ॉर मी।",
        "नाइजीरियन पिजिन मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4219,8 +4219,8 @@ window.KKB2_DATA = {
       "आय डे कम हाउस नेक्स्ट मंथ।"
      ],
      [
-      "I dey learn English because I want better work.",
-      "आय डे लर्न इंग्लिश बिकॉज़ आय वांट बेटर वर्क।"
+      "I dey learn Pidgin because I want better work.",
+      "आय डे लर्न पिजिन बिकॉज़ आय वांट बेटर वर्क।"
      ],
      [
       "Greet grandpapa for me.",
@@ -5514,8 +5514,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Speak Pidgin, e go write for English.",
-       "स्पीक पिजिन, ई गो राइट फ़ॉर इंग्लिश।",
+       "Speak Pidgin, e go write for Pidgin.",
+       "स्पीक पिजिन, ई गो राइट फ़ॉर पिजिन।",
        "हिंदी में बोलो, वह नाइजीरियन पिजिन में लिख देगा।",
        "L",
        "B"
@@ -5542,8 +5542,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "I ask the AI app to check my English.",
-       "आय आस्क द एआई ऐप टू चेक माय इंग्लिश।",
+       "I ask the AI app to check my Pidgin.",
+       "आय आस्क द एआई ऐप टू चेक माय पिजिन।",
        "मैं एआई ऐप से अपनी नाइजीरियन पिजिन जँचवाता हूँ।",
        "S",
        "B"
@@ -6910,15 +6910,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "English dey needed for bigger job.",
-       "इंग्लिश डे नीडेड फ़ॉर बिगर जॉब।",
+       "Pidgin dey needed for bigger job.",
+       "पिजिन डे नीडेड फ़ॉर बिगर जॉब।",
        "बड़े काम के लिए नाइजीरियन पिजिन चाहिए।",
        "S",
        "C"
       ],
       [
-       "I dey practice English with my colleagues.",
-       "आय डे प्रैक्टिस इंग्लिश विथ माय कलीग्स।",
+       "I dey practice Pidgin with my colleagues.",
+       "आय डे प्रैक्टिस पिजिन विथ माय कलीग्स।",
        "मैं साथियों के साथ नाइजीरियन पिजिन का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8630,8 +8630,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "I fit speak simple English.",
-       "आय फ़िट स्पीक सिंपल इंग्लिश।",
+       "I fit speak simple Pidgin.",
+       "आय फ़िट स्पीक सिंपल पिजिन।",
        "मैं सादी नाइजीरियन पिजिन बोल सकता हूँ।",
        "S",
        "A"
@@ -9609,8 +9609,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "I learn English. I get better work.",
-        "I learn English, so I get better work."
+        "I learn Pidgin. I get better work.",
+        "I learn Pidgin, so I get better work."
        ],
        [
         "The work hard. I no give up.",
@@ -9627,8 +9627,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Now I fit talk about my work for English.",
-       "नाउ आय फ़िट टॉक अबाउट माय वर्क फ़ॉर इंग्लिश।",
+       "Now I fit talk about my work for Pidgin.",
+       "नाउ आय फ़िट टॉक अबाउट माय वर्क फ़ॉर पिजिन।",
        "अब मैं अपने काम की बात नाइजीरियन पिजिन में कर सकता हूँ।",
        "S",
        "B"
@@ -9648,8 +9648,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "The boss talk say my English dey improve.",
-       "द बॉस टॉक से माय इंग्लिश डे इंप्रूव।",
+       "The boss talk say my Pidgin dey improve.",
+       "द बॉस टॉक से माय पिजिन डे इंप्रूव।",
        "मालिक ने कहा मेरी नाइजीरियन पिजिन सुधर रही है।",
        "S",
        "B"
@@ -9725,15 +9725,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Now English words dey come easy for me.",
-       "नाउ इंग्लिश वर्ड्स डे कम ईज़ी फ़ॉर मी।",
+       "Now Pidgin words dey come easy for me.",
+       "नाउ पिजिन वर्ड्स डे कम ईज़ी फ़ॉर मी।",
        "नाइजीरियन पिजिन शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Sometime I dey think in short English sentence.",
-       "समटाइम आय डे थिंक इन शॉर्ट इंग्लिश सेंटेंस।",
+       "Sometime I dey think in short Pidgin sentence.",
+       "समटाइम आय डे थिंक इन शॉर्ट पिजिन सेंटेंस।",
        "कभी-कभी मैं छोटी नाइजीरियन पिजिन पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9760,15 +9760,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Next month I go learn market English.",
-       "नेक्स्ट मंथ आय गो लर्न मार्केट इंग्लिश।",
+       "Next month I go learn market Pidgin.",
+       "नेक्स्ट मंथ आय गो लर्न मार्केट पिजिन।",
        "अगले महीने मैं बाजार की नाइजीरियन पिजिन सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Then travel English for train and bus.",
-       "देन ट्रैवल इंग्लिश फ़ॉर ट्रेन एंड बस।",
+       "Then travel Pidgin for train and bus.",
+       "देन ट्रैवल पिजिन फ़ॉर ट्रेन एंड बस।",
        "फिर ट्रेन-बस के सफ़र की नाइजीरियन पिजिन।",
        "S",
        "C"
@@ -12098,8 +12098,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "I dey read my English sentences during the journey.",
-       "आय डे रीड माय इंग्लिश सेंटेंसेस ड्यूरिंग द जर्नी।",
+       "I dey read my Pidgin sentences during the journey.",
+       "आय डे रीड माय पिजिन सेंटेंसेस ड्यूरिंग द जर्नी।",
        "मैं सफ़र में अपने नाइजीरियन पिजिन वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -14771,8 +14771,8 @@ window.KKB2_DATA = {
     "goal": "दो मिनट नाइजीरियन पिजिन में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
     "lines": [
      [
-      "Three months ago English be like wall for me.",
-      "थ्री मंथ्स अगो इंग्लिश बी लाइक वॉल फ़ॉर मी।"
+      "Three months ago Pidgin be like wall for me.",
+      "थ्री मंथ्स अगो पिजिन बी लाइक वॉल फ़ॉर मी।"
      ],
      [
       "I don learn thirty sentence every day.",
@@ -14783,8 +14783,8 @@ window.KKB2_DATA = {
       "आय फ़िट टॉक फ़ॉर हाउस, फ़ॉर वर्क, फ़ॉर मार्केट एंड फ़ॉर एयरपोर्ट।"
      ],
      [
-      "I do phone interview for English.",
-      "आय डू फ़ोन इंटरव्यू फ़ॉर इंग्लिश।"
+      "I do phone interview for Pidgin.",
+      "आय डू फ़ोन इंटरव्यू फ़ॉर पिजिन।"
      ],
      [
       "I don learn answer for the visa interview.",

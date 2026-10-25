@@ -921,15 +921,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Maaliif Ingliffa baratta?",
-       "मालीफ़् इन्ग्लिफ़्फ़ बरत्त?",
+       "Maaliif Afaan Oromoo baratta?",
+       "मालीफ़् अफ़ान् ओरोमो बरत्त?",
        "आप ओरोमो क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Ingliffa nan barata hojii gaarii argachuuf.",
-       "इन्ग्लिफ़्फ़ नन् बरत होजी गारी अर्गचूफ़्.",
+       "Afaan Oromoo nan barata hojii gaarii argachuuf.",
+       "अफ़ान् ओरोमो नन् बरत होजी गारी अर्गचूफ़्.",
        "मैं ओरोमो सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1088,8 +1088,8 @@ window.KKB2_DATA = {
       "बोरु सीफ़् बिल्बिल."
      ],
      [
-      "Ingliffa nan barata hojii gaarii argachuuf.",
-      "इन्ग्लिफ़्फ़ नन् बरत होजी गारी अर्गचूफ़्."
+      "Afaan Oromoo nan barata hojii gaarii argachuuf.",
+      "अफ़ान् ओरोमो नन् बरत होजी गारी अर्गचूफ़्."
      ]
     ]
    }
@@ -1259,8 +1259,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Guyyaa hunda Ingliffa daqiiqaa soddoma baradha.",
-       "गुय्या हुन्द इन्ग्लिफ़्फ़ दकीका सोद्दोम बरड.",
+       "Guyyaa hunda Afaan Oromoo daqiiqaa soddoma baradha.",
+       "गुय्या हुन्द अफ़ान् ओरोमो दकीका सोद्दोम बरड.",
        "मैं रोज़ आधा घंटा ओरोमो सीखता हूँ।",
        "S",
        "B"
@@ -3358,8 +3358,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Deemaan Ingliffa baradha.",
-       "देमान् इन्ग्लिफ़्फ़ बरड.",
+       "Deemaan Afaan Oromoo baradha.",
+       "देमान् अफ़ान् ओरोमो बरड.",
        "मैं टहलते-टहलते ओरोमो का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4113,8 +4113,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kaleessa Ingliffa bulchaa kootiin haasa'e.",
-       "कलेस्स इन्ग्लिफ़्फ़ बुल्चा कोतीन् हासए.",
+       "Kaleessa Afaan Oromoo bulchaa kootiin haasa'e.",
+       "कलेस्स अफ़ान् ओरोमो बुल्चा कोतीन् हासए.",
        "कल मैंने सुपरवाइज़र से ओरोमो में बात की।",
        "S",
        "B"
@@ -4127,8 +4127,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ingliffaan balbala haaraa naaf bana.",
-       "इन्ग्लिफ़्फ़ान् बल्बल हारा नाफ़् बन.",
+       "Afaan Oromoon balbala haaraa naaf bana.",
+       "अफ़ान् ओरोमोन् बल्बल हारा नाफ़् बन.",
        "ओरोमो मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4245,8 +4245,8 @@ window.KKB2_DATA = {
       "जिअ डुफ़ु मन देम."
      ],
      [
-      "Ingliffaan balbala haaraa naaf bana.",
-      "इन्ग्लिफ़्फ़ान् बल्बल हारा नाफ़् बन."
+      "Afaan Oromoon balbala haaraa naaf bana.",
+      "अफ़ान् ओरोमोन् बल्बल हारा नाफ़् बन."
      ],
      [
       "Akaakoo naaf haasa'i.",
@@ -5505,8 +5505,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Afaan Oromoo dubbadhu, Ingliffaan barreessa.",
-       "अफ़ान् ओरोमो दुब्बडु, इन्ग्लिफ़्फ़ान् बर्रेस्स.",
+       "Afaan Oromoo dubbadhu, Afaan Oromoon barreessa.",
+       "अफ़ान् ओरोमो दुब्बडु, अफ़ान् ओरोमोन् बर्रेस्स.",
        "हिंदी में बोलो, वह ओरोमो में लिख देगा।",
        "L",
        "B"
@@ -5533,8 +5533,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ingliffa koo meeshaa AI fayyadamee ilaalaa jira.",
-       "इन्ग्लिफ़्फ़ को मेशा आ फ़य्यदमे इलाला जिर.",
+       "Afaan Oromoo koo meeshaa AI fayyadamee ilaalaa jira.",
+       "अफ़ान् ओरोमो को मेशा आ फ़य्यदमे इलाला जिर.",
        "मैं एआई ऐप से अपनी ओरोमो जँचवाता हूँ।",
        "S",
        "B"
@@ -6859,8 +6859,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Guyyaa hunda Ingliffa fooyyessuu barbaada.",
-       "गुय्या हुन्द इन्ग्लिफ़्फ़ फ़ोय्येस्सू बर्बाद.",
+       "Guyyaa hunda Afaan Oromoo fooyyessuu barbaada.",
+       "गुय्या हुन्द अफ़ान् ओरोमो फ़ोय्येस्सू बर्बाद.",
        "अब मैं चार लोगों की टीम चलाता हूँ।",
        "S",
        "B"
@@ -8617,8 +8617,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Ingliffa salphaa dubbachuu nan danda'a.",
-       "इन्ग्लिफ़्फ़ सल्फा दुब्बचू नन् दन्दअ.",
+       "Afaan Oromoo salphaa dubbachuu nan danda'a.",
+       "अफ़ान् ओरोमो सल्फा दुब्बचू नन् दन्दअ.",
        "मैं सादी ओरोमो बोल सकता हूँ।",
        "S",
        "A"
@@ -9596,8 +9596,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Ingliffa baradhaa jira. Hojiin gaariin naaf dhufe.",
-        "Ingliffa baradhaa jira, kanaaf hojiin gaariin naaf dhufe."
+        "Afaan Oromoo baradhaa jira. Hojiin gaariin naaf dhufe.",
+        "Afaan Oromoo baradhaa jira, kanaaf hojiin gaariin naaf dhufe."
        ],
        [
         "Hojiin ulfaataa ture, garuu hin dhiisne.",
@@ -9614,8 +9614,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Amma waa'ee hojii koo Ingliffaan dubbachuu nan danda'a.",
-       "अम्म वाए होजी को इन्ग्लिफ़्फ़ान् दुब्बचू नन् दन्दअ.",
+       "Amma waa'ee hojii koo Afaan Oromoon dubbachuu nan danda'a.",
+       "अम्म वाए होजी को अफ़ान् ओरोमोन् दुब्बचू नन् दन्दअ.",
        "अब मैं अपने काम की बात ओरोमो में कर सकता हूँ।",
        "S",
        "B"
@@ -9635,8 +9635,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Gooftaan Ingliffi koo fuulduraatti akka deeme dubbate.",
-       "गोफ़्तान् इन्ग्लिफ़्फ़ि को फ़ूल्दुरात्ति अक्क देमे दुब्बते.",
+       "Gooftaan Afaan Oromoo koo fuulduraatti akka deeme dubbate.",
+       "गोफ़्तान् अफ़ान् ओरोमो को फ़ूल्दुरात्ति अक्क देमे दुब्बते.",
        "मालिक ने कहा मेरी ओरोमो सुधर रही है।",
        "S",
        "B"
@@ -9712,15 +9712,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Jechoonni Ingliffaa amma naaf salphaa dha.",
-       "जेचोन्नि इन्ग्लिफ़्फ़ा अम्म नाफ़् सल्फा ड.",
+       "Jechoonni Afaan Oromoo amma naaf salphaa dha.",
+       "जेचोन्नि अफ़ान् ओरोमो अम्म नाफ़् सल्फा ड.",
        "ओरोमो शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Yeroo tokko tokko jechoota Ingliffaa gabaabaan yaada.",
-       "येरो तोक्को तोक्को जेचोत इन्ग्लिफ़्फ़ा गबाबान् याद.",
+       "Yeroo tokko tokko jechoota Afaan Oromoo gabaabaan yaada.",
+       "येरो तोक्को तोक्को जेचोत अफ़ान् ओरोमो गबाबान् याद.",
        "कभी-कभी मैं छोटी ओरोमो पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9747,15 +9747,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ji'a dhufu Ingliffa gabaa nan baradha.",
-       "जिअ डुफ़ु इन्ग्लिफ़्फ़ गबा नन् बरड.",
+       "Ji'a dhufu Afaan Oromoo gabaa nan baradha.",
+       "जिअ डुफ़ु अफ़ान् ओरोमो गबा नन् बरड.",
        "अगले महीने मैं बाजार की ओरोमो सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Ergasii Ingliffa baabuuraa fi buusii.",
-       "एर्गसी इन्ग्लिफ़्फ़ बाबूरा फ़ि बूसी.",
+       "Ergasii Afaan Oromoo baabuuraa fi buusii.",
+       "एर्गसी अफ़ान् ओरोमो बाबूरा फ़ि बूसी.",
        "फिर ट्रेन-बस के सफ़र की ओरोमो।",
        "S",
        "C"
@@ -9810,8 +9810,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Ingliffi koo, humni koo.",
-       "इन्ग्लिफ़्फ़ि को, हुम्नि को.",
+       "Afaan Oromoo koo, humni koo.",
+       "अफ़ान् ओरोमो को, हुम्नि को.",
        "मेरी ओरोमो, मेरी ताक़त।",
        "S",
        "B"
@@ -12085,8 +12085,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Jechoota Ingliffaa deemaan yaada.",
-       "जेचोत इन्ग्लिफ़्फ़ा देमान् याद.",
+       "Jechoota Afaan Oromoo deemaan yaada.",
+       "जेचोत अफ़ान् ओरोमो देमान् याद.",
        "मैं सफ़र में अपने ओरोमो वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -14674,8 +14674,8 @@ window.KKB2_DATA = {
         "Baruumsi koo xumurameera, kanaaf qormaata nan qora."
        ],
        [
-        "Ingliffi ulfaataa ture, garuu hin dhiisne.",
-        "Ingliffi ulfaataa ture, garuu hin dhiisne."
+        "Afaan Oromoo ulfaataa ture, garuu hin dhiisne.",
+        "Afaan Oromoo ulfaataa ture, garuu hin dhiisne."
        ]
       ]
      },
@@ -14790,8 +14790,8 @@ window.KKB2_DATA = {
     "goal": "दो मिनट English में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
     "lines": [
      [
-      "Ji'oota sadii dura, Ingliffi keessa koo dagaanaa ture.",
-      "जिओत सदी दुर, इन्ग्लिफ़्फ़ि केस्स को दगाना तुरे."
+      "Ji'oota sadii dura, Afaan Oromoo keessa koo dagaanaa ture.",
+      "जिओत सदी दुर, अफ़ान् ओरोमो केस्स को दगाना तुरे."
      ],
      [
       "Guyyaa hunda jecha soddoma baradhe.",

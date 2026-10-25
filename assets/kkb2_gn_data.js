@@ -925,15 +925,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mba'érepa reipota reikuaa inglés.",
-       "म्बाएरेपा रेइपोता रेइकुआ इन्ग्लेस।",
+       "Mba'érepa reipota reikuaa guarani.",
+       "म्बाएरेपा रेइपोता रेइकुआ गुआरानी।",
        "आप गुआरानी क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Aikuaa inglés mba'érepa aikotevẽ mba'apo iporãve.",
-       "आइकुआ इन्ग्लेस म्बाएरेपा आइकोतेवे म्बाआपो इपोरावे।",
+       "Aikuaa guarani mba'érepa aikotevẽ mba'apo iporãve.",
+       "आइकुआ गुआरानी म्बाएरेपा आइकोतेवे म्बाआपो इपोरावे।",
        "मैं गुआरानी सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1263,8 +1263,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Aikuaa inglés mbytepa aravo ára ha ára.",
-       "आइकुआ इन्ग्लेस म्बीतेपा आरावो आरा हा आरा।",
+       "Aikuaa guarani mbytepa aravo ára ha ára.",
+       "आइकुआ गुआरानी म्बीतेपा आरावो आरा हा आरा।",
        "मैं रोज़ आधा घंटा गुआरानी सीखता हूँ।",
        "S",
        "B"
@@ -3367,8 +3367,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Añemongeta inglés aguata aja.",
-       "आन्येमोन्गेता इन्ग्लेस आगुआता आखा।",
+       "Añemongeta guarani aguata aja.",
+       "आन्येमोन्गेता गुआरानी आगुआता आखा।",
        "मैं टहलते-टहलते गुआरानी का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4048,8 +4048,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — because, so या than लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Aikuaa inglés. Ajuhu mba'apo iporãve.",
-        "Aikuaa inglés, mba'érepa ajuhu mba'apo iporãve."
+        "Aikuaa guarani. Ajuhu mba'apo iporãve.",
+        "Aikuaa guarani, mba'érepa ajuhu mba'apo iporãve."
        ],
        [
         "Mba'apo hasy. Ndaha'éi.",
@@ -4122,8 +4122,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kuehe añe'ẽ inglés-pe supervisor ndive.",
-       "कुएहे आन्येए इन्ग्लेस-पे सुपेर्विसोर न्दिवे।",
+       "Kuehe añe'ẽ guarani-pe supervisor ndive.",
+       "कुएहे आन्येए गुआरानी-पे सुपेर्विसोर न्दिवे।",
        "कल मैंने सुपरवाइज़र से गुआरानी में बात की।",
        "S",
        "B"
@@ -4136,8 +4136,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Inglés opẽ chéve tape pyahu.",
-       "इन्ग्लेस ओपे चेवे तापे प्याहु।",
+       "Guarani opẽ chéve tape pyahu.",
+       "गुआरानी ओपे चेवे तापे प्याहु।",
        "गुआरानी मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4218,8 +4218,8 @@ window.KKB2_DATA = {
       "आहाता ओगा-पे मेस ओहोवा।"
      ],
      [
-      "Inglés opẽ chéve tape pyahu.",
-      "इन्ग्लेस ओपे चेवे तापे प्याहु।"
+      "Guarani opẽ chéve tape pyahu.",
+      "गुआरानी ओपे चेवे तापे प्याहु।"
      ],
      [
       "Emombe'u jarýi che momorãha.",
@@ -5517,8 +5517,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Eñe'ẽ hindi-pe, ha'e ohaita inglés-pe.",
-       "एन्येए हिन्दी-पे, हाए ओहाइता इन्ग्लेस-पे।",
+       "Eñe'ẽ hindi-pe, ha'e ohaita guarani-pe.",
+       "एन्येए हिन्दी-पे, हाए ओहाइता गुआरानी-पे।",
        "हिंदी में बोलो, वह गुआरानी में लिख देगा।",
        "L",
        "B"
@@ -5545,8 +5545,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Amoañete che inglés IA rupive.",
-       "आमोआन्येते चे इन्ग्लेस इआ रुपिवे।",
+       "Amoañete che guarani IA rupive.",
+       "आमोआन्येते चे गुआरानी इआ रुपिवे।",
        "मैं एआई ऐप से अपनी गुआरानी जँचवाता हूँ।",
        "S",
        "B"
@@ -6913,15 +6913,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Mba'apo guasu-pe oikotevẽ inglés.",
-       "म्बाआपो गुआसु-पे ओइकोतेवे इन्ग्लेस।",
+       "Mba'apo guasu-pe oikotevẽ guarani.",
+       "म्बाआपो गुआसु-पे ओइकोतेवे गुआरानी।",
        "बड़े काम के लिए गुआरानी चाहिए।",
        "S",
        "C"
       ],
       [
-       "Añe'ẽ inglés che angirũkuéra ndive.",
-       "आन्येए इन्ग्लेस चे आन्गिरूकुएरा न्दिवे।",
+       "Añe'ẽ guarani che angirũkuéra ndive.",
+       "आन्येए गुआरानी चे आन्गिरूकुएरा न्दिवे।",
        "मैं साथियों के साथ गुआरानी का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8633,8 +8633,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Ikatu añe'ẽ inglés hekópe.",
-       "इकातु आन्येए इन्ग्लेस हेकोपे।",
+       "Ikatu añe'ẽ guarani hekópe.",
+       "इकातु आन्येए गुआरानी हेकोपे।",
        "मैं सादी गुआरानी बोल सकता हूँ।",
        "S",
        "A"
@@ -9612,8 +9612,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Aikuaa inglés. Ajuhu mba'apo iporãve.",
-        "Aikuaa inglés, upévare ajuhu mba'apo iporãve."
+        "Aikuaa guarani. Ajuhu mba'apo iporãve.",
+        "Aikuaa guarani, upévare ajuhu mba'apo iporãve."
        ],
        [
         "Amba'apo hasy. Aikuaa gohoro.",
@@ -9630,8 +9630,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Ko'ãga ikatu añe'ẽ che mba'apo rehe inglés-pe.",
-       "कोआगा इकातु आन्येए चे म्बाआपो रेहे इन्ग्लेस-पे।",
+       "Ko'ãga ikatu añe'ẽ che mba'apo rehe guarani-pe.",
+       "कोआगा इकातु आन्येए चे म्बाआपो रेहे गुआरानी-पे।",
        "अब मैं अपने काम की बात गुआरानी में कर सकता हूँ।",
        "S",
        "B"
@@ -9651,8 +9651,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Patrón he'i che inglés otuicháva.",
-       "पत्रोन हेइ चे इन्ग्लेस ओतुइचावा।",
+       "Patrón he'i che guarani otuicháva.",
+       "पत्रोन हेइ चे गुआरानी ओतुइचावा।",
        "मालिक ने कहा मेरी गुआरानी सुधर रही है।",
        "S",
        "B"
@@ -9728,15 +9728,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ñe'ẽ inglés ou ko'ãga chéve gohoro.",
-       "न्येए इन्ग्लेस ओउ कोआगा चेवे गोहोरो।",
+       "Ñe'ẽ guarani ou ko'ãga chéve gohoro.",
+       "न्येए गुआरानी ओउ कोआगा चेवे गोहोरो।",
        "गुआरानी शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Sapy'ánte ensoñagõ michĩ inglés-pe.",
-       "सपीआन्ते एन्सोन्यागो मिची इन्ग्लेस-पे।",
+       "Sapy'ánte ensoñagõ michĩ guarani-pe.",
+       "सपीआन्ते एन्सोन्यागो मिची गुआरानी-पे।",
        "कभी-कभी मैं छोटी गुआरानी पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9763,15 +9763,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mes ohóva aikuaáta inglés ñemuha rehegua.",
-       "मेस ओहोवा आइकुआआता इन्ग्लेस न्येमुहा रेहेगुआ।",
+       "Mes ohóva aikuaáta guarani ñemuha rehegua.",
+       "मेस ओहोवा आइकुआआता गुआरानी न्येमुहा रेहेगुआ।",
        "अगले महीने मैं बाजार की गुआरानी सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Upéi inglés tren-ómnibus sfera rehegua.",
-       "उपेइ इन्ग्लेस त्रेन-ओम्निबुस स्फेरा रेहेगुआ।",
+       "Upéi guarani tren-ómnibus sfera rehegua.",
+       "उपेइ गुआरानी त्रेन-ओम्निबुस स्फेरा रेहेगुआ।",
        "फिर ट्रेन-बस के सफ़र की गुआरानी।",
        "S",
        "C"
@@ -9826,8 +9826,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Che inglés, che mbarete.",
-       "चे इन्ग्लेस, चे म्बारेते।",
+       "Che guarani, che mbarete.",
+       "चे गुआरानी, चे म्बारेते।",
        "मेरी गुआरानी, मेरी ताक़त।",
        "S",
        "B"
@@ -9864,8 +9864,8 @@ window.KKB2_DATA = {
       "इकातु आखु आरातेइमे गुइवे।"
      ],
      [
-      "Che inglés, che mbarete.",
-      "चे इन्ग्लेस, चे म्बारेते।"
+      "Che guarani, che mbarete.",
+      "चे गुआरानी, चे म्बारेते।"
      ]
     ]
    },
@@ -12101,8 +12101,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Alee che ñe'ẽ inglés sfera aja.",
-       "आलेए चे न्येए इन्ग्लेस स्फेरा आखा।",
+       "Alee che ñe'ẽ guarani sfera aja.",
+       "आलेए चे न्येए गुआरानी स्फेरा आखा।",
        "मैं सफ़र में अपने गुआरानी वाक्य पढ़ता हूँ।",
        "S",
        "B"

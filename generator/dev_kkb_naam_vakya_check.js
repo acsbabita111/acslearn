@@ -13,11 +13,15 @@ function load(f) { const p = path.join(ROOT, "assets", f); if (!fs.existsSync(p)
 function items(D) { const o = []; if (D && D.weeks) D.weeks.forEach(wk => wk.days.forEach(d => (d.items || []).forEach(it => o.push(it)))); return o; }
 const M1 = items(load("kkb_data.js")), M2 = items(load("kkb2_data.js")), P1 = [], P2 = [];
 M1.forEach((it, i) => { if (/अंग्रेज़ी/.test(it[2])) P1.push(i); }); M2.forEach((it, i) => { if (/अंग्रेज़ी/.test(it[2])) P2.push(i); });
-const MARK = /इंग्ल|इंगिल|इंगल|इंग्ले|एंग्ल|एंगल|अंग्रेज़|अंग्रेज|आंग्ल|आंग्ले|आन्ग्ल|इंग्रज|इंगलि|इंग्लि|अंग्लै|अंग्लि|अंगले|अङ्ल|एङ्ल|इन्ग्ल|इंगेलि|इंगेली|इन्गि|इंग्गि|इंजिल|इंज्ल|इन्जिल|इङ्ग्ल|इंग्ग्ल|एइगो|यिंग्यु|यींगयु|यिंग्यू|योंगओ|योंग्-ओ|ingl|engl|angl|angļ|ingil|Îngil|îngil|инглиз|Инглиз|ईंग्ल|ईन्ग्ल|अन्ग्ल|अंग्ली|انګلیس|انګريز|انگریز|İngil|Ingil|anglai|英语|英語|英文|영어|えいご|エイゴ|إنجليز|انگلیس|انجليز|англ|Англ|ئىنگلىز|ingilis/i;
+/* 25-Oct खेप-5: लैटिन-रूप सिर्फ़ शब्द की शुरुआत में (kinahanglan "ज़रूरत", tangla, minsingilo जैसी झूठी पकड़ बंद); बाक़ी लिपियाँ कहीं भी */
+const MARK = new RegExp("(?<![\\p{L}\\p{M}])(?:iňlis|inggeris|ingilis|anglai|îngil|ingil|liŋl|angl|angļ|engl|ingl)|इंग्ल|इंगिल|इंगल|इंग्ले|एंग्ल|एंगल|अंग्रेज़|अंग्रेज|आंग्ल|आंग्ले|आन्ग्ल|इंग्रज|इंगलि|इंग्लि|अंग्लै|अंग्लि|अंगले|अङ्ल|एङ्ल|इन्ग्ल|इंगेलि|इंगेली|इन्गि|इंग्गि|इंजिल|इंज्ल|इन्जिल|इङ्ग्ल|इंग्ग्ल|एइगो|यिंग्यु|यींगयु|यिंग्यू|योंगओ|योंग्-ओ|инглиз|Инглиз|ईंग्ल|ईन्ग्ल|अन्ग्ल|अंग्ली|انګلیس|انګريز|انگریز|英语|英語|英文|영어|えいご|エイゴ|إنجليز|انگلیس|انجليز|англ|Англ|ئىنگلىز|ईंग्गे|इङ्लीस|इंगीली|लिंग्लिथ", "iu");
+/* भाषा-विशेष छूट: वह शब्द "English" नहीं, कुछ और है (मूल-अर्थ सहित दर्ज) */
+const EXEMPT = { bci: /(?<![\p{L}])anglo(?![\p{L}])|अङ्लो/iu /* बाउलेई: anglo = महीना */ };
+
 let F = 0, debt = 0, debtS = 0, stale = [];
 for (const c of L) {
   const A = items(load("kkb_" + c + "_data.js")), Bq = items(load("kkb2_" + c + "_data.js")); let bad = 0;
-  for (const [arr, pos] of [[A, P1], [Bq, P2]]) for (const i of pos) { const it = arr[i]; if (it && (MARK.test(String(it[0])) || MARK.test(String(it[1])))) bad++; }
+  for (const [arr, pos] of [[A, P1], [Bq, P2]]) for (const i of pos) { const it = arr[i]; if (it) { const ex = EXEMPT[c]; const t0 = ex ? String(it[0]).replace(new RegExp(ex.source, "giu"), "") : String(it[0]), t1 = ex ? String(it[1]).replace(new RegExp(ex.source, "giu"), "") : String(it[1]); if (MARK.test(t0) || MARK.test(t1)) bad++; } }
   if (bad && !KARZ.has(c)) { F++; console.log("❌ " + c + ": " + bad + " वाक्य में अब भी English (क़र्ज़-सूची से बाहर — पीछे फिसला)"); }
   else if (bad) { debt++; debtS += bad; }
   else if (KARZ.has(c)) stale.push(c);

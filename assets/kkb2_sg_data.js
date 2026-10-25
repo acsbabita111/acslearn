@@ -898,16 +898,16 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Mo ye ti manda Anglais ndali ti nye?",
-       "मो ये ती मान्दा अंग्लाइस न्दाली ती न्ये?",
-       "आप अंग्रेज़ी क्यों सीखना चाहते हैं?",
+       "Mo ye ti manda Sängö ndali ti nye?",
+       "मो ये ती मान्दा सांगो न्दाली ती न्ये?",
+       "आप सांगो क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Mbi manda Anglais ndali mbi ye kua nzoni.",
-       "म्बी मान्दा अंग्लाइस न्दाली म्बी ये कूअ न्ज़ोनी।",
-       "मैं अंग्रेज़ी सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
+       "Mbi manda Sängö ndali mbi ye kua nzoni.",
+       "म्बी मान्दा सांगो न्दाली म्बी ये कूअ न्ज़ोनी।",
+       "मैं सांगो सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
       ],
@@ -1033,7 +1033,7 @@ window.KKB2_DATA={
       "म्बी इरी मो एत्सो न्दापेरे।"
      ],
      [
-      "Mbi manda Anglais ndali mbi ye kua nzoni.",
+      "Mbi manda Sängö ndali mbi ye kua nzoni.",
       "म्बी मान्दा आंग्लाइस न्दाली म्बी ये कूआ न्ज़ोनी।"
      ]
     ]
@@ -1235,9 +1235,9 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Mbi manda Anglais ngbonga kete lâ oko oko.",
-       "म्बी मान्दा अंग्लाइस ङ्ग्बोंगा केते ला ओको ओको।",
-       "मैं रोज़ आधा घंटा अंग्रेज़ी सीखता हूँ।",
+       "Mbi manda Sängö ngbonga kete lâ oko oko.",
+       "म्बी मान्दा सांगो ङ्ग्बोंगा केते ला ओको ओको।",
+       "मैं रोज़ आधा घंटा सांगो सीखता हूँ।",
        "S",
        "B"
       ],
@@ -3331,9 +3331,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Mbi sala Anglais tongana mbi tambela.",
-       "म्बी साला अंग्लाइस तोंगाना म्बी ताम्बेला।",
-       "मैं टहलते-टहलते अंग्रेज़ी का अभ्यास करता हूँ।",
+       "Mbi sala Sängö tongana mbi tambela.",
+       "म्बी साला सांगो तोंगाना म्बी ताम्बेला।",
+       "मैं टहलते-टहलते सांगो का अभ्यास करता हूँ।",
        "S",
        "B"
       ],
@@ -4082,9 +4082,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Bï so ahon mbi tene Anglais na mokonzi ti mbi.",
-       "बी सो अहोन म्बी तेने अंग्लाइस ना मोकोन्ज़ी ती म्बी।",
-       "कल मैंने सुपरवाइज़र से अंग्रेज़ी में बात की।",
+       "Bï so ahon mbi tene Sängö na mokonzi ti mbi.",
+       "बी सो अहोन म्बी तेने सांगो ना मोकोन्ज़ी ती म्बी।",
+       "कल मैंने सुपरवाइज़र से सांगो में बात की।",
        "S",
        "B"
       ],
@@ -4096,9 +4096,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Anglais amu alege ti fini na mbi.",
-       "अंग्लाइस अमू अलेगे ती फ़ीनी ना म्बी।",
-       "अंग्रेज़ी मेरे लिए नए रास्ते खोल रही है।",
+       "Sängö amu alege ti fini na mbi.",
+       "सांगो अमू अलेगे ती फ़ीनी ना म्बी।",
+       "सांगो मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
       ],
@@ -4182,7 +4182,7 @@ window.KKB2_DATA={
       "म्बी गूए ना ग्बाता ना न्ज़े सो आगे।"
      ],
      [
-      "Mbi manda Anglais ndali mbi ye kua nzoni.",
+      "Mbi manda Sängö ndali mbi ye kua nzoni.",
       "म्बी मान्दा आंग्लाइस न्दाली म्बी ये कूआ न्ज़ोनी।"
      ],
      [
@@ -5472,9 +5472,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Tene na Hindi, a sû ni na Anglais.",
-       "तेने ना हीन्दी, अ सू नी ना अंग्लाइस।",
-       "हिंदी में बोलो, वह अंग्रेज़ी में लिख देगा।",
+       "Tene na Hindi, a sû ni na Sängö.",
+       "तेने ना हीन्दी, अ सू नी ना सांगो।",
+       "हिंदी में बोलो, वह सांगो में लिख देगा।",
        "L",
        "B"
       ],
@@ -5500,9 +5500,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Mbi hunda AI ti bâ Anglais ti mbi.",
-       "म्बी हून्दा अइ ती बा अंग्लाइस ती म्बी।",
-       "मैं एआई ऐप से अपनी अंग्रेज़ी जँचवाता हूँ।",
+       "Mbi hunda AI ti bâ Sängö ti mbi.",
+       "म्बी हून्दा अइ ती बा सांगो ती म्बी।",
+       "मैं एआई ऐप से अपनी सांगो जँचवाता हूँ।",
        "S",
        "B"
       ],
@@ -6863,16 +6863,16 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Anglais ayeke ngangu ndali kua kota.",
-       "अंग्लाइस अयेके ङ्गांगू न्दाली कूअ कोता।",
-       "बड़े काम के लिए अंग्रेज़ी चाहिए।",
+       "Sängö ayeke ngangu ndali kua kota.",
+       "सांगो अयेके ङ्गांगू न्दाली कूअ कोता।",
+       "बड़े काम के लिए सांगो चाहिए।",
        "S",
        "C"
       ],
       [
-       "Mbi manda Anglais na asongo ti kua ti mbi.",
-       "म्बी मान्दा अंग्लाइस ना असोंगो ती कूअ ती म्बी।",
-       "मैं साथियों के साथ अंग्रेज़ी का अभ्यास करता हूँ।",
+       "Mbi manda Sängö na asongo ti kua ti mbi.",
+       "म्बी मान्दा सांगो ना असोंगो ती कूअ ती म्बी।",
+       "मैं साथियों के साथ सांगो का अभ्यास करता हूँ।",
        "S",
        "B"
       ],
@@ -8577,9 +8577,9 @@ window.KKB2_DATA={
        "A"
       ],
       [
-       "Mbi lingbi ti tene Anglais kete.",
-       "म्बी लींग्बी ती तेने अंग्लाइस केते।",
-       "मैं सादी अंग्रेज़ी बोल सकता हूँ।",
+       "Mbi lingbi ti tene Sängö kete.",
+       "म्बी लींग्बी ती तेने सांगो केते।",
+       "मैं सादी सांगो बोल सकता हूँ।",
        "S",
        "A"
       ],
@@ -9552,8 +9552,8 @@ window.KKB2_DATA={
       "hi": "जोड़-अभ्यास — ndani या me लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Mbi manda Anglais. Mbi wara kua nzoni.",
-        "Mbi manda Anglais, ndani mbi wara kua nzoni."
+        "Mbi manda Sängö. Mbi wara kua nzoni.",
+        "Mbi manda Sängö, ndani mbi wara kua nzoni."
        ],
        [
         "Kua ni ayeke ngangu. Mbi luti ape.",
@@ -9570,9 +9570,9 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Fadeso mbi lingbi ti tene ndali kua ti mbi na Anglais.",
-       "फ़ादेसो म्बी लींग्बी ती तेने न्दाली कूअ ती म्बी ना अंग्लाइस।",
-       "अब मैं अपने काम की बात अंग्रेज़ी में कर सकता हूँ।",
+       "Fadeso mbi lingbi ti tene ndali kua ti mbi na Sängö.",
+       "फ़ादेसो म्बी लींग्बी ती तेने न्दाली कूअ ती म्बी ना सांगो।",
+       "अब मैं अपने काम की बात सांगो में कर सकता हूँ।",
        "S",
        "B"
       ],
@@ -9591,9 +9591,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Wafango-biashara atene Anglais ti mbi ague nzoni.",
-       "वाफ़ांगो-बीअशारा अतेने अंग्लाइस ती म्बी अगूए न्ज़ोनी।",
-       "मालिक ने कहा मेरी अंग्रेज़ी सुधर रही है।",
+       "Wafango-biashara atene Sängö ti mbi ague nzoni.",
+       "वाफ़ांगो-बीअशारा अतेने सांगो ती म्बी अगूए न्ज़ोनी।",
+       "मालिक ने कहा मेरी सांगो सुधर रही है।",
        "S",
        "B"
       ],
@@ -9668,16 +9668,16 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Fadeso atene ti Anglais aga na mbi na dengo.",
-       "फ़ादेसो अतेने ती अंग्लाइस अगा ना म्बी ना देंगो।",
-       "अंग्रेज़ी शब्द अब मुझे आसानी से आते हैं।",
+       "Fadeso atene ti Sängö aga na mbi na dengo.",
+       "फ़ादेसो अतेने ती सांगो अगा ना म्बी ना देंगो।",
+       "सांगो शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Ambeni lâ mbi bâ atene kete ti Anglais.",
-       "अम्बेनी ला म्बी बा अतेने केते ती अंग्लाइस।",
-       "कभी-कभी मैं छोटी अंग्रेज़ी पंक्तियों में सोचता हूँ।",
+       "Ambeni lâ mbi bâ atene kete ti Sängö.",
+       "अम्बेनी ला म्बी बा अतेने केते ती सांगो।",
+       "कभी-कभी मैं छोटी सांगो पंक्तियों में सोचता हूँ।",
        "S",
        "B"
       ],
@@ -9703,16 +9703,16 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Nze so ague mbi manda Anglais ti marsha.",
-       "न्ज़े सो अगूए म्बी मान्दा अंग्लाइस ती मार्शा।",
-       "अगले महीने मैं बाजार की अंग्रेज़ी सीखूँगा।",
+       "Nze so ague mbi manda Sängö ti marsha.",
+       "न्ज़े सो अगूए म्बी मान्दा सांगो ती मार्शा।",
+       "अगले महीने मैं बाजार की सांगो सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Na peko Anglais ti wagön na autobus.",
-       "ना पेको अंग्लाइस ती वागोन ना अउतोबूस।",
-       "फिर ट्रेन-बस के सफ़र की अंग्रेज़ी।",
+       "Na peko Sängö ti wagön na autobus.",
+       "ना पेको सांगो ती वागोन ना अउतोबूस।",
+       "फिर ट्रेन-बस के सफ़र की सांगो।",
        "S",
        "C"
       ],
@@ -9766,9 +9766,9 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Anglais ti mbi, ngangu ti mbi.",
-       "अंग्लाइस ती म्बी, ङ्गांगू ती म्बी।",
-       "मेरी अंग्रेज़ी, मेरी ताक़त।",
+       "Sängö ti mbi, ngangu ti mbi.",
+       "सांगो ती म्बी, ङ्गांगू ती म्बी।",
+       "मेरी सांगो, मेरी ताक़त।",
        "S",
        "B"
       ]
@@ -12033,9 +12033,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Mbi diko mandango-ye ti Anglais na voyage.",
-       "म्बी दीको मान्दांगो-ये ती अंग्लाइस ना वोयागे।",
-       "मैं सफ़र में अपने अंग्रेज़ी वाक्य पढ़ता हूँ।",
+       "Mbi diko mandango-ye ti Sängö na voyage.",
+       "म्बी दीको मान्दांगो-ये ती सांगो ना वोयागे।",
+       "मैं सफ़र में अपने सांगो वाक्य पढ़ता हूँ।",
        "S",
        "B"
       ],
@@ -14610,8 +14610,8 @@ window.KKB2_DATA={
         "Mbi hunzi mandango, ndani mbi sala examen."
        ],
        [
-        "Anglais ayeke ngangu. Mbi luti ape.",
-        "Anglais ayeke ngangu, me mbi luti ape."
+        "Sängö ayeke ngangu. Mbi luti ape.",
+        "Sängö ayeke ngangu, me mbi luti ape."
        ]
       ]
      },
@@ -14694,7 +14694,7 @@ window.KKB2_DATA={
     "goal": "Na ngbonga use kûê tene na Sango nze otâ so ague — mbeto na kozo, mandango tongana kua-marsha-voyage-visa, na drɔ̃e so aga — amâbe mapoko bonnyane.",
     "lines": [
      [
-      "Nze otâ so ague Anglais ayeke kpale na mbi.",
+      "Nze otâ so ague Sängö ayeke kpale na mbi.",
       "न्ज़े ओता सो आगे आंग्लाइस अयेके क्पाले ना म्बी।"
      ],
      [
@@ -14706,7 +14706,7 @@ window.KKB2_DATA={
       "म्बी लींग्बी ती तेने ना ग्बाता, ना कूआ, ना मार्शा ना एरोपोर्त।"
      ],
      [
-      "Mbi sala interview ti telefon na Anglais.",
+      "Mbi sala interview ti telefon na Sängö.",
       "म्बी साला इन्तरव्यू ती तेलेफ़ोन ना आंग्लाइस।"
      ],
      [

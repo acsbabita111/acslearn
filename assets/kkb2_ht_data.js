@@ -922,15 +922,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Poukisa ou vle aprann anglè?",
-       "पूकीसा ऊ व्ले आप्रां आंग्ले?",
+       "Poukisa ou vle aprann kreyòl?",
+       "पूकीसा ऊ व्ले आप्रां क्रेयोल?",
        "आप हाईटियन क्रियोल क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Mwen ap aprann anglè paske mwen vle yon pi bon travay.",
-       "म्वें आप आप्रां आंग्ले पास्के म्वें व्ले योन पी बों त्रावाय।",
+       "Mwen ap aprann kreyòl paske mwen vle yon pi bon travay.",
+       "म्वें आप आप्रां क्रेयोल पास्के म्वें व्ले योन पी बों त्रावाय।",
        "मैं हाईटियन क्रियोल सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1057,8 +1057,8 @@ window.KKB2_DATA = {
       "देमें मातें म्वें प्राल रेले ऊ।"
      ],
      [
-      "Mwen ap aprann anglè paske mwen vle yon pi bon travay.",
-      "म्वें आप आप्रां आंग्ले पास्के म्वें व्ले योन पी बों त्रावाय।"
+      "Mwen ap aprann kreyòl paske mwen vle yon pi bon travay.",
+      "म्वें आप आप्रां क्रेयोल पास्के म्वें व्ले योन पी बों त्रावाय।"
      ]
     ]
    },
@@ -1260,8 +1260,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Mwen aprann anglè demi è chak jou.",
-       "म्वें आप्रां आंग्ले देमी ए चाक जू।",
+       "Mwen aprann kreyòl demi è chak jou.",
+       "म्वें आप्रां क्रेयोल देमी ए चाक जू।",
        "मैं रोज़ आधा घंटा हाईटियन क्रियोल सीखता हूँ।",
        "S",
        "B"
@@ -3364,8 +3364,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mwen pratike anglè pandan mwen ap mache.",
-       "म्वें प्रातीके आंग्ले पांदां म्वें आप माशे।",
+       "Mwen pratike kreyòl pandan mwen ap mache.",
+       "म्वें प्रातीके क्रेयोल पांदां म्वें आप माशे।",
        "मैं टहलते-टहलते हाईटियन क्रियोल का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4119,8 +4119,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Yè mwen te pale anglè ak patwon m.",
-       "ये म्वें ते पाले आंग्ले आक पात्रों म।",
+       "Yè mwen te pale kreyòl ak patwon m.",
+       "ये म्वें ते पाले क्रेयोल आक पात्रों म।",
        "कल मैंने सुपरवाइज़र से हाईटियन क्रियोल में बात की।",
        "S",
        "B"
@@ -4133,8 +4133,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Anglè ap louvri nouvo pòt pou mwen.",
-       "आंग्ले आप लूव्री नूवो पोत पू म्वें।",
+       "Kreyòl ap louvri nouvo pòt pou mwen.",
+       "क्रेयोल आप लूव्री नूवो पोत पू म्वें।",
        "हाईटियन क्रियोल मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4219,8 +4219,8 @@ window.KKB2_DATA = {
       "म्वें आप वें लाकाय म्वा प्वोशें।"
      ],
      [
-      "Mwen ap aprann anglè paske mwen vle yon pi bon travay.",
-      "म्वें आप आप्रां आंग्ले पास्के म्वें व्ले योन पी बों त्रावाय।"
+      "Mwen ap aprann kreyòl paske mwen vle yon pi bon travay.",
+      "म्वें आप आप्रां क्रेयोल पास्के म्वें व्ले योन पी बों त्रावाय।"
      ],
      [
       "Di granpapa bonjou pou mwen.",
@@ -5514,8 +5514,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Pale kreyòl, l ap ekri an anglè.",
-       "पाले क्रेयोल, ल आप एक्री आं आंग्ले।",
+       "Pale kreyòl, l ap ekri an kreyòl.",
+       "पाले क्रेयोल, ल आप एक्री आं क्रेयोल।",
        "हिंदी में बोलो, वह हाईटियन क्रियोल में लिख देगा।",
        "L",
        "B"
@@ -5542,8 +5542,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mwen mande AI a tcheke anglè mwen.",
-       "म्वें मांदे आय आ चेके आंग्ले म्वें।",
+       "Mwen mande AI a tcheke kreyòl mwen.",
+       "म्वें मांदे आय आ चेके क्रेयोल म्वें।",
        "मैं एआई ऐप से अपनी हाईटियन क्रियोल जँचवाता हूँ।",
        "S",
        "B"
@@ -6910,15 +6910,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Anglè nesesè pou yon pi gwo travay.",
-       "आंग्ले नेसेसे पू योन पी ग्वो त्रावाय।",
+       "Kreyòl nesesè pou yon pi gwo travay.",
+       "क्रेयोल नेसेसे पू योन पी ग्वो त्रावाय।",
        "बड़े काम के लिए हाईटियन क्रियोल चाहिए।",
        "S",
        "C"
       ],
       [
-       "Mwen pratike anglè ak kolèg mwen yo.",
-       "म्वें प्रातीके आंग्ले आक कोलेग म्वें यो।",
+       "Mwen pratike kreyòl ak kolèg mwen yo.",
+       "म्वें प्रातीके क्रेयोल आक कोलेग म्वें यो।",
        "मैं साथियों के साथ हाईटियन क्रियोल का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8630,8 +8630,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Mwen ka pale anglè senp.",
-       "म्वें का पाले आंग्ले सांप।",
+       "Mwen ka pale kreyòl senp.",
+       "म्वें का पाले क्रेयोल सांप।",
        "मैं सादी हाईटियन क्रियोल बोल सकता हूँ।",
        "S",
        "A"
@@ -9609,8 +9609,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Mwen aprann anglè. Mwen jwenn yon pi bon travay.",
-        "Mwen aprann anglè, kidonk mwen jwenn yon pi bon travay."
+        "Mwen aprann kreyòl. Mwen jwenn yon pi bon travay.",
+        "Mwen aprann kreyòl, kidonk mwen jwenn yon pi bon travay."
        ],
        [
         "Travay la te difisil. Mwen pa t bay legen.",
@@ -9627,8 +9627,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Kounye a mwen ka pale sou travay mwen an anglè.",
-       "कून्ये आ म्वें का पाले सू त्रावाय म्वें आं आंग्ले।",
+       "Kounye a mwen ka pale sou travay mwen an kreyòl.",
+       "कून्ये आ म्वें का पाले सू त्रावाय म्वें आं क्रेयोल।",
        "अब मैं अपने काम की बात हाईटियन क्रियोल में कर सकता हूँ।",
        "S",
        "B"
@@ -9648,8 +9648,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Patwon an te di anglè mwen ap vin pi bon.",
-       "पात्रों आं ते दी आंग्ले म्वें आप वें पी बों।",
+       "Patwon an te di kreyòl mwen ap vin pi bon.",
+       "पात्रों आं ते दी क्रेयोल म्वें आप वें पी बों।",
        "मालिक ने कहा मेरी हाईटियन क्रियोल सुधर रही है।",
        "S",
        "B"
@@ -9725,15 +9725,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kounye a mo anglè yo vin fasil pou mwen.",
-       "कून्ये आ मो आंग्ले यो वें फ़ासील पू म्वें।",
+       "Kounye a mo kreyòl yo vin fasil pou mwen.",
+       "कून्ये आ मो क्रेयोल यो वें फ़ासील पू म्वें।",
        "हाईटियन क्रियोल शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Pafwa mwen panse an fraz kout anglè.",
-       "पाफ़्वा म्वें पांसे आं फ़्राज़ कूत आंग्ले।",
+       "Pafwa mwen panse an fraz kout kreyòl.",
+       "पाफ़्वा म्वें पांसे आं फ़्राज़ कूत क्रेयोल।",
        "कभी-कभी मैं छोटी हाईटियन क्रियोल पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9760,15 +9760,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mwa pwochen mwen pral aprann anglè mache a.",
-       "म्वा प्वोशें म्वें प्राल आप्रां आंग्ले माशे आ।",
+       "Mwa pwochen mwen pral aprann kreyòl mache a.",
+       "म्वा प्वोशें म्वें प्राल आप्रां क्रेयोल माशे आ।",
        "अगले महीने मैं बाजार की हाईटियन क्रियोल सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Apre sa anglè vwayaj pou tren ak bis.",
-       "आप्रे सा आंग्ले व्वायाज पू त्रें आक बीस।",
+       "Apre sa kreyòl vwayaj pou tren ak bis.",
+       "आप्रे सा क्रेयोल व्वायाज पू त्रें आक बीस।",
        "फिर ट्रेन-बस के सफ़र की हाईटियन क्रियोल।",
        "S",
        "C"
@@ -12098,8 +12098,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mwen li fraz anglè mwen pandan vwayaj la.",
-       "म्वें ली फ़्राज़ आंग्ले म्वें पांदां व्वायाज ला।",
+       "Mwen li fraz kreyòl mwen pandan vwayaj la.",
+       "म्वें ली फ़्राज़ क्रेयोल म्वें पांदां व्वायाज ला।",
        "मैं सफ़र में अपने हाईटियन क्रियोल वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -14771,8 +14771,8 @@ window.KKB2_DATA = {
     "goal": "दो मिनट हाईटियन क्रियोल में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
     "lines": [
      [
-      "Twa mwa pase anglè te tankou yon mi pou mwen.",
-      "त्वा म्वा पासे आंग्ले ते तांकू योन मी पू म्वें।"
+      "Twa mwa pase kreyòl te tankou yon mi pou mwen.",
+      "त्वा म्वा पासे क्रेयोल ते तांकू योन मी पू म्वें।"
      ],
      [
       "Mwen aprann trant fraz chak jou.",
@@ -14783,8 +14783,8 @@ window.KKB2_DATA = {
       "म्वें का पाले लाकाय, नां त्रावाय, नां माशे आक नां आयेवोपो।"
      ],
      [
-      "Mwen te fè yon entèvyou telefòn an anglè.",
-      "म्वें ते फ़े योन एंतेव्यू तेलेफ़ों आं आंग्ले।"
+      "Mwen te fè yon entèvyou telefòn an kreyòl.",
+      "म्वें ते फ़े योन एंतेव्यू तेलेफ़ों आं क्रेयोल।"
      ],
      [
       "Mwen te aprann repons pou entèvyou viza a.",

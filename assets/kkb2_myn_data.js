@@ -925,15 +925,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Baʼax kʼiin kʼáat a kanik inglés.",
-       "बाअश् क़्इइन् क़्आत् अ कनिक् इन्ग्लेस्।",
+       "Baʼax kʼiin kʼáat a kanik maaya.",
+       "बाअश् क़्इइन् क़्आत् अ कनिक् माया।",
        "आप मायन क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Kin kanik inglés tumen kʼáat maʼalob meyaj.",
-       "किन् कनिक् इन्ग्लेस् तुमेन् क़्आत् माअलोब् मेयाह्।",
+       "Kin kanik maaya tumen kʼáat maʼalob meyaj.",
+       "किन् कनिक् माया तुमेन् क़्आत् माअलोब् मेयाह्।",
        "मैं मायन सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1263,8 +1263,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Sáansamal media hora kin kanik inglés.",
-       "साअन्समाल् मेदिआ होरा किन् कनिक् इन्ग्लेस्।",
+       "Sáansamal media hora kin kanik maaya.",
+       "साअन्समाल् मेदिआ होरा किन् कनिक् माया।",
        "मैं रोज़ आधा घंटा मायन सीखता हूँ।",
        "S",
        "B"
@@ -3367,8 +3367,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kin ximbal kin kanik inglés.",
-       "किन् शिम्बल् किन् कनिक् इन्ग्लेस्।",
+       "Kin ximbal kin kanik maaya.",
+       "किन् शिम्बल् किन् कनिक् माया।",
        "मैं टहलते-टहलते मायन का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4048,8 +4048,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — because, so या than लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Kin kanik inglés. Kin kaxtik maʼalob meyaj.",
-        "Kin kanik inglés, le beetik kin kaxtik maʼalob meyaj."
+        "Kin kanik maaya. Kin kaxtik maʼalob meyaj.",
+        "Kin kanik maaya, le beetik kin kaxtik maʼalob meyaj."
        ],
        [
         "Le meyajo' jach talamil. Maʼ tin jeʼel.",
@@ -4122,8 +4122,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Sáamal tin tʼanaj le supervisor ich inglés.",
-       "साआमल् तिन् त़नाह् ले सुपेर्विसोर् इच् इन्ग्लेस्।",
+       "Sáamal tin tʼanaj le supervisor ich maaya.",
+       "साआमल् तिन् त़नाह् ले सुपेर्विसोर् इच् माया।",
        "कल मैंने सुपरवाइज़र से मायन में बात की।",
        "S",
        "B"
@@ -4136,8 +4136,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Le inglese' ku jeʼik túumben beel ten.",
-       "ले इन्ग्लेसे कु हेएइक् तूउम्बेन् बेएल् तेन्।",
+       "Le maaya' ku jeʼik túumben beel ten.",
+       "ले माया कु हेएइक् तूउम्बेन् बेएल् तेन्।",
        "मायन मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4218,8 +4218,8 @@ window.KKB2_DATA = {
       "ले माआश् क़्इइने बिन् इन् क़्उचुल् नाह्।"
      ],
      [
-      "Le inglese' ku jeʼik túumben beel ten.",
-      "ले इन्ग्लेसे कु हेएइक् तूउम्बेन् बेएल् तेन्।"
+      "Le maaya' ku jeʼik túumben beel ten.",
+      "ले माया कु हेएइक् तूउम्बेन् बेएल् तेन्।"
      ],
      [
       "Waʼalt in respeto ti' abuelo.",
@@ -5517,8 +5517,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Tʼan hindi, leti' bin u tsʼíibtik ich inglés.",
-       "त़न् हिन्दि, लेतिइ बिन् उ त्स़ीइब्तिक् इच् इन्ग्लेस्।",
+       "Tʼan hindi, leti' bin u tsʼíibtik ich maaya.",
+       "त़न् हिन्दि, लेतिइ बिन् उ त्स़ीइब्तिक् इच् माया।",
        "हिंदी में बोलो, वह मायन में लिख देगा।",
        "L",
        "B"
@@ -5545,8 +5545,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Le tʼaan inglés' tin wilik yéetel app IA.",
-       "ले त़ान् इन्ग्लेस् तिन् विलिक् येएतेल् आप्प् इआ।",
+       "Le tʼaan maaya' tin wilik yéetel app IA.",
+       "ले त़ान् माया तिन् विलिक् येएतेल् आप्प् इआ।",
        "मैं एआई ऐप से अपनी मायन जँचवाता हूँ।",
        "S",
        "B"
@@ -6916,15 +6916,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Le nojoch meyajo' kʼaʼabéet inglés.",
-       "ले नोहोच् मेयाहो क़्आअबेएत् इन्ग्लेस्।",
+       "Le nojoch meyajo' kʼaʼabéet maaya.",
+       "ले नोहोच् मेयाहो क़्आअबेएत् माया।",
        "बड़े काम के लिए मायन चाहिए।",
        "S",
        "C"
       ],
       [
-       "Kin practicar inglés yéetel in masi'in.",
-       "किन् प्राक्तिकार् इन्ग्लेस् येएतेल् इन् मासिइन्।",
+       "Kin practicar maaya yéetel in masi'in.",
+       "किन् प्राक्तिकार् माया येएतेल् इन् मासिइन्।",
        "मैं साथियों के साथ मायन का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8636,8 +8636,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Kin páajtal in tʼanik sencillo inglés.",
-       "किन् पाआह्ताल् इन् त़निक् सेन्सिय्यो इन्ग्लेस्।",
+       "Kin páajtal in tʼanik sencillo maaya.",
+       "किन् पाआह्ताल् इन् त़निक् सेन्सिय्यो माया।",
        "मैं सादी मायन बोल सकता हूँ।",
        "S",
        "A"
@@ -9615,8 +9615,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Kin kanik inglés. Kin kaxtik maʼalob meyaj.",
-        "Kin kanik inglés, tsʼook lelo' kin kaxtik maʼalob meyaj."
+        "Kin kanik maaya. Kin kaxtik maʼalob meyaj.",
+        "Kin kanik maaya, tsʼook lelo' kin kaxtik maʼalob meyaj."
        ],
        [
         "Meyaj chukaʼan. Séeb jach nojoch beetik.",
@@ -9633,8 +9633,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Bejlaʼe' kin páajtal in tʼanik in meyaj ich inglés.",
-       "बेह्लाए किन् पाआह्ताल् इन् त़निक् इन् मेयाह् इच् इन्ग्लेस्।",
+       "Bejlaʼe' kin páajtal in tʼanik in meyaj ich maaya.",
+       "बेह्लाए किन् पाआह्ताल् इन् त़निक् इन् मेयाह् इच् माया।",
        "अब मैं अपने काम की बात मायन में कर सकता हूँ।",
        "S",
        "B"
@@ -9654,8 +9654,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Señor tu waʼalaj tsʼook u maʼalobtal in inglés.",
-       "सेन्योर् तु वाअलाह् त्स़ओओक् उ माअलोब्ताल् इन् इन्ग्लेस्।",
+       "Señor tu waʼalaj tsʼook u maʼalobtal in maaya.",
+       "सेन्योर् तु वाअलाह् त्स़ओओक् उ माअलोब्ताल् इन् माया।",
        "मालिक ने कहा मेरी मायन सुधर रही है।",
        "S",
        "B"
@@ -9731,15 +9731,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Le inglés tʼaano' bejlaʼe' jaʼatal ku taal ten.",
-       "ले इन्ग्लेस् त़ानो बेह्लाए हाअतल् कु तल् तेन्।",
+       "Le maaya tʼaano' bejlaʼe' jaʼatal ku taal ten.",
+       "ले माया त़ानो बेह्लाए हाअतल् कु तल् तेन्।",
        "मायन शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Kex kex kin tuklik ich chichan tʼaan inglés.",
-       "केश् केश् किन् तुक्लिक् इच् चिचान् त़ान् इन्ग्लेस्।",
+       "Kex kex kin tuklik ich chichan tʼaan maaya.",
+       "केश् केश् किन् तुक्लिक् इच् चिचान् त़ान् माया।",
        "कभी-कभी मैं छोटी मायन पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9766,15 +9766,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Le máax mese' bin in kanik inglés qatu.",
-       "ले माआश् मेसे बिन् इन् कनिक् इन्ग्लेस् क़तु।",
+       "Le máax mese' bin in kanik maaya qatu.",
+       "ले माआश् मेसे बिन् इन् कनिक् माया क़तु।",
        "अगले महीने मैं बाजार की मायन सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Tsʼook lelo' inglés tren-bus viaje.",
-       "त्स़ओओक् लेलो इन्ग्लेस् त्रेन्-बुस् व्याखे।",
+       "Tsʼook lelo' maaya tren-bus viaje.",
+       "त्स़ओओक् लेलो माया त्रेन्-बुस् व्याखे।",
        "फिर ट्रेन-बस के सफ़र की मायन।",
        "S",
        "C"
@@ -9829,8 +9829,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Inglés tʼaana', in muʼuk óolal.",
-       "इन्ग्लेस् त़ानआ, इन् मुउउक् ओओलल्।",
+       "Maaya tʼaana', in muʼuk óolal.",
+       "माया त़ानआ, इन् मुउउक् ओओलल्।",
        "मेरी मायन, मेरी ताक़त।",
        "S",
        "B"
@@ -9867,8 +9867,8 @@ window.KKB2_DATA = {
       "लुनेस् बिन् इन् पाआह्ताल् इन् तल्।"
      ],
      [
-      "Inglés tʼaana', in muʼuk óolal.",
-      "इन्ग्लेस् त़ानआ, इन् मुउउक् ओओलल्।"
+      "Maaya tʼaana', in muʼuk óolal.",
+      "माया त़ानआ, इन् मुउउक् ओओलल्।"
      ]
     ]
    },
@@ -12104,8 +12104,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kin liyik in oración inglés ich viaje.",
-       "किन् लियिक् इन् ओरासियोन् इन्ग्लेस् इच् व्याखे।",
+       "Kin liyik in oración maaya ich viaje.",
+       "किन् लियिक् इन् ओरासियोन् माया इच् व्याखे।",
        "मैं सफ़र में अपने मायन वाक्य पढ़ता हूँ।",
        "S",
        "B"

@@ -925,15 +925,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kifer to anvi aprann angle?",
-       "किफ़ेर् तो आन्वि आप्रान् आंग्ले?",
+       "Kifer to anvi aprann kreol?",
+       "किफ़ेर् तो आन्वि आप्रान् क्रेओल?",
        "आप मॉरीशियन क्रीओल क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Mo pe aprann angle parski mo bizin enn pli bon travay.",
-       "मो पे आप्रान् आंग्ले पर्स्कि मो बिज़ें एन प्लि बों त्रावाय।",
+       "Mo pe aprann kreol parski mo bizin enn pli bon travay.",
+       "मो पे आप्रान् क्रेओल पर्स्कि मो बिज़ें एन प्लि बों त्रावाय।",
        "मैं मॉरीशियन क्रीओल सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1263,8 +1263,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Mo aprann angle enn demi-er sak zour.",
-       "मो आप्रान् आंग्ले एन देमि-एर् साक् ज़ूर्।",
+       "Mo aprann kreol enn demi-er sak zour.",
+       "मो आप्रान् क्रेओल एन देमि-एर् साक् ज़ूर्।",
        "मैं रोज़ आधा घंटा मॉरीशियन क्रीओल सीखता हूँ।",
        "S",
        "B"
@@ -3367,8 +3367,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mo pratik angle kan mo pe mars.",
-       "मो प्रातिक् आंग्ले कां मो पे मार्स्।",
+       "Mo pratik kreol kan mo pe mars.",
+       "मो प्रातिक् क्रेओल कां मो पे मार्स्।",
        "मैं टहलते-टहलते मॉरीशियन क्रीओल का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4048,8 +4048,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — because, so या than लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Mo finn aprann angle. Mo finn gagn bon travay.",
-        "Mo finn aprann angle, alor mo finn gagn bon travay."
+        "Mo finn aprann kreol. Mo finn gagn bon travay.",
+        "Mo finn aprann kreol, alor mo finn gagn bon travay."
        ],
        [
         "Travay difisil. Mo pa aret.",
@@ -4122,8 +4122,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Yer mo finn koz angle ar supervisor.",
-       "येर् मो फ़िन कोज़् आंग्ले आर् सुपेर्विज़ोर्।",
+       "Yer mo finn koz kreol ar supervisor.",
+       "येर् मो फ़िन कोज़् क्रेओल आर् सुपेर्विज़ोर्।",
        "कल मैंने सुपरवाइज़र से मॉरीशियन क्रीओल में बात की।",
        "S",
        "B"
@@ -4136,8 +4136,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Angle pe ouver nouvo sime pou mwa.",
-       "आंग्ले पे ओवेर् नूवो सिमे पू म्वा।",
+       "Kreol pe ouver nouvo sime pou mwa.",
+       "क्रेओल पे ओवेर् नूवो सिमे पू म्वा।",
        "मॉरीशियन क्रीओल मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4218,8 +4218,8 @@ window.KKB2_DATA = {
       "मो पू विनि लाकाज़् प्रोसें म्वा।"
      ],
      [
-      "Angle pe ouver nouvo sime pou mwa.",
-      "आंग्ले पे ओवेर् नूवो सिमे पू म्वा।"
+      "Kreol pe ouver nouvo sime pou mwa.",
+      "क्रेओल पे ओवेर् नूवो सिमे पू म्वा।"
      ],
      [
       "Dir granper mo pran so beniksion.",
@@ -5517,8 +5517,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Koz hindi, li pou ekrir angle.",
-       "कोज़् हिन्दी, लि पू एक्रिर् आंग्ले।",
+       "Koz hindi, li pou ekrir kreol.",
+       "कोज़् हिन्दी, लि पू एक्रिर् क्रेओल।",
        "हिंदी में बोलो, वह मॉरीशियन क्रीओल में लिख देगा।",
        "L",
        "B"
@@ -5545,8 +5545,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mo check mo angle ar aplikasyon IA.",
-       "मो चेक् मो आंग्ले आर् आप्लिकास्यों इआ।",
+       "Mo check mo kreol ar aplikasyon IA.",
+       "मो चेक् मो क्रेओल आर् आप्लिकास्यों इआ।",
        "मैं एआई ऐप से अपनी मॉरीशियन क्रीओल जँचवाता हूँ।",
        "S",
        "B"
@@ -6913,15 +6913,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Gran travay bizin angle.",
-       "ग्रां त्रावाय बिज़ें आंग्ले।",
+       "Gran travay bizin kreol.",
+       "ग्रां त्रावाय बिज़ें क्रेओल।",
        "बड़े काम के लिए मॉरीशियन क्रीओल चाहिए।",
        "S",
        "C"
       ],
       [
-       "Mo pratik angle ar mo bann kolег.",
-       "मो प्रातिक् आंग्ले आर् मो बां कोलेग्।",
+       "Mo pratik kreol ar mo bann kolег.",
+       "मो प्रातिक् क्रेओल आर् मो बां कोलेग्।",
        "मैं साथियों के साथ मॉरीशियन क्रीओल का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8633,8 +8633,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Mo kapav koz angle senp.",
-       "मो कापाव कोज़् आंग्ले सें‌प्।",
+       "Mo kapav koz kreol senp.",
+       "मो कापाव कोज़् क्रेओल सें‌प्।",
        "मैं सादी मॉरीशियन क्रीओल बोल सकता हूँ।",
        "S",
        "A"
@@ -9612,8 +9612,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Mo aprann angle. Mo gagn bon travay.",
-        "Mo aprann angle, alor mo gagn bon travay."
+        "Mo aprann kreol. Mo gagn bon travay.",
+        "Mo aprann kreol, alor mo gagn bon travay."
        ],
        [
         "Mo travay dir. Mo gagn plis.",
@@ -9630,8 +9630,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Aster mo kapav koz mo travay an angle.",
-       "आस्तेर् मो कापाव कोज़् मो त्रावाय अं आंग्ले।",
+       "Aster mo kapav koz mo travay an kreol.",
+       "आस्तेर् मो कापाव कोज़् मो त्रावाय अं क्रेओल।",
        "अब मैं अपने काम की बात मॉरीशियन क्रीओल में कर सकता हूँ।",
        "S",
        "B"
@@ -9651,8 +9651,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Patron finn dir mo angle pe amelyore.",
-       "पात्रों फ़िन दिर् मो आंग्ले पे आमेल्योरे।",
+       "Patron finn dir mo kreol pe amelyore.",
+       "पात्रों फ़िन दिर् मो क्रेओल पे आमेल्योरे।",
        "मालिक ने कहा मेरी मॉरीशियन क्रीओल सुधर रही है।",
        "S",
        "B"
@@ -9728,15 +9728,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mo mo angle vini fasil aster.",
-       "मो मो आंग्ले विनि फ़ासिल् आस्तेर्।",
+       "Mo mo kreol vini fasil aster.",
+       "मो मो क्रेओल विनि फ़ासिल् आस्तेर्।",
        "मॉरीशियन क्रीओल शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Parfwa mo panse dan tipti fraz angle.",
-       "पर्फ़्वा मो पांसे दान तिप्ति फ़्राज़् आंग्ले।",
+       "Parfwa mo panse dan tipti fraz kreol.",
+       "पर्फ़्वा मो पांसे दान तिप्ति फ़्राज़् क्रेओल।",
        "कभी-कभी मैं छोटी मॉरीशियन क्रीओल पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9763,15 +9763,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mwa ki vini mo pou aprann angle bazar.",
-       "म्वा कि विनि मो पू आप्रान् आंग्ले बाज़ार्।",
+       "Mwa ki vini mo pou aprann kreol bazar.",
+       "म्वा कि विनि मो पू आप्रान् क्रेओल बाज़ार्।",
        "अगले महीने मैं बाजार की मॉरीशियन क्रीओल सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Apre angle pou tren-bis vwayaz.",
-       "आप्रे आंग्ले पू त्रें-बिस् व्वायाज़्।",
+       "Apre kreol pou tren-bis vwayaz.",
+       "आप्रे क्रेओल पू त्रें-बिस् व्वायाज़्।",
        "फिर ट्रेन-बस के सफ़र की मॉरीशियन क्रीओल।",
        "S",
        "C"
@@ -9826,8 +9826,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Mo angle, mo lafors.",
-       "मो आंग्ले, मो लाफ़ोर्स्।",
+       "Mo kreol, mo lafors.",
+       "मो क्रेओल, मो लाफ़ोर्स्।",
        "मेरी मॉरीशियन क्रीओल, मेरी ताक़त।",
        "S",
        "B"
@@ -9864,8 +9864,8 @@ window.KKB2_DATA = {
       "मो कापाव विनि देपि लिन्दि।"
      ],
      [
-      "Mo angle, mo lafors.",
-      "मो आंग्ले, मो लाफ़ोर्स्।"
+      "Mo kreol, mo lafors.",
+      "मो क्रेओल, मो लाफ़ोर्स्।"
      ]
     ]
    },
@@ -12101,8 +12101,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Mo lir mo bann fraz angle dan vwayaz.",
-       "मो लिर् मो बां फ़्राज़् आंग्ले दान व्वायाज़्।",
+       "Mo lir mo bann fraz kreol dan vwayaz.",
+       "मो लिर् मो बां फ़्राज़् क्रेओल दान व्वायाज़्।",
        "मैं सफ़र में अपने मॉरीशियन क्रीओल वाक्य पढ़ता हूँ।",
        "S",
        "B"

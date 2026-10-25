@@ -925,15 +925,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Imaraykutaq inglés simita yachayta munanki.",
-       "इमरयकुतक़् इन्ग्लेस् सिमित यचयत मुनन्कि।",
+       "Imaraykutaq runasimi simita yachayta munanki.",
+       "इमरयकुतक़् रुनासिमि सिमित यचयत मुनन्कि।",
        "आप क्वेशुआ क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Inglés simita yachashani aswan allin llamk'ayta munayraykum.",
-       "इन्ग्लेस् सिमित यचशनि अस्वन् अल्लिन् ल्यम्कयत मुनयरयकुम्।",
+       "Runasimi simita yachashani aswan allin llamk'ayta munayraykum.",
+       "रुनासिमि सिमित यचशनि अस्वन् अल्लिन् ल्यम्कयत मुनयरयकुम्।",
        "मैं क्वेशुआ सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1263,8 +1263,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Sapa p'unchay chawpi horas inglés simita yachani.",
-       "सप प़ुन्चय् चव्पि होरस् इन्ग्लेस् सिमित यचनि।",
+       "Sapa p'unchay chawpi horas runasimi simita yachani.",
+       "सप प़ुन्चय् चव्पि होरस् रुनासिमि सिमित यचनि।",
        "मैं रोज़ आधा घंटा क्वेशुआ सीखता हूँ।",
        "S",
        "B"
@@ -3367,8 +3367,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Purispa inglés simita practicani.",
-       "पुरिस्प इन्ग्लेस् सिमित प्राक्तिकानि।",
+       "Purispa runasimi simita practicani.",
+       "पुरिस्प रुनासिमि सिमित प्राक्तिकानि।",
        "मैं टहलते-टहलते क्वेशुआ का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4048,8 +4048,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — because, so या than लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Inglés yacharqani. Allin llamk'ayta tarirqani.",
-        "Inglés yacharqani, chayrayku allin llamk'ayta tarirqani."
+        "Runasimi yacharqani. Allin llamk'ayta tarirqani.",
+        "Runasimi yacharqani, chayrayku allin llamk'ayta tarirqani."
        ],
        [
         "Llamk'ayqa sasa. Mana saqerqanichu.",
@@ -4122,8 +4122,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Qayna supervisorwan inglés simipi rimarqani.",
-       "क़यन सुपेर्विसोर्वन् इन्ग्लेस् सिमिपि रिमर्क़नि।",
+       "Qayna supervisorwan runasimi simipi rimarqani.",
+       "क़यन सुपेर्विसोर्वन् रुनासिमि सिमिपि रिमर्क़नि।",
        "कल मैंने सुपरवाइज़र से क्वेशुआ में बात की।",
        "S",
        "B"
@@ -4136,8 +4136,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Inglés simiqa musuq ñankunata kichawan.",
-       "इन्ग्लेस् सिमिक़ मुसुक़् न्यान्कुनात किचावन्।",
+       "Runasimi simiqa musuq ñankunata kichawan.",
+       "रुनासिमि सिमिक़ मुसुक़् न्यान्कुनात किचावन्।",
        "क्वेशुआ मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4218,8 +4218,8 @@ window.KKB2_DATA = {
       "हमुक़् किल्य वसिमन् हमुसक़्।"
      ],
      [
-      "Inglés simiqa musuq ñankunata kichawan.",
-      "इन्ग्लेस् सिमिक़ मुसुक़् न्यान्कुनात किचावन्।"
+      "Runasimi simiqa musuq ñankunata kichawan.",
+      "रुनासिमि सिमिक़ मुसुक़् न्यान्कुनात किचावन्।"
      ],
      [
       "Machulaman bendicionniyta willay.",
@@ -5517,8 +5517,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Hindipi rimay, payqa inglés simipi qellqanqa.",
-       "हिन्दिपि रिमाय्, पयक़ इन्ग्लेस् सिमिपि क़ेल्क़न्क़।",
+       "Hindipi rimay, payqa runasimi simipi qellqanqa.",
+       "हिन्दिपि रिमाय्, पयक़ रुनासिमि सिमिपि क़ेल्क़न्क़।",
        "हिंदी में बोलो, वह क्वेशुआ में लिख देगा।",
        "L",
        "B"
@@ -5545,8 +5545,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Inglés simiyta IA appwan comprobani.",
-       "इन्ग्लेस् सिमियत इआ आप्प्वान् कोम्प्रोबानि।",
+       "Runasimi simiyta IA appwan comprobani.",
+       "रुनासिमि सिमियत इआ आप्प्वान् कोम्प्रोबानि।",
        "मैं एआई ऐप से अपनी क्वेशुआ जँचवाता हूँ।",
        "S",
        "B"
@@ -6913,15 +6913,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Hatun llamk'ayqa inglés simita mañan.",
-       "हतुन् ल्यम्कयक़ इन्ग्लेस् सिमित मान्यान्।",
+       "Hatun llamk'ayqa runasimi simita mañan.",
+       "हतुन् ल्यम्कयक़ रुनासिमि सिमित मान्यान्।",
        "बड़े काम के लिए क्वेशुआ चाहिए।",
        "S",
        "C"
       ],
       [
-       "Kollegaskunawan inglés simita practicani.",
-       "कोल्लेगास्कुनावान् इन्ग्लेस् सिमित प्राक्तिकानि।",
+       "Kollegaskunawan runasimi simita practicani.",
+       "कोल्लेगास्कुनावान् रुनासिमि सिमित प्राक्तिकानि।",
        "मैं साथियों के साथ क्वेशुआ का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8633,8 +8633,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Sencillo inglés simita rimayta atini.",
-       "सेन्सिय्यो इन्ग्लेस् सिमित रिमायत अतिनि।",
+       "Sencillo runasimi simita rimayta atini.",
+       "सेन्सिय्यो रुनासिमि सिमित रिमायत अतिनि।",
        "मैं सादी क्वेशुआ बोल सकता हूँ।",
        "S",
        "A"
@@ -9612,8 +9612,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Inglés yacharqani. Allin llamk'ayta tarirqani.",
-        "Inglés yacharqani, chayrayku allin llamk'ayta tarirqani."
+        "Runasimi yacharqani. Allin llamk'ayta tarirqani.",
+        "Runasimi yacharqani, chayrayku allin llamk'ayta tarirqani."
        ],
        [
         "Sinchi llamk'ani. Aswanta taripani.",
@@ -9630,8 +9630,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Kunanqa llamk'ayniymanta inglés simipi rimayta atini.",
-       "कुनन्क़ ल्यम्कयनियमन्त इन्ग्लेस् सिमिपि रिमायत अतिनि।",
+       "Kunanqa llamk'ayniymanta runasimi simipi rimayta atini.",
+       "कुनन्क़ ल्यम्कयनियमन्त रुनासिमि सिमिपि रिमायत अतिनि।",
        "अब मैं अपने काम की बात क्वेशुआ में कर सकता हूँ।",
        "S",
        "B"
@@ -9651,8 +9651,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Sidqa nirqan inglés simiy allinñam.",
-       "सिद्क़ निर्क़न् इन्ग्लेस् सिमिय् अल्लिन्न्यम्।",
+       "Sidqa nirqan runasimi simiy allinñam.",
+       "सिद्क़ निर्क़न् रुनासिमि सिमिय् अल्लिन्न्यम्।",
        "मालिक ने कहा मेरी क्वेशुआ सुधर रही है।",
        "S",
        "B"
@@ -9728,15 +9728,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Inglés simikunaqa kunanqa faciltam hamun.",
-       "इन्ग्लेस् सिमिकुनाक़ कुनन्क़ फ़ासिल्तम् हमुन्।",
+       "Runasimi simikunaqa kunanqa faciltam hamun.",
+       "रुनासिमि सिमिकुनाक़ कुनन्क़ फ़ासिल्तम् हमुन्।",
        "क्वेशुआ शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Wakinpi inglés uchuy sentenciaspi yuyani.",
-       "वाकिन्पि इन्ग्लेस् उचुय् सेन्तेन्सियास्पि युयनि।",
+       "Wakinpi runasimi uchuy sentenciaspi yuyani.",
+       "वाकिन्पि रुनासिमि उचुय् सेन्तेन्सियास्पि युयनि।",
        "कभी-कभी मैं छोटी क्वेशुआ पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9763,15 +9763,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Hamuq killa qatup inglés simintam yachasaq.",
-       "हमुक़् किल्य क़तुप् इन्ग्लेस् सिमिन्तम् यचसक़्।",
+       "Hamuq killa qatup runasimi simintam yachasaq.",
+       "हमुक़् किल्य क़तुप् रुनासिमि सिमिन्तम् यचसक़्।",
        "अगले महीने मैं बाजार की क्वेशुआ सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Chaymanta tren-bus vjajep inglesninta.",
-       "चयमन्त त्रेन्-बुस् व्खखेप् इन्ग्लेस्निन्त।",
+       "Chaymanta tren-bus vjajep runasiminta.",
+       "चयमन्त त्रेन्-बुस् व्खखेप् रुनासिमिन्त।",
        "फिर ट्रेन-बस के सफ़र की क्वेशुआ।",
        "S",
        "C"
@@ -9826,8 +9826,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Inglés simiy, kallpayki.",
-       "इन्ग्लेस् सिमिय्, कल्पयकि।",
+       "Runasimi simiy, kallpayki.",
+       "रुनासिमि सिमिय्, कल्पयकि।",
        "मेरी क्वेशुआ, मेरी ताक़त।",
        "S",
        "B"
@@ -9864,8 +9864,8 @@ window.KKB2_DATA = {
       "लुनेस्मन्त हमुयत अतिनि।"
      ],
      [
-      "Inglés simiy, kallpayki.",
-      "इन्ग्लेस् सिमिय्, कल्पयकि।"
+      "Runasimi simiy, kallpayki.",
+      "रुनासिमि सिमिय्, कल्पयकि।"
      ]
     ]
    },
@@ -12101,8 +12101,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Inglés sentenciasniyta viajepi leeni.",
-       "इन्ग्लेस् सेन्तेन्सियास्नियत व्याखेपि लेएनि।",
+       "Runasimi sentenciasniyta viajepi leeni.",
+       "रुनासिमि सेन्तेन्सियास्नियत व्याखेपि लेएनि।",
        "मैं सफ़र में अपने क्वेशुआ वाक्य पढ़ता हूँ।",
        "S",
        "B"
