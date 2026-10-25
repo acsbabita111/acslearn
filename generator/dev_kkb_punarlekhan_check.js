@@ -10,7 +10,9 @@ const P = JSON.parse(fs.readFileSync(path.join(ROOT, "generator/data/kkb_punarle
 function load(f) { const w = {}; new Function("window", "self", "module", fs.readFileSync(path.join(ROOT, "assets", f), "utf8") + ";")(w, w, {}); return w.KKB2_DATA || w.KKB_DATA; }
 const n = t => String(t).normalize("NFC").toLowerCase().replace(/[\s.,!?;:"'()\-–—…।॥،؟]+/g, " ").trim();
 const items = D => { const o = []; D.weeks.forEach(w => w.days.forEach(d => (d.items || []).forEach(x => o.push(x)))); return o; };
-const MARK = { apc: ["بدي", "بدك", "شو ", "هلق", "كتير", "منيح", "مش "], arz: ["عايز", "إزاي", "ازاي", "دلوقتي", " ده", " دي "] };
+/* पूरा-शब्द मिलान (शब्द के भीतर नहीं — जैसे इराक़ी "أبدي" = मैं शुरू करूँ, लेवांटाइन "بدي" नहीं) */
+const MARK = { apc: ["بدي", "بدك", "بدو", "شو", "هلق", "هلأ", "كتير", "منيح", "مش"], arz: ["عايز", "عاوز", "إزاي", "ازاي", "دلوقتي", "ده", "دي", "إيه"] };
+const toks = t => String(t).split(/[\s.,!?;:"'()\-–—…،؟]+/).filter(Boolean);
 function total(code) { const A = load("kkb_" + code + "_data.js"), B = load("kkb2_" + code + "_data.js"); let t = items(A).length + items(B).length;
   for (const D of [A, B]) D.weeks.forEach(w => { if (w.test && w.test.lines) t += w.test.lines.length; t += (w.listen || []).length + (w.dialog || []).length; (w.days || []).forEach(d => { t += (d.tw || []).length + ((d.drill && d.drill.rows) || []).length; }); });
   return t; }
@@ -18,7 +20,7 @@ let F = 0;
 for (const c of P.order) { const L = P.langs[c], src = L.source, done = L.done || {}; let cnt = 0;
   for (const [lv, fk] of [["L1", "kkb_"], ["L2", "kkb2_"]]) { const ranges = done[lv + "_items"] || []; if (!ranges.length) continue;
     const a = items(load(fk + c + "_data.js")), b = items(load(fk + src + "_data.js")); let same = 0, tot = 0, mk = 0;
-    for (const [s, e] of ranges) for (let i = s; i < e; i++) { tot++; if (n(a[i][0]) === n(b[i][0])) same++; for (const w of (MARK[src] || [])) if ((" " + a[i][0] + " ").includes(w)) mk++; }
+    for (const [s, e] of ranges) for (let i = s; i < e; i++) { tot++; if (n(a[i][0]) === n(b[i][0])) same++; const tk = toks(a[i][0]); for (const w of (MARK[src] || [])) if (tk.includes(w)) mk++; }
     cnt += tot; const r = same / tot;
     if (r > 0.15) { F++; console.log("❌ " + c + " " + lv + ": पूरे हिस्से में " + (r * 100).toFixed(1) + "% वाक्य अब भी " + src + " से हूबहू"); }
     if (mk) { F++; console.log("❌ " + c + " " + lv + ": स्रोत-बोली के पहचान-शब्द " + mk + " बार"); } }
