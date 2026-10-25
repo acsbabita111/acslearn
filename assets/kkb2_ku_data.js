@@ -922,15 +922,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Tu çima dixwazî Îngilîzî fêr bibî?",
-       "तु चिमा दिख़्वाज़ी इंगिलीज़ी फेर बिबी?",
+       "Tu çima dixwazî Kurdî fêr bibî?",
+       "तु चिमा दिख़्वाज़ी कुर्दी फेर बिबी?",
        "आप कुर्दिश क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Ez Îngilîzî fêr dibim ji ber ku karekî çêtir dixwazim.",
-       "एज़ इंगिलीज़ी फेर दिबिम जि बेर कु कारेकी चेतिर दिख़्वाज़िम।",
+       "Ez Kurdî fêr dibim ji ber ku karekî çêtir dixwazim.",
+       "एज़ कुर्दी फेर दिबिम जि बेर कु कारेकी चेतिर दिख़्वाज़िम।",
        "मैं कुर्दिश सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1057,8 +1057,8 @@ window.KKB2_DATA = {
       "एज़ ए सिबेहे सिबे ते तेलेफ़ोन बिकिम।"
      ],
      [
-      "Ez Îngilîzî fêr dibim ji ber ku karekî çêtir dixwazim.",
-      "एज़ इंगिलीज़ी फेर दिबिम जि बेर कु कारेकी चेतिर दिख़्वाज़िम।"
+      "Ez Kurdî fêr dibim ji ber ku karekî çêtir dixwazim.",
+      "एज़ कुर्दी फेर दिबिम जि बेर कु कारेकी चेतिर दिख़्वाज़िम।"
      ]
     ]
    },
@@ -1260,8 +1260,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Ez her roj nîv saet Îngilîzî fêr dibim.",
-       "एज़ हेर रोज़ नीव सात इंगिलीज़ी फेर दिबिम।",
+       "Ez her roj nîv saet Kurdî fêr dibim.",
+       "एज़ हेर रोज़ नीव सात कुर्दी फेर दिबिम।",
        "मैं रोज़ आधा घंटा कुर्दिश सीखता हूँ।",
        "S",
        "B"
@@ -3364,8 +3364,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ez di meşê de Îngilîzî pratîk dikim.",
-       "एज़ दि मेशे दे इंगिलीज़ी प्रातीक दिकिम।",
+       "Ez di meşê de Kurdî pratîk dikim.",
+       "एज़ दि मेशे दे कुर्दी प्रातीक दिकिम।",
        "मैं टहलते-टहलते कुर्दिश का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4119,8 +4119,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Duh min bi supervayzerê xwe re Îngilîzî axivî.",
-       "दुह मिन बि सुपेर्वायज़ेरे ख़्वे रे इंगिलीज़ी आख़िवी।",
+       "Duh min bi supervayzerê xwe re Kurdî axivî.",
+       "दुह मिन बि सुपेर्वायज़ेरे ख़्वे रे कुर्दी आख़िवी।",
        "कल मैंने सुपरवाइज़र से कुर्दिश में बात की।",
        "S",
        "B"
@@ -4133,8 +4133,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Îngilîzî ji min re deriyên nû vedike.",
-       "इंगिलीज़ी जि मिन रे देरियें नू वेदिके।",
+       "Kurdî ji min re deriyên nû vedike.",
+       "कुर्दी जि मिन रे देरियें नू वेदिके।",
        "कुर्दिश मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4219,8 +4219,8 @@ window.KKB2_DATA = {
       "एज़ ए मेहा बे वेरिम माले।"
      ],
      [
-      "Ez Îngilîzî fêr dibim ji ber ku karekî çêtir dixwazim.",
-      "एज़ इंगिलीज़ी फेर दिबिम जि बेर कु कारेकी चेतिर दिख़्वाज़िम।"
+      "Ez Kurdî fêr dibim ji ber ku karekî çêtir dixwazim.",
+      "एज़ कुर्दी फेर दिबिम जि बेर कु कारेकी चेतिर दिख़्वाज़िम।"
      ],
      [
       "Silavên min ji bapîr re bibe.",
@@ -5514,8 +5514,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Bi Hindî biaxive, ew ê bi Îngilîzî binivîse.",
-       "बि हिंदी बिआख़िवे, एव ए बि इंगिलीज़ी बिनिवीसे।",
+       "Bi Hindî biaxive, ew ê bi Kurdî binivîse.",
+       "बि हिंदी बिआख़िवे, एव ए बि कुर्दी बिनिवीसे।",
        "हिंदी में बोलो, वह कुर्दिश में लिख देगा।",
        "L",
        "B"
@@ -5542,8 +5542,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ez ji sepana AI dixwazim Îngilîziya min kontrol bike.",
-       "एज़ जि सेपाना ए-आई दिख़्वाज़िम इंगिलीज़िया मिन कोंत्रोल बिके।",
+       "Ez ji sepana AI dixwazim Kurdiya min kontrol bike.",
+       "एज़ जि सेपाना ए-आई दिख़्वाज़िम कुर्दिया मिन कोंत्रोल बिके।",
        "मैं एआई ऐप से अपनी कुर्दिश जँचवाता हूँ।",
        "S",
        "B"
@@ -6910,15 +6910,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Ji bo karê mezin Îngilîzî hewce ye.",
-       "जि बो कारे मज़िन इंगिलीज़ी हेव्चे ये।",
+       "Ji bo karê mezin Kurdî hewce ye.",
+       "जि बो कारे मज़िन कुर्दी हेव्चे ये।",
        "बड़े काम के लिए कुर्दिश चाहिए।",
        "S",
        "C"
       ],
       [
-       "Ez bi hevkarên xwe re Îngilîzî pratîk dikim.",
-       "एज़ बि हेव्कारें ख़्वे रे इंगिलीज़ी प्रातीक दिकिम।",
+       "Ez bi hevkarên xwe re Kurdî pratîk dikim.",
+       "एज़ बि हेव्कारें ख़्वे रे कुर्दी प्रातीक दिकिम।",
        "मैं साथियों के साथ कुर्दिश का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8630,8 +8630,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Ez dikarim Îngilîziya sade biaxivim.",
-       "एज़ दिकारिम इंगिलीज़िया सादे बिआख़िविम।",
+       "Ez dikarim Kurdiya sade biaxivim.",
+       "एज़ दिकारिम कुर्दिया सादे बिआख़िविम।",
        "मैं सादी कुर्दिश बोल सकता हूँ।",
        "S",
        "A"
@@ -9609,8 +9609,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Min Îngilîzî fêr bû. Min karekî çêtir girt.",
-        "Min Îngilîzî fêr bû, loma min karekî çêtir girt."
+        "Min Kurdî fêr bû. Min karekî çêtir girt.",
+        "Min Kurdî fêr bû, loma min karekî çêtir girt."
        ],
        [
         "Kar dijwar bû. Min dev jê berneda.",
@@ -9627,8 +9627,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Niha ez dikarim li ser karê xwe bi Îngilîzî biaxivim.",
-       "निहा एज़ दिकारिम लि सेर कारे ख़्वे बि इंगिलीज़ी बिआख़िविम।",
+       "Niha ez dikarim li ser karê xwe bi Kurdî biaxivim.",
+       "निहा एज़ दिकारिम लि सेर कारे ख़्वे बि कुर्दी बिआख़िविम।",
        "अब मैं अपने काम की बात कुर्दिश में कर सकता हूँ।",
        "S",
        "B"
@@ -9648,8 +9648,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Xwedî got Îngilîziya min baştir dibe.",
-       "ख़्वेदी गोत इंगिलीज़िया मिन बाश्तिर दिबे।",
+       "Xwedî got Kurdiya min baştir dibe.",
+       "ख़्वेदी गोत कुर्दिया मिन बाश्तिर दिबे।",
        "मालिक ने कहा मेरी कुर्दिश सुधर रही है।",
        "S",
        "B"
@@ -9725,15 +9725,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Niha peyvên Îngilîzî bi hêsanî tên min.",
-       "निहा पेय्वें इंगिलीज़ी बि हेसानी तें मिन।",
+       "Niha peyvên Kurdî bi hêsanî tên min.",
+       "निहा पेय्वें कुर्दी बि हेसानी तें मिन।",
        "कुर्दिश शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Carinan ez di rêzikên piçûk ên Îngilîzî de difikirim.",
-       "चारिनान एज़ दि रेज़िकें पिचूक एं इंगिलीज़ी दे दिफ़िकिरिम।",
+       "Carinan ez di rêzikên piçûk ên Kurdî de difikirim.",
+       "चारिनान एज़ दि रेज़िकें पिचूक एं कुर्दी दे दिफ़िकिरिम।",
        "कभी-कभी मैं छोटी कुर्दिश पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9760,15 +9760,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Meha bê ez ê Îngilîziya bazarê fêr bibim.",
-       "मेहा बे एज़ ए इंगिलीज़िया बज़ारे फेर बिबिम।",
+       "Meha bê ez ê Kurdiya bazarê fêr bibim.",
+       "मेहा बे एज़ ए कुर्दिया बज़ारे फेर बिबिम।",
        "अगले महीने मैं बाजार की कुर्दिश सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Paşê Îngilîziya rêwîtiyê ya trên û otobêsê.",
-       "पाशे इंगिलीज़िया रेवीतिये या त्रें ऊ ओतोबेसे।",
+       "Paşê Kurdiya rêwîtiyê ya trên û otobêsê.",
+       "पाशे कुर्दिया रेवीतिये या त्रें ऊ ओतोबेसे।",
        "फिर ट्रेन-बस के सफ़र की कुर्दिश।",
        "S",
        "C"
@@ -9823,8 +9823,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Îngilîziya min, hêza min.",
-       "इंगिलीज़िया मिन, हेज़ा मिन।",
+       "Kurdiya min, hêza min.",
+       "कुर्दिया मिन, हेज़ा मिन।",
        "मेरी कुर्दिश, मेरी ताक़त।",
        "S",
        "B"
@@ -12098,8 +12098,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ez di rêwîtiyê de hevokên xwe yên Îngilîzî dixwînim.",
-       "एज़ दि रेवीतिये दे हेवोकें ख़्वे यें इंगिलीज़ी दिख़्वीनिम।",
+       "Ez di rêwîtiyê de hevokên xwe yên Kurdî dixwînim.",
+       "एज़ दि रेवीतिये दे हेवोकें ख़्वे यें कुर्दी दिख़्वीनिम।",
        "मैं सफ़र में अपने कुर्दिश वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -14783,8 +14783,8 @@ window.KKB2_DATA = {
       "एज़ दिकारिम लि माले, कार, बज़ार ऊ फ़िरोकेख़ानेये बिआख़िविम।"
      ],
      [
-      "Min hevpeyivîna telefonê bi Îngilîzî da.",
-      "मिन हेव्पेयिवीना तेलेफ़ोने बि इंगिलीज़ी दा।"
+      "Min hevpeyivîna telefonê bi Kurdî da.",
+      "मिन हेव्पेयिवीना तेलेफ़ोने बि कुर्दी दा।"
      ],
      [
       "Min bersivên hevpeyivîna vîzeyê fêr bûn.",

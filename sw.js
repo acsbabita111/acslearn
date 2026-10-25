@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v756'; // 25-Oct "अंग्रेज़ी"-दोष खेप-3: 20 यूरोपीय/लैटिन-लिपि भाषाओं के kkb/kkb2-data में अपना भाषा-नाम — cache-first data
+const CACHE_VERSION = 'v757'; // 25-Oct "अंग्रेज़ी"-दोष खेप-4 (12 बड़ी भाषाएँ + आर्मेनियाई) — kkb/kkb2-data — cache-first data
+// पिछला v756; // 25-Oct "अंग्रेज़ी"-दोष खेप-3: 20 यूरोपीय/लैटिन-लिपि भाषाओं के kkb/kkb2-data में अपना भाषा-नाम — cache-first data
 // पिछला v755; // 25-Oct "अंग्रेज़ी"-दोष खेप-2: 9 अरबी-रूप + कन्नड़/तेलुगु/गुजराती/मलयालम/कश्मीरी के kkb2-data में अपना भाषा-नाम — cache-first data
 // पिछला v754; // 25-Oct "अंग्रेज़ी"-दोष खेप-1: 16 भारतीय भाषाओं के kkb2-data में अपना भाषा-नाम (लक्ष्य+उच्चारण+हिंदी) — cache-first data
 // पिछला v753; // 25-Oct (1) भाषा-नाम ताज़ा स्प्रेडशीट v5.8 से: courses_data (196) + exam_data (198) + kkb2.js (दिखने वाला नाम रजिस्टर से) · (2) 90-दिन कोर्स में हर वाक्य पर 🎙️ बोलो: kkb2.js + acs-bolo.js v1.1 — cache-first data/js
