@@ -50,8 +50,10 @@ function checkPage(page,D,bk){const E=[],nEx=D.lessons.reduce((s,g)=>s+g.ex.leng
   if(/[\[\]]/.test(body))E.push("चौकोर कोष्ठक मिला");
   const css=fs.readFileSync(path.join(ROOT,"assets","vyakaran.css"),"utf8"),pi=css.indexOf("@media print{"),pr=pi<0?"":css.slice(pi);
   for(const x of [".udy-float",".acs-wa",".tiranga-bar",".acs-freebar",".acs-raay",".acs-bolo",".vk-howto",".vk-les~.vk-les{break-before:page}"])if(pr.indexOf(x)<0)E.push("छपाई-नियम में नहीं: "+x);
-  if(/\.vk-toc[,{]/.test(pr.replace(/\.vk-toc\{display:grid/,"")))E.push("छपाई में विषय-सूची छिपी है");
-  if(/(^|[{},\s])\.vk-les\{break-before:page/.test(pr))E.push("पाठ-1 पर भी नया पन्ना (पहला पन्ना ख़ाली होगा)");
+  /* नियम-दर-नियम पढ़ो (चयनकर्ता-सूची + भीतर) — मोटा-मिलान झूठा FAIL देता था */
+  const rules=[...pr.replace(/@media print\{/g,"").matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(m=>({sel:m[1].split(",").map(x=>x.trim()),body:m[2]}));
+  if(rules.some(r=>r.sel.includes(".vk-toc")&&/display:none/.test(r.body)))E.push("छपाई में विषय-सूची छिपी है");
+  if(rules.some(r=>r.sel.includes(".vk-les")&&/break-before:page/.test(r.body)))E.push("पाठ-1 पर भी नया पन्ना (पहला पन्ना ख़ाली होगा)");
   if(cnt(page,'class="vk-cover"')!==1)E.push("आवरण ठीक एक नहीं");
   for(const c of Object.values(COVER_IMG))if(!fs.existsSync(path.join(ROOT,"assets","chitra",c+".webp")))E.push("आवरण-चित्र नहीं मिला: /assets/chitra/"+c+".webp");
   if(pr.indexOf(".vk-cover{")<0||!/\.vk-cover\{[^}]*break-after:page/.test(pr))E.push("छपाई में आवरण के बाद नया पन्ना नहीं");

@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v750'; // 25-Oct व्याकरण-पन्ना v1.1: vyakaran.css आवरण + छपाई-सुधार (पाठ-1 पहले पन्ने पर, तैरते बटन/WhatsApp/तिरंगा न छपें) + नए assets/acs-bolo.js (🎙️ बोलो-अभ्यास) व assets/acs-raay.js (👍👎💬) — cache-first css
+const CACHE_VERSION = 'v751'; // 25-Oct व्याकरण-पन्ना v1.2: vyakaran.css सघन-छपाई — हर पाठ एक पन्ने में (फ़ोन-PDF 24 → 13 पन्ने) — cache-first css
+// पिछला v750; // 25-Oct व्याकरण-पन्ना v1.1: vyakaran.css आवरण + छपाई-सुधार (पाठ-1 पहले पन्ने पर, तैरते बटन/WhatsApp/तिरंगा न छपें) + नए assets/acs-bolo.js (🎙️ बोलो-अभ्यास) व assets/acs-raay.js (👍👎💬) — cache-first css
 // पिछला v749; // 24-Oct kkb सुधार-7 वापसी: मिज़ो की 1,637 पुरानी असली पंक्तियाँ लौटीं (Setswana-दूषित 512 पर नई यथावत) — cache-first data
 // पिछला v734; // 21-Oct लाल10-ह: pjt oji lkt rmt kfa dv ain ryu crk iku — 4 नई लिपि-परतें (THAX/JPNX/CANX/KNDX) + D2J/D2C/D2V identity — 🔴 34→24
 // पिछला v733; // 21-Oct लाल10-ग: C05 कोंध-गुच्छा uki kxv kfj peg mha kff (Oriya/Telugu block-shift ORYX/TELX) — 🔴 40→34

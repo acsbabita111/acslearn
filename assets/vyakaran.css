@@ -46,3 +46,12 @@
 /* छपाई v1.1 (25-Oct, Founder-PDF से पकड़े 2 होल): पाठ-1 पहले पन्ने पर ही (नया पन्ना पाठ-2 से) · विषय-सूची छपे ·
    ⬆/← तैरते बटन, WhatsApp-गोला, तिरंगा-पट्टी, टैगलाइन-पट्टी, 🎙️/👍 हिस्से न छपें · पीछे की गहरी नीली पृष्ठभूमि न छपे */
 @media print{.vk-cover{break-after:page;break-inside:avoid;max-width:128mm;margin:0 auto;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}.vk-spk,.vk-mic,.vk-howto,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim,.tiranga-bar,.acs-freebar,.acs-translate-panel,.udy-float,.acs-wa,.acs-raay,.acs-bolo,iframe.goog-te-banner-frame{display:none!important}body{background:#fff!important}.vk-wrap{max-width:none;margin:0;padding:0 4px;border-radius:0}.vk-toc{display:grid!important;grid-template-columns:1fr 1fr;gap:4px}.vk-toc a{padding:3px 8px;font-size:16px}.vk-les~.vk-les{break-before:page}.vk-les{break-inside:auto}.vk-er{break-inside:avoid}}
+/* छपाई v1.2 (25-Oct, Founder के फ़ोन-PDF से पकड़ा होल): हर पाठ 1-2 पंक्ति अगले पन्ने पर खिसकता था, फिर अगला पाठ नए पन्ने से —
+   24 में से ~10 पन्ने लगभग ख़ाली। इलाज: छपाई में सघन आकार (सबसे छोटा अक्षर 16px = 12pt) ताकि हर पाठ एक पन्ने में रहे;
+   पाठ का शीर्षक अकेला पन्ने के नीचे न छूटे। जाँच: browser-robot — हर पाठ उसी पन्ने पर शुरू और ख़त्म। */
+@media print{.vk-wrap{font-size:16px;line-height:1.35}.vk-les{margin:0;padding-top:4px;border-top-width:3px}
+.vk-hd{gap:8px;break-after:avoid}.vk-hd h2{font-size:20px}.vk-q{font-size:16px}.vk-no{width:34px;height:34px;font-size:18px}
+.vk-box{padding:5px 10px;margin-top:6px;border-radius:10px}.vk-box h3{font-size:17px;margin:0 0 2px;break-after:avoid}.vk-rule li{margin:0;line-height:1.35}
+.vk-er{padding:3px 0;gap:0 8px}.vk-en{font-size:17px}.vk-pr,.vk-hi,.vk-cd,.vk-ans{font-size:16px}.vk-ans{margin-top:2px}
+.vk-ord{margin:4px 0;gap:6px}.vk-ord span{padding:2px 10px}.vk-alpha{grid-template-columns:repeat(13,1fr);gap:3px}.vk-alpha div{font-size:16px;line-height:1.25}
+.vk-toc{margin:6px 0}.vk-info{font-size:16px;line-height:1.45;margin-top:10px;padding:8px 12px;break-inside:avoid}}
