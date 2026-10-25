@@ -1,0 +1,15 @@
+/* vyakaran.css — व्याकरण-खंड (ACS-VK*) · generator: build_vyakaran.js */
+.vk-wrap{max-width:960px;margin:12px auto;padding:14px;font-size:18px;color:#0B1F3A;background:#fff;border-radius:18px}
+.vk-hero{background:linear-gradient(135deg,#0B1F3A,#1565C0);color:#fff;border-radius:18px;padding:18px;text-align:center}.vk-hero h1{font-size:32px;margin:4px 0}.vk-hero .gold{color:#F9A825}.vk-code{font-size:16px;color:#FFE082}
+.vk-toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin:14px 0}.vk-toc a{display:block;background:#F5F7FA;border:2px solid #1565C0;border-radius:12px;padding:8px 10px;color:#0B1F3A;text-decoration:none;font-weight:700}
+.vk-les{margin:22px 0;border-top:4px solid #F9A825;padding-top:10px}.vk-hd{display:flex;gap:12px;align-items:center}.vk-no{background:#F9A825;border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;flex:none}
+.vk-hd h2{margin:0;font-size:26px;color:#1565C0}.vk-q{font-size:18px;color:#555}
+.vk-box{border-radius:14px;padding:10px 14px;margin-top:10px}.vk-rule{background:#E8F5E9;border-left:6px solid #2E7D32}.vk-ex{background:#F5F7FA;border:2px solid #1565C0}.vk-yd{background:#FFF8E1;border-left:6px solid #F9A825}.vk-ab{background:#EDE7F6;border-left:6px solid #6A1B9A}
+.vk-box h3{margin:0 0 6px;font-size:20px}.vk-rule ul{margin:0;padding-left:22px}.vk-rule li{margin:3px 0;line-height:1.55}
+.vk-er{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:7px 0;border-bottom:1px dashed #b8c4d6}.vk-er:last-child{border-bottom:0}
+.vk-en{font-size:21px;font-weight:700}.vk-pr{font-size:18px;color:#1565C0}.vk-hi{font-size:19px;color:#2E7D32}.vk-cd{font-size:16px;color:#777;text-align:center}
+.vk-wrap mark{background:#FFE082;border-radius:4px;padding:0 3px}.vk-spk{border:0;background:#F9A825;border-radius:50%;width:42px;height:42px;font-size:20px;cursor:pointer}
+.vk-ord{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}.vk-ord span{border-radius:10px;padding:6px 12px;font-weight:700}.vk-c1{background:#BBDEFB}.vk-c2{background:#FFE0B2}.vk-c3{background:#C8E6C9}
+.vk-alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:4px;margin:6px 0}.vk-alpha div{background:#fff;border:1px solid #90CAF9;border-radius:8px;text-align:center;font-size:18px}.vk-alpha b{color:#2E7D32}.vk-alpha .v{background:#FFE082}
+.vk-ans{font-size:16px;color:#555;margin-top:6px}.vk-info{margin-top:24px;border:2px solid #1565C0;border-radius:14px;padding:12px 14px;background:#F5F7FA;font-size:17px;line-height:1.6}
+@media print{.vk-spk,.vk-toc,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim{display:none!important}.vk-les{break-before:page}}
