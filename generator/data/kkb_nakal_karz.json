@@ -19,14 +19,6 @@
  "pairs": [
   [
    "aec",
-   "apd"
-  ],
-  [
-   "aec",
-   "arz"
-  ],
-  [
-   "apd",
    "arz"
   ],
   [
@@ -80,6 +72,11 @@
   {
    "code": "acw",
    "from": "apc",
+   "date": "2026-10-25"
+  },
+  {
+   "code": "apd",
+   "from": "arz",
    "date": "2026-10-25"
   }
  ]
