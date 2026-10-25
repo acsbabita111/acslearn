@@ -1,4 +1,4 @@
-/* vyakaran.css — व्याकरण-खंड (ACS-VK*) · generator: build_vyakaran.js */
+/* vyakaran.css v1.1 · 25-Oct-2026 — व्याकरण-खंड (ACS-VK*) · generator: build_vyakaran.js */
 .vk-wrap{max-width:960px;margin:12px auto;padding:14px;font-size:18px;color:#0B1F3A;background:#fff;border-radius:18px}
 .vk-hero{background:linear-gradient(135deg,#0B1F3A,#1565C0);color:#fff;border-radius:18px;padding:18px;text-align:center}.vk-hero h1{font-size:32px;margin:4px 0}.vk-hero .gold{color:#F9A825}.vk-code{font-size:16px;color:#FFE082}
 .vk-toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin:14px 0}.vk-toc a{display:block;background:#F5F7FA;border:2px solid #1565C0;border-radius:12px;padding:8px 10px;color:#0B1F3A;text-decoration:none;font-weight:700}
@@ -12,4 +12,37 @@
 .vk-ord{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}.vk-ord span{border-radius:10px;padding:6px 12px;font-weight:700}.vk-c1{background:#BBDEFB}.vk-c2{background:#FFE0B2}.vk-c3{background:#C8E6C9}
 .vk-alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:4px;margin:6px 0}.vk-alpha div{background:#fff;border:1px solid #90CAF9;border-radius:8px;text-align:center;font-size:18px}.vk-alpha b{color:#2E7D32}.vk-alpha .v{background:#FFE082}
 .vk-ans{font-size:16px;color:#555;margin-top:6px}.vk-info{margin-top:24px;border:2px solid #1565C0;border-radius:14px;padding:12px 14px;background:#F5F7FA;font-size:17px;line-height:1.6}
-@media print{.vk-spk,.vk-toc,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim{display:none!important}.vk-les{break-before:page}}
+.vk-cd .vk-spk{display:block;margin:4px auto 0}.vk-mic{background:#2E7D32}
+.vk-howto{text-align:center;font-size:17px;color:#0B1F3A;background:#E8F5E9;border-radius:12px;padding:6px 10px;margin:0 0 10px}
+/* आवरण v1.1 (25-Oct) — पुस्तक v0.1 का Founder-पसंद पहला पेज, web पर; हर लिखा अक्षर ≥16px (मोबाइल पर भी) */
+.vk-cover{position:relative;max-width:560px;margin:0 auto 14px;border-radius:24px;overflow:hidden;container-type:inline-size;
+ background:linear-gradient(#3FA2EC 0%,#7CC3F4 38%,#BFE3FB 55%,#BFE3FB 100%);color:#0B1F3A;box-shadow:0 6px 18px rgba(11,31,58,.25)}
+.vkc-top{position:relative;display:flex;justify-content:center;padding:14px 21% 0 10px}
+.vkc-brand{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.93);border-radius:999px;padding:6px 18px 6px 8px}
+.vkc-brand img{width:54px;height:54px;flex:none}.vkc-brand b{display:block;font-size:18px;font-size:clamp(16px,4.6cqw,26px);font-family:Inter,sans-serif;line-height:1.2}
+.vkc-brand i{display:block;font-size:16px;font-size:clamp(16px,3.6cqw,20px);color:#1565C0}
+.vkc-sun{position:absolute;right:8px;top:6px;width:19%;max-width:96px;height:auto}
+.vkc-card{position:relative;z-index:2;margin:12px 9% 0;background:#fff;border:6px solid #D8EEFF;border-radius:30px;padding:12px 10px 10px;text-align:center}
+.vkc-t1{font-size:30px;font-size:clamp(28px,9cqw,52px);font-weight:900;line-height:1.25}
+.vkc-t2{font-size:52px;font-size:clamp(46px,15cqw,86px);font-weight:900;line-height:1.15}
+.vkc-t3{font-size:20px;font-size:clamp(18px,5cqw,28px);font-weight:800;color:#1565C0;font-family:Inter,sans-serif;margin:2px 0 6px}
+.vkc-pill{display:inline-block;background:#FFE082;border-radius:999px;padding:4px 16px;font-size:18px;font-size:clamp(17px,4.6cqw,24px);font-weight:800}
+.vkc-code{font-size:16px;color:#555;margin-top:6px;line-height:1.4}
+.vkc-scene{position:relative;margin-top:-5%;padding-top:66%}
+.vkc-scene img{position:absolute;height:auto}
+.vkc-rain{left:3%;top:4%;width:33%}.vkc-cloud{left:34%;top:20%;width:10%}.vkc-boy{left:16%;top:12%;width:26%;z-index:2}.vkc-girl{left:57%;top:12%;width:27%;z-index:2}
+.vkc-plane{left:80%;top:9%;width:14%}.vkc-dog{left:1%;top:58%;width:18%;z-index:4}.vkc-cat{left:82%;top:57%;width:16%;z-index:4}
+.vkc-hill{position:absolute;left:-12%;right:-12%;top:52%;bottom:-8%;background:#7CC86A;border-radius:50% 50% 0 0}
+.vkc-book{position:absolute;z-index:3;left:19%;top:50%;width:62%;height:46%;display:flex;gap:3px;padding:2.5% 2% 3%;background:#1E5BB8;border:4px solid #0B1F3A;border-radius:12px 12px 18px 18px;box-sizing:border-box}
+.vkc-pg{flex:1;background:#FFFDF5;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vkc-pg span{font-family:Inter,sans-serif;font-weight:900;font-size:22px;font-size:clamp(18px,7.4cqw,42px);line-height:1.08;color:#0B1F3A}
+.vkc-scene img.vkc-globe{position:static;width:76%}
+.vkc-ground{position:relative;background:linear-gradient(#E8B37E,#D99A5E);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;padding:14px 12px 14px}
+.vkc-tags{display:flex;flex-direction:column;gap:6px}.vkc-tags span{color:#fff;font-weight:800;font-size:18px;font-size:clamp(17px,4.4cqw,24px);border-radius:8px;padding:4px 16px;box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.vkc-tags .b{background:#1565C0}.vkc-tags .o{background:#E65100}.vkc-tags .g{background:#2E7D32}
+.vkc-motto{position:relative;background:#FFF8E1;border-radius:16px;padding:8px 14px;text-align:center;font-size:16px;line-height:1.5;margin-left:auto}
+.vkc-motto b{font-size:19px;font-size:clamp(18px,4.6cqw,25px)}.vkc-ground img.vkc-crayon{position:absolute;right:-6px;top:-40px;width:44px;height:auto;transform:rotate(-12deg)}
+.vkc-foot{background:#0B1F3A;color:#fff;text-align:center;font-size:16px;line-height:1.5;padding:8px 10px}.vkc-foot b{color:#F9A825}
+/* छपाई v1.1 (25-Oct, Founder-PDF से पकड़े 2 होल): पाठ-1 पहले पन्ने पर ही (नया पन्ना पाठ-2 से) · विषय-सूची छपे ·
+   ⬆/← तैरते बटन, WhatsApp-गोला, तिरंगा-पट्टी, टैगलाइन-पट्टी, 🎙️/👍 हिस्से न छपें · पीछे की गहरी नीली पृष्ठभूमि न छपे */
+@media print{.vk-cover{break-after:page;break-inside:avoid;max-width:128mm;margin:0 auto;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}.vk-spk,.vk-mic,.vk-howto,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim,.tiranga-bar,.acs-freebar,.acs-translate-panel,.udy-float,.acs-wa,.acs-raay,.acs-bolo,iframe.goog-te-banner-frame{display:none!important}body{background:#fff!important}.vk-wrap{max-width:none;margin:0;padding:0 4px;border-radius:0}.vk-toc{display:grid!important;grid-template-columns:1fr 1fr;gap:4px}.vk-toc a{padding:3px 8px;font-size:16px}.vk-les~.vk-les{break-before:page}.vk-les{break-inside:auto}.vk-er{break-inside:avoid}}

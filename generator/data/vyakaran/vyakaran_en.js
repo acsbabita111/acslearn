@@ -7,6 +7,8 @@ module.exports = {
   "hi": "अंग्रेज़ी",
   "en": "English",
   "tts": "en-US",
+  "asr": "en-IN",
+  "cover": {"native_title": "My First Grammar Book", "book_words": ["I am", "You are"]},
   "slug": "english",
   "glottocode": "stan1293"
  },
