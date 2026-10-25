@@ -3300,7 +3300,7 @@ function kkb2IntroBelow(c) {
     '<h2>' + c.hi_name + ' क्यों सीखें</h2>' + why +
     '<h2>दुनिया के मानक से मेल</h2><p>72 "मैं कर सकता/सकती हूँ" लक्ष्य (ऊपर 🎯 में), स्तर-1 = A1, स्तर-2 = A2 पर आधारित। यही ढाँचा जापान-कोरिया के सरकारी कामगार-भाषा कार्यक्रमों में है — हिंदी-माध्यम में यह ACS ही देता है। हर पेज पर मूल भाषा का निशान; अनुवाद का क्रम हिंदी → अंग्रेज़ी → बाक़ी।</p>' +
     '<h2>अक्सर पूछे सवाल</h2>' + faqHtml +
-    kkbSamiti(c) +
+    kkbShodh(c) + kkbSamiti(c) +
     '<p class="kkb-below-note">मूल भाषा: हिंदी · संस्था: Applied Computer School™ (FFGPMTrust, ISO 9001:2015), खगड़िया, बिहार · <a href="/courses/hi/bhasha/' + c.slug + '/brief/">एक-पन्ना परिचय (हिंदी + English)</a></p>' +
     '</section>' +
     '<div class="acs-raay" id="kkb-raay" data-page="ACS-KKB-' + c.code + '" data-title="' + esc(c.hi_name + " बोलने का कोर्स") + '" style="max-width:600px;margin:0 auto 30px"></div>';
@@ -3346,7 +3346,7 @@ function kkbPack(c) {
     ["📋", "प्रवेश-शर्त · न्यूनतम समय · ज़रूरी दस्तावेज़ (पढ़ाई के लिए कोई शर्त नहीं, बिना लॉगिन)", ""],
     ["🖼️", "नमूना प्रमाणपत्र", ""],
     ["🏫", "आगे की पढ़ाई — संस्थान-सूची (10वीं से PhD तक)", ""],
-    ["📚", "शोध व संदर्भ-सूची (कम-से-कम 5 शोध-पत्र) + भाषा-स्तर", ""],
+    ["📚", "शोध व संदर्भ-सूची (कम-से-कम 5 शोध-पत्र) + भाषा-स्तर", shodhHas(c) ? A("#kkb-shodh", "नीचे") : ""],
     ["🌱", "भाषा संवर्धन समिति — जानकारों को खुला निमंत्रण", A("#kkb-samiti", "नीचे")],
     ["🙋", "आपकी राय — 👍 पसंद · 👎 नापसंद · 💬 टिप्पणी", A("#kkb-raay", "सबसे नीचे")]
   ];
@@ -3357,6 +3357,7 @@ function kkbPack(c) {
 function kkbSamiti(c) {
   const msg = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") भाषा का/की जानकार हूँ। भाषा संवर्धन समिति से जुड़कर इस कोर्स को सुधारना चाहता/चाहती हूँ।");
   return '<h2 id="kkb-samiti">🌱 भाषा संवर्धन समिति</h2><p>' + c.hi_name + ' अच्छी तरह जानते हैं? इस कोर्स के वाक्य, उच्चारण और अर्थ जाँचने-सुधारने में साथ दीजिए। हर सुधार पहले जाँचा जाता है, फिर मानक-स्प्रेडशीट में चढ़ता है।</p>' +
+    kkbSamitiOpen(c) +
     '<p><a class="kkb-samiti-go" href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener">🙏 व्हाट्सऐप (WhatsApp) से जुड़िए</a></p>';
 }
 const KKB_BELOW_CSS = '<style>' +
@@ -3393,6 +3394,39 @@ const PUNAR = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "kkb_punar
 function punarLine(c) { const L = PUNAR[c.code]; if (!L || !L.done) return '';
   const cnt = k => (L.done[k] || []).reduce((s, r) => s + (r[1] - r[0]), 0), a = cnt("L1_items"), b = cnt("L2_items"); if (!a && !b) return '';
   return '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">✍️ <b>पुनर्लेखन-प्रगति:</b> स्तर-1 के ' + a + '/500 और स्तर-2 के ' + b + '/1,650 वाक्य असली ' + c.hi_name + ' में लिखे जा चुके हैं।</p>'; }
+/* ---- 25-Oct-2026 (Founder-नियम): "शोध व संदर्भ-सूची" खंड + भाषा संवर्धन समिति का खुला निमंत्रण।
+   एकमात्र घर: data/kkb_shodh_sandarbh.js। जिस भाषा की प्रविष्टि नहीं, उसका पेज बाइट-बराबर (कुछ नहीं जुड़ता)। ---- */
+const SHODH = require("./data/kkb_shodh_sandarbh.js").langs;
+function shodhHas(c) { return !!SHODH[c.code]; }
+const SH_CSS = '<style>#kkb-shodh,#kkb-samiti{scroll-margin-top:92px}.kshr h3{font-size:19px;margin:14px 0 6px;color:#0B1F3A}.kshr ul.kshr-lv{list-style:none;margin:0;padding:0}.kshr ul.kshr-lv li{background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:8px 10px;margin:6px 0;font-size:17px;line-height:1.6}.kshr ul.kshr-lv b{color:#1565C0}.kshr ul.kshr-f{padding-left:22px;margin:6px 0}.kshr ul.kshr-f li{margin:7px 0;font-size:17px;line-height:1.65}.kshr sup.kshr-c{font-size:16px;color:#1565C0;font-weight:800}.kshr ol.kshr-r{list-style:none;padding:0;margin:6px 0}.kshr ol.kshr-r li{background:#fff;border:2px solid #CBD5E1;border-left:6px solid #F9A825;border-radius:12px;padding:10px 12px;margin:8px 0;font-size:17px;line-height:1.6}.kshr .kshr-k{font-weight:800;color:#2E7D32}.kshr .kshr-lim{background:#FFF8E1;border:2px solid #F9A825;border-radius:12px;padding:8px 12px;font-size:17px;line-height:1.6}.kshr .kshr-lim ul{margin:4px 0;padding-left:20px}.kshr .kshr-hon{font-size:17px;line-height:1.7;margin:8px 0}.kshr a{color:#1565C0;font-weight:700;overflow-wrap:anywhere}.kshr-open{background:#E8F5E9;border:2px solid #2E7D32;border-radius:12px;padding:8px 12px;margin:8px 0}</style>';
+function kkbShodh(c) {
+  const X = SHODH[c.code]; if (!X) return '';
+  const cite = r => (r && r.length) ? ' <sup class="kshr-c">(' + r.join(", ") + ')</sup>' : '';
+  const lv = X.level.map(l => '<li><b>' + esc(l[0]) + ':</b> ' + esc(l[1]) + '</li>').join("");
+  const fs = X.facts.map(f => '<li>' + esc(f.t) + cite(f.r) + '</li>').join("");
+  const rf = X.refs.map((r, i) => '<li><b>(' + (i + 1) + ') ' + esc(r.a) + ' (' + esc(r.y) + ').</b> <i>' + esc(r.t) + '.</i> ' + esc(r.v) +
+    (r.l ? ' <a href="' + esc(r.l) + '" target="_blank" rel="noopener">🔗 कड़ी खोलें</a>' : '') +
+    '<br><span class="kshr-k">📖 कितना पढ़ा गया:</span> ' + esc(r.r) + '<br><span class="kshr-k">🎯 इस पन्ने पर क्या लिया:</span> ' + esc(r.u) + '</li>').join("");
+  const lim = X.limits.map(l => '<li>' + esc(l) + '</li>').join("");
+  return SH_CSS + '<div class="kshr"><h2 id="kkb-shodh">📚 शोध व संदर्भ-सूची</h2>' +
+    '<p>इस कोर्स की जानकारी शोध-पत्रों पर टिकी है। हर पत्र का पूरा विवरण नीचे है: उसे कितना पढ़ा गया, और इस पन्ने पर उससे क्या लिया गया। जो पत्र सिर्फ़ ग्रंथ-सूची से जाना, वह भी साफ़ लिखा है।</p>' +
+    '<h3>🧭 भाषा-स्तर और भरोसा</h3><ul class="kshr-lv">' + lv + '</ul>' +
+    '<h3>🔎 शोध क्या कहता है</h3><p>हर बात के आगे गोल कोष्ठक में पत्र की संख्या है।</p><ul class="kshr-f">' + fs + '</ul>' +
+    '<h3>📄 आधार-पत्रों का विस्तृत विवरण (' + X.refs.length + ')</h3><ol class="kshr-r">' + rf + '</ol>' +
+    '<h3>⚠️ जो नहीं मिला, और सीमाएँ</h3><div class="kshr-lim"><ul>' + lim + '</ul></div>' +
+    '<p class="kshr-hon">' + esc(X.honour) + '</p></div>';
+}
+function kkbSamitiOpen(c) {
+  const X = SHODH[c.code]; if (!X) return '';
+  const nm = c.hi_name;
+  return '<div class="kshr kshr-open"><p><b>यह कोर्स अभी मसौदा है।</b> असली ' + nm + ' तब बनेगी जब उसे बोलने और जानने वाले मिलकर सुधारेंगे। इसलिए यह निमंत्रण सबके लिए खुला है:</p><ul class="kshr-f">' +
+    '<li><b>' + nm + ' बोलने वाले:</b> दादा-दादी, माता-पिता, शिक्षक, विद्यार्थी, गाँव के बुज़ुर्ग। बच्चे की 4 पंक्तियों की कविता भी गिनी जाती है।</li>' +
+    '<li><b>18 साल से कम के साथी:</b> अभिभावक की सहमति से जुड़ें; आपका नाम कभी सार्वजनिक नहीं होगा।</li>' +
+    '<li><b>भाषाविद और शोधकर्ता:</b> जिनके शोध-पत्र ऊपर लिए गए हैं, उन्हें और उनके संस्थानों के शिक्षकों व शोधार्थियों को हम आदर से बुलाते हैं। ' + esc(X.invite_orgs) + '</li>' +
+    '<li><b>आप क्या कर सकते हैं:</b> वाक्य सुधारें, उच्चारण बताएँ, नए शब्द दें, अपनी आवाज़ रिकॉर्ड करें, पुरानी कहानी और गीत भेजें, ग़लती बताएँ।</li>' +
+    '<li><b>कैसे:</b> नीचे के बटन से व्हाट्सऐप (WhatsApp) पर संदेश भेजें; ई-मेल से नहीं। हर सुधार पहले जाँचा जाता है: सामग्री-निर्माता (Content Creator), फिर क्षेत्रीय प्रमुख (ZM), फिर शैक्षणिक प्रमुख (Academic Head); तब मानक-स्प्रेडशीट में चढ़ता है और पन्ने पर आता है।</li>' +
+    '<li><b>हमारा वादा:</b> भाषा समुदाय की है। समुदाय की सहमति के बिना कोई सामग्री नहीं ली जाएगी। जिसका योगदान होगा, उसका नाम (अगर वह चाहे) शोध-सूची में सम्मान से लिखा जाएगा।</li></ul></div>';
+}
 function nakalNote(c) {
   const n = NAKAL[c.code]; if (!n) return '';
   const src = KKB2_LANGS.find(x => x.code === n.of); if (!src) throw new Error("नक़ल-सूचना: '" + n.of + "' भाषा-सूची में नहीं");
@@ -3405,8 +3439,9 @@ function nakalNote(c) {
   const msg = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") भाषा का/की जानकार हूँ और इसके असली वाक्य लिखने में मदद करना चाहता/चाहती हूँ।");
   return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFEBEE;border:2px solid #C62828;border-radius:10px;color:#0B1F3A">' +
     '<p style="font-size:17px;line-height:1.7;margin:0">⚠️ <b>सच्ची सूचना:</b> इस कोर्स के ज़्यादातर वाक्य अभी असल में <b>' + src.hi_name + '</b> के वाक्य हैं, ' + c.hi_name + ' के नहीं।</p>' +
-    '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">असली ' + c.hi_name + ' में पुनर्लेखन जारी है। तब तक इसे ' + src.hi_name + ' के क़रीब का अभ्यास समझें।</p>' +
+    (SHODH[c.code] ? '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">' + esc(SHODH[c.code].nakal_line) + '</p>' : '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">असली ' + c.hi_name + ' में पुनर्लेखन जारी है। तब तक इसे ' + src.hi_name + ' के क़रीब का अभ्यास समझें।</p>') +
     punarLine(c) +
+    (SHODH[c.code] ? '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">📚 <b>शोध-आधार:</b> इस भाषा के बारे में शोध क्या कहता है और कौन-से पत्र पढ़े गए — <a href="#kkb-shodh" style="color:#1565C0;font-weight:800">नीचे पूरा विवरण</a></p>' : '') +
     '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">आप ' + c.hi_name + ' जानते हैं? <a href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener" style="color:#C62828;font-weight:800;text-decoration:underline">भाषा संवर्धन समिति से जुड़ें</a></p></div>';
 }
 function kkb2Content(c) {

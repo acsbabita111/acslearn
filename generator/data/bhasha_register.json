@@ -1,7 +1,7 @@
 {
 "_": "⚠️ मशीन-निकासी — हाथ से न बदलें। एकमात्र सच = मास्टर-स्प्रेडशीट। नई स्प्रेडशीट = नई निकासी (भाषा-सूची का घर)।",
-"source": "ACS-Bhasha-Master-Spreadsheet-v5_8-24Oct.xlsx · शीट: भाषा-रजिस्टर",
-"source_sha256": "e655bf5be757525e684c3f0ebfaa66f201f0deb9ef2251efd3ad8608f2e9064a",
+"source": "ACS-Bhasha-Master-Spreadsheet-v5_10-25Oct.xlsx · शीट: भाषा-रजिस्टर",
+"source_sha256": "6a532167195c0109b3687ecbe963cbc837f266401a8bcb3b3f1edb42d308b7ce",
 "exported": "2026-10-25",
 "count": 427,
 "langs": {
@@ -1086,7 +1086,7 @@
 "biy": {
 "hi": "भूमिज",
 "en": "Bhumij",
-"iso3": "biy",
+"iso3": "— (ISO नहीं)",
 "lipi": "Deva",
 "darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
 },
