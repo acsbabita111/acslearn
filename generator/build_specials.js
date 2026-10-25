@@ -3396,6 +3396,10 @@ function punarLine(c) { const L = PUNAR[c.code]; if (!L || !L.done) return '';
 function nakalNote(c) {
   const n = NAKAL[c.code]; if (!n) return '';
   const src = KKB2_LANGS.find(x => x.code === n.of); if (!src) throw new Error("नक़ल-सूचना: '" + n.of + "' भाषा-सूची में नहीं");
+  if (n.type === "rewritten") { const msg2 = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") का/की मूल-वक्ता हूँ और कोर्स के वाक्य जाँचना चाहता/चाहती हूँ।");
+    return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;color:#0B1F3A">' +
+      '<p style="font-size:17px;line-height:1.7;margin:0">✅ <b>नया:</b> इस कोर्स के सब वाक्य अब असली ' + c.hi_name + ' में दोबारा लिखे गए हैं (' + n.date + ')। पहले ये ' + src.hi_name + ' के वाक्य थे।</p>' +
+      '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">यह भाषा-शोध पर आधारित मसौदा है। आप ' + c.hi_name + ' के मूल-वक्ता हैं? <a href="https://wa.me/919431210092?text=' + msg2 + '" target="_blank" rel="noopener" style="color:#2E7D32;font-weight:800;text-decoration:underline">सुधार भेजें</a></p></div>'; }
   if (n.type === "alias") return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;color:#0B1F3A">' +
     '<p style="font-size:17px;line-height:1.7;margin:0">ℹ️ <b>जानकारी:</b> भाषा-शोध के स्रोतों के अनुसार ' + c.hi_name + ' असल में <a href="/courses/hi/bhasha/' + src.slug + '/" style="color:#1565C0;font-weight:800">' + src.hi_name + '</a> का ही दूसरा नाम या रूप है। इसलिए दोनों कोर्सों के वाक्य एक जैसे हैं।</p></div>';
   const msg = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") भाषा का/की जानकार हूँ और इसके असली वाक्य लिखने में मदद करना चाहता/चाहती हूँ।");

@@ -25,6 +25,7 @@ for (const c of P.order) { const L = P.langs[c], src = L.source, done = L.done |
     if (r > 0.15) { F++; console.log("❌ " + c + " " + lv + ": पूरे हिस्से में " + (r * 100).toFixed(1) + "% वाक्य अब भी " + src + " से हूबहू"); }
     if (mk) { F++; console.log("❌ " + c + " " + lv + ": स्रोत-बोली के पहचान-शब्द " + mk + " बार"); } }
   for (const [lv, fk] of [["L1", "kkb_"], ["L2", "kkb2_"]]) for (const wn of (done[lv + "_test_weeks"] || [])) { const W = load(fk + c + "_data.js").weeks[wn - 1]; cnt += (W && W.test && W.test.lines || []).length; }
+  for (const wn of (done.L2_extra_weeks || [])) { const W = load("kkb2_" + c + "_data.js").weeks[wn - 1]; if (!W) continue; cnt += (W.listen || []).length + (W.dialog || []).length; (W.days || []).forEach(d => { cnt += (d.tw || []).length + ((d.drill && d.drill.rows) || []).length; }); }
   const dir = path.join(ROOT, "generator/data/punarlekhan", c); if (cnt && (!fs.existsSync(dir) || !fs.readdirSync(dir).some(f => f.endsWith(".tsv")))) { F++; console.log("❌ " + c + ": स्रोत-TSV नहीं"); }
   const T = total(c); console.log((cnt ? "✍️ " : "⏳ ") + c + " (← " + src + "): वाक्य पूरे " + cnt + " · कुल लक्ष्य-पाठ " + T + " · प्रगति " + (cnt / T * 100).toFixed(1) + "%"); }
 console.log(F ? "\n❌ पुनर्लेखन-robot: " + F + " fail" : "🏁 पुनर्लेखन-robot: पूरे हिस्से साफ़ (स्रोत-नक़ल 15% से कम, स्रोत-बोली के शब्द शून्य)");
