@@ -3308,7 +3308,7 @@ function translitNote(c) {
   if (!TRANSLIT_FLAGS.has(c.code)) return '';
   const msg = encodeURIComponent('नमस्ते ACS — मैं ' + c.hi_name + ' (' + c.en_name + ', कोड ' + c.code + ') भाषा का/की जानकार हूँ और इसके असली वाक्य लिखने में मदद करना चाहता/चाहती हूँ।');
   return '<div class="kkb-translit-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFEBEE;border:2px solid #C62828;border-radius:10px;color:#0B1F3A">' +
-    '<p style="font-size:17px;line-height:1.7;margin:0">⚠️ <b>सच्ची सूचना:</b> इस कोर्स के वाक्य अभी असली ' + c.hi_name + ' नहीं हैं — ये हिंदी वाक्य हैं, जो ' + c.hi_name + ' की लिपि में लिखे गए हैं।</p>' +
+    '<p style="font-size:17px;line-height:1.7;margin:0">⚠️ <b>सच्ची सूचना:</b> इस कोर्स के वाक्य अभी असली ' + c.hi_name + ' नहीं हैं — ये मशीन से बने ढाँचे हैं, जिनमें बहुत से हिंदी (या अंग्रेज़ी) शब्द बिना अनुवाद रह गए हैं।</p>' +
     '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">असली भाषा में पुनर्लेखन जारी है। तब तक इसे सिर्फ़ <b>लिपि पढ़ने का अभ्यास</b> समझें, बोलचाल का कोर्स नहीं।</p>' +
     '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">आप यह भाषा जानते हैं? <a href="https://wa.me/919431210092?text=' + msg + '" style="color:#C62828;font-weight:800;text-decoration:underline">भाषा संवर्धन समिति से जुड़ें</a></p>' +
     '</div>';

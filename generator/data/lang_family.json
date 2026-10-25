@@ -1,0 +1,2140 @@
+{
+"_note": "lang_family.json — स्रोत: स्प्रेडशीट v5.8 Glottocode + Glottolog CLDF Family_ID (24-Oct-2026). robot dev_hindi_leak_check इसे पढ़ता है।",
+"langs": {
+"uz": {
+"glottocode": "uzbe1247",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"ug": {
+"glottocode": "uigh1240",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"tt": {
+"glottocode": "tata1255",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"tg": {
+"glottocode": "taji1245",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"sv": {
+"glottocode": "swed1254",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"si": {
+"glottocode": "sinh1246",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ro": {
+"glottocode": "roma1327",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"qu": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"ps": {
+"glottocode": "pash1270",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"prs": {
+"glottocode": "dari1249",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"pcm": {
+"glottocode": "nige1257",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"nl": {
+"glottocode": "dutc1256",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"myn": {
+"glottocode": "maya1287",
+"family": "maya1287",
+"family_name": "Mayan"
+},
+"mt": {
+"glottocode": "malt1254",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"mfe": {
+"glottocode": "mori1278",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ky": {
+"glottocode": "kirg1245",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"ku": {
+"glottocode": "nort2641",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kk": {
+"glottocode": "kaza1248",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"hy": {
+"glottocode": "nucl1235",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"hu": {
+"glottocode": "hung1274",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"ht": {
+"glottocode": "hait1244",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gn": {
+"glottocode": "guar1292",
+"family": "tupi1275",
+"family_name": "Tupian"
+},
+"el": {
+"glottocode": "mode1248",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"cs": {
+"glottocode": "czec1258",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"brx": {
+"glottocode": "bodo1269",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"bg": {
+"glottocode": "bulg1262",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"be": {
+"glottocode": "bela1254",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bal": {
+"glottocode": "balo1260",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"az": {
+"glottocode": "azer1255",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"ay": {
+"glottocode": "ayma1253",
+"family": "ayma1253",
+"family_name": "Aymaran"
+},
+"arz": {
+"glottocode": "egyp1253",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"ary": {
+"glottocode": "moro1292",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"arq": {
+"glottocode": "alge1239",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"apd": {
+"glottocode": "suda1236",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"apc": {
+"glottocode": "nort3139",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"aec": {
+"glottocode": "said1239",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"acw": {
+"glottocode": "hija1235",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"acm": {
+"glottocode": "meso1252",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"en": {
+"glottocode": "stan1293",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ar": {
+"glottocode": "arab1395",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"fr": {
+"glottocode": "stan1290",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"es": {
+"glottocode": "stan1288",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ja": {
+"glottocode": "nucl1643",
+"family": "japo1237",
+"family_name": "Japonic"
+},
+"ko": {
+"glottocode": "kore1280",
+"family": "kore1284",
+"family_name": "Koreanic"
+},
+"de": {
+"glottocode": "stan1295",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ru": {
+"glottocode": "russ1263",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"he": {
+"glottocode": "hebr1245",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"pt": {
+"glottocode": "port1283",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ur": {
+"glottocode": "urdu1245",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"fa": {
+"glottocode": "fars1254",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"sd": {
+"glottocode": "sind1272",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ks": {
+"glottocode": "kash1277",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mr": {
+"glottocode": "mara1378",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ne": {
+"glottocode": "nepa1254",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"sw": {
+"glottocode": "swah1253",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"bho": {
+"glottocode": "bhoj1244",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"zh": {
+"glottocode": "mand1415",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"id": {
+"glottocode": "indo1316",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"tr": {
+"glottocode": "nucl1301",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"kn": {
+"glottocode": "nucl1305",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"ta": {
+"glottocode": "tami1289",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"te": {
+"glottocode": "telu1262",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"bn": {
+"glottocode": "beng1280",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"or": {
+"glottocode": "oriy1255",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"as": {
+"glottocode": "assa1263",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"pa": {
+"glottocode": "panj1256",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gu": {
+"glottocode": "guja1252",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ml": {
+"glottocode": "mala1464",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"xh": {
+"glottocode": "xhos1239",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"zu": {
+"glottocode": "zulu1248",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"ig": {
+"glottocode": "nucl1417",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"yo": {
+"glottocode": "yoru1245",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"ti": {
+"glottocode": "tigr1271",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"am": {
+"glottocode": "amha1245",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"mg": {
+"glottocode": "plat1254",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bm": {
+"glottocode": "bamb1269",
+"family": "mand1469",
+"family_name": "Mande"
+},
+"om": {
+"glottocode": "nucl1736",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"tw": {
+"glottocode": "twii1234",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"sn": {
+"glottocode": "shon1251",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"ny": {
+"glottocode": "nyan1308",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"rw": {
+"glottocode": "kiny1244",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"lg": {
+"glottocode": "gand1255",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"wo": {
+"glottocode": "nucl1347",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"so": {
+"glottocode": "soma1255",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"ha": {
+"glottocode": "haus1257",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"af": {
+"glottocode": "afri1274",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"anp": {
+"glottocode": "angi1238",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"sjp": {
+"glottocode": "surj1235",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"khr": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"sck": {
+"glottocode": "sadr1248",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kyw": {
+"glottocode": "kudm1238",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bns": {
+"glottocode": "bund1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bfy": {
+"glottocode": "bagh1251",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bra": {
+"glottocode": "braj1242",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mal": {
+"glottocode": "malv1243",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"nim": {
+"glottocode": "nima1243",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mtr": {
+"glottocode": "mewa1249",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"dhu": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"hdt": {
+"glottocode": "hado1235",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bgr": {
+"glottocode": "bagr1243",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mtw": {
+"glottocode": "mewa1250",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bsn": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"lri": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"pwr": {
+"glottocode": "powa1246",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gjr": {
+"glottocode": "guja1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"lmn": {
+"glottocode": "lamb1269",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kgr": {
+"glottocode": "kang1280",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mjl": {
+"glottocode": "mand1409",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"cdh": {
+"glottocode": "cham1307",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gbk": {
+"glottocode": "gadd1242",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"cdj": {
+"glottocode": "chur1258",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bhd": {
+"glottocode": "bhad1241",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"hii": {
+"glottocode": "hind1267",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"jns": {
+"glottocode": "jaun1243",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"srx": {
+"glottocode": "sirm1239",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"him": {
+"glottocode": "hima1250",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gwr": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"sat": {
+"glottocode": "sant1410",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"kru": {
+"glottocode": "kuru1301",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"gon": {
+"glottocode": "gond1265",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"uki": {
+"glottocode": "kuii1252",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"tcy": {
+"glottocode": "tulu1258",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"kff": {
+"glottocode": "koya1251",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"syl": {
+"glottocode": "sylh1242",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kxv": {
+"glottocode": "kuvi1243",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"pnb": {
+"glottocode": "west2386",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kfa": {
+"glottocode": "koda1255",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"skr": {
+"glottocode": "sera1259",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kfj": {
+"glottocode": "kond1295",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"mni": {
+"glottocode": "mani1292",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"kmj": {
+"glottocode": "kuma1274",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"mwr": {
+"glottocode": "marw1260",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kfb": {
+"glottocode": "nort2699",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"gom": {
+"glottocode": "goan1235",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"nit": {
+"glottocode": "sout1549",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"mag": {
+"glottocode": "maga1260",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"pci": {
+"glottocode": "duru1236",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"hne": {
+"glottocode": "chha1249",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gdb": {
+"glottocode": "pott1240",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"kfy": {
+"glottocode": "kuma1273",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"peg": {
+"glottocode": "peng1244",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"gbm": {
+"glottocode": "garh1243",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mha": {
+"glottocode": "mand1413",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"doi": {
+"glottocode": "dogr1250",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"grt": {
+"glottocode": "garo1247",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"bjj": {
+"glottocode": "bajj1234",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"trp": {
+"glottocode": "kokb1239",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"bhb": {
+"glottocode": "bhil1251",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kha": {
+"glottocode": "khas1269",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"bgc": {
+"glottocode": "hary1238",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"unr": {
+"glottocode": "mund1320",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"awa": {
+"glottocode": "awad1243",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"hoc": {
+"glottocode": "hooo1248",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"mai": {
+"glottocode": "mait1250",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"biy": {
+"glottocode": "bhum1234",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"sa": {
+"glottocode": "sans1269",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kfp": {
+"glottocode": "korw1242",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"it": {
+"glottocode": "ital1282",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"pbv": {
+"glottocode": "pnar1238",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"ms": {
+"glottocode": "stan1306",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"dis": {
+"glottocode": "dima1251",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"vi": {
+"glottocode": "viet1252",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"lus": {
+"glottocode": "lush1249",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"th": {
+"glottocode": "thai1261",
+"family": "taik1256",
+"family_name": "Tai-Kadai"
+},
+"njo": {
+"glottocode": "aona1235",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"pl": {
+"glottocode": "poli1260",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"njh": {
+"glottocode": "loth1237",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"uk": {
+"glottocode": "ukra1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"dzo": {
+"glottocode": "dzon1239",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"hr": {
+"glottocode": "croa1245",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"brh": {
+"glottocode": "brah1256",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"sr": {
+"glottocode": "serb1264",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"dv": {
+"glottocode": "dhiv1236",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"lt": {
+"glottocode": "lith1251",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"new": {
+"glottocode": "newa1246",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"sk": {
+"glottocode": "slov1269",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ccp": {
+"glottocode": "chak1266",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"fi": {
+"glottocode": "finn1318",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"zum": {
+"glottocode": "kumz1235",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ka": {
+"glottocode": "nucl1302",
+"family": "kart1248",
+"family_name": "Kartvelian"
+},
+"afb": {
+"glottocode": "gulf1241",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"bo": {
+"glottocode": "tibe1272",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"wuu": {
+"glottocode": "wuch1236",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"ceb": {
+"glottocode": "cebu1242",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"zha": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"hak": {
+"glottocode": "hakk1236",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"gan": {
+"glottocode": "ganc1239",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"cv": {
+"glottocode": "chuv1255",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"ba": {
+"glottocode": "bash1264",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"sah": {
+"glottocode": "yaku1245",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"bua": {
+"glottocode": "buri1258",
+"family": "mong1349",
+"family_name": "Mongolic-Khitan"
+},
+"udm": {
+"glottocode": "udmu1245",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"mhr": {
+"glottocode": "east2328",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"myv": {
+"glottocode": "erzy1239",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"koi": {
+"glottocode": "komi1269",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"inh": {
+"glottocode": "ingu1240",
+"family": "nakh1245",
+"family_name": "Nakh-Daghestanian"
+},
+"ava": {
+"glottocode": "avar1256",
+"family": "nakh1245",
+"family_name": "Nakh-Daghestanian"
+},
+"os": {
+"glottocode": "iron1242",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"tyv": {
+"glottocode": "tuvi1240",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"kjh": {
+"glottocode": "khak1248",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"xal": {
+"glottocode": "kalm1243",
+"family": "mong1349",
+"family_name": "Mongolic-Khitan"
+},
+"yrk": {
+"glottocode": "nene1249",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"jje": {
+"glottocode": "jeju1234",
+"family": "kore1284",
+"family_name": "Koreanic"
+},
+"ryu": {
+"glottocode": "cent2126",
+"family": "japo1237",
+"family_name": "Japonic"
+},
+"ryn": {
+"glottocode": "nort2935",
+"family": "japo1237",
+"family_name": "Japonic"
+},
+"mvi": {
+"glottocode": "miya1259",
+"family": "japo1237",
+"family_name": "Japonic"
+},
+"rys": {
+"glottocode": "yaey1239",
+"family": "japo1237",
+"family_name": "Japonic"
+},
+"yoi": {
+"glottocode": "yona1241",
+"family": "japo1237",
+"family_name": "Japonic"
+},
+"ain": {
+"glottocode": "ainu1240",
+"family": "ainu1252",
+"family_name": "Ainu"
+},
+"ilo": {
+"glottocode": "ilok1237",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"hil": {
+"glottocode": "hili1240",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"war": {
+"glottocode": "wara1300",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bcl": {
+"glottocode": "cent2087",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"pam": {
+"glottocode": "pamp1243",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"pag": {
+"glottocode": "pang1290",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"mrw": {
+"glottocode": "mara1404",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"mdh": {
+"glottocode": "magu1243",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"tsg": {
+"glottocode": "taus1251",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"krj": {
+"glottocode": "kina1250",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"ban": {
+"glottocode": "bali1278",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"min": {
+"glottocode": "mina1268",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"mad": {
+"glottocode": "nucl1460",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"ace": {
+"glottocode": "achi1257",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bbc": {
+"glottocode": "bata1289",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bug": {
+"glottocode": "bugi1244",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bjn": {
+"glottocode": "banj1239",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"mak": {
+"glottocode": "maka1311",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"btx": {
+"glottocode": "bata1293",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"iba": {
+"glottocode": "iban1264",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"dtp": {
+"glottocode": "cent2100",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"nod": {
+"glottocode": "nort2740",
+"family": "taik1256",
+"family_name": "Tai-Kadai"
+},
+"njm": {
+"glottocode": "anga1288",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"nkh": {
+"glottocode": "khez1235",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"nbe": {
+"glottocode": "kony1248",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"nbc": {
+"glottocode": "chan1313",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"nsm": {
+"glottocode": "sumi1235",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"ksw": {
+"glottocode": "sgaw1245",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"che": {
+"glottocode": "chec1245",
+"family": "nakh1245",
+"family_name": "Nakh-Daghestanian"
+},
+"dar": {
+"glottocode": "darg1241",
+"family": "nakh1245",
+"family_name": "Nakh-Daghestanian"
+},
+"lez": {
+"glottocode": "lezg1247",
+"family": "nakh1245",
+"family_name": "Nakh-Daghestanian"
+},
+"kbd": {
+"glottocode": "kaba1278",
+"family": "abkh1242",
+"family_name": "Abkhaz-Adyge"
+},
+"tuk": {
+"glottocode": "turk1304",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"tet": {
+"glottocode": "tetu1245",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"tcz": {
+"glottocode": "thad1238",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"pck": {
+"glottocode": "pait1244",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"njz": {
+"glottocode": "nyis1236",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"apt": {
+"glottocode": "apat1240",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"mtq": {
+"glottocode": "muon1246",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"swb": {
+"glottocode": "maor1244",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"crs": {
+"glottocode": "sese1246",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"rcf": {
+"glottocode": "reun1238",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"oon": {
+"glottocode": "onge1236",
+"family": "jara1244",
+"family_name": "Jarawa-Onge"
+},
+"tpi": {
+"glottocode": "tokp1240",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"fij": {
+"glottocode": "fiji1243",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bis": {
+"glottocode": "bisl1239",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"pis": {
+"glottocode": "piji1239",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mri": {
+"glottocode": "maor1246",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"smo": {
+"glottocode": "samo1305",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"ton": {
+"glottocode": "tong1325",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"hmo": {
+"glottocode": "hiri1237",
+"family": "pidg1258",
+"family_name": "Pidgin"
+},
+"pjt": {
+"glottocode": "pitj1243",
+"family": "pama1250",
+"family_name": "Pama-Nyungan"
+},
+"dan": {
+"glottocode": "dani1285",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"nob": {
+"glottocode": "norw1259",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"isl": {
+"glottocode": "icel1247",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"slv": {
+"glottocode": "slov1268",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"est": {
+"glottocode": "esto1258",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"lav": {
+"glottocode": "latv1249",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"sqi": {
+"glottocode": "alba1267",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"mkd": {
+"glottocode": "mace1250",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ltz": {
+"glottocode": "luxe1241",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"cat": {
+"glottocode": "stan1289",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"eus": {
+"glottocode": "basq1248",
+"family": "",
+"family_name": ""
+},
+"glg": {
+"glottocode": "gali1258",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"cym": {
+"glottocode": "wels1247",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gle": {
+"glottocode": "iris1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"gla": {
+"glottocode": "scot1245",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"fao": {
+"glottocode": "faro1244",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kal": {
+"glottocode": "kala1399",
+"family": "eski1264",
+"family_name": "Eskimo-Aleut"
+},
+"sme": {
+"glottocode": "nort2671",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"niv": {
+"glottocode": "gily1242",
+"family": "nivk1234",
+"family_name": "Nivkh"
+},
+"nav": {
+"glottocode": "nava1243",
+"family": "atha1245",
+"family_name": "Athabaskan-Eyak-Tlingit"
+},
+"crk": {
+"glottocode": "plai1258",
+"family": "algi1248",
+"family_name": "Algic"
+},
+"iku": {
+"glottocode": "east2534",
+"family": "eski1264",
+"family_name": "Eskimo-Aleut"
+},
+"oji": {
+"glottocode": "ojib1241",
+"family": "algi1248",
+"family_name": "Algic"
+},
+"nah": {
+"glottocode": "azte1234",
+"family": "utoa1244",
+"family_name": "Uto-Aztecan"
+},
+"haw": {
+"glottocode": "hawa1245",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"lkt": {
+"glottocode": "lako1247",
+"family": "siou1252",
+"family_name": "Siouan"
+},
+"chr": {
+"glottocode": "cher1273",
+"family": "iroq1247",
+"family_name": "Iroquoian"
+},
+"guc": {
+"glottocode": "wayu1243",
+"family": "araw1281",
+"family_name": "Arawakan"
+},
+"rap": {
+"glottocode": "rapa1244",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"srn": {
+"glottocode": "sran1240",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"acu": {
+"glottocode": "achu1248",
+"family": "jiva1245",
+"family_name": "Chicham"
+},
+"gyn": {
+"glottocode": "creo1235",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"fgc": {
+"glottocode": "guia1246",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"trn": {
+"glottocode": "trin1276",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"jiv": {
+"glottocode": "shua1257",
+"family": "jiva1245",
+"family_name": "Chicham"
+},
+"kea": {
+"glottocode": "kabu1256",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"pap": {
+"glottocode": "papi1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"acf": {
+"glottocode": "sain1246",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"cri": {
+"glottocode": "saot1239",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bjs": {
+"glottocode": "baja1265",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ch": {
+"glottocode": "cham1312",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"pau": {
+"glottocode": "pala1344",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"mh": {
+"glottocode": "mars1254",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"chk": {
+"glottocode": "chuu1238",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"pon": {
+"glottocode": "pohn1238",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"kos": {
+"glottocode": "kosr1238",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"yap": {
+"glottocode": "yape1248",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"gil": {
+"glottocode": "gilb1244",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"ty": {
+"glottocode": "tahi1242",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"rar": {
+"glottocode": "raro1241",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"niu": {
+"glottocode": "niue1239",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"tvl": {
+"glottocode": "tuva1244",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"tkl": {
+"glottocode": "toke1240",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"dhv": {
+"glottocode": "dehu1237",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"grn": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"dcf": {
+"glottocode": "sain1246",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"srm": {
+"glottocode": "sara1340",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"djk": {
+"glottocode": "ndyu1242",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"tdx": {
+"glottocode": "tand1256",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bhr": {
+"glottocode": "bara1369",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"ln": {
+"glottocode": "ling1263",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"kg": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"fuv": {
+"glottocode": "nige1253",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"tn": {
+"glottocode": "tswa1253",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"bem": {
+"glottocode": "bemb1257",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"ts": {
+"glottocode": "tson1249",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"mos": {
+"glottocode": "moss1236",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"ee": {
+"glottocode": "ewee1241",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"kri": {
+"glottocode": "krio1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"nd": {
+"glottocode": "nort2795",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"sqt": {
+"glottocode": "soqo1240",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"gdq": {
+"glottocode": "mehr1241",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"aii": {
+"glottocode": "assy1241",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"haz": {
+"glottocode": "haza1239",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"shv": {
+"glottocode": "sheh1240",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"mid": {
+"glottocode": "nucl1706",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"lrc": {
+"glottocode": "nort2645",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"rmt": {
+"glottocode": "doma1258",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"ve": {
+"glottocode": "vend1245",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"ss": {
+"glottocode": "swat1243",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"luo": {
+"glottocode": "luok1236",
+"family": "nilo1247",
+"family_name": "Nilotic"
+},
+"din": {
+"glottocode": "dink1262",
+"family": "nilo1247",
+"family_name": "Nilotic"
+},
+"ki": {
+"glottocode": "kiku1240",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"zgh": {
+"glottocode": "stan1324",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"tig": {
+"glottocode": "tigr1270",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"na": {
+"glottocode": "naur1243",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"fud": {
+"glottocode": "east2447",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"wls": {
+"glottocode": "wall1257",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"skg": {
+"glottocode": "saka1291",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"bzc": {
+"glottocode": "sout2920",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"eo": {
+"glottocode": "espe1235",
+"family": "arti1236",
+"family_name": "Artificial Language"
+},
+"la": {
+"glottocode": "lati1261",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"yi": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"br": {
+"glottocode": "bret1244",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"co": {
+"glottocode": "cors1241",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"fy": {
+"glottocode": "west2354",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"scn": {
+"glottocode": "sici1248",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"lij": {
+"glottocode": "ligu1248",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"lmo": {
+"glottocode": "lomb1257",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"szl": {
+"glottocode": "sile1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"vec": {
+"glottocode": "vene1258",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"dov": {
+"glottocode": "domb1246",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"hmn": {
+"glottocode": "firs1234",
+"family": "hmon1336",
+"family_name": "Hmong-Mien"
+},
+"kl": {
+"glottocode": "kala1399",
+"family": "eski1264",
+"family_name": "Eskimo-Aleut"
+},
+"gv": {
+"glottocode": "manx1243",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"oc": {
+"glottocode": "occi1239",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"bs": {
+"glottocode": "bosn1245",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"fur": {
+"glottocode": "friu1240",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"aa": {
+"glottocode": "afar1241",
+"family": "afro1255",
+"family_name": "Afro-Asiatic"
+},
+"fon": {
+"glottocode": "fonn1241",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"gaa": {
+"glottocode": "gaaa1244",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"sus": {
+"glottocode": "susu1250",
+"family": "mand1469",
+"family_name": "Mande"
+},
+"kr": {
+"glottocode": "",
+"family": "",
+"family_name": ""
+},
+"ktu": {
+"glottocode": "kitu1246",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"cgg": {
+"glottocode": "chig1238",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"kv": {
+"glottocode": "komi1268",
+"family": "ural1272",
+"family_name": "Uralic"
+},
+"ltg": {
+"glottocode": "east2282",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"rn": {
+"glottocode": "rund1242",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"ab": {
+"glottocode": "abkh1244",
+"family": "abkh1242",
+"family_name": "Abkhaz-Adyge"
+},
+"ach": {
+"glottocode": "acol1236",
+"family": "nilo1247",
+"family_name": "Nilotic"
+},
+"alz": {
+"glottocode": "alur1250",
+"family": "nilo1247",
+"family_name": "Nilotic"
+},
+"bew": {
+"glottocode": "beta1252",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"crh": {
+"glottocode": "crim1257",
+"family": "turk1311",
+"family_name": "Turkic"
+},
+"cnh": {
+"glottocode": "haka1240",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"nso": {
+"glottocode": "pedi1238",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"st": {
+"glottocode": "sout2807",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"kac": {
+"glottocode": "kach1280",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"tum": {
+"glottocode": "tumb1250",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"dyu": {
+"glottocode": "dyul1238",
+"family": "mand1469",
+"family_name": "Mande"
+},
+"zai": {
+"glottocode": "isth1244",
+"family": "otom1299",
+"family_name": "Otomanguean"
+},
+"sg": {
+"glottocode": "sang1328",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"rom": {
+"glottocode": "roma1329",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"kek": {
+"glottocode": "kekc1242",
+"family": "maya1287",
+"family_name": "Mayan"
+},
+"bci": {
+"glottocode": "baou1238",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"bts": {
+"glottocode": "bata1288",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"hrx": {
+"glottocode": "riog1239",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"nqo": {
+"glottocode": "nkoa1234",
+"family": "arti1236",
+"family_name": "Artificial Language"
+},
+"lua": {
+"glottocode": "luba1249",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"jam": {
+"glottocode": "jama1262",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"nus": {
+"glottocode": "nuer1246",
+"family": "nilo1247",
+"family_name": "Nilotic"
+},
+"ndc": {
+"glottocode": "ndau1241",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"shn": {
+"glottocode": "shan1277",
+"family": "taik1256",
+"family_name": "Tai-Kadai"
+},
+"li": {
+"glottocode": "limb1263",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"tiv": {
+"glottocode": "tivv1240",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+},
+"mam": {
+"glottocode": "mamm1241",
+"family": "maya1287",
+"family_name": "Mayan"
+},
+"ady": {
+"glottocode": "adyg1241",
+"family": "abkh1242",
+"family_name": "Abkhaz-Adyge"
+},
+"jv": {
+"glottocode": "java1254",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"km": {
+"glottocode": "cent1989",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"lo": {
+"glottocode": "laoo1244",
+"family": "taik1256",
+"family_name": "Tai-Kadai"
+},
+"mn": {
+"glottocode": "mong1331",
+"family": "mong1349",
+"family_name": "Mongolic-Khitan"
+},
+"my": {
+"glottocode": "nucl1310",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"nan": {
+"glottocode": "minn1241",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"su": {
+"glottocode": "sund1252",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"tl": {
+"glottocode": "taga1270",
+"family": "aust1307",
+"family_name": "Austronesian"
+},
+"yue": {
+"glottocode": "yuec1235",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"ckb": {
+"glottocode": "cent1972",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"wbr": {
+"glottocode": "wagd1238",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"rkt": {
+"glottocode": "rang1265",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"lif": {
+"glottocode": "limb1266",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"bfq": {
+"glottocode": "bada1257",
+"family": "drav1251",
+"family_name": "Dravidian"
+},
+"bhi": {
+"glottocode": "bhil1253",
+"family": "indo1319",
+"family_name": "Indo-European"
+},
+"lep": {
+"glottocode": "lepc1244",
+"family": "sino1245",
+"family_name": "Sino-Tibetan"
+},
+"srb": {
+"glottocode": "sora1254",
+"family": "aust1305",
+"family_name": "Austroasiatic"
+},
+"aho": {
+"glottocode": "ahom1240",
+"family": "taik1256",
+"family_name": "Tai-Kadai"
+},
+"vai": {
+"glottocode": "vaii1241",
+"family": "mand1469",
+"family_name": "Mande"
+},
+"bax": {
+"glottocode": "bamu1253",
+"family": "atla1278",
+"family_name": "Atlantic-Congo"
+}
+}
+}
