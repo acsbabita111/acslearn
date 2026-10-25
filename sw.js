@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v764'; // 25-Oct सईदी (ऊपरी मिस्र) अरबी पूरा पुनर्लेखन (kkb_aec_data.js + kkb2_aec_data.js): 2,843 पाठ असली सईदी बोली में — cache-first data
+const CACHE_VERSION = 'v765'; // 25-Oct मोरक्कन अरबी पूरा पुनर्लेखन (kkb_ary_data.js + kkb2_ary_data.js): 2,876 पाठ असली मोरक्कन दारिजा में — cache-first data
+// पिछला v764; // 25-Oct सईदी (ऊपरी मिस्र) अरबी पूरा पुनर्लेखन (kkb_aec_data.js + kkb2_aec_data.js): 2,843 पाठ असली सईदी बोली में — cache-first data
 // पिछला v763; // 25-Oct सूडानी अरबी पूरा पुनर्लेखन (kkb_apd_data.js + kkb2_apd_data.js): 2,877 पाठ असली ख़ार्तूम बोली में — cache-first data
 // पिछला v762; // 25-Oct हिजाज़ी अरबी पूरा पुनर्लेखन (kkb_acw_data.js + kkb2_acw_data.js): 2,877 पाठ असली जेद्दा-मक्का बोली में — cache-first data
 // पिछला v761; // 25-Oct इराक़ी अरबी पूरा पुनर्लेखन (kkb_acm_data.js + kkb2_acm_data.js): 2,877 पाठ असली बग़दादी बोली में — cache-first data

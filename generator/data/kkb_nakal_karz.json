@@ -18,10 +18,6 @@
  ],
  "pairs": [
   [
-   "arq",
-   "ary"
-  ],
-  [
    "biy",
    "kfp"
   ],
@@ -78,6 +74,11 @@
   {
    "code": "aec",
    "from": "arz",
+   "date": "2026-10-25"
+  },
+  {
+   "code": "ary",
+   "from": "apc",
    "date": "2026-10-25"
   }
  ]
