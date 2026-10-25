@@ -1,6 +1,8 @@
-/* translit_hold_flags.js v1.1 · 24-Oct-2026 — "सच्ची सूचना" पट्टी का एकमात्र घर (परत-3)
+/* translit_hold_flags.js v1.2 · 25-Oct-2026 — "सच्ची सूचना" पट्टी का एकमात्र घर (परत-3)
    v1.0: 13 भाषाएँ — हिंदी वाक्य दूसरी लिपि में (फ़ैसला #30)।
    v1.1: +30 — robot #31 (dev_hindi_leak_check) + आँख-जाँच: वाक्य असली भाषा नहीं, मशीनी ढाँचा जिसमें हिंदी/अंग्रेज़ी शब्द बिना अनुवाद
          (जैसे "रोओम्" = room, "बिज्" = बीज)। मानव-जाँच-सूची (असली-से, पर उधार-भारी/सहोदर-नक़ल): hoc unr biy kfp kru kmj gon new — इनमें पट्टी नहीं।
+   v1.2 (25-Oct): +gwr गावरी — "लक्ष्य = हिंदी" दर 21.8% (हिंदी-पट्टी की भाषाएँ: भोजपुरी 0.5, मैथिली 0.3, अवधी 0.4, सादरी 0.3, छत्तीसगढ़ी 0.4;
+         66 देवनागरी-भाषाओं की मध्यिका 2.2%) + पहचान अनिश्चित (ISO-कोड नहीं; "Gawari" नाम 4 अलग भाषाओं का — GRN/Joshua/IE-CoR)।
    असली पुनर्लेखन + समिति-जाँच होते ही कोड हटे — पट्टी अपने-आप उतरे। */
-module.exports = { flags: ["kfj", "kff", "kxv", "mha", "peg", "uki", "kfa", "ksw", "shn", "ccp", "ryn", "mvi", "rys", "ain", "bci", "crk", "dzo", "gdb", "iku", "kfb", "lkt", "mtq", "nit", "njm", "njo", "njz", "nkh", "nod", "nqo", "nsm", "oji", "oon", "pbv", "pci", "pjt", "ryu", "tcz", "tig", "trp", "yoi", "gan", "hak", "wuu"] };
+module.exports = { flags: ["kfj", "kff", "kxv", "mha", "peg", "uki", "kfa", "ksw", "shn", "ccp", "ryn", "mvi", "rys", "ain", "bci", "crk", "dzo", "gdb", "iku", "kfb", "lkt", "mtq", "nit", "njm", "njo", "njz", "nkh", "nod", "nqo", "nsm", "oji", "oon", "pbv", "pci", "pjt", "ryu", "tcz", "tig", "trp", "yoi", "gan", "hak", "wuu", "gwr"] };

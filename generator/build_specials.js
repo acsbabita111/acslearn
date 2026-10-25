@@ -3386,6 +3386,20 @@ function aiSahyogNote(c) {
     '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">ACS इस भाषा के संवर्धन के लिए भाषाविदों को आमंत्रित करता है — <a href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener" style="color:#1565C0;font-weight:800">🙏 जुड़ने के लिए क्लिक करें</a></p>' +
     '</div>';
 }
+/* ---- नक़ल-सूचना पट्टी (25-Oct-2026, शोध-आधारित): एकमात्र घर data/kkb_nakal_soochna.js (fail-closed: फ़ाइल न मिले = build रुके)।
+   copy = वाक्य असल में दूसरी भाषा के (सच्ची सूचना + समिति-न्योता) · alias = शोध में यही भाषा का दूसरा नाम (सादी जानकारी)। ---- */
+const NAKAL = require("./data/kkb_nakal_soochna.js").notes;
+function nakalNote(c) {
+  const n = NAKAL[c.code]; if (!n) return '';
+  const src = KKB2_LANGS.find(x => x.code === n.of); if (!src) throw new Error("नक़ल-सूचना: '" + n.of + "' भाषा-सूची में नहीं");
+  if (n.type === "alias") return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#E3F2FD;border:2px solid #1565C0;border-radius:10px;color:#0B1F3A">' +
+    '<p style="font-size:17px;line-height:1.7;margin:0">ℹ️ <b>जानकारी:</b> भाषा-शोध के स्रोतों के अनुसार ' + c.hi_name + ' असल में <a href="/courses/hi/bhasha/' + src.slug + '/" style="color:#1565C0;font-weight:800">' + src.hi_name + '</a> का ही दूसरा नाम या रूप है। इसलिए दोनों कोर्सों के वाक्य एक जैसे हैं।</p></div>';
+  const msg = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") भाषा का/की जानकार हूँ और इसके असली वाक्य लिखने में मदद करना चाहता/चाहती हूँ।");
+  return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFEBEE;border:2px solid #C62828;border-radius:10px;color:#0B1F3A">' +
+    '<p style="font-size:17px;line-height:1.7;margin:0">⚠️ <b>सच्ची सूचना:</b> इस कोर्स के ज़्यादातर वाक्य अभी असल में <b>' + src.hi_name + '</b> के वाक्य हैं, ' + c.hi_name + ' के नहीं।</p>' +
+    '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">असली ' + c.hi_name + ' में पुनर्लेखन जारी है। तब तक इसे ' + src.hi_name + ' के क़रीब का अभ्यास समझें।</p>' +
+    '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">आप ' + c.hi_name + ' जानते हैं? <a href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener" style="color:#C62828;font-weight:800;text-decoration:underline">भाषा संवर्धन समिति से जुड़ें</a></p></div>';
+}
 function kkb2Content(c) {
   return '<section class="kkb-intro" style="max-width:600px;margin:16px auto 0;padding:0 16px;color:#fff">' +
     '<h1 style="font-size:26px;line-height:1.3;margin:8px 0 6px;color:#fff">' + c.hi_name + ' बोलने का पूरा कोर्स — एक ही जगह</h1>' +
@@ -3395,7 +3409,7 @@ function kkb2Content(c) {
     '<p style="font-size:18px;line-height:1.6;margin:6px 0 4px"><a href="/courses/hi/bhasha/' + c.slug + '/brief/" style="color:#F9A825;font-weight:800;text-decoration:underline">📄 एक-पन्ना परिचय — दूतावास/नियोक्ता के लिए (हिंदी + English)</a></p>' +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
-    translitNote(c) + aiSahyogNote(c) +
+    translitNote(c) + aiSahyogNote(c) + nakalNote(c) +
     '<div id="kkb2-app" class="kkb2-app"><noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript><p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p></div>' +
     kkb2IntroBelow(c);
 }

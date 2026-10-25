@@ -6,13 +6,17 @@
   [
    "kal",
    "kl"
-  ]
- ],
- "pairs": [
+  ],
   [
    "acf",
    "dcf"
   ],
+  [
+   "hne",
+   "lri"
+  ]
+ ],
+ "pairs": [
   [
    "acm",
    "acw"
@@ -58,10 +62,6 @@
    "pci"
   ],
   [
-   "hne",
-   "lri"
-  ],
-  [
    "kfb",
    "nit"
   ],
@@ -77,5 +77,10 @@
    "nd",
    "zu"
   ]
- ]
+ ],
+ "twin_why": {
+  "kal=kl": "19-Oct फ़ैसला",
+  "acf=dcf": "SIL ISO 639-3 RA: एक भाषा acf, देश-टैग acf_DM/acf_LC; Glottolog sain1246",
+  "hne=lri": "Laria = छत्तीसगढ़ी का दूसरा नाम (Omniglot, LongNow, BnF)"
+ }
 }
