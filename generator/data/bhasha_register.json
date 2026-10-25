@@ -1,0 +1,2998 @@
+{
+"_": "⚠️ मशीन-निकासी — हाथ से न बदलें। एकमात्र सच = मास्टर-स्प्रेडशीट। नई स्प्रेडशीट = नई निकासी (भाषा-सूची का घर)।",
+"source": "ACS-Bhasha-Master-Spreadsheet-v5_8-24Oct.xlsx · शीट: भाषा-रजिस्टर",
+"source_sha256": "e655bf5be757525e684c3f0ebfaa66f201f0deb9ef2251efd3ad8608f2e9064a",
+"exported": "2026-10-25",
+"count": 427,
+"langs": {
+"uz": {
+"hi": "उज़्बेक",
+"en": "Uzbek",
+"iso3": "uzb",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ug": {
+"hi": "उइघुर",
+"en": "Uyghur",
+"iso3": "uig",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"tt": {
+"hi": "तातार",
+"en": "Tatar",
+"iso3": "tat",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"tg": {
+"hi": "ताजिक",
+"en": "Tajik",
+"iso3": "tgk",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"sv": {
+"hi": "स्वीडिश",
+"en": "Swedish",
+"iso3": "swe",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"si": {
+"hi": "सिंहली",
+"en": "Sinhala",
+"iso3": "sin",
+"lipi": "Sinh",
+"darja": "✅ प्रमाणित"
+},
+"ro": {
+"hi": "रोमानियाई",
+"en": "Romanian",
+"iso3": "ron",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"qu": {
+"hi": "क्वेशुआ",
+"en": "Quechua",
+"iso3": "que",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ps": {
+"hi": "पश्तो",
+"en": "Pashto",
+"iso3": "pus",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"prs": {
+"hi": "दारी",
+"en": "Dari",
+"iso3": "prs",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"pcm": {
+"hi": "नाइजीरियन पिजिन",
+"en": "Nigerian Pidgin",
+"iso3": "pcm",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"nl": {
+"hi": "डच",
+"en": "Dutch",
+"iso3": "nld",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"myn": {
+"hi": "मायन",
+"en": "Yucatec Maya",
+"iso3": "yua",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"mt": {
+"hi": "माल्टीज़",
+"en": "Maltese",
+"iso3": "mlt",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"mfe": {
+"hi": "मॉरीशियन क्रीओल",
+"en": "Mauritian Creole",
+"iso3": "mfe",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ky": {
+"hi": "किर्गिज़",
+"en": "Kyrgyz",
+"iso3": "kir",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"ku": {
+"hi": "कुर्दिश (कुरमांजी)",
+"en": "Kurdish (Kurmanji)",
+"iso3": "kmr",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"kk": {
+"hi": "कज़ाख",
+"en": "Kazakh",
+"iso3": "kaz",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"hy": {
+"hi": "अर्मेनियाई",
+"en": "Armenian",
+"iso3": "hye",
+"lipi": "Armn",
+"darja": "✅ प्रमाणित"
+},
+"hu": {
+"hi": "हंगेरियन",
+"en": "Hungarian",
+"iso3": "hun",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ht": {
+"hi": "हाईटियन क्रियोल",
+"en": "Haitian Creole",
+"iso3": "hat",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"gn": {
+"hi": "गुआरानी",
+"en": "Guarani",
+"iso3": "grn",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"el": {
+"hi": "ग्रीक",
+"en": "Greek",
+"iso3": "ell",
+"lipi": "Grek",
+"darja": "✅ प्रमाणित"
+},
+"cs": {
+"hi": "चेक",
+"en": "Czech",
+"iso3": "ces",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"brx": {
+"hi": "बोडो",
+"en": "Bodo",
+"iso3": "brx",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"bg": {
+"hi": "बुल्गारियाई",
+"en": "Bulgarian",
+"iso3": "bul",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"be": {
+"hi": "बेलारूसी",
+"en": "Belarusian",
+"iso3": "bel",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"bal": {
+"hi": "बलूची",
+"en": "Balochi",
+"iso3": "bal",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"az": {
+"hi": "अज़रबैजानी",
+"en": "Azerbaijani",
+"iso3": "aze",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ay": {
+"hi": "आयमारा",
+"en": "Aymara",
+"iso3": "aym",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"arz": {
+"hi": "मिस्री अरबी",
+"en": "Egyptian Arabic",
+"iso3": "arz",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"ary": {
+"hi": "मोरक्कन अरबी",
+"en": "Moroccan Arabic",
+"iso3": "ary",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"arq": {
+"hi": "अल्जीरियाई अरबी",
+"en": "Algerian Arabic",
+"iso3": "arq",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"apd": {
+"hi": "सूडानी अरबी",
+"en": "Sudanese Arabic",
+"iso3": "apd",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"apc": {
+"hi": "लेवांटाइन अरबी",
+"en": "Levantine Arabic",
+"iso3": "apc",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"aec": {
+"hi": "सैदी अरबी",
+"en": "Saidi Arabic",
+"iso3": "aec",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"acw": {
+"hi": "हिजाज़ी अरबी",
+"en": "Hejazi Arabic",
+"iso3": "acw",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"acm": {
+"hi": "मेसोपोटामिया अरबी",
+"en": "Mesopotamian Arabic",
+"iso3": "acm",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"en": {
+"hi": "अंग्रेज़ी",
+"en": "English",
+"iso3": "eng",
+"lipi": "Latn",
+"darja": "master-पुल"
+},
+"ar": {
+"hi": "अरबी",
+"en": "Arabic",
+"iso3": "ara",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"fr": {
+"hi": "फ़्रेंच",
+"en": "French",
+"iso3": "fra",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"es": {
+"hi": "स्पेनिश",
+"en": "Spanish",
+"iso3": "spa",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ja": {
+"hi": "जापानी",
+"en": "Japanese",
+"iso3": "jpn",
+"lipi": "Jpan",
+"darja": "✅ प्रमाणित"
+},
+"ko": {
+"hi": "कोरियाई",
+"en": "Korean",
+"iso3": "kor",
+"lipi": "Kore",
+"darja": "✅ प्रमाणित"
+},
+"de": {
+"hi": "जर्मन",
+"en": "German",
+"iso3": "deu",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ru": {
+"hi": "रूसी",
+"en": "Russian",
+"iso3": "rus",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"he": {
+"hi": "हिब्रू",
+"en": "Hebrew",
+"iso3": "heb",
+"lipi": "Hebr",
+"darja": "✅ प्रमाणित"
+},
+"pt": {
+"hi": "पुर्तगाली",
+"en": "Portuguese",
+"iso3": "por",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ur": {
+"hi": "उर्दू",
+"en": "Urdu",
+"iso3": "urd",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"fa": {
+"hi": "फ़ारसी",
+"en": "Persian",
+"iso3": "fas",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"sd": {
+"hi": "सिंधी",
+"en": "Sindhi",
+"iso3": "snd",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"ks": {
+"hi": "कश्मीरी",
+"en": "Kashmiri",
+"iso3": "kas",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"mr": {
+"hi": "मराठी",
+"en": "Marathi",
+"iso3": "mar",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"ne": {
+"hi": "नेपाली",
+"en": "Nepali",
+"iso3": "nep",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"sw": {
+"hi": "स्वाहिली",
+"en": "Swahili",
+"iso3": "swa",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"bho": {
+"hi": "भोजपुरी",
+"en": "Bhojpuri",
+"iso3": "bho",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"zh": {
+"hi": "चीनी",
+"en": "Mandarin",
+"iso3": "zho",
+"lipi": "Hans",
+"darja": "✅ प्रमाणित"
+},
+"id": {
+"hi": "इंडोनेशियाई",
+"en": "Indonesian",
+"iso3": "ind",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"tr": {
+"hi": "तुर्की",
+"en": "Turkish",
+"iso3": "tur",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"kn": {
+"hi": "कन्नड",
+"en": "Kannada",
+"iso3": "kan",
+"lipi": "Knda",
+"darja": "✅ प्रमाणित"
+},
+"ta": {
+"hi": "तमिल",
+"en": "Tamil",
+"iso3": "tam",
+"lipi": "Taml",
+"darja": "✅ प्रमाणित"
+},
+"te": {
+"hi": "तेलुगु",
+"en": "Telugu",
+"iso3": "tel",
+"lipi": "Telu",
+"darja": "✅ प्रमाणित"
+},
+"bn": {
+"hi": "बांग्ला",
+"en": "Bengali",
+"iso3": "ben",
+"lipi": "Beng",
+"darja": "✅ प्रमाणित"
+},
+"or": {
+"hi": "उड़िया",
+"en": "Odia",
+"iso3": "ori",
+"lipi": "Orya",
+"darja": "✅ प्रमाणित"
+},
+"as": {
+"hi": "असमिया",
+"en": "Assamese",
+"iso3": "asm",
+"lipi": "Beng",
+"darja": "✅ प्रमाणित"
+},
+"pa": {
+"hi": "पंजाबी",
+"en": "Punjabi",
+"iso3": "pan",
+"lipi": "Guru",
+"darja": "✅ प्रमाणित"
+},
+"gu": {
+"hi": "गुजराती",
+"en": "Gujarati",
+"iso3": "guj",
+"lipi": "Gujr",
+"darja": "✅ प्रमाणित"
+},
+"ml": {
+"hi": "मलयालम",
+"en": "Malayalam",
+"iso3": "mal",
+"lipi": "Mlym",
+"darja": "✅ प्रमाणित"
+},
+"xh": {
+"hi": "षोसा",
+"en": "Xhosa",
+"iso3": "xho",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"zu": {
+"hi": "ज़ुलु",
+"en": "Zulu",
+"iso3": "zul",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ig": {
+"hi": "इग्बो",
+"en": "Igbo",
+"iso3": "ibo",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"yo": {
+"hi": "योरूबा",
+"en": "Yoruba",
+"iso3": "yor",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ti": {
+"hi": "तिग्रीन्या",
+"en": "Tigrinya",
+"iso3": "tir",
+"lipi": "Ethi",
+"darja": "✅ प्रमाणित"
+},
+"am": {
+"hi": "अम्हारिक",
+"en": "Amharic",
+"iso3": "amh",
+"lipi": "Ethi",
+"darja": "✅ प्रमाणित"
+},
+"mg": {
+"hi": "मालागासी",
+"en": "Malagasy",
+"iso3": "mlg",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"bm": {
+"hi": "बमबारा",
+"en": "Bambara",
+"iso3": "bam",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"om": {
+"hi": "ओरोमो",
+"en": "Oromo",
+"iso3": "orm",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"tw": {
+"hi": "अकान/त्वी",
+"en": "Akan/Twi",
+"iso3": "twi",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"sn": {
+"hi": "शोना",
+"en": "Shona",
+"iso3": "sna",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ny": {
+"hi": "चिचेवा",
+"en": "Chichewa",
+"iso3": "nya",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"rw": {
+"hi": "किन्यारवांडा",
+"en": "Kinyarwanda",
+"iso3": "kin",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"lg": {
+"hi": "लुगांडा",
+"en": "Luganda",
+"iso3": "lug",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"wo": {
+"hi": "वोलोफ़",
+"en": "Wolof",
+"iso3": "wol",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"so": {
+"hi": "सोमाली",
+"en": "Somali",
+"iso3": "som",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ha": {
+"hi": "हाउसा",
+"en": "Hausa",
+"iso3": "hau",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"af": {
+"hi": "अफ़्रीकांस",
+"en": "Afrikaans",
+"iso3": "afr",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"anp": {
+"hi": "अंगिका",
+"en": "Angika",
+"iso3": "anp",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"sjp": {
+"hi": "सुरजापुरी",
+"en": "Surjapuri",
+"iso3": "sjp",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"khr": {
+"hi": "खोरठा",
+"en": "Khortha",
+"iso3": "— (ISO नहीं)",
+"lipi": "Deva",
+"darja": "✅ सूची-A"
+},
+"sck": {
+"hi": "सादरी",
+"en": "Sadri",
+"iso3": "sck",
+"lipi": "Deva",
+"darja": "✅ सूची-A"
+},
+"kyw": {
+"hi": "कुरमाली",
+"en": "Kurmali",
+"iso3": "kyw",
+"lipi": "Deva",
+"darja": "✅ सूची-A"
+},
+"bns": {
+"hi": "बुंदेली",
+"en": "Bundeli",
+"iso3": "bns",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"bfy": {
+"hi": "बघेली",
+"en": "Bagheli",
+"iso3": "bfy",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"bra": {
+"hi": "ब्रजभाषा",
+"en": "Brajbhasha",
+"iso3": "bra",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"mal": {
+"hi": "मालवी",
+"en": "Malvi",
+"iso3": "mup",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"nim": {
+"hi": "निमाड़ी",
+"en": "Nimadi",
+"iso3": "noe",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"mtr": {
+"hi": "मेवाड़ी",
+"en": "Mewari",
+"iso3": "mtr",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"dhu": {
+"hi": "ढूँढाड़ी",
+"en": "Dhundhari",
+"iso3": "— (ISO नहीं)",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"hdt": {
+"hi": "हाड़ौती",
+"en": "Hadoti",
+"iso3": "hoj",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"bgr": {
+"hi": "बागड़ी",
+"en": "Bagri",
+"iso3": "bgq",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"mtw": {
+"hi": "मेवाती",
+"en": "Mewati",
+"iso3": "wtm",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"bsn": {
+"hi": "बिश्नोई",
+"en": "Bishnoi",
+"iso3": "— (ISO नहीं)",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"lri": {
+"hi": "लरिया",
+"en": "Lariya",
+"iso3": "— (ISO नहीं)",
+"lipi": "Deva",
+"darja": "✅ सूची-A"
+},
+"pwr": {
+"hi": "पवारी",
+"en": "Pawari",
+"iso3": "pwr",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"gjr": {
+"hi": "गोजरी",
+"en": "Gojri",
+"iso3": "gju",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"lmn": {
+"hi": "बंजारी",
+"en": "Lambadi",
+"iso3": "lmn",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"kgr": {
+"hi": "कांगड़ी",
+"en": "Kangri",
+"iso3": "xnr",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"mjl": {
+"hi": "मंडयाली",
+"en": "Mandeali",
+"iso3": "mjl",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"cdh": {
+"hi": "चम्बियाली",
+"en": "Chambeali",
+"iso3": "cdh",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"gbk": {
+"hi": "गद्दी",
+"en": "Gaddi",
+"iso3": "gbk",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"cdj": {
+"hi": "चुराही",
+"en": "Churahi",
+"iso3": "cdj",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"bhd": {
+"hi": "भद्रवाही",
+"en": "Bhadarwahi",
+"iso3": "bhd",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"hii": {
+"hi": "हंडूरी",
+"en": "Hinduri",
+"iso3": "hii",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"jns": {
+"hi": "जौनसारी",
+"en": "Jaunsari",
+"iso3": "jns",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"srx": {
+"hi": "सिरमौरी",
+"en": "Sirmauri",
+"iso3": "srx",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"him": {
+"hi": "हिमाचली",
+"en": "Himachali-general",
+"iso3": "",
+"lipi": "Deva",
+"darja": "🟡 खेमा-द पूर्ण-पुनर्लेखन 14-Oct — मूल-वक्ता जाँच बाक़ी; sibling-xClone शेष"
+},
+"gwr": {
+"hi": "गावरी",
+"en": "Gawari",
+"iso3": "— (ISO नहीं)",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"sat": {
+"hi": "संथाली",
+"en": "Santali",
+"iso3": "sat",
+"lipi": "Olck",
+"darja": "✅ प्रमाणित"
+},
+"kru": {
+"hi": "कुरुख़",
+"en": "Kurukh",
+"iso3": "kru",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"gon": {
+"hi": "गोंडी",
+"en": "Gondi",
+"iso3": "gon",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"uki": {
+"hi": "कुई",
+"en": "Kui",
+"iso3": "kxu",
+"lipi": "Orya",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"tcy": {
+"hi": "तुलु",
+"en": "Tulu",
+"iso3": "tcy",
+"lipi": "Knda",
+"darja": "✅ प्रमाणित"
+},
+"kff": {
+"hi": "कोया",
+"en": "Koya",
+"iso3": "kff",
+"lipi": "Telu",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"syl": {
+"hi": "सिल्हटी",
+"en": "Sylheti",
+"iso3": "syl",
+"lipi": "Beng",
+"darja": "✅ प्रमाणित"
+},
+"kxv": {
+"hi": "कुवि",
+"en": "Kuvi",
+"iso3": "kxv",
+"lipi": "Orya",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"pnb": {
+"hi": "पश्चिमी पंजाबी",
+"en": "Western Punjabi",
+"iso3": "pnb",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"kfa": {
+"hi": "कोडव",
+"en": "Kodava",
+"iso3": "kfa",
+"lipi": "Knda",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"skr": {
+"hi": "सराइकी",
+"en": "Saraiki",
+"iso3": "skr",
+"lipi": "Arab",
+"darja": "✅ प्रमाणित"
+},
+"kfj": {
+"hi": "कोंडा",
+"en": "Konda",
+"iso3": "kfc",
+"lipi": "Telu",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"mni": {
+"hi": "मणिपुरी (Meiteilon)",
+"en": "Manipuri",
+"iso3": "mni",
+"lipi": "Beng",
+"darja": "✅ प्रमाणित"
+},
+"kmj": {
+"hi": "माल्टो",
+"en": "Malto",
+"iso3": "kmj",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"mwr": {
+"hi": "मारवाड़ी",
+"en": "Marwari",
+"iso3": "mwr",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"kfb": {
+"hi": "कोलामी",
+"en": "Kolami",
+"iso3": "kfb",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"gom": {
+"hi": "कोंकणी",
+"en": "Konkani",
+"iso3": "gom",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"nit": {
+"hi": "नाइकी",
+"en": "Naiki",
+"iso3": "nit",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"mag": {
+"hi": "मगही",
+"en": "Magahi",
+"iso3": "mag",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"pci": {
+"hi": "पारजी",
+"en": "Parji",
+"iso3": "pci",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"hne": {
+"hi": "छत्तीसगढ़ी",
+"en": "Chhattisgarhi",
+"iso3": "hne",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"gdb": {
+"hi": "गदबा",
+"en": "Gadaba",
+"iso3": "gdb",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"kfy": {
+"hi": "कुमाऊंनी",
+"en": "Kumaoni",
+"iso3": "kfy",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"peg": {
+"hi": "पेंगो",
+"en": "Pengo",
+"iso3": "peg",
+"lipi": "Orya",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"gbm": {
+"hi": "गढ़वाली",
+"en": "Garhwali",
+"iso3": "gbm",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"mha": {
+"hi": "मांडा",
+"en": "Manda",
+"iso3": "mha",
+"lipi": "Orya",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"doi": {
+"hi": "डोगरी",
+"en": "Dogri",
+"iso3": "dgo",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"grt": {
+"hi": "गारो",
+"en": "Garo",
+"iso3": "grt",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"bjj": {
+"hi": "बज्जिका",
+"en": "Bajjika",
+"iso3": "vjk",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"trp": {
+"hi": "कोकबोरोक",
+"en": "Kokborok",
+"iso3": "trp",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ192"
+},
+"bhb": {
+"hi": "भीली",
+"en": "Bhili",
+"iso3": "bhb",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"kha": {
+"hi": "खासी",
+"en": "Khasi",
+"iso3": "kha",
+"lipi": "Latn",
+"darja": "🟡 (19-Oct) — 722 en-strings खासी में पैच, en-अवशेष 0; robots 🏁; ⚠️ build_khema_r kha दोबारा न चलाएँ (config-shared में en-सूची बाक़ी); AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"bgc": {
+"hi": "हरियाणवी",
+"en": "Haryanvi",
+"iso3": "bgc",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"unr": {
+"hi": "मुंडारी",
+"en": "Mundari",
+"iso3": "unr",
+"lipi": "Deva",
+"darja": "🟡 लाल10-स खेप-2 पूर्ण-पुनर्लेखन 20-Oct (असली मुंडारी देवनागरी तीन-स्तंभ [0]=[1] दर्पण, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 18-Oct ऑडिट-दोष: sat-clone + hoc-साझा बंद — असली Kherwarian भंडार (इञ/ओड़ाः/दाः/नेल/जगर/जोहार/-केना)"
+},
+"awa": {
+"hi": "अवधी",
+"en": "Awadhi",
+"iso3": "awa",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"hoc": {
+"hi": "हो",
+"en": "Ho",
+"iso3": "hoc",
+"lipi": "Deva",
+"darja": "🟡 लाल10-स खेप-2 पूर्ण-पुनर्लेखन 20-Oct (असली हो देवनागरी तीन-स्तंभ [0]=[1] दर्पण, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 18-Oct ऑडिट-दोष: sat-clone + unr-साझा बंद — असली Ho-भेद (आञ/ओवा/हो/लेल/काजि/-केदा) सहित Kherwarian भंडार"
+},
+"mai": {
+"hi": "मैथिली",
+"en": "Maithili",
+"iso3": "mai",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"biy": {
+"hi": "भूमिज",
+"en": "Bhumij",
+"iso3": "biy",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"sa": {
+"hi": "संस्कृत",
+"en": "Sanskrit",
+"iso3": "san",
+"lipi": "Deva",
+"darja": "✅ प्रमाणित"
+},
+"kfp": {
+"hi": "कोरवा",
+"en": "Korwa",
+"iso3": "kfp",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"it": {
+"hi": "इतालवी",
+"en": "Italian",
+"iso3": "ita",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"pbv": {
+"hi": "प्नार",
+"en": "Pnar",
+"iso3": "pbv",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ198"
+},
+"ms": {
+"hi": "मलय",
+"en": "Malay",
+"iso3": "msa",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"dis": {
+"hi": "डिमासा",
+"en": "Dimasa",
+"iso3": "dis",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ199"
+},
+"vi": {
+"hi": "वियतनामी",
+"en": "Vietnamese",
+"iso3": "vie",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"lus": {
+"hi": "मिज़ो",
+"en": "Mizo",
+"iso3": "lus",
+"lipi": "Latn",
+"darja": "🟡⚠️ खेमा-स पूर्ण-पुनर्लेखन 13-Oct (tn-WORD, nus-मिसाल; क्रम-सीमा घोषित) — मूल-वक्ता जाँच अनिवार्य"
+},
+"th": {
+"hi": "थाई",
+"en": "Thai",
+"iso3": "tha",
+"lipi": "Thai",
+"darja": "✅ प्रमाणित"
+},
+"njo": {
+"hi": "आओ नागा",
+"en": "Ao Naga",
+"iso3": "njo",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ201"
+},
+"pl": {
+"hi": "पोलिश",
+"en": "Polish",
+"iso3": "pol",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"njh": {
+"hi": "लोथा नागा",
+"en": "Lotha Naga",
+"iso3": "njh",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ202"
+},
+"uk": {
+"hi": "यूक्रेनी",
+"en": "Ukrainian",
+"iso3": "ukr",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"dzo": {
+"hi": "ज़ोंगखा",
+"en": "Dzongkha",
+"iso3": "dzo",
+"lipi": "Tibt",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"hr": {
+"hi": "क्रोएशियाई",
+"en": "Croatian",
+"iso3": "hrv",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"brh": {
+"hi": "ब्राहुई",
+"en": "Brahui",
+"iso3": "brh",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"sr": {
+"hi": "सर्बियाई",
+"en": "Serbian",
+"iso3": "srp",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"dv": {
+"hi": "धिवेही",
+"en": "Dhivehi",
+"iso3": "div",
+"lipi": "Thaa",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"lt": {
+"hi": "लिथुआनियाई",
+"en": "Lithuanian",
+"iso3": "lit",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"new": {
+"hi": "नेवारी (Nepal Bhasa)",
+"en": "Newari",
+"iso3": "new",
+"lipi": "Deva",
+"darja": "🟡 लाल10-स खेप-3 पूर्ण-पुनर्लेखन 20-Oct (हिंदी-clone निरस्त)"
+},
+"sk": {
+"hi": "स्लोवाक",
+"en": "Slovak",
+"iso3": "slk",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"ccp": {
+"hi": "चकमा",
+"en": "Chakma",
+"iso3": "ccp",
+"lipi": "Cakm",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"fi": {
+"hi": "फ़िनिश",
+"en": "Finnish",
+"iso3": "fin",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"zum": {
+"hi": "कुमज़ारी",
+"en": "Kumzari",
+"iso3": "zum",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ka": {
+"hi": "जॉर्जियाई",
+"en": "Georgian",
+"iso3": "kat",
+"lipi": "Geor",
+"darja": "✅ प्रमाणित"
+},
+"afb": {
+"hi": "ख़ाड़ी-अरबी",
+"en": "Gulf Arabic",
+"iso3": "afb",
+"lipi": "Arab",
+"darja": "🟡 AI-draft robot-पास — पुराना 'उथली' दर्जा 20-Oct निरस्त (content 05-Oct से असली Gulf)"
+},
+"bo": {
+"hi": "तिब्बती",
+"en": "Tibetan",
+"iso3": "bod",
+"lipi": "Tibt",
+"darja": "✅ प्रमाणित"
+},
+"wuu": {
+"hi": "वू-चीनी",
+"en": "Wu Chinese",
+"iso3": "wuu",
+"lipi": "Hani",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ceb": {
+"hi": "सिबुआनो",
+"en": "Cebuano",
+"iso3": "ceb",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"zha": {
+"hi": "ज़ुआंग",
+"en": "Zhuang",
+"iso3": "zha",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ211"
+},
+"hak": {
+"hi": "हक्का",
+"en": "Hakka",
+"iso3": "hak",
+"lipi": "Hani",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"gan": {
+"hi": "गान",
+"en": "Gan",
+"iso3": "gan",
+"lipi": "Hani",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"cv": {
+"hi": "चुवाश",
+"en": "Chuvash",
+"iso3": "chv",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | sw v727 live; palochka/उयालिक-भंडार regen"
+},
+"ba": {
+"hi": "बश्कीर",
+"en": "Bashkir",
+"iso3": "bak",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-स खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली बश्कीर Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 18-Oct ऑडिट-दोष: तातार-मिश्रण (ҡ-रूप 8%) बंद — असली бश्कीर ҡ/ҙ/ҫ/һ-भंडार (һыу/аҡса/дуҫ/өй/һаумыһығыҙ)"
+},
+"sah": {
+"hi": "याकूत",
+"en": "Yakut",
+"iso3": "sah",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-स खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली याकूत Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 18-Oct ऑडिट-दोष: किर्गिज़-clone (ҕ/һ=0) बंद — असली याकूत ҕ/һ-भंडार (оҕо/доҕор/аҕа/биһиги/махтал)"
+},
+"bua": {
+"hi": "बुर्यात",
+"en": "Buryat",
+"iso3": "bua",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-स खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली बुर्यात Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 18-Oct ऑडिट-दोष: ख़ाल्ख़ा-clone (һ=0) बंद — असली бुर्यात һ-भंडार (уһан/һайн/һара/ажаһууна/баярлаа)"
+},
+"udm": {
+"hi": "उदमुर्त",
+"en": "Udmurt",
+"iso3": "udm",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | sw v727 live; palochka/उयालिक-भंडार regen"
+},
+"mhr": {
+"hi": "मारी",
+"en": "Mari",
+"iso3": "mhr",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | sw v727 live; palochka/उयालिक-भंडार regen"
+},
+"myv": {
+"hi": "मोर्डविन-एर्ज़्या",
+"en": "Erzya",
+"iso3": "myv",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | sw v727 live; palochka/उयालिक-भंडार regen"
+},
+"koi": {
+"hi": "कोमी-पर्म्याक",
+"en": "Komi-Permyak",
+"iso3": "koi",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"inh": {
+"hi": "इंगुश",
+"en": "Ingush",
+"iso3": "inh",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ava": {
+"hi": "अवार",
+"en": "Avar",
+"iso3": "ava",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-2 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | гь/гӏ/лъ/тӏ भंडार (рокъо/хӏалтӏи/баркала); बैंक 3238; sw v728"
+},
+"os": {
+"hi": "ओसेतियाई",
+"en": "Ossetian",
+"iso3": "oss",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | sw v727 live; palochka/उयालिक-भंडार regen"
+},
+"tyv": {
+"hi": "तुवान",
+"en": "Tuvan",
+"iso3": "tyv",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-स खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली तुवान Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 18-Oct ऑडिट-दोष: किर्गिज़-clone (62% साझा) बंद — असली तुवान भंडार (экии/четтирдим/бажың/акша/өг-бүле)"
+},
+"kjh": {
+"hi": "खाकास",
+"en": "Khakas",
+"iso3": "kjh",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-स खेप-1 पूर्ण-पुनर्लेखन 20-Oct (असली खाकास Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 18-Oct ऑडिट-दोष: किर्गिज़-clone (62-82% साझा) बंद — असली खाकास і/ғ-भंडार (суғ/тोғыс/ахча/кізі/изеннер)"
+},
+"xal": {
+"hi": "कल्मिक",
+"en": "Kalmyk",
+"iso3": "xal",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-2 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | ә/һ/ө/ү भंडार (гер/көдлмш/ханҗанав); बैंक 3238; sw v728"
+},
+"yrk": {
+"hi": "नेनेट्स",
+"en": "Nenets",
+"iso3": "yrk",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"jje": {
+"hi": "जेजू",
+"en": "Jeju",
+"iso3": "jje",
+"lipi": "Hang",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ryu": {
+"hi": "ओकिनावन",
+"en": "Okinawan",
+"iso3": "ryu",
+"lipi": "Jpan",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ryn": {
+"hi": "अमामी",
+"en": "Amami",
+"iso3": "ryn",
+"lipi": "Jpan",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"mvi": {
+"hi": "मियाको",
+"en": "Miyako",
+"iso3": "mvi",
+"lipi": "Jpan",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"rys": {
+"hi": "याएयामा",
+"en": "Yaeyama",
+"iso3": "rys",
+"lipi": "Jpan",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"yoi": {
+"hi": "योनागुनी",
+"en": "Yonaguni",
+"iso3": "yoi",
+"lipi": "Jpan",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ain": {
+"hi": "ऐनू",
+"en": "Ainu",
+"iso3": "ain",
+"lipi": "Jpan",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ilo": {
+"hi": "इलोकानो",
+"en": "Ilocano",
+"iso3": "ilo",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"hil": {
+"hi": "हिलिगाय्नोन",
+"en": "Hiligaynon",
+"iso3": "hil",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"war": {
+"hi": "वारे",
+"en": "Waray",
+"iso3": "war",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"bcl": {
+"hi": "बिकोल",
+"en": "Bikol",
+"iso3": "bcl",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"pam": {
+"hi": "कपम्पांगान",
+"en": "Kapampangan",
+"iso3": "pam",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"pag": {
+"hi": "पांगासिनान",
+"en": "Pangasinan",
+"iso3": "pag",
+"lipi": "Latn",
+"darja": "🟡 खेमा-स पूर्ण-पुनर्लेखन 13-Oct (ilo-सिबलिंग) — मूल-वक्ता जाँच बाक़ी"
+},
+"mrw": {
+"hi": "मरानाओ",
+"en": "Maranao",
+"iso3": "mrw",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ242"
+},
+"mdh": {
+"hi": "मागिनदानाओ",
+"en": "Maguindanao",
+"iso3": "mdh",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ243"
+},
+"tsg": {
+"hi": "ताउसूग",
+"en": "Tausug",
+"iso3": "tsg",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"krj": {
+"hi": "किनारे-आ",
+"en": "Kinaraya",
+"iso3": "krj",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"ban": {
+"hi": "बालीनीज़",
+"en": "Balinese",
+"iso3": "ban",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"min": {
+"hi": "मिनांगकाबाउ",
+"en": "Minangkabau",
+"iso3": "min",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"mad": {
+"hi": "मदुरीज़",
+"en": "Madurese",
+"iso3": "mad",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"ace": {
+"hi": "आचेनीज़",
+"en": "Acehnese",
+"iso3": "ace",
+"lipi": "Latn",
+"darja": "🟡 खेमा-स पूर्ण-पुनर्लेखन 13-Oct (id-सिबलिंग) — मूल-वक्ता जाँच बाक़ी"
+},
+"bbc": {
+"hi": "तोबा-बाटक",
+"en": "Toba Batak",
+"iso3": "bbc",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"bug": {
+"hi": "बुगीनीज़",
+"en": "Buginese",
+"iso3": "bug",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"bjn": {
+"hi": "बांजारीज़",
+"en": "Banjarese",
+"iso3": "bjn",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"mak": {
+"hi": "मकासारीज़",
+"en": "Makassarese",
+"iso3": "mak",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"btx": {
+"hi": "बाटक-कारो",
+"en": "Batak Karo",
+"iso3": "btx",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ254"
+},
+"iba": {
+"hi": "इबान",
+"en": "Iban",
+"iso3": "iba",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (id-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"dtp": {
+"hi": "कादाज़ान-दुसुन",
+"en": "Kadazan-Dusun",
+"iso3": "dtp",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"nod": {
+"hi": "उत्तरी-थाई",
+"en": "Northern Thai",
+"iso3": "nod",
+"lipi": "Thai",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"njm": {
+"hi": "अंगामी",
+"en": "Angami",
+"iso3": "njm",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ258"
+},
+"nkh": {
+"hi": "चाखेसांग",
+"en": "Chakhesang",
+"iso3": "nkh",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ259"
+},
+"nbe": {
+"hi": "कोन्याक",
+"en": "Konyak",
+"iso3": "nbe",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ260"
+},
+"nbc": {
+"hi": "चांग",
+"en": "Chang",
+"iso3": "nbc",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ261"
+},
+"nsm": {
+"hi": "सूमी",
+"en": "Sumi",
+"iso3": "nsm",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ262"
+},
+"ksw": {
+"hi": "करेन",
+"en": "Karen",
+"iso3": "ksw",
+"lipi": "Mymr",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"che": {
+"hi": "चेचन",
+"en": "Chechen",
+"iso3": "che",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-2 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | palochka ӏ + аь/оь/уь भंडार (доьзал/болх/баркалла); बैंक 3238; sw v728"
+},
+"dar": {
+"hi": "दर्गिन",
+"en": "Dargwa",
+"iso3": "dar",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"lez": {
+"hi": "लेज़गी",
+"en": "Lezgian",
+"iso3": "lez",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-2 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | уь/кӏ/цӏ/чӏ भंडार (кӏвал/кӏвалах/сагърай); बैंक 3238; sw v728"
+},
+"kbd": {
+"hi": "काबर्दीनो",
+"en": "Kabardian",
+"iso3": "kbd",
+"lipi": "Cyrl",
+"darja": "🟡 लाल10-द खेप-2 पूर्ण-पुनर्लेखन 20-Oct (असली Cyrillic तीन-स्तंभ, robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | цӏ/щӏ/къу भंडार (унэ/лэжьыгъэ/фӏыщӏэ); बैंक 3238; sw v728"
+},
+"tuk": {
+"hi": "तुर्कमेन",
+"en": "Turkmen",
+"iso3": "tuk",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct (tr-सिबलिंग) — मूल-वक्ता जाँच बाक़ी"
+},
+"tet": {
+"hi": "तेतुम",
+"en": "Tetum",
+"iso3": "tet",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (pt-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"tcz": {
+"hi": "थाडौ",
+"en": "Thadou",
+"iso3": "tcz",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ270"
+},
+"pck": {
+"hi": "पाइते",
+"en": "Paite",
+"iso3": "pck",
+"lipi": "Latn",
+"darja": "🟡 lexicon-सफ़ाई (19-Oct) — 14-Oct Setswana-shared-block निरस्त; ~150 word-rules (4 परत); बचे-token 4423→2674 (शेष = lus-corpus Tswana-दूषण backlog); robots 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"njz": {
+"hi": "न्यिशी",
+"en": "Nyishi",
+"iso3": "njz",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ272"
+},
+"apt": {
+"hi": "अपातानी",
+"en": "Apatani",
+"iso3": "apt",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ273"
+},
+"mtq": {
+"hi": "म्योंग",
+"en": "Muong",
+"iso3": "mtq",
+"lipi": "Latn",
+"darja": "🟡 lal10 पूर्ण-पैकेज 20-Oct (L1+L2 असली Latin-authoring सील + pre/baked-सफ़ाई + कोश-पूरक; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ274"
+},
+"swb": {
+"hi": "कोमोरियन",
+"en": "Comorian",
+"iso3": "swb",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"crs": {
+"hi": "सेशेल्वा (Seychellois Creole)",
+"en": "Seselwa",
+"iso3": "crs",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (fr-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"rcf": {
+"hi": "रीयूनियन-क्रियोल",
+"en": "Reunion Creole",
+"iso3": "rcf",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (fr-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"oon": {
+"hi": "ओंगे",
+"en": "Onge",
+"iso3": "oon",
+"lipi": "Deva",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"tpi": {
+"hi": "टोक-पिसिन",
+"en": "Tok Pisin",
+"iso3": "tpi",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"fij": {
+"hi": "फिजियन",
+"en": "Fijian",
+"iso3": "fij",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"bis": {
+"hi": "बिस्लामा",
+"en": "Bislama",
+"iso3": "bis",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (tpi-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"pis": {
+"hi": "पिजिन",
+"en": "Pijin",
+"iso3": "pis",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (tpi-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"mri": {
+"hi": "माओरी",
+"en": "Maori",
+"iso3": "mri",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"smo": {
+"hi": "सामोअन",
+"en": "Samoan",
+"iso3": "smo",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"ton": {
+"hi": "टोंगन",
+"en": "Tongan",
+"iso3": "ton",
+"lipi": "Latn",
+"darja": "🟡 हाथ-मिलान (13-Oct) + शब्दकोश-पूरक + बैंक/workbook regen — मूल-वक्ता जाँच बाक़ी"
+},
+"hmo": {
+"hi": "हिरी-मोटू",
+"en": "Hiri Motu",
+"iso3": "hmo",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"pjt": {
+"hi": "पित्यान्त्यात्यारा",
+"en": "Pitjantjatjara",
+"iso3": "pjt",
+"lipi": "Latn",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"dan": {
+"hi": "डैनिश",
+"en": "Danish",
+"iso3": "dan",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"nob": {
+"hi": "नॉर्वेजियन",
+"en": "Norwegian",
+"iso3": "nob",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"isl": {
+"hi": "आइसलैंडिक",
+"en": "Icelandic",
+"iso3": "isl",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"slv": {
+"hi": "स्लोवेनियाई",
+"en": "Slovenian",
+"iso3": "slv",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"est": {
+"hi": "एस्टोनियाई",
+"en": "Estonian",
+"iso3": "est",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"lav": {
+"hi": "लात्वियाई",
+"en": "Latvian",
+"iso3": "lav",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"sqi": {
+"hi": "अल्बानियाई",
+"en": "Albanian",
+"iso3": "sqi",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"mkd": {
+"hi": "मैसीडोनियाई",
+"en": "Macedonian",
+"iso3": "mkd",
+"lipi": "Cyrl",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ295"
+},
+"ltz": {
+"hi": "लक्ज़मबर्गिश",
+"en": "Luxembourgish",
+"iso3": "ltz",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"cat": {
+"hi": "कातालान",
+"en": "Catalan",
+"iso3": "cat",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"eus": {
+"hi": "बास्क",
+"en": "Basque",
+"iso3": "eus",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"glg": {
+"hi": "गैलिशियन",
+"en": "Galician",
+"iso3": "glg",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"cym": {
+"hi": "वेल्श",
+"en": "Welsh",
+"iso3": "cym",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"gle": {
+"hi": "आइरिश",
+"en": "Irish",
+"iso3": "gle",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"gla": {
+"hi": "स्कॉटिश-गेलिक",
+"en": "Scottish Gaelic",
+"iso3": "gla",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"fao": {
+"hi": "फ़रोईज़",
+"en": "Faroese",
+"iso3": "fao",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"kal": {
+"hi": "ग्रीनलैंडिक",
+"en": "Greenlandic",
+"iso3": "kal",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ304"
+},
+"sme": {
+"hi": "उत्तरी-सामी",
+"en": "Northern Sami",
+"iso3": "sme",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"niv": {
+"hi": "निव्ख",
+"en": "Nivkh",
+"iso3": "niv",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"nav": {
+"hi": "नावाहो",
+"en": "Navajo",
+"iso3": "nav",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"crk": {
+"hi": "क्री",
+"en": "Cree",
+"iso3": "crk",
+"lipi": "Cans",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"iku": {
+"hi": "इनुक्तितुत",
+"en": "Inuktitut",
+"iso3": "iku",
+"lipi": "Cans",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"oji": {
+"hi": "ओजिब्वे",
+"en": "Ojibwe",
+"iso3": "oji",
+"lipi": "Latn",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"nah": {
+"hi": "नाहुआतल",
+"en": "Nahuatl",
+"iso3": "",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"haw": {
+"hi": "हवाईयन",
+"en": "Hawaiian",
+"iso3": "haw",
+"lipi": "Latn",
+"darja": "🟡 हाथ-मिलान (13-Oct) + शब्दकोश-पूरक + बैंक/workbook regen — मूल-वक्ता जाँच बाक़ी"
+},
+"lkt": {
+"hi": "लाकोटा",
+"en": "Lakota",
+"iso3": "lkt",
+"lipi": "Latn",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"chr": {
+"hi": "चेरोकी",
+"en": "Cherokee",
+"iso3": "chr",
+"lipi": "Cher",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"guc": {
+"hi": "वायुनाइकी",
+"en": "Wayuunaiki",
+"iso3": "guc",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"rap": {
+"hi": "रापा-नुई",
+"en": "Rapa Nui",
+"iso3": "rap",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"srn": {
+"hi": "स्रानान-टोंगो",
+"en": "Sranan Tongo",
+"iso3": "srn",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (en-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"acu": {
+"hi": "अचुआर-शिविआर",
+"en": "Achuar-Shiwiar",
+"iso3": "acu",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ318"
+},
+"gyn": {
+"hi": "गुयानीज़-क्रियोल",
+"en": "Guyanese Creole",
+"iso3": "gyn",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (en-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"fgc": {
+"hi": "फ़्रेंच-गयानीज़-क्रियोल",
+"en": "French Guianese Creole",
+"iso3": "gcr",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (fr-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"trn": {
+"hi": "त्रिनिदादियन-क्रियोल",
+"en": "Trinidadian Creole",
+"iso3": "trf",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (en-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"jiv": {
+"hi": "शुआर",
+"en": "Shuar",
+"iso3": "jiv",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ322"
+},
+"kea": {
+"hi": "केप-वर्देयन-क्रियोल",
+"en": "Cape Verdean Creole",
+"iso3": "kea",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (pt-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"pap": {
+"hi": "पापियामेंटो",
+"en": "Papiamento",
+"iso3": "pap",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"acf": {
+"hi": "सेंट-लूसियन-क्रियोल",
+"en": "Saint Lucian Creole",
+"iso3": "acf",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (fr-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"cri": {
+"hi": "फ़ोर्रो",
+"en": "Forro",
+"iso3": "cri",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (pt-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"bjs": {
+"hi": "बाजन-क्रियोल",
+"en": "Bajan Creole",
+"iso3": "bjs",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (en-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"ch": {
+"hi": "चामोरो",
+"en": "Chamorro",
+"iso3": "cha",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी) | 🟡 18-Oct ऑडिट: 78% असली-चामोरो, 52 वाक्य Tagalog-अवशेष — सफ़ाई-दौर; शब्दकोश EM-पूर्ति हुई"
+},
+"pau": {
+"hi": "पलाऊआन",
+"en": "Palauan",
+"iso3": "pau",
+"lipi": "Latn",
+"darja": "🟡 bank-recovery v2.0 (19-Oct) — बैंक-संघ से corpus पुनर्निर्मित (2150 slots, hi-OK 1076/1076, tw 390/390); तीनों robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"mh": {
+"hi": "मार्शलीज़",
+"en": "Marshallese",
+"iso3": "mah",
+"lipi": "Latn",
+"darja": "🟡 bank-recovery v2.0 (19-Oct) — बैंक-संघ से corpus पुनर्निर्मित (2150 slots, hi-OK 1076/1076, tw 390/390); तीनों robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"chk": {
+"hi": "चुउकीज़",
+"en": "Chuukese",
+"iso3": "chk",
+"lipi": "Latn",
+"darja": "🟡 khep10 पूर्ण-पुनर्लेखन, 18-Oct push (sw v705) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"pon": {
+"hi": "पोन्पेइयन",
+"en": "Pohnpeian",
+"iso3": "pon",
+"lipi": "Latn",
+"darja": "🟡 khep10 पूर्ण-पुनर्लेखन, 18-Oct push (sw v705) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"kos": {
+"hi": "कोस्राएन",
+"en": "Kosraean",
+"iso3": "kos",
+"lipi": "Latn",
+"darja": "🟡 khep10 पूर्ण-पुनर्लेखन, 18-Oct push (sw v705) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"yap": {
+"hi": "यापीज़",
+"en": "Yapese",
+"iso3": "yap",
+"lipi": "Latn",
+"darja": "🟡 khep10 पूर्ण-पुनर्लेखन, 18-Oct push (sw v705) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"gil": {
+"hi": "गिल्बर्टीज़",
+"en": "Gilbertese",
+"iso3": "gil",
+"lipi": "Latn",
+"darja": "🟡 bank-recovery v2.0 (19-Oct) — बैंक-संघ से corpus पुनर्निर्मित (2150 slots, hi-OK 1076/1076, tw 390/390); तीनों robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"ty": {
+"hi": "ताहितियन",
+"en": "Tahitian",
+"iso3": "tah",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (mri-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"rar": {
+"hi": "कुक-आइलैंड्स-माओरी",
+"en": "Cook Islands Maori",
+"iso3": "rar",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (mri-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"niu": {
+"hi": "नीयुएन",
+"en": "Niuean",
+"iso3": "niu",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"tvl": {
+"hi": "तुवालुअन",
+"en": "Tuvaluan",
+"iso3": "tvl",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (smo-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"tkl": {
+"hi": "तोकेलाउअन",
+"en": "Tokelauan",
+"iso3": "tkl",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"dhv": {
+"hi": "द्रेहु",
+"en": "Drehu",
+"iso3": "dhv",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"grn": {
+"hi": "ग्रेनेडियन-क्रियोल",
+"en": "Grenadian Creole",
+"iso3": "grn",
+"lipi": "Latn",
+"darja": "🟡 खेमा-स पूर्ण-पुनर्लेखन 13-Oct (jam-सिबलिंग; En-phonetic उच्चारण-परत) — मूल-वक्ता जाँच बाक़ी"
+},
+"dcf": {
+"hi": "डोमिनिकन-क्रियोल",
+"en": "Dominican Creole French",
+"iso3": "acf",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (fr-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"srm": {
+"hi": "सारामाक्कान",
+"en": "Saramaccan",
+"iso3": "srm",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot srn; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"djk": {
+"hi": "न्दियुका",
+"en": "Ndyuka",
+"iso3": "djk",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (en-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"tdx": {
+"hi": "तान्द्रोय",
+"en": "Tandroy",
+"iso3": "tdx",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (mg-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"bhr": {
+"hi": "बारा",
+"en": "Bara",
+"iso3": "bhr",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"ln": {
+"hi": "लिंगाला",
+"en": "Lingala",
+"iso3": "lin",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"kg": {
+"hi": "किकोंगो",
+"en": "Kikongo",
+"iso3": "kon",
+"lipi": "Latn",
+"darja": "🟡खेमा-अ पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"fuv": {
+"hi": "फुलफुल्दे",
+"en": "Fulfulde",
+"iso3": "fuv",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ350"
+},
+"tn": {
+"hi": "त्स्वाना",
+"en": "Tswana",
+"iso3": "tsn",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"bem": {
+"hi": "बेम्बा",
+"en": "Bemba",
+"iso3": "bem",
+"lipi": "Latn",
+"darja": "🟡खेमा-अ पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"ts": {
+"hi": "त्सोंगा",
+"en": "Tsonga",
+"iso3": "tso",
+"lipi": "Latn",
+"darja": "🟡 लाल10-स खेप-2: L2 Setswana-clone बंद 20-Oct — पूरा कोर्स असली Xitsonga (Bantu S.53) regen, 13-Oct L1-शब्द (vito/mina/tswa) समाहित; robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी | CFG label त्स्वाना→त्सोंगा सुधरा"
+},
+"mos": {
+"hi": "मोसी",
+"en": "Moore",
+"iso3": "mos",
+"lipi": "Latn",
+"darja": "🟡 bank-recovery v2.0 (19-Oct) — बैंक-संघ से corpus पुनर्निर्मित (2150 slots, hi-OK 1076/1076, tw 390/390); तीनों robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"ee": {
+"hi": "ईवे",
+"en": "Ewe",
+"iso3": "ewe",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"kri": {
+"hi": "क्रियो",
+"en": "Krio",
+"iso3": "kri",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (en-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"nd": {
+"hi": "उत्तरी-न्देबेले",
+"en": "Ndebele",
+"iso3": "nde",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (zu-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"sqt": {
+"hi": "सोकोत्री",
+"en": "Soqotri",
+"iso3": "sqt",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"gdq": {
+"hi": "मेह्री",
+"en": "Mehri",
+"iso3": "gdq",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"aii": {
+"hi": "असीरियाई",
+"en": "Assyrian",
+"iso3": "aii",
+"lipi": "Syrc",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"haz": {
+"hi": "हज़ारगी",
+"en": "Hazaragi",
+"iso3": "haz",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"shv": {
+"hi": "शेह्री",
+"en": "Shehri",
+"iso3": "shv",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"mid": {
+"hi": "मंडाइक",
+"en": "Mandaic",
+"iso3": "mid",
+"lipi": "Mand",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"lrc": {
+"hi": "लूरी",
+"en": "Luri",
+"iso3": "lrc",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"rmt": {
+"hi": "डोमारी",
+"en": "Domari",
+"iso3": "rmt",
+"lipi": "Arab",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ve": {
+"hi": "वेन्दा",
+"en": "Venda",
+"iso3": "ven",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"ss": {
+"hi": "स्वाती",
+"en": "Swati",
+"iso3": "ssw",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"luo": {
+"hi": "ढोलुओ",
+"en": "Dholuo",
+"iso3": "luo",
+"lipi": "Latn",
+"darja": "🟡खेमा-अ पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"din": {
+"hi": "डिंका",
+"en": "Dinka",
+"iso3": "din",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot nus; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"ki": {
+"hi": "किकुयु",
+"en": "Kikuyu",
+"iso3": "kik",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"zgh": {
+"hi": "तमाज़ीग़्त",
+"en": "Tamazight",
+"iso3": "zgh",
+"lipi": "Tfng",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"tig": {
+"hi": "तिग्रे",
+"en": "Tigre",
+"iso3": "tig",
+"lipi": "Ethi",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"na": {
+"hi": "नाउरुअन",
+"en": "Nauruan",
+"iso3": "nau",
+"lipi": "Latn",
+"darja": "🟡 khep10 पूर्ण-पुनर्लेखन, 18-Oct push (sw v705) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"fud": {
+"hi": "पूर्वी-फुतुनन",
+"en": "East Futunan",
+"iso3": "fud",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"wls": {
+"hi": "वालिसियन",
+"en": "Wallisian",
+"iso3": "wls",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"skg": {
+"hi": "दक्षिणी-साकालावा",
+"en": "Southern Sakalava",
+"iso3": "skg",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"bzc": {
+"hi": "दक्षिणी-बेत्सिमिसारका",
+"en": "Southern Betsimisaraka",
+"iso3": "bzc",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"eo": {
+"hi": "एस्पेरांतो",
+"en": "Esperanto",
+"iso3": "epo",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"la": {
+"hi": "लैटिन",
+"en": "Latin",
+"iso3": "lat",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"yi": {
+"hi": "यिद्दिश",
+"en": "Yiddish",
+"iso3": "yid",
+"lipi": "Hebr",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ411"
+},
+"br": {
+"hi": "ब्रेटन",
+"en": "Breton",
+"iso3": "bre",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409"
+},
+"co": {
+"hi": "कोर्सिकन",
+"en": "Corsican",
+"iso3": "cos",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"fy": {
+"hi": "फ़्रिसियाई",
+"en": "Frisian",
+"iso3": "fry",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"scn": {
+"hi": "सिसिलियाई",
+"en": "Sicilian",
+"iso3": "scn",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct (असली-सिसिली स्रोत) — मूल-वक्ता जाँच बाक़ी"
+},
+"lij": {
+"hi": "लिगुरियाई",
+"en": "Ligurian",
+"iso3": "lij",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"lmo": {
+"hi": "लोम्बार्ड",
+"en": "Lombard",
+"iso3": "lmo",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"szl": {
+"hi": "सिलेसियाई",
+"en": "Silesian",
+"iso3": "szl",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ410"
+},
+"vec": {
+"hi": "वेनेशियाई",
+"en": "Venetian",
+"iso3": "vec",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"dov": {
+"hi": "डोम्बे",
+"en": "Dombe",
+"iso3": "dov",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot sn; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"hmn": {
+"hi": "ह्मोंग",
+"en": "Hmong",
+"iso3": "hmn",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot en; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"kl": {
+"hi": "कालालिसुत",
+"en": "Kalaallisut",
+"iso3": "kal",
+"lipi": "Latn",
+"darja": "🟡 lal20 19-Oct — kal-जुड़वाँ (C12, एक content); परीक्षा kal-द्वार PJ304 से; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"gv": {
+"hi": "मैंक्स",
+"en": "Manx",
+"iso3": "glv",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot gle; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"oc": {
+"hi": "ओक्सिताँ",
+"en": "Occitan",
+"iso3": "oci",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"bs": {
+"hi": "बोस्नियाई",
+"en": "Bosnian",
+"iso3": "bos",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"fur": {
+"hi": "फ़्रीयुलियाई",
+"en": "Friulian",
+"iso3": "fur",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"aa": {
+"hi": "अफ़ार",
+"en": "Afar",
+"iso3": "aar",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot so; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"fon": {
+"hi": "फ़ोन",
+"en": "Fon",
+"iso3": "fon",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"gaa": {
+"hi": "गा",
+"en": "Ga",
+"iso3": "gaa",
+"lipi": "Latn",
+"darja": "🟡 bank-recovery v2.0 (19-Oct) — बैंक-संघ से corpus पुनर्निर्मित (2150 slots, hi-OK 1076/1076, tw 390/390); तीनों robot 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी; backlog: ~109 Mooré-मिलावट वाक्य"
+},
+"sus": {
+"hi": "सुसु",
+"en": "Susu",
+"iso3": "sus",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot bm; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"kr": {
+"hi": "कानुरी",
+"en": "Kanuri",
+"iso3": "kau",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"ktu": {
+"hi": "किटुबा",
+"en": "Kituba",
+"iso3": "ktu",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र पूर्ण-पुनर्लेखन 14-Oct (बहन-pivot; AI-draft — मूल-वक्ता समीक्षा बाक़ी)"
+},
+"cgg": {
+"hi": "किगा",
+"en": "Kiga",
+"iso3": "cgg",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot rw; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"kv": {
+"hi": "कोमी",
+"en": "Komi",
+"iso3": "kom",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ltg": {
+"hi": "लात्गालियाई",
+"en": "Latgalian",
+"iso3": "ltg",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct (lav-सिबलिंग) — मूल-वक्ता जाँच बाक़ी"
+},
+"rn": {
+"hi": "रुंडी",
+"en": "Rundi",
+"iso3": "run",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"ab": {
+"hi": "अबख़ाज़",
+"en": "Abkhaz",
+"iso3": "abk",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"ach": {
+"hi": "अचोली",
+"en": "Acholi",
+"iso3": "ach",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot luo; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"alz": {
+"hi": "अलुर",
+"en": "Alur",
+"iso3": "alz",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot luo; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"bew": {
+"hi": "बेतावी",
+"en": "Betawi",
+"iso3": "bew",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (id-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"crh": {
+"hi": "क्रीमियाई-तातार",
+"en": "Crimean Tatar",
+"iso3": "crh",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (tt-translit-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"cnh": {
+"hi": "हाखा-चिन",
+"en": "Hakha Chin",
+"iso3": "cnh",
+"lipi": "Latn",
+"darja": "🟡 lexicon-सफ़ाई (19-Oct) — 14-Oct Setswana-shared-block निरस्त; ~150 word-rules (4 परत); बचे-token 4639→2800 (शेष = lus-corpus Tswana-दूषण backlog); robots 🏁; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"nso": {
+"hi": "सेपेदी",
+"en": "Sepedi",
+"iso3": "nso",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"st": {
+"hi": "सेसोथो",
+"en": "Sesotho",
+"iso3": "sot",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"kac": {
+"hi": "जिंगपो",
+"en": "Jingpo",
+"iso3": "kac",
+"lipi": "Latn",
+"darja": "🟡⚠️ खेमा-स पूर्ण-पुनर्लेखन 13-Oct (tn-WORD, nus-मिसाल; क्रम-सीमा घोषित) — मूल-वक्ता जाँच अनिवार्य"
+},
+"tum": {
+"hi": "तुंबुका",
+"en": "Tumbuka",
+"iso3": "tum",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"dyu": {
+"hi": "दयुला",
+"en": "Dyula",
+"iso3": "dyu",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"zai": {
+"hi": "ज़ापोतेक",
+"en": "Zapotec",
+"iso3": "zai",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"sg": {
+"hi": "सांगो",
+"en": "Sango",
+"iso3": "sag",
+"lipi": "Latn",
+"darja": "🟡 पुनर्निर्मित + शब्दकोश-पुनर्लेखन + बैंक regen (13-Oct) — मूल-वक्ता जाँच बाक़ी"
+},
+"rom": {
+"hi": "रोमानी",
+"en": "Romani",
+"iso3": "rom",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot en; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"kek": {
+"hi": "क़ेक़्ची",
+"en": "Qeqchi",
+"iso3": "kek",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ423"
+},
+"bci": {
+"hi": "बाउलेई",
+"en": "Baoule",
+"iso3": "bci",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"bts": {
+"hi": "बतक-सिमालुंगुन",
+"en": "Batak Simalungun",
+"iso3": "bts",
+"lipi": "Latn",
+"darja": "🟡 lal20 19-Oct — btx-जुड़वाँ (एक content); परीक्षा btx-द्वार PJ254 से; AI-draft — मूल-वक्ता समीक्षा बाक़ी"
+},
+"hrx": {
+"hi": "हुन्सरिक",
+"en": "Hunsrik",
+"iso3": "hrx",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot de; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"nqo": {
+"hi": "एनको",
+"en": "NKo",
+"iso3": "nqo",
+"lipi": "Nkoo",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"lua": {
+"hi": "त्शिलुबा",
+"en": "Tshiluba",
+"iso3": "lua",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"jam": {
+"hi": "जमैकन-पातुआ",
+"en": "Jamaican Patois",
+"iso3": "jam",
+"lipi": "Latn",
+"darja": "🟡 खेमा-य पूर्ण-पुनर्लेखन 14-Oct (en-pivot) — मूल-वक्ता जाँच बाक़ी"
+},
+"nus": {
+"hi": "नुएर",
+"en": "Nuer",
+"iso3": "nus",
+"lipi": "Latn",
+"darja": "🟡⚠️ खेमा-ब पूर्ण-पुनर्लेखन 13-Oct — मूल-वक्ता जाँच बाक़ी"
+},
+"ndc": {
+"hi": "न्दाऊ",
+"en": "Ndau",
+"iso3": "ndc",
+"lipi": "Latn",
+"darja": "🟡 खेमा-र c13 पूर्ण-पुनर्लेखन 19-Oct (बहन-pivot sn; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ409-422 परिवार"
+},
+"shn": {
+"hi": "शान",
+"en": "Shan",
+"iso3": "shn",
+"lipi": "Mymr",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"li": {
+"hi": "लिम्बुर्गी",
+"en": "Limburgish",
+"iso3": "lim",
+"lipi": "Latn",
+"darja": "🟡खेमा-ब पूर्ण-पुनर्लेखन 13-Oct (nl-सिबलिंग) — मूल-वक्ता जाँच बाक़ी"
+},
+"tiv": {
+"hi": "तिव",
+"en": "Tiv",
+"iso3": "tiv",
+"lipi": "Latn",
+"darja": "🟡 lal10-ब पूर्ण-पुनर्लेखन, 20-Oct (sw v722) — मूल-वक्ता जाँच बाक़ी | पूर्व: 🔴 ब-2 उथली"
+},
+"mam": {
+"hi": "माम",
+"en": "Mam",
+"iso3": "mam",
+"lipi": "Latn",
+"darja": "🟡 lal20 पूर्ण-पैकेज 19-Oct (L1+L2 असली-लिपि सील + metadata/TTS-दर्पण; AI-draft — मूल-वक्ता समीक्षा बाक़ी); robot 🏁×3 · द्वार PJ424"
+},
+"ady": {
+"hi": "सर्कासियन",
+"en": "Circassian",
+"iso3": "ady",
+"lipi": "Cyrl",
+"darja": "🟡 AI-draft — असली-लिपि (मूल-वक्ता समीक्षा-क़तार)"
+},
+"jv": {
+"hi": "जावानीज़",
+"en": "Javanese",
+"iso3": "jav",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"km": {
+"hi": "खमेर",
+"en": "Khmer",
+"iso3": "khm",
+"lipi": "Khmr",
+"darja": "✅ प्रमाणित"
+},
+"lo": {
+"hi": "लाओ",
+"en": "Lao",
+"iso3": "lao",
+"lipi": "Laoo",
+"darja": "✅ प्रमाणित"
+},
+"mn": {
+"hi": "मंगोलियाई",
+"en": "Mongolian",
+"iso3": "mon",
+"lipi": "Cyrl",
+"darja": "✅ प्रमाणित"
+},
+"my": {
+"hi": "बर्मी",
+"en": "Burmese",
+"iso3": "mya",
+"lipi": "Mymr",
+"darja": "✅ प्रमाणित"
+},
+"nan": {
+"hi": "मीनान चीनी",
+"en": "Min Nan Chinese",
+"iso3": "nan",
+"lipi": "Hans",
+"darja": "✅ प्रमाणित"
+},
+"su": {
+"hi": "सुंडानी",
+"en": "Sundanese",
+"iso3": "sun",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"tl": {
+"hi": "तागालोग",
+"en": "Tagalog",
+"iso3": "tgl",
+"lipi": "Latn",
+"darja": "✅ प्रमाणित"
+},
+"yue": {
+"hi": "कैंटोनीज़",
+"en": "Cantonese",
+"iso3": "yue",
+"lipi": "Hant",
+"darja": "✅ प्रमाणित"
+},
+"ckb": {
+"hi": "कुर्दिश (सोरानी)",
+"en": "Kurdish (Sorani)",
+"iso3": "ckb",
+"lipi": "Arab",
+"darja": "⬜ कोर्स बाक़ी (नई-6, 23-Oct)"
+},
+"wbr": {
+"hi": "वागड़ी",
+"en": "Wagdi",
+"iso3": "wbr",
+"lipi": "Deva",
+"darja": "⬜ कोर्स बाक़ी (नई-6, 23-Oct)"
+},
+"rkt": {
+"hi": "रंगपुरी (राजबंशी)",
+"en": "Rangpuri",
+"iso3": "rkt",
+"lipi": "Beng",
+"darja": "⬜ कोर्स बाक़ी (नई-6, 23-Oct)"
+},
+"lif": {
+"hi": "लिम्बू",
+"en": "Limbu",
+"iso3": "lif",
+"lipi": "Limb",
+"darja": "⬜ कोर्स बाक़ी (नई-6, 23-Oct)"
+},
+"bfq": {
+"hi": "बडगा",
+"en": "Badaga",
+"iso3": "bfq",
+"lipi": "Knda",
+"darja": "⬜ कोर्स बाक़ी (नई-6, 23-Oct)"
+},
+"bhi": {
+"hi": "भिलाली",
+"en": "Bhilali",
+"iso3": "bhi",
+"lipi": "Deva",
+"darja": "⬜ कोर्स बाक़ी (नई-6, 23-Oct)"
+},
+"lep": {
+"hi": "लेप्चा",
+"en": "Lepcha",
+"iso3": "lep",
+"lipi": "Lepc",
+"darja": "⬜ कोर्स बाक़ी (नई-5, 23-Oct)"
+},
+"srb": {
+"hi": "सोरा",
+"en": "Sora",
+"iso3": "srb",
+"lipi": "Sora",
+"darja": "⬜ कोर्स बाक़ी (नई-5, 23-Oct)"
+},
+"aho": {
+"hi": "अहोम",
+"en": "Ahom",
+"iso3": "aho",
+"lipi": "Ahom",
+"darja": "⬜ कोर्स बाक़ी — ⚠ पुनर्जीवन-भाषा (मातृभाषी बहुत कम); पहले स्रोत-जाँच"
+},
+"vai": {
+"hi": "वाई",
+"en": "Vai",
+"iso3": "vai",
+"lipi": "Vaii",
+"darja": "⬜ कोर्स बाक़ी (नई-5, 23-Oct)"
+},
+"bax": {
+"hi": "बामुम",
+"en": "Bamun",
+"iso3": "bax",
+"lipi": "Bamu",
+"darja": "⬜ कोर्स बाक़ी (नई-5, 23-Oct)"
+}
+}
+}

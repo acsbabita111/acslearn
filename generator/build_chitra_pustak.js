@@ -8,7 +8,7 @@
 const fs=require("fs"),path=require("path");
 const ROOT=path.join(__dirname,"..");
 const TPL=fs.readFileSync(path.join(ROOT,"_TEMPLATE.html"),"utf8");
-const VER="1.0";
+const VER="1.1";   /* v1.1 (25-Oct): canonical = …/index.html (sitemap-रूप) + og:url/og:description */
 const CHITRA_LANGS=["en"];
 function loadMenu(){const src=fs.readFileSync(path.join(ROOT,"assets","links.js"),"utf8");const box={};new Function("window",src+"; window.__L=(typeof ACS_LINKS!=='undefined')?ACS_LINKS:null;")(box);if(!box.__L||!Array.isArray(box.__L.menu))throw new Error("links.js से menu नहीं");return box.__L.menu;}
 const MENU_HTML=loadMenu().map(m=>'<a class="acs-mitem" href="'+m.href+'"><span class="e">'+m.icon+"</span> "+m.label+"</a>").join("\n");
@@ -125,8 +125,8 @@ function build(code){
   let page=TPL.slice(0,a+S.length)+"\n"+html+"\n"+TPL.slice(b);
   const title="मेरी पहली चित्र-पुस्तक — "+L.hi+" · हिंदी, कक्षा 1 ("+n+" बोलते चित्र-शब्द, मुफ़्त) | अप्लाइड कंप्यूटर स्कूल";
   const desc=L.hi+" A–Z और हिंदी वर्णमाला (वर्ग-अनुसार) के साथ रोज़ की 100 चीज़ें — हर शब्द देवनागरी उच्चारण और हिंदी अर्थ के साथ, 🔊 आवाज़, मोबाइल-पुस्तक और छपाई-योग्य।";
-  const url="https://acslearn.com/courses/hi/bhasha/"+L.slug+"/chitra-pustak/";
-  page=page.replace(/<title>[\s\S]*?<\/title>/,"<title>"+esc(title)+"</title>\n<meta name=\"description\" content=\""+esc(desc)+"\">\n<link rel=\"canonical\" href=\""+url+"\">\n<meta property=\"og:title\" content=\""+esc(title)+"\">\n<meta property=\"og:image\" content=\"https://acslearn.com/logo.png\">");
+  const url="https://acslearn.com/courses/hi/bhasha/"+L.slug+"/chitra-pustak/index.html";   /* 25-Oct: canonical = sitemap-रूप */
+  page=page.replace(/<title>[\s\S]*?<\/title>/,"<title>"+esc(title)+"</title>\n<meta name=\"description\" content=\""+esc(desc)+"\">\n<link rel=\"canonical\" href=\""+url+"\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:url\" content=\""+url+"\">\n<meta property=\"og:title\" content=\""+esc(title)+"\">\n<meta property=\"og:description\" content=\""+esc(desc)+"\">\n<meta property=\"og:locale\" content=\"hi_IN\">\n<meta property=\"og:image\" content=\"https://acslearn.com/logo.png\">");
   page=page.replace("</head>",'<link rel="stylesheet" href="/assets/chitra.css">\n</head>');
   page=page.replace('<div id="acsMenuList"></div>','<div id="acsMenuList">\n'+MENU_HTML+"\n</div>");
   page=page.replace("</body>",MENU_FALLBACK_JS+"\n"+SAYJS+"\n</body>");

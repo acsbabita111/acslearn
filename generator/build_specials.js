@@ -167,7 +167,8 @@ function buildSpecial(spec) {
     '<link rel="canonical" href="https://acslearn.com/' + spec.out + '">' +
     /* 13-Sep (ऑडिट/SEO): Open Graph + JSON-LD — हर विशेष-पेज पर (share-preview व rich-result) */
     '\n<meta property="og:type" content="website">' +
-    '\n<meta property="og:url" content="https://acslearn.com/' + spec.out.replace(/index\.html$/, "") + '">' +
+    /* 25-Oct: og:url = canonical (एक पन्ना, एक पता — sitemap-रूप) */
+    '\n<meta property="og:url" content="https://acslearn.com/' + spec.out + '">' +
     '\n<meta property="og:title" content="' + spec.title.replace(/"/g, "&quot;") + '">' +
     '\n<meta property="og:description" content="' + spec.desc.replace(/"/g, "&quot;") + '">' +
     '\n<meta property="og:image" content="https://acslearn.com/logo.png">' +
@@ -3294,14 +3295,69 @@ function kkb2IntroBelow(c) {
     '<h2>यह कोर्स एक नज़र में</h2><div class="kkb-num">' +
     '<div><b>2,150</b><span>वाक्य, असली लिपि + उच्चारण + अर्थ</span></div><div><b>90</b><span>दिन · रोज़ 20–30 वाक्य</span></div><div><b>🔊</b><span>हर वाक्य पर आवाज़, धीरे भी</span></div>' +
     '<div><b>40/40/40</b><span>सुनो · बोलो · पढ़ो — ऑनलाइन परीक्षा</span></div><div><b>₹0</b><span>पढ़ाई मुफ़्त, बिना login</span></div><div><b>₹125</b><span>प्रमाणपत्र (QR से जाँच), मर्ज़ी से</span></div></div>' +
+    kkbPack(c) +
     '<h2>कैसे चलता है — 4 कदम</h2><ol class="kkb-steps"><li><b>सुनो</b> — 🔊 दबाओ, धीरे भी सुन सकते हो।</li><li><b>बोलो</b> — साथ-साथ 3 बार, फिर "मैंने बोला"।</li><li><b>लिखो</b> — हफ़्ते की छपने-योग्य किताब में वही वाक्य (जहाँ बनी है)।</li><li><b>परखो</b> — हर हफ़्ते छोटी परीक्षा; 90 दिन बाद 40/40/40 और प्रमाणपत्र।</li></ol>' +
     '<h2>' + c.hi_name + ' क्यों सीखें</h2>' + why +
     '<h2>दुनिया के मानक से मेल</h2><p>72 "मैं कर सकता/सकती हूँ" लक्ष्य (ऊपर 🎯 में), स्तर-1 = A1, स्तर-2 = A2 पर आधारित। यही ढाँचा जापान-कोरिया के सरकारी कामगार-भाषा कार्यक्रमों में है — हिंदी-माध्यम में यह ACS ही देता है। हर पेज पर मूल भाषा का निशान; अनुवाद का क्रम हिंदी → अंग्रेज़ी → बाक़ी।</p>' +
     '<h2>अक्सर पूछे सवाल</h2>' + faqHtml +
+    kkbSamiti(c) +
     '<p class="kkb-below-note">मूल भाषा: हिंदी · संस्था: Applied Computer School™ (FFGPMTrust, ISO 9001:2015), खगड़िया, बिहार · <a href="/courses/hi/bhasha/' + c.slug + '/brief/">एक-पन्ना परिचय (हिंदी + English)</a></p>' +
-    '</section>';
+    '</section>' +
+    '<div class="acs-raay" id="kkb-raay" data-page="ACS-KKB-' + c.code + '" data-title="' + esc(c.hi_name + " बोलने का कोर्स") + '" style="max-width:600px;margin:0 auto 30px"></div>';
 }
-const KKB_BELOW_CSS = '<style>.kkb-below{max-width:600px;margin:18px auto 30px;padding:14px 16px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.kkb-below h2{font-size:21px;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:10px}.kkb-below h2:first-child{margin-top:0}.kkb-num{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.kkb-num div{background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:10px;text-align:center}.kkb-num b{display:block;font-size:26px;color:#1565C0}.kkb-num span{font-size:16px;color:#334155}.kkb-steps{padding-left:22px}.kkb-steps li{margin:4px 0}.kkb-faq{background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:6px 12px;margin:6px 0}.kkb-faq summary{cursor:pointer;font-weight:800;font-size:18px}.kkb-faq p{margin:6px 0 4px;font-size:17px}.kkb-below-note{font-size:16px;color:#334155;margin-top:12px}.kkb-below a{color:#1565C0}</style>';
+/* ===== 25-Oct (Founder): कोर्स-परिचय पेज v2 — सीखने की राह + पूरा पैकेज =====
+   क्रम (Founder, 25-Oct): लिपि-परिचय → चित्र-पुस्तक → 90-दिन कोर्स → workbook → व्याकरण।
+   हर कदम मौजूदगी से (existsSync) — बना हो तो कड़ी, न बना हो तो "जल्द" (मरी कड़ी कभी नहीं)।
+   पैकेज = 24-Oct की 11-हिस्सा योजना + 25-Oct के 🎙️/👍; जो बना नहीं, वह ईमानदार "जल्द"। */
+function kkbHas(c, sub) { return fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, sub, "index.html")); }
+function kkbSteps(c) {
+  const u = sub => "/courses/hi/bhasha/" + c.slug + "/" + sub + "/";
+  return [
+    { ic: "✍️", t: "लिपि-परिचय", d: c.hi_name + " के अक्षर पहचानो, बोलो और लिखो", href: kkbHas(c, "lipi") ? u("lipi") : "" },
+    { ic: "🖼️", t: "चित्र-पुस्तक", d: "बोलते चित्र-शब्द — मोबाइल पर भी, छपने-योग्य भी", href: kkbHas(c, "chitra-pustak") ? u("chitra-pustak") : "" },
+    { ic: "🗣️", t: "90-दिन बोलचाल कोर्स", d: "2,150 वाक्य · हर वाक्य पर 🔊 आवाज़", href: "#kkb2-app", here: true },
+    { ic: "📘", t: "लिखो-वर्कबुक (workbook)", d: "हर हफ़्ते की छपने-योग्य किताब + शब्दकोश", href: kkbHas(c, "workbook") ? u("workbook") : "" },
+    { ic: "📗", t: "मेरा पहला व्याकरण", d: "12 नियम, कोर्स के असली वाक्यों के साथ", href: kkbHas(c, "vyakaran") ? u("vyakaran") : "" }
+  ];
+}
+function kkbPath(c) {
+  return '<nav class="kkb-path" aria-label="सीखने की राह"><h2>🧭 सीखने की राह — 5 कदम</h2><ol>' +
+    kkbSteps(c).map(s => '<li class="' + (s.here ? "here" : (s.href ? "on" : "soon")) + '"><span class="kp-ic">' + s.ic + '</span><span class="kp-tx"><b>' + s.t + '</b><small>' + s.d + '</small></span>' +
+      (s.here ? '<a class="kp-go" href="#kkb2-app">यहीं नीचे ⬇</a>' : (s.href ? '<a class="kp-go" href="' + s.href + '">खोलें →</a>' : '<span class="kp-soon">⏳ जल्द</span>')) + '</li>').join("") +
+    '</ol><p class="kp-more"><a href="#kkb-pack">📦 इस कोर्स का पूरा पैकेज — नीचे देखें</a></p></nav>';
+}
+function kkbPack(c) {
+  const st = kkbSteps(c), A = (href, txt) => '<a href="' + href + '">' + txt + '</a>';
+  const rows = [
+    [st[0].ic, "लिपि-परिचय — अक्षर, देवनागरी उच्चारण, लिखने का अभ्यास", st[0].href ? A(st[0].href, "खोलें") : ""],
+    [st[1].ic, "चित्र-पुस्तक — वर्ग 1 स्तर, बोलते चित्र-शब्द", st[1].href ? A(st[1].href, "खोलें") : ""],
+    [st[2].ic, "90-दिन बोलचाल कोर्स — 2,150 वाक्य, असली लिपि + उच्चारण + अर्थ + 🔊", A("#kkb2-app", "यही पन्ना")],
+    [st[3].ic, "लिखो-वर्कबुक — हर हफ़्ते की छपने-योग्य किताब", st[3].href ? A(st[3].href, "खोलें") : ""],
+    ["📖", "3-स्तंभ शब्दकोश — असली लिपि · देवनागरी उच्चारण · हिंदी अर्थ", st[3].href ? A(st[3].href, "वर्कबुक में") : ""],
+    [st[4].ic, "मेरा पहला व्याकरण — 12 नियम", st[4].href ? A(st[4].href, "खोलें") : ""],
+    ["🎙️", "बोलो-अभ्यास — माइक सुनकर हर शब्द हरा/लाल/काला", st[4].href ? A(st[4].href, "व्याकरण में चालू") : ""],
+    ["📝", "ऑनलाइन परीक्षा — हर हफ़्ते छोटी, 90 दिन बाद 40/40/40", A("#kkb2-app", "इसी पन्ने पर")],
+    ["🏅", "प्रमाणपत्र — ₹125 (मर्ज़ी से), QR से कहीं से भी जाँच; ऑनलाइन = सर्टिफिकेट प्रोग्राम, केंद्र/वर्कशॉप में प्रैक्टिकल = डिप्लोमा", A("/verify/", "जाँच-पन्ना")],
+    ["📋", "प्रवेश-शर्त · न्यूनतम समय · ज़रूरी दस्तावेज़ (पढ़ाई के लिए कोई शर्त नहीं, बिना लॉगिन)", ""],
+    ["🖼️", "नमूना प्रमाणपत्र", ""],
+    ["🏫", "आगे की पढ़ाई — संस्थान-सूची (10वीं से PhD तक)", ""],
+    ["📚", "शोध व संदर्भ-सूची (कम-से-कम 5 शोध-पत्र) + भाषा-स्तर", ""],
+    ["🌱", "भाषा संवर्धन समिति — जानकारों को खुला निमंत्रण", A("#kkb-samiti", "नीचे")],
+    ["🙋", "आपकी राय — 👍 पसंद · 👎 नापसंद · 💬 टिप्पणी", A("#kkb-raay", "सबसे नीचे")]
+  ];
+  return '<h2 id="kkb-pack">📦 इस कोर्स का पूरा पैकेज</h2><ul class="kkb-pack">' +
+    rows.map(r => '<li class="' + (r[2] ? "on" : "soon") + '"><span class="kpk-ic">' + r[0] + '</span><span class="kpk-tx">' + r[1] + '</span><span class="kpk-st">' + (r[2] ? "✅ " + r[2] : "⏳ जल्द") + '</span></li>').join("") +
+    '</ul>';
+}
+function kkbSamiti(c) {
+  const msg = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") भाषा का/की जानकार हूँ। भाषा संवर्धन समिति से जुड़कर इस कोर्स को सुधारना चाहता/चाहती हूँ।");
+  return '<h2 id="kkb-samiti">🌱 भाषा संवर्धन समिति</h2><p>' + c.hi_name + ' अच्छी तरह जानते हैं? इस कोर्स के वाक्य, उच्चारण और अर्थ जाँचने-सुधारने में साथ दीजिए। हर सुधार पहले जाँचा जाता है, फिर मानक-स्प्रेडशीट में चढ़ता है।</p>' +
+    '<p><a class="kkb-samiti-go" href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener">🙏 व्हाट्सऐप (WhatsApp) से जुड़िए</a></p>';
+}
+const KKB_BELOW_CSS = '<style>' +
+  /* 25-Oct: सीखने की राह + पैकेज */ '.kkb-path{background:#fff;color:#0B1F3A;border-radius:14px;padding:12px 12px 6px;margin:10px 0 8px}.kkb-path h2{font-size:21px;margin:0 0 8px;color:#0B1F3A}.kkb-path ol{list-style:none;margin:0;padding:0;counter-reset:kp}.kkb-path li{counter-increment:kp;display:flex;align-items:center;gap:8px;padding:8px 6px;border-top:1px solid #E3EAF3}.kkb-path li:first-child{border-top:0}.kkb-path li::before{content:counter(kp);flex:none;width:30px;height:30px;border-radius:50%;background:#1565C0;color:#fff;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center}.kkb-path li.here::before{background:#2E7D32}.kkb-path li.soon::before{background:#90A4AE}.kp-ic{font-size:24px;flex:none}.kp-tx{flex:1;min-width:0}.kp-tx b{display:block;font-size:18px}.kp-tx small{display:block;font-size:16px;color:#455A64;line-height:1.4}.kp-go{flex:none;background:#F9A825;color:#0B1F3A!important;font-weight:800;font-size:16px;border-radius:20px;padding:6px 12px;text-decoration:none!important;white-space:nowrap}.kkb-path li.here .kp-go{background:#2E7D32;color:#fff!important}.kp-soon{flex:none;background:#ECEFF1;color:#455A64;font-size:16px;border-radius:20px;padding:6px 10px;white-space:nowrap}.kp-more{margin:8px 0 4px;font-size:17px}.kp-more a{color:#1565C0;font-weight:800}' +
+  '.kkb-pack{list-style:none;margin:0 0 6px;padding:0}.kkb-pack li{display:flex;align-items:flex-start;gap:8px;background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:8px 10px;margin:6px 0}.kkb-pack li.soon{background:#F5F7FA;border-style:dashed}.kpk-ic{font-size:22px;flex:none}.kpk-tx{flex:1;font-size:17px;line-height:1.5}.kpk-st{flex:none;font-size:16px;font-weight:800;color:#2E7D32;white-space:nowrap}.kkb-pack li.soon .kpk-st{color:#607D8B}.kpk-st a{color:#1565C0}.kkb-samiti-go{display:inline-block;background:#2E7D32;color:#fff!important;font-weight:800;border-radius:24px;padding:9px 18px;text-decoration:none!important}' +
+  '.kkb-below{max-width:600px;margin:18px auto 30px;padding:14px 16px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.kkb-below h2{font-size:21px;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:10px}.kkb-below h2:first-child{margin-top:0}.kkb-num{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.kkb-num div{background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:10px;text-align:center}.kkb-num b{display:block;font-size:26px;color:#1565C0}.kkb-num span{font-size:16px;color:#334155}.kkb-steps{padding-left:22px}.kkb-steps li{margin:4px 0}.kkb-faq{background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:6px 12px;margin:6px 0}.kkb-faq summary{cursor:pointer;font-weight:800;font-size:18px}.kkb-faq p{margin:6px 0 4px;font-size:17px}.kkb-below-note{font-size:16px;color:#334155;margin-top:12px}.kkb-below a{color:#1565C0}</style>';
 /* ---- लिप्यंतरण-पट्टी (24-Oct-2026): कोर्स असल में हिंदी-लिप्यंतरण हो तो ईमानदार लाल सूचना। एकमात्र घर: data/translit_hold_flags.js (fail-closed) ---- */
 const TRANSLIT_FLAGS = new Set(require("./data/translit_hold_flags.js").flags);
 function translitNote(c) {
@@ -3330,12 +3386,8 @@ function kkb2Content(c) {
     '<h1 style="font-size:26px;line-height:1.3;margin:8px 0 6px;color:#fff">' + c.hi_name + ' बोलने का पूरा कोर्स — एक ही जगह</h1>' +
     '<p style="font-size:18px;line-height:1.7;margin:0 0 8px;opacity:.92">पढ़ना-लिखना नहीं — सिर्फ़ सुनना और बोलना। हर वाक्य असली लिपि में + देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ 🔊 के साथ। 5वीं पास भी आज से शुरू करे।</p>' +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 4px;opacity:.8">' + c.next + '</p>' +
+    kkbPath(c) +
     '<p style="font-size:18px;line-height:1.6;margin:6px 0 4px"><a href="/courses/hi/bhasha/' + c.slug + '/brief/" style="color:#F9A825;font-weight:800;text-decoration:underline">📄 एक-पन्ना परिचय — दूतावास/नियोक्ता के लिए (हिंदी + English)</a></p>' +
-    /* 14-Sep: लिपि-परिचय workbook (build_lipi_pages) बना हो तो पहली-बार वालों के लिए द्वार — मौजूदगी से, hardcode नहीं */
-    (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "workbook/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 4px"><a href="/courses/hi/bhasha/' + c.slug + '/workbook/" style="color:#F9A825;font-weight:800;text-decoration:underline">📘 लिखो-workbook — हर हफ़्ते की छपने-योग्य किताब + शब्दकोश (मुफ़्त PDF, छूकर download)</a></p>' : '') +
-    (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "lipi/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/lipi/" style="color:#F9A825;font-weight:800;text-decoration:underline">✍️ पहली बार ' + c.hi_name + ' के अक्षर देख रहे हो? पहले लिपि-परिचय workbook (मुफ़्त, छपने-योग्य)</a></p>' : '') +
-    (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "chitra-pustak/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/chitra-pustak/" style="color:#F9A825;font-weight:800;text-decoration:underline">🖼️ मेरी पहली चित्र-पुस्तक — ' + c.hi_name + ' · हिंदी, बोलते चित्र-शब्द (मोबाइल + छपने-योग्य)</a></p>' : '') +
-    (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "vyakaran/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/vyakaran/" style="color:#F9A825;font-weight:800;text-decoration:underline">📘 मेरा पहला व्याकरण — ' + c.hi_name + ' के 12 नियम, असली वाक्यों के साथ</a></p>' : '') +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
     translitNote(c) + aiSahyogNote(c) +
@@ -3380,6 +3432,18 @@ function briefContent(c) {
   return hi + en;
 }
 const BRIEF_CSS = '<style>.bf-wrap{max-width:820px;margin:0 auto;padding:12px 14px 28px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.bf-en{margin-top:14px;border-top:6px solid #F9A825}.bf-kicker{font-size:16px;font-weight:800;color:#1565C0;margin:4px 0}.bf-wrap h1{font-size:24px;line-height:1.35;margin:6px 0 10px}.bf-wrap h2{font-size:20px;margin:16px 0 6px;border-left:6px solid #F9A825;padding-left:10px}.bf-actions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 4px}.bf-btn{font-family:inherit;font-size:18px;font-weight:800;padding:10px 14px;border-radius:12px;border:0;background:#0B1F3A;color:#fff;text-decoration:none;cursor:pointer}.bf-btn2{background:#F9A825;color:#0B1F3A}.bf-btn3{background:#2E7D32}.bf-t{width:100%;border-collapse:collapse;table-layout:fixed}.bf-t td{overflow-wrap:anywhere;word-break:break-word}.bf-t td{border-bottom:1px solid #CBD5E1;padding:6px 8px;vertical-align:top;font-size:17px}.bf-t td:first-child{font-weight:800;width:32%}.bf-can{padding-left:18px}.bf-can li{margin:4px 0;font-size:17px}.bf-note{font-size:16px;color:#334155}.bf-wrap a{color:#1565C0}.bf-wrap a.bf-btn{color:#fff}.bf-wrap a.bf-btn2,.bf-wrap .bf-btn2{color:#0B1F3A}@media print{@page{size:A4;margin:12mm}.acs-nav,.acs-freebar,.acs-translate-panel,.acs-footer,.acs-scrim,.acs-drawer,.acs-wa,.udy-float,.tiranga-bar,.bf-actions{display:none!important}body{background:#fff!important}.bf-wrap{background:#fff;color:#000;padding:0;font-size:16px}.bf-en{break-before:page}.bf-t td{font-size:16px}.bf-can li{font-size:16px}}</style>';
+/* ===== 25-Oct (Founder-नियम): भाषा-सूची ताज़ा मास्टर-स्प्रेडशीट से =====
+   एकमात्र घर: generator/data/bhasha_register.json (स्प्रेडशीट "भाषा-रजिस्टर" की मशीन-निकासी)।
+   हर कोर्स-भाषा का कोड रजिस्टर में होना अनिवार्य (न हो = build रुके, fail-closed);
+   हिंदी/English नाम रजिस्टर से — यहाँ की सूची में पुराना नाम हो तो रजिस्टर का नाम जीतता है। */
+const BHASHA_REG = require("./data/bhasha_register.json");
+KKB2_LANGS.forEach(c => {
+  const r = BHASHA_REG.langs[c.code];
+  if (!r) throw new Error("भाषा-रजिस्टर में कोड नहीं: " + c.code + " (" + c.hi_name + ") — पहले मास्टर-स्प्रेडशीट में जोड़ें, फिर नई निकासी");
+  if (r.hi && r.hi !== c.hi_name) { console.log("  ↻ नाम रजिस्टर से: " + c.code + " " + c.hi_name + " → " + r.hi); c.hi_name = r.hi; }
+  if (r.en && r.en !== c.en_name) { c.en_name = r.en; }
+});
+console.log("✅ भाषा-सूची: " + KKB2_LANGS.length + " कोर्स-भाषाएँ, सब रजिस्टर में (" + BHASHA_REG.source.split(" ·")[0] + ", " + BHASHA_REG.count + " भाषा)");
 KKB2_LANGS.forEach(c => buildSpecial({
   out: "courses/hi/bhasha/" + c.slug + "/brief/index.html", langStrict: false,
   title: c.hi_name + " बोलने का प्रमाणपत्र कोर्स — एक-पन्ना परिचय (ACS Certificate in Spoken " + c.en_name + " — Brief for embassies & employers) | अप्लाइड कंप्यूटर स्कूल",
@@ -3413,7 +3477,8 @@ KKB2_LANGS.forEach(c => buildSpecial({
          '<script src="/assets/kkb_cando.js"></scr' + 'ipt>',
          '<script src="' + (c.code === "en" ? "/assets/kkb_data.js" : "/assets/kkb_" + c.code + "_data.js") + '"></scr' + 'ipt>',
          '<script src="' + (c.code === "en" ? "/assets/kkb2_data.js" : "/assets/kkb2_" + c.code + "_data.js") + '"></scr' + 'ipt>',
-         '<script src="/assets/kkb2.js" defer></scr' + 'ipt>'],
+         '<script src="/assets/kkb2.js" defer></scr' + 'ipt>',
+         '<script src="/assets/acs-raay.js" defer></scr' + 'ipt>' /* 25-Oct: 👍👎💬 (अभी फ़ोन + WhatsApp) */],
   content: kkb2Content(c)
 }));
 
