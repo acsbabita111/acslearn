@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v753'; // 25-Oct (1) भाषा-नाम ताज़ा स्प्रेडशीट v5.8 से: courses_data (196) + exam_data (198) + kkb2.js (दिखने वाला नाम रजिस्टर से) · (2) 90-दिन कोर्स में हर वाक्य पर 🎙️ बोलो: kkb2.js + acs-bolo.js v1.1 — cache-first data/js
+const CACHE_VERSION = 'v754'; // 25-Oct "अंग्रेज़ी"-दोष खेप-1: 16 भारतीय भाषाओं के kkb2-data में अपना भाषा-नाम (लक्ष्य+उच्चारण+हिंदी) — cache-first data
+// पिछला v753; // 25-Oct (1) भाषा-नाम ताज़ा स्प्रेडशीट v5.8 से: courses_data (196) + exam_data (198) + kkb2.js (दिखने वाला नाम रजिस्टर से) · (2) 90-दिन कोर्स में हर वाक्य पर 🎙️ बोलो: kkb2.js + acs-bolo.js v1.1 — cache-first data/js
 // पिछला v752; // 25-Oct व्याकरण-पन्ना v1.3 (SEO): vyakaran.css में h1/परिचय-पंक्ति — cache-first css
 // पिछला v751; // 25-Oct व्याकरण-पन्ना v1.2: vyakaran.css सघन-छपाई — हर पाठ एक पन्ने में (फ़ोन-PDF 24 → 13 पन्ने) — cache-first css
 // पिछला v750; // 25-Oct व्याकरण-पन्ना v1.1: vyakaran.css आवरण + छपाई-सुधार (पाठ-1 पहले पन्ने पर, तैरते बटन/WhatsApp/तिरंगा न छपें) + नए assets/acs-bolo.js (🎙️ बोलो-अभ्यास) व assets/acs-raay.js (👍👎💬) — cache-first css
