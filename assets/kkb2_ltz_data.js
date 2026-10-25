@@ -853,15 +853,15 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Firwat wëllt Dir Englesch léieren?",
-       "फीर्वात वल्ल्त दीर एंग्लेश लाइएरेन?",
+       "Firwat wëllt Dir Lëtzebuergesch léieren?",
+       "फीर्वात वल्ल्त दीर लेत्सेबुएर्गेश लाइएरेन?",
        "आप लक्ज़मबर्गिश क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Ech léieren Englesch well ech e besseren Job wëll.",
-       "एश लाइएरेन एंग्लेश वेल्ल एश ए बेस्सेरेन योब वल्ल।",
+       "Ech léieren Lëtzebuergesch well ech e besseren Job wëll.",
+       "एश लाइएरेन लेत्सेबुएर्गेश वेल्ल एश ए बेस्सेरेन योब वल्ल।",
        "मैं लक्ज़मबर्गिश सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1073,8 +1073,8 @@ window.KKB2_DATA={
       "एश रूफ्फे ईश मूएर मोईस उन।"
      ],
      [
-      "Ech léieren Englesch well ech e besseren Job wëll.",
-      "एश लाइएरेन एंग्लेश वेल्ल एश ए बेस्सेरेन योब वल्ल।"
+      "Ech léieren Lëtzebuergesch well ech e besseren Job wëll.",
+      "एश लाइएरेन लेत्सेबुएर्गेश वेल्ल एश ए बेस्सेरेन योब वल्ल।"
      ]
     ]
    }
@@ -1193,8 +1193,8 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Ech léieren all Dag eng hallef Stonn Englesch.",
-       "एश लाइएरेन आल्ल दाग एंग हाल्लेफ स्तोन्न एंग्लेश।",
+       "Ech léieren all Dag eng hallef Stonn Lëtzebuergesch.",
+       "एश लाइएरेन आल्ल दाग एंग हाल्लेफ स्तोन्न लेत्सेबुएर्गेश।",
        "मैं रोज़ आधा घंटा लक्ज़मबर्गिश सीखता हूँ।",
        "S",
        "B"
@@ -3288,8 +3288,8 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Ech üben Englesch beim Spadséieren.",
-       "एश उबेन एंग्लेश बायम स्पाद्साइएरेन।",
+       "Ech üben Lëtzebuergesch beim Spadséieren.",
+       "एश उबेन लेत्सेबुएर्गेश बायम स्पाद्साइएरेन।",
        "मैं टहलते-टहलते लक्ज़मबर्गिश का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4041,8 +4041,8 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Gëschter hunn ech mat mengem Superviseur Englesch geschwat.",
-       "गश्तेर हून्न एश मात मेंगेम सूपेर्वीसोयर एंग्लेश गेश्वात।",
+       "Gëschter hunn ech mat mengem Superviseur Lëtzebuergesch geschwat.",
+       "गश्तेर हून्न एश मात मेंगेम सूपेर्वीसोयर लेत्सेबुएर्गेश गेश्वात।",
        "कल मैंने सुपरवाइज़र से लक्ज़मबर्गिश में बात की।",
        "S",
        "B"
@@ -4055,8 +4055,8 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Englesch mécht mir nei Dieren op.",
-       "एंग्लेश मेश्त मीर नाय दीरेन ओप।",
+       "Lëtzebuergesch mécht mir nei Dieren op.",
+       "लेत्सेबुएर्गेश मेश्त मीर नाय दीरेन ओप।",
        "लक्ज़मबर्गिश मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4226,8 +4226,8 @@ window.KKB2_DATA={
       "एश कोम्मे नेश्स्ते मोउन्त हेएम।"
      ],
      [
-      "Ech léieren Englesch well ech e besseren Job wëll.",
-      "एश लाइएरेन एंग्लेश वेल्ल एश ए बेस्सेरेन योब वल्ल।"
+      "Ech léieren Lëtzebuergesch well ech e besseren Job wëll.",
+      "एश लाइएरेन लेत्सेबुएर्गेश वेल्ल एश ए बेस्सेरेन योब वल्ल।"
      ],
      [
       "Gitt meng Gréiss un de Bopa.",
@@ -5425,9 +5425,9 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Schwätzt Hindi, si schreift Englesch.",
-       "श्वेत्ज़्त हीन्दी, सी श्रायफ्त एंग्लेश।",
-       "लक्ज़मबर्गिश में बोलो, वह अंग्रेज़ी में लिख देगा।",
+       "Schwätzt Hindi, si schreift Lëtzebuergesch.",
+       "श्वेत्ज़्त हीन्दी, सी श्रायफ्त लेत्सेबुएर्गेश।",
+       "लक्ज़मबर्गिश में बोलो, वह लक्ज़मबर्गिश में लिख देगा।",
        "L",
        "B"
       ],
@@ -5453,8 +5453,8 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Ech froen d'AI-App fir mäin Englesch ze kontrolléieren.",
-       "एश फ्रोएन द्एआई-आप्प फीर मायन एंग्लेश ज़े कोन्त्रोल्लाइएरेन।",
+       "Ech froen d'AI-App fir mäin Lëtzebuergesch ze kontrolléieren.",
+       "एश फ्रोएन द्एआई-आप्प फीर मायन लेत्सेबुएर्गेश ज़े कोन्त्रोल्लाइएरेन।",
        "मैं एआई ऐप से अपनी लक्ज़मबर्गिश जँचवाता हूँ।",
        "S",
        "B"
@@ -6823,15 +6823,15 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Englesch ass gebraucht fir de gréissere Job.",
-       "एंग्लेश आस्स गेब्राउश्त फीर दे ग्राइस्सेरे योब।",
+       "Lëtzebuergesch ass gebraucht fir de gréissere Job.",
+       "लेत्सेबुएर्गेश आस्स गेब्राउश्त फीर दे ग्राइस्सेरे योब।",
        "बड़े काम के लिए लक्ज़मबर्गिश चाहिए।",
        "S",
        "C"
       ],
       [
-       "Ech üben Englesch mat mengen Aarbechtskolleegen.",
-       "एश उबेन एंग्लेश मात मेंगेन आआर्बेश्त्स्कोल्लेएगेन।",
+       "Ech üben Lëtzebuergesch mat mengen Aarbechtskolleegen.",
+       "एश उबेन लेत्सेबुएर्गेश मात मेंगेन आआर्बेश्त्स्कोल्लेएगेन।",
        "मैं साथियों के साथ लक्ज़मबर्गिश का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8537,8 +8537,8 @@ window.KKB2_DATA={
        "A"
       ],
       [
-       "Ech kann einfach Englesch schwätzen.",
-       "एश कान्न आयन्फाश एंग्लेश श्वेत्ज़ेन।",
+       "Ech kann einfach Lëtzebuergesch schwätzen.",
+       "एश कान्न आयन्फाश लेत्सेबुएर्गेश श्वेत्ज़ेन।",
        "मैं सादी लक्ज़मबर्गिश बोल सकता हूँ।",
        "S",
        "A"
@@ -9535,8 +9535,8 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Elo kann ech iwwer meng Aarbecht op Englesch schwätzen.",
-       "एलो कान्न एश इव्वेर मेंग आआर्बेश्त ओप एंग्लेश श्वेत्ज़ेन।",
+       "Elo kann ech iwwer meng Aarbecht op Lëtzebuergesch schwätzen.",
+       "एलो कान्न एश इव्वेर मेंग आआर्बेश्त ओप लेत्सेबुएर्गेश श्वेत्ज़ेन।",
        "अब मैं अपने काम की बात लक्ज़मबर्गिश में कर सकता हूँ।",
        "S",
        "B"
@@ -9556,8 +9556,8 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Den Proprietär sot mäin Englesch gëtt besser.",
-       "देन प्रोप्रीतेर सोत मायन एंग्लेश गत्त बेस्सेर।",
+       "Den Proprietär sot mäin Lëtzebuergesch gëtt besser.",
+       "देन प्रोप्रीतेर सोत मायन लेत्सेबुएर्गेश गत्त बेस्सेर।",
        "मालिक ने कहा मेरी लक्ज़मबर्गिश सुधर रही है।",
        "S",
        "B"
@@ -9633,15 +9633,15 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Englesch Wierder kommen mir elo einfach.",
-       "एंग्लेश वीर्देर कोम्मेन मीर एलो आयन्फाश।",
+       "Lëtzebuergesch Wierder kommen mir elo einfach.",
+       "लेत्सेबुएर्गेश वीर्देर कोम्मेन मीर एलो आयन्फाश।",
        "लक्ज़मबर्गिश शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Ech denken heiansdo a klenge Englesche Sätz.",
-       "एश देन्केन हायआन्स्दो आ क्लेंगे एंग्लेशे सेत्ज़।",
+       "Ech denken heiansdo a klenge Lëtzebuergesche Sätz.",
+       "एश देन्केन हायआन्स्दो आ क्लेंगे लेत्सेबुएर्गेशे सेत्ज़।",
        "कभी-कभी मैं छोटी लक्ज़मबर्गिश पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9668,15 +9668,15 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Nächste Mount léieren ech Maart-Englesch.",
-       "नेश्स्ते मोउन्त लाइएरेन एश माआर्त-एंग्लेश।",
+       "Nächste Mount léieren ech Maart-Lëtzebuergesch.",
+       "नेश्स्ते मोउन्त लाइएरेन एश माआर्त-लेत्सेबुएर्गेश।",
        "अगले महीने मैं बाजार की लक्ज़मबर्गिश सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Dann Rees-Englesch fir de Zuch an de Bus.",
-       "दान्न रेएस-एंग्लेश फीर दे ज़ूश आन दे बूस।",
+       "Dann Rees-Lëtzebuergesch fir de Zuch an de Bus.",
+       "दान्न रेएस-लेत्सेबुएर्गेश फीर दे ज़ूश आन दे बूस।",
        "फिर ट्रेन-बस के सफ़र की लक्ज़मबर्गिश।",
        "S",
        "C"
@@ -9731,8 +9731,8 @@ window.KKB2_DATA={
        "C"
       ],
       [
-       "Mäin Englesch, meng Kraaft.",
-       "मायन एंग्लेश, मेंग क्राआफ्त।",
+       "Mäin Lëtzebuergesch, meng Kraaft.",
+       "मायन लेत्सेबुएर्गेश, मेंग क्राआफ्त।",
        "मेरी लक्ज़मबर्गिश, मेरी ताक़त।",
        "S",
        "B"
@@ -9783,7 +9783,7 @@ window.KKB2_DATA={
         "Zwee Méint vum Léieren si komplett."
        ],
        [
-        "Elo kann ech iwwer meng Aarbecht op Englesch schwätzen."
+        "Elo kann ech iwwer meng Aarbecht op Lëtzebuergesch schwätzen."
        ],
        [
         "Ech hu lescht Woch en Telefonsinterview gemaach."
@@ -12001,8 +12001,8 @@ window.KKB2_DATA={
        "B"
       ],
       [
-       "Ech liesen am Rees meng Englesch Sätzer.",
-       "एश लीसेन आम रेएस मेंग एंग्लेश सेत्ज़ेर।",
+       "Ech liesen am Rees meng Lëtzebuergesch Sätzer.",
+       "एश लीसेन आम रेएस मेंग लेत्सेबुएर्गेश सेत्ज़ेर।",
        "मैं सफ़र में अपने लक्ज़मबर्गिश वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -15336,7 +15336,7 @@ window.KKB2_DATA={
      }
     },
     {
-     "title": "कमाई-रक्षा की अंग्रेज़ी (शोषण-बचाव)",
+     "title": "कमाई-रक्षा की लक्ज़मबर्गिश (शोषण-बचाव)",
      "items": [
       [
        "Wéi héich ass mäi Loun?",

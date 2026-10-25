@@ -922,15 +922,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "De ce vrei să înveți engleza?",
-       "दे चे व्रेय सा इंवेत्सी एंग्लेज़ा?",
+       "De ce vrei să înveți româna?",
+       "दे चे व्रेय सा इंवेत्सी रोमीना?",
        "आप रोमानियाई क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Învăț engleza pentru că vreau o slujbă mai bună.",
-       "इंवाट्स एंग्लेज़ा पेंत्रु का व्रेआउ ओ स्लुज़्बा माय बुना।",
+       "Învăț româna pentru că vreau o slujbă mai bună.",
+       "इंवाट्स रोमीना पेंत्रु का व्रेआउ ओ स्लुज़्बा माय बुना।",
        "मैं रोमानियाई सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1057,8 +1057,8 @@ window.KKB2_DATA = {
       "मीने दिमिनियात्सा ते वोय सुना।"
      ],
      [
-      "Învăț engleza pentru că vreau o slujbă mai bună.",
-      "इंवाट्स एंग्लेज़ा पेंत्रु का व्रेआउ ओ स्लुज़्बा माय बुना।"
+      "Învăț româna pentru că vreau o slujbă mai bună.",
+      "इंवाट्स रोमीना पेंत्रु का व्रेआउ ओ स्लुज़्बा माय बुना।"
      ]
     ]
    },
@@ -1260,8 +1260,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Zilnic învăț engleza jumătate de oră.",
-       "ज़िल्निक इंवाट्स एंग्लेज़ा जुमातते दे ओरा।",
+       "Zilnic învăț româna jumătate de oră.",
+       "ज़िल्निक इंवाट्स रोमीना जुमातते दे ओरा।",
        "मैं रोज़ आधा घंटा रोमानियाई सीखता हूँ।",
        "S",
        "B"
@@ -3364,8 +3364,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Îmi practic engleza în timp ce merg.",
-       "इम्ही प्रक्तिक एंग्लेज़ा इन तींप चे मेर्ग।",
+       "Îmi practic româna în timp ce merg.",
+       "इम्ही प्रक्तिक रोमीना इन तींप चे मेर्ग।",
        "मैं टहलते-टहलते रोमानियाई का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4119,8 +4119,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ieri am vorbit engleză cu șeful meu.",
-       "येरी आम वोर्बीत एंग्लेज़ा कु शेफ़ुल मेउ।",
+       "Ieri am vorbit română cu șeful meu.",
+       "येरी आम वोर्बीत रोमीना कु शेफ़ुल मेउ।",
        "कल मैंने सुपरवाइज़र से रोमानियाई में बात की।",
        "S",
        "B"
@@ -4133,8 +4133,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Engleza îmi deschide uși noi.",
-       "एंग्लेज़ा इम्ही देस्किदे उशी नोय।",
+       "Româna îmi deschide uși noi.",
+       "रोमीना इम्ही देस्किदे उशी नोय।",
        "रोमानियाई मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4219,8 +4219,8 @@ window.KKB2_DATA = {
       "वोय वेनी आकासा लूना विईतोआरे।"
      ],
      [
-      "Învăț engleza pentru că vreau o slujbă mai bună.",
-      "इंवाट्स एंग्लेज़ा पेंत्रु का व्रेआउ ओ स्लुज़्बा माय बुना।"
+      "Învăț româna pentru că vreau o slujbă mai bună.",
+      "इंवाट्स रोमीना पेंत्रु का व्रेआउ ओ स्लुज़्बा माय बुना।"
      ],
      [
       "Transmite salutări bunicului.",
@@ -5514,8 +5514,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Vorbește în română, va scrie în engleză.",
-       "वोर्बेश्ते इन रोमींना, वा स्क्रिये इन एंग्लेज़ा।",
+       "Vorbește în română, va scrie în română.",
+       "वोर्बेश्ते इन रोमींना, वा स्क्रिये इन रोमीना।",
        "हिंदी में बोलो, वह रोमानियाई में लिख देगा।",
        "L",
        "B"
@@ -5542,8 +5542,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Îi cer aplicației AI să-mi verifice engleza.",
-       "ई चेर अप्लिकात्सिय आय सामी वेरीफ़िचे एंग्लेज़ा।",
+       "Îi cer aplicației AI să-mi verifice româna.",
+       "ई चेर अप्लिकात्सिय आय सामी वेरीफ़िचे रोमीना।",
        "मैं एआई ऐप से अपनी रोमानियाई जँचवाता हूँ।",
        "S",
        "B"
@@ -6910,15 +6910,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Engleza este necesară pentru o muncă mai mare.",
-       "एंग्लेज़ा येस्ते नेचेसारा पेंत्रु ओ मुंका माय मारे।",
+       "Româna este necesară pentru o muncă mai mare.",
+       "रोमीना येस्ते नेचेसारा पेंत्रु ओ मुंका माय मारे।",
        "बड़े काम के लिए रोमानियाई चाहिए।",
        "S",
        "C"
       ],
       [
-       "Practic engleza cu colegii mei.",
-       "प्रक्तिक एंग्लेज़ा कु कोलेजी मेय।",
+       "Practic româna cu colegii mei.",
+       "प्रक्तिक रोमीना कु कोलेजी मेय।",
        "मैं साथियों के साथ रोमानियाई का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8630,8 +8630,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Pot vorbi engleză simplă.",
-       "पोत वोर्बी एंग्लेज़ा सींप्ला।",
+       "Pot vorbi română simplă.",
+       "पोत वोर्बी रोमीना सींप्ला।",
        "मैं सादी रोमानियाई बोल सकता हूँ।",
        "S",
        "A"
@@ -9609,8 +9609,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Am învățat engleza. Am primit o muncă mai bună.",
-        "Am învățat engleza, așa că am primit o muncă mai bună."
+        "Am învățat româna. Am primit o muncă mai bună.",
+        "Am învățat româna, așa că am primit o muncă mai bună."
        ],
        [
         "Munca a fost grea. Nu m-am oprit.",
@@ -9627,8 +9627,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Acum pot vorbi despre munca mea în engleză.",
-       "आकुम पोत वोर्बी देस्प्रे मुंका मिया इन एंग्लेज़ा।",
+       "Acum pot vorbi despre munca mea în română.",
+       "आकुम पोत वोर्बी देस्प्रे मुंका मिया इन रोमीना।",
        "अब मैं अपने काम की बात रोमानियाई में कर सकता हूँ।",
        "S",
        "B"
@@ -9648,8 +9648,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Șeful a spus că engleza mea se îmbunătățește.",
-       "शेफ़ुल अ स्पुस का एंग्लेज़ा मिया से इंबुनतत्सेश्ते।",
+       "Șeful a spus că româna mea se îmbunătățește.",
+       "शेफ़ुल अ स्पुस का रोमीना मिया से इंबुनतत्सेश्ते।",
        "मालिक ने कहा मेरी रोमानियाई सुधर रही है।",
        "S",
        "B"
@@ -9725,15 +9725,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Acum cuvintele engleze îmi vin ușor.",
-       "आकुम कुविंतेले एंग्लेज़े इम्ही विन उशोर।",
+       "Acum cuvintele române îmi vin ușor.",
+       "आकुम कुविंतेले रोमीने इम्ही विन उशोर।",
        "रोमानियाई शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Uneori gândesc în propoziții scurte în engleză.",
-       "उनेओरी गींदेस्क इन प्रोपोज़ीत्सी स्कुर्ते इन एंग्लेज़ा।",
+       "Uneori gândesc în propoziții scurte în română.",
+       "उनेओरी गींदेस्क इन प्रोपोज़ीत्सी स्कुर्ते इन रोमीना।",
        "कभी-कभी मैं छोटी रोमानियाई पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9760,15 +9760,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Luna viitoare voi învăța engleza pieței.",
-       "लूना विईतोआरे वोय इंवात्सा एंग्लेज़ा पियेत्सी।",
+       "Luna viitoare voi învăța româna pieței.",
+       "लूना विईतोआरे वोय इंवात्सा रोमीना पियेत्सी।",
        "अगले महीने मैं बाजार की रोमानियाई सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Apoi engleza de călătorie pentru tren și autobuz.",
-       "आपोय एंग्लेज़ा दे कलातोरिये पेंत्रु त्रेन शी आउतोबुज़।",
+       "Apoi româna de călătorie pentru tren și autobuz.",
+       "आपोय रोमीना दे कलातोरिये पेंत्रु त्रेन शी आउतोबुज़।",
        "फिर ट्रेन-बस के सफ़र की रोमानियाई।",
        "S",
        "C"
@@ -12098,8 +12098,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Citesc propozițiile mele în engleză în călătorie.",
-       "चितेस्क प्रोपोज़ीत्सिइले मेले इन एंग्लेज़ा इन कलतोरिये।",
+       "Citesc propozițiile mele în română în călătorie.",
+       "चितेस्क प्रोपोज़ीत्सिइले मेले इन रोमीना इन कलतोरिये।",
        "मैं सफ़र में अपने रोमानियाई वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -14771,8 +14771,8 @@ window.KKB2_DATA = {
     "goal": "दो मिनट रोमानियाई में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
     "lines": [
      [
-      "Acum trei luni engleza era un zid pentru mine.",
-      "आकुम त्रेय लुनी एंग्लेज़ा येरा उन ज़िद पेंत्रु मीने।"
+      "Acum trei luni româna era un zid pentru mine.",
+      "आकुम त्रेय लुनी रोमीना येरा उन ज़िद पेंत्रु मीने।"
      ],
      [
       "Am învățat treizeci de propoziții în fiecare zi.",
@@ -14783,8 +14783,8 @@ window.KKB2_DATA = {
       "पोत वोर्बी आकासा, ला मुंका, ला पियात्सा शी ला आेरोपोर्त।"
      ],
      [
-      "Am dat un interviu telefonic în engleză.",
-      "आम दात उन इंतेर्विउ तेलेफ़ोनिक इन एंग्लेज़ा।"
+      "Am dat un interviu telefonic în română.",
+      "आम दात उन इंतेर्विउ तेलेफ़ोनिक इन रोमीना।"
      ],
      [
       "Am învățat răspunsurile pentru interviul de viză.",

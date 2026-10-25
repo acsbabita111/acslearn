@@ -13,7 +13,7 @@ function load(f) { const p = path.join(ROOT, "assets", f); if (!fs.existsSync(p)
 function items(D) { const o = []; if (D && D.weeks) D.weeks.forEach(wk => wk.days.forEach(d => (d.items || []).forEach(it => o.push(it)))); return o; }
 const M1 = items(load("kkb_data.js")), M2 = items(load("kkb2_data.js")), P1 = [], P2 = [];
 M1.forEach((it, i) => { if (/अंग्रेज़ी/.test(it[2])) P1.push(i); }); M2.forEach((it, i) => { if (/अंग्रेज़ी/.test(it[2])) P2.push(i); });
-const MARK = /इंग्ल|इंगिल|इंगल|इंग्ले|एंग्ल|एंगल|अंग्रेज़|अंग्रेज|आंग्ल|आंग्ले|आन्ग्ल|इंग्रज|इंगलि|इंग्लि|अंग्लै|अंग्लि|अंगले|अङ्ल|एङ्ल|इन्ग्ल|इंगेलि|इंगेली|इन्गि|इंग्गि|इंजिल|इंज्ल|इन्जिल|इङ्ग्ल|इंग्ग्ल|एइगो|यिंग्यु|यिंग्यू|योंगओ|योंग्-ओ|ingl|engl|angl|İngil|Ingil|anglai|英语|英語|英文|영어|えいご|エイゴ|إنجليز|انگلیس|انجليز|англ|Англ|ئىنگلىز|ingilis/i;
+const MARK = /इंग्ल|इंगिल|इंगल|इंग्ले|एंग्ल|एंगल|अंग्रेज़|अंग्रेज|आंग्ल|आंग्ले|आन्ग्ल|इंग्रज|इंगलि|इंग्लि|अंग्लै|अंग्लि|अंगले|अङ्ल|एङ्ल|इन्ग्ल|इंगेलि|इंगेली|इन्गि|इंग्गि|इंजिल|इंज्ल|इन्जिल|इङ्ग्ल|इंग्ग्ल|एइगो|यिंग्यु|यिंग्यू|योंगओ|योंग्-ओ|ingl|engl|angl|angļ|İngil|Ingil|anglai|英语|英語|英文|영어|えいご|エイゴ|إنجليز|انگلیس|انجليز|англ|Англ|ئىنگلىز|ingilis/i;
 let F = 0, debt = 0, debtS = 0, stale = [];
 for (const c of L) {
   const A = items(load("kkb_" + c + "_data.js")), Bq = items(load("kkb2_" + c + "_data.js")); let bad = 0;

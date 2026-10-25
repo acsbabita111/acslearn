@@ -922,15 +922,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Niyə ingilis dilini öyrənmək istəyirsiniz?",
-       "निये इंगिलिस दिलिनी ओय्रेन्मेक इस्तेयिर्सिनिज़?",
+       "Niyə azərbaycan dilini öyrənmək istəyirsiniz?",
+       "निये अज़रबाइजान दिलिनी ओय्रेन्मेक इस्तेयिर्सिनिज़?",
        "आप अज़रबैजानी क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "İngilis dilini öyrənirəm, ona görə yaxşı iş taparam.",
-       "इंगिलिस दिलिनी ओय्रेनिरेम, ओना गोरे याख़्शि इश तापरम।",
+       "Azərbaycan dilini öyrənirəm, ona görə yaxşı iş taparam.",
+       "अज़रबाइजान दिलिनी ओय्रेनिरेम, ओना गोरे याख़्शि इश तापरम।",
        "मैं अज़रबैजानी सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1057,8 +1057,8 @@ window.KKB2_DATA = {
       "सबाह़ सेहेर सिज़े ज़ेंग एदेजेयेम।"
      ],
      [
-      "İngilis dilini öyrənirəm, ona görə yaxşı iş taparam.",
-      "इंगिलिस दिलिनी ओय्रेनिरेम, ओना गोरे याख़्शि इश तापरम।"
+      "Azərbaycan dilini öyrənirəm, ona görə yaxşı iş taparam.",
+      "अज़रबाइजान दिलिनी ओय्रेनिरेम, ओना गोरे याख़्शि इश तापरम।"
      ]
     ]
    },
@@ -1260,8 +1260,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Hər gün yarım saat ingilis dili öyrənirəm.",
-       "हेर गुन यारिम साआत इंगिलिस दिली ओय्रेनिरेम।",
+       "Hər gün yarım saat azərbaycan dili öyrənirəm.",
+       "हेर गुन यारिम साआत अज़रबाइजान दिली ओय्रेनिरेम।",
        "मैं रोज़ आधा घंटा अज़रबैजानी सीखता हूँ।",
        "S",
        "B"
@@ -3364,8 +3364,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Gəzərkən ingilis dili məşq edirəm.",
-       "गेज़ेर्केन इंगिलिस दिली मेश्क़ एदिरेम।",
+       "Gəzərkən azərbaycan dili məşq edirəm.",
+       "गेज़ेर्केन अज़रबाइजान दिली मेश्क़ एदिरेम।",
        "मैं टहलते-टहलते अज़रबैजानी का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4119,8 +4119,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Dünən rəhbərimlə ingiliscə danışdım.",
-       "दुनेन रेह़्बेरिम्ले इंगिलिस्जे दानिश्दिम।",
+       "Dünən rəhbərimlə azərbaycanca danışdım.",
+       "दुनेन रेह़्बेरिम्ले अज़रबाइजानजा दानिश्दिम।",
        "कल मैंने सुपरवाइज़र से अज़रबैजानी में बात की।",
        "S",
        "B"
@@ -4133,8 +4133,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "İngilis dili mənim üçün yeni qapılar açır.",
-       "इंगिलिस दिली मेनिम उचुन येनी क़पिलार आचिर।",
+       "Azərbaycan dili mənim üçün yeni qapılar açır.",
+       "अज़रबाइजान दिली मेनिम उचुन येनी क़पिलार आचिर।",
        "अज़रबैजानी मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4219,8 +4219,8 @@ window.KKB2_DATA = {
       "गेलेन आय एवे गेलेजेयेम।"
      ],
      [
-      "İngilis dili mənim üçün yeni qapılar açır.",
-      "इंगिलिस दिली मेनिम उचुन येनी क़पिलार आचिर।"
+      "Azərbaycan dili mənim üçün yeni qapılar açır.",
+      "अज़रबाइजान दिली मेनिम उचुन येनी क़पिलार आचिर।"
      ],
      [
       "Babama məndən salam deyin.",
@@ -5514,8 +5514,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Azərbaycanca danışın, ingiliscə yazacaq.",
-       "आज़ेर्बायजांजा दानिशिन, इंगिलिस्जे याज़ाजाक़।",
+       "Azərbaycanca danışın, azərbaycanca yazacaq.",
+       "आज़ेर्बायजांजा दानिशिन, अज़रबाइजानजा याज़ाजाक़।",
        "हिंदी में बोलो, वह अज़रबैजानी में लिख देगा।",
        "L",
        "B"
@@ -5542,8 +5542,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "İngiliscəmi yoxlamağı süni intellektdən xahiş etdim.",
-       "इंगिलिस्जेमी योख़्लामागि सुनी इंतेल्लेक्तदेन ख़ाहिश एत्दिम।",
+       "Azərbaycancamı yoxlamağı süni intellektdən xahiş etdim.",
+       "अज़रबाइजानजामी योख़्लामागि सुनी इंतेल्लेक्तदेन ख़ाहिश एत्दिम।",
        "मैं एआई ऐप से अपनी अज़रबैजानी जँचवाता हूँ।",
        "S",
        "B"
@@ -6910,15 +6910,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Daha böyük iş üçün ingilis dili lazımdır.",
-       "दाहा बोयुक इश उचुन इंगिलिस दिली लाज़िम्दिर।",
+       "Daha böyük iş üçün azərbaycan dili lazımdır.",
+       "दाहा बोयुक इश उचुन अज़रबाइजान दिली लाज़िम्दिर।",
        "बड़े काम के लिए अज़रबैजानी चाहिए।",
        "S",
        "C"
       ],
       [
-       "Həmkarlarımla ingiliscə məşq edirəm.",
-       "हेमकार्लारिम्ला इंगिलिस्जे मेश्क़ एदिरेम।",
+       "Həmkarlarımla azərbaycanca məşq edirəm.",
+       "हेमकार्लारिम्ला अज़रबाइजानजा मेश्क़ एदिरेम।",
        "मैं साथियों के साथ अज़रबैजानी का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8630,8 +8630,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Sadə ingiliscə danışa bilirəm.",
-       "सादे इंगिलिस्जे दानिशा बिलिरेम।",
+       "Sadə azərbaycanca danışa bilirəm.",
+       "सादे अज़रबाइजानजा दानिशा बिलिरेम।",
        "मैं सादी अज़रबैजानी बोल सकता हूँ।",
        "S",
        "A"
@@ -9609,8 +9609,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Mən ingilis dili öyrəndim. Daha yaxşı iş tapdım.",
-        "Mən ingilis dili öyrəndim, ona görə daha yaxşı iş tapdım."
+        "Mən azərbaycan dili öyrəndim. Daha yaxşı iş tapdım.",
+        "Mən azərbaycan dili öyrəndim, ona görə daha yaxşı iş tapdım."
        ],
        [
         "İş çətin idi. Mən təslim olmadım.",
@@ -9627,8 +9627,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "İndi işim haqqında ingiliscə danışa bilirəm.",
-       "इंदी इशिम हक़्क़िन्दा इंगिलिस्जे दानिशा बिलिरेम।",
+       "İndi işim haqqında azərbaycanca danışa bilirəm.",
+       "इंदी इशिम हक़्क़िन्दा अज़रबाइजानजा दानिशा बिलिरेम।",
        "अब मैं अपने काम की बात अज़रबैजानी में कर सकता हूँ।",
        "S",
        "B"
@@ -9648,8 +9648,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Rəhbər ingiliscəmin yaxşılaşdığını dedi.",
-       "रेह़्बेर इंगिलिस्जेमिन याख़्शिलाश्दिगिनि देदी।",
+       "Rəhbər azərbaycancamın yaxşılaşdığını dedi.",
+       "रेह़्बेर अज़रबाइजानजामिन याख़्शिलाश्दिगिनि देदी।",
        "मालिक ने कहा मेरी अज़रबैजानी सुधर रही है।",
        "S",
        "B"
@@ -9725,15 +9725,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "İndi ingilis sözləri mənə asan gəlir.",
-       "इंदी इंगिलिस सोज़्लेरी मेने आसान गेलिर।",
+       "İndi azərbaycan sözləri mənə asan gəlir.",
+       "इंदी अज़रबाइजान सोज़्लेरी मेने आसान गेलिर।",
        "अज़रबैजानी शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Bəzən qısa ingiliscə cümlədə düşünürəm.",
-       "बेज़ेन किसा इंगिलिस्जे जुम्लेदे दुशुनुरेम।",
+       "Bəzən qısa azərbaycanca cümlədə düşünürəm.",
+       "बेज़ेन किसा अज़रबाइजानजा जुम्लेदे दुशुनुरेम।",
        "कभी-कभी मैं छोटी अज़रबैजानी पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9760,15 +9760,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Gələn ay bazar ingiliscəsini öyrənəcəyəm.",
-       "गेलेन आय बाज़ार इंगिलिस्जेसिनी ओय्रेनेजेयेम।",
+       "Gələn ay bazar azərbaycancasını öyrənəcəyəm.",
+       "गेलेन आय बाज़ार अज़रबाइजानजासिनी ओय्रेनेजेयेम।",
        "अगले महीने मैं बाजार की अज़रबैजानी सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Sonra qatar və avtobus üçün səyahət ingiliscəsi.",
-       "सोंरा क़तार वे अव्तोबुस उचुन सेयाहेत इंगिलिस्जेसी।",
+       "Sonra qatar və avtobus üçün səyahət azərbaycancası.",
+       "सोंरा क़तार वे अव्तोबुस उचुन सेयाहेत अज़रबाइजानजासी।",
        "फिर ट्रेन-बस के सफ़र की अज़रबैजानी।",
        "S",
        "C"
@@ -12098,8 +12098,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Səyahət edərkən ingiliscə cümlələrimi oxuyuram.",
-       "सेयाहेत एदेर्केन इंगिलिस्जे जुम्लेलेरिमी ओख़ुयुरम।",
+       "Səyahət edərkən azərbaycanca cümlələrimi oxuyuram.",
+       "सेयाहेत एदेर्केन अज़रबाइजानजा जुम्लेलेरिमी ओख़ुयुरम।",
        "मैं सफ़र में अपने अज़रबैजानी वाक्य पढ़ता हूँ।",
        "S",
        "B"

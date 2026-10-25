@@ -925,15 +925,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Għaliex trid titgħallem l-Ingliż?",
-       "अलिएश् त्रिद् तित्अल्लेम् लिन्ग्लीज़्?",
+       "Għaliex trid titgħallem il-Malti?",
+       "अलिएश् त्रिद् तित्अल्लेम् इल्माल्ती?",
        "आप माल्टीज़ क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Qed nitgħallem l-Ingliż għax irrid xogħol aħjar.",
-       "क़ेद् नित्अल्लेम् लिन्ग्लीज़् अश् इर्रिद् शोग़ोल् अह्यर्।",
+       "Qed nitgħallem il-Malti għax irrid xogħol aħjar.",
+       "क़ेद् नित्अल्लेम् इल्माल्ती अश् इर्रिद् शोग़ोल् अह्यर्।",
        "मैं माल्टीज़ सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1263,8 +1263,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Nitgħallem l-Ingliż nofs siegħa kuljum.",
-       "नित्अल्लेम् लिन्ग्लीज़् नोफ़्स् सिएग़ा कुल्यूम्।",
+       "Nitgħallem il-Malti nofs siegħa kuljum.",
+       "नित्अल्लेम् इल्माल्ती नोफ़्स् सिएग़ा कुल्यूम्।",
        "मैं रोज़ आधा घंटा माल्टीज़ सीखता हूँ।",
        "S",
        "B"
@@ -3367,8 +3367,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Nipprattika l-Ingliż waqt li nimxi.",
-       "निप्प्रात्तिका लिन्ग्लीज़् वाक़्त् लि निम्शि।",
+       "Nipprattika il-Malti waqt li nimxi.",
+       "निप्प्रात्तिका इल्माल्ती वाक़्त् लि निम्शि।",
        "मैं टहलते-टहलते माल्टीज़ का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4048,8 +4048,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — because, so या than लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Tgħallimt l-Ingliż. Sibt xogħol aħjar.",
-        "Tgħallimt l-Ingliż, għalhekk sibt xogħol aħjar."
+        "Tgħallimt il-Malti. Sibt xogħol aħjar.",
+        "Tgħallimt il-Malti, għalhekk sibt xogħol aħjar."
        ],
        [
         "Ix-xogħol diffiċli. Ma nieqafx.",
@@ -4122,8 +4122,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ilbieraħ tkellimt bl-Ingliż mas-supervisor.",
-       "इल्बिएरह् त्केल्लिम्त् ब्लिन्ग्लीज़् मास्-सुपेर्वाइज़र्।",
+       "Ilbieraħ tkellimt bil-Malti mas-supervisor.",
+       "इल्बिएरह् त्केल्लिम्त् बिल्माल्ती मास्-सुपेर्वाइज़र्।",
        "कल मैंने सुपरवाइज़र से माल्टीज़ में बात की।",
        "S",
        "B"
@@ -4136,8 +4136,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "L-Ingliż qed jiftaħli toroq ġodda.",
-       "लिन्ग्लीज़् क़ेद् यिफ़्तहलि तोरोक़् जोद्दा।",
+       "Il-Malti qed jiftaħli toroq ġodda.",
+       "इल्माल्ती क़ेद् यिफ़्तहलि तोरोक़् जोद्दा।",
        "माल्टीज़ मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4218,8 +4218,8 @@ window.KKB2_DATA = {
       "निजि द्-दार् इश्-शहर् इद्-दिएहेल्।"
      ],
      [
-      "L-Ingliż qed jiftaħli toroq ġodda.",
-      "लिन्ग्लीज़् क़ेद् यिफ़्तहलि तोरोक़् जोद्दा।"
+      "Il-Malti qed jiftaħli toroq ġodda.",
+      "इल्माल्ती क़ेद् यिफ़्तहलि तोरोक़् जोद्दा।"
      ],
      [
       "Għid lil nannu s-slieme tiegħi.",
@@ -5517,8 +5517,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Itkellem bil-Hindi, hi tiktbu bl-Ingliż.",
-       "इत्केल्लेम् बिल्-हिन्दी, हि तिक्त्बू ब्लिन्ग्लीज़्।",
+       "Itkellem bil-Hindi, hi tiktbu bil-Malti.",
+       "इत्केल्लेम् बिल्-हिन्दी, हि तिक्त्बू बिल्माल्ती।",
        "हिंदी में बोलो, वह माल्टीज़ में लिख देगा।",
        "L",
        "B"
@@ -5545,8 +5545,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Niċċekkja l-Ingliż tiegħi bl-app tal-IA.",
-       "निच्चेक्क्या लिन्ग्लीज़् तिएग्घी ब्लप्प् तल्-इआ।",
+       "Niċċekkja il-Malti tiegħi bl-app tal-IA.",
+       "निच्चेक्क्या इल्माल्ती तिएग्घी ब्लप्प् तल्-इआ।",
        "मैं एआई ऐप से अपनी माल्टीज़ जँचवाता हूँ।",
        "S",
        "B"
@@ -6913,15 +6913,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Xogħol kbir jitlob l-Ingliż.",
-       "शोग़ोल् क्बिर् यित्लोब् लिन्ग्लीज़्।",
+       "Xogħol kbir jitlob il-Malti.",
+       "शोग़ोल् क्बिर् यित्लोब् इल्माल्ती।",
        "बड़े काम के लिए माल्टीज़ चाहिए।",
        "S",
        "C"
       ],
       [
-       "Nipprattika l-Ingliż mal-kollegi tiegħi.",
-       "निप्प्रात्तिका लिन्ग्लीज़् मल्-कोल्लेगि तिएग्घी।",
+       "Nipprattika il-Malti mal-kollegi tiegħi.",
+       "निप्प्रात्तिका इल्माल्ती मल्-कोल्लेगि तिएग्घी।",
        "मैं साथियों के साथ माल्टीज़ का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8633,8 +8633,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Naf nitkellem Ingliż sempliċi.",
-       "नाफ़् नित्केल्लेम् इन्ग्लीज़् सेम्प्लिचि।",
+       "Naf nitkellem Malti sempliċi.",
+       "नाफ़् नित्केल्लेम् माल्ती सेम्प्लिचि।",
        "मैं सादी माल्टीज़ बोल सकता हूँ।",
        "S",
        "A"
@@ -9612,8 +9612,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Tgħallimt l-Ingliż. Sibt xogħol tajjeb.",
-        "Tgħallimt l-Ingliż, għalhekk sibt xogħol tajjeb."
+        "Tgħallimt il-Malti. Sibt xogħol tajjeb.",
+        "Tgħallimt il-Malti, għalhekk sibt xogħol tajjeb."
        ],
        [
         "Naħdem iebes. Nikseb aktar.",
@@ -9630,8 +9630,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Issa nista' nitkellem dwar xogħoli bl-Ingliż.",
-       "इस्सा निस्ता नित्केल्लेम् दवार् शोग़ोलि ब्लिन्ग्लीज़्।",
+       "Issa nista' nitkellem dwar xogħoli bil-Malti.",
+       "इस्सा निस्ता नित्केल्लेम् दवार् शोग़ोलि बिल्माल्ती।",
        "अब मैं अपने काम की बात माल्टीज़ में कर सकता हूँ।",
        "S",
        "B"
@@ -9651,8 +9651,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Is-sid qal l-Ingliż tiegħi qed jitjieb.",
-       "इस्-सिद् क़ल् लिन्ग्लीज़् तिएग्घी क़ेद् यित्यिएब्।",
+       "Is-sid qal il-Malti tiegħi qed jitjieb.",
+       "इस्-सिद् क़ल् इल्माल्ती तिएग्घी क़ेद् यित्यिएब्।",
        "मालिक ने कहा मेरी माल्टीज़ सुधर रही है।",
        "S",
        "B"
@@ -9728,15 +9728,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Il-kliem bl-Ingliż jiġi faċli issa.",
-       "इल्-क्लिएम् ब्लिन्ग्लीज़् यिजि फ़ाच्लि इस्सा।",
+       "Il-kliem bil-Malti jiġi faċli issa.",
+       "इल्-क्लिएम् बिल्माल्ती यिजि फ़ाच्लि इस्सा।",
        "माल्टीज़ शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Kultant naħseb f'sentenzi żgħar bl-Ingliż.",
-       "कुल्तान्त् नाहसेब् फ़्सेन्तेन्त्सि ज़्अर् ब्लिन्ग्लीज़्।",
+       "Kultant naħseb f'sentenzi żgħar bil-Malti.",
+       "कुल्तान्त् नाहसेब् फ़्सेन्तेन्त्सि ज़्अर् बिल्माल्ती।",
        "कभी-कभी मैं छोटी माल्टीज़ पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9763,15 +9763,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ix-xahar id-dieħel se nitgħallem l-Ingliż tas-suq.",
-       "इश्-शहर् इद्-दिएहेल् से नित्अल्लेम् लिन्ग्लीज़् तस्-सूक़्।",
+       "Ix-xahar id-dieħel se nitgħallem il-Malti tas-suq.",
+       "इश्-शहर् इद्-दिएहेल् से नित्अल्लेम् इल्माल्ती तस्-सूक़्।",
        "अगले महीने मैं बाजार की माल्टीज़ सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Imbagħad l-Ingliż tal-ferrovija u l-karozza tal-linja.",
-       "इम्बद् लिन्ग्लीज़् तल्-फ़ेर्रोविया उ ल्कारोत्सा तल्-लिन्या।",
+       "Imbagħad il-Malti tal-ferrovija u l-karozza tal-linja.",
+       "इम्बद् इल्माल्ती तल्-फ़ेर्रोविया उ ल्कारोत्सा तल्-लिन्या।",
        "फिर ट्रेन-बस के सफ़र की माल्टीज़।",
        "S",
        "C"
@@ -9826,8 +9826,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "L-Ingliż tiegħi, il-qawwa tiegħi.",
-       "लिन्ग्लीज़् तिएग्घी, इल्-क़व्वा तिएग्घी।",
+       "Il-Malti tiegħi, il-qawwa tiegħi.",
+       "इल्माल्ती तिएग्घी, इल्-क़व्वा तिएग्घी।",
        "मेरी माल्टीज़, मेरी ताक़त।",
        "S",
        "B"
@@ -9864,8 +9864,8 @@ window.KKB2_DATA = {
       "निस्ता निजि मित्-त्नेय्न्।"
      ],
      [
-      "L-Ingliż tiegħi, il-qawwa tiegħi.",
-      "लिन्ग्लीज़् तिएग्घी, इल्-क़व्वा तिएग्घी।"
+      "Il-Malti tiegħi, il-qawwa tiegħi.",
+      "इल्माल्ती तिएग्घी, इल्-क़व्वा तिएग्घी।"
      ]
     ]
    },
@@ -12101,8 +12101,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Naqra s-sentenzi tiegħi bl-Ingliż fil-vjaġġ.",
-       "नाक़्रा स्सेन्तेन्त्सि तिएग्घी ब्लिन्ग्लीज़् फ़िल्-व्याज्ज्।",
+       "Naqra s-sentenzi tiegħi bil-Malti fil-vjaġġ.",
+       "नाक़्रा स्सेन्तेन्त्सि तिएग्घी बिल्माल्ती फ़िल्-व्याज्ज्।",
        "मैं सफ़र में अपने माल्टीज़ वाक्य पढ़ता हूँ।",
        "S",
        "B"

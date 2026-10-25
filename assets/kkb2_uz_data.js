@@ -922,15 +922,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Nega ingliz tilini o'rganmoqchisiz?",
-       "नेगा इंग्लिज़ तिलिनी ओर्गनमोक़्चिसिज़?",
+       "Nega o'zbek tilini o'rganmoqchisiz?",
+       "नेगा उज़्बेक तिलिनी ओर्गनमोक़्चिसिज़?",
        "आप उज़्बेक क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Ingliz tilini o'rganamanki, yaxshiroq ish topaman.",
-       "इंग्लिज़ तिलिनी ओर्गनामन्की, यख़्शिरोक़ इश तोपामन।",
+       "O'zbek tilini o'rganamanki, yaxshiroq ish topaman.",
+       "उज़्बेक तिलिनी ओर्गनामन्की, यख़्शिरोक़ इश तोपामन।",
        "मैं उज़्बेक सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1057,8 +1057,8 @@ window.KKB2_DATA = {
       "एर्तगा एर्तलाब सिज़्गा कोंगिरोक़ किलामन।"
      ],
      [
-      "Ingliz tilini o'rganamanki, yaxshiroq ish topaman.",
-      "इंग्लिज़ तिलिनी ओर्गनामन्की, यख़्शिरोक़ इश तोपामन।"
+      "O'zbek tilini o'rganamanki, yaxshiroq ish topaman.",
+      "उज़्बेक तिलिनी ओर्गनामन्की, यख़्शिरोक़ इश तोपामन।"
      ]
     ]
    },
@@ -1260,8 +1260,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Har kuni yarim soat ingliz tilini o'rganaman.",
-       "हर कुनी यरिम सोआत इंग्लिज़ तिलिनी ओर्गानामन।",
+       "Har kuni yarim soat o'zbek tilini o'rganaman.",
+       "हर कुनी यरिम सोआत उज़्बेक तिलिनी ओर्गानामन।",
        "मैं रोज़ आधा घंटा उज़्बेक सीखता हूँ।",
        "S",
        "B"
@@ -3364,8 +3364,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Yurganda ingliz tilini mashq qilaman.",
-       "युर्गान्दा इंग्लिज़ तिलिनी मश्क़ किलामन।",
+       "Yurganda o'zbek tilini mashq qilaman.",
+       "युर्गान्दा उज़्बेक तिलिनी मश्क़ किलामन।",
        "मैं टहलते-टहलते उज़्बेक का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -4119,8 +4119,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kecha boshlig'im bilan ingliz tilida gaplashdim.",
-       "केचा बोशलिगिम बिलान इंग्लिज़ तिलिदा गाप्लाश्दिम।",
+       "Kecha boshlig'im bilan o'zbek tilida gaplashdim.",
+       "केचा बोशलिगिम बिलान उज़्बेक तिलिदा गाप्लाश्दिम।",
        "कल मैंने सुपरवाइज़र से उज़्बेक में बात की।",
        "S",
        "B"
@@ -4133,8 +4133,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ingliz tili men uchun yangi eshik ochyapti.",
-       "इंग्लिज़ तिली मेन उचुन यांगी एशिक ओच्यप्ती।",
+       "O'zbek tili men uchun yangi eshik ochyapti.",
+       "उज़्बेक तिली मेन उचुन यांगी एशिक ओच्यप्ती।",
        "उज़्बेक मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4219,8 +4219,8 @@ window.KKB2_DATA = {
       "मेन केलासी ओय उयगा केलामन।"
      ],
      [
-      "Ingliz tili men uchun yangi eshik ochyapti.",
-      "इंग्लिज़ तिली मेन उचुन यांगी एशिक ओच्यप्ती।"
+      "O'zbek tili men uchun yangi eshik ochyapti.",
+      "उज़्बेक तिली मेन उचुन यांगी एशिक ओच्यप्ती।"
      ],
      [
       "Bobomga mendan salom ayting.",
@@ -5514,8 +5514,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "O'zbek tilida gapiring, ingliz tilida yozib beradi.",
-       "ओज़्बेक तिलिदा गापिरिंग, इंग्लिज़ तिलिदा योज़िब बेरादी।",
+       "O'zbek tilida gapiring, o'zbek tilida yozib beradi.",
+       "ओज़्बेक तिलिदा गापिरिंग, उज़्बेक तिलिदा योज़िब बेरादी।",
        "हिंदी में बोलो, वह उज़्बेक में लिख देगा।",
        "L",
        "B"
@@ -5542,8 +5542,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Ingliz tilimni tekshirishni sun'iy intellektdan so'radim.",
-       "इंग्लिज़ तिलिम्नी तेक्शिरिश्नी सुनिय इंतेल्लेक्त्दान सोरादिम।",
+       "O'zbek tilimni tekshirishni sun'iy intellektdan so'radim.",
+       "उज़्बेक तिलिम्नी तेक्शिरिश्नी सुनिय इंतेल्लेक्त्दान सोरादिम।",
        "मैं एआई ऐप से अपनी उज़्बेक जँचवाता हूँ।",
        "S",
        "B"
@@ -6910,15 +6910,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Kattaroq ish uchun ingliz tili kerak.",
-       "कत्तारोक़ इश उचुन इंग्लिज़ तिली केरक।",
+       "Kattaroq ish uchun o'zbek tili kerak.",
+       "कत्तारोक़ इश उचुन उज़्बेक तिली केरक।",
        "बड़े काम के लिए उज़्बेक चाहिए।",
        "S",
        "C"
       ],
       [
-       "Hamkasblarim bilan ingliz tilida mashq qilaman.",
-       "हमकस्ब्लारिम बिलान इंग्लिज़ तिलिदा मश्क़ किलामन।",
+       "Hamkasblarim bilan o'zbek tilida mashq qilaman.",
+       "हमकस्ब्लारिम बिलान उज़्बेक तिलिदा मश्क़ किलामन।",
        "मैं साथियों के साथ उज़्बेक का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8630,8 +8630,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Oddiy ingliz tilida gapira olaman.",
-       "ओद्दिय इंग्लिज़ तिलिदा गापिरा ओलामन।",
+       "Oddiy o'zbek tilida gapira olaman.",
+       "ओद्दिय उज़्बेक तिलिदा गापिरा ओलामन।",
        "मैं सादी उज़्बेक बोल सकता हूँ।",
        "S",
        "A"
@@ -9609,8 +9609,8 @@ window.KKB2_DATA = {
       "hi": "जोड़-अभ्यास — so या but लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
        [
-        "Men ingliz tilini o'rgandim. Yaxshiroq ish topdim.",
-        "Men ingliz tilini o'rgandim, shuning uchun yaxshiroq ish topdim."
+        "Men o'zbek tilini o'rgandim. Yaxshiroq ish topdim.",
+        "Men o'zbek tilini o'rgandim, shuning uchun yaxshiroq ish topdim."
        ],
        [
         "Ish qiyin edi. Men taslim bo'lmadim.",
@@ -9627,8 +9627,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Endi ishim haqida ingliz tilida gapira olaman.",
-       "एन्दी इशिम हकिदा इंग्लिज़ तिलिदा गापिरा ओलामन।",
+       "Endi ishim haqida o'zbek tilida gapira olaman.",
+       "एन्दी इशिम हकिदा उज़्बेक तिलिदा गापिरा ओलामन।",
        "अब मैं अपने काम की बात उज़्बेक में कर सकता हूँ।",
        "S",
        "B"
@@ -9648,8 +9648,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Boshliq ingliz tilim yaxshilanganini aytdi.",
-       "बोशलिक़ इंग्लिज़ तिलिम यख़्शिलंगनिनी ऐत्दी।",
+       "Boshliq o'zbek tilim yaxshilanganini aytdi.",
+       "बोशलिक़ उज़्बेक तिलिम यख़्शिलंगनिनी ऐत्दी।",
        "मालिक ने कहा मेरी उज़्बेक सुधर रही है।",
        "S",
        "B"
@@ -9725,15 +9725,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Endi ingliz so'zlari menga oson keladi.",
-       "एन्दी इंग्लिज़ सोज़्लारी मेंगा ओसोन केलादी।",
+       "Endi o'zbek so'zlari menga oson keladi.",
+       "एन्दी उज़्बेक सोज़्लारी मेंगा ओसोन केलादी।",
        "उज़्बेक शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Ba'zan qisqa ingliz jumlasida o'ylayman.",
-       "बज़न किस्का इंग्लिज़ जुम्लासिदा ओयलायमन।",
+       "Ba'zan qisqa o'zbek jumlasida o'ylayman.",
+       "बज़न किस्का उज़्बेक जुम्लासिदा ओयलायमन।",
        "कभी-कभी मैं छोटी उज़्बेक पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9760,15 +9760,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Kelasi oy bozor inglizchasini o'rganaman.",
-       "केलासी ओय बोज़ोर इंग्लिज़्चासिनी ओर्गानामन।",
+       "Kelasi oy bozor o'zbekchasini o'rganaman.",
+       "केलासी ओय बोज़ोर उज़्बेकचासिनी ओर्गानामन।",
        "अगले महीने मैं बाजार की उज़्बेक सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Keyin poyezd va avtobus uchun sayohat inglizchasi.",
-       "केयिन पोयेज़्द व अव्तोबुस उचुन सयोहत इंग्लिज़्चासी।",
+       "Keyin poyezd va avtobus uchun sayohat o'zbekchasi.",
+       "केयिन पोयेज़्द व अव्तोबुस उचुन सयोहत उज़्बेकचासी।",
        "फिर ट्रेन-बस के सफ़र की उज़्बेक।",
        "S",
        "C"
@@ -12098,8 +12098,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Sayohat qilayotganda inglizcha jumlalarimni o'qiyman.",
-       "सयोहत किलायोत्गान्दा इंग्लिज़्चा जुम्लालारिम्नी ओकियमन।",
+       "Sayohat qilayotganda o'zbekcha jumlalarimni o'qiyman.",
+       "सयोहत किलायोत्गान्दा उज़्बेकचा जुम्लालारिम्नी ओकियमन।",
        "मैं सफ़र में अपने उज़्बेक वाक्य पढ़ता हूँ।",
        "S",
        "B"

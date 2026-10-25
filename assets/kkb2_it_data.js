@@ -923,15 +923,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Perché vuoi imparare l'inglese?",
-       "पेरके वुओई इम्पारारे लिंग्लेसे?",
+       "Perché vuoi imparare l'italiano?",
+       "पेरके वुओई इम्पारारे लिताल्यानो?",
        "आप इतालवी क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "Sto imparando l'inglese perché voglio un lavoro migliore.",
-       "स्तो इम्पारांदो लिंग्लेसे पेरके वोल्यो उन लावोरो मील्योरे।",
+       "Sto imparando l'italiano perché voglio un lavoro migliore.",
+       "स्तो इम्पारांदो लिताल्यानो पेरके वोल्यो उन लावोरो मील्योरे।",
        "मैं इतालवी सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"

@@ -878,15 +878,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Neden İngilizce öğrenmek istiyorsunuz?",
-       "नेदेन इंगिलिज़्जे ओरेन्मेक इस्तियोर्सुनुज़？",
+       "Neden Türkçe öğrenmek istiyorsunuz?",
+       "नेदेन तुर्कचे ओरेन्मेक इस्तियोर्सुनुज़？",
        "आप तुर्की क्यों सीखना चाहते हैं?",
        "L",
        "B"
       ],
       [
-       "İngilizce öğreniyorum çünkü daha iyi iş istiyorum.",
-       "इंगिलिज़्जे ओरेनियोरुम चुंकु दाहा इयी इश इस्तियोरुम。",
+       "Türkçe öğreniyorum çünkü daha iyi iş istiyorum.",
+       "तुर्कचे ओरेनियोरुम चुंकु दाहा इयी इश इस्तियोरुम。",
        "मैं तुर्की सीख रहा हूँ क्योंकि मुझे बेहतर नौकरी चाहिए।",
        "S",
        "A"
@@ -1013,8 +1013,8 @@ window.KKB2_DATA = {
       "यारन साबाह सिज़ि आरायाजाइम。"
      ],
      [
-      "Daha iyi bir iş istediğim için İngilizce öğreniyorum.",
-      "दाहा इयी बिर इश इस्तेदीिम इचिन इंगिलिज़्जे ओरेनियोरुम。"
+      "Daha iyi bir iş istediğim için Türkçe öğreniyorum.",
+      "दाहा इयी बिर इश इस्तेदीिम इचिन तुर्कचे ओरेनियोरुम。"
      ]
     ]
    },
@@ -1214,8 +1214,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Her gün yarım saat İngilizce öğreniyorum.",
-       "हेर गुन यारम सआत इंगिलिज़्जे ओरेनियोरुम。",
+       "Her gün yarım saat Türkçe öğreniyorum.",
+       "हेर गुन यारम सआत तुर्कचे ओरेनियोरुम。",
        "मैं रोज़ आधा घंटा तुर्की सीखता हूँ।",
        "S",
        "B"
@@ -3258,8 +3258,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Yürürken İngilizce pratik yaparım.",
-       "युरुर्केन इंगिलिज़्जे प्रातिक याप्अरम。",
+       "Yürürken Türkçe pratik yaparım.",
+       "युरुर्केन तुर्कचे प्रातिक याप्अरम。",
        "मैं टहलते-टहलते तुर्की का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -3992,8 +3992,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Dün süpervizörle İngilizce konuştum.",
-       "दुन सुपेर्विज़ोर्ले इंगिलिज़्जे कोनुश्तुम。",
+       "Dün süpervizörle Türkçe konuştum.",
+       "दुन सुपेर्विज़ोर्ले तुर्कचे कोनुश्तुम。",
        "कल मैंने सुपरवाइज़र से तुर्की में बात की।",
        "S",
        "B"
@@ -4006,8 +4006,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "İngilizce benim için yeni yollar açıyor.",
-       "इंगिलिज़्जे बेनिम इचिन येनी योल्लार अचियोर。",
+       "Türkçe benim için yeni yollar açıyor.",
+       "तुर्कचे बेनिम इचिन येनी योल्लार अचियोर。",
        "तुर्की मेरे लिए नए रास्ते खोल रही है।",
        "S",
        "B"
@@ -4092,8 +4092,8 @@ window.KKB2_DATA = {
       "गेलेजेक आय एवे गेलेजेइम。"
      ],
      [
-      "Daha iyi bir iş istediğim için İngilizce öğreniyorum.",
-      "दाहा इयी बिर इश इस्तेदीिम इचिन इंगिलिज़्जे ओरेनियोरुम。"
+      "Daha iyi bir iş istediğim için Türkçe öğreniyorum.",
+      "दाहा इयी बिर इश इस्तेदीिम इचिन तुर्कचे ओरेनियोरुम。"
      ],
      [
       "Dedeme selamlarımı söyle.",
@@ -5354,8 +5354,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Hintçe konuş, İngilizce yazacak.",
-       "हिन्तचे कोनुश, इंगिलिज़्जे याज़ाजाक。",
+       "Hintçe konuş, Türkçe yazacak.",
+       "हिन्तचे कोनुश, तुर्कचे याज़ाजाक。",
        "हिंदी में बोलो, वह तुर्की में लिख देगा।",
        "L",
        "B"
@@ -5382,8 +5382,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "İngilizcemi AI ile kontrol ettiriyorum.",
-       "इंगिलिज़्जेमी एआई इले कोन्त्रोल एत्तिरियोरुम。",
+       "Türkçemi AI ile kontrol ettiriyorum.",
+       "तुर्कचेमी एआई इले कोन्त्रोल एत्तिरियोरुम。",
        "मैं एआई ऐप से अपनी तुर्की जँचवाता हूँ।",
        "S",
        "B"
@@ -6727,15 +6727,15 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Büyük iş için İngilizce gerekir.",
-       "बुयुक इश इचिन इंगिलिज़्जे गेरेकिर।",
+       "Büyük iş için Türkçe gerekir.",
+       "बुयुक इश इचिन तुर्कचे गेरेकिर।",
        "बड़े काम के लिए तुर्की चाहिए।",
        "S",
        "C"
       ],
       [
-       "Arkadaşlarımla İngilizce pratik yaparım.",
-       "आर्काडाशलारम्ला इंगिलिज़्जे प्रातिक याप्अरम。",
+       "Arkadaşlarımla Türkçe pratik yaparım.",
+       "आर्काडाशलारम्ला तुर्कचे प्रातिक याप्अरम。",
        "मैं साथियों के साथ तुर्की का अभ्यास करता हूँ।",
        "S",
        "B"
@@ -8412,8 +8412,8 @@ window.KKB2_DATA = {
        "A"
       ],
       [
-       "Basit İngilizce konuşabilirim.",
-       "बासित इंगिलिज़्जे कोनुशाबिलिरिम。",
+       "Basit Türkçe konuşabilirim.",
+       "बासित तुर्कचे कोनुशाबिलिरिम。",
        "मैं सादी तुर्की बोल सकता हूँ।",
        "S",
        "A"
@@ -9376,7 +9376,7 @@ window.KKB2_DATA = {
       "type": "joinMix",
       "hi": "जोड़-अभ्यास — bu yüzden या ama लगाकर दो बातें एक वाक्य में बोलो।",
       "rows": [
-       "İngilizce öğrendim, bu yüzden daha iyi iş buldum.",
+       "Türkçe öğrendim, bu yüzden daha iyi iş buldum.",
        "İş zor, ama vazgeçmiyorum."
       ]
      },
@@ -9389,8 +9389,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "Artık işimi İngilizce anlatabilirim.",
-       "आर्तक इशिमी इंगिलिज़्जे अन्लाताबिलिरिम。",
+       "Artık işimi Türkçe anlatabilirim.",
+       "आर्तक इशिमी तुर्कचे अन्लाताबिलिरिम。",
        "अब मैं अपने काम की बात तुर्की में कर सकता हूँ।",
        "S",
        "B"
@@ -9410,8 +9410,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Patron İngilizcemin geliştiğini söyledi.",
-       "पात्रोन इंगिलिज़्जेमिन गेलिश्तििनि सोय्लेदि。",
+       "Patron Türkçemin geliştiğini söyledi.",
+       "पात्रोन तुर्कचेमिन गेलिश्तििनि सोय्लेदि。",
        "मालिक ने कहा मेरी तुर्की सुधर रही है।",
        "S",
        "B"
@@ -9487,15 +9487,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "İngilizce kelimeler artık kolay geliyor.",
-       "इंगिलिज़्जे केलीमेलेर आर्तक कोलाय् गेलियोर。",
+       "Türkçe kelimeler artık kolay geliyor.",
+       "तुर्कचे केलीमेलेर आर्तक कोलाय् गेलियोर。",
        "तुर्की शब्द अब मुझे आसानी से आते हैं।",
        "S",
        "B"
       ],
       [
-       "Bazen küçük İngilizce cümlelerle düşünüyorum.",
-       "बाज़ेन कुचुक इंगिलिज़्जे जुम्लेलेर्ले दुशुनुयोरुम。",
+       "Bazen küçük Türkçe cümlelerle düşünüyorum.",
+       "बाज़ेन कुचुक तुर्कचे जुम्लेलेर्ले दुशुनुयोरुम。",
        "कभी-कभी मैं छोटी तुर्की पंक्तियों में सोचता हूँ।",
        "S",
        "B"
@@ -9522,15 +9522,15 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Gelecek ay pazar İngilizcesini öğreneceğim.",
-       "गेलेजेक आय पाज़ार इंगिलिज़्जेसिनि ओरेनेजेइम。",
+       "Gelecek ay pazar Türkçesini öğreneceğim.",
+       "गेलेजेक आय पाज़ार तुर्कचेसिनि ओरेनेजेइम。",
        "अगले महीने मैं बाजार की तुर्की सीखूँगा।",
        "S",
        "B"
       ],
       [
-       "Sonra tren-otobüs yolculuk İngilizcesi.",
-       "सोन्रा त्रेन-ओतोबुस योल्जुलुक इंगिलिज़्जेसी।",
+       "Sonra tren-otobüs yolculuk Türkçesi.",
+       "सोन्रा त्रेन-ओतोबुस योल्जुलुक तुर्कचेसी।",
        "फिर ट्रेन-बस के सफ़र की तुर्की।",
        "S",
        "C"
@@ -9585,8 +9585,8 @@ window.KKB2_DATA = {
        "C"
       ],
       [
-       "İngilizcem, gücüm.",
-       "इंगिलिज़्जेम, गुजुम।",
+       "Türkçem, gücüm.",
+       "तुर्कचेम, गुजुम।",
        "मेरी तुर्की, मेरी ताक़त।",
        "S",
        "B"
@@ -11816,8 +11816,8 @@ window.KKB2_DATA = {
        "B"
       ],
       [
-       "Yolculukta İngilizce cümlelerimi okurum.",
-       "योल्जुलुक्ता इंगिलिज़्जे जुम्लेलेरिमी ओकुरुम।",
+       "Yolculukta Türkçe cümlelerimi okurum.",
+       "योल्जुलुक्ता तुर्कचे जुम्लेलेरिमी ओकुरुम।",
        "मैं सफ़र में अपने तुर्की वाक्य पढ़ता हूँ।",
        "S",
        "B"
@@ -14434,8 +14434,8 @@ window.KKB2_DATA = {
     "goal": "दो मिनट English में अपनी तीन महीने की कहानी सुनाइए — शुरुआत का डर, काम-बाजार-सफ़र-वीज़ा की सीख, और आगे का सपना — कम-से-कम आठ वाक्य।",
     "lines": [
      [
-      "Üç ay önce İngilizce benim için bir duvardı.",
-      "उच आय ओन्जे इंगिलिज़्जे बेनिम इचिन बिर दुवार्दि।"
+      "Üç ay önce Türkçe benim için bir duvardı.",
+      "उच आय ओन्जे तुर्कचे बेनिम इचिन बिर दुवार्दि।"
      ],
      [
       "Her gün otuz cümle öğrendim.",
@@ -14446,8 +14446,8 @@ window.KKB2_DATA = {
       "एव्दे, इश्ते, पाज़ार्दा वे हावाआलानिन्दा कोनुशाबिलिरिम।"
      ],
      [
-      "İngilizce telefon mülakatı verdim.",
-      "इंगिलिज़्जे तेलेफ़ोन मुलाकाति वेर्दिम।"
+      "Türkçe telefon mülakatı verdim.",
+      "तुर्कचे तेलेफ़ोन मुलाकाति वेर्दिम।"
      ],
      [
       "Vize mülakatı cevaplarını öğrendim.",
