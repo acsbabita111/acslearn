@@ -16,7 +16,7 @@ module.exports = {
     aec: { type: "rewritten", of: "arz", date: "25-Oct-2026", why: "पूरा पुनर्लेखन: 2,843 पाठ असली सईदी (ऊपरी मिस्र) बोली में — मिस्री-पहचान शब्द 0, सईदी-शब्द रायिद/इहना/दिलवक/ईश/ज़ेन; मिस्री से हूबहू 4.7% (पहले 100%)" },
     biy: { type: "copy", of: "unr", why: "मुंडारी से 98% वाक्य हूबहू" },
     kfp: { type: "copy", of: "unr", why: "मुंडारी से 91% वाक्य हूबहू" },
-    nd:  { type: "copy", of: "zu",  why: "ज़ुलु से 96% वाक्य हूबहू" },
+    nd:  { type: "rewritten", of: "zu", date: "25-Oct-2026", why: "पूरा पुनर्लेखन: 2,876 पाठ उत्तरी-न्देबेले (ज़िम्बाब्वे) के चिह्नों के साथ — la-/lo-/le- (के साथ), li- (बहुवचन आदर), ibizo, hatshi, ngaphi, ngiphuma; ज़ुलु से हूबहू 7.4% (पहले 96%); मूल-वक्ता से जाँच बाक़ी (ज़ुलु के बहुत निकट होने से कई छोटे वाक्य दोनों में एक-से हैं)" },
     dyu: { type: "copy", of: "bm",  why: "बमबारा से 90.5% वाक्य हूबहू" },
     lri: { type: "alias", of: "hne", why: "Omniglot, Rosetta/LongNow, BnF: \"लरिया/Laria\" = छत्तीसगढ़ी का दूसरा नाम (ओडिशा में)" },
     dcf: { type: "alias", of: "acf", why: "SIL ISO 639-3 Registration Authority: एक ही भाषा acf (Kwéyòl), देश-टैग acf_DM / acf_LC; Glottolog sain1246 दोनों का" }
