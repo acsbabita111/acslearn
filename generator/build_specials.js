@@ -3309,11 +3309,15 @@ function kkb2IntroBelow(c) {
    क्रम (Founder, 25-Oct): लिपि-परिचय → चित्र-पुस्तक → 90-दिन कोर्स → workbook → व्याकरण।
    हर कदम मौजूदगी से (existsSync) — बना हो तो कड़ी, न बना हो तो "जल्द" (मरी कड़ी कभी नहीं)।
    पैकेज = 24-Oct की 11-हिस्सा योजना + 25-Oct के 🎙️/👍; जो बना नहीं, वह ईमानदार "जल्द"। */
+/* 25-Oct लिपि-खेप L0: जिस भाषा का कोर्स देवनागरी में है, उसकी लिपि हिंदी-पाठक पहले से जानते हैं — कदम-1 = "✅ पहले से परिचित" */
+function kkbScript(c) { const p = path.join(ROOT, "assets", c.code === "en" ? "kkb2_data.js" : "kkb2_" + c.code + "_data.js"); try { const m = fs.readFileSync(p, "utf8").slice(0, 6000).match(/"script":\s*"([^"]+)"/); return m ? m[1] : ""; } catch (e) { return ""; } }
+function kkbDeva(c) { return /^devanagari(-native)?$/.test(kkbScript(c)); }
 function kkbHas(c, sub) { return fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, sub, "index.html")); }
 function kkbSteps(c) {
   const u = sub => "/courses/hi/bhasha/" + c.slug + "/" + sub + "/";
   return [
-    { ic: "✍️", t: "लिपि-परिचय", d: c.hi_name + " के अक्षर पहचानो, बोलो और लिखो", href: kkbHas(c, "lipi") ? u("lipi") : "" },
+    kkbDeva(c) ? { ic: "✍️", t: "लिपि-परिचय", d: c.hi_name + " देवनागरी में लिखी जाती है — यह लिपि आप पहले से पढ़ते हैं", href: "", known: true }
+      : { ic: "✍️", t: "लिपि-परिचय", d: c.hi_name + " के अक्षर पहचानो, बोलो और लिखो", href: kkbHas(c, "lipi") ? u("lipi") : "" },
     { ic: "🖼️", t: "चित्र-पुस्तक", d: "बोलते चित्र-शब्द — मोबाइल पर भी, छपने-योग्य भी", href: kkbHas(c, "chitra-pustak") ? u("chitra-pustak") : "" },
     { ic: "🗣️", t: "90-दिन बोलचाल कोर्स", d: "2,150 वाक्य · हर वाक्य पर 🔊 सुनो + 🎙️ बोलो", href: "#kkb2-app", here: true },
     { ic: "📘", t: "लिखो-वर्कबुक (workbook)", d: "हर हफ़्ते की छपने-योग्य किताब + शब्दकोश", href: kkbHas(c, "workbook") ? u("workbook") : "" },
@@ -3322,14 +3326,15 @@ function kkbSteps(c) {
 }
 function kkbPath(c) {
   return '<nav class="kkb-path" aria-label="सीखने की राह"><h2>🧭 सीखने की राह — 5 कदम</h2><ol>' +
-    kkbSteps(c).map(s => '<li class="' + (s.here ? "here" : (s.href ? "on" : "soon")) + '"><span class="kp-ic">' + s.ic + '</span><span class="kp-tx"><b>' + s.t + '</b><small>' + s.d + '</small></span>' +
-      (s.here ? '<a class="kp-go" href="#kkb2-app">यहीं नीचे ⬇</a>' : (s.href ? '<a class="kp-go" href="' + s.href + '">खोलें →</a>' : '<span class="kp-soon">⏳ जल्द</span>')) + '</li>').join("") +
+    kkbSteps(c).map(s => '<li class="' + (s.here ? "here" : (s.known ? "known" : (s.href ? "on" : "soon"))) + '"><span class="kp-ic">' + s.ic + '</span><span class="kp-tx"><b>' + s.t + '</b><small>' + s.d + '</small></span>' +
+      (s.here ? '<a class="kp-go" href="#kkb2-app">यहीं नीचे ⬇</a>' : (s.known ? '<span class="kp-known">✅ परिचित</span>' : (s.href ? '<a class="kp-go" href="' + s.href + '">खोलें →</a>' : '<span class="kp-soon">⏳ जल्द</span>'))) + '</li>').join("") +
     '</ol><p class="kp-more"><a href="#kkb-pack">📦 इस कोर्स का पूरा पैकेज — नीचे देखें</a></p></nav>';
 }
 function kkbPack(c) {
   const st = kkbSteps(c), A = (href, txt) => '<a href="' + href + '">' + txt + '</a>';
   const rows = [
-    [st[0].ic, "लिपि-परिचय — अक्षर, देवनागरी उच्चारण, लिखने का अभ्यास", st[0].href ? A(st[0].href, "खोलें") : ""],
+    st[0].known ? [st[0].ic, "लिपि-परिचय — " + c.hi_name + " देवनागरी में है, यह लिपि आप पहले से जानते हैं", "पहले से परिचित"]
+      : [st[0].ic, "लिपि-परिचय — अक्षर, देवनागरी उच्चारण, लिखने का अभ्यास", st[0].href ? A(st[0].href, "खोलें") : ""],
     [st[1].ic, "चित्र-पुस्तक — वर्ग 1 स्तर, बोलते चित्र-शब्द", st[1].href ? A(st[1].href, "खोलें") : ""],
     [st[2].ic, "90-दिन बोलचाल कोर्स — 2,150 वाक्य, असली लिपि + उच्चारण + अर्थ + 🔊", A("#kkb2-app", "यही पन्ना")],
     [st[3].ic, "लिखो-वर्कबुक — हर हफ़्ते की छपने-योग्य किताब", st[3].href ? A(st[3].href, "खोलें") : ""],
@@ -3355,7 +3360,7 @@ function kkbSamiti(c) {
     '<p><a class="kkb-samiti-go" href="https://wa.me/919431210092?text=' + msg + '" target="_blank" rel="noopener">🙏 व्हाट्सऐप (WhatsApp) से जुड़िए</a></p>';
 }
 const KKB_BELOW_CSS = '<style>' +
-  /* 25-Oct: सीखने की राह + पैकेज */ '.kkb-path{background:#fff;color:#0B1F3A;border-radius:14px;padding:12px 12px 6px;margin:10px 0 8px}.kkb-path h2{font-size:21px;margin:0 0 8px;color:#0B1F3A}.kkb-path ol{list-style:none;margin:0;padding:0;counter-reset:kp}.kkb-path li{counter-increment:kp;display:flex;align-items:center;gap:8px;padding:8px 6px;border-top:1px solid #E3EAF3}.kkb-path li:first-child{border-top:0}.kkb-path li::before{content:counter(kp);flex:none;width:30px;height:30px;border-radius:50%;background:#1565C0;color:#fff;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center}.kkb-path li.here::before{background:#2E7D32}.kkb-path li.soon::before{background:#90A4AE}.kp-ic{font-size:24px;flex:none}.kp-tx{flex:1;min-width:0}.kp-tx b{display:block;font-size:18px}.kp-tx small{display:block;font-size:16px;color:#455A64;line-height:1.4}.kp-go{flex:none;background:#F9A825;color:#0B1F3A!important;font-weight:800;font-size:16px;border-radius:20px;padding:6px 12px;text-decoration:none!important;white-space:nowrap}.kkb-path li.here .kp-go{background:#2E7D32;color:#fff!important}.kp-soon{flex:none;background:#ECEFF1;color:#455A64;font-size:16px;border-radius:20px;padding:6px 10px;white-space:nowrap}.kp-more{margin:8px 0 4px;font-size:17px}.kp-more a{color:#1565C0;font-weight:800}' +
+  /* 25-Oct: सीखने की राह + पैकेज */ '.kkb-path{background:#fff;color:#0B1F3A;border-radius:14px;padding:12px 12px 6px;margin:10px 0 8px}.kkb-path h2{font-size:21px;margin:0 0 8px;color:#0B1F3A}.kkb-path ol{list-style:none;margin:0;padding:0;counter-reset:kp}.kkb-path li{counter-increment:kp;display:flex;align-items:center;gap:8px;padding:8px 6px;border-top:1px solid #E3EAF3}.kkb-path li:first-child{border-top:0}.kkb-path li::before{content:counter(kp);flex:none;width:30px;height:30px;border-radius:50%;background:#1565C0;color:#fff;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center}.kkb-path li.here::before{background:#2E7D32}.kkb-path li.soon::before{background:#90A4AE}.kp-ic{font-size:24px;flex:none}.kp-tx{flex:1;min-width:0}.kp-tx b{display:block;font-size:18px}.kp-tx small{display:block;font-size:16px;color:#455A64;line-height:1.4}.kp-go{flex:none;background:#F9A825;color:#0B1F3A!important;font-weight:800;font-size:16px;border-radius:20px;padding:6px 12px;text-decoration:none!important;white-space:nowrap}.kkb-path li.here .kp-go{background:#2E7D32;color:#fff!important}.kkb-path li.known::before{background:#2E7D32}.kp-known{flex:none;background:#E8F5E9;color:#1B5E20;font-weight:800;font-size:16px;border-radius:20px;padding:6px 10px;white-space:nowrap}.kp-soon{flex:none;background:#ECEFF1;color:#455A64;font-size:16px;border-radius:20px;padding:6px 10px;white-space:nowrap}.kp-more{margin:8px 0 4px;font-size:17px}.kp-more a{color:#1565C0;font-weight:800}' +
   '.kkb-pack{list-style:none;margin:0 0 6px;padding:0}.kkb-pack li{display:flex;align-items:flex-start;gap:8px;background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:8px 10px;margin:6px 0}.kkb-pack li.soon{background:#F5F7FA;border-style:dashed}.kpk-ic{font-size:22px;flex:none}.kpk-tx{flex:1;font-size:17px;line-height:1.5}.kpk-st{flex:none;font-size:16px;font-weight:800;color:#2E7D32;white-space:nowrap}.kkb-pack li.soon .kpk-st{color:#607D8B}.kpk-st a{color:#1565C0}.kkb-samiti-go{display:inline-block;background:#2E7D32;color:#fff!important;font-weight:800;border-radius:24px;padding:9px 18px;text-decoration:none!important}' +
   '.kkb-below{max-width:600px;margin:18px auto 30px;padding:14px 16px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.kkb-below h2{font-size:21px;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:10px}.kkb-below h2:first-child{margin-top:0}.kkb-num{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.kkb-num div{background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:10px;text-align:center}.kkb-num b{display:block;font-size:26px;color:#1565C0}.kkb-num span{font-size:16px;color:#334155}.kkb-steps{padding-left:22px}.kkb-steps li{margin:4px 0}.kkb-faq{background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:6px 12px;margin:6px 0}.kkb-faq summary{cursor:pointer;font-weight:800;font-size:18px}.kkb-faq p{margin:6px 0 4px;font-size:17px}.kkb-below-note{font-size:16px;color:#334155;margin-top:12px}.kkb-below a{color:#1565C0}</style>';
 /* ---- लिप्यंतरण-पट्टी (24-Oct-2026): कोर्स असल में हिंदी-लिप्यंतरण हो तो ईमानदार लाल सूचना। एकमात्र घर: data/translit_hold_flags.js (fail-closed) ---- */

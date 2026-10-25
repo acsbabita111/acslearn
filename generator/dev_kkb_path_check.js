@@ -12,6 +12,10 @@ const B = path.join(ROOT, "courses/hi/bhasha");
 /* 25-Oct: भाषा-सूची = ताज़ा मास्टर-स्प्रेडशीट (bhasha_register.json) — कोड रजिस्टर में, h1 में रजिस्टर वाला हिंदी-नाम */
 const REG = JSON.parse(fs.readFileSync(path.join(ROOT, "generator/data/bhasha_register.json"), "utf8")).langs;
 let pages = 0, F = 0, links = 0, soon = 0;
+/* 25-Oct L0: भाषा की लिपि उसके kkb2-data से (code ← पेज का data-page) */
+function DEVA(slug) { const h = fs.readFileSync(path.join(B, slug, "index.html"), "utf8"); const code = (h.match(/data-page="ACS-KKB-([^"]+)"/) || [])[1]; if (!code) return false;
+  const p = path.join(ROOT, "assets", code === "en" ? "kkb2_data.js" : "kkb2_" + code + "_data.js"); if (!fs.existsSync(p)) return false;
+  const m = fs.readFileSync(p, "utf8").slice(0, 6000).match(/"script":\s*"([^"]+)"/); return !!m && /^devanagari(-native)?$/.test(m[1]); }
 const fail = (s, m) => { F++; if (F <= 30) console.log("❌ " + s + ": " + m); };
 for (const slug of fs.readdirSync(B).sort()) {
   const f = path.join(B, slug, "index.html");
@@ -21,11 +25,13 @@ for (const slug of fs.readdirSync(B).sort()) {
   pages++;
   const nav = (h.match(/<nav class="kkb-path"[\s\S]*?<\/nav>/g) || []);
   if (nav.length !== 1) { fail(slug, "सीखने की राह " + nav.length); continue; }
-  const lis = [...nav[0].matchAll(/<li class="(on|soon|here)">[\s\S]*?<b>([^<]+)<\/b>[\s\S]*?<\/li>/g)];
+  const lis = [...nav[0].matchAll(/<li class="(on|soon|here|known)">[\s\S]*?<b>([^<]+)<\/b>[\s\S]*?<\/li>/g)];
   if (lis.length !== 5) { fail(slug, "कदम " + lis.length); continue; }
   lis.forEach((m, i) => {
     if (m[2] !== ORDER[i]) fail(slug, "कदम-" + (i + 1) + " क्रम ग़लत: " + m[2]);
     if (i === 2) { if (m[1] !== "here" || m[0].indexOf('href="#kkb2-app"') < 0) fail(slug, "कदम-3 'यहीं' नहीं"); return; }
+    if (i === 0 && DEVA(slug)) { if (m[1] !== "known" || m[0].indexOf("परिचित") < 0) fail(slug, "देवनागरी-भाषा: कदम-1 'परिचित' नहीं"); return; }
+    if (i === 0 && m[1] === "known") { fail(slug, "ग़ैर-देवनागरी भाषा पर 'परिचित'"); return; }
     const exists = fs.existsSync(path.join(B, slug, SUB[i], "index.html"));
     const href = (m[0].match(/href="([^"]+)"/) || [])[1];
     if (exists && (m[1] !== "on" || href !== "/courses/hi/bhasha/" + slug + "/" + SUB[i] + "/")) fail(slug, SUB[i] + " बना है पर कड़ी नहीं");
