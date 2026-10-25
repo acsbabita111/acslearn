@@ -1,6 +1,8 @@
 # CHANGELOG-sw.md — sw.js version-इतिहास
 (13-Sep ऑडिट H7 नियम: नया इतिहास यहाँ दर्ज हो; v705 तक की पुरानी पंक्तियाँ sw.js की शीर्ष-टिप्पणी में हैं — वहाँ से हटाई नहीं गईं।)
 
+v752 (25-Oct-2026): व्याकरण-पन्ना v1.3 (SEO) — h1 वापस · खोज-शब्द title/description · canonical = sitemap-रूप · og/twitter + WhatsApp-झलक चित्र /assets/og/vyakaran-en.jpg · JSON-LD (LearningResource + BreadcrumbList) · परिचय-पंक्ति; sitemap दोबारा (build_sitemap) — bhasha 1251 → 1253 (व्याकरण + चित्र-पुस्तक)
+
 v751 (25-Oct-2026): व्याकरण-पन्ना v1.2 — vyakaran.css सघन-छपाई (सबसे छोटा अक्षर 16px = 12pt); हर पाठ एक पन्ने में — Founder के फ़ोन-PDF में 24 पन्ने थे (~10 लगभग ख़ाली), अब 13; build_vyakaran पन्ना-robot नियम-दर-नियम पढ़ता है (झूठा FAIL बंद)
 
 v750 (25-Oct-2026): व्याकरण-पन्ना v1.1 (build_vyakaran v1.1) — vyakaran.css छपाई-सुधार (पाठ-1 पहले पन्ने पर · विषय-सूची छपे · ⬆/←, WhatsApp-गोला, तिरंगा, गहरी पृष्ठभूमि न छपें) + पुस्तक का आवरण अब web-पन्ने का शीर्ष (6 नए चित्र /assets/chitra) + नए साझा assets/acs-bolo.js (🎙️ बोलो-अभ्यास: हरा/लाल/काला, %, गति, पिछली 5) व assets/acs-raay.js (👍👎💬 — अभी फ़ोन + WhatsApp, Firebase बाद में) · पहरा: generator पन्ना-robot + dev_bolo_check

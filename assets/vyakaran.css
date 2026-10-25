@@ -13,6 +13,7 @@
 .vk-alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:4px;margin:6px 0}.vk-alpha div{background:#fff;border:1px solid #90CAF9;border-radius:8px;text-align:center;font-size:18px}.vk-alpha b{color:#2E7D32}.vk-alpha .v{background:#FFE082}
 .vk-ans{font-size:16px;color:#555;margin-top:6px}.vk-info{margin-top:24px;border:2px solid #1565C0;border-radius:14px;padding:12px 14px;background:#F5F7FA;font-size:17px;line-height:1.6}
 .vk-cd .vk-spk{display:block;margin:4px auto 0}.vk-mic{background:#2E7D32}
+.vk-intro{font-size:18px;line-height:1.6;margin:0 0 10px;color:#0B1F3A}.vk-intro a{color:#1565C0;font-weight:700}
 .vk-howto{text-align:center;font-size:17px;color:#0B1F3A;background:#E8F5E9;border-radius:12px;padding:6px 10px;margin:0 0 10px}
 /* आवरण v1.1 (25-Oct) — पुस्तक v0.1 का Founder-पसंद पहला पेज, web पर; हर लिखा अक्षर ≥16px (मोबाइल पर भी) */
 .vk-cover{position:relative;max-width:560px;margin:0 auto 14px;border-radius:24px;overflow:hidden;container-type:inline-size;
@@ -23,6 +24,7 @@
 .vkc-brand i{display:block;font-size:16px;font-size:clamp(16px,3.6cqw,20px);color:#1565C0}
 .vkc-sun{position:absolute;right:8px;top:6px;width:19%;max-width:96px;height:auto}
 .vkc-card{position:relative;z-index:2;margin:12px 9% 0;background:#fff;border:6px solid #D8EEFF;border-radius:30px;padding:12px 10px 10px;text-align:center}
+.vkc-h1{margin:0;padding:0;font-weight:900;color:#0B1F3A}.vkc-t1,.vkc-t2{display:block}
 .vkc-t1{font-size:30px;font-size:clamp(28px,9cqw,52px);font-weight:900;line-height:1.25}
 .vkc-t2{font-size:52px;font-size:clamp(46px,15cqw,86px);font-weight:900;line-height:1.15}
 .vkc-t3{font-size:20px;font-size:clamp(18px,5cqw,28px);font-weight:800;color:#1565C0;font-family:Inter,sans-serif;margin:2px 0 6px}
@@ -45,7 +47,7 @@
 .vkc-foot{background:#0B1F3A;color:#fff;text-align:center;font-size:16px;line-height:1.5;padding:8px 10px}.vkc-foot b{color:#F9A825}
 /* छपाई v1.1 (25-Oct, Founder-PDF से पकड़े 2 होल): पाठ-1 पहले पन्ने पर ही (नया पन्ना पाठ-2 से) · विषय-सूची छपे ·
    ⬆/← तैरते बटन, WhatsApp-गोला, तिरंगा-पट्टी, टैगलाइन-पट्टी, 🎙️/👍 हिस्से न छपें · पीछे की गहरी नीली पृष्ठभूमि न छपे */
-@media print{.vk-cover{break-after:page;break-inside:avoid;max-width:128mm;margin:0 auto;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}.vk-spk,.vk-mic,.vk-howto,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim,.tiranga-bar,.acs-freebar,.acs-translate-panel,.udy-float,.acs-wa,.acs-raay,.acs-bolo,iframe.goog-te-banner-frame{display:none!important}body{background:#fff!important}.vk-wrap{max-width:none;margin:0;padding:0 4px;border-radius:0}.vk-toc{display:grid!important;grid-template-columns:1fr 1fr;gap:4px}.vk-toc a{padding:3px 8px;font-size:16px}.vk-les~.vk-les{break-before:page}.vk-les{break-inside:auto}.vk-er{break-inside:avoid}}
+@media print{.vk-cover{break-after:page;break-inside:avoid;max-width:128mm;margin:0 auto;box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}.vk-spk,.vk-mic,.vk-howto,.vk-intro,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim,.tiranga-bar,.acs-freebar,.acs-translate-panel,.udy-float,.acs-wa,.acs-raay,.acs-bolo,iframe.goog-te-banner-frame{display:none!important}body{background:#fff!important}.vk-wrap{max-width:none;margin:0;padding:0 4px;border-radius:0}.vk-toc{display:grid!important;grid-template-columns:1fr 1fr;gap:4px}.vk-toc a{padding:3px 8px;font-size:16px}.vk-les~.vk-les{break-before:page}.vk-les{break-inside:auto}.vk-er{break-inside:avoid}}
 /* छपाई v1.2 (25-Oct, Founder के फ़ोन-PDF से पकड़ा होल): हर पाठ 1-2 पंक्ति अगले पन्ने पर खिसकता था, फिर अगला पाठ नए पन्ने से —
    24 में से ~10 पन्ने लगभग ख़ाली। इलाज: छपाई में सघन आकार (सबसे छोटा अक्षर 16px = 12pt) ताकि हर पाठ एक पन्ने में रहे;
    पाठ का शीर्षक अकेला पन्ने के नीचे न छूटे। जाँच: browser-robot — हर पाठ उसी पन्ने पर शुरू और ख़त्म। */
