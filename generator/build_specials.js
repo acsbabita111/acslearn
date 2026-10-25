@@ -3302,6 +3302,17 @@ function kkb2IntroBelow(c) {
     '</section>';
 }
 const KKB_BELOW_CSS = '<style>.kkb-below{max-width:600px;margin:18px auto 30px;padding:14px 16px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:18px;line-height:1.7}.kkb-below h2{font-size:21px;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:10px}.kkb-below h2:first-child{margin-top:0}.kkb-num{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}.kkb-num div{background:#fff;border:2px solid #CBD5E1;border-radius:12px;padding:10px;text-align:center}.kkb-num b{display:block;font-size:26px;color:#1565C0}.kkb-num span{font-size:16px;color:#334155}.kkb-steps{padding-left:22px}.kkb-steps li{margin:4px 0}.kkb-faq{background:#fff;border:1px solid #CBD5E1;border-radius:10px;padding:6px 12px;margin:6px 0}.kkb-faq summary{cursor:pointer;font-weight:800;font-size:18px}.kkb-faq p{margin:6px 0 4px;font-size:17px}.kkb-below-note{font-size:16px;color:#334155;margin-top:12px}.kkb-below a{color:#1565C0}</style>';
+/* ---- लिप्यंतरण-पट्टी (24-Oct-2026): कोर्स असल में हिंदी-लिप्यंतरण हो तो ईमानदार लाल सूचना। एकमात्र घर: data/translit_hold_flags.js (fail-closed) ---- */
+const TRANSLIT_FLAGS = new Set(require("./data/translit_hold_flags.js").flags);
+function translitNote(c) {
+  if (!TRANSLIT_FLAGS.has(c.code)) return '';
+  const msg = encodeURIComponent('नमस्ते ACS — मैं ' + c.hi_name + ' (' + c.en_name + ', कोड ' + c.code + ') भाषा का/की जानकार हूँ और इसके असली वाक्य लिखने में मदद करना चाहता/चाहती हूँ।');
+  return '<div class="kkb-translit-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFEBEE;border:2px solid #C62828;border-radius:10px;color:#0B1F3A">' +
+    '<p style="font-size:17px;line-height:1.7;margin:0">⚠️ <b>सच्ची सूचना:</b> इस कोर्स के वाक्य अभी असली ' + c.hi_name + ' नहीं हैं — ये हिंदी वाक्य हैं, जो ' + c.hi_name + ' की लिपि में लिखे गए हैं।</p>' +
+    '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">असली भाषा में पुनर्लेखन जारी है। तब तक इसे सिर्फ़ <b>लिपि पढ़ने का अभ्यास</b> समझें, बोलचाल का कोर्स नहीं।</p>' +
+    '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">आप यह भाषा जानते हैं? <a href="https://wa.me/919431210092?text=' + msg + '" style="color:#C62828;font-weight:800;text-decoration:underline">भाषा संवर्धन समिति से जुड़ें</a></p>' +
+    '</div>';
+}
 /* ---- AI-सहयोग पट्टी (06-Oct-2026, Founder-आदेश): अंदाज़े/उथले content वाली भाषाओं पर disclaimer +
    भाषाविद-निमंत्रण (WhatsApp, भाषा-नाम pre-भरा)। एकमात्र घर: data/ai_sahyog_flags.js —
    भाषा सुधर-मुहर पाए तो कोड वहाँ से हटे, पट्टी अपने-आप उतरे। फ़ाइल न मिले = build रुके (fail-closed)। */
@@ -3326,7 +3337,7 @@ function kkb2Content(c) {
     (fs.existsSync(path.join(ROOT, "courses/hi/bhasha", c.slug, "chitra-pustak/index.html")) ? '<p style="font-size:18px;line-height:1.6;margin:6px 0 8px"><a href="/courses/hi/bhasha/' + c.slug + '/chitra-pustak/" style="color:#F9A825;font-weight:800;text-decoration:underline">🖼️ मेरी पहली चित्र-पुस्तक — ' + c.hi_name + ' · हिंदी, बोलते चित्र-शब्द (मोबाइल + छपने-योग्य)</a></p>' : '') +
     '<p style="font-size:16px;line-height:1.7;margin:0 0 8px;opacity:.7">नोट: प्रमाणपत्र CEFR पर आधारित/प्रेरित — CEFR-प्रमाणित नहीं। ऑनलाइन पूर्णता = सर्टिफिकेट प्रोग्राम; केंद्र/वर्कशॉप से practical = डिप्लोमा। 📚 गहन-पढ़ाई सूची — जल्द।</p>' +
     '</section>' +
-    aiSahyogNote(c) +
+    translitNote(c) + aiSahyogNote(c) +
     '<div id="kkb2-app" class="kkb2-app"><noscript><p style="padding:20px;font-size:19px">यह कोर्स चलाने के लिए ब्राउज़र में JavaScript चालू कीजिए।</p></noscript><p style="padding:20px;font-size:19px">कोर्स खुल रहा है…</p></div>' +
     kkb2IntroBelow(c);
 }
