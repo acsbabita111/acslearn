@@ -1,4 +1,5 @@
-/* ═══ ACS कोर्स-परीक्षा भंडार v1.6 (01-Sep-2026) — + हिब्रू द्वार PJ137 (he_bank)
+/* ═══ ACS कोर्स-परीक्षा भंडार — v1.8 (26-Oct-2026): +SE025 "पहला कोड" द्वार-प्रविष्टि (server-मोड, q ख़ाली — pl0_bank 1,090)
+   पिछला शीर्ष: v1.6 (01-Sep-2026) — + हिब्रू द्वार PJ137 (he_bank)
    v1.5 (31-Aug-2026) — +7 KKB भाषा-द्वार (PJ022/086/021/026/031/125/052) ═══
    v1.4 (05-Aug-2026) — टेस्ट-मोड: सभी द्वार खुले ═══
    v1.4: +SE022 टू-व्हीलर द्वार-प्रविष्टि (server-मोड, q ख़ाली — प्रश्न server-निजी
@@ -46,6 +47,11 @@ window.COURSE_EXAMS = {
     /* server-मोड कोर्स — 120 प्रश्न server-निजी बैंक (msh_bank, 3135) से हर बार बेतरतीब;
        q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
        स्रोत-भंडार = /assets/msh_quiz_k01.js–k12.js shards — बदलाव वहीं, फिर server-बैंक regen। */
+  ] },
+  "SE025": { name: "पहला कोड — प्रोग्रामिंग की नींव का प्रमाणपत्र कोर्स (Certificate in Programming Fundamentals) — प्रमाणपत्र परीक्षा", minLessons: 0, pass: 60, q: [
+    /* server-मोड कोर्स (26-Oct) — 120 प्रश्न server-निजी बैंक (pl0_bank, 1,090 = 218 पाठ x 5) से हर बार बेतरतीब;
+       q यहाँ जान-बूझकर ख़ाली: यह प्रविष्टि सिर्फ़ 🎓-बटन का द्वार (minLessons/pass) है।
+       स्रोत = office khep1-9_data.py → build_pl0_bank.py — बदलाव वहीं, फिर server-बैंक regen। */
   ] },
   "PJ058": { name: "बोडो बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Bodo) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 10-Sep kkb_l2_register */
   "PJ090": { name: "कुर्दिश (कुरमांजी) बोलने का प्रमाणपत्र कोर्स (Certificate in Spoken Kurdish) — प्रमाणपत्र परीक्षा (स्तर 1+2)", minLessons: 0, pass: 60, q: [] }, /* 10-Sep kkb_l2_register */
