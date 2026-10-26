@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 15-Jul-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>margin: बाहर की दूरी + auto से बीच + सिमटती दूरी | पहला कोड पाठ-112</title>
+<meta name="description" content="margin विधिवत: किनारे के बाहर की ज़मीन, पीछा-रंग नहीं; वही घड़ी की सुई; दूरी से रिश्ता — पास = जुड़ी बात, दूर = नई बात; margin: auto से डिब्बा बीच में (नाप…">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/first-code/pl0-112-margin-dibbon-ke-beech-ki-doori.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="margin: बाहर की दूरी + auto से बीच + सिमटती दूरी | पहला कोड पाठ-112">
+<meta property="og:description" content="margin विधिवत: किनारे के बाहर की ज़मीन, पीछा-रंग नहीं; वही घड़ी की सुई; दूरी से रिश्ता — पास = जुड़ी बात, दूर = नई बात; margin: auto से डिब्बा बीच में (नाप चाहिए); ऊपर-नीचे की दो दूरियाँ जुड़ती नहीं…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/first-code/pl0-112-margin-dibbon-ke-beech-ki-doori.html">
+<meta property="og:image" content="https://acslearn.com/assets/og/first-code.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="margin: बाहर की दूरी + auto से बीच + सिमटती दूरी | पहला कोड पाठ-112">
+<meta name="twitter:description" content="margin विधिवत: किनारे के बाहर की ज़मीन, पीछा-रंग नहीं; वही घड़ी की सुई; दूरी से रिश्ता — पास = जुड़ी बात, दूर = नई बात; margin: auto से डिब्बा बीच में (नाप…">
+<meta name="twitter:image" content="https://acslearn.com/assets/og/first-code.png">
+<link rel="alternate" hreflang="hi" href="https://acslearn.com/courses/hi/first-code/pl0-112-margin-dibbon-ke-beech-ki-doori.html">
+<link rel="alternate" hreflang="x-default" href="https://acslearn.com/courses/hi/first-code/pl0-112-margin-dibbon-ke-beech-ki-doori.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-112: margin — डिब्बों के बीच की दूरी","description":"margin विधिवत: किनारे के बाहर की ज़मीन, पीछा-रंग नहीं; वही घड़ी की सुई; दूरी से रिश्ता — पास = जुड़ी बात, दूर = नई बात; margin: auto से डिब्बा बीच में (नाप चाहिए); ऊपर-नीचे की दो दूरियाँ जुड़ती नहीं — बड़ी जीतती है (सिमटना)।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/first-code/pl0-112-margin-dibbon-ke-beech-ki-doori.html","image":"https://acslearn.com/assets/og/first-code.png","educationalLevel":"Beginner","position":112,"timeRequired":"PT13M","isPartOf":{"@type":"Course","@id":"https://acslearn.com/courses/hi/first-code/#course","name":"पहला कोड (First Code)","description":"कंप्यूटर की भाषा की पहली सीढ़ी — सोच से शुरुआत, अपने फ़ोन पर पहला कोड","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"पहला कोड (First Code)","item":"https://acslearn.com/courses/hi/first-code/"},{"@type":"ListItem","position":4,"name":"पाठ-112: margin — डिब्बों के बीच की दूरी","item":"https://acslearn.com/courses/hi/first-code/pl0-112-margin-dibbon-ke-beech-ki-doori.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="112" data-course="first-code">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › पहला कोड (First Code) › हिस्सा-14: सजावट व जमावट</p>
+<h1>पाठ-112: margin — डिब्बों के बीच की दूरी</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 112 / 218 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/first-code/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="pl0-001-computer-kahan-chhipa-hai.html">पाठ-1</a> <a href="pl0-002-computer-ke-4-kaam.html">पाठ-2</a> <a href="pl0-003-computer-ki-boli-0-aur-1.html">पाठ-3</a> <a href="pl0-004-apna-naam-0-1-mein.html">पाठ-4</a> <a href="pl0-005-hardware-software-sharir-soch.html">पाठ-5</a> <a href="pl0-006-computer-banam-insaan.html">पाठ-6</a> <a href="pl0-007-computer-ai-aur-tum.html">पाठ-7</a> <a href="pl0-008-computer-bewakoof-kyon.html">पाठ-8</a> <a href="pl0-009-course-ka-poora-naksha.html">पाठ-9</a> <a href="pl0-010-vidhi-yani-algorithm.html">पाठ-10</a> <a href="pl0-011-nirdesh-khel-dost-robot.html">पाठ-11</a> <a href="pl0-012-adhoora-nirdesh-gadbad-natija.html">पाठ-12</a> <a href="pl0-013-kadam-chhote-kaise-karen.html">पाठ-13</a> <a href="pl0-014-rasta-batane-ka-khel.html">पाठ-14</a> <a href="pl0-015-algorithm-likhne-ka-acs-tarika.html">पाठ-15</a> <a href="pl0-016-do-vidhiyon-ki-tulna.html">पाठ-16</a> <a href="pl0-017-abhyas-mela-5-vidhiyan.html">पाठ-17</a> <a href="pl0-018-kram-kyon-zaroori-moza-joota.html">पाठ-18</a> <a href="pl0-019-ulat-palat-ka-khel.html">पाठ-19</a> <a href="pl0-020-pravah-chitra-pehli-pehchan.html">पाठ-20</a> <a href="pl0-021-kahani-se-pravah-chitra.html">पाठ-21</a> <a href="pl0-022-galat-kram-pakdo-jamao-khel.html">पाठ-22</a> <a href="pl0-023-computer-mein-kram-line-dar-line.html">पाठ-23</a> <a href="pl0-024-abhyas-mela-kram-paheliyan.html">पाठ-24</a> <a href="pl0-025-dohrav-ki-taqat-10-taali.html">पाठ-25</a> <a href="pl0-026-ginti-wala-dohrav-theek-5-baar.html">पाठ-26</a> <a href="pl0-027-shart-wala-dohrav-balti-bhare-tak.html">पाठ-27</a> <a href="pl0-028-dohrav-ke-bheetar-dohrav-chatai.html">पाठ-28</a> <a href="pl0-029-dohrav-pakdo-geet-mala-rangoli.html">पाठ-29</a> <a href="pl0-030-kabhi-na-rukne-wala-dohrav-katha.html">पाठ-30</a> <a href="pl0-031-abhyas-mela-loop-khel.html">पाठ-31</a> <a href="pl0-032-zindagi-ke-agar-to-barish-chhata.html">पाठ-32</a> <a href="pl0-033-haan-nahi-sawal-computer-ki-poochh.html">पाठ-33</a> <a href="pl0-034-agar-to-nahi-to-do-raste.html">पाठ-34</a> <a href="pl0-035-kai-sharten-saath-aur-ya.html">पाठ-35</a> <a href="pl0-036-pravah-chitra-mein-heera-faisla.html">पाठ-36</a> <a href="pl0-037-sardar-kahe-khel-se-shart.html">पाठ-37</a> <a href="pl0-038-abhyas-mela-agar-to-paheliyan.html">पाठ-38</a> <a href="pl0-039-badi-samasya-chhote-tukde-shaadi.html">पाठ-39</a> <a href="pl0-040-pattern-pehchan-rangoli-pahada-mausam.html">पाठ-40</a> <a href="pl0-041-zaroori-banam-faltu-naksha.html">पाठ-41</a> <a href="pl0-042-galti-khoj-ki-soch-debugging.html">पाठ-42</a> <a href="pl0-043-khel-20-sawal-aadha-aadha.html">पाठ-43</a> <a href="pl0-044-chitra-inton-ki-jhalak-block-bhasha.html">पाठ-44</a> <a href="pl0-045-bhag-a-ki-dohrai-6-hathiyar.html">पाठ-45</a> <a href="pl0-046-aage-kya-phone-uthane-ka-samay.html">पाठ-46</a> <a href="pl0-047-code-ke-liye-kya-chahiye-sirf-phone.html">पाठ-47</a> <a href="pl0-048-file-kya-folder-kya-phone-ki-almari.html">पाठ-48</a> <a href="pl0-049-likhne-ka-auzar-text-editor-pehchano.html">पाठ-49</a> <a href="pl0-050-file-ka-naam-aur-poonchh-html.html">पाठ-50</a> <a href="pl0-051-browser-kya-hai-code-padhne-wala-jadugar.html">पाठ-51</a> <a href="pl0-052-pehli-file-banao-aur-kholo.html">पाठ-52</a> <a href="pl0-053-bachat-save-ki-aadat.html">पाठ-53</a> <a href="pl0-054-abhyas-mela-file-folder-ke-5-kaam.html">पाठ-54</a> <a href="pl0-055-internet-kaise-kaam-karta-hai-dakiya-katha.html">पाठ-55</a> <a href="pl0-056-website-kahan-rehti-hai-server-godam-ghar.html">पाठ-56</a> <a href="pl0-057-password-mazboot-tala-banana.html">पाठ-57</a> <a href="pl0-058-otp-kisi-ko-kabhi-nahi-phone-thagi-pehchan.html">पाठ-58</a> <a href="pl0-059-niji-baat-online-nahi-lakshman-rekha.html">पाठ-59</a> <a href="pl0-060-sach-jhooth-ki-pehchan-nakli-sandesh-lalach-jaal.html">पाठ-60</a> <a href="pl0-061-abhyas-mela-suraksha-ki-7-kasmein-suraksha-patra.html">पाठ-61</a> <a href="pl0-062-andaza-lagao-3-line-code-kya-dikhayega.html">पाठ-62</a> <a href="pl0-063-chalao-namaste-duniya-apni-aankhon-se.html">पाठ-63</a> <a href="pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">पाठ-64</a> <a href="pl0-065-badlo-apna-naam-likho-phir-gaon-ka.html">पाठ-65</a> <a href="pl0-066-html-tag-page-ki-chardiwari.html">पाठ-66</a> <a href="pl0-067-body-jo-dikhta-hai-wah-yahin-rehta-hai.html">पाठ-67</a> <a href="pl0-068-toota-code-theek-karo-1-bhoola-hua-tag.html">पाठ-68</a> <a href="pl0-069-banao-mera-pehla-panna-naam-gaon-sapna.html">पाठ-69</a> <a href="pl0-070-abhyas-mela-adhyay-9-jaanch.html">पाठ-70</a> <a href="pl0-071-tag-kholo-band-karo-darwaze-ki-jodi.html">पाठ-71</a> <a href="pl0-072-h1-se-h6-bada-shirshak-chhota-shirshak.html">पाठ-72</a> <a href="pl0-073-p-baat-kehne-ka-dibba-paragraph.html">पाठ-73</a> <a href="pl0-074-br-aur-hr-nai-line-beech-ki-lakeer.html">पाठ-74</a> <a href="pl0-075-b-i-u-mota-tircha-rekha-wala.html">पाठ-75</a> <a href="pl0-076-tag-ke-bheetar-tag-dibbe-me-dibba-nesting.html">पाठ-76</a> <a href="pl0-077-code-me-apni-parchi-tippani-comment.html">पाठ-77</a> <a href="pl0-078-toota-code-theek-karo-2-uljhi-jodiyan.html">पाठ-78</a> <a href="pl0-079-banao-ek-panna-kahani-shirshak-teen-paira.html">पाठ-79</a> <a href="pl0-080-img-page-par-chitra-lao.html">पाठ-80</a> <a href="pl0-081-chitra-ka-pata-src-file-kahan-rakhi-hai.html">पाठ-81</a> <a href="pl0-082-alt-chitra-na-khule-to-shabd-bolen.html">पाठ-82</a> <a href="pl0-083-a-kadi-link-ek-panne-se-doosre-tak.html">पाठ-83</a> <a href="pl0-084-do-panne-jodo-chhoti-website-ka-janm.html">पाठ-84</a> <a href="pl0-085-bahri-kadi-duniya-ke-panne-tak-nai-khidki.html">पाठ-85</a> <a href="pl0-086-chitra-par-kadi-dabane-layak-tasveer.html">पाठ-86</a> <a href="pl0-087-tag-ki-jeben-attribute-src-href-alt.html">पाठ-87</a> <a href="pl0-088-toota-code-theek-karo-3-mari-kadi-gayab-chitra.html">पाठ-88</a> <a href="pl0-089-banao-mera-gaon-do-panna-album.html">पाठ-89</a> <a href="pl0-090-ul-li-bindu-suchi-kharidari-ki-parchi.html">पाठ-90</a> <a href="pl0-091-ol-li-ginti-suchi-vidhi-ke-kadam.html">पाठ-91</a> <a href="pl0-092-suchi-me-suchi-dibbe-me-dibba-phir-se.html">पाठ-92</a> <a href="pl0-093-talika-table-ki-pehli-pehchaan-pankti-aur-khana.html">पाठ-93</a> <a href="pl0-094-tr-td-th-talika-ke-teen-auzaar.html">पाठ-94</a> <a href="pl0-095-apni-samay-sarni-banao.html">पाठ-95</a> <a href="pl0-096-dukaan-ka-bhav-patra-talika-suchi-milakar.html">पाठ-96</a> <a href="pl0-097-toota-code-theek-karo-4-bikhri-talika.html">पाठ-97</a> <a href="pl0-098-abhyas-mela-adhyay-12-jaanch.html">पाठ-98</a> <a href="pl0-099-css-kya-hai-html-shareer-css-kapde.html">पाठ-99</a> <a href="pl0-100-style-lagane-ka-pehla-tarika-tag-ke-bheetar.html">पाठ-100</a> <a href="pl0-101-color-aksharon-ka-rang-naam-se.html">पाठ-101</a> <a href="pl0-102-background-color-peeche-ka-rang.html">पाठ-102</a> <a href="pl0-103-rang-ke-code-acs-ke-apne-5-rang.html">पाठ-103</a> <a href="pl0-104-font-size-akshar-chhota-bada-16-se-chhota-kyon-nahi.html">पाठ-104</a> <a href="pl0-105-style-tag-sab-niyam-ek-jagah.html">पाठ-105</a> <a href="pl0-106-class-ek-niyam-kai-jagah.html">पाठ-106</a> <a href="pl0-107-toota-code-theek-karo-5-bigde-rang.html">पाठ-107</a> <a href="pl0-108-banao-apne-kahani-panne-ko-rango.html">पाठ-108</a> <a href="pl0-109-dibbe-ki-soch-page-ki-har-cheez-ek-dibba-box.html">पाठ-109</a> <a href="pl0-110-border-dibbe-ka-kinara.html">पाठ-110</a> <a href="pl0-111-padding-dibbe-ke-andar-ki-saans.html">पाठ-111</a> <span class="lsn-jumpcur">पाठ-112 (यही)</span> <a href="pl0-113-text-align-baayen-beech-daayen.html">पाठ-113</a> <a href="pl0-114-width-va-height-dibbe-ka-naap.html">पाठ-114</a> <a href="pl0-115-gol-kone-border-radius-pehli-shobha.html">पाठ-115</a> <a href="pl0-116-div-bina-naam-ka-dibba-sabka-saathi.html">पाठ-116</a> <a href="pl0-117-toota-code-theek-karo-6-chipke-dibbe.html">पाठ-117</a> <a href="pl0-118-banao-rangeen-poster-panna-gaon-ke-mele-ka-vigyapan.html">पाठ-118</a> <a href="pl0-119-project-ka-naksha-pehle-kagaz-par-khaka.html">पाठ-119</a> <a href="pl0-120-dhancha-khada-karo-shirshak-photo-jagah-teen-hisse.html">पाठ-120</a> <a href="pl0-121-mere-baare-me-hissa.html">पाठ-121</a> <a href="pl0-122-mera-hunar-suchi.html">पाठ-122</a> <a href="pl0-123-mera-sapna-aur-sampark-kadi.html">पाठ-123</a> <a href="pl0-124-rang-roop-acs-5-rang-se-sajao.html">पाठ-124</a> <a href="pl0-125-mobile-par-janchao-chhota-parda-bada-parda.html">पाठ-125</a> <a href="pl0-126-dost-se-janchwao-do-aankhen-behtar.html">पाठ-126</a> <a href="pl0-127-aakhri-galti-khoj-apni-jaanch-suchi-se-safai.html">पाठ-127</a> <a href="pl0-128-shabashi-pehla-asli-kaam-resume-career-kit.html">पाठ-128</a> <a href="pl0-129-programming-bhasha-banam-html-dikhana-banam-sochna.html">पाठ-129</a> <a href="pl0-130-python-kahan-chalayen-phone-ke-muft-raste.html">पाठ-130</a> <a href="pl0-131-andaza-chalao-print-namaste.html">पाठ-131</a> <a href="pl0-132-jaancho-koshthak-aur-ulte-comma-ka-raaz.html">पाठ-132</a> <a href="pl0-133-badlo-teen-line-ki-kavita-chhapwao.html">पाठ-133</a> <a href="pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">पाठ-134</a> <a href="pl0-135-jod-ghatav-chhapwao-print-2-plus-3-ginti-baaz.html">पाठ-135</a> <a href="pl0-136-toota-code-theek-karo-7-khoya-koshthak.html">पाठ-136</a> <a href="pl0-137-banao-naam-pata-sapna-pehla-program.html">पाठ-137</a> <a href="pl0-138-variable-naam-wala-dibba.html">पाठ-138</a> <a href="pl0-139-dibbe-me-sankhya-umar-14.html">पाठ-139</a> <a href="pl0-140-dibba-badlo-purana-nikalo-naya-rakho.html">पाठ-140</a> <a href="pl0-141-do-dibbe-saath-chhapo-naam-aur-umar.html">पाठ-141</a> <a href="pl0-142-shabd-dibba-banam-sankhya-dibba-5-aur-5.html">पाठ-142</a> <a href="pl0-143-achhe-naam-rakho-dibbe-par-saaf-parchi.html">पाठ-143</a> <a href="pl0-144-mashhoor-galatfahmi-dibba-itihas-yaad-nahi-rakhta.html">पाठ-144</a> <a href="pl0-145-toota-code-theek-karo-8-galat-naam-ki-pukaar.html">पाठ-145</a> <a href="pl0-146-banao-dukaan-ki-3-cheezon-ka-bhav-hisab.html">पाठ-146</a> <a href="pl0-147-input-sawal-poochhne-ka-jaadu.html">पाठ-147</a> <a href="pl0-148-jawab-ko-dibbe-me-rakho-naam-input.html">पाठ-148</a> <a href="pl0-149-poochho-aur-jawab-me-buno-namaste-sita.html">पाठ-149</a> <a href="pl0-150-sankhya-poochhna-int-kyon-chahiye.html">पाठ-150</a> <a href="pl0-151-do-sankhyaen-poochhkar-jodo-pehla-calculator.html">पाठ-151</a> <a href="pl0-152-umar-se-janm-saal-nikalo.html">पाठ-152</a> <a href="pl0-153-toota-code-theek-karo-9-5-plus-3-53-ulajhan.html">पाठ-153</a> <a href="pl0-154-banao-mujhse-milo-sawal-jawab-program.html">पाठ-154</a> <a href="pl0-155-abhyas-mela-aur-adhyay-jaanch-input.html">पाठ-155</a> <a href="pl0-156-if-ki-wapsi-bhaag-a-ki-chhatri-ab-code-me.html">पाठ-156</a> <a href="pl0-157-do-barabar-ka-matlab-barabari-jaanchna.html">पाठ-157</a> <a href="pl0-158-if-else-paas-ya-phir-mehnat.html">पाठ-158</a> <a href="pl0-159-chhota-bada-jaancho-tulna-chinh.html">पाठ-159</a> <a href="pl0-160-elif-kai-raaste-thanda-garam-barsaat.html">पाठ-160</a> <a href="pl0-161-hashiya-indent-python-ki-lakshman-rekha.html">पाठ-161</a> <a href="pl0-162-and-or-do-sharten-saath.html">पाठ-162</a> <a href="pl0-163-toota-code-theek-karo-10-bhatka-hashiya.html">पाठ-163</a> <a href="pl0-164-banao-paas-fail-batane-wala-program.html">पाठ-164</a> <a href="pl0-165-for-ki-pehli-daud-1-se-10-ginti.html">पाठ-165</a> <a href="pl0-166-range-kahan-se-kahan-tak.html">पाठ-166</a> <a href="pl0-167-loop-ke-bhitar-print-2-ka-pahada-3-line-me.html">पाठ-167</a> <a href="pl0-168-loop-plus-if-sirf-sam-sankhyaen-chhapo.html">पाठ-168</a> <a href="pl0-169-while-jab-tak-shart-sach.html">पाठ-169</a> <a href="pl0-170-jod-jama-karo-1-se-100-gauss-ki-baal-katha.html">पाठ-170</a> <a href="pl0-171-anant-loop-phir-mila-ab-code-me-aur-nikalna.html">पाठ-171</a> <a href="pl0-172-loop-ke-bhitar-loop-taaron-ka-trikon.html">पाठ-172</a> <a href="pl0-173-toota-code-theek-karo-11-kabhi-na-rukne-wala-while.html">पाठ-173</a> <a href="pl0-174-banao-pahada-chhapu-program.html">पाठ-174</a> <a href="pl0-175-list-ek-dibbe-me-kai-cheezen.html">पाठ-175</a> <a href="pl0-176-ginti-0-se-pehli-cheez-0-number-par.html">पाठ-176</a> <a href="pl0-177-cheez-jodo-hatao-append-remove.html">पाठ-177</a> <a href="pl0-178-list-par-loop-har-cheez-ek-ek-kar.html">पाठ-178</a> <a href="pl0-179-len-kitni-cheezen-hain.html">पाठ-179</a> <a href="pl0-180-akshar-mala-string-bhi-mala-jaisi.html">पाठ-180</a> <a href="pl0-181-list-plus-if-kya-aalu-suchi-me-hai.html">पाठ-181</a> <a href="pl0-182-chhote-se-bada-kram-sort-ki-jhalak.html">पाठ-182</a> <a href="pl0-183-toota-code-theek-karo-12-seema-ke-bahar-ki-pukaar.html">पाठ-183</a> <a href="pl0-184-banao-kharidari-suchi-program.html">पाठ-184</a> <a href="pl0-185-purza-kya-hai-ek-baar-banao-sau-baar-chalao-def.html">पाठ-185</a> <a href="pl0-186-purza-bulana-banane-aur-chalane-ka-fark.html">पाठ-186</a> <a href="pl0-187-purze-ko-saman-do-parameter-ki-khidki.html">पाठ-187</a> <a href="pl0-188-purza-lautaye-return-ka-tohfa.html">पाठ-188</a> <a href="pl0-189-print-banam-return-dikhana-banam-thamana.html">पाठ-189</a> <a href="pl0-190-ek-cheez-ek-jagah-dohraya-code-purze-me-sameto.html">पाठ-190</a> <a href="pl0-191-purzon-se-saaf-program-bada-kaam-chhote-hisse.html">पाठ-191</a> <a href="pl0-192-toota-code-theek-karo-13-bin-bulaya-bhatka-return.html">पाठ-192</a> <a href="pl0-193-banao-hisab-purze-teen-purzon-ki-apni-peti.html">पाठ-193</a> <a href="pl0-194-khel-ka-naksha-kagaz-par-niyam-pravah-chitra.html">पाठ-194</a> <a href="pl0-195-random-computer-man-me-sankhya-rakhe.html">पाठ-195</a> <a href="pl0-196-khiladi-se-poochho-input-ki-wapsi.html">पाठ-196</a> <a href="pl0-197-upar-neeche-ka-ishara-if-elif-else.html">पाठ-197</a> <a href="pl0-198-baar-baar-mauka-while-se-khel-chakra.html">पाठ-198</a> <a href="pl0-199-koshishen-gino-dibbe-ka-hisab.html">पाठ-199</a> <a href="pl0-200-khel-ko-purzon-me-banto-function-se-suthra-code.html">पाठ-200</a> <a href="pl0-201-jeet-ka-jashn-phir-khelein-jodi-jaanch.html">पाठ-201</a> <a href="pl0-202-aakhiri-safai-code-me-tippani-likho.html">पाठ-202</a> <a href="pl0-203-shabashi-tum-programmer-ban-gaye-pramanpatra-dwar.html">पाठ-203</a> <a href="pl0-204-peeche-mudkar-dekho-23-adhyayon-ka-naksha.html">पाठ-204</a> <a href="pl0-205-12-computer-bhashaon-ka-parivar-kaun-kis-kaam-ki.html">पाठ-205</a> <a href="pl0-206-python-aage-ai-data-swachalan-ki-raah.html">पाठ-206</a> <a href="pl0-207-javascript-pannon-me-jaan-dalna.html">पाठ-207</a> <a href="pl0-208-scratch-chhote-bhai-behan-ko-sikhao.html">पाठ-208</a> <a href="pl0-209-sql-dukanon-bankon-ka-hisab-ghar.html">पाठ-209</a> <a href="pl0-210-excel-sutra-daftar-ki-rozi.html">पाठ-210</a> <a href="pl0-211-c-machine-ke-andar-ki-duniya-iot-drone.html">पाठ-211</a> <a href="pl0-212-kotlin-java-app-banane-wale.html">पाठ-212</a> <a href="pl0-213-ai-se-kaam-lena-prompt-likhne-ka-hunar.html">पाठ-213</a> <a href="pl0-214-muft-seekhne-ke-vishwa-ghat-adhikarik-kadiyan.html">पाठ-214</a> <a href="pl0-215-kamai-ke-5-dwar-naukri-ped-par-code-hunar.html">पाठ-215</a> <a href="pl0-216-gaon-me-pehla-kaam-padosi-dukan-ka-panna.html">पाठ-216</a> <a href="pl0-217-aage-ka-acs-rasta-dca-ai-digital-master.html">पाठ-217</a> <a href="pl0-218-vidaai-apna-lur-pehchano-khagaria-se-vishva-tak.html">पाठ-218</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>पाठ परिचय</h2>
+<p>गाँव में घरों की दूरी पर ग़ौर कीजिए — एक ही परिवार के घर अक्सर <b>सटे</b> होते हैं, एक आँगन बाँटते हुए; अलग टोले के घरों के बीच गली, खेत, पेड़। दूरी अपने-आप एक <b>रिश्ता</b> बताती है: पास = अपने, दूर = अलग। कोई अजनबी भी गाँव में घूमकर, बिना पूछे, अंदाज़ा लगा लेता है कि कौन-से घर एक परिवार के हैं।</p>
+<p>पन्ने पर भी यही भाषा चलती है — और आज डिब्बे की चौथी, सबसे बाहरी परत उसका औज़ार है: <b>margin</b> (मार्जिन — हाशिया, यानी <b>बाहर की दूरी</b>) — किनारे के बाहर की वह ख़ाली ज़मीन जो डिब्बे को पड़ोसी से अलग करती है। फ़्रेम-फ़ोटो में फ़्रेम से अगली फ़ोटो तक की दीवार। पीछा-रंग यहाँ नहीं जाता (यह डिब्बे की नहीं, पड़ोस की ज़मीन है — पाठ-109!)।</p>
+<p>घड़ी की सुई (कल वाली) यहाँ भी वैसी ही चलती है — इसलिए आज का पाठ नए क्रम का नहीं, <b>नई समझ</b> का है: दूरी से रिश्ता कैसे कहें; एक जादुई शब्द जो डिब्बे को परदे के ठीक बीच में ले आता है; और एक नियम जो पहली बार देखने पर ग़लती लगता है — ऊपर-नीचे के दो डिब्बों की दूरियाँ आपस में <b>जुड़ती नहीं</b>! चलिए — गाँव बसाते हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सीखने का उद्देश्य</h2>
+<p>इस पाठ के बाद आप —</p>
+<p>1. <b>margin</b> से डिब्बों के बीच दूरी तय कर पाएँगे — घड़ी की सुई के क्रम से — और padding से उसका फ़र्क़ बोल पाएँगे।</p>
+<p>2. <b>दूरी से रिश्ता</b> कह पाएँगे — जुड़ी बातें पास, नई बातें दूर।</p>
+<p>3. <b>margin: auto</b> से डिब्बा बीच में ला पाएँगे — और <b>सिमटती दूरी</b> (ऊपर-नीचे की बड़ी जीतती है) का नियम समझा पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बाहर की ज़मीन — और उसके दो चौंकाने</h2>
+<p><b>पहले दूरी, फिर रिश्ता:</b> नई फ़ाइल <b>doori.html</b> (साँचा v2) — एक सूचना-पन्ना: शीर्षक, फिर एक बात के दो हिस्से (जुड़े), फिर बिल्कुल नई बात। 🔮 अंदाज़ा पहले: "jod" और "saath" वाले दो p आपस में कितने पास होंगे? और आख़िरी डिब्बा — परदे के बाएँ से सटा, या बीच में? — फिर उतारिए:</p>
+<pre class="pl-code" data-lang="html">&lt;style&gt;
+  body { font-size: 19px; color: #0B1F3A; }
+  p { margin: 24px 0; }
+  .jod { margin-bottom: 4px; }
+  .saath { margin-top: 4px; }
+  .nayi-baat { margin-top: 48px; }
+  .soochna {
+    max-width: 320px;
+    margin: 32px auto;
+    padding: 16px;
+    border: 3px solid #2E7D32;
+  }
+&lt;/style&gt;
+&lt;h2&gt;Mele ki Soochna&lt;/h2&gt;
+&lt;p class="jod"&gt;Mela ravivar ko lagega.&lt;/p&gt;
+&lt;p class="saath"&gt;Subah das baje se shaam chhe baje tak.&lt;/p&gt;
+&lt;p class="nayi-baat"&gt;Gaadi talab ke paas khadi karein.&lt;/p&gt;
+&lt;p class="soochna"&gt;Pravesh muft hai.&lt;/p&gt;
+</pre>
+<p>चलाइए — मिलान: पहले दो p (मेला कब, किस समय) <b>सटे-से</b> — एक ही बात के दो हिस्से, आँख उन्हें एक गुच्छा पढ़ती है; फिर एक <b>बड़ा फ़ासला</b>, और गाड़ी वाली बात — आँख को बिना बताए पता: "नई बात"। और आख़िरी हरा डिब्बा — <b>परदे के ठीक बीच</b> में! दूरी से रिश्ता: यही गाँव के घरों वाली भाषा, पन्ने पर। (ध्यान: पास लाने के लिए <b>दोनों</b> तरफ़ 4 चाहिए — ऊपर वाले का नीचे (jod) और नीचे वाले का ऊपर (saath)। सिर्फ़ saath पर 4 लिखते, तो ऊपर वाले p का आम 24 बचा रहता — क्यों? नीचे का "दूसरा चौंकाना" बताएगा! और टोली-नियम आम p-नियम को हराते हैं क्योंकि टोली <i>ख़ास</i> है और p <i>आम</i> — ख़ास हुक्म आम हुक्म को हराता है, चाहे ऊपर लिखा हो या नीचे (पाठ-105 की टक्कर-1 की आत्मा; "बाद वाला जीतता है" सिर्फ़ <i>बराबर</i> हक़ वालों में)।)</p>
+<p><b>पहला चौंकाना — margin: auto (बीच में लाने का शब्द):</b> .soochna में margin: 32px auto; — घड़ी के दो-मूल्य रूप से: ऊपर-नीचे 32, और दाएँ-बाएँ <b>auto</b> (ऑटो — अपने-आप)। auto कहता है: "दाएँ-बाएँ की बची हुई ज़मीन <i>बराबर बाँट दो</i>" — बाएँ जितनी, दाएँ उतनी — डिब्बा बीच में। <b>पर शर्त:</b> डिब्बे का अपना नाप हो (यहाँ max-width: 320px — "ज़्यादा से ज़्यादा 320 चौड़ा"; पूरा नाप-शास्त्र पाठ-114 में)। नाप न हो, तो पट्टी-डिब्बा पूरी चौड़ाई ले लेता है — बाँटने को ज़मीन बचती ही नहीं, auto बेकार। यानी <b>auto को बीच में लाने के लिए पहले डिब्बे को छोटा करना पड़ता है</b>। (और ध्यान: यह <i>डिब्बे</i> को बीच में लाता है — डिब्बे के भीतर के <i>अक्षरों</i> को बीच में लाना कल का अलग औज़ार है!)</p>
+<p><b>दूसरा चौंकाना — सिमटती दूरी:</b> सब p पर margin: 24px 0 — यानी हर p के ऊपर 24 और नीचे 24। तो दो p के बीच कितनी दूरी? पहले का नीचे 24 + दूसरे का ऊपर 24 = 48? — परदा देखिए, नापिए (या जासूस-रंग से): <b>सिर्फ़ 24!</b> यह गड़बड़ नहीं, CSS का पक्का नियम है — <b>ऊपर-नीचे सटे दो पट्टी-डिब्बों की दूरियाँ जुड़ती नहीं; दोनों में जो बड़ी, वही बचती है</b> (margin collapse — मार्जिन कोलैप्स: दूरी का सिमटना)। इसके पीछे समझदारी है: अनुच्छेदों को "कम-से-कम 24 दूर" रखना हो, तो हर एक पर 24 लिखिए, और बीच में दोगुना फ़ासला नहीं बनेगा। इसी वजह से ".nayi-baat" पर margin-top: 48px ने ऊपर वाले के 24 को निगलकर कुल 48 दिया (24 + 48 = 72 नहीं)। ध्यान रहे — यह सिमटना सिर्फ़ <b>ऊपर-नीचे</b> का है; दाएँ-बाएँ की दूरियाँ जुड़ती हैं। (और padding कभी नहीं सिमटता — साँस डिब्बे की अपनी है!)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>रेखा-चित्र: पन्ने का गाँव</h2>
+<p>नीचे आज का पूरा पट्ट — padding बनाम margin, दूरी से रिश्ता, auto से बीच, और सिमटती दूरी —</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="margin: डिब्बे के बाहर की दूरी, पीछा-रंग नहीं; padding भीतर बनाम margin बाहर; पास डिब्बे जुड़ी बात, दूर डिब्बे नई बात; margin auto से नाप वाला डिब्बा बीच में; ऊपर-नीचे की दो दूरियाँ जुड़ती नहीं, बड़ी बचती है">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<rect x="8" y="8" width="784" height="784" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="50" text-anchor="middle" font-size="27" fill="#0B1F3A" font-weight="bold">margin: डिब्बों के बीच की ज़मीन</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">ऊपर = साँस बनाम दूरी · बीच = रिश्ता और auto · नीचे = सिमटती दूरी</text>
+<line x1="40" y1="100" x2="760" y2="100" stroke="#0B1F3A" stroke-width="2"/>
+<rect x="60" y="118" width="680" height="150" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<rect x="110" y="140" width="230" height="106" fill="#F9A825" opacity="0.3" stroke="#0B1F3A" stroke-width="3"/>
+<rect x="130" y="160" width="190" height="66" fill="none" stroke="#0B1F3A" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="225" y="198" text-anchor="middle" font-size="13" fill="#0B1F3A">padding = भीतर (रंग)</text>
+<rect x="440" y="140" width="120" height="106" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<rect x="600" y="140" width="120" height="106" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<line x1="562" y1="193" x2="598" y2="193" stroke="#1565C0" stroke-width="3"/>
+<polygon points="562,193 572,187 572,199" fill="#1565C0"/>
+<polygon points="598,193 588,187 588,199" fill="#1565C0"/>
+<text x="580" y="262" text-anchor="middle" font-size="12" fill="#1565C0">margin = बाहर (रंग नहीं)</text>
+<rect x="60" y="288" width="330" height="210" fill="none" stroke="#2E7D32" stroke-width="4"/>
+<text x="225" y="314" text-anchor="middle" font-size="14" fill="#2E7D32" font-weight="bold">दूरी से रिश्ता</text>
+<rect x="90" y="330" width="270" height="30" fill="none" stroke="#0B1F3A" stroke-width="2"/>
+<text x="100" y="350" font-size="12" fill="#0B1F3A">Mela ravivar ko</text>
+<rect x="90" y="364" width="270" height="30" fill="none" stroke="#0B1F3A" stroke-width="2"/>
+<text x="100" y="384" font-size="12" fill="#0B1F3A">Subah 10 se shaam 6</text>
+<text x="370" y="368" font-size="11" fill="#2E7D32">पास</text>
+<rect x="90" y="444" width="270" height="30" fill="none" stroke="#0B1F3A" stroke-width="2"/>
+<text x="100" y="464" font-size="12" fill="#0B1F3A">Gaadi talab ke paas</text>
+<text x="370" y="428" font-size="11" fill="#1565C0">दूर</text>
+<text x="225" y="490" text-anchor="middle" font-size="11" fill="#0B1F3A">पास = जुड़ी बात · दूर = नई बात</text>
+<rect x="410" y="288" width="330" height="210" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<text x="575" y="314" text-anchor="middle" font-size="14" fill="#0B1F3A" font-weight="bold">margin: 32px auto</text>
+<rect x="430" y="336" width="290" height="90" fill="none" stroke="#1565C0" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="500" y="350" width="150" height="60" fill="none" stroke="#2E7D32" stroke-width="4"/>
+<text x="575" y="386" text-anchor="middle" font-size="12" fill="#0B1F3A">Pravesh muft</text>
+<text x="465" y="386" text-anchor="middle" font-size="11" fill="#1565C0">auto</text>
+<text x="686" y="386" text-anchor="middle" font-size="11" fill="#1565C0">auto</text>
+<text x="575" y="450" text-anchor="middle" font-size="12" fill="#0B1F3A">बची ज़मीन बराबर बाँटी → बीच</text>
+<text x="575" y="476" text-anchor="middle" font-size="11" fill="#2E7D32">शर्त: डिब्बे का अपना नाप (max-width)</text>
+<rect x="60" y="518" width="680" height="244" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="400" y="550" text-anchor="middle" font-size="15" fill="#0B1F3A" font-weight="bold">सिमटती दूरी: ऊपर-नीचे की दूरियाँ जुड़ती नहीं</text>
+<rect x="150" y="570" width="240" height="40" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2"/>
+<text x="270" y="595" text-anchor="middle" font-size="12" fill="#0B1F3A">p (नीचे 24)</text>
+<rect x="150" y="646" width="240" height="40" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2"/>
+<text x="270" y="671" text-anchor="middle" font-size="12" fill="#0B1F3A">p (ऊपर 24)</text>
+<line x1="420" y1="612" x2="420" y2="644" stroke="#0B1F3A" stroke-width="3"/>
+<text x="440" y="624" font-size="13" fill="#0B1F3A">24 + 24 = 48?</text>
+<text x="440" y="644" font-size="13" fill="#0B1F3A" font-weight="bold">✗ — सिर्फ़ 24 (बड़ी बचती)</text>
+<text x="400" y="716" text-anchor="middle" font-size="12" fill="#0B1F3A">24 और 48 → 48 बचती (72 नहीं) · दाएँ-बाएँ जुड़ती हैं</text>
+<text x="400" y="740" text-anchor="middle" font-size="12" fill="#0B1F3A">padding कभी नहीं सिमटती — साँस डिब्बे की अपनी है</text>
+</svg>
+<p>नीचे की सुनहरी पट्टी को एक बार अपनी फ़ाइल पर जासूस-रंग से जाँच लीजिए — 24 और 24 का जोड़ 24 निकलना पहली बार अजीब लगता है; उसके बाद यह सबसे काम का नियम बनता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>ग़लतफ़हमी तोड़ो</h2>
+<p><b>ग़लतफ़हमी:</b> "padding और margin — दोनों ख़ाली जगह हैं, दोनों में क्या फ़र्क़! जो याद आए, लगा दो। और अनुच्छेदों में दूरी चाहिए, तो बीच में दो-चार br ठोक दूँगा, या ख़ाली p डाल दूँगा — वही काम, बिना CSS की पढ़ाई।"</p>
+<p><b>सच:</b> पहले "दोनों एक ही" — परदे पर जब पीछा-रंग या किनारा न हो, दोनों सचमुच एक-से दिखते हैं, इसीलिए यह भ्रम आम है। पर जिस दिन डिब्बे पर रंग या किनारा आया, फ़र्क़ चीख़ता है: padding वाली जगह <b>डिब्बे के भीतर</b> है — रंग उसमें फैलता है, किनारा उसके <i>बाहर</i> खिंचता है, दबाने वाला घेरा उसमें शामिल है (कल का उँगली-नियम!); margin वाली जगह <b>डिब्बे के बाहर</b> है — न रंग, न किनारा, न दबाने का घेरा। और दोनों के नियम भी अलग: margin ऊपर-नीचे सिमटता है, padding नहीं; margin auto से डिब्बा बीच में आता है, padding में ऐसा कुछ नहीं। सवाल एक ही याद रखिए: <b>"यह जगह डिब्बे की अपनी है, या पड़ोसी से दूरी?"</b> — अपनी = padding, दूरी = margin। (फ़्रेम-फ़ोटो: गत्ता फ़ोटो का हिस्सा है; दीवार नहीं।)</p>
+<p>अब br और ख़ाली p वाला जुगाड़ — यह पाठ-73 की पुरानी ग़लतफ़हमी का नया भेस है: <b>मतलब के tag को रूप का काम</b>। ख़ाली p कहता है "यहाँ एक बात है" — पर कोई बात नहीं; पढ़कर-सुनाने वाला औज़ार वहाँ एक ख़ाली "अनुच्छेद" पर रुकता है, सुनने वाला सोचता है कुछ छूट गया। br-ढेर "पंक्ति तोड़ो, तोड़ो, तोड़ो" कहता है — पर तोड़ने को पंक्ति नहीं। ऊपर से, कल अगर आपको सब अनुच्छेदों की दूरी थोड़ी घटानी हो, तो जुगाड़-पन्ने में हर ख़ाली p या br-ढेर खोजकर हटाइए; CSS-पन्ने में <b>एक</b> पंक्ति — p { margin: ... }। और mobile-first में यह फ़र्क़ और गहरा है: आगे आप सीखेंगे कि बड़े और छोटे परदे के लिए दूरियाँ अलग-अलग रखी जा सकती हैं — CSS से, एक जगह से; br-ढेर हर परदे पर वही रहेगा। <b>दूरी रूप है — रूप अलमारी का काम है, शरीर का नहीं।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास-खेल: दूरी-मश्क़</h2>
+<p><b>खेल 1 — गाँव-पन्ने में रिश्ते:</b> अपने किसी पन्ने (गाँव, दुकान, कहानी) में दो गुच्छे बनाइए: (क) एक बात के दो-तीन हिस्से — सटे (margin-top छोटा, टोली "saath"); (ख) बिल्कुल नई बात — दूर (टोली "nayi-baat")। फिर किसी घर-साथी को परदा पाँच सेकंड दिखाकर पूछिए: "इस पन्ने में कितनी अलग-अलग बातें हैं?" — उनकी गिनती आपके गुच्छों से मिली? (मिली = दूरी ने बिना शब्द के बात कह दी!)</p>
+<p><b>खेल 2 — बीच में लाओ (और उसकी शर्त):</b> doori.html में .soochna से max-width हटाइए — 🔮 दाँव: डिब्बा अब भी बीच में रहेगा? — चलाइए (नहीं — पूरी चौड़ाई, auto बेकार!)। फिर max-width वापस, पर margin: 32px auto की जगह margin: 32px; — फिर? (बाएँ सटा!) दोनों नतीजे कॉपी में: "बीच के लिए दो चीज़ें — नाप और auto"।</p>
+<p><b>खेल 3 — सिमटने की नाप-जाँच + गुण-बही:</b> दो p, दोनों पर पीली जासूस-पट्टी, पहले पर margin-bottom: 40px, दूसरे पर margin-top: 10px। 🔮 दाँव: बीच की सफ़ेद पट्टी कितनी? (50? 40? 10?) — चलाइए, स्केल से (या उँगली की चौड़ाई से) नापकर तुलना कीजिए। फिर दोनों को padding बनाइए (margin की जगह) — अब? (padding जुड़ती है!) गुण-बही में margin की पंक्ति: बाहर की दूरी · रंग नहीं · घड़ी की सुई · auto (नाप ज़रूरी) · ऊपर-नीचे सिमटती, बड़ी बचती · "अपनी या दूरी?" सवाल।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आगे क्या सीखेंगे</h2>
+<p>डिब्बों का गाँव बस गया — margin की बाहरी ज़मीन, दूरी से रिश्ता, auto से बीच (नाप की शर्त के साथ), और सिमटती दूरी का अजीब-पर-समझदार नियम। डिब्बे की चारों परतें अब आपके हाथ में हैं: माल, साँस, किनारा, दूरी।</p>
+<p>आज एक बात साफ़ कहकर छोड़ी थी: margin: auto <i>डिब्बे</i> को बीच में लाता है — डिब्बे के भीतर के <b>अक्षरों</b> को नहीं। पोस्टर का शीर्षक, प्रमाणपत्र का नाम, किसी सूचना की "ध्यान दें" वाली पंक्ति — इनके अक्षर डिब्बे के <b>बीच</b> चाहिए; और कभी अक्षर दाएँ (तारीख़, हस्ताक्षर), कभी दोनों किनारों तक सीधे (किताब जैसी पंक्तियाँ)। कल वह औज़ार: <b>text-align</b> — माल डिब्बे में कहाँ बैठे: बाएँ, बीच, दाएँ, या दोनों तरफ़ सीधा — और हर एक का "कब" (हाँ — बीच हर जगह अच्छा नहीं लगता, और उसकी एक वजह पढ़ने वाली आँख में है!)। <b>पाठ-113: text-align — बाएँ, बीच, दाएँ।</b></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक एक जीवित रास्ता —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%BF%E0%A4%82%E0%A4%97%20margin%20%E0%A4%A1%E0%A4%BF%E0%A4%AC%E0%A5%8D%E0%A4%AC%E0%A5%8B%E0%A4%82%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A5%80%E0%A4%9A%20%E0%A4%95%E0%A5%80%20%E0%A4%A6%E0%A5%82%E0%A4%B0%E0%A5%80%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="pl0-111-padding-dibbe-ke-andar-ki-saans.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="pl0-113-text-align-baayen-beech-daayen.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

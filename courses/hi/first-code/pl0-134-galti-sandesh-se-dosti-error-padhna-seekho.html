@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 15-Jul-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python का ग़लती-संदेश पढ़ो: नीचे से ऊपर, तीन सवाल | पहला कोड पाठ-134</title>
+<meta name="description" content="Python की बीमारियाँ चिल्लाती हैं — और यह अच्छी ख़बर है: ग़लती-संदेश की बनावट (Traceback, File, line, ^ इशारा, आख़िरी पंक्ति); नीचे से ऊपर पढ़ो — क्या? कहाँ?…">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/first-code/pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Python का ग़लती-संदेश पढ़ो: नीचे से ऊपर, तीन सवाल | पहला कोड पाठ-134">
+<meta property="og:description" content="Python की बीमारियाँ चिल्लाती हैं — और यह अच्छी ख़बर है: ग़लती-संदेश की बनावट (Traceback, File, line, ^ इशारा, आख़िरी पंक्ति); नीचे से ऊपर पढ़ो — क्या? कहाँ? ठीक कहाँ?; SyntaxError (कुछ नहीं चला) बनाम…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/first-code/pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">
+<meta property="og:image" content="https://acslearn.com/assets/og/first-code.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python का ग़लती-संदेश पढ़ो: नीचे से ऊपर, तीन सवाल | पहला कोड पाठ-134">
+<meta name="twitter:description" content="Python की बीमारियाँ चिल्लाती हैं — और यह अच्छी ख़बर है: ग़लती-संदेश की बनावट (Traceback, File, line, ^ इशारा, आख़िरी पंक्ति); नीचे से ऊपर पढ़ो — क्या? कहाँ?…">
+<meta name="twitter:image" content="https://acslearn.com/assets/og/first-code.png">
+<link rel="alternate" hreflang="hi" href="https://acslearn.com/courses/hi/first-code/pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">
+<link rel="alternate" hreflang="x-default" href="https://acslearn.com/courses/hi/first-code/pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-134: ग़लती-संदेश से दोस्ती — एरर (Error) पढ़ना सीखो, लाल रंग से डरो मत","description":"Python की बीमारियाँ चिल्लाती हैं — और यह अच्छी ख़बर है: ग़लती-संदेश की बनावट (Traceback, File, line, ^ इशारा, आख़िरी पंक्ति); नीचे से ऊपर पढ़ो — क्या? कहाँ? ठीक कहाँ?; SyntaxError (कुछ नहीं चला) बनाम NameError (बीच में रुका); \"Did you mean\" का सुराग़; संस्करण से शब्द बदलते हैं।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/first-code/pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html","image":"https://acslearn.com/assets/og/first-code.png","educationalLevel":"Beginner","position":134,"timeRequired":"PT13M","isPartOf":{"@type":"Course","@id":"https://acslearn.com/courses/hi/first-code/#course","name":"पहला कोड (First Code)","description":"कंप्यूटर की भाषा की पहली सीढ़ी — सोच से शुरुआत, अपने फ़ोन पर पहला कोड","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"पहला कोड (First Code)","item":"https://acslearn.com/courses/hi/first-code/"},{"@type":"ListItem","position":4,"name":"पाठ-134: ग़लती-संदेश से दोस्ती — एरर (Error) पढ़ना सीखो, लाल रंग से डरो मत","item":"https://acslearn.com/courses/hi/first-code/pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="134" data-course="first-code">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › पहला कोड (First Code) › हिस्सा-16: print — कंप्यूटर से बुलवाओ</p>
+<h1>पाठ-134: ग़लती-संदेश से दोस्ती — एरर (Error) पढ़ना सीखो, लाल रंग से डरो मत</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 134 / 218 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/first-code/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="pl0-001-computer-kahan-chhipa-hai.html">पाठ-1</a> <a href="pl0-002-computer-ke-4-kaam.html">पाठ-2</a> <a href="pl0-003-computer-ki-boli-0-aur-1.html">पाठ-3</a> <a href="pl0-004-apna-naam-0-1-mein.html">पाठ-4</a> <a href="pl0-005-hardware-software-sharir-soch.html">पाठ-5</a> <a href="pl0-006-computer-banam-insaan.html">पाठ-6</a> <a href="pl0-007-computer-ai-aur-tum.html">पाठ-7</a> <a href="pl0-008-computer-bewakoof-kyon.html">पाठ-8</a> <a href="pl0-009-course-ka-poora-naksha.html">पाठ-9</a> <a href="pl0-010-vidhi-yani-algorithm.html">पाठ-10</a> <a href="pl0-011-nirdesh-khel-dost-robot.html">पाठ-11</a> <a href="pl0-012-adhoora-nirdesh-gadbad-natija.html">पाठ-12</a> <a href="pl0-013-kadam-chhote-kaise-karen.html">पाठ-13</a> <a href="pl0-014-rasta-batane-ka-khel.html">पाठ-14</a> <a href="pl0-015-algorithm-likhne-ka-acs-tarika.html">पाठ-15</a> <a href="pl0-016-do-vidhiyon-ki-tulna.html">पाठ-16</a> <a href="pl0-017-abhyas-mela-5-vidhiyan.html">पाठ-17</a> <a href="pl0-018-kram-kyon-zaroori-moza-joota.html">पाठ-18</a> <a href="pl0-019-ulat-palat-ka-khel.html">पाठ-19</a> <a href="pl0-020-pravah-chitra-pehli-pehchan.html">पाठ-20</a> <a href="pl0-021-kahani-se-pravah-chitra.html">पाठ-21</a> <a href="pl0-022-galat-kram-pakdo-jamao-khel.html">पाठ-22</a> <a href="pl0-023-computer-mein-kram-line-dar-line.html">पाठ-23</a> <a href="pl0-024-abhyas-mela-kram-paheliyan.html">पाठ-24</a> <a href="pl0-025-dohrav-ki-taqat-10-taali.html">पाठ-25</a> <a href="pl0-026-ginti-wala-dohrav-theek-5-baar.html">पाठ-26</a> <a href="pl0-027-shart-wala-dohrav-balti-bhare-tak.html">पाठ-27</a> <a href="pl0-028-dohrav-ke-bheetar-dohrav-chatai.html">पाठ-28</a> <a href="pl0-029-dohrav-pakdo-geet-mala-rangoli.html">पाठ-29</a> <a href="pl0-030-kabhi-na-rukne-wala-dohrav-katha.html">पाठ-30</a> <a href="pl0-031-abhyas-mela-loop-khel.html">पाठ-31</a> <a href="pl0-032-zindagi-ke-agar-to-barish-chhata.html">पाठ-32</a> <a href="pl0-033-haan-nahi-sawal-computer-ki-poochh.html">पाठ-33</a> <a href="pl0-034-agar-to-nahi-to-do-raste.html">पाठ-34</a> <a href="pl0-035-kai-sharten-saath-aur-ya.html">पाठ-35</a> <a href="pl0-036-pravah-chitra-mein-heera-faisla.html">पाठ-36</a> <a href="pl0-037-sardar-kahe-khel-se-shart.html">पाठ-37</a> <a href="pl0-038-abhyas-mela-agar-to-paheliyan.html">पाठ-38</a> <a href="pl0-039-badi-samasya-chhote-tukde-shaadi.html">पाठ-39</a> <a href="pl0-040-pattern-pehchan-rangoli-pahada-mausam.html">पाठ-40</a> <a href="pl0-041-zaroori-banam-faltu-naksha.html">पाठ-41</a> <a href="pl0-042-galti-khoj-ki-soch-debugging.html">पाठ-42</a> <a href="pl0-043-khel-20-sawal-aadha-aadha.html">पाठ-43</a> <a href="pl0-044-chitra-inton-ki-jhalak-block-bhasha.html">पाठ-44</a> <a href="pl0-045-bhag-a-ki-dohrai-6-hathiyar.html">पाठ-45</a> <a href="pl0-046-aage-kya-phone-uthane-ka-samay.html">पाठ-46</a> <a href="pl0-047-code-ke-liye-kya-chahiye-sirf-phone.html">पाठ-47</a> <a href="pl0-048-file-kya-folder-kya-phone-ki-almari.html">पाठ-48</a> <a href="pl0-049-likhne-ka-auzar-text-editor-pehchano.html">पाठ-49</a> <a href="pl0-050-file-ka-naam-aur-poonchh-html.html">पाठ-50</a> <a href="pl0-051-browser-kya-hai-code-padhne-wala-jadugar.html">पाठ-51</a> <a href="pl0-052-pehli-file-banao-aur-kholo.html">पाठ-52</a> <a href="pl0-053-bachat-save-ki-aadat.html">पाठ-53</a> <a href="pl0-054-abhyas-mela-file-folder-ke-5-kaam.html">पाठ-54</a> <a href="pl0-055-internet-kaise-kaam-karta-hai-dakiya-katha.html">पाठ-55</a> <a href="pl0-056-website-kahan-rehti-hai-server-godam-ghar.html">पाठ-56</a> <a href="pl0-057-password-mazboot-tala-banana.html">पाठ-57</a> <a href="pl0-058-otp-kisi-ko-kabhi-nahi-phone-thagi-pehchan.html">पाठ-58</a> <a href="pl0-059-niji-baat-online-nahi-lakshman-rekha.html">पाठ-59</a> <a href="pl0-060-sach-jhooth-ki-pehchan-nakli-sandesh-lalach-jaal.html">पाठ-60</a> <a href="pl0-061-abhyas-mela-suraksha-ki-7-kasmein-suraksha-patra.html">पाठ-61</a> <a href="pl0-062-andaza-lagao-3-line-code-kya-dikhayega.html">पाठ-62</a> <a href="pl0-063-chalao-namaste-duniya-apni-aankhon-se.html">पाठ-63</a> <a href="pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">पाठ-64</a> <a href="pl0-065-badlo-apna-naam-likho-phir-gaon-ka.html">पाठ-65</a> <a href="pl0-066-html-tag-page-ki-chardiwari.html">पाठ-66</a> <a href="pl0-067-body-jo-dikhta-hai-wah-yahin-rehta-hai.html">पाठ-67</a> <a href="pl0-068-toota-code-theek-karo-1-bhoola-hua-tag.html">पाठ-68</a> <a href="pl0-069-banao-mera-pehla-panna-naam-gaon-sapna.html">पाठ-69</a> <a href="pl0-070-abhyas-mela-adhyay-9-jaanch.html">पाठ-70</a> <a href="pl0-071-tag-kholo-band-karo-darwaze-ki-jodi.html">पाठ-71</a> <a href="pl0-072-h1-se-h6-bada-shirshak-chhota-shirshak.html">पाठ-72</a> <a href="pl0-073-p-baat-kehne-ka-dibba-paragraph.html">पाठ-73</a> <a href="pl0-074-br-aur-hr-nai-line-beech-ki-lakeer.html">पाठ-74</a> <a href="pl0-075-b-i-u-mota-tircha-rekha-wala.html">पाठ-75</a> <a href="pl0-076-tag-ke-bheetar-tag-dibbe-me-dibba-nesting.html">पाठ-76</a> <a href="pl0-077-code-me-apni-parchi-tippani-comment.html">पाठ-77</a> <a href="pl0-078-toota-code-theek-karo-2-uljhi-jodiyan.html">पाठ-78</a> <a href="pl0-079-banao-ek-panna-kahani-shirshak-teen-paira.html">पाठ-79</a> <a href="pl0-080-img-page-par-chitra-lao.html">पाठ-80</a> <a href="pl0-081-chitra-ka-pata-src-file-kahan-rakhi-hai.html">पाठ-81</a> <a href="pl0-082-alt-chitra-na-khule-to-shabd-bolen.html">पाठ-82</a> <a href="pl0-083-a-kadi-link-ek-panne-se-doosre-tak.html">पाठ-83</a> <a href="pl0-084-do-panne-jodo-chhoti-website-ka-janm.html">पाठ-84</a> <a href="pl0-085-bahri-kadi-duniya-ke-panne-tak-nai-khidki.html">पाठ-85</a> <a href="pl0-086-chitra-par-kadi-dabane-layak-tasveer.html">पाठ-86</a> <a href="pl0-087-tag-ki-jeben-attribute-src-href-alt.html">पाठ-87</a> <a href="pl0-088-toota-code-theek-karo-3-mari-kadi-gayab-chitra.html">पाठ-88</a> <a href="pl0-089-banao-mera-gaon-do-panna-album.html">पाठ-89</a> <a href="pl0-090-ul-li-bindu-suchi-kharidari-ki-parchi.html">पाठ-90</a> <a href="pl0-091-ol-li-ginti-suchi-vidhi-ke-kadam.html">पाठ-91</a> <a href="pl0-092-suchi-me-suchi-dibbe-me-dibba-phir-se.html">पाठ-92</a> <a href="pl0-093-talika-table-ki-pehli-pehchaan-pankti-aur-khana.html">पाठ-93</a> <a href="pl0-094-tr-td-th-talika-ke-teen-auzaar.html">पाठ-94</a> <a href="pl0-095-apni-samay-sarni-banao.html">पाठ-95</a> <a href="pl0-096-dukaan-ka-bhav-patra-talika-suchi-milakar.html">पाठ-96</a> <a href="pl0-097-toota-code-theek-karo-4-bikhri-talika.html">पाठ-97</a> <a href="pl0-098-abhyas-mela-adhyay-12-jaanch.html">पाठ-98</a> <a href="pl0-099-css-kya-hai-html-shareer-css-kapde.html">पाठ-99</a> <a href="pl0-100-style-lagane-ka-pehla-tarika-tag-ke-bheetar.html">पाठ-100</a> <a href="pl0-101-color-aksharon-ka-rang-naam-se.html">पाठ-101</a> <a href="pl0-102-background-color-peeche-ka-rang.html">पाठ-102</a> <a href="pl0-103-rang-ke-code-acs-ke-apne-5-rang.html">पाठ-103</a> <a href="pl0-104-font-size-akshar-chhota-bada-16-se-chhota-kyon-nahi.html">पाठ-104</a> <a href="pl0-105-style-tag-sab-niyam-ek-jagah.html">पाठ-105</a> <a href="pl0-106-class-ek-niyam-kai-jagah.html">पाठ-106</a> <a href="pl0-107-toota-code-theek-karo-5-bigde-rang.html">पाठ-107</a> <a href="pl0-108-banao-apne-kahani-panne-ko-rango.html">पाठ-108</a> <a href="pl0-109-dibbe-ki-soch-page-ki-har-cheez-ek-dibba-box.html">पाठ-109</a> <a href="pl0-110-border-dibbe-ka-kinara.html">पाठ-110</a> <a href="pl0-111-padding-dibbe-ke-andar-ki-saans.html">पाठ-111</a> <a href="pl0-112-margin-dibbon-ke-beech-ki-doori.html">पाठ-112</a> <a href="pl0-113-text-align-baayen-beech-daayen.html">पाठ-113</a> <a href="pl0-114-width-va-height-dibbe-ka-naap.html">पाठ-114</a> <a href="pl0-115-gol-kone-border-radius-pehli-shobha.html">पाठ-115</a> <a href="pl0-116-div-bina-naam-ka-dibba-sabka-saathi.html">पाठ-116</a> <a href="pl0-117-toota-code-theek-karo-6-chipke-dibbe.html">पाठ-117</a> <a href="pl0-118-banao-rangeen-poster-panna-gaon-ke-mele-ka-vigyapan.html">पाठ-118</a> <a href="pl0-119-project-ka-naksha-pehle-kagaz-par-khaka.html">पाठ-119</a> <a href="pl0-120-dhancha-khada-karo-shirshak-photo-jagah-teen-hisse.html">पाठ-120</a> <a href="pl0-121-mere-baare-me-hissa.html">पाठ-121</a> <a href="pl0-122-mera-hunar-suchi.html">पाठ-122</a> <a href="pl0-123-mera-sapna-aur-sampark-kadi.html">पाठ-123</a> <a href="pl0-124-rang-roop-acs-5-rang-se-sajao.html">पाठ-124</a> <a href="pl0-125-mobile-par-janchao-chhota-parda-bada-parda.html">पाठ-125</a> <a href="pl0-126-dost-se-janchwao-do-aankhen-behtar.html">पाठ-126</a> <a href="pl0-127-aakhri-galti-khoj-apni-jaanch-suchi-se-safai.html">पाठ-127</a> <a href="pl0-128-shabashi-pehla-asli-kaam-resume-career-kit.html">पाठ-128</a> <a href="pl0-129-programming-bhasha-banam-html-dikhana-banam-sochna.html">पाठ-129</a> <a href="pl0-130-python-kahan-chalayen-phone-ke-muft-raste.html">पाठ-130</a> <a href="pl0-131-andaza-chalao-print-namaste.html">पाठ-131</a> <a href="pl0-132-jaancho-koshthak-aur-ulte-comma-ka-raaz.html">पाठ-132</a> <a href="pl0-133-badlo-teen-line-ki-kavita-chhapwao.html">पाठ-133</a> <span class="lsn-jumpcur">पाठ-134 (यही)</span> <a href="pl0-135-jod-ghatav-chhapwao-print-2-plus-3-ginti-baaz.html">पाठ-135</a> <a href="pl0-136-toota-code-theek-karo-7-khoya-koshthak.html">पाठ-136</a> <a href="pl0-137-banao-naam-pata-sapna-pehla-program.html">पाठ-137</a> <a href="pl0-138-variable-naam-wala-dibba.html">पाठ-138</a> <a href="pl0-139-dibbe-me-sankhya-umar-14.html">पाठ-139</a> <a href="pl0-140-dibba-badlo-purana-nikalo-naya-rakho.html">पाठ-140</a> <a href="pl0-141-do-dibbe-saath-chhapo-naam-aur-umar.html">पाठ-141</a> <a href="pl0-142-shabd-dibba-banam-sankhya-dibba-5-aur-5.html">पाठ-142</a> <a href="pl0-143-achhe-naam-rakho-dibbe-par-saaf-parchi.html">पाठ-143</a> <a href="pl0-144-mashhoor-galatfahmi-dibba-itihas-yaad-nahi-rakhta.html">पाठ-144</a> <a href="pl0-145-toota-code-theek-karo-8-galat-naam-ki-pukaar.html">पाठ-145</a> <a href="pl0-146-banao-dukaan-ki-3-cheezon-ka-bhav-hisab.html">पाठ-146</a> <a href="pl0-147-input-sawal-poochhne-ka-jaadu.html">पाठ-147</a> <a href="pl0-148-jawab-ko-dibbe-me-rakho-naam-input.html">पाठ-148</a> <a href="pl0-149-poochho-aur-jawab-me-buno-namaste-sita.html">पाठ-149</a> <a href="pl0-150-sankhya-poochhna-int-kyon-chahiye.html">पाठ-150</a> <a href="pl0-151-do-sankhyaen-poochhkar-jodo-pehla-calculator.html">पाठ-151</a> <a href="pl0-152-umar-se-janm-saal-nikalo.html">पाठ-152</a> <a href="pl0-153-toota-code-theek-karo-9-5-plus-3-53-ulajhan.html">पाठ-153</a> <a href="pl0-154-banao-mujhse-milo-sawal-jawab-program.html">पाठ-154</a> <a href="pl0-155-abhyas-mela-aur-adhyay-jaanch-input.html">पाठ-155</a> <a href="pl0-156-if-ki-wapsi-bhaag-a-ki-chhatri-ab-code-me.html">पाठ-156</a> <a href="pl0-157-do-barabar-ka-matlab-barabari-jaanchna.html">पाठ-157</a> <a href="pl0-158-if-else-paas-ya-phir-mehnat.html">पाठ-158</a> <a href="pl0-159-chhota-bada-jaancho-tulna-chinh.html">पाठ-159</a> <a href="pl0-160-elif-kai-raaste-thanda-garam-barsaat.html">पाठ-160</a> <a href="pl0-161-hashiya-indent-python-ki-lakshman-rekha.html">पाठ-161</a> <a href="pl0-162-and-or-do-sharten-saath.html">पाठ-162</a> <a href="pl0-163-toota-code-theek-karo-10-bhatka-hashiya.html">पाठ-163</a> <a href="pl0-164-banao-paas-fail-batane-wala-program.html">पाठ-164</a> <a href="pl0-165-for-ki-pehli-daud-1-se-10-ginti.html">पाठ-165</a> <a href="pl0-166-range-kahan-se-kahan-tak.html">पाठ-166</a> <a href="pl0-167-loop-ke-bhitar-print-2-ka-pahada-3-line-me.html">पाठ-167</a> <a href="pl0-168-loop-plus-if-sirf-sam-sankhyaen-chhapo.html">पाठ-168</a> <a href="pl0-169-while-jab-tak-shart-sach.html">पाठ-169</a> <a href="pl0-170-jod-jama-karo-1-se-100-gauss-ki-baal-katha.html">पाठ-170</a> <a href="pl0-171-anant-loop-phir-mila-ab-code-me-aur-nikalna.html">पाठ-171</a> <a href="pl0-172-loop-ke-bhitar-loop-taaron-ka-trikon.html">पाठ-172</a> <a href="pl0-173-toota-code-theek-karo-11-kabhi-na-rukne-wala-while.html">पाठ-173</a> <a href="pl0-174-banao-pahada-chhapu-program.html">पाठ-174</a> <a href="pl0-175-list-ek-dibbe-me-kai-cheezen.html">पाठ-175</a> <a href="pl0-176-ginti-0-se-pehli-cheez-0-number-par.html">पाठ-176</a> <a href="pl0-177-cheez-jodo-hatao-append-remove.html">पाठ-177</a> <a href="pl0-178-list-par-loop-har-cheez-ek-ek-kar.html">पाठ-178</a> <a href="pl0-179-len-kitni-cheezen-hain.html">पाठ-179</a> <a href="pl0-180-akshar-mala-string-bhi-mala-jaisi.html">पाठ-180</a> <a href="pl0-181-list-plus-if-kya-aalu-suchi-me-hai.html">पाठ-181</a> <a href="pl0-182-chhote-se-bada-kram-sort-ki-jhalak.html">पाठ-182</a> <a href="pl0-183-toota-code-theek-karo-12-seema-ke-bahar-ki-pukaar.html">पाठ-183</a> <a href="pl0-184-banao-kharidari-suchi-program.html">पाठ-184</a> <a href="pl0-185-purza-kya-hai-ek-baar-banao-sau-baar-chalao-def.html">पाठ-185</a> <a href="pl0-186-purza-bulana-banane-aur-chalane-ka-fark.html">पाठ-186</a> <a href="pl0-187-purze-ko-saman-do-parameter-ki-khidki.html">पाठ-187</a> <a href="pl0-188-purza-lautaye-return-ka-tohfa.html">पाठ-188</a> <a href="pl0-189-print-banam-return-dikhana-banam-thamana.html">पाठ-189</a> <a href="pl0-190-ek-cheez-ek-jagah-dohraya-code-purze-me-sameto.html">पाठ-190</a> <a href="pl0-191-purzon-se-saaf-program-bada-kaam-chhote-hisse.html">पाठ-191</a> <a href="pl0-192-toota-code-theek-karo-13-bin-bulaya-bhatka-return.html">पाठ-192</a> <a href="pl0-193-banao-hisab-purze-teen-purzon-ki-apni-peti.html">पाठ-193</a> <a href="pl0-194-khel-ka-naksha-kagaz-par-niyam-pravah-chitra.html">पाठ-194</a> <a href="pl0-195-random-computer-man-me-sankhya-rakhe.html">पाठ-195</a> <a href="pl0-196-khiladi-se-poochho-input-ki-wapsi.html">पाठ-196</a> <a href="pl0-197-upar-neeche-ka-ishara-if-elif-else.html">पाठ-197</a> <a href="pl0-198-baar-baar-mauka-while-se-khel-chakra.html">पाठ-198</a> <a href="pl0-199-koshishen-gino-dibbe-ka-hisab.html">पाठ-199</a> <a href="pl0-200-khel-ko-purzon-me-banto-function-se-suthra-code.html">पाठ-200</a> <a href="pl0-201-jeet-ka-jashn-phir-khelein-jodi-jaanch.html">पाठ-201</a> <a href="pl0-202-aakhiri-safai-code-me-tippani-likho.html">पाठ-202</a> <a href="pl0-203-shabashi-tum-programmer-ban-gaye-pramanpatra-dwar.html">पाठ-203</a> <a href="pl0-204-peeche-mudkar-dekho-23-adhyayon-ka-naksha.html">पाठ-204</a> <a href="pl0-205-12-computer-bhashaon-ka-parivar-kaun-kis-kaam-ki.html">पाठ-205</a> <a href="pl0-206-python-aage-ai-data-swachalan-ki-raah.html">पाठ-206</a> <a href="pl0-207-javascript-pannon-me-jaan-dalna.html">पाठ-207</a> <a href="pl0-208-scratch-chhote-bhai-behan-ko-sikhao.html">पाठ-208</a> <a href="pl0-209-sql-dukanon-bankon-ka-hisab-ghar.html">पाठ-209</a> <a href="pl0-210-excel-sutra-daftar-ki-rozi.html">पाठ-210</a> <a href="pl0-211-c-machine-ke-andar-ki-duniya-iot-drone.html">पाठ-211</a> <a href="pl0-212-kotlin-java-app-banane-wale.html">पाठ-212</a> <a href="pl0-213-ai-se-kaam-lena-prompt-likhne-ka-hunar.html">पाठ-213</a> <a href="pl0-214-muft-seekhne-ke-vishwa-ghat-adhikarik-kadiyan.html">पाठ-214</a> <a href="pl0-215-kamai-ke-5-dwar-naukri-ped-par-code-hunar.html">पाठ-215</a> <a href="pl0-216-gaon-me-pehla-kaam-padosi-dukan-ka-panna.html">पाठ-216</a> <a href="pl0-217-aage-ka-acs-rasta-dca-ai-digital-master.html">पाठ-217</a> <a href="pl0-218-vidaai-apna-lur-pehchano-khagaria-se-vishva-tak.html">पाठ-218</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>पाठ परिचय</h2>
+<p>भाग-ब की दहलीज़-पर्ची का सवाल-2 आज मिलेगा: "CSS की बीमारियाँ चुप थीं — Python की बीमारियाँ चुप होंगी या <b>चिल्लाएँगी</b>?" जवाब: <b>चिल्लाएँगी</b> — और यह इस भाग की सबसे अच्छी ख़बर है। पाठ-107 याद कीजिए: CSS में ग़लत लिखा नियम browser चुपचाप छोड़ देता था, और आप घंटों जासूस-रंग लगाकर ढूँढते थे कि गड़बड़ कहाँ है। Python ऐसा नहीं करता — ग़लती हुई, तो वह <b>रुकता</b> है और एक चिट्ठी लिखता है: कौन-सी पंक्ति, कहाँ ठीक-ठीक, और बीमारी का नाम।</p>
+<p>पर नए सीखने वाले के लिए यह चिट्ठी डरावनी दिखती है — ज़्यादातर ऐप उसे <b>लाल रंग</b> में छापते हैं, अंग्रेज़ी में, अजीब शब्दों के साथ ("Traceback", "SyntaxError", "^^^^")। कई लोग पहली लाल चिट्ठी देखकर ही सोच लेते हैं "मुझसे नहीं होगा" — और यहीं हार जाते हैं, जबकि चिट्ठी में जवाब <i>लिखा</i> होता है! (इस किताब में ये चिट्ठियाँ सुनहरी किनारी वाले हल्के डिब्बे में दिखेंगी; आपके ऐप में शायद लाल।)</p>
+<p>आज इस चिट्ठी से <b>दोस्ती</b>: उसकी बनावट, उसे पढ़ने का क्रम (एक चौंकाने वाला नियम — नीचे से ऊपर!), दो तरह की बीमारियों का फ़र्क़, और वह सुराग़ जो Python अक्सर ख़ुद दे देता है — "Did you mean...?"। भाग-अ का मूल-मंत्र याद रखिए: <b>ग़लती सुराग़ है</b>। आज वह सुराग़ लिखकर मिलता है। चलिए — चिट्ठी खोलते हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सीखने का उद्देश्य</h2>
+<p>इस पाठ के बाद आप —</p>
+<p>1. ग़लती-संदेश की <b>बनावट</b> पहचान पाएँगे — Traceback, File और line, गड़बड़ पंक्ति, ^ इशारा, और आख़िरी पंक्ति (बीमारी + बात)।</p>
+<p>2. संदेश <b>नीचे से ऊपर</b> पढ़ पाएँगे — तीन सवालों से: क्या हुआ? कहाँ? ठीक किस अक्षर पर?</p>
+<p>3. <b>SyntaxError</b> (कुछ भी नहीं चला) और <b>NameError</b> (बीच में रुका) का फ़र्क़ बोल पाएँगे — और "Did you mean" सुराग़ बरत पाएँगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चिट्ठी की बनावट — और पढ़ने का क्रम</h2>
+<p><b>पहले एक बीमार प्रोग्राम — 🔮 अंदाज़ा:</b> नीचे चार पंक्तियों का प्रोग्राम है, जिसकी <b>तीसरी</b> पंक्ति में उल्टे-कॉमा भूले हैं (पाठ-132 का बदल-के-देखो-1!)। दाँव लगाइए: क्या पहली दो पंक्तियाँ छपेंगी? चौथी? Python कहाँ रुकेगा? —</p>
+<p>print("Ek") · print("Do") · print(Teen) · print("Char")</p>
+<p>चलाने पर परदा (ऊपर दो पंक्तियाँ छपीं, फिर चिट्ठी):</p>
+<pre class="pl-err">Ek
+Do
+Traceback (most recent call last):
+  File "ginti.py", line 3, in &lt;module&gt;
+    print(Teen)
+          ^^^^
+NameError: name 'Teen' is not defined
+</pre>
+<p><b>चिट्ठी की चीर-फाड़ (ऊपर से नीचे, पाँच हिस्से):</b> <b>(1) Traceback (most recent call last):</b> (ट्रेसबैक — "पीछे का रास्ता") — बस एक शीर्षक: "गड़बड़ तक का रास्ता यह रहा"; अभी इसे छोड़ दीजिए। <b>(2) File "ginti.py", line 3</b> — कौन-सी फ़ाइल, कौन-सी <b>पंक्ति</b> (line — लाइन)। <b>(3) print(Teen)</b> — वह पंक्ति, हूबहू। <b>(4) ^^^^</b> — उँगली का इशारा: "ठीक <i>यहाँ</i>" — Teen के नीचे। <b>(5) आख़िरी पंक्ति</b> — बीमारी का नाम (NameError) और बात ("Teen नाम की कोई चीज़ नहीं")।</p>
+<p><b>पढ़ने का क्रम — नीचे से ऊपर (लोहे का नियम):</b> चिट्ठी ऊपर से लिखी जाती है, पर उसका <b>सबसे काम का हिस्सा सबसे नीचे</b> है — इसलिए पढ़ो नीचे से: <b>सवाल-1 · क्या हुआ?</b> → आख़िरी पंक्ति (NameError: 'Teen' नहीं पता); <b>सवाल-2 · कहाँ?</b> → line 3; <b>सवाल-3 · ठीक किस अक्षर पर?</b> → ^ का इशारा (Teen के नीचे)। तीन सवाल, तीन जवाब — और इलाज लगभग अपने-आप: "Teen शब्द है, नाम नहीं — उल्टे-कॉमा भूले" → print("Teen")। ऊपर का Traceback, in &lt;module&gt; — इन्हें अभी अनदेखा कीजिए; बड़े प्रोग्रामों में वे काम आएँगे।</p>
+<p><b>दो तरह की बीमारियाँ — बड़ा फ़र्क़ (ऊपर के परदे में छिपा):</b> ऊपर "Ek" और "Do" <b>छप गए</b>, फिर Python रुका — क्योंकि NameError <b>चलते-चलते</b> मिलती है: Python पंक्ति-दर-पंक्ति करता गया, तीसरी पर अटका, चौथी तक पहुँचा ही नहीं। अब दूसरी क़िस्म: तीसरी पंक्ति में बंद-कोष्ठक भूला हो — print("Teen" — तो परदा:</p>
+<pre class="pl-err">  File "ginti.py", line 3
+    print("Teen"
+         ^
+SyntaxError: '(' was never closed
+</pre>
+<p>इस बार "Ek" और "Do" भी <b>नहीं</b> छपे! क्योंकि SyntaxError (सिंटैक्स एरर — लिखाई की बनावट की ग़लती) Python <b>चलाने से पहले</b> ही पकड़ लेता है: वह पहले पूरी फ़ाइल पढ़ता है कि बनावट ठीक है या नहीं — ठीक नहीं, तो एक भी हुक्म नहीं करता (ध्यान दीजिए — Traceback वाला शीर्षक भी नहीं, क्योंकि कुछ चला ही नहीं)। नियम कॉपी में: <b>कुछ भी नहीं छपा + SyntaxError = बनावट की ग़लती (कोष्ठक, उल्टे-कॉमा); कुछ छपकर रुका = चलते-चलते की ग़लती (NameError जैसी)</b>।</p>
+<p><b>Python का सुराग़ — "Did you mean":</b> नए Python कई बार इलाज तक सुझा देते हैं। Print("Namaste") (बड़ा P) पर: NameError: name 'Print' is not defined. Did you mean: 'print'? — मतलब: "क्या आप print कहना चाहते थे?" और print "Namaste" पर: Did you mean print(...)? (पाठ-132)। यह सुराग़ पढ़ना न भूलें! <b>संस्करण की ईमानदारी:</b> ये शब्द Python 3.12 के हैं; पुराना Python (जैसे 3.8) वही बीमारी दूसरे शब्दों में कह सकता है — जैसे भूले कोष्ठक पर "unexpected EOF while parsing" — पर <b>पंक्ति का अंक और बीमारी का परिवार</b> (SyntaxError/NameError) वही रहता है।</p>
+<p>अब इलाज — 🔮 अंदाज़ा: सुधरा प्रोग्राम कितनी पंक्तियाँ छापेगा? —</p>
+<pre class="pl-code" data-lang="py" data-out="Ek Do Teen Char">print("Ek")
+print("Do")
+print("Teen")
+print("Char")
+</pre>
+<p>नतीजा: चारों पंक्तियाँ — Ek, Do, Teen, Char। चिट्ठी ने इलाज बताया, आपने किया।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>रेखा-चित्र: चिट्ठी पढ़ना</h2>
+<p>नीचे आज का पूरा पट्ट — चिट्ठी के पाँच हिस्से, नीचे-से-ऊपर के तीन सवाल, और दो क़िस्म की बीमारियाँ —</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Python ग़लती-संदेश: पाँच हिस्से — Traceback, File और line, गड़बड़ पंक्ति, उँगली का इशारा, आख़िरी पंक्ति बीमारी और बात; नीचे से ऊपर पढ़ो — क्या, कहाँ, ठीक कहाँ; SyntaxError कुछ नहीं चला, NameError बीच में रुका; Did you mean सुराग़">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<rect x="8" y="8" width="784" height="784" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="50" text-anchor="middle" font-size="27" fill="#0B1F3A" font-weight="bold">ग़लती-संदेश: Python की चिट्ठी</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">बाएँ = चिट्ठी · दाएँ = नीचे से ऊपर तीन सवाल · नीचे = दो क़िस्में</text>
+<line x1="40" y1="100" x2="760" y2="100" stroke="#0B1F3A" stroke-width="2"/>
+<rect x="60" y="118" width="420" height="260" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2"/>
+<rect x="60" y="118" width="8" height="260" fill="#F9A825"/>
+<text x="82" y="148" font-size="13" fill="#0B1F3A">Traceback (most recent call last):</text>
+<text x="82" y="184" font-size="13" fill="#0B1F3A">  File "ginti.py", line 3, in ...</text>
+<text x="82" y="220" font-size="15" fill="#0B1F3A" font-weight="bold">    print(Teen)</text>
+<text x="82" y="250" font-size="15" fill="#1565C0" font-weight="bold">          ^^^^</text>
+<rect x="76" y="276" width="392" height="36" fill="#F9A825"/>
+<text x="82" y="300" font-size="13" fill="#0B1F3A" font-weight="bold">NameError: name 'Teen' is not defined</text>
+<text x="270" y="350" text-anchor="middle" font-size="11" fill="#0B1F3A">(ऐप में अक्सर लाल — रंग से डरो मत)</text>
+<text x="470" y="150" text-anchor="end" font-size="11" fill="#1565C0">(1)</text>
+<text x="470" y="186" text-anchor="end" font-size="11" fill="#1565C0">(2)</text>
+<text x="470" y="222" text-anchor="end" font-size="11" fill="#1565C0">(3)</text>
+<text x="470" y="252" text-anchor="end" font-size="11" fill="#1565C0">(4)</text>
+<rect x="500" y="118" width="240" height="260" fill="none" stroke="#2E7D32" stroke-width="4"/>
+<text x="620" y="146" text-anchor="middle" font-size="14" fill="#2E7D32" font-weight="bold">पढ़ो नीचे से ऊपर</text>
+<text x="520" y="186" font-size="13" fill="#0B1F3A" font-weight="bold">1. क्या हुआ?</text>
+<text x="536" y="206" font-size="11" fill="#0B1F3A">→ आख़िरी पंक्ति</text>
+<text x="520" y="246" font-size="13" fill="#0B1F3A" font-weight="bold">2. कहाँ?</text>
+<text x="536" y="266" font-size="11" fill="#0B1F3A">→ line 3</text>
+<text x="520" y="306" font-size="13" fill="#0B1F3A" font-weight="bold">3. ठीक किस अक्षर पर?</text>
+<text x="536" y="326" font-size="11" fill="#0B1F3A">→ ^ का इशारा</text>
+<line x1="730" y1="350" x2="730" y2="170" stroke="#2E7D32" stroke-width="3"/><polygon points="730,164 723,176 737,176" fill="#2E7D32"/>
+<rect x="60" y="398" width="330" height="220" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<text x="225" y="426" text-anchor="middle" font-size="14" fill="#0B1F3A" font-weight="bold">SyntaxError</text>
+<text x="225" y="450" text-anchor="middle" font-size="11" fill="#0B1F3A">बनावट की ग़लती (कोष्ठक, उल्टे-कॉमा)</text>
+<text x="100" y="488" font-size="12" fill="#0B1F3A">print("Ek")  ✗ नहीं छपा</text>
+<text x="100" y="512" font-size="12" fill="#0B1F3A">print("Do")  ✗ नहीं छपा</text>
+<text x="100" y="536" font-size="12" fill="#0B1F3A" font-weight="bold">print("Teen"  ← पकड़ा</text>
+<text x="225" y="576" text-anchor="middle" font-size="12" fill="#0B1F3A">चलाने से <tspan font-weight="bold">पहले</tspan> पूरी फ़ाइल जाँची</text>
+<text x="225" y="598" text-anchor="middle" font-size="11" fill="#1565C0">= कुछ भी नहीं छपा</text>
+<rect x="410" y="398" width="330" height="220" fill="none" stroke="#1565C0" stroke-width="3"/>
+<text x="575" y="426" text-anchor="middle" font-size="14" fill="#1565C0" font-weight="bold">NameError</text>
+<text x="575" y="450" text-anchor="middle" font-size="11" fill="#0B1F3A">चलते-चलते की ग़लती</text>
+<text x="450" y="488" font-size="12" fill="#0B1F3A">print("Ek")  ✓ Ek</text>
+<text x="450" y="512" font-size="12" fill="#0B1F3A">print("Do")  ✓ Do</text>
+<text x="450" y="536" font-size="12" fill="#0B1F3A" font-weight="bold">print(Teen)  ← रुका</text>
+<text x="450" y="560" font-size="12" fill="#0B1F3A">print("Char") — पहुँचा नहीं</text>
+<text x="575" y="598" text-anchor="middle" font-size="11" fill="#1565C0">= कुछ छपकर रुका</text>
+<rect x="60" y="638" width="680" height="124" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="400" y="668" text-anchor="middle" font-size="14" fill="#0B1F3A" font-weight="bold">सुराग़: "Did you mean: 'print'?" — पढ़ना न भूलो</text>
+<text x="400" y="696" text-anchor="middle" font-size="12" fill="#0B1F3A">CSS चुप था (पाठ-107) — Python चिल्लाता है: यही अच्छी ख़बर</text>
+<text x="400" y="722" text-anchor="middle" font-size="12" fill="#0B1F3A">शब्द Python 3.12 के · पुराना संस्करण दूसरे शब्द — पंक्ति-अंक और परिवार वही</text>
+</svg>
+<p>दाएँ का हरा तीर नीचे से ऊपर जाता है — चिट्ठी ऊपर से लिखी है, पर उसका सबसे काम का हिस्सा आख़िर में है; और नीचे के दो डिब्बे बताते हैं कि "कुछ छपा या नहीं" ख़ुद एक सुराग़ है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>ग़लतफ़हमी तोड़ो</h2>
+<p><b>ग़लतफ़हमी:</b> "लाल संदेश = मैं फ़ेल हो गया! जितने ज़्यादा लाल संदेश, उतना कमज़ोर प्रोग्रामर। अच्छे प्रोग्रामरों को कभी ग़लती-संदेश नहीं आते — वे पहली बार में सही लिखते हैं। और यह अंग्रेज़ी वाली चिट्ठी पढ़ना मेरे बस का नहीं।"</p>
+<p><b>सच:</b> "अच्छे प्रोग्रामरों को ग़लती-संदेश नहीं आते" — यह इस पूरे पेशे की सबसे बड़ी ग़लतफ़हमी है। सच उलटा है: दुनिया का हर प्रोग्रामर — सबसे बड़ा, सबसे अनुभवी — <b>दिन में दर्जनों</b> ग़लती-संदेश देखता है। कोष्ठक छूटता है, नाम ग़लत टाइप होता है, कोई चीज़ भूल जाती है — इंसान हैं, मशीन नहीं। अच्छे और नए प्रोग्रामर में फ़र्क़ ग़लतियों की <i>गिनती</i> में नहीं, उन्हें <b>पढ़ने की रफ़्तार</b> में है: नया प्रोग्रामर लाल रंग देखकर घबराता है और code को इधर-उधर हथौड़ा मारता है (पाठ-42 की हथौड़ा-मरम्मत!); अनुभवी आख़िरी पंक्ति पढ़ता है, पंक्ति-अंक देखता है, ^ पर नज़र डालता है — और दस सेकंड में इलाज। यानी ग़लती-संदेश फ़ेल होने का सबूत नहीं — वह <b>काम का हिस्सा</b> है, जैसे दर्ज़ी के लिए कुर्ता पहनाकर नाप देखना।</p>
+<p>और "अंग्रेज़ी वाली चिट्ठी मेरे बस की नहीं" — आज आपने देखा कि इसके लिए अंग्रेज़ी का विद्वान होना ज़रूरी नहीं। पूरी चिट्ठी में आपको बस <b>तीन चीज़ें</b> पढ़नी हैं: एक अंक (line 3), एक इशारा (^), और आख़िरी पंक्ति का पहला शब्द — बीमारी का नाम (SyntaxError, NameError — और आगे दो-चार और)। ये नाम गिनती के हैं, और हर एक का मतलब आप बीमारी-पट्टी में लिखते जाएँगे (परसों से!)। एक महीने बाद "NameError" देखते ही आपके मन में अपने-आप आएगा "कोई नाम ग़लत है या उल्टे-कॉमा भूले" — जैसे "दवा की पर्ची" पर लिखा नाम देखते ही गाँव का वैद्य पहचान लेता है। और सबसे बड़ी बात: CSS की चुप बीमारियाँ याद कीजिए — वहाँ कोई चिट्ठी नहीं आती थी, आपको अंधेरे में टटोलना पड़ता था। Python <b>आपको बताता है</b>। <b>लाल चिट्ठी डाँट नहीं — मदद का हाथ है; उसे पढ़ने वाला कभी अकेला नहीं अटकता।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास-खेल: चिट्ठी-मश्क़</h2>
+<p><b>खेल 1 — तीन चिट्ठियाँ, तीन सवाल:</b> पाठ-132 के खेल-2 वाली तीन आख़िरी पंक्तियाँ (भूला उल्टा-कॉमा, भूला कोष्ठक, बड़ा P) निकालिए — न हों, तो अब बनाइए (नक़ल पर!)। हर चिट्ठी पर तीनों सवाल, कॉपी में: क्या हुआ? (आख़िरी पंक्ति) · कहाँ? (line) · ठीक कहाँ? (^) — फिर इलाज, फिर चलाकर पुष्टि। (मशीन न हो, तो इस पाठ की दोनों चिट्ठियों पर यही मश्क़।)</p>
+<p><b>खेल 2 — छपा या नहीं? (दो क़िस्में):</b> पाँच पंक्तियों का प्रोग्राम — print("1") से print("5") — बनाइए। नक़ल-1 में चौथी पंक्ति के उल्टे-कॉमा हटाइए (print(4) नहीं — print(Chaar)!); नक़ल-2 में चौथी का बंद-कोष्ठक। 🔮 दोनों पर दाँव: कितनी पंक्तियाँ छपेंगी चिट्ठी से पहले? — चलाइए। नियम अपनी आँख से पक्का: "कुछ छपा = चलते-चलते (NameError); कुछ नहीं = बनावट (SyntaxError)"।</p>
+<p><b>खेल 3 — सुराग़-शिकार + नई बही:</b> तीन जानबूझकर ग़लतियाँ — Print("Hi"), prnt("Hi"), print "Hi" — हर एक की चिट्ठी में "Did you mean" खोजिए: किसमें मिला, किसमें नहीं? (prnt पर नया Python शायद 'print' सुझाए — आपके संस्करण में क्या आया?) फिर कॉपी में भाग-स की <b>Python बीमारी-पट्टी</b> शुरू कीजिए — पुरानी 23 के आगे, बीमारी-24 से: स्तंभ — नाम · चिट्ठी की आख़िरी पंक्ति · छपा कुछ? · इलाज। परसों का दवाख़ाना पहली चार भरेगा। और दहलीज़-सवाल-2 पर ✓ — "चिल्लाती हैं, और यही अच्छा है।"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आगे क्या सीखेंगे</h2>
+<p>लाल चिट्ठी से दोस्ती हो गई — उसकी पाँच हिस्सों वाली बनावट, नीचे-से-ऊपर के तीन सवाल, SyntaxError (कुछ नहीं चला) बनाम NameError (बीच में रुका), "Did you mean" का सुराग़, और संस्करण की ईमानदारी। भाग-ब की तीनों दहलीज़-दाँवों का मिलान पूरा।</p>
+<p>अब मुनीम जी की असली ताक़त — <b>गिनती</b>। पाठ-129 में एक झलक मिली थी (print(2+3) → 5); कल पूरा परिवार: जोड़ (+), घटाव (-), गुणा (*), भाग (/) — और कुछ चौंकाने वाली बातें: 10/2 का जवाब 5 नहीं, <b>5.0</b> क्यों आता है? 2+3*4 का जवाब 20 है या 14 (भाग-अ का कौन-सा नियम लौटेगा)? और 123456789 × 987654321 — जो काग़ज़ पर आधा घंटा लेता, Python पलक झपकते। साथ में "शब्द + शब्द" का अजीब जोड़: "2" + "3" = ? (पाठ-132 के शब्द-माल और गिनती-माल का सबसे मज़ेदार नतीजा!)। <b>पाठ-135: जोड़-घटाव छपवाओ — print(2+3) — कंप्यूटर = बिजली-तेज़ गिनतीबाज़।</b></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक एक जीवित रास्ता —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%97%E0%A4%BC%E0%A4%B2%E0%A4%A4%E0%A5%80%20%E0%A4%B8%E0%A4%82%E0%A4%A6%E0%A5%87%E0%A4%B6%20%E0%A4%B8%E0%A5%87%20%E0%A4%A6%E0%A5%8B%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%80%20%E0%A4%8F%E0%A4%B0%E0%A4%B0%20Error%20%E0%A4%AA%E0%A4%A2%E0%A4%BC%E0%A4%A8%E0%A4%BE%20%E0%A4%B8%E0%A5%80%E0%A4%96%E0%A5%8B%20%E0%A4%B2%E0%A4%BE%E0%A4%B2%20%E0%A4%B0%E0%A4%82%E0%A4%97%20%E0%A4%B8%E0%A5%87%20%E0%A4%A1%E0%A4%B0%E0%A5%8B%20%E0%A4%AE%E0%A4%A4%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="pl0-133-badlo-teen-line-ki-kavita-chhapwao.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="pl0-135-jod-ghatav-chhapwao-print-2-plus-3-ginti-baaz.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

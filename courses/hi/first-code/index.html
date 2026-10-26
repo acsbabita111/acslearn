@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_pl0_pages.js — कोर्स-बातें PL0_COURSE से) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>पहला कोड — आसान हिंदी में प्रोग्रामिंग का मुफ़्त कोर्स (218 पाठ)</title>
+<meta name="description" content="बिना कंप्यूटर, अपने फ़ोन पर, सरल हिंदी में code सीखिए — सोच से HTML-पन्ने और Python के खेल तक। 218 चित्रमय पाठ, अभ्यास-पुस्तिका, मुफ़्त, बिना login।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/first-code/">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="पहला कोड — आसान हिंदी में प्रोग्रामिंग का मुफ़्त कोर्स (218 पाठ)">
+<meta property="og:description" content="बिना कंप्यूटर, अपने फ़ोन पर, सरल हिंदी में code सीखिए — सोच से HTML-पन्ने और Python के खेल तक। 218 चित्रमय पाठ, अभ्यास-पुस्तिका, मुफ़्त, बिना login।">
+<meta property="og:url" content="https://acslearn.com/courses/hi/first-code/">
+<meta property="og:image" content="https://acslearn.com/assets/og/first-code.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="पहला कोड (First Code) — कंप्यूटर की भाषा की पहली सीढ़ी — सोच से शुरुआत, अपने फ़ोन पर पहला कोड">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="पहला कोड — आसान हिंदी में प्रोग्रामिंग का मुफ़्त कोर्स (218 पाठ)">
+<meta name="twitter:description" content="बिना कंप्यूटर, अपने फ़ोन पर, सरल हिंदी में code सीखिए — सोच से HTML-पन्ने और Python के खेल तक। 218 चित्रमय पाठ, अभ्यास-पुस्तिका, मुफ़्त, बिना login।">
+<meta name="twitter:image" content="https://acslearn.com/assets/og/first-code.png">
+<link rel="alternate" hreflang="hi" href="https://acslearn.com/courses/hi/first-code/">
+<link rel="alternate" hreflang="x-default" href="https://acslearn.com/courses/hi/first-code/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","@id":"https://acslearn.com/courses/hi/first-code/#course","name":"पहला कोड (First Code)","alternateName":["आसान हिन्दी में विश्व स्तरीय चित्रमय बिगनर्स प्रोग्रामिंग लेन्गुएज का फंडामेन्टल कोर्स","First Code — Programming Fundamentals in Easy Hindi"],"description":"बिना कंप्यूटर, अपने फ़ोन पर, सरल हिंदी में code सीखिए — सोच से HTML-पन्ने और Python के खेल तक। 218 चित्रमय पाठ, अभ्यास-पुस्तिका, मुफ़्त, बिना login।","url":"https://acslearn.com/courses/hi/first-code/","inLanguage":"hi","isAccessibleForFree":true,"educationalLevel":"Beginner","coursePrerequisites":"हिंदी पढ़ लेना (लगभग कक्षा-6 का स्तर)","teaches":["कंप्यूटर जैसी ठीक-ठीक सोच","अपना वेब-पन्ना","इंटरनेट की ठगी से बचाव","Python में अपना खेल","ग़लती की चिट्ठी पढ़ना","AI से समझदारी से काम","गाँव में पहला काम","आगे की सीढ़ी"],"image":"https://acslearn.com/assets/og/first-code.png","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com/","logo":"https://acslearn.com/logo.png"},"offers":{"@type":"Offer","price":0,"priceCurrency":"INR","category":"Free","availability":"https://schema.org/InStock"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT48H","inLanguage":"hi"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"यह कोर्स कौन कर सकता है?","acceptedAnswer":{"@type":"Answer","text":"कोई भी, जो हिंदी पढ़ लेता हो — विद्यार्थी, काम करने वाले युवा, घर की बहनें-माताएँ, या बड़े। रजिस्ट्रेशन 10 साल से (10 से 18 साल तक अभिभावक की सहमति से); पढ़ाई बिना रजिस्ट्रेशन भी।"}},{"@type":"Question","name":"न्यूनतम पढ़ाई कितनी चाहिए?","acceptedAnswer":{"@type":"Answer","text":"कोई डिग्री ज़रूरी नहीं। बस हिंदी पढ़ लेना आए — लगभग कक्षा-6 का स्तर।"}},{"@type":"Question","name":"कोर्स कितने दिन का है?","acceptedAnswer":{"@type":"Answer","text":"218 पाठ हैं, हर पाठ 10-15 मिनट का। रोज़ एक-दो पाठ पढ़ें तो लगभग 6 माह — पर अपनी गति से, जल्दी या धीरे।"}},{"@type":"Question","name":"क्या कोई फ़ीस लगती है?","acceptedAnswer":{"@type":"Answer","text":"ऑनलाइन पढ़ाई पूरी तरह मुफ़्त है, बिना login। प्रमाणपत्र-परीक्षा का द्वार खुलने पर उसका शुल्क भुगतान से पहले dashboard पर लिखा होगा।"}},{"@type":"Question","name":"क्या कंप्यूटर या लैपटॉप चाहिए?","acceptedAnswer":{"@type":"Answer","text":"नहीं। पूरा अभ्यास Android फ़ोन (Android 8 या नया) पर होता है।"}},{"@type":"Question","name":"क्या अंग्रेज़ी आनी चाहिए?","acceptedAnswer":{"@type":"Answer","text":"नहीं। सब समझाइश हिंदी में है; code के अंग्रेज़ी शब्द धीरे-धीरे, देवनागरी के साथ सिखाए जाते हैं।"}},{"@type":"Question","name":"इसे पढ़कर मैं क्या कर पाऊँगा?","acceptedAnswer":{"@type":"Answer","text":"कंप्यूटर जैसी ठीक-ठीक सोच, फ़ोन पर अपना वेब-पन्ना, Python में अपना खेल, इंटरनेट-ठगी से बचाव, AI से समझदारी से काम, और गाँव में पहला छोटा काम। यह हुनर की पहली सीढ़ी है, नौकरी का पक्का वादा नहीं।"}},{"@type":"Question","name":"प्रमाणपत्र मिलेगा?","acceptedAnswer":{"@type":"Answer","text":"ACS के कोर्स-प्रमाणपत्र FFGPMTrust जारी करता है। इस कोर्स की परीक्षा का द्वार तैयार हो रहा है — खुलने पर dashboard में दिखेगा।"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"पहला कोड (First Code)","item":"https://acslearn.com/courses/hi/first-code/"}]}]}</script>
+<style>
+.ld-hero{text-align:center}.ld-hero-svg,.ld-journey-svg{width:100%;height:auto;border-radius:16px;display:block}
+.ld-kicker{display:inline-block;margin:14px 0 4px;font-size:17px;font-weight:700;color:#0B1F3A;background:#FFF5D6;border:2px solid #F9A825;border-radius:999px;padding:4px 14px}
+.ld-hero h1{font-size:34px;line-height:1.25;margin:8px 0 4px;color:#0B1F3A}.ld-full{font-size:19px;color:#1565C0;font-weight:700;margin:4px 0}
+.ld-tag{font-size:20px;color:#0B1F3A;margin:8px 0}
+.ld-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:16px 0 6px}
+.ld-btn{display:inline-block;font-size:20px;font-weight:800;text-decoration:none;border-radius:14px;padding:14px 22px}
+.ld-go{background:#2E7D32;color:#F5F7FA}.ld-wb{background:#F5F7FA;color:#0B1F3A;border:3px solid #1565C0}
+.ld-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.ld-stat{background:#0B1F3A;color:#F5F7FA;border-radius:14px;padding:14px 10px;text-align:center}.ld-stat .ld-big{display:block;font-size:30px;font-weight:900;color:#F9A825;line-height:1.2}.ld-stat .ld-small{display:block;font-size:17px;color:#F5F7FA}
+.ld-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.ld-card{display:flex;flex-direction:column;gap:6px;background:#F5F7FA;border:2px solid #0B1F3A;border-left:8px solid #F9A825;border-radius:14px;padding:14px}
+.ld-card b{font-size:19px;color:#0B1F3A}.ld-card span{font-size:17px;color:#0B1F3A;line-height:1.6}.ld-ic{font-size:34px}
+.ld-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.ld-need,.ld-noneed{border-radius:14px;padding:12px 16px}.ld-need{background:#E8F5E9;border:2px solid #2E7D32}.ld-noneed{background:#F5F7FA;border:2px solid #94A3B8}
+.ld-need h3,.ld-noneed h3{font-size:20px;margin:4px 0 8px}.ld-need li,.ld-noneed li{font-size:18px;margin:6px 0}
+.ld-chips{display:flex;flex-wrap:wrap;gap:10px}.ld-chips span{font-size:18px;background:#FFF5D6;border:2px solid #F9A825;border-radius:999px;padding:6px 14px}
+.ld-honest{font-size:18px;background:#F5F7FA;border-left:6px solid #1565C0;border-radius:10px;padding:10px 14px;margin-top:12px}
+.ld-note{font-size:16px;color:#334155}
+.ld-story{background:#FFF5D6;border-radius:16px;padding:6px 16px}
+.ld-faq{border:2px solid #0B1F3A;border-radius:12px;margin:10px 0;padding:10px 14px;background:#F5F7FA}.ld-faq summary{font-size:19px;font-weight:800;cursor:pointer}.ld-faq p{font-size:18px;margin:8px 0 0}
+.ld-end{text-align:center}
+.ld-road{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:8px}
+.ld-step{border-radius:16px;padding:14px;text-align:center}.ld-step .ld-sic{font-size:38px;display:block}.ld-step .ld-sn{display:block;font-size:20px;font-weight:900;margin:4px 0}.ld-step .ld-sd{display:block;font-size:17px;line-height:1.5}.ld-step .ld-sr{display:block;font-size:16px;margin-top:6px;font-weight:700}
+.ld-s0{background:#1565C0;color:#F5F7FA}.ld-s1{background:#2E7D32;color:#F5F7FA}.ld-s2{background:#F9A825;color:#0B1F3A}.ld-s3{background:#0B1F3A;color:#F5F7FA}
+.ci-ch{margin:8px 0}.ci-ch>summary{cursor:pointer;list-style:none;font-size:19px;font-weight:800;color:#0B1F3A;background:#F5F7FA;border:2px solid #0B1F3A;border-radius:12px;padding:10px 14px}.ci-ch>summary::-webkit-details-marker{display:none}.ci-ch>summary::after{content:" ▾";color:#1565C0}.ci-ch[open]>summary::after{content:" ▴"}
+@media (max-width:480px){.ld-hero h1{font-size:28px}.ld-btn{font-size:18px;padding:12px 16px;width:100%;text-align:center}}
+</style>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+<style>.ci-list{list-style:none;padding:0;margin:12px 0}.ci-item{display:flex;justify-content:space-between;gap:10px;padding:12px 4px;border-bottom:1px solid #E2E8F0;font-size:18px}.ci-item a{color:#1565C0;text-decoration:none;font-weight:600}.ci-min{color:#2E7D32;font-size:16px;white-space:nowrap}.ci-soon{color:#0B1F3A;font-size:17px;font-weight:600;margin-top:10px}</style>
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap ci-wrap ld-wrap" data-course-index="first-code">
+<header class="ld-hero">
+<p class="lsn-crumb"><a href="/">होम</a> › <a href="/courses/hi/">कोर्स</a> › पहला कोड (First Code)</p>
+<svg class="ld-hero-svg" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="गाँव का एक बच्चा फ़ोन पर पहला code लिखता है — फ़ोन से उसका अपना वेब-पन्ना बनता है, फिर Python का खेल, और रास्ता दुनिया की ओर जाता है">
+<rect width="800" height="360" fill="#0B1F3A"/>
+<circle cx="690" cy="70" r="34" fill="#F9A825"/>
+<path d="M0 300 Q 200 250 400 290 T 800 270 L800 360 L0 360 Z" fill="#2E7D32"/>
+<path d="M0 320 Q 220 285 420 315 T 800 300 L800 360 L0 360 Z" fill="#1565C0" opacity="0.55"/>
+<g transform="translate(60,170)"><rect x="0" y="40" width="110" height="80" fill="#F5F7FA"/><polygon points="-10,42 55,-5 120,42" fill="#F9A825"/><rect x="42" y="78" width="26" height="42" fill="#1565C0"/><rect x="12" y="58" width="22" height="18" fill="#1565C0"/></g>
+<text x="115" y="318" text-anchor="middle" font-size="18" fill="#F5F7FA" font-weight="bold">मेरा गाँव</text>
+<g transform="translate(250,95)"><rect x="0" y="0" width="120" height="200" rx="18" fill="#F5F7FA" stroke="#F9A825" stroke-width="5"/><rect x="12" y="22" width="96" height="150" rx="6" fill="#0B1F3A"/>
+<text x="20" y="52" font-size="16" fill="#F9A825" font-family="monospace">print(</text><text x="20" y="74" font-size="16" fill="#F5F7FA" font-family="monospace">"नमस्ते"</text><text x="20" y="96" font-size="16" fill="#F9A825" font-family="monospace">)</text>
+<rect x="20" y="118" width="80" height="24" rx="5" fill="#2E7D32"/><text x="60" y="135" text-anchor="middle" font-size="16" fill="#F5F7FA" font-weight="bold">▶ चलाओ</text><circle cx="60" cy="186" r="7" fill="#1565C0"/></g>
+<path d="M 380 190 L 450 190" stroke="#F9A825" stroke-width="5" fill="none"/><polygon points="458,190 444,182 444,198" fill="#F9A825"/>
+<g transform="translate(468,120)"><rect x="0" y="0" width="150" height="110" rx="10" fill="#F5F7FA"/><rect x="0" y="0" width="150" height="24" rx="10" fill="#1565C0"/><text x="75" y="17" text-anchor="middle" font-size="16" fill="#F5F7FA" font-weight="bold">मेरा पन्ना</text>
+<rect x="14" y="36" width="90" height="12" rx="4" fill="#0B1F3A"/><rect x="14" y="56" width="122" height="9" rx="4" fill="#94A3B8"/><rect x="14" y="72" width="104" height="9" rx="4" fill="#94A3B8"/><rect x="14" y="88" width="60" height="14" rx="4" fill="#2E7D32"/></g>
+<path d="M 628 175 L 670 175" stroke="#F9A825" stroke-width="5" fill="none"/><polygon points="678,175 664,167 664,183" fill="#F9A825"/>
+<g transform="translate(722,182)"><circle r="44" fill="#1565C0"/><ellipse rx="44" ry="17" fill="none" stroke="#F5F7FA" stroke-width="3"/><ellipse rx="17" ry="44" fill="none" stroke="#F5F7FA" stroke-width="3"/><line x1="-44" y1="0" x2="44" y2="0" stroke="#F5F7FA" stroke-width="3"/></g>
+<text x="722" y="252" text-anchor="middle" font-size="18" fill="#F5F7FA" font-weight="bold">विश्व तक</text>
+</svg>
+<p class="ld-kicker">मुफ़्त · सरल हिंदी में · अपने फ़ोन पर · बिना login</p>
+<h1>पहला कोड (First Code)</h1>
+<p class="ld-full">आसान हिन्दी में विश्व स्तरीय चित्रमय बिगनर्स प्रोग्रामिंग लेन्गुएज का फंडामेन्टल कोर्स</p>
+<p class="ld-tag">कंप्यूटर की भाषा की पहली सीढ़ी — सोच से शुरुआत, अपने फ़ोन पर पहला कोड</p>
+<div class="ld-cta"><a class="ld-btn ld-go" href="pl0-001-computer-kahan-chhipa-hai.html">▶ पाठ-1 से मुफ़्त शुरू करें</a><a class="ld-btn ld-wb" href="workbook/">📘 अभ्यास-पुस्तिका (PDF)</a></div>
+</header>
+
+<section class="lsn-sec ld-stats">
+<div class="ld-stat"><span class="ld-big">218</span><span class="ld-small">पाठ</span></div><div class="ld-stat"><span class="ld-big">24</span><span class="ld-small">अध्याय</span></div><div class="ld-stat"><span class="ld-big">6 माह</span><span class="ld-small">लगभग (अपनी गति से)</span></div><div class="ld-stat"><span class="ld-big">₹0</span><span class="ld-small">ऑनलाइन पढ़ाई</span></div><div class="ld-stat"><span class="ld-big">10-15</span><span class="ld-small">मिनट हर पाठ</span></div><div class="ld-stat"><span class="ld-big">📱</span><span class="ld-small">फ़ोन काफ़ी</span></div>
+</section>
+
+<section class="lsn-sec"><h2>👥 यह कोर्स किसके लिए है</h2>
+<div class="ld-grid"><div class="ld-card"><span class="ld-ic">🧒</span><b>गाँव-क़स्बे के विद्यार्थी</b><span>10 साल या उससे बड़े — जो कंप्यूटर की भाषा पहली बार, अपनी भाषा में सीखना चाहते हैं।</span></div><div class="ld-card"><span class="ld-ic">🌙</span><b>दिन में काम, रात को पढ़ाई</b><span>घर का बच्चा या युवा, जो काम के साथ अपनी गति से, थोड़ा-थोड़ा रोज़ सीखना चाहता है।</span></div><div class="ld-card"><span class="ld-ic">👩</span><b>घर की बहनें और माताएँ</b><span>घर बैठे, अपने फ़ोन पर — किसी केंद्र पर जाए बिना, अपने समय पर।</span></div><div class="ld-card"><span class="ld-ic">🧓</span><b>बड़े, जिन्हें कंप्यूटर से डर लगता है</b><span>कोर्स बिना कंप्यूटर की सोच से शुरू होता है — पहले खेल, कहानी और काग़ज़; डर धीरे-धीरे अपने-आप जाता है।</span></div></div>
+<p class="ld-note">पढ़ाई के लिए कोई उम्र-सीमा नहीं; रजिस्ट्रेशन 10 साल से — 10 से 18 साल तक अभिभावक की सहमति से (ACS का Learner-नियम)।</p></section>
+
+<section class="lsn-sec"><h2>🎒 क्या चाहिए — और क्या नहीं</h2>
+<div class="ld-two"><div class="ld-need"><h3>✅ बस इतना चाहिए</h3><ul><li>न्यूनतम पढ़ाई: कोई डिग्री ज़रूरी नहीं — हिंदी पढ़ लेना (लगभग कक्षा-6 का स्तर)</li><li>एक Android फ़ोन (Android 8 या उससे नया)</li><li>पाठ खोलने भर का इंटरनेट</li><li>एक कॉपी और क़लम</li><li>रोज़ लगभग 20-30 मिनट</li></ul></div>
+<div class="ld-noneed"><h3>❌ यह ज़रूरी नहीं</h3><ul><li>कंप्यूटर या लैपटॉप</li><li>अंग्रेज़ी जानना</li><li>गणित में तेज़ होना</li><li>पढ़ाई का कोई शुल्क</li></ul></div></div></section>
+
+<section class="lsn-sec"><h2>⏳ कितने दिन का कोर्स है</h2>
+<p>218 पाठ, हर पाठ 10-15 मिनट का। रोज़ एक-दो पाठ पढ़ें, तो लगभग 6 माह में पूरा — पर कोई जल्दी नहीं: रुककर, दोहराकर, अपनी गति से पढ़िए। हर पाठ के बाद अभ्यास-पुस्तिका का उसका पन्ना।</p></section>
+
+<section class="lsn-sec"><h2>🗺 सफ़र का नक़्शा — चार भाग, एक धागा</h2><div class="ld-road"><div class="ld-step ld-s0"><span class="ld-sic">🧠</span><span class="ld-sn">1. भाग-अ</span><span class="ld-sd">बिना कंप्यूटर की सोच</span><span class="ld-sr">पाठ 1-46 · अध्याय 1-6</span></div><div class="ld-step ld-s1"><span class="ld-sic">🌐</span><span class="ld-sn">2. भाग-ब</span><span class="ld-sd">फ़ोन, इंटरनेट और अपने पन्ने</span><span class="ld-sr">पाठ 47-128 · अध्याय 7-15</span></div><div class="ld-step ld-s2"><span class="ld-sic">🐍</span><span class="ld-sn">3. भाग-स</span><span class="ld-sd">Python: पहले print से अपने खेल तक</span><span class="ld-sr">पाठ 129-203 · अध्याय 16-23</span></div><div class="ld-step ld-s3"><span class="ld-sic">🪜</span><span class="ld-sn">4. भाग-द</span><span class="ld-sd">आगे की राहें</span><span class="ld-sr">पाठ 204-218 · अध्याय 24</span></div></div><p class="ld-note">सोच पहले, फिर पन्ने, फिर Python, फिर आगे की राहें — हर भाग अगले की नींव।</p></section>
+
+<section class="lsn-sec"><h2>🎯 इसे पढ़कर क्या कर पाएँगे</h2>
+<div class="ld-grid"><div class="ld-card"><span class="ld-ic">🧠</span><b>कंप्यूटर जैसी ठीक-ठीक सोच</b><span>काम को क़दमों में बाँटना, दोहराव, अगर-तो, टुकड़े — बिना कंप्यूटर (भाग-अ)।</span></div><div class="ld-card"><span class="ld-ic">🌐</span><b>अपना वेब-पन्ना</b><span>फ़ोन पर HTML-CSS से अपना परिचय-पन्ना और रिज़्यूमे (भाग-ब)।</span></div><div class="ld-card"><span class="ld-ic">🛡️</span><b>इंटरनेट की ठगी से बचाव</b><span>OTP, पासवर्ड, नक़ली संदेश और लालच के जाल पहचानना (भाग-ब)।</span></div><div class="ld-card"><span class="ld-ic">🐍</span><b>Python में अपना खेल</b><span>पहले print से शुरू करके "अंदाज़ा लगाओ" खेल तक (भाग-स)।</span></div><div class="ld-card"><span class="ld-ic">🩺</span><b>ग़लती की चिट्ठी पढ़ना</b><span>code की 42 आम बीमारियाँ पहचानना और ख़ुद ठीक करना।</span></div><div class="ld-card"><span class="ld-ic">🤖</span><b>AI से समझदारी से काम</b><span>साफ़ प्रॉम्प्ट लिखना, जवाब परखना — AI सलाहकार है, मालिक नहीं।</span></div><div class="ld-card"><span class="ld-ic">🏪</span><b>गाँव में पहला काम</b><span>पड़ोस की दुकान का पन्ना — पहली कमाई की ईमानदार सोच।</span></div><div class="ld-card"><span class="ld-ic">🪜</span><b>आगे की सीढ़ी</b><span>DCA, AI डिजिटल मास्टर, या कोई हुनर और एक भाषा — ACS में आगे का रास्ता।</span></div></div>
+<p class="ld-honest">यह कोर्स नौकरी या कमाई का पक्का वादा नहीं करता — यह हुनर की पहली सीढ़ी है (ACS की सीढ़ी में प्रशिक्षु से सहायक तक की तैयारी)। आगे का रास्ता आपके अभ्यास और मेहनत से बनता है।</p></section>
+
+<section class="lsn-sec"><h2>🧩 हर पाठ में क्या मिलेगा</h2>
+<div class="ld-chips"><span>🔮 अंदाज़ा पहले</span><span>🖼️ रेखा-चित्र</span><span>▶ चलता हुआ code</span><span>💡 ग़लतफ़हमी तोड़ो</span><span>✍️ अभ्यास-खेल</span><span>📘 अभ्यास-पुस्तिका का पन्ना</span></div></section>
+
+<section class="lsn-sec ld-story"><h2>📖 सीता की कहानी</h2>
+<p>सीता 13 साल की है, गाँव में रहती है। घर में एक ही फ़ोन है — पापा का। शाम को काम निपटाकर वह 20 मिनट माँगती है।</p><p>पहले हफ़्ते उसने कंप्यूटर छुआ तक नहीं — काग़ज़ पर "रोबोट बनो" खेल खेला, चाय बनाने के क़दम लिखे। फिर एक दिन फ़ोन पर उसका अपना पन्ना खुला, जिस पर उसका नाम था। उस शाम वह पूरे घर को दिखाती रही।</p><p>कुछ महीनों बाद उसने Python में "अंदाज़ा लगाओ" खेल बनाया और छोटे भाई से खिलवाया। अब वह भाई को Scratch से दोहराव सिखाती है — और कहती है, "ग़लती से डर नहीं लगता, वह तो सुराग़ है।"</p>
+<p class="ld-note">यह एक काल्पनिक उदाहरण है — यह दिखाने के लिए कि कोर्स कैसे चलता है; किसी असली व्यक्ति का दावा नहीं।</p></section>
+
+<section class="lsn-sec"><h2>🎓 प्रमाणपत्र</h2>
+<p>ACS के कोर्स-प्रमाणपत्र FFGPMTrust जारी करता है, ACS प्रशिक्षण-साथी के रूप में — हर प्रमाणपत्र पर अनोखा नंबर और QR-निशान, दुनिया में कहीं से जाँचने लायक़।</p><p>इस कोर्स की प्रमाणपत्र-परीक्षा का द्वार अभी तैयार हो रहा है। खुलने पर वह रजिस्ट्रेशन के बाद आपके dashboard में दिखेगा — शुल्क और नियम भुगतान से पहले लिखे होंगे।</p><p>प्रमाणपत्र दिशा का निशान है, नौकरी का वादा नहीं — असली सबूत आपके बनाए प्रोग्राम हैं।</p></section>
+
+<section class="lsn-sec"><h2>❓ अक्सर पूछे जाने वाले सवाल</h2>
+<details class="ld-faq"><summary>यह कोर्स कौन कर सकता है?</summary><p>कोई भी, जो हिंदी पढ़ लेता हो — विद्यार्थी, काम करने वाले युवा, घर की बहनें-माताएँ, या बड़े। रजिस्ट्रेशन 10 साल से (10 से 18 साल तक अभिभावक की सहमति से); पढ़ाई बिना रजिस्ट्रेशन भी।</p></details>
+<details class="ld-faq"><summary>न्यूनतम पढ़ाई कितनी चाहिए?</summary><p>कोई डिग्री ज़रूरी नहीं। बस हिंदी पढ़ लेना आए — लगभग कक्षा-6 का स्तर।</p></details>
+<details class="ld-faq"><summary>कोर्स कितने दिन का है?</summary><p>218 पाठ हैं, हर पाठ 10-15 मिनट का। रोज़ एक-दो पाठ पढ़ें तो लगभग 6 माह — पर अपनी गति से, जल्दी या धीरे।</p></details>
+<details class="ld-faq"><summary>क्या कोई फ़ीस लगती है?</summary><p>ऑनलाइन पढ़ाई पूरी तरह मुफ़्त है, बिना login। प्रमाणपत्र-परीक्षा का द्वार खुलने पर उसका शुल्क भुगतान से पहले dashboard पर लिखा होगा।</p></details>
+<details class="ld-faq"><summary>क्या कंप्यूटर या लैपटॉप चाहिए?</summary><p>नहीं। पूरा अभ्यास Android फ़ोन (Android 8 या नया) पर होता है।</p></details>
+<details class="ld-faq"><summary>क्या अंग्रेज़ी आनी चाहिए?</summary><p>नहीं। सब समझाइश हिंदी में है; code के अंग्रेज़ी शब्द धीरे-धीरे, देवनागरी के साथ सिखाए जाते हैं।</p></details>
+<details class="ld-faq"><summary>इसे पढ़कर मैं क्या कर पाऊँगा?</summary><p>कंप्यूटर जैसी ठीक-ठीक सोच, फ़ोन पर अपना वेब-पन्ना, Python में अपना खेल, इंटरनेट-ठगी से बचाव, AI से समझदारी से काम, और गाँव में पहला छोटा काम। यह हुनर की पहली सीढ़ी है, नौकरी का पक्का वादा नहीं।</p></details>
+<details class="ld-faq"><summary>प्रमाणपत्र मिलेगा?</summary><p>ACS के कोर्स-प्रमाणपत्र FFGPMTrust जारी करता है। इस कोर्स की परीक्षा का द्वार तैयार हो रहा है — खुलने पर dashboard में दिखेगा।</p></details></section>
+
+<section class="lsn-sec"><h2>📖 पूरी पाठ-सूची — 24 अध्याय, 218 पाठ</h2>
+<p>किसी भी पाठ पर सीधे जाइए — पढ़ाई मुफ़्त, बिना login।</p></section>
+<details class="ci-ch" open>
+<summary>अध्याय-1: कंप्यूटर अंदर से क्या है · पाठ 1-9</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="1" href="pl0-001-computer-kahan-chhipa-hai.html">पाठ-1: कंप्यूटर कहाँ-कहाँ छिपा है — फ़ोन, टीवी, ट्रैक्टर, ए॰टी॰एम॰</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="2" href="pl0-002-computer-ke-4-kaam.html">पाठ-2: कंप्यूटर के 4 काम — लो, रखो, सोचो, दिखाओ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="3" href="pl0-003-computer-ki-boli-0-aur-1.html">पाठ-3: कंप्यूटर की अपनी बोली — सिर्फ़ 0 और 1</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="4" href="pl0-004-apna-naam-0-1-mein.html">पाठ-4: 0-1 से अक्षर कैसे बनते — अपना नाम 0-1 में लिखो</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="5" href="pl0-005-hardware-software-sharir-soch.html">पाठ-5: हार्डवेयर और सॉफ़्टवेयर — शरीर और सोच</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="6" href="pl0-006-computer-banam-insaan.html">पाठ-6: कंप्यूटर बनाम इंसान — कौन किसमें तेज़</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="7" href="pl0-007-computer-ai-aur-tum.html">पाठ-7: कंप्यूटर, ए॰आई॰ और तुम — ए॰आई॰ क्या है, क्या नहीं</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="8" href="pl0-008-computer-bewakoof-kyon.html">पाठ-8: कंप्यूटर बेवकूफ़ क्यों है — ठीक-ठीक निर्देश की भूख</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="9" href="pl0-009-course-ka-poora-naksha.html">पाठ-9: इस कोर्स का पूरा नक़्शा — सोच से कमाई-राहों तक</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-1 (पाठ 1-9) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-2: निर्देश-खेल — काम की विधि · पाठ 10-17</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="10" href="pl0-010-vidhi-yani-algorithm.html">पाठ-10: विधि यानी एल्गोरिथ्म — चाय बनाने के कदम</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="11" href="pl0-011-nirdesh-khel-dost-robot.html">पाठ-11: निर्देश-खेल: दोस्त को रोबोट बनाओ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="12" href="pl0-012-adhoora-nirdesh-gadbad-natija.html">पाठ-12: अधूरा निर्देश = गड़बड़ नतीजा — "रोटी बेलो" में छिपे 10 कदम</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="13" href="pl0-013-kadam-chhote-kaise-karen.html">पाठ-13: कदम छोटे कैसे करें — एक कदम = एक काम</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="14" href="pl0-014-rasta-batane-ka-khel.html">पाठ-14: रास्ता बताने का खेल — घर से स्कूल, तीर-चित्र से</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="15" href="pl0-015-algorithm-likhne-ka-acs-tarika.html">पाठ-15: एल्गोरिथ्म लिखने का ACS तरीक़ा — क्रम-सूची + तीर-चित्र</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="16" href="pl0-016-do-vidhiyon-ki-tulna.html">पाठ-16: दो विधियों की तुलना — छोटा रास्ता कौन-सा?</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="17" href="pl0-017-abhyas-mela-5-vidhiyan.html">पाठ-17: अभ्यास-मेला: 5 घरेलू कामों की विधि लिखो</a><span class="ci-min">12-14 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-2 (पाठ 10-17) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-3: क्रम · पाठ 18-24</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="18" href="pl0-018-kram-kyon-zaroori-moza-joota.html">पाठ-18: क्रम क्यों ज़रूरी — पहले मोज़ा या पहले जूता?</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="19" href="pl0-019-ulat-palat-ka-khel.html">पाठ-19: उलट-पलट का खेल — कदम आगे-पीछे करो, नतीजा देखो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="20" href="pl0-020-pravah-chitra-pehli-pehchan.html">पाठ-20: प्रवाह-चित्र (फ़्लोचार्ट) की पहली पहचान — डिब्बा और तीर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="21" href="pl0-021-kahani-se-pravah-chitra.html">पाठ-21: कहानी से प्रवाह-चित्र — सुबह उठने से स्कूल तक</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="22" href="pl0-022-galat-kram-pakdo-jamao-khel.html">पाठ-22: ग़लत क्रम पकड़ो — बिखरी विधि जमाओ (जमाओ-खेल)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="23" href="pl0-023-computer-mein-kram-line-dar-line.html">पाठ-23: कंप्यूटर में क्रम — ऊपर से नीचे, लाइन-दर-लाइन</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="24" href="pl0-024-abhyas-mela-kram-paheliyan.html">पाठ-24: अभ्यास-मेला: क्रम-पहेलियाँ</a><span class="ci-min">12-14 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-3 (पाठ 18-24) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-4: दोहराव · पाठ 25-31</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="25" href="pl0-025-dohrav-ki-taqat-10-taali.html">पाठ-25: दोहराव की ताक़त — "10 बार ताली" बनाम 10 बार लिखना</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="26" href="pl0-026-ginti-wala-dohrav-theek-5-baar.html">पाठ-26: गिनती वाला दोहराव — "ठीक 5 बार करो"</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="27" href="pl0-027-shart-wala-dohrav-balti-bhare-tak.html">पाठ-27: शर्त वाला दोहराव — "जब तक बाल्टी न भरे"</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="28" href="pl0-028-dohrav-ke-bheetar-dohrav-chatai.html">पाठ-28: दोहराव के भीतर दोहराव — चटाई की बुनाई (पंक्ति × धागा)</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="29" href="pl0-029-dohrav-pakdo-geet-mala-rangoli.html">पाठ-29: दोहराव पकड़ो — गीत, माला, रंगोली में छिपा लूप</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="30" href="pl0-030-kabhi-na-rukne-wala-dohrav-katha.html">पाठ-30: कभी न रुकने वाला दोहराव — अनंत-लूप का मज़ेदार ख़तरा (कथा)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="31" href="pl0-031-abhyas-mela-loop-khel.html">पाठ-31: अभ्यास-मेला: लूप-खेल</a><span class="ci-min">12-14 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-4 (पाठ 25-31) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-5: अगर-तो · पाठ 32-38</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="32" href="pl0-032-zindagi-ke-agar-to-barish-chhata.html">पाठ-32: ज़िंदगी के अगर-तो — बारिश हो तो छाता</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="33" href="pl0-033-haan-nahi-sawal-computer-ki-poochh.html">पाठ-33: हाँ/नहीं सवाल — कंप्यूटर सिर्फ़ ऐसे ही पूछता है</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="34" href="pl0-034-agar-to-nahi-to-do-raste.html">पाठ-34: अगर-तो-नहीं तो — दो रास्ते, हर दिन ठीक एक</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="35" href="pl0-035-kai-sharten-saath-aur-ya.html">पाठ-35: कई शर्तें साथ — "और" तथा "या" की गुँथाई</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="36" href="pl0-036-pravah-chitra-mein-heera-faisla.html">पाठ-36: प्रवाह-चित्र में हीरा — फ़ैसले का निशान</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="37" href="pl0-037-sardar-kahe-khel-se-shart.html">पाठ-37: "सरदार कहे" — खेल से शर्त की परख</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="38" href="pl0-038-abhyas-mela-agar-to-paheliyan.html">पाठ-38: अभ्यास-मेला: अगर-तो पहेलियाँ</a><span class="ci-min">12-14 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-5 (पाठ 32-38) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-6: टुकड़े, पैटर्न व ग़लती-खोज · पाठ 39-46</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="39" href="pl0-039-badi-samasya-chhote-tukde-shaadi.html">पाठ-39: बड़ी समस्या के छोटे टुकड़े — शादी की तैयारी का गणित</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="40" href="pl0-040-pattern-pehchan-rangoli-pahada-mausam.html">पाठ-40: पैटर्न-पहचान — रंगोली, पहाड़ा, मौसम में दोहराव</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="41" href="pl0-041-zaroori-banam-faltu-naksha.html">पाठ-41: ज़रूरी बनाम फ़ालतू — नक़्शे में सब कुछ क्यों नहीं होता</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="42" href="pl0-042-galti-khoj-ki-soch-debugging.html">पाठ-42: ग़लती-खोज की सोच — ढूँढना शर्म नहीं, हुनर है</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="43" href="pl0-043-khel-20-sawal-aadha-aadha.html">पाठ-43: खेल: 20 सवालों में चीज़ पकड़ो — आधा-आधा काटने की ताक़त</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="44" href="pl0-044-chitra-inton-ki-jhalak-block-bhasha.html">पाठ-44: चित्र-ईंटों की झलक — स्क्रैच जैसी block-भाषाएँ</a><span class="ci-min">10-12 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="45" href="pl0-045-bhag-a-ki-dohrai-6-hathiyar.html">पाठ-45: भाग-अ की दोहराई — 6 हथियार एक नज़र में</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="46" href="pl0-046-aage-kya-phone-uthane-ka-samay.html">पाठ-46: आगे क्या — अब फ़ोन उठाने का समय</a><span class="ci-min">10-12 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-6 (पाठ 39-46) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-7: फ़ोन = प्रयोगशाला · पाठ 47-54</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="47" href="pl0-047-code-ke-liye-kya-chahiye-sirf-phone.html">पाठ-47: कोड लिखने के लिए क्या चाहिए — सिर्फ़ फ़ोन</a><span class="ci-min">10-12 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="48" href="pl0-048-file-kya-folder-kya-phone-ki-almari.html">पाठ-48: फ़ाइल (File) क्या, फ़ोल्डर (Folder) क्या — फ़ोन के अंदर की अलमारी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="49" href="pl0-049-likhne-ka-auzar-text-editor-pehchano.html">पाठ-49: लिखने का औज़ार — टेक्स्ट-एडिटर (Text-Editor) पहचानो (बिना-इंटरनेट)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="50" href="pl0-050-file-ka-naam-aur-poonchh-html.html">पाठ-50: फ़ाइल का नाम और पूँछ — .html पूँछ बदलो, पहचान बदले</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="51" href="pl0-051-browser-kya-hai-code-padhne-wala-jadugar.html">पाठ-51: ब्राउज़र (Browser) क्या है — कोड पढ़ने वाला जादूगर</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="52" href="pl0-052-pehli-file-banao-aur-kholo.html">पाठ-52: पहली फ़ाइल बनाओ और खोलो — पूरा रास्ता कदम-दर-कदम</a><span class="ci-min">13-15 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="53" href="pl0-053-bachat-save-ki-aadat.html">पाठ-53: बचत (सेव / Save) की आदत — लिखा हुआ खोने से बचो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="54" href="pl0-054-abhyas-mela-file-folder-ke-5-kaam.html">पाठ-54: अभ्यास-मेला: फ़ाइल-फ़ोल्डर के 5 काम</a><span class="ci-min">12-14 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-7 (पाठ 47-54) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-8: इंटरनेट व डिजिटल-सुरक्षा · पाठ 55-61</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="55" href="pl0-055-internet-kaise-kaam-karta-hai-dakiya-katha.html">पाठ-55: इंटरनेट कैसे काम करता है — डाकिया-कथा (संदेश का सफ़र)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="56" href="pl0-056-website-kahan-rehti-hai-server-godam-ghar.html">पाठ-56: वेबसाइट (Website) कहाँ रहती है — सर्वर (Server) यानी दुनिया का गोदाम-घर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="57" href="pl0-057-password-mazboot-tala-banana.html">पाठ-57: पासवर्ड (Password) — मज़बूत ताला बनाना, किसी से साझा नहीं</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="58" href="pl0-058-otp-kisi-ko-kabhi-nahi-phone-thagi-pehchan.html">पाठ-58: ओ॰टी॰पी॰ (OTP) किसी को कभी नहीं — फ़ोन-ठगी की असली कहानियाँ व पहचान</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="59" href="pl0-059-niji-baat-online-nahi-lakshman-rekha.html">पाठ-59: निजी बात ऑनलाइन (Online) नहीं — फ़ोटो/पता/गोपनीयता की लक्ष्मण-रेखा (बड़ों को कब बताएँ)</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="60" href="pl0-060-sach-jhooth-ki-pehchan-nakli-sandesh-lalach-jaal.html">पाठ-60: सच-झूठ की पहचान — नक़ली संदेश, लालच-जाल ("इनाम जीता!") से बचाव</a><span class="ci-min">12-14 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="61" href="pl0-061-abhyas-mela-suraksha-ki-7-kasmein-suraksha-patra.html">पाठ-61: अभ्यास-मेला: सुरक्षा की 7 कसमें — अपना सुरक्षा-पत्र बनाओ</a><span class="ci-min">12-14 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-8 (पाठ 55-61) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-9: पहला पेज — नमस्ते दुनिया · पाठ 62-70</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="62" href="pl0-062-andaza-lagao-3-line-code-kya-dikhayega.html">पाठ-62: 🔮 अंदाज़ा लगाओ — यह 3-लाइन कोड (Code) क्या दिखाएगा? (प्रिम की शुरुआत)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="63" href="pl0-063-chalao-namaste-duniya-apni-aankhon-se.html">पाठ-63: ▶ चलाओ — "नमस्ते दुनिया" अपनी आँखों से</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="64" href="pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">पाठ-64: 🔍 जाँचो — तीनों लाइन का एक-एक मतलब</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="65" href="pl0-065-badlo-apna-naam-likho-phir-gaon-ka.html">पाठ-65: ✏ बदलो — अपना नाम लिखो, फिर गाँव का</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="66" href="pl0-066-html-tag-page-ki-chardiwari.html">पाठ-66: html टैग (Tag) — पेज की चारदीवारी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="67" href="pl0-067-body-jo-dikhta-hai-wah-yahin-rehta-hai.html">पाठ-67: body — जो दिखता है, वह यहीं रहता है</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="68" href="pl0-068-toota-code-theek-karo-1-bhoola-hua-tag.html">पाठ-68: टूटा कोड (Code) ठीक करो-1 — भूला हुआ टैग (Tag)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="69" href="pl0-069-banao-mera-pehla-panna-naam-gaon-sapna.html">पाठ-69: 🛠 बनाओ — "मेरा पहला पन्ना" (नाम + गाँव + सपना)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="70" href="pl0-070-abhyas-mela-adhyay-9-jaanch.html">पाठ-70: अभ्यास-मेला + अध्याय-जाँच (अध्याय-9)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-9 (पाठ 62-70) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-10: टैग की जोड़ी · पाठ 71-79</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="71" href="pl0-071-tag-kholo-band-karo-darwaze-ki-jodi.html">पाठ-71: टैग (Tag) = खोलो-बंद करो — दरवाज़े की जोड़ी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="72" href="pl0-072-h1-se-h6-bada-shirshak-chhota-shirshak.html">पाठ-72: h1 से h6 — बड़ा शीर्षक, छोटा शीर्षक</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="73" href="pl0-073-p-baat-kehne-ka-dibba-paragraph.html">पाठ-73: p — बात कहने का डिब्बा (पैराग्राफ़ / Paragraph)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="74" href="pl0-074-br-aur-hr-nai-line-beech-ki-lakeer.html">पाठ-74: br और hr — नई लाइन, बीच की लकीर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="75" href="pl0-075-b-i-u-mota-tircha-rekha-wala.html">पाठ-75: b, i, u — मोटा, तिरछा, रेखा वाला</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="76" href="pl0-076-tag-ke-bheetar-tag-dibbe-me-dibba-nesting.html">पाठ-76: टैग के भीतर टैग — डिब्बे में डिब्बा (नेस्टिंग / Nesting)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="77" href="pl0-077-code-me-apni-parchi-tippani-comment.html">पाठ-77: कोड में अपनी पर्ची — टिप्पणी (कमेंट / Comment)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="78" href="pl0-078-toota-code-theek-karo-2-uljhi-jodiyan.html">पाठ-78: टूटा कोड ठीक करो-2 — उलझी जोड़ियाँ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="79" href="pl0-079-banao-ek-panna-kahani-shirshak-teen-paira.html">पाठ-79: 🛠 बनाओ — एक-पन्ना कहानी (शीर्षक + 3 पैरा)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-10 (पाठ 71-79) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-11: चित्र, कड़ी व टैग की जेबें · पाठ 80-89</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="80" href="pl0-080-img-page-par-chitra-lao.html">पाठ-80: img — पेज पर चित्र लाओ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="81" href="pl0-081-chitra-ka-pata-src-file-kahan-rakhi-hai.html">पाठ-81: चित्र का पता — src यानी फ़ाइल कहाँ रखी है</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="82" href="pl0-082-alt-chitra-na-khule-to-shabd-bolen.html">पाठ-82: alt — चित्र न खुले तो शब्द बोलें (गूँगा-fallback निषेध की पहली सीख)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="83" href="pl0-083-a-kadi-link-ek-panne-se-doosre-tak.html">पाठ-83: a — कड़ी (लिंक / Link), एक पन्ने से दूसरे तक</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="84" href="pl0-084-do-panne-jodo-chhoti-website-ka-janm.html">पाठ-84: अपने दो पन्नों को जोड़ो — छोटी वेबसाइट (Website) का जन्म</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="85" href="pl0-085-bahri-kadi-duniya-ke-panne-tak-nai-khidki.html">पाठ-85: बाहरी कड़ी — दुनिया के किसी पन्ने तक (नई खिड़की का सलीक़ा)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="86" href="pl0-086-chitra-par-kadi-dabane-layak-tasveer.html">पाठ-86: चित्र पर कड़ी — दबाने लायक़ तस्वीर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="87" href="pl0-087-tag-ki-jeben-attribute-src-href-alt.html">पाठ-87: टैग की जेबें — ऐट्रिब्यूट (Attribute): src, href, alt</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="88" href="pl0-088-toota-code-theek-karo-3-mari-kadi-gayab-chitra.html">पाठ-88: टूटा कोड ठीक करो-3 — मरी कड़ी, ग़ायब चित्र</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="89" href="pl0-089-banao-mera-gaon-do-panna-album.html">पाठ-89: 🛠 बनाओ — "मेरा गाँव" 2-पन्ना एल्बम (Album)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-11 (पाठ 80-89) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-12: सूची व तालिका · पाठ 90-98</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="90" href="pl0-090-ul-li-bindu-suchi-kharidari-ki-parchi.html">पाठ-90: ul-li — बिंदु-सूची (ख़रीदारी की पर्ची)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="91" href="pl0-091-ol-li-ginti-suchi-vidhi-ke-kadam.html">पाठ-91: ol-li — गिनती-सूची (विधि के कदम — भाग-अ का एल्गोरिथ्म याद करो!)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="92" href="pl0-092-suchi-me-suchi-dibbe-me-dibba-phir-se.html">पाठ-92: सूची में सूची — डिब्बे में डिब्बा फिर से</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="93" href="pl0-093-talika-table-ki-pehli-pehchaan-pankti-aur-khana.html">पाठ-93: तालिका (टेबल / Table) की पहली पहचान — पंक्ति और खाना</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="94" href="pl0-094-tr-td-th-talika-ke-teen-auzaar.html">पाठ-94: tr, td, th — तालिका के तीन औज़ार</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="95" href="pl0-095-apni-samay-sarni-banao.html">पाठ-95: अपनी समय-सारणी बनाओ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="96" href="pl0-096-dukaan-ka-bhav-patra-talika-suchi-milakar.html">पाठ-96: दुकान का भाव-पत्र बनाओ — तालिका + सूची मिलाकर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="97" href="pl0-097-toota-code-theek-karo-4-bikhri-talika.html">पाठ-97: टूटा कोड ठीक करो-4 — बिखरी तालिका</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="98" href="pl0-098-abhyas-mela-adhyay-12-jaanch.html">पाठ-98: अभ्यास-मेला + अध्याय-जाँच (अध्याय-12)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-12 (पाठ 90-98) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-13: सी॰एस॰एस॰ — रंग-रूप की भाषा · पाठ 99-108</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="99" href="pl0-099-css-kya-hai-html-shareer-css-kapde.html">पाठ-99: CSS क्या है — HTML शरीर, CSS कपड़े</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="100" href="pl0-100-style-lagane-ka-pehla-tarika-tag-ke-bheetar.html">पाठ-100: style लगाने का पहला तरीक़ा — टैग के भीतर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="101" href="pl0-101-color-aksharon-ka-rang-naam-se.html">पाठ-101: color — अक्षरों का रंग (नाम से)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="102" href="pl0-102-background-color-peeche-ka-rang.html">पाठ-102: background-color — पीछे का रंग</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="103" href="pl0-103-rang-ke-code-acs-ke-apne-5-rang.html">पाठ-103: रंग के कोड (#…) — ACS के अपने 5 रंग पहचानो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="104" href="pl0-104-font-size-akshar-chhota-bada-16-se-chhota-kyon-nahi.html">पाठ-104: font-size — अक्षर छोटा-बड़ा (px; "16 से छोटा क्यों नहीं" — बुज़ुर्ग-आँख की ACS-कहानी)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="105" href="pl0-105-style-tag-sab-niyam-ek-jagah.html">पाठ-105: style टैग — सब नियम एक जगह ("एक चीज़ = एक जगह" की पहली झलक)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="106" href="pl0-106-class-ek-niyam-kai-jagah.html">पाठ-106: class — एक नियम, कई जगह</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="107" href="pl0-107-toota-code-theek-karo-5-bigde-rang.html">पाठ-107: टूटा कोड ठीक करो-5 — बिगड़े रंग</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="108" href="pl0-108-banao-apne-kahani-panne-ko-rango.html">पाठ-108: 🛠 बनाओ — अपने कहानी-पन्ने को रंगो</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-13 (पाठ 99-108) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-14: सजावट व जमावट · पाठ 109-118</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="109" href="pl0-109-dibbe-ki-soch-page-ki-har-cheez-ek-dibba-box.html">पाठ-109: डिब्बे की सोच — पेज की हर चीज़ एक डिब्बा (बॉक्स / Box)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="110" href="pl0-110-border-dibbe-ka-kinara.html">पाठ-110: border — डिब्बे का किनारा</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="111" href="pl0-111-padding-dibbe-ke-andar-ki-saans.html">पाठ-111: padding — डिब्बे के अंदर की साँस</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="112" href="pl0-112-margin-dibbon-ke-beech-ki-doori.html">पाठ-112: margin — डिब्बों के बीच की दूरी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="113" href="pl0-113-text-align-baayen-beech-daayen.html">पाठ-113: text-align — बाएँ, बीच, दाएँ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="114" href="pl0-114-width-va-height-dibbe-ka-naap.html">पाठ-114: width व height — डिब्बे का नाप</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="115" href="pl0-115-gol-kone-border-radius-pehli-shobha.html">पाठ-115: गोल कोने — border-radius, पहली शोभा</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="116" href="pl0-116-div-bina-naam-ka-dibba-sabka-saathi.html">पाठ-116: div — बिना-नाम का डिब्बा, सबका साथी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="117" href="pl0-117-toota-code-theek-karo-6-chipke-dibbe.html">पाठ-117: टूटा कोड ठीक करो-6 — चिपके डिब्बे</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="118" href="pl0-118-banao-rangeen-poster-panna-gaon-ke-mele-ka-vigyapan.html">पाठ-118: 🛠 बनाओ — रंगीन पोस्टर (Poster)-पन्ना (गाँव के मेले का विज्ञापन)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-14 (पाठ 109-118) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-15: 🛠 बड़ा प्रोजेक्ट — अपना परिचय-पेज · पाठ 119-128</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="119" href="pl0-119-project-ka-naksha-pehle-kagaz-par-khaka.html">पाठ-119: प्रोजेक्ट (Project) का नक़्शा — पहले काग़ज़ पर खाका (टुकड़े-सोच की वापसी)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="120" href="pl0-120-dhancha-khada-karo-shirshak-photo-jagah-teen-hisse.html">पाठ-120: ढाँचा खड़ा करो — शीर्षक, फ़ोटो-जगह, 3 हिस्से</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="121" href="pl0-121-mere-baare-me-hissa.html">पाठ-121: "मेरे बारे में" हिस्सा</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="122" href="pl0-122-mera-hunar-suchi.html">पाठ-122: "मेरा हुनर" सूची</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="123" href="pl0-123-mera-sapna-aur-sampark-kadi.html">पाठ-123: "मेरा सपना" + संपर्क-कड़ी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="124" href="pl0-124-rang-roop-acs-5-rang-se-sajao.html">पाठ-124: रंग-रूप — ACS 5-रंग से सजाओ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="125" href="pl0-125-mobile-par-janchao-chhota-parda-bada-parda.html">पाठ-125: मोबाइल पर जँचाओ — छोटा परदा, बड़ा परदा</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="126" href="pl0-126-dost-se-janchwao-do-aankhen-behtar.html">पाठ-126: दोस्त से जँचवाओ — दो आँखें बेहतर (जोड़ी-जाँच की आदत)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="127" href="pl0-127-aakhri-galti-khoj-apni-jaanch-suchi-se-safai.html">पाठ-127: आख़िरी ग़लती-खोज — अपनी जाँच-सूची से सफ़ाई</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="128" href="pl0-128-shabashi-pehla-asli-kaam-resume-career-kit.html">पाठ-128: शाबाशी-पाठ: पहला असली काम तैयार — आगे रिज़्यूमे (Resume)/करियर-किट कड़ी</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-15 (पाठ 119-128) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-16: print — कंप्यूटर से बुलवाओ · पाठ 129-137</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="129" href="pl0-129-programming-bhasha-banam-html-dikhana-banam-sochna.html">पाठ-129: प्रोग्रामिंग भाषा बनाम HTML — दिखाना बनाम सोचना-करना</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="130" href="pl0-130-python-kahan-chalayen-phone-ke-muft-raste.html">पाठ-130: पाइथन कहाँ चलाएँ — फ़ोन के मुफ़्त रास्ते (बाहरी site कड़ी-मात्र — "ख़ुद verify करें"; बिना चलाए भी पाठ पूरा समझ आएगा)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="131" href="pl0-131-andaza-chalao-print-namaste.html">पाठ-131: 🔮 अंदाज़ा → ▶ चलाओ — print("नमस्ते")</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="132" href="pl0-132-jaancho-koshthak-aur-ulte-comma-ka-raaz.html">पाठ-132: 🔍 जाँचो — कोष्ठक और उल्टे-कॉमा का राज़</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="133" href="pl0-133-badlo-teen-line-ki-kavita-chhapwao.html">पाठ-133: ✏ बदलो — तीन लाइन की कविता छपवाओ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="134" href="pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">पाठ-134: ग़लती-संदेश से दोस्ती — एरर (Error) पढ़ना सीखो, लाल रंग से डरो मत</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="135" href="pl0-135-jod-ghatav-chhapwao-print-2-plus-3-ginti-baaz.html">पाठ-135: जोड़-घटाव छपवाओ — print(2+3) — कंप्यूटर = बिजली-तेज़ गिनतीबाज़</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="136" href="pl0-136-toota-code-theek-karo-7-khoya-koshthak.html">पाठ-136: टूटा कोड ठीक करो-7 — खोया कोष्ठक</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="137" href="pl0-137-banao-naam-pata-sapna-pehla-program.html">पाठ-137: 🛠 बनाओ — नाम-पता-सपना छापने वाला पहला प्रोग्राम (Program)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-16 (पाठ 129-137) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-17: डिब्बा · पाठ 138-146</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="138" href="pl0-138-variable-naam-wala-dibba.html">पाठ-138: वेरिएबल (Variable) = नाम वाला डिब्बा — naam = "सीता"</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="139" href="pl0-139-dibbe-me-sankhya-umar-14.html">पाठ-139: डिब्बे में संख्या — umar = 14</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="140" href="pl0-140-dibba-badlo-purana-nikalo-naya-rakho.html">पाठ-140: डिब्बा बदलो — पुराना निकालो, नया रखो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="141" href="pl0-141-do-dibbe-saath-chhapo-naam-aur-umar.html">पाठ-141: दो डिब्बे साथ छापो — naam और umar की जोड़ी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="142" href="pl0-142-shabd-dibba-banam-sankhya-dibba-5-aur-5.html">पाठ-142: शब्द-डिब्बा बनाम संख्या-डिब्बा — "5" और 5 का फ़र्क़</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="143" href="pl0-143-achhe-naam-rakho-dibbe-par-saaf-parchi.html">पाठ-143: अच्छे नाम रखो — डिब्बे पर साफ़ पर्ची</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="144" href="pl0-144-mashhoor-galatfahmi-dibba-itihas-yaad-nahi-rakhta.html">पाठ-144: मशहूर ग़लतफ़हमी: डिब्बा इतिहास "याद" नहीं रखता — सिर्फ़ ताज़ा चीज़</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="145" href="pl0-145-toota-code-theek-karo-8-galat-naam-ki-pukaar.html">पाठ-145: टूटा कोड ठीक करो-8 — ग़लत नाम की पुकार</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="146" href="pl0-146-banao-dukaan-ki-3-cheezon-ka-bhav-hisab.html">पाठ-146: 🛠 बनाओ — अपनी दुकान की 3 चीज़ों का भाव-हिसाब</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-17 (पाठ 138-146) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-18: input — कंप्यूटर पूछे, तुम बताओ · पाठ 147-155</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="147" href="pl0-147-input-sawal-poochhne-ka-jaadu.html">पाठ-147: input() — सवाल पूछने का जादू</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="148" href="pl0-148-jawab-ko-dibbe-me-rakho-naam-input.html">पाठ-148: जवाब को डिब्बे में रखो — naam = input("नाम?")</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="149" href="pl0-149-poochho-aur-jawab-me-buno-namaste-sita.html">पाठ-149: पूछो और जवाब में बुनो — "नमस्ते, सीता!"</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="150" href="pl0-150-sankhya-poochhna-int-kyon-chahiye.html">पाठ-150: संख्या पूछना — int() क्यों चाहिए (मशहूर उलझन की जड़)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="151" href="pl0-151-do-sankhyaen-poochhkar-jodo-pehla-calculator.html">पाठ-151: दो संख्याएँ पूछकर जोड़ो — पहला कैलकुलेटर (Calculator)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="152" href="pl0-152-umar-se-janm-saal-nikalo.html">पाठ-152: उम्र से जन्म-साल निकालो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="153" href="pl0-153-toota-code-theek-karo-9-5-plus-3-53-ulajhan.html">पाठ-153: टूटा कोड ठीक करो-9 — "5"+"3"=53 वाली उलझन</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="154" href="pl0-154-banao-mujhse-milo-sawal-jawab-program.html">पाठ-154: 🛠 बनाओ — "मुझसे मिलो" सवाल-जवाब प्रोग्राम</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="155" href="pl0-155-abhyas-mela-aur-adhyay-jaanch-input.html">पाठ-155: अभ्यास-मेला + अध्याय-जाँच</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-18 (पाठ 147-155) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-19: अगर-तो कोड में · पाठ 156-164</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="156" href="pl0-156-if-ki-wapsi-bhaag-a-ki-chhatri-ab-code-me.html">पाठ-156: if की वापसी — भाग-अ की छतरी अब कोड में</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="157" href="pl0-157-do-barabar-ka-matlab-barabari-jaanchna.html">पाठ-157: == का मतलब — बराबरी जाँचना (= से फ़र्क़ — दुनिया की सबसे मशहूर ग़लतफ़हमी)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="158" href="pl0-158-if-else-paas-ya-phir-mehnat.html">पाठ-158: if-else — पास, या फिर मेहनत</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="159" href="pl0-159-chhota-bada-jaancho-tulna-chinh.html">पाठ-159: &gt;, &lt;, &gt;= — छोटा-बड़ा जाँचो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="160" href="pl0-160-elif-kai-raaste-thanda-garam-barsaat.html">पाठ-160: elif — कई रास्ते (ठंडा-गरम-बरसात)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="161" href="pl0-161-hashiya-indent-python-ki-lakshman-rekha.html">पाठ-161: हाशिया (इंडेंट / Indent) — पाइथन की लक्ष्मण-रेखा</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="162" href="pl0-162-and-or-do-sharten-saath.html">पाठ-162: and, or — दो शर्तें साथ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="163" href="pl0-163-toota-code-theek-karo-10-bhatka-hashiya.html">पाठ-163: टूटा कोड ठीक करो-10 — भटका हाशिया</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="164" href="pl0-164-banao-paas-fail-batane-wala-program.html">पाठ-164: 🛠 बनाओ — "पास-फ़ेल बताने वाला" प्रोग्राम</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-19 (पाठ 156-164) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-20: दोहराव कोड में · पाठ 165-174</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="165" href="pl0-165-for-ki-pehli-daud-1-se-10-ginti.html">पाठ-165: for की पहली दौड़ — 1 से 10 गिनती</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="166" href="pl0-166-range-kahan-se-kahan-tak.html">पाठ-166: range() — कहाँ से कहाँ तक</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="167" href="pl0-167-loop-ke-bhitar-print-2-ka-pahada-3-line-me.html">पाठ-167: लूप के भीतर print — 2 का पहाड़ा सिर्फ़ 3 लाइन में!</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="168" href="pl0-168-loop-plus-if-sirf-sam-sankhyaen-chhapo.html">पाठ-168: लूप + if — सिर्फ़ सम संख्याएँ छापो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="169" href="pl0-169-while-jab-tak-shart-sach.html">पाठ-169: while — जब तक शर्त सच</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="170" href="pl0-170-jod-jama-karo-1-se-100-gauss-ki-baal-katha.html">पाठ-170: जोड़ जमा करो — 1 से 100 का जोड़ (गणितज्ञ गाउस/Gauss की बाल-कथा)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="171" href="pl0-171-anant-loop-phir-mila-ab-code-me-aur-nikalna.html">पाठ-171: अनंत-लूप फिर मिला — अब कोड में, और उससे निकलना</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="172" href="pl0-172-loop-ke-bhitar-loop-taaron-ka-trikon.html">पाठ-172: लूप के भीतर लूप — तारों (*) का त्रिकोण</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="173" href="pl0-173-toota-code-theek-karo-11-kabhi-na-rukne-wala-while.html">पाठ-173: टूटा कोड ठीक करो-11 — कभी न रुकने वाला while</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="174" href="pl0-174-banao-pahada-chhapu-program.html">पाठ-174: 🛠 बनाओ — पहाड़ा-छापू प्रोग्राम (पूछो कौन-सा, छापो पूरा)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-20 (पाठ 165-174) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-21: सूची व अक्षर-माला · पाठ 175-184</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="175" href="pl0-175-list-ek-dibbe-me-kai-cheezen.html">पाठ-175: लिस्ट (List) = एक डिब्बे में कई चीज़ें — आलू, प्याज़ एक साथ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="176" href="pl0-176-ginti-0-se-pehli-cheez-0-number-par.html">पाठ-176: गिनती 0 से — पहली चीज़ 0 नंबर पर (मशहूर ग़लतफ़हमी #2)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="177" href="pl0-177-cheez-jodo-hatao-append-remove.html">पाठ-177: चीज़ जोड़ो-हटाओ — append, remove</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="178" href="pl0-178-list-par-loop-har-cheez-ek-ek-kar.html">पाठ-178: लिस्ट पर लूप — हर चीज़ एक-एक कर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="179" href="pl0-179-len-kitni-cheezen-hain.html">पाठ-179: len() — कितनी चीज़ें हैं</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="180" href="pl0-180-akshar-mala-string-bhi-mala-jaisi.html">पाठ-180: अक्षर-माला (स्ट्रिंग / String) भी माला जैसी — len(), पता, जोड़ना (शब्दों पर वही जादू)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="181" href="pl0-181-list-plus-if-kya-aalu-suchi-me-hai.html">पाठ-181: लिस्ट + if — "क्या आलू सूची में है?"</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="182" href="pl0-182-chhote-se-bada-kram-sort-ki-jhalak.html">पाठ-182: छोटे-से-बड़ा क्रम — sort की झलक</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="183" href="pl0-183-toota-code-theek-karo-12-seema-ke-bahar-ki-pukaar.html">पाठ-183: टूटा कोड ठीक करो-12 — सीमा के बाहर की पुकार (5वीं पुकार, जब चीज़ें 3 ही)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="184" href="pl0-184-banao-kharidari-suchi-program.html">पाठ-184: 🛠 बनाओ — ख़रीदारी-सूची प्रोग्राम (जोड़ो, देखो, गिनो)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-21 (पाठ 175-184) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-22: काम का पुर्ज़ा — फ़ंक्शन · पाठ 185-193</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="185" href="pl0-185-purza-kya-hai-ek-baar-banao-sau-baar-chalao-def.html">पाठ-185: पुर्ज़ा क्या है — एक बार बनाओ, सौ बार चलाओ (def की पहली पहचान)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="186" href="pl0-186-purza-bulana-banane-aur-chalane-ka-fark.html">पाठ-186: पुर्ज़ा बुलाना — बनाने और चलाने का फ़र्क़ (मशहूर ग़लतफ़हमी: बुलाओगे नहीं तो चलेगा नहीं)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="187" href="pl0-187-purze-ko-saman-do-parameter-ki-khidki.html">पाठ-187: पुर्ज़े को सामान दो — पैरामीटर (Parameter) की खिड़की</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="188" href="pl0-188-purza-lautaye-return-ka-tohfa.html">पाठ-188: पुर्ज़ा लौटाए — return का तोहफ़ा</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="189" href="pl0-189-print-banam-return-dikhana-banam-thamana.html">पाठ-189: print बनाम return — दिखाना बनाम थमाना (मशहूर ग़लतफ़हमी #2)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="190" href="pl0-190-ek-cheez-ek-jagah-dohraya-code-purze-me-sameto.html">पाठ-190: "एक चीज़ = एक जगह" — दोहराया कोड पुर्ज़े में समेटो (ACS का अपना नियम, कोड में!)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="191" href="pl0-191-purzon-se-saaf-program-bada-kaam-chhote-hisse.html">पाठ-191: पुर्ज़ों से साफ़ प्रोग्राम — बड़ा काम, छोटे हिस्से (भाग-अ की टुकड़े-सोच की वापसी)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="192" href="pl0-192-toota-code-theek-karo-13-bin-bulaya-bhatka-return.html">पाठ-192: टूटा कोड ठीक करो-13 — बिन बुलाया पुर्ज़ा, भटका return</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="193" href="pl0-193-banao-hisab-purze-teen-purzon-ki-apni-peti.html">पाठ-193: 🛠 बनाओ — हिसाब-पुर्ज़े (जोड़, पहाड़ा, नमस्ते — तीन पुर्ज़ों की अपनी पेटी)</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-22 (पाठ 185-193) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-23: 🛠 बड़ा प्रोजेक्ट — "अंदाज़ा लगाओ" खेल · पाठ 194-203</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="194" href="pl0-194-khel-ka-naksha-kagaz-par-niyam-pravah-chitra.html">पाठ-194: खेल का नक़्शा — काग़ज़ पर नियम व प्रवाह-चित्र</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="195" href="pl0-195-random-computer-man-me-sankhya-rakhe.html">पाठ-195: random — कंप्यूटर मन में संख्या रखे</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="196" href="pl0-196-khiladi-se-poochho-input-ki-wapsi.html">पाठ-196: खिलाड़ी से पूछो — input की वापसी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="197" href="pl0-197-upar-neeche-ka-ishara-if-elif-else.html">पाठ-197: ऊपर-नीचे का इशारा — if-elif-else</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="198" href="pl0-198-baar-baar-mauka-while-se-khel-chakra.html">पाठ-198: बार-बार मौक़ा — while से खेल-चक्र</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="199" href="pl0-199-koshishen-gino-dibbe-ka-hisab.html">पाठ-199: कोशिशें गिनो — डिब्बे (variable) का हिसाब</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="200" href="pl0-200-khel-ko-purzon-me-banto-function-se-suthra-code.html">पाठ-200: खेल को पुर्ज़ों में बाँटो — function से सुथरा कोड</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="201" href="pl0-201-jeet-ka-jashn-phir-khelein-jodi-jaanch.html">पाठ-201: जीत का जश्न + "फिर खेलें?" — और दोस्त से खिलवाओ (जोड़ी-जाँच)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="202" href="pl0-202-aakhiri-safai-code-me-tippani-likho.html">पाठ-202: आख़िरी सफ़ाई — अपने कोड में टिप्पणी लिखो</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="203" href="pl0-203-shabashi-tum-programmer-ban-gaye-pramanpatra-dwar.html">पाठ-203: शाबाशी-पाठ: तुम प्रोग्रामर (Programmer) बन गए — प्रमाणपत्र-द्वार की जानकारी</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-23 (पाठ 194-203) पूरा ✅</p>
+</details>
+
+<details class="ci-ch">
+<summary>अध्याय-24: 12 भाषाओं का परिवार व कमाई-द्वार · पाठ 204-218</summary>
+<ul class="ci-list">
+<li class="ci-item"><a class="crs-lsn" data-num="204" href="pl0-204-peeche-mudkar-dekho-23-adhyayon-ka-naksha.html">पाठ-204: पीछे मुड़कर देखो — 23 अध्यायों का एक-पन्ना नक़्शा</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="205" href="pl0-205-12-computer-bhashaon-ka-parivar-kaun-kis-kaam-ki.html">पाठ-205: 12 कंप्यूटर-भाषाओं का परिवार — कौन किस काम की</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="206" href="pl0-206-python-aage-ai-data-swachalan-ki-raah.html">पाठ-206: पाइथन आगे — ए॰आई॰ (AI), डेटा (Data), स्वचालन की राह</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="207" href="pl0-207-javascript-pannon-me-jaan-dalna.html">पाठ-207: जावास्क्रिप्ट (JavaScript) — पन्नों में जान डालना (HTML का अगला कदम)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="208" href="pl0-208-scratch-chhote-bhai-behan-ko-sikhao.html">पाठ-208: स्क्रैच (Scratch) — छोटे भाई-बहन को सिखाओ (ऐप-रास्ता)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="209" href="pl0-209-sql-dukanon-bankon-ka-hisab-ghar.html">पाठ-209: एसक्यूएल (SQL) — दुकानों-बैंकों का हिसाब-घर</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="210" href="pl0-210-excel-sutra-daftar-ki-rozi.html">पाठ-210: एक्सेल (Excel)-सूत्र — दफ़्तर की रोज़ी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="211" href="pl0-211-c-machine-ke-andar-ki-duniya-iot-drone.html">पाठ-211: सी (C) — मशीन के अंदर की दुनिया (आई॰ओ॰टी॰/IoT, ड्रोन/Drone)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="212" href="pl0-212-kotlin-java-app-banane-wale.html">पाठ-212: कोटलिन (Kotlin)/जावा (Java) — ऐप बनाने वाले</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="213" href="pl0-213-ai-se-kaam-lena-prompt-likhne-ka-hunar.html">पाठ-213: ए॰आई॰ से काम लेना — प्रॉम्प्ट (Prompt) लिखने का हुनर (भाषा नहीं, हुनर)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="214" href="pl0-214-muft-seekhne-ke-vishwa-ghat-adhikarik-kadiyan.html">पाठ-214: मुफ़्त सीखने के विश्व-घाट — आधिकारिक कड़ियाँ</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="215" href="pl0-215-kamai-ke-5-dwar-naukri-ped-par-code-hunar.html">पाठ-215: कमाई के 5 द्वार — नौकरी-पेड़ पर कोड-हुनर कहाँ बैठता है</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="216" href="pl0-216-gaon-me-pehla-kaam-padosi-dukan-ka-panna.html">पाठ-216: अपने गाँव में पहला काम — पड़ोसी दुकान का पन्ना बनाओ (पहली-कमाई की सोच)</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="217" href="pl0-217-aage-ka-acs-rasta-dca-ai-digital-master.html">पाठ-217: आगे का ACS-रास्ता — डी॰सी॰ए॰ (DCA) · AI डिजिटल मास्टर · प्रमाणपत्र-सीढ़ी</a><span class="ci-min">11-13 मिनट</span></li>
+<li class="ci-item"><a class="crs-lsn" data-num="218" href="pl0-218-vidaai-apna-lur-pehchano-khagaria-se-vishva-tak.html">पाठ-218: विदाई-पाठ: अपना लूर पहचानो — खगड़िया से विश्व तक</a><span class="ci-min">11-13 मिनट</span></li>
+</ul>
+<p class="ci-soon">अध्याय-24 (पाठ 204-218) पूरा ✅</p>
+</details>
+
+
+<section class="lsn-sec ld-end"><p class="ld-tag">पहला क़दम आज — पाठ-1 सिर्फ़ 11 मिनट का है।</p>
+<div class="ld-cta"><a class="ld-btn ld-go" href="pl0-001-computer-kahan-chhipa-hai.html">▶ पाठ-1 से शुरू करें</a><a class="ld-btn ld-wb" href="workbook/">📘 अभ्यास-पुस्तिका</a></div></section>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+</body>
+</html>

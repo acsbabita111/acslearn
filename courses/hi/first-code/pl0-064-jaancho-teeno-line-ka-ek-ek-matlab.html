@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 15-Jul-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PRIMM-I: tag की चीर-फाड़ + जुड़ाई-मुक़दमा | पहला कोड पाठ-64</title>
+<meta name="description" content="जाँच-अदालत: tag की पोशाक के तीन अंग, तिरछी लकीर का ठीक मतलब, browser का पढ़ना-निगलना, whitespace-जुड़ाई का पूरा मुक़दमा — और &quot;बदल-के-देखो&quot; जाँच-औज़ार।">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/first-code/pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="PRIMM-I: tag की चीर-फाड़ + जुड़ाई-मुक़दमा | पहला कोड पाठ-64">
+<meta property="og:description" content="जाँच-अदालत: tag की पोशाक के तीन अंग, तिरछी लकीर का ठीक मतलब, browser का पढ़ना-निगलना, whitespace-जुड़ाई का पूरा मुक़दमा — और &quot;बदल-के-देखो&quot; जाँच-औज़ार।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/first-code/pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">
+<meta property="og:image" content="https://acslearn.com/assets/og/first-code.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PRIMM-I: tag की चीर-फाड़ + जुड़ाई-मुक़दमा | पहला कोड पाठ-64">
+<meta name="twitter:description" content="जाँच-अदालत: tag की पोशाक के तीन अंग, तिरछी लकीर का ठीक मतलब, browser का पढ़ना-निगलना, whitespace-जुड़ाई का पूरा मुक़दमा — और &quot;बदल-के-देखो&quot; जाँच-औज़ार।">
+<meta name="twitter:image" content="https://acslearn.com/assets/og/first-code.png">
+<link rel="alternate" hreflang="hi" href="https://acslearn.com/courses/hi/first-code/pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">
+<link rel="alternate" hreflang="x-default" href="https://acslearn.com/courses/hi/first-code/pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-64: 🔍 जाँचो — तीनों लाइन का एक-एक मतलब","description":"जाँच-अदालत: tag की पोशाक के तीन अंग, तिरछी लकीर का ठीक मतलब, browser का पढ़ना-निगलना, whitespace-जुड़ाई का पूरा मुक़दमा — और \"बदल-के-देखो\" जाँच-औज़ार।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/first-code/pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html","image":"https://acslearn.com/assets/og/first-code.png","educationalLevel":"Beginner","position":64,"timeRequired":"PT13M","isPartOf":{"@type":"Course","@id":"https://acslearn.com/courses/hi/first-code/#course","name":"पहला कोड (First Code)","description":"कंप्यूटर की भाषा की पहली सीढ़ी — सोच से शुरुआत, अपने फ़ोन पर पहला कोड","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"पहला कोड (First Code)","item":"https://acslearn.com/courses/hi/first-code/"},{"@type":"ListItem","position":4,"name":"पाठ-64: 🔍 जाँचो — तीनों लाइन का एक-एक मतलब","item":"https://acslearn.com/courses/hi/first-code/pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="64" data-course="first-code">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › पहला कोड (First Code) › हिस्सा-9: पहला पेज — नमस्ते दुनिया</p>
+<h1>पाठ-64: 🔍 जाँचो — तीनों लाइन का एक-एक मतलब</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 64 / 218 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/first-code/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="pl0-001-computer-kahan-chhipa-hai.html">पाठ-1</a> <a href="pl0-002-computer-ke-4-kaam.html">पाठ-2</a> <a href="pl0-003-computer-ki-boli-0-aur-1.html">पाठ-3</a> <a href="pl0-004-apna-naam-0-1-mein.html">पाठ-4</a> <a href="pl0-005-hardware-software-sharir-soch.html">पाठ-5</a> <a href="pl0-006-computer-banam-insaan.html">पाठ-6</a> <a href="pl0-007-computer-ai-aur-tum.html">पाठ-7</a> <a href="pl0-008-computer-bewakoof-kyon.html">पाठ-8</a> <a href="pl0-009-course-ka-poora-naksha.html">पाठ-9</a> <a href="pl0-010-vidhi-yani-algorithm.html">पाठ-10</a> <a href="pl0-011-nirdesh-khel-dost-robot.html">पाठ-11</a> <a href="pl0-012-adhoora-nirdesh-gadbad-natija.html">पाठ-12</a> <a href="pl0-013-kadam-chhote-kaise-karen.html">पाठ-13</a> <a href="pl0-014-rasta-batane-ka-khel.html">पाठ-14</a> <a href="pl0-015-algorithm-likhne-ka-acs-tarika.html">पाठ-15</a> <a href="pl0-016-do-vidhiyon-ki-tulna.html">पाठ-16</a> <a href="pl0-017-abhyas-mela-5-vidhiyan.html">पाठ-17</a> <a href="pl0-018-kram-kyon-zaroori-moza-joota.html">पाठ-18</a> <a href="pl0-019-ulat-palat-ka-khel.html">पाठ-19</a> <a href="pl0-020-pravah-chitra-pehli-pehchan.html">पाठ-20</a> <a href="pl0-021-kahani-se-pravah-chitra.html">पाठ-21</a> <a href="pl0-022-galat-kram-pakdo-jamao-khel.html">पाठ-22</a> <a href="pl0-023-computer-mein-kram-line-dar-line.html">पाठ-23</a> <a href="pl0-024-abhyas-mela-kram-paheliyan.html">पाठ-24</a> <a href="pl0-025-dohrav-ki-taqat-10-taali.html">पाठ-25</a> <a href="pl0-026-ginti-wala-dohrav-theek-5-baar.html">पाठ-26</a> <a href="pl0-027-shart-wala-dohrav-balti-bhare-tak.html">पाठ-27</a> <a href="pl0-028-dohrav-ke-bheetar-dohrav-chatai.html">पाठ-28</a> <a href="pl0-029-dohrav-pakdo-geet-mala-rangoli.html">पाठ-29</a> <a href="pl0-030-kabhi-na-rukne-wala-dohrav-katha.html">पाठ-30</a> <a href="pl0-031-abhyas-mela-loop-khel.html">पाठ-31</a> <a href="pl0-032-zindagi-ke-agar-to-barish-chhata.html">पाठ-32</a> <a href="pl0-033-haan-nahi-sawal-computer-ki-poochh.html">पाठ-33</a> <a href="pl0-034-agar-to-nahi-to-do-raste.html">पाठ-34</a> <a href="pl0-035-kai-sharten-saath-aur-ya.html">पाठ-35</a> <a href="pl0-036-pravah-chitra-mein-heera-faisla.html">पाठ-36</a> <a href="pl0-037-sardar-kahe-khel-se-shart.html">पाठ-37</a> <a href="pl0-038-abhyas-mela-agar-to-paheliyan.html">पाठ-38</a> <a href="pl0-039-badi-samasya-chhote-tukde-shaadi.html">पाठ-39</a> <a href="pl0-040-pattern-pehchan-rangoli-pahada-mausam.html">पाठ-40</a> <a href="pl0-041-zaroori-banam-faltu-naksha.html">पाठ-41</a> <a href="pl0-042-galti-khoj-ki-soch-debugging.html">पाठ-42</a> <a href="pl0-043-khel-20-sawal-aadha-aadha.html">पाठ-43</a> <a href="pl0-044-chitra-inton-ki-jhalak-block-bhasha.html">पाठ-44</a> <a href="pl0-045-bhag-a-ki-dohrai-6-hathiyar.html">पाठ-45</a> <a href="pl0-046-aage-kya-phone-uthane-ka-samay.html">पाठ-46</a> <a href="pl0-047-code-ke-liye-kya-chahiye-sirf-phone.html">पाठ-47</a> <a href="pl0-048-file-kya-folder-kya-phone-ki-almari.html">पाठ-48</a> <a href="pl0-049-likhne-ka-auzar-text-editor-pehchano.html">पाठ-49</a> <a href="pl0-050-file-ka-naam-aur-poonchh-html.html">पाठ-50</a> <a href="pl0-051-browser-kya-hai-code-padhne-wala-jadugar.html">पाठ-51</a> <a href="pl0-052-pehli-file-banao-aur-kholo.html">पाठ-52</a> <a href="pl0-053-bachat-save-ki-aadat.html">पाठ-53</a> <a href="pl0-054-abhyas-mela-file-folder-ke-5-kaam.html">पाठ-54</a> <a href="pl0-055-internet-kaise-kaam-karta-hai-dakiya-katha.html">पाठ-55</a> <a href="pl0-056-website-kahan-rehti-hai-server-godam-ghar.html">पाठ-56</a> <a href="pl0-057-password-mazboot-tala-banana.html">पाठ-57</a> <a href="pl0-058-otp-kisi-ko-kabhi-nahi-phone-thagi-pehchan.html">पाठ-58</a> <a href="pl0-059-niji-baat-online-nahi-lakshman-rekha.html">पाठ-59</a> <a href="pl0-060-sach-jhooth-ki-pehchan-nakli-sandesh-lalach-jaal.html">पाठ-60</a> <a href="pl0-061-abhyas-mela-suraksha-ki-7-kasmein-suraksha-patra.html">पाठ-61</a> <a href="pl0-062-andaza-lagao-3-line-code-kya-dikhayega.html">पाठ-62</a> <a href="pl0-063-chalao-namaste-duniya-apni-aankhon-se.html">पाठ-63</a> <span class="lsn-jumpcur">पाठ-64 (यही)</span> <a href="pl0-065-badlo-apna-naam-likho-phir-gaon-ka.html">पाठ-65</a> <a href="pl0-066-html-tag-page-ki-chardiwari.html">पाठ-66</a> <a href="pl0-067-body-jo-dikhta-hai-wah-yahin-rehta-hai.html">पाठ-67</a> <a href="pl0-068-toota-code-theek-karo-1-bhoola-hua-tag.html">पाठ-68</a> <a href="pl0-069-banao-mera-pehla-panna-naam-gaon-sapna.html">पाठ-69</a> <a href="pl0-070-abhyas-mela-adhyay-9-jaanch.html">पाठ-70</a> <a href="pl0-071-tag-kholo-band-karo-darwaze-ki-jodi.html">पाठ-71</a> <a href="pl0-072-h1-se-h6-bada-shirshak-chhota-shirshak.html">पाठ-72</a> <a href="pl0-073-p-baat-kehne-ka-dibba-paragraph.html">पाठ-73</a> <a href="pl0-074-br-aur-hr-nai-line-beech-ki-lakeer.html">पाठ-74</a> <a href="pl0-075-b-i-u-mota-tircha-rekha-wala.html">पाठ-75</a> <a href="pl0-076-tag-ke-bheetar-tag-dibbe-me-dibba-nesting.html">पाठ-76</a> <a href="pl0-077-code-me-apni-parchi-tippani-comment.html">पाठ-77</a> <a href="pl0-078-toota-code-theek-karo-2-uljhi-jodiyan.html">पाठ-78</a> <a href="pl0-079-banao-ek-panna-kahani-shirshak-teen-paira.html">पाठ-79</a> <a href="pl0-080-img-page-par-chitra-lao.html">पाठ-80</a> <a href="pl0-081-chitra-ka-pata-src-file-kahan-rakhi-hai.html">पाठ-81</a> <a href="pl0-082-alt-chitra-na-khule-to-shabd-bolen.html">पाठ-82</a> <a href="pl0-083-a-kadi-link-ek-panne-se-doosre-tak.html">पाठ-83</a> <a href="pl0-084-do-panne-jodo-chhoti-website-ka-janm.html">पाठ-84</a> <a href="pl0-085-bahri-kadi-duniya-ke-panne-tak-nai-khidki.html">पाठ-85</a> <a href="pl0-086-chitra-par-kadi-dabane-layak-tasveer.html">पाठ-86</a> <a href="pl0-087-tag-ki-jeben-attribute-src-href-alt.html">पाठ-87</a> <a href="pl0-088-toota-code-theek-karo-3-mari-kadi-gayab-chitra.html">पाठ-88</a> <a href="pl0-089-banao-mera-gaon-do-panna-album.html">पाठ-89</a> <a href="pl0-090-ul-li-bindu-suchi-kharidari-ki-parchi.html">पाठ-90</a> <a href="pl0-091-ol-li-ginti-suchi-vidhi-ke-kadam.html">पाठ-91</a> <a href="pl0-092-suchi-me-suchi-dibbe-me-dibba-phir-se.html">पाठ-92</a> <a href="pl0-093-talika-table-ki-pehli-pehchaan-pankti-aur-khana.html">पाठ-93</a> <a href="pl0-094-tr-td-th-talika-ke-teen-auzaar.html">पाठ-94</a> <a href="pl0-095-apni-samay-sarni-banao.html">पाठ-95</a> <a href="pl0-096-dukaan-ka-bhav-patra-talika-suchi-milakar.html">पाठ-96</a> <a href="pl0-097-toota-code-theek-karo-4-bikhri-talika.html">पाठ-97</a> <a href="pl0-098-abhyas-mela-adhyay-12-jaanch.html">पाठ-98</a> <a href="pl0-099-css-kya-hai-html-shareer-css-kapde.html">पाठ-99</a> <a href="pl0-100-style-lagane-ka-pehla-tarika-tag-ke-bheetar.html">पाठ-100</a> <a href="pl0-101-color-aksharon-ka-rang-naam-se.html">पाठ-101</a> <a href="pl0-102-background-color-peeche-ka-rang.html">पाठ-102</a> <a href="pl0-103-rang-ke-code-acs-ke-apne-5-rang.html">पाठ-103</a> <a href="pl0-104-font-size-akshar-chhota-bada-16-se-chhota-kyon-nahi.html">पाठ-104</a> <a href="pl0-105-style-tag-sab-niyam-ek-jagah.html">पाठ-105</a> <a href="pl0-106-class-ek-niyam-kai-jagah.html">पाठ-106</a> <a href="pl0-107-toota-code-theek-karo-5-bigde-rang.html">पाठ-107</a> <a href="pl0-108-banao-apne-kahani-panne-ko-rango.html">पाठ-108</a> <a href="pl0-109-dibbe-ki-soch-page-ki-har-cheez-ek-dibba-box.html">पाठ-109</a> <a href="pl0-110-border-dibbe-ka-kinara.html">पाठ-110</a> <a href="pl0-111-padding-dibbe-ke-andar-ki-saans.html">पाठ-111</a> <a href="pl0-112-margin-dibbon-ke-beech-ki-doori.html">पाठ-112</a> <a href="pl0-113-text-align-baayen-beech-daayen.html">पाठ-113</a> <a href="pl0-114-width-va-height-dibbe-ka-naap.html">पाठ-114</a> <a href="pl0-115-gol-kone-border-radius-pehli-shobha.html">पाठ-115</a> <a href="pl0-116-div-bina-naam-ka-dibba-sabka-saathi.html">पाठ-116</a> <a href="pl0-117-toota-code-theek-karo-6-chipke-dibbe.html">पाठ-117</a> <a href="pl0-118-banao-rangeen-poster-panna-gaon-ke-mele-ka-vigyapan.html">पाठ-118</a> <a href="pl0-119-project-ka-naksha-pehle-kagaz-par-khaka.html">पाठ-119</a> <a href="pl0-120-dhancha-khada-karo-shirshak-photo-jagah-teen-hisse.html">पाठ-120</a> <a href="pl0-121-mere-baare-me-hissa.html">पाठ-121</a> <a href="pl0-122-mera-hunar-suchi.html">पाठ-122</a> <a href="pl0-123-mera-sapna-aur-sampark-kadi.html">पाठ-123</a> <a href="pl0-124-rang-roop-acs-5-rang-se-sajao.html">पाठ-124</a> <a href="pl0-125-mobile-par-janchao-chhota-parda-bada-parda.html">पाठ-125</a> <a href="pl0-126-dost-se-janchwao-do-aankhen-behtar.html">पाठ-126</a> <a href="pl0-127-aakhri-galti-khoj-apni-jaanch-suchi-se-safai.html">पाठ-127</a> <a href="pl0-128-shabashi-pehla-asli-kaam-resume-career-kit.html">पाठ-128</a> <a href="pl0-129-programming-bhasha-banam-html-dikhana-banam-sochna.html">पाठ-129</a> <a href="pl0-130-python-kahan-chalayen-phone-ke-muft-raste.html">पाठ-130</a> <a href="pl0-131-andaza-chalao-print-namaste.html">पाठ-131</a> <a href="pl0-132-jaancho-koshthak-aur-ulte-comma-ka-raaz.html">पाठ-132</a> <a href="pl0-133-badlo-teen-line-ki-kavita-chhapwao.html">पाठ-133</a> <a href="pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">पाठ-134</a> <a href="pl0-135-jod-ghatav-chhapwao-print-2-plus-3-ginti-baaz.html">पाठ-135</a> <a href="pl0-136-toota-code-theek-karo-7-khoya-koshthak.html">पाठ-136</a> <a href="pl0-137-banao-naam-pata-sapna-pehla-program.html">पाठ-137</a> <a href="pl0-138-variable-naam-wala-dibba.html">पाठ-138</a> <a href="pl0-139-dibbe-me-sankhya-umar-14.html">पाठ-139</a> <a href="pl0-140-dibba-badlo-purana-nikalo-naya-rakho.html">पाठ-140</a> <a href="pl0-141-do-dibbe-saath-chhapo-naam-aur-umar.html">पाठ-141</a> <a href="pl0-142-shabd-dibba-banam-sankhya-dibba-5-aur-5.html">पाठ-142</a> <a href="pl0-143-achhe-naam-rakho-dibbe-par-saaf-parchi.html">पाठ-143</a> <a href="pl0-144-mashhoor-galatfahmi-dibba-itihas-yaad-nahi-rakhta.html">पाठ-144</a> <a href="pl0-145-toota-code-theek-karo-8-galat-naam-ki-pukaar.html">पाठ-145</a> <a href="pl0-146-banao-dukaan-ki-3-cheezon-ka-bhav-hisab.html">पाठ-146</a> <a href="pl0-147-input-sawal-poochhne-ka-jaadu.html">पाठ-147</a> <a href="pl0-148-jawab-ko-dibbe-me-rakho-naam-input.html">पाठ-148</a> <a href="pl0-149-poochho-aur-jawab-me-buno-namaste-sita.html">पाठ-149</a> <a href="pl0-150-sankhya-poochhna-int-kyon-chahiye.html">पाठ-150</a> <a href="pl0-151-do-sankhyaen-poochhkar-jodo-pehla-calculator.html">पाठ-151</a> <a href="pl0-152-umar-se-janm-saal-nikalo.html">पाठ-152</a> <a href="pl0-153-toota-code-theek-karo-9-5-plus-3-53-ulajhan.html">पाठ-153</a> <a href="pl0-154-banao-mujhse-milo-sawal-jawab-program.html">पाठ-154</a> <a href="pl0-155-abhyas-mela-aur-adhyay-jaanch-input.html">पाठ-155</a> <a href="pl0-156-if-ki-wapsi-bhaag-a-ki-chhatri-ab-code-me.html">पाठ-156</a> <a href="pl0-157-do-barabar-ka-matlab-barabari-jaanchna.html">पाठ-157</a> <a href="pl0-158-if-else-paas-ya-phir-mehnat.html">पाठ-158</a> <a href="pl0-159-chhota-bada-jaancho-tulna-chinh.html">पाठ-159</a> <a href="pl0-160-elif-kai-raaste-thanda-garam-barsaat.html">पाठ-160</a> <a href="pl0-161-hashiya-indent-python-ki-lakshman-rekha.html">पाठ-161</a> <a href="pl0-162-and-or-do-sharten-saath.html">पाठ-162</a> <a href="pl0-163-toota-code-theek-karo-10-bhatka-hashiya.html">पाठ-163</a> <a href="pl0-164-banao-paas-fail-batane-wala-program.html">पाठ-164</a> <a href="pl0-165-for-ki-pehli-daud-1-se-10-ginti.html">पाठ-165</a> <a href="pl0-166-range-kahan-se-kahan-tak.html">पाठ-166</a> <a href="pl0-167-loop-ke-bhitar-print-2-ka-pahada-3-line-me.html">पाठ-167</a> <a href="pl0-168-loop-plus-if-sirf-sam-sankhyaen-chhapo.html">पाठ-168</a> <a href="pl0-169-while-jab-tak-shart-sach.html">पाठ-169</a> <a href="pl0-170-jod-jama-karo-1-se-100-gauss-ki-baal-katha.html">पाठ-170</a> <a href="pl0-171-anant-loop-phir-mila-ab-code-me-aur-nikalna.html">पाठ-171</a> <a href="pl0-172-loop-ke-bhitar-loop-taaron-ka-trikon.html">पाठ-172</a> <a href="pl0-173-toota-code-theek-karo-11-kabhi-na-rukne-wala-while.html">पाठ-173</a> <a href="pl0-174-banao-pahada-chhapu-program.html">पाठ-174</a> <a href="pl0-175-list-ek-dibbe-me-kai-cheezen.html">पाठ-175</a> <a href="pl0-176-ginti-0-se-pehli-cheez-0-number-par.html">पाठ-176</a> <a href="pl0-177-cheez-jodo-hatao-append-remove.html">पाठ-177</a> <a href="pl0-178-list-par-loop-har-cheez-ek-ek-kar.html">पाठ-178</a> <a href="pl0-179-len-kitni-cheezen-hain.html">पाठ-179</a> <a href="pl0-180-akshar-mala-string-bhi-mala-jaisi.html">पाठ-180</a> <a href="pl0-181-list-plus-if-kya-aalu-suchi-me-hai.html">पाठ-181</a> <a href="pl0-182-chhote-se-bada-kram-sort-ki-jhalak.html">पाठ-182</a> <a href="pl0-183-toota-code-theek-karo-12-seema-ke-bahar-ki-pukaar.html">पाठ-183</a> <a href="pl0-184-banao-kharidari-suchi-program.html">पाठ-184</a> <a href="pl0-185-purza-kya-hai-ek-baar-banao-sau-baar-chalao-def.html">पाठ-185</a> <a href="pl0-186-purza-bulana-banane-aur-chalane-ka-fark.html">पाठ-186</a> <a href="pl0-187-purze-ko-saman-do-parameter-ki-khidki.html">पाठ-187</a> <a href="pl0-188-purza-lautaye-return-ka-tohfa.html">पाठ-188</a> <a href="pl0-189-print-banam-return-dikhana-banam-thamana.html">पाठ-189</a> <a href="pl0-190-ek-cheez-ek-jagah-dohraya-code-purze-me-sameto.html">पाठ-190</a> <a href="pl0-191-purzon-se-saaf-program-bada-kaam-chhote-hisse.html">पाठ-191</a> <a href="pl0-192-toota-code-theek-karo-13-bin-bulaya-bhatka-return.html">पाठ-192</a> <a href="pl0-193-banao-hisab-purze-teen-purzon-ki-apni-peti.html">पाठ-193</a> <a href="pl0-194-khel-ka-naksha-kagaz-par-niyam-pravah-chitra.html">पाठ-194</a> <a href="pl0-195-random-computer-man-me-sankhya-rakhe.html">पाठ-195</a> <a href="pl0-196-khiladi-se-poochho-input-ki-wapsi.html">पाठ-196</a> <a href="pl0-197-upar-neeche-ka-ishara-if-elif-else.html">पाठ-197</a> <a href="pl0-198-baar-baar-mauka-while-se-khel-chakra.html">पाठ-198</a> <a href="pl0-199-koshishen-gino-dibbe-ka-hisab.html">पाठ-199</a> <a href="pl0-200-khel-ko-purzon-me-banto-function-se-suthra-code.html">पाठ-200</a> <a href="pl0-201-jeet-ka-jashn-phir-khelein-jodi-jaanch.html">पाठ-201</a> <a href="pl0-202-aakhiri-safai-code-me-tippani-likho.html">पाठ-202</a> <a href="pl0-203-shabashi-tum-programmer-ban-gaye-pramanpatra-dwar.html">पाठ-203</a> <a href="pl0-204-peeche-mudkar-dekho-23-adhyayon-ka-naksha.html">पाठ-204</a> <a href="pl0-205-12-computer-bhashaon-ka-parivar-kaun-kis-kaam-ki.html">पाठ-205</a> <a href="pl0-206-python-aage-ai-data-swachalan-ki-raah.html">पाठ-206</a> <a href="pl0-207-javascript-pannon-me-jaan-dalna.html">पाठ-207</a> <a href="pl0-208-scratch-chhote-bhai-behan-ko-sikhao.html">पाठ-208</a> <a href="pl0-209-sql-dukanon-bankon-ka-hisab-ghar.html">पाठ-209</a> <a href="pl0-210-excel-sutra-daftar-ki-rozi.html">पाठ-210</a> <a href="pl0-211-c-machine-ke-andar-ki-duniya-iot-drone.html">पाठ-211</a> <a href="pl0-212-kotlin-java-app-banane-wale.html">पाठ-212</a> <a href="pl0-213-ai-se-kaam-lena-prompt-likhne-ka-hunar.html">पाठ-213</a> <a href="pl0-214-muft-seekhne-ke-vishwa-ghat-adhikarik-kadiyan.html">पाठ-214</a> <a href="pl0-215-kamai-ke-5-dwar-naukri-ped-par-code-hunar.html">पाठ-215</a> <a href="pl0-216-gaon-me-pehla-kaam-padosi-dukan-ka-panna.html">पाठ-216</a> <a href="pl0-217-aage-ka-acs-rasta-dca-ai-digital-master.html">पाठ-217</a> <a href="pl0-218-vidaai-apna-lur-pehchano-khagaria-se-vishva-tak.html">पाठ-218</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>पाठ परिचय</h2>
+<p>code चल चुका, दाँव मिल चुके — अब PRIMM का तीसरा डंडा: 🔍 <b>जाँचो</b> (Investigate)। फ़र्क़ समझ लीजिए: "चलाओ" ने बताया <i>क्या</i> होता है; "जाँचो" पूछता है <i>क्यों</i> होता है — और इन दोनों के बीच वही दूरी है जो <b>बरतने और समझने</b> में है (पाठ-48 की पुरानी गाँठ!)। बरतने वाला याद रखता है "ऐसा करो तो ऐसा होता है"; समझने वाला हर पुर्ज़े का <b>काम</b> जानता है — इसलिए नई स्थिति में भी रास्ता निकाल लेता है।</p>
+<p>आज की अदालत में वही तीन-लाइन code कठघरे में है, और सवाल बारीक हैं: &lt;b&gt; की पोशाक में ठीक <b>तीन अंग</b> क्यों हैं, और हर अंग क्या कहता है? बंद-हुक्म की तिरछी लकीर का <i>ठीक-ठीक</i> मतलब क्या है? browser फ़ाइल को किस <b>क्रम</b> में पढ़ता है, और हुक्म मिलने पर ठीक क्या-क्या करता है? और कल का अधूरा मुक़दमा — <b>जुड़ाई-रीत</b>: browser किन-किन चीज़ों को "साँस-भर जगह" मानता है, इस रीत का नाम क्या है, और यह सुविधा क्यों है, साज़िश क्यों नहीं?</p>
+<p>और जाँच के औज़ारों में आज एक <b>नया हथियार</b> जुड़ेगा — "बदल-के-देखो सवाल": किसी पुर्ज़े का काम जानना हो तो उसे <i>हटाकर/बदलकर</i> देखो कि क्या टूटता है — मशीन की दुनिया का सबसे ईमानदार जाँच-तरीक़ा, और आपकी प्रयोगशाला इसके लिए ही बनी है (नक़ल-प्रति ढाल समेत!)। चलिए — अदालत शुरू।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सीखने का उद्देश्य</h2>
+<p>इस पाठ के बाद आप —</p>
+<p>1. <b>tag की शारीरिक रचना</b> बोल पाएँगे — तीन अंग, तिरछी लकीर का ठीक अर्थ, और "tag" शब्द का विधिवत परिचय।</p>
+<p>2. browser के <b>पढ़ने-निगलने का क्रम</b> (ऊपर-से-नीचे, बाएँ-से-दाएँ; हुक्म निगलो-असर-चालू/बंद) सुना पाएँगे।</p>
+<p>3. <b>जुड़ाई-रीत का पूरा मुक़दमा</b> जीत लेंगे — whitespace-समेट का नियम, उसका कारण — और "बदल-के-देखो" औज़ार चलाना सीख लेंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>गवाही-1: पोशाक की चीर-फाड़ — tag का विधिवत परिचय</h2>
+<p>अब तक हम "पोशाक वाला हुक्म" कहते रहे — आज उसका विधिवत नाम दर्ज कीजिए: <b>tag</b> (टैग — html की हुक्म-इकाई; हिंदी में "ठप्पा" भी बोलेंगे)। अदालत में पहला गवाह खोलो-tag &lt;b&gt; — इसके <b>तीन अंग</b> अलग-अलग सुनिए, क्योंकि आगे की हर ग़लती-खोज इन्हीं की पहचान पर टिकेगी:</p>
+<p><b>अंग-1 · खुलने वाला नुकीला कोष्ठक &lt;</b> — browser के लिए घंटी: "सामग्री रुकी — अब हुक्म शुरू हो रहा है।" यही वह पल है जब मास्टर जी पढ़ना छोड़कर <i>सुनना</i> शुरू करते हैं।</p>
+<p><b>अंग-2 · हुक्म-नाम b</b> — <i>कौन-सा</i> हुक्म: b यानी bold (बोल्ड — मोटा)। नाम browser की रीत-किताब से आते हैं — मनगढ़ंत नाम (&lt;mota&gt;!) browser की किताब में नहीं, तो असर भी नहीं (यह प्रयोग आज के खेल में है!)। और हाँ — नाम <b>छोटे (small) अक्षरों</b> में लिखने का चलन ही मानक है: b, न कि B।</p>
+<p><b>अंग-3 · बंद होने वाला नुकीला कोष्ठक &gt;</b> — दूसरी घंटी: "हुक्म पूरा — अब आगे जो आए, वह फिर सामग्री।" तीनों अंग मिलकर ही tag हैं: एक भी छूटा, तो browser की घंटी अधूरी — और अधूरी घंटी के नतीजे आप लक्षण-तालिका में देख चुके हैं (कोष्ठक-समेत छपना!)।</p>
+<p>अब दूसरा गवाह — बंद-tag &lt;/b&gt;, और उसकी <b>तिरछी लकीर /</b> का ठीक-ठीक बयान। याद कीजिए — यह लकीर आपकी पुरानी पहचान है: अलमारी-रास्तों (पाठ-48) में / का मतलब था "इसके <i>भीतर</i>"; यहाँ उसका दूसरा अवतार है, और मतलब है <b>"समाप्त"</b> — browser की रीत में &lt;/b&gt; पढ़ा जाता है: "b वाला जो असर चालू था, वह <b>यहीं ख़त्म</b>।" यानी खोलो-tag <i>चालू-बटन</i> है, बंद-tag <i>बंद-बटन</i> — और दोनों के बीच जो फँसा, वह उस असर के <b>घेरे</b> में (जोड़ी की हरी डोरी का विधिवत नाम यही है: असर का घेरा)। इसी से दाँव-4 की गवाही भी विधिवत हो गई: बंद-बटन ग़ायब = चालू-बटन दबा-का-दबा = असर फ़ाइल के अंत तक बहा — मशीन ने वही किया जो कहा गया (गुणा-नियम की बहन-पंक्ति: मशीन <i>मतलब</i> नहीं, <i>हुक्म</i> मानती है)।</p>
+<p>तीसरी गवाही — <b>browser का पढ़ने-निगलने का क्रम</b>, पूरा चलचित्र: मास्टर जी फ़ाइल को <b>ऊपर-से-नीचे, बाएँ-से-दाएँ</b> — एक-एक अक्षर — पढ़ते चलते हैं (एक-उँगली क़ायदा मशीन का जन्मजात स्वभाव है!)। सामग्री मिली → परदे पर बहाते चलो (जो असर चालू हैं, उनके रंग में); &lt; की घंटी बजी → रुककर हुक्म पढ़ो, <b>निगलो</b> (परदे पर नहीं!), उसका असर चालू/बंद करो → आगे बढ़ो। हमारी फ़ाइल पर चलाइए: &lt;b&gt; निगला, मोटा-असर चालू → Namaste Duniya! मोटे में बहा → &lt;/b&gt; निगला, मोटा बंद → आगे की सारी सामग्री सादे में बहती गई। पूरा परदा, कदम-दर-कदम, <b>बिना जादू</b> — यही "समझना" है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>गवाही-2: जुड़ाई-मुक़दमा — और बदल-के-देखो औज़ार</h2>
+<p>अब कल का बड़ा मुक़दमा। तथ्य अदालत में रखे जा चुके: editor की तीन लाइनें, परदे की एक बही पंक्ति। आज नियम <b>पूरा</b> दर्ज कीजिए: browser सामग्री बहाते समय <b>space, नई-लाइन और tab</b> (tab — टैब: लंबी छलाँग वाली ख़ाली जगह) — तीनों को एक ही बिरादरी मानता है, जिसका नाम है <b>whitespace</b> (व्हाइटस्पेस — ख़ाली-जगह परिवार) — और नियम यह: <b>लगातार जितनी भी whitespace हो, परदे पर बस एक space</b>। एक space, दस space, तीन नई-लाइनें, नई-लाइन+space का घालमेल — सब समेटकर एक साँस। (खेल-1 में आपने पाँच ख़ाली लाइनें ठूँसी थीं और परदा टस-से-मस नहीं हुआ — अब उसका नियम-नाम आपके पास है: whitespace-समेट।)</p>
+<p>बचाव-पक्ष (browser) की दलील कल सुन चुके — आज उसे <b>तीन-छलनी</b> से पक्का कीजिए: (छलनी-1: ज़रूरी?) हाँ — करोड़ों लिखने वालों की करोड़ों लिखावट-आदतें; परदे की शक्ल उनसे आज़ाद रहनी चाहिए। (छलनी-2: पक्का?) हाँ — यह browser की साझा रीत-किताब का लिखा नियम है, हर browser पर एक-सा (आपने दो यंत्रों पर जाँचा!)। (छलनी-3: सबसे सादा?) हाँ — "शक्ल सिर्फ़ हुक्मों से" का एक नियम, बनाम "हर editor की हर आदत का अलग बरताव" की हज़ार उलझनें। मुक़दमा ख़ारिज — जुड़ाई <b>रीत</b> है, रोग नहीं। और फ़ैसले की धार: <b>परदे पर जो भी शक्ल चाहिए — पंक्ति, मोटाई, दूरी — उसका हुक्म (tag) होता है</b>; मोटे का tag आप जानते हैं, पंक्ति-तोड़ और अनुच्छेद के tag अध्याय-10 की पहली दावत हैं (आपका दर्ज सुराग़ ठीक निशाने पर था!)।</p>
+<p>अब आज का नया औज़ार विधिवत — <b>बदल-के-देखो सवाल</b> (जाँच का राजा): किसी पुर्ज़े का काम पूछना हो, तो उसे <b>नक़ल-प्रति में</b> हटाओ/बदलो → दाँव लगाओ → चलाओ → फ़र्क़ पढ़ो: <b>जो टूटा/बदला, वही उस पुर्ज़े का काम था।</b> यह आपकी पुरानी चीज़ों का संगम है — प्रयोग-पर्चा (पाठ-19) + एक-बदलाव नियम (पाठ-42: एक बार में <i>एक ही</i> चीज़ बदलो, वरना पता नहीं चलेगा फ़र्क़ किसने डाला!) + ढाल-रीत (मूल अछूता)। आज की अदालत के तीनों बड़े सवाल इसी औज़ार से <i>ख़ुद</i> जाँचे जा सकते हैं — और खेलों में जाँचेंगे: लकीर हटाओ (तो?), नाम बदलो (तो?), कोष्ठक तोड़ो (तो?)। याद रखिए — हर प्रयोग प्रयोग-पर्चे पर: सवाल → दाँव → कदम → नतीजा → सीख; और हर प्रयोग <b>prayogPanna</b> जैसी नक़ल-प्रति पर, namasteDuniya मूल <b>कभी नहीं</b>।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>रेखा-चित्र: अदालत का पट्ट</h2>
+<p>नीचे पूरी जाँच एक पट्ट पर — tag के तीन अंग, निगलने का क्रम, whitespace-नियम, बदल-के-देखो —</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="tag के तीन अंग, तिरछी लकीर का अर्थ, browser का पढ़ने-निगलने का क्रम, whitespace-समेट नियम और बदल-के-देखो जाँच-औज़ार">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<rect x="8" y="8" width="784" height="784" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="50" text-anchor="middle" font-size="27" fill="#0B1F3A" font-weight="bold">🔍 जाँच-अदालत: tag की रचना</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">सुनहरा = tag के अंग · हरा = असर का घेरा · बिंदु-रेखा = निगलने का क्रम</text>
+<line x1="40" y1="100" x2="760" y2="100" stroke="#0B1F3A" stroke-width="2"/>
+<text x="400" y="134" text-anchor="middle" font-size="15" fill="#0B1F3A" font-weight="bold">खोलो-tag के तीन अंग</text>
+<g fill="#F9A825" stroke="#0B1F3A" stroke-width="3">
+<rect x="180" y="150" width="80" height="64"/>
+<rect x="300" y="150" width="80" height="64"/>
+<rect x="420" y="150" width="80" height="64"/>
+</g>
+<text x="220" y="190" text-anchor="middle" font-size="26" fill="#0B1F3A">&lt;</text>
+<text x="340" y="190" text-anchor="middle" font-size="26" fill="#0B1F3A">b</text>
+<text x="460" y="190" text-anchor="middle" font-size="26" fill="#0B1F3A">&gt;</text>
+<text x="220" y="240" text-anchor="middle" font-size="12" fill="#1565C0">घंटी-1: हुक्म शुरू</text>
+<text x="340" y="240" text-anchor="middle" font-size="12" fill="#1565C0">हुक्म-नाम (रीत-किताब से)</text>
+<text x="460" y="240" text-anchor="middle" font-size="12" fill="#1565C0">घंटी-2: हुक्म पूरा</text>
+<text x="620" y="176" text-anchor="middle" font-size="13" fill="#0B1F3A">बंद-tag: &lt;/b&gt;</text>
+<text x="620" y="204" text-anchor="middle" font-size="12" fill="#2E7D32">/ = "समाप्त" —</text>
+<text x="620" y="226" text-anchor="middle" font-size="12" fill="#2E7D32">असर का बंद-बटन</text>
+<rect x="60" y="272" width="680" height="150" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="302" text-anchor="middle" font-size="15" fill="#0B1F3A" font-weight="bold">browser का क्रम: पढ़ो → (हुक्म?) निगलो, असर चालू/बंद → बहाओ</text>
+<text x="120" y="344" font-size="13" fill="#0B1F3A">&lt;b&gt;</text>
+<text x="260" y="344" font-size="13" fill="#0B1F3A" font-weight="bold">Namaste Duniya!</text>
+<text x="475" y="344" font-size="13" fill="#0B1F3A">&lt;/b&gt;</text>
+<text x="600" y="344" font-size="13" fill="#0B1F3A">Mera naam...</text>
+<line x1="110" y1="362" x2="740" y2="362" stroke="#1565C0" stroke-width="2" stroke-dasharray="6 4"/>
+<polygon points="740,362 727,356 727,368" fill="#1565C0"/>
+<text x="130" y="394" font-size="12" fill="#2E7D32">निगला → मोटा चालू</text>
+<text x="420" y="394" font-size="12" fill="#2E7D32">घेरा</text>
+<text x="520" y="394" font-size="12" fill="#2E7D32">निगला → मोटा बंद</text>
+<rect x="60" y="448" width="680" height="130" fill="none" stroke="#2E7D32" stroke-width="4"/>
+<text x="400" y="480" text-anchor="middle" font-size="15" fill="#2E7D32" font-weight="bold">जुड़ाई-मुक़दमे का फ़ैसला: whitespace-समेट</text>
+<text x="400" y="512" text-anchor="middle" font-size="13" fill="#0B1F3A">space · नई-लाइन · tab = एक बिरादरी — लगातार जितनी भी हों, परदे पर एक space</text>
+<text x="400" y="540" text-anchor="middle" font-size="13" fill="#1565C0">कारण: परदे की शक्ल लिखावट-आदत से नहीं, हुक्मों से — करोड़ों हाथ, एक रीत</text>
+<text x="400" y="564" text-anchor="middle" font-size="12" fill="#0B1F3A">फल: फ़ाइल अपनी सुविधा से सजाओ — परदा अडिग (code इंसान भी पढ़ते हैं!)</text>
+<rect x="60" y="602" width="680" height="158" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="400" y="634" text-anchor="middle" font-size="15" fill="#0B1F3A" font-weight="bold">नया औज़ार: बदल-के-देखो सवाल (जाँच का राजा)</text>
+<text x="400" y="666" text-anchor="middle" font-size="13" fill="#0B1F3A">पुर्ज़े का काम जानना है? → नक़ल-प्रति में हटाओ/बदलो → दाँव → चलाओ → फ़र्क़ पढ़ो</text>
+<text x="400" y="694" text-anchor="middle" font-size="13" fill="#0B1F3A">जो टूटा/बदला = वही उसका काम था</text>
+<text x="400" y="726" text-anchor="middle" font-size="12" fill="#2E7D32">नियम-जोड़: एक-बदलाव नियम + प्रयोग-पर्चा + ढाल-रीत (मूल अछूता) ✓</text>
+</svg>
+<p>बिंदु-तीर की दौड़ ध्यान से — वही browser की आँख है: बाएँ-से-दाएँ, निगलते-बहाते; और नीचे की सुनहरी पट्टी आज से आपकी हर जाँच की वर्दी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>ग़लतफ़हमी तोड़ो</h2>
+<p><b>ग़लतफ़हमी:</b> "यह जाँच-पड़ताल, तीन अंग, निगलने का क्रम — बाल की खाल है! काम तो चल ही रहा था: &lt;b&gt; लगाओ, मोटा हो जाता है — बस, इतना याद रखना काफ़ी है। हर tag की चीर-फाड़ करने बैठे तो 950 कोर्स कब पढ़ेंगे?"</p>
+<p><b>सच:</b> "इतना याद रखना काफ़ी" — ठीक वहीं तक, जहाँ तक सब <i>ठीक</i> चले; और code की दुनिया में "सब ठीक" छुट्टी का दिन है, रोज़ का नहीं। असली रोज़ यह है: परदे पर कुछ <i>अजीब</i> दिखा — और उस पल "&lt;b&gt; = मोटा" रटने वाला और तीन-अंग समझने वाला दो अलग दुनियाओं में खड़े मिलते हैं। रटने वाले के पास बस एक पंक्ति है, और वह लागू नहीं हो रही — आगे अँधेरा; समझने वाले के पास <b>जाँच की सीढ़ी</b> है: "कोष्ठक-समेत छपा? → घंटी-1 या घंटी-2 टूटी होगी — अंग देखो। असर आगे तक बहा? → बंद-बटन ग़ायब। हुक्म बेअसर? → नाम रीत-किताब से मिलाओ।" — लक्षण से जड़, जड़ से इलाज, मिनटों में। यही तो पाँच-कदम ग़लती-खोज का वादा था — और वह वादा <b>समझ की पूँजी</b> पर चलता है: जितने पुर्ज़े जानते हो, उतने लक्षण पढ़ सकते हो।</p>
+<p>और "950 कोर्स कब पढ़ेंगे" वाली चिंता का जवाब इस पाठ की सबसे सुंदर ख़बर है: आज की चीर-फाड़ <b>एक tag की नहीं — पूरे html की</b> हुई है! जो तीन अंग, जो खोलो-बंद जोड़ी, जो निगलने का क्रम, जो घेरे का नियम आपने &lt;b&gt; पर सीखा — <b>हर आने वाला tag ठीक इसी ढाँचे पर चलता है</b>: कल जब आप कोई भी नया tag देखेंगे, आपको सिर्फ़ उसका <i>नाम और काम</i> नया सीखना होगा — बाक़ी पूरी मशीनरी (अंग, घंटियाँ, जोड़ी, घेरा, निगलना) आज से आपकी जेब में है। यही साँचे की ताक़त है (पाठ-40!): एक बार गहरा सीखो, सौ बार मुफ़्त चलाओ। तो हिसाब उल्टा बैठता है — बाल की खाल आज निकाली, <i>ताकि</i> आगे 950 कोर्सों में कभी न निकालनी पड़े: गहराई जल्दबाज़ी की दुश्मन नहीं, <b>रफ़्तार की नींव</b> है। (धीरे सीखो, पक्का सीखो, फिर उड़ो — गदहा-घोड़ा वाली पुरानी रीत!)</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास-खेल: बदल-के-देखो मश्क़</h2>
+<p>(तीनों प्रयोग <b>prayogPanna.html</b> जैसी नक़ल-प्रति पर; हर एक पूरा प्रयोग-पर्चा माँगता है: सवाल → दाँव → एक-बदलाव → नतीजा → सीख। मूल namasteDuniya अछूता!)</p>
+<p><b>खेल 1 — लकीर की गवाही:</b> सवाल: तिरछी लकीर सचमुच "समाप्त" कहती है? बदलाव: &lt;/b&gt; में से <b>सिर्फ़ /</b> हटाइए (बचे &lt;b&gt;) — दाँव लगाइए: browser अब इसे क्या समझेगा और परदा कैसा होगा? चलाइए, मिलाइए। (सीख-पंक्ति में जोड़िए: बिना लकीर वह "बंद-बटन" नहीं — <i>दूसरा चालू-बटन</i> बन गया!)</p>
+<p><b>खेल 2 — नाम की गवाही:</b> सवाल: हुक्म-नाम browser की रीत-किताब से ही चलते हैं? बदलाव: जोड़ी के दोनों b को <b>mota</b> कर दीजिए (&lt;mota&gt;...&lt;/mota&gt;) — दाँव: browser अनजान नाम पर क्या करेगा — बिगड़ेगा? रुकेगा? या...? चलाइए। (नतीजा चौंकाए तो दर्ज कीजिए: browser अनजान tag पर <i>चुपचाप</i> आगे बढ़ जाता है — न असर, न शिकायत: चुप धोखे की बिरादरी का नया चेहरा! खुली-अटक बनाम चुप-धोखे वाली पुरानी बहस यहाँ नई गवाही पाती है।)</p>
+<p><b>खेल 3 — whitespace की हद:</b> सवाल: समेट <i>शब्दों के भीतर</i> भी चलती है क्या? बदलाव: लाइन-1 में Namaste और Duniya के बीच <b>दस space</b> ठूँसिए; फिर दूसरे दौर में Nam और aste के बीच <b>नई-लाइन</b> तोड़िए — हर दौर अलग दाँव, अलग चलाना (एक-बदलाव नियम!)। नतीजों से नियम की हद खींचिए: समेट <i>जगहों</i> को समेटती है — पर क्या वह टूटे शब्द को <i>जोड़</i> भी देती है? (यह बारीक़ी आगे देवनागरी-लिखाई में काम आएगी!) — तीनों पर्चे दाँव-बही में; हर ✗ पर तारा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आगे क्या सीखेंगे</h2>
+<p>अदालत उठी — tag की रचना गवाही-सहित दर्ज: तीन अंग, लकीर का "समाप्त", निगलने का क्रम, whitespace-समेट का नियम, और जेब में जाँच का राजा — बदल-के-देखो। अब आप &lt;b&gt; को <i>बरतते</i> नहीं, <b>समझते</b> हैं — और उसी के साथ हर आने वाले tag का आधा पाठ पहले से पढ़ चुके हैं।</p>
+<p>PRIMM के तीन डंडे चढ़े — P ✓ R ✓ I ✓ — अब चौथा: ✏ <b>बदलो</b> (Modify)। कल code पर पहली बार <b>आपकी मुहर</b> लगेगी: Sonu विदा होगा, आपका नाम आएगा, आपका गाँव आएगा — बदलो→सेव→reload के चक्के पर code आपका अपना बनेगा। और वहीं एक रोमांचक प्रयोग इंतज़ार में है: अब तक code-डिब्बों में Roman लिखाई चली है — पर क्या browser <b>देवनागरी</b> भी बहा सकता है? आपकी अपनी लिपि, आपके अपने परदे पर? (झलक: जवाब आपको बहुत ख़ुश करेगा — और उसके साथ एक समझदारी-भरा "कब कौन-सी लिपि" का नियम भी मिलेगा।) <b>पाठ-65: ✏ बदलो — अपना नाम लिखो, फिर गाँव का।</b></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक एक जीवित रास्ता —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%9C%E0%A4%BE%E0%A4%81%E0%A4%9A%E0%A5%8B%20%E0%A4%A4%E0%A5%80%E0%A4%A8%E0%A5%8B%E0%A4%82%20%E0%A4%B2%E0%A4%BE%E0%A4%87%E0%A4%A8%20%E0%A4%95%E0%A4%BE%20%E0%A4%8F%E0%A4%95%20%E0%A4%8F%E0%A4%95%20%E0%A4%AE%E0%A4%A4%E0%A4%B2%E0%A4%AC%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="pl0-063-chalao-namaste-duniya-apni-aankhon-se.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="pl0-065-badlo-apna-naam-likho-phir-gaon-ka.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

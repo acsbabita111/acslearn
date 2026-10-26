@@ -1,6 +1,8 @@
 /* ============================================================
    course-lesson.css — कोर्स-पाठ पेजों की साझा design-फ़ाइल
    v1.0 · 15-Jul-2026 · घर: /assets/course-lesson.css
+   v1.1 · 26-Oct-2026 · + pre.pl-code / pre.pl-err (पहला कोड — code-डिब्बे, फ़ोन पर बग़ल-खिसकाव रोक)
+   v1.2 · 26-Oct-2026 · + pre.pl-sample (दूसरी भाषाओं के न-चलने-वाले नमूने, अध्याय-24)
    नियम: design यहाँ, content data-फ़ाइल में (परत-बँटवारा)।
    फ़ॉन्ट-नियम: 16px से नीचे कुछ नहीं; body 19px; line-height 1.7-1.8।
    ============================================================ */
@@ -60,3 +62,15 @@
 .lsn-vidnote{font-size:16px;color:#0B1F3A}
 .lsn-prog{margin:22px 14px;padding:14px 16px;border:2px solid #2E7D32;border-radius:12px;background:#F5F7FA;font-size:18px;line-height:1.75;color:#0B1F3A}
 .lsn-prog a{color:#1565C0;font-weight:700;text-decoration:none}
+
+/* v1.1 — "पहला कोड" (pl-0) के code-डिब्बे: pre.pl-code (code) · pre.pl-err (ग़लती-संदेश)
+   सिर्फ़ इन दो class पर — बाक़ी कोर्स अछूते। लंबी पंक्ति तोड़ो (pre-wrap), फ़ोन से बाहर नहीं।
+   विरोध-अंक: Off-White/Navy ≈ 16.5 · Navy/Off-White ≈ 15.4 (दोनों 4.5 से ऊपर)। */
+pre.pl-code,pre.pl-err,pre.pl-sample{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;box-sizing:border-box;
+ font-family:ui-monospace,Menlo,Consolas,"Courier New",monospace;font-size:17px;line-height:1.6;
+ padding:12px 14px;border-radius:8px;margin:12px 0}
+pre.pl-code{background:#0B1F3A;color:#F5F7FA}
+pre.pl-err{background:#F5F7FA;color:#0B1F3A;border:2px solid #0B1F3A;border-left:6px solid #F9A825}
+/* v1.2 — pre.pl-sample: दूसरी भाषाओं (JavaScript, SQL, Excel, C...) के नमूने — robot इन्हें नहीं चलाता;
+   धारीदार किनारा = "सिर्फ़ देखने का नमूना" (अध्याय-24) */
+pre.pl-sample{background:#F5F7FA;color:#0B1F3A;border:2px dashed #1565C0;border-left:6px solid #1565C0}

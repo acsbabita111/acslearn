@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v768'; // 25-Oct ज्युला पूरा पुनर्लेखन (kkb_dyu_data.js + kkb2_dyu_data.js): 2,877 पाठ — cache-first data
+const CACHE_VERSION = 'v769'; // 26-Oct pl-0 "पहला कोड" (218 पाठ): course-lesson.css v1.2 (pre.pl-code/pl-err/pl-sample डिब्बे) + courses_data.js में SE025 — cache-first असेट
+// पिछला 'v768'; // 25-Oct ज्युला पूरा पुनर्लेखन (kkb_dyu_data.js + kkb2_dyu_data.js): 2,877 पाठ — cache-first data
 // पिछला v767; // 25-Oct उत्तरी न्देबेले पूरा पुनर्लेखन (kkb_nd_data.js + kkb2_nd_data.js): 2,876 पाठ — cache-first data
 // पिछला v766; // 25-Oct अल्जीरियाई अरबी पूरा पुनर्लेखन (kkb_arq_data.js + kkb2_arq_data.js): 2,876 पाठ असली अल्जीरियाई दारिजा में — cache-first data
 // पिछला v765; // 25-Oct मोरक्कन अरबी पूरा पुनर्लेखन (kkb_ary_data.js + kkb2_ary_data.js): 2,876 पाठ असली मोरक्कन दारिजा में — cache-first data

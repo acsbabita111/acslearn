@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 15-Jul-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>बनाओ: ख़रीदारी-सूची — मेन्यू, जोड़ो-देखो-हटाओ-गिनो | पहला कोड पाठ-184</title>
+<meta name="description" content="अध्याय-21 का बनाओ-पाठ: माँ की पर्ची का डिजिटल रूप — मेन्यू (1 जोड़ो, 2 देखो, 3 हटाओ, 4 गिनो, 0 बस) while True + elif-सीढ़ी से; जोड़ने में दोहराव-रोक (in)…">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://acslearn.com/courses/hi/first-code/pl0-184-banao-kharidari-suchi-program.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="बनाओ: ख़रीदारी-सूची — मेन्यू, जोड़ो-देखो-हटाओ-गिनो | पहला कोड पाठ-184">
+<meta property="og:description" content="अध्याय-21 का बनाओ-पाठ: माँ की पर्ची का डिजिटल रूप — मेन्यू (1 जोड़ो, 2 देखो, 3 हटाओ, 4 गिनो, 0 बस) while True + elif-सीढ़ी से; जोड़ने में दोहराव-रोक (in), हटाने में ग़ायब-जाँच, देखने में सजी नंबर…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/first-code/pl0-184-banao-kharidari-suchi-program.html">
+<meta property="og:image" content="https://acslearn.com/assets/og/first-code.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="बनाओ: ख़रीदारी-सूची — मेन्यू, जोड़ो-देखो-हटाओ-गिनो | पहला कोड पाठ-184">
+<meta name="twitter:description" content="अध्याय-21 का बनाओ-पाठ: माँ की पर्ची का डिजिटल रूप — मेन्यू (1 जोड़ो, 2 देखो, 3 हटाओ, 4 गिनो, 0 बस) while True + elif-सीढ़ी से; जोड़ने में दोहराव-रोक (in)…">
+<meta name="twitter:image" content="https://acslearn.com/assets/og/first-code.png">
+<link rel="alternate" hreflang="hi" href="https://acslearn.com/courses/hi/first-code/pl0-184-banao-kharidari-suchi-program.html">
+<link rel="alternate" hreflang="x-default" href="https://acslearn.com/courses/hi/first-code/pl0-184-banao-kharidari-suchi-program.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-184: 🛠 बनाओ — ख़रीदारी-सूची प्रोग्राम (जोड़ो, देखो, गिनो)","description":"अध्याय-21 का बनाओ-पाठ: माँ की पर्ची का डिजिटल रूप — मेन्यू (1 जोड़ो, 2 देखो, 3 हटाओ, 4 गिनो, 0 बस) while True + elif-सीढ़ी से; जोड़ने में दोहराव-रोक (in), हटाने में ग़ायब-जाँच, देखने में सजी नंबर वाली पर्ची (sorted), ख़ाली पर्ची की सूचना; चुनाव शब्द ही (ग़लत बटन पर चिट्ठी नहीं); पाँच दौड़ें; अध्याय-पोटली + अध्याय-22 (पुर्ज़ा) की दहलीज़।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/first-code/pl0-184-banao-kharidari-suchi-program.html","image":"https://acslearn.com/assets/og/first-code.png","educationalLevel":"Beginner","position":184,"timeRequired":"PT13M","isPartOf":{"@type":"Course","@id":"https://acslearn.com/courses/hi/first-code/#course","name":"पहला कोड (First Code)","description":"कंप्यूटर की भाषा की पहली सीढ़ी — सोच से शुरुआत, अपने फ़ोन पर पहला कोड","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"पहला कोड (First Code)","item":"https://acslearn.com/courses/hi/first-code/"},{"@type":"ListItem","position":4,"name":"पाठ-184: 🛠 बनाओ — ख़रीदारी-सूची प्रोग्राम (जोड़ो, देखो, गिनो)","item":"https://acslearn.com/courses/hi/first-code/pl0-184-banao-kharidari-suchi-program.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="184" data-course="first-code">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › पहला कोड (First Code) › हिस्सा-21: सूची (लिस्ट / List) व अक्षर-माला</p>
+<h1>पाठ-184: 🛠 बनाओ — ख़रीदारी-सूची प्रोग्राम (जोड़ो, देखो, गिनो)</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 184 / 218 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/first-code/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="pl0-001-computer-kahan-chhipa-hai.html">पाठ-1</a> <a href="pl0-002-computer-ke-4-kaam.html">पाठ-2</a> <a href="pl0-003-computer-ki-boli-0-aur-1.html">पाठ-3</a> <a href="pl0-004-apna-naam-0-1-mein.html">पाठ-4</a> <a href="pl0-005-hardware-software-sharir-soch.html">पाठ-5</a> <a href="pl0-006-computer-banam-insaan.html">पाठ-6</a> <a href="pl0-007-computer-ai-aur-tum.html">पाठ-7</a> <a href="pl0-008-computer-bewakoof-kyon.html">पाठ-8</a> <a href="pl0-009-course-ka-poora-naksha.html">पाठ-9</a> <a href="pl0-010-vidhi-yani-algorithm.html">पाठ-10</a> <a href="pl0-011-nirdesh-khel-dost-robot.html">पाठ-11</a> <a href="pl0-012-adhoora-nirdesh-gadbad-natija.html">पाठ-12</a> <a href="pl0-013-kadam-chhote-kaise-karen.html">पाठ-13</a> <a href="pl0-014-rasta-batane-ka-khel.html">पाठ-14</a> <a href="pl0-015-algorithm-likhne-ka-acs-tarika.html">पाठ-15</a> <a href="pl0-016-do-vidhiyon-ki-tulna.html">पाठ-16</a> <a href="pl0-017-abhyas-mela-5-vidhiyan.html">पाठ-17</a> <a href="pl0-018-kram-kyon-zaroori-moza-joota.html">पाठ-18</a> <a href="pl0-019-ulat-palat-ka-khel.html">पाठ-19</a> <a href="pl0-020-pravah-chitra-pehli-pehchan.html">पाठ-20</a> <a href="pl0-021-kahani-se-pravah-chitra.html">पाठ-21</a> <a href="pl0-022-galat-kram-pakdo-jamao-khel.html">पाठ-22</a> <a href="pl0-023-computer-mein-kram-line-dar-line.html">पाठ-23</a> <a href="pl0-024-abhyas-mela-kram-paheliyan.html">पाठ-24</a> <a href="pl0-025-dohrav-ki-taqat-10-taali.html">पाठ-25</a> <a href="pl0-026-ginti-wala-dohrav-theek-5-baar.html">पाठ-26</a> <a href="pl0-027-shart-wala-dohrav-balti-bhare-tak.html">पाठ-27</a> <a href="pl0-028-dohrav-ke-bheetar-dohrav-chatai.html">पाठ-28</a> <a href="pl0-029-dohrav-pakdo-geet-mala-rangoli.html">पाठ-29</a> <a href="pl0-030-kabhi-na-rukne-wala-dohrav-katha.html">पाठ-30</a> <a href="pl0-031-abhyas-mela-loop-khel.html">पाठ-31</a> <a href="pl0-032-zindagi-ke-agar-to-barish-chhata.html">पाठ-32</a> <a href="pl0-033-haan-nahi-sawal-computer-ki-poochh.html">पाठ-33</a> <a href="pl0-034-agar-to-nahi-to-do-raste.html">पाठ-34</a> <a href="pl0-035-kai-sharten-saath-aur-ya.html">पाठ-35</a> <a href="pl0-036-pravah-chitra-mein-heera-faisla.html">पाठ-36</a> <a href="pl0-037-sardar-kahe-khel-se-shart.html">पाठ-37</a> <a href="pl0-038-abhyas-mela-agar-to-paheliyan.html">पाठ-38</a> <a href="pl0-039-badi-samasya-chhote-tukde-shaadi.html">पाठ-39</a> <a href="pl0-040-pattern-pehchan-rangoli-pahada-mausam.html">पाठ-40</a> <a href="pl0-041-zaroori-banam-faltu-naksha.html">पाठ-41</a> <a href="pl0-042-galti-khoj-ki-soch-debugging.html">पाठ-42</a> <a href="pl0-043-khel-20-sawal-aadha-aadha.html">पाठ-43</a> <a href="pl0-044-chitra-inton-ki-jhalak-block-bhasha.html">पाठ-44</a> <a href="pl0-045-bhag-a-ki-dohrai-6-hathiyar.html">पाठ-45</a> <a href="pl0-046-aage-kya-phone-uthane-ka-samay.html">पाठ-46</a> <a href="pl0-047-code-ke-liye-kya-chahiye-sirf-phone.html">पाठ-47</a> <a href="pl0-048-file-kya-folder-kya-phone-ki-almari.html">पाठ-48</a> <a href="pl0-049-likhne-ka-auzar-text-editor-pehchano.html">पाठ-49</a> <a href="pl0-050-file-ka-naam-aur-poonchh-html.html">पाठ-50</a> <a href="pl0-051-browser-kya-hai-code-padhne-wala-jadugar.html">पाठ-51</a> <a href="pl0-052-pehli-file-banao-aur-kholo.html">पाठ-52</a> <a href="pl0-053-bachat-save-ki-aadat.html">पाठ-53</a> <a href="pl0-054-abhyas-mela-file-folder-ke-5-kaam.html">पाठ-54</a> <a href="pl0-055-internet-kaise-kaam-karta-hai-dakiya-katha.html">पाठ-55</a> <a href="pl0-056-website-kahan-rehti-hai-server-godam-ghar.html">पाठ-56</a> <a href="pl0-057-password-mazboot-tala-banana.html">पाठ-57</a> <a href="pl0-058-otp-kisi-ko-kabhi-nahi-phone-thagi-pehchan.html">पाठ-58</a> <a href="pl0-059-niji-baat-online-nahi-lakshman-rekha.html">पाठ-59</a> <a href="pl0-060-sach-jhooth-ki-pehchan-nakli-sandesh-lalach-jaal.html">पाठ-60</a> <a href="pl0-061-abhyas-mela-suraksha-ki-7-kasmein-suraksha-patra.html">पाठ-61</a> <a href="pl0-062-andaza-lagao-3-line-code-kya-dikhayega.html">पाठ-62</a> <a href="pl0-063-chalao-namaste-duniya-apni-aankhon-se.html">पाठ-63</a> <a href="pl0-064-jaancho-teeno-line-ka-ek-ek-matlab.html">पाठ-64</a> <a href="pl0-065-badlo-apna-naam-likho-phir-gaon-ka.html">पाठ-65</a> <a href="pl0-066-html-tag-page-ki-chardiwari.html">पाठ-66</a> <a href="pl0-067-body-jo-dikhta-hai-wah-yahin-rehta-hai.html">पाठ-67</a> <a href="pl0-068-toota-code-theek-karo-1-bhoola-hua-tag.html">पाठ-68</a> <a href="pl0-069-banao-mera-pehla-panna-naam-gaon-sapna.html">पाठ-69</a> <a href="pl0-070-abhyas-mela-adhyay-9-jaanch.html">पाठ-70</a> <a href="pl0-071-tag-kholo-band-karo-darwaze-ki-jodi.html">पाठ-71</a> <a href="pl0-072-h1-se-h6-bada-shirshak-chhota-shirshak.html">पाठ-72</a> <a href="pl0-073-p-baat-kehne-ka-dibba-paragraph.html">पाठ-73</a> <a href="pl0-074-br-aur-hr-nai-line-beech-ki-lakeer.html">पाठ-74</a> <a href="pl0-075-b-i-u-mota-tircha-rekha-wala.html">पाठ-75</a> <a href="pl0-076-tag-ke-bheetar-tag-dibbe-me-dibba-nesting.html">पाठ-76</a> <a href="pl0-077-code-me-apni-parchi-tippani-comment.html">पाठ-77</a> <a href="pl0-078-toota-code-theek-karo-2-uljhi-jodiyan.html">पाठ-78</a> <a href="pl0-079-banao-ek-panna-kahani-shirshak-teen-paira.html">पाठ-79</a> <a href="pl0-080-img-page-par-chitra-lao.html">पाठ-80</a> <a href="pl0-081-chitra-ka-pata-src-file-kahan-rakhi-hai.html">पाठ-81</a> <a href="pl0-082-alt-chitra-na-khule-to-shabd-bolen.html">पाठ-82</a> <a href="pl0-083-a-kadi-link-ek-panne-se-doosre-tak.html">पाठ-83</a> <a href="pl0-084-do-panne-jodo-chhoti-website-ka-janm.html">पाठ-84</a> <a href="pl0-085-bahri-kadi-duniya-ke-panne-tak-nai-khidki.html">पाठ-85</a> <a href="pl0-086-chitra-par-kadi-dabane-layak-tasveer.html">पाठ-86</a> <a href="pl0-087-tag-ki-jeben-attribute-src-href-alt.html">पाठ-87</a> <a href="pl0-088-toota-code-theek-karo-3-mari-kadi-gayab-chitra.html">पाठ-88</a> <a href="pl0-089-banao-mera-gaon-do-panna-album.html">पाठ-89</a> <a href="pl0-090-ul-li-bindu-suchi-kharidari-ki-parchi.html">पाठ-90</a> <a href="pl0-091-ol-li-ginti-suchi-vidhi-ke-kadam.html">पाठ-91</a> <a href="pl0-092-suchi-me-suchi-dibbe-me-dibba-phir-se.html">पाठ-92</a> <a href="pl0-093-talika-table-ki-pehli-pehchaan-pankti-aur-khana.html">पाठ-93</a> <a href="pl0-094-tr-td-th-talika-ke-teen-auzaar.html">पाठ-94</a> <a href="pl0-095-apni-samay-sarni-banao.html">पाठ-95</a> <a href="pl0-096-dukaan-ka-bhav-patra-talika-suchi-milakar.html">पाठ-96</a> <a href="pl0-097-toota-code-theek-karo-4-bikhri-talika.html">पाठ-97</a> <a href="pl0-098-abhyas-mela-adhyay-12-jaanch.html">पाठ-98</a> <a href="pl0-099-css-kya-hai-html-shareer-css-kapde.html">पाठ-99</a> <a href="pl0-100-style-lagane-ka-pehla-tarika-tag-ke-bheetar.html">पाठ-100</a> <a href="pl0-101-color-aksharon-ka-rang-naam-se.html">पाठ-101</a> <a href="pl0-102-background-color-peeche-ka-rang.html">पाठ-102</a> <a href="pl0-103-rang-ke-code-acs-ke-apne-5-rang.html">पाठ-103</a> <a href="pl0-104-font-size-akshar-chhota-bada-16-se-chhota-kyon-nahi.html">पाठ-104</a> <a href="pl0-105-style-tag-sab-niyam-ek-jagah.html">पाठ-105</a> <a href="pl0-106-class-ek-niyam-kai-jagah.html">पाठ-106</a> <a href="pl0-107-toota-code-theek-karo-5-bigde-rang.html">पाठ-107</a> <a href="pl0-108-banao-apne-kahani-panne-ko-rango.html">पाठ-108</a> <a href="pl0-109-dibbe-ki-soch-page-ki-har-cheez-ek-dibba-box.html">पाठ-109</a> <a href="pl0-110-border-dibbe-ka-kinara.html">पाठ-110</a> <a href="pl0-111-padding-dibbe-ke-andar-ki-saans.html">पाठ-111</a> <a href="pl0-112-margin-dibbon-ke-beech-ki-doori.html">पाठ-112</a> <a href="pl0-113-text-align-baayen-beech-daayen.html">पाठ-113</a> <a href="pl0-114-width-va-height-dibbe-ka-naap.html">पाठ-114</a> <a href="pl0-115-gol-kone-border-radius-pehli-shobha.html">पाठ-115</a> <a href="pl0-116-div-bina-naam-ka-dibba-sabka-saathi.html">पाठ-116</a> <a href="pl0-117-toota-code-theek-karo-6-chipke-dibbe.html">पाठ-117</a> <a href="pl0-118-banao-rangeen-poster-panna-gaon-ke-mele-ka-vigyapan.html">पाठ-118</a> <a href="pl0-119-project-ka-naksha-pehle-kagaz-par-khaka.html">पाठ-119</a> <a href="pl0-120-dhancha-khada-karo-shirshak-photo-jagah-teen-hisse.html">पाठ-120</a> <a href="pl0-121-mere-baare-me-hissa.html">पाठ-121</a> <a href="pl0-122-mera-hunar-suchi.html">पाठ-122</a> <a href="pl0-123-mera-sapna-aur-sampark-kadi.html">पाठ-123</a> <a href="pl0-124-rang-roop-acs-5-rang-se-sajao.html">पाठ-124</a> <a href="pl0-125-mobile-par-janchao-chhota-parda-bada-parda.html">पाठ-125</a> <a href="pl0-126-dost-se-janchwao-do-aankhen-behtar.html">पाठ-126</a> <a href="pl0-127-aakhri-galti-khoj-apni-jaanch-suchi-se-safai.html">पाठ-127</a> <a href="pl0-128-shabashi-pehla-asli-kaam-resume-career-kit.html">पाठ-128</a> <a href="pl0-129-programming-bhasha-banam-html-dikhana-banam-sochna.html">पाठ-129</a> <a href="pl0-130-python-kahan-chalayen-phone-ke-muft-raste.html">पाठ-130</a> <a href="pl0-131-andaza-chalao-print-namaste.html">पाठ-131</a> <a href="pl0-132-jaancho-koshthak-aur-ulte-comma-ka-raaz.html">पाठ-132</a> <a href="pl0-133-badlo-teen-line-ki-kavita-chhapwao.html">पाठ-133</a> <a href="pl0-134-galti-sandesh-se-dosti-error-padhna-seekho.html">पाठ-134</a> <a href="pl0-135-jod-ghatav-chhapwao-print-2-plus-3-ginti-baaz.html">पाठ-135</a> <a href="pl0-136-toota-code-theek-karo-7-khoya-koshthak.html">पाठ-136</a> <a href="pl0-137-banao-naam-pata-sapna-pehla-program.html">पाठ-137</a> <a href="pl0-138-variable-naam-wala-dibba.html">पाठ-138</a> <a href="pl0-139-dibbe-me-sankhya-umar-14.html">पाठ-139</a> <a href="pl0-140-dibba-badlo-purana-nikalo-naya-rakho.html">पाठ-140</a> <a href="pl0-141-do-dibbe-saath-chhapo-naam-aur-umar.html">पाठ-141</a> <a href="pl0-142-shabd-dibba-banam-sankhya-dibba-5-aur-5.html">पाठ-142</a> <a href="pl0-143-achhe-naam-rakho-dibbe-par-saaf-parchi.html">पाठ-143</a> <a href="pl0-144-mashhoor-galatfahmi-dibba-itihas-yaad-nahi-rakhta.html">पाठ-144</a> <a href="pl0-145-toota-code-theek-karo-8-galat-naam-ki-pukaar.html">पाठ-145</a> <a href="pl0-146-banao-dukaan-ki-3-cheezon-ka-bhav-hisab.html">पाठ-146</a> <a href="pl0-147-input-sawal-poochhne-ka-jaadu.html">पाठ-147</a> <a href="pl0-148-jawab-ko-dibbe-me-rakho-naam-input.html">पाठ-148</a> <a href="pl0-149-poochho-aur-jawab-me-buno-namaste-sita.html">पाठ-149</a> <a href="pl0-150-sankhya-poochhna-int-kyon-chahiye.html">पाठ-150</a> <a href="pl0-151-do-sankhyaen-poochhkar-jodo-pehla-calculator.html">पाठ-151</a> <a href="pl0-152-umar-se-janm-saal-nikalo.html">पाठ-152</a> <a href="pl0-153-toota-code-theek-karo-9-5-plus-3-53-ulajhan.html">पाठ-153</a> <a href="pl0-154-banao-mujhse-milo-sawal-jawab-program.html">पाठ-154</a> <a href="pl0-155-abhyas-mela-aur-adhyay-jaanch-input.html">पाठ-155</a> <a href="pl0-156-if-ki-wapsi-bhaag-a-ki-chhatri-ab-code-me.html">पाठ-156</a> <a href="pl0-157-do-barabar-ka-matlab-barabari-jaanchna.html">पाठ-157</a> <a href="pl0-158-if-else-paas-ya-phir-mehnat.html">पाठ-158</a> <a href="pl0-159-chhota-bada-jaancho-tulna-chinh.html">पाठ-159</a> <a href="pl0-160-elif-kai-raaste-thanda-garam-barsaat.html">पाठ-160</a> <a href="pl0-161-hashiya-indent-python-ki-lakshman-rekha.html">पाठ-161</a> <a href="pl0-162-and-or-do-sharten-saath.html">पाठ-162</a> <a href="pl0-163-toota-code-theek-karo-10-bhatka-hashiya.html">पाठ-163</a> <a href="pl0-164-banao-paas-fail-batane-wala-program.html">पाठ-164</a> <a href="pl0-165-for-ki-pehli-daud-1-se-10-ginti.html">पाठ-165</a> <a href="pl0-166-range-kahan-se-kahan-tak.html">पाठ-166</a> <a href="pl0-167-loop-ke-bhitar-print-2-ka-pahada-3-line-me.html">पाठ-167</a> <a href="pl0-168-loop-plus-if-sirf-sam-sankhyaen-chhapo.html">पाठ-168</a> <a href="pl0-169-while-jab-tak-shart-sach.html">पाठ-169</a> <a href="pl0-170-jod-jama-karo-1-se-100-gauss-ki-baal-katha.html">पाठ-170</a> <a href="pl0-171-anant-loop-phir-mila-ab-code-me-aur-nikalna.html">पाठ-171</a> <a href="pl0-172-loop-ke-bhitar-loop-taaron-ka-trikon.html">पाठ-172</a> <a href="pl0-173-toota-code-theek-karo-11-kabhi-na-rukne-wala-while.html">पाठ-173</a> <a href="pl0-174-banao-pahada-chhapu-program.html">पाठ-174</a> <a href="pl0-175-list-ek-dibbe-me-kai-cheezen.html">पाठ-175</a> <a href="pl0-176-ginti-0-se-pehli-cheez-0-number-par.html">पाठ-176</a> <a href="pl0-177-cheez-jodo-hatao-append-remove.html">पाठ-177</a> <a href="pl0-178-list-par-loop-har-cheez-ek-ek-kar.html">पाठ-178</a> <a href="pl0-179-len-kitni-cheezen-hain.html">पाठ-179</a> <a href="pl0-180-akshar-mala-string-bhi-mala-jaisi.html">पाठ-180</a> <a href="pl0-181-list-plus-if-kya-aalu-suchi-me-hai.html">पाठ-181</a> <a href="pl0-182-chhote-se-bada-kram-sort-ki-jhalak.html">पाठ-182</a> <a href="pl0-183-toota-code-theek-karo-12-seema-ke-bahar-ki-pukaar.html">पाठ-183</a> <span class="lsn-jumpcur">पाठ-184 (यही)</span> <a href="pl0-185-purza-kya-hai-ek-baar-banao-sau-baar-chalao-def.html">पाठ-185</a> <a href="pl0-186-purza-bulana-banane-aur-chalane-ka-fark.html">पाठ-186</a> <a href="pl0-187-purze-ko-saman-do-parameter-ki-khidki.html">पाठ-187</a> <a href="pl0-188-purza-lautaye-return-ka-tohfa.html">पाठ-188</a> <a href="pl0-189-print-banam-return-dikhana-banam-thamana.html">पाठ-189</a> <a href="pl0-190-ek-cheez-ek-jagah-dohraya-code-purze-me-sameto.html">पाठ-190</a> <a href="pl0-191-purzon-se-saaf-program-bada-kaam-chhote-hisse.html">पाठ-191</a> <a href="pl0-192-toota-code-theek-karo-13-bin-bulaya-bhatka-return.html">पाठ-192</a> <a href="pl0-193-banao-hisab-purze-teen-purzon-ki-apni-peti.html">पाठ-193</a> <a href="pl0-194-khel-ka-naksha-kagaz-par-niyam-pravah-chitra.html">पाठ-194</a> <a href="pl0-195-random-computer-man-me-sankhya-rakhe.html">पाठ-195</a> <a href="pl0-196-khiladi-se-poochho-input-ki-wapsi.html">पाठ-196</a> <a href="pl0-197-upar-neeche-ka-ishara-if-elif-else.html">पाठ-197</a> <a href="pl0-198-baar-baar-mauka-while-se-khel-chakra.html">पाठ-198</a> <a href="pl0-199-koshishen-gino-dibbe-ka-hisab.html">पाठ-199</a> <a href="pl0-200-khel-ko-purzon-me-banto-function-se-suthra-code.html">पाठ-200</a> <a href="pl0-201-jeet-ka-jashn-phir-khelein-jodi-jaanch.html">पाठ-201</a> <a href="pl0-202-aakhiri-safai-code-me-tippani-likho.html">पाठ-202</a> <a href="pl0-203-shabashi-tum-programmer-ban-gaye-pramanpatra-dwar.html">पाठ-203</a> <a href="pl0-204-peeche-mudkar-dekho-23-adhyayon-ka-naksha.html">पाठ-204</a> <a href="pl0-205-12-computer-bhashaon-ka-parivar-kaun-kis-kaam-ki.html">पाठ-205</a> <a href="pl0-206-python-aage-ai-data-swachalan-ki-raah.html">पाठ-206</a> <a href="pl0-207-javascript-pannon-me-jaan-dalna.html">पाठ-207</a> <a href="pl0-208-scratch-chhote-bhai-behan-ko-sikhao.html">पाठ-208</a> <a href="pl0-209-sql-dukanon-bankon-ka-hisab-ghar.html">पाठ-209</a> <a href="pl0-210-excel-sutra-daftar-ki-rozi.html">पाठ-210</a> <a href="pl0-211-c-machine-ke-andar-ki-duniya-iot-drone.html">पाठ-211</a> <a href="pl0-212-kotlin-java-app-banane-wale.html">पाठ-212</a> <a href="pl0-213-ai-se-kaam-lena-prompt-likhne-ka-hunar.html">पाठ-213</a> <a href="pl0-214-muft-seekhne-ke-vishwa-ghat-adhikarik-kadiyan.html">पाठ-214</a> <a href="pl0-215-kamai-ke-5-dwar-naukri-ped-par-code-hunar.html">पाठ-215</a> <a href="pl0-216-gaon-me-pehla-kaam-padosi-dukan-ka-panna.html">पाठ-216</a> <a href="pl0-217-aage-ka-acs-rasta-dca-ai-digital-master.html">पाठ-217</a> <a href="pl0-218-vidaai-apna-lur-pehchano-khagaria-se-vishva-tak.html">पाठ-218</a>
+</div>
+</details>
+
+<section class="lsn-sec">
+<h2>पाठ परिचय</h2>
+<p>माँ की पर्ची — इस अध्याय की शुरुआत (पाठ-175) से साथ है: पहले काग़ज़ पर, फिर code में; उसमें चीज़ें जुड़ीं-हटीं (177), वह पढ़ी गई (178), नापी गई (179), जाँची गई (181), सजाई गई (182), और उसकी बीमारियों का इलाज हुआ (183)। आज वह पूरी बनती है — <b>ख़रीदारी-सूची प्रोग्राम</b>: एक छोटा-सा ऐप, जिसे घर का कोई भी चला सके।</p>
+<p>यह प्रोग्राम <b>मेन्यू</b> वाला होगा — जैसे फ़ोन के ऐप होते हैं: "1 = जोड़ो, 2 = देखो, 3 = हटाओ, 4 = गिनो, 0 = बस"। चलाने वाला एक बटन चुने, प्रोग्राम वह काम करे, और फिर मेन्यू लौट आए — जब तक "0" न दबे। पाठ-171 की ग़लतफ़हमी-तोड़ में कहा था: "दुनिया के बहुत-से असली प्रोग्राम — मेन्यू वाले ऐप — ठीक इसी ढंग से चलते हैं"; आज आपका पहला मेन्यू-ऐप।</p>
+<p>इसमें पूरे भाग-स की पेटी लगेगी — print, डिब्बे, input, if-elif की सीढ़ी, while True + break, और इस अध्याय के सब हुक्म (append, remove, in, len, sorted, सूची पर लूप)। और पाठ-174 वाली "दूसरे की इज़्ज़त" की कारीगरी: कोई दो बार "दूध" जोड़े — पर्ची में दो दूध नहीं; कोई ग़ायब चीज़ हटाए — चिट्ठी नहीं, विनम्र सूचना; कोई ग़लत बटन दबाए — प्रोग्राम टूटे नहीं। चलिए — माँ की पर्ची का ऐप बनाते हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सीखने का उद्देश्य</h2>
+<p>इस पाठ के बाद आप —</p>
+<p>1. <b>मेन्यू-वाला ख़रीदारी-सूची प्रोग्राम</b> बना चुके होंगे — while True + elif-सीढ़ी, पाँच कामों के साथ — पाँच कदमों से।</p>
+<p>2. हर काम में <b>सुरक्षा</b> लगा पाएँगे — दोहराव-रोक (in), ग़ायब-जाँच, ख़ाली पर्ची, ग़लत बटन — और पाँच दौड़ों से हर राह जाँच पाएँगे।</p>
+<p>3. अध्याय-21 की <b>पोटली</b> गिना पाएँगे — और अध्याय-22 (पुर्ज़ा / function) की दहलीज़-पर्ची जेब में रख लेंगे।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पाँच कदम — माँ की पर्ची का ऐप</h2>
+<p><b>कदम-1 · माँग-पत्र:</b> "ख़ाली पर्ची से शुरू। बार-बार मेन्यू दिखाओ: 1 जोड़ो, 2 देखो, 3 हटाओ, 4 गिनो, 0 बस। जोड़ो — पहले से हो, तो बताओ, दोबारा मत जोड़ो। देखो — ख़ाली हो, तो बताओ; नहीं तो अक्षर-क्रम में, नंबर के साथ। हटाओ — न हो, तो बताओ। गिनो — कितनी चीज़ें। कोई और बटन — सही बटन बताओ। 0 पर — "पर्ची तैयार"।"</p>
+<p><b>कदम-2 · नक़्शा (कॉपी में, पाठ-36 का हीरा-चित्र):</b> एक बड़ा घेरा — while True (कितनी बार, पता नहीं — पाठ-169 का फ़ैसला)। भीतर एक सीढ़ी — if 0 → break; elif 1; elif 2; elif 3; elif 4; else (ग़लत बटन) — पाठ-160 की elif-सीढ़ी, जिसमें <b>ठीक एक</b> राह चलेगी। हर राह के भीतर अपना छोटा फ़ैसला (in, len)। <b>एक बारीक फ़ैसला — चुनाव शब्द ही रहे:</b> मेन्यू का जवाब ("1", "2"...) int() नहीं किया — क्योंकि उससे <i>हिसाब</i> नहीं करना (पाठ-150 का फ़ैसला-नियम!), बस मिलाना है; और फ़ायदा — कोई "x" दबाए, तो int() वाली ValueError (पाठ-153) नहीं, सीधे else-राह की विनम्र सूचना। <b>दौड़ों की सूची पहले से:</b> (1) ख़ाली पर्ची देखना (2) जोड़ना + दोहराव + देखना (सजी) + गिनना (3) ग़ायब हटाना + सही हटाना + शून्य गिनती (4) ग़लत बटन (5) तुरंत बंद।</p>
+<p><b>कदम-3/4 · code — 🔮 अंदाज़ा पहले</b> (हाशिया-सीढ़ी: 0 · 4 · 8 · 12 · 16 — पाँच तल! हर तल का काम बोलकर पढ़िए) —</p>
+<pre class="pl-code" data-lang="py" data-in="2|0" data-out="1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi khaali hai. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi taiyaar. Haat chaliye!" data-in-2="1|doodh|1|chini|1|doodh|2|4|0" data-out-2="1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Kya jodna hai? doodh jud gaya. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Kya jodna hai? chini jud gaya. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Kya jodna hai? doodh pehle se hai. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: 1 - chini 2 - doodh 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi me 2 cheezein. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi taiyaar. Haat chaliye!" data-in-3="1|aalu|3|kela|3|aalu|4|0" data-out-3="1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Kya jodna hai? aalu jud gaya. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Kya hatana hai? kela parchi me tha hi nahi. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Kya hatana hai? aalu hat gaya. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi me 0 cheezein. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi taiyaar. Haat chaliye!" data-in-4="9|0" data-out-4="1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: 1, 2, 3, 4 ya 0 likhiye. 1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi taiyaar. Haat chaliye!" data-in-5="0" data-out-5="1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: Parchi taiyaar. Haat chaliye!">saman = []
+while True:
+    chunav = input("1 jodo, 2 dekho, 3 hatao, 4 gino, 0 bas: ")
+    if chunav == "0":
+        break
+    elif chunav == "1":
+        cheez = input("Kya jodna hai? ")
+        if cheez in saman:
+            print(cheez, "pehle se hai.")
+        else:
+            saman.append(cheez)
+            print(cheez, "jud gaya.")
+    elif chunav == "2":
+        if len(saman) == 0:
+            print("Parchi khaali hai.")
+        else:
+            ginti = 1
+            for cheez in sorted(saman):
+                print(ginti, "-", cheez)
+                ginti = ginti + 1
+    elif chunav == "3":
+        cheez = input("Kya hatana hai? ")
+        if cheez in saman:
+            saman.remove(cheez)
+            print(cheez, "hat gaya.")
+        else:
+            print(cheez, "parchi me tha hi nahi.")
+    elif chunav == "4":
+        print("Parchi me", len(saman), "cheezein.")
+    else:
+        print("1, 2, 3, 4 ya 0 likhiye.")
+print("Parchi taiyaar. Haat chaliye!")
+</pre>
+<p><b>पाँच दौड़ें (कॉपी में मिलाइए):</b> (1) <b>2, 0</b> → "Parchi khaali hai." — ख़ाली पर्ची पर ईमानदार सूचना · (2) <b>1 doodh, 1 chini, 1 doodh, 2, 4, 0</b> → दूध जुड़ा, चीनी जुड़ी, दूध <b>"pehle se hai"</b> (दोहराव-रोक!), देखो → <b>1 - chini, 2 - doodh</b> (अक्षर-क्रम में — जोड़ने का क्रम उल्टा था!), गिनो → 2 · (3) <b>1 aalu, 3 kela, 3 aalu, 4, 0</b> → केला <b>"tha hi nahi"</b> (कोई ValueError नहीं!), आलू हटा, गिनो → 0 · (4) <b>9, 0</b> → "1, 2, 3, 4 ya 0 likhiye." · (5) <b>0</b> → सीधे "Parchi taiyaar"। हर राह ज़िंदा — कोई मरी नहीं।</p>
+<p><b>तीन बारीकियाँ (कॉपी में):</b> <b>(1) sorted, sort नहीं</b> — "देखो" में sorted(saman) (पाठ-182): पर्ची सजी <i>दिखे</i>, पर असली पर्ची का क्रम (जोड़ने का) बचा रहे — दिखाना एक काम, रखना दूसरा। <b>(2) for के भीतर cheez</b> — "देखो" वाले लूप का cheez डिब्बा और "जोड़ो" वाले input का cheez — एक ही नाम, पर हर राह में नया माल (पाठ-140 का ब्लैकबोर्ड); ठीक चलता है, पर बड़े प्रोग्रामों में अलग नाम (dekhne_wali, nayi_cheez) ज़्यादा साफ़ — पाठ-143 की तमीज़। <b>(3) break सबसे ऊपर</b> — 0 पहली शर्त, ताकि बंद करना सबसे सस्ता और पक्का (पाठ-174 जैसा)।</p>
+<p><b>कदम-5 · जाँच — अध्याय-21 के मरीज़ों से:</b> कोई सीधा पता नहीं (IndexError असंभव — 52-54 ✓) · कोई saman = saman.append (55 ✓) · remove से पहले in (56 ✓) · कोष्ठक पूरे (58 ✓) · अनंत? — while True, पर 0 पर break पक्का ✓। पास — रस्म-पन्ने पर: <b>"मेरा पहला मेन्यू-ऐप: (तारीख़)"</b>।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>रेखा-चित्र: माँ की पर्ची का ऐप</h2>
+<p>नीचे पूरा ख़रीदारी-सूची प्रोग्राम एक पट्ट पर — मेन्यू का घेरा, elif-सीढ़ी, हर राह की सुरक्षा, और पाँच दौड़ें —</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ख़रीदारी-सूची ऐप: while True घेरा, मेन्यू 1 जोड़ो 2 देखो 3 हटाओ 4 गिनो 0 बस; elif सीढ़ी — 0 break सबसे ऊपर, 1 जोड़ो पहले से है तो रोको, 2 देखो ख़ाली तो सूचना नहीं तो sorted नंबर के साथ, 3 हटाओ है तो हटाओ नहीं तो सूचना, 4 len, else सही बटन बताओ; चुनाव शब्द ही — ग़लत बटन पर चिट्ठी नहीं; पाँच दौड़ें">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<rect x="8" y="8" width="784" height="784" fill="none" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="50" text-anchor="middle" font-size="27" fill="#0B1F3A" font-weight="bold">🛠 माँ की पर्ची का ऐप</text>
+<text x="400" y="84" text-anchor="middle" font-size="17" fill="#1565C0">नीला घेरा = while True · सुनहरी सीढ़ी = elif · हरे = हर राह की सुरक्षा</text>
+<line x1="40" y1="100" x2="760" y2="100" stroke="#0B1F3A" stroke-width="2"/>
+<rect x="220" y="116" width="360" height="60" rx="12" fill="#0B1F3A"/>
+<text x="400" y="142" text-anchor="middle" font-size="13" fill="#F9A825" font-weight="bold">मेन्यू</text>
+<text x="400" y="164" text-anchor="middle" font-size="13" fill="#F5F7FA">1 जोड़ो · 2 देखो · 3 हटाओ · 4 गिनो · 0 बस</text>
+<rect x="60" y="194" width="680" height="440" rx="14" fill="none" stroke="#1565C0" stroke-width="5"/>
+<text x="80" y="220" font-size="13" fill="#1565C0" font-weight="bold">while True — हर काम के बाद मेन्यू फिर</text>
+<rect x="90" y="236" width="190" height="50" fill="#F9A825"/><text x="185" y="266" text-anchor="middle" font-size="13" fill="#0B1F3A" font-weight="bold">0 → break (सबसे ऊपर)</text>
+<rect x="90" y="298" width="190" height="50" fill="#F9A825"/><text x="185" y="328" text-anchor="middle" font-size="13" fill="#0B1F3A" font-weight="bold">1 → जोड़ो</text>
+<rect x="300" y="298" width="420" height="50" fill="#2E7D32"/><text x="510" y="328" text-anchor="middle" font-size="12" fill="#F5F7FA">in? → "pehle se hai" · नहीं तो append</text>
+<rect x="90" y="360" width="190" height="50" fill="#F9A825"/><text x="185" y="390" text-anchor="middle" font-size="13" fill="#0B1F3A" font-weight="bold">2 → देखो</text>
+<rect x="300" y="360" width="420" height="50" fill="#2E7D32"/><text x="510" y="382" text-anchor="middle" font-size="12" fill="#F5F7FA">len == 0? → "khaali"</text><text x="510" y="400" text-anchor="middle" font-size="12" fill="#F5F7FA">नहीं तो sorted + नंबर (असली क्रम बचा)</text>
+<rect x="90" y="422" width="190" height="50" fill="#F9A825"/><text x="185" y="452" text-anchor="middle" font-size="13" fill="#0B1F3A" font-weight="bold">3 → हटाओ</text>
+<rect x="300" y="422" width="420" height="50" fill="#2E7D32"/><text x="510" y="452" text-anchor="middle" font-size="12" fill="#F5F7FA">in? → remove · नहीं तो "tha hi nahi" (ValueError नहीं)</text>
+<rect x="90" y="484" width="190" height="50" fill="#F9A825"/><text x="185" y="514" text-anchor="middle" font-size="13" fill="#0B1F3A" font-weight="bold">4 → गिनो</text>
+<rect x="300" y="484" width="420" height="50" fill="#2E7D32"/><text x="510" y="514" text-anchor="middle" font-size="12" fill="#F5F7FA">len(saman)</text>
+<rect x="90" y="546" width="190" height="50" fill="#F9A825"/><text x="185" y="576" text-anchor="middle" font-size="13" fill="#0B1F3A" font-weight="bold">else → ग़लत बटन</text>
+<rect x="300" y="546" width="420" height="50" fill="#2E7D32"/><text x="510" y="576" text-anchor="middle" font-size="12" fill="#F5F7FA">"1, 2, 3, 4 ya 0 likhiye" — चुनाव शब्द ही, कोई चिट्ठी नहीं</text>
+<text x="400" y="622" text-anchor="middle" font-size="11" fill="#1565C0">elif-सीढ़ी: हर बार ठीक एक राह (पाठ-160)</text>
+<rect x="60" y="650" width="680" height="112" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/>
+<text x="400" y="678" text-anchor="middle" font-size="14" fill="#0B1F3A" font-weight="bold">पाँच दौड़ें — हर राह ज़िंदा</text>
+<text x="400" y="704" text-anchor="middle" font-size="12" fill="#0B1F3A">ख़ाली देखो · जोड़ो + दोहराव + सजी पर्ची (chini, doodh) + गिनो</text>
+<text x="400" y="726" text-anchor="middle" font-size="12" fill="#0B1F3A">ग़ायब हटाओ + सही हटाओ + 0 गिनती · ग़लत बटन · तुरंत बंद</text>
+<text x="400" y="748" text-anchor="middle" font-size="11" fill="#0B1F3A">(robot ने पाँचों असली Python से जाँचीं)</text>
+</svg>
+<p>बड़ा नीला घेरा पूरे ऐप की धड़कन है — हर काम के बाद मेन्यू लौटता है; भीतर की सुनहरी सीढ़ी चुनाव पढ़ती है, और हर हरी पट्टी उस राह की सुरक्षा है जो "दूसरे की इज़्ज़त" निभाती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>ग़लतफ़हमी तोड़ो</h2>
+<p><b>ग़लतफ़हमी:</b> "यह तो असली ऐप नहीं — बस काला परदा और अक्षर! असली ऐप में बटन होते हैं, रंग, चित्र। यह 'मेन्यू' बच्चों का खेल है; असली ऐप बनाने के लिए कुछ और ही सीखना पड़ता है।"</p>
+<p><b>सच:</b> "बटन, रंग, चित्र" — वह ऐप का <b>चेहरा</b> है, और वह आप भाग-ब में बना चुके हैं (html के पन्ने, CSS के रंग — पाठ 62-128!)। आज आपने ऐप का <b>दिमाग़</b> बनाया — और असली ऐपों का दिमाग़ ठीक ऐसा ही होता है: एक लूप जो "उपयोगकर्ता क्या चाहता है?" का इंतज़ार करता है (आपका while True), एक सीढ़ी जो चुनाव पढ़ती है (आपकी elif), हर काम में सुरक्षा (आपके in और len), और एक सूची जिसमें माल रहता है (आपका saman)। फ़ोन के ख़रीदारी-ऐप में "जोड़ो" बटन दबाने पर भीतर लगभग यही होता है — "यह पहले से है? नहीं — तो सूची में जोड़ो।" फ़र्क़ बस इतना है कि वहाँ बटन दबता है, यहाँ "1" लिखा जाता है — दिमाग़ वही।</p>
+<p>और "कुछ और ही सीखना पड़ता है" — असली ऐप बनाने वाले चेहरा और दिमाग़ <b>जोड़ना</b> सीखते हैं: html-CSS का चेहरा, और उसके पीछे Python (या JavaScript — अध्याय-24 की झलक!) जैसा दिमाग़। आपने दोनों आधे सीख लिए हैं — इस कोर्स का पूरा नक़्शा (पाठ-9) यही था: भाग-ब चेहरा, भाग-स दिमाग़। ACS की अपनी website भी इन्हीं दो हिस्सों से बनी है — पन्ने (चेहरा) और उनके पीछे चलने वाले प्रोग्राम (दिमाग़) जो आपके अंक, आपकी प्रगति, आपकी पर्ची सँभालते हैं। <b>काला परदा छोटा दिखता है — पर उसमें वह दिमाग़ है जिसके बिना कोई रंगीन ऐप एक क़दम नहीं चलता।</b></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास-खेल: ऐप-मश्क़ + अध्याय-पोटली</h2>
+<p><b>खेल 1 — अपना पर्ची-ऐप:</b> पाँचों कदम — माँग-पत्र, घेरा-सीढ़ी का नक़्शा, दौड़ों की सूची पहले से, code, हाशिया-जासूस (पाँच तल!), पाँचों दौड़ें। फिर किसी घर-साथी से चलवाइए — बिना कुछ बताए, सिर्फ़ मेन्यू के भरोसे (आप देखिए!)। उन्होंने कहाँ उलझन महसूस की? सुधारिए।</p>
+<p><b>खेल 2 — बढ़ोतरी (चुनिए एक या दो):</b> (क) बटन 5 — "सब हटाओ" (पक्का पूछकर: "Sach me? haan/nahi") (ख) जोड़ते समय मात्रा भी पूछिए ("Kitne kilo?") — दूसरी सूची में (ध्यान: दोनों सूचियों के पते साथ-साथ चलें — हटाने में दोनों से!) (ग) बटन 2 में दो रूप — जोड़ने का क्रम और अक्षर-क्रम (sorted बनाम असली)। हर बढ़ोतरी पर नई दौड़ें।</p>
+<p><b>खेल 3 — अध्याय-21 की पोटली + दहलीज़-पर्ची:</b> कॉपी में नौ कमाइयाँ: (1) सूची — एक डिब्बा, कई चीज़ें (2) पते 0 से, −1 आख़िरी (3) append, remove, सूची का धागा, copy() (4) for cheez in saman (5) len, range(len), औसत (6) शब्द = अक्षर-माला, देवनागरी के चिह्न (7) in — हाँ/नहीं (8) sort, sorted, तीन जाल (9) रेल-चित्र, नंबर − 1 का पुल — और बीमारी-पट्टी 52-58। फिर अध्याय-22 — <b>"काम का पुर्ज़ा — फ़ंक्शन (Function)"</b> — की दहलीज़-पर्ची, तीन दाँव (बही में): (१) पाठ-174 के पहाड़ा-छापू का "पहाड़ा छापने वाला" हिस्सा किसी दूसरे प्रोग्राम में भी चाहिए — फिर से लिखें, या कोई तरीक़ा कि एक बार लिखकर नाम से बुला लें? (२) print, len, sorted, input — ये "हुक्म" किसने बनाए? क्या हम भी अपना हुक्म बना सकते हैं? (३) "एक चीज़ = एक जगह" (पाठ-138) — दोहराए हुए code के टुकड़ों पर यह नियम कैसे लागू होगा?</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आगे क्या सीखेंगे</h2>
+<p>अध्याय-21 पूरा — <b>सूची (List) व अक्षर-माला</b>: माँ की पर्ची, 0 से पते, बढ़ती-घटती पर्ची और सूची का धागा, दुकानदार की पढ़ाई (सूची पर लूप), पर्ची की लंबाई, नाम की माला (और देवनागरी के चिह्न), थैले और पर्ची का मिलान (in), प्रार्थना-सभा की क़तार (sort), बारहवाँ दवाख़ाना, और आपका पहला मेन्यू-ऐप। भाग-स के छह अध्याय पूरे: <b>बुलवाना, रखना, पूछना, फ़ैसला, दोहराव, सूची</b>।</p>
+<p>आज की दहलीज़-पर्ची एक बड़ी बात की ओर इशारा करती है: आपने अब तक दर्जनों हुक्म <b>बरते</b> — print, input, int, len, sorted, append — जो किसी और ने बनाए थे। अध्याय-22 — <b>काम का पुर्ज़ा — फ़ंक्शन (Function)</b> (9 पाठ, Founder की v2-सूची का नया अध्याय) — में आप अपने <b>हुक्म ख़ुद बनाएँगे</b>: एक बार लिखो, सौ बार बुलाओ (def); पुर्ज़े को सामान दो (पैरामीटर); पुर्ज़ा जवाब लौटाए (return); और दुनिया की दो मशहूर ग़लतफ़हमियाँ — "बनाया पर बुलाया नहीं, तो चलेगा नहीं" और "print बनाम return"। भाग-अ की "बड़ी समस्या के छोटे टुकड़े" (पाठ-39) वाली सोच, आख़िरकार code में। <b>पाठ-185 से: अध्याय-22 — पुर्ज़ा।</b></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक एक जीवित रास्ता —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%93%20%E0%A4%96%E0%A4%BC%E0%A4%B0%E0%A5%80%E0%A4%A6%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%B8%E0%A5%82%E0%A4%9A%E0%A5%80%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AE%20%E0%A4%9C%E0%A5%8B%E0%A4%A1%E0%A4%BC%E0%A5%8B%20%E0%A4%A6%E0%A5%87%E0%A4%96%E0%A5%8B%20%E0%A4%97%E0%A4%BF%E0%A4%A8%E0%A5%8B%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="pl0-183-toota-code-theek-karo-12-seema-ke-bahar-ki-pukaar.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="pl0-185-purza-kya-hai-ek-baar-banao-sau-baar-chalao-def.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>
