@@ -169,7 +169,7 @@ function landingHead(C, LS, se, canonical, ogImage) {
   const X = ctxOf(C, LS, se); const title = fillCtx(req(L, "seoTitle"), X), desc = fillCtx(req(L, "seoDesc"), X);
   const lessonsHours = Math.round(LS.reduce((a, l) => a + (+String(l.minutes).split("-").pop()), 0) / 60);
   const graph = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Course", "@id": canonical + "#course", "name": C.title, "alternateName": [C.fullName.replace(/\s*\([^)]*\)/g, ""), "First Code — Programming Fundamentals in Easy Hindi"],
+    { "@type": "Course", "@id": canonical + "#course", "name": C.title, "alternateName": [C.fullName.replace(/\s*\([^)]*\)/g, ""), "First Code: Python — Start Python Programming in Hindi"],
       "description": desc, "url": canonical, "inLanguage": "hi", "isAccessibleForFree": true, "educationalLevel": "Beginner",
       "coursePrerequisites": req(L, "readLevel"), "teaches": req(L, "outcomes").map(o => o.t),
       "image": ogImage,
