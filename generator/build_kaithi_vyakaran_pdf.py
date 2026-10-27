@@ -1,4 +1,4 @@
-# generator/build_kaithi_vyakaran_pdf.py — v1.0 (27-Oct-2026)
+# generator/build_kaithi_vyakaran_pdf.py — v2.0 (27-Oct-2026) — ब्रांड-परत: तिरंगा-header हर पेज · logo · QR · cover/back-cover (Founder-आदेश)
 # कैथी व्याकरण-पुस्तिका (A4) + वर्णमाला-चार्ट (A4) — दोनों PDF playwright-Chromium से।
 # लोहे का नियम (v1.5): लिपि-आकार (shaping) सिर्फ़ Chromium करे — फ़ॉन्ट NotoSansKaithi ttf local embed।
 # सामग्री-स्रोत: assets/kaithi_lipi.js के नक़्शे + 33 पाठों के दर्ज तथ्य — कुछ गढ़ा नहीं।
@@ -11,6 +11,9 @@ OUT = "/home/claude/kaithi/release"
 os.makedirs(OUT, exist_ok=True)
 FONT = "/home/claude/fonts/NotoSansKaithi-Regular.ttf"
 assert os.path.exists(FONT), "फ़ॉन्ट नहीं"
+LOGO = open("/tmp/logo_b64.txt").read()
+QR_COURSE = open("/tmp/qr_course_b64.txt").read()
+QR_SITE = open("/tmp/qr_site_b64.txt").read()
 
 # ---- इंजन के नक़्शे node से निकालो (एक ही सच — kaithi_lipi.js) ----
 node_code = r'''
@@ -63,10 +66,34 @@ th{background:#0B1F3A;color:#fff;font-size:16px}
 .gcell{border:1.5px solid #0B1F3A;border-radius:8px;text-align:center;padding:5px 2px}
 .gcell .k{font-size:32px;display:block}.gcell .d{font-size:15px;color:#2E7D32}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* ===== ब्रांड-परत v2.0 ===== */
+.brand{display:flex;align-items:center;gap:8px;border-bottom:none;padding:4px 0 6px}
+.brand img{height:34px}
+.brand .bn{font-weight:800;font-size:17px;color:#0B1F3A;line-height:1.2}
+.brand .bt{font-size:12px;color:#1565C0}
+.tiranga{height:6px;background:linear-gradient(90deg,#F9A825 0 33%,#fff 33% 66%,#2E7D32 66% 100%);border:1px solid #d8d8d8;border-radius:3px;margin-bottom:6px}
+.bfoot{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #F9A825;margin-top:10px;padding-top:4px;font-size:12.5px;color:#0B1F3A}
+.bfoot .pg-no{background:#0B1F3A;color:#F9A825;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.secno{display:inline-flex;width:30px;height:30px;border-radius:50%;background:#F9A825;color:#0B1F3A;font-weight:800;align-items:center;justify-content:center;margin-right:8px;font-size:17px}
+.cover{background:#0B1F3A;color:#F5F7FA;margin:-14mm -12mm -16mm -12mm;padding:16mm 14mm;min-height:297mm;position:relative}
+.cover .wm{position:absolute;right:-6mm;bottom:10mm;font-size:260px;color:rgba(249,168,37,.08);line-height:1}
+.gold-rule{height:3px;background:#F9A825;border:none;margin:10px 0}
 """.replace("__FONT__", FONT)
 
+PGNO = {"n": 1}
 def hdr(t):
-    return '<div class="hdr"><span class="l">🏛️ कैथी व्याकरण-पुस्तिका — %s</span><span class="r">ACS · acslearn.com</span></div>' % t
+    PGNO["n"] += 1
+    return ('<div class="tiranga"></div>'
+            '<div class="brand"><img src="data:image/png;base64,%s">'
+            '<div><div class="bn">अप्लाइड कंप्यूटर स्कूल™ <span style="color:#1565C0">(Applied Computer School)</span></div>'
+            '<div class="bt">From Village to World — 130 भाषाओं में मुफ़्त शिक्षा · acslearn.com</div></div>'
+            '<div style="margin-left:auto;font-size:13px;color:#1565C0;font-weight:700">🏛️ कैथी व्याकरण-पुस्तिका</div></div>'
+            '<div class="hdr"><span class="l">%s</span><span class="r">FFGPMTrust · ISO 9001:2015</span></div>') % (LOGO, t)
+def bfoot():
+    return ('<div class="bfoot"><span>📱 WhatsApp: wa.me/919431210092 · acs.chautham@gmail.com</span>'
+            '<span>मुफ़्त 33-पाठ कैथी कोर्स: acslearn.com</span>'
+            '<span class="pg-no">%d</span></div>') % PGNO["n"]
 
 def tbl_pairs(pairs, perrow=6, kdcls=("cell-k kai", "cell-d")):
     rows, cells = [], []
@@ -81,14 +108,22 @@ def tbl_pairs(pairs, perrow=6, kdcls=("cell-k kai", "cell-d")):
 # ================= पुस्तिका =================
 P = []
 # आवरण
-P.append("""<div class="pg" style="text-align:center;padding-top:30mm">
-<div class="kai" style="font-size:120px;color:#0B1F3A">𑂍𑂶𑂟𑂲</div>
-<h1 style="border:none;font-size:40px;margin-top:8px">कैथी व्याकरण-पुस्तिका</h1>
-<p style="text-align:center;font-size:20px;color:#1565C0">बिहार-यूपी की पुरानी दफ़्तरी लिपि — वर्णमाला से खतियान तक, एक जगह</p>
-<p style="text-align:center;font-size:17px">लिपि-नियम · वर्णमाला · मात्राएँ · बारहखड़ी · चिह्न · सन-गणित · दफ़्तरी शब्द</p>
-<div class="note" style="text-align:center;max-width:150mm;margin:16px auto">मुफ़्त कोर्स (33 पाठ): acslearn.com/courses/hi/kaithi-lipi/<br>यह पुस्तिका कोर्स की साथी है — print कर पास रखें।</div>
-<p class="foot">Applied Computer School™ · FFGPMTrust · Unicode खंड U+11080-110CF · फ़ॉन्ट: Noto Sans Kaithi (OFL)</p>
-</div>""")
+P.append("""<div class="pg"><div class="cover">
+<div class="wm kai">𑂍</div>
+<div style="display:flex;align-items:center;gap:12px"><img src="data:image/png;base64,""" + LOGO + """" style="height:60px;background:#fff;border-radius:12px;padding:5px">
+<div><div style="font-size:22px;font-weight:800;color:#F9A825">अप्लाइड कंप्यूटर स्कूल™</div>
+<div style="font-size:14px;color:#F5F7FA">Applied Computer School · FFGPMTrust · स्थापना 2011 · ISO 9001:2015</div></div></div>
+<hr class="gold-rule">
+<div style="text-align:center;margin-top:22mm">
+<div class="kai" style="font-size:120px;color:#F9A825">𑂍𑂶𑂟𑂲</div>
+<h1 style="border:none;font-size:42px;color:#fff;margin-top:6px">कैथी व्याकरण-पुस्तिका</h1>
+<p style="text-align:center;font-size:19px;color:#F9A825">बिहार-यूपी की पुरानी दफ़्तरी लिपि — वर्णमाला से खतियान तक, एक जगह</p>
+<p style="text-align:center;font-size:16px;color:#F5F7FA">लिपि-नियम · वर्णमाला · मात्राएँ · बारहखड़ी · धोखेबाज़-जोड़े · सन-गणित · दफ़्तरी शब्द</p></div>
+<div style="display:flex;justify-content:center;gap:14px;align-items:center;margin-top:18mm">
+<img src="data:image/png;base64,""" + QR_COURSE + """" style="height:90px;border:4px solid #F9A825;border-radius:10px">
+<div style="text-align:left;font-size:16px;color:#F5F7FA">📱 QR scan करें —<br><b style="color:#F9A825">मुफ़्त 33-पाठ कोर्स</b> तुरंत खुलेगा<br>acslearn.com/courses/hi/kaithi-lipi/</div></div>
+<p style="position:absolute;bottom:14mm;left:0;right:0;text-align:center;font-size:14px;color:#F5F7FA">"From Village to World" — 130 भाषाओं में मुफ़्त डिजिटल शिक्षा · खगड़िया, बिहार से विश्व तक</p>
+</div></div>""")
 # 1. लिपि-परिचय व नियम
 P.append('<div class="pg">' + hdr("1. लिपि के 5 पक्के नियम") + """
 <h1>कैथी लिपि — 5 पक्के नियम</h1>
@@ -150,8 +185,24 @@ wpairs = D["words"]
 P.append('<div class="pg">' + hdr("11. दफ़्तरी शब्द (भाग-1)") + "<h1>खतियान-शब्द कैथी में — 1</h1>" + tbl_pairs(wpairs[:20], 4) + "</div>")
 P.append('<div class="pg">' + hdr("12. दफ़्तरी शब्द (भाग-2)") + "<h1>खतियान-शब्द कैथी में — 2</h1>" + tbl_pairs(wpairs[20:], 4) +
  '<div class="note">हर शब्द का अर्थ व असली-पन्ना अभ्यास कोर्स के पाठ 22-30 में। परीक्षा-द्वार dashboard में — 120 प्रश्न, पास 60%.</div>'
- '<p class="foot">© FFGPMTrust · Applied Computer School™ · मुफ़्त वितरण हेतु — बेचना मना · acslearn.com</p></div>')
+ '</div>')
 
+# हर content-पेज (cover छोड़) में brand-footer
+for _i in range(1, len(P)):
+    assert P[_i].rstrip().endswith("</div>")
+    P[_i] = P[_i].rstrip()[:-6] + bfoot() + "</div>"
+# back-cover
+P.append(('<div class="pg"><div class="cover" style="min-height:280mm">'
+ '<div class="wm kai">\U000110B2</div>'
+ '<h1 style="border:none;color:#F9A825;font-size:34px;margin-top:20mm">ACS क्या है?</h1>'
+ '<p style="font-size:18px;color:#F5F7FA;text-align:justify">अप्लाइड कंप्यूटर स्कूल™ (2011 से) — FFGPMTrust के अधीन, खगड़िया (बिहार) से चलने वाला मुफ़्त शिक्षा-मंच। 130 भाषाओं में कोर्स · 950 उद्यमों की जानकारी · अभिरुचि-टेस्ट · रोजगार-राह — सब गाँव के बच्चे के फ़ोन पर, मुफ़्त।</p>'
+ '<hr class="gold-rule">'
+ '<p style="font-size:17px;color:#F5F7FA">📚 कैथी के 33 मुफ़्त पाठ · 🎓 120-प्रश्न प्रमाणपत्र-परीक्षा · 🔤 यह पुस्तिका + दीवार-चार्ट</p>'
+ '<div style="display:flex;gap:16px;align-items:center;margin-top:12mm">'
+ '<img src="data:image/png;base64,' + QR_SITE + '" style="height:85px;border:4px solid #F9A825;border-radius:10px">'
+ '<div style="font-size:16px;color:#F5F7FA">🌐 acslearn.com<br>📱 WhatsApp: wa.me/919431210092<br>✉️ acs.chautham@gmail.com<br>📺 youtube.com/@AppliedComputerSchool</div></div>'
+ '<p style="position:absolute;bottom:14mm;left:14mm;right:14mm;text-align:center;font-size:13px;color:#F5F7FA">© FFGPMTrust · Applied Computer School™ · मुफ़्त वितरण हेतु — बेचना मना · फ़ॉन्ट: Noto Sans Kaithi (OFL) · Unicode U+11080-110CF</p>'
+ '</div></div>'))
 pustika = "<!doctype html><html lang='hi'><head><meta charset='utf-8'><style>%s</style></head><body>%s</body></html>" % (CSS, "".join(P))
 open(os.path.join(OUT, "_pustika.html"), "w", encoding="utf-8").write(pustika)
 
@@ -164,16 +215,22 @@ h2{font-size:18px;margin:7px 0 4px}
 .gcell .k{font-size:27px}.gcell .d{font-size:13px}
 .grid{gap:4px}.gcell{padding:3px 2px;border-radius:6px}
 </style></head><body>
+<div class="tiranga"></div>
+<div class="brand" style="padding-bottom:2px"><img src="data:image/png;base64,__LOGO__">
+<div><div class="bn">अप्लाइड कंप्यूटर स्कूल™ <span style="color:#1565C0">(Applied Computer School)</span></div>
+<div class="bt">From Village to World · FFGPMTrust · acslearn.com</div></div>
+<img src="data:image/png;base64,__QRC__" style="height:52px;margin-left:auto;border:2px solid #0B1F3A;border-radius:6px"></div>
 <h1>🏛️ कैथी वर्णमाला-चार्ट <span class="kai">𑂍𑂶𑂟𑂲</span> — एक नज़र में</h1>
 <h2>स्वर (10)</h2><div class="grid" style="grid-template-columns:repeat(10,1fr)">%s</div>
 <h2>व्यंजन (32)</h2><div class="grid" style="grid-template-columns:repeat(8,1fr)">%s</div>
 <h2>मात्राएँ — क पर (10) + हलंत</h2><div class="grid" style="grid-template-columns:repeat(11,1fr)">%s<div class="gcell"><span class="k kai">%s</span><span class="d">क्</span></div></div>
 <h2>चिह्न व सूत्र</h2>
 <p style="font-size:15px"><span class="kai" style="font-size:22px">%s</span> वाक्य-अंत · <span class="kai" style="font-size:22px">%s</span> बड़ा-अंत · अंक = देवनागरी जैसे · फसली+593 ≈ ईस्वी · संवत−57 = ईस्वी · 16 आना = पूरा</p>
-<p style="font-size:13px;color:#555;text-align:center;margin-top:4px">मुफ़्त 33-पाठ कोर्स: acslearn.com/courses/hi/kaithi-lipi/ · ACS™ · FFGPMTrust · print कर दीवार पर लगाएँ</p>
+<div class="bfoot" style="margin-top:4px"><span>📱 wa.me/919431210092</span><span style="font-weight:800;color:#0B1F3A">QR scan → मुफ़्त 33-पाठ कोर्स · print कर दीवार पर लगाएँ</span><span>acslearn.com</span></div>
 </body></html>""" % (CSS, gcells(D["sw"]), gcells(D["vy"]),
      "".join('<div class="gcell"><span class="k kai">%s</span><span class="d">क%s</span></div>' % (k, d) for d, k in D["mt"]),
      D["hal"], D["danda"][0], D["danda"][1])
+chart = chart.replace("__LOGO__", LOGO).replace("__QRC__", QR_COURSE)
 open(os.path.join(OUT, "_chart.html"), "w", encoding="utf-8").write(chart)
 
 # ================= PDF print =================
