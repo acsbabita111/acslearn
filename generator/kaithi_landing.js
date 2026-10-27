@@ -80,7 +80,7 @@ ${heroSVG()}
 <h1>${esc(C.title)}</h1>
 <p class="ld-full">${esc(C.fullName.replace(/\s*\([^)]*\)/g, ""))}</p>
 <p class="ld-tag">${esc(C.tagline)}</p>
-<div class="ld-cta"><a class="ld-btn ld-go" href="${firstFile}">▶ पाठ-1 से मुफ़्त शुरू करें</a><a class="ld-btn ld-wb" href="/aptitude-test.html">🧭 पहले अपनी रुचि जाँचो</a></div>
+<div class="ld-cta"><a class="ld-btn ld-go" href="${firstFile}">▶ पाठ-1 से मुफ़्त शुरू करें</a><a class="ld-btn ld-wb" href="/aptitude-test.html">🧭 पहले अपनी रुचि जाँचो</a><a class="ld-btn" style="background:#2E7D32;color:#fff" href="/join.html">📝 मुफ़्त रजिस्ट्रेशन — परीक्षा व प्रमाणपत्र के लिए</a></div>
 </header>
 
 <section class="lsn-sec ld-stats">

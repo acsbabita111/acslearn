@@ -177,6 +177,7 @@ function lessonBody(course, l, prevFile, nextFile){
     '<section class="lsn-sec">\n<h2>' + s.t + "</h2>\n" + s.h.trim() + "\n</section>"
   ).join("\n\n"));
 
+  const regBar = '<div class="lsn-reg" style="background:#F5F7FA;border:2px solid #2E7D32;border-radius:12px;padding:12px 14px;margin:14px 0;font-size:18px">📝 <b>यह पाठ मुफ़्त है — पूरा कोर्स भी।</b> परीक्षा देकर <b>प्रमाणपत्र</b> चाहिए? <a href="/join.html" style="color:#2E7D32;font-weight:800">मुफ़्त रजिस्ट्रेशन करें →</a></div>';
   const prev = prevFile
     ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>'
     : '<a class="lsn-navbtn" href="/courses/' + course.lang + '/' + course.slug + '/">← कोर्स-परिचय</a>';
@@ -208,7 +209,7 @@ function lessonBody(course, l, prevFile, nextFile){
       (course.videoGov ? '<a class="lsn-vidbtn lsn-vidgov" href="' + course.videoGov.href + '" target="_blank" rel="noopener">🏛️ ' + course.videoGov.label + '</a>' : "") + '</p>\n' +
     '<p class="lsn-vidnote">(' + (course.videoGov ? "दोनों नई खिड़की में" : "नई खिड़की में") + '; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>\n' +
     "</section>\n\n" +
-    '<nav class="lsn-nav">' + prev + next + "</nav>\n" +
+    regBar + '<nav class="lsn-nav">' + prev + next + "</nav>\n" +
     "</article>\n";
 }
 

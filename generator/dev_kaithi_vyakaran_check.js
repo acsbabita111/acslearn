@@ -1,4 +1,4 @@
-/* generator/dev_kaithi_vyakaran_check.js — v1.1 (27-Oct-2026) — + ब्रांड-परत जाँच
+/* generator/dev_kaithi_vyakaran_check.js — v1.2 (27-Oct-2026) — + reg-परत/पेंदा-footer/पेज-नंबर — + ब्रांड-परत जाँच
    कैथी व्याकरण-पुस्तिका/चार्ट + sitemap + landing-कड़ी का fail-closed robot।
    चलाना: node generator/dev_kaithi_vyakaran_check.js  (repo-रूट से; PDF /home/claude/kaithi/release में) */
 "use strict";
@@ -24,6 +24,17 @@ ok(pu.indexOf("From Village to World") > -1 && pu.indexOf("130 भाषा") > 
 var ch = fs.readFileSync(R + "_chart.html", "utf8");
 ok((ch.match(/data:image\/png;base64,/g) || []).length >= 2, "चार्ट: logo+QR नहीं");
 ok(ch.indexOf('class="tiranga"') > -1 && ch.indexOf("wa.me/919431210092") > -1, "चार्ट: तिरंगा/WhatsApp नहीं");
+/* रजिस्ट्रेशन-परत + पेंदा-footer + पेज-नंबर (v2.1 Founder-आदेश) */
+ok((pu.match(/join\.html/g) || []).length >= 15, "पुस्तिका: join-कड़ी हर footer+reg-पेज नहीं");
+ok(pu.indexOf("आगे की राह") > -1, "पुस्तिका: रजिस्ट्रेशन-पेज नहीं");
+ok(pu.indexOf("margin-top:auto") > -1 && pu.indexOf("min-height:252mm") > -1, "पुस्तिका: footer पेंदा-नियम नहीं");
+var nums = (pu.match(/class="pg-no">(\d+)</g) || []).map(function (x) { return +x.replace(/\D/g, ""); });
+ok(nums.length === 13 && nums[0] === 2 && nums[12] === 14 && nums.every(function (v, i) { return v === i + 2; }), "पेज-नंबर क्रम टूटा: " + nums.join(","));
+ok(ch.indexOf("join.html") > -1, "चार्ट: join-कड़ी नहीं");
+var les = fs.readFileSync("courses/hi/kaithi-lipi/kth-001-kaithi-kya-hai-bihar-ki-purani-lipi.html", "utf8");
+ok(les.indexOf("lsn-reg") > -1 && les.indexOf("/join.html") > -1, "पाठ-पेज: reg-पट्टी नहीं");
+var idx2 = fs.readFileSync("courses/hi/kaithi-lipi/index.html", "utf8");
+ok(idx2.indexOf("/join.html") > -1, "landing: reg-बटन नहीं");
 /* sitemap */
 var sm = fs.readFileSync("sitemap-hunar.xml", "utf8");
 ok((sm.match(/kaithi-lipi\//g) || []).length === 34, "sitemap-hunar में कैथी 34 नहीं");

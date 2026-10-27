@@ -1,4 +1,4 @@
-# generator/build_kaithi_vyakaran_pdf.py — v2.0 (27-Oct-2026) — ब्रांड-परत: तिरंगा-header हर पेज · logo · QR · cover/back-cover (Founder-आदेश)
+# generator/build_kaithi_vyakaran_pdf.py — v2.1 (27-Oct-2026) — फ़ॉन्ट-बड़े · footer पेंदे पर · पेज-नंबर fix · रजिस्ट्रेशन-परत: तिरंगा-header हर पेज · logo · QR · cover/back-cover (Founder-आदेश)
 # कैथी व्याकरण-पुस्तिका (A4) + वर्णमाला-चार्ट (A4) — दोनों PDF playwright-Chromium से।
 # लोहे का नियम (v1.5): लिपि-आकार (shaping) सिर्फ़ Chromium करे — फ़ॉन्ट NotoSansKaithi ttf local embed।
 # सामग्री-स्रोत: assets/kaithi_lipi.js के नक़्शे + 33 पाठों के दर्ज तथ्य — कुछ गढ़ा नहीं।
@@ -14,6 +14,7 @@ assert os.path.exists(FONT), "फ़ॉन्ट नहीं"
 LOGO = open("/tmp/logo_b64.txt").read()
 QR_COURSE = open("/tmp/qr_course_b64.txt").read()
 QR_SITE = open("/tmp/qr_site_b64.txt").read()
+QR_JOIN = open("/tmp/qr_join_b64.txt").read()
 
 # ---- इंजन के नक़्शे node से निकालो (एक ही सच — kaithi_lipi.js) ----
 node_code = r'''
@@ -45,20 +46,20 @@ CSS = """
 @font-face{font-family:'Kaithi';src:url('file://__FONT__');}
 @page{size:A4;margin:14mm 12mm 16mm 12mm;}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans Devanagari','Kaithi',sans-serif;color:#0B1F3A;font-size:17px;line-height:1.7}
+body{font-family:'Noto Sans Devanagari','Kaithi',sans-serif;color:#0B1F3A;font-size:20px;line-height:1.8}
 .kai{font-family:'Kaithi','Noto Sans Devanagari',sans-serif}
-.pg{page-break-after:always;padding:2mm 0}
+.pg{page-break-after:always;padding:2mm 0;display:flex;flex-direction:column;min-height:252mm}
 .pg:last-child{page-break-after:auto}
-h1{font-size:30px;color:#0B1F3A;border-bottom:4px solid #F9A825;padding-bottom:6px;margin-bottom:10px}
-h2{font-size:23px;color:#1565C0;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:8px}
+h1{font-size:34px;color:#0B1F3A;border-bottom:4px solid #F9A825;padding-bottom:6px;margin-bottom:10px}
+h2{font-size:26px;color:#1565C0;margin:14px 0 8px;border-left:6px solid #F9A825;padding-left:8px}
 p{margin:6px 0;text-align:justify}
 table{border-collapse:collapse;width:100%;margin:8px 0}
-td,th{border:1.5px solid #0B1F3A;padding:5px 7px;text-align:center;font-size:17px}
-th{background:#0B1F3A;color:#fff;font-size:16px}
+td,th{border:1.5px solid #0B1F3A;padding:7px 6px;text-align:center;font-size:20px}
+th{background:#0B1F3A;color:#fff;font-size:19px}
 .big{font-size:34px}.huge{font-size:44px}
-.cell-k{font-size:30px}.cell-d{font-size:16px;color:#2E7D32}
-.note{background:#F5F7FA;border:1.5px dashed #1565C0;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:16px}
-.warn{background:#fff7e0;border:1.5px solid #F9A825;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:16px}
+.cell-k{font-size:44px}.cell-d{font-size:19px;color:#2E7D32}
+.note{background:#F5F7FA;border:1.5px dashed #1565C0;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:18px}
+.warn{background:#fff7e0;border:1.5px solid #F9A825;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:18px}
 .hdr{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #F9A825;margin-bottom:6px;padding-bottom:3px}
 .hdr .l{font-weight:800;color:#0B1F3A}.hdr .r{font-size:14px;color:#1565C0}
 .foot{font-size:13px;color:#555;text-align:center;margin-top:8px}
@@ -73,27 +74,26 @@ th{background:#0B1F3A;color:#fff;font-size:16px}
 .brand .bn{font-weight:800;font-size:17px;color:#0B1F3A;line-height:1.2}
 .brand .bt{font-size:12px;color:#1565C0}
 .tiranga{height:6px;background:linear-gradient(90deg,#F9A825 0 33%,#fff 33% 66%,#2E7D32 66% 100%);border:1px solid #d8d8d8;border-radius:3px;margin-bottom:6px}
-.bfoot{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #F9A825;margin-top:10px;padding-top:4px;font-size:12.5px;color:#0B1F3A}
+.bfoot{display:flex;justify-content:space-between;align-items:center;border-top:2px solid #F9A825;margin-top:auto;padding-top:5px;font-size:13.5px;color:#0B1F3A}
 .bfoot .pg-no{background:#0B1F3A;color:#F9A825;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
 .secno{display:inline-flex;width:30px;height:30px;border-radius:50%;background:#F9A825;color:#0B1F3A;font-weight:800;align-items:center;justify-content:center;margin-right:8px;font-size:17px}
-.cover{background:#0B1F3A;color:#F5F7FA;margin:-14mm -12mm -16mm -12mm;padding:16mm 14mm;min-height:297mm;position:relative}
+.cover{background:#0B1F3A;color:#F5F7FA;margin:-14mm -12mm -16mm -12mm;padding:12mm 14mm;min-height:262mm;position:relative;flex:1}
 .cover .wm{position:absolute;right:-6mm;bottom:10mm;font-size:260px;color:rgba(249,168,37,.08);line-height:1}
 .gold-rule{height:3px;background:#F9A825;border:none;margin:10px 0}
 """.replace("__FONT__", FONT)
 
-PGNO = {"n": 1}
 def hdr(t):
-    PGNO["n"] += 1
     return ('<div class="tiranga"></div>'
             '<div class="brand"><img src="data:image/png;base64,%s">'
             '<div><div class="bn">अप्लाइड कंप्यूटर स्कूल™ <span style="color:#1565C0">(Applied Computer School)</span></div>'
             '<div class="bt">From Village to World — 130 भाषाओं में मुफ़्त शिक्षा · acslearn.com</div></div>'
             '<div style="margin-left:auto;font-size:13px;color:#1565C0;font-weight:700">🏛️ कैथी व्याकरण-पुस्तिका</div></div>'
             '<div class="hdr"><span class="l">%s</span><span class="r">FFGPMTrust · ISO 9001:2015</span></div>') % (LOGO, t)
-def bfoot():
-    return ('<div class="bfoot"><span>📱 WhatsApp: wa.me/919431210092 · acs.chautham@gmail.com</span>'
-            '<span>मुफ़्त 33-पाठ कैथी कोर्स: acslearn.com</span>'
-            '<span class="pg-no">%d</span></div>') % PGNO["n"]
+def bfoot(n):
+    return ('<div class="bfoot"><span>📱 wa.me/919431210092</span>'
+            '<span style="font-weight:800">📝 मुफ़्त रजिस्ट्रेशन: acslearn.com/join.html</span>'
+            '<span>मुफ़्त 33-पाठ कोर्स: acslearn.com</span>'
+            '<span class="pg-no">%d</span></div>') % n
 
 def tbl_pairs(pairs, perrow=6, kdcls=("cell-k kai", "cell-d")):
     rows, cells = [], []
@@ -144,11 +144,11 @@ P.append('<div class="pg">' + hdr("3. व्यंजन (भाग-1)") + "<h1>
 P.append('<div class="pg">' + hdr("4. व्यंजन (भाग-2)") + "<h1>व्यंजन — प से ढ़</h1>" + tbl_pairs(vy[18:], 6) +
  '<div class="note">ड़ और ढ़ कैथी के <b>अपने अलग अक्षर</b> हैं (U+1109A, U+1109C) — ड/ढ के नीचे बिंदी नहीं लगती (पाठ-10)।</div></div>')
 # 5. मात्राएँ
-mt_rows = "".join('<tr><td style="font-size:22px">क%s</td><td class="kai" style="font-size:30px">%s</td><td>%s</td></tr>'
+mt_rows = "".join('<tr><td style="font-size:22px">क%s</td><td class="kai" style="font-size:26px">%s</td><td>%s</td></tr>'
                   % (d, k, nm) for (d, k), nm in zip(D["mt"], ["आ की मात्रा","इ की मात्रा — <b>माथे से बाईं ओर निकली रेखा</b> (पाठ-6 का ख़ास नियम)","ई की मात्रा","उ की मात्रा","ऊ की मात्रा","ए की मात्रा","ऐ की मात्रा","ओ की मात्रा","औ की मात्रा","अनुस्वार (बिंदी)"]))
 P.append('<div class="pg">' + hdr("5. मात्राएँ (10) + हलंत") + "<h1>मात्राएँ — क पर लगाकर</h1>" +
  '<table><tr><th>देवनागरी</th><th>कैथी</th><th>नाम / नियम</th></tr>' + mt_rows +
- '<tr><td style="font-size:22px">क्</td><td class="kai" style="font-size:30px">%s</td><td>हलंत — स्वर काटना (संयुक्ताक्षर की चाबी)</td></tr></table></div>' % D["hal"])
+ '<tr><td style="font-size:22px">क्</td><td class="kai" style="font-size:26px">%s</td><td>हलंत — स्वर काटना (संयुक्ताक्षर की चाबी)</td></tr></table></div>' % D["hal"])
 # 6. धोखेबाज़-जोड़े
 P.append('<div class="pg">' + hdr("6. धोखेबाज़-जोड़े") + """<h1>धोखेबाज़-जोड़े — आँख का धोखा</h1>
 <p>ये कैथी अक्षर देवनागरी के <b>दूसरे</b> अक्षरों जैसे दिखते हैं। पढ़ते समय यहीं ग़लती होती है:</p>
@@ -163,8 +163,8 @@ P.append('<div class="pg">' + hdr("7. संयुक्ताक्षर") + "
 # 8-9. बारहखड़ी
 def bk_table(rows):
     h = "<tr><th>अक्षर</th>" + "".join("<th>%s</th>" % m for m, _ in D["mt"]) + "</tr>"
-    b = "".join("<tr><td style='font-size:20px'><b>%s</b> <span class='kai'>%s</span></td>" % (r["c"], r["base"]) +
-                "".join("<td class='kai' style='font-size:24px'>%s</td>" % c for c in r["row"]) + "</tr>" for r in rows)
+    b = "".join("<tr><td style='font-size:24px'><b>%s</b> <span class='kai'>%s</span></td>" % (r["c"], r["base"]) +
+                "".join("<td class='kai' style='font-size:32px'>%s</td>" % c for c in r["row"]) + "</tr>" for r in rows)
     return "<table>%s%s</table>" % (h, b)
 P.append('<div class="pg">' + hdr("8. बारहखड़ी (भाग-1)") + "<h1>बारहखड़ी — क से ब</h1>" + bk_table(D["bk"][:5]) + "</div>")
 P.append('<div class="pg">' + hdr("9. बारहखड़ी (भाग-2)") + "<h1>बारहखड़ी — म से स</h1>" + bk_table(D["bk"][5:]) + "</div>")
@@ -187,10 +187,22 @@ P.append('<div class="pg">' + hdr("12. दफ़्तरी शब्द (भ�
  '<div class="note">हर शब्द का अर्थ व असली-पन्ना अभ्यास कोर्स के पाठ 22-30 में। परीक्षा-द्वार dashboard में — 120 प्रश्न, पास 60%.</div>'
  '</div>')
 
+P.append('<div class="pg">' + hdr("13. आगे की राह — रजिस्ट्रेशन")
+ + '<h1>पढ़ लिया? अब 3 कदम — प्रमाणपत्र तक</h1>'
+ + '<table><tr><th style="width:18%">कदम</th><th>क्या करना है</th></tr>'
+ + '<tr><td style="font-size:30px">1️⃣</td><td style="text-align:left">33 पाठ मुफ़्त पढ़ें — बिना login, बिना पैसा: <b>acslearn.com/courses/hi/kaithi-lipi/</b></td></tr>'
+ + '<tr><td style="font-size:30px">2️⃣</td><td style="text-align:left"><b>मुफ़्त रजिस्ट्रेशन करें</b> — नीचे QR scan करें या खोलें: <b>acslearn.com/join.html</b> (विद्यार्थी-कार्ड चुनें)</td></tr>'
+ + '<tr><td style="font-size:30px">3️⃣</td><td style="text-align:left">Dashboard में 🎓 <b>120-प्रश्न प्रमाणपत्र-परीक्षा</b> दें (पास 60%) — कैथी-पढ़ाई का प्रमाणपत्र पाएँ।</td></tr></table>'
+ + '<div style="display:flex;gap:16px;align-items:center;justify-content:center;margin-top:14px">'
+ + '<img src="data:image/png;base64,' + QR_JOIN + '" style="height:110px;border:4px solid #2E7D32;border-radius:10px">'
+ + '<div style="font-size:20px"><b style="color:#2E7D32">📝 QR scan → सीधा रजिस्ट्रेशन-पेज</b><br>10 साल से ऊपर कोई भी — गाँव का हर बच्चा।<br>रजिस्ट्रेशन व पढ़ाई दोनों <b>पूरी तरह मुफ़्त</b>।</div></div>'
+ + '<div class="warn">अपने दोस्तों को भी यह पुस्तिका भेजें — हर print/share से एक और बच्चे तक कैथी पहुँचेगी।</div>'
+ + '</div>')
+
 # हर content-पेज (cover छोड़) में brand-footer
 for _i in range(1, len(P)):
     assert P[_i].rstrip().endswith("</div>")
-    P[_i] = P[_i].rstrip()[:-6] + bfoot() + "</div>"
+    P[_i] = P[_i].rstrip()[:-6] + bfoot(_i + 1) + "</div>"
 # back-cover
 P.append(('<div class="pg"><div class="cover" style="min-height:280mm">'
  '<div class="wm kai">\U000110B2</div>'
@@ -200,7 +212,7 @@ P.append(('<div class="pg"><div class="cover" style="min-height:280mm">'
  '<p style="font-size:17px;color:#F5F7FA">📚 कैथी के 33 मुफ़्त पाठ · 🎓 120-प्रश्न प्रमाणपत्र-परीक्षा · 🔤 यह पुस्तिका + दीवार-चार्ट</p>'
  '<div style="display:flex;gap:16px;align-items:center;margin-top:12mm">'
  '<img src="data:image/png;base64,' + QR_SITE + '" style="height:85px;border:4px solid #F9A825;border-radius:10px">'
- '<div style="font-size:16px;color:#F5F7FA">🌐 acslearn.com<br>📱 WhatsApp: wa.me/919431210092<br>✉️ acs.chautham@gmail.com<br>📺 youtube.com/@AppliedComputerSchool</div></div>'
+ '<div style="font-size:17px;color:#F5F7FA">🌐 acslearn.com<br>📝 <b style="color:#F9A825">मुफ़्त रजिस्ट्रेशन: acslearn.com/join.html</b><br>📱 WhatsApp: wa.me/919431210092<br>✉️ acs.chautham@gmail.com<br>📺 youtube.com/@AppliedComputerSchool</div></div>'
  '<p style="position:absolute;bottom:14mm;left:14mm;right:14mm;text-align:center;font-size:13px;color:#F5F7FA">© FFGPMTrust · Applied Computer School™ · मुफ़्त वितरण हेतु — बेचना मना · फ़ॉन्ट: Noto Sans Kaithi (OFL) · Unicode U+11080-110CF</p>'
  '</div></div>'))
 pustika = "<!doctype html><html lang='hi'><head><meta charset='utf-8'><style>%s</style></head><body>%s</body></html>" % (CSS, "".join(P))
@@ -210,23 +222,23 @@ open(os.path.join(OUT, "_pustika.html"), "w", encoding="utf-8").write(pustika)
 def gcells(pairs):
     return "".join('<div class="gcell"><span class="k kai">%s</span><span class="d">%s</span></div>' % (k, d) for d, k in pairs)
 chart = """<!doctype html><html lang='hi'><head><meta charset='utf-8'><style>%s
-h1{font-size:26px;text-align:center;border-bottom:3px solid #F9A825;margin-bottom:6px}
-h2{font-size:18px;margin:7px 0 4px}
-.gcell .k{font-size:27px}.gcell .d{font-size:13px}
-.grid{gap:4px}.gcell{padding:3px 2px;border-radius:6px}
+h1{font-size:22px;text-align:center;border-bottom:3px solid #F9A825;margin-bottom:6px}
+h2{font-size:17px;margin:5px 0 3px}
+.gcell .k{font-size:28px}.gcell .d{font-size:15px}
+.grid{gap:3px}.gcell{padding:2px 2px;border-radius:6px}
 </style></head><body>
 <div class="tiranga"></div>
 <div class="brand" style="padding-bottom:2px"><img src="data:image/png;base64,__LOGO__">
 <div><div class="bn">अप्लाइड कंप्यूटर स्कूल™ <span style="color:#1565C0">(Applied Computer School)</span></div>
 <div class="bt">From Village to World · FFGPMTrust · acslearn.com</div></div>
-<img src="data:image/png;base64,__QRC__" style="height:52px;margin-left:auto;border:2px solid #0B1F3A;border-radius:6px"></div>
+<img src="data:image/png;base64,__QRC__" style="height:44px;margin-left:auto;border:2px solid #0B1F3A;border-radius:6px"></div>
 <h1>🏛️ कैथी वर्णमाला-चार्ट <span class="kai">𑂍𑂶𑂟𑂲</span> — एक नज़र में</h1>
 <h2>स्वर (10)</h2><div class="grid" style="grid-template-columns:repeat(10,1fr)">%s</div>
 <h2>व्यंजन (32)</h2><div class="grid" style="grid-template-columns:repeat(8,1fr)">%s</div>
 <h2>मात्राएँ — क पर (10) + हलंत</h2><div class="grid" style="grid-template-columns:repeat(11,1fr)">%s<div class="gcell"><span class="k kai">%s</span><span class="d">क्</span></div></div>
 <h2>चिह्न व सूत्र</h2>
 <p style="font-size:15px"><span class="kai" style="font-size:22px">%s</span> वाक्य-अंत · <span class="kai" style="font-size:22px">%s</span> बड़ा-अंत · अंक = देवनागरी जैसे · फसली+593 ≈ ईस्वी · संवत−57 = ईस्वी · 16 आना = पूरा</p>
-<div class="bfoot" style="margin-top:4px"><span>📱 wa.me/919431210092</span><span style="font-weight:800;color:#0B1F3A">QR scan → मुफ़्त 33-पाठ कोर्स · print कर दीवार पर लगाएँ</span><span>acslearn.com</span></div>
+<div class="bfoot" style="margin-top:4px"><span>📱 wa.me/919431210092</span><span style="font-weight:800;color:#0B1F3A">📝 मुफ़्त रजिस्ट्रेशन: acslearn.com/join.html · print कर दीवार पर लगाएँ</span><span>acslearn.com</span></div>
 </body></html>""" % (CSS, gcells(D["sw"]), gcells(D["vy"]),
      "".join('<div class="gcell"><span class="k kai">%s</span><span class="d">क%s</span></div>' % (k, d) for d, k in D["mt"]),
      D["hal"], D["danda"][0], D["danda"][1])
