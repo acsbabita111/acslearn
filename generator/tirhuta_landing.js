@@ -113,8 +113,8 @@ ${L.story.p.map(p => `<p>${esc(p)}</p>`).join("")}
 <p class="ld-note">${esc(L.story.label)}</p></section>
 
 <section class="lsn-sec"><h2>📘 मुफ़्त डाउनलोड — पुस्तिका व चार्ट</h2>
-<p>कोर्स की साथी तिरहुता व्याकरण-पुस्तिका और एक-पन्ना वर्णमाला-चार्ट (PDF) जल्द यहीं जुड़ेंगे — बिल्कुल मुफ़्त, print कर पास रखने लायक।</p>
-<p class="ld-note">तब तक हर पाठ के भीतर के कार्ड और पट्टियाँ ही आपकी पुस्तिका हैं — पढ़ाई कहीं नहीं रुकती।</p></section>
+<p><a class="ld-btn" href="https://github.com/acsbabita111/acslearn/releases/download/workbook-tirhuta/tirhuta-vyakaran-pustika.pdf">📘 तिरहुता व्याकरण-पुस्तिका (PDF)</a> <a class="ld-btn" href="https://github.com/acsbabita111/acslearn/releases/download/workbook-tirhuta/tirhuta-varnamala-chart.pdf">🔤 वर्णमाला-चार्ट — दीवार पर लगाने लायक (PDF)</a></p>
+<p class="ld-note">बिल्कुल मुफ़्त — print कर पास रखें; चार्ट दीवार पर लगाएँ।</p></section>
 
 <section class="lsn-sec"><h2>🎓 प्रमाणपत्र</h2>
 ${req(L, "certificate").map(p => `<p>${esc(p)}</p>`).join("")}</section>
