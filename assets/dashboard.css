@@ -416,3 +416,12 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .lgcard.v3 .lgmeta{font-size:16px}
 .lgcard.v3 .lgfoot{justify-content:center}
 @media(min-width:900px){.lgsw-hi{font-size:28px}}
+
+/* 27-Oct-2026 कैथी-लिपि (PJ433) परीक्षा-द्वार: प्रश्नों में कैथी-अक्षर इसी फ़ॉन्ट से दिखें —
+   unicode-range से सिर्फ़ U+11080-110CF पर लागू, बाक़ी dashboard-पाठ पर शून्य-असर। */
+@font-face{
+  font-family:'NotoSansKaithi';
+  src:url('/assets/fonts/NotoSansKaithi-Regular.woff2') format('woff2');
+  font-display:swap;
+  unicode-range:U+11080-110CF;
+}
