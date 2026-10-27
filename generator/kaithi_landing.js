@@ -111,6 +111,11 @@ ${stat(String(se.lessons), "पाठ")}${stat(String(C.parts.length), C.partLab
 ${L.story.p.map(p => `<p>${esc(p)}</p>`).join("")}
 <p class="ld-note">${esc(L.story.label)}</p></section>
 
+<section class="lsn-sec"><h2>📘 मुफ़्त डाउनलोड — पुस्तिका व चार्ट</h2>
+<p>कोर्स की साथी किताब और एक-पन्ना चार्ट — print कर पास रखें:</p>
+<p><a class="ld-btn" href="https://github.com/acsbabita111/acslearn/releases/download/workbook-kaithi/kaithi-vyakaran-pustika.pdf">📘 कैथी व्याकरण-पुस्तिका (PDF)</a> <a class="ld-btn" href="https://github.com/acsbabita111/acslearn/releases/download/workbook-kaithi/kaithi-varnamala-chart.pdf">🔤 वर्णमाला-चार्ट — दीवार पर लगाने लायक (PDF)</a></p>
+<p class="ld-note">pustika = वर्णमाला + मात्राएँ + बारहखड़ी + धोखेबाज़-जोड़े + सन-सूत्र + दफ़्तरी शब्द — सब 33 पाठों का निचोड़।</p></section>
+
 <section class="lsn-sec"><h2>🎓 प्रमाणपत्र</h2>
 ${req(L, "certificate").map(p => `<p>${esc(p)}</p>`).join("")}</section>
 
