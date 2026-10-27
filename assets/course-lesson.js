@@ -1,5 +1,8 @@
 /* ============================================================
-   ACS course-lesson.js v1.4 — आवाज़ 🔊 + प्रगति-दर्ज + ⏱ घड़ी + twv-हीरो loader
+   ACS course-lesson.js v1.5 — आवाज़ 🔊 + प्रगति + ⏱ घड़ी + हीरो + 👍👎💬🔗 पट्टी
+   v1.5 · 27-Oct-2026 (Founder-आदेश): हर पाठ पर reaction-पट्टी — पसंद/नापसंद
+   (device-local राय; बेनाम गिनती server-दौर में) · 💬 WhatsApp-सुझाव · 🔗 share
+   (navigator.share, fallback WhatsApp)। साझा-असेट — पाठ-HTML regen शून्य।
    v1.4 · 03-Aug-2026 (Founder हीरो-आदेश): सिर्फ़ two-wheeler पाठों पर
    /assets/twv-hero.js load — बाक़ी कोर्सों पर शून्य असर, शून्य वज़न।
    v1.3 · 30-Jul-2026 (Founder हलचल-नियम): 10s हलचल-शून्य/छिपा-tab = ⏸;
@@ -262,6 +265,68 @@
     a.style.cssText="background:#F9A825;color:#0B1F3A;font-weight:800";
     var nxt=nav.querySelector(".lsn-next");
     if(nxt){ nav.insertBefore(a,nxt); } else { nav.appendChild(a); }
+  }catch(e){}
+})();
+
+/* ═══ (27-Oct, Founder) reaction-पट्टी 👍👎💬🔗 v1.0 — साझा-असेट (v3.2-घ4):
+   हर पाठ-HTML अछूता। पसंद/नापसंद = device-local राय (DPDP; बेनाम गिनती
+   server-दौर के analytics-hook से) · 💬 = WhatsApp-सुझाव (असली रास्ता —
+   बच्चों के खुले comment-board का जोखिम नहीं) · 🔗 = navigator.share,
+   fallback WhatsApp। nav.lsn-nav न हो (legacy ढाँचा) तो चुपचाप नहीं बनती। ═══ */
+(function(){
+  try{
+    if(document.getElementById("lsnReact")) return;
+    var nav=document.querySelector("nav.lsn-nav");
+    if(!nav) return;
+    var KEY="acsReact:"+location.pathname;
+    var cur=""; try{ cur=localStorage.getItem(KEY)||""; }catch(e){}
+    var ttl=(document.title||"ACS पाठ").split("|")[0].replace(/\s+$/,"");
+    var url=location.origin+location.pathname;
+    var WAPP="https://wa.me/919431210092?text=";
+
+    var box=document.createElement("div");
+    box.id="lsnReact"; box.className="lsn-react";
+    box.innerHTML=
+      '<p class="lsn-react-q">यह पाठ कैसा लगा?</p>'+
+      '<div class="lsn-react-row">'+
+      '<button type="button" id="rxLike" class="lsn-rbtn" aria-pressed="false">👍 <span>पसंद</span></button>'+
+      '<button type="button" id="rxDis" class="lsn-rbtn" aria-pressed="false">👎 <span>नापसंद</span></button>'+
+      '<a id="rxCmt" class="lsn-rbtn" target="_blank" rel="noopener" href="'+WAPP+
+        encodeURIComponent("पाठ पर मेरी बात/सवाल: "+ttl+" — "+url)+'">💬 <span>कमेंट</span></a>'+
+      '<button type="button" id="rxShare" class="lsn-rbtn">🔗 <span>शेयर</span></button>'+
+      '</div>'+
+      '<p id="rxNote" class="lsn-react-note" style="display:none"></p>';
+    nav.parentNode.insertBefore(box,nav);
+
+    var L=document.getElementById("rxLike"), D=document.getElementById("rxDis"),
+        S=document.getElementById("rxShare"), N=document.getElementById("rxNote");
+    function paint(){
+      L.className="lsn-rbtn"+(cur==="like"?" lsn-ron":"");
+      D.className="lsn-rbtn"+(cur==="dis"?" lsn-roff":"");
+      L.setAttribute("aria-pressed",cur==="like"?"true":"false");
+      D.setAttribute("aria-pressed",cur==="dis"?"true":"false");
+    }
+    function note(msg){ N.textContent=msg; N.style.display="block"; }
+    function vote(v){
+      cur=(cur===v)?"":v;
+      try{ localStorage.setItem(KEY,cur); }catch(e){}
+      paint();
+      if(cur==="like") note("धन्यवाद! आपकी राय दर्ज हुई।");
+      else if(cur==="dis") note("राय दर्ज। क्या सुधारें? 💬 कमेंट से बताइए — हम पढ़ते हैं।");
+      else N.style.display="none";
+    }
+    L.onclick=function(){ vote("like"); };
+    D.onclick=function(){ vote("dis"); };
+    S.onclick=function(){
+      var done=false;
+      try{
+        if(navigator.share){ navigator.share({title:ttl,url:url}); done=true; }
+      }catch(e){}
+      if(!done){
+        try{ window.open(WAPP+encodeURIComponent(ttl+" — "+url),"_blank"); }catch(e){}
+      }
+    };
+    paint();
   }catch(e){}
 })();
 
