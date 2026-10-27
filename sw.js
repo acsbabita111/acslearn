@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v771'; // 27-Oct SE025 नाम → "पहला कोड: पायथन (First Code: Python)": courses_data.js + exam_data.js v1.9 — cache-first असेट
+const CACHE_VERSION = 'v772'; // 27-Oct SE025: duration 50 दिन + t2 "पाइथन में प्रमाणपत्र / Certificate in Python" (courses_data) — cache-first
+// पिछला 'v771'; // 27-Oct SE025 नाम → "पहला कोड: पायथन (First Code: Python)": courses_data.js + exam_data.js v1.9 — cache-first असेट
 // पिछला 'v770'; // 26-Oct पहला कोड (SE025) परीक्षा-द्वार: dashboard.js v6.6.3 + exam_data.js (SE025 द्वार-प्रविष्टि)
 // पिछला 'v769'; // 26-Oct pl-0 "पहला कोड" (218 पाठ): course-lesson.css v1.2 (pre.pl-code/pl-err/pl-sample डिब्बे) + courses_data.js में SE025 — cache-first असेट
 // पिछला 'v768'; // 25-Oct ज्युला पूरा पुनर्लेखन (kkb_dyu_data.js + kkb2_dyu_data.js): 2,877 पाठ — cache-first data
