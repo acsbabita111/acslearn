@@ -22,7 +22,7 @@ const SCRIPT_FONT = {
   "arabic": "'Noto Sans Arabic', sans-serif", "perso-arabic": "'Noto Sans Arabic', sans-serif", "persian": "'Noto Sans Arabic', sans-serif", "urdu": "'Noto Nastaliq Urdu', 'Noto Sans Arabic', sans-serif", "sindhi": "'Noto Sans Arabic', sans-serif", "kashmiri": "'Noto Nastaliq Urdu', 'Noto Sans Arabic', sans-serif", "hebrew": "'Noto Sans Hebrew', sans-serif", "thaana": "'Noto Sans Thaana', 'MV Boli', 'Faruma', FreeSerif, sans-serif",
   "bengali": "'Noto Sans Bengali', sans-serif", "assamese": "'Noto Sans Bengali', sans-serif", "gurmukhi": "'Noto Sans Gurmukhi', sans-serif", "gujarati": "'Noto Sans Gujarati', sans-serif", "odia": "'Noto Sans Oriya', sans-serif", "tamil": "'Noto Sans Tamil', sans-serif", "telugu": "'Noto Sans Telugu', sans-serif", "kannada": "'Noto Sans Kannada', sans-serif", "malayalam": "'Noto Sans Malayalam', sans-serif", "sinhala": "'Noto Sans Sinhala', sans-serif",
   "thai": "'Noto Sans Thai', sans-serif", "lao": "'Noto Sans Lao', sans-serif", "khmer": "'Noto Sans Khmer', sans-serif", "myanmar": "'Noto Sans Myanmar', sans-serif", "tibetan": "'Noto Serif Tibetan', 'Noto Sans Tibetan', sans-serif", "ethiopic": "'Noto Sans Ethiopic', sans-serif", "armenian": "'Noto Sans Armenian', sans-serif", "georgian": "'Noto Sans Georgian', sans-serif",
-  "japanese": "'Noto Sans CJK JP', sans-serif", "korean": "'Noto Sans CJK KR', sans-serif", "chinese": "'Noto Sans CJK SC', sans-serif", "han": "'Noto Sans CJK TC', sans-serif"
+  "japanese": "'Noto Sans CJK JP', sans-serif", "korean": "'Noto Sans CJK KR', sans-serif", "chinese": "'Noto Sans CJK SC', sans-serif", "han": "'Noto Sans CJK TC', sans-serif", "hani-native": "'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK HK', sans-serif"
 };
 const RTL = { "thaana": 1, "arabic": 1, "perso-arabic": 1, "persian": 1, "urdu": 1, "sindhi": 1, "kashmiri": 1, "hebrew": 1 };
 /* 25-Oct (Founder-नियम): भाषा-नाम ताज़ा मास्टर-स्प्रेडशीट से — generator/data/bhasha_register.json; कोड न मिले = रुको */
@@ -64,7 +64,7 @@ function wordDev(items) { /* वाक्य → शब्द-दर-शब्�
   return m;
 }
 let KOSH_FIRST = false; /* 22-Oct v1.5: शब्दकोश-फ़ाइल के शीर्ष पर "हाथ-gloss" हो तो वही प्रथम-स्रोत */
-const NO_SPACE = { japanese: 1, chinese: 1, han: 1, thai: 1, lao: 1, khmer: 1, myanmar: 1, tibetan: 1 }; /* बिना-space लिपियाँ: वाक्य-से-शब्द नहीं निकलते — शब्दकोश सिर्फ़ tw से */
+const NO_SPACE = { japanese: 1, chinese: 1, han: 1, "hani-native": 1, thai: 1, lao: 1, khmer: 1, myanmar: 1, tibetan: 1 }; /* बिना-space लिपियाँ: वाक्य-से-शब्द नहीं निकलते — शब्दकोश सिर्फ़ tw से */
 function buildDict(days, twAll, KOSH, devAll, script) {
   const seen = new Set(); const rows = []; const missing = new Set();
   if (NO_SPACE[script]) { days.forEach(d => (d.tw || []).forEach(t => { const k = String(t[0]).trim(); if (!seen.has(k)) { seen.add(k); rows.push([k, String(t[1] || ""), String(t[2] || "—")]); } })); return { rows, missing: [] }; }
