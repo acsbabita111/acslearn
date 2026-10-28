@@ -4,5 +4,8 @@
          (जैसे "रोओम्" = room, "बिज्" = बीज)। मानव-जाँच-सूची (असली-से, पर उधार-भारी/सहोदर-नक़ल): hoc unr biy kfp kru kmj gon new — इनमें पट्टी नहीं।
    v1.2 (25-Oct): +gwr गावरी — "लक्ष्य = हिंदी" दर 21.8% (हिंदी-पट्टी की भाषाएँ: भोजपुरी 0.5, मैथिली 0.3, अवधी 0.4, सादरी 0.3, छत्तीसगढ़ी 0.4;
          66 देवनागरी-भाषाओं की मध्यिका 2.2%) + पहचान अनिश्चित (ISO-कोड नहीं; "Gawari" नाम 4 अलग भाषाओं का — GRN/Joshua/IE-CoR)।
-   असली पुनर्लेखन + समिति-जाँच होते ही कोड हटे — पट्टी अपने-आप उतरे। */
-module.exports = { flags: ["kfj", "kff", "kxv", "mha", "peg", "uki", "kfa", "ksw", "shn", "ccp", "ryn", "mvi", "rys", "ain", "bci", "crk", "dzo", "gdb", "iku", "kfb", "lkt", "mtq", "nit", "njm", "njo", "njz", "nkh", "nod", "nqo", "nsm", "oji", "oon", "pbv", "pci", "pjt", "ryu", "tcz", "tig", "trp", "yoi", "gan", "hak", "wuu", "gwr"] };
+   असली पुनर्लेखन + समिति-जाँच होते ही कोड हटे — पट्टी अपने-आप उतरे।    v1.3 (29-Oct-2026, Founder-फ़ैसला (अ)): कचरा-यंत्र v1.4 "छद्म-हिंदी" क़तार से —
+         −19 पुनर्लिखित (बाइबल/LSI-दौर + बहन-कोर्स + बाइबल-संपर्क दौर; हर एक robot 🏁 व छद्म-हिंदी ≤12%): kxv peg pjt uki mha kfj kfa ccp kff nod ryu ryn mvi rys yoi nqo tig dzo tcz
+         +18 बचे (न बाइबल, न असली बहन-कोर्स — मूल-वक्ता/समिति प्रतीक्षित): dv zha kr tiv ts guc dhv zum sqt gdq shv apt njh nbe nbc grt mid zgh
+*/
+module.exports = { flags: ["ksw", "shn", "ain", "bci", "crk", "gdb", "iku", "kfb", "lkt", "mtq", "nit", "njm", "njo", "njz", "nkh", "nsm", "oji", "oon", "pbv", "pci", "trp", "gan", "hak", "wuu", "gwr", "dv", "zha", "kr", "tiv", "ts", "guc", "dhv", "zum", "sqt", "gdq", "shv", "apt", "njh", "nbe", "nbc", "grt", "mid", "zgh"] };

@@ -461,7 +461,7 @@ console.log("L1-data: 500 वाक्य/5 सप्ताह ✅ · एकी�
   if (R.interim) { console.log("⚠️ अस्थायी देवनागरी-रूप (" + CODE + "): तीन-स्तंभ नियम v6.3-क1 की असली-लिपि अभी बाक़ी — Founder-फ़ैसला लंबित; यह छूट दर्ज है, मौन नहीं (kkb_l2_pending.json → interim_script)"); }
   var bad = 0;
   function NONDEV(s) { for (var ch of String(s)) { if (/[\p{L}\p{M}]/u.test(ch) && !/[\u0900-\u097F\uA8E0-\uA8FF\u1CD0-\u1CFF]/.test(ch)) return true; } return false; } /* v4.9: विराम-चिह्न छूट; अक्षर/मात्रा सिर्फ़ देवनागरी */
-  var ANP_EXEMPT = {}; "anp mai mag bho bjj sjp khr sck kyw dhu hdt mr lri gon hne kfy awa".split(" ").forEach(function (c) { ANP_EXEMPT[c] = 1; });
+  var ANP_EXEMPT = {}; "anp mai mag bho bjj sjp khr sck kyw dhu hdt mr lri gon hne kfy awa lmn" /* 29-Oct: lmn = छ-परिवार (छ/छो/छी), राजस्थानी-मूल लंबाड़ी — स्रोत-पुष्टि ⬜ (पहचान-पत्र) */.split(" ").forEach(function (c) { ANP_EXEMPT[c] = 1; });
   var ANP_BAD = /(^|\s)(H|छी|छै|क्नो|हमर|हमरा|अहाँ|अहाँक|छथिन|करै|रहै|गेलौं|खेलौं|कतेक|कतय|मिलत|मिलल|सकैत|सकीं|बैसू|बताऊ|करू|खोजैत|शुक्रबार)([\s।?,!]|$)/;
   function scanD(DD, tag) {
     DD.weeks.forEach(function (w) { w.days.forEach(function (dd) { dd.items.forEach(function (it) {
