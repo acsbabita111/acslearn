@@ -6,7 +6,7 @@ let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.log("  ❌ " + m)
 const CAN = require("./data/kkb_cando.js"); const asset = fs.readFileSync(path.join(ROOT, "assets/kkb_cando.js"), "utf8");
 ok(asset.indexOf(JSON.stringify(CAN)) >= 0, "assets/kkb_cando.js = generator/data/kkb_cando.js (प्रति बासी)");
 ok(CAN.weeks.length === 18 && CAN.weeks.every(w => w.can.length === 4 && w.can.every(x => x.split(/\s+/).length <= 20 && /सकता\/सकती|जानता\/जानती/.test(x))), "Can-do 18×4, ≤20 शब्द, 'सकता/सकती' रूप");
-const sm = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8"); let n = 0;
+const sm = ["sitemap.xml", "sitemap-bhasha.xml"].map(f => fs.existsSync(path.join(ROOT, f)) ? fs.readFileSync(path.join(ROOT, f), "utf8") : "").join(" "); /* 29-Oct: 04-Oct से रूट sitemap.xml = index; brief-पते sitemap-bhasha.xml में */ let n = 0;
 for (const s of slugs) {
   const bp = path.join(ROOT, "courses/hi/bhasha", s, "brief/index.html"); if (!fs.existsSync(bp)) { ok(false, s + ": brief नहीं"); continue; } n++;
   const b = fs.readFileSync(bp, "utf8"); const vis = b.replace(/<svg[\s\S]*?<\/svg>|<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>|<[^>]+>/g, " ");
