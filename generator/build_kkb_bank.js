@@ -179,7 +179,7 @@ var ALL = [], TW = [], LIS = [], DLG = [];
 if (ALL.length !== 2150) { console.log("⛔ corpus " + ALL.length); process.exit(1); }
 
 /* स्थिर बेतरतीबी (regen = वही बैंक) — भाषा-वार अलग seed */
-var SALT = { dov: 1, acu: 1 /* 19-Oct लाल20 समेकन — default पर 14.6% */ /* 19-Oct खेमा-र c13 — लंबाई-खिड़की हेतु seed-salt (default पर 14.3%) */, ar: 0, fr: 0, es: 0, ja: 0, ko: 0, de: 0, ru: 0, he: 0, en: 0 };
+var SALT = { pjt: 2, dov: 1, acu: 1 /* 19-Oct लाल20 समेकन — default पर 14.6% */ /* 19-Oct खेमा-र c13 — लंबाई-खिड़की हेतु seed-salt (default पर 14.3%) */, ar: 0, fr: 0, es: 0, ja: 0, ko: 0, de: 0, ru: 0, he: 0, en: 0 };
 var UPX = 0.12; /* v2.0 (31-Aug): ru अब सिरिलिक — विशेष UPX-छूट निरस्त, default सब पर */
 var seed = 90210 + CODE.charCodeAt(0) * 977 + CODE.charCodeAt(1) * 31 + (SALT[CODE] || 0) * 10007;
 function rnd() { seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5; return ((seed >>> 0) % 100000) / 100000; }
