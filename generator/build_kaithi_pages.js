@@ -183,7 +183,9 @@ function lessonBody(course, l, prevFile, nextFile){
     : '<a class="lsn-navbtn" href="/courses/' + course.lang + '/' + course.slug + '/">← कोर्स-परिचय</a>';
   const next = nextFile
     ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '">अगला पाठ →</a>'
-    : '<span class="lsn-navbtn lsn-soon">अगला पाठ — जल्द</span>';
+    : (l.num === course.totalLessons
+        ? '<a class="lsn-navbtn lsn-next" href="/courses/' + course.lang + '/' + course.slug + '/">🎓 कोर्स पूरा — कोर्स-परिचय →</a>'
+        : '<span class="lsn-navbtn lsn-soon">अगला पाठ — जल्द</span>');
 
   return '\n<article class="lsn-wrap" data-lsn-num="' + l.num + '" data-course="' + course.slug + '">\n' +
     '<header class="lsn-head">\n' +
