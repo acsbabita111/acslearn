@@ -7,5 +7,6 @@
    असली पुनर्लेखन + समिति-जाँच होते ही कोड हटे — पट्टी अपने-आप उतरे।    v1.3 (29-Oct-2026, Founder-फ़ैसला (अ)): कचरा-यंत्र v1.4 "छद्म-हिंदी" क़तार से —
          −19 पुनर्लिखित (बाइबल/LSI-दौर + बहन-कोर्स + बाइबल-संपर्क दौर; हर एक robot 🏁 व छद्म-हिंदी ≤12%): kxv peg pjt uki mha kfj kfa ccp kff nod ryu ryn mvi rys yoi nqo tig dzo tcz
          +18 बचे (न बाइबल, न असली बहन-कोर्स — मूल-वक्ता/समिति प्रतीक्षित): dv zha kr tiv ts guc dhv zum sqt gdq shv apt njh nbe nbc grt mid zgh
+   v1.4 (29-Oct-2026, फ़ैसला #51): −3 gan hak wuu — 28-Oct पूर्ण पुनर्लेखन (असली हान-अक्षर, कचरा-sev 0, ✅ स्वस्थ) के बाद भी पट्टी लगी रह गई थी; अब हटी। कुल 40 कोड।
 */
-module.exports = { flags: ["ksw", "shn", "ain", "bci", "crk", "gdb", "iku", "kfb", "lkt", "mtq", "nit", "njm", "njo", "njz", "nkh", "nsm", "oji", "oon", "pbv", "pci", "trp", "gan", "hak", "wuu", "gwr", "dv", "zha", "kr", "tiv", "ts", "guc", "dhv", "zum", "sqt", "gdq", "shv", "apt", "njh", "nbe", "nbc", "grt", "mid", "zgh"] };
+module.exports = { flags: ["ksw", "shn", "ain", "bci", "crk", "gdb", "iku", "kfb", "lkt", "mtq", "nit", "njm", "njo", "njz", "nkh", "nsm", "oji", "oon", "pbv", "pci", "trp", "gwr", "dv", "zha", "kr", "tiv", "ts", "guc", "dhv", "zum", "sqt", "gdq", "shv", "apt", "njh", "nbe", "nbc", "grt", "mid", "zgh"] };
