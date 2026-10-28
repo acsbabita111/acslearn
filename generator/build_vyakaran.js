@@ -1,4 +1,4 @@
-/* build_vyakaran.js v1.1 · 25-Oct-2026 (v1.0: 24-Oct) — "मेरा पहला व्याकरण" (ACS-VK1) generator · परत-4
+/* build_vyakaran.js v2.0 · 29-Oct-2026 (v1.1: 25-Oct, v1.0: 24-Oct) — "मेरा पहला व्याकरण" (ACS-VK1) generator · परत-4
    v1.1: हर उदाहरण पर 🎙️ बोलो-अभ्यास (assets/acs-bolo.js) · पन्ने के अंत में 👍👎💬 (assets/acs-raay.js) ·
          आवरण: पुस्तक v0.1 (24-Oct) का Founder-पसंद पहला पेज अब web-पन्ने का शीर्ष (हर पाठ ≥16px, छपाई में पूरा पहला पन्ना)
          v1.2 (25-Oct, SEO): h1 वापस (आवरण में) · खोज-शब्द वाला title/description · canonical = sitemap-रूप (index.html) ·
@@ -8,7 +8,7 @@
    निकास: /courses/hi/bhasha/<slug>/vyakaran/index.html — 12 पाठ, 🔊, छपाई-योग्य (हर पाठ नए पन्ने पर)
    check-robot (fail = पन्ना नहीं): 12 पाठ · हर पाठ ≥3 उदाहरण · चमकने वाला शब्द उसी वाक्य में · उच्चारण में Latin नहीं ·
    नियम-वाक्य ≤24 शब्द · Grambank-दावा = Grambank-मान (हर दावा)। नई भाषा = LANGS में पंक्ति + data-फ़ाइल */
-const fs=require("fs"),path=require("path");const ROOT=path.join(__dirname,"..");const VER="1.2";const LANGS=["en"];
+const fs=require("fs"),path=require("path");const ROOT=path.join(__dirname,"..");const VER="2.0";const LANGS=["en","mr","sw","ta"]; /* v2.0 (29-Oct, चरण-3): हर-लिपि-योग्य — en रास्ता byte-frozen (L.code==="en" gate); non-en: उदाहरण में सिर्फ़ {code,hl} — वाक्य/उच्चारण/अर्थ उसी भाषा के ACS कोर्स से अपने-आप (कोई वाक्य गढ़ा नहीं जाता) */
 const TPL=fs.readFileSync(path.join(ROOT,"_TEMPLATE.html"),"utf8");
 function loadMenu(){const src=fs.readFileSync(path.join(ROOT,"assets","links.js"),"utf8");const box={};new Function("window",src+"; window.__L=(typeof ACS_LINKS!=='undefined')?ACS_LINKS:null;")(box);return box.__L.menu;}
 const MENU_HTML=loadMenu().map(m=>'<a class="acs-mitem" href="'+m.href+'"><span class="e">'+m.icon+"</span> "+m.label+"</a>").join("\n");
@@ -17,10 +17,13 @@ const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"
 const reEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
 const TM='© 2026 <b>Applied Computer School™</b> · <b>acslearn™</b> · acslearn.com';const LINE='FFGPMTrust के सौजन्य से ऑनलाइन शिक्षा निःशुल्क और प्रमाणपत्र सशुल्क';
 const LP={A:"ए",B:"बी",C:"सी",D:"डी",E:"ई",F:"एफ़",G:"जी",H:"एच",I:"आइ",J:"जे",K:"के",L:"एल",M:"एम",N:"एन",O:"ओ",P:"पी",Q:"क्यू",R:"आर",S:"एस",T:"टी",U:"यू",V:"वी",W:"डब्ल्यू",X:"एक्स",Y:"वाइ",Z:"ज़ेड"};
-function hlRe(h){return new RegExp("(?<![A-Za-z])("+reEsc(h)+")(?![A-Za-z])");}
+function hlRe(h,uni){return uni?new RegExp("(?<![\\p{L}\\p{M}])("+reEsc(h)+")(?![\\p{L}\\p{M}])","u"):new RegExp("(?<![A-Za-z])("+reEsc(h)+")(?![A-Za-z])");}
+/* v2.0: भाषा के ACS कोर्स के 2,150 वाक्य — कोड sNNNN = L1(500)+L2(1650) में क्रम-संख्या (master-दर्पण नियम) */
+function courseItems(code){const out=[];for(const f of ["kkb_"+code+"_data.js","kkb2_"+code+"_data.js"]){const w={};new Function("window","self","module",fs.readFileSync(path.join(ROOT,"assets",f),"utf8")+";")(w,w,{});const K=w.KKB2_DATA||w.KKB_DATA;K.weeks.forEach(wk=>(wk.days||[]).forEach(d=>(d.items||[]).forEach(it=>out.push(it))));}if(out.length!==2150)throw new Error(code+": कोर्स-वाक्य 2150 नहीं: "+out.length);return out;}
+function fillFromCourse(D){if(D.lang.code==="en")return;const T=courseItems(D.lang.code);for(const g of D.lessons)for(const x of g.ex){const i=parseInt(String(x.code).slice(1),10)-1;const it=T[i];if(!it)throw new Error("वाक्य-कोड नहीं मिला: "+x.code);x.en=String(it[0]).trim();x.p=String(it[1]).trim();x.hi=String(it[2]).trim();}}
 function check(D){const E=[];if(D.lessons.length!==12)E.push("पाठ 12 नहीं: "+D.lessons.length);
   for(const g of D.lessons){if(g.ex.length<3)E.push("पाठ "+g.n+": 3 से कम उदाहरण");
-    for(const x of g.ex){if(!hlRe(x.hl).test(x.en))E.push("पाठ "+g.n+" "+x.code+": '"+x.hl+"' वाक्य में नहीं");if(/[A-Za-z]/.test(x.p))E.push("पाठ "+g.n+" "+x.code+": उच्चारण में Latin");}
+    for(const x of g.ex){const uni=D.lang.code!=="en";if(!hlRe(x.hl,uni).test(x.en))E.push("पाठ "+g.n+" "+x.code+": '"+x.hl+"' वाक्य में नहीं");if(/[A-Za-z]/.test(x.p))E.push("पाठ "+g.n+" "+x.code+": उच्चारण में Latin");if(uni&&/[^\u0900-\u097F\s.,!?;:'"()\-–—0-9।॥]/u.test(x.p.replace(/[\u200C\u200D]/g,"")))E.push("पाठ "+g.n+" "+x.code+": उच्चारण में देवनागरी के बाहर का अक्षर");}
     for(const r of g.rule.concat([g.yaad]))if(r.split(/\s+/).length>24)E.push("पाठ "+g.n+": लंबा वाक्य");}
   for(const c of D.grambank.claims)if(c.claim!==c.grambank)E.push("Grambank बेमेल: "+c.gb+" दावा "+c.claim+" ≠ "+c.grambank);
   if(E.length)throw new Error("check-robot FAIL:\n  "+E.join("\n  "));}
@@ -57,6 +60,7 @@ function checkPage(page,D,bk){const E=[],nEx=D.lessons.reduce((s,g)=>s+g.ex.leng
   if(rules.some(r=>r.sel.includes(".vk-toc")&&/display:none/.test(r.body)))E.push("छपाई में विषय-सूची छिपी है");
   if(rules.some(r=>r.sel.includes(".vk-les")&&/break-before:page/.test(r.body)))E.push("पाठ-1 पर भी नया पन्ना (पहला पन्ना ख़ाली होगा)");
   if(cnt(page,'class="vk-cover"')!==1)E.push("आवरण ठीक एक नहीं");
+  if(D.lang.code!=="en"&&cnt(page,'class="acs-reg"')!==3)E.push("रजिस्ट्रेशन-अपील 3 जगह नहीं: "+cnt(page,'class="acs-reg"'));
   /* v1.2 SEO-नियम */
   if((page.match(/<h1[\s>]/g)||[]).length!==1)E.push("h1 ठीक एक नहीं");
   const canon=(page.match(/<link rel="canonical" href="([^"]+)"/)||[])[1]||"";
@@ -64,26 +68,29 @@ function checkPage(page,D,bk){const E=[],nEx=D.lessons.reduce((s,g)=>s+g.ex.leng
   if(((page.match(/<meta property="og:url" content="([^"]+)"/)||[])[1])!==canon)E.push("og:url ≠ canonical");
   for(const k of ["og:title","og:description","og:image","twitter:card"])if(page.indexOf('"'+k+'"')<0)E.push("नहीं मिला: "+k);
   const ogi=(page.match(/<meta property="og:image" content="https:\/\/acslearn\.com\/([^"]+)"/)||[])[1];
-  if(!ogi||!fs.existsSync(path.join(ROOT,ogi)))E.push("og:image फ़ाइल नहीं मिली: "+ogi);
+  if(!process.env.ACS_OG_PENDING&&(!ogi||!fs.existsSync(path.join(ROOT,ogi))))E.push("og:image फ़ाइल नहीं मिली: "+ogi);
   const ldm=page.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   try{const j=JSON.parse(ldm[1]);if(!Array.isArray(j)||j[0]["@type"]!=="LearningResource"||j[1]["@type"]!=="BreadcrumbList"||j[0].hasPart.length!==D.lessons.length)E.push("JSON-LD ढाँचा ग़लत");}catch(e){E.push("JSON-LD पढ़ा नहीं गया");}
   const dsc=(page.match(/<meta name="description" content="([^"]+)"/)||[])[1]||"";if(dsc.length<70||dsc.length>230)E.push("description की लंबाई "+dsc.length);
   for(const c of Object.values(COVER_IMG))if(!fs.existsSync(path.join(ROOT,"assets","chitra",c+".webp")))E.push("आवरण-चित्र नहीं मिला: /assets/chitra/"+c+".webp");
   if(pr.indexOf(".vk-cover{")<0||!/\.vk-cover\{[^}]*break-after:page/.test(pr))E.push("छपाई में आवरण के बाद नया पन्ना नहीं");
   if(E.length)throw new Error("पन्ना-robot FAIL:\n  "+E.join("\n  "));}
-function lessonHtml(g){
+function regBox(L,where){/* v2.0 ब्रांड-नियम (27-Oct): non-en पन्नों पर तीन जगह छात्र-रजिस्ट्रेशन की अपील; en पन्ना byte-frozen */if(L.code==="en")return "";const t=where==="top"?"यह पुस्तक मुफ़्त है, और "+L.hi+" बोलने का पूरा कोर्स भी मुफ़्त है।":where==="mid"?"आगे "+L.hi+" बोलना सीखिए, और परीक्षा देकर प्रमाणपत्र लीजिए।":"अगला कदम रजिस्ट्रेशन है — इससे आपकी पढ़ाई और परीक्षा का हिसाब आपके नाम से रहता है।";return '<div class="acs-reg" style="background:#F5F7FA;color:#0B1F3A;border:2px solid #2E7D32;border-radius:12px;padding:12px 14px;margin:14px auto;max-width:900px;font-size:18px;line-height:1.7">📝 <b>'+esc(t)+'</b> रजिस्ट्रेशन मुफ़्त है। <a href="/join.html" style="color:#2E7D32;font-weight:800">मुफ़्त रजिस्ट्रेशन करें →</a></div>';}
+function lessonHtml(g,L){const uni=!!(L&&L.code!=="en");
   let h='<section class="vk-les" id="path-'+g.n+'"><div class="vk-hd"><div class="vk-no">'+g.n+'</div><div><h2>पाठ '+g.n+' · '+esc(g.t)+'</h2><div class="vk-q">'+esc(g.q)+'</div></div></div>';
   h+='<div class="vk-box vk-rule"><h3>📘 नियम</h3><ul>'+g.rule.map(r=>"<li>"+esc(r)+"</li>").join("")+"</ul>";
-  if(g.alpha)h+='<div class="vk-alpha">'+Object.keys(LP).map(c=>'<div class="'+("AEIOU".includes(c)?"v":"")+'"><b>'+c+c.toLowerCase()+"</b><br>"+LP[c]+"</div>").join("")+"</div>";
-  if(g.order){const [e,hh]=g.order;h+='<div class="vk-ord">अंग्रेज़ी: '+e.filter(Boolean).map((w,i)=>'<span class="vk-c'+(i+1)+'">'+esc(w)+"</span>").join("")+'</div><div class="vk-ord">हिंदी: '+hh.filter(Boolean).map((w,i)=>'<span class="vk-c'+(g.n===4?[1,3,2][i]:[2,1,3][i])+'">'+esc(w)+"</span>").join("")+"</div>";}
-  h+='</div><div class="vk-box vk-ex"><h3>✍️ उदाहरण (कोर्स के असली वाक्य)</h3>'+g.ex.map(x=>'<div class="vk-er" data-bolo-host data-c="'+x.code+'" data-a="'+esc(x.en)+'" data-b="'+esc(x.hi)+'"><div><div class="vk-en">'+esc(x.en).replace(hlRe(esc(x.hl)),"<mark>$1</mark>")+'</div><div class="vk-pr">'+esc(x.p)+'</div><div class="vk-hi">'+esc(x.hi)+'</div></div><div class="vk-cd">'+x.code+'<br><button class="vk-spk" title="सुनें" onclick="vkPlay(this)">🔊</button><button class="vk-spk vk-mic" title="बोलो-अभ्यास" onclick="vkMic(this)">🎙️</button></div></div>').join("")+"</div>";
+  if(Array.isArray(g.alpha)){h+='<div class="vk-alpha">'+g.alpha.map(a=>'<div><b>'+esc(a[0])+"</b><br>"+esc(a[1])+"</div>").join("")+"</div>";if(fs.existsSync(path.join(ROOT,"courses","hi","bhasha",L.slug,"lipi","index.html")))h+='<p>पूरी वर्णमाला, आवाज़ और लिखने का अभ्यास: <a href="/courses/hi/bhasha/'+L.slug+'/lipi/">'+esc(L.hi)+' लिपि-परिचय →</a></p>';}
+  else if(g.alpha)h+='<div class="vk-alpha">'+Object.keys(LP).map(c=>'<div class="'+("AEIOU".includes(c)?"v":"")+'"><b>'+c+c.toLowerCase()+"</b><br>"+LP[c]+"</div>").join("")+"</div>";
+  if(g.order&&!Array.isArray(g.order)){h+='<div class="vk-ord">'+esc(L.hi)+': '+g.order.t.map(w=>'<span class="vk-c'+w[1]+'">'+esc(w[0])+"</span>").join("")+'</div><div class="vk-ord">हिंदी: '+g.order.hi.map(w=>'<span class="vk-c'+w[1]+'">'+esc(w[0])+"</span>").join("")+"</div>";}
+  else if(g.order){const [e,hh]=g.order;h+='<div class="vk-ord">अंग्रेज़ी: '+e.filter(Boolean).map((w,i)=>'<span class="vk-c'+(i+1)+'">'+esc(w)+"</span>").join("")+'</div><div class="vk-ord">हिंदी: '+hh.filter(Boolean).map((w,i)=>'<span class="vk-c'+(g.n===4?[1,3,2][i]:[2,1,3][i])+'">'+esc(w)+"</span>").join("")+"</div>";}
+  h+='</div><div class="vk-box vk-ex"><h3>✍️ उदाहरण (कोर्स के असली वाक्य)</h3>'+g.ex.map(x=>'<div class="vk-er" data-bolo-host data-c="'+x.code+'" data-a="'+esc(x.en)+'" data-b="'+esc(x.hi)+'"><div><div class="vk-en">'+esc(x.en).replace(hlRe(esc(x.hl),uni),"<mark>$1</mark>")+'</div><div class="vk-pr">'+esc(x.p)+'</div><div class="vk-hi">'+esc(x.hi)+'</div></div><div class="vk-cd">'+x.code+'<br><button class="vk-spk" title="सुनें" onclick="vkPlay(this)">🔊</button><button class="vk-spk vk-mic" title="बोलो-अभ्यास" onclick="vkMic(this)">🎙️</button></div></div>').join("")+"</div>";
   h+='<div class="vk-box vk-yd"><h3>💡 याद रखो</h3>'+esc(g.yaad)+'</div><div class="vk-box vk-ab"><h3>📝 अभ्यास</h3>'+g.abhyas.map((a,i)=>"<div>"+(i+1)+". "+esc(a[0])+"</div>").join("")+'<div class="vk-ans">उत्तर: '+g.abhyas.map((a,i)=>(i+1)+". "+esc(a[1])).join(" · ")+"</div></div></section>";
   return h;}
 function sayJs(L){return '<script>function vkSay(t,l){try{var u=new SpeechSynthesisUtterance(t);u.lang=l;u.rate=.8;var v=speechSynthesis.getVoices().filter(function(x){return x.lang.replace("_","-").indexOf(l.split("-")[0])===0;});if(v.length)u.voice=v[0];speechSynthesis.speak(u);}catch(e){}}function vkPlay(el){if(!("speechSynthesis" in window)){alert("इस फ़ोन/ब्राउज़र में आवाज़ की सुविधा नहीं है");return;}var r=el.closest(".vk-er");speechSynthesis.cancel();vkSay(r.dataset.a,"'+L.tts+'");vkSay(r.dataset.b,"hi-IN");}function vkMic(el){var r=el.closest(".vk-er");if(!window.ACSBolo){alert("बोलो-अभ्यास अभी लोड नहीं हुआ — पन्ना एक बार दोबारा खोलें");return;}ACSBolo.open(el,{t:r.dataset.a,code:r.dataset.c,asr:"'+(L.asr||L.tts)+'",tts:"'+L.tts+'",host:r});}</scr'+'ipt>';}
-function build(code){const D=require(path.join(__dirname,"data","vyakaran","vyakaran_"+code+".js"));check(D);const L=D.lang,bk="ACS-VK1-"+L.code;
+function build(code){const D=require(path.join(__dirname,"data","vyakaran","vyakaran_"+code+".js"));fillFromCourse(D);check(D);const L=D.lang,bk="ACS-VK1-"+L.code;
   let h='<div class="vk-wrap">'+coverHtml(D,L,bk);
   h+='<p style="text-align:center;margin:12px 0"><button class="vk-spk" style="width:auto;border-radius:24px;padding:8px 18px;font-size:18px" onclick="window.print()">🖨️ छापें / PDF</button></p><p class="vk-intro">यह पन्ना <b>'+esc(L.hi)+' व्याकरण हिंदी में</b> सिखाता है — '+D.lessons.length+' पाठ: '+D.lessons.map(g=>esc(g.t)).join(" · ")+'। हर नियम के साथ ACS कोर्स के असली वाक्य हैं। यह <a href="/courses/hi/bhasha/'+L.slug+'/">पूरे '+esc(L.hi)+' कोर्स (90 दिन, 2,150 वाक्य)</a> का व्याकरण-खंड है।</p><p class="vk-howto">🔊 दबाकर सुनिए, 🎙️ दबाकर वाक्य बोलिए। 🟢 हरा = सही · 🔴 लाल = ग़लत · ⚫ काला = छूटा। साथ में प्रतिशत और गति भी दिखेगी।</p><div class="vk-toc">'+D.lessons.map(g=>'<a href="#path-'+g.n+'">'+g.n+". "+esc(g.t)+"</a>").join("")+"</div>";
-  h+=D.lessons.map(lessonHtml).join("");
+  h+=regBox(L,"top")+D.lessons.map((g,i)=>lessonHtml(g,L)+(i===5?regBox(L,"mid"):"")).join("")+regBox(L,"end");
   const ok=D.grambank.claims.length;
   h+='<div class="vk-info"><b>पुस्तक-सूचना</b><br>'+TM+'<br><b>'+LINE+'</b><br>मेरा पहला व्याकरण v'+D.version+' · पुस्तक-कोड: '+bk+'<br>उदाहरण: ACS master-वाक्य (वाक्य-कोड सहित) — कोई वाक्य नया गढ़ा नहीं गया · उच्चारण: ACS '+esc(L.hi)+' कोर्स<br>विश्व-मानक मिलान: '+ok+' व्याकरण-दावे Grambank (Max Planck Institute for Evolutionary Anthropology) से मशीन द्वारा मिलाए — '+ok+'/'+ok+' मेल<br>🟡 AI-मसौदा — भाषा संवर्धन समिति की समीक्षा का स्वागत<br>आवरण-चित्र: Microsoft Fluent Emoji (<a href="https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE" target="_blank" rel="noopener">MIT लाइसेंस</a>)</div>'+'<div class="acs-raay" data-page="'+bk+'" data-title="'+esc("मेरा पहला व्याकरण — "+L.hi)+'"></div></div>';
   const S="<!-- PAGE-CONTENT-START -->",E="<!-- PAGE-CONTENT-END -->",a=TPL.indexOf(S),b=TPL.indexOf(E);if(a<0||b<0)throw new Error("PAGE-CONTENT निशान नहीं");
@@ -96,4 +103,5 @@ function build(code){const D=require(path.join(__dirname,"data","vyakaran","vyak
   checkPage(page,D,bk);
   const dir=path.join(ROOT,"courses","hi","bhasha",L.slug,"vyakaran");fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,"index.html"),page);
   console.log("✅ "+code+": 12 पाठ · "+D.lessons.reduce((s,g)=>s+g.ex.length,0)+" उदाहरण · Grambank "+ok+"/"+ok);}
-LANGS.forEach(build);
+/* v2.0: en का live-पन्ना कभी अपने-आप दोबारा नहीं बनता (byte-frozen) — सिर्फ़ साफ़ माँग (node build_vyakaran.js en) पर */
+const only=process.argv[2];LANGS.filter(c=>only?c===only:c!=="en").forEach(build);
