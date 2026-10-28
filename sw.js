@@ -1,7 +1,7 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v785'; // 27-Oct तिरहुता-लिपि PJ434 खेप-2: courses_data.js बदला (cache-first) — bump
+const CACHE_VERSION = 'v786'; // 29-Oct लिपि-परिचय खेप-1: 196 Latin भाषाओं के नए /lipi/ पन्ने + 196 कोर्स-पन्ने (network-first) — नियम-11 bump
 // पिछला 'v773'; // 27-Oct reaction-पट्टी 👍👎💬🔗 (course-lesson.js v1.5 + css) + SE025 50-दिन/t2 — उसी देय में समाहित
 // पिछला 'v772'; // 27-Oct SE025: duration 50 दिन + t2 — उसी देय में समाहित
 // पिछला 'v771'; // 27-Oct SE025 नाम → "पहला कोड: पायथन (First Code: Python)": courses_data.js + exam_data.js v1.9 — cache-first असेट

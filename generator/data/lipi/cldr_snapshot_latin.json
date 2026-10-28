@@ -1,0 +1,489 @@
+{
+ "note": "Unicode CLDR exemplar-characters snapshot — वर्णमाला-स्रोत का प्रमाण (कदम-3, 29-Oct-2026)",
+ "source": "https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-misc-full/main/<locale>/characters.json",
+ "fetched": "2026-10-29",
+ "acs_to_cldr": {
+  "af": "af",
+  "sqi": "sq",
+  "az": "az",
+  "bm": "bm",
+  "eus": "eu",
+  "bem": "bem",
+  "bs": "bs",
+  "br": "br",
+  "kea": "kea",
+  "cat": "ca",
+  "ceb": "ceb",
+  "hr": "hr",
+  "cs": "cs",
+  "dan": "da",
+  "luo": "luo",
+  "nl": "nl",
+  "eo": "eo",
+  "est": "et",
+  "ee": "ee",
+  "fao": "fo",
+  "fi": "fi",
+  "fr": "fr",
+  "fy": "fy",
+  "fur": "fur",
+  "gaa": "gaa",
+  "glg": "gl",
+  "de": "de",
+  "kal": "kl",
+  "ha": "ha",
+  "haw": "haw",
+  "hu": "hu",
+  "isl": "is",
+  "ig": "ig",
+  "id": "id",
+  "gle": "ga",
+  "it": "it",
+  "jv": "jv",
+  "kl": "kl",
+  "cgg": "cgg",
+  "ki": "ki",
+  "rw": "rw",
+  "ku": "ku",
+  "lav": "lv",
+  "lij": "lij",
+  "ln": "ln",
+  "lt": "lt",
+  "lmo": "lmo",
+  "lg": "lg",
+  "ltz": "lb",
+  "mg": "mg",
+  "ms": "ms",
+  "mt": "mt",
+  "gv": "gv",
+  "mri": "mi",
+  "mfe": "mfe",
+  "nd": "nd",
+  "pcm": "pcm",
+  "nob": "nb",
+  "nus": "nus",
+  "oc": "oc",
+  "om": "om",
+  "pl": "pl",
+  "pt": "pt",
+  "kek": "kek",
+  "qu": "qu",
+  "ro": "ro",
+  "rn": "rn",
+  "sg": "sg",
+  "gla": "gd",
+  "nso": "nso",
+  "sr": "sr",
+  "st": "st",
+  "sn": "sn",
+  "scn": "scn",
+  "szl": "szl",
+  "sk": "sk",
+  "slv": "sl",
+  "so": "so",
+  "es": "es",
+  "su": "su",
+  "sw": "sw",
+  "sv": "sv",
+  "ton": "to",
+  "tn": "tn",
+  "tr": "tr",
+  "uz": "uz",
+  "vec": "vec",
+  "vi": "vi",
+  "cym": "cy",
+  "wo": "wo",
+  "xh": "xh",
+  "yo": "yo",
+  "zu": "zu",
+  "tl": "fil",
+  "sme": "se",
+  "tuk": "tk"
+ },
+ "exemplar_main": {
+  "af": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[áàâåäã æ ç éèêë íìîï óòôö úùûü ý]"
+  },
+  "sqi": {
+   "main": "[a b c ç d {dh} e ë f g {gj} h i j k l {ll} m n {nj} o p q r {rr} s {sh} t {th} u v x {xh} y z {zh}]",
+   "aux": "[w]"
+  },
+  "az": {
+   "main": "[a b c ç d e ə f g ğ h x ı iİ j k q l m n o ö p r s ş t u ü v y z]",
+   "aux": "[w]"
+  },
+  "bm": {
+   "main": "[a b c d e ɛ f g h i j k l m n ɲ ŋ o ɔ p r s t u w y z]",
+   "aux": "[q v x]"
+  },
+  "eus": {
+   "main": "[a b cç d e f g h i j k l m nñ o p q r s t u v w x y z]",
+   "aux": "[áàăâåäãā æ éèĕêëē íìĭîïī óòŏôöøō œ úùŭûüū ÿ]"
+  },
+  "bem": {
+   "main": "[a b c e f g i j k l m n o p s {sh} t u w y]",
+   "aux": "[d h q r v x z]"
+  },
+  "bs": {
+   "main": "[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]",
+   "aux": "[q w x y]"
+  },
+  "br": {
+   "main": "[a b {cʼh} {ch} d eê f g h i j k l m nñ o p r s t uù v w x y z]",
+   "aux": "[áàăâåäãā æ cç éèĕëē íìĭîïī óòŏôöøō œ q úŭûüū ÿ]"
+  },
+  "kea": {
+   "main": "[a b d {dj} e f g h i j k l {lh} m nñ {nh} o p r s t {tx} u v x y z]",
+   "aux": "[ªáàăâåäãā æ cç éèĕêëẽē íìĭîïĩī {n̈} ºóòŏôöõøō œ q {rr} ᵘúùŭûüũū w ÿ]"
+  },
+  "cat": {
+   "main": "[· aà b cç d eéè f g h iíï j k l m n oóò p q r s t uúü v w x y z]",
+   "aux": "[áăâåäãā æ ĕêëē ìĭîī ŀ ñ ºŏôöøō œ ùŭûū ÿ]"
+  },
+  "ceb": {
+   "main": "[a b d e g h i k l m n o p r s t u w y]",
+   "aux": "[c f j ñ q v x z]"
+  },
+  "hr": {
+   "main": "[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]",
+   "aux": "[q w x y]"
+  },
+  "cs": {
+   "main": "[aá b c č dď eéě f g h {ch} ií j k l m nň oó p q r ř s š tť uúů v w x yý z ž]",
+   "aux": "[àăâåäãā æ ç èĕêëē ìĭîïī ľł ñ òŏôöøō œ ŕ ùŭûüū ÿ]"
+  },
+  "dan": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å]",
+   "aux": "[áàâ ç éèêë íîï ñ óô œ úùû ÿü ä ǿö]"
+  },
+  "luo": {
+   "main": "[a b c d e f g h i j k l m n o p r s t u v w y]",
+   "aux": "[q x z]"
+  },
+  "nl": {
+   "main": "[aáä b c d eéë f g h iíï {ij}{íj́} j k l m n oóö p q r s t uúü v w x y z]",
+   "aux": "[àâåã æ ç èê î ñ ôø œ ùû ýÿ]"
+  },
+  "eo": {
+   "main": "[a b c ĉ d e f g ĝ h ĥ i j ĵ k l m n o p r s ŝ t u ŭ v z]",
+   "aux": "[q w x y]"
+  },
+  "est": {
+   "main": "[a b c d e f g h i j k l m n o p q r s š z ž t u v w õ ä ö ü x y]",
+   "aux": "[áàâåãā æ ç éèêëē íìîïī ñ óòŏôøō œ úùûū]"
+  },
+  "ee": {
+   "main": "[aáàã b d ɖ eéèẽ ɛ{ɛ́}{ɛ̀}{ɛ̃} f ƒ g ɣ h x iíìĩ k l m n ŋ oóòõ ɔ{ɔ́}{ɔ̀}{ɔ̃} p r s t uúùũ v ʋ w y z]",
+   "aux": "[ăâåäā æ cç ĕêë ĭîï j ñ ŏôöø œ q ŭûü ÿ]"
+  },
+  "fao": {
+   "main": "[aá b dð e f g h ií j k l m n oó p r s t uú v yý æ ø]",
+   "aux": "[c q w x z]"
+  },
+  "fi": {
+   "main": "[a b c d e f g h i j k l m n o p q r sš t u v w x y zž å ä ö]",
+   "aux": "[áàăâãąā ćčċç ďð đ éèêěëėęē ğǧģ ǥ ȟħ íîïİįī ı ǩķ ĺľļł ńňñņ ŋ óòôőõ œ ŕř śŝşș ß ťţț ŧ úùûůűųū ýÿü źż ʒǯ þ æ ø]"
+  },
+  "fr": {
+   "main": "[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]",
+   "aux": "[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]"
+  },
+  "fy": {
+   "main": "[aáàâä b c d eéèêë f g h iíïyý {ij}{íj́} j k l m n oóôö p r s t uúûü v w z]",
+   "aux": "[æ ò ù]"
+  },
+  "fur": {
+   "main": "[aàâ b cç d eèê f g h iìî j k l m n oòô p q r s t uùû v w x y z]",
+   "aux": "[å č éë ğ ï ñ ó š ü]"
+  },
+  "gaa": {
+   "main": "[a b d e ɛ f g h i j k l m n ŋ o ɔ p r s t u v w y z]",
+   "aux": "[áã é íĩ ó ũ]"
+  },
+  "glg": {
+   "main": "[aá b c d eé f g h iíï j k l m n ñ oó p q r s t uúü v w x y z]",
+   "aux": "[ªàăâåäãā æ ɑ ç èĕêëē ìĭîī ºòŏôöõøō œ ùŭûū]"
+  },
+  "de": {
+   "main": "[aä b c d e f g h i j k l m n oö p q r s ß t uü v w x y z]",
+   "aux": "[áàăâåãā æ ç éèĕêëē ğ íìĭîïİī ı ñ óòŏôøō œ ş úùŭûū ÿ]"
+  },
+  "kal": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å]",
+   "aux": "[áâã éêẽ íîĩ ôõ ĸ úûũ]"
+  },
+  "ha": {
+   "main": "[a b ɓ c d ɗ e f g h i j k ƙ l m n o r s {sh} t {ts} u w y ƴ z ʼ]",
+   "aux": "[áàâ éèê íìî óòô p q {r̃} úùû v x]"
+  },
+  "haw": {
+   "main": "[aā eē iī oō uū h k l m n p w ʻ]",
+   "aux": "[b c d f g j q r s t v x y z]"
+  },
+  "hu": {
+   "main": "[aá b c {cs} {ccs} d {dz} {ddz} {dzs} {ddzs} eé f g {gy} {ggy} h ií j k l {ly} {lly} m n {ny} {nny} oó öő p r s {sz} {ssz} t {ty} {tty} uú üű v z {zs} {zzs}]",
+   "aux": "[àăâåäãā æ ç èĕêëē ìĭîïī ñ òŏôøō œ q ùŭûū w x yÿ]"
+  },
+  "isl": {
+   "main": "[a á b d ð e é f g h i í j k l m n o ó p r s t u ú v x y ý þ æ ö]",
+   "aux": "[c q w z]"
+  },
+  "ig": {
+   "main": "[a b {ch} d e f g {gb} {gh} {gw} h i ị j k {kp} {kw} l m n ṅ {nw} {ny} o ọ p r s {sh} t u ụ v w y z]",
+   "aux": "[áàā c éèē íìī {ị́}{ị̀} ḿ{m̀} ńǹ óòō {ọ́}{ọ̀} q úùū {ụ́}{ụ̀} x]"
+  },
+  "id": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]"
+  },
+  "gle": {
+   "main": "[aá b c d eé f g h ií l m n oó p r s t uú]",
+   "aux": "[å ḃ ċ ḋ ḟ ġ j k ṁ ṗ q ṡ ṫ v w x y z]"
+  },
+  "it": {
+   "main": "[aà b c d eéè f g h iì j k l m n oò p q r s t uù v w x y z]",
+   "aux": "[ªáâåäã æ ç êë íîï ñ ºóôöõø œ ß úûü ÿ]"
+  },
+  "jv": {
+   "main": "[aâå b c d eéèê g h iì j k l m n oò p r s t uù w y]",
+   "aux": "[f q v x z]"
+  },
+  "kl": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å]",
+   "aux": "[áâã éêẽ íîĩ ôõ ĸ úûũ]"
+  },
+  "cgg": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "ki": {
+   "main": "[a b c d e g h iĩ j k m n o r t uũ w y]",
+   "aux": "[f l p q s v x z]"
+  },
+  "rw": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "ku": {
+   "main": "[a b c ç d e ê f g h i î j k l m n o p q r s ş t u û v w x y z]",
+   "aux": "[áàăâåäãā æ èĕëē é ìĭïī í ñ óòŏôøō œ ß ŭū úù ÿ]"
+  },
+  "lav": {
+   "main": "[a ā b c č d e ē f g ģ h i ī j k ķ l ļ m n ņ o p r s š t u ū v z ž]",
+   "aux": "[y ō q ŗ w x]"
+  },
+  "lij": {
+   "main": "[aàâä æ b cç d eéèêë f g h iìîï j k l m nñ oóòôö p q r s t uùûü v w x y z]",
+   "aux": "[õō œ ř]"
+  },
+  "ln": {
+   "main": "[aáâǎ b c d eéêě ɛ{ɛ́}{ɛ̂}{ɛ̌} f g {gb} h iíîǐ k l m {mb} {mp} n {nd} {ng} {nk} {ns} {nt} {ny} {nz} oóôǒɔ{ɔ́}{ɔ̂}{ɔ̌} p r s t uú v w y z]",
+   "aux": "[j q x]"
+  },
+  "lt": {
+   "main": "[aą b c č d eęė f g h iįy j k l m n o p r s š t uųū v z ž]",
+   "aux": "[áàã{ą́}{ą̃} {ch} {dz} {dž} éèẽ{ę́}{ę̃}{ė́}{ė̃} í{i̇́}ì{i̇̀}ĩ{i̇̃}{į́}{į̇́}{į̃}{į̇̃} {j̃}{j̇̃} {l̃} {m̃} ñ óòõ q {r̃} úùũ{ų́}{ų̃}{ū́}{ū̃} w x]"
+  },
+  "lmo": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]"
+  },
+  "lg": {
+   "main": "[a b c d e f g i j k l m n {ny} ŋ o p r s t u v w y z]",
+   "aux": "[h q x]"
+  },
+  "ltz": {
+   "main": "[aä b c d eéë f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[áàăâåãā æ ç èĕêē ğ íìĭîïİī ı ñ óòŏôöøō œ ş ß úùŭûüū ÿ]"
+  },
+  "mg": {
+   "main": "[aà b d eè f g h iì j k l m n oòô p r s t v yỳ z]",
+   "aux": "[áâã c éêë îï {n̂}{n̈}ñ óö q u w x ýÿ]"
+  },
+  "ms": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "mt": {
+   "main": "[aà b ċ d eè f ġ g {għ} h ħ iì j k l m n oò p q r s t uù v w x ż z]",
+   "aux": "[c y]"
+  },
+  "gv": {
+   "main": "[a b cç d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "mri": {
+   "main": "[aā eē h iī k m n {ng} oō p r t uū w {wh}]",
+   "aux": "[b c d f g j l q s v x y z]"
+  },
+  "mfe": {
+   "main": "[a b c d e f g h i j k l m n o p r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "nd": {
+   "main": "[a b c d e f g h i j k l m n o p q s t u v w x y z]",
+   "aux": "[r]"
+  },
+  "pcm": {
+   "main": "[aá b {ch} d eéẹ{ẹ́} f g {gb} h ií j k {kp} l m n oóọ{ọ́} p r s {sh} t uú v w y z {zh}]",
+   "aux": "[à c è{ẹ̀} ì ò{ọ̀} q ù x]"
+  },
+  "nob": {
+   "main": "[aà b c d eé f g h i j k l m n oóòô p q r s t u v w x y z æ ø å]",
+   "aux": "[áǎã čç đ èê í ńñ ŋ š ŧ ú ü ž ä ö]"
+  },
+  "nus": {
+   "main": "[aä{a̱} b c d eë{e̱} ɛ{ɛ̈}{ɛ̱}{ɛ̱̈} f g ɣ h iï{i̱} j k l m n ŋ oö{o̱} ɔ{ɔ̈}{ɔ̱} p q r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "oc": {
+   "main": "[aáà b cç d eéè f g h iíï j k l m n oóò p q r s t uúü v w x y z]",
+   "aux": "[ăâåäãā æ ĕêëē ìĭîī ñ ŏôöøō œ ùŭûū ÿ]"
+  },
+  "om": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "pl": {
+   "main": "[a ą b c ć d e ę f g h i j k l ł m n ń o ó p r s ś t u w y z ź ż]",
+   "aux": "[àâåä æ ç éèêë îï ôö œ q ß ùûü v x ÿ]"
+  },
+  "pt": {
+   "main": "[aáàâã b cç d eéê f g h ií j k l m n oóôõ p q r s t uú v w x y z]",
+   "aux": "[ªăåäā æ èĕëē ìĭîïī ñ ºòŏöøō œ ùŭûüū ÿ]"
+  },
+  "kek": {
+   "main": "[a {aa} {bʼ} {ch} {ch’} e {ee} h i {ii} j k {k’} l m n o {oo} p q {q’} r s t {t’} {tz} {tz’} u {uu} w x y]",
+   "aux": "[áä c d éë f g íï ñ óö úü v z]"
+  },
+  "qu": {
+   "main": "[a {ch} {chʼ} h i k {kʼ} l {ll} m nñ p {pʼ} q {qʼ} s t {tʼ} u w y]",
+   "aux": "[áàăâåäãā æ b cç {chh} d eéèĕêëē f g íìĭîïī j oóòŏôöøō œ {ph} {qh} r úùŭûüū v x ÿ z]"
+  },
+  "ro": {
+   "main": "[a ă â b c d e f g h i î j k l m n o p q r s ș t ț u v w x y z]",
+   "aux": "[áàåä ç éèêë ñ ö ş ţ ü]"
+  },
+  "rn": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[]"
+  },
+  "sg": {
+   "main": "[aâä b d eêë f g h iîï j k l m n oôö p r s t uùûü v w y z]",
+   "aux": "[c q x]"
+  },
+  "gla": {
+   "main": "[aà b c d eè f g h iì l m n oò p r s t uù]",
+   "aux": "[áăâåäãā æ ċç ḋ éĕêëē ḟ ġ íĭîïī ı j k ł ṁ ñ óŏôöøō œ ṗ q ṡşș ṫ úŭûüū v w x yÿ z]"
+  },
+  "nso": {
+   "main": "[a b d e ê f g h i j k l m n o ô p r s š t u w x y]",
+   "aux": "[c q v z]"
+  },
+  "sr": {
+   "main": "[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]",
+   "aux": "[å q w x y]"
+  },
+  "st": {
+   "main": "[a b d e f g h i j k l m n o p q r s t u w y]",
+   "aux": "[c v x z]"
+  },
+  "sn": {
+   "main": "[a b c d e f g h i j k l m n o p r s t u v w y z]",
+   "aux": "[q x]"
+  },
+  "scn": {
+   "main": "[aàâ b c dḍ eèê f g h iìî j l m n oòô p q r s t uùû v z]",
+   "aux": "[ç đ éë ə ḥ k š w x y]"
+  },
+  "szl": {
+   "main": "[aã b cć d e f g h i j k lł m nń oŏôõō p r sś t u w y zźż]",
+   "aux": "[àăâåäąā æ čç ď éèĕêěëęē íìĭîïī ľ ňñ óòöø œ q ŕř š ß ť úùŭûůüū v x ýÿ ž]"
+  },
+  "sk": {
+   "main": "[aá ä b c č dď {dz} {dž} eé f g h {ch} ií j k lĺľ m nň oó ô p q rŕ s š tť uú v w x yý z ž]",
+   "aux": "[àăâåā æ ç èĕêëē ìĭîïī ñ òŏöőøō œ ř ùŭûüűū ÿ]"
+  },
+  "slv": {
+   "main": "[a b c č d e f g h i j k l m n o p r s š t u v z ž]",
+   "aux": "[áàăâåäā æ ç ć đ éèĕêëē íìĭîïī ñ óòŏôöøō œ q úùŭûüū w x yÿ]"
+  },
+  "so": {
+   "main": "[b c d f g h j k l m n q r s t w x y]",
+   "aux": "[a e i o p u v z]"
+  },
+  "es": {
+   "main": "[aá b c d eé f g h ií j k l m n ñ oó p q r s t uúü v w x y z]",
+   "aux": "[ªàăâåäãā æ ç èĕêëē ìĭîïī ºòŏôöøō œ ùŭûū ýÿ]"
+  },
+  "su": {
+   "main": "[a b c d eé f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[áàăâåäãā æ ç èĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]"
+  },
+  "sw": {
+   "main": "[a b {ch} d e f g h i j k l m n o p r s t u v w y z]",
+   "aux": "[c q x]"
+  },
+  "sv": {
+   "main": "[aà b c d eé f g h i j k l m n o p q r s t u v w x y z å ä ö]",
+   "aux": "[áâãā ç èêë íîïī ñ ó úû ÿü æ øô]"
+  },
+  "ton": {
+   "main": "[aáā eéē f h iíī k l m n {ng} oóō p s t uúū v ʻ]",
+   "aux": "[àăâåä æ b cç d èĕêë g ìĭîï j ñ òŏôöø œ q r ùŭûü w x yÿ z]"
+  },
+  "tn": {
+   "main": "[a b d e ê f g h i j k l m n o ô p r s š t u w y]",
+   "aux": "[c q v x z]"
+  },
+  "tr": {
+   "main": "[a b c ç d e f g ğ h ı iİ j k l m n o ö p r s ş t u ü v y z]",
+   "aux": "[áàăâåäãā æ éèĕêëē íìĭîïī ñ óòŏôøō œ q ß úùŭûū w x ÿ]"
+  },
+  "uz": {
+   "main": "[a b d e f g h i j k l m n o p q r s t u v x y z {oʻ} {gʻ} {sh} {ch} ʼ]",
+   "aux": "[áàăâåäãā æ cç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū w ÿ]"
+  },
+  "vec": {
+   "main": "[aà b c d eéè f g h iì j l m n oóò p r s t uù v x z]",
+   "aux": "[ªá ćç ḑ ʣ ǵ í k ł º q ş ţ ʦ ú w y {z̧}]"
+  },
+  "vi": {
+   "main": "[aàảãáạ ăằẳẵắặ âầẩẫấậ b c d đ eèẻẽéẹ êềểễếệ g h iìỉĩíị k l m n oòỏõóọ ôồổỗốộ ơờởỡớợ p q r s t uùủũúụ ưừửữứự v x yỳỷỹýỵ]",
+   "aux": "[f j w z]"
+  },
+  "cym": {
+   "main": "[aáàâä b c {ch} d {dd} eéèêë f {ff} g {ng} h iíìîï j l {ll} m n oóòôö p {ph} r {rh} s t {th} uúùûü wẃẁŵẅ yýỳŷÿ]",
+   "aux": "[ăåãā æ ç ĕē ĭī k ñ ŏøō œ q ŭū v x z]"
+  },
+  "wo": {
+   "main": "[a à b c d e é ë f g i j k l m n ñ ŋ o ó p q r s t u w x y]",
+   "aux": "[ã h v z]"
+  },
+  "xh": {
+   "main": "[a b c d e f g h i j k l m n o p q r s t u v w x y z]",
+   "aux": "[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]"
+  },
+  "yo": {
+   "main": "[aáà b d eéè ẹ{ẹ́}{ẹ̀} f g {gb} h iíì j k l mḿ{m̀}{m̄} nńǹ{n̄} oóò ọ{ọ́}{ọ̀} p r s ṣ t uúù w y]",
+   "aux": "[c q v x z]"
+  },
+  "zu": {
+   "main": "[a b {bh} c {ch} d {dl} {dy} e f g {gc} {gq} {gx} h {hh} {hl} i j k {kh} {kl} {kp} l m n {nc} {ngc} {ngq} {ngx} {nhl} {nk} {nkc} {nkq} {nkx} {nq} {ntsh} {nx} {ny} o p {ph} q {qh} r {rh} s {sh} t {th} {tl} {ts} {tsh} u v w x {xh} y z]",
+   "aux": "[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]"
+  },
+  "tl": {
+   "main": "[a b c d e f g h i j k l m n ñ {ng} o p q r s t u v w x y z]",
+   "aux": "[áàâ éèê íìî óòô úùû]"
+  },
+  "sme": {
+   "main": "[a á b c č d đ e f g h i j k l m n ŋ o p r s š t ŧ u v z ž]",
+   "aux": "[à ç éè í ńñ óò q ú w x yü ø æ å äã ö]"
+  },
+  "tuk": {
+   "main": "[a b ç d e ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z]",
+   "aux": "[c q v x]"
+  }
+ }
+}
