@@ -35,7 +35,12 @@ console.log(JSON.stringify({
  bk:BK, hal:toT("क्"),
  chn:[["कं",toT("कं")],["कँ",toT("कँ")],["कः",toT("कः")]],
  ank:Array.from(toT("०१२३४५६७८९")),
- tir:toT("तिरहुता"), mith:toT("मिथिला"),
+ tir:toT("तिरहुता"), mith:toT("मिथिला"), mlx:toT("मिथिलाक्षर"),
+ cjOne:["क्ष","त्र","ज्ञ","श्र","स्त","द्य","द्ध","त्त","प्र","ग्र","क्त","न्त","न्द","न्य","त्य","ष्ट","ष्ण","ह्म"].map(function(a){return[a,toT(a)]}),
+ cjHal:["स्थ","स्म","म्म","ज्ज","ल्ल","प्त"].map(function(a){return[a,toT(a)]}),
+ cjRYV:[["धर्म",toT("धर्म")],["प्रकाश",toT("प्रकाश")],["व्यापार",toT("व्यापार")],["स्वर",toT("स्वर")]],
+ fina:[["जगत्",toT("जगत्")],["अहम्",toT("अहम्")],["भगवान्",toT("भगवान्")]],
+ vis:[["ॐ",toT("ॐ")],["ऽ",toT("ऽ")],["ल॰",toT("ल॰")]],
  words:WORDS.map(function(w){return[w,toT(w)]})
 }));
 '''
@@ -43,6 +48,17 @@ j = subprocess.run(["node", "-e", node_code, os.path.join(ROOT, "assets/tirhuta_
                    capture_output=True, text=True, cwd=ROOT)
 assert j.returncode == 0, j.stderr
 D = json.loads(j.stdout)
+import uharfbuzz as _hb
+_f = _hb.Font(_hb.Face(open(FONT, "rb").read()))
+def _gl(t):
+    b = _hb.Buffer(); b.add_str(t); b.guess_segment_properties(); _hb.shape(_f, b, {})
+    return [_f.glyph_to_string(i.codepoint) for i in b.glyph_infos]
+for _d, _t in D["cjOne"]:
+    assert len(_gl(_t)) == 1, "जोड़-रूप दावा ग़लत: " + _d
+for _d, _t in D["cjHal"]:
+    assert "virama_tirh" in _gl(_t), "दिखता-हलंत दावा ग़लत: " + _d
+for _d, _t in D["fina"][:2]:
+    assert any(g.endswith(".fina") for g in _gl(_t)), "अंत-रूप दावा ग़लत: " + _d
 
 CSS = """
 @font-face{font-family:'Tirhuta';src:url('file://__FONT__');}
@@ -77,6 +93,8 @@ th{background:#0B1F3A;color:#fff;font-size:19px}
 .cover{background:#0B1F3A;color:#F5F7FA;margin:-14mm -12mm -16mm -12mm;padding:12mm 14mm;min-height:262mm;position:relative;flex:1}
 .cover .wm{position:absolute;right:-6mm;bottom:10mm;font-size:260px;color:rgba(249,168,37,.08);line-height:1}
 .gold-rule{height:3px;background:#F9A825;border:none;margin:10px 0}
+.tc td{padding:2px 6px;font-size:17px;line-height:1.35}.tc .big{font-size:27px}.tc th{padding:4px}
+.cell-k2{font-size:30px}.tk td{padding:3px 4px}.tk .cell-d{font-size:16px}
 """.replace("__FONT__", FONT)
 
 def hdr(t):
@@ -157,7 +175,7 @@ mt_rows = "".join('<tr><td style="font-size:22px">क%s</td><td class="kai" styl
                   % (d, k, nm) for (d, k), nm in zip(D["mt"], mt_names))
 P.append('<div class="pg">' + hdr("5. मात्राएँ (11) + हलंत") + "<h1>मात्राएँ — क पर लगाकर</h1>" +
  '<table><tr><th>देवनागरी</th><th>तिरहुता</th><th>जगह / नियम (मशीन-जाँची)</th></tr>' + mt_rows +
- '<tr><td style="font-size:22px">क्</td><td class="kai" style="font-size:26px">%s</td><td style="text-align:left">हलंत — नीचे का चिह्न; स्वर काटना (जुड़े अक्षर अध्याय-5 में)</td></tr></table></div>' % D["hal"])
+ '<tr><td style="font-size:22px">क्</td><td class="kai" style="font-size:26px">%s</td><td style="text-align:left">हलंत — नीचे का चिह्न; स्वर काटना (जुड़े अक्षर: खंड-8)</td></tr></table></div>' % D["hal"])
 # 6. धोखेबाज़-तिकड़ी
 P.append('<div class="pg">' + hdr("6. धोखेबाज़-जोड़े") + """<h1>धोखेबाज़-तिकड़ी — आँख का धोखा</h1>
 <p>ये तिरहुता अक्षर देवनागरी के <b>दूसरे</b> अक्षरों जैसे दिखते हैं — बंगाली-परिवार की बहन होने का असर। पढ़ते समय यहीं ग़लती होती है:</p>
@@ -166,37 +184,49 @@ P.append('<div class="pg">' + hdr("6. धोखेबाज़-जोड़े")
    % (dict(D["vy"])[a], a, b) for a, b in [("र","ब"),("व","र"),("ल","न"),("ब","व")]) +
  '</table><div class="warn">याद रखने का सूत्र (पाठ 12-13): तिकड़ी <b>र-व-ल</b> को निशानी-बैंक से पक्का करें — और गवाह <b>ध</b> को भी परखें, जो र का हल्का जुड़वाँ है। जहाँ ब-जैसा दिखे, पहले र सोचें।</div></div>')
 # 7. विशेष चिह्न
-P.append('<div class="pg">' + hdr("7. विशेष चिह्न") + "<h1>तीन चिह्न + हलंत + दंड</h1>" +
- '<p>अक्षर के ऊपर-आगे लगने वाले साथी — पोथी-मंत्रों की जान:</p>' +
- '<table><tr><th>रूप</th><th>तिरहुता</th><th>काम</th></tr>' +
+P.append('<div class="pg">' + hdr("7. विशेष चिह्न") + "<h1>चिह्न, निशानियाँ और छोटी ए-ओ</h1>" +
+ '<table class="tc"><tr><th>रूप</th><th>तिरहुता</th><th>काम</th></tr>' +
  "".join('<tr><td style="font-size:22px">%s</td><td class="kai big">%s</td><td style="text-align:left">%s</td></tr>' % (d, k, nm)
    for (d, k), nm in zip(D["chn"], ["अनुस्वार — ऊपर बिंदी (गंगा, पंडित की नाक-आवाज़)",
                                      "चंद्रबिंदु — ऊपर चाँद-बिंदी (आँगन की सँवली आवाज़)",
                                      "विसर्ग — आगे दो बिंदियाँ (नमः की साँस-फूँक)"])) +
  '<tr><td style="font-size:22px">क्</td><td class="kai big">%s</td><td style="text-align:left">हलंत — नीचे का चिह्न, स्वर काटता है</td></tr>' % D["hal"] +
- '<tr><td style="font-size:22px">। ॥</td><td class="kai big">। ॥</td><td style="text-align:left">दंड व दोहरा दंड — तिरहुता पोथियों में देवनागरी-जैसे ही</td></tr></table>' +
- '<div class="note">जुड़े अक्षर (संयुक्ताक्षर) कोर्स के अध्याय-5 में सिखाए जाते हैं — तब तिरहुता-शब्द का बीच वाला जुड़ा रूप भी खुल जाता है।</div></div>')
+ '<tr><td style="font-size:22px">। ॥</td><td class="kai big">। ॥</td><td style="text-align:left">दंड व दोहरा दंड — तिरहुता पोथियों में देवनागरी-जैसे ही</td></tr>' +
+ '<tr><td style="font-size:20px">अंजी</td><td class="kai big">\U00011480</td><td style="text-align:left">शुभ-शुरुआत का निशान — बनाया जाता है, बोला नहीं</td></tr>' +
+ '<tr><td style="font-size:22px">%s</td><td class="kai big">%s</td><td style="text-align:left">ओम — तिरहुता का अपना ओम-चिह्न</td></tr>' % tuple(D["vis"][0]) +
+ '<tr><td style="font-size:20px">ग्वं</td><td class="kai big">\U000114C5</td><td style="text-align:left">वैदिक अनुस्वार — वेद-पाठ की नाक-आवाज़</td></tr>' +
+ '<tr><td style="font-size:22px">%s</td><td class="kai big">%s</td><td style="text-align:left">अवग्रह — यहाँ अ लुप्त (सोऽहम्)</td></tr>' % tuple(D["vis"][1]) +
+ '<tr><td style="font-size:22px">%s</td><td class="kai big">%s</td><td style="text-align:left">संक्षेप-चिह्न — शब्द छोटा किया (ल॰ सं॰)</td></tr>' % tuple(D["vis"][2]) +
+ '<tr><td style="font-size:20px">क + छोटी ए</td><td class="kai big">\U0001148F\U000114BA</td><td style="text-align:left">मैथिली की छोटी ए — ऐ का ऊपरी टुकड़ा अकेला</td></tr>' +
+ '<tr><td style="font-size:20px">क + छोटी ओ</td><td class="kai big">\U0001148F\U000114BD</td><td style="text-align:left">मैथिली की छोटी ओ — औ का दायाँ टुकड़ा अकेला</td></tr></table>' +
+ '<div class="note">यूनिकोड-खाके का जोड़-गणित: ऐ = ए-निशान + छोटी-ए · ओ = ए-निशान + आ-निशान · औ = ए-निशान + छोटी-ओ (कोर्स पाठ-20)।</div></div>')
+# 8. हलंत और जुड़े अक्षर (नया खंड — मशीन-जाँची सूचियाँ)
+P.append('<div class="pg">' + hdr("8. हलंत और जुड़े अक्षर") + "<h1>जुड़े अक्षर — दो राहें</h1>" +
+ '<p><b>राह-1 — जोड़-रूप:</b> दोनों अक्षर घुलकर नया एक चेहरा (मानक फ़ॉन्ट, मशीन-जाँचा):</p>' + tbl_pairs(D["cjOne"], 9, ("cell-k2 kai", "cell-d")).replace("<table>", '<table class="tk">', 1) +
+ '<p><b>राह-2 — दिखता हलंत:</b> पहला अक्षर नीचे लकीर पहनकर बग़ल में:</p>' + tbl_pairs(D["cjHal"], 6, ("cell-k2 kai", "cell-d")).replace("<table>", '<table class="tk">', 1) +
+ '<p><b>र, य, व के साथी</b> (धर्म — सिर पर रेफ · प्रकाश — साथ जुड़ा र · व्यापार — दाईं ओर य-टुकड़ा · स्वर — नीचे व-निशान) और <b>शब्द-अंत</b> (त् व म् के अपने अंत-रूप):</p>' + tbl_pairs(D["cjRYV"] + D["fina"], 7, ("cell-k2 kai", "cell-d")).replace("<table>", '<table class="tk">', 1) +
+ '<div class="note">लिपि का पूरा नाम: <span class="kai" style="font-size:30px">%s</span> मिथिलाक्षर। पढ़ने का एक नियम — पहले की आधी आवाज़ + दूसरे की पूरी। पोथियों में लिखने वालों के जोड़-रूप फ़ॉन्ट से अलग भी हो सकते हैं (कोर्स पाठ 19, 22)।</div></div>' % D["mlx"])
 # 8-9. बारहखड़ी
 def bk_table(rows):
     h = "<tr><th>अक्षर</th>" + "".join("<th>%s</th>" % m for m, _ in D["mt"]) + "</tr>"
     b = "".join("<tr><td style='font-size:22px'><b>%s</b> <span class='kai'>%s</span></td>" % (r["c"], r["base"]) +
                 "".join("<td class='kai' style='font-size:28px'>%s</td>" % c for c in r["row"]) + "</tr>" for r in rows)
     return "<table>%s%s</table>" % (h, b)
-P.append('<div class="pg">' + hdr("8. बारहखड़ी (भाग-1)") + "<h1>बारहखड़ी — क से ब</h1>" + bk_table(D["bk"][:5]) + "</div>")
-P.append('<div class="pg">' + hdr("9. बारहखड़ी (भाग-2)") + "<h1>बारहखड़ी — म से स</h1>" + bk_table(D["bk"][5:]) +
+P.append('<div class="pg">' + hdr("9. बारहखड़ी (भाग-1)") + "<h1>बारहखड़ी — क से ब</h1>" + bk_table(D["bk"][:5]) + "</div>")
+P.append('<div class="pg">' + hdr("10. बारहखड़ी (भाग-2)") + "<h1>बारहखड़ी — म से स</h1>" + bk_table(D["bk"][5:]) +
  '<div class="note">घेरे वाली ो-ौ-ै क़तार में साफ़ दिखती हैं — बीच का अक्षर पहचानो, आगे-पीछे के टुकड़े मिलाओ (पाठ-17 की दो-सवाल विधि)।</div></div>')
 # 10. अंक
 ank_pairs = list(zip(list("०१२३४५६७८९"), D["ank"]))
-P.append('<div class="pg">' + hdr("10. तिरहुता के अपने अंक") + "<h1>अंक 0-9 — पोथी के पन्ना-नंबर की चाबी</h1>" + tbl_pairs(ank_pairs, 5) +
+P.append('<div class="pg">' + hdr("11. तिरहुता के अपने अंक") + "<h1>अंक 0-9 — पोथी के पन्ना-नंबर की चाबी</h1>" + tbl_pairs(ank_pairs, 5) +
  '<p>तिरहुता के <b>अपने अंक</b> हैं — पुरानी पोथियों, पंजी-पत्रों और पन्ना-नंबरों में यही मिलते हैं। ऊपर तिरहुता अंक, नीचे देवनागरी।</p>' +
- '<div class="note">अंकों के पूरे पाठ कोर्स के अध्याय-5 में — यह तालिका इंजन-जाँची झलक है, ताकि चार्ट-पुस्तिका से ही पन्ना-नंबर पढ़ने शुरू हो सकें।</div></div>')
+ '<div class="warn">अंक-धोखेबाज़ (मशीन-नापे, कोर्स पाठ-21): जुड़वाँ — ० और ४ देवनागरी जैसे; धोखा — तिरहुता का १ देवनागरी के ४ जैसा, ७ देवनागरी के ५ जैसा, ६ देवनागरी के ७ जैसा।</div></div>')
 # 11-12. मिथिला-शब्द
 wpairs = D["words"]
-P.append('<div class="pg">' + hdr("11. मिथिला-शब्द (भाग-1)") + "<h1>मिथिला-जगत के शब्द तिरहुता में — 1</h1>" + tbl_pairs(wpairs[:20], 4) + "</div>")
-P.append('<div class="pg">' + hdr("12. मिथिला-शब्द (भाग-2)") + "<h1>मिथिला-जगत के शब्द तिरहुता में — 2</h1>" + tbl_pairs(wpairs[20:], 4) +
+P.append('<div class="pg">' + hdr("12. मिथिला-शब्द (भाग-1)") + "<h1>मिथिला-जगत के शब्द तिरहुता में — 1</h1>" + tbl_pairs(wpairs[:20], 4) + "</div>")
+P.append('<div class="pg">' + hdr("13. मिथिला-शब्द (भाग-2)") + "<h1>मिथिला-जगत के शब्द तिरहुता में — 2</h1>" + tbl_pairs(wpairs[20:], 4) +
  '<div class="note">हर शब्द की कहानी व अभ्यास कोर्स के पाठों में — पोथी, पंजी, सौराठ-सभा और विद्यापति की धरती के शब्द। परीक्षा-द्वार dashboard में।</div></div>')
 # 13. आगे की राह
-P.append('<div class="pg">' + hdr("13. आगे की राह — रजिस्ट्रेशन")
+P.append('<div class="pg">' + hdr("14. आगे की राह — रजिस्ट्रेशन")
  + '<h1>पढ़ लिया? अब 3 कदम — प्रमाणपत्र तक</h1>'
  + '<table><tr><th style="width:18%">कदम</th><th>क्या करना है</th></tr>'
  + '<tr><td style="font-size:30px">1️⃣</td><td style="text-align:left">33 पाठ मुफ़्त पढ़ें — बिना login, बिना पैसा: <b>acslearn.com/courses/hi/tirhuta-lipi/</b></td></tr>'
