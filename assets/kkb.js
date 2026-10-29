@@ -35,6 +35,11 @@
   var L = LANG.label, BRAND = DATA.brand || "ACS काम की भाषा", SUB = DATA.sub || (L + " for Work");
   var HELP = DATA.help || [];
   var STORE_KEY = "acs_kkb_" + LANG.code + "_v01";
+  /* 29-Oct (Founder-नियम): हर 🔊 के साथ 🎙️ बोलो — साझा assets/acs-bolo.js से */
+  window.kkbBolo = function (btn) {
+    if (!window.ACSBolo) { alert("बोलो-अभ्यास अभी लोड नहीं हुआ — पन्ना एक बार दोबारा खोलें।"); return; }
+    ACSBolo.open(btn, { t: btn.getAttribute("data-t"), asr: String(LANG.sr || LANG.tts || ""), tts: LANG.tts, host: btn.parentNode });
+  };
   function spoken(t) { return String(t).replace(/\s*\([^()]*\)\s*$/, ""); } /* अंत का (pinyin/नोट) आवाज़-माइक में नहीं */
   var RTL = LANG.script === "thaana" || LANG.script === "arabic" || LANG.script === "persian" || LANG.script === "hebrew" || LANG.script === "urdu" || LANG.script === "kashmiri" || LANG.script === "sindhi" || LANG.script === "perso-arabic" || LANG.script === "perso-arabic-native"; /* 13-Sep: उइघुर (perso-arabic) RTL */ /* 01-Sep: हिब्रू RTL */ /* 02-Sep RTL-परिवार: उर्दू/कश्मीरी/सिंधी */
   function DIRw() { return RTL ? ' dir="rtl"' : ""; } /* लक्ष्य-भाषा वाले खाने पर — देवनागरी/हिंदी हमेशा LTR रहें */
@@ -197,7 +202,7 @@
     $("kkb-main").innerHTML = '<div class="kkb-counter"><span>' + D.title + '</span><button type="button" onclick="kkbCard(' + w + ',' + d + ',0,false)">एक-एक करके ›</button></div>' +
       '<div class="kkb-list">' + D.items.map(function (it) {
         return '<div class="kkb-li"><div class="kkb-tag kkb-' + it[3] + '">' + (it[3] === "S" ? "बोलो" : "सुनो") + '</div><div><div class="kkb-l1">' + esc(it[1]) + '</div><div class="kkb-l2">' + esc(it[2]) + '</div><div class="kkb-l3' + (showEN ? "" : " kkb-hidden") + '"' + DIRw() + '>' + esc(it[0]) + '</div></div>' +
-          '<button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(it[0]) + ',false)" aria-label="सुनो">🔊</button></div>';
+          '<button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(it[0]) + ',false)" aria-label="सुनो">🔊</button><button type="button" class="kkb-sp kkb-mic" onclick="kkbBolo(this)" data-t="' + esc(spoken(it[0])) + '" aria-label="बोलो">🎙️</button></div>';
       }).join("") + '</div>' +
       '<div class="kkb-nav"><button type="button" class="kkb-btn kkb-primary" onclick="kkbDone(\'w' + w + 'd' + d + '\',\'#w' + w + '\')">✔ आज का पाठ पूरा</button></div>';
   }
@@ -256,7 +261,7 @@
       '<div class="kkb-tstep"><div class="kkb-k">2</div><div>' + (DATA.testStep2 || ('<b>IVR में ' + L + ' चुनिए।</b> <span class="kkb-small kkb-muted">फ़ोन उठते ही भाषा-चुनाव की आवाज़ आती है — उसमें ' + L + ' वाला नंबर दबाइए।</span>')) + '</div></div>' +
       '<div class="kkb-tstep"><div class="kkb-k">3</div><div><b>ये वाक्य बोलिए।</b> <span class="kkb-small kkb-muted">' + T.goal + '</span></div></div>' +
       '<div class="kkb-callbox">' + T.lines.map(function (l) {
-        return '<div class="kkb-line"><div class="kkb-tx"><b>' + esc(l[1]) + '</b><span' + DIRw() + '>' + esc(l[0]) + '</span></div><button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(l[0].replace(/___/g, "Ram")) + ',true)" aria-label="सुनो">🔊</button></div>';
+        return '<div class="kkb-line"><div class="kkb-tx"><b>' + esc(l[1]) + '</b><span' + DIRw() + '>' + esc(l[0]) + '</span></div><button type="button" class="kkb-sp" onclick="kkbSay(' + jsArg(l[0].replace(/___/g, "Ram")) + ',true)" aria-label="सुनो">🔊</button><button type="button" class="kkb-sp kkb-mic" onclick="kkbBolo(this)" data-t="' + esc(l[0].replace(/___/g, "Ram")) + '" aria-label="बोलो">🎙️</button></div>';
       }).join("") + '</div>' +
       '<div class="kkb-note">समझ न आए तो घबराइए नहीं: ' + helpTxt + ' — यही असली test है।</div>' +
       '<div class="kkb-tstep"><div class="kkb-k">4</div><div><b>कॉल के बाद ईमानदारी से टिक कीजिए।</b></div></div>' +

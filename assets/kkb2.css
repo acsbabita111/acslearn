@@ -130,3 +130,12 @@ body.kkb2-page .udy-float{bottom:84px;gap:6px}
 body.kkb2-page .udy-float .udy-fbtn{width:40px;height:40px;line-height:40px;font-size:18px;opacity:.72}
 body.kkb2-page .udy-float .udy-fbtn:active,body.kkb2-page .udy-float .udy-fbtn:hover{opacity:1}
 body.kkb2-page .udy-float a.udy-fbtn[href="javascript:history.back()"],body.kkb2-page .udy-float .udy-fbtn.back{display:none}
+
+/* 29-Oct (Founder-नियम): एक पंक्ति में 2 कार्ड · अकेला कार्ड बीच में · 3D रंगीन कार्ड · हर कार्ड पर 🔊 + 🎙️ */
+.kkb2-twg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:10px 0}
+.kkb2-twg>.kkb2-twc:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}
+.kkb2-twc{background:linear-gradient(160deg,#FFFFFF 0%,#EAF2FF 55%,#DCE9FF 100%);border:2px solid #1565C0;border-radius:18px;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #1565C0,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;transform:translateZ(0);padding:12px 10px 14px;text-align:center;display:flex;flex-direction:column;gap:4px}
+.kkb2-twc b{font-size:24px;color:#0B1F3A}
+.kkb2-twp{font-size:18px;color:#1565C0}
+.kkb2-twm{font-size:17px;color:#2E7D32;font-weight:700}
+.kkb2-twb{display:flex;gap:8px;justify-content:center;margin-top:4px}

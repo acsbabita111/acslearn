@@ -13,6 +13,7 @@ for(const code of ["en","mr","sw","ta","kn"]){ /* v1.2 (29-Oct): अक्षर
   for(const [n,h] of [["index",ix],["reader",rd]]){if(!h.includes("Applied Computer School™")||!h.includes("acslearn™"))fail(code+" "+n+": ™ पंक्ति नहीं");if(!h.includes("FFGPMTrust के सौजन्य से ऑनलाइन शिक्षा निःशुल्क और प्रमाणपत्र सशुल्क"))fail(code+" "+n+": FFGPMTrust पंक्ति नहीं");}
   const pr=[...ix.matchAll(/class="cp-p">([^<]*)</g)].map(m=>m[1]);if(pr.some(p=>/[A-Za-z]/.test(p)))fail(code+": उच्चारण में Latin");if(code!=="en"&&pr.some(p=>/[^\u0900-\u097F\s'()\-]/u.test(p.replace(/&#39;|&quot;/g,""))))fail(code+": उच्चारण में देवनागरी के बाहर का अक्षर");
   if(code!=="en"&&(ix.match(/class="acs-reg"[^>]*>[\s\S]*?href="\/join\.html"/g)||[]).length<3)fail(code+": रजिस्ट्रेशन-अपील 3 जगह नहीं");
+  if((ix.match(/class="cp-mic"/g)||[]).length<cards)fail(code+": हर कार्ड पर 🎙️ बोलो नहीं");if(!ix.includes("/assets/acs-bolo.js"))fail(code+": acs-bolo.js नहीं");
   if(D.akshar){const nAk=(ix.match(/class="cp-card cp-ak/g)||[]).length;if(nAk!==D.akshar.required)fail(code+": अक्षर-कार्ड "+nAk+" ≠ पूरी वर्णमाला "+D.akshar.required);
     if(ix.includes("हिंदी वर्णमाला"))fail(code+": हिंदी-वर्णमाला भाग अब भी है");
     if((ix.match(/class="cp-card cp-ak[^"]*" data-a="[^"]*" data-al="hi-IN"/g)||[]).length)fail(code+": अक्षर की आवाज़ हिंदी में");

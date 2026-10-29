@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/kkb2.js — v3.2 (13-Sep-2026) · perso-arabic (उइघुर) RTL जुड़ा · v3.1 (01-Sep-2026) · हिब्रू RTL जुड़ा (9वीं भाषा)
+   /assets/kkb2.js — v3.3 (29-Oct-2026) · हर 🔊 के साथ 🎙️ बोलो (Founder-नियम) · v3.2 (13-Sep-2026) · perso-arabic (उइघुर) RTL जुड़ा · v3.1 (01-Sep-2026) · हिब्रू RTL जुड़ा (9वीं भाषा)
    v3.0 (31-Aug-2026) · भाषा-सामान्यीकरण: 8 भाषाएँ (en मास्टर + ar/fr/es/ja/ko/de/ru) — lang-meta data से; en-व्यवहार पहले जैसा · देवनागरी-native (ru) = hi-IN आवाज़ · जापानी (romaji) आवाज़ में कटे · अरबी RTL · ACS KKB मास्टर-इंजन — एक कोर्स, 90 दिन
    Founder-आदेश: L1 (500) + स्तर-2 (1,650) = 2,150 वाक्य एक-साथ; 3 महीने;
    महीना-1 = 20 वाक्य/दिन (ठीक 600) · महीना-2/3 = बढ़ती चाल (20→30)।
@@ -117,6 +117,13 @@
     arz: "ar", apc: "ar", acm: "ar", ary: "ar", afb: "ar", ayl: "ar", aeb: "ar", arq: "ar", ajp: "ar", ars: "ar", acw: "ar", ayp: "ar", apd: "ar", abv: "ar", shu: "ar" };
   var BOLO_NOSCORE = { ja: 1 };
   var BOLO_OK = !!BOLO_BASE && !BOLO_NOSCORE[BOLO_CODE] && (BOLO_BASE === BOLO_CODE || BOLO_ALIAS[BOLO_CODE] === BOLO_BASE);
+  /* 29-Oct (Founder-नियम): हर 🔊 के साथ 🎙️ बोलो — शब्द-कार्ड, संवाद, जवाब, टेस्ट, ज़रूर-बोलो (सुनना-शर्त नहीं) */
+  window.kkb2Bolo2 = function (btn) {
+    if (!window.ACSBolo) { alert("बोलो-अभ्यास अभी लोड नहीं हुआ — पन्ना एक बार दोबारा खोलें।"); return; }
+    var nm = META.hi || LANG.label || "इस भाषा";
+    ACSBolo.open(btn, { t: btn.getAttribute("data-t"), pr: btn.getAttribute("data-p") || "", asr: BOLO_SR, tts: LANG.tts, host: btn.closest ? btn.closest("[data-bolo-host]") : null,
+      forceRec: !BOLO_OK, recWhy: BOLO_OK ? "" : nm + " की आवाज़-पहचान अभी फ़ोन/ब्राउज़र में भरोसेमंद नहीं, इसलिए सही-ग़लत के अंक नहीं।" });
+  };
   window.kkb2Bolo = function (btn, key) {
     if (!window.ACSBolo) { alert("बोलो-अभ्यास अभी लोड नहीं हुआ — पन्ना एक बार दोबारा खोलें।"); return; }
     var t = btn.getAttribute("data-t"), nm = META.hi || LANG.label || "इस भाषा";
@@ -263,7 +270,9 @@
       '<div class="kkb2-card head"><div class="kkb2-daytag">दिन ' + (g + 1) + ' / 90 · ' + (r.src === 1 ? "स्तर-1" : "स्तर-2") + '</div><h2>' + esc(D.title) + '</h2>';
     if (D.tw) {
       h += '<div class="kkb2-tw"><b>📦 आज के लक्ष्य-शब्द:</b><br>';
-      for (var t = 0; t < D.tw.length; t++) h += '<span>' + esc(D.tw[t][0]) + ' (' + esc(D.tw[t][1]) + ') = ' + esc(D.tw[t][2]) + '</span>';
+      h += '<div class="kkb2-twg">';
+      for (var t = 0; t < D.tw.length; t++) h += '<div class="kkb2-twc" data-bolo-host="1"><b' + DIRw() + '>' + esc(D.tw[t][0]) + '</b><span class="kkb2-twp">' + esc(D.tw[t][1]) + '</span><span class="kkb2-twm">' + esc(D.tw[t][2]) + '</span><span class="kkb2-twb"><button class="kkb2-btn mini" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(D.tw[t][0]) + '">🔊</button><button class="kkb2-btn mini ghost" onclick="kkb2Bolo2(this)" data-t="' + esc(D.tw[t][0]) + '" data-p="' + esc(D.tw[t][1]) + '">🎙️</button></span></div>';
+      h += '</div>';
       h += '</div>';
     }
     h += '<div class="kkb2-rulebar">पहले 🔊 सुनो → साथ-साथ बोलो → फिर "मैंने बोला" दबाओ। 🎙️ बोलो से अपनी जाँच भी कर सकते हो।</div></div>';
@@ -303,7 +312,7 @@
         '<div class="kkb2-row"><button class="kkb2-btn" onclick="kkb2Hear(\'' + kk + '\',this.getAttribute(\'data-t\'),false)" data-t="' + esc(q) + '">🔊 सवाल सुनो</button>' +
         '<button class="kkb2-btn ghost" id="sp-' + kk + '" disabled onclick="kkb2Show(\'' + kk + '\')">जवाब देखें</button></div>' +
         '<div id="ans-' + kk + '" style="display:none"><p class="kkb2-en"' + DIRw() + '>' + esc(a.replace(/^\(बोलो\)\s*/, "")) + '</p>' +
-        '<button class="kkb2-btn green" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(a) + '">🔊 जवाब सुनो</button></div></div>';
+        '<button class="kkb2-btn green" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(a) + '">🔊 जवाब सुनो</button><button class="kkb2-btn ghost" onclick="kkb2Bolo2(this)" data-t="' + esc(a.replace(/^\(बोलो\)\s*/, "")) + '">🎙️ बोलो</button></div></div>';
     }
     h += '<div class="kkb2-card"><h3>🎯 आज का बोलने-अभ्यास</h3><p>' + esc(D.drill.hi) + '</p>';
     for (var rr = 0; rr < D.drill.rows.length; rr++) {
@@ -323,7 +332,7 @@
       '<div class="kkb2-card head"><h2>🗣️ ' + esc(W.hi) + ' — संवाद</h2><p>दोस्त/परिवार के साथ भूमिका बाँटकर पूरा संवाद बोलो। हर पंक्ति 🔊 से सुन सकते हो।</p>';
     for (var p = 0; p < W.dialog.length; p++) {
       h += '<p class="kkb2-dline"><b>' + esc(W.dialog[p][0]) + ':</b> ' + esc(W.dialog[p][1]) +
-        ' <button class="kkb2-btn mini" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(W.dialog[p][1]) + '">🔊</button></p>';
+        ' <button class="kkb2-btn mini" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(W.dialog[p][1]) + '">🔊</button> <button class="kkb2-btn mini ghost" onclick="kkb2Bolo2(this)" data-t="' + esc(W.dialog[p][1]) + '">🎙️</button></p>';
     }
     h += '<button class="kkb2-btn green big" onclick="kkb2DlgDone(' + wi + ')">संवाद बोल लिया ✅</button></div>';
     view(h);
@@ -338,7 +347,7 @@
       '<div class="kkb2-card head"><h2>📞 ' + esc(T.target) + '</h2><p>' + esc(T.goal) + '</p></div><div class="kkb2-card"><h3>सहारा-पंक्तियाँ:</h3>';
     for (var p = 0; p < T.lines.length; p++) {
       h += '<div class="kkb2-item"><p class="kkb2-en"' + DIRw() + '>' + esc(T.lines[p][0]) + '</p><p class="kkb2-dev">' + esc(T.lines[p][1]) + '</p>' +
-        '<button class="kkb2-btn" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(T.lines[p][0]) + '">🔊 सुनो</button></div>';
+        '<button class="kkb2-btn" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(T.lines[p][0]) + '">🔊 सुनो</button><button class="kkb2-btn ghost" onclick="kkb2Bolo2(this)" data-t="' + esc(T.lines[p][0]) + '" data-p="' + esc(T.lines[p][1]) + '">🎙️ बोलो</button></div>';
     }
     var msg = encodeURIComponent((EN ? "ACS Spoken English (90-दिन)" : "ACS काम की भाषा — " + (META.hi || LANG.label) + " (90-दिन)") + " — " + (src === 1 ? "स्तर-1" : "स्तर-2") + " सप्ताह-" + W.n + " का टेस्ट पूरा किया। (" + T.target + ")");
     h += '<a class="kkb2-btn gold big" href="https://wa.me/' + TRAINER_WA + '?text=' + msg + '" onclick="kkb2TstDone(' + src + ',' + wi + ')">✅ टेस्ट पूरा — WhatsApp पर बताएँ</a></div>';
@@ -357,7 +366,7 @@
         for (var k2 = 0; k2 < IT.length; k2++) if (IT[k2][4] === "A") {
           if (!head) { h += '<div class="kkb2-wkhead">' + esc(D2.weeks[w2].hi) + '</div>'; head = 1; }
           h += '<div class="kkb2-item"><p class="kkb2-en"' + DIRw() + '>' + esc(IT[k2][0]) + '</p><p class="kkb2-dev">' + esc(IT[k2][1]) + '</p><p class="kkb2-hi">' + esc(IT[k2][2]) + '</p>' +
-            '<button class="kkb2-btn" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(IT[k2][0]) + '">🔊</button></div>';
+            '<button class="kkb2-btn" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(IT[k2][0]) + '">🔊</button> <button class="kkb2-btn ghost" onclick="kkb2Bolo2(this)" data-t="' + esc(IT[k2][0]) + '" data-p="' + esc(IT[k2][1]) + '">🎙️</button></div>';
         }
       }
     }

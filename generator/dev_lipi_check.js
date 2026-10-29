@@ -9,6 +9,10 @@ const fs = require("fs"), path = require("path"); const ROOT = path.join(__dirna
 const ENG = require(path.join(__dirname, "build_lipi_pages.js"));
 const langs = ENG.LIPI_LANGS;
 const only = process.argv[2]; let fail = 0; let pass = 0;
+/* 29-Oct: हर खाने/कार्ड/शब्द पर 🎙️ — साझा lipi.js जोड़ती है; 2-कार्ड पंक्ति lipi.css में */
+{ const lj = fs.readFileSync(path.join(ROOT, "assets/lipi.js"), "utf8"), lc = fs.readFileSync(path.join(ROOT, "assets/lipi.css"), "utf8");
+  if (!/window\.lipiBolo/.test(lj) || !/lipi-mic/.test(lj)) { console.log("  ❌ lipi.js में 🎙️ बोलो नहीं"); fail++; } else pass++;
+  if (!/\.lipi-grid\{grid-template-columns:repeat\(2/.test(lc)) { console.log("  ❌ lipi.css में 2-कार्ड पंक्ति नहीं"); fail++; } else pass++; }
 const ok = (c, m) => { if (!c) { console.log("  ❌ " + m); fail++; } else pass++; };
 const smP = path.join(ROOT, "sitemap-bhasha.xml");
 const sm = fs.existsSync(smP) ? fs.readFileSync(smP, "utf8") : (fs.existsSync(path.join(ROOT, "sitemap.xml")) ? fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8") : "");

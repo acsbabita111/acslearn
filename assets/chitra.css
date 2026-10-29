@@ -33,3 +33,17 @@
 .cp-bkc i{font-style:normal;font-size:26px;color:#0B1F3A}
 .cp-bkc u{text-decoration:none;font-size:16px;color:#1565C0}
 @media print{.cp-btns,.cp-spk,header,nav,footer,.acs-navbar,#acsDrawer,#acsScrim{display:none!important}.cp-grid{grid-template-columns:repeat(3,1fr)}.cp-sec,.cp-grp{break-after:avoid}}
+
+/* 29-Oct (Founder-नियम): हर पंक्ति में सिर्फ़ 2 कार्ड · अकेला कार्ड बीच में · 3D रंगीन कार्ड · हर कार्ड पर 🔊 + 🎙️ */
+.cp-grid,.cp-akgrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px}
+.cp-grid>.cp-card:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}
+.cp-card{background:linear-gradient(160deg,#FFFFFF 0%,#EAF2FF 55%,#DCE9FF 100%)!important;border:2px solid #1565C0!important;border-radius:20px!important;box-shadow:0 2px 0 #0B1F3A,0 7px 0 #1565C0,0 14px 24px rgba(11,31,58,.24),inset 0 2px 0 #fff!important;position:relative}
+.cp-card:nth-child(4n+2){background:linear-gradient(160deg,#FFFFFF 0%,#FFF6DC 55%,#FFE9A8 100%)!important;border-color:#F9A825!important;box-shadow:0 2px 0 #0B1F3A,0 7px 0 #F9A825,0 14px 24px rgba(11,31,58,.24),inset 0 2px 0 #fff!important}
+.cp-card:nth-child(4n+3){background:linear-gradient(160deg,#FFFFFF 0%,#E8F5E9 55%,#C8E6C9 100%)!important;border-color:#2E7D32!important;box-shadow:0 2px 0 #0B1F3A,0 7px 0 #2E7D32,0 14px 24px rgba(11,31,58,.24),inset 0 2px 0 #fff!important}
+.cp-card:active{transform:translateY(4px);box-shadow:0 2px 0 #0B1F3A,0 3px 0 #1565C0,0 6px 12px rgba(11,31,58,.2)!important}
+.cp-card img{filter:drop-shadow(0 8px 6px rgba(0,0,0,.25))}
+.cp-mic{position:absolute;top:8px;left:8px;width:44px;height:44px;border-radius:50%;border:2px solid #2E7D32;background:#E8F5E9;font-size:20px;cursor:pointer;box-shadow:0 3px 0 #2E7D32}
+.cp-bkbtn{display:flex;gap:4px;align-items:center;min-width:96px}
+.cp-bkbtn .cp-spk,.cp-bkbtn .cp-mic{position:static;width:44px;height:44px}
+.cp-bkbtnh{min-width:96px!important}
+@media print{.cp-grid,.cp-akgrid{grid-template-columns:repeat(2,1fr)!important}.cp-mic,.cp-bkbtn{display:none}}

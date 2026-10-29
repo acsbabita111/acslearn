@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ⚠️ generator से बना (build_chitra_pustak.js v1.1) — हाथ से न बदलें -->
+<!-- ⚠️ generator से बना (build_chitra_pustak.js v2.0) — हाथ से न बदलें -->
 <html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0B1F3A">
 <title>मेरी पहली चित्र-पुस्तक — अंग्रेज़ी (मोबाइल) | अप्लाइड कंप्यूटर स्कूल</title><link rel="canonical" href="https://acslearn.com/courses/hi/bhasha/english/chitra-pustak/reader.html">
 <style>*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}html,body{height:100%;overflow:hidden;background:#0B1F3A;font-family:"Noto Sans Devanagari",system-ui,sans-serif;color:#0B1F3A}
@@ -10,7 +10,7 @@
 .big{font-size:clamp(64px,18vw,120px);font-weight:900;color:#2E7D32;line-height:1.1}.big small{font-size:.6em;color:#1565C0}
 .slide img.pic{width:min(62vw,40vh);height:min(62vw,40vh);object-fit:contain;filter:drop-shadow(0 8px 10px rgba(0,0,0,.18));margin:6px 0}
 .w{font-size:clamp(34px,10vw,56px);font-weight:800}.p{font-size:clamp(22px,6vw,32px);color:#1565C0}.m{font-size:clamp(24px,6.5vw,34px);color:#2E7D32;font-weight:700}
-.spk{margin-top:14px;border:0;background:#F9A825;color:#0B1F3A;border-radius:40px;padding:12px 26px;font-size:24px;font-weight:800;box-shadow:0 4px 0 #C17900}
+.spk{margin-top:14px;border:0;background:#F9A825;color:#0B1F3A;border-radius:40px;padding:12px 26px;font-size:24px;font-weight:800;box-shadow:0 4px 0 #C17900}.spk.mic{background:#E8F5E9;border:2px solid #2E7D32;box-shadow:0 4px 0 #2E7D32;margin-left:10px}
 .sec{background:linear-gradient(160deg,#0B1F3A,#1565C0);color:#fff}.sec .h{font-size:30px;color:#FFE082}.sec .s{font-size:clamp(30px,8vw,44px);font-weight:800;margin-top:8px}
 .lt{font-size:clamp(34px,10vw,52px);font-weight:900;color:#FFE082;margin-top:14px;letter-spacing:4px}.gl{position:absolute;top:10px;left:12px;background:#EF6C00;color:#fff;border-radius:16px;padding:3px 12px;font-size:16px;font-weight:700}
 .cv{background:linear-gradient(180deg,#3FA9F5 0%,#BEE3FF 55%,#FFF6D6 100%);justify-content:flex-start;padding-top:18px}
@@ -35,7 +35,7 @@ function html(s){
  if(s.t=='cover')return '<div class="slide cv"><div class="brand"><img src="/logo.png" alt=""><div><div class="bn">Applied Computer School™</div><div class="bt">From Village to World</div></div></div><div class="box"><div class="t1">मेरी पहली</div><div class="t2">'+TITLE+'</div><div class="t3">My First Picture Book</div><div class="rib">'+LHI+' · हिंदी — कक्षा 1</div></div><div class="scene"><img src="'+IMG+'cover-rainbow.webp" style="left:2%;top:4%;width:34%"><img src="'+IMG+'cover-sun.webp" style="right:4%;top:0;width:20%"><img src="'+IMG+'cover-plane.webp" style="right:6%;top:34%;width:18%"><img src="'+IMG+'cover-boy.webp" style="left:14%;bottom:6%;width:32%"><img src="'+IMG+'cover-girl.webp" style="right:14%;bottom:6%;width:32%"></div><button class="go" onclick="go(1)">पढ़ना शुरू करें ▶</button><div class="hint">उँगली से बाएँ-दाएँ खिसकाएँ</div></div>';
  if(s.t=='sec')return '<div class="slide sec"><div class="h">'+s.h+'</div><div class="s">'+s.s+'</div>'+(s.l?'<div class="lt">'+s.l+'</div>':'')+'<div class="hint" style="color:#cfd8e3">आगे ▶ दबाएँ</div></div>';
  if(s.t=='end')return '<div class="slide sec"><div class="s">शाबाश! 🎉</div><div class="h" style="margin-top:10px">आपने पूरी पुस्तक पढ़ ली</div><button class="go" onclick="go(-'+(S.length-1)+')">फिर से शुरू करें</button><div class="hint" style="color:#cfd8e3">पुस्तक-कोड: '+CODE+' · धुरी: हिंदी<br>🟡 AI-मसौदा · भाषा संवर्धन समिति की समीक्षा का स्वागत</div></div>';
- return '<div class="slide">'+(s.g?'<div class="gl">'+s.g+'</div>':'')+(s.big?'<div class="big">'+s.big+'</div>':'')+'<img class="pic" src="'+s.img+'" alt="" onclick="play(S[i])"><div class="w">'+s.w+'</div>'+(s.hi?'<div class="m" style="color:#555">'+s.m+'</div><div class="p">'+s.p+'</div>':'<div class="p">'+s.p+'</div><div class="m">'+s.m+'</div>')+'<button class="spk" onclick="play(S[i])">🔊 सुनें</button></div>';
+ return '<div class="slide">'+(s.g?'<div class="gl">'+s.g+'</div>':'')+(s.big?'<div class="big">'+s.big+'</div>':'')+'<img class="pic" src="'+s.img+'" alt="" onclick="play(S[i])"><div class="w">'+s.w+'</div>'+(s.hi?'<div class="m" style="color:#555">'+s.m+'</div><div class="p">'+s.p+'</div>':'<div class="p">'+s.p+'</div><div class="m">'+s.m+'</div>')+'<button class="spk" onclick="play(S[i])">🔊 सुनें</button><button class="spk mic" onclick="rdBolo(this)">🎙️ बोलो</button></div>';
 }
 var st=document.getElementById('stage');
 function render(dir){st.innerHTML=html(S[i]);var el=st.firstChild;if(dir){el.style.transform='translateX('+(dir>0?'100%':'-100%')+')';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.transform='translateX(0)';});});}
@@ -47,4 +47,5 @@ document.getElementById('prev').onclick=function(){go(-1)};document.getElementBy
 document.getElementById('fs').onclick=function(){var d=document.documentElement;try{if(!document.fullscreenElement){(d.requestFullscreen||d.webkitRequestFullscreen).call(d);}else{document.exitFullscreen();}}catch(e){}};
 var x0=null;st.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});st.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)go(dx<0?1:-1);x0=null;},{passive:true});
 document.addEventListener('keydown',function(e){if(e.key=='ArrowRight')go(1);if(e.key=='ArrowLeft')go(-1);});render(0);
-</script></body></html>
+function rdBolo(b){var s=S[i];if(!window.ACSBolo){alert("बोलो-अभ्यास अभी लोड नहीं हुआ — पन्ना एक बार दोबारा खोलें।");return;}var t=s.bo||(s.al=="hi-IN"?s.b:s.a),l=s.al=="hi-IN"?s.bl:s.al;ACSBolo.open(b,{t:t,asr:l,tts:l,host:b.parentNode,forceRec:!!s.rec,recWhy:s.rec?"अकेले अक्षर की आवाज़-पहचान भरोसेमंद नहीं होती, इसलिए अपनी आवाज़ रिकॉर्ड करके सुनो और मिलाओ।":""});}
+</script><script src="/assets/acs-bolo.js" defer></script></body></html>

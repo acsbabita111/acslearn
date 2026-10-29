@@ -61,3 +61,20 @@
   .lipi-cell,.lipi-word{border-color:#000}
   a[href]:after{content:""}
 }
+
+/* 29-Oct (Founder-नियम): एक पंक्ति में 2 कार्ड · अकेला बीच में · 3D रंगीन · हर कार्ड पर 🔊 + 🎙️ (बटन assets/lipi.js जोड़ती है) */
+.lipi-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+.lipi-grid>:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}
+.lipi-cw{display:flex;flex-direction:column;background:linear-gradient(160deg,#FFFFFF 0%,#EAF2FF 55%,#DCE9FF 100%);border:2px solid #1565C0;border-radius:18px;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #1565C0,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;padding:6px}
+.lipi-grid>.lipi-cw:nth-child(4n+2){background:linear-gradient(160deg,#FFFFFF 0%,#FFF6DC 55%,#FFE9A8 100%);border-color:#F9A825;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #F9A825,0 12px 22px rgba(11,31,58,.22)}
+.lipi-grid>.lipi-cw:nth-child(4n+3){background:linear-gradient(160deg,#FFFFFF 0%,#E8F5E9 55%,#C8E6C9 100%);border-color:#2E7D32;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #2E7D32,0 12px 22px rgba(11,31,58,.22)}
+.lipi-cw .lipi-cell,.lipi-cw .lipi-word{border:0!important;background:transparent!important;width:100%}
+.lipi-cell .big{font-size:44px!important}
+.lipi-bar{display:flex;gap:10px;justify-content:center;padding:4px 0 2px}
+.lipi-sp2,.lipi-mic{font-family:inherit;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;border:2px solid #F9A825;background:#FFF6DC;box-shadow:0 3px 0 #C17900}
+.lipi-mic{border-color:#2E7D32;background:#E8F5E9;box-shadow:0 3px 0 #2E7D32}
+.lipi-words{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lipi-words>:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
+.lipi-card{background:linear-gradient(170deg,#FFFFFF 0%,#F5F9FF 60%,#E8F0FE 100%)!important;border:2px solid #0B1F3A!important;border-radius:20px!important;box-shadow:0 3px 0 #0B1F3A,0 8px 0 #1565C0,0 16px 26px rgba(11,31,58,.22)!important}
+.lipi-info .lipi-mic{width:38px;height:38px;font-size:18px;margin-left:6px;vertical-align:middle}
+@media print{.lipi-bar,.lipi-mic{display:none!important}.lipi-cw{box-shadow:none;border:1px solid #000}}
