@@ -85,6 +85,10 @@
   function voiceCard() {
     var L = enVoices();
     if (!("speechSynthesis" in window)) return "";
+    if (L.length === 0 && voicesReady() && !EN && TBASE !== "hi") {
+      var nm0 = esc(META.hi || LANG.label);
+      return '<div class="kkb2-card soft kkb2-novoice-card"><h3>⚠️ इस फ़ोन या कंप्यूटर में ' + nm0 + ' की आवाज़ नहीं है</h3><p>इसलिए 🔊 अभी देवनागरी उच्चारण को हिंदी आवाज़ में पढ़ता है। यह असली ' + nm0 + ' आवाज़ नहीं है — उच्चारण देखकर बोलिए।</p><p><b>असली आवाज़ पाने का तरीका:</b></p><ul><li>Android फ़ोन: Settings → Accessibility (या भाषा और इनपुट) → Text-to-speech → Google का इंजन → ⚙️ → \"आवाज़ का डेटा इंस्टॉल करें\" → ' + nm0 + ' चुनकर डाउनलोड करें।</li><li>कंप्यूटर: यही पन्ना Microsoft Edge ब्राउज़र में खोलिए — उसमें कई भाषाओं की ऑनलाइन आवाज़ें होती हैं।</li><li>फिर यह पन्ना दोबारा खोलिए।</li></ul></div>';
+    }
     if (L.length <= 1) return '<div class="kkb2-card soft"><p class="kkb2-muted">🗣️ इस फ़ोन में ' + esc(META.hi || LANG.label) + ' की एक ही आवाज़ है — वही चलेगी। (आवाज़ें फ़ोन की अपनी होती हैं; Google Text-to-speech अपडेट करने से और आवाज़ें मिल सकती हैं।)</p></div>';
     var savedURI = ""; try { savedURI = localStorage.getItem(VKEY) || ""; } catch (e) { }
     var h = '<div class="kkb2-card soft"><h3>🗣️ आवाज़ चुनें</h3><p class="kkb2-muted">आपके फ़ोन में ' + L.length + ' ' + esc(META.hi || LANG.label) + ' आवाज़ें हैं — चुनते ही नमूना सुनाई देगा; चुनाव याद रहेगा।</p><div class="kkb2-row">';
@@ -96,11 +100,44 @@
     return h;
   }
   if ("speechSynthesis" in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+  /* ---- 29-Oct आवाज़-ईमानदारी (Founder-पकड़: अरबी में 🔊 पर चुप्पी) ----
+     फ़ोन/कंप्यूटर में इस भाषा की आवाज़ न हो तो चुप्पी नहीं: उसी वाक्य का देवनागरी उच्चारण हिंदी आवाज़ में + साफ़ सूचना कि यह असली आवाज़ नहीं। */
+  var PRON = null, fbNoted = false;
+  function buildPron() {
+    PRON = {};
+    (function walk(x) {
+      if (Array.isArray(x)) {
+        if (x.length >= 2 && typeof x[0] === "string" && typeof x[1] === "string" && /[\u0900-\u097F]/.test(x[1]) && !/[\u0900-\u097F]/.test(x[0])) { var k = spoken(x[0]).trim(); if (k && !PRON[k]) PRON[k] = x[1]; }
+        for (var i = 0; i < x.length; i++) walk(x[i]);
+      } else if (x && typeof x === "object") { for (var p in x) if (Object.prototype.hasOwnProperty.call(x, p)) walk(x[p]); }
+    })([D1, D2]);
+  }
+  function voicesReady() { return ("speechSynthesis" in window) && speechSynthesis.getVoices().length > 0; }
+  function noOwnVoice() { return !EN && TBASE !== "hi" && voicesReady() && !voice && enVoices().length === 0; }
+  function hiVoice() { return speechSynthesis.getVoices().filter(function (v) { return v.lang && v.lang.replace("_", "-").toLowerCase().indexOf("hi") === 0; })[0] || null; }
+  function speakPron(text, slow) {
+    if (!PRON) buildPron();
+    var pr = PRON[spoken(text).trim()];
+    noVoiceNote();
+    if (!pr) return false;
+    var u0 = new SpeechSynthesisUtterance(pr); u0.lang = "hi-IN"; var hv = hiVoice(); if (hv) u0.voice = hv; u0.rate = slow ? 0.7 : 0.9;
+    speechSynthesis.speak(u0); return true;
+  }
+  function noVoiceNote() {
+    if (fbNoted) return; fbNoted = true;
+    var nm = esc(META.hi || LANG.label), n = document.createElement("div");
+    n.className = "kkb2-novoice"; n.setAttribute("role", "status");
+    n.innerHTML = "⚠️ इस फ़ोन या कंप्यूटर में " + nm + " की आवाज़ नहीं मिली।<br>अभी 🔊 देवनागरी उच्चारण को हिंदी आवाज़ में पढ़ रहा है — यह असली " + nm + " आवाज़ नहीं है।<br>असली आवाज़ का तरीका \"आवाज़\" वाले डिब्बे में लिखा है। <button type=\"button\" onclick=\"this.parentNode.parentNode.removeChild(this.parentNode)\">ठीक है</button>";
+    document.body.appendChild(n);
+  }
   function say(text, slow) {
     if (!("speechSynthesis" in window)) { alert("इस फ़ोन में आवाज़ नहीं चल रही। Chrome में खोलें।"); return false; }
     speechSynthesis.cancel();
+    if (noOwnVoice() && speakPron(text, slow)) return true;
     var u = new SpeechSynthesisUtterance(spoken(text));
     u.lang = TTSL; if (voice) u.voice = voice; u.rate = slow ? 0.7 : 0.95;
+    /* आवाज़ सूची में हो पर फ़ोन में डाउनलोड न हो — इंजन ग़लती देता है; तब भी चुप्पी नहीं */
+    if (!EN && TBASE !== "hi") u.onerror = function (e) { var er = e && e.error; if (er && er !== "interrupted" && er !== "canceled") speakPron(text, slow); };
     speechSynthesis.speak(u); return true;
   }
   window.say2 = function (t) { say(t, false); };

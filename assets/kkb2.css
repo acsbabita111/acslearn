@@ -139,3 +139,10 @@ body.kkb2-page .udy-float a.udy-fbtn[href="javascript:history.back()"],body.kkb2
 .kkb2-twp{font-size:18px;color:#1565C0}
 .kkb2-twm{font-size:17px;color:#2E7D32;font-weight:700}
 .kkb2-twb{display:flex;gap:8px;justify-content:center;margin-top:4px}
+
+/* 29-Oct आवाज़-ईमानदारी — इस भाषा की आवाज़ न होने की सूचना */
+.kkb2-novoice{position:fixed;left:12px;right:12px;bottom:84px;z-index:9999;background:#FFF8E1;color:#0B1F3A;border:2px solid #F9A825;border-radius:14px;padding:14px 16px;font-size:17px;line-height:1.7;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.kkb2-novoice button{margin-top:8px;font-size:17px;padding:6px 16px;border-radius:10px;border:0;background:#1565C0;color:#fff}
+.kkb2-novoice-card{border:2px solid #F9A825}
+.kkb2-novoice-card ul{padding-left:22px;margin:6px 0}
+.kkb2-novoice-card li{margin:6px 0;line-height:1.7}
