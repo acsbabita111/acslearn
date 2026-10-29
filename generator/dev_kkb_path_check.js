@@ -1,13 +1,13 @@
 /* dev_kkb_path_check.js v1.0 · 25-Oct-2026 — कोर्स-परिचय पेज v2 का robot (सब भाषा-कोर्स पेज)
-   जाँचें: 🧭 सीखने की राह = ठीक 5 कदम, Founder-क्रम (लिपि → चित्र-पुस्तक → 90-दिन कोर्स → वर्कबुक → व्याकरण) ·
+   जाँचें: 🧭 सीखने की राह = ठीक 7 कदम, Founder-क्रम (लिपि → चित्र-पुस्तक → 90-दिन कोर्स → वर्कबुक → व्याकरण) ·
    हर "खोलें" कड़ी की फ़ाइल repo में हो · जो नहीं बना वहाँ "जल्द" (मरी कड़ी या छिपा हुआ बना-पन्ना = FAIL) ·
    📦 पैकेज 15 पंक्ति · 🌱 समिति · 👍👎💬 राय-डिब्बा ठीक एक + acs-raay.js · og:url = canonical · नया हिस्सा [ ]-मुक्त ·
    भाषा-कोड ताज़ा रजिस्टर (bhasha_register.json) में + h1 में रजिस्टर वाला हिंदी-नाम।
    चलाना: node generator/dev_kkb_path_check.js → 🏁 */
 "use strict";
 const fs = require("fs"), path = require("path"), ROOT = path.join(__dirname, "..");
-const ORDER = ["लिपि-परिचय", "चित्र-पुस्तक", "90-दिन बोलचाल कोर्स", "लिखो-वर्कबुक (workbook)", "मेरा पहला व्याकरण"];
-const SUB = ["lipi", "chitra-pustak", null, "workbook", "vyakaran"];
+const ORDER = ["लिपि-परिचय", "चित्र-पुस्तक", "90-दिन बोलचाल कोर्स", "बोलो-वर्कबुक (workbook)", "लिखो-वर्कबुक (workbook)", "शब्दकोश", "मेरा पहला व्याकरण"]; /* 29-Oct Founder-नियम: 7 कदम */
+const SUB = ["lipi", "chitra-pustak", null, "bolo-workbook", "workbook", "shabdkosh", "vyakaran"];
 const B = path.join(ROOT, "courses/hi/bhasha");
 /* 25-Oct: भाषा-सूची = ताज़ा मास्टर-स्प्रेडशीट (bhasha_register.json) — कोड रजिस्टर में, h1 में रजिस्टर वाला हिंदी-नाम */
 const REG = JSON.parse(fs.readFileSync(path.join(ROOT, "generator/data/bhasha_register.json"), "utf8")).langs;
@@ -26,7 +26,7 @@ for (const slug of fs.readdirSync(B).sort()) {
   const nav = (h.match(/<nav class="kkb-path"[\s\S]*?<\/nav>/g) || []);
   if (nav.length !== 1) { fail(slug, "सीखने की राह " + nav.length); continue; }
   const lis = [...nav[0].matchAll(/<li class="(on|soon|here|known)">[\s\S]*?<b>([^<]+)<\/b>[\s\S]*?<\/li>/g)];
-  if (lis.length !== 5) { fail(slug, "कदम " + lis.length); continue; }
+  if (lis.length !== 7) { fail(slug, "कदम " + lis.length); continue; }
   lis.forEach((m, i) => {
     if (m[2] !== ORDER[i]) fail(slug, "कदम-" + (i + 1) + " क्रम ग़लत: " + m[2]);
     if (i === 2) { if (m[1] !== "here" || m[0].indexOf('href="#kkb2-app"') < 0) fail(slug, "कदम-3 'यहीं' नहीं"); return; }

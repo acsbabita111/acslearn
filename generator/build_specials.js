@@ -3320,12 +3320,15 @@ function kkbSteps(c) {
       : { ic: "✍️", t: "लिपि-परिचय", d: c.hi_name + " के अक्षर पहचानो, बोलो और लिखो", href: kkbHas(c, "lipi") ? u("lipi") : "" },
     { ic: "🖼️", t: "चित्र-पुस्तक", d: "बोलते चित्र-शब्द — मोबाइल पर भी, छपने-योग्य भी", href: kkbHas(c, "chitra-pustak") ? u("chitra-pustak") : "" },
     { ic: "🗣️", t: "90-दिन बोलचाल कोर्स", d: "2,150 वाक्य · हर वाक्य पर 🔊 सुनो + 🎙️ बोलो", href: "#kkb2-app", here: true },
-    { ic: "📘", t: "लिखो-वर्कबुक (workbook)", d: "हर हफ़्ते की छपने-योग्य किताब + शब्दकोश", href: kkbHas(c, "workbook") ? u("workbook") : "" },
+    /* 29-Oct Founder-नियम: 7-कदम राह — बोलो-वर्कबुक और शब्दकोश अलग कदम (सभी 416 भाषाएँ) */
+    { ic: "🎙️", t: "बोलो-वर्कबुक (workbook)", d: "हर हफ़्ते की बोलने-योग्य मोबाइल-पुस्तक — छपने-योग्य भी", href: kkbHas(c, "bolo-workbook") ? u("bolo-workbook") : "" },
+    { ic: "📘", t: "लिखो-वर्कबुक (workbook)", d: "हर हफ़्ते की छपने-योग्य किताब", href: kkbHas(c, "workbook") ? u("workbook") : "" },
+    { ic: "📖", t: "शब्दकोश", d: "कोर्स के सब शब्द — उच्चारण, हिंदी अर्थ, सुनो और बोलो", href: kkbHas(c, "shabdkosh") ? u("shabdkosh") : "" },
     { ic: "📗", t: "मेरा पहला व्याकरण", d: "12 नियम, कोर्स के असली वाक्यों के साथ", href: kkbHas(c, "vyakaran") ? u("vyakaran") : "" }
   ];
 }
 function kkbPath(c) {
-  return '<nav class="kkb-path" aria-label="सीखने की राह"><h2>🧭 सीखने की राह — 5 कदम</h2><ol>' +
+  return '<nav class="kkb-path" aria-label="सीखने की राह"><h2>🧭 सीखने की राह — 7 कदम</h2><ol>' +
     kkbSteps(c).map(s => '<li class="' + (s.here ? "here" : (s.known ? "known" : (s.href ? "on" : "soon"))) + '"><span class="kp-ic">' + s.ic + '</span><span class="kp-tx"><b>' + s.t + '</b><small>' + s.d + '</small></span>' +
       (s.here ? '<a class="kp-go" href="#kkb2-app">यहीं नीचे ⬇</a>' : (s.known ? '<span class="kp-known">✅ परिचित</span>' : (s.href ? '<a class="kp-go" href="' + s.href + '">खोलें →</a>' : '<span class="kp-soon">⏳ जल्द</span>'))) + '</li>').join("") +
     '</ol><p class="kp-more"><a href="#kkb-pack">📦 इस कोर्स का पूरा पैकेज — नीचे देखें</a></p></nav>';

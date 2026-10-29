@@ -1,0 +1,24 @@
+/* bolo-wb.css v1.0 · 29-Oct-2026 — बोलो-वर्कबुक + शब्दकोश · Founder-नियम: 2 कार्ड प्रति पंक्ति, अकेला बीच में, 3D रंगीन, 🔊 + 🎙️ */
+.bw-wrap{max-width:980px;margin:0 auto;padding:12px;background:#F5F7FA;color:#0B1F3A;border-radius:16px}
+.bw-crumb{font-size:16px;margin:4px 0 10px}.bw-crumb a{color:#1565C0}
+.bw-hero{background:linear-gradient(135deg,#0B1F3A,#1565C0);color:#fff;border-radius:18px;padding:18px;text-align:center}
+.bw-hero h1{font-size:30px;margin:0 0 8px}.bw-hero p{font-size:18px;margin:6px 0}.bw-note{font-size:16px;color:#334155}.bw-hero .bw-note{color:#E3F2FD}
+.bw-print{font-size:20px;border:0;border-radius:30px;padding:10px 22px;background:#F9A825;color:#0B1F3A;font-weight:800;cursor:pointer;box-shadow:0 4px 0 #C17900}
+.bw-tabs{display:flex;gap:8px;overflow-x:auto;padding:8px 2px 12px}
+.bw-tab{flex:none;font-size:16px;border:2px solid #1565C0;background:#fff;color:#1565C0;border-radius:20px;padding:8px 14px;cursor:pointer;font-weight:700}
+.bw-tab.on{background:#1565C0;color:#fff}
+.bw-wh{font-size:22px;margin:8px 0}.bw-wh small{font-size:16px;color:#334155}
+.bw-how{font-size:17px;background:#FFF6DC;border-left:4px solid #F9A825;padding:8px 10px;border-radius:8px}
+.bw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:12px 0}
+.bw-grid>.bw-card:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}
+.bw-card{background:linear-gradient(160deg,#FFFFFF 0%,#EAF2FF 55%,#DCE9FF 100%);border:2px solid #1565C0;border-radius:20px;box-shadow:0 2px 0 #0B1F3A,0 7px 0 #1565C0,0 14px 24px rgba(11,31,58,.22),inset 0 2px 0 #fff;padding:14px 10px;text-align:center;display:flex;flex-direction:column;gap:6px}
+.bw-card:nth-child(4n+2){background:linear-gradient(160deg,#FFFFFF 0%,#FFF6DC 55%,#FFE9A8 100%);border-color:#F9A825;box-shadow:0 2px 0 #0B1F3A,0 7px 0 #F9A825,0 14px 24px rgba(11,31,58,.22)}
+.bw-card:nth-child(4n+3){background:linear-gradient(160deg,#FFFFFF 0%,#E8F5E9 55%,#C8E6C9 100%);border-color:#2E7D32;box-shadow:0 2px 0 #0B1F3A,0 7px 0 #2E7D32,0 14px 24px rgba(11,31,58,.22)}
+.bw-t{font-size:22px;font-weight:800;color:#0B1F3A}.bw-p{font-size:18px;color:#1565C0}.bw-m{font-size:17px;color:#2E7D32;font-weight:700}.bw-n{font-size:16px;color:#64748B}
+.bw-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+.bw-b{font-size:17px;border:2px solid #F9A825;background:#FFF6DC;border-radius:22px;padding:8px 12px;cursor:pointer;box-shadow:0 3px 0 #C17900;font-weight:700}
+.bw-b.mic{border-color:#2E7D32;background:#E8F5E9;box-shadow:0 3px 0 #2E7D32}
+.bw-next{font-size:20px;border:0;border-radius:30px;padding:10px 22px;background:#2E7D32;color:#fff;font-weight:800;cursor:pointer}
+.bw-search{display:flex;gap:10px;align-items:center;margin:10px 0}.bw-search input{flex:1;font-size:18px;padding:10px 12px;border:2px solid #1565C0;border-radius:12px}
+.bw-load{font-size:18px;text-align:center;padding:20px}
+@media print{.bw-tabs,.bw-btns,.bw-print,.bw-next,.bw-search,.acs-reg{display:none!important}.bw-card{box-shadow:none;border:1px solid #000;break-inside:avoid}.bw-grid{grid-template-columns:repeat(2,1fr)}}
