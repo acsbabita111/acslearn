@@ -86,16 +86,20 @@ function expandLang(L, B, G, words) {
   const ankNote = miss ? "जिन अंकों का " + L.hi + " नाम इस कोर्स के वाक्यों में दर्ज नहीं मिला, वहाँ हिंदी नाम ही दिखाया है — अंक का रूप दुनिया-भर में यही है।" : "";
   return { letters: letters, extras: extras, rup: rup, swar: swar, aakar: aakar, ank: ank, ankNote: ankNote };
 }
-function makeParichay(L, X) {
+function makeParichay(L, X, B) {
   const n = X.letters.length + X.extras.length;
   const p = [];
+  /* 29-Oct: ग़ैर-रोमन लिपि — परिचय उसी लिपि की base-फ़ाइल से (रोमन वाले वाक्य वहाँ ग़लत होते) */
+  if (B && B.script !== "latin") { (B.parichay || []).forEach(x => p.push(x)); p.push("हर अक्षर की आवाज़ और नाम देवनागरी में दिए हैं, और शब्द इसी कोर्स के असली " + L.hi + " शब्दों से चुने गए हैं" + (X.swar.length ? " — स्वर: " + X.swar.join(" ") + "।" : "।")); return p; }
   p.push("यह " + L.hi + " भाषा की लिखाई का पहला परिचय है। " + L.hi + " रोमन (Latin) लिपि में लिखी जाती है — वही लिपि जिससे अंग्रेज़ी लिखी जाती है।");
   if (X.extras.length) p.push("यहाँ " + n + " अक्षर-कार्ड हैं। इनमें " + X.letters.length + " आम रोमन अक्षर हैं और " + X.extras.length + " ख़ास अक्षर हैं, जो अंग्रेज़ी में नहीं होते (जैसे " + X.extras.slice(0, 3).map(e => e.l).join(", ") + ")।");
   else if (X.letters.length < 26) p.push("अंग्रेज़ी के 26 अक्षरों में से " + L.hi + " के अपने शब्दों में " + X.letters.length + " अक्षर काम आते हैं — यहाँ वही दिए हैं।");
   else p.push(L.hi + " में वही 26 अक्षर काम आते हैं जो अंग्रेज़ी में — हर अक्षर के दो रूप: बड़ा (A) और छोटा (a)।");
   if (X.rup.length) p.push("इसके अलावा " + X.rup.length + " रूप ऐसे हैं जिनमें किसी स्वर के ऊपर या नीचे छोटा चिह्न लगता है (जैसे " + X.rup.slice(0, 3).map(r => r.l).join(", ") + ")। ये खंड 4-ख में चिह्न के हिसाब से दिए हैं। किसी भाषा की सरकारी वर्णमाला में कौन-सा रूप अलग अक्षर गिना जाता है, यह भाषा-दर-भाषा अलग होता है।");
   p.push("यह बाएँ से दाएँ लिखी जाती है — हिंदी की तरह ही। पर ऊपर की रेखा (शिरोरेखा) नहीं होती।");
-  p.push("अक्षरों के नाम यहाँ भारत में प्रचलित अंग्रेज़ी-ढंग से दिए हैं (ए, बी, सी)। " + L.hi + " बोलने वाले इन्हें अपने ढंग से भी पुकार सकते हैं — असली काम की चीज़ अक्षर की आवाज़ है, जो शब्दों से आती है।");
+  const LTp = LETTER_TABLES[L.code];
+  if (LTp && LTp.A && LTp.A[0] !== "ए") p.push("अक्षरों के नाम यहाँ " + L.hi + " के अपने ढंग से दिए हैं (जैसे A = " + LTp.A[0] + ", B = " + LTp.B[0] + ")। हर अक्षर के साथ उसकी असली आवाज़ भी लिखी है।");
+  else p.push("अक्षरों के नाम यहाँ भारत में प्रचलित अंग्रेज़ी-ढंग से दिए हैं (ए, बी, सी)। " + L.hi + " बोलने वाले इन्हें अपने ढंग से भी पुकार सकते हैं — असली काम की चीज़ अक्षर की आवाज़ है, जो शब्दों से आती है।");
   p.push("हर अक्षर की आवाज़ नीचे इसी कोर्स के असली " + L.hi + " शब्दों से दिखाई है" + (X.swar.length ? " — स्वर: " + X.swar.join(" ") + "।" : "।"));
   return p;
 }
@@ -166,7 +170,7 @@ function buildContent(L, B, G, words) {
   const letters = X.letters.map(x => Object.assign({}, x, { shabd: pickWords(x.u, words, L.code === "en" ? x.shabd : []) }));
   const extra = X.extras.map(e => Object.assign({}, e, { shabd: pickWords(e.l, words, []) }));
   const all = letters.concat(extra);
-  const parichay = L.code === "en" ? B.parichay : makeParichay(L, X);
+  const parichay = L.code === "en" ? B.parichay : makeParichay(L, X, B);
   const swar = X.swar, aakar = X.aakar, ank = X.ank;
   const rup = (X.rup || []).map(r => Object.assign({}, r, { shabd: pickWords(r.l, words, []) }));
   const rupGroups = []; rup.forEach(r => { let g = rupGroups.find(x => x.mark === r.mark); if (!g) { g = { mark: r.mark, items: [] }; rupGroups.push(g); } g.items.push(r); });
