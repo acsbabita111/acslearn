@@ -1,3 +1,5 @@
+/* 29-Oct आवाज़-ईमानदारी: साझा acs-awaz.js अपने-आप जोड़ो (पन्ने दोबारा बनाए बिना) */
+(function () { if (window.acsAwaz || document.querySelector('script[src="/assets/acs-awaz.js"]')) return; var s = document.createElement("script"); s.src = "/assets/acs-awaz.js"; s.defer = true; document.head.appendChild(s); })();
 /* lipi.js v1.0 · 14-Sep-2026 — लिपि-परिचय: 🔊 अक्षर/शब्द का नाम सुनो (browser TTS, भाषा window.LIPI_TTS) · device-local, server शून्य · ES5 */
 (function () {
   var lang = window.LIPI_TTS || "en-IN";
@@ -9,7 +11,10 @@
       if (!v) for (var j = 0; j < vs.length; j++) { if (vs[j].lang && vs[j].lang.slice(0, 2).toLowerCase() === lang.slice(0, 2).toLowerCase()) { v = vs[j]; break; } }
       if (v) u.voice = v; window.speechSynthesis.speak(u); } catch (e) {}
   }
-  window.lipiSay = function (el) { var t = el && el.getAttribute("data-say"); if (t) say(t); };
+  function lipiLabel() { var a = document.querySelectorAll(".lipi-crumb a"); var t = a.length > 1 ? (a[1].textContent || "") : ""; return t.replace(" बोलने का कोर्स", "").trim() || "इस भाषा"; }
+  window.lipiSay = function (el) { var t = el && el.getAttribute("data-say"); if (!t) return;
+    if (window.acsAwaz && ("speechSynthesis" in window)) { window.speechSynthesis.cancel(); window.acsAwaz.say(t, lang, { el: el, rate: 0.8, label: lipiLabel() }); return; }
+    say(t); };
 })();
 
 /* 29-Oct (Founder-नियम): लिपि-परिचय के हर अक्षर-खाने, हर अक्षर-कार्ड और हर शब्द पर 🔊 के साथ 🎙️ बोलो —

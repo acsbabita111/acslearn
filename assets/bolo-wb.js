@@ -1,3 +1,5 @@
+/* 29-Oct आवाज़-ईमानदारी: साझा acs-awaz.js अपने-आप जोड़ो (पन्ने दोबारा बनाए बिना) */
+(function () { if (window.acsAwaz || document.querySelector('script[src="/assets/acs-awaz.js"]')) return; var s = document.createElement("script"); s.src = "/assets/acs-awaz.js"; s.defer = true; document.head.appendChild(s); })();
 /* bolo-wb.js v1.0 · 29-Oct-2026 — बोलो-वर्कबुक + शब्दकोश (सभी 416 भाषाएँ) · ES5 (Android 8)
    Founder-नियम: हर कार्ड पर 🔊 सुनो + 🎙️ बोलो · एक पंक्ति में 2 कार्ड · अकेला बीच में · 3D रंगीन.
    data: उसी भाषा की कोर्स-फ़ाइलें (kkb_*_data.js स्तर-1, kkb2_*_data.js स्तर-2) — वाक्य/शब्द कहीं और दोहराए नहीं. प्रगति सिर्फ़ फ़ोन में. */
@@ -10,6 +12,7 @@
   function load(src, cb) { var s = document.createElement("script"); s.src = src; s.onload = cb; s.onerror = function () { A.innerHTML = '<p class="bw-load">पाठ-फ़ाइल नहीं खुली — इंटरनेट जाँचकर पन्ना दोबारा खोलिए।</p>'; }; document.head.appendChild(s); }
   window.bwSay = function (b) {
     var t = b.getAttribute("data-t");
+    if (window.acsAwaz && ("speechSynthesis" in window)) { speechSynthesis.cancel(); window.acsAwaz.say(t, TTS, { el: b, rate: 0.85, label: NAME }); return; }
     try { speechSynthesis.cancel(); var u = new SpeechSynthesisUtterance(t); u.lang = TTS; u.rate = 0.85; var v = speechSynthesis.getVoices().filter(function (x) { return x.lang.replace("_", "-").indexOf(TTS.split("-")[0]) === 0; }); if (v.length) u.voice = v[0]; speechSynthesis.speak(u); }
     catch (e) { alert("इस फ़ोन/ब्राउज़र में आवाज़ की सुविधा नहीं है"); }
   };
