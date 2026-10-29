@@ -316,8 +316,10 @@
     }
     h += '<div class="kkb2-card"><h3>🎯 आज का बोलने-अभ्यास</h3><p>' + esc(D.drill.hi) + '</p>';
     for (var rr = 0; rr < D.drill.rows.length; rr++) {
-      h += '<p class="kkb2-dline">';
+      var dl = D.drill.rows[rr].join(" ");
+      h += '<p class="kkb2-dline" data-bolo-host="1">';
       for (var c = 0; c < D.drill.rows[rr].length; c++) h += (c ? " → " : "") + "<b>" + esc(D.drill.rows[rr][c]) + "</b>";
+      h += ' <button class="kkb2-btn mini" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(dl) + '">🔊</button> <button class="kkb2-btn mini ghost" onclick="kkb2Bolo2(this)" data-t="' + esc(dl) + '">🎙️</button>';
       h += "</p>";
     }
     h += '<button class="kkb2-btn green big" onclick="kkb2Done(' + g + ')">दिन पूरा हुआ ✅</button></div>';
