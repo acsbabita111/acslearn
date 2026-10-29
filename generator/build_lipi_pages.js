@@ -82,7 +82,7 @@ function expandLang(L, B, G, words) {
   const found = {};
   for (const w of words) { const d = NUM[String(w[2]).trim()]; if (d && !found[d]) found[d] = w; }
   let miss = 0;
-  const ank = "0123456789".split("").map(d => { const w = found[d]; if (w) return [d, String(w[1]).trim(), HINAME[+d]]; miss++; return [d, HINAME[+d], "हिंदी नाम"]; });
+  const ank = "0123456789".split("").map(d => { const w = found[d]; if (w) return [d, String(w[1]).trim(), HINAME[+d]]; if (B.script !== "latin" && B.ank && B.ank[+d] && B.ank[+d][1]) return [d, B.ank[+d][1], HINAME[+d]]; /* 29-Oct: ग़ैर-रोमन लिपि — base में भाषा का अपना नाम */ miss++; return [d, HINAME[+d], "हिंदी नाम"]; });
   const ankNote = miss ? "जिन अंकों का " + L.hi + " नाम इस कोर्स के वाक्यों में दर्ज नहीं मिला, वहाँ हिंदी नाम ही दिखाया है — अंक का रूप दुनिया-भर में यही है।" : "";
   return { letters: letters, extras: extras, rup: rup, swar: swar, aakar: aakar, ank: ank, ankNote: ankNote };
 }
@@ -153,6 +153,8 @@ function traceRow(G, ch, n, size) { /* पहला solid-हल्का नम
   for (let i = 0; i < n; i++) s += glyphSVG(G, ch, "dotted", size);
   return '<div class="lipi-trace">' + s + '<div class="lipi-blank" style="height:' + size + 'px"></div></div>';
 }
+/* 29-Oct: हिंदी वाक्य में दाएँ-से-बाएँ अक्षरों की सूची (ب ت ث) उल्टी न दिखे — हर अक्षर के बाद LRM */
+const bidi = t => String(t).replace(/([\u0590-\u08FF])(?=[\s,،]+[\u0590-\u08FF])/g, "$1\u200E");
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 function regBox(L, where) {
@@ -167,7 +169,7 @@ function regBox(L, where) {
 function buildContent(L, B, G, words) {
   /* v2.0: en = हूबहू v1.0 स्रोत (B.letters पूरा + base-shabd fallback); non-en = expandLang से subset+extras, fallback शून्य */
   const X = expandLang(L, B, G, words);
-  const letters = X.letters.map(x => Object.assign({}, x, { shabd: pickWords(x.u, words, L.code === "en" ? x.shabd : []) }));
+  const letters = X.letters.map(x => Object.assign({}, x, { shabd: pickWords(x.u, words, (L.code === "en" || B.script !== "latin") ? (x.shabd || []) : []) }));
   const extra = X.extras.map(e => Object.assign({}, e, { shabd: pickWords(e.l, words, []) }));
   const all = letters.concat(extra);
   const parichay = L.code === "en" ? B.parichay : makeParichay(L, X, B);
@@ -185,13 +187,14 @@ function buildContent(L, B, G, words) {
     : '<p class="lipi-note">मूल भाषा: हिंदी।</p><p class="lipi-note">अक्षरों का रूप Noto Sans नाम के खुले फ़ॉन्ट (SIL लाइसेंस) से लिया गया है।</p><p class="lipi-note">वर्णमाला-स्रोत: ' + esc(L.src || '') + '।</p><p class="lipi-note">यह पन्ना A4 काग़ज़ पर छप सकता है। लिखने का अभ्यास काग़ज़ पर ही सबसे अच्छा होता है।</p>') + '</header>' + regBox(L, "top");
 
   /* 1. परिचय */
-  h += '<section class="lipi-sec"><h2>1. यह लिपि क्या है</h2>' + parichay.map(p => "<p>" + esc(p) + "</p>").join("") + '</section>';
+  h += '<section class="lipi-sec"><h2>1. यह लिपि क्या है</h2>' + parichay.map(p => "<p>" + esc(bidi(p)) + "</p>").join("") + '</section>';
 
-  /* 2. चार रेखाएँ */
+  /* 2. चार रेखाएँ — 29-Oct: जिस लिपि का अपना कॉपी-परिचय (B.copy) हो, वही */
+  if (B.copy) { h += '<section class="lipi-sec"><h2>2. ' + esc(B.copy.title) + '</h2>' + B.copy.p.map(t => '<p>' + esc(bidi(t)) + '</p>').join("") + '<div class="lipi-row">' + B.copy.demo.map(c => glyphSVG(G, c, "solid", 110)).join("") + '</div></section>'; } else {
   h += '<section class="lipi-sec"><h2>2. चार रेखाओं की कॉपी — अक्षर कहाँ बैठते हैं</h2><p>हिंदी की कॉपी में एक रेखा होती है (शिरोरेखा)। यहाँ चार रेखाएँ हैं: ' + B.copy_rekha.map((r, i) => (i + 1) + ". " + esc(r)).join(" · ") + '। बड़े अक्षर ऊपर की रेखा से आधार-रेखा तक; छोटे अक्षर ज़्यादातर बीच की रेखा से आधार-रेखा तक।</p>';
   const demo = [aakar.upar.split(" ")[0] || "b", aakar.beech.split(" ")[0] || "a", aakar.niche.split(" ")[0] || letters[0].l];
   h += '<div class="lipi-row">' + demo.map(c => glyphSVG(G, c, "solid", 110)).join("") + '</div>';
-  h += '<p><b>छोटे अक्षरों के तीन कद:</b>' + (aakar.beech ? ' बीच तक — ' + esc(aakar.beech) : '') + (aakar.upar ? ' · ऊपर तक — ' + esc(aakar.upar) : '') + (aakar.niche ? ' · नीचे पूँछ — ' + esc(aakar.niche) : '') + '</p></section>';
+  h += '<p><b>छोटे अक्षरों के तीन कद:</b>' + (aakar.beech ? ' बीच तक — ' + esc(aakar.beech) : '') + (aakar.upar ? ' · ऊपर तक — ' + esc(aakar.upar) : '') + (aakar.niche ? ' · नीचे पूँछ — ' + esc(aakar.niche) : '') + '</p></section>'; }
 
   /* 3. पूरी वर्णमाला एक नज़र */
   h += '<section class="lipi-sec"><h2>3. पूरी वर्णमाला एक नज़र में (' + all.length + ' अक्षर)</h2><p>हर डिब्बे पर 🔊 दबाओ — नाम सुनो, साथ बोलो। स्वर (लाल): ' + (swar.length ? swar.join(" ") : "—") + '।</p><div class="lipi-grid">';
@@ -199,17 +202,18 @@ function buildContent(L, B, G, words) {
   h += '</div>' + (rup.length ? '<p class="lipi-p">चिह्न लगे ' + rup.length + ' रूप नीचे खंड 4-ख में हैं। पहले ऊपर के अक्षर पक्के करो, फिर चिह्न सीखो।</p>' : '') + '</section>';
 
   /* 4. हर अक्षर — कार्ड + tracing */
-  h += '<section class="lipi-sec"><h2>4. एक-एक अक्षर — देखो, सुनो, लिखो</h2><p>हर अक्षर के लिए: बड़ा रूप, छोटा रूप, नाम, आवाज़, दो असली शब्द (इसी भाषा के बोलने-कोर्स से), और लिखने का तरीका। बिंदुओं पर कलम फेरो, फिर ख़ाली जगह में ख़ुद लिखो।</p>';
+  h += '<section class="lipi-sec"><h2>4. एक-एक अक्षर — देखो, सुनो, लिखो</h2><p>' + (B.caseless ? 'हर अक्षर के लिए: उसका रूप, नाम, आवाज़, शब्द' : 'हर अक्षर के लिए: बड़ा रूप, छोटा रूप, नाम, आवाज़, दो असली शब्द') + (B.wordSrc ? ' (' + esc(B.wordSrc) + ')' : ' (इसी भाषा के बोलने-कोर्स से)') + ', और लिखने का तरीका। बिंदुओं पर कलम फेरो, फिर ख़ाली जगह में ख़ुद लिखो।</p>';
   all.forEach((x, i) => {
     h += '<div class="lipi-card" id="l-' + esc(x.u) + '"><div class="lipi-card-top"><div class="lipi-show">' + glyphSVG(G, x.u, "solid", 120) + (x.l !== x.u ? glyphSVG(G, x.l, "solid", 120) : "") + '</div>';
     h += '<div class="lipi-info"><div class="lipi-n">' + (i + 1) + '. <b>' + esc(x.u) + '</b>' + (x.l !== x.u ? ' <b>' + esc(x.l) + '</b>' : '') + ' — नाम: <b>' + esc(x.naam) + '</b> · आवाज़: <b>' + esc(x.aawaz) + '</b> <button type="button" class="lipi-sp" onclick="lipiSay(this)" data-say="' + esc(x.u) + '">🔊</button></div>';
     if (x.aawaz_udaharan) h += '<p class="lipi-p lipi-small">जैसे: ' + esc(x.aawaz_udaharan) + '</p>';
-    h += '<p class="lipi-p"><b>लिखो:</b> ' + esc(x.likho) + '</p>';
-    if (x.dhyan) h += '<p class="lipi-p lipi-dhyan">⚠️ ध्यान: ' + esc(x.dhyan) + '</p>';
+    h += '<p class="lipi-p"><b>लिखो:</b> ' + esc(bidi(x.likho)) + '</p>';
+    if (x.dhyan) h += '<p class="lipi-p lipi-dhyan">⚠️ ध्यान: ' + esc(bidi(x.dhyan)) + '</p>';
     if (x.shabd.length) h += (x.shabd.nStart === 0 ? '<p class="lipi-p lipi-small">इस अक्षर से शुरू होने वाला शब्द कोर्स में कम है — यह अक्षर इन शब्दों के <b>भीतर</b> दिखता है:</p>' : '') + '<div class="lipi-words">' + x.shabd.map(w => '<button type="button" class="lipi-word" onclick="lipiSay(this)" data-say="' + esc(w[0]) + '"><span class="w">' + esc(w[0]) + '</span><span class="d">' + esc(w[1]) + '</span><span class="m">' + esc(w[2]) + '</span></button>').join("") + '</div>';
+    else if (x.rareNote) h += '<p class="lipi-p lipi-rare">' + esc(x.rareNote) + '</p>';
     else h += '<p class="lipi-p lipi-rare">यह अक्षर ' + esc(L.hi) + ' के रोज़ के शब्दों में कम आता है — इस कोर्स के 2,150 वाक्यों में इससे बना शब्द दर्ज नहीं। पहचान भर काफ़ी है।</p>';
     h += '</div></div>';
-    h += '<p class="lipi-tl">बड़ा ' + esc(x.u) + ' — बिंदुओं पर कलम फेरो, फिर ख़ुद लिखो</p>' + traceRow(G, x.u, 5, 100);
+    h += '<p class="lipi-tl">' + (x.l !== x.u ? 'बड़ा ' : '') + esc(x.u) + ' — बिंदुओं पर कलम फेरो, फिर ख़ुद लिखो</p>' + traceRow(G, x.u, B.traceN || 5, 100);
     if (x.l !== x.u) h += '<p class="lipi-tl">छोटा ' + esc(x.l) + '</p>' + traceRow(G, x.l, 5, 100);
     h += '</div>';
   });
@@ -228,12 +232,21 @@ function buildContent(L, B, G, words) {
     });
     h += '</section>';
   }
+  if (B.forms) { /* 29-Oct: जुड़ने वाली लिपि — शब्द में जगह के हिसाब से अक्षर के रूप (ब्राउज़र ख़ुद जोड़कर दिखाता है) */
+    h += '<section class="lipi-sec"><h2>4-ख. शब्द में अक्षर के रूप — अकेला, शुरू, बीच, अंत</h2>' + B.forms.p.map(t => '<p>' + esc(bidi(t)) + '</p>').join("") + '<div class="lipi-forms"><div class="lf-row lf-h"><span>अक्षर</span><span>अकेला</span><span>शुरू में</span><span>बीच में</span><span>अंत में</span></div>';
+    B.forms.rows.forEach(r => { h += '<div class="lf-row"><b>' + esc(r[0]) + '</b>' + r.slice(1).map(f => '<button type="button" class="lf-c" onclick="lipiSay(this)" data-say="' + esc(r[0]) + '"><span lang="' + esc(L.tts) + '">' + esc(f) + '</span></button>').join("") + '</div>'; });
+    h += '</div></section>';
+  }
   h += regBox(L, "mid");
 
   /* 5. अंक */
   if (ank) {
     h += '<section class="lipi-sec"><h2>5. अंक 0–9 — पहले दिन से चाहिए (दाम, मोबाइल, बस)</h2><div class="lipi-grid">' + ank.map(a => '<button type="button" class="lipi-cell" onclick="lipiSay(this)" data-say="' + esc(a[0]) + '"><span class="big">' + esc(a[0]) + '</span><span class="nm">' + esc(a[1]) + '</span><span class="aw">' + esc(a[2]) + '</span></button>').join("") + '</div>';
     if (X.ankNote) h += '<p class="lipi-p lipi-small">' + esc(X.ankNote) + '</p>';
+    if (B.ankNative) { /* 29-Oct: लिपि के अपने अंक (जैसे अरबी ٠١٢) */
+      h += '<h3>5-ख. इस लिपि के अपने अंक</h3>' + B.ankNative.p.map(t => '<p>' + esc(t) + '</p>').join("") + '<div class="lipi-grid">' + B.ankNative.rows.map(a => '<button type="button" class="lipi-cell" onclick="lipiSay(this)" data-say="' + esc(a[0]) + '"><span class="big">' + esc(a[0]) + '</span><span class="nm">' + esc(a[1]) + '</span><span class="aw">' + esc(ank[+a[1]] ? ank[+a[1]][2] : "") + '</span></button>').join("") + '</div>';
+      h += '<div class="lipi-row lipi-anktrace">' + B.ankNative.rows.map(a => traceRow(G, a[0], 3, 70)).join("") + '</div>';
+    }
     h += '<div class="lipi-row lipi-anktrace">' + ank.map(a => traceRow(G, a[0], 3, 70)).join("") + '</div></section>';
   }
 
@@ -245,7 +258,7 @@ function buildContent(L, B, G, words) {
   /* 7. अभ्यास */
   const shuffled = letters.map(x => x.u).sort(() => 0.5 - Math.random()).slice(0, 12);
   h += '<section class="lipi-sec"><h2>7. अभ्यास (काग़ज़ पर या मन में)</h2>';
-  h += '<h3>क) बड़े अक्षर का छोटा रूप लिखो</h3><div class="lipi-ex">' + shuffled.map(u => '<span class="lipi-exi">' + esc(u) + ' → <span class="lipi-box"></span></span>').join("") + '</div>';
+  h += B.caseless ? '<h3>क) अक्षर देखो, उसकी आवाज़ देवनागरी में लिखो</h3>' : '<h3>क) बड़े अक्षर का छोटा रूप लिखो</h3><div class="lipi-ex">' + shuffled.map(u => '<span class="lipi-exi">' + esc(u) + ' → <span class="lipi-box"></span></span>').join("") + '</div>';
   h += '<h3>ख) पहली आवाज़ पहचानो — यह शब्द किस अक्षर से शुरू होता है?</h3><div class="lipi-ex">' + letters.filter(x => x.shabd.length && x.shabd.nStart >= 1).slice(0, 12).map(x => '<span class="lipi-exi">' + esc(x.shabd[0][0]) + ' (' + esc(x.shabd[0][2]) + ') → <span class="lipi-box"></span></span>').join("") + '</div>';
   h += '<h3>ग) यह शब्द पढ़ो — अक्षर-अक्षर, फिर पूरा</h3><div class="lipi-ex">' + letters.filter(x => x.shabd.length > 1).slice(0, 10).map(x => '<span class="lipi-exi"><b>' + esc(x.shabd[1][0]) + '</b> = ' + x.shabd[1][0].split("").map(c => esc(c)).join(" · ") + ' → ' + esc(x.shabd[1][1]) + ' (' + esc(x.shabd[1][2]) + ')</span>').join("") + '</div>';
   const canWrite = w => w.split("").every(c => all.some(x => x.u === c || x.l === c));
@@ -263,7 +276,7 @@ function buildContent(L, B, G, words) {
   }
   h += '<p class="lipi-note">यह workbook मुफ़्त है; प्रमाणपत्र इसका नहीं — प्रमाणपत्र बोलने-कोर्स की परीक्षा से मिलता है। सामग्री NIPUN-भारत के "अक्षर = चिह्न + नाम + आवाज़" सिद्धांत पर आधारित/प्रेरित है — यह NCERT/सरकारी पाठ्यक्रम नहीं है।</p>' + regBox(L, "end") + '</section>';
   h += '</article>';
-  return { html: h, count: all.length, letters: letters, extras: extra, rup: rup };
+  return { html: h, count: all.length, letters: letters, extras: extra, rup: rup, traceN: B.traceN || 5 };
 }
 
 /* ---- check-robot (जन्म से) ---- */
@@ -276,7 +289,7 @@ function check(name, content, R) {
   const allL = R.letters.concat(R.extras || []);
   if (R.count !== allL.length) holes.push("अक्षर-गिनती " + R.count + " ≠ " + allL.length);
   if (!/मूल भाषा: हिंदी/.test(content)) holes.push("मूल-भाषा निशान नहीं");
-  const dots = (content.match(/class="lipi-g g-dot"/g) || []).length; if (dots < allL.length * 5) holes.push("tracing-SVG कम: " + dots);
+  const dots = (content.match(/class="lipi-g g-dot"/g) || []).length; if (dots < allL.length * (R.traceN || 5)) holes.push("tracing-SVG कम: " + dots); /* 29-Oct: काना जैसी बड़ी सूची में प्रति अक्षर 3 */
   allL.forEach(x => { if (!x.naam || !x.aawaz || !(x.likho || x.isExtra)) holes.push("अक्षर " + x.u + " data अधूरा"); });
   (R.rup || []).forEach(r => { if (content.indexOf('id="r-' + r.l + '"') < 0) holes.push("चिह्न-रूप " + r.l + " नहीं"); if (!r.naam) holes.push("चिह्न-रूप " + r.l + " नाम नहीं"); });
   if (holes.length) throw new Error("❌ " + name + " check-robot fail: " + holes.join(" · "));

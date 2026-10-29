@@ -28,7 +28,7 @@ for (const L of langs.filter(l => !only || l.code === only)) {
   ok(/generator से बना \(build_lipi_pages\.js/.test(s), L.code + ": generator-निशान");
   all.forEach(x => { ok(s.indexOf('id="l-' + x.u + '"') >= 0, L.code + ": कार्ड " + x.u); });
   (X.rup || []).forEach(r => { ok(s.indexOf('id="r-' + r.l + '"') >= 0, L.code + ": चिह्न-रूप " + r.l); ok(!!G.glyphs[r.l], L.code + ": चिह्न-रूप glyph " + r.l); });
-  const dots = (s.match(/class="lipi-g g-dot"/g) || []).length; ok(dots >= all.length * 5 + (X.rup || []).length * 3, L.code + ": tracing-SVG " + dots + " (≥" + (all.length * 5 + (X.rup || []).length * 3) + ")");
+  const dots = (s.match(/class="lipi-g g-dot"/g) || []).length; const TN = (B && B.traceN) || 5; /* 29-Oct: काना जैसी बड़ी लिपि में प्रति अक्षर 3 (base का traceN) */ ok(dots >= all.length * TN + (X.rup || []).length * 3, L.code + ": tracing-SVG " + dots + " (≥" + (all.length * TN + (X.rup || []).length * 3) + ")");
   all.forEach(x => { if (!(x.naam && x.aawaz && (x.likho || x.isExtra))) ok(false, L.code + ": data अधूरा " + x.u); });
   const wordless = all.filter(x => { const i = s.indexOf('id="l-' + x.u + '"'); const j = s.indexOf('class="lipi-card"', i + 1); const seg = s.slice(i, j < 0 ? undefined : j); return (seg.match(/class="lipi-word"/g) || []).length < 1 && seg.indexOf('class="lipi-p lipi-rare"') < 0; });
   ok(wordless.length === 0, L.code + ": हर अक्षर पर ≥1 शब्द या rare-पंक्ति" + (wordless.length ? " — बिना: " + wordless.map(x => x.u).join(",") : ""));

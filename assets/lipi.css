@@ -78,3 +78,11 @@
 .lipi-card{background:linear-gradient(170deg,#FFFFFF 0%,#F5F9FF 60%,#E8F0FE 100%)!important;border:2px solid #0B1F3A!important;border-radius:20px!important;box-shadow:0 3px 0 #0B1F3A,0 8px 0 #1565C0,0 16px 26px rgba(11,31,58,.22)!important}
 .lipi-info .lipi-mic{width:38px;height:38px;font-size:18px;margin-left:6px;vertical-align:middle}
 @media print{.lipi-bar,.lipi-mic{display:none!important}.lipi-cw{box-shadow:none;border:1px solid #000}}
+
+/* 29-Oct: जुड़ने वाली लिपि (अरबी) — अक्षर के चार रूप; दाएँ-से-बाएँ शब्दों की दिशा */
+.lipi-forms{display:flex;flex-direction:column;gap:6px;margin:10px 0;overflow-x:auto}
+.lf-row{display:grid;grid-template-columns:48px repeat(4,1fr);gap:6px;align-items:center;min-width:330px}
+.lf-row.lf-h span{font-size:16px;color:#1565C0;text-align:center;font-weight:700}
+.lf-row b{font-size:28px;text-align:center;color:#0B1F3A}
+.lf-c{font-size:30px;line-height:1.6;padding:6px 4px;border:1px solid #cfd8e3;border-radius:10px;background:#fff;color:#0B1F3A;cursor:pointer}
+.lipi-word .w,.lipi-cell .big{unicode-bidi:plaintext}
