@@ -9,7 +9,7 @@ const fs=require("fs"),path=require("path");
 const ROOT=path.join(__dirname,"..");
 const TPL=fs.readFileSync(path.join(ROOT,"_TEMPLATE.html"),"utf8");
 const VER="2.0";   /* v2.0 (29-Oct, चरण-3): हर-लिपि-योग्य — en रास्ता byte-frozen (L.code==="en" gate); non-en: भाग-1 उस भाषा के अक्षर (जहाँ चित्र-शब्द मिला), भाग-2 हिंदी अक्षर + उस भाषा का शब्द, भाग-3 वही 100 चित्र */   /* v1.1 (25-Oct): canonical = …/index.html (sitemap-रूप) + og:url/og:description */
-const CHITRA_LANGS=["en","mr","sw","ta","kn"];
+const CHITRA_LANGS=["en","mr","sw","ta","kn","afb","ar","de","fr","it","ms","ru","he","ja","ko","zh"];
 function loadMenu(){const src=fs.readFileSync(path.join(ROOT,"assets","links.js"),"utf8");const box={};new Function("window",src+"; window.__L=(typeof ACS_LINKS!=='undefined')?ACS_LINKS:null;")(box);if(!box.__L||!Array.isArray(box.__L.menu))throw new Error("links.js से menu नहीं");return box.__L.menu;}
 const MENU_HTML=loadMenu().map(m=>'<a class="acs-mitem" href="'+m.href+'"><span class="e">'+m.icon+"</span> "+m.label+"</a>").join("\n");
 const MENU_FALLBACK_JS='<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};}</scr'+'ipt>';
@@ -59,13 +59,23 @@ function checkAk(D){
   const E=[],L=D.lang,all=D.akshar.groups.flatMap(g=>g.items);
   if(all.length!==D.akshar.required)E.push("अक्षर-गिनती "+all.length+" ≠ पूरी वर्णमाला "+D.akshar.required);
   const seen={};all.forEach(x=>{if(seen[x.L])E.push("दोहराया अक्षर "+x.L);seen[x.L]=1;if(!x.p||!DEVA_ONLY.test(x.p))E.push("अक्षर "+x.L+" का देवनागरी उच्चारण ग़लत/ख़ाली: "+x.p);});
-  const B=D.barakhadi;if(!B||!B.cons.length||!B.signs.length)E.push("बारहखड़ी नहीं");
+  const B=D.barakhadi;if(B&&B.rows){B.rows.forEach(r=>r.cells.forEach(c=>{if(!DEVA_ONLY.test(c[1]))E.push("बारहखड़ी देवनागरी ग़लत: "+c[0]+" → "+c[1]);}));}
+  else if(!B||!B.cons.length||!B.signs.length)E.push("बारहखड़ी नहीं");
   else akCells(B).forEach(c=>{if(!DEVA_ONLY.test(c.d))E.push("बारहखड़ी देवनागरी ग़लत: "+c.g+" → "+c.d);});
   for(const w of D.words){
     if(!seen[w.L])E.push("शब्द "+w.w+" का अक्षर "+w.L+" वर्णमाला में नहीं");
     const base=w.L.replace(/\u0BCD$/,"").toLowerCase(),ww=w.w.toLowerCase();
+    if(/[\uAC00-\uD7A3]/.test(w.w)){ /* 29-Oct: कोरियाई — शब्द-खंड (syllable) तोड़कर जामो से मिलान */
+      const CI="ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ",CV="ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ",CF=["","ㄱ","ㄲ","ㄳ","ㄴ","ㄵ","ㄶ","ㄷ","ㄹ","ㄺ","ㄻ","ㄼ","ㄽ","ㄾ","ㄿ","ㅀ","ㅁ","ㅂ","ㅄ","ㅅ","ㅆ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"];
+      const sy=[...w.w].filter(c=>/[\uAC00-\uD7A3]/.test(c)).map(c=>{const i=c.charCodeAt(0)-0xAC00;return{i:CI[Math.floor(i/588)],v:CV[Math.floor((i%588)/28)],f:CF[i%28]};});
+      const isV=CV.indexOf(w.L)>=0,first=sy[0]||{};
+      const okStart=isV?(first.i==="ㅇ"&&first.v===w.L):first.i===w.L;
+      const okMid=sy.some(x=>x.i===w.L||x.v===w.L||x.f===w.L);
+      if(w.pos==="start"&&!okStart)E.push("शब्द "+w.w+" अक्षर "+w.L+" से शुरू नहीं होता");
+      if(w.pos==="mid"&&!okMid)E.push("शब्द "+w.w+" में अक्षर "+w.L+" नहीं");
+    } else {
     if(w.pos==="start"&&!ww.startsWith(base))E.push("शब्द "+w.w+" अक्षर "+w.L+" से शुरू नहीं होता");
-    if(w.pos==="mid"&&ww.indexOf(base)<0)E.push("शब्द "+w.w+" में अक्षर "+w.L+" नहीं");
+    if(w.pos==="mid"&&ww.indexOf(base)<0)E.push("शब्द "+w.w+" में अक्षर "+w.L+" नहीं");}
     if(!DEVA_ONLY.test(w.p)||BAD_DEVA.test(w.p))E.push("शब्द "+w.w+" का उच्चारण ACS-नियम से नहीं: "+w.p);
     if(w.img&&!fs.existsSync(path.join(ROOT,"assets","chitra",w.img)))E.push("चित्र नहीं: "+w.img);
   }
@@ -87,7 +97,8 @@ function buildIndexAk(D,n){
   h+='<p style="text-align:center">पहले हर अक्षर पहचानो और बोलो। 🔊 दबाओ — '+esc(L.hi)+' की आवाज़ में अक्षर सुनाई देगा। नीचे देवनागरी में उसका उच्चारण लिखा है।</p>';
   h+='<h2 class="cp-sec">भाग-1 · अक्षर-बोध — '+esc(D.akshar.title)+'</h2>'+D.akshar.groups.map(g=>'<h3 class="cp-grp">'+esc(g.g)+'</h3><div class="cp-grid cp-akgrid">'+g.items.map(x=>akCard(x,L.tts)).join("")+'</div>').join("");
   if(D.akshar.note)h+='<p style="text-align:center">'+esc(D.akshar.note)+'</p>';
-  h+='<h2 class="cp-sec">भाग-1-ख · '+esc(B.title)+'</h2><p style="text-align:center">'+esc(B.note)+'</p><div class="cp-bk"><div class="cp-bkrow cp-bkh"><span></span><span class="cp-bkbtnh">पंक्ति</span>'+B.signs.map(sg=>'<span>'+esc(sg[2])+'</span>').join("")+'</div>'+B.cons.map(c=>'<div class="cp-bkrow"><b>'+esc(c[0])+'</b><span class="cp-bkbtn" data-bo="'+esc(B.signs.map(sg=>c[0]+sg[0]).join(" "))+'" data-bol="'+L.tts+'" data-rec="1"><button class="cp-spk" title="पूरी पंक्ति सुनें" onclick="cpSay(this.parentNode.getAttribute(\'data-bo\'),this.parentNode.getAttribute(\'data-bol\'))">🔊</button><button class="cp-mic" title="पूरी पंक्ति बोलो" onclick="cpBolo(this)">🎙️</button></span>'+B.signs.map(sg=>{const g=c[0]+sg[0],d=c[1]+sg[1];return '<button type="button" class="cp-bkc" data-a="'+esc(g)+'" data-al="'+L.tts+'" onclick="cpSay(this.dataset.a,this.dataset.al)"><i>'+esc(g)+'</i><u>'+esc(d)+'</u></button>';}).join("")+'</div>').join("")+'</div>';
+  if(B.rows){h+='<h2 class="cp-sec">भाग-1-ख · '+esc(B.title)+'</h2><p style="text-align:center">'+esc(B.note)+'</p><div class="cp-bk">'+B.rows.map(r=>'<div class="cp-bkrow"><b>'+esc(r.c)+'</b><span class="cp-bkbtn" data-bo="'+esc(r.cells.map(c=>c[0]).join(" "))+'" data-bol="'+L.tts+'" data-rec="1"><button class="cp-spk" title="पूरी पंक्ति सुनें" onclick="cpSay(this.parentNode.getAttribute(\'data-bo\'),this.parentNode.getAttribute(\'data-bol\'))">🔊</button><button class="cp-mic" title="पूरी पंक्ति बोलो" onclick="cpBolo(this)">🎙️</button></span>'+r.cells.map(c=>'<button type="button" class="cp-bkc" data-a="'+esc(c[0])+'" data-al="'+L.tts+'" onclick="cpSay(this.dataset.a,this.dataset.al)"><i>'+esc(c[0])+'</i><u>'+esc(c[1])+'</u></button>').join("")+'</div>').join("")+'</div>';}
+  else{h+='<h2 class="cp-sec">भाग-1-ख · '+esc(B.title)+'</h2><p style="text-align:center">'+esc(B.note)+'</p><div class="cp-bk"><div class="cp-bkrow cp-bkh"><span></span><span class="cp-bkbtnh">पंक्ति</span>'+B.signs.map(sg=>'<span>'+esc(sg[2])+'</span>').join("")+'</div>'+B.cons.map(c=>'<div class="cp-bkrow"><b>'+esc(c[0])+'</b><span class="cp-bkbtn" data-bo="'+esc(B.signs.map(sg=>c[0]+sg[0]).join(" "))+'" data-bol="'+L.tts+'" data-rec="1"><button class="cp-spk" title="पूरी पंक्ति सुनें" onclick="cpSay(this.parentNode.getAttribute(\'data-bo\'),this.parentNode.getAttribute(\'data-bol\'))">🔊</button><button class="cp-mic" title="पूरी पंक्ति बोलो" onclick="cpBolo(this)">🎙️</button></span>'+B.signs.map(sg=>{const g=c[0]+sg[0],d=c[1]+sg[1];return '<button type="button" class="cp-bkc" data-a="'+esc(g)+'" data-al="'+L.tts+'" onclick="cpSay(this.dataset.a,this.dataset.al)"><i>'+esc(g)+'</i><u>'+esc(d)+'</u></button>';}).join("")+'</div>').join("")+'</div>';}
   h+=regBox(L,"mid");
   h+='<h2 class="cp-sec" id="bhag2">भाग-2 · अक्षर से शब्द</h2><p style="text-align:center">हर अक्षर से बना एक शब्द — 🔊 दबाओ: पहले अक्षर, फिर शब्द '+esc(L.hi)+' में, फिर हिंदी अर्थ।</p><div class="cp-grid">'+D.words.map(x=>wordCard(x,L.tts)).join("")+'</div>'+(D.wordNote?'<p style="text-align:center">'+esc(D.wordNote)+'</p>':'');
   h+='<h2 class="cp-sec" id="bhag3">भाग-3 · रोज़ की 100 चीज़ें</h2><div class="cp-grid">'+D.shared.map(x=>sharedCard(x,L.tts)).join("")+'</div>';

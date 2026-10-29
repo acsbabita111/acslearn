@@ -22,3 +22,5 @@
 .bw-search{display:flex;gap:10px;align-items:center;margin:10px 0}.bw-search input{flex:1;font-size:18px;padding:10px 12px;border:2px solid #1565C0;border-radius:12px}
 .bw-load{font-size:18px;text-align:center;padding:20px}
 @media print{.bw-tabs,.bw-btns,.bw-print,.bw-next,.bw-search,.acs-reg{display:none!important}.bw-card{box-shadow:none;border:1px solid #000;break-inside:avoid}.bw-grid{grid-template-columns:repeat(2,1fr)}}
+/* 29-Oct: दाएँ-से-बाएँ लिपियाँ — वाक्य की दिशा उसके पहले अक्षर से */
+.bw-t{unicode-bidi:plaintext}

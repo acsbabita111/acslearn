@@ -47,3 +47,5 @@
 .cp-bkbtn .cp-spk,.cp-bkbtn .cp-mic{position:static;width:44px;height:44px}
 .cp-bkbtnh{min-width:96px!important}
 @media print{.cp-grid,.cp-akgrid{grid-template-columns:repeat(2,1fr)!important}.cp-mic,.cp-bkbtn{display:none}}
+/* 29-Oct: दाएँ-से-बाएँ लिपियाँ — शब्द की दिशा उसके पहले अक्षर से */
+.cp-w,.cp-akL,.cp-bkc i{unicode-bidi:plaintext}

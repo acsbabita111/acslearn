@@ -2,7 +2,7 @@
    जाँचें: दोनों पन्ने मौजूद · हर <img> की फ़ाइल असली · reader की हर स्लाइड का चित्र असली · © ™ + FFGPMTrust पंक्ति · कोई 🔊-कार्ड बिना data-a नहीं · उच्चारण में Latin नहीं */
 const fs=require("fs"),path=require("path");const ROOT=path.join(__dirname,"..");
 let bad=0;const fail=m=>{bad++;console.log("⛔ "+m);};
-for(const code of ["en","mr","sw","ta","kn"]){ /* v1.2 (29-Oct): अक्षर-बोध पोथी + कन्नड़ */
+for(const code of ["en","mr","sw","ta","kn","afb","ar","de","fr","it","ms","ru","he","ja","ko","zh"]){ /* v1.2 (29-Oct): अक्षर-बोध पोथी + कन्नड़ */
   const D=require(path.join(__dirname,"data","chitra","chitra_"+code+".js"));const dir=path.join(ROOT,"courses","hi","bhasha",D.lang.slug,"chitra-pustak");
   for(const f of ["index.html","reader.html"])if(!fs.existsSync(path.join(dir,f)))fail(code+": "+f+" नहीं");
   const ix=fs.readFileSync(path.join(dir,"index.html"),"utf8"),rd=fs.readFileSync(path.join(dir,"reader.html"),"utf8");
@@ -17,7 +17,7 @@ for(const code of ["en","mr","sw","ta","kn"]){ /* v1.2 (29-Oct): अक्षर
   if(D.akshar){const nAk=(ix.match(/class="cp-card cp-ak/g)||[]).length;if(nAk!==D.akshar.required)fail(code+": अक्षर-कार्ड "+nAk+" ≠ पूरी वर्णमाला "+D.akshar.required);
     if(ix.includes("हिंदी वर्णमाला"))fail(code+": हिंदी-वर्णमाला भाग अब भी है");
     if((ix.match(/class="cp-card cp-ak[^"]*" data-a="[^"]*" data-al="hi-IN"/g)||[]).length)fail(code+": अक्षर की आवाज़ हिंदी में");
-    const nBk=(ix.match(/class="cp-bkc"/g)||[]).length;if(nBk!==D.barakhadi.cons.length*D.barakhadi.signs.length)fail(code+": बारहखड़ी अधूरी "+nBk);
+    const nBk=(ix.match(/class="cp-bkc"/g)||[]).length;const wantBk=D.barakhadi.rows?D.barakhadi.rows.reduce((a,r)=>a+r.cells.length,0):D.barakhadi.cons.length*D.barakhadi.signs.length;if(nBk!==wantBk)fail(code+": बारहखड़ी अधूरी "+nBk);
     if(!ix.includes("function cpPrint"))fail(code+": छपाई में सब चित्र लोड करने वाला cpPrint नहीं");}
   console.log(code+": कार्ड "+cards+" · चित्र-फ़ाइलें "+new Set(imgs).size+" · उच्चारण "+pr.length);
 }

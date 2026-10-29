@@ -68,3 +68,6 @@
 .vk-acb button{width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;border:2px solid #F9A825;background:#FFF6DC;box-shadow:0 3px 0 #C17900}
 .vk-acb button+button{border-color:#2E7D32;background:#E8F5E9;box-shadow:0 3px 0 #2E7D32}
 @media print{.vk-acb{display:none}}
+
+/* 29-Oct: दाएँ-से-बाएँ लिपियाँ (अरबी, हिब्रू आदि) — वाक्य की दिशा उसके पहले अक्षर से; पूर्ण-विराम सही जगह */
+.vk-en{unicode-bidi:plaintext}

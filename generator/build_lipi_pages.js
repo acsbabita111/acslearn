@@ -33,7 +33,8 @@ const EN_ROW = { code: "en", slug: "english", hi: "अंग्रेज़ी",
 const LATIN_LANGS = require(path.join(__dirname, "data", "lipi", "lipi_langs_latin.js"));
 const EXTRA_DICT = require(path.join(__dirname, "data", "lipi", "latin_extra_dict.js"));
 const MARKS = LATIN_LANGS.MARKS || {};
-const LIPI_LANGS = [EN_ROW].concat(LATIN_LANGS.map(x => Object.assign({ script: "latin" }, x)));
+const CYR_LANGS = require(path.join(__dirname, "data", "lipi", "lipi_langs_cyrillic.js")); /* 29-Oct: पहली ग़ैर-रोमन लिपि */
+const LIPI_LANGS = [EN_ROW].concat(LATIN_LANGS.map(x => Object.assign({ script: "latin" }, x)), CYR_LANGS);
 
 
 /* ===== v2.0 helpers — non-en भाषाओं का आधार-विस्तार (en रास्ता अछूता) ===== */
@@ -47,6 +48,7 @@ function deriveAawaz(letter, words) {
   const top = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a]).slice(0, 2);
   return top.join(" / ");
 }
+const LETTER_TABLES = require(path.join(__dirname, "data", "lipi", "latin_letter_tables.js"));
 function expandLang(L, B, G, words) {
   /* लौटाता है {letters, extras, all, swar, ankRows, ankNote} — en पर हूबहू v1.0 व्यवहार */
   if (L.code === "en") {
@@ -56,17 +58,19 @@ function expandLang(L, B, G, words) {
   const useSet = {}; (L.use || []).forEach(u => useSet[u] = 1);
   const letters = B.letters.filter(x => useSet[x.u]).map(x => {
     const y = Object.assign({}, x);
-    const aw = deriveAawaz(x.u, words);
+    const aw = B.script === "latin" ? deriveAawaz(x.u, words) : x.aawaz; /* 29-Oct: ग़ैर-रोमन लिपि में base की आवाज़ ही मान्य */
     y.aawaz = aw || "बटन दबाकर सुनो";
     y.aawaz_udaharan = "";       /* अंग्रेज़ी उदाहरण non-en में नहीं — शब्द-कार्ड ख़ुद उदाहरण हैं */
     if (x.u === "E" || x.u === "Q" || x.u === "X") y.dhyan = ""; /* अंग्रेज़ी-विशेष ध्यान-पंक्तियाँ */
+    const LT = LETTER_TABLES[L.code]; if (LT && LT[x.u]) { y.naam = LT[x.u][0]; y.aawaz = LT[x.u][1]; } /* 29-Oct: भाषा का अपना नाम और असली आवाज़ */
     return y;
   });
   const extras = (L.extra || []).map(ch => {
     const up = upperOf(G, ch);
     const d = EXTRA_DICT[ch] || { naam: ch, likho: "" };
     const aw = deriveAawaz(ch, words);
-    return { u: up || ch, l: ch, naam: d.naam, aawaz: aw || "बटन दबाकर सुनो", aawaz_udaharan: "", likho: d.likho, dhyan: "", isExtra: true };
+    const LT = LETTER_TABLES[L.code], lt = LT && (LT[ch] || LT[ch.toLowerCase()]);
+    return { u: up || ch, l: ch, naam: lt ? lt[0] : d.naam, aawaz: lt ? lt[1] : (aw || "बटन दबाकर सुनो"), aawaz_udaharan: "", likho: d.likho, dhyan: "", isExtra: true };
   });
   const rup = (L.rup || []).map(r => { const d = EXTRA_DICT[r[0]] || { naam: r[0], likho: "" }; return { l: r[0], u: upperOf(G, r[0]) || r[0], mark: r[1], naam: d.naam, likho: d.likho }; });
   const swar = B.swar.filter(s => useSet[s]);
