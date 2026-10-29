@@ -9,7 +9,7 @@ const fs=require("fs"),path=require("path");
 const ROOT=path.join(__dirname,"..");
 const TPL=fs.readFileSync(path.join(ROOT,"_TEMPLATE.html"),"utf8");
 const VER="2.0";   /* v2.0 (29-Oct, चरण-3): हर-लिपि-योग्य — en रास्ता byte-frozen (L.code==="en" gate); non-en: भाग-1 उस भाषा के अक्षर (जहाँ चित्र-शब्द मिला), भाग-2 हिंदी अक्षर + उस भाषा का शब्द, भाग-3 वही 100 चित्र */   /* v1.1 (25-Oct): canonical = …/index.html (sitemap-रूप) + og:url/og:description */
-const CHITRA_LANGS=["en","mr","sw","ta"];
+const CHITRA_LANGS=["en","mr","sw","ta","kn"];
 function loadMenu(){const src=fs.readFileSync(path.join(ROOT,"assets","links.js"),"utf8");const box={};new Function("window",src+"; window.__L=(typeof ACS_LINKS!=='undefined')?ACS_LINKS:null;")(box);if(!box.__L||!Array.isArray(box.__L.menu))throw new Error("links.js से menu नहीं");return box.__L.menu;}
 const MENU_HTML=loadMenu().map(m=>'<a class="acs-mitem" href="'+m.href+'"><span class="e">'+m.icon+"</span> "+m.label+"</a>").join("\n");
 const MENU_FALLBACK_JS='<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};}</scr'+'ipt>';
@@ -22,6 +22,7 @@ const COLORS=["#E53935","#FB8C00","#43A047","#1E88E5","#8E24AA","#F4511E"];
 function rainbow(t){const seg=[...new Intl.Segmenter("hi",{granularity:"grapheme"}).segment(t)].map(x=>x.segment);let k=0;return seg.map(g=>g.trim()&&g!=="-"?'<span style="color:'+COLORS[k++%COLORS.length]+'">'+g+"</span>":g).join("");}
 /* ---- check-robot ---- */
 function check(D){
+  if(D.akshar)return checkAk(D);
   const E=[],LAT=/[A-Za-z]/,EN=D.lang.code==="en";
   if(EN&&D.alpha.length!==26)E.push("अंग्रेज़ी वर्णमाला 26 नहीं: "+D.alpha.length);
   const hn=D.hindi.reduce((a,g)=>a+g.items.length,0);if(hn!==48)E.push("हिंदी वर्णमाला 48 नहीं: "+hn);
@@ -47,6 +48,52 @@ function card(x,kind,tts,lab){lab=lab||"English";
 }
 const SAYJS='<script>function cpSay(t,l){try{var u=new SpeechSynthesisUtterance(t);u.lang=l;u.rate=.8;var v=speechSynthesis.getVoices().filter(function(x){return x.lang.replace("_","-").indexOf(l.split("-")[0])===0;});if(v.length)u.voice=v[0];speechSynthesis.speak(u);}catch(e){}}function cpPlay(el){if(!("speechSynthesis" in window)){alert("इस फ़ोन/ब्राउज़र में आवाज़ की सुविधा नहीं है");return;}var c=el.closest(".cp-card");speechSynthesis.cancel();cpSay(c.dataset.a,c.dataset.al);if(c.dataset.b)cpSay(c.dataset.b,c.dataset.bl);}</scr'+'ipt>';
 function regBox(L,where){/* v2.0 ब्रांड-नियम (27-Oct): non-en पन्नों पर तीन जगह छात्र-रजिस्ट्रेशन की अपील; en पन्ना byte-frozen */if(L.code==="en")return "";const t=where==="top"?"यह पुस्तक मुफ़्त है, और "+L.hi+" बोलने का पूरा कोर्स भी मुफ़्त है।":where==="mid"?"आगे "+L.hi+" बोलना सीखिए, और परीक्षा देकर प्रमाणपत्र लीजिए।":"अगला कदम रजिस्ट्रेशन है — इससे आपकी पढ़ाई और परीक्षा का हिसाब आपके नाम से रहता है।";return '<div class="acs-reg" style="background:#F5F7FA;color:#0B1F3A;border:2px solid #2E7D32;border-radius:12px;padding:12px 14px;margin:14px auto;max-width:900px;font-size:18px;line-height:1.7">📝 <b>'+esc(t)+'</b> रजिस्ट्रेशन मुफ़्त है। <a href="/join.html" style="color:#2E7D32;font-weight:800">मुफ़्त रजिस्ट्रेशन करें →</a></div>';}
+
+/* ===== v3.0 (29-Oct, Founder-आदेश): non-en पुस्तक = "मनोहर पोथी" क्रम — पहले पूरा अक्षर-बोध, फिर अक्षर से शब्द, फिर 100 चीज़ें.
+   हिंदी-वर्णमाला वाला भाग non-en में नहीं (वह हिंदी सिखाता था). हर अक्षर/शब्द की आवाज़ उसी भाषा की आवाज़ (L.tts) में — हिंदी पहले नहीं. ===== */
+const DEVA_ONLY=/^[\u0900-\u097F\s'()\-—,.]+$/u, BAD_DEVA=/[\u0946\u094A\u090E\u0912]/;  /* ॆ ॊ ऎ ऒ — ACS कोर्स के नियम में नहीं */
+function akCells(B){const out=[];for(const c of B.cons)for(const sg of B.signs)out.push({g:B.latin?c[0]+sg[0]:c[0]+sg[0],d:c[1]+(B.latin&&c[1].endsWith("्")?"":"")+sg[1],v:sg[2]});return out;}
+function checkAk(D){
+  const E=[],L=D.lang,all=D.akshar.groups.flatMap(g=>g.items);
+  if(all.length!==D.akshar.required)E.push("अक्षर-गिनती "+all.length+" ≠ पूरी वर्णमाला "+D.akshar.required);
+  const seen={};all.forEach(x=>{if(seen[x.L])E.push("दोहराया अक्षर "+x.L);seen[x.L]=1;if(!x.p||!DEVA_ONLY.test(x.p))E.push("अक्षर "+x.L+" का देवनागरी उच्चारण ग़लत/ख़ाली: "+x.p);});
+  const B=D.barakhadi;if(!B||!B.cons.length||!B.signs.length)E.push("बारहखड़ी नहीं");
+  else akCells(B).forEach(c=>{if(!DEVA_ONLY.test(c.d))E.push("बारहखड़ी देवनागरी ग़लत: "+c.g+" → "+c.d);});
+  for(const w of D.words){
+    if(!seen[w.L])E.push("शब्द "+w.w+" का अक्षर "+w.L+" वर्णमाला में नहीं");
+    const base=w.L.replace(/\u0BCD$/,"").toLowerCase(),ww=w.w.toLowerCase();
+    if(w.pos==="start"&&!ww.startsWith(base))E.push("शब्द "+w.w+" अक्षर "+w.L+" से शुरू नहीं होता");
+    if(w.pos==="mid"&&ww.indexOf(base)<0)E.push("शब्द "+w.w+" में अक्षर "+w.L+" नहीं");
+    if(!DEVA_ONLY.test(w.p)||BAD_DEVA.test(w.p))E.push("शब्द "+w.w+" का उच्चारण ACS-नियम से नहीं: "+w.p);
+    if(w.img&&!fs.existsSync(path.join(ROOT,"assets","chitra",w.img)))E.push("चित्र नहीं: "+w.img);
+  }
+  if(D.shared.length!==100)E.push("100 चीज़ें नहीं: "+D.shared.length);
+  for(const x of D.shared){if(!DEVA_ONLY.test(x.p)||BAD_DEVA.test(x.p))E.push("उच्चारण ACS-नियम से नहीं: "+x.w+" → "+x.p);if(!fs.existsSync(path.join(ROOT,"assets","chitra",x.img)))E.push("चित्र नहीं: "+x.img);}
+  if(L.code==="ta")for(const x of D.words.concat(D.shared))if(/^\u0B9A/.test(x.w)&&!/^स/.test(x.p))E.push("तमिल शुरुआती ச = स (ACS कोर्स-नियम): "+x.w+" → "+x.p);
+  if(E.length)throw new Error("check-robot FAIL ("+L.code+"):\n  "+E.join("\n  "));
+  return all.length+D.words.length+D.shared.length;
+}
+function akCard(x,tts){const vow=/^[aeiouAEIOU]$/.test(x.L)?" cp-vow":"";return '<div class="cp-card cp-ak'+vow+'" data-a="'+esc(x.say||x.L)+'" data-al="'+tts+'" data-b="" data-bl=""><button class="cp-spk" title="सुनें" onclick="cpPlay(this)">🔊</button><div class="cp-akL" onclick="cpPlay(this)">'+esc(x.L)+(/^[A-Z]/.test(x.L)?' <small>'+esc(x.L.toLowerCase())+'</small>':'')+'</div><div class="cp-akP">'+esc(x.p)+'</div>'+(x.n?'<div class="cp-akN">'+esc(x.n)+'</div>':'')+'</div>';}
+function wordCard(x,tts){const img=x.img?'<img src="'+IMG+x.img+'" alt="'+esc(x.m)+'" loading="lazy" onclick="cpPlay(this)">':'<div class="cp-noimg">'+esc(x.L)+'</div>';
+  return '<div class="cp-card" data-a="'+esc((x.say||x.L)+"... "+x.w)+'" data-al="'+tts+'" data-b="'+esc(x.m)+'" data-bl="hi-IN"><button class="cp-spk" title="सुनें" onclick="cpPlay(this)">🔊</button><div class="cp-L">'+esc(x.L)+'</div>'+img+'<div class="cp-w">'+esc(x.w)+'</div><div class="cp-p">'+esc(x.p)+'</div><div class="cp-m">'+esc(x.m)+'</div>'+(x.pos==="mid"?'<div class="cp-akN">यह अक्षर शब्द के बीच में है</div>':'')+'</div>';}
+function sharedCard(x,tts){return '<div class="cp-card" data-a="'+esc(x.w)+'" data-al="'+tts+'" data-b="'+esc(x.hi)+'" data-bl="hi-IN"><button class="cp-spk" title="सुनें" onclick="cpPlay(this)">🔊</button><img src="'+IMG+x.img+'" alt="'+esc(x.hi)+'" loading="lazy" onclick="cpPlay(this)"><div class="cp-w">'+esc(x.w)+'</div><div class="cp-p">'+esc(x.p)+'</div><div class="cp-m">'+esc(x.hi)+'</div>'+(x.alt?'<div class="cp-akN">बोलचाल में: '+esc(x.alt)+'</div>':'')+'</div>';}
+function buildIndexAk(D,n){
+  const L=D.lang,code="ACS-CP1-"+L.code,B=D.barakhadi,nAk=D.akshar.groups.reduce((a,g)=>a+g.items.length,0);
+  let h='<div class="cp-wrap"><div class="cp-hero"><div class="cp-code">'+code+' · भाषा: '+L.code+' ('+esc(L.en)+') · धुरी: हिंदी</div><h1>मेरी पहली <span class="gold">'+esc(L.hi)+' पोथी</span></h1><div style="font-size:20px">पहले अक्षर, फिर शब्द — '+nAk+' अक्षर · '+D.words.length+' अक्षर-शब्द · 100 चीज़ें</div></div>';
+  h+='<div class="cp-btns"><a class="cp-btn" href="reader.html">📱 मोबाइल-पुस्तक खोलें (पूरी स्क्रीन)</a><button class="cp-btn b2" onclick="cpPrint()">🖨️ छापें / PDF</button><a class="cp-btn b3" href="#bhag2">🔤 अक्षर से शब्द</a></div>';
+  h+=regBox(L,"top");
+  h+='<p style="text-align:center">पहले हर अक्षर पहचानो और बोलो। 🔊 दबाओ — '+esc(L.hi)+' की आवाज़ में अक्षर सुनाई देगा। नीचे देवनागरी में उसका उच्चारण लिखा है।</p>';
+  h+='<h2 class="cp-sec">भाग-1 · अक्षर-बोध — '+esc(D.akshar.title)+'</h2>'+D.akshar.groups.map(g=>'<h3 class="cp-grp">'+esc(g.g)+'</h3><div class="cp-grid cp-akgrid">'+g.items.map(x=>akCard(x,L.tts)).join("")+'</div>').join("");
+  if(D.akshar.note)h+='<p style="text-align:center">'+esc(D.akshar.note)+'</p>';
+  h+='<h2 class="cp-sec">भाग-1-ख · '+esc(B.title)+'</h2><p style="text-align:center">'+esc(B.note)+'</p><div class="cp-bk"><div class="cp-bkrow cp-bkh"><span></span>'+B.signs.map(sg=>'<span>'+esc(sg[2])+'</span>').join("")+'</div>'+B.cons.map(c=>'<div class="cp-bkrow"><b>'+esc(c[0])+'</b>'+B.signs.map(sg=>{const g=c[0]+sg[0],d=c[1]+sg[1];return '<button type="button" class="cp-bkc" data-a="'+esc(g)+'" data-al="'+L.tts+'" onclick="cpSay(this.dataset.a,this.dataset.al)"><i>'+esc(g)+'</i><u>'+esc(d)+'</u></button>';}).join("")+'</div>').join("")+'</div>';
+  h+=regBox(L,"mid");
+  h+='<h2 class="cp-sec" id="bhag2">भाग-2 · अक्षर से शब्द</h2><p style="text-align:center">हर अक्षर से बना एक शब्द — 🔊 दबाओ: पहले अक्षर, फिर शब्द '+esc(L.hi)+' में, फिर हिंदी अर्थ।</p><div class="cp-grid">'+D.words.map(x=>wordCard(x,L.tts)).join("")+'</div>'+(D.wordNote?'<p style="text-align:center">'+esc(D.wordNote)+'</p>':'');
+  h+='<h2 class="cp-sec" id="bhag3">भाग-3 · रोज़ की 100 चीज़ें</h2><div class="cp-grid">'+D.shared.map(x=>sharedCard(x,L.tts)).join("")+'</div>';
+  h+=regBox(L,"end");
+  h+='<div class="cp-info"><b>पुस्तक-सूचना</b><br>'+TM+'<br><b>'+LINE+'</b><br>मेरी पहली '+esc(L.hi)+' पोथी v'+D.version+' · पुस्तक-कोड: '+code+' · भाषा: '+L.code+' · धुरी: हिंदी<br>अक्षर-सूची: '+esc(D.akshar.src)+'<br>🟡 AI-मसौदा — भाषा संवर्धन समिति की समीक्षा का स्वागत'+(D.srcNote?' · '+esc(D.srcNote):'')+' · चित्र: Microsoft Fluent Emoji (MIT लाइसेंस: <a href="/assets/chitra/LICENSE-FluentEmoji-MIT.txt">पूरा पाठ</a>) · षटकोण व त्रिभुज: ACS-निर्मित</div></div>';
+  return h;
+}
+const PRINTJS='<script>function cpPrint(){var im=[].slice.call(document.querySelectorAll("img"));im.forEach(function(i){i.loading="eager";});var left=im.filter(function(i){return !i.complete;});if(!left.length){window.print();return;}var n=left.length,done=function(){if(--n<=0)window.print();};left.forEach(function(i){i.addEventListener("load",done,{once:true});i.addEventListener("error",done,{once:true});});setTimeout(function(){if(n>0){n=0;window.print();}},8000);}</scr'+'ipt>';
 function buildIndex(D,n){
   const L=D.lang,code="ACS-CP1-"+L.code;
   let h='<div class="cp-wrap"><div class="cp-hero"><div class="cp-code">'+code+' · भाषा: '+L.code+' ('+esc(L.en)+') · धुरी: हिंदी</div><h1>मेरी पहली <span class="gold">चित्र-पुस्तक</span></h1><div style="font-size:20px">'+esc(L.hi)+' · हिंदी — कक्षा 1 स्तर · '+n+' चित्र-शब्द</div></div>';
@@ -64,13 +111,21 @@ function buildIndex(D,n){
   return h;
 }
 function buildReader(D){
-  const L=D.lang,S=[{t:"cover"},{t:"sec",h:"भाग-1",s:L.hi+" वर्णमाला"}];
+  const L=D.lang;let S;
+  if(D.akshar){S=[{t:"cover"},{t:"sec",h:"भाग-1",s:"अक्षर-बोध"}];
+    D.akshar.groups.forEach(g=>{S.push({t:"sec",h:"अक्षर-बोध",s:g.g});g.items.forEach(x=>S.push({t:"card",big:x.L,img:"",w:x.p,p:x.n||"",m:"",a:x.say||x.L,al:L.tts,b:"",bl:""}));});
+    S.push({t:"sec",h:"भाग-2",s:"अक्षर से शब्द"});
+    D.words.forEach(x=>S.push({t:"card",big:x.L,img:x.img?IMG+x.img:"",w:x.w,p:x.p,m:x.m,a:(x.say||x.L)+"... "+x.w,al:L.tts,b:x.m,bl:"hi-IN"}));
+    S.push({t:"sec",h:"भाग-3",s:"रोज़ की 100 चीज़ें"});
+    D.shared.forEach(x=>S.push({t:"card",img:IMG+x.img,w:x.w,p:x.p,m:x.hi,a:x.w,al:L.tts,b:x.hi,bl:"hi-IN"}));
+    S.push({t:"end"});}
+  else{S=[{t:"cover"},{t:"sec",h:"भाग-1",s:L.hi+" वर्णमाला"}];
   D.alpha.forEach(x=>S.push({t:"card",big:x.L+(x.L.toLowerCase()!==x.L?' <small>'+x.L.toLowerCase()+'</small>':''),img:IMG+x.img,w:x.w,p:x.p,m:x.m,a:x.w,al:L.tts,b:x.m,bl:"hi-IN"}));
   S.push({t:"sec",h:"भाग-2",s:"हिंदी वर्णमाला"});
   D.hindi.forEach(g=>{S.push({t:"sec",h:"हिंदी वर्णमाला",s:g.g,l:g.items.map(x=>x.L).join(" ")});g.items.forEach(x=>S.push({t:"card",g:g.g,big:x.L,img:IMG+x.img,w:x.w,p:x.p,m:(L.code==="en"?"English":L.hi)+": "+x.en,hi:1,a:x.L+"... "+x.w.replace(/[()]/g,""),al:"hi-IN",b:x.en,bl:L.tts}));});
   S.push({t:"sec",h:"भाग-3",s:"साझा शब्द-चित्र · 100"});
   D.shared.forEach(x=>S.push({t:"card",img:IMG+x.img,w:x.w,p:x.p,m:x.hi,a:x.w,al:L.tts,b:x.hi,bl:"hi-IN"}));
-  S.push({t:"end"});
+  S.push({t:"end"});}
   const code="ACS-CP1-"+L.code,key="acs_cp1_"+L.code;
   return {n:S.length,html:`<!DOCTYPE html>
 <!-- ⚠️ generator से बना (build_chitra_pustak.js v${VER}) — हाथ से न बदलें -->
@@ -109,7 +164,7 @@ function html(s){
  if(s.t=='cover')return '<div class="slide cv"><div class="brand"><img src="/logo.png" alt=""><div><div class="bn">Applied Computer School™</div><div class="bt">From Village to World</div></div></div><div class="box"><div class="t1">मेरी पहली</div><div class="t2">'+TITLE+'</div><div class="t3">My First Picture Book</div><div class="rib">'+LHI+' · हिंदी — कक्षा 1</div></div><div class="scene"><img src="'+IMG+'cover-rainbow.webp" style="left:2%;top:4%;width:34%"><img src="'+IMG+'cover-sun.webp" style="right:4%;top:0;width:20%"><img src="'+IMG+'cover-plane.webp" style="right:6%;top:34%;width:18%"><img src="'+IMG+'cover-boy.webp" style="left:14%;bottom:6%;width:32%"><img src="'+IMG+'cover-girl.webp" style="right:14%;bottom:6%;width:32%"></div><button class="go" onclick="go(1)">पढ़ना शुरू करें ▶</button><div class="hint">उँगली से बाएँ-दाएँ खिसकाएँ</div></div>';
  if(s.t=='sec')return '<div class="slide sec"><div class="h">'+s.h+'</div><div class="s">'+s.s+'</div>'+(s.l?'<div class="lt">'+s.l+'</div>':'')+'<div class="hint" style="color:#cfd8e3">आगे ▶ दबाएँ</div></div>';
  if(s.t=='end')return '<div class="slide sec"><div class="s">शाबाश! 🎉</div><div class="h" style="margin-top:10px">आपने पूरी पुस्तक पढ़ ली</div><button class="go" onclick="go(-'+(S.length-1)+')">फिर से शुरू करें</button><div class="hint" style="color:#cfd8e3">पुस्तक-कोड: '+CODE+' · धुरी: हिंदी<br>🟡 AI-मसौदा · भाषा संवर्धन समिति की समीक्षा का स्वागत</div></div>';
- return '<div class="slide">'+(s.g?'<div class="gl">'+s.g+'</div>':'')+(s.big?'<div class="big">'+s.big+'</div>':'')+'<img class="pic" src="'+s.img+'" alt="" onclick="play(S[i])"><div class="w">'+s.w+'</div>'+(s.hi?'<div class="m" style="color:#555">'+s.m+'</div><div class="p">'+s.p+'</div>':'<div class="p">'+s.p+'</div><div class="m">'+s.m+'</div>')+'<button class="spk" onclick="play(S[i])">🔊 सुनें</button></div>';
+ return '<div class="slide">'+(s.g?'<div class="gl">'+s.g+'</div>':'')+(s.big?'<div class="big">'+s.big+'</div>':'')+${D.akshar?"(s.img?'<img class=\"pic\" src=\"'+s.img+'\" alt=\"\" onclick=\"play(S[i])\">':'')+'<div class=\"w\">'":"'<img class=\"pic\" src=\"'+s.img+'\" alt=\"\" onclick=\"play(S[i])\"><div class=\"w\">'"}+s.w+'</div>'+(s.hi?'<div class="m" style="color:#555">'+s.m+'</div><div class="p">'+s.p+'</div>':'<div class="p">'+s.p+'</div><div class="m">'+s.m+'</div>')+'<button class="spk" onclick="play(S[i])">🔊 सुनें</button></div>';
 }
 var st=document.getElementById('stage');
 function render(dir){st.innerHTML=html(S[i]);var el=st.firstChild;if(dir){el.style.transform='translateX('+(dir>0?'100%':'-100%')+')';requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.transform='translateX(0)';});});}
@@ -127,17 +182,17 @@ function build(code){
   const D=require(path.join(__dirname,"data","chitra","chitra_"+code+".js"));
   const n=check(D),L=D.lang,dir=path.join(ROOT,"courses","hi","bhasha",L.slug,"chitra-pustak");
   fs.mkdirSync(dir,{recursive:true});
-  const html=buildIndex(D,n);
+  const html=D.akshar?buildIndexAk(D,n):buildIndex(D,n);
   const S="<!-- PAGE-CONTENT-START -->",E="<!-- PAGE-CONTENT-END -->",a=TPL.indexOf(S),b=TPL.indexOf(E);
   if(a<0||b<0)throw new Error("_TEMPLATE.html में PAGE-CONTENT निशान नहीं");
   let page=TPL.slice(0,a+S.length)+"\n"+html+"\n"+TPL.slice(b);
-  const title="मेरी पहली चित्र-पुस्तक — "+L.hi+" · हिंदी, कक्षा 1 ("+n+" बोलते चित्र-शब्द, मुफ़्त) | अप्लाइड कंप्यूटर स्कूल";
-  const desc=L.code!=="en"?L.hi+" के चित्र-शब्द: "+L.hi+" अक्षर, हिंदी वर्णमाला (वर्ग-अनुसार) और रोज़ की 100 चीज़ें — हर शब्द देवनागरी उच्चारण और हिंदी अर्थ के साथ, 🔊 आवाज़, मोबाइल-पुस्तक और छपाई-योग्य।":L.hi+" A–Z और हिंदी वर्णमाला (वर्ग-अनुसार) के साथ रोज़ की 100 चीज़ें — हर शब्द देवनागरी उच्चारण और हिंदी अर्थ के साथ, 🔊 आवाज़, मोबाइल-पुस्तक और छपाई-योग्य।";
+  const title=D.akshar?"मेरी पहली "+L.hi+" पोथी — अक्षर-बोध, बारहखड़ी और चित्र-शब्द, हिंदी में मुफ़्त | अप्लाइड कंप्यूटर स्कूल":"मेरी पहली चित्र-पुस्तक — "+L.hi+" · हिंदी, कक्षा 1 ("+n+" बोलते चित्र-शब्द, मुफ़्त) | अप्लाइड कंप्यूटर स्कूल";
+  const desc=D.akshar?L.hi+" अक्षर पहचानना और बोलना सीखें — पूरी वर्णमाला, बारहखड़ी, हर अक्षर से बना चित्र-शब्द और रोज़ की 100 चीज़ें; देवनागरी उच्चारण, "+L.hi+" आवाज़, छपने-योग्य।":L.code!=="en"?L.hi+" के चित्र-शब्द: "+L.hi+" अक्षर, हिंदी वर्णमाला (वर्ग-अनुसार) और रोज़ की 100 चीज़ें — हर शब्द देवनागरी उच्चारण और हिंदी अर्थ के साथ, 🔊 आवाज़, मोबाइल-पुस्तक और छपाई-योग्य।":L.hi+" A–Z और हिंदी वर्णमाला (वर्ग-अनुसार) के साथ रोज़ की 100 चीज़ें — हर शब्द देवनागरी उच्चारण और हिंदी अर्थ के साथ, 🔊 आवाज़, मोबाइल-पुस्तक और छपाई-योग्य।";
   const url="https://acslearn.com/courses/hi/bhasha/"+L.slug+"/chitra-pustak/index.html";   /* 25-Oct: canonical = sitemap-रूप */
   page=page.replace(/<title>[\s\S]*?<\/title>/,"<title>"+esc(title)+"</title>\n<meta name=\"description\" content=\""+esc(desc)+"\">\n<link rel=\"canonical\" href=\""+url+"\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:url\" content=\""+url+"\">\n<meta property=\"og:title\" content=\""+esc(title)+"\">\n<meta property=\"og:description\" content=\""+esc(desc)+"\">\n<meta property=\"og:locale\" content=\"hi_IN\">\n<meta property=\"og:image\" content=\"https://acslearn.com/logo.png\">");
   page=page.replace("</head>",'<link rel="stylesheet" href="/assets/chitra.css">\n</head>');
   page=page.replace('<div id="acsMenuList"></div>','<div id="acsMenuList">\n'+MENU_HTML+"\n</div>");
-  page=page.replace("</body>",MENU_FALLBACK_JS+"\n"+SAYJS+"\n</body>");
+  page=page.replace("</body>",MENU_FALLBACK_JS+"\n"+SAYJS+(D.akshar?"\n"+PRINTJS:"")+"\n</body>");
   page=page.replace("<!DOCTYPE html>","<!DOCTYPE html>\n<!-- ⚠️ generator से बना (build_chitra_pustak.js v"+VER+") — हाथ से न बदलें। स्रोत: _TEMPLATE.html + generator/data/chitra/chitra_"+code+".js + assets/chitra/ -->");
   fs.writeFileSync(path.join(dir,"index.html"),page);
   const R=buildReader(D);fs.writeFileSync(path.join(dir,"reader.html"),R.html);
