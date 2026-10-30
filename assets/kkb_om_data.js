@@ -1150,13 +1150,13 @@ window.KKB_DATA = {
       ],
       [
        "Sarcaajii godhachuu barbaada",
-       "सर्ाजी गोडचू बर्बाद",
+       "सराजी गोडचू बर्बाद",
        "मुझे रीचार्ज करवाना है।",
        "S"
       ],
       [
        "Sarcaaajii dhibba lama",
-       "सर्ाजी डिब्ब लम",
+       "सराजी डिब्ब लम",
        "दो सौ का रीचार्ज।",
        "S"
       ],
@@ -1324,11 +1324,11 @@ window.KKB_DATA = {
     "lines": [
      [
       "Akkam, sarjii nan barbaada.",
-      "अक्कम्, सर्ाजी नन् बर्बाद."
+      "अक्कम्, सराजी नन् बर्बाद."
      ],
      [
       "Sarjiin dhibba meeqa?",
-      "सर्ाजीन् डिब्ब मेक?"
+      "सराजीन् डिब्ब मेक?"
      ],
      [
       "Pilaanii gaarii qabdaa?",
@@ -2967,7 +2967,7 @@ window.KKB_DATA = {
       ],
       [
        "Sarcaajiin koo hin hojjetu",
-       "सर्ाजीन् को हिन् होज्जेतु",
+       "सराजीन् को हिन् होज्जेतु",
        "मेरा रीचार्ज काम नहीं कर रहा।",
        "S"
       ],

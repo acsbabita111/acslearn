@@ -7502,7 +7502,7 @@ window.KKB2_DATA = {
        ],
        [
         "Mi aawi maaro e babal ngal.",
-        "मि आावी मारो ए बाबाल न्गाल."
+        "मि आआवी मारो ए बाबाल न्गाल."
        ],
        [
         "Waktu tobo woni waktu aawude.",
@@ -7520,7 +7520,7 @@ window.KKB2_DATA = {
       ],
       [
        "Mi aawi maaro e babal ngal.",
-       "मि आावी मारो ए बाबाल न्गाल.",
+       "मि आआवी मारो ए बाबाल न्गाल.",
        "आइए, आपको क्या चाहिए?",
        "S",
        "B"

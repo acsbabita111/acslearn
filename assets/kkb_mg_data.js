@@ -22,7 +22,7 @@ window.KKB_DATA = {
  ],
  "testShort": "अपने trainer या किसी मालागासी-भाषी साथी को video call करके मालागासी में बात",
  "testStep1": "call कीजिए (WhatsApp/ACS वाणी से video call) — किसी असली इंसान से, screen देखे बिना।",
- "testStep2": "<b>शुरुआत मालागासी में कीजिए।</b> <span class=\"kkb-small kkb-muted\">पहला वाक्य सालामा और सीधे पूछिए: मीताआी मीआी (धीरे बोलिए)।</span>",
+ "testStep2": "<b>शुरुआत मालागासी में कीजिए।</b> <span class=\"kkb-small kkb-muted\">पहला वाक्य सालामा और सीधे पूछिए: मीताआई मीआई (धीरे बोलिए)।</span>",
  "check1": "शुरुआत सालामा से की और पूरी बात मालागासी में रखने की कोशिश की",
  "weeks": [
   {

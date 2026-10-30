@@ -5642,7 +5642,7 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Waxaan ahay birlaha, shan sano oo khibrad ah baan leeyahay.",
-      "वाआन शाआलेए बिर्लहा वाआ सनो ओ ख़िब्रद गाएे बान लेयहय।"
+      "वाआन शाआलेए बिर्लहा वाआ सनो ओ ख़िब्रद गाएए बान लेयहय।"
      ],
      [
       "Macallin, maxay tahay shaqada maanta?",
@@ -9864,7 +9864,7 @@ window.KKB2_DATA = {
      ],
      [
       "Waxaan ahay fitter, shan sano oo khibrad ah baan leeyahay.",
-      "वाआन शाआलेए फ़ित्तर् वाआ सनो ओ ख़िब्रद गाएे बान लेयहय।"
+      "वाआन शाआलेए फ़ित्तर् वाआ सनो ओ ख़िब्रद गाएए बान लेयहय।"
      ],
      [
       "Waa maxay mushaarka bishii?",
@@ -14111,7 +14111,7 @@ window.KKB2_DATA = {
      ],
      [
       "Mahadsanid mudane.",
-      "मादसान्ीद गुउदी।"
+      "मादसानीद गुउदी।"
      ]
     ]
    }
@@ -14802,7 +14802,7 @@ window.KKB2_DATA = {
      ],
      [
       "Waxaan yeeshay wareysi Ingiriisi ah.",
-      "वाआन येश्य वरेय्सी इंगिरीसी गाएे।"
+      "वाआन येश्य वरेय्सी इंगिरीसी गाएए।"
      ],
      [
       "Waxaan bartay jawaabaha wareysiga visa.",
