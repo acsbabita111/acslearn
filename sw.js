@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v797'; // 29-Oct kkb (काम की भाषा) स्तर-क लिपि-परिचय: अरबी, ख़ाड़ी-अरबी, हिब्रू, जापानी काना, कोरियाई हंगुल, चीनी — lipi.css (अक्षर-रूप तालिका, दिशा) cache-first असेट
+const CACHE_VERSION = 'v798'; // 29-Oct kkb (काम की भाषा) स्तर-ख: 7 भारतीय भाषाओं की पोथी (te bn as pa gu or ml) + 5 व्याकरण (te pa gu bn as) — v797 के स्तर-क लिपि-परिचय समेत
+// पिछला 'v797'; 29-Oct kkb (काम की भाषा) स्तर-क लिपि-परिचय: अरबी, ख़ाड़ी-अरबी, हिब्रू, जापानी काना, कोरियाई हंगुल, चीनी — lipi.css (अक्षर-रूप तालिका, दिशा) cache-first असेट
 // पिछला 'v796'; 29-Oct kkb (काम की भाषा) आवाज़-ईमानदारी भाग-2: साझा acs-awaz.js — चित्र-पुस्तक, व्याकरण, लिपि-परिचय, बोलो-वर्कबुक, शब्दकोश (lipi.js, bolo-wb.js) — cache-first असेट
 // पिछला 'v795'; 29-Oct kkb (काम की भाषा) आवाज़-ईमानदारी: kkb2.js + kkb2.css — फ़ोन में भाषा की आवाज़ न हो तो देवनागरी उच्चारण हिंदी आवाज़ में + सूचना (Founder-पकड़: अरबी में 🔊 पर चुप्पी) — cache-first असेट
 // पिछला 'v794'; 29-Oct kkb (काम की भाषा) स्तर-क: 11 भाषाओं की पोथी + व्याकरण, रोमन अक्षर-तालिका, रूसी लिपि-परिचय — chitra/vyakaran/bolo-wb css (दाएँ-से-बाएँ दिशा) cache-first असेट
