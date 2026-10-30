@@ -425,7 +425,7 @@ module.exports = {
  ],
  "grambank": {
   "db": "WALS",
-  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID chw, 29-Oct-2026 को उतारा; चिचेवा Grambank में नहीं है",
+  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID cic (Chichewa), 30-Oct-2026 को भाषा-नाम से पक्का मिलाया (पहले लगा 'chw' कोड पश्चिमी चाम भाषा का निकला, इसलिए बदला); चिचेवा Grambank में नहीं है",
   "claims": [
    {
     "path": 4,
@@ -433,6 +433,20 @@ module.exports = {
     "claim": "SVO",
     "grambank": "SVO",
     "text": "वाक्य-क्रम: SVO"
+   },
+   {
+    "path": 8,
+    "gb": "WALS-112A",
+    "claim": "Negative affix",
+    "grambank": "Negative affix",
+    "text": "\"नहीं\" का रूप: Negative affix"
+   },
+   {
+    "path": 10,
+    "gb": "WALS-85A",
+    "claim": "Prepositions",
+    "grambank": "Prepositions",
+    "text": "संबंध-शब्द: Prepositions"
    },
    {
     "path": 11,
@@ -447,6 +461,13 @@ module.exports = {
     "claim": "Question particle",
     "grambank": "Question particle",
     "text": "हाँ/ना सवाल: Question particle"
+   },
+   {
+    "path": 6,
+    "gb": "WALS-69A",
+    "claim": "Tense-aspect prefixes",
+    "grambank": "Tense-aspect prefixes",
+    "text": "काल का चिह्न: Tense-aspect prefixes"
    }
   ]
  }

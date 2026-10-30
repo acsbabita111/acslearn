@@ -4,7 +4,7 @@ module.exports = {
  "book": "ACS-CP1",
  "lang": {
   "code": "ku",
-  "hi": "कुर्दिश",
+  "hi": "कुर्दिश (कुरमांजी)",
   "en": "Kurdish (Kurmanji)",
   "tts": "ku",
   "slug": "kurdish"

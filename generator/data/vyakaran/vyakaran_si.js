@@ -4,7 +4,7 @@ module.exports = {
  "book": "ACS-VK1",
  "lang": {
   "code": "si",
-  "hi": "सिंहल",
+  "hi": "सिंहली",
   "en": "Sinhala",
   "tts": "si-LK",
   "asr": "si-LK",
@@ -22,12 +22,12 @@ module.exports = {
   {
    "n": 1,
    "t": "अक्षर और उच्चारण",
-   "q": "सिंहल कैसे पढ़ें?",
+   "q": "सिंहली कैसे पढ़ें?",
    "rule": [
-    "सिंहल भारतीय परिवार की लिपि में — स्वर, व्यंजन और मात्राएँ हिंदी जैसी।",
+    "सिंहली भारतीय परिवार की लिपि में — स्वर, व्यंजन और मात्राएँ हिंदी जैसी।",
     "ऐ (ඇ) एक ख़ास स्वर: ඇස = ऐस (आँख)।"
    ],
-   "yaad": "पूरी वर्णमाला \"मेरी पहली सिंहल पोथी\" में है।",
+   "yaad": "पूरी वर्णमाला \"मेरी पहली सिंहली पोथी\" में है।",
    "abhyas": [
     [
      "लिपि किस परिवार की?",
@@ -424,7 +424,7 @@ module.exports = {
  ],
  "grambank": {
   "db": "WALS",
-  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID snh, 29-Oct-2026 को उतारा; सिंहल Grambank में नहीं है",
+  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID snh, 29-Oct-2026 को उतारा; सिंहली Grambank में नहीं है",
   "claims": [
    {
     "path": 4,

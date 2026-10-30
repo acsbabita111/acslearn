@@ -4,7 +4,7 @@ module.exports = {
  "book": "ACS-VK1",
  "lang": {
   "code": "rn",
-  "hi": "किरुंडी",
+  "hi": "रुंडी",
   "en": "Kirundi",
   "tts": "rn",
   "asr": "rn",
@@ -22,12 +22,12 @@ module.exports = {
   {
    "n": 1,
    "t": "अक्षर और उच्चारण",
-   "q": "किरुंडी कैसे पढ़ें?",
+   "q": "रुंडी कैसे पढ़ें?",
    "rule": [
     "लातिन अक्षरों में — किन्यारवांडा जैसी। c = च, r = र, जोड़ी-अक्षर: sh = श, ny = न्य।",
     "संज्ञाएँ उपसर्ग से पहचानी जाती हैं: umu- (एक), aba- (अनेक)।"
    ],
-   "yaad": "पूरी वर्णमाला \"मेरी पहली किरुंडी पोथी\" में है।",
+   "yaad": "पूरी वर्णमाला \"मेरी पहली रुंडी पोथी\" में है।",
    "abhyas": [
     [
      "संज्ञा किससे पहचानी जाती है?",
@@ -424,7 +424,7 @@ module.exports = {
  ],
  "grambank": {
   "db": "WALS",
-  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID rnd, 29-Oct-2026 को उतारा; किरुंडी Grambank में नहीं है",
+  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID rnd, 29-Oct-2026 को उतारा; रुंडी Grambank में नहीं है",
   "claims": [
    {
     "path": 8,

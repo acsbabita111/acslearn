@@ -4,7 +4,7 @@ module.exports = {
  "book": "ACS-VK1",
  "lang": {
   "code": "ug",
-  "hi": "उइगर",
+  "hi": "उइघुर",
   "en": "Uyghur",
   "tts": "ug-CN",
   "asr": "ug-CN",
@@ -22,12 +22,12 @@ module.exports = {
   {
    "n": 1,
    "t": "अक्षर और उच्चारण",
-   "q": "उइगर कैसे पढ़ें?",
+   "q": "उइघुर कैसे पढ़ें?",
    "rule": [
-    "उइगर दाएँ से बाएँ, अरबी-आधारित लिपि में — पर हर स्वर लिखा जाता है।",
+    "उइघुर दाएँ से बाएँ, अरबी-आधारित लिपि में — पर हर स्वर लिखा जाता है।",
     "शब्द के शुरू में स्वर से पहले ئ (हम्ज़ा) लगता है।"
    ],
-   "yaad": "पूरी वर्णमाला \"मेरी पहली उइगर पोथी\" में है।",
+   "yaad": "पूरी वर्णमाला \"मेरी पहली उइघुर पोथी\" में है।",
    "abhyas": [
     [
      "क्या स्वर-मेल (vowel harmony) होता है?",
@@ -427,7 +427,7 @@ module.exports = {
  ],
  "grambank": {
   "db": "WALS",
-  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID uyg, 29-Oct-2026 को उतारा; उइगर Grambank में नहीं है",
+  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID uyg, 29-Oct-2026 को उतारा; उइघुर Grambank में नहीं है",
   "claims": [
    {
     "path": 4,

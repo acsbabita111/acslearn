@@ -4,7 +4,7 @@ module.exports = {
  "book": "ACS-VK1",
  "lang": {
   "code": "ku",
-  "hi": "कुर्दिश",
+  "hi": "कुर्दिश (कुरमांजी)",
   "en": "Kurdish (Kurmanji)",
   "tts": "ku",
   "asr": "ku",
@@ -429,29 +429,7 @@ module.exports = {
  ],
  "grambank": {
   "db": "WALS",
-  "source": "WALS Online (MPI-EVA) — cldf/values.csv, Language_ID kmr, 29-Oct-2026 को उतारा; कुर्दिश Grambank में नहीं है",
-  "claims": [
-   {
-    "path": 4,
-    "gb": "WALS-81A",
-    "claim": "SOV",
-    "grambank": "SOV",
-    "text": "वाक्य-क्रम: SOV"
-   },
-   {
-    "path": 8,
-    "gb": "WALS-112A",
-    "claim": "Negative affix",
-    "grambank": "Negative affix",
-    "text": "\"नहीं\" का रूप: Negative affix"
-   },
-   {
-    "path": 6,
-    "gb": "WALS-69A",
-    "claim": "Mixed type",
-    "grambank": "Mixed type",
-    "text": "काल का चिह्न: Mixed type"
-   }
-  ]
+  "source": "कुर्दिश (कुरमांजी) Grambank में नहीं, और WALS (Language_ID kji, Kurmanji) में इसके वाक्य-गुण दर्ज नहीं — पाठ इसी कोर्स के असली वाक्यों से; पहले लगा WALS-कोड 'kmr' दूसरी भाषा (कमोरो) का निकला, इसलिए 30-Oct को हटाया; AI-मसौदा, भाषा संवर्धन समिति की जाँच बाक़ी",
+  "claims": []
  }
 };
