@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v803'; // 29-Oct kkb (काम की भाषा) सर्व-भाषा उच्चारण-सुधार: 134 भाषाएँ — दोहरी मात्रा 14,584 + स्वर-पर-हलंत 13,051 (आवाज़ बचाकर) — kkb data cache-first
+const CACHE_VERSION = 'v804'; // 29-Oct kkb (काम की भाषा) परीक्षा-संवाद असली लिपि में: 25 भाषाएँ, 581+60 पंक्तियाँ (कोर्स-मिलान 228 + लिखी 353 + मलागासी-बोलियाँ) — kkb_*_data cache-first
+// पिछला 'v803'; 29-Oct kkb (काम की भाषा) सर्व-भाषा उच्चारण-सुधार: 134 भाषाएँ — दोहरी मात्रा 14,584 + स्वर-पर-हलंत 13,051 (आवाज़ बचाकर) — kkb data cache-first
 // पिछला 'v802'; 29-Oct kkb (काम की भाषा) स्तर-क उच्चारण-सुधार: 9 भाषाओं में दोहरी मात्रा 973 + स्वर-पर-हलंत 53 (आवाज़ बचाकर) — kkb data cache-first
 // पिछला 'v801'; 29-Oct kkb (काम की भाषा) उच्चारण-सुधार: शब्द-शुरुआत के "अ + मात्रा" (अा, अो…) 5,104 जगह सही स्वर (आ, ओ…) — 55 kkb data फ़ाइलें cache-first
 // पिछला 'v800'; 29-Oct kkb (काम की भाषा) मलय स्तर-1: देवनागरी उच्चारण नियम-यंत्र से दोबारा + परीक्षा-संवाद रूमी लिपि में (kkb_ms_data cache-first)
