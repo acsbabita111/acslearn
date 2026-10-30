@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v806'; // 29-Oct kkb (काम की भाषा) स्पेनिश/क्वेशुआ/माया/आयमारा उच्चारण-स्तंभ से ¿ ¡ हटे (kkb data cache-first) + स्तर-ग पोथी/व्याकरण खेप-1
+const CACHE_VERSION = 'v807'; // 30-Oct kkb (काम की भाषा) क-1 सफ़ाई: आचेनीज़ (212 वाक्य — sebelum/setiap/lebih/ada के असली आचेनीज़ रूप), इबान व तोबा-बाटक (seorang हटा) — kkb data cache-first
+// पिछला 'v806'; 29-Oct kkb (काम की भाषा) स्पेनिश/क्वेशुआ/माया/आयमारा उच्चारण-स्तंभ से ¿ ¡ हटे (kkb data cache-first) + स्तर-ग पोथी/व्याकरण खेप-1
 // पिछला 'v805'; 29-Oct kkb (काम की भाषा) उच्चारण-सुधार भाग-3: 112 भाषाएँ — हलंत+मात्रा 25,192, स्वर+मात्रा 2,433, अनुस्वार+हलंत 281, अवग्रह+मात्रा 108 (आवाज़ बचाकर) + 6 नक़ली परीक्षा-संवाद कोर्स-वाक्यों से — kkb data cache-first
 // पिछला 'v804'; 29-Oct kkb (काम की भाषा) परीक्षा-संवाद असली लिपि में: 25 भाषाएँ, 581+60 पंक्तियाँ (कोर्स-मिलान 228 + लिखी 353 + मलागासी-बोलियाँ) — kkb_*_data cache-first
 // पिछला 'v803'; 29-Oct kkb (काम की भाषा) सर्व-भाषा उच्चारण-सुधार: 134 भाषाएँ — दोहरी मात्रा 14,584 + स्वर-पर-हलंत 13,051 (आवाज़ बचाकर) — kkb data cache-first
