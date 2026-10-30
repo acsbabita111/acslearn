@@ -331,6 +331,12 @@ function regen(P){
     if(w.test&&typeof w.test.goal==="string") w.test.goal=w.test.goal.replace(/अंगिका|चांग|अंगामी/g,P.labelHi);
   }
 
+  /* 30-Oct-2026 fail-closed (स्तर-ग छानबीन की सीख): अनजान हिंदी शब्द को हिंदी/रोमन-हिंदी में छोड़कर कोर्स बनाना निषिद्ध।
+     शब्दकोश (P.LEX / P.V) में असली शब्द जोड़ो; सिर्फ़ नाम/उधार-शब्द P.allowUnknown में (कारण-सहित) — तभी फ़ाइलें लिखी जाएँगी। */
+  {const ALLOW=new Set([].concat(P.allowUnknown||[],["राम","सीता","रमेश","कुमार","बिहार","भारत","पटना","दिल्ली","मुंबई","खगड़िया","ACS"]));
+   const bad=Object.entries(UNK).filter(([t])=>!ALLOW.has(t)).sort((a,b)=>b[1]-a[1]);
+   if(bad.length) throw new Error("लाल10-यंत्र रुका (fail-closed): "+P.code+" में "+bad.length+" अनजान हिंदी शब्द — कोई फ़ाइल नहीं लिखी गई। "+
+     "इनके असली "+(P.labelHi||P.code)+" शब्द P.LEX/P.V में जोड़ो (नाम/उधार हों तो P.allowUnknown में): "+bad.slice(0,40).map(e=>e[0]+"×"+e[1]).join(" "));}
   function hdr(mod){return "/* "+mod+" — ACS काम की भाषा · "+P.labelHi+" ("+P.labelEn+") · v2.0 (20-Oct-2026, काम-लाल10)\n   असली Latin-लिपि तीन-स्तंभ — AI-draft, मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */\n";}
   fs.writeFileSync(REPO+"/assets/kkb_"+P.code+"_data.js",hdr("KKB L1")+"window.KKB_DATA = "+JSON.stringify(L1,null,1)+";\n");
   fs.writeFileSync(REPO+"/assets/kkb2_"+P.code+"_data.js",hdr("KKB L2")+"window.KKB2_DATA = "+JSON.stringify(L2,null,1)+";\n");
