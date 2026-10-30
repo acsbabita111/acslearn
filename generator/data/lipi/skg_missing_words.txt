@@ -1,3 +1,4 @@
+zaho
 mpamily
 hiasa
 sakalava
@@ -401,6 +402,7 @@ hanoratse
 handefasanao
 fahaterahanao
 fantany
+sakalavako
 manakely
 mieritreria
 fahatongavanny
@@ -607,11 +609,11 @@ fitondran-tenako
 nofarananny
 tafonny
 koponatera
-anglisiny
+sakalavany
 fotoam-pisotroana
 fianarako
 fampianarana
-anglisinny
+sakalavanny
 miova
 tantarako
 tahotse

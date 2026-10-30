@@ -21,6 +21,7 @@ gaki
 ikuti
 mengambil
 hubungi
+na
 kecelakaan
 harganya
 kurangi
@@ -53,6 +54,7 @@ pulanglah
 sekali
 haruskah
 mesinnya
+leubèh
 bahannya
 habis
 matikan
@@ -120,6 +122,7 @@ kedua
 putri
 menjadi
 jumlah
+tiep
 bersama-sama
 paman
 terbesar

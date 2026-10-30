@@ -1,3 +1,4 @@
+zaho
 mpamily
 hiasa
 mifankahita
@@ -400,6 +401,7 @@ hanoratse
 handefasanao
 fahaterahanao
 fantany
+barako
 manakely
 mieritreria
 fahatongavanny
@@ -609,11 +611,11 @@ fitondran-tenako
 nofarananny
 tafonny
 koponatera
-anglisiny
+barany
 fotoam-pisotroañe
 fianarako
 fampianarañe
-anglisinny
+baranny
 miova
 tantarako
 tahotse
