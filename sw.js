@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v809'; // 30-Oct kkb (काम की भाषा) हज़ारगी v3.0: दारी-आधार + हज़ारगी-निशान (मह/शुमो/मो-/अस्ता) — 1,128 रोमन-हिंदी वाक्य हटे; kkb data cache-first
+const CACHE_VERSION = 'v810'; // 30-Oct kkb (काम की भाषा) कोमोरियन: maji → madji (शिंगाज़िजा) — kkb data cache-first
+// पिछला 'v809'; 30-Oct kkb (काम की भाषा) हज़ारगी v3.0: दारी-आधार + हज़ारगी-निशान (मह/शुमो/मो-/अस्ता) — 1,128 रोमन-हिंदी वाक्य हटे; kkb data cache-first
 // पिछला 'v808'; 30-Oct kkb (काम की भाषा) मालागासी-बोलियाँ: tdx/bhr/skg/bzc में दर्ज बोली-निशान (zaho, ty, re, anao, akory) — 2,306 वाक्य; kkb data cache-first
 // पिछला 'v807'; 30-Oct kkb (काम की भाषा) क-1 सफ़ाई: आचेनीज़ (212 वाक्य — sebelum/setiap/lebih/ada के असली आचेनीज़ रूप), इबान व तोबा-बाटक (seorang हटा) — kkb data cache-first
 // पिछला 'v806'; 29-Oct kkb (काम की भाषा) स्पेनिश/क्वेशुआ/माया/आयमारा उच्चारण-स्तंभ से ¿ ¡ हटे (kkb data cache-first) + स्तर-ग पोथी/व्याकरण खेप-1
