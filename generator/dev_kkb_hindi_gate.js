@@ -1,4 +1,5 @@
-/* dev_kkb_hindi_gate.js v1.0 · 30-Oct-2026 — छुपी-हिंदी पहरा (fail-closed)
+/* dev_kkb_hindi_gate.js v1.1 · 30-Oct-2026 — छुपी-हिंदी पहरा (fail-closed)
+   v1.1: क़र्ज़-सूची की हर भाषा के कोर्स-पन्ने पर सूचना-पट्टी अनिवार्य (translit_hold_flags या kkb_nakal_soochna) — पट्टी नहीं = FAIL
    नाप: हर भाषा-कोर्स (स्तर-1 + स्तर-2) के उच्चारण-खाने [1] में कितने शब्द हूबहू उसी वाक्य के हिंदी-अर्थ [2] के हैं।
    लिपि कोई भी हो (चेरोकी, सीरियाई, कातागाना…), उच्चारण देवनागरी में है — इसलिए दूसरी लिपि में लिखी हिंदी भी पकड़ी जाती है।
    छूट: (1) उधार-शब्द (फ़ोन, बस, टिकट…) गिनती से बाहर; (2) हिंदी-क्षेत्र की भाषाएँ/बोलियाँ (HINDI_PARIVAR) — इनमें मेल स्वाभाविक है।
@@ -28,9 +29,13 @@ const fail=[],warn=[],paid=[]; let checked=0,karzSeen=0;
 for(const c of codes){ if(HINDI_PARIVAR.has(c)||c==="en") continue; let v; try{v=hp(c);}catch(e){continue;} checked++;
   if(c in KARZ){ karzSeen++; if(v<TH) paid.push(c+"="+v.toFixed(1)+"%"); continue; }
   if(v>=TH) fail.push(c+"="+v.toFixed(1)+"%"); else if(v>=WARN) warn.push(c+"="+v.toFixed(1)+"%"); }
+const FLAGS=new Set(require(path.join(ROOT,"generator/data/translit_hold_flags.js")).flags);
+const NOTES=require(path.join(ROOT,"generator/data/kkb_nakal_soochna.js")).notes;
+const noNote=Object.keys(KARZ).filter(c=>!FLAGS.has(c)&&!NOTES[c]);
+if(noNote.length){ console.log("❌ क़र्ज़-सूची की भाषा पर कोर्स-पन्ने की सूचना-पट्टी नहीं: "+noNote.join(" ")+" (translit_hold_flags.js या kkb_nakal_soochna.js में जोड़ो)"); process.exitCode=1; }
 console.log("छुपी-हिंदी पहरा: "+checked+" भाषाएँ जाँचीं (हिंदी-परिवार की "+HINDI_PARIVAR.size+" छूट) · सीमा "+TH+"% · क़र्ज़-सूची "+Object.keys(KARZ).length+" (इनमें से "+karzSeen+" इस दौड़ में)");
 if(warn.length) console.log("⚠️ हाथ-जाँच ("+WARN+"–"+TH+"%): "+warn.join(" "));
 if(paid.length) console.log("❌ क़र्ज़ चुका — इन्हें kkb_hindi_karz.json से हटाओ: "+paid.join(" "));
 if(fail.length) console.log("❌ नई छुपी-हिंदी (सीमा से ऊपर, क़र्ज़-सूची में नहीं): "+fail.join(" "));
-if(fail.length||paid.length) process.exit(1);
-console.log("🏁 छुपी-हिंदी पहरा पास");
+if(fail.length||paid.length||noNote.length) process.exit(1);
+console.log("🏁 छुपी-हिंदी पहरा पास (क़र्ज़-सूची की हर भाषा पर सूचना-पट्टी भी)");

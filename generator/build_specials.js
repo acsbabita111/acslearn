@@ -3432,6 +3432,21 @@ function kkbSamitiOpen(c) {
 }
 function nakalNote(c) {
   const n = NAKAL[c.code]; if (!n) return '';
+  /* 30-Oct-2026: स्तर-ग छानबीन — "sudhar" (स्रोत है, सुधार चल रहा है — पीली) · "vakta" (भरोसेमंद स्रोत नहीं, मूल-वक्ता ज़रूरी — लाल) */
+  if (n.type === "sudhar" || n.type === "vakta") {
+    if (!n.why) throw new Error("नक़ल-सूचना: " + c.code + " पर why ख़ाली");
+    const msg3 = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") भाषा बोलता/बोलती हूँ और इस कोर्स को सुधारने में मदद करना चाहता/चाहती हूँ।");
+    const wa = 'https://wa.me/919431210092?text=' + msg3;
+    if (n.type === "sudhar") { if (!n.src) throw new Error("नक़ल-सूचना: " + c.code + " पर src ख़ाली");
+      return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFF8E1;border:2px solid #F9A825;border-radius:10px;color:#0B1F3A">' +
+        '<p style="font-size:17px;line-height:1.7;margin:0">🛠️ <b>सुधार चल रहा है:</b> इस कोर्स में ' + esc(n.why) + '।</p>' +
+        '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">इसे ' + esc(n.src) + ' की मदद से असली ' + c.hi_name + ' में दोबारा लिखा जाएगा। तब तक ध्यान से पढ़ें।</p>' +
+        '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">आप ' + c.hi_name + ' बोलते हैं? <a href="' + wa + '" target="_blank" rel="noopener" style="color:#E65100;font-weight:800;text-decoration:underline">सुधार भेजें</a></p></div>'; }
+    return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#FFEBEE;border:2px solid #C62828;border-radius:10px;color:#0B1F3A">' +
+      '<p style="font-size:17px;line-height:1.7;margin:0">⚠️ <b>सच्ची सूचना:</b> इस कोर्स के वाक्य अभी असली ' + c.hi_name + ' नहीं हैं — ' + esc(n.why) + '।</p>' +
+      '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">इस भाषा का भरोसेमंद लिखा हुआ स्रोत हमें नहीं मिला। इसलिए सही सुधार इसके बोलने वाले ही कर सकते हैं। तब तक इसे सिर्फ़ <b>अभ्यास</b> समझें, बोलचाल का पक्का कोर्स नहीं।</p>' +
+      '<p style="font-size:17px;line-height:1.7;margin:6px 0 0">आप यह भाषा बोलते हैं? <a href="' + wa + '" target="_blank" rel="noopener" style="color:#C62828;font-weight:800;text-decoration:underline">भाषा संवर्धन समिति से जुड़ें</a></p></div>';
+  }
   const src = KKB2_LANGS.find(x => x.code === n.of); if (!src) throw new Error("नक़ल-सूचना: '" + n.of + "' भाषा-सूची में नहीं");
   if (n.type === "rewritten") { const msg2 = encodeURIComponent("नमस्ते ACS — मैं " + c.hi_name + " (" + c.en_name + ", कोड " + c.code + ") का/की मूल-वक्ता हूँ और कोर्स के वाक्य जाँचना चाहता/चाहती हूँ।");
     return '<div class="kkb-nakal-note" style="max-width:600px;margin:10px auto 0;padding:12px 16px;background:#E8F5E9;border:2px solid #2E7D32;border-radius:10px;color:#0B1F3A">' +
