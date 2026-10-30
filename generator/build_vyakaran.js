@@ -8,7 +8,7 @@
    निकास: /courses/hi/bhasha/<slug>/vyakaran/index.html — 12 पाठ, 🔊, छपाई-योग्य (हर पाठ नए पन्ने पर)
    check-robot (fail = पन्ना नहीं): 12 पाठ · हर पाठ ≥3 उदाहरण · चमकने वाला शब्द उसी वाक्य में · उच्चारण में Latin नहीं ·
    नियम-वाक्य ≤24 शब्द · Grambank-दावा = Grambank-मान (हर दावा)। नई भाषा = LANGS में पंक्ति + data-फ़ाइल */
-const fs=require("fs"),path=require("path");const ROOT=path.join(__dirname,"..");const VER="2.0";const LANGS=["en","mr","sw","ta","kn","afb","ar","de","fr","it","ms","ru","he","ja","ko","zh","te","pa","gu","bn","as","ml","or","es","pt","id","tr","tl"]; /* v2.0 (29-Oct, चरण-3): हर-लिपि-योग्य — en रास्ता byte-frozen (L.code==="en" gate); non-en: उदाहरण में सिर्फ़ {code,hl} — वाक्य/उच्चारण/अर्थ उसी भाषा के ACS कोर्स से अपने-आप (कोई वाक्य गढ़ा नहीं जाता) */
+const fs=require("fs"),path=require("path");const ROOT=path.join(__dirname,"..");const VER="2.0";const LANGS=["en","mr","sw","ta","kn","afb","ar","de","fr","it","ms","ru","he","ja","ko","zh","te","pa","gu","bn","as","ml","or","es","pt","id","tr","tl","ne","ur","fa","vi","th"]; /* v2.0 (29-Oct, चरण-3): हर-लिपि-योग्य — en रास्ता byte-frozen (L.code==="en" gate); non-en: उदाहरण में सिर्फ़ {code,hl} — वाक्य/उच्चारण/अर्थ उसी भाषा के ACS कोर्स से अपने-आप (कोई वाक्य गढ़ा नहीं जाता) */
 const TPL=fs.readFileSync(path.join(ROOT,"_TEMPLATE.html"),"utf8");
 function loadMenu(){const src=fs.readFileSync(path.join(ROOT,"assets","links.js"),"utf8");const box={};new Function("window",src+"; window.__L=(typeof ACS_LINKS!=='undefined')?ACS_LINKS:null;")(box);return box.__L.menu;}
 const MENU_HTML=loadMenu().map(m=>'<a class="acs-mitem" href="'+m.href+'"><span class="e">'+m.icon+"</span> "+m.label+"</a>").join("\n");
