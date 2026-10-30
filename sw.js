@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v811'; // 31-Oct kkb (काम की भाषा) संथाली: 273 वाक्यों में संथाली रूप (कामी, हें, माहा, गोनोङ, सेंगेल, बेस, होर, ऊब) — kkb data cache-first
+const CACHE_VERSION = 'v812'; // 31-Oct kkb (काम की भाषा) संथाली ओल-चिकी संस्करण (Founder-फ़ैसला): 2,150 वाक्यों का भाषा-स्तंभ ओल-चिकी, उच्चारण देवनागरी + kkb.css/kkb2.css ओल-चिकी फ़ॉन्ट — kkb data cache-first
+// पिछला 'v811'; 31-Oct kkb (काम की भाषा) संथाली: 273 वाक्यों में संथाली रूप (कामी, हें, माहा, गोनोङ, सेंगेल, बेस, होर, ऊब) — kkb data cache-first
 // पिछला 'v810'; 30-Oct kkb (काम की भाषा) कोमोरियन: maji → madji (शिंगाज़िजा) — kkb data cache-first
 // पिछला 'v809'; 30-Oct kkb (काम की भाषा) हज़ारगी v3.0: दारी-आधार + हज़ारगी-निशान (मह/शुमो/मो-/अस्ता) — 1,128 रोमन-हिंदी वाक्य हटे; kkb data cache-first
 // पिछला 'v808'; 30-Oct kkb (काम की भाषा) मालागासी-बोलियाँ: tdx/bhr/skg/bzc में दर्ज बोली-निशान (zaho, ty, re, anao, akory) — 2,306 वाक्य; kkb data cache-first

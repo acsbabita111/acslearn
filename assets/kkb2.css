@@ -56,6 +56,7 @@
 [data-script="korean"] .kkb2-en{font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.8}
 [data-script="thai"] .kkb2-en{font-family:"Noto Sans Thai","Leelawadee UI",system-ui,sans-serif;line-height:1.9}
 [data-script="tibetan"] .kkb2-en{font-family:"Noto Serif Tibetan","Noto Sans Tibetan","Microsoft Himalaya",system-ui,sans-serif;line-height:2.0} /* 10-Sep merge-दौर SE-एशिया: तिब्बती space-रहित */
+[data-script="olchiki"] .kkb2-en{font-family:"Noto Sans Ol Chiki","Nirmala UI",system-ui,sans-serif;font-size:1.15em;line-height:1.9} /* 31-Oct: संथाली ओल-चिकी */
 [data-script="khmer"] .kkb2-en{font-family:"Noto Sans Khmer","Leelawadee UI",system-ui,sans-serif;line-height:2.0} /* 10-Sep खमेर space-रहित */
 [data-script="lao"] .kkb2-en{font-family:"Noto Sans Lao","Leelawadee UI",system-ui,sans-serif;line-height:1.9} /* 10-Sep लाओ space-रहित */
 [data-script="myanmar"] .kkb2-en{font-family:"Noto Sans Myanmar","Myanmar Text",system-ui,sans-serif;line-height:2.0} /* 10-Sep बर्मी space-रहित */
