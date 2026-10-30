@@ -436,13 +436,6 @@ module.exports = {
     "text": "वाक्य-क्रम: SVO"
    },
    {
-    "path": 3,
-    "gb": "WALS-37A",
-    "claim": "Definite word distinct from demonstrative",
-    "grambank": "Definite word distinct from demonstrative",
-    "text": "\"the\" का रूप: Definite word distinct from demonstrative"
-   },
-   {
     "path": 8,
     "gb": "WALS-112A",
     "claim": "Negative particle",
