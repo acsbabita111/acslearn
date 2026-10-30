@@ -2,7 +2,7 @@
    जाँचें: दोनों पन्ने मौजूद · हर <img> की फ़ाइल असली · reader की हर स्लाइड का चित्र असली · © ™ + FFGPMTrust पंक्ति · कोई 🔊-कार्ड बिना data-a नहीं · उच्चारण में Latin नहीं */
 const fs=require("fs"),path=require("path");const ROOT=path.join(__dirname,"..");
 let bad=0;const fail=m=>{bad++;console.log("⛔ "+m);};
-for(const code of ["en","mr","sw","ta","kn","afb","ar","de","fr","it","ms","ru","he","ja","ko","zh","te","bn","as","pa","gu","or","ml","es","pt","id","tr","tl","ne","ur","fa","vi","th","uk","sr","pl","nl","ro","el","hu","cs","sv","am","so","ha","yo","ig","zu","xh","om","mg","sn","wo","rw","rn","ny","ti","ln","st","tn","nso","lg","ts","kk","ky","tt","tg","mn","uz","az","ku","ug","ps"]){ /* v1.2 (29-Oct): अक्षर-बोध पोथी + कन्नड़ */
+for(const code of ["en","mr","sw","ta","kn","afb","ar","de","fr","it","ms","ru","he","ja","ko","zh","te","bn","as","pa","gu","or","ml","es","pt","id","tr","tl","ne","ur","fa","vi","th","uk","sr","pl","nl","ro","el","hu","cs","sv","am","so","ha","yo","ig","zu","xh","om","mg","sn","wo","rw","rn","ny","ti","ln","st","tn","nso","lg","ts","kk","ky","tt","tg","mn","uz","az","ku","ug","ps","fi","dan","nob","sk","hr","slv","lt","est","isl","bg"]){ /* v1.2 (29-Oct): अक्षर-बोध पोथी + कन्नड़ */
   const D=require(path.join(__dirname,"data","chitra","chitra_"+code+".js"));const dir=path.join(ROOT,"courses","hi","bhasha",D.lang.slug,"chitra-pustak");
   for(const f of ["index.html","reader.html"])if(!fs.existsSync(path.join(dir,f)))fail(code+": "+f+" नहीं");
   const ix=fs.readFileSync(path.join(dir,"index.html"),"utf8"),rd=fs.readFileSync(path.join(dir,"reader.html"),"utf8");
