@@ -22,7 +22,7 @@ window.KKB_DATA = {
  ],
  "testShort": "अपने trainer या किसी योरूबा-भाषी साथी को video call करके योरूबा में बात",
  "testStep1": "call कीजिए (WhatsApp/ACS वाणी से video call) — किसी असली इंसान से, screen देखे बिना।",
- "testStep2": "<b>शुरुआत योरूबा में कीजिए।</b> <span class=\"kkb-small kkb-muted\">पहला वाक्य बावो और सीधे पूछिए: सोरो् जावेजावे (धीरे बोलिए)।</span>",
+ "testStep2": "<b>शुरुआत योरूबा में कीजिए।</b> <span class=\"kkb-small kkb-muted\">पहला वाक्य बावो और सीधे पूछिए: सोरो जावेजावे (धीरे बोलिए)।</span>",
  "check1": "शुरुआत बावो से की और पूरी बात योरूबा में रखने की कोशिश की",
  "weeks": [
   {

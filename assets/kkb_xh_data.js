@@ -22,7 +22,7 @@ window.KKB_DATA = {
  ],
  "testShort": "अपने trainer या किसी षोसा-भाषी साथी को video call करके षोसा में बात",
  "testStep1": "call कीजिए (WhatsApp/ACS वाणी से video call) — किसी असली इंसान से, screen देखे बिना।",
- "testStep2": "<b>शुरुआत षोसा में कीजिए।</b> <span class=\"kkb-small kkb-muted\">पहला वाक्य मोलो और सीधे पूछिए: उुुे कान्तसि्न्तसि (धीरे बोलिए)।</span>",
+ "testStep2": "<b>शुरुआत षोसा में कीजिए।</b> <span class=\"kkb-small kkb-muted\">पहला वाक्य मोलो और सीधे पूछिए: उुउे कान्तसिन्तसि (धीरे बोलिए)।</span>",
  "check1": "शुरुआत मोलो से की और पूरी बात षोसा में रखने की कोशिश की",
  "weeks": [
   {

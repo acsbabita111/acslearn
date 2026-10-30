@@ -2125,7 +2125,7 @@ window.KKB2_DATA = {
      ],
      [
       "Sidee jidhkaagu tahay?",
-      "सिी जिधकागु बा्ता?"
+      "सिई जिधकागु बाता?"
      ],
      [
       "Waqtiga dawadaada cun.",
@@ -5642,7 +5642,7 @@ window.KKB2_DATA = {
     "lines": [
      [
       "Waxaan ahay birlaha, shan sano oo khibrad ah baan leeyahay.",
-      "वाान शाालेे बिर्लहा वाा सनो ओ ख़िब्रद गा्ेे् बान लेयहय।"
+      "वाआन शाआलेए बिर्लहा वाआ सनो ओ ख़िब्रद गाएे बान लेयहय।"
      ],
      [
       "Macallin, maxay tahay shaqada maanta?",
@@ -9864,7 +9864,7 @@ window.KKB2_DATA = {
      ],
      [
       "Waxaan ahay fitter, shan sano oo khibrad ah baan leeyahay.",
-      "वाान शाालेे फ़ित्तर् वाा सनो ओ ख़िब्रद गा्ेे् बान लेयहय।"
+      "वाआन शाआलेए फ़ित्तर् वाआ सनो ओ ख़िब्रद गाएे बान लेयहय।"
      ],
      [
       "Waa maxay mushaarka bishii?",
@@ -14111,7 +14111,7 @@ window.KKB2_DATA = {
      ],
      [
       "Mahadsanid mudane.",
-      "मादसान्ीद गुुदी।"
+      "मादसान्ीद गुउदी।"
      ]
     ]
    }
@@ -14802,11 +14802,11 @@ window.KKB2_DATA = {
      ],
      [
       "Waxaan yeeshay wareysi Ingiriisi ah.",
-      "वाान येश्य वरेय्सी इंगिरीसी गा्ेे्।"
+      "वाआन येश्य वरेय्सी इंगिरीसी गाएे।"
      ],
      [
       "Waxaan bartay jawaabaha wareysiga visa.",
-      "वाान बर्तय जवाबाहा वरेय्सिगा विसा।"
+      "वाआन बर्तय जवाबाहा वरेय्सिगा विसा।"
      ],
      [
       "Tuuladayda oo dhan way igu faanaan.",
