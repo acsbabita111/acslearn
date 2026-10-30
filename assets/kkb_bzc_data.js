@@ -50,14 +50,14 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Avy any Bihar aho",
-       "आवि आन्य बीहार आहु",
+       "Avy any Bihar zaho",
+       "आवि आन्य बीहार ज़ाहु",
        "मैं बिहार से हूँ।",
        "S"
       ],
       [
-       "Avy any India aho",
-       "आवि आन्य ईन्दिया आहु",
+       "Avy any India zaho",
+       "आवि आन्य ईन्दिया ज़ाहु",
        "मैं भारत से हूँ।",
        "S"
       ],
@@ -68,26 +68,26 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Mpiasa aho",
-       "म्पियासा आहु",
+       "Mpiasa zaho",
+       "म्पियासा ज़ाहु",
        "मैं मजदूर हूँ।",
        "S"
       ],
       [
-       "Mpamily aho",
-       "म्पामीलि आहु",
+       "Mpamily zaho",
+       "म्पामीलि ज़ाहु",
        "मैं ड्राइवर हूँ।",
        "S"
       ],
       [
-       "Tonga aho hiasa eto",
-       "तुंगा आहु हियासा एतु",
+       "Tonga zaho hiasa eto",
+       "तुंगा ज़ाहु हियासा एतु",
        "मैं यहाँ काम के लिए आया हूँ।",
        "S"
       ],
       [
-       "Faly aho mihaona aminao",
-       "फ़ालि आहु मीहोना आमीनो",
+       "Faly zaho mihaona aminao",
+       "फ़ालि ज़ाहु मीहोना आमीनो",
        "आपसे मिलकर खुशी हुई।",
        "S"
       ],
@@ -98,8 +98,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Tsara aho, misaotra añe",
-       "त्सारा आहु, मीसोट्रा आञे",
+       "Tsara zaho, misaotra añe",
+       "त्सारा ज़ाहु, मीसोट्रा आञे",
        "मैं ठीक हूँ, धन्यवाद।",
        "S"
       ],
@@ -110,20 +110,20 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Vaovao aho eto",
-       "वोवो आहु एतु",
+       "Vaovao zaho eto",
+       "वोवो ज़ाहु एतु",
        "मैं यहाँ नया हूँ।",
        "S"
       ],
       [
-       "Miteny Betsimisaraka kely aho",
-       "मीतेन्य बेत्सीमीसाराका केलि आहु",
+       "Miteny Betsimisaraka kely zaho",
+       "मीतेन्य बेत्सीमीसाराका केलि ज़ाहु",
        "मैं थोड़ी दक्षिणी-बेत्सिमिसारका बोलता हूँ।",
        "S"
       ],
       [
-       "Miteny Hindi aho",
-       "मीतेन्य हीन्दी आहु",
+       "Miteny Hindi zaho",
+       "मीतेन्य हीन्दी ज़ाहु",
        "मैं हिंदी बोलता हूँ।",
        "S"
       ],
@@ -140,8 +140,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Dimy amby roapolo taona aho",
-       "दीमि आम्बि रोआपुलु तोना आहु",
+       "Dimy amby roapolo taona zaho",
+       "दीमि आम्बि रोआपुलु तोना ज़ाहु",
        "मैं पच्चीस साल का हूँ।",
        "S"
       ],
@@ -288,8 +288,8 @@ window.KKB_DATA = {
      "title": "मदद, पानी, खाना, तबीयत",
      "items": [
       [
-       "Mila fanampiaña aho",
-       "मीला फ़ानाम्पियाञा आहु",
+       "Mila fanampiaña zaho",
+       "मीला फ़ानाम्पियाञा ज़ाहु",
        "मुझे मदद चाहिए।",
        "S"
       ],
@@ -300,26 +300,26 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila rano aho",
-       "मीला रानु आहु",
+       "Mila rano zaho",
+       "मीला रानु ज़ाहु",
        "मुझे पानी चाहिए।",
        "S"
       ],
       [
-       "Mila sakafo aho",
-       "मीला साकाफ़ु आहु",
+       "Mila sakafo zaho",
+       "मीला साकाफ़ु ज़ाहु",
        "मुझे खाना चाहिए।",
        "S"
       ],
       [
-       "Noaña aho",
-       "नोआञा आहु",
+       "Noaña zaho",
+       "नोआञा ज़ाहु",
        "मुझे भूख लगी है।",
        "S"
       ],
       [
-       "Mangetaheta aho",
-       "मांगेताहेता आहु",
+       "Mangetaheta zaho",
+       "मांगेताहेता ज़ाहु",
        "मुझे प्यास लगी है।",
        "S"
       ],
@@ -330,20 +330,20 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Tsy mbola tsara aho",
-       "त्सि म्बुला त्सारा आहु",
+       "Tsy mbola tsara zaho",
+       "त्सि म्बुला त्सारा ज़ाहु",
        "मेरी तबीयत ठीक नहीं है।",
        "S"
       ],
       [
-       "Marary aho",
-       "मारारि आहु",
+       "Marary zaho",
+       "मारारि ज़ाहु",
        "मैं बीमार हूँ।",
        "S"
       ],
       [
-       "Marary hafanaña aho",
-       "मारारि हाफ़ानाञा आहु",
+       "Marary hafanaña zaho",
+       "मारारि हाफ़ानाञा ज़ाहु",
        "मुझे बुखार है।",
        "S"
       ],
@@ -360,14 +360,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila dokotera aho",
-       "मीला दुकुतेरा आहु",
+       "Mila dokotera zaho",
+       "मीला दुकुतेरा ज़ाहु",
        "मुझे डॉक्टर चाहिए।",
        "S"
       ],
       [
-       "Mila fanafody aho",
-       "मीला फ़ानाफ़ुदि आहु",
+       "Mila fanafody zaho",
+       "मीला फ़ानाफ़ुदि ज़ाहु",
        "मुझे दवा चाहिए।",
        "S"
       ],
@@ -390,14 +390,14 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Reraka aho",
-       "रेराका आहु",
+       "Reraka zaho",
+       "रेराका ज़ाहु",
        "मैं थका हुआ हूँ।",
        "S"
       ],
       [
-       "Te-hitsahatra aho",
-       "ते-हीत्साहाट्रा आहु",
+       "Te-hitsahatra zaho",
+       "ते-हीत्साहाट्रा ज़ाहु",
        "मैं आराम करना चाहता हूँ।",
        "S"
       ],
@@ -485,8 +485,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Very lalaña aho",
-       "वेरि लालाञा आहु",
+       "Very lalaña zaho",
+       "वेरि लालाञा ज़ाहु",
        "मैं रास्ता भटक गया हूँ।",
        "S"
       ],
@@ -497,8 +497,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Afaka mandeha an-tongotra any aho va",
-       "आफ़ाका मान्देहा आन-तुंगुट्रा आन्य आहु वा",
+       "Afaka mandeha an-tongotra any zaho va",
+       "आफ़ाका मान्देहा आन-तुंगुट्रा आन्य ज़ाहु वा",
        "क्या मैं पैदल जा सकता हूँ?",
        "S"
       ],
@@ -527,8 +527,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Araho aho",
-       "आराहु आहु",
+       "Araho zaho",
+       "आराहु ज़ाहु",
        "मेरे पीछे आइए।",
        "L"
       ]
@@ -568,8 +568,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Tsy manaña vola aho",
-       "त्सि मानाञा वुला आहु",
+       "Tsy manaña vola zaho",
+       "त्सि मानाञा वुला ज़ाहु",
        "मेरे पास पैसे नहीं हैं।",
        "S"
       ],
@@ -580,8 +580,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Te-hody aho",
-       "ते-हुदि आहु",
+       "Te-hody zaho",
+       "ते-हुदि ज़ाहु",
        "मैं घर जाना चाहता हूँ।",
        "S"
       ],
@@ -598,8 +598,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Afaka mampiasa ny telefonao aho va",
-       "आफ़ाका माम्पियासा न्य तेलेफ़ुनो आहु वा",
+       "Afaka mampiasa ny telefonao zaho va",
+       "आफ़ाका माम्पियासा न्य तेलेफ़ुनो ज़ाहु वा",
        "क्या मैं आपका फोन इस्तेमाल कर सकता हूँ?",
        "S"
       ],
@@ -622,8 +622,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Ampio aho!",
-       "आम्पीउ आहु!",
+       "Ampio zaho!",
+       "आम्पीउ ज़ाहु!",
        "मेरी मदद करो!",
        "S"
       ],
@@ -640,8 +640,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Voaaro aho",
-       "वोआआरु आहु",
+       "Voaaro zaho",
+       "वोआआरु ज़ाहु",
        "मैं सुरक्षित हूँ।",
        "S"
       ],
@@ -652,8 +652,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Mipetraka akaikin'ny gara aho",
-       "मीपेट्राका आकैकीन्न्य गारा आहु",
+       "Mipetraka akaikin'ny gara zaho",
+       "मीपेट्राका आकैकीन्न्य गारा ज़ाहु",
        "मैं स्टेशन के पास रहता हूँ।",
        "S"
       ]
@@ -673,7 +673,7 @@ window.KKB_DATA = {
       "न्य् अनरकु दी रम्"
      ],
      [
-      "Avy any India aho.",
+      "Avy any India zaho.",
       "अवि अन्य् इन्दी अहु"
      ],
      [
@@ -736,8 +736,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila ity aho",
-       "मीला ईति आहु",
+       "Mila ity zaho",
+       "मीला ईति ज़ाहु",
        "मुझे यह वाला चाहिए।",
        "S"
       ],
@@ -760,8 +760,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Tsy mila ity aho",
-       "त्सि मीला ईति आहु",
+       "Tsy mila ity zaho",
+       "त्सि मीला ईति ज़ाहु",
        "मुझे यह नहीं चाहिए।",
        "S"
       ],
@@ -837,8 +837,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila sakafo legioma aho",
-       "मीला साकाफ़ु लेगीउमा आहु",
+       "Mila sakafo legioma zaho",
+       "मीला साकाफ़ु लेगीउमा ज़ाहु",
        "मुझे शाकाहारी खाना चाहिए।",
        "S"
       ],
@@ -885,14 +885,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Handoa vola aho",
-       "हान्दोआ वुला आहु",
+       "Handoa vola zaho",
+       "हान्दोआ वुला ज़ाहु",
        "मैं नकद दूँगा।",
        "S"
       ],
       [
-       "Handoa amin'ny telefonina aho",
-       "हान्दोआ आमीन्न्य तेलेफ़ुनीना आहु",
+       "Handoa amin'ny telefonina zaho",
+       "हान्दोआ आमीन्न्य तेलेफ़ुनीना ज़ाहु",
        "मैं फोन से भुगतान करूँगा।",
        "S"
       ],
@@ -909,8 +909,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Tsy manaña sisa vola aho",
-       "त्सि मानाञा सीसा वुला आहु",
+       "Tsy manaña sisa vola zaho",
+       "त्सि मानाञा सीसा वुला ज़ाहु",
        "मेरे पास खुले पैसे नहीं हैं।",
        "S"
       ],
@@ -933,8 +933,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Aia no hisakafo aho",
-       "ऐआ नु हीसाकाफ़ु आहु",
+       "Aia no hisakafo zaho",
+       "ऐआ नु हीसाकाफ़ु ज़ाहु",
        "मैं कहाँ खा सकता हूँ?",
        "S"
       ],
@@ -956,8 +956,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Te-hankany amin'ny gara aho",
-       "ते-हान्कान्य आमीन्न्य गारा आहु",
+       "Te-hankany amin'ny gara zaho",
+       "ते-हान्कान्य आमीन्न्य गारा ज़ाहु",
        "मुझे स्टेशन जाना है।",
        "S"
       ],
@@ -1075,8 +1075,8 @@ window.KKB_DATA = {
      "title": "कमरा, किराया, मोबाइल",
      "items": [
       [
-       "Mila efitrano aho",
-       "मीला एफ़ीट्रानु आहु",
+       "Mila efitrano zaho",
+       "मीला एफ़ीट्रानु ज़ाहु",
        "मुझे एक कमरा चाहिए।",
        "S"
       ],
@@ -1105,8 +1105,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Afaka mahita ny efitrano aho va",
-       "आफ़ाका माहीता न्य एफ़ीट्रानु आहु वा",
+       "Afaka mahita ny efitrano zaho va",
+       "आफ़ाका माहीता न्य एफ़ीट्रानु ज़ाहु वा",
        "क्या मैं कमरा देख सकता हूँ?",
        "S"
       ],
@@ -1135,8 +1135,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Rahoviaña no mandoa hofa aho",
-       "राहुवियाञा नु मान्दोआ हुफ़ा आहु",
+       "Rahoviaña no mandoa hofa zaho",
+       "राहुवियाञा नु मान्दोआ हुफ़ा ज़ाहु",
        "किराया कब देना है?",
        "S"
       ],
@@ -1153,8 +1153,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila fenoina aho",
-       "मीला फ़ेनुईना आहु",
+       "Mila fenoina zaho",
+       "मीला फ़ेनुईना ज़ाहु",
        "मुझे रीचार्ज करवाना है।",
        "S"
       ],
@@ -1171,8 +1171,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Tsy manaña Internet aho",
-       "त्सि मानाञा ईन्तेर्नेत आहु",
+       "Tsy manaña Internet zaho",
+       "त्सि मानाञा ईन्तेर्नेत ज़ाहु",
        "मेरा इंटरनेट नहीं चल रहा।",
        "S"
       ],
@@ -1189,8 +1189,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Antsoy aho",
-       "आन्त्सुइ आहु",
+       "Antsoy zaho",
+       "आन्त्सुइ ज़ाहु",
        "कृपया मुझे कॉल कीजिए।",
        "S"
       ]
@@ -1284,8 +1284,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mankany an-tsena aho",
-       "मान्कान्य आन-त्सेना आहु",
+       "Mankany an-tsena zaho",
+       "मान्कान्य आन-त्सेना ज़ाहु",
        "मैं बाजार जा रहा हूँ।",
        "S"
       ],
@@ -1296,14 +1296,14 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Mankany amin'ny asa aho",
-       "मान्कान्य आमीन्न्य आसा आहु",
+       "Mankany amin'ny asa zaho",
+       "मान्कान्य आमीन्न्य आसा ज़ाहु",
        "मैं काम पर जा रहा हूँ।",
        "S"
       ],
       [
-       "Mipetraka eto aho",
-       "मीपेट्राका एतु आहु",
+       "Mipetraka eto zaho",
+       "मीपेट्राका एतु ज़ाहु",
        "मैं यहाँ रहता हूँ।",
        "S"
       ],
@@ -1327,7 +1327,7 @@ window.KKB_DATA = {
     "goal": "रीचार्ज/कीमत के बारे में पूछिए।",
     "lines": [
      [
-      "Salama, te-hividy recharge aho.",
+      "Salama, te-hividy recharge zaho.",
       "सलम, ते-हिविदि रेहर्गे अहु।"
      ],
      [
@@ -1358,8 +1358,8 @@ window.KKB_DATA = {
      "title": "काम माँगना",
      "items": [
       [
-       "Mitady asa aho",
-       "मीतादि आसा आहु",
+       "Mitady asa zaho",
+       "मीतादि आसा ज़ाहु",
        "मैं काम ढूँढ रहा हूँ।",
        "S"
       ],
@@ -1370,8 +1370,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila asa aho",
-       "मीला आसा आहु",
+       "Mila asa zaho",
+       "मीला आसा ज़ाहु",
        "मुझे नौकरी चाहिए।",
        "S"
       ],
@@ -1382,38 +1382,38 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Mahay mandrafitra vy aho",
-       "माहाइ मान्ड्राफ़ीट्रा वि आहु",
+       "Mahay mandrafitra vy zaho",
+       "माहाइ मान्ड्राफ़ीट्रा वि ज़ाहु",
        "मैं वेल्डिंग कर सकता हूँ।",
        "S"
       ],
       [
-       "Mahay mamily fiara aho",
-       "माहाइ मामीलि फ़ियारा आहु",
+       "Mahay mamily fiara zaho",
+       "माहाइ मामीलि फ़ियारा ज़ाहु",
        "मैं गाड़ी चला सकता हूँ।",
        "S"
       ],
       [
-       "Mahay manao asa rehetra aho",
-       "माहाइ मानो आसा रेहेट्रा आहु",
+       "Mahay manao asa rehetra zaho",
+       "माहाइ मानो आसा रेहेट्रा ज़ाहु",
        "मैं कोई भी काम कर सकता हूँ।",
        "S"
       ],
       [
-       "Mahay miasa mafy aho",
-       "माहाइ मियासा माफ़ि आहु",
+       "Mahay miasa mafy zaho",
+       "माहाइ मियासा माफ़ि ज़ाहु",
        "मैं मेहनत कर सकता हूँ।",
        "S"
       ],
       [
-       "Manaña traik'efa roa taona aho",
-       "मानाञा ट्रैकेफ़ा रोआ तोना आहु",
+       "Manaña traik'efa roa taona zaho",
+       "मानाञा ट्रैकेफ़ा रोआ तोना ज़ाहु",
        "मुझे दो साल का अनुभव है।",
        "S"
       ],
       [
-       "Mianatra aho",
-       "मियानाट्रा आहु",
+       "Mianatra zaho",
+       "मियानाट्रा ज़ाहु",
        "मैं सीख रहा हूँ।",
        "S"
       ],
@@ -1448,8 +1448,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Rahoviaña no afaka manomboka aho",
-       "राहुवियाञा नु आफ़ाका मानुम्बुका आहु",
+       "Rahoviaña no afaka manomboka zaho",
+       "राहुवियाञा नु आफ़ाका मानुम्बुका ज़ाहु",
        "मैं कब शुरू कर सकता हूँ?",
        "S"
       ],
@@ -1466,8 +1466,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Tsara, ho avy amin'ny fito ora aho",
-       "त्सारा, हु आवि आमीन्न्य फ़ीतु उरा आहु",
+       "Tsara, ho avy amin'ny fito ora zaho",
+       "त्सारा, हु आवि आमीन्न्य फ़ीतु उरा ज़ाहु",
        "ठीक है, मैं सात बजे आऊँगा।",
        "S"
       ],
@@ -1608,8 +1608,8 @@ window.KKB_DATA = {
      "title": "काम समझना और पूछना",
      "items": [
       [
-       "Ia tompoko, avy aho",
-       "इया तुम्पुकु, आवि आहु",
+       "Ia tompoko, avy zaho",
+       "इया तुम्पुकु, आवि ज़ाहु",
        "जी सर, मैं आ रहा हूँ।",
        "S"
       ],
@@ -1650,8 +1650,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Vita aho",
-       "वीता आहु",
+       "Vita zaho",
+       "वीता ज़ाहु",
        "मैंने पूरा कर लिया।",
        "S"
       ],
@@ -1662,8 +1662,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila fotoaña bebe kokoa aho",
-       "मीला फ़ुतोआञा बेबे कुकोआ आहु",
+       "Mila fotoaña bebe kokoa zaho",
+       "मीला फ़ुतोआञा बेबे कुकोआ ज़ाहु",
        "मुझे और समय चाहिए।",
        "S"
       ],
@@ -1710,14 +1710,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Afaka manao izany aho",
-       "आफ़ाका मानो ईज़ान्य आहु",
+       "Afaka manao izany zaho",
+       "आफ़ाका मानो ईज़ान्य ज़ाहु",
        "मैं यह कर सकता हूँ।",
        "S"
       ],
       [
-       "Tsy afaka manao izany aho",
-       "त्सि आफ़ाका मानो ईज़ान्य आहु",
+       "Tsy afaka manao izany zaho",
+       "त्सि आफ़ाका मानो ईज़ान्य ज़ाहु",
        "मैं यह नहीं कर सकता।",
        "S"
       ],
@@ -1745,8 +1745,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila tohatra aho",
-       "मीला तुहाट्रा आहु",
+       "Mila tohatra zaho",
+       "मीला तुहाट्रा ज़ाहु",
        "मुझे सीढ़ी चाहिए।",
        "S"
       ],
@@ -1829,14 +1829,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Ho tara androany aho",
-       "हु तारा आन्ड्रोआन्य आहु",
+       "Ho tara androany zaho",
+       "हु तारा आन्ड्रोआन्य ज़ाहु",
        "मैं आज देर से आऊँगा।",
        "S"
       ],
       [
-       "Miala tsiny, tara aho",
-       "मियाला त्सीन्य, तारा आहु",
+       "Miala tsiny, tara zaho",
+       "मियाला त्सीन्य, तारा ज़ाहु",
        "माफ कीजिए, मुझे देर हो गई।",
        "S"
       ],
@@ -1876,8 +1876,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Hanampy anao aho",
-       "हानाम्पि आनो आहु",
+       "Hanampy anao zaho",
+       "हानाम्पि आनो ज़ाहु",
        "मैं आपकी मदद करूँगा।",
        "S"
       ],
@@ -1888,8 +1888,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Nanao diso aho",
-       "नानो दीसु आहु",
+       "Nanao diso zaho",
+       "नानो दीसु ज़ाहु",
        "मुझसे गलती हो गई।",
        "S"
       ],
@@ -1912,20 +1912,20 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila fialan-tsasatra aho",
-       "मीला फ़ियालान-त्सासाट्रा आहु",
+       "Mila fialan-tsasatra zaho",
+       "मीला फ़ियालान-त्सासाट्रा ज़ाहु",
        "मुझे छुट्टी चाहिए।",
        "S"
       ],
       [
-       "Mila fialan-tsasatra andro roa aho",
-       "मीला फ़ियालान-त्सासाट्रा आन्ड्रु रोआ आहु",
+       "Mila fialan-tsasatra andro roa zaho",
+       "मीला फ़ियालान-त्सासाट्रा आन्ड्रु रोआ ज़ाहु",
        "मुझे दो दिन की छुट्टी चाहिए।",
        "S"
       ],
       [
-       "Tsy maintsy mankany amin'ny tanako aho",
-       "त्सि मैन्त्सि मान्कान्य आमीन्न्य तानाकु आहु",
+       "Tsy maintsy mankany amin'ny tanako zaho",
+       "त्सि मैन्त्सि मान्कान्य आमीन्न्य तानाकु ज़ाहु",
        "मुझे अपने गाँव जाना है।",
        "S"
       ],
@@ -1936,14 +1936,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Afaka miala aloha androany va aho",
-       "आफ़ाका मियाला आलुहा आन्ड्रोआन्य वा आहु",
+       "Afaka miala aloha androany va zaho",
+       "आफ़ाका मियाला आलुहा आन्ड्रोआन्य वा ज़ाहु",
        "क्या मैं आज जल्दी जा सकता हूँ?",
        "S"
       ],
       [
-       "Hiverina amin'ny Alatsinainy aho",
-       "हीवेरीना आमीन्न्य आलात्सीनैन्य आहु",
+       "Hiverina amin'ny Alatsinainy zaho",
+       "हीवेरीना आमीन्न्य आलात्सीनैन्य ज़ाहु",
        "मैं सोमवार को वापस आऊँगा।",
        "S"
       ],
@@ -1960,8 +1960,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Marary aho omaly",
-       "मारारि आहु उमालि",
+       "Marary zaho omaly",
+       "मारारि ज़ाहु उमालि",
        "मैं कल बीमार था।",
        "S"
       ],
@@ -1985,7 +1985,7 @@ window.KKB_DATA = {
     "goal": "एक समस्या बताइए और समाधान समझिए।",
     "lines": [
      [
-      "Salama, manana olana aho.",
+      "Salama, manana olana zaho.",
       "सलम, मनन उलन अहु।"
      ],
      [
@@ -2050,8 +2050,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Mbola tsy nahazo ny karamako aho",
-       "म्बुला त्सि नाहाज़ु न्य कारामाकु आहु",
+       "Mbola tsy nahazo ny karamako zaho",
+       "म्बुला त्सि नाहाज़ु न्य कारामाकु ज़ाहु",
        "मुझे मेरा वेतन नहीं मिला है।",
        "S"
       ],
@@ -2074,20 +2074,20 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Azafady aloavy androany aho",
-       "आज़ाफ़ादि आलोआवि आन्ड्रोआन्य आहु",
+       "Azafady aloavy androany zaho",
+       "आज़ाफ़ादि आलोआवि आन्ड्रोआन्य ज़ाहु",
        "कृपया मुझे आज भुगतान कीजिए।",
        "S"
       ],
       [
-       "Niasa folo andro aho",
-       "नियासा फ़ुलु आन्ड्रु आहु",
+       "Niasa folo andro zaho",
+       "नियासा फ़ुलु आन्ड्रु ज़ाहु",
        "मैंने दस दिन काम किया।",
        "S"
       ],
       [
-       "Nanao fotoaña fanampiny aho",
-       "नानो फ़ुतोआञा फ़ानाम्पीन्य आहु",
+       "Nanao fotoaña fanampiny zaho",
+       "नानो फ़ुतोआञा फ़ानाम्पीन्य ज़ाहु",
        "मैंने ओवरटाइम किया।",
        "S"
       ],
@@ -2110,14 +2110,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila vola mialoha aho",
-       "मीला वुला मियालुहा आहु",
+       "Mila vola mialoha zaho",
+       "मीला वुला मियालुहा ज़ाहु",
        "मुझे अग्रिम पैसे चाहिए।",
        "S"
       ],
       [
-       "Afaka mahazo vola kely zao aho va",
-       "आफ़ाका माहाज़ु वुला केलि ज़ो आहु वा",
+       "Afaka mahazo vola kely zao zaho va",
+       "आफ़ाका माहाज़ु वुला केलि ज़ो ज़ाहु वा",
        "क्या मुझे अभी कुछ पैसे मिल सकते हैं?",
        "S"
       ],
@@ -2128,14 +2128,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila fifanarahaña an-tsoratra aho",
-       "मीला फ़ीफ़ानाराहाञा आन-त्सुराट्रा आहु",
+       "Mila fifanarahaña an-tsoratra zaho",
+       "मीला फ़ीफ़ानाराहाञा आन-त्सुराट्रा ज़ाहु",
        "मुझे लिखित समझौता चाहिए।",
        "S"
       ],
       [
-       "Tsy hiasa aho raha tsy misy karama",
-       "त्सि हियासा आहु राहा त्सि मीसि कारामा",
+       "Tsy hiasa zaho raha tsy misy karama",
+       "त्सि हियासा ज़ाहु राहा त्सि मीसि कारामा",
        "मैं बिना भुगतान काम नहीं करूँगा।",
        "S"
       ]
@@ -2157,14 +2157,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Te-hisokatra kaonty aho",
-       "ते-हीसुकाट्रा कोन्ति आहु",
+       "Te-hisokatra kaonty zaho",
+       "ते-हीसुकाट्रा कोन्ति ज़ाहु",
        "मुझे खाता खोलना है।",
        "S"
       ],
       [
-       "Te-handefa vola any an-traño aho",
-       "ते-हान्देफ़ा वुला आन्य आन-ट्राञु आहु",
+       "Te-handefa vola any an-traño zaho",
+       "ते-हान्देफ़ा वुला आन्य आन-ट्राञु ज़ाहु",
        "मुझे घर पैसे भेजने हैं।",
        "S"
       ],
@@ -2175,8 +2175,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Te-handefa dimy arivo aho",
-       "ते-हान्देफ़ा दीमि आरीवु आहु",
+       "Te-handefa dimy arivo zaho",
+       "ते-हान्देफ़ा दीमि आरीवु ज़ाहु",
        "मुझे पाँच हज़ार भेजने हैं।",
        "S"
       ],
@@ -2193,8 +2193,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Tsy mahay manoratra Betsimisaraka aho",
-       "त्सि माहाइ मानुराट्रा बेत्सीमीसाराका आहु",
+       "Tsy mahay manoratra Betsimisaraka zaho",
+       "त्सि माहाइ मानुराट्रा बेत्सीमीसाराका ज़ाहु",
        "मैं दक्षिणी-बेत्सिमिसारका नहीं लिख सकता।",
        "S"
       ],
@@ -2253,8 +2253,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Te-haka vola aho",
-       "ते-हाका वुला आहु",
+       "Te-haka vola zaho",
+       "ते-हाका वुला ज़ाहु",
        "मुझे पैसे निकालने हैं।",
        "S"
       ],
@@ -2312,8 +2312,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Eto aho noho ny asa",
-       "एतु आहु नुहु न्य आसा",
+       "Eto zaho noho ny asa",
+       "एतु ज़ाहु नुहु न्य आसा",
        "मैं काम के लिए आया हूँ।",
        "S"
       ],
@@ -2348,8 +2348,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Azafady ento any amin'ity adiresy ity aho",
-       "आज़ाफ़ादि एन्तु आन्य आमीनीति आदीरेसि ईति आहु",
+       "Azafady ento any amin'ity adiresy ity zaho",
+       "आज़ाफ़ादि एन्तु आन्य आमीनीति आदीरेसि ईति ज़ाहु",
        "कृपया मुझे इस पते पर ले चलिए।",
        "S"
       ],
@@ -2360,8 +2360,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Miandry ny orinasako aho",
-       "मियान्ड्रि न्य उरीनासाकु आहु",
+       "Miandry ny orinasako zaho",
+       "मियान्ड्रि न्य उरीनासाकु ज़ाहु",
        "मैं अपनी कंपनी का इंतज़ार कर रहा हूँ।",
        "S"
       ],
@@ -2503,8 +2503,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila satroka fiarovaña aho",
-       "मीला साट्रुका फ़ियारुवाञा आहु",
+       "Mila satroka fiarovaña zaho",
+       "मीला साट्रुका फ़ियारुवाञा ज़ाहु",
        "मुझे हेल्मेट चाहिए।",
        "S"
       ],
@@ -2520,14 +2520,14 @@ window.KKB_DATA = {
      "title": "चोट और खतरा बताना",
      "items": [
       [
-       "Naratra aho",
-       "नाराट्रा आहु",
+       "Naratra zaho",
+       "नाराट्रा ज़ाहु",
        "मुझे चोट लगी है।",
        "S"
       ],
       [
-       "Naratra aho",
-       "नाराट्रा आहु",
+       "Naratra zaho",
+       "नाराट्रा ज़ाहु",
        "मैं घायल हूँ।",
        "S"
       ],
@@ -2538,8 +2538,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Lavo aho",
-       "लावु आहु",
+       "Lavo zaho",
+       "लावु ज़ाहु",
        "मैं गिर गया।",
        "S"
       ],
@@ -2598,8 +2598,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Voan'ny herinaratra aho",
-       "वोआन्न्य हेरीनाराट्रा आहु",
+       "Voan'ny herinaratra zaho",
+       "वोआन्न्य हेरीनाराट्रा ज़ाहु",
        "मुझे करंट लगा।",
        "S"
       ],
@@ -2610,14 +2610,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mahatsapa ho vintso aho",
-       "माहात्सापा हु वीन्त्सु आहु",
+       "Mahatsapa ho vintso zaho",
+       "माहात्सापा हु वीन्त्सु ज़ाहु",
        "मुझे चक्कर आ रहा है।",
        "S"
       ],
       [
-       "Mila mipetraka aho",
-       "मीला मीपेट्राका आहु",
+       "Mila mipetraka zaho",
+       "मीला मीपेट्राका ज़ाहु",
        "मुझे बैठना है।",
        "S"
       ],
@@ -2634,8 +2634,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Te-hitatitra izany aho",
-       "ते-हीतातीट्रा ईज़ान्य आहु",
+       "Te-hitatitra izany zaho",
+       "ते-हीतातीट्रा ईज़ान्य ज़ाहु",
        "मैं इसकी शिकायत करना चाहता हूँ।",
        "S"
       ]
@@ -2647,7 +2647,7 @@ window.KKB_DATA = {
     "goal": "बैलेंस पूछिए या ATM कार्ड की समस्या बताइए।",
     "lines": [
      [
-      "Salama, te-hahafantatra ny balance aho.",
+      "Salama, te-hahafantatra ny balance zaho.",
       "सलम, ते-हहफ़न्तत्र न्य् बलान्स अहु।"
      ],
      [
@@ -2690,8 +2690,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Afaka miditra aho va",
-       "आफ़ाका मीदीट्रा आहु वा",
+       "Afaka miditra zaho va",
+       "आफ़ाका मीदीट्रा ज़ाहु वा",
        "क्या मैं अंदर आ सकता हूँ?",
        "S"
       ],
@@ -2714,26 +2714,26 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Avy any Patna, Bihar aho",
-       "आवि आन्य पात्ना, बीहार आहु",
+       "Avy any Patna, Bihar zaho",
+       "आवि आन्य पात्ना, बीहार ज़ाहु",
        "मैं पटना, बिहार से हूँ।",
        "S"
       ],
       [
-       "Nianatra hatramin'ny kilasy fahavalo aho",
-       "नियानाट्रा हाट्रामीन्न्य कीलासि फ़ाहावालु आहु",
+       "Nianatra hatramin'ny kilasy fahavalo zaho",
+       "नियानाट्रा हाट्रामीन्न्य कीलासि फ़ाहावालु ज़ाहु",
        "मैंने आठवीं तक पढ़ाई की है।",
        "S"
       ],
       [
-       "Nanao fianaraña asa vy aho",
-       "नानो फ़ियानाराञा आसा वि आहु",
+       "Nanao fianaraña asa vy zaho",
+       "नानो फ़ियानाराञा आसा वि ज़ाहु",
        "मैंने वेल्डिंग का कोर्स किया है।",
        "S"
       ],
       [
-       "Manaña traik'efa telo taona aho",
-       "मानाञा ट्रैकेफ़ा तेलु तोना आहु",
+       "Manaña traik'efa telo taona zaho",
+       "मानाञा ट्रैकेफ़ा तेलु तोना ज़ाहु",
        "मुझे तीन साल का अनुभव है।",
        "S"
       ],
@@ -2744,8 +2744,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Niasa tany Delhi aho",
-       "नियासा तान्य देल्ही आहु",
+       "Niasa tany Delhi zaho",
+       "नियासा तान्य देल्ही ज़ाहु",
        "मैंने दिल्ली में काम किया।",
        "S"
       ],
@@ -2762,8 +2762,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila asa tsaratsara kokoa aho",
-       "मीला आसा त्सारात्सारा कुकोआ आहु",
+       "Mila asa tsaratsara kokoa zaho",
+       "मीला आसा त्सारात्सारा कुकोआ ज़ाहु",
        "मुझे बेहतर नौकरी चाहिए।",
        "S"
       ],
@@ -2774,20 +2774,20 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Ia, efa manambady aho",
-       "इया, एफ़ा मानाम्बादि आहु",
+       "Ia, efa manambady zaho",
+       "इया, एफ़ा मानाम्बादि ज़ाहु",
        "हाँ, मैं शादीशुदा हूँ।",
        "S"
       ],
       [
-       "Manaña zanaka roa aho",
-       "मानाञा ज़ानाका रोआ आहु",
+       "Manaña zanaka roa zaho",
+       "मानाञा ज़ानाका रोआ ज़ाहु",
        "मेरे दो बच्चे हैं।",
        "S"
       ],
       [
-       "Afaka manomboka avy hatrany aho",
-       "आफ़ाका मानुम्बुका आवि हाट्रान्य आहु",
+       "Afaka manomboka avy hatrany zaho",
+       "आफ़ाका मानुम्बुका आवि हाट्रान्य ज़ाहु",
        "मैं तुरंत शुरू कर सकता हूँ।",
        "S"
       ],
@@ -2809,14 +2809,14 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Afaka mamaky sary aho",
-       "आफ़ाका मामाकि सारि आहु",
+       "Afaka mamaky sary zaho",
+       "आफ़ाका मामाकि सारि ज़ाहु",
        "मैं ड्रॉइंग पढ़ सकता हूँ।",
        "S"
       ],
       [
-       "Afaka mampiasa ity milina ity aho",
-       "आफ़ाका माम्पियासा ईति मीलीना ईति आहु",
+       "Afaka mampiasa ity milina ity zaho",
+       "आफ़ाका माम्पियासा ईति मीलीना ईति ज़ाहु",
        "मैं यह मशीन चला सकता हूँ।",
        "S"
       ],
@@ -2827,20 +2827,20 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Manaña fahazoan-dàlaña mamily aho",
-       "मानाञा फ़ाहाज़ोआन-दालाञा मामीलि आहु",
+       "Manaña fahazoan-dàlaña mamily zaho",
+       "मानाञा फ़ाहाज़ोआन-दालाञा मामीलि ज़ाहु",
        "मेरे पास ड्राइविंग लाइसेंस है।",
        "S"
       ],
       [
-       "Haingaña ianatra aho",
-       "हैंगाञा इयानाट्रा आहु",
+       "Haingaña ianatra zaho",
+       "हैंगाञा इयानाट्रा ज़ाहु",
        "मैं जल्दी सीखता हूँ।",
        "S"
       ],
       [
-       "Marina sy mazoto aho",
-       "मारीना सि माज़ुतु आहु",
+       "Marina sy mazoto zaho",
+       "मारीना सि माज़ुतु ज़ाहु",
        "मैं ईमानदार और मेहनती हूँ।",
        "S"
       ],
@@ -2851,8 +2851,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Ia, afaka miasa amin'ny alina aho",
-       "इया, आफ़ाका मियासा आमीन्न्य आलीना आहु",
+       "Ia, afaka miasa amin'ny alina zaho",
+       "इया, आफ़ाका मियासा आमीन्न्य आलीना ज़ाहु",
        "हाँ, मैं रात में काम कर सकता हूँ।",
        "S"
       ],
@@ -2863,8 +2863,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Ia, afaka mandeha na aia na aia aho",
-       "इया, आफ़ाका मान्देहा ना ऐआ ना ऐआ आहु",
+       "Ia, afaka mandeha na aia na aia zaho",
+       "इया, आफ़ाका मान्देहा ना ऐआ ना ऐआ ज़ाहु",
        "हाँ, मैं कहीं भी जा सकता हूँ।",
        "S"
       ],
@@ -2917,8 +2917,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Tsy handisoaña anao aho",
-       "त्सि हान्दीसोआञा आनो आहु",
+       "Tsy handisoaña anao zaho",
+       "त्सि हान्दीसोआञा आनो ज़ाहु",
        "मैं आपको निराश नहीं करूँगा।",
        "S"
       ]
@@ -2934,14 +2934,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Miantso avy any Patna aho",
-       "मियान्त्सु आवि आन्य पात्ना आहु",
+       "Miantso avy any Patna zaho",
+       "मियान्त्सु आवि आन्य पात्ना ज़ाहु",
        "मैं पटना से बोल रहा हूँ।",
        "S"
       ],
       [
-       "Afaka miresaka amin'ny mpitantaña aho va",
-       "आफ़ाका मीरेसाका आमीन्न्य म्पीतान्ताञा आहु वा",
+       "Afaka miresaka amin'ny mpitantaña zaho va",
+       "आफ़ाका मीरेसाका आमीन्न्य म्पीतान्ताञा ज़ाहु वा",
        "क्या मैं मैनेजर से बात कर सकता हूँ?",
        "S"
       ],
@@ -2976,8 +2976,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Te-hahalala ny sisa volako aho",
-       "ते-हाहालाला न्य सीसा वुलाकु आहु",
+       "Te-hahalala ny sisa volako zaho",
+       "ते-हाहालाला न्य सीसा वुलाकु ज़ाहु",
        "मुझे अपना बैलेंस जानना है।",
        "S"
       ],
@@ -2994,8 +2994,8 @@ window.KKB_DATA = {
        "L"
       ],
       [
-       "Ren'ao va aho",
-       "रेनो वा आहु",
+       "Ren'ao va zaho",
+       "रेनो वा ज़ाहु",
        "क्या आप मुझे सुन पा रहे हैं?",
        "S"
       ],
@@ -3119,8 +3119,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Manaña vola madinika aho",
-       "मानाञा वुला मादीनीका आहु",
+       "Manaña vola madinika zaho",
+       "मानाञा वुला मादीनीका ज़ाहु",
        "मेरे पास खुले पैसे हैं।",
        "S"
       ],
@@ -3184,14 +3184,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mpanao fandrafetaña vy aho",
-       "म्पानो फ़ान्ड्राफ़ेताञा वि आहु",
+       "Mpanao fandrafetaña vy zaho",
+       "म्पानो फ़ान्ड्राफ़ेताञा वि ज़ाहु",
        "मैं वेल्डर हूँ।",
        "S"
       ],
       [
-       "Mpanampy aho",
-       "म्पानाम्पि आहु",
+       "Mpanampy zaho",
+       "म्पानाम्पि ज़ाहु",
        "मैं हेल्पर हूँ।",
        "S"
       ],
@@ -3202,14 +3202,14 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila elektroda aho",
-       "मीला एलेक्ट्रुदा आहु",
+       "Mila elektroda zaho",
+       "मीला एलेक्ट्रुदा ज़ाहु",
        "मुझे इलेक्ट्रोड चाहिए।",
        "S"
       ],
       [
-       "Mila arovan-tava fandrafetaña vy aho",
-       "मीला आरुवान-तावा फ़ान्ड्राफ़ेताञा वि आहु",
+       "Mila arovan-tava fandrafetaña vy zaho",
+       "मीला आरुवान-तावा फ़ान्ड्राफ़ेताञा वि ज़ाहु",
        "मुझे वेल्डिंग मास्क चाहिए।",
        "S"
       ],
@@ -3262,8 +3262,8 @@ window.KKB_DATA = {
        "S"
       ],
       [
-       "Mila olona iray hafa aho",
-       "मीला उलुना ईराइ हाफ़ा आहु",
+       "Mila olona iray hafa zaho",
+       "मीला उलुना ईराइ हाफ़ा ज़ाहु",
        "मुझे एक और आदमी चाहिए।",
        "S"
       ],
@@ -3313,7 +3313,7 @@ window.KKB_DATA = {
       "ऐज़ ईनौ नु मीस"
      ],
      [
-      "Manana olana kely aho.",
+      "Manana olana kely zaho.",
       "मनन उलन केलि अहु।"
      ],
      [
