@@ -63,6 +63,7 @@ function expandLang(L, B, G, words) {
     y.aawaz_udaharan = "";       /* अंग्रेज़ी उदाहरण non-en में नहीं — शब्द-कार्ड ख़ुद उदाहरण हैं */
     if (x.u === "E" || x.u === "Q" || x.u === "X") y.dhyan = ""; /* अंग्रेज़ी-विशेष ध्यान-पंक्तियाँ */
     const LT = LETTER_TABLES[L.code]; if (LT && LT[x.u]) { y.naam = LT[x.u][0]; y.aawaz = LT[x.u][1]; } /* 29-Oct: भाषा का अपना नाम और असली आवाज़ */
+    else if (B.script === "latin" && L.code !== "en" && !LT && aw) y.naam = aw; /* 29-Oct: अपनी अक्षर-तालिका न हो तो अंग्रेज़ी नाम (ए, बी) नहीं — अक्षर की असली आवाज़ ही उसका नाम */
     return y;
   });
   const extras = (L.extra || []).map(ch => {
@@ -99,7 +100,8 @@ function makeParichay(L, X, B) {
   p.push("यह बाएँ से दाएँ लिखी जाती है — हिंदी की तरह ही। पर ऊपर की रेखा (शिरोरेखा) नहीं होती।");
   const LTp = LETTER_TABLES[L.code];
   if (LTp && LTp.A && LTp.A[0] !== "ए") p.push("अक्षरों के नाम यहाँ " + L.hi + " के अपने ढंग से दिए हैं (जैसे A = " + LTp.A[0] + ", B = " + LTp.B[0] + ")। हर अक्षर के साथ उसकी असली आवाज़ भी लिखी है।");
-  else p.push("अक्षरों के नाम यहाँ भारत में प्रचलित अंग्रेज़ी-ढंग से दिए हैं (ए, बी, सी)। " + L.hi + " बोलने वाले इन्हें अपने ढंग से भी पुकार सकते हैं — असली काम की चीज़ अक्षर की आवाज़ है, जो शब्दों से आती है।");
+  else if (LTp) p.push("अक्षरों के नाम यहाँ भारत में प्रचलित अंग्रेज़ी-ढंग से दिए हैं (ए, बी, सी)। " + L.hi + " बोलने वाले इन्हें अपने ढंग से भी पुकार सकते हैं — असली काम की चीज़ अक्षर की आवाज़ है, जो शब्दों से आती है।");
+  else p.push("हर भाषा में अक्षरों के नाम अलग होते हैं — यहाँ हर अक्षर को " + L.hi + " में उसकी असली आवाज़ से पहचाना गया है, जो इसी कोर्स के शब्दों से निकाली गई है।");
   p.push("हर अक्षर की आवाज़ नीचे इसी कोर्स के असली " + L.hi + " शब्दों से दिखाई है" + (X.swar.length ? " — स्वर: " + X.swar.join(" ") + "।" : "।"));
   return p;
 }
@@ -297,7 +299,14 @@ function check(name, content, R) {
 
 /* ---- build ---- */
 function build(L) {
-  const B = require(path.join(__dirname, "data", "lipi", L.script + "_base.js"));
+  const B0 = require(path.join(__dirname, "data", "lipi", L.script + "_base.js"));
+  /* 29-Oct: एक लिपि, कई भाषाएँ — भाषा अपना परिचय/अंक दे सकती है, और दूसरी भाषा के शब्द (जैसे जापानी काना-शब्द ऐनू पर) न आएँ */
+  const B = Object.assign({}, B0);
+  if (L.parichay) B.parichay = L.parichay;
+  if ("ank" in L) B.ank = L.ank;
+  if ("ankNative" in L) B.ankNative = L.ankNative;
+  if (L.noBaseWords) { B.letters = B0.letters.map(x => Object.assign({}, x, { shabd: [] })); delete B.wordSrc; }
+  if (L.clearDhyan) B.letters = B.letters.map(x => Object.assign({}, x, { dhyan: "" }));
   const G = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "lipi", "glyphs_" + L.script + ".json"), "utf8"));
   const words = loadKKB(L.code);
   const out = "courses/hi/bhasha/" + L.slug + "/lipi/index.html";
