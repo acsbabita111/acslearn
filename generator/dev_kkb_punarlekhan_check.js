@@ -19,6 +19,7 @@ function total(code) { const A = load("kkb_" + code + "_data.js"), B = load("kkb
 let F = 0;
 for (const c of P.order) { const L = P.langs[c], src = L.source, done = L.done || {}; let cnt = 0;
   for (const [lv, fk] of [["L1", "kkb_"], ["L2", "kkb2_"]]) { const ranges = done[lv + "_items"] || []; if (!ranges.length) continue;
+    if (L.mode === "sudhar") { /* 29-Oct: सुधार (नक़ल नहीं) — पुराने पाठ से तुलना सिर्फ़ जानकारी के लिए */ const a0 = items(load(fk + c + "_data.js")); const OLDF = path.join(ROOT, "generator/data/punarlekhan", c, lv + "_purana_29Oct.json"); if (fs.existsSync(OLDF)) { const OL = JSON.parse(fs.readFileSync(OLDF, "utf8")); let ch = 0, t0 = 0; for (const [s, e] of ranges) for (let i = s; i < e; i++) { t0++; if (n(a0[i][0]) !== n(OL[i])) ch++; } console.log("🔧 " + c + " " + lv + ": सुधार — " + ch + "/" + t0 + " वाक्य बदले"); } cnt += ranges.reduce((x, r) => x + r[1] - r[0], 0); continue; }
     const a = items(load(fk + c + "_data.js")), b = items(load(fk + src + "_data.js")); let same = 0, tot = 0, mk = 0;
     for (const [s, e] of ranges) for (let i = s; i < e; i++) { tot++; if (n(a[i][0]) === n(b[i][0])) same++; const tk = toks(a[i][0]); for (const w of (MARK[src] || [])) if (tk.includes(w)) mk++; }
     cnt += tot; const r = same / tot;
