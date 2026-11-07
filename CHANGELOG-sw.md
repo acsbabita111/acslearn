@@ -1,6 +1,8 @@
 # CHANGELOG-sw.md — sw.js version-इतिहास
 (13-Sep ऑडिट H7 नियम: नया इतिहास यहाँ दर्ज हो; v705 तक की पुरानी पंक्तियाँ sw.js की शीर्ष-टिप्पणी में हैं — वहाँ से हटाई नहीं गईं।)
 
+v815 (07-Nov-2026): तिब्बती (bo) v3.0 पूरा पुनर्लेखन — स्तर-1 500 + स्तर-2 1,650 वाक्य मानक (ल्हासा) तिब्बती में, नियम-इंजन से; ज़ोंगखा से हूबहू 54.6% → 0.3%; उच्चारण-स्तंभ अब ल्हासा-बोली का (पहले लिपि-नक़ल); 469 वाक्य अनुमान-दर्जे — मूल-वक्ता जाँच बाक़ी; कोर्स-पेज पर हरी 'पुनर्लेखन पूरा' पट्टी; मास्टर-दर्पण v4.1 🏁
+
 v814 (07-Nov-2026): module-सफ़ाई — 110 kkb L1 data-फ़ाइलों का clone-युग बासी "Surjapuri/Angika/truncation for Work" label → अपनी भाषा का en_name (UI-अदृश्य metadata, content अछूता); dev_kkb_kachra_audit v1.5 — (6) modLeak fail-closed पहरा, जुड़वाँ-छूट MOD_ALLOW (kal)। [नोट: v770-v813 की पंक्तियाँ यहाँ दर्ज नहीं हुई थीं — backfill-होल दर्ज, sw.js शीर्ष-टिप्पणी/Addendums में इतिहास सुरक्षित]
 
 v769 (26-Oct-2026): "पहला कोड" (pl-0, SE025) — पूरा कोर्स पहली बार: 218 पाठ, 24 अध्याय (courses/hi/first-code/); course-lesson.css v1.2 — pre.pl-code / pre.pl-err / pre.pl-sample डिब्बे (सिर्फ़ इन class पर, बाक़ी कोर्स अछूते); courses_data.js में SE025 (218 पाठ); robot dev_pl_code_check v1.7 (+ कोर्स-विरासत पहरा) · चित्रमय मुख्य पन्ना (Course+FAQ schema) · अभ्यास-पुस्तिका (release workbook-first-code, 28 PDF) · हर पन्ने पर og/twitter/hreflang + og-छवि assets/og/first-code.png · dev_pl0_seo_check v1.0

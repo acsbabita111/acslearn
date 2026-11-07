@@ -1,7 +1,7 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v814'; // 07-Nov module-सफ़ाई: 110 kkb data-फ़ाइलों का clone-युग "Surjapuri/Angika for Work" label अपनी भाषा के en_name से (UI-अदृश्य metadata; kachra-audit v1.5 modLeak-पहरा); kkb data cache-first
+const CACHE_VERSION = 'v815'; // 07-Nov module-सफ़ाई: 110 kkb data-फ़ाइलों का clone-युग "Surjapuri/Angika for Work" label अपनी भाषा के en_name से (UI-अदृश्य metadata; kachra-audit v1.5 modLeak-पहरा); kkb data cache-first
 // पिछला 'v812'; 31-Oct kkb (काम की भाषा) संथाली ओल-चिकी संस्करण (Founder-फ़ैसला): 2,150 वाक्यों का भाषा-स्तंभ ओल-चिकी, उच्चारण देवनागरी + kkb.css/kkb2.css ओल-चिकी फ़ॉन्ट — kkb data cache-first
 // पिछला 'v811'; 31-Oct kkb (काम की भाषा) संथाली: 273 वाक्यों में संथाली रूप (कामी, हें, माहा, गोनोङ, सेंगेल, बेस, होर, ऊब) — kkb data cache-first
 // पिछला 'v810'; 30-Oct kkb (काम की भाषा) कोमोरियन: maji → madji (शिंगाज़िजा) — kkb data cache-first
