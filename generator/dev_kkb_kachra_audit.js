@@ -1,4 +1,5 @@
-/* generator/dev_kkb_kachra_audit.js — v1.4 (29-Oct-2026: (5) chhadm% — छद्म-हिंदी पहरा: उच्चारण-खाने [1] में हिंदी-अर्थ [2] के शब्द (रूप/व्यंजन-ढाँचा मिलान) — विदेशी लिपि में लिखी हिंदी व 'badan/janmatithi'-ठूँसा पकड़ना; हिंद-ईरानी पड़ोसी छूट)
+/* generator/dev_kkb_kachra_audit.js — v1.5 (07-Nov-2026: (6) modLeak — L1/L2 data के "module"-खाने में दूसरी भाषा का en_name या truncation-कचरा (clone-युग का "Surjapuri for Work" ×103 इसी दिन बंद); en_name-घर = build_specials KKB2_LANGS; जुड़वाँ-ISO छूट MOD_ALLOW में दर्ज)
+   पिछला: v1.4 (29-Oct-2026: (5) chhadm% — छद्म-हिंदी पहरा: उच्चारण-खाने [1] में हिंदी-अर्थ [2] के शब्द (रूप/व्यंजन-ढाँचा मिलान) — विदेशी लिपि में लिखी हिंदी व 'badan/janmatithi'-ठूँसा पकड़ना; हिंद-ईरानी पड़ोसी छूट)
    पिछला: v1.3 (09-Oct-2026: xClone → massShare≥10 — बोली-परिवार की जायज़ साझेदारी छूट, Addendum v7.0 पड़ाव-द का औज़ार)
    271-कचरा संसार का मशीन-नाप — हर भाषा पर 4 बीमारियाँ:
    (1) hiClone%  — item[0] में देवनागरी/हिंदी-घुसपैठ (ग़ैर-देव भाषाओं में)
@@ -23,6 +24,35 @@ function load(f, k) { const w = {}; try { new Function("window", "self", "module
 function items(D) { const a = []; if (D && D.weeks) D.weeks.forEach(w => w.days.forEach(d => (d.items || []).forEach(it => a.push(it)))); return a; }
 
 const codes = listCodes();
+/* (6) modLeak v1.5 — module-खाना: "ACS काम की भाषा — <X> for Work" का X या तो अपनी भाषा (en_name/स्वनाम,
+   substring-रिश्ता काफ़ी) हो, या किसी और का नाम कभी नहीं। जुड़वाँ-ISO (एक भाषा, दो कोड) की दर्ज-छूट: */
+const MOD_ALLOW = { kal: "Kalaallisut" }; /* kal↔kl = Greenlandic/Kalaallisut — मान्य जुड़वाँ (30-Oct xlsx) */
+function modLeakScan() {
+  const sp = fs.readFileSync(path.join(ROOT, "generator/build_specials.js"), "utf8");
+  const EN = {}; let mo;
+  const re = /code:\s*"([a-z0-9]+)"\s*,\s*slug:\s*"[^"]*"\s*,\s*en_name:\s*"([^"]+)"/g;
+  while ((mo = re.exec(sp))) EN[mo[1]] = mo[2];
+  const NAMES = new Set(Object.values(EN));
+  const files = fs.readdirSync(path.join(ROOT, "assets")).filter(f => /^kkb2?_[a-z0-9]+_data\.js$/.test(f));
+  let bad = 0;
+  for (const f of files) {
+    const code = f.match(/^kkb2?_([a-z0-9]+)_data\.js$/)[1];
+    const t = fs.readFileSync(path.join(ROOT, "assets", f), "utf8").slice(0, 6000);
+    const m2 = t.match(/"module"\s*:\s*"ACS काम की भाषा — ([^"]+) for Work"/);
+    if (!m2) continue;
+    const got = m2[1], want = EN[code];
+    if (!want) continue;
+    if (MOD_ALLOW[code] === got) continue;
+    const sub = got.indexOf(want) >= 0 || want.indexOf(got) >= 0;
+    const otherName = NAMES.has(got) && got !== want && !sub;
+    const trunc = got.length <= 4 && /^[a-z]+$/.test(got);
+    if (otherName || trunc) { bad++; console.log("  ⛔ modLeak " + code + ": \"" + got + "\" (अपेक्षित: " + want + ")"); }
+  }
+  console.log("(6) modLeak: " + bad + (bad ? " — FAIL" : " ✓"));
+  return bad;
+}
+const MODLEAK_BAD = modLeakScan();
+
 const hiMaster = new Set(items(load("assets/kkb2_data.js", "KKB2_DATA")).map(it => it[2]));
 /* देव-भाषा सूची robot से (एकमात्र घर) */
 const robotSrc = fs.readFileSync(path.join(ROOT, "generator/dev_kkb2_check.js"), "utf8");
@@ -90,4 +120,5 @@ const csv = ["code,sentences,hiClone_pct,xClone_pct,dictBad_pct,tokenDiversity_p
   .concat(rows.map(r => [r.c, r.n, r.hiP, r.xP, r.dictBad, r.shallow, r.sev, r.chP].join(","))).join("\n");
 fs.writeFileSync("/tmp/kachra_queue.csv", csv);
 console.log("क़तार-CSV: /tmp/kachra_queue.csv (severity घटते क्रम)");
-console.log("🏁 dev_kkb_kachra_audit v1.4");
+if (MODLEAK_BAD) { console.log("⛔ modLeak FAIL — upload नहीं"); process.exit(1); }
+console.log("🏁 dev_kkb_kachra_audit v1.5");

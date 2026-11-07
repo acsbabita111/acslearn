@@ -2,7 +2,7 @@
    पूर्ण पुनर्लेखन: बाइबल-समानांतर शब्द + ⬜ व्याकरण (देखें bible/); हिंदी-अर्थ स्तंभ मास्टर से हूबहू।
    AI-draft — मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
 window.KKB_DATA = {
- "module": "ACS काम की भाषा — Surjapuri for Work",
+ "module": "ACS काम की भाषा — Nahuatl for Work",
  "version": "3.0 (29-Oct-2026) — Founder-फ़ैसला (क): पुराना पाठ (नाहुआतल + ठूँसे हिंदी शब्द; कचरा-v1.4: 18%) निरस्त — नया: हुआस्तेका नाहुआतल बाइबल (BibleNLP/ebible nhwBl, 30,676 पद) ↔ हिंदी बाइबल Dice-मिलान: na · ta · tojuanti · no/mo/to · atl · ichaj · itoca · tlen · canque · amo · huan · ama · mostla · tonali · masehualme · miyac · cuali …; आधुनिक शब्द ACS स्पेनिश कोर्स से ऋण (मेक्सिको की असली बोलचाल-मिश्रण शैली) ⬜; क्रिया-रूप व वाक्य-क्रम ⬜; AI-draft, मूल-वक्ता जाँच अनिवार्य; गिनती मशीन से देखें (dev_kkb_check)",
  "weeks": [
   {

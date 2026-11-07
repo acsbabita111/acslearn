@@ -2,7 +2,7 @@
    पूर्ण पुनर्लेखन: बाइबल-समानांतर शब्द + ⬜ व्याकरण (देखें bible/); हिंदी-अर्थ स्तंभ मास्टर से हूबहू।
    AI-draft — मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
 window.KKB_DATA = {
- "module": "ACS काम की भाषा — Surjapuri for Work",
+ "module": "ACS काम की भाषा — Thadou for Work",
  "version": "3.0 (29-Oct-2026) — Founder-फ़ैसला (क): पुराना पाठ (थाडौ + ठूँसे हिंदी शब्द) निरस्त — नया: थाडौ बाइबल (BibleNLP/ebible tczchongthu, 30,920 पद) ↔ हिंदी बाइबल Dice-मिलान (keima · nangma · amahi · keiho · ka/na/a · hi · ahi · ham · hoiya · tuni · twi · apha · insunga · min …) + आधुनिक शब्द ACS अंग्रेज़ी कोर्स से ऋण (पूर्वोत्तर भारत की असली बोलचाल-मिश्रण शैली) ⬜; क्रिया-रूप ⬜; AI-draft, मूल-वक्ता जाँच अनिवार्य; गिनती मशीन से देखें (dev_kkb_check)",
  "weeks": [
   {

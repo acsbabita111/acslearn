@@ -1,7 +1,7 @@
 /* KKB L1 — ACS काम की भाषा · नुएर (Nuer) · v2.0 (20-Oct-2026, काम-लाल10)
    असली Latin-लिपि तीन-स्तंभ — AI-draft, मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
 window.KKB_DATA = {
- "module": "ACS काम की भाषा — Angika for Work",
+ "module": "ACS काम की भाषा — Nuer for Work",
  "version": "2.0 (20-Oct, लाल10 — असली Nuer Latin, AI-draft मूल-वक्ता जाँच बाक़ी)",
  "lang": {
   "code": "nus",

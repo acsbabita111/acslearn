@@ -2,7 +2,7 @@
    पूर्ण पुनर्लेखन: असली हक्का (सरलीकृत हान-अक्षर) + देवनागरी-उच्चारण; हिंदी-अर्थ स्तंभ मास्टर से हूबहू।
    AI-draft — मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
 window.KKB_DATA = {
- "module": "ACS काम की भाषा — Surjapuri for Work",
+ "module": "ACS काम की भाषा — Hakka for Work",
  "version": "2.0 (20-Oct, लाल10 — असली Hakka Hani, AI-draft मूल-वक्ता जाँच बाक़ी)",
  "weeks": [
   {

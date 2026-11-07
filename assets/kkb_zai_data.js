@@ -2,7 +2,7 @@
    पूर्ण पुनर्लेखन: बाइबल-समानांतर शब्द + ⬜ व्याकरण (देखें bible/); हिंदी-अर्थ स्तंभ मास्टर से हूबहू।
    AI-draft — मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
 window.KKB_DATA = {
- "module": "ACS काम की भाषा — Surjapuri for Work",
+ "module": "ACS काम की भाषा — Zapotec for Work",
  "version": "3.0 (29-Oct-2026) — Founder-फ़ैसला (क): पुराना पाठ (ज़ापोटेक + ठूँसे हिंदी शब्द) निरस्त — नया: इस्थमस ज़ापोटेक नया नियम (BibleNLP/ebible zaiNT) ↔ हिंदी बाइबल Dice-मिलान (naa · lii · laabe · laanu · stinu · qué · ne · paraa · yanadxí · nisa · galán · ralidxi · lá …) + आधुनिक शब्द ACS स्पेनिश कोर्स से ऋण (मेक्सिको की असली बोलचाल-मिश्रण शैली) ⬜; वाक्य-क्रम (VSO) व क्रिया-रूप ⬜; AI-draft, मूल-वक्ता जाँच अनिवार्य; गिनती मशीन से देखें (dev_kkb_check)",
  "weeks": [
   {

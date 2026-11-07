@@ -2,7 +2,7 @@
    पूर्ण पुनर्लेखन: बाइबल-समानांतर शब्द + ⬜ व्याकरण (देखें bible/); हिंदी-अर्थ स्तंभ मास्टर से हूबहू।
    AI-draft — मूल-वक्ता जाँच बाक़ी। गिनती मशीन से देखें (dev_kkb2_check)। */
 window.KKB_DATA = {
- "module": "ACS काम की भाषा — Surjapuri for Work",
+ "module": "ACS काम की भाषा — Pitjantjatjara for Work",
  "version": "3.0 (29-Oct-2026) — Founder-फ़ैसला (क): पुराना पाठ 'छद्म-हिंदी' (कचरा-v1.4) निरस्त — नया: पिटजंटजारा बाइबल (BibleNLP/ebible pjt, 10,956 पद) ↔ हिंदी बाइबल Dice-मिलान: ngayulu · nganaṉa · nyura · paluṟu · ngayuku · ini · wiya · kuwari · mungawinki · tjiṉṯu · waṟka · aṉangu …; आधुनिक शब्द अंग्रेज़ी/हिंदी ऋण ⬜; क्रिया = बाइबल आदेश-रूप, काल-भेद ⬜; AI-draft, व्याकरण अपुष्ट, मूल-वक्ता जाँच अनिवार्य; गिनती मशीन से देखें (dev_kkb_check)",
  "weeks": [
   {
