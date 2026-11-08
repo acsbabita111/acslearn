@@ -102,7 +102,16 @@
 
 <script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
 <script src="/assets/courses_data.js"></script>
-<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var seen={},R=[];A.forEach(function(c){if(!c||!c.url)return;var u=String(c.url);if(u.indexOf("/bhasha/")>-1||u.indexOf("/courses/")!==0)return;if(seen[u])return;seen[u]=1;R.push(c);});var box=document.getElementById("hnList");if(box&&R.length){var h="";R.forEach(function(c){var nm=(c.t2&&c.t2[0])?c.t2[0]:(c.name_hi||"");h+='<a href="'+c.url+'" style="display:block;margin:8px auto;max-width:620px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A;border-radius:12px;padding:12px 14px;text-decoration:none;font-size:18px;font-weight:700">'+nm+' <span style="color:#2E7D32;font-size:16px">('+(c.lessons||"")+' पाठ · मुफ़्त)</span></a>';});box.innerHTML=h;}}catch(e){}})();</script>
+<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var seen={},R=[];A.forEach(function(c){if(!c||!c.url)return;var u=String(c.url);if(u.indexOf("/bhasha/")>-1||u.indexOf("/courses/")!==0)return;if(seen[u])return;seen[u]=1;R.push(c);});
+/* Founder-क्रम (08-Nov): 12 कोर्स इसी क्रम में; नया कोर्स जुड़े तो सूची-अंत में अपने-आप */
+var ORD=["digital-mitra-basic","first-code","/digital/ecom","/digital/dca","ai-digital-master","vocational/printer","/welding/","two-wheeler","four-wheeler-driver","mushroom-cultivation-marketing","kaithi-lipi","tirhuta-lipi"];
+R.sort(function(a,b){function k(c){var u=String(c.url);for(var i=0;i<ORD.length;i++){if(u.indexOf(ORD[i])>-1)return i;}return 99;}return k(a)-k(b);});
+var box=document.getElementById("hnList");if(box&&R.length){var h="";
+/* 3D रंगीन बटन — नीला/सुनहरा/हरा बारी-बारी (कार्ड-रूप नियम) */
+var TH=[["#1565C0","#0B1F3A","#fff","rgba(255,255,255,.88)"],["#F9A825","#c47f12","#0B1F3A","#5a4100"],["#2E7D32","#1b5e20","#fff","rgba(255,255,255,.88)"]];
+R.forEach(function(c,i){var nm=(c.t2&&c.t2[0])?c.t2[0]:(c.name_hi||"");var t=TH[i%3];
+h+='<a href="'+c.url+'" style="display:block;margin:12px auto;max-width:620px;background:'+t[0]+';color:'+t[2]+';border:0;border-bottom:5px solid '+t[1]+';border-radius:14px;padding:14px 16px;text-decoration:none;font-size:18px;font-weight:800;box-shadow:0 4px 12px rgba(11,31,58,.22);text-align:center">'+nm+' <span style="display:block;margin-top:4px;color:'+t[3]+';font-size:16px;font-weight:700">('+(c.lessons||"")+' पाठ · मुफ़्त)</span></a>';});
+box.innerHTML=h;}}catch(e){}})();</script>
 <script src="/assets/acs-react.js" defer></script>
 </body>
 </html>
