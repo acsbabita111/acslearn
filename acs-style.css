@@ -173,3 +173,9 @@
   text-align:center;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35);
   display:flex;align-items:center;justify-content:center}
 .udy-fbtn:hover{background:#1565C0}
+
+/* ── hero CTA v263 (09-Nov, Founder): 2×2 — ऊपर 2 सफ़ेद, नीचे 2 हरे;
+   चारों की कुल चौड़ाई = गोल्डन-pill (दोनों width:100% = .hero-in);
+   बटन बड़े। HTML-क्रम white,white,green,green से पंक्तियाँ अपने-आप। ── */
+.cta-row{ display:grid; grid-template-columns:1fr 1fr; width:100%; }
+.cta-row .btn{ width:100%; font-size:clamp(17px,3.3vw,25px); padding:20px 10px; line-height:1.35; }
