@@ -1,5 +1,12 @@
 /* ============================================================
-   /assets/aptitude-test.js — v1.4 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   /assets/aptitude-test.js — v2.1 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   v2.1 · 09-Nov-2026: H1 strings-table — दिखने वाली हर UI-पंक्ति अब
+   /assets/apt_strings.js (hi मास्टर) से S() द्वारा; दूसरी भाषा = overlay
+   (window.APT_LANG + /assets/apt_<कोड>.js: APT_STR.<कोड> UI + APT_TR
+   प्रश्न/कथा/MG-नाम)। हिंदी-रास्ते का render-व्यवहार byte-हूबहू वही
+   (A/B runtime-प्रमाण dev_anuvad_runtime_check.js)। अपवाद: फ़ाइल-न-खुलने
+   वाला error-संदेश जान-बूझकर hardcoded (वह ख़ुद फ़ाइल पर टिक नहीं सकता)।
+   v2.0 · 08-Nov-2026: app-mode (O*NET-शैली) — टेस्ट पूरे पर्दे पर।
    v1.4 · 22-Jul-2026: बैज-निशान (acs_apt_gate_v1) सक्रिय → झलक छिपे, सिर्फ़
    सूचना-पंक्ति दिखे — बैज वाला सीधे पूरा टेस्ट दे (Jio-नियम v3.7)।
    v1.3 · 20-Jul-2026: ↩ अब सीधे उसी dashboard-घर पर लौटाता है जहाँ से आए
@@ -18,6 +25,22 @@
 (function () {
   "use strict";
   var KEY = "acs_apt_v1";
+
+  /* ---- v2.1 भाषा-परत: hi मास्टर apt_strings.js से; overlay apt_<कोड>.js से ---- */
+  var LANG = (typeof window.APT_LANG === "string" && window.APT_LANG) ? window.APT_LANG : "hi";
+  var STRH = (window.APT_STR && window.APT_STR.hi) || null;
+  var STRL = (window.APT_STR && window.APT_STR[LANG]) || STRH;
+  var TR = (window.APT_TR && window.APT_TR.lang === LANG) ? window.APT_TR : null;
+  function S(k) {
+    if (STRL && STRL[k] != null) return STRL[k];
+    if (STRH && STRH[k] != null) return STRH[k];
+    return "";
+  }
+  function qTxt(q)      { var t = TR && TR.q && TR.q[q.id]; return (t && t.text) ? t.text : q.text; }
+  function optTxt(q, i) { var t = TR && TR.q && TR.q[q.id]; return (t && t.opts && t.opts[i] != null) ? t.opts[i] : q.opts[i].label; }
+  function kTitle(k)    { var t = TR && TR.k && TR.k[k.id]; return (t && t.title) ? t.title : k.title; }
+  function kText(k)     { var t = TR && TR.k && TR.k[k.id]; return (t && t.text) ? t.text : k.text; }
+  function mgN(m)       { return (TR && TR.mg && TR.mg[m]) ? TR.mg[m] : MG[m].n; }
 
   /* बैज वालों को झलक नहीं — सीधे पूरा टेस्ट (Jio-नियम v3.7 · 22-Jul-2026) */
   try {
@@ -59,7 +82,7 @@
     if (b) BACK = b;
   })();
   var FACES = ["😖", "🙁", "😐", "🙂", "😍"];
-  var FACE_TXT = ["बिल्कुल नहीं", "कम", "जानता नहीं", "पसंद", "बहुत पसंद"];
+  var FACE_TXT = S("faces") || [];
 
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -67,7 +90,7 @@
   var D = window.APT_DATA, ART = window.APT_ART, MG = window.MG_NAMES;
   var box = $("apt-box");
   if (!box) return;
-  if (!D || !ART || !MG) {
+  if (!D || !ART || !MG || !STRH) {
     box.innerHTML = '<div class="apt-note">⚠️ टेस्ट की फ़ाइलें नहीं खुल पाईं। पन्ना दोबारा खोलें या बाद में आएँ।</div>';
     return;
   }
@@ -97,7 +120,7 @@
 
   function art(id, cls) {
     if (ART[id]) return '<div class="' + (cls || "apt-img") + '">' + ART[id] + "</div>";
-    return '<div class="apt-note">🖼️ चित्र नहीं खुला — प्रश्न शब्दों से पूरा है।</div>';
+    return '<div class="apt-note">' + S("imgFail") + '</div>';
   }
 
   /* ---- v2.0 app-mode (O*NET-शैली): टेस्ट पूरे पर्दे पर ---- */
@@ -113,11 +136,11 @@
     appOff();
     var started = (ST.pos > 0 || (ST.ans && Object.keys(ST.ans).length > 0));
     box.innerHTML = '<div class="apt-gate">' +
-      '<p class="apt-q">🆓 मुफ़्त झलक — 24 प्रश्न</p>' +
-      '<p>टेस्ट पूरे पर्दे पर खुलेगा — एक समय एक प्रश्न।</p>' +
-      '<p>बीच में बंद करें तो जवाब फ़ोन में बचे रहते हैं।</p>' +
+      '<p class="apt-q">' + S("gateTitle") + '</p>' +
+      '<p>' + S("gateL1") + '</p>' +
+      '<p>' + S("gateL2") + '</p>' +
       '<div class="apt-nav"><button class="apt-btn green" id="apt-open">' +
-      (started ? "▶ जारी रखें — प्रश्न " + qIndexAt(ST.pos) + " से" : "🚀 झलक शुरू करें") +
+      (started ? S("resumePre") + qIndexAt(ST.pos) + S("resumeFrom") : S("btnStart")) +
       "</button></div></div>";
     var b = $("apt-open");
     if (b) b.onclick = function () { ST.started = Date.now(); saveState(); appOn(); render(); };
@@ -136,15 +159,15 @@
     appOn();
     var step = flow[ST.pos], html = "";
     var qn = qIndexAt(ST.pos);
-    html += '<div class="apt-top"><span class="apt-prog">प्रश्न ' + qn + ' / ' + TOTAL_Q + '</span>' +
+    html += '<div class="apt-top"><span class="apt-prog">' + S("progQ") + qn + ' / ' + TOTAL_Q + '</span>' +
       '<span><a class="apt-back-dash" href="' + BACK + '">↩ Dashboard</a> ' +
-      '<button class="apt-x" id="apt-close" type="button">✖ बंद</button></span></div>';
+      '<button class="apt-x" id="apt-close" type="button">' + S("btnClose") + '</button></span></div>';
     html += '<div class="apt-bar"><i style="width:' + Math.round((qn - 1) * 100 / TOTAL_Q) + '%"></i></div>';
 
     if (step.kind === "k") {
       var k = step.k;
       html += '<div class="apt-katha">' + art(k.img) +
-        "<h3>📖 " + esc(k.title) + "</h3><p>" + esc(k.text) + "</p></div>";
+        "<h3>📖 " + esc(kTitle(k)) + "</h3><p>" + esc(kText(k)) + "</p></div>";
       html += navBtns(true);
       box.innerHTML = html; wireNav(true);
       var xk = $("apt-close");
@@ -155,10 +178,10 @@
 
     var q = step.q, a = ST.ans[q.id];
     if (q.type === "scale") {
-      html += '<div class="apt-q">' + esc(q.text) + "</div>" + art(q.img);
-      /* (28-Jul, Founder — विकल्प 2+4): तीन बटन + हिंदी; index 0/2/4 रखने से
+      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>" + art(q.img);
+      /* (28-Jul, Founder — विकल्प 2+4): तीन बटन; index 0/2/4 रखने से
          गिनती-नक़्शा (−5/0/+5) व 😐=0 की जाँच बिना बदले सही रहती है। */
-      var F3 = [ { f: 0, e: "👎", t: "पसंद नहीं" }, { f: 2, e: "😐", t: "पता नहीं" }, { f: 4, e: "👍", t: "पसंद है" } ];
+      var F3 = [ { f: 0, e: "👎", t: S("fNo") }, { f: 2, e: "😐", t: S("fDk") }, { f: 4, e: "👍", t: S("fYes") } ];
       html += '<div class="apt-faces">';
       for (var f = 0; f < 3; f++) {
         html += '<button type="button" class="apt-face' + (a && a.v === F3[f].f ? " on" : "") + '" data-f="' + F3[f].f + '" style="min-width:96px">' +
@@ -166,31 +189,31 @@
       }
       html += "</div>";
     } else if (q.type === "pick") {
-      html += '<div class="apt-q">' + esc(q.text) + "</div>";
+      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>";
       html += '<div class="apt-hint" id="apt-hint">' + pickHint(a) + "</div>";
       html += '<div class="apt-opts">';
       for (var i = 0; i < q.opts.length; i++) {
         var o = q.opts[i], cls = "";
         if (a && a.first === i) cls = " first"; else if (a && a.last === i) cls = " last";
         html += '<button type="button" class="apt-opt' + cls + '" data-i="' + i + '">' +
-          (o.img && ART[o.img] ? ART[o.img] : "") + esc(o.label) + pickTag(a, i) + "</button>";
+          (o.img && ART[o.img] ? ART[o.img] : "") + esc(optTxt(q, i)) + pickTag(a, i) + "</button>";
       }
       html += "</div>";
     } else if (q.type === "pair") {
-      html += '<div class="apt-q">' + esc(q.text) + "</div>";
+      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>";
       html += '<div class="apt-opts">';
       for (var j = 0; j < q.opts.length; j++) {
         var p = q.opts[j];
         html += '<button type="button" class="apt-opt' + (a && a.v === j ? " on" : "") + '" data-i="' + j + '">' +
-          (p.img && ART[p.img] ? ART[p.img] : "") + esc(p.label) + "</button>";
+          (p.img && ART[p.img] ? ART[p.img] : "") + esc(optTxt(q, j)) + "</button>";
       }
       html += "</div>";
     } else if (q.type === "story") {
-      html += '<div class="apt-q">' + esc(q.text) + "</div>" + art(q.img);
+      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>" + art(q.img);
       html += '<div class="apt-opts apt-story" style="grid-template-columns:1fr">';
       for (var s = 0; s < q.opts.length; s++) {
         html += '<button type="button" class="apt-opt' + (a && a.v === s ? " on" : "") + '" data-i="' + s + '">' +
-          esc(q.opts[s].label) + "</button>";
+          esc(optTxt(q, s)) + "</button>";
       }
       html += "</div>";
     }
@@ -203,13 +226,13 @@
   }
 
   function pickHint(a) {
-    if (!a || a.first == null) return "पहले वह दबाओ जो सबसे पहले करना चाहोगे।";
-    if (a.last == null) return "अब वह दबाओ जो सबसे कम करना चाहोगे।";
-    return "हो गया! बदलना हो तो किसी और पर दबाओ।";
+    if (!a || a.first == null) return S("hint1");
+    if (a.last == null) return S("hint2");
+    return S("hint3");
   }
   function pickTag(a, i) {
-    if (a && a.first === i) return '<span class="apt-tag">सबसे पहले</span>';
-    if (a && a.last === i) return '<span class="apt-tag">सबसे कम</span>';
+    if (a && a.first === i) return '<span class="apt-tag">' + S("tagFirst") + '</span>';
+    if (a && a.last === i) return '<span class="apt-tag">' + S("tagLast") + '</span>';
     return "";
   }
   function answered(q) {
@@ -221,9 +244,9 @@
 
   function navBtns(ok) {
     return '<div class="apt-nav">' +
-      (ST.pos > 0 ? '<button type="button" class="apt-btn ghost" id="apt-back">← पिछला</button>' : "") +
+      (ST.pos > 0 ? '<button type="button" class="apt-btn ghost" id="apt-back">' + S("btnBack") + '</button>' : "") +
       '<button type="button" class="apt-btn green" id="apt-next"' + (ok ? "" : " disabled") + ">" +
-      (ST.pos >= flow.length - 1 ? "🏁 नतीजा देखें" : "अगला →") + "</button></div>";
+      (ST.pos >= flow.length - 1 ? S("btnFinish") : S("btnNext")) + "</button></div>";
   }
 
   function wireNav() {
@@ -289,7 +312,7 @@
 
   function finish() {
     appOff();
-    ST.done = true; ST.doneAt = new Date().toLocaleDateString("hi-IN");
+    ST.done = true; ST.doneAt = new Date().toLocaleDateString(S("dateLocale") || "hi-IN");
     saveState(); renderResult();
   }
 
@@ -299,36 +322,36 @@
     for (m = 1; m <= 24; m++) rows.push({ m: m, s: r.sc[m] });
     rows.sort(function (a, b) { return b.s - a.s; });
     var max = Math.max(rows[0].s, 1);
-    var html = '<div class="apt-top"><span class="apt-prog">🏁 आपका नतीजा (' + esc(ST.doneAt || "") + ')</span>' +
+    var html = '<div class="apt-top"><span class="apt-prog">' + S("resHead") + esc(ST.doneAt || "") + ')</span>' +
       '<a class="apt-back-dash" href="' + BACK + '">↩ Dashboard</a></div>';
 
-    html += '<div class="apt-res-top"><h3>⭐ सबसे प्रबल रुचि: ' + MG[rows[0].m].e + " " + esc(MG[rows[0].m].n) + "</h3>";
-    html += "<p>आगे के मज़बूत क्षेत्र: ";
-    for (m = 1; m <= 3; m++) html += MG[rows[m].m].e + " " + esc(MG[rows[m].m].n) + (m < 3 ? " · " : "");
+    html += '<div class="apt-res-top"><h3>' + S("resStrong") + MG[rows[0].m].e + " " + esc(mgN(rows[0].m)) + "</h3>";
+    html += "<p>" + S("resNext");
+    for (m = 1; m <= 3; m++) html += MG[rows[m].m].e + " " + esc(mgN(rows[m].m)) + (m < 3 ? " · " : "");
     html += "</p></div>";
 
-    html += '<div class="apt-card"><h3 style="font-size:20px;margin:0 0 8px">📊 चौबीसों क्षेत्र — घटते क्रम में</h3>';
+    html += '<div class="apt-card"><h3 style="font-size:20px;margin:0 0 8px">' + S("res24") + '</h3>';
     for (m = 0; m < rows.length; m++) {
       var w = rows[m].s > 0 ? Math.round(rows[m].s * 100 / max) : 0;
-      html += '<div class="apt-row"><span class="nm">' + MG[rows[m].m].e + " " + esc(MG[rows[m].m].n) + '</span>' +
+      html += '<div class="apt-row"><span class="nm">' + MG[rows[m].m].e + " " + esc(mgN(rows[m].m)) + '</span>' +
         '<span class="tr"><i style="width:' + w + '%"></i></span><span class="sc">' + rows[m].s + "</span></div>";
     }
     html += "</div>";
 
     var uk = [], k2;
-    for (k2 in r.unknown) uk.push(MG[k2].e + " " + MG[k2].n);
+    for (k2 in r.unknown) uk.push(MG[k2].e + " " + mgN(k2));
     if (uk.length) {
-      html += '<div class="apt-card"><h3 style="font-size:20px;margin:0 0 8px">🔍 अनजान क्षेत्र</h3>' +
-        "<p>इनमें आपने 😐 चुना — यानी अभी जानते नहीं। इन्हें पहले खोजना अच्छा रहेगा।</p><p>";
+      html += '<div class="apt-card"><h3 style="font-size:20px;margin:0 0 8px">' + S("unkH") + '</h3>' +
+        "<p>" + S("unkP") + "</p><p>";
       for (m = 0; m < uk.length; m++) html += '<span class="apt-chip">' + esc(uk[m]) + "</span>";
       html += "</p></div>";
     }
 
-    html += '<div class="apt-note">📝 यह अभिरुचि की झलक है — योग्यता या पास होने का प्रमाण नहीं। यह शुरुआती दिशा है।</div>';
-    html += '<div class="apt-note">🎁 असली टेस्ट में और भी प्रश्न होंगे — बैज (Badge) के साथ मुफ़्त। प्रमाण पत्र (certificate-PDF) ₹125 में — मर्ज़ी हो तो लें, या न लें।</div>';
-    html += '<div class="apt-note">⏳ बैज व प्रमाण पत्र की सुविधा जल्द जुड़ेगी।</div>';
-    html += '<div class="apt-nav"><button type="button" class="apt-btn blue" id="apt-again">🔄 दोबारा टेस्ट दें</button>' +
-      '<a class="apt-btn ghost" style="text-align:center;text-decoration:none" href="/udyam/">🌍 950 उद्यम देखें</a></div>';
+    html += '<div class="apt-note">' + S("note1") + '</div>';
+    html += '<div class="apt-note">' + S("note2") + '</div>';
+    html += '<div class="apt-note">' + S("note3") + '</div>';
+    html += '<div class="apt-nav"><button type="button" class="apt-btn blue" id="apt-again">' + S("btnAgain") + '</button>' +
+      '<a class="apt-btn ghost" style="text-align:center;text-decoration:none" href="/udyam/">' + S("btnUdyam") + '</a></div>';
     box.innerHTML = html;
     $("apt-again").onclick = function () {
       ST = { pos: 0, ans: {}, done: false, started: Date.now() };

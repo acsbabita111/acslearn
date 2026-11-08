@@ -1,7 +1,7 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v823'  // 09-Nov 13 भाषा-होम v1.1 + universal v2.2 mirror-mode
+const CACHE_VERSION = 'v824'  // 09-Nov काम-अनुवाद-1: aptitude-test.js v2.1 (strings-table) + apt_strings.js + apt_en.js
 // पिछला 'v819'  // 08-Nov DMT lsn-quiz tap-इंजन (course-lesson.js v1.6 + css)
 // पिछला 'v818'; // 08-Nov करियर/टेस्ट दो-पेज बँटवारा: aptitude-test.js v2.0 + apt-session.js v1.3 (O*NET app-mode, पूरे पर्दे पर एक-एक प्रश्न) + aptitude-test.css app-mode — cache-first असेट
 // पिछला 'v817'; // 07-Nov module-सफ़ाई: 110 kkb data-फ़ाइलों का clone-युग "Surjapuri/Angika for Work" label अपनी भाषा के en_name से (UI-अदृश्य metadata; kachra-audit v1.5 modLeak-पहरा); kkb data cache-first

@@ -509,13 +509,19 @@ const APT_CONTENT =
 
 buildSpecial({
   out: "aptitude-test.html", langStrict: true,
+  /* v2.2 (09-Nov-2026, काम-अनुवाद-1): hi-en hreflang-जोड़ा + strings-table (apt_strings.js)।
+     English दर्पण-पेज /en/aptitude-test.html इसी generated पन्ने से build_mirror_apt.js बनाता है। */
   title: "अभिरुचि-टेस्ट दें — मुफ़्त झलक और पूरा 120-प्रश्न टेस्ट | अप्लाइड कंप्यूटर स्कूल",
   desc: "पूरे पर्दे पर एक-एक प्रश्न। मुफ़्त झलक बिना खाते के — जवाब आपके फ़ोन में। पूरी जानकारी और टॉप-10 तुलना करियर-पेज पर।",
-  head: ['<link rel="stylesheet" href="/assets/aptitude-test.css">'],
+  head: ['<link rel="stylesheet" href="/assets/aptitude-test.css">',
+    '<link rel="alternate" hreflang="hi" href="https://acslearn.com/aptitude-test.html">',
+    '<link rel="alternate" hreflang="en" href="https://acslearn.com/en/aptitude-test.html">',
+    '<link rel="alternate" hreflang="x-default" href="https://acslearn.com/aptitude-test.html">'],
   foot: [
     '<script src="/assets/mg_names.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_art.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_data.js"></scr' + 'ipt>',
+    '<script src="/assets/apt_strings.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude-test.js" defer></scr' + 'ipt>',
     '<script src="/assets/apt-session.js" defer></scr' + 'ipt>',
     '<script type="module" src="/assets/apt-pay.js"></scr' + 'ipt>'
@@ -674,6 +680,7 @@ buildSpecial({
     '<script src="/assets/mg_names.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_art.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_data.js"></scr' + 'ipt>',
+    '<script src="/assets/apt_strings.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude-test.js" defer></scr' + 'ipt>',
     '<script src="/assets/apt-session.js" defer></scr' + 'ipt>',
     '<script type="module" src="/assets/apt-pay.js"></scr' + 'ipt>'
