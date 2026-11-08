@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PowerPoint में Transition — Slide बदलने की चाल | ACSLEARN</title>
+<meta name="description" content="transition बनाम animation का फ़र्क़, Fade/Push की सादगी, Apply To All से एकरूपता, आवाज़-परहेज़ और auto-advance की सीमा — सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-4-07-transition-powerpoint.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="PowerPoint में Transition — Slide बदलने की चाल | ACSLEARN">
+<meta property="og:description" content="transition बनाम animation का फ़र्क़, Fade/Push की सादगी, Apply To All से एकरूपता, आवाज़-परहेज़ और auto-advance की सीमा — सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-4-07-transition-powerpoint.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-47: Transition — Slide-से-Slide चाल","description":"transition बनाम animation का फ़र्क़, Fade/Push की सादगी, Apply To All से एकरूपता, आवाज़-परहेज़ और auto-advance की सीमा — सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-4-07-transition-powerpoint.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-47: Transition — Slide-से-Slide चाल","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-4-07-transition-powerpoint.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="47" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-4: PowerPoint</p>
+<h1>पाठ 4.7: Transition — Slide-से-Slide चाल</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 47 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <span class="lsn-jumpcur">पाठ 4.7 (यही)</span> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) transition-बनाम-animation का फ़र्क़ एक वाक्य में बताना, (2) Transitions-पट्टी से चाल लगाना और Apply To All से एकरूपता, (3) सादगी-नियम (None/Fade/Push) बरतना, (4) आवाज़-जोड़ से परहेज़ का कारण बोलना, (5) auto-advance की सीमा पहचानना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>दरवाज़े की चाल — कमरे की नहीं</h2>
+<p>पिछले पाठ में slide के <strong>भीतर</strong> की चीज़ों में जान डाली; आज slide-से-slide <strong>जाने</strong> की चाल — <strong>transition</strong> (ट्रांज़िशन — पन्ना पलटने का अंदाज़)। फ़र्क़ गाँठ बाँध लो (दोनों पट्टियाँ अग़ल-बग़ल बैठी उलझाती हैं): <strong>animation = slide के भीतर की चीज़ों की चाल</strong> (bullets, चित्र); <strong>transition = एक slide से अगली पर जाने की चाल</strong> (पूरा परदा)। उपमा से: animation कमरे के <strong>भीतर</strong> का हिलना-डुलना, transition कमरों के बीच का <strong>दरवाज़ा</strong> — और दरवाज़े का धर्म है <strong>चुपचाप खुलना</strong>: मेहमान कमरा याद रखे, दरवाज़ा नहीं। यही आज का सार है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>लगाना — Transitions-पट्टी</h2>
+<p>slide चुनो → <strong>Transitions-पट्टी</strong> → क़तार से असर — लगते ही <strong>झलक</strong> दिखती है, और बाईं पट्टी में slide-नंबर के पास <strong>तारा-चिह्न</strong> बैठता है (= transition लगी)। क़तार में तीन घराने दिखेंगे: <strong>Subtle</strong> (सटल — हल्की: Fade, Push, Wipe), <strong>Exciting</strong> (एक्साइटिंग — तड़क-भड़क: Curtains, Origami, घूमते घन), <strong>Dynamic Content</strong>। नाम ही चुगली करते हैं — काम-काजी घर <strong>Subtle</strong> है। बग़ल में <strong>Effect Options</strong> (दिशा) और <strong>Duration</strong> (अवधि): <strong>0.5-1 सेकंड</strong> रखो — लंबी चाल हर बदल पर समय वसूलती है — बीस slides × 2s = 40s सिर्फ़ दरवाज़ों में।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>Apply To All — एकरूपता का बटन</h2>
+<p>हर slide पर अलग transition = वही मेला जो slide-दर-slide theme था — श्रोता चाल-बदल <strong>गिनने</strong> लगता है। नियम: <strong>पूरी presentation = एक transition</strong> (या None ही — वह भी पूरी इज़्ज़तदार पसंद है)। और इसका बटन बना-बनाया है: एक slide पर चाल जमाओ (असर + दिशा + अवधि), फिर Transitions-पट्टी का <strong>Apply To All</strong> (सब पर लागू) — एक click, सब slides एक दरवाज़ा। चुनाव का सूत्र: <strong>None या Fade</strong> — सबसे पेशेवर; <strong>Push</strong> — ठीक, "आगे बढ़े" का हल्का एहसास; <strong>Exciting-घराना</strong> — बचाकर, ज़्यादा-से-ज़्यादा <strong>एक</strong> ख़ास मोड़ पर (जैसे समापन-slide से पहले), वह भी सचमुच कुछ कहे तभी। एक और लालच पट्टी पर है — <strong>Sound</strong> (हर slide-बदल पर आवाज़: घंटी, तालियाँ, सिक्के): इसे <strong>कभी नहीं</strong> — बीसवीं घंटी सज़ा लगती है; आवाज़ का हक़ सिर्फ़ बोलने वाले का।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>auto-advance — किसकी presentation में?</h2>
+<p>पट्टी के दाएँ कोने में <strong>Advance Slide</strong> के दो ख़ाने: <strong>On Mouse Click</strong> (click पर अगली — डिफ़ॉल्ट ✓) और <strong>After: __ सेकंड</strong> (इतने सेकंड बाद <strong>अपने-आप</strong> अगली)। after देखते ही 4.06 का नियम याद करो — <strong>रफ़्तार बोलने वाले के हाथ</strong>: भाषण-presentation में auto-advance = अपने पैर में रस्सी — सवाल का जवाब देते-देते परदा अकेला आगे निकल जाता है। तो after किसके लिए? <strong>बिना-वक्ता चलती presentation</strong> के लिए — केंद्र के स्वागत-कक्ष की screen पर घूमती सेवा-सूची, मेले के स्टॉल का दोहराता परिचय — जहाँ बोलने वाला है ही नहीं, वहाँ 8-10 सेकंड का after + (चाहो तो) लगातार-चक्र ठीक बैठता है। सूत्र: <strong>वक्ता है तो click, वक्ता नहीं तो after</strong> — दोनों एक साथ टिक हों तो जो पहले आ जाए वही चलती है, इसलिए भाषण-presentation में after का टिक <strong>हटाकर</strong> रखो।</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="transition बनाम animation, Apply To All की एकरूपता, Sound-परहेज़ और click-बनाम-after का फ़ैसला">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">दरवाज़ा चुपचाप खुले</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">ठोस तीर = slide-बदल · ✓/✗ = चुनाव · सोना = एक click की एकरूपता</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="60" y="100" width="330" height="150" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="225" y="128" text-anchor="middle" font-size="16" font-weight="bold">animation (4.06)</text>
+<rect x="95" y="145" width="120" height="75" rx="6" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2"/>
+<text x="155" y="172" text-anchor="middle" font-size="16">• बिंदु-1</text>
+<text x="155" y="196" text-anchor="middle" font-size="16" fill="#2E7D32">• बिंदु-2 ← आया</text>
+<text x="290" y="180" text-anchor="middle" font-size="16" fill="#1565C0">slide के भीतर</text>
+<text x="290" y="202" text-anchor="middle" font-size="16" fill="#1565C0">की चीज़ों की चाल</text>
+<rect x="410" y="100" width="330" height="150" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="575" y="128" text-anchor="middle" font-size="16" font-weight="bold">transition (आज)</text>
+<rect x="440" y="150" width="95" height="65" rx="6" fill="#0B1F3A"/>
+<text x="487" y="188" text-anchor="middle" font-size="16" fill="#F5F7FA">slide 3</text>
+<path d="M545 182 L600 182 M592 174 L600 182 L592 190" stroke="#2E7D32" stroke-width="4" fill="none"/>
+<rect x="610" y="150" width="95" height="65" rx="6" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2"/>
+<text x="657" y="188" text-anchor="middle" font-size="16">slide 4</text>
+<text x="575" y="238" text-anchor="middle" font-size="16" fill="#1565C0">एक से अगली पर जाने की चाल — पूरा परदा</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="60" y="280" width="330" height="190" rx="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="225" y="310" text-anchor="middle" font-size="16" font-weight="bold">चुनाव-सीढ़ी</text>
+<text x="225" y="344" text-anchor="middle" fill="#2E7D32" font-weight="bold">✓ None या Fade — सबसे पेशेवर</text>
+<text x="225" y="376" text-anchor="middle">✓ Push — "आगे बढ़े" का हल्का एहसास</text>
+<text x="225" y="408" text-anchor="middle" fill="#1565C0">△ Exciting — ज़्यादा-से-ज़्यादा 1 ख़ास मोड़</text>
+<text x="225" y="440" text-anchor="middle" font-weight="bold">✗ Sound — कभी नहीं (बीसवीं घंटी = सज़ा)</text>
+<rect x="410" y="280" width="330" height="190" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="575" y="310" text-anchor="middle" font-size="16" font-weight="bold">एकरूपता — Apply To All</text>
+<text x="575" y="344" text-anchor="middle">1 slide पर जमाओ:</text>
+<text x="575" y="372" text-anchor="middle">असर + दिशा + अवधि (0.5-1s)</text>
+<path d="M575 388 L575 414 M567 406 L575 414 L583 406" stroke="#0B1F3A" stroke-width="3" fill="none"/>
+<text x="575" y="440" text-anchor="middle" font-weight="bold">Apply To All = सब slides एक दरवाज़ा</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="90" y="500" width="620" height="150" rx="12" fill="#fff" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="532" text-anchor="middle" font-size="17" font-weight="bold">Advance Slide — किसकी presentation?</text>
+<rect x="125" y="550" width="260" height="80" rx="8" fill="#F5F7FA" stroke="#2E7D32" stroke-width="2.5"/>
+<text x="255" y="578" text-anchor="middle" font-size="16" fill="#2E7D32" font-weight="bold">✓ On Mouse Click</text>
+<text x="255" y="604" text-anchor="middle" font-size="16">वक्ता है — रफ़्तार उसके हाथ</text>
+<rect x="415" y="550" width="260" height="80" rx="8" fill="#F5F7FA" stroke="#1565C0" stroke-width="2.5"/>
+<text x="545" y="578" text-anchor="middle" font-size="16" fill="#1565C0" font-weight="bold">After: 8-10s — सिर्फ़ बिना-वक्ता</text>
+<text x="545" y="604" text-anchor="middle" font-size="16">स्वागत-screen · मेले का स्टॉल</text>
+</g>
+<text x="400" y="680" text-anchor="middle" font-size="16" fill="#1565C0">भाषण-presentation में after का टिक हटाओ — परदा अकेला आगे न निकले</text>
+<text x="400" y="710" text-anchor="middle" font-size="16" fill="#2E7D32">बाईं पट्टी का तारा-चिह्न = इस slide पर transition लगी है</text>
+<text x="400" y="765" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 4.06 (animation) ← पाठ 4.07 → 4.08 (slideshow चलाना)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>बीस घंटियों की सज़ा (काल्पनिक उदाहरण)</h2>
+<p><strong>गीता</strong> (काल्पनिक नाम) ने प्रशिक्षण-presentation में transitions की क़तार देखी तो Exciting-घराने के Origami पर दिल आ गया — हर slide काग़ज़-सा मुड़कर खुलती थी; साथ में Sound की सूची से "Chime" (घंटी) भी हर slide पर। घर पर जादू लगा। केंद्र पर चलाया — तीसरी slide तक दीदियाँ मुड़ती slides देख रही थीं, गीता की बात नहीं; और सातवीं घंटी पर पीछे से हँसी छूट गई। उस्ताद ने रोका नहीं — पूरा चलने दिया, फिर पूछा: "आज की पाँच बातों में से कितनी याद रहीं?" जवाब आया — "slides बड़ी सुंदर मुड़ती थीं।" बस, सबक़ वहीं मिल गया। मरम्मत पाँच मिनट की थी: एक slide पर <strong>Fade</strong>, अवधि 0.5, Sound <strong>(No Sound)</strong>, फिर <strong>Apply To All</strong> — बीसों slides एक साँस में एक दरवाज़े पर। और After वाला टिक भी हटा, जो Origami के साथ ग़लती से लग गया था — पिछली बार परदा गीता के जवाब के बीच अकेला आगे निकल गया था, अब click उसके हाथ लौट आया। अगले हफ़्ते वही presentation — इस बार दीदियाँ <strong>बातें</strong> दोहरा रही थीं। copy में पंक्ति: <strong>"दरवाज़ा जितना चुप, कमरा उतना याद रहता है — और घंटी बजाने का हक़ सिर्फ़ बोलने वाले की ज़बान को है।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-33 (NIOS Practical 33 पर आधारित)</h2>
+<p><strong>काम:</strong> 4.06 वाली फ़ाइल पर — (1) slide-1 पर <strong>Fade</strong>, Duration 0.5-1s — बाईं पट्टी का तारा-चिह्न दिखाओ, (2) <strong>Apply To All</strong> — सब slides पर तारा, (3) एक slide पर जान-बूझकर Exciting-घराने की ✗-चाल + Sound लगाकर slideshow-तुलना — दो-पंक्ति नोट (ध्यान कहाँ गया), फिर Fade/No Sound पर वापसी व दोबारा Apply To All, (4) <strong>Effect Options</strong> से Push की दिशा बदलकर देखो — एक-पंक्ति नोट, (5) Advance Slide: पुष्टि करो कि On Mouse Click ✓ और After ✗ — और दो-पंक्ति में लिखो कि after किस presentation के लिए सही है, (6) transition-बनाम-animation फ़र्क़ अपने शब्दों में एक वाक्य, (7) Ctrl+S। <strong>अपेक्षित output:</strong> एक-दरवाज़ा .pptx + ✗-तुलना नोट + after-नोट + फ़र्क़-वाक्य। <strong>रूब्रिक R-a-33 (10 अंक):</strong> Fade + अवधि + तारा = 2 · Apply To All = 2 · ✗-तुलना + वापसी = 2 · Effect Options नोट = 1 · click/after समझ = 2 · फ़र्क़-वाक्य = 1। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> transition-बनाम-animation एक वाक्य में? (क) दोनों बिल्कुल एक ही चीज़ हैं (ख) animation = भीतर की चाल; transition = बीच की (ग) animation slides के बीच चलता है (घ) transition सिर्फ़ पहली slide पर <strong>उत्तर: (ख)।</strong> कारण: slide के भीतर की चीज़ों की चाल बनाम एक slide से अगली पर जाने की चाल — कमरे का हिलना-डुलना बनाम दरवाज़ा। बाक़ी क्यों ग़लत: (क) अग़ल-बग़ल बैठने से एक नहीं हो जातीं; (ग/घ) दोनों ने दायरे उलट दिए।</p>
+<p><strong>प्र-2.</strong> काम-काजी presentation के लिए transition की चुनाव-सीढ़ी? (क) None या Fade सबसे पेशेवर; Sound कभी नहीं (ख) जो सबसे चमकदार दिखे वही (ग) हर एक slide पर अलग-अलग Exciting चाल लगाते जाओ (घ) Sound लगाना तो ज़रूरी है <strong>उत्तर: (क)।</strong> कारण: Push ठीक; Exciting ज़्यादा-से-ज़्यादा एक ख़ास मोड़ पर — दरवाज़े का धर्म चुपचाप खुलना है। बाक़ी क्यों ग़लत: (ख/ग) गीता की मुड़ती slides ही याद रहीं, बातें नहीं; (घ) बीसवीं घंटी सज़ा है।</p>
+<p><strong>प्र-3.</strong> पूरी presentation पर एक जैसी transition का रास्ता? (क) बस कोई theme लगा दो (ख) ज़रूरत नहीं — मेल अपने-आप होता है (ग) हर slide पर हाथ से दोहराओ (घ) एक slide पर जमाकर Apply To All <strong>उत्तर: (घ)।</strong> कारण: असर+दिशा+अवधि जमाकर एक click — सब slides एक दरवाज़ा; slide-दर-slide चाल-बदल वही मेला है जो slide-दर-slide theme। बाक़ी क्यों ग़लत: (ग) बीस slides की मज़दूरी बनाम एक click; (ख) अपने-आप कुछ नहीं मिलता; (क) theme पोशाक देता है, दरवाज़ा नहीं।</p>
+<p><strong>प्र-4.</strong> Advance Slide के After-ख़ाने की सही जगह? (क) हर एक presentation में हमेशा (ख) After कभी इस्तेमाल ही नहीं (ग) सिर्फ़ बिना-वक्ता चलती screen पर — 8-10s (घ) After तेज़ presentation के लिए है <strong>उत्तर: (ग)।</strong> कारण: स्वागत-screen, मेले का स्टॉल — वक्ता है तो click, वक्ता नहीं तो after; वरना परदा जवाब के बीच अकेला आगे निकल जाता है। बाक़ी क्यों ग़लत: (क) गीता का परदा इसी से भागा था; (ख) बिना-वक्ता screen के लिए यह सही औज़ार है; (घ) तेज़ी नहीं, वक्ता-अनुपस्थिति पैमाना है।</p>
+<p><strong>प्र-5.</strong> transition की अवधि (Duration) का अंदाज़-नियम? (क) 4-5 सेकंड — बिल्कुल आराम से (ख) जितनी लंबी उतनी शानदार (ग) अवधि बदल ही नहीं सकती (घ) 0.5-1 सेकंड के आसपास <strong>उत्तर: (घ)।</strong> कारण: लंबी चाल हर slide-बदल पर कमरे का समय वसूलती है (बीस slides × 2s = 40s सिर्फ़ दरवाज़ों में) — दरवाज़ा रास्ता है, ठहरने की जगह नहीं। बाक़ी क्यों ग़लत: (क/ख) लंबा इंतज़ार ध्यान तोड़ता है; (ग) Duration-ख़ाना पट्टी पर ही है।</p>
+<p><strong>अगला पाठ → 4.08: slideshow चलाना।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20Transition%20%E2%80%94%20Slide-%E0%A4%B8%E0%A5%87-Slide%20%E0%A4%9A%E0%A4%BE%E0%A4%B2%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-4-06-animation-powerpoint.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-4-08-slideshow-chalana.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

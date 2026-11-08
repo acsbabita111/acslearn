@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Online form भरना — परीक्षा व admission की विधि (mock) | ACSLEARN</title>
+<meta name="description" content="notification पहले पढ़ो, photo-sign का नाप-नियम, draft-preview-print की तीन-परत जाँच और आख़िरी-दिन निषेध — परीक्षा/admission form की पूरी mock-विधि; कक्षा-6 हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-06-online-form-pariksha-admission-mock.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Online form भरना — परीक्षा व admission की विधि (mock) | ACSLEARN">
+<meta property="og:description" content="notification पहले पढ़ो, photo-sign का नाप-नियम, draft-preview-print की तीन-परत जाँच और आख़िरी-दिन निषेध — परीक्षा/admission form की पूरी mock-विधि; कक्षा-6 हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-06-online-form-pariksha-admission-mock.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-82: online form भरना — परीक्षा व admission (mock)","description":"notification पहले पढ़ो, photo-sign का नाप-नियम, draft-preview-print की तीन-परत जाँच और आख़िरी-दिन निषेध — परीक्षा/admission form की पूरी mock-विधि; कक्षा-6 हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-06-online-form-pariksha-admission-mock.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-82: online form भरना — परीक्षा व admission (mock)","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-06-online-form-pariksha-admission-mock.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="82" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-7: ग्राहक-सेवा व सरकारी portal</p>
+<h1>पाठ 7.6: online form भरना — परीक्षा व admission (mock)</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 82 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <span class="lsn-jumpcur">पाठ 7.6 (यही)</span> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) notification पहले पढ़कर दस्तावेज़-थैली तैयार करना, (2) photo-sign का नाप-नियम सँभालना, (3) draft→preview→submit की तीन-परत जाँच चलाना, (4) आख़िरी-दिन के जाल से ग्राहक बचाना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>यह counter की रोटी है — और सबसे नाज़ुक काम भी</h2>
+<p>परीक्षा-form (भर्ती/प्रवेश-परीक्षा) और admission-form (स्कूल/कॉलेज/छात्रावास) — डिजिटल मित्र के counter की रोज़ की रोटी यही है। नाज़ुक इसलिए कि यहाँ ग़लती की क़ीमत पैसा नहीं, <strong>किसी बच्चे का साल</strong> है: ग़लत वर्ग चुना तो आवेदन रद्द, photo ग़लत नाप की तो form लौटा, तारीख़ चूके तो अगला साल। इसलिए इस पाठ की विधि को रट्टा नहीं, <strong>रीति</strong> बनाओ — हर form पर वही छह पायदान, बिना किसी छूट के। अभ्यास यहाँ भी mock: <strong>acs-x-01</strong> — ACS का अपना बनावटी (synthetic) परीक्षा-form — इसी पाठ से बँधा है; असली portal पर अभ्यास कभी नहीं (7.03 की तीन अटल पंक्तियाँ यहाँ भी लागू)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पायदान 1-2: notification पहले, थैली बाद में, form सबसे बाद</h2>
+<p>काल्पनिक उदाहरण — सुरेश के पास रवि दौड़ा आया: "भर्ती निकली है, form भर दो!" नौसिखिया सीधे form खोलता है; सुरेश पहले <strong>notification</strong> (नोटिफ़िकेशन — भर्ती/प्रवेश की आधिकारिक सूचना-PDF) खोलता है — आधिकारिक site से (7.05 का द्वार-नियम), और रवि के साथ चार चीज़ें पढ़ता है: पात्रता (उम्र-योग्यता — 7.05 की छलनी यहीं), ज़रूरी दस्तावेज़-सूची, शुल्क व भुगतान-रास्ता, तारीख़ें (शुरू-अंत-सुधार-खिड़की)। फिर <strong>पायदान-2: दस्तावेज़-थैली</strong> — form खोलने से <em>पहले</em> सब कुछ एक folder में तैयार: marksheet-प्रमाणपत्र की साफ़ PDF/photo, पहचान-पत्र, और photo-sign (अगला पायदान)। आधा भरकर "अरे, वह काग़ज़ तो घर पर है" वाली भगदड़ ही आधी ग़लतियों की माँ है — थैली पहले, form बाद।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पायदान-3: photo-sign का नाप-नियम</h2>
+<p>हर form photo और दस्तख़त (signature) की छवि माँगता है — और हर form का <strong>अपना नाप</strong>: इतने से इतने KB के बीच, इस चौड़ाई-ऊँचाई में, इस रूप (प्रायः JPG/JPEG) में — ठीक आँकड़े <strong>उसी form के notification/portal पर</strong> लिखे होते हैं, वहीं से पढ़ो (form-दर-form बदलते हैं — रटे हुए पुराने नाप पर भरोसा मत करो)। काम की विधि: साफ़ रोशनी में सादी पृष्ठभूमि पर खिंचा हालिया photo; सफ़ेद काग़ज़ पर काली/नीली क़लम से दस्तख़त की सीधी photo; फिर phone/computer के resize-औज़ार से माँगा नाप। <strong>घटाते समय चेहरा/दस्तख़त काटना नहीं</strong> — नाप KB का घटता है, आदमी का नहीं। और ये छवियाँ भी PII हैं (7.02): ग्राहक के phone/थैली-folder में रहें, काम के बाद अपने computer से सामने delete (6.12)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पायदान 4-6: भराई → preview → STOP</h2>
+<p><strong>पायदान-4 (भराई):</strong> notification बग़ल में रखकर खाना-दर-खाना; हिज्जे-मिलान नियम (7.04) यहाँ पूरा लागू — नाम-जन्मतिथि हूबहू marksheet/Aadhaar जैसे, क्योंकि आगे हर जाँच इन्हीं से मिलान करेगी; वर्ग/कोटि वाला खाना रवि से <strong>पूछकर और दिखाकर</strong> — यह चुनाव उसका हक़ है, तुम्हारा अंदाज़ा नहीं। बीच-बीच में <strong>draft-save</strong> (जहाँ सुविधा हो) — बिजली-internet के भरोसे आधा घंटा दाँव पर मत रखो। <strong>पायदान-5 (preview):</strong> submit से पहले portal जो पूरा-form-एक-नज़र (preview) दिखाता है, उसे ऊपर से नीचे रवि के साथ पढ़ो — photo सही चढ़ी? दस्तख़त उल्टा तो नहीं? हर खाना वही? <strong>पायदान-6: STOP-BEFORE-SUBMIT</strong> — रवि की हाँ → submit → शुल्क-भुगतान (6.11 के नियम: रक़म बोलकर, रसीद तुरंत) → <strong>आवेदन-संख्या + पूरा भरा form PDF में उतारकर</strong> रवि को दो और register (7.02) में दर्ज; यही PDF आगे admit-card और सुधार-खिड़की की जान है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>आख़िरी-दिन निषेध — तारीख़ का गणित</h2>
+<p>form-जगत का सबसे पुराना हादसा: आख़िरी दिन portal पर भीड़, server धीमा, भुगतान अटका — और रात बारह बजे खिड़की बंद। नियम: <strong>आख़िरी तारीख़ तुम्हारी तारीख़ नहीं है</strong> — register में अपनी तारीख़ उससे 3-4 दिन पहले की लिखो; ग्राहक आख़िरी दिन ही आ जाए तो काम करो, पर सच बता दो: "आज server की भीड़ का जोखिम है — यह जोखिम portal का है, मेरी ग़लती नहीं गिनी जाए।" और सुधार-खिड़की (कई परीक्षाएँ submit के बाद तय दिनों की correction-window देती हैं) की तारीख़ भी register के सातवें खाने में — ग़लती दिखे तो वही पहला रास्ता है, नया form नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक नज़र में — छह पायदान</h2>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="परीक्षा-admission form की छह-पायदान सीढ़ी — notification, दस्तावेज़-थैली, photo-sign नाप, भराई, preview और STOP-BEFORE-SUBMIT का रेखा-चित्र">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="42" text-anchor="middle" font-size="30" font-weight="bold" fill="#0B1F3A">परीक्षा/admission form — छह पायदान</text>
+<rect x="30" y="60" width="740" height="34" fill="#FFFFFF" stroke="#1565C0" stroke-width="1" rx="6"/>
+<text x="400" y="83" text-anchor="middle" font-size="17" fill="#0B1F3A">चिह्न-भाषा: ठोस तीर = गति · सोना-खाना = मुख्य · ✓ = सही · ✗ = कभी-नहीं</text>
+<rect x="60" y="112" width="680" height="50" fill="#F9A825" opacity="0.18" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="400" y="144" text-anchor="middle" font-size="19" font-weight="bold" fill="#0B1F3A">यहाँ ग़लती की क़ीमत पैसा नहीं — किसी का साल है</text>
+<rect x="50" y="186" width="220" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="160" y="216" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">1 notification पढ़ो</text>
+<text x="160" y="244" text-anchor="middle" font-size="16" fill="#0B1F3A">पात्रता · दस्तावेज़</text>
+<text x="160" y="270" text-anchor="middle" font-size="16" fill="#0B1F3A">शुल्क · तारीख़ें</text>
+<rect x="290" y="186" width="220" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="400" y="216" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">2 दस्तावेज़-थैली</text>
+<text x="400" y="244" text-anchor="middle" font-size="16" fill="#0B1F3A">सब एक folder में —</text>
+<text x="400" y="270" text-anchor="middle" font-size="16" fill="#0B1F3A">form खोलने से पहले</text>
+<rect x="530" y="186" width="220" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="640" y="216" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">3 photo-sign नाप</text>
+<text x="640" y="244" text-anchor="middle" font-size="16" fill="#0B1F3A">नाप उसी portal से</text>
+<text x="640" y="270" text-anchor="middle" font-size="16" fill="#0B1F3A">✗ चेहरा काटना</text>
+<rect x="50" y="310" width="220" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="160" y="340" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">4 भराई + draft</text>
+<text x="160" y="368" text-anchor="middle" font-size="16" fill="#0B1F3A">हिज्जे-मिलान (7.04)</text>
+<text x="160" y="394" text-anchor="middle" font-size="16" fill="#0B1F3A">वर्ग — पूछकर-दिखाकर</text>
+<rect x="290" y="310" width="220" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="400" y="340" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">5 preview साथ पढ़ो</text>
+<text x="400" y="368" text-anchor="middle" font-size="16" fill="#0B1F3A">photo सही? दस्तख़त</text>
+<text x="400" y="394" text-anchor="middle" font-size="16" fill="#0B1F3A">सीधा? हर खाना वही?</text>
+<rect x="530" y="310" width="220" height="104" fill="#F9A825" opacity="0.25" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="640" y="340" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">6 STOP → submit</text>
+<text x="640" y="368" text-anchor="middle" font-size="16" fill="#0B1F3A">हाँ → शुल्क-रसीद →</text>
+<text x="640" y="394" text-anchor="middle" font-size="16" fill="#0B1F3A">संख्या + PDF ग्राहक को</text>
+<line x1="270" y1="238" x2="290" y2="238" stroke="#1565C0" stroke-width="4"/>
+<line x1="510" y1="238" x2="530" y2="238" stroke="#1565C0" stroke-width="4"/>
+<line x1="270" y1="362" x2="290" y2="362" stroke="#1565C0" stroke-width="4"/>
+<line x1="510" y1="362" x2="530" y2="362" stroke="#1565C0" stroke-width="4"/>
+<rect x="60" y="438" width="680" height="94" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="400" y="468" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">आख़िरी-दिन निषेध</text>
+<text x="400" y="496" text-anchor="middle" font-size="16" fill="#0B1F3A">✗ आख़िरी तारीख़ तुम्हारी तारीख़ नहीं — register में 3-4 दिन पहले की</text>
+<text x="400" y="522" text-anchor="middle" font-size="16" fill="#0B1F3A">आख़िरी-दिन का ग्राहक: काम करो + server-भीड़ का जोखिम सच-सच बताओ</text>
+<rect x="60" y="552" width="680" height="64" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2" rx="8"/>
+<text x="400" y="580" text-anchor="middle" font-size="16" fill="#2E7D32">✓ सुधार-खिड़की की तारीख़ भी register में — ग़लती का पहला रास्ता वही</text>
+<text x="400" y="604" text-anchor="middle" font-size="16" fill="#0B1F3A">अभ्यास: acs-x-01 (synthetic form) — असली portal पर अभ्यास कभी नहीं</text>
+<rect x="60" y="636" width="680" height="40" fill="#F9A825" opacity="0.18" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="400" y="662" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">photo-sign छवियाँ भी PII — ग्राहक के पास रहें, computer से सामने delete</text>
+<text x="400" y="724" text-anchor="middle" font-size="17" fill="#0B1F3A">अध्याय में जगह — खंड-7 का पाठ 6/12:</text>
+<text x="400" y="750" text-anchor="middle" font-size="18" fill="#1565C0">● ● ● ● ● <tspan fill="#F9A825" font-weight="bold">◉</tspan> ○ ○ ○ ○ ○ ○</text>
+<text x="400" y="780" text-anchor="middle" font-size="16" fill="#0B1F3A">इस पाठ में: छह पायदान · नाप-नियम · preview · आख़िरी-दिन निषेध</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>करके देखो (अभी, 2 मिनट)</h2>
+<p>अपने phone से अपनी एक photo साफ़ रोशनी में सादी दीवार के आगे खींचो और resize-औज़ार से उसका नाप आधा करो। जाँचो — चेहरा कटा तो नहीं? यही पायदान-3 का हाथ-अभ्यास है; पूरा form-अभ्यास acs-x-01 (ACS-X-FORM-01) में।</p>
+<p><strong>प्र-1.</strong> form खोलने से पहले का सही क्रम? (क) पहले form — बाक़ी काग़ज़ भरते-भरते जुट जाएँगे (ख) notification पढ़ो → दस्तावेज़-थैली तैयार → तब form (ग) पहले शुल्क जमा — पक्का तो हो काम हो रहा है (घ) पहले photo खिंचवाओ — बाक़ी सब आसान है <strong>उत्तर: (ख)।</strong> कारण: पात्रता-दस्तावेज़-तारीख़ का सच notification में है; आधे-भरे form की भगदड़ ही आधी ग़लतियों की माँ। बाक़ी क्यों ग़लत: (क) वही भगदड़; (ग) शुल्क की बारी submit के साथ आती है; (घ) photo ज़रूरी है, पर नाप भी notification ही बताता है।</p>
+<p><strong>प्र-2.</strong> photo-sign का नाप (KB/चौड़ाई-ऊँचाई) कहाँ से लोगे? (क) उसी form के notification/portal से — form-दर-form बदलता है (ख) पिछले साल वाले form की याद से — नाप कहाँ बदलते हैं (ग) जो नाप phone अपने-आप रखे, वही सही होता है (घ) photo-दुकान वाले से — उसे सब forms का एक पक्का नाप पता रहता है <strong>उत्तर: (क)।</strong> कारण: हर portal का अपना नाप-नियम — रटा पुराना आँकड़ा लौटे form की सबसे आम वजह है। बाक़ी क्यों ग़लत: (ख/घ) "पक्का एक नाप" नाम की चीज़ नहीं; (ग) phone का default प्रायः माँगे नाप से कई गुना बड़ा होता है।</p>
+<p><strong>प्र-3.</strong> वर्ग/कोटि (category) वाला खाना भरने का सही तरीक़ा? (क) ग्राहक से पूछकर और screen पर दिखाकर — चुनाव उसका हक़ है (ख) अपने अंदाज़े से भर दो — नाम-पते से अंदाज़ा लग ही जाता है (ग) हमेशा सामान्य वर्ग भर दो — वह हर जगह चल जाता है (घ) खाना ख़ाली छोड़ दो — बाद में कोई देख लेगा <strong>उत्तर: (क)।</strong> कारण: यह खाना हक़-आरक्षण-शुल्क सब तय करता है — ग़लत चुनाव आवेदन रद्द तक ले जाता है, और फ़ैसला ग्राहक का है। बाक़ी क्यों ग़लत: (ख) अंदाज़ा = किसी का साल दाँव पर; (ग) ग़लत वर्ग = हक़ छीनना या आवेदन रद्द; (घ) अधूरा form submit ही नहीं होता या रद्द होता है।</p>
+<p><strong>प्र-4.</strong> submit के बाद की अनिवार्य आदत कौन-सी? (क) screen बंद करो — submit हो गया यानी काम ख़त्म (ख) ग्राहक को ज़बानी आवेदन-संख्या बोल दो — लिखा-पढ़ी की क्या ज़रूरत (ग) आवेदन-संख्या + भरा form PDF में ग्राहक को दो, register में दर्ज करो (घ) form का screenshot अपने निजी phone की gallery में सँभाल लो <strong>उत्तर: (ग)।</strong> कारण: वही PDF आगे admit-card, सुधार-खिड़की और हर विवाद की जान है — और register का सातवाँ खाना follow-up देगा। बाक़ी क्यों ग़लत: (क) असली ज़रूरत submit के बाद शुरू होती है; (ख) ज़बानी संख्या = खोई संख्या; (घ) 6.12 का जेब-रिसाव — ग्राहक की चीज़ ग्राहक के पास।</p>
+<p><strong>प्र-5.</strong> रवि आख़िरी तारीख़ की शाम form भरवाने आया। सही बर्ताव? (क) मना कर दो — आख़िरी दिन का काम केंद्र नहीं छूता (ख) काम करो, पर सच बता दो — "आज server-भीड़ का जोखिम portal का है" (ग) चुपचाप भर दो — जोखिम की बात करके ग्राहक क्यों डराना (घ) कल आने को कहो — एक दिन की देर से क्या बिगड़ता है <strong>उत्तर: (ख)।</strong> कारण: सेवा भी, सच भी — जोखिम की सफ़ाई पहले देना ही कल के इल्ज़ाम का ताला है (7.01 का झूठा-दिलासा-निषेध)। बाक़ी क्यों ग़लत: (क) मदद से भागना सेवा नहीं; (ग) छिपाया जोखिम फटे तो इल्ज़ाम तुम्हारा; (घ) कल खिड़की बंद — यही तो हादसा है।</p>
+<p><strong>अगला पाठ → 7.07: passport का online आवेदन (mock)।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20online%20form%20%E0%A4%AD%E0%A4%B0%E0%A4%A8%E0%A4%BE%20%E2%80%94%20%E0%A4%AA%E0%A4%B0%E0%A5%80%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%BE%20%E0%A4%B5%20admission%20(mock)%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-7-07-passport-online-aavedan-mock.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

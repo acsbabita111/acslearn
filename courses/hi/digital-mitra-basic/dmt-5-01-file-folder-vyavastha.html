@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>File व Folder — बनाना, नाम रखना, व्यवस्था | ACSLEARN</title>
+<meta name="description" content="file-folder की अलमारी-सोच, New Folder, बोलते-नाम का नियम, तीन-तह ढाँचा, Cut-Copy-Rename-Delete और Recycle Bin — सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-01-file-folder-vyavastha.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="File व Folder — बनाना, नाम रखना, व्यवस्था | ACSLEARN">
+<meta property="og:description" content="file-folder की अलमारी-सोच, New Folder, बोलते-नाम का नियम, तीन-तह ढाँचा, Cut-Copy-Rename-Delete और Recycle Bin — सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-01-file-folder-vyavastha.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-51: File व Folder — बनाना, नाम, व्यवस्था","description":"file-folder की अलमारी-सोच, New Folder, बोलते-नाम का नियम, तीन-तह ढाँचा, Cut-Copy-Rename-Delete और Recycle Bin — सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-01-file-folder-vyavastha.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-51: File व Folder — बनाना, नाम, व्यवस्था","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-01-file-folder-vyavastha.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="51" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-5: फ़ाइल, Email व Scanner</p>
+<h1>पाठ 5.1: File व Folder — बनाना, नाम, व्यवस्था</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 51 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <span class="lsn-jumpcur">पाठ 5.1 (यही)</span> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) file-folder को अलमारी-सोच से समझना, (2) New Folder से ढाँचा बनाना, (3) बोलते-नाम का नियम बरतना, (4) Cut-Copy-Rename-Delete चलाना, (5) Recycle Bin की सुरक्षा-जाली समझना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अलमारी की सोच</h2>
+<p>खंड 2-4 में तुमने दर्जनों फ़ाइलें बनाईं — .docx, .xlsx, .pptx — और हर बार Ctrl+S पर "जगह चुनो" आया। आज उसी जगह की पूरी समझ। <strong>File</strong> (फ़ाइल) = एक दस्तावेज़ — अलमारी का काग़ज़; <strong>Folder</strong> (फ़ोल्डर) = डिब्बा — अलमारी का ख़ाना, जिसमें फ़ाइलें और भीतर और डिब्बे। computer में घर <strong>File Explorer</strong> (Windows-चाबी+E), फ़ोन में <strong>Files-app</strong>। बिना व्यवस्था की अलमारी में चीज़ होती है, मिलती नहीं — और Digital Mitra का आधा काम <strong>दूसरों की</strong> फ़ाइलें सँभालना है: ग्राहक का फ़ॉर्म तुरंत न निकले तो भरोसा टूटता है। नियम-एक आज से: <strong>हर फ़ाइल का एक पक्का घर</strong> — Downloads डाकघर है, घर नहीं; आई चीज़ उसी दिन अपने folder में जाए।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बनाना — New Folder और तीन-तह ढाँचा</h2>
+<p>जगह खोलो (Documents) → ख़ाली हिस्से पर <strong>right-click → New → Folder</strong> (फ़ोन: ⋮ → New folder) → नाम लिखो → Enter। folder के <strong>भीतर</strong> folder भी ऐसे ही — यही तहें ढाँचा बनाती हैं। काम-काजी अँगूठा-ढाँचा <strong>तीन तह</strong> का रखो: <strong>तह-1 = बड़ा विषय</strong> (ACS-Kendra), <strong>तह-2 = काम/महीना</strong> (form-sahayata, report-2026), <strong>तह-3 = फ़ाइलें</strong> — गहरी खुदाई भटकाती है, उथली में ढेर लगता है। नमूना जो पूरे खंड में चलेगा: <code>ACS-Kendra</code> के भीतर <code>form-sahayata</code> · <code>report</code> · <code>prashikshan</code> · <code>scan</code> — चार डिब्बे; हर नई फ़ाइल जन्म लेते ही (Ctrl+S की "जगह चुनो" घड़ी में) अपने डिब्बे में। 3.03/4.01 की "एक विषय = एक workbook/presentation" सोच आज एक तह ऊपर: <strong>एक विषय = एक folder।</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>नाम — फ़ाइल की पहली पहचान</h2>
+<p>4.01 का बोलते-नाम नियम अब पूरा खुलेगा — यही व्यवस्था की रीढ़ है। <strong>बोलता नाम</strong> = महीने बाद भी बिना खोले बता दे भीतर क्या है: <code>kendra-report-nov-2026.xlsx</code> बोलता है; <code>New Document (3).docx</code> गूँगा। चार आदतें: <strong>(1) काम+महीना/तारीख़ नाम में</strong> — <code>yojna-form-ramu-07nov</code> जैसे; <strong>(2) छोटे अक्षर + hyphen (-)</strong>, space की जगह — कड़ी/साझा करते समय space वाले नाम टूटते-बिगड़ते हैं; <strong>(3) संस्करण नाम से</strong> — <code>report-v2</code> साफ़ है, <code>report-final-final-asli</code> मज़ाक़ (2.01 की Save As-प्रति यहीं क़ायदे में बँधती है); <strong>(4) नाम बदलना = right-click → Rename</strong> (फ़ोन: ⋮ → Rename) — गूँगे नाम दिखते ही सुधारो। एक सावधानी: Rename में नाम के बाद का <strong>.docx/.xlsx जैसा पुछल्ला (extension) मत छेड़ो</strong> — वही computer को बताता है फ़ाइल किस भाई की है (4.01 की तीन-बहनें); पुछल्ला बदला तो फ़ाइल "खुलना भूल" जाती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चार हरकतें और एक सुरक्षा-जाली</h2>
+<p>चार हरकतें — सब right-click (फ़ोन: देर-दबाओ) से: <strong>Copy</strong> (नक़ल — मूल वहीं; Ctrl+C→V), <strong>Cut</strong> (घर-बदल; Ctrl+X→V — बिखरी फ़ाइलों की मुख्य हरकत; खींचकर छोड़ना भी यही), <strong>Rename</strong>, <strong>Delete</strong>। और Delete के साथ ही सुरक्षा-जाली की समझ: Windows में हटाई फ़ाइल सीधे नहीं मरती — <strong>Recycle Bin</strong> (रीसायकल बिन — कूड़ेदान) में जाती है; ग़लती से हटी तो Bin में right-click → <strong>Restore</strong> — पुराने घर वापस। पर जाली की सीमाएँ गाँठ बाँधो: Bin <strong>ख़ाली</strong> (Empty) किया तो वापसी आम रास्ते से नहीं; <strong>pen-drive/memory-card</strong> से Delete अक्सर सीधा होता है — Bin में नहीं जाता; और फ़ोन की Files-app का अपना Trash प्रायः <strong>30 दिन</strong> बाद ख़ुद ख़ाली हो जाता है। इसीलिए असली भरोसा जाली पर नहीं, आदत पर: <strong>हटाने से पहले दो बार सोचो, और क़ीमती चीज़ की प्रति अलग जगह रखो</strong> — यही धागा 5.09 (backup) में पूरा बुनेगा।</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="अलमारी-उपमा से तीन-तह folder-ढाँचा, बोलते-नाम का नियम, चार हरकतें और Recycle Bin की सीमाएँ">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">हर फ़ाइल का एक पक्का घर</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">सोना = तीन-तह ढाँचा · ✓/✗ = नाम की जाँच · बिंदु-रेखा = Recycle Bin की सीमा</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="100" width="360" height="250" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="235" y="130" text-anchor="middle" font-size="17" font-weight="bold">तीन-तह ढाँचा (अलमारी)</text>
+<rect x="80" y="146" width="310" height="34" rx="6" fill="#fff" stroke="#0B1F3A" stroke-width="2"/>
+<text x="235" y="168" text-anchor="middle">📁 ACS-Kendra (तह-1: बड़ा विषय)</text>
+<rect x="110" y="188" width="280" height="30" rx="6" fill="#fff" stroke="#0B1F3A" stroke-width="2"/>
+<text x="250" y="208" text-anchor="middle" font-size="16">📁 form-sahayata (तह-2: काम)</text>
+<rect x="110" y="224" width="280" height="30" rx="6" fill="#fff" stroke="#0B1F3A" stroke-width="2"/>
+<text x="250" y="244" text-anchor="middle" font-size="16">📁 report · 📁 prashikshan · 📁 scan</text>
+<rect x="140" y="260" width="250" height="30" rx="6" fill="#fff" stroke="#2E7D32" stroke-width="2"/>
+<text x="265" y="280" text-anchor="middle" font-size="16" fill="#2E7D32">📄 kendra-report-nov-2026.xlsx (तह-3)</text>
+<text x="235" y="322" text-anchor="middle" font-size="16" fill="#1565C0">नई फ़ाइल जन्म लेते ही (Ctrl+S) अपने डिब्बे में</text>
+<rect x="435" y="100" width="310" height="250" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="590" y="130" text-anchor="middle" font-size="17" font-weight="bold">बोलता नाम</text>
+<text x="590" y="164" text-anchor="middle" fill="#2E7D32" font-weight="bold">✓ yojna-form-ramu-07nov.docx</text>
+<text x="590" y="192" text-anchor="middle" fill="#2E7D32">✓ report-v2 (संस्करण नाम से)</text>
+<text x="590" y="224" text-anchor="middle" font-weight="bold">✗ New Document (3).docx</text>
+<text x="590" y="252" text-anchor="middle">✗ report-final-final-asli</text>
+<text x="590" y="288" text-anchor="middle" font-size="16" fill="#1565C0">छोटे अक्षर + hyphen · space नहीं</text>
+<text x="590" y="316" text-anchor="middle" font-size="16" fill="#1565C0">.docx पुछल्ला (extension) मत छेड़ो</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="380" width="690" height="90" rx="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="400" y="410" text-anchor="middle" font-size="16" font-weight="bold">चार हरकतें (right-click / देर-दबाओ)</text>
+<text x="400" y="444" text-anchor="middle">Copy = नक़ल (Ctrl+C/V) · Cut = घर-बदल (Ctrl+X/V) · Rename = नाम-सुधार · Delete = हटाओ</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="495" width="690" height="160" rx="12" fill="#fff" stroke="#0B1F3A" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="400" y="526" text-anchor="middle" font-size="16" font-weight="bold">Recycle Bin — जाली है, गारंटी नहीं</text>
+<text x="400" y="558" text-anchor="middle">Delete → Bin में → right-click → Restore = फ़ाइल पुराने घर वापस ✓</text>
+<text x="400" y="590" text-anchor="middle" fill="#1565C0">सीमाएँ: Bin ख़ाली किया = आम वापसी नहीं · pen-drive से Delete = सीधा ·</text>
+<text x="400" y="616" text-anchor="middle" fill="#1565C0">फ़ोन-Trash ~30 दिन बाद ख़ुद ख़ाली</text>
+<text x="400" y="644" text-anchor="middle" fill="#2E7D32" font-weight="bold">असली भरोसा = सोच-समझकर Delete + क़ीमती की प्रति अलग (5.09 में पूरा)</text>
+</g>
+<text x="400" y="692" text-anchor="middle" font-size="16" fill="#1565C0">Downloads डाकघर है, घर नहीं — आई फ़ाइल उसी दिन अपने folder में</text>
+<text x="400" y="765" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: खंड-4 (presentation) ← पाठ 5.01 → 5.02 (scanner व OCR)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>खोई हुई रसीद (काल्पनिक उदाहरण)</h2>
+<p><strong>रामू</strong> (काल्पनिक नाम) के computer का Desktop मेले-सा था — चालीस-पचास फ़ाइलें, आधी "New Document", कुछ "asli-final"। ग्राहक लौटा: "पिछले महीने वाला फ़ॉर्म चाहिए" — रामू दस मिनट खोजता रहा, ग्राहक का चेहरा उतरता रहा। उस्ताद ने उसी शाम अलमारी-सोच बैठाई: Documents में <code>ACS-Kendra</code>, भीतर चार डिब्बे; फिर Desktop की पूरी भीड़ पर सफ़ाई-मुहिम — हर फ़ाइल खोलो, पहचानो, <strong>Rename</strong> से बोलता नाम, <strong>Cut→Paste</strong> से सही डिब्बे में; गूँगी-बेकार फ़ाइलें Delete। एक फ़ाइल ग़लती से हट गई — रामू का रंग उड़ा; उस्ताद मुस्कुराए: "Recycle Bin खोलो" — Restore, फ़ाइल अपनी जगह; "पर यह जाली है, गारंटी नहीं — pen-drive से यही करते तो गई थी।" अगले हफ़्ते वैसा ही सवाल — रामू ने <code>form-sahayata</code> से <strong>बीस सेकंड</strong> में फ़ाइल निकाली। copy में पंक्ति: <strong>"फ़ाइल रखना आधा काम है — मिलना पूरा काम। और नाम ही फ़ाइल की पहली पहचान है।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-40 (NIOS Practical 40 पर आधारित; mobile-full)</h2>
+<p><strong>काम:</strong> (1) Documents (फ़ोन: Files) में <code>ACS-Kendra</code> folder, भीतर चार डिब्बे — <code>form-sahayata</code> · <code>report</code> · <code>prashikshan</code> · <code>scan</code>, (2) खंड 2-4 में बनी अपनी कम-से-कम <strong>6 फ़ाइलें</strong> खोजकर Cut→Paste से सही डिब्बों में, (3) हर एक को बोलता नाम — Rename से; पहले-बाद की नाम-सूची लिखो, (4) एक बेकार फ़ाइल Delete → Recycle Bin/Trash में दिखाओ → <strong>Restore</strong> → फिर अंतिम Delete — हर क़दम की एक-पंक्ति, (5) Downloads खोलकर वहाँ पड़ी 2-3 चीज़ों को घर दो (या "ख़ाली है" दर्ज), (6) दो-पंक्ति नोट: pen-drive-Delete और Bin-Delete का फ़र्क़। <strong>अपेक्षित output:</strong> तीन-तह ढाँचे का screenshot/चित्र + नाम-सूची (पहले→बाद) + Restore-प्रमाण + फ़र्क़-नोट। <strong>रूब्रिक R-a-40 (10 अंक):</strong> ढाँचा सही तहों में = 2 · 6 फ़ाइलें सही डिब्बों में = 3 · बोलते नाम = 2 · Delete→Restore चक्र = 2 · pen-drive फ़र्क़-नोट = 1। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> file बनाम folder? (क) file तो हमेशा folder से बड़ी ही होती है (ख) file = एक दस्तावेज़; folder = डिब्बा (ग) दोनों बिल्कुल एक ही चीज़ हैं (घ) folder सिर्फ़ फ़ोन में होता है <strong>उत्तर: (ख)।</strong> कारण: अलमारी का काग़ज़ बनाम डिब्बा — भीतर फ़ाइलें और और डिब्बे; यही व्यवस्था की नींव। बाक़ी क्यों ग़लत: (ग) एक होते तो तह बनती ही नहीं; (घ) दोनों जगह दोनों हैं; (क) आकार नहीं, भूमिका फ़र्क़ है।</p>
+<p><strong>प्र-2.</strong> बोलते-नाम की कसौटी? (क) नाम का कोई ख़ास महत्व नहीं (ख) महीने बाद बिना खोले बता दे भीतर क्या है (ग) नाम जितना छोटा, उतना अच्छा (घ) New Document रखना ठीक है <strong>उत्तर: (ख)।</strong> कारण: काम+तारीख़, छोटे अक्षर+hyphen, संस्करण v2 नाम में — रामू की बीस-सेकंड खोज इसी से। बाक़ी क्यों ग़लत: (ग) छोटा पर गूँगा बेकार; (घ) "New Document (3)" ही दस-मिनट वाली खोज की जड़ थी; (क) बिन-नाम व्यवस्था अंधी अलमारी है।</p>
+<p><strong>प्र-3.</strong> Rename करते समय .docx जैसा पुछल्ला (extension) बदल गया — असर? (क) कुछ भी असर नहीं होता — नाम ही तो है (ख) फ़ाइल "खुलना भूल" सकती है — पुछल्ला मत बदलो (ग) फ़ाइल को नया रूप मिल जाएगा (घ) फ़ाइल पहले से तेज़ खुलेगी <strong>उत्तर: (ख)।</strong> कारण: पुछल्ला ही बताता है फ़ाइल किस औज़ार की — तीन बहनों की पहचान यही (4.01)। बाक़ी क्यों ग़लत: (क) double-click का रास्ता टूटता है; (घ) गति से नाता नहीं; (ग) रूप बदलना 5.03 का विषय है — Rename से नहीं होता।</p>
+<p><strong>प्र-4.</strong> Downloads folder की सही समझ? (क) डाकघर — आई चीज़ उसी दिन अपने folder में (ख) रोज़ पूरा folder ख़ाली (Delete) करते रहो (ग) उस folder को छूना ही मना है (घ) फ़ाइलों का स्थायी पक्का घर <strong>उत्तर: (क)।</strong> कारण: वहाँ बिखरा ढेर = घर-विहीन फ़ाइलें — Downloads रास्ते का पड़ाव भर है। बाक़ी क्यों ग़लत: (घ) स्थायी मानते ही मेला शुरू; (ग) छूना नहीं, छाँटना है; (ख) बिना देखे Delete = काम की चीज़ भी गई — Cut→घर सही हरकत है।</p>
+<p><strong>प्र-5.</strong> Recycle Bin पर कितना भरोसा? (क) पूरा भरोसा रखो — digital में कुछ भी कभी नहीं मरता (ख) Bin में तो कुछ जाता ही नहीं (ग) Restore कभी काम नहीं करता (घ) जाली, गारंटी नहीं — सोचकर Delete + प्रति अलग <strong>उत्तर: (घ)।</strong> कारण: Bin ख़ाली होने, pen-drive-Delete व फ़ोन-Trash के ~30 दिन बाद वापसी नहीं — ये सीमाएँ 5.09 की backup-सोच की नींव। बाक़ी क्यों ग़लत: (क) "पूरा भरोसा" वाले ही pen-drive पर फ़ाइल खोते हैं; (ख/ग) आम Delete Bin में जाता है और Restore लौटाता है — रामू की फ़ाइल लौटी थी।</p>
+<p><strong>अगला पाठ → 5.02: scanner व OCR — काग़ज़ से digital।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20File%20%E0%A4%B5%20Folder%20%E2%80%94%20%E0%A4%AC%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A4%BE%2C%20%E0%A4%A8%E0%A4%BE%E0%A4%AE%2C%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-4-10-10-niyam-google-slides.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

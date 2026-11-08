@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Word में Table कैसे बनाएं — Row, Column, Merge | ACSLEARN</title>
+<meta name="description" content="MS Word में table बनाना, पंक्ति-स्तंभ जोड़ना-हटाना, cell merge, header-पंक्ति और border-shading — शुल्क-सूची जैसे असली उदाहरण से, सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-2-09-word-table-banana.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Word में Table कैसे बनाएं — Row, Column, Merge | ACSLEARN">
+<meta property="og:description" content="MS Word में table बनाना, पंक्ति-स्तंभ जोड़ना-हटाना, cell merge, header-पंक्ति और border-shading — शुल्क-सूची जैसे असली उदाहरण से, सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-2-09-word-table-banana.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-17: Word में Table — पंक्ति, स्तंभ, Merge और सजावट","description":"MS Word में table बनाना, पंक्ति-स्तंभ जोड़ना-हटाना, cell merge, header-पंक्ति और border-shading — शुल्क-सूची जैसे असली उदाहरण से, सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-2-09-word-table-banana.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-17: Word में Table — पंक्ति, स्तंभ, Merge और सजावट","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-2-09-word-table-banana.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="17" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-2: Word</p>
+<h1>पाठ 2.9: Word में Table — पंक्ति, स्तंभ, Merge और सजावट</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 17 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <span class="lsn-jumpcur">पाठ 2.9 (यही)</span> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) table (सारणी) डालना, (2) पंक्ति-स्तंभ जोड़ना-हटाना, (3) cell merge करना, (4) header-पंक्ति को अलग पहचान देना, (5) Tab-सरकाव और "space-सारणी" की ग़लती से बचना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>क़तार-मिलान वाली जानकारी का घर</h2>
+<p>"सेवा — शुल्क — समय" जैसी जानकारी में हर चीज़ का जोड़ा मिलाना पड़ता है; बहते वाक्यों में यह मिलान टूटता है, <strong>table</strong> में हर जानकारी का अपना ख़ाना (cell — सेल) होता है — पंक्ति (row) और स्तंभ (column) के चौराहे पर। डिजिटल मित्र की शुल्क-सूची, समय-सारणी, काग़ज़-जाँच तालिका — सबका घर यही। और एक पुरानी आदत आज दफ़न होगी: space-space से "सारणी जैसी" क़तारें बनाना — वे पहली ही छपाई में टेढ़ी निकलती हैं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बनाना — Insert → Table</h2>
+<p><strong>Insert → Table</strong> → चूहे से ख़ानों का जाल चुनो (जैसे 3 स्तंभ × 5 पंक्ति) → click — सारणी हाज़िर। नाप की सोच पहले: स्तंभ = जानकारी के <strong>प्रकार</strong> (सेवा/शुल्क/समय = 3), पंक्तियाँ = <strong>चीज़ें</strong> +1 header के लिए। कम-ज़्यादा की चिंता मत पालो — जोड़ना-हटाना अगला ही कदम है। ख़ानों के बीच चलना: <strong>Tab = अगला ख़ाना</strong>, Shift+Tab = पिछला; और <strong>आख़िरी ख़ाने में Tab = नई पंक्ति अपने-आप</strong> — लंबी सूची भरने का सबसे तेज़ रास्ता यही है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>जोड़ना-हटाना — right-click की दुकान</h2>
+<p>जहाँ जोड़ना हो वहाँ cursor रखो → right-click → <strong>Insert</strong> → ऊपर/नीचे पंक्ति, बाएँ/दाएँ स्तंभ। हटाने के लिए right-click → <strong>Delete</strong> → Rows/Columns। एक बारीक़ फ़र्क़ रट लो: ख़ाना चुनकर <strong>Delete-कुंजी</strong> सिर्फ़ भीतर की <strong>लिखाई</strong> मिटाती है — ख़ाना खड़ा रहता है; ढाँचा हटाना right-click वाले Delete का काम है। स्तंभ की चौड़ाई रेखा पकड़कर खींचो, या बेहतर — Layout (Table) → <strong>AutoFit</strong> से सामग्री के नाप पर ख़ुद बैठा लो।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>merge — ख़ानों को मिलाकर बड़ा ख़ाना</h2>
+<p>सारणी के माथे पर एक चौड़ा शीर्षक चाहिए ("जन-सेवा शुल्क-सूची") जो तीनों स्तंभों पर फैले? पहली पंक्ति के तीनों ख़ाने चुनो → right-click → <strong>Merge Cells</strong> — तीन ख़ाने एक हो गए; अब center+bold से शीर्षक जमाओ। उल्टा काम <strong>Split Cells</strong> (एक ख़ाना दो में)। merge का संयम भी दर्ज रहे: भर-भरकर merge की गई भूल-भुलैया सारणी पढ़ने वाले और बाद में सुधारने वाले — दोनों को उलझाती है; merge शीर्षक-सरीखी गिनी-चुनी जगहों का औज़ार है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>header-पंक्ति और सजावट — पहचान, फिर संयम</h2>
+<p>पहली पंक्ति (स्तंभ-नाम: सेवा/शुल्क/समय) को अलग पहचान दो — <strong>bold + हल्का पीछे-रंग (shading)</strong>; Table Design tab के बने-बनाए Table Styles से यह एक click में भी मिलता है। लंबी सारणी अगले पन्ने पर बहे तो Layout (Table) → <strong>Repeat Header Rows</strong> — हर पन्ने के माथे पर स्तंभ-नाम दोहराएँ, पढ़ने वाला रास्ता न भूले। border (रेखाएँ) default ठीक हैं; सजावट का नियम वही 2.03 वाला — सारणी जानकारी का बर्तन है, मेला नहीं। अंकों वाले स्तंभ (शुल्क) को right-align करना सधी आदत है — इकाई-दहाई सीध में बैठती है।</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="शुल्क-सूची table — merge शीर्षक, header-पंक्ति, जोड़-इशारे">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">सारणी की बनावट — एक नज़र में</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">सोना = merge शीर्षक · हरा = header-पंक्ति · ठोस तीर = जोड़ने की जगह</text>
+<g stroke="#0B1F3A" stroke-width="3" font-size="18">
+<rect x="120" y="110" width="560" height="60" fill="#F9A825"/>
+<text x="400" y="148" text-anchor="middle" fill="#0B1F3A" font-weight="bold" stroke="none">जन-सेवा शुल्क-सूची (merge: 3 ख़ाने → 1)</text>
+<rect x="120" y="170" width="240" height="55" fill="#2E7D32"/>
+<rect x="360" y="170" width="160" height="55" fill="#2E7D32"/>
+<rect x="520" y="170" width="160" height="55" fill="#2E7D32"/>
+<text x="240" y="205" text-anchor="middle" fill="#F5F7FA" font-weight="bold" stroke="none">सेवा</text>
+<text x="440" y="205" text-anchor="middle" fill="#F5F7FA" font-weight="bold" stroke="none">शुल्क</text>
+<text x="600" y="205" text-anchor="middle" fill="#F5F7FA" font-weight="bold" stroke="none">समय</text>
+<g fill="#fff">
+<rect x="120" y="225" width="240" height="55"/><rect x="360" y="225" width="160" height="55"/><rect x="520" y="225" width="160" height="55"/>
+<rect x="120" y="280" width="240" height="55"/><rect x="360" y="280" width="160" height="55"/><rect x="520" y="280" width="160" height="55"/>
+<rect x="120" y="335" width="240" height="55"/><rect x="360" y="335" width="160" height="55"/><rect x="520" y="335" width="160" height="55"/>
+</g>
+<g fill="#0B1F3A" stroke="none">
+<text x="140" y="260">form भराई</text><text x="500" y="260" text-anchor="end">(काल्पनिक)</text><text x="600" y="260" text-anchor="middle">10 मिनट</text>
+<text x="140" y="315">print/प्रति</text><text x="500" y="315" text-anchor="end">(काल्पनिक)</text><text x="600" y="315" text-anchor="middle">5 मिनट</text>
+<text x="140" y="370">photo-काम</text><text x="500" y="370" text-anchor="end">(काल्पनिक)</text><text x="600" y="370" text-anchor="middle">5 मिनट</text>
+</g>
+</g>
+<g stroke="#1565C0" stroke-width="4" fill="#1565C0">
+<line x1="720" y1="307" x2="760" y2="307"/><path d="M 726 300 L 714 307 L 726 314 Z"/>
+<text x="740" y="290" font-size="16" stroke="none" text-anchor="middle">पंक्ति यहाँ</text>
+<text x="740" y="335" font-size="16" stroke="none" text-anchor="middle">जोड़ो</text>
+</g>
+<g font-size="18" fill="#0B1F3A">
+<rect x="80" y="440" width="640" height="130" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="400" y="472" text-anchor="middle" font-weight="bold">चलना-भरना</text>
+<text x="400" y="506" text-anchor="middle">Tab = अगला ख़ाना · Shift+Tab = पिछला</text>
+<text x="400" y="540" text-anchor="middle">आख़िरी ख़ाने में Tab = नई पंक्ति अपने-आप ✓</text>
+</g>
+<rect x="110" y="600" width="580" height="80" rx="12" fill="#fff" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="634" text-anchor="middle" font-size="19" fill="#0B1F3A">✗ space-space की "सारणी" छपाई में टेढ़ी —</text>
+<text x="400" y="664" text-anchor="middle" font-size="19" fill="#0B1F3A">क़तार-मिलान = असली table ही</text>
+<text x="400" y="765" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 2.08 ← पाठ 2.09 → 2.10 (header-footer, page number)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>सारणी या सूची — चुनाव का सूत्र, और सारणी-सफ़ाई</h2>
+<p>पाठ 2.05 की सूची और आज की सारणी — दोनों क़तार दिखाते हैं, तो चुनाव कैसे? सूत्र यह है: <strong>जानकारी का एक गुण = सूची; हर चीज़ के दो-तीन गुण आपस में मिलाने हों = सारणी।</strong> "क्या-क्या लाना है" में हर चीज़ का एक ही गुण (नाम) है — bullet-सूची; "किस सेवा का कितना शुल्क, कितना समय" में हर सेवा के दो गुण मिलाने हैं — सारणी। एक और कसौटी: पढ़ने वाला अगर स्तंभ पकड़कर <strong>नीचे-नीचे तुलना</strong> करेगा (कौन-सी सेवा सस्ती?) तो सारणी ही चाहिए; सूची में तुलना की सीध नहीं बनती। और सारणी भरने की तीन सफ़ाई-आदतें, जो छपी सारणी को दफ़्तरी दर्जा देती हैं:</p>
+<ol><li><strong>ख़ाली ख़ाना ख़ाली न छोड़ो</strong> — जानकारी लागू नहीं तो छोटी रेखा (—) रखो; ख़ाली ख़ाना पाठक को "भरना छूट गया" का शक देता है।</li><li><strong>एक स्तंभ, एक ढंग</strong> — समय-स्तंभ में कहीं "10 मिनट" कहीं "दस मि." कहीं "10m" नहीं; एक साँचा चुनो, पूरे स्तंभ में वही।</li><li><strong>इकाई header में, ख़ानों में सिर्फ़ अंक</strong> — स्तंभ-नाम "शुल्क (रुपये में)" लिखो तो हर ख़ाने में इकाई दोहरानी नहीं पड़ती और right-align की सीध भी साफ़ बैठती है।</li></ol>
+<p>ये तीनों आदतें आगे Excel (खंड-3) में सीधी काम आएँगी — वहाँ तो स्तंभ का एक-ढंग होना मशीन-गणना की शर्त ही है; Word की सारणी उसका अभ्यास-मैदान है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>space-सारणी का जनाज़ा (काल्पनिक उदाहरण)</h2>
+<p><strong>कमलेश</strong> (काल्पनिक नाम) बरसों से शुल्क-सूची space-ठोक कर बनाता था — screen पर क़तारें मिलीं, छपते ही शुल्क-स्तंभ साँप-सा लहराया। उस्ताद ने असली table बनवाई: Insert → Table (3×6) → header-पंक्ति bold+हरी shading → पहली पंक्ति के तीन ख़ाने merge कर शीर्षक → शुल्क-स्तंभ right-align → नई सेवा जुड़ी तो आख़िरी ख़ाने में Tab से नई पंक्ति। छपाई पहली बार सीधी क़तार में उतरी। महीने बाद एक सेवा बंद हुई — right-click → Delete Rows, दो सेकंड। कमलेश का फ़ैसला: "अब सारणी का मतलब ही table है।"</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-9 (NIOS Practical 9 पर आधारित)</h2>
+<p><strong>काम:</strong> काल्पनिक "जन-सेवा शुल्क-सूची" — (1) 3 स्तंभ × 6 पंक्ति table, (2) पहली पंक्ति merge करके center+bold शीर्षक, (3) दूसरी पंक्ति header (bold+shading), (4) चार सेवाएँ भरो (शुल्क के अंक काल्पनिक, right-align), (5) एक पंक्ति right-click से जोड़ो और एक हटाओ, (6) आख़िरी ख़ाने में Tab से नई पंक्ति का जादू देखो। <strong>अपेक्षित output:</strong> merge-शीर्षक व header-shading वाली भरी सारणी। <strong>रूब्रिक R-a-09 (10 अंक):</strong> ढाँचा सही नाप = 2 · merge-शीर्षक = 2 · header-पहचान = 2 · जोड़-हटाव प्रमाण = 2 · अंक right-align + कोई space-सारणी नहीं = 2। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> cell (ख़ाना) क्या है? (क) पूरी सारणी का दूसरा नाम (ख) फ़ोन का एक हिस्सा (ग) सिर्फ़ पहली पंक्ति का नाम (घ) पंक्ति-स्तंभ के चौराहे का एक ख़ाना <strong>उत्तर: (घ)।</strong> कारण: row × column का चौराहा = एक जानकारी का घर। बाक़ी क्यों ग़लत: (क) पूरी सारणी ख़ानों का जाल है; (ग) पहली पंक्ति header है, अकेला ख़ाना नहीं; (ख) यहाँ cell सारणी-शब्द है।</p>
+<p><strong>प्र-2.</strong> सारणी के आख़िरी ख़ाने में Tab दबाने से? (क) नई पंक्ति अपने-आप जुड़ती है (ख) पूरी सारणी delete हो जाती है (ग) print चालू हो जाता है (घ) कुछ नहीं होता <strong>उत्तर: (क)।</strong> कारण: लंबी सूची भरने का तेज़ रास्ता यही है। बाक़ी क्यों ग़लत: (ख) delete इतना सस्ता नहीं; (घ) "कुछ नहीं" ग़लत — पंक्ति जुड़ती है; (ग) print Ctrl+P है।</p>
+<p><strong>प्र-3.</strong> ख़ाना चुनकर Delete-कुंजी दबाई — क्या मिटा? (क) printer की स्याही ख़त्म हो गई (ख) पूरी फ़ाइल ही मिट गई, कुछ नहीं बचा (ग) सारणी का पूरा ढाँचा मिट गया (घ) सिर्फ़ भीतर की लिखाई; ढाँचा खड़ा रहा <strong>उत्तर: (घ)।</strong> कारण: ढाँचा हटाना right-click → Delete Rows/Columns का काम है। बाक़ी क्यों ग़लत: (ग) ढाँचे के लिए अलग रास्ता है — यही बारीक़ फ़र्क़ पाठ में रटाया गया; (ख) फ़ाइल-हटाव का यहाँ नाता नहीं; (क) स्याही का तो सवाल ही मज़ाक़ है।</p>
+<p><strong>प्र-4.</strong> तीन स्तंभों पर फैला एक चौड़ा शीर्षक-ख़ाना — कौन-सा औज़ार? (क) Merge Cells (ख) Split Cells (ग) नया document (घ) space से खिंचाई <strong>उत्तर: (क)।</strong> कारण: तीन ख़ाने चुनकर merge = एक बड़ा ख़ाना। बाक़ी क्यों ग़लत: (ख) split उल्टा काम (एक → दो) है; (ग) शीर्षक के लिए नई फ़ाइल बेतुकी; (घ) space-खिंचाई वही दफ़न हुई आदत है।</p>
+<p><strong>प्र-5.</strong> लंबी सारणी दूसरे पन्ने पर बही और वहाँ स्तंभ-नाम ग़ायब — सधा इलाज? (क) हर पन्ने पर हाथ से नाम दोबारा type (ख) Repeat Header Rows चालू (ग) कुछ मत करो — ऐसा ही चलेगा (घ) सारणी छोटी कर दो — जानकारी काटो <strong>उत्तर: (ख)।</strong> कारण: header-दोहराव हर पन्ने के माथे पर स्तंभ-नाम ख़ुद रखता है। बाक़ी क्यों ग़लत: (क) हाथ-typing हर बदलाव पर फिर टूटेगी — हाथ-के-नंबर वाली ही बीमारी; (घ) जानकारी काटना हल नहीं (पाठ 2.06 की सीख); (ग) बिना नामों के पाठक अंक पढ़ेगा, अर्थ नहीं।</p>
+<p><strong>अगला पाठ → 2.10: header-footer व page number। (उप-खेप-3 में)</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20Word%20%E0%A4%AE%E0%A5%87%E0%A4%82%20Table%20%E2%80%94%20%E0%A4%AA%E0%A4%82%E0%A4%95%E0%A5%8D%E0%A4%A4%E0%A4%BF%2C%20%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A4%82%E0%A4%AD%2C%20Merge%20%E0%A4%94%E0%A4%B0%20%E0%A4%B8%E0%A4%9C%E0%A4%BE%E0%A4%B5%E0%A4%9F%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-2-08-word-shapes-smartart.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-2-10-word-header-footer-page-number.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

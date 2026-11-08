@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Excel में IF, COUNTIF और TODAY Function सीखें | ACSLEARN</title>
+<meta name="description" content="शर्त वाला गणित — IF से बक़ाया/चुकता, COUNTIF से शर्त-गिनती, TODAY से आज की तारीख़ और बीते दिन — Excel functions-2 सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-09-excel-if-countif-today.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Excel में IF, COUNTIF और TODAY Function सीखें | ACSLEARN">
+<meta property="og:description" content="शर्त वाला गणित — IF से बक़ाया/चुकता, COUNTIF से शर्त-गिनती, TODAY से आज की तारीख़ और बीते दिन — Excel functions-2 सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-09-excel-if-countif-today.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-33: Functions-2 — IF, COUNTIF, TODAY","description":"शर्त वाला गणित — IF से बक़ाया/चुकता, COUNTIF से शर्त-गिनती, TODAY से आज की तारीख़ और बीते दिन — Excel functions-2 सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-09-excel-if-countif-today.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-33: Functions-2 — IF, COUNTIF, TODAY","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-09-excel-if-countif-today.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="33" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-3: Excel</p>
+<h1>पाठ 3.9: Functions-2 — IF, COUNTIF, TODAY</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 33 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <span class="lsn-jumpcur">पाठ 3.9 (यही)</span> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) IF से शर्त वाला फ़ैसला-स्तंभ बनाना, (2) तुलना-चिह्न (&gt;, &lt;, =, &gt;=) बरतना, (3) COUNTIF से "कितनों ने…" वाली गिनती, (4) TODAY से आज की तारीख़ और बीते-दिन का हिसाब, (5) तीनों को मिलाकर बक़ाया-सूची जैसा जीता-जागता काम।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>अब मशीन फ़ैसला भी बोलेगी</h2>
+<p>पाठ 3.08 के पाँचों औज़ार <strong>गिनते</strong> थे; आज के तीन <strong>सोचते</strong> हैं — यानी शर्त पर चलते हैं। Digital Mitra के असली सवाल ऐसे ही होते हैं: "किस-किस का बक़ाया है?", "कितने ग्राहक रामपुर के हैं?", "आवेदन को कितने दिन बीत गए?" — हर सवाल में एक <strong>अगर</strong> छिपा है। Excel में उस अगर का नाम है <strong>IF</strong> (इफ़ — अगर), और उसका ढाँचा एक पंक्ति की कहानी है: <strong>=IF(शर्त, सच-पर-यह, झूठ-पर-यह)</strong> — तीन हिस्से, comma से बँटे, गोल कोष्ठक में। जैसे बक़ाया-स्तंभ C में हो तो D2 में: <strong>=IF(C2&gt;0, "बक़ाया", "चुकता")</strong> — C2 शून्य से बड़ा है? हाँ तो "बक़ाया" छपे, नहीं तो "चुकता"। लिखाई वाले जवाब <strong>दोहरे उद्धरण ""</strong> में रहते हैं — यह Excel की अपनी वर्तनी है; अंक-जवाब बिना उद्धरण: =IF(C2&gt;0, C2, 0)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>शर्त की भाषा — तुलना-चिह्न</h2>
+<p>IF की शर्त तुलना-चिह्नों से बनती है: <strong>&gt;</strong> बड़ा · <strong>&lt;</strong> छोटा · <strong>=</strong> बराबर · <strong>&gt;=</strong> बड़ा-या-बराबर · <strong>&lt;=</strong> छोटा-या-बराबर · <strong>&lt;&gt;</strong> बराबर-नहीं। और शर्त में वही 3.07 वाली जान — <strong>पते</strong>: =IF(B2&gt;=500, "बड़ा काम", "छोटा काम") में B2 बदलते ही फ़ैसला ख़ुद बदल जाता है; fill-handle से खींचो तो हर पंक्ति अपना फ़ैसला ख़ुद करती है (D3 में C3, D4 में C4…)। एक फाँस जन्म से पकड़ लो: शर्त में text से तुलना हो तो वह भी उद्धरण में — =IF(E2="रामपुर", …) — और यहाँ 3.02 का क़ानून फिर पहरेदार है: E-स्तंभ में कहीं "रामपुर " (पीछे फालतू space) भरा हो तो मशीन उसे अलग शब्द मानेगी और फ़ैसला चूक जाएगा; बिगड़ा IF भी अक्सर data-सफ़ाई की चुग़ली है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>COUNTIF — शर्त वाली गिनती</h2>
+<p>COUNT (3.08) अंधी गिनती था; <strong>COUNTIF</strong> (काउंट-इफ़) शर्त लगाकर गिनता है: <strong>=COUNTIF(range, शर्त)</strong>। "रामपुर के कितने ग्राहक?" → <strong>=COUNTIF(E2:E21, "रामपुर")</strong>; "500 से ऊपर के कितने काम?" → <strong>=COUNTIF(B2:B21, "&gt;500")</strong> — ध्यान दो, अंक-शर्त भी यहाँ <strong>उद्धरण में</strong> जाती है ("&gt;500") — यह COUNTIF की अपनी अदा है, रटने लायक़। filter (3.06) से रिश्ता समझ लो: filter पंक्तियाँ <strong>दिखाता</strong> है, COUNTIF सिर्फ़ <strong>गिनती बताता</strong> है — रिपोर्ट में "रामपुर: 14 ग्राहक" लिखना हो तो छानने की ज़रूरत नहीं, एक COUNTIF काफ़ी; और यह गिनती ज़िंदा है — नया रामपुरी ग्राहक जुड़ते ही ख़ुद 15 हो जाएगी। इसी परिवार में आगे SUMIF भी है (शर्त वाला जोड़) — नाम सुन रखो, बरतना खंड-5 के काम-काजी अभ्यासों में आएगा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>TODAY — तारीख़ का जीता function</h2>
+<p><strong>=TODAY()</strong> — कोष्ठक <strong>ख़ाली</strong> ही रहते हैं — cell में <strong>आज की तारीख़</strong> भर देता है, और यह तारीख़ <strong>रोज़ ख़ुद बदलती है</strong>: कल फ़ाइल खोलोगे तो कल की। इसी से तारीख़-गणित खुलता है: आवेदन-तारीख़ F2 में हो तो <strong>=TODAY()−F2</strong> बताता है कितने <strong>दिन बीत गए</strong> (तारीख़ों का घटाव = दिनों की गिनती — 3.02 में date-रूप में भरने की ज़िद इसीलिए थी)। नतीजा कभी-कभी तारीख़-रूप में दिख जाए तो घबराना नहीं — वही कपड़ा-शरीर बात: cell का रूप Number करो, अंक दिखेगा। और तीनों का संगम देखो — बक़ाया-सूची का राजा-सूत्र: <strong>=IF(TODAY()−F2&gt;30, "पुराना बक़ाया", "ताज़ा")</strong> — मशीन रोज़ ख़ुद तय करती रहेगी कौन-सा बक़ाया तीस दिन पार कर गया। (एक भेद याद रहे: =TODAY() ज़िंदा तारीख़ है; किसी घटना की <strong>पक्की</strong> तारीख़ दर्ज करनी हो तो उसे हाथ से भरो — वरना वह रोज़ सरकती रहेगी।)</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IF की दो-राहा चौकी, COUNTIF की शर्त-गिनती, TODAY का दिन-हिसाब">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">तीन सोचने वाले functions</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">सोना = शर्त की चौकी · ठोस तीर = फ़ैसले की राह · ✓ सच ✗ झूठ</text>
+<g font-size="16" fill="#0B1F3A">
+<text x="400" y="116" text-anchor="middle" font-size="19" font-weight="bold">=IF(C2>0, "बक़ाया", "चुकता")</text>
+<rect x="310" y="135" width="180" height="56" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="170" text-anchor="middle" font-size="18" font-weight="bold">शर्त: C2 > 0 ?</text>
+<path d="M330 191 L200 245 M208 240 L200 245 L210 249" stroke="#2E7D32" stroke-width="3" fill="none"/>
+<path d="M470 191 L600 245 M590 240 L600 245 L590 249" stroke="#0B1F3A" stroke-width="3" fill="none"/>
+<rect x="100" y="250" width="200" height="50" rx="10" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="200" y="282" text-anchor="middle" fill="#2E7D32" font-weight="bold">✓ सच → "बक़ाया"</text>
+<rect x="500" y="250" width="200" height="50" rx="10" fill="#fff" stroke="#0B1F3A" stroke-width="3"/>
+<text x="600" y="282" text-anchor="middle" font-weight="bold">✗ झूठ → "चुकता"</text>
+<text x="400" y="336" text-anchor="middle" font-size="16" fill="#1565C0">लिखाई-जवाब "उद्धरण" में · fill-handle से हर पंक्ति अपना फ़ैसला</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="65" y="370" width="330" height="170" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="230" y="402" text-anchor="middle" font-size="18" font-weight="bold">COUNTIF — शर्त-गिनती</text>
+<text x="85" y="436">=COUNTIF(E2:E21,"रामपुर") → 14</text>
+<text x="85" y="468">=COUNTIF(B2:B21,">500") → 6</text>
+<text x="85" y="500" fill="#1565C0">अंक-शर्त भी उद्धरण में: ">500"</text>
+<text x="85" y="528" fill="#2E7D32">गिनती ज़िंदा — नया ग्राहक = ख़ुद 15</text>
+<rect x="410" y="370" width="330" height="170" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="575" y="402" text-anchor="middle" font-size="18" font-weight="bold">TODAY — दिन-हिसाब</text>
+<text x="430" y="436">=TODAY() → आज (रोज़ बदले)</text>
+<text x="430" y="468">=TODAY()−F2 → बीते दिन</text>
+<text x="430" y="500" fill="#1565C0">नतीजा तारीख़-सा दिखे → रूप Number</text>
+<text x="430" y="528" fill="#2E7D32">पक्की तारीख़ = हाथ से भरो</text>
+</g>
+<rect x="90" y="570" width="620" height="100" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="604" text-anchor="middle" font-size="16" fill="#0B1F3A" font-weight="bold">पक्की चौकी: =IF(F2="", "तारीख़ डालें", IF(TODAY()−F2>30, "पुराना बक़ाया", "ताज़ा"))</text>
+<text x="400" y="636" text-anchor="middle" font-size="16" fill="#0B1F3A">मशीन रोज़ ख़ुद छाँटती रहेगी — तीस-दिन-पार बक़ाया अपने-आप उभरेगा</text>
+<text x="400" y="660" text-anchor="middle" font-size="16" fill="#1565C0">बिगड़ा IF अक्सर data-चुग़ली: "रामपुर " (फालतू space) ≠ "रामपुर"</text>
+<text x="400" y="765" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 3.08 (SUM-परिवार) ← पाठ 3.09 → 3.10 (chart बनाना)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>तीस दिन की चौकीदारी (काल्पनिक उदाहरण)</h2>
+<p><strong>गीता</strong> (काल्पनिक नाम) की सिरदर्दी वसूली थी — 60 ग्राहकों में किसका बक़ाया पुराना, हर हफ़्ते register-छनाई, और हर बार दो-चार नाम छूटते। उस्ताद ने तीन स्तंभ बनवाए: बक़ाया (C), तारीख़ (F), फ़ैसला (G) में राजा-सूत्र <strong>=IF(TODAY()−F2&gt;30, "पुराना बक़ाया", "ताज़ा")</strong> — fill-handle से नीचे तक। पहली दौड़ में नौ "पुराना बक़ाया" उभरे — दो वे, जो छनाई में महीनों से छूटे थे। ऊपर <strong>=COUNTIF(G2:G61, "पुराना बक़ाया")</strong> बैठाया — रोज़ फ़ाइल खुलते ही एक अंक: आज कितनी चौकसी। दसवें दिन एक कल के ग्राहक पर "पुराना बक़ाया" चमका — formula bar खोला तो F-cell <strong>ख़ाली</strong> था: मशीन ख़ाली को शून्य गिनती है, और शून्य-तारीख़ से आज तक हज़ारों दिन! उस्ताद ने चौकी पक्की करवाई: <strong>=IF(F2="", "तारीख़ डालें", IF(TODAY()−F2&gt;30, "पुराना बक़ाया", "ताज़ा"))</strong> — पहले पूछो ख़ाली तो नहीं, तब दिन गिनो; तारीख़ भरते ही फ़ैसला सही। copy में पंक्ति: <strong>"IF चौकीदार है — पर चौकी उतनी ही सच्ची जितना data। और TODAY वाला सूत्र सोता नहीं: कल खोलूँगी तो कल का सच बोलेगा।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-22 का functions-2 भाग (NIOS Practical 22 पर आधारित)</h2>
+<p><strong>काम:</strong> 15-पंक्ति सूची (नाम, गाँव, शुल्क, बक़ाया, काम-तारीख़) पर — (1) फ़ैसला-स्तंभ: =IF(बक़ाया&gt;0, "बक़ाया", "चुकता") → खींचो, (2) =IF(शुल्क&gt;=500, "बड़ा", "छोटा") दूसरा फ़ैसला-स्तंभ, (3) =COUNTIF से अपने गाँव के ग्राहक + "&gt;500" वाले काम — दोनों गिनतियाँ label-सहित, (4) =TODAY() एक cell में; बीते-दिन स्तंभ =TODAY()−तारीख़ (रूप Number), (5) राजा-सूत्र, ख़ाली-जाँच समेत: =IF(तारीख़="", "तारीख़ डालें", IF(TODAY()−तारीख़&gt;30, "पुराना बक़ाया", "ताज़ा")), (6) एक पंक्ति में जान-बूझकर "रामपुर " (फालतू space) भरकर COUNTIF की चूक दिखाओ-सुधारो। <strong>अपेक्षित output:</strong> फ़ैसला-स्तंभों + ज़िंदा गिनतियों वाली .xlsx। <strong>रूब्रिक (R-a-22 का यह भाग, 10 अंक):</strong> दोनों IF सही (उद्धरण-विधि समेत) = 3 · दोनों COUNTIF = 2 · TODAY+बीते-दिन = 2 · राजा-सूत्र = 2 · space-चूक प्रदर्शन-सुधार = 1। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> =IF(C2&gt;0, "बक़ाया", "चुकता") के तीन हिस्से क्या हैं? (क) तीन अलग-अलग आपस में जुड़े सूत्र (ख) शर्त, सच-पर-जवाब, झूठ-पर-जवाब (ग) तीन अलग-अलग range के नाम (घ) तीन अलग cell-पतों की सूची <strong>उत्तर: (ख)।</strong> कारण: IF = एक पंक्ति की कहानी — अगर (C2&gt;0), तो ("बक़ाया"), वरना ("चुकता"); comma से बँटे। बाक़ी क्यों ग़लत: (क) एक ही सूत्र के तीन अंग हैं; (घ) पता सिर्फ़ शर्त में है; (ग) range COUNTIF-परिवार की बात है।</p>
+<p><strong>प्र-2.</strong> IF में लिखाई वाले जवाब पर उद्धरण "" क्यों? (क) उद्धरण लगाना यहाँ मना है (ख) सिर्फ़ English-लिखाई में ही चाहिए होता है (ग) सिर्फ़ देखने की सजावट के लिए (घ) वर्तनी — "" बिना वह लिखाई नहीं समझेगा <strong>उत्तर: (घ)।</strong> कारण: "" = "यह लिखाई है" का निशान — बिना उद्धरण Excel "बक़ाया" को नाम/पता समझकर सूत्र बिगाड़ेगा। बाक़ी क्यों ग़लत: (ग) यह नियम है, शौक़ नहीं; (क) उल्टा — बिना उद्धरण ही त्रुटि है; (ख) हिंदी-लिखाई पर भी वही नियम।</p>
+<p><strong>प्र-3.</strong> "500 से ऊपर के कितने काम?" — सही सूत्र? (क) =SUM(B2:B21) लगाओ (ख) =IF(B2&gt;500) लगाओ (ग) =COUNT(B2:B21) सीधा लगा दो (घ) =COUNTIF(B2:B21, "&gt;500") <strong>उत्तर: (घ)।</strong> कारण: शर्त-गिनती = COUNTIF; अंक-शर्त "&gt;500" भी उद्धरण में — यही उसकी अदा है। बाक़ी क्यों ग़लत: (ग) COUNT सब अंक गिनेगा — शर्त नहीं जानता; (क) SUM जोड़ है, गिनती नहीं; (ख) IF अधूरा भी है और वह एक cell का फ़ैसला देता है, गिनती नहीं।</p>
+<p><strong>प्र-4.</strong> =TODAY()−F2 का काम? (क) F2 का data मिटाना (ख) F2 में आज की ताज़ा तारीख़ भरना (ग) कुछ नहीं करता (घ) आज से F2 तक बीते दिन गिनना <strong>उत्तर: (घ)।</strong> कारण: तारीख़ों का घटाव = दिन; TODAY रोज़ सरकता है — कल खोलो तो कल के हिसाब से ख़ुद ताज़ा। बाक़ी क्यों ग़लत: (क) घटाव किसी cell को छूता नहीं; (ग) यही तो बक़ाया-चौकीदारी की जान है; (ख) भरना हो तो F2 में ख़ुद लिखो — पक्की तारीख़ हाथ से ही।</p>
+<p><strong>प्र-5.</strong> =IF(E2="रामपुर",…) सही ग्राहक पर भी "झूठ" वाला जवाब दे रहा है — सबसे संभावित जड़? (क) E2 में फालतू space या अलग वर्तनी (ख) उद्धरण तो कभी भी नहीं लगाने चाहिए थे (ग) IF function ही ख़राब है (घ) Excel हिंदी नहीं पढ़ता <strong>उत्तर: (क)।</strong> कारण: "रामपुर " का छिपा space = मशीन के लिए दूसरा शब्द — data-सफ़ाई करो; तुलना अक्षरशः होती है। बाक़ी क्यों ग़लत: (ग) function नियम से चल रहा है — ख़राबी नहीं; (ख) text-तुलना में उद्धरण अनिवार्य हैं; (घ) हिंदी बराबर चलती है — शर्त सिर्फ़ हूबहू मिलान की है।</p>
+<p><strong>अगला पाठ → 3.10: chart बनाना — bar, line, pie।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20Functions-2%20%E2%80%94%20IF%2C%20COUNTIF%2C%20TODAY%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-3-08-excel-sum-average-min-max-count.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-3-10-excel-chart-banana-bar-line-pie.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

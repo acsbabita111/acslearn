@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Email का Archive व खोज — Gmail में सहेजना-निकालना | ACSLEARN</title>
+<meta name="description" content="Archive बनाम Delete का फ़र्क़, All Mail का गोदाम, from:-to:-has:attachment जैसी खोज-धार और प्रमाण-चिट्ठियों की सँभाल-रीत — सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-07-email-archive-khoj.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Email का Archive व खोज — Gmail में सहेजना-निकालना | ACSLEARN">
+<meta property="og:description" content="Archive बनाम Delete का फ़र्क़, All Mail का गोदाम, from:-to:-has:attachment जैसी खोज-धार और प्रमाण-चिट्ठियों की सँभाल-रीत — सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-07-email-archive-khoj.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-57: ज़रूरी Email का Archive व खोज","description":"Archive बनाम Delete का फ़र्क़, All Mail का गोदाम, from:-to:-has:attachment जैसी खोज-धार और प्रमाण-चिट्ठियों की सँभाल-रीत — सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-07-email-archive-khoj.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-57: ज़रूरी Email का Archive व खोज","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-5-07-email-archive-khoj.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="57" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-5: फ़ाइल, Email व Scanner</p>
+<h1>पाठ 5.7: ज़रूरी Email का Archive व खोज</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 57 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <span class="lsn-jumpcur">पाठ 5.7 (यही)</span> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) Archive-बनाम-Delete का फ़र्क़ बरतना, (2) Archive करना व All Mail से वापस लाना, (3) Gmail-खोज की चार कुंजियों (from: · to: · has:attachment · "शब्द") से पुरानी चिट्ठी सेकंडों में निकालना, (4) प्रमाण-चिट्ठियों की label+Archive सँभाल-रीत चलाना, (5) "email = दफ़्तर का रजिस्टर" सोच से काम करना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>Archive — हटाना नहीं, उतारना</h2>
+<p>5.06 की रस्म में तीन फ़ैसले थे — ⭐/label/Delete; आज चौथा, सबसे सधा: <strong>Archive</strong> (आर्काइव — अभिलेख में उतारना)। फ़र्क़ गाँठ बाँधो: <strong>Delete = कूड़ेदान</strong> — Trash में, ~30 दिन में हमेशा के लिए गई; <strong>Archive = गोदाम</strong> — चिट्ठी Inbox-मेज़ से <strong>उतरती</strong> है पर खाते में <strong>पूरी सुरक्षित</strong> — न समय-सीमा, न मिटना। Gmail में हर चिट्ठी वैसे भी बड़े गोदाम <strong>All Mail</strong> (बाईं पट्टी, More के भीतर) में दर्ज है; Inbox "अभी की मेज़" भर है — Archive मेज़ साफ़ करता है, रजिस्टर नहीं फाड़ता। करना आसान: चिट्ठी पर 🗃-चिह्न (फ़ोन में बग़ल-<strong>swipe</strong> प्रायः यही) — Inbox से ग़ायब, <strong>All Mail</strong> और <strong>label</strong> में हाज़िर। वापस चाहिए? खोलकर <strong>Move to Inbox</strong>। अब 5.06 की रस्म पूरी: निपटी ज़रूरी चिट्ठी का ठिकाना <strong>Delete नहीं, label + Archive</strong> — मेज़ साफ़, रजिस्टर पूरा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>किसे Archive, किसे Delete — रजिस्टर-सोच</h2>
+<p>कसौटी एक सवाल: <strong>"छह महीने बाद यह किसी बात का प्रमाण बन सकती है?"</strong> हाँ = Archive; नहीं = Delete। Digital Mitra के काम में "हाँ" की सूची लंबी है — यही असली सीख: <strong>email दफ़्तर का रजिस्टर है।</strong> ब्लॉक की सूचना, रिपोर्ट की Sent-प्रति, portal की पावती (acknowledgement), "हो गया" पुष्टि, ग्राहक-पत्राचार — कल सवाल उठे ("रिपोर्ट भेजी ही नहीं!") तो यही गवाही हैं: किसने, कब, क्या — तारीख़-समय समेत। रीत: ऐसी हर चिट्ठी पर पहले <strong>label</strong>, फिर <strong>Archive</strong>; Delete सिर्फ़ सच्चे कूड़े पर — विज्ञापन, पुरानी app-सूचनाएँ। पहरा: सबसे पक्की प्रति <strong>Sent-प्रति</strong> और <strong>आई मूल चिट्ठी</strong> है — forward करके "सहेजना" नहीं (forward नई चिट्ठी है, मूल की तारीख़-गवाही कमज़ोर पड़ती है); मूल को ही label+Archive।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>खोज — गोदाम की चाबी</h2>
+<p>गोदाम तभी काम का जब चीज़ <strong>निकले</strong> — Gmail की खोज Drive-खोज (5.04) से भी धारदार। चार कुंजियाँ कंठ करो: <strong>(1) शब्द से</strong> — खोज-पट्टी में विषय/मजमून का टुकड़ा: <code>नवंबर रिपोर्ट</code>; <strong>(2) from:</strong> (किससे आई) — <code>from:block</code> या भेजने वाले के पते का टुकड़ा; <strong>(3) to:</strong> (किसे भेजी) — अपनी भेजी चिट्ठियाँ: <code>to:block</code>; <strong>(4) has:attachment</strong> (फ़ाइल-वाली) — कुंजियाँ <strong>जुड़ती</strong> भी हैं: <code>from:block has:attachment नवंबर</code> — चार सौ के ढेर से तीन पर। खोज <strong>All Mail तक</strong> जाती है — Archive की चिट्ठी भी पकड़ में; Trash/Spam अलग से (खोज-नतीजों के नीचे Gmail ख़ुद सुझाता है)। पहचान गए — 5.01 का जोड़ा email-रूप में: <strong>बोलते label = बोलते नाम; खोज = चाबी।</strong> label-सहित Archive हुई चिट्ठी दो रास्तों से निकलती है — label से टहलकर, खोज से उड़कर।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>रीत को आदत बनाना</h2>
+<p>email-कहानी अब एक चक्र है: <strong>आई</strong> → दस-मिनट रस्म → <strong>निपटी</strong> → label+<strong>Archive</strong> → ज़रूरत → <strong>खोज</strong> → हाज़िर। पैमाना वही रामू वाला: <strong>बीस सेकंड</strong> — किसी भी पुराने प्रमाण तक का समय। महीने में एक दस-मिनट गोदाम-झाड़: Starred के अटके काम निपटाओ, पुरानी "बिन-फ़ैसला" चिट्ठियों पर फ़ैसला। (अगला पुल: साथ आई <strong>फ़ाइलों</strong> का ढेर — कौन-से डिब्बे में, कौन-सी प्रति असली — data-छँटाई 5.08 में।)</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Archive बनाम Delete, All Mail गोदाम, label+Archive प्रमाण-रीत और खोज की चार कुंजियाँ">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">email = दफ़्तर का रजिस्टर</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">ठोस तीर = चिट्ठी का सफ़र · बिंदु-रेखा = Delete की जाली-सीमा · सोना = खोज-कुंजियाँ</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="100" width="340" height="200" rx="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="225" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="#2E7D32">🗃 Archive = गोदाम</text>
+<text x="225" y="162" text-anchor="middle" font-size="16">Inbox-मेज़ से उतरी, खाते में पूरी सुरक्षित</text>
+<text x="225" y="190" text-anchor="middle" font-size="16">न समय-सीमा, न मिटना</text>
+<text x="225" y="222" text-anchor="middle" font-size="16">घर: All Mail (+ लगे label)</text>
+<text x="225" y="252" text-anchor="middle" font-size="16" fill="#1565C0">वापसी: खोलकर Move to Inbox</text>
+<text x="225" y="280" text-anchor="middle" font-size="16" fill="#1565C0">फ़ोन: बग़ल-swipe प्रायः यही</text>
+<rect x="405" y="100" width="340" height="200" rx="12" fill="#fff" stroke="#0B1F3A" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="575" y="130" text-anchor="middle" font-size="16" font-weight="bold">🗑 Delete = कूड़ेदान</text>
+<text x="575" y="162" text-anchor="middle" font-size="16">Trash में → ~30 दिन में हमेशा के लिए गई</text>
+<text x="575" y="194" text-anchor="middle" font-size="16">सिर्फ़ सच्चे कूड़े पर —</text>
+<text x="575" y="220" text-anchor="middle" font-size="16">विज्ञापन · पुरानी app-सूचनाएँ</text>
+<text x="575" y="256" text-anchor="middle" font-size="16" fill="#1565C0">कसौटी: "छह महीने बाद प्रमाण बन</text>
+<text x="575" y="278" text-anchor="middle" font-size="16" fill="#1565C0">सकती है?" हाँ=Archive · नहीं=Delete</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="328" width="690" height="110" rx="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="400" y="358" text-anchor="middle" font-size="16" font-weight="bold">प्रमाण-सँभाल रीत: ज़रूरी चिट्ठी → label → Archive</text>
+<text x="400" y="390" text-anchor="middle" font-size="16">सूचना · Sent-प्रति · पावती · "हो गया" पुष्टि · ग्राहक-पत्राचार = गवाही (किसने-कब-क्या)</text>
+<text x="400" y="418" text-anchor="middle" font-size="16" fill="#1565C0">मूल को ही सहेजो — forward नई चिट्ठी है, मूल की तारीख़-गवाही कमज़ोर पड़ती है</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="465" width="690" height="180" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="497" text-anchor="middle" font-size="17" font-weight="bold">खोज की चार कुंजियाँ (All Mail तक — Archive भी पकड़ में)</text>
+<text x="400" y="531" text-anchor="middle">शब्द: नवंबर रिपोर्ट · from:block (किससे आई) · to:block (किसे भेजी)</text>
+<text x="400" y="561" text-anchor="middle">has:attachment (फ़ाइल-वाली)</text>
+<rect x="150" y="580" width="500" height="34" rx="6" fill="#fff" stroke="#0B1F3A" stroke-width="2"/>
+<text x="400" y="602" text-anchor="middle" font-size="16" font-weight="bold">जुड़ती भी हैं: from:block has:attachment नवंबर → 400 में से 3</text>
+<text x="400" y="636" text-anchor="middle" font-size="16">Trash/Spam अलग से — खोज-नतीजों के नीचे Gmail ख़ुद सुझाता है</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<text x="400" y="678" text-anchor="middle">चक्र: आई → रस्म (⭐/label/Delete) → निपटी → label+Archive → ज़रूरत → खोज → हाज़िर</text>
+<text x="400" y="706" text-anchor="middle" fill="#2E7D32" font-weight="bold">पैमाना: किसी भी पुराने प्रमाण तक बीस सेकंड</text>
+</g>
+<text x="400" y="765" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 5.06 (inbox-रस्म) ← पाठ 5.07 → 5.08 (data की छँटाई-सफ़ाई)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>"रिपोर्ट आई ही नहीं" (काल्पनिक उदाहरण)</h2>
+<p><strong>गीता</strong> (काल्पनिक नाम) के पास ब्लॉक से तीखा फ़ोन: "अक्टूबर की रिपोर्ट भेजी ही नहीं — नाम कट सकता है।" पुरानी गीता घबरा जाती; आज की गीता ने खोज में <code>to:block has:attachment अक्टूबर</code> — तीन सेकंड में Sent-प्रति हाज़िर: तारीख़-समय-PDF समेत। मूल चिट्ठी से <strong>तारीख़-सहित</strong> हवाला — "12 अक्टूबर, शाम 4:40, इसी पते पर, PDF नत्थी" — उधर काग़ज़ मिला, बात ख़त्म; <strong>रजिस्टर ने इज़्ज़त बचाई।</strong> यह महीने-भर की रीत का फल था: गीता हर निपटी ज़रूरी चिट्ठी label देकर Archive करती आई थी — Inbox साफ़, All Mail का रजिस्टर पूरा; एक बार Archive की चिट्ठी "खो" गई लगी — उस्ताद हँसे: "मेज़ से उतरी है, गोदाम से नहीं — All Mail देखो"; वहीं मिली, Move to Inbox से वापस। कूड़ा बेहिचक Delete होता रहा — रजिस्टर में कूड़ा रखना बेअदबी है। copy में पंक्ति: <strong>"Delete कूड़ेदान है, Archive गोदाम — और खोज की चाबी से मेरा हर प्रमाण बीस सेकंड पर खड़ा है।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-42 (NIOS Practical 42 पर आधारित; mobile-full)</h2>
+<p><strong>काम:</strong> (1) inbox की 4-5 निपटी चिट्ठियों पर कसौटी-सवाल — हर एक के आगे Archive/Delete + एक-पंक्ति कारण, (2) "हाँ" वालियों को <strong>label → Archive</strong> — Inbox से उतरने व <strong>All Mail</strong> में दिखने के screenshot, (3) एक Archive-चिट्ठी <strong>Move to Inbox</strong> से वापस — प्रमाण, (4) खोज-धार: चार कुंजियों में से <strong>तीन</strong> चलाओ (एक जुड़ी ज़रूर) — क्या लिखा, कितनी मिलीं: तीन पंक्तियाँ, (5) किसी Sent-प्रति को खोज से निकालकर तारीख़-समय दर्ज — "गवाही-पर्ची", (6) दो-पंक्ति नोट: प्रमाण-चिट्ठी को forward करके सहेजना क्यों कमज़ोर रास्ता है। <strong>अपेक्षित output:</strong> Archive/Delete फ़ैसला-सूची (कारण-सहित) + Archive↔वापसी प्रमाण + तीन खोज-पंक्तियाँ + गवाही-पर्ची + forward-नोट। <strong>रूब्रिक R-a-42 (10 अंक):</strong> कसौटी-फ़ैसले कारण-सहित = 2 · label+Archive + All Mail-प्रमाण = 3 · वापसी (Move to Inbox) = 1 · तीन खोजें (एक जुड़ी) = 3 · forward-नोट = 1। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> Archive बनाम Delete? (क) Archive = मेज़ से उतारना; All Mail में सुरक्षित (ख) Delete के बाद भी All Mail में मिलती है (ग) Archive ही असली ख़तरनाक चीज़ है (घ) दोनों ही चिट्ठी को मिटा देते हैं <strong>उत्तर: (क)।</strong> कारण: Archive में न सीमा, न मिटना; Delete = Trash → ~30 दिन में हमेशा के लिए गई — मेज़ बनाम कूड़ेदान। बाक़ी क्यों ग़लत: (ख/घ) Delete वाली ~30 दिन बाद किसी गोदाम में नहीं; (ग) Archive सबसे सुरक्षित — गीता की "खोई" चिट्ठी All Mail में बैठी थी।</p>
+<p><strong>प्र-2.</strong> किस चिट्ठी को Archive, किसे Delete — कसौटी? (क) छह महीने से ज़्यादा पुरानी सब कुछ Delete कर दो (ख) प्रमाण बन सकती है? हाँ=Archive, नहीं=Delete (ग) सब कुछ Archive — सोचना ही क्यों (घ) जिस दिन जो मन करे वही कर दो <strong>उत्तर: (ख)।</strong> कारण: हाँ = सूचना/Sent-प्रति/पावती/ग्राहक-पत्राचार (label+Archive); नहीं = विज्ञापन, पुरानी app-सूचना — गवाही रखो, कूड़ा फेंको। बाक़ी क्यों ग़लत: (क) पुरानी ही तो गवाही होती है; (ग) कूड़े से भरा गोदाम भी खोज धीमी-मैली करता है; (घ) रीत बिन-कसौटी नहीं चलती।</p>
+<p><strong>प्र-3.</strong> "ब्लॉक से आई, फ़ाइल-वाली, नवंबर-ज़िक्र वाली" चिट्ठी एक खोज में? (क) to:block नवंबर लिखकर (ख) from:block has:attachment नवंबर जोड़ो (ग) ऐसा किसी एक खोज में नहीं हो सकता (घ) सिर्फ़ ऊपर-नीचे scroll कर-करके ढूँढते रहो <strong>उत्तर: (ख)।</strong> कारण: खोज All Mail तक जाती है — Archive की चिट्ठी भी पकड़ में; जुड़ी कुंजियाँ ढेर को तीन पर लाती हैं। बाक़ी क्यों ग़लत: (ग) चारों कुंजियाँ जुड़ती हैं; (घ) scroll बीस सेकंड नहीं, बीस मिनट है; (क) to: अपनी भेजी के लिए — आई हुई के लिए from:।</p>
+<p><strong>प्र-4.</strong> Archive की चिट्ठी फिर Inbox में चाहिए? (क) भेजने वाले से चिट्ठी दोबारा भिजवाओ (ख) नामुमकिन — गई सो गई (ग) Trash में जाकर खोजो (घ) All Mail से खोलो → Move to Inbox <strong>उत्तर: (घ)।</strong> कारण: Archive उतारना है, निकालना नहीं — वापसी एक छुअन की है। बाक़ी क्यों ग़लत: (ख) यही Archive-डर रीत अपनाने से रोकता है — बेबुनियाद; (क) दोबारा भिजवाई चिट्ठी की तारीख़ नई होगी — गवाही वही नहीं; (ग) Trash Delete वालों का ठिकाना है।</p>
+<p><strong>प्र-5.</strong> "रिपोर्ट भेजी ही नहीं" के आरोप पर सबसे पक्की गवाही? (क) चिट्ठी किसी को forward करके दिखाओ (ख) "भेजी थी जी" — ज़बानी गवाही (ग) नई रिपोर्ट चुपचाप भेज दो (घ) खोज से निकली मूल Sent-प्रति — तारीख़-समेत <strong>उत्तर: (घ)।</strong> कारण: तारीख़-समय-नत्थी PDF समेत हवाला — इसीलिए मूल को label+Archive; गीता का नाम इसी ने बचाया। बाक़ी क्यों ग़लत: (ख) ज़बान बनाम काग़ज़ में काग़ज़ जीतता है; (क) forward नई चिट्ठी है — मूल की गवाही कमज़ोर; (ग) चुप रहना = आरोप मान लेना, और तारीख़ की चोरी अलग।</p>
+<p><strong>अगला पाठ → 5.08: data की छँटाई-सफ़ाई (curation) — ढेर से काम की चीज़।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20%E0%A4%9C%E0%A4%BC%E0%A4%B0%E0%A5%82%E0%A4%B0%E0%A5%80%20Email%20%E0%A4%95%E0%A4%BE%20Archive%20%E0%A4%B5%20%E0%A4%96%E0%A5%8B%E0%A4%9C%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-5-08-data-curation-chhantai-safai.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

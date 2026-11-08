@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Excel में SUM, AVERAGE, MIN, MAX, COUNT सीखें | ACSLEARN</title>
+<meta name="description" content="function क्या है, range (B2:B21) की भाषा, पाँच बुनियादी functions, AutoSum और status-पट्टी की झलक — सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-08-excel-sum-average-min-max-count.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Excel में SUM, AVERAGE, MIN, MAX, COUNT सीखें | ACSLEARN">
+<meta property="og:description" content="function क्या है, range (B2:B21) की भाषा, पाँच बुनियादी functions, AutoSum और status-पट्टी की झलक — सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-08-excel-sum-average-min-max-count.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-32: Functions-1 — SUM, AVERAGE, MIN, MAX, COUNT","description":"function क्या है, range (B2:B21) की भाषा, पाँच बुनियादी functions, AutoSum और status-पट्टी की झलक — सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-08-excel-sum-average-min-max-count.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-32: Functions-1 — SUM, AVERAGE, MIN, MAX, COUNT","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-3-08-excel-sum-average-min-max-count.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="32" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-3: Excel</p>
+<h1>पाठ 3.8: Functions-1 — SUM, AVERAGE, MIN, MAX, COUNT</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 32 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <span class="lsn-jumpcur">पाठ 3.8 (यही)</span> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) function और range की भाषा बोलना, (2) SUM-AVERAGE-MIN-MAX-COUNT पाँचों चलाना, (3) AutoSum से फुर्ती, (4) status-पट्टी की बिना-सूत्र झलक पढ़ना, (5) COUNT की "सिर्फ़ अंक गिनता हूँ" वाली फ़ितरत समझना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बीस का जोड़ — =B2+B3+…+B21 नहीं!</h2>
+<p>पाठ 3.07 के बाद पहला मन करता है: पूरे शुल्क-स्तंभ का जोड़ = =B2+B3+B4… बीस पतों की माला। रुको — यह register-युग की सोच पर Excel-कपड़े हैं। Excel ऐसे कामों के लिए <strong>functions</strong> (फ़ंक्शन — बने-बनाए गणित-औज़ार) देता है: नाम बोलो, data की सीमा दो, काम हाज़िर। और सीमा बोलने की भाषा है <strong>range</strong> (रेंज): <strong>B2:B21</strong> — पढ़ो "B2 <strong>से</strong> B21 तक" — बीच का <strong>:</strong> (colon) "से-तक" का पुल है। अब बीस का जोड़ एक साँस में: <strong>=SUM(B2:B21)</strong>। ढाँचा हर function का एक ही: <strong>=नाम(range)</strong> — = की घंटी, function का नाम, गोल कोष्ठक में सीमा। range चुनने का आसान रास्ता भी वही click वाला: =SUM( लिखकर B2 से B21 तक <strong>माउस से पोंछ दो</strong> — पता ख़ुद छपता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पाँच औज़ार — हिसाब की पंचायत</h2>
+<ul><li><strong>=SUM(B2:B21)</strong> — <strong>जोड़</strong>: महीने की कुल वसूली। Digital Mitra का रोज़ का पहला सवाल।</li><li><strong>=AVERAGE(B2:B21)</strong> — <strong>औसत</strong>: ग्राहक-पीछे औसतन कितना? (जोड़ ÷ गिनती — मशीन ख़ुद करती है।)</li><li><strong>=MIN(B2:B21)</strong> — <strong>सबसे छोटा</strong>: सबसे सस्ता काम कितने का था?</li><li><strong>=MAX(B2:B21)</strong> — <strong>सबसे बड़ा</strong>: सबसे मोटी वसूली कौन-सी?</li><li><strong>=COUNT(B2:B21)</strong> — <strong>गिनती</strong>: कितने ख़ानों में <strong>अंक</strong> भरे हैं?</li></ul>
+<p>COUNT की फ़ितरत पर ठहरो — यह <strong>सिर्फ़ अंक गिनता है</strong>: नाम (text) गिनती से बाहर; ख़ाली ख़ाने भी बाहर। इसका सीधा उपयोग उल्टी जाँच में है: 20 ग्राहकों की सूची में =COUNT(शुल्क-range) ने <strong>18</strong> कहा — मतलब दो ख़ाने या तो ख़ाली हैं या उनमें text घुसा है ("₹250" वाली चुग़ली फिर पकड़ में!)। नामों की गिनती चाहिए तो उसका भाई <strong>=COUNTA(A2:A21)</strong> है — जो <strong>भरे हुए</strong> ख़ाने गिनता है, अंक हों या लिखाई। जोड़ी याद रखो: COUNT = अंक-गिनती, COUNTA = भरा-गिनती — दोनों का फ़र्क़ ही अधूरी-भराई पकड़ने का यंत्र है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>AutoSum और status-पट्टी — दो मुफ़्त तोहफ़े</h2>
+<p><strong>AutoSum (Σ):</strong> स्तंभ के <strong>ठीक नीचे वाले ख़ाली cell</strong> पर click → Home-पट्टी का <strong>Σ बटन</strong> → Excel ऊपर का range सूँघकर =SUM(B2:B21) लिख देता है — दौड़ती बिंदु-रेखा से दिखाता भी है; सही तो Enter, ग़लत तो पोंछकर सुधारो (बीच की ख़ाली पंक्ति पर सूँघ रुक जाती है — जाँच तुम्हारी)। Σ के ▼ में AVERAGE-COUNT-MIN-MAX भी बैठे हैं। <strong>status-पट्टी की झलक:</strong> कोई भी range सिर्फ़ <strong>चुन लो</strong> — नीचे की पट्टी बिना किसी सूत्र के फुसफुसाती है: <strong>Average, Count, Sum</strong>। किसी को फ़ाइल में जोड़ लिखना नहीं, बस अभी-अभी पूछना है "इन दस का जोड़ कितना?" — पोंछो और नीचे पढ़ लो। यह झलक 3.06 के filter की उस अधूरी बात को भी पूरा करती है: छनी हुई पंक्तियाँ चुनोगे तो झलक <strong>सिर्फ़ दिख रही</strong> पंक्तियों की होगी — छिपी हुई इसमें नहीं बोलतीं; पर cell में लिखा =SUM() <strong>छिपी समेत सबको</strong> जोड़ता है। filter लगा हो तो यह फ़र्क़ याद रहे — "रिपोर्ट में जोड़ और screen की झलक अलग क्यों" का राज़ अक्सर यही निकलता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>जोड़ भी ज़िंदा है</h2>
+<p>पाठ 3.07 का सबक़ यहाँ दुगना चमकता है: =SUM(B2:B21) के बाद <strong>कोई शुल्क बदलो — कुल ख़ुद बदल जाता है।</strong> और 3.03 की Insert-जोड़ी भी निभती है: range के <strong>बीच में</strong> नई पंक्ति Insert करके भरो — SUM अपना range ख़ुद B2:B22 कर लेता है। (range के <strong>ठीक नीचे</strong> जोड़ी पंक्ति अपने-आप नहीं समाती — नई भराई हमेशा मौजूदा range के भीतर Insert करो।)</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="range B2:B21 पर पाँच functions, AutoSum और status-पट्टी">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">=नाम(range) — हिसाब की पंचायत</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">सोना = range B2:B21 · बिंदु-रेखा = AutoSum की सूँघ</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="70" y="100" width="200" height="330" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="170" y="130" text-anchor="middle" font-weight="bold">शुल्क (B)</text>
+<g stroke="#0B1F3A" stroke-width="1">
+<rect x="95" y="145" width="150" height="30" fill="#F9A825"/><text x="170" y="166" text-anchor="middle" font-size="16" stroke="none">B2: 250</text>
+<rect x="95" y="175" width="150" height="30" fill="#F9A825"/><text x="170" y="196" text-anchor="middle" font-size="16" stroke="none">B3: 90</text>
+<rect x="95" y="205" width="150" height="30" fill="#F9A825"/><text x="170" y="226" text-anchor="middle" font-size="16" stroke="none">B4: 700</text>
+<rect x="95" y="235" width="150" height="30" fill="#F9A825"/><text x="170" y="256" text-anchor="middle" font-size="16" stroke="none">⋮</text>
+<rect x="95" y="265" width="150" height="30" fill="#F9A825"/><text x="170" y="286" text-anchor="middle" font-size="16" stroke="none">B21: 450</text>
+<rect x="95" y="305" width="150" height="34" fill="#fff" stroke-width="3"/><text x="170" y="328" text-anchor="middle" font-size="16" stroke="none" font-weight="bold">Σ =SUM(B2:B21)</text>
+</g>
+<path d="M170 150 L170 300" stroke="#1565C0" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+<text x="170" y="368" text-anchor="middle" font-size="16" fill="#1565C0">range = B2:B21</text>
+<text x="170" y="392" text-anchor="middle" font-size="16" fill="#1565C0">( : = "से-तक" का पुल)</text>
+<rect x="300" y="100" width="440" height="330" rx="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="520" y="132" text-anchor="middle" font-size="18" font-weight="bold">पाँच औज़ार (range एक ही)</text>
+<text x="325" y="172">=SUM(…)  जोड़ — कुल वसूली</text>
+<text x="325" y="210">=AVERAGE(…)  औसत — ग्राहक-पीछे</text>
+<text x="325" y="248">=MIN(…)  सबसे छोटा</text>
+<text x="325" y="286">=MAX(…)  सबसे बड़ा</text>
+<text x="325" y="324">=COUNT(…)  अंक-गिनती (text/ख़ाली बाहर)</text>
+<text x="325" y="356" fill="#1565C0">भाई: =COUNTA(…) = भरे-ख़ाने गिनती</text>
+<text x="325" y="388" fill="#2E7D32">COUNT 18 ≠ 20 → दो ख़ाने ख़ाली/चुग़ली!</text>
+</g>
+<rect x="90" y="465" width="620" height="100" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="499" text-anchor="middle" font-size="18" fill="#0B1F3A" font-weight="bold">status-पट्टी झलक: range पोंछो → नीचे Average | Count | Sum</text>
+<text x="400" y="531" text-anchor="middle" font-size="16" fill="#0B1F3A">बिना सूत्र, तुरंत — पर filter लगा हो तो झलक सिर्फ़ दिखती पंक्तियों की;</text>
+<text x="400" y="556" text-anchor="middle" font-size="16" fill="#0B1F3A">cell का =SUM() छिपी समेत सब जोड़ता है</text>
+<rect x="90" y="595" width="620" height="90" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="400" y="628" text-anchor="middle" font-size="17" fill="#0B1F3A" font-weight="bold">AutoSum (Σ): स्तंभ के नीचे ख़ाली cell → Σ → range ख़ुद सूँघा</text>
+<text x="400" y="658" text-anchor="middle" font-size="16" fill="#1565C0">सूँघ की जाँच तुम्हारी — बीच की ख़ाली पंक्ति पर वह रुक जाता है</text>
+<text x="400" y="765" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 3.07 (सूत्र) ← पाठ 3.08 → 3.09 (IF, COUNTIF, TODAY)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>अठारह का रहस्य (काल्पनिक उदाहरण)</h2>
+<p><strong>मनोज</strong> (काल्पनिक नाम) ने महीने की रिपोर्ट के लिए पहली बार functions चलाए: =SUM से कुल, =AVERAGE से औसत, =MAX से "सबसे बड़ा काम" — पाँच मिनट में वह हिसाब जो register पर शाम खा जाता था। पर एक जगह माथा ठनका: ग्राहक 20, और <strong>=COUNT(B2:B21) = 18</strong>। उस्ताद मुस्कुराया — "function ग़लत नहीं, जासूस है। दो ख़ाने ढूँढो।" मनोज ने स्तंभ पर नज़र दौड़ाई: B7 <strong>ख़ाली</strong> (शुल्क भरना भूल गया था) और B14 <strong>बाएँ चिपका</strong> "₹300" (पुरानी text-फाँस)। दोनों सुधारे — COUNT 20 बोला, और SUM भी 300 ऊपर चढ़कर पूरा सच हो गया। उसी दिन उस्ताद ने status-पट्टी की झलक भी दिखाई: "जोड़ लिखने से पहले पोंछकर नीचे पढ़ लिया करो — सूत्र और झलक मिलें, तब रिपोर्ट भेजो।" मनोज की copy में दो पंक्तियाँ: <strong>"COUNT गिनती नहीं, गवाही है — 18 बोले तो 2 ख़ाने बुला रहे हैं। और झलक-बनाम-सूत्र का मिलान = मुफ़्त का दूसरा ताला।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-22 (NIOS Practical 22 पर आधारित; 3.09 में आगे बढ़ेगा)</h2>
+<p><strong>काम:</strong> 20-पंक्ति शुल्क-सूची पर — (1) स्तंभ के नीचे SUM, AVERAGE, MIN, MAX, COUNT पाँचों (label-cell साथ में: "कुल", "औसत"…), (2) एक ख़ाना ख़ाली + एक में "₹300" रखकर COUNT=18 दिखाओ → सुधारकर 20, SUM का पहले-बाद अंतर लिखो, (3) AutoSum से वही SUM दोबारा — सूँघे range की जाँच, (4) range पोंछकर status-पट्टी की झलक का screenshot/लिखत — सूत्र-जवाब से मिलान, (5) =COUNTA(नाम-range) बनाम =COUNT(शुल्क-range) का फ़र्क़ एक वाक्य में। <strong>अपेक्षित output:</strong> पाँच functions + जाँच-लिखतों वाली .xlsx। <strong>रूब्रिक R-a-22 (10 अंक):</strong> पाँचों functions सही range पर = 4 · COUNT-जासूसी (18→20, SUM-अंतर) = 2 · AutoSum जाँच-सहित = 2 · झलक-मिलान + COUNTA-फ़र्क़ = 2। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> B2:B21 का सही पढ़ना? (क) B2 और B21 — बीच छोड़, सिर्फ़ दो ख़ाने (ख) यह ग़लत लिखावट है (ग) B2 को B21 से भाग देना (घ) B2 से B21 तक — बीच के सब ख़ाने <strong>उत्तर: (घ)।</strong> कारण: : "से-तक" का पुल है — range = सीमा की भाषा; functions इसी पर चलते हैं। बाक़ी क्यों ग़लत: (क) दो अलग ख़ाने B2,B21 (comma) होते; (ग) भाग / है, : नहीं; (ख) यही Excel की शुद्धतम लिखावट है।</p>
+<p><strong>प्र-2.</strong> बीस ख़ानों का जोड़ — सही औज़ार? (क) =B2+B3+…+B21 बीस पते लिखो (ख) status-पट्टी ही काफ़ी — लिखो मत (ग) =SUM(B2:B21) — या AutoSum (Σ) (घ) हाथ से जोड़कर जवाब type करो <strong>उत्तर: (ग)।</strong> कारण: function = बना-बनाया औज़ार — एक साँस, और range बढ़े तो सँभालना आसान। बाक़ी क्यों ग़लत: (क) चलेगा पर बीस पतों की माला = टूटने के बीस मौक़े; (घ) register-युग वापसी; (ख) झलक पूछताछ के लिए है — रिपोर्ट में लिखा सूत्र चाहिए, जो data बदलने पर ख़ुद ताज़ा हो।</p>
+<p><strong>प्र-3.</strong> 20 ग्राहकों पर =COUNT(B2:B21)=18 — मतलब? (क) दो ख़ाने अंक नहीं — ख़ाली या text (ख) दो ग्राहकों की पूरी-पूरी पंक्तियाँ मिट गईं (ग) COUNT function ख़राब है (घ) 18 ही सही गिनती है <strong>उत्तर: (क)।</strong> कारण: COUNT सिर्फ़ अंक गिनता है ("₹300" जैसी text-चुग़ली छूटती) — यही फ़ितरत उसे अधूरी-भराई का जासूस बनाती है। बाक़ी क्यों ग़लत: (ग) वह ठीक अपना काम कर रहा है; (ख) पंक्तियाँ सलामत — ख़ाने बीमार; (घ) नामों से मिलाओ (COUNTA) — ग्राहक 20।</p>
+<p><strong>प्र-4.</strong> बिना कोई सूत्र लिखे दस ख़ानों का जोड़ झट से देखना है? (क) printer से छापकर हाथ से जोड़ो (ख) दसों को चुन लो — status-पट्टी दिखा देती (ग) जोड़ के लिए नई sheet बनाओ (घ) बिना कोई सूत्र लिखे हो ही नहीं सकता <strong>उत्तर: (ख)।</strong> कारण: नीचे की पट्टी Average, Count, Sum फुसफुसा देती है — मुफ़्त का तुरंत-हिसाब। बाक़ी क्यों ग़लत: (घ) पट्टी इसीलिए बनी है; (क/ग) पूछने भर के लिए छपाई/पन्ना — तोप से मच्छर।</p>
+<p><strong>प्र-5.</strong> filter लगा है; चुने range की status-झलक और cell में लिखा =SUM() अलग-अलग अंक क्यों दिखा सकते हैं? (क) यह Excel का जाना-माना bug है (ख) दोनों तो हमेशा बराबर ही होते हैं (ग) झलक हमेशा ग़लत होती है (घ) झलक = दिखी पंक्तियाँ; लिखा SUM = पूरा range <strong>उत्तर: (घ)।</strong> कारण: filter छिपाता है, मिटाता नहीं (3.06) — लिखा SUM छिपी पंक्तियाँ समेत पूरा जोड़ता है। बाक़ी क्यों ग़लत: (क) दोनों अपने-अपने नियम से सही हैं; (ख) filter हटते ही बराबर — लगते ही अलग हो सकते हैं; (ग) झलक ग़लत नहीं — उसका दायरा छोटा है।</p>
+<p><strong>अगला पाठ → 3.09: functions-2 — IF, COUNTIF, TODAY।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20Functions-1%20%E2%80%94%20SUM%2C%20AVERAGE%2C%20MIN%2C%20MAX%2C%20COUNT%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-3-07-excel-formula-jod-ghatav.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-3-09-excel-if-countif-today.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

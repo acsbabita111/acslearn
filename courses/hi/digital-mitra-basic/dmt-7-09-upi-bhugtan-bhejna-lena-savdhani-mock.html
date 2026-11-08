@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UPI भुगतान — भेजना, लेना, रुक-जाओ नियम (mock) | ACSLEARN</title>
+<meta name="description" content="UPI की सुई-नियम समझ — पाने में PIN कभी नहीं; भेजने की पाँच-क़दम विधि, छोटी-रक़म-पहले नियम, ग़लत-भेजे का रास्ता और रुक-जाओ घड़ी; कक्षा-6 हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="UPI भुगतान — भेजना, लेना, रुक-जाओ नियम (mock) | ACSLEARN">
+<meta property="og:description" content="UPI की सुई-नियम समझ — पाने में PIN कभी नहीं; भेजने की पाँच-क़दम विधि, छोटी-रक़म-पहले नियम, ग़लत-भेजे का रास्ता और रुक-जाओ घड़ी; कक्षा-6 हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-85: UPI भुगतान — भेजना, लेना, सावधानी (mock)","description":"UPI की सुई-नियम समझ — पाने में PIN कभी नहीं; भेजने की पाँच-क़दम विधि, छोटी-रक़म-पहले नियम, ग़लत-भेजे का रास्ता और रुक-जाओ घड़ी; कक्षा-6 हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र","item":"https://acslearn.com/courses/hi/digital-mitra-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-85: UPI भुगतान — भेजना, लेना, सावधानी (mock)","item":"https://acslearn.com/courses/hi/digital-mitra-basic/dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="85" data-course="digital-mitra-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र › खंड-7: ग्राहक-सेवा व सरकारी portal</p>
+<h1>पाठ 7.9: UPI भुगतान — भेजना, लेना, सावधानी (mock)</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 85 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-mitra-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <span class="lsn-jumpcur">पाठ 7.9 (यही)</span> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) UPI की सुई-नियम समझ ग्राहक को उतारना — पाने में PIN कभी नहीं, (2) भेजने की पाँच-क़दम विधि चलाना, (3) रुक-जाओ घड़ी बरतना, (4) ग़लत-भेजे पर सही रास्ता बताना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>6.11 से आगे — वहाँ counter था, यहाँ ग्राहक की उँगली</h2>
+<p>6.11 में UPI <strong>केंद्र के counter</strong> की तरफ़ से सीखा था — दाम सामने, रसीद, ग्राहक-PIN कभी नहीं। आज कुर्सी घुमाओ: ग्राहक <strong>ख़ुद</strong> UPI चलाना सीखना चाहता है — "बेटा, पोते को पैसे भेजने हैं" — और तुम्हें उसे सिखाना है, 7.08 की लक्ष्मण-रेखा के साथ: UPI-app उसकी, PIN उसका, उँगली उसकी; तुम बग़ल से रास्ता बोलते हो, screen नहीं छूते। अभ्यास की सूरत भी वही: NIOS-57 के <strong>बनावटी screen-पर्चों</strong> पर mock — असली app में असली पैसे पर "अभ्यास" कभी नहीं, एक ग़लत उँगली असली रक़म उड़ा देती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुई-नियम — इस पाठ की जान</h2>
+<p>एक पंक्ति जो ग्राहक की हड्डी में उतर जानी चाहिए: <strong>पैसा पाने (लेने) में UPI-PIN कभी नहीं लगता</strong> — PIN अपनी मंज़ूरी की चाबी है, जो अपने app में अपने ही काम पर ख़ुद डालते हो (भुगतान पर; कभी-कभी balance-जाँच पर भी)। सुई की तरह याद रखो: सुई चुभती है देते समय। जो भी कहे — "पैसे भेज रहा हूँ, receive करने के लिए PIN डालो" / "यह QR scan करो, इनाम आएगा, PIN से confirm करो" — वह <strong>ठग है, बिना किसी अपवाद के</strong>; क्योंकि "पाने" के नाम पर डलवाया PIN असल में भुगतान मंज़ूर करवाता है — पैसा आता नहीं, <strong>जाता</strong> है। 6.11 में यह नियम counter के लिए सीखा था; आज ग्राहक को रटाओ, क्योंकि ठगों का सबसे चालू जाल यही उल्टा-पाठ है: नक़ली "ग़लती से पैसे आ गए, लौटाओ" call, "refund का QR", OLX-शैली "advance भेज रहा हूँ — collect-request स्वीकारो।" हर रूप का एक ही इलाज: <strong>पैसा लेने में PIN कभी नहीं लगता — अपनी UPI-पहचान (ID/नंबर) बताना या अपना QR दिखाना काफ़ी है; "पाने के लिए" PIN डालना या दूसरे का QR scan करना = ठगी।</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>भेजने की पाँच-क़दम विधि — रुक-जाओ घड़ी समेत</h2>
+<p>काल्पनिक उदाहरण — मीना रामदेव काका (7.08 वाले) को भेजना सिखा रही है: <strong>(1) किसे</strong> — पाने वाले की UPI-ID/नंबर/QR; QR दुकान का हो तो scan के बाद screen पर <strong>नाम पढ़ो</strong> — दुकानदार का ही है? (QR पर नक़ली पर्ची चिपकाने का जाल चलता है)। <strong>(2) कितना</strong> — रक़म ख़ुद भरो, ज़ोर से बोलो (6.11 की आदत का घर-रूप)। <strong>(3) रुक-जाओ घड़ी</strong> — PIN से ठीक पहले तीन साँस रुको और screen पर दो चीज़ें पढ़ो: <strong>नाम</strong> और <strong>रक़म</strong>। जल्दी ही ठग की सबसे बड़ी साथी है — हर ठगी-कहानी में एक वाक्य साझा मिलता है: "जल्दी में था, पढ़ा नहीं।" <strong>(4) PIN अकेले में</strong> — हाथ की ओट, कोई देखे नहीं (मित्र भी नहीं — 7.08)। <strong>(5) पक्की-जाँच</strong> — भेजने के बाद "सफल" की हरी पट्टी + पाने वाले से ज़बानी पुष्टि; रसीद-screen सँभालो — वही लेन-देन का काग़ज़ है। और <strong>छोटी-रक़म-पहले नियम:</strong> नई UPI-ID/नए आदमी को पहली बार बड़ी रक़म कभी नहीं — पहले छोटी-सी भेजकर पुष्टि, फिर बाक़ी; एक अतिरिक्त मिनट, पूरी रक़म की बीमा-पट्टी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>ग़लत भेज दिया / ठगी हो गई — रास्ता वही 6.11 वाला, अब ग्राहक की ज़बान में</h2>
+<p>ग़लत ID पर चला गया: UPI तुरंत-भुगतान है — गया पैसा अपने-आप नहीं लौटता; रास्ता है <strong>(1)</strong> अपनी UPI-app की सहायता/शिकायत-सुविधा में उस लेन-देन पर शिकायत, <strong>(2)</strong> अपने बैंक को सूचना, <strong>(3)</strong> पाने वाला जाना-पहचाना हो तो सीधी विनती। ठगी हुई हो तो 6.11 का पहला-घंटा नियम ज्यों-का-त्यों: बैंक/app-शिकायत + राष्ट्रीय cyber-ठगी helpline <strong>1930</strong> / cybercrime.gov.in — जितनी जल्दी, पैसा रुकने की उतनी उम्मीद (नंबर-पता समय से बदल सकते हैं — आधिकारिक स्रोत से ताज़ा मिलान रखो)। और ग्राहक को एक पक्की समझ: <strong>बैंक/UPI-app वाला call पर PIN-OTP कभी नहीं माँगता</strong> — माँगे, वही ठग (7.08 का नक़ली-helpline जाल, भुगतान-पोशाक में)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक नज़र में — सुई-नियम और पाँच क़दम</h2>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UPI का सुई-नियम, भेजने की पाँच-क़दम विधि, रुक-जाओ घड़ी और ग़लत-भेजे के रास्ते का रेखा-चित्र">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="42" text-anchor="middle" font-size="30" font-weight="bold" fill="#0B1F3A">UPI — भेजना, लेना, सावधानी</text>
+<rect x="30" y="60" width="740" height="34" fill="#FFFFFF" stroke="#1565C0" stroke-width="1" rx="6"/>
+<text x="400" y="83" text-anchor="middle" font-size="17" fill="#0B1F3A">चिह्न-भाषा: ठोस तीर = गति · सोना-खाना = मुख्य · ✓ = सही · ✗ = कभी-नहीं</text>
+<rect x="60" y="112" width="680" height="76" fill="#F9A825" opacity="0.18" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="400" y="142" text-anchor="middle" font-size="20" font-weight="bold" fill="#0B1F3A">सुई-नियम: पैसा पाने में PIN कभी नहीं</text>
+<text x="400" y="172" text-anchor="middle" font-size="16" fill="#0B1F3A">"पाने के लिए PIN डालो / मेरा QR scan करो" कहने वाला = ठग</text>
+<text x="400" y="226" text-anchor="middle" font-size="20" font-weight="bold" fill="#1565C0">भेजने की पाँच-क़दम विधि</text>
+<rect x="40" y="246" width="136" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="108" y="276" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">1 किसे</text>
+<text x="108" y="302" text-anchor="middle" font-size="16" fill="#0B1F3A">ID/नंबर/QR —</text>
+<text x="108" y="326" text-anchor="middle" font-size="16" fill="#0B1F3A">scan पर नाम पढ़ो</text>
+<rect x="196" y="246" width="136" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="264" y="276" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">2 कितना</text>
+<text x="264" y="302" text-anchor="middle" font-size="16" fill="#0B1F3A">रक़म ख़ुद भरो,</text>
+<text x="264" y="326" text-anchor="middle" font-size="16" fill="#0B1F3A">ज़ोर से बोलो</text>
+<rect x="352" y="246" width="136" height="104" fill="#F9A825" opacity="0.25" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="420" y="276" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">3 रुक-जाओ घड़ी</text>
+<text x="420" y="302" text-anchor="middle" font-size="16" fill="#0B1F3A">तीन साँस —</text>
+<text x="420" y="326" text-anchor="middle" font-size="16" fill="#0B1F3A">नाम + रक़म पढ़ो</text>
+<rect x="508" y="246" width="136" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="576" y="276" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">4 PIN अकेले में</text>
+<text x="576" y="302" text-anchor="middle" font-size="16" fill="#0B1F3A">हाथ की ओट —</text>
+<text x="576" y="326" text-anchor="middle" font-size="16" fill="#0B1F3A">मित्र भी नहीं</text>
+<rect x="664" y="246" width="110" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="719" y="276" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">5 पक्की-जाँच</text>
+<text x="719" y="302" text-anchor="middle" font-size="16" fill="#0B1F3A">हरी पट्टी +</text>
+<text x="719" y="326" text-anchor="middle" font-size="16" fill="#0B1F3A">रसीद-screen</text>
+<line x1="176" y1="298" x2="196" y2="298" stroke="#1565C0" stroke-width="4"/>
+<line x1="332" y1="298" x2="352" y2="298" stroke="#1565C0" stroke-width="4"/>
+<line x1="488" y1="298" x2="508" y2="298" stroke="#1565C0" stroke-width="4"/>
+<line x1="644" y1="298" x2="664" y2="298" stroke="#1565C0" stroke-width="4"/>
+<rect x="60" y="376" width="680" height="50" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2" rx="8"/>
+<text x="400" y="408" text-anchor="middle" font-size="16" fill="#2E7D32">✓ छोटी-रक़म-पहले: नई ID को पहले छोटी भेजकर पुष्टि — फिर बाक़ी</text>
+<rect x="60" y="446" width="680" height="96" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="400" y="476" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">ठगों का उल्टा-पाठ जाल</text>
+<text x="400" y="504" text-anchor="middle" font-size="16" fill="#0B1F3A">✗ "ग़लती से पैसे आए, लौटाओ" ✗ "refund का QR" ✗ "collect-request स्वीकारो"</text>
+<text x="400" y="530" text-anchor="middle" font-size="16" fill="#0B1F3A">पैसा लेने को: अपनी ID/नंबर या अपना QR — PIN कभी नहीं</text>
+<rect x="60" y="562" width="680" height="96" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="400" y="592" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">ग़लत भेजा / ठगी — पहला घंटा</text>
+<text x="400" y="620" text-anchor="middle" font-size="16" fill="#0B1F3A">app-शिकायत (उसी लेन-देन पर) → बैंक-सूचना → ठगी पर 1930 / cybercrime.gov.in</text>
+<text x="400" y="646" text-anchor="middle" font-size="16" fill="#0B1F3A">बैंक/app वाला call पर PIN-OTP कभी नहीं माँगता — माँगे, वही ठग</text>
+<rect x="60" y="674" width="680" height="36" fill="#F9A825" opacity="0.18" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="400" y="698" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">"जल्दी में था, पढ़ा नहीं" — हर ठगी-कहानी का साझा वाक्य; घड़ी रोको</text>
+<text x="400" y="736" text-anchor="middle" font-size="17" fill="#0B1F3A">अध्याय में जगह — खंड-7 का पाठ 9/12:</text>
+<text x="400" y="760" text-anchor="middle" font-size="18" fill="#1565C0">● ● ● ● ● ● ● ● <tspan fill="#F9A825" font-weight="bold">◉</tspan> ○ ○ ○</text>
+<text x="400" y="786" text-anchor="middle" font-size="16" fill="#0B1F3A">इस पाठ में: सुई-नियम · पाँच क़दम · छोटी-रक़म-पहले · पहला घंटा</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>करके देखो (अभी, 2 मिनट)</h2>
+<p>घरवाले से तीन सवाल पूछो: (1) "पैसे <strong>लेने</strong> के लिए PIN लगता है?" (2) "PIN से ठीक पहले screen पर कौन-सी दो चीज़ें पढ़नी हैं?" (3) "ग़लत भेज दिया तो पहला क़दम?" तीनों सही (नहीं · नाम+रक़म · app-शिकायत) आएँ तो सुई-नियम घर में उतर गया — यही NIOS-57 की ज़बानी कसौटी है।</p>
+<p><strong>प्र-1.</strong> "receive करने के लिए PIN डालो" सुनते ही सही निष्कर्ष? (क) नया नियम आया होगा — app बदलती रहती है, डाल दो (ख) छोटी रक़म हो तो डाल दो, बड़ी हो तो सोचो (ग) पहले PIN डालकर देखो — पैसा आए तो ठीक, न आए तो शिकायत (घ) ठग — पैसा पाने में PIN कभी नहीं लगता; बिना अपवाद <strong>उत्तर: (घ)।</strong> कारण: "पाने" के नाम पर डलवाया PIN = भुगतान मंज़ूर = पैसा जाता है, आता नहीं; यह वाक्य पूरा जाल काट देता है। बाक़ी क्यों ग़लत: (क) "नया नियम" ठग की भाषा है; (ख) रक़म से नियम नहीं बदलता; (ग) "डालकर देखना" = ठगी पूरी करके देखना।</p>
+<p><strong>प्र-2.</strong> दुकान के QR पर scan के बाद की अनिवार्य जाँच? (क) QR का रंग-डिज़ाइन देखो — असली QR चमकदार होता है (ख) screen पर आया नाम पढ़ो — दुकानदार का ही है? (नक़ली पर्ची-जाल) (ग) कुछ जाँचने की ज़रूरत नहीं — QR दुकान की दीवार पर टँगा है तो दुकान का ही तो होगा (घ) QR की photo खींचकर घर जाकर आराम से भुगतान करो <strong>उत्तर: (ख)।</strong> कारण: QR पर नक़ली पर्ची चिपकाने का जाल चलता है — scan के बाद का नाम ही असली पहचान है। बाक़ी क्यों ग़लत: (क) रंग-रूप से असली-नक़ली नहीं दिखता; (ग) टँगा होना = चिपकाया भी जा सकना; (घ) photo से जोखिम नहीं घटता, नाम-जाँच ही घटाती है।</p>
+<p><strong>प्र-3.</strong> रुक-जाओ घड़ी में PIN से ठीक पहले क्या पढ़ना है? (क) app का नाम और phone की battery — दोनों ठीक हों (ख) आज की तारीख़ और समय — रसीद में काम आएँगे (ग) पाने वाले का नाम और रक़म — दोनों screen पर, तीन साँस रुककर (घ) अपना बैंक-balance — भेजने लायक़ है या नहीं <strong>उत्तर: (ग)।</strong> कारण: हर ठगी-कहानी का साझा वाक्य "जल्दी में था, पढ़ा नहीं" — नाम+रक़म की तीन-साँस जाँच ही वह ताला है। बाक़ी क्यों ग़लत: (क/ख) काम की बातें, पर भुगतान की आख़िरी छलनी नहीं; (घ) balance की कमी app ख़ुद बता देती है — ग़लत नाम नहीं बताती।</p>
+<p><strong>प्र-4.</strong> नए आदमी/नई UPI-ID को पहली बार बड़ी रक़म भेजनी है। सही विधि? (क) छोटी-रक़म-पहले — छोटी भेजकर पुष्टि, फिर बाक़ी (ख) पूरी एक साथ — टुकड़ों में भेजना शक पैदा करता है (ग) आधी-आधी दो बार — जोखिम आधा हो जाता है (घ) बड़ी रक़म UPI से भेजो ही मत — वह सिर्फ़ चाय-पानी के लिए है <strong>उत्तर: (क)।</strong> कारण: एक अतिरिक्त मिनट में ग़लत-ID/ग़लत-आदमी दोनों की जाँच — पूरी रक़म की बीमा-पट्टी। बाक़ी क्यों ग़लत: (ख) शक नहीं, समझदारी है; (ग) ग़लत ID पर आधी भी पूरी डूबती है — पुष्टि के बिना टुकड़े बेकार; (घ) रक़म-सीमा नियम नहीं, पुष्टि नियम है।</p>
+<p><strong>प्र-5.</strong> ग़लत UPI-ID पर पैसे चले गए। पहला सही क़दम? (क) कुछ नहीं हो सकता — UPI का गया पैसा गया, भूल जाओ (ख) अपनी UPI-app की शिकायत-सुविधा में उसी लेन-देन पर शिकायत + बैंक को सूचना (ग) उसी ID पर "please लौटा दो" लिखकर और पैसे भेजो — ध्यान खिंचेगा (घ) phone बंद करके नई UPI-ID बना लो — पुरानी का झंझट ख़त्म <strong>उत्तर: (ख)।</strong> कारण: तुरंत-भुगतान अपने-आप नहीं लौटता — दर्ज शिकायत + बैंक-सूचना ही वैध वापसी-राह खोलती है; ठगी हो तो 1930/cybercrime.gov.in पहले घंटे में। बाक़ी क्यों ग़लत: (क) रास्ता है, बस अपने-आप नहीं; (ग) और पैसे = और डूब; (घ) ID बदलने से गया पैसा नहीं लौटता।</p>
+<p><strong>अगला पाठ → 7.10: ticket booking — IRCTC की समझ (mock)।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20UPI%20%E0%A4%AD%E0%A5%81%E0%A4%97%E0%A4%A4%E0%A4%BE%E0%A4%A8%20%E2%80%94%20%E0%A4%AD%E0%A5%87%E0%A4%9C%E0%A4%A8%E0%A4%BE%2C%20%E0%A4%B2%E0%A5%87%E0%A4%A8%E0%A4%BE%2C%20%E0%A4%B8%E0%A4%BE%E0%A4%B5%E0%A4%A7%E0%A4%BE%E0%A4%A8%E0%A5%80%20(mock)%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>
