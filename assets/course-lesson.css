@@ -150,3 +150,10 @@ pre.pl-sample{background:#F5F7FA;color:#0B1F3A;border:2px dashed #1565C0;border-
   /* बहुत-छोटे फ़ोन: पाठ काटे बिना 1-पंक्ति असंभव — दो छोर-छोर, "सभी पाठ" नीचे दाएँ */
   .lsn-tools3{flex-wrap:wrap}
 }
+
+/* v1.6e वीडियो-खंड केंद्र (Founder, 08-Nov): शीर्षक, पंक्तियाँ, बटन — सब केंद्र */
+.lsn-sec.lsn-video{text-align:center}
+.lsn-sec.lsn-video h2{border-left:0;padding-left:0}
+.lsn-sec.lsn-video h2::after{content:"";display:block;width:84px;height:4px;
+  background:#F9A825;border-radius:2px;margin:10px auto 0}
+.lsn-sec.lsn-video .lsn-vidbtn{float:none;margin-left:auto;margin-right:auto}
