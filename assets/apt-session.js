@@ -1,5 +1,7 @@
 /* ============================================================
-   /assets/apt-session.js — v1.3 (08-Nov-2026: O*NET-शैली app-mode — प्रश्न पूरे पर्दे पर,
+   /assets/apt-session.js — v1.3.1 (08-Nov-2026 सफ़ाई: gate-कार्ड कसा पाठ — HTML की 8-पंक्ति info
+   हटी, बातें यहीं एक बार; gate-धारकों से झलक-sec भी छिपे।)
+   v1.3 (08-Nov-2026: O*NET-शैली app-mode — प्रश्न पूरे पर्दे पर,
    window कभी नहीं कूदती; द्वार/नतीजा सामान्य पन्ने पर। Founder-फ़ैसला: टेस्ट-पेज = सिर्फ़ टेस्ट।)
    v1.2 (नतीजा खाते में भी — server-save · होल-1)
    v1.2 · 30-Jul-2026 (Founder-override v4.0-ख1): final-submit पर नतीजे का सार
@@ -71,19 +73,17 @@
       extra = '<p id="apt-buy-msg">\uD83D\uDD0E आपका भुगतान-चांस जाँचा जा रहा है…</p>';
     } else if (showBuy) {
       extra = '<div id="apt-buy-wrap">' +
-        '<p style="font-weight:700;color:var(--navy,#0B1F3A)">या: बिना-badge भी ₹100 में 1 पूरा चांस लें</p>' +
-        '<p style="font-size:16px;color:var(--muted,#666)">₹100 भरने के लिए पहले Student/Job-seeker/Entrepreneur — किसी भी भूमिका में रजिस्ट्रेशन ज़रूरी है।</p>' +
+        '<p style="font-weight:700;color:var(--navy,#0B1F3A)"><b>बैज नहीं?</b> ₹100 में 1 पूरा चांस लीजिए — पहले किसी भी भूमिका (Student/Job-seeker/Entrepreneur) में रजिस्ट्रेशन ज़रूरी है।</p>' +
         '<div class="apt-nav"><a class="apt-btn ghost" href="/join.html">📝 पहले रजिस्ट्रेशन करें</a> ' +
         '<button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 चांस लें</button></div>' +
         '<p id="apt-buy-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
         '</div>';
     }
     box.innerHTML = '<div class="apt-card">' +
-      '<p class="apt-q">\uD83C\uDF96\uFE0F पूरा टेस्ट — बैज या ₹100/चांस से</p>' +
-      '<p>बैज वाले साथी यह टेस्ट 365 दिन मुफ़्त देते हैं — जितनी बार चाहें।</p>' +
-      '<p>बैज है? पहले लॉगिन (Login) कीजिए। फिर अपने डैशबोर्ड (Dashboard) के \uD83C\uDF96\uFE0F बैज पैनल में जाइए।</p>' +
-      '<p>वहाँ से इस पन्ने पर आइए — द्वार अपने-आप खुल जाएगा।</p>' +
-      '<p>बैज नहीं है? ऊपर की मुफ़्त झलक (24 प्रश्न) दीजिए, या नीचे ₹100 में सीधे पूरा टेस्ट लीजिए।</p>' +
+      '<p class="apt-q">\uD83C\uDF96\uFE0F 120 प्रश्न · 3 खंड · घड़ी 90 मिनट</p>' +
+      '<p>खंड: पहले रुचि के समूह, फिर उनकी गहराई, आख़िर में कोर्स-चुनाव।</p>' +
+      '<p>पन्ना बंद करें तो घड़ी रुक जाती है — लौटिए, वहीं से चलेगा।</p>' +
+      '<p><b>बैज (badge) है?</b> Login कीजिए — द्वार अपने-आप खुल जाएगा। बैज वालों को 365 दिन मुफ़्त, जितनी बार चाहें।</p>' +
       '<div class="apt-nav"><a class="apt-btn green" href="/dashboard/">\uD83D\uDD11 Login / Dashboard</a></div>' +
       extra +
       '</div>';
@@ -98,6 +98,7 @@
     try {
       var n1 = document.getElementById('apt-dummy-notice'); if (n1) n1.style.display = 'none';
       var n2 = document.getElementById('apt-full-info'); if (n2) n2.style.display = 'none';
+      var n3 = document.getElementById('apt-jhalak-sec'); if (n3) n3.style.display = 'none';
       /* (29-Jul, Founder बिंदु-1/2 — रास्ता-चालित पन्ना) बैज/₹100-धारक को झलक-दुनिया
          दिखे ही नहीं: डिब्बा + "झलक"-पंक्तियाँ ग़ायब; उनकी जगह सिर्फ़ दो चीज़ें —
          📊 पिछला हिसाब (⭐ सेक्टर + 5+ उद्यम) और नया/जारी टेस्ट। */
