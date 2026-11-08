@@ -1,12 +1,15 @@
 /* ============================================================
-   acs-universal.js v2.1 — header + menu + footer का एक दिमाग़
+   acs-universal.js v2.2 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome)
    जगह: /assets/acs-universal.js  (config+links के बाद load)
    • भाषा-सचेत: /en/ folder → English labels/strings; अन्यथा हिंदी।
    • acs- prefix — पुराने script.js/page-JS से कोई टकराव नहीं।
    ============================================================ */
+var ACS_LANG_HOMES = {en:1,zh:1,es:1,ar:1,fr:1,bn:1,pt:1,ru:1,id:1,ur:1,de:1,ja:1,mr:1,te:1}; /* v5_26 टॉप-15 (hi=मूल root) — runtime भाषा-घर तालिका; data-स्रोत = generator/data/mirror_home_strings.js (generator मिलान-assert करता है) */
 function acsUniversalInit(){
   var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
-  var lang = (location.pathname||"").indexOf("/en/")===0 ? "en" : "hi";
+  var seg0 = ((location.pathname||"").split("/")[1]||"");
+  var lang = seg0==="en" ? "en" : (ACS_LANG_HOMES[seg0] ? "mirror" : "hi");
+  /* mirror-mode: पेज का baked अनुवाद ही सच — यह script उस पाठ को कभी न लिखे */
 
   var STR = {
     hi:{ btnLang:"भाषा", btnMenu:"मेन्यू", drawer:"मेन्यू", orig:"मूल भाषा: हिंदी",
@@ -17,7 +20,7 @@ function acsUniversalInit(){
          fbCert:"📜 Certificate-Issuing Body", fbContact:"📞 Contact",
          warn:"⚠️ Payment only via official Razorpay link.",
          cert:"Certification: ", site:" · Website: " }
-  }[lang];
+  }[lang==="mirror" ? "en" : lang];
 
   /* 1) config → CSS variables */
   try{
@@ -30,6 +33,7 @@ function acsUniversalInit(){
   /* 2) org जानकारी + भाषा-strings भरो */
   try{
     var o=C.org||{};
+    if(lang!=="mirror"){ /* mirror-पेजों पर baked अनुवाद अछूता */
     var name = (lang==="en" ? (o.name_en||o.name_hi) : o.name_hi);
     if(name){ setTxt("acsName",name+"™"); setTxt("acsFootName",name+"™"); setTxt("acsCopy",name+"™"); }
     var tag  = (lang==="en" ? (o.tagline_en||o.tagline_hi) : o.tagline_hi);
@@ -49,11 +53,13 @@ function acsUniversalInit(){
     setTxt("acsDrawerTitle",STR.drawer); setTxt("acsOrigLang",STR.orig);
     setTxt("acsFbCertTitle",STR.fbCert); setTxt("acsFbContactTitle",STR.fbContact);
     setTxt("acsWarn",STR.warn);
+    } /* mirror-skip बंद */
   }catch(e){}
 
   /* 3) links.js → drawer + footer menu (भाषा अनुसार) */
   try{
-    var items = (L.build ? L.build(lang) : (L.menu||[]));
+    var mlang = (lang==="mirror") ? "en" : lang;
+    var items = (L.build ? L.build(mlang) : (L.menu||[]));
     var login = L.login||{icon:"🔑",href:"/dashboard/",label:{hi:"लॉगिन / डैशबोर्ड",en:"Login / Dashboard"}};
     var dl=document.getElementById("acsMenuList"), fm=document.getElementById("acsFooterMenu");
     /* साइट-व्यापी दोहरा-मेनू bug (31-Jul, Founder-टोका salah.html पर) — जड़: कई generator (udyam/lesson/
@@ -73,11 +79,13 @@ function acsUniversalInit(){
     /* legal-पंक्ति (काम-11-पूर्व, 19-Jul-2026): Razorpay-अनुपालन — refund/privacy/terms हर पेज के footer से */
     if(fm){ var lgl=document.createElement("div"); lgl.className="acs-flegal";
       lgl.style.cssText="margin-top:10px;font-size:16px;line-height:1.8";
-      lgl.innerHTML='<a href="/refund.html">💳 रिफंड (Refund) नीति</a> · <a href="/privacy.html">🔒 निजता (Privacy) नीति</a> · <a href="/terms.html">📜 नियम व शर्तें (Terms)</a>';
+      lgl.innerHTML = (lang==="hi")
+        ? '<a href="/refund.html">💳 रिफंड (Refund) नीति</a> · <a href="/privacy.html">🔒 निजता (Privacy) नीति</a> · <a href="/terms.html">📜 नियम व शर्तें (Terms)</a>'
+        : '<a href="/refund.html">💳 Refund Policy</a> · <a href="/privacy.html">🔒 Privacy Policy</a> · <a href="/terms.html">📜 Terms</a>';
       fm.parentNode.insertBefore(lgl, fm.nextSibling); }
     var lg2=document.getElementById("acsLogin");
     if(lg2){ lg2.href=login.href||"/dashboard/";
-      lg2.innerHTML='<span class="e">'+(login.icon||"🔑")+'</span> '+((login.label&&(login.label[lang]||login.label.hi))||"Login / Dashboard"); }
+      if(lang!=="mirror"){ lg2.innerHTML='<span class="e">'+(login.icon||"🔑")+'</span> '+((login.label&&(login.label[lang]||login.label.hi))||"Login / Dashboard"); } }
   }catch(e){}
 }
 /* नीचे-load होने वाली scripts (links/config) चलने के बाद ही init —
@@ -111,7 +119,8 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
      होम पर ← नहीं (पीछे कुछ नहीं)। */
   var P = location.pathname || "";
   var isUdyam = /^\/udyam\/.+\.html$/.test(P);
-  var isHome = (P === "/" || P === "/index.html");
+  var segH = (P.split("/")[1]||"");
+  var isHome = (P === "/" || P === "/index.html" || (ACS_LANG_HOMES[segH] && (P === "/"+segH+"/" || P === "/"+segH+"/index.html")));
   function ready(fn){ if(document.readyState!=="loading") fn(); else document.addEventListener("DOMContentLoaded",fn); }
   ready(function(){
     var sec1 = document.querySelector(".udy-sec");
