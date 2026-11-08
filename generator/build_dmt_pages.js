@@ -1,6 +1,6 @@
 /* ============================================================
-   build_dmt_pages.js — "डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र" (SE026) पेज-generator (परत-4)
-   v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
+   build_dmt_pages.js: "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" (SE026) पेज-generator (परत-4)
+   v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
    swap-promote (पुराना dir पहले .bak-swap, rename-त्रुटि पर बहाली — rmSync-first बंद) ·
    release-मुहर content-binding (manifest.content_sha256 = 109MD+template+generator+robot का संयुक्त-hash,
    approved_on validated-date अनिवार्य)। पहले का: v1.1-dmt — fail-closed (स्वतंत्र-ऑडिट कार्यादेश P0): robot-gate अनिवार्य ·
@@ -98,11 +98,11 @@ function loadDMT(){
   const CNT=[8,16,16,10,14,12,12,10,11]; const parts=[]; let at=1;
   for(let i=0;i<9;i++){ parts.push({no:i+1,name:KH[i],from:at,to:at+CNT[i]-1}); at+=CNT[i]; }
   const course={ code:"dmt", lang:"hi", slug:"digital-mitra-basic",
-    title:"डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र",
+    title:"ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र",
     titleEn:"ACS Certificate in Basic Skills for Digital Mitra",
-    tagline:"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में",
+    tagline:"ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र: Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-हुनर की पूरी मुफ़्त पढ़ाई",
     totalLessons:109, parts:parts, videoQuery:"कंप्यूटर बेसिक", govVideoHtml:"",
-    introHtml:'<p>यह कोर्स उनके लिए है जो कंप्यूटर के बुनियादी हुनर — Word, Excel, PowerPoint, Email, फ़ाइल-सँभाल, ऑनलाइन सुरक्षा, सरकारी portal पर काम और AI की समझ — सीखकर काम-काज के लायक़ बनना चाहते हैं। पढ़ने के लिए कक्षा-6 तक की हिंदी काफ़ी है। कोई भी पाठ खोलिए, पढ़िए, और हर पाठ के अंत के 5 सवालों से ख़ुद को जाँचते चलिए।</p>\n<p><b>साफ़ बात:</b> यह ACS का अपना तैयारी-कोर्स है — यह बिहार सरकार के KYP (कुशल युवा कार्यक्रम) या BSDM का आधिकारिक कोर्स नहीं है, और इससे कोई सरकारी प्रमाणपत्र नहीं मिलता। यह उस पढ़ाई की मज़बूत तैयारी कराता है।</p>\n<h2 style="margin-top:34px">📜 प्रमाणपत्र कैसा मिलेगा — नमूना देखिए</h2>\n<p>पूरा कोर्स पढ़कर ऑनलाइन परीक्षा पास करने पर ऐसा डिजिटल प्रमाणपत्र मिलेगा। इस पर आपका नाम, अंक, तारीख़ और जाँच (verify) के लिए अपना अलग नंबर व QR होगा — दुनिया में कहीं से भी असली-नक़ली जाँचा जा सकेगा। नीचे सिर्फ़ नमूना है।</p>\n<div style="max-width:760px;margin:14px auto;border:1px solid #c9d4e4;border-radius:10px;overflow:hidden;background:#fff">\n<svg viewBox="0 0 800 566" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="प्रमाणपत्र का नमूना (SAMPLE)" style="display:block;width:100%;height:auto">\n<rect x="0" y="0" width="800" height="566" fill="#F5F7FA"/>\n<rect x="14" y="14" width="772" height="538" fill="#ffffff" stroke="#0B1F3A" stroke-width="3"/>\n<rect x="24" y="24" width="752" height="518" fill="none" stroke="#F9A825" stroke-width="2"/>\n<text x="400" y="66" text-anchor="middle" font-size="22" font-weight="bold" fill="#0B1F3A">FFGPMTrust — Applied Computer School (ACS)</text>\n<text x="400" y="92" text-anchor="middle" font-size="16" fill="#1565C0">जारीकर्ता: FFGPMTrust · प्रशिक्षण-साझेदार: ACS (acslearn.com)</text>\n<text x="400" y="140" text-anchor="middle" font-size="26" font-weight="bold" fill="#0B1F3A">डिजिटल मित्र हेतु बुनियादी कौशल — ACS प्रमाणपत्र</text>\n<text x="400" y="168" text-anchor="middle" font-size="17" fill="#0B1F3A">ACS Certificate in Basic Skills for Digital Mitra</text>\n<text x="400" y="212" text-anchor="middle" font-size="18" fill="#0B1F3A">प्रमाणित किया जाता है कि</text>\n<text x="400" y="248" text-anchor="middle" font-size="22" font-weight="bold" fill="#1565C0">__________ (विद्यार्थी का नाम) __________</text>\n<text x="400" y="286" text-anchor="middle" font-size="17" fill="#0B1F3A">ने 109 पाठों का यह कोर्स पूरा कर ऑनलाइन परीक्षा में ____ / 120 अंक (____%) पाए।</text>\n<text x="400" y="318" text-anchor="middle" font-size="16" fill="#2E7D32">परीक्षा-तारीख़: __-__-____ · प्रमाणपत्र-संख्या: ACS-CC-____-______</text>\n<text x="400" y="356" text-anchor="middle" font-size="16" fill="#0B1F3A">नोट: इन्होंने अभी तक प्रैक्टिकल (practical) नहीं किया है — यह online पढ़ाई का प्रमाणपत्र है।</text>\n<text x="400" y="390" text-anchor="middle" font-size="16" fill="#0B1F3A">आधार: SSC NASSCOM Q2212 + NIOS 632 पर आधारित/प्रेरित — यह सरकारी प्रमाणपत्र नहीं है।</text>\n<rect x="640" y="420" width="96" height="96" fill="none" stroke="#0B1F3A" stroke-width="2"/>\n<text x="688" y="474" text-anchor="middle" font-size="18" fill="#0B1F3A">QR</text>\n<text x="688" y="532" text-anchor="middle" font-size="16" fill="#0B1F3A">जाँच-QR (यहाँ)</text>\n<line x1="70" y1="492" x2="300" y2="492" stroke="#0B1F3A" stroke-width="2"/>\n<text x="185" y="516" text-anchor="middle" font-size="16" fill="#0B1F3A">अधिकृत हस्ताक्षर (FFGPMTrust)</text>\n<text x="400" y="330" text-anchor="middle" font-size="110" font-weight="bold" fill="#1565C0" opacity="0.14" transform="rotate(-24 400 300)">नमूना SAMPLE</text>\n</svg>\n</div>\n<p style="font-size:16px"><b>ध्यान:</b> ऊपर वाला चित्र सिर्फ़ नमूना (sample) है — यह किसी का असली प्रमाणपत्र नहीं है। असली प्रमाणपत्र परीक्षा पास करने पर ही बनता है।</p>\n<h2 id="dmt-fees" style="margin-top:34px">💰 फीस की साफ़ सूची</h2>\n<table style="width:100%;border-collapse:collapse;font-size:17px">\n<tr style="background:#0B1F3A;color:#fff"><th style="padding:10px;border:1px solid #c9d4e4;text-align:left">क्या</th><th style="padding:10px;border:1px solid #c9d4e4;text-align:left">फीस</th></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">सभी 109 पाठ online पढ़ना + हर पाठ के 5 अभ्यास-सवाल</td><td style="padding:10px;border:1px solid #c9d4e4"><b>₹0 — पूरी तरह मुफ़्त</b>, बिना login भी</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">ऑनलाइन परीक्षा (120 प्रश्न, 10 चांस तक)</td><td style="padding:10px;border:1px solid #c9d4e4"><b>₹0 — मुफ़्त</b> (ACS-ID से login करके)</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">डिजिटल प्रमाणपत्र-PDF (ऊपर जैसा, QR-जाँच सहित) — परीक्षा पास करने के बाद</td><td style="padding:10px;border:1px solid #c9d4e4"><b>₹125</b> — मर्ज़ी हो तो लें, न लें तो पढ़ाई व परीक्षा फिर भी मुफ़्त</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">केंद्र पर offline प्रशिक्षण (practical)</td><td style="padding:10px;border:1px solid #c9d4e4">Paid — राशि केंद्र की सूचना से (ACS-न्यूनतम नियम लागू)</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">KYP (कुशल युवा कार्यक्रम) की सरकारी परीक्षा/कोर्स फीस</td><td style="padding:10px;border:1px solid #c9d4e4">ACS तय नहीं करता — ताज़ा जानकारी BSDM के आधिकारिक portal पर देखें</td></tr>\n</table>\n<p style="font-size:16px">नियम सीधा है: <b>पढ़ना सबके लिए मुफ़्त</b> — पैसा सिर्फ़ तब, जब आप प्रमाणपत्र-PDF या केंद्र की सेवा लें।</p>' };
+    introHtml:'<p>यह कोर्स उनके लिए है जो कंप्यूटर के बुनियादी हुनर (Word, Excel, PowerPoint, Email, फ़ाइल-सँभाल, ऑनलाइन सुरक्षा, सरकारी portal पर काम और AI की समझ) सीखकर काम-काज के लायक़ बनना चाहते हैं। पढ़ने के लिए कक्षा-6 तक की हिंदी काफ़ी है। कोई भी पाठ खोलिए, पढ़िए, और हर पाठ के अंत के 5 सवालों से ख़ुद को जाँचते चलिए।</p>\n<p><b>साफ़ बात:</b> यह ACS का अपना तैयारी-कोर्स है। यह बिहार सरकार के आधिकारिक कोर्स "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" या BSDM का कोर्स नहीं है, और इससे कोई सरकारी प्रमाणपत्र नहीं मिलता। यह उस पढ़ाई की मज़बूत तैयारी कराता है।</p>\n<h2 style="margin-top:34px">📜 प्रमाणपत्र कैसा मिलेगा: नमूना देखिए</h2>\n<p>पूरा कोर्स पढ़कर ऑनलाइन परीक्षा पास करने पर ऐसा डिजिटल प्रमाणपत्र मिलेगा। इस पर आपका नाम, अंक, तारीख़ और जाँच (verify) के लिए अपना अलग नंबर व QR होगा। दुनिया में कहीं से भी असली-नक़ली जाँचा जा सकेगा। नीचे सिर्फ़ नमूना है।</p>\n<div style="max-width:760px;margin:14px auto;border:1px solid #c9d4e4;border-radius:10px;overflow:hidden;background:#fff">\n<svg viewBox="0 0 800 566" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="प्रमाणपत्र का नमूना (SAMPLE)" style="display:block;width:100%;height:auto">\n<rect x="0" y="0" width="800" height="566" fill="#F5F7FA"/>\n<rect x="14" y="14" width="772" height="538" fill="#ffffff" stroke="#0B1F3A" stroke-width="3"/>\n<rect x="24" y="24" width="752" height="518" fill="none" stroke="#F9A825" stroke-width="2"/>\n<text x="400" y="66" text-anchor="middle" font-size="22" font-weight="bold" fill="#0B1F3A">FFGPMTrust · Applied Computer School (ACS)</text>\n<text x="400" y="92" text-anchor="middle" font-size="16" fill="#1565C0">जारीकर्ता: FFGPMTrust · प्रशिक्षण-साझेदार: ACS (acslearn.com)</text>\n<text x="400" y="140" text-anchor="middle" font-size="26" font-weight="bold" fill="#0B1F3A">ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र</text>\n<text x="400" y="168" text-anchor="middle" font-size="17" fill="#0B1F3A">ACS Certificate in Basic Skills for Digital Mitra</text>\n<text x="400" y="212" text-anchor="middle" font-size="18" fill="#0B1F3A">प्रमाणित किया जाता है कि</text>\n<text x="400" y="248" text-anchor="middle" font-size="22" font-weight="bold" fill="#1565C0">__________ (विद्यार्थी का नाम) __________</text>\n<text x="400" y="286" text-anchor="middle" font-size="17" fill="#0B1F3A">ने 109 पाठों का यह कोर्स पूरा कर ऑनलाइन परीक्षा में ____ / 120 अंक (____%) पाए।</text>\n<text x="400" y="318" text-anchor="middle" font-size="16" fill="#2E7D32">परीक्षा-तारीख़: __-__-____ · प्रमाणपत्र-संख्या: ACS-CC-____-______</text>\n<text x="400" y="356" text-anchor="middle" font-size="16" fill="#0B1F3A">नोट: इन्होंने अभी तक प्रैक्टिकल (practical) नहीं किया है। यह online पढ़ाई का प्रमाणपत्र है।</text>\n<text x="400" y="390" text-anchor="middle" font-size="16" fill="#0B1F3A">आधार: SSC NASSCOM Q2212 + NIOS 632 पर आधारित/प्रेरित। यह सरकारी प्रमाणपत्र नहीं है।</text>\n<rect x="640" y="420" width="96" height="96" fill="none" stroke="#0B1F3A" stroke-width="2"/>\n<text x="688" y="474" text-anchor="middle" font-size="18" fill="#0B1F3A">QR</text>\n<text x="688" y="532" text-anchor="middle" font-size="16" fill="#0B1F3A">जाँच-QR (यहाँ)</text>\n<line x1="70" y1="492" x2="300" y2="492" stroke="#0B1F3A" stroke-width="2"/>\n<text x="185" y="516" text-anchor="middle" font-size="16" fill="#0B1F3A">अधिकृत हस्ताक्षर (FFGPMTrust)</text>\n<text x="400" y="330" text-anchor="middle" font-size="110" font-weight="bold" fill="#1565C0" opacity="0.14" transform="rotate(-24 400 300)">नमूना SAMPLE</text>\n</svg>\n</div>\n<p style="font-size:16px"><b>ध्यान:</b> ऊपर वाला चित्र सिर्फ़ नमूना (sample) है। यह किसी का असली प्रमाणपत्र नहीं है। असली प्रमाणपत्र परीक्षा पास करने पर ही बनता है।</p>\n<h2 id="dmt-fees" style="margin-top:34px">💰 फीस की साफ़ सूची</h2>\n<table style="width:100%;border-collapse:collapse;font-size:17px">\n<tr style="background:#0B1F3A;color:#fff"><th style="padding:10px;border:1px solid #c9d4e4;text-align:left">क्या</th><th style="padding:10px;border:1px solid #c9d4e4;text-align:left">फीस</th></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">सभी 109 पाठ online पढ़ना + हर पाठ के 5 अभ्यास-सवाल</td><td style="padding:10px;border:1px solid #c9d4e4"><b>₹0: पूरी तरह मुफ़्त</b>, बिना login भी</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">ऑनलाइन परीक्षा (120 प्रश्न, 10 चांस तक)</td><td style="padding:10px;border:1px solid #c9d4e4"><b>₹0: मुफ़्त</b> (ACS-ID से login करके)</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">डिजिटल प्रमाणपत्र-PDF (ऊपर जैसा, QR-जाँच सहित), परीक्षा पास करने के बाद</td><td style="padding:10px;border:1px solid #c9d4e4"><b>₹125</b>: मर्ज़ी हो तो लें, न लें तो पढ़ाई व परीक्षा फिर भी मुफ़्त</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">केंद्र पर offline प्रशिक्षण (practical)</td><td style="padding:10px;border:1px solid #c9d4e4">Paid: राशि केंद्र की सूचना से (ACS-न्यूनतम नियम लागू)</td></tr>\n<tr><td style="padding:10px;border:1px solid #c9d4e4">KYP (कुशल युवा कार्यक्रम) की सरकारी परीक्षा/कोर्स फीस</td><td style="padding:10px;border:1px solid #c9d4e4">ACS तय नहीं करता। ताज़ा जानकारी BSDM के आधिकारिक portal पर देखें</td></tr>\n</table>\n<p style="font-size:16px">नियम सीधा है: <b>पढ़ना सबके लिए मुफ़्त</b>। पैसा सिर्फ़ तब, जब आप प्रमाणपत्र-PDF या केंद्र की सेवा लें।</p>' };
   return { DMT_COURSE:course, DMT_LESSONS:lessons };
 }
 
@@ -279,7 +279,7 @@ function lessonBody(course, l, prevFile, nextFile){
     : '<a class="lsn-navbtn" href="/courses/' + course.lang + '/' + course.slug + '/">← कोर्स-परिचय</a>';
   const next = nextFile
     ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '">अगला पाठ →</a>'
-    : '<span class="lsn-navbtn lsn-soon">अगला पाठ — जल्द</span>';
+    : '<span class="lsn-navbtn lsn-soon">अगला पाठ: जल्द</span>';
 
   return '\n<article class="lsn-wrap" data-lsn-num="' + l.num + '" data-course="' + course.slug + '">\n' +
     '<header class="lsn-head">\n' +
@@ -291,19 +291,19 @@ function lessonBody(course, l, prevFile, nextFile){
     '<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> ' +
       '<a class="lsn-toolbtn" href="/courses/' + course.lang + "/" + course.slug + '/">📖 कोर्स-परिचय</a></p>\n' +
     "</header>\n\n" +
-    '<details class="lsn-jump">\n<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
+    '<details class="lsn-jump">\n<summary>📚 सब पाठ: किसी भी पाठ पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
     ALL_LESSON_LINKS(course, l.num) + "\n</div>\n</details>\n\n" + (l.lead ? '<section class="lsn-sec lsn-lead">\n' + l.lead + "\n</section>\n\n" : "") + secs + "\n\n" +
     '<section class="lsn-sec lsn-video">\n<h2>वीडियो (Video)</h2>\n' +
     (l.videoUrl
       ? '<p><a class="lsn-vidbtn" href="' + l.videoUrl + '" target="_blank" rel="noopener">▶ इस पाठ का जाँचा हुआ वीडियो देखें</a>' +
-        (l.videoNote ? " — " + l.videoNote : "") + "</p>\n"
-      : "<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>\n") +
+        (l.videoNote ? ": " + l.videoNote : "") + "</p>\n"
+      : "<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते:</p>\n") +
     '<p class="lsn-vidrow">' +
       '<a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=' +
         encodeURIComponent(course.videoQuery + " " + l.title + " हिंदी") +
         '" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> ' +
       (course.govVideoHtml || "") + '</p>\n' +
-    '<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>\n' +
+    '<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा। पढ़ाई कहीं नहीं रुकती।)</p>\n' +
     "</section>\n\n" +
     '<nav class="lsn-nav">' + prev + next + "</nav>\n" +
     "</article>\n";
@@ -405,7 +405,7 @@ function buildCourseIndex(course, lessons){
     ).join("\n");
     const last = inPart[inPart.length - 1].num;
     const soon = (last < pt.to)
-      ? '<p class="ci-soon">बाक़ी पाठ — जल्द जुड़ेंगे।</p>'
+      ? '<p class="ci-soon">बाक़ी पाठ जल्द जुड़ेंगे।</p>'
       : '<p class="ci-soon">यह खंड पूरा ✅</p>';
     return '<section class="lsn-sec">\n<h2>' + pt.name +
       "</h2>\n" +
@@ -415,7 +415,7 @@ function buildCourseIndex(course, lessons){
 
   /* ---------- hero (v1.6 — Founder-आदेश: landing पर शानदार hero) ---------- */
   const heroSvg =
-    '<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="डिजिटल मित्र — laptop पर सीखता युवा और चार हुनर" style="display:block;width:100%;max-width:340px;height:auto">' +
+    '<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="डिजिटल मित्र: laptop पर सीखता युवा और चार हुनर" style="display:block;width:100%;max-width:340px;height:auto">' +
     '<rect x="8" y="8" width="464" height="464" rx="22" fill="#F5F7FA" stroke="#F9A825" stroke-width="3"/>' +
     '<circle cx="240" cy="178" r="34" fill="none" stroke="#0B1F3A" stroke-width="5"/>' +
     '<path d="M186 268 q54 -44 108 0" fill="none" stroke="#0B1F3A" stroke-width="5"/>' +
@@ -447,8 +447,8 @@ function buildCourseIndex(course, lessons){
     '<div style="flex:1 1 300px;min-width:260px">\n' +
     '<h1 style="color:#fff;margin:0 0 6px;line-height:1.35">' + course.title + '</h1>\n' +
     '<p style="font-size:17px;color:#cfe0f5;margin:0 0 10px">' + course.titleEn + '</p>\n' +
-    '<p style="font-size:19px;color:#eaf2fc;margin:0 0 12px">गाँव के बच्चे से डिजिटल मित्र तक — Word (वर्ड), Excel (एक्सेल), UPI (यूपीआई) और AI (एआई) की पूरी तैयारी, कक्षा-6 की हिंदी में।</p>\n' +
-    heroChip('📖 109 पाठ — पूरी तरह मुफ़्त') + heroChip('📝 120-प्रश्न online परीक्षा — मुफ़्त') + heroChip('📜 प्रमाणपत्र ₹125 — मर्ज़ी हो तो') + '\n' +
+    '<p style="font-size:19px;color:#eaf2fc;margin:0 0 12px">गाँव के बच्चे से डिजिटल मित्र तक: Word (वर्ड), Excel (एक्सेल), UPI (यूपीआई) और AI (एआई) की पूरी तैयारी, कक्षा-6 की हिंदी में।</p>\n' +
+    heroChip('📖 109 पाठ: पूरी तरह मुफ़्त') + heroChip('📝 120-प्रश्न online परीक्षा: मुफ़्त') + heroChip('📜 प्रमाणपत्र ₹125: मर्ज़ी हो तो') + '\n' +
     '<p style="margin:18px 0 0">\n' +
     '<a href="' + fileName(course, lessons[0]) + '" style="display:inline-block;background:#F9A825;color:#0B1F3A;font-weight:bold;font-size:20px;border-radius:10px;padding:13px 22px;text-decoration:none;margin:0 10px 10px 0">🚀 पाठ-1 से पढ़ना शुरू करो</a>\n' +
     '<a href="#dmt-fees" style="display:inline-block;background:transparent;color:#fff;border:2px solid #fff;font-size:18px;border-radius:10px;padding:11px 18px;text-decoration:none;margin:0 0 10px">💰 फीस की साफ़ सूची देखो</a></p>\n' +
@@ -468,7 +468,7 @@ function buildCourseIndex(course, lessons){
     "</section>\n\n" +
     partSections +
     '<section class="lsn-sec">\n<h2>आगे के हिस्से</h2>\n' +
-    "<p>पूरा कोर्स " + course.totalLessons + " पाठों का है, " + course.parts.length + " खंडों में — हर पाठ ऊपर की सूची से खुलता है।</p>\n</section>\n\n" +
+    "<p>पूरा कोर्स " + course.totalLessons + " पाठों का है, " + course.parts.length + " खंडों में। हर पाठ ऊपर की सूची से खुलता है।</p>\n</section>\n\n" +
     '<nav class="lsn-nav"><a class="lsn-navbtn lsn-next" href="' +
       fileName(course, lessons[0]) + '">पाठ-1 से शुरू करें →</a></nav>\n' +
     "</article>\n";
@@ -477,6 +477,7 @@ function buildCourseIndex(course, lessons){
   const vis = visibleText(body);
   const holes = [];
   if (/[\[\]]/.test(vis)) holes.push("square bracket");
+  if (vis.indexOf("\u2014") !== -1) holes.push("लंबी रेखा (वर्जित)");
   const small = body.match(/font(?:-size)?\s*:\s*0*([0-9]{1,2})(?:\.[0-9]+)?px/gi) || [];
   for (const m of small){
     const n = parseInt(m.match(/([0-9]{1,2})(?:\.[0-9]+)?px/i)[1], 10);
@@ -490,8 +491,8 @@ function buildCourseIndex(course, lessons){
   let page = TPL.slice(0, a + S.length) + "\n" + body + "\n" + TPL.slice(b);
   const canonical = "https://acslearn.com/courses/" + course.lang + "/" + course.slug + "/";
   page = page.replace(/<title>[\s\S]*?<\/title>/,
-    "<title>" + course.title + " — मुफ़्त ऑनलाइन कोर्स | ACS</title>\n" +
-    '<meta name="description" content="' + course.title + ' का पूरा मुफ़्त ऑनलाइन कोर्स सरल हिंदी में — सुरक्षा से हुनर तक, ' + course.totalLessons + ' पाठ। बिना login पढ़िए, अपनी गति से।">\n' +
+    "<title>" + course.title + " | मुफ़्त ऑनलाइन कोर्स | ACS</title>\n" +
+    '<meta name="description" content="' + course.title + ' का पूरा मुफ़्त ऑनलाइन कोर्स सरल हिंदी में। सुरक्षा से हुनर तक, ' + course.totalLessons + ' पाठ। बिना login पढ़िए, अपनी गति से।">\n' +
     '<meta name="robots" content="' + (MODE==="release" ? "index, follow, max-image-preview:large" : "noindex, nofollow") + '">\n' +
     '<link rel="canonical" href="' + canonical + '">');
   page = page.replace("</head>",
