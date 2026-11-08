@@ -100,8 +100,32 @@
     return '<div class="apt-note">🖼️ चित्र नहीं खुला — प्रश्न शब्दों से पूरा है।</div>';
   }
 
+  /* ---- v2.0 app-mode (O*NET-शैली): टेस्ट पूरे पर्दे पर ---- */
+  function appOn() { try { document.body.classList.add("apt-app"); box.classList.add("apt-live"); } catch (e) {} }
+  function appOff() {
+    try {
+      box.classList.remove("apt-live");
+      if (!document.querySelector(".apt-live")) document.body.classList.remove("apt-app");
+    } catch (e) {}
+  }
+  /* ---- द्वार-कार्ड: टेस्ट बटन दबाने पर ही पर्दा खुले ---- */
+  function renderGate() {
+    appOff();
+    var started = (ST.pos > 0 || (ST.ans && Object.keys(ST.ans).length > 0));
+    box.innerHTML = '<div class="apt-gate">' +
+      '<p class="apt-q">🆓 मुफ़्त झलक — 24 प्रश्न</p>' +
+      '<p>टेस्ट पूरे पर्दे पर खुलेगा — एक समय एक प्रश्न।</p>' +
+      '<p>बीच में बंद करें तो जवाब फ़ोन में बचे रहते हैं।</p>' +
+      '<div class="apt-nav"><button class="apt-btn green" id="apt-open">' +
+      (started ? "▶ जारी रखें — प्रश्न " + qIndexAt(ST.pos) + " से" : "🚀 झलक शुरू करें") +
+      "</button></div></div>";
+    var b = $("apt-open");
+    if (b) b.onclick = function () { ST.started = Date.now(); saveState(); appOn(); render(); };
+  }
+
   /* ---- नज़र टेस्ट-डिब्बे पर लाना (पन्ने के ऊपर नहीं) ---- */
   function focusBox() {
+    if (document.body && document.body.classList && document.body.classList.contains("apt-app")) { box.scrollTop = 0; return; }
     try { box.scrollIntoView(true); } catch (e) { window.scrollTo(0, 0); }
   }
 
@@ -109,10 +133,12 @@
   function render(keep) {
     if (ST.done) { renderResult(); return; }
     if (ST.pos >= flow.length) { finish(); return; }
+    appOn();
     var step = flow[ST.pos], html = "";
     var qn = qIndexAt(ST.pos);
     html += '<div class="apt-top"><span class="apt-prog">प्रश्न ' + qn + ' / ' + TOTAL_Q + '</span>' +
-      '<a class="apt-back-dash" href="' + BACK + '">↩ Dashboard</a></div>';
+      '<span><a class="apt-back-dash" href="' + BACK + '">↩ Dashboard</a> ' +
+      '<button class="apt-x" id="apt-close" type="button">✖ बंद</button></span></div>';
     html += '<div class="apt-bar"><i style="width:' + Math.round((qn - 1) * 100 / TOTAL_Q) + '%"></i></div>';
 
     if (step.kind === "k") {
@@ -121,6 +147,8 @@
         "<h3>📖 " + esc(k.title) + "</h3><p>" + esc(k.text) + "</p></div>";
       html += navBtns(true);
       box.innerHTML = html; wireNav(true);
+      var xk = $("apt-close");
+      if (xk) xk.onclick = function () { appOff(); renderGate(); };
       if (!keep) focusBox();
       return;
     }
@@ -169,6 +197,8 @@
     html += navBtns(answered(q));
     box.innerHTML = html;
     wireQ(q); wireNav(false);
+    var xc = $("apt-close");
+    if (xc) xc.onclick = function () { appOff(); renderGate(); };
     if (!keep) focusBox();
   }
 
@@ -258,11 +288,13 @@
   }
 
   function finish() {
+    appOff();
     ST.done = true; ST.doneAt = new Date().toLocaleDateString("hi-IN");
     saveState(); renderResult();
   }
 
   function renderResult() {
+    appOff();
     var r = compute(), rows = [], m;
     for (m = 1; m <= 24; m++) rows.push({ m: m, s: r.sc[m] });
     rows.sort(function (a, b) { return b.s - a.s; });
@@ -305,6 +337,6 @@
     focusBox();
   }
 
-  /* ---- शुरुआत ---- */
-  render();
+  /* ---- शुरुआत: नतीजा बना हो तो वही; वरना द्वार-कार्ड (v2.0) ---- */
+  if (ST.done) render(); else renderGate();
 })();

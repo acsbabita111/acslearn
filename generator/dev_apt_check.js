@@ -18,7 +18,9 @@ for (var i = 0; i < 24; i++) {
 store['acs_apt_v1'] = JSON.stringify({ pos: 99, ans: ans, done: true, doneAt: '20-7-2026' });
 var boxEl = { innerHTML: '', getElementsByClassName: function () { return []; } };
 var againEl = {};
-global.document = { getElementById: function (id) { if (id === 'apt-box') return boxEl; if (id === 'apt-again') return againEl; return null; } };
+var openEl = {}, closeEl = {};
+global.document = { getElementById: function (id) { if (id === 'apt-box') return boxEl; if (id === 'apt-again') return againEl; if (id === 'apt-open') return openEl; if (id === 'apt-close') return closeEl; return null; },
+  querySelector: function () { return null; }, body: { classList: { add: function(){}, remove: function(){}, contains: function(){ return false; } } } };
 eval(fs.readFileSync('assets/aptitude-test.js', 'utf8'));
 var h = boxEl.innerHTML;
 if (h.indexOf('सबसे प्रबल रुचि') < 0) throw new Error('नतीजा-शीर्षक ग़ायब');
@@ -28,9 +30,18 @@ console.log('जाँच-1 नतीजा बना ✅ | सूची-पं�
 if (rows !== 24) throw new Error('पंक्ति-गिनती ग़लत');
 
 /* जाँच-2: ख़ाली शुरुआत — पहला प्रश्न बूट */
-store = {}; boxEl.innerHTML = '';
+store = {}; boxEl.innerHTML = ''; openEl = {}; closeEl = {};
 eval(fs.readFileSync('assets/aptitude-test.js', 'utf8'));
+/* v2.0 (08-Nov): ख़ाली-बूट = द्वार-कार्ड; 'शुरू करें' दबाने पर ही पर्दा+प्रश्न-1 */
+if (boxEl.innerHTML.indexOf('झलक शुरू करें') < 0) throw new Error('द्वार-कार्ड नहीं दिखा');
+if (!openEl.onclick) throw new Error('द्वार-बटन बिना onclick');
+openEl.onclick();
 if (boxEl.innerHTML.indexOf('प्रश्न 1 / 24') < 0) throw new Error('पहला प्रश्न नहीं दिखा');
+/* ✖ बंद → द्वार पर वापसी (जारी-पाठ) */
+if (!closeEl.onclick) throw new Error('बंद-बटन बिना onclick');
+closeEl.onclick();
+if (boxEl.innerHTML.indexOf('जारी रखें') < 0 && boxEl.innerHTML.indexOf('झलक शुरू करें') < 0) throw new Error('बंद पर द्वार नहीं लौटा');
+openEl.onclick();
 /* (28-Jul, Founder 2+4-मिश्रण) पट्टी अब 3-बटन: 👎/😐/👍 + हिंदी-शब्द —
    गिनती data-f से (regex apt-face डिब्बे को भी गिन लेता था — पुरानी चूक)। */
 var faces = (boxEl.innerHTML.match(/data-f=/g) || []).length;
@@ -42,7 +53,10 @@ if (faces !== 3 || !lbls) throw new Error('3-बटन पट्टी ग़ल
 store = {}; boxEl.innerHTML = '';
 var ans2 = {}; for (var j = 0; j < 10; j++) { var qq = qs[j]; ans2[qq.id] = (qq.type === 'pick') ? { first: 0, last: 1 } : { v: 1 }; }
 store['acs_apt_v1'] = JSON.stringify({ pos: 10, ans: ans2, done: false });
+openEl = {};
 eval(fs.readFileSync('assets/aptitude-test.js', 'utf8'));
+if (boxEl.innerHTML.indexOf('जारी रखें') < 0) throw new Error('बीच-हालत पर जारी-द्वार नहीं');
+openEl.onclick();
 if (boxEl.innerHTML.indexOf('apt-katha') < 0) throw new Error('10 के बाद कथा नहीं आई');
 console.log('जाँच-3 कथा-विराम ✅ (10 प्रश्नों के बाद कहानी दिखी)');
 console.log('✅ इंजन की तीनों runtime-जाँचें पास');

@@ -1,5 +1,7 @@
 /* ============================================================
-   /assets/apt-session.js — v1.2 (नतीजा खाते में भी — server-save · होल-1)
+   /assets/apt-session.js — v1.3 (08-Nov-2026: O*NET-शैली app-mode — प्रश्न पूरे पर्दे पर,
+   window कभी नहीं कूदती; द्वार/नतीजा सामान्य पन्ने पर। Founder-फ़ैसला: टेस्ट-पेज = सिर्फ़ टेस्ट।)
+   v1.2 (नतीजा खाते में भी — server-save · होल-1)
    v1.2 · 30-Jul-2026 (Founder-override v4.0-ख1): final-submit पर नतीजे का सार
    login-खाते में server-save (apt-pay.js → saveAptitudeResult); नए फ़ोन पर
    "पिछला हिसाब" खाते से (latestAptitudeResult)। जवाब यथावत device-local;
@@ -32,6 +34,18 @@
   'use strict';
   var box = document.getElementById('apt-sess-box');
   if (!box) return;
+  /* ---- v1.3 app-mode (O*NET-शैली) ---- */
+  function appOn() { try { document.body.classList.add('apt-app'); box.classList.add('apt-live'); } catch (e) {} }
+  function appOff() {
+    try {
+      box.classList.remove('apt-live');
+      if (!document.querySelector('.apt-live')) document.body.classList.remove('apt-app');
+    } catch (e) {}
+  }
+  function toTop() {
+    if (document.body && document.body.classList && document.body.classList.contains('apt-app')) { box.scrollTop = 0; return; }
+    window.scrollTo(0, box.offsetTop - 8);
+  }
   var D = window.APT_DATA, ART = window.APT_ART || {}, MG = window.MG_NAMES || {};
   if (!D || !D.pool) { box.innerHTML = '<p>टेस्ट-सामग्री नहीं खुली — पन्ना दोबारा खोलिए।</p>'; return; }
 
@@ -51,6 +65,7 @@
   var engineStarted = false;
 
   function renderGateCard(showBuy) {
+    appOff();
     var extra = '';
     if (showBuy === 'checking') {
       extra = '<p id="apt-buy-msg">\uD83D\uDD0E आपका भुगतान-चांस जाँचा जा रहा है…</p>';
@@ -337,6 +352,7 @@
 
   /* ---------- शुरुआत-कार्ड ---------- */
   function renderStart() {
+    appOff();
     var C = S.cur;
     var html = '<div class="apt-card">' +
       '<p class="apt-q">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</p>' +
@@ -388,6 +404,7 @@
   /* ---------- खंड-1 भंडार ---------- */
   function bootQuestions() {
     var C = S.cur; if (!C) { renderStart(); return; }
+    appOn();
     box.innerHTML = '<div class="apt-card"><p>प्रश्न आ रहे हैं…</p></div>';
     loadMany([D.pool.broad], function () {
       if (!C.ids.k1.length) {
@@ -472,7 +489,8 @@
     box.innerHTML = '<div class="apt-card apt-katha">' + art(st.img) +
       '<p class="apt-q">📖 ' + esc(st.title) + '</p><p>' + esc(st.text) + '</p>' +
       '<div class="apt-nav"><button class="apt-btn blue" id="apt-next" disabled>⏳ ' + HOLD_SEC + ' सेकंड रुकिए…</button></div></div>';
-    window.scrollTo(0, box.offsetTop - 8);
+    appOn();
+    toTop();
     var btn = document.getElementById('apt-next');
     var left = HOLD_SEC;
     var timer = setInterval(function () {
@@ -522,6 +540,7 @@
     if (typeof cur !== 'undefined') C.doneOrder.push(cur);
   }
   function renderStep() {
+    appOn();
     var C = S.cur;
     ensureQueue();
     if (C.queue.length === 0) {
@@ -570,6 +589,7 @@
   }
   function cancelAttempt() {
     if (!confirm('पक्का परीक्षा छोड़ना है? अब तक के जवाब मिट जाएँगे — यह प्रयास रद्द हो जाएगा।')) return;
+    appOff();
     S.cur = null; save(S);
     location.href = backUrl();
   }
@@ -607,8 +627,12 @@
   }
   function bind(q) {
     var C = S.cur, a = C.ans[q.id] = C.ans[q.id] || {};
-    var keep = window.scrollY;
-    function done() { save(S); var y = keep; renderStep(); window.scrollTo(0, y); }
+    var inApp = (document.body && document.body.classList && document.body.classList.contains('apt-app'));
+    var keep = inApp ? box.scrollTop : window.scrollY;
+    function done() {
+      save(S); var y = keep; renderStep();
+      if (inApp) box.scrollTop = y; else window.scrollTo(0, y);
+    }
     Array.prototype.forEach.call(box.querySelectorAll('[data-v]'), function (b) {
       b.onclick = function () { a.v = Number(b.getAttribute('data-v')); advance(); done(); };
     });
@@ -631,6 +655,7 @@
 
   /* ---------- अंतिम जमा (प्रति-attempt lock) ---------- */
   function renderSubmit() {
+    appOn();
     var C = S.cur, got = Object.keys(C.ans).length;
     box.innerHTML = '<div class="apt-card"><p class="apt-q">🏁 सब खंड पूरे!</p>' +
       '<p>जवाब मिले: ' + got + ' / ' + TOTAL + '। जमा करने के बाद यह प्रयास बंद (lock) हो जाएगा।</p>' +

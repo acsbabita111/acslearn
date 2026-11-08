@@ -124,3 +124,26 @@
 .apl-row .b{flex:1;min-width:170px;color:#2E7D32;font-weight:700}
 .apl-small{font-size:16px;color:#0B1F3A;margin-top:8px}
 @media(max-width:420px){.apl-hero h1{font-size:24px}.apl-row .l{flex:0 0 100%}}
+
+/* ===== v2.0 (08-Nov-2026) O*NET-शैली app-mode: टेस्ट पूरे पर्दे पर, एक-एक प्रश्न =====
+   body.apt-app + डिब्बे पर .apt-live — JS (aptitude-test.js / apt-session.js v2) लगाता-हटाता है।
+   पर्दा viewport ढकता है: पीछे का पन्ना अदृश्य, window कभी नहीं कूदती — scroll सिर्फ़ पर्दे के भीतर। */
+body.apt-app{overflow:hidden}
+.apt-live{position:fixed !important;inset:0;z-index:4000;background:#e9eef5;
+  overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  margin:0 !important;padding:0 0 60px !important;border:0 !important;border-radius:0 !important;
+  box-shadow:none !important;max-width:none !important;width:auto !important;
+  display:flex;flex-direction:column;align-items:center}
+.apt-live>*{width:min(720px,94vw)}
+.apt-live>.apt-top{width:100%;position:sticky;top:0;z-index:6;background:#0B1F3A;
+  margin:0 0 12px;padding:10px max(14px,calc(50vw - 352px));
+  display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.apt-live>.apt-top .apt-prog{color:#F5F7FA;font-size:17px;font-weight:700}
+.apt-live>.apt-top .apt-back-dash{color:#F9A825;font-weight:800;font-size:17px;text-decoration:none}
+.apt-live>.apt-bar{height:12px;background:#fff;border:1px solid #0B1F3A;border-radius:8px;overflow:hidden}
+.apt-live .apt-card{background:#fff;border-radius:14px;box-shadow:0 2px 0 #0B1F3A,0 10px 22px rgba(11,31,58,.18);padding:16px;margin:8px auto 20px}
+.apt-x{background:#fff;color:#0B1F3A;border:2px solid #F9A825;border-radius:10px;
+  font-size:17px;font-weight:800;padding:4px 12px;cursor:pointer}
+.apt-gate{background:linear-gradient(180deg,#fff,#eef4ff);border:2px solid #1565C0;border-radius:16px;
+  padding:18px 16px;text-align:center;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #1565C0,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff}
+.apt-gate p{font-size:18px;margin:8px 0}
