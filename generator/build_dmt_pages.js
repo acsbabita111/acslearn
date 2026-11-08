@@ -1,6 +1,6 @@
 /* ============================================================
    build_dmt_pages.js: "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" (SE026) पेज-generator (परत-4)
-   v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
+   v2.0-dmt (08-Nov Founder-आदेश: AI-banner img/dmt-hero.webp = index का full-width hero, SVG-column हटा; alt=sealed नाम)। पहले का: v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
    swap-promote (पुराना dir पहले .bak-swap, rename-त्रुटि पर बहाली — rmSync-first बंद) ·
    release-मुहर content-binding (manifest.content_sha256 = 109MD+template+generator+robot का संयुक्त-hash,
    approved_on validated-date अनिवार्य)। पहले का: v1.1-dmt — fail-closed (स्वतंत्र-ऑडिट कार्यादेश P0): robot-gate अनिवार्य ·
@@ -413,7 +413,7 @@ function buildCourseIndex(course, lessons){
   }
   const partSections = course.parts.map(partBlock).join("");
 
-  /* ---------- hero (v1.6 — Founder-आदेश: landing पर शानदार hero) ---------- */
+  /* ---------- hero (v2.0: Founder-banner img/dmt-hero.webp मुख्य hero; नीचे का heroSvg अभी अप्रयुक्त, बदलाव-दिन काम आएगा) ---------- */
   const heroSvg =
     '<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="कथा-चित्र: गाँव की झोपड़ी से राह निकलकर laptop पर सीखते युवा तक; चार हुनर-icon उसके चारों ओर, ऊपर प्रमाणपत्र" style="display:block;width:100%;max-width:360px;height:auto">' +
     '<defs>' +
@@ -484,6 +484,7 @@ function buildCourseIndex(course, lessons){
   const heroHtml =
     '<section style="background:linear-gradient(135deg,#0B1F3A 0%,#1565C0 100%);border-bottom:4px solid #F9A825;border-radius:14px;padding:26px 20px;margin:0 0 26px;color:#fff">\n' +
     '<p class="lsn-crumb" style="color:#cfe0f5;margin:0 0 10px"><a href="/courses/hi/" style="color:#F9A825">कोर्स</a> › ' + course.title + '</p>\n' +
+    '<img src="img/dmt-hero.webp" alt="' + course.title + ' (' + course.titleEn + ')" style="display:block;width:100%;height:auto;border-radius:14px;margin:0 0 18px;box-shadow:0 6px 24px rgba(0,0,0,.35)">\n' +
     '<div style="display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between">\n' +
     '<div style="flex:1 1 300px;min-width:260px">\n' +
     '<h1 style="color:#fff;margin:0 0 6px;line-height:1.35">' + course.title + '</h1>\n' +
@@ -494,7 +495,6 @@ function buildCourseIndex(course, lessons){
     '<a href="' + fileName(course, lessons[0]) + '" style="display:inline-block;background:#F9A825;color:#0B1F3A;font-weight:bold;font-size:20px;border-radius:10px;padding:13px 22px;text-decoration:none;margin:0 10px 10px 0">🚀 पाठ-1 से पढ़ना शुरू करो</a>\n' +
     '<a href="#dmt-fees" style="display:inline-block;background:transparent;color:#fff;border:2px solid #fff;font-size:18px;border-radius:10px;padding:11px 18px;text-decoration:none;margin:0 0 10px">💰 फीस की साफ़ सूची देखो</a></p>\n' +
     '</div>\n' +
-    '<div style="flex:0 1 340px;min-width:240px;margin:0 auto">' + heroSvg + '</div>\n' +
     '</div>\n' +
     '<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px">\n' +
     ['9 खंड','109 पाठ','545 अभ्यास-सवाल','कक्षा-6 हिंदी · बिना login'].map(function(t){ return '<div style="flex:1 1 120px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:10px;text-align:center;font-size:17px;font-weight:bold">' + t + '</div>'; }).join('\n') + '\n' +
