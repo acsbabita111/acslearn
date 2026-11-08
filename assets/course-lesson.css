@@ -119,3 +119,7 @@ pre.pl-sample{background:#F5F7FA;color:#0B1F3A;border:2px dashed #1565C0;border-
   border-radius:10px;padding:12px 14px}
 .lsn-quiz .qz-next{text-align:center;margin:18px auto 0;padding-top:16px;
   border-top:2px solid #F9A825;max-width:620px;font-size:17px}
+
+/* v1.6c बटन-नियम (Founder, 08-Nov): nav में 1 बटन = केंद्र; 2 = दोनों छोर; 3 = दोनों छोर + बीच
+   (2/3 मौजूदा space-between से; यह नियम सिर्फ़ अकेले बटन को केंद्र लाता है) */
+.lsn-nav > :only-child{margin-left:auto;margin-right:auto}
