@@ -98,8 +98,9 @@ for (const [file, list] of SECTIONS) {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   let n = 0;
   for (const u of list) {
-    if (seen.has(u)) continue; seen.add(u); n++; total++;
-    xml += "  <url><loc>" + BASE + u + "</loc>" + lastmod(u) + "</url>\n";
+    const loc = u.endsWith("/index.html") ? u.slice(0, -10) : u; /* 08-Nov: <loc> साफ़-/ रूप : पन्नों के canonical से मेल */
+    if (seen.has(loc)) continue; seen.add(loc); n++; total++;
+    xml += "  <url><loc>" + BASE + loc + "</loc>" + lastmod(loc) + "</url>\n";
   }
   xml += "</urlset>\n";
   fs.writeFileSync(path.join(ROOT, file), xml);

@@ -164,11 +164,11 @@ function buildSpecial(spec) {
     "<title>" + spec.title + "</title>\n" +
     '<meta name="description" content="' + spec.desc + '">\n' +
     '<meta name="robots" content="' + (spec.robots || "index, follow") + '">\n' +
-    '<link rel="canonical" href="https://acslearn.com/' + spec.out + '">' +
+    '<link rel="canonical" href="https://acslearn.com/' + (spec.out === "index.html" ? "" : spec.out.replace(/\/index\.html$/, "/")) + '">' /* 08-Nov: साफ़-/ रूप */ +
     /* 13-Sep (ऑडिट/SEO): Open Graph + JSON-LD — हर विशेष-पेज पर (share-preview व rich-result) */
     '\n<meta property="og:type" content="website">' +
     /* 25-Oct: og:url = canonical (एक पन्ना, एक पता — sitemap-रूप) */
-    '\n<meta property="og:url" content="https://acslearn.com/' + spec.out + '">' +
+    '\n<meta property="og:url" content="https://acslearn.com/' + (spec.out === "index.html" ? "" : spec.out.replace(/\/index\.html$/, "/")) + '">' +
     '\n<meta property="og:title" content="' + spec.title.replace(/"/g, "&quot;") + '">' +
     '\n<meta property="og:description" content="' + spec.desc.replace(/"/g, "&quot;") + '">' +
     '\n<meta property="og:image" content="https://acslearn.com/logo.png">' +
