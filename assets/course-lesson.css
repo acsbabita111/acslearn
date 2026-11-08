@@ -85,15 +85,37 @@ pre.pl-sample{background:#F5F7FA;color:#0B1F3A;border:2px dashed #1565C0;border-
 .lsn-roff{background:#0B1F3A;color:#F9A825}
 .lsn-react-note{font-size:16px;color:#2E7D32;font-weight:700;margin:10px 0 0}
 
-/* v1.6 lsn-quiz (tap-उत्तर) */
-.lsn-quiz .qz{margin:0 0 22px;padding:14px;border:1px solid #c9d4e4;border-radius:12px;background:#fff}
-.lsn-quiz .qz-q{margin:0 0 10px;font-size:18px}
-.lsn-quiz .qz-opt{display:block;width:100%;text-align:left;margin:0 0 8px;padding:11px 12px;border:1.5px solid #c9d4e4;border-radius:10px;background:#F5F7FA;font-size:17px;line-height:1.6;cursor:pointer}
-.lsn-quiz .qz-opt:last-of-type{margin-bottom:10px}
+/* v1.6b lsn-quiz (tap-उत्तर) — design-पास: ACS 5-रंग, केंद्रित शीर्षक, chip-संख्या, साँस की जगह */
+.lsn-quiz{background:#F5F7FA;border:1px solid #dbe3ee;border-radius:16px;
+  padding:20px 14px 22px;margin:34px 0}
+.lsn-quiz h2{border-left:0;padding-left:0;text-align:center;font-size:24px;margin:0 0 6px}
+.lsn-quiz h2::after{content:"";display:block;width:84px;height:4px;background:#F9A825;
+  border-radius:2px;margin:10px auto 0}
+.lsn-quiz > p{text-align:center;max-width:560px;margin:0 auto 20px;color:#444}
+.lsn-quiz .qz{margin:0 0 20px;padding:16px 14px;border:1px solid #c9d4e4;
+  border-radius:14px;background:#fff;box-shadow:0 1px 4px rgba(11,31,58,.07)}
+.lsn-quiz .qz:last-of-type{margin-bottom:6px}
+.lsn-quiz .qz-q{margin:0 0 12px;font-size:18px;line-height:1.7}
+.lsn-quiz .qz-q strong{display:inline-block;background:#0B1F3A;color:#F9A825;
+  font-size:16px;padding:3px 12px;border-radius:999px;margin-right:8px}
+.lsn-quiz .qz-opt{display:block;width:100%;box-sizing:border-box;text-align:left;
+  margin:0 0 10px;padding:12px 14px;border:1.5px solid #c9d4e4;border-radius:12px;
+  background:#fff;font-size:17px;line-height:1.6;cursor:pointer;
+  transition:background .12s,border-color .12s}
+.lsn-quiz .qz-opt:hover{background:#eef4fb;border-color:#1565C0}
+.lsn-quiz .qz-opt:last-of-type{margin-bottom:12px}
 .lsn-quiz .qz-right{background:#e6f4ea;border-color:#2E7D32}
 .lsn-quiz .qz-right::after{content:" \2713 सही";color:#2E7D32;font-weight:700}
 .lsn-quiz .qz-wrong{background:#fdeaea;border-color:#c0392b}
 .lsn-quiz .qz-wrong::after{content:" \2717";color:#c0392b;font-weight:700}
-.lsn-quiz .qz-show{border-color:#2E7D32;border-style:dashed}
+.lsn-quiz .qz-show{border-color:#2E7D32;border-style:dashed;background:#f3faf4}
 .lsn-quiz details.qz-ans{font-size:17px}
-.lsn-quiz details.qz-ans summary{cursor:pointer;color:#1565C0;font-weight:600}
+.lsn-quiz details.qz-ans summary{display:inline-block;cursor:pointer;color:#1565C0;
+  font-weight:600;border:1.5px solid #1565C0;border-radius:999px;padding:7px 18px;
+  background:#fff;list-style:none}
+.lsn-quiz details.qz-ans summary::-webkit-details-marker{display:none}
+.lsn-quiz details[open].qz-ans summary{background:#1565C0;color:#fff}
+.lsn-quiz details.qz-ans p{margin:12px 2px 0;background:#fff;border:1px dashed #1565C0;
+  border-radius:10px;padding:12px 14px}
+.lsn-quiz .qz-next{text-align:center;margin:18px auto 0;padding-top:16px;
+  border-top:2px solid #F9A825;max-width:620px;font-size:17px}
