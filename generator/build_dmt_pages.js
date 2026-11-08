@@ -1,6 +1,6 @@
 /* ============================================================
    build_dmt_pages.js: "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" (SE026) पेज-generator (परत-4)
-   v2.1-dmt (08-Nov: हर पाठ-पेज में hero-फ़ोटो img/<id>.webp + 109-फ़ोटो release-द्वार + promote में img-रक्षा)। पहले का: v2.0-dmt (08-Nov Founder-आदेश: AI-banner img/dmt-hero.webp = index का full-width hero, SVG-column हटा; alt=sealed नाम)। पहले का: v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
+   v2.2-dmt (08-Nov: 545 प्रश्न tap-रूप — loader quiz-निकासी 5-सख़्त + quizHTML + course-lesson v1.6 इंजन)। पहले का: v2.1-dmt (08-Nov: हर पाठ-पेज में hero-फ़ोटो img/<id>.webp + 109-फ़ोटो release-द्वार + promote में img-रक्षा)। पहले का: v2.0-dmt (08-Nov Founder-आदेश: AI-banner img/dmt-hero.webp = index का full-width hero, SVG-column हटा; alt=sealed नाम)। पहले का: v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
    swap-promote (पुराना dir पहले .bak-swap, rename-त्रुटि पर बहाली — rmSync-first बंद) ·
    release-मुहर content-binding (manifest.content_sha256 = 109MD+template+generator+robot का संयुक्त-hash,
    approved_on validated-date अनिवार्य)। पहले का: v1.1-dmt — fail-closed (स्वतंत्र-ऑडिट कार्यादेश P0): robot-gate अनिवार्य ·
@@ -88,11 +88,33 @@ function loadDMT(){
     if (g("publish") !== "false" || g("seo_publish_ready") !== "false")
       throw new Error("publish-रोक टूटी (" + f + "): publish व seo_publish_ready दोनों false चाहिए");
     num++;
-    const md=mdToSections(raw.slice(fmm[0].length));
+    /* v2.2: quiz-block निकासी — '**प्र-1.' से अगले ## तक; 5 प्रश्न सख़्त, parse-fail = build रुके */
+    let body = raw.slice(fmm[0].length);
+    const qi = body.indexOf("**प्र-1.");
+    if (qi < 0) throw new Error("quiz नहीं मिला: " + f);
+    let qseg = body.slice(qi);
+    const qnx = qseg.search(/^## /m);
+    if (qnx > -1) qseg = qseg.slice(0, qnx);
+    body = body.slice(0, qi).replace(/^## .*5 प्रश्न.*$/m, "") + body.slice(qi + qseg.length);
+    const qparts = qseg.split(/\*\*(?=प्र-\d+\.)/).filter(function(s){return /^प्र-\d+\./.test(s);});
+    if (qparts.length !== 5) throw new Error("quiz में " + qparts.length + " प्रश्न (5 चाहिए): " + f);
+    const LETTERS = ["क","ख","ग","घ"];
+    const quiz = qparts.map(function(s){
+      const m = s.match(/^प्र-(\d+)\.\*?\*?\s*([\s\S]*?)\s*\(क\)\s*([\s\S]*?)\s*\(ख\)\s*([\s\S]*?)\s*\(ग\)\s*([\s\S]*?)\s*\(घ\)\s*([\s\S]*?)\s*\*?\*?उत्तर:\s*\(([कखगघ])\)।?\*?\*?\s*(?:कारण:)?\s*([\s\S]*)$/);
+      if (!m) throw new Error("quiz-साँचा टूटा (" + f + "): " + s.slice(0,40));
+      return { n:+m[1], q:m[2].trim(), o:[m[3],m[4],m[5],m[6]].map(function(x){return x.trim().replace(/[\s*]+$/,"");}),
+               ans:LETTERS.indexOf(m[7]), why:m[8].trim().replace(/[\s*]+$/,"") };
+    });
+    /* v2.2b: प्र-5 के कारण की पूँछ (ख़ाली-पंक्ति के बाद "अगला पाठ/खंड…" पंक्ति) quiz से बाहर */
+    let quizTail = "";
+    const w5 = quiz[4].why;
+    const bl = w5.indexOf("\n\n");
+    if (bl > -1){ quizTail = w5.slice(bl).trim(); quiz[4].why = w5.slice(0, bl).trim().replace(/[\s*]+$/,""); }
+    const md=mdToSections(body);
     lessons.push({ num:num, id:id, disp:(+kp[1])+"."+(+kp[2]),
       title:escAttr(g("h1_hi")||g("title")), slug:g("slug"),
       metaTitle:escAttr(g("seo_title_hi")), metaDesc:escAttr(g("seo_description_hi")),
-      minutes:"11-13", lead:md.lead, sections:md.sections, videoUrl:null });
+      minutes:"11-13", lead:md.lead, sections:md.sections, quiz:quiz, quizTail:quizTail, videoUrl:null });
   }
   const KH=["खंड-1: परिचय व बुनियाद","खंड-2: Word","खंड-3: Excel","खंड-4: PowerPoint","खंड-5: फ़ाइल, Email व Scanner","खंड-6: सुरक्षा व निजता","खंड-7: ग्राहक-सेवा व सरकारी portal","खंड-8: AI की समझ","खंड-9: रोज़गार-योग्यता"];
   const CNT=[8,16,16,10,14,12,12,10,11]; const parts=[]; let at=1;
@@ -276,6 +298,19 @@ function assertLessonPhotos(ids){
   if (miss.length) abortBuild("पाठ-फ़ोटो ग़ायब (" + miss.length + "): " + miss.slice(0,5).join(", ") + " … — img/ में 109 webp अनिवार्य");
   console.log("🖼️ पाठ-फ़ोटो द्वार: 109/109 मौजूद");
 }
+function qtxt(t){ return escAttr(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
+function quizHTML(l){
+  const L = ["(क)","(ख)","(ग)","(घ)"];
+  let h = '<section class="lsn-sec lsn-quiz" data-quiz>\n<h2>छोटा टेस्ट: 5 प्रश्न</h2>\n' +
+    '<p style="font-size:16px;color:#444">हर प्रश्न में सही विकल्प छूकर जवाब दो। सही होने पर हरा, ग़लत पर लाल दिखेगा। बिना छुए जाँचना हो तो "उत्तर देखो" खोलो।</p>\n';
+  l.quiz.forEach(function(q){
+    h += '<div class="qz" data-ans="' + q.ans + '">\n<p class="qz-q"><strong>प्र-' + q.n + '.</strong> ' + qtxt(q.q) + '</p>\n';
+    q.o.forEach(function(o,i){ h += '<div class="qz-opt">' + L[i] + ' ' + qtxt(o) + '</div>\n'; });
+    h += '<details class="qz-ans"><summary>उत्तर देखो</summary><p><strong>उत्तर: ' + L[q.ans] + '।</strong> ' + qtxt(q.why) + '</p></details>\n</div>\n';
+  });
+  if (l.quizTail) h += '<p class="qz-next"><strong>' + qtxt(l.quizTail.replace(/\*\*/g,"")) + '</strong></p>\n';
+  return h + '</section>\n\n';
+}
 function lessonBody(course, l, prevFile, nextFile){
   const secs = l.sections.map(s =>
     '<section class="lsn-sec">\n<h2>' + s.t + "</h2>\n" + s.h.trim() + "\n</section>"
@@ -300,7 +335,7 @@ function lessonBody(course, l, prevFile, nextFile){
     "</header>\n\n" +
     '<img class="lsn-photo" src="img/' + l.id.replace(".","-") + '.webp" alt="' + l.title + '" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;margin:0 0 16px">\n' +
     '<details class="lsn-jump">\n<summary>📚 सब पाठ: किसी भी पाठ पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
-    ALL_LESSON_LINKS(course, l.num) + "\n</div>\n</details>\n\n" + (l.lead ? '<section class="lsn-sec lsn-lead">\n' + l.lead + "\n</section>\n\n" : "") + secs + "\n\n" +
+    ALL_LESSON_LINKS(course, l.num) + "\n</div>\n</details>\n\n" + (l.lead ? '<section class="lsn-sec lsn-lead">\n' + l.lead + "\n</section>\n\n" : "") + secs + "\n\n" + quizHTML(l) +
     '<section class="lsn-sec lsn-video">\n<h2>वीडियो (Video)</h2>\n' +
     (l.videoUrl
       ? '<p><a class="lsn-vidbtn" href="' + l.videoUrl + '" target="_blank" rel="noopener">▶ इस पाठ का जाँचा हुआ वीडियो देखें</a>' +
@@ -321,7 +356,7 @@ function lessonBody(course, l, prevFile, nextFile){
 function buildPage(course, l, prevFile, nextFile){
   const body = lessonBody(course, l, prevFile, nextFile);
   /* 24-Aug robot-फ़िक्स: शब्द-गिनती सिर्फ़ पाठ-सामग्री (sections) पर — jumplist/ढाँचा-पाठ गिनती से बाहर */
-  const coreHtml = l.title + " " + (l.lead ? l.lead + " " : "") + l.sections.map(s => s.t + " " + s.h).join(" "); /* v1.0-dmt: MD-h1 शीर्षक core-गिनती में (MD-robot से बराबरी) */
+  const coreHtml = l.title + " " + (l.lead ? l.lead + " " : "") + l.sections.map(s => s.t + " " + s.h).join(" ") + " " + l.quiz.map(function(q){return "प्र-"+q.n+". "+q.q+" (क) "+q.o[0]+" (ख) "+q.o[1]+" (ग) "+q.o[2]+" (घ) "+q.o[3]+" उत्तर: । कारण: "+q.why;}).join(" ") + " " + (l.quizTail||"").replace(/\*/g,""); /* v2.2: quiz-पाठ भी सामग्री है */ /* v1.0-dmt: MD-h1 शीर्षक core-गिनती में (MD-robot से बराबरी) */
   const { holes } = checkRobot(course, l, body);
   const coreWords = wordCount(coreHtml);
   if (coreWords < 1200) holes.push("शब्द-गिनती (सिर्फ़ सामग्री) " + coreWords + " (< 1200)");

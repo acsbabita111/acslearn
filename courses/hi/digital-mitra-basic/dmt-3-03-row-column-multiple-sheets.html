@@ -142,14 +142,50 @@
 <p><strong>काम:</strong> "केंद्र-खाता-2026" workbook बनाओ — (1) नवंबर-sheet में header+8 पंक्तियाँ (3.02 की सजावट समेत), (2) Move or Copy से दिसंबर-जुड़वाँ बनाकर data बदलो, (3) दोनों tabs के नाम व रंग, क्रम खींचकर बदलो, (4) नवंबर में 2 नई पंक्तियाँ बीच में Insert + 1 पूरा स्तंभ Insert→Delete करके दिखाओ, (5) Freeze Top Row लगाकर scroll-प्रमाण, (6) एक स्तंभ पतला करके ##### दिखाओ-सुधारो, (7) Ctrl+PageUp/Down से आना-जाना। <strong>अपेक्षित output:</strong> 2-sheet workbook — नाम-रंग-Freeze-सजावट पूरी। <strong>रूब्रिक R-a-17 (10 अंक):</strong> sheets बनाना-नाम-रंग = 3 · Move or Copy जुड़वाँ = 2 · row/column जोड़-हटाव सही = 2 · Freeze-प्रमाण = 1 · #####-सुधार + navigation = 2। पास = 6।</p>
 </section>
 
-<section class="lsn-sec">
-<h2>छोटा टेस्ट — 5 प्रश्न</h2>
-<p><strong>प्र-1.</strong> दो ग्राहकों के बीच नई पंक्ति चाहिए — सही रास्ता? (क) पंक्ति के लिए नई sheet बनाओ (ख) बीच में पंक्ति जोड़ना हो ही नहीं सकता (ग) नीचे सब कुछ cut-paste से सरकाओ (घ) नीचे वाली पंक्ति के अंक पर right-click → Insert <strong>उत्तर: (घ)।</strong> कारण: Insert जगह बनाता है — data ख़ुद सरकता है, पते ख़ुद सुधरते हैं। बाक़ी क्यों ग़लत: (ग) हाथ-सरकाव में आधा data छूटता-चढ़ता है — मशीन का काम मशीन से; (क) पंक्ति के लिए पन्ना बदलना बेतुका; (ख) right-click-दरबार यही तो करता है।</p>
-<p><strong>प्र-2.</strong> cell में ##### दिखे — data का क्या हुआ? (क) cell में virus आ गया है (ख) data हमेशा के लिए पक्का मिट गया (ग) कुछ नहीं — स्तंभ पतला है; चौड़ा करो, लौटेगा (घ) पूरी फ़ाइल corrupt हो गई है <strong>उत्तर: (ग)।</strong> कारण: ##### = "दिखाने की जगह कम", मिटने का नहीं — सीमा-रेखा double-click (AutoFit) भी चौड़ा करता है। बाक़ी क्यों ग़लत: (ख) formula bar में देखो — मूल्य वहीं है (3.01 का आईना); (क/घ) डरकर फ़ाइल फेंकने की ज़रूरत नहीं — AutoFit एक double-click है।</p>
-<p><strong>प्र-3.</strong> लंबी सूची में scroll पर header ऊपर भाग जाता है — इलाज? (क) सूची ही छोटी रखो — बँटवारा कर दो (ख) स्तंभ-नाम ज़बानी याद रखो (ग) View → Freeze Panes → Freeze Top Row (घ) हर 20 पंक्ति पर header दोबारा type करो <strong>उत्तर: (ग)।</strong> कारण: Freeze = screen पर जमा शीशा — पहली पंक्ति जमी रहे, data बहे (छपाई का भाई 2.09 का Repeat Header)। बाक़ी क्यों ग़लत: (घ) बीच-बीच के नक़ली header आगे sort-filter (3.05-3.06) तोड़ देंगे — कभी मत करना; (क) data घटाना इलाज नहीं; (ख) स्तंभ दस हुए तो याद हार जाएगी।</p>
-<p><strong>प्र-4.</strong> sheet-tab हटाने (Delete) में ख़ास सावधानी क्यों? (क) sheet-हटाना Ctrl+Z से नहीं लौटता (ख) पूरा Excel ही बंद हो जाता है (ग) बाक़ी सब sheets भी मिट जाती हैं (घ) कोई ख़ास बात नहीं — बिल्कुल आम काम है <strong>उत्तर: (क)।</strong> कारण: पूरा पन्ना data समेत पक्का जाता है — पंक्ति-स्तंभ की ग़लती Ctrl+Z सह लेता है, sheet-Delete नहीं; इसीलिए Excel चेतावनी देता है। बाक़ी क्यों ग़लत: (घ) यही लापरवाही महीने-भर का data खाती है; (ख/ग) बाक़ी workbook सुरक्षित रहता है — गया सिर्फ़ वह पन्ना, पर पूरा।</p>
-<p><strong>प्र-5.</strong> साल-भर का दुकान-हिसाब रखने का सही ढाँचा? (क) हर हफ़्ते एक नई फ़ाइल बनाओ (ख) एक workbook, भीतर महीनों के 12 नामी sheets (ग) एक ही sheet में सब महीने मिलाकर (घ) महीनों की बारह अलग-अलग फ़ाइलें <strong>उत्तर: (ख)।</strong> कारण: एक विषय = एक workbook ("दुकान-खाता-2026") — खोज एक जगह, backup एक फ़ाइल, आगे सालाना जोड़ आसान। बाक़ी क्यों ग़लत: (क/घ) फ़ाइल-कबाड़ = कविता वाला भटकाव + दो-संस्करण ख़तरा; (ग) सब महीने एक जाल में गूँथने से महीना-वार देखना-छानना कठिन — पन्ने इसीलिए बने हैं।</p>
-<p><strong>अगला पाठ → 3.04: page setup व print।</strong></p>
+<section class="lsn-sec lsn-quiz" data-quiz>
+<h2>छोटा टेस्ट: 5 प्रश्न</h2>
+<p style="font-size:16px;color:#444">हर प्रश्न में सही विकल्प छूकर जवाब दो। सही होने पर हरा, ग़लत पर लाल दिखेगा। बिना छुए जाँचना हो तो "उत्तर देखो" खोलो।</p>
+<div class="qz" data-ans="3">
+<p class="qz-q"><strong>प्र-1.</strong> दो ग्राहकों के बीच नई पंक्ति चाहिए — सही रास्ता?</p>
+<div class="qz-opt">(क) पंक्ति के लिए नई sheet बनाओ</div>
+<div class="qz-opt">(ख) बीच में पंक्ति जोड़ना हो ही नहीं सकता</div>
+<div class="qz-opt">(ग) नीचे सब कुछ cut-paste से सरकाओ</div>
+<div class="qz-opt">(घ) नीचे वाली पंक्ति के अंक पर right-click → Insert</div>
+<details class="qz-ans"><summary>उत्तर देखो</summary><p><strong>उत्तर: (घ)।</strong> Insert जगह बनाता है — data ख़ुद सरकता है, पते ख़ुद सुधरते हैं। बाक़ी क्यों ग़लत: (ग) हाथ-सरकाव में आधा data छूटता-चढ़ता है — मशीन का काम मशीन से; (क) पंक्ति के लिए पन्ना बदलना बेतुका; (ख) right-click-दरबार यही तो करता है।</p></details>
+</div>
+<div class="qz" data-ans="2">
+<p class="qz-q"><strong>प्र-2.</strong> cell में ##### दिखे — data का क्या हुआ?</p>
+<div class="qz-opt">(क) cell में virus आ गया है</div>
+<div class="qz-opt">(ख) data हमेशा के लिए पक्का मिट गया</div>
+<div class="qz-opt">(ग) कुछ नहीं — स्तंभ पतला है; चौड़ा करो, लौटेगा</div>
+<div class="qz-opt">(घ) पूरी फ़ाइल corrupt हो गई है</div>
+<details class="qz-ans"><summary>उत्तर देखो</summary><p><strong>उत्तर: (ग)।</strong> ##### = &quot;दिखाने की जगह कम&quot;, मिटने का नहीं — सीमा-रेखा double-click (AutoFit) भी चौड़ा करता है। बाक़ी क्यों ग़लत: (ख) formula bar में देखो — मूल्य वहीं है (3.01 का आईना); (क/घ) डरकर फ़ाइल फेंकने की ज़रूरत नहीं — AutoFit एक double-click है।</p></details>
+</div>
+<div class="qz" data-ans="2">
+<p class="qz-q"><strong>प्र-3.</strong> लंबी सूची में scroll पर header ऊपर भाग जाता है — इलाज?</p>
+<div class="qz-opt">(क) सूची ही छोटी रखो — बँटवारा कर दो</div>
+<div class="qz-opt">(ख) स्तंभ-नाम ज़बानी याद रखो</div>
+<div class="qz-opt">(ग) View → Freeze Panes → Freeze Top Row</div>
+<div class="qz-opt">(घ) हर 20 पंक्ति पर header दोबारा type करो</div>
+<details class="qz-ans"><summary>उत्तर देखो</summary><p><strong>उत्तर: (ग)।</strong> Freeze = screen पर जमा शीशा — पहली पंक्ति जमी रहे, data बहे (छपाई का भाई 2.09 का Repeat Header)। बाक़ी क्यों ग़लत: (घ) बीच-बीच के नक़ली header आगे sort-filter (3.05-3.06) तोड़ देंगे — कभी मत करना; (क) data घटाना इलाज नहीं; (ख) स्तंभ दस हुए तो याद हार जाएगी।</p></details>
+</div>
+<div class="qz" data-ans="0">
+<p class="qz-q"><strong>प्र-4.</strong> sheet-tab हटाने (Delete) में ख़ास सावधानी क्यों?</p>
+<div class="qz-opt">(क) sheet-हटाना Ctrl+Z से नहीं लौटता</div>
+<div class="qz-opt">(ख) पूरा Excel ही बंद हो जाता है</div>
+<div class="qz-opt">(ग) बाक़ी सब sheets भी मिट जाती हैं</div>
+<div class="qz-opt">(घ) कोई ख़ास बात नहीं — बिल्कुल आम काम है</div>
+<details class="qz-ans"><summary>उत्तर देखो</summary><p><strong>उत्तर: (क)।</strong> पूरा पन्ना data समेत पक्का जाता है — पंक्ति-स्तंभ की ग़लती Ctrl+Z सह लेता है, sheet-Delete नहीं; इसीलिए Excel चेतावनी देता है। बाक़ी क्यों ग़लत: (घ) यही लापरवाही महीने-भर का data खाती है; (ख/ग) बाक़ी workbook सुरक्षित रहता है — गया सिर्फ़ वह पन्ना, पर पूरा।</p></details>
+</div>
+<div class="qz" data-ans="1">
+<p class="qz-q"><strong>प्र-5.</strong> साल-भर का दुकान-हिसाब रखने का सही ढाँचा?</p>
+<div class="qz-opt">(क) हर हफ़्ते एक नई फ़ाइल बनाओ</div>
+<div class="qz-opt">(ख) एक workbook, भीतर महीनों के 12 नामी sheets</div>
+<div class="qz-opt">(ग) एक ही sheet में सब महीने मिलाकर</div>
+<div class="qz-opt">(घ) महीनों की बारह अलग-अलग फ़ाइलें</div>
+<details class="qz-ans"><summary>उत्तर देखो</summary><p><strong>उत्तर: (ख)।</strong> एक विषय = एक workbook (&quot;दुकान-खाता-2026&quot;) — खोज एक जगह, backup एक फ़ाइल, आगे सालाना जोड़ आसान। बाक़ी क्यों ग़लत: (क/घ) फ़ाइल-कबाड़ = कविता वाला भटकाव + दो-संस्करण ख़तरा; (ग) सब महीने एक जाल में गूँथने से महीना-वार देखना-छानना कठिन — पन्ने इसीलिए बने हैं।</p></details>
+</div>
+<p class="qz-next"><strong>अगला पाठ → 3.04: page setup व print।</strong></p>
 </section>
 
 <section class="lsn-sec lsn-video">

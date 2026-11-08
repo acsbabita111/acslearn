@@ -84,3 +84,16 @@ pre.pl-sample{background:#F5F7FA;color:#0B1F3A;border:2px dashed #1565C0;border-
 .lsn-ron{background:#2E7D32;border-color:#2E7D32;color:#fff}
 .lsn-roff{background:#0B1F3A;color:#F9A825}
 .lsn-react-note{font-size:16px;color:#2E7D32;font-weight:700;margin:10px 0 0}
+
+/* v1.6 lsn-quiz (tap-उत्तर) */
+.lsn-quiz .qz{margin:0 0 22px;padding:14px;border:1px solid #c9d4e4;border-radius:12px;background:#fff}
+.lsn-quiz .qz-q{margin:0 0 10px;font-size:18px}
+.lsn-quiz .qz-opt{display:block;width:100%;text-align:left;margin:0 0 8px;padding:11px 12px;border:1.5px solid #c9d4e4;border-radius:10px;background:#F5F7FA;font-size:17px;line-height:1.6;cursor:pointer}
+.lsn-quiz .qz-opt:last-of-type{margin-bottom:10px}
+.lsn-quiz .qz-right{background:#e6f4ea;border-color:#2E7D32}
+.lsn-quiz .qz-right::after{content:" \2713 सही";color:#2E7D32;font-weight:700}
+.lsn-quiz .qz-wrong{background:#fdeaea;border-color:#c0392b}
+.lsn-quiz .qz-wrong::after{content:" \2717";color:#c0392b;font-weight:700}
+.lsn-quiz .qz-show{border-color:#2E7D32;border-style:dashed}
+.lsn-quiz details.qz-ans{font-size:17px}
+.lsn-quiz details.qz-ans summary{cursor:pointer;color:#1565C0;font-weight:600}

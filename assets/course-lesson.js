@@ -412,3 +412,30 @@
     document.head.appendChild(sc);
   }catch(e){}
 })();
+
+/* ---- v1.6 lsn-quiz: पाठ के 5 प्रश्नों पर छू-कर जवाब (DMT से; markup data-quiz वाले पेजों पर ही) ---- */
+(function(){
+  var qzs = document.querySelectorAll('.lsn-quiz .qz');
+  if(!qzs.length) return;
+  function mark(box, chosen){
+    var ans = +box.getAttribute('data-ans');
+    var opts = box.querySelectorAll('.qz-opt');
+    for(var i=0;i<opts.length;i++){ opts[i].className = 'qz-opt'; }
+    var pick = opts[chosen];
+    if(chosen === ans){ pick.className = 'qz-opt qz-right'; }
+    else { pick.className = 'qz-opt qz-wrong'; opts[ans].className = 'qz-opt qz-show'; }
+    var d = box.querySelector('details.qz-ans'); if(d) d.open = true;
+  }
+  for(var k=0;k<qzs.length;k++){
+    (function(box){
+      var opts = box.querySelectorAll('.qz-opt');
+      for(var i=0;i<opts.length;i++){
+        (function(el, idx){
+          el.setAttribute('role','button'); el.setAttribute('tabindex','0');
+          el.addEventListener('click', function(){ mark(box, idx); });
+          el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); mark(box, idx); } });
+        })(opts[i], i);
+      }
+    })(qzs[k]);
+  }
+})();
