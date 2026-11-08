@@ -1,6 +1,6 @@
 /* ============================================================
    build_dmt_pages.js: "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" (SE026) पेज-generator (परत-4)
-   v2.0-dmt (08-Nov Founder-आदेश: AI-banner img/dmt-hero.webp = index का full-width hero, SVG-column हटा; alt=sealed नाम)। पहले का: v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
+   v2.1-dmt (08-Nov: हर पाठ-पेज में hero-फ़ोटो img/<id>.webp + 109-फ़ोटो release-द्वार + promote में img-रक्षा)। पहले का: v2.0-dmt (08-Nov Founder-आदेश: AI-banner img/dmt-hero.webp = index का full-width hero, SVG-column हटा; alt=sealed नाम)। पहले का: v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
    swap-promote (पुराना dir पहले .bak-swap, rename-त्रुटि पर बहाली — rmSync-first बंद) ·
    release-मुहर content-binding (manifest.content_sha256 = 109MD+template+generator+robot का संयुक्त-hash,
    approved_on validated-date अनिवार्य)। पहले का: v1.1-dmt — fail-closed (स्वतंत्र-ऑडिट कार्यादेश P0): robot-gate अनिवार्य ·
@@ -160,6 +160,7 @@ if (MODE === "release"){
   let M; try { M = JSON.parse(fs.readFileSync(mf,"utf8")); } catch(e){ console.error("❌ manifest JSON टूटा: "+e.message); process.exit(1); }
   if (M.founder_approved !== true || M.metadata_verified !== true){ console.error("❌ manifest: founder_approved व metadata_verified दोनों true चाहिए — release रुका"); process.exit(1); }
   const ids = DMT_LESSONS.map(function(l){return l.id;});
+  assertLessonPhotos(ids);
   if (!Array.isArray(M.lesson_ids) || M.lesson_ids.length !== 109 || ids.some(function(x,i){return M.lesson_ids[i]!==x;})){
     console.error("❌ manifest lesson_ids 109-सूची से हूबहू मेल नहीं — release रुका"); process.exit(1); }
   const AO = String(M.approved_on||"");
@@ -269,6 +270,12 @@ function ALL_LESSON_LINKS(course, curNum){
   ).join(" ");
 }
 
+function assertLessonPhotos(ids){
+  const dir = path.join(ROOT, "courses", "hi", "digital-mitra-basic", "img");
+  const miss = ids.filter(function(id){ return !fs.existsSync(path.join(dir, id.replace(".","-") + ".webp")); });
+  if (miss.length) abortBuild("पाठ-फ़ोटो ग़ायब (" + miss.length + "): " + miss.slice(0,5).join(", ") + " … — img/ में 109 webp अनिवार्य");
+  console.log("🖼️ पाठ-फ़ोटो द्वार: 109/109 मौजूद");
+}
 function lessonBody(course, l, prevFile, nextFile){
   const secs = l.sections.map(s =>
     '<section class="lsn-sec">\n<h2>' + s.t + "</h2>\n" + s.h.trim() + "\n</section>"
@@ -291,6 +298,7 @@ function lessonBody(course, l, prevFile, nextFile){
     '<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> ' +
       '<a class="lsn-toolbtn" href="/courses/' + course.lang + "/" + course.slug + '/">📖 कोर्स-परिचय</a></p>\n' +
     "</header>\n\n" +
+    '<img class="lsn-photo" src="img/' + l.id.replace(".","-") + '.webp" alt="' + l.title + '" loading="lazy" style="display:block;width:100%;height:auto;border-radius:12px;margin:0 0 16px">\n' +
     '<details class="lsn-jump">\n<summary>📚 सब पाठ: किसी भी पाठ पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
     ALL_LESSON_LINKS(course, l.num) + "\n</div>\n</details>\n\n" + (l.lead ? '<section class="lsn-sec lsn-lead">\n' + l.lead + "\n</section>\n\n" : "") + secs + "\n\n" +
     '<section class="lsn-sec lsn-video">\n<h2>वीडियो (Video)</h2>\n' +
@@ -584,5 +592,7 @@ try {
   if (hadOld && !fs.existsSync(finalDir) && fs.existsSync(bak)) try { fs.renameSync(bak, finalDir); } catch(_){}
   abortBuild("promote-त्रुटि (" + e.message + ") — पुराना output बहाल");
 }
+const bakImg = path.join(bak, "img"), finImg = path.join(finalDir, "img");
+if (fs.existsSync(bakImg) && !fs.existsSync(finImg)) fs.renameSync(bakImg, finImg);
 fs.rmSync(bak, { recursive: true, force: true });
-console.log("\n🏁 नतीजा: " + ok + " पाठ + परिचय — atomic promote → " + path.relative(ROOT, finalDir));
+console.log("\n🏁 नतीजा: " + ok + " पाठ + परिचय — atomic promote → " + path.relative(ROOT, finalDir) + " (img/ सुरक्षित)");
