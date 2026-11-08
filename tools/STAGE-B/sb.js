@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================================
-   ACS DMT — STAGE-B v3.1 (release cutover) — v1.7-ऑडिट P0-2: crash-recovery · 08-Nov-2026
+   ACS DMT — STAGE-B v3.2 (release cutover) — v1.7-ऑडिट P0-2: crash-recovery · 08-Nov-2026
    v2 का P0-होल (v1.6 स्वतंत्र-ऑडिट): release-regen पहले चलता था — बाद की
    syntax-जाँच fail होने पर 110 पेज index-मोड में बदल चुके होते थे।
    v3 नियम: **हरी-बत्ती तक repo में शून्य-write।**
@@ -96,7 +96,7 @@ const dataNew = data.replace(ANCHOR, ENTRY);
   const c = cp.spawnSync(process.execPath, ["--check", t], { encoding: "utf8" });
   fs.rmSync(t, { force: true });
   if (c.status !== 0) die("नई courses_data syntax fail:\n" + c.stderr); }
-const idxNew = idx.replace(RANCH, RANCH + "'SE026',");
+const idxNew = idx.replace(RANCH, RANCH + "SE026','");  /* v3.2: READY-insertion quote-सुधार */
 if (idxNew.split("'SE026'").length !== 2) die("idxNew में SE026 ठीक-1× नहीं");
 const swNew = sw.replace(swm[0], "const CACHE_VERSION = 'v" + (parseInt(swm[1],10)+1) + "'");
 console.log("✅ चरण-B नई-सामग्री तैयार (sw v" + swm[1] + "→v" + (parseInt(swm[1],10)+1) + ") — अभी कुछ लिखा नहीं");
