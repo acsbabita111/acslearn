@@ -1,6 +1,6 @@
 /* ============================================================
    build_dmt_pages.js: "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" (SE026) पेज-generator (परत-4)
-   v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
+   v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
    swap-promote (पुराना dir पहले .bak-swap, rename-त्रुटि पर बहाली — rmSync-first बंद) ·
    release-मुहर content-binding (manifest.content_sha256 = 109MD+template+generator+robot का संयुक्त-hash,
    approved_on validated-date अनिवार्य)। पहले का: v1.1-dmt — fail-closed (स्वतंत्र-ऑडिट कार्यादेश P0): robot-gate अनिवार्य ·
@@ -415,29 +415,70 @@ function buildCourseIndex(course, lessons){
 
   /* ---------- hero (v1.6 — Founder-आदेश: landing पर शानदार hero) ---------- */
   const heroSvg =
-    '<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="डिजिटल मित्र: laptop पर सीखता युवा और चार हुनर" style="display:block;width:100%;max-width:340px;height:auto">' +
-    '<rect x="8" y="8" width="464" height="464" rx="22" fill="#F5F7FA" stroke="#F9A825" stroke-width="3"/>' +
-    '<circle cx="240" cy="178" r="34" fill="none" stroke="#0B1F3A" stroke-width="5"/>' +
-    '<path d="M186 268 q54 -44 108 0" fill="none" stroke="#0B1F3A" stroke-width="5"/>' +
-    '<rect x="156" y="268" width="168" height="96" rx="8" fill="#ffffff" stroke="#1565C0" stroke-width="5"/>' +
-    '<rect x="132" y="364" width="216" height="16" rx="8" fill="#1565C0"/>' +
-    '<text x="240" y="330" text-anchor="middle" font-size="34" font-weight="bold" fill="#1565C0">ACS</text>' +
-    '<circle cx="78" cy="86" r="34" fill="#ffffff" stroke="#1565C0" stroke-width="4"/>' +
-    '<text x="78" y="98" text-anchor="middle" font-size="30" font-weight="bold" fill="#1565C0">W</text>' +
-    '<text x="78" y="152" text-anchor="middle" font-size="17" fill="#0B1F3A">Word (वर्ड)</text>' +
-    '<circle cx="402" cy="86" r="34" fill="#ffffff" stroke="#2E7D32" stroke-width="4"/>' +
-    '<text x="402" y="98" text-anchor="middle" font-size="30" font-weight="bold" fill="#2E7D32">X</text>' +
-    '<text x="402" y="152" text-anchor="middle" font-size="17" fill="#0B1F3A">Excel (एक्सेल)</text>' +
-    '<circle cx="78" cy="398" r="34" fill="#ffffff" stroke="#F9A825" stroke-width="4"/>' +
-    '<text x="78" y="410" text-anchor="middle" font-size="30" font-weight="bold" fill="#0B1F3A">₹</text>' +
-    '<text x="78" y="456" text-anchor="middle" font-size="17" fill="#0B1F3A">UPI (यूपीआई)</text>' +
-    '<circle cx="402" cy="398" r="34" fill="#ffffff" stroke="#0B1F3A" stroke-width="4"/>' +
-    '<text x="402" y="409" text-anchor="middle" font-size="26" font-weight="bold" fill="#0B1F3A">AI</text>' +
-    '<text x="402" y="456" text-anchor="middle" font-size="17" fill="#0B1F3A">AI (एआई)</text>' +
-    '<path d="M112 100 L172 148" stroke="#c9d4e4" stroke-width="3"/>' +
-    '<path d="M368 100 L308 148" stroke="#c9d4e4" stroke-width="3"/>' +
-    '<path d="M112 384 L160 330" stroke="#c9d4e4" stroke-width="3"/>' +
-    '<path d="M368 384 L320 330" stroke="#c9d4e4" stroke-width="3"/>' +
+    '<svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="कथा-चित्र: गाँव की झोपड़ी से राह निकलकर laptop पर सीखते युवा तक; चार हुनर-icon उसके चारों ओर, ऊपर प्रमाणपत्र" style="display:block;width:100%;max-width:360px;height:auto">' +
+    '<defs>' +
+    '<linearGradient id="dmtSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1F3A"/><stop offset="1" stop-color="#1565C0"/></linearGradient>' +
+    '<radialGradient id="dmtGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#F9A825" stop-opacity="0.85"/><stop offset="1" stop-color="#F9A825" stop-opacity="0"/></radialGradient>' +
+    '</defs>' +
+    '<rect x="6" y="6" width="468" height="468" rx="24" fill="url(#dmtSky)" stroke="#F9A825" stroke-width="3"/>' +
+    /* सूरज + किरणें */
+    '<circle cx="404" cy="70" r="26" fill="#F9A825"/>' +
+    '<g stroke="#F9A825" stroke-width="4" stroke-linecap="round"><path d="M404 30 v-12"/><path d="M404 110 v12"/><path d="M364 70 h-12"/><path d="M444 70 h12"/><path d="M376 42 l-9 -9"/><path d="M432 98 l9 9"/><path d="M432 42 l9 -9"/><path d="M376 98 l-9 9"/></g>' +
+    /* तारे */
+    '<g fill="#F5F7FA"><circle cx="60" cy="46" r="3"/><circle cx="118" cy="30" r="2.4"/><circle cx="170" cy="56" r="2"/><circle cx="330" cy="34" r="2.4"/></g>' +
+    /* प्रमाणपत्र (ऊपर-बाएँ, तैरता) */
+    '<g transform="rotate(-6 96 120)">' +
+    '<rect x="42" y="84" width="112" height="78" rx="8" fill="#F5F7FA" stroke="#F9A825" stroke-width="3"/>' +
+    '<rect x="54" y="98" width="62" height="7" rx="3.5" fill="#1565C0"/><rect x="54" y="113" width="46" height="6" rx="3" fill="#1565C0" opacity="0.55"/><rect x="54" y="127" width="52" height="6" rx="3" fill="#1565C0" opacity="0.55"/>' +
+    '<g fill="#0B1F3A"><rect x="122" y="110" width="22" height="22" rx="2" fill="none" stroke="#0B1F3A" stroke-width="2.5"/><rect x="126" y="114" width="5" height="5"/><rect x="134" y="114" width="5" height="5"/><rect x="126" y="122" width="5" height="5"/><rect x="135" y="123" width="4" height="4"/></g>' +
+    '<circle cx="66" cy="150" r="9" fill="#F9A825"/><path d="M62 156 l-5 12 7 -4 5 5 1 -13" fill="#F9A825"/>' +
+    '</g>' +
+    /* दूर की पहाड़ी + ज़मीन */
+    '<path d="M6 352 q120 -40 240 -10 t228 -4 v112 a24 24 0 0 1 -24 24 h-420 a24 24 0 0 1 -24 -24 z" fill="#2E7D32" opacity="0.5"/>' +
+    '<path d="M6 388 q150 -30 300 0 t168 6 v56 a24 24 0 0 1 -24 24 h-420 a24 24 0 0 1 -24 -24 z" fill="#2E7D32"/>' +
+    /* गाँव: झोपड़ी + पेड़ (बाएँ) */
+    '<g>' +
+    '<path d="M34 332 h78 v46 h-78 z" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="3"/>' +
+    '<path d="M26 332 l47 -34 47 34 z" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>' +
+    '<rect x="62" y="348" width="22" height="30" fill="#0B1F3A"/>' +
+    '<rect x="42" y="342" width="14" height="12" fill="#1565C0"/>' +
+    '<rect x="132" y="322" width="9" height="52" fill="#0B1F3A"/>' +
+    '<circle cx="136" cy="300" r="26" fill="#2E7D32" stroke="#0B1F3A" stroke-width="3"/><circle cx="118" cy="314" r="16" fill="#2E7D32" stroke="#0B1F3A" stroke-width="3"/><circle cx="156" cy="314" r="15" fill="#2E7D32" stroke="#0B1F3A" stroke-width="3"/>' +
+    '</g>' +
+    /* झोपड़ी से desk तक राह */
+    '<path d="M96 382 Q 200 404 312 372" fill="none" stroke="#F5F7FA" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 16"/>' +
+    /* screen के पीछे सुनहरी चमक */
+    '<circle cx="330" cy="252" r="104" fill="url(#dmtGlow)"/>' +
+    /* desk + laptop + सीखता युवा */
+    '<g>' +
+    '<rect x="238" y="330" width="186" height="12" rx="6" fill="#0B1F3A"/>' +
+    '<rect x="252" y="342" width="10" height="40" fill="#0B1F3A"/><rect x="404" y="342" width="10" height="40" fill="#0B1F3A"/>' +
+    /* laptop */
+    '<rect x="296" y="226" width="112" height="78" rx="6" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="4"/>' +
+    '<rect x="306" y="236" width="92" height="58" rx="3" fill="#0B1F3A"/>' +
+    '<g><rect x="314" y="266" width="12" height="22" fill="#2E7D32"/><rect x="330" y="256" width="12" height="32" fill="#2E7D32"/><rect x="346" y="246" width="12" height="42" fill="#F9A825"/></g>' +
+    '<path d="M368 282 l10 -12 9 6 11 -16" fill="none" stroke="#F5F7FA" stroke-width="3" stroke-linecap="round"/>' +
+    '<path d="M286 304 h132 l12 14 h-156 z" fill="#1565C0" stroke="#0B1F3A" stroke-width="3"/>' +
+    /* युवा (बाईं ओर बैठा, laptop की ओर) */
+    '<circle cx="246" cy="236" r="20" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="4"/>' +
+    '<path d="M228 240 a20 20 0 0 1 10 -21 q14 -6 26 4 l-6 8 q-14 -8 -24 2 z" fill="#0B1F3A"/>' +
+    '<path d="M246 256 q-22 10 -24 46 l8 28 h18 l-4 -30 q0 -22 14 -30 z" fill="#1565C0" stroke="#0B1F3A" stroke-width="3"/>' +
+    '<path d="M252 272 q26 10 44 26" fill="none" stroke="#1565C0" stroke-width="12" stroke-linecap="round"/>' +
+    '<circle cx="298" cy="300" r="7" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2.5"/>' +
+    '</g>' +
+    /* हुनर-कक्षा: orbit + 4 icon */
+    '<ellipse cx="330" cy="250" rx="128" ry="92" fill="none" stroke="#F9A825" stroke-width="2.5" stroke-dasharray="2 10" opacity="0.9"/>' +
+    /* W-दस्तावेज़ (ऊपर) */
+    '<g><circle cx="330" cy="156" r="24" fill="#F5F7FA" stroke="#1565C0" stroke-width="4"/><rect x="321" y="145" width="18" height="24" rx="2" fill="#fff" stroke="#1565C0" stroke-width="2.5"/><path d="M325 152 h10 M325 158 h10 M325 164 h7" stroke="#1565C0" stroke-width="2"/></g>' +
+    /* X-तालिका (दाएँ) */
+    '<g><circle cx="452" cy="250" r="24" fill="#F5F7FA" stroke="#2E7D32" stroke-width="4"/><g stroke="#2E7D32" stroke-width="2.5"><rect x="441" y="239" width="22" height="22" fill="#fff"/><path d="M441 250 h22 M452 239 v22"/></g></g>' +
+    /* ₹-सिक्का (नीचे) */
+    '<g><circle cx="330" cy="344" r="24" fill="#F9A825" stroke="#0B1F3A" stroke-width="4"/><text x="330" y="354" text-anchor="middle" font-size="26" font-weight="bold" fill="#0B1F3A">₹</text></g>' +
+    /* AI-चिंगारी (बाएँ-ऊपर) */
+    '<g><circle cx="212" cy="176" r="24" fill="#0B1F3A" stroke="#F5F7FA" stroke-width="4"/><path d="M212 160 l5 11 11 5 -11 5 -5 11 -5 -11 -11 -5 11 -5 z" fill="#F9A825"/></g>' +
+    /* नीचे सुनहरी कथा-पट्टी */
+    '<rect x="64" y="422" width="352" height="38" rx="19" fill="#F9A825"/>' +
+    '<text x="240" y="448" text-anchor="middle" font-size="22" font-weight="bold" fill="#0B1F3A">गाँव से डिजिटल मित्र तक</text>' +
     '</svg>';
   const heroChip = function(t){ return '<span style="display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:20px;padding:7px 14px;font-size:16px;margin:4px 6px 0 0">' + t + '</span>'; };
   const heroHtml =
