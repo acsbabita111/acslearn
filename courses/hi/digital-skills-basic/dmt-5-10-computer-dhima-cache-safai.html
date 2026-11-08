@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Computer धीमा हो तो — Cache सफ़ाई व Restart | ACSLEARN</title>
+<meta name="description" content="धीमेपन की चार आम जड़ें, पहला इलाज restart, cache/temp की रसोई-उपमा व सफ़ाई-राह (Disk Cleanup, browser-cache, फ़ोन-cache) और 'सफ़ाई-app' से सावधानी — सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-10-computer-dhima-cache-safai.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Computer धीमा हो तो — Cache सफ़ाई व Restart | ACSLEARN">
+<meta property="og:description" content="धीमेपन की चार आम जड़ें, पहला इलाज restart, cache/temp की रसोई-उपमा व सफ़ाई-राह (Disk Cleanup, browser-cache, फ़ोन-cache) और 'सफ़ाई-app' से सावधानी — सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-10-computer-dhima-cache-safai.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-60: Computer धीमा हो तो","description":"धीमेपन की चार आम जड़ें, पहला इलाज restart, cache/temp की रसोई-उपमा व सफ़ाई-राह (Disk Cleanup, browser-cache, फ़ोन-cache) और 'सफ़ाई-app' से सावधानी — सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-10-computer-dhima-cache-safai.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र तैयारी कोर्स","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र तैयारी कोर्स","item":"https://acslearn.com/courses/hi/digital-skills-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-60: Computer धीमा हो तो","item":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-10-computer-dhima-cache-safai.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="60" data-course="digital-skills-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र तैयारी कोर्स › खंड-5: फ़ाइल, Email व Scanner</p>
+<h1>पाठ 5.10: Computer धीमा हो तो</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 60 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-skills-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <span class="lsn-jumpcur">पाठ 5.10 (यही)</span> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) धीमेपन की चार जड़ें पहचानना, (2) restart पहला इलाज, (3) cache/temp की समझ से सफ़ाई — computer, browser, फ़ोन, (4) लाल रेखा बरतना, (5) सफ़ाई-बनाम-मरम्मत की सीमा।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>धीमापन बीमारी नहीं, लक्षण है</h2>
+<p>computer "धीमा" — खुलने में युग, click पर सोच — तो ग्राहक-क़तार बढ़ती है। पहली समझ: धीमापन बीमारी नहीं, <strong>लक्षण</strong> है; चार आम जड़ें: <strong>(1) बहुत कुछ एक साथ खुला</strong> — दर्जन browser-tab, कई software: हर खुली चीज़ <strong>काम करने की जगह (memory)</strong> घेरती है; <strong>(2) कूड़े की परतें</strong> — cache/temp (अगला हिस्सा); <strong>(3) भरा पेट</strong> — storage लगभग पूरी भरी तो साँस की जगह नहीं (5.04 की टंकी-सोच device पर); <strong>(4) बीमार software</strong> — शास्त्र खंड-6 में। इलाज का क्रम: सस्ते-सुरक्षित पहले, गहरे बाद — और सबसे सस्ता सुनकर हँसना मत: <strong>restart</strong> (रीस्टार्ट)। restart memory की पूरी मेज़ साफ़ करता है — आधी "धीमा है" शिकायतें यहीं सुलझतीं; नियम: <strong>शिकायत कोई भी हो — पहले save (Ctrl+S, 2.01), फिर restart, फिर आगे सोचो।</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>cache और temp — रसोई की उपमा</h2>
+<p>दूसरी जड़। <strong>cache</strong> (कैश) = software की <strong>जल्दी-के-लिए रखी नक़लें</strong>: browser खोले पन्नों के चित्र-हिस्से सँभाल लेता है ताकि दोबारा दुकान से न लाना पड़े — हाथ के पास रखे मसाले; <strong>temp</strong> (टेम्प — अस्थायी) फ़ाइलें = काम के <strong>दौरान</strong> बनी कतरनें — सब्ज़ी के छिलके, बाद में बेकार। दोनों <strong>सामान्य-उपयोगी</strong> — cache तो गति <em>बढ़ाने</em> के लिए है; दिक़्क़त महीनों की जमी परतों से: जगह घिरती है, पुरानी-बिगड़ी cache कभी उल्टा अटकाती भी है। इसलिए सफ़ाई <strong>रस्म है, घबराहट नहीं</strong>। और भरोसा-पंक्ति पहले: <strong>cache/temp हटाने से तुम्हारी फ़ाइलें (docx/xlsx/scan) नहीं जातीं</strong> — वे अलमारी (5.01) में हैं, छिलके रसोई में; हाँ, cache-सफ़ाई के बाद साइटें पहली बार ज़रा धीमी खुलेंगी (मसाले दोबारा सजेंगे), कहीं दोबारा login माँगेगा — सामान्य है, नुक़सान नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सफ़ाई की तीन राहें — और device-भेद</h2>
+<p><strong>राह-1 — computer:</strong> खोज में <strong>Disk Cleanup</strong> → drive चुनो → Temporary files जैसे ख़ाने ✓ → OK — Windows ख़ुद का कूड़ा ख़ुद चुनता है, सबसे सुरक्षित राह। <strong>राह-2 — browser:</strong> Settings → Privacy → <strong>Clear browsing data</strong> → "Cached images and files" ✓ → Clear; "Passwords" ख़ाना <strong>बिना समझे ✓ मत करो</strong> — सहेजे ताले भी जाएँगे। <strong>राह-3 — फ़ोन:</strong> Settings → Apps → app → Storage → <strong>Clear cache</strong> — सुरक्षित बटन; बग़ल का <strong>Clear data मत दबाओ</strong> — वह app का नया-जन्म है: login, सेटिंग, सामान सब साफ़ (cache ≠ data — सबसे आम दुर्घटना)। <strong>device-भेद ईमानदारी से (अ-46 partial इसीलिए):</strong> कंपनियों के menu-नाम थोड़े अलग — भटको तो Settings की <strong>खोज-पट्टी</strong> में "cache/storage" लिखो; और बाज़ारू <strong>cleaner/booster app का लालच मत खाओ</strong> — ज़्यादातर बे-काम, कई विज्ञापन-कूड़ा/ख़तरा साथ लाते हैं: जो काम Settings करता है, उसके लिए अनजान app नहीं।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>लाल रेखा — और सीमा की पहचान</h2>
+<p><strong>लाल रेखा:</strong> हटाना सिर्फ़ <strong>तीन राहों से</strong> — Windows/Program Files जैसे system-folder में हाथ से मिटाना <strong>कभी नहीं</strong> (एक फ़ाइल गई तो computer बीमार — यह चीर-फाड़ है); शक हो तो मत हटाओ — पूछो। <strong>सीमा की पहचान:</strong> restart + तीनों राहें + भारी-बेकार की छँटाई (बड़े video pen-drive के <code>purana</code> में — 5.09) के बाद भी device रोज़ रेंगे, अटके-बुझे — जड़ गहरी है (बूढ़ा hardware/बीमार software): <strong>मरम्मत/जानकार</strong> का इलाक़ा। पेशेवर पहचान दोनों तरफ़ — अपने बस का <strong>क्रम से</strong>, बाक़ी <strong>समय रहते आगे</strong> (5.12)। register-पंक्ति यहाँ भी: तारीख़ + "cache-सफ़ाई की" — "backup किया" की बहन।</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="धीमेपन की चार जड़ें, restart-पहला-इलाज, cache-temp की रसोई-उपमा, सफ़ाई की तीन राहें और लाल रेखा">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">धीमापन — लक्षण से इलाज तक</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">ठोस तीर = इलाज का क्रम · ✓ = सुरक्षित बटन · ✗ = लाल रेखा</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="98" width="340" height="140" rx="12" fill="#fff" stroke="#0B1F3A" stroke-width="3"/>
+<text x="225" y="126" text-anchor="middle" font-size="16" font-weight="bold">चार आम जड़ें</text>
+<text x="225" y="154" text-anchor="middle">1. बहुत कुछ एक साथ खुला (memory घिरी)</text>
+<text x="225" y="178" text-anchor="middle">2. cache/temp की जमी परतें</text>
+<text x="225" y="202" text-anchor="middle">3. storage लगभग भरी — साँस की जगह नहीं</text>
+<text x="225" y="226" text-anchor="middle">4. बीमार software (खंड-6 में)</text>
+<rect x="405" y="98" width="340" height="140" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="575" y="130" text-anchor="middle" font-size="16" font-weight="bold">पहला इलाज = restart</text>
+<text x="575" y="162" text-anchor="middle">पहले Ctrl+S से काम save →</text>
+<text x="575" y="188" text-anchor="middle">फिर restart → फिर आगे सोचो</text>
+<text x="575" y="218" text-anchor="middle" font-size="16">memory की पूरी मेज़ साफ़ — आधी शिकायतें यहीं ख़त्म</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="262" width="690" height="104" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="400" y="290" text-anchor="middle" font-size="16" font-weight="bold">रसोई-उपमा: cache = हाथ के पास मसाले · temp = सब्ज़ी के छिलके</text>
+<text x="400" y="318" text-anchor="middle">दोनों सामान्य-उपयोगी — दिक़्क़त महीनों की जमी परतों से; सफ़ाई = रस्म, घबराहट नहीं</text>
+<text x="400" y="346" text-anchor="middle" fill="#2E7D32" font-weight="bold">भरोसा: cache/temp हटाने से तुम्हारी docx/xlsx/scan फ़ाइलें नहीं जातीं</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="390" width="222" height="168" rx="10" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="166" y="418" text-anchor="middle" font-weight="bold">राह-1: Windows</text>
+<text x="166" y="448" text-anchor="middle">खोज → Disk Cleanup</text>
+<text x="166" y="474" text-anchor="middle">→ ख़ाने ✓ → OK</text>
+<text x="166" y="508" text-anchor="middle" font-size="16" fill="#1565C0">Windows ख़ुद का कूड़ा</text>
+<text x="166" y="530" text-anchor="middle" font-size="16" fill="#1565C0">ख़ुद चुनता — सबसे सुरक्षित</text>
+<rect x="289" y="390" width="222" height="168" rx="10" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="400" y="418" text-anchor="middle" font-weight="bold">राह-2: browser</text>
+<text x="400" y="448" text-anchor="middle">Clear browsing data →</text>
+<text x="400" y="474" text-anchor="middle">"Cached images" ✓</text>
+<text x="400" y="508" text-anchor="middle" font-size="16" fill="#1565C0">Passwords-ख़ाना</text>
+<text x="400" y="530" text-anchor="middle" font-size="16" fill="#1565C0">बिना समझे ✓ नहीं</text>
+<rect x="523" y="390" width="222" height="168" rx="10" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="634" y="418" text-anchor="middle" font-weight="bold">राह-3: फ़ोन</text>
+<text x="634" y="448" text-anchor="middle">Apps → app → Storage</text>
+<text x="634" y="474" text-anchor="middle" fill="#2E7D32" font-weight="bold">✓ Clear cache</text>
+<text x="634" y="506" text-anchor="middle" font-weight="bold">✗ Clear data — app का</text>
+<text x="634" y="530" text-anchor="middle" font-weight="bold">नया-जन्म (login सब साफ़)</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="582" width="690" height="120" rx="12" fill="#fff" stroke="#0B1F3A" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="400" y="612" text-anchor="middle" font-size="16" font-weight="bold">लाल रेखा व सीमा</text>
+<text x="400" y="640" text-anchor="middle" font-weight="bold">✗ system-folder (Windows/Program Files) में हाथ से मिटाना कभी नहीं · ✗ बाज़ारू cleaner-app</text>
+<text x="400" y="668" text-anchor="middle">सफ़ाई+restart के बाद भी रोज़ रेंगे/अटके-बुझे = जड़ गहरी → मरम्मत/जानकार (5.12 escalate)</text>
+<text x="400" y="692" text-anchor="middle" font-size="16" fill="#1565C0">register-पंक्ति: तारीख़ + "cache-सफ़ाई की" — backup-पंक्ति की बहन</text>
+</g>
+<text x="400" y="735" text-anchor="middle" font-size="16" fill="#1565C0">क्रम ही कौशल: save → restart → तीन राहें → छँटाई → तब जानकार</text>
+<text x="400" y="770" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 5.09 (backup) ← पाठ 5.10 → 5.11 (printer व आम दिक़्क़तें)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>रेंगता हुआ दोपहर का computer (काल्पनिक उदाहरण)</h2>
+<p><strong>सीता</strong> (काल्पनिक नाम) के केंद्र का computer हर दोपहर रेंगता — ग्राहक सामने, खिड़की बंद। झुँझलाकर वह "RAM Booster" app लगभग install कर बैठी थी; उस्ताद ने रोका: "जो Settings करता है, उसके लिए अनजान app नहीं — पहले क्रम।" <strong>क्रम चला:</strong> Ctrl+S → restart — रेंगन आधी गई (14 browser-tab और तीन software मेज़ घेरे थे; नई आदत — बेकार tab बंद)। फिर सफ़ाई: <strong>Disk Cleanup</strong> ने Temporary files के कई GB दिखाए — ✓, OK; browser का <strong>Clear browsing data</strong> — "Cached images" ✓, Passwords अनछुए; फ़ोन पर browser का <strong>Clear cache</strong> — Clear data पर जाती उँगली रुकी: "यह नया-जन्म वाला बटन है।" आख़िर में छँटाई — भारी video pen-drive के <code>purana</code> में। हफ़्ते बाद: दोपहर-शिकायत ख़त्म; register में "backup किया" के नीचे "cache-सफ़ाई की"। जिस साइट ने दोबारा login माँगा, सीता घबराई नहीं: "मसाले दोबारा सज रहे हैं।" copy में पंक्ति: <strong>"धीमापन चीख़ नहीं, इशारा है — और इलाज का पहला औज़ार बटन नहीं, क्रम है।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-46 (NIOS Practical 46 पर आधारित; mobile-partial — cache-सफ़ाई device-भेद)</h2>
+<p><strong>काम:</strong> (1) "पहले" हालत — storage कितनी भरी (Settings → Storage चित्र) + खुले tab/app गिनती, (2) <strong>क्रम:</strong> save → restart — फ़र्क़ महसूस हुआ? एक पंक्ति, (3) अपनी राह की सफ़ाई: computer = Disk Cleanup (हटाए GB), फ़ोन = browser का Clear cache — + एक पंक्ति Clear cache बनाम Clear data, (4) browser का Clear browsing data — कौन-से ख़ाने ✓, कौन-सा जान-बूझकर नहीं, क्यों — दो पंक्तियाँ, (5) "बाद" हालत + register-पंक्ति "cache-सफ़ाई की", (6) दो-पंक्ति नोट: कब यह काम सीमा-पार होकर जानकार का बनता है। <strong>अपेक्षित output:</strong> पहले-बाद storage-चित्र + क्रम-पंक्तियाँ + ख़ाना-चुनाव + सीमा-नोट। <strong>रूब्रिक R-a-46 (10 अंक):</strong> पहले-बाद प्रमाण = 2 · restart-क्रम = 2 · सही राह से सफ़ाई = 2 · cache/data फ़र्क़ = 2 · ख़ाना-चुनाव (Passwords) = 1 · सीमा-नोट = 1। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> computer धीमा है — सबसे पहला क़दम? (क) काम save → restart — मेज़ साफ़ (ख) नया computer ख़रीद लो (ग) कोई cleaner-app install करो (घ) Windows-folder की फ़ाइलें मिटाते जाओ <strong>उत्तर: (क)।</strong> कारण: Ctrl+S फिर restart — memory की मेज़ साफ़; आधी शिकायतें यहीं सुलझतीं (सीता की रेंगन भी)। बाक़ी क्यों ग़लत: (ग) ज़्यादातर बे-काम/ख़तरा; (घ) लाल रेखा — चीर-फाड़; (ख) जड़ जाने बिना ख़र्च।</p>
+<p><strong>प्र-2.</strong> cache की सही समझ? (क) तुम्हारी docx-फ़ाइलों का दूसरा नाम (ख) इसे हटाना बिल्कुल मना है (ग) जल्दी-के-लिए रखी नक़लें — हाथ के पास मसाले (घ) यह एक तरह का virus है <strong>उत्तर: (ग)।</strong> कारण: उपयोगी है, गति बढ़ाने के लिए — बस महीनों की परतें जमें तो सफ़ाई-रस्म; दिक़्क़त परतों से, अस्तित्व से नहीं। बाक़ी क्यों ग़लत: (घ) virus खंड-6 का अलग विषय; (क) तुम्हारी फ़ाइलें अलमारी में — cache-सफ़ाई छूती नहीं; (ख) तीन राहों से हटाना ही पाठ है।</p>
+<p><strong>प्र-3.</strong> फ़ोन पर Clear cache बनाम Clear data? (क) दोनों एक बराबर हैं (ख) cache = सुरक्षित; data = app का नया-जन्म (ग) दोनों तुम्हारी फ़ाइलें मिटाते हैं (घ) Clear data ही कहीं ज़्यादा सुरक्षित रास्ता है <strong>उत्तर: (ख)।</strong> कारण: Clear data से login, सेटिंग, भीतर का सामान सब साफ़ — बिना समझे कभी नहीं; बग़ल-बग़ल बटनों का फ़र्क़ ही सबसे आम दुर्घटना रोकता है। बाक़ी क्यों ग़लत: (क/घ) एक छिलका फेंकता है, दूसरा रसोई ख़ाली करता; (ग) अलमारी की फ़ाइलें दोनों से अलग।</p>
+<p><strong>प्र-4.</strong> browser-cache साफ़ करने के बाद साइटें पहली बार धीमी खुलीं और एक जगह दोबारा login माँगा — मतलब? (क) डरकर अब आगे फिर कभी cache-सफ़ाई मत करो (ख) सामान्य है — मसाले दोबारा सज रहे हैं (ग) computer ही बिगड़ गया है (घ) ज़रूर कोई virus आ गया है <strong>उत्तर: (ख)।</strong> कारण: नक़लें गईं तो पहली बार दुकान से लाना पड़ेगा — नुक़सान नहीं; बस Passwords-ख़ाना बिना समझे ✓ न किया हो। बाक़ी क्यों ग़लत: (ग/घ) अपेक्षित व्यवहार है, बीमारी नहीं; (क) रस्म बंद नहीं, समझकर करनी है।</p>
+<p><strong>प्र-5.</strong> सब सफ़ाई-क्रम के बाद भी device रोज़ रेंगे/अटके-बुझे — अब? (क) system-folder में घुसकर मिटाओ (ख) बार-बार Clear data दबाओ (ग) छिपा लो, किसी से मत कहो (घ) जड़ गहरी — जानकार का इलाक़ा; आगे बढ़ाओ <strong>उत्तर: (घ)।</strong> कारण: hardware/बीमार software मरम्मत का इलाक़ा — समय रहते escalate (5.12); सीमा जानना भी कौशल। बाक़ी क्यों ग़लत: (क) लाल रेखा — बीमार से अपाहिज; (ख) हर app का नया-जन्म इलाज नहीं; (ग) छिपी दिक़्क़त बड़ी होकर लौटती है — 5.12।</p>
+<p><strong>अगला पाठ → 5.11: printer व आम तकनीकी दिक़्क़तें।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20Computer%20%E0%A4%A7%E0%A5%80%E0%A4%AE%E0%A4%BE%20%E0%A4%B9%E0%A5%8B%20%E0%A4%A4%E0%A5%8B%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-5-09-backup-recovery.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-5-11-printer-aam-dikkaten.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

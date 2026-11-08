@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data की छँटाई-सफ़ाई (Curation) — बिखरे से व्यवस्थित | ACSLEARN</title>
+<meta name="description" content="curation के चार क़दम — जुटाओ, छाँटो, सुधारो, जमाओ; दोहरी-प्रविष्टि व रूप-मिलान की सफ़ाई, Excel की पुरानी कारीगरी से structured dataset — सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-08-data-curation-chhantai-safai.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Data की छँटाई-सफ़ाई (Curation) — बिखरे से व्यवस्थित | ACSLEARN">
+<meta property="og:description" content="curation के चार क़दम — जुटाओ, छाँटो, सुधारो, जमाओ; दोहरी-प्रविष्टि व रूप-मिलान की सफ़ाई, Excel की पुरानी कारीगरी से structured dataset — सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-08-data-curation-chhantai-safai.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-58: Data की छँटाई-सफ़ाई (Curation)","description":"curation के चार क़दम — जुटाओ, छाँटो, सुधारो, जमाओ; दोहरी-प्रविष्टि व रूप-मिलान की सफ़ाई, Excel की पुरानी कारीगरी से structured dataset — सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-08-data-curation-chhantai-safai.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र तैयारी कोर्स","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र तैयारी कोर्स","item":"https://acslearn.com/courses/hi/digital-skills-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-58: Data की छँटाई-सफ़ाई (Curation)","item":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-08-data-curation-chhantai-safai.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="58" data-course="digital-skills-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र तैयारी कोर्स › खंड-5: फ़ाइल, Email व Scanner</p>
+<h1>पाठ 5.8: Data की छँटाई-सफ़ाई (Curation)</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 58 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-skills-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <span class="lsn-jumpcur">पाठ 5.8 (यही)</span> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) curation की सही परिभाषा बताना, (2) चार-क़दम विधि (जुटाओ-छाँटो-सुधारो-जमाओ) चलाना, (3) दोहरी-प्रविष्टि और रूप-बेमेल की सफ़ाई करना, (4) खंड-3 की Excel-कारीगरी को इस काम से जोड़ना, (5) "एक सच की एक जगह" नियम बरतना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>बिखरा हुआ सच</h2>
+<p>जानकारी चार रास्तों से आती है — register की सूची, WhatsApp के नाम, scan-पर्चियाँ (5.02), पुरानी Excel-फ़ाइलें — और चारों <strong>मेल नहीं खातीं</strong>: कहीं "रामु", कहीं "Ramu Kumar"; फ़ोन कहीं दस अंक, कहीं +91 सहित; एक ग्राहक दो सूचियों में दो बार। बिखरे ढेर की रिपोर्ट = ग़लत गिनती = गया भरोसा। इसी का इलाज आज का कौशल: <strong>curation</strong> (क्यूरेशन — छँटाई-सफ़ाई) = बिखरी जानकारी को <strong>जुटाकर, छाँटकर, सुधारकर</strong> एक साफ़-सुथरी, काम-योग्य <strong>सारणी (dataset)</strong> बनाना। औज़ार खंड-3 के ही हैं — Sort-Filter (3.06), खोज-बदल, सत्यापन-सोच (3.09); curation उन्हें <strong>क्रम</strong> और <strong>नीयत</strong> देता है। नीयत का सूत्र: <strong>एक सच की एक जगह</strong> — एक ग्राहक = एक पंक्ति, एक जानकारी = एक ख़ाना; — 5.01 की "एक चीज़ = एक जगह" सोच, आज पंक्तियों पर।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>चार क़दम — जुटाओ, छाँटो, सुधारो, जमाओ</h2>
+<p><strong>क़दम-1 जुटाओ:</strong> सब स्रोतों की जानकारी <strong>एक</strong> workbook की एक sheet में उतारो — register से टाइप/OCR (5.02 — मिलान समेत), WhatsApp से copy, पुरानी फ़ाइलों से paste; हर पंक्ति में ख़ाना "स्रोत" — बाद का झगड़ा यहीं सुलझता है। <strong>क़दम-2 छाँटो:</strong> स्तंभ-ढाँचा तय करो (नाम · फ़ोन · गाँव · काम · तारीख़ · स्रोत), <strong>हर स्तंभ में एक ही तरह की चीज़</strong> (3.02); फालतू स्तंभ/पंक्तियाँ हटाओ। <strong>क़दम-3 सुधारो</strong> — सबसे मेहनती क़दम, अगला हिस्सा पूरा इसी पर। <strong>क़दम-4 जमाओ:</strong> साफ़ सारणी <strong>नई फ़ाइल</strong> में बोलते नाम से (<code>grahak-master-nov-2026.xlsx</code>); मूल ढेर <strong>हटाओ मत</strong> — <code>purana</code> folder में: ग़लती निकले तो मूल ही गवाह।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>सुधारो — सफ़ाई की तीन रगड़ें</h2>
+<p><strong>रगड़-1: दोहरी प्रविष्टि (duplicate)।</strong> एक ग्राहक दो बार = गिनती फूली। राह: <strong>फ़ोन-स्तंभ पर Sort</strong> (3.06) — एक-से नंबर आमने-सामने (नाम नहीं — "रामु/Ramu" दूर बैठते हैं; नंबर झूठ नहीं बोलता); Remove Duplicates बटन भी है, पर अँगूठा-नियम: <strong>आँख से मिलाकर ही मिटाओ</strong> — दो पंक्तियों में नंबर एक पर काम अलग हो तो वे दो काम हैं, एक ग्राहक के — मिटाना नहीं, <strong>जोड़ना</strong> है (एक पंक्ति, काम-ख़ाने में दोनों)। <strong>रगड़-2: रूप-मिलान।</strong> हर स्तंभ का मानक रूप तय कर सबको उसी में लाओ — फ़ोन: 10 अंक (+91 खोज-बदल से हटाओ); तारीख़: एक ढंग (3.05); गाँव: एक वर्तनी। <strong>रगड़-3: ख़ाली और शक़ी।</strong> ख़ाली ख़ाने खोजो (Blanks-Filter) — स्रोत से भरो; न भर सको तो ख़ाली रहने दो — <strong>अंदाज़े से भरना मना</strong>; शक़ी प्रविष्टियाँ (9-अंक फ़ोन, भविष्य-तारीख़) रंग-चिह्न + स्रोत-मिलान (3.09 की आँख)। तीनों की साझी आत्मा: <strong>सफ़ाई = रूप सुधारना, जानकारी बदलना नहीं</strong> — असलियत स्रोत से ही आएगी।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>साफ़ data का फल</h2>
+<p>फल तुरंत दिखता है: Filter सही गिनती देता है (3.06), सूत्र सही जोड़ (3.08 — दोहरी प्रविष्टि नहीं फुलाती), MIS-रिपोर्ट भरोसे-योग्य (3.15, अ-44) — "दो मिनट में जवाब" वाला केंद्र। यही master-फ़ाइल 5.09 (backup) की पहली "क़ीमती फ़ाइल" होगी; और निजता-पहरा इस पर सबसे कड़ा — जुटी सूची = नाम-फ़ोन-काम एक जगह = भरोसे की पोटली: Share सोच-कर (5.04), converter/AI पर कभी नहीं (5.03, 3.16)। और curation <strong>त्योहार नहीं, हर हफ़्ते की झाड़ू है</strong> — नई प्रविष्टियाँ मानक रूप में दर्ज हों तो रगड़ें छोटी रहतीं।</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="बिखरे स्रोतों से चार क़दमों — जुटाओ, छाँटो, सुधारो, जमाओ — द्वारा साफ़ master-सारणी बनने का नक़्शा">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">curation — बिखरे से व्यवस्थित</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">ठोस तीर = चार क़दम · सोना = सूत्र · ✓/✗ = सफ़ाई-जाँच</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="100" width="160" height="150" rx="10" fill="#fff" stroke="#0B1F3A" stroke-width="2.5"/>
+<text x="135" y="126" text-anchor="middle" font-weight="bold">बिखरे स्रोत</text>
+<text x="135" y="152" text-anchor="middle">📓 register</text>
+<text x="135" y="176" text-anchor="middle">💬 WhatsApp</text>
+<text x="135" y="200" text-anchor="middle">🖼 scan-पर्ची</text>
+<text x="135" y="224" text-anchor="middle">📊 पुरानी फ़ाइलें</text>
+</g>
+<path d="M220 175 L262 175 M254 167 L262 175 L254 183" stroke="#2E7D32" stroke-width="3.5" fill="none"/>
+<g font-size="16" fill="#0B1F3A">
+<rect x="270" y="100" width="222" height="150" rx="10" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="381" y="128" text-anchor="middle" font-weight="bold">1. जुटाओ → 2. छाँटो</text>
+<text x="381" y="158" text-anchor="middle">एक sheet + "स्रोत"-ख़ाना</text>
+<text x="381" y="186" text-anchor="middle">स्तंभ-ढाँचा तय — एक स्तंभ</text>
+<text x="381" y="210" text-anchor="middle">= एक तरह की चीज़ (3.02)</text>
+<text x="381" y="236" text-anchor="middle" fill="#1565C0">फालतू पंक्ति/स्तंभ बाहर</text>
+</g>
+<path d="M497 175 L539 175 M531 167 L539 175 L531 183" stroke="#2E7D32" stroke-width="3.5" fill="none"/>
+<g font-size="16" fill="#0B1F3A">
+<rect x="547" y="100" width="198" height="150" rx="10" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="646" y="128" text-anchor="middle" font-weight="bold">3. सुधारो → 4. जमाओ</text>
+<text x="646" y="158" text-anchor="middle">तीन रगड़ें (नीचे)</text>
+<text x="646" y="186" text-anchor="middle">साफ़ सारणी नई फ़ाइल में</text>
+<text x="646" y="212" text-anchor="middle" fill="#2E7D32">मूल ढेर purana-folder में</text>
+<text x="646" y="236" text-anchor="middle" fill="#2E7D32">— मिटाओ मत, गवाह है</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="280" width="690" height="210" rx="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="400" y="310" text-anchor="middle" font-size="16" font-weight="bold">सुधारो — तीन रगड़ें</text>
+<text x="80" y="344" font-weight="bold">1. दोहरी प्रविष्टि:</text>
+<text x="400" y="344" text-anchor="middle">फ़ोन-स्तंभ पर Sort → एक-से नंबर आमने-सामने → आँख से मिलाकर ही मिटाओ/जोड़ो</text>
+<text x="80" y="382" font-weight="bold">2. रूप-मिलान:</text>
+<text x="400" y="382" text-anchor="middle">फ़ोन = 10 अंक · तारीख़ = एक ढंग · गाँव = एक वर्तनी — खोज-बदल से</text>
+<text x="80" y="420" font-weight="bold">3. ख़ाली-शक़ी:</text>
+<text x="400" y="420" text-anchor="middle">Blanks-Filter → स्रोत से भरो; अंदाज़े से कभी नहीं · शक़ी = रंग-चिह्न + मिलान</text>
+<text x="400" y="462" text-anchor="middle" fill="#1565C0">सफ़ाई = रूप सुधारना, जानकारी बदलना नहीं — असलियत स्रोत से (3.09 की आँख)</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="90" y="515" width="620" height="92" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="548" text-anchor="middle" font-size="17" font-weight="bold">सूत्र: एक सच की एक जगह</text>
+<text x="400" y="580" text-anchor="middle">एक ग्राहक = एक पंक्ति · एक जानकारी = एक ख़ाना · हर हफ़्ते की झाड़ू</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="632" width="340" height="78" rx="10" fill="#fff" stroke="#2E7D32" stroke-width="2.5"/>
+<text x="225" y="660" text-anchor="middle" font-weight="bold" fill="#2E7D32">✓ फल</text>
+<text x="225" y="686" text-anchor="middle">सही Filter-गिनती · सही सूत्र · भरोसे-योग्य MIS</text>
+<rect x="405" y="632" width="340" height="78" rx="10" fill="#fff" stroke="#0B1F3A" stroke-width="2.5" stroke-dasharray="8 5"/>
+<text x="575" y="660" text-anchor="middle" font-weight="bold">पहरा</text>
+<text x="575" y="686" text-anchor="middle">जुटी सूची = भरोसे की पोटली — Share सोच-कर</text>
+</g>
+<text x="400" y="740" text-anchor="middle" font-size="16" fill="#1565C0">यही master-फ़ाइल 5.09 (backup) की पहली "क़ीमती फ़ाइल" होगी</text>
+<text x="400" y="772" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 5.07 (archive-खोज) ← पाठ 5.08 → 5.09 (backup व recovery)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>तीन सौ चालीस या दो सौ नब्बे? (काल्पनिक उदाहरण)</h2>
+<p><strong>मनोज</strong> (काल्पनिक नाम) से ब्लॉक-समन्वयक ने पूछा: "इस साल कितने फ़ॉर्म भरवाए?" मनोज ने तीन सूचियाँ जोड़कर कहा <strong>340</strong>; समन्वयक की गिनती ~290 थी — फ़र्क़ ने सवाल खड़ा किया। उस्ताद ने curation बैठाया। <strong>जुटाओ:</strong> तीनों स्रोत एक sheet में, "स्रोत"-ख़ाना साथ। <strong>छाँटो:</strong> छह स्तंभ तय — नाम, फ़ोन, गाँव, काम, तारीख़, स्रोत। <strong>सुधारो:</strong> फ़ोन-स्तंभ पर Sort — और परतें खुल गईं: 38 ग्राहक दो-दो सूचियों में थे (register + WhatsApp दोनों में दर्ज), 9 के नंबर +91 के कारण अलग दिख रहे थे पर थे वही, 4 पंक्तियाँ ख़ाली-अधूरी। आँख से मिलाकर जोड़-घटाव — दो जगह नंबर एक पर <strong>काम अलग</strong> निकला: मिटाए नहीं, एक पंक्ति में दोनों काम दर्ज। <strong>जमाओ:</strong> <code>grahak-master-2026.xlsx</code> — <strong>293 असली ग्राहक</strong>; मूल <code>purana</code> में। मनोज ने समन्वयक को आँकड़ा और <strong>तरीक़ा</strong> दोनों दिए — तरीक़ा बाक़ी केंद्रों तक भिजवाया गया। copy में पंक्ति: <strong>"340 लापरवाही की गिनती थी, 293 काम की — सफ़ाई ने गिनती घटाई, इज़्ज़त बढ़ाई।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-43 (NIOS Practical 43 पर आधारित; mobile-full)</h2>
+<p><strong>काम:</strong> (1) काल्पनिक बिखरा ढेर बनाओ — 20-25 पंक्तियाँ, जान-बूझकर गड़बड़ियाँ: 3-4 दोहरी प्रविष्टि, 3 फ़ोन +91 वाले, एक गाँव दो वर्तनियों में, 2 ख़ाली, 1 शक़ी (9-अंक फ़ोन), (2) चार क़दम चलाओ — स्रोत-ख़ाना, ढाँचा, तीनों रगड़ें, नई फ़ाइल; मूल <code>purana</code> में, (3) हर रगड़ में क्या पकड़ा — तीन पंक्तियों की सूची, (4) साफ़ सारणी पर दो प्रमाण: Filter से एक गाँव की गिनती + COUNTA/सूत्र से कुल, (5) एक-पंक्ति तुलना: सफ़ाई से पहले बनाम बाद की कुल गिनती, (6) दो-पंक्ति नोट: यह master-फ़ाइल Share/AI पर क्यों नहीं जाएगी। <strong>अपेक्षित output:</strong> पहले-बाद की दोनों फ़ाइलें + रगड़-सूची + गिनती-प्रमाण + पहरा-नोट। <strong>रूब्रिक R-a-43 (10 अंक):</strong> चार क़दम क्रम से = 3 · तीनों रगड़ें सही पकड़ = 3 · मूल सुरक्षित (purana) = 1 · गिनती-प्रमाण = 2 · पहरा-नोट = 1। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> curation की सही परिभाषा? (क) सिर्फ़ रंग-सजावट का काम (ख) अपने मन से नया data गढ़ना (ग) पुरानी बेकार फ़ाइलें ढूँढकर Delete करते जाना (घ) जुटाओ-छाँटो-सुधारो — साफ़ सारणी बनाना <strong>उत्तर: (घ)।</strong> कारण: बिखरी जानकारी से काम-योग्य dataset — चार क़दम: जुटाओ, छाँटो, सुधारो, जमाओ; औज़ार खंड-3 के, क्रम-नीयत नई। बाक़ी क्यों ग़लत: (ग) मूल तो गवाह की तरह बचाया जाता है; (ख) अंदाज़े से भरना मना — असलियत स्रोत से; (क) रूप-सज्जा 3.04 थी, यह सामग्री की सफ़ाई है।</p>
+<p><strong>प्र-2.</strong> दोहरी प्रविष्टि पकड़ने की सबसे भरोसेमंद राह? (क) फ़ोन-स्तंभ पर Sort — एक-से नंबर आमने-सामने (ख) दोहरी प्रविष्टि पकड़ी नहीं जा सकती (ग) नाम के स्तंभ पर Sort लगाओ (घ) अंदाज़े से एक-एक मिटाते जाओ <strong>उत्तर: (क)।</strong> कारण: नंबर झूठ नहीं बोलता, "रामु/Ramu" बोलता है — मनोज की 38+9 परतें इसी से खुलीं। बाक़ी क्यों ग़लत: (ग) वर्तनी-भेद नाम-sort को अंधा करता है; (घ) आँख से मिलाकर ही — नंबर एक, काम अलग = जोड़ना है, मिटाना नहीं; (ख) एक Sort की दूरी पर थी।</p>
+<p><strong>प्र-3.</strong> ख़ाली ख़ाने का नियम? (क) पूरी की पूरी पंक्ति मिटा दो (ख) स्रोत से भरो; न भर सको तो ख़ाली रहने दो (ग) अपने अंदाज़े से तुरंत भर दो (घ) ख़ाली ख़ाना ग़लती नहीं होता <strong>उत्तर: (ख)।</strong> कारण: अंदाज़े से भरना मना — सफ़ाई रूप सुधारना है, जानकारी गढ़ना नहीं; ग़लत भरा फ़ोन ख़ाली से बुरा है। बाक़ी क्यों ग़लत: (ग) अंदाज़ा = नक़ली data; (क) बाक़ी ख़ानों की सच्ची जानकारी भी जाती; (घ) ख़ाली "शक़ी" है — Blanks-Filter से खोजकर स्रोत-मिलान माँगता है।</p>
+<p><strong>प्र-4.</strong> साफ़ सारणी जमाने के बाद मूल बिखरे ढेर का क्या? (क) print करके काग़ज़ जला दो (ख) तुरंत Delete कर दो (ग) purana-folder में सरकाओ — मूल गवाह (घ) उसी बिखरे ढेर में ही आगे काम जारी रखो <strong>उत्तर: (ग)।</strong> कारण: सफ़ाई में ग़लती निकले तो मूल ही गवाह — नई master में काम, पुराना गवाही में। बाक़ी क्यों ग़लत: (ख) पकड़ में आई हर ग़लती की जाँच-राह कटती; (घ) तब सफ़ाई का फल ही नहीं; (क) digital गवाह का यह हश्र बे-मतलब है।</p>
+<p><strong>प्र-5.</strong> curated master-फ़ाइल पर सबसे कड़ा पहरा क्यों? (क) Excel ख़ुद गुप्त रखता है (ख) वह फ़ाइल बहुत भारी होती है (ग) नाम-फ़ोन एक जगह — भरोसे की पोटली (घ) इतने कड़े पहरे की कोई ज़रूरत नहीं <strong>उत्तर: (ग)।</strong> कारण: Share नाम-राह से सोच-कर, converter/AI पर कभी नहीं — यही 5.03/5.04/3.16 के पहरों का मिलन-बिंदु। बाक़ी क्यों ग़लत: (ख) वज़न नहीं, सामग्री संवेदनशील है; (क) सुरक्षा चुनावों से आती है, app से नहीं; (घ) Digital Mitra की साख इसी पहरे पर टिकी है।</p>
+<p><strong>अगला पाठ → 5.09: backup व recovery — data कभी न खोए।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20Data%20%E0%A4%95%E0%A5%80%20%E0%A4%9B%E0%A4%81%E0%A4%9F%E0%A4%BE%E0%A4%88-%E0%A4%B8%E0%A4%AB%E0%A4%BC%E0%A4%BE%E0%A4%88%20(Curation)%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-5-07-email-archive-khoj.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-5-09-backup-recovery.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

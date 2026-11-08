@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>annotation में शुद्धता, एकरूपता व त्रुटि-सुधार | ACSLEARN</title>
+<meta name="description" content="annotation की तीन कसौटियाँ — शुद्धता, एकरूपता (असंगति-रोग का इलाज), त्रुटि-सुधार व relabel; QA-जाँच की समझ, software/setting की सफ़ाई, QA तक की सीढ़ी; कक्षा-6 हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-skills-basic/dmt-8-09-annotation-shuddhata-ekroopta.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="annotation में शुद्धता, एकरूपता व त्रुटि-सुधार | ACSLEARN">
+<meta property="og:description" content="annotation की तीन कसौटियाँ — शुद्धता, एकरूपता (असंगति-रोग का इलाज), त्रुटि-सुधार व relabel; QA-जाँच की समझ, software/setting की सफ़ाई, QA तक की सीढ़ी; कक्षा-6 हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-skills-basic/dmt-8-09-annotation-shuddhata-ekroopta.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-97: annotation में शुद्धता, एकरूपता व त्रुटि-सुधार","description":"annotation की तीन कसौटियाँ — शुद्धता, एकरूपता (असंगति-रोग का इलाज), त्रुटि-सुधार व relabel; QA-जाँच की समझ, software/setting की सफ़ाई, QA तक की सीढ़ी; कक्षा-6 हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-8-09-annotation-shuddhata-ekroopta.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र तैयारी कोर्स","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र तैयारी कोर्स","item":"https://acslearn.com/courses/hi/digital-skills-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-97: annotation में शुद्धता, एकरूपता व त्रुटि-सुधार","item":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-8-09-annotation-shuddhata-ekroopta.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="97" data-course="digital-skills-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र तैयारी कोर्स › खंड-8: AI की समझ</p>
+<h1>पाठ 8.9: annotation में शुद्धता, एकरूपता व त्रुटि-सुधार</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 97 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-skills-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <span class="lsn-jumpcur">पाठ 8.9 (यही)</span> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) शुद्धता-एकरूपता का फ़र्क़ समझाना, (2) असंगति-रोग की जड़ें पकड़ना, (3) relabel/त्रुटि-सुधार को सही भाव से लेना, (4) QA-सीढ़ी का रास्ता देखना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>दाम किस चीज़ का मिलता है</h2>
+<p>8.07 में कहा था — प्रति-काम दाम। अब पूरा सच: दाम <strong>गिनती</strong> का नहीं, <strong>गुणवत्ता-सहित गिनती</strong> का मिलता है। हर platform label जाँचता है — कुछ टुकड़ों का सही जवाब उसे पहले से पता है (जाँच-टुकड़े, बिना बताए बीच में मिले); उनसे मिलाकर <strong>शुद्धता-अंक</strong> बनता है। अंक गिरा तो काम घटता है, उठा तो बढ़ता — साख ही पूँजी, ठीक counter के भरोसे (7.12) की तरह। इस पाठ में वही तीन-पाया।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पाया-1: शुद्धता — सही label, सही जगह</h2>
+<p>शुद्धता = label का <strong>पुस्तिका के हिसाब से सही</strong> होना। गिरती कहाँ है? — (1) <strong>जल्दबाज़ी:</strong> रफ़्तार के लालच में बिन देखे ठप्पा; (2) <strong>थकान:</strong> घंटों एक-सा काम — आँख देखती है, दिमाग़ नहीं; (3) <strong>बिन-पढ़ी पुस्तिका:</strong> 8.08 का पहला नियम टूटा। इलाज: हर टुकड़े पर एक साँस की पलट-नज़र (submit-पूर्व), हर घंटे छोटा विराम, धुँधले पर पुस्तिका → पूछ-रास्ता। याद रहे — ग़लत label दोहरा घाटा है: मशीन की ग़लत पढ़ाई (8.07) + अपना गिरता अंक।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पाया-2: एकरूपता — आज का तुम = कल का तुम</h2>
+<p><strong>एकरूपता (consistency)</strong> = एक-जैसे मामले पर <strong>हर बार वही</strong> label — आज भी, कल भी, थके में भी। सिर्फ़ अपने भीतर नहीं — टीम में भी: एक photo को तुम "गड्ढा" कहो, साथी "टूटी सड़क" — दोनों "सही" होकर भी data कचरा बना देते हैं। इस रोग का नाम <strong>असंगति</strong> (inconsistency) है, और इसकी तीन जड़ें गाँठ बाँधो: <strong>(1) नियम की अपनी-अपनी समझ</strong> — इलाज: धुँधले मामलों की सूची बनाकर पुस्तिका/पूछ-रास्ते से एक फ़ैसला, फिर सब उसी पर; <strong>(2) software/setting का फ़र्क़</strong> — काल्पनिक उदाहरण: मीना की रंग-setting से धुँधली photo और धुँधली दिखती — उसके "पहचान नहीं" ठप्पे साथी से लगातार अलग पड़े; जड़ आँख नहीं, setting निकली। platform की कही setting (चमक, ज़ूम, ताज़ा browser) पहले मिलाओ — 2.14/6.07 की सफ़ाई-आदत यहाँ कमाई की शर्त; <strong>(3) बीच में बदली पुस्तिका</strong> — platform नियम सुधारता रहता है; हर काम-सत्र की शुरुआत में "नया क्या" देखो (7.06 के notification-पहले की रीत)।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पाया-3: त्रुटि-सुधार व relabel — लौटना हार नहीं</h2>
+<p>platform या QA-जाँच से कुछ टुकड़े <strong>वापिस</strong> आते हैं: "यह label पुस्तिका से नहीं मिलता — दोबारा करो।" इसका नाम <strong>relabel</strong> (फिर से label) है। सही भाव: झिड़की नहीं, <strong>मुफ़्त की पढ़ाई</strong> — वापिस आया टुकड़ा बताता है कि समझ और पुस्तिका में कहाँ दरार थी। सधी रीत चार क़दम: (1) वापसी का <strong>कारण पढ़ो</strong>, सिर्फ़ ठीक मत करो; (2) पुस्तिका का वही हिस्सा दोबारा; (3) <strong>उसी क़िस्म के बाक़ी</strong> label ख़ुद पलटो — ग़लती शायद अकेली नहीं; (4) ग़लती-कापी में एक पंक्ति (7.02 का record-भाव)। यही कापी हफ़्तों में शुद्धता-अंक चढ़ाती है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>QA-सीढ़ी — जाँचने वाला बनना</h2>
+<p>जो सधा-एकरूप साबित होता है, platform उसे <strong>QA</strong> (क्यू-ए — quality जाँच, दूसरों के label जाँचना) देने लगता है — दाम बेहतर, काम वही पुस्तिका-पकड़। QA बनकर भाव वही जो relabel पाते समय चाहा था: वापसी पर <strong>कारण लिखो</strong> (पुस्तिका की पंक्ति बताकर), झिड़की नहीं — 7.01 की ग्राहक-भाषा साथी-भाषा भी है। यहीं खंड-9 (रोज़गार-योग्यता) का दरवाज़ा खुलता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक नज़र में — तीन पाये, एक साख</h2>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="annotation की तीन कसौटियाँ और QA-सीढ़ी">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<rect x="20" y="16" width="760" height="54" rx="10" fill="#0B1F3A"/>
+<text x="40" y="50" font-size="20" fill="#F5F7FA">चिह्न-भाषा: ठोस तीर=गति · सोना-खाना=मुख्य · हरा ✓=ठीक · ✗=कभी-नहीं</text>
+<text x="40" y="104" font-size="25" fill="#0B1F3A" font-weight="bold">दाम = गुणवत्ता-सहित गिनती — साख ही पूँजी</text>
+<rect x="40" y="124" width="720" height="104" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="60" y="158" font-size="20" fill="#1565C0" font-weight="bold">पाया-1 · शुद्धता</text>
+<text x="60" y="192" font-size="17" fill="#0B1F3A">गिरती: जल्दबाज़ी · थकान · बिन-पढ़ी पुस्तिका</text>
+<text x="60" y="220" font-size="17" fill="#2E7D32">✓ पलट-नज़र · घंटे पर विराम · धुँधले पर पूछ-रास्ता</text>
+<rect x="40" y="248" width="720" height="140" rx="12" fill="#F9A825"/>
+<text x="60" y="282" font-size="20" fill="#0B1F3A" font-weight="bold">पाया-2 · एकरूपता — आज का तुम = कल का तुम = टीम</text>
+<text x="60" y="316" font-size="17" fill="#0B1F3A">असंगति की जड़ें: अपनी-अपनी समझ · software/setting का फ़र्क़ ·</text>
+<text x="60" y="344" font-size="17" fill="#0B1F3A">बीच में बदली पुस्तिका</text>
+<text x="60" y="376" font-size="17" fill="#0B1F3A">इलाज: एक फ़ैसला सबके लिए · setting मिलाओ · सत्र-शुरू "नया क्या"</text>
+<rect x="40" y="408" width="720" height="128" rx="12" fill="#FFFFFF" stroke="#1565C0" stroke-width="3"/>
+<text x="60" y="442" font-size="20" fill="#1565C0" font-weight="bold">पाया-3 · relabel = मुफ़्त की पढ़ाई</text>
+<text x="60" y="476" font-size="17" fill="#0B1F3A">कारण पढ़ो → पुस्तिका दोबारा → उसी क़िस्म के बाक़ी ख़ुद पलटो →</text>
+<text x="60" y="504" font-size="17" fill="#0B1F3A">ग़लती-कापी में एक पंक्ति</text>
+<path d="M400 548 L400 576" stroke="#2E7D32" stroke-width="4"/>
+<polygon points="393,576 400,588 407,576" fill="#2E7D32"/>
+<rect x="150" y="596" width="500" height="80" rx="12" fill="#FFFFFF" stroke="#2E7D32" stroke-width="3"/>
+<text x="175" y="630" font-size="20" fill="#2E7D32" font-weight="bold">✓ QA-सीढ़ी — जाँचने वाला बनो</text>
+<text x="175" y="662" font-size="17" fill="#0B1F3A">वापसी पर कारण लिखो, झिड़की नहीं (7.01 की भाषा)</text>
+<text x="40" y="716" font-size="18" fill="#0B1F3A">अध्याय में जगह — खंड-8 का पाठ 9/10: ●●●●●●●●◉○</text>
+<text x="40" y="750" font-size="18" fill="#0B1F3A">इस पाठ में: शुद्धता-अंक · असंगति की तीन जड़ें · relabel-रीत · QA</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>करके देखो (अभी, 2 मिनट)</h2>
+<p>NIOS-65-QA का QA-रूप: 8.07 की 5-वाक्य मश्क़ के अलग पड़े ठप्पे सामने रखो। हर फ़र्क़ पर पूछो — जड़? नियम की अलग समझ, या वाक्य ही धुँधला? फिर दोनों मिलकर एक फ़ैसला लिखो: "ऐसा वाक्य आगे इस खाने में।" यही असंगति-इलाज की असली मश्क़ है।</p>
+<p><strong>प्र-1.</strong> platform शुद्धता-अंक बनाता कैसे है? (क) typing की रफ़्तार से — जितने ज़्यादा टुकड़े प्रति घंटा, उतना ऊँचा अंक (ख) काम के घंटे गिनकर — जो जितनी देर तक बैठा रहे, उसका शुद्धता-अंक उतना अपने-आप चढ़ता जाए (ग) लगाए label का रंग-ढंग देखकर — सुंदर सजा काम ऊँचा अंक पाता है (घ) बीच में मिले जाँच-टुकड़ों से — जिनका सही जवाब platform को पहले से पता है <strong>उत्तर: (घ)।</strong> कारण: जाँच-टुकड़े बिना बताए बीच में रहते हैं — इसीलिए "सिर्फ़ जाँच वाले पर ध्यान, बाक़ी पर जल्दबाज़ी" की कोई चाल चलती ही नहीं; हर टुकड़ा जाँच-टुकड़ा हो सकता है। बाक़ी क्यों ग़लत: (क) रफ़्तार दाम की गिनती बढ़ाती है, अंक शुद्धता से बनता है; (ख) घंटे नहीं, मिलान गिना जाता है; (ग) label में सजावट नाम की चीज़ ही नहीं — तय खाने हैं (8.08)।</p>
+<p><strong>प्र-2.</strong> "आज का तुम = कल का तुम" — एकरूपता का यह सूत्र क्यों इतना भारी है? (क) एक-जैसे मामले पर बदलता label data को कचरा बनाता है — मशीन को दो उल्टी पढ़ाइयाँ मिलती हैं (ख) क्योंकि platform रोज़ photo खींचकर यह मिलाता रहता है कि काम करने वाला वही इंसान है या बदल गया (ग) क्योंकि एक बार लगा label क़ानूनन बदला नहीं जा सकता — पहला ही आख़िरी है (घ) भारी नहीं है — मन बदलता रहे, मशीन ख़ुद औसत निकाल लेती है <strong>उत्तर: (क)।</strong> कारण: "गड्ढा" बनाम "टूटी सड़क" — दोनों "सही" होकर भी साथ-साथ data बिगाड़ते हैं; इसीलिए धुँधले पर एक साझा फ़ैसला, फिर सब उसी पर। बाक़ी क्यों ग़लत: (ख) बात पहचान की नहीं, label-व्यवहार की है; (ग) बदला जा सकता है — relabel इसी के लिए है; (घ) "औसत निकाल लेगी" वाला भरोसा ही ग़लत पढ़ाई की जड़ बनता है।</p>
+<p><strong>प्र-3.</strong> मीना के "पहचान नहीं" ठप्पे साथी से लगातार अलग पड़ रहे थे; जड़ निकली screen की रंग-setting। सबक़? (क) मीना की आँखें कमज़ोर थीं — डाक्टर के बिना annotation करना ही नहीं चाहिए (ख) असंगति की जड़ software/setting भी होती है — platform की कही setting पहले मिलाओ (ग) साथी ग़लत था — जो पहले से काम कर रहा हो, जाँच हमेशा उसी की होनी चाहिए (घ) धुँधली photo आते ही उसे छोड़ देना चाहिए — ऐसे बिगड़े टुकड़ों पर काम शुरू करना ही पहली ग़लती थी <strong>उत्तर: (ख)।</strong> कारण: आँख-समझ दोनों सही होकर भी setting का फ़र्क़ label बदल देता है — 2.14/6.07 की सफ़ाई-आदत यहाँ सीधी कमाई की शर्त है। बाक़ी क्यों ग़लत: (क) कहानी की जड़ setting निकली, आँख नहीं; (ग) फ़र्क़ का मतलब दोष नहीं — जड़-खोज होती है; (घ) धुँधली photo का भी पुस्तिका-तय ठप्पा होता है — छोड़ना नियम से, मन से नहीं।</p>
+<p><strong>प्र-4.</strong> relabel-वापसी का सही पहला क़दम? (क) वापसी का कारण पढ़ो, फिर पुस्तिका का वही हिस्सा — चुपचाप ठीक करके मत बढ़ो (ख) फ़ौरन ठीक करके जमा कर दो — कारण पढ़ने में लगा समय घाटे का सौदा है (ग) platform से बहस करो — अपना label सही साबित करना ही साख बचाता है (घ) वह काम छोड़कर फ़ौरन नया platform पकड़ लो — वापसी आने लगे तो जगह बदल लेना ही असली समझदारी है <strong>उत्तर: (क)।</strong> कारण: वापिस आया टुकड़ा समझ-और-पुस्तिका की दरार दिखाता है — कारण पढ़े बिना वही ग़लती बाक़ी टुकड़ों में दोहराती रहेगी; इसीलिए उसी क़िस्म के बाक़ी label भी ख़ुद पलटो। बाक़ी क्यों ग़लत: (ख) चुपचाप-ठीक = पढ़ाई गँवाना; (ग) पुस्तिका ही क़ानून है — दरार अपनी तरफ़ ढूँढो; (घ) भागने से दरार साथ जाती है।</p>
+<p><strong>प्र-5.</strong> QA बनने पर वापसी लिखने का सधा ढंग? (क) सिर्फ़ "ग़लत" लिखकर लौटाओ — QA का काम फ़ैसला है, समझाना नहीं (ख) ग़लती करने वाले का नाम टीम में सबके सामने रखो — शर्म से सुधार तेज़ होता है (ग) कारण लिखो, पुस्तिका की पंक्ति बताकर — झिड़की नहीं (घ) छोटी-मोटी ग़लतियाँ चुपचाप अपने हाथ से ठीक करके आगे बढ़ा दो — वापसी भेजने का झंझट ही क्यों पालना <strong>उत्तर: (ग)।</strong> कारण: QA का काम अगली ग़लती रोकना है — वह कारण-सहित वापसी से रुकती है; तुम ख़ुद relabel पाते समय यही चाहते थे। बाक़ी क्यों ग़लत: (क) बिन-कारण "ग़लत" से समझ की दरार वहीं रहती है; (ख) शर्म साख तोड़ती है, एकरूपता नहीं लाती; (घ) चुपचाप-सुधार से label लगाने वाला वही ग़लती दोहराता रहेगा — data फिर बिगड़ेगा।</p>
+<p><strong>अगला पाठ → 8.10: AI-युग में डिजिटल मित्र का भविष्य।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20annotation%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%B6%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%A7%E0%A4%A4%E0%A4%BE%2C%20%E0%A4%8F%E0%A4%95%E0%A4%B0%E0%A5%82%E0%A4%AA%E0%A4%A4%E0%A4%BE%20%E0%A4%B5%20%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A5%81%E0%A4%9F%E0%A4%BF-%E0%A4%B8%E0%A5%81%E0%A4%A7%E0%A4%BE%E0%A4%B0%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-8-08-annotation-ke-auzar.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

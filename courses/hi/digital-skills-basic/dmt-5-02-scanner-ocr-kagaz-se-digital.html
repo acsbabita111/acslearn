@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scanner व OCR — काग़ज़ से Digital, फ़ोन से Scan | ACSLEARN</title>
+<meta name="description" content="scan बनाम photo, फ़ोन-scan का सही ढंग (रोशनी-सीध-किनारे), OCR से चित्र का text बनना, हिन्दी-OCR की जाँच-अनिवार्यता और scan-folder व्यवस्था — सरल हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-02-scanner-ocr-kagaz-se-digital.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Scanner व OCR — काग़ज़ से Digital, फ़ोन से Scan | ACSLEARN">
+<meta property="og:description" content="scan बनाम photo, फ़ोन-scan का सही ढंग (रोशनी-सीध-किनारे), OCR से चित्र का text बनना, हिन्दी-OCR की जाँच-अनिवार्यता और scan-folder व्यवस्था — सरल हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-02-scanner-ocr-kagaz-se-digital.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-52: Scanner व OCR — काग़ज़ से Digital","description":"scan बनाम photo, फ़ोन-scan का सही ढंग (रोशनी-सीध-किनारे), OCR से चित्र का text बनना, हिन्दी-OCR की जाँच-अनिवार्यता और scan-folder व्यवस्था — सरल हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-02-scanner-ocr-kagaz-se-digital.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र तैयारी कोर्स","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र तैयारी कोर्स","item":"https://acslearn.com/courses/hi/digital-skills-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-52: Scanner व OCR — काग़ज़ से Digital","item":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-5-02-scanner-ocr-kagaz-se-digital.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="52" data-course="digital-skills-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र तैयारी कोर्स › खंड-5: फ़ाइल, Email व Scanner</p>
+<h1>पाठ 5.2: Scanner व OCR — काग़ज़ से Digital</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 52 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-skills-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <span class="lsn-jumpcur">पाठ 5.2 (यही)</span> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <a href="dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">पाठ 7.10</a> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) photo-बनाम-scan का फ़र्क़ बताना, (2) फ़ोन से तीन-क़ायदे वाला साफ़ scan लेना, (3) OCR से चित्र का text बनाना — Lens/Drive-रास्ते, (4) OCR-नतीजे की जाँच-अनिवार्यता निभाना, (5) scan की फ़ाइलों को 5.01 की व्यवस्था में बसाना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>काग़ज़ की दुनिया, digital का पुल</h2>
+<p>Digital Mitra के पास रोज़ काग़ज़ आते हैं — आधार-छायाप्रति, हाथ की अर्ज़ी, रसीद, प्रमाणपत्र — और portal माँगता है <strong>फ़ाइल</strong>। काग़ज़ से फ़ाइल के पुल के दो तल हैं: <strong>(1) scan</strong> (स्कैन) = काग़ज़ की साफ़ digital <strong>तस्वीर/PDF</strong> — जो दिखता है वही सहेजा; <strong>(2) OCR</strong> (ओ-सी-आर — Optical Character Recognition, अक्षर-पहचान) = उस तस्वीर में से मशीन का <strong>अक्षर पढ़कर text निकालना</strong> — ताकि वह लिखावट Word में बदली-सुधारी जा सके। अ-38 ठीक यही माँगता है: हाथ की लिखी चिट्ठी → <strong>editable</strong> (संपादन-योग्य) दस्तावेज़। भ्रम यहीं तोड़ो: camera की टेढ़ी, छायादार photo "scan" <strong>नहीं</strong> — portal लौटाते हैं, OCR अटकता है; scan एक <strong>ढंग</strong> है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>फ़ोन ही scanner — तीन क़ायदे</h2>
+<p>अलग scanner-मशीन हो तो उसका scan सबसे साफ़; पर जेब का फ़ोन भी पूरा scanner है: <strong>Google Drive-app → + → Scan</strong> (या फ़ोन का कोई scan-app) — app <strong>किनारे पहचानकर काटता, सीधा करता, रंग निखारता</strong> है; कई पन्ने एक ही <strong>PDF</strong> में जुड़ते हैं। साफ़ scan के तीन क़ायदे: <strong>(1) रोशनी</strong> — दिन की रोशनी/उजली जगह, अपनी <strong>परछाईं काग़ज़ पर नहीं</strong> (सबसे आम दोष); <strong>(2) सीध</strong> — फ़ोन काग़ज़ के <strong>ठीक ऊपर समानांतर</strong>, तिरछा नहीं; काग़ज़ सपाट सतह पर, मुड़े कोने दबाकर; <strong>(3) किनारे</strong> — app की खींची चौखट चारों किनारों पर बैठी देखो, ज़रूरत पर हाथ से खिसकाओ; पूरा काग़ज़ भीतर, मेज़ बाहर। scan बनते ही नाम-घर 5.01 से: बोलता नाम (<code>ramu-aadhar-07nov.pdf</code>) और <code>scan</code>-डिब्बे में — scan-ढेर सबसे तेज़ मेला बनता है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>OCR — मशीन की पढ़ाई</h2>
+<p>अब दूसरा तल: scan के भीतर के अक्षर <strong>text</strong> कैसे बनें? मुफ़्त रास्ते दो: <strong>(1) Google Lens</strong> (फ़ोन) — camera/तस्वीर पर Lens खोलो → <strong>Select text</strong> → अक्षर चुनकर <strong>Copy</strong> → Word/कहीं भी Paste; <strong>(2) Google Drive</strong> (computer-browser) — scan की तस्वीर/PDF Drive में डालकर right-click → <strong>Open with → Google Docs</strong> — Docs में ऊपर चित्र, नीचे निकला हुआ text। हिन्दी-अंग्रेज़ी दोनों पढ़ता है; <strong>छपा</strong> text सबसे अच्छा निकलता है, <strong>साफ़ हाथ की लिखावट</strong> ठीक-ठाक, टेढ़ी-घसीट लिखावट में ग़लतियाँ बढ़ती हैं — और यहीं इस पाठ का लोहे का नियम: <strong>OCR का निकाला text बिना मिलाए कभी इस्तेमाल नहीं।</strong> मशीन "श्याम" को "स्याम", "2500" को "2800" पढ़ सकती है — निकला text मूल के <strong>बग़ल में रखकर शब्द-दर-शब्द मिलाओ</strong>, ख़ासकर <strong>नाम, अंक, तारीख़</strong>। यही 3.16 की रीढ़ है — मशीन सुझाती है, <strong>जाँच और ज़िम्मेदारी तुम्हारी</strong>; OCR भी एक मशीन-सुझाव ही है।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>किस काम में कौन-सा तल?</h2>
+<p>अंतिम समझ चुनाव की: <strong>सिर्फ़ जमा करना है</strong> (portal पर आधार/प्रमाणपत्र चढ़ाना) → scan-PDF काफ़ी — OCR की ज़रूरत नहीं; <strong>लिखावट को बदलना-सुधारना-दोबारा-इस्तेमाल करना है</strong> (हाथ की अर्ज़ी को टाइप्ड चिट्ठी बनाना — अ-38, पुराने रजिस्टर की सूची Excel में ले जाना) → scan + OCR + <strong>जाँच</strong> + Word/Excel में सफ़ाई (2.03/3.02 की पुरानी कारीगरी यहीं जुड़ती है)। और एक निजता-पहरा जो आगे के खंड-6 की झलक है: ग्राहक के काग़ज़ का scan <strong>उसके काम के लिए</strong> है — काम निपटे तो तय जगह (scan-डिब्बे) में क़ायदे से रहे या ग्राहक कहे तो हटे; किसी को <strong>आगे भेजना ग्राहक से पूछकर ही</strong> — काग़ज़ उसका, भरोसा तुम्हारा।</p>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="photo बनाम scan, फ़ोन-scan के तीन क़ायदे, OCR के दो रास्ते और जाँच-अनिवार्यता">
+<rect width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="46" text-anchor="middle" font-size="30" fill="#0B1F3A" font-weight="bold">काग़ज़ → scan → OCR → जाँच</text>
+<text x="400" y="78" text-anchor="middle" font-size="17" fill="#1565C0">ठोस तीर = पुल के क़दम · ✓/✗ = scan की जाँच · सोना = लोहे का नियम</text>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="100" width="340" height="180" rx="12" fill="#fff" stroke="#0B1F3A" stroke-width="3"/>
+<text x="225" y="128" text-anchor="middle" font-size="16" font-weight="bold">✗ photo — scan नहीं</text>
+<g transform="rotate(-8 160 200)"><rect x="110" y="160" width="100" height="75" rx="4" fill="#F5F7FA" stroke="#0B1F3A" stroke-width="2"/></g>
+<ellipse cx="175" cy="215" rx="38" ry="16" fill="#0B1F3A" opacity="0.25"/>
+<text x="160" y="262" text-anchor="middle" font-size="16" fill="#1565C0">तिरछा · परछाईं · मेज़ भीतर</text>
+<text x="300" y="180" font-size="16">portal लौटाता,</text>
+<text x="300" y="202" font-size="16">OCR अटकता</text>
+<rect x="405" y="100" width="340" height="180" rx="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="575" y="128" text-anchor="middle" font-size="16" font-weight="bold" fill="#2E7D32">✓ scan — तीन क़ायदे</text>
+<rect x="455" y="148" width="100" height="75" rx="4" fill="#F5F7FA" stroke="#2E7D32" stroke-width="2.5"/>
+<text x="505" y="190" text-anchor="middle" font-size="16">सीधा · साफ़</text>
+<text x="640" y="166" font-size="16">1. रोशनी — परछाईं नहीं</text>
+<text x="640" y="192" font-size="16">2. सीध — ठीक ऊपर</text>
+<text x="640" y="218" font-size="16">3. किनारे — चौखट पूरी</text>
+<text x="575" y="258" text-anchor="middle" font-size="16" fill="#1565C0">Drive-app → + → Scan · कई पन्ने = एक PDF</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="308" width="690" height="130" rx="12" fill="#fff" stroke="#1565C0" stroke-width="3"/>
+<text x="400" y="338" text-anchor="middle" font-size="16" font-weight="bold">OCR — चित्र के अक्षर → text (मुफ़्त दो रास्ते)</text>
+<text x="400" y="372" text-anchor="middle">1. Google Lens → Select text → Copy → Word में Paste</text>
+<text x="400" y="400" text-anchor="middle">2. Drive में फ़ाइल → right-click → Open with → Google Docs</text>
+<text x="400" y="426" text-anchor="middle" font-size="16" fill="#1565C0">छपा text सबसे अच्छा · साफ़ लिखावट ठीक · घसीट में ग़लतियाँ बढ़तीं</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="90" y="465" width="620" height="130" rx="12" fill="#F9A825" stroke="#0B1F3A" stroke-width="3"/>
+<text x="400" y="497" text-anchor="middle" font-size="18" font-weight="bold">लोहे का नियम — बिना मिलाए इस्तेमाल नहीं</text>
+<text x="400" y="529" text-anchor="middle">निकला text ↔ मूल काग़ज़ — शब्द-दर-शब्द मिलान</text>
+<text x="400" y="559" text-anchor="middle" font-weight="bold">ख़ास पहरा: नाम · अंक · तारीख़ ("श्याम"→"स्याम", 2500→2800 संभव)</text>
+<text x="400" y="584" text-anchor="middle" font-size="16">(3.16 की रीढ़: मशीन सुझाती है — जाँच-ज़िम्मेदारी तुम्हारी)</text>
+</g>
+<g font-size="16" fill="#0B1F3A">
+<rect x="55" y="620" width="340" height="80" rx="10" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="225" y="650" text-anchor="middle" font-weight="bold">सिर्फ़ जमा करना → scan-PDF काफ़ी</text>
+<text x="225" y="678" text-anchor="middle" font-size="16" fill="#1565C0">नाम+scan-डिब्बा (5.01) — OCR नहीं चाहिए</text>
+<rect x="405" y="620" width="340" height="80" rx="10" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+<text x="575" y="650" text-anchor="middle" font-weight="bold">बदलना-सुधारना → scan+OCR+जाँच</text>
+<text x="575" y="678" text-anchor="middle" font-size="16" fill="#1565C0">फिर Word/Excel की कारीगरी (अ-38 का रास्ता)</text>
+</g>
+<text x="400" y="730" text-anchor="middle" font-size="16" fill="#1565C0">निजता-पहरा: ग्राहक का scan उसके काम के लिए — आगे भेजना पूछकर ही</text>
+<text x="400" y="765" text-anchor="middle" font-size="17" fill="#2E7D32">अध्याय में जगह: 5.01 (file-folder) ← पाठ 5.02 → 5.03 (file का रूप बदलना)</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>स्याम बनाम श्याम (काल्पनिक उदाहरण)</h2>
+<p><strong>गीता</strong> (काल्पनिक नाम) के पास एक बुज़ुर्ग आए — हाथ की लिखी अर्ज़ी लेकर: "इसे टाइप करके ब्लॉक में देना है।" पहले गीता पूरी अर्ज़ी टाइप करती — आधा घंटा; आज अ-38 का रास्ता। पहला scan बिगड़ा — अपनी ही परछाईं आधे काग़ज़ पर; उस्ताद ने तीन क़ायदे दोहराए — उजाले की ओर मुँह, फ़ोन ठीक ऊपर, चौखट किनारों पर — दूसरा scan शीशे-सा। Drive में डालकर <strong>Open with → Google Docs</strong> — लिखावट text बनकर उतर आई; गीता ख़ुश होकर सीधे चिट्ठी बनाने चली, उस्ताद ने रोका: "पहले मिलान।" काग़ज़ बग़ल में रखकर शब्द-दर-शब्द — तीन जगह पकड़ में आया: "श्याम" को मशीन ने "स्याम" पढ़ा था, "₹2,500" को "2,800", और गाँव का नाम आधा। तीनों सुधरे, तब 2.03 की कारीगरी से साफ़ चिट्ठी बनी — कुल दस मिनट, और <strong>सही</strong>। जाते-जाते बुज़ुर्ग की छायाप्रतियाँ भी scan होकर <code>scan</code>-डिब्बे में गईं। copy में पंक्ति: <strong>"मशीन पढ़ती तेज़ है, पर आँख मूँदकर नहीं — स्याम को श्याम मेरी जाँच बनाती है।"</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>अभ्यास — अ-38 (NIOS Practical 38 पर आधारित; mobile-full)</h2>
+<p><strong>काम:</strong> (1) अपने हाथ से 5-6 पंक्तियों की एक काल्पनिक अर्ज़ी लिखो (नाम-अंक-तारीख़ ज़रूर हों), (2) पहले जान-बूझकर एक ✗-photo (तिरछी/परछाईं) लो, फिर तीन क़ायदों से ✓-scan — दोनों का फ़र्क़ एक पंक्ति में, (3) Lens <strong>और</strong> Drive→Docs — दोनों रास्तों से OCR करके देखो; कौन-सा सुविधाजनक लगा, एक पंक्ति, (4) निकले text का मूल से <strong>शब्द-दर-शब्द मिलान</strong> — पकड़ी ग़लतियों की सूची (नाम/अंक/तारीख़ पर ख़ास नज़र), (5) सुधरे text से Word/Docs में साफ़ अर्ज़ी — editable फ़ाइल, (6) scan-PDF और अर्ज़ी-फ़ाइल दोनों बोलते नाम से <code>ACS-Kendra</code> के सही डिब्बों में — ढाँचा दिखाओ। <strong>अपेक्षित output:</strong> ✗/✓ scan-जोड़ी + OCR-ग़लती सूची + सुधरी editable अर्ज़ी + folder-प्रमाण। <strong>रूब्रिक R-a-38 (10 अंक):</strong> ✓-scan तीन क़ायदों से = 2 · दोनों OCR-रास्ते = 2 · मिलान + ग़लती-सूची = 3 · editable अर्ज़ी = 2 · नाम+folder व्यवस्था = 1। पास = 6।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>छोटा टेस्ट — 5 प्रश्न</h2>
+<p><strong>प्र-1.</strong> scan बनाम OCR? (क) scan = तस्वीर/PDF; OCR = अक्षर पढ़कर text (ख) दोनों बिल्कुल एक ही चीज़ के दो अलग नाम हैं (ग) scan ख़ुद text बना देता है (घ) OCR ही असल में photo खींचता है <strong>उत्तर: (क)।</strong> कारण: काग़ज़ की दिखती प्रति बनाम बदलने-सुधारने योग्य text — अ-38 दूसरे तल तक जाता है। बाक़ी क्यों ग़लत: (ख) जमा-भर करने में OCR लगता ही नहीं; (ग/घ) भूमिकाएँ उलटी लिखी हैं।</p>
+<p><strong>प्र-2.</strong> साफ़ scan के तीन क़ायदे? (क) ऐसा कोई क़ायदा नहीं होता (ख) रोशनी · सीध · किनारे — तीन क़ायदे (ग) flash हमेशा on रखकर खींचो (घ) जितनी दूर से खींचो, उतना अच्छा scan <strong>उत्तर: (ख)।</strong> कारण: परछाईं काग़ज़ पर नहीं · फ़ोन ठीक ऊपर, काग़ज़ सपाट · चौखट चारों किनारों पर — गीता का पहला scan परछाईं ने ही बिगाड़ा था। बाक़ी क्यों ग़लत: (ग) flash अक्सर चमक-धब्बा छोड़ता है — उजली जगह बेहतर; (घ) दूर = छोटे-धुँधले अक्षर; (क) बिन-क़ायदे photo है, scan नहीं।</p>
+<p><strong>प्र-3.</strong> OCR के मुफ़्त दो रास्ते? (क) Recycle Bin वाला रास्ता अपनाओ (ख) सिर्फ़ paid software से होता है (ग) Google Lens और Drive → Open with → Docs (घ) Rename वाला रास्ता अपनाओ <strong>उत्तर: (ग)।</strong> कारण: Lens में Select text → Copy; दोनों मुफ़्त, दोनों हिन्दी-अंग्रेज़ी पढ़ते हैं। बाक़ी क्यों ग़लत: (ख) रोज़ के काम के लिए मुफ़्त रास्ते काफ़ी; (क/घ) वे 5.01 की हरकतें हैं — पढ़ाई से नाता नहीं।</p>
+<p><strong>प्र-4.</strong> OCR का निकाला text सीधे फ़ॉर्म/चिट्ठी में डाल दें? (क) हाँ — मशीन ग़लती नहीं करती (ख) सिर्फ़ अंग्रेज़ी वाले हिस्सों में ही मिलाओ (ग) मिलान बस समय की बर्बादी है (घ) कभी नहीं — मूल से शब्द-दर-शब्द मिलाओ <strong>उत्तर: (घ)।</strong> कारण: ख़ासकर नाम-अंक-तारीख़ — मशीन "श्याम"→"स्याम", 2500→2800 पढ़ सकती है; मशीन सुझाती है, जाँच-ज़िम्मेदारी तुम्हारी। बाक़ी क्यों ग़लत: (क/ग) गीता की तीन पकड़ी ग़लतियाँ इसी भरोसे का जवाब हैं; (ख) हिन्दी-लिखावट में ग़लतियाँ और भी संभव।</p>
+<p><strong>प्र-5.</strong> ग्राहक के काग़ज़ के scan पर निजता-पहरा? (क) अपनी मर्ज़ी से कहीं भी भेजो (ख) काम-भर रहे; आगे भेजना ग्राहक से पूछकर (ग) यह निजता का विषय ही नहीं (घ) scan रखना ही पूरी तरह मना है <strong>उत्तर: (ख)।</strong> कारण: क़ायदे की जगह रहे, ग्राहक कहे तो हटे — काग़ज़ उसका, भरोसा तुम्हारा; साख इसी पहरे पर टिकी है। बाक़ी क्यों ग़लत: (क/ग) बिना-पूछे भेजना भरोसे की चोरी है; (घ) रखना मना नहीं — क़ायदे से रखना सिखाया गया है।</p>
+<p><strong>अगला पाठ → 5.03: file का रूप बदलना — Word→PDF, चित्र→text, PPT→Word।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20Scanner%20%E0%A4%B5%20OCR%20%E2%80%94%20%E0%A4%95%E0%A4%BE%E0%A4%97%E0%A4%BC%E0%A4%9C%E0%A4%BC%20%E0%A4%B8%E0%A5%87%20Digital%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-5-01-file-folder-vyavastha.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-5-03-file-ka-roop-badalna.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>

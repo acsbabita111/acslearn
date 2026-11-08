@@ -1,0 +1,8 @@
+{
+  "_niyam": "Founder-मुहर: tools/muhar_bharo.js चलाओ (ids+content_sha256+approved_on भरेगा), फिर दोनों boolean हाथ से true करो। मुहर के बाद MD/टेम्पलेट/generator बदला = मुहर बासी।",
+  "founder_approved": false,
+  "metadata_verified": false,
+  "approved_on": "",
+  "content_sha256": "",
+  "lesson_ids": []
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- ⚙️ यह पेज generator से बना है (generator/build_course_pages.js v1.0 · 08-Nov-2026) —
+     हाथ से न बदलें। बदलाव: data/टेम्पलेट में करके generator दोबारा चलाएँ (परत-4 नियम)। -->
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ticket booking — IRCTC की समझ व ईमानदारी-रेखा (mock) | ACSLEARN</title>
+<meta name="description" content="रेल-ticket का सही रास्ता — ग्राहक का अपना IRCTC-खाता; निजी खाते से व्यावसायिक booking मना, अधिकृत agent अलग विषय; booking की सीढ़ी और जाल-बचाव; कक्षा-6 हिन्दी में।">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://acslearn.com/courses/hi/digital-skills-basic/dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">
+<meta name="theme-color" content="#0B1F3A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- परत 1: CONFIG + LINKS -->
+<script src="/assets/acs-config.js"></script>
+<script src="/assets/links.js"></script>
+<script src="/assets/acs-translate.js" defer></script>
+<!-- universal (header/menu/footer) + design -->
+<link rel="stylesheet" href="/acs-universal.css">
+<link rel="stylesheet" href="/acs-style.css">
+<meta property="og:title" content="Ticket booking — IRCTC की समझ व ईमानदारी-रेखा (mock) | ACSLEARN">
+<meta property="og:description" content="रेल-ticket का सही रास्ता — ग्राहक का अपना IRCTC-खाता; निजी खाते से व्यावसायिक booking मना, अधिकृत agent अलग विषय; booking की सीढ़ी और जाल-बचाव; कक्षा-6 हिन्दी में।">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://acslearn.com/courses/hi/digital-skills-basic/dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html">
+<meta property="og:site_name" content="Applied Computer School (ACS)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"पाठ-86: ticket booking — IRCTC की समझ (mock)","description":"रेल-ticket का सही रास्ता — ग्राहक का अपना IRCTC-खाता; निजी खाते से व्यावसायिक booking मना, अधिकृत agent अलग विषय; booking की सीढ़ी और जाल-बचाव; कक्षा-6 हिन्दी में।","inLanguage":"hi","isAccessibleForFree":true,"learningResourceType":"Lesson","url":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html","isPartOf":{"@type":"Course","name":"डिजिटल मित्र तैयारी कोर्स","description":"डिजिटल मित्र हेतु बुनियादी कौशल — Word, Excel, PowerPoint, Email, सुरक्षा, सरकारी portal, AI व रोज़गार-योग्यता, सरल हिंदी में","provider":{"@type":"Organization","name":"Applied Computer School (ACS)","url":"https://acslearn.com"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://acslearn.com/"},{"@type":"ListItem","position":2,"name":"कोर्स","item":"https://acslearn.com/courses/hi/"},{"@type":"ListItem","position":3,"name":"डिजिटल मित्र तैयारी कोर्स","item":"https://acslearn.com/courses/hi/digital-skills-basic/"},{"@type":"ListItem","position":4,"name":"पाठ-86: ticket booking — IRCTC की समझ (mock)","item":"https://acslearn.com/courses/hi/digital-skills-basic/dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html"}]}</script>
+<link rel="stylesheet" href="/assets/course-lesson.css">
+</head>
+<body>
+
+<div class="tiranga-bar"></div>
+<header class="acs-nav">
+  <div class="acs-nav-in">
+    <a class="acs-brand" href="/">
+      <span class="mark"><img id="acsLogo" src="/logo.png" alt="ACS logo" onerror="this.replaceWith(document.createTextNode('ACS'))"></span>
+      <span class="name" id="acsName">अप्लाइड कंप्यूटर स्कूल™</span>
+    </a>
+    <div class="acs-navbtns">
+      <button class="acs-navbtn" type="button" onclick="acsLangToggle()"><span class="e globe">🌐</span><span id="acsBtnLang">भाषा</span></button>
+      <button class="acs-navbtn" type="button" onclick="acsOpenMenu()"><span class="e">☰</span><span id="acsBtnMenu">मेन्यू</span></button>
+    </div>
+  </div>
+</header>
+<div class="acs-freebar">
+  <b id="acsTagline">130 भाषा में, गाँव से ग्लोबल साउथ तक!</b>
+  <small id="acsOrigLang">मूल भाषा: हिंदी</small>
+</div>
+<div class="acs-translate-panel" id="acsTranslatePanel">
+  <div id="google_translate_element"></div>
+</div>
+
+<main id="acs-content">
+  <!-- PAGE-CONTENT-START -->
+
+<article class="lsn-wrap" data-lsn-num="86" data-course="digital-skills-basic">
+<header class="lsn-head">
+<p class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › डिजिटल मित्र तैयारी कोर्स › खंड-7: ग्राहक-सेवा व सरकारी portal</p>
+<h1>पाठ 7.10: ticket booking — IRCTC की समझ (mock)</h1>
+<p class="lsn-meta">पढ़ाई का समय: 11-13 मिनट · पाठ 86 / 109 · पढ़ाई पूरी तरह मुफ़्त</p>
+<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> <a class="lsn-toolbtn" href="/courses/hi/digital-skills-basic/">📖 कोर्स-परिचय</a></p>
+</header>
+
+<details class="lsn-jump">
+<summary>📚 सब पाठ — किसी भी पाठ पर सीधे जाओ</summary>
+<div class="lsn-jumplist">
+<a href="dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html">पाठ 1.1</a> <a href="dmt-1-02-data-entry-kya-hai-prakar.html">पाठ 1.2</a> <a href="dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html">पाठ 1.3</a> <a href="dmt-1-04-computer-ke-ang-input-output-cpu-memory.html">पाठ 1.4</a> <a href="dmt-1-05-computer-chalana-desktop-icon-app.html">पाठ 1.5</a> <a href="dmt-1-06-typing-ki-neenv-home-row-speed.html">पाठ 1.6</a> <a href="dmt-1-07-grahak-se-jankari-lene-ki-yojana.html">पाठ 1.7</a> <a href="dmt-1-08-kyp-digital-mitra-patrata-rasta.html">पाठ 1.8</a> <a href="dmt-2-01-word-document-banana-save.html">पाठ 2.1</a> <a href="dmt-2-02-word-copy-paste-find-replace.html">पाठ 2.2</a> <a href="dmt-2-03-word-text-formatting-bold-font.html">पाठ 2.3</a> <a href="dmt-2-04-word-paragraph-alignment-spacing.html">पाठ 2.4</a> <a href="dmt-2-05-word-bullets-numbering-list.html">पाठ 2.5</a> <a href="dmt-2-06-word-page-layout-margin-orientation.html">पाठ 2.6</a> <a href="dmt-2-07-word-insert-picture-resize-wrap.html">पाठ 2.7</a> <a href="dmt-2-08-word-shapes-smartart.html">पाठ 2.8</a> <a href="dmt-2-09-word-table-banana.html">पाठ 2.9</a> <a href="dmt-2-10-word-header-footer-page-number.html">पाठ 2.10</a> <a href="dmt-2-11-word-styles-templates.html">पाठ 2.11</a> <a href="dmt-2-12-word-spelling-grammar-check.html">पाठ 2.12</a> <a href="dmt-2-13-word-print-pdf-export.html">पाठ 2.13</a> <a href="dmt-2-14-word-mail-merge.html">पाठ 2.14</a> <a href="dmt-2-15-word-ai-sahara-draft.html">पाठ 2.15</a> <a href="dmt-2-16-word-troubleshooting-google-docs.html">पाठ 2.16</a> <a href="dmt-3-01-excel-kholna-worksheet-cell.html">पाठ 3.1</a> <a href="dmt-3-02-data-prakar-cell-sajavat.html">पाठ 3.2</a> <a href="dmt-3-03-row-column-multiple-sheets.html">पाठ 3.3</a> <a href="dmt-3-04-excel-page-setup-print.html">पाठ 3.4</a> <a href="dmt-3-05-excel-sort-data-chhantna.html">पाठ 3.5</a> <a href="dmt-3-06-excel-filter-data-chhanna.html">पाठ 3.6</a> <a href="dmt-3-07-excel-formula-jod-ghatav.html">पाठ 3.7</a> <a href="dmt-3-08-excel-sum-average-min-max-count.html">पाठ 3.8</a> <a href="dmt-3-09-excel-if-countif-today.html">पाठ 3.9</a> <a href="dmt-3-10-excel-chart-banana-bar-line-pie.html">पाठ 3.10</a> <a href="dmt-3-11-excel-chart-sajana-padhna.html">पाठ 3.11</a> <a href="dmt-3-12-excel-pivot-table-parichay.html">पाठ 3.12</a> <a href="dmt-3-13-pivot-chart-report.html">पाठ 3.13</a> <a href="dmt-3-14-pivot-galtiyan-sudhar.html">पाठ 3.14</a> <a href="dmt-3-15-mis-report-excel.html">पाठ 3.15</a> <a href="dmt-3-16-ai-data-safai-chart-pivot.html">पाठ 3.16</a> <a href="dmt-4-01-powerpoint-kholna-banana-sahejna.html">पाठ 4.1</a> <a href="dmt-4-02-slide-jodna-layout-text.html">पाठ 4.2</a> <a href="dmt-4-03-slide-text-sajana.html">पाठ 4.3</a> <a href="dmt-4-04-theme-template-powerpoint.html">पाठ 4.4</a> <a href="dmt-4-05-slide-me-chitra-video-chart.html">पाठ 4.5</a> <a href="dmt-4-06-animation-powerpoint.html">पाठ 4.6</a> <a href="dmt-4-07-transition-powerpoint.html">पाठ 4.7</a> <a href="dmt-4-08-slideshow-chalana.html">पाठ 4.8</a> <a href="dmt-4-09-presenter-view-lab.html">पाठ 4.9</a> <a href="dmt-4-10-10-niyam-google-slides.html">पाठ 4.10</a> <a href="dmt-5-01-file-folder-vyavastha.html">पाठ 5.1</a> <a href="dmt-5-02-scanner-ocr-kagaz-se-digital.html">पाठ 5.2</a> <a href="dmt-5-03-file-ka-roop-badalna.html">पाठ 5.3</a> <a href="dmt-5-04-cloud-storage-google-drive.html">पाठ 5.4</a> <a href="dmt-5-05-email-ki-neev-suraksha.html">पाठ 5.5</a> <a href="dmt-5-06-inbox-vyavastha-ai-chhantai.html">पाठ 5.6</a> <a href="dmt-5-07-email-archive-khoj.html">पाठ 5.7</a> <a href="dmt-5-08-data-curation-chhantai-safai.html">पाठ 5.8</a> <a href="dmt-5-09-backup-recovery.html">पाठ 5.9</a> <a href="dmt-5-10-computer-dhima-cache-safai.html">पाठ 5.10</a> <a href="dmt-5-11-printer-aam-dikkaten.html">पाठ 5.11</a> <a href="dmt-5-12-samasya-aage-badhana-escalate.html">पाठ 5.12</a> <a href="dmt-5-13-device-update-rakhna.html">पाठ 5.13</a> <a href="dmt-5-14-llm-pahli-jaan-pahchan.html">पाठ 5.14</a> <a href="dmt-6-01-cyber-hygiene-roz-ke-niyam.html">पाठ 6.1</a> <a href="dmt-6-02-khatre-pahchano-virus-phishing.html">पाठ 6.2</a> <a href="dmt-6-03-mazboot-password-ki-kala.html">पाठ 6.3</a> <a href="dmt-6-04-password-manager.html">पाठ 6.4</a> <a href="dmt-6-05-2fa-do-tala-suraksha.html">पाठ 6.5</a> <a href="dmt-6-06-encryption-tale-ki-saral-samajh.html">पाठ 6.6</a> <a href="dmt-6-07-software-update-suraksha.html">पाठ 6.7</a> <a href="dmt-6-08-access-control-kise-kitna-adhikar.html">पाठ 6.8</a> <a href="dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html">पाठ 6.9</a> <a href="dmt-6-10-sanstha-ke-niyam-protocol-manna.html">पाठ 6.10</a> <a href="dmt-6-11-surakshit-bhugtan-len-den-niyam.html">पाठ 6.11</a> <a href="dmt-6-12-grahak-data-raksha-vyavhar-niyam.html">पाठ 6.12</a> <a href="dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html">पाठ 7.1</a> <a href="dmt-7-02-grahak-record-kaam-ka-hisab.html">पाठ 7.2</a> <a href="dmt-7-03-aadhaar-ke-kaam-self-service-mock.html">पाठ 7.3</a> <a href="dmt-7-04-pan-ke-kaam-online-sudhar-mock.html">पाठ 7.4</a> <a href="dmt-7-05-sarkari-yojnayen-khojna-samjhana.html">पाठ 7.5</a> <a href="dmt-7-06-online-form-pariksha-admission-mock.html">पाठ 7.6</a> <a href="dmt-7-07-passport-online-aavedan-mock.html">पाठ 7.7</a> <a href="dmt-7-08-net-banking-registration-ki-samajh-mock.html">पाठ 7.8</a> <a href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">पाठ 7.9</a> <span class="lsn-jumpcur">पाठ 7.10 (यही)</span> <a href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">पाठ 7.11</a> <a href="dmt-7-12-certificate-upload-portal-ke-kaam.html">पाठ 7.12</a> <a href="dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html">पाठ 8.1</a> <a href="dmt-8-02-prompt-likhne-ki-kala.html">पाठ 8.2</a> <a href="dmt-8-03-ai-se-email-chitthi-draft.html">पाठ 8.3</a> <a href="dmt-8-04-ai-se-saransh-content.html">पाठ 8.4</a> <a href="dmt-8-05-ai-jawab-ki-janch-sudhar.html">पाठ 8.5</a> <a href="dmt-8-06-ai-naitik-surakshit-upyog.html">पाठ 8.6</a> <a href="dmt-8-07-data-annotation-kya-hai.html">पाठ 8.7</a> <a href="dmt-8-08-annotation-ke-auzar.html">पाठ 8.8</a> <a href="dmt-8-09-annotation-shuddhata-ekroopta.html">पाठ 8.9</a> <a href="dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html">पाठ 8.10</a> <a href="dmt-9-01-employability-skills-parichay.html">पाठ 9.1</a> <a href="dmt-9-02-samvidhan-mulya-nagrikta.html">पाठ 9.2</a> <a href="dmt-9-03-peshevar-vyavhar-hygiene.html">पाठ 9.3</a> <a href="dmt-9-04-buniyadi-english-kaam-bhar.html">पाठ 9.4</a> <a href="dmt-9-05-communication-skills.html">पाठ 9.5</a> <a href="dmt-9-06-vividhta-samavesh.html">पाठ 9.6</a> <a href="dmt-9-07-paise-kanoon-ki-samajh.html">पाठ 9.7</a> <a href="dmt-9-08-udyamita-apna-kaam.html">पाठ 9.8</a> <a href="dmt-9-09-grahak-seva-dohrav-saar.html">पाठ 9.9</a> <a href="dmt-9-10-resume-interview-taiyari.html">पाठ 9.10</a> <a href="dmt-9-11-essential-digital-skills-pariksha-darpan.html">पाठ 9.11</a>
+</div>
+</details>
+
+<section class="lsn-sec lsn-lead">
+<p><strong>इस पाठ के बाद तुम कर पाओगे:</strong> (1) IRCTC-खाते का सही मालिक समझाना, (2) ईमानदारी-रेखा बताना — निजी खाते से व्यावसायिक booking मना, (3) booking की सीढ़ी mock-विधि से सिखाना, (4) ticket-जाल पहचानवाना।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>पहले ईमानदारी-रेखा — यह पाठ नियम से शुरू होता है</h2>
+<p>counter पर सबसे ललचाने वाली माँग यही है: "भैया, ticket काट दो — पैसे ले लेना।" रुको। <strong>IRCTC</strong> (आई-आर-सी-टी-सी — रेलवे की online ticket-सेवा) के नियम में खाते दो क़िस्म के हैं: <strong>निजी खाता</strong> — आदमी अपने और अपने परिवार-जैसों के सफ़र के लिए, और <strong>अधिकृत agent-खाता</strong> — जो बाक़ायदा अनुमति लेकर, agent-नियमों के भीतर, दूसरों की ticket व्यावसायिक रूप से काटता है। लकीर साफ़ है: <strong>अपने निजी खाते से पैसे लेकर दूसरों की ticket काटना नियम-विरुद्ध है</strong> — पकड़ में आने पर खाता बंद, ticket रद्द और क़ानूनी कार्रवाई तक की नौबत; "सबका चलता है" इसका बचाव नहीं (6.10 की सीख: नियम खले तो भी मानो, रास्ता लिखकर पूछो)। तो डिजिटल मित्र करे क्या? वही जो 7.08 में बैंक पर किया: <strong>सिखाओ</strong> — ग्राहक का <strong>अपना</strong> IRCTC-खाता बनवाओ, booking की सीढ़ी उसकी उँगली से चलवाओ, अपनी सिखाने-की फीस लो (6.11 दर-सूची)। और जिसे यह काम <strong>धंधे</strong> के रूप में करना है, उसके लिए ईमानदार पंक्ति: <strong>अधिकृत agent बनना अलग विषय है</strong> — उसकी अनुमति-प्रक्रिया व शर्तें IRCTC के आधिकारिक रास्ते से ही जानो-अपनाओ; बिना उस अनुमति के "ticket-काउंटर" मत खोलो।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>खाता और सीढ़ी — ग्राहक की उँगली से (NIOS-58)</h2>
+<p>काल्पनिक उदाहरण — सुरेश के पास गीता देवी आईं: बेटे के पास जाना है, ticket सीखनी है। तीन अटल पंक्तियाँ (7.03) यहाँ भी: mock बनावटी पर्चों पर — असली booking "अभ्यास" में कभी नहीं (असली पैसा + असली सीट दोनों दाँव पर)। <strong>खाता:</strong> गीता देवी का अपना — उनका mobile, उनकी email, चाबी-निर्माण 7.08 के नियम से (मित्र दूर)। <strong>booking-सीढ़ी:</strong> <strong>(1) खोज</strong> — कहाँ-से-कहाँ, तारीख़, गाड़ियों-दर्जों की सूची; <strong>(2) चुनाव</strong> — गाड़ी, दर्जा (शयनयान/कुर्सीयान…), उपलब्ध/प्रतीक्षा (waiting) का फ़र्क़ समझाओ — प्रतीक्षा-ticket यानी सीट पक्की <strong>नहीं</strong>, यह बात booking से <strong>पहले</strong> बतानी है, बाद में नहीं; <strong>(3) यात्री-ब्योरा</strong> — नाम-उम्र हूबहू पहचान-पत्र जैसे (7.04 हिज्जे-मिलान — सफ़र में जाँच होती है); <strong>(4) रुक-जाओ</strong> — भुगतान से ठीक पहले गाड़ी-तारीख़-यात्री-रक़म चारों पढ़ो (7.09 की घड़ी, STOP-BEFORE-SUBMIT का यहाँ रूप); भुगतान गीता देवी के अपने UPI/खाते से — 7.09 की पूरी विधि; <strong>(5) ticket सँभालना</strong> — e-ticket phone में + SMS; सफ़र में ticket के साथ <strong>वही पहचान-पत्र</strong> चाहिए जो भरा था — यह पंक्ति छूटी तो स्टेशन पर आँसू। booking की माँग-संख्या/रसीद register (7.02) में, और प्रतीक्षा-ticket हो तो सातवें खाने में "यात्रा से पहले स्थिति-जाँच" की तारीख़ — follow-up की वही पुरानी ताक़त।</p>
+</section>
+
+<section class="lsn-sec">
+<h2>ticket-जाल — तीन चेहरे</h2>
+<p><strong>जाल-1: नक़ली "confirm करवा दूँगा"</strong> — "प्रतीक्षा-ticket पक्की करवा दूँगा, अंदर setting" — 7.07 वाला setting-झूठ, रेल-पोशाक में; सीट का फ़ैसला रेलवे की अपनी व्यवस्था से होता है, जेबों से नहीं। <strong>जाल-2: नक़ली site/app</strong> — ticket के नाम पर मिलती-जुलती sites; द्वार-नियम वही: IRCTC की आधिकारिक site/app ख़ुद टाइप/आधिकारिक store से (7.08 की तीन पहचानें)। <strong>जाल-3: "सस्ती ticket" का सौदा</strong> — बाज़ार-भाव से सस्ती ticket बेचने वाला या तो नक़ली PDF थमाता है या किसी और के/जुगाड़ू खाते की नियम-विरुद्ध ticket — दोनों सूरतों में सफ़र के दिन फँसता ग्राहक है। ग्राहक को एक-पंक्ति कसौटी दो: <strong>ticket का दाम वही सच है जो आधिकारिक portal दिखाए; उससे सस्ता "सौदा" दाम नहीं, जाल है।</strong></p>
+</section>
+
+<section class="lsn-sec">
+<h2>एक नज़र में — ईमानदारी-रेखा और सीढ़ी</h2>
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IRCTC की ईमानदारी-रेखा — निजी बनाम अधिकृत agent-खाता, booking की पाँच-क़दम सीढ़ी और तीन ticket-जालों का रेखा-चित्र">
+<rect x="0" y="0" width="800" height="800" fill="#F5F7FA"/>
+<text x="400" y="42" text-anchor="middle" font-size="30" font-weight="bold" fill="#0B1F3A">ticket booking — IRCTC की समझ</text>
+<rect x="30" y="60" width="740" height="34" fill="#FFFFFF" stroke="#1565C0" stroke-width="1" rx="6"/>
+<text x="400" y="83" text-anchor="middle" font-size="17" fill="#0B1F3A">चिह्न-भाषा: ठोस तीर = गति · सोना-खाना = मुख्य · ✓ = सही · ✗ = कभी-नहीं</text>
+<rect x="50" y="112" width="340" height="120" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2" rx="8"/>
+<text x="220" y="142" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">निजी खाता</text>
+<text x="220" y="172" text-anchor="middle" font-size="16" fill="#2E7D32">✓ अपना/परिवार-जैसों का सफ़र</text>
+<text x="220" y="200" text-anchor="middle" font-size="16" fill="#0B1F3A">✗ पैसे लेकर दूसरों की booking</text>
+<rect x="410" y="112" width="340" height="120" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="580" y="142" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">अधिकृत agent-खाता</text>
+<text x="580" y="172" text-anchor="middle" font-size="16" fill="#0B1F3A">व्यावसायिक booking का वैध द्वार</text>
+<text x="580" y="200" text-anchor="middle" font-size="16" fill="#0B1F3A">अनुमति-शर्तें आधिकारिक रास्ते से</text>
+<rect x="60" y="248" width="680" height="44" fill="#F9A825" opacity="0.18" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="400" y="276" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">मित्र का रास्ता: ग्राहक का अपना खाता बनवाओ + सिखाने की फीस — booking-धंधा नहीं</text>
+<text x="400" y="330" text-anchor="middle" font-size="20" font-weight="bold" fill="#1565C0">booking की पाँच-क़दम सीढ़ी (NIOS-58)</text>
+<rect x="40" y="350" width="136" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="108" y="380" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">1 खोज</text>
+<text x="108" y="406" text-anchor="middle" font-size="16" fill="#0B1F3A">कहाँ-से-कहाँ,</text>
+<text x="108" y="430" text-anchor="middle" font-size="16" fill="#0B1F3A">तारीख़, गाड़ियाँ</text>
+<rect x="196" y="350" width="136" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="264" y="380" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">2 चुनाव</text>
+<text x="264" y="406" text-anchor="middle" font-size="16" fill="#0B1F3A">दर्जा · प्रतीक्षा =</text>
+<text x="264" y="430" text-anchor="middle" font-size="16" fill="#0B1F3A">सीट पक्की नहीं</text>
+<rect x="352" y="350" width="136" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="420" y="380" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">3 यात्री-ब्योरा</text>
+<text x="420" y="406" text-anchor="middle" font-size="16" fill="#0B1F3A">हूबहू पहचान-पत्र</text>
+<text x="420" y="430" text-anchor="middle" font-size="16" fill="#0B1F3A">जैसा (7.04)</text>
+<rect x="508" y="350" width="136" height="104" fill="#F9A825" opacity="0.25" stroke="#F9A825" stroke-width="3" rx="8"/>
+<text x="576" y="380" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">4 रुक-जाओ</text>
+<text x="576" y="406" text-anchor="middle" font-size="16" fill="#0B1F3A">गाड़ी-तारीख़-</text>
+<text x="576" y="430" text-anchor="middle" font-size="16" fill="#0B1F3A">यात्री-रक़म पढ़ो</text>
+<rect x="664" y="350" width="110" height="104" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="719" y="380" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">5 सँभाल</text>
+<text x="719" y="406" text-anchor="middle" font-size="16" fill="#0B1F3A">e-ticket + वही</text>
+<text x="719" y="430" text-anchor="middle" font-size="16" fill="#0B1F3A">पहचान-पत्र साथ</text>
+<line x1="176" y1="402" x2="196" y2="402" stroke="#1565C0" stroke-width="4"/>
+<line x1="332" y1="402" x2="352" y2="402" stroke="#1565C0" stroke-width="4"/>
+<line x1="488" y1="402" x2="508" y2="402" stroke="#1565C0" stroke-width="4"/>
+<line x1="644" y1="402" x2="664" y2="402" stroke="#1565C0" stroke-width="4"/>
+<rect x="60" y="478" width="680" height="50" fill="#FFFFFF" stroke="#2E7D32" stroke-width="2" rx="8"/>
+<text x="400" y="510" text-anchor="middle" font-size="16" fill="#2E7D32">✓ भुगतान ग्राहक के अपने UPI/खाते से — 7.09 की पूरी विधि + रुक-जाओ घड़ी</text>
+<text x="400" y="568" text-anchor="middle" font-size="20" font-weight="bold" fill="#1565C0">ticket-जाल — तीन चेहरे</text>
+<rect x="50" y="588" width="220" height="110" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="160" y="618" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">✗ "confirm करवा</text>
+<text x="160" y="642" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">दूँगा — setting"</text>
+<text x="160" y="672" text-anchor="middle" font-size="16" fill="#0B1F3A">सीट जेब से नहीं मिलती</text>
+<rect x="290" y="588" width="220" height="110" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="400" y="618" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">✗ नक़ली site/app</text>
+<text x="400" y="648" text-anchor="middle" font-size="16" fill="#0B1F3A">✓ आधिकारिक site/app</text>
+<text x="400" y="672" text-anchor="middle" font-size="16" fill="#0B1F3A">ख़ुद टाइप/store से</text>
+<rect x="530" y="588" width="220" height="110" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2" rx="8"/>
+<text x="640" y="618" text-anchor="middle" font-size="16" font-weight="bold" fill="#0B1F3A">✗ "सस्ती ticket"</text>
+<text x="640" y="648" text-anchor="middle" font-size="16" fill="#0B1F3A">दाम का सच = portal;</text>
+<text x="640" y="672" text-anchor="middle" font-size="16" fill="#0B1F3A">सस्ता सौदा = जाल</text>
+<text x="400" y="736" text-anchor="middle" font-size="17" fill="#0B1F3A">अध्याय में जगह — खंड-7 का पाठ 10/12:</text>
+<text x="400" y="760" text-anchor="middle" font-size="18" fill="#1565C0">● ● ● ● ● ● ● ● ● <tspan fill="#F9A825" font-weight="bold">◉</tspan> ○ ○</text>
+<text x="400" y="786" text-anchor="middle" font-size="16" fill="#0B1F3A">इस पाठ में: ईमानदारी-रेखा · agent-द्वार · पाँच-क़दम सीढ़ी · तीन जाल</text>
+</svg>
+</section>
+
+<section class="lsn-sec">
+<h2>करके देखो (अभी, 2 मिनट)</h2>
+<p>घरवाले से दो सवाल: (1) "मैं अपने खाते से पैसे लेकर मोहल्ले भर की ticket काटूँ — ठीक है?" (2) "प्रतीक्षा-ticket मिली यानी सीट पक्की?" दोनों के सही जवाब (नहीं — वह अधिकृत agent-अनुमति का काम है · नहीं — प्रतीक्षा यानी क़तार में नाम) बोलकर समझाओ। यही NIOS-58 की ज़बानी कसौटी है।</p>
+<p><strong>प्र-1.</strong> "भैया, अपने खाते से मेरी ticket काट दो, पैसे ले लेना" — मित्र का सही जवाब? (क) बेझिझक काट दो — सेवा देना ही तो धंधा है, और मना करना सीधा-सीधा ग्राहक खोना है (ख) मुफ़्त में काट दो — जब पैसे लिए ही नहीं, तो कोई नियम टूटने का सवाल ही नहीं उठता (ग) नहीं — निजी खाते से व्यावसायिक booking नियम-विरुद्ध; आओ, तुम्हारा अपना खाता बनाकर सिखा दूँ (घ) किसी दोस्त के खाते से कटवा दो — अपना खाता तो बचा रहेगा <strong>उत्तर: (ग)।</strong> कारण: लकीर खाते की क़िस्म से है — व्यावसायिक काम अधिकृत agent-खाते का; मित्र की वैध कमाई सिखाने की फीस है। बाक़ी क्यों ग़लत: (क) खाता-बंदी + क़ानूनी नौबत वाला "धंधा"; (ख) नियम पैसे से नहीं, काम की क़िस्म से बँधा है — और दूसरों की नियमित booking निजी खाते का काम नहीं; (घ) जुगाड़ = वही जुर्म, खाता दोस्त का।</p>
+<p><strong>प्र-2.</strong> जिसे ticket-booking को बाक़ायदा धंधा बनाना है, उसका सही रास्ता? (क) दो-तीन निजी खाते बना लो — बारी-बारी चलाओ, पकड़ नहीं आती (ख) IRCTC के आधिकारिक रास्ते से अधिकृत agent की अनुमति-प्रक्रिया व शर्तें जानो-अपनाओ (ग) किसी पुराने agent का खाता किराए पर ले लो — अनुमति उसी की चल जाएगी (घ) पहले चुपचाप शुरू करो — धंधा जमे तो अनुमति ले लेना <strong>उत्तर: (ख)।</strong> कारण: व्यावसायिक booking का वैध दरवाज़ा agent-अनुमति ही है — शर्तें आधिकारिक स्रोत से (अंदाज़े/सुनी-सुनाई से नहीं)। बाक़ी क्यों ग़लत: (क) कई खाते = कई सबूत, बचाव नहीं; (ग) अनुमति आदमी-दर-आदमी है, किराए की चीज़ नहीं; (घ) "जमने तक जुर्म" — पकड़ पहले दिन भी हो सकती है।</p>
+<p><strong>प्र-3.</strong> प्रतीक्षा (waiting) ticket के बारे में ग्राहक को कब और क्या बताना है? (क) booking से पहले — प्रतीक्षा यानी सीट पक्की नहीं, क़तार में नाम है (ख) सफ़र वाले दिन — पहले बताकर ग्राहक का मन क्यों तोड़ना (ग) कुछ नहीं बताना — प्रतीक्षा-ticket तो हमेशा पक्की हो ही जाती है (घ) booking के बाद रसीद थमाते समय — काम पहले, बात बाद में <strong>उत्तर: (क)।</strong> कारण: फ़ैसले की जानकारी फ़ैसले से पहले — यही 7.01 का झूठा-दिलासा-निषेध है; बाद में बताना धोखे जैसा लगता है। बाक़ी क्यों ग़लत: (ख/घ) देर से बताया सच भी शिकायत बनता है; (ग) "हमेशा पक्की" झूठ है — होती तो उसे प्रतीक्षा कहते ही क्यों।</p>
+<p><strong>प्र-4.</strong> यात्री-ब्योरा भरते समय नाम-उम्र किससे मिलाकर लिखोगे? (क) ग्राहक की ज़बान से — जो बोले वही सही (ख) जैसा घर-मोहल्ले में बुलाते हैं — पुकारू नाम सबसे पक्का (ग) अंदाज़े से — उम्र तो देखकर ही पता चल जाती है (घ) उसी पहचान-पत्र से हूबहू, जो सफ़र में साथ जाएगा <strong>उत्तर: (घ)।</strong> कारण: सफ़र में ticket+पहचान-पत्र का मिलान होता है — बेमेल नाम स्टेशन पर आँसू है (7.04 हिज्जे-मिलान का रेल-रूप)। बाक़ी क्यों ग़लत: (क/ख) ज़बानी/पुकारू नाम दस्तावेज़ से भिड़ता नहीं; (ग) भरी उम्र काग़ज़ से मिलनी चाहिए, चेहरे से नहीं।</p>
+<p><strong>प्र-5.</strong> "बाज़ार से सस्ती confirm ticket दिलवा दूँगा" — सही कसौटी? (क) दिलवा ले — पैसा बचे तो ग्राहक का ही फ़ायदा है (ख) आधा दाम पहले देकर आज़मा लो — सच्चा निकला तो सौदा पक्का (ग) दाम वही सच जो आधिकारिक portal दिखाए — सस्ता "सौदा" जाल है (घ) त्योहार-भीड़ के दिनों में ही ऐसे सौदे लो — तब तो सारे सौदे असली ही निकलते हैं <strong>उत्तर: (ग)।</strong> कारण: सस्ती का स्रोत या नक़ली PDF या नियम-विरुद्ध खाता — दोनों में सफ़र के दिन फँसता ग्राहक है। बाक़ी क्यों ग़लत: (क) "फ़ायदा" स्टेशन तक ही है; (ख) ठग को आधा भी पूरा डूबना (7.05); (घ) त्योहार तो ठगों की फ़सल है।</p>
+<p><strong>अगला पाठ → 7.11: online course में दाख़िला — ख़ुद सीखते रहना।</strong></p>
+</section>
+
+<section class="lsn-sec lsn-video">
+<h2>वीडियो (Video)</h2>
+<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते —</p>
+<p class="lsn-vidrow"><a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0%20%E0%A4%AC%E0%A5%87%E0%A4%B8%E0%A4%BF%E0%A4%95%20ticket%20booking%20%E2%80%94%20IRCTC%20%E0%A4%95%E0%A5%80%20%E0%A4%B8%E0%A4%AE%E0%A4%9D%20(mock)%20%E0%A4%B9%E0%A4%BF%E0%A4%82%E0%A4%A6%E0%A5%80" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> </p>
+<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा — पढ़ाई कहीं नहीं रुकती।)</p>
+</section>
+
+<nav class="lsn-nav"><a class="lsn-navbtn" href="dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html">← पिछला पाठ</a><a class="lsn-navbtn lsn-next" href="dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html">अगला पाठ →</a></nav>
+</article>
+
+<!-- PAGE-CONTENT-END -->
+</main>
+
+<footer class="acs-footer" id="contact">
+  <div class="wrap">
+    <h5 id="acsFootName">अप्लाइड कंप्यूटर स्कूल™</h5>
+    <p id="acsFootTag">130 भाषा में गाँव से ग्लोबल साउथ तक — मोबाइल फ्रेंडली कोर्स कंटेंट!</p>
+    <nav class="acs-fmenu" id="acsFooterMenu" aria-label="फुटर मेन्यू"></nav>
+    <div class="acs-fblock">
+      <b id="acsFbCertTitle">📜 प्रमाण पत्र देने वाली संस्था</b>
+      <p id="acsTrust">फ्रीडम फाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट (FFGPMTrust)</p>
+      <p id="acsCert">प्रमाणन: ISO 9001:2015 · वेबसाइट: ffgpmt.org</p>
+    </div>
+    <div class="acs-fblock">
+      <b id="acsFbContactTitle">📞 संपर्क</b>
+      <p><a id="acsPhone" href="tel:+919431210092">+91-9431210092</a> · <a id="acsEmail" href="mailto:info@ffgpmt.org">info@ffgpmt.org</a></p>
+      <p id="acsAddr">📍 एसीएस भवन, विद्यार्थी नगर, चौथम, खगड़िया, बिहार — 851201</p>
+    </div>
+    <p class="acs-warn" id="acsWarn">⚠️ भुगतान केवल आधिकारिक Razorpay लिंक से।</p>
+    <div class="acs-fbottom">© 2026 <span id="acsCopy">अप्लाइड कंप्यूटर स्कूल™</span> • acslearn.com</div>
+  </div>
+</footer>
+<div class="acs-scrim" id="acsScrim" onclick="acsCloseMenu()"></div>
+<nav class="acs-drawer" id="acsDrawer" aria-label="मेन्यू">
+  <button class="close" type="button" onclick="acsCloseMenu()" aria-label="बंद करें">✕</button>
+  <h4 id="acsDrawerTitle">मेन्यू</h4>
+  <div id="acsMenuList">
+<a class="acs-mitem" href="/"><span class="e">🏠</span> होम</a>
+<a class="acs-mitem" href="/hi/mission.html"><span class="e">🎯</span> मिशन</a>
+<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>
+<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>
+<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>
+<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>
+<a class="acs-mitem" href="/verify/"><span class="e">🏆</span> प्रमाण पत्र</a>
+<a class="acs-mitem" href="/hi/network.html"><span class="e">🤝</span> नेटवर्क</a>
+<a class="acs-mitem" href="/vani/"><span class="e">📱</span> वाणी</a>
+<a class="acs-mitem" href="/contact/hi/"><span class="e">📞</span> संपर्क</a>
+</div>
+  <a class="login" id="acsLogin" href="/dashboard/"><span class="e">🔑</span> लॉगिन / डैशबोर्ड</a>
+</nav>
+<a class="acs-wa" id="acsWa" href="https://wa.me/919431210092" aria-label="व्हाट्सएप पर संपर्क करें">
+  <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+</a>
+<script src="/assets/acs-universal.js"></script>
+
+<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</script>
+<script src="/assets/course-lesson.js" defer></script>
+</body>
+</html>
