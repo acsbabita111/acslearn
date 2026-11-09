@@ -1,5 +1,5 @@
 /* ============================================================
-   acs-universal.js v2.2 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome)
+   acs-universal.js v2.3 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome)
    जगह: /assets/acs-universal.js  (config+links के बाद load)
    • भाषा-सचेत: /en/ folder → English labels/strings; अन्यथा हिंदी।
    • acs- prefix — पुराने script.js/page-JS से कोई टकराव नहीं।
@@ -249,11 +249,13 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       fw.className = "udy-float";
       var bTop = document.createElement("button");
       bTop.type="button"; bTop.className="udy-fbtn"; bTop.textContent="⬆";
-      bTop.setAttribute("aria-label","पेज के ऊपर जाएँ");
+      var fbHi=((document.documentElement.getAttribute("lang")||"hi").indexOf("hi")===0);
+      bTop.setAttribute("aria-label", fbHi?"पेज के ऊपर जाएँ":"Back to top");
+      bTop.title = fbHi?"पेज के ऊपर जाएँ":"Back to top";
       bTop.onclick=function(){ try{window.scrollTo({top:0,behavior:"smooth"});}catch(e){window.scrollTo(0,0);} };
       var bBack = document.createElement("a");
       bBack.className="udy-fbtn"; bBack.textContent="←";
-      bBack.href = isUdyam ? "/udyam/" : "/"; bBack.setAttribute("aria-label","पीछे जाएँ");
+      bBack.href = isUdyam ? "/udyam/" : "/"; bBack.setAttribute("aria-label", fbHi?"पीछे जाएँ":"Go back"); bBack.title = fbHi?"पीछे जाएँ":"Go back";
       bBack.onclick=function(ev){ if(history.length>1){ ev.preventDefault(); history.back(); } };
       fw.appendChild(bTop); if(!isHome) fw.appendChild(bBack);
       document.body.appendChild(fw);
