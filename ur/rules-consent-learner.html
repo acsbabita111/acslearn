@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="canonical" href="https://acslearn.com/ur/rules-consent-learner.html"/>
+  <link rel="alternate" hreflang="hi" href="https://acslearn.com/rules-consent-learner.html"/><link rel="alternate" hreflang="en" href="https://acslearn.com/en/rules-consent-learner.html"/><link rel="alternate" hreflang="zh" href="https://acslearn.com/zh/rules-consent-learner.html"/><link rel="alternate" hreflang="es" href="https://acslearn.com/es/rules-consent-learner.html"/><link rel="alternate" hreflang="ar" href="https://acslearn.com/ar/rules-consent-learner.html"/><link rel="alternate" hreflang="fr" href="https://acslearn.com/fr/rules-consent-learner.html"/><link rel="alternate" hreflang="bn" href="https://acslearn.com/bn/rules-consent-learner.html"/><link rel="alternate" hreflang="pt" href="https://acslearn.com/pt/rules-consent-learner.html"/><link rel="alternate" hreflang="ru" href="https://acslearn.com/ru/rules-consent-learner.html"/><link rel="alternate" hreflang="id" href="https://acslearn.com/id/rules-consent-learner.html"/><link rel="alternate" hreflang="ur" href="https://acslearn.com/ur/rules-consent-learner.html"/><link rel="alternate" hreflang="de" href="https://acslearn.com/de/rules-consent-learner.html"/><link rel="alternate" hreflang="ja" href="https://acslearn.com/ja/rules-consent-learner.html"/><link rel="alternate" hreflang="mr" href="https://acslearn.com/mr/rules-consent-learner.html"/><link rel="alternate" hreflang="te" href="https://acslearn.com/te/rules-consent-learner.html"/><link rel="alternate" hreflang="x-default" href="https://acslearn.com/rules-consent-learner.html"/>
+  <meta name="description" content="قواعد اور رضامندی — Learner — <bdi dir="ltr">ACS</bdi> (Applied Computer School) پر رجسٹریشن سے پہلے پڑھ کر قبول کرنے والے قواعد۔"/>
+<title>قواعد اور رضامندی — Learner | <bdi dir="ltr">ACS</bdi></title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!--
+  ⚙️ अनुवाद-फ़ाइल (09-Nov-2026, खेप-consent-ml1 v1.2): क़ानूनी master = /rules-consent-learner.html (हिंदी, Version 1.1)।
+  ढाँचा/id/script-तर्क hi-फ़ाइल से हूबहू — join.html इसी #bulkConsentChk को adopt करता है।
+  नई भाषा = इसी ढाँचे की /<ACS-कोड>/rules-consent-learner.html प्रति (पता-नियम v1.1); 400+ भाषा इसी साँचे से।
+-->
+<style>
+  :root{--navy:#0B1F3A;--blue:#1565C0;--gold:#F9A825;--green:#2E7D32;--off:#F5F7FA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{direction:rtl;font-family:'Noto Nastaliq Urdu',serif;letter-spacing:0;font-size:19px;line-height:2.1;color:#1a2433;background:var(--off);padding:12px}
+  .wrap{max-width:820px;margin:0 auto}
+  .tiranga-bar{height:7px;display:flex;border-radius:6px;overflow:hidden;margin-bottom:8px}
+  .tiranga-bar div{flex:1}
+  .tiranga-bar .saffron{background:#FF9933}
+  .tiranga-bar .white{background:#FFFFFF}
+  .tiranga-bar .greenstripe{background:#138808}
+  .head{background:var(--navy);color:#fff;border-radius:12px;padding:16px;text-align:center;margin-bottom:10px}
+  .head h1{font-size:22px;line-height:1.5}
+  .head .org{color:var(--gold);font-weight:700;font-size:16px;margin-top:4px}
+  .head .sub{font-size:16px;color:#cfd8e3;margin-top:2px}
+  .ver{background:#fff;border:1.5px solid var(--blue);border-radius:10px;padding:8px 12px;font-size:16px;text-align:center;margin-bottom:12px;color:var(--navy)}
+  .transnote{background:#FFF8E1;border:1.5px solid var(--gold);border-radius:10px;padding:9px 12px;font-size:16px;text-align:center;margin-bottom:12px;color:#5a4500}
+  .idbox{background:#fff;border:2px solid var(--blue);border-radius:12px;padding:14px;margin-bottom:12px}
+  .idbox h3{color:var(--navy);font-size:17px;margin-bottom:8px}
+  .idrow{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+  .idrow label{font-size:16px;color:#555;font-weight:600}
+  .idrow input, .idrow select{font:inherit;font-size:18px;padding:9px 10px;border:1.5px solid #cfd8e3;border-radius:8px;background:#fff}
+  .guardianBox{display:none;background:#EAF3EC;border:1.5px solid var(--green);border-radius:9px;padding:10px;margin-top:6px}
+  .guardianBox.show{display:block}
+  .note{background:#FFF8E1;border:1.5px solid var(--gold);border-radius:10px;padding:11px 13px;font-size:17px;margin-bottom:12px}
+  .part{background:var(--navy);color:var(--gold);border-radius:8px;padding:6px 12px;font-size:17px;font-weight:800;margin:14px 0 6px}
+  .rules{background:#fff;border:1px solid #dfe6ef;border-radius:12px;padding:8px 6px;margin-bottom:6px}
+  .rule{display:flex;gap:10px;align-items:flex-start;padding:11px 10px;border-bottom:1px dashed #e3e9f2}
+  .rule:last-child{border-bottom:none}
+  .rule input[type=checkbox]{width:26px;height:26px;min-width:26px;margin-top:7px;accent-color:var(--green);cursor:pointer}
+  .rule .no{font-weight:800;color:var(--blue);min-width:38px;margin-top:2px}
+  .rule label{cursor:pointer;flex:1}
+  .rule.special{background:#FFF8E1;border-radius:8px}
+  .bar{position:sticky;bottom:0;background:#fff;border:1px solid #dfe6ef;border-radius:12px;padding:12px;margin-top:12px;box-shadow:0 -4px 14px rgba(11,31,58,.08)}
+  .count{font-size:16px;text-align:center;color:#555;margin-bottom:8px}
+  .final{display:flex;gap:10px;align-items:flex-start;background:#EAF3EC;border:1.5px solid var(--green);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:17px}
+  .final input{width:26px;height:26px;min-width:26px;margin-top:5px;accent-color:var(--green)}
+  .final input:disabled{opacity:.45}
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  button{flex:1;min-width:150px;border:none;border-radius:10px;padding:14px;font:inherit;font-size:20px;font-weight:800;cursor:pointer}
+  #otpBtn{background:#c7cfda;color:#6b7686;cursor:not-allowed;transition:.3s}
+  #otpBtn.on{background:var(--green);color:#fff;cursor:pointer;box-shadow:0 4px 14px rgba(46,125,50,.35)}
+  .foot{text-align:center;color:#666;font-size:16px;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- exit bar (rule v2.3, 18-Jul-2026): no dead ends -->
+  <div class="exitbar" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;background:#F5F7FA;border:1px solid #d7dde6;border-radius:10px;padding:10px 14px;margin:10px 0 14px;font-size:16px;line-height:1.7"><a href="/" style="color:#1565C0;font-weight:700;text-decoration:none">🏠 ہوم</a><span style="color:#8a94a3">·</span><a href="/registration-guide.html" style="color:#1565C0;font-weight:700;text-decoration:none">← رجسٹریشن گائیڈ</a><span style="color:#8a94a3">·</span><a href="/rules-consent-learner.html" style="color:#1565C0;font-weight:700;text-decoration:none">🇮🇳 हिंदी</a></div>
+
+  <div class="tiranga-bar"><div class="saffron"></div><div class="white"></div><div class="greenstripe"></div></div>
+
+  <div class="head">
+    <h1>قواعد، حقوق اور فرائض — Learner</h1>
+    <div class="org">Applied Computer School™ · FFGPMTrust</div>
+    <div class="sub">اصل زبان: ہندی · کردار: learner (طالبِ علم · ملازمت کے خواہاں · کاروباری)</div>
+  </div>
+
+  <div class="ver"><b>ورژن: <bdi dir="ltr">1.1</bdi></b> · نفاذ کی تاریخ: <bdi dir="ltr">9</bdi> نومبر <bdi dir="ltr">2026</bdi></div>
+
+  <div class="transnote">🌐 یہ سہولت کے لیے دیا گیا اردو ترجمہ ہے۔ مفہوم میں کوئی فرق ہو تو <a href="/rules-consent-learner.html" style="color:#<bdi dir="ltr">1565</bdi>C<bdi dir="ltr">0</bdi>;font-weight:<bdi dir="ltr">700</bdi>">ہندی اصل</a> ہی قانوناً معتبر متن ہے۔</div>
+
+  <div class="idbox">
+    <h3>👤 آپ کی معلومات</h3>
+    <div class="idrow"><label>نام — اپنی زبان میں</label><input type="text" placeholder="مثلاً: Rajesh Kumar"></div>
+    <div class="idrow"><label>نام — رومن بڑے حروف میں</label><input type="text" placeholder="e.g. RAJESH KUMAR"></div>
+    <div class="idrow"><label>آپ کون ہیں؟</label>
+      <select id="typeSel">
+        <option value="student">طالبِ علم</option>
+        <option value="jobseeker">ملازمت کے خواہاں</option>
+        <option value="entrepreneur">کاروباری</option>
+      </select>
+    </div>
+    <div class="idrow"><label>عمر</label><input type="number" id="ageInput" min="10" max="90" placeholder="اپنی عمر لکھیں"></div>
+    <div class="guardianBox" id="guardianBox">
+      <div class="idrow"><label>سرپرست کا نام (نابالغ کے لیے لازمی)</label><input type="text" placeholder="سرپرست کا پورا نام"></div>
+      <div class="idrow"><label>سرپرست سے رشتہ</label><input type="text" placeholder="مثلاً: والد، والدہ، سرپرست"></div>
+    </div>
+  </div>
+
+  <div class="note">🙏 ہر قاعدہ غور سے پڑھیں (نابالغ اپنے سرپرست کی مدد لیں)۔ <b>نیچے کی سبز پٹی «سب ایک ساتھ قبول» پر ☑ کرتے ہی اوپر کے سب لاگو قواعد اور «آخری تصدیق» ایک ساتھ قبول ہو جائیں گے — تب ہی «<bdi dir="ltr">OTP</bdi> بھیجیں» بٹن چلے گا۔</b> چاہیں تو قواعد ایک ایک کر کے پڑھ کر ☑ بھی کر سکتے ہیں؛ اس صورت میں آخر میں «آخری تصدیق» الگ سے خود کریں۔</div>
+
+  <div class="part">حصہ الف : <bdi dir="ltr">ACS</bdi> کا بنیادی وعدہ</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">1.</span><label><bdi dir="ltr">ACS</bdi> کے پانچ بنیادی اصول — آپ سے ہر معاملے کی بنیاد — (<bdi dir="ltr">1</bdi>) <b>پہلے سیکھنے والا</b>، (<bdi dir="ltr">2</bdi>) <b>دیانت</b>، (<bdi dir="ltr">3</bdi>) <b>رازداری کا تحفظ</b>، (<bdi dir="ltr">4</bdi>) <b>انصاف</b>، (<bdi dir="ltr">5</bdi>) <b>بلا امتیاز سلوک</b>۔ یہ (پہلے سے نافذ) <bdi dir="ltr">ACS</bdi> Global South Charter پر مبنی ہیں۔</label></div>
+  </div>
+
+  <div class="part">حصہ ب : عمر، شمولیت اور حقوق</div>
+  <div class="rules">
+    <div class="rule special"><input type="checkbox"><span class="no">2.</span><label><b>عمر کا قاعدہ:</b> <span id="ruleAge" data-s="طالبِ علم — ⁦10⁩ سال سے جڑ سکتے ہیں؛ ⁦10-17⁩ سال پر سرپرست کی رضامندی لازمی۔" data-j="ملازمت کے خواہاں — ملازمت کی تیاری ⁦16⁩ سال سے (⁦16-17⁩ پر سرپرست کی رضامندی)؛ اصل ملازمت/درخواست/جوائننگ صرف ⁦18⁩+ پر۔" data-e="کاروباری — کم از کم ⁦16⁩ سال؛ Industrial Tour کے لیے ⁦16-17⁩ سال پر سرپرست کی نوٹری شدہ اجازت لازمی۔">طالبِ علم — ⁦10⁩ سال سے جڑ سکتے ہیں؛ ⁦10-17⁩ سال پر سرپرست کی رضامندی لازمی۔</span></label></div>
+    <div class="rule"><input type="checkbox"><span class="no">3.</span><label>لاگ اِن کے بغیر بھی مفت دیکھ سکتے ہیں: تمام کورس، <bdi dir="ltr">950</bdi> کاروباری مواقع کی فہرست، اور اوزار/تربیت کی معلومات۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">4.</span><label><b>آپ کے اہم فائدے:</b> <span id="ruleBenefit" data-s="رجسٹریشن کے بعد — دلچسپی کا ٹیسٹ، مشاورت، مرکز کے کورس، اپنی زبان میں مواد، سرٹیفکیٹ۔" data-j="ملازمت کی معلومات/مواقع دیکھنا؛ ⁦18⁩+ پر ڈیش بورڈ سے آجر سے براہِ راست رابطہ؛ پلیٹ فارم فیس سیدھی ⁦ACS⁩ کو — کسی آجر/ایجنٹ کو الگ سے کبھی نہیں۔" data-e="⁦950⁩ کاروباروں کی بینک فنانس کے لیے تیار رپورٹیں، مارکیٹ ریسرچ، اوزاروں کی فہرستیں، کورس، سرمایہ کاری کی سیڑھی (⁦L1-L15⁩)، Industrial Tour پیکج۔">رجسٹریشن کے بعد — دلچسپی کا ٹیسٹ، مشاورت، مرکز کے کورس، اپنی زبان میں مواد، سرٹیفکیٹ۔</span></label></div>
+    <div class="rule special jobseeker-only" id="jsPoliceRule" style="display:none"><input type="checkbox"><span class="no">5.</span><label><b>پولیس تصدیق (صرف ملازمت کے خواہاں کے لیے لازمی):</b> اصل ملازمت کے لیے کسی آجر سے رابطے/درخواست سے پہلے پولیس تصدیق جمع کرانی ہوگی۔ اس کی توثیق <bdi dir="ltr">HQ Legal</bdi> Head کرے گا۔ تکمیل تک رابطہ/درخواست کی سہولت دستیاب نہیں ہوگی۔</label></div>
+  </div>
+
+  <div class="part">حصہ ج : فیس، واپسی اور خطرے کا اعلان</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">6.</span><label>جڑنا/دیکھنا ہمیشہ مفت؛ <span id="ruleFee" data-s="پیسہ صرف اِن خدمات پر: چھپنے کے قابل دلچسپی رپورٹ ⁦₹125⁩ — ⁦24⁩ سوالوں کی جھلک مفت؛ پورا ⁦120⁩ سوالوں کا ٹیسٹ ⁦₹100⁩ فی موقع؛ فعال ⁦Golden Pass⁩ (⁦₹300⁩؛ ⁦18⁩ سے کم عمر پر تاریخِ پیدائش کی رعایت) میں پورے ٹیسٹ لامحدود مفت · آف لائن تربیت · ورکشاپ شاگردی · مشیر کا مشورہ · غیر ملکی ایجنٹ سے رابطہ" data-j="تصدیق شدہ بیج (اختیاری — گاؤں ⁦₹300⁩ · قصبہ ⁦₹600⁩ · میٹرو ⁦₹1000⁩ · ⁦365⁩ دن، یکساں)" data-e="Industrial Tour (اگر لیں)">پیسہ صرف اِن خدمات پر: چھپنے کے قابل دلچسپی رپورٹ ⁦₹125⁩ — ⁦24⁩ سوالوں کی جھلک مفت؛ پورا ⁦120⁩ سوالوں کا ٹیسٹ ⁦₹100⁩ فی موقع؛ فعال ⁦Golden Pass⁩ (⁦₹300⁩؛ ⁦18⁩ سے کم عمر پر تاریخِ پیدائش کی رعایت) میں پورے ٹیسٹ لامحدود مفت · آف لائن تربیت · ورکشاپ شاگردی · مشیر کا مشورہ · غیر ملکی ایجنٹ سے رابطہ</span>۔ ہر فیس پہلے سے صاف بتائی جائے گی۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">7.</span><label><b>واپسی کے قواعد:</b> <span id="ruleRefund" data-s="دلچسپی کا ٹیسٹ: ⁦24⁩ سوالوں کی جھلک سب کے لیے مفت؛ پورا ٹیسٹ ⁦₹100⁩ فی موقع (فعال ⁦Golden Pass⁩ کے ساتھ مفت)؛ چھپنے کے قابل رپورٹ ⁦₹125⁩ — دل چاہے تو لیں۔ مشاورت: سیشن سے کم از کم ⁦1⁩ گھنٹہ پہلے منسوخی = ⁦90%⁩ واپس (چاہے سیکھنے والا منسوخ کرے یا مشیر)۔ موت/آفت کی صورت میں = ⁦75%⁩ واپس۔" data-j="بیج کی تصدیق سے پہلے منسوخی = ⁦90%⁩ واپس (⁦10%⁩ پراسیسنگ)؛ بیج بننے کے بعد = (پوری رقم − ⁦30%⁩) × بچے دن ÷ ⁦365⁩۔" data-e="Industrial Tour کا پیسہ ⁦escrow⁩ میں رہے گا؛ خرچ ہو چکا حصہ (ویزا/ٹکٹ/بکنگ) ناقابلِ واپسی، باقی رقم واپس ہوگی۔">دلچسپی کا ٹیسٹ: ⁦24⁩ سوالوں کی جھلک سب کے لیے مفت؛ پورا ٹیسٹ ⁦₹100⁩ فی موقع (فعال ⁦Golden Pass⁩ کے ساتھ مفت)؛ چھپنے کے قابل رپورٹ ⁦₹125⁩ — دل چاہے تو لیں۔ مشاورت: سیشن سے کم از کم ⁦1⁩ گھنٹہ پہلے منسوخی = ⁦90%⁩ واپس (چاہے سیکھنے والا منسوخ کرے یا مشیر)۔ موت/آفت کی صورت میں = ⁦75%⁩ واپس۔</span></label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">8.</span><label><b>خطرے کا اعلان (ضرور پڑھیں):</b> <span id="ruleRisk" data-s="کوئی کورس/تربیت ملازمت یا آمدنی کی ضمانت نہیں دیتی؛ سرٹیفکیٹ قابلیت کا ثبوت ہے، ملازمت کا وعدہ نہیں۔" data-j="ملازمت/پلیسمنٹ میں کامیابی کی کوئی ضمانت نہیں؛ بھرتی کا آخری فیصلہ آجر کا؛ ⁦ACS⁩ صرف درمیانی (پلیٹ فارم) ہے۔" data-e="کاروبار کے ساتھ خطرہ ہمیشہ جُڑا رہتا ہے۔ کسی نقصان کے لیے ⁦ACS⁩، ⁦FFGPMTrust⁩ یا کوئی مشیر ذمہ دار نہیں؛ سرمایہ کاری اور نتائج کی پوری ذمہ داری آپ کی اپنی ہے۔">کوئی کورس/تربیت ملازمت یا آمدنی کی ضمانت نہیں دیتی؛ سرٹیفکیٹ قابلیت کا ثبوت ہے، ملازمت کا وعدہ نہیں۔</span></label></div>
+  </div>
+
+  <div class="part">حصہ د : حفاظت اور رویہ</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">9.</span><label>بچوں کا تحفظ (<bdi dir="ltr">POCSO</bdi>) اور آپ کے ذاتی ڈیٹا کا تحفظ (<bdi dir="ltr">DPDP</bdi>) — دونوں قوانین پوری طرح لاگو ہیں۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">10.</span><label>اپنا <bdi dir="ltr">ID</bdi>/<bdi dir="ltr">Password</bdi> کسی کو نہ دیں؛ رجسٹریشن میں صرف سچی اور درست معلومات بھریں۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">11.</span><label><bdi dir="ltr">ACS</bdi> پلیٹ فارم کسی سیاسی مہم کے لیے استعمال نہ کریں۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">12.</span><label>دوسرے سیکھنے والوں اور <bdi dir="ltr">ACS</bdi> ٹیم سے ہمیشہ باادب سلوک کریں۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">13.</span><label><b>سرٹیفکیٹ:</b> صرف اصل راستے امتحان ← نتیجہ ← سرٹیفکیٹ سے جاری ہوگا — کسی کے لیے کوئی شارٹ کٹ نہیں۔</label></div>
+  </div>
+
+  <div class="part">حصہ ہ : شمولیت، لاگ اِن اور ریکارڈ</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">14.</span><label>شمولیت کا طریقہ: فارم بھریں ← <bdi dir="ltr">OTP</bdi> سے ای میل کی تصدیق ← <b>فوراً فعال</b> — کوئی انتظار نہیں؛ فوراً استعمال شروع کر سکتے ہیں۔</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">15.</span><label><b>لاگ اِن قاعدہ (آپ کے لیے خاص):</b> ہر لاگ اِن صرف <bdi dir="ltr">ID</bdi> + <bdi dir="ltr">Password</bdi> سے — دوبارہ <bdi dir="ltr">OTP</bdi> نہیں مانگا جاتا (یہ دوسرے کرداروں سے مختلف ہے)۔ <bdi dir="ltr">10</bdi> منٹ غیر فعال رہنے پر خودکار لاگ آؤٹ۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">16.</span><label>آپ کی حفاظت اور کسی تنازعے کی صورت کے لیے لاگ اِن اور سرگرمی کا ڈیجیٹل ریکارڈ رکھا جائے گا۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">17.</span><label>سرٹیفکیٹ کے ریکارڈ مستقل محفوظ رہیں گے؛ باقی انتظامی ریکارڈ کم از کم <bdi dir="ltr">7</bdi> سال۔</label></div>
+  </div>
+
+  <div class="part">حصہ و : قواعد کی تبدیلی، تنازعات اور بالادستی</div>
+  <div class="rules">
+    <div class="rule"><input type="checkbox"><span class="no">18.</span><label>بانی کو قواعد بدلنے کا حق ہے؛ تبدیلی کی اطلاع <bdi dir="ltr">7</bdi> دن میں دی جائے گی۔ کوئی تبدیلی پہلے سے ادا شدہ فیس یا لی گئی خدمات پر پچھلی تاریخ سے لاگو نہیں ہوگی۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">19.</span><label>اس رضامندی کی دو برابر نقلیں ہوں گی — ایک آپ کے پاس (اور سرپرست کے پاس، اگر لاگو ہو)، ایک <bdi dir="ltr">ACS</bdi> (<bdi dir="ltr">HQ Legal</bdi>) کے پاس۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">20.</span><label>کوئی بھی قانونی تنازع صرف <b>کھگڑیا (بہار) عدالت</b> یا پٹنہ کی بااختیار دیوانی عدالت کے دائرۂ اختیار میں ہوگا۔ بین الاقوامی معاملات میں <bdi dir="ltr">UNCITRAL</bdi> قواعد لاگو ہوں گے۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">21.</span><label><b>ملکی ضمیمہ:</b> بھارت سے باہر لاگو اضافی قواعد متعلقہ ملک کے ضمیمے کے ذریعے جاری ہوں گے۔</label></div>
+    <div class="rule"><input type="checkbox"><span class="no">22.</span><label>سب سے اوپر: <bdi dir="ltr">ACS</bdi> کے تازہ ترین درج قواعد اور بانی کی ہدایات ہی حتمی ہوں گی۔</label></div>
+    <div class="rule special"><input type="checkbox"><span class="no">23.</span><label><b><bdi dir="ltr">ACS</bdi> کا خصوصی حق:</b> دھوکہ دہی، جھوٹی معلومات یا قواعد کی سنگین خلاف ورزی پر آپ کا اکاؤنٹ فوری طور پر روکا/ختم کیا جا سکتا ہے — <bdi dir="ltr">12</bdi> سے <bdi dir="ltr">24</bdi> گھنٹوں میں ڈیجیٹل اطلاع دی جائے گی۔ جمع فیس کا تصفیہ اوپر دیے واپسی کے قواعد (قاعدہ <bdi dir="ltr">7</bdi>) کے مطابق ہوگا۔</label></div>
+    <div class="bulk-consent" id="bulkConsentWrap" style="display:flex;gap:10px;align-items:flex-start;background:#EAF3EC;border:2px solid #2E7D32;border-radius:10px;padding:11px 10px;margin-top:8px">
+      <input type="checkbox" id="bulkConsentChk" style="width:26px;height:26px;min-width:26px;margin-top:7px;accent-color:#2E7D32;cursor:pointer">
+      <label for="bulkConsentChk" style="font-weight:700">✅ سب ایک ساتھ قبول: میں نے اوپر کے سب قواعد پڑھ لیے ہیں اور سب قبول کرتا/کرتی ہوں۔ <span style="font-weight:400">(چاہیں تو قواعد ایک ایک کر کے بھی ☑ کر سکتے ہیں۔)</span></label>
+    </div>
+  </div>
+
+  <div class="bar">
+    <div class="count" id="count"><bdi dir="ltr">0</bdi> / <bdi dir="ltr">22</bdi> قواعد قبول (لوڈ ہو رہا ہے...)</div>
+    <div class="final" id="finalRow">
+      <input type="checkbox" id="finalChk" disabled>
+      <label for="finalChk"><b>آخری تصدیق:</b> میں نے (اور میرے سرپرست نے، اگر لاگو ہو) اوپر کے سب قواعد پڑھ لیے ہیں اور سب قبول کرتے ہیں۔</label>
+    </div>
+    <div class="btns">
+      <button id="otpBtn" type="button" disabled>📩 <bdi dir="ltr">OTP</bdi> بھیجیں</button>
+    </div>
+  </div>
+
+  <p class="foot">ایک نقل آپ کے پاس، ایک <bdi dir="ltr">ACS</bdi> کے پاس۔ اصل زبان: ہندی۔ آخری قانونی منظوری <bdi dir="ltr">HQ Legal</bdi> Head کی ہوگی۔</p>
+
+</div>
+
+<script>
+(function(){
+  var typeSel = document.getElementById('typeSel');
+  var jsPoliceRule = document.getElementById('jsPoliceRule');
+  function updateText(){
+    var t = typeSel.value;
+    var k = {student:'s',jobseeker:'j',entrepreneur:'e'}[t];
+    ['ruleAge','ruleBenefit','ruleFee','ruleRefund','ruleRisk'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && el.getAttribute && el.getAttribute('data-'+k)) el.textContent = el.getAttribute('data-'+k);
+    });
+    if (t === 'jobseeker') { jsPoliceRule.style.display = ''; }
+    else { jsPoliceRule.style.display = 'none'; jsPoliceRule.querySelector('input').checked = false; }
+    refresh();
+  }
+  typeSel.addEventListener('change', updateText);
+
+  var ageInput = document.getElementById('ageInput');
+  var guardianBox = document.getElementById('guardianBox');
+  ageInput.addEventListener('input', function(){
+    var age = parseInt(this.value, 10);
+    if(!isNaN(age) && age < 18 && age > 0){ guardianBox.classList.add('show'); }
+    else { guardianBox.classList.remove('show'); }
+  });
+
+  var boxes = document.querySelectorAll('.rule input[type=checkbox]:not(#bulkConsentChk)');
+  var otp = document.getElementById('otpBtn');
+  var fin = document.getElementById('finalChk');
+  var count = document.getElementById('count');
+  function visibleBoxes(){
+    return Array.prototype.filter.call(boxes, function(b){
+      var el = b.closest('.rule');
+      return el.style.display !== 'none' && el.offsetParent !== null;
+    });
+  }
+  function refresh(){
+    var vb = visibleBoxes();
+    var done = 0;
+    vb.forEach(function(b){ if(b.checked) done++; });
+    count.textContent = done + ' / ' + vb.length + ' قواعد قبول';
+    var finalLabel = document.querySelector('label[for="finalChk"]');
+    finalLabel.innerHTML = '<b>آخری تصدیق:</b> میں نے (اور میرے سرپرست نے، اگر لاگو ہو) اوپر کے سب ' + vb.length + ' قواعد پڑھ لیے ہیں اور سب قبول کرتے ہیں۔';
+    if(bulk && done < vb.length){ bulk.checked = false; }
+    if(done === vb.length){ fin.disabled = false; }
+    else { fin.disabled = true; fin.checked = false; }
+    if(fin.checked && done === vb.length){ otp.classList.add('on'); otp.disabled = false; }
+    else { otp.classList.remove('on'); otp.disabled = true; }
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', refresh); });
+  /* (09-Nov-2026, खेप-consent-en-1) Accept-all — standalone wiring.
+     Inside join.html this file is injected and join does the wiring itself
+     (#rulesContainer present = join world ⇒ do not attach a listener here, duplication guard). */
+  var bulk = document.getElementById('bulkConsentChk');
+  if(bulk && !document.getElementById('rulesContainer')){
+    bulk.addEventListener('change', function(){
+      var on = bulk.checked;
+      visibleBoxes().forEach(function(b){ b.checked = on; });
+      fin.disabled = !on; fin.checked = on;
+      refresh();
+    });
+  }
+  fin.addEventListener('change', refresh);
+  otp.addEventListener('click', function(){ if(!otp.disabled) alert('✅ (نمونہ) اصل صفحہ یہیں سے ⁦OTP⁩ بھیجے گا — ⁦Cloud Function⁩ + ⁦Brevo⁩ کے ذریعے۔'); });
+  updateText();
+})();
+</script>
+
+  <!-- exit bar (rule v2.3, 18-Jul-2026): no dead ends -->
+  <div class="exitbar" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;background:#F5F7FA;border:1px solid #d7dde6;border-radius:10px;padding:10px 14px;margin:10px 0 14px;font-size:16px;line-height:1.7"><a href="/" style="color:#1565C0;font-weight:700;text-decoration:none">🏠 ہوم</a><span style="color:#8a94a3">·</span><a href="/registration-guide.html" style="color:#1565C0;font-weight:700;text-decoration:none">← رجسٹریشن گائیڈ</a><span style="color:#8a94a3">·</span><a href="/rules-consent-learner.html" style="color:#1565C0;font-weight:700;text-decoration:none">🇮🇳 हिंदी</a></div>
+</body>
+</html>

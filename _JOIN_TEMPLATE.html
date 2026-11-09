@@ -324,7 +324,7 @@
       <div class="count" id="rulesCount"></div>
       <div class="final" id="finalRow">
         <input type="checkbox" id="finalChk" disabled>
-        <label for="finalChk"><b>अंतिम पुष्टि:</b> मैंने ऊपर के सभी नियम ख़ुद पढ़कर एक-एक करके स्वीकार किए हैं।</label>
+        <label for="finalChk"><b>अंतिम पुष्टि:</b> मैंने ऊपर के सभी नियम पढ़े हैं और सभी को स्वीकार किया है।</label>
       </div>
       <button class="big btn-off" id="toStep3Btn" type="button" disabled>➜ आगे बढ़ें (पूरा फ़ॉर्म)</button>
       <button class="big btn-secondary" id="back1Btn" type="button" style="margin-top:8px">← पिछला — भूमिका/जानकारी बदलें</button>
@@ -1293,7 +1293,7 @@
   }
 
   function wireRuleCheckboxes(){
-    var boxes = rulesContainer.querySelectorAll('.rule input[type=checkbox]');
+    var boxes = rulesContainer.querySelectorAll('.rule input[type=checkbox]:not(#bulkConsentChk)');
 
       /* (09-Nov-2026, Founder — खेप-consent-1) Learner-परिवार "एक-साथ स्वीकृति":
          student/jobseeker/entrepreneur पर नियम-सूची के नीचे एक master-tick —
@@ -1307,7 +1307,7 @@
         bulkChk=rulesContainer.querySelector('#bulkConsentChk'); /* rules-फ़ाइल अपनी पट्टी लाए तो उसे ही अपनाओ — दोहराव-रोक */
         if(!bulkChk){
         var bw=document.createElement('div');
-        bw.id='bulkConsentWrap';
+        bw.className='bulk-consent'; bw.id='bulkConsentWrap';
         bw.style.cssText='background:#EAF3EC;border:2px solid #2E7D32;border-radius:10px;padding:12px;margin:10px 0 4px;display:flex;gap:10px;align-items:flex-start';
         bw.innerHTML='<input type="checkbox" id="bulkConsentChk" style="width:26px;height:26px;min-width:26px;margin-top:2px;accent-color:#2E7D32;cursor:pointer">'
           +'<label for="bulkConsentChk" style="font-size:17px;font-weight:700;cursor:pointer;line-height:1.6">✅ मैंने ऊपर दिए सभी नियम पढ़े हैं और सभी को स्वीकार करता/करती हूँ।</label>';
@@ -1334,7 +1334,14 @@
     boxes.forEach(function(b){ b.addEventListener('change', refresh); });
     // अगर fetch की गई फ़ाइल के अंदर अपना खुद का designation-selector है (जैसे Teacher/Center/Learner), उसे भी सुनना
     var innerSelects = rulesContainer.querySelectorAll('select');
-    innerSelects.forEach(function(sel){ sel.addEventListener('change', refresh); });
+        innerSelects.forEach(function(sel){ sel.addEventListener('change', refresh); });
+    /* (09-Nov-2026, consent-fix-1) role-वार span-पाठ — एक घर: rules-फ़ाइल के data-s/j/e attributes
+       (fetch-इंजेक्ट में rules-फ़ाइल की script नहीं चलती, इसलिए यहाँ पढ़ते हैं) */
+    (function(){ var m={student:'s',jobseeker:'j',entrepreneur:'e'}; var k=m[rulesLoadedFor];
+      if(k){ ['ruleAge','ruleBenefit','ruleFee','ruleRefund','ruleRisk'].forEach(function(id){
+        var el=rulesContainer.querySelector('#'+id);
+        if(el && el.getAttribute && el.getAttribute('data-'+k)) el.textContent=el.getAttribute('data-'+k);
+      }); } })();
     if(bulkChk){ bulkChk.addEventListener('change', function(){
       var on=bulkChk.checked;
       visible().forEach(function(b){ b.checked=on; });
@@ -2056,6 +2063,8 @@
 
     var payload = {
       consent_mode: (document.getElementById('bulkConsentChk')&&document.getElementById('bulkConsentChk').checked)?'bulk':'each',
+      consent_language: 'hi',
+      consent_rules_version: '1.1',
       name_local: isLearnerRomanOnly() ? '' : nameLocal.value, name_roman: nameRoman.value,
       father_name: isLearnerRomanOnly() ? fatherNameRoman.value : '',
       mobile: mobile.value, email: email.value,
