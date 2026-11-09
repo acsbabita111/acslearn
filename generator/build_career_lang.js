@@ -1,4 +1,6 @@
-/* build_career_lang.js v1.0 (09-Nov-2026)
+/* build_career_lang.js v1.2 (09-Nov-2026)
+   v1.2: META.swaps surgical-op; version-less page stamp (builder upgrades
+   no longer touch page bytes unless output ops change).
    Generic builder: /<code>/career.html from career.html (hi v1.8) +
    generator/career_<code>_strings.js. Supersedes build_career_en.js for
    all languages including en (same en output except hreflang set + stamp).
@@ -139,11 +141,24 @@ else bad('Noto-family chunk missing');
 out = out.split('Noto Sans Devanagari').join(META.svgFont);
 ok('SVG font-family \u2192 ' + META.svgFont);
 one('<!-- generator: build_landing4.js v1.7.2 + hreflang v1.7.3 + report-sample v1.8 \u2014 \u0939\u093e\u0925 \u0938\u0947 \u0928 \u092c\u0926\u0932\u0947\u0902 -->',
-    '<!-- generator: build_career_lang.js v1.0 (lang=' + code + ', from career.html hi v1.8' + META.stampNote + ') \u2014 do not edit by hand -->', 'ver-stamp');
+    '<!-- generator: build_career_lang.js (lang=' + code + ', from career.html hi v1.8' + META.stampNote + ') \u2014 do not edit by hand -->', 'ver-stamp');
 one('<!-- \u092a\u0930\u0924 1: CONFIG + LINKS -->', '<!-- layer 1: CONFIG + LINKS -->', 'comment: layer-1');
 one('src="/assets/career-report-sample-hi.webp"', 'src="' + META.certImg + '"', 'certificate image');
 
+/* 7b) per-language surgical swaps (post-translation state, fail-closed) */
+for (const sw of (META.swaps || [])) {
+  const c = count(out, sw.from);
+  const need = sw.min || 1;
+  if (c < need) { bad('swap "' + (sw.label || sw.from.slice(0, 30)) + '" \u00d7' + c + ' < ' + need); continue; }
+  out = out.split(sw.from).join(sw.to); ok('swap: ' + (sw.label || sw.from.slice(0, 30)) + ' \u00d7' + c);
+}
+
 /* 8) gates */
+/* mojibake gate: broken escapes in strings show up as U+FFFD or lone surrogates */
+if (out.indexOf('\uFFFD') === -1) ok('no replacement char \uFFFD');
+else bad('replacement char \uFFFD found (broken escape in strings?)');
+if (!/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/.test(out)) ok('no lone surrogates');
+else bad('lone surrogate found (broken emoji escape in strings?)');
 const dev = out.match(/[\u0900-\u097F]/g);
 if (!dev) ok('Devanagari left: 0');
 else {
