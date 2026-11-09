@@ -1,0 +1,9 @@
+{
+ "question_base": 48,
+ "question_shards": 18895,
+ "question_total": 18943,
+ "question_unique_ids": 18943,
+ "shard_files": 25,
+ "udyam_total": 951,
+ "note": "मशीन-गिनती: dev_count_claims.js से; career-पेज के आँकड़े इसी json से भरते/जँचते हैं।"
+}

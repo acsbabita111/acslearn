@@ -2,6 +2,45 @@
    ACS build_landing4.js v1.1 (27-Oct-2026, Founder-आदेश) — 4 landing पेज
    v1.2 (08-Nov-2026, Founder-आदेश): career.html पूरा पेशेवर रूप : hero-SVG ·
    v1.4 (08-Nov-2026, Founder-सुधार): फ़ायदे-grid 2 कार्ड प्रति पंक्ति (v7.6-च नियम); सब विवरण छोटे, पूरे सरल वाक्यों में; तालिका-नोट 17px।
+   v1.7.2 (09-Nov-2026, Founder-सुधार): "क्षेत्र-ठप्पा" शब्द हर जगह "क्षेत्र-विवरण"
+   (BRIDGE-SVG पाठ + विज्ञान-खंड paragraph); ver-stamp v1.7.2। बाक़ी v1.7.1 जस-का-तस।
+   v1.7.1 (09-Nov-2026, Founder-सुधार): career.html — हिन्दी baseline finalization :
+   (1) Student Golden Badge को अलग premium ACS GOLDEN PASS card बनाया
+   (2) पुराने backend v3.7 से exact 10–17 आयु-छूट, ₹300 base, 365 दिन, minimum age 10
+   (3) खरीद प्रक्रिया: login → student registration/DOB → dashboard → server fee → Razorpay → instant activation
+   (4) Golden scope साफ़: अभी unlimited full Career Interest Test; अन्य paid सेवा तभी शामिल जब GOLDEN PASS INCLUDED लिखा हो
+   (5) दुनिया के subscription/pass उदाहरण: Coursera Plus, Udemy Personal Plan, Skillshare, LinkedIn Premium Career
+   (6) MAPP users 1 करोड़+ → 90 लाख+; ACS fee-copy contradiction बंद
+   v1.7 (09-Nov-2026, ChatGPT deep-research HOLD का जवाब): career.html :
+   (1) निजता-तालिका पूरी: logged-in नतीजा-सार server-save row (code-प्रमाणित,
+       apt-pay.js v1.1 / Founder-override 30-Jul) + भुगतान-रसीद row
+   (2) 18,943 व 951 अब hard-code नहीं: generator/data/apt_counts.json से
+       (dev_count_claims.js की मशीन-गिनती; बेमेल = build FAIL)
+   (3) CTA-एकरूपता: हर मुफ़्त-बटन = '24 प्रश्न की मुफ़्त झलक' परिवार
+   (4) stepSVG को वैकल्पिक aria-label (career देता है; hunar/udyam byte-अछूते)
+   (5) FAB scroll-aware (career-only foot-script): नीचे-scroll पर छिपें
+   v1.6 (09-Nov-2026, ChatGPT पुनः-ऑडिट HOLD के 10 सुधार): career.html :
+   (1) झलक-ईमानदारी: title/CTA में '24 प्रश्न की मुफ़्त झलक' साफ़; पूरा=120-प्रश्न
+   (2) फीस-भाषा: 'नतीजे के लिए कोई अलग शुल्क नहीं' (मुफ़्त-विरोधाभास ख़त्म)
+   (3) निजता: 'कुछ नहीं जाता' हटाकर सही दावा (टेस्ट-उत्तर नहीं जाते; web-log सामान्य)
+   (4) '10 साल = 12 रुपये' हटा: उम्र-आधारित छूट + 10-13 = खोज-अभ्यास पंक्ति
+   (5) तुलना-फीस सही: 'कई मुफ़्त · paid ₹900-₹13,000'
+   (6) 'टॉप 10' दावा हटा: '10 जाने-माने'; '20 साइटों/सबसे' ranking-दावे हटे
+   (7) mobile FAB: छोटे+हल्के (career-स्तर CSS); पूरा scroll-इलाज universal-दौर होल
+   (8) a11y: RES2/CERT2/BRIDGE पर aria-label (stepSVG साझा: दर्ज होल)
+   (9) GEN_NOTE spec-ver: career v1.6 traceable, बाक़ी 3 पेज byte-अछूते
+   (10) फीस-कार्ड पंक्तियाँ एक सुर में ('अलग शुल्क नहीं')
+   v1.5 (09-Nov-2026, Founder-आदेश: ChatGPT-ऑडिट के 10 सुधार): career.html :
+   (1) नाम-सुधार Aptitude->Career Interest Test (रुचि-परीक्षण; slug/URL अटल)
+   (2) वैज्ञानिक-आधार व सीमा खंड: validation-चरण का साफ़ सच
+   (3) 'Adaptive Testing' दावा हटा: 'गतिशील प्रश्न-चयन' (असली तकनीक)
+   (4) RIASEC-6 -> 24 क्षेत्र -> 951 उद्यम bridge-चित्र
+   (5) फीस-भाषा एकरूप: 'मुफ़्त' की एक परिभाषा; बैज = असीमित टेस्ट
+   (6) 18-कम सुरक्षा-पट्टी (अभिभावक/शिक्षक के साथ; भुगतान सहमति से)
+   (7) निजता-तालिका: क्या फ़ोन में, क्या server पर, क्या Razorpay पर
+   (8) तुलना ईमानदार: 'नापता है' चिप हर औज़ार पर; heading बदला; accordion में
+   (9) ₹125 = रिपोर्ट (प्रमाणपत्र नहीं) + ISO-9001 स्पष्टीकरण
+   (10) ढाँचा छोटा: CTA hero के तुरंत नीचे; तुलना accordion में; + English-झलक कड़ी
    v1.4 (08-Nov-2026, Founder-फ़ैसला): दो-पेज दोहराव ख़त्म : सारी विवेचना career.html पर (टॉप-10 पूरी सूची + फ़र्क़-तालिका + 4-आँकड़े पट्टी aptitude-test से यहाँ); टेस्ट-पेज सिर्फ़ टेस्ट।
    v1.3 (08-Nov-2026, Founder-सुधार): career का रूप-सुधार : 3D रंगीन कार्ड (lipi.css की कार्ड-भाषा), फीस-कार्ड 2x2, नया hero, नमूना-SVG नए, छपाई में header-सुधार।
    6-फ़ायदे · दुनिया के 5 टेस्ट की दाम-तुलना (वेब-जाँच, नवंबर 2026) · ACS फीस-हिसाब
@@ -33,12 +72,17 @@ function loadCourseGlobals(){
   return {all:box.__A||[],groups:box.__G||[]};
 }
 const CD=loadCourseGlobals();
+/* v1.7: बड़े आँकड़े मशीन-गिनती से (dev_count_claims.js) — hard-code निषिद्ध */
+const COUNTS=JSON.parse(fs.readFileSync(path.join(__dirname,"data","apt_counts.json"),"utf8"));
+if(!(COUNTS.question_total>18000&&COUNTS.udyam_total>900)) throw new Error("apt_counts.json संदिग्ध: "+JSON.stringify(COUNTS));
+const Q_TOTAL=COUNTS.question_total.toLocaleString("en-IN");
+const U_TOTAL=String(COUNTS.udyam_total);
 const BH_COUNT=CD.all.filter(c=>c&&c.url&&String(c.url).indexOf("/bhasha/")>-1).length;
 if(!BH_COUNT) throw new Error("भाषा-गिनती 0 — courses_data जाँचो");
 console.log("भाषा-गिनती (build-समय):",BH_COUNT,"| समूह:",CD.groups.length);
 const MENU_HTML=loadMenu().map(m=>'<a class="acs-mitem" href="'+m.href+'"><span class="e">'+m.icon+'</span> '+m.label+'</a>').join("\n");
 const MENU_FALLBACK_JS='<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</scr'+'ipt>';
-const GEN_NOTE="<!-- generator: build_landing4.js v1.0 — हाथ से न बदलें -->";
+function GEN_NOTE_FOR(spec){return "<!-- generator: build_landing4.js "+(spec.ver||"v1.0")+" — हाथ से न बदलें -->";}
 let FAIL=0;
 function check(name,c){
   if(/\[|\]/.test(c.replace(/<[^>]*>/g,""))){console.log("⛔",name,"square-bracket");FAIL++;}
@@ -68,7 +112,7 @@ function build(spec){
     '\n<script type="application/ld+json">'+JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":spec.title,"description":spec.desc,"url":"https://acslearn.com/"+spec.out,"inLanguage":"hi"})+'</scr'+'ipt>');
   p=p.replace('<div id="acsMenuList"></div>','<div id="acsMenuList">\n'+MENU_HTML+'\n</div>');
   p=p.replace("</body>",MENU_FALLBACK_JS+"\n"+(spec.foot||[]).join("\n")+'\n<script src="/assets/acs-react.js" defer></scr'+'ipt>\n</body>');
-  p=p.replace("<!DOCTYPE html>","<!DOCTYPE html>\n"+GEN_NOTE);
+  p=p.replace("<!DOCTYPE html>","<!DOCTYPE html>\n"+GEN_NOTE_FOR(spec));
   fs.writeFileSync(path.join(ROOT,spec.out),p,"utf8");
   console.log("✅ /"+spec.out);
 }
@@ -84,8 +128,8 @@ function cross(items){
 }
 const SLOT='<div id="acsReactSlot"></div>';
 /* तीन-कदम SVG (साझा सरल रेखा-चित्र) */
-function stepSVG(a,b,c){
- return '<svg viewBox="0 0 700 150" role="img" style="width:100%;max-width:700px;display:block;margin:10px auto;background:#0B1F3A;border-radius:12px">'+
+function stepSVG(a,b,c,lbl){
+ return '<svg viewBox="0 0 700 150" role="img"'+(lbl?' aria-label="'+lbl+'"':'')+' style="width:100%;max-width:700px;display:block;margin:10px auto;background:#0B1F3A;border-radius:12px">'+
  '<g font-family="Noto Sans Devanagari,Inter" font-size="20" fill="#F5F7FA" text-anchor="middle">'+
  '<rect x="20" y="35" width="190" height="80" rx="12" fill="none" stroke="#F9A825" stroke-width="3"/><text x="115" y="82">'+a+'</text>'+
  '<path d="M215 75 h40" stroke="#F9A825" stroke-width="3"/><path d="M250 68 l12 7 -12 7z" fill="#F9A825"/>'+
@@ -93,6 +137,23 @@ function stepSVG(a,b,c){
  '<path d="M460 75 h40" stroke="#F9A825" stroke-width="3"/><path d="M495 68 l12 7 -12 7z" fill="#F9A825"/>'+
  '<rect x="510" y="35" width="170" height="80" rx="12" fill="#2E7D32"/><text x="595" y="82" font-weight="bold">'+c+'</text></g></svg>';
 }
+
+/* ===== v1.5 career-robot: ChatGPT-ऑडिट के दावों का मशीन-पहरा ===== */
+function careerAudit_run(c){careerAudit(c);return c;}
+function careerAudit(content){
+  let bad=0;
+  const vis=content.replace(/<[^>]*>/g," ");
+  [["Aptitude Test","पुराना नाम"],["Adaptive Testing","हटाया दावा"],["प्रमाणपत्र जैसा","रिपोर्ट-भाषा"],["कितना सस्ता","तुलना-दावा"],["कुछ नहीं जाता","निजता-absolute"],["टॉप 10","ranking-दावा"],["12 रुपये","उम्र-दाम"],["सबसे जानी-मानी","ranking-दावा"],["हमेशा मुफ़्त दिखता","फीस-विरोधाभास"],["मुफ़्त टेस्ट शुरू","पुराना CTA"],["मुफ़्त टेस्ट अभी","पुराना CTA"]].forEach(x=>{
+    if(vis.indexOf(x[0])>-1){console.log("⛔ career:",x[1],"बचा:",x[0]);bad++;}
+  });
+  ["Career Interest Test","जाँच-चरण (validation phase)","/en/aptitude-test.html","नापता है:","ISO 9001","18 से कम उम्र वालों के लिए","निजता: क्या कहाँ","<details","dynamic question selection","कोई अलग शुल्क नहीं","कई मुफ़्त","उम्र-आधारित छूट","10 से 13","web-log","मुफ़्त झलक दें","नतीजा-सार (login पर)","भुगतान की रसीद","मुफ़्त झलक शुरू करें","24 प्रश्न की मुफ़्त झलक शुरू","मशीन से होती है"].forEach(k=>{
+    if(content.indexOf(k)<0){console.log("⛔ career: अनिवार्य अनुपस्थित:",k);bad++;}
+  });
+  if(vis.indexOf("\u2014")>-1){console.log("⛛ career: लंबी रेखा (—) content में");bad++;}
+  if(bad){FAIL+=bad;}
+  else console.log("✅ career-robot: 11 निषेध + 20 अनिवार्य + डैश : सब पास");
+}
+
 /* ================= पेज-1: करियर ================= */
 /* ===== career v1.3: 3D कार्ड-भाषा (lipi.css से) + छपाई-सुधार ===== */
 const CZ='<style>'
@@ -110,6 +171,22 @@ const CZ='<style>'
 +'.cz-fc p{font-size:17px;line-height:1.75;margin:0;color:#0B1F3A;flex:1}'
 +'.cz-price{font-size:30px;font-weight:900}'
 +'.cz-btn{display:block;text-align:center;font-size:19px;font-weight:800;padding:12px 10px;border-radius:999px;text-decoration:none;margin-top:14px;color:#fff;box-shadow:inset 0 2px 0 rgba(255,255,255,.35),0 5px 0 rgba(11,31,58,.55),0 10px 16px rgba(11,31,58,.3)}'
++'.cz-goldpass{position:relative;overflow:hidden;max-width:860px;margin:24px auto 18px;border:3px solid #8A5A00;border-radius:26px;padding:22px;background:linear-gradient(135deg,#5A3600 0%,#B97900 18%,#FFD76A 43%,#FFF3B0 57%,#D99A12 78%,#6B4200 100%);box-shadow:0 3px 0 #0B1F3A,0 10px 0 #8A5A00,0 22px 38px rgba(11,31,58,.34),inset 0 2px 0 rgba(255,255,255,.75);color:#211400}'
++'.cz-goldpass:before{content:"";position:absolute;inset:-35%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.36) 50%,transparent 58%);transform:rotate(10deg);pointer-events:none}'
++'.cz-gphead{position:relative;display:grid;grid-template-columns:1.4fr .8fr;gap:18px;align-items:center}'
++'.cz-gpkicker{display:inline-block;background:#0B1F3A;color:#FFD76A;border-radius:999px;padding:6px 12px;font-size:16px;font-weight:900;letter-spacing:.6px}'
++'.cz-gptitle{font-size:34px;line-height:1.1;margin:10px 0 5px;color:#211400;text-shadow:0 1px 0 rgba(255,255,255,.55)}'
++'.cz-gpsub{font-size:18px;font-weight:800;margin:0;line-height:1.6}'
++'.cz-gpprice{text-align:center;background:rgba(11,31,58,.92);color:#fff;border:2px solid #FFF1A6;border-radius:20px;padding:16px 12px;box-shadow:inset 0 2px 0 rgba(255,255,255,.18)}'
++'.cz-gpprice b{display:block;font-size:36px;color:#FFD76A;line-height:1.05}.cz-gpprice span{font-size:16px;font-weight:800}'
++'.cz-gpstrip{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 12px}'
++'.cz-gppill{background:rgba(255,255,255,.72);border:1px solid rgba(90,54,0,.45);border-radius:14px;padding:10px;text-align:center;font-size:16px;font-weight:900;line-height:1.45}'
++'.cz-gpbox{position:relative;background:rgba(255,255,255,.82);border:1px solid rgba(90,54,0,.45);border-radius:16px;padding:14px;margin-top:12px}'
++'.cz-gpbox h4{font-size:19px;margin:0 0 8px;color:#402600}.cz-gpbox p,.cz-gpbox li{font-size:17px;line-height:1.75;color:#211400}'
++'.cz-gpsteps{margin:0;padding-left:22px}.cz-gpsteps li{margin:5px 0}'
++'.cz-age{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden}.cz-age th,.cz-age td{border:1px solid #8A5A0066;padding:8px;text-align:center;font-size:16px}.cz-age th{background:#0B1F3A;color:#FFD76A}.cz-age td:last-child{font-weight:900;color:#2E7D32}'
++'.cz-gpactions{position:relative;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}.cz-gpactions a{display:inline-block;text-decoration:none;border-radius:999px;padding:12px 18px;font-size:18px;font-weight:900;box-shadow:0 5px 0 rgba(11,31,58,.45)}'
++'.cz-worldpass{max-width:860px;margin:16px auto;border:2px solid #8A5A00;border-radius:16px;background:#FFF8E1;box-shadow:0 8px 18px rgba(11,31,58,.12)}.cz-worldpass summary{cursor:pointer;font-size:19px;font-weight:900;color:#0B1F3A;padding:14px 16px;list-style:none}.cz-worldpass summary::-webkit-details-marker{display:none}.cz-worldpass summary:after{content:" ▾";color:#B97900}.cz-wpgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 14px 14px}.cz-wpc{background:#fff;border:1px solid #8A5A0055;border-radius:14px;padding:12px}.cz-wpc b{display:block;font-size:18px;color:#0B1F3A;margin-bottom:4px}.cz-wpc p{font-size:16px;line-height:1.6;margin:0;color:#0B1F3A}'
 +'.cz-tblw{border-radius:14px;box-shadow:0 2px 0 #0B1F3A,0 10px 22px rgba(11,31,58,.22);background:#fff}'
 +'.cz-tblw tr:nth-child(even) td{background:#F5F7FA}'
 +'.cz-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:760px;margin:14px auto 4px}'
@@ -119,6 +196,18 @@ const CZ='<style>'
 +'.cz-stat:nth-child(2){border-color:#F9A825;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #F9A825,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(180deg,#fff,#fff7e0)}'
 +'.cz-stat:nth-child(3){border-color:#2E7D32;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #2E7D32,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(180deg,#fff,#eaf6ea)}'
 +'.cz-acsline{background:#2E7D32;color:#fff;border-radius:14px;padding:14px 16px;margin:14px 0 4px;font-size:18px;font-weight:800;line-height:1.7;box-shadow:0 2px 0 #0B1F3A,0 8px 18px rgba(11,31,58,.25)}'
++'.cz-acc{max-width:860px;margin:14px auto;border:2px solid #1565C0;border-radius:16px;background:#fff;box-shadow:0 2px 0 #0B1F3A,0 8px 18px rgba(11,31,58,.18)}'
++'.cz-acc summary{cursor:pointer;font-size:19px;font-weight:800;color:#0B1F3A;padding:14px 16px;list-style:none}'
++'.cz-acc summary::-webkit-details-marker{display:none}'
++'.cz-acc summary::after{content:" ▾";color:#1565C0}'
++'.cz-acc .cz-accin{padding:0 14px 14px}'
++'.apl-measure{display:inline-block;background:#0B1F3A;color:#F9A825;font-size:16px;font-weight:700;padding:2px 10px;border-radius:999px;margin:2px 0 4px}'
++'.cz-priv{width:100%;max-width:760px;margin:10px auto;border-collapse:collapse;font-size:17px}'
++'.cz-priv th,.cz-priv td{border:1px solid #0B1F3A33;padding:10px 10px;text-align:left;color:#0B1F3A}'
++'.cz-priv th{background:#0B1F3A;color:#F9A825;font-size:18px}'
++'.cz-limit{max-width:760px;margin:12px auto;border:2px dashed #F9A825;border-radius:14px;background:#FFF8E1;padding:12px 14px;font-size:18px;line-height:1.8;color:#0B1F3A}'
++'.cz-minor{max-width:860px;margin:14px auto;background:#F9A825;color:#0B1F3A;border-radius:14px;padding:14px 16px;font-size:18px;font-weight:700;line-height:1.8;box-shadow:0 2px 0 #0B1F3A,0 8px 18px rgba(11,31,58,.25)}'
++'@media(max-width:680px){.cz-gphead{grid-template-columns:1fr}.cz-gptitle{font-size:29px}.cz-gpstrip{grid-template-columns:1fr}.cz-wpgrid{grid-template-columns:1fr}}@media(max-width:520px){.cz-goldpass{padding:16px 12px;border-radius:20px}.udy-float{transform:scale(.78);transform-origin:left bottom;opacity:.85}.udy-float:active,.udy-float:focus-within{transform:none;opacity:1}.acs-wa{transform:scale(.85);transform-origin:right bottom}}'
 +'@media print{.acs-nav{position:static!important;box-shadow:none!important}.acs-wa,.acs-scrim,.acs-drawer{display:none!important}}'
 +'</style>';
 const HERO2='<svg viewBox="0 0 1000 430" role="img" aria-label="गाँव से दुनिया तक: अभिरुचि-टेस्ट" style="width:100%;display:block;border-radius:16px;margin:4px 0 10px;box-shadow:0 10px 24px rgba(11,31,58,.35)">'
@@ -145,7 +234,7 @@ const HERO2='<svg viewBox="0 0 1000 430" role="img" aria-label="गाँव स
 +'<rect y="376" width="1000" height="54" fill="#0B1F3A" opacity=".72"/>'
 +'<text x="500" y="412" text-anchor="middle" font-size="27" fill="#F5F7FA" font-family="Noto Sans Devanagari, sans-serif">24 क्षेत्र · 950 से ज़्यादा उद्यम · हिंदी में, अपने फ़ोन पर</text>'
 +'</svg>';
-const RES2='<svg viewBox="0 0 760 444" role="img" style="width:100%;max-width:760px;display:block;margin:10px auto">'
+const RES2='<svg viewBox="0 0 760 444" role="img" aria-label="नमूना नतीजा: सबसे प्रबल रुचि और 24 क्षेत्रों के अंक घटते क्रम में" style="width:100%;max-width:760px;display:block;margin:10px auto">'
 +'<rect x="20" y="26" width="722" height="402" rx="20" fill="#0B1F3A" opacity=".18"/>'
 +'<rect x="10" y="12" width="722" height="402" rx="20" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="2"/>'
 +'<text x="371" y="268" text-anchor="middle" font-size="120" font-weight="900" fill="#0B1F3A" opacity=".06" transform="rotate(-22 371 268)" font-family="Noto Sans Devanagari, sans-serif">नमूना</text>'
@@ -163,7 +252,7 @@ const RES2='<svg viewBox="0 0 760 444" role="img" style="width:100%;max-width:76
 +'<text x="34" y="366" font-size="18" fill="#0B1F3A">🔍 अनजान क्षेत्र: 🤖 रोबोटिक्स · 🧪 रसायन</text>'
 +'<text x="34" y="398" font-size="18" font-weight="800" fill="#2E7D32">📚 आगे की राह: इन क्षेत्रों के कोर्स और उद्यम की सीधी कड़ी</text>'
 +'</svg>';
-const CERT2='<svg viewBox="0 0 760 560" role="img" style="width:100%;max-width:700px;display:block;margin:10px auto">'
+const CERT2='<svg viewBox="0 0 760 560" role="img" aria-label="नमूना अभिरुचि-रिपोर्ट: नाम, टेस्ट-ब्योरा, 4 सुझाए क्षेत्र, unique नंबर और QR" style="width:100%;max-width:700px;display:block;margin:10px auto">'
 +'<rect x="22" y="26" width="722" height="522" rx="16" fill="#0B1F3A" opacity=".18"/>'
 +'<rect x="10" y="10" width="722" height="522" rx="16" fill="#FFFFFF" stroke="#F9A825" stroke-width="8"/>'
 +'<rect x="26" y="26" width="690" height="490" rx="10" fill="none" stroke="#0B1F3A" stroke-width="1.5" opacity=".6"/>'
@@ -182,7 +271,7 @@ const CERT2='<svg viewBox="0 0 760 560" role="img" style="width:100%;max-width:7
 +'</g>'
 +'<path d="M90 398 H652" stroke="#F9A825" stroke-width="2"/>'
 +'<g text-anchor="middle" font-family="Noto Sans Devanagari, sans-serif" fill="#0B1F3A">'
-+'<text x="371" y="426" font-size="16">RIASEC रुचि-विज्ञान, 1959 और Adaptive Testing पर आधारित</text>'
++'<text x="371" y="426" font-size="16">RIASEC रुचि-विज्ञान (1959) पर आधारित/प्रेरित · गिनती सीधा गणित</text>'
 +'<text x="371" y="450" font-size="16">यह अभिरुचि-रिपोर्ट है: योग्यता या पास होने का प्रमाण नहीं।</text>'
 +'<text x="371" y="474" font-size="16">यह शुरुआती दिशा है: आगे counsellor या अनुभव से पक्का करें।</text>'
 +'</g>'
@@ -195,52 +284,124 @@ const CERT2='<svg viewBox="0 0 760 560" role="img" style="width:100%;max-width:7
 +'<g fill="#0B1F3A"><rect x="16" y="16" width="6" height="6"/><rect x="70" y="16" width="6" height="6"/><rect x="16" y="70" width="6" height="6"/></g></g>'
 +'</svg>';
 const APTCSS='<link rel="stylesheet" href="/assets/aptitude-test.css">';
-const CZSTATS='<div class="cz-stats"><div class="cz-stat"><b>18,943+</b><span>प्रश्नों का भंडार</span></div><div class="cz-stat"><b>24</b><span>काम के क्षेत्र</span></div><div class="cz-stat"><b>951</b><span>उद्यम-श्रेणियाँ</span></div><div class="cz-stat"><b>🔒</b><span>जवाब सिर्फ़ आपके फ़ोन में</span></div></div>';
-const TOP10='<div class="apl-card"><div class="apl-rank">1</div><div class="apl-body"><b class="apl-nm">ओ-नेट इंटरेस्ट प्रोफ़ाइलर (O*NET Interest Profiler)</b><p class="apl-desc">अमेरिकी सरकार का टेस्ट।<br>रायसेक (RIASEC) विज्ञान पर बना: हमारा टेस्ट भी इसी विज्ञान से प्रेरित है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">mynextmove.org</span></div></div><a class="apl-go" href="https://www.mynextmove.org/explore/ip" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">2</div><div class="apl-body"><b class="apl-nm">सिक्स्टीन पर्सनैलिटीज़ (16Personalities)</b><p class="apl-desc">स्वभाव बताने वाला मशहूर टेस्ट।<br> करोड़ों लोग ले चुके हैं।<br>हिंदी में भी मिलता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">16personalities.com</span></div></div><a class="apl-go" href="https://www.16personalities.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">3</div><div class="apl-body"><b class="apl-nm">करियर एक्सप्लोरर (CareerExplorer)</b><p class="apl-desc">बड़ा टेस्ट: सैकड़ों करियर से आपका मिलान करता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: शुरुआत मुफ़्त · गहरी रिपोर्ट के पैसे</span><span class="apl-site">careerexplorer.com</span></div></div><a class="apl-go" href="https://www.careerexplorer.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">4</div><div class="apl-body"><b class="apl-nm">वन-टू-थ्री टेस्ट (123test)</b><p class="apl-desc">चित्रों वाला छोटा टेस्ट।<br>जल्दी नतीजा देता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">123test.com</span></div></div><a class="apl-go" href="https://www.123test.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">5</div><div class="apl-body"><b class="apl-nm">ट्रूइटी (Truity)</b><p class="apl-desc">94 प्रश्नों का जाना-माना करियर-टेस्ट।</p><div class="apl-meta"><span class="apl-fee">फीस: टेस्ट मुफ़्त · पूरी रिपोर्ट लगभग $19-$29 (लगभग ₹1,700-₹2,600)</span><span class="apl-site">truity.com</span></div></div><a class="apl-go" href="https://www.truity.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">6</div><div class="apl-body"><b class="apl-nm">सेल्फ़ डाइरेक्टेड सर्च (Self-Directed Search)</b><p class="apl-desc">रायसेक (RIASEC) बनाने वाले वैज्ञानिक जॉन हॉलैंड का अपना टेस्ट।</p><div class="apl-meta"><span class="apl-fee">फीस: लगभग $10-$19 (लगभग ₹900-₹1,700)</span><span class="apl-site">self-directed-search.com</span></div></div><a class="apl-go" href="https://self-directed-search.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">7</div><div class="apl-body"><b class="apl-nm">एम-बी-टी-आई (MBTI): आधिकारिक</b><p class="apl-desc">दुनिया का सबसे मशहूर 16-स्वभाव टेस्ट: यही उसका आधिकारिक घर है।</p><div class="apl-meta"><span class="apl-fee">फीस: $59.95 (लगभग ₹5,300)</span><span class="apl-site">mbtionline.com</span></div></div><a class="apl-go" href="https://www.mbtionline.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">8</div><div class="apl-body"><b class="apl-nm">क्लिफ़्टन स्ट्रेंथ्स (CliftonStrengths)</b><p class="apl-desc">गैलप (Gallup) कंपनी का टेस्ट: आपकी 34 ताक़तें नापता है।<br>बड़े दफ़्तरों में चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $24.99-$59.99 (लगभग ₹2,200-₹5,300)</span><span class="apl-site">store.gallup.com</span></div></div><a class="apl-go" href="https://store.gallup.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">9</div><div class="apl-body"><b class="apl-nm">यू-साइंस (YouScience)</b><p class="apl-desc">11 दिमाग़ी खेलों से असली योग्यता नापता है।<br>स्कूलों में ख़ूब चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $49 (लगभग ₹4,300)</span><span class="apl-site">youscience.com</span></div></div><a class="apl-go" href="https://www.youscience.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">10</div><div class="apl-body"><b class="apl-nm">मैप (MAPP)</b><p class="apl-desc">काम की प्रेरणा नापता है।<br>1 करोड़ से ज़्यादा लोग ले चुके: साइट का दावा।</p><div class="apl-meta"><span class="apl-fee">फीस: झलक मुफ़्त · रिपोर्ट $89.95-$149.95 (लगभग ₹8,000-₹13,200)</span><span class="apl-site">assessment.com</span></div></div><a class="apl-go" href="https://www.assessment.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apt-note">⚠️ ये सब बाहरी साइटें हैं: जानकारी ख़ुद verify करें।<br>फीस बदलती रहती है।<br>जानकारी: अक्टूबर 2026 की।<br>ज़्यादातर टेस्ट अंग्रेज़ी में हैं।</div><div class="apl-india">🇮🇳 भारत में भी: <b>माइंडलर (Mindler)</b>: स्कूल के बच्चों का करियर-टेस्ट और सलाहकार-सेवा।<br>दाम लगभग ₹1,500 से शुरू।<br>पता: <a href="https://www.mindler.com" target="_blank" rel="noopener">mindler.com</a></div>';
-const FARQ='<div class="apl-row"><span class="l">💰 फीस</span><span class="a">वहाँ: लगभग ₹900 से ₹13,000 तक</span><span class="b">यहाँ: झलक मुफ़्त · पूरा टेस्ट बैज (badge) से मुफ़्त</span></div><div class="apl-row"><span class="l">🗣️ भाषा</span><span class="a">वहाँ: ज़्यादातर अंग्रेज़ी</span><span class="b">यहाँ: सरल हिंदी</span></div><div class="apl-row"><span class="l">👤 खाता</span><span class="a">वहाँ: ज़्यादातर में खाता और ईमेल (email) ज़रूरी</span><span class="b">यहाँ: झलक बिना खाते के</span></div><div class="apl-row"><span class="l">🔒 आपके जवाब</span><span class="a">वहाँ: उनके सर्वर (server) पर</span><span class="b">यहाँ: सिर्फ़ आपके फ़ोन में</span></div><div class="apl-row"><span class="l">📜 प्रमाण पत्र</span><span class="a">वहाँ: अलग-अलग नियम</span><span class="b">यहाँ: ₹125 में: मर्ज़ी हो तो लें</span></div><p class="apl-small">यह तुलना अक्टूबर 2026 की जाँच पर है।<br>हर साइट की अपनी ख़ूबी है: मन करे तो वे भी आज़माइए।</p>';
-const ACSLINE='<div class="cz-acsline">🧭 ACS अभिरुचि-टेस्ट: भारत में, हिंदी में। झलक और नतीजा मुफ़्त है। पूरा टेस्ट 100 रुपये में। छपने लायक़ रिपोर्ट 125 रुपये में। <a href="/aptitude-test.html" style="color:#F9A825;font-weight:900">🚀 टेस्ट-पेज खोलें →</a></div>';
-build({out:"career.html",
- title:"अपना करियर चुनें — मुफ़्त अभिरुचि-टेस्ट (Career Aptitude Test) | ACS",
- desc:"24 क्षेत्र, 950+ उद्यम — मुफ़्त अभिरुचि-टेस्ट से जानिए आपका मन किस काम में लगेगा। सही/ग़लत कुछ नहीं, बस अपनी पसंद बताइए। हिंदी में, अपने फ़ोन पर।",
- content:
- APTCSS+CZ+HERO2+
+const CZSTATS='<div class="cz-stats"><div class="cz-stat"><b>'+Q_TOTAL+'+</b><span>प्रश्नों का भंडार</span></div><div class="cz-stat"><b>24</b><span>काम के क्षेत्र</span></div><div class="cz-stat"><b>'+U_TOTAL+'</b><span>उद्यम-श्रेणियाँ</span></div><div class="cz-stat"><b>🔒</b><span>टेस्ट के जवाब फ़ोन में ही</span></div></div>';
+const TOP10='<div class="apl-card"><div class="apl-rank">1</div><div class="apl-body"><b class="apl-nm">ओ-नेट इंटरेस्ट प्रोफ़ाइलर (O*NET Interest Profiler)</b><br><span class="apl-measure">नापता है: रुचि (interest)</span><p class="apl-desc">अमेरिकी सरकार का टेस्ट।<br>रायसेक (RIASEC) विज्ञान पर बना: हमारा टेस्ट भी इसी विज्ञान से प्रेरित है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">mynextmove.org</span></div></div><a class="apl-go" href="https://www.mynextmove.org/explore/ip" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">2</div><div class="apl-body"><b class="apl-nm">सिक्स्टीन पर्सनैलिटीज़ (16Personalities)</b><br><span class="apl-measure">नापता है: स्वभाव (personality)</span><p class="apl-desc">स्वभाव बताने वाला मशहूर टेस्ट।<br> करोड़ों लोग ले चुके हैं।<br>हिंदी में भी मिलता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">16personalities.com</span></div></div><a class="apl-go" href="https://www.16personalities.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">3</div><div class="apl-body"><b class="apl-nm">करियर एक्सप्लोरर (CareerExplorer)</b><br><span class="apl-measure">नापता है: रुचि + करियर-मिलान</span><p class="apl-desc">बड़ा टेस्ट: सैकड़ों करियर से आपका मिलान करता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: शुरुआत मुफ़्त · गहरी रिपोर्ट के पैसे</span><span class="apl-site">careerexplorer.com</span></div></div><a class="apl-go" href="https://www.careerexplorer.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">4</div><div class="apl-body"><b class="apl-nm">वन-टू-थ्री टेस्ट (123test)</b><br><span class="apl-measure">नापता है: रुचि (interest)</span><p class="apl-desc">चित्रों वाला छोटा टेस्ट।<br>जल्दी नतीजा देता है।</p><div class="apl-meta"><span class="apl-fee free">फीस: मुफ़्त</span><span class="apl-site">123test.com</span></div></div><a class="apl-go" href="https://www.123test.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">5</div><div class="apl-body"><b class="apl-nm">ट्रूइटी (Truity)</b><br><span class="apl-measure">नापता है: रुचि व स्वभाव</span><p class="apl-desc">94 प्रश्नों का जाना-माना करियर-टेस्ट।</p><div class="apl-meta"><span class="apl-fee">फीस: टेस्ट मुफ़्त · पूरी रिपोर्ट लगभग $19-$29 (लगभग ₹1,700-₹2,600)</span><span class="apl-site">truity.com</span></div></div><a class="apl-go" href="https://www.truity.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">6</div><div class="apl-body"><b class="apl-nm">सेल्फ़ डाइरेक्टेड सर्च (Self-Directed Search)</b><br><span class="apl-measure">नापता है: रुचि (interest)</span><p class="apl-desc">रायसेक (RIASEC) बनाने वाले वैज्ञानिक जॉन हॉलैंड का अपना टेस्ट।</p><div class="apl-meta"><span class="apl-fee">फीस: लगभग $10-$19 (लगभग ₹900-₹1,700)</span><span class="apl-site">self-directed-search.com</span></div></div><a class="apl-go" href="https://self-directed-search.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">7</div><div class="apl-body"><b class="apl-nm">एम-बी-टी-आई (MBTI): आधिकारिक</b><br><span class="apl-measure">नापता है: स्वभाव (personality)</span><p class="apl-desc">दुनिया का सबसे मशहूर 16-स्वभाव टेस्ट: यही उसका आधिकारिक घर है।</p><div class="apl-meta"><span class="apl-fee">फीस: $59.95 (लगभग ₹5,300)</span><span class="apl-site">mbtionline.com</span></div></div><a class="apl-go" href="https://www.mbtionline.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">8</div><div class="apl-body"><b class="apl-nm">क्लिफ़्टन स्ट्रेंथ्स (CliftonStrengths)</b><br><span class="apl-measure">नापता है: ताक़त (strengths)</span><p class="apl-desc">गैलप (Gallup) कंपनी का टेस्ट: आपकी 34 ताक़तें नापता है।<br>बड़े दफ़्तरों में चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $24.99-$59.99 (लगभग ₹2,200-₹5,300)</span><span class="apl-site">store.gallup.com</span></div></div><a class="apl-go" href="https://store.gallup.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">9</div><div class="apl-body"><b class="apl-nm">यू-साइंस (YouScience)</b><br><span class="apl-measure">नापता है: योग्यता (aptitude)</span><p class="apl-desc">11 दिमाग़ी खेलों से असली योग्यता नापता है।<br>स्कूलों में ख़ूब चलता है।</p><div class="apl-meta"><span class="apl-fee">फीस: $49 (लगभग ₹4,300)</span><span class="apl-site">youscience.com</span></div></div><a class="apl-go" href="https://www.youscience.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apl-card"><div class="apl-rank">10</div><div class="apl-body"><b class="apl-nm">मैप (MAPP)</b><br><span class="apl-measure">नापता है: काम की प्रेरणा (motivation)</span><p class="apl-desc">काम की प्रेरणा नापता है।<br>90 लाख से ज़्यादा users: Assessment.com का वर्तमान दावा।</p><div class="apl-meta"><span class="apl-fee">फीस: झलक मुफ़्त · रिपोर्ट $89.95-$149.95 (लगभग ₹8,000-₹13,200)</span><span class="apl-site">assessment.com</span></div></div><a class="apl-go" href="https://www.assessment.com" target="_blank" rel="noopener">🔗 खोलें</a></div><div class="apt-note">⚠️ ये सब बाहरी साइटें हैं: जानकारी ख़ुद verify करें।<br>फीस बदलती रहती है।<br>जानकारी: अक्टूबर 2026 की।<br>ज़्यादातर टेस्ट अंग्रेज़ी में हैं। ACS की मुफ़्त झलक English में भी है।</div><div class="apl-india">🇮🇳 भारत में भी: <b>माइंडलर (Mindler)</b>: स्कूल के बच्चों का करियर-टेस्ट और सलाहकार-सेवा।<br>दाम लगभग ₹1,500 से शुरू।<br>पता: <a href="https://www.mindler.com" target="_blank" rel="noopener">mindler.com</a></div>';
+const FARQ='<div class="apl-row"><span class="l">💰 फीस</span><span class="a">वहाँ: कई मुफ़्त · paid रिपोर्ट लगभग ₹900 से ₹13,000 तक</span><span class="b">यहाँ: झलक मुफ़्त · पूरा टेस्ट ₹100 · बैज-धारक को असीमित</span></div><div class="apl-row"><span class="l">🗣️ भाषा</span><span class="a">वहाँ: ज़्यादातर अंग्रेज़ी</span><span class="b">यहाँ: सरल हिंदी · English झलक भी</span></div><div class="apl-row"><span class="l">👤 खाता</span><span class="a">वहाँ: ज़्यादातर में खाता और ईमेल (email) ज़रूरी</span><span class="b">यहाँ: झलक बिना खाते के</span></div><div class="apl-row"><span class="l">🔒 आपके जवाब</span><span class="a">वहाँ: उनके सर्वर (server) पर</span><span class="b">यहाँ: टेस्ट के जवाब सिर्फ़ फ़ोन में</span></div><div class="apl-row"><span class="l">📜 छपा काग़ज़</span><span class="a">वहाँ: अलग-अलग नियम</span><span class="b">यहाँ: रिपोर्ट ₹125 में, मर्ज़ी हो तो</span></div><p class="apl-small">यह तुलना अक्टूबर 2026 की जाँच पर है।<br>ये औज़ार अलग-अलग चीज़ें नापते हैं: सीधी बराबरी ठीक नहीं।<br>हर साइट की अपनी ख़ूबी है: मन करे तो वे भी आज़माइए।</p>';
+const ACSLINE='<div class="cz-acsline">🧭 ACS अभिरुचि-टेस्ट (Career Interest Test): भारत में, हिंदी में। 24-प्रश्न झलक ₹0 है। पूरा 120-प्रश्न टेस्ट ₹100 प्रति चांस है; नतीजे के लिए अलग शुल्क नहीं। Active Golden Pass में पूरे टेस्ट के चांस असीमित हैं। छपने लायक़ रिपोर्ट ₹125 में, मर्ज़ी हो तो। <a href="/aptitude-test.html" style="color:#F9A825;font-weight:900">🚀 टेस्ट-पेज खोलें →</a> · <a href="/en/aptitude-test.html" style="color:#F9A825;font-weight:900">English →</a></div>';
+
+/* ===== v1.5 नए टुकड़े (career) ===== */
+const CTAROW='<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:12px 0 2px">'
++'<a href="/aptitude-test.html#apt-start" style="display:inline-block;background:#2E7D32;color:#fff;font-size:21px;font-weight:900;padding:14px 26px;border-radius:999px;text-decoration:none;box-shadow:inset 0 2px 0 rgba(255,255,255,.35),0 5px 0 rgba(11,31,58,.55),0 10px 16px rgba(11,31,58,.3)">🆓 24 प्रश्न की मुफ़्त झलक दें →</a>'
++'<a href="/aptitude-test.html#apt-full" style="display:inline-block;background:#F9A825;color:#0B1F3A;font-size:21px;font-weight:900;padding:14px 26px;border-radius:999px;text-decoration:none;box-shadow:inset 0 2px 0 rgba(255,255,255,.35),0 5px 0 rgba(11,31,58,.55),0 10px 16px rgba(11,31,58,.3)">🧭 पूरा 120-प्रश्न टेस्ट</a></div>'
++'<p style="font-size:17px;text-align:center;margin:6px 0 0;color:#F5F7FA">English में भी: <a href="/en/aptitude-test.html" style="color:#F9A825;font-weight:800">Free 24-question preview in English →</a></p>';
+const BRIDGE='<svg viewBox="0 0 760 360" role="img" aria-label="6 रुचि से 24 क्षेत्र और 951 उद्यम तक" style="width:100%;max-width:760px;display:block;margin:10px auto;background:#FFFFFF;border:2px solid #0B1F3A;border-radius:14px">'
++'<g font-family="Noto Sans Devanagari,Inter" text-anchor="middle">'
++'<text x="380" y="34" font-size="20" font-weight="800" fill="#0B1F3A">रास्ता: 6 रुचि → ACS जोड़-इंजन → 24 क्षेत्र → '+U_TOTAL+' उद्यम-श्रेणियाँ</text>'
++'<g font-size="16" fill="#0B1F3A">'
++'<rect x="26" y="56" width="112" height="40" rx="9" fill="none" stroke="#1565C0" stroke-width="2.5"/><text x="82" y="82">हाथ का काम</text>'
++'<rect x="146" y="56" width="112" height="40" rx="9" fill="none" stroke="#1565C0" stroke-width="2.5"/><text x="202" y="82">खोजबीन</text>'
++'<rect x="266" y="56" width="112" height="40" rx="9" fill="none" stroke="#1565C0" stroke-width="2.5"/><text x="322" y="82">कला</text>'
++'<rect x="386" y="56" width="112" height="40" rx="9" fill="none" stroke="#1565C0" stroke-width="2.5"/><text x="442" y="82">लोग-सेवा</text>'
++'<rect x="506" y="56" width="112" height="40" rx="9" fill="none" stroke="#1565C0" stroke-width="2.5"/><text x="562" y="82">उद्यम-अगुआई</text>'
++'<rect x="626" y="56" width="108" height="40" rx="9" fill="none" stroke="#1565C0" stroke-width="2.5"/><text x="680" y="82">हिसाब-क्रम</text>'
++'</g>'
++'<text x="380" y="118" font-size="16" fill="#0B1F3A" opacity=".85">(RIASEC की 6 रुचियाँ, 1959 से)</text>'
++'<path d="M380 126 v26" stroke="#F9A825" stroke-width="4"/><path d="M372 148 l8 12 8 -12z" fill="#F9A825"/>'
++'<rect x="150" y="166" width="460" height="52" rx="12" fill="#0B1F3A"/>'
++'<text x="380" y="190" font-size="18" font-weight="800" fill="#F9A825">ACS जोड़-इंजन</text>'
++'<text x="380" y="211" font-size="15" fill="#F5F7FA">हर प्रश्न पर पहले से क्षेत्र-विवरण · गिनती सीधा गणित</text>'
++'<path d="M380 222 v26" stroke="#F9A825" stroke-width="4"/><path d="M372 244 l8 12 8 -12z" fill="#F9A825"/>'
++'<rect x="96" y="262" width="260" height="46" rx="12" fill="none" stroke="#2E7D32" stroke-width="3"/>'
++'<text x="226" y="291" font-size="18" font-weight="800" fill="#2E7D32">24 काम के क्षेत्र</text>'
++'<path d="M360 285 h38" stroke="#F9A825" stroke-width="4"/><path d="M392 277 l12 8 -12 8z" fill="#F9A825"/>'
++'<rect x="408" y="262" width="260" height="46" rx="12" fill="#2E7D32"/>'
++'<text x="538" y="291" font-size="18" font-weight="800" fill="#FFFFFF">'+U_TOTAL+' उद्यम-श्रेणियाँ</text>'
++'<text x="380" y="340" font-size="15" fill="#0B1F3A" opacity=".85">नतीजे में 24 क्षेत्रों के अंक और आगे कोर्स व उद्यम की सीधी कड़ी मिलती है।</text>'
++'</g></svg>';
+const LIMITBOX='<div class="cz-limit"><b>सीमा का साफ़ सच:</b> ACS का अपना अंक-मॉडल अभी जाँच-चरण (validation phase) में है। pilot-सैंपल और reliability जैसे आँकड़े अभी प्रकाशित नहीं हुए हैं। '+Q_TOTAL+' प्रश्न होना अपने-आप वैज्ञानिक प्रमाण नहीं है। इसीलिए नतीजा सलाह है, फ़ैसला नहीं। आगे counsellor या अपने अनुभव से पक्का करें।</div>';
+const PRIVTABLE='<table class="cz-priv"><tr><th>चीज़</th><th>कहाँ रहती है?</th></tr>'
++'<tr><td>झलक के जवाब (24 प्रश्न)</td><td>सिर्फ़ आपके फ़ोन में।</td></tr>'
++'<tr><td>पूरे टेस्ट के जवाब (120 प्रश्न)</td><td>सिर्फ़ आपके फ़ोन में।</td></tr>'
++'<tr><td>पूरे टेस्ट का नतीजा-सार (login पर)</td><td>आपके ACS खाते में server पर, अपने-आप: ताकि फ़ोन बदलने पर भी पिछला नतीजा मिल जाए।</td></tr>'
++'<tr><td>नाम व खाता (रजिस्ट्रेशन पर)</td><td>ACS के server पर।</td></tr>'
++'<tr><td>भुगतान</td><td>Razorpay के सुरक्षित पन्ने पर। ACS के पास card-नंबर कभी नहीं आता।</td></tr>'
++'<tr><td>भुगतान की रसीद (order-नंबर व स्थिति)</td><td>ACS के server पर।</td></tr>'
++'<tr><td>₹125 रिपोर्ट का सार (नाम, टेस्ट-नाम, अंक-सार, नंबर)</td><td>ACS के server पर। QR-जाँच इसी से चलती है।</td></tr>'
++'<tr><td>QR-जाँच में क्या दिखता है?</td><td>सिर्फ़ रिपोर्ट-नंबर और असली या नक़ली की स्थिति।</td></tr></table>'
++'<p style="font-size:17px;text-align:center;margin:8px 0 0">झलक बिना खाते के चलती है। झलक में आपके टेस्ट-उत्तर, नाम या खाते की कोई जानकारी ACS server पर नहीं भेजी जाती। पेज खुलने के सामान्य web-log हर वेबसाइट की तरह बनते हैं।</p>';
+const MINORBAR='<div class="cz-minor">📢 18 से कम उम्र वालों के लिए: यह करियर-खोज का औज़ार है, करियर का फ़ैसला नहीं। नतीजा माता-पिता, अभिभावक या शिक्षक के साथ देखें। भुगतान अभिभावक की सहमति से ही करें। 10 से 13 की उम्र में इसे करियर-खोज का अभ्यास मानें, पक्की जाँच नहीं।</div>';
+const FEE_NOTE='<p style="font-size:18px;line-height:1.8;max-width:760px;margin:0 auto 10px"><b>फीस का साफ़ हिसाब:</b> नतीजे के लिए कोई अलग शुल्क नहीं है। 24-प्रश्न झलक 0 रुपये की है। पूरे 120-प्रश्न टेस्ट का एक चांस 100 रुपये का है। <b>ACS Golden Pass की मूल फीस 300 रुपये है</b>; 10 से 17 वर्ष में जन्मतिथि के अनुसार उम्र-आधारित छूट अपने-आप लगती है। छपने-लायक़ रिपोर्ट 125 रुपये की है, मर्ज़ी हो तो।</p>';
+
+const GOLDPASS='<div class="cz-goldpass" aria-label="ACS Golden Pass: विद्यार्थी गोल्डन बैज">'+
+'<div class="cz-gphead"><div><span class="cz-gpkicker">🏅 ACS GOLDEN PASS</span><h3 class="cz-gptitle">एक पास · 365 दिन · बार-बार उपयोग</h3><p class="cz-gpsub">Student Golden Badge: ACS की शामिल विद्यार्थी-सेवाओं के लिए सालाना पास।</p></div>'+
+'<div class="cz-gpprice"><b>₹300</b><span>मूल फीस · 18 वर्ष या अधिक</span><br><span>10–17 वर्ष: DOB से स्वतः छूट</span></div></div>'+
+'<div class="cz-gpstrip"><div class="cz-gppill">♾️ पूरा Career Interest Test<br>असीमित बार</div><div class="cz-gppill">📅 365 दिन<br>payment verification से</div><div class="cz-gppill">⚡ Student badge<br>तुरंत सक्रिय</div></div>'+
+'<div class="cz-gpbox"><h4>✅ अभी Golden Pass में क्या शामिल है?</h4><p><b>120-प्रश्न Career Interest Test</b> साल भर जितनी बार चाहें दें; हर attempt पर 100 रुपये अलग नहीं लगते। नतीजा साथ में दिखता है, अलग result-fee नहीं।</p><p><b>वेबसाइट-व्यापी पास नियम:</b> आगे ACS की जिस सेवा पर <b>“GOLDEN PASS INCLUDED”</b> लिखा होगा, active pass से वह सुविधा मिलेगी। ₹125 की printable report, paid certificate या दूसरी अलग-fee सेवा तब तक pass में शामिल नहीं मानी जाएगी जब तक उस सेवा पर साफ़ “Golden Pass Included” न लिखा हो।</p></div>'+
+'<div class="cz-gpbox"><h4>🪪 Golden Pass कैसे लें?</h4><ol class="cz-gpsteps"><li>अपने ACS खाते में <b>login</b> करें।</li><li><b>Student</b> भूमिका में registration पूरा करें; सही जन्मतिथि (DOB) जरूरी है।</li><li><b>Dashboard → Golden Badge / Golden Pass</b> खोलें।</li><li>Server आपकी payment-day उम्र DOB से निकालेगा और सही fee खुद तय करेगा; गाँव/क़स्बा/महानगर का अलग rate Student Golden पर नहीं है।</li><li>दिखी हुई रकम केवल आधिकारिक <b>Razorpay</b> से जमा करें।</li><li>Payment signature verify होते ही Student Golden Pass <b>तुरंत 365 दिन</b> के लिए active हो जाता है। Active/pending badge हो तो दोबारा खरीद नहीं करनी चाहिए।</li></ol></div>'+
+'<div class="cz-gpbox"><h4>🎓 18 वर्ष से कम उम्र की छूट</h4><p>न्यूनतम उम्र <b>10 वर्ष</b> है। 18 से कम हर पूरे वर्ष पर ₹300 की मूल फीस का 12% यानी ₹36 घटता है। उम्र payment-day पर DOB से server निकालता है। 18 से कम भुगतान अभिभावक की सहमति से करें।</p>'+
+'<table class="cz-age" aria-label="Golden Pass age discount table"><thead><tr><th>उम्र</th><th>छूट</th><th>देय फीस</th></tr></thead><tbody>'+
+'<tr><td>10</td><td>96%</td><td>₹12</td></tr><tr><td>11</td><td>84%</td><td>₹48</td></tr><tr><td>12</td><td>72%</td><td>₹84</td></tr><tr><td>13</td><td>60%</td><td>₹120</td></tr><tr><td>14</td><td>48%</td><td>₹156</td></tr><tr><td>15</td><td>36%</td><td>₹192</td></tr><tr><td>16</td><td>24%</td><td>₹228</td></tr><tr><td>17</td><td>12%</td><td>₹264</td></tr><tr><td>18 या अधिक</td><td>0%</td><td>₹300</td></tr>'+
+'</tbody></table></div>'+
+'<div class="cz-gpactions"><a href="/join.html" style="background:#0B1F3A;color:#FFD76A">नया छात्र: रजिस्ट्रेशन →</a><a href="/dashboard/" style="background:#2E7D32;color:#fff">पहले से registered: Dashboard →</a></div></div>';
+
+const WORLD_PASS='<details class="cz-worldpass"><summary>🌍 दुनिया में “एक सदस्यता, बार-बार उपयोग” मॉडल कहाँ मिलता है?</summary><div class="cz-wpgrid">'+
+'<div class="cz-wpc"><b>Coursera Plus · वैश्विक</b><p>एक subscription से हजारों courses और programs तक access का मॉडल। <a href="https://www.coursera.org/" target="_blank" rel="noopener">आधिकारिक साइट →</a></p></div>'+
+'<div class="cz-wpc"><b>Udemy Personal Plan · भारत सहित अनेक देश</b><p>एक plan में चुने हुए courses और learning resources तक subscription access। <a href="https://www.udemy.com/personal-plan/" target="_blank" rel="noopener">आधिकारिक साइट →</a></p></div>'+
+'<div class="cz-wpc"><b>Skillshare Membership · वैश्विक online</b><p>Membership active रहने तक हजारों creative classes का unlimited access मॉडल। <a href="https://www.skillshare.com/" target="_blank" rel="noopener">आधिकारिक साइट →</a></p></div>'+
+'<div class="cz-wpc"><b>LinkedIn Premium Career · अनेक बाज़ार</b><p>Career subscription में LinkedIn Learning access जैसी bundled सेवाएँ शामिल होती हैं। <a href="https://premium.linkedin.com/careers/career" target="_blank" rel="noopener">आधिकारिक साइट →</a></p></div>'+
+'</div><p style="font-size:16px;line-height:1.7;margin:0 14px 14px;color:#0B1F3A"><b>नोट:</b> ये केवल membership/pass मॉडल के उदाहरण हैं। ACS का उनसे कोई साझेदारी या समान-सेवा दावा नहीं है; ACS Golden Pass के लाभ वही हैं जो ACS पेज पर स्पष्ट लिखे हों।</p></details>';
+const ISO_NOTE='<p style="font-size:17px;text-align:center;max-width:760px;margin:8px auto 0;color:#0B1F3A">नोट: FFGPMTrust का ISO 9001 प्रमाणन संस्था की कार्य-प्रणाली (Quality Management System) का है। यह इस टेस्ट का psychometric प्रमाणन नहीं है।</p>';
+
+const FABSCRIPT='<script>(function(){var t=0,h=0;function f(s){var L=[document.querySelector(".udy-float"),document.querySelector(".acs-wa")];for(var i=0;i<L.length;i++){var e=L[i];if(e){e.style.transition="opacity .25s";e.style.opacity=s?"":"0";e.style.pointerEvents=s?"":"none";}}}window.addEventListener("scroll",function(){var y=window.pageYOffset||document.documentElement.scrollTop||0;if(y>h+24){f(false);}else if(y<h-8){f(true);}h=y;clearTimeout(t);t=setTimeout(function(){f(true);},900);},{passive:true});})();</scr'+'ipt>';
+build({out:"career.html", ver:"v1.7.2", foot:[FABSCRIPT],
+ title:"अपना करियर चुनें — 24 प्रश्न की मुफ़्त झलक + पूरा टेस्ट (Career Interest Test) | ACS",
+ desc:"24 प्रश्न की मुफ़्त अभिरुचि-झलक (Career Interest Test): जानिए आपका मन किस काम में लगेगा। सही या ग़लत कुछ नहीं। पूरा 120-प्रश्न टेस्ट भी है। हिंदी में, अपने फ़ोन पर।",
+ content:careerAudit_run(
+ APTCSS+CZ+HERO2+CTAROW+
  h1("🧭","अपना करियर चुनें")+WRAP_S+
- P('<b>सबसे बड़ा सवाल:</b> "मैं क्या बनूँ?" इसका जवाब कोई और नहीं दे सकता। जवाब आपके अपने मन में है। ACS का <b>अभिरुचि-टेस्ट (Aptitude Test)</b> वही जवाब बाहर निकालता है।')+
- stepSVG("सवालों के जवाब दो","मन की रुचि नापो","अपनी राह पाओ")+
+ P('<b>सबसे बड़ा सवाल:</b> "मैं क्या बनूँ?" इसका जवाब कोई और नहीं दे सकता। जवाब आपके अपने मन में है। ACS का <b>अभिरुचि-टेस्ट (Career Interest Test)</b> वही जवाब बाहर निकालता है।')+
+ stepSVG("सवालों के जवाब दो","मन की रुचि नापो","अपनी राह पाओ","तीन कदम: सवालों के जवाब दो, मन की रुचि नापो, अपनी राह पाओ")+
  sec("❓ यह टेस्ट क्या है?",
-  P('यह ज्ञान की परीक्षा <b>नहीं</b> है। कोई जवाब सही या ग़लत नहीं होता। सवाल रोज़ की ज़िंदगी से आते हैं: घर, खेत, बाज़ार, मोबाइल, खेल। आप बस बताइए क्या पसंद है, क्या नहीं।')+
-  P('जिस काम में मन लगे, उसमें तरक़्क़ी तेज़ होती है। इसीलिए दुनिया-भर के स्कूल और कंपनियाँ ऐसे टेस्ट कराती हैं। गाँव-देहात में बहुत लोगों को पता नहीं कि ऐसा टेस्ट भी होता है। अब आप जान गए।')+
-  P('पीछे का विज्ञान: दुनिया-भर में माना गया RIASEC रुचि-विज्ञान, सन 1959 से। उसी पर आधारित मशीन आपके जवाबों से 24 क्षेत्रों में रुचि नापती है।')+CZSTATS)+
+  P('साफ़ बात पहले: यह <b>रुचि (interest)</b> नापने का टेस्ट है। यह योग्यता (aptitude) या ज्ञान की परीक्षा <b>नहीं</b> है। कोई जवाब सही या ग़लत नहीं होता। सवाल रोज़ की ज़िंदगी से आते हैं: घर, खेत, बाज़ार, मोबाइल, खेल। आप बस बताइए क्या पसंद है, क्या नहीं।')+
+  P('जिस काम में मन लगे, उसमें तरक़्क़ी तेज़ होती है। इसीलिए दुनिया-भर के स्कूल और कंपनियाँ ऐसे रुचि-टेस्ट कराती हैं। गाँव-देहात में बहुत लोगों को पता नहीं कि ऐसा टेस्ट भी होता है। अब आप जान गए।')+
+  P('पीछे का विज्ञान: दुनिया-भर में माना गया RIASEC रुचि-विज्ञान, सन 1959 से। उसी से प्रेरित ACS-इंजन आपके जवाबों से 24 क्षेत्रों में रुचि नापता है।')+CZSTATS)+
  sec("🎁 इस टेस्ट के 6 बड़े फ़ायदे",'<div class="cz-grid">'+
   '<div class="cz-card"><h3>🧭 दिशा साफ़</h3><p>टेस्ट आपके सबसे मज़बूत 4 क्षेत्र बताता है। पूरे 24 क्षेत्रों के अंक भी मिलते हैं। अंक घटते क्रम में दिखते हैं।</p></div>'+
   '<div class="cz-card"><h3>🌍 आगे की सीधी राह</h3><p>नतीजे के साथ कोर्स की सीधी कड़ी मिलती है। 950 से ज़्यादा उद्यमों की कड़ी भी मिलती है। पढ़ाई वहीं से शुरू हो जाती है।</p></div>'+
   '<div class="cz-card"><h3>🔍 अनजान क्षेत्र भी दिखें</h3><p>दुनिया में बहुत तरह के काम हैं। कई काम हम जानते ही नहीं। टेस्ट वे काम भी सामने लाता है।</p></div>'+
-  '<div class="cz-card"><h3>🗣️ भाषा बिल्कुल सरल</h3><p>सवाल रोज़ की ज़िंदगी से हैं। भाषा कक्षा-6 जैसी हिंदी है। 10 साल से ऊपर कोई भी दे सकता है।</p></div>'+
-  '<div class="cz-card"><h3>📱 आपकी निजता</h3><p>आपके जवाब आपके फ़ोन में रहते हैं। झलक बिना login चलती है। कोई ज़बरदस्ती नहीं है।</p></div>'+
+  '<div class="cz-card"><h3>🗣️ भाषा बिल्कुल सरल</h3><p>सवाल रोज़ की ज़िंदगी से हैं। भाषा कक्षा-6 जैसी हिंदी है। मुफ़्त झलक English में भी है।</p></div>'+
+  '<div class="cz-card"><h3>📱 आपकी निजता</h3><p>टेस्ट के जवाब आपके फ़ोन में रहते हैं। झलक बिना login चलती है। पूरा ब्योरा नीचे निजता-तालिका में है।</p></div>'+
   '<div class="cz-card"><h3>🛡️ झूठे वादे नहीं</h3><p>नतीजा दिशा दिखाता है। यह क़िस्मत नहीं लिखता। फ़ैसला हमेशा आपका है।</p></div></div>')+
- sec("🌍 दुनिया के टॉप 10 अभिरुचि-टेस्ट",
- P('हमने दुनिया की 20 बड़ी टेस्ट-साइटों की जाँच की। उनमें से 10 सबसे जानी-मानी नीचे हैं। नाम, पता और फीस साथ में हैं। आप इन्हें भी देख सकते हैं। तुलना से साफ़ दिखेगा कि ACS का रास्ता कितना सस्ता है।')+
- TOP10+ACSLINE)+
- sec("⚖️ वहाँ और यहाँ: फ़र्क़ देखिए",FARQ)+
- sec("₹ ACS की फीस: पूरा हिसाब, कुछ छिपा नहीं",'<div class="cz-fee">'+
-  '<div class="cz-fc" style="border-color:#1565C0;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #1565C0,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(160deg,#FFFFFF 0%,#EAF2FF 55%,#DCE9FF 100%)"><div class="cz-price" style="color:#1565C0">🆓 0 रुपये</div><h3>मुफ़्त झलक</h3><p>इसमें 24 सवाल हैं। 10 से 12 मिनट लगते हैं। login या रजिस्ट्रेशन नहीं चाहिए। नतीजा भी मुफ़्त दिखता है।</p><a class="cz-btn" style="background:#1565C0" href="/aptitude-test.html#apt-start">मुफ़्त टेस्ट शुरू करें →</a></div>'+
-  '<div class="cz-fc" style="border-color:#F9A825;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #F9A825,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(160deg,#FFFFFF 0%,#FFF6DC 55%,#FFE9A8 100%)"><div class="cz-price" style="color:#0B1F3A">🎫 100 रुपये</div><h3>1 पूरा टेस्ट</h3><p>इसमें 120 सवाल हैं। समय 90 मिनट का है। बीच में कहानी-विराम आते हैं। नतीजा मुफ़्त दिखता है। पहले रजिस्ट्रेशन करें। फिर टेस्ट-पेज पर ही 100 रुपये का बटन मिलता है।</p><a class="cz-btn" style="background:#F9A825;color:#0B1F3A" href="/aptitude-test.html#apt-full">पूरा टेस्ट यहीं से →</a></div>'+
-  '<div class="cz-fc" style="border-color:#2E7D32;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #2E7D32,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(160deg,#FFFFFF 0%,#E8F5E9 55%,#C8E6C9 100%)"><div class="cz-price" style="color:#2E7D32">🏅 300 रुपये</div><h3>गोल्डन बैज: 365 दिन असीमित</h3><p>साल भर जितनी बार चाहें, पूरा टेस्ट दें। हर बार मुफ़्त रहेगा। 18 से कम उम्र पर छूट है। 10 साल के बच्चे का सिर्फ़ 12 रुपये लगता है। बैज रजिस्ट्रेशन के बाद dashboard से मिलता है।</p><a class="cz-btn" style="background:#2E7D32" href="/join.html">रजिस्ट्रेशन से शुरू करें →</a></div>'+
-  '<div class="cz-fc" style="border-color:#0B1F3A;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #0B1F3A,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(160deg,#FFFFFF 0%,#EDF0F5 55%,#DCE2EC 100%)"><div class="cz-price" style="color:#0B1F3A">📜 125 रुपये</div><h3>छपने लायक़ रिपोर्ट, मर्ज़ी हो तो</h3><p>नतीजे के बाद उसी पेज से मिलती है। इस पर QR लगा होता है। दुनिया में कहीं से असली-नक़ली जाँच हो जाती है। रूप प्रमाणपत्र जैसा है। न लें तो भी टेस्ट और नतीजा मुफ़्त ही है।</p><a class="cz-btn" style="background:#0B1F3A" href="/aptitude-test.html#apt-full">पहले टेस्ट दें →</a></div>'+
-  '</div>'+
-  '<p style="font-size:17px;text-align:center;margin:12px 0 0">⚠️ भुगतान केवल आधिकारिक Razorpay से। हर फीस का वापसी-नियम साफ़ लिखा है: <a href="/refund.html" style="color:#1565C0;font-weight:700">रिफंड-नीति देखें</a>।</p>')+
  sec("📊 नतीजा कैसा दिखेगा? नमूना देखिए",
   P('टेस्ट पूरा होते ही फ़ोन पर ऐसा नतीजा खुलता है। नीचे की तस्वीर सिर्फ़ नमूना है, नाम और अंक बनावटी हैं।')+
   RES2)+
+ sec("🧬 विज्ञान और सीमा: पूरा सच",
+  P('ढाँचा RIASEC (1959) पर आधारित/प्रेरित है। RIASEC में 6 तरह की रुचियाँ होती हैं। ACS के '+Q_TOTAL+' प्रश्न '+U_TOTAL+' उद्यम-श्रेणियों की अपनी सूची से बने हैं। यह गिनती मशीन से होती है, हाथ से नहीं लिखी जाती। हर प्रश्न पर पहले से क्षेत्र-विवरण लगा है। इसी से 24 क्षेत्रों के अंक बनते हैं।')+
+  BRIDGE+
+  P('गिनती सीधा गणित है: कोई AI आपका नतीजा नहीं बनाता। प्रश्न-चयन गतिशील (dynamic question selection) है: पूरे टेस्ट के बीच के खंड आपके मज़बूत क्षेत्रों में गहरे जाते हैं। हम इससे बड़ा कोई तकनीकी दावा नहीं करते।')+
+  LIMITBOX)+
+ sec("₹ ACS की फीस: पूरा हिसाब, कुछ छिपा नहीं",FEE_NOTE+'<div class="cz-fee">'+
+  '<div class="cz-fc" style="border-color:#1565C0;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #1565C0,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(160deg,#FFFFFF 0%,#EAF2FF 55%,#DCE9FF 100%)"><div class="cz-price" style="color:#1565C0">🆓 0 रुपये</div><h3>मुफ़्त झलक</h3><p>इसमें 24 सवाल हैं। 10 से 12 मिनट लगते हैं। login या रजिस्ट्रेशन नहीं चाहिए। नतीजा साथ में ही दिखता है, अलग शुल्क नहीं।</p><a class="cz-btn" style="background:#1565C0" href="/aptitude-test.html#apt-start">मुफ़्त झलक शुरू करें →</a></div>'+
+  '<div class="cz-fc" style="border-color:#F9A825;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #F9A825,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(160deg,#FFFFFF 0%,#FFF6DC 55%,#FFE9A8 100%)"><div class="cz-price" style="color:#0B1F3A">🎫 100 रुपये</div><h3>1 पूरा टेस्ट</h3><p>इसमें 120 सवाल हैं। समय 90 मिनट का है। बीच में कहानी-विराम आते हैं। नतीजा साथ में ही दिखता है, अलग शुल्क नहीं। पहले रजिस्ट्रेशन करें। फिर टेस्ट-पेज पर ही 100 रुपये का बटन मिलता है।</p><a class="cz-btn" style="background:#F9A825;color:#0B1F3A" href="/aptitude-test.html#apt-full">पूरा टेस्ट यहीं से →</a></div>'+
+  '<div class="cz-fc" style="border-color:#0B1F3A;box-shadow:0 2px 0 #0B1F3A,0 6px 0 #0B1F3A,0 12px 22px rgba(11,31,58,.22),inset 0 2px 0 #fff;background:linear-gradient(160deg,#FFFFFF 0%,#EDF0F5 55%,#DCE2EC 100%)"><div class="cz-price" style="color:#0B1F3A">📜 125 रुपये</div><h3>छपने लायक़ रिपोर्ट (वैकल्पिक)</h3><p>नतीजे के बाद उसी पेज से मिलती है। इस पर आपका नाम, unique नंबर और QR होता है। दुनिया में कहीं से असली-नक़ली जाँच हो जाती है। यह रिपोर्ट है, योग्यता-प्रमाणपत्र नहीं। न लें तो भी नतीजा दिखता ही है।</p><a class="cz-btn" style="background:#0B1F3A" href="/aptitude-test.html#apt-full">पहले टेस्ट दें →</a></div>'+
+  '</div>'+GOLDPASS+WORLD_PASS+
+  '<p style="font-size:17px;text-align:center;margin:12px 0 0">⚠️ भुगतान केवल आधिकारिक Razorpay से। हर फीस का वापसी-नियम साफ़ लिखा है: <a href="/refund.html" style="color:#1565C0;font-weight:700">रिफंड-नीति देखें</a>।</p>'+ISO_NOTE)+
+ sec("🔒 निजता: क्या कहाँ रहता है?",PRIVTABLE)+
+ MINORBAR+
  sec("📜 125 रुपये की रिपोर्ट में क्या मिलेगा? नमूना देखिए",
   P('• रिपोर्ट में आपका नाम और ACS ID छपते हैं।<br>• टेस्ट का नाम, तारीख़ और समय भी छपते हैं।<br>• ⭐ सबसे प्रबल रुचि और सुझाए 4 क्षेत्र छपते हैं।<br>• पूरे 24 क्षेत्रों के अंक घटते क्रम में छपते हैं।<br>• Unique नंबर और QR लगा होता है। दुनिया में कहीं से असली-नक़ली जाँच हो जाती है।<br>• PDF छपने लायक़ होती है। इसे profile, स्कूल या WhatsApp पर share कर सकते हैं।')+
   CERT2+
-  P('हर बार का टेस्ट अलग तारीख़ और अंक के साथ अपनी अलग रिपोर्ट बनाता है। रिपोर्ट लेना पूरी तरह आपकी मर्ज़ी है।'))+
+  P('हर बार का टेस्ट अलग तारीख़ और अंक के साथ अपनी अलग रिपोर्ट बनाता है। यह अभिरुचि-रिपोर्ट है, योग्यता का प्रमाणपत्र नहीं। रिपोर्ट लेना पूरी तरह आपकी मर्ज़ी है।'))+
  sec("🛡️ भरोसा",
-  P('आपके जवाब आपके फ़ोन में रहते हैं। नतीजा दिशा दिखाता है: फ़ैसला हमेशा आपका। "100 प्रतिशत गारंटी" जैसे झूठे दावे ACS कभी नहीं करता।'))+
- CTA("/aptitude-test.html","🧭 मुफ़्त टेस्ट अभी शुरू करें →")+
+  P('टेस्ट के जवाब आपके फ़ोन में रहते हैं। नतीजा दिशा दिखाता है: फ़ैसला हमेशा आपका। "100 प्रतिशत गारंटी" जैसे झूठे दावे ACS कभी नहीं करता।'))+
+ '<details class="cz-acc"><summary>🌍 दुनिया के 10 जाने-माने करियर-जाँच औज़ार: तुलना खोलें</summary><div class="cz-accin">'+
+  P('दुनिया की जानी-मानी टेस्ट-साइटों में से 10 प्रमुख उदाहरण नीचे हैं। ध्यान रखें: ये सब एक ही चीज़ नहीं नापते। कोई रुचि नापता है, कोई स्वभाव, कोई ताक़त, कोई योग्यता। इसलिए दाम की सीधी बराबरी ठीक नहीं: दाम सिर्फ़ जानकारी के लिए हैं।')+
+  TOP10+ACSLINE+
+  '<h3 style="font-size:20px;color:#0B1F3A;margin:16px 0 6px">⚖️ वहाँ और यहाँ: फ़र्क़ देखिए</h3>'+FARQ+
+ '</div></details>'+
+ CTA("/aptitude-test.html#apt-start","🧭 24 प्रश्न की मुफ़्त झलक शुरू करें →")+
  '</div>'+SLOT+
- cross([["/bhasha.html","🗣️ नई भाषा सीखें"],["/hunar.html","🛠️ नया हुनर सीखें"],["/udyam-shuruat.html","🏭 अपना उद्यम शुरू करें"]])
+ cross([["/bhasha.html","🗣️ नई भाषा सीखें"],["/hunar.html","🛠️ नया हुनर सीखें"],["/udyam-shuruat.html","🏭 अपना उद्यम शुरू करें"]]))
 });
 /* ================= पेज-2: भाषा ================= */
 build({out:"bhasha.html",
@@ -269,7 +430,7 @@ build({out:"bhasha.html",
 build({out:"hunar.html",
  title:"नया हुनर सीखें — मुफ़्त हुनर-कोर्स, परीक्षा व प्रमाणपत्र | ACS",
  desc:"वेल्डिंग से Python तक — पूरे हुनर-कोर्स हिंदी में: पाठ, चित्र, वीडियो, quiz, ऑनलाइन परीक्षा और प्रमाणपत्र। पढ़ाई मुफ़्त, अपने फ़ोन पर।",
- foot:['<script src="/assets/courses_data.js"></scr'+'ipt>','<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var seen={},R=[];A.forEach(function(c){if(!c||!c.url)return;var u=String(c.url);if(u.indexOf("/bhasha/")>-1||u.indexOf("/courses/")!==0)return;if(seen[u])return;seen[u]=1;R.push(c);});var box=document.getElementById("hnList");if(box&&R.length){var h="";R.forEach(function(c){var nm=(c.t2&&c.t2[0])?c.t2[0]:(c.name_hi||"");h+=\'<a href="\'+c.url+\'" style="display:block;margin:8px auto;max-width:620px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A;border-radius:12px;padding:12px 14px;text-decoration:none;font-size:18px;font-weight:700">\'+nm+\' <span style="color:#2E7D32;font-size:16px">(\'+(c.lessons||"")+\' पाठ · मुफ़्त)</span></a>\';});box.innerHTML=h;}}catch(e){}})();</scr'+'ipt>'],
+ foot:['<script src="/assets/courses_data.js"></scr'+'ipt>','<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var seen={},R=[];A.forEach(function(c){if(!c||!c.url)return;var u=String(c.url);if(u.indexOf("/bhasha/")>-1||u.indexOf("/courses/")!==0)return;if(seen[u])return;seen[u]=1;R.push(c);});\n/* Founder-क्रम (08-Nov): 12 कोर्स इसी क्रम में; नया कोर्स जुड़े तो सूची-अंत में अपने-आप */\nvar ORD=["digital-mitra-basic","first-code","/digital/ecom","/digital/dca","ai-digital-master","vocational/printer","/welding/","two-wheeler","four-wheeler-driver","mushroom-cultivation-marketing","kaithi-lipi","tirhuta-lipi"];\nR.sort(function(a,b){function k(c){var u=String(c.url);for(var i=0;i<ORD.length;i++){if(u.indexOf(ORD[i])>-1)return i;}return 99;}return k(a)-k(b);});\nvar box=document.getElementById("hnList");if(box&&R.length){var h="";\n/* 3D रंगीन बटन — नीला/सुनहरा/हरा बारी-बारी (कार्ड-रूप नियम) */\nvar TH=[["#1565C0","#0B1F3A","#fff","rgba(255,255,255,.88)"],["#F9A825","#c47f12","#0B1F3A","#5a4100"],["#2E7D32","#1b5e20","#fff","rgba(255,255,255,.88)"]];\nR.forEach(function(c,i){var nm=(c.t2&&c.t2[0])?c.t2[0]:(c.name_hi||"");var t=TH[i%3];\nh+=\'<a href="\'+c.url+\'" style="display:block;margin:12px auto;max-width:620px;background:\'+t[0]+\';color:\'+t[2]+\';border:0;border-bottom:5px solid \'+t[1]+\';border-radius:14px;padding:14px 16px;text-decoration:none;font-size:18px;font-weight:800;box-shadow:0 4px 12px rgba(11,31,58,.22);text-align:center">\'+nm+\' <span style="display:block;margin-top:4px;color:\'+t[3]+\';font-size:16px;font-weight:700">(\'+(c.lessons||"")+\' पाठ · मुफ़्त)</span></a>\';});\nbox.innerHTML=h;}}catch(e){}})();</scr'+'ipt>'],
  content:
  h1("🛠️","नया हुनर सीखें")+WRAP_S+
  P('<b>डिग्री नौकरी नहीं देती — हुनर देता है।</b> हाथ का हुनर वह पूँजी है जो न चोरी होती है, न पुरानी पड़ती है। गाँव में रहो या विदेश जाओ — हुनरमंद आदमी कभी ख़ाली नहीं बैठता।')+
