@@ -15,7 +15,7 @@ const EN = [
 /*004*/ "Menu",
 /*005*/ "In 130 languages: from villages to the Global South!",
 /*006*/ "Original language: Hindi",
-/*007*/ "E",
+/*007*/ "N",
 /*008*/ "Measure your interests, find your path",
 /*009*/ "Village",
 /*010*/ "World",

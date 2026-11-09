@@ -16,7 +16,7 @@ const T = [
 /*004*/ "Men\u00fa",
 /*005*/ "\u00a1130 idiomas: del pueblo al Sur Global!",
 /*006*/ "Idioma original: hindi",
-/*007*/ "E",
+/*007*/ "N",
 /*008*/ "Mide tu inter\u00e9s, encuentra tu camino",
 /*009*/ "Pueblo",
 /*010*/ "Mundo",

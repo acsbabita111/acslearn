@@ -16,7 +16,7 @@ const T = [
 /*004*/ "Menu",
 /*005*/ "130 langues : du village au Sud global !",
 /*006*/ "Langue d'origine : hindi",
-/*007*/ "M",
+/*007*/ "N",
 /*008*/ "Mesure ton intérêt, trouve ta voie",
 /*009*/ "Village",
 /*010*/ "Monde",
