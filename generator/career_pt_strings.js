@@ -17,7 +17,7 @@ const T = [
 /*008*/ "Meça seus interesses, encontre seu caminho",
 /*009*/ "Aldeia",
 /*010*/ "Mundo",
-/*011*/ "24 setores · 950+ oportunidades de empreendimento · em linguagem simples, no seu celular",
+/*011*/ "24 setores · 950+ oportunidades de empreendimento · no seu celular",
 /*012*/ "🆓 Faça a prévia gratuita de 24 perguntas →",
 /*013*/ "🧭 Teste completo de 120 perguntas (em hindi)",
 /*014*/ "Outros idiomas: ",
@@ -308,7 +308,7 @@ const META = {
   required: ['Teste de Interesse Profissional', 'Career Interest Test', 'oportunidades de empreendimento', 'Idioma original: hindi', 'Primeiro, fa\u00e7a '],
   forbidden: ['ind\u00fastrias', 'Adaptive Testing'],
   swaps: [
-    { from: 'font-size="46"', to: 'font-size="40"', label: 'hero headline 46\u219240' },
+    { from: 'font-size="46"', to: 'font-size="36"', label: 'hero headline 46\u219236' },
     { from: 'color:#F5F7FA">Outros idiomas: ', to: 'color:#0B1F3A">Outros idiomas: ', label: 'other-languages contrast' }
   ]
 };
