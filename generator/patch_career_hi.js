@@ -33,7 +33,7 @@ function op(label, oldStr, newStr, alreadyFn) {
 }
 
 /* 1) hreflang — single home: LANGS registry (x-default = hi root) */
-const LANGS = ['hi','en','zh','es','ar','fr','bn','pt','ru','id','ur','de','ja'];  // career.html live language versions, in order
+const LANGS = ['hi','en','zh','es','ar','fr','bn','pt','ru','id','ur','de','ja','mr'];  // career.html live language versions, in order
 function hrefOf(c){ return c==='hi' ? 'https://acslearn.com/career.html' : 'https://acslearn.com/'+c+'/career.html'; }
 const CANON = '<link rel="canonical" href="https://acslearn.com/career.html">';
 const HREF = LANGS.map(c => '\n<link rel="alternate" hreflang="'+c+'" href="'+hrefOf(c)+'">').join('') +
