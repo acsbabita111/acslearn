@@ -116,8 +116,8 @@ function statusPanel(key){
 /* (29-Jul, Founder — रास्ता-चालित दरवाज़ा) जड़-पाठ अब हालत नहीं बताता; असली हालत
    (बैज > ₹100-चांस > झलक) इंजन aptGate से भरती है — बासी-सत्य नियम v5.0-ङ2। */
 const P_APTITUDE = (
-    '<div class="pcard panel" id="pnl-aptitude" data-nav="🧭 अभिरुचि-टेस्ट" style="grid-column:1/-1">' +
-    '<div class="ph">🧭 अभिरुचि-टेस्ट (Aptitude Test — टेस्ट-1)</div>' +
+    '<div class="pcard panel" id="pnl-aptitude" data-nav="🧭 अभिरुचि-परीक्षण" style="grid-column:1/-1">' +
+    '<div class="ph">🧭 अभिरुचि-परीक्षण (Career Interest Test) — टेस्ट-1</div>' +
     '<div class="pd">यह ज्ञान की नहीं, आपकी रुचि की परीक्षा है — कोई जवाब सही या ग़लत नहीं। ' +
     'नतीजा बताता है कि 24 क्षेत्रों में आपका मन किधर सबसे ज़्यादा लगता है। ' +
     'आपके जवाब आपके फ़ोन में ही रहते हैं (निजता सुरक्षित)।</div>' +
@@ -182,7 +182,7 @@ const P_PROOF = (
 const P_CERTS = (
     '<div class="pcard panel" id="pnl-certs" data-nav="🏆 मेरे प्रमाण पत्र" style="grid-column:1/-1">' +
     '<div class="ph">🏆 मेरे प्रमाण पत्र</div>' +
-    '<div class="pd">ACS पर अभी तीन प्रकार: (1) Aptitude Certificate — रुचि-रिपोर्ट, (2) प्रशिक्षण-पूर्णता प्रमाण पत्र — दोहरा-ताला, ' +
+    '<div class="pd">ACS पर अभी तीन प्रकार: (1) छपने-योग्य अभिरुचि-रिपोर्ट (Interest Report), (2) प्रशिक्षण-पूर्णता प्रमाण पत्र — दोहरा-ताला, ' +
     '(3) online कोर्स-पूर्णता प्रमाण पत्र। हर प्रमाण पत्र पर unique number व QR — दुनिया में कहीं से verify। ' +
     'Lifetime valid; verify 3 साल मुफ़्त, फिर 1000 रुपये; duplicate 500 रुपये।</div>' +
     '<div class="note">अभी आपका कोई प्रमाण पत्र नहीं बना — परीक्षा-इंजन चालू होते ही download यहीं मिलेगा।</div>' +
@@ -192,7 +192,7 @@ function P_PAY(extra){
   return (
     '<div class="pcard panel" id="pnl-pay" data-nav="💳 मेरे भुगतान" style="grid-column:1/-1">' +
     '<div class="ph">💳 मेरे भुगतान</div>' +
-    '<div class="pd">paid सिर्फ़ ये 5 सेवाएँ: aptitude टेस्ट · offline प्रशिक्षण · workshop apprenticeship · ' +
+    '<div class="pd">paid सिर्फ़ ये 5 सेवाएँ: छपने-योग्य अभिरुचि-रिपोर्ट · offline प्रशिक्षण · workshop apprenticeship · ' +
     'counselor सलाह · विदेश-एजेंट connection। बाक़ी सब — पढ़ना, जुड़ना, देखना — हमेशा मुफ़्त।</div>' +
     (extra || '') +
     '<div class="note">💡 हर paid-सेवा पर भुगतान-बटन के ठीक ऊपर लिखा मिलेगा: सत्यापन असफल = 30 प्रतिशत जाँच-शुल्क। ' +
@@ -208,10 +208,10 @@ const P_COUNSEL = (
     'ज़रूर मिलती है — फिर booking। booking रद्द करने पर (1 घंटा पहले तक) 90 प्रतिशत वापसी — चाहे आप रद्द करें या counselor।</div>' +
     '<div class="note">counselor-सूची (नाम · fees) यहाँ तभी दिखेगी जब उनका RM भौतिक-सत्यापन व approval पूरा होगा — ' +
     'बिना सत्यापन कोई नाम portal पर नहीं दिखता (प्रदर्शन-नियम)।</div>' +
-    '<div class="pd" style="margin-top:14px"><b>🧭 अभिरुचि-टेस्ट:</b> बिना-badge ₹100/चांस; ' +
-    'Green/Golden Badge-धारक — मुफ़्त, 365 दिन जितनी बार चाहें। ' +
-    'रिपोर्ट (नतीजा) अस्थायी रहती है — ₹125 जमा करने पर ही स्थायी रूप से सेव होकर Print/WhatsApp खुलते हैं (हर नए नतीजे का अलग ₹125)।</div>' +
-    '<a class="abtn ok" style="display:inline-block;text-decoration:none;margin:6px 0" href="/aptitude-test.html">📝 अभिरुचि-टेस्ट शुरू/जारी करें</a>' +
+    '<div class="pd" style="margin-top:14px"><b>🧭 अभिरुचि-परीक्षण:</b> बिना सक्रिय Golden Pass के पूरा परीक्षण ₹100 प्रति प्रयास; ' +
+    'सक्रिय Golden Pass के साथ पूरा अभिरुचि-परीक्षण 365 दिन असीमित मुफ़्त। ' +
+    'नतीजा मुफ़्त दिखता है और आपके फ़ोन में ही रहता है — कोई अलग शुल्क नहीं। चाहें तो छपने-योग्य अभिरुचि-रिपोर्ट (PDF: Print/WhatsApp) ₹125 में — हर नए नतीजे की अपनी ₹125 रिपोर्ट।</div>' +
+    '<a class="abtn ok" style="display:inline-block;text-decoration:none;margin:6px 0" href="/aptitude-test.html">📝 अभिरुचि-परीक्षण शुरू/जारी करें</a>' +
     '<div id="apt-last-report-status" class="note">पिछली रिपोर्ट जाँची जा रही है…</div>' +
     '</div>');
 
@@ -284,8 +284,8 @@ const P_BADGE = (
 const P_BADGE_GOLD = (
     '<div class="pcard panel" id="pnl-badge" data-nav="🏅 Golden Badge" style="grid-column:1/-1">' +
     '<div class="ph">🏅 Student Golden Badge</div>' +
-    '<div class="pd">पढ़ना मुफ़्त है — Golden Badge लेना आपकी मर्ज़ी (वैकल्पिक)। Badge के साथ सभी online टेस्ट ' +
-    '365 दिन असीमित मुफ़्त — जितनी बार चाहें दें, नतीजा मुफ़्त देखें (प्रमाण पत्र-PDF ₹125 में — मर्ज़ी हो तो लें)।</div>' +
+    '<div class="pd">पढ़ना मुफ़्त है — Golden Pass (Student Golden Badge) लेना आपकी मर्ज़ी (वैकल्पिक)। सक्रिय Golden Pass के साथ पूरा अभिरुचि-परीक्षण ' +
+    '365 दिन असीमित मुफ़्त — जितनी बार चाहें दें, नतीजा मुफ़्त देखें। छपने-योग्य अभिरुचि-रिपोर्ट (PDF) ₹125 में — मर्ज़ी हो तो लें।</div>' +
     '<div class="pd"><b>शुल्क (365 दिन):</b> सबके लिए सीधा 300 रुपये — गाँव/क़स्बा/महानगर का भेद नहीं। ' +
     '18 से कम उम्र पर छूट: हर कम-वर्ष पर 12 प्रतिशत — जैसे 10 वर्ष = 12 रुपये · 14 वर्ष = 156 रुपये · ' +
     '16 वर्ष = 228 रुपये। सही रक़म आपकी जन्मतिथि से अपने-आप बनेगी।</div>' +
@@ -978,7 +978,7 @@ const P_LEDGER = (
     '<div class="pd">यहाँ ACS के साथ आपका हर भुगतान दिखता है — कब, किस सेवा पर, कितना, और उसकी स्थिति। ' +
     'यह सिर्फ़ हिसाब-किताब है — ACS आपका पैसा जमा करके नहीं रखता।</div>' +
     '<div id="ledgerList"><span class="note">हिसाब यह पैनल खोलने पर आता है…</span></div>' +
-    '<div class="note">अभी बैज-भुगतान दिखते हैं; बाक़ी paid-सेवाएँ (aptitude टेस्ट आदि) जुड़ते ही उनका हिसाब भी यहीं दिखेगा। ' +
+    '<div class="note">अभी बैज-भुगतान दिखते हैं; बाक़ी paid-सेवाएँ (अभिरुचि-रिपोर्ट आदि) जुड़ते ही उनका हिसाब भी यहीं दिखेगा। ' +
     'कमाई (royalty/commission) का खाता भुगतान-चक्र इंजन के साथ जुड़ेगा।</div>' +
     '</div>');
 

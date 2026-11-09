@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.7.2 · 10-Nov-2026 — v1.2.1: Hindi-source Career-शब्दावली canonical (अभिरुचि-परीक्षण/सक्रिय Golden Pass/छपने-योग्य रिपोर्ट); DASH_VER v6.7.2।
+   v6.7.1 · 09-Nov-2026 (learner English-परत — early-boot import: NO_GATEWAY_EXT पर dash_i18n_en.js dynamic-import — student/jobseeker/entrepreneur का पूरा UI English, toggle से; hi default अटल)
    v6.6.4 · 08-Nov-2026 (डिजिटल मित्र server-परीक्षा: SE026 SERVER_EXAM_COURSES + CRS_ICON 💻 में — dmt_bank 545 = 109 पाठ x 5; वही generic इंजन)
    v6.6.3 · 26-Oct-2026 (पहला कोड server-परीक्षा: SE025 SERVER_EXAM_COURSES + CRS_ICON 🧩 में — pl0_bank 1,090; वही generic इंजन)
    v6.6.2 · 02-Sep-2026 (संस्करण-पट्टी पन्ने के नीचे — cache-पुराना/नया एक नज़र में; DASH_VER नियम)
@@ -67,7 +69,7 @@
           (फ़ाइल:लाइन-नंबर समेत) — अगली बार कोई crash आए तो पहले ही प्रयास में
           सटीक जड़ पकड़ में आए, कोई अटकल/और screenshot-चक्र न चाहिए पड़े।
    v4.7 · 22-Jul-2026 — बैज-द्वार निशान (acs_apt_gate_v1): Jio-नियम v3.7 —
-        learner-बैज सक्रिय → पूरा अभिरुचि-टेस्ट खुले; न रहे तो निशान हटे।
+        learner-बैज सक्रिय → पूरा अभिरुचि-परीक्षण खुले; न रहे तो निशान हटे।
    v4.6 · 20-Jul-2026 — ✔-बचाव: फ़ोटो-load पर लगा हुआ बैज-निशान न मिटे (cache-दौड़ दोष बंद)।
    v4.4 · 19-Jul-2026 — गूँगा-fallback निषेध का स्थायी पहरा (v3.5-घ, Laxmi-केस से):
           guardTeam/guardExternal का पूरा profile-भरने वाला हिस्सा अब try-catch में
@@ -108,7 +110,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.6.3";
+const DASH_VER = "v6.7.2";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -148,6 +150,12 @@ function pubName(a){
 }
 /* v1.3-(क) की तीन प्रशिक्षु-श्रेणियाँ — approval-द्वार नहीं (login के NO_OTP जैसा दर्ज-स्थिरांक) */
 const NO_GATEWAY_EXT = ["student","jobseeker","entrepreneur"];
+/* v6.7.1 early-load (09-Nov-2026, ऑडिट-सुधार): learner-पेज पहचानते ही English-परत —
+   registration-lookup से पहले, ताकि loading/deny/error अवस्था में भी toggle व English मिले।
+   1 इंजन + strings-pack; वही URL; default हिंदी अटल (localStorage "acs_dash_lang")। */
+if(MODE==="external" && ALLOWED.some(function(r){return NO_GATEWAY_EXT.indexOf(String(r).toLowerCase())>-1;})){
+  try{ import("/assets/dash_i18n_en.js").catch(function(){}); }catch(e){}
+}
 
 function show(id){
   ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
@@ -1090,6 +1098,8 @@ async function guardExternalRender(user, reg){
      उन पर न provisional-पर्दा, न "अस्थायी" pill (भ्रामक-संदेश होल बंद)। */
   const roleKey0 = String((reg.role)||ALLOWED[0]||"").toLowerCase();
   const noGate = (NO_GATEWAY_EXT.indexOf(roleKey0)>-1);
+  /* v6.7.1: English-परत का import अब early-boot पर (NO_GATEWAY_EXT के पास) —
+     registration-lookup/deny/error हर अवस्था में toggle मिले। */
   const isActive = noGate ? true : (reg.status==="approved");
   if(!isActive) $("provBar").classList.add("on");
   setTxt("desigPill", ROLE_LABEL + (isActive ? "" : " (अस्थायी — जाँच में)"));
@@ -1477,7 +1487,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const bx=$("crsReport"); if(!bx) return;
     let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
     const P=ap.prev;
-    if(!P||!P.udy||!P.udy.length){ bx.innerHTML='<div class="pd">रिपोर्ट अभी नहीं बनी — 🧭 अभिरुचि-टेस्ट दीजिए, आपके मन के कोर्स यहीं दिखेंगे।</div>'; return; }
+    if(!P||!P.udy||!P.udy.length){ bx.innerHTML='<div class="pd">रिपोर्ट अभी नहीं बनी — 🧭 अभिरुचि-परीक्षण दीजिए, आपके मन के कोर्स यहीं दिखेंगे।</div>'; return; }
     let h='<div class="pd">⭐ '+P.mg.map(function(m2){return '<span class="chip appr">'+esc(m2)+'</span>';}).join(' ')+'</div>';
     P.udy.slice(0,5).forEach(function(u,i){
       h+='<div class="lrow"><span class="nm">'+(i+1)+'. '+esc(u.nm)+'</span> '+
@@ -2412,7 +2422,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     setBadgePerfFrom(IS_GOLD?"gold":"green", till, from,
       (typeof EXT_REG!=="undefined"&&EXT_REG&&EXT_REG.regNo)||window.ACS_REGNO||""); }
   /* (v4.7, 22-Jul-2026) Jio-नियम v3.7 का बैज-द्वार निशान: learner-बैज (नौकरी-इच्छुक Green /
-     भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-टेस्ट खुले। निशान device-local;
+     भविष्य में विद्यार्थी Golden) सक्रिय → पूरा अभिरुचि-परीक्षण खुले। निशान device-local;
      बैज सक्रिय न मिले तो निशान हटे (refund/समाप्ति पर द्वार बंद)। */
   function setAptGate(pay){
     try{
@@ -2527,11 +2537,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
       const res = await httpsCallable(functions, "latestAptitudeReport")({});
       const d = (res && res.data) || {};
       if (!d.found) {
-        st.innerHTML = "अभी कोई रिपोर्ट सेव नहीं — टेस्ट देकर नतीजे पर ₹125 में सेव करें।";
+        st.innerHTML = "अभी कोई छपने-योग्य रिपोर्ट नहीं — नतीजा मुफ़्त दिखता है; चाहें तो नतीजे पर छपने-योग्य अभिरुचि-रिपोर्ट ₹125 में।";
         return;
       }
       const dt = d.paidAt ? new Date(d.paidAt).toLocaleDateString("hi-IN") : "";
-      st.innerHTML = "✅ पिछली रिपोर्ट सेव है"+(dt?" ("+esc(dt)+")":"")+"। " +
+      st.innerHTML = "✅ आपकी छपने-योग्य अभिरुचि-रिपोर्ट सेव है"+(dt?" ("+esc(dt)+")":"")+"। " +
         '<button class="abtn ok" id="apt-old-print" style="margin:4px 4px 0 0">🖨️ Print</button> ' +
         '<a class="abtn ok" id="apt-old-wa" target="_blank" rel="noopener" href="https://wa.me/?text='+
         encodeURIComponent(d.reportText||"")+'" style="display:inline-block;text-decoration:none;margin:4px 0 0">📲 WhatsApp</a>';
@@ -3047,19 +3057,19 @@ if (MODE==="external" && ALLOWED.length>=1) {
         return h;
       }
       if(badgeTill){
-        draw('<div class="pd"><b>🏅 आपका बैज चालू है ('+new Date(badgeTill).toLocaleDateString("hi-IN")+' तक)</b> — पूरा टेस्ट 365 दिन, जितनी बार चाहें, मुफ़्त।</div>'+
+        draw('<div class="pd"><b>🏅 आपका बैज चालू है ('+new Date(badgeTill).toLocaleDateString("hi-IN")+' तक)</b> — पूरा अभिरुचि-परीक्षण 365 दिन, जितनी बार चाहें, मुफ़्त।</div>'+
           reportHTML()+goBtn+
-          '<div class="note">📜 रिपोर्ट की PDF ₹125 में — मर्ज़ी हो तो लें; नतीजा वैसे भी मुफ़्त दिखता है।</div>');
+          '<div class="note">📜 छपने-योग्य अभिरुचि-रिपोर्ट PDF ₹125 में — मर्ज़ी हो तो लें; नतीजा वैसे भी मुफ़्त दिखता है।</div>');
         return;
       }
       if(chance){
-        draw('<div class="pd"><b>🎫 आपका ₹100 वाला 1 मौक़ा तैयार है</b> — पूरा टेस्ट खुला।</div>'+reportHTML()+goBtn);
+        draw('<div class="pd"><b>🎫 आपका ₹100 वाला 1 मौक़ा तैयार है</b> — पूरा अभिरुचि-परीक्षण खुला।</div>'+reportHTML()+goBtn);
         return;
       }
       draw(reportHTML()+
         '<div class="pd">🎁 पहले मुफ़्त झलक लीजिए — 24 आसान प्रश्न, बीच में कहानियाँ।</div>'+
         '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="/aptitude-test.html?back='+back+'">🧭 मुफ़्त झलक दें</a>'+
-        '<div class="note">🏅 बैज लें तो पूरा टेस्ट साल-भर मुफ़्त · बिना बैज ₹100 में 1 मौक़ा · रिपोर्ट-PDF ₹125 — आपकी मर्ज़ी।</div>');
+        '<div class="note">🏅 सक्रिय Golden Pass पर पूरा अभिरुचि-परीक्षण साल-भर मुफ़्त · बिना Pass ₹100 प्रति प्रयास · छपने-योग्य रिपोर्ट-PDF ₹125 — आपकी मर्ज़ी।</div>');
     }catch(e){
       draw('<span class="note" style="color:#B71C1C">स्थिति नहीं खुली: '+esc((e&&e.message)||e)+'</span>');
     }
