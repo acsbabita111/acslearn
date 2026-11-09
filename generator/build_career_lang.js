@@ -1,4 +1,6 @@
-/* build_career_lang.js v1.2 (09-Nov-2026)
+/* build_career_lang.js v1.4 (09-Nov-2026)
+   v1.4: SVG-safe RTL wrapping (bidi isolates inside <svg>, <bdi> elsewhere).
+   v1.3: RTL auto-bdi wrapper + per-language styleInject + RTL bare-Latin gate.
    v1.2: META.swaps surgical-op; version-less page stamp (builder upgrades
    no longer touch page bytes unless output ops change).
    Generic builder: /<code>/career.html from career.html (hi v1.8) +
@@ -88,6 +90,31 @@ const oldA = 'href="/en/aptitude-test.html" style="color:#F9A825;font-weight:800
 if (count(out, oldA) === 1) { out = out.split(oldA).join(META.crossAnchor); ok('hero cross-link set'); }
 else bad('hero cross-link anchor \u00d7' + count(out, oldA));
 
+/* 3b) RTL auto-bdi: wrap Latin/digit runs inside translated text nodes so
+   phone numbers, brands, prices render LTR inside RTL flow (v7.9 rule).
+   Exempt: title/JSON-LD indices (META.bdiExempt), nodes that already carry
+   markup, and attribute strings (markup is invalid there). */
+const BDI_RUN = /[A-Za-z0-9](?:[A-Za-z0-9\u20b9$@.,:+%\/'&#;-]|(?: )(?=[A-Za-z0-9\u20b9$]))*[A-Za-z0-9%.\u20b9$]|[A-Za-z0-9\u20b9$]/g;
+const TT = T.slice();
+function inSvg(doc, pos) { const a = doc.lastIndexOf('<svg', pos); const b2 = doc.lastIndexOf('</svg>', pos); return a !== -1 && a > b2; }
+if (META.dir === 'rtl') {
+  const exempt = new Set(META.bdiExempt || []);
+  let wrapped = 0, isolated = 0;
+  for (let i = 0; i < TT.length; i++) {
+    if (exempt.has(i)) continue;
+    if (TT[i].indexOf('<') !== -1) continue;        /* keep hand-written markup as-is */
+    const pos = hi.indexOf('>' + hiNodes[i] + '<');
+    if (pos !== -1 && inSvg(hi, pos)) {
+      /* <bdi> is invalid inside SVG <text> (content gets dropped) — use
+         Unicode bidi isolates LRI(U+2066)…PDI(U+2069) instead. */
+      TT[i] = TT[i].replace(BDI_RUN, function (run) { isolated++; return '\u2066' + run + '\u2069'; });
+    } else {
+      TT[i] = TT[i].replace(BDI_RUN, function (run) { wrapped++; return '<bdi dir="ltr">' + run + '</bdi>'; });
+    }
+  }
+  ok('RTL auto-bdi: ' + wrapped + ' bdi runs + ' + isolated + ' SVG isolate runs');
+}
+
 /* 4) node replacements, longest first */
 const order = Array.from({length: T.length}, (_, i) => i)
   .sort((a, b) => hiNodes[b].length - hiNodes[a].length);
@@ -96,7 +123,7 @@ for (const i of order) {
   const from = '>' + hiNodes[i] + '<';
   const c = count(out, from);
   if (c < 1) { bad('node @' + i + ' not found: ' + hiNodes[i].slice(0, 60)); continue; }
-  out = out.split(from).join('>' + T[i] + '<'); repl += c;
+  out = out.split(from).join('>' + TT[i] + '<'); repl += c;
 }
 ok('nodes replaced: ' + repl + ' occurrences (' + T.length + ' unique)');
 
@@ -143,6 +170,11 @@ ok('SVG font-family \u2192 ' + META.svgFont);
 one('<!-- generator: build_landing4.js v1.7.2 + hreflang v1.7.3 + report-sample v1.8 \u2014 \u0939\u093e\u0925 \u0938\u0947 \u0928 \u092c\u0926\u0932\u0947\u0902 -->',
     '<!-- generator: build_career_lang.js (lang=' + code + ', from career.html hi v1.8' + META.stampNote + ') \u2014 do not edit by hand -->', 'ver-stamp');
 one('<!-- \u092a\u0930\u0924 1: CONFIG + LINKS -->', '<!-- layer 1: CONFIG + LINKS -->', 'comment: layer-1');
+if (META.styleInject) {
+  const mark = '</title>';
+  if (count(out, mark) === 1) { out = out.split(mark).join(mark + '\n<style>' + META.styleInject + '</style>'); ok('styleInject'); }
+  else bad('styleInject anchor');
+}
 one('src="/assets/career-report-sample-hi.webp"', 'src="' + META.certImg + '"', 'certificate image');
 
 /* 7b) per-language surgical swaps (post-translation state, fail-closed) */
@@ -182,6 +214,19 @@ if (META.scriptRe) {
   if (out.indexOf(w) !== -1) ok('required present: ' + w.slice(0, 40));
   else bad('required missing: ' + w.slice(0, 40));
 });
+if (META.dir === 'rtl') {
+  const body = out.slice(out.indexOf('<body'));
+  const bare = [];
+  const tn = />([^<>]+)</g; let bm;
+  while ((bm = tn.exec(body)) !== null) {
+    const t = bm[1].replace(/\u2066[^\u2069]*\u2069/g, '');   /* isolated LTR runs are safe */
+    if (!/[\u0600-\u06FF]/.test(t)) continue;      /* only mixed Arabic+Latin nodes matter */
+    const runs = t.match(/[A-Za-z][A-Za-z0-9]{2,}/g) || [];
+    if (runs.length) bare.push(runs.slice(0,3).join(','));
+  }
+  if (bare.length === 0) ok('RTL gate: no bare Latin runs in mixed nodes');
+  else { bad('RTL gate: bare Latin in ' + bare.length + ' mixed nodes'); bare.slice(0,6).forEach(x=>console.log('    ' + x)); }
+}
 const srcHr = count(hi, 'hreflang="');
 const hrRaw = count(out, 'hreflang="');
 const hrSet = new Set((out.match(/hreflang="[^"]+"/g) || []));
