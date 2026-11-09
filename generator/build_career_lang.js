@@ -191,11 +191,11 @@ if (out.indexOf('\uFFFD') === -1) ok('no replacement char \uFFFD');
 else bad('replacement char \uFFFD found (broken escape in strings?)');
 if (!/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/.test(out)) ok('no lone surrogates');
 else bad('lone surrogate found (broken emoji escape in strings?)');
-const dev = out.match(/[\u0900-\u097F]/g);
+const dev = out.match(/[\u0900-\u0963\u0966-\u097F]/g);  /* danda U+0964/65 is pan-Indic (Bengali uses it too) */
 if (!dev) ok('Devanagari left: 0');
 else {
   bad('Devanagari left: ' + dev.length);
-  (out.match(/.{0,40}[\u0900-\u097F].{0,40}/g) || []).slice(0, 8).forEach(c => console.log('    \u2026' + c.replace(/\n/g, ' ') + '\u2026'));
+  (out.match(/.{0,40}[\u0900-\u0963\u0966-\u097F].{0,40}/g) || []).slice(0, 8).forEach(c => console.log('    \u2026' + c.replace(/\n/g, ' ') + '\u2026'));
 }
 if (META.scriptRe) {
   const n = (out.match(META.scriptRe) || []).length;
