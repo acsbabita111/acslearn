@@ -1309,6 +1309,8 @@
       var BULK_ROLES={student:1,jobseeker:1,entrepreneur:1};
       var bulkChk=null;
       if(BULK_ROLES[rulesLoadedFor]){
+        bulkChk=rulesContainer.querySelector('#bulkConsentChk'); /* rules-फ़ाइल अपनी पट्टी लाए तो उसे ही अपनाओ — दोहराव-रोक */
+        if(!bulkChk){
         var bw=document.createElement('div');
         bw.id='bulkConsentWrap';
         bw.style.cssText='background:#EAF3EC;border:2px solid #2E7D32;border-radius:10px;padding:12px;margin:10px 0 4px;display:flex;gap:10px;align-items:flex-start';
@@ -1316,6 +1318,7 @@
           +'<label for="bulkConsentChk" style="font-size:17px;font-weight:700;cursor:pointer;line-height:1.6">✅ मैंने ऊपर दिए सभी नियम पढ़े हैं और सभी को स्वीकार करता/करती हूँ।</label>';
         rulesContainer.appendChild(bw);
         bulkChk=bw.querySelector('#bulkConsentChk');
+        }
       }
     function visible(){
       return Array.prototype.filter.call(boxes, function(b){

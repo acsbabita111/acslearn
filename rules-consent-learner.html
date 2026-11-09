@@ -100,7 +100,7 @@
   <div class="part">भाग-ग : फ़ीस, Refund व जोखिम-नकार</div>
   <div class="rules">
     <div class="rule"><input type="checkbox"><span class="no">6.</span><label>जुड़ना/देखना हमेशा निःशुल्क; <span id="ruleFee">पैसा केवल इन सेवाओं पर: aptitude test · offline training · workshop · counsellor सलाह · foreign-agent connection</span>। हर fee पहले से साफ़ बताई जाएगी।</label></div>
-    <div class="rule"><input type="checkbox"><span class="no">7.</span><label><b>Refund-नियम:</b> <span id="ruleRefund">Aptitude test: हमेशा 30% कटेगा; result दिख गया = कोई refund नहीं; final-submit से पहले छोड़ा = 70% वापस। Counselling: सत्र से 1 घंटा पहले cancel = 90% वापस (चाहे Learner या Counselor cancel करे)। मृत्यु/आपदा की स्थिति में = 75% वापस।</span></label></div>
+    <div class="rule"><input type="checkbox"><span class="no">7.</span><label><b>Refund-नियम:</b> <span id="ruleRefund">Aptitude test व result: बैज-धारक को मुफ़्त (मुफ़्त झलक सबके लिए); अभिरुचि-प्रमाणपत्र ₹125 — मर्ज़ी हो तो लें। Counselling: सत्र से 1 घंटा पहले cancel = 90% वापस (चाहे Learner या Counselor cancel करे)। मृत्यु/आपदा की स्थिति में = 75% वापस।</span></label></div>
     <div class="rule special"><input type="checkbox"><span class="no">8.</span><label><b>जोखिम-नकार (ज़रूर पढ़ें):</b> <span id="ruleRisk">कोर्स/प्रशिक्षण से नौकरी या आय की कोई गारंटी नहीं; certificate योग्यता-प्रमाण है, रोज़गार-आश्वासन नहीं।</span></label></div>
   </div>
 
@@ -129,6 +129,10 @@
     <div class="rule"><input type="checkbox"><span class="no">21.</span><label><b>देश-परिशिष्ट (Country Annexure):</b> भारत के बाहर लागू अतिरिक्त नियम संबंधित देश के परिशिष्ट के माध्यम से जारी किए जाएँगे।</label></div>
     <div class="rule"><input type="checkbox"><span class="no">22.</span><label>सबसे ऊपर की बात: ACS के सबसे नए दर्ज नियम और Founder का निर्देश ही अंतिम माने जाएँगे।</label></div>
     <div class="rule special"><input type="checkbox"><span class="no">23.</span><label><b>ACS का विशेष अधिकार:</b> धोखाधड़ी, फ़र्ज़ी जानकारी, या नियमों के गंभीर उल्लंघन की स्थिति में आपका account तुरंत प्रभाव से रोका/समाप्त किया जा सकता है — 12 से 24 घंटे में डिजिटल सूचना दी जाएगी। जमा फ़ीस का समायोजन ऊपर बताए Refund-नियम (नियम 6) के अनुसार होगा।</label></div>
+    <div class="rule" id="bulkConsentWrap" style="background:#EAF3EC;border:2px solid #2E7D32;border-radius:10px;margin-top:8px">
+      <input type="checkbox" id="bulkConsentChk">
+      <label for="bulkConsentChk" style="font-weight:700">✅ एक-साथ स्वीकृति: मैंने ऊपर दिए सभी नियम पढ़े हैं और सभी को स्वीकार करता/करती हूँ। <span style="font-weight:400">(चाहें तो नियम एक-एक करके भी tick कर सकते हैं।)</span></label>
+    </div>
   </div>
 
   <div class="bar">
@@ -159,12 +163,12 @@
     entrepreneur: "950 उद्यम की bank-finance-ready रिपोर्ट, market research, यंत्र-सूची, कोर्स, निवेश-सीढ़ी (L1-L15), Industrial Tour पैकेज।"
   };
   var FEE = {
-    student: "aptitude test · offline training · workshop apprenticeship · counsellor सलाह · foreign-agent connection",
+    student: "अभिरुचि-प्रमाणपत्र ₹125 (टेस्ट व result बैज के साथ मुफ़्त) · offline training · workshop apprenticeship · counsellor सलाह · foreign-agent connection",
     jobseeker: "Verified Badge (वैकल्पिक — Village ₹300 · Town ₹600 · Metro ₹1000 · 365 दिन, flat)",
     entrepreneur: "Industrial Tour (यदि लें)"
   };
   var REFUND = {
-    student: "Aptitude test: हमेशा 30% कटेगा; result दिख गया = कोई refund नहीं; final-submit से पहले छोड़ा = 70% वापस। Counselling: सत्र से 1 घंटा पहले cancel = 90% वापस (चाहे Learner या Counselor cancel करे)। मृत्यु/आपदा की स्थिति में = 75% वापस।",
+    student: "Aptitude test व result: बैज-धारक को मुफ़्त (मुफ़्त झलक सबके लिए); अभिरुचि-प्रमाणपत्र ₹125 — मर्ज़ी हो तो लें। Counselling: सत्र से 1 घंटा पहले cancel = 90% वापस (चाहे Learner या Counselor cancel करे)। मृत्यु/आपदा की स्थिति में = 75% वापस।",
     jobseeker: "Badge-verification से पहले cancel = 90% वापस (10% processing); badge बनने के बाद = (पूरी राशि − 30%) × बचे दिन ÷ 365।",
     entrepreneur: "Industrial Tour का पैसा escrow में रहेगा; वीज़ा/टिकट/booking जैसा ख़र्च हुआ हिस्सा वापसी-योग्य नहीं, बाक़ी राशि वापस होगी।"
   };
@@ -214,12 +218,25 @@
     count.textContent = done + ' / ' + vb.length + ' नियम स्वीकार हुए';
     var finalLabel = document.querySelector('label[for="finalChk"]');
     finalLabel.innerHTML = '<b>अंतिम पुष्टि:</b> मैंने (व Guardian ने, यदि लागू) ऊपर के सभी ' + vb.length + ' नियम ख़ुद पढ़कर एक-एक करके स्वीकार किए हैं।';
+    if(bulk && done < vb.length){ bulk.checked = false; }
     if(done === vb.length){ fin.disabled = false; }
     else { fin.disabled = true; fin.checked = false; }
     if(fin.checked && done === vb.length){ otp.classList.add('on'); otp.disabled = false; }
     else { otp.classList.remove('on'); otp.disabled = true; }
   }
   boxes.forEach(function(b){ b.addEventListener('change', refresh); });
+  /* (09-Nov-2026, खेप-consent-1ख) एक-साथ स्वीकृति — standalone-wiring।
+     join.html के भीतर यह फ़ाइल inject होती है, वहाँ wiring join ख़ुद करता है
+     (#rulesContainer मौजूद = join-जगत ⇒ यहाँ listener न जोड़ें, दोहराव-रोक)। */
+  var bulk = document.getElementById('bulkConsentChk');
+  if(bulk && !document.getElementById('rulesContainer')){
+    bulk.addEventListener('change', function(){
+      var on = bulk.checked;
+      visibleBoxes().forEach(function(b){ b.checked = on; });
+      fin.disabled = !on; fin.checked = on;
+      refresh();
+    });
+  }
   fin.addEventListener('change', refresh);
   otp.addEventListener('click', function(){ if(!otp.disabled) alert('✅ (नमूना) यहाँ से असली पेज OTP भेजेगा — Cloud Function + Brevo से।'); });
   updateText();
