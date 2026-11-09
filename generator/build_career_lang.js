@@ -163,7 +163,7 @@ one('property="og:url" content="https://acslearn.com/career.html"',
     'property="og:url" content="https://acslearn.com/' + code + '/career.html"', 'og:url');
 one('content="hi_IN"', 'content="' + META.locale + '"', 'og:locale ' + META.locale);
 const noto = '&family=Noto+Sans+Devanagari:wght@400;600;700;800;900';
-if (count(out, noto) >= 1) { out = out.split(noto).join(META.fontRepl); ok('fonts for ' + code); }
+if (count(out, noto) >= 1) { out = out.split(noto).join(META.fontRepl || ''); ok('fonts for ' + code); }
 else bad('Noto-family chunk missing');
 out = out.split('Noto Sans Devanagari').join(META.svgFont);
 ok('SVG font-family \u2192 ' + META.svgFont);

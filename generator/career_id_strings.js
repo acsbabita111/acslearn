@@ -11,7 +11,7 @@ const T = [
 /*002*/ "Applied Computer School™",
 /*003*/ "Bahasa",
 /*004*/ "Menu",
-/*005*/ "Dalam 130 bahasa: dari desa ke Dunia Selatan!",
+/*005*/ "Dalam 130 bahasa: dari desa ke Global Selatan!",
 /*006*/ "Bahasa asli: Hindi",
 /*007*/ "U",
 /*008*/ "Ukur minatmu, temukan jalanmu",
@@ -262,7 +262,7 @@ const T = [
 /*253*/ "🗣️ Pelajari bahasa baru",
 /*254*/ "🛠️ Pelajari keterampilan baru",
 /*255*/ "🏭 Mulai usahamu sendiri",
-/*256*/ "Dalam 130 bahasa, dari desa ke Dunia Selatan: materi kursus siap ponsel!",
+/*256*/ "Dalam 130 bahasa, dari desa ke Global Selatan: materi kursus siap ponsel!",
 /*257*/ "📜 Lembaga penerbit sertifikat",
 /*258*/ "Freedom Fighter Gangadhar Prasad Memorial Trust (FFGPMTrust)",
 /*259*/ "Sertifikasi: ISO 9001:2015 · Situs: ffgpmt.org",
@@ -299,17 +299,18 @@ const ATTR_T = [
 ];
 const META = {
   locale: 'id_ID',
-  fontRepl: null,
+  fontRepl: '',
   homeHref: '/id/',
   previewHref: '/en/aptitude-test.html',
   crossAnchor: 'href="/career.html" style="color:#F9A825;font-weight:800">versi asli bahasa Hindi \u2192',
   certImg: '/assets/career-report-sample-id.webp',
   scriptRe: /[A-Za-z]/g, scriptMin: 1500,
-  required: ['Tes Minat Karier', 'Career Interest Test', 'peluang wirausaha', 'Bahasa asli: Hindi', 'Pertama, lakukan '],
+  required: ['Tes Minat Karier', 'Career Interest Test', 'peluang wirausaha', 'Bahasa asli: Hindi', 'ke akun ACS-mu.'],
   forbidden: ['Adaptive Testing'],
   swaps: [
     { from: 'font-size="46"', to: 'font-size="40"', label: 'hero headline 46\u219240' },
-    { from: 'color:#F5F7FA">Bahasa lain: ', to: 'color:#0B1F3A">Bahasa lain: ', label: 'other-languages contrast' }
+    { from: 'color:#F5F7FA">Bahasa lain: ', to: 'color:#0B1F3A">Bahasa lain: ', label: 'other-languages contrast' },
+    { from: 'Pertama, lakukan <b>login</b> ke akun', to: 'Pertama, <b>masuk</b> ke akun', label: 'natural masuk line' }
   ]
 };
 module.exports = { COUNT, T, NUM_EXEMPT, ATTR_T, META };

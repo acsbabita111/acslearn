@@ -300,7 +300,7 @@ const ATTR_T = [
 ];
 const META = {
   locale: 'ru_RU',
-  fontRepl: null,
+  fontRepl: '',
   homeHref: '/ru/',
   previewHref: '/en/aptitude-test.html',
   crossAnchor: 'href="/career.html" style="color:#F9A825;font-weight:800">\u043e\u0440\u0438\u0433\u0438\u043d\u0430\u043b \u043d\u0430 \u0445\u0438\u043d\u0434\u0438 \u2192',

@@ -303,7 +303,7 @@ const ATTR_T = [
 ];
 const META = {
   locale: 'fr_FR',
-  fontRepl: null,
+  fontRepl: '',
   homeHref: '/fr/',
   previewHref: '/en/aptitude-test.html',
   crossAnchor: 'href="/career.html" style="color:#F9A825;font-weight:800">version originale en hindi →',
