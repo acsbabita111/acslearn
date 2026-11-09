@@ -1299,6 +1299,24 @@
 
   function wireRuleCheckboxes(){
     var boxes = rulesContainer.querySelectorAll('.rule input[type=checkbox]');
+
+      /* (09-Nov-2026, Founder — खेप-consent-1) Learner-परिवार "एक-साथ स्वीकृति":
+         student/jobseeker/entrepreneur पर नियम-सूची के नीचे एक master-tick —
+         tick = सब दिखते नियम + अंतिम-पुष्टि एक साथ; untick = सब साफ़;
+         कोई एक नियम हाथ से हटे तो master अपने-आप हटे; designation बदलने पर भी
+         (नए दिखे नियम बिना सहमति नहीं) master अपने-आप हटता है। बाक़ी 11 भूमिकाओं
+         पर पुराना एक-एक tick यथावत। payload में consent_mode दर्ज। */
+      var BULK_ROLES={student:1,jobseeker:1,entrepreneur:1};
+      var bulkChk=null;
+      if(BULK_ROLES[rulesLoadedFor]){
+        var bw=document.createElement('div');
+        bw.id='bulkConsentWrap';
+        bw.style.cssText='background:#EAF3EC;border:2px solid #2E7D32;border-radius:10px;padding:12px;margin:10px 0 4px;display:flex;gap:10px;align-items:flex-start';
+        bw.innerHTML='<input type="checkbox" id="bulkConsentChk" style="width:26px;height:26px;min-width:26px;margin-top:2px;accent-color:#2E7D32;cursor:pointer">'
+          +'<label for="bulkConsentChk" style="font-size:17px;font-weight:700;cursor:pointer;line-height:1.6">✅ मैंने ऊपर दिए सभी नियम पढ़े हैं और सभी को स्वीकार करता/करती हूँ।</label>';
+        rulesContainer.appendChild(bw);
+        bulkChk=bw.querySelector('#bulkConsentChk');
+      }
     function visible(){
       return Array.prototype.filter.call(boxes, function(b){
         var el = b.closest('.rule');
@@ -1313,11 +1331,18 @@
       else { finalChk.disabled=true; finalChk.checked=false; }
       if(finalChk.checked && done===vb.length){ toStep3Btn.className='big btn-on'; toStep3Btn.disabled=false; }
       else { toStep3Btn.className='big btn-off'; toStep3Btn.disabled=true; }
+      if(bulkChk && done<vb.length){ bulkChk.checked=false; }
     }
     boxes.forEach(function(b){ b.addEventListener('change', refresh); });
     // अगर fetch की गई फ़ाइल के अंदर अपना खुद का designation-selector है (जैसे Teacher/Center/Learner), उसे भी सुनना
     var innerSelects = rulesContainer.querySelectorAll('select');
     innerSelects.forEach(function(sel){ sel.addEventListener('change', refresh); });
+    if(bulkChk){ bulkChk.addEventListener('change', function(){
+      var on=bulkChk.checked;
+      visible().forEach(function(b){ b.checked=on; });
+      finalChk.disabled=!on; finalChk.checked=on;
+      refresh();
+    }); }
     finalChk.addEventListener('change', refresh);
     toStep3Btn.addEventListener('click', function(){ if(!toStep3Btn.disabled) goToStep(3); });
     refresh();
@@ -2032,6 +2057,7 @@
     submitBtn.disabled = true; submitBtn.textContent = '⏳ सेव किया जा रहा है…';
 
     var payload = {
+      consent_mode: (document.getElementById('bulkConsentChk')&&document.getElementById('bulkConsentChk').checked)?'bulk':'each',
       name_local: isLearnerRomanOnly() ? '' : nameLocal.value, name_roman: nameRoman.value,
       father_name: isLearnerRomanOnly() ? fatherNameRoman.value : '',
       mobile: mobile.value, email: email.value,
