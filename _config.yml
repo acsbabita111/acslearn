@@ -1,0 +1,9 @@
+# ACS · GitHub Pages प्रकाशन-नियम (10-Nov-2026, Pages-आकार सुधार v1.0)
+# कारण: पूरा repo 1,086 MB प्रकाशित हो रहा था (GitHub Pages सीमा 1 GB), deploy 10 मिनट
+#       की सीमा पर "Timeout reached" से रुक रहा था (run 3354, खेप-3)।
+# नीचे के folder repo में रहते हैं (generator, जाँच-यंत्र, स्रोत-data), बस साइट पर प्रकाशित नहीं होते।
+# मशीन-जाँच: साइट का कोई पेज/स्क्रिप्ट/sw.js इन्हें नहीं माँगता (असली माँग = 0)।
+# हर push पर bat में अनिवार्य जाँच: node generator/dev_pages_size_check.js (आकार + बाहर-रखे folder की माँग)
+exclude:
+  - generator
+  - matrix
