@@ -60,7 +60,12 @@
       fa:{q:"این صفحه چطور بود؟",like:"پسندیدم",dis:"نپسندیدم",cmt:"دیدگاه",sh:"هم‌رسانی",wa:"پرسش/نظر من درباره این صفحه: ",nl:"سپاس! نظر شما ثبت شد.",nd:"ثبت شد. چه چیزی را بهتر کنیم؟ 💬 از راه دیدگاه بگویید: ما می‌خوانیم."},
       uz:{q:"Bu sahifa qanday boʻldi?",like:"Yoqdi",dis:"Yoqmadi",cmt:"Fikr",sh:"Ulashish",wa:"Bu sahifa haqidagi savolim/fikrim: ",nl:"Rahmat! Fikringiz saqlandi.",nd:"Saqlandi. Nimani yaxshilaylik? 💬 Fikr orqali ayting: biz oʻqiymiz."},
       kk:{q:"Бұл бет қалай болды?",like:"Ұнады",dis:"Ұнамады",cmt:"Пікір",sh:"Бөлісу",wa:"Бұл бет туралы сұрағым/пікірім: ",nl:"Рақмет! Пікіріңіз сақталды.",nd:"Сақталды. Нені жақсартайық? 💬 Пікір арқылы айтыңыз: біз оқимыз."},
-      az:{q:"Bu səhifə necə idi?",like:"Bəyəndim",dis:"Bəyənmədim",cmt:"Rəy",sh:"Paylaş",wa:"Bu səhifə haqqında sualım/rəyim: ",nl:"Təşəkkürlər! Rəyiniz qeydə alındı.",nd:"Qeydə alındı. Nəyi yaxşılaşdıraq? 💬 Rəy vasitəsilə deyin: oxuyuruq."}
+      az:{q:"Bu səhifə necə idi?",like:"Bəyəndim",dis:"Bəyənmədim",cmt:"Rəy",sh:"Paylaş",wa:"Bu səhifə haqqında sualım/rəyim: ",nl:"Təşəkkürlər! Rəyiniz qeydə alındı.",nd:"Qeydə alındı. Nəyi yaxşılaşdıraq? 💬 Rəy vasitəsilə deyin: oxuyuruq."},
+      so:{q:"Boggani sidee buu ahaa?",like:"Waan jeclaaday",dis:"Ma jeclaan",cmt:"Faallo",sh:"Wadaag",wa:"Su'aashayda/fikirkayga ku saabsan boggan: ",nl:"Mahadsanid! Fikirkaaga waa la kaydiyay.",nd:"Waa la diiwaangeliyay. Maxaan hagaajinnaa? 💬 Faallo noogu sheeg: waan akhrinnaa."},
+      am:{q:"ይህ ገጽ እንዴት ነበር?",like:"ወደድኩት",dis:"አልወደድኩትም",cmt:"አስተያየት",sh:"አጋራ",wa:"ስለዚህ ገጽ ያለኝ ጥያቄ/አስተያየት: ",nl:"እናመሰግናለን! አስተያየትዎ ተመዝግቧል።",nd:"ተመዝግቧል። ምን እናሻሽል? 💬 በአስተያየት ይንገሩን: እናነባለን።"},
+      ha:{q:"Yaya wannan shafi yake?",like:"Na so",dis:"Ban so ba",cmt:"Sharhi",sh:"Raba",wa:"Tambayata/ra'ayina game da wannan shafi: ",nl:"Na gode! An ajiye ra'ayinka.",nd:"An lura. Me za mu inganta? Faɗa mana ta 💬 Sharhi: muna karantawa."},
+      yo:{q:"Báwo ni ojú-ìwé yìí ṣe rí?",like:"Mo fẹ́ràn rẹ̀",dis:"Mi ò fẹ́ràn rẹ̀",cmt:"Ọ̀rọ̀",sh:"Pín in",wa:"Ìbéèrè/èrò mi nípa ojú-ìwé yìí: ",nl:"O ṣé! A ti tọ́jú èrò rẹ.",nd:"A ti kọ ọ́ sílẹ̀. Kí ni kí a mú dára? Sọ fún wa nípasẹ̀ 💬 Ọ̀rọ̀: a ń kà á."},
+      zu:{q:"Leli khasi belinjani?",like:"Ngikuthandile",dis:"Angikuthandanga",cmt:"Umbono",sh:"Yabelana",wa:"Umbuzo/umbono wami ngaleli khasi: ",nl:"Ngiyabonga! Umbono wakho ugciniwe.",nd:"Kubhaliwe. Yini okufanele siyithuthukise? Sitshele nge-💬 Umbono: siyakufunda."}
     };
     var LG=(document.documentElement.getAttribute("lang")||"hi").split("-")[0].toLowerCase();
     var TX=LX[LG]||LX.en;
