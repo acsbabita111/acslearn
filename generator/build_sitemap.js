@@ -1,5 +1,5 @@
 /* ============================================================
-   build_sitemap.js v2.0 (परत-4) — sitemap-index + 4 खंड-sitemap
+   build_sitemap.js v2.1 (परत-4) — sitemap-index + 4 खंड-sitemap
    v1.1 — स्रोत: (1) assets/udyam_data.js की intro-कड़ियाँ (2) मुख्य सार्वजनिक
    पेज (3) courses/ के सिर्फ़ नई-प्रणाली पेज (पहचान: /assets/acs-universal.js)।
    v2.0 (SEO-सुधार दौर, 04-Oct-2026):
@@ -15,6 +15,16 @@
    (ग) sitemapindex की <lastmod> = इसी build की तारीख़ (sitemap-फ़ाइल की अपनी
        बदलाव-तारीख़ — यह सच है, URL-तारीख़ नहीं)।
    चलाना: node generator/build_sitemap.js [--git]  → रूट पर 5 फ़ाइलें
+   v2.1 (10-Nov-2026, GSC-सफ़ाई दौर):
+   (घ) sitemap का एकमात्र घर यही फ़ाइल। पहले build_mirror_homes.js व
+       career-दौर अलग से sitemap-core में पते जोड़ते थे; यह generator उन्हें
+       नहीं जानता था, इसलिए चलने पर 29 पते मिटा देता (भाषा-होम + career)।
+       अब: भाषा-होम व भाषा-career-पेज generator/data/mirror_home_strings.js
+       की कुंजियों से (फ़ाइल मौजूद हो तभी)।
+   (ङ) पहरा: जिस पेज का canonical किसी और पते पर है, या जो redirect-पर्ची
+       (meta-refresh) है, वह sitemap में कभी नहीं (Google-नियम: sitemap में
+       सिर्फ़ canonical पते)। हटे पते build-log में नाम सहित छपते हैं।
+       मुख्य-सूची का कोई पता इस पहरे में गिरे = build रुके (fail-closed)।
    नियम: हाथ से sitemap कभी न लिखें — सिर्फ़ इसी से। जाँच: dev_seo_check.js।
    ============================================================ */
 "use strict";
@@ -24,16 +34,22 @@ const cp = require("child_process");
 const ROOT = path.join(__dirname, "..");
 const BASE = "https://acslearn.com";
 const USE_GIT = process.argv.includes("--git");
+/* भाषा-सूची का एकमात्र घर: mirror-data की कुंजियाँ (टॉप-15 क्रम) */
+const MIRROR = Object.keys(require("./data/mirror_home_strings.js"));
+const CAREER_LANGS = ["en"].concat(MIRROR).filter(c => fs.existsSync(path.join(ROOT, c, "career.html")));
 
 /* हर पता live-सत्यापित — नया पता जोड़ने से पहले 200-जाँच अनिवार्य */
 const main = [
   "/", "/hi/mission.html", "/hi/salah.html", "/udyam/", "/courses/hi/",
   "/join.html", "/verify/", "/hi/network.html", "/vani/", "/contact/hi/",
-  "/aptitude-test.html", "/career-kit.html", "/registration-guide.html",
+  "/aptitude-test.html", "/career-kit.html", "/career.html"
+].concat(CAREER_LANGS.map(c => "/" + c + "/career.html")).concat([
+  "/registration-guide.html",
   "/refund.html", "/privacy.html", "/terms.html",
   /* 13-Sep SEO: English पेज (मूल→अंग्रेज़ी→बाक़ी क्रम) + उद्यम-विकी + rules-consent */
-  "/en/", "/en/mission.html", "/en/counseling.html", "/en/industries/", "/vani/en/", "/udyam/wiki.html"
-].concat(fs.readdirSync(ROOT).filter(f => /^rules-consent-.*\.html$/.test(f)).sort().map(f => "/" + f));
+  "/en/", "/en/mission.html", "/en/counseling.html", "/en/industries/", "/en/aptitude-test.html", "/vani/en/", "/udyam/wiki.html"
+]).concat(fs.readdirSync(ROOT).filter(f => /^rules-consent-.*\.html$/.test(f)).sort().map(f => "/" + f))
+  .concat(MIRROR.filter(c => fs.existsSync(path.join(ROOT, c, "index.html"))).map(c => "/" + c + "/"));
 
 const data = fs.readFileSync(path.join(ROOT, "assets/udyam_data.js"), "utf8");
 const intros = [...data.matchAll(/"intro": "(\/udyam\/[^"]+)"/g)].map(m => m[1]);
@@ -92,6 +108,23 @@ function lastmod(u) {
   } catch (e) { return ""; }
 }
 
+/* ---------- पहरा: सिर्फ़ canonical, ग़ैर-redirect पेज ---------- */
+const MAINSET = new Set(main);
+const dropped = [];
+function sitemapOk(loc) {
+  const f = path.join(ROOT, urlToFile(loc));
+  if (!fs.existsSync(f)) throw new Error("sitemap-पता, पर फ़ाइल नहीं: " + loc);
+  const h = fs.readFileSync(f, "utf8").slice(0, 20000);
+  let why = "";
+  if (/http-equiv=["']refresh["']/i.test(h)) why = "redirect-पर्ची";
+  const m = h.match(/<link rel="canonical" href="([^"]+)"/);
+  if (!why && m && m[1] !== BASE + loc) why = "canonical पराया → " + m[1].replace(BASE, "");
+  if (!why) return true;
+  if (MAINSET.has(loc)) throw new Error("मुख्य-सूची का पता पहरे में गिरा (" + why + "): " + loc);
+  dropped.push(loc + "  (" + why + ")");
+  return false;
+}
+
 /* ---------- लिखाई ---------- */
 const seen = new Set(); let total = 0;
 for (const [file, list] of SECTIONS) {
@@ -99,7 +132,9 @@ for (const [file, list] of SECTIONS) {
   let n = 0;
   for (const u of list) {
     const loc = u.endsWith("/index.html") ? u.slice(0, -10) : u; /* 08-Nov: <loc> साफ़-/ रूप : पन्नों के canonical से मेल */
-    if (seen.has(loc)) continue; seen.add(loc); n++; total++;
+    if (seen.has(loc)) continue; seen.add(loc);
+    if (!sitemapOk(loc)) continue;
+    n++; total++;
     xml += "  <url><loc>" + BASE + loc + "</loc>" + lastmod(loc) + "</url>\n";
   }
   xml += "</urlset>\n";
@@ -113,3 +148,4 @@ for (const [file] of SECTIONS)
 idx += "</sitemapindex>\n";
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), idx);
 console.log("✅ sitemap.xml (index) + 4 खंड — कुल", total, "URL" + (gitOk ? " (सच्चे lastmod सहित)" : ""));
+if (dropped.length) { console.log("  पहरे से बाहर (" + dropped.length + "):"); dropped.forEach(d => console.log("   - " + d)); }

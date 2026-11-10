@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# dev_mirror_check v1.2 (09-Nov-2026) — 13 भाषा-होम + पैच की fail-closed जाँच
+# dev_mirror_check v1.3 (10-Nov-2026; v1.2 09-Nov) — 13 भाषा-होम + पैच की fail-closed जाँच
 # चलाना: repo-रूट से  python3 generator/dev_mirror_check.py
 # तुलना-स्रोत: live-प्रतियाँ उसी फ़ोल्डर में live_* नाम से रखें (नीचे LIVE)
 import io, re, sys, json, os
@@ -76,6 +76,7 @@ sw = rd("sw.js"); swl = rl("sw.js")
 d = [1 for a,b in zip(sw.splitlines(), swl.splitlines()) if a != b]
 ck("sw: v823 · सिर्फ़ 1 पंक्ति", len(d) == 1 and "'v823'" in sw)
 sm = rd("sitemap-core.xml")
-ck("sitemap: 62 URL · 13 नए", sm.count("<loc>") == 62 and all(("/%s/</loc>"%c) in sm for c in ORDER))
+# v1.3 (10-Nov): कुल-गिनती हटी (sitemap बढ़ता रहता है: 62 → 78); घर = build_sitemap.js
+ck("sitemap: 13/13 भाषा-होम ठीक एक बार", all(sm.count("/%s/</loc>"%c) == 1 for c in ORDER))
 print(); print("कुल जाँचें:", "FAIL "+str(len(fails)) if fails else "सब पास 🏁")
 sys.exit(1 if fails else 0)

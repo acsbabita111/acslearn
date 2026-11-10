@@ -10,6 +10,10 @@
    • universal v2.2: साझा ACS_LANG_HOMES तालिका + mirror-mode + isHome सुधार
    चलाना: node generator/build_mirror_homes.js  (repo-रूट से) — दोबारा चलाने
    पर byte-बदलाव शून्य (idempotent) और पूरा-राज्य verify।
+   v1.2 (10-Nov-2026): live के बराबर किया — (1) 13 होम का करियर-बटन data-खाना
+   btn1href (डिफ़ॉल्ट "/career.html" = आज का live); (2) universal/sw की जाँच
+   "इतना या नया"; (3) sitemap नहीं लिखता (घर: build_sitemap.js)।
+   जाँच: generator/dev_sync_check.js — live पर दोबारा चलाने से बदलाव शून्य।
    ============================================================ */
 "use strict";
 const fs = require("fs");
@@ -106,6 +110,10 @@ ORDER.forEach(function(code){
           '<link rel="stylesheet" href="/acs-style.css">\n'+fontStyle(code, T), 1, code+"-fstyle");
   s = R(s, '<span class="pill">✨ For a Bright Future</span>', '<span class="pill">'+T.pill+'</span>', 1, code+"-pill");
   s = R(s, '<span class="g">Join Now!</span>', '<span class="g">'+T.join+'</span>', 1, code+"-join");
+  /* v1.2 (10-Nov): करियर-बटन का पता data-खाना btn1href से; न हो तो आज का live मान
+     "/career.html"। (English होम काम-अनुवाद-1 में /en/aptitude-test.html पर गया; उसी
+     स्रोत से 13 होम चुपचाप बदल जाते थे : यही पलटन रोकी। बदलना हो = सिर्फ़ data।) */
+  s = R(s, 'class="btn btn-white" href="/en/aptitude-test.html">', 'class="btn btn-white" href="'+(T.btn1href || "/career.html")+'">', 1, code+"-b1h");
   s = R(s, '>🧭 Choose Your Career!<', '>'+T.btn1+'<', 1, code+"-b1");
   s = R(s, '>🗣️ Learn a New Language!<', '>'+T.btn2+'<', 1, code+"-b2");
   s = R(s, '>🛠️ Learn a New Skill!<', '>'+T.btn3+'<', 1, code+"-b3");
@@ -170,7 +178,9 @@ if (U.indexOf("ACS_LANG_HOMES") === -1) {
 } else {
   A(count(U, TABLE)===1, "u-table-exact");
   ["ACS_LANG_HOMES[seg0]","mirror-skip बंद","var mlang","Refund Policy</a>",
-   'if(lang!=="mirror"){ lg2.innerHTML','ACS_LANG_HOMES[segH]','v2.2'].forEach((m,i)=>A(U.indexOf(m)>-1, "u-verify-"+i));
+   'if(lang!=="mirror"){ lg2.innerHTML','ACS_LANG_HOMES[segH]'].forEach((m,i)=>A(U.indexOf(m)>-1, "u-verify-"+i));
+  /* v1.2: universal का संस्करण v2.2 या नया (v2.3 = runtime-i18n दौर) — "ठीक v2.2" वाली पुरानी जाँच हर नए दौर पर गिरती थी */
+  { const uv = U.match(/v2\.(\d+)/); A(uv && +uv[1] >= 2, "u-verify-ver"); }
   console.log("universal: पूर्व-पैच पूरा-राज्य verify ✅");
 }
 /* runtime-तालिका = data (एक चीज़ = एक जगह का पहरा) */
@@ -180,23 +190,14 @@ const tkeys = tm[1].split(",").map(x=>x.split(":")[0].trim()).sort().join(",");
 A(tkeys === ["en"].concat(ORDER).sort().join(","), "u-table==data");
 console.log("universal-तालिका == data-कुंजियाँ ✅");
 
-/* ---------- 5) sw v823 ---------- */
-let SW = read("sw.js");
-if (SW.indexOf("'v823'") === -1) {
-  SW = R(SW, "CACHE_VERSION = 'v822'  // 09-Nov hero 2×2 (acs-style v263) + index v1.6f",
-            "CACHE_VERSION = 'v823'  // 09-Nov 13 भाषा-होम v1.1 + universal v2.2 mirror-mode", 1, "sw");
-  write("sw.js", SW); console.log("sw v823 ✅");
-} else { A(count(SW, "CACHE_VERSION = 'v823'")===1, "sw-exact"); console.log("sw: verify ✅"); }
+/* ---------- 5) sw: v823 या नया (v1.2: बाद के दौरों ने sw आगे बढ़ाया — पीछे कभी नहीं) ---------- */
+{ const SW = read("sw.js"); const mv = SW.match(/CACHE_VERSION = 'v(\d+)'/);
+  A(mv && +mv[1] >= 823, "sw-ver"); console.log("sw: v" + mv[1] + " (≥ v823) verify ✅"); }
 
-/* ---------- 6) sitemap +13 ---------- */
-let SM = read("sitemap-core.xml");
-const smURLs = ORDER.map(c => "  <url><loc>https://acslearn.com/"+c+"/</loc></url>");
-if (SM.indexOf("acslearn.com/"+ORDER[0]+"/") === -1) {
-  SM = R(SM, "</urlset>", smURLs.join("\n") + "\n</urlset>", 1, "sm");
-  write("sitemap-core.xml", SM); console.log("sitemap +13 ✅");
-} else {
-  ORDER.forEach(c => A(count(SM, "<loc>https://acslearn.com/"+c+"/</loc>")===1, "sm-"+c));
-  A(count(SM, "<loc>")===62, "sm-62");
-  console.log("sitemap: 13/13 + 62 verify ✅");
-}
-console.log("🏁 build_mirror_homes v1.1 पूर्ण");
+/* ---------- 6) sitemap (v1.2): यह generator sitemap नहीं लिखता — एकमात्र घर build_sitemap.js
+   (वह भाषा-होम इसी data की कुंजियों से जोड़ता है)। यहाँ सिर्फ़ सूचना-जाँच, रोक नहीं। ---------- */
+{ const SM = read("sitemap-core.xml");
+  const miss = ORDER.filter(c => count(SM, "<loc>https://acslearn.com/"+c+"/</loc>") !== 1);
+  console.log(miss.length ? "⚠️ sitemap में भाषा-होम नहीं: " + miss.join(",") + " — अब चलाएँ: node generator/build_sitemap.js"
+                          : "sitemap: 13/13 भाषा-होम मौजूद ✅ (घर: build_sitemap.js)"); }
+console.log("🏁 build_mirror_homes v1.2 पूर्ण");
