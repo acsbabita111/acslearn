@@ -33,7 +33,11 @@ function op(label, oldStr, newStr, alreadyFn) {
 }
 
 /* 1) hreflang — single home: LANGS registry (x-default = hi root) */
-const LANGS = ['hi','en','zh','es','ar','fr','bn','pt','ru','id','ur','de','ja','mr','te'];  // career.html live language versions, in order
+/* 10-Nov-2026 (खेप-0 नींव): भाषा-रजिस्टर का एकमात्र घर = generator/data/mirror_home_strings.js
+   की कुंजियाँ (टॉप-15 क्रम + आगे की खेपें)। हाथ की सूची निरस्त — नई भाषा = सिर्फ़ data। */
+const LANGS = ['hi','en'].concat(Object.keys(require('./data/mirror_home_strings.js')));
+LANGS.forEach(c => { if (c !== 'hi' && !fs.existsSync(path.join(__dirname, '..', c, 'career.html')) &&
+  !fs.existsSync(path.join(__dirname, 'career_' + c + '_strings.js'))) { console.log('FAIL: ' + c + ' का career-data नहीं'); process.exit(1); } });
 function hrefOf(c){ return c==='hi' ? 'https://acslearn.com/career.html' : 'https://acslearn.com/'+c+'/career.html'; }
 const CANON = '<link rel="canonical" href="https://acslearn.com/career.html">';
 const HREF = LANGS.map(c => '\n<link rel="alternate" hreflang="'+c+'" href="'+hrefOf(c)+'">').join('') +

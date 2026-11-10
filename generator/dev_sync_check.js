@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_sync_check.js v1.0 (जाँच-यंत्र) · 10-Nov-2026
+   dev_sync_check.js v1.1 (जाँच-यंत्र) · 10-Nov-2026 (v1.1: career सब भाषाएँ)
    सवाल: "अगर आज कोई generator दोबारा चले, तो क्या live का कोई सुधार पलट जाएगा?"
    जड़ (10-Nov GSC-दौर में पकड़ी): बाद के दौर पेज/sitemap बदलते रहे पर पुराना
    generator नहीं सुधरा; अगला दौर उसी generator को चलाता तो पिछला काम चुपचाप मिटता
@@ -28,7 +28,9 @@ const PIPES = [
   { name: "sitemap (build_sitemap)", cmds: ["build_sitemap.js"], expect: "zero" },
   { name: "भाषा-होम (build_mirror_homes)", cmds: ["build_mirror_homes.js"], expect: "zero" },
   { name: "career-हिंदी (landing4 → patch_career_hi)", cmds: ["build_landing4.js", "patch_career_hi.js"], expect: "zero" },
-  { name: "career-भाषा ar (build_career_lang)", cmds: ["build_career_lang.js ar"], expect: "zero" },
+  /* रजिस्टर की हर भाषा का career-पेज (en + mirror-data की कुंजियाँ) */
+  { name: "career-भाषा सब (build_career_lang × रजिस्टर)", expect: "zero",
+    cmds: ["en"].concat(Object.keys(require("./data/mirror_home_strings.js"))).map(c => "build_career_lang.js " + c) },
   { name: "career-English (build_career_en)", cmds: ["build_career_en.js"], expect: "nowrite" },
   { name: "उद्यम-परिचय 950 (build_udyam_intro_pages)", cmds: ["build_udyam_intro_pages.js"], expect: "zero" },
   { name: "redirect-पर्चियाँ (build_moved_stubs)", cmds: ["build_moved_stubs.js"], expect: "zero" },

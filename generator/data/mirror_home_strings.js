@@ -1,5 +1,8 @@
 /* ============================================================
-   mirror_home_strings.js v1.1 (09-Nov-2026) — परत-3 DATA
+   mirror_home_strings.js v1.2 (10-Nov-2026) — परत-3 DATA · भाषा-रजिस्टर का एकमात्र घर
+   v1.2: हर भाषा में "script" (ISO 15924) — जाँच-यंत्र लिपि से जाँचते हैं, भाषा-नाम से नहीं।
+   रूप अटल: नीचे की data-पंक्ति कड़ा JSON है (lib_lang_registry.js व dev_mirror_check.py यही पढ़ते हैं)
+   नई भाषा = यहाँ एक प्रविष्टि (+ react-खाना) + career_<कोड>_strings.js
    v1.0 + ChatGPT-ऑडिट सुधार: 950-उद्यम अर्थ 13/13 · zh desc/btn4 ·
    ar brand-Latin+الشهادة · fr radieux · ur brand-Latin · te व्यापार/डैश ·
    प्रति-भाषा font-कुंजी। कुंजी-ढाँचा एक सा; slug कभी अनुवाद नहीं।
@@ -7,6 +10,7 @@
 var MIRROR_HOME = {
  "zh": {
   "dir": "ltr",
+  "script": "Hans",
   "locale": "zh_CN",
   "ttail": "130种语言的免费在线课程",
   "desc": "Applied Computer School (ACS)：永久免费的在线学习平台，支持130种语言，从乡村走向全球南方。通过手机学习课程、掌握技能并获得证书。",
@@ -33,6 +37,7 @@ var MIRROR_HOME = {
  },
  "es": {
   "dir": "ltr",
+  "script": "Latn",
   "locale": "es_ES",
   "ttail": "Cursos online gratuitos en 130 idiomas",
   "desc": "Applied Computer School (ACS): aprendizaje en línea siempre gratuito en 130 idiomas, del pueblo al Sur Global. Cursos, habilidades y certificados en tu móvil.",
@@ -59,6 +64,7 @@ var MIRROR_HOME = {
  },
  "ar": {
   "dir": "rtl",
+  "script": "Arab",
   "locale": "ar_AR",
   "ttail": "دورات مجانية عبر الإنترنت بـ 130 لغة",
   "desc": "Applied Computer School (ACS): تعليم مجاني دائمًا عبر الإنترنت بـ 130 لغة، من القرية إلى الجنوب العالمي. دورات ومهارات وشهادات على هاتفك.",
@@ -85,6 +91,7 @@ var MIRROR_HOME = {
  },
  "fr": {
   "dir": "ltr",
+  "script": "Latn",
   "locale": "fr_FR",
   "ttail": "Cours en ligne gratuits en 130 langues",
   "desc": "Applied Computer School (ACS) : apprentissage en ligne toujours gratuit en 130 langues, du village au Sud global. Cours, compétences et certificats sur votre téléphone.",
@@ -111,6 +118,7 @@ var MIRROR_HOME = {
  },
  "bn": {
   "dir": "ltr",
+  "script": "Beng",
   "locale": "bn_IN",
   "ttail": "১৩০টি ভাষায় বিনামূল্যের অনলাইন কোর্স",
   "desc": "Applied Computer School (ACS): ১৩০টি ভাষায় চিরকাল বিনামূল্যের অনলাইন শিক্ষা, গ্রাম থেকে গ্লোবাল সাউথ পর্যন্ত। আপনার ফোনে কোর্স, দক্ষতা ও সার্টিফিকেট।",
@@ -137,6 +145,7 @@ var MIRROR_HOME = {
  },
  "pt": {
   "dir": "ltr",
+  "script": "Latn",
   "locale": "pt_BR",
   "ttail": "Cursos online gratuitos em 130 idiomas",
   "desc": "Applied Computer School (ACS): aprendizado online sempre gratuito em 130 idiomas, da aldeia ao Sul Global. Cursos, habilidades e certificados no seu celular.",
@@ -163,6 +172,7 @@ var MIRROR_HOME = {
  },
  "ru": {
   "dir": "ltr",
+  "script": "Cyrl",
   "locale": "ru_RU",
   "ttail": "Бесплатные онлайн-курсы на 130 языках",
   "desc": "Applied Computer School (ACS): всегда бесплатное онлайн-обучение на 130 языках, от деревни до Глобального Юга. Курсы, навыки и сертификаты в вашем телефоне.",
@@ -189,6 +199,7 @@ var MIRROR_HOME = {
  },
  "id": {
   "dir": "ltr",
+  "script": "Latn",
   "locale": "id_ID",
   "ttail": "Kursus online gratis dalam 130 bahasa",
   "desc": "Applied Computer School (ACS): pembelajaran online selalu gratis dalam 130 bahasa, dari desa hingga Global South. Kursus, keterampilan, dan sertifikat di ponsel Anda.",
@@ -215,6 +226,7 @@ var MIRROR_HOME = {
  },
  "ur": {
   "dir": "rtl",
+  "script": "Arab",
   "locale": "ur_PK",
   "ttail": "130 زبانوں میں مفت آن لائن کورس",
   "desc": "Applied Computer School (ACS): 130 زبانوں میں ہمیشہ مفت آن لائن تعلیم، گاؤں سے گلوبل ساؤتھ تک۔ آپ کے فون پر کورس، ہنر اور سرٹیفکیٹ۔",
@@ -241,6 +253,7 @@ var MIRROR_HOME = {
  },
  "de": {
   "dir": "ltr",
+  "script": "Latn",
   "locale": "de_DE",
   "ttail": "Kostenlose Online-Kurse in 130 Sprachen",
   "desc": "Applied Computer School (ACS): dauerhaft kostenloses Online-Lernen in 130 Sprachen, vom Dorf bis zum Globalen Süden. Kurse, Fähigkeiten und Zertifikate auf deinem Handy.",
@@ -267,6 +280,7 @@ var MIRROR_HOME = {
  },
  "ja": {
   "dir": "ltr",
+  "script": "Jpan",
   "locale": "ja_JP",
   "ttail": "130言語の無料オンラインコース",
   "desc": "Applied Computer School (ACS)：130言語でいつでも無料のオンライン学習。村からグローバルサウスへ。スマホでコース・スキル・証明書。",
@@ -293,6 +307,7 @@ var MIRROR_HOME = {
  },
  "mr": {
   "dir": "ltr",
+  "script": "Deva",
   "locale": "mr_IN",
   "ttail": "130 भाषांमध्ये मोफत ऑनलाइन कोर्स",
   "desc": "Applied Computer School (ACS): 130 भाषांमध्ये कायम मोफत ऑनलाइन शिक्षण, गावापासून ग्लोबल साउथपर्यंत. तुमच्या फोनवर कोर्स, कौशल्ये आणि प्रमाणपत्रे.",
@@ -319,6 +334,7 @@ var MIRROR_HOME = {
  },
  "te": {
   "dir": "ltr",
+  "script": "Telu",
   "locale": "te_IN",
   "ttail": "130 భాషల్లో ఉచిత ఆన్‌లైన్ కోర్సులు",
   "desc": "Applied Computer School (ACS): 130 భాషల్లో ఎప్పటికీ ఉచిత ఆన్‌లైన్ విద్య, పల్లె నుంచి గ్లోబల్ సౌత్ వరకు. మీ ఫోన్‌లో కోర్సులు, నైపుణ్యాలు, సర్టిఫికెట్లు.",
