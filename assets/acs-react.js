@@ -55,7 +55,12 @@
       tl:{q:"Kumusta ang pahinang ito?",like:"Gusto ko",dis:"Ayaw ko",cmt:"Komento",sh:"Ibahagi",wa:"Ang tanong/opinyon ko tungkol sa pahinang ito: ",nl:"Salamat! Naitala ang iyong opinyon.",nd:"Naitala. Ano ang dapat naming pagbutihin? Sabihin sa 💬 Komento: binabasa namin ito."},
       vi:{q:"Bạn thấy trang này thế nào?",like:"Thích",dis:"Không thích",cmt:"Bình luận",sh:"Chia sẻ",wa:"Câu hỏi/ý kiến của tôi về trang này: ",nl:"Cảm ơn! Ý kiến của bạn đã được lưu.",nd:"Đã ghi nhận. Chúng tôi nên cải thiện gì? Hãy nói qua 💬 Bình luận: chúng tôi đều đọc."},
       th:{q:"หน้านี้เป็นอย่างไรบ้าง",like:"ชอบ",dis:"ไม่ชอบ",cmt:"ความคิดเห็น",sh:"แชร์",wa:"คำถาม/ความเห็นของฉันเกี่ยวกับหน้านี้: ",nl:"ขอบคุณ! บันทึกความเห็นของคุณแล้ว",nd:"รับทราบแล้ว ควรปรับปรุงอะไร บอกเราผ่าน 💬 ความคิดเห็น: เราอ่านทุกข้อ"},
-      sw:{q:"Ukurasa huu umekuaje?",like:"Nimependa",dis:"Sijapenda",cmt:"Maoni",sh:"Shiriki",wa:"Swali/maoni yangu kuhusu ukurasa huu: ",nl:"Asante! Maoni yako yamehifadhiwa.",nd:"Tumepokea. Tuboreshe nini? Tuambie kupitia 💬 Maoni: tunasoma."}
+      sw:{q:"Ukurasa huu umekuaje?",like:"Nimependa",dis:"Sijapenda",cmt:"Maoni",sh:"Shiriki",wa:"Swali/maoni yangu kuhusu ukurasa huu: ",nl:"Asante! Maoni yako yamehifadhiwa.",nd:"Tumepokea. Tuboreshe nini? Tuambie kupitia 💬 Maoni: tunasoma."},
+      tr:{q:"Bu sayfa nasıldı?",like:"Beğendim",dis:"Beğenmedim",cmt:"Yorum",sh:"Paylaş",wa:"Bu sayfa hakkındaki sorum/görüşüm: ",nl:"Teşekkürler! Görüşünüz kaydedildi.",nd:"Kaydedildi. Neyi iyileştirmeliyiz? 💬 Yorum ile söyleyin: okuyoruz."},
+      fa:{q:"این صفحه چطور بود؟",like:"پسندیدم",dis:"نپسندیدم",cmt:"دیدگاه",sh:"هم‌رسانی",wa:"پرسش/نظر من درباره این صفحه: ",nl:"سپاس! نظر شما ثبت شد.",nd:"ثبت شد. چه چیزی را بهتر کنیم؟ 💬 از راه دیدگاه بگویید: ما می‌خوانیم."},
+      uz:{q:"Bu sahifa qanday boʻldi?",like:"Yoqdi",dis:"Yoqmadi",cmt:"Fikr",sh:"Ulashish",wa:"Bu sahifa haqidagi savolim/fikrim: ",nl:"Rahmat! Fikringiz saqlandi.",nd:"Saqlandi. Nimani yaxshilaylik? 💬 Fikr orqali ayting: biz oʻqiymiz."},
+      kk:{q:"Бұл бет қалай болды?",like:"Ұнады",dis:"Ұнамады",cmt:"Пікір",sh:"Бөлісу",wa:"Бұл бет туралы сұрағым/пікірім: ",nl:"Рақмет! Пікіріңіз сақталды.",nd:"Сақталды. Нені жақсартайық? 💬 Пікір арқылы айтыңыз: біз оқимыз."},
+      az:{q:"Bu səhifə necə idi?",like:"Bəyəndim",dis:"Bəyənmədim",cmt:"Rəy",sh:"Paylaş",wa:"Bu səhifə haqqında sualım/rəyim: ",nl:"Təşəkkürlər! Rəyiniz qeydə alındı.",nd:"Qeydə alındı. Nəyi yaxşılaşdıraq? 💬 Rəy vasitəsilə deyin: oxuyuruq."}
     };
     var LG=(document.documentElement.getAttribute("lang")||"hi").split("-")[0].toLowerCase();
     var TX=LX[LG]||LX.en;

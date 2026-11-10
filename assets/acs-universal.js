@@ -4,7 +4,7 @@
    • भाषा-सचेत: /en/ folder → English labels/strings; अन्यथा हिंदी।
    • acs- prefix — पुराने script.js/page-JS से कोई टकराव नहीं।
    ============================================================ */
-var ACS_LANG_HOMES = {en:1,zh:1,es:1,ar:1,fr:1,bn:1,pt:1,ru:1,id:1,ur:1,de:1,ja:1,mr:1,te:1,ko:1,he:1,ta:1,kn:1,gu:1,ml:1,pa:1,or:1,as:1,ne:1,ms:1,tl:1,vi:1,th:1,sw:1}; /* भाषा-रजिस्टर (hi=मूल root) — runtime भाषा-घर तालिका; एकमात्र स्रोत = generator/data/mirror_home_strings.js की कुंजियाँ; build_mirror_homes.js लिखता है — हाथ से न बदलें */
+var ACS_LANG_HOMES = {en:1,zh:1,es:1,ar:1,fr:1,bn:1,pt:1,ru:1,id:1,ur:1,de:1,ja:1,mr:1,te:1,ko:1,he:1,ta:1,kn:1,gu:1,ml:1,pa:1,or:1,as:1,ne:1,ms:1,tl:1,vi:1,th:1,sw:1,tr:1,fa:1,uz:1,kk:1,az:1}; /* भाषा-रजिस्टर (hi=मूल root) — runtime भाषा-घर तालिका; एकमात्र स्रोत = generator/data/mirror_home_strings.js की कुंजियाँ; build_mirror_homes.js लिखता है — हाथ से न बदलें */
 function acsUniversalInit(){
   var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
   var seg0 = ((location.pathname||"").split("/")[1]||"");

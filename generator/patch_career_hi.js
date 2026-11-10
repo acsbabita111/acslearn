@@ -1,4 +1,4 @@
-/* patch_career_hi.js v1.1 (09-Nov-2026)
+/* patch_career_hi.js v1.2 (10-Nov-2026; v1.2 = op: acs-svgfit.js — चित्र के भीतर के वाक्य कटें नहीं)
    Patches career.html (Hindi) to v1.8:
    1) reciprocal hreflang (hi/en/x-default) after canonical
    2) report-sample: inline mock-SVG (760x560) -> final certificate image
@@ -104,6 +104,10 @@ if (count(s, 'hreflang="') === WANT) ok('gate: hreflang ' + WANT); else bad('gat
 if (count(s, '\u092f\u0939 \u0936\u0941\u0930\u0941\u0906\u0924\u0940 \u0926\u093f\u0936\u093e') === 0) ok('gate: old SVG advice line gone (now inside image)');
 else bad('gate: stray SVG text remains');
 
+/* v1.2: चित्र (SVG) के भीतर का वाक्य कटे नहीं — साझा acs-svgfit.js (सब भाषाएँ इसी हिंदी स्रोत से) */
+/* v1.2: आँकड़ा-खानों (.cz-stat span) में लंबा अखंड शब्द भी मुड़े — कज़ाख 'телефоныңызда' तनाव में 320px पर 9px बाहर (खेप-4) */
+op('stat-span wrap', '.cz-gpbox,.cz-goldpass,.cz-fc{overflow-wrap:anywhere}</style>', '.cz-gpbox,.cz-goldpass,.cz-fc,.cz-stat span{overflow-wrap:anywhere}</style>', () => count(s, '.cz-gpbox,.cz-goldpass,.cz-fc,.cz-stat span{overflow-wrap:anywhere}</style>') === 1);
+op('svgfit script', '<script src="/assets/acs-react.js" defer></script>\n</body>', '<script src="/assets/acs-react.js" defer></script>\n<script src="/assets/acs-svgfit.js" defer></script>\n</body>', () => count(s, '<script src="/assets/acs-svgfit.js" defer></script>') === 1 && count(s, '<script src="/assets/acs-react.js" defer></script>\n<script src="/assets/acs-svgfit.js" defer></script>') === 1);
 if (fails) { console.log('\n\u26d4 ' + fails + ' FAIL \u2014 kuchh nahi likha.'); process.exit(1); }
 if (s === before) console.log('\n\ud83c\udfc1 PASS \u2014 already v1.8, zero byte changes.');
 else { fs.writeFileSync(FILE, s); console.log('\n\ud83c\udfc1 PASS \u2014 career.html v1.8 likha (' + Buffer.byteLength(s) + ' bytes, ops=' + changed + ')'); }

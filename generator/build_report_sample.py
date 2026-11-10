@@ -140,6 +140,17 @@ def main(codes):
                    const over=()=> lim ? (e.firstChild && (()=>{const r=document.createRange();r.selectNodeContents(e);return r.getBoundingClientRect().width>lim})())
                                        : (e.scrollWidth>e.clientWidth+1 || e.scrollHeight>e.clientHeight+1);
                    while(over() && f>10){f-=1; e.style.fontSize=f+'px';}}}}""")
+            # ऊपर-नीचे टकराव (खेप-4, फ़ारसी से सीख): शीर्षक की असली स्याही उप-पंक्ति की स्याही पर, या नाम की स्याही
+            # सुनहरी रेखा पर न चढ़े। सीमा: स्याही-टकराव 4px से अधिक (नाप 10-Nov: tr 1, ml 4 = आँख से साफ़; fa 10/12 = दिखता टकराव)। नाप canvas की असली स्याही (actualBoundingBox) से — अक्षर-डिब्बे (line-box) से नहीं,
+            # इसलिए जहाँ टकराव नहीं (Latin/सिरिलिक आदि), वहाँ नियम कुछ नहीं बदलता।
+            pg.evaluate("""()=>{const ink=(e)=>{const cs=getComputedStyle(e),c=document.createElement('canvas').getContext('2d');
+                   c.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily; const m=c.measureText(e.textContent);
+                   const r=document.createRange(); r.selectNodeContents(e); const R=r.getBoundingClientRect(), base=R.top+m.fontBoundingBoxAscent;
+                   return {top:base-m.actualBoundingBoxAscent, bottom:base+m.actualBoundingBoxDescent};};
+                 const lim=(b)=> (b.classList.contains('ul')||b.classList.contains('row')) ? b.getBoundingClientRect().top : ink(b).top;
+                 for(const [a,b] of [['.title','.sub'],['.name','.ul'],['#lab1','.row'],['#lab2','.row']]){const A=document.querySelector(a),B=document.querySelector(b);
+                   let f=parseFloat(getComputedStyle(A).fontSize);
+                   while(ink(A).bottom>lim(B)+4 && f>(a[0]==='#'?10:26)){f-=1;A.style.fontSize=f+'px';}}}""")
             # chip-पंक्ति 880px से चौड़ी हो तो chips छोटे (किनारी की पत्तियों से दूर रहें)
             pg.evaluate("""()=>{const row=document.querySelector('.row'); const ks=[...row.children];
                  const wid=()=>{const a=ks[0].getBoundingClientRect(), b=ks[ks.length-1].getBoundingClientRect(); return b.right-a.left;};
@@ -160,6 +171,13 @@ def main(codes):
               if (e.classList.contains('cx')) { const r=document.createRange(); r.selectNodeContents(e); return r.getBoundingClientRect().width>990; }
               return e.scrollWidth>e.clientWidth+2 || e.scrollHeight>e.clientHeight+2}).map(e=>e.className)""")
             if spill: raise SystemExit("⛔ %s: पाठ अपने डिब्बे से बाहर: %s" % (c, spill))
+            clash = pg.evaluate("""(()=>{const ink=(e)=>{const cs=getComputedStyle(e),c=document.createElement('canvas').getContext('2d');
+                   c.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily; const m=c.measureText(e.textContent);
+                   const r=document.createRange(); r.selectNodeContents(e); const R=r.getBoundingClientRect(), base=R.top+m.fontBoundingBoxAscent;
+                   return {top:base-m.actualBoundingBoxAscent, bottom:base+m.actualBoundingBoxDescent};};
+                 const lim=(b)=> (b.classList.contains('ul')||b.classList.contains('row')) ? b.getBoundingClientRect().top : ink(b).top;
+              return [['.title','.sub'],['.name','.ul'],['#lab1','.row'],['#lab2','.row']].filter(([a,b])=>ink(document.querySelector(a)).bottom>lim(document.querySelector(b))+4).map(x=>x[0]);})()""")
+            if clash: raise SystemExit("⛔ %s: ऊपर-नीचे टकराव बचा: %s" % (c, clash))
             out = os.path.join(ROOT, "assets", "career-report-sample-%s.webp" % c)
             Image.open(io.BytesIO(png)).convert("RGB").save(out, "WEBP", quality=88, method=6)
             print("✅ %s → %s (%d bytes)" % (c, os.path.relpath(out, ROOT), os.path.getsize(out)))
