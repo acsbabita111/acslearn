@@ -227,7 +227,7 @@ const EN = [
 /*216*/ "MAPP",
 /*217*/ "Measures: work motivation",
 /*218*/ "Measures motivation for work.",
-/*219*/ "9 million+ users: Assessment.com's current claim.",
+/*219*/ "12 million+ users: Assessment.com's own claim (November 2026).",
 /*220*/ "Fee: preview free · report $89.95-$149.95 (about ₹8,000-₹13,200)",
 /*221*/ "⚠️ These are all external sites: verify the details yourself.",
 /*222*/ "Fees keep changing.",

@@ -228,7 +228,7 @@ const T = [
 /*216*/ "MAPP",
 /*217*/ "Mide: motivaci\u00f3n laboral (motivation)",
 /*218*/ "Mide la motivaci\u00f3n para el trabajo.",
-/*219*/ "M\u00e1s de 9 millones de usuarios: afirmaci\u00f3n actual de Assessment.com.",
+/*219*/ "Más de 12 millones de usuarios: dato de la propia Assessment.com (noviembre de 2026).",
 /*220*/ "Costo: vista previa gratis \u00b7 informe $89.95-$149.95 (aprox. \u20b98,000-\u20b913,200)",
 /*221*/ "\u26a0\ufe0f Todos son sitios externos: verifica t\u00fa mismo la informaci\u00f3n.",
 /*222*/ "Los costos cambian con el tiempo.",

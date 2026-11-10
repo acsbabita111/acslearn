@@ -225,7 +225,7 @@ const T = [
 /*216*/ "MAPP",
 /*217*/ "Mede: motivação para o trabalho",
 /*218*/ "Mede a motivação para o trabalho.",
-/*219*/ "9 milhões+ de usuários: afirmação atual do Assessment.com.",
+/*219*/ "Mais de 12 milhões de usuários: dado do próprio Assessment.com (novembro de 2026).",
 /*220*/ "Taxa: prévia grátis · relatório $89.95-$149.95 (cerca de ₹8,000-₹13,200)",
 /*221*/ "⚠️ Todos esses são sites externos: verifique os detalhes você mesmo.",
 /*222*/ "As taxas mudam o tempo todo.",

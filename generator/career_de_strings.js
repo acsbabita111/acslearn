@@ -226,7 +226,7 @@ const T = [
 /*216*/ "MAPP",
 /*217*/ "Misst: Arbeits-Motivation",
 /*218*/ "Misst die Motivation zu arbeiten.",
-/*219*/ "9 Mio.+ Nutzer: aktuelle Angabe von Assessment.com.",
+/*219*/ "Über 12 Mio. Nutzer: eigene Angabe von Assessment.com (November 2026).",
 /*220*/ "Gebühr: Vorschau gratis · Bericht $89.95-$149.95 (etwa ₹8,000-₹13,200)",
 /*221*/ "⚠️ Das sind alles externe Seiten: Prüfe die Details selbst.",
 /*222*/ "Gebühren ändern sich laufend.",

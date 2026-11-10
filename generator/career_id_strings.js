@@ -225,7 +225,7 @@ const T = [
 /*216*/ "MAPP",
 /*217*/ "Mengukur: motivasi kerja",
 /*218*/ "Mengukur motivasi untuk bekerja.",
-/*219*/ "9 juta+ pengguna: klaim terkini Assessment.com.",
+/*219*/ "12 juta+ pengguna: klaim Assessment.com sendiri (November 2026).",
 /*220*/ "Biaya: pratinjau gratis · laporan $89.95-$149.95 (sekitar ₹8,000-₹13,200)",
 /*221*/ "⚠️ Semua ini situs luar: periksa sendiri rinciannya.",
 /*222*/ "Biaya terus berubah.",

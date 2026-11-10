@@ -79,6 +79,16 @@ else if (count(s, V173) === 1) { s = s.split(V173).join(V18); changed++; ok('ver
 else if (count(s, V172) === 1) { s = s.split(V172).join(V18); changed++; ok('ver v1.7.2 \u2192 v1.8'); }
 else bad('version comment not recognized');
 
+/* 5) बहाव-रोक (खेप-1 ऑडिट, 10-Nov): हिंदी-स्रोत में एक बार — हर भाषा का career-पेज इसे विरासत में पाता है।
+   tagline-पट्टी ज़रूरत पर दूसरी पंक्ति में, grid-खाने सिकुड़ें, बहुत लंबा शब्द ज़रूरत पर टूटे। फ़ॉन्ट-स्वतंत्र;
+   छोटा पाठ हो तो कुछ नहीं बदलता। (पहले en/ru/id/de career-पेजों की tagline फ़ोन से बाहर जाती थी।) */
+const GUARD_MARK = '/* overflow-guard v1 */';
+const GUARD = '<style>' + GUARD_MARK + ' .acs-freebar #acsTagline{white-space:normal!important;display:inline-block;line-height:1.3}' +
+  '.cz-grid>*,.cz-fee>*{min-width:0}h1,h2,h3,h4,p,li,td,th,b,a,.cz-gpbox,.cz-goldpass,.cz-fc{overflow-wrap:anywhere}</style>\n</head>';
+if (count(s, GUARD_MARK) === 1) skip('overflow-guard');
+else if (count(s, GUARD_MARK) === 0 && count(s, '</head>') === 1) { s = s.split('</head>').join(GUARD); changed++; ok('overflow-guard added'); }
+else bad('overflow-guard: </head> or marker count wrong');
+
 /* gates */
 if (count(s, 'viewBox="0 0 760 560"') === 0) ok('gate: mock-SVG absent');
 else bad('gate: mock-SVG still present');

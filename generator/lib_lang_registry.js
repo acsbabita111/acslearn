@@ -1,5 +1,8 @@
 /* ============================================================
-   lib_lang_registry.js v1.1 (10-Nov-2026, खेप-0 v1.2) · साझा टुकड़ा
+   lib_lang_registry.js v1.2 (10-Nov-2026, खेप-1 के साथ) · साझा टुकड़ा
+   v1.2 (ChatGPT v1.2-ऑडिट QA-शर्तें): locale का भाषा-भाग = कोड; लिपि ↔ font का पक्का
+   जोड़ (SCRIPT_GFAM); react-पट्टी के 8 शब्दों पर भी लिपि-जाँच; दोहरी-कुंजी जाँच
+   \uXXXX-रूप भी पकड़े (कुंजी को JSON-अर्थ में खोलकर मिलाना)।
    v1.1 (ChatGPT v1.1-ऑडिट): लिपि-जाँच हर खाने पर (Latn सहित, ब्रांड-शब्द छोड़कर ≥90%);
    font = पक्का नियम (gfam से बँधा); btn1href = सिर्फ़ अपना career-पेज; कच्चे JSON में
    दोहरी कुंजी पकड़ना (JSON.parse चुपचाप दूसरी रख लेता था); लिपि-सीमाएँ 30-भाषा योग्य।
@@ -28,6 +31,17 @@ const SCRIPTS = {
   Jpan: /[\u3040-\u30FF\u4E00-\u9FFF]/
 };
 const RTL_SCRIPTS = ["Arab", "Hebr"];
+/* लिपि → स्वीकार्य gfam (font-परिवार)। Inter (LATIN) Latin/Cyrillic/Greek ढकता है;
+   देवनागरी = KEEP (साइट का मूल Noto Sans Devanagari)। नई लिपि = पहले यहाँ जोड़ो। */
+const SCRIPT_GFAM = {
+  Latn: ["LATIN"], Cyrl: ["LATIN"], Grek: ["LATIN"], Deva: ["KEEP"],
+  Arab: ["Noto+Sans+Arabic", "Noto+Nastaliq+Urdu", "Noto+Naskh+Arabic"], Hebr: ["Noto+Sans+Hebrew"],
+  Beng: ["Noto+Sans+Bengali"], Guru: ["Noto+Sans+Gurmukhi"], Gujr: ["Noto+Sans+Gujarati"],
+  Orya: ["Noto+Sans+Oriya"], Taml: ["Noto+Sans+Tamil"], Telu: ["Noto+Sans+Telugu"],
+  Knda: ["Noto+Sans+Kannada"], Mlym: ["Noto+Sans+Malayalam"], Sinh: ["Noto+Sans+Sinhala"],
+  Thai: ["Noto+Sans+Thai"], Mymr: ["Noto+Sans+Myanmar"], Khmr: ["Noto+Sans+Khmer"],
+  Ethi: ["Noto+Sans+Ethiopic"], Hang: ["Noto+Sans+KR"], Hans: ["Noto+Sans+SC"], Jpan: ["Noto+Sans+JP"]
+};
 const DEVA = /[\u0900-\u0963\u0966-\u097F]/;  /* रिसाव-जाँच: । ॥ (U+0964/65) सब भारतीय लिपियाँ साझा करती हैं — छूट */
 const TEXT_KEYS = ["ttail", "desc", "ogdesc", "pill", "join", "btn1", "btn2", "btn3", "btn4",
   "tagline", "orig", "btnLang", "btnMenu", "drawer", "foottag", "fbcert", "certline",
@@ -51,6 +65,7 @@ function dupKeys(text) {
     if (ch === '"') {
       let j = i + 1, str = "";
       while (j < text.length && text[j] !== '"') { if (text[j] === "\\") { str += text[j] + text[j + 1]; j += 2; } else str += text[j++]; }
+      try { str = JSON.parse('"' + str + '"'); } catch (e) { /* अर्थ-रूप में खोलो: "btn\u0031" = "btn1" */ }
       const top = st[st.length - 1];
       if (top && top.t === "o" && top.wantKey) {
         if (top.keys.has(str)) out.push((top.path ? top.path + "." : "") + str);
@@ -106,8 +121,10 @@ function validate(M, opts) {
     if (!T || typeof T !== "object") { E.push(t + "प्रविष्टि object नहीं"); continue; }
     if (T.dir !== "ltr" && T.dir !== "rtl") E.push(t + "dir = ltr/rtl नहीं");
     if (!/^[a-z]{2,3}_[A-Z]{2}$/.test(T.locale || "")) E.push(t + "locale ग़लत (जैसे ko_KR)");
+    else if (T.locale.split("_")[0] !== c) E.push(t + "locale का भाषा-भाग (" + T.locale.split("_")[0] + ") कोड से अलग");
     if (!SCRIPTS[T.script]) E.push(t + "script-खाना ग़लत/ग़ायब (" + T.script + ")");
     else if ((T.dir === "rtl") !== RTL_SCRIPTS.includes(T.script)) E.push(t + "dir और script मेल नहीं");
+    else if (!(SCRIPT_GFAM[T.script] || []).includes(T.gfam)) E.push(t + "लिपि " + T.script + " के लिए gfam " + T.gfam + " ग़लत (स्वीकार्य: " + (SCRIPT_GFAM[T.script] || []).join("/") + ")");
     if (typeof T.gfam !== "string" || !/^([A-Za-z0-9+]+|KEEP|LATIN)$/.test(T.gfam)) E.push(t + "gfam ग़लत");
     /* font: सिर्फ़ अक्षर/अंक/एक-एक space, और gfam से बँधा — CSS में घुसपैठ असंभव */
     else if (typeof T.font !== "string" || !/^[A-Z][A-Za-z0-9]*( [A-Z0-9][A-Za-z0-9]*)*$/.test(T.font)) E.push(t + "font ग़लत रूप (सिर्फ़ font-नाम)");
@@ -129,7 +146,14 @@ function validate(M, opts) {
     /* btn1href: Founder-नियम (10-Nov) — 🧭 बटन सिर्फ़ अपनी भाषा के career-पेज पर */
     if (T.btn1href !== undefined && T.btn1href !== "/" + c + "/career.html") E.push(t + "btn1href सिर्फ़ /" + c + "/career.html हो सकता है");
     if (T.react !== undefined) {
-      for (const k of REACT_KEYS) if (typeof T.react[k] !== "string" || !T.react[k].trim()) E.push(t + "react." + k + " ख़ाली");
+      for (const k of REACT_KEYS) {
+        const v = T.react[k];
+        if (typeof v !== "string" || !v.trim()) { E.push(t + "react." + k + " ख़ाली"); continue; }
+        if (/[<>"]/.test(v) || v.indexOf("\u2014") > -1) E.push(t + "react." + k + " में < > \" या em-dash");
+        if (T.script !== "Deva" && DEVA.test(v)) E.push(t + "react." + k + " में देवनागरी-रिसाव");
+        if (SCRIPTS[T.script]) { const r = scriptRatio(v, SCRIPTS[T.script]);
+          if (r !== null && r < SCRIPT_MIN) E.push(t + "react." + k + ": अपनी लिपि " + Math.round(r * 100) + "%"); }
+      }
     }
     if (opts.lxHave && !opts.lxHave.has(c) && T.react === undefined) E.push(t + "react-पट्टी के 8 शब्द नहीं (acs-react.js में भी नहीं)");
     if (opts.needCareer) {
@@ -147,4 +171,4 @@ function lxCodes(X) {
   return new Set((X.slice(a, b).match(/\n\s*([a-z]{2,3}):\{/g) || []).map(m => m.trim().slice(0, -2)));
 }
 
-module.exports = { ROOT, DATA, SCRIPTS, RTL_SCRIPTS, TEXT_KEYS, REACT_KEYS, SW_BASE, BRAND_TOKENS, SCRIPT_MIN, scriptRatio, dupKeys, load, validate, lxCodes };
+module.exports = { ROOT, DATA, SCRIPTS, RTL_SCRIPTS, SCRIPT_GFAM, TEXT_KEYS, REACT_KEYS, SW_BASE, BRAND_TOKENS, SCRIPT_MIN, scriptRatio, dupKeys, load, validate, lxCodes };

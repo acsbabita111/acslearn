@@ -115,6 +115,15 @@ if (count(en, BTN1_OLD) === 1) {
   write("en/index.html", en); console.log("en: 🧭 बटन → /en/career.html ✅");
 } else { A(count(en, BTN1_EN) === 1, "en-btn1-verify"); console.log("en: 🧭 बटन /en/career.html verify ✅"); }
 
+/* ---------- 1-ग) बहाव-रोक (खेप-1 ऑडिट, 10-Nov): English होम = सब भाषा-होमों का स्रोत।
+   tagline/pill ज़रूरत पर दूसरी पंक्ति में, बटनों का बहुत लंबा शब्द ज़रूरत पर टूटे — फ़ॉन्ट-स्वतंत्र।
+   छोटा पाठ हो तो कुछ नहीं बदलता। (पहले /en/ होम की tagline हर फ़ोन पर बाहर जाती थी।) */
+const GUARD_MARK = "/* बहाव-रोक v1 */";
+const GUARD = "<style>" + GUARD_MARK + " .acs-freebar #acsTagline{white-space:normal!important;display:inline-block;line-height:1.3} .hero .pill{white-space:normal!important;max-width:100%;line-height:1.25} .hero .btn{overflow-wrap:anywhere;min-width:0}</style>\n</head>";
+en = read("en/index.html");
+if (count(en, GUARD_MARK) === 0) { en = R(en, "</head>", GUARD, 1, "en-guard"); write("en/index.html", en); console.log("en: बहाव-रोक जोड़ा ✅"); }
+else { A(count(en, GUARD_MARK) === 1, "en-guard-one"); }
+
 /* ---------- 2) root (hi): सिर्फ़ hreflang ---------- */
 let hi = read("index.html");
 if (hi.indexOf('hreflang="x-default"') === -1) {
@@ -138,7 +147,10 @@ function fontLink(T){
 }
 function fontStyle(code, T){
   const lh = (code === "ur") ? ";--lh:2.1" : "";
-  return '<style>/* भाषा-font v1.1 */ :root{--font:\''+T.font+'\',\'Inter\',sans-serif'+lh+'} .acs-drawer h4{letter-spacing:0}</style>';
+  /* खेप-1: कोरियाई (Hang) शब्दों के बीच space रखता है — शब्द बीच से न टूटे (keep-all)। CJK (zh/ja) पर कभी नहीं। */
+  const kb = (T.script === "Hang") ? " body{word-break:keep-all}" : ""
+    ;  /* बहाव-रोक अब English-स्रोत में एक बार (step 1-ग) — सब होम उसे विरासत में पाते हैं */
+  return '<style>/* भाषा-font v1.1 */ :root{--font:\''+T.font+'\',\'Inter\',sans-serif'+lh+'} .acs-drawer h4{letter-spacing:0}'+kb+'</style>';
 }
 function bdi(t){ return '<bdi dir="ltr">'+t+'</bdi>'; }
 ORDER.forEach(function(code){
@@ -281,7 +293,10 @@ console.log("universal-तालिका == data-कुंजियाँ ✅")
 { const SW = read("sw.js"); const mv = SW.match(/CACHE_VERSION = 'v(\d+)'/);
   A(mv && +mv[1] >= 823, "sw-ver");
   if (CHANGED_CACHE) { const nv = +mv[1] + 1;
-    write("sw.js", SW.replace("CACHE_VERSION = 'v" + mv[1] + "'", "CACHE_VERSION = 'v" + nv + "'"));
+    /* v1.5 (khep-1 ऑडिट): अंक के साथ उसी पंक्ति की टिप्पणी भी इसी बदलाव की — पुराना इतिहास न दिखे */
+    const ln = SW.match(/^const CACHE_VERSION = 'v\d+'[^\n]*$/m); A(ln, "sw-line");
+    const note = new Date().toISOString().slice(0, 10) + " build_mirror_homes: भाषा-रजिस्टर " + ORDER.length + " mirror (acs-universal ACS_LANG_HOMES + acs-react LX)";
+    write("sw.js", SW.replace(ln[0], "const CACHE_VERSION = 'v" + nv + "'  // " + note));
     console.log("sw: v" + mv[1] + " → v" + nv + " (cache-असेट बदला) ✅"); }
   else console.log("sw: v" + mv[1] + " (≥ v823) verify ✅"); }
 
