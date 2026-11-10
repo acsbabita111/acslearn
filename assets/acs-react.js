@@ -50,7 +50,12 @@
       pa:{q:"ਇਹ ਪੰਨਾ ਕਿਹੋ ਜਿਹਾ ਲੱਗਿਆ?",like:"ਪਸੰਦ ਆਇਆ",dis:"ਪਸੰਦ ਨਹੀਂ ਆਇਆ",cmt:"ਟਿੱਪਣੀ",sh:"ਸਾਂਝਾ ਕਰੋ",wa:"ਇਸ ਪੰਨੇ ਬਾਰੇ ਮੇਰਾ ਸਵਾਲ/ਰਾਇ: ",nl:"ਧੰਨਵਾਦ! ਤੁਹਾਡੀ ਰਾਇ ਦਰਜ ਹੋ ਗਈ।",nd:"ਦਰਜ ਹੋ ਗਿਆ। ਕੀ ਸੁਧਾਰੀਏ? 💬 ਟਿੱਪਣੀ ਰਾਹੀਂ ਦੱਸੋ: ਅਸੀਂ ਪੜ੍ਹਦੇ ਹਾਂ।"},
       or:{q:"ଏହି ପୃଷ୍ଠା କେମିତି ଲାଗିଲା?",like:"ଭଲ ଲାଗିଲା",dis:"ଭଲ ଲାଗିଲା ନାହିଁ",cmt:"ମନ୍ତବ୍ୟ",sh:"ସେୟାର",wa:"ଏହି ପୃଷ୍ଠା ବିଷୟରେ ମୋ ପ୍ରଶ୍ନ/ମତ: ",nl:"ଧନ୍ୟବାଦ! ଆପଣଙ୍କ ମତ ସଞ୍ଚିତ ହେଲା।",nd:"ସଞ୍ଚିତ ହେଲା। କ'ଣ ସୁଧାରିବା? 💬 ମନ୍ତବ୍ୟ ମାଧ୍ୟମରେ କୁହନ୍ତୁ: ଆମେ ପଢ଼ୁ।"},
       as:{q:"এই পৃষ্ঠাটো কেনে লাগিল?",like:"ভাল লাগিল",dis:"ভাল নালাগিল",cmt:"মন্তব্য",sh:"শ্বেয়াৰ",wa:"এই পৃষ্ঠাৰ বিষয়ে মোৰ প্ৰশ্ন/মতামত: ",nl:"ধন্যবাদ! আপোনাৰ মতামত সংৰক্ষিত হ'ল।",nd:"সংৰক্ষিত হ'ল। কি উন্নত কৰিম? 💬 মন্তব্যৰ জৰিয়তে কওক: আমি পঢ়োঁ।"},
-      ne:{q:"यो पाना कस्तो लाग्यो?",like:"मन पर्‍यो",dis:"मन परेन",cmt:"टिप्पणी",sh:"सेयर",wa:"यो पानाबारे मेरो प्रश्न/राय: ",nl:"धन्यवाद! तपाईंको राय सुरक्षित भयो।",nd:"सुरक्षित भयो। के सुधार्ने? 💬 टिप्पणीमार्फत भन्नुहोस्: हामी पढ्छौँ।"}
+      ne:{q:"यो पाना कस्तो लाग्यो?",like:"मन पर्‍यो",dis:"मन परेन",cmt:"टिप्पणी",sh:"सेयर",wa:"यो पानाबारे मेरो प्रश्न/राय: ",nl:"धन्यवाद! तपाईंको राय सुरक्षित भयो।",nd:"सुरक्षित भयो। के सुधार्ने? 💬 टिप्पणीमार्फत भन्नुहोस्: हामी पढ्छौँ।"},
+      ms:{q:"Bagaimana halaman ini?",like:"Suka",dis:"Tidak suka",cmt:"Komen",sh:"Kongsi",wa:"Soalan/pendapat saya tentang halaman ini: ",nl:"Terima kasih! Pendapat anda telah disimpan.",nd:"Dicatat. Apa yang patut kami baiki? Beritahu melalui 💬 Komen: kami membacanya."},
+      tl:{q:"Kumusta ang pahinang ito?",like:"Gusto ko",dis:"Ayaw ko",cmt:"Komento",sh:"Ibahagi",wa:"Ang tanong/opinyon ko tungkol sa pahinang ito: ",nl:"Salamat! Naitala ang iyong opinyon.",nd:"Naitala. Ano ang dapat naming pagbutihin? Sabihin sa 💬 Komento: binabasa namin ito."},
+      vi:{q:"Bạn thấy trang này thế nào?",like:"Thích",dis:"Không thích",cmt:"Bình luận",sh:"Chia sẻ",wa:"Câu hỏi/ý kiến của tôi về trang này: ",nl:"Cảm ơn! Ý kiến của bạn đã được lưu.",nd:"Đã ghi nhận. Chúng tôi nên cải thiện gì? Hãy nói qua 💬 Bình luận: chúng tôi đều đọc."},
+      th:{q:"หน้านี้เป็นอย่างไรบ้าง",like:"ชอบ",dis:"ไม่ชอบ",cmt:"ความคิดเห็น",sh:"แชร์",wa:"คำถาม/ความเห็นของฉันเกี่ยวกับหน้านี้: ",nl:"ขอบคุณ! บันทึกความเห็นของคุณแล้ว",nd:"รับทราบแล้ว ควรปรับปรุงอะไร บอกเราผ่าน 💬 ความคิดเห็น: เราอ่านทุกข้อ"},
+      sw:{q:"Ukurasa huu umekuaje?",like:"Nimependa",dis:"Sijapenda",cmt:"Maoni",sh:"Shiriki",wa:"Swali/maoni yangu kuhusu ukurasa huu: ",nl:"Asante! Maoni yako yamehifadhiwa.",nd:"Tumepokea. Tuboreshe nini? Tuambie kupitia 💬 Maoni: tunasoma."}
     };
     var LG=(document.documentElement.getAttribute("lang")||"hi").split("-")[0].toLowerCase();
     var TX=LX[LG]||LX.en;

@@ -48,6 +48,9 @@ ck("en: 4 बटन-कड़ी", en_hrefs == ["/en/career.html","/bhasha.html"
 dev = re.compile(u"[\u0900-\u0963\u0966-\u097F]")
 titles = set()
 for c in ORDER:
+    # v2.2 (खेप-3): रजिस्टर की भाषा का होम ग़ायब हो तो crash नहीं — साफ़ FAIL, बाक़ी जाँच चलती रहे
+    if not os.path.exists(os.path.join(ROOT, c, "index.html")):
+        ck(c+": होम-पेज मौजूद (/"+c+"/index.html)", False); continue
     s = rd(c+"/index.html"); T = D[c]; t = c+": "
     if c in RTL: ck(t+"lang+rtl", ('<html lang="%s" dir="rtl">'%c) in s)
     else:        ck(t+"lang", ('<html lang="%s">'%c) in s and 'dir="rtl"' not in s)
