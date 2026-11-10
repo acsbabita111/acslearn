@@ -10,8 +10,9 @@
    • universal v2.2: साझा ACS_LANG_HOMES तालिका + mirror-mode + isHome सुधार
    चलाना: node generator/build_mirror_homes.js  (repo-रूट से) — दोबारा चलाने
    पर byte-बदलाव शून्य (idempotent) और पूरा-राज्य verify।
-   v1.2 (10-Nov-2026): live के बराबर किया — (1) 13 होम का करियर-बटन data-खाना
-   btn1href (डिफ़ॉल्ट "/career.html" = आज का live); (2) universal/sw की जाँच
+   v1.3 (10-Nov-2026, Founder-फ़ैसला): हर भाषा-होम का 🧭 बटन उसी भाषा के career-पेज
+   पर (en → /en/career.html, ar → /ar/career.html …); data-खाना btn1href से बदला जा सके।
+   v1.2 (10-Nov-2026): live के बराबर किया — (1) करियर-बटन data-खाना; (2) universal/sw की जाँच
    "इतना या नया"; (3) sitemap नहीं लिखता (घर: build_sitemap.js)।
    जाँच: generator/dev_sync_check.js — live पर दोबारा चलाने से बदलाव शून्य।
    ============================================================ */
@@ -58,6 +59,19 @@ if (en.indexOf('hreflang="x-default"') === -1) {
   A(count(en, EN_OGDESC_NEW)===1 && count(en, EN_OGDESC_OLD)===0, "en-ogdesc");
   console.log("en: पूर्व-पैच verify ✅");
 }
+
+/* ---------- 1-ख) करियर-बटन नियम (Founder, 10-Nov-2026): हर भाषा-होम का 🧭 बटन
+   उसी भाषा के career-पेज पर — /hi/ → /कोड/ (पता-नियम v1.1)। English: /en/career.html।
+   पहले English-बटन /en/aptitude-test.html पर था (काम-अनुवाद-1 का सीधा पेज-बदलाव, किसी
+   generator में दर्ज नहीं) — अब यहीं दर्ज। /en/aptitude-test.html हर career-पेज से जुड़ा रहता है। */
+const BTN1_OLD = 'class="btn btn-white" href="/en/aptitude-test.html">';
+const BTN1_EN  = 'class="btn btn-white" href="/en/career.html">';
+A(fs.existsSync(path.join(ROOT, "en/career.html")), "en-career-file");
+en = read("en/index.html");
+if (count(en, BTN1_OLD) === 1) {
+  en = R(en, BTN1_OLD, BTN1_EN, 1, "en-btn1");
+  write("en/index.html", en); console.log("en: 🧭 बटन → /en/career.html ✅");
+} else { A(count(en, BTN1_EN) === 1, "en-btn1-verify"); console.log("en: 🧭 बटन /en/career.html verify ✅"); }
 
 /* ---------- 2) root (hi): सिर्फ़ hreflang ---------- */
 let hi = read("index.html");
@@ -110,10 +124,11 @@ ORDER.forEach(function(code){
           '<link rel="stylesheet" href="/acs-style.css">\n'+fontStyle(code, T), 1, code+"-fstyle");
   s = R(s, '<span class="pill">✨ For a Bright Future</span>', '<span class="pill">'+T.pill+'</span>', 1, code+"-pill");
   s = R(s, '<span class="g">Join Now!</span>', '<span class="g">'+T.join+'</span>', 1, code+"-join");
-  /* v1.2 (10-Nov): करियर-बटन का पता data-खाना btn1href से; न हो तो आज का live मान
-     "/career.html"। (English होम काम-अनुवाद-1 में /en/aptitude-test.html पर गया; उसी
-     स्रोत से 13 होम चुपचाप बदल जाते थे : यही पलटन रोकी। बदलना हो = सिर्फ़ data।) */
-  s = R(s, 'class="btn btn-white" href="/en/aptitude-test.html">', 'class="btn btn-white" href="'+(T.btn1href || "/career.html")+'">', 1, code+"-b1h");
+  /* v1.3 (10-Nov, Founder-फ़ैसला): 🧭 बटन = उसी भाषा का career-पेज (/कोड/career.html);
+     data-खाना btn1href हो तो वही। फ़ाइल न हो = रुको (मरा बटन कभी नहीं)। */
+  const b1 = T.btn1href || ("/" + code + "/career.html");
+  A(fs.existsSync(path.join(ROOT, b1.replace(/^\//, ""))), code + "-b1-file");
+  s = R(s, BTN1_EN, 'class="btn btn-white" href="' + b1 + '">', 1, code+"-b1h");
   s = R(s, '>🧭 Choose Your Career!<', '>'+T.btn1+'<', 1, code+"-b1");
   s = R(s, '>🗣️ Learn a New Language!<', '>'+T.btn2+'<', 1, code+"-b2");
   s = R(s, '>🛠️ Learn a New Skill!<', '>'+T.btn3+'<', 1, code+"-b3");
@@ -200,4 +215,4 @@ console.log("universal-तालिका == data-कुंजियाँ ✅")
   const miss = ORDER.filter(c => count(SM, "<loc>https://acslearn.com/"+c+"/</loc>") !== 1);
   console.log(miss.length ? "⚠️ sitemap में भाषा-होम नहीं: " + miss.join(",") + " — अब चलाएँ: node generator/build_sitemap.js"
                           : "sitemap: 13/13 भाषा-होम मौजूद ✅ (घर: build_sitemap.js)"); }
-console.log("🏁 build_mirror_homes v1.2 पूर्ण");
+console.log("🏁 build_mirror_homes v1.3 पूर्ण");
