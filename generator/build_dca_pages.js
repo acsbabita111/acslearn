@@ -478,3 +478,5 @@ if (!ONLY && !PARTIAL && !MISSING.length && !fail){
 }
 console.log("---- कुल: " + ok + " ✅ · " + fail + " ❌ · औसत शब्द " + (ok ? Math.round(totalWords/ok) : 0) + " ----");
 if (fail || (MISSING.length && !PARTIAL)) process.exit(1);
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : छोटा शीर्षक, पेज-विशेष description, attribute-escape (नियम lib_seo_hunar.js) */
+require("./build_seo_meta.js").run({ quiet: true });

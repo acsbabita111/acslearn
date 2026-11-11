@@ -335,3 +335,5 @@ if (!ONLY){ fs.writeFileSync(path.join(outDir, "index.html"), buildIndex(OK), "u
 if (FAILED.length) console.warn("⚠️ check-robot fail (पेज नहीं बने, index पर \"जल्द जुड़ेगा\"): " + FAILED.join(","));
 console.log("---- कुल: " + ok + " ✅ · " + fail + " ❌ · अनुपस्थित " + MISSING.length + " ----");
 if (fail) process.exit(1);
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : छोटा शीर्षक, पेज-विशेष description, attribute-escape (नियम lib_seo_hunar.js) */
+require("./build_seo_meta.js").run({ quiet: true });

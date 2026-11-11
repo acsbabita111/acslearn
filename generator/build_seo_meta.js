@@ -1,5 +1,5 @@
 /* ============================================================
-   build_seo_meta.js v1.0 (परत-4, 11-Nov-2026) : भाषा-कोर्स परिवार की "अंतिम SEO-परत"
+   build_seo_meta.js v1.1 (परत-4, 11-Nov-2026) : पूरी साइट की "अंतिम SEO-परत"
    काम (हर बार वही नतीजा; दोबारा चलाने पर कुछ नहीं बदलता):
    1) सभी 8 पेज-प्रकार का title + description = lib_seo_meta.js का पाठ
       (<title>, og:title, meta description, og:description, schema का description)।
@@ -8,6 +8,14 @@
    4) चित्र-पुस्तक का मोबाइल-रूप (reader.html): canonical → मुख्य चित्र-पुस्तक पेज
       (दोनों में एक ही पढ़ाई है; Google को दोहराव न दिखे)।
    5) जुड़वाँ कोर्स (generator/data/seo_twins.js): canonical + og:url → मुख्य कोर्स।
+   v1.1 में जुड़ा (ChatGPT की 8,602-पेज जाँच के सुधार; नियम lib_seo_hunar.js में):
+   6) हुनर-कोर्स के पाठ (चार-पहिया, DCA, ई-कॉमर्स, मशरूम, टू-व्हीलर, वेल्डिंग): शीर्षक से लंबा
+      कोर्स-नाम हटाकर छोटा नाम; नक़ल-जैसा या बहुत छोटा description पाठ के पहले अनुच्छेद से;
+      attribute में उद्धरण-चिह्न (") की सही escape (पहले 60 से ज़्यादा पेजों पर टूटा था)।
+   7) विषय-पेज (courses/hi/subject) जिन पर अभी सिर्फ़ "जल्द उपलब्ध" लिखा है: noindex
+      (पेज live रहता है; Google की सूची और sitemap से बाहर)। असली पढ़ाई आते ही अपने-आप index।
+   8) भाषा-वार नियम-पेज: <title> और meta-attribute के भीतर से <bdi> tag हटाना।
+   9) जुड़वाँ पेज (data/seo_twin_pages.js): canonical + og:url मुख्य पेज पर।
    कब चलाएँ: कोई भी भाषा-generator चलाने के बाद, sitemap से पहले। छहों generator
    इसे अंत में अपने-आप बुलाते हैं; जाँच-यंत्र dev_seo_check.js भी पहरा देता है।
    चलाना: node generator/build_seo_meta.js [--check]   (--check = सिर्फ़ जाँच, कुछ नहीं लिखता)
@@ -16,6 +24,8 @@
 const fs = require("fs"), path = require("path");
 const SEO = require("./lib_seo_meta.js");
 const TWINS = require("./data/seo_twins.js");
+const HN = require("./lib_seo_hunar.js");
+const TWIN_PAGES = require("./data/seo_twin_pages.js");
 const ROOT = path.join(__dirname, "..");
 const BASE = "https://acslearn.com/courses/hi/bhasha/";
 const unesc = s => s.replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
@@ -61,6 +71,75 @@ function fixReader(slug, s) {
   if (s.indexOf(self) < 0) return null;
   return s.replace(self, main);
 }
+/* ================= v1.1: हुनर / विषय / नियम-पेज / जुड़वाँ पेज ================= */
+const SITE = "https://acslearn.com/";
+const qAttr = s => s.replace(/"/g, "&quot;");
+function metaRe(sel) { return new RegExp("(<meta " + sel + ' content=")([\\s\\S]*?)("\\s*/?>)(?=\\s*<)'); }
+const RE_DESC = metaRe('name="description"'), RE_OGT = metaRe('property="og:title"'), RE_OGD = metaRe('property="og:description"'),
+      RE_TWT = metaRe('name="twitter:title"'), RE_TWD = metaRe('name="twitter:description"');
+function setMeta(o, re, val) { return re.test(o) ? o.replace(re, (m, a, b, c) => a + val + c) : o; }
+function fixHunar(rel, s) {
+  const F = HN.familyOf(rel); if (!F) return { s };
+  const tm = s.match(/<title>([\s\S]*?)<\/title>/); if (!tm) return { err: "title नहीं मिला" };
+  let o = s, T = tm[1];
+  const nt = HN.title(F, T, rel);
+  if (nt !== null && nt !== T) { T = nt; o = o.replace(/<title>[\s\S]*?<\/title>/, () => "<title>" + T + "</title>"); }
+  if (nt !== null || /"/.test(T)) { o = setMeta(o, RE_OGT, qAttr(T)); o = setMeta(o, RE_TWT, qAttr(T)); }
+  let D = "";
+  const dm = o.match(RE_DESC);
+  if (dm && !/\/index\.html$/.test(rel.replace(/\\/g, "/"))) {
+    const raw = dm[2], broken = /"/.test(raw), old = HN.unesc(raw);
+    const nd = HN.desc(F, old, s, broken);
+    D = nd === null ? old : nd;
+    if (nd !== null) {
+      const a = HN.attr(nd);
+      o = setMeta(o, RE_DESC, a); o = setMeta(o, RE_OGD, a); o = setMeta(o, RE_TWD, a);
+      if (old && old !== nd) o = o.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, blk => blk.split(jesc(old)).join(jesc(nd)));
+    } else { const od = o.match(RE_OGD); if (od && /"/.test(od[2])) o = setMeta(o, RE_OGD, HN.attr(HN.unesc(dm[2]))); }
+  }
+  return { s: o, type: F.key, T, D };
+}
+function fixSubject(s) {   /* सिर्फ़ "जल्द उपलब्ध" वाले ख़ाली विषय-पेज */
+  const dm = s.match(RE_DESC);
+  if (!dm || !/जल्द उपलब्ध/.test(dm[2])) return s;
+  return s.replace(/<meta name="robots" content="[^"]*">/, '<meta name="robots" content="noindex, follow">');
+}
+function fixConsentHead(s) {   /* <title> और <meta> पंक्तियों में <bdi> नहीं (build_learner_consent_lang.py का clean_head यही करता है) */
+  const i = s.indexOf("</head>"); if (i < 0) return s;
+  return s.slice(0, i).split("\n").map(l => /^\s*<(title>|meta )/.test(l) ? l.replace(/<\/?bdi[^>]*>/g, "") : l).join("\n") + s.slice(i);
+}
+function fixTwinPage(rel, s) {
+  const main = TWIN_PAGES[rel]; if (!main) return s;
+  const a = SITE + rel, b = SITE + main;
+  return s.replace('<link rel="canonical" href="' + a + '">', '<link rel="canonical" href="' + b + '">').replace('<meta property="og:url" content="' + a + '">', '<meta property="og:url" content="' + b + '">');
+}
+function extra(errs, writes, stat) {
+  const bump = (t, T, D, ch) => { const x = stat[t] = stat[t] || { n: 0, ch: 0, tmax: 0, dmax: 0 }; x.n++; if (ch) x.ch++; x.tmax = Math.max(x.tmax, SEO.len(T || "")); x.dmax = Math.max(x.dmax, SEO.len(D || "")); };
+  for (const F of HN.FAMILIES) {
+    const dir = path.join(ROOT, F.dir); if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir).sort()) {
+      if (!f.endsWith(".html")) continue;
+      const rel = F.dir + "/" + f, full = path.join(dir, f), s = fs.readFileSync(full, "utf8");
+      if (/http-equiv=["']refresh["']/i.test(s.slice(0, 20000))) continue;
+      const r = fixHunar(rel, s);
+      if (r.err) { errs.push(rel + " : " + r.err); continue; }
+      const o = fixTwinPage(rel, r.s);
+      bump(F.key, r.T, r.D, o !== s); if (o !== s) writes.push([full, o, rel]);
+    }
+  }
+  const sd = path.join(ROOT, "courses/hi/subject");
+  if (fs.existsSync(sd)) for (const f of fs.readdirSync(sd).sort()) {
+    if (!f.endsWith(".html")) continue;
+    const full = path.join(sd, f), s = fs.readFileSync(full, "utf8"), o = fixSubject(s);
+    bump("subject", "", "", o !== s); if (o !== s) writes.push([full, o, "courses/hi/subject/" + f]);
+  }
+  for (const d of fs.readdirSync(ROOT)) {
+    const full = path.join(ROOT, d, "rules-consent-learner.html");
+    if (!/^[a-z]{2,3}$/.test(d) || !fs.existsSync(full)) continue;
+    const s = fs.readFileSync(full, "utf8"), o = fixConsentHead(s);
+    bump("consent", "", "", o !== s); if (o !== s) writes.push([full, o, d + "/rules-consent-learner.html"]);
+  }
+}
 function run(opt) {
   opt = opt || {};
   const base = path.join(ROOT, "courses/hi/bhasha"), errs = [], writes = [], stat = {};
@@ -84,16 +163,17 @@ function run(opt) {
       else if (o !== s) { stat.reader = stat.reader || { n: 0, ch: 0, tmax: 0, dmax: 0 }; stat.reader.ch++; writes.push([rf, o, "courses/hi/bhasha/" + slug + "/chitra-pustak/reader.html"]); }
     }
   }
+  extra(errs, writes, stat);
   if (errs.length) { errs.slice(0, 30).forEach(e => console.log("❌ " + e)); throw new Error("build_seo_meta: " + errs.length + " पेज पहचाने नहीं गए : कुछ नहीं लिखा गया"); }
   if (opt.check) return { pending: writes.map(w => w[2]), stat };
   writes.forEach(w => fs.writeFileSync(w[0], w[1], "utf8"));
   if (!opt.quiet) {
     Object.keys(stat).forEach(t => console.log("  " + t + " : " + stat[t].n + " पेज, बदले " + stat[t].ch + ", सबसे लंबा title " + stat[t].tmax + ", description " + stat[t].dmax));
-    console.log("🏁 build_seo_meta v1.0 : " + writes.length + " फ़ाइलें लिखीं");
+    console.log("🏁 build_seo_meta v1.1 : " + writes.length + " फ़ाइलें लिखीं");
   } else if (writes.length) console.log("  (SEO-परत: " + writes.length + " पेज अद्यतन)");
   return { pending: [], stat, written: writes.length };
 }
-module.exports = { run, fixPage };
+module.exports = { run, fixPage, fixHunar, fixConsentHead };
 if (require.main === module) {
   const chk = process.argv.includes("--check");
   const r = run({ check: chk });

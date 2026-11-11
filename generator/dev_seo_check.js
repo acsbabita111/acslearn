@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_seo_check.js v1.1 — SEO-जीविता robot (v1.0: 04-Oct-2026 · v1.1: 11-Nov-2026)
+   dev_seo_check.js v1.2 — SEO-जीविता robot (v1.0: 04-Oct-2026 · v1.1/v1.2: 11-Nov-2026)
    जाँचें:
    1) hreflang-लक्ष्य जीविता: हर *.html के हर hreflang-href का पथ repo में
       असली फ़ाइल हो (…/ → index.html) — मरे पते पर hreflang = मरी कड़ी (निषिद्ध)।
@@ -17,6 +17,12 @@
    7) भाषा-परिवार के title/description lib_seo_meta.js से हूबहू मेल खाएँ
       (title 80 अक्षर तक, description 160 तक) और हर पेज पर पढ़ने-योग्य schema हो।
    8) बदलाव-तारीख़ (lastmod): सही रूप, भविष्य की नहीं, और बही-खाते से मेल।
+   v1.2 (11-Nov-2026, ChatGPT की 8,602-पेज जाँच के बाद) की नई जाँचें : sitemap के हर पेज पर:
+   9) सिर की सफ़ाई: <title> के भीतर कोई HTML tag नहीं; description मौजूद और ख़ाली नहीं;
+      description / og:title / og:description के attribute में कच्चा उद्धरण-चिह्न (") नहीं।
+   10) ख़ाली-पेज पहरा: जिस पेज के description में "जल्द उपलब्ध" है, वह sitemap में नहीं।
+   11) दोहरा पेज: दो पतों का पूरा पाठ हूबहू एक नहीं।
+   12) दोहरा शीर्षक या दोहरा description नहीं।
    चलाना: node generator/dev_seo_check.js   → सब पास तो 🏁
    नियम: sitemap/hreflang छूने वाले हर दौर में upload से पहले 🏁 अनिवार्य।
    ============================================================ */
@@ -190,5 +196,38 @@ console.log("जाँच-5 उल्टी जाँच: खोज-योग्
   console.log("जाँच-8 lastmod: तारीख़ वाले पते " + nlm + " · दोष " + bad);
 }
 
+/* ================= v1.2 की नई जाँचें (9-12) ================= */
+{
+  const crypto = require("crypto");
+  const tol = sel => new RegExp("<meta " + sel + ' content="([\\s\\S]*?)"\\s*/?>(?=\\s*<)');
+  const TOL = { "description": tol('name="description"'), "og:title": tol('property="og:title"'), "og:description": tol('property="og:description"') };
+  const Tm = new Map(), Dm = new Map(), Bm = new Map();
+  let c9 = 0, c10 = 0;
+  const bad9 = (u, why) => { c9++; if (c9 <= 10) FAIL("सिर की गड़बड़ी (" + why + "): " + u); };
+  for (const u of SM) {
+    const f = urlPathToFile(u); if (!fs.existsSync(f)) continue;
+    const h = fs.readFileSync(f, "utf8"), hd = h.slice(0, h.indexOf("</head>") > 0 ? h.indexOf("</head>") : 30000);
+    const t = (hd.match(/<title>([\s\S]*?)<\/title>/) || [, ""])[1];
+    if (!t.trim()) bad9(u, "title ख़ाली"); else if (/<[a-zA-Z\/]/.test(t)) bad9(u, "title के भीतर HTML tag");
+    let d = "";
+    for (const k of Object.keys(TOL)) {
+      const m = hd.match(TOL[k]);
+      if (!m) { if (k === "description") bad9(u, "description नहीं"); continue; }
+      if (/"/.test(m[1])) bad9(u, k + " में कच्चा उद्धरण-चिह्न");
+      else if (/<[a-zA-Z\/]/.test(m[1])) bad9(u, k + " के भीतर HTML tag");
+      else if (k === "description") { d = m[1]; if (!d.trim()) bad9(u, "description ख़ाली"); }
+    }
+    if (/जल्द उपलब्ध/.test(d)) { c10++; if (c10 <= 5) FAIL("ख़ाली-पेज sitemap में (description में \"जल्द उपलब्ध\"): " + u); }
+    (Tm.get(t) || Tm.set(t, []).get(t)).push(u);
+    if (d) (Dm.get(d) || Dm.set(d, []).get(d)).push(u);
+    const bi = h.search(/<h1[\s>]/);
+    if (bi > 0) { const body = h.slice(bi).replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " "); if (body.length > 400) { const k = crypto.createHash("sha1").update(body).digest("hex"); (Bm.get(k) || Bm.set(k, []).get(k)).push(u); } }
+  }
+  if (c9 > 10) FAIL("…सिर की कुल गड़बड़ियाँ: " + c9);
+  const dup = (M, label) => { let n = 0; for (const [k, us] of M) if (us.length > 1) { n++; if (n <= 5) FAIL(label + " (" + us.length + " पेज): " + us.slice(0, 3).join("  ")); } return n; };
+  const nB = dup(Bm, "दोहरा पेज : पूरा पाठ हूबहू एक"), nT = dup(Tm, "दोहरा शीर्षक"), nD = dup(Dm, "दोहरा description");
+  console.log("जाँच-9 सिर की सफ़ाई: दोष " + c9 + " · जाँच-10 ख़ाली-पेज: " + c10 + " · जाँच-11 दोहरे पेज: " + nB + " · जाँच-12 दोहरे शीर्षक " + nT + ", दोहरे description " + nD);
+}
+
 if (fails) { console.log("\n❌ कुल विफल: " + fails + " — upload निषिद्ध"); process.exit(1); }
-console.log("\n🏁 dev_seo_check v1.1 — आठों जाँचें पास");
+console.log("\n🏁 dev_seo_check v1.2 — बारहों जाँचें पास");

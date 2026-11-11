@@ -96,6 +96,13 @@ K=dict(
  EX_H='🏠 Home', EX_G='← Registration Guide',
 )
 
+def clean_head(s):
+    # 11-Nov-2026 (SEO): <title> और <meta> पंक्तियों में HTML tag निषिद्ध. <bdi> सिर्फ़ दिखते body में.
+    # (ar/ur में <bdi dir="ltr"> description-attribute को तोड़ रहा था.) यही काम build_seo_meta.js का fixConsentHead करता है.
+    i=s.find('</head>')
+    if i<0:return s
+    return '\n'.join(re.sub(r'</?bdi[^>]*>','',l) if re.match(r'\s*<(title>|meta )',l) else l for l in s[:i].split('\n'))+s[i:]
+
 def build(code,D,outdir):
     s=EN
     s=s.replace('<html lang="en">','<html lang="%s"%s>'%(code,' dir="rtl"' if code in RTL else ''))
@@ -114,6 +121,7 @@ def build(code,D,outdir):
             v = uni(v) if kname in UNI_KEYS else bdi(v)
         s=s.replace(k,v)
     os.makedirs(outdir,exist_ok=True)
+    s=clean_head(s)
     open(os.path.join(outdir,'rules-consent-learner.html'),'w',encoding='utf-8').write(s)
     return s
 if __name__=='__main__':

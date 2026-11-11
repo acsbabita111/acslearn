@@ -656,3 +656,5 @@ if (!ONLY){
 }
 console.log("---- कुल: " + ok + " ✅ · " + fail + " ❌ · न्यूनतम-शब्द " + (ok?minW:0) + " · औसत " + (ok?Math.round(sumW/ok):0) + " ----");
 if (fail) process.exit(1);
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : छोटा शीर्षक, पेज-विशेष description, attribute-escape (नियम lib_seo_hunar.js) */
+require("./build_seo_meta.js").run({ quiet: true });

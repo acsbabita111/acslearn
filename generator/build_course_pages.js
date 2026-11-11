@@ -314,3 +314,5 @@ if (!buildCourseIndex(WELDING_COURSE, WELDING_LESSONS)) fail++;
 
 console.log("\n— नतीजा: " + ok + " पेज बने · " + fail + " fail —");
 if (fail) process.exit(1);
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : छोटा शीर्षक, पेज-विशेष description, attribute-escape (नियम lib_seo_hunar.js) */
+require("./build_seo_meta.js").run({ quiet: true });
