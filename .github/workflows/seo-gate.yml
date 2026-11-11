@@ -1,0 +1,32 @@
+# ACS : SEO-पहरेदार (11-Nov-2026)
+# काम: हर push के बाद GitHub के अपने computer पर चार जाँच-यंत्र चलते हैं।
+# कोई यंत्र फेल हो तो इस commit के आगे लाल निशान (❌) लगता है और GitHub email भेजता है।
+# सीमा (ईमानदार बात): यह पहरेदार ख़राब push को live होने से रोकता नहीं, सिर्फ़ तुरंत बताता है।
+# असली रोक CHADHAO.bat में है, जो यही यंत्र push से पहले चलाता है।
+# यह फ़ाइल साइट पर प्रकाशित नहीं होती (बिंदु से शुरू होने वाला folder)।
+name: SEO-pahredar
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  seo-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: SEO check (sitemap, noindex, canonical, title, schema, lastmod)
+        run: node generator/dev_seo_check.js
+      - name: Language registry check (hreflang clusters)
+        run: node generator/dev_registry_check.js
+      - name: Mirror pages check
+        run: python3 generator/dev_mirror_check.py
+      - name: Pages size check (GitHub Pages 1 GB limit)
+        run: node generator/dev_pages_size_check.js
