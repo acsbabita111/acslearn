@@ -113,7 +113,9 @@ en = read("en/index.html");
 if (count(en, BTN1_OLD) === 1) {
   en = R(en, BTN1_OLD, BTN1_EN, 1, "en-btn1");
   write("en/index.html", en); console.log("en: 🧭 बटन → /en/career.html ✅");
-} else { A(count(en, BTN1_EN) === 1, "en-btn1-verify"); console.log("en: 🧭 बटन /en/career.html verify ✅"); }
+} else {
+  /* 12-Nov-2026: नया होम (build_home.js) चारों दरवाज़े हरे बनाता है : दोनों रूप मान्य */
+  A(count(en, BTN1_EN) === 1 || count(en, 'class="btn btn-green" href="/en/career.html">') === 1, "en-btn1-verify"); console.log("en: 🧭 बटन /en/career.html verify ✅"); }
 
 /* ---------- 1-ग) बहाव-रोक (खेप-1 ऑडिट, 10-Nov): English होम = सब भाषा-होमों का स्रोत।
    tagline/pill ज़रूरत पर दूसरी पंक्ति में, बटनों का बहुत लंबा शब्द ज़रूरत पर टूटे — फ़ॉन्ट-स्वतंत्र।
@@ -136,7 +138,10 @@ if (hi.indexOf('hreflang="x-default"') === -1) {
   verifyHreflang(hi, "hi"); console.log("root: पूर्व-पैच verify ✅"); }
 
 /* ---------- 3) 13 भाषा-पेज ---------- */
-const SRC = read("en/index.html");
+/* 12-Nov-2026: English होम अब build_home.js से नए रूप (खोज-बॉक्स + 6 कदम) में बनता है।
+   43 भाषा-होम तब तक पुराने रूप में रहें जब तक उनके अनुवाद न जुड़ें, इसलिए उनका स्रोत अब
+   जमी हुई प्रति है: generator/data/mirror_home_src_v1.html (= 12-Nov से पहले का English होम, byte-हूबहू)। */
+const SRC = read("generator/data/mirror_home_src_v1.html");
 const FONT_LINK_OLD = '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">';
 function fontLink(T){
   if (T.gfam === "KEEP") return FONT_LINK_OLD;

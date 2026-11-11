@@ -1,5 +1,5 @@
 /* ============================================================
-   build_seo_meta.js v1.3 (परत-4, 12-Nov-2026) : पूरी साइट की "अंतिम SEO-परत"
+   build_seo_meta.js v1.4 (परत-4, 12-Nov-2026) : पूरी साइट की "अंतिम SEO-परत"
    काम (हर बार वही नतीजा; दोबारा चलाने पर कुछ नहीं बदलता):
    1) सभी 8 पेज-प्रकार का title + description = lib_seo_meta.js का पाठ
       (<title>, og:title, meta description, og:description, schema का description)।
@@ -19,6 +19,7 @@
    v1.2: 10) उद्यम-पेज: 80 अक्षर से लंबे शीर्षक छोटे (नियम lib_seo_hunar.js का udyamTitle)।
    v1.3: 11) पाठ-पेज के schema (LearningResource) का description = पेज का meta description।
          12) कोई पाठ-description "और / या / के / में…" जैसे अधूरे शब्द पर ख़त्म हो तो वह शब्द हटता है।
+   v1.4: 13) कोर्स-मुखपृष्ठ के हाथ से तय शीर्षक/विवरण (data/seo_index_meta.js) : जैसे टू-व्हीलर कोर्स में "Motorcycle Repair"।
    कब चलाएँ: कोई भी भाषा-generator चलाने के बाद, sitemap से पहले। छहों generator
    इसे अंत में अपने-आप बुलाते हैं; जाँच-यंत्र dev_seo_check.js भी पहरा देता है।
    चलाना: node generator/build_seo_meta.js [--check]   (--check = सिर्फ़ जाँच, कुछ नहीं लिखता)
@@ -29,6 +30,7 @@ const SEO = require("./lib_seo_meta.js");
 const TWINS = require("./data/seo_twins.js");
 const HN = require("./lib_seo_hunar.js");
 const TWIN_PAGES = require("./data/seo_twin_pages.js");
+const INDEX_META = require("./data/seo_index_meta.js");
 const ROOT = path.join(__dirname, "..");
 const BASE = "https://acslearn.com/courses/hi/bhasha/";
 const unesc = s => s.replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
@@ -85,6 +87,14 @@ function fixHunar(rel, s) {
   const F = HN.familyOf(rel); if (!F) return { s };
   const tm = s.match(/<title>([\s\S]*?)<\/title>/); if (!tm) return { err: "title नहीं मिला" };
   let o = s, T = tm[1];
+  const IM = INDEX_META[rel.replace(/\\/g, "/")];
+  if (IM) {   /* कोर्स-मुखपृष्ठ का हाथ से तय शीर्षक/विवरण */
+    if (HN.len(IM.title) > 80) return { err: "seo_index_meta: title 80 अक्षर से लंबा" };
+    T = IM.title; o = o.replace(/<title>[\s\S]*?<\/title>/, () => "<title>" + HN.attr(T).replace(/&quot;/g, '"') + "</title>");
+    o = setMeta(o, RE_OGT, HN.attr(T)); o = setMeta(o, RE_TWT, HN.attr(T));
+    const a = HN.attr(IM.desc); o = setMeta(o, RE_DESC, a); o = setMeta(o, RE_OGD, a); o = setMeta(o, RE_TWD, a);
+    return { s: o, type: F.key, T, D: IM.desc };
+  }
   const nt = HN.title(F, T, rel);
   if (nt !== null && nt !== T) { T = nt; o = o.replace(/<title>[\s\S]*?<\/title>/, () => "<title>" + T + "</title>"); }
   if (nt !== null || /"/.test(T)) { o = setMeta(o, RE_OGT, qAttr(T)); o = setMeta(o, RE_TWT, qAttr(T)); }
@@ -197,7 +207,7 @@ function run(opt) {
   writes.forEach(w => fs.writeFileSync(w[0], w[1], "utf8"));
   if (!opt.quiet) {
     Object.keys(stat).forEach(t => console.log("  " + t + " : " + stat[t].n + " पेज, बदले " + stat[t].ch + ", सबसे लंबा title " + stat[t].tmax + ", description " + stat[t].dmax));
-    console.log("🏁 build_seo_meta v1.3 : " + writes.length + " फ़ाइलें लिखीं");
+    console.log("🏁 build_seo_meta v1.4 : " + writes.length + " फ़ाइलें लिखीं");
   } else if (writes.length) console.log("  (SEO-परत: " + writes.length + " पेज अद्यतन)");
   return { pending: [], stat, written: writes.length };
 }

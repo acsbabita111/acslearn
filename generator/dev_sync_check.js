@@ -26,6 +26,8 @@ if (sh("git status --porcelain").trim()) { console.log("⛔ git-पेड़ स
 const PIPES = [
   { name: "विशेष पेज (build_specials)", cmds: ["build_specials.js"], expect: "zero" },
   { name: "sitemap (build_sitemap)", cmds: ["build_sitemap.js"], expect: "zero" },
+  /* 12-Nov-2026: होम-पेज की खोज-सूची और होम (हिंदी + English) */
+  { name: "खोज-सूची + होम (build_search_index, build_home)", cmds: ["build_search_index.js", "build_home.js"], expect: "zero" },
   /* 11-Nov-2026: भाषा-परिवार की अंतिम SEO-परत (title/description lib_seo_meta.js से, जुड़वाँ व reader canonical) */
   { name: "SEO-परत (build_seo_meta)", cmds: ["build_seo_meta.js"], expect: "zero" },
   { name: "बोलो-वर्कबुक + शब्दकोश (build_bolo_shabd)", cmds: ["build_bolo_shabd.js"], expect: "debt",

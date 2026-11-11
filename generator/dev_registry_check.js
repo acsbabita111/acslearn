@@ -58,7 +58,7 @@ for (const c of ALL) {
 }
 ck("होम-titles सब अलग (" + ORDER.length + ")", titles.size === ORDER.length, titles.size);
 { const en = has("en/index.html") ? rd("en/index.html") : "";
-  ck("en होम: 🧭 बटन → /en/career.html", (en.match(/class="btn btn-white" href="([^"]+)"/) || [])[1] === "/en/career.html"); }
+  ck("en होम: 🧭 बटन → /en/career.html", (en.match(/class="btn btn-(?:white|green)" href="([^"]+)"/) || [])[1] === "/en/career.html"); } /* 12-Nov-2026: नए होम में चारों दरवाज़े हरे (build_home.js) */
 
 /* 3) runtime-तालिकाएँ + sw */
 const U = rd("assets/acs-universal.js");

@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_seo_check.js v1.3.1 — SEO-जीविता robot (v1.0: 04-Oct-2026 · v1.1/v1.2: 11-Nov-2026)
+   dev_seo_check.js v1.4 — SEO-जीविता robot (v1.0: 04-Oct-2026 · v1.1/v1.2: 11-Nov-2026)
    जाँचें:
    1) hreflang-लक्ष्य जीविता: हर *.html के हर hreflang-href का पथ repo में
       असली फ़ाइल हो (…/ → index.html) — मरे पते पर hreflang = मरी कड़ी (निषिद्ध)।
@@ -26,6 +26,8 @@
    v1.3 (12-Nov-2026): 13) हुनर-कोर्स के पाठ-पेज: description "और / या / के / में…" जैसे अधूरे शब्द पर ख़त्म नहीं;
        पाठ से बना description पूरे वाक्य पर ख़त्म (v1.3.1 से यह सचमुच जाँचा जाता है) और 70 से 160 अक्षर का;
        schema का description = meta description।
+   v1.4 (12-Nov-2026): 14) होम-पेज की खोज-सूची (assets/search_index.json) sitemap से मेल खाए (बासी न हो),
+       और दोनों होम-पेज generator (build_home.js) के नतीजे से हूबहू मेल खाएँ।
    चलाना: node generator/dev_seo_check.js   → सब पास तो 🏁
    नियम: sitemap/hreflang छूने वाले हर दौर में upload से पहले 🏁 अनिवार्य।
    ============================================================ */
@@ -253,5 +255,15 @@ console.log("जाँच-5 उल्टी जाँच: खोज-योग्
   console.log("जाँच-13 हुनर-पाठ: " + n + " पेज · पाठ से बने " + derived + " · अधूरे शब्द पर ख़त्म " + dangle + " · सीमा-बाहर " + cutMid + " · अधूरे वाक्य " + notSent + " · schema-बेमेल " + ld);
 }
 
+/* ================= v1.4 की जाँच-14: होम की खोज-सूची और होम-पेज ================= */
+{
+  let ok1 = false, pend = ["?"];
+  try { ok1 = require("./build_search_index.js").check(); } catch (e) { FAIL("खोज-सूची: " + e.message); }
+  if (!ok1) FAIL("खोज-सूची बासी है (sitemap से मेल नहीं) : चलाएँ node generator/build_search_index.js, फिर node generator/build_home.js");
+  try { pend = require("./build_home.js").run({ check: true }); } catch (e) { FAIL("होम-पेज: " + e.message); }
+  if (pend.length) FAIL("होम-पेज generator से मेल नहीं खाते (" + pend.join(", ") + ") : चलाएँ node generator/build_home.js");
+  console.log("जाँच-14 होम: खोज-सूची " + (ok1 ? "ताज़ा" : "बासी") + " · होम-पेज बेमेल " + pend.length);
+}
+
 if (fails) { console.log("\n❌ कुल विफल: " + fails + " — upload निषिद्ध"); process.exit(1); }
-console.log("\n🏁 dev_seo_check v1.3.1 — तेरहों जाँचें पास");
+console.log("\n🏁 dev_seo_check v1.4 — चौदहों जाँचें पास");

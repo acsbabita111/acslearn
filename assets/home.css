@@ -1,0 +1,52 @@
+/* home.css v1.5 (12-Nov-2026) : होम-पेज का खोज-बॉक्स, छोटे दरवाज़े और "6 कदम" खंड।
+   सिर्फ़ होम-पेज इसे लादता है (build_home.js)। रंग: ACS के पाँच ही। कोई अक्षर 16px से छोटा नहीं।
+   v1.1 तिरंगा-नियम (Founder, 12-Nov-2026): हीरो ऊपर से नीचे तिरंगे के क्रम में रहे:
+   ऊपर केसरिया/सुनहरी पट्टी · बीच में सफ़ेद (खोज-बॉक्स और करियर-टेस्ट की पंक्ति) · नीचे हरे दरवाज़े।
+   इसलिए बीच के हिस्से में सुनहरा रंग नहीं: करियर-टेस्ट की कड़ी सफ़ेद।
+   v1.2 (Founder, 12-Nov): खोज-बटन गहरा नहीं, एकदम हल्का (ACS का off-white), गहरे नीले अक्षरों के साथ।
+   v1.3: ACS के पाँचों रंग अब acs-style.css के चरों (--navy, --blue, --gold, --green, --offwhite) से आते हैं;
+   पीछे लिखा रंग सिर्फ़ तब काम आता है जब चर न मिले।
+   v1.4 (Founder, 12-Nov): "6 कदम" खंड का सारा पाठ बीच में (center); हर कदम के ऊपर उसका रेखा-चित्र (SVG);
+   नंबर-गोला कार्ड के ऊपर बीच में; कार्डों के बीच बिंदीदार रास्ता।
+   v1.5 (Founder, 12-Nov): (क) ऊपर की सुनहरी पट्टी कम ऊँची (वह बटन जैसी दिखती थी, जबकि बटन नहीं है), ताकि
+   हीरो-लाइन और खोज-बॉक्स पर नज़र पहले जाए। (ख) होम का सारा पाठ बीच में: खोज-बॉक्स का लिखा पाठ और नतीजे भी। */
+.hero .pill{ padding:11px 12px; font-size:clamp(18px,5.6vw,32px); border-radius:14px; box-shadow:inset 0 2px 0 rgba(255,255,255,.5), 0 5px 0 #c77f0a, 0 9px 16px rgba(0,0,0,.3); }
+.hero h1.title{ margin-top:22px; }
+.khoj input{ text-align:center; }
+.khoj-res a.r{ justify-content:center; text-align:center; }
+.khoj-res .none{ text-align:center; }
+.khoj{ margin-top:22px; position:relative; text-align:left; }
+.khoj form{ display:flex; gap:8px; background:#fff; border-radius:16px; padding:6px; box-shadow:0 4px 0 #c9d3e0, 0 6px 16px rgba(0,0,0,.35); }
+.khoj input{ flex:1; min-width:0; height:56px; border:0; outline:0; background:transparent; padding:0 12px; font:inherit; font-size:19px; color:var(--navy,#0B1F3A); }
+.khoj input::placeholder{ color:#5b6b80; }
+.khoj button{ height:56px; padding:0 20px; border:0; border-radius:12px; background:var(--offwhite,#F5F7FA); color:var(--navy,#0B1F3A); font:inherit; font-size:20px; font-weight:900; border:2px solid #c9d3e0; border-bottom:4px solid #c9d3e0; cursor:pointer; white-space:nowrap; }
+.khoj .jaise{ font-size:16px; color:#dbe6f5; margin:8px 4px 0; text-align:center; }
+.khoj-res{ display:none; margin-top:8px; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.4); }
+.khoj-res.on{ display:block; }
+.khoj-res a.r{ display:flex; align-items:center; gap:10px; padding:12px 14px; text-decoration:none; color:var(--navy,#0B1F3A); font-size:18px; font-weight:700; border-bottom:1px solid #e3e9f1; line-height:1.5; }
+.khoj-res a.r:last-child{ border-bottom:0; }
+.khoj-res .kind{ flex:none; font-size:16px; font-weight:800; color:#fff; background:var(--blue,#1565C0); border-radius:999px; padding:2px 10px; }
+.khoj-res .kind.h{ background:var(--green,#2E7D32); } .khoj-res .kind.u{ background:var(--navy,#0B1F3A); } .khoj-res .kind.k{ background:#c47f12; }
+.khoj-res .sub{ display:block; font-size:16px; font-weight:400; color:#44566e; }
+.khoj-res .none{ padding:14px; font-size:18px; color:var(--navy,#0B1F3A); line-height:1.7; }
+.khoj-res .none a{ color:var(--blue,#1565C0); font-weight:800; }
+.shuru{ display:block; margin:16px 0 0; font-size:18px; font-weight:700; color:#fff; text-align:center; line-height:1.7; }
+.shuru a{ color:#fff; font-weight:900; text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:5px; white-space:nowrap; }
+.hero .cta-row{ margin-top:18px; gap:10px; }
+.hero .cta-row .btn{ font-size:17px; padding:12px 8px; border-radius:14px; }
+.rasta{ background:var(--offwhite,#F5F7FA); color:var(--navy,#0B1F3A); padding:34px 16px 40px; }
+.rasta-in{ max-width:760px; margin:0 auto; }
+.rasta h2{ font-size:clamp(24px,6.4vw,36px); font-weight:900; line-height:1.35; text-align:center; color:var(--navy,#0B1F3A); margin:0 0 24px; }
+.rasta .sub{ font-size:19px; font-weight:700; text-align:center; color:var(--blue,#1565C0); margin:6px 0 24px; }
+.rasta ol{ list-style:none; margin:0; padding:26px 0 0; }
+.rasta li{ position:relative; margin:0 0 54px; padding:34px 16px 20px; text-align:center; background:#fff; border-radius:16px; border-bottom:5px solid #c9d3e0; box-shadow:0 3px 10px rgba(11,31,58,.10); }
+.rasta li:last-child{ margin-bottom:0; }
+.rasta li::after{ content:""; position:absolute; left:50%; bottom:-38px; width:6px; height:26px; margin-left:-3px; border-radius:3px; background:repeating-linear-gradient(var(--gold,#F9A825) 0 7px, transparent 7px 12px); }
+.rasta li:last-child::after{ display:none; }
+.rasta li .num{ position:absolute; left:50%; top:-26px; transform:translateX(-50%); width:52px; height:52px; border-radius:50%; background:var(--gold,#F9A825); color:var(--navy,#0B1F3A); font-weight:900; font-size:26px; display:flex; align-items:center; justify-content:center; border:4px solid var(--offwhite,#F5F7FA); box-shadow:0 2px 0 #c47f12; }
+.rasta li svg{ display:block; width:140px; height:105px; margin:4px auto 6px; }
+.rasta li b{ display:block; font-size:21px; font-weight:800; line-height:1.5; }
+.rasta li p{ font-size:18px; line-height:1.7; margin:2px 0 12px; color:#22364f; }
+.rasta li a{ display:inline-block; font-size:18px; font-weight:800; text-decoration:none; color:#fff; background:var(--blue,#1565C0); border-bottom:4px solid var(--navy,#0B1F3A); border-radius:999px; padding:8px 18px; }
+.rasta li:nth-child(even) a{ background:var(--green,#2E7D32); border-bottom-color:#1b5e20; }
+.rasta .sach{ font-size:17px; line-height:1.7; text-align:center; color:#22364f; margin:20px 0 0; padding:12px 14px; border:2px dashed var(--blue,#1565C0); border-radius:12px; background:#fff; }
