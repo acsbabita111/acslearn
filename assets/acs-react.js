@@ -65,7 +65,12 @@
       am:{q:"ይህ ገጽ እንዴት ነበር?",like:"ወደድኩት",dis:"አልወደድኩትም",cmt:"አስተያየት",sh:"አጋራ",wa:"ስለዚህ ገጽ ያለኝ ጥያቄ/አስተያየት: ",nl:"እናመሰግናለን! አስተያየትዎ ተመዝግቧል።",nd:"ተመዝግቧል። ምን እናሻሽል? 💬 በአስተያየት ይንገሩን: እናነባለን።"},
       ha:{q:"Yaya wannan shafi yake?",like:"Na so",dis:"Ban so ba",cmt:"Sharhi",sh:"Raba",wa:"Tambayata/ra'ayina game da wannan shafi: ",nl:"Na gode! An ajiye ra'ayinka.",nd:"An lura. Me za mu inganta? Faɗa mana ta 💬 Sharhi: muna karantawa."},
       yo:{q:"Báwo ni ojú-ìwé yìí ṣe rí?",like:"Mo fẹ́ràn rẹ̀",dis:"Mi ò fẹ́ràn rẹ̀",cmt:"Ọ̀rọ̀",sh:"Pín in",wa:"Ìbéèrè/èrò mi nípa ojú-ìwé yìí: ",nl:"O ṣé! A ti tọ́jú èrò rẹ.",nd:"A ti kọ ọ́ sílẹ̀. Kí ni kí a mú dára? Sọ fún wa nípasẹ̀ 💬 Ọ̀rọ̀: a ń kà á."},
-      zu:{q:"Leli khasi belinjani?",like:"Ngikuthandile",dis:"Angikuthandanga",cmt:"Umbono",sh:"Yabelana",wa:"Umbuzo/umbono wami ngaleli khasi: ",nl:"Ngiyabonga! Umbono wakho ugciniwe.",nd:"Kubhaliwe. Yini okufanele siyithuthukise? Sitshele nge-💬 Umbono: siyakufunda."}
+      zu:{q:"Leli khasi belinjani?",like:"Ngikuthandile",dis:"Angikuthandanga",cmt:"Umbono",sh:"Yabelana",wa:"Umbuzo/umbono wami ngaleli khasi: ",nl:"Ngiyabonga! Umbono wakho ugciniwe.",nd:"Kubhaliwe. Yini okufanele siyithuthukise? Sitshele nge-💬 Umbono: siyakufunda."},
+      si:{q:"මෙම පිටුව කෙසේද?",like:"කැමතියි",dis:"අකමැතියි",cmt:"අදහස",sh:"බෙදාගන්න",wa:"මෙම පිටුව ගැන මගේ ප්‍රශ්නය/අදහස: ",nl:"ස්තූතියි! ඔබේ අදහස සුරැකිණි.",nd:"සටහන් කළා. කුමක් වැඩිදියුණු කළ යුතුද? 💬 අදහස හරහා කියන්න: අපි කියවනවා."},
+      my:{q:"ဒီစာမျက်နှာ ဘယ်လိုလဲ?",like:"ကြိုက်တယ်",dis:"မကြိုက်ဘူး",cmt:"မှတ်ချက်",sh:"မျှဝေပါ",wa:"ဒီစာမျက်နှာအကြောင်း ကျွန်ုပ်၏ မေးခွန်း/အမြင်: ",nl:"ကျေးဇူးတင်ပါတယ်! သင့်အမြင်ကို သိမ်းဆည်းပြီးပါပြီ။",nd:"မှတ်သားပြီးပါပြီ။ ဘာကို ပိုကောင်းအောင် လုပ်ရမလဲ? 💬 မှတ်ချက်ဖြင့် ပြောပါ: ကျွန်ုပ်တို့ ဖတ်ပါတယ်။"},
+      km:{q:"តើទំព័រនេះយ៉ាងម៉េចដែរ?",like:"ចូលចិត្ត",dis:"មិនចូលចិត្ត",cmt:"មតិ",sh:"ចែករំលែក",wa:"សំណួរ/មតិរបស់ខ្ញុំអំពីទំព័រនេះ: ",nl:"អរគុណ! មតិរបស់អ្នកត្រូវបានរក្សាទុក។",nd:"បានកត់ត្រា។ តើយើងគួរកែលម្អអ្វី? ប្រាប់យើងតាម 💬 មតិ: យើងអាន។"},
+      ps:{q:"دا پاڼه څنګه وه؟",like:"خوښه مې شوه",dis:"خوښه مې نه شوه",cmt:"نظر",sh:"شریکول",wa:"د دې پاڼې په اړه زما پوښتنه/نظر: ",nl:"مننه! ستاسو نظر خوندي شو.",nd:"ثبت شو. څه ښه کړو؟ 💬 د نظر له لارې یې ووایاست: موږ یې لولو."},
+      sd:{q:"هي صفحو ڪيئن لڳو؟",like:"پسند آيو",dis:"پسند نه آيو",cmt:"راءِ",sh:"ونڊيو",wa:"هن صفحي بابت منهنجو سوال/راءِ: ",nl:"مهرباني! توهان جي راءِ محفوظ ٿي وئي.",nd:"درج ٿي وئي. ڇا بهتر ڪريون؟ 💬 راءِ ذريعي ٻڌايو: اسين پڙهون ٿا."}
     };
     var LG=(document.documentElement.getAttribute("lang")||"hi").split("-")[0].toLowerCase();
     var TX=LX[LG]||LX.en;
