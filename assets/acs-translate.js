@@ -174,6 +174,9 @@ const ACS_T = {
    * असली (हाथ से बना) page हो तो वही दिखे; न हो तभी Google Translate (अंतिम विकल्प)।
    */
   switchLang: function(lang) {
+    /* 12-Nov-2026: भाषा बदलने का एक ही दिमाग़ = acs-universal.js का acsLangGo (सब live भाषाएँ; पहले असली पेज, न हो तो उस भाषा का होम)।
+       नीचे का पुराना 17-भाषा रास्ता सिर्फ़ उन पुराने पेजों के लिए बचा है जहाँ acs-universal.js नहीं चलता। */
+    if (typeof acsLangGo === 'function') { acsLangGo(lang); return; }
     localStorage.setItem('acs_lang', lang);
     var path = window.location.pathname;
     var rx = /^\/(hi|en|kn|mr|bn|te|ta|gu|pa|sw|fr|es|pt|ar|id|vi|ha)\//;

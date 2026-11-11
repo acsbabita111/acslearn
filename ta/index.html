@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Applied Computer School (ACS) · 130 மொழிகளில் இலவச ஆன்லைன் படிப்புகள்</title>
+<title>இலவச ஆன்லைன் பாடநெறிகள்: திறன்கள், மொழிகள், தொழில் தேர்வு | ACS</title>
 <meta name="theme-color" content="#0B1F3A" />
-<meta name="description" content="Applied Computer School (ACS): 130 மொழிகளில் எப்போதும் இலவசமான ஆன்லைன் கல்வி, கிராமத்திலிருந்து குளோபல் சவுத் வரை. உங்கள் போனில் படிப்புகள், திறன்கள், சான்றிதழ்கள்." />
+<meta name="description" content="இலவச ஆன்லைன் பாடநெறிகள்: தொழில் தேர்வை எழுதுங்கள், ஒரு திறனைக் கற்றுக்கொள்ளுங்கள், ஆங்கிலமும் இன்னொரு வெளிநாட்டு மொழியும் கற்றுக்கொள்ளுங்கள், தேர்வில் தேர்ச்சி பெற்று சான்றிதழ் பெறுங்கள். Applied Computer School (ACS)." />
 <link rel="canonical" href="https://acslearn.com/ta/" />
 <link rel="alternate" hreflang="hi" href="https://acslearn.com/" />
 <link rel="alternate" hreflang="en" href="https://acslearn.com/en/" />
@@ -54,7 +54,7 @@
 <link rel="alternate" hreflang="sd" href="https://acslearn.com/sd/" />
 <link rel="alternate" hreflang="x-default" href="https://acslearn.com/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Applied Computer School (ACS) · 130 மொழிகளில் இலவச ஆன்லைன் படிப்புகள்" />
+<meta property="og:title" content="இலவச ஆன்லைன் பாடநெறிகள்: திறன்கள், மொழிகள், தொழில் தேர்வு | ACS" />
 <meta property="og:description" content="130 மொழிகளில் எப்போதும் இலவசமான ஆன்லைன் கல்வி · இலவசப் படிப்புகள் · 950+ தொழில்முனைவு வாய்ப்புகள்." />
 <meta property="og:image" content="https://acslearn.com/logo.png" />
 <meta property="og:url" content="https://acslearn.com/ta/" />
@@ -94,7 +94,8 @@
 <!-- universal (header/menu/footer) + design -->
 <link rel="stylesheet" href="/acs-universal.css">
 <link rel="stylesheet" href="/acs-style.css">
-<style>/* भाषा-font v1.1 */ :root{--font:'Noto Sans Tamil','Inter',sans-serif} .acs-drawer h4{letter-spacing:0}</style>
+<link rel="stylesheet" href="/assets/home.css?v=cef4f6d5"><!-- build_home -->
+<style>/* भाषा-font v1.1 */ :root{--font:'Noto Sans Tamil','Noto Sans Tamil UI','Nirmala UI','Latha','Tamil Sangam MN','Inter',sans-serif} .acs-drawer h4{letter-spacing:0}</style>
 <style>/* बहाव-रोक v1 */ .acs-freebar #acsTagline{white-space:normal!important;display:inline-block;line-height:1.3} .hero .pill{white-space:normal!important;max-width:100%;line-height:1.25} .hero .btn{overflow-wrap:anywhere;min-width:0}</style>
 </head>
 <body>
@@ -124,22 +125,47 @@
 <section class="hero">
   <div class="hero-in">
     <span class="pill">✨ ஒளிமயமான எதிர்காலம்</span>
-    <h1 class="title"><a href="/join.html" style="color:inherit;text-decoration:none">Applied Computer School<br><span class="g">இப்போதே இணையுங்கள்!</span></a></h1>
+    <h1 class="title">இலவச ஆன்லைன் பாடநெறிகளில்<br><span class="g">திறனும் மொழியும் கற்போம்!</span></h1>
+
+    <div class="khoj" role="search">
+      <form id="khojForm" action="/courses/hi/" autocomplete="off" data-lang="ta" data-career="/ta/career.html" data-idx="/assets/search_index.json?v=9a1f12ba">
+        <input id="khojIn" type="search" name="q" inputmode="search" enterkeyhint="search" aria-label="திறன்கள், மொழிகள், தொழில்முனைவு அல்லது தொழில் தேடுங்கள்" placeholder="ஆங்கிலத்தில்…">
+        <button type="submit">🔍 தேடு</button>
+      </form>
+      <p class="jaise">ஆங்கிலத்தில் எழுதுங்கள், எ.கா.: welding, Japanese, DCA</p>
+      <div class="khoj-res" id="khojRes" aria-live="polite" data-b="மொழி" data-h="திறன்" data-u="தொழில்முனைவு" data-k="தொழில்" data-none="கிடைக்கவில்லை. வேறு சொல்லை முயற்சிக்கவும், அல்லது" data-fail="பட்டியல் திறக்கவில்லை." data-all-url="/courses/hi/" data-all-label="எல்லா பாடநெறிகளையும் பாருங்கள் →" data-test-url="/ta/career.html" data-test-label="தொழில் தேர்வை எழுதுங்கள் →"></div>
+    </div>
+    <p class="shuru">எங்கிருந்து தொடங்குவது என்று தெரியவில்லையா? <a href="/ta/career.html">தொழில் தேர்வை எழுதுங்கள் →</a></p>
 
     <div class="cta-row">
-      <a class="btn btn-white" href="/ta/career.html">🧭 தொழிலைத் தேர்வு செய்வோம்!</a>
-      <a class="btn btn-white stack" href="/bhasha.html">🗣️ புதிய மொழி கற்போம்!</a>
+      <a class="btn btn-green" href="/ta/career.html">🧭 தொழிலைத் தேர்வு செய்வோம்!</a>
+      <a class="btn btn-green stack" href="/bhasha.html">🗣️ புதிய மொழி கற்போம்!</a>
       <a class="btn btn-green" href="/hunar.html">🛠️ புதிய திறன் கற்போம்!</a>
       <a class="btn btn-green" href="/udyam-shuruat.html">🏭 சொந்தத் தொழில் தொடங்குவோம்!</a>
     </div>
 
   </div>
 </section>
+
+<section class="rasta" aria-labelledby="rastaH">
+  <div class="rasta-in">
+    <h2 id="rastaH">ACS-இல் உங்கள் பாதை: 6 படிகள்</h2>
+    <ol>
+      <li><span class="num">1</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="45" r="32"/><path d="M60 13v7M60 70v7M28 45h7M85 45h7"/><path d="M60 24l9 21H51z" fill="#F9A825" stroke="#F9A825"/><path d="M60 66l9-21H51z"/><circle cx="60" cy="45" r="3" fill="#0B1F3A"/></svg><b>🧭 உங்கள் ஆர்வத்தை அறியுங்கள்</b><p>தொழில் தேர்வை எழுதுங்கள்.</p><a href="/ta/career.html">தொழில் தேர்வை எழுதுங்கள் →</a></li>
+      <li><span class="num">2</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="44" cy="46" r="15"/><circle cx="44" cy="46" r="5" fill="#F9A825" stroke="#F9A825"/><path d="M44 24v7M44 61v7M22 46h7M59 46h7M28.5 30.5l5 5M54.5 56.5l5 5M28.5 61.5l5-5M54.5 35.5l5-5"/><path d="M72 68l24-24" stroke="#2E7D32" stroke-width="6"/><path d="M92 30a9 9 0 1 0 12 12l-7-1-4-4z" stroke="#2E7D32"/></svg><b>🛠️ ஒரு திறனைக் கற்றுக்கொள்ளுங்கள்</b><p>வேலைக்கோ சொந்தத் தொழிலுக்கோ தயாராக இருக்க.</p><a href="/hunar.html">திறன் பாடநெறிகளைப் பாருங்கள் →</a></li>
+      <li><span class="num">3</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14h50a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H36l-12 10V50h-10a6 6 0 0 1-6-6V20a6 6 0 0 1 6-6z"/><path d="M62 38h44a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6h-6v9l-11-9H62a6 6 0 0 1-6-6V56" stroke="#2E7D32"/><text x="39" y="42" text-anchor="middle" font-size="26" font-weight="800" fill="#0B1F3A" stroke="none">A</text><text x="86" y="63" text-anchor="middle" font-size="22" font-weight="800" fill="#2E7D32" stroke="none">Z</text></svg><b>🗣️ மொழிகளைக் கற்றுக்கொள்ளுங்கள்</b><p>நாட்டிலும் வெளிநாட்டிலும் அதிக வாய்ப்புகளை அடைய ஆங்கிலத்துடன் இன்னொரு வெளிநாட்டு மொழியைக் கற்றுக்கொள்ளுங்கள்.</p><a href="/bhasha.html">மொழிப் பாடநெறிகளைப் பாருங்கள் →</a></li>
+      <li><span class="num">4</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="12" width="80" height="54" rx="6"/><path d="M34 28h52M34 40h36M34 52h22"/><circle cx="84" cy="58" r="11" fill="#F9A825" stroke="#F9A825"/><path d="M78 67l-4 15 10-6 10 6-4-15" stroke="#F9A825"/><path d="M79 58l4 4 7-8" stroke="#0B1F3A"/></svg><b>🏆 உலகுக்குக் காட்டுங்கள்</b><p>தேர்வு எழுதுங்கள், சான்றிதழ் பெறுங்கள், உங்கள் போர்ட்ஃபோலியோவை உருவாக்குங்கள்.</p><a href="/career-kit.html">தொழில் கிட்டைத் திறக்கவும் →</a></li>
+      <li><span class="num">5</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 24L60 12 98 24M22 24l14 40M98 24L84 64" stroke="#2E7D32" stroke-dasharray="2 7"/><circle cx="22" cy="24" r="9"/><circle cx="60" cy="12" r="9" fill="#F9A825" stroke="#F9A825"/><circle cx="98" cy="24" r="9"/><rect x="36" y="48" width="48" height="32" rx="5"/><path d="M50 48v-6a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6M36 62h48"/></svg><b>🤝 வாய்ப்புகளுடன் இணையுங்கள்</b><p>ACS வலையமைப்பில் சேருங்கள்: உங்கள் மாவட்டத்தில், நாட்டில் அல்லது வெளிநாட்டில்.</p><a href="/hi/network.html">வலையமைப்பைப் பாருங்கள் →</a></li>
+      <li><span class="num">6</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 36l42-18v54L24 54z"/><path d="M24 36h-6a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h6M32 57l4 18h10l-4-15"/><path d="M78 34q8 11 0 22M88 26q14 19 0 38" stroke="#F9A825"/><path d="M102 20l2 5 5 1-4 3 1 5-4-3-5 3 2-5-4-3 5-1z" fill="#2E7D32" stroke="#2E7D32" stroke-width="1.5"/></svg><b>📣 உங்கள் கதையைச் சொல்லுங்கள்</b><p>உங்கள் வெற்றிக் கதையை நண்பர்களிடம் சொல்லுங்கள், உலகில் பெயர் பெறுங்கள்.</p><a href="https://wa.me/?text=ACS-%E0%AE%87%E0%AE%B2%E0%AF%8D%20%E0%AE%87%E0%AE%B2%E0%AE%B5%E0%AE%9A%20%E0%AE%86%E0%AE%A9%E0%AF%8D%E0%AE%B2%E0%AF%88%E0%AE%A9%E0%AF%8D%20%E0%AE%AA%E0%AE%BE%E0%AE%9F%E0%AE%A8%E0%AF%86%E0%AE%B1%E0%AE%BF%E0%AE%95%E0%AE%B3%E0%AF%8D%3A%20https%3A%2F%2Facslearn.com%2Fta%2F">நண்பர்களிடம் சொல்லுங்கள் →</a></li>
+    </ol>
+    <p class="sach">ACS கற்கவும் தயாராகவும் உதவுகிறது. வேலை மற்றும் வெளிநாட்டு வேலை விசா தொடர்பாக வழிகாட்டுதல் மட்டுமே தருகிறது, உத்தரவாதம் தருவதில்லை.</p>
+  </div>
+</section>
 </main>
 
 <footer class="acs-footer" id="contact">
   <div class="wrap">
-    <h5 id="acsFootName">Applied Computer School™</h5>
+    <h5 id="acsFootName" aria-level="3">Applied Computer School™</h5>
     <p id="acsFootTag">130 மொழிகளில் கிராமத்திலிருந்து குளோபல் சவுத் வரை · மொபைலுக்கு ஏற்ற பாட உள்ளடக்கம்!</p>
     <nav class="acs-fmenu" id="acsFooterMenu" aria-label="Footer menu"></nav>
     <div class="acs-fblock">
@@ -167,6 +193,7 @@
   <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
 </a>
 <script src="/assets/acs-universal.js"></script>
+<script src="/assets/home-search.js?v=dc0b1f05" defer></script><!-- build_home -->
 
 </body>
 </html>

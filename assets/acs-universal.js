@@ -1,10 +1,11 @@
 /* ============================================================
-   acs-universal.js v2.3 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome)
+   acs-universal.js v2.4 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची)
    जगह: /assets/acs-universal.js  (config+links के बाद load)
    • भाषा-सचेत: /en/ folder → English labels/strings; अन्यथा हिंदी।
    • acs- prefix — पुराने script.js/page-JS से कोई टकराव नहीं।
    ============================================================ */
 var ACS_LANG_HOMES = {en:1,zh:1,es:1,ar:1,fr:1,bn:1,pt:1,ru:1,id:1,ur:1,de:1,ja:1,mr:1,te:1,ko:1,he:1,ta:1,kn:1,gu:1,ml:1,pa:1,or:1,as:1,ne:1,ms:1,tl:1,vi:1,th:1,sw:1,tr:1,fa:1,uz:1,kk:1,az:1,so:1,am:1,ha:1,yo:1,zu:1,si:1,my:1,km:1,ps:1,sd:1}; /* भाषा-रजिस्टर (hi=मूल root) — runtime भाषा-घर तालिका; एकमात्र स्रोत = generator/data/mirror_home_strings.js की कुंजियाँ; build_mirror_homes.js लिखता है — हाथ से न बदलें */
+var ACS_LANG_NAMES = {"hi":"हिन्दी","en":"English","zh":"中文","es":"Español","ar":"العربية","fr":"Français","bn":"বাংলা","pt":"Português","ru":"Русский","id":"Bahasa Indonesia","ur":"اردو","de":"Deutsch","ja":"日本語","mr":"मराठी","te":"తెలుగు","ko":"한국어","he":"עברית","ta":"தமிழ்","kn":"ಕನ್ನಡ","gu":"ગુજરાતી","ml":"മലയാളം","pa":"ਪੰਜਾਬੀ","or":"ଓଡ଼ିଆ","as":"অসমীয়া","ne":"नेपाली","ms":"Bahasa Melayu","tl":"Filipino","vi":"Tiếng Việt","th":"ไทย","sw":"Kiswahili","tr":"Türkçe","fa":"فارسی","uz":"Oʻzbekcha","kk":"Қазақша","az":"Azərbaycanca","so":"Soomaali","am":"አማርኛ","ha":"Hausa","yo":"Yorùbá","zu":"isiZulu","si":"සිංහල","my":"မြန်မာ","km":"ខ្មែរ","ps":"پښتو","sd":"سنڌي"}; /* भाषा के अपने नाम (🌐 सूची); एकमात्र स्रोत = generator/data/lang_native_names.js; हाथ से न बदलें */
 function acsUniversalInit(){
   var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
   var seg0 = ((location.pathname||"").split("/")[1]||"");
@@ -100,7 +101,48 @@ function acsOpenMenu(){ var d=document.getElementById("acsDrawer"),s=document.ge
   if(d)d.classList.add("open"); if(s)s.classList.add("open"); }
 function acsCloseMenu(){ var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");
   if(d)d.classList.remove("open"); if(s)s.classList.remove("open"); }
-function acsLangToggle(){ var p=document.getElementById("acsTranslatePanel"); if(p)p.classList.toggle("open"); }
+/* ---------- 🌐 भाषा-सूची (v2.4, 12-Nov-2026) ----------
+   बटन दबे → पट्टी खुले → उसमें हर live भाषा का नाम (उसकी अपनी लिपि में)।
+   नाम दबे → वही पेज उस भाषा में खुले, अगर वह सचमुच बना है (पता-नियम: पते में सिर्फ़ भाषा-खंड बदलता है);
+   न बना हो → उस भाषा का होम खुले। हर कड़ी का href उस भाषा का होम है, इसलिए script न चले तब भी कड़ी काम करती है।
+   सूची के नाम ACS_LANG_NAMES से (घर: generator/data/lang_native_names.js), भाषाएँ ACS_LANG_HOMES से। */
+function acsLangCur(){ var s=((location.pathname||"").split("/")[1]||""); return ACS_LANG_HOMES[s] ? s : "hi"; }
+function acsLangHome(c){ return c==="hi" ? "/" : "/"+c+"/"; }
+function acsLangTargets(c){
+  var P=location.pathname||"/", seg=P.split("/"), i, at=-1, out=[];
+  for(i=1;i<seg.length;i++){ if(seg[i]==="hi"||ACS_LANG_HOMES[seg[i]]){ at=i; break; } }
+  if(at===1 && seg[1]!=="hi"){ var r=seg.slice(2).join("/"); out.push(c==="hi" ? "/"+r : "/"+c+"/"+r); }   /* /te/x → /x या /ko/x */
+  else if(at>=1){ var s2=seg.slice(); s2[at]=c; out.push(s2.join("/")); }                                 /* /courses/hi/x → /courses/te/x */
+  else if(c!=="hi"){ out.push("/"+c+P); }                                                                 /* /career.html → /te/career.html */
+  return out;
+}
+function acsLangGo(c, ev){
+  if(ev&&ev.preventDefault) ev.preventDefault();
+  try{ localStorage.setItem("acs_lang", c); }catch(e){}
+  var home=acsLangHome(c), list=acsLangTargets(c).filter(function(u){ return u!==home; }), i=0;
+  function next(){
+    if(i>=list.length || typeof fetch!=="function"){ location.href=home; return; }
+    var u=list[i++];
+    fetch(u,{method:"HEAD"}).then(function(r){ if(r&&r.ok) location.href=u; else next(); }).catch(next);
+  }
+  next(); return false;
+}
+function acsLangFill(p){
+  var cur=acsLangCur(), codes=["hi"].concat(Object.keys(ACS_LANG_HOMES)), h="", i, c, n;
+  for(i=0;i<codes.length;i++){ c=codes[i]; n=ACS_LANG_NAMES[c]; if(!n) continue;
+    h+='<a href="'+acsLangHome(c)+'" lang="'+c+'" dir="auto" data-lang="'+c+'"'+(c===cur?' class="on" aria-current="true"':'')+'>'+n+'</a>'; }
+  var st=document.createElement("style");
+  st.textContent=".acs-langs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:1000px;margin:0 auto;padding:4px 0}"
+    +".acs-langs a{font-size:17px;line-height:1.3;padding:9px 14px;border-radius:999px;border:1.5px solid #c9d3e0;background:#F5F7FA;color:#0B1F3A;font-weight:700;text-decoration:none;letter-spacing:0}"
+    +".acs-langs a.on{background:#F9A825;border-color:#F9A825}.acs-langs a:focus-visible{outline:3px solid #1565C0;outline-offset:2px}";
+  document.head.appendChild(st);
+  var d=document.createElement("div"); d.className="acs-langs"; d.setAttribute("role","navigation"); d.innerHTML=h;
+  d.addEventListener("click",function(e){ var a=e.target&&e.target.closest?e.target.closest("a[data-lang]"):null; if(a) acsLangGo(a.getAttribute("data-lang"), e); });
+  p.insertBefore(d, p.firstChild); p.setAttribute("data-filled","1");
+}
+function acsLangToggle(){ var p=document.getElementById("acsTranslatePanel"); if(!p) return;
+  if(!p.getAttribute("data-filled") && typeof ACS_LANG_NAMES!=="undefined") acsLangFill(p);
+  p.classList.toggle("open"); }
 document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMenu(); });
 
 /* ============================================================

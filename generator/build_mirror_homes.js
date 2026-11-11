@@ -156,7 +156,13 @@ function fontStyle(code, T){
   const kb = (T.script === "Hang") ? " body{word-break:keep-all}" : ""
     ;  /* बहाव-रोक अब English-स्रोत में एक बार (step 1-ग) — सब होम उसे विरासत में पाते हैं */
   /* 12-Nov-2026: वेब-font न उतरे तो उस लिपि के system-font काम आएँ (अभी सिर्फ़ तेलुगु; ज़रूरत पर और लिपियाँ यहीं जुड़ें) */
-  const SYS = { Telu: "\'Noto Sans Telugu UI\',\'Nirmala UI\',\'Gautami\',\'Telugu Sangam MN\',\'Kohinoor Telugu\'," };
+  const SYS = { Telu: "\'Noto Sans Telugu UI\',\'Nirmala UI\',\'Gautami\',\'Telugu Sangam MN\',\'Kohinoor Telugu\',",
+    /* खेप-2 (12-Nov): इन लिपियों के लिए भी वही इंतज़ाम */
+    Taml: "\'Noto Sans Tamil UI\',\'Nirmala UI\',\'Latha\',\'Tamil Sangam MN\',", Knda: "\'Noto Sans Kannada UI\',\'Nirmala UI\',\'Tunga\',\'Kannada Sangam MN\',",
+    Gujr: "\'Noto Sans Gujarati UI\',\'Nirmala UI\',\'Shruti\',\'Gujarati Sangam MN\',", Mlym: "\'Noto Sans Malayalam UI\',\'Nirmala UI\',\'Kartika\',\'Malayalam Sangam MN\',",
+    Guru: "\'Noto Sans Gurmukhi UI\',\'Nirmala UI\',\'Raavi\',\'Gurmukhi MN\',", Orya: "\'Noto Sans Oriya UI\',\'Nirmala UI\',\'Kalinga\',\'Oriya Sangam MN\',",
+    Beng: "\'Noto Sans Bengali UI\',\'Nirmala UI\',\'Vrinda\',\'Bangla Sangam MN\',", Thai: "\'Noto Sans Thai UI\',\'Leelawadee UI\',\'Tahoma\',\'Thonburi\',",
+    Hebr: "\'Arial Hebrew\',\'Arial\',", Hang: "\'Malgun Gothic\',\'Apple SD Gothic Neo\'," };
   return '<style>/* भाषा-font v1.1 */ :root{--font:\''+T.font+'\','+(SYS[T.script]||"")+'\'Inter\',sans-serif'+lh+'} .acs-drawer h4{letter-spacing:0}'+kb+'</style>';
 }
 function bdi(t){ return '<bdi dir="ltr">'+t+'</bdi>'; }
@@ -274,6 +280,20 @@ if (U.indexOf("ACS_LANG_HOMES") === -1) {
   /* v1.2: universal का संस्करण v2.2 या नया (v2.3 = runtime-i18n दौर) — "ठीक v2.2" वाली पुरानी जाँच हर नए दौर पर गिरती थी */
   { const uv = U.match(/v2\.(\d+)/); A(uv && +uv[1] >= 2, "u-verify-ver"); }
   console.log("universal: पूर्व-पैच पूरा-राज्य verify ✅");
+}
+/* 12-Nov-2026: 🌐 भाषा-सूची के नाम : घर generator/data/lang_native_names.js → universal की ACS_LANG_NAMES पंक्ति */
+{
+  const NAMES = require("./data/lang_native_names.js");
+  const codes = ["hi", "en"].concat(ORDER);
+  codes.forEach(c => A(typeof NAMES[c] === "string" && NAMES[c].trim().length > 0, "lang-name-" + c));
+  const o = {}; codes.forEach(c => { o[c] = NAMES[c]; });
+  const LINE = "var ACS_LANG_NAMES = " + JSON.stringify(o) + "; /* भाषा के अपने नाम (🌐 सूची); एकमात्र स्रोत = generator/data/lang_native_names.js; हाथ से न बदलें */";
+  const RE2 = /var ACS_LANG_NAMES = \{[^\n]*/;
+  let U2 = read("assets/acs-universal.js");
+  if (!RE2.test(U2)) { U2 = U2.replace(TABLE_RE, m => m + "\n" + LINE); write("assets/acs-universal.js", U2); CHANGED_CACHE = true; console.log("universal: ACS_LANG_NAMES ×" + codes.length + " जुड़ी ✅"); }
+  else if (U2.match(RE2)[0] !== LINE) { U2 = U2.replace(RE2, () => LINE); write("assets/acs-universal.js", U2); CHANGED_CACHE = true; console.log("universal: ACS_LANG_NAMES नई ✅"); }
+  U2 = read("assets/acs-universal.js");
+  ["function acsLangGo(", "function acsLangFill(", "function acsLangTargets(", "ACS_LANG_NAMES[c]"].forEach((m, i) => A(U2.indexOf(m) > -1, "u-lang-" + i));
 }
 /* runtime-तालिका = data (एक चीज़ = एक जगह का पहरा) */
 const tm = read("assets/acs-universal.js").match(/var ACS_LANG_HOMES = \{([^}]+)\}/);

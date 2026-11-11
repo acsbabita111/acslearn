@@ -1,4 +1,4 @@
-/* home.css v1.5 (12-Nov-2026) : होम-पेज का खोज-बॉक्स, छोटे दरवाज़े और "6 कदम" खंड।
+/* home.css v1.6 (12-Nov-2026) : होम-पेज का खोज-बॉक्स, छोटे दरवाज़े और "6 कदम" खंड।
    सिर्फ़ होम-पेज इसे लादता है (build_home.js)। रंग: ACS के पाँच ही। कोई अक्षर 16px से छोटा नहीं।
    v1.1 तिरंगा-नियम (Founder, 12-Nov-2026): हीरो ऊपर से नीचे तिरंगे के क्रम में रहे:
    ऊपर केसरिया/सुनहरी पट्टी · बीच में सफ़ेद (खोज-बॉक्स और करियर-टेस्ट की पंक्ति) · नीचे हरे दरवाज़े।
@@ -50,3 +50,5 @@
 .rasta li a{ display:inline-block; font-size:18px; font-weight:800; text-decoration:none; color:#fff; background:var(--blue,#1565C0); border-bottom:4px solid var(--navy,#0B1F3A); border-radius:999px; padding:8px 18px; }
 .rasta li:nth-child(even) a{ background:var(--green,#2E7D32); border-bottom-color:#1b5e20; }
 .rasta .sach{ font-size:17px; line-height:1.7; text-align:center; color:#22364f; margin:20px 0 0; padding:12px 14px; border:2px dashed var(--blue,#1565C0); border-radius:12px; background:#fff; }
+/* v1.6 (12-Nov, खेप-2): किसी भाषा का बहुत लंबा शब्द screen से बाहर न जाए (तमिल में पकड़ा गया) */
+.hero .title,.hero .title .g,.hero .jaise,.hero .shuru,.hero .pill,.cta-row .btn,.rasta h2,.rasta li b,.rasta li span,.rasta li a,.rasta .sach{overflow-wrap:anywhere}

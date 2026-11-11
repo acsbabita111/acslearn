@@ -90,6 +90,10 @@ for (const [f, must] of Object.entries(G)) {
   ck("generator " + f + ": हाथ की भाषा-सूची नहीं", !HAND.test(s));
 }
 
+{ /* 12-Nov-2026: 🌐 भाषा-बटन का पहरा (बटन → पट्टी → सूची → सही पता); यंत्र: dev_lang_switch_check.js */
+  const r = require("child_process").spawnSync(process.execPath, [require("path").join(__dirname, "dev_lang_switch_check.js")], { encoding: "utf8" });
+  ck("🌐 भाषा-बटन: सूची और रास्ते (dev_lang_switch_check)", r.status === 0);
+}
 console.log("\nजाँचें: पास " + passes + " · FAIL " + fails + "  (रजिस्टर " + ORDER.length + " भाषाएँ + hi + en = " + ALL.length + ")");
 console.log(fails ? "⛔ dev_registry_check FAIL" : "🏁 dev_registry_check — सब पास");
 process.exit(fails ? 1 : 0);
