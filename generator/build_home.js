@@ -1,5 +1,5 @@
 /* ============================================================
-   build_home.js v1.1 (परत-4, 12-Nov-2026) : होम-पेज (हिंदी / और English /en/) का हीरो, खोज-बॉक्स, "6 कदम"
+   build_home.js v1.2 (परत-4, 12-Nov-2026) : होम-पेज (हिंदी / और English /en/) का हीरो, खोज-बॉक्स, "6 कदम"
    क्या करता है (हर बार वही नतीजा; दोबारा चलाने पर कुछ नहीं बदलता):
    1) <main>…</main> का पूरा हिस्सा generator/data/home_strings.js के पाठ से बनाता है।
    2) <title>, meta description, og:title (हिंदी में og:description भी) वहीं के पाठ से।
@@ -11,6 +11,9 @@
    एक भी शब्द छूटे तो यह generator रुक जाता है (पेज बनता ही नहीं)।
    ध्यान: 43 भाषा-होम अभी पुराने रूप में हैं; वे generator/data/mirror_home_src_v1.html से बनते हैं
    (build_mirror_homes.js)। उनका नया रूप अगले दौर में, home_strings.js में अनुवाद जुड़ने पर।
+   v1.2 (12-Nov): शीर्षक-क्रम (heading order)। होम पर h1 और h2 के बाद सीधे footer का h5 आता था : बीच के स्तर छूटते
+   थे, इसलिए PageSpeed का Accessibility 98 पर रुका था। footer के h5 को aria-level="3" दिया (tag और शैली वही),
+   ताकि क्रम 1 → 2 → 3 → 4 बने। यह सिर्फ़ इन दो होम-पेजों पर है; साझा साँचा (बाक़ी सब पेज) नहीं छुआ।
    क्रम: build_sitemap.js → build_search_index.js → build_home.js → build_sitemap.js (होम की बदलाव-तारीख़)।
    चलाना: node generator/build_home.js [--check]
    ============================================================ */
@@ -64,6 +67,12 @@ function page(code) {
   s = s.replace(/\n<link rel="stylesheet" href="\/assets\/home\.css[^\n]*<!-- build_home -->/, "").replace(/\n<script src="\/assets\/home-search\.js[^\n]*<!-- build_home -->/, "");
   s = once(s, /<link rel="stylesheet" href="\/acs-style\.css">/, '<link rel="stylesheet" href="/acs-style.css">\n' + CSS, "acs-style.css कड़ी");
   s = once(s, /<script src="\/assets\/acs-universal\.js"><\/script>/, '<script src="/assets/acs-universal.js"></script>\n' + JS, "acs-universal.js कड़ी");
+  s = once(s, /<h5 id="acsFootName"(?: aria-level="\d")?>/, '<h5 id="acsFootName" aria-level="3">', "footer का h5");
+  { /* शीर्षक-क्रम पहरा: नीचे की ओर कोई स्तर न छूटे */
+    const lv = [...s.matchAll(/<h([1-6])\b([^>]*)>/g)].map(m => { const a = m[2].match(/aria-level="(\d)"/); return a ? +a[1] : +m[1]; });
+    if (lv[0] !== 1) throw new Error("build_home (" + code + "): पहला शीर्षक h1 नहीं");
+    for (let i = 1; i < lv.length; i++) if (lv[i] > lv[i - 1] + 1) throw new Error("build_home (" + code + "): शीर्षक-क्रम में स्तर छूटा: " + lv.join(" → "));
+  }
   if (/—/.test(main(T, code)) && code === "hi") throw new Error("build_home: हिंदी होम में लंबी रेखा");
   if (T.steps.length !== ART.length) throw new Error("build_home: कदम " + T.steps.length + " पर चित्र " + ART.length);
   /* SEO-शब्द पहरा: सूची का हर शब्द पेज के पाठ (title + description + दिखने वाला पाठ) में होना चाहिए */
@@ -81,5 +90,5 @@ module.exports = { run };
 if (require.main === module) {
   const chk = process.argv.includes("--check"), pend = run({ check: chk });
   if (chk) { if (pend.length) { console.log("❌ होम बासी है: " + pend.join(", ") + " : चलाएँ node generator/build_home.js"); process.exit(1); } console.log("🏁 होम-पेज generator से मेल खाते हैं"); }
-  else console.log("🏁 build_home v1.1 : " + Object.keys(S).length + " होम (" + (pend.length ? "बदले: " + pend.join(", ") : "कोई बदलाव नहीं") + ")");
+  else console.log("🏁 build_home v1.2 : " + Object.keys(S).length + " होम (" + (pend.length ? "बदले: " + pend.join(", ") : "कोई बदलाव नहीं") + ")");
 }
