@@ -48,7 +48,7 @@ for (const c of ALL) {
   }
   if (c === "hi" || c === "en" || !has(hf)) continue;
   const s = rd(hf), T = M[c];
-  const b1 = (s.match(/class="btn btn-white" href="([^"]+)"/) || [])[1];
+  const b1 = (s.match(/class="btn btn-(?:white|green)" href="([^"]+)"/) || [])[1];   /* 12-Nov-2026: नए रूप वाले भाषा-होम में दरवाज़े हरे */
   ck(c + " होम: 🧭 बटन → " + (T.btn1href || "/" + c + "/career.html"), b1 === (T.btn1href || "/" + c + "/career.html"), b1);
   ck(c + " होम: dir", (T.dir === "rtl") === /<html lang="[a-z]+" dir="rtl">/.test(s));
   const v = visible(s);

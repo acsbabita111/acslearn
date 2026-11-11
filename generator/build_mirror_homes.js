@@ -155,9 +155,14 @@ function fontStyle(code, T){
   /* खेप-1: कोरियाई (Hang) शब्दों के बीच space रखता है — शब्द बीच से न टूटे (keep-all)। CJK (zh/ja) पर कभी नहीं। */
   const kb = (T.script === "Hang") ? " body{word-break:keep-all}" : ""
     ;  /* बहाव-रोक अब English-स्रोत में एक बार (step 1-ग) — सब होम उसे विरासत में पाते हैं */
-  return '<style>/* भाषा-font v1.1 */ :root{--font:\''+T.font+'\',\'Inter\',sans-serif'+lh+'} .acs-drawer h4{letter-spacing:0}'+kb+'</style>';
+  /* 12-Nov-2026: वेब-font न उतरे तो उस लिपि के system-font काम आएँ (अभी सिर्फ़ तेलुगु; ज़रूरत पर और लिपियाँ यहीं जुड़ें) */
+  const SYS = { Telu: "\'Noto Sans Telugu UI\',\'Nirmala UI\',\'Gautami\',\'Telugu Sangam MN\',\'Kohinoor Telugu\'," };
+  return '<style>/* भाषा-font v1.1 */ :root{--font:\''+T.font+'\','+(SYS[T.script]||"")+'\'Inter\',sans-serif'+lh+'} .acs-drawer h4{letter-spacing:0}'+kb+'</style>';
 }
 function bdi(t){ return '<bdi dir="ltr">'+t+'</bdi>'; }
+/* 12-Nov-2026: जिन भाषाओं का नया पाठ generator/data/home_strings_mirror.js में है, उनका होम नए रूप
+   (खोज-बॉक्स + 6 कदम) में बनता है : build_home.js का transformMirror। बाक़ी भाषाएँ पुराने रूप में रहती हैं। */
+const HOME = require("./build_home.js");
 ORDER.forEach(function(code){
   const T = M[code];
   let certline = T.certline, warn = T.warn;
@@ -222,6 +227,7 @@ ORDER.forEach(function(code){
             '>'+bdi("Freedom Fighter Gangadhar Prasad Memorial Trust (FFGPMTrust)")+'<', 1, code+"-bdi8");
     s = R(s, '</span> • acslearn.com</div>', '</span> • '+bdi("acslearn.com")+'</div>', 1, code+"-bdi9");
   }
+  if (HOME.hasMirror(code)) s = HOME.transformMirror(code, s);
   write(code+"/index.html", s);
   console.log("/"+code+"/ ✅ "+(T.dir==="rtl"?"(RTL+bdi)":"")+" font:"+T.font);
 });

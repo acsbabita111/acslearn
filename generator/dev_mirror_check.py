@@ -71,7 +71,9 @@ for c in ORDER:
     else:
         m = dev.search(v); ck(t+"देवनागरी-रिसाव शून्य", not m, m.group(0) if m else "")
     ck(t+"em-dash सिर्फ़ विरासती पता", v.count("\u2014") == 1 and "Bihar — 851201" in s)
-    miss = [k for k in ["pill","join","btn1","btn2","btn3","btn4","tagline","orig","foottag","fbcert","fbcontact","login","ogdesc","desc"] if D[c][k] not in s]
+    # 12-Nov-2026: नए रूप वाले होम (खोज-बॉक्स + 6 कदम) में हीरो की "join" पंक्ति और पुराना लंबा विवरण नहीं रहते; बाक़ी 12 कुंजियाँ रहती हैं
+    naya = 'class="rasta"' in s
+    miss = [k for k in ["pill","join","btn1","btn2","btn3","btn4","tagline","orig","foottag","fbcert","fbcontact","login","ogdesc","desc"] if D[c][k] not in s and not (naya and k in ("join", "desc"))]   # नए रूप में विवरण छोटा और नया है
     ck(t+"data-पाठ 14-कुंजी", not miss, ",".join(miss))
     if c in RTL:
         ck(t+"bdi-बाड़ 9+", s.count('<bdi dir="ltr">') >= 11, str(s.count('<bdi dir="ltr">')))
