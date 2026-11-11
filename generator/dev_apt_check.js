@@ -1,11 +1,11 @@
-/* dev_apt_check.js — अभिरुचि-इंजन की runtime-जाँच (upload नहीं होती) */
+/* dev_apt_check.js — अभिरुचि-इंजन की runtime-जाँच (upload नहीं होती) · 11-Nov सुधार: (1) रिपोर्ट repo के बाहर (OS temp) — तारीख़ वाली रिपोर्ट repo गंदा न करे; (2) हर aptitude_data लोड के साथ apt_strings.js भी (असली पेज-क्रम; 09-Nov से UI-शब्द इसी तालिका में — इसके बिना यह यंत्र 09-Nov से चुपचाप टूटा था) */
 var fs = require('fs');
 var store = {};
 global.localStorage = { getItem: function (k) { return store[k] || null; }, setItem: function (k, v) { store[k] = v; } };
 global.window = { scrollTo: function () {} };
 eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
 eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
-eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
 
 /* जाँच-1: सब जवाब भरे + done — नतीजा-रास्ता */
 var ans = {}, qs = window.APT_DATA.questions;
@@ -66,12 +66,12 @@ console.log('✅ इंजन की तीनों runtime-जाँचें 
    4 = विभाजन-अखंडता (आधार+टुकड़े = पूरा भंडार, दोहराव शून्य)
    5 = session-इंजन का पूरा नक़ली-सफ़र (120 प्रश्न → अंतिम जमा → नतीजा)
    6 = मौलिकता-जाँच: सब पुराने+नए प्रश्नों पर (Founder-आदेश, 20-Jul) —
-       साझा वाक्य-टुकड़ा = साँचा; report generator/apt_maulikta_report.txt
+       साझा वाक्य-टुकड़ा = साँचा; report OS-temp/apt_maulikta_report.txt (repo के बाहर)
    ============================================================ */
 
 /* ---------- जाँच-4: विभाजन-अखंडता ---------- */
 global.window = { APT_POOL: [] };
-eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
 var BASE_D = window.APT_DATA;
 fs.readdirSync('assets/apt_sets').forEach(function (f) {
   if (/\.js$/.test(f)) eval(fs.readFileSync('assets/apt_sets/' + f, 'utf8'));
@@ -102,7 +102,7 @@ console.log('जाँच-4 विभाजन-अखंडता ✅ | आध�
   var lastIntervalFn = null;
   global.setInterval = function (fn) { lastIntervalFn = fn; return {}; };
   global.clearInterval = function () { lastIntervalFn = null; };
-  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
   eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
 
@@ -243,8 +243,8 @@ console.log('जाँच-4 विभाजन-अखंडता ✅ | आध�
     'कुल प्रश्न: ' + ALLQ.length + ' | modify-सूची: ' + flaggedIds.length + '\n\n— सबसे बड़े साँचे —\n' +
     frames.slice(0, 25).map(function (x) { return x.n + ' प्रश्नों में: "' + x.f + '"'; }).join('\n') +
     '\n\n— modify-सूची (id) —\n' + flaggedIds.sort().join(', ') + '\n';
-  fs.writeFileSync('generator/apt_maulikta_report.txt', rep);
-  console.log('जाँच-6 मौलिकता | साँचे: ' + frames.length + ' | modify-सूची: ' + flaggedIds.length + ' प्रश्न → generator/apt_maulikta_report.txt');
+  fs.writeFileSync(require('path').join(require('os').tmpdir(),'apt_maulikta_report.txt'), rep);
+  console.log('जाँच-6 मौलिकता | साँचे: ' + frames.length + ' | modify-सूची: ' + flaggedIds.length + ' प्रश्न → ' + require('path').join(require('os').tmpdir(),'apt_maulikta_report.txt'));
   if (flaggedIds.length) console.log('   ⚠️ ये प्रश्न बदलने हैं (Founder-आदेश) — अगली खेपों का काम; नई खेप पर यही जाँच सख़्त-fail रहेगी।');
 })();
 console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
@@ -257,7 +257,7 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   global.window = { scrollTo: function () {} };
   eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
-  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
   var boxG = { innerHTML: '' };
   global.document = { getElementById: function (id) { return id === 'apt-sess-box' ? boxG : null; }, createElement: function () { return {}; }, head: { appendChild: function () {} } };
   eval(fs.readFileSync('assets/apt-session.js', 'utf8'));
@@ -273,7 +273,7 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   global.window = { scrollTo: function () {} };
   eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
-  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
   var boxJ = { innerHTML: '', style: {}, getElementsByClassName: function () { return []; } };
   global.document = { getElementById: function (id) { return id === 'apt-box' ? boxJ : null; } };
   eval(fs.readFileSync('assets/aptitude-test.js', 'utf8'));
@@ -290,7 +290,7 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   global.window = { scrollTo: function () {} };
   eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
-  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
   var boxA = { innerHTML: '' };
   global.document = {
     getElementById: function (id) { return id === 'apt-sess-box' ? boxA : null; },
@@ -322,7 +322,7 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   var lastIntervalFn10 = null;
   global.setInterval = function (fn) { lastIntervalFn10 = fn; return {}; };
   global.clearInterval = function () {};
-  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
   eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
 
@@ -410,7 +410,7 @@ console.log('✅ नींव-दौर की जाँच 4-6 पूरी');
   global.alert = function (t) { throw new Error('alert: ' + t); };
   global.setInterval = function () { return {}; };
   global.clearInterval = function () {};
-  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8'));
+  eval(fs.readFileSync('assets/aptitude_data.js', 'utf8')); eval(fs.readFileSync('assets/apt_strings.js', 'utf8'));
   eval(fs.readFileSync('assets/mg_names.js', 'utf8'));
   eval(fs.readFileSync('assets/aptitude_art.js', 'utf8'));
 

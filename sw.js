@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v838'  // 2026-11-11 SEO-सुधार: courses_data.js v1.6 (PJ435 बतक-सिमालुंगुन) : cache-first data
+const CACHE_VERSION = 'v839'  // 2026-11-11 अभिरुचि-भंडार: assets/apt_sets/broad.js में 3 हिंदी प्रश्न-पाठ सुधार (q235 q258 q459, Founder-मंज़ूर) : cache-first data
+// पिछला 'v838'  // 2026-11-11 SEO-सुधार: courses_data.js v1.6 (PJ435 बतक-सिमालुंगुन) : cache-first data
 // पिछला 'v837'  // 2026-11-10 build_mirror_homes: भाषा-रजिस्टर 43 mirror (acs-universal ACS_LANG_HOMES + acs-react LX)
 // पिछला 'v819'  // 08-Nov DMT lsn-quiz tap-इंजन (course-lesson.js v1.6 + css)
 // पिछला 'v818'; // 08-Nov करियर/टेस्ट दो-पेज बँटवारा: aptitude-test.js v2.0 + apt-session.js v1.3 (O*NET app-mode, पूरे पर्दे पर एक-एक प्रश्न) + aptitude-test.css app-mode — cache-first असेट

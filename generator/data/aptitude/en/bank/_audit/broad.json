@@ -1,0 +1,3652 @@
+{
+ "q100": {
+  "en_hash": "ee60708b7bf3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q200": {
+  "en_hash": "fb7ccb27ddbb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q300": {
+  "en_hash": "232c71441104",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q400": {
+  "en_hash": "92981f01462f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q500": {
+  "en_hash": "7eeb2aa6cf4f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q110": {
+  "en_hash": "a749e0654d54",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q210": {
+  "en_hash": "df8e737c3b42",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q310": {
+  "en_hash": "24f01b17d8c3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q410": {
+  "en_hash": "4f0cfb61dfee",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q120": {
+  "en_hash": "85cc73bd32fc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q220": {
+  "en_hash": "7ccbb7246a3d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q320": {
+  "en_hash": "5b5fd3c0c11e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q420": {
+  "en_hash": "a448e93e2bbe",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q130": {
+  "en_hash": "be2ac2035e4d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q230": {
+  "en_hash": "46ebbc500640",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q330": {
+  "en_hash": "50c4c34eb4a8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q430": {
+  "en_hash": "5af0d627a39c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q140": {
+  "en_hash": "247441388105",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q240": {
+  "en_hash": "1f325727d906",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q340": {
+  "en_hash": "05c16d9ae180",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q440": {
+  "en_hash": "7ec0d1adadfb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q050": {
+  "en_hash": "1b9c4807ce53",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q150": {
+  "en_hash": "50d43a55a086",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q250": {
+  "en_hash": "ea6766fbcbde",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q350": {
+  "en_hash": "de0b8a1bc3b3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q450": {
+  "en_hash": "5b11f8cd3f72",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q060": {
+  "en_hash": "4a224a32e7c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q160": {
+  "en_hash": "74268e4da54f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q260": {
+  "en_hash": "6353eb05ef2c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q360": {
+  "en_hash": "0322131011ee",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q460": {
+  "en_hash": "051e43236ac2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q070": {
+  "en_hash": "87a9f5218fdd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q170": {
+  "en_hash": "bf9d52314dbf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q270": {
+  "en_hash": "6bb37897be6c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q370": {
+  "en_hash": "2e3df08bcf04",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q470": {
+  "en_hash": "ff659998802e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q080": {
+  "en_hash": "281968788227",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q180": {
+  "en_hash": "2bbf98a97f02",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q280": {
+  "en_hash": "65f200de8e41",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q380": {
+  "en_hash": "fffc2b63c71f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q480": {
+  "en_hash": "9c061cd9a150",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q090": {
+  "en_hash": "5880163b41b0",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q190": {
+  "en_hash": "e0d6d593405c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q290": {
+  "en_hash": "f3aa4d1678ba",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q390": {
+  "en_hash": "1bad14bd4356",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q490": {
+  "en_hash": "c148b9e5a727",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q101": {
+  "en_hash": "18858fdf6f35",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q201": {
+  "en_hash": "3a37aba91847",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q301": {
+  "en_hash": "2df85831a0d1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q401": {
+  "en_hash": "864ae9052cab",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q111": {
+  "en_hash": "85d21081ce49",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q211": {
+  "en_hash": "d39063342381",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q311": {
+  "en_hash": "bf221bf767bb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q411": {
+  "en_hash": "fc8ef85bd93d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q121": {
+  "en_hash": "7939fded3112",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q221": {
+  "en_hash": "b7f43bff8e4e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q321": {
+  "en_hash": "1f50518e6f42",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q421": {
+  "en_hash": "172c474f043c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q131": {
+  "en_hash": "768450412b2e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q231": {
+  "en_hash": "5d1a759e2d04",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q331": {
+  "en_hash": "b4dfe3775334",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q431": {
+  "en_hash": "da94a7b9db9f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q141": {
+  "en_hash": "b3c36a9a2a63",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q241": {
+  "en_hash": "572fe2957a1d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q341": {
+  "en_hash": "543c146342b8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q441": {
+  "en_hash": "6761da551e0c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q051": {
+  "en_hash": "5e74246dd3c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q151": {
+  "en_hash": "f3b5e9209c85",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q251": {
+  "en_hash": "87942011803c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q351": {
+  "en_hash": "14ba21f99ec3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q451": {
+  "en_hash": "35500a087d9f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q061": {
+  "en_hash": "ff224ecc0116",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q161": {
+  "en_hash": "da8e090ab80c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q261": {
+  "en_hash": "332825f51951",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q361": {
+  "en_hash": "e9ba4818973b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q461": {
+  "en_hash": "717fcb9a7c12",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q071": {
+  "en_hash": "12fe10ba75fe",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q171": {
+  "en_hash": "56bd6d21db2e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q271": {
+  "en_hash": "36ed19aeff8c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q371": {
+  "en_hash": "510666e012b8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q471": {
+  "en_hash": "f5ac0218f205",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q081": {
+  "en_hash": "b15f14ea6463",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q181": {
+  "en_hash": "7f2fe2a4d4aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q281": {
+  "en_hash": "22ca383d1590",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q381": {
+  "en_hash": "91306ff0f673",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q481": {
+  "en_hash": "35d775a2a89f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q091": {
+  "en_hash": "2d0001131128",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q191": {
+  "en_hash": "b3d53d2c4a29",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q291": {
+  "en_hash": "9fe172b1da1b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q391": {
+  "en_hash": "4a79bb926b00",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q491": {
+  "en_hash": "df06942cfd33",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q102": {
+  "en_hash": "50bc2a1cb0bc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q202": {
+  "en_hash": "e6d46d4722d2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q302": {
+  "en_hash": "dc58347f44ff",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q402": {
+  "en_hash": "0f0bac1fcab0",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q112": {
+  "en_hash": "9347195de835",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q212": {
+  "en_hash": "b617acc89a10",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q312": {
+  "en_hash": "3d7d54db3a5c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q412": {
+  "en_hash": "3cb6c2521c17",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q122": {
+  "en_hash": "c659e4f791c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q222": {
+  "en_hash": "10326a04242e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q322": {
+  "en_hash": "45e6c8c875ec",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q422": {
+  "en_hash": "bc07a81fc82b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q132": {
+  "en_hash": "607c6f52d690",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q232": {
+  "en_hash": "56ac3514d5db",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q332": {
+  "en_hash": "e209efbdb788",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q432": {
+  "en_hash": "3ccf79c2d0f2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q142": {
+  "en_hash": "82b1871fcaa7",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q242": {
+  "en_hash": "d54116114597",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q342": {
+  "en_hash": "b87a360f35e8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q442": {
+  "en_hash": "24fb4baddbbd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q052": {
+  "en_hash": "758bc97f6a5b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q152": {
+  "en_hash": "2bd4fb70bccc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q252": {
+  "en_hash": "2ec4f45419a8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q352": {
+  "en_hash": "992001d0588c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q452": {
+  "en_hash": "0d6f2e97872a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q062": {
+  "en_hash": "753bc6d3a0e8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q162": {
+  "en_hash": "6272b6cc2faa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q262": {
+  "en_hash": "a6f60fc09c6a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q362": {
+  "en_hash": "8826cc228ff6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q462": {
+  "en_hash": "b78b22d40d89",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q072": {
+  "en_hash": "6a5535f07f5d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q172": {
+  "en_hash": "a7bccb23a547",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q272": {
+  "en_hash": "bf25c93823bf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q372": {
+  "en_hash": "b4b10c49cab4",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q472": {
+  "en_hash": "ffeef48a4b1d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q082": {
+  "en_hash": "85e4f8293fa3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q182": {
+  "en_hash": "6728a8bd759b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q282": {
+  "en_hash": "15e2d56eaaf1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q382": {
+  "en_hash": "91aa9cf72d3f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q482": {
+  "en_hash": "11c5d019f1d8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q092": {
+  "en_hash": "0eb028cf8876",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q192": {
+  "en_hash": "f3875c4d5cce",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q292": {
+  "en_hash": "c3d1fd729996",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q392": {
+  "en_hash": "3ebf5eeb7c02",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q492": {
+  "en_hash": "63abdda89e2d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q103": {
+  "en_hash": "6e2e8557dbb9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q203": {
+  "en_hash": "afe28aaf7079",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q303": {
+  "en_hash": "f681bce25644",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q403": {
+  "en_hash": "6f7b0316ced6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q113": {
+  "en_hash": "b81e584c0341",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q213": {
+  "en_hash": "4f894dca6349",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q313": {
+  "en_hash": "daed59a6ca51",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q413": {
+  "en_hash": "f5aff8ea5dfb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q123": {
+  "en_hash": "9c1335224485",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q223": {
+  "en_hash": "51d1a2752756",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q323": {
+  "en_hash": "dfe15fec5d9f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q423": {
+  "en_hash": "b1fc580e2720",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q133": {
+  "en_hash": "a34aae42f641",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q233": {
+  "en_hash": "6f304cbd22af",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q333": {
+  "en_hash": "767110bf6350",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q433": {
+  "en_hash": "220d99bd40ff",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q143": {
+  "en_hash": "b6f26b0081fa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q243": {
+  "en_hash": "7000c5e6ddda",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q343": {
+  "en_hash": "abf8438430c4",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q443": {
+  "en_hash": "7fc94ca270d2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q053": {
+  "en_hash": "181b2e60fad6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q153": {
+  "en_hash": "5e9fa62280f6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q253": {
+  "en_hash": "2e029e2f1f8e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q353": {
+  "en_hash": "99c96175beac",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q453": {
+  "en_hash": "52963ba12562",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q063": {
+  "en_hash": "442eacb29417",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q163": {
+  "en_hash": "678ddc982958",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q263": {
+  "en_hash": "81396d0e8b56",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q363": {
+  "en_hash": "5a9149b33daa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q463": {
+  "en_hash": "30ea9039b08d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q073": {
+  "en_hash": "a5df619507c5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q173": {
+  "en_hash": "8de0e775965e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q273": {
+  "en_hash": "3061eec221ed",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q373": {
+  "en_hash": "bdaf35a4a93f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q473": {
+  "en_hash": "21532881fd3c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q083": {
+  "en_hash": "55d42fe88aae",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q183": {
+  "en_hash": "ea17f2ca485c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q283": {
+  "en_hash": "f8d233f293d5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q383": {
+  "en_hash": "9c6a7772243b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q483": {
+  "en_hash": "6d9f7ce196f3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q093": {
+  "en_hash": "0ac20f99a824",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q193": {
+  "en_hash": "3ee4ad64d3ed",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q293": {
+  "en_hash": "e6e695e0062b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q393": {
+  "en_hash": "136f671c390e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q493": {
+  "en_hash": "b2c8fab31c49",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q104": {
+  "en_hash": "fc9ede114eaf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q204": {
+  "en_hash": "41d25062d81f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q304": {
+  "en_hash": "bf2962062202",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q404": {
+  "en_hash": "4f18975fde4c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q114": {
+  "en_hash": "554b334e2791",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q214": {
+  "en_hash": "77cb12897b18",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q314": {
+  "en_hash": "c8e473e0baa1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q414": {
+  "en_hash": "2e00cae62855",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q124": {
+  "en_hash": "6149c1199090",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q224": {
+  "en_hash": "c8836a3d0818",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q324": {
+  "en_hash": "f81e2faf215f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q424": {
+  "en_hash": "276c4dc49f2a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q134": {
+  "en_hash": "785c8c91db0c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q234": {
+  "en_hash": "debef3052729",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q334": {
+  "en_hash": "57a5764eca5a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q434": {
+  "en_hash": "71cecf3dab1b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q144": {
+  "en_hash": "1f847ef0c4ac",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q244": {
+  "en_hash": "a9c00839356b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q344": {
+  "en_hash": "7cc64115703e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q444": {
+  "en_hash": "4e54e4feb9b1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q054": {
+  "en_hash": "456ca0acc818",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q154": {
+  "en_hash": "592651136b84",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q254": {
+  "en_hash": "40688a500158",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q354": {
+  "en_hash": "2d8738a232b5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q454": {
+  "en_hash": "c44cd4a55944",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q064": {
+  "en_hash": "7989aa6012b1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q164": {
+  "en_hash": "41126bbd9cdd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q264": {
+  "en_hash": "1100309af326",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q364": {
+  "en_hash": "47a07b947010",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q464": {
+  "en_hash": "cf959ccb8c94",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q074": {
+  "en_hash": "4b4311572e8b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q174": {
+  "en_hash": "497f057a8c2f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q274": {
+  "en_hash": "1c2cce8e99b8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q374": {
+  "en_hash": "2aaf276383ba",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q474": {
+  "en_hash": "57ba1fc0bd7a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q084": {
+  "en_hash": "67a6c186b0d4",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q184": {
+  "en_hash": "63b21e8b94fc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q284": {
+  "en_hash": "a58d5b0bc895",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q384": {
+  "en_hash": "167eea285f5f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q484": {
+  "en_hash": "491a78c187a7",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q094": {
+  "en_hash": "189f6b53780b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q194": {
+  "en_hash": "0168b677b13a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q294": {
+  "en_hash": "cff420ebc8c7",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q394": {
+  "en_hash": "58948871b4f1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q494": {
+  "en_hash": "76153ecdb2af",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q105": {
+  "en_hash": "d89ee118197e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q205": {
+  "en_hash": "ba2a2b0185f2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q305": {
+  "en_hash": "39c5ea92934c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q405": {
+  "en_hash": "fe681aea2639",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q115": {
+  "en_hash": "ca619487b74b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q215": {
+  "en_hash": "b6be2c40ba7f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q315": {
+  "en_hash": "3b8568179f85",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q415": {
+  "en_hash": "31c88842bcf8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q125": {
+  "en_hash": "88b308e59e84",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q225": {
+  "en_hash": "0addc87a31eb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q325": {
+  "en_hash": "03ce376e7aa5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q425": {
+  "en_hash": "9cf4eae6a5a5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q135": {
+  "en_hash": "2316312cafc0",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q235": {
+  "en_hash": "0eae750b6dec",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "restamped_at": "2026-11-11",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q335": {
+  "en_hash": "6529f5e84f0b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q435": {
+  "en_hash": "ac8bda77533b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q145": {
+  "en_hash": "acbdbf442d2f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q245": {
+  "en_hash": "c128bf031a78",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q345": {
+  "en_hash": "13aa4e97859f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q445": {
+  "en_hash": "a14253d6f4b4",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q055": {
+  "en_hash": "ab263d9eea46",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q155": {
+  "en_hash": "8b5a15e58cf0",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q255": {
+  "en_hash": "22519ba73c75",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q355": {
+  "en_hash": "848f6f91dbce",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q455": {
+  "en_hash": "89f77cebc7e5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q065": {
+  "en_hash": "f3aef988b3a8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q165": {
+  "en_hash": "0fee3c0cc66a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q265": {
+  "en_hash": "fc0e6fa26848",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q365": {
+  "en_hash": "36b41c8dc73c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q465": {
+  "en_hash": "fe0709a711d0",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q075": {
+  "en_hash": "5613adee36bb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q175": {
+  "en_hash": "ffb7dd69470c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q275": {
+  "en_hash": "2f5bbc313a30",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q375": {
+  "en_hash": "c86fbdaf048e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q475": {
+  "en_hash": "71c75b5ead00",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q085": {
+  "en_hash": "f51171d6a7c8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q185": {
+  "en_hash": "5886b3d7af5a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q285": {
+  "en_hash": "db7c4460e41f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q385": {
+  "en_hash": "72b7e9115857",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q485": {
+  "en_hash": "4292be2cacda",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q095": {
+  "en_hash": "264e5a87a5cc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q195": {
+  "en_hash": "f1de43826579",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q295": {
+  "en_hash": "af216ba8c1d3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q395": {
+  "en_hash": "614a3309ee02",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q495": {
+  "en_hash": "b232e4f50983",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q106": {
+  "en_hash": "70b4fa44a65b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q206": {
+  "en_hash": "67e1057fc0ec",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q306": {
+  "en_hash": "f704029c3829",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q406": {
+  "en_hash": "95c341b64d95",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q116": {
+  "en_hash": "82148f00bf9e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q216": {
+  "en_hash": "0c95448bdfbc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q316": {
+  "en_hash": "654ff5c6bc0e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q416": {
+  "en_hash": "d6be7241f6b9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q126": {
+  "en_hash": "5f846a9035cd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q226": {
+  "en_hash": "774a9ddcd5a9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q326": {
+  "en_hash": "58da290045b1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q426": {
+  "en_hash": "fc65b03d695d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q136": {
+  "en_hash": "5a59d4e80761",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q236": {
+  "en_hash": "873a6ad4193c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q336": {
+  "en_hash": "b383a2a2d4c3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q436": {
+  "en_hash": "c558f4ade44d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q146": {
+  "en_hash": "1fa105947b4a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q246": {
+  "en_hash": "989748da9ea9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q346": {
+  "en_hash": "45634bf6b48c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q446": {
+  "en_hash": "5cf08df899a5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q056": {
+  "en_hash": "f1d9b44564d2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q156": {
+  "en_hash": "c362df26d9fa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q256": {
+  "en_hash": "fae882dcf6ea",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q356": {
+  "en_hash": "20eefd66df61",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q456": {
+  "en_hash": "59eccdf6bb59",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q066": {
+  "en_hash": "2341a35383c8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q166": {
+  "en_hash": "a58810dd16fb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q266": {
+  "en_hash": "3c2466639e17",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q366": {
+  "en_hash": "2810c70d757c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q466": {
+  "en_hash": "f2defd05e871",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q076": {
+  "en_hash": "c36100f375a1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q176": {
+  "en_hash": "5fa770abccfe",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q276": {
+  "en_hash": "bd2839055946",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q376": {
+  "en_hash": "8781177622a6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q476": {
+  "en_hash": "ebc9b5edc190",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q086": {
+  "en_hash": "1e63a1a57f2d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q186": {
+  "en_hash": "7c7a9fd39eaf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q286": {
+  "en_hash": "ff9374d93b07",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q386": {
+  "en_hash": "169920cc1fa3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q486": {
+  "en_hash": "ca2e923e97bd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q096": {
+  "en_hash": "6505df0aa442",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q196": {
+  "en_hash": "23581cf962cc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q296": {
+  "en_hash": "f59482f5cf12",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q396": {
+  "en_hash": "124c9df357f6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q496": {
+  "en_hash": "fdeab39d90f5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q107": {
+  "en_hash": "6aefc573f62e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q207": {
+  "en_hash": "385b7b565e41",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q307": {
+  "en_hash": "e1695cb4d87c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q407": {
+  "en_hash": "13938365d0e7",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q117": {
+  "en_hash": "4a2836f646a2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q217": {
+  "en_hash": "d814dffca678",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q317": {
+  "en_hash": "33fa55b2f6bd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q417": {
+  "en_hash": "cee7c636424d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q127": {
+  "en_hash": "4fc701c4ea37",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q227": {
+  "en_hash": "36b6ab83fc49",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q327": {
+  "en_hash": "59db88dfbe24",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q427": {
+  "en_hash": "8311f1a433e7",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q137": {
+  "en_hash": "953be7be7d79",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q237": {
+  "en_hash": "3d16df0ee231",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q337": {
+  "en_hash": "088e5942ff85",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q437": {
+  "en_hash": "3f53b236e82d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q147": {
+  "en_hash": "145fec67a142",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q247": {
+  "en_hash": "9bc93f11ad70",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q347": {
+  "en_hash": "61a857fb93e1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q447": {
+  "en_hash": "fe9097d05d9d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q057": {
+  "en_hash": "9c4b7da6c9cb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q157": {
+  "en_hash": "96f27236d540",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q257": {
+  "en_hash": "466d42dfc306",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q357": {
+  "en_hash": "6d28a00c8aa4",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q457": {
+  "en_hash": "530ce34bd158",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q067": {
+  "en_hash": "11778064e02b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q167": {
+  "en_hash": "e7418667e7f5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q267": {
+  "en_hash": "a924a054d6fd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q367": {
+  "en_hash": "2ad7f9cf2f10",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q467": {
+  "en_hash": "6378ce36c297",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q077": {
+  "en_hash": "fa0e30da8f5f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q177": {
+  "en_hash": "550116e39b5a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q277": {
+  "en_hash": "cdfeebb1cdcf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q377": {
+  "en_hash": "a057754d1a59",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q477": {
+  "en_hash": "4fd007642493",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q087": {
+  "en_hash": "3db407410498",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q187": {
+  "en_hash": "fb5c3b8b6a68",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q287": {
+  "en_hash": "338cb8c84c72",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q387": {
+  "en_hash": "8a30b0c7c3e6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q487": {
+  "en_hash": "79bd18a32a2c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q097": {
+  "en_hash": "85550988c9dc",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q197": {
+  "en_hash": "7b04730c1b71",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q297": {
+  "en_hash": "6c06e921a10a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q397": {
+  "en_hash": "1dad6266bdfa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q497": {
+  "en_hash": "c6d4d7df8de5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q108": {
+  "en_hash": "84562302e5d9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q208": {
+  "en_hash": "a6bc20233538",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q308": {
+  "en_hash": "cc0fad6a57ef",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q408": {
+  "en_hash": "28a5e69226aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q118": {
+  "en_hash": "ac2b39a8894f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q218": {
+  "en_hash": "e69ac166b2ee",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q318": {
+  "en_hash": "953f75d3da4b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q418": {
+  "en_hash": "9a665f50bbf6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q128": {
+  "en_hash": "23d291277df9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q228": {
+  "en_hash": "8c32689a86fa",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q328": {
+  "en_hash": "7b4e1cb9c1a0",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q428": {
+  "en_hash": "2c9bc335a750",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q138": {
+  "en_hash": "07fc33a2c1ea",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q238": {
+  "en_hash": "014d6b1943c3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q338": {
+  "en_hash": "a539974bd6e7",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q438": {
+  "en_hash": "060a444be805",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q148": {
+  "en_hash": "3f4bf9df4a80",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q248": {
+  "en_hash": "12036fd70084",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q348": {
+  "en_hash": "9d85ba777d64",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q448": {
+  "en_hash": "b65511551ea6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q058": {
+  "en_hash": "9f348c6d6509",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q158": {
+  "en_hash": "b07757ecb1ad",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q258": {
+  "en_hash": "528f8e71e99a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "restamped_at": "2026-11-11",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q358": {
+  "en_hash": "735d3de67bdf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q458": {
+  "en_hash": "2c84dcbc8cfb",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q068": {
+  "en_hash": "82c3f4fd9ad1",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q168": {
+  "en_hash": "d8fba392ca9e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q268": {
+  "en_hash": "0df2bec37055",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q368": {
+  "en_hash": "11824d66a2af",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q468": {
+  "en_hash": "42b969804eac",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q078": {
+  "en_hash": "0f13d0da459d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q178": {
+  "en_hash": "f67df943b150",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q278": {
+  "en_hash": "7dfbd6ce20b4",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q378": {
+  "en_hash": "a9754916717a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q478": {
+  "en_hash": "dec64480cd50",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q088": {
+  "en_hash": "d33db5989892",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q188": {
+  "en_hash": "3c1e44acb500",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q288": {
+  "en_hash": "cddbe0b804f2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q388": {
+  "en_hash": "827ec3f37f1d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q488": {
+  "en_hash": "e097287a243e",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q098": {
+  "en_hash": "f449c0490dda",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q198": {
+  "en_hash": "f83292236f45",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q298": {
+  "en_hash": "5384839aae8b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q398": {
+  "en_hash": "980a78daf2dd",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q498": {
+  "en_hash": "d7c4e1b313d8",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q109": {
+  "en_hash": "157eb38dcf96",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q209": {
+  "en_hash": "102cc53991a5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q309": {
+  "en_hash": "5076eac79df9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q409": {
+  "en_hash": "7e3a1367ff6c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q119": {
+  "en_hash": "f05f60441c88",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q219": {
+  "en_hash": "cfddf6819f13",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q319": {
+  "en_hash": "0989b0cd6ff3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q419": {
+  "en_hash": "71cb3feb4772",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q129": {
+  "en_hash": "1aad70cd5916",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q229": {
+  "en_hash": "337ffade5872",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q329": {
+  "en_hash": "3f5a74b43c47",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q429": {
+  "en_hash": "27e0ae17b628",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q139": {
+  "en_hash": "a673e65ab95b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q239": {
+  "en_hash": "41b4b1676068",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q339": {
+  "en_hash": "8b070680d477",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q439": {
+  "en_hash": "91491660b505",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q049": {
+  "en_hash": "a9bd633f4759",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q149": {
+  "en_hash": "ded118fa797a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q249": {
+  "en_hash": "0930bc5c68c2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q349": {
+  "en_hash": "39416a669978",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q449": {
+  "en_hash": "3138020d8ddf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q059": {
+  "en_hash": "bed7c0027683",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q159": {
+  "en_hash": "628521ccbf94",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q259": {
+  "en_hash": "c6be6f66a3d3",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q359": {
+  "en_hash": "5d9b120a5d7f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q459": {
+  "en_hash": "4fb6faa3a41d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "restamped_at": "2026-11-11",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q069": {
+  "en_hash": "99546793982a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q169": {
+  "en_hash": "4aee775f561c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q269": {
+  "en_hash": "d5fbd7190fc5",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q369": {
+  "en_hash": "a6507cb8dfb2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q469": {
+  "en_hash": "277f4543c49a",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q079": {
+  "en_hash": "fc41b270a373",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q179": {
+  "en_hash": "d903804f3730",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q279": {
+  "en_hash": "114d6e6eafad",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q379": {
+  "en_hash": "2f202a027fb2",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q479": {
+  "en_hash": "3533e44513cf",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q089": {
+  "en_hash": "d4b4f34c0362",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q189": {
+  "en_hash": "1bd7830303b9",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q289": {
+  "en_hash": "f72802b17f8b",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q389": {
+  "en_hash": "822bd1d8335f",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q489": {
+  "en_hash": "39e52ee7a88d",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q099": {
+  "en_hash": "51aa9ec43d23",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q199": {
+  "en_hash": "11283d214d34",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q299": {
+  "en_hash": "66a1bdb549b6",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q399": {
+  "en_hash": "c6cd941e317c",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "changed_at": "2026-11-11",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ },
+ "q499": {
+  "en_hash": "2478e2cef309",
+  "translated_at": "2026-11-11",
+  "audit_status": "frozen",
+  "status_at": "2026-11-11",
+  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+ }
+}
