@@ -5,7 +5,7 @@
           /courses/hi/bhasha/<slug>/chitra-pustak/reader.html (मोबाइल: पूरी स्क्रीन, एक कार्ड प्रति स्क्रीन, स्वाइप — जान-बूझकर बिना navbar; ⌂ से वापसी)
    नियम: तीन-स्तंभ (शब्द · देवनागरी उच्चारण · हिंदी अर्थ) · ≥16px · हिंदी वर्णमाला वर्ग-अनुसार · पट्टी: © ™ + FFGPMTrust पंक्ति · check-robot fail = पन्ना नहीं बनता
    नई भाषा = CHITRA_LANGS में एक पंक्ति + data/chitra/chitra_<code>.js */
-const fs=require("fs"),path=require("path");
+const fs=require("fs"),path=require("path");const SEO=require("./lib_seo_meta.js"); /* 11-Nov-2026: title/description/schema का एकमात्र घर */
 const ROOT=path.join(__dirname,"..");
 const TPL=fs.readFileSync(path.join(ROOT,"_TEMPLATE.html"),"utf8");
 const VER="2.0";   /* v2.0 (29-Oct, चरण-3): हर-लिपि-योग्य — en रास्ता byte-frozen (L.code==="en" gate); non-en: भाग-1 उस भाषा के अक्षर (जहाँ चित्र-शब्द मिला), भाग-2 हिंदी अक्षर + उस भाषा का शब्द, भाग-3 वही 100 चित्र */   /* v1.1 (25-Oct): canonical = …/index.html (sitemap-रूप) + og:url/og:description */
@@ -143,7 +143,7 @@ function buildReader(D){
   return {n:S.length,html:`<!DOCTYPE html>
 <!-- ⚠️ generator से बना (build_chitra_pustak.js v${VER}) — हाथ से न बदलें -->
 <html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0B1F3A">
-<title>मेरी पहली चित्र-पुस्तक — ${esc(L.hi)} (मोबाइल) | अप्लाइड कंप्यूटर स्कूल</title><link rel="canonical" href="https://acslearn.com/courses/hi/bhasha/${L.slug}/chitra-pustak/reader.html">
+<title>मेरी पहली चित्र-पुस्तक — ${esc(L.hi)} (मोबाइल) | अप्लाइड कंप्यूटर स्कूल</title><link rel="canonical" href="https://acslearn.com/courses/hi/bhasha/${L.slug}/chitra-pustak/">
 <style>*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}html,body{height:100%;overflow:hidden;background:#0B1F3A;font-family:"Noto Sans Devanagari",system-ui,sans-serif;color:#0B1F3A}
 #app{position:fixed;inset:0;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
 #top{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;color:#fff;font-size:16px}#top a,#top button{background:#1565C0;color:#fff;border:0;border-radius:18px;padding:6px 12px;font-size:16px;text-decoration:none}
@@ -200,10 +200,11 @@ function build(code){
   const S="<!-- PAGE-CONTENT-START -->",E="<!-- PAGE-CONTENT-END -->",a=TPL.indexOf(S),b=TPL.indexOf(E);
   if(a<0||b<0)throw new Error("_TEMPLATE.html में PAGE-CONTENT निशान नहीं");
   let page=TPL.slice(0,a+S.length)+"\n"+html+"\n"+TPL.slice(b);
-  const title=D.akshar?"मेरी पहली "+L.hi+" पोथी — अक्षर-बोध, बारहखड़ी और चित्र-शब्द, हिंदी में मुफ़्त | अप्लाइड कंप्यूटर स्कूल":"मेरी पहली चित्र-पुस्तक — "+L.hi+" · हिंदी, कक्षा 1 ("+n+" बोलते चित्र-शब्द, मुफ़्त) | अप्लाइड कंप्यूटर स्कूल";
-  const desc=D.akshar?L.hi+" अक्षर पहचानना और बोलना सीखें — पूरी वर्णमाला, बारहखड़ी, हर अक्षर से बना चित्र-शब्द और रोज़ की 100 चीज़ें; देवनागरी उच्चारण, "+L.hi+" आवाज़, छपने-योग्य।":L.code!=="en"?L.hi+" के चित्र-शब्द: "+L.hi+" अक्षर, हिंदी वर्णमाला (वर्ग-अनुसार) और रोज़ की 100 चीज़ें — हर शब्द देवनागरी उच्चारण और हिंदी अर्थ के साथ, 🔊 आवाज़, मोबाइल-पुस्तक और छपाई-योग्य।":L.hi+" A–Z और हिंदी वर्णमाला (वर्ग-अनुसार) के साथ रोज़ की 100 चीज़ें — हर शब्द देवनागरी उच्चारण और हिंदी अर्थ के साथ, 🔊 आवाज़, मोबाइल-पुस्तक और छपाई-योग्य।";
+  const SV={hi:L.hi,slug:L.slug,akshar:!!D.akshar,n:n,isEn:L.code==="en"};
+  const title=SEO.title("chitra",SV);
+  const desc=SEO.desc("chitra",SV);
   const url="https://acslearn.com/courses/hi/bhasha/"+L.slug+"/chitra-pustak/";   /* 08-Nov: canonical = साफ़-/ रूप (sitemap भी यही) */
-  page=page.replace(/<title>[\s\S]*?<\/title>/,"<title>"+esc(title)+"</title>\n<meta name=\"description\" content=\""+esc(desc)+"\">\n<link rel=\"canonical\" href=\""+url+"\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:url\" content=\""+url+"\">\n<meta property=\"og:title\" content=\""+esc(title)+"\">\n<meta property=\"og:description\" content=\""+esc(desc)+"\">\n<meta property=\"og:locale\" content=\"hi_IN\">\n<meta property=\"og:image\" content=\"https://acslearn.com/logo.png\">");
+  page=page.replace(/<title>[\s\S]*?<\/title>/,"<title>"+esc(title)+"</title>\n<meta name=\"description\" content=\""+esc(desc)+"\">\n<link rel=\"canonical\" href=\""+url+"\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:url\" content=\""+url+"\">\n<meta property=\"og:title\" content=\""+esc(title)+"\">\n<meta property=\"og:description\" content=\""+esc(desc)+"\">\n<meta property=\"og:locale\" content=\"hi_IN\">\n<meta property=\"og:image\" content=\"https://acslearn.com/logo.png\">"+SEO.chitraHeadExtra({hi:L.hi,slug:L.slug,akshar:!!D.akshar,desc:desc}));
   page=page.replace("</head>",'<link rel="stylesheet" href="/assets/chitra.css">\n</head>');
   page=page.replace('<div id="acsMenuList"></div>','<div id="acsMenuList">\n'+MENU_HTML+"\n</div>");
   page=page.replace("</body>",MENU_FALLBACK_JS+"\n<script>window.ACS_LANG_HI="+JSON.stringify(L.hi)+";</scr"+"ipt>\n"+SAYJS+"\n"+BOLOJS+(D.akshar?"\n"+PRINTJS:"")+"\n</body>");
@@ -214,3 +215,5 @@ function build(code){
 }
 /* v2.0: en का live-पन्ना कभी अपने-आप दोबारा नहीं बनता — सिर्फ़ साफ़ माँग पर */
 const only=process.argv[2];CHITRA_LANGS.filter(c=>only?c===only:c!=="en").forEach(build);
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : title/description lib_seo_meta.js से, जुड़वाँ-कोर्स canonical, reader canonical. */
+require("./build_seo_meta.js").run({quiet:true});

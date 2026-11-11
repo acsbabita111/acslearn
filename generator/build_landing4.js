@@ -83,6 +83,30 @@ const U_TOTAL=String(COUNTS.udyam_total);
 const BH_COUNT=CD.all.filter(c=>c&&c.url&&String(c.url).indexOf("/bhasha/")>-1).length;
 if(!BH_COUNT) throw new Error("भाषा-गिनती 0 — courses_data जाँचो");
 console.log("भाषा-गिनती (build-समय):",BH_COUNT,"| समूह:",CD.groups.length);
+/* ---- 11-Nov-2026 (SEO v1.8): hub-पेजों पर पक्की कड़ियाँ + कोर्स-सूची schema (ItemList) ----
+   क्यों: पहले bhasha.html पर किसी भाषा-कोर्स की सीधी कड़ी नहीं थी (सूची सिर्फ़ script से बनती थी)।
+   Google को hub-पेज से हर कोर्स तक पक्की कड़ी मिलनी चाहिए। सूची का स्रोत वही courses_data.js है। */
+const esc4=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const BH_ALL=CD.all.filter(c=>c&&c.url&&String(c.url).indexOf("/bhasha/")>-1);
+const BH_BYID={};BH_ALL.forEach(c=>{BH_BYID[c.id]=c;});
+function bhShort(c){const n=String(c.name_hi||"");let i=n.indexOf(" बोलने का");if(i<1){const cut=[" परिचय-कोर्स"," — "," ("].map(k=>n.indexOf(k)).filter(x=>x>0);i=cut.length?Math.min.apply(null,cut):-1;}if(i<1) throw new Error("भाषा-नाम का रूप अनजान: "+c.id+" "+n);return n.slice(0,i);}
+/* सूची सपाट और वर्ण-क्रम में (समूह नहीं): समूह-बँटवारा अभी अधूरा है (दर्ज होल), इसलिए यहाँ उसे दोहराया नहीं गया */
+const BH_SORTED=BH_ALL.map(c=>({c:c,n:bhShort(c)})).sort((a,b)=>a.n<b.n?-1:a.n>b.n?1:0);
+if(BH_SORTED.length!==BH_COUNT) throw new Error("भाषा-सूची की गिनती बेमेल");
+const BH_LIST_HTML='<details style="margin:14px 0;background:#fff;border:2px solid #0B1F3A;border-radius:14px;padding:10px 12px"><summary style="font-size:19px;font-weight:800;color:#0B1F3A;cursor:pointer;text-align:center">📋 सभी '+BH_COUNT+' भाषाओं की पूरी सूची (छूकर खोलें)</summary>'+
+  '<p style="font-size:17px;line-height:2.1;margin:10px 0 0;text-align:center">'+BH_SORTED.map(x=>'<a href="'+x.c.url+'" style="display:inline-block;margin:3px 4px;padding:4px 10px;border:1px solid #1565C0;border-radius:999px;color:#0B1F3A;text-decoration:none;font-size:17px">'+esc4(x.n)+'</a>').join(" ")+'</p></details>';
+function itemList(name,list){return {"@context":"https://schema.org","@type":"ItemList","name":name,"numberOfItems":list.length,"itemListElement":list.map((c,i)=>({"@type":"ListItem","position":i+1,"name":c.n,"url":"https://acslearn.com"+String(c.url).replace(/index\.html$/,"")}))};}
+const BH_LD=itemList("ACS के भाषा-कोर्स",BH_SORTED.map(x=>({n:x.n+" बोलने का कोर्स",url:x.c.url})));
+/* हुनर-सूची: वही छँटाई व वही क्रम जो पेज की script चलाती है (नीचे ORD) : यहाँ build-समय पर भी, ताकि सूची बिना script के भी दिखे */
+const HN_ORD=["digital-mitra-basic","first-code","/digital/ecom","/digital/dca","ai-digital-master","vocational/printer","/welding/","two-wheeler","four-wheeler-driver","mushroom-cultivation-marketing","kaithi-lipi","tirhuta-lipi"];
+const HN_ALL=(function(){const seen={},R=[];CD.all.forEach(c=>{if(!c||!c.url)return;const u=String(c.url);if(u.indexOf("/bhasha/")>-1||u.indexOf("/courses/")!==0)return;if(seen[u])return;seen[u]=1;R.push(c);});
+  const k=c=>{const u=String(c.url);for(let i=0;i<HN_ORD.length;i++){if(u.indexOf(HN_ORD[i])>-1)return i;}return 99;};
+  return R.map((c,i)=>[k(c),i,c]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]).map(x=>x[2]);})();
+const HN_TH=[["#1565C0","#0B1F3A","#fff","rgba(255,255,255,.88)"],["#F9A825","#c47f12","#0B1F3A","#5a4100"],["#2E7D32","#1b5e20","#fff","rgba(255,255,255,.88)"]];
+const hnName=c=>(c.t2&&c.t2[0])?c.t2[0]:(c.name_hi||"");
+const HN_LIST_HTML=HN_ALL.map((c,i)=>{const t=HN_TH[i%3];return '<a href="'+c.url+'" style="display:block;margin:12px auto;max-width:620px;background:'+t[0]+';color:'+t[2]+';border:0;border-bottom:5px solid '+t[1]+';border-radius:14px;padding:14px 16px;text-decoration:none;font-size:18px;font-weight:800;box-shadow:0 4px 12px rgba(11,31,58,.22);text-align:center">'+hnName(c).replace(/\[/g,"(").replace(/\]/g,")")+' <span style="display:block;margin-top:4px;color:'+t[3]+';font-size:16px;font-weight:700">('+(c.lessons||"")+' पाठ · मुफ़्त)</span></a>';}).join("");
+const HN_LD=itemList("ACS के हुनर-कोर्स",HN_ALL.map(c=>({n:hnName(c).replace(/\[/g,"(").replace(/\]/g,")"),url:c.url})));
+if(!HN_ALL.length) throw new Error("हुनर-सूची ख़ाली");
 const MENU_HTML=loadMenu().map(m=>'<a class="acs-mitem" href="'+m.href+'"><span class="e">'+m.icon+'</span> '+m.label+'</a>').join("\n");
 const MENU_FALLBACK_JS='<script>if(typeof acsOpenMenu!=="function"){window.acsOpenMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.add("open");if(s)s.classList.add("open");};window.acsCloseMenu=function(){var d=document.getElementById("acsDrawer"),s=document.getElementById("acsScrim");if(d)d.classList.remove("open");if(s)s.classList.remove("open");};window.acsLangToggle=window.acsLangToggle||function(){};}</scr'+'ipt>';
 function GEN_NOTE_FOR(spec){return "<!-- generator: build_landing4.js "+(spec.ver||"v1.0")+" — हाथ से न बदलें -->";}
@@ -112,7 +136,8 @@ function build(spec){
     '\n<meta property="og:image" content="https://acslearn.com/logo.png">'+
     '\n<meta property="og:locale" content="hi_IN">'+
     '\n<meta name="twitter:card" content="summary">'+
-    '\n<script type="application/ld+json">'+JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":spec.title,"description":spec.desc,"url":"https://acslearn.com/"+spec.out,"inLanguage":"hi"})+'</scr'+'ipt>');
+    '\n<script type="application/ld+json">'+JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":spec.title,"description":spec.desc,"url":"https://acslearn.com/"+spec.out,"inLanguage":"hi"})+'</scr'+'ipt>'+
+    (spec.ld?'\n<script type="application/ld+json">'+JSON.stringify(spec.ld).replace(/</g,"\\u003c")+'</scr'+'ipt>':""));
   p=p.replace('<div id="acsMenuList"></div>','<div id="acsMenuList">\n'+MENU_HTML+'\n</div>');
   p=p.replace("</body>",MENU_FALLBACK_JS+"\n"+(spec.foot||[]).join("\n")+'\n<script src="/assets/acs-react.js" defer></scr'+'ipt>\n</body>');
   p=p.replace("<!DOCTYPE html>","<!DOCTYPE html>\n"+GEN_NOTE_FOR(spec));
@@ -407,7 +432,7 @@ build({out:"career.html", ver:"v1.7.2", foot:[FABSCRIPT],
  cross([["/bhasha.html","🗣️ नई भाषा सीखें"],["/hunar.html","🛠️ नया हुनर सीखें"],["/udyam-shuruat.html","🏭 अपना उद्यम शुरू करें"]]))
 });
 /* ================= पेज-2: भाषा ================= */
-build({out:"bhasha.html",
+build({out:"bhasha.html",ver:"v1.8",ld:BH_LD,
  title:"नई भाषा सीखें — हिंदी से दुनिया की भाषाएँ, प्रमाणपत्र कोर्स | ACS",
  desc:"हिंदी-माध्यम से दुनिया की भाषाओं के पूरे प्रमाणपत्र कोर्स — 90 दिन, 2,150 वाक्य, ऑनलाइन परीक्षा। पढ़ाई मुफ़्त। समूह चुनिए और आज शुरू कीजिए।",
  foot:['<script src="/assets/courses_data.js"></scr'+'ipt>','<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var n=A.filter(function(c){return c&&c.url&&String(c.url).indexOf("/bhasha/")>-1;}).length;var el=document.getElementById("bhCount");if(el&&n)el.textContent=n;var G=window.KKB_GROUPS||[];var box=document.getElementById("bhGroups");if(box&&G.length){var h="";G.forEach(function(g,i){h+=\'<a href="/courses/hi/#g\'+i+\'" style="display:inline-block;margin:5px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A;font-size:17px;font-weight:700;padding:9px 14px;border-radius:999px;text-decoration:none">\'+g.e+" "+g.t+" ("+(g.ids||[]).length+")</a>";});box.innerHTML=h;}}catch(e){}})();</scr'+'ipt>'],
@@ -419,7 +444,7 @@ build({out:"bhasha.html",
  WRAP_S+
  sec("🌍 अपना समूह चुनिए",'<div id="bhGroups" style="text-align:center">'+
   '<p style="font-size:17px">समूह-सूची खुल रही है…</p></div>'+
-  CTA("/courses/hi/","📚 सभी भाषाओं की पूरी सूची →","#1565C0"))+
+  CTA("/courses/hi/","📚 सभी भाषाओं की पूरी सूची →","#1565C0")+BH_LIST_HTML)+
  sec("👤 किसे सीखना चाहिए?",
   P('जो <b>विदेश में काम</b> करना चाहते हैं (खाड़ी देश, जापान, कोरिया, यूरोप…) · जो <b>अपने ही देश में</b> पर्यटक-ग्राहक से ज़्यादा कमाना चाहते हैं · जो विद्यार्थी आगे पढ़ाई बाहर करना चाहते हैं। सफलता का सूत्र: <b>1 हुनर + 1 ग़ैर-देवनागरी भाषा</b> = देश-विदेश में जॉब की संभावना कई गुना।'))+
  sec("📖 कैसे सिखाते हैं?",
@@ -430,7 +455,7 @@ build({out:"bhasha.html",
  cross([["/career.html","🧭 अपना करियर चुनें"],["/hunar.html","🛠️ नया हुनर सीखें"],["/udyam-shuruat.html","🏭 अपना उद्यम शुरू करें"]])
 });
 /* ================= पेज-3: हुनर ================= */
-build({out:"hunar.html",
+build({out:"hunar.html",ver:"v1.8",ld:HN_LD,
  title:"नया हुनर सीखें — मुफ़्त हुनर-कोर्स, परीक्षा व प्रमाणपत्र | ACS",
  desc:"वेल्डिंग से Python तक — पूरे हुनर-कोर्स हिंदी में: पाठ, चित्र, वीडियो, quiz, ऑनलाइन परीक्षा और प्रमाणपत्र। पढ़ाई मुफ़्त, अपने फ़ोन पर।",
  foot:['<script src="/assets/courses_data.js"></scr'+'ipt>','<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var seen={},R=[];A.forEach(function(c){if(!c||!c.url)return;var u=String(c.url);if(u.indexOf("/bhasha/")>-1||u.indexOf("/courses/")!==0)return;if(seen[u])return;seen[u]=1;R.push(c);});\n/* Founder-क्रम (08-Nov): 12 कोर्स इसी क्रम में; नया कोर्स जुड़े तो सूची-अंत में अपने-आप */\nvar ORD=["digital-mitra-basic","first-code","/digital/ecom","/digital/dca","ai-digital-master","vocational/printer","/welding/","two-wheeler","four-wheeler-driver","mushroom-cultivation-marketing","kaithi-lipi","tirhuta-lipi"];\nR.sort(function(a,b){function k(c){var u=String(c.url);for(var i=0;i<ORD.length;i++){if(u.indexOf(ORD[i])>-1)return i;}return 99;}return k(a)-k(b);});\nvar box=document.getElementById("hnList");if(box&&R.length){var h="";\n/* 3D रंगीन बटन — नीला/सुनहरा/हरा बारी-बारी (कार्ड-रूप नियम) */\nvar TH=[["#1565C0","#0B1F3A","#fff","rgba(255,255,255,.88)"],["#F9A825","#c47f12","#0B1F3A","#5a4100"],["#2E7D32","#1b5e20","#fff","rgba(255,255,255,.88)"]];\nR.forEach(function(c,i){var nm=(c.t2&&c.t2[0])?c.t2[0]:(c.name_hi||"");var t=TH[i%3];\nh+=\'<a href="\'+c.url+\'" style="display:block;margin:12px auto;max-width:620px;background:\'+t[0]+\';color:\'+t[2]+\';border:0;border-bottom:5px solid \'+t[1]+\';border-radius:14px;padding:14px 16px;text-decoration:none;font-size:18px;font-weight:800;box-shadow:0 4px 12px rgba(11,31,58,.22);text-align:center">\'+nm+\' <span style="display:block;margin-top:4px;color:\'+t[3]+\';font-size:16px;font-weight:700">(\'+(c.lessons||"")+\' पाठ · मुफ़्त)</span></a>\';});\nbox.innerHTML=h;}}catch(e){}})();</scr'+'ipt>'],
@@ -443,7 +468,7 @@ build({out:"hunar.html",
  sec("👤 किसे करना चाहिए?",
   P('10 साल से ऊपर कोई भी — स्कूल का बच्चा, काम खोजता जवान, या अपनी दुकान/उद्यम का सपना देखने वाला। हर कोर्स की सीढ़ी प्रशिक्षु से मालिक तक जाती है।'))+
  sec("✅ तैयार हुनर-कोर्स — अभी शुरू करें",
-  '<div id="hnList"><p style="font-size:17px;text-align:center">सूची खुल रही है…</p></div>'+
+  '<div id="hnList">'+HN_LIST_HTML+'</div>'+
   CTA("/courses/hi/","🛠️ सभी कोर्स-टैब देखें →","#1565C0"))+
  sec("🎓 आगे की राह",
   P('एकेडमिक पढ़ाई (वर्ग 6 से आगे) और सरकारी/प्राइवेट नौकरी की तैयारी भी उसी कोर्स-पेज के टैबों में है — ऊपर वाले बटन से।'))+

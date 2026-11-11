@@ -6,6 +6,7 @@
    निकास: /courses/hi/bhasha/<slug>/workbook/week-NN.pdf (18) · month-N.pdf (3) · shabdkosh.pdf · index.html (download-पेज, universal-टेम्पलेट)
    PDF: Chromium (playwright, python) — build-समय; repo में PDF output (generator-निर्मित, हाथ से नहीं)। नई भाषा = WB_LANGS में एक पंक्ति। */
 const fs = require("fs"), path = require("path"), cp = require("child_process");
+const SEO = require("./lib_seo_meta.js"); /* 11-Nov-2026: title/description का एकमात्र घर */
 const ROOT = path.join(__dirname, "..");
 const VER = "1.6";   /* v1.6 (25-Oct): भाषा-नाम bhasha_register.json (ताज़ा स्प्रेडशीट) से */
 /* 02-Oct v1.4: WB_PAGES_ONLY=1 मोड — PDF न बनें (वे Releases पर हैं), सिर्फ़ download-पेज regen; आकार outDir की फ़ाइलों (असली या exact-नाप stub) से। */
@@ -179,8 +180,8 @@ function downloadPage(L, weeks, months, dictPdf, dictRows, missing) {
   const css = `<style>.wb-wrap{max-width:820px;margin:0 auto;padding:12px 14px 40px;background:#F5F7FA;color:#0B1F3A;border-radius:14px;font-size:19px;line-height:1.7}.wb-crumb{font-size:16px;color:#1565C0}.wb-crumb a{color:#1565C0;text-decoration:none}.wb-wrap h1{font-size:26px;line-height:1.35}.wb-wrap h2{font-size:22px;margin:22px 0 8px;border-left:6px solid #F9A825;padding-left:10px}.wb-lead{font-size:19px}.wb-rule{font-size:20px;background:#FFF5D6;border:3px solid #F9A825;border-radius:14px;padding:10px 14px;font-weight:700}.wb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}.wb-card{display:flex;flex-direction:column;gap:4px;background:#fff;border:2px solid #0B1F3A;border-radius:14px;padding:12px;text-decoration:none;color:#0B1F3A}.wb-ic{font-size:34px}.wb-t{font-size:20px;font-weight:800}.wb-s{font-size:16px;color:#334155}.wb-dl{margin-top:4px;font-size:18px;font-weight:800;color:#fff;background:#2E7D32;border-radius:10px;padding:8px 10px;text-align:center}.wb-note{font-size:16px;color:#334155;margin-top:14px}</style>`;
   const S = "<!-- PAGE-CONTENT-START -->", E = "<!-- PAGE-CONTENT-END -->"; const a = TPL.indexOf(S), b = TPL.indexOf(E);
   let page = TPL.slice(0, a + S.length) + "\n" + h + "\n" + TPL.slice(b);
-  const title = L.hi + " लिखो-workbook — हर दिन के वाक्य बड़े अक्षरों में + लिखने की लाइनें + साप्ताहिक शब्दकोश (मुफ़्त PDF) | अप्लाइड कंप्यूटर स्कूल";
-  const desc = L.hi + " बोलने के 90-दिन कोर्स की छपने-योग्य copy-किताबें: " + weeks.length + " साप्ताहिक + 3 महीना-वार PDF, हर वाक्य के नीचे 4 लिखने की लाइनें, हर हफ़्ते का शब्दकोश (शब्द · उच्चारण · मतलब) और पूरा शब्दकोश। छूकर download।";
+  const title = SEO.title("workbook", { hi: L.hi });
+  const desc = SEO.desc("workbook", { hi: L.hi, weeks: weeks.length });
   const url = "https://acslearn.com" + pageBase;
   page = page.replace(/<title>[\s\S]*?<\/title>/, "<title>" + esc(title) + "</title>\n<meta name=\"description\" content=\"" + esc(desc) + "\">\n<meta name=\"robots\" content=\"index, follow\">\n<link rel=\"canonical\" href=\"" + url + "\">\n<meta property=\"og:title\" content=\"" + esc(title) + "\">\n<meta property=\"og:description\" content=\"" + esc(desc) + "\">\n<meta property=\"og:url\" content=\"" + url + "\">\n<meta property=\"og:image\" content=\"https://acslearn.com/logo.png\">\n<script type=\"application/ld+json\">" + JSON.stringify({ "@context": "https://schema.org", "@type": "LearningResource", "name": L.hi + " लिखो-workbook (" + L.en + " copy-practice workbook)", "description": desc, "inLanguage": "hi", "learningResourceType": "Workbook", "isAccessibleForFree": true, "url": url, "provider": { "@type": "Organization", "name": "Applied Computer School", "url": "https://acslearn.com/" } }) + "</scr" + "ipt>");
   page = page.replace("</head>", css + "\n</head>").replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>").replace("</body>", MENU_FALLBACK_JS + "\n</body>").replace("<!DOCTYPE html>", "<!DOCTYPE html>\n<!-- ⚠️ generator से बना (build_workbook.js v" + VER + ") — हाथ से न बदलें -->");
@@ -231,4 +232,6 @@ function build(L) {
 const only = process.argv[2];
 if (only === "--list") { console.log(WB_LANGS.map(l => l.code + ":" + l.script + ":" + l.dir).join(" ")); process.exit(0); }
 WB_LANGS.filter(l => !only || l.code === only).forEach(build);
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : title/description lib_seo_meta.js से, जुड़वाँ-कोर्स canonical, reader canonical. */
+require("./build_seo_meta.js").run({ quiet: true });
 console.log("🏁 build_workbook v" + VER);

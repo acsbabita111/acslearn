@@ -4,6 +4,7 @@
    पन्ना हल्का खोल है; वाक्य/शब्द उसी भाषा की कोर्स-data (assets/kkb*_data.js) से assets/bolo-wb.js दिखाता है (एक चीज़ = एक जगह).
    हर कार्ड: 🔊 सुनो + 🎙️ बोलो (assets/acs-bolo.js) · एक पंक्ति में 2 कार्ड · अकेला बीच में · 3D रंगीन. चलाओ: node generator/build_bolo_shabd.js [slug] */
 const fs = require("fs"), path = require("path"); const ROOT = path.join(__dirname, ".."); const VER = "1.0";
+const SEO = require("./lib_seo_meta.js"); /* 11-Nov-2026: title/description का एकमात्र घर */
 const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 function loadMenu() { const src = fs.readFileSync(path.join(ROOT, "assets", "links.js"), "utf8"); const box = {}; new Function("window", src + "; window.__L = (typeof ACS_LINKS !== 'undefined') ? ACS_LINKS : null;")(box); return box.__L.menu; }
@@ -25,9 +26,9 @@ function regBox(L, t) { return '<div class="acs-reg" style="background:#F5F7FA;c
 function page(L, mode) {
   const sub = mode === "bolo" ? "bolo-workbook" : "shabdkosh", out = "courses/hi/bhasha/" + L.slug + "/" + sub + "/index.html", url = "https://acslearn.com/courses/hi/bhasha/" + L.slug + "/" + sub + "/";
   const T = mode === "bolo" ? { h: "🎙️ " + L.hi + " बोलो-वर्कबुक", s: "हर हफ़्ते के वाक्य — सुनो, साथ बोलो, फिर माइक पर बोलकर जाँचो। मोबाइल पर पढ़ो, या छापकर अभ्यास करो।",
-      title: L.hi + " बोलो-वर्कबुक — हर हफ़्ते के वाक्य सुनो और बोलो (मुफ़्त, छपने-योग्य) | अप्लाइड कंप्यूटर स्कूल", desc: L.hi + " बोलने का अभ्यास — 90-दिन कोर्स के हर हफ़्ते के वाक्य, देवनागरी उच्चारण और हिंदी अर्थ के साथ; हर वाक्य पर 🔊 सुनो और 🎙️ बोलो।" }
+      title: SEO.title("bolo", { hi: L.hi }), desc: SEO.desc("bolo", { hi: L.hi }) }
     : { h: "📖 " + L.hi + " शब्दकोश", s: "कोर्स के सब शब्द एक जगह — शब्द, देवनागरी उच्चारण और हिंदी अर्थ; हर शब्द पर सुनो और बोलो।",
-      title: L.hi + " शब्दकोश — हिंदी अर्थ और देवनागरी उच्चारण के साथ (मुफ़्त) | अप्लाइड कंप्यूटर स्कूल", desc: L.hi + " के रोज़ काम आने वाले शब्द — देवनागरी उच्चारण, हिंदी अर्थ, खोज, और हर शब्द पर 🔊 सुनो व 🎙️ बोलो।" };
+      title: SEO.title("shabd", { hi: L.hi }), desc: SEO.desc("shabd", { hi: L.hi }) };
   let h = '<div class="bw-wrap"><nav class="bw-crumb"><a href="/courses/hi/">कोर्स</a> › <a href="/courses/hi/bhasha/' + L.slug + '/">' + esc(L.hi) + ' बोलने का कोर्स</a> › ' + (mode === "bolo" ? "बोलो-वर्कबुक" : "शब्दकोश") + '</nav>';
   h += '<header class="bw-hero"><h1>' + esc(T.h) + '</h1><p>' + esc(T.s) + '</p><p class="bw-note">मूल भाषा: हिंदी।</p><button class="bw-print" onclick="window.print()">🖨️ छापें / PDF</button></header>';
   h += regBox(L, "यह मुफ़्त है, और " + L.hi + " बोलने का पूरा कोर्स भी मुफ़्त है।");
@@ -47,4 +48,4 @@ function page(L, mode) {
   fs.mkdirSync(path.dirname(path.join(ROOT, out)), { recursive: true }); fs.writeFileSync(path.join(ROOT, out), p, "utf8");
 }
 module.exports = { langs };
-if (require.main === module) { const only = process.argv[2]; const LS = langs().filter(l => !only || l.slug === only); LS.forEach(L => { page(L, "bolo"); page(L, "shabd"); }); console.log("🏁 build_bolo_shabd v" + VER + " — " + LS.length + " भाषाएँ × 2 पन्ने"); }
+if (require.main === module) { const only = process.argv[2]; const LS = langs().filter(l => !only || l.slug === only); LS.forEach(L => { page(L, "bolo"); page(L, "shabd"); }); require("./build_seo_meta.js").run({ quiet: true }); console.log("🏁 build_bolo_shabd v" + VER + " — " + LS.length + " भाषाएँ × 2 पन्ने"); }

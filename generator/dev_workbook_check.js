@@ -25,6 +25,7 @@ for (const L of langs.filter(l => !only || l.code === only)) {
   if (L.code === "en") ok(missN === 0, "शब्दकोश पूरा (मतलब-रहित शब्द शून्य)"); else console.log((missN ? "  ⚠️ " : "  ✅ ") + "शब्दकोश: मतलब-रहित " + missN + " (अर्थ-खेप बाक़ी; पेज पर ईमानदार पंक्ति)");
   { const pm = s.match(/\((\d+) शब्दों का मतलब अगली खेप में जुड़ेगा/); const pageN = pm ? +pm[1] : 0; ok(pageN === missN, "पेज की मतलब-रहित गिनती = शब्दकोश-फ़ाइल (" + pageN + "/" + missN + ")"); } /* v1.x (22-Oct): बासी "अगली खेप" पंक्ति-पहरा */
   ok(fs.readFileSync(path.join(ROOT, "courses/hi/bhasha", L.slug, "index.html"), "utf8").indexOf("/workbook/") >= 0, "बोलने-कोर्स पेज से कड़ी");
-  ok(sm.indexOf("/courses/hi/bhasha/" + L.slug + "/workbook/") >= 0, "sitemap में");
+  /* 11-Nov-2026: जुड़वाँ कोर्स (data/seo_twins.js) जान-बूझकर sitemap से बाहर है */
+  ok(sm.indexOf("/courses/hi/bhasha/" + L.slug + "/workbook/") >= 0 || !!require("./data/seo_twins.js")[L.slug], "sitemap में");
 }
 console.log(fail ? "⛔ " + fail + " जाँच फेल" : "🏁 dev_workbook_check: सब पास"); process.exit(fail ? 1 : 0);

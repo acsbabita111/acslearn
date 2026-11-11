@@ -41,7 +41,10 @@ for (const L of langs.filter(l => !only || l.code === only)) {
   ok(/application\/ld\+json/.test(s) && /LearningResource/.test(s), L.code + ": JSON-LD LearningResource");
   ok(s.indexOf('href="/courses/hi/bhasha/' + L.slug + '/"') >= 0, L.code + ": बोलने-कोर्स कड़ी");
   const gmiss = all.filter(x => !G.glyphs[x.u] || (x.l && !G.glyphs[x.l])); ok(gmiss.length === 0, L.code + ": glyph-outline सब" + (gmiss.length ? " — नहीं: " + gmiss.map(x => x.u).join(",") : ""));
-  ok(!sm || sm.indexOf("/courses/hi/bhasha/" + L.slug + "/lipi/") >= 0, L.code + ": sitemap में");
+  /* 11-Nov-2026: जुड़वाँ कोर्स (data/seo_twins.js) जान-बूझकर sitemap से बाहर है; उसका canonical मुख्य कोर्स पर होना चाहिए */
+  { const TW = require("./data/seo_twins.js");
+    if (TW[L.slug]) ok(fs.readFileSync(path.join(ROOT, "courses/hi/bhasha", L.slug, "lipi/index.html"), "utf8").indexOf('<link rel="canonical" href="https://acslearn.com/courses/hi/bhasha/' + TW[L.slug] + '/lipi/">') >= 0, L.code + ": जुड़वाँ का canonical मुख्य कोर्स पर नहीं");
+    else ok(!sm || sm.indexOf("/courses/hi/bhasha/" + L.slug + "/lipi/") >= 0, L.code + ": sitemap में"); }
   ok(fs.readFileSync(path.join(ROOT, "courses/hi/bhasha", L.slug, "index.html"), "utf8").indexOf("/lipi/") >= 0, L.code + ": कोर्स-पेज से लिपि-कड़ी");
 }
 console.log((fail ? "⛔ " + fail + " जाँच फेल" : "🏁 dev_lipi_check v2.0: सब पास") + " · ✅ " + pass + " जाँचें");

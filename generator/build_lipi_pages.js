@@ -8,6 +8,7 @@
    नियम: कक्षा-6 भाषा · ≥16px · गोल-bracket · मूल भाषा: हिंदी · मूल→अंग्रेज़ी→बाक़ी (data भाषा-वार) · SVG रेखा-चित्र (AI-फ़ोटो कभी नहीं) · check-robot fail = पेज नहीं बनता
    नई भाषा जोड़ना = LIPI_LANGS में एक पंक्ति (+ उस लिपि का base/glyph, अगर नई लिपि हो)। */
 const fs = require("fs"), path = require("path");
+const SEO = require("./lib_seo_meta.js"); /* 11-Nov-2026: title/description का एकमात्र घर */
 const ROOT = path.join(__dirname, "..");
 const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
 const VER = "2.0";
@@ -316,8 +317,8 @@ function build(L) {
   const S = "<!-- PAGE-CONTENT-START -->", E = "<!-- PAGE-CONTENT-END -->";
   const a = TPL.indexOf(S), b = TPL.indexOf(E); if (a < 0 || b < 0) throw new Error("_TEMPLATE.html में PAGE-CONTENT निशान नहीं");
   let page = TPL.slice(0, a + S.length) + "\n" + html + "\n" + TPL.slice(b);
-  const title = L.hi + " की वर्णमाला पहली बार — अक्षर, आवाज़, लिखने का अभ्यास (" + L.en + " Alphabet Workbook, मुफ़्त, छपने-योग्य) | अप्लाइड कंप्यूटर स्कूल";
-  const desc = "5वीं तक हिंदी पढ़े वयस्क के लिए " + L.hi + " की लिपि का पहला परिचय — " + count + " अक्षर, देवनागरी में नाम और आवाज़, बिंदुदार लिखाई-अभ्यास, अंक, उलझन-जोड़ियाँ, 15-दिन योजना। मुफ़्त, A4 पर छापने योग्य।";
+  const title = SEO.title("lipi", { hi: L.hi, en: L.en });
+  const desc = SEO.desc("lipi", { hi: L.hi, en: L.en, count: count });
   const url = "https://acslearn.com/courses/hi/bhasha/" + L.slug + "/lipi/";
   const ld = JSON.stringify([{ "@context": "https://schema.org", "@type": "LearningResource", "name": L.hi + " वर्णमाला workbook (" + L.en + " Alphabet Workbook)", "description": desc, "inLanguage": "hi", "learningResourceType": "Workbook", "educationalLevel": "Beginner", "isAccessibleForFree": true, "url": url, "provider": { "@type": "Organization", "name": "Applied Computer School", "url": "https://acslearn.com/" }, "isPartOf": { "@type": "Course", "name": "ACS Certificate in Spoken " + L.en, "url": "https://acslearn.com/courses/hi/bhasha/" + L.slug + "/" } },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "होम", "item": "https://acslearn.com/" }, { "@type": "ListItem", "position": 2, "name": "कोर्स", "item": "https://acslearn.com/courses/hi/" }, { "@type": "ListItem", "position": 3, "name": L.hi + " बोलने का कोर्स", "item": "https://acslearn.com/courses/hi/bhasha/" + L.slug + "/" }, { "@type": "ListItem", "position": 4, "name": "लिपि-परिचय", "item": url }] }]);
@@ -336,5 +337,7 @@ if (require.main === module) {
   const only = process.argv[2];
   /* नियम-2 (byte-बराबरी): en का live-पन्ना कभी दोबारा नहीं बनता (अभ्यास-शफ़ल random है) — सिर्फ़ साफ़ माँग (node ... en) पर */
   LIPI_LANGS.filter(l => (only ? l.code === only : l.code !== "en")).forEach(build);
+  /* 11-Nov-2026 (SEO): अंतिम SEO-परत : title/description lib_seo_meta.js से, जुड़वाँ-कोर्स canonical, reader canonical. */
+  require("./build_seo_meta.js").run({ quiet: true });
   console.log("🏁 build_lipi_pages v" + VER + " — सूची में " + LIPI_LANGS.length + " भाषा (en समेत)");
 }

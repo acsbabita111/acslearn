@@ -26,6 +26,10 @@ if (sh("git status --porcelain").trim()) { console.log("⛔ git-पेड़ स
 const PIPES = [
   { name: "विशेष पेज (build_specials)", cmds: ["build_specials.js"], expect: "zero" },
   { name: "sitemap (build_sitemap)", cmds: ["build_sitemap.js"], expect: "zero" },
+  /* 11-Nov-2026: भाषा-परिवार की अंतिम SEO-परत (title/description lib_seo_meta.js से, जुड़वाँ व reader canonical) */
+  { name: "SEO-परत (build_seo_meta)", cmds: ["build_seo_meta.js"], expect: "zero" },
+  { name: "बोलो-वर्कबुक + शब्दकोश (build_bolo_shabd)", cmds: ["build_bolo_shabd.js"], expect: "debt",
+    note: "11-Nov दर्ज क़र्ज़: संथाली के 2 पेज generator से अलग बनते हैं (ओल-चिकी दौर के बाद); बाक़ी 830 पेज बराबर" },
   { name: "भाषा-होम (build_mirror_homes)", cmds: ["build_mirror_homes.js"], expect: "zero" },
   { name: "career-हिंदी (landing4 → patch_career_hi)", cmds: ["build_landing4.js", "patch_career_hi.js"], expect: "zero" },
   /* रजिस्टर की हर भाषा का career-पेज (en + mirror-data की कुंजियाँ) */

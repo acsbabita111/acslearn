@@ -15,7 +15,10 @@ for (const s of slugs) {
   ok(!/[\[\]]/.test(vis), s + ": square bracket"); ok(!(b.match(/font(?:-size)?\s*:\s*0*([0-9]|1[0-5])px/gi) || []).length, s + ": <16px");
   ok(/मूल भाषा: हिंदी/.test(b) && /Original language: Hindi/.test(b), s + ": मूल-भाषा निशान");
   ok(/जानकारी जाँची: सितंबर 2026/.test(b), s + ": जाँची-तारीख़"); ok(/गारंटी नहीं/.test(b) && /does not guarantee/.test(b), s + ": ईमानदारी-पंक्ति");
-  ok(sm.indexOf("/courses/hi/bhasha/" + s + "/brief/") >= 0, s + ": sitemap में brief नहीं");
+  /* 11-Nov-2026: जुड़वाँ कोर्स (data/seo_twins.js) जान-बूझकर sitemap से बाहर है; उसका canonical मुख्य कोर्स पर होना चाहिए */
+  { const TW = require("./data/seo_twins.js");
+    if (TW[s]) ok(fs.readFileSync(path.join(ROOT, "courses/hi/bhasha", s, "brief/index.html"), "utf8").indexOf('<link rel="canonical" href="https://acslearn.com/courses/hi/bhasha/' + TW[s] + '/brief/">') >= 0, s + ": जुड़वाँ का canonical मुख्य कोर्स पर नहीं");
+    else ok(sm.indexOf("/courses/hi/bhasha/" + s + "/brief/") >= 0, s + ": sitemap में brief नहीं"); }
   const c = fs.readFileSync(path.join(ROOT, "courses/hi/bhasha", s, "index.html"), "utf8");
   ok(c.indexOf('/brief/"') >= 0 && c.indexOf("KKB2_META") >= 0 && c.indexOf("/assets/kkb_cando.js") >= 0, s + ": course-पेज पर meta/cando/brief-कड़ी नहीं");
 }

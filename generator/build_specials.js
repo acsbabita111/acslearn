@@ -86,6 +86,7 @@
    ============================================================ */
 "use strict";
 const fs = require("fs");
+const SEO_META = require("./lib_seo_meta.js"); /* 11-Nov-2026: भाषा-कोर्स title/description का एकमात्र घर */
 const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
@@ -3492,16 +3493,16 @@ KKB2_LANGS.forEach(c => {
 console.log("✅ भाषा-सूची: " + KKB2_LANGS.length + " कोर्स-भाषाएँ, सब रजिस्टर में (" + BHASHA_REG.source.split(" ·")[0] + ", " + BHASHA_REG.count + " भाषा)");
 KKB2_LANGS.forEach(c => buildSpecial({
   out: "courses/hi/bhasha/" + c.slug + "/brief/index.html", langStrict: false,
-  title: c.hi_name + " बोलने का प्रमाणपत्र कोर्स — एक-पन्ना परिचय (ACS Certificate in Spoken " + c.en_name + " — Brief for embassies & employers) | अप्लाइड कंप्यूटर स्कूल",
-  desc: c.hi_name + " (" + c.en_name + ") के 90-दिन, 2,150-वाक्य बोलने-कोर्स का एक-पन्ना परिचय: स्तर (CEFR A1–A2 पर आधारित), 72 Can-do कथन, परीक्षा 40/40/40, प्रमाणपत्र, रोजगार-देश व दूतावास, संस्था — हिंदी और English।",
+  title: SEO_META.title("brief", { hi: c.hi_name, en: c.en_name }),
+  desc: SEO_META.desc("brief", { hi: c.hi_name, en: c.en_name }),
   head: [BRIEF_CSS],
   jsonld: [{ "@context": "https://schema.org", "@type": "WebPage", "name": "ACS Certificate in Spoken " + c.en_name + " — brief", "inLanguage": ["hi", "en"], "isPartOf": { "@type": "Course", "name": "ACS Certificate in Spoken " + c.en_name, "url": "https://acslearn.com/courses/hi/bhasha/" + c.slug + "/" }, "publisher": { "@type": "Organization", "name": "Applied Computer School", "url": "https://acslearn.com/" } }],
   foot: [], content: briefContent(c)
 }));
 KKB2_LANGS.forEach(c => buildSpecial({
   out: "courses/hi/bhasha/" + c.slug + "/index.html", langStrict: false,
-  title: "ACS Certificate in Spoken " + c.en_name + " — " + c.hi_name + " बोलने का पूरा कोर्स (90 दिन, 2,150 वाक्य, CEFR A2 पर आधारित) | अप्लाइड कंप्यूटर स्कूल",
-  desc: c.hi_name + " बोलने का पूरा मुफ़्त कोर्स — 90 दिन, 3 महीने, 2,150 वाक्य असली लिपि + देवनागरी उच्चारण, हिंदी अर्थ और आवाज़ के साथ। स्तर 1+2 एक साथ; CEFR A2 पर आधारित। 5वीं पास भी आज से बोले।",
+  title: SEO_META.title("root", { hi: c.hi_name, en: c.en_name }),
+  desc: SEO_META.desc("root", { hi: c.hi_name, en: c.en_name }),
   head: ['<link rel="stylesheet" href="/assets/kkb2.css">', KKB_BELOW_CSS],
   /* 13-Sep SEO: schema.org Course + BreadcrumbList (Google Course rich-result: name/description/provider अनिवार्य) — दावे सिर्फ़ दर्ज तथ्य: मुफ़्त, 90 दिन, 2,150 वाक्य, "CEFR A2 पर आधारित" */
   jsonld: [
@@ -3562,3 +3563,5 @@ buildSpecial({
     '<a href="/contact/hi/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#F5F7FA;color:#0B1F3A;text-decoration:none">📞 संपर्क</a>' +
     '</div><p style="font-size:16px;color:#F5F7FA;opacity:.85">मूल भाषा: हिंदी</p></section>'
 });
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : title/description lib_seo_meta.js से, जुड़वाँ-कोर्स canonical, reader canonical. */
+require("./build_seo_meta.js").run({ quiet: true });
