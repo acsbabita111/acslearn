@@ -1,0 +1,4172 @@
+{
+ "q1140": {
+  "en_hash": "f7ecf54b4ca7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1150": {
+  "en_hash": "4268fe658a9e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1160": {
+  "en_hash": "90bcd47d114f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1170": {
+  "en_hash": "7ed6c80d090f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1180": {
+  "en_hash": "8b033821898e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1141": {
+  "en_hash": "5f06d4f03e93",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1151": {
+  "en_hash": "005730721aa8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1161": {
+  "en_hash": "9a0c92695373",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1171": {
+  "en_hash": "d4517acf9636",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q571": {
+  "en_hash": "335e22b88ab2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1181": {
+  "en_hash": "6f795fc5d347",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q702": {
+  "en_hash": "2e1b7bca5c86",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q522": {
+  "en_hash": "9409ad11c50d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1142": {
+  "en_hash": "f42bcd7aba6c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1152": {
+  "en_hash": "408026f1c38e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1162": {
+  "en_hash": "493096d109a9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1172": {
+  "en_hash": "eed561ec286f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q703": {
+  "en_hash": "91786dc4e390",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1143": {
+  "en_hash": "ff19a4bbc270",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1153": {
+  "en_hash": "287882e76b64",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q553": {
+  "en_hash": "62d6e2d62416",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1163": {
+  "en_hash": "69e723faa27e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1173": {
+  "en_hash": "8137d568f0cb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q704": {
+  "en_hash": "0cd62a1cf606",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1144": {
+  "en_hash": "03076dd31cce",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1154": {
+  "en_hash": "3a7f9d119884",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q1164": {
+  "en_hash": "dab05dda7ed8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1174": {
+  "en_hash": "fea4bd4acff2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q705": {
+  "en_hash": "01f9479e976b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1145": {
+  "en_hash": "3fcd531ba74d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1155": {
+  "en_hash": "ee8efcfa66e4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1165": {
+  "en_hash": "bc8f9983a55e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1175": {
+  "en_hash": "b36d561b3885",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q706": {
+  "en_hash": "1d44f54a4c5b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q816": {
+  "en_hash": "5fcbb671ee94",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1146": {
+  "en_hash": "35d6d66e06b4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1156": {
+  "en_hash": "97133920faca",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1166": {
+  "en_hash": "3c1a8b442ad7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1176": {
+  "en_hash": "1960c8a9aca3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q707": {
+  "en_hash": "6277d6f84c31",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q817": {
+  "en_hash": "4cff65cc8285",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1147": {
+  "en_hash": "b2a44caf8bc5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1157": {
+  "en_hash": "f3335432532b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1167": {
+  "en_hash": "40dacd33a8be",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1177": {
+  "en_hash": "ae3fce35882f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q708": {
+  "en_hash": "398a4d776452",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q818": {
+  "en_hash": "5635147f7540",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1148": {
+  "en_hash": "3c536d3059f5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1158": {
+  "en_hash": "796d982ae11d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1168": {
+  "en_hash": "5f6a556b7e8c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1178": {
+  "en_hash": "722194b25548",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1139": {
+  "en_hash": "994f2cdcc8d4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1149": {
+  "en_hash": "f0b487e90be9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1159": {
+  "en_hash": "94a853d2b950",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1169": {
+  "en_hash": "04c0e54a0be4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q1179": {
+  "en_hash": "b7e94b3be1df",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2089": {
+  "en_hash": "ef9a73281c26",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2090": {
+  "en_hash": "84f6f3608b66",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2091": {
+  "en_hash": "a4056172d8a4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2092": {
+  "en_hash": "8887905f2c16",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2093": {
+  "en_hash": "b2f2525a4176",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2094": {
+  "en_hash": "efde40b2839a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2095": {
+  "en_hash": "2d4262dc7fca",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2096": {
+  "en_hash": "aa398e0d5b67",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2097": {
+  "en_hash": "267e3ec6df2b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2098": {
+  "en_hash": "ea84da6aee65",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2099": {
+  "en_hash": "bcfab7348303",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2100": {
+  "en_hash": "87829d1d58b0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2101": {
+  "en_hash": "cf81bfacee68",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2102": {
+  "en_hash": "fc9edd6def85",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2103": {
+  "en_hash": "ff8f6955b82c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2104": {
+  "en_hash": "459919279723",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2105": {
+  "en_hash": "99852650ccc1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2106": {
+  "en_hash": "2102b9eb10ef",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2107": {
+  "en_hash": "a4c2440832ca",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2108": {
+  "en_hash": "b5c1a1c2673f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2109": {
+  "en_hash": "8110c06f27b6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2110": {
+  "en_hash": "e859fb2883b1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2111": {
+  "en_hash": "2b9487baf777",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2112": {
+  "en_hash": "bb97396be8c7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2113": {
+  "en_hash": "9ffe8765b3e6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2114": {
+  "en_hash": "5d6d4fa6b790",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2115": {
+  "en_hash": "7f7c0a95ab32",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2116": {
+  "en_hash": "733c8876cc68",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2117": {
+  "en_hash": "8179f1646f94",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2118": {
+  "en_hash": "491060832a83",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2119": {
+  "en_hash": "dd98b4659997",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2120": {
+  "en_hash": "8324651edc88",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2121": {
+  "en_hash": "5d680f7fbd9c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2122": {
+  "en_hash": "6a6216aa34e9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2123": {
+  "en_hash": "49870213e6c5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2124": {
+  "en_hash": "b57492f2e7de",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2125": {
+  "en_hash": "4877af281c3a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2126": {
+  "en_hash": "e2fe4418a5e1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2127": {
+  "en_hash": "97fb64721899",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2128": {
+  "en_hash": "2412b9bc0562",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2129": {
+  "en_hash": "0984efa83e29",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2130": {
+  "en_hash": "fdf3ae991322",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q2131": {
+  "en_hash": "161e6092c6c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3039": {
+  "en_hash": "d39759bed54f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3040": {
+  "en_hash": "f2cc1f362d91",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3041": {
+  "en_hash": "0c89f6c69da0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3042": {
+  "en_hash": "51f02fe8d203",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3043": {
+  "en_hash": "c81314964f7b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3044": {
+  "en_hash": "1e112f70bc49",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3045": {
+  "en_hash": "32e8f8ff4372",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3046": {
+  "en_hash": "14c941112144",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3047": {
+  "en_hash": "37844617fdf1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3048": {
+  "en_hash": "0a6ccfe06114",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3049": {
+  "en_hash": "e7e6c1f89749",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3050": {
+  "en_hash": "9068d0a61e32",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3051": {
+  "en_hash": "a4731eccd7ae",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3052": {
+  "en_hash": "b5c92ed25e0f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3053": {
+  "en_hash": "25d411fadaeb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3054": {
+  "en_hash": "6ae489444d93",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3055": {
+  "en_hash": "ab7c998e9c21",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3056": {
+  "en_hash": "ed37af7c3f7a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3057": {
+  "en_hash": "82023f14f153",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3058": {
+  "en_hash": "e2c0ae9e877d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3059": {
+  "en_hash": "684652ef5271",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3060": {
+  "en_hash": "a8a23aa7fd36",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3061": {
+  "en_hash": "ed440e4178b9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3062": {
+  "en_hash": "96bbf7ceb754",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3063": {
+  "en_hash": "d4ad6d0585b1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3064": {
+  "en_hash": "ed94439a1e6b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3065": {
+  "en_hash": "a452cf53d578",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3066": {
+  "en_hash": "9d1fffb70884",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3067": {
+  "en_hash": "082e2c04de72",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3068": {
+  "en_hash": "1652c602f5ff",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3069": {
+  "en_hash": "504118b16c27",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3070": {
+  "en_hash": "7a5ef7fa2cdd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3071": {
+  "en_hash": "3aad1672c7f8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3072": {
+  "en_hash": "38906ddd9a3c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3073": {
+  "en_hash": "2c99ed3844fc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3074": {
+  "en_hash": "947a8b7a0ab3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3075": {
+  "en_hash": "3bb7ffa694f9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3076": {
+  "en_hash": "f9b27e94a0b4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3077": {
+  "en_hash": "eee0c07b8daa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3078": {
+  "en_hash": "153f1f0671fd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3079": {
+  "en_hash": "ef2ab923d226",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3080": {
+  "en_hash": "4de8f5e739cb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3081": {
+  "en_hash": "f37b7628f97a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3989": {
+  "en_hash": "9989b829e22a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3990": {
+  "en_hash": "963cddd37a16",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3991": {
+  "en_hash": "e148bc6fd82c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3992": {
+  "en_hash": "71cf30679cda",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3993": {
+  "en_hash": "ee077fddf27b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3994": {
+  "en_hash": "8a05dc2a021d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3995": {
+  "en_hash": "f697c0ace583",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3996": {
+  "en_hash": "b6375abd4ae1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3997": {
+  "en_hash": "e33507eb3c17",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3998": {
+  "en_hash": "d8b56e4fde2d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q3999": {
+  "en_hash": "bf64477977ce",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4000": {
+  "en_hash": "4a66cd00df38",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4001": {
+  "en_hash": "dbc5bf76cb84",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4002": {
+  "en_hash": "14f762a7ac75",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4003": {
+  "en_hash": "03a25d64eb15",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4004": {
+  "en_hash": "e61b7e8c3c18",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4005": {
+  "en_hash": "c98238c4a995",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4006": {
+  "en_hash": "21df50f0f122",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4007": {
+  "en_hash": "f5c3bdd52a96",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4008": {
+  "en_hash": "dd937cd49007",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4009": {
+  "en_hash": "0db5dca6e6da",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4010": {
+  "en_hash": "546e36da396b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4011": {
+  "en_hash": "3cf40cea9274",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4012": {
+  "en_hash": "f528bd1dd009",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4013": {
+  "en_hash": "76641abfbddb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4014": {
+  "en_hash": "1353be0e1f73",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4015": {
+  "en_hash": "2a37df6a1c4c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4016": {
+  "en_hash": "f480d994c585",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4017": {
+  "en_hash": "d2fbb319ff39",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4018": {
+  "en_hash": "4b8bc6bb7647",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4019": {
+  "en_hash": "fe76dc846c42",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4020": {
+  "en_hash": "201444a26162",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4021": {
+  "en_hash": "25002c37fe50",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4022": {
+  "en_hash": "488b1edb0e27",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4023": {
+  "en_hash": "5c416bcf1363",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4024": {
+  "en_hash": "2616a54ea733",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4025": {
+  "en_hash": "03f6542e4df4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4026": {
+  "en_hash": "8e0dd8a20e60",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4027": {
+  "en_hash": "7be80cecf4c0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4028": {
+  "en_hash": "d0dadd29b5c3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4029": {
+  "en_hash": "b918734cbc2b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4030": {
+  "en_hash": "0bc5d34f3913",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4031": {
+  "en_hash": "8c95003f7f48",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4939": {
+  "en_hash": "a7f84df4d694",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4940": {
+  "en_hash": "477dfffdb173",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4941": {
+  "en_hash": "4eabaf0a5d5e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4942": {
+  "en_hash": "6a9a0ac49468",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4943": {
+  "en_hash": "d9a645c91eee",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4944": {
+  "en_hash": "4d03f3eea3c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4945": {
+  "en_hash": "1dabfa7c3632",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4946": {
+  "en_hash": "28b07b98c6cf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4947": {
+  "en_hash": "dbebf8878dc4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4948": {
+  "en_hash": "22c671e5938b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4949": {
+  "en_hash": "e55bfd1ea8f0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4950": {
+  "en_hash": "edd027a8a05e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4951": {
+  "en_hash": "c7ffe6851f5f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4952": {
+  "en_hash": "313e7c8c723a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4953": {
+  "en_hash": "9b8ae8453fda",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4954": {
+  "en_hash": "bb3039c146a1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4955": {
+  "en_hash": "e324ecc3d00e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4956": {
+  "en_hash": "9e57be7ed5f0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4957": {
+  "en_hash": "4415d5fa5653",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4958": {
+  "en_hash": "faf261f993a4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4959": {
+  "en_hash": "32e6d86fd4f5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4960": {
+  "en_hash": "2c85609699f8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4961": {
+  "en_hash": "08833832e103",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4962": {
+  "en_hash": "0df4403493fe",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4963": {
+  "en_hash": "3b0bec8be688",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4964": {
+  "en_hash": "ba865cfa25cd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4965": {
+  "en_hash": "15ba0c419489",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4966": {
+  "en_hash": "ec535434bf03",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4967": {
+  "en_hash": "998819ca1a3f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4968": {
+  "en_hash": "da0b1591e80f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4969": {
+  "en_hash": "58be0b0ac59e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4970": {
+  "en_hash": "2ecd8f39fc72",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4971": {
+  "en_hash": "405fbf343d4c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4972": {
+  "en_hash": "887fb8d60972",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4973": {
+  "en_hash": "2543ea274ca0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4974": {
+  "en_hash": "b9ca7c36f008",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4975": {
+  "en_hash": "1ca47b7827af",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4976": {
+  "en_hash": "588c18fbdc80",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4977": {
+  "en_hash": "3fba74a972b4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4978": {
+  "en_hash": "edd38ebb17ea",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4979": {
+  "en_hash": "1c97066828a7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4980": {
+  "en_hash": "2bc78d9e4173",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q4981": {
+  "en_hash": "c258420973ab",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5889": {
+  "en_hash": "8071c43ce335",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5890": {
+  "en_hash": "2cd23a573b2b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5891": {
+  "en_hash": "47c2ba765bff",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5892": {
+  "en_hash": "b6cac8d59c0e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5893": {
+  "en_hash": "b973ca755d66",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5894": {
+  "en_hash": "5ac34b6ab9a0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5895": {
+  "en_hash": "6a6e098088b6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5896": {
+  "en_hash": "e5c17e7bea1c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5897": {
+  "en_hash": "a8babd28183d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5898": {
+  "en_hash": "0d45a0491a61",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5899": {
+  "en_hash": "85d335460147",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5900": {
+  "en_hash": "a8a8333b50d8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5901": {
+  "en_hash": "8d2b38fee32d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5902": {
+  "en_hash": "fd5501da94eb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5903": {
+  "en_hash": "c38982a5954d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5904": {
+  "en_hash": "772f58dc2eed",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5905": {
+  "en_hash": "a4dc029d4bc6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5906": {
+  "en_hash": "30e54782b414",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5907": {
+  "en_hash": "da165df9eba2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5908": {
+  "en_hash": "46818391656b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5909": {
+  "en_hash": "a128c4d01578",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5910": {
+  "en_hash": "4e38051e3590",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5911": {
+  "en_hash": "17027868045a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5912": {
+  "en_hash": "0f5eada097c8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5913": {
+  "en_hash": "37a817c2b8de",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5914": {
+  "en_hash": "edfe3120cdab",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5915": {
+  "en_hash": "178d0553d92e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5916": {
+  "en_hash": "a4e6581404ce",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5917": {
+  "en_hash": "4d0582ba47f9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5918": {
+  "en_hash": "20fdc227553c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5919": {
+  "en_hash": "3dd13547196e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5920": {
+  "en_hash": "cc5d9571a68d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5921": {
+  "en_hash": "c878cb7ab67c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5922": {
+  "en_hash": "1c110827ec83",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5923": {
+  "en_hash": "0105f4ff6ed2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5924": {
+  "en_hash": "66dd5b91bb20",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5925": {
+  "en_hash": "455ca2f57b51",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5926": {
+  "en_hash": "1068c825b469",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5927": {
+  "en_hash": "a5a828b1b5d3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5928": {
+  "en_hash": "3fa7ed43b6ce",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5929": {
+  "en_hash": "0fb0803807e2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q5930": {
+  "en_hash": "13f35bd29aa0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q5931": {
+  "en_hash": "d40c97e2af89",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6839": {
+  "en_hash": "5aca8788dbc3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6840": {
+  "en_hash": "fc5e0ef417cb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6841": {
+  "en_hash": "4ddb5f15adbc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6842": {
+  "en_hash": "a62472f27bd6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6843": {
+  "en_hash": "d08aac1106c0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6844": {
+  "en_hash": "fa9c4ac660cf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6845": {
+  "en_hash": "df7b03d6eeed",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6846": {
+  "en_hash": "066f845108ed",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6847": {
+  "en_hash": "34ea8149a909",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6848": {
+  "en_hash": "11acac82e978",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6849": {
+  "en_hash": "1b6364d19edf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6850": {
+  "en_hash": "424f9e5c0d6c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6851": {
+  "en_hash": "93752b8be3dd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6852": {
+  "en_hash": "d58d973522a6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6853": {
+  "en_hash": "df13a4f131f7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6854": {
+  "en_hash": "d0f9e0ba26ba",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6855": {
+  "en_hash": "dfa0af8aa683",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6856": {
+  "en_hash": "08fdbb1b4391",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6857": {
+  "en_hash": "353487c07d45",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6858": {
+  "en_hash": "be1b6f8e18c7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6859": {
+  "en_hash": "83396babb594",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6860": {
+  "en_hash": "07ddd9de1c3a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6861": {
+  "en_hash": "55f917f88582",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6862": {
+  "en_hash": "864343f2ea2e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6863": {
+  "en_hash": "ba89a318f880",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6864": {
+  "en_hash": "96f4da7acef0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6865": {
+  "en_hash": "d8fb021c6d1e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6866": {
+  "en_hash": "3d4453ff8f6a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6867": {
+  "en_hash": "8e2a43c82c24",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6868": {
+  "en_hash": "02427c6ea455",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6869": {
+  "en_hash": "310f33f74cd9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6870": {
+  "en_hash": "82d2a9d7e566",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6871": {
+  "en_hash": "cb5f17a753bc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6872": {
+  "en_hash": "4ff1772d48e6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6873": {
+  "en_hash": "31b4f6c389e7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6874": {
+  "en_hash": "c3f6e3c1bcb0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6875": {
+  "en_hash": "10095ccbefda",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6876": {
+  "en_hash": "6142553387df",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6877": {
+  "en_hash": "174b91eba6d7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6878": {
+  "en_hash": "770eeb6860d5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6879": {
+  "en_hash": "a579ef974f7b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6880": {
+  "en_hash": "23f8b039a789",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q6881": {
+  "en_hash": "7c90915f14cc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7789": {
+  "en_hash": "7716a1bcd2bf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7790": {
+  "en_hash": "5fa1fdccfa6b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7791": {
+  "en_hash": "72f2d9353a07",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7792": {
+  "en_hash": "44b35b0b5429",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7793": {
+  "en_hash": "d91047517b04",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7794": {
+  "en_hash": "6ce2bf57c355",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7795": {
+  "en_hash": "92685a9d4be2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7796": {
+  "en_hash": "1f826996d7e6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7797": {
+  "en_hash": "1e3c6ae1c70e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7798": {
+  "en_hash": "5bf582ed3ca2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7799": {
+  "en_hash": "403cd23a16a3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7800": {
+  "en_hash": "301719fb83aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7801": {
+  "en_hash": "4a5c816975d6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7802": {
+  "en_hash": "3d3a48160684",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7803": {
+  "en_hash": "8084ba7b06a3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7804": {
+  "en_hash": "1918d9c2e753",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7805": {
+  "en_hash": "a4302ec29594",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7806": {
+  "en_hash": "326c36c4c10f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7807": {
+  "en_hash": "99c6137b2694",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7808": {
+  "en_hash": "ea7be4ce37fa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7809": {
+  "en_hash": "d6efa533b249",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7810": {
+  "en_hash": "f33789295ab1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7811": {
+  "en_hash": "40a80f885122",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7812": {
+  "en_hash": "5eb8c3166485",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7813": {
+  "en_hash": "fdab6fada9f2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7814": {
+  "en_hash": "a61208066853",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7815": {
+  "en_hash": "1909c48756e2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7816": {
+  "en_hash": "bbbac1d13165",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7817": {
+  "en_hash": "c9301087d1d9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7818": {
+  "en_hash": "3add2c76bfc4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7819": {
+  "en_hash": "1b545891d0d6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7820": {
+  "en_hash": "75d2a04b9ed9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7821": {
+  "en_hash": "67bce3ac8d1f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7822": {
+  "en_hash": "c85a99e359cb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7823": {
+  "en_hash": "ce6acbd1e910",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7824": {
+  "en_hash": "69ef78c43fd7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7825": {
+  "en_hash": "018b05146540",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7826": {
+  "en_hash": "279006f3fa35",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7827": {
+  "en_hash": "3aa7730aa947",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7828": {
+  "en_hash": "5aac7a6ae82e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7829": {
+  "en_hash": "9a779d695cc1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7830": {
+  "en_hash": "ac1e02ff9484",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q7831": {
+  "en_hash": "a0e7eb1063f2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8739": {
+  "en_hash": "53ecc84f9221",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8740": {
+  "en_hash": "72630023484e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8741": {
+  "en_hash": "5cadca8e47b7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8742": {
+  "en_hash": "41b2ef68618d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8743": {
+  "en_hash": "01c60bd9458e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8744": {
+  "en_hash": "3ffbcc17fbb6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8745": {
+  "en_hash": "ed5f5d08ee9d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8746": {
+  "en_hash": "478e497ff9e2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8747": {
+  "en_hash": "606a3f48eab8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8748": {
+  "en_hash": "7fcbc29f3e5d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8749": {
+  "en_hash": "fb13ae16703a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8750": {
+  "en_hash": "b6a40877d71a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8751": {
+  "en_hash": "4a4e4dad5388",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8752": {
+  "en_hash": "4224a628be7d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8753": {
+  "en_hash": "0fe420d74c7a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8754": {
+  "en_hash": "a918fddcb529",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8755": {
+  "en_hash": "5c7426ad7fc0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8756": {
+  "en_hash": "d83fd02483cf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8757": {
+  "en_hash": "6ad6bb048023",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8758": {
+  "en_hash": "3472e5c0a1ef",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8759": {
+  "en_hash": "f7f59a918238",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8760": {
+  "en_hash": "cfec6d2f63d6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8761": {
+  "en_hash": "1ede43b887fb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8762": {
+  "en_hash": "6d8874cf44bf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8763": {
+  "en_hash": "c0aa349122cb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8764": {
+  "en_hash": "c58885f50ae2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8765": {
+  "en_hash": "a9a227e7f3cc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8766": {
+  "en_hash": "dbb04a06885e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8767": {
+  "en_hash": "81e0e097e3e0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8768": {
+  "en_hash": "d03716898067",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8769": {
+  "en_hash": "a01884efa6b8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8770": {
+  "en_hash": "d5065d97d4c9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8771": {
+  "en_hash": "fb9b372c43d2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8772": {
+  "en_hash": "0dc8cb5a2219",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8773": {
+  "en_hash": "0c723d4c126e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8774": {
+  "en_hash": "69bf2f85a6e7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8775": {
+  "en_hash": "4c21ce6f18d0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8776": {
+  "en_hash": "1500f9676090",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8777": {
+  "en_hash": "061d98e9dff2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8778": {
+  "en_hash": "5208d2d1efa8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8779": {
+  "en_hash": "5779f551c66c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8780": {
+  "en_hash": "4e072ff17968",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q8781": {
+  "en_hash": "52a538c6864f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9689": {
+  "en_hash": "74a0b8034de9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9690": {
+  "en_hash": "6fa9b3190bf4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9691": {
+  "en_hash": "1a3e81367a05",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9692": {
+  "en_hash": "f9507f1fbd98",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9693": {
+  "en_hash": "e0ed04565725",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9694": {
+  "en_hash": "d4d668b76bdd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9695": {
+  "en_hash": "8307031a3ffc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9696": {
+  "en_hash": "1e7de32d995b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9697": {
+  "en_hash": "fafd5026bc2f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9698": {
+  "en_hash": "9fd3b177bc3c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9699": {
+  "en_hash": "9289f93ef03d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9700": {
+  "en_hash": "ff26809bd796",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9701": {
+  "en_hash": "b20587468b60",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9702": {
+  "en_hash": "9fa4e5b5a124",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9703": {
+  "en_hash": "fccaaf2b6994",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9704": {
+  "en_hash": "6fd73b57d094",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9705": {
+  "en_hash": "5552bba75efe",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9706": {
+  "en_hash": "a0248c4a3a71",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9707": {
+  "en_hash": "d5ce2ccb9e0e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9708": {
+  "en_hash": "537ad9fc712b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9709": {
+  "en_hash": "069b90552011",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9710": {
+  "en_hash": "6f91eb37db3c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9711": {
+  "en_hash": "c609280207aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9712": {
+  "en_hash": "80ae3543095f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9713": {
+  "en_hash": "03ee5e89d762",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9714": {
+  "en_hash": "9065c876937d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9715": {
+  "en_hash": "f59151328d38",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9716": {
+  "en_hash": "1b68c0502f21",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9717": {
+  "en_hash": "6c5de9615836",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9718": {
+  "en_hash": "4893f3c453eb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9719": {
+  "en_hash": "4447ad998056",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9720": {
+  "en_hash": "3ea6cfb1cdd8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9721": {
+  "en_hash": "7000a8f61866",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9722": {
+  "en_hash": "1fcceed6336d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9723": {
+  "en_hash": "1b08b6c04878",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9724": {
+  "en_hash": "43c7da50e22e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9725": {
+  "en_hash": "9e2ba210b41c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9726": {
+  "en_hash": "fcb94c69243d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9727": {
+  "en_hash": "b4942af95624",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9728": {
+  "en_hash": "e108e5ff0a3c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9729": {
+  "en_hash": "f69e66a971cb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9730": {
+  "en_hash": "6a721631e3d9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q9731": {
+  "en_hash": "01f23419fe77",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10639": {
+  "en_hash": "36f17638066d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10640": {
+  "en_hash": "c35ce5b903b9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10641": {
+  "en_hash": "8c70176d53f5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10642": {
+  "en_hash": "cdc778852541",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10643": {
+  "en_hash": "9d661e425d74",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10644": {
+  "en_hash": "5fc80a995a22",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10645": {
+  "en_hash": "79d04038ab30",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10646": {
+  "en_hash": "2d3a7dca3b4c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q10647": {
+  "en_hash": "e4cf8e47529c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10648": {
+  "en_hash": "4d7941adc87b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10649": {
+  "en_hash": "b30d64cfb02d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10650": {
+  "en_hash": "e3ce4be14cd2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10651": {
+  "en_hash": "5564675a86ad",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10652": {
+  "en_hash": "443fd8592244",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10653": {
+  "en_hash": "670ea8fd550f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10654": {
+  "en_hash": "bcdb52aac189",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10655": {
+  "en_hash": "a528cf776c43",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10656": {
+  "en_hash": "7cf079d28698",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10657": {
+  "en_hash": "fa16daf4736f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q10658": {
+  "en_hash": "6254d028f930",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10659": {
+  "en_hash": "fb55fcc91573",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10660": {
+  "en_hash": "0b17830d9030",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10661": {
+  "en_hash": "7c674aead01f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10662": {
+  "en_hash": "f540d6a4cf74",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10663": {
+  "en_hash": "8ddabf63cbed",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10664": {
+  "en_hash": "26dba710481f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10665": {
+  "en_hash": "546ed7c95bfe",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10666": {
+  "en_hash": "0611ad0debb8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10667": {
+  "en_hash": "e468d45aa360",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10668": {
+  "en_hash": "92895b7fa175",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10669": {
+  "en_hash": "3520a6e972e8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10670": {
+  "en_hash": "749b6ff57db0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10671": {
+  "en_hash": "ddce657f16e4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10672": {
+  "en_hash": "2668128b3886",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10673": {
+  "en_hash": "cdd44da0fdae",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10674": {
+  "en_hash": "786ff0c67a8c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10675": {
+  "en_hash": "a21a8ff92c10",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10676": {
+  "en_hash": "940005a5a2aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10677": {
+  "en_hash": "c3c6b6a53088",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10678": {
+  "en_hash": "1283f9a5048c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10679": {
+  "en_hash": "96c614f80c48",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10680": {
+  "en_hash": "785647e775aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q10681": {
+  "en_hash": "30c36dcc08c7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11589": {
+  "en_hash": "c9ebea36d5b6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11590": {
+  "en_hash": "98469f49842e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11591": {
+  "en_hash": "4428a808e921",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11592": {
+  "en_hash": "a2701258a28f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11593": {
+  "en_hash": "74999f8582c2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11594": {
+  "en_hash": "45fbda6a3af6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11595": {
+  "en_hash": "2d5b88446079",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11596": {
+  "en_hash": "1678a9195327",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11597": {
+  "en_hash": "e13b316fff31",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11598": {
+  "en_hash": "b0d4173b467d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11599": {
+  "en_hash": "ccbc7a11d458",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11600": {
+  "en_hash": "7d963dea52fa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11601": {
+  "en_hash": "9eb9ad541fdf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11602": {
+  "en_hash": "f3f2fc49a97d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11603": {
+  "en_hash": "7fd8f866db7b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11604": {
+  "en_hash": "f603f1bc2611",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11605": {
+  "en_hash": "a0439580f213",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11606": {
+  "en_hash": "ccfabdc20428",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11607": {
+  "en_hash": "35a553235551",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q11608": {
+  "en_hash": "ff38b35a55a0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11609": {
+  "en_hash": "fd40d0a4cf73",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11610": {
+  "en_hash": "0c4aaf2d48a8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11611": {
+  "en_hash": "584e74efd8d8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11612": {
+  "en_hash": "5ae9feed165d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11613": {
+  "en_hash": "a79a6cbf1a39",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11614": {
+  "en_hash": "43747160cfff",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11615": {
+  "en_hash": "2200d6f0fdd1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11616": {
+  "en_hash": "48c7250a5894",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11617": {
+  "en_hash": "25a6e9754e9d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11618": {
+  "en_hash": "f59ce6ee4c00",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11619": {
+  "en_hash": "0ef243173665",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11620": {
+  "en_hash": "727c917d999a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11621": {
+  "en_hash": "6d22ca134182",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11622": {
+  "en_hash": "b7c132f2199d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11623": {
+  "en_hash": "2fe9e33bb7f7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11624": {
+  "en_hash": "faa6a6724153",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11625": {
+  "en_hash": "8efb72a11bb2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11626": {
+  "en_hash": "9a5b1314478d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11627": {
+  "en_hash": "44ea8d32f6df",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11628": {
+  "en_hash": "b8eaf212d84f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11629": {
+  "en_hash": "9d1c50a7886c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11630": {
+  "en_hash": "9f6fc485be38",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q11631": {
+  "en_hash": "3bc364c1d0e6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12539": {
+  "en_hash": "730845c664ed",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12540": {
+  "en_hash": "ea2744e617aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12541": {
+  "en_hash": "6694e07c5da2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12542": {
+  "en_hash": "5c7ca674af38",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12543": {
+  "en_hash": "b7a19398b346",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12544": {
+  "en_hash": "92515484bd48",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12545": {
+  "en_hash": "bb1a22e1234f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12546": {
+  "en_hash": "8533918f0fa1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q12547": {
+  "en_hash": "87f6fb68289c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12548": {
+  "en_hash": "cfd785e96b80",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12549": {
+  "en_hash": "7c339872c978",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12550": {
+  "en_hash": "cad198776320",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12551": {
+  "en_hash": "cd3e35af2eea",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12552": {
+  "en_hash": "5df210323379",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12553": {
+  "en_hash": "e85832e5dbce",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12554": {
+  "en_hash": "a00a75323fe8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12555": {
+  "en_hash": "0b50ee269bde",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12556": {
+  "en_hash": "f27c0faf085f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12557": {
+  "en_hash": "92979c24a600",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q12558": {
+  "en_hash": "4edf8e4c45e5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12559": {
+  "en_hash": "79d9aa6d4041",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12560": {
+  "en_hash": "9f32e1692ec7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12561": {
+  "en_hash": "08278d57e29c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12562": {
+  "en_hash": "ac88beecf670",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12563": {
+  "en_hash": "94dad7036537",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12564": {
+  "en_hash": "8a15d1d51768",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12565": {
+  "en_hash": "9cdaca0e432a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12566": {
+  "en_hash": "86ff80b151fc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12567": {
+  "en_hash": "d191336b20f1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12568": {
+  "en_hash": "30b3a104942d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12569": {
+  "en_hash": "a14390242668",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12570": {
+  "en_hash": "1bc141725b53",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12571": {
+  "en_hash": "73e43111c589",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12572": {
+  "en_hash": "2ef77fdea1ad",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12573": {
+  "en_hash": "d51113b358af",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12574": {
+  "en_hash": "d25bdea179be",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12575": {
+  "en_hash": "4fea5f09de32",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12576": {
+  "en_hash": "c6ceb51f9522",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12577": {
+  "en_hash": "81d23479e9b3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12578": {
+  "en_hash": "e8a9be0f97be",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12579": {
+  "en_hash": "122cce4755d7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12580": {
+  "en_hash": "d7c79c1152a9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q12581": {
+  "en_hash": "a11f50d1456d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13489": {
+  "en_hash": "f2b5e8421351",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13490": {
+  "en_hash": "cf3924bca131",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13491": {
+  "en_hash": "a00cc26ef9d3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13492": {
+  "en_hash": "61d8eedd54ea",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13493": {
+  "en_hash": "daa1a6f2c74f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13494": {
+  "en_hash": "3c558c2b4d84",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13495": {
+  "en_hash": "768ec883f562",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13496": {
+  "en_hash": "ae2e632e5818",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13497": {
+  "en_hash": "154739804c1a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13498": {
+  "en_hash": "089b5180b9da",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q13499": {
+  "en_hash": "228429d23274",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13500": {
+  "en_hash": "984786010203",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13501": {
+  "en_hash": "05fef7b3fd5f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13502": {
+  "en_hash": "069be4df9173",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13503": {
+  "en_hash": "e6fbb9f6fdc5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13504": {
+  "en_hash": "df87a690945a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13505": {
+  "en_hash": "dc78a03909bc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13506": {
+  "en_hash": "714120ca3b9f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13507": {
+  "en_hash": "adf98466086f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft",
+  "changed_at": "2026-11-11"
+ },
+ "q13508": {
+  "en_hash": "b796cbb356bc",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13509": {
+  "en_hash": "7cab0feda3ad",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13510": {
+  "en_hash": "1bcf27241732",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13511": {
+  "en_hash": "e3d90953d2b6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13512": {
+  "en_hash": "2e2a58810ee4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13513": {
+  "en_hash": "bbd1c42d347b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13514": {
+  "en_hash": "8952c2ebf640",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13515": {
+  "en_hash": "ecf5ea65788c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13516": {
+  "en_hash": "5193ecb342a5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13517": {
+  "en_hash": "64e2ff59d95f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13518": {
+  "en_hash": "e4ba79d7a84d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13519": {
+  "en_hash": "8df26b7aca05",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13520": {
+  "en_hash": "b959d903e999",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13521": {
+  "en_hash": "a8d28ba5985c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13522": {
+  "en_hash": "70d9d6cad568",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13523": {
+  "en_hash": "44a8601a377e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13524": {
+  "en_hash": "71638a43c592",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13525": {
+  "en_hash": "b0ee94fd7bda",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13526": {
+  "en_hash": "05703de2b913",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13527": {
+  "en_hash": "f09815b6b16e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13528": {
+  "en_hash": "462a6dd9f2e0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13529": {
+  "en_hash": "4bf0a2842ff0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13530": {
+  "en_hash": "7cde17ac7319",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q13531": {
+  "en_hash": "8d724582a254",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14439": {
+  "en_hash": "e112e69654ef",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14440": {
+  "en_hash": "f3487c473f81",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14441": {
+  "en_hash": "31b4c293c645",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14442": {
+  "en_hash": "04d04290f882",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14443": {
+  "en_hash": "5b62c2678284",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14444": {
+  "en_hash": "e39d4d74e664",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14445": {
+  "en_hash": "27fed1c2c67a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14446": {
+  "en_hash": "fadb9d21deae",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14447": {
+  "en_hash": "17a5f042f4c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14448": {
+  "en_hash": "f780e28ac1cd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14449": {
+  "en_hash": "f5e25fd1013b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14450": {
+  "en_hash": "ef37b2ed9dd2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14451": {
+  "en_hash": "2fa943af0e7f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14452": {
+  "en_hash": "36a41620ceb5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14453": {
+  "en_hash": "6389d8ce7144",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14454": {
+  "en_hash": "ab8eb84cc810",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14455": {
+  "en_hash": "9616b5b84b59",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14456": {
+  "en_hash": "0321248e6c62",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14457": {
+  "en_hash": "1fd60d608eda",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14458": {
+  "en_hash": "80de62f64df4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14459": {
+  "en_hash": "e0f1d9f33aef",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14460": {
+  "en_hash": "311202289df0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14461": {
+  "en_hash": "f06aa7381e92",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14462": {
+  "en_hash": "c659f6bb4579",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14463": {
+  "en_hash": "52fe8094fa20",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14464": {
+  "en_hash": "0090da71176b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14465": {
+  "en_hash": "c2ed3927b758",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14466": {
+  "en_hash": "7c47d29cad48",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14467": {
+  "en_hash": "61f5c76d8ec1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14468": {
+  "en_hash": "4d62fb32f2d1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14469": {
+  "en_hash": "3f699ca24b9a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14470": {
+  "en_hash": "f4d144cd01d9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14471": {
+  "en_hash": "d1afee8b711a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14472": {
+  "en_hash": "018c8e21da0b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14473": {
+  "en_hash": "7f29d9108d28",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14474": {
+  "en_hash": "8ccaee2160ad",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14475": {
+  "en_hash": "1417ae68db2b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14476": {
+  "en_hash": "cb1b7b31fb08",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14477": {
+  "en_hash": "a915e2683e9e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14478": {
+  "en_hash": "e87779adb5ab",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14479": {
+  "en_hash": "d229c9d76d5e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14480": {
+  "en_hash": "f7c5dc42183d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q14481": {
+  "en_hash": "e6392c851a41",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15389": {
+  "en_hash": "9d2f88e982aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15390": {
+  "en_hash": "d5fa5b166e82",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15391": {
+  "en_hash": "508172050f73",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15392": {
+  "en_hash": "30bb98c391e9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15393": {
+  "en_hash": "eb4a2c458899",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15394": {
+  "en_hash": "fa01c85b722a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15395": {
+  "en_hash": "2e020dc0837e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15396": {
+  "en_hash": "e3df7cec3865",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15397": {
+  "en_hash": "d7267b3b7920",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15398": {
+  "en_hash": "1eb71748872a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15399": {
+  "en_hash": "657664a8da71",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15400": {
+  "en_hash": "8e1563917bde",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15401": {
+  "en_hash": "0da96900cd26",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15402": {
+  "en_hash": "df1e7df8ea03",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15403": {
+  "en_hash": "ddaef5ce0aab",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15404": {
+  "en_hash": "6d6b4b7ef076",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15405": {
+  "en_hash": "3db3338108da",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15406": {
+  "en_hash": "a25281577e43",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15407": {
+  "en_hash": "7e50840633ed",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15408": {
+  "en_hash": "cd7d7abcc21e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15409": {
+  "en_hash": "7e566c25531d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15410": {
+  "en_hash": "e24dad9c86de",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15411": {
+  "en_hash": "d4fb59ec8e13",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15412": {
+  "en_hash": "bbced7cdf39b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15413": {
+  "en_hash": "82395b3bfbe2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15414": {
+  "en_hash": "1c7e8f77129d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15415": {
+  "en_hash": "a8bd7859cbca",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15416": {
+  "en_hash": "88df818a9296",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15417": {
+  "en_hash": "9aeb01c48435",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15418": {
+  "en_hash": "c43e5a92b59f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15419": {
+  "en_hash": "6e19dd92cf25",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15420": {
+  "en_hash": "a309499d5047",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15421": {
+  "en_hash": "5b0cd561a87c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15422": {
+  "en_hash": "5d49ff430a01",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15423": {
+  "en_hash": "fc5cba897384",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15424": {
+  "en_hash": "c5345bdf5f65",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15425": {
+  "en_hash": "6cc58a9dab46",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15426": {
+  "en_hash": "bc458e550284",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15427": {
+  "en_hash": "9f2b95ada191",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15428": {
+  "en_hash": "76b7bca941a2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15429": {
+  "en_hash": "45a3e2494da1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15430": {
+  "en_hash": "e0ee736893cf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q15431": {
+  "en_hash": "c54f672027e9",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16339": {
+  "en_hash": "20019cdd4f7a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16340": {
+  "en_hash": "320af678781a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16341": {
+  "en_hash": "8802e0e9a72c",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16342": {
+  "en_hash": "6c4f72fc5b2a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16343": {
+  "en_hash": "b02a1934ff71",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16344": {
+  "en_hash": "deff0f82e9e4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16345": {
+  "en_hash": "aaefd01d3e15",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16346": {
+  "en_hash": "8bd6c45b715e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16347": {
+  "en_hash": "890b46c43598",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16348": {
+  "en_hash": "76f234b18ff5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16349": {
+  "en_hash": "5cdd8c474437",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16350": {
+  "en_hash": "0cba75402e9a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16351": {
+  "en_hash": "3cacb48f9c75",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16352": {
+  "en_hash": "8ba12e7e7f72",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16353": {
+  "en_hash": "65bb462d2d93",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16354": {
+  "en_hash": "66584b14d681",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16355": {
+  "en_hash": "64aa940554c5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16356": {
+  "en_hash": "60e4f05d6d1b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16357": {
+  "en_hash": "d01e61f52fa7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16358": {
+  "en_hash": "7eeb8b788ed5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16359": {
+  "en_hash": "2d83f428dc14",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16360": {
+  "en_hash": "177dbfb64a34",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16361": {
+  "en_hash": "425ebcc4e73a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16362": {
+  "en_hash": "ea0ff766c029",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16363": {
+  "en_hash": "6b88eb7e04a6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16364": {
+  "en_hash": "8da2325886ff",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16365": {
+  "en_hash": "e181c71baa91",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16366": {
+  "en_hash": "48416e22312f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16367": {
+  "en_hash": "129628f4574e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16368": {
+  "en_hash": "24d1030c555a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16369": {
+  "en_hash": "afd2a69beda1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16370": {
+  "en_hash": "a5bfd7686731",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16371": {
+  "en_hash": "ca99ee47a1a0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16372": {
+  "en_hash": "df77073be4a3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16373": {
+  "en_hash": "3e08bfdef4dd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16374": {
+  "en_hash": "de2b7eab8143",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16375": {
+  "en_hash": "f4211fd076eb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16376": {
+  "en_hash": "02cfd55b380d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16377": {
+  "en_hash": "7d14aff785d2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16378": {
+  "en_hash": "84831e41f60d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16379": {
+  "en_hash": "8f446929e3f6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16380": {
+  "en_hash": "fa4c48ee97d4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q16381": {
+  "en_hash": "ad7904cfe40a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17289": {
+  "en_hash": "b06fa3bdb139",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17290": {
+  "en_hash": "d1a2c95e4ce1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17291": {
+  "en_hash": "2c34b7b2dd37",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17292": {
+  "en_hash": "539a6f1338dd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17293": {
+  "en_hash": "002555d2b107",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17294": {
+  "en_hash": "0df6b8a44073",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17295": {
+  "en_hash": "c8df21b00706",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17296": {
+  "en_hash": "9de1a6c4363e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17297": {
+  "en_hash": "d3ffbec7b6ed",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17298": {
+  "en_hash": "e02467c09568",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17299": {
+  "en_hash": "09fdb021b834",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17300": {
+  "en_hash": "024f63d667e4",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17301": {
+  "en_hash": "011d8435a75a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17302": {
+  "en_hash": "2c0f12e5c56e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17303": {
+  "en_hash": "957cc2796dd5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17304": {
+  "en_hash": "dc56f5fd0549",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17305": {
+  "en_hash": "c922c824a0c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17306": {
+  "en_hash": "ad9b1048d0ff",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17307": {
+  "en_hash": "5c4397d9f745",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17308": {
+  "en_hash": "96bced3d8b8f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17309": {
+  "en_hash": "819061b97d0b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17310": {
+  "en_hash": "f1e7ccf6f5d6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17311": {
+  "en_hash": "83b28c088b7a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17312": {
+  "en_hash": "568534cf59da",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17313": {
+  "en_hash": "2eb46cba3080",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17314": {
+  "en_hash": "b8a94849698e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17315": {
+  "en_hash": "d350d89cbb2f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17316": {
+  "en_hash": "24c0cfbb7c18",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17317": {
+  "en_hash": "f36190327305",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17318": {
+  "en_hash": "fce05fc6337e",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17319": {
+  "en_hash": "e03fff763fae",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17320": {
+  "en_hash": "ce5a8d3f35b5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17321": {
+  "en_hash": "42fccbd4fce3",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17322": {
+  "en_hash": "fdc3808e3b52",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17323": {
+  "en_hash": "220a755c7636",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17324": {
+  "en_hash": "957f412963ac",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17325": {
+  "en_hash": "5e45e3661776",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17326": {
+  "en_hash": "5d9a84cdf1ef",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17327": {
+  "en_hash": "7daaddeacc63",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17328": {
+  "en_hash": "61264de01a31",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17329": {
+  "en_hash": "35e737bd117d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17330": {
+  "en_hash": "3f009179fe8b",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q17331": {
+  "en_hash": "ddaa40b407be",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18239": {
+  "en_hash": "ac10d571d9bd",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18240": {
+  "en_hash": "d6a9803dac36",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18241": {
+  "en_hash": "0ad7d49054aa",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18242": {
+  "en_hash": "b25e7c9c3681",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18243": {
+  "en_hash": "ac41e64ea35a",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18244": {
+  "en_hash": "b4d44d80b5b0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18245": {
+  "en_hash": "5faa895336f6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18246": {
+  "en_hash": "0effa3479de1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18247": {
+  "en_hash": "55e5567ba5a7",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18248": {
+  "en_hash": "d057ed8c5d34",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18249": {
+  "en_hash": "9f1c6f51dceb",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18250": {
+  "en_hash": "d4e9f3c07009",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18251": {
+  "en_hash": "27fb62516828",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18252": {
+  "en_hash": "d383aceb6f04",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18253": {
+  "en_hash": "98fa138c2100",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18254": {
+  "en_hash": "39efacd340f0",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18255": {
+  "en_hash": "5d963279a0a6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18256": {
+  "en_hash": "1e5fd37f0d00",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18257": {
+  "en_hash": "a591949b95d6",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18258": {
+  "en_hash": "d74252d1e717",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18259": {
+  "en_hash": "de8e74ae09cf",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18260": {
+  "en_hash": "00967525ba7d",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18261": {
+  "en_hash": "58cd5e308d10",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18262": {
+  "en_hash": "f42d7cb178b5",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18263": {
+  "en_hash": "62b5fbaa9599",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18264": {
+  "en_hash": "d5019f7a44d2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18265": {
+  "en_hash": "9fad75880870",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18266": {
+  "en_hash": "29685f2904e1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18267": {
+  "en_hash": "426f53e4d0fe",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18268": {
+  "en_hash": "8d0e23d444c2",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18269": {
+  "en_hash": "4d639483a811",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18270": {
+  "en_hash": "52e4b95e4691",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18271": {
+  "en_hash": "d474e6c4b5fe",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18272": {
+  "en_hash": "b63588151a76",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18273": {
+  "en_hash": "9eb599abe471",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18274": {
+  "en_hash": "930ffd712e50",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18275": {
+  "en_hash": "acee00a7fe97",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18276": {
+  "en_hash": "f15c606254ab",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18277": {
+  "en_hash": "b71f453ded1f",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18278": {
+  "en_hash": "be6d26b1d7c8",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18279": {
+  "en_hash": "1dc4393c74c1",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18280": {
+  "en_hash": "ee4cf5a89c26",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ },
+ "q18281": {
+  "en_hash": "b2f54d8d9058",
+  "translated_at": "2026-11-11",
+  "audit_status": "draft"
+ }
+}

@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/apt_en_bank.js — v1.4 (11-Nov-2026; v1.1 बही-खाता/दोहराव/अंक-इकाई/sidecar · v1.2 जीवन-चक्र · v1.3 restamp · v1.4 = ChatGPT apt-fix ऑडिट: sidecar ग़ायब = FAIL, वर्जित खाने (mg/udy/band…) = FAIL, reviewed_by)
+   generator/apt_en_bank.js — v1.8 (11-Nov-2026; v1.1 बही-खाता/दोहराव/अंक-इकाई/sidecar · v1.2 जीवन-चक्र · v1.3 restamp · v1.4 = ChatGPT apt-fix ऑडिट: sidecar ग़ायब = FAIL, वर्जित खाने (mg/udy/band…) = FAIL, reviewed_by) · v1.5 = अंत-शब्दावली जाँच (चेतावनी; --strict-endings = FAIL; eor = छूट-कारण) · v1.6 = परत-2 आख़िरी-क्रिया → मूल-शब्द · v1.7 = लिंग-सर्वनाम सूचना (he/him/his/she/her — पुल-भाषा तटस्थ रहे) · v1.8 = ChatGPT apt-en-bank ऑडिट: eor भी English की अंगुली-छाप (en_hash) में — frozen/audited प्रविष्टि का सिर्फ़ eor जोड़ना/बदलना/हटाना = FAIL; eor ख़ाली = FAIL; अंक-जाँच हर खाने (प्रश्न-पाठ, हर विकल्प) पर अलग
    काम: पूरे अभिरुचि-भंडार (18,943) का English रूप — "पुल" (bridge) — बनाने का औज़ार।
    ढाँचा (Founder + ChatGPT-मुहर, 11-Nov): एक ही मूल भंडार (हिंदी, assets/apt_sets/*.js)।
      English फ़ाइल generator/data/aptitude/en/bank/<shard>.js में सिर्फ़ पाठ रहता है:
@@ -33,6 +33,13 @@ function hashOf(q) {
   const parts = [q.text || ''].concat((q.opts || []).map(o => o.label || ''));
   return crypto.createHash('sha256').update(JSON.stringify(parts)).digest('hex').slice(0, 12);
 }
+// v1.8: English की अंगुली-छाप। eor न हो → पुराना सूत्र [text, ...opts] (कोई पुरानी छाप नहीं बदलती)।
+// eor हो → सूची के अंत में एक वस्तु { eor } जुड़ती है (सादी string-सूची से कभी टकरा नहीं सकती)। इसलिए अंत-छूट चुपचाप जोड़ी/बदली/हटाई नहीं जा सकती।
+function enHash(e) {
+  const parts = [e.text].concat(e.opts || []);
+  if (e.eor !== undefined) parts.push({ eor: String(e.eor) });
+  return crypto.createHash('sha256').update(JSON.stringify(parts)).digest('hex').slice(0, 12);
+}
 function bankFile(shard) { return path.join(BANK, shard + '.js'); }
 function loadBank(shard) {
   const f = bankFile(shard);
@@ -40,6 +47,8 @@ function loadBank(shard) {
   delete require.cache[require.resolve(f)];
   return require(f);
 }
+const GLOSS = require(path.join(ROOT, 'generator', 'data', 'aptitude', 'en', 'ending_glossary.js'));
+const VERBS = Object.entries(GLOSS.verbs || {}).map(([k, v]) => ({ keys: k.split('|'), src: v, re: new RegExp('\\b(?:' + v + ')', 'i') }));
 const DEV = /[\u0900-\u097F]/;
 // अंक-इकाई नक़्शा: हिंदी/Latin इकाई → English में स्वीकार्य रूप (अंक के ठीक बाद)
 const UNITS = [['किलो(?:ग्राम)?', 'kg|kilo(?:gram)?s?'], ['ग्राम', 'g|grams?'], ['लीटर', 'l|litres?|liters?'],
@@ -52,7 +61,7 @@ const digits = s => (s.match(/\d+/g) || []).sort().join(',');
 function checkShard(shard, complete) {
   const H = loadHindi(shard), B = loadBank(shard);
   const errs = [], ids = Object.keys(H);
-  if (!B) return { shard, total: ids.length, done: 0, stale: 0, errs: complete ? ['English फ़ाइल नहीं'] : [] };
+  if (!B) return { shard, total: ids.length, done: 0, stale: 0, errs: complete ? ['English फ़ाइल नहीं'] : [], warns: [], endChecked: 0, endFree: 0, endOver: 0, endVerb: 0, gend: [] };
   if (B.shard !== shard || B.lang !== 'en') errs.push('फ़ाइल-शीर्ष ग़लत (lang/shard)');
   let done = 0, stale = 0;
   // v1.4: अनुवाद-परत में सिर्फ़ ये खाने; अंक-गिनती का कोई निशान (mg/udy/band/pts/img/type/…) = FAIL
@@ -62,6 +71,7 @@ function checkShard(shard, complete) {
     Object.keys(e || {}).filter(k => !ALLOWED.has(k)).forEach(k => errs.push(id + ': वर्जित खाना "' + k + '" (अनुवाद-परत में सिर्फ़ h/text/opts/eor)'));
     if (e && e.opts !== undefined && !(Array.isArray(e.opts) && e.opts.every(x => typeof x === 'string'))) errs.push(id + ': opts सिर्फ़ string-सूची हो');
     if (e && typeof e.text !== 'string') errs.push(id + ': text string हो');
+    if (e && e.eor !== undefined && !(typeof e.eor === 'string' && e.eor.trim())) errs.push(id + ': eor ख़ाली/ग़लत (छूट का कारण लिखो, या खाना हटाओ)');
   }
   if (!fs.existsSync(path.join(BANK, '_audit', shard + '.json'))) errs.push('audit-sidecar ग़ायब (_audit/' + shard + '.json) — जीवन-चक्र के बिना shard मान्य नहीं');
   { const src = fs.readFileSync(bankFile(shard), 'utf8'); const seen = {};
@@ -82,8 +92,9 @@ function checkShard(shard, complete) {
     if (all.some(s => DEV.test(s))) errs.push(id + ': देवनागरी बची');
     if (all.some(s => s.indexOf('\u2014') !== -1)) errs.push(id + ': लंबी रेखा (—) वर्जित');
     if (all.some(s => !s || !String(s).trim())) errs.push(id + ': ख़ाली विकल्प');
-    const hd = digits([h.text || ''].concat((h.opts || []).map(o => o.label)).join(' ')), ed = digits(all.join(' '));
-    if (hd !== ed) errs.push(id + ': अंक बेमेल (हिंदी ' + hd + ' / English ' + ed + ')');
+    { const hp = [h.text || ''].concat((h.opts || []).map(o => o.label || ''));   // v1.8: हर खाने पर अलग (विकल्पों के बीच अंक की अदला-बदली भी पकड़ में)
+      for (let i = 0; i < Math.max(hp.length, all.length); i++) { const hd = digits(hp[i] || ''), ed = digits(all[i] || '');
+        if (hd !== ed) errs.push(id + ': अंक बेमेल ' + (i ? 'विकल्प-' + i : 'प्रश्न-पाठ') + ' (हिंदी ' + hd + ' / English ' + ed + ')'); } }
     const hj = [h.text || ''].concat((h.opts || []).map(o => o.label)).join(' '), ej = all.join(' ');
     for (const [hu, en] of UNITS) {   // v1.2 सुधार: backslash एकल; इकाई-विकल्प (?:…) में बंद
       const re = new RegExp('(\\d+(?:[.,]\\d+)?)\\s*(?:' + hu + ')', 'g'); let m;
@@ -97,10 +108,31 @@ function checkShard(shard, complete) {
       for (const [id, e] of Object.entries(B.q || {})) { const a = A[id];
         if (!a) { errs.push(id + ': audit-sidecar में नहीं (stamp चलाओ)'); continue; }
         if (!['draft', 'audited', 'frozen'].includes(a.audit_status)) errs.push(id + ': अनजान स्थिति "' + a.audit_status + '"');
-        const eh = crypto.createHash('sha256').update(JSON.stringify([e.text].concat(e.opts || []))).digest('hex').slice(0, 12);
+        const eh = enHash(e);
         if (a.en_hash !== eh) errs.push(id + ': English बदला पर sidecar पुराना' + (a.audit_status === 'frozen' ? ' — FROZEN प्रविष्टि बदली!' : ' (stamp चलाओ)')); } } }
+  // v1.5 अंत-शब्दावली: पैमाना-प्रश्न का हिंदी अंत → तय English अंत (eor = छूट)
+  const warns = []; let endChecked = 0, endFree = 0, endOver = 0, endVerb = 0;
+  for (const [id, e] of Object.entries(B.q || {})) { const h = H[id]; if (!h || h.type !== 'scale') continue;
+    const tail = String(h.text || '').split('\u2014').pop().trim(), exp = GLOSS.map[tail];
+    if (!exp) {   // परत-2: आख़िरी क्रिया → मूल-शब्द (English के अंतिम टुकड़े में)
+      const ws = tail.replace(/[?!।.,]+$/, '').split(/\s+/), one = ws[ws.length - 1], two = ws.slice(-2).join(' ');
+      const hit = VERBS.find(v => v.keys.includes(two)) || VERBS.find(v => v.keys.includes(one));
+      if (!hit) { endFree++; continue; }
+      if (e.eor) { endOver++; continue; }
+      endVerb++;
+      const clause = String(e.text || '').split(':').pop().toLowerCase();
+      if (!hit.re.test(clause)) warns.push(id + ': क्रिया "' + (hit.keys.includes(two) ? two : one) + '" → अंतिम टुकड़े में /' + hit.src + '/ चाहिए — "' + clause.trim().slice(0, 60) + '"');
+      continue;
+    }
+    if (e.eor) { endOver++; continue; }
+    endChecked++;
+    const et = String(e.text || '').toLowerCase();
+    if (!exp.some(x => et.endsWith(x.toLowerCase()))) warns.push(id + ': अंत "' + tail + '" → अपेक्षित "' + exp.join('" / "') + '"');
+  }
+  const gend = [];   // v1.7: पुल-भाषा में लिंग-सर्वनाम (सूचना; FAIL नहीं) — आगे की भाषाओं में व्यक्ति का लिंग न थोपे
+  for (const [id, e] of Object.entries(B.q || {})) if (/\b(?:he|him|his|she|her|hers)\b/i.test([e.text].concat(e.opts || []).join(' '))) gend.push(id);
   if (complete && done < ids.length) errs.push('अधूरा: ' + done + '/' + ids.length);
-  return { shard, total: ids.length, done, stale, errs };
+  return { shard, total: ids.length, done, stale, errs, warns, endChecked, endFree, endOver, endVerb, gend };
 }
 
 function stamp(shard) {
@@ -116,7 +148,7 @@ function stamp(shard) {
   const af = path.join(AD, shard + '.json'), A = fs.existsSync(af) ? JSON.parse(fs.readFileSync(af, 'utf8')) : {};
   const today = new Date().toISOString().slice(0, 10); let na = 0;
   for (const [id, e] of Object.entries(B.q)) {
-    const eh = crypto.createHash('sha256').update(JSON.stringify([e.text].concat(e.opts || []))).digest('hex').slice(0, 12);
+    const eh = enHash(e);
     if (!A[id]) { A[id] = { en_hash: eh, translated_at: today, audit_status: 'draft' }; na++; }
     else if (A[id].en_hash !== eh) {
       if (A[id].audit_status === 'frozen') throw new Error('stamp: ' + id + ' frozen है — English बदला नहीं जा सकता (पहले जानबूझकर status ' + shard + ' draft ' + id + ')');
@@ -162,11 +194,15 @@ else if (cmd === 'check') {
   const complete = rest.includes('--complete');
   let names = rest.filter(a => !a.startsWith('--'));
   if (!names.length) names = fs.readdirSync(SETS).filter(f => f.endsWith('.js')).map(f => f.slice(0, -3)).sort();
-  let bad = 0, tot = 0, dn = 0;
+  let bad = 0, tot = 0, dn = 0, wTot = 0, eC = 0, eF = 0, eO = 0, eV = 0; const gAll = []; const strictEnd = rest.includes('--strict-endings');
   for (const sh of names) {
     const r = checkShard(sh, complete); tot += r.total; dn += r.done;
     if (r.done || r.errs.length) console.log((r.errs.length ? '❌ ' : '✅ ') + sh + ': ' + r.done + '/' + r.total + (r.stale ? ' · पुराने ' + r.stale : ''));
     r.errs.slice(0, 8).forEach(e => console.log('     ' + e));
+    if (strictEnd) { r.warns.forEach(w => console.log('     ⛔ ' + w)); bad += r.warns.length; }
+    else r.warns.slice(0, 12).forEach(w => console.log('     ⚠️ ' + w));
+    if (r.gend.length) gAll.push(r.shard + ' ' + r.gend.length + ' (' + r.gend.slice(0, 6).join(' ') + (r.gend.length > 6 ? ' …' : '') + ')');
+    wTot += r.warns.length; eC += r.endChecked; eF += r.endFree; eO += r.endOver; eV += r.endVerb;
     bad += r.errs.length;
   }
   if (rest.filter(a => !a.startsWith('--')).length === 0) {   // पूरा बही-खाता: shards + झलक-पूल
@@ -178,6 +214,8 @@ else if (cmd === 'check') {
     console.log('बही-खाता: shards ' + (Object.keys(all).length - pv.length) + ' + झलक-पूल ' + pv.length + ' = अनोखे ' + Object.keys(all).length + ' · सबसे बड़ा q' + mx + ' · दोहराव ' + dupl.length + ' · ग़ायब ' + miss.length);
     if (dupl.length || miss.length) { bad++; console.log('     ⛔ बही-खाता टूटा: ' + dupl.concat(miss).slice(0, 8).join(' ')); }
   }
+  console.log('अंत-शब्दावली v' + GLOSS.version + ' (' + GLOSS.status + '): परत-1 जाँचे ' + eC + ' · परत-2 (क्रिया) जाँचे ' + eV + ' · बेमेल ' + wTot + (strictEnd ? ' (FAIL-चरण)' : ' (चेतावनी-चरण)') + ' · मुक्त अंत ' + eF + ' · छूट (eor) ' + eO);
+  console.log('लिंग-सर्वनाम (सूचना): ' + (gAll.length ? gAll.join(' · ') : 'शून्य'));
   console.log('कुल English: ' + dn + '/' + tot + ' (' + (100 * dn / Math.max(1, tot)).toFixed(1) + '%)');
   console.log(bad ? '⛔ apt_en_bank check FAIL (' + bad + ')' : '🏁 apt_en_bank check — पास');
   process.exit(bad ? 1 : 0);
