@@ -498,12 +498,13 @@
   "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
  },
  "q141": {
-  "en_hash": "b3c36a9a2a63",
+  "en_hash": "020b0316354c",
   "translated_at": "2026-11-11",
   "audit_status": "frozen",
   "status_at": "2026-11-11",
-  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
-  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+  "reviewed_by": "Claude-लेखन · ChatGPT के निर्देश पर सुधार (apt-en-bank v1.0 HOLD: 9-ख सर्वनाम, q403 अंत) · ChatGPT ऑडिट GO के बाद ही चढ़ा (broad mini-patch, Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित re-freeze (broad mini-patch, Nov-2026; चढ़ाना = अनुमोदन)",
+  "changed_at": "2026-11-11"
  },
  "q241": {
   "en_hash": "572fe2957a1d",
@@ -1115,13 +1116,13 @@
   "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
  },
  "q403": {
-  "en_hash": "6f7b0316ced6",
+  "en_hash": "862d89ab868b",
   "translated_at": "2026-11-11",
   "audit_status": "frozen",
   "changed_at": "2026-11-11",
   "status_at": "2026-11-11",
-  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
-  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+  "reviewed_by": "Claude-लेखन · ChatGPT के निर्देश पर सुधार (apt-en-bank v1.0 HOLD: 9-ख सर्वनाम, q403 अंत) · ChatGPT ऑडिट GO के बाद ही चढ़ा (broad mini-patch, Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित re-freeze (broad mini-patch, Nov-2026; चढ़ाना = अनुमोदन)"
  },
  "q113": {
   "en_hash": "b81e584c0341",
@@ -1755,12 +1756,13 @@
   "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
  },
  "q284": {
-  "en_hash": "a58d5b0bc895",
+  "en_hash": "7f07c964e56b",
   "translated_at": "2026-11-11",
   "audit_status": "frozen",
   "status_at": "2026-11-11",
-  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
-  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+  "reviewed_by": "Claude-लेखन · ChatGPT के निर्देश पर सुधार (apt-en-bank v1.0 HOLD: 9-ख सर्वनाम, q403 अंत) · ChatGPT ऑडिट GO के बाद ही चढ़ा (broad mini-patch, Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित re-freeze (broad mini-patch, Nov-2026; चढ़ाना = अनुमोदन)",
+  "changed_at": "2026-11-11"
  },
  "q384": {
   "en_hash": "167eea285f5f",
@@ -2159,12 +2161,13 @@
   "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
  },
  "q295": {
-  "en_hash": "af216ba8c1d3",
+  "en_hash": "3a0de3538b0e",
   "translated_at": "2026-11-11",
   "audit_status": "frozen",
   "status_at": "2026-11-11",
-  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
-  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+  "reviewed_by": "Claude-लेखन · ChatGPT के निर्देश पर सुधार (apt-en-bank v1.0 HOLD: 9-ख सर्वनाम, q403 अंत) · ChatGPT ऑडिट GO के बाद ही चढ़ा (broad mini-patch, Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित re-freeze (broad mini-patch, Nov-2026; चढ़ाना = अनुमोदन)",
+  "changed_at": "2026-11-11"
  },
  "q395": {
   "en_hash": "614a3309ee02",
@@ -2893,12 +2896,13 @@
   "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
  },
  "q397": {
-  "en_hash": "1dad6266bdfa",
+  "en_hash": "a930c4a81c57",
   "translated_at": "2026-11-11",
   "audit_status": "frozen",
   "status_at": "2026-11-11",
-  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
-  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+  "reviewed_by": "Claude-लेखन · ChatGPT के निर्देश पर सुधार (apt-en-bank v1.0 HOLD: 9-ख सर्वनाम, q403 अंत) · ChatGPT ऑडिट GO के बाद ही चढ़ा (broad mini-patch, Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित re-freeze (broad mini-patch, Nov-2026; चढ़ाना = अनुमोदन)",
+  "changed_at": "2026-11-11"
  },
  "q497": {
   "en_hash": "c6d4d7df8de5",
@@ -3218,12 +3222,13 @@
   "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
  },
  "q388": {
-  "en_hash": "827ec3f37f1d",
+  "en_hash": "428d6afc69f3",
   "translated_at": "2026-11-11",
   "audit_status": "frozen",
   "status_at": "2026-11-11",
-  "reviewed_by": "Claude-लेखन · ChatGPT अर्थ-ऑडिट (3 दौर, GO 11-Nov-2026)",
-  "frozen_by": "Founder-अनुमोदित freeze (11-Nov-2026)"
+  "reviewed_by": "Claude-लेखन · ChatGPT के निर्देश पर सुधार (apt-en-bank v1.0 HOLD: 9-ख सर्वनाम, q403 अंत) · ChatGPT ऑडिट GO के बाद ही चढ़ा (broad mini-patch, Nov-2026)",
+  "frozen_by": "Founder-अनुमोदित re-freeze (broad mini-patch, Nov-2026; चढ़ाना = अनुमोदन)",
+  "changed_at": "2026-11-11"
  },
  "q488": {
   "en_hash": "e097287a243e",
