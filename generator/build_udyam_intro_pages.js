@@ -283,3 +283,5 @@ Object.keys(UDYAM_INTRO).forEach(nStr => {
 
 console.log("\n— नतीजा: " + ok + " पेज बने · " + fail + " fail —");
 if (fail) process.exit(1);
+/* 11-Nov-2026 (SEO): अंतिम SEO-परत : 80 अक्षर से लंबे शीर्षक छोटे (नियम lib_seo_hunar.js का udyamTitle) */
+require("./build_seo_meta.js").run({ quiet: true });

@@ -1,5 +1,5 @@
 /* ============================================================
-   dev_seo_check.js v1.2 — SEO-जीविता robot (v1.0: 04-Oct-2026 · v1.1/v1.2: 11-Nov-2026)
+   dev_seo_check.js v1.3.1 — SEO-जीविता robot (v1.0: 04-Oct-2026 · v1.1/v1.2: 11-Nov-2026)
    जाँचें:
    1) hreflang-लक्ष्य जीविता: हर *.html के हर hreflang-href का पथ repo में
       असली फ़ाइल हो (…/ → index.html) — मरे पते पर hreflang = मरी कड़ी (निषिद्ध)।
@@ -23,6 +23,9 @@
    10) ख़ाली-पेज पहरा: जिस पेज के description में "जल्द उपलब्ध" है, वह sitemap में नहीं।
    11) दोहरा पेज: दो पतों का पूरा पाठ हूबहू एक नहीं।
    12) दोहरा शीर्षक या दोहरा description नहीं।
+   v1.3 (12-Nov-2026): 13) हुनर-कोर्स के पाठ-पेज: description "और / या / के / में…" जैसे अधूरे शब्द पर ख़त्म नहीं;
+       पाठ से बना description पूरे वाक्य पर ख़त्म (v1.3.1 से यह सचमुच जाँचा जाता है) और 70 से 160 अक्षर का;
+       schema का description = meta description।
    चलाना: node generator/dev_seo_check.js   → सब पास तो 🏁
    नियम: sitemap/hreflang छूने वाले हर दौर में upload से पहले 🏁 अनिवार्य।
    ============================================================ */
@@ -229,5 +232,26 @@ console.log("जाँच-5 उल्टी जाँच: खोज-योग्
   console.log("जाँच-9 सिर की सफ़ाई: दोष " + c9 + " · जाँच-10 ख़ाली-पेज: " + c10 + " · जाँच-11 दोहरे पेज: " + nB + " · जाँच-12 दोहरे शीर्षक " + nT + ", दोहरे description " + nD);
 }
 
+/* ================= v1.3 की जाँच-13: हुनर-पाठों के description की गुणवत्ता ================= */
+{
+  const HN = require("./lib_seo_hunar.js");
+  const RE = /<meta name="description" content="([\s\S]*?)"\s*\/?>(?=\s*<)/;
+  let n = 0, dangle = 0, cutMid = 0, ld = 0, derived = 0, notSent = 0;
+  for (const u of SM) {
+    const f = urlPathToFile(u), rel = path.relative(ROOT, f).split(path.sep).join("/");
+    if (!HN.familyOf(rel) || /\/index\.html$/.test(rel) || !fs.existsSync(f)) continue;
+    const h = fs.readFileSync(f, "utf8"), m = h.match(RE); if (!m) continue;
+    const d = HN.unesc(m[1]); n++;
+    if (HN.DANGLE.test(d)) { dangle++; if (dangle <= 5) FAIL("description अधूरे शब्द पर ख़त्म: " + u); }
+    if (d === HN.expected(h, rel)) {     /* यंत्र से बना (या data/seo_desc_overrides.js वाला) description */
+      derived++; const L = HN.len(d);
+      if (L > HN.D_MAX || L < HN.D_MIN) { cutMid++; if (cutMid <= 5) FAIL("पाठ से बना description सीमा से बाहर (" + L + " अक्षर; चाहिए " + HN.D_MIN + "-" + HN.D_MAX + "): " + u); }
+      if (!HN.SENT_END.test(d)) { notSent++; if (notSent <= 5) FAIL("पाठ से बना description पूरे वाक्य पर ख़त्म नहीं: " + u + " : इसे generator/data/seo_desc_overrides.js में हाथ से लिखें"); }
+    }
+    for (const b of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { try { const j = JSON.parse(b[1]); for (const x of (Array.isArray(j) ? j : (j["@graph"] || [j]))) if (x && x["@type"] === "LearningResource" && x.description !== d) { ld++; if (ld <= 5) FAIL("schema का description meta से अलग: " + u); } } catch (e) {} }
+  }
+  console.log("जाँच-13 हुनर-पाठ: " + n + " पेज · पाठ से बने " + derived + " · अधूरे शब्द पर ख़त्म " + dangle + " · सीमा-बाहर " + cutMid + " · अधूरे वाक्य " + notSent + " · schema-बेमेल " + ld);
+}
+
 if (fails) { console.log("\n❌ कुल विफल: " + fails + " — upload निषिद्ध"); process.exit(1); }
-console.log("\n🏁 dev_seo_check v1.2 — बारहों जाँचें पास");
+console.log("\n🏁 dev_seo_check v1.3.1 — तेरहों जाँचें पास");

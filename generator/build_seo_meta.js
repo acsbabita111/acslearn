@@ -1,5 +1,5 @@
 /* ============================================================
-   build_seo_meta.js v1.1 (परत-4, 11-Nov-2026) : पूरी साइट की "अंतिम SEO-परत"
+   build_seo_meta.js v1.3 (परत-4, 12-Nov-2026) : पूरी साइट की "अंतिम SEO-परत"
    काम (हर बार वही नतीजा; दोबारा चलाने पर कुछ नहीं बदलता):
    1) सभी 8 पेज-प्रकार का title + description = lib_seo_meta.js का पाठ
       (<title>, og:title, meta description, og:description, schema का description)।
@@ -16,6 +16,9 @@
       (पेज live रहता है; Google की सूची और sitemap से बाहर)। असली पढ़ाई आते ही अपने-आप index।
    8) भाषा-वार नियम-पेज: <title> और meta-attribute के भीतर से <bdi> tag हटाना।
    9) जुड़वाँ पेज (data/seo_twin_pages.js): canonical + og:url मुख्य पेज पर।
+   v1.2: 10) उद्यम-पेज: 80 अक्षर से लंबे शीर्षक छोटे (नियम lib_seo_hunar.js का udyamTitle)।
+   v1.3: 11) पाठ-पेज के schema (LearningResource) का description = पेज का meta description।
+         12) कोई पाठ-description "और / या / के / में…" जैसे अधूरे शब्द पर ख़त्म हो तो वह शब्द हटता है।
    कब चलाएँ: कोई भी भाषा-generator चलाने के बाद, sitemap से पहले। छहों generator
    इसे अंत में अपने-आप बुलाते हैं; जाँच-यंत्र dev_seo_check.js भी पहरा देता है।
    चलाना: node generator/build_seo_meta.js [--check]   (--check = सिर्फ़ जाँच, कुछ नहीं लिखता)
@@ -89,13 +92,25 @@ function fixHunar(rel, s) {
   const dm = o.match(RE_DESC);
   if (dm && !/\/index\.html$/.test(rel.replace(/\\/g, "/"))) {
     const raw = dm[2], broken = /"/.test(raw), old = HN.unesc(raw);
-    const nd = HN.desc(F, old, s, broken);
-    D = nd === null ? old : nd;
-    if (nd !== null) {
-      const a = HN.attr(nd);
+    const nd = HN.desc(F, old, s, broken, rel);
+    let fin = nd === null ? old : nd;
+    if (HN.DANGLE.test(fin)) { const t = HN.trimDangle(fin); if (HN.len(t) >= 40) fin = t; }   /* अधूरे शब्द पर ख़त्म नहीं */
+    D = fin;
+    if (nd !== null || fin !== old) {
+      const a = HN.attr(fin);
       o = setMeta(o, RE_DESC, a); o = setMeta(o, RE_OGD, a); o = setMeta(o, RE_TWD, a);
-      if (old && old !== nd) o = o.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, blk => blk.split(jesc(old)).join(jesc(nd)));
     } else { const od = o.match(RE_OGD); if (od && /"/.test(od[2])) o = setMeta(o, RE_OGD, HN.attr(HN.unesc(dm[2]))); }
+    /* schema का description = meta description (एक ही सच) */
+    o = o.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (m, a, blk, c) => {
+      let j; try { j = JSON.parse(blk); } catch (e) { return m; }
+      const plainStyle = JSON.stringify(j) === blk, escStyle = JSON.stringify(j).replace(/</g, "\\u003c") === blk;
+      if (!plainStyle && !escStyle) return m;
+      const arr = Array.isArray(j) ? j : (j["@graph"] || [j]); let ch = false;
+      for (const x of arr) if (x && x["@type"] === "LearningResource" && x.description !== D) { x.description = D; ch = true; }
+      if (!ch) return m;
+      const out = JSON.stringify(j);
+      return a + (plainStyle ? out : out.replace(/</g, "\\u003c")) + c;
+    });
   }
   return { s: o, type: F.key, T, D };
 }
@@ -126,6 +141,19 @@ function extra(errs, writes, stat) {
       const o = fixTwinPage(rel, r.s);
       bump(F.key, r.T, r.D, o !== s); if (o !== s) writes.push([full, o, rel]);
     }
+  }
+  const ud = path.join(ROOT, "udyam");
+  if (fs.existsSync(ud)) for (const f of fs.readdirSync(ud).sort()) {
+    if (!f.endsWith(".html") || f === "index.html") continue;
+    const full = path.join(ud, f), s = fs.readFileSync(full, "utf8");
+    const tm = s.match(/<title>([\s\S]*?)<\/title>/); if (!tm) continue;
+    const nt = HN.udyamTitle(tm[1]); let o = s;
+    if (nt !== null) {
+      o = o.replace(/<title>[\s\S]*?<\/title>/, () => "<title>" + nt + "</title>");
+      const og = o.match(RE_OGT);
+      if (og) o = setMeta(o, RE_OGT, (/&amp;|&quot;/.test(og[2]) || !/[&"]/.test(og[2])) ? HN.attr(HN.unesc(nt)) : qAttr(nt));
+    }
+    bump("udyam", nt === null ? tm[1] : nt, "", o !== s); if (o !== s) writes.push([full, o, "udyam/" + f]);
   }
   const sd = path.join(ROOT, "courses/hi/subject");
   if (fs.existsSync(sd)) for (const f of fs.readdirSync(sd).sort()) {
@@ -169,7 +197,7 @@ function run(opt) {
   writes.forEach(w => fs.writeFileSync(w[0], w[1], "utf8"));
   if (!opt.quiet) {
     Object.keys(stat).forEach(t => console.log("  " + t + " : " + stat[t].n + " पेज, बदले " + stat[t].ch + ", सबसे लंबा title " + stat[t].tmax + ", description " + stat[t].dmax));
-    console.log("🏁 build_seo_meta v1.1 : " + writes.length + " फ़ाइलें लिखीं");
+    console.log("🏁 build_seo_meta v1.3 : " + writes.length + " फ़ाइलें लिखीं");
   } else if (writes.length) console.log("  (SEO-परत: " + writes.length + " पेज अद्यतन)");
   return { pending: [], stat, written: writes.length };
 }
