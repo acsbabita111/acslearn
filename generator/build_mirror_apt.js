@@ -25,7 +25,7 @@ if (!hiPage || !dataFile || !outFile) {
   process.exit(1);
 }
 var T = require(path.resolve(dataFile));
-var src = fs.readFileSync(hiPage, "utf8");
+var src = fs.readFileSync(hiPage, "utf8").replace(/\r\n/g, "\n"); /* v1.1: Windows की CRLF checkout पर भी वही नतीजा */
 var fails = 0;
 function bad(m) { fails++; console.log("  ❌ " + m); }
 function ok(m) { console.log("  ✅ " + m); }
@@ -44,7 +44,7 @@ T.pairs.forEach(function (p, i) {
 
 /* generator-निशान */
 out = out.replace("<!DOCTYPE html>",
-  "<!DOCTYPE html>\n<!-- generator-निर्मित: build_mirror_apt.js v1.0 · स्रोत = /aptitude-test.html (hi) ·\n     data = generator/data/aptitude/en/apt_en_page_strings.js · हाथ से न बदलें (परत-4) -->");
+  "<!DOCTYPE html>\n<!-- generator-निर्मित: build_mirror_apt.js v1.1 · स्रोत = /aptitude-test.html (hi) ·\n     data = generator/data/aptitude/en/apt_en_page_strings.js · हाथ से न बदलें (परत-4) -->");
 
 /* ---- 2. पूरी-राज्य जाँच ---- */
 var visible = out.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<style[\s\S]*?<\/style>/g, "").replace(/<!--[\s\S]*?-->/g, "");
@@ -72,9 +72,16 @@ has('<meta property="og:locale" content="en_US">', "og:locale en_US");
 has('window.APT_LANG="en"', "APT_LANG=en");
 has('/assets/apt_en.js', "apt_en.js overlay");
 has('/assets/apt_strings.js', "apt_strings.js");
-hasNot("apt-session.js", "apt-session.js (en-पेज पर नहीं)");
-hasNot("apt-pay.js", "apt-pay.js (en-पेज पर नहीं)");
-hasNot('id="apt-sess-box"', "apt-sess-box (en-पेज पर नहीं)");
+/* v1.1 (12-Nov-2026): पूरी परीक्षा अब इस पन्ने पर भी; पहले ये तीनों "नहीं होने चाहिए" थे */
+has('/assets/apt_session_en.js', "apt_session_en.js (इंजन की English तालिका)");
+has('/assets/apt-session.js', "apt-session.js (पूरी परीक्षा का इंजन)");
+has('/assets/apt-pay.js', "apt-pay.js (भुगतान)");
+has('id="apt-sess-box"', "apt-sess-box (पूरी परीक्षा का डिब्बा)");
+hasNot("available in Hindi only", "पुराना \"सिर्फ़ हिंदी में\" कार्ड");
+hasNot('href="/aptitude-test.html#apt-full"', "हिंदी पूरी-परीक्षा की कड़ी");
+(function () { var o = ['window.APT_LANG="en"', '/assets/apt_strings.js', '/assets/apt_en.js', '/assets/apt_session_en.js', '/assets/aptitude-test.js', '/assets/apt-session.js', '/assets/apt-pay.js'], last = -1, okOrder = true;
+  o.forEach(function (x) { var k = out.indexOf(x); if (k < 0 || k < last) okOrder = false; last = k; });
+  if (!okOrder) bad("scripts का क्रम ग़लत (तालिकाएँ इंजन से पहले चाहिए)"); else ok("scripts का क्रम: भाषा-निशान → तालिकाएँ → इंजन → भुगतान"); })();
 
 /* डैश-नियम: नए (reused नहीं) जोड़ों के नए-पाठ में — वर्जित */
 var dashBad = [];

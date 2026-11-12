@@ -59,6 +59,9 @@
 .apt-sel{font-size:19px;padding:10px 12px;border:2px solid #0B1F3A44;border-radius:12px;background:#fff;font-family:inherit}
 .apt-course{flex-wrap:wrap;border:2px solid #0B1F3A22;border-radius:12px;padding:8px 10px;background:#fff}
 .apt-course .nm{flex:1;min-width:180px}
+/* 12-Nov-2026: नतीजे की कोर्स/उद्यम पंक्तियाँ पूरी चौड़ाई लें। ये .apt-opts (विकल्पों की 2-खाने वाली जाली) के भीतर बनती हैं;
+   मोबाइल पर दायाँ खाना परदे से बाहर कट जाता था (हिंदी और English दोनों में)। विकल्प-बटन (.apt-opt) पर असर नहीं। */
+.apt-opts>.apt-row{grid-column:1/-1}
 .apt-mini{flex:0 0 auto;font-size:16px;padding:8px 12px;text-decoration:none;text-align:center}
 
 /* ═══ (28-Jul केंद्र-alignment + उत्तर-graphics परत — Founder-आदेश) ═══

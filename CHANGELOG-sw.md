@@ -1,6 +1,8 @@
 # CHANGELOG-sw.md — sw.js version-इतिहास
 (13-Sep ऑडिट H7 नियम: नया इतिहास यहाँ दर्ज हो; v705 तक की पुरानी पंक्तियाँ sw.js की शीर्ष-टिप्पणी में हैं — वहाँ से हटाई नहीं गईं।)
 
+v845 (12-Nov-2026): अभिरुचि — English की पूरी 120-प्रश्न परीक्षा। cache-first बदलाव: assets/apt-session.js v1.4 और assets/apt-pay.js v1.2 (भाषा-परत; हिंदी पन्ने का व्यवहार वही — हिंदी robot का नतीजा live इंजन जैसा)। नई फ़ाइलें: assets/apt_session_en.js (इंजन + भुगतान के वाक्यांश, English) और assets/apt_sets_en/ (25 प्रश्न-टुकड़े, जाँचे हुए English पुल-बैंक से; generator: build_apt_en_sets.js)। /en/aptitude-test.html अब पूरी परीक्षा चलाता है।
+
 v839 (11-Nov-2026): अभिरुचि-भंडार सुधार (apt-fix v1.2, ChatGPT-ऑडिट के बाद)। cache-first बदलाव सिर्फ़ एक: assets/apt_sets/broad.js में 3 हिंदी प्रश्न-पाठ (q235 q258 q459) — प्रश्न और विकल्पों का मेल ठीक किया; विकल्प, सेक्टर-निशान, उम्र-पट्टी अछूते (Founder-मंज़ूर)। बाक़ी generator-फ़ाइलें (साइट पर प्रकाशित नहीं): dev_apt_check.js की मरम्मत (09-Nov से टूटा था; apt_strings.js लोड; रिपोर्ट repo के बाहर), English पुल-भंडार (broad 452 frozen, mg01 100 draft) और उसका पहरेदार apt_en_bank.js v1.4।
 
 v840 (12-Nov-2026): होम-पेज v1.4 दौर। cache-first बदलाव सिर्फ़ एक: assets/courses_data.js v1.7 में टू-व्हीलर कोर्स (SE022) का English नाम "Motorcycle & Two-Wheeler Repair, Servicing, EV & Entrepreneurship" हुआ। होम की नई फ़ाइलें (home.css, home-search.js, search_index.json) अपनी छाप (?v=) के साथ बुलाई जाती हैं, इसलिए उनके लिए sw-bump नहीं चाहिए।

@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/apt-pay.js — v1.1 (₹100/चांस भुगतान-द्वार + नतीजा-server-save)
+   /assets/apt-pay.js — v1.2 (12-Nov-2026: भाषा-परत — संदेश L(…) में; हिंदी का व्यवहार वही)
+     v1.1 (₹100/चांस भुगतान-द्वार + नतीजा-server-save)
    v1.1 · 30-Jul-2026 (होल-1, Founder-override v4.0-ख1): saveResult —
    final-submit पर नतीजे का सार खाते में (saveAptitudeResult, मुफ़्त);
    latestResult — नए फ़ोन पर खाते से पिछला नतीजा (latestAptitudeResult)।
@@ -22,6 +23,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
+
+/* v1.2 भाषा-परत (12-Nov-2026): संदेश L(…) में। हिंदी पन्ने पर L() वही लौटाता है (व्यवहार वही)।
+   दूसरी भाषा के पन्ने पर window.APT_SX[भाषा] से (/assets/apt_session_<भाषा>.js; apt-session.js वाली ही तालिका)।
+   ध्यान: server (Cloud Functions) से आया त्रुटि-संदेश जैसा आता है वैसा दिखता है; उसका अनुवाद server-दौर का काम है। */
+const APT_PAY_LANG = (typeof window.APT_LANG === "string" && window.APT_LANG) ? window.APT_LANG : "hi";
+const APT_PAY_SX = (APT_PAY_LANG !== "hi" && window.APT_SX && window.APT_SX[APT_PAY_LANG]) || null;
+function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_PAY_SX, s)) ? APT_PAY_SX[s] : s; }
 
 (function () {
   "use strict";
@@ -49,7 +57,7 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
       var s = document.createElement("script");
       s.src = "https://checkout.razorpay.com/v1/checkout.js";
       s.onload = function () { res(); };
-      s.onerror = function () { rej(new Error("भुगतान-पृष्ठ नहीं खुला — network जाँचें")); };
+      s.onerror = function () { rej(new Error(L("भुगतान-पृष्ठ नहीं खुला — network जाँचें"))); };
       document.body.appendChild(s);
     });
   }
@@ -73,7 +81,7 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
       } else if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
         window.ACS_APT_SESSION.showBuy();
         wireBuyButton();
-        if (afterPay) setMsg("भुगतान हुआ पर चांस नहीं दिखा — पन्ना दोबारा खोलें।", "msg err");
+        if (afterPay) setMsg(L("भुगतान हुआ पर चांस नहीं दिखा — पन्ना दोबारा खोलें।"), "msg err");
       }
     }).catch(function () {
       checking = false;
@@ -89,32 +97,32 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
     if (buying) return;
     var u = auth.currentUser;
     if (!u) {
-      setMsg("पहले लॉगिन करें — नीचे 'Login / Dashboard' दबाएँ।", "msg err");
+      setMsg(L("पहले लॉगिन करें — नीचे 'Login / Dashboard' दबाएँ।"), "msg err");
       return;
     }
     buying = true;
-    setMsg("शुल्क तैयार किया जा रहा है…", "msg");
+    setMsg(L("शुल्क तैयार किया जा रहा है…"), "msg");
     httpsCallable(functions, "createAptitudeAttemptOrder")({}).then(function (res) {
       var o = (res && res.data) || {};
-      if (!o.ok || !o.orderId) throw new Error("order नहीं बना");
+      if (!o.ok || !o.orderId) throw new Error(L("order नहीं बना"));
       return loadRazorpay().then(function () {
         return new Promise(function (resolve, reject) {
-          setMsg("भुगतान-पृष्ठ खुल रहा है…", "msg");
+          setMsg(L("भुगतान-पृष्ठ खुल रहा है…"), "msg");
           var rzp = new window.Razorpay({
             key: o.keyId, order_id: o.orderId, amount: o.amount, currency: o.currency || "INR",
             name: o.name || "Applied Computer School",
-            description: "अभिरुचि-टेस्ट — 1 पूरा चांस (₹100)",
+            description: L("अभिरुचि-टेस्ट — 1 पूरा चांस (₹100)"),
             prefill: { email: (auth.currentUser && auth.currentUser.email) || "" },
             theme: { color: "#0B1F3A" },
             handler: function (r) { resolve(r); },
-            modal: { ondismiss: function () { reject(new Error("भुगतान रद्द किया गया।")); } }
+            modal: { ondismiss: function () { reject(new Error(L("भुगतान रद्द किया गया।"))); } }
           });
           rzp.open();
         });
       });
     }).then(function (r) {
       if (!r) return;
-      setMsg("भुगतान की पुष्टि हो रही है…", "msg");
+      setMsg(L("भुगतान की पुष्टि हो रही है…"), "msg");
       return httpsCallable(functions, "verifyAptitudeAttemptPayment")({
         razorpay_order_id: r.razorpay_order_id,
         razorpay_payment_id: r.razorpay_payment_id,
@@ -122,10 +130,10 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
       });
     }).then(function (v) {
       buying = false;
-      if (v) { setMsg("✅ भुगतान सफल — टेस्ट खुल रहा है…", "msg ok"); refreshStatus(true); }
+      if (v) { setMsg(L("✅ भुगतान सफल — टेस्ट खुल रहा है…"), "msg ok"); refreshStatus(true); }
     }).catch(function (e) {
       buying = false;
-      setMsg("नहीं हो पाया: " + (e && e.message ? e.message : e), "msg err");
+      setMsg(L("नहीं हो पाया: ") + (e && e.message ? e.message : e), "msg err");
     });
   }
 
@@ -143,21 +151,21 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
   function saveReport(reportText, onDone) {
     if (savingReport) return;
     var u = auth.currentUser;
-    if (!u) { onDone(new Error("पहले लॉगिन करें।")); return; }
+    if (!u) { onDone(new Error(L("पहले लॉगिन करें।"))); return; }
     savingReport = true;
     httpsCallable(functions, "createAptitudeReportOrder")({ reportText: reportText }).then(function (res) {
       var o = (res && res.data) || {};
-      if (!o.ok || !o.orderId) throw new Error("order नहीं बना");
+      if (!o.ok || !o.orderId) throw new Error(L("order नहीं बना"));
       return loadRazorpay().then(function () {
         return new Promise(function (resolve, reject) {
           var rzp = new window.Razorpay({
             key: o.keyId, order_id: o.orderId, amount: o.amount, currency: o.currency || "INR",
             name: o.name || "Applied Computer School",
-            description: "अभिरुचि-रिपोर्ट सेव (₹125)",
+            description: L("अभिरुचि-रिपोर्ट सेव (₹125)"),
             prefill: { email: (auth.currentUser && auth.currentUser.email) || "" },
             theme: { color: "#0B1F3A" },
             handler: function (r) { resolve(r); },
-            modal: { ondismiss: function () { reject(new Error("भुगतान रद्द किया गया।")); } }
+            modal: { ondismiss: function () { reject(new Error(L("भुगतान रद्द किया गया।"))); } }
           });
           rzp.open();
         });

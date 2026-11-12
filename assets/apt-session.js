@@ -1,5 +1,7 @@
 /* ============================================================
-   /assets/apt-session.js — v1.3.1 (08-Nov-2026 सफ़ाई: gate-कार्ड कसा पाठ — HTML की 8-पंक्ति info
+   /assets/apt-session.js — v1.4 (12-Nov-2026: भाषा-परत — दूसरी भाषा का पन्ना इसी इंजन से पूरी परीक्षा चलाए;
+   हिंदी का व्यवहार वही। वाक्यांश L(…) में; तालिका generator/build_apt_session_en.js बनाता है।)
+   v1.3.1 (08-Nov-2026 सफ़ाई: gate-कार्ड कसा पाठ — HTML की 8-पंक्ति info
    हटी, बातें यहीं एक बार; gate-धारकों से झलक-sec भी छिपे।)
    v1.3 (08-Nov-2026: O*NET-शैली app-mode — प्रश्न पूरे पर्दे पर,
    window कभी नहीं कूदती; द्वार/नतीजा सामान्य पन्ने पर। Founder-फ़ैसला: टेस्ट-पेज = सिर्फ़ टेस्ट।)
@@ -36,6 +38,46 @@
   'use strict';
   var box = document.getElementById('apt-sess-box');
   if (!box) return;
+  /* ---- v1.4 भाषा-परत (12-Nov-2026) ----
+     हिंदी पन्ने पर (APT_LANG नहीं या "hi") कुछ नहीं बदलता: L() वही लौटाता है, QT/OT/ST/MGN/UN हिंदी लौटाते हैं, कोई अतिरिक्त फ़ाइल नहीं उतरती।
+     दूसरी भाषा के पन्ने पर: वाक्यांश window.APT_SX[भाषा] से (/assets/apt_session_<भाषा>.js; generator-निर्मित),
+     प्रश्न-पाठ window.APT_EN से (/assets/apt_sets_<भाषा>/<टुकड़ा>.js; हिंदी टुकड़े के साथ उतरता है), झलक-48, कथाएँ और समूह-नाम window.APT_TR से।
+     band / mg / udy / अंक / चित्र हमेशा हिंदी टुकड़े से: गिनती का एक ही घर। */
+  var LANG = (typeof window.APT_LANG === 'string' && window.APT_LANG) ? window.APT_LANG : 'hi';
+  var SX = (LANG !== 'hi' && window.APT_SX && window.APT_SX[LANG]) || null;
+  var TRX = (LANG !== 'hi' && window.APT_TR && window.APT_TR.lang === LANG) ? window.APT_TR : null;
+  var DLOC = (SX && SX['@dateLocale']) || 'hi-IN';
+  function L(s) { return (SX && Object.prototype.hasOwnProperty.call(SX, s)) ? SX[s] : s; }
+  function enOf(id) {
+    var m = window.APT_EN; if (m && m[id] !== undefined) return m[id];
+    if (TRX && TRX.q && TRX.q[id]) { var t = TRX.q[id]; return t.opts ? [t.text, t.opts] : t.text; }
+    return null;
+  }
+  function QT(q) { if (LANG === 'hi') return q.text; var e = enOf(q.id); return e ? (typeof e === 'string' ? e : e[0]) : q.text; }
+  function OT(q, i, o) {
+    var hi = o.t || o.text || o.label || ''; if (LANG === 'hi') return hi;
+    var e = enOf(q.id); return (e && typeof e !== 'string' && e[1] && e[1][i] !== undefined) ? e[1][i] : hi;
+  }
+  function ST(st, key) { if (TRX && TRX.k && TRX.k[st.id] && TRX.k[st.id][key]) return TRX.k[st.id][key]; return st[key]; }
+  function MGN(m, hiName) { return (TRX && TRX.mg && TRX.mg[m]) ? TRX.mg[m] : hiName; }
+  function UN(name) {
+    var nm = String(name).replace(/\[/g, '(').replace(/\]/g, ')'); if (LANG === 'hi') return nm;
+    var mm = /\(([^()]*[A-Za-z][^()]*)\)/.exec(nm); if (!mm) return nm;
+    /* कोष्ठक के भीतर English के बाद हिंदी टुकड़ा हो ("Ride Hailing — ओला/उबर मॉडल") तो English हिस्सा ही */
+    var en = mm[1].replace(/[\u0900-\u097F][\s\S]*$/, '').replace(/[\s\u2014\u2013\-\/,:;(&]+$/, '');
+    return en || nm;
+  }
+  /* चित्र (SVG) के भीतर लिखा हिंदी अक्षर/शब्द: दूसरी भाषा में तालिका का जोड़ ("@art:क" → "A"); तालिका में न हो तो ख़ाली (हिंदी कभी न रिसे)। */
+  function AX(svg) {
+    if (LANG === 'hi' || !svg) return svg;
+    return String(svg).replace(/>([^<]*[\u0900-\u097F][^<]*)</g, function (all, t) { var k = t.replace(/^\s+|\s+$/g, ''); return '>' + ((SX && SX['@art:' + k]) || '') + '<'; });
+  }
+  function withLang(urls) {
+    if (LANG === 'hi') return urls;
+    var out = urls.slice();
+    urls.forEach(function (u) { if (u.indexOf('/assets/apt_sets/') === 0) out.push(u.replace('/assets/apt_sets/', '/assets/apt_sets_' + LANG + '/')); });
+    return out;
+  }
   /* ---- v1.3 app-mode (O*NET-शैली) ---- */
   function appOn() { try { document.body.classList.add('apt-app'); box.classList.add('apt-live'); } catch (e) {} }
   function appOff() {
@@ -49,7 +91,7 @@
     window.scrollTo(0, box.offsetTop - 8);
   }
   var D = window.APT_DATA, ART = window.APT_ART || {}, MG = window.MG_NAMES || {};
-  if (!D || !D.pool) { box.innerHTML = '<p>टेस्ट-सामग्री नहीं खुली — पन्ना दोबारा खोलिए।</p>'; return; }
+  if (!D || !D.pool) { box.innerHTML = L('<p>टेस्ट-सामग्री नहीं खुली — पन्ना दोबारा खोलिए।</p>'); return; }
 
   /* ---------- बैज-द्वार + ₹100/चांस-द्वार (Jio-नियम v3.7 + Founder-नियम 22-Jul) ----------
      दो रास्ते: (अ) बैज-निशान (acs_apt_gate_v1, dashboard से) → मुफ़्त-असीमित;
@@ -70,20 +112,20 @@
     appOff();
     var extra = '';
     if (showBuy === 'checking') {
-      extra = '<p id="apt-buy-msg">\uD83D\uDD0E आपका भुगतान-चांस जाँचा जा रहा है…</p>';
+      extra = L('<p id="apt-buy-msg">\uD83D\uDD0E आपका भुगतान-चांस जाँचा जा रहा है…</p>');
     } else if (showBuy) {
       extra = '<div id="apt-buy-wrap">' +
-        '<p style="font-weight:700;color:var(--navy,#0B1F3A)"><b>बैज नहीं?</b> ₹100 में 1 पूरा चांस लीजिए — पहले किसी भी भूमिका (Student/Job-seeker/Entrepreneur) में रजिस्ट्रेशन ज़रूरी है।</p>' +
-        '<div class="apt-nav"><a class="apt-btn ghost" href="/join.html">📝 पहले रजिस्ट्रेशन करें</a> ' +
-        '<button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 चांस लें</button></div>' +
+        L('<p style="font-weight:700;color:var(--navy,#0B1F3A)"><b>बैज नहीं?</b> ₹100 में 1 पूरा चांस लीजिए — पहले किसी भी भूमिका (Student/Job-seeker/Entrepreneur) में रजिस्ट्रेशन ज़रूरी है।</p>') +
+        L('<div class="apt-nav"><a class="apt-btn ghost" href="/join.html">📝 पहले रजिस्ट्रेशन करें</a> ') +
+        L('<button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 चांस लें</button></div>') +
         '<p id="apt-buy-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
         '</div>';
     }
     box.innerHTML = '<div class="apt-card">' +
-      '<p class="apt-q">\uD83C\uDF96\uFE0F 120 प्रश्न · 3 खंड · घड़ी 90 मिनट</p>' +
-      '<p>खंड: पहले रुचि के समूह, फिर उनकी गहराई, आख़िर में कोर्स-चुनाव।</p>' +
-      '<p>पन्ना बंद करें तो घड़ी रुक जाती है — लौटिए, वहीं से चलेगा।</p>' +
-      '<p><b>बैज (badge) है?</b> Login कीजिए — द्वार अपने-आप खुल जाएगा। बैज वालों को 365 दिन मुफ़्त, जितनी बार चाहें।</p>' +
+      L('<p class="apt-q">\uD83C\uDF96\uFE0F 120 प्रश्न · 3 खंड · घड़ी 90 मिनट</p>') +
+      L('<p>खंड: पहले रुचि के समूह, फिर उनकी गहराई, आख़िर में कोर्स-चुनाव।</p>') +
+      L('<p>पन्ना बंद करें तो घड़ी रुक जाती है — लौटिए, वहीं से चलेगा।</p>') +
+      L('<p><b>बैज (badge) है?</b> Login कीजिए — द्वार अपने-आप खुल जाएगा। बैज वालों को 365 दिन मुफ़्त, जितनी बार चाहें।</p>') +
       '<div class="apt-nav"><a class="apt-btn green" href="/dashboard/">\uD83D\uDD11 Login / Dashboard</a></div>' +
       extra +
       '</div>';
@@ -107,26 +149,26 @@
       if (document.querySelectorAll) {
         var ps = document.querySelectorAll('.apt-wrap > p, .apt-wrap > .apt-note');
         for (var pi = 0; pi < ps.length; pi++) {
-          if (ps[pi].textContent && ps[pi].textContent.indexOf('झलक') >= 0) ps[pi].style.display = 'none';
+          if (ps[pi].textContent && ps[pi].textContent.indexOf(L('झलक')) >= 0) ps[pi].style.display = 'none';
         }
         var h1 = document.querySelector('.apt-wrap h1');
-        if (h1 && h1.textContent.indexOf('पूरा टेस्ट') < 0) h1.textContent += ' — पूरा टेस्ट';
+        if (h1 && h1.textContent.indexOf(L('पूरा टेस्ट')) < 0) h1.textContent += L(' — पूरा टेस्ट');
       }
       var sb = document.getElementById('apt-sess-box');
       if (sb && sb.parentNode && document.createElement && !document.getElementById('apt-hisab')) {
         var hc = document.createElement('div'); hc.id = 'apt-hisab'; hc.className = 'apt-card';
         if (S.prev && S.prev.udy && S.prev.udy.length) {
-          var hh = '<p class="apt-q">📊 पिछला हिसाब (' + new Date(S.prev.at).toLocaleDateString('hi-IN') + ')</p>' +
-            '<p>⭐ सुझाए सेक्टर: ' + S.prev.mg.map(function (n) { return '<span class="apt-chip">' + n + '</span>'; }).join(' ') + '</p>' +
-            '<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">';
+          var hh = L('<p class="apt-q">📊 पिछला हिसाब (') + new Date(S.prev.at).toLocaleDateString(DLOC) + ')</p>' +
+            L('<p>⭐ सुझाए सेक्टर: ') + S.prev.mg.map(function (n) { return '<span class="apt-chip">' + n + '</span>'; }).join(' ') + '</p>' +
+            L('<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">');
           S.prev.udy.forEach(function (u, i) {
             hh += '<div class="apt-row">' + (i + 1) + '. ' +
               (u.c ? '<a href="' + u.c + '" style="color:inherit;text-decoration:underline">' + u.nm + '</a>' : u.nm) + '</div>';
           });
-          hh += '</div><p class="apt-hint">नया टेस्ट नीचे से — नतीजा हर बार ताज़ा बनेगा।</p>';
+          hh += L('</div><p class="apt-hint">नया टेस्ट नीचे से — नतीजा हर बार ताज़ा बनेगा।</p>');
           hc.innerHTML = hh;
         } else {
-          hc.innerHTML = '<p class="apt-q">📊 पिछला हिसाब</p><p>अभी कोई पूरा टेस्ट दर्ज नहीं — नीचे से पहला टेस्ट शुरू कीजिए।</p>';
+          hc.innerHTML = L('<p class="apt-q">📊 पिछला हिसाब</p><p>अभी कोई पूरा टेस्ट दर्ज नहीं — नीचे से पहला टेस्ट शुरू कीजिए।</p>');
           /* (30-Jul होल-1) फ़ोन बदला? — खाते (server) से पिछला नतीजा लाओ।
              apt-pay.js देर से आए तो 2.5s बाद एक बार फिर। H-2 सीख: server से
              आए पाठ में < > हटाकर ही छापो। */
@@ -136,15 +178,15 @@
               var p = r && r.prev;
               if (!p || !p.udy || !p.udy.length) return;
               var cl = function (t) { return String(t == null ? '' : t).replace(/[<>]/g, ''); };
-              var hh2 = '<p class="apt-q">📊 पिछला हिसाब — ☁️ आपके खाते से (' + new Date(p.at).toLocaleDateString('hi-IN') + ')</p>' +
-                '<p>⭐ सुझाए सेक्टर: ' + (p.mg || []).map(function (n) { return '<span class="apt-chip">' + cl(n) + '</span>'; }).join(' ') + '</p>' +
-                '<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">';
+              var hh2 = L('<p class="apt-q">📊 पिछला हिसाब — ☁️ आपके खाते से (') + new Date(p.at).toLocaleDateString(DLOC) + ')</p>' +
+                L('<p>⭐ सुझाए सेक्टर: ') + (p.mg || []).map(function (n) { return '<span class="apt-chip">' + cl(n) + '</span>'; }).join(' ') + '</p>' +
+                L('<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">');
               p.udy.forEach(function (u, i) {
                 var c = String(u.c || ''); if (c.charAt(0) !== '/') c = '';
                 hh2 += '<div class="apt-row">' + (i + 1) + '. ' +
                   (c ? '<a href="' + c + '" style="color:inherit;text-decoration:underline">' + cl(u.nm) + '</a>' : cl(u.nm)) + '</div>';
               });
-              hh2 += '</div><p class="apt-hint">यह आपके खाते में सुरक्षित है — किसी भी फ़ोन से login कर देख सकते हैं।</p>';
+              hh2 += L('</div><p class="apt-hint">यह आपके खाते में सुरक्षित है — किसी भी फ़ोन से login कर देख सकते हैं।</p>');
               hc.innerHTML = hh2;
             });
             return true;
@@ -222,8 +264,8 @@
     urls.forEach(function (u) {
       loadScript(u, function () { left--; if (!left && !failed) ok(); }, function (bad) {
         failed = true;
-        box.innerHTML = '<div class="apt-card"><p>⚠️ प्रश्न-फ़ाइल नहीं उतरी (network)।</p>' +
-          '<p>net देखकर दोबारा दबाइए।</p><div class="apt-nav"><button class="apt-btn blue" id="apt-retry">🔄 दोबारा</button></div></div>';
+        box.innerHTML = L('<div class="apt-card"><p>⚠️ प्रश्न-फ़ाइल नहीं उतरी (network)।</p>') +
+          L('<p>net देखकर दोबारा दबाइए।</p><div class="apt-nav"><button class="apt-btn blue" id="apt-retry">🔄 दोबारा</button></div></div>');
         var b = document.getElementById('apt-retry');
         if (b) b.onclick = function () { loadMany(urls, ok); };
       });
@@ -337,7 +379,7 @@
   function clockText(C) {
     var left = Math.max(0, LIMIT_SEC - (C.elapsed || 0));
     var m = Math.floor(left / 60), s = left % 60;
-    return '⏱ बचा समय: ' + m + ' मिनट ' + (s < 10 ? '0' : '') + s + ' सेकंड';
+    return L('⏱ बचा समय: ') + m + L(' मिनट ') + (s < 10 ? '0' : '') + s + L(' सेकंड');
   }
 
   /* ---------- बेनाम analytics-hook (मौन — v4.1-क8) ---------- */
@@ -346,28 +388,28 @@
   /* ---------- UI टुकड़े ---------- */
   function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
   function art(id) {
-    if (id && ART[id]) return '<div class="apt-img">' + ART[id] + '</div>';
+    if (id && ART[id]) return '<div class="apt-img">' + AX(ART[id]) + '</div>';
     return '';
   }
-  function mgName(m) { var e = MG[m]; return e ? ((e.e ? e.e + ' ' : '') + e.n) : ('समूह-' + m); }
+  function mgName(m) { var e = MG[m]; return e ? ((e.e ? e.e + ' ' : '') + MGN(m, e.n)) : (L('समूह-') + m); }
 
   /* ---------- शुरुआत-कार्ड ---------- */
   function renderStart() {
     appOff();
     var C = S.cur;
     var html = '<div class="apt-card">' +
-      '<p class="apt-q">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</p>' +
-      '<p>घड़ी 90 मिनट की है। पन्ना बंद करें तो घड़ी रुक जाती है।</p>' +
-      '<p>लौटिए — जहाँ छोड़ा था, वहीं से चलेगा।</p>';
+      L('<p class="apt-q">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</p>') +
+      L('<p>घड़ी 90 मिनट की है। पन्ना बंद करें तो घड़ी रुक जाती है।</p>') +
+      L('<p>लौटिए — जहाँ छोड़ा था, वहीं से चलेगा।</p>');
     if (C && !C.locked && C.ids) {
-      html += '<div class="apt-note">आपका एक प्रयास अधूरा है — प्रश्न ' + (Object.keys(C.ans || {}).length) + ' / ' + TOTAL + ' हो चुके।</div>' +
-        '<div class="apt-nav"><button class="apt-btn green" id="apt-resume">▶ वहीं से जारी रखें</button> ' +
-        '<button class="apt-btn ghost" id="apt-fresh">🆕 नया प्रयास</button></div>';
+      html += L('<div class="apt-note">आपका एक प्रयास अधूरा है — प्रश्न ') + (Object.keys(C.ans || {}).length) + ' / ' + TOTAL + L(' हो चुके।</div>') +
+        L('<div class="apt-nav"><button class="apt-btn green" id="apt-resume">▶ वहीं से जारी रखें</button> ') +
+        L('<button class="apt-btn ghost" id="apt-fresh">🆕 नया प्रयास</button></div>');
     } else {
-      html += '<p>पहले अपना जन्म का साल चुनिए (सिर्फ़ आपके फ़ोन में रहेगा):</p>' +
+      html += L('<p>पहले अपना जन्म का साल चुनिए (सिर्फ़ आपके फ़ोन में रहेगा):</p>') +
         '<div class="apt-nav"><select id="apt-yob" class="apt-sel">' + yearOpts() + '</select> ' +
-        '<button class="apt-btn green" id="apt-go">🚀 शुरू करें</button></div>' +
-        '<div class="apt-note">🔒 आपके जवाब फ़ोन में रहते हैं। login हो तो नतीजे का सार आपके खाते में भी अपने-आप सुरक्षित होता है — फ़ोन बदलने पर भी वही मिलेगा।</div>';
+        L('<button class="apt-btn green" id="apt-go">🚀 शुरू करें</button></div>') +
+        L('<div class="apt-note">🔒 आपके जवाब फ़ोन में रहते हैं। login हो तो नतीजे का सार आपके खाते में भी अपने-आप सुरक्षित होता है — फ़ोन बदलने पर भी वही मिलेगा।</div>');
     }
     html += '</div>';
     box.innerHTML = html;
@@ -375,13 +417,13 @@
     if (g) g.onclick = function () {
       var y = Number(document.getElementById('apt-yob').value);
       var age = YEAR_NOW - y;
-      if (age < 10) { alert('यह टेस्ट 10 साल की उम्र से है।'); return; }
+      if (age < 10) { alert(L('यह टेस्ट 10 साल की उम्र से है।')); return; }
       newAttempt(y);
     };
     var rs = document.getElementById('apt-resume');
     if (rs) rs.onclick = function () { bootQuestions(); };
     var fr = document.getElementById('apt-fresh');
-    if (fr) fr.onclick = function () { if (confirm('अधूरा प्रयास हटेगा — नया शुरू करें?')) { S.cur = null; save(S); renderStart(); } };
+    if (fr) fr.onclick = function () { if (confirm(L('अधूरा प्रयास हटेगा — नया शुरू करें?'))) { S.cur = null; save(S); renderStart(); } };
   }
   function yearOpts() {
     var out = '', y;
@@ -406,8 +448,8 @@
   function bootQuestions() {
     var C = S.cur; if (!C) { renderStart(); return; }
     appOn();
-    box.innerHTML = '<div class="apt-card"><p>प्रश्न आ रहे हैं…</p></div>';
-    loadMany([D.pool.broad], function () {
+    box.innerHTML = L('<div class="apt-card"><p>प्रश्न आ रहे हैं…</p></div>');
+    loadMany(withLang([D.pool.broad]), function () {
       if (!C.ids.k1.length) {
         var picked = pickSpread(poolAll(), PER_KHAND, C.band, S.used, C.n * 101 + 7, function (q) { return (q.mg && q.mg[0]) || 0; });
         C.ids.k1 = picked.map(function (q) { return q.id; });
@@ -421,7 +463,7 @@
   function loadTopShards(ok) {
     var urls = [];
     S.cur.topMg.forEach(function (m) { if (D.pool.mg[m]) urls.push(D.pool.mg[m]); });
-    loadMany(urls, ok);
+    loadMany(withLang(urls), ok);
   }
 
   /* ---------- खंड-सीमा: गिनती + अगला भंडार ---------- */
@@ -488,8 +530,8 @@
     var st = (D.stories || []).filter(function (s) { return (s.mg || []).indexOf(topMgId) >= 0; })[0] || (D.stories || [])[S.cur.phase % (D.stories || [1]).length] || null;
     if (!st) { next(); return; }
     box.innerHTML = '<div class="apt-card apt-katha">' + art(st.img) +
-      '<p class="apt-q">📖 ' + esc(st.title) + '</p><p>' + esc(st.text) + '</p>' +
-      '<div class="apt-nav"><button class="apt-btn blue" id="apt-next" disabled>⏳ ' + HOLD_SEC + ' सेकंड रुकिए…</button></div></div>';
+      '<p class="apt-q">📖 ' + esc(ST(st, 'title')) + '</p><p>' + esc(ST(st, 'text')) + '</p>' +
+      '<div class="apt-nav"><button class="apt-btn blue" id="apt-next" disabled>⏳ ' + HOLD_SEC + L(' सेकंड रुकिए…</button></div></div>');
     appOn();
     toTop();
     var btn = document.getElementById('apt-next');
@@ -498,13 +540,13 @@
       left--;
       if (left <= 0) {
         clearInterval(timer);
-        if (btn) { btn.disabled = false; btn.textContent = 'आगे बढ़ें ➜';
+        if (btn) { btn.disabled = false; btn.textContent = L('आगे बढ़ें ➜');
           btn.onclick = function () {
-            box.innerHTML = '<div class="apt-card"><p>⏳ अगले खंड के प्रश्न आ रहे हैं…</p><p class="apt-note">कमज़ोर नेट पर 25 सेकंड तक लग सकते हैं।</p></div>';
+            box.innerHTML = L('<div class="apt-card"><p>⏳ अगले खंड के प्रश्न आ रहे हैं…</p><p class="apt-note">कमज़ोर नेट पर 25 सेकंड तक लग सकते हैं।</p></div>');
             next();
           }; }
       } else if (btn) {
-        btn.textContent = '⏳ ' + left + ' सेकंड रुकिए…';
+        btn.textContent = '⏳ ' + left + L(' सेकंड रुकिए…');
       }
     }, 1000);
   }
@@ -553,18 +595,18 @@
     var q = qmap[qid];
     if (!q) { C.queue.shift(); save(S); renderStep(); return; }
     var globalDone = (C.phase - 1) * PER_KHAND + C.doneOrder.length;
-    var head = '<div class="apt-top"><span class="apt-prog">खंड ' + C.phase + ' · प्रश्न ' + (globalDone + 1) + ' / ' + TOTAL + '</span>' +
+    var head = L('<div class="apt-top"><span class="apt-prog">खंड ') + C.phase + L(' · प्रश्न ') + (globalDone + 1) + ' / ' + TOTAL + '</span>' +
       '<span class="apt-prog" id="apt-clock">' + clockText(C) + '</span>' +
-      '<button class="apt-btn ghost apt-mini" id="apt-cancel" style="margin-left:8px">❌ परीक्षा छोड़ें</button></div>';
-    var body = '<p class="apt-q">' + esc(q.text) + '</p>';
+      L('<button class="apt-btn ghost apt-mini" id="apt-cancel" style="margin-left:8px">❌ परीक्षा छोड़ें</button></div>');
+    var body = '<p class="apt-q">' + esc(QT(q)) + '</p>';
     var a = C.ans[q.id] || {};
     if (q.type === 'scale') body += scaleUI(q, a);
     else if (q.type === 'pick') body += pickUI(q, a);
     else body += optUI(q, a);
     body += art(q.img);
     var nav = '<div class="apt-nav">' +
-      (C.doneOrder.length > 0 ? '<button class="apt-btn ghost" id="apt-prev">← पिछला</button> ' : '') +
-      '<button class="apt-btn blue" id="apt-skiporgo">' + (answered(q, a) ? 'आगे ➜' : '⏭ अभी छोड़ें (यह प्रश्न फिर आएगा)') + '</button></div>';
+      (C.doneOrder.length > 0 ? L('<button class="apt-btn ghost" id="apt-prev">← पिछला</button> ') : '') +
+      '<button class="apt-btn blue" id="apt-skiporgo">' + (answered(q, a) ? L('आगे ➜') : L('⏭ अभी छोड़ें (यह प्रश्न फिर आएगा)')) + '</button></div>';
     box.innerHTML = '<div class="apt-card">' + head + body + nav + '</div>';
     bind(q);
     var pv = document.getElementById('apt-prev');
@@ -589,7 +631,7 @@
     try { return sessionStorage.getItem('acs_apt_back') || '/dashboard/'; } catch (e) { return '/dashboard/'; }
   }
   function cancelAttempt() {
-    if (!confirm('पक्का परीक्षा छोड़ना है? अब तक के जवाब मिट जाएँगे — यह प्रयास रद्द हो जाएगा।')) return;
+    if (!confirm(L('पक्का परीक्षा छोड़ना है? अब तक के जवाब मिट जाएँगे — यह प्रयास रद्द हो जाएगा।'))) return;
     appOff();
     S.cur = null; save(S);
     location.href = backUrl();
@@ -602,27 +644,27 @@
     /* (28-Jul, Founder-मुहर — विकल्प 2+4 मिश्रण) देहाती-सरल: तीन बटन + नीचे सीधी
        हिंदी — सब उम्र पर। गिनती 11-बिंदु नक़्शे के तीन बिंदु (−5/0/+5) — v3.8 भीतरी-
        गणित अटल; 😐=0 की "जानता नहीं" क़ीमत यथावत। पुरानी −5…+5 पट्टी निरस्त। */
-    var F = [ { v: -5, e: '👎', t: 'पसंद नहीं' }, { v: 0, e: '😐', t: 'पता नहीं' }, { v: 5, e: '👍', t: 'पसंद है' } ];
+    var F = [ { v: -5, e: '👎', t: L('पसंद नहीं') }, { v: 0, e: '😐', t: L('पता नहीं') }, { v: 5, e: '👍', t: L('पसंद है') } ];
     var h = '<div class="apt-faces">', i;
     for (i = 0; i < 3; i++) {
       h += '<button class="apt-face' + (a.v11 === F[i].v ? ' on' : '') + '" data-v11="' + F[i].v + '" style="min-width:96px">' +
         F[i].e + '<small style="display:block;font-size:16px;font-weight:700">' + F[i].t + '</small></button>';
     }
-    return h + '</div><p class="apt-hint">😐 पता नहीं — यह भी ठीक जवाब है; ऐसे काम आगे खोजने लायक़ गिने जाते हैं।</p>';
+    return h + L('</div><p class="apt-hint">😐 पता नहीं — यह भी ठीक जवाब है; ऐसे काम आगे खोजने लायक़ गिने जाते हैं।</p>');
   }
   function pickUI(q, a) {
-    var h = '<p class="apt-hint">पहला दबाव = ⭐ सबसे पहले · दूसरा दबाव = 🚫 सबसे कम</p><div class="apt-opts">';
+    var h = L('<p class="apt-hint">पहला दबाव = ⭐ सबसे पहले · दूसरा दबाव = 🚫 सबसे कम</p><div class="apt-opts">');
     q.opts.forEach(function (o, i) {
       var cls = a.first === i ? ' first' : (a.last === i ? ' last' : '');
-      var tag = a.first === i ? '<span class="apt-tag">⭐ सबसे पहले</span>' : (a.last === i ? '<span class="apt-tag">🚫 सबसे कम</span>' : '');
-      h += '<button class="apt-opt' + cls + '" data-i="' + i + '">' + (o.img && ART[o.img] ? ART[o.img] : '') + esc(o.t || o.text || o.label || '') + tag + '</button>';
+      var tag = a.first === i ? L('<span class="apt-tag">⭐ सबसे पहले</span>') : (a.last === i ? L('<span class="apt-tag">🚫 सबसे कम</span>') : '');
+      h += '<button class="apt-opt' + cls + '" data-i="' + i + '">' + (o.img && ART[o.img] ? AX(ART[o.img]) : '') + esc(OT(q, i, o)) + tag + '</button>';
     });
     return h + '</div>';
   }
   function optUI(q, a) {
     var h = '<div class="apt-opts' + (q.type === 'story' ? ' apt-story' : '') + '">';
     q.opts.forEach(function (o, i) {
-      h += '<button class="apt-opt' + (a.v === i ? ' on' : '') + '" data-i="' + i + '">' + esc(o.t || o.text || o.label || '') + '</button>';
+      h += '<button class="apt-opt' + (a.v === i ? ' on' : '') + '" data-i="' + i + '">' + esc(OT(q, i, o)) + '</button>';
     });
     return h + '</div>';
   }
@@ -658,12 +700,12 @@
   function renderSubmit() {
     appOn();
     var C = S.cur, got = Object.keys(C.ans).length;
-    box.innerHTML = '<div class="apt-card"><p class="apt-q">🏁 सब खंड पूरे!</p>' +
-      '<p>जवाब मिले: ' + got + ' / ' + TOTAL + '। जमा करने के बाद यह प्रयास बंद (lock) हो जाएगा।</p>' +
-      '<p>चाहें तो "← पिछला" से पीछे जाकर जवाब बदल लें।</p>' +
-      '<div class="apt-nav"><button class="apt-btn ghost" id="apt-prev">← पिछला</button> ' +
-      '<button class="apt-btn green" id="apt-lock">✅ अंतिम जमा</button> ' +
-      '<button class="apt-btn ghost apt-mini" id="apt-cancel">❌ परीक्षा छोड़ें</button></div></div>';
+    box.innerHTML = L('<div class="apt-card"><p class="apt-q">🏁 सब खंड पूरे!</p>') +
+      L('<p>जवाब मिले: ') + got + ' / ' + TOTAL + L('। जमा करने के बाद यह प्रयास बंद (lock) हो जाएगा।</p>') +
+      L('<p>चाहें तो "← पिछला" से पीछे जाकर जवाब बदल लें।</p>') +
+      L('<div class="apt-nav"><button class="apt-btn ghost" id="apt-prev">← पिछला</button> ') +
+      L('<button class="apt-btn green" id="apt-lock">✅ अंतिम जमा</button> ') +
+      L('<button class="apt-btn ghost apt-mini" id="apt-cancel">❌ परीक्षा छोड़ें</button></div></div>');
     document.getElementById('apt-prev').onclick = function () {
       ensureQueue();
       if (C.doneOrder && C.doneOrder.length) {
@@ -674,7 +716,7 @@
       save(S); renderStep();
     };
     document.getElementById('apt-lock').onclick = function () {
-      if (confirm('पक्का जमा करें? इसके बाद यह प्रयास बदलेगा नहीं।')) finish(false);
+      if (confirm(L('पक्का जमा करें? इसके बाद यह प्रयास बदलेगा नहीं।'))) finish(false);
     };
     var cb2 = document.getElementById('apt-cancel');
     if (cb2) cb2.onclick = cancelAttempt;
@@ -699,13 +741,13 @@
      window.ACS_APT_PAY (apt-pay.js) उपलब्ध न हो तो बटन साफ़ संदेश दे — गूँगा-fallback निषेध। */
   function buildReportText(mgR, picks, C) {
     var lines = [];
-    lines.push('ACS अभिरुचि-टेस्ट रिपोर्ट — ' + new Date().toLocaleDateString('hi-IN'));
-    lines.push('शीर्ष समूह: ' + mgR.slice(0, 4).map(function (x) { return mgName(x.k); }).join(', '));
+    lines.push(L('ACS अभिरुचि-टेस्ट रिपोर्ट — ') + new Date().toLocaleDateString(DLOC));
+    lines.push(L('शीर्ष समूह: ') + mgR.slice(0, 4).map(function (x) { return mgName(x.k); }).join(', '));
     if (picks && picks.length) {
-      lines.push('सुझाए कोर्स:');
-      picks.forEach(function (p, i) { lines.push((i + 1) + '. ' + String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')')); });
+      lines.push(L('सुझाए कोर्स:'));
+      picks.forEach(function (p, i) { lines.push((i + 1) + '. ' + UN(p.u.name)); });
     }
-    lines.push('(यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।)');
+    lines.push(L('(यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।)'));
     return lines.join('\n');
   }
   function wireReportSave(mgR, picks, C) {
@@ -715,14 +757,14 @@
     var reportText = buildReportText(mgR, picks, C);
     btn.onclick = function () {
       if (!window.ACS_APT_PAY || !window.ACS_APT_PAY.saveReport) {
-        if (msg) msg.textContent = '⚠️ भुगतान-सुविधा अभी लोड नहीं हुई — पन्ना दोबारा खोलें।';
+        if (msg) msg.textContent = L('⚠️ भुगतान-सुविधा अभी लोड नहीं हुई — पन्ना दोबारा खोलें।');
         return;
       }
       btn.disabled = true;
-      if (msg) msg.textContent = 'भुगतान तैयार किया जा रहा है…';
+      if (msg) msg.textContent = L('भुगतान तैयार किया जा रहा है…');
       window.ACS_APT_PAY.saveReport(reportText, function (err) {
         btn.disabled = false;
-        if (err) { if (msg) msg.textContent = 'नहीं हो पाया: ' + (err.message || err); return; }
+        if (err) { if (msg) msg.textContent = L('नहीं हो पाया: ') + (err.message || err); return; }
         showSavedOptions(reportText);
       });
     };
@@ -730,12 +772,12 @@
   function showSavedOptions(reportText) {
     var wrap = document.getElementById('apt-report-save-wrap');
     var msg = document.getElementById('apt-report-msg');
-    if (msg) { msg.textContent = '✅ रिपोर्ट सेव हो गई।'; msg.className = 'msg ok'; }
+    if (msg) { msg.textContent = L('✅ रिपोर्ट सेव हो गई।'); msg.className = 'msg ok'; }
     if (wrap) {
       wrap.innerHTML =
-        '<button class="apt-btn blue" id="apt-report-print">🖨️ Print करें</button> ' +
+        L('<button class="apt-btn blue" id="apt-report-print">🖨️ Print करें</button> ') +
         '<a class="apt-btn green" id="apt-report-wa" target="_blank" rel="noopener" href="https://wa.me/?text=' +
-        encodeURIComponent(reportText) + '">📲 WhatsApp करें</a>';
+        encodeURIComponent(reportText) + L('">📲 WhatsApp करें</a>');
       var pb = document.getElementById('apt-report-print');
       if (pb) pb.onclick = function () { window.print(); };
     }
@@ -746,7 +788,7 @@
     var T = tally(qmap, C.ans);
     var mgR = rank(T.mg), udyR = rank(T.udy).filter(function (x) { return x.avg > 0; });
     hook({ band: C.band, top: mgR.slice(0, 4).map(function (x) { return x.k; }), m: new Date().getMonth() + 1 });
-    box.innerHTML = '<div class="apt-card"><p>नतीजा बन रहा है…</p></div>';
+    box.innerHTML = L('<div class="apt-card"><p>नतीजा बन रहा है…</p></div>');
     loadMany(['/assets/udyam_data.js'], function () {
       var SEC = (window.ALL_SECTORS || (typeof ALL_SECTORS !== 'undefined' ? ALL_SECTORS : []));
       var byN = {}; SEC.forEach(function (u) { byN[u.n] = u; });
@@ -756,7 +798,7 @@
       S.prev = { at: Date.now(),
         mg: mgR.slice(0, 4).map(function (x) { return mgName(x.k); }),
         udy: picks.slice(0, 8).map(function (p) {
-          return { n: p.u.n, nm: String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')'), c: p.u.course || '', s: Math.round((p.score || 0) * 10) / 10 }; }) };
+          return { n: p.u.n, nm: UN(p.u.name), c: p.u.course || '', s: Math.round((p.score || 0) * 10) / 10 }; }) };
       save(S);
       /* (30-Jul होल-1, Founder-override v4.0-ख1) login हो तो नतीजे का सार खाते
          में भी — फ़ोन बदलने पर नतीजा न खोए। fail = चुपचाप, नतीजा कभी न रुके। */
@@ -765,37 +807,37 @@
       }
       picks = picks.slice(0, 5);
       var h = '';
-      if (byClock) h += '<div class="apt-note">⏱ 90 मिनट पूरे — जितने जवाब मिले, उन्हीं से नतीजा बना।</div>';
-      h += '<p class="apt-q">' + (C.band === 1 ? '🌟 यह दुनिया तुम्हें बुला रही है!' : '🏆 आपकी रुचि की दिशा') + '</p>';
+      if (byClock) h += L('<div class="apt-note">⏱ 90 मिनट पूरे — जितने जवाब मिले, उन्हीं से नतीजा बना।</div>');
+      h += '<p class="apt-q">' + (C.band === 1 ? L('🌟 यह दुनिया तुम्हें बुला रही है!') : L('🏆 आपकी रुचि की दिशा')) + '</p>';
       if (!picks.length && !mgR.length) {
-        h += '<p>जवाब बहुत कम मिले — नतीजा नहीं बन पाया। नया प्रयास कीजिए।</p>';
+        h += L('<p>जवाब बहुत कम मिले — नतीजा नहीं बन पाया। नया प्रयास कीजिए।</p>');
       } else {
-        h += '<p class="apt-q" style="font-size:19px">📚 आपके लिए कोर्स (घटते क्रम):</p>';
-        if (!picks.length) h += '<p>अभी कोई कोर्स-दिशा साफ़ नहीं उभरी — नए प्रयास में और जवाब दीजिए।</p>';
+        h += L('<p class="apt-q" style="font-size:19px">📚 आपके लिए कोर्स (घटते क्रम):</p>');
+        if (!picks.length) h += L('<p>अभी कोई कोर्स-दिशा साफ़ नहीं उभरी — नए प्रयास में और जवाब दीजिए।</p>');
         h += '<div class="apt-opts">';
         picks.forEach(function (p, i) {
-          var nm = String(p.u.name).replace(/\[/g, '(').replace(/\]/g, ')');
+          var nm = UN(p.u.name);
           var nmHtml = p.u.course ? ('<a href="' + p.u.course + '" style="color:inherit;text-decoration:underline">' + esc(nm) + '</a>') : esc(nm);
           h += '<div class="apt-row apt-course"><span class="nm">' + (i + 1) + '. ' + nmHtml + '</span> ';
-          if (p.u.course) h += '<a class="apt-btn apt-mini" href="' + p.u.course + '">📚 पढ़ें — कोर्स उपलब्ध ✅</a>';
-          else h += '<span class="apt-hint">पाठ जल्द जुड़ेंगे</span> <a class="apt-btn2 apt-mini" href="https://wa.me/919431210092?text=' +
-            encodeURIComponent('मुझे यह कोर्स चाहिए: ' + nm + ' (उद्यम ' + p.u.n + ')') + '">📲 यह कोर्स माँगें</a>';
+          if (p.u.course) h += '<a class="apt-btn apt-mini" href="' + p.u.course + L('">📚 पढ़ें — कोर्स उपलब्ध ✅</a>');
+          else h += L('<span class="apt-hint">पाठ जल्द जुड़ेंगे</span> <a class="apt-btn2 apt-mini" href="https://wa.me/919431210092?text=') +
+            encodeURIComponent(L('मुझे यह कोर्स चाहिए: ') + nm + L(' (उद्यम ') + p.u.n + ')') + L('">📲 यह कोर्स माँगें</a>');
           h += '</div>';
         });
-        h += '</div><p>इनमें से किसी 1 से शुरुआत कीजिए — बाक़ी बाद में।</p>';
-        h += '<p class="apt-q" style="font-size:19px">आपके शीर्ष समूह:</p><p>' +
+        h += L('</div><p>इनमें से किसी 1 से शुरुआत कीजिए — बाक़ी बाद में।</p>');
+        h += L('<p class="apt-q" style="font-size:19px">आपके शीर्ष समूह:</p><p>') +
           mgR.slice(0, 4).map(function (x) { return '<span class="apt-chip">' + mgName(x.k) + '</span>'; }).join(' ') + '</p>';
         var unMg = Object.keys(T.un);
-        if (unMg.length) h += '<div class="apt-note">🔍 अनजान क्षेत्र: ' + unMg.slice(0, 6).map(function (m) { return mgName(Number(m)); }).join(' · ') + ' — इन्हें जानना भी एक राह है।</div>';
+        if (unMg.length) h += L('<div class="apt-note">🔍 अनजान क्षेत्र: ') + unMg.slice(0, 6).map(function (m) { return mgName(Number(m)); }).join(' · ') + L(' — इन्हें जानना भी एक राह है।</div>');
       }
-      h += '<div class="apt-note">📝 यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।</div>' +
-        '<div class="apt-note">🟢 टेस्ट मुफ़्त है (badge-धारक असीमित)। यह रिपोर्ट अभी अस्थायी है — ' +
-        '₹125 जमा करें तो सिस्टम इसे भविष्य के लिए सेव कर देगा, तभी Print/WhatsApp विकल्प खुलेंगे। ' +
-        'हर नए टेस्ट/नतीजे का सेव अलग ₹125 में।</div>' +
+      h += L('<div class="apt-note">📝 यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।</div>') +
+        L('<div class="apt-note">🟢 टेस्ट मुफ़्त है (badge-धारक असीमित)। यह रिपोर्ट अभी अस्थायी है — ') +
+        L('₹125 जमा करें तो सिस्टम इसे भविष्य के लिए सेव कर देगा, तभी Print/WhatsApp विकल्प खुलेंगे। ') +
+        L('हर नए टेस्ट/नतीजे का सेव अलग ₹125 में।</div>') +
         '<div id="apt-report-save-wrap" class="apt-nav">' +
-        '<button class="apt-btn gold" id="apt-report-save-btn">📄 यह रिपोर्ट सेव करें (₹125)</button></div>' +
+        L('<button class="apt-btn gold" id="apt-report-save-btn">📄 यह रिपोर्ट सेव करें (₹125)</button></div>') +
         '<p id="apt-report-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
-        '<div class="apt-nav"><button class="apt-btn green" id="apt-again">🆕 नया प्रयास (ताज़ा प्रश्न)</button></div>';
+        L('<div class="apt-nav"><button class="apt-btn green" id="apt-again">🆕 नया प्रयास (ताज़ा प्रश्न)</button></div>');
       box.innerHTML = '<div class="apt-card">' + h + '</div>';
       document.getElementById('apt-again').onclick = function () { S.cur = null; save(S); renderStart(); };
       wireReportSave(mgR, picks, C);

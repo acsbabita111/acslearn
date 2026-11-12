@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/data/aptitude/en/apt_en_page_strings.js — v1.0 (09-Nov-2026)
+   generator/data/aptitude/en/apt_en_page_strings.js — v1.1 (12-Nov-2026: पूरी 120-प्रश्न परीक्षा English पन्ने पर; v1.0 09-Nov-2026)
    /en/aptitude-test.html दर्पण-पेज की अदला-बदली तालिका (परत-3)।
    मूल भाषा: हिंदी (/aptitude-test.html, build_specials v2.2 से बना)।
    हर जोड़ा: [पुराना, नया, गिनती] : build_mirror_apt.js गिनती-assert
@@ -25,9 +25,9 @@ module.exports = {
 
     /* ---- title + meta + og (title ×1, og:title ×1; desc ×1, og:desc ×1) ---- */
     ['<title>अभिरुचि-टेस्ट दें — मुफ़्त झलक और पूरा 120-प्रश्न टेस्ट | अप्लाइड कंप्यूटर स्कूल</title>',
-     '<title>Take the Aptitude Test: Free 24-Question Preview | Applied Computer School</title>', 1],
+     '<title>Take the Aptitude Test: Free Preview and Full 120-Question Test | Applied Computer School</title>', 1],
     ['content="अभिरुचि-टेस्ट दें — मुफ़्त झलक और पूरा 120-प्रश्न टेस्ट | अप्लाइड कंप्यूटर स्कूल"',
-     'content="Take the Aptitude Test: Free 24-Question Preview | Applied Computer School"', 1],
+     'content="Take the Aptitude Test: Free Preview and Full 120-Question Test | Applied Computer School"', 1],
     ['content="पूरे पर्दे पर एक-एक प्रश्न। मुफ़्त झलक बिना खाते के — जवाब आपके फ़ोन में। पूरी जानकारी और टॉप-10 तुलना करियर-पेज पर।"',
      'content="One question at a time, full screen. Free preview without an account: your answers stay on your phone. Based on RIASEC interest science."', 2],
 
@@ -97,14 +97,15 @@ module.exports = {
     /* ---- करियर-कड़ी (12-Nov-2026): English करियर-पन्ना अब है, इसलिए कड़ी उसी पर (Founder-नियम 10-Nov: हर भाषा की करियर-कड़ी उसी भाषा के पन्ने पर) ---- */
     ['href="/career.html"', 'href="/en/career.html"', 2],
 
-    /* ---- पूरा-टेस्ट खंड : ईमानदार-पैनल (बैंक अभी हिंदी में) ----
-       session-इंजन (apt-session.js) की UI व 18,943-भंडार हिंदी हैं, इसलिए
-       en-पेज पर वह डिब्बा नहीं खुलता : साफ़ English पंक्ति + हिंदी-पेज की कड़ी। */
+    /* ---- पूरा-टेस्ट खंड (v1.1, 12-Nov-2026): अब English में भी पूरी परीक्षा ----
+       इंजन (apt-session.js v1.4) में भाषा-परत है; प्रश्न-पाठ /assets/apt_sets_en/ से (जाँचा हुआ English पुल-बैंक:
+       mg01..mg24 के 18,443 + broad 452 = 18,895; झलक-पूल के 48 /assets/apt_en.js में; कुल 18,943)।
+       पहले यहाँ "अभी सिर्फ़ हिंदी में" वाला ईमानदार कार्ड था (v1.0); अब वही डिब्बा (apt-sess-box) जो हिंदी पन्ने पर है। */
     ['<div id="apt-full-info"><h2 id="apt-full" style="font-size:24px;margin:26px 0 6px">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</h2></div><div id="apt-sess-box" class="apt-card"><p>पूरा टेस्ट खुल रहा है…</p></div>',
-     '<div id="apt-full-info"><h2 id="apt-full" style="font-size:24px;margin:26px 0 6px">🧭 Full test: 120 questions, 3 sections</h2></div><div class="apt-card" style="text-align:center"><p>The full 120-question test is currently available in Hindi only.</p><p>The free preview above is fully in English.</p><p style="margin-top:8px"><a class="apl-btn gold" style="display:inline-block" href="/aptitude-test.html#apt-full">🧭 Open the full test on the Hindi page →</a></p></div>', 1],
+     '<div id="apt-full-info"><h2 id="apt-full" style="font-size:24px;margin:26px 0 6px">🧭 Full test: 120 questions, 3 sections</h2></div><div id="apt-sess-box" class="apt-card"><p>The full test is opening…</p></div>', 1],
 
-    /* ---- scripts: भाषा-निशान + en-overlay; session/pay इस पेज पर नहीं ---- */
+    /* ---- scripts: भाषा-निशान + English की तालिकाएँ (इंजन से पहले) + वही इंजन और भुगतान-फ़ाइल जो हिंदी पन्ने पर ---- */
     ['<script src="/assets/apt_strings.js"></script>\n<script src="/assets/aptitude-test.js" defer></script>\n<script src="/assets/apt-session.js" defer></script>\n<script type="module" src="/assets/apt-pay.js"></script>',
-     '<script>window.APT_LANG="en";</script>\n<script src="/assets/apt_strings.js"></script>\n<script src="/assets/apt_en.js"></script>\n<script src="/assets/aptitude-test.js" defer></script>', 1]
+     '<script>window.APT_LANG="en";</script>\n<script src="/assets/apt_strings.js"></script>\n<script src="/assets/apt_en.js"></script>\n<script src="/assets/apt_session_en.js"></script>\n<script src="/assets/aptitude-test.js" defer></script>\n<script src="/assets/apt-session.js" defer></script>\n<script type="module" src="/assets/apt-pay.js"></script>', 1]
   ]
 };
