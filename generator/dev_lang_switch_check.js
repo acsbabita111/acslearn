@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_lang_switch_check.js v1.2 (12-Nov-2026) : ऊपर के 🌐 "भाषा" बटन का स्थायी पहरा।
+   dev_lang_switch_check.js v1.3 (12-Nov-2026) : ऊपर के 🌐 "भाषा" बटन का स्थायी पहरा।
    जाँचता है: बटन दबे → पट्टी खुले → सूची में हर live भाषा (अभी 45) → नाम दबे → सही पता खुले।
    v1.1: acs-translate.js की भाषा-पहचान भी (हर भाषा-होम पर अपनी भाषा पहचानी और याद रखी जाए)।
    v1.2: हर बटन में रोमन नाम भी हो (छोटे हरे अक्षर) : Founder का नियम, 12-Nov।
+   v1.3: हर बटन की पृष्ठभूमि पर देवनागरी छाया-नाम (हल्का गुलाबी भरा अक्षर) : Founder का नियम, 12-Nov।
    तरीक़ा: assets/acs-universal.js का भाषा-सूची वाला हिस्सा नक़ली पेज पर चलाया जाता है;
    "पेज बना है या नहीं" का जवाब repo की असली फ़ाइलों से आता है। browser नहीं चाहिए।
    चलाना: node generator/dev_lang_switch_check.js   (dev_registry_check.js इसे अपने-आप चलाता है)
@@ -18,11 +19,12 @@ function ck(name, ok, extra) { if (ok) pass++; else { fail++; console.log("❌ "
 const homes = (U.match(/var ACS_LANG_HOMES = \{[^}]*\};/) || [""])[0];
 const names = (U.match(/var ACS_LANG_NAMES = \{[^\n]*?\};/) || [""])[0];
 const roman = (U.match(/var ACS_LANG_ROMAN = \{[^\n]*?\};/) || [""])[0];
+const deva = (U.match(/var ACS_LANG_DEVA = \{[^\n]*?\};/) || [""])[0];
 const a = U.indexOf("function acsLangCur("), b = U.indexOf("function acsLangToggle(");
 const bEnd = U.indexOf("\n", U.indexOf("p.classList.toggle(\"open\"); }", b));
-ck("universal में भाषा-घर तालिका", !!homes); ck("universal में भाषा-नाम तालिका", !!names); ck("universal में रोमन-नाम तालिका", !!roman); ck("universal में भाषा-सूची का code", a > -1 && b > a && bEnd > b);
+ck("universal में भाषा-घर तालिका", !!homes); ck("universal में भाषा-नाम तालिका", !!names); ck("universal में रोमन-नाम तालिका", !!roman); ck("universal में देवनागरी-नाम तालिका", !!deva); ck("universal में भाषा-सूची का code", a > -1 && b > a && bEnd > b);
 if (fail) { console.log("\nजाँचें: पास " + pass + " · FAIL " + fail); process.exit(1); }
-const CODE = homes + "\n" + names + "\n" + roman + "\n" + U.slice(a, bEnd);
+const CODE = homes + "\n" + names + "\n" + roman + "\n" + deva + "\n" + U.slice(a, bEnd);
 
 function exists(u) { let p = u.split("?")[0]; if (p.endsWith("/")) p += "index.html"; return fs.existsSync(path.join(ROOT, p.replace(/^\//, ""))); }
 function world(pathname) {
@@ -55,6 +57,12 @@ function world(pathname) {
   ck("हर बटन में रोमन नाम छपा (" + needR.length + ")", needR.every(c => html.indexOf('<small lang="en" dir="ltr">' + RN[c] + "</small>") > -1), needR.filter(c => html.indexOf('<small lang="en" dir="ltr">' + RN[c] + "</small>") < 0).join(","));
   ck("रोमन नाम दोहराया नहीं गया", (html.match(/<small /g) || []).length === needR.length, String((html.match(/<small /g) || []).length));
   ck("रोमन पंक्ति का रंग हरा और बटन की ऊँचाई कम-से-कम 48px", /a small\{[^}]*color:#2E7D32/.test(U) && /min-height:48px/.test(U));
+  const DV = vm.runInContext("ACS_LANG_DEVA", w.ctx);
+  ck("हर भाषा का देवनागरी नाम (सिर्फ़ देवनागरी अक्षर)", all.every(c => /^[\u0900-\u097F]+( [\u0900-\u097F]+)*$/.test(DV[c] || "")), all.filter(c => !/^[\u0900-\u097F]+( [\u0900-\u097F]+)*$/.test(DV[c] || "")).join(","));
+  const needD = all.filter(c => DV[c] !== N[c]);   /* हिन्दी, मराठी, नेपाली : अपना नाम ही देवनागरी है, छाया दोबारा नहीं */
+  ck("हर बटन की पृष्ठभूमि में देवनागरी छाया-नाम (" + needD.length + ")", needD.every(c => html.indexOf('lang="hi">' + DV[c] + "</text></svg>") > -1) && (html.match(/<svg class="w" aria-hidden="true"/g) || []).length === needD.length,
+    needD.filter(c => html.indexOf('lang="hi">' + DV[c] + "</text></svg>") < 0).join(",") + " गिनती " + (html.match(/<svg class="w"/g) || []).length);
+  ck("छाया-नाम हल्के गुलाबी भरे अक्षर में (रेखा नहीं), पूरे बटन पर, और दबाने में आड़े नहीं", /svg\.w text\{[^}]*fill:#D81B60;fill-opacity:\.(0[5-9]|1\d|2[0-5]?);stroke:none\}/.test(U) && /preserveAspectRatio="none"/.test(U) && /svg\.w\{[^}]*pointer-events:none/.test(U));
   ck("हर कड़ी का href उस भाषा का होम", all.every(c => html.indexOf('href="' + (c === "hi" ? "/" : "/" + c + "/") + '" data-lang="' + c + '"') > -1));
   vm.runInContext("acsLangToggle()", w.ctx);
   ck("दोबारा दबने पर पट्टी बंद, सूची दोबारा नहीं बनी", w.panel.cls.open === false && w.panel.kids.length === 1);
@@ -98,6 +106,6 @@ function world(pathname) {
     return !(/onclick="acsLangToggle\(\)"/.test(h) && /id="acsTranslatePanel"/.test(h) && /src="\/assets\/acs-universal\.js"/.test(h)); });
   ck("हर होम-पेज में बटन + पट्टी + script", miss.length === 0, miss.join(","));
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail);
-  console.log(fail ? "⛔ dev_lang_switch_check रुका" : "🏁 dev_lang_switch_check v1.2 : भाषा-बटन पास (" + all.length + " भाषाएँ)");
+  console.log(fail ? "⛔ dev_lang_switch_check रुका" : "🏁 dev_lang_switch_check v1.3 : भाषा-बटन पास (" + all.length + " भाषाएँ)");
   process.exit(fail ? 1 : 0);
 })();

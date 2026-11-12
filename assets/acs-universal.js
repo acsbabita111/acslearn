@@ -1,5 +1,5 @@
 /* ============================================================
-   acs-universal.js v2.5 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम)
+   acs-universal.js v2.6 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम + देवनागरी छाया-नाम)
    जगह: /assets/acs-universal.js  (config+links के बाद load)
    • भाषा-सचेत: /en/ folder → English labels/strings; अन्यथा हिंदी।
    • acs- prefix — पुराने script.js/page-JS से कोई टकराव नहीं।
@@ -7,6 +7,7 @@
 var ACS_LANG_HOMES = {en:1,zh:1,es:1,ar:1,fr:1,bn:1,pt:1,ru:1,id:1,ur:1,de:1,ja:1,mr:1,te:1,ko:1,he:1,ta:1,kn:1,gu:1,ml:1,pa:1,or:1,as:1,ne:1,ms:1,tl:1,vi:1,th:1,sw:1,tr:1,fa:1,uz:1,kk:1,az:1,so:1,am:1,ha:1,yo:1,zu:1,si:1,my:1,km:1,ps:1,sd:1}; /* भाषा-रजिस्टर (hi=मूल root) — runtime भाषा-घर तालिका; एकमात्र स्रोत = generator/data/mirror_home_strings.js की कुंजियाँ; build_mirror_homes.js लिखता है — हाथ से न बदलें */
 var ACS_LANG_NAMES = {"hi":"हिन्दी","en":"English","zh":"中文","es":"Español","ar":"العربية","fr":"Français","bn":"বাংলা","pt":"Português","ru":"Русский","id":"Bahasa Indonesia","ur":"اردو","de":"Deutsch","ja":"日本語","mr":"मराठी","te":"తెలుగు","ko":"한국어","he":"עברית","ta":"தமிழ்","kn":"ಕನ್ನಡ","gu":"ગુજરાતી","ml":"മലയാളം","pa":"ਪੰਜਾਬੀ","or":"ଓଡ଼ିଆ","as":"অসমীয়া","ne":"नेपाली","ms":"Bahasa Melayu","tl":"Filipino","vi":"Tiếng Việt","th":"ไทย","sw":"Kiswahili","tr":"Türkçe","fa":"فارسی","uz":"Oʻzbekcha","kk":"Қазақша","az":"Azərbaycanca","so":"Soomaali","am":"አማርኛ","ha":"Hausa","yo":"Yorùbá","zu":"isiZulu","si":"සිංහල","my":"မြန်မာ","km":"ខ្មែរ","ps":"پښتو","sd":"سنڌي"}; /* भाषा के अपने नाम (🌐 सूची); एकमात्र स्रोत = generator/data/lang_native_names.js; हाथ से न बदलें */
 var ACS_LANG_ROMAN = {"hi":"Hindi","en":"English","zh":"Chinese","es":"Spanish","ar":"Arabic","fr":"French","bn":"Bengali","pt":"Portuguese","ru":"Russian","id":"Indonesian","ur":"Urdu","de":"German","ja":"Japanese","mr":"Marathi","te":"Telugu","ko":"Korean","he":"Hebrew","ta":"Tamil","kn":"Kannada","gu":"Gujarati","ml":"Malayalam","pa":"Punjabi","or":"Odia","as":"Assamese","ne":"Nepali","ms":"Malay","tl":"Filipino","vi":"Vietnamese","th":"Thai","sw":"Swahili","tr":"Turkish","fa":"Persian","uz":"Uzbek","kk":"Kazakh","az":"Azerbaijani","so":"Somali","am":"Amharic","ha":"Hausa","yo":"Yoruba","zu":"Zulu","si":"Sinhala","my":"Burmese","km":"Khmer","ps":"Pashto","sd":"Sindhi"}; /* भाषा के रोमन नाम (🌐 सूची में छोटे हरे अक्षर); एकमात्र स्रोत = generator/data/lang_native_names.js; हाथ से न बदलें */
+var ACS_LANG_DEVA = {"hi":"हिन्दी","en":"अंग्रेज़ी","zh":"चीनी","es":"स्पेनिश","ar":"अरबी","fr":"फ़्रेंच","bn":"बांग्ला","pt":"पुर्तगाली","ru":"रूसी","id":"इंडोनेशियाई","ur":"उर्दू","de":"जर्मन","ja":"जापानी","mr":"मराठी","te":"तेलुगु","ko":"कोरियाई","he":"हिब्रू","ta":"तमिल","kn":"कन्नड","gu":"गुजराती","ml":"मलयालम","pa":"पंजाबी","or":"उड़िया","as":"असमिया","ne":"नेपाली","ms":"मलय","tl":"तागालोग","vi":"वियतनामी","th":"थाई","sw":"स्वाहिली","tr":"तुर्की","fa":"फ़ारसी","uz":"उज़्बेक","kk":"कज़ाख","az":"अज़रबैजानी","so":"सोमाली","am":"अम्हारिक","ha":"हाउसा","yo":"योरूबा","zu":"ज़ुलु","si":"सिंहली","my":"बर्मी","km":"खमेर","ps":"पश्तो","sd":"सिंधी"}; /* भाषा के देवनागरी नाम (🌐 सूची में बटन की छाया); एकमात्र स्रोत = generator/data/bhasha_register.json; हाथ से न बदलें */
 function acsUniversalInit(){
   var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
   var seg0 = ((location.pathname||"").split("/")[1]||"");
@@ -108,7 +109,12 @@ function acsCloseMenu(){ var d=document.getElementById("acsDrawer"),s=document.g
    न बना हो → उस भाषा का होम खुले। हर कड़ी का href उस भाषा का होम है, इसलिए script न चले तब भी कड़ी काम करती है।
    सूची के नाम ACS_LANG_NAMES से (घर: generator/data/lang_native_names.js), भाषाएँ ACS_LANG_HOMES से।
    v2.5 (Founder, 12-Nov): हर बटन में अपने नाम के नीचे छोटे हरे अक्षरों में रोमन नाम (ACS_LANG_ROMAN), ताकि जो वह लिपि न पढ़ सके वह भी भाषा पहचान ले।
-   यह छोटा अक्षर (13px) Founder के कहने पर "16px से छोटा कुछ नहीं" नियम की दर्ज छूट है : सिर्फ़ इसी रोमन पंक्ति के लिए। */
+   यह छोटा अक्षर (13px) Founder के कहने पर "16px से छोटा कुछ नहीं" नियम की दर्ज छूट है : सिर्फ़ इसी रोमन पंक्ति के लिए।
+   v2.6 (Founder, 12-Nov): हर बटन की पूरी पृष्ठभूमि पर उसी भाषा का देवनागरी नाम (ACS_LANG_DEVA), हल्के गुलाबी भरे अक्षर में, पूरे बटन पर फैला हुआ।
+   रंग Founder ने 8 नमूनों में से चुना (गुलाबी #D81B60, 16% गहरा; रेखा नहीं)। यह "अधिकतम 5 रंग" नियम की दर्ज छूट है : सिर्फ़ इसी छाया-नाम के लिए।
+   यह सिर्फ़ सजावट है (aria-hidden), पढ़ने वाली मशीन इसे नहीं पढ़ती। देवनागरी नाम का घर = भाषा-रजिस्टर (bhasha_register.json का "hi" खाना)।
+   जिस भाषा का अपना नाम ही वही देवनागरी शब्द है (हिन्दी, मराठी, नेपाली), वहाँ छाया-नाम दोबारा नहीं आता।
+   यह Founder के कहने पर "दूसरी भाषा के पेज पर देवनागरी नहीं" नियम की दर्ज छूट है : सिर्फ़ इसी छाया-नाम के लिए। */
 function acsLangCur(){ var s=((location.pathname||"").split("/")[1]||""); return ACS_LANG_HOMES[s] ? s : "hi"; }
 function acsLangHome(c){ return c==="hi" ? "/" : "/"+c+"/"; }
 function acsLangTargets(c){
@@ -134,11 +140,17 @@ function acsLangFill(p){
   var cur=acsLangCur(), codes=["hi"].concat(Object.keys(ACS_LANG_HOMES)), h="", i, c, n;
   for(i=0;i<codes.length;i++){ c=codes[i]; n=ACS_LANG_NAMES[c]; if(!n) continue;
     var rn=(typeof ACS_LANG_ROMAN!=="undefined" && ACS_LANG_ROMAN[c]) ? ACS_LANG_ROMAN[c] : "";
-    h+='<a href="'+acsLangHome(c)+'" data-lang="'+c+'"'+(c===cur?' class="on" aria-current="true"':'')+'><span lang="'+c+'" dir="auto">'+n+'</span>'
+    var dv=(typeof ACS_LANG_DEVA!=="undefined" && ACS_LANG_DEVA[c] && ACS_LANG_DEVA[c]!==n) ? ACS_LANG_DEVA[c] : "";
+    h+='<a href="'+acsLangHome(c)+'" data-lang="'+c+'"'+(c===cur?' class="on" aria-current="true"':'')+'>'
+      +(dv?'<svg class="w" aria-hidden="true" focusable="false" viewBox="0 0 100 40" preserveAspectRatio="none"><text x="50" y="31" text-anchor="middle" textLength="88" lengthAdjust="spacingAndGlyphs" lang="hi">'+dv+'</text></svg>':'')
+      +'<span lang="'+c+'" dir="auto">'+n+'</span>'
       +((rn && rn.toLowerCase()!==n.toLowerCase())?'<small lang="en" dir="ltr">'+rn+'</small>':'')+'</a>'; }   /* नाम पहले से वही रोमन हो (English, Hausa, Filipino) तो दोबारा नहीं */
   var st=document.createElement("style");
   st.textContent=".acs-langs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:1000px;margin:0 auto;padding:4px 0}"
     +".acs-langs a{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;font-size:17px;line-height:1.3;padding:6px 14px;min-height:48px;border-radius:22px;border:1.5px solid #c9d3e0;background:#F5F7FA;color:#0B1F3A;font-weight:700;text-decoration:none;letter-spacing:0}"
+    +".acs-langs a{position:relative;overflow:hidden}.acs-langs a span,.acs-langs a small{position:relative;z-index:1}"
+    +".acs-langs a svg.w{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none}"
+    +".acs-langs a svg.w text{font:400 34px 'Noto Sans Devanagari','Nirmala UI','Mangal','Kohinoor Devanagari',sans-serif;fill:#D81B60;fill-opacity:.16;stroke:none}"
     +".acs-langs a small{font-size:13px;line-height:1.2;font-weight:600;color:#2E7D32;font-family:Inter,sans-serif}.acs-langs a.on small{color:#0B1F3A}"
     +".acs-langs a.on{background:#F9A825;border-color:#F9A825}.acs-langs a:focus-visible{outline:3px solid #1565C0;outline-offset:2px}";
   document.head.appendChild(st);

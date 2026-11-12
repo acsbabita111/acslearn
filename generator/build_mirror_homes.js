@@ -304,8 +304,18 @@ if (U.indexOf("ACS_LANG_HOMES") === -1) {
   U2 = read("assets/acs-universal.js");
   if (!RE3.test(U2)) { U2 = U2.replace(RE2, m => m + "\n" + LINE_R); write("assets/acs-universal.js", U2); CHANGED_CACHE = true; console.log("universal: ACS_LANG_ROMAN ×" + codes.length + " जुड़ी ✅"); }
   else if (U2.match(RE3)[0] !== LINE_R) { U2 = U2.replace(RE3, () => LINE_R); write("assets/acs-universal.js", U2); CHANGED_CACHE = true; console.log("universal: ACS_LANG_ROMAN नई ✅"); }
+  /* v1.2 (12-Nov): देवनागरी छाया-नाम (बटन की पृष्ठभूमि) : घर = भाषा-रजिस्टर (bhasha_register.json का "hi" खाना);
+     हिंदी की अपनी पंक्ति रजिस्टर में नहीं होती (हिंदी मूल है), इसलिए उसका नाम यहीं लिखा है। */
+  const REG = JSON.parse(read("generator/data/bhasha_register.json")).langs;
+  const dv = {}; codes.forEach(c => { dv[c] = (c === "hi") ? "हिन्दी" : ((REG[c] || {}).hi || ""); });
+  codes.forEach(c => A(/^[\u0900-\u097F]+( [\u0900-\u097F]+)*$/.test(dv[c]), "lang-deva-" + c));
+  const LINE_D = "var ACS_LANG_DEVA = " + JSON.stringify(dv) + "; /* भाषा के देवनागरी नाम (🌐 सूची में बटन की छाया); एकमात्र स्रोत = generator/data/bhasha_register.json; हाथ से न बदलें */";
+  const RE4 = /var ACS_LANG_DEVA = \{[^\n]*/;
   U2 = read("assets/acs-universal.js");
-  ["function acsLangGo(", "function acsLangFill(", "function acsLangTargets(", "ACS_LANG_NAMES[c]", "ACS_LANG_ROMAN[c]"].forEach((m, i) => A(U2.indexOf(m) > -1, "u-lang-" + i));
+  if (!RE4.test(U2)) { U2 = U2.replace(RE3, m => m + "\n" + LINE_D); write("assets/acs-universal.js", U2); CHANGED_CACHE = true; console.log("universal: ACS_LANG_DEVA ×" + codes.length + " जुड़ी ✅"); }
+  else if (U2.match(RE4)[0] !== LINE_D) { U2 = U2.replace(RE4, () => LINE_D); write("assets/acs-universal.js", U2); CHANGED_CACHE = true; console.log("universal: ACS_LANG_DEVA नई ✅"); }
+  U2 = read("assets/acs-universal.js");
+  ["function acsLangGo(", "function acsLangFill(", "function acsLangTargets(", "ACS_LANG_NAMES[c]", "ACS_LANG_ROMAN[c]", "ACS_LANG_DEVA[c]"].forEach((m, i) => A(U2.indexOf(m) > -1, "u-lang-" + i));
 }
 /* runtime-तालिका = data (एक चीज़ = एक जगह का पहरा) */
 const tm = read("assets/acs-universal.js").match(/var ACS_LANG_HOMES = \{([^}]+)\}/);
