@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/data/aptitude/en/ending_glossary.js — अंत-शब्दावली (एकमात्र घर) · v1.1 (11-Nov-2026)
+   generator/data/aptitude/en/ending_glossary.js — अंत-शब्दावली (एकमात्र घर) · v1.3 (12-Nov-2026; बदलाव-इतिहास नीचे)
    पैमाना-प्रश्नों का हिंदी अंत (आख़िरी "—" के बाद का टुकड़ा) → English का तय अंत।
    नियम (Founder + ChatGPT, 11-Nov): एक हिंदी अंत = एक English — 18,943 प्रश्नों में और आगे की सब भाषाओं में
    एक-सा पुल। चरण-1: बेमेल = चेतावनी। चरण-2 (शब्दावली frozen होने पर): --strict-endings से FAIL।
@@ -11,8 +11,14 @@
      उनका अर्थ साथ के शब्द से बनता है।
    जो अंत दोनों परतों में नहीं = मुक्त अंत: जाँच नहीं, सिर्फ़ गिनती।
    ============================================================ */
+/* v1.2 (11-Nov-2026, mg14 + mg01 अर्थ-ऑडिट के बाद): क्रिया-परत के तीन जोड़े कसे, ताकि मशीन वही नियम लागू करे जो ऑडिट में जाँचा जाता है:
+     सहोगे = bear · झेलोगे = put up with (पहले दोनों पर bear|endure|put up with) ·
+     सधेगा/सधेगी/सधेंगी/सधेंगे = master (पहले master|manage; "साधोगे" पर master|manage यथावत) · सँभालोगे = handle (पहले handle|manage|look after)।
+   कसने से पहले पूरे बैंक में इन रूपों के सब अपवाद सुधारे गए (झेलोगे 11 · सधेगा 39 · सँभालोगे 6 + mg14 के 2); frozen broad पर असर 0। */
+/* v1.3 (12-Nov-2026, mg02/mg03 अर्थ-ऑडिट): परत-1 "हिम्मत है?" = "do you have the courage?" (पहले "would you be willing to take it on?";
+   ChatGPT: हिम्मत = courage, तैयार होना नहीं; अर्थ का फ़र्क़)। तीनों प्रविष्टियाँ (mg01 q900, mg02 q959, mg10 q1304) साथ बदलीं। */
 module.exports = {
-  version: "1.1",
+  version: "1.3",
   status: "draft",          // draft → frozen (frozen होने पर strict चलाना अनिवार्य)
   map: {
     "कैसा लगता है?": ["how does that feel?"],
@@ -32,7 +38,7 @@ module.exports = {
     "कर पाओगे?": ["could you do it?"],
     "करोगे?": ["would you do it?"],
     "सोचोगे?": ["would you think about it?"],
-    "हिम्मत है?": ["would you be willing to take it on?"],
+    "हिम्मत है?": ["do you have the courage?"],
     "धीरज रहेगा?": ["would you have the patience?"],
     "यह हुनर सीखोगे?": ["would you learn this skill?"],
     "सोच जमती है?": ["does the idea appeal to you?"],
@@ -48,14 +54,16 @@ module.exports = {
     "समझोगे": "understand",
     "सोचोगे": "think",
     "अच्छा लगेगा": "feel good",
-    "सहोगे|झेलोगे": "bear|endure|put up with",
+    "सहोगे": "bear",
+    "झेलोगे": "put up with",
     "मानोगे": "accept|agree",
     "चाहोगे": "want",
     "सुहाएगा|सुहाएगी": "please|pleasant",
     "निभाओगे|निभेगा|निभेगी": "keep",
     "पढ़ोगे": "read",
-    "सधेगा|सधेगी|सधेंगी|सधेंगे|साधोगे": "master|manage",
-    "सँभालोगे": "handle|manage|look after",
+    "सधेगा|सधेगी|सधेंगी|सधेंगे": "master",
+    "साधोगे": "master|manage",
+    "सँभालोगे": "handle",
     "ललचाएगा|ललचाएगी": "tempt",
     "रास आएगा|रास आएगी": "agree with you",
     "गिनोगे": "count",
