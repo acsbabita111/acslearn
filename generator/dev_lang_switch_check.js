@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_lang_switch_check.js v1.0 (12-Nov-2026) : ऊपर के 🌐 "भाषा" बटन का स्थायी पहरा।
+   dev_lang_switch_check.js v1.1 (12-Nov-2026) : ऊपर के 🌐 "भाषा" बटन का स्थायी पहरा।
    जाँचता है: बटन दबे → पट्टी खुले → सूची में हर live भाषा (अभी 45) → नाम दबे → सही पता खुले।
+   v1.1: acs-translate.js की भाषा-पहचान भी (हर भाषा-होम पर अपनी भाषा पहचानी और याद रखी जाए)।
    तरीक़ा: assets/acs-universal.js का भाषा-सूची वाला हिस्सा नक़ली पेज पर चलाया जाता है;
    "पेज बना है या नहीं" का जवाब repo की असली फ़ाइलों से आता है। browser नहीं चाहिए।
    चलाना: node generator/dev_lang_switch_check.js   (dev_registry_check.js इसे अपने-आप चलाता है)
@@ -62,11 +63,33 @@ function world(pathname) {
   let bad = 0;
   for (const f of all) for (const t of all) { const x = world(f === "hi" ? "/" : "/" + f + "/"); vm.runInContext("acsLangGo('" + t + "')", x.ctx); await new Promise(r => setImmediate(r)); await new Promise(r => setImmediate(r)); if (x.loc.href !== (t === "hi" ? "/" : "/" + t + "/")) bad++; }
   ck("हर होम से हर होम (" + all.length * all.length + " रास्ते)", bad === 0, bad + " ग़लत");
+  /* 3-ख) acs-translate.js की भाषा-पहचान (v1.1): हर भाषा-होम पर वही भाषा पहचानी और याद रखी जाए, English नहीं */
+  {
+    const T = fs.readFileSync(path.join(ROOT, "assets/acs-translate.js"), "utf8");
+    function tworld(pathname, withTable) {
+      const store = {};
+      const ctx = { window: { location: { pathname } }, navigator: { language: "en-US" },
+        localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); } },
+        document: { addEventListener() {}, querySelectorAll: () => [], getElementById: () => null } };
+      vm.createContext(ctx);
+      if (withTable) vm.runInContext(homes + "\n" + names, ctx);
+      vm.runInContext(T, ctx);
+      const d = vm.runInContext("ACS_T.detectLang()", ctx); vm.runInContext("ACS_T.apply(ACS_T.detectLang())", ctx);
+      return [d, store.acs_lang];
+    }
+    const wrong = H.filter(c => { const r = tworld("/" + c + "/", true); return r[0] !== c || r[1] !== c; });
+    ck("भाषा-पहचान: हर भाषा-होम पर अपनी भाषा (" + H.length + ")", wrong.length === 0, wrong.join(","));
+    const inner = tworld("/tr/career.html", true);
+    ck("भाषा-पहचान: भीतरी पेज /tr/career.html = tr", inner[0] === "tr" && inner[1] === "tr", inner.join("/"));
+    const oldp = tworld("/te/", false);
+    ck("भाषा-पहचान: तालिका न हो तब भी पुरानी भाषाएँ चलें (/te/ = te)", oldp[0] === "te");
+    ck("acs-translate.js में 17 भाषाओं वाला पुराना regex नहीं बचा", !/\(hi\|en\|kn\|mr\|bn/.test(T));
+  }
   /* 4) हर होम-पेज में बटन, पट्टी और script मौजूद */
   const miss = all.filter(c => { const h = fs.readFileSync(path.join(ROOT, c === "hi" ? "index.html" : c + "/index.html"), "utf8");
     return !(/onclick="acsLangToggle\(\)"/.test(h) && /id="acsTranslatePanel"/.test(h) && /src="\/assets\/acs-universal\.js"/.test(h)); });
   ck("हर होम-पेज में बटन + पट्टी + script", miss.length === 0, miss.join(","));
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail);
-  console.log(fail ? "⛔ dev_lang_switch_check रुका" : "🏁 dev_lang_switch_check v1.0 : भाषा-बटन पास (" + all.length + " भाषाएँ)");
+  console.log(fail ? "⛔ dev_lang_switch_check रुका" : "🏁 dev_lang_switch_check v1.1 : भाषा-बटन पास (" + all.length + " भाषाएँ)");
   process.exit(fail ? 1 : 0);
 })();

@@ -98,9 +98,20 @@ const ACS_T = {
   /**
    * Current page की language detect करो
    */
+  /* 12-Nov-2026: भाषा-कोड की एक ही सूची = acs-universal.js की ACS_LANG_HOMES (सब live भाषाएँ) + hi।
+     वह तालिका न मिले (पुराना पेज, जहाँ acs-universal.js नहीं चलता) तो पुरानी 17 भाषाएँ। */
+  langCodes: function() {
+    var old = ['hi','en','kn','mr','bn','te','ta','gu','pa','sw','fr','es','pt','ar','id','vi','ha'];
+    if (typeof ACS_LANG_HOMES === 'undefined') return old;
+    var seen = {}, out = [];
+    ['hi'].concat(Object.keys(ACS_LANG_HOMES), old).forEach(function (c) { if (!seen[c]) { seen[c] = 1; out.push(c); } });
+    return out;
+  },
+  langRx: function() { return new RegExp('^/(' + this.langCodes().join('|') + ')/'); },
+
   detectLang: function() {
     const path = window.location.pathname;
-    const match = path.match(/^\/(hi|en|kn|mr|bn|te|ta|gu|pa|sw|fr|es|pt|ar|id|vi|ha)\//);
+    const match = path.match(this.langRx());
     if (match) return match[1];
     const saved = localStorage.getItem('acs_lang');
     if (saved) return saved;
@@ -160,7 +171,9 @@ const ACS_T = {
       {code:'vi', name:'Tiếng Việt'},
       {code:'ha', name:'Hausa'},
     ];
-    return langs.map(l =>
+    /* 12-Nov-2026: भाषा-सूची का एक ही घर = acs-universal.js की ACS_LANG_NAMES (सब live भाषाएँ); ऊपर की 17 वाली सूची सिर्फ़ तब, जब वह न मिले */
+    const all = (typeof ACS_LANG_NAMES !== 'undefined') ? Object.keys(ACS_LANG_NAMES).map(function (c) { return { code: c, name: ACS_LANG_NAMES[c] }; }) : langs;
+    return all.map(l =>
       `<a href="javascript:void(0)"
          onclick="ACS_T.switchLang('${l.code}')"
          style="padding:4px 10px;font-size:12px;border-radius:16px;
@@ -179,7 +192,7 @@ const ACS_T = {
     if (typeof acsLangGo === 'function') { acsLangGo(lang); return; }
     localStorage.setItem('acs_lang', lang);
     var path = window.location.pathname;
-    var rx = /^\/(hi|en|kn|mr|bn|te|ta|gu|pa|sw|fr|es|pt|ar|id|vi|ha)\//;
+    var rx = ACS_T.langRx();
     // page किसी भाषा-folder में नहीं → सीधे current page का Google-Translate
     if (!rx.test(path)) { ACS_T.googleFallback(lang); return; }
     var target = path.replace(rx, '/' + lang + '/');

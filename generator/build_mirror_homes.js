@@ -162,7 +162,10 @@ function fontStyle(code, T){
     Gujr: "\'Noto Sans Gujarati UI\',\'Nirmala UI\',\'Shruti\',\'Gujarati Sangam MN\',", Mlym: "\'Noto Sans Malayalam UI\',\'Nirmala UI\',\'Kartika\',\'Malayalam Sangam MN\',",
     Guru: "\'Noto Sans Gurmukhi UI\',\'Nirmala UI\',\'Raavi\',\'Gurmukhi MN\',", Orya: "\'Noto Sans Oriya UI\',\'Nirmala UI\',\'Kalinga\',\'Oriya Sangam MN\',",
     Beng: "\'Noto Sans Bengali UI\',\'Nirmala UI\',\'Vrinda\',\'Bangla Sangam MN\',", Thai: "\'Noto Sans Thai UI\',\'Leelawadee UI\',\'Tahoma\',\'Thonburi\',",
-    Hebr: "\'Arial Hebrew\',\'Arial\',", Hang: "\'Malgun Gothic\',\'Apple SD Gothic Neo\'," };
+    Hebr: "\'Arial Hebrew\',\'Arial\',", Hang: "\'Malgun Gothic\',\'Apple SD Gothic Neo\',",
+    /* खेप-3 (12-Nov) */
+    Arab: "\'Segoe UI\',\'Tahoma\',\'Geeza Pro\',", Ethi: "\'Nyala\',\'Ebrima\',\'Kefa\',", Sinh: "\'Nirmala UI\',\'Iskoola Pota\',\'Sinhala Sangam MN\',",
+    Mymr: "\'Myanmar Text\',\'Myanmar Sangam MN\',\'Padauk\',", Khmr: "\'Khmer UI\',\'Leelawadee UI\',\'Khmer Sangam MN\'," };
   return '<style>/* भाषा-font v1.1 */ :root{--font:\''+T.font+'\','+(SYS[T.script]||"")+'\'Inter\',sans-serif'+lh+'} .acs-drawer h4{letter-spacing:0}'+kb+'</style>';
 }
 function bdi(t){ return '<bdi dir="ltr">'+t+'</bdi>'; }

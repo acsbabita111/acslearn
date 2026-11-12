@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Applied Computer School (ACS) · دوره‌های برخط رایگان به 130 زبان</title>
+<title>دوره‌های آنلاین رایگان: مهارت، زبان، آزمون شغلی | ACS</title>
 <meta name="theme-color" content="#0B1F3A" />
-<meta name="description" content="Applied Computer School (ACS): آموزش برخط همیشه رایگان به 130 زبان، از روستا تا جنوب جهانی. دوره‌ها، مهارت‌ها و گواهی‌ها روی گوشی شما." />
+<meta name="description" content="دوره‌های آنلاین رایگان: آزمون شغلی بدهید، یک مهارت یاد بگیرید، انگلیسی و یک زبان خارجی دیگر یاد بگیرید، در امتحان قبول شوید و گواهی بگیرید. Applied Computer School (ACS)." />
 <link rel="canonical" href="https://acslearn.com/fa/" />
 <link rel="alternate" hreflang="hi" href="https://acslearn.com/" />
 <link rel="alternate" hreflang="en" href="https://acslearn.com/en/" />
@@ -54,7 +54,7 @@
 <link rel="alternate" hreflang="sd" href="https://acslearn.com/sd/" />
 <link rel="alternate" hreflang="x-default" href="https://acslearn.com/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Applied Computer School (ACS) · دوره‌های برخط رایگان به 130 زبان" />
+<meta property="og:title" content="دوره‌های آنلاین رایگان: مهارت، زبان، آزمون شغلی | ACS" />
 <meta property="og:description" content="آموزش برخط همیشه رایگان به 130 زبان · دوره‌های رایگان · 950+ فرصت کارآفرینی." />
 <meta property="og:image" content="https://acslearn.com/logo.png" />
 <meta property="og:url" content="https://acslearn.com/fa/" />
@@ -94,7 +94,8 @@
 <!-- universal (header/menu/footer) + design -->
 <link rel="stylesheet" href="/acs-universal.css">
 <link rel="stylesheet" href="/acs-style.css">
-<style>/* भाषा-font v1.1 */ :root{--font:'Noto Sans Arabic','Inter',sans-serif} .acs-drawer h4{letter-spacing:0}</style>
+<link rel="stylesheet" href="/assets/home.css?v=cef4f6d5"><!-- build_home -->
+<style>/* भाषा-font v1.1 */ :root{--font:'Noto Sans Arabic','Segoe UI','Tahoma','Geeza Pro','Inter',sans-serif} .acs-drawer h4{letter-spacing:0}</style>
 <style>/* बहाव-रोक v1 */ .acs-freebar #acsTagline{white-space:normal!important;display:inline-block;line-height:1.3} .hero .pill{white-space:normal!important;max-width:100%;line-height:1.25} .hero .btn{overflow-wrap:anywhere;min-width:0}</style>
 </head>
 <body>
@@ -124,22 +125,47 @@
 <section class="hero">
   <div class="hero-in">
     <span class="pill">✨ برای آینده‌ای روشن</span>
-    <h1 class="title"><a href="/join.html" style="color:inherit;text-decoration:none"><bdi dir="ltr">Applied Computer School</bdi><br><span class="g">همین حالا بپیوندید!</span></a></h1>
+    <h1 class="title">با دوره‌های آنلاین رایگان<br><span class="g">مهارت و زبان یاد بگیرید!</span></h1>
+
+    <div class="khoj" role="search">
+      <form id="khojForm" action="/courses/hi/" autocomplete="off" data-lang="fa" data-career="/fa/career.html" data-idx="/assets/search_index.json?v=9a1f12ba">
+        <input id="khojIn" type="search" name="q" inputmode="search" enterkeyhint="search" aria-label="جستجوی مهارت، زبان، کسب‌وکار یا شغل" placeholder="به انگلیسی…">
+        <button type="submit">🔍 جستجو</button>
+      </form>
+      <p class="jaise">به انگلیسی بنویسید، مثلاً: <bdi dir="ltr">welding, Japanese, DCA</bdi></p>
+      <div class="khoj-res" id="khojRes" aria-live="polite" data-b="زبان" data-h="مهارت" data-u="کسب‌وکار" data-k="شغل" data-none="پیدا نشد. واژهٔ دیگری را امتحان کنید، یا" data-fail="فهرست باز نشد." data-all-url="/courses/hi/" data-all-label="همهٔ دوره‌ها ←" data-test-url="/fa/career.html" data-test-label="آزمون شغلی بدهید ←"></div>
+    </div>
+    <p class="shuru">نمی‌دانید از کجا شروع کنید؟ <a href="/fa/career.html">آزمون شغلی بدهید ←</a></p>
 
     <div class="cta-row">
-      <a class="btn btn-white" href="/fa/career.html">🧭 شغلتان را انتخاب کنید!</a>
-      <a class="btn btn-white stack" href="/bhasha.html">🗣️ زبان تازه یاد بگیرید!</a>
+      <a class="btn btn-green" href="/fa/career.html">🧭 شغلتان را انتخاب کنید!</a>
+      <a class="btn btn-green stack" href="/bhasha.html">🗣️ زبان تازه یاد بگیرید!</a>
       <a class="btn btn-green" href="/hunar.html">🛠️ مهارت تازه یاد بگیرید!</a>
       <a class="btn btn-green" href="/udyam-shuruat.html">🏭 کسب‌وکارتان را راه بیندازید!</a>
     </div>
 
   </div>
 </section>
+
+<section class="rasta" aria-labelledby="rastaH">
+  <div class="rasta-in">
+    <h2 id="rastaH">مسیر شما در <bdi dir="ltr">ACS</bdi>: 6 گام</h2>
+    <ol>
+      <li><span class="num">1</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="45" r="32"/><path d="M60 13v7M60 70v7M28 45h7M85 45h7"/><path d="M60 24l9 21H51z" fill="#F9A825" stroke="#F9A825"/><path d="M60 66l9-21H51z"/><circle cx="60" cy="45" r="3" fill="#0B1F3A"/></svg><b>🧭 علاقهٔ خود را بشناسید</b><p>آزمون شغلی بدهید.</p><a href="/fa/career.html">آزمون شغلی بدهید ←</a></li>
+      <li><span class="num">2</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="44" cy="46" r="15"/><circle cx="44" cy="46" r="5" fill="#F9A825" stroke="#F9A825"/><path d="M44 24v7M44 61v7M22 46h7M59 46h7M28.5 30.5l5 5M54.5 56.5l5 5M28.5 61.5l5-5M54.5 35.5l5-5"/><path d="M72 68l24-24" stroke="#2E7D32" stroke-width="6"/><path d="M92 30a9 9 0 1 0 12 12l-7-1-4-4z" stroke="#2E7D32"/></svg><b>🛠️ یک مهارت یاد بگیرید</b><p>تا برای استخدام یا کار خودتان آماده باشید.</p><a href="/hunar.html">دوره‌های مهارت ←</a></li>
+      <li><span class="num">3</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14h50a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H36l-12 10V50h-10a6 6 0 0 1-6-6V20a6 6 0 0 1 6-6z"/><path d="M62 38h44a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6h-6v9l-11-9H62a6 6 0 0 1-6-6V56" stroke="#2E7D32"/><text x="39" y="42" text-anchor="middle" font-size="26" font-weight="800" fill="#0B1F3A" stroke="none">A</text><text x="86" y="63" text-anchor="middle" font-size="22" font-weight="800" fill="#2E7D32" stroke="none">Z</text></svg><b>🗣️ زبان یاد بگیرید</b><p>برای رسیدن به فرصت‌های بیشتر در کشور و خارج، انگلیسی و یک زبان خارجی دیگر یاد بگیرید.</p><a href="/bhasha.html">دوره‌های زبان ←</a></li>
+      <li><span class="num">4</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="12" width="80" height="54" rx="6"/><path d="M34 28h52M34 40h36M34 52h22"/><circle cx="84" cy="58" r="11" fill="#F9A825" stroke="#F9A825"/><path d="M78 67l-4 15 10-6 10 6-4-15" stroke="#F9A825"/><path d="M79 58l4 4 7-8" stroke="#0B1F3A"/></svg><b>🏆 به دنیا نشان دهید</b><p>امتحان بدهید، گواهی بگیرید و نمونه‌کارهای خود را آماده کنید.</p><a href="/career-kit.html">بازکردن بستهٔ شغلی ←</a></li>
+      <li><span class="num">5</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 24L60 12 98 24M22 24l14 40M98 24L84 64" stroke="#2E7D32" stroke-dasharray="2 7"/><circle cx="22" cy="24" r="9"/><circle cx="60" cy="12" r="9" fill="#F9A825" stroke="#F9A825"/><circle cx="98" cy="24" r="9"/><rect x="36" y="48" width="48" height="32" rx="5"/><path d="M50 48v-6a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6M36 62h48"/></svg><b>🤝 به فرصت‌ها وصل شوید</b><p>به شبکهٔ <bdi dir="ltr">ACS</bdi> بپیوندید: در منطقهٔ خود، در کشور یا در خارج.</p><a href="/hi/network.html">دیدن شبکه ←</a></li>
+      <li><span class="num">6</span><svg viewBox="0 0 120 90" aria-hidden="true" focusable="false" fill="none" stroke="#0B1F3A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 36l42-18v54L24 54z"/><path d="M24 36h-6a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h6M32 57l4 18h10l-4-15"/><path d="M78 34q8 11 0 22M88 26q14 19 0 38" stroke="#F9A825"/><path d="M102 20l2 5 5 1-4 3 1 5-4-3-5 3 2-5-4-3 5-1z" fill="#2E7D32" stroke="#2E7D32" stroke-width="1.5"/></svg><b>📣 داستان خود را بگویید</b><p>داستان موفقیت خود را برای دوستان بگویید و در دنیا نامی برای خود بسازید.</p><a href="https://wa.me/?text=%D8%AF%D9%88%D8%B1%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%A2%D9%86%D9%84%D8%A7%DB%8C%D9%86%20%D8%B1%D8%A7%DB%8C%DA%AF%D8%A7%D9%86%20%D8%AF%D8%B1%20ACS%3A%20https%3A%2F%2Facslearn.com%2Ffa%2F">به دوستان بگویید ←</a></li>
+    </ol>
+    <p class="sach"><bdi dir="ltr">ACS</bdi> به یادگیری و آمادگی شما کمک می‌کند. دربارهٔ کار و ویزای کار خارج فقط راهنمایی می‌کند و تضمینی نمی‌دهد.</p>
+  </div>
+</section>
 </main>
 
 <footer class="acs-footer" id="contact">
   <div class="wrap">
-    <h5 id="acsFootName"><bdi dir="ltr">Applied Computer School™</bdi></h5>
+    <h5 id="acsFootName" aria-level="3"><bdi dir="ltr">Applied Computer School™</bdi></h5>
     <p id="acsFootTag">از روستا تا جنوب جهانی به 130 زبان · محتوای دوره سازگار با گوشی!</p>
     <nav class="acs-fmenu" id="acsFooterMenu" aria-label="Footer menu"></nav>
     <div class="acs-fblock">
@@ -167,6 +193,7 @@
   <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M16.04 4C9.9 4 4.92 8.98 4.92 15.12c0 2.02.54 3.98 1.56 5.72L4 28l7.34-2.42a11.1 11.1 0 0 0 4.7 1.04h.01c6.14 0 11.12-4.98 11.12-11.12S22.18 4 16.04 4zm0 20.34h-.01a9.2 9.2 0 0 1-4.68-1.28l-.34-.2-4.36 1.44 1.46-4.25-.22-.35a9.18 9.18 0 0 1-1.4-4.9c0-5.08 4.14-9.22 9.24-9.22 2.46 0 4.78.96 6.52 2.7a9.16 9.16 0 0 1 2.7 6.53c0 5.09-4.14 9.22-9.24 9.22zm5.06-6.9c-.28-.14-1.64-.81-1.9-.9-.25-.09-.44-.14-.62.14-.18.28-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.06-.22-.54-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.17.45 1.57.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
 </a>
 <script src="/assets/acs-universal.js"></script>
+<script src="/assets/home-search.js?v=dc0b1f05" defer></script><!-- build_home -->
 
 </body>
 </html>
