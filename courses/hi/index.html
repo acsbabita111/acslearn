@@ -603,7 +603,7 @@ function renderBhasha(){
   var lg=document.getElementById('bhLegend'); if(lg){ lg.innerHTML=''; }
   var host=document.getElementById('bhashaGroups');
   host.innerHTML=KKB_GROUPS.map(function(g,gi){
-    return '<details class="bh-group" data-gi="'+gi+'" open><summary>'+esc(g.e)+' '+esc(g.t)+' <span class="bh-count">('+g.ids.length+' भाषाएँ)</span></summary><div class="bh-chips">'+g.ids.map(bhChip).join('')+'</div></details>';
+    return '<details class="bh-group" id="g'+gi+'" data-gi="'+gi+'" open><summary>'+esc(g.e)+' '+esc(g.t)+' <span class="bh-count">('+g.ids.length+' भाषाएँ)</span></summary><div class="bh-chips">'+g.ids.map(bhChip).join('')+'</div></details>';
   }).join('');
   /* 13-Sep SEO: 130 भाषा-कोर्स की ItemList (schema.org) — data से runtime, दोहराव नहीं */
   try{ var ld=document.createElement('script'); ld.type='application/ld+json';
@@ -613,6 +613,9 @@ function renderBhasha(){
   var cor=document.getElementById('bhCorridors');
   if(cor){ cor.innerHTML='<button class="bh-cor active" type="button" onclick="setCorridor(-1,this)">🌍 सब 130</button>'+KKB_GROUPS.map(function(g,gi){ return '<button class="bh-cor" type="button" onclick="setCorridor('+gi+',this)">'+esc(g.e)+' '+esc(g.t.split(' (')[0].replace('भारतीय भाषाएँ — ','भारत: '))+' ('+g.ids.length+')</button>'; }).join(''); }
 }
+/* 12-Nov-2026: /courses/hi/#g0 … #g7 (भाषा-पन्ने की समूह-कड़ियाँ) सीधे उसी समूह पर पहुँचाएँ। समूह JS से बनते हैं, इसलिए browser का अपना anchor-कूद काम नहीं करता। */
+function bhGoHash(){ var m=/^#g(\d+)$/.exec(location.hash||''); if(!m) return; var el=document.getElementById('g'+m[1]); if(!el) return; if(typeof goTab==='function'){ try{ goTab(0); }catch(e){} } el.setAttribute('open',''); try{ el.scrollIntoView({block:'start'}); }catch(e){ el.scrollIntoView(); } }
+window.addEventListener('hashchange',bhGoHash);
 window.setCorridor=function(gi,el){
   var btns=document.querySelectorAll('#bhCorridors .bh-cor'); for(var i=0;i<btns.length;i++) btns[i].classList.remove('active'); if(el) el.classList.add('active');
   var groups=document.querySelectorAll('#bhashaGroups .bh-group');
@@ -630,7 +633,7 @@ function filterBhasha(){
 
 // ══ INIT ══
 function init() {
-  renderBhasha();
+  renderBhasha(); setTimeout(bhGoHash,0);
   // Education dropdowns
   [1,2,3,4,5].forEach(tab => {
     const sel = document.getElementById('eduFilter'+tab);

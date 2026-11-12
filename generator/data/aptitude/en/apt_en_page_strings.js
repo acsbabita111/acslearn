@@ -82,7 +82,7 @@ module.exports = {
     ['🚀 मुफ़्त झलक (24 प्रश्न)', '🚀 Free preview (24 questions)', 1],
     ['🧭 पूरा टेस्ट (120 प्रश्न)', '🧭 Full test (120 questions)', 1],
     ['📖 पूरी जानकारी, फीस और दुनिया के टॉप-10 टेस्ट की तुलना — करियर-पेज पर →',
-     '📖 Full details, fees and the world top-10 comparison: on the Career page (in Hindi) →', 1],
+     '📖 Full details, fees and the world top-10 comparison: on the Career page →', 1],
     ['🆓 मुफ़्त झलक — अभी, यहीं', '🆓 Free preview: right here, right now', 1],
     ['कोई जवाब सही या ग़लत नहीं होता — बस अपनी पसंद बताइए।', 'No answer is right or wrong: just tell us what you like.', 1],
     ['24 प्रश्न हैं और बीच में दो कहानियाँ।', 'There are 24 questions and two short stories in between.', 1],
@@ -92,7 +92,10 @@ module.exports = {
     ['🧪 यह टेस्ट रायसेक (RIASEC) रुचि-विज्ञान (1959) पर आधारित/प्रेरित है।',
      '🧪 This test is based on and inspired by RIASEC interest science (1959).', 1],
     ['📖 फीस, नमूना-रिपोर्ट और टॉप-10 तुलना — करियर-पेज पर →',
-     '📖 Fees, a sample report and the top-10 comparison: on the Career page (in Hindi) →', 1],
+     '📖 Fees, a sample report and the top-10 comparison: on the Career page →', 1],
+
+    /* ---- करियर-कड़ी (12-Nov-2026): English करियर-पन्ना अब है, इसलिए कड़ी उसी पर (Founder-नियम 10-Nov: हर भाषा की करियर-कड़ी उसी भाषा के पन्ने पर) ---- */
+    ['href="/career.html"', 'href="/en/career.html"', 2],
 
     /* ---- पूरा-टेस्ट खंड : ईमानदार-पैनल (बैंक अभी हिंदी में) ----
        session-इंजन (apt-session.js) की UI व 18,943-भंडार हिंदी हैं, इसलिए
