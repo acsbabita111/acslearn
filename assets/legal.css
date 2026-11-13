@@ -1,6 +1,7 @@
 /* legal.css — वापसी · गोपनीयता · शर्तें पेजों की साझा शैली (परत-1)
+   v1.1 (14-Nov-2026): .lg-wrap को हल्की पृष्ठभूमि मिली; पहले पेज का शीर्षक और ऊपर की पंक्तियाँ गहरे नीले पर गहरे नीले रंग में थीं, यानी दिखती नहीं थीं (वापसी, गोपनीयता, शर्तें और प्रमाण पत्र की जाँच, चारों पेज)
    v1.0 · सब अक्षर 16px से बड़े · रंग acs-config से मेल · मोबाइल-first */
-.lg-wrap{max-width:820px;margin:0 auto;padding:18px 16px 40px}
+.lg-wrap{max-width:820px;margin:0 auto;padding:18px 16px 40px;background:#F5F7FA;border-radius:14px}
 .lg-h1{font-size:26px;line-height:1.5;color:#0B1F3A;margin:10px 0 6px;font-weight:800}
 .lg-lead{font-size:19px;line-height:1.8;color:#26364a;margin:0 0 18px}
 .lg-card{background:#fff;border:1px solid #e3e8ef;border-left:5px solid #1565C0;border-radius:12px;padding:16px 16px;margin:14px 0}

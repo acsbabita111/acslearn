@@ -315,6 +315,21 @@ const REFUND_CONTENT =
 '<p>जिनके पास सक्रिय बैज है, उनके लिए परीक्षा मुफ़्त है।</p>' +
 '</div>' +
 
+'<div class="lg-card"><h2>2-ब. प्रमाण पत्र की जाँच-अवधि बढ़ाना</h2>' +
+'<p>प्रमाण पत्र की ऑनलाइन जाँच की अवधि ₹1000 देकर 5 साल बढ़ती है।</p>' +
+'<p>मान्य तिथि निकल जाए, तो देर का शुल्क अलग से लगता है।</p>' +
+'<p>1 साल तक की देर पर ₹500 और उससे ज़्यादा देर पर ₹1000।</p>' +
+'<p>यह फ़ीस वापस नहीं होती।</p>' +
+'<p>देर का शुल्क भी वापस नहीं होता।</p>' +
+'<p>अवधि बढ़ जाने के बाद पैसा वापस नहीं होता।</p>' +
+'<p>मन बदल जाए या ज़रूरत न रहे, तब भी नहीं।</p>' +
+'<p>तकनीकी गलती से पैसा दो बार या गलत कट जाए, तो बात अलग है।</p>' +
+'<p>वह वापसी नहीं, भुगतान का सुधार है।</p>' +
+'<p>जाँच के बाद ऐसा पैसा ठीक किया जाता है।</p>' +
+'<p>फ़ीस बढ़ने के बाद भुगतान पक्का हो, तो दिया हुआ पैसा जमा रहता है।</p>' +
+'<p>तब बाक़ी रक़म देने पर ही अवधि बढ़ती है।</p>' +
+'</div>' +
+
 '<div class="lg-card"><h2>3. सलाहकार-सलाह (Counselling)</h2>' +
 '<p>तय समय से 1 घंटा पहले रद्द करें, तो 90% वापस।</p>' +
 '<p>यह दोनों तरफ़ लागू है।</p>' +
@@ -342,17 +357,131 @@ const REFUND_CONTENT =
 '<p>हमेशा आधिकारिक Razorpay लिंक से ही भुगतान करें।</p>' +
 '</div>' +
 
-'<p class="lg-updated">आख़िरी बदलाव: 13 नवंबर 2026</p>' +
+'<p class="lg-updated">आख़िरी बदलाव: 14 नवंबर 2026</p>' +
 '<div class="lg-links"><a href="/">🏠 होम</a><a href="/privacy.html">🔒 गोपनीयता</a><a href="/terms.html">📜 शर्तें</a></div>' +
 '</div>';
 
 buildSpecial({
   out: "refund.html", langStrict: true,
   title: "वापसी-नीति (Refund Policy) | अप्लाइड कंप्यूटर स्कूल",
-  desc: "ACS की वापसी-नीति — बैज, अभिरुचि-टेस्ट, सलाह, भ्रमण की फ़ीस-वापसी के नियम सरल हिंदी में।",
+  desc: "ACS की वापसी-नीति: बैज, परीक्षा का चांस (₹100), प्रमाण पत्र की अवधि बढ़ाना, सलाह और भ्रमण की फ़ीस-वापसी के नियम सरल हिंदी में।",
   head: ['<link rel="stylesheet" href="/assets/legal.css">'],
   foot: [],
   content: REFUND_CONTENT
+});
+
+/* ===================== प्रमाण पत्र की जाँच (verify) : खेप 3-क, 14-Nov-2026 =====================
+   यह पेज पहले हाथ से बना था और प्रमाणपत्र का रिकॉर्ड सीधे browser से पढ़ने की कोशिश करता था, जो server के नियमों से
+   बंद है; इसलिए बाहर का कोई आदमी जाँच नहीं कर पाता था। अब यह यंत्र से बनता है और जाँच server के certVerify से होती है। */
+const VERIFY_CONTENT =
+'<div class="lg-wrap">' +
+'<h1 class="lg-h1">🏆 प्रमाण पत्र की जाँच</h1>' +
+'<p class="lg-lead">यहाँ कोई भी ACS के प्रमाण पत्र की सच्चाई जाँच सकता है।</p>' +
+
+'<div class="lg-card"><h2>🔍 नंबर लिखकर जाँचें</h2>' +
+'<p>प्रमाण पत्र पर छपा नंबर नीचे लिखें।</p>' +
+'<p><input id="cvNo" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" aria-label="प्रमाण पत्र का नंबर" placeholder="ACS-CC-2026-XXXXXX" style="width:100%;font-size:20px;padding:12px;border:2px solid #0B1F3A;border-radius:10px;box-sizing:border-box"></p>' +
+'<div id="cvPctWrap" style="display:none">' +
+'<p>यह पुराने रूप का नंबर है।</p>' +
+'<p>इसके साथ प्रमाण पत्र पर छपा प्रतिशत भी लिखें।</p>' +
+'<p><input id="cvPct" type="text" inputmode="decimal" autocomplete="off" aria-label="प्रमाण पत्र पर छपा प्रतिशत" placeholder="72" style="width:100%;font-size:20px;padding:12px;border:2px solid #0B1F3A;border-radius:10px;box-sizing:border-box"></p>' +
+'</div>' +
+'<p><button id="cvBtn" type="button" style="width:100%;font-size:20px;font-weight:800;padding:13px;border:0;border-radius:12px;background:#1565C0;color:#fff;cursor:pointer">🔍 जाँचें</button></p>' +
+'<div id="cvOut" role="status" aria-live="polite" style="font-size:18px;line-height:1.7"></div>' +
+'</div>' +
+
+'<div class="lg-card"><h2>📅 जाँच कब तक होती है</h2>' +
+'<p>ऑनलाइन जाँच प्रमाण पत्र जारी होने से 5 साल तक होती है।</p>' +
+'<p>जारी होने की तिथि और मान्य तिथि प्रमाण पत्र पर छपी होती है।</p>' +
+'<p>मान्य तिथि के बाद प्रमाण पत्र नक़ली नहीं हो जाता।</p>' +
+'<p>बस उसकी ऑनलाइन जाँच रुक जाती है।</p>' +
+'<p>गलत इस्तेमाल रोकने के लिए एक दिन में जाँच की गिनती सीमित है।</p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>⏳ 5 साल और बढ़ाना</h2>' +
+'<p>विद्यार्थी ₹1000 देकर जाँच की अवधि 5 साल बढ़ा सकता है।</p>' +
+'<p>मान्य तिथि से पहले दें, तो नए 5 साल पुरानी तिथि के आगे जुड़ते हैं।</p>' +
+'<p>मान्य तिथि के बाद दें, तो देर का शुल्क अलग से लगता है।</p>' +
+'<p>1 साल तक की देर पर ₹500 और उससे ज़्यादा देर पर ₹1000।</p>' +
+'<p>तब नए 5 साल भुगतान के दिन से गिने जाते हैं।</p>' +
+'<p>यह फ़ीस और देर का शुल्क वापस नहीं होते।</p>' +
+'<p>यह काम विद्यार्थी अपने डैशबोर्ड (dashboard) से करता है।</p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>📥 अपना प्रमाण पत्र निकालना</h2>' +
+'<p>मान्य अवधि में प्रमाण पत्र डैशबोर्ड (dashboard) से मुफ़्त निकलता है।</p>' +
+'<p>इसके लिए लॉगिन (login) करके अपने कोर्स की तालिका खोलें।</p>' +
+'<p><a href="/dashboard/" style="display:inline-block;font-size:18px;font-weight:800;padding:11px 18px;border-radius:12px;background:#2E7D32;color:#fff;text-decoration:none">🔑 डैशबोर्ड खोलें</a></p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>📮 दफ़्तर से लिखित जाँच</h2>' +
+'<p>इसमें ACS का दफ़्तर लिखकर जवाब देता है।</p>' +
+'<p>इसकी फ़ीस हर अनुरोध पर ₹2000 है।</p>' +
+'<p>यह मान्य तिथि के बाद भी हो सकती है।</p>' +
+'<p>इसका फ़ॉर्म इसी पन्ने पर जल्द जुड़ेगा।</p>' +
+'</div>' +
+
+'<p class="lg-updated">आख़िरी बदलाव: 14 नवंबर 2026</p>' +
+'<div class="lg-links"><a href="/">🏠 होम</a><a href="/refund.html">💰 वापसी</a><a href="/terms.html">📜 शर्तें</a></div>' +
+'</div>';
+
+const VERIFY_JS =
+'<script type="module">\n' +
+'/* प्रमाण पत्र की जाँच: server का certVerify (बिना login)। यह पेज प्रमाणपत्र का रिकॉर्ड ख़ुद नहीं पढ़ता।\n' +
+'   पुराने रूप वाले नंबर (आख़िर में सिर्फ़ 6 अंक) के लिए server प्रतिशत भी माँगता है; server पर जाँच की गिनती की सीमा है। */\n' +
+'import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";\n' +
+'import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js";\n' +
+'import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check.js";\n' +
+'const cfg = { apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM", authDomain:"acslearn-platform.firebaseapp.com", projectId:"acslearn-platform", storageBucket:"acslearn-platform.firebasestorage.app", messagingSenderId:"435395814481", appId:"1:435395814481:web:655f99452a90f8efbc4470" };\n' +
+'const app = getApps().length ? getApp() : initializeApp(cfg);\n' +
+'/* App Check (ऑडिट K3A-H08): server का certVerify सही App Check token के बिना जवाब नहीं देता। key का घर: /assets/appcheck-config.js */\n' +
+'const AC_KEY = String(window.ACS_APPCHECK_SITE_KEY || "");\n' +
+'if (AC_KEY) initializeAppCheck(app, { provider: new ReCaptchaEnterpriseProvider(AC_KEY), isTokenAutoRefreshEnabled: true });\n' +
+'const certVerify = httpsCallable(getFunctions(app, "us-central1"), "certVerify");\n' +
+'const $ = function (id) { return document.getElementById(id); };\n' +
+'function esc(s) { return String(s === undefined || s === null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }\n' +
+'function day(s) { var p = String(s || "").split("-"); return p.length === 3 ? p[2] + "." + p[1] + "." + p[0] : "-"; }\n' +
+'function box(color, html) { $("cvOut").innerHTML = \'<div id="cvRes" style="margin-top:12px;padding:14px;border-radius:12px;border:2px solid \' + color + \';background:#fff">\' + html + "</div>"; }\n' +
+'function row(k, v) { return \'<div style="display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #e3e8ef"><span style="flex:0 0 46%;color:#4a5a70">\' + k + \'</span><b style="flex:1;word-break:break-word">\' + v + "</b></div>"; }\n' +
+'var lastNo = "";\n' +
+'async function run() {\n' +
+'  var no = $("cvNo").value.toUpperCase().replace(/\\s+/g, ""); $("cvNo").value = no;\n' +
+'  if (!no) { box("#F9A825", "पहले प्रमाण पत्र का नंबर लिखें।"); return; }\n' +
+'  if (!AC_KEY) { box("#B71C1C", \'<b data-st="nokey">जाँच की सुविधा अभी चालू नहीं हुई है।</b>\'); return; }\n' +
+'  if (no !== lastNo) { $("cvPctWrap").style.display = "none"; $("cvPct").value = ""; lastNo = no; }\n' +
+'  var req = { no: no }, pct = $("cvPct").value.replace(/[%\\s]/g, "");\n' +
+'  if ($("cvPctWrap").style.display !== "none") { if (!pct) { box("#F9A825", \'<b data-st="needpct">प्रमाण पत्र पर छपा प्रतिशत भी लिखें।</b>\'); return; } req.pct = pct; }\n' +
+'  $("cvBtn").disabled = true; box("#1565C0", "⏳ जाँच हो रही है…");\n' +
+'  try {\n' +
+'    var d = (await certVerify(req)).data || {};\n' +
+'    if (d.bad) box("#B71C1C", \'<b data-st="bad">❌ यह नंबर सही रूप में नहीं है।</b><br>नंबर ऐसा होता है: ACS-CC-2026-AB12CD\');\n' +
+'    else if (d.needPct) { $("cvPctWrap").style.display = "block"; box("#F9A825", \'<b data-st="needpct">यह पुराने रूप का नंबर है।</b><br>ऊपर प्रमाण पत्र पर छपा प्रतिशत लिखकर दोबारा जाँचें दबाएँ।\'); $("cvPct").focus(); }\n' +
+'    else if (!d.found) box("#B71C1C", \'<b data-st="notfound">❌ इस जानकारी का कोई प्रमाण पत्र ACS के रिकॉर्ड में नहीं मिला।</b><br>नंबर\' + (req.pct ? " और प्रतिशत" : "") + " दोबारा देखकर लिखें।");\n' +
+'    else if (d.status === "expired") box("#F9A825", \'<b data-st="expired">⌛ इस प्रमाण पत्र की ऑनलाइन जाँच की अवधि \' + day(d.validUntil) + " को पूरी हो चुकी है।</b><br>इसका मतलब यह नहीं कि प्रमाण पत्र नक़ली है।<br>विद्यार्थी अपने डैशबोर्ड से यह अवधि 5 साल बढ़ा सकता है।<br>मान्य तिथि निकल चुकी है, इसलिए ₹1000 के साथ देर का शुल्क भी लगेगा।<br>देर का शुल्क: 1 साल तक की देर पर ₹500, उससे ज़्यादा देर पर ₹1000।<br>दफ़्तर से लिखित जाँच भी हो सकती है।");\n' +
+'    else box("#2E7D32", \'<b data-st="valid" style="color:#2E7D32;font-size:20px">✅ यह प्रमाण पत्र असली है।</b>\' +\n' +
+'      row("प्रमाण पत्र का नंबर", esc(d.certNo)) + row("नाम", esc(d.name)) + row("कोर्स", esc(d.courseName)) + row("अंक", esc(d.pct) + "%") +\n' +
+'      (d.examOn ? row("परीक्षा की तिथि", day(d.examOn)) : "") + row("जारी होने की तिथि", day(d.issuedOn)) + row("ऑनलाइन जाँच मान्य", day(d.validUntil) + " तक"));\n' +
+'  } catch (e) {\n' +
+'    if (String((e && e.code) || "").indexOf("resource-exhausted") >= 0) box("#F9A825", \'<b data-st="rate">✋ \' + esc((e && e.message) || "जाँच की सीमा पूरी हो गई है।") + "</b><br>गलत इस्तेमाल रोकने के लिए जाँच की गिनती सीमित है।");\n' +
+'    else if (String((e && e.code) || "").indexOf("unauthenticated") >= 0) box("#B71C1C", \'<b data-st="appcheck">🔒 सुरक्षा-जाँच पूरी नहीं हो पाई।</b><br>पन्ना दोबारा खोलकर कोशिश करें।\');\n' +
+'    else box("#B71C1C", \'<b data-st="error">📶 जाँच अभी नहीं हो पाई।</b><br>इंटरनेट देखकर दोबारा दबाएँ।\');\n' +
+'  }\n' +
+'  $("cvBtn").disabled = false;\n' +
+'}\n' +
+'$("cvBtn").addEventListener("click", run);\n' +
+'$("cvNo").addEventListener("keydown", function (ev) { if (ev.key === "Enter") run(); });\n' +
+'$("cvPct").addEventListener("keydown", function (ev) { if (ev.key === "Enter") run(); });\n' +
+'var q = new URLSearchParams(location.search).get("cert");\n' +
+'if (q) { $("cvNo").value = q; run(); }\n' +
+'</scr' + 'ipt>';
+
+buildSpecial({
+  out: "verify/index.html", langStrict: true,
+  title: "प्रमाण पत्र की जाँच (Certificate Verification) | अप्लाइड कंप्यूटर स्कूल",
+  desc: "ACS के प्रमाण पत्र का नंबर लिखकर उसकी सच्चाई जाँचिए: नाम, कोर्स, अंक, जारी होने की तिथि और मान्य तिथि।",
+  head: ['<link rel="stylesheet" href="/assets/legal.css">', '<script src="/assets/appcheck-config.js"></scr' + 'ipt>'],
+  foot: [VERIFY_JS],
+  content: VERIFY_CONTENT
 });
 
 /* ===================== गोपनीयता (Privacy) ===================== */

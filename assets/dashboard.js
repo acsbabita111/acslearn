@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.9.0 · 14-Nov-2026 (खेप 3-क v1.1, Founder-नियम और ऑडिट K3A-H01, H03, H04): परीक्षा-तिथि का रिकॉर्ड न हो तो प्रमाणपत्र रुकता है (जारी होने की तिथि उसकी जगह नहीं छपती); विस्तार से पहले लिखा दिखता है कि फ़ीस वापस नहीं होती; फ़ीस बढ़ गई हो तो बाक़ी रक़म माँगी जाती है। प्रमाणपत्र पर अब परीक्षा की असली तिथि, जारी होने की तिथि, online जाँच की मान्य तिथि (जारी से 5 साल) छपते हैं; विस्तार की फ़ीस प्रमाणपत्र पर नहीं छपती (Founder का आदेश, 14-Nov-2026: "सिर्फ़ validity"), वह dashboard, जाँच वाले पन्ने और वापसी-नीति में लिखी है (पहले हर प्रमाणपत्र पर "31 जुलाई 2026" छपता था)। तिथियाँ और विस्तार का हिसाब server (certList) से आता है। "मेरे कोर्स" की तालिका में मान्य तिथि और "5 साल बढ़ाएँ" बटन। मान्य तिथि निकलने पर प्रमाणपत्र विस्तार के बाद ही निकलता है।
    v6.8.0 · 13-Nov-2026 (खेप 2, Founder-नियम): कोर्स की अंतिम परीक्षा अब नए इंजन /assets/exam-session.js से चलती है (बैज या ₹100 · दिन में 2 · 3 खंड x 40 · हर खंड 20 से 40 मिनट · सबसे अच्छा अंक दर्ज · 5 हिस्सों का ब्योरा 7 दिन)। "मेरे कोर्स" की तालिका में सबसे अच्छा अंक (पास या फेल) और "ब्योरा / दोबारा दें" बटन। पुराना परीक्षा-परदा अब नहीं खुलता।
    v6.7.2 · 10-Nov-2026 — v1.2.1: Hindi-source Career-शब्दावली canonical (अभिरुचि-परीक्षण/सक्रिय Golden Pass/छपने-योग्य रिपोर्ट); DASH_VER v6.7.2।
    v6.7.1 · 09-Nov-2026 (learner English-परत — early-boot import: NO_GATEWAY_EXT पर dash_i18n_en.js dynamic-import — student/jobseeker/entrepreneur का पूरा UI English, toggle से; hi default अटल)
@@ -111,7 +112,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.8.0";
+const DASH_VER = "v6.9.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -1454,7 +1455,16 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         else if(bank) ex='<span class="lvmut">🔒 '+bank.minLessons+' पाठ बाद</span>';
         else ex='<span class="lvmut">—</span>';
         let ct;
-        if(cert) ct='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ Download</button>';
+        if(cert){
+          /* (v6.9.0) मान्य अवधि में प्रमाणपत्र मुफ़्त निकलता है; मान्य तिथि निकलने पर पहले 5 साल का विस्तार */
+          const ci=CERT_INFO[cert.certNo]||null;
+          const dl='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ Download</button>';
+          if(!ci) ct=dl;
+          else { const due=Math.round(ci.extend.due/100), cr=Math.round((ci.extend.credit||0)/100);
+            const lbl = cr>0 ? 'बाक़ी ₹'+due+' देकर 5 साल बढ़ाएँ (₹'+cr+' जमा है)' : (ci.status==="expired" ? '₹'+due+' देकर 5 साल बढ़ाएँ' : '5 साल बढ़ाएँ ₹'+due);
+            if(ci.status==="expired") ct='<span class="lvmut">⌛ online जाँच की अवधि '+certDayNum(ci.validUntil)+' को पूरी हुई</span> <button class="lvbtn green" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>';
+            else ct=dl+' <span class="lvmut">मान्य: '+certDayNum(ci.validUntil)+' तक</span> <button class="lvbtn blue" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>'; }
+        }
         else if(res && res.pass) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
         else ct='<span class="lvmut">—</span>';
         const go = done ? '<span class="lvok">🏆 पूरा</span>'
@@ -1516,7 +1526,17 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     }catch(e){ bx.innerHTML='<span class="note" style="color:#B71C1C">केंद्र-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
   }
   /* ── (30-Jul, रास्ता-1) 🎓 परीक्षा → 📄 result → 📜 ₹125 प्रमाणपत्र ── */
-  let EXAM_RES={}, CERT_BY={}, CERT_CRS={};
+  let EXAM_RES={}, CERT_BY={}, CERT_CRS={}, CERT_INFO={};
+  /* (v6.9.0, खेप 3-क) प्रमाणपत्र की तिथियाँ: server "2031-11-12" जैसा रूप देता है */
+  const CERT_MHI=["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
+  const CERT_MEN=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  function certDayNum(s){ const p=String(s||"").split("-"); return p.length===3 ? p[2]+"."+p[1]+"."+p[0] : "—"; }
+  function certDayHi(s){ const p=String(s||"").split("-"); return p.length===3 ? Number(p[2])+" "+CERT_MHI[Number(p[1])-1]+" "+p[0] : "—"; }
+  function certDayEn(s){ const p=String(s||"").split("-"); return p.length===3 ? Number(p[2])+" "+CERT_MEN[Number(p[1])-1]+" "+p[0] : "—"; }
+  async function certInfoLoad(){
+    CERT_INFO={};
+    try{ const cl=await httpsCallable(functions,"certList")({}); ((cl.data||{}).certs||[]).forEach(function(c){ CERT_INFO[c.certNo]=c; }); }catch(e){}
+  }
   async function loadExamState(){
     EXAM_RES={}; CERT_BY={}; CERT_CRS={};
     try{ const u=auth.currentUser; if(!u) return;
@@ -1528,6 +1548,14 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         if(!o || p>o.pct || (p===o.pct && t>o._t)) EXAM_RES[k]=Object.assign({},x,{_t:t,id:d.id,pct:p}); });
       const cs=await getDocs(query(collection(db,"certificates"), where("uid","==",u.uid)));
       cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; if(x.courseId && !CERT_CRS[x.courseId]) CERT_CRS[x.courseId]=x; });
+      /* (v6.9.0) विस्तार का जो भुगतान हो चुका पर पक्का नहीं हुआ (जैसे पन्ना बंद हो गया), उसे server से पक्का कराना */
+      if(cs.size){
+        try{ const ps=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid), where("purpose","==","cert_extension"), where("status","==","created")));
+          const pend=[]; ps.forEach(d=>pend.push(d.id));
+          for(const id of pend.slice(0,3)){ try{ await httpsCallable(functions,"certExtendVerify")({orderId:id}); }catch(e3){} }
+        }catch(e4){}
+        await certInfoLoad();
+      }
     }catch(e){}
   }
 /* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
@@ -1863,7 +1891,49 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         rz.open();
       }catch(e){ alert("cert-order त्रुटि: "+((e&&e.message)||e)); cb.disabled=false; } return; }
     const db2=ev.target.closest("[data-certdl]");
-    if(db2){ certDraw(JSON.parse(db2.getAttribute("data-certdl"))); return; }
+    if(db2){ const c0=JSON.parse(db2.getAttribute("data-certdl"));
+      if(!CERT_INFO[c0.certNo]) await certInfoLoad();
+      const ci=CERT_INFO[c0.certNo];
+      if(!ci){ alert("प्रमाणपत्र की तिथियाँ server से नहीं मिलीं। internet देखकर दोबारा दबाइए।"); return; }
+      if(ci.status==="expired"){ alert("इस प्रमाणपत्र की online जाँच की अवधि "+certDayNum(ci.validUntil)+" को पूरी हो चुकी है। 5 साल बढ़ाने के बाद यह दोबारा निकलेगा।"); return; }
+      /* (ऑडिट K3A-H03) परीक्षा की तिथि का रिकॉर्ड न मिले, तो जारी होने की तिथि को परीक्षा-तिथि बनाकर नहीं छापते: प्रमाणपत्र रुकता है */
+      if(!ci.examOn){ alert("इस प्रमाणपत्र की परीक्षा-तिथि का रिकॉर्ड नहीं मिला, इसलिए यह अभी नहीं निकल सकता। कृपया ACS दफ़्तर को यह नंबर बताइए: "+c0.certNo); return; }
+      certDraw(Object.assign({},c0,{examOn:ci.examOn,issuedOn:ci.issuedOn,validUntil:ci.validUntil})); return; }
+    const xb=ev.target.closest("[data-certext]");
+    if(xb){ const no=xb.getAttribute("data-certext"), ci=CERT_INFO[no]; if(!ci) return;
+      const amt=Math.round(ci.extend.due/100), cr=Math.round((ci.extend.credit||0)/100);
+      /* (ऑडिट K3A-H04, Founder का फ़ैसला) भुगतान से पहले: यह फ़ीस वापस नहीं होती */
+      const NOREF="\n\nयह फ़ीस और देर का शुल्क वापस नहीं होते। तकनीकी ग़लती से पैसा दो बार या ग़लत कट जाए, तो वह अलग से ठीक किया जाता है।\nपूरा नियम: acslearn.com/refund.html";
+      const msg = (ci.extend.mode==="before"
+        ? "online जाँच की अवधि 5 साल बढ़ाने की फ़ीस ₹"+Math.round(ci.extend.amount/100)+" है। नई मान्य तिथि "+certDayNum(ci.extend.newValid)+" होगी (अभी "+certDayNum(ci.validUntil)+" है)।"
+        : "मान्य तिथि "+certDayNum(ci.validUntil)+" निकल चुकी है। फ़ीस ₹1000 और देर का शुल्क ₹"+Math.round(ci.extend.penalty/100)+", कुल ₹"+Math.round(ci.extend.amount/100)+"। नई मान्य तिथि "+certDayNum(ci.extend.newValid)+" होगी।")
+        + (cr>0 ? "\nआपके ₹"+cr+" पहले से जमा हैं।" : "") + "\nअभी देना है: ₹"+amt+"।" + NOREF + "\n\nआगे बढ़ें?";
+      if(!confirm(msg)) return; xb.disabled=true;
+      const after=async function(v){
+        if(v && v.paid===false){ alert("भुगतान की पुष्टि अभी नहीं हुई। पैसा कट गया हो, तो कुछ देर बाद यह पन्ना दोबारा खोलिए: अवधि अपने-आप बढ़ जाएगी।"); }
+        else if(v && v.applied===false){ alert("भुगतान मिल गया, पर इस बीच फ़ीस बढ़ गई है। आपका दिया हुआ पैसा जमा है। अवधि बढ़ाने के लिए ₹"+Math.round((v.due||0)/100)+" और देने होंगे।"); }
+        else alert("✅ अवधि बढ़ गई। नई मान्य तिथि: "+certDayNum(v.validUntil));
+        await loadExamState(); crsMineFill(); };
+      try{ const o=await httpsCallable(functions,"certExtendOrder")({certNo:no});
+        if(o.data && o.data.nothingDue){ await after({applied:o.data.applied,validUntil:o.data.validUntil}); return; }
+        /* (ऑडिट K3A-H07) server ने जो रक़म या तिथि लौटाई, वह ऊपर दिखाई गई से अलग हो, तो भुगतान से पहले दोबारा पूछना */
+        const od=o.data||{};
+        if(Number(od.amount)!==Number(ci.extend.due) || String(od.newValid)!==String(ci.extend.newValid)){
+          const m2="इस बीच फ़ीस या तिथि बदल गई है।\nअब कुल फ़ीस ₹"+Math.round((od.fullFee||0)/100)+" है"+(od.penalty>0 ? " (₹1000 और देर का शुल्क ₹"+Math.round(od.penalty/100)+")" : "")+"।"
+            +(od.credit>0 ? "\nआपके ₹"+Math.round(od.credit/100)+" पहले से जमा हैं।" : "")+"\nअभी देना है: ₹"+Math.round((od.amount||0)/100)+"। नई मान्य तिथि "+certDayNum(od.newValid)+" होगी।"+NOREF+"\n\nआगे बढ़ें?";
+          if(!confirm(m2)){ xb.disabled=false; await loadExamState(); crsMineFill(); return; }
+        }
+        await loadRazorpay();
+        const rz=new window.Razorpay({ key:o.data.keyId, order_id:o.data.orderId, amount:o.data.amount,
+          name:"ACS प्रमाणपत्र", description:"online जाँच की अवधि 5 साल बढ़ाना (यह फ़ीस वापस नहीं होती)",
+          handler:async function(rsp){
+            try{ const v=await httpsCallable(functions,"certExtendVerify")({
+                razorpay_order_id:rsp.razorpay_order_id, razorpay_payment_id:rsp.razorpay_payment_id, razorpay_signature:rsp.razorpay_signature });
+              await after(v.data||{});
+            }catch(e2){ alert("भुगतान की पुष्टि अभी नहीं हो पाई। पैसा कट गया हो, तो यह पन्ना दोबारा खोलिए: अवधि अपने-आप बढ़ जाएगी।"); xb.disabled=false; } },
+          modal:{ ondismiss:function(){ xb.disabled=false; } } });
+        rz.open();
+      }catch(e){ alert("काम पूरा नहीं हुआ: "+((e&&e.message)||e)); xb.disabled=false; } return; }
   });
   /* होल-बंदी (31-Jul, Founder-screenshot "बहुत सुधार करना होगा"): पुराने प्रमाणपत्र में तीन असली दोष थे —
      (1) "Online" नंगा-Roman (लिपि-bracket नियम टूटा) (2) courseName में server का आंतरिक तंत्र-विवरण
@@ -1934,22 +2004,30 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     var vowels={"अ":"a","आ":"a","इ":"i","ई":"i","उ":"u","ऊ":"u","ऋ":"ri","ए":"e","ऐ":"ai","ओ":"o","औ":"au"};
     var matras={"ा":"a","ि":"i","ी":"i","ु":"u","ू":"u","ृ":"ri","े":"e","ै":"ai","ो":"o","ौ":"au","ं":"n","ः":"h","ँ":"n"};
     var cons={"क":"k","ख":"kh","ग":"g","घ":"gh","ङ":"ng","च":"ch","छ":"chh","ज":"j","झ":"jh","ञ":"n","ट":"t","ठ":"th","ड":"d","ढ":"dh","ण":"n","त":"t","थ":"th","द":"d","ध":"dh","न":"n","प":"p","फ":"ph","ब":"b","भ":"bh","म":"m","य":"y","र":"r","ल":"l","व":"v","श":"sh","ष":"sh","स":"s","ह":"h","ड़":"r","ढ़":"rh"};
+    /* (14-Nov-2026, खेप 3-क) नुक़्ता (फ़ ज़ क़ ...) और अनुस्वार/चंद्रबिंदु ठीक से: पहले "अंसारी" का English रूप बिगड़ा हुआ छपता था */
+    var NUK={"फ":"f","ज":"z","क":"q","ख":"kh","ग":"gh","ड":"r","ढ":"rh"}, NUKTA="\u093C";
+    s=String(s||""); if(s.normalize) s=s.normalize("NFC");
     var halant="्", out="", i=0, atWordStart=true;
     while(i<s.length){
       var ch=s[i], i0=atWordStart?0:1;
       var cap=function(w){ return i0<=0?w[0].toUpperCase()+w.slice(1):w; };
       if(vowels[ch]){ out+=cap(vowels[ch]); atWordStart=false; i++; continue; }
       if(cons[ch]){
-        var cr=cons[ch], next=s[i+1];
-        if(next===halant){ out+=cap(cr); atWordStart=false; i+=2; continue; }
-        if(next && matras[next]){ out+=cap(cr)+matras[next]; atWordStart=false; i+=2; continue; }
-        var isLast=(i+1>=s.length)||(s[i+1]===" ");
-        out+=cap(cr)+(isLast?"":"a"); atWordStart=false; i++; continue;
+        var cr=cons[ch], step=1, next=s[i+1];
+        if(next===NUKTA){ cr=NUK[ch]||cr; step=2; next=s[i+2]; }
+        if(next===halant){ out+=cap(cr); atWordStart=false; i+=step+1; continue; }
+        if(next==="ं"||next==="ँ"){ out+=cap(cr)+"an"; atWordStart=false; i+=step+1; continue; }
+        if(next && matras[next]){ out+=cap(cr)+matras[next]; atWordStart=false; i+=step+1; continue; }
+        var isLast=(i+step>=s.length)||(s[i+step]===" ");
+        out+=cap(cr)+(isLast?"":"a"); atWordStart=false; i+=step; continue;
       }
+      if(ch==="ं"||ch==="ँ"){ out+="n"; i++; continue; }
+      if(ch==="ः"){ out+="h"; i++; continue; }
+      if(ch===NUKTA){ i++; continue; }
       if(ch===" "){ out+=" "; atWordStart=true; i++; continue; }
       out+=ch; atWordStart=false; i++;
     }
-    return out;
+    return out.replace(/\bSinh\b/g,"Singh");
   }
   /* लंबे-नाम की centered word-wrap */
   function wrapCentered(ctx, text, cx, y, maxW, lh, font){
@@ -2108,16 +2186,16 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     x.font="800 26px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
     x.fillText("पिता "+fatherPh,CX,y); y+=32;
     x.font="italic 800 22px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#2E7D32";
-    x.fillText(nameEn||"—",CX,y); y+=8;
+    x.fillText(nameEn||"—",CX,y); y+=28;   /* (14-Nov-2026) पहले 8 था: "S/o" वाली पंक्ति English नाम के ऊपर चढ़ जाती थी */
     x.font="italic 700 17px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
-    x.fillText("S/o "+fatherPh,CX,y); y+=54;
+    x.fillText("S/o "+fatherPh,CX,y); y+=34;   /* ऊपर 20 बढ़ाए, यहाँ 20 घटाए: नीचे का पूरा ढाँचा जहाँ था वहीं */
 
     /* Founder-लिखा rich-paragraph प्रारूप, दोनों भाषा */
     const navy="700 26px 'Noto Sans Devanagari',sans-serif", navyB="800 28px 'Noto Sans Devanagari',sans-serif";
     const nHi = wrapRichCentered(x, [
       {text:"ने", font:navy, color:"#0B1F3A"},
       {text:fn.hi, font:navyB, color:"#1565C0"},
-      {text:"की दिनांक 31 जुलाई 2026 को आयोजित ऑनलाइन परीक्षा", font:navy, color:"#0B1F3A"},
+      {text:"की दिनांक "+certDayHi(c.examOn)+" को आयोजित ऑनलाइन परीक्षा", font:navy, color:"#0B1F3A"},
       {text:(c.pct!=null?c.pct:"—")+"%", font:navyB, color:"#2E7D32"},
       {text:"अंकों से पास की।", font:navy, color:"#0B1F3A"},
     ], CX, y, W-260, 44);
@@ -2127,7 +2205,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const nEn = wrapRichCentered(x, [
       {text:"has passed the online examination for", font:eng, color:"#4a5a70"},
       {text:fn.en||fn.hi, font:engB, color:"#1565C0"},
-      {text:"held on 31 July 2026, with", font:eng, color:"#4a5a70"},
+      {text:"held on "+certDayEn(c.examOn)+", with", font:eng, color:"#4a5a70"},
       {text:(c.pct!=null?c.pct:"—")+"%", font:engB, color:"#2E7D32"},
       {text:"marks.", font:eng, color:"#4a5a70"},
     ], CX, y, W-260, 29);
@@ -2178,10 +2256,10 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 
     y=rowY+240;
     x.font="700 17px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
-    const nV1=wrapRichCentered(x,[{text:"इस प्रमाणपत्र की सत्यता acslearn.com/verify पर ऊपर लिखे प्रमाणपत्र-नंबर से जाँची जा सकती है।",font:"700 17px 'Noto Sans Devanagari',sans-serif",color:"#0B1F3A"}],CX,y,W-260,23);
+    const nV1=wrapRichCentered(x,[{text:"जारी: "+certDayNum(c.issuedOn)+" · online जाँच "+certDayNum(c.validUntil)+" तक मान्य",font:"700 17px 'Noto Sans Devanagari',sans-serif",color:"#0B1F3A"}],CX,y,W-260,23);
     y += (nV1-1)*23 + 32;
     x.font="italic 700 14px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#6b7a90";
-    x.fillText("This certificate can be verified at acslearn.com/verify using the certificate number above.",CX,y);
+    x.fillText("Issued "+certDayNum(c.issuedOn)+" · Online verification valid till "+certDayNum(c.validUntil)+" (acslearn.com/verify)",CX,y);
     y += 70;
 
     /* मान्यता एवं पंजीकरण — अब एक-लाइन में 3 सूचना (Founder: "एक लाइन मे 3 सूचना") */

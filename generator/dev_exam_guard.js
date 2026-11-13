@@ -22,7 +22,9 @@ ok(/s\.src = "\/assets\/exam-session\.js"/.test(dash), "dashboard नया इ�
 ["examGate", "examStart", "examNext", "examFinish"].forEach(function (n) { ok(eng.indexOf('"' + n + '"') >= 0, "इंजन server का काम " + n + " बुलाता है"); });
 ok(!/startCourseExam|submitCourseExam/.test(noComments(eng)), "नया इंजन पुराने बंद रास्ते (startCourseExam, submitCourseExam) नहीं बुलाता");
 const hv = (dash.slice(0, 900).match(/v(\d+\.\d+\.\d+)/) || [])[1], dv = (dash.match(/const DASH_VER = "v([\d.]+)";/) || [])[1];
-ok(hv === dv && hv === "6.8.0", "dashboard.js का संस्करण शीर्ष और DASH_VER दोनों में v6.8.0 है: " + hv + " / " + dv);
+/* (14-Nov-2026, खेप 3-क) अगली खेपें संस्करण आगे बढ़ाती हैं, इसलिए "6.8.0 या नया" */
+function verNum(s) { var p = String(s || "0").split(".").map(Number); return (p[0] || 0) * 1e6 + (p[1] || 0) * 1e3 + (p[2] || 0); }
+ok(hv === dv && verNum(hv) >= verNum("6.8.0"), "dashboard.js का संस्करण शीर्ष और DASH_VER दोनों में एक है, और v6.8.0 या नया है: " + hv + " / " + dv);
 const swv = Number((sw.match(/CACHE_VERSION = 'v(\d+)'/) || [])[1]);
 ok(swv >= 848, "sw.js का संस्करण v848 या नया है: v" + swv);
 ok(i18n.indexOf('"🎓 ब्योरा / दोबारा दें":"🎓 Details / take again"') >= 0, "English-परत में नए बटन का अनुवाद है");
