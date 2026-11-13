@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/aptitude-test.css — v1.4 (अभिरुचि-टेस्ट पन्ने की सजावट + session)
+   /assets/aptitude-test.css — v1.5 (अभिरुचि-टेस्ट पन्ने की सजावट + session)
+   v1.5 · 13-Nov-2026: प्रश्न का पाठ बड़ा (.apt-q.apt-qt), Founder-आदेश।
    v1.4 · 18-Oct-2026: लॉन्चिंग-पेज परत (apl- नाम-घेरा) — हीरो · टॉप-10 कार्ड · तुलना।
    v1.2 · 20-Jul-2026: ↩ Dashboard वापसी-कड़ी + चित्र-चौखट (position-सुधार)।
    v1.1 · 20-Jul-2026: पूरा हिस्सा हल्के पर्दे पर (गहरी पृष्ठभूमि पर
@@ -17,6 +18,9 @@
 .apt-bar{height:10px;background:#F5F7FA;border:1px solid #0B1F3A33;border-radius:6px;overflow:hidden;margin-bottom:12px}
 .apt-bar i{display:block;height:100%;background:#2E7D32;width:0}
 .apt-q{font-size:21px;font-weight:800;margin:8px 0 12px}
+/* v1.5 (13-Nov-2026, Founder-आदेश): प्रश्न का पाठ बड़ा। सिर्फ़ प्रश्न पर (apt-qt), कार्ड के बाक़ी शीर्षक 21px ही रहते हैं।
+   मोबाइल पर लगभग 25px, tablet पर लगभग 29px, laptop और बड़े पर्दे पर 34px। */
+.apt-q.apt-qt{font-size:clamp(24px,calc(1.2vw + 20px),34px);line-height:1.45;margin:10px 0 14px}
 .apt-img{max-width:230px;margin:6px auto 12px;display:block;background:#F5F7FA;border:2px solid #0B1F3A22;border-radius:14px;padding:8px}
 .apt-img svg{width:100%;height:auto;display:block}
 .apt-faces{display:flex;justify-content:space-between;gap:8px;margin:10px 0}

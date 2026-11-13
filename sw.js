@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v846'  // 2026-11-13 करियर टेस्ट v2.0 (Founder-नियम: फीस वाला content server पर): apt-session.js v2.0 + apt-pay.js v2.0 + aptitude-test.js v2.1 + apt_strings.js v1.1 + apt_en.js + apt_session_en.js; assets/apt_sets और assets/apt_sets_en repo से हटे (भंडार अब server पर)
+const CACHE_VERSION = 'v847'  // 2026-11-13 करियर टेस्ट: प्रश्न का पाठ बड़ा (Founder-आदेश): aptitude-test.css v1.5 + apt-session.js v2.7 + aptitude-test.js (apt-qt चिह्न) : cache-first असेट
+// पिछला 'v846'  // 2026-11-13 करियर टेस्ट v2.0 (Founder-नियम: फीस वाला content server पर): apt-session.js v2.0 + apt-pay.js v2.0 + aptitude-test.js v2.1 + apt_strings.js v1.1 + apt_en.js + apt_session_en.js; assets/apt_sets और assets/apt_sets_en repo से हटे (भंडार अब server पर)
 // पिछला 'v845'  // 2026-11-12 अभिरुचि: English की पूरी 120-प्रश्न परीक्षा — apt-session.js v1.4 + apt-pay.js v1.2 (भाषा-परत; हिंदी का व्यवहार वही), नई apt_session_en.js और assets/apt_sets_en/ (25)
 // पिछला 'v844'  // 2026-11-12 acs-universal.js v2.6: 🌐 भाषा-सूची के हर बटन की पृष्ठभूमि पर देवनागरी छाया-नाम (हल्का गुलाबी) : cache-first
 // पिछला 'v839'  // 2026-11-11 अभिरुचि-भंडार: assets/apt_sets/broad.js में 3 हिंदी प्रश्न-पाठ सुधार (q235 q258 q459, Founder-मंज़ूर) : cache-first data

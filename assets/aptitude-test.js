@@ -205,7 +205,7 @@
 
     var q = step.q, a = ST.ans[q.id];
     if (q.type === "scale") {
-      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>" + art(q.img);
+      html += '<div class="apt-q apt-qt">' + esc(qTxt(q)) + "</div>" + art(q.img);
       /* (28-Jul, Founder — विकल्प 2+4): तीन बटन; index 0/2/4 रखने से
          गिनती-नक़्शा (−5/0/+5) व 😐=0 की जाँच बिना बदले सही रहती है। */
       var F3 = [ { f: 0, e: "👎", t: S("fNo") }, { f: 2, e: "😐", t: S("fDk") }, { f: 4, e: "👍", t: S("fYes") } ];
@@ -216,7 +216,7 @@
       }
       html += "</div>";
     } else if (q.type === "pick") {
-      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>";
+      html += '<div class="apt-q apt-qt">' + esc(qTxt(q)) + "</div>";
       html += '<div class="apt-hint" id="apt-hint">' + pickHint(a) + "</div>";
       html += '<div class="apt-opts">';
       for (var i = 0; i < q.opts.length; i++) {
@@ -227,7 +227,7 @@
       }
       html += "</div>";
     } else if (q.type === "pair") {
-      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>";
+      html += '<div class="apt-q apt-qt">' + esc(qTxt(q)) + "</div>";
       html += '<div class="apt-opts">';
       for (var j = 0; j < q.opts.length; j++) {
         var p = q.opts[j];
@@ -236,7 +236,7 @@
       }
       html += "</div>";
     } else if (q.type === "story") {
-      html += '<div class="apt-q">' + esc(qTxt(q)) + "</div>" + art(q.img);
+      html += '<div class="apt-q apt-qt">' + esc(qTxt(q)) + "</div>" + art(q.img);
       html += '<div class="apt-opts apt-story" style="grid-template-columns:1fr">';
       for (var s = 0; s < q.opts.length; s++) {
         html += '<button type="button" class="apt-opt' + (a && a.v === s ? " on" : "") + '" data-i="' + s + '">' +
