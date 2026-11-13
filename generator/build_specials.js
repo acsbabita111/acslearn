@@ -380,6 +380,7 @@ const VERIFY_CONTENT =
 
 '<div class="lg-card"><h2>🔍 नंबर लिखकर जाँचें</h2>' +
 '<p>प्रमाण पत्र पर छपा नंबर नीचे लिखें।</p>' +
+'<p>करियर टेस्ट की सहेजी हुई रिपोर्ट का नंबर भी यहीं जाँचा जा सकता है।</p>' +
 '<p><input id="cvNo" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" aria-label="प्रमाण पत्र का नंबर" placeholder="ACS-CC-2026-XXXXXX" style="width:100%;font-size:20px;padding:12px;border:2px solid #0B1F3A;border-radius:10px;box-sizing:border-box"></p>' +
 '<div id="cvPctWrap" style="display:none">' +
 '<p>यह पुराने रूप का नंबर है।</p>' +
@@ -396,6 +397,13 @@ const VERIFY_CONTENT =
 '<p>मान्य तिथि के बाद प्रमाण पत्र नक़ली नहीं हो जाता।</p>' +
 '<p>बस उसकी ऑनलाइन जाँच रुक जाती है।</p>' +
 '<p>गलत इस्तेमाल रोकने के लिए एक दिन में जाँच की गिनती सीमित है।</p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>📄 करियर टेस्ट की रिपोर्ट</h2>' +
+'<p>करियर टेस्ट की सहेजी हुई रिपोर्ट की ऑनलाइन जाँच सहेजने से 5 साल तक होती है।</p>' +
+'<p>जाँच यह बताती है कि वही रिपोर्ट ACS के रिकॉर्ड में सहेजी गई है।</p>' +
+'<p>रिपोर्ट के सेक्टर विद्यार्थी के फ़ोन पर निकलते हैं।</p>' +
+'<p>यह रुझान की रिपोर्ट है, योग्यता का प्रमाण नहीं है।</p>' +
 '</div>' +
 
 '<div class="lg-card"><h2>⏳ 5 साल और बढ़ाना</h2>' +
@@ -454,9 +462,15 @@ const VERIFY_JS =
 '  $("cvBtn").disabled = true; box("#1565C0", "⏳ जाँच हो रही है…");\n' +
 '  try {\n' +
 '    var d = (await certVerify(req)).data || {};\n' +
-'    if (d.bad) box("#B71C1C", \'<b data-st="bad">❌ यह नंबर सही रूप में नहीं है।</b><br>नंबर ऐसा होता है: ACS-CC-2026-AB12CD\');\n' +
+'    if (d.bad) box("#B71C1C", \'<b data-st="bad">❌ यह नंबर सही रूप में नहीं है।</b><br>प्रमाण पत्र का नंबर ऐसा होता है: ACS-CC-2026-AB12CD<br>रिपोर्ट का नंबर ऐसा होता है: ACS-CR-2026-AB12CD\');\n' +
 '    else if (d.needPct) { $("cvPctWrap").style.display = "block"; box("#F9A825", \'<b data-st="needpct">यह पुराने रूप का नंबर है।</b><br>ऊपर प्रमाण पत्र पर छपा प्रतिशत लिखकर दोबारा जाँचें दबाएँ।\'); $("cvPct").focus(); }\n' +
 '    else if (!d.found) box("#B71C1C", \'<b data-st="notfound">❌ इस जानकारी का कोई प्रमाण पत्र ACS के रिकॉर्ड में नहीं मिला।</b><br>नंबर\' + (req.pct ? " और प्रतिशत" : "") + " दोबारा देखकर लिखें।");\n' +
+'    else if (d.status === "expired" && d.kind === "report") box("#F9A825", \'<b data-st="expired-report">⌛ इस रिपोर्ट की ऑनलाइन जाँच की अवधि \' + day(d.validUntil) + " को पूरी हो चुकी है।</b><br>रिपोर्ट की ऑनलाइन जाँच सहेजने से 5 साल तक ही होती है।");\n' +
+'    else if (d.kind === "report") box("#2E7D32", \'<b data-st="report" style="color:#2E7D32;font-size:20px">✅ यह रिपोर्ट ACS के रिकॉर्ड में इसी रूप में सहेजी गई है।</b>\' +\n' +
+'      row("रिपोर्ट का नंबर", esc(d.certNo)) + row("नाम", esc(d.name)) + row("सहेजने की तिथि", day(d.savedOn)) + row("ऑनलाइन जाँच मान्य", day(d.validUntil) + " तक") +\n' +
+'      \'<div style="margin:10px 0 2px;font-weight:800">सबसे मज़बूत सेक्टर (स्कोर 100 में से)</div>\' +\n' +
+'      (d.top || []).map(function (x, i) { return row((i + 1) + ". " + esc(x.name), esc(x.score)); }).join("") +\n' +
+'      \'<div style="margin-top:10px;color:#4a5a70">यह रुझान की रिपोर्ट है, योग्यता का प्रमाण नहीं।<br>ये सेक्टर विद्यार्थी के फ़ोन पर निकले थे; ACS ने रिपोर्ट इसी रूप में सहेजी है।</div>\');\n' +
 '    else if (d.status === "expired") box("#F9A825", \'<b data-st="expired">⌛ इस प्रमाण पत्र की ऑनलाइन जाँच की अवधि \' + day(d.validUntil) + " को पूरी हो चुकी है।</b><br>इसका मतलब यह नहीं कि प्रमाण पत्र नक़ली है।<br>विद्यार्थी अपने डैशबोर्ड से यह अवधि 5 साल बढ़ा सकता है।<br>मान्य तिथि निकल चुकी है, इसलिए ₹1000 के साथ देर का शुल्क भी लगेगा।<br>देर का शुल्क: 1 साल तक की देर पर ₹500, उससे ज़्यादा देर पर ₹1000।<br>दफ़्तर से लिखित जाँच भी हो सकती है।");\n' +
 '    else box("#2E7D32", \'<b data-st="valid" style="color:#2E7D32;font-size:20px">✅ यह प्रमाण पत्र असली है।</b>\' +\n' +
 '      row("प्रमाण पत्र का नंबर", esc(d.certNo)) + row("नाम", esc(d.name)) + row("कोर्स", esc(d.courseName)) + row("अंक", esc(d.pct) + "%") +\n' +
@@ -478,7 +492,8 @@ const VERIFY_JS =
 buildSpecial({
   out: "verify/index.html", langStrict: true,
   title: "प्रमाण पत्र की जाँच (Certificate Verification) | अप्लाइड कंप्यूटर स्कूल",
-  desc: "ACS के प्रमाण पत्र का नंबर लिखकर उसकी सच्चाई जाँचिए: नाम, कोर्स, अंक, जारी होने की तिथि और मान्य तिथि।",
+  desc: "ACS के प्रमाण पत्र या करियर टेस्ट की सहेजी हुई रिपोर्ट का नंबर लिखकर उसकी सच्चाई जाँचिए।",
+
   head: ['<link rel="stylesheet" href="/assets/legal.css">', '<script src="/assets/appcheck-config.js"></scr' + 'ipt>'],
   foot: [VERIFY_JS],
   content: VERIFY_CONTENT

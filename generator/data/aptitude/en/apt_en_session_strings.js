@@ -103,6 +103,8 @@ module.exports = {
     ["रिपोर्ट सेव हो गई","✅ Report saved."],
     ["Print करें","<button class=\"apt-btn blue\" id=\"apt-report-print\">🖨️ Print</button> "],
     ["WhatsApp करें","\">📲 Send on WhatsApp</a>"],
+    ["रिपोर्ट नंबर","Report number: "],
+    ["online जाँच"," · online verification: acslearn.com/verify · valid till: "],
     ["नतीजा बन रहा","<div class=\"apt-card\"><p>Preparing your result…</p></div>"],
     ["समय पूरा हो गया","<div class=\"apt-note\">⏱ Time is over. The result was made from the answers received.</div>"],
     ["बुला रही","🌟 This world is calling you!"],

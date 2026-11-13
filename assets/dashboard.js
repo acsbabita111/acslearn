@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.10.0 · 14-Nov-2026 (खेप 3-ख भाग 1): "सलाह" पैनल में सहेजी हुई करियर रिपोर्ट के साथ उसका जाँच-नंबर और मान्य तिथि (server के reportNumber से); छपाई में QR; WhatsApp के पाठ में नंबर।
    v6.9.0 · 14-Nov-2026 (खेप 3-क v1.1, Founder-नियम और ऑडिट K3A-H01, H03, H04): परीक्षा-तिथि का रिकॉर्ड न हो तो प्रमाणपत्र रुकता है (जारी होने की तिथि उसकी जगह नहीं छपती); विस्तार से पहले लिखा दिखता है कि फ़ीस वापस नहीं होती; फ़ीस बढ़ गई हो तो बाक़ी रक़म माँगी जाती है। प्रमाणपत्र पर अब परीक्षा की असली तिथि, जारी होने की तिथि, online जाँच की मान्य तिथि (जारी से 5 साल) छपते हैं; विस्तार की फ़ीस प्रमाणपत्र पर नहीं छपती (Founder का आदेश, 14-Nov-2026: "सिर्फ़ validity"), वह dashboard, जाँच वाले पन्ने और वापसी-नीति में लिखी है (पहले हर प्रमाणपत्र पर "31 जुलाई 2026" छपता था)। तिथियाँ और विस्तार का हिसाब server (certList) से आता है। "मेरे कोर्स" की तालिका में मान्य तिथि और "5 साल बढ़ाएँ" बटन। मान्य तिथि निकलने पर प्रमाणपत्र विस्तार के बाद ही निकलता है।
    v6.8.0 · 13-Nov-2026 (खेप 2, Founder-नियम): कोर्स की अंतिम परीक्षा अब नए इंजन /assets/exam-session.js से चलती है (बैज या ₹100 · दिन में 2 · 3 खंड x 40 · हर खंड 20 से 40 मिनट · सबसे अच्छा अंक दर्ज · 5 हिस्सों का ब्योरा 7 दिन)। "मेरे कोर्स" की तालिका में सबसे अच्छा अंक (पास या फेल) और "ब्योरा / दोबारा दें" बटन। पुराना परीक्षा-परदा अब नहीं खुलता।
    v6.7.2 · 10-Nov-2026 — v1.2.1: Hindi-source Career-शब्दावली canonical (अभिरुचि-परीक्षण/सक्रिय Golden Pass/छपने-योग्य रिपोर्ट); DASH_VER v6.7.2।
@@ -112,7 +113,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.9.0";
+const DASH_VER = "v6.10.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -2639,14 +2640,26 @@ if (MODE==="external" && ALLOWED.length>=1) {
         return;
       }
       const dt = d.paidAt ? new Date(d.paidAt).toLocaleDateString("hi-IN") : "";
+      /* (v6.10.0, खेप 3-ख भाग 1) सहेजी हुई रिपोर्ट का जाँच-नंबर और मान्य तिथि server से; छपाई में QR */
+      let rn = null;
+      try { const r2 = await httpsCallable(functions, "reportNumber")({}); if (r2 && r2.data && r2.data.found && r2.data.reportNo) rn = r2.data; } catch (e2) {}
+      const dn = function (s) { const p = String(s || "").split("-"); return p.length === 3 ? p[2] + "." + p[1] + "." + p[0] : "—"; };
+      const noLine = rn ? "रिपोर्ट नंबर: " + rn.reportNo + " · online जाँच: acslearn.com/verify · " + (rn.status === "expired" ? "जाँच की अवधि " + dn(rn.validUntil) + " को पूरी हुई" : "मान्य: " + dn(rn.validUntil) + " तक") : "";
+      const full = (d.reportText || "") + (noLine ? "\n" + noLine : "");
+      let qr = "";
+      if (rn) { try {
+        if (!window.QRious) await new Promise(function (res, rej) { const s = document.createElement("script"); s.src = "https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"; s.onload = res; s.onerror = rej; document.body.appendChild(s); });
+        const qc = document.createElement("canvas"); new window.QRious({ element: qc, value: "https://acslearn.com/verify/?cert=" + encodeURIComponent(rn.reportNo), size: 160 }); qr = qc.toDataURL("image/png");
+      } catch (e3) { qr = ""; } }
       st.innerHTML = "✅ आपकी छपने-योग्य अभिरुचि-रिपोर्ट सेव है"+(dt?" ("+esc(dt)+")":"")+"। " +
+        (noLine ? '<div id="apt-old-no" style="font-weight:700;margin:6px 0">' + esc(noLine) + '</div>' : '') +
         '<button class="abtn ok" id="apt-old-print" style="margin:4px 4px 0 0">🖨️ Print</button> ' +
         '<a class="abtn ok" id="apt-old-wa" target="_blank" rel="noopener" href="https://wa.me/?text='+
-        encodeURIComponent(d.reportText||"")+'" style="display:inline-block;text-decoration:none;margin:4px 0 0">📲 WhatsApp</a>';
+        encodeURIComponent(full)+'" style="display:inline-block;text-decoration:none;margin:4px 0 0">📲 WhatsApp</a>';
       const pb = document.getElementById("apt-old-print");
       if (pb) pb.onclick = () => {
         const w = window.open("", "_blank");
-        if (w) { w.document.write("<pre style='font-size:16px;white-space:pre-wrap'>"+esc(d.reportText||"")+"</pre>"); w.print(); }
+        if (w) { w.document.write("<pre style='font-size:16px;white-space:pre-wrap'>"+esc(full)+"</pre>"+(qr ? "<img src='"+qr+"' width='160' height='160' alt='QR'>" : "")); w.print(); }
       };
     } catch(e) { st.textContent = "रिपोर्ट-स्थिति नहीं जाँची जा सकी।"; }
   })();

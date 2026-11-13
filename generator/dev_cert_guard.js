@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.5 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
+/* generator/dev_cert_guard.js : v1.6 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
    जाँचता है कि प्रमाणपत्र के नियम (Founder, 13 और 14-Nov-2026) पेज और code में एक जैसे हैं, और पुराने नियम कहीं नहीं बचे।
    चलाना (repo की जड़ से): node generator/dev_cert_guard.js */
 "use strict";
@@ -100,9 +100,19 @@ ok(!!mk && (acf.match(/ACS_APPCHECK_SITE_KEY\s*=/g) || []).length === 1, "key �
 if (process.argv.indexOf("--live") >= 0) ok(!!mk && /^[0-9A-Za-z_-]{30,60}$/.test(mk[1]), "(--live) site key भरी हुई है");
 else console.log("   सूचना: site key " + (mk && mk[1] ? "भरी हुई है" : "ख़ाली है (zip में ऐसी ही आती है)। चढ़ाने से पहले SET-APPCHECK-KEY.bat चलानी होती है; CHADHAO.bat इसी पहरेदार को --live के साथ चलाता है, जो ख़ाली key पर फेल होता है।"));
 
+console.log("3-ग. करियर टेस्ट की सहेजी हुई रिपोर्ट की जाँच (खेप 3-ख भाग 1)");
+ok(/data-st="report"/.test(v) && /यह रिपोर्ट ACS के रिकॉर्ड में इसी रूप में सहेजी गई है।/.test(v) && /ये सेक्टर विद्यार्थी के फ़ोन पर निकले थे; ACS ने रिपोर्ट इसी रूप में सहेजी है।/.test(v) && /यह रुझान की रिपोर्ट है, योग्यता का प्रमाण नहीं।/.test(v), "जाँच वाला पन्ना रिपोर्ट का नतीजा दिखाता है, और साफ़ कहता है कि क्या जाँचा गया और क्या नहीं");
+ok(/data-st="expired-report"/.test(v) && /रिपोर्ट की ऑनलाइन जाँच सहेजने से 5 साल तक ही होती है।/.test(v), "रिपोर्ट की अवधि पूरी होने का अलग संदेश है (इसमें विस्तार की बात नहीं)");
+ok(/करियर टेस्ट की सहेजी हुई रिपोर्ट की ऑनलाइन जाँच सहेजने से 5 साल तक होती है।/.test(v) && /रिपोर्ट के सेक्टर विद्यार्थी के फ़ोन पर निकलते हैं।/.test(v), "पन्ने पर रिपोर्ट की जाँच का नियम लिखा है");
+ok(/httpsCallable\(functions, "reportNumber"\)/.test(d) && /id="apt-old-no"/.test(d) && /"https:\/\/acslearn\.com\/verify\/\?cert=" \+ encodeURIComponent\(rn\.reportNo\)/.test(d), "dashboard सहेजी हुई रिपोर्ट का जाँच-नंबर server से लेता है, दिखाता है और छपाई में QR लगाता है");
+(function () {
+  var ps = rd("assets/apt-pay.js"), ss = rd("assets/apt-session.js");
+  ok(/reportNumber: function \(cb\)/.test(ps) && /httpsCallable\(functions, "reportNumber"\)/.test(ps) && /window\.ACS_APT_PAY\.reportNumber\(function \(err, d\)/.test(ss) && /el\.id = 'apt-report-no'/.test(ss), "परीक्षा के बाद वाला परदा भी सहेजी हुई रिपोर्ट के नीचे जाँच-नंबर और मान्य तिथि दिखाता है");
+})();
+
 console.log("4. server की फ़ाइलें repo में नहीं; service worker");
 ok(!has("functions/cert_server.js") && !has("cert_server.js") && !has("assets/cert_server.js"), "cert_server.js repo में नहीं है (वह सिर्फ़ Firebase पर रहती है)");
 var mm = rd("sw.js").match(/CACHE_VERSION\s*=\s*['"]v(\d+)['"]/);
-ok(mm && Number(mm[1]) >= 849, "service worker v849 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
+ok(mm && Number(mm[1]) >= 850, "service worker v850 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
 console.log((fail ? "⛔" : "🏁") + " खेप 3-क का पहरेदार: पास " + pass + " · फेल " + fail);
 process.exit(fail ? 1 : 0);

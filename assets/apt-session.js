@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/apt-session.js : v2.8 (13-Nov-2026)
+   /assets/apt-session.js : v2.9 (14-Nov-2026; खेप 3-ख भाग 1: सहेजी हुई रिपोर्ट के नीचे जाँच-नंबर और मान्य तिथि) · पहले v2.8 (13-Nov-2026)
    v2.8 (13-Nov-2026, खेप 2 के ऑडिट K2-H03 और Founder का फ़ैसला): ₹100 के बटन के ऊपर लिखा है कि चांस वापस नहीं होता, सिवाय हमारी तकनीकी ग़लती के। बाक़ी सब v2.7 जैसा।
    Founder के 13-Nov-2026 के नियम लागू:
    - पूरा प्रश्न-भंडार अब repo पर नहीं है। हर खंड के 40 प्रश्न server (aptStart, aptNext) से आते हैं।
@@ -807,6 +807,15 @@
         encodeURIComponent(reportText) + L('">📲 WhatsApp करें</a>');
       var pb = document.getElementById('apt-report-print');
       if (pb) pb.onclick = function () { window.print(); };
+      /* (v2.9, खेप 3-ख भाग 1) सहेजी हुई रिपोर्ट का जाँच-नंबर और मान्य तिथि: पन्ने पर (ताकि छपे) और WhatsApp के पाठ में */
+      if (window.ACS_APT_PAY && window.ACS_APT_PAY.reportNumber) window.ACS_APT_PAY.reportNumber(function (err, d) {
+        if (err || !d || !d.found || !d.reportNo) return;
+        var dd = String(d.validUntil || '').split('-'), till = dd.length === 3 ? dd[2] + '.' + dd[1] + '.' + dd[0] : '';
+        var line = L('रिपोर्ट नंबर: ') + d.reportNo + L(' · online जाँच: acslearn.com/verify · मान्य: ') + till;
+        var el = document.createElement('p'); el.id = 'apt-report-no'; el.style.cssText = 'font-size:17px;font-weight:700;margin:10px 0 0';
+        el.textContent = line; wrap.appendChild(el);
+        var wa = document.getElementById('apt-report-wa'); if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(reportText + '\n' + line);
+      });
     }
   }
 

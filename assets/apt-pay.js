@@ -1,4 +1,4 @@
-/* /assets/apt-pay.js : v2.4 (13-Nov-2026)
+/* /assets/apt-pay.js : v2.5 (14-Nov-2026; खेप 3-ख भाग 1: reportNumber जुड़ा, बाक़ी सब v2.4 जैसा) · v2.4 (13-Nov-2026)
    Founder के 13-Nov-2026 के नियम: द्वार अब server (aptGate) तय करता है; खंड के प्रश्न aptStart और aptNext से आते हैं;
    परीक्षा पूरी होने की सूचना aptFinish से जाती है। बिना ₹125 के नतीजा server पर नहीं भेजा जाता
    (पुराने saveAptitudeResult और latestAptitudeResult के रास्ते हटाए गए)। login होने पर मुफ़्त झलक छिप जाती है। */
@@ -247,6 +247,10 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
     wireBuy: wireBuyButton,
     saveReport: saveReport,
     fetchLatestReport: fetchLatestReport,
+    /* (v2.5, खेप 3-ख भाग 1) सहेजी हुई रिपोर्ट का जाँच-नंबर और मान्य तिथि, server से */
+    reportNumber: function (cb) {
+      httpsCallable(functions, "reportNumber")({}).then(function (res) { cb(null, (res && res.data) || {}); }, function (e) { cb(e || new Error("fail")); });
+    },
     whenLoggedIn: function (cb) {
       if (auth.currentUser) { cb(auth.currentUser); return; }
       onAuthStateChanged(auth, function (u) { if (u) cb(u); });
