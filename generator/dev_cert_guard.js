@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.6 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
+/* generator/dev_cert_guard.js : v1.8 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
    जाँचता है कि प्रमाणपत्र के नियम (Founder, 13 और 14-Nov-2026) पेज और code में एक जैसे हैं, और पुराने नियम कहीं नहीं बचे।
    चलाना (repo की जड़ से): node generator/dev_cert_guard.js */
 "use strict";
@@ -110,9 +110,24 @@ ok(/httpsCallable\(functions, "reportNumber"\)/.test(d) && /id="apt-old-no"/.tes
   ok(/reportNumber: function \(cb\)/.test(ps) && /httpsCallable\(functions, "reportNumber"\)/.test(ps) && /window\.ACS_APT_PAY\.reportNumber\(function \(err, d\)/.test(ss) && /el\.id = 'apt-report-no'/.test(ss), "परीक्षा के बाद वाला परदा भी सहेजी हुई रिपोर्ट के नीचे जाँच-नंबर और मान्य तिथि दिखाता है");
 })();
 
+console.log("3-घ. ₹125 की फ़ीस वापस नहीं होती (खेप 4 भाग 1; Founder का फ़ैसला 1-अ)");
+(function () {
+  var a = rf.indexOf("2-ग. प्रमाण पत्र और करियर रिपोर्ट की फ़ीस (₹125)"), b = rf.indexOf("</div>", a), seg = a > 0 ? rf.slice(a, b) : "";
+  ok(seg.length > 100 && /यह फ़ीस वापस नहीं होती।/.test(seg) && /वह वापसी नहीं, भुगतान का सुधार है।/.test(seg) && /यह बात भुगतान से पहले परदे पर लिखी दिखती है।/.test(seg), "वापसी-नीति में ₹125 का हिस्सा (2-ग) है: वापस नहीं; तकनीकी ग़लती = भुगतान का सुधार");
+  /* (ऑडिट: खेप 4 भाग 1 v1.0 का NO-GO) हिस्सा 4 साफ़ कहे कि 75% वाला नियम किन फ़ीसों पर लागू नहीं है */
+  var a4 = rf.indexOf("<h2>4. मृत्यु या आपदा</h2>"), b4 = rf.indexOf("</div>", a4), s4 = a4 > 0 ? rf.slice(a4, b4) : "";
+  ok(s4.length > 100 && /चल रही सेवा की फ़ीस का 75% वापस होता है।/.test(s4) && /यह नियम नीचे लिखी फ़ीसों पर लागू नहीं है।/.test(s4) && /₹100 का परीक्षा-चांस।/.test(s4) && /₹125 की फ़ीस: प्रमाण पत्र और करियर रिपोर्ट।/.test(s4) && /अवधि बढ़ाने की फ़ीस और देर का शुल्क।/.test(s4) && !/बड़ी आपदा में 75% पैसा वापस।/.test(rf), "वापसी-नीति का हिस्सा 4: 75% सिर्फ़ चल रही सेवा पर; ₹100, ₹125, विस्तार और देर के शुल्क पर लागू नहीं (पुराना बिना दायरे वाला वाक्य नहीं बचा)");
+  var i1 = d.indexOf('const CERT_NOREF="प्रमाण पत्र की फ़ीस ₹125 है।'), i2 = d.indexOf("if(!confirm(CERT_NOREF)) return;"), i3 = d.indexOf('httpsCallable(functions,"createCourseCertOrder")');
+  ok(i1 > 0 && i2 > i1 && i3 > i2 && /यह फ़ीस वापस नहीं होती।/.test(d.slice(i1, i2)), "dashboard: प्रमाण पत्र के ₹125 का order बनने से पहले पूछा और बताया जाता है कि फ़ीस वापस नहीं होती");
+  var ss = rd("assets/apt-session.js"), j1 = ss.indexOf("₹125 की यह फ़ीस वापस नहीं होती।"), j2 = ss.indexOf('id="apt-report-save-btn"');
+  ok(j1 > 0 && j2 > j1, "करियर टेस्ट का परदा: रिपोर्ट सेव करने के बटन से पहले लिखा है कि ₹125 की फ़ीस वापस नहीं होती");
+  var hq = rd("rules-consent-hq-examination.html");
+  ok(!/lifetime-valid/.test(hq) && !/duplicate\/verify/.test(hq) && /online जाँच की अवधि \(जारी होने से 5 साल\)/.test(hq), "परीक्षा-प्रमुख के नियम-पत्र में \"lifetime-valid\" और \"duplicate\" वाली पुरानी पंक्ति नहीं; 5 साल वाला नियम लिखा है");
+})();
+
 console.log("4. server की फ़ाइलें repo में नहीं; service worker");
 ok(!has("functions/cert_server.js") && !has("cert_server.js") && !has("assets/cert_server.js"), "cert_server.js repo में नहीं है (वह सिर्फ़ Firebase पर रहती है)");
 var mm = rd("sw.js").match(/CACHE_VERSION\s*=\s*['"]v(\d+)['"]/);
-ok(mm && Number(mm[1]) >= 850, "service worker v850 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
+ok(mm && Number(mm[1]) >= 851, "service worker v851 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
 console.log((fail ? "⛔" : "🏁") + " खेप 3-क का पहरेदार: पास " + pass + " · फेल " + fail);
 process.exit(fail ? 1 : 0);

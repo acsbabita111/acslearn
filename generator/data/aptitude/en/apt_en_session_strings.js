@@ -125,6 +125,7 @@ module.exports = {
     ["योग्यता का प्रमाण","<div class=\"apt-note\">📝 This shows the direction of your interest. It is not proof of ability.</div>"],
     ["यह नतीजा सिर्फ़ इसी फ़ोन में","<div class=\"apt-note\">📱 This result is only on this phone. The server does not save it without ₹125, so if you change your phone you will not get it back.</div>"],
     ["यह रिपोर्ट सेव हो जाएगी","<div class=\"apt-note\">📄 If you pay ₹125, this report will be saved, and the Print and WhatsApp options will open. The report of each new test is saved for a separate ₹125.</div>"],
+    ["₹125 की यह फ़ीस वापस नहीं होती","<div class=\"apt-note\">This ₹125 fee is not refunded. If a technical error debits the money twice or wrongly, that is corrected separately.</div>"],
     ["रिपोर्ट सेव करें","<button class=\"apt-btn gold\" id=\"apt-report-save-btn\">📄 Save this report (₹125)</button></div>"],
     ["ताज़ा प्रश्न","<div class=\"apt-nav\"><button class=\"apt-btn green\" id=\"apt-again\">🆕 New attempt (fresh questions)</button></div>"]
   ],
