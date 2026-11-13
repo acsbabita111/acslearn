@@ -41,8 +41,8 @@ window.APT_STR.en = {
  "unkH": "🔍 Unknown areas",
  "unkP": "Here you chose 😐, which means you do not know these yet. Exploring them first is a good idea.",
  "note1": "📝 This is a preview of your interests. It is not a proof of ability or a pass certificate. It is a first direction.",
- "note2": "🎁 The real test has many more questions: free with a Badge. The certificate PDF costs ₹125, take it if you wish, or skip it.",
- "note3": "⏳ The Badge and certificate service will be added soon.",
+ "note2": "🎁 The full test has 120 questions. It is free for Badge holders, and without a Badge you can take 1 test for ₹100.",
+ "note3": "📄 The full test report is saved for ₹125. Taking it or not is your choice.",
  "btnAgain": "🔄 Take the test again",
  "btnUdyam": "🌍 Explore 950 enterprise opportunities"
 };

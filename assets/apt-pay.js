@@ -1,3 +1,7 @@
+/* /assets/apt-pay.js : v2.4 (13-Nov-2026)
+   Founder के 13-Nov-2026 के नियम: द्वार अब server (aptGate) तय करता है; खंड के प्रश्न aptStart और aptNext से आते हैं;
+   परीक्षा पूरी होने की सूचना aptFinish से जाती है। बिना ₹125 के नतीजा server पर नहीं भेजा जाता
+   (पुराने saveAptitudeResult और latestAptitudeResult के रास्ते हटाए गए)। login होने पर मुफ़्त झलक छिप जाती है। */
 /* ============================================================
    /assets/apt-pay.js — v1.2 (12-Nov-2026: भाषा-परत — संदेश L(…) में; हिंदी का व्यवहार वही)
      v1.1 (₹100/चांस भुगतान-द्वार + नतीजा-server-save)
@@ -34,12 +38,6 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
 (function () {
   "use strict";
 
-  function gateOK() {
-    try {
-      var g = JSON.parse(localStorage.getItem("acs_apt_gate_v1") || "null");
-      return !!(g && g.until && Date.now() < g.until);
-    } catch (e) { return false; }
-  }
   var app = initializeApp({
     apiKey: "AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",
     authDomain: "acslearn-platform.firebaseapp.com",
@@ -67,30 +65,44 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
     if (m) { m.textContent = txt; m.className = cls || ""; }
   }
 
+  /* server के जवाब की ग़लती को सादे रूप में बदलना */
+  function callErr(e) {
+    var d = (e && e.details) || {};
+    return { message: (e && e.message) || String(e), code: d.code || "", waitSec: d.waitSec, sid: d.sid, exp: d.exp, quota: d.quota };
+  }
+  function call(name, data, cb) {
+    httpsCallable(functions, name)(data || {}).then(function (res) { cb(null, (res && res.data) || {}); })
+      .catch(function (e) { cb(callErr(e)); });
+  }
+  /* login होने पर मुफ़्त झलक नहीं दिखती (झलक बिना रजिस्ट्रेशन वालों के लिए है) */
+  function previewHide(on) {
+    try { if (on) localStorage.setItem("acs_apt_li", "1"); else localStorage.removeItem("acs_apt_li"); } catch (e) {}
+    if (window.ACS_APT_PREVIEW) { if (on) window.ACS_APT_PREVIEW.hide(); else window.ACS_APT_PREVIEW.show(); }
+  }
+
+  /* द्वार: server से पूछकर इंजन को बताना कि क्या दिखाना है */
   var checking = false;
-  function refreshStatus(afterPay) {
+  function gate(afterPay) {
     if (checking) return;
+    var SESS = window.ACS_APT_SESSION || {};
+    if (!auth.currentUser) { if (SESS.showBuy) { SESS.showBuy(); wireBuyButton(); } return; }
     checking = true;
-    httpsCallable(functions, "checkAptitudeAttempt")({}).then(function (res) {
+    call("aptGate", {}, function (err, r) {
       checking = false;
-      var d = (res && res.data) || {};
-      if (d.available) {
-        if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.unlock) {
-          window.ACS_APT_SESSION.unlock("attempt");
-        }
-      } else if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
-        window.ACS_APT_SESSION.showBuy();
-        wireBuyButton();
+      if (err) { if (SESS.showError) SESS.showError(err); return; }
+      if (!r.loggedIn) { if (SESS.showBuy) { SESS.showBuy(); wireBuyButton(); } return; }
+      var loc = SESS.localSid ? SESS.localSid() : null;
+      if (loc && (!r.openSid || r.openSid === loc)) { if (SESS.unlock) SESS.unlock("resume", r); return; }
+      if (r.openSid) { if (SESS.showOpen) SESS.showOpen({ sid: r.openSid, exp: r.openExp }); return; }
+      if (r.quota && !r.quota.canStart) { if (SESS.showLimit) SESS.showLimit(r.quota); return; }
+      if (r.mode) { if (SESS.unlock) SESS.unlock(r.mode, r); return; }
+      if (SESS.showBuy) {
+        SESS.showBuy(); wireBuyButton();
         if (afterPay) setMsg(L("भुगतान हुआ पर चांस नहीं दिखा — पन्ना दोबारा खोलें।"), "msg err");
-      }
-    }).catch(function () {
-      checking = false;
-      if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
-        window.ACS_APT_SESSION.showBuy();
-        wireBuyButton();
       }
     });
   }
+  function refreshStatus(afterPay) { gate(afterPay); }
 
   var buying = false;
   function buyAttempt() {
@@ -137,25 +149,56 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
     });
   }
 
-  var wired = false;
   function wireBuyButton() {
-    if (wired) return;
     var b = document.getElementById("apt-buy-attempt-btn");
-    if (b) { wired = true; b.onclick = buyAttempt; }
+    if (b) b.onclick = buyAttempt;
   }
 
-  /* ---------- ₹125 रिपोर्ट-सेव (badge-status से स्वतंत्र — हमेशा उपलब्ध) ----------
-     apt-session.js का renderResult() इसे कॉल करता है; सफल होने पर Print/WhatsApp
-     दिखाने का ज़िम्मा भी वहीं (apt-session.js) संभालता है — यह सिर्फ़ भुगतान करता है। */
-  var savingReport = false;
+  /* ---- ₹125 में रिपोर्ट सेव (नतीजा तभी server पर जाता है) ---- */
+  var savingReport = false, PEND = "acs_apt_rep_pend_v2";
+  /* v2.3: रिपोर्ट का पाठ भुगतान पक्का होने के बाद ही server को जाता है, order बनाते समय नहीं।
+     इसलिए भुगतान और सेव के बीच पाठ इसी फ़ोन में रखा जाता है (एक सूची में; हर order का अपना खाना: o, t, u, at, और भुगतान हो चुका हो तो p व s)।
+     नियम (v2.4): कोई खाना अपने-आप सिर्फ़ एक ही हालत में मिटता है: जब server कह दे कि रिपोर्ट सेव हो गई (saved)।
+     समय बीतने से, या server के "भुगतान नहीं हुआ" कहने से, कुछ नहीं मिटता: हो सकता है पैसा कट गया हो और पन्ना बीच में बंद हुआ हो।
+     ऐसे में server ख़ुद Razorpay से पूछता है; पैसा आया हो तो रिपोर्ट अगली बार पन्ना खुलते ही सेव हो जाती है।
+     जिस खाने में भुगतान का सबूत (p, s) है, वह हर बार पन्ना खुलने पर भेजा जाता है; बाक़ी पहले 3 बार तुरंत, फिर 6 घंटे में एक बार। */
+  function pendAll() { try { var a = JSON.parse(localStorage.getItem(PEND) || "[]"); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+  function pendPut(list) { try { if (list.length) localStorage.setItem(PEND, JSON.stringify(list)); else localStorage.removeItem(PEND); } catch (e) {} }
+  function pendUpsert(rec) { var l = pendAll().filter(function (x) { return x && x.o !== rec.o; }); l.push(rec); pendPut(l); }
+  function pendDrop(o) { pendPut(pendAll().filter(function (x) { return x && x.o !== o; })); }
+  function sendReport(p, cb) {
+    httpsCallable(functions, "verifyAptitudeReportPayment")({
+      razorpay_order_id: p.o, razorpay_payment_id: p.p || "", razorpay_signature: p.s || "", reportText: p.t
+    }).then(function (res) {
+      var d = (res && res.data) || {};
+      if (d.ok && d.saved !== false) { pendDrop(p.o); cb(null); }
+      else cb(new Error(L("भुगतान दर्ज हो गया है, पर रिपोर्ट अभी सेव नहीं हो पाई। पन्ना दोबारा खोलने पर यह अपने-आप सेव हो जाएगी।")));
+    }).catch(function (e) { cb(e); });   /* यहाँ कुछ नहीं मिटाया जाता: फ़ोन का पाठ सिर्फ़ ऊपर, "saved" मिलने पर हटता है */
+  }
+  function due(p, now) {
+    if (p.p && p.s) return true;
+    return (p.n || 0) < 3 || now - (p.lt || 0) >= 6 * 3600000;
+  }
+  function retryPending() {
+    var u = auth.currentUser, now = Date.now();
+    if (!u || savingReport) return;
+    pendAll().forEach(function (p) {
+      if (!(p && p.o && p.t && p.u === u.uid) || !due(p, now)) return;
+      if (!(p.p && p.s)) { p.n = (p.n || 0) + 1; p.lt = now; pendUpsert(p); }
+      sendReport(p, function () {});
+    });
+  }
+  try { window.addEventListener("online", retryPending); } catch (e) {}
   function saveReport(reportText, onDone) {
     if (savingReport) return;
-    var u = auth.currentUser;
+    var u = auth.currentUser, made = false;
     if (!u) { onDone(new Error(L("पहले लॉगिन करें।"))); return; }
     savingReport = true;
-    httpsCallable(functions, "createAptitudeReportOrder")({ reportText: reportText }).then(function (res) {
+    httpsCallable(functions, "createAptitudeReportOrder")({ v: 2 }).then(function (res) {
       var o = (res && res.data) || {};
       if (!o.ok || !o.orderId) throw new Error(L("order नहीं बना"));
+      made = true;
+      pendUpsert({ o: o.orderId, t: reportText, u: u.uid, at: Date.now() });
       return loadRazorpay().then(function () {
         return new Promise(function (resolve, reject) {
           var rzp = new window.Razorpay({
@@ -171,17 +214,20 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
         });
       });
     }).then(function (r) {
-      return httpsCallable(functions, "verifyAptitudeReportPayment")({
-        razorpay_order_id: r.razorpay_order_id,
-        razorpay_payment_id: r.razorpay_payment_id,
-        razorpay_signature: r.razorpay_signature
-      });
+      var p = pendAll().filter(function (x) { return x && x.o === r.razorpay_order_id; })[0] || { o: r.razorpay_order_id, t: reportText, u: u.uid, at: Date.now() };
+      p.p = r.razorpay_payment_id; p.s = r.razorpay_signature; pendUpsert(p);
+      return new Promise(function (resolve, reject) { sendReport(p, function (err) { if (err) reject(err); else resolve(); }); });
     }).then(function () {
       savingReport = false; onDone(null);
     }).catch(function (e) {
-      savingReport = false; onDone(e);
+      savingReport = false;
+      if (!made && e && /invalid-argument/.test(String(e.code || ""))) {   /* server अभी पुराने रूप में है */
+        onDone(new Error(L("रिपोर्ट सेव करने की सुविधा कुछ ही देर में चालू होगी। थोड़ी देर बाद दोबारा दबाइए।"))); return;
+      }
+      onDone(e);
     });
   }
+
 
   /* dashboard "सलाह" पैनल के लिए — सबसे नई सेव-रिपोर्ट लाओ */
   function fetchLatestReport(cb) {
@@ -189,64 +235,28 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
     if (!u) { cb(null); return; }
     httpsCallable(functions, "latestAptitudeReport")({}).then(function (res) {
       var d = (res && res.data) || {};
-      cb(d.found ? d : null);
+      cb(d.found && d.reportText ? d : null);
     }).catch(function () { cb(null); });
   }
 
-  /* ---------- (30-Jul होल-1, Founder-override v4.0-ख1) नतीजे का सार खाते में ----------
-     मुफ़्त, अपने-आप — login हो तो हर final-submit का सार server पर; फ़ोन बदलने
-     पर भी नतीजा साथ चले। function अभी deploy न हो/network fail = चुपचाप —
-     नतीजा (device-local) कभी न रुके। */
-  function saveResultToAccount(prev) {
-    function go() {
-      httpsCallable(functions, "saveAptitudeResult")({ prev: prev }).catch(function (e) {
-        console && console.warn && console.warn("saveAptitudeResult:", e && e.message);
-      });
-    }
-    if (auth.currentUser) { go(); return; }
-    var un = onAuthStateChanged(auth, function (u) { if (u) { try { un(); } catch (e) {} go(); } });
-  }
-  /* खाते से सबसे नया नतीजा-सार (मुफ़्त) — नए फ़ोन पर "पिछला हिसाब" इसी से।
-     login न हो/जवाब न आए तो 4s में cb(null) — पन्ना कभी न अटके। */
-  function fetchLatestResult(cb) {
-    var fired = false;
-    function done(v) { if (fired) return; fired = true; cb(v); }
-    function go() {
-      httpsCallable(functions, "latestAptitudeResult")({}).then(function (res) {
-        var d = (res && res.data) || {};
-        done(d.found ? d : null);
-      }).catch(function () { done(null); });
-    }
-    if (auth.currentUser) { go(); }
-    else {
-      var un = onAuthStateChanged(auth, function (u) { if (u) { try { un(); } catch (e) {} go(); } });
-      setTimeout(function () { done(null); }, 4000);
-    }
-  }
-
   window.ACS_APT_PAY = {
-    consume: function () {
-      httpsCallable(functions, "consumeAptitudeAttempt")({}).catch(function (e) {
-        /* चुपचाप — नतीजा already बन चुका है, यह सिर्फ़ हिसाब-बही अपडेट है */
-        console && console.warn && console.warn("consumeAptitudeAttempt:", e && e.message);
-      });
-    },
+    gate: gate,
+    start: function (a, cb) { call("aptStart", a, cb); },
+    next: function (a, cb) { call("aptNext", a, cb); },
+    finish: function (a, cb) { call("aptFinish", a, cb || function () {}); },
+    wireBuy: wireBuyButton,
     saveReport: saveReport,
     fetchLatestReport: fetchLatestReport,
-    saveResult: saveResultToAccount,
-    latestResult: fetchLatestResult,
     whenLoggedIn: function (cb) {
       if (auth.currentUser) { cb(auth.currentUser); return; }
       onAuthStateChanged(auth, function (u) { if (u) cb(u); });
     }
   };
 
-  /* बैज पहले से सक्रिय हो तो ₹100/चांस-प्रवाह की ज़रूरत नहीं — सिर्फ़ वही हिस्सा रुके,
-     साझा firebase-init व saveReport ऊपर हमेशा तैयार रहते हैं। */
-  if (gateOK()) return;
-
+  /* login की हालत पता चलते ही: झलक छिपाना या दिखाना, और द्वार की जाँच */
   onAuthStateChanged(auth, function (user) {
-    if (user) refreshStatus(false);
+    previewHide(!!user);
+    if (user) { gate(false); retryPending(); }
     else if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
       window.ACS_APT_SESSION.showBuy();
       wireBuyButton();

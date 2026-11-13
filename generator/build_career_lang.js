@@ -1,4 +1,6 @@
-/* build_career_lang.js v1.4 (09-Nov-2026)
+/* build_career_lang.js v1.5 (13-Nov-2026)
+   v1.5: certificate-image swap is optional (the sample-report section left the page until khep-3).
+   v1.4 (09-Nov-2026):
    v1.4: SVG-safe RTL wrapping (bidi isolates inside <svg>, <bdi> elsewhere).
    v1.3: RTL auto-bdi wrapper + per-language styleInject + RTL bare-Latin gate.
    v1.2: META.swaps surgical-op; version-less page stamp (builder upgrades
@@ -175,7 +177,9 @@ if (META.styleInject) {
   if (count(out, mark) === 1) { out = out.split(mark).join(mark + '\n<style>' + META.styleInject + '</style>'); ok('styleInject'); }
   else bad('styleInject anchor');
 }
-one('src="/assets/career-report-sample-hi.webp"', 'src="' + META.certImg + '"', 'certificate image');
+/* v1.5: the sample-report section is off the Hindi page until khep-3 (certificate with number and QR); the swap runs only when the image is there */
+if (count(out, 'src="/assets/career-report-sample-hi.webp"') === 0) ok('certificate image: not on the page (returns with khep-3)');
+else one('src="/assets/career-report-sample-hi.webp"', 'src="' + META.certImg + '"', 'certificate image');
 
 /* 7b) per-language surgical swaps (post-translation state, fail-closed) */
 for (const sw of (META.swaps || [])) {

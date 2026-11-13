@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# generator/build_learner_consent_lang.py v2.0 (परत-4)
+# generator/build_learner_consent_lang.py v2.1 (परत-4)
+# v2.1 (13-Nov-2026): फीस वाली पंक्ति (F_S) का English लंगर नए नियम से मिलाया: Golden Pass में पूरा टेस्ट मुफ़्त, दिन में 2 बार तक।
 # en साँचे (en/rules-consent-learner.html) + data/consent_learner_strings.py से
 # 13 भाषा-पेज <कोड>/rules-consent-learner.html बनाता है।
 # hi = क़ानूनी मूल (हाथ-रखरखाव); en = पुल-साँचा। चलाना:
@@ -81,7 +82,7 @@ K=dict(
  B_S='After registration — aptitude test, counselling, centre courses, content in your own language, certificate.',
  B_J='View job information/opportunities; at 18+ contact employers directly from the dashboard; the platform fee goes directly to ACS — never separately to any employer/agent.',
  B_E='Bank-finance-ready reports for 950 enterprises, market research, tools lists, courses, the investment ladder (L1-L15), Industrial Tour packages.',
- F_S='money is charged only for these services: printable interest report ₹125 — 24-question preview free; full 120-question test ₹100 per attempt; with an active Golden Pass (₹300; date-of-birth discount under 18) unlimited full tests are free · offline training · workshop apprenticeship · counsellor advice · foreign-agent connection',
+ F_S='money is charged only for these services: printable interest report ₹125 — 24-question preview free; full 120-question test ₹100 per attempt; with an active Golden Pass (₹300; date-of-birth discount under 18) the full test is free, up to 2 times a day · offline training · workshop apprenticeship · counsellor advice · foreign-agent connection',
  F_J='Verified Badge (optional — Village ₹300 · Town ₹600 · Metro ₹1000 · 365 days, flat)',
  F_E='Industrial Tour (if you take one)',
  RF_S='Interest test: the 24-question preview is free for everyone; the full test is ₹100 per attempt (free with an active Golden Pass); the printable report is ₹125 — take it only if you wish. Counselling: cancel at least 1 hour before the session = 90% refund (whether the Learner or the Counselor cancels). In case of death/disaster = 75% refund.',

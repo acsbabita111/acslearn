@@ -1,5 +1,8 @@
+/* /assets/aptitude-test.js : v2.1 (13-Nov-2026)
+   Founder के 13-Nov-2026 के नियम: झलक के 24 प्रश्न अब 48 के नमूना-सेट में से हर बार बेतरतीब चुने जाते हैं,
+   और चुनाव ऐसा होता है कि 24 में से कोई सेक्टर न छूटे। login किए हुए व्यक्ति को झलक नहीं दिखती। */
 /* ============================================================
-   /assets/aptitude-test.js — v2.1 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
+   /assets/aptitude-test.js — v2.2 (अभिरुचि-टेस्ट इंजन · मुफ़्त-झलक 24 प्रश्न)
    v2.1 · 09-Nov-2026: H1 strings-table — दिखने वाली हर UI-पंक्ति अब
    /assets/apt_strings.js (hi मास्टर) से S() द्वारा; दूसरी भाषा = overlay
    (window.APT_LANG + /assets/apt_<कोड>.js: APT_STR.<कोड> UI + APT_TR
@@ -43,20 +46,6 @@
   function mgN(m)       { return (TR && TR.mg && TR.mg[m]) ? TR.mg[m] : MG[m].n; }
 
   /* बैज वालों को झलक नहीं — सीधे पूरा टेस्ट (Jio-नियम v3.7 · 22-Jul-2026) */
-  try {
-    var _g = JSON.parse(localStorage.getItem("acs_apt_gate_v1") || "null");
-    if (_g && _g.until && Date.now() < _g.until) {
-      var _bx = document.getElementById("apt-box");
-      if (_bx) {
-        /* (29-Jul, Founder) बैज-धारक को झलक-डिब्बा दिखे ही नहीं — कोई उलझाने वाला संदेश नहीं */
-        if (_bx.style) _bx.style.display = 'none';
-        _bx.innerHTML = '';
-      }
-      var _n1 = document.getElementById("apt-dummy-notice"); if (_n1) _n1.style.display = "none";
-      var _n2 = document.getElementById("apt-full-info"); if (_n2) _n2.style.display = "none";
-      return;
-    }
-  } catch (e) {}
 
   /* ---- वापसी-पता: जिस dashboard-घर से आए, ठीक वहीं लौटें (re-login नहीं) ---- */
   var BACK = "/dashboard/";
@@ -96,17 +85,50 @@
   }
 
   /* ---- प्रवाह: 10 प्रश्न → कथा → 10 प्रश्न → कथा → 4 प्रश्न ---- */
-  var flow = [];
-  (function () {
-    var qs = D.questions, i;
-    for (i = 0; i < qs.length && i < 24; i++) {
-      flow.push({ kind: "q", q: qs[i] });
-      if (i === 9 && D.stories[0]) flow.push({ kind: "k", k: D.stories[0] });
-      if (i === 19 && D.stories[1]) flow.push({ kind: "k", k: D.stories[1] });
+  /* ---- बहाव: चुने हुए 24 प्रश्न + प्रश्न 10 और 20 के बाद कथा-विराम ---- */
+  var flow = [], TOTAL_Q = 0;
+  function mgOf(q) {
+    var m = {};
+    (q.mg || []).forEach(function (x) { m[x] = 1; });
+    (q.opts || []).forEach(function (o) { (o.mg || []).forEach(function (x) { m[x] = 1; }); });
+    return Object.keys(m).map(Number);
+  }
+  function mix(a) { var i, j, t; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  /* 48 में से 24: पहले वे प्रश्न जो बचे हुए सेक्टरों को सबसे ज़्यादा ढकें, फिर बेतरतीब भराई */
+  function pick24() {
+    var left = mix(D.questions.slice()), need = {}, out = [], m, i;
+    for (m = 1; m <= 24; m++) need[m] = 1;
+    while (out.length < 24 && left.length) {
+      var best = 0, bi = -1;
+      for (i = 0; i < left.length; i++) {
+        var c = mgOf(left[i]).filter(function (x) { return need[x]; }).length;
+        if (c > best) { best = c; bi = i; }
+      }
+      if (bi < 0) break;
+      var q = left.splice(bi, 1)[0]; out.push(q);
+      mgOf(q).forEach(function (x) { delete need[x]; });
     }
-  })();
+    while (out.length < 24 && left.length) out.push(left.shift());
+    return mix(out).map(function (q) { return q.id; });
+  }
+  function buildFlow(ids) {
+    var map = {}, i, n = 0;
+    D.questions.forEach(function (q) { map[q.id] = q; });
+    flow = [];
+    for (i = 0; i < ids.length; i++) {
+      if (!map[ids[i]]) continue;
+      flow.push({ kind: "q", q: map[ids[i]] }); n++;
+      if (n === 10 && D.stories[0]) flow.push({ kind: "k", k: D.stories[0] });
+      if (n === 20 && D.stories[1]) flow.push({ kind: "k", k: D.stories[1] });
+    }
+    TOTAL_Q = n;
+  }
+  function idsOK(ids) {
+    var map = {}; D.questions.forEach(function (q) { map[q.id] = 1; });
+    return !!(ids && ids.length === 24 && ids.every(function (id) { return map[id]; }));
+  }
 
-  /* ---- सहेजी हालत ---- */
+  /* ---- स्थिति: सिर्फ़ इसी फ़ोन में ---- */
   function loadState() {
     try { var s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s && s.ans) return s; } catch (e) {}
     return { pos: 0, ans: {}, done: false, started: 0 };
@@ -114,9 +136,14 @@
   function saveState() { try { localStorage.setItem(KEY, JSON.stringify(ST)); } catch (e) {} }
   var ST = loadState();
 
-  function qCount() { var n = 0, i; for (i = 0; i < flow.length; i++) if (flow[i].kind === "q") n++; return n; }
   function qIndexAt(pos) { var n = 0, i; for (i = 0; i <= pos && i < flow.length; i++) if (flow[i].kind === "q") n++; return n; }
-  var TOTAL_Q = qCount();
+  /* पुरानी अधूरी झलक (पहले 24 वाली) वहीं से चलती है; नई झलक के लिए नया चुनाव */
+  if (!idsOK(ST.ids)) {
+    var _old = (ST.pos > 0 || ST.done || (ST.ans && Object.keys(ST.ans).length > 0));
+    ST.ids = _old ? D.questions.slice(0, 24).map(function (q) { return q.id; }) : pick24();
+    saveState();
+  }
+  buildFlow(ST.ids);
 
   function art(id, cls) {
     if (ART[id]) return '<div class="' + (cls || "apt-img") + '">' + ART[id] + "</div>";
@@ -288,12 +315,17 @@
 
   /* ---- गिनती (पूरा गणित — AI नहीं) ---- */
   function compute() {
-    var sc = {}, unknown = {}, m;
+    var sc = {}, unknown = {}, m, byId = {};
     for (m = 1; m <= 24; m++) sc[m] = 0;
+    D.questions.forEach(function (x) { byId[x.id] = x; });
     function add(list, pts) { for (var x = 0; x < list.length; x++) sc[list[x]] += pts; }
+    /* v2.2: अंक ठीक उन्हीं 24 प्रश्नों से जुड़ते हैं जो इस बार चुने गए (ST.ids), 48 में वे कहीं भी हों।
+       पहले यहाँ "पहले 24 प्रश्न" गिने जाते थे, जिससे 25 से 48 तक के प्रश्नों के जवाब नतीजे में नहीं आते थे। */
+    var ids = idsOK(ST.ids) ? ST.ids : D.questions.slice(0, 24).map(function (x) { return x.id; });
     var i, q, a;
-    for (i = 0; i < D.questions.length && i < 24; i++) {
-      q = D.questions[i]; a = ST.ans[q.id];
+    for (i = 0; i < ids.length; i++) {
+      q = byId[ids[i]]; if (!q) continue;
+      a = ST.ans[q.id];
       if (!a) continue;
       if (q.type === "scale") {
         add(q.mg, D.scoring.scale.faces[a.v]);
@@ -354,7 +386,8 @@
       '<a class="apt-btn ghost" style="text-align:center;text-decoration:none" href="/udyam/">' + S("btnUdyam") + '</a></div>';
     box.innerHTML = html;
     $("apt-again").onclick = function () {
-      ST = { pos: 0, ans: {}, done: false, started: Date.now() };
+      ST = { pos: 0, ans: {}, done: false, started: Date.now(), ids: pick24() };
+      buildFlow(ST.ids);
       saveState(); render();
     };
     focusBox();
@@ -362,4 +395,18 @@
 
   /* ---- शुरुआत: नतीजा बना हो तो वही; वरना द्वार-कार्ड (v2.0) ---- */
   if (ST.done) render(); else renderGate();
+
+  /* ---- login किए हुए व्यक्ति को झलक नहीं दिखती (apt-pay.js login की हालत बताता है) ---- */
+  function showPreview(on) {
+    try {
+      var ids = ["apt-jhalak-sec", "apt-dummy-notice"], i, el;
+      for (i = 0; i < ids.length; i++) { el = $(ids[i]); if (el && el.style) el.style.display = on ? "" : "none"; }
+      if (box.style) box.style.display = on ? "" : "none";
+      if (!on) appOff();
+      var a = document.querySelectorAll ? document.querySelectorAll('a[href="#apt-start"]') : [];
+      for (i = 0; i < a.length; i++) a[i].style.display = on ? "" : "none";
+    } catch (e) {}
+  }
+  window.ACS_APT_PREVIEW = { hide: function () { showPreview(false); }, show: function () { if (!window.ACS_APT_FULL_ON) showPreview(true); } };
+  try { if (localStorage.getItem("acs_apt_li") === "1") showPreview(false); } catch (e) {}
 })();

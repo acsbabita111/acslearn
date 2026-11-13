@@ -1,4 +1,27 @@
 /* ============================================================
+   /assets/apt-session.js : v2.6 (13-Nov-2026)
+   Founder के 13-Nov-2026 के नियम लागू:
+   - पूरा प्रश्न-भंडार अब repo पर नहीं है। हर खंड के 40 प्रश्न server (aptStart, aptNext) से आते हैं।
+   - द्वार server तय करता है: सक्रिय बैज, या ₹100 का चांस। फ़ोन का पुराना निशान अब ताला नहीं है।
+   - 3 खंड x 40 प्रश्न। हर खंड अधिकतम 40 मिनट, कम से कम 10 मिनट। खंडों के बीच 1 से 5 मिनट का विराम।
+   - घड़ी server के समय से चलती है, और पन्ना बंद करने पर नहीं रुकती।
+   - जवाब, अंकों की गिनती और नतीजा इसी फ़ोन में रहते हैं। बिना ₹125 के server पर नतीजा नहीं जाता।
+   - नतीजे में सबसे मज़बूत 5 सेक्टर अपने स्कोर के साथ दिखते हैं।
+   v2.1 (ChatGPT की जाँच के बाद): हर खंड की समय-सीमा server से आती है; "5 साल" वाली बात खेप 3 तक हटाई गई;
+        विराम सिर्फ़ पहले और दूसरे खंड के बाद लिखा गया; और यह साफ़ लिखा गया कि अगले खंड के प्रश्न चुनने के लिए
+        फ़ोन ऊपर के सेक्टरों और उद्यमों के नंबर server को बताता है (server उन्हें सेव नहीं करता)।
+   v2.2 (ChatGPT की दूसरी जाँच के बाद): अगले खंड के प्रश्न अब विराम पूरा होने पर ही server से आते हैं
+        (पहली माँग विराम शुरू करती है, दूसरी प्रश्न लाती है); जन्म का साल server को नहीं जाता, सिर्फ़ उम्र-वर्ग जाता है;
+        और server को जाने वाली हर चीज़ शुरुआती कार्ड पर साफ़ लिखी है।
+   v2.3 (ChatGPT की तीसरी जाँच के बाद): नतीजे में ऊपर के 5 सेक्टरों के नीचे सभी 24 सेक्टरों के स्कोर भी दिखते हैं
+        (करियर-पेज यही कहता है)।
+   v2.5 (ChatGPT की पाँचवीं जाँच के बाद): शुरुआती कार्ड की निजता-सूचना अब ठीक वही बताती है जो server सचमुच रखता है
+        (खाते की पहचान, भाषा, रास्ता, समय, दिए गए प्रश्नों के नंबर, दिन की गिनती), कितनी देर रखता है, और क्या नहीं रखता।
+   v2.6 (ChatGPT की छठी जाँच के बाद): निजता-सूचना में यह सच जोड़ा गया कि ऊपर के सेक्टर परीक्षा के दौरान server के रिकॉर्ड में रहते हैं
+        (सेक्टर-समूहों के नाम और दिए गए प्रश्नों के नंबर के रूप में)। तीनों बातों के "सेव न होने" वाला ग़लत वाक्य हटाया गया।
+   नीचे का पुराना शीर्ष-लेख इतिहास के लिए रखा है।
+   ============================================================ */
+/* ============================================================
    /assets/apt-session.js — v1.4 (12-Nov-2026: भाषा-परत — दूसरी भाषा का पन्ना इसी इंजन से पूरी परीक्षा चलाए;
    हिंदी का व्यवहार वही। वाक्यांश L(…) में; तालिका generator/build_apt_session_en.js बनाता है।)
    v1.3.1 (08-Nov-2026 सफ़ाई: gate-कार्ड कसा पाठ — HTML की 8-पंक्ति info
@@ -72,12 +95,6 @@
     if (LANG === 'hi' || !svg) return svg;
     return String(svg).replace(/>([^<]*[\u0900-\u097F][^<]*)</g, function (all, t) { var k = t.replace(/^\s+|\s+$/g, ''); return '>' + ((SX && SX['@art:' + k]) || '') + '<'; });
   }
-  function withLang(urls) {
-    if (LANG === 'hi') return urls;
-    var out = urls.slice();
-    urls.forEach(function (u) { if (u.indexOf('/assets/apt_sets/') === 0) out.push(u.replace('/assets/apt_sets/', '/assets/apt_sets_' + LANG + '/')); });
-    return out;
-  }
   /* ---- v1.3 app-mode (O*NET-शैली) ---- */
   function appOn() { try { document.body.classList.add('apt-app'); box.classList.add('apt-live'); } catch (e) {} }
   function appOff() {
@@ -91,53 +108,59 @@
     window.scrollTo(0, box.offsetTop - 8);
   }
   var D = window.APT_DATA, ART = window.APT_ART || {}, MG = window.MG_NAMES || {};
-  if (!D || !D.pool) { box.innerHTML = L('<p>टेस्ट-सामग्री नहीं खुली — पन्ना दोबारा खोलिए।</p>'); return; }
+  if (!D) { box.innerHTML = L('<p>टेस्ट-सामग्री नहीं खुली — पन्ना दोबारा खोलिए।</p>'); return; }
 
-  /* ---------- बैज-द्वार + ₹100/चांस-द्वार (Jio-नियम v3.7 + Founder-नियम 22-Jul) ----------
-     दो रास्ते: (अ) बैज-निशान (acs_apt_gate_v1, dashboard से) → मुफ़्त-असीमित;
-     (ब) ₹100 में 1-चांस — apt-pay.js (अलग module-स्क्रिप्ट) से भुगतान होकर
-     window.ACS_APT_SESSION.unlock('attempt') बुलाता है। यहाँ से पूरा इंजन
-     initEngine() में लपेटा — ताकि async भुगतान-पुष्टि के बाद भी टेस्ट शुरू
-     हो सके (पहले सीधे return से आगे का code कभी न चलता)। */
-  function gateOK() {
-    try {
-      var g = JSON.parse(localStorage.getItem('acs_apt_gate_v1') || 'null');
-      return !!(g && g.until && Date.now() < g.until);
-    } catch (e) { return false; }
-  }
-  var ACCESS_MODE = null;   /* 'badge' | 'attempt' — finish() पर तय करता है consume बुलाना है या नहीं */
-  var engineStarted = false;
-
-  function renderGateCard(showBuy) {
+  /* ---- द्वार (v2.0): server तय करता है कि परीक्षा खुलेगी या नहीं; apt-pay.js उससे पूछता है ---- */
+  var ACCESS_MODE = null;
+  var engineStarted = false, gateSeen = false, GATE = null;
+  function escT(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function regate() { try { if (location.hash !== '#apt-full') location.hash = '#apt-full'; } catch (e) {} location.reload(); }
+  function renderGateCard(kind, info) {
     appOff();
     var extra = '';
-    if (showBuy === 'checking') {
-      extra = L('<p id="apt-buy-msg">\uD83D\uDD0E आपका भुगतान-चांस जाँचा जा रहा है…</p>');
-    } else if (showBuy) {
+    if (kind === 'checking') {
+      extra = L('<p id="apt-buy-msg">\uD83D\uDD0E आपका खाता और बैज जाँचा जा रहा है…</p>');
+    } else if (kind === 'limit') {
+      extra = L('<div class="apt-note">⛔ आज आप 2 परीक्षाएँ दे चुके हैं। अगली परीक्षा कल रात 12 बजे (भारतीय समय) के बाद दे सकेंगे।</div>');
+    } else if (kind === 'open') {
+      extra = L('<div class="apt-note">⏳ आपकी एक परीक्षा पहले से चल रही है, पर उसके जवाब इस फ़ोन में नहीं हैं। जिस फ़ोन से शुरू की थी, उसी से पूरी कीजिए। चाहें तो उसे यहीं से छोड़ दीजिए: छोड़ी हुई परीक्षा आज की 2 परीक्षाओं में गिनी जाएगी।</div>') +
+        L('<div class="apt-nav"><button class="apt-btn ghost" id="apt-drop-open">❌ वह परीक्षा छोड़ें</button></div>') +
+        '<p id="apt-buy-msg" style="color:var(--muted,#666);font-size:16px"></p>';
+    } else if (kind === 'error') {
+      extra = '<div class="apt-note">⚠️ ' + escT(info && info.message ? info.message : L('server से जवाब नहीं मिला।')) + '</div>' +
+        L('<div class="apt-nav"><button class="apt-btn blue" id="apt-regate">🔄 दोबारा जाँचें</button></div>');
+    } else {   /* 'buy': login नहीं है, या बैज और ₹100 का चांस दोनों नहीं हैं */
       extra = '<div id="apt-buy-wrap">' +
-        L('<p style="font-weight:700;color:var(--navy,#0B1F3A)"><b>बैज नहीं?</b> ₹100 में 1 पूरा चांस लीजिए — पहले किसी भी भूमिका (Student/Job-seeker/Entrepreneur) में रजिस्ट्रेशन ज़रूरी है।</p>') +
+        L('<p style="font-weight:700;color:var(--navy,#0B1F3A)"><b>बैज नहीं है?</b> ₹100 में 1 परीक्षा दी जा सकती है। इसके लिए पहले रजिस्ट्रेशन और Login ज़रूरी है।</p>') +
         L('<div class="apt-nav"><a class="apt-btn ghost" href="/join.html">📝 पहले रजिस्ट्रेशन करें</a> ') +
-        L('<button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 चांस लें</button></div>') +
+        L('<button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 परीक्षा दें</button></div>') +
         '<p id="apt-buy-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
         '</div>';
     }
     box.innerHTML = '<div class="apt-card">' +
-      L('<p class="apt-q">\uD83C\uDF96\uFE0F 120 प्रश्न · 3 खंड · घड़ी 90 मिनट</p>') +
-      L('<p>खंड: पहले रुचि के समूह, फिर उनकी गहराई, आख़िर में कोर्स-चुनाव।</p>') +
-      L('<p>पन्ना बंद करें तो घड़ी रुक जाती है — लौटिए, वहीं से चलेगा।</p>') +
-      L('<p><b>बैज (badge) है?</b> Login कीजिए — द्वार अपने-आप खुल जाएगा। बैज वालों को 365 दिन मुफ़्त, जितनी बार चाहें।</p>') +
+      L('<p class="apt-q">\uD83C\uDF96\uFE0F 120 प्रश्न · 3 खंड · हर खंड में 40 प्रश्न</p>') +
+      L('<p>हर खंड के लिए अधिकतम 40 मिनट और कम से कम 10 मिनट हैं।</p>') +
+      L('<p>पहले और दूसरे खंड के बाद 1 से 5 मिनट का विराम मिलता है।</p>') +
+      L('<p>एक दिन में कुल 2 परीक्षाएँ दी जा सकती हैं।</p>') +
+      L('<p><b>बैज (badge) है?</b> Login कीजिए: द्वार अपने-आप खुल जाएगा। बैज वालों के लिए यह परीक्षा मुफ़्त है।</p>') +
       '<div class="apt-nav"><a class="apt-btn green" href="/dashboard/">\uD83D\uDD11 Login / Dashboard</a></div>' +
       extra +
       '</div>';
+    var rg = document.getElementById('apt-regate'); if (rg) rg.onclick = regate;
+    var dp = document.getElementById('apt-drop-open');
+    if (dp) dp.onclick = function () {
+      var P = window.ACS_APT_PAY, m = document.getElementById('apt-buy-msg');
+      if (!P || !P.finish || !info || !info.sid) { regate(); return; }
+      if (!confirm(L('पक्का वह परीक्षा छोड़नी है? वह आज की 2 परीक्षाओं में गिनी जाएगी।'))) return;
+      dp.disabled = true; if (m) m.textContent = L('परीक्षा बंद की जा रही है…');
+      P.finish({ sid: info.sid, cancel: true }, function () { try { localStorage.removeItem('acs_apt_qs_v1'); } catch (e) {} regate(); });
+    };
   }
 
-  /* apt-pay.js (module-स्क्रिप्ट, अलग फ़ाइल) इन्हीं दो को बुलाता है —
-     गूँगा-fallback निषेध (v2.3): apt-pay.js न लोड हो पाए तो 2.5s में
-     अपने-आप buy-card दिखे, "अटका हुआ जाँच रहा है" कभी न रहे। */
-  /* static "डमी-टेस्ट"/"रजिस्ट्रेशन ज़रूरी" वाली लाइनें (apt-box के ऊपर/नीचे, page-content में
-     hardcoded) असली-गेट पास होने पर बेमानी/भ्रामक हो जाती हैं — छिपा दो (होल-बंदी, 22-Jul)। */
+  /* पूरा टेस्ट खुलते ही झलक और पन्ने की ऊपरी सूचनाएँ छिप जाती हैं; फ़ोन में रखा पिछला रुझान दिखता है */
   function hideStaticNotices() {
     try {
+      window.ACS_APT_FULL_ON = true;   /* पूरा टेस्ट खुल चुका है: झलक दोबारा न दिखे */
       var n1 = document.getElementById('apt-dummy-notice'); if (n1) n1.style.display = 'none';
       var n2 = document.getElementById('apt-full-info'); if (n2) n2.style.display = 'none';
       var n3 = document.getElementById('apt-jhalak-sec'); if (n3) n3.style.display = 'none';
@@ -156,77 +179,80 @@
       }
       var sb = document.getElementById('apt-sess-box');
       if (sb && sb.parentNode && document.createElement && !document.getElementById('apt-hisab')) {
-        var hc = document.createElement('div'); hc.id = 'apt-hisab'; hc.className = 'apt-card';
-        if (S.prev && S.prev.udy && S.prev.udy.length) {
-          var hh = L('<p class="apt-q">📊 पिछला हिसाब (') + new Date(S.prev.at).toLocaleDateString(DLOC) + ')</p>' +
-            L('<p>⭐ सुझाए सेक्टर: ') + S.prev.mg.map(function (n) { return '<span class="apt-chip">' + n + '</span>'; }).join(' ') + '</p>' +
-            L('<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">');
-          S.prev.udy.forEach(function (u, i) {
-            hh += '<div class="apt-row">' + (i + 1) + '. ' +
-              (u.c ? '<a href="' + u.c + '" style="color:inherit;text-decoration:underline">' + u.nm + '</a>' : u.nm) + '</div>';
-          });
-          hh += L('</div><p class="apt-hint">नया टेस्ट नीचे से — नतीजा हर बार ताज़ा बनेगा।</p>');
-          hc.innerHTML = hh;
-        } else {
-          hc.innerHTML = L('<p class="apt-q">📊 पिछला हिसाब</p><p>अभी कोई पूरा टेस्ट दर्ज नहीं — नीचे से पहला टेस्ट शुरू कीजिए।</p>');
-          /* (30-Jul होल-1) फ़ोन बदला? — खाते (server) से पिछला नतीजा लाओ।
-             apt-pay.js देर से आए तो 2.5s बाद एक बार फिर। H-2 सीख: server से
-             आए पाठ में < > हटाकर ही छापो। */
-          var srvTry = function () {
-            if (!(window.ACS_APT_PAY && window.ACS_APT_PAY.latestResult)) return false;
-            window.ACS_APT_PAY.latestResult(function (r) {
-              var p = r && r.prev;
-              if (!p || !p.udy || !p.udy.length) return;
-              var cl = function (t) { return String(t == null ? '' : t).replace(/[<>]/g, ''); };
-              var hh2 = L('<p class="apt-q">📊 पिछला हिसाब — ☁️ आपके खाते से (') + new Date(p.at).toLocaleDateString(DLOC) + ')</p>' +
-                L('<p>⭐ सुझाए सेक्टर: ') + (p.mg || []).map(function (n) { return '<span class="apt-chip">' + cl(n) + '</span>'; }).join(' ') + '</p>' +
-                L('<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">');
-              p.udy.forEach(function (u, i) {
-                var c = String(u.c || ''); if (c.charAt(0) !== '/') c = '';
-                hh2 += '<div class="apt-row">' + (i + 1) + '. ' +
-                  (c ? '<a href="' + c + '" style="color:inherit;text-decoration:underline">' + cl(u.nm) + '</a>' : cl(u.nm)) + '</div>';
-              });
-              hh2 += L('</div><p class="apt-hint">यह आपके खाते में सुरक्षित है — किसी भी फ़ोन से login कर देख सकते हैं।</p>');
-              hc.innerHTML = hh2;
+        var P = null;
+        try { P = (JSON.parse(localStorage.getItem('acs_apt_sess_v1')) || {}).prev || null; } catch (e2) {}
+        if (P && ((P.sec && P.sec.length) || (P.udy && P.udy.length))) {
+          var cl = function (t) { return String(t == null ? '' : t).replace(/[<>]/g, ''); };
+          var hc = document.createElement('div'); hc.id = 'apt-hisab'; hc.className = 'apt-card';
+          var hh = L('<p class="apt-q">📊 पिछला हिसाब (') + new Date(P.at).toLocaleDateString(DLOC) + ')</p>';
+          if (P.sec && P.sec.length) {
+            hh += L('<p class="apt-q" style="font-size:19px">⭐ आपके सबसे मज़बूत सेक्टर (स्कोर 100 में से):</p>') + '<div class="apt-opts" style="text-align:left">';
+            P.sec.forEach(function (x, i) { hh += '<div class="apt-row">' + (i + 1) + '. ' + cl(x.nm) + ' <span class="apt-chip">' + cl(x.sc) + '</span></div>'; });
+            hh += '</div>';
+          }
+          if (P.udy && P.udy.length) {
+            hh += L('<p class="apt-q" style="font-size:19px">🏭 आपके लिए उद्यम:</p><div class="apt-opts" style="text-align:left">');
+            P.udy.forEach(function (u, i) {
+              var c = String(u.c || ''); if (c.charAt(0) !== '/') c = '';
+              hh += '<div class="apt-row">' + (i + 1) + '. ' +
+                (c ? '<a href="' + c + '" style="color:inherit;text-decoration:underline">' + cl(u.nm) + '</a>' : cl(u.nm)) + '</div>';
             });
-            return true;
-          };
-          if (!srvTry()) setTimeout(srvTry, 2500);
+            hh += '</div>';
+          }
+          hh += L('<p class="apt-hint">यह हिसाब सिर्फ़ इसी फ़ोन में रखा है। नई परीक्षा नीचे से शुरू होगी।</p>');
+          hc.innerHTML = hh;
+          sb.parentNode.insertBefore(hc, sb);
         }
-        sb.parentNode.insertBefore(hc, sb);
       }
     } catch (e) {}
   }
 
   window.ACS_APT_SESSION = {
-    unlock: function (mode) {
+    unlock: function (mode, g) {
+      gateSeen = true; GATE = g || null;
       if (engineStarted) return;
       ACCESS_MODE = mode || 'attempt';
       engineStarted = true;
       hideStaticNotices();
       initEngine();
     },
-    showBuy: function () { if (!engineStarted) renderGateCard(true); }
+    showBuy: function () { gateSeen = true; if (!engineStarted) renderGateCard('buy'); },
+    showLimit: function (q) { gateSeen = true; if (!engineStarted) renderGateCard('limit', q); },
+    showOpen: function (o) { gateSeen = true; if (!engineStarted) renderGateCard('open', o); },
+    showError: function (e) { gateSeen = true; if (!engineStarted) renderGateCard('error', e); },
+    /* इस फ़ोन में कोई अधूरी परीक्षा रखी है तो उसकी पहचान लौटाता है */
+    localSid: function () {
+      try { var s0 = JSON.parse(localStorage.getItem('acs_apt_sess_v1')) || {}; return (s0.cur && !s0.cur.locked && s0.cur.sid) ? s0.cur.sid : null; } catch (e) { return null; }
+    }
   };
 
-  if (gateOK()) {
-    ACCESS_MODE = 'badge';
-    engineStarted = true;
-    hideStaticNotices();
-    initEngine();
-  } else {
-    renderGateCard('checking');
-    setTimeout(function () {
-      if (!engineStarted) renderGateCard(true);
-    }, 2500);
-  }
+  renderGateCard('checking');
+  setTimeout(function () { if (!engineStarted && !gateSeen) renderGateCard('buy'); }, 9000);
   return; /* नीचे initEngine() परिभाषा है — असली शुरुआत ऊपर से होती है */
 
-  /* ================= पूरा इंजन — सिर्फ़ gate पास होने पर चले ================= */
+  /* ==================== इंजन (द्वार खुलने पर ही चलता है) ==================== */
   function initEngine() {
 
   var KEY = 'acs_apt_sess_v1';
-  var TOTAL = 120, PER_KHAND = 40, LIMIT_SEC = 90 * 60;
+  var TOTAL = 120, PER_KHAND = 40;
+  var RULES = { minSetSec: 600, maxSetSec: 2400, pauseMinSec: 60, pauseMaxSec: 300 };   /* server के जवाब से ताज़ा होते हैं */
+  var SKEW = 0;                                   /* server की घड़ी और फ़ोन की घड़ी का अंतर */
+  function srvNow() { return Date.now() + SKEW; }
+  function sync(r) {
+    if (r && typeof r.now === 'number') SKEW = r.now - Date.now();
+    if (r && r.rules) { for (var rk in RULES) { if (typeof r.rules[rk] === 'number') RULES[rk] = r.rules[rk]; } }
+  }
+  function PAYAPI() { return window.ACS_APT_PAY || {}; }
+  /* server से आए प्रश्न इसी फ़ोन में रखे जाते हैं, ताकि पन्ना बंद होकर खुले तो परीक्षा वहीं से चले */
+  var QKEY = 'acs_apt_qs_v1';
+  function qsLoad(sid) { try { var o = JSON.parse(localStorage.getItem(QKEY) || 'null'); return (o && o.sid === sid && o.qs) ? o.qs : []; } catch (e) { return []; } }
+  function qsPut(sid, list) {
+    var seen = {}, out = [];
+    qsLoad(sid).concat(list || []).forEach(function (q) { if (q && q.id && !seen[q.id]) { seen[q.id] = 1; out.push(q); } });
+    try { localStorage.setItem(QKEY, JSON.stringify({ sid: sid, qs: out })); } catch (e) {}
+    window.APT_POOL = out;
+  }
+  function qsClear() { try { localStorage.removeItem(QKEY); } catch (e) {} window.APT_POOL = []; }
   var YEAR_NOW = new Date().getFullYear();
 
   /* ---------- भंडारण ---------- */
@@ -235,11 +261,6 @@
   var S = load();
   S.used = S.used || {}; S.attempts = S.attempts || [];
 
-  /* ---------- शुद्ध-गणित बीज-क्रम (seeded shuffle) ---------- */
-  function rng(seed) { var s = seed >>> 0; return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
-  function shuffle(arr, r) { var a = arr.slice(), i, j, t; for (i = a.length - 1; i > 0; i--) { j = Math.floor(r() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
-
-  /* ---------- आलसी-load ---------- */
   var loaded = {};
   function loadScript(url, ok, fail) {
     if (loaded[url]) { ok(); return; }
@@ -276,60 +297,15 @@
 
   /* ---------- band ---------- */
   function bandOf(age) { return age <= 13 ? 1 : (age <= 17 ? 2 : 3); }
-  function fitsBand(q, b) { return !q.band || q.band.indexOf(b) >= 0; }
   function mgTags(q) {
     var s = {};
     (q.mg || []).forEach(function (m) { s[m] = 1; });
     (q.opts || []).forEach(function (o) { (o.mg || []).forEach(function (m) { s[m] = 1; }); });
     return Object.keys(s).map(Number);
   }
-  function udyTags(q) {
-    var s = {};
-    (q.udy || []).forEach(function (u) { s[u] = 1; });
-    (q.opts || []).forEach(function (o) { (o.udy || []).forEach(function (u) { s[u] = 1; }); });
-    return Object.keys(s).map(Number);
-  }
 
   /* ---------- चयन (शुद्ध गणित) ---------- */
-  function pickSpread(list, want, band, used, seed, keyOf) {
-    /* keyOf(q) = समूह-चाबी (mg या udy-गुट) — बारी-बारी हर समूह से एक */
-    var bins = {}, order = [];
-    list.forEach(function (q) {
-      if (!fitsBand(q, band)) return;
-      var k = keyOf(q);
-      if (!bins[k]) { bins[k] = []; order.push(k); }
-      bins[k].push(q);
-    });
-    var r = rng(seed);
-    order = shuffle(order, r);
-    order.forEach(function (k) { bins[k] = shuffle(bins[k], r); });
-    var out = [], pass, k, i, q;
-    for (pass = 0; pass < 2 && out.length < want; pass++) { /* pass-0: बिना-इस्तेमाल; pass-1: दोबारा-उपयोग */
-      var idx = {};
-      var guard = 0;
-      while (out.length < want && guard < 5000) {
-        guard++;
-        var progressed = false;
-        for (i = 0; i < order.length && out.length < want; i++) {
-          k = order[i];
-          var arr = bins[k]; if (!arr || !arr.length) continue;
-          var p = idx[k] || 0;
-          while (p < arr.length) {
-            q = arr[p]; p++;
-            var already = out.some(function (x) { return x.id === q.id; });
-            if (already) continue;
-            if (pass === 0 && used[q.id]) continue;
-            out.push(q); progressed = true; break;
-          }
-          idx[k] = p;
-        }
-        if (!progressed) break;
-      }
-    }
-    return out;
-  }
-
-  /* ---------- scoring (v3.9 यथावत; 0 = जानता नहीं, औसत में नहीं) ---------- */
+  /* ---- गिनती (v3.9 विधि; band-चेहरे 3 = −5/0/+5) ---- */
   function tally(qmap, ans) {
     var mg = {}, un = {}, udy = {};
     function add(map, keys, pts) { keys.forEach(function (k) { map[k] = map[k] || { s: 0, t: 0 }; map[k].s += pts; map[k].t++; }); }
@@ -364,25 +340,38 @@
 
   /* ---------- घड़ी: रास्ता-अ — सिर्फ़ खुले पन्ने पर चले ---------- */
   var tick = null;
+  function beginAt(C) { return (C.begin && C.begin[C.phase]) ? C.begin[C.phase] : srvNow(); }
+  /* खंड की सीमा: शुरू + 40 मिनट, पर server की बताई सीमा (dl) से आगे कभी नहीं */
+  function setDeadline(C) {
+    var d = beginAt(C) + RULES.maxSetSec * 1000, sd = C.dl && C.dl[C.phase];
+    return (typeof sd === 'number' && sd < d) ? sd : d;
+  }
+  function minReadyAt(C) { return beginAt(C) + RULES.minSetSec * 1000; }
+  function mmss(ms) {
+    var t = Math.max(0, Math.ceil(ms / 1000)), m = Math.floor(t / 60), sec = t % 60;
+    return m + L(' मिनट ') + (sec < 10 ? '0' : '') + sec + L(' सेकंड');
+  }
+  function clockText(C) { return L('⏱ इस खंड का बचा समय: ') + mmss(setDeadline(C) - srvNow()); }
   function startClock() {
     if (tick) return;
     tick = setInterval(function () {
-      var C = S.cur; if (!C || C.locked) return;
-      if (document.hidden) return;               /* पन्ना छिपा = घड़ी रुकी */
-      C.elapsed = (C.elapsed || 0) + 1;
-      if (C.elapsed % 5 === 0) save(S);
+      var C = S.cur; if (!C || C.locked || C.pause) return;
+      var now = srvNow();
+      if (now >= C.exp) { finish(true); return; }
+      if (now >= setDeadline(C)) { setTimeUp(); return; }
       var el = document.getElementById('apt-clock');
       if (el) el.textContent = clockText(C);
-      if (C.elapsed >= LIMIT_SEC) { save(S); finish(true); }
+      var w = document.getElementById('apt-wait-left');
+      if (w) { if (now >= minReadyAt(C)) renderStep(); else w.textContent = mmss(minReadyAt(C) - now); }
     }, 1000);
   }
-  function clockText(C) {
-    var left = Math.max(0, LIMIT_SEC - (C.elapsed || 0));
-    var m = Math.floor(left / 60), s = left % 60;
-    return L('⏱ बचा समय: ') + m + L(' मिनट ') + (s < 10 ? '0' : '') + s + L(' सेकंड');
+  /* खंड के 40 मिनट पूरे: बचे प्रश्न ख़ाली माने जाते हैं ("पता नहीं"), और अगला पड़ाव आता है */
+  function setTimeUp() {
+    var C = S.cur; if (!C || C.locked) return;
+    C.queue = []; C.timeUp = C.timeUp || {}; C.timeUp[C.phase] = 1; save(S);
+    if (C.phase < 3) khandBoundary(); else finish(true);
   }
 
-  /* ---------- बेनाम analytics-hook (मौन — v4.1-क8) ---------- */
   function hook(payload) { try { if (window.ACS_APT_ANALYTICS) window.ACS_APT_ANALYTICS(payload); } catch (e) {} }
 
   /* ---------- UI टुकड़े ---------- */
@@ -399,9 +388,10 @@
     var C = S.cur;
     var html = '<div class="apt-card">' +
       L('<p class="apt-q">🧭 पूरा टेस्ट — 120 प्रश्न, 3 खंड</p>') +
-      L('<p>घड़ी 90 मिनट की है। पन्ना बंद करें तो घड़ी रुक जाती है।</p>') +
-      L('<p>लौटिए — जहाँ छोड़ा था, वहीं से चलेगा।</p>');
-    if (C && !C.locked && C.ids) {
+      L('<p>हर खंड में 40 प्रश्न हैं। हर खंड के लिए अधिकतम 40 मिनट और कम से कम 10 मिनट हैं।</p>') +
+      L('<p>पहले और दूसरे खंड के बाद 1 से 5 मिनट का विराम मिलता है। घड़ी शुरू होने के बाद रुकती नहीं है, पन्ना बंद करने पर भी नहीं।</p>') +
+      L('<p>बीच में पन्ना बंद हो जाए तो इसी फ़ोन से लौटिए: परीक्षा वहीं से आगे चलेगी।</p>');
+    if (C && !C.locked && C.sid) {
       html += L('<div class="apt-note">आपका एक प्रयास अधूरा है — प्रश्न ') + (Object.keys(C.ans || {}).length) + ' / ' + TOTAL + L(' हो चुके।</div>') +
         L('<div class="apt-nav"><button class="apt-btn green" id="apt-resume">▶ वहीं से जारी रखें</button> ') +
         L('<button class="apt-btn ghost" id="apt-fresh">🆕 नया प्रयास</button></div>');
@@ -409,7 +399,7 @@
       html += L('<p>पहले अपना जन्म का साल चुनिए (सिर्फ़ आपके फ़ोन में रहेगा):</p>') +
         '<div class="apt-nav"><select id="apt-yob" class="apt-sel">' + yearOpts() + '</select> ' +
         L('<button class="apt-btn green" id="apt-go">🚀 शुरू करें</button></div>') +
-        L('<div class="apt-note">🔒 आपके जवाब फ़ोन में रहते हैं। login हो तो नतीजे का सार आपके खाते में भी अपने-आप सुरक्षित होता है — फ़ोन बदलने पर भी वही मिलेगा।</div>');
+        L('<div class="apt-note">🔒 आपके जवाब, अंक और जन्म का साल इसी फ़ोन में रहते हैं, और नतीजा भी इसी फ़ोन में बनता है। server आपके जवाब और अंक नहीं रखता। परीक्षा चलाने के लिए वह कुछ समय तक परीक्षा का रिकॉर्ड रखता है। उस रिकॉर्ड में यह भी रहता है कि आपके अगले खंड किन सेक्टरों से बने।<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700">server को क्या जाता है और वह क्या रखता है (पूरा ब्योरा)</summary><p>प्रश्न चुनने के लिए फ़ोन server को तीन बातें बताता है: आपका उम्र-वर्ग, आपकी रुचि के ऊपर के सेक्टरों और उद्यमों के नंबर, और इस फ़ोन पर पहले आ चुके प्रश्नों के नंबर।</p><p>उम्र-वर्ग, उद्यमों के नंबर और पहले आ चुके प्रश्नों की सूची को server अलग से सेव नहीं करता। पर ऊपर के सेक्टर परीक्षा के दौरान रिकॉर्ड में रहते हैं: खंड 2 और 3 के प्रश्न जिन सेक्टर-समूहों से चुने गए, उन सेक्टर-समूहों के नाम server रखता है, ताकि वही खंड दोबारा माँगने पर ठीक वही प्रश्न मिलें। खंड 2 और 3 के प्रश्न आपकी रुचि के सेक्टरों और उद्यमों से चुने जाते हैं। इसलिए सेक्टर-समूहों के नाम और दिए गए प्रश्नों के नंबर से आपकी रुचि की दिशा का अंदाज़ा लग सकता है।</p><p>परीक्षा के दौरान server यह रिकॉर्ड रखता है: आपके खाते की पहचान, परीक्षा की भाषा, परीक्षा का रास्ता (बैज या ₹100, और ₹100 का order-नंबर), प्रश्न चुनने का एक बेतरतीब नंबर, हर खंड के शुरू और पूरा होने का समय और समय-सीमाएँ, आपको दिए गए प्रश्नों के नंबर, और उनके सेक्टर-समूहों के नाम। आज आपने कितनी परीक्षाएँ शुरू और पूरी कीं, इसकी गिनती भी रहती है।</p><p>परीक्षा पूरी होने, छोड़ने या समय निकलने पर परीक्षा का रिकॉर्ड मिटा दिया जाता है। गिनती आपकी आख़िरी परीक्षा के 48 घंटे बाद मिटती है। भुगतान का रिकॉर्ड (जैसे ₹100 का चांस कब और किस परीक्षा में लगा) हिसाब के लिए रहता है।</p><p>नतीजा server पर तभी जाता है जब आप ₹125 देकर रिपोर्ट सेव करें।</p></details></div>');
     }
     html += '</div>';
     box.innerHTML = html;
@@ -423,7 +413,14 @@
     var rs = document.getElementById('apt-resume');
     if (rs) rs.onclick = function () { bootQuestions(); };
     var fr = document.getElementById('apt-fresh');
-    if (fr) fr.onclick = function () { if (confirm(L('अधूरा प्रयास हटेगा — नया शुरू करें?'))) { S.cur = null; save(S); renderStart(); } };
+    if (fr) fr.onclick = function () {
+      if (!confirm(L('अधूरी परीक्षा छोड़ दी जाएगी, और वह आज की 2 परीक्षाओं में गिनी जाएगी। नई शुरू करें?'))) return;
+      var sid = C.sid; S.cur = null; save(S); qsClear();
+      box.innerHTML = L('<div class="apt-card"><p>परीक्षा बंद की जा रही है…</p></div>');
+      var done = false, go = function () { if (done) return; done = true; regate(); };
+      if (PAYAPI().finish) PAYAPI().finish({ sid: sid, cancel: true }, go); else go();
+      setTimeout(go, 7000);
+    };
   }
   function yearOpts() {
     var out = '', y;
@@ -435,127 +432,144 @@
   }
 
   /* ---------- नया प्रयास ---------- */
-  function newAttempt(yob) {
-    S.birthYear = yob;
-    var n = S.attempts.length + 1;
-    S.cur = { n: n, band: bandOf(YEAR_NOW - yob), phase: 1, ids: { k1: [], k2: [], k3: [] },
-              queue: null, doneOrder: null, pos: 0, ans: {}, elapsed: 0, topMg: [], locked: false };
-    save(S);
-    bootQuestions();
+  /* server की मनाही या network की चूक: साफ़ संदेश और अगला रास्ता */
+  function serverFail(e, retry) {
+    appOff();
+    var code = e && e.code;
+    if (code === 'limit') { renderGateCard('limit'); return; }
+    if (code === 'pay' || code === 'login') { renderGateCard('buy'); if (PAYAPI().wireBuy) PAYAPI().wireBuy(); return; }
+    if (code === 'open') { renderGateCard('open', e); return; }
+    box.innerHTML = '<div class="apt-card"><p>⚠️ ' + esc((e && e.message) || L('server से जवाब नहीं मिला।')) + '</p>' +
+      L('<p>net देखकर दोबारा दबाइए।</p><div class="apt-nav"><button class="apt-btn blue" id="apt-retry">🔄 दोबारा</button></div></div>');
+    var b = document.getElementById('apt-retry'); if (b) b.onclick = retry;
   }
 
-  /* ---------- खंड-1 भंडार ---------- */
-  function bootQuestions() {
-    var C = S.cur; if (!C) { renderStart(); return; }
+  /* ---- नई परीक्षा: server हक़ और दिन की गिनती जाँचकर पहला खंड देता है ---- */
+  function newAttempt(yob) {
+    S.birthYear = yob; save(S);
     appOn();
     box.innerHTML = L('<div class="apt-card"><p>प्रश्न आ रहे हैं…</p></div>');
-    loadMany(withLang([D.pool.broad]), function () {
-      if (!C.ids.k1.length) {
-        var picked = pickSpread(poolAll(), PER_KHAND, C.band, S.used, C.n * 101 + 7, function (q) { return (q.mg && q.mg[0]) || 0; });
-        C.ids.k1 = picked.map(function (q) { return q.id; });
-        save(S);
-      }
-      if (C.phase >= 2 && C.topMg.length) { loadTopShards(function () { renderStep(); }); }
-      else renderStep();
-      startClock();
+    if (!PAYAPI().start) { serverFail({ message: L('⚠️ भुगतान-सुविधा अभी लोड नहीं हुई — पन्ना दोबारा खोलें।') }, function () { newAttempt(yob); }); return; }
+    PAYAPI().start({ lang: LANG, band: bandOf(YEAR_NOW - yob), seen: Object.keys(S.used).slice(-4000) }, function (err, r) {
+      if (err) { serverFail(err, function () { newAttempt(yob); }); return; }
+      sync(r);
+      S.cur = { n: S.attempts.length + 1, sid: r.sid, exp: r.exp, band: bandOf(YEAR_NOW - yob), phase: 1,
+                ids: { k1: r.questions.map(function (q) { return q.id; }), k2: [], k3: [] }, begin: { 1: r.releaseAt }, dl: { 1: r.deadline },
+                queue: null, doneOrder: null, pos: 0, ans: {}, topMg: [], topU: null, locked: false };
+      qsClear(); qsPut(r.sid, r.questions);
+      save(S); renderStep(); startClock();
     });
   }
-  function loadTopShards(ok) {
-    var urls = [];
-    S.cur.topMg.forEach(function (m) { if (D.pool.mg[m]) urls.push(D.pool.mg[m]); });
-    loadMany(withLang(urls), ok);
+
+  /* ---- अधूरी परीक्षा पर लौटना: प्रश्न इसी फ़ोन से उठते हैं ---- */
+  function bootQuestions() {
+    var C = S.cur; if (!C || !C.sid) { S.cur = null; save(S); renderStart(); return; }
+    var qs = qsLoad(C.sid);
+    if (!qs.length) { renderGateCard('open', { sid: C.sid }); return; }
+    window.APT_POOL = qs;
+    appOn();
+    if (srvNow() >= C.exp) { finish(true); return; }
+    startClock();
+    if (C.pause) { pauseScreen(); return; }
+    renderStep();
   }
 
-  /* ---------- खंड-सीमा: गिनती + अगला भंडार ---------- */
+  /* ---- खंड-सीमा: रुझान फ़ोन में गिना जाता है; server को सिर्फ़ ऊपर के सेक्टर/उद्यम बताए जाते हैं ---- */
   function khandBoundary() {
     var C = S.cur, qmap = byId(poolAll().concat(D.questions));
     var T = tally(qmap, C.ans);
     if (C.phase === 1) {
       var top = rank(T.mg).filter(function (x) { return x.avg > 0; }).slice(0, 4).map(function (x) { return x.k; });
       if (top.length < 3) top = rank(T.mg).slice(0, 3).map(function (x) { return x.k; });
-      C.topMg = top; C.phase = 2; C.queue = null; C.doneOrder = null; save(S);
-      storyBreak(top[0], function () {
-        loadTopShards(function () {
-          var deep = poolAll().filter(function (q) { return udyTags(q).length && mgTags(q).some(function (m) { return top.indexOf(m) >= 0; }); });
-          var picked = pickSpread(deep, PER_KHAND, C.band, S.used, C.n * 211 + 3, function (q) { return mgTags(q)[0] || 0; });
-          var chosen1 = {}; C.ids.k1.forEach(function (id) { chosen1[id] = 1; });
-          picked = backfillTo40(picked, chosen1, C.band, top);
-          C.ids.k2 = picked.map(function (q) { return q.id; });
-          save(S); renderStep();
-        });
-      });
-    } else if (C.phase === 2) {
-      var udyRank = rank(T.udy);
-      var topU = {}; udyRank.slice(0, 30).forEach(function (x, i) { if (x.avg > 0) topU[x.k] = 30 - i; });
-      C.phase = 3; C.queue = null; C.doneOrder = null; save(S);
-      storyBreak(C.topMg[0], function () {
-        var chosen = {}; C.ids.k1.concat(C.ids.k2).forEach(function (id) { chosen[id] = 1; });
-        var deep = poolAll().filter(function (q) {
-          return !chosen[q.id] && udyTags(q).length && mgTags(q).some(function (m) { return C.topMg.indexOf(m) >= 0; });
-        });
-        deep.sort(function (a, b) { return weight(b, topU) - weight(a, topU); });
-        var fresh = deep.filter(function (q) { return !S.used[q.id] && fitsBand(q, C.band); });
-        var list = (fresh.length >= PER_KHAND ? fresh : deep.filter(function (q) { return fitsBand(q, C.band); })).slice(0, PER_KHAND);
-        list = backfillTo40(list, chosen, C.band, C.topMg);
-        C.ids.k3 = list.map(function (q) { return q.id; });
-        save(S); renderStep();
+      C.topMg = top; C.topU = null;
+    } else {
+      var topU = {}; rank(T.udy).slice(0, 30).forEach(function (x, i) { if (x.avg > 0) topU[x.k] = 30 - i; });
+      C.topU = topU;
+    }
+    C.phase = C.phase + 1; C.queue = null; C.doneOrder = null;
+    C.pause = { at: srvNow(), set: C.phase, marked: false }; save(S);
+    pauseScreen();
+  }
+
+  /* ---- विराम (1 से 5 मिनट): कहानी दिखती है, और इसी बीच अगले खंड के प्रश्न server से आ जाते हैं ---- */
+  var pauseTimer = null;
+  /* विराम (v2.2): पहली माँग server पर पिछला खंड "पूरा" दर्ज करती है और विराम शुरू करती है।
+     विराम के कम से कम 1 मिनट बाद वाली माँग ही अगले खंड के प्रश्न लाती है, और घड़ी उसी पल से 40 मिनट चलती है। */
+  function pauseScreen() {
+    var C = S.cur; if (!C || !C.pause) { renderStep(); return; }
+    var setNo = C.pause.set, kk = 'k' + setNo, failed = false, busy = false, want = false;
+    var st = (D.stories || []).filter(function (x) { return (x.mg || []).indexOf(C.topMg[0]) >= 0; })[0] || (D.stories || [])[setNo % ((D.stories || [1]).length)] || null;
+    appOn();
+    box.innerHTML = '<div class="apt-card apt-katha">' +
+      L('<p class="apt-q">☕ विराम: खंड ') + (setNo - 1) + L(' पूरा हुआ</p>') +
+      L('<p>कम से कम 1 मिनट रुकिए। 5 मिनट बाद अगला खंड अपने-आप शुरू हो जाएगा।</p>') +
+      (st ? art(st.img) + '<p class="apt-q">📖 ' + esc(ST(st, 'title')) + '</p><p>' + esc(ST(st, 'text')) + '</p>' : '') +
+      '<p class="apt-prog" id="apt-pause-left"></p>' +
+      '<p id="apt-pause-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
+      '<div class="apt-nav"><button class="apt-btn blue" id="apt-next" disabled>' + L('⏳ रुकिए…') + '</button></div></div>';
+    toTop();
+    function setMsg(t) { var m = document.getElementById('apt-pause-msg'); if (m) m.textContent = t; }
+    function stop() { if (pauseTimer) { clearInterval(pauseTimer); pauseTimer = null; } }
+    function ask() {
+      if (busy) return;
+      busy = true; failed = false; setMsg(''); paint();
+      if (!PAYAPI().next) { busy = false; failed = true; paint(); return; }
+      PAYAPI().next({ sid: C.sid, set: setNo, band: C.band, topMg: C.topMg, topU: C.topU || {}, seen: Object.keys(S.used).slice(-4000) }, function (err, r) {
+        busy = false;
+        if (S.cur !== C || C.locked || !C.pause) return;
+        if (err) {
+          if (err.code === 'early') { C.pause.retryAt = srvNow() + Math.min(60, (err.waitSec || 5)) * 1000 + 500; paint(); return; }
+          if (err.code === 'expired' || err.code === 'gone') { stop(); finish(true); return; }
+          failed = true; paint(); return;
+        }
+        sync(r);
+        if (r.pause) { C.pause.at = r.doneAt; C.pause.marked = true; delete C.pause.retryAt; save(S); paint(); return; }
+        qsPut(C.sid, r.questions);
+        C.ids[kk] = r.questions.map(function (q) { return q.id; });
+        C.dl = C.dl || {}; C.dl[setNo] = r.deadline; C.begin[setNo] = r.releaseAt;
+        stop(); delete C.pause; save(S); renderStep();
       });
     }
-  }
-  function weight(q, topU) { var w = 0; udyTags(q).forEach(function (u) { if (topU[u]) w += topU[u]; }); return w; }
-
-  /* ---------- होल-बंदी (22-Jul): खंड कभी 40 से कम न रहे ----------
-     deep-filter (mg+udy मिलान) कभी-कभी 40 से कम दे सकता है (loaded-shard सीमित
-     होने से) — तब मौजूदा loaded-pool से band-फिट कोई भी बाक़ी प्रश्न भरकर 40 पूरे
-     करो (topMg-मेल वालों को प्राथमिकता); वरना खंड ख़ाली रहकर टेस्ट ग़लत-समय
-     ख़त्म हो जाता (80/120 वाला होल)। */
-  function backfillTo40(list, chosenIds, band, topMg) {
-    if (list.length >= PER_KHAND) return list.slice(0, PER_KHAND);
-    var have = {}; list.forEach(function (q) { have[q.id] = 1; });
-    Object.keys(chosenIds || {}).forEach(function (id) { have[id] = 1; });
-    var backup = poolAll().filter(function (q) { return !have[q.id] && fitsBand(q, band); });
-    backup.sort(function (a, b) {
-      var am = (topMg && mgTags(a).some(function (m) { return topMg.indexOf(m) >= 0; })) ? 0 : 1;
-      var bm = (topMg && mgTags(b).some(function (m) { return topMg.indexOf(m) >= 0; })) ? 0 : 1;
-      return am - bm;
-    });
-    var need = PER_KHAND - list.length;
-    return list.concat(backup.slice(0, need));
-  }
-
-  /* ---------- कथा-विराम — 30-सेकंड अनिवार्य होल्ड (Founder-नियम, 22-Jul) ----------
-     "आगे बढ़ें" बटन 30 सेकंड तक निष्क्रिय रहे — जल्दी में बिना पढ़े आगे बढ़ना रुके। */
-  var HOLD_SEC = 30;
-  function storyBreak(topMgId, next) {
-    var st = (D.stories || []).filter(function (s) { return (s.mg || []).indexOf(topMgId) >= 0; })[0] || (D.stories || [])[S.cur.phase % (D.stories || [1]).length] || null;
-    if (!st) { next(); return; }
-    box.innerHTML = '<div class="apt-card apt-katha">' + art(st.img) +
-      '<p class="apt-q">📖 ' + esc(ST(st, 'title')) + '</p><p>' + esc(ST(st, 'text')) + '</p>' +
-      '<div class="apt-nav"><button class="apt-btn blue" id="apt-next" disabled>⏳ ' + HOLD_SEC + L(' सेकंड रुकिए…</button></div></div>');
-    appOn();
-    toTop();
-    var btn = document.getElementById('apt-next');
-    var left = HOLD_SEC;
-    var timer = setInterval(function () {
-      left--;
-      if (left <= 0) {
-        clearInterval(timer);
-        if (btn) { btn.disabled = false; btn.textContent = L('आगे बढ़ें ➜');
-          btn.onclick = function () {
-            box.innerHTML = L('<div class="apt-card"><p>⏳ अगले खंड के प्रश्न आ रहे हैं…</p><p class="apt-note">कमज़ोर नेट पर 25 सेकंड तक लग सकते हैं।</p></div>');
-            next();
-          }; }
-      } else if (btn) {
-        btn.textContent = '⏳ ' + left + L(' सेकंड रुकिए…');
+    function paint() {
+      var btn = document.getElementById('apt-next'), lf = document.getElementById('apt-pause-left');
+      if (!btn || S.cur !== C || !C.pause) { stop(); return; }
+      if (srvNow() >= C.exp) { stop(); finish(true); return; }
+      if (failed) { btn.disabled = false; btn.textContent = L('🔄 दोबारा'); btn.onclick = ask; if (lf) lf.textContent = ''; setMsg(L('⚠️ अगले खंड के प्रश्न नहीं आ पाए। net देखकर "दोबारा" दबाइए।')); return; }
+      if (busy) { btn.disabled = true; btn.onclick = null; btn.textContent = C.pause.marked ? L('⏳ अगले खंड के प्रश्न आ रहे हैं…') : L('⏳ रुकिए…'); return; }
+      var holding = C.pause.retryAt && srvNow() < C.pause.retryAt;
+      if (!C.pause.marked) { btn.disabled = true; btn.onclick = null; btn.textContent = L('⏳ रुकिए…'); if (!holding) ask(); return; }
+      var el = srvNow() - C.pause.at, minMs = RULES.pauseMinSec * 1000, maxMs = RULES.pauseMaxSec * 1000;
+      if (holding) { btn.disabled = true; btn.onclick = null; btn.textContent = L('⏳ रुकिए…'); return; }
+      if (el >= maxMs || (want && el >= minMs)) { ask(); return; }
+      if (el >= minMs) {
+        btn.disabled = false; btn.textContent = L('अगला खंड शुरू करें ➜'); btn.onclick = function () { want = true; ask(); };
+        if (lf) lf.textContent = L('अगला खंड अपने-आप शुरू होगा: ') + mmss(maxMs - el);
+      } else {
+        btn.disabled = true; btn.onclick = null; btn.textContent = L('⏳ रुकिए…');
+        if (lf) lf.textContent = L('विराम का कम से कम समय बाक़ी: ') + mmss(minMs - el);
       }
-    }, 1000);
+    }
+    stop(); pauseTimer = setInterval(paint, 1000); paint();
   }
 
-  /* ---------- प्रश्न-प्रदर्शन — mandatory-complete-per-40 मॉडल (Founder-नियम, 22-Jul) ----------
-     हर खंड (40 प्रश्न) की अपनी queue: सामने वाला प्रश्न हमेशा queue[0]। जवाब मिले →
-     आगे बढ़े (doneOrder में); "अभी छोड़ें" दबे तो वही प्रश्न queue के पीछे चला जाए —
-     यानी बाक़ी 39 में घूमकर फिर सामने आएगा। खंड तभी पूरा माना जाए जब queue ख़ाली
-     हो — कोई भी प्रश्न बिना जवाब टेस्ट को आगे नहीं बढ़ा सकता (1 भी छूटा तो दुबारा आएगा)। */
+  /* ---- खंड के सब प्रश्न हो गए, पर कम से कम समय बाक़ी है: तब तक जवाब देखे और बदले जा सकते हैं ---- */
+  function renderWait() {
+    var C = S.cur;
+    appOn();
+    box.innerHTML = '<div class="apt-card">' +
+      L('<p class="apt-q">✅ इस खंड के सब प्रश्न हो गए।</p>') +
+      L('<p>इस खंड का कम से कम समय अभी बाक़ी है:</p>') +
+      '<p class="apt-prog" id="apt-wait-left">' + mmss(minReadyAt(C) - srvNow()) + '</p>' +
+      L('<p>तब तक "← पिछला" दबाकर अपने जवाब देख सकते हैं और बदल सकते हैं।</p>') +
+      L('<div class="apt-nav"><button class="apt-btn ghost" id="apt-prev">← पिछला</button> ') +
+      L('<button class="apt-btn ghost apt-mini" id="apt-cancel">❌ परीक्षा छोड़ें</button></div></div>');
+    document.getElementById('apt-prev').onclick = function () {
+      if (C.doneOrder && C.doneOrder.length) { var back = C.doneOrder.pop(); C.queue = C.queue || []; C.queue.unshift(back); }
+      save(S); renderStep();
+    };
+    var cb = document.getElementById('apt-cancel'); if (cb) cb.onclick = cancelAttempt;
+  }
+
   function seq() { var C = S.cur; return C.ids.k1.concat(C.ids.k2, C.ids.k3); }
   function currentPhaseIds() {
     var C = S.cur;
@@ -587,6 +601,7 @@
     var C = S.cur;
     ensureQueue();
     if (C.queue.length === 0) {
+      if (srvNow() < minReadyAt(C)) { renderWait(); return; }
       if (C.phase === 1 || C.phase === 2) { khandBoundary(); return; }
       renderSubmit(); return;
     }
@@ -631,10 +646,15 @@
     try { return sessionStorage.getItem('acs_apt_back') || '/dashboard/'; } catch (e) { return '/dashboard/'; }
   }
   function cancelAttempt() {
-    if (!confirm(L('पक्का परीक्षा छोड़ना है? अब तक के जवाब मिट जाएँगे — यह प्रयास रद्द हो जाएगा।'))) return;
+    if (!confirm(L('पक्का परीक्षा छोड़नी है? अब तक के जवाब मिट जाएँगे, और यह परीक्षा आज की 2 परीक्षाओं में गिनी जाएगी।'))) return;
+    var C = S.cur, sid = C && C.sid;
     appOff();
-    S.cur = null; save(S);
-    location.href = backUrl();
+    if (pauseTimer) { clearInterval(pauseTimer); pauseTimer = null; }
+    S.cur = null; save(S); qsClear();
+    box.innerHTML = L('<div class="apt-card"><p>परीक्षा बंद की जा रही है…</p></div>');
+    var gone = false, go = function () { if (gone) return; gone = true; location.href = backUrl(); };
+    if (sid && PAYAPI().finish) PAYAPI().finish({ sid: sid, cancel: true }, go); else go();
+    setTimeout(go, 7000);
   }
   function answered(q, a) {
     if (q.type === 'pick') return typeof a.first === 'number' && typeof a.last === 'number';
@@ -723,26 +743,30 @@
   }
   function finish(byClock) {
     var C = S.cur; if (!C || C.locked) return;
-    C.locked = true;
+    C.locked = true; delete C.pause;
+    if (pauseTimer) { clearInterval(pauseTimer); pauseTimer = null; }
     Object.keys(C.ans).forEach(function (id) { S.used[id] = 1; });
     S.attempts.push({ n: C.n, band: C.band, doneAt: new Date().toISOString().slice(0, 10), byClock: !!byClock });
     save(S);
-    /* ₹100-चांस रास्ते से आए थे तो अभी consume करो (badge-रास्ते पर ज़रूरत नहीं —
-       बैज-धारक असीमित हैं)। server ख़ुद सबसे पुराना unused+paid चांस चुनकर
-       consume करता है — यहाँ orderId भेजने की ज़रूरत नहीं (v22-Jul डिज़ाइन)। */
-    if (ACCESS_MODE === 'attempt' && window.ACS_APT_PAY && window.ACS_APT_PAY.consume) {
-      try { window.ACS_APT_PAY.consume(); } catch (e) {}
-    }
+    tellFinish(C.sid, 0);       /* server को सिर्फ़ यह बताया जाता है कि परीक्षा पूरी हुई; कोई जवाब या नतीजा नहीं जाता */
     renderResult(byClock);
   }
+  function tellFinish(sid, tries) {
+    if (!sid || !PAYAPI().finish) return;
+    PAYAPI().finish({ sid: sid }, function (err) {
+      if (!err || tries >= 3) return;
+      if (err.code === 'early') { setTimeout(function () { tellFinish(sid, tries + 1); }, Math.min(60, (err.waitSec || 10)) * 1000 + 500); return; }
+      if (!err.code) setTimeout(function () { tellFinish(sid, tries + 1); }, 15000);
+    });
+  }
+  /* सेक्टर का स्कोर 0 से 100: औसत अंक (−5 से +5) को 100 के पैमाने पर रखा जाता है */
+  function secScore(x) { return Math.max(0, Math.min(100, Math.round((x.avg + 5) * 10))); }
 
-  /* ---------- नतीजा ---------- */
-  /* ---------- ₹125 रिपोर्ट-सेव + Print/WhatsApp (badge-status से स्वतंत्र, 22-Jul) ----------
-     window.ACS_APT_PAY (apt-pay.js) उपलब्ध न हो तो बटन साफ़ संदेश दे — गूँगा-fallback निषेध। */
   function buildReportText(mgR, picks, C) {
     var lines = [];
     lines.push(L('ACS अभिरुचि-टेस्ट रिपोर्ट — ') + new Date().toLocaleDateString(DLOC));
-    lines.push(L('शीर्ष समूह: ') + mgR.slice(0, 4).map(function (x) { return mgName(x.k); }).join(', '));
+    lines.push(L('सबसे मज़बूत सेक्टर (स्कोर 100 में से):'));
+    mgR.slice(0, 5).forEach(function (x, i) { lines.push((i + 1) + '. ' + mgName(x.k) + ': ' + secScore(x)); });
     if (picks && picks.length) {
       lines.push(L('सुझाए कोर्स:'));
       picks.forEach(function (p, i) { lines.push((i + 1) + '. ' + UN(p.u.name)); });
@@ -788,30 +812,48 @@
     var T = tally(qmap, C.ans);
     var mgR = rank(T.mg), udyR = rank(T.udy).filter(function (x) { return x.avg > 0; });
     hook({ band: C.band, top: mgR.slice(0, 4).map(function (x) { return x.k; }), m: new Date().getMonth() + 1 });
+    appOn();
     box.innerHTML = L('<div class="apt-card"><p>नतीजा बन रहा है…</p></div>');
     loadMany(['/assets/udyam_data.js'], function () {
       var SEC = (window.ALL_SECTORS || (typeof ALL_SECTORS !== 'undefined' ? ALL_SECTORS : []));
       var byN = {}; SEC.forEach(function (u) { byN[u.n] = u; });
       var picks = udyR.slice(0, 12).map(function (x) { return { u: byN[x.k], score: x.avg }; }).filter(function (p) { return p.u; });
       picks.sort(function (a, b) { return (b.u.course ? 1 : 0) - (a.u.course ? 1 : 0) || b.score - a.score; });
-      /* (29-Jul, Founder बिंदु-2) पिछला-हिसाब सहेजो — मुख्य-पन्ने पर दिखेगा */
+      var top5 = mgR.slice(0, 5);
+      /* पिछला रुझान सिर्फ़ इसी फ़ोन में रखा जाता है (server पर कुछ नहीं जाता) */
       S.prev = { at: Date.now(),
+        sec: top5.map(function (x) { return { nm: mgName(x.k), sc: secScore(x) }; }),
         mg: mgR.slice(0, 4).map(function (x) { return mgName(x.k); }),
         udy: picks.slice(0, 8).map(function (p) {
           return { n: p.u.n, nm: UN(p.u.name), c: p.u.course || '', s: Math.round((p.score || 0) * 10) / 10 }; }) };
       save(S);
-      /* (30-Jul होल-1, Founder-override v4.0-ख1) login हो तो नतीजे का सार खाते
-         में भी — फ़ोन बदलने पर नतीजा न खोए। fail = चुपचाप, नतीजा कभी न रुके। */
-      if (window.ACS_APT_PAY && window.ACS_APT_PAY.saveResult) {
-        try { window.ACS_APT_PAY.saveResult(S.prev); } catch (e) {}
-      }
       picks = picks.slice(0, 5);
       var h = '';
-      if (byClock) h += L('<div class="apt-note">⏱ 90 मिनट पूरे — जितने जवाब मिले, उन्हीं से नतीजा बना।</div>');
+      if (byClock) h += L('<div class="apt-note">⏱ समय पूरा हो गया। जितने जवाब मिले, उन्हीं से नतीजा बना।</div>');
       h += '<p class="apt-q">' + (C.band === 1 ? L('🌟 यह दुनिया तुम्हें बुला रही है!') : L('🏆 आपकी रुचि की दिशा')) + '</p>';
       if (!picks.length && !mgR.length) {
         h += L('<p>जवाब बहुत कम मिले — नतीजा नहीं बन पाया। नया प्रयास कीजिए।</p>');
       } else {
+        if (top5.length) {
+          h += L('<p class="apt-q" style="font-size:19px">⭐ आपके सबसे मज़बूत सेक्टर (स्कोर 100 में से):</p>') + '<div class="apt-opts">';
+          top5.forEach(function (x, i) {
+            h += '<div class="apt-row apt-course"><span class="nm">' + (i + 1) + '. ' + (i === 0 ? '<b>' + mgName(x.k) + '</b>' : mgName(x.k)) +
+              '</span> <span class="apt-chip">' + secScore(x) + '</span></div>';
+          });
+          h += '</div>';
+          /* v2.3: करियर-पेज का वादा है कि पूरे 24 सेक्टरों के अंक घटते क्रम में मिलते हैं; इसलिए ऊपर के 5 के नीचे पूरी सूची भी */
+          h += L('<p class="apt-q" style="font-size:19px">📊 सभी 24 सेक्टर के स्कोर (घटते क्रम में):</p>') + '<div class="apt-opts" id="apt-all24" style="text-align:left">';
+          var gotMg = {}, ROW24 = 'display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 2px;border-bottom:1px solid #E3E7EE';
+          mgR.forEach(function (x) {
+            if (!(x.k >= 1 && x.k <= 24)) return;
+            gotMg[x.k] = 1;
+            h += '<div class="apt-row" style="' + ROW24 + '"><span class="nm">' + mgName(x.k) + '</span> <span class="apt-chip">' + secScore(x) + '</span></div>';
+          });
+          for (var mm = 1; mm <= 24; mm++) {
+            if (!gotMg[mm]) h += '<div class="apt-row" style="' + ROW24 + '"><span class="nm">' + mgName(mm) + '</span> <span class="apt-hint">' + L('इसका प्रश्न नहीं आया') + '</span></div>';
+          }
+          h += '</div>';
+        }
         h += L('<p class="apt-q" style="font-size:19px">📚 आपके लिए कोर्स (घटते क्रम):</p>');
         if (!picks.length) h += L('<p>अभी कोई कोर्स-दिशा साफ़ नहीं उभरी — नए प्रयास में और जवाब दीजिए।</p>');
         h += '<div class="apt-opts">';
@@ -825,29 +867,27 @@
           h += '</div>';
         });
         h += L('</div><p>इनमें से किसी 1 से शुरुआत कीजिए — बाक़ी बाद में।</p>');
-        h += L('<p class="apt-q" style="font-size:19px">आपके शीर्ष समूह:</p><p>') +
-          mgR.slice(0, 4).map(function (x) { return '<span class="apt-chip">' + mgName(x.k) + '</span>'; }).join(' ') + '</p>';
         var unMg = Object.keys(T.un);
         if (unMg.length) h += L('<div class="apt-note">🔍 अनजान क्षेत्र: ') + unMg.slice(0, 6).map(function (m) { return mgName(Number(m)); }).join(' · ') + L(' — इन्हें जानना भी एक राह है।</div>');
       }
       h += L('<div class="apt-note">📝 यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।</div>') +
-        L('<div class="apt-note">🟢 टेस्ट मुफ़्त है (badge-धारक असीमित)। यह रिपोर्ट अभी अस्थायी है — ') +
-        L('₹125 जमा करें तो सिस्टम इसे भविष्य के लिए सेव कर देगा, तभी Print/WhatsApp विकल्प खुलेंगे। ') +
-        L('हर नए टेस्ट/नतीजे का सेव अलग ₹125 में।</div>') +
+        L('<div class="apt-note">📱 यह नतीजा सिर्फ़ इसी फ़ोन में है। server इसे बिना ₹125 के सेव नहीं करता, इसलिए फ़ोन बदलने पर यह वापस नहीं मिलेगा।</div>') +
+        L('<div class="apt-note">📄 ₹125 जमा करें तो यह रिपोर्ट सेव हो जाएगी, और Print तथा WhatsApp के विकल्प खुल जाएँगे। हर नई परीक्षा की रिपोर्ट अलग ₹125 में सेव होती है।</div>') +
         '<div id="apt-report-save-wrap" class="apt-nav">' +
         L('<button class="apt-btn gold" id="apt-report-save-btn">📄 यह रिपोर्ट सेव करें (₹125)</button></div>') +
         '<p id="apt-report-msg" style="color:var(--muted,#666);font-size:16px"></p>' +
         L('<div class="apt-nav"><button class="apt-btn green" id="apt-again">🆕 नया प्रयास (ताज़ा प्रश्न)</button></div>');
       box.innerHTML = '<div class="apt-card">' + h + '</div>';
-      document.getElementById('apt-again').onclick = function () { S.cur = null; save(S); renderStart(); };
+      document.getElementById('apt-again').onclick = function () { S.cur = null; save(S); regate(); };
       wireReportSave(mgR, picks, C);
-      window.scrollTo(0, box.offsetTop - 8);
+      toTop();
     });
   }
 
-  /* ---------- बूट ---------- */
+  /* ---- शुरुआत ---- */
+  sync(GATE);
   var C0 = S.cur;
-  if (C0 && C0.locked) { S.cur = null; save(S); }
+  if (C0 && (C0.locked || !C0.sid)) { S.cur = null; save(S); }   /* बंद हो चुका, या पुराने इंजन का अधूरा प्रयास */
   renderStart();
 
   } /* ==== initEngine() समाप्त ==== */

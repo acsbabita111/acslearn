@@ -30,8 +30,16 @@ const dataSrc = fs.readFileSync(path.join(ASSETS, "aptitude_data.js"), "utf8");
 const poolM = dataSrc.match(/pool:\s*(\{[\s\S]*?\}\})/);
 if (!poolM) { console.log("⛔ pool-नक़्शा नहीं मिला"); process.exit(1); }
 const pool = JSON.parse(poolM[1].replace(/'/g, '"'));
+/* 13-Nov-2026: पूरा प्रश्न-भंडार अब repo पर नहीं है (Founder-नियम: फीस से जुड़ा content server पर)।
+   भंडार की जगह: APT_BANK_DIR (environment), या office laptop का ../acs-deploy/functions/apt_bank/hi।
+   भंडार इस मशीन पर न मिले तो apt_counts.json जैसा है वैसा ही रहता है। */
+const BANK = process.env.APT_BANK_DIR ? path.resolve(process.env.APT_BANK_DIR) : path.join(ROOT, "..", "acs-deploy", "functions", "apt_bank", "hi");
+if (!fs.existsSync(path.join(BANK, "broad.js"))) {
+  console.log("ℹ️ प्रश्न-भंडार इस मशीन पर नहीं मिला (" + BANK + ")। apt_counts.json नहीं बदला गया।");
+  process.exit(0);
+}
 const shardFiles = [pool.broad].concat(Object.keys(pool.mg).sort((a,b)=>a-b).map(k => pool.mg[k]))
-  .map(p => path.join(ASSETS, p.replace(/^\/assets\//, "")));
+  .map(p => path.join(BANK, path.basename(p)));
 
 let shardQ = 0; const ids = new Set();
 for (const q of baseQuestions) { if (q && q.id) ids.add(q.id); }
