@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/apt-session.js : v2.7 (13-Nov-2026)
+   /assets/apt-session.js : v2.8 (13-Nov-2026)
+   v2.8 (13-Nov-2026, खेप 2 के ऑडिट K2-H03 और Founder का फ़ैसला): ₹100 के बटन के ऊपर लिखा है कि चांस वापस नहीं होता, सिवाय हमारी तकनीकी ग़लती के। बाक़ी सब v2.7 जैसा।
    Founder के 13-Nov-2026 के नियम लागू:
    - पूरा प्रश्न-भंडार अब repo पर नहीं है। हर खंड के 40 प्रश्न server (aptStart, aptNext) से आते हैं।
    - द्वार server तय करता है: सक्रिय बैज, या ₹100 का चांस। फ़ोन का पुराना निशान अब ताला नहीं है।
@@ -133,6 +134,7 @@
     } else {   /* 'buy': login नहीं है, या बैज और ₹100 का चांस दोनों नहीं हैं */
       extra = '<div id="apt-buy-wrap">' +
         L('<p style="font-weight:700;color:var(--navy,#0B1F3A)"><b>बैज नहीं है?</b> ₹100 में 1 परीक्षा दी जा सकती है। इसके लिए पहले रजिस्ट्रेशन और Login ज़रूरी है।</p>') +
+        L('<p style="font-size:16px"><b>₹100 का चांस वापस नहीं होता।</b> सिर्फ़ हमारी तकनीकी ग़लती हो, तो पूरा पैसा वापस मिलता है। <a href="/refund.html">वापसी-नीति</a></p>') +
         L('<div class="apt-nav"><a class="apt-btn ghost" href="/join.html">📝 पहले रजिस्ट्रेशन करें</a> ') +
         L('<button class="apt-btn gold" id="apt-buy-attempt-btn">\uD83C\uDF9F\uFE0F ₹100 में 1 परीक्षा दें</button></div>') +
         '<p id="apt-buy-msg" style="color:var(--muted,#666);font-size:16px"></p>' +

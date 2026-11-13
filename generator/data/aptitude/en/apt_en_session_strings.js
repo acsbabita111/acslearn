@@ -20,6 +20,7 @@ module.exports = {
     ["जवाब नहीं मिला","No reply came from the server."],
     ["दोबारा जाँचें","<div class=\"apt-nav\"><button class=\"apt-btn blue\" id=\"apt-regate\">🔄 Check again</button></div>"],
     ["बैज नहीं है?","<p style=\"font-weight:700;color:var(--navy,#0B1F3A)\"><b>No Badge?</b> You can take 1 test for ₹100. For this, registration and Login are needed first.</p>"],
+    ["वापस नहीं होता","<p style=\"font-size:16px\"><b>The ₹100 attempt is not refunded.</b> Only if it is our technical fault, the full amount is returned. <a href=\"/refund.html\">Refund policy</a></p>"],
     ["पहले रजिस्ट्रेशन","<div class=\"apt-nav\"><a class=\"apt-btn ghost\" href=\"/join.html\">📝 Register first</a> "],
     ["₹100 में 1 परीक्षा दें","<button class=\"apt-btn gold\" id=\"apt-buy-attempt-btn\">🎟️ Take 1 test for ₹100</button></div>"],
     ["हर खंड में 40 प्रश्न</p>","<p class=\"apt-q\">🎖️ 120 questions · 3 sections · 40 questions in each section</p>"],

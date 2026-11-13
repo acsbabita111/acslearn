@@ -301,16 +301,18 @@ const REFUND_CONTENT =
 '<p>पूरी फ़ीस में से 30% घटाओ, फिर बचे दिनों के हिसाब से पैसा लौटाओ।</p>' +
 '</div>' +
 
-'<div class="lg-card"><h2>2. अभिरुचि-टेस्ट (Aptitude Test)</h2>' +
-'<p>भुगतान के बाद 30 दिन का समय मिलता है।</p>' +
-'<p>इसी समय में टेस्ट पूरा करें।</p>' +
-'<p>हर हाल में 30% कटता है।</p>' +
-'<p>यह बात भुगतान से पहले बता दी जाती है।</p>' +
-'<p>नतीजा दिख गया, तो कोई वापसी नहीं।</p>' +
-'<p>अंतिम जमा (final submit) से पहले छोड़ा, तो 70% वापस।</p>' +
-'<p>इसके लिए शिकायत 24 घंटे में करें।</p>' +
-'<p>30 दिन बीत गए, तो कुछ वापस नहीं।</p>' +
-'<p>दोबारा टेस्ट देना हो, तो पूरी फ़ीस लगेगी।</p>' +
+'<div class="lg-card"><h2>2. परीक्षा का चांस (₹100)</h2>' +
+'<p>यह चांस करियर टेस्ट में भी चलता है और कोर्स की अंतिम परीक्षा में भी।</p>' +
+'<p>एक चांस से एक परीक्षा दी जा सकती है।</p>' +
+'<p>चांस भुगतान के बाद 30 दिन तक चलता है।</p>' +
+'<p>परीक्षा शुरू करते ही चांस इस्तेमाल हो जाता है।</p>' +
+'<p>₹100 का चांस वापस नहीं होता।</p>' +
+'<p>30 दिन में इस्तेमाल न हो, तब भी पैसा वापस नहीं होता।</p>' +
+'<p>सिर्फ़ हमारी तकनीकी गलती हो, तो पूरा पैसा वापस मिलता है।</p>' +
+'<p>जैसे पैसा दो बार कट जाए।</p>' +
+'<p>या हमारी गड़बड़ी से परीक्षा शुरू ही न हो पाए।</p>' +
+'<p>यह बात भुगतान से पहले परदे पर लिखी दिखती है।</p>' +
+'<p>जिनके पास सक्रिय बैज है, उनके लिए परीक्षा मुफ़्त है।</p>' +
 '</div>' +
 
 '<div class="lg-card"><h2>3. सलाहकार-सलाह (Counselling)</h2>' +
@@ -340,7 +342,7 @@ const REFUND_CONTENT =
 '<p>हमेशा आधिकारिक Razorpay लिंक से ही भुगतान करें।</p>' +
 '</div>' +
 
-'<p class="lg-updated">आख़िरी बदलाव: 18 जुलाई 2026</p>' +
+'<p class="lg-updated">आख़िरी बदलाव: 13 नवंबर 2026</p>' +
 '<div class="lg-links"><a href="/">🏠 होम</a><a href="/privacy.html">🔒 गोपनीयता</a><a href="/terms.html">📜 शर्तें</a></div>' +
 '</div>';
 
@@ -3244,7 +3246,7 @@ const KKB2_LANGS = [
 ];
 /* ===== 14-Sep (Founder: "परिचय पेज विश्व-स्तरीय") — app के नीचे स्थिर परिचय: 6 अंक · 4 कदम · यह भाषा क्यों (गलियारा-data) · विश्व-मानक · FAQ (FAQPage JSON-LD) · आगे ===== */
 const KKB_FAQ = [
-  ["क्या यह कोर्स सच में मुफ़्त है?", "हाँ। पढ़ना, सुनना, बोलना, साप्ताहिक परीक्षा — सब मुफ़्त, बिना login। सिर्फ़ प्रमाणपत्र-PDF ₹125 का है, वह भी मर्ज़ी से।"],
+  ["क्या यह कोर्स सच में मुफ़्त है?", "पढ़ाई पूरी तरह मुफ़्त है: पढ़ना, सुनना, बोलना और साप्ताहिक परीक्षा, बिना login। पैसा दो जगह लगता है: 90 दिन बाद की अंतिम परीक्षा में (बैज हो तो मुफ़्त, नहीं तो ₹100 प्रति परीक्षा) और प्रमाणपत्र-PDF में (₹125, मर्ज़ी से)।"],
   ["मैं सिर्फ़ 5वीं पास हूँ, क्या कर पाऊँगा/पाऊँगी?", "हाँ। हर वाक्य देवनागरी में उच्चारण और हिंदी में अर्थ के साथ है। रोज़ 20–30 वाक्य सुनो और बोलो — बस।"],
   ["रोज़ कितना समय लगेगा और कुल कितने दिन?", "रोज़ 15–20 मिनट। 90 दिन में 2,150 वाक्य। छूट जाए तो जहाँ छोड़ा था वहीं से चलता है।"],
   ["प्रमाणपत्र किस काम आएगा?", "यह बोलने-तैयारी का ACS-प्रमाणपत्र है (FFGPMTrust, QR से जाँच)। यह सरकारी भाषा-परीक्षा या वीज़ा की गारंटी नहीं — उनकी तैयारी है; आगे की मान्य परीक्षा की कड़ी इसी पेज पर है।"],
@@ -3461,7 +3463,7 @@ function briefContent(c) {
     '<p class="bf-kicker">अप्लाइड कंप्यूटर स्कूल™ · FFGPMTrust · ACS काम की भाषा</p>' +
     '<h1>' + esc(c.hi_name) + ' बोलने का प्रमाणपत्र कोर्स — एक-पन्ना परिचय (दूतावास, नियोक्ता व भर्ती-एजेंसी के लिए)</h1>' +
     '<div class="bf-actions"><a class="bf-btn" href="#bf-en">English version ↓</a><button type="button" class="bf-btn bf-btn2" onclick="window.print()">🖨️ छापें / PDF</button><a class="bf-btn bf-btn3" href="' + url + '">🗣️ कोर्स खोलें</a></div>' +
-    box('1. कोर्स एक नज़र में', '<table class="bf-t"><tr><td>भाषा</td><td>' + esc(c.hi_name) + ' (' + esc(c.en_name) + ')</td></tr><tr><td>माध्यम</td><td>हिंदी (देवनागरी उच्चारण + हिंदी अर्थ + असली लिपि)</td></tr><tr><td>स्तर</td><td>CEFR A1–A2 पर आधारित/प्रेरित (CEFR-प्रमाणित नहीं)</td></tr><tr><td>अवधि</td><td>90 दिन · 3 महीने · रोज़ 20–30 वाक्य</td></tr><tr><td>सामग्री</td><td>' + items.toLocaleString("en-IN") + ' वाक्य (स्तर-1: 500 · स्तर-2: 1,650), संवाद, साप्ताहिक शब्दकोश, हर वाक्य पर आवाज़</td></tr><tr><td>परीक्षा</td><td>ऑनलाइन: 40 सुनो + 40 बोलो + 40 पढ़ो (प्रश्न-बैंक लगभग 3,000; हर बार नए)</td></tr><tr><td>प्रमाणपत्र</td><td>FFGPMTrust द्वारा, unique नंबर + QR से दुनिया में कहीं से जाँच; कोर्स मुफ़्त, प्रमाणपत्र ₹125</td></tr><tr><td>पता</td><td><a href="' + url + '">' + esc(url) + '</a></td></tr></table>') +
+    box('1. कोर्स एक नज़र में', '<table class="bf-t"><tr><td>भाषा</td><td>' + esc(c.hi_name) + ' (' + esc(c.en_name) + ')</td></tr><tr><td>माध्यम</td><td>हिंदी (देवनागरी उच्चारण + हिंदी अर्थ + असली लिपि)</td></tr><tr><td>स्तर</td><td>CEFR A1–A2 पर आधारित/प्रेरित (CEFR-प्रमाणित नहीं)</td></tr><tr><td>अवधि</td><td>90 दिन · 3 महीने · रोज़ 20–30 वाक्य</td></tr><tr><td>सामग्री</td><td>' + items.toLocaleString("en-IN") + ' वाक्य (स्तर-1: 500 · स्तर-2: 1,650), संवाद, साप्ताहिक शब्दकोश, हर वाक्य पर आवाज़</td></tr><tr><td>परीक्षा</td><td>ऑनलाइन: 40 सुनो + 40 बोलो + 40 पढ़ो (प्रश्न-बैंक लगभग 3,000; हर बार नए)</td></tr><tr><td>प्रमाणपत्र</td><td>FFGPMTrust द्वारा, unique नंबर + QR से दुनिया में कहीं से जाँच; कोर्स मुफ़्त; अंतिम परीक्षा बैज में मुफ़्त, नहीं तो ₹100; प्रमाणपत्र ₹125</td></tr><tr><td>पता</td><td><a href="' + url + '">' + esc(url) + '</a></td></tr></table>') +
     box('2. कोर्स पूरा करने पर learner क्या कर सकेगा (' + canN + ' Can-do कथन)', '<ul class="bf-can">' + canList + '</ul>') +
     box('3. विषय-नक़्शा', '<p>स्तर-1 (दिन 1–25): पहली ज़रूरत · रोज़ की ज़िंदगी · काम की जगह · पैसा-यात्रा-सुरक्षा · नौकरी-फ़ोन-पेशा। स्तर-2 (दिन 26–90): परिवार-घर · दिनचर्या · पड़ोस · आदतें-समय · मेरा काम-हुनर · पैसा-दोस्त-तरक्की · काम की जगहें-ठिकाना-हक़ · इंटरव्यू-रिपोर्ट · बाज़ार · बस-ट्रेन-सफ़र · वीज़ा-हवाई-अड्डा · आराम-ख़ुशी · जीवन-रक्षा-आवाज़-हक़ (सुरक्षा व शोषण-बचाव परिशिष्ट)।</p>') +
     box('4. आगे की मान्य परीक्षा (ACS कोर्स = तैयारी; वही परीक्षा नहीं)', '<p>' + esc(nextTxt).split("\u0001").map(x => x.trim()).join('<br>') + '</p>') +
@@ -3471,7 +3473,7 @@ function briefContent(c) {
   let en = '<article class="bf-wrap bf-en" id="bf-en" lang="en">' +
     '<p class="bf-kicker">Applied Computer School™ · FFGPMTrust · ACS Language for Work</p>' +
     '<h1>ACS Certificate in Spoken ' + esc(c.en_name) + ' — one-page brief (for embassies, employers, recruiters)</h1>' +
-    box('1. At a glance', '<table class="bf-t"><tr><td>Language</td><td>' + esc(c.en_name) + ' (' + esc(c.hi_name) + ')</td></tr><tr><td>Medium of instruction</td><td>Hindi (Devanagari pronunciation + Hindi meaning + native script)</td></tr><tr><td>Level</td><td>Based on / inspired by CEFR A1–A2 (not CEFR-certified)</td></tr><tr><td>Duration</td><td>90 days · 3 months · 20–30 sentences a day</td></tr><tr><td>Content</td><td>' + items.toLocaleString("en-IN") + ' sentences (Level 1: 500 · Level 2: 1,650), dialogues, weekly word lists, audio for every sentence</td></tr><tr><td>Assessment</td><td>Online exam: 40 listening + 40 speaking + 40 reading (bank of about 3,000 items, randomised)</td></tr><tr><td>Certificate</td><td>Issued by FFGPMTrust; unique number + QR, verifiable worldwide; course free, certificate ₹125</td></tr><tr><td>URL</td><td><a href="' + url + '">' + esc(url) + '</a></td></tr></table>') +
+    box('1. At a glance', '<table class="bf-t"><tr><td>Language</td><td>' + esc(c.en_name) + ' (' + esc(c.hi_name) + ')</td></tr><tr><td>Medium of instruction</td><td>Hindi (Devanagari pronunciation + Hindi meaning + native script)</td></tr><tr><td>Level</td><td>Based on / inspired by CEFR A1–A2 (not CEFR-certified)</td></tr><tr><td>Duration</td><td>90 days · 3 months · 20–30 sentences a day</td></tr><tr><td>Content</td><td>' + items.toLocaleString("en-IN") + ' sentences (Level 1: 500 · Level 2: 1,650), dialogues, weekly word lists, audio for every sentence</td></tr><tr><td>Assessment</td><td>Online exam: 40 listening + 40 speaking + 40 reading (bank of about 3,000 items, randomised)</td></tr><tr><td>Certificate</td><td>Issued by FFGPMTrust; unique number + QR, verifiable worldwide; course free; final exam free with a learner badge, otherwise ₹100; certificate ₹125</td></tr><tr><td>URL</td><td><a href="' + url + '">' + esc(url) + '</a></td></tr></table>') +
     box('2. Learner outcomes', '<p>' + canN + ' Can-do statements (A1: weeks 1–5 · A2: weeks 6–18) covering first needs, daily life, workplace instructions, money and banking, safety, job interviews, phone calls, family, habits, markets, travel, visa and airport, and workers\' rights. Full list in the Hindi section above.</p>') +
     box('3. Employment corridors and Indian Missions', corEn + '<p class="bf-note">Safety links: <a href="https://emigrate.gov.in" target="_blank" rel="noopener">eMigrate</a> · <a href="https://www.madad.gov.in" target="_blank" rel="noopener">MADAD</a> · <a href="https://www.mea.gov.in" target="_blank" rel="noopener">MEA</a>. Verified: September 2026 — external sites, please re-verify.</p>') +
     box('4. Institution', '<p>Applied Computer School™ (acslearn.com), a project of FFGPMTrust (ffgpmt.org, ISO 9001:2015). ACS Building, Vidyarthi Nagar, Chautham, Khagaria, Bihar 851201, India · +91-9431210092 · info@ffgpmt.org. The course is free for all, works offline, no login needed to study.</p><p class="bf-note">Honesty line: this course prepares learners to speak; it does not guarantee any government language test, visa or job. Original language: Hindi — this section is a translation.</p>') +

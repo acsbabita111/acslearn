@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.8.0 · 13-Nov-2026 (खेप 2, Founder-नियम): कोर्स की अंतिम परीक्षा अब नए इंजन /assets/exam-session.js से चलती है (बैज या ₹100 · दिन में 2 · 3 खंड x 40 · हर खंड 20 से 40 मिनट · सबसे अच्छा अंक दर्ज · 5 हिस्सों का ब्योरा 7 दिन)। "मेरे कोर्स" की तालिका में सबसे अच्छा अंक (पास या फेल) और "ब्योरा / दोबारा दें" बटन। पुराना परीक्षा-परदा अब नहीं खुलता।
    v6.7.2 · 10-Nov-2026 — v1.2.1: Hindi-source Career-शब्दावली canonical (अभिरुचि-परीक्षण/सक्रिय Golden Pass/छपने-योग्य रिपोर्ट); DASH_VER v6.7.2।
    v6.7.1 · 09-Nov-2026 (learner English-परत — early-boot import: NO_GATEWAY_EXT पर dash_i18n_en.js dynamic-import — student/jobseeker/entrepreneur का पूरा UI English, toggle से; hi default अटल)
    v6.6.4 · 08-Nov-2026 (डिजिटल मित्र server-परीक्षा: SE026 SERVER_EXAM_COURSES + CRS_ICON 💻 में — dmt_bank 545 = 109 पाठ x 5; वही generic इंजन)
@@ -110,7 +111,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.7.2";
+const DASH_VER = "v6.8.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -1445,15 +1446,16 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         const tot=Number(m.c.lessons)||0, pc=tot?Math.min(100,Math.round(m.n*100/tot)):0, done=(tot&&m.n>=tot);
         const bank=(window.COURSE_EXAMS||{})[m.c.id];
         const canExam=bank && m.n>=bank.minLessons;
-        const res=EXAM_RES[m.c.id]||null, cert=res?CERT_BY[res.id]:null;
+        const res=EXAM_RES[m.c.id]||null, cert=(res&&CERT_BY[res.id])||CERT_CRS[m.c.id]||null;
         let ex;
-        if(res) ex='<span class="lvok">📄 '+res.pct+'%'+((res.pct>=60)?' ✅':' ❌')+'</span>';
+        /* (v6.8.0) सबसे अच्छा अंक दिखता है, और परीक्षा दोबारा दी जा सकती है (नया अंक ज़्यादा हो तभी दर्ज होता है) */
+        if(res) ex='<span class="lvok">📄 '+res.pct+'%'+(res.pass?' ✅':' ❌')+'</span>'+(canExam?' <button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 ब्योरा / दोबारा दें</button>':'');
         else if(canExam) ex='<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
         else if(bank) ex='<span class="lvmut">🔒 '+bank.minLessons+' पाठ बाद</span>';
         else ex='<span class="lvmut">—</span>';
         let ct;
         if(cert) ct='<button class="lvbtn gold" type="button" data-certdl=\''+esc(JSON.stringify({certNo:cert.certNo,name:cert.name,courseName:cert.courseName,courseId:cert.courseId,pct:cert.pct}))+'\'>🖨️ Download</button>';
-        else if(res && res.pct>=60) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
+        else if(res && res.pass) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
         else ct='<span class="lvmut">—</span>';
         const go = done ? '<span class="lvok">🏆 पूरा</span>'
           : '<a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
@@ -1514,16 +1516,18 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     }catch(e){ bx.innerHTML='<span class="note" style="color:#B71C1C">केंद्र-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
   }
   /* ── (30-Jul, रास्ता-1) 🎓 परीक्षा → 📄 result → 📜 ₹125 प्रमाणपत्र ── */
-  let EXAM_RES={}, CERT_BY={};
+  let EXAM_RES={}, CERT_BY={}, CERT_CRS={};
   async function loadExamState(){
-    EXAM_RES={}; CERT_BY={};
+    EXAM_RES={}; CERT_BY={}; CERT_CRS={};
     try{ const u=auth.currentUser; if(!u) return;
       const rs=await getDocs(query(collection(db,"examResults"), where("uid","==",u.uid)));
       rs.forEach(d=>{ const x=d.data()||{}; const k=x.courseId;
         const t=x.at&&x.at.toMillis?x.at.toMillis():0;
-        if(x.pass && (!EXAM_RES[k]||t>EXAM_RES[k]._t)) EXAM_RES[k]=Object.assign({_t:t,id:d.id},x); });
+        /* (v6.8.0) हर कोर्स का सबसे अच्छा अंक (पास हो या फेल); बराबर हो तो नया */
+        const p=Number(x.pct)||0, o=EXAM_RES[k];
+        if(!o || p>o.pct || (p===o.pct && t>o._t)) EXAM_RES[k]=Object.assign({},x,{_t:t,id:d.id,pct:p}); });
       const cs=await getDocs(query(collection(db,"certificates"), where("uid","==",u.uid)));
-      cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; });
+      cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; if(x.courseId && !CERT_CRS[x.courseId]) CERT_CRS[x.courseId]=x; });
     }catch(e){}
   }
 /* ═══ server-attempt मोड परीक्षा (30-Jul, इंजन-दौर v2 — पूर्ण-स्क्रीन डिज़ाइन) ═══
@@ -1589,6 +1593,22 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     return esc(rest) + '<div style="margin-top:8px"><button type="button" class="crsgo" style="font-size:18px" onclick="__examSay(this)" data-t="' + esc(m[1]) + '">🔊 वाक्य सुनिए</button> <button type="button" class="crsgo" style="font-size:18px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A" onclick="__examSay(this)" data-slow="1" data-t="' + esc(m[1]) + '">🐢 धीरे</button></div>' + (mic ? examMicHtml() : "");
   }   /* (30-Aug, Founder) Spoken English 120-प्रश्न server-परीक्षा जुड़ी (eng_bank, 2150) */   /* (13-Aug, Founder) मशरूम 120-प्रश्न server-परीक्षा जुड़ी (msh_bank, 3135) */
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
+  /* (v6.8.0, खेप 2) कोर्स-परीक्षा का नया इंजन: पहली बार "परीक्षा दें" दबाने पर ही लाया जाता है */
+  let __examLoad = null;
+  function examOpenNew(cid) {
+    if (!__examLoad) __examLoad = new Promise(function (res, rej) {
+      const s = document.createElement("script"); s.src = "/assets/exam-session.js";
+      s.onload = function () { res(); }; s.onerror = function () { __examLoad = null; rej(new Error("load")); };
+      document.head.appendChild(s);
+    });
+    return __examLoad.then(function () {
+      const u = auth.currentUser;
+      window.ACS_EXAM.open({ cid: cid, uid: u ? u.uid : "", tts: EXAM_TTS[cid] || "en-IN",
+        call: function (name, data) { return httpsCallable(functions, name)(data || {}).then(function (o) { return o.data || {}; }); },
+        loadRazorpay: loadRazorpay,
+        onClose: function (ch) { if (ch) loadExamState().then(function () { crsMineFill(); }); } });
+    }).catch(function () { alert("परीक्षा का पन्ना नहीं खुला। internet देखकर दोबारा दबाइए।"); });
+  }
   const OPT_LABEL = ["अ","ब","स","द"];
   function ensureExamStyle() {
     if (document.getElementById("examEngineStyle")) return;
@@ -1762,7 +1782,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   document.addEventListener("click", async function(ev){
     const eb=ev.target.closest("[data-exam]");
     if(eb){ const cid=eb.getAttribute("data-exam");
-      if(SERVER_EXAM_COURSES[cid]){ await examStartServer(cid); return; }
+      if(SERVER_EXAM_COURSES[cid]){ await examOpenNew(cid); return; }
       const bx=$("exWrap_"+cid);
       if(bx){ bx.style.display=""; bx.innerHTML=examBox(cid, window.COURSE_EXAMS[cid]); } return; }
     const epv=ev.target.closest("#exPrev");
