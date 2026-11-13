@@ -1105,6 +1105,13 @@ function vendorPanels(){
        + P_RULES_LINK("rules-consent-vendor.html","विक्रेता (Vendor)") + P_LEDGER + P_HELP;
 }
 /* चरण-6: role → पैनल-सेट का एक नक़्शा (dual-घर भी इसी से) */
+/* यंत्र-मिलान (14-Nov-2026): नीचे की तीन चीज़ें live पन्नों में 30-31 Jul से हैं, पर इस यंत्र में दर्ज नहीं थीं।
+   इन्हें यहाँ दर्ज करने के बाद यंत्र आज के live पन्ने हूबहू बनाता है (जाँच: generator/dev_dash_gen_check.js)।
+   1. "मेरे विषय" पैनल (8 भूमिकाएँ), 2. academic_subjects.js की script (वही 8), 3. exam_data.js की script (टेम्पलेट में, सब पन्ने)। */
+const P_MYSUBJ = "<div class=\"pcard panel\" id=\"pnl-mysubj\" data-nav=\"📚 मेरे विषय\" style=\"grid-column:1/-1\"><div class=\"ph\">📚 मेरे विषय — मुझे क्या आता है / रुचि है</div><div class=\"pd\">यहाँ बताएँ आपको किन-किन विषयों में महारत है या दिलचस्पी है — यह जानकारी counselor, नामांकन व सुझाव में आपकी मदद करेगी। जितने चाहें उतने चुनें, या \"सभी चुनें\"।</div><div id=\"mySubjBox\"><span class=\"note\">विषय-सूची यह पैनल खोलने पर आती है…</span></div><button class=\"abtn ok\" id=\"mySubjSave\" type=\"button\" style=\"margin-top:10px\">💾 सहेजें</button><div id=\"mySubjMsg\" class=\"msg\"></div></div>";
+const MYSUBJ_ROLES = ["center","counselor","entrepreneur","jobseeker","student","teacher","ustad","workshop"];
+const ACADEMIC_SCRIPT = '<!-- शैक्षणिक-विषय — एकमात्र घर (31-Jul, Founder-आदेश: 8 पैनल एक-समान नाम पढ़ें) -->\n<script src="/assets/academic_subjects.js"></script>\n';
+
 function rolePanels(key){
   return key==="student" ? studentPanels()
        : key==="jobseeker" ? jobseekerPanels()
@@ -1263,7 +1270,8 @@ for(const [home, h] of homes){
   const extKey = (h.ext && h.ext[0]) ? h.ext[0] : (isTeam ? null : h.keys[0]);
   const out2 = out
     .split("{{STATUS_PANEL}}").join(extKey ? statusPanel(extKey) : "")
-    .split("{{EXTRA_PANELS}}").join(extKey ? rolePanels(extKey) : "")
+    .split("{{EXTRA_PANELS}}").join(extKey ? (MYSUBJ_ROLES.indexOf(extKey) >= 0 ? P_MYSUBJ : "") + rolePanels(extKey) : "")
+    .split("{{ACADEMIC_SCRIPT}}").join(extKey && MYSUBJ_ROLES.indexOf(extKey) >= 0 ? ACADEMIC_SCRIPT : "")
     .split("{{TEAM_EXTRA_PANELS}}").join(isTeam ? (TEAM_EXTRAS[home] || "") : "");
 
   /* mode-अनुसार दूसरे mode का HTML हटाना (v4.0: JS-कटाई ख़त्म — साझा
