@@ -1,0 +1,29 @@
+{
+  "_note": "English पुल-प्रश्न का अंत (': ' के बाद) → कन्नड़ प्रश्न का अनिवार्य अंत। जाँच: generator/dev_apt_ant_check.js kn <टुकड़ा> altPrefix: हिंदी के \"यह …?\" वाले अंत में कन्नड़ \"ಇದು/ಇದನ್ನು\" (यह/इसे) जुड़ सकता है, जैसे बांग्ला में \"এটা\"।",
+  "map": {
+    "how does that feel?": "ಹೇಗೆ ಅನಿಸುತ್ತದೆ?",
+    "how does it feel to think about it?": "ಯೋಚಿಸಿದರೆ ಹೇಗೆ ಅನಿಸುತ್ತದೆ?",
+    "how would that feel?": "ಹೇಗೆ ಅನಿಸಬಹುದು?",
+    "how would that be?": "ಹೇಗಿರಬಹುದು?",
+    "would you enjoy it?": "ಆನಂದಿಸುತ್ತೀರಾ?",
+    "would you like it?": "ಇಷ್ಟವಾಗುತ್ತದೆಯೇ?",
+    "would it suit you?": "ನಿಮಗೆ ಹೊಂದುತ್ತದೆಯೇ?",
+    "does it appeal to you?": "ಮನಸ್ಸಿಗೆ ಹಿಡಿಸುತ್ತದೆಯೇ?",
+    "would it be fun?": "ಮಜಾ ಅನಿಸುತ್ತದೆಯೇ?",
+    "would that feel good?": "ಚೆನ್ನಾಗಿ ಅನಿಸುತ್ತದೆಯೇ?",
+    "would you want to?": "ಮಾಡಬೇಕು ಅನಿಸುತ್ತದೆಯೇ?",
+    "would you enjoy doing it?": "ಕೆಲಸದಲ್ಲಿ ಮನಸ್ಸು ತೊಡಗುತ್ತದೆಯೇ?",
+    "could you do it?": "ಮಾಡಬಲ್ಲಿರಾ?",
+    "would you do it?": "ಮಾಡುತ್ತೀರಾ?",
+    "would you think about it?": "ಯೋಚಿಸಿ ನೋಡುತ್ತೀರಾ?",
+    "do you have the courage?": "ಧೈರ್ಯ ಇದೆಯೇ?",
+    "would you have the patience?": "ತಾಳ್ಮೆ ಇರುತ್ತದೆಯೇ?",
+    "would you learn this skill?": "ಈ ಕೌಶಲ ಕಲಿಯುತ್ತೀರಾ?",
+    "does the idea appeal to you?": "ಈ ಯೋಚನೆ ಮನಸ್ಸಿಗೆ ಹಿಡಿಸುತ್ತದೆಯೇ?",
+    "do you want to do it?": "ಮಾಡಲು ಮನಸ್ಸಾಗುತ್ತದೆಯೇ?"
+  },
+  "altPrefix": [
+    "ಇದು ",
+    "ಇದನ್ನು "
+  ]
+}

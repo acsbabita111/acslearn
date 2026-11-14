@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/build_apt_lang.js : v2.0 (14-Nov-2026; v1.0 12-Nov-2026) · परत-4
+   generator/build_apt_lang.js : v2.0.1 (14-Nov-2026, खेप 5-ख: एक संकेत-संदेश सुधरा; v2.0 14-Nov-2026; v1.0 12-Nov-2026) · परत-4
    काम: एक नई भाषा के करियर टेस्ट का repo-हिस्सा बनाना (हिंदी और English को छोड़कर बाक़ी 28 भाषाओं के लिए एक ही यंत्र)।
    चलाना: node generator/build_apt_lang.js <भाषा-कोड> [--check]
      --check = कुछ नहीं लिखता; देखता है कि repo की फ़ाइलें वही हैं जो यह यंत्र आज बनाएगा (ताज़गी-जाँच)।
@@ -189,7 +189,7 @@ if (S && S.lang !== code) bad("स्रोत", "strings.js में lang \"" 
   /* hreflang: हिंदी स्रोत-पन्ने पर ठीक वही पंक्तियाँ हों जो रजिस्टर की LIVE सूची से बनती हैं (पहले build_apt_hreflang.js चलता है) */
   var HL = LANGS.hreflangLines(), have = hi.match(/<link rel="alternate" hreflang="[^"]+" href="[^"]+">/g) || [];
   if (LANGS.LIVE.indexOf(code) < 0) bad(st, "यह भाषा रजिस्टर की LIVE सूची में नहीं (generator/lib_apt_langs.js)");
-  if (have.join("\n") !== HL.join("\n")) bad(st, "हिंदी पन्ने की hreflang पंक्तियाँ रजिस्टर से अलग हैं (पहले: node generator/build_apt_hreflang.js)");
+  if (have.join("\n") !== HL.join("\n")) bad(st, "हिंदी पन्ने की hreflang पंक्तियाँ रजिस्टर से अलग हैं (पहले: node generator/build_specials.js, जो हिंदी पन्ना दोबारा बनाता है)");
   var an = nodes(hi), aa = attrs(hi), PG = S.page || [], PA = S.pageAttr || [], pi = 0, ai = 0, tr = {}, trA = {}, newText = [];
   an.forEach(function (x) { if (Object.prototype.hasOwnProperty.call(shellN, x)) { tr[x] = shellN[x]; return; }
     var t = PG[pi++]; if (t == null) { bad(st, "page[" + (pi - 1) + "] नहीं: " + x.slice(0, 50)); return; }
