@@ -1,4 +1,7 @@
-/* career_en_strings.js v1.3 (14-Nov-2026, khep-5 part B)
+/* career_en_strings.js v1.4 (14-Nov-2026, khep-5 part C)
+   v1.4: the career test is now also in Marathi; the five sentences that listed the test languages
+   now end with "Bengali, Kannada and Marathi". Nothing else changed.
+   v1.3 (14-Nov-2026, khep-5 part B)
    v1.3: the career test is now also in Kannada; the five sentences that listed the test languages
    now end with "Bengali and Kannada". Nothing else changed.
    v1.2 (14-Nov-2026, khep-5 part A)
@@ -15,7 +18,7 @@
 const COUNT = 261;
 const EN = [
 /*000*/ "Choose Your Career: Free 24-Question Preview + Full Test (Career Interest Test) | ACS",
-/*001*/ "{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Choose Your Career: Free 24-Question Preview + Full Test (Career Interest Test) | ACS\",\"description\":\"Free 24-question Career Interest Test preview: find where your mind truly engages. Nothing is right or wrong. A full 120-question test is also available. In English, Hindi, Bengali and Kannada, on your phone.\",\"url\":\"https://acslearn.com/en/career.html\",\"inLanguage\":\"en\"}",
+/*001*/ "{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Choose Your Career: Free 24-Question Preview + Full Test (Career Interest Test) | ACS\",\"description\":\"Free 24-question Career Interest Test preview: find where your mind truly engages. Nothing is right or wrong. A full 120-question test is also available. In English, Hindi, Bengali, Kannada and Marathi, on your phone.\",\"url\":\"https://acslearn.com/en/career.html\",\"inLanguage\":\"en\"}",
 /*002*/ "Applied Computer School™",
 /*003*/ "Language",
 /*004*/ "Menu",
@@ -57,7 +60,7 @@ const EN = [
 /*040*/ "🔍 See unknown sectors too",
 /*041*/ "The world has many kinds of work. Many we never even hear about. The test brings those forward too.",
 /*042*/ "🗣️ Very simple language",
-/*043*/ "The questions come from daily life. The language is simple, class-6 level. The free preview is in English, Hindi, Bengali and Kannada.",
+/*043*/ "The questions come from daily life. The language is simple, class-6 level. The free preview is in English, Hindi, Bengali, Kannada and Marathi.",
 /*044*/ "📱 Your privacy",
 /*045*/ "Your test answers stay on your phone. The preview runs without login. Full details are in the privacy table below.",
 /*046*/ "🛡️ No false promises",
@@ -225,13 +228,13 @@ const EN = [
 /*208*/ "⚠️ These are all external sites: verify the details yourself.",
 /*209*/ "Fees keep changing.",
 /*210*/ "Information: as of October 2026 (MAPP figure: November 2026).",
-/*211*/ "Most of these tests are in English. The ACS test is in English, Hindi, Bengali and Kannada.",
+/*211*/ "Most of these tests are in English. The ACS test is in English, Hindi, Bengali, Kannada and Marathi.",
 /*212*/ "🇮🇳 In India too: ",
 /*213*/ "Mindler",
 /*214*/ ": a career test and counselling service for school students.",
 /*215*/ "Limited preview free; paid plans too: check the current price on their site.",
 /*216*/ "Site: ",
-/*217*/ "🧭 ACS Career Interest Test: made in India, in English, Hindi, Bengali and Kannada. The 24-question preview is ₹0. The full 120-question test is ₹100 per chance; no separate charge for the result. With an active Golden Pass, the full test is free, up to 2 times a day. A printable report for ₹125, only if you want it. ",
+/*217*/ "🧭 ACS Career Interest Test: made in India, in English, Hindi, Bengali, Kannada and Marathi. The 24-question preview is ₹0. The full 120-question test is ₹100 per chance; no separate charge for the result. With an active Golden Pass, the full test is free, up to 2 times a day. A printable report for ₹125, only if you want it. ",
 /*218*/ "🚀 Open the test page →",
 /*219*/ "⚖️ There and here: see the difference",
 /*220*/ "💰 Fees",
@@ -280,7 +283,7 @@ const EN = [
 const NUM_EXEMPT = { 206: true };
 const ATTR_COUNT = 11;
 const ATTR_EN = [
-/*a00*/ "Free 24-question Career Interest Test preview: find where your mind truly engages. Nothing is right or wrong. A full 120-question test is also available. In English, Hindi, Bengali and Kannada, on your phone.",
+/*a00*/ "Free 24-question Career Interest Test preview: find where your mind truly engages. Nothing is right or wrong. A full 120-question test is also available. In English, Hindi, Bengali, Kannada and Marathi, on your phone.",
 /*a01*/ "Choose Your Career: Free 24-Question Preview + Full Test (Career Interest Test) | ACS",
 /*a02*/ "From village to world: the Career Interest Test",
 /*a03*/ "Three steps: answer the questions, measure your interests, find your path",

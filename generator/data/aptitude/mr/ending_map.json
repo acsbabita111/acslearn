@@ -1,0 +1,26 @@
+{
+  "_note": "English पुल-प्रश्न का अंत (': ' के बाद) → मराठी प्रश्न का अनिवार्य अंत। जाँच: server-पैकेज का build_apt_bank.js (अंत-जाँच)। altPrefix: हिंदी के \"यह …?\" वाले अंत में मराठी \"हे\" (यह) जुड़ सकता है, जैसे बांग्ला में \"এটা\" और कन्नड़ में \"ಇದು\"। मराठी के ये अंत लिंग के साथ नहीं बदलते, इसलिए हर प्रश्न पर एक ही रूप चलता है।",
+  "map": {
+    "how does that feel?": "कसे वाटते?",
+    "how does it feel to think about it?": "विचार करून कसे वाटते?",
+    "how would that feel?": "कसे वाटेल?",
+    "how would that be?": "कसे राहील?",
+    "would you enjoy it?": "आवडेल का?",
+    "would you like it?": "रुचेल का?",
+    "would it suit you?": "जमेल का?",
+    "does it appeal to you?": "मनाला भावेल का?",
+    "would it be fun?": "मजा येईल का?",
+    "would that feel good?": "छान वाटेल का?",
+    "would you want to?": "करावेसे वाटेल का?",
+    "would you enjoy doing it?": "मन रमेल का?",
+    "could you do it?": "करू शकाल का?",
+    "would you do it?": "कराल का?",
+    "would you think about it?": "विचार कराल का?",
+    "do you have the courage?": "हिंमत आहे का?",
+    "would you have the patience?": "धीर राहील का?",
+    "would you learn this skill?": "हे कौशल्य शिकाल का?",
+    "does the idea appeal to you?": "ही कल्पना मनाला भावते का?",
+    "do you want to do it?": "करावेसे वाटते का?"
+  },
+  "altPrefix": ["हे "]
+}

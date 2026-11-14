@@ -1,5 +1,10 @@
 /* ============================================================
-   generator/dev_apt_guard.js : v1.7 (14-Nov-2026, खेप 5-क; v1.6 13-Nov-2026) · पहरेदार जाँच-यंत्र
+   generator/dev_apt_guard.js : v1.9 (14-Nov-2026, खेप 5-ग संस्करण 1.1; v1.8 14-Nov-2026, खेप 5-ग; v1.7 14-Nov-2026, खेप 5-क; v1.6 13-Nov-2026) · पहरेदार जाँच-यंत्र
+   v1.9: देवनागरी में लिखी जाने वाली भाषा (मराठी) के लिए तीन जाँचें और: (1) उद्यम-नामों में हिंदी का रिसाव 0; (2) झलक की तालिका में हिंदी का रिसाव 0;
+     (3) हिंदी-पहचान के नियम के नमूने: तय हिंदी शब्द, "हिंदी जैसे" शब्द और शब्द-मूल पकड़े जाते हैं, और मराठी के अपने शब्द नहीं पकड़े जाते
+     (ताकि रजिस्टर की सूची चुपचाप ख़ाली या ढीली न हो सके)।
+   v1.8: खंड 8 की "हिंदी का रिसाव" जाँच अब देवनागरी में लिखी जाने वाली भाषा (मराठी) पर भी सच में चलती है (रजिस्टर की हिंदी-पहचान सूची से);
+     पहले ऐसी भाषा पर यह जाँच ख़ाली रहती थी। बाक़ी भाषाओं पर जाँच वही है।
    Founder का नियम (13-Nov-2026): जो content फीस से जुड़ा है, वह server पर रहेगा; repo पर सिर्फ़ मुफ़्त चीज़ें।
    यह यंत्र repo पर कुछ भी चढ़ाने से पहले देखता है कि:
      1. करियर टेस्ट का पूरा प्रश्न-भंडार या उसकी कच्ची फ़ाइलें repo में नहीं हैं।
@@ -142,10 +147,25 @@ NEWL.forEach(function (c) {
   ok(pg.indexOf('window.APT_LANG="' + c + '"') > 0 && pg.indexOf("/assets/apt_" + c + ".js") > 0 && pg.indexOf("/assets/apt_session_" + c + ".js") > 0 && pg.indexOf('<html lang="' + c + '"') >= 0, c + ": पन्ने पर भाषा का निशान और उसी भाषा की दोनों तालिकाएँ");
   var sx = {}; try { var w3 = { APT_SX: {} }; vm.runInNewContext(rd("assets/apt_session_" + c + ".js"), { window: w3 }); sx = w3.APT_SX[c] || {}; } catch (e3) {}
   var hiKeys = Object.keys(sx).filter(function (k) { return k.charAt(0) !== "@"; });
-  var devLeak = LANGS.L[c].script === "Deva" ? [] : hiKeys.filter(function (k) { return /[\u0900-\u0963\u0966-\u097F]/.test(sx[k]); });
+  /* देवनागरी में लिखी जाने वाली भाषा (मराठी) में "देवनागरी अक्षर" से हिंदी नहीं पहचानी जा सकती; वहाँ रजिस्टर की हिंदी-पहचान सूची (LANGS.hindiMark) लगती है */
+  var devLeak = LANGS.L[c].script === "Deva" ? hiKeys.filter(function (k) { return LANGS.hindiMark(c, String(sx[k]).replace(/<[^>]*$/, " ").replace(/<[^>]+>/g, " ")); }) : hiKeys.filter(function (k) { return /[\u0900-\u0963\u0966-\u097F]/.test(sx[k]); });
   ok(hiKeys.length > 100 && devLeak.length === 0 && sx["@udyam"] === "/assets/apt_udyam_" + c + ".js" && !sx["@sets"], c + ": वाक्यांश-तालिका में " + hiKeys.length + " जोड़े, हिंदी का रिसाव 0, उद्यम-नामों का पता दर्ज");
   var un = {}; try { var w4 = {}; vm.runInNewContext(rd("assets/apt_udyam_" + c + ".js"), { window: w4 }); un = (w4.APT_UDN && w4.APT_UDN.lang === c && w4.APT_UDN.n) || {}; } catch (e4) {}
   ok(Object.keys(un).length === 951, c + ": उद्यमों के नाम 951: " + Object.keys(un).length);
+  if (LANGS.L[c].script === "Deva") {
+    var unLeak = Object.keys(un).filter(function (k) { return LANGS.hindiMark(c, String(un[k])); });
+    ok(unLeak.length === 0, c + ": उद्यम-नामों में हिंदी का रिसाव 0" + (unLeak.length ? " (पहला: " + unLeak[0] + " " + un[unLeak[0]] + ")" : ""));
+    var pv = [], w5 = {}; try { vm.runInNewContext(rd("assets/apt_" + c + ".js"), { window: w5 }); } catch (e5) {}
+    (function walk(o) { if (typeof o === "string") pv.push(o); else if (o && typeof o === "object") Object.keys(o).forEach(function (k) { walk(o[k]); }); })([(w5.APT_STR || {})[c], (w5.APT_TR && w5.APT_TR.lang === c) ? [w5.APT_TR.mg, w5.APT_TR.q, w5.APT_TR.k] : null]);
+    var pvLeak = pv.filter(function (x) { return LANGS.hindiMark(c, x.replace(/<[^>]*$/, " ").replace(/<[^>]+>/g, " ")); });
+    ok(pv.length > 200 && pvLeak.length === 0, c + ": झलक की तालिका में " + pv.length + " पाठ, हिंदी का रिसाव 0" + (pvLeak.length ? " (पहला: " + pvLeak[0].slice(0, 50) + ")" : ""));
+    if (c === "mr") {
+      var MUST = ["सामन्यात हार असो वा जीत", "खिलाडूवृत्ती ठेवणे", "आकड्यांचा मिलान", "घाऊक कटाई", "देशी जुगाड", "तुम्हाला मदद हवी", "हे काम अच्छा आहे", "शेत में काम"],
+          FREE = ["सामन्यात पराभव असो वा विजय, खेळाडूवृत्ती ठेवणे", "फुलांचे हार", "को-वर्किंग चालवणे", "के-पॉप नृत्याचा वर्ग", "खेळाडूंची टीम", "माल रोखून ठेवणे", "आवडेल का?"];
+      var miss = MUST.filter(function (x) { return !LANGS.hindiMark(c, x); }), wrong = FREE.filter(function (x) { return LANGS.hindiMark(c, x); });
+      ok(miss.length === 0 && wrong.length === 0, c + ": हिंदी-पहचान के नियम के नमूने: " + MUST.length + " पकड़े, " + FREE.length + " छूटे" + (miss.length ? " (नहीं पकड़ा: " + miss[0] + ")" : "") + (wrong.length ? " (ग़लत पकड़ा: " + wrong[0] + ")" : ""));
+    }
+  }
   var cz = ex(c + "/career.html") ? rd(c + "/career.html") : "";
   ok(cz.split('href="/' + c + '/aptitude-test.html#apt-full"').length - 1 === 3 && cz.indexOf('href="/aptitude-test.html#apt-full"') < 0, c + ": करियर-पन्ने की तीनों \"पूरी परीक्षा\" कड़ियाँ इसी भाषा की परीक्षा पर");
   ok(rd("sitemap-core.xml").indexOf("https://acslearn.com/" + c + "/aptitude-test.html") > 0, c + ": परीक्षा-पन्ना sitemap में है");
