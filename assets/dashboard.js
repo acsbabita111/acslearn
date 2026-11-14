@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.12.1 · 14-Nov-2026 (खेप 4 भाग 2 v1.3): दोबारा सहमति का परदा अब साझा फ़ाइल /assets/rules-gate.js से (v6.12.0 में वह इसी फ़ाइल के भीतर था); वह फ़ाइल न लदे तो भी परदा।
    v6.12.0 · 14-Nov-2026 (खेप 4 भाग 2): विद्यार्थी का नियम-पत्र बदला हो, तो dashboard खुलते ही दोबारा सहमति का परदा (Founder का फ़ैसला 2-ब); सहमति server पर दर्ज होती है।
    v6.11.0 · 14-Nov-2026 (खेप 4 भाग 1): कोर्स के प्रमाण पत्र (₹125) के भुगतान से पहले पूछना और बताना कि यह फ़ीस वापस नहीं होती (Founder का फ़ैसला 1-अ)।
    v6.10.0 · 14-Nov-2026 (खेप 3-ख भाग 1): "सलाह" पैनल में सहेजी हुई करियर रिपोर्ट के साथ उसका जाँच-नंबर और मान्य तिथि (server के reportNumber से); छपाई में QR; WhatsApp के पाठ में नंबर।
@@ -115,7 +116,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.12.0";
+const DASH_VER = "v6.12.1";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -1097,34 +1098,20 @@ async function guardExternal(user){
 /* (19-Jul-2026, v3.5-घ) profile-भरने का पूरा हिस्सा अलग function में — पूरी तरह
    guardExternal की try-catch के भीतर चलता है; कोई भी अनपेक्षित data अब चुप्पी में
    नहीं दबेगा, दिखता संदेश देगी (गूँगा-fallback निषेध नियम, Laxmi-केस से सीखा)। */
-/* (v6.12.0, खेप 4 भाग 2; Founder का फ़ैसला 2-ब, 14-Nov-2026) विद्यार्थी का नियम-पत्र बदला हो, तो आगे बढ़ने से पहले दोबारा सहमति।
-   server (rulesStatus) बताता है कि सहमति चाहिए या नहीं; सहमति server (rulesAccept) पर दर्ज होती है।
-   स्थिति न मिल पाए (जैसे इंटरनेट न हो), तो परदा नहीं लगता; अगली बार फिर पूछा जाता है। */
-async function rulesGate(){
-  let st=null;
-  try{ const r=await httpsCallable(functions,"rulesStatus")({}); st=(r&&r.data)||null; }catch(e){ return; }
-  if(!st || !st.applies || !st.need || document.getElementById("rulesGate")) return;
-  const ov=document.createElement("div"); ov.id="rulesGate"; ov.setAttribute("role","dialog"); ov.setAttribute("aria-modal","true");
-  ov.style.cssText="position:fixed;inset:0;z-index:99999;background:rgba(11,31,58,.94);display:flex;align-items:flex-start;justify-content:center;padding:16px;overflow:auto";
-  ov.innerHTML='<div style="background:#fff;color:#0B1F3A;border-radius:14px;max-width:560px;width:100%;padding:20px;margin:24px 0;font-size:18px;line-height:1.7">'
-    +'<h2 style="font-size:22px;margin:0 0 8px">📜 नियम-पत्र बदल गया है</h2>'
-    +'<p style="margin:0 0 8px"><span>विद्यार्थी के नियम-पत्र का नया संस्करण लागू है: </span><b id="rulesGateVer">'+esc(st.current)+'</b></p>'
-    +'<p style="margin:0 0 8px">फ़ीस और वापसी वाला भाग (नियम 6 और 7) बदला है।</p>'
-    +'<p style="margin:0 0 8px"><a href="/rules-consent-learner.html" target="_blank" rel="noopener" style="color:#1565C0;font-weight:800">नया नियम-पत्र पढ़ें ↗</a></p>'
-    +'<label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 6px"><input type="checkbox" id="rulesGateChk" style="width:24px;height:24px;flex:none;margin-top:5px"><span>मैंने नियम-पत्र का यह संस्करण पढ़ लिया है और मैं इससे सहमत हूँ।</span></label>'
-    +'<div id="rulesGateMsg" style="color:#B71C1C;font-size:16px;min-height:24px"></div>'
-    +'<button id="rulesGateOk" class="abtn ok" disabled style="font-size:20px;padding:12px 18px;margin:6px 8px 0 0">आगे बढ़ें</button>'
-    +'<button id="rulesGateOut" class="abtn" style="font-size:18px;padding:12px 18px;margin-top:6px">Logout</button></div>';
-  document.body.appendChild(ov);
-  const chk=document.getElementById("rulesGateChk"), okb=document.getElementById("rulesGateOk"), msg=document.getElementById("rulesGateMsg");
-  chk.onchange=function(){ okb.disabled=!chk.checked; };
-  okb.onclick=async function(){
-    if(!chk.checked) return;
-    okb.disabled=true; msg.textContent="⏳";
-    try{ await httpsCallable(functions,"rulesAccept")({version:st.current}); ov.remove(); }
-    catch(e){ msg.textContent="सहमति दर्ज नहीं हो पाई। इंटरनेट देखकर दोबारा दबाएँ।"; okb.disabled=false; }
-  };
-  document.getElementById("rulesGateOut").onclick=function(){ if(window.doLogout) window.doLogout(); };
+/* (v6.12.0, खेप 4 भाग 2 v1.1; Founder का फ़ैसला 2-ब, 14-Nov-2026) विद्यार्थी का नियम-पत्र बदला हो, तो आगे बढ़ने से पहले दोबारा सहमति।
+   परदा साझा फ़ाइल /assets/rules-gate.js में है (login और करियर टेस्ट का पन्ना भी उसी को बुलाते हैं)।
+   वह फ़ाइल न लद पाए, तब भी परदा लगता है (पन्ना दोबारा खोलने को कहता है)। सेवाएँ server पर भी इसी जाँच से रुकी हैं। */
+function rulesGate(){
+  import("/assets/rules-gate.js").then(function(m){
+    return m.rulesGate({ functions: functions, httpsCallable: httpsCallable, logout: function(){ if(window.doLogout) window.doLogout(); } });
+  }).catch(function(){
+    if(document.getElementById("rulesGate")) return;
+    const ov=document.createElement("div"); ov.id="rulesGate";
+    ov.style.cssText="position:fixed;inset:0;z-index:2147483000;background:rgba(11,31,58,.96);display:flex;align-items:flex-start;justify-content:center;padding:16px;overflow:auto";
+    ov.innerHTML='<div style="background:#fff;color:#0B1F3A;border-radius:14px;max-width:560px;width:100%;padding:20px;margin:24px 0;font-size:18px;line-height:1.7"><h2 style="font-size:22px;margin:0 0 8px">📜 पन्ना पूरा नहीं खुल पाया</h2><p>इंटरनेट देखकर पन्ना दोबारा खोलें।</p><button id="rulesGateReload" class="abtn ok" style="font-size:20px;padding:12px 18px">दोबारा खोलें</button></div>';
+    document.body.appendChild(ov);
+    document.getElementById("rulesGateReload").onclick=function(){ location.reload(); };
+  });
 }
 
 async function guardExternalRender(user, reg){

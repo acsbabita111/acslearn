@@ -1,4 +1,4 @@
-/* /assets/apt-pay.js : v2.5 (14-Nov-2026; खेप 3-ख भाग 1: reportNumber जुड़ा, बाक़ी सब v2.4 जैसा) · v2.4 (13-Nov-2026)
+/* /assets/apt-pay.js : v2.7 (14-Nov-2026; खेप 4 भाग 2: login होते ही नियम-पत्र की जाँच; server के "rules" वाले जवाब पर सहमति का परदा; परदे की फ़ाइल न लदे तो भी आगे नहीं) · v2.5 (14-Nov-2026; खेप 3-ख भाग 1: reportNumber जुड़ा, बाक़ी सब v2.4 जैसा) · v2.4 (13-Nov-2026)
    Founder के 13-Nov-2026 के नियम: द्वार अब server (aptGate) तय करता है; खंड के प्रश्न aptStart और aptNext से आते हैं;
    परीक्षा पूरी होने की सूचना aptFinish से जाती है। बिना ₹125 के नतीजा server पर नहीं भेजा जाता
    (पुराने saveAptitudeResult और latestAptitudeResult के रास्ते हटाए गए)। login होने पर मुफ़्त झलक छिप जाती है। */
@@ -70,9 +70,38 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
     var d = (e && e.details) || {};
     return { message: (e && e.message) || String(e), code: d.code || "", waitSec: d.waitSec, sid: d.sid, exp: d.exp, quota: d.quota };
   }
+  /* (v2.7, खेप 4 भाग 2) नियम-पत्र बदला हो, तो आगे बढ़ने से पहले दोबारा सहमति। परदा साझा फ़ाइल /assets/rules-gate.js में है।
+     बिना जाँच आगे नहीं: वह फ़ाइल न लद पाए या उसमें ग़लती आए, तो आगे का काम (then) नहीं चलता;
+     पन्ना ढक दिया जाता है, "दोबारा कोशिश करें" और "Logout" के साथ। */
+  function rulesFirst(then, again) {
+    import("/assets/rules-gate.js" + (again ? "?r=" + Date.now() : "")).then(function (m) {
+      return m.rulesGate({ functions: functions, httpsCallable: httpsCallable, logout: rulesOut });
+    }).then(function () { then(); }, function () { rulesBlock(then); });
+  }
+  function rulesOut() { auth.signOut().then(function () { location.reload(); }, function () { location.reload(); }); }
+  function rulesBlock(then) {
+    var ov = document.getElementById("rulesGate");
+    if (!ov) {
+      ov = document.createElement("div"); ov.id = "rulesGate"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true");
+      ov.style.cssText = "position:fixed;inset:0;z-index:2147483000;background:rgba(11,31,58,.96);display:flex;align-items:flex-start;justify-content:center;padding:16px;overflow:auto";
+      document.body.appendChild(ov);
+    }
+    var B = "font-size:20px;padding:12px 18px;margin:8px 8px 0 0;border-radius:10px;border:2px solid #0B1F3A;cursor:pointer;";
+    ov.innerHTML = '<div style="background:#fff;color:#0B1F3A;border-radius:14px;max-width:560px;width:100%;padding:20px;margin:24px 0;font-size:18px;line-height:1.7">' +
+      '<h2 style="font-size:22px;margin:0 0 4px">📜 नियम-पत्र की जाँच नहीं हो पाई</h2><p style="color:#4a5a70;font-size:16px;margin:0 0 10px">The rules letter could not be checked.</p>' +
+      '<p style="margin:0 0 6px">इंटरनेट देखकर दोबारा कोशिश करें। (Check the internet and try again.)</p>' +
+      '<button id="rulesBlockRetry" type="button" style="' + B + 'background:#1565C0;color:#fff">दोबारा कोशिश करें (Try again)</button>' +
+      '<button id="rulesBlockOut" type="button" style="' + B + 'background:#fff;color:#0B1F3A;font-size:18px">Logout</button></div>';
+    document.getElementById("rulesBlockRetry").onclick = function () { ov.remove(); rulesFirst(then, true); };
+    document.getElementById("rulesBlockOut").onclick = rulesOut;
+  }
   function call(name, data, cb) {
     httpsCallable(functions, name)(data || {}).then(function (res) { cb(null, (res && res.data) || {}); })
-      .catch(function (e) { cb(callErr(e)); });
+      .catch(function (e) {
+        /* server ने नियम-पत्र पर रोका: परदा दिखाकर, सहमति के बाद वही काम दोबारा */
+        if (e && e.details && e.details.code === "rules" && !call._again) { call._again = true; rulesFirst(function () { call(name, data, function (a, b) { call._again = false; cb(a, b); }); }); return; }
+        cb(callErr(e));
+      });
   }
   /* login होने पर मुफ़्त झलक नहीं दिखती (झलक बिना रजिस्ट्रेशन वालों के लिए है) */
   function previewHide(on) {
@@ -260,7 +289,7 @@ function L(s) { return (APT_PAY_SX && Object.prototype.hasOwnProperty.call(APT_P
   /* login की हालत पता चलते ही: झलक छिपाना या दिखाना, और द्वार की जाँच */
   onAuthStateChanged(auth, function (user) {
     previewHide(!!user);
-    if (user) { gate(false); retryPending(); }
+    if (user) { rulesFirst(function () { gate(false); retryPending(); }); }
     else if (window.ACS_APT_SESSION && window.ACS_APT_SESSION.showBuy) {
       window.ACS_APT_SESSION.showBuy();
       wireBuyButton();

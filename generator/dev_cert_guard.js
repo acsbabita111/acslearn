@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.9 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
+/* generator/dev_cert_guard.js : v1.12 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
    जाँचता है कि प्रमाणपत्र के नियम (Founder, 13 और 14-Nov-2026) पेज और code में एक जैसे हैं, और पुराने नियम कहीं नहीं बचे।
    चलाना (repo की जड़ से): node generator/dev_cert_guard.js */
 "use strict";
@@ -142,13 +142,21 @@ console.log("3-ङ. विद्यार्थी का नियम-पत्
   ok(bad.length === 0, "English और 13 भाषाओं के नियम-पत्र: संस्करण 1.2, और नियम 6 तथा 7 के नए हिस्से सब रक़मों के साथ" + (bad.length ? " | दोष: " + bad.join(", ") : ""));
   var jn = rd("join.html");
   ok(/consent_rules_version: \(isLearnerRomanOnly\(\) \? '1\.2' : '1\.1'\)/.test(jn), "रजिस्ट्रेशन-फ़ॉर्म विद्यार्थी के लिए संस्करण 1.2 भेजता है (बाक़ी भूमिकाओं के लिए 1.1)");
-  var i1 = d.indexOf("async function rulesGate(){"), i2 = d.indexOf('httpsCallable(functions,"rulesStatus")', i1), i3 = d.indexOf('httpsCallable(functions,"rulesAccept")({version:st.current})', i2), i4 = d.indexOf("if(noGate) rulesGate();");
-  ok(i1 > 0 && i2 > i1 && i3 > i2 && i4 > 0 && /okb\.disabled=!chk\.checked/.test(d) && /id="rulesGateChk"/.test(d), "dashboard: विद्यार्थी के घर खुलते ही server से पूछा जाता है; ज़रूरत हो तो परदा लगता है; निशान लगाए बिना बटन नहीं चलता; सहमति server पर जाती है");
+  /* (v1.1) दोबारा सहमति अनिवार्य: एक साझा परदा, तीन जगह से बुलाया जाता है; server पर भी वही जाँच */
+  var rg = rd("assets/rules-gate.js");
+  ok(/export function rulesGate\(o\)/.test(rg) && /o\.httpsCallable\(o\.functions, "rulesStatus"\)/.test(rg) && /o\.httpsCallable\(o\.functions, "rulesAccept"\)/.test(rg) && /okb\.disabled = !chk\.checked/.test(rg) && /accept\(\{ version: st\.current \}\)/.test(rg) && /id="rulesGateRetry"/.test(rg), "साझा परदा (assets/rules-gate.js): server से पूछता है; निशान लगाए बिना बटन बंद; सहमति server को जाती है; जवाब न मिले तो भी परदा (दोबारा कोशिश)");
+  ok(/import\("\/assets\/rules-gate\.js"\)/.test(d) && d.indexOf("if(noGate) rulesGate();") > 0 && !/id="rulesGateChk"/.test(d), "dashboard: विद्यार्थी का घर खुलते ही साझा परदा बुलाया जाता है (अपना अलग परदा नहीं)");
+  var lg = rd("dashboard/index.html"), l1 = lg.indexOf("async function finishLogin("), l2 = lg.indexOf('if(["student","jobseeker","entrepreneur"].indexOf(role)>-1){', l1), l3 = lg.indexOf('await import("/assets/rules-gate.js")', l2), l4 = lg.indexOf('show("c5")', l3), l5 = lg.indexOf("location.href = url", l4);
+  ok(l1 > 0 && l2 > l1 && l3 > l2 && l4 > l3 && l5 > l4, "login का पन्ना: विद्यार्थी के लिए नियम-पत्र की जाँच dashboard पर भेजने से पहले होती है");
+  var ap = rd("assets/apt-pay.js");
+  /* (ऑडिट: v1.1 का NO-GO) परदे की फ़ाइल न लदे, तो आगे का काम नहीं चलना चाहिए */
+  ok(!/function \(\) \{ then\(\); \}, function \(\) \{ then\(\); \}/.test(ap) && /\.then\(function \(\) \{ then\(\); \}, function \(\) \{ rulesBlock\(then\); \}\)/.test(ap) && /id="rulesBlockRetry"/.test(ap) && (ap.match(/then\(\);/g) || []).length === 1, "करियर टेस्ट का पन्ना: परदे की फ़ाइल न लदे, तो आगे का काम नहीं चलता; पन्ना ढककर \"दोबारा कोशिश\" दिखता है (then सिर्फ़ सफल होने पर)");
+  ok(/if \(user\) \{ rulesFirst\(function \(\) \{ gate\(false\); retryPending\(\); \}\); \}/.test(ap) && /e\.details\.code === "rules"/.test(ap) && /import\("\/assets\/rules-gate\.js"/.test(ap), "करियर टेस्ट का पन्ना: login होते ही नियम-पत्र की जाँच; server \"rules\" कहकर रोके, तो परदा");
 })();
 
 console.log("4. server की फ़ाइलें repo में नहीं; service worker");
 ok(!has("functions/cert_server.js") && !has("cert_server.js") && !has("assets/cert_server.js"), "cert_server.js repo में नहीं है (वह सिर्फ़ Firebase पर रहती है)");
 var mm = rd("sw.js").match(/CACHE_VERSION\s*=\s*['"]v(\d+)['"]/);
-ok(mm && Number(mm[1]) >= 852, "service worker v852 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
+ok(mm && Number(mm[1]) >= 853, "service worker v853 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
 console.log((fail ? "⛔" : "🏁") + " खेप 3-क का पहरेदार: पास " + pass + " · फेल " + fail);
 process.exit(fail ? 1 : 0);

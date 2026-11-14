@@ -727,6 +727,18 @@ async function finishLogin(role,email,errBox){
     box(errBox||"a2","session शुरू नहीं हो सकी — Internet जाँचकर फिर से login करें।");
     return;
   }
+  /* (खेप 4 भाग 2 v1.1; Founder का फ़ैसला 2-ब) विद्यार्थी: login के तुरंत बाद नियम-पत्र की जाँच।
+     नया संस्करण माने बिना dashboard नहीं खुलता। परदा साझा फ़ाइल /assets/rules-gate.js में है। */
+  if(["student","jobseeker","entrepreneur"].indexOf(role)>-1){
+    try{
+      const rg=await import("/assets/rules-gate.js");
+      await rg.rulesGate({ functions: functions, httpsCallable: httpsCallable, logout: async function(){ try{ await auth.signOut(); }catch(_e){} location.reload(); } });
+    }catch(e){
+      try{ await auth.signOut(); }catch(_e){}
+      box(errBox||"a2","नियम-पत्र की जाँच नहीं हो सकी — Internet जाँचकर फिर से login करें।");
+      return;
+    }
+  }
   const sr=$("s-role"); if(sr) sr.textContent="भूमिका: "+(RNAME[role]||role);
   const se=$("s-email"); if(se) se.textContent=email;
   show("c5"); setStep(3); window.scrollTo(0,0);
