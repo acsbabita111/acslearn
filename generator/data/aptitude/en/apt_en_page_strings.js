@@ -12,7 +12,8 @@
 module.exports = {
   outPath: "en/aptitude-test.html",
   canonical: "https://acslearn.com/en/aptitude-test.html",
-  hreflangExpected: 3,
+  /* (14-Nov-2026, खेप 5-क) गिनती अब परीक्षा-भाषाओं के रजिस्टर से: LIVE की हर भाषा + x-default */
+  hreflangExpected: require("../../../lib_apt_langs.js").hreflangLines().length,
   pairs: [
     /* ---- ढाँचा: भाषा, पता, og ---- */
     ['<html lang="hi">', '<html lang="en">', 1],

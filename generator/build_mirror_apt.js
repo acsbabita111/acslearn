@@ -7,10 +7,15 @@
    fail-closed नियम:
    1. हर जोड़ा exact-state गिनती-assert से : बेमेल = FAIL, कुछ नहीं लिखा।
    2. अंत में पूरी-राज्य जाँच : दिखने वाले पाठ + attributes में
-      देवनागरी शून्य · hreflang raw = unique = 3 · lang="en" ·
-      canonical/og:url = /en/ पता · APT_LANG + apt_en.js मौजूद ·
-      apt-session.js/apt-pay.js अनुपस्थित · नए पाठ में लंबी रेखा (—)
-      सिर्फ़ reused-पंक्तियों में।
+      देवनागरी शून्य · hreflang raw = unique = तालिका की गिनती (अब
+      परीक्षा-भाषाओं के रजिस्टर generator/lib_apt_langs.js से) · lang="en" ·
+      canonical/og:url = /en/ पता · APT_LANG + apt_en.js + apt_session_en.js
+      मौजूद · apt-session.js और apt-pay.js मौजूद (v1.1 से पूरी परीक्षा इसी
+      पन्ने पर) · scripts का क्रम · नए पाठ में लंबी रेखा (—) सिर्फ़
+      reused-पंक्तियों में।
+   (12-Nov-2026: ऊपर की टिप्पणी ताज़ा की गई; पहले यहाँ v1.0 की पुरानी बातें
+    "hreflang = 3" और "apt-session.js/apt-pay.js अनुपस्थित" लिखी रह गई थीं।
+    बाक़ी 28 भाषाओं के पन्ने generator/build_apt_lang.js बनाता है।)
    चलाना: node generator/build_mirror_apt.js <hi-page> <data-file> <out-file>
    ============================================================ */
 "use strict";

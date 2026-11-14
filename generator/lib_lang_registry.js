@@ -1,5 +1,7 @@
 /* ============================================================
-   lib_lang_registry.js v1.2 (10-Nov-2026, खेप-1 के साथ) · साझा टुकड़ा
+   lib_lang_registry.js v1.3 (14-Nov-2026, करियर टेस्ट की खेप 5-क; v1.2 10-Nov-2026) · साझा टुकड़ा
+   v1.3: भाषा-घर में चौथी फ़ाइल मान्य: aptitude-test.html, पर सिर्फ़ उस भाषा में जो परीक्षा-भाषाओं की
+   LIVE सूची (generator/lib_apt_langs.js) में है। सूची से बाहर की भाषा में वह फ़ाइल पहले की तरह दोष है।
    v1.2 (ChatGPT v1.2-ऑडिट QA-शर्तें): locale का भाषा-भाग = कोड; लिपि ↔ font का पक्का
    जोड़ (SCRIPT_GFAM); react-पट्टी के 8 शब्दों पर भी लिपि-जाँच; दोहरी-कुंजी जाँच
    \uXXXX-रूप भी पकड़े (कुंजी को JSON-अर्थ में खोलकर मिलाना)।
@@ -107,6 +109,7 @@ function validate(M, opts) {
   const seen = new Set();
   /* आरक्षित नाम: repo-रूट के वे फ़ोल्डर जो भाषा-घर नहीं (भाषा-घर = सिर्फ़ index/career/rules-consent) */
   const LANG_FILES = new Set(["index.html", "career.html", "rules-consent-learner.html"]);
+  const APT_LIVE = new Set(require("./lib_apt_langs.js").LIVE);
   if (!codes.length) E.push("रजिस्टर ख़ाली");
   for (const c of codes) {
     const T = M[c], t = c + ": ";
@@ -115,7 +118,7 @@ function validate(M, opts) {
     if (seen.has(c)) E.push(t + "दोहराव"); seen.add(c);
     const dir = path.join(ROOT, c);
     if (fs.existsSync(dir)) {
-      const extra = fs.readdirSync(dir).filter(f => !LANG_FILES.has(f));
+      const extra = fs.readdirSync(dir).filter(f => !LANG_FILES.has(f) && !(f === "aptitude-test.html" && APT_LIVE.has(c)));
       if (extra.length) E.push(t + "फ़ोल्डर किसी और काम का है (" + extra.slice(0, 3).join(",") + ") — कोड टकराव");
     }
     if (!T || typeof T !== "object") { E.push(t + "प्रविष्टि object नहीं"); continue; }

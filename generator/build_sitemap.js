@@ -36,6 +36,8 @@
        (13-Sep फ़ैसला यथावत: झूठी तारीख़ निषिद्ध)। इसके लिए git-इतिहास ज़रूरी नहीं।
        वैकल्पिक: --git देने पर बिना-तारीख़ वाले पते git-इतिहास से भरे जाते हैं (इतिहास पूरा हो तभी)।
    (झ) sitemap.xml (index) में हर खंड की तारीख़ तभी बदलती है जब उस खंड की फ़ाइल सचमुच बदले।
+   v2.3 (13-Nov-2026): अभिरुचि-परीक्षा के नए भाषा-पन्ने (/<कोड>/aptitude-test.html) अपने-आप जुड़ते हैं:
+       सूची generator/lib_apt_langs.js की LIVE-पंक्ति से (फ़ाइल मौजूद हो तभी)। पहला: बांग्ला।
    नियम: हाथ से sitemap कभी न लिखें — सिर्फ़ इसी से। जाँच: dev_seo_check.js।
    ============================================================ */
 "use strict";
@@ -63,7 +65,9 @@ const main = [
 ]).concat(fs.readdirSync(ROOT).filter(f => /^rules-consent-.*\.html$/.test(f)).sort().map(f => "/" + f))
   .concat(MIRROR.filter(c => fs.existsSync(path.join(ROOT, c, "index.html"))).map(c => "/" + c + "/"))
   /* v2.2: भाषा-वार learner नियम-पेज */
-  .concat(["en"].concat(MIRROR).filter(c => fs.existsSync(path.join(ROOT, c, "rules-consent-learner.html"))).map(c => "/" + c + "/rules-consent-learner.html"));
+  .concat(["en"].concat(MIRROR).filter(c => fs.existsSync(path.join(ROOT, c, "rules-consent-learner.html"))).map(c => "/" + c + "/rules-consent-learner.html"))
+  /* v2.3: अभिरुचि-परीक्षा के भाषा-पन्ने (हिंदी और English ऊपर पहले से): LIVE-सूची का एकमात्र घर generator/lib_apt_langs.js */
+  .concat(require("./lib_apt_langs.js").LIVE.filter(c => c !== "hi" && c !== "en" && fs.existsSync(path.join(ROOT, c, "aptitude-test.html"))).map(c => "/" + c + "/aptitude-test.html"));
 
 const data = fs.readFileSync(path.join(ROOT, "assets/udyam_data.js"), "utf8");
 const intros = [...data.matchAll(/"intro": "(\/udyam\/[^"]+)"/g)].map(m => m[1]);

@@ -677,10 +677,8 @@ buildSpecial({
      English दर्पण-पेज /en/aptitude-test.html इसी generated पन्ने से build_mirror_apt.js बनाता है। */
   title: "अभिरुचि-टेस्ट दें — मुफ़्त झलक और पूरा 120-प्रश्न टेस्ट | अप्लाइड कंप्यूटर स्कूल",
   desc: "पूरे पर्दे पर एक-एक प्रश्न। मुफ़्त झलक बिना खाते के — जवाब आपके फ़ोन में। पूरी जानकारी और टॉप-10 तुलना करियर-पेज पर।",
-  head: ['<link rel="stylesheet" href="/assets/aptitude-test.css">',
-    '<link rel="alternate" hreflang="hi" href="https://acslearn.com/aptitude-test.html">',
-    '<link rel="alternate" hreflang="en" href="https://acslearn.com/en/aptitude-test.html">',
-    '<link rel="alternate" hreflang="x-default" href="https://acslearn.com/aptitude-test.html">'],
+  /* (14-Nov-2026, खेप 5-क) hreflang की पंक्तियाँ अब परीक्षा-भाषाओं के रजिस्टर से (generator/lib_apt_langs.js की LIVE सूची): नई भाषा जुड़े तो यहाँ कुछ न बदलना पड़े */
+  head: ['<link rel="stylesheet" href="/assets/aptitude-test.css">'].concat(require("./lib_apt_langs.js").hreflangLines()),
   foot: [
     '<script src="/assets/mg_names.js"></scr' + 'ipt>',
     '<script src="/assets/aptitude_art.js"></scr' + 'ipt>',

@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/dev_apt_guard.js : v1.6 (13-Nov-2026) · पहरेदार जाँच-यंत्र
+   generator/dev_apt_guard.js : v1.7 (14-Nov-2026, खेप 5-क; v1.6 13-Nov-2026) · पहरेदार जाँच-यंत्र
    Founder का नियम (13-Nov-2026): जो content फीस से जुड़ा है, वह server पर रहेगा; repo पर सिर्फ़ मुफ़्त चीज़ें।
    यह यंत्र repo पर कुछ भी चढ़ाने से पहले देखता है कि:
      1. करियर टेस्ट का पूरा प्रश्न-भंडार या उसकी कच्ची फ़ाइलें repo में नहीं हैं।
@@ -8,6 +8,9 @@
      4. इंजन पुराने फ़ोन (ES5) पर चलने लायक़ है।
      5. English की पाठ-तालिका इंजन के हर वाक्य से मेल खाती है।
      6. करियर-पेज (45 भाषाएँ) और टेस्ट-पेज परीक्षा के बारे में एक ही बात कहते हैं।
+     7. निजता: server को क्या जाता है।
+     8. (v1.7) नई भाषाएँ (generator/lib_apt_langs.js की LIVE सूची): किसी भी भाषा का भंडार या उसका स्रोत-पाठ repo में नहीं;
+        हर नई भाषा की चारों फ़ाइलें यंत्र से ताज़ा; पन्नों की भाषा-कड़ियाँ रजिस्टर के बराबर; करियर-पन्ने की कड़ियाँ उसी भाषा की परीक्षा पर।
    एक भी दोष = ⛔ और exit 1। चलाना: node generator/dev_apt_guard.js
    ============================================================ */
 "use strict";
@@ -114,6 +117,39 @@ ok(!/\d+ \* 86400000/.test(payJs) && (payJs.match(/pendDrop\(/g) || []).length =
 ok(/तीन बातें बताता है/.test(eng) && /उम्र-वर्ग/.test(eng) && /पहले आ चुके प्रश्नों के नंबर/.test(eng), "शुरुआती कार्ड पर server को जाने वाली तीनों बातें लिखी हैं");
 ok(/ऊपर के सेक्टर परीक्षा के दौरान रिकॉर्ड में रहते हैं/.test(eng) && (eng.match(/सेक्टर-समूहों के नाम/g) || []).length >= 3 && !/इन तीनों को सेव नहीं करता/.test(eng) && /your top sectors do stay in the record/.test(rd("assets/apt_session_en.js")) && !/does not save these three/.test(rd("assets/apt_session_en.js")), "शुरुआती कार्ड (हिंदी और English) सच बताता है: ऊपर के सेक्टर परीक्षा के दौरान सेक्टर-समूहों के नाम के रूप में server के रिकॉर्ड में रहते हैं");
 ok(["आपके खाते की पहचान", "परीक्षा की भाषा", "बैज या ₹100", "order-नंबर", "बेतरतीब नंबर", "समय-सीमाएँ", "दिए गए प्रश्नों के नंबर", "कितनी परीक्षाएँ शुरू और पूरी कीं", "48 घंटे बाद", "भुगतान का रिकॉर्ड"].every(function (k) { return eng.indexOf(k) >= 0; }) && !/सिर्फ़ दिए जा चुके प्रश्नों की सूची/.test(eng), "शुरुआती कार्ड बताता है कि server परीक्षा के दौरान सचमुच क्या-क्या रखता है, कब मिटाता है, और भुगतान का रिकॉर्ड अलग रहता है");
+
+console.log("8. नई भाषाएँ (भाषा-सूची की LIVE पंक्ति)");
+var LANGS = require("./lib_apt_langs.js"), NEWL = LANGS.LIVE.filter(function (c) { return c !== "hi" && c !== "en"; });
+var aroot = path.join(ROOT, "generator/data/aptitude");
+var bankDirs = fs.readdirSync(aroot).filter(function (d) { return fs.existsSync(path.join(aroot, d, "bank")) || fs.existsSync(path.join(aroot, d, "_stamp")); });
+ok(bankDirs.length === 0 && !ex("generator/data/aptitude/session_subset.json"), "किसी भी भाषा के भंडार का स्रोत-पाठ, मुहर या सूची repo में नहीं: " + bankDirs.join(","));
+var shardLike = [];
+fs.readdirSync(path.join(ROOT, "assets")).forEach(function (n) { if (/\.js$/.test(n) && /APT_EN\s*=\s*window\.APT_EN/.test(fs.readFileSync(path.join(ROOT, "assets", n), "utf8"))) shardLike.push(n); });
+ok(shardLike.length === 0, "assets की किसी फ़ाइल में किसी भाषा का प्रश्न-टुकड़ा नहीं: " + shardLike.join(","));
+ok(!ex("generator/apt_lang_bank.js") && !ex("generator/build_apt_bank.js"), "भंडार के औज़ार repo में नहीं (वे server-पैकेज में रहते हैं)");
+ok(/function UN\(name, n\)/.test(code) && (code.match(/UN\(p\.u\.name, p\.u\.n\)/g) || []).length === 3 && /UDN_URL \? \[UDN_URL\] : \[\]/.test(code) && !/@sets/.test(code), "इंजन: नतीजे की तीनों जगह उद्यम का नाम भाषा की तालिका से; repo के टुकड़ों का पता नहीं");
+ok(/function AX\(svg\)/.test(prevJs) && (prevJs.match(/AX\(ART\[/g) || []).length === 3 && !/[^(]ART\[[a-z.]+\] \+ "<\/div>"/.test(prevJs), "झलक-इंजन: तीनों जगह चित्र के भीतर का हिंदी अक्षर इस भाषा के अक्षर से बदला जाता है");
+var HL = LANGS.hreflangLines().join("\n");
+function hlOf(f) { return (rd(f).match(/<link rel="alternate" hreflang="[^"]+" href="[^"]+">/g) || []).join("\n"); }
+var hlBad = ["aptitude-test.html", "en/aptitude-test.html"].concat(NEWL.map(function (c) { return c + "/aptitude-test.html"; })).filter(function (f) { return !ex(f) || hlOf(f) !== HL; });
+ok(hlBad.length === 0, "हिंदी, English और हर नई भाषा के परीक्षा-पन्ने पर भाषा-कड़ियाँ रजिस्टर के बराबर (" + LANGS.hreflangLines().length + " पंक्तियाँ): " + hlBad.join(","));
+var testPages = fs.readdirSync(ROOT).filter(function (d) { return /^[a-z]{2,3}$/.test(d) && ex(d + "/aptitude-test.html"); }).sort();
+ok(testPages.join() === LANGS.LIVE.filter(function (c) { return c !== "hi"; }).sort().join(), "परीक्षा-पन्ने ठीक उन्हीं भाषाओं के हैं जो LIVE सूची में हैं: " + testPages.join(","));
+NEWL.forEach(function (c) {
+  var r2 = cp.spawnSync(process.execPath, [path.join(__dirname, "build_apt_lang.js"), c, "--check"], { encoding: "utf8" });
+  ok(r2.status === 0 && /दोष 0/.test(r2.stdout || "") && /4 फ़ाइलें ताज़ा/.test(r2.stdout || ""), c + ": चारों फ़ाइलें यंत्र से ताज़ा हैं: " + ((r2.stdout || "").split("\n").filter(function (l) { return /⛔|🏁/.test(l); })[0] || "").slice(0, 110));
+  var pg = ex(c + "/aptitude-test.html") ? rd(c + "/aptitude-test.html") : "";
+  ok(pg.indexOf('window.APT_LANG="' + c + '"') > 0 && pg.indexOf("/assets/apt_" + c + ".js") > 0 && pg.indexOf("/assets/apt_session_" + c + ".js") > 0 && pg.indexOf('<html lang="' + c + '"') >= 0, c + ": पन्ने पर भाषा का निशान और उसी भाषा की दोनों तालिकाएँ");
+  var sx = {}; try { var w3 = { APT_SX: {} }; vm.runInNewContext(rd("assets/apt_session_" + c + ".js"), { window: w3 }); sx = w3.APT_SX[c] || {}; } catch (e3) {}
+  var hiKeys = Object.keys(sx).filter(function (k) { return k.charAt(0) !== "@"; });
+  var devLeak = LANGS.L[c].script === "Deva" ? [] : hiKeys.filter(function (k) { return /[\u0900-\u0963\u0966-\u097F]/.test(sx[k]); });
+  ok(hiKeys.length > 100 && devLeak.length === 0 && sx["@udyam"] === "/assets/apt_udyam_" + c + ".js" && !sx["@sets"], c + ": वाक्यांश-तालिका में " + hiKeys.length + " जोड़े, हिंदी का रिसाव 0, उद्यम-नामों का पता दर्ज");
+  var un = {}; try { var w4 = {}; vm.runInNewContext(rd("assets/apt_udyam_" + c + ".js"), { window: w4 }); un = (w4.APT_UDN && w4.APT_UDN.lang === c && w4.APT_UDN.n) || {}; } catch (e4) {}
+  ok(Object.keys(un).length === 951, c + ": उद्यमों के नाम 951: " + Object.keys(un).length);
+  var cz = ex(c + "/career.html") ? rd(c + "/career.html") : "";
+  ok(cz.split('href="/' + c + '/aptitude-test.html#apt-full"').length - 1 === 3 && cz.indexOf('href="/aptitude-test.html#apt-full"') < 0, c + ": करियर-पन्ने की तीनों \"पूरी परीक्षा\" कड़ियाँ इसी भाषा की परीक्षा पर");
+  ok(rd("sitemap-core.xml").indexOf("https://acslearn.com/" + c + "/aptitude-test.html") > 0, c + ": परीक्षा-पन्ना sitemap में है");
+});
 
 console.log((fail ? "⛔ " : "🏁 ") + "पहरेदार जाँच: पास " + pass + " · फेल " + fail);
 process.exit(fail ? 1 : 0);

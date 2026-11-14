@@ -1,0 +1,28 @@
+{
+  "_note": "English पुल-प्रश्न का अंत (\": \" के बाद) → बांग्ला प्रश्न का अनिवार्य अंत। जाँच: generator/dev_apt_ant_check.js bn <टुकड़ा>",
+  "map": {
+    "how does that feel?": "কেমন লাগে?",
+    "how does it feel to think about it?": "ভাবতে কেমন লাগে?",
+    "how would that feel?": "কেমন লাগবে?",
+    "how would that be?": "কেমন হবে?",
+    "would you enjoy it?": "উপভোগ করবে?",
+    "would you like it?": "পছন্দ হবে?",
+    "would it suit you?": "তোমার সঙ্গে মানাবে?",
+    "does it appeal to you?": "মনে ধরবে?",
+    "would it be fun?": "মজা লাগবে?",
+    "would that feel good?": "ভালো লাগবে?",
+    "would you want to?": "করতে ইচ্ছে করবে?",
+    "would you enjoy doing it?": "কাজে মন বসবে?",
+    "could you do it?": "পারবে?",
+    "would you do it?": "করবে?",
+    "would you think about it?": "ভেবে দেখবে?",
+    "do you have the courage?": "সাহস আছে?",
+    "would you have the patience?": "ধৈর্য থাকবে?",
+    "would you learn this skill?": "এই দক্ষতা শিখবে?",
+    "does the idea appeal to you?": "ভাবনাটা মনে ধরে?",
+    "do you want to do it?": "করতে মন চায়?"
+  },
+  "altPrefix": [
+    "এটা "
+  ]
+}

@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/apt-session.js : v2.10 (14-Nov-2026; खेप 4 भाग 1: ₹125 के भुगतान से पहले "वापस नहीं होती" वाली पंक्ति) · v2.9 (14-Nov-2026; खेप 3-ख भाग 1: सहेजी हुई रिपोर्ट के नीचे जाँच-नंबर और मान्य तिथि) · पहले v2.8 (13-Nov-2026)
+   /assets/apt-session.js : v2.11 (14-Nov-2026; खेप 5-क: नई भाषाओं के लिए उद्यम-नामों की तालिका। जिस भाषा की वाक्यांश-तालिका में "@udyam" का पता है,
+   उसके नतीजे पर 951 उद्यमों के नाम उसी भाषा की फ़ाइल /assets/apt_udyam_<भाषा>.js से आते हैं। हिंदी और English पन्नों पर कुछ नहीं बदला।) · v2.10 (14-Nov-2026; खेप 4 भाग 1: ₹125 के भुगतान से पहले "वापस नहीं होती" वाली पंक्ति) · v2.9 (14-Nov-2026; खेप 3-ख भाग 1: सहेजी हुई रिपोर्ट के नीचे जाँच-नंबर और मान्य तिथि) · पहले v2.8 (13-Nov-2026)
    v2.8 (13-Nov-2026, खेप 2 के ऑडिट K2-H03 और Founder का फ़ैसला): ₹100 के बटन के ऊपर लिखा है कि चांस वापस नहीं होता, सिवाय हमारी तकनीकी ग़लती के। बाक़ी सब v2.7 जैसा।
    Founder के 13-Nov-2026 के नियम लागू:
    - पूरा प्रश्न-भंडार अब repo पर नहीं है। हर खंड के 40 प्रश्न server (aptStart, aptNext) से आते हैं।
@@ -85,13 +86,17 @@
   }
   function ST(st, key) { if (TRX && TRX.k && TRX.k[st.id] && TRX.k[st.id][key]) return TRX.k[st.id][key]; return st[key]; }
   function MGN(m, hiName) { return (TRX && TRX.mg && TRX.mg[m]) ? TRX.mg[m] : hiName; }
-  function UN(name) {
+  function UN(name, n) {
     var nm = String(name).replace(/\[/g, '(').replace(/\]/g, ')'); if (LANG === 'hi') return nm;
+    /* v2.11: इस भाषा की अपनी उद्यम-नाम तालिका उतरी हो (/assets/apt_udyam_<भाषा>.js) तो नाम वहीं से */
+    var T = window.APT_UDN; if (T && T.lang === LANG && T.n && T.n[n]) return T.n[n];
     var mm = /\(([^()]*[A-Za-z][^()]*)\)/.exec(nm); if (!mm) return nm;
     /* कोष्ठक के भीतर English के बाद हिंदी टुकड़ा हो ("Ride Hailing — ओला/उबर मॉडल") तो English हिस्सा ही */
     var en = mm[1].replace(/[\u0900-\u097F][\s\S]*$/, '').replace(/[\s\u2014\u2013\-\/,:;(&]+$/, '');
     return en || nm;
   }
+  /* v2.11: उद्यम-नामों की फ़ाइल का पता वाक्यांश-तालिका के "@udyam" से (यंत्र build_apt_lang.js लिखता है); न हो तो कोई अतिरिक्त फ़ाइल नहीं उतरती */
+  var UDN_URL = (SX && SX['@udyam']) || '';
   /* चित्र (SVG) के भीतर लिखा हिंदी अक्षर/शब्द: दूसरी भाषा में तालिका का जोड़ ("@art:क" → "A"); तालिका में न हो तो ख़ाली (हिंदी कभी न रिसे)। */
   function AX(svg) {
     if (LANG === 'hi' || !svg) return svg;
@@ -772,7 +777,7 @@
     mgR.slice(0, 5).forEach(function (x, i) { lines.push((i + 1) + '. ' + mgName(x.k) + ': ' + secScore(x)); });
     if (picks && picks.length) {
       lines.push(L('सुझाए कोर्स:'));
-      picks.forEach(function (p, i) { lines.push((i + 1) + '. ' + UN(p.u.name)); });
+      picks.forEach(function (p, i) { lines.push((i + 1) + '. ' + UN(p.u.name, p.u.n)); });
     }
     lines.push(L('(यह रुचि की दिशा है — योग्यता का प्रमाण नहीं।)'));
     return lines.join('\n');
@@ -826,7 +831,7 @@
     hook({ band: C.band, top: mgR.slice(0, 4).map(function (x) { return x.k; }), m: new Date().getMonth() + 1 });
     appOn();
     box.innerHTML = L('<div class="apt-card"><p>नतीजा बन रहा है…</p></div>');
-    loadMany(['/assets/udyam_data.js'], function () {
+    loadMany(['/assets/udyam_data.js'].concat(UDN_URL ? [UDN_URL] : []), function () {
       var SEC = (window.ALL_SECTORS || (typeof ALL_SECTORS !== 'undefined' ? ALL_SECTORS : []));
       var byN = {}; SEC.forEach(function (u) { byN[u.n] = u; });
       var picks = udyR.slice(0, 12).map(function (x) { return { u: byN[x.k], score: x.avg }; }).filter(function (p) { return p.u; });
@@ -837,7 +842,7 @@
         sec: top5.map(function (x) { return { nm: mgName(x.k), sc: secScore(x) }; }),
         mg: mgR.slice(0, 4).map(function (x) { return mgName(x.k); }),
         udy: picks.slice(0, 8).map(function (p) {
-          return { n: p.u.n, nm: UN(p.u.name), c: p.u.course || '', s: Math.round((p.score || 0) * 10) / 10 }; }) };
+          return { n: p.u.n, nm: UN(p.u.name, p.u.n), c: p.u.course || '', s: Math.round((p.score || 0) * 10) / 10 }; }) };
       save(S);
       picks = picks.slice(0, 5);
       var h = '';
@@ -870,7 +875,7 @@
         if (!picks.length) h += L('<p>अभी कोई कोर्स-दिशा साफ़ नहीं उभरी — नए प्रयास में और जवाब दीजिए।</p>');
         h += '<div class="apt-opts">';
         picks.forEach(function (p, i) {
-          var nm = UN(p.u.name);
+          var nm = UN(p.u.name, p.u.n);
           var nmHtml = p.u.course ? ('<a href="' + p.u.course + '" style="color:inherit;text-decoration:underline">' + esc(nm) + '</a>') : esc(nm);
           h += '<div class="apt-row apt-course"><span class="nm">' + (i + 1) + '. ' + nmHtml + '</span> ';
           if (p.u.course) h += '<a class="apt-btn apt-mini" href="' + p.u.course + L('">📚 पढ़ें — कोर्स उपलब्ध ✅</a>');

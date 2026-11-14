@@ -1,4 +1,6 @@
-/* /assets/aptitude-test.js : v2.1 (13-Nov-2026)
+/* /assets/aptitude-test.js : v2.3 (14-Nov-2026, खेप 5-क): चित्र (SVG) के भीतर लिखा हिंदी अक्षर अब दूसरी भाषा के पन्ने पर उस भाषा के अक्षर में दिखता है
+   (तालिका का "@art:…" जोड़, जो पूरी परीक्षा का इंजन पहले से लगाता है)। पहले झलक के एक चित्र में "क" हर भाषा के पन्ने पर हिंदी में ही दिखता था। हिंदी पन्ने पर कुछ नहीं बदला।
+   v2.1 (13-Nov-2026)
    Founder के 13-Nov-2026 के नियम: झलक के 24 प्रश्न अब 48 के नमूना-सेट में से हर बार बेतरतीब चुने जाते हैं,
    और चुनाव ऐसा होता है कि 24 में से कोई सेक्टर न छूटे। login किए हुए व्यक्ति को झलक नहीं दिखती। */
 /* ============================================================
@@ -145,8 +147,14 @@
   }
   buildFlow(ST.ids);
 
+  /* v2.3: चित्र के भीतर का हिंदी पाठ → इस भाषा का जोड़ (window.APT_SX[भाषा]["@art:पाठ"]); जोड़ न हो तो ख़ाली (हिंदी कभी न रिसे)। apt-session.js के AX() जैसा ही। */
+  function AX(svg) {
+    if (LANG === "hi" || !svg) return svg;
+    var SX = window.APT_SX && window.APT_SX[LANG];
+    return String(svg).replace(/>([^<]*[\u0900-\u097F][^<]*)</g, function (all, t) { var k = t.replace(/^\s+|\s+$/g, ""); return ">" + ((SX && SX["@art:" + k]) || "") + "<"; });
+  }
   function art(id, cls) {
-    if (ART[id]) return '<div class="' + (cls || "apt-img") + '">' + ART[id] + "</div>";
+    if (ART[id]) return '<div class="' + (cls || "apt-img") + '">' + AX(ART[id]) + "</div>";
     return '<div class="apt-note">' + S("imgFail") + '</div>';
   }
 
@@ -223,7 +231,7 @@
         var o = q.opts[i], cls = "";
         if (a && a.first === i) cls = " first"; else if (a && a.last === i) cls = " last";
         html += '<button type="button" class="apt-opt' + cls + '" data-i="' + i + '">' +
-          (o.img && ART[o.img] ? ART[o.img] : "") + esc(optTxt(q, i)) + pickTag(a, i) + "</button>";
+          (o.img && ART[o.img] ? AX(ART[o.img]) : "") + esc(optTxt(q, i)) + pickTag(a, i) + "</button>";
       }
       html += "</div>";
     } else if (q.type === "pair") {
@@ -232,7 +240,7 @@
       for (var j = 0; j < q.opts.length; j++) {
         var p = q.opts[j];
         html += '<button type="button" class="apt-opt' + (a && a.v === j ? " on" : "") + '" data-i="' + j + '">' +
-          (p.img && ART[p.img] ? ART[p.img] : "") + esc(optTxt(q, j)) + "</button>";
+          (p.img && ART[p.img] ? AX(ART[p.img]) : "") + esc(optTxt(q, j)) + "</button>";
       }
       html += "</div>";
     } else if (q.type === "story") {
