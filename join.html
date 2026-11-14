@@ -2069,7 +2069,7 @@
     var payload = {
       consent_mode: (document.getElementById('bulkConsentChk')&&document.getElementById('bulkConsentChk').checked)?'bulk':'each',
       consent_language: 'hi',
-      consent_rules_version: '1.1',
+      consent_rules_version: (isLearnerRomanOnly() ? '1.2' : '1.1'),   /* विद्यार्थी का नियम-पत्र 1.2 (खेप 4 भाग 2); बाक़ी भूमिकाओं के नियम-पत्र 1.1 */
       name_local: isLearnerRomanOnly() ? '' : nameLocal.value, name_roman: nameRoman.value,
       father_name: isLearnerRomanOnly() ? fatherNameRoman.value : '',
       mobile: mobile.value, email: email.value,

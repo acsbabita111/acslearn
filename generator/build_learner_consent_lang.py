@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# generator/build_learner_consent_lang.py v2.1 (परत-4)
+# generator/build_learner_consent_lang.py v2.2 (परत-4)
+# v2.2 (14-Nov-2026, खेप 4 भाग 2): संस्करण 1.2; दो नए लंगर R6X (नियम 6 में फ़ीस के नए वाक्य) और R7X (नियम 7 में वापसी के नए वाक्य)।
 # v2.1 (13-Nov-2026): फीस वाली पंक्ति (F_S) का English लंगर नए नियम से मिलाया: Golden Pass में पूरा टेस्ट मुफ़्त, दिन में 2 बार तक।
 # en साँचे (en/rules-consent-learner.html) + data/consent_learner_strings.py से
 # 13 भाषा-पेज <कोड>/rules-consent-learner.html बनाता है।
@@ -37,7 +38,9 @@ K=dict(
  DESC='Rules &amp; Consent — Learner — the rules to read and accept before registering on ACS (Applied Computer School).',
  H1='Rules, Rights &amp; Duties — Learner',
  SUB='Original language: Hindi · role: learner (Student · Job-seeker · Entrepreneur)',
- VER='<b>Version: 1.1</b> · Effective date: 9 November 2026',
+ VER='<b>Version: 1.2</b> · Effective date: 14 November 2026',
+ R6X='. '+'Final online exam of a course: free with an active badge (Golden Pass or Verified Badge), otherwise ₹100 per exam; one ₹100 chance is used for the career test or for one course exam and stays valid for 30 days from payment; at most 2 exams in a day, all exams together. Course certificate: ₹125 after passing the exam; its online check runs for 5 years from the issue date, and ₹1000 adds 5 more years (after the valid-till date a late fee is added: ₹500 up to 1 year late, ₹1000 beyond that). The saved career report can be checked online for 5 years',
+ R7X='The ₹100 chance is not refunded, except for a technical fault of ACS (not even if it is unused within 30 days). The ₹125 fee (certificate or career report), the certificate validity extension fee and the late fee are not refunded; if a technical error debits the money twice or wrongly, it is corrected after a check (payment correction). The 75% rule for death/disaster covers running services only (training, workshop, course fee, badge); it does not cover the ₹100 chance, the ₹125 fee, the extension fee or the late fee. Full rule: acslearn.com/refund.html',
  TN='🌐 This is an English translation provided for convenience. In case of any difference in meaning, the <a href="/rules-consent-learner.html" style="color:#1565C0;font-weight:700">Hindi original</a> is the legally authoritative text.',
  IDH='👤 Your details', L1='Name — in your own language', P1='e.g. Rajesh Kumar',
  L2='Name — in ROMAN CAPITALS', L3='Who are you?', OPT_S='>Student<', OPT_J='>Job-seeker<', OPT_E='>Entrepreneur<',
@@ -131,7 +134,7 @@ if __name__=='__main__':
         for probe in ('rules accepted','Final confirmation','Accept all at once','Guardian consent is mandatory','Send OTP','Your details','printable interest report'):
             assert probe not in out, code+' EN-LEAK: '+probe
         assert out.count('hreflang=')==16, code+' hreflang'
-        assert out.count('Version: 1.0')==0 and ('1.1' in out), code+' version'
+        assert out.count('Version: 1.0')==0 and re.search(r'1\.1(</bdi>)?</b>',out) is None and re.search(r'1\.2(</bdi>)?</b>',out), code+' version'
         if code in RTL:
             for mm in re.finditer(r'data-[sje]="([^"]*)"',out):
                 assert '<' not in mm.group(1), code+' attr में HTML: '+mm.group(1)[:50]

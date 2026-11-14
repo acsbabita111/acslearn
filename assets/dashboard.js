@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.12.0 · 14-Nov-2026 (खेप 4 भाग 2): विद्यार्थी का नियम-पत्र बदला हो, तो dashboard खुलते ही दोबारा सहमति का परदा (Founder का फ़ैसला 2-ब); सहमति server पर दर्ज होती है।
    v6.11.0 · 14-Nov-2026 (खेप 4 भाग 1): कोर्स के प्रमाण पत्र (₹125) के भुगतान से पहले पूछना और बताना कि यह फ़ीस वापस नहीं होती (Founder का फ़ैसला 1-अ)।
    v6.10.0 · 14-Nov-2026 (खेप 3-ख भाग 1): "सलाह" पैनल में सहेजी हुई करियर रिपोर्ट के साथ उसका जाँच-नंबर और मान्य तिथि (server के reportNumber से); छपाई में QR; WhatsApp के पाठ में नंबर।
    v6.9.0 · 14-Nov-2026 (खेप 3-क v1.1, Founder-नियम और ऑडिट K3A-H01, H03, H04): परीक्षा-तिथि का रिकॉर्ड न हो तो प्रमाणपत्र रुकता है (जारी होने की तिथि उसकी जगह नहीं छपती); विस्तार से पहले लिखा दिखता है कि फ़ीस वापस नहीं होती; फ़ीस बढ़ गई हो तो बाक़ी रक़म माँगी जाती है। प्रमाणपत्र पर अब परीक्षा की असली तिथि, जारी होने की तिथि, online जाँच की मान्य तिथि (जारी से 5 साल) छपते हैं; विस्तार की फ़ीस प्रमाणपत्र पर नहीं छपती (Founder का आदेश, 14-Nov-2026: "सिर्फ़ validity"), वह dashboard, जाँच वाले पन्ने और वापसी-नीति में लिखी है (पहले हर प्रमाणपत्र पर "31 जुलाई 2026" छपता था)। तिथियाँ और विस्तार का हिसाब server (certList) से आता है। "मेरे कोर्स" की तालिका में मान्य तिथि और "5 साल बढ़ाएँ" बटन। मान्य तिथि निकलने पर प्रमाणपत्र विस्तार के बाद ही निकलता है।
@@ -114,7 +115,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.11.0";
+const DASH_VER = "v6.12.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -1096,12 +1097,43 @@ async function guardExternal(user){
 /* (19-Jul-2026, v3.5-घ) profile-भरने का पूरा हिस्सा अलग function में — पूरी तरह
    guardExternal की try-catch के भीतर चलता है; कोई भी अनपेक्षित data अब चुप्पी में
    नहीं दबेगा, दिखता संदेश देगी (गूँगा-fallback निषेध नियम, Laxmi-केस से सीखा)। */
+/* (v6.12.0, खेप 4 भाग 2; Founder का फ़ैसला 2-ब, 14-Nov-2026) विद्यार्थी का नियम-पत्र बदला हो, तो आगे बढ़ने से पहले दोबारा सहमति।
+   server (rulesStatus) बताता है कि सहमति चाहिए या नहीं; सहमति server (rulesAccept) पर दर्ज होती है।
+   स्थिति न मिल पाए (जैसे इंटरनेट न हो), तो परदा नहीं लगता; अगली बार फिर पूछा जाता है। */
+async function rulesGate(){
+  let st=null;
+  try{ const r=await httpsCallable(functions,"rulesStatus")({}); st=(r&&r.data)||null; }catch(e){ return; }
+  if(!st || !st.applies || !st.need || document.getElementById("rulesGate")) return;
+  const ov=document.createElement("div"); ov.id="rulesGate"; ov.setAttribute("role","dialog"); ov.setAttribute("aria-modal","true");
+  ov.style.cssText="position:fixed;inset:0;z-index:99999;background:rgba(11,31,58,.94);display:flex;align-items:flex-start;justify-content:center;padding:16px;overflow:auto";
+  ov.innerHTML='<div style="background:#fff;color:#0B1F3A;border-radius:14px;max-width:560px;width:100%;padding:20px;margin:24px 0;font-size:18px;line-height:1.7">'
+    +'<h2 style="font-size:22px;margin:0 0 8px">📜 नियम-पत्र बदल गया है</h2>'
+    +'<p style="margin:0 0 8px"><span>विद्यार्थी के नियम-पत्र का नया संस्करण लागू है: </span><b id="rulesGateVer">'+esc(st.current)+'</b></p>'
+    +'<p style="margin:0 0 8px">फ़ीस और वापसी वाला भाग (नियम 6 और 7) बदला है।</p>'
+    +'<p style="margin:0 0 8px"><a href="/rules-consent-learner.html" target="_blank" rel="noopener" style="color:#1565C0;font-weight:800">नया नियम-पत्र पढ़ें ↗</a></p>'
+    +'<label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 6px"><input type="checkbox" id="rulesGateChk" style="width:24px;height:24px;flex:none;margin-top:5px"><span>मैंने नियम-पत्र का यह संस्करण पढ़ लिया है और मैं इससे सहमत हूँ।</span></label>'
+    +'<div id="rulesGateMsg" style="color:#B71C1C;font-size:16px;min-height:24px"></div>'
+    +'<button id="rulesGateOk" class="abtn ok" disabled style="font-size:20px;padding:12px 18px;margin:6px 8px 0 0">आगे बढ़ें</button>'
+    +'<button id="rulesGateOut" class="abtn" style="font-size:18px;padding:12px 18px;margin-top:6px">Logout</button></div>';
+  document.body.appendChild(ov);
+  const chk=document.getElementById("rulesGateChk"), okb=document.getElementById("rulesGateOk"), msg=document.getElementById("rulesGateMsg");
+  chk.onchange=function(){ okb.disabled=!chk.checked; };
+  okb.onclick=async function(){
+    if(!chk.checked) return;
+    okb.disabled=true; msg.textContent="⏳";
+    try{ await httpsCallable(functions,"rulesAccept")({version:st.current}); ov.remove(); }
+    catch(e){ msg.textContent="सहमति दर्ज नहीं हो पाई। इंटरनेट देखकर दोबारा दबाएँ।"; okb.disabled=false; }
+  };
+  document.getElementById("rulesGateOut").onclick=function(){ if(window.doLogout) window.doLogout(); };
+}
+
 async function guardExternalRender(user, reg){
   EXT_REG = reg;
   /* v4.1 (16-Jul-2026, काम-6): v1.3-(क) — प्रशिक्षु-roles का खाता सीधा चालू;
      उन पर न provisional-पर्दा, न "अस्थायी" pill (भ्रामक-संदेश होल बंद)। */
   const roleKey0 = String((reg.role)||ALLOWED[0]||"").toLowerCase();
   const noGate = (NO_GATEWAY_EXT.indexOf(roleKey0)>-1);
+  if(noGate) rulesGate();
   /* v6.7.1: English-परत का import अब early-boot पर (NO_GATEWAY_EXT के पास) —
      registration-lookup/deny/error हर अवस्था में toggle मिले। */
   const isActive = noGate ? true : (reg.status==="approved");

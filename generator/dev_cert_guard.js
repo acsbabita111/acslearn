@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.8 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
+/* generator/dev_cert_guard.js : v1.9 (14-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँचें
    जाँचता है कि प्रमाणपत्र के नियम (Founder, 13 और 14-Nov-2026) पेज और code में एक जैसे हैं, और पुराने नियम कहीं नहीं बचे।
    चलाना (repo की जड़ से): node generator/dev_cert_guard.js */
 "use strict";
@@ -125,9 +125,30 @@ console.log("3-घ. ₹125 की फ़ीस वापस नहीं हो�
   ok(!/lifetime-valid/.test(hq) && !/duplicate\/verify/.test(hq) && /online जाँच की अवधि \(जारी होने से 5 साल\)/.test(hq), "परीक्षा-प्रमुख के नियम-पत्र में \"lifetime-valid\" और \"duplicate\" वाली पुरानी पंक्ति नहीं; 5 साल वाला नियम लिखा है");
 })();
 
+console.log("3-ङ. विद्यार्थी का नियम-पत्र संस्करण 1.2 और दोबारा सहमति (खेप 4 भाग 2; Founder का फ़ैसला 2-ब)");
+(function () {
+  var hi = rd("rules-consent-learner.html");
+  ok(/<b>Version: 1\.2<\/b> · प्रभावी तिथि: 14 नवम्बर 2026/.test(hi) && !/Version: 1\.1/.test(hi), "हिंदी नियम-पत्र: संस्करण 1.2, प्रभावी तिथि 14 नवम्बर 2026");
+  var f6 = (hi.match(/<span id="ruleFeeX">([^<]*)<\/span>/) || [])[1] || "", f7 = (hi.match(/<span id="ruleRefundX">([^<]*)<\/span>/) || [])[1] || "";
+  ok(/वरना ₹100 प्रति परीक्षा/.test(f6) && /भुगतान से 30 दिन तक/.test(f6) && /अधिकतम 2/.test(f6) && /परीक्षा पास होने पर ₹125/.test(f6) && /₹1000 देकर 5 साल और/.test(f6) && /1 साल तक की देर पर ₹500, उससे ज़्यादा पर ₹1000/.test(f6), "नियम 6 में नई फ़ीसें लिखी हैं: परीक्षा ₹100, प्रमाण पत्र ₹125, विस्तार ₹1000 और देर का शुल्क");
+  ok(/₹100 का चांस वापस नहीं होता, सिवाय ACS की तकनीकी ग़लती के/.test(f7) && /देर का शुल्क वापस नहीं होते/.test(f7) && /भुगतान का सुधार/.test(f7) && /मृत्यु\/आपदा वाला 75% सिर्फ़ चल रही सेवा/.test(f7) && /acslearn\.com\/refund\.html/.test(f7), "नियम 7 में वापसी के नए नियम लिखे हैं, और मृत्यु/आपदा वाले 75% का दायरा भी");
+  var bad = [];
+  ["en", "zh", "es", "ar", "fr", "bn", "pt", "ru", "id", "ur", "de", "ja", "mr", "te"].forEach(function (c) {
+    var h = rd(c + "/rules-consent-learner.html"), x6 = (h.match(/<span id="ruleFeeX">([\s\S]*?)<\/span>\S/) || [])[1] || "", x7 = (h.match(/<span id="ruleRefundX">([\s\S]*?)<\/span><\/label>/) || [])[1] || "";
+    var t6 = x6.replace(/<[^>]+>/g, ""), t7 = x7.replace(/<[^>]+>/g, "");
+    if (!(/1\.2(<\/bdi>)?<\/b>/.test(h) && !/1\.1(<\/bdi>)?<\/b>/.test(h) && /₹100/.test(t6) && /₹125/.test(t6) && /₹1000/.test(t6) && /₹500/.test(t6) && /₹100/.test(t7) && /₹125/.test(t7) && /75/.test(t7) && /acslearn\.com\/refund\.html/.test(t7))) bad.push(c);
+    if (c !== "en" && /Final online exam of a course|is not refunded/.test(t6 + t7)) bad.push(c + " (English बचा)");
+  });
+  ok(bad.length === 0, "English और 13 भाषाओं के नियम-पत्र: संस्करण 1.2, और नियम 6 तथा 7 के नए हिस्से सब रक़मों के साथ" + (bad.length ? " | दोष: " + bad.join(", ") : ""));
+  var jn = rd("join.html");
+  ok(/consent_rules_version: \(isLearnerRomanOnly\(\) \? '1\.2' : '1\.1'\)/.test(jn), "रजिस्ट्रेशन-फ़ॉर्म विद्यार्थी के लिए संस्करण 1.2 भेजता है (बाक़ी भूमिकाओं के लिए 1.1)");
+  var i1 = d.indexOf("async function rulesGate(){"), i2 = d.indexOf('httpsCallable(functions,"rulesStatus")', i1), i3 = d.indexOf('httpsCallable(functions,"rulesAccept")({version:st.current})', i2), i4 = d.indexOf("if(noGate) rulesGate();");
+  ok(i1 > 0 && i2 > i1 && i3 > i2 && i4 > 0 && /okb\.disabled=!chk\.checked/.test(d) && /id="rulesGateChk"/.test(d), "dashboard: विद्यार्थी के घर खुलते ही server से पूछा जाता है; ज़रूरत हो तो परदा लगता है; निशान लगाए बिना बटन नहीं चलता; सहमति server पर जाती है");
+})();
+
 console.log("4. server की फ़ाइलें repo में नहीं; service worker");
 ok(!has("functions/cert_server.js") && !has("cert_server.js") && !has("assets/cert_server.js"), "cert_server.js repo में नहीं है (वह सिर्फ़ Firebase पर रहती है)");
 var mm = rd("sw.js").match(/CACHE_VERSION\s*=\s*['"]v(\d+)['"]/);
-ok(mm && Number(mm[1]) >= 851, "service worker v851 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
+ok(mm && Number(mm[1]) >= 852, "service worker v852 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
 console.log((fail ? "⛔" : "🏁") + " खेप 3-क का पहरेदार: पास " + pass + " · फेल " + fail);
 process.exit(fail ? 1 : 0);
