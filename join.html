@@ -11,6 +11,8 @@
   <link rel="canonical" href="https://acslearn.com/join.html"/><meta name="description" content="ACS पर रजिस्ट्रेशन — विद्यार्थी, नौकरी-इच्छुक, उद्यमी, शिक्षक, उस्ताद, केंद्र, वर्कशॉप, सलाहकार, नियोक्ता, विदेश-एजेंट, वित्त-मित्र, vendor व ACS-टीम। जुड़ना निःशुल्क; email-OTP से सत्यापन।"/>
 <title>सुंदर भविष्य के लिए ACS से जुड़ें! | Applied Computer School</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- (15-Nov-2026, पैनल-1) भाषा-इंजन: हिंदी मूल; English आदि सिर्फ़ दिखावट, server को data हिंदी ही -->
+<script src="/assets/panel_i18n.js"></script>
 <script src="assets/designation_matrix.js"></script>
 <script src="assets/roles.js"></script>
 <script src="assets/geo/countries.js"></script>
@@ -168,6 +170,7 @@
   <div class="head">
     <h1>सुंदर भविष्य के लिए ACS से जुड़ें!</h1>
 <p class="acs-orig-lang" style="font-size:16px;font-weight:600;text-align:center;margin:6px 0;opacity:.9">मूल भाषा: हिंदी</p>
+    <div id="acsPanelLangSlot"></div>
     <div class="sub">Applied Computer School™ · FFGPMTrust</div>
   </div>
 
@@ -1104,15 +1107,19 @@
   function stateValue(){
     return stateTyped.style.display!=='none' ? stateTyped.value.trim() : stateSel.value;
   }
+  /* (15-Nov-2026, पैनल-1) दूसरी भाषा में option/पट्टी का दिखता पाठ बदला हुआ होता है —
+     data और सारांश के लिए हमेशा हिंदी मूल पढ़ें। हिंदी में पुराना रास्ता ही चलता है। */
+  function acsOptText(o){ var I=window.ACS_PANEL_I18N; return (I&&I.active&&I.src) ? I.src(o).replace(/\s+/g,' ').trim() : o.text; }
+  function acsElText(el){ var I=window.ACS_PANEL_I18N; return (I&&I.active&&I.src) ? I.src(el) : el.textContent; }
   function countryLabel(){
     var o = countrySel.options[countrySel.selectedIndex];
-    return (countrySel.value && o) ? o.text : '';
+    return (countrySel.value && o) ? acsOptText(o) : '';
   }
   function stateLabelText(){
     if(stateTyped.style.display!=='none') return stateTyped.value.trim();
     if(stateSel.value==='_country') return 'पूरा देश (Country Head)';
     var o = stateSel.options[stateSel.selectedIndex];
-    return (stateSel.value && o) ? o.text : '';
+    return (stateSel.value && o) ? acsOptText(o) : '';
   }
   /* पुष्टि-प्रदर्शन के लिए कार्य-क्षेत्र का सार (Step-4 · success · PDF तीनों में) */
   function officeSummaryText(){
@@ -1125,7 +1132,7 @@
     var contEl = step3FieldEls['continent'];
     if(contEl && contEl.value){
       var cOpt = contEl.options && contEl.options[contEl.selectedIndex];
-      parts.push('महाद्वीप: ' + (cOpt ? cOpt.text : contEl.value));
+      parts.push('महाद्वीप: ' + (cOpt ? acsOptText(cOpt) : contEl.value));
     }
     var lvl = staffLevelSel.value;
     if(card.hasOfficeLevelCascade && lvl){
@@ -1232,6 +1239,9 @@
   distTyped.addEventListener('input', maybeLoadRules);
 
   var rulesLoadedFor = null;
+  var rulesShownLang = 'hi';
+  /* नियम-पत्र का वह संस्करण जिस पर सहमति दर्ज होती है: विद्यार्थी 1.2 (खेप 4 भाग 2), बाक़ी 1.1 */
+  function expectedRulesVer(){ return isLearnerRomanOnly() ? '1.2' : '1.1'; }   /* (15-Nov-2026, पैनल-1) जिस भाषा के नियम सचमुच दिखे : वही consent_language में जाता है */
   function maybeLoadRules(){
     if(officeComplete()){ loadRulesFor(roleSel.value); }
     else { rulesCard.style.display='none'; }
@@ -1257,28 +1267,44 @@
     rulesContainer.innerHTML = '<div class="rulesLoadMsg">📜 नियम लोड हो रहे हैं…</div>';
     var file = R.ruleFileFor(role);
     if(!file){ rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ इस रोल की rules-फ़ाइल roles.js में दर्ज नहीं है।</div>'; return; }
-    fetch(file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){
+    /* (15-Nov-2026, पैनल-1) दूसरी भाषा में पहले /<भाषा>/<फ़ाइल>; न हो तो हिंदी मूल (क़ानूनी मूल हिंदी ही) */
+    var I18 = window.ACS_PANEL_I18N, ULANG = (I18 && I18.active && I18.lang) ? I18.lang() : 'hi', rulesLang = 'hi';
+    var firstTry = (ULANG !== 'hi')
+      ? fetch(ULANG + '/' + file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ if(!r.ok) throw new Error('no-lang'); return r.text(); }).then(function(h){
+          /* (v1.1, 15-Nov) अनुवाद तभी, जब उसका संस्करण वही हो जिस पर सहमति दर्ज होती है; पुराना अनुवाद = हिंदी मूल */
+          if(h.indexOf('<b>Version: ' + expectedRulesVer() + '</b>') < 0) throw new Error('old-lang-version');
+          rulesLang = ULANG; return h; })
+      : Promise.reject(new Error('hi'));
+    firstTry.catch(function(){ return fetch(file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){
       if(!r.ok) throw new Error('फ़ाइल नहीं मिली: '+file);
       return r.text();
-    }).then(function(html){
+    }); }).then(function(html){
+      rulesShownLang = rulesLang;
       var parser = new DOMParser();
       var doc = parser.parseFromString(html, 'text/html');
       var idbox = doc.querySelector('.idbox');
       var parts = doc.querySelectorAll('.part, .rules');
       var srcScript = doc.querySelector('script');
       rulesContainer.innerHTML = '';
+      if(ULANG !== 'hi' && rulesLang === 'hi'){
+        var hiNote = document.createElement('div');
+        hiNote.style.cssText='background:#FFF8E1;border:1.5px solid #F9A825;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:16px;color:#5a4300';
+        hiNote.textContent = 'ℹ️ इस भूमिका के नियम अभी सिर्फ़ हिंदी में हैं। हिंदी ही क़ानूनी मूल है।';
+        rulesContainer.appendChild(hiNote);
+      }
       if(idbox){
         var note = document.createElement('div');
         note.style.cssText='background:#EAF3EC;border:1.5px solid #2E7D32;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:16px;color:#1b4d20';
         note.textContent = 'ℹ️ इस रोल में एक और चयन है — नीचे सबसे ऊपर मिलेगा, ज़रूरत अनुसार बदलें।';
         rulesContainer.appendChild(note);
-        rulesContainer.appendChild(idbox.cloneNode(true));
+        var idc = idbox.cloneNode(true);   /* "आपकी जानकारी" डिब्बा फ़ॉर्म है, नियम नहीं: यह चुनी भाषा में दिखता है */
+        rulesContainer.appendChild(idc);
         var innerNameRoman = rulesContainer.querySelector('#nameRoman');
         if(innerNameRoman){
           innerNameRoman.addEventListener('input', function(){ this.value = this.value.toUpperCase().replace(/[^A-Z ]/g,''); });
         }
       }
-      parts.forEach(function(el){ rulesContainer.appendChild(el.cloneNode(true)); });
+      parts.forEach(function(el){ var pc = el.cloneNode(true); if(ULANG !== 'hi') pc.setAttribute('data-i18n-skip', '1'); rulesContainer.appendChild(pc); });
       // मूल फ़ाइल की script कुछ ID (otpBtn/count) ढूँढती है जो यहाँ नहीं हैं — dummy छिपे element ताकि क्रैश न हो
       var dummies = document.createElement('div');
       dummies.style.display = 'none';
@@ -1654,21 +1680,21 @@
   }
   function desiredAreaData(){
     var lockedEl = document.getElementById('desiredLockedTxt');
-    if(lockedEl) return { mode:'from_step2', text: lockedEl.textContent, country:'', state:'', district:'' };
+    if(lockedEl) return { mode:'from_step2', text: acsElText(lockedEl), country:'', state:'', district:'' };
     var c = document.getElementById('desiredCountry');
     if(!c) return { mode:'none', text:'', country:'', state:'', district:'' };
     var cOpt = c.options[c.selectedIndex];
     var dSS = document.getElementById('desiredStateSel'), dST = document.getElementById('desiredStateTyped');
     var dDS = document.getElementById('desiredDistSel'), dDT = document.getElementById('desiredDistTyped');
     var stLabel = (dST && dST.style.display!=='none') ? dST.value.trim()
-      : (dSS && dSS.value ? dSS.options[dSS.selectedIndex].text : '');
+      : (dSS && dSS.value ? acsOptText(dSS.options[dSS.selectedIndex]) : '');
     var dtLabel = (dDT && dDT.style.display!=='none') ? dDT.value.trim()
-      : (dDS && dDS.value ? dDS.options[dDS.selectedIndex].text : '');
-    return { mode:'typed', country:(c.value||''), country_hi:(c.value && cOpt ? cOpt.text : ''),
+      : (dDS && dDS.value ? acsOptText(dDS.options[dDS.selectedIndex]) : '');
+    return { mode:'typed', country:(c.value||''), country_hi:(c.value && cOpt ? acsOptText(cOpt) : ''),
       state: stLabel, state_code: (dSS && dSS.style.display!=='none' ? dSS.value : ''),
       district: dtLabel,
       text: [ dtLabel ? 'जिला: '+dtLabel : '', stLabel ? 'राज्य: '+stLabel : '',
-              (c.value && cOpt) ? 'देश: '+cOpt.text : '' ].filter(Boolean).join(' · ') };
+              (c.value && cOpt) ? 'देश: '+acsOptText(cOpt) : '' ].filter(Boolean).join(' · ') };
   }
   function desiredAreaOk(){
     var box = document.getElementById('desiredAreaBox');
@@ -1761,7 +1787,7 @@
       box.innerHTML =
         '<div class="docPreviewWrap">'+
           previewHtml+
-          '<div class="docMeta"><b>✅ '+doc.hi+'</b>'+file.name+' · '+fileSizeText(file.size)+'</div>'+
+          '<div class="docMeta"><b>✅ '+doc.hi+'</b><span data-i18n-skip>'+file.name+'</span> · '+fileSizeText(file.size)+'</div>'+
           '<button type="button" class="docRemoveBtn">हटाएँ</button>'+
         '</div>';
       box.querySelector('.docRemoveBtn').addEventListener('click', function(e){
@@ -1852,7 +1878,7 @@
         var f = docFiles[doc.id];
         var previewHtml = f.isImage ? '<img src="'+f.dataUrl+'" alt="preview">' : '<div class="fileIcon">'+docIconFor(f.file.name)+'</div>';
         box.innerHTML = '<div class="docPreviewWrap">'+previewHtml+
-          '<div class="docMeta"><b>✅ '+doc.hi+'</b>'+f.file.name+' · '+fileSizeText(f.file.size)+'</div>'+
+          '<div class="docMeta"><b>✅ '+doc.hi+'</b><span data-i18n-skip>'+f.file.name+'</span> · '+fileSizeText(f.file.size)+'</div>'+
           '<button type="button" class="docRemoveBtn">हटाएँ</button></div>';
         box.querySelector('.docRemoveBtn').addEventListener('click', function(e){
           e.stopPropagation(); delete docFiles[doc.id];
@@ -1870,7 +1896,7 @@
     var nameRows = isLearnerRomanOnly()
       ? '<div><b>उम्मीदवार का नाम / Candidate Name:</b> '+ (nameRoman.value||'—') +'</div>'+
         "<div><b>पिता/माता का नाम / Father's/Mother's Name:</b> "+ (fatherNameRoman.value||'—') +"</div>"
-      : '<div><b>नाम (हिंदी):</b> '+ (nameLocal.value||'—') +'</div>'+
+      : '<div><b>नाम (हिंदी):</b> <span data-i18n-skip>'+ (nameLocal.value||'—') +'</span></div>'+
         '<div><b>Name (Roman):</b> '+ (nameRoman.value||'—') +'</div>';
     var html =
       nameRows+
@@ -1896,6 +1922,9 @@
         if(f.type==='select'){
           var opt = f.options && f.options.filter(function(o){return o.v===val;})[0];
           val = opt ? opt.hi : val;
+        } else {
+          /* (15-Nov-2026, पैनल-1) आवेदक का अपना लिखा पाठ: अनुवाद-इंजन इसे कभी न छुए */
+          val = '<span data-i18n-skip>' + val + '</span>';
         }
         html += '<div><b>'+f.hi+':</b> '+val+'</div>';
       });
@@ -1903,7 +1932,7 @@
         var box = docBoxEls[d.id];
         if(box && box.style.display==='none') return; /* Guardian-दस्तावेज़ जो अभी लागू नहीं */
         if(docFiles[d.id]){
-          html += '<div>📎 <b>'+d.hi+':</b> ✅ '+docFiles[d.id].file.name+'</div>';
+          html += '<div>📎 <b>'+d.hi+':</b> ✅ <span data-i18n-skip>'+docFiles[d.id].file.name+'</span></div>';
         } else if(d.required){
           var bx = docBoxEls[d.id];
           if(!((d.showWhenMinor || d.showWhenAdult) && bx && bx.style.display==='none')){
@@ -2068,8 +2097,8 @@
 
     var payload = {
       consent_mode: (document.getElementById('bulkConsentChk')&&document.getElementById('bulkConsentChk').checked)?'bulk':'each',
-      consent_language: 'hi',
-      consent_rules_version: (isLearnerRomanOnly() ? '1.2' : '1.1'),   /* विद्यार्थी का नियम-पत्र 1.2 (खेप 4 भाग 2); बाक़ी भूमिकाओं के नियम-पत्र 1.1 */
+      consent_language: rulesShownLang,   /* (15-Nov-2026) जिस भाषा के नियम दिखे: English नियम-फ़ाइल = 'en', बाक़ी 'hi' (हिंदी ही क़ानूनी मूल) */
+      consent_rules_version: expectedRulesVer(),   /* विद्यार्थी का नियम-पत्र 1.2 (खेप 4 भाग 2); बाक़ी भूमिकाओं के नियम-पत्र 1.1 */
       name_local: isLearnerRomanOnly() ? '' : nameLocal.value, name_roman: nameRoman.value,
       father_name: isLearnerRomanOnly() ? fatherNameRoman.value : '',
       mobile: mobile.value, email: email.value,

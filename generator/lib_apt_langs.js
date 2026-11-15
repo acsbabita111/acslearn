@@ -1,5 +1,9 @@
 /* ============================================================
-   generator/lib_apt_langs.js : v1.6 (14-Nov-2026; v1.5 14-Nov-2026; v1.4 14-Nov-2026; v1.3 14-Nov-2026; v1.2 13-Nov-2026; v1.1 12-Nov-2026) · परत-3
+   generator/lib_apt_langs.js : v1.7 (15-Nov-2026; v1.6 14-Nov-2026; v1.5 14-Nov-2026; v1.4 14-Nov-2026; v1.3 14-Nov-2026; v1.2 13-Nov-2026; v1.1 12-Nov-2026) · परत-3
+   v1.7 (पैनल-1, Founder-नियम 15-Nov-2026): "पहले पैनल का ट्रांसलेसन होगा, उसके बाद ही कोई भी कोर्स का
+     ट्रांसलेसन होगा"। panelGate(code): नई भाषा का करियर टेस्ट तभी बनेगा, जब उस भाषा का पूरा पैनल
+     (assets/i18n/panel_<कोड>.js में "complete":true) तैयार हो। जो भाषाएँ इस नियम से पहले live हो चुकी थीं
+     (PANEL_FIRST_GRANDFATHER: hi, en, bn, kn, mr), वे पहले की तरह दोबारा बन सकती हैं। build_apt_lang.js इसे बुलाता है।
    v1.6 (खेप 5-ग, संस्करण 1.1; ChatGPT के ऑडिट के बाद): नियम 5 मज़बूत हुआ। (1) हिंदी के शब्दों की सूची 73 से 206 हुई
      (जैसे मिलान, कटाई, नालीदार, सदस्यता, किसान, पानी, चाहिए, सकता)। (2) नई सूची style: वे शब्द जो हिंदी जैसे दिखते हैं और जिनका साफ़ मराठी
      शब्द मौजूद है (जीत, जुगाड, सुनसान, रोक)। (3) नई सूची roots: शब्द-मूल, जो शब्द की शुरुआत में आए तो पकड़ा जाए (खिलाडू)।
@@ -154,6 +158,16 @@ function scriptFail(code, text, allow) {
   if (bad.length) throw new Error("lib_apt_langs: " + bad.join(" · "));
 })();
 /* तारीख़ का रूप, ASCII अंकों के साथ (इंजन और झलक इसी को toLocaleDateString में देते हैं) */
+/* (v1.7) Founder-नियम 15-Nov-2026: पहले पूरा पैनल, फिर कोर्स */
+var PANEL_FIRST_GRANDFATHER = ["hi", "en", "bn", "kn", "mr"];
+function panelGate(code) {
+  if (PANEL_FIRST_GRANDFATHER.indexOf(code) >= 0) return null;
+  var f = path.join(__dirname, "..", "assets", "i18n", "panel_" + code + ".js");
+  if (!fs.existsSync(f)) return "Founder-नियम (15-Nov-2026): पहले पूरा पैनल, फिर कोर्स। इस भाषा का पैनल-पैक (assets/i18n/panel_" + code + ".js) अभी नहीं बना";
+  var m = fs.readFileSync(f, "utf8").match(/"complete":(true|false)/);
+  if (!m || m[1] !== "true") return "Founder-नियम (15-Nov-2026): पहले पूरा पैनल, फिर कोर्स। इस भाषा का पैनल अभी अधूरा है (assets/i18n/panel_" + code + ".js में complete:false)";
+  return null;
+}
 function dateLocaleOf(code) { return L[code].dateLocale + "-u-nu-latn"; }
 /* परीक्षा-पन्ने का पता */
 function pageUrl(code) { return "https://acslearn.com/" + (code === "hi" ? "" : code + "/") + "aptitude-test.html"; }
@@ -162,4 +176,4 @@ function hreflangLines() {
   return LIVE.map(function (c) { return '<link rel="alternate" hreflang="' + c + '" href="' + pageUrl(c) + '">'; })
     .concat(['<link rel="alternate" hreflang="x-default" href="' + pageUrl("hi") + '">']);
 }
-module.exports = { ORDER: ORDER, LIVE: LIVE, NOTICE: NOTICE, L: L, scriptFail: scriptFail, hindiMark: hindiMark, HINDI_MARKS: HINDI_MARKS, scriptOf: scriptOf, pageUrl: pageUrl, hreflangLines: hreflangLines, dateLocaleOf: dateLocaleOf };
+module.exports = { ORDER: ORDER, LIVE: LIVE, NOTICE: NOTICE, L: L, panelGate: panelGate, PANEL_FIRST_GRANDFATHER: PANEL_FIRST_GRANDFATHER, scriptFail: scriptFail, hindiMark: hindiMark, HINDI_MARKS: HINDI_MARKS, scriptOf: scriptOf, pageUrl: pageUrl, hreflangLines: hreflangLines, dateLocaleOf: dateLocaleOf };

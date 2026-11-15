@@ -1,5 +1,8 @@
 /* ============================================================
-   acs-universal.js v2.6 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम + देवनागरी छाया-नाम)
+   acs-universal.js v2.7 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम + देवनागरी छाया-नाम)
+   v2.7 (15-Nov, पैनल-1): 🌐 से चुनी भाषा "acs_dash_lang" में भी लिखी जाती है (लॉगिन/रजिस्ट्रेशन उसी भाषा में खुलें)।
+   जिस पन्ने पर पैनल का भाषा-इंजन (ACS_PANEL_I18N) है और वह भाषा उसमें है, वहाँ पन्ना छोड़कर नहीं जाते: वहीं भाषा बदलती है।
+   English पन्नों पर "Login / Dashboard" कड़ी /dashboard/?lang=en पर जाती है।
    जगह: /assets/acs-universal.js  (config+links के बाद load)
    • भाषा-सचेत: /en/ folder → English labels/strings; अन्यथा हिंदी।
    • acs- prefix — पुराने script.js/page-JS से कोई टकराव नहीं।
@@ -87,7 +90,7 @@ function acsUniversalInit(){
         : '<a href="/refund.html">💳 Refund Policy</a> · <a href="/privacy.html">🔒 Privacy Policy</a> · <a href="/terms.html">📜 Terms</a>';
       fm.parentNode.insertBefore(lgl, fm.nextSibling); }
     var lg2=document.getElementById("acsLogin");
-    if(lg2){ lg2.href=login.href||"/dashboard/";
+    if(lg2){ lg2.href=(login.href||"/dashboard/")+(lang==="en"?"?lang=en":"");
       if(lang!=="mirror"){ lg2.innerHTML='<span class="e">'+(login.icon||"🔑")+'</span> '+((login.label&&(login.label[lang]||login.label.hi))||"Login / Dashboard"); } }
   }catch(e){}
 }
@@ -127,7 +130,12 @@ function acsLangTargets(c){
 }
 function acsLangGo(c, ev){
   if(ev&&ev.preventDefault) ev.preventDefault();
-  try{ localStorage.setItem("acs_lang", c); }catch(e){}
+  try{ localStorage.setItem("acs_lang", c); localStorage.setItem("acs_dash_lang", c); }catch(e){}
+  if(typeof ACS_PANEL_I18N!=="undefined" && ACS_PANEL_I18N && ACS_PANEL_I18N.has && ACS_PANEL_I18N.has(c)){
+    ACS_PANEL_I18N.set(c);
+    var pp=document.getElementById("acsTranslatePanel"); if(pp&&pp.classList) pp.classList.remove("open");
+    return false;
+  }
   var home=acsLangHome(c), list=acsLangTargets(c).filter(function(u){ return u!==home; }), i=0;
   function next(){
     if(i>=list.length || typeof fetch!=="function"){ location.href=home; return; }

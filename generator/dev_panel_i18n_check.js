@@ -1,0 +1,620 @@
+#!/usr/bin/env node
+/* ================================================================
+   dev_panel_i18n_check.js v1.0 (15-Nov-2026) : पैनल-1 का पहरेदार
+   (लॉगिन पन्ना /dashboard/ + रजिस्ट्रेशन /join.html, भाषा-इंजन + English पैक)
+   Founder-नियम (15-Nov): पहले पूरा पैनल English, फिर बांग्ला, कन्नड़, मराठी;
+   उसके बाद ही किसी कोर्स का अनुवाद। 🏁 के बिना यह काम आगे नहीं जाता।
+
+   असली पन्ने नक़ली browser (jsdom) में चलते हैं; server की जगह नक़ली जवाब।
+   जाँचें:
+     S  : स्थिर जाँच (पैक ताज़ा, इंजन acs_lang नहीं पढ़ता, rules-gate, universal)
+     L  : लॉगिन English: हर चरण, हर भूमिका-कार्ड, हर ग़लती-संदेश, OTP, पासवर्ड भूलना,
+          नियम-परदा, session-विफलता : दिखने वाला हर पाठ और हर attribute बिना हिंदी
+     LH : हिंदी पहले जैसी (इंजन होने से हिंदी पन्ने का एक अक्षर नहीं बदला)
+     LS : भाषा बदलना बिना पन्ना खोले (English → हिंदी = बिल्कुल ताज़ा हिंदी पन्ना)
+     LB : browser की भाषा से कभी नहीं (acs_lang=en हो तब भी हिंदी)
+     J  : रजिस्ट्रेशन English: हर भूमिका (कार्ड + टीम के हर पद) का पूरा सफ़र
+          step-1 → OTP → step-2 → नियम → step-3 → दस्तावेज़ → step-4 → submit → PDF
+     JP : server को जाने वाला data English में भी हूबहू वही जो हिंदी में (हर भूमिका)
+   चलाना (repo-root से):  npm i jsdom@24 --no-save   फिर   node generator/dev_panel_i18n_check.js
+   (jsdom कहीं और हो तो:  ACS_JSDOM=<पता>/node_modules/jsdom node generator/dev_panel_i18n_check.js)
+   ================================================================ */
+"use strict";
+const fs = require("fs"), path = require("path"), cp = require("child_process");
+const ROOT = path.join(__dirname, "..");
+function loadJsdom() {
+  const tries = [process.env.ACS_JSDOM, "jsdom", path.join(ROOT, "node_modules/jsdom")].filter(Boolean);
+  for (const t of tries) { try { return require(t); } catch (e) {} }
+  console.log("⛔ jsdom नहीं मिला। पहले चलाएँ:  npm i jsdom@24 --no-save   (या ACS_JSDOM=<jsdom का पता>)");
+  process.exit(2);
+}
+const { JSDOM, ResourceLoader, VirtualConsole } = loadJsdom();
+
+let pass = 0, fail = 0;
+function ck(name, ok, extra) {
+  if (ok) { pass++; return true; }
+  fail++; console.log("❌ " + name + (extra ? "\n     " + String(extra).slice(0, 900) : "")); return false;
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const DEV = /[ऀ-ॿ]/;
+const rd = p => fs.readFileSync(path.join(ROOT, p), "utf8");
+
+/* ───────────── S: स्थिर जाँच ───────────── */
+const ENG = rd("assets/panel_i18n.js");
+const PACK_SRC = rd("assets/i18n/panel_en.js");
+const GATE = rd("assets/rules-gate.js");
+const UNI = rd("assets/acs-universal.js");
+function staticSuite() {
+  const r = cp.spawnSync(process.execPath, [path.join(ROOT, "generator/build_panel_i18n.js"), "en", "--check"], { encoding: "utf8" });
+  ck("S1 English पैक ताज़ा है (build_panel_i18n.js en --check)", r.status === 0, (r.stdout || "") + (r.stderr || ""));
+  const m = PACK_SRC.match(/window\.ACS_PANEL_PACKS\["en"\]=(\{[\s\S]*\});\s*$/);
+  let P = null; try { P = m && JSON.parse(m[1]); } catch (e) {}
+  ck("S2 पैक पढ़ने-योग्य JSON", !!P);
+  if (P) {
+    const vals = Object.values(P.D);
+    ck("S3 पैक का दायरा login + join, पूरा पैनल अभी नहीं", JSON.stringify(P.scope) === '["login","join"]' && P.complete === false, JSON.stringify(P.scope) + " " + P.complete);
+    ck("S4 पैक के English में हिंदी अक्षर शून्य", vals.every(v => !DEV.test(v)), vals.filter(v => DEV.test(v)).slice(0, 5).join(" | "));
+    ck("S5 पैक में em dash (—) और टूटा अक्षर (U+FFFD) शून्य", vals.every(v => v.indexOf("—") < 0 && v.indexOf("�") < 0));
+  }
+  ck("S6 इंजन acs_lang नहीं पढ़ता (browser की भाषा उसमें आ जाती है)", ENG.indexOf('getItem("acs_lang")') < 0 && ENG.indexOf("getItem('acs_lang')") < 0);
+  ck("S7 इंजन में चाबी acs_dash_lang और has()", /var LSK="acs_dash_lang"/.test(ENG) && /has:known/.test(ENG));
+  ck("S8 नियम-परदा भाषा देखता है और अनुवाद-इंजन से बाहर है", /function gateLang\(\)/.test(GATE) && /data-i18n-skip/.test(GATE));
+  ck("S9 universal: 🌐 से चुनी भाषा acs_dash_lang में + पैनल पर वहीं बदलती है", /localStorage\.setItem\("acs_dash_lang", c\)/.test(UNI) && /ACS_PANEL_I18N\.set\(c\)/.test(UNI));
+  for (const f of ["dashboard/_LOGIN_TEMPLATE.html", "_JOIN_TEMPLATE.html", "dashboard/index.html", "join.html"]) {
+    const h = rd(f);
+    ck("S10 " + f + " में इंजन + भाषा-पट्टी की जगह", /<script src="\/assets\/panel_i18n\.js"><\/script>/.test(h) && /id="acsPanelLangSlot"/.test(h));
+  }
+  const lt = rd("dashboard/_LOGIN_TEMPLATE.html");
+  ck("S11 लॉगिन में पुराना hi/en toggle नहीं बचा", !/data-en=/.test(lt) && !/switchLang\(/.test(lt) && !/applyLang\(/.test(lt));
+  /* join/login generator से ताज़ा हैं या नहीं : यह dev_dash_gen_check.js देखता है */
+}
+
+/* ───────────── नक़ली browser ───────────── */
+const FB_COMPAT = "window.firebase={apps:[],initializeApp:function(c){this.apps.push({options:c});return this.apps[0];}," +
+  "functions:function(){return {httpsCallable:function(n,o){return function(d){return window.__CALL(n,d).then(function(r){return {data:r};});};}};}};";
+class Loader extends ResourceLoader {
+  fetch(url) {
+    let u; try { u = new URL(url); } catch (e) { return Promise.resolve(Buffer.from("")); }
+    if (u.hostname === "acslearn.com") {
+      let p = decodeURIComponent(u.pathname); if (p.endsWith("/")) p += "index.html";
+      const f = path.join(ROOT, p);
+      if (fs.existsSync(f) && fs.statSync(f).isFile()) return Promise.resolve(fs.readFileSync(f));
+      return Promise.reject(new Error("404 " + p));
+    }
+    if (/firebase-app-compat\.js$/.test(u.pathname)) return Promise.resolve(Buffer.from(FB_COMPAT));
+    return Promise.resolve(Buffer.from(""));
+  }
+}
+function loginTransform(html) {
+  let n = 0, dyn = 0;
+  const out = html.replace(/<script type="module">([\s\S]*?)<\/script>/, function (m, body) {
+    n++;
+    body = body.replace(/^import \{([^}]*)\} from "[^"]*";$/gm, function (x, names) { n++; return "const {" + names + "} = window.__FB;"; });
+    body = body.replace('import("/assets/rules-gate.js")', function () { dyn++; return "window.__importGate()"; });
+    return "<script>(async function(){\n" + body + "\n})();</script>";
+  });
+  if (n !== 5 || dyn !== 1) throw new Error("लॉगिन का module-script बदला हुआ है (imports " + (n - 1) + ", dynamic " + dyn + ") : robot अद्यतन करें");
+  return out;
+}
+const GATE_CLASSIC = GATE.replace("export function rulesGate", "function rulesGate") + "\n;window.__RG={rulesGate:rulesGate};";
+
+async function openPage(file, opt) {
+  opt = opt || {};
+  let html = rd(file);
+  if (opt.transform) html = opt.transform(html);
+  const urlPath = opt.urlPath || ("/" + file.replace(/index\.html$/, ""));
+  const ctx = { calls: [], dialogs: [], errors: [], fetched: [], userVals: new Set(), confirmAnswer: true, handlers: opt.handlers || {} };
+  const vc = new VirtualConsole();
+  vc.on("jsdomError", e => { const m = String(e && (e.message || e)); if (!/Not implemented|Could not load (link|img|iframe)/.test(m)) ctx.errors.push(m.slice(0, 300)); });
+  const dom = new JSDOM(html, {
+    url: "https://acslearn.com" + urlPath + (opt.query || ""), runScripts: "dangerously", resources: new Loader(),
+    pretendToBeVisual: true, virtualConsole: vc,
+    beforeParse(w) {
+      const ls = opt.ls || {}; for (const k of Object.keys(ls)) w.localStorage.setItem(k, ls[k]);
+      w.scrollTo = function () {}; w.Element.prototype.scrollIntoView = function () {};
+      w.alert = m => { ctx.dialogs.push(String(m)); };
+      w.confirm = m => { ctx.dialogs.push(String(m)); return ctx.confirmAnswer; };
+      w.prompt = m => { ctx.dialogs.push(String(m)); return null; };
+      w.open = function () { return null; };
+      Object.defineProperty(w.HTMLElement.prototype, "offsetParent", { configurable: true, get() {
+        let el = this; while (el && el.nodeType === 1) { if (el.hidden || w.getComputedStyle(el).display === "none") return null; el = el.parentElement; }
+        return this.ownerDocument.body; } });
+      w.Image = function () { const o = {}; Object.defineProperty(o, "src", { set() { setTimeout(function () { if (o.onerror) o.onerror(); }, 0); } }); return o; };
+      w.fetch = function (u) {
+        const abs = new w.URL(String(u), w.location.href);
+        if (abs.hostname === "acslearn.com") {
+          let p = decodeURIComponent(abs.pathname); if (p.endsWith("/")) p += "index.html";
+          ctx.fetched.push(p); const f = path.join(ROOT, p);
+          if ((opt.missing || []).indexOf(p) > -1) return Promise.resolve({ ok: false, status: 404, text: () => Promise.resolve("") });
+          if (fs.existsSync(f) && fs.statSync(f).isFile()) { let t = fs.readFileSync(f, "utf8"); if (opt.rewrite && opt.rewrite[p]) t = opt.rewrite[p](t); return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(t), json: () => Promise.resolve(JSON.parse(t)) }); }
+          return Promise.resolve({ ok: false, status: 404, text: () => Promise.resolve("") });
+        }
+        if (abs.hostname === "api.postalpincode.in") return Promise.resolve({ ok: true, json: () => Promise.resolve([{ Status: "Success", PostOffice: [{ Name: "Chautham", State: "Bihar", District: "Khagaria" }, { Name: "Malpa", State: "Bihar", District: "Khagaria" }] }]) });
+        return Promise.reject(new Error("offline"));
+      };
+      w.__CALL = function (name, data) {
+        ctx.calls.push({ name, data: JSON.parse(JSON.stringify(data || {})) });
+        const h = ctx.handlers[name];
+        try { return Promise.resolve(h ? h(data, ctx) : {}); } catch (e) { return Promise.reject(e); }
+      };
+      const AUTH = { currentUser: { uid: "u1" }, signOut: () => Promise.resolve() };
+      w.__FB = {
+        initializeApp: () => ({}), getAuth: () => AUTH, signOut: () => Promise.resolve(),
+        signInWithEmailAndPassword: (a, e, p) => w.__CALL("__signIn", { email: e, pass: p }),
+        getFirestore: () => ({}), doc: () => ({}), getDoc: () => w.__CALL("__getDoc", {}),
+        getFunctions: () => ({}), httpsCallable: (f, name) => (d => w.__CALL(name, d).then(r => ({ data: r })))
+      };
+      w.__importGate = () => { if (!w.__RG) w.eval(GATE_CLASSIC); return Promise.resolve(w.__RG); };
+    }
+  });
+  ctx.dom = dom; ctx.w = dom.window; ctx.d = dom.window.document;
+  await new Promise(r => { if (ctx.d.readyState === "complete") r(); else dom.window.addEventListener("load", () => r()); setTimeout(r, 8000); });
+  if (opt.expect === "en") await waitFor(ctx, () => ctx.w.ACS_PANEL_I18N && ctx.w.ACS_PANEL_I18N.active, 4000);
+  await settle(ctx);
+  return ctx;
+}
+async function waitFor(ctx, cond, ms) { const t0 = Date.now(); while (Date.now() - t0 < (ms || 3000)) { try { if (cond()) return true; } catch (e) {} await sleep(10); } return false; }
+async function settle(ctx) { await sleep(25); await sleep(25); }
+function typeIn(ctx, el, v) { el.value = v; el.dispatchEvent(new ctx.w.Event("input", { bubbles: true })); el.dispatchEvent(new ctx.w.Event("change", { bubbles: true })); }
+function pick(ctx, el, v) { el.value = v; el.dispatchEvent(new ctx.w.Event("change", { bubbles: true })); }
+function click(ctx, el) { el.dispatchEvent(new ctx.w.MouseEvent("click", { bubbles: true, cancelable: true })); }
+function rej(code, message, details) { const e = new Error(message || code || "err"); if (code) e.code = code; if (details) e.details = details; throw e; }
+
+/* दिखने वाला हर पाठ + attribute जिसमें हिंदी बची हो */
+const ATTRS = ["placeholder", "title", "aria-label", "alt", "label"];
+function hindiLeaks(ctx, opts) {
+  opts = opts || {};
+  const d = ctx.d, out = [];
+  /* दर्ज होल (पैनल-6 तक): सिर्फ़ नियम-फ़ाइल के क़ानूनी हिस्से (part/rules) हिंदी में; "आपकी जानकारी" डिब्बा नहीं */
+  const isHole = el => !!(opts.allowRulesHole && el.closest("#rulesContainer") && el.closest(".part,.rules"));
+  const tw = d.createTreeWalker(d.body, 4); let n;
+  while ((n = tw.nextNode())) {
+    if (!DEV.test(n.nodeValue)) continue;
+    const p = n.parentElement; if (!p) continue;
+    if (p.closest("script,style,noscript,textarea,#acsPanelLangBar,#acsTranslatePanel")) continue;
+    const sk = p.closest("[data-i18n-skip],[translate=no]");
+    if (sk && !p.closest("#rulesGate")) {
+      if (isHole(sk)) { ctx.holeSeen = true; continue; }
+      if (ctx.userVals.has(n.nodeValue.trim())) continue;
+      out.push("[skip-ज़ोन] " + n.nodeValue.trim().slice(0, 90)); continue;
+    }
+    out.push(n.nodeValue.replace(/\s+/g, " ").trim().slice(0, 110));
+  }
+  d.querySelectorAll("*").forEach(el => {
+    if (el.closest("script,style,#acsPanelLangBar,#acsTranslatePanel")) return;
+    const sk = el.closest("[data-i18n-skip]"); if (sk && !el.closest("#rulesGate") && isHole(sk)) return;
+    for (const a of ATTRS) { const v = el.getAttribute(a); if (v && DEV.test(v)) out.push("@" + a + "=" + v.slice(0, 90)); }
+    if (el.tagName === "INPUT" && /^(button|submit)$/i.test(el.type || "") && DEV.test(el.value || "")) out.push("@value=" + el.value);
+  });
+  if (DEV.test(d.title)) out.push("<title> " + d.title);
+  for (const m of ctx.dialogs.splice(0)) if (DEV.test(m)) out.push("[संदेश-डिब्बा] " + m.slice(0, 110));
+  return Array.from(new Set(out));
+}
+function clean(ctx, where, opts) { const L = hindiLeaks(ctx, opts); return ck(where + " : हिंदी शून्य", L.length === 0, L.length + " जगह: " + L.slice(0, 8).join("  ‖  ")); }
+function noErr(ctx, where) { const e = ctx.errors.splice(0); return ck(where + " : पन्ने में JS-त्रुटि शून्य", e.length === 0, e.slice(0, 4).join(" ‖ ")); }
+function bodyText(ctx) {
+  const c = ctx.d.body.cloneNode(true);
+  c.querySelectorAll("#acsPanelLangBar,script,style").forEach(x => x.remove());
+  return c.innerHTML.replace(/\s+/g, " ");
+}
+
+const MXCODE = rd("assets/designation_matrix.js"), RCODE = rd("assets/roles.js");
+const MX = (() => { const w = {}; new Function("window", MXCODE)(w); return w.ACS_DESIGNATIONS; })();
+const R = (() => { const w = { ACS_DESIGNATIONS: MX }; new Function("window", RCODE)(w); return w.ACS_ROLES; })();
+
+/* ───────────── L: लॉगिन ───────────── */
+async function loginSuite() {
+  const OPEN = (o) => openPage("dashboard/index.html", Object.assign({ transform: loginTransform, urlPath: "/dashboard/" }, o));
+  const H = {
+    "__signIn": () => ({ user: { uid: "u1" } }), "claimSession": () => ({ ok: true }),
+    "rulesStatus": () => ({ applies: true, need: true, current: "1.2" }), "rulesAccept": () => ({ ok: true }),
+    "requestLoginOtp": () => ({ ok: true }), "verifyLoginOtp": () => ({ ok: true }),
+    "requestPasswordResetOtp": () => ({ ok: true }), "verifyPasswordResetOtp": () => ({ ok: true }),
+    "__getDoc": () => ({ exists: () => true, data: () => ({ designation: "hq_admin" }) })
+  };
+  /* L1 पहला दृश्य */
+  let c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, H) });
+  const $ = id => c.d.getElementById(id);
+  ck("L0 English सक्रिय, html lang=en, body class en", c.w.ACS_PANEL_I18N.active && c.d.documentElement.getAttribute("lang") === "en" && c.d.body.classList.contains("en") && !c.d.body.classList.contains("hi"));
+  ck("L0 भाषा-पट्टी में हिंदी + English, English दबा हुआ", !!c.d.querySelector('#acsPanelLangBar button[data-plang="en"][aria-pressed="true"]') && !!c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]'));
+  clean(c, "L1 लॉगिन पहला दृश्य (सब चरण, छिपे भी)");
+  const tops = MX.cards.filter(x => !x.parent);
+  ck("L2 भूमिका-कार्ड गिनती = matrix", c.d.querySelectorAll("#roleGrid .role-card").length === tops.length);
+  for (const card of tops.filter(x => x.children)) {
+    const tile = Array.from(c.d.querySelectorAll("#roleGrid .role-card"))[tops.indexOf(card)];
+    click(c, tile); await settle(c);
+    clean(c, "L2 कार्ड " + card.key + " खुला (प्रकार चुनें)");
+    const back = Array.from(c.d.querySelectorAll("#roleGrid .role-card")).find(x => /↩/.test(x.textContent));
+    click(c, back); await settle(c);
+  }
+  c.w.goStep2(); await settle(c); clean(c, "L3 बिना भूमिका आगे बढ़ना");
+  click(c, c.d.querySelectorAll("#roleGrid .role-card")[0]); c.w.goStep2(); await settle(c);
+  ck("L4 भूमिका-पट्टी English", /^Role: /.test($("role-tag").textContent), $("role-tag").textContent);
+  clean(c, "L4 चरण-2");
+  await c.w.doLogin(); await settle(c); clean(c, "L5 email ख़ाली");
+  $("f-email").value = "a@b.co"; await c.w.doLogin(); await settle(c); clean(c, "L5 password ख़ाली");
+  $("f-pass").value = "x";
+  for (const code of ["auth/invalid-credential", "auth/too-many-requests", "auth/network-request-failed", "auth/other"]) {
+    c.handlers.__signIn = () => rej(code); await c.w.doLogin(); await settle(c); clean(c, "L5 लॉगिन-ग़लती " + code);
+  }
+  /* L6 विद्यार्थी: session → नियम-परदा → dashboard */
+  c.handlers.__signIn = H.__signIn;
+  const loginP = c.w.doLogin(); await waitFor(c, () => $("rulesGate"), 3000); await settle(c);
+  ck("L6 नियम-परदा खुला", !!$("rulesGate"));
+  clean(c, "L6 नियम-परदा (English)");
+  ck("L6 परदे में Continue बटन और हिंदी-मूल सूचना", /Continue/.test($("rulesGate").textContent) && /legal original/.test($("rulesGate").textContent));
+  await settle(c);
+  ck("L6 English परदे की कड़ी English नियम-पत्र पर (/en/rules-consent-learner.html)", $("rulesGateLink").getAttribute("href") === "/en/rules-consent-learner.html" && /English version/.test($("rulesGateLink").textContent),
+    $("rulesGateLink").getAttribute("href") + " | " + $("rulesGateLink").textContent);
+  c.handlers.rulesAccept = () => rej("unavailable");
+  $("rulesGateChk").checked = true; $("rulesGateChk").dispatchEvent(new c.w.Event("change")); click(c, $("rulesGateOk")); await settle(c); await settle(c);
+  clean(c, "L6 सहमति दर्ज न हो पाई");
+  c.handlers.rulesAccept = H.rulesAccept; click(c, $("rulesGateOk")); await loginP; await settle(c);
+  const acc = c.calls.filter(x => x.name === "rulesAccept").pop();
+  ck("L6 सहमति के साथ भाषा en और संस्करण भेजा", !!acc && acc.data.language === "en" && acc.data.version === "1.2", JSON.stringify(acc && acc.data));
+  ck("L6 परदा हटा, सफलता-चरण", !$("rulesGate") && $("c5").classList.contains("show"));
+  ck("L6 सफलता में भूमिका English", /^Role: /.test($("s-role").textContent), $("s-role").textContent);
+  clean(c, "L6 सफलता-चरण");
+  noErr(c, "L1-L6");
+  c.dom.window.close();
+
+  /* LG नियम-परदा: हिंदी में हिंदी कड़ी; English में अनुवाद न मिले या पुराना हो तो हिंदी मूल */
+  const gateRun = async (o, tag, wantHref, wantLang, wantText) => {
+    const g = await OPEN(Object.assign({ handlers: Object.assign({}, H) }, o));
+    click(g, g.d.querySelectorAll("#roleGrid .role-card")[0]); g.w.goStep2(); g.d.getElementById("f-email").value = "a@b.co"; g.d.getElementById("f-pass").value = "x";
+    const lp = g.w.doLogin(); await waitFor(g, () => g.d.getElementById("rulesGate"), 3000); await settle(g); await settle(g);
+    const a = g.d.getElementById("rulesGateLink");
+    ck(tag + " : कड़ी " + wantHref, !!a && a.getAttribute("href") === wantHref && (!wantText || wantText.test(g.d.getElementById("rulesGate").textContent)), a && (a.getAttribute("href") + " | " + g.d.getElementById("rulesGate").textContent.replace(/\s+/g, " ").slice(0, 300)));
+    if (o.expect === "en") clean(g, tag + " : परदा");
+    const chk = g.d.getElementById("rulesGateChk"); chk.checked = true; chk.dispatchEvent(new g.w.Event("change")); click(g, g.d.getElementById("rulesGateOk")); await lp; await settle(g);
+    const ac = g.calls.filter(x => x.name === "rulesAccept").pop();
+    ck(tag + " : सहमति में भाषा " + wantLang, !!ac && ac.data.language === wantLang, JSON.stringify(ac && ac.data));
+    noErr(g, tag); g.dom.window.close();
+  };
+  await gateRun({}, "LG1 हिंदी नियम-परदा", "/rules-consent-learner.html", "hi", /आगे बढ़ें/);
+  await gateRun({ ls: { acs_dash_lang: "en" }, expect: "en", missing: ["/en/rules-consent-learner.html"] }, "LG2 English, पर English फ़ाइल नहीं मिली", "/rules-consent-learner.html", "hi", /not ready yet[\s\S]*legal original/);
+  await gateRun({ ls: { acs_dash_lang: "en" }, expect: "en", rewrite: { "/en/rules-consent-learner.html": t => t.replace("<b>Version: 1.2</b>", "<b>Version: 1.1</b>") } }, "LG3 English, पर English फ़ाइल पुराने संस्करण की", "/rules-consent-learner.html", "hi", /in Hindi/);
+
+  /* L7 नियम-जाँच नहीं हो पाई + session-विफलता */
+  c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, H, { rulesStatus: () => rej("unavailable") }) });
+  click(c, c.d.querySelectorAll("#roleGrid .role-card")[0]); c.w.goStep2(); c.d.getElementById("f-email").value = "a@b.co"; c.d.getElementById("f-pass").value = "x";
+  c.w.doLogin(); await waitFor(c, () => c.d.getElementById("rulesGateRetry"), 3000); await settle(c);
+  clean(c, "L7 नियम-स्थिति जाँच विफल परदा");
+  c.dom.window.close();
+  c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, H, { claimSession: () => rej("unavailable") }) });
+  click(c, c.d.querySelectorAll("#roleGrid .role-card")[0]); c.w.goStep2(); c.d.getElementById("f-email").value = "a@b.co"; c.d.getElementById("f-pass").value = "x";
+  await c.w.doLogin(); await settle(c); clean(c, "L7 session शुरू नहीं हुई");
+  c.dom.window.close();
+
+  /* L8 OTP वाली भूमिका */
+  c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, H) });
+  const ti = tops.findIndex(x => x.key === "counselor");
+  click(c, c.d.querySelectorAll("#roleGrid .role-card")[ti]); c.w.goStep2();
+  c.d.getElementById("f-email").value = "a@b.co"; c.d.getElementById("f-pass").value = "x";
+  await c.w.doLogin(); await sleep(1100); await settle(c);
+  ck("L8 OTP-चरण खुला", c.d.getElementById("c3").classList.contains("show"));
+  clean(c, "L8 OTP-चरण (घड़ी चलते हुए)");
+  await c.w.verifyLoginOtp(); await settle(c); clean(c, "L8 OTP अधूरा");
+  ["o1", "o2", "o3", "o4", "o5", "o6"].forEach((id, i) => { c.d.getElementById(id).value = String(i + 1); });
+  c.handlers.verifyLoginOtp = () => ({ ok: false }); await c.w.verifyLoginOtp(); await settle(c); clean(c, "L8 OTP ग़लत (server ok:false)");
+  c.handlers.requestLoginOtp = () => ({ ok: true }); await c.w.resendLoginOtp(); await settle(c); clean(c, "L8 नया OTP भेजा");
+  c.handlers.requestLoginOtp = () => { throw {}; }; await c.w.resendLoginOtp(); await settle(c); clean(c, "L8 दोबारा OTP अभी नहीं");
+  noErr(c, "L7-L8");
+  c.dom.window.close();
+
+  /* L9 पासवर्ड भूल गए */
+  c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, H) });
+  c.w.goForgot(); await settle(c); clean(c, "L9 पासवर्ड भूले: पहला दृश्य");
+  await c.w.requestForgotOtp(); await settle(c); clean(c, "L9 email ग़लत");
+  c.d.getElementById("fp-email").value = "a@b.co"; await c.w.requestForgotOtp(); await sleep(1100); await settle(c); clean(c, "L9 OTP भेजा + शर्तें");
+  typeIn(c, c.d.getElementById("fp-pass1"), "abcDEF123!@#x"); typeIn(c, c.d.getElementById("fp-pass2"), "zz"); await settle(c); clean(c, "L9 पासवर्ड मेल नहीं");
+  await c.w.submitForgotReset(); await settle(c); clean(c, "L9 OTP अधूरा");
+  ["p1", "p2", "p3", "p4", "p5", "p6"].forEach((id, i) => { c.d.getElementById(id).value = String(i + 1); });
+  typeIn(c, c.d.getElementById("fp-pass1"), "abc"); await c.w.submitForgotReset(); await settle(c); clean(c, "L9 पासवर्ड की शर्तें अधूरी");
+  typeIn(c, c.d.getElementById("fp-pass1"), "abcDEF123!@#x"); typeIn(c, c.d.getElementById("fp-pass2"), "abcDEF123!@#y"); await c.w.submitForgotReset(); await settle(c); clean(c, "L9 दोनों पासवर्ड अलग");
+  c.handlers.verifyPasswordResetOtp = () => { throw {}; }; typeIn(c, c.d.getElementById("fp-pass2"), "abcDEF123!@#x"); await c.w.submitForgotReset(); await settle(c); clean(c, "L9 OTP ग़लत");
+  c.handlers.verifyPasswordResetOtp = H.verifyPasswordResetOtp; ["p1", "p2", "p3", "p4", "p5", "p6"].forEach((id, i) => { c.d.getElementById(id).value = String(i + 1); });
+  await c.w.submitForgotReset(); await settle(c); clean(c, "L9 पासवर्ड बदल गया");
+  noErr(c, "L9");
+  /* L10 menu की कड़ियाँ English पन्नों पर */
+  const mis = Array.from(c.d.querySelectorAll("#acsMenuList a,#acsFooterMenu a")).filter(a => /mission/.test(a.getAttribute("href")));
+  ck("L10 English में menu की कड़ी English पन्ने पर", mis.length > 0 && mis.every(a => a.getAttribute("href") === "/en/mission.html"), mis.map(a => a.getAttribute("href")).join(","));
+  c.dom.window.close();
+
+  /* LH हिंदी पहले जैसी: इंजन वाला पन्ना बनाम इंजन हटाया पन्ना */
+  const noEng = h => loginTransform(h).replace('<script src="/assets/panel_i18n.js"></script>', "");
+  const hA = await OPEN({}); const hB = await openPage("dashboard/index.html", { transform: noEng, urlPath: "/dashboard/" });
+  ck("LH1 हिंदी में इंजन निष्क्रिय, html lang=hi", !hA.w.ACS_PANEL_I18N.active && hA.d.documentElement.getAttribute("lang") === "hi" && hA.d.body.classList.contains("hi"));
+  ck("LH2 हिंदी पन्ना हूबहू (इंजन होने न होने से कोई अंतर नहीं)", bodyText(hA) === bodyText(hB) && hA.d.title === hB.d.title);
+  /* LS भाषा बदलना: English → हिंदी = ताज़ा हिंदी */
+  c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en" });
+  click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(c);
+  ck("LS1 English → हिंदी: पन्ना बिल्कुल ताज़ा हिंदी जैसा", bodyText(c) === bodyText(hA) && c.d.title === hA.d.title, "");
+  ck("LS2 हिंदी चुनना याद रहा", c.w.localStorage.getItem("acs_dash_lang") === "hi" && c.d.documentElement.getAttribute("lang") === "hi");
+  click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="en"]')); await waitFor(c, () => c.w.ACS_PANEL_I18N.active); await settle(c);
+  clean(c, "LS3 हिंदी → English दोबारा");
+  c.dom.window.close(); hA.dom.window.close(); hB.dom.window.close();
+  /* LB browser की भाषा से कभी नहीं */
+  c = await OPEN({ ls: { acs_lang: "en" } }); await sleep(100);
+  ck("LB1 acs_lang=en (browser से आ सकता है) पर भी लॉगिन हिंदी", !c.w.ACS_PANEL_I18N.active && c.d.documentElement.getAttribute("lang") === "hi");
+  /* LU साइट का 🌐 बटन: पन्ना छोड़े बिना English */
+  const href0 = c.w.location.href;
+  c.w.acsLangGo("en"); await waitFor(c, () => c.w.ACS_PANEL_I18N.active); await settle(c);
+  ck("LU1 साइट के 🌐 से English: पन्ना वहीं, भाषा बदली, याद रही", c.w.ACS_PANEL_I18N.active && c.w.location.href === href0 && c.w.localStorage.getItem("acs_dash_lang") === "en");
+  clean(c, "LU1 🌐 से English");
+  c.dom.window.close();
+  c = await OPEN({ query: "?lang=en", expect: "en" });
+  ck("LQ ?lang=en से English और याद", c.w.ACS_PANEL_I18N.active && c.w.localStorage.getItem("acs_dash_lang") === "en");
+  c.dom.window.close();
+  /* LE English साइट का "Login / Dashboard" → ?lang=en */
+  const mini = '<!doctype html><html><head><meta charset="utf-8"></head><body><a id="acsLogin" href="/dashboard/">Login</a><div id="acsMenuList"></div><div id="acsFooterMenu"></div>' +
+    '<script src="/assets/acs-config.js"></script><script src="/assets/links.js"></script><script src="/assets/acs-universal.js"></script></body></html>';
+  for (const [p, want] of [["/en/", "/dashboard/?lang=en"], ["/", "/dashboard/"], ["/te/", "/dashboard/"]]) {
+    const dom = new JSDOM(mini, { url: "https://acslearn.com" + p, runScripts: "dangerously", resources: new Loader(), virtualConsole: new VirtualConsole() });
+    await new Promise(r => { dom.window.addEventListener("load", r); setTimeout(r, 3000); });
+    ck("LE " + p + " पर Login-कड़ी = " + want, dom.window.document.getElementById("acsLogin").getAttribute("href") === want, dom.window.document.getElementById("acsLogin").getAttribute("href"));
+    dom.window.close();
+  }
+}
+
+/* ───────────── J: रजिस्ट्रेशन ───────────── */
+function roleList() {
+  const L = [];
+  for (const c of MX.cards) {
+    if (c.key === "team" || c.parent) continue;
+    if (c.children && c.children.length) c.children.forEach(k => L.push({ key: k, parent: c.key }));
+    else L.push({ key: c.key });
+  }
+  for (const t of MX.teams) { if (t.registrable === false) continue; L.push({ key: t.key, team: t.level }); }
+  return L;
+}
+const HJ = {
+  requestRegisterOtp: () => ({ ok: true }), verifyRegisterOtp: () => ({ ok: true }),
+  checkExistingApplication: () => ({ exists: false }), cancelApplication: () => ({ ok: true }),
+  submitRegistration: () => ({ regNo: "ACS-2026-123456", updated: false }),
+  generateAgreementPdf: () => ({ pdfUrl: "https://example.com/a.pdf", mailNote: "sent" })
+};
+async function joinStep1(c, o) {
+  const $ = id => c.d.getElementById(id);
+  typeIn(c, $("nameLocal"), "राम कुमार"); c.userVals.add("राम कुमार");
+  typeIn(c, $("nameRoman"), "RAM KUMAR"); typeIn(c, $("fatherNameRoman"), "RAM PRASAD");
+  typeIn(c, $("mobile"), "9876543210"); typeIn(c, $("email"), "ram@example.com");
+  typeIn(c, $("dob"), o.minor ? "2011-03-04" : "1990-03-04");
+  if (o.minor) typeIn(c, $("guardianMobile"), "9123400000");
+  typeIn(c, $("pwd"), "abcDEF123!@#x"); typeIn(c, $("pwd2"), "abcDEF123!@#x");
+  await settle(c);
+}
+async function joinOtp(c) {
+  const $ = id => c.d.getElementById(id);
+  click(c, $("sendOtpBtn")); await waitFor(c, () => $("otpBoxWrap").classList.contains("show")); await settle(c);
+  c.d.querySelectorAll(".otpDigits input").forEach((inp, i) => typeIn(c, inp, String(i + 1)));
+  click(c, $("verifyOtpBtn")); await waitFor(c, () => $("panel2").classList.contains("active")); await settle(c);
+}
+async function joinRole(c, rl) {
+  const $ = id => c.d.getElementById(id);
+  const tops = MX.cards.filter(x => !x.parent);
+  const tiles = () => Array.from(c.d.querySelectorAll("#roleGrid .role-card"));
+  if (rl.team) {
+    click(c, tiles()[tops.findIndex(x => x.key === "team")]); await settle(c);
+    pick(c, $("teamLevelSel"), rl.team); await settle(c); pick(c, $("teamDesigSel"), rl.key);
+  } else if (rl.parent) {
+    click(c, tiles()[tops.findIndex(x => x.key === rl.parent)]); await settle(c);
+    click(c, c.d.querySelector('#childChoiceGrid .role-card[data-key="' + rl.key + '"]'));
+  } else click(c, tiles()[tops.findIndex(x => x.key === rl.key)]);
+  await settle(c);
+  const card = R.byKey(rl.key);
+  if (card.needsGeo) {
+    pick(c, $("countrySel"), rl.country || "in"); await waitFor(c, () => $("stateSel").options.length > 2 || $("stateTyped").style.display !== "none", 3000); await settle(c);
+    pick(c, $("stateSel"), rl.state || "bihar"); await settle(c);
+    if (card.needsRMOffice) { await waitFor(c, () => $("rmDist1").options.length > 2, 3000); await settle(c); pick(c, $("rmDist1"), $("rmDist1").options[1].value); pick(c, $("rmDist2"), $("rmDist2").options[2].value); }
+  }
+  await waitFor(c, () => $("rulesContainer").querySelector(".rule,.part"), 4000); await settle(c);
+}
+async function joinRules(c) {
+  const $ = id => c.d.getElementById(id);
+  const bulk = $("bulkConsentChk");
+  if (bulk) { bulk.checked = true; bulk.dispatchEvent(new c.w.Event("change")); }
+  else c.d.querySelectorAll("#rulesContainer .rule input[type=checkbox]").forEach(b => { if (b.offsetParent !== null) { b.checked = true; b.dispatchEvent(new c.w.Event("change")); } });
+  await settle(c);
+  const fin = $("finalChk"); if (!fin.checked) { fin.checked = true; fin.dispatchEvent(new c.w.Event("change")); }
+  await settle(c);
+  const b3 = $("toStep3Btn"); const ok = !b3.disabled; click(c, b3); await settle(c);
+  return ok;
+}
+async function joinStep3(c, rl, firstRole) {
+  const $ = id => c.d.getElementById(id);
+  const card = R.byKey(rl.key);
+  let ec = 0;
+  for (const f of card.fields) {
+    if (f.id === "name_local" || f.id === "name_roman") continue;
+    if (f.type === "pincode_address") {
+      typeIn(c, $("pin_" + f.id), "851201"); await waitFor(c, () => $("pinResult_" + f.id).style.display === "block"); await settle(c);
+      typeIn(c, $("pinDetail_" + f.id), "घर नं. 12, वार्ड 3"); c.userVals.add("घर नं. 12, वार्ड 3, Chautham, Khagaria, Bihar, PIN: 851201");
+      continue;
+    }
+    if (f.type === "emergency_contact") {
+      typeIn(c, $("ecName_" + f.id), "सीता देवी"); typeIn(c, $("ecRel_" + f.id), "बहन"); typeIn(c, $("ecMobile_" + f.id), "91234567" + (10 + ec++));
+      c.userVals.add("सीता देवी, बहन, 91234567" + (9 + ec)); continue;
+    }
+    const el = c.d.querySelector('#dynamicFields [data-fid="' + f.id + '"]'); if (!el) continue;
+    const row = el.closest(".row"); if (row && row.style.display === "none") continue;
+    if (el.readOnly) continue;
+    if (f.type === "select") { pick(c, el, el.options[1].value); continue; }
+    if (f.type === "number") { typeIn(c, el, String(f.min != null ? Math.max(f.min, Math.min(f.max != null ? f.max : 1e9, f.min + 1)) : 2)); continue; }
+    if (f.roman) { typeIn(c, el, "TEST NAME"); continue; }
+    typeIn(c, el, "परीक्षण पाठ"); c.userVals.add("परीक्षण पाठ");
+  }
+  await settle(c);
+  if ($("desiredCountry")) {
+    pick(c, $("desiredCountry"), "in"); await waitFor(c, () => $("desiredStateSel").options.length > 2); await settle(c);
+    pick(c, $("desiredStateSel"), "bihar"); await waitFor(c, () => $("desiredDistSel").options.length > 2); await settle(c);
+    pick(c, $("desiredDistSel"), $("desiredDistSel").options[3].value); await settle(c);
+  }
+  const boxes = Array.from(c.d.querySelectorAll("#documentsContainer .docBox")).filter(b => b.style.display !== "none");
+  if (firstRole && boxes.length) {
+    const inp = boxes[0].querySelector("input[type=file]");
+    Object.defineProperty(inp, "files", { configurable: true, value: [new c.w.File(["x"], "a.txt", { type: "text/plain" })] }); inp.dispatchEvent(new c.w.Event("change")); await settle(c);
+    Object.defineProperty(inp, "files", { configurable: true, value: [new c.w.File([new Uint8Array(2200000)], "big.pdf", { type: "application/pdf" })] }); inp.dispatchEvent(new c.w.Event("change")); await settle(c);
+    clean(c, "J ग़लत फ़ाइल / बहुत बड़ी फ़ाइल संदेश", { allowRulesHole: true });
+  }
+  for (const b of boxes) {
+    const id = b.getAttribute("data-docid"), inp = b.querySelector("input[type=file]"); if (!inp) continue;
+    const pdf = /\.pdf/.test(inp.accept);
+    const name = pdf ? "दस्तावेज़-" + id + ".pdf" : "photo-" + id + ".jpg"; if (pdf) c.userVals.add(name);
+    const file = new c.w.File([pdf ? "%PDF-1.4 " + id : "JPEGDATA" + id], name, { type: pdf ? "application/pdf" : "image/jpeg" });
+    Object.defineProperty(inp, "files", { configurable: true, value: [file] }); inp.dispatchEvent(new c.w.Event("change"));
+    await waitFor(c, () => b.classList.contains("filled"), 3000);
+  }
+  await settle(c);
+  return !$("toStep4Btn").disabled;
+}
+async function joinFull(rl, mode, extra) {
+  extra = extra || {};
+  const c = await openPage("join.html", { ls: mode === "en" ? { acs_dash_lang: "en" } : {}, expect: mode, handlers: Object.assign({}, HJ) });
+  const tag = "J[" + mode + "] " + rl.key + (extra.minor ? " (नाबालिग)" : "") + (rl.country && rl.country !== "in" ? " (" + rl.country + ")" : "");
+  const res = { tag };
+  const EN = mode === "en", RH = { allowRulesHole: true };
+  if (EN && extra.first) clean(c, "J1 रजिस्ट्रेशन पहला दृश्य (सब चरण)");
+  await joinStep1(c, extra);
+  if (EN && extra.first) clean(c, "J2 चरण-1 भरा हुआ");
+  await joinOtp(c);
+  if (!ck(tag + " : OTP के बाद चरण-2", c.d.getElementById("panel2").classList.contains("active"))) { c.dom.window.close(); return res; }
+  await joinRole(c, rl);
+  const learner = /^(student|jobseeker|entrepreneur)$/.test(rl.key);
+  if (EN) {
+    clean(c, tag + " : चरण-2 भूमिका + नियम", RH);
+    const enRules = c.fetched.some(p => p === "/en/" + R.ruleFileFor(rl.key));
+    if (learner) ck(tag + " : नियम English फ़ाइल से (/en/...)", enRules && !c.holeSeen, c.fetched.join(","));
+    else { ck(tag + " : नियम हिंदी मूल + सूचना (पैनल-6 तक दर्ज होल)", /Hindi text is the legal original/.test(c.d.getElementById("rulesContainer").textContent), ""); res.hole = true; }
+  }
+  if (!ck(tag + " : सब नियम स्वीकार → चरण-3 खुला", await joinRules(c) && c.d.getElementById("panel3").classList.contains("active"))) { c.dom.window.close(); return res; }
+  const ok4 = await joinStep3(c, rl, EN && extra.first);
+  if (EN) clean(c, tag + " : चरण-3 फ़ॉर्म + दस्तावेज़", RH);
+  if (!ck(tag + " : चरण-3 पूरा → चरण-4 बटन चालू", ok4)) { c.dom.window.close(); return res; }
+  click(c, c.d.getElementById("toStep4Btn")); await settle(c);
+  if (EN) clean(c, tag + " : चरण-4 पुष्टि", RH);
+  if (EN && extra.first) {
+    c.handlers.submitRegistration = () => rej("internal", "boom"); click(c, c.d.getElementById("submitBtn")); await settle(c); await settle(c);
+    clean(c, "J submit विफल संदेश", RH);
+    c.handlers.submitRegistration = () => rej("failed-precondition", "otpVerificationExpired"); click(c, c.d.getElementById("submitBtn")); await settle(c); await settle(c);
+    clean(c, "J OTP-प्रमाण की मियाद निकली", RH);
+    c.handlers.submitRegistration = HJ.submitRegistration;
+  }
+  click(c, c.d.getElementById("submitBtn")); await waitFor(c, () => c.d.getElementById("panelSuccess").classList.contains("active")); await settle(c); await settle(c);
+  ck(tag + " : submit → सफलता", c.d.getElementById("panelSuccess").classList.contains("active"));
+  if (EN) clean(c, tag + " : सफलता + PDF", RH);
+  if (EN && extra.first) {
+    c.handlers.generateAgreementPdf = () => ({ pdfUrl: "", mailNote: "no" }); c.w.document.getElementById("downloadPdfBtn").click(); await settle(c); clean(c, "J PDF बनी, email नहीं गई", RH);
+  }
+  const sub = c.calls.filter(x => x.name === "submitRegistration").pop();
+  res.payload = sub ? sub.data : null;
+  noErr(c, tag);
+  c.dom.window.close();
+  return res;
+}
+async function joinExtra() {
+  /* OTP-ग़लतियाँ + पहले से मौजूद आवेदन */
+  const c = await openPage("join.html", { ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, HJ) });
+  await joinStep1(c, {});
+  const $ = id => c.d.getElementById(id);
+  for (const [code, msg] of [["resource-exhausted", ""], ["already-exists", ""], ["unavailable", ""], ["", ""]]) {
+    c.handlers.requestRegisterOtp = () => rej(code, msg); click(c, $("sendOtpBtn")); await settle(c); await settle(c);
+    clean(c, "J3 OTP भेजने में ग़लती " + (code || "(अनजान)"));
+  }
+  c.handlers.requestRegisterOtp = HJ.requestRegisterOtp; click(c, $("sendOtpBtn")); await waitFor(c, () => $("otpBoxWrap").classList.contains("show")); await sleep(1100); await settle(c);
+  clean(c, "J3 OTP भेजा (घड़ी चलते हुए)");
+  c.d.querySelectorAll(".otpDigits input").forEach((inp, i) => typeIn(c, inp, String(i + 1)));
+  c.handlers.verifyRegisterOtp = () => rej("permission-denied", ""); click(c, $("verifyOtpBtn")); await settle(c); await settle(c); clean(c, "J4 OTP ग़लत");
+  c.d.querySelectorAll(".otpDigits input").forEach((inp, i) => typeIn(c, inp, String(i + 1)));
+  c.handlers.verifyRegisterOtp = HJ.verifyRegisterOtp;
+  c.handlers.checkExistingApplication = () => ({ exists: true, status: "provisional", regNo: "ACS-2026-000111", role: "teacher", country: "in", state: "bihar", rm_districts: ["खगड़िया"] });
+  click(c, $("verifyOtpBtn")); await waitFor(c, () => $("existAppCard")); await settle(c);
+  clean(c, "J4 पहले से दर्ज आवेदन (जाँच में)");
+  c.handlers.cancelApplication = () => rej("internal"); click(c, $("existCancelBtn")); await settle(c); await settle(c);
+  clean(c, "J4 आवेदन निरस्त करने में ग़लती");
+  c.handlers.cancelApplication = HJ.cancelApplication; click(c, $("existCancelBtn")); await settle(c); await settle(c);
+  clean(c, "J4 आवेदन निरस्त");
+  noErr(c, "J3-J4");
+  c.dom.window.close();
+  const c2 = await openPage("join.html", { ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, HJ, { checkExistingApplication: () => ({ exists: true, status: "approved", regNo: "ACS-2026-000222", role: "student" }) }) });
+  await joinStep1(c2, {}); await joinOtp(c2).catch(() => {}); await waitFor(c2, () => c2.d.getElementById("existAppCard")); await settle(c2);
+  clean(c2, "J4 आवेदन पहले से स्वीकृत");
+  c2.dom.window.close();
+  /* back-बटन वाली पंक्तियाँ */
+  const c3 = await openPage("join.html", { ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, HJ) });
+  await joinStep1(c3, {}); await joinOtp(c3); click(c3, c3.d.getElementById("back1Btn")); await settle(c3);
+  clean(c3, "J5 चरण-2 से वापस चरण-1");
+  noErr(c3, "J5");
+  c3.dom.window.close();
+  /* J6 English learner-नियम पुराने संस्करण के हों, तो हिंदी मूल दिखे और consent_language = hi */
+  const c4 = await openPage("join.html", { ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, HJ),
+    rewrite: { "/en/rules-consent-learner.html": t => t.replace("<b>Version: 1.2</b>", "<b>Version: 1.1</b>") } });
+  await joinStep1(c4, {}); await joinOtp(c4); await joinRole(c4, { key: "student" }); await settle(c4);
+  ck("J6 पुराना English नियम-पत्र नहीं दिखा: हिंदी मूल + English सूचना", /Hindi text is the legal original/.test(c4.d.getElementById("rulesContainer").textContent) && c4.fetched.indexOf("/rules-consent-learner.html") > -1);
+  await joinRules(c4); await joinStep3(c4, { key: "student" }, false); click(c4, c4.d.getElementById("toStep4Btn")); await settle(c4);
+  click(c4, c4.d.getElementById("submitBtn")); await waitFor(c4, () => c4.calls.some(x => x.name === "submitRegistration")); await settle(c4);
+  const sp = c4.calls.filter(x => x.name === "submitRegistration").pop();
+  ck("J6 तब consent_language = hi और संस्करण 1.2", !!sp && sp.data.consent_language === "hi" && sp.data.consent_rules_version === "1.2", JSON.stringify(sp && { l: sp.data.consent_language, v: sp.data.consent_rules_version }));
+  noErr(c4, "J6");
+  c4.dom.window.close();
+}
+async function joinHindiSame() {
+  /* JH: हिंदी रजिस्ट्रेशन पन्ना इंजन होने और न होने पर एक-जैसा */
+  const noEng = h => h.replace('<script src="/assets/panel_i18n.js"></script>', "");
+  const a = await openPage("join.html", {}), b = await openPage("join.html", { transform: noEng });
+  ck("JH1 हिंदी रजिस्ट्रेशन में इंजन निष्क्रिय", !a.w.ACS_PANEL_I18N.active && a.d.documentElement.getAttribute("lang") === "hi");
+  ck("JH2 हिंदी रजिस्ट्रेशन पन्ना हूबहू (इंजन होने न होने से कोई अंतर नहीं)", bodyText(a) === bodyText(b) && a.d.title === b.d.title);
+  /* LS-J: English → हिंदी बिना पन्ना खोले */
+  const c = await openPage("join.html", { ls: { acs_dash_lang: "en" }, expect: "en" });
+  click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(c);
+  ck("JH3 रजिस्ट्रेशन English → हिंदी: पन्ना बिल्कुल ताज़ा हिंदी जैसा", bodyText(c) === bodyText(a) && c.d.title === a.d.title);
+  [a, b, c].forEach(x => x.dom.window.close());
+}
+async function joinSuite() {
+  const ONLY = (process.env.ACS_ROLES || "").split(",").filter(Boolean);   /* जाँच तेज़ करने के लिए: ACS_ROLES=teacher,student */
+  if (!ONLY.length) { await joinHindiSame(); await joinExtra(); }
+  let roles = roleList();
+  if (ONLY.length) roles = roles.filter(r => ONLY.indexOf(r.key) > -1);
+  /* ZM देश-प्रमुख (भारत के बाहर) का एक अतिरिक्त रास्ता */
+  if (roles.some(r => r.key === "zm")) roles.push({ key: "zm", team: "zm", country: "np", state: "_country" });
+  const runs = roles.map(r => ({ rl: r, extra: {} }));
+  if (!ONLY.length || ONLY.indexOf("student") > -1) runs.push({ rl: { key: "student" }, extra: { minor: true } });
+  let first = true, holes = 0, same = 0;
+  for (const run of runs) {
+    const en = await joinFull(run.rl, "en", Object.assign({ first }, run.extra)); first = false;
+    if (en.hole) holes++;
+    const hi = await joinFull(run.rl, "hi", run.extra);
+    /* consent_language जान-बूझकर अलग: जिस भाषा के नियम सचमुच दिखे (English नियम-फ़ाइल सिर्फ़ विद्यार्थी-परिवार की है) */
+    const learner = /^(student|jobseeker|entrepreneur)$/.test(run.rl.key);
+    const tagP = en.tag.replace("J[en]", "JP");
+    ck(tagP + " : consent_language = " + (learner ? "en" : "hi") + " (English) और hi (हिंदी)", !!en.payload && !!hi.payload &&
+      en.payload.consent_language === (learner ? "en" : "hi") && hi.payload.consent_language === "hi",
+      (en.payload || {}).consent_language + " / " + (hi.payload || {}).consent_language);
+    const strip = p => { if (!p) return p; const q = JSON.parse(JSON.stringify(p)); delete q.consent_language; return q; };
+    const a = JSON.stringify(strip(en.payload)), b = JSON.stringify(strip(hi.payload));
+    if (ck(tagP + " : server को data हिंदी जैसा ही", !!en.payload && a === b, firstDiff(strip(en.payload), strip(hi.payload)))) same++;
+  }
+  ck("JP सब भूमिकाओं में data एक-जैसा (" + same + "/" + runs.length + ")", same === runs.length);
+  console.log("ℹ️ दर्ज होल (पैनल-6 तक): English में " + holes + " भूमिकाओं के नियम अभी हिंदी मूल में, साथ में English सूचना।");
+}
+function firstDiff(a, b, p) {
+  p = p || "";
+  if (JSON.stringify(a) === JSON.stringify(b)) return "";
+  if (typeof a !== "object" || typeof b !== "object" || !a || !b) return p + ": " + JSON.stringify(a) + " ≠ " + JSON.stringify(b);
+  for (const k of new Set(Object.keys(a).concat(Object.keys(b)))) { const r = firstDiff(a[k], b[k], p + "." + k); if (r) return r; }
+  return p;
+}
+
+module.exports = { openPage, loginTransform, settle, waitFor, typeIn, pick, click, hindiLeaks, MX, R };
+if (require.main === module) (async function main() {
+  const t0 = Date.now();
+  const only = process.argv[2] || "";
+  try {
+    staticSuite();
+    if (!only || only === "login") await loginSuite();
+    if (!only || only === "join") await joinSuite();
+  } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
+  console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.0 : पैनल-1 (लॉगिन + रजिस्ट्रेशन) English पास");
+  process.exit(fail ? 1 : 0);
+})();

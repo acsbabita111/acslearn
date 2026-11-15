@@ -25,6 +25,8 @@ var LANGS = require("./lib_apt_langs.js");
 var BANK = { NONASCII_DIGIT: /[\u0660-\u0669\u06F0-\u06F9\u0966-\u096F\u09E6-\u09EF\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0BE6-\u0BEF\u0C66-\u0C6F\u0CE6-\u0CEF\u0D66-\u0D6F]/, digits: function (s) { return String(s).match(/\d+/g) || []; } };
 var code = (process.argv[2] || "").trim(), CHECK_ONLY = process.argv.indexOf("--check") > -1;
 if (!code || !LANGS.L[code] || code === "hi" || code === "en") { console.log("उपयोग: node generator/build_apt_lang.js <भाषा-कोड> [--check]   (30 की सूची का कोड; hi और en के अपने generator हैं)"); process.exit(1); }
+/* (15-Nov-2026, पैनल-1) Founder-नियम: पहले पूरा पैनल, फिर कोर्स। पैनल अधूरा = यह यंत्र आगे नहीं चलता (--check में भी) */
+(function () { var pg = LANGS.panelGate(code); if (pg) { console.log("⛔ " + code + ": " + pg); process.exit(1); } })();
 var DIR = path.join(ROOT, "generator/data/aptitude", code), INFO = LANGS.L[code], DEVA = INFO.script === "Deva";
 /* Latin में रहने वाले नाम: ब्रांड (brand-Latin नियम, Addendum v7.9) और द्वार-कार्ड के बटन का नाम, जो इंजन में Latin ही है */
 var BRANDS = ["Applied Computer School", "Login / Dashboard", "FFGPMTrust", "ffgpmt.org", "ISO 9001:2015", "acslearn.com/verify", "acslearn.com", "ACS", "WhatsApp", "Razorpay", "RIASEC"];
