@@ -1,5 +1,14 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.4 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.5 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   v1.5 (कन्नड़, खेप क-1): मशीन अब हर पैनल-भाषा के लिए। भाषाओं का घर generator/lib_panel_langs.js (Founder का क्रम; लिपि lib_apt_langs.js से)।
+     English के अलावा हर भाषा में: (1) <भाषा>.json का नया खंड "data": data-फ़ाइलों (roles.js, designation_matrix.js, countries.js, links.js)
+     के हर हिंदी→English जोड़े का अनुवाद ज़रूरी (English में ये जोड़े data से अपने-आप आते हैं); (2) हर अनुवाद हिंदी मूल से मिलाया जाता है
+     (lib_panel_langs.js का parity: अंक, {n}, चिह्न, emoji, रोमन शब्द, विराम, अपनी लिपि, पराई लिपि); (3) अनुवाद के आगे-पीछे की ख़ाली जगह
+     English पैक जैसी (टुकड़े उसी तरह जुड़ें); (4) "draft_note" हो तो पैक में जाता है (भाषा-पट्टी के नीचे "AI-मसौदा" सूचना)।
+     --todo <फ़ाइल>: जो हिंदी टुकड़े <भाषा>.json में अभी नहीं हैं, उनकी सूची (हिंदी + English संदर्भ) उस फ़ाइल में; पैक नहीं बनता।
+     (5) पहुँच-जाँच में अब नियम-फ़ाइलों की script के वे टुकड़े भी, जो रजिस्ट्रेशन पन्ने के अपने हिस्से में लिखे जाते हैं (गिनती, "अंतिम पुष्टि" का लेबल):
+     नियम-पत्र हिंदी में दिखे तब भी ये चुनी भाषा में दिखते हैं; इससे en.json और panel_en.js में 2 टुकड़े जुड़े (पुराने 2861 वैसे ही)।
+     (6) brand का नाम हर भाषा में रोमन में ही (Applied Computer School, ACS): lib_panel_langs.js के parity में।
    v1.1 (पैनल-1ख): दायरे में रजिस्ट्रेशन गाइड (registration-guide.html) और matrix की पद-योग्यताएँ।
    v1.2 (शब्द-सूची): English पैक पर generator/data/vocab_en.json के नियम (उद्यम = Enterprise)। पैक का ढाँचा-संस्करण (VER) वही 1.1।
    v1.3 (पैनल-2): दायरे में सब 31 dashboard (dash-ext, dash-team) और assets/dashboard.js के literal; "\n" वाले literal
@@ -25,13 +34,18 @@
 const fs=require("fs"), path=require("path"), vm=require("vm");
 const ROOT=path.join(__dirname,"..");
 const LANG=(process.argv[2]||"").trim(), CHECK=process.argv.indexOf("--check")>-1;
-if(!/^[a-z]{2,3}$/.test(LANG)||LANG==="hi"){ console.log("उपयोग: node generator/build_panel_i18n.js <भाषा-कोड> [--check]"); process.exit(1); }
+const TODO=process.argv.indexOf("--todo")>-1 ? (process.argv[process.argv.indexOf("--todo")+1]||"") : "";
+if(!/^[a-z]{2,3}$/.test(LANG)||LANG==="hi"||(process.argv.indexOf("--todo")>-1&&!TODO)){ console.log("उपयोग: node generator/build_panel_i18n.js <भाषा-कोड> [--check | --todo <फ़ाइल>]"); process.exit(1); }
+/* (v1.5) भाषा का घर: lib_panel_langs.js। कोड वहाँ न हो, या लिपि दर्ज न हो = पैक नहीं बनता (fail-closed) */
+const PL=require("./lib_panel_langs.js"), LI=PL.info(LANG), EN_MODE=(LANG==="en");
+if(!LI){ console.log("⛔ भाषा-कोड \""+LANG+"\" पैनल-भाषाओं की सूची (generator/lib_panel_langs.js का ORDER) में नहीं, या उसकी लिपि lib_apt_langs.js में दर्ज नहीं।"); process.exit(1); }
+if(LI.script==="Deva"){ console.log("⛔ देवनागरी में लिखी जाने वाली भाषा ("+LANG+") की पहुँच-जाँच और इंजन का पहरा अभी नहीं बना (\"हिंदी बची या नहीं\" लिपि से नहीं पहचाना जा सकता)। यह उस भाषा की खेप में बनेगा।"); process.exit(1); }
 const DEV=/[ऀ-ॿ]/;
 const VER="1.2";   /* 1.2 (पैनल-3): पैक में T (साँचे) */
 /* पैक किन हिस्सों को ढकता है (पैनल-खेपों के साथ बढ़ेगा)। सब हिस्से पूरे = complete:true।
    करियर-टेस्ट की नई भाषा का द्वार (lib_apt_langs.js panelGate) इसी पर चलता है। */
 const SCOPE=["login","join","guide","dash-ext","dash-team","server"];
-const ALL_AREAS={ en:["login","join","guide","dash-ext","dash-team","server","canvas","rules"] };
+const ALL_AREAS={ en:["login","join","guide","dash-ext","dash-team","server","canvas","rules"] };   /* (v1.5) दूसरी भाषाओं में भी यही सूची (नीचे complete) */
 /* ये हिंदी टुकड़े पन्ने पर दिखते ही नहीं (सिर्फ़ console या कोड के भीतर) — इसलिए अनुवाद नहीं */
 const SKIP=new Set([
   "Firebase init विफल:", "requestRegisterOtp त्रुटि:", "resend त्रुटि:", "cancelApplication त्रुटि:",
@@ -75,12 +89,29 @@ if(LK){ LK.menu.forEach(m=>{ add(m.label,m.label_en,"links"); add(m.icon+" "+m.l
 if(autoConf.length){ console.log("⛔ data-फ़ाइलों में एक ही हिंदी के दो English:"); autoConf.forEach(x=>console.log("   "+x)); process.exit(1); }
 
 /* ---------- 2. हाथ का शब्दकोश ---------- */
-const MAN=readJSON("generator/data/panel_i18n/"+LANG+".json");
+/* (v1.5) नई भाषा: शब्दकोश-फ़ाइल अभी न हो तो --todo पूरी सूची देता है (काम यहीं से शुरू होता है); बिना --todo साफ़ संदेश */
+if(!fs.existsSync(path.join(ROOT,"generator/data/panel_i18n/"+LANG+".json"))&&!TODO){ console.log("⛔ generator/data/panel_i18n/"+LANG+".json नहीं मिली। नई भाषा का पहला क़दम: node generator/build_panel_i18n.js "+LANG+" --todo <फ़ाइल> (अनुवाद के लिए पूरी सूची), फिर "+LANG+".json लिखें (ढाँचा: generator/data/panel_i18n/README.md)।"); process.exit(1); }
+const MAN=fs.existsSync(path.join(ROOT,"generator/data/panel_i18n/"+LANG+".json")) ? readJSON("generator/data/panel_i18n/"+LANG+".json") : { lang:LANG, ui:{}, geo:{}, server:{}, data:{} };
 if(MAN.lang!==LANG){ console.log("⛔ "+LANG+".json में lang खाना ग़लत"); process.exit(1); }
-const D={}; let overrides=0;
-for(const [h,v] of auto) D[h]=v.en;
+const D={}; let overrides=0; const pre=[];
+if(EN_MODE) for(const [h,v] of auto) D[h]=v.en;
 for(const sec of ["ui","geo"]) for(const [h0,e] of Object.entries(MAN[sec]||{})){
   const h=norm(h0); if(D[h]!==undefined&&D[h]!==e) overrides++; D[h]=e; }
+/* (v1.5) English संदर्भ: किनारे की ख़ाली जगह और --todo के लिए */
+const ENREF={}, ENSRV={};
+if(!EN_MODE){ const E=readJSON("generator/data/panel_i18n/en.json");
+  for(const [h,v] of auto) ENREF[h]=v.en;
+  for(const sec of ["ui","geo"]) for(const [h0,e] of Object.entries(E[sec]||{})) ENREF[norm(h0)]=e;
+  for(const [h0,e] of Object.entries(E.server||{})){ ENSRV[h0]=e; if(!/\{\d+\}/.test(h0)) ENREF[norm(h0)]=e; } }
+/* (v1.5) data-फ़ाइलों के जोड़े: English में अपने-आप; दूसरी भाषा में "data" खंड (या ui/geo) में हर एक का अनुवाद ज़रूरी */
+if(EN_MODE){ if(MAN.data) pre.push("en.json में \"data\" खंड नहीं होता (English के जोड़े data-फ़ाइलों से अपने-आप आते हैं)"); }
+else {
+  for(const [h0,e] of Object.entries(MAN.data||{})){ const h=norm(h0);
+    if(!auto.has(h)) pre.push("\"data\" खंड में ऐसी कुंजी जो data-फ़ाइलों में नहीं: "+h0);
+    else if(D[h]!==undefined&&D[h]!==e) pre.push("एक ही कुंजी के दो अनुवाद (ui/geo और data): "+h0);
+    else D[h]=e; }
+  for(const [h] of auto) if(D[h]===undefined) pre.push("data-फ़ाइलों के जोड़े का अनुवाद नहीं ("+LANG+".json के \"data\" खंड में जोड़ें): "+h);
+}
 /* (v1.4) server के संदेश: सूची server_msgs.json से, अनुवाद <भाषा>.json के "server" खंड से।
    सूची का हर संदेश अनुवाद में हो, और अनुवाद में कोई फ़ालतू न हो (सूची और अनुवाद एक-दूसरे से न भटकें)। */
 const SRV=readJSON("generator/data/panel_i18n/server_msgs.json").msgs.map(x=>x.hi), MSRV=MAN.server||{}, TP=[], srvBad=[];
@@ -101,7 +132,22 @@ for(const [h,v] of auto) if(v.src==="countries") GEOK.add(h);
 for(const h0 of Object.keys(MAN.geo||{})) GEOK.add(norm(h0));
 
 /* ---------- 3. पहरा (क): मानों की शुद्धता ---------- */
-const bad=srvBad.slice();
+const bad=pre.concat(srvBad);
+/* (v1.5) --todo: जो टुकड़े अभी इस भाषा में नहीं लिखे गए (हिंदी + English संदर्भ), फ़ाइल में; पैक नहीं बनता */
+if(TODO){ const list=[], seen=new Set(), E0=readJSON("generator/data/panel_i18n/en.json");
+  /* खंड वही जो en.json में: ui, geo; data-फ़ाइलों के जोड़े "data" में (जो ui में पहले से हैं, वे ui में ही); server अलग */
+  const put=(sec,h,en)=>{ if(seen.has(h)||D[h]!==undefined) return; seen.add(h); list.push({ sec:sec, hi:h, en:en }); };
+  for(const [h0,e] of Object.entries(E0.ui||{})) put("ui",norm(h0),e);
+  for(const [h0,e] of Object.entries(E0.geo||{})) put("geo",norm(h0),e);
+  for(const [h,v] of auto) put("data",h,v.en);
+  for(const hi of SRV) if(typeof MSRV[hi]!=="string") list.push({ sec:"server", hi:hi, en:ENSRV[hi]||"" });
+  fs.writeFileSync(TODO, JSON.stringify(list,null,1)+"\n"); console.log("📝 --todo: "+list.length+" टुकड़े अभी "+LANG+".json में नहीं → "+TODO); process.exit(0); }
+/* (v1.5) किनारे की ख़ाली जगह English पैक जैसी (हिंदी के टुकड़े जिस तरह जुड़ते हैं, अनुवाद भी वैसे जुड़ें); फिर हिंदी मूल से मिलान */
+if(!EN_MODE){ const LOK=MAN.latin_ok||[];
+  const shape=(h,v)=>{ const r=ENREF[h]; if(typeof r!=="string"||typeof v!=="string"||!v.trim()) return v; return (/^\s*/.exec(r)[0])+v.trim()+(/\s*$/.exec(r)[0]); };
+  for(const h of Object.keys(D)) D[h]=shape(h,D[h]);
+  for(const [h,e] of Object.entries(D).concat(TP)) if(typeof e==="string"&&e.trim()) for(const x of PL.parity(LANG,h,e,LOK)) bad.push("मिलान ("+x+"): "+h+" → "+e);
+}
 for(const [h,e] of Object.entries(D).concat(TP)){
   if(!DEV.test(h)) bad.push("कुंजी में देवनागरी नहीं: "+h);
   if(typeof e!=="string"||!e.trim()) bad.push("ख़ाली मान: "+h);
@@ -114,7 +160,7 @@ for(const [h,e] of Object.entries(D).concat(TP)){
    V2/V3: English में "950 industries/sectors" या "🌍 Industries" नहीं। (पूरी साइट: dev_vocab_en_check.js)
    V6-V11 (पैनल-2, generator/lib_vocab_en.js): एक चीज़ = एक English नाम (अभिरुचि-रिपोर्ट = Career Interest Report,
    अभिरुचि-परीक्षण = Career Interest Test, उद्योग-प्रशिक्षु = Entrepreneur Learner); English की तरफ़ से भी (V9-V11)। */
-if(LANG==="en"){ const VOC=JSON.parse(fs.readFileSync(path.join(ROOT,"generator/data/vocab_en.json"),"utf8"));
+if(EN_MODE){ const VOC=JSON.parse(fs.readFileSync(path.join(ROOT,"generator/data/vocab_en.json"),"utf8"));
   const r1=VOC.pair_rules.find(r=>r.id==="V1"), hi1=new RegExp(r1.hi_re), en1=new RegExp(r1.en_count_re,"gi"), al1=new RegExp(r1.hi_allow_re,"g");
   for(const [h,e] of Object.entries(D)){ if(typeof e!=="string") continue;
     if(hi1.test(h)&&(e.match(en1)||[]).length>(h.match(al1)||[]).length) bad.push("शब्द-सूची V1 ('उद्यम' = Enterprise, industry नहीं): "+h+" → "+e);
@@ -206,7 +252,12 @@ if(SCOPE.indexOf("join")>-1){ const files=new Set();
     const box=h.slice(a,b); segsMarkup(box).forEach(t=>want(t,f+" (idbox)"));
     /* नियम-फ़ाइल की script idbox के लेबल/placeholder बदलती है (जैसे NAME_LABEL, SUBJECT_PH) : वे भी */
     let mm; const reT=/var\s+[A-Z_]*(?:LABEL|PH)\s*=\s*\{[^}]*\}/g; while((mm=reT.exec(h))) literals(mm[0]).forEach(t=>want(t,f+" (idbox-script)"));
-    let m; const re=/placeholder="([^"]*)"/g; while((m=re.exec(box))) if(DEV.test(m[1])) want(m[1],f+" (idbox)"); } }
+    let m; const re=/placeholder="([^"]*)"/g; while((m=re.exec(box))) if(DEV.test(m[1])) want(m[1],f+" (idbox)"); }
+  /* (v1.5) नियम-फ़ाइल की script रजिस्ट्रेशन पन्ने के अपने हिस्से में भी लिखती है (गिनती की पंक्ति, "अंतिम पुष्टि" का लेबल):
+     ये नियम नहीं, फ़ॉर्म के टुकड़े हैं, और नियम-पत्र हिंदी में दिखे तब भी चुनी भाषा में दिखने चाहिए। idbox न हो तब भी। */
+  for(const f of files){ const h=fs.readFileSync(path.join(ROOT,f),"utf8");
+    for(const sc of [...h.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]))
+      for(const ln of sc.split("\n")) if(/\b(?:finalLabel|count)\.(?:innerHTML|textContent)\s*=/.test(ln)) literals(ln).forEach(t=>want(t,f+" (script: गिनती / अंतिम पुष्टि)")); } }
 /* roles.js: भूगोल की पुरानी (dormant) सूची छोड़कर सब; matrix: सिर्फ़ दिखने वाले नाम */
 (function(){ let s=fs.readFileSync(path.join(ROOT,"assets/roles.js"),"utf8");
   const g=s.indexOf("\n  geo: {"); if(g<0){ console.log("⛔ roles.js में geo-खंड नहीं मिला (पहुँच-जाँच)"); process.exit(1); }
@@ -248,17 +299,20 @@ if(SCOPE.indexOf("server")>-1) for(const hi of SRV){ const en=MSRV[hi]; if(typeo
   else if(o2.indexOf(norm(fill(en)))<0) miss.push("server (\"नहीं हुआ: \" के बाद नतीजा अलग) :: "+hi+"  ⇒  "+o2); }
 /* (v1.3) अनुवाद-सूची बनाने का औज़ार: ACS_MISS=<फ़ाइल> पर छूटे टुकड़े (स्रोत :: हिंदी) उस फ़ाइल में */
 if(process.env.ACS_MISS) fs.writeFileSync(process.env.ACS_MISS, miss.join("\n")+"\n");
-if(miss.length){ bad.push("पहुँच-जाँच: "+miss.length+" हिंदी टुकड़े English में नहीं बदले:"); miss.slice(0,Number(process.env.ACS_SHOW||60)).forEach(x=>bad.push("   "+x)); }
+if(miss.length){ bad.push("पहुँच-जाँच: "+miss.length+" हिंदी टुकड़े "+(MAN.name||LANG)+" में नहीं बदले:"); miss.slice(0,Number(process.env.ACS_SHOW||60)).forEach(x=>bad.push("   "+x)); }
 if(bad.length){ bad.forEach(b=>console.log("  ⛔ "+b)); console.log("⛔ कोई फ़ाइल नहीं लिखी गई।"); process.exit(1); }
 
 /* ---------- 5. पैक लिखना ---------- */
 const keys=Object.keys(D).sort();
 const SD={}; keys.forEach(k=>SD[k]=D[k]);
-const complete=(ALL_AREAS[LANG]||[]).every(a=>SCOPE.indexOf(a)>-1);
+const complete=(ALL_AREAS[LANG]||ALL_AREAS.en).every(a=>SCOPE.indexOf(a)>-1);
+/* (v1.5) पैक का ढाँचा: English में वही जो पहले था (अक्षर-भर नहीं बदला); दूसरी भाषा में draft_note हो तो "draft" भी */
+const PACKOBJ={v:VER,lang:LANG,name:MAN.name||LANG,scope:SCOPE,complete:complete};
+if(!EN_MODE&&typeof MAN.draft_note==="string"&&MAN.draft_note.trim()){ for(const x of PL.parity(LANG,"मसौदा",MAN.draft_note,MAN.latin_ok||["AI"])) { console.log("⛔ draft_note: "+x); process.exit(1); } PACKOBJ.draft=MAN.draft_note.trim(); }
 const out="/* panel_"+LANG+".js · पैनल का "+(MAN.name||LANG)+" पैक v"+VER+" — generator/build_panel_i18n.js से बना, हाथ से न बदलें।\n"
   +"   हिंदी मूल है; यह सिर्फ़ दिखावट बदलता है। हिस्से: "+SCOPE.join(", ")+" · प्रविष्टियाँ "+keys.length+" */\n"
   +"window.ACS_PANEL_PACKS=window.ACS_PANEL_PACKS||{};\n"
-  +"window.ACS_PANEL_PACKS["+JSON.stringify(LANG)+"]="+JSON.stringify({v:VER,lang:LANG,name:MAN.name||LANG,scope:SCOPE,complete:complete,D:SD,G:[...GEOK].filter(k=>SD[k]!==undefined).sort(),T:TP})+";\n";
+  +"window.ACS_PANEL_PACKS["+JSON.stringify(LANG)+"]="+JSON.stringify(Object.assign(PACKOBJ,{D:SD,G:[...GEOK].filter(k=>SD[k]!==undefined).sort(),T:TP}))+";\n";
 const OUT=path.join(ROOT,"assets/i18n/panel_"+LANG+".js");
 if(CHECK){
   const cur=fs.existsSync(OUT)?fs.readFileSync(OUT,"utf8"):"";

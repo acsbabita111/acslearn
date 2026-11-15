@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.5 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख)
+   panel_i18n.js v1.6 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख, कन्नड़ क-1)
+   • (v1.6) तीसरी भाषा: कन्नड़ (kn)। (1) data का नाम (कोर्स, भाषा, उद्यम): पहले उसी भाषा का (data-tr-<भाषा>); वह न हो तो English
+     (data-tr-en), ताकि English के अलावा किसी भाषा में भी देवनागरी न बचे। (2) पैक में "draft" हो (AI-मसौदा, जाँच बाक़ी), तो वह सूचना
+     भाषा-पट्टी के ठीक नीचे उसी भाषा में दिखती है। हिंदी और English का व्यवहार वही।
    • (v1.5) data-i18n-user="<उपयोगकर्ता का लिखा>": जहाँ span नहीं बन सकता (जैसे <option> में "नाम — पद"), वहाँ पाठ का वह
      हिस्सा जैसा है वैसा रहता है और बाक़ी बदलता है (नाम "संगीत माली" कभी "Music Mali" न बने)।
    • (v1.4) data-href-<भाषा> अब बाद में बनी कड़ियों पर भी (पहले सिर्फ़ भाषा चुनते समय की कड़ियों पर): dashboard की
@@ -35,14 +38,14 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.5";
+var VER="1.6";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
    (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
    (जो रूप दूसरे जैसा ही हो, वह दोबारा नहीं)। तीनों नाम साइट के 🌐 बटन की तालिका (acs-universal.js:
    ACS_LANG_DEVA, ACS_LANG_ROMAN, ACS_LANG_NAMES) से हूबहू; पहरा: dev_lang_switch_check.js। */
-var LANGS=[["hi","हिन्दी","Hindi","हिन्दी"],["en","अंग्रेज़ी","English","English"]];
-var PACK={en:"/assets/i18n/panel_en.js"};
+var LANGS=[["hi","हिन्दी","Hindi","हिन्दी"],["en","अंग्रेज़ी","English","English"],["kn","कन्नड","Kannada","ಕನ್ನಡ"]];
+var PACK={en:"/assets/i18n/panel_en.js",kn:"/assets/i18n/panel_kn.js"};
 var DEVC=/[ऀ-ॿ]/;
 var ATTRS=["placeholder","title","aria-label","alt","label","data-h"];   /* (v1.2) data-h: dashboard में CSS ::before से दिखता है */
 var NAV_SEL=".acs-drawer a,.acs-fmenu a,#acsMenuList a,.acs-nav a";
@@ -56,7 +59,7 @@ function pick(){
   return "hi";
 }
 
-var CUR="hi", D=null, KEYS=[], GEO={}, ACTIVE=false, mo=null, pend=[], raf=false;
+var CUR="hi", D=null, KEYS=[], GEO={}, ACTIVE=false, mo=null, pend=[], raf=false, DRAFT="";
 var MEMO={};   /* (v1.2) एक ही पाठ बार-बार आए तो दोबारा न खोजें (कमज़ोर फ़ोन) */
 var ORIG=(typeof WeakMap==="function")?new WeakMap():null;   /* textNode → {o:मूल, t:अनुवाद} */
 var AORIG=(typeof WeakMap==="function")?new WeakMap():null;  /* element → {attr:{o,t}} */
@@ -142,8 +145,10 @@ function skipped(el){
 function doText(n){
   var v=n.nodeValue, p=n.parentNode, alt;
   /* (v1.2) data का English: पाठ का अकेला पिता data-tr-<भाषा> रखे, तो वही (खाली हो तो कुछ नहीं दिखता) */
-  if(p&&p.nodeType===1&&p.childNodes.length===1&&p.hasAttribute("data-tr-"+CUR)){
-    alt=p.getAttribute("data-tr-"+CUR); if(alt===v) return;
+  /* (v1.6) उस भाषा का नाम data में न हो, तो English नाम (data-tr-en): किसी भी भाषा में देवनागरी न बचे */
+  var ta=(p&&p.nodeType===1&&p.childNodes.length===1)?(p.hasAttribute("data-tr-"+CUR)?"data-tr-"+CUR:(p.hasAttribute("data-tr-en")?"data-tr-en":"")):"";
+  if(ta){
+    alt=p.getAttribute(ta); if(alt===v) return;
     if(ORIG) ORIG.set(n,{o:v,t:alt}); n.nodeValue=alt; return; }
   if(!v||!DEVC.test(v)) return;
   /* (v1.5) उपयोगकर्ता का लिखा हिस्सा (data-i18n-user) जैसा है वैसा; उसके आगे-पीछे का पाठ बदलता है */
@@ -313,6 +318,8 @@ function bar(){
     h+='<button type="button" data-plang="'+c+'" aria-pressed="'+(on?"true":"false")+'" style="font:inherit;font-size:16px;font-weight:700;padding:6px 14px;border-radius:999px;cursor:pointer;border:2px solid #1565C0;'
       +(on?'background:#1565C0;color:#fff':'background:#fff;color:#1565C0')+'">'+names3(LANGS[i])+'</button>';
   }
+  /* (v1.6) AI-मसौदा की सूचना: पैक की भाषा में, पट्टी के नीचे पूरी चौड़ाई में */
+  if(ACTIVE&&DRAFT) h+='<div id="acsPanelDraft" lang="'+CUR+'" style="flex-basis:100%;text-align:center;font-size:16px;line-height:1.5;color:#5a4300;background:#FFF8E1;border:1px solid #F9A825;border-radius:8px;padding:6px 10px">ℹ️ '+String(DRAFT).replace(/&/g,"&amp;").replace(/</g,"&lt;")+'</div>';
   b.innerHTML=h;
   var bs=b.querySelectorAll("button[data-plang]");
   for(i=0;i<bs.length;i++) bs[i].onclick=function(){ set(this.getAttribute("data-plang")); };
@@ -329,12 +336,12 @@ function load(c, cb){
   (document.head||document.documentElement).appendChild(s);
 }
 function useLang(c, cb){
-  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[];
+  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[]; DRAFT="";
     try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); emit(); if(cb) cb(true); return; }
   load(c, function(pk){
     if(!pk){ unwait(); bar(); if(cb) cb(false); return; }
     if(ACTIVE&&CUR!==c){ ACTIVE=false; restore(); }
-    CUR=c; D=pk.D; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
+    CUR=c; D=pk.D; DRAFT=pk.draft||""; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
     GEO={}; var g=pk.G||[], gi; for(gi=0;gi<g.length;gi++) GEO[g[gi]]=1;
     function go(){ activate(); unwait(); emit(); if(cb) cb(true); }
     if(document.body&&document.readyState!=="loading") go(); else document.addEventListener("DOMContentLoaded",go);

@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.18.0 · 15-Nov-2026 (कन्नड़ क-1: पैनल की तीसरी भाषा): कोर्स, परीक्षा और प्रमाणपत्र-सूची के नामों पर English नाम (data-tr-en) अब हर
+     ग़ैर-हिंदी पैनल में जुड़ता है (panelOther), सिर्फ़ English में नहीं; जिस भाषा का अपना नाम अभी नहीं, वहाँ इंजन English नाम दिखाता है।
+     काग़ज़ (प्रमाणपत्र, परिचय-पत्र, WhatsApp के संदेश, छपाई) का नियम नहीं बदला: English पैनल में English, बाक़ी सब में हिंदी (docEn)।
    v6.17.0 · 15-Nov-2026 (Founder का आदेश + ऑडिट की पकड़): (1) प्रमाणपत्र निकालते समय नाम पूछने का डिब्बा: पिता / माता / अभिभावक में से
      एक बिंदु और नाम; नाम server में एक ही बार सहेजा जाता है (certGuardianSave) और प्रमाणपत्र पर छपता है (ख़ाली रेखा हटी)।
      (2) बहुत लंबा नाम किनारे से बाहर जाता था: नाम की हर पंक्ति अब fitRich से (अक्षर छोटे → 2 पंक्तियाँ → लंबा शब्द टुकड़ों में)।
@@ -127,7 +130,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.17.0";
+const DASH_VER = "v6.18.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -211,6 +214,9 @@ function bracketEn(t){ const m=/\[([^\]]+)\]\s*$/.exec(String(t||"")); return m 
    इसलिए भाषा-इंजन इन्हें नहीं बदल सकता। Founder का फ़ैसला (15-Nov-2026): पैनल English हो, तो ये काग़ज़ सिर्फ़ English में।
    docEn = अभी पैनल English में चल रहा है (पैक आ चुका है); पैक न आए तो पन्ना हिंदी में रहता है, काग़ज़ भी हिंदी में। */
 function docEn(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()==="en"); }catch(e){ return false; } }
+/* (v6.18.0, कन्नड़ क-1) पैनल हिंदी के अलावा किसी भी भाषा में चल रहा है। data के नाम (कोर्स) तब English में दिखते हैं (data-tr-en),
+   जब तक उस भाषा का अपना नाम data में न हो। काग़ज़ (प्रमाणपत्र, परिचय-पत्र, संदेश) की भाषा इससे नहीं, docEn से तय होती है। */
+function panelOther(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()!=="hi"); }catch(e){ return false; } }
 /* काग़ज़ों के पक्के वाक्य: हिंदी → English। पहरेदार (dev_panel_dash_check) मिलाता है कि English पैक में भी ठीक यही अनुवाद है। */
 const DOC_EN = {
   "मुझे यह कोर्स चाहिए: ": "I want this course: ",
@@ -261,8 +267,8 @@ function cnSync(){
   });
 }
 let CN_ASKED=false;
-function cnWant(){ if(CN_ASKED || cnLoaded() || !docEn()) return; CN_ASKED=true; ensureCoursesData(function(){ cnSync(); }); }
-document.addEventListener("acs-panel-lang", function(){ if(!docEn()) return; if(cnLoaded()) cnSync(); else { CN_ASKED=true; ensureCoursesData(function(){ cnSync(); }); } });
+function cnWant(){ if(CN_ASKED || cnLoaded() || !panelOther()) return; CN_ASKED=true; ensureCoursesData(function(){ cnSync(); }); }
+document.addEventListener("acs-panel-lang", function(){ if(!panelOther()) return; if(cnLoaded()) cnSync(); else { CN_ASKED=true; ensureCoursesData(function(){ cnSync(); }); } });
 /* करियर टेस्ट के 24 क्षेत्रों के English नाम (स्रोत: generator/data/aptitude/en/apt_en_strings.js; पहरेदार मिलाता है)।
    नतीजा फ़ोन में "🌾 कृषि" जैसे रूप में सहेजा जाता है (हिंदी में दिया टेस्ट) */
 const MG_EN = {"कृषि":"Agriculture","खनन":"Mining","विनिर्माण":"Manufacturing","निर्माण":"Construction","वस्त्र":"Textiles","स्वास्थ्य":"Health","प्रौद्योगिकी":"Technology","परिवहन":"Transport",

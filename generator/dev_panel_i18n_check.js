@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /* ================================================================
-   dev_panel_i18n_check.js v1.5 (15-Nov-2026) : पैनल-1 का पहरेदार
+   dev_panel_i18n_check.js v1.6 (15-Nov-2026) : पैनल-1 का पहरेदार
    v1.5 (पैनल-6): रजिस्ट्रेशन की OTP-माँग में सिर्फ़ email और lang जाते हैं (पासवर्ड नहीं)।
+   v1.6 (कन्नड़ क-1): openPage का expect अब हर पैनल-भाषा के लिए; रजिस्ट्रेशन के क़दम (joinStep1 ...) बाहर भी मिलते हैं
+     (dev_panel_lang_check.js के लिए)। English की जाँचें वही; भाषा-पट्टी में अब तीसरा बटन (कन्नड़) भी है।
    v1.5 (पैनल-6): OTP माँगते समय पैनल की भाषा server को जाती है (lang: "en" या "hi"), ताकि OTP का email उसी भाषा में आए:
    login, दोबारा OTP, पासवर्ड भूले, रजिस्ट्रेशन (L11, LH3, JP)।
    v1.4 (पैनल-5): 26 भूमिकाओं के English नियम-पत्र आ गए: "दर्ज होल" बंद। अब हर भूमिका में नियम English फ़ाइल से,
@@ -164,7 +166,7 @@ async function openPage(file, opt) {
   });
   ctx.dom = dom; ctx.w = dom.window; ctx.d = dom.window.document;
   await new Promise(r => { if (ctx.d.readyState === "complete") r(); else dom.window.addEventListener("load", () => r()); setTimeout(r, 8000); });
-  if (opt.expect === "en") await waitFor(ctx, () => ctx.w.ACS_PANEL_I18N && ctx.w.ACS_PANEL_I18N.active, 4000);
+  if (opt.expect && opt.expect !== "hi") await waitFor(ctx, () => ctx.w.ACS_PANEL_I18N && ctx.w.ACS_PANEL_I18N.active, 4000);   /* (v1.6) हर पैनल-भाषा (पहले सिर्फ़ "en") */
   await settle(ctx);
   return ctx;
 }
@@ -754,7 +756,9 @@ function firstDiff(a, b, p) {
   return p;
 }
 
-module.exports = { openPage, loginTransform, settle, waitFor, typeIn, pick, click, hindiLeaks, bodyText, MX, R, GATE_CLASSIC };
+module.exports = { openPage, loginTransform, settle, waitFor, typeIn, pick, click, hindiLeaks, bodyText, MX, R, GATE_CLASSIC,
+  /* (v1.6) दूसरी पैनल-भाषाओं का पहरेदार (dev_panel_lang_check.js) यही क़दम दोबारा इस्तेमाल करता है */
+  roleList, HJ, joinStep1, joinOtp, joinRole, joinRules, joinStep3, rej, firstDiff };
 if (require.main === module) (async function main() {
   const t0 = Date.now();
   const only = process.argv[2] || "";
@@ -765,6 +769,6 @@ if (require.main === module) (async function main() {
     if (!only || only === "join") await joinSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.5 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.6 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
   process.exit(fail ? 1 : 0);
 })();

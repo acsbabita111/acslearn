@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v1.6 (15-Nov-2026; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v1.7 (15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -147,7 +147,7 @@ async function openDash(file, sc, lang, noEngine) {
   const info = pageInfo(file);
   const data = fixture(info, sc), user = { uid: "u1", email: "ram@example.com" };
   const tf = noEngine ? (h => dashTransform(h).replace('<script src="/assets/panel_i18n.js"></script>', "")) : dashTransform;
-  const c = await openPage(file, { transform: tf, urlPath: "/" + file.replace(/index\.html$/, ""), ls: lang === "en" ? { acs_dash_lang: "en" } : {}, expect: lang === "en" ? "en" : undefined,
+  const c = await openPage(file, { transform: tf, urlPath: "/" + file.replace(/index\.html$/, ""), ls: (lang && lang !== "hi") ? { acs_dash_lang: lang } : {}, expect: (lang && lang !== "hi") ? lang : undefined,   /* (v1.7) हर पैनल-भाषा */
     handlers: Object.assign({}, HANDLERS), fb: makeFB(data, user) });
   return c;
 }
@@ -253,12 +253,15 @@ const H_HANDLERS = {
 };
 const visText = c => { const b = c.d.body.cloneNode(true); b.querySelectorAll("script,style,noscript,#acsPanelLangBar").forEach(x => x.remove()); return b.textContent; };
 const countOf = (t, v) => t.split(v).length - 1;
-async function openH(file, lang, sc) {
+async function openH(file, lang, sc, navOnly) {   /* navOnly (v1.7): सिर्फ़ ये पैनल खोलो (id की सूची); न हो तो सब */
   const info = pageInfo(file), data = fixture(info, sc || "data"), user = { uid: "u1", email: "ram@example.com" };
   hdataFix(data, info);
-  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang === "en") ls.acs_dash_lang = "en";
-  const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: lang === "en" ? "en" : undefined,
+  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang && lang !== "hi") ls.acs_dash_lang = lang;
+  const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: (lang && lang !== "hi") ? lang : undefined,
     handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS), fb: makeFB(data, user) });
+  if (navOnly) { await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c);
+    for (const id of navOnly) { const b = c.d.querySelector('#sideNav .si[data-go="' + id + '"]'); if (b) { click(c, b); await settle(c); await settle(c); } }
+    await settle(c); return c; }
   await openAll(c); await settle(c);
   /* खोज वाले बटन: केंद्र खोजना (विद्यार्थी), विद्यार्थी खोजना (केंद्र) */
   for (const [inp, btn] of [["mcCtrReg", "mcFindBtn"], ["addStuReg", "addStuFind"]]) { const i = c.d.getElementById(inp), b = c.d.getElementById(btn); if (i && b) { i.value = "ACS-2026-123456"; click(c, b); await settle(c); await settle(c); } }
@@ -331,8 +334,8 @@ const DOC_HANDLERS = {
 async function openDoc(file, lang, mod, hx) {
   const info = pageInfo(file), data = fixture(info, "docs"), user = { uid: "u1", email: "ram@example.com" };
   if (mod) mod(data);
-  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang === "en") ls.acs_dash_lang = "en";
-  const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: lang === "en" ? "en" : undefined,
+  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang && lang !== "hi") ls.acs_dash_lang = lang;
+  const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: (lang && lang !== "hi") ? lang : undefined,
     handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, hx || {}), fb: makeFB(data, user) });
   await openAll(c); await settle(c); await settle(c);
   return c;
@@ -549,7 +552,7 @@ async function docChecks(pages) {
     e.dom.window.close(); h.dom.window.close();
   } catch (err) { ck("काग़ज़ (केंद्र) : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
 }
-module.exports = { dashTransform, makeFB, fixture, openDash, openAll };
+module.exports = { dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
 if (require.main === module) (async function main() {
   const only = process.argv[2] || "";
   const listPages = () => fs.readdirSync(path.join(ROOT, "dashboard"), { withFileTypes: true }).filter(e => e.isDirectory())
@@ -616,6 +619,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.6 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.7 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();
