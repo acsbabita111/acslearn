@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v1.1 (15-Nov-2026; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v1.2 (15-Nov-2026; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़): सब 31 dashboard का English पहरेदार
+   (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
+   रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
+   हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
    असली पन्ने jsdom में, असली assets/dashboard.js (import की जगह नक़ली Firebase), नक़ली data।
    हर dashboard English में खोलकर हर काम-सूची पैनल दबाया जाता है: दिखने वाला कोई भी पाठ,
    attribute, <title> या संदेश-डिब्बा हिंदी में नहीं होना चाहिए।
@@ -19,6 +22,7 @@ const fs = require("fs"), path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const P1 = require("./dev_panel_i18n_check.js");
 const { openPage, settle, waitFor, click, hindiLeaks, bodyText } = P1;
+const typeIn = (ctx, el, v) => { el.value = v; el.dispatchEvent(new ctx.w.Event("input", { bubbles: true })); el.dispatchEvent(new ctx.w.Event("change", { bubbles: true })); };
 const rd = p => fs.readFileSync(path.join(ROOT, p), "utf8");
 const DEV = /[ऀ-ॿ]/;
 let pass = 0, fail = 0; const t0 = Date.now(); const INV = new Map();
@@ -38,8 +42,25 @@ function dashTransform(html) {
 
 /* ---- नक़ली Firebase + data ---- */
 const TS = (y, m, d) => { const dt = new Date(Date.UTC(y, m - 1, d, 6)); return { toDate: () => dt, toMillis: () => dt.getTime(), seconds: Math.floor(dt.getTime() / 1000) }; };
+/* (v1.2, पैनल-4) काग़ज़ पकड़ने का जाल: canvas पर लिखा हर पाठ, सहेजी फ़ाइल का नाम, छपाई की खिड़की में लिखा पाठ */
+function installDocKit(w, ctx) {
+  ctx.canvasText = []; ctx.saved = []; ctx.printed = [];
+  w.HTMLCanvasElement.prototype.getContext = function () {
+    const cv = this; if (cv.__x) return cv.__x;
+    const base = { canvas: cv, font: "",
+      measureText: t => ({ width: String(t).length * parseInt((/(\d+)px/.exec(base.font) || [0, 16])[1], 10) * 0.55 }),
+      fillText: (t, px, py) => { ctx.canvasText.push({ id: cv.id || "", w: cv.width, t: String(t), x: Math.round(px), y: Math.round(py), font: base.font }); },
+      createLinearGradient: () => ({ addColorStop() {} }) };
+    return (cv.__x = new Proxy(base, { get(o, k) { return (k in o) ? o[k] : function () {}; }, set(o, k, v) { o[k] = v; return true; } }));
+  };
+  w.HTMLCanvasElement.prototype.toDataURL = () => "data:image/png;base64,AAAA";
+  w.QRious = function () {};
+  w.jspdf = { jsPDF: function () { this.addImage = function () {}; this.save = function (n) { ctx.saved.push(String(n)); }; } };
+  w.open = function () { return { document: { write: h => ctx.printed.push(String(h)) }, print() {} }; };
+}
 function makeFB(data, user) {
   return function (w, ctx) {
+    installDocKit(w, ctx);
     const ref = (coll, id) => ({ __t: "doc", coll, id });
     const snapOf = (coll, id) => { const d = (data[coll] || {})[id]; return { exists: () => !!d, data: () => d, id, ref: { id } }; };
     return {
@@ -93,6 +114,18 @@ function fixture(info, sc) {
     data.offerings = { o1: { centerUid: "u1", courseId: "PJ001", feeRupees: 5000, seats: 30, filled: 3, status: "open", startOn: "2026-12-01", createdAt: TS(2026, 11, 1) } };
     data.tasks = { t1: { title: "Visit village", text: "Meet RM", to: "u1", by: "u2", status: "pending", createdAt: TS(2026, 11, 3) } };
     data.reports = { rp1: { cycle: "daily", text: "Done", by: "u1", createdAt: TS(2026, 11, 3) } };
+  }
+  if (sc === "docs") {   /* (v1.2, पैनल-4) काग़ज़ों की जाँच: सहेजा हुआ data हिंदी में, जैसा असल में होता है */
+    reg.name_roman = "Raam Kumar";   /* उपयोगकर्ता की अपनी वर्तनी (मशीन का रोमन रूप "Ram Kumar" होता): English प्रमाणपत्र पर यही छपे */
+    data.payments = { p1: { uid: "u1", purpose: "badge", status: "paid", amount: 30000, rmStatus: "approved", badgeType: role === "student" ? "golden" : "green", badgeRole: role,
+      badgeActiveFrom: TS(2026, 11, 2), badgeExpiresAt: TS(2027, 11, 2), createdAt: TS(2026, 11, 2), orderId: "order_A1", tier: "village" } };
+    data.examResults = { x1: { uid: "u1", courseId: "SE022", pct: 72, pass: true, score: 86, total: 120, at: TS(2026, 11, 8) } };
+    data.certificates = { c1: { uid: "u1", resultId: "x1", certNo: "ACS-C-2026-0001", courseId: "SE022", courseName: "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का प्रमाणपत्र कोर्स (Certificate in Two-Wheeler Servicing & EV)", name: NAME_HI, pct: 72, issuedAt: TS(2026, 11, 9), validUntil: TS(2031, 11, 9) } };
+    data.offerings = { o1: { centerUid: "u1", courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", feeRupees: 5000, seats: 30, filled: 3, status: "open", startOn: "2026-12-01", createdAt: TS(2026, 11, 1) } };
+    data.enrollments = {
+      e1: { studentUid: "s9", centerUid: "u1", courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", status: "active", studentName: "सीता देवी", studentRegNo: "ACS-2026-999999", enrolledAt: TS(2026, 11, 6), createdAt: TS(2026, 11, 6),
+        feeEntries: [{ receiptNo: "R-0001", amountRupees: 500, at: TS(2026, 11, 7), note: "" }] },
+      e2: { studentUid: "s8", centerUid: "u1", courseId: "PJ002", courseName: "डेटा एंट्री ऑपरेटर", status: "active", studentName: "सीता देवी", studentRegNo: "ACS-2026-888888", enrolledAt: TS(2026, 11, 7), createdAt: TS(2026, 11, 7), feeEntries: [] } };
   }
   if (info.mode !== "external") {
     const desig = String(info.allowed[0] || "hq_admin").toLowerCase();
@@ -171,6 +204,134 @@ async function dumpHindi(pages, out) {
     res[f] = { text: b.textContent.replace(/\s+/g, " ").trim(), title: c.d.title, dialogs: c.dialogs.slice() }; c.dom.window.close(); }
   fs.writeFileSync(out, JSON.stringify(res));
 }
+/* ════════ (v1.2, पैनल-4) काग़ज़ों की जाँच ════════ */
+const APT_PREV = JSON.stringify({ prev: { at: Date.UTC(2026, 10, 10), sec: [{ nm: "🌾 कृषि", sc: 4 }], mg: ["🌾 कृषि", "🏭 विनिर्माण"],
+  udy: [{ n: 1, nm: "धान/चावल (Rice)", c: "", s: 4.2 }, { n: 116, nm: "स्टील ढाँचा/वेल्डिंग (Steel Structures/Welding)", c: "/courses/hi/welding/", s: 3.1 }] } });
+const DOC_HANDLERS = {
+  certList: () => ({ certs: [{ certNo: "ACS-C-2026-0001", status: "valid", examOn: "2026-11-08", issuedOn: "2026-11-09", validUntil: "2031-11-09", extend: { due: 100000, credit: 0, newValid: "2036-11-09" } }] }),
+  latestAptitudeReport: () => ({ found: true, paidAt: Date.UTC(2026, 10, 10), reportText: "REPORT-BODY-LINE" }),
+  reportNumber: () => ({ found: true, reportNo: "ACS-R-2026-0007", status: "valid", validUntil: "2031-11-12" }),
+  checkAptitudeAttempt: () => ({ available: false })
+};
+async function openDoc(file, lang, mod) {
+  const info = pageInfo(file), data = fixture(info, "docs"), user = { uid: "u1", email: "ram@example.com" };
+  if (mod) mod(data);
+  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang === "en") ls.acs_dash_lang = "en";
+  const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: lang === "en" ? "en" : undefined,
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS), fb: makeFB(data, user) });
+  await openAll(c); await settle(c); await settle(c);
+  return c;
+}
+const decText = h => { try { return decodeURIComponent(String(h || "")); } catch (e) { return String(h || ""); } };
+const docLinks = c => Array.from(c.d.querySelectorAll('a[href*="wa.me"],a[href*="youtube.com/results"],a[href*="aptitude-test.html"]')).filter(a => !a.closest("nav,footer,#acsFooter,.acs-footer"));
+const stripUser = (t, vals) => { vals.forEach(v => { t = t.split(v).join(""); }); return t; };
+async function certClick(c) {
+  c.canvasText.length = 0; c.saved.length = 0; c.dialogs.length = 0;
+  const b = c.d.querySelector("[data-certdl]"); if (!b) return false;
+  click(c, b); await waitFor(c, () => c.saved.length > 0, 4000); await settle(c); return true;
+}
+async function docChecks(pages) {
+  const USERV = [NAME_HI, "सीता देवी"];
+  const has = n => pages.find(f => f.split("/")[1] === n);
+  const D = rd("assets/dashboard.js");
+  /* -- स्थिर जाँचें -- */
+  { const a = D.indexOf("const DOC_EN = {"), b = D.indexOf("};", a); let T = null; try { T = new Function("return " + D.slice(a + 15, b + 1))(); } catch (e) {}
+    const sb = { window: {} }; new Function("window", rd("assets/i18n/panel_en.js"))(sb.window); const PK = sb.window.ACS_PANEL_PACKS.en.D;
+    const bad = T ? Object.keys(T).filter(k => DEV.test(T[k]) || PK[k.trim()] === undefined || String(PK[k.trim()]).trim() !== T[k].trim()) : ["तालिका नहीं पढ़ी गई"];
+    ck("काग़ज़ : काग़ज़ों के पक्के वाक्य (DOC_EN, " + (T ? Object.keys(T).length : 0) + ") English पैक में भी ठीक वही", !!T && Object.keys(T).length >= 11 && bad.length === 0, bad.slice(0, 4).join(" ‖ "));
+    const fa = D.indexOf("async function certTextEn("), fb = D.indexOf("\n  }\n", fa); const body = D.slice(fa, fb).replace(/\/\*[\s\S]*?\*\//g, "");
+    ck("काग़ज़ : English प्रमाणपत्र के कोड (certTextEn) में \"S/o\", ख़ाली रेखा या \"Accreditations\" नहीं", fa > 0 && !/S\/o|D\/o|_{3,}|fatherPh|accredit/i.test(body), (body.match(/[^\n]*(S\/o|D\/o|_{3,}|fatherPh|ccredit)[^\n]*/) || [""])[0].slice(0, 120));
+    ck("काग़ज़ : English प्रमाणपत्र के कोड (certTextEn) में देवनागरी का कोई अक्षर नहीं", fa > 0 && body.length > 2500 && !DEV.test(body), (body.match(/[^\n]*[ऀ-ॿ][^\n]*/) || [""])[0].slice(0, 120));
+    const tg = (/tagline_en:\s*"([^"]+)"/.exec(rd("assets/acs-config.js")) || [])[1] || "";
+    ck("काग़ज़ : English प्रमाणपत्र का नारा वही जो acs-config.js का tagline_en", tg.length > 10 && body.split('"' + tg + '"').length === 3, tg);
+  }
+  /* -- प्रमाणपत्र (विद्यार्थी) -- */
+  if (has("student")) try {
+    const f = has("student");
+    const e = await openDoc(f, "en"); const okE = await certClick(e);
+    const tE = e.canvasText.filter(z => z.w === 1240).map(z => z.t), devE = tE.filter(t => DEV.test(t));
+    ck("प्रमाणपत्र : English पैनल में प्रमाणपत्र बना (" + tE.length + " पंक्तियाँ) और फ़ाइल सहेजी", okE && tE.length > 30 && e.saved[0] === "ACS-C-2026-0001.pdf", "बटन " + okE + ", सहेजा " + e.saved.join(",") + ", संदेश " + e.dialogs.slice(0, 1).join(""));
+    ck("प्रमाणपत्र : English प्रमाणपत्र पर देवनागरी शून्य", tE.length > 30 && devE.length === 0, devE.slice(0, 4).join(" ‖ "));
+    const need = ["Applied Computer School™", "Freedom Fighter Gangadhar Prasad Memorial Trust", "Online Course Completion Certificate", "This is to certify that", "Raam Kumar", "Institutional Details", "ACS-C-2026-0001", "Certificate No", "Scan to verify", "Authorized Signatory", "Chief Trustee, FFGPMT", "We wish him/her a bright future."];
+    ck("प्रमाणपत्र : English प्रमाणपत्र पर सब ज़रूरी पंक्तियाँ; नाम रजिस्ट्रेशन में उपयोगकर्ता का अपना लिखा रोमन नाम (Raam Kumar; मशीन वाला Ram Kumar नहीं)", tE.indexOf("Ram Kumar") < 0 && need.every(n => tE.indexOf(n) > -1), need.filter(n => tE.indexOf(n) < 0).join(" ‖ "));
+    const para = tE.join(" ");
+    /* (v1.2, ऑडिट की पकड़) रिश्ते की ख़ाली पंक्ति और "Accreditations" शब्द English प्रमाणपत्र पर नहीं */
+    const REL = /\bS\/o\b|\bD\/o\b|\bW\/o\b|\bC\/o\b|_{3,}|\bFather\b|\bGuardian\b/i;
+    ck("प्रमाणपत्र : English प्रमाणपत्र पर पिता/रिश्ते की ख़ाली पंक्ति नहीं (S/o, D/o, ____ कुछ नहीं)", tE.length > 30 && !tE.some(t => REL.test(t)), tE.filter(t => REL.test(t)).join(" ‖ "));
+    ck("प्रमाणपत्र : English प्रमाणपत्र पर \"Accreditations\" शब्द नहीं; शीर्षक \"Institutional Details\"", tE.length > 30 && !tE.some(t => /accredit/i.test(t)) && tE.indexOf("Institutional Details") > -1, tE.filter(t => /accredit|Registrations/i.test(t)).join(" ‖ "));
+    ck("प्रमाणपत्र : कोर्स का नाम कोर्स-सूची का English नाम; परीक्षा-तिथि, अंक और जारी/मान्य तिथि", /Motorcycle & Two-Wheeler Repair, Servicing, EV & Entrepreneurship/.test(para) && /held on 8 November 2026, with/.test(para) && /72%/.test(para) && /Issued 09\.11\.2026 · Online verification valid till 09\.11\.2031 \(acslearn\.com\/verify\)/.test(para), para.slice(0, 300));
+    /* हिंदी पर लौटकर वही बटन: हिंदी + English वाला पुराना रूप */
+    click(e, e.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(e); await settle(e);
+    await certClick(e); const tB = e.canvasText.filter(z => z.w === 1240).map(z => z.t);
+    const h = await openDoc(f, "hi"); await certClick(h); const tH = h.canvasText.filter(z => z.w === 1240);
+    const needH = ["अप्लाइड कंप्यूटर स्कूल™", "ऑनलाइन कोर्स-पूर्णता प्रमाणपत्र", "प्रमाणित किया जाता है कि", NAME_HI, "पिता ________", "Ram Kumar", "हम इनके उज्ज्वल भविष्य की कामना करते हैं।", "प्रधान ट्रस्टी, FFGPMT", "130 भाषा में, गाँव से ग्लोबल साउथ तक!"];
+    ck("प्रमाणपत्र : हिंदी पैनल में प्रमाणपत्र पहले जैसा (हिंदी + English, " + tH.length + " पंक्तियाँ)", needH.every(n => tH.some(z => z.t === n)) && tH.filter(z => DEV.test(z.t)).length > 30, needH.filter(n => !tH.some(z => z.t === n)).join(" ‖ "));
+    ck("प्रमाणपत्र : English से हिंदी पर लौटने के बाद प्रमाणपत्र = सीधे हिंदी में खोला प्रमाणपत्र", tB.length === tH.length && tB.every((t, i) => t === tH[i].t), tB.length + " बनाम " + tH.length);
+    if (process.env.ACS_CERT_DUMP) fs.writeFileSync(process.env.ACS_CERT_DUMP, JSON.stringify(tH));
+    /* छाप: हिंदी प्रमाणपत्र की हर पंक्ति (पाठ, जगह, अक्षर-आकार) पैनल-4 से पहले के कोड (v6.13.0) जैसी; हिंदी रूप जान-बूझकर बदले, तभी यह छाप बदलें */
+    const pin = require("crypto").createHash("sha256").update(JSON.stringify(tH)).digest("hex");
+    ck("प्रमाणपत्र : हिंदी प्रमाणपत्र की हर पंक्ति, जगह और अक्षर-आकार पहले जैसा (" + tH.length + " लिखावटें, छाप मिली)", pin === "fb08a7a7c7691b176f7636cff91621edfcd6a675b9be7dabd0f63b00eb02afe8", pin);
+    /* नाम रोमन में न लिखा हो, या नाम में ऑ हो */
+    const e2 = await openDoc(f, "en", data => { data.registrations.r1.name_local = "डॉली कुमारी"; data.registrations.r1.name_roman = ""; data.certificates.c1.name = "डॉली कुमारी"; data.certificates.c1.courseId = "ZZ999"; data.certificates.c1.courseName = "सिलाई कोर्स (Tailoring Course)"; });
+    await certClick(e2); const t2 = e2.canvasText.filter(z => z.w === 1240).map(z => z.t);
+    ck("प्रमाणपत्र : रोमन नाम न लिखा हो, तो हिंदी नाम का रोमन रूप (डॉली कुमारी = Doli Kumari); सूची से बाहर का कोर्स = नाम के कोष्ठक का English; लड़की के प्रमाणपत्र पर भी S/o नहीं", t2.indexOf("Doli Kumari") > -1 && t2.join(" ").indexOf("Tailoring Course") > -1 && !t2.some(t => DEV.test(t)) && !t2.some(t => REL.test(t) || /accredit/i.test(t)), t2.filter(t => DEV.test(t) || /Kumari|Tailor/.test(t)).slice(0, 4).join(" ‖ "));
+    const e3 = await openDoc(f, "en", data => { data.certificates.c1.courseId = "ZZ999"; data.certificates.c1.courseName = "सिलाई कोर्स"; });
+    await certClick(e3); const t3 = e3.canvasText.filter(z => z.w === 1240).map(z => z.t);
+    ck("प्रमाणपत्र : कोर्स का English नाम कहीं न मिले, तो कोर्स का कोड (ZZ999); देवनागरी फिर भी शून्य", t3.join(" ").indexOf("ZZ999") > -1 && !t3.some(t => DEV.test(t)), t3.filter(t => DEV.test(t)).slice(0, 3).join(" ‖ "));
+    /* कड़ियाँ: WhatsApp, YouTube, अभिरुचि-परीक्षण */
+    const e4 = await openDoc(f, "en"); const LE = docLinks(e4), h4 = await openDoc(f, "hi"), LH = docLinks(h4);
+    const wa = LE.filter(a => /wa\.me|youtube/.test(a.getAttribute("href")));
+    const badL = LE.filter(a => DEV.test(stripUser(decText(a.getAttribute("href")), USERV)));
+    ck("कड़ियाँ (विद्यार्थी) : English में WhatsApp/YouTube के पहले से लिखे पाठ में देवनागरी शून्य (" + wa.length + " कड़ियाँ)", wa.length >= 4 && badL.length === 0, badL.slice(0, 3).map(a => decText(a.getAttribute("href")).slice(0, 140)).join(" ‖ "));
+    const txt = wa.map(a => decText(a.getAttribute("href"))).join("\n");
+    ck("कड़ियाँ (विद्यार्थी) : English संदेश सही (कोर्स माँगना, referral, रिपोर्ट, YouTube)", /I want this course: Rice/.test(txt) && /Free learning at ACS! Join with my link: https:\/\/acslearn\.com\/join\.html\?ref=ACS-2026-123456/.test(txt) && /REPORT-BODY-LINE\nReport number: ACS-R-2026-0007 · online verification: acslearn\.com\/verify · valid until 12\.11\.2031/.test(txt) && /search_query=Rice expert documentary/.test(txt), txt.slice(0, 500));
+    const apt = LE.filter(a => /aptitude-test\.html/.test(a.getAttribute("href"))), aptH = LH.filter(a => /aptitude-test\.html/.test(a.getAttribute("href")));
+    ck("कड़ियाँ (विद्यार्थी) : अभिरुचि-परीक्षण की कड़ी English में English पन्ने पर (" + apt.length + "), हिंदी में हिंदी पन्ने पर (" + aptH.length + ")", apt.length >= 2 && apt.every(a => a.getAttribute("href").indexOf("/en/aptitude-test.html") === 0) && aptH.length === apt.length && aptH.every(a => a.getAttribute("href").indexOf("/aptitude-test.html") === 0), apt.concat(aptH).map(a => a.getAttribute("href")).join(" | "));
+    const hrefH = LH.map(a => a.getAttribute("href"));
+    ck("कड़ियाँ (विद्यार्थी) : हिंदी पैनल में कड़ियाँ हिंदी में (" + hrefH.length + ")", hrefH.length === LE.length && hrefH.some(x => /मुझे यह कोर्स चाहिए: धान/.test(decText(x))) && hrefH.some(x => /रिपोर्ट नंबर: ACS-R-2026-0007/.test(decText(x))), hrefH.map(decText).join(" | ").slice(0, 300));
+    click(e4, e4.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(e4); await settle(e4);
+    const back = docLinks(e4).map(a => a.getAttribute("href"));
+    ck("कड़ियाँ (विद्यार्थी) : English से हिंदी पर लौटते ही हर कड़ी हिंदी वाली", back.length === hrefH.length && back.every((x, i) => x === hrefH[i]), back.filter((x, i) => x !== hrefH[i]).slice(0, 2).map(decText).join(" ‖ ").slice(0, 300));
+    click(e4, e4.d.querySelector('#acsPanelLangBar button[data-plang="en"]')); await waitFor(e4, () => e4.w.ACS_PANEL_I18N.active, 3000); await settle(e4); await settle(e4);
+    const again = docLinks(e4).map(a => a.getAttribute("href")), wantE = LE.map(a => a.getAttribute("href"));
+    ck("कड़ियाँ (विद्यार्थी) : फिर English = फिर English वाली कड़ियाँ", again.length === wantE.length && again.every((x, i) => x === wantE[i]), again.filter((x, i) => x !== wantE[i]).slice(0, 2).map(decText).join(" ‖ ").slice(0, 300));
+    /* रिपोर्ट की छपाई */
+    e4.printed.length = 0; click(e4, e4.d.getElementById("apt-old-print")); await settle(e4);
+    h4.printed.length = 0; click(h4, h4.d.getElementById("apt-old-print")); await settle(h4);
+    ck("छपाई : सहेजी रिपोर्ट की छपाई English पैनल में English, हिंदी पैनल में हिंदी", e4.printed.length === 1 && !DEV.test(e4.printed[0]) && /Report number: ACS-R-2026-0007/.test(e4.printed[0]) && h4.printed.length === 1 && /रिपोर्ट नंबर: ACS-R-2026-0007 · online जाँच: acslearn\.com\/verify · मान्य: 12\.11\.2031 तक/.test(h4.printed[0]), (e4.printed[0] || "").slice(0, 160) + " ‖ " + (h4.printed[0] || "").slice(0, 160));
+    const noEl = e4.d.getElementById("apt-old-no");
+    ck("छपाई : रिपोर्ट-नंबर की पंक्ति पन्ने पर भी English में पूरी (पहले अंत में \"तक\" बचता था)", !!noEl && !DEV.test(noEl.textContent) && /valid until 12\.11\.2031/.test(noEl.textContent), noEl && noEl.textContent);
+    /* इंजन v1.4: बाद में बनी कड़ी, और href दोबारा लिखी जाए */
+    const a1 = e4.d.createElement("a"); a1.setAttribute("href", "/hi-1"); a1.setAttribute("data-href-en", "/en-1"); a1.textContent = "x"; e4.d.getElementById("appView").appendChild(a1); await settle(e4); await settle(e4);
+    const s1 = a1.getAttribute("href"); a1.setAttribute("href", "/hi-2"); a1.setAttribute("data-href-en", "/en-2"); await settle(e4); await settle(e4);
+    const s2 = a1.getAttribute("href"); click(e4, e4.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(e4); await settle(e4);
+    ck("इंजन v1.4 : बाद में बनी कड़ी भी English पते पर; href दोबारा लिखी जाए, तो नया हिंदी पता ही मूल", s1 === "/en-1" && s2 === "/en-2" && a1.getAttribute("href") === "/hi-2", s1 + " | " + s2 + " | " + a1.getAttribute("href"));
+    const er = [e, h, e2, e3, e4, h4].reduce((a, x) => a.concat(x.errors), []); ck("काग़ज़ (विद्यार्थी) : JS-त्रुटि शून्य", er.length === 0, er.slice(0, 3).join(" ‖ "));
+    [e, h, e2, e3, e4, h4].forEach(x => x.dom.window.close());
+  } catch (err) { ck("काग़ज़ (विद्यार्थी) : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
+  /* -- केंद्र: रसीद, ID बाँटना, परिचय-पत्र -- */
+  if (has("center")) try {
+    const f = has("center");
+    const e = await openDoc(f, "en"), h = await openDoc(f, "hi");
+    const LE = docLinks(e).filter(a => /wa\.me/.test(a.getAttribute("href"))), LH = docLinks(h).filter(a => /wa\.me/.test(a.getAttribute("href")));
+    const txt = LE.map(a => decText(a.getAttribute("href"))).join("\n"), txtH = LH.map(a => decText(a.getAttribute("href"))).join("\n");
+    const badL = LE.filter(a => DEV.test(stripUser(decText(a.getAttribute("href")), USERV)));
+    ck("कड़ियाँ (केंद्र) : English में रसीद और ID वाले WhatsApp-संदेश English में (" + LE.length + "); विद्यार्थी का अपना नाम जैसा है वैसा", LE.length >= 3 && badL.length === 0 &&
+      /ACS receipt: सीता देवी \(ACS-2026-999999\) · Computer Operator · R-0001 ₹500/.test(txt) && /ACS receipt: सीता देवी \(ACS-2026-888888\) · Data Entry Operator · No fee entries/.test(txt) &&
+      /To join my center, search this ID on ACS: ACS-2026-123456 \(acslearn\.com\)/.test(txt), txt.slice(0, 500));
+    ck("कड़ियाँ (केंद्र) : हिंदी में वही संदेश हिंदी में", LH.length === LE.length && /ACS रसीद — सीता देवी \(ACS-2026-999999\) · कंप्यूटर ऑपरेटर \(Computer Operator\) · R-0001 ₹500/.test(txtH) && /कोई फीस-प्रविष्टि नहीं/.test(txtH) && /मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: ACS-2026-123456 — acslearn\.com/.test(txtH), txtH.slice(0, 400));
+    /* परिचय-पत्र */
+    const mk = async (c) => { c.canvasText.length = 0; typeIn(c, c.d.getElementById("idName"), "Sita Devi"); typeIn(c, c.d.getElementById("idRole"), "Computer Operator"); typeIn(c, c.d.getElementById("idNo"), "ACS-2026-999999"); click(c, c.d.getElementById("idMake")); await settle(c); return c.canvasText.map(z => z.t); };
+    const cE = await mk(e), cH = await mk(h);
+    ck("परिचय-पत्र : English पैनल में कार्ड के पक्के शब्द English में, देवनागरी शून्य (" + cE.length + " पंक्तियाँ)", cE.length >= 8 && !cE.some(t => DEV.test(stripUser(t, USERV))) && cE.indexOf("Applied Computer School™") > -1 && cE.indexOf("👨‍🏫 Staff ID Card") > -1 && cE.indexOf("📅 Valid: 365 days from issue date") > -1, cE.filter(t => DEV.test(t)).join(" ‖ ") + " | " + cE.slice(0, 6).join(" | "));
+    ck("परिचय-पत्र : हिंदी पैनल में कार्ड पहले जैसा", cH.indexOf("अप्लाइड कंप्यूटर स्कूल™") > -1 && cH.indexOf("👨‍🏫 Staff परिचय-पत्र") > -1 && cH.indexOf("📅 वैध: जारी-तिथि से 365 दिन") > -1 && cH.length === cE.length, cH.slice(0, 6).join(" | "));
+    e.canvasText.length = 0; click(e, e.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(e); await settle(e);
+    const cB = e.canvasText.map(z => z.t);
+    ck("परिचय-पत्र : भाषा बदलते ही बना हुआ कार्ड नई भाषा में दोबारा बनता है", cB.length === cH.length && cB.every((t, i) => t === cH[i]), cB.slice(0, 5).join(" | "));
+    const er = e.errors.concat(h.errors); ck("काग़ज़ (केंद्र) : JS-त्रुटि शून्य", er.length === 0, er.slice(0, 3).join(" ‖ "));
+    e.dom.window.close(); h.dom.window.close();
+  } catch (err) { ck("काग़ज़ (केंद्र) : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
+}
 module.exports = { dashTransform, makeFB, fixture, openDash, openAll };
 if (require.main === module) (async function main() {
   const only = process.argv[2] || "";
@@ -233,8 +394,9 @@ if (require.main === module) (async function main() {
       [hA, hB, e].forEach(x => x.dom.window.close());
     } catch (e) { ck(f + " : हिंदी-जाँच चली", false, String(e && e.stack || e).slice(0, 300)); }
   }
+  if (!process.env.ACS_ONLY_HI && (!only || /student|center/.test(only))) await docChecks(pages);
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.1 : सब dashboard English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.2 : सब dashboard और काग़ज़ English पास");
   process.exit(fail ? 1 : 0);
 })();

@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.14 (15-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
+/* generator/dev_cert_guard.js : v1.15 (15-Nov-2026; v1.15 पैनल-4: English प्रमाणपत्र certTextEn पर भी validity और परीक्षा-तिथि के नियम) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
    v1.14 (पैनल-2): dashboard का English अब assets/i18n/panel_en.js में (पुरानी dash_i18n_en.js हटी); वही वाक्य वहीं जाँचे जाते हैं।
    v1.13 (पैनल-1): रजिस्ट्रेशन का संस्करण अब एक ही जगह (expectedRulesVer) से; नियम-परदा सहमति के साथ भाषा भी भेजता है।
    जाँच का अर्थ वही: विद्यार्थी 1.2, बाक़ी 1.1; सहमति में server को संस्करण जाता है।ें
@@ -51,6 +51,15 @@ ok(/\[\{text:"जारी: "\+certDayNum\(c\.issuedOn\)\+" · online जाँ�
   ok(a > 0 && body.length > 3000 && !/विस्तार|extension|₹1000|देर का शुल्क|late fee/i.test(body), "प्रमाणपत्र के चित्र में विस्तार की फ़ीस या देर के शुल्क का कोई ज़िक्र नहीं (सिर्फ़ validity)");
 })();
 ok(!/5 साल का विस्तार: ₹1000"/.test(d), "प्रमाणपत्र पर अधूरी पंक्ति (सिर्फ़ \"₹1000\") नहीं बची");
+(function () {
+  /* (पैनल-4, 15-Nov-2026) English प्रमाणपत्र (certTextEn) पर भी वही नियम: सिर्फ़ validity; परीक्षा-तिथि सिर्फ़ परीक्षा के रिकॉर्ड से */
+  var a = d.indexOf("async function certTextEn("), b = d.indexOf("\n  }\n", a), body = a > 0 ? d.slice(a, b).replace(/\/\*[\s\S]*?\*\//g, "") : "";
+  ok(body.length > 2500 && !/extension|₹1000|late fee|extend/i.test(body), "English प्रमाणपत्र के चित्र में भी विस्तार की फ़ीस या देर के शुल्क का कोई ज़िक्र नहीं");
+  /* (पैनल-4 v1.1, ऑडिट की पकड़) रिश्ते की ख़ाली पंक्ति (हर विद्यार्थी पर "S/o ____") और "Accreditations" शब्द English प्रमाणपत्र पर नहीं */
+  ok(body.length > 2500 && !/S\/o|D\/o|_{3,}|fatherPh/.test(body), "English प्रमाणपत्र पर पिता/रिश्ते की ख़ाली पंक्ति नहीं (असली data आए, तभी जुड़े)");
+  ok(body.length > 2500 && !/accredit/i.test(body) && /x\.fillText\("Institutional Details",CX,y\+8\)/.test(body), "English प्रमाणपत्र पर \"Accreditations\" शब्द नहीं; शीर्षक \"Institutional Details\"");
+  ok(/"held on "\+certDayEn\(c\.examOn\)\+", with"/.test(body) && !/issuedOn[^\n]*held on/.test(body) && /"Issued "\+certDayNum\(c\.issuedOn\)\+" · Online verification valid till "\+certDayNum\(c\.validUntil\)\+" \(acslearn\.com\/verify\)"/.test(body), "English प्रमाणपत्र पर भी परीक्षा-तिथि परीक्षा के रिकॉर्ड से, और जारी/मान्य तिथि server से");
+})();
 ok(/यह फ़ीस और देर का शुल्क वापस नहीं होते। तकनीकी ग़लती से पैसा दो बार या ग़लत कट जाए, तो वह अलग से ठीक किया जाता है।/.test(d) && /acslearn\.com\/refund\.html/.test(d) && d.indexOf("const NOREF=") < d.indexOf('httpsCallable(functions,"certExtendOrder")'), "(K3A-H04) भुगतान से पहले लिखा दिखता है कि विस्तार की फ़ीस वापस नहीं होती");
 ok(/v\.applied===false/.test(d) && /ci\.extend\.due/.test(d) && /और देने होंगे/.test(d), "(K3A-H01) फ़ीस बढ़ गई हो तो dashboard बाक़ी रक़म बताता और माँगता है");
 (function () {

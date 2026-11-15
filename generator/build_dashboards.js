@@ -211,7 +211,7 @@ const P_COUNSEL = (
     '<div class="pd" style="margin-top:14px"><b>🧭 अभिरुचि-परीक्षण:</b> बिना सक्रिय Golden Pass के पूरा परीक्षण ₹100 प्रति प्रयास; ' +
     'सक्रिय Golden Pass के साथ पूरा अभिरुचि-परीक्षण 365 दिन असीमित मुफ़्त। ' +
     'नतीजा मुफ़्त दिखता है और आपके फ़ोन में ही रहता है — कोई अलग शुल्क नहीं। चाहें तो छपने-योग्य अभिरुचि-रिपोर्ट (PDF: Print/WhatsApp) ₹125 में — हर नए नतीजे की अपनी ₹125 रिपोर्ट।</div>' +
-    '<a class="abtn ok" style="display:inline-block;text-decoration:none;margin:6px 0" href="/aptitude-test.html">📝 अभिरुचि-परीक्षण शुरू/जारी करें</a>' +
+    '<a class="abtn ok" style="display:inline-block;text-decoration:none;margin:6px 0" href="/aptitude-test.html" data-href-en="/en/aptitude-test.html">📝 अभिरुचि-परीक्षण शुरू/जारी करें</a>' +
     '<div id="apt-last-report-status" class="note">पिछली रिपोर्ट जाँची जा रही है…</div>' +
     '</div>');
 

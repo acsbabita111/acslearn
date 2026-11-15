@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_vocab_en_check.js v1.4 (15-Nov-2026; v1.1 पैनल-2: पुरानी dash_i18n_en.js न हो तो भी चले; v1.2 पैनल-2: V6-V8 एक चीज़ = एक English नाम; v1.3: English की तरफ़ से भी V9-V11, जाँच lib_vocab_en.js में; v1.4 पैनल-3: पैक के साँचे (T) भी): English शब्द-सूची का पहरेदार
+   dev_vocab_en_check.js v1.5 (15-Nov-2026; v1.5 पैनल-4: V12 वर्तनी center; v1.1 पैनल-2: पुरानी dash_i18n_en.js न हो तो भी चले; v1.2 पैनल-2: V6-V8 एक चीज़ = एक English नाम; v1.3: English की तरफ़ से भी V9-V11, जाँच lib_vocab_en.js में; v1.4 पैनल-3: पैक के साँचे (T) भी): English शब्द-सूची का पहरेदार
    नियम का एकमात्र घर: generator/data/vocab_en.json (Founder की हाँ, 15-Nov-2026)।
    यह कुछ नहीं बदलता, सिर्फ़ जाँचता है। कोई जाँच फेल = exit 1।
 
@@ -81,7 +81,7 @@ ck("V1 'उद्यम' का English 'industry' नहीं (" + pairs.lengt
   ids.forEach(id => { by[id] = []; });
   for (const [f, hi, en] of pairs) for (const x of LV.pairViolations(V, hi, en)) (by[x.id] = by[x.id] || []).push(f + " :: " + x.msg + " :: " + hi.slice(0, 70) + "  ⇒  " + en.slice(0, 110));
   const NAME = { V6: "'अभिरुचि-रिपोर्ट' = Career Interest Report", V7: "'अभिरुचि-परीक्षण / करियर टेस्ट / Aptitude टेस्ट' = Career Interest Test", V8: "'उद्योग-प्रशिक्षु' = Entrepreneur Learner",
-    V9: "English में 'interest test/report' हर जगह पूरा और ठीक नाम", V10: "English में 'aptitude' या 'career test' नहीं", V11: "₹125 वाली छपने-योग्य रिपोर्ट = Career Interest Report (संदर्भ से)" };
+    V9: "English में 'interest test/report' हर जगह पूरा और ठीक नाम", V10: "English में 'aptitude' या 'career test' नहीं", V11: "₹125 वाली छपने-योग्य रिपोर्ट = Career Interest Report (संदर्भ से)", V12: "वर्तनी एक ही: center (centre नहीं)" };
   ids.forEach(id => ck(id + " " + (NAME[id] || "") + " (" + pairs.length + " जोड़े)", ids.length >= 6 && by[id].length === 0, by[id].slice(0, 8).join("\n     ")));
 }
 
@@ -118,5 +118,5 @@ for (const r of V.never_hi) {
 
 fails.forEach(x => console.log(x));
 console.log("\nजाँचें: पास " + pass + " · फेल " + fails.length);
-console.log(fails.length ? "⛔ dev_vocab_en_check रुका" : "🏁 dev_vocab_en_check v1.4 : English शब्द-सूची (उद्यम = Enterprise; एक चीज़ = एक नाम) पास");
+console.log(fails.length ? "⛔ dev_vocab_en_check रुका" : "🏁 dev_vocab_en_check v1.5 : English शब्द-सूची (उद्यम = Enterprise; एक चीज़ = एक नाम) पास");
 process.exit(fails.length ? 1 : 0);

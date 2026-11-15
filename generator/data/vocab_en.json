@@ -1,5 +1,5 @@
 {
- "_": "vocab_en.json v1.2 (15-Nov-2026; v1.1 पैनल-2: 'एक चीज़ = एक नाम' नियम V6-V8, ChatGPT ऑडिट की पकड़ से; v1.2: English की तरफ़ से भी पहरा V9-V11, ChatGPT की दूसरी पकड़ से): पूरी साइट की English शब्द-सूची का एकमात्र घर (परत-3). Founder की हाँ: 15-Nov-2026 (ChatGPT का सुझाव, पैनल-1ख ऑडिट). आधार-नियम: Addendum v7.9 का '950 उद्यम' नियम. पहरेदार: generator/dev_vocab_en_check.js और build_panel_i18n.js (English पैक बनाते समय).",
+ "_": "vocab_en.json v1.3 (15-Nov-2026; v1.3 पैनल-4: V12 वर्तनी center; v1.1 पैनल-2: 'एक चीज़ = एक नाम' नियम V6-V8, ChatGPT ऑडिट की पकड़ से; v1.2: English की तरफ़ से भी पहरा V9-V11, ChatGPT की दूसरी पकड़ से): पूरी साइट की English शब्द-सूची का एकमात्र घर (परत-3). Founder की हाँ: 15-Nov-2026 (ChatGPT का सुझाव, पैनल-1ख ऑडिट). आधार-नियम: Addendum v7.9 का '950 उद्यम' नियम. पहरेदार: generator/dev_vocab_en_check.js और build_panel_i18n.js (English पैक बनाते समय).",
  "canonical": [
   {
    "hi": "उद्यम",
@@ -114,6 +114,11 @@
     "id": "V10",
     "re": "\\baptitude\\b|\\bcareer test\\b",
     "why": "इस सेवा का English नाम सिर्फ़ 'Career Interest Test' है ('aptitude test', 'career test' नहीं)."
+   },
+   {
+    "id": "V12",
+    "re": "\\bcentres?\\b",
+    "why": "वर्तनी एक ही: 'center' (पैनल में 45 जगह 'center' और 15 जगह 'centre' थी; 15-Nov-2026, पैनल-4 में एक की गई)."
    }
   ],
   "context": [

@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.3 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3)
+   panel_i18n.js v1.4 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4)
+   • (v1.4) data-href-<भाषा> अब बाद में बनी कड़ियों पर भी (पहले सिर्फ़ भाषा चुनते समय की कड़ियों पर): dashboard की
+     WhatsApp-कड़ियाँ (पहले से लिखा संदेश) और अभिरुचि-परीक्षण की कड़ी code से बाद में बनती हैं। कोड पहले href (हिंदी)
+     लिखे, फिर data-href-<भाषा>; href दोबारा लिखा जाए, तो नया हिंदी पता ही मूल माना जाता है।
    • (v1.3) साँचे (पैक का T): जिस संदेश के बीच में कुछ बदलता है (संख्या, नाम, कारण), जैसे server का
      "इस role की न्यूनतम उम्र {0} है — जन्मतिथि से उम्र {1} बनती है", वह पूरा वाक्य एक साथ बदलता है, ताकि
      English का शब्द-क्रम सही रहे। साँचा बड़े पाठ के भीतर भी मिलता है ("नहीं हुआ: " + server का संदेश)।
@@ -30,7 +33,7 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.3";
+var VER="1.4";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
    (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
@@ -170,7 +173,7 @@ function walk(root){
   for(var i=0;i<todo.length;i++){ n=todo[i]; if(!skipped(n.parentNode)) doText(n); }
   doAttrs(root.nodeType===9?root.documentElement:root);
 }
-function flush(){ raf=false; var list=pend; pend=[]; for(var i=0;i<list.length;i++){ try{ walk(list[i]); }catch(e){} } if(ACTIVE) sortAll(true); }
+function flush(){ raf=false; var list=pend; pend=[]; for(var i=0;i<list.length;i++){ try{ walk(list[i]); }catch(e){} } if(ACTIVE){ sortAll(true); try{ swapNav(true); }catch(e){} } }   /* (v1.4) बाद में बनी कड़ियाँ भी */
 function queue(n){ pend.push(n); if(!raf){ raf=true; (window.requestAnimationFrame||setTimeout)(flush,0); } }
 function startObs(){
   if(mo||!window.MutationObserver||!document.body) return;
@@ -181,7 +184,9 @@ function startObs(){
       else if(r.type==="attributes") queue(r.target);
       else if(r.addedNodes) for(var j=0;j<r.addedNodes.length;j++) queue(r.addedNodes[j]); }
   });
-  mo.observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+  /* (v1.4) data-href-<भाषा> बाद में लगे, तो भी कड़ी बदले */
+  var af=ATTRS.slice(), li; for(li=0;li<LANGS.length;li++) if(LANGS[li][0]!=="hi") af.push("data-href-"+LANGS[li][0]);
+  mo.observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:af});
 }
 /* हिंदी मूल वापस (भाषा हिंदी करने पर) — पन्ना दोबारा खोले बिना */
 function restore(){
@@ -212,7 +217,10 @@ function swapNav(on){
   /* (v1.1) किसी भी पन्ने की कड़ी: data-href-<भाषा> (links.js न हो तब भी, जैसे रजिस्ट्रेशन गाइड) */
   as=document.querySelectorAll("a[data-href-"+(on?CUR:"x-none")+"],a[data-i18n-href]");
   for(i=0;i<as.length;i++){ a=as[i];
-    if(on){ h=a.getAttribute("data-href-"+CUR); if(!h) continue; if(!a.hasAttribute("data-i18n-href")) a.setAttribute("data-i18n-href",a.getAttribute("href")||""); a.setAttribute("href",h); }
+    if(on){ h=a.getAttribute("data-href-"+CUR); if(!h) continue; m=a.getAttribute("href")||"";
+      /* (v1.4) मूल पता याद रखना: पहली बार, या जब कोड ने href दोबारा (हिंदी में) लिख दिया हो */
+      if(!a.hasAttribute("data-i18n-href")||m!==h) a.setAttribute("data-i18n-href",m);
+      if(m!==h) a.setAttribute("href",h); }
     else if(a.hasAttribute("data-i18n-href")){ a.setAttribute("href",a.getAttribute("data-i18n-href")); a.removeAttribute("data-i18n-href"); } }
   if(!L||!L.menu) return;
   as=document.querySelectorAll(NAV_SEL);

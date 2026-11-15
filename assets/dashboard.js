@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.14.0 · 15-Nov-2026 (पैनल-4): काग़ज़ भी English में (Founder का फ़ैसला: पैनल English हो, तो सब काग़ज़ सिर्फ़ English; देवनागरी कहीं नहीं):
+     प्रमाणपत्र का चित्र/PDF (certTextEn), परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश, रिपोर्ट की छपाई; अभिरुचि-परीक्षण की कड़ी English पन्ने पर।
+     हिंदी पैनल में ये सब जैसे थे वैसे ही। नाम के रोमन रूप में "ऑ/ॉ" (डॉली, ऑस्कर) अब ठीक बदलते हैं।
    v6.13.0 · 15-Nov-2026 (पैनल-2): सब 31 dashboard English में, पैनल के साझा भाषा-इंजन /assets/panel_i18n.js से (पुरानी learner-परत dash_i18n_en.js हटी)।
      Founder-नियम (15-Nov): भाषा-कार्ड और भाषा-कोर्स के कार्ड पर भाषा का नाम हमेशा देवनागरी + रोमन (+ अपनी लिपि का अक्षर), हर पैनल-भाषा में (LN)।
    v6.12.1 · 14-Nov-2026 (खेप 4 भाग 2 v1.3): दोबारा सहमति का परदा अब साझा फ़ाइल /assets/rules-gate.js से (v6.12.0 में वह इसी फ़ाइल के भीतर था); वह फ़ाइल न लदे तो भी परदा।
@@ -118,7 +121,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.13.0";
+const DASH_VER = "v6.14.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -198,6 +201,44 @@ function US(t){ return '<span data-i18n-skip>'+esc(t)+'</span>'; }
    यह नाम किसी भी पैनल-भाषा में नहीं बदलता (हिंदी नाम English में भी दिखता है)। सिर्फ़ भाषा के नाम के लिए। */
 function LN(t){ return '<span data-i18n-skip data-lname>'+t+'</span>'; }
 function bracketEn(t){ const m=/\[([^\]]+)\]\s*$/.exec(String(t||"")); return m ? m[1].trim() : ""; }
+/* (v6.14.0, पैनल-4) काग़ज़ की भाषा। प्रमाणपत्र, परिचय-पत्र, WhatsApp का पहले से लिखा संदेश और छपाई DOM में नहीं होते,
+   इसलिए भाषा-इंजन इन्हें नहीं बदल सकता। Founder का फ़ैसला (15-Nov-2026): पैनल English हो, तो ये काग़ज़ सिर्फ़ English में।
+   docEn = अभी पैनल English में चल रहा है (पैक आ चुका है); पैक न आए तो पन्ना हिंदी में रहता है, काग़ज़ भी हिंदी में। */
+function docEn(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()==="en"); }catch(e){ return false; } }
+/* काग़ज़ों के पक्के वाक्य: हिंदी → English। पहरेदार (dev_panel_dash_check) मिलाता है कि English पैक में भी ठीक यही अनुवाद है। */
+const DOC_EN = {
+  "मुझे यह कोर्स चाहिए: ": "I want this course: ",
+  "ACS में मुफ़्त पढ़ाई! मेरे link से जुड़ो: ": "Free learning at ACS! Join with my link: ",
+  "मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: ": "To join my center, search this ID on ACS: ",
+  "ACS रसीद — ": "ACS receipt: ",
+  "कोई फीस-प्रविष्टि नहीं": "No fee entries",
+  "नाम": "Name",
+  "ACS केंद्र": "ACS Center",
+  "अप्लाइड कंप्यूटर स्कूल™": "Applied Computer School™",
+  "🎓 विद्यार्थी परिचय-पत्र": "🎓 Student ID Card",
+  "👨‍🏫 Staff परिचय-पत्र": "👨‍🏫 Staff ID Card",
+  "📅 वैध: जारी-तिथि से 365 दिन": "📅 Valid: 365 days from issue date"
+};
+function DE(hi){ return Object.prototype.hasOwnProperty.call(DOC_EN,hi) ? DOC_EN[hi] : hi; }   /* हमेशा English */
+function DT(hi){ return docEn() ? DE(hi) : hi; }                                                /* पैनल की भाषा में */
+/* नाम के कोष्ठक का English: "धान/चावल (Rice)" → "Rice" (उद्यम और कोर्स के नाम data में ऐसे ही लिखे हैं) */
+function parenEn(t){
+  const m=/[(\[]([^()\[\]]*[A-Za-z][^()\[\]]*)[)\]]/.exec(String(t||"")); if(!m) return "";
+  return m[1].replace(/[\u0900-\u097F][\s\S]*$/,"").replace(/[\s\u2014\u2013\-\/,:;(&]+$/,"").trim();
+}
+/* कोर्स का English नाम: कोर्स-सूची (courses_data.js) से; सूची न आई हो या नाम में देवनागरी हो, तो नाम के कोष्ठक से */
+function courseEn(id, nm){
+  let en="";
+  try{ if(id){ const L=[].concat(
+      (typeof SELF_EMP_COURSES!=="undefined")?SELF_EMP_COURSES:[], (typeof PRIVATE_JOB_COURSES!=="undefined")?PRIVATE_JOB_COURSES:[],
+      (typeof LOCAL_JOB_COURSES!=="undefined")?LOCAL_JOB_COURSES:[], (typeof GOVT_JOB_COURSES!=="undefined")?GOVT_JOB_COURSES:[],
+      (typeof GOVT_SCHOLAR_COURSES!=="undefined")?GOVT_SCHOLAR_COURSES:[], (typeof ACADEMIC_COURSES!=="undefined")?ACADEMIC_COURSES:[]);
+    const hit=L.find(function(x){ return x.id===id; }); if(hit && hit.name_en) en=String(hit.name_en).trim(); } }catch(e){}
+  if(!en || /[\u0900-\u097F]/.test(en)) en=parenEn(nm);
+  return /[\u0900-\u097F]/.test(en) ? "" : en;
+}
+/* कड़ी जिसका पता भाषा से बदलता है: हिंदी href + data-href-en (भाषा-इंजन English में यही पता लगा देता है) */
+function HREF2(hi, en){ return 'href="'+esc(hi)+'"'+((en && en!==hi)?' data-href-en="'+esc(en)+'"':''); }
 
 /* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
 /* registration-दस्तावेज़ से DP (Founder-आदेश 19-Jul: व्यक्ति का upload किया
@@ -1534,8 +1575,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     P.udy.slice(0,5).forEach(function(u,i){
       h+='<div class="lrow"><span class="nm">'+(i+1)+'. '+esc(u.nm)+'</span> '+
         (u.c?'<a class="abtn ok" style="text-decoration:none" href="'+esc(u.c)+'">📚 पढ़ें</a>'
-            :'<a class="abtn2" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092?text='+
-             encodeURIComponent('मुझे यह कोर्स चाहिए: '+u.nm)+'">📲 कोर्स माँगें</a>')+'</div>';
+            :'<a class="abtn2" style="text-decoration:none" target="_blank" rel="noopener" '+HREF2('https://wa.me/919431210092?text='+
+             encodeURIComponent('मुझे यह कोर्स चाहिए: '+u.nm), 'https://wa.me/919431210092?text='+encodeURIComponent(DE('मुझे यह कोर्स चाहिए: ')+(parenEn(u.nm)||u.nm)))+'>📲 कोर्स माँगें</a>')+'</div>';
     });
     bx.innerHTML=h;
   }
@@ -2035,8 +2076,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      काम करता है ("राजूकुमार"→"Rajukumar", "सुनीता देवी"→"Sunita Devi")। कोई नई registration-field नहीं
      चाहिए — मौजूदा हिंदी-नाम से ही अपने-आप बनता है। */
   function devToRoman(s){
-    var vowels={"अ":"a","आ":"a","इ":"i","ई":"i","उ":"u","ऊ":"u","ऋ":"ri","ए":"e","ऐ":"ai","ओ":"o","औ":"au"};
-    var matras={"ा":"a","ि":"i","ी":"i","ु":"u","ू":"u","ृ":"ri","े":"e","ै":"ai","ो":"o","ौ":"au","ं":"n","ः":"h","ँ":"n"};
+    var vowels={"अ":"a","आ":"a","इ":"i","ई":"i","उ":"u","ऊ":"u","ऋ":"ri","ए":"e","ऐ":"ai","ओ":"o","औ":"au","ऑ":"o","ऍ":"e"};
+    var matras={"ा":"a","ि":"i","ी":"i","ु":"u","ू":"u","ृ":"ri","े":"e","ै":"ai","ो":"o","ौ":"au","ं":"n","ः":"h","ँ":"n","ॉ":"o","ॅ":"e"};   /* (v6.14.0) ऑ/ॉ: पहले "डॉली" का रोमन रूप बिगड़ता था */
     var cons={"क":"k","ख":"kh","ग":"g","घ":"gh","ङ":"ng","च":"ch","छ":"chh","ज":"j","झ":"jh","ञ":"n","ट":"t","ठ":"th","ड":"d","ढ":"dh","ण":"n","त":"t","थ":"th","द":"d","ध":"dh","न":"n","प":"p","फ":"ph","ब":"b","भ":"bh","म":"m","य":"y","र":"r","ल":"l","व":"v","श":"sh","ष":"sh","स":"s","ह":"h","ड़":"r","ढ़":"rh"};
     /* (14-Nov-2026, खेप 3-क) नुक़्ता (फ़ ज़ क़ ...) और अनुस्वार/चंद्रबिंदु ठीक से: पहले "अंसारी" का English रूप बिगड़ा हुआ छपता था */
     var NUK={"फ":"f","ज":"z","क":"q","ख":"kh","ग":"gh","ड":"r","ढ":"rh"}, NUKTA="\u093C";
@@ -2119,6 +2160,123 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     x.arcTo(rx+rw,ry,rx+rw,ry+rh,r); x.arcTo(rx+rw,ry+rh,rx,ry+rh,r);
     x.arcTo(rx,ry+rh,rx,ry,r); x.arcTo(rx,ry,rx+rw,ry,r); x.closePath();
   }
+  /* ── (v6.14.0, पैनल-4; Founder का फ़ैसला 15-Nov-2026) English प्रमाणपत्र: पैनल English हो, तो प्रमाणपत्र सिर्फ़ English में ──
+     देवनागरी का एक भी अक्षर नहीं। ढाँचा वही (लोगो, border, कोने, watermark, QR, हस्ताक्षर, मुहर: certDraw में);
+     यहाँ सिर्फ़ लिखावट। वाक्य वही जो हिंदी प्रमाणपत्र की English पंक्तियों में पहले से थे; अब बड़े अक्षरों में। */
+  /* नाम रोमन में: अपना प्रमाणपत्र हो और रजिस्ट्रेशन में रोमन नाम लिखा हो, तो वही (उपयोगकर्ता का अपना लिखा);
+     वरना हिंदी नाम का रोमन रूप (devToRoman)। देवनागरी का कोई अक्षर नहीं बचता। */
+  function certNameEn(nm){
+    nm=String(nm||"").trim();
+    try{ const R=EXT_REG, rn=R&&String(R.name_roman||"").trim();
+      if(rn && !/[ऀ-ॿ]/.test(rn) && (nm===String(R.name_local||"").trim() || nm===rn || nm===String(R.name||"").trim())) return rn; }catch(e){}
+    return devToRoman(nm).replace(/[ऀ-ॿ]+/g,"").replace(/\s+/g," ").trim();
+  }
+  /* कोर्स का नाम English में: कोर्स-सूची से; न मिले तो नाम के कोष्ठक से; वह भी न हो तो कोर्स का कोड */
+  function certCourseEn(c){
+    let en=""; try{ en=findCourseName(c.courseId, "").en||""; }catch(e){}
+    if(!en || /[ऀ-ॿ]/.test(en)) en=courseEn(c.courseId, c.courseName);
+    return en || String(c.courseId||"—");
+  }
+  async function certTextEn(x, c, W){
+    const CX=W/2, FF="'Noto Sans Devanagari',sans-serif";   /* वही font-परिवार (इसमें Latin अक्षर भी हैं; पन्ने पर पहले से लदा) */
+    x.textAlign="center";
+    /* संस्था के नाम */
+    let y=122;
+    x.font="800 50px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText("Applied Computer School™",CX,y); y+=46;
+    x.font="800 30px "+FF; x.fillStyle="#1565C0";
+    x.fillText("&",CX,y); y+=42;
+    x.font="700 29px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText("Freedom Fighter Gangadhar Prasad Memorial Trust",CX,y); y+=34;
+    x.font="700 21px "+FF; x.fillStyle="#5a6b80";
+    x.fillText("(FFGPMTrust)",CX,y); y+=34;
+    x.strokeStyle="#F9A825"; x.lineWidth=4;
+    x.beginPath(); x.moveTo(CX-240,y); x.lineTo(CX+240,y); x.stroke(); y+=88;
+
+    /* शीर्षक */
+    x.font="800 48px "+FF; x.fillStyle="#1565C0";
+    x.fillText("Online Course Completion Certificate",CX,y); y+=92;
+
+    /* नाम: मुख्य-फ़ोकस। (v1.1, ऑडिट) पिता/अभिभावक की पंक्ति यहाँ नहीं छपती: रजिस्ट्रेशन में यह नाम लिया ही नहीं जाता,
+       और ख़ाली "S/o ____" हर विद्यार्थी (लड़की पर भी) ग़लत रिश्ता छापता। असली data आए, तभी यह पंक्ति जुड़े। */
+    x.font="700 27px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText("This is to certify that",CX,y); y+=82;
+    const nmEn=certNameEn(c.name)||"—"; let ns=60;   /* लंबा नाम: अक्षर छोटे होते हैं, ताकि नाम किनारे से बाहर न जाए */
+    x.font="800 "+ns+"px "+FF; while(ns>34 && x.measureText(nmEn).width>W-240){ ns-=2; x.font="800 "+ns+"px "+FF; }
+    x.fillStyle="#2E7D32"; x.fillText(nmEn,CX,y); y+=18;
+    const uw=Math.max(240, Math.min((W-200)/2, x.measureText(nmEn).width/2+24));   /* रेखा नाम जितनी चौड़ी */
+    x.strokeStyle="#2E7D32"; x.lineWidth=3;
+    x.beginPath(); x.moveTo(CX-uw,y); x.lineTo(CX+uw,y); x.stroke(); y+=98;
+
+    /* प्रमाणीकरण-वाक्य */
+    const navy="700 28px "+FF, navyB="800 30px "+FF;
+    const nEn = wrapRichCentered(x, [
+      {text:"has passed the online examination for", font:navy, color:"#0B1F3A"},
+      {text:certCourseEn(c), font:navyB, color:"#1565C0"},
+      {text:"held on "+certDayEn(c.examOn)+", with", font:navy, color:"#0B1F3A"},
+      {text:(c.pct!=null?c.pct:"—")+"%", font:navyB, color:"#2E7D32"},
+      {text:"marks.", font:navy, color:"#0B1F3A"},
+    ], CX, y, W-260, 48);
+    y += (nEn-1)*48 + 78;
+    x.font="700 26px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText("We wish him/her a bright future.",CX,y); y+=120;
+
+    /* प्रमाणपत्र-नंबर */
+    x.fillStyle="#0B1F3A"; x.font="800 34px monospace";
+    x.fillText(c.certNo,CX,y); y+=36;
+    x.font="700 20px "+FF; x.fillStyle="#4a5a70";
+    x.fillText("Certificate No",CX,y); y+=110;
+
+    /* QR बायीं तरफ़, हस्ताक्षर और मुहर दायीं तरफ़ */
+    const rowY=y, leftX=CX-300, rightX=CX+260;
+    x.strokeStyle="#0B1F3A22"; x.lineWidth=1.5; x.strokeRect(leftX-72,rowY,144,144);
+    try{
+      await loadQR();
+      const verifyUrl = "https://acslearn.com/verify/?cert="+encodeURIComponent(c.certNo||"");
+      const qcv=document.createElement("canvas");
+      new window.QRious({ element:qcv, value:verifyUrl, size:144, background:"#F5F7FA", foreground:"#0B1F3A" });
+      x.drawImage(qcv,leftX-72,rowY,144,144);
+    }catch(e){
+      x.fillStyle="#9aa4b0"; x.font="700 15px "+FF;
+      x.fillText("QR",leftX,rowY+76);
+    }
+    x.font="700 18px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText("Scan to verify",leftX,rowY+174);
+
+    drawSignature(x, rightX, rowY+55, 1.1);
+    x.strokeStyle="#0B1F3A55"; x.lineWidth=1.3;
+    x.beginPath(); x.moveTo(rightX-86,rowY+74); x.lineTo(rightX+86,rowY+74); x.stroke();
+    x.font="700 18px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText("Authorized Signatory",rightX,rowY+100);
+    x.font="800 21px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText("Chief Trustee, FFGPMT",rightX,rowY+130);
+    drawSeal(x, rightX, rowY+13, 36, "FFGPMT", "Digital Seal");
+
+    y=rowY+236;
+    const nV=wrapRichCentered(x,[{text:"Issued "+certDayNum(c.issuedOn)+" · Online verification valid till "+certDayNum(c.validUntil)+" (acslearn.com/verify)",font:"700 18px "+FF,color:"#0B1F3A"}],CX,y,W-260,25);
+    y += (nV-1)*25 + 88;
+
+    /* संस्था का ब्योरा। (v1.1, ऑडिट) शीर्षक "Institutional Details": UDYAM पंजीकरण और Trademark आवेदन मान्यता (accreditation) नहीं हैं,
+       इसलिए English प्रमाणपत्र पर "Accreditations" शब्द नहीं */
+    x.strokeStyle="#0B1F3A18"; x.lineWidth=1.5;
+    x.beginPath(); x.moveTo(90,y-22); x.lineTo(W-90,y-22); x.stroke();
+    x.fillStyle="#4a5a70"; x.font="700 18px "+FF;
+    x.fillText("Institutional Details",CX,y+8); y+=54;
+    x.font="700 16px monospace"; x.fillStyle="#5a6b80";
+    x.fillText("ISO 9001:2015  |  UDYAM-BR-17-0000507  |  Trademark App. 6167674",CX,y); y+=78;
+
+    /* नारा (acs-config.js का tagline_en; पहरेदार मिलाता है) */
+    x.font="800 38px "+FF; x.fillStyle="#0B1F3A";
+    x.lineWidth=1.2; x.strokeStyle="#0B1F3A";
+    x.strokeText("In 130 languages, from village to the Global South!",CX,y);
+    x.fillText("In 130 languages, from village to the Global South!",CX,y); y+=56;
+    x.strokeStyle="#F9A825"; x.lineWidth=3;
+    x.beginPath(); x.moveTo(90,y); x.lineTo(W-90,y); x.stroke(); y+=40;
+
+    /* मुख्यालय का पता */
+    x.font="700 16px "+FF; x.fillStyle="#4a5a70";
+    x.fillText("Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201",CX,y);
+  }
   /* चौथा-दौर (31-Jul, Founder — A4-PDF + Founder-लिखा rich-paragraph प्रारूप + पिता-का-नाम + border
      वापस + trademark-जैसा watermark + पूरा-पेज भराव): असली node-canvas+असली-फ़ॉन्ट से कई दौर जाँचा।
      🟠 पिता/अभिभावक का नाम अभी भी placeholder (________) है — registrations में सिर्फ़ guardian का
@@ -2182,6 +2340,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     x.fillStyle="#fff"; x.beginPath(); x.arc(W-150,155,82,0,7); x.fill();
     if(ffLogo) x.drawImage(ffLogo,W-150-68,87,136,136);
 
+    /* (v6.14.0, पैनल-4) पैनल English हो, तो लिखावट सिर्फ़ English में (certTextEn); वरना नीचे का हिंदी + English रूप, जैसा था वैसा */
+    if(docEn()){ await certTextEn(x, c, W); } else {
     /* संस्था-नाम केंद्र में — अंग्रेज़ी नाम बड़ा (Founder: "और बड़ा करो") */
     let y=110;
     x.font="800 46px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
@@ -2315,6 +2475,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     /* मुख्यालय-पता सबसे नीचे एक पंक्ति में (Founder: "पता कहीं भी नहीं लिखे हो") */
     x.font="700 16px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
     x.fillText("मुख्यालय / Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201",CX,y);
+    }   /* (v6.14.0) हिंदी + English वाला रूप यहाँ पूरा */
 
     /* A4-PDF के रूप में देना — canvas को raster-image की तरह PDF-पेज में जड़ना */
     try{
@@ -2428,8 +2589,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
       const d=document.createElement("div"); d.id="refLinkBox";
       d.innerHTML='<div class="pd" style="word-break:break-all"><b>🔗 आपका link:</b> <span id="refLinkTxt">'+link+'</span></div>'+
         '<button class="abtn" type="button" id="refCopyBtn">📋 Copy</button> '+
-        '<a class="abtn ok" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+
-        encodeURIComponent("ACS में मुफ़्त पढ़ाई! मेरे link से जुड़ो: "+link)+'">🟢 WhatsApp पर भेजें</a>'+
+        '<a class="abtn ok" style="text-decoration:none" target="_blank" rel="noopener" '+HREF2('https://wa.me/?text='+
+        encodeURIComponent("ACS में मुफ़्त पढ़ाई! मेरे link से जुड़ो: "+link), 'https://wa.me/?text='+encodeURIComponent(DE("ACS में मुफ़्त पढ़ाई! मेरे link से जुड़ो: ")+link))+'>🟢 WhatsApp पर भेजें</a>'+
         '<span class="note" id="refCopyMsg"></span>';
       codeEl.parentNode && codeEl.parentNode.insertBefore(d, codeEl.nextSibling);
       d.querySelector("#refCopyBtn").onclick=function(){
@@ -2679,20 +2840,23 @@ if (MODE==="external" && ALLOWED.length>=1) {
       const dn = function (s) { const p = String(s || "").split("-"); return p.length === 3 ? p[2] + "." + p[1] + "." + p[0] : "—"; };
       const noLine = rn ? "रिपोर्ट नंबर: " + rn.reportNo + " · online जाँच: acslearn.com/verify · " + (rn.status === "expired" ? "जाँच की अवधि " + dn(rn.validUntil) + " को पूरी हुई" : "मान्य: " + dn(rn.validUntil) + " तक") : "";
       const full = (d.reportText || "") + (noLine ? "\n" + noLine : "");
+      /* (v6.14.0, पैनल-4) वही पंक्ति English में: WhatsApp और छपाई के लिए (रिपोर्ट का अपना पाठ उसी भाषा में रहता है जिसमें परीक्षण दिया गया था) */
+      const noLineEn = rn ? "Report number: " + rn.reportNo + " · online verification: acslearn.com/verify · " + (rn.status === "expired" ? "verification period ended on " + dn(rn.validUntil) : "valid until " + dn(rn.validUntil)) : "";
+      const fullEn = (d.reportText || "") + (noLineEn ? "\n" + noLineEn : "");
       let qr = "";
       if (rn) { try {
         if (!window.QRious) await new Promise(function (res, rej) { const s = document.createElement("script"); s.src = "https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"; s.onload = res; s.onerror = rej; document.body.appendChild(s); });
         const qc = document.createElement("canvas"); new window.QRious({ element: qc, value: "https://acslearn.com/verify/?cert=" + encodeURIComponent(rn.reportNo), size: 160 }); qr = qc.toDataURL("image/png");
       } catch (e3) { qr = ""; } }
       st.innerHTML = "✅ आपकी छपने-योग्य अभिरुचि-रिपोर्ट सेव है"+(dt?" ("+esc(dt)+")":"")+"। " +
-        (noLine ? '<div id="apt-old-no" style="font-weight:700;margin:6px 0">' + esc(noLine) + '</div>' : '') +
+        (noLine ? '<div id="apt-old-no" style="font-weight:700;margin:6px 0">' + TT(esc(noLine), noLineEn) + '</div>' : '') +
         '<button class="abtn ok" id="apt-old-print" style="margin:4px 4px 0 0">🖨️ Print</button> ' +
-        '<a class="abtn ok" id="apt-old-wa" target="_blank" rel="noopener" href="https://wa.me/?text='+
-        encodeURIComponent(full)+'" style="display:inline-block;text-decoration:none;margin:4px 0 0">📲 WhatsApp</a>';
+        '<a class="abtn ok" id="apt-old-wa" target="_blank" rel="noopener" '+HREF2('https://wa.me/?text='+
+        encodeURIComponent(full), 'https://wa.me/?text='+encodeURIComponent(fullEn))+' style="display:inline-block;text-decoration:none;margin:4px 0 0">📲 WhatsApp</a>';
       const pb = document.getElementById("apt-old-print");
       if (pb) pb.onclick = () => {
         const w = window.open("", "_blank");
-        if (w) { w.document.write("<pre style='font-size:16px;white-space:pre-wrap'>"+esc(full)+"</pre>"+(qr ? "<img src='"+qr+"' width='160' height='160' alt='QR'>" : "")); w.print(); }
+        if (w) { w.document.write("<pre style='font-size:16px;white-space:pre-wrap'>"+esc(docEn() ? fullEn : full)+"</pre>"+(qr ? "<img src='"+qr+"' width='160' height='160' alt='QR'>" : "")); w.print(); }
       };
     } catch(e) { st.textContent = "रिपोर्ट-स्थिति नहीं जाँची जा सकी।"; }
   })();
@@ -2966,7 +3130,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var sid=$("instShareId");
     if(sid){ sid.textContent=(EXT_REG&&EXT_REG.regNo)||"—";
       var wa=$("instShareWa");
-      if(wa) wa.href="https://wa.me/?text="+encodeURIComponent("मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: "+((EXT_REG&&EXT_REG.regNo)||"")+" — acslearn.com");
+      if(wa){ wa.href="https://wa.me/?text="+encodeURIComponent("मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: "+((EXT_REG&&EXT_REG.regNo)||"")+" — acslearn.com");
+        /* (v6.14.0) पहले हिंदी पता, फिर English पता: भाषा-इंजन इसी क्रम से सही मूल याद रखता है */
+        wa.setAttribute("data-href-en","https://wa.me/?text="+encodeURIComponent(DE("मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: ")+((EXT_REG&&EXT_REG.regNo)||"")+" (acslearn.com)")); }
     }
   }
   function drawOfferings(){
@@ -3018,15 +3184,16 @@ if (MODE==="external" && ALLOWED.length>=1) {
       d.innerHTML='<div class="r1"><span class="nm">'+esc(rb(e.studentName))+g+'</span> · '+esc(e.studentRegNo)+'</div>'+
         '<div class="r2">'+esc(rb(e.courseName))+' · नामांकन: '+dt(e.enrolledAt)+'<br>'+feeLines(e)+'</div>'+
         '<button class="abtn ok" data-k9fee="'+esc(e._id)+'">💰 फीस-दर्ज</button> '+
-        '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/?text='+
-        encodeURIComponent("ACS रसीद — "+rb(e.studentName)+" ("+e.studentRegNo+") · "+rb(e.courseName)+" · "+feePlain(e))+'">📲 रसीद WhatsApp</a>';
+        '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" '+HREF2('https://wa.me/?text='+
+        encodeURIComponent("ACS रसीद — "+rb(e.studentName)+" ("+e.studentRegNo+") · "+rb(e.courseName)+" · "+feePlain(e)),
+        'https://wa.me/?text='+encodeURIComponent(DE("ACS रसीद — ")+rb(e.studentName)+" ("+e.studentRegNo+") · "+(courseEn(e.courseId,e.courseName)||rb(e.courseName))+" · "+feePlain(e,true)))+'>📲 रसीद WhatsApp</a>';
       box.appendChild(d);
     });
     var old=$("k9More"); if(old) old.remove();
     if(to<A.length){ var mb=document.createElement("button"); mb.className="abtn"; mb.id="k9More";
       mb.textContent="और देखें ("+(A.length-to)+" बाक़ी)"; mb.onclick=function(){ drawActive(true); }; box.appendChild(mb); }
   }
-  function feePlain(e){ var f=e.feeEntries||[]; if(!f.length) return "कोई फीस-प्रविष्टि नहीं";
+  function feePlain(e, en){ var f=e.feeEntries||[]; if(!f.length) return en ? DE("कोई फीस-प्रविष्टि नहीं") : "कोई फीस-प्रविष्टि नहीं";
     return f.map(function(x){ return x.receiptNo+" ₹"+x.amountRupees; }).join(", "); }
 
   LAZY["pnl-enroll"]=async function(){
@@ -3175,7 +3342,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       var chance=false;
       if(u){ try{ var cr=await httpsCallable(functions,"checkAptitudeAttempt")({});
         chance=!!(cr.data&&cr.data.available); }catch(e){} }
-      var goBtn='<a class="abtn ok" style="display:inline-block;text-decoration:none" href="/aptitude-test.html?back='+back+'">▶️ नया टेस्ट दें / जारी रखें</a>';
+      var goBtn='<a class="abtn ok" style="display:inline-block;text-decoration:none" '+HREF2('/aptitude-test.html?back='+back, '/en/aptitude-test.html?back='+back)+'>▶️ नया टेस्ट दें / जारी रखें</a>';
       /* (29-Jul, Founder — रोगी→रिपोर्ट→दवा→दुकान) आख़िरी टेस्ट की रिपोर्ट यहीं:
          ⭐ सेक्टर · 5+ उद्यम + सफलता-संभावना · 📚 कोर्स-कड़ी · 🎬 विशेषज्ञ-video ·
          🧑‍🏫 सलाहकार — पन्ने की पूरी उपयोगिता एक जगह। */
@@ -3194,8 +3361,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
           h+='<div class="lrow"><div class="r1"><span class="nm">'+(i+1)+'. '+esc(u2.nm)+'</span></div>'+
             '<div class="r2">💡 '+sLine+' <span class="note">(यह अनुमान है)</span></div>'+
             (u2.c?'<a class="abtn ok" style="text-decoration:none" href="'+esc(u2.c)+'">📚 कोर्स पढ़ें</a> ':'')+
-            '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query='+
-            encodeURIComponent(u2.nm+" expert documentary")+'">🎬 दुनिया के उस्ताद देखें</a></div>';
+            '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" '+HREF2('https://www.youtube.com/results?search_query='+
+            encodeURIComponent(u2.nm+" expert documentary"), 'https://www.youtube.com/results?search_query='+encodeURIComponent((parenEn(u2.nm)||u2.nm)+" expert documentary"))+'>🎬 दुनिया के उस्ताद देखें</a></div>';
         });
         h+='<div class="pd">🧑‍🏫 राह पर बात करनी हो — <a href="/hi/salah.html" style="font-weight:800">सलाहकार-पन्ना खोलें</a></div>';
         return h;
@@ -3212,7 +3379,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       }
       draw(reportHTML()+
         '<div class="pd">🎁 पहले मुफ़्त झलक लीजिए — 24 आसान प्रश्न, बीच में कहानियाँ।</div>'+
-        '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="/aptitude-test.html?back='+back+'">🧭 मुफ़्त झलक दें</a>'+
+        '<a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" '+HREF2('/aptitude-test.html?back='+back, '/en/aptitude-test.html?back='+back)+'>🧭 मुफ़्त झलक दें</a>'+
         '<div class="note">🏅 सक्रिय Golden Pass पर पूरा अभिरुचि-परीक्षण साल-भर मुफ़्त · बिना Pass ₹100 प्रति प्रयास · छपने-योग्य रिपोर्ट-PDF ₹125 — आपकी मर्ज़ी।</div>');
     }catch(e){
       draw('<span class="note" style="color:#B71C1C">स्थिति नहीं खुली: '+esc((e&&e.message)||e)+'</span>');
@@ -3331,11 +3498,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
   function idDraw(){
     var cv=$("idCanvas"); if(!cv) return;
     var x=cv.getContext("2d"), W=cv.width, H=cv.height;
-    var name=($("idName")&&$("idName").value.trim())||"नाम";
+    var name=($("idName")&&$("idName").value.trim())||DT("नाम");   /* (v6.14.0, पैनल-4) पक्के शब्द पैनल की भाषा में (DT) */
     var role=($("idRole")&&$("idRole").value.trim())||"";
     var no=($("idNo")&&$("idNo").value.trim())||"";
     var isStu=($("idWho")&&$("idWho").value==="student");
-    var inst=rb((EXT_REG&&((EXT_REG.formFields&&(EXT_REG.formFields.center_name||EXT_REG.formFields.workshop_name))||EXT_REG.name_local))||"ACS केंद्र");
+    var inst=rb((EXT_REG&&((EXT_REG.formFields&&(EXT_REG.formFields.center_name||EXT_REG.formFields.workshop_name))||EXT_REG.name_local))||DT("ACS केंद्र"));
     x.clearRect(0,0,W,H);
     /* कार्ड — गोल-कोना, हल्की छाया-पट्टी */
     rr(x,6,6,W-12,H-12,34); x.fillStyle="#0B1F3A"; x.fill();
@@ -3352,12 +3519,12 @@ if (MODE==="external" && ALLOWED.length>=1) {
     x.fillStyle=g; x.fillRect(6,6,W-12,12);
     /* header — brand */
     x.fillStyle="#F5F7FA"; x.textAlign="left"; x.font="800 30px 'Noto Sans Devanagari',sans-serif";
-    x.fillText("अप्लाइड कंप्यूटर स्कूल™",44,62);
+    x.fillText(DT("अप्लाइड कंप्यूटर स्कूल™"),44,62);
     x.fillStyle="#9fb3cc"; x.font="700 19px sans-serif"; x.fillText("acslearn.com",44,90);
     /* बड़ी पहचान-पट्टी: किसका कार्ड */
     x.fillStyle="#F9A825"; rr(x,W-268,34,224,44,22); x.fill();
     x.fillStyle="#0B1F3A"; x.font="800 22px 'Noto Sans Devanagari',sans-serif"; x.textAlign="center";
-    x.fillText(isStu?"🎓 विद्यार्थी परिचय-पत्र":"👨‍🏫 Staff परिचय-पत्र", W-156, 64); x.textAlign="left";
+    x.fillText(DT(isStu?"🎓 विद्यार्थी परिचय-पत्र":"👨‍🏫 Staff परिचय-पत्र"), W-156, 64); x.textAlign="left";
     /* फ़ोटो — गोल चौखट + gradient-ring (DP-नीति) */
     var pcx=150, pcy=300, prd=104;
     var rg=x.createLinearGradient(pcx-prd,pcy-prd,pcx+prd,pcy+prd);
@@ -3383,7 +3550,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     x.fillStyle="#F5F7FA"; x.font="700 24px 'Noto Sans Devanagari',sans-serif";
     x.fillText("🏫 "+inst.slice(0,30),tx,ty+146);
     x.fillStyle="#9fb3cc"; x.font="700 21px 'Noto Sans Devanagari',sans-serif";
-    x.fillText("📅 वैध: जारी-तिथि से 365 दिन",tx,ty+188);
+    x.fillText(DT("📅 वैध: जारी-तिथि से 365 दिन"),tx,ty+188);
     /* नीचे सुनहरी पट्टी */
     x.fillStyle="#F9A825"; x.fillRect(6,H-58,W-12,52);
     x.fillStyle="#0B1F3A"; x.font="800 22px 'Noto Sans Devanagari',sans-serif"; x.textAlign="center";
@@ -3391,7 +3558,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var out=$("idPrev"), sv=$("idSave");
     if(out){ out.src=cv.toDataURL("image/png"); out.style.display=""; }
     if(sv){ sv.href=cv.toDataURL("image/png"); sv.style.display="inline-block"; }
+    ID_DRAWN=true;
   }
+  /* (v6.14.0, पैनल-4) भाषा बदले और कार्ड बन चुका हो, तो कार्ड नई भाषा में दोबारा बने (पुरानी भाषा का चित्र न बचे) */
+  var ID_DRAWN=false;
+  document.addEventListener("acs-panel-lang", function(){ if(ID_DRAWN){ try{ idDraw(); }catch(e){} } });
   LAZY["pnl-idcard"]=function(){
     var who=$("idWho"); if(!who||who._k9) return; who._k9=true;
     who.onchange=function(){
@@ -3405,7 +3576,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
           ss.onchange=function(){
             var e=EN_ALL.find(function(z){return z._id===ss.value;}); if(!e) return;
             $("idName").value=rb(e.studentName); $("idNo").value=e.studentRegNo;
-            $("idRole").value=rb(e.courseName).slice(0,26); };
+            $("idRole").value=((docEn()&&courseEn(e.courseId,e.courseName))||rb(e.courseName)).slice(0,26); };   /* (v6.14.0) English पैनल में कोर्स का English नाम */
         }
       } else w.style.display="none";
     };
