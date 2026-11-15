@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.0 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1)
+   panel_i18n.js v1.1 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख)
    Founder-नियम (15-Nov-2026): पहले पूरा पैनल English, फिर बांग्ला, कन्नड़,
    मराठी; उसके बाद ही किसी कोर्स का अनुवाद।
    • 1 इंजन + भाषा-पैक (/assets/i18n/panel_<भाषा>.js, generator से बना)।
@@ -14,12 +14,17 @@
      हिंदी नियम-पत्र, उपयोगकर्ता का अपना लिखा पाठ)।
    • भाषा-पट्टी: #acsPanelLangSlot में (न हो तो body के सबसे ऊपर)।
      बदलने पर पन्ना दोबारा नहीं खुलता, भरा हुआ फ़ॉर्म सुरक्षित रहता है।
+   • (v1.1) <select data-i18n-sort>: दूसरी भाषा में सूची उसी भाषा के अक्षर-क्रम में
+     (जैसे English में देश A से Z)। हर optgroup अपने भीतर। ख़ाली value और "_" से शुरू
+     होने वाले विकल्प ऊपर अपनी जगह। value कभी नहीं बदलती; हिंदी में मूल क्रम वापस।
+   • (v1.1) <a data-href-en="..."> : English में कड़ी उस पते पर (हिंदी में मूल पता)।
+   • (v1.1) भाषा बदलते ही document पर "acs-panel-lang" event (detail.lang)।
    ES5 (Android 8)। पैक न आए तो पन्ना हिंदी में खुलता है (fail-open)।
    ═══════════════════════════════════════════════════════════ */
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.0";
+var VER="1.1";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, अपना नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक। */
 var LANGS=[["hi","हिंदी"],["en","English"]];
@@ -113,7 +118,7 @@ function walk(root){
   for(var i=0;i<todo.length;i++){ n=todo[i]; if(!skipped(n.parentNode)) doText(n); }
   doAttrs(root.nodeType===9?root.documentElement:root);
 }
-function flush(){ raf=false; var list=pend; pend=[]; for(var i=0;i<list.length;i++){ try{ walk(list[i]); }catch(e){} } }
+function flush(){ raf=false; var list=pend; pend=[]; for(var i=0;i<list.length;i++){ try{ walk(list[i]); }catch(e){} } if(ACTIVE) sortAll(true); }
 function queue(n){ pend.push(n); if(!raf){ raf=true; (window.requestAnimationFrame||setTimeout)(flush,0); } }
 function startObs(){
   if(mo||!window.MutationObserver||!document.body) return;
@@ -136,7 +141,7 @@ function restore(){
     for(a in rec){ if(!rec.hasOwnProperty(a)) continue;
       if(a==="value"){ if(el.value===rec[a].t) el.value=rec[a].o; }
       else if(el.getAttribute(a)===rec[a].t) el.setAttribute(a,rec[a].o); } }
-  swapNav(false); bodyCls(false);
+  swapNav(false); bodyCls(false); sortAll(false);
   if(TITLE0!==null) document.title=TITLE0;
 }
 /* कोड के लिए: किसी element का हिंदी मूल पाठ (option, लॉक-पट्टी आदि) */
@@ -150,21 +155,58 @@ function src(el){
 /* English में menu की कड़ियाँ English पन्नों पर (links.js का href_en) */
 var NAVO=(typeof WeakMap==="function")?new WeakMap():null;
 function swapNav(on){
-  var L=window.ACS_LINKS; if(!L||!L.menu||!document.querySelectorAll) return;
-  var as=document.querySelectorAll(NAV_SEL), i, j, a, h, m;
+  var L=window.ACS_LINKS, as, i, j, a, h, m;
+  if(!document.querySelectorAll) return;
+  /* (v1.1) किसी भी पन्ने की कड़ी: data-href-<भाषा> (links.js न हो तब भी, जैसे रजिस्ट्रेशन गाइड) */
+  as=document.querySelectorAll("a[data-href-"+(on?CUR:"x-none")+"],a[data-i18n-href]");
+  for(i=0;i<as.length;i++){ a=as[i];
+    if(on){ h=a.getAttribute("data-href-"+CUR); if(!h) continue; if(!a.hasAttribute("data-i18n-href")) a.setAttribute("data-i18n-href",a.getAttribute("href")||""); a.setAttribute("href",h); }
+    else if(a.hasAttribute("data-i18n-href")){ a.setAttribute("href",a.getAttribute("data-i18n-href")); a.removeAttribute("data-i18n-href"); } }
+  if(!L||!L.menu) return;
+  as=document.querySelectorAll(NAV_SEL);
   for(i=0;i<as.length;i++){ a=as[i];
     if(on){ if(CUR!=="en") continue; h=a.getAttribute("href");
       for(j=0;j<L.menu.length;j++){ m=L.menu[j];
         if(m.href_en&&m.href_en!==m.href&&h===m.href){ if(NAVO&&!NAVO.has(a)) NAVO.set(a,h); a.setAttribute("href",m.href_en); break; } } }
     else if(NAVO&&NAVO.has(a)){ a.setAttribute("href",NAVO.get(a)); NAVO["delete"](a); } }
 }
+/* (v1.1) सूची का क्रम: दूसरी भाषा में उसी भाषा के अक्षर-क्रम से, हिंदी में मूल क्रम।
+   मूल क्रम WeakMap में (DOM में कोई निशान नहीं)। value और चुना हुआ विकल्प नहीं बदलता। */
+var ORD=(typeof WeakMap==="function")?new WeakMap():null, ORDN=0;
+function sortOne(par, on){
+  if(!ORD) return;
+  var kids=[], c, i, pin=[], rest=[], want;
+  for(c=par.firstChild;c;c=c.nextSibling) if(c.nodeType===1&&c.tagName==="OPTION"){ if(!ORD.has(c)) ORD.set(c,++ORDN); kids.push(c); }
+  if(kids.length<3) return;
+  for(i=0;i<kids.length;i++){ c=kids[i]; if(on&&(c.value===""||c.value.charAt(0)==="_")) pin.push(c); else rest.push(c); }
+  function byOrd(a,b){ return ORD.get(a)-ORD.get(b); }
+  pin.sort(byOrd);
+  if(on) rest.sort(function(a,b){ var x=(a.textContent||"").replace(/^\s+/,""), y=(b.textContent||"").replace(/^\s+/,""), r;
+    try{ r=x.localeCompare(y,CUR,{sensitivity:"base"}); }catch(e){ r=x<y?-1:(x>y?1:0); } return r||byOrd(a,b); });
+  else rest.sort(byOrd);
+  want=pin.concat(rest);
+  for(i=0;i<want.length;i++) if(kids[i]!==want[i]) break;
+  if(i===want.length) return;
+  /* हर विकल्प की जगह (slot) वही रहती है: optgroup जहाँ हैं वहीं; सिर्फ़ विकल्प आपस में बदलते हैं */
+  var sel=par.tagName==="SELECT"?par:par.parentNode, v=sel&&sel.value, ph=[];
+  for(i=0;i<kids.length;i++){ ph.push(document.createComment("")); par.replaceChild(ph[i],kids[i]); }
+  for(i=0;i<want.length;i++) par.replaceChild(want[i],ph[i]);
+  if(sel&&sel.value!==v) sel.value=v;
+}
+function sortAll(on){
+  if(!document.querySelectorAll) return;
+  var ss=document.querySelectorAll("select[data-i18n-sort]"), i, j, gs;
+  for(i=0;i<ss.length;i++){ try{ sortOne(ss[i],on); gs=ss[i].getElementsByTagName("optgroup"); for(j=0;j<gs.length;j++) sortOne(gs[j],on); }catch(e){} }
+}
+function emit(){ try{ var ev; if(typeof CustomEvent==="function") ev=new CustomEvent("acs-panel-lang",{detail:{lang:CUR}});
+  else { ev=document.createEvent("CustomEvent"); ev.initCustomEvent("acs-panel-lang",false,false,{lang:CUR}); } document.dispatchEvent(ev); }catch(e){} }
 var TITLE0=null;
 function activate(){
   if(!D||!document.body) return;
   ACTIVE=true;
   try{ document.documentElement.setAttribute("lang",CUR); }catch(e){}
   try{ if(TITLE0===null) TITLE0=document.title; if(DEVC.test(document.title)) document.title=tr(document.title); }catch(e){}
-  walk(document.body); swapNav(true); bodyCls(true); startObs(); bar();
+  walk(document.body); sortAll(true); swapNav(true); bodyCls(true); startObs(); bar();
 }
 /* जिन पन्नों पर body.hi/body.en से फ़ॉन्ट चुना जाता है (जैसे लॉगिन), वहाँ class भी बदले */
 var HADHI=null;
@@ -215,13 +257,13 @@ function load(c, cb){
 }
 function useLang(c, cb){
   if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[];
-    try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); if(cb) cb(true); return; }
+    try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); emit(); if(cb) cb(true); return; }
   load(c, function(pk){
     if(!pk){ unwait(); bar(); if(cb) cb(false); return; }
     if(ACTIVE&&CUR!==c){ ACTIVE=false; restore(); }
     CUR=c; D=pk.D; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; });
     GEO={}; var g=pk.G||[], gi; for(gi=0;gi<g.length;gi++) GEO[g[gi]]=1;
-    function go(){ activate(); unwait(); if(cb) cb(true); }
+    function go(){ activate(); unwait(); emit(); if(cb) cb(true); }
     if(document.body&&document.readyState!=="loading") go(); else document.addEventListener("DOMContentLoaded",go);
   });
 }

@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.0 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.1 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   v1.1 (पैनल-1ख): दायरे में रजिस्ट्रेशन गाइड (registration-guide.html) और matrix की पद-योग्यताएँ।
    उपयोग (repo-root से):  node generator/build_panel_i18n.js en [--check]
    स्रोत (एक चीज़ = एक जगह):
      1. assets/roles.js, assets/designation_matrix.js, assets/geo/countries.js,
@@ -9,7 +10,7 @@
         भारत के राज्य/जिले ("geo")। यही जीतता है अगर दोनों में एक ही कुंजी हो।
    बनता है: assets/i18n/panel_<भाषा>.js (हाथ से न बदलें)।
    पहरा (fail-closed): (क) हर मान भरा हो, उसमें देवनागरी, "—" या U+FFFD न हो;
-   (ख) पहुँच-जाँच: लॉगिन और रजिस्ट्रेशन टेम्पलेट, acs-universal.js (भाषा-नाम तालिकाएँ छोड़कर),
+   (ख) पहुँच-जाँच: लॉगिन और रजिस्ट्रेशन टेम्पलेट, रजिस्ट्रेशन गाइड (+ पदों की योग्यता), acs-universal.js (भाषा-नाम तालिकाएँ छोड़कर),
    हर नियम-फ़ाइल का "आपकी जानकारी" डिब्बा (idbox),
    roles.js (भूगोल की पुरानी सूची छोड़कर) और matrix के नाम का हर हिंदी टुकड़ा इंजन (assets/panel_i18n.js) से
    पूरा बदलना चाहिए; न बदले तो फ़ाइल नहीं लिखी जाती। सिर्फ़ SKIP वाले छूटते हैं।
@@ -20,18 +21,18 @@ const ROOT=path.join(__dirname,"..");
 const LANG=(process.argv[2]||"").trim(), CHECK=process.argv.indexOf("--check")>-1;
 if(!/^[a-z]{2,3}$/.test(LANG)||LANG==="hi"){ console.log("उपयोग: node generator/build_panel_i18n.js <भाषा-कोड> [--check]"); process.exit(1); }
 const DEV=/[ऀ-ॿ]/;
-const VER="1.0";
+const VER="1.1";
 /* पैक किन हिस्सों को ढकता है (पैनल-खेपों के साथ बढ़ेगा)। सब हिस्से पूरे = complete:true।
    करियर-टेस्ट की नई भाषा का द्वार (lib_apt_langs.js panelGate) इसी पर चलता है। */
-const SCOPE=["login","join"];
-const ALL_AREAS={ en:["login","join","dash-ext","dash-team","server","canvas","rules"] };
+const SCOPE=["login","join","guide"];
+const ALL_AREAS={ en:["login","join","guide","dash-ext","dash-team","server","canvas","rules"] };
 /* ये हिंदी टुकड़े पन्ने पर दिखते ही नहीं (सिर्फ़ console या कोड के भीतर) — इसलिए अनुवाद नहीं */
 const SKIP=new Set([
   "Firebase init विफल:", "requestRegisterOtp त्रुटि:", "resend त्रुटि:", "cancelApplication त्रुटि:",
   "verifyRegisterOtp त्रुटि:", "submitRegistration त्रुटि:",
   "ज्ञ", "क्ष", "त्र"   /* नाम को देवनागरी में बदलने वाली अक्षर-तालिका (दिखती नहीं) */
 ]);
-const KEEP_SHORT=new Set(["या"]);   /* 2 अक्षर से छोटे जो सचमुच दिखते हैं */
+const KEEP_SHORT=new Set(["या","पद","और"]);   /* 2 अक्षर से छोटे जो सचमुच दिखते हैं */
 
 function readJSON(p){ return JSON.parse(fs.readFileSync(path.join(ROOT,p),"utf8")); }
 function sandbox(files){
@@ -122,6 +123,8 @@ function jsStrings(code){
 function literals(code){
   const out=[];
   for(let r of jsStrings(code)){ if(!r||!DEV.test(r)) continue;
+    /* (v1.1) '">📝 पाठ</a>' जैसा टुकड़ा: पिछले टुकड़े में खुले attribute का बचा सिरा हटाओ, वरना पूरा पाठ छूट जाता था */
+    r=r.replace(/^["']?\s*>/,"");
     /* HTML-टुकड़ा: placeholder/title/label/aria-label के मान अलग से */
     let a; const ra=/\b(?:placeholder|title|label|aria-label|alt)="([^"]*)"/g; while((a=ra.exec(r))) if(DEV.test(a[1])) out.push(norm(a[1]));
     r=r.replace(/\b(?:placeholder|title|label|aria-label|alt|style|id|class|maxlength|inputmode|type|value|data-[a-z-]+)="[^"]*"/g," ");
@@ -138,7 +141,7 @@ function htmlSegs(p){
   scripts.forEach(sc=>out.push(...literals(sc)));
   return out;
 }
-const AREA_SRC={ login:["dashboard/_LOGIN_TEMPLATE.html"], join:["_JOIN_TEMPLATE.html"] };
+const AREA_SRC={ login:["dashboard/_LOGIN_TEMPLATE.html"], join:["_JOIN_TEMPLATE.html"], guide:["registration-guide.html"] };
 const need=new Map();
 function want(t,src){ t=norm(t); if(!t||!DEV.test(t)||SKIP.has(t)) return; if(/^[ऀ-ॿ]{1,2}$/.test(t)&&!KEEP_SHORT.has(t)) return; if(!need.has(t)) need.set(t,src); }
 for(const a of SCOPE) for(const p of AREA_SRC[a]) htmlSegs(p).forEach(t=>want(t,p));
@@ -146,6 +149,8 @@ for(const a of SCOPE) for(const p of AREA_SRC[a]) htmlSegs(p).forEach(t=>want(t,
    सिर्फ़ भाषा-सूची की तालिकाएँ (var ACS_LANG_...) छोड़कर: वहाँ भाषाओं के अपने नाम हैं, जो जान-बूझकर वैसे ही रहते हैं। */
 if(SCOPE.indexOf("login")>-1){ const u=fs.readFileSync(path.join(ROOT,"assets/acs-universal.js"),"utf8").split("\n").filter(l=>!/^var ACS_LANG_/.test(l)).join("\n");
   literals(u).forEach(t=>want(t,"assets/acs-universal.js")); }
+/* रजिस्ट्रेशन गाइड की पद-तालिका matrix की योग्यता-पंक्तियाँ दिखाती है */
+if(SCOPE.indexOf("guide")>-1) for(const t of (MX.teams||[])) if(t.registrable&&t.qualification) want(t.qualification,"assets/designation_matrix.js (qualification)");
 /* रजिस्ट्रेशन में हर भूमिका की नियम-फ़ाइल का "आपकी जानकारी" डिब्बा (idbox) भी दिखता है : वह फ़ॉर्म का हिस्सा है,
    इसलिए उसकी हर पंक्ति English में। नियम (part/rules) क़ानूनी मूल हैं : वे पैनल-6 में अलग फ़ाइल बनकर English होंगे। */
 if(SCOPE.indexOf("join")>-1){ const files=new Set();
@@ -191,7 +196,7 @@ function engineTr(){
 }
 const TR=engineTr(), miss=[];
 for(const [t,src] of need){ const o=TR(t); if(DEV.test(o)) miss.push(src+" :: "+t+"  ⇒  "+o); }
-if(miss.length){ bad.push("पहुँच-जाँच: "+miss.length+" हिंदी टुकड़े English में नहीं बदले:"); miss.slice(0,60).forEach(x=>bad.push("   "+x)); }
+if(miss.length){ bad.push("पहुँच-जाँच: "+miss.length+" हिंदी टुकड़े English में नहीं बदले:"); miss.slice(0,Number(process.env.ACS_SHOW||60)).forEach(x=>bad.push("   "+x)); }
 if(bad.length){ bad.forEach(b=>console.log("  ⛔ "+b)); console.log("⛔ कोई फ़ाइल नहीं लिखी गई।"); process.exit(1); }
 
 /* ---------- 5. पैक लिखना ---------- */

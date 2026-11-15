@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- (15-Nov-2026, पैनल-1ख) पैनल का भाषा-इंजन: हिंदी मूल, ऊपर की पट्टी से English (पता वही) -->
+<script src="/assets/panel_i18n.js"></script>
 <style>
 /* (14-Jul-2026, Founder-आदेश) guide-पृष्ठ — data-स्रोत सिर्फ़ matrix v1.4 + roles.js (परत-3) */
 :root{ --navy:#0B1F3A; --blue:#1565C0; --gold:#F9A825; --green:#2E7D32; --off:#F5F7FA; --border:#dfe6ef; }
@@ -55,11 +57,12 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
 <div class="hero">
   <h1>रजिस्ट्रेशन गाइड — पहले पूरा नक़्शा, फिर आवेदन</h1>
 <p class="acs-orig-lang" style="font-size:16px;font-weight:600;text-align:center;margin:6px 0;opacity:.9">मूल भाषा: हिंदी</p>
+  <div id="acsPanelLangSlot"></div>
   <div class="sub">14 भूमिकाएँ (Role) · ज़रूरी दस्तावेज़ · अधिकार व कर्तव्य · टीम-पदों की योग्यताएँ</div>
   <div class="bar"><span></span><span></span><span></span></div>
 </div>
 <div class="wrap">
-  <div class="exitbar" style="display:flex;gap:12px;align-items:center;background:#F5F7FA;border:1px solid #d7dde6;border-radius:10px;padding:10px 14px;margin:10px 0 14px;font-size:16px;line-height:1.7"><a href="/" style="color:#1565C0;font-weight:700;text-decoration:none">🏠 होम पर लौटें</a></div>
+  <div class="exitbar" style="display:flex;gap:12px;align-items:center;background:#F5F7FA;border:1px solid #d7dde6;border-radius:10px;padding:10px 14px;margin:10px 0 14px;font-size:16px;line-height:1.7"><a href="/" data-href-en="/en/" style="color:#1565C0;font-weight:700;text-decoration:none">🏠 होम पर लौटें</a></div>
 
   <div class="note">🙏 जिस भूमिका में रुचि हो, उसी पर छूकर/click कर खोलें — वहीं उसके <b>ज़रूरी काग़ज़ात</b> (प्रकार व आकार सहित), <b>मुख्य अधिकार-कर्तव्य</b> और <b>📝 आवेदन का बटन</b> मिलेगा। हर फ़ाइल: फ़ोटो (JPG/PNG) — जहाँ लिखा हो वहाँ PDF भी — अधिकतम <b>2MB</b>।</div>
   <div id="accHome">⏳ सूची बन रही है…</div>
@@ -133,10 +136,30 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
     return docs.map(function(d){
       var type = (d.accept || '').indexOf('.pdf') > -1 ? 'फ़ोटो/PDF' : 'फ़ोटो';
       var cond = d.showWhenMinor ? ' — सिर्फ़ 18 से कम उम्र पर' : (d.showWhenAdult ? ' — सिर्फ़ 18+ पर' : '');
-      return '<li class="docline">' + d.hi + ' <span class="t">(' + type + ', 2MB तक' + cond + (d.required ? '' : ' — वैकल्पिक') + ')</span></li>';
+      return '<li class="docline">' + d.hi + ' <span class="t">' + docNote(type, cond, !d.required) + '</span></li>';
     }).join('');
   }
+  /* (15-Nov, पैनल-1ख) दस्तावेज़ की छोटी पंक्ति: पूरे वाक्य एक तालिका में (हिंदी पहले जैसी ही),
+     ताकि भाषा-इंजन हर पूरा वाक्य एक साथ बदले, टुकड़ों में नहीं */
+  var DOC_NOTE = {
+    'फ़ोटो/PDF||':'(फ़ोटो/PDF, 2MB तक)', 'फ़ोटो/PDF||o':'(फ़ोटो/PDF, 2MB तक — वैकल्पिक)',
+    'फ़ोटो/PDF|m|':'(फ़ोटो/PDF, 2MB तक — सिर्फ़ 18 से कम उम्र पर)', 'फ़ोटो/PDF|m|o':'(फ़ोटो/PDF, 2MB तक — सिर्फ़ 18 से कम उम्र पर — वैकल्पिक)',
+    'फ़ोटो/PDF|a|':'(फ़ोटो/PDF, 2MB तक — सिर्फ़ 18+ पर)', 'फ़ोटो/PDF|a|o':'(फ़ोटो/PDF, 2MB तक — सिर्फ़ 18+ पर — वैकल्पिक)',
+    'फ़ोटो||':'(फ़ोटो, 2MB तक)', 'फ़ोटो||o':'(फ़ोटो, 2MB तक — वैकल्पिक)',
+    'फ़ोटो|m|':'(फ़ोटो, 2MB तक — सिर्फ़ 18 से कम उम्र पर)', 'फ़ोटो|m|o':'(फ़ोटो, 2MB तक — सिर्फ़ 18 से कम उम्र पर — वैकल्पिक)',
+    'फ़ोटो|a|':'(फ़ोटो, 2MB तक — सिर्फ़ 18+ पर)', 'फ़ोटो|a|o':'(फ़ोटो, 2MB तक — सिर्फ़ 18+ पर — वैकल्पिक)'
+  };
+  function docNote(type, cond, opt){
+    var k = type + '|' + (cond === ' — सिर्फ़ 18 से कम उम्र पर' ? 'm' : (cond ? 'a' : '')) + '|' + (opt ? 'o' : '');
+    return DOC_NOTE[k] || ('(' + type + ', 2MB तक' + cond + (opt ? ' — वैकल्पिक' : '') + ')');
+  }
   function bullets(arr){ return (arr || []).map(function(x){ return '<li>' + x + '</li>'; }).join(''); }
+  /* (15-Nov, पैनल-1ख) नियम की कड़ी: चुनी भाषा में नियम-पत्र हो और उसका संस्करण हिंदी मूल जैसा हो, तभी वह;
+     वरना हिंदी मूल, साथ में सूचना। जाँच तभी, जब खंड खोला जाए (कम data)। */
+  function ruleA(file, label){
+    return '<a class="ruleLink" data-rule-file="' + file + '" href="/' + file + '" target="_blank" rel="noopener">' + label + '</a>'
+      + '<span class="ruleHiNote" style="font-size:16px;color:#556" hidden> (अभी हिंदी में; हिंदी ही क़ानूनी मूल है)</span>';
+  }
 
   var LVL_HI = { hq:'प्रधान कार्यालय (HQ)', zm:'राज्य/देश कार्यालय', rm:'क्षेत्रीय कार्यालय' };
   function teamTable(){
@@ -147,7 +170,7 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
         last = t.level;
       }
       rows += '<tr><td>' + (t.public_label || t.label) + '</td><td>' + (t.qualification || '—') + '</td><td>' + (t.min_age ? t.min_age + '+' : '—') + '</td>'
-        + '<td>' + (t.ruleFile ? '<a class="ruleLink" href="/' + t.ruleFile + '" target="_blank" rel="noopener">📜 नियम</a>' : '—') + '</td></tr>';
+        + '<td>' + (t.ruleFile ? ruleA(t.ruleFile, '📜 नियम') : '—') + '</td></tr>';
     });
     return '<h4>🎓 पदों की योग्यता व न्यूनतम उम्र (पद form के अंदर चुनेंगे)</h4>'
       + '<table class="qual"><tr><th>पद</th><th>योग्यता</th><th>उम्र</th><th>नियम</th></tr>' + rows + '</table>';
@@ -171,25 +194,67 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
       +   '<h4>🧭 मुख्य अधिकार</h4><ul>' + bullets(info.rights) + '</ul>'
       +   '<h4>📏 मुख्य कर्तव्य व नियम</h4><ul>' + bullets(info.duties) + '</ul>'
       +   (c.key === 'team' ? teamTable() : '')
-      +   (ruleFile ? '<div style="margin-top:8px">📜 <a class="ruleLink" href="/' + ruleFile + '" target="_blank" rel="noopener">पूरे नियम पढ़ें (आवेदन में यही एक-एक कर स्वीकार होंगे)</a></div>' : '')
+      +   (ruleFile ? '<div style="margin-top:8px">📜 ' + ruleA(ruleFile, 'पूरे नियम पढ़ें (आवेदन में यही एक-एक कर स्वीकार होंगे)') + '</div>' : '')
       +   '<a class="applyBtn" href="/join.html?role=' + c.key + '">📝 इस भूमिका के लिए आवेदन करें →</a>'
       + '</div>';
     sec.querySelector('.acc-head').addEventListener('click', function(){
       var open = sec.classList.contains('open');
       document.querySelectorAll('.acc.open').forEach(function(x){ x.classList.remove('open'); });
-      if(!open) sec.classList.add('open');
+      if(!open){ sec.classList.add('open'); ruleLinks(sec); }
     });
     home.appendChild(sec);
   });
   home.removeChild(home.firstChild); /* "सूची बन रही है…" text-node हटाना */
 })();
 
+/* (15-Nov-2026, पैनल-1ख) नियम-कड़ियाँ चुनी भाषा के हिसाब से */
+var RULE_OK = {};
+function ruleVer(h){ var m = /<b>Version: ([^<]+)<\/b>/.exec(h || ''); return m ? m[1] : null; }
+function ruleCheck(lang, file, cb){
+  var k = lang + '|' + file, r = RULE_OK[k];
+  if(r){ if(r.done) cb(r.ok); else r.cbs.push(cb); return; }
+  r = RULE_OK[k] = { done:false, ok:false, cbs:[cb] };
+  /* पक्का उत्तर (फ़ाइल नहीं = 404, या संस्करण मिला/नहीं मिला) याद रहे; internet की गड़बड़ी याद न रहे,
+     ताकि खंड दोबारा खोलने पर फिर जाँच हो। तब तक हिंदी मूल ही। */
+  function fin(ok, sure){ r.done = true; r.ok = ok; if(!sure && RULE_OK[k] === r) delete RULE_OK[k];
+    var c = r.cbs; r.cbs = []; c.forEach(function(f){ f(ok); }); }
+  function txt(u){ return fetch(u, { cache:'no-store' }).then(function(y){ if(!y.ok) throw new Error('http ' + y.status); return y.text(); }); }
+  try{
+    fetch('/' + lang + '/' + file, { method:'HEAD', cache:'no-store' }).then(function(x){
+      if(!x.ok) return fin(false, x.status === 404);
+      return Promise.all([ txt('/' + lang + '/' + file), txt('/' + file) ])
+        .then(function(t){ var a = ruleVer(t[0]), b = ruleVer(t[1]); fin(!!a && a === b, true); });
+    }).catch(function(){ fin(false, false); });
+  }catch(e){ fin(false, false); }
+}
+/* सूचना छिपाना/दिखाना: hidden-निशान से (हिंदी में लौटने पर पन्ना अक्षर-अक्षर पहले जैसा) */
+function ruleNote(n, show){ if(!n) return; if(show){ if(n.hasAttribute('hidden')) n.removeAttribute('hidden'); } else if(!n.hasAttribute('hidden')) n.setAttribute('hidden', ''); }
+function ruleLang(){ var I = window.ACS_PANEL_I18N; return (I && I.active && I.lang) ? I.lang() : 'hi'; }
+function ruleLinks(scope){
+  var lang = ruleLang();
+  (scope || document).querySelectorAll('a[data-rule-file]').forEach(function(a){
+    var f = a.getAttribute('data-rule-file'), n = a.nextElementSibling;
+    if(!(n && n.classList.contains('ruleHiNote'))) n = null;
+    a.setAttribute('href', '/' + f);
+    ruleNote(n, lang !== 'hi');
+    if(lang === 'hi' || !(scope && scope.classList && scope.classList.contains('open'))) return;
+    ruleCheck(lang, f, function(ok){
+      if(!ok || ruleLang() !== lang) return;
+      a.setAttribute('href', '/' + lang + '/' + f); ruleNote(n, false);
+    });
+  });
+}
+document.addEventListener('acs-panel-lang', function(){
+  ruleLinks(document);
+  document.querySelectorAll('.acc.open').forEach(function(x){ ruleLinks(x); });
+});
+
   /* (03-Oct-2026) #hash से सीधा खंड खोलना — जैसे /registration-guide.html#team */
   try{
     var hk = (location.hash||'').replace('#','');
     if(hk){
       var tgt = document.getElementById('acc-'+hk);
-      if(tgt){ tgt.classList.add('open'); setTimeout(function(){ tgt.scrollIntoView({behavior:'smooth',block:'start'}); },150); }
+      if(tgt){ tgt.classList.add('open'); ruleLinks(tgt); setTimeout(function(){ tgt.scrollIntoView({behavior:'smooth',block:'start'}); },150); }
     }
   }catch(e){}
 </script>

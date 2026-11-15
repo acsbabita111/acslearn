@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* ================================================================
-   dev_panel_i18n_check.js v1.0 (15-Nov-2026) : पैनल-1 का पहरेदार
+   dev_panel_i18n_check.js v1.1 (15-Nov-2026) : पैनल-1 का पहरेदार
+   v1.1 (पैनल-1ख): + रजिस्ट्रेशन गाइड (G) और सूचियों का English क्रम (JS)
    (लॉगिन पन्ना /dashboard/ + रजिस्ट्रेशन /join.html, भाषा-इंजन + English पैक)
    Founder-नियम (15-Nov): पहले पूरा पैनल English, फिर बांग्ला, कन्नड़, मराठी;
    उसके बाद ही किसी कोर्स का अनुवाद। 🏁 के बिना यह काम आगे नहीं जाता।
@@ -16,6 +17,8 @@
      J  : रजिस्ट्रेशन English: हर भूमिका (कार्ड + टीम के हर पद) का पूरा सफ़र
           step-1 → OTP → step-2 → नियम → step-3 → दस्तावेज़ → step-4 → submit → PDF
      JP : server को जाने वाला data English में भी हूबहू वही जो हिंदी में (हर भूमिका)
+     JS : English में देश/राज्य/जिला सूचियाँ A-Z (value वही); हिंदी में मूल क्रम
+     G  : रजिस्ट्रेशन गाइड English: हर खंड, नियम-कड़ियाँ (अनुवाद तभी जब संस्करण मिले), होम-कड़ी; हिंदी हूबहू
    चलाना (repo-root से):  npm i jsdom@24 --no-save   फिर   node generator/dev_panel_i18n_check.js
    (jsdom कहीं और हो तो:  ACS_JSDOM=<पता>/node_modules/jsdom node generator/dev_panel_i18n_check.js)
    ================================================================ */
@@ -52,7 +55,7 @@ function staticSuite() {
   ck("S2 पैक पढ़ने-योग्य JSON", !!P);
   if (P) {
     const vals = Object.values(P.D);
-    ck("S3 पैक का दायरा login + join, पूरा पैनल अभी नहीं", JSON.stringify(P.scope) === '["login","join"]' && P.complete === false, JSON.stringify(P.scope) + " " + P.complete);
+    ck("S3 पैक का दायरा login + join + guide, पूरा पैनल अभी नहीं", JSON.stringify(P.scope) === '["login","join","guide"]' && P.complete === false, JSON.stringify(P.scope) + " " + P.complete);
     ck("S4 पैक के English में हिंदी अक्षर शून्य", vals.every(v => !DEV.test(v)), vals.filter(v => DEV.test(v)).slice(0, 5).join(" | "));
     ck("S5 पैक में em dash (—) और टूटा अक्षर (U+FFFD) शून्य", vals.every(v => v.indexOf("—") < 0 && v.indexOf("�") < 0));
   }
@@ -126,6 +129,8 @@ async function openPage(file, opt) {
           let p = decodeURIComponent(abs.pathname); if (p.endsWith("/")) p += "index.html";
           ctx.fetched.push(p); const f = path.join(ROOT, p);
           if ((opt.missing || []).indexOf(p) > -1) return Promise.resolve({ ok: false, status: 404, text: () => Promise.resolve("") });
+          /* (v1.1) failOnce: पहली बार internet-गड़बड़ी (fetch ही विफल), फिर सामान्य */
+          if ((opt.failOnce || []).indexOf(p) > -1) { opt._failed = opt._failed || {}; if (!opt._failed[p]) { opt._failed[p] = 1; return Promise.reject(new TypeError("Failed to fetch")); } }
           if (fs.existsSync(f) && fs.statSync(f).isFile()) { let t = fs.readFileSync(f, "utf8"); if (opt.rewrite && opt.rewrite[p]) t = opt.rewrite[p](t); return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(t), json: () => Promise.resolve(JSON.parse(t)) }); }
           return Promise.resolve({ ok: false, status: 404, text: () => Promise.resolve("") });
         }
@@ -406,7 +411,7 @@ async function joinRole(c, rl) {
   if (card.needsGeo) {
     pick(c, $("countrySel"), rl.country || "in"); await waitFor(c, () => $("stateSel").options.length > 2 || $("stateTyped").style.display !== "none", 3000); await settle(c);
     pick(c, $("stateSel"), rl.state || "bihar"); await settle(c);
-    if (card.needsRMOffice) { await waitFor(c, () => $("rmDist1").options.length > 2, 3000); await settle(c); pick(c, $("rmDist1"), $("rmDist1").options[1].value); pick(c, $("rmDist2"), $("rmDist2").options[2].value); }
+    if (card.needsRMOffice) { await waitFor(c, () => $("rmDist1").options.length > 2, 3000); await settle(c); const DL = c.w.ACS_GEO_DISTRICTS["in-" + (rl.state || "bihar")]; pick(c, $("rmDist1"), DL[0]); pick(c, $("rmDist2"), DL[1]); }
   }
   await waitFor(c, () => $("rulesContainer").querySelector(".rule,.part"), 4000); await settle(c);
 }
@@ -448,7 +453,7 @@ async function joinStep3(c, rl, firstRole) {
   if ($("desiredCountry")) {
     pick(c, $("desiredCountry"), "in"); await waitFor(c, () => $("desiredStateSel").options.length > 2); await settle(c);
     pick(c, $("desiredStateSel"), "bihar"); await waitFor(c, () => $("desiredDistSel").options.length > 2); await settle(c);
-    pick(c, $("desiredDistSel"), $("desiredDistSel").options[3].value); await settle(c);
+    pick(c, $("desiredDistSel"), c.w.ACS_GEO_DISTRICTS["in-bihar"][2]); await settle(c);
   }
   const boxes = Array.from(c.d.querySelectorAll("#documentsContainer .docBox")).filter(b => b.style.display !== "none");
   if (firstRole && boxes.length) {
@@ -558,6 +563,91 @@ async function joinExtra() {
   noErr(c4, "J6");
   c4.dom.window.close();
 }
+/* JS: सूची का क्रम (value कभी नहीं बदलती) */
+function optOrder(sel) { return Array.from(sel.options).map(o => o.value); }
+function isSortedEn(opts) {
+  const t = opts.filter(o => o.value !== "" && o.value.charAt(0) !== "_").map(o => o.textContent.replace(/^\s+/, ""));
+  for (let i = 1; i < t.length; i++) if (t[i - 1].localeCompare(t[i], "en", { sensitivity: "base" }) > 0) return t[i - 1] + " > " + t[i];
+  return "";
+}
+async function joinSortSuite() {
+  const h = await openPage("join.html", { handlers: Object.assign({}, HJ) });
+  const e = await openPage("join.html", { ls: { acs_dash_lang: "en" }, expect: "en", handlers: Object.assign({}, HJ) });
+  const C = h.w.ACS_GEO_COUNTRIES;
+  ck("JS1 हिंदी में देश-सूची मूल क्रम (countries.js जैसा)", optOrder(h.d.getElementById("countrySel")).slice(1).join(",") === [1, 2, 3, 4].map(g => C.filter(x => x.g === g).map(x => x.v)).flat().join(","));
+  const og = Array.from(e.d.querySelectorAll("#countrySel optgroup"));
+  const bad = og.map(g => isSortedEn(Array.from(g.children))).filter(Boolean);
+  ck("JS2 English में हर देश-समूह A से Z (" + og.length + " समूह)", og.length === 4 && bad.length === 0, bad.join(" | "));
+  ck("JS2 English में सूची का पहला विकल्प (ख़ाली) अपनी जगह, समूह अपनी जगह", e.d.getElementById("countrySel").options[0].value === "" && Array.from(e.d.getElementById("countrySel").children).map(x => x.tagName).join(",") === Array.from(h.d.getElementById("countrySel").children).map(x => x.tagName).join(","));
+  ck("JS2 English और हिंदी में देशों के value एक-से (सिर्फ़ क्रम बदला)", optOrder(e.d.getElementById("countrySel")).slice().sort().join(",") === optOrder(h.d.getElementById("countrySel")).slice().sort().join(","));
+  for (const c of [h, e]) { await joinStep1(c, {}); await joinOtp(c); await joinRole(c, { key: "rm", team: "rm" }); }
+  const DL = h.w.ACS_GEO_DISTRICTS["in-bihar"];
+  ck("JS3 हिंदी में जिला-सूची मूल क्रम", optOrder(h.d.getElementById("rmDist1")).filter(v => v).join(",") === DL.filter(d => d !== DL[1]).join(","), optOrder(h.d.getElementById("rmDist1")).slice(0, 5).join(","));
+  const bd = isSortedEn(Array.from(e.d.getElementById("rmDist1").options)), bs = isSortedEn(Array.from(e.d.getElementById("stateSel").options));
+  ck("JS3 English में राज्य-सूची और जिला-सूची A से Z", !bd && !bs, bd + " | " + bs);
+  ck("JS3 चुना जिला English क्रम के बाद भी वही", e.d.getElementById("rmDist1").value === DL[0] && e.d.getElementById("rmDist2").value === DL[1]);
+  click(e, e.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(e);
+  ck("JS4 English → हिंदी: जिला-सूची फिर मूल क्रम, चुना जिला वही", optOrder(e.d.getElementById("rmDist1")).join(",") === optOrder(h.d.getElementById("rmDist1")).join(",") && e.d.getElementById("rmDist1").value === DL[0]);
+  noErr(e, "JS"); [h, e].forEach(x => x.dom.window.close());
+}
+/* G: रजिस्ट्रेशन गाइड */
+async function guideSuite() {
+  const OPEN = o => openPage("registration-guide.html", Object.assign({ urlPath: "/registration-guide.html" }, o || {}));
+  const ruleA = (c, key) => c.d.querySelector("#acc-" + key + " a.ruleLink[data-rule-file]");
+  const note = a => a && a.nextElementSibling;
+  let c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en" });
+  ck("G0 गाइड English सक्रिय, खंड " + c.d.querySelectorAll(".acc").length, c.w.ACS_PANEL_I18N.active && c.d.querySelectorAll(".acc").length === MX.cards.length);
+  clean(c, "G1 रजिस्ट्रेशन गाइड English (सब खंड, बंद भी)");
+  const home = c.d.querySelector(".exitbar a");
+  ck("G1 होम-कड़ी English होम पर (/en/)", home.getAttribute("href") === "/en/", home.getAttribute("href"));
+  for (const k of MX.cards.map(x => x.key)) { click(c, c.d.querySelector("#acc-" + k + " .acc-head")); await settle(c); await settle(c); }
+  clean(c, "G1 हर खंड खोलने के बाद");
+  click(c, c.d.querySelector("#acc-student .acc-head")); await settle(c); await settle(c);
+  let a = ruleA(c, "student");
+  ck("G2 विद्यार्थी के नियम: English नियम-पत्र (संस्करण मिलता है), सूचना छिपी", a.getAttribute("href") === "/en/rules-consent-learner.html" && note(a).hasAttribute("hidden"), a.getAttribute("href"));
+  click(c, c.d.querySelector("#acc-teacher .acc-head")); await settle(c); await settle(c);
+  a = ruleA(c, "teacher");
+  ck("G2 शिक्षक के नियम: हिंदी मूल + सूचना दिखती है", a.getAttribute("href") === "/rules-consent-teacher.html" && !note(a).hasAttribute("hidden") && /legal original/.test(note(a).textContent), a.getAttribute("href") + " | " + note(a).textContent);
+  ck("G2 आवेदन-बटन की कड़ी वही (भाषा join में अपने-आप)", c.d.querySelector("#acc-teacher a.applyBtn").getAttribute("href") === "/join.html?role=teacher");
+  ck("G2 <title> English", !DEV.test(c.d.title) && /Registration Guide/.test(c.d.title), c.d.title);
+  noErr(c, "G1-G2"); c.dom.window.close();
+  c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en", rewrite: { "/en/rules-consent-learner.html": t => t.replace("<b>Version: 1.2</b>", "<b>Version: 1.1</b>") } });
+  click(c, c.d.querySelector("#acc-student .acc-head")); await settle(c); await settle(c);
+  a = ruleA(c, "student");
+  ck("G3 English नियम-पत्र पुराने संस्करण का: हिंदी मूल + सूचना", a.getAttribute("href") === "/rules-consent-learner.html" && !note(a).hasAttribute("hidden"), a.getAttribute("href"));
+  c.dom.window.close();
+  const noEng = h => h.replace('<script src="/assets/panel_i18n.js"></script>', "");
+  const hA = await OPEN({}), hB = await OPEN({ transform: noEng });
+  ck("G4 हिंदी गाइड इंजन होने न होने पर हूबहू", !hA.w.ACS_PANEL_I18N.active && bodyText(hA) === bodyText(hB) && hA.d.title === hB.d.title);
+  c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en" });
+  click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(c);
+  ck("G5 गाइड English → हिंदी: बिल्कुल ताज़ा हिंदी जैसा (होम-कड़ी, सूचनाएँ भी)", bodyText(c) === bodyText(hA) && c.d.title === hA.d.title);
+  /* खुला खंड (English नियम-पत्र वाली कड़ी समेत) हो तब हिंदी पर लौटना */
+  const hO = await OPEN({}); click(hO, hO.d.querySelector("#acc-student .acc-head")); await settle(hO);
+  const eO = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en" }); click(eO, eO.d.querySelector("#acc-student .acc-head")); await settle(eO); await settle(eO);
+  ck("G6 खुले खंड में English नियम-पत्र की कड़ी", ruleA(eO, "student").getAttribute("href") === "/en/rules-consent-learner.html");
+  click(eO, eO.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(eO); await settle(eO);
+  a = ruleA(eO, "student");
+  ck("G6 हिंदी पर लौटे: कड़ी हिंदी नियम-पत्र, सूचना छिपी, पन्ना ताज़ा हिंदी जैसा", a.getAttribute("href") === "/rules-consent-learner.html" && note(a).hasAttribute("hidden") && bodyText(eO) === bodyText(hO));
+  noErr(eO, "G6");
+  /* #hash से सीधा खुला खंड (join की नियम-कड़ी यही करती है) */
+  const eH = await OPEN({ urlPath: "/registration-guide.html#student", ls: { acs_dash_lang: "en" }, expect: "en" }); await settle(eH); await settle(eH);
+  ck("G7 #student से खुला खंड: English नियम-पत्र की कड़ी", eH.d.querySelector("#acc-student").classList.contains("open") && ruleA(eH, "student").getAttribute("href") === "/en/rules-consent-learner.html", ruleA(eH, "student").getAttribute("href"));
+  noErr(eH, "G7"); eH.dom.window.close();
+  /* internet की गड़बड़ी याद नहीं रहती (दोबारा खोलने पर फिर जाँच); पक्का उत्तर (404) याद रहता है */
+  const eF = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en", failOnce: ["/en/rules-consent-learner.html"] });
+  const sh = () => eF.d.querySelector("#acc-student .acc-head"), th = () => eF.d.querySelector("#acc-teacher .acc-head");
+  click(eF, sh()); await settle(eF); await settle(eF);
+  a = ruleA(eF, "student");
+  ck("G8 पहली जाँच में internet-गड़बड़ी: हिंदी मूल + सूचना", a.getAttribute("href") === "/rules-consent-learner.html" && !note(a).hasAttribute("hidden"));
+  click(eF, sh()); await settle(eF); click(eF, sh()); await settle(eF); await settle(eF);
+  ck("G8 खंड दोबारा खोला: फिर जाँच हुई, अब English नियम-पत्र", ruleA(eF, "student").getAttribute("href") === "/en/rules-consent-learner.html" && note(ruleA(eF, "student")).hasAttribute("hidden"), ruleA(eF, "student").getAttribute("href"));
+  click(eF, th()); await settle(eF); await settle(eF); click(eF, th()); await settle(eF); click(eF, th()); await settle(eF); await settle(eF);
+  const tn = eF.fetched.filter(x => x === "/en/rules-consent-teacher.html").length;
+  ck("G8 English नियम-पत्र न होना (404) याद रहता है: दोबारा खोलने पर फिर नहीं माँगा", tn === 1 && ruleA(eF, "teacher").getAttribute("href") === "/rules-consent-teacher.html", "माँगा " + tn + " बार");
+  noErr(eF, "G8"); eF.dom.window.close();
+  [c, hA, hB, hO, eO].forEach(x => x.dom.window.close());
+}
 async function joinHindiSame() {
   /* JH: हिंदी रजिस्ट्रेशन पन्ना इंजन होने और न होने पर एक-जैसा */
   const noEng = h => h.replace('<script src="/assets/panel_i18n.js"></script>', "");
@@ -572,7 +662,7 @@ async function joinHindiSame() {
 }
 async function joinSuite() {
   const ONLY = (process.env.ACS_ROLES || "").split(",").filter(Boolean);   /* जाँच तेज़ करने के लिए: ACS_ROLES=teacher,student */
-  if (!ONLY.length) { await joinHindiSame(); await joinExtra(); }
+  if (!ONLY.length) { await joinHindiSame(); await joinSortSuite(); await joinExtra(); }
   let roles = roleList();
   if (ONLY.length) roles = roles.filter(r => ONLY.indexOf(r.key) > -1);
   /* ZM देश-प्रमुख (भारत के बाहर) का एक अतिरिक्त रास्ता */
@@ -612,9 +702,10 @@ if (require.main === module) (async function main() {
   try {
     staticSuite();
     if (!only || only === "login") await loginSuite();
+    if (!only || only === "guide") await guideSuite();
     if (!only || only === "join") await joinSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.0 : पैनल-1 (लॉगिन + रजिस्ट्रेशन) English पास");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.1 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
   process.exit(fail ? 1 : 0);
 })();

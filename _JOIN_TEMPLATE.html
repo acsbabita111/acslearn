@@ -299,12 +299,12 @@
       <!-- (v-geo 09-Jul-2026) देश → राज्य → जिला; देश-क्रम: भारत → सार्क → Global South → शेष विश्व -->
       <div class="cascade" id="countryBox">
         <div class="row"><label>देश चुनें</label>
-          <select id="countrySel"><option value="">— चुनें —</option></select>
+          <select id="countrySel" data-i18n-sort><option value="">— चुनें —</option></select>
         </div>
       </div>
       <div class="cascade" id="stateBox">
         <div class="row"><label id="stateLabel">राज्य / प्रांत चुनें</label>
-          <select id="stateSel"><option value="">— पहले देश चुनें —</option></select>
+          <select id="stateSel" data-i18n-sort><option value="">— पहले देश चुनें —</option></select>
           <input type="text" id="stateTyped" style="display:none" placeholder="अपना राज्य/प्रांत लिखें">
           <div class="hint" id="stateTypedHint" style="display:none">इस देश की राज्य-सूची अभी नहीं जुड़ी — कृपया लिखें।</div>
         </div>
@@ -312,12 +312,12 @@
       <div class="cascade" id="rmOfficeBox">
         <!-- (नया नियम 09-Jul-2026) RM = ज़िला-आधारित: 1 ज़िला अनिवार्य, अधिकतम 3
              (शुरुआत में 3 जिले/RM; टीम बड़ी होने पर 2 या 1 — सिकुड़न approval-स्तर से) -->
-        <div class="row"><label>अपना मुख्य जिला चुनें (अनिवार्य)</label><select id="rmDist1"><option value="">— पहले राज्य चुनें —</option></select>
+        <div class="row"><label>अपना मुख्य जिला चुनें (अनिवार्य)</label><select id="rmDist1" data-i18n-sort><option value="">— पहले राज्य चुनें —</option></select>
           <input type="text" id="distTyped" style="display:none" placeholder="अपना मुख्य जिला लिखें">
           <div class="hint" id="distTypedHint" style="display:none">इस राज्य की जिला-सूची अभी नहीं जुड़ी — कृपया लिखें।</div>
         </div>
-        <div class="row"><label>जिला-2 (वैकल्पिक)</label><select id="rmDist2"><option value="">— वैकल्पिक —</option></select></div>
-        <div class="row"><label>जिला-3 (वैकल्पिक)</label><select id="rmDist3"><option value="">— वैकल्पिक —</option></select></div>
+        <div class="row"><label>जिला-2 (वैकल्पिक)</label><select id="rmDist2" data-i18n-sort><option value="">— वैकल्पिक —</option></select></div>
+        <div class="row"><label>जिला-3 (वैकल्पिक)</label><select id="rmDist3" data-i18n-sort><option value="">— वैकल्पिक —</option></select></div>
       </div>
     </div>
 
@@ -1619,13 +1619,13 @@
           return '<option value="'+c.v+'">'+c.hi+'</option>'; }).join('')+'</optgroup>';
       });
       box.innerHTML = '<label>🎯 वांछित कार्य-क्षेत्र — जिस जगह के लिए आवेदन कर रहे हैं <span style="color:#B23A3A">*</span></label>'+
-        '<div style="margin-top:4px"><label>देश</label><select id="desiredCountry">'+copts+'</select></div>'+
+        '<div style="margin-top:4px"><label>देश</label><select id="desiredCountry" data-i18n-sort>'+copts+'</select></div>'+
         '<div style="margin-top:6px"><label>राज्य / प्रांत</label>'+
-          '<select id="desiredStateSel" style="display:none"><option value="">— पहले देश चुनें —</option></select>'+
+          '<select id="desiredStateSel" data-i18n-sort style="display:none"><option value="">— पहले देश चुनें —</option></select>'+
           '<input type="text" id="desiredStateTyped" style="display:none" placeholder="अपना वांछित राज्य/प्रांत लिखें">'+
           '<div class="hint" id="desiredStateHint" style="display:none">इस देश की राज्य-सूची अभी नहीं जुड़ी — कृपया लिखें।</div></div>'+
         '<div style="margin-top:6px"><label>जिला</label>'+
-          '<select id="desiredDistSel" style="display:none"><option value="">— पहले राज्य चुनें —</option></select>'+
+          '<select id="desiredDistSel" data-i18n-sort style="display:none"><option value="">— पहले राज्य चुनें —</option></select>'+
           '<input type="text" id="desiredDistTyped" style="display:none" placeholder="अपना वांछित जिला लिखें">'+
           '<div class="hint" id="desiredDistHint" style="display:none">इस राज्य की जिला-सूची अभी नहीं जुड़ी — कृपया लिखें।</div></div>'+
         '<div class="hint">यही जगह आपके आवेदन, पुष्टि-पर्दे व एग्रीमेंट-PDF — तीनों पर दिखेगी।</div>';

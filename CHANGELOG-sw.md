@@ -1,6 +1,8 @@
 # CHANGELOG-sw.md — sw.js version-इतिहास
 (13-Sep ऑडिट H7 नियम: नया इतिहास यहाँ दर्ज हो; v705 तक की पुरानी पंक्तियाँ sw.js की शीर्ष-टिप्पणी में हैं — वहाँ से हटाई नहीं गईं।)
 
+v857 (15-Nov-2026): पैनल-1ख: English में देशों, राज्यों और जिलों की सूची English के A-Z क्रम में; रजिस्ट्रेशन गाइड (/registration-guide.html) English में। cache-first बदलाव: assets/panel_i18n.js v1.1 (सूची का क्रम चुनी भाषा के अक्षर-क्रम से, हिंदी में मूल क्रम; value नहीं बदलती; किसी भी पन्ने की कड़ी data-href-<भाषा> से बदल सकती है) और assets/i18n/panel_en.js (गाइड के वाक्य जुड़े)। हिंदी पन्ने वैसे ही।
+
 v856 (15-Nov-2026): पैनल-1: लॉगिन (/dashboard/) और रजिस्ट्रेशन (/join.html) English में। cache-first बदलाव: assets/acs-universal.js v2.7 (साइट के 🌐 से चुनी भाषा "acs_dash_lang" में भी; पैनल वाले पन्ने पर भाषा वहीं बदलती है; English पन्नों की Login-कड़ी /dashboard/?lang=en) और assets/rules-gate.js v1.1 (English में नियम-परदा सिर्फ़ English)। नई फ़ाइलें: assets/panel_i18n.js (भाषा-इंजन) और assets/i18n/panel_en.js (English पैक)।
 
 v855 (14-Nov-2026): खेप 5-ख: करियर टेस्ट कन्नड़ में (/kn/aptitude-test.html)। cache-first बदलाव: assets/apt_session_bn.js. इसमें बांग्ला के दो शब्द-सुधार हैं, जो ChatGPT ने खेप 5-क की जाँच में सुझाए थे: "₹100-র সুযোগ" की जगह "₹100-এর পরীক্ষার সুযোগ", और "শক্তিশালী সেক্টর" की जगह "শক্তিশালী সেক্টরগুলো"। अर्थ वही है। नई फ़ाइलें: assets/apt_kn.js, assets/apt_session_kn.js, assets/apt_udyam_kn.js (कन्नड़ की तीन तालिकाएँ)। इंजन की फ़ाइलें (apt-session.js v2.11, aptitude-test.js v2.3, apt-pay.js) नहीं बदलीं। कन्नड़ के 3,467 प्रश्न सिर्फ़ server पर हैं; repo में नहीं।
