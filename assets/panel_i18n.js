@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.2 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2)
+   panel_i18n.js v1.3 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3)
+   • (v1.3) साँचे (पैक का T): जिस संदेश के बीच में कुछ बदलता है (संख्या, नाम, कारण), जैसे server का
+     "इस role की न्यूनतम उम्र {0} है — जन्मतिथि से उम्र {1} बनती है", वह पूरा वाक्य एक साथ बदलता है, ताकि
+     English का शब्द-क्रम सही रहे। साँचा बड़े पाठ के भीतर भी मिलता है ("नहीं हुआ: " + server का संदेश)।
    • (v1.2) <span data-tr-en="...">हिंदी</span> : data (कोर्स/भाषा के नाम) का English उसी data से; खाली मान = English में न दिखे।
    • (v1.2) data-h attribute भी बदलता है; textarea का placeholder भी; एक ही पाठ का अनुवाद याद (MEMO)।
    • (v1.2) भाषा-पट्टी के हर बटन पर भाषा का नाम तीनों रूप में: देवनागरी · रोमन · अपनी लिपि (Founder-नियम, 15-Nov-2026)।
@@ -27,7 +30,7 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.2";
+var VER="1.3";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
    (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
@@ -77,12 +80,47 @@ function fragSwap(t){
   if(DEVC.test(out)&&!/[\u0900-\u0963\u0966-\u097F]/.test(out)) out=out.replace(/\s*\u0964/g,".").replace(/\u0965/g,".");
   return out;
 }
+/* (v1.3) साँचे: पैक का T = [[हिंदी साँचा, दूसरी भाषा का साँचा], ...]; {0}, {1} = बदलने वाला हिस्सा।
+   बीच वाला {n} कम-से-कम पाठ लेता है; आख़िरी {n} (जिसके बाद साँचे में कुछ नहीं) पंक्ति के अंत तक।
+   लंबा साँचा पहले। साँचे से पहले और बाद का पाठ, और {n} में आया पाठ, अलग से बदला जाता है। */
+var TPL=[];
+function rxEsc(s){ return s.replace(/[.*+?^${}()|[\]\\\/]/g,"\\$&"); }
+function compileT(T){
+  var out=[], i, j, h, parts, ids, src, st;
+  for(i=0;i<(T||[]).length;i++){
+    h=T[i][0]; parts=h.split(/\{\d+\}/); ids=h.match(/\{\d+\}/g)||[]; st=parts.join("");
+    if(!ids.length||st.replace(/\s/g,"").length<3) continue;
+    src="";
+    for(j=0;j<parts.length;j++){ src+=rxEsc(parts[j]); if(j<ids.length) src+=(j===ids.length-1&&parts[j+1]==="")?"([^\\n]*)":"([^\\n]+?)"; }
+    try{ out.push({re:new RegExp(src), en:T[i][1], ids:ids, n:st.length}); }catch(e){}
+  }
+  out.sort(function(a,b){ return b.n-a.n; });
+  return out;
+}
+function part(x, depth){
+  if(!x||!DEVC.test(x)) return x;
+  var m=x.match(/^(\s*)([\s\S]*?)(\s*)$/), r;
+  if(D.hasOwnProperty(m[2])) return m[1]+D[m[2]]+m[3];
+  if(depth<3){ r=tplSwap(x, depth+1); if(r!==null) return r; }
+  return fragSwap(x);
+}
+function tplSwap(c, depth){
+  var i, g, m, T, vals, out;
+  for(i=0;i<TPL.length;i++){
+    T=TPL[i]; m=T.re.exec(c); if(!m) continue;
+    vals={}; for(g=0;g<T.ids.length;g++) vals[T.ids[g]]=part(m[g+1], depth);
+    out=T.en.replace(/\{\d+\}/g,function(k){ return vals.hasOwnProperty(k)?vals[k]:""; });
+    return part(c.slice(0,m.index), depth)+out+part(c.slice(m.index+m[0].length), depth);
+  }
+  return null;
+}
 function tr(t){
   if(!D||!DEVC.test(t)) return t;
   if(D.hasOwnProperty(t)) return D[t];
   /* HTML में कई space/नई पंक्ति एक ही दिखती हैं, इसलिए मिलान भी वैसे ही */
-  var c=t.replace(/\s+/g," "), m=c.match(/^( ?)([\s\S]*?)( ?)$/);
+  var c=t.replace(/\s+/g," "), m=c.match(/^( ?)([\s\S]*?)( ?)$/), r;
   if(m&&D.hasOwnProperty(m[2])) return m[1]+D[m[2]]+m[3];
+  if(TPL.length){ r=tplSwap(c, 0); if(r!==null) return r; }
   return fragSwap(c);
 }
 /* alert/confirm के संदेश में पंक्तियाँ बनी रहें: पंक्ति-दर-पंक्ति */
@@ -277,12 +315,12 @@ function load(c, cb){
   (document.head||document.documentElement).appendChild(s);
 }
 function useLang(c, cb){
-  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={};
+  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[];
     try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); emit(); if(cb) cb(true); return; }
   load(c, function(pk){
     if(!pk){ unwait(); bar(); if(cb) cb(false); return; }
     if(ACTIVE&&CUR!==c){ ACTIVE=false; restore(); }
-    CUR=c; D=pk.D; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; });
+    CUR=c; D=pk.D; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
     GEO={}; var g=pk.G||[], gi; for(gi=0;gi<g.length;gi++) GEO[g[gi]]=1;
     function go(){ activate(); unwait(); emit(); if(cb) cb(true); }
     if(document.body&&document.readyState!=="loading") go(); else document.addEventListener("DOMContentLoaded",go);

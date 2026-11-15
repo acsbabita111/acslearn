@@ -1,9 +1,12 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.3 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.4 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
    v1.1 (पैनल-1ख): दायरे में रजिस्ट्रेशन गाइड (registration-guide.html) और matrix की पद-योग्यताएँ।
    v1.2 (शब्द-सूची): English पैक पर generator/data/vocab_en.json के नियम (उद्यम = Enterprise)। पैक का ढाँचा-संस्करण (VER) वही 1.1।
    v1.3 (पैनल-2): दायरे में सब 31 dashboard (dash-ext, dash-team) और assets/dashboard.js के literal; "\n" वाले literal
    पंक्ति-दर-पंक्ति; data-h और data-nav भी; शब्द-सूची का "एक चीज़ = एक English नाम" पहरा (V6-V11, lib_vocab_en.js)।
+   v1.4 (पैनल-3): दायरे में server के संदेश (generator/data/panel_i18n/server_msgs.json; server की फ़ाइलें repo में नहीं
+   होतीं, इसलिए उनके संदेशों की सूची extract_server_msgs.js से निकलकर repo में रहती है)। जिस संदेश में {0}, {1} है,
+   वह पैक के T (साँचे) में जाता है; बाक़ी D में। हर संदेश तीन तरह जाँचा जाता है: अकेले, "नहीं हुआ: " के बाद, और जब उसके बाद भी पाठ हो।
    उपयोग (repo-root से):  node generator/build_panel_i18n.js en [--check]
    स्रोत (एक चीज़ = एक जगह):
      1. assets/roles.js, assets/designation_matrix.js, assets/geo/countries.js,
@@ -24,10 +27,10 @@ const ROOT=path.join(__dirname,"..");
 const LANG=(process.argv[2]||"").trim(), CHECK=process.argv.indexOf("--check")>-1;
 if(!/^[a-z]{2,3}$/.test(LANG)||LANG==="hi"){ console.log("उपयोग: node generator/build_panel_i18n.js <भाषा-कोड> [--check]"); process.exit(1); }
 const DEV=/[ऀ-ॿ]/;
-const VER="1.1";
+const VER="1.2";   /* 1.2 (पैनल-3): पैक में T (साँचे) */
 /* पैक किन हिस्सों को ढकता है (पैनल-खेपों के साथ बढ़ेगा)। सब हिस्से पूरे = complete:true।
    करियर-टेस्ट की नई भाषा का द्वार (lib_apt_langs.js panelGate) इसी पर चलता है। */
-const SCOPE=["login","join","guide","dash-ext","dash-team"];
+const SCOPE=["login","join","guide","dash-ext","dash-team","server"];
 const ALL_AREAS={ en:["login","join","guide","dash-ext","dash-team","server","canvas","rules"] };
 /* ये हिंदी टुकड़े पन्ने पर दिखते ही नहीं (सिर्फ़ console या कोड के भीतर) — इसलिए अनुवाद नहीं */
 const SKIP=new Set([
@@ -78,6 +81,19 @@ const D={}; let overrides=0;
 for(const [h,v] of auto) D[h]=v.en;
 for(const sec of ["ui","geo"]) for(const [h0,e] of Object.entries(MAN[sec]||{})){
   const h=norm(h0); if(D[h]!==undefined&&D[h]!==e) overrides++; D[h]=e; }
+/* (v1.4) server के संदेश: सूची server_msgs.json से, अनुवाद <भाषा>.json के "server" खंड से।
+   सूची का हर संदेश अनुवाद में हो, और अनुवाद में कोई फ़ालतू न हो (सूची और अनुवाद एक-दूसरे से न भटकें)। */
+const SRV=readJSON("generator/data/panel_i18n/server_msgs.json").msgs.map(x=>x.hi), MSRV=MAN.server||{}, TP=[], srvBad=[];
+if(SCOPE.indexOf("server")>-1){
+  const PH=t=>(t.match(/\{\d+\}/g)||[]).slice().sort().join(",");
+  for(const hi of SRV){ const en=MSRV[hi];
+    if(typeof en!=="string"||!en.trim()){ srvBad.push("server-संदेश का अनुवाद नहीं: "+hi); continue; }
+    if(PH(hi)!==PH(en)){ srvBad.push("server-संदेश में {n} बेमेल: "+hi+" → "+en); continue; }
+    if(PH(hi)) TP.push([hi,en]);
+    else { const h=norm(hi); if(D[h]!==undefined&&D[h]!==en) srvBad.push("server-संदेश का अनुवाद ui वाले से अलग: "+hi+" → ui: "+D[h]+" | server: "+en); D[h]=en; } }
+  for(const hi of Object.keys(MSRV)) if(SRV.indexOf(hi)<0) srvBad.push("अनुवाद में ऐसा server-संदेश जो सूची में नहीं: "+hi);
+  TP.sort((a,b)=>a[0]<b[0]?-1:1);
+}
 /* जगहों के नाम (देश, राज्य, जिले): ये वाक्य के बीच में सिर्फ़ ":" "," "·" "(" के बाद और "," "·" ")" या अंत से पहले बदलते हैं।
    कारण: "गया" (जिला) और "गया" (क्रिया), "माली" (देश) और "माली" (बागवान) एक जैसे लिखे जाते हैं। */
 const GEOK=new Set();
@@ -85,8 +101,8 @@ for(const [h,v] of auto) if(v.src==="countries") GEOK.add(h);
 for(const h0 of Object.keys(MAN.geo||{})) GEOK.add(norm(h0));
 
 /* ---------- 3. पहरा (क): मानों की शुद्धता ---------- */
-const bad=[];
-for(const [h,e] of Object.entries(D)){
+const bad=srvBad.slice();
+for(const [h,e] of Object.entries(D).concat(TP)){
   if(!DEV.test(h)) bad.push("कुंजी में देवनागरी नहीं: "+h);
   if(typeof e!=="string"||!e.trim()) bad.push("ख़ाली मान: "+h);
   else { if(DEV.test(e)) bad.push("मान में देवनागरी: "+h+" → "+e);
@@ -169,7 +185,7 @@ const AREA_SRC={ login:["dashboard/_LOGIN_TEMPLATE.html"], join:["_JOIN_TEMPLATE
 const DASH_JS=["assets/dashboard.js","assets/vani.js","assets/exam-session.js","assets/academic_subjects.js"];
 const need=new Map();
 function want(t,src){ t=norm(t); if(!t||!DEV.test(t)||SKIP.has(t)) return; if(/^[ऀ-ॿ]{1,2}$/.test(t)&&!KEEP_SHORT.has(t)) return; if(!need.has(t)) need.set(t,src); }
-for(const a of SCOPE) for(const p of AREA_SRC[a]) htmlSegs(p).forEach(t=>want(t,p));
+for(const a of SCOPE) for(const p of (AREA_SRC[a]||[])) htmlSegs(p).forEach(t=>want(t,p));
 if(SCOPE.some(a=>/^dash-/.test(a))) for(const f of DASH_JS) literals(fs.readFileSync(path.join(ROOT,f),"utf8")).forEach(t=>want(t,f));
 /* लॉगिन पन्ने पर acs-universal.js भी चलता है (मेनू, footer, नीचे के बटन) : उसकी हर हिंदी पंक्ति भी।
    सिर्फ़ भाषा-सूची की तालिकाएँ (var ACS_LANG_...) छोड़कर: वहाँ भाषाओं के अपने नाम हैं, जो जान-बूझकर वैसे ही रहते हैं। */
@@ -215,13 +231,21 @@ function engineTr(){
   sb.window=sb; sb.alert=sb.confirm=sb.prompt=function(){};
   vm.createContext(sb);
   vm.runInContext(fs.readFileSync(path.join(ROOT,"assets/panel_i18n.js"),"utf8"),sb,{filename:"panel_i18n.js"});
-  sb.ACS_PANEL_PACKS={}; sb.ACS_PANEL_PACKS[LANG]={D:D,G:[...GEOK]};
+  sb.ACS_PANEL_PACKS={}; sb.ACS_PANEL_PACKS[LANG]={D:D,G:[...GEOK],T:TP};
   sb.ACS_PANEL_I18N.set(LANG);
   if(sb.ACS_PANEL_I18N.lang()!==LANG){ console.log("⛔ इंजन ने भाषा नहीं ली (panel_i18n.js की PACK-सूची में "+LANG+" है?)"); process.exit(1); }
   return sb.ACS_PANEL_I18N.tr;
 }
 const TR=engineTr(), miss=[];
 for(const [t,src] of need){ const o=TR(t); if(DEV.test(o)) miss.push(src+" :: "+t+"  ⇒  "+o); }
+/* (v1.4) server के संदेश: {n} की जगह नमूना-मान रखकर; अकेले भी और "नहीं हुआ: " के बाद भी (dashboard ऐसे ही दिखाता है)।
+   साँचे वाले संदेश का नतीजा ठीक वही हो जो अनुवाद में लिखा है (कोई दूसरा टुकड़ा बीच में न घुसे)। */
+if(SCOPE.indexOf("server")>-1) for(const hi of SRV){ const en=MSRV[hi]; if(typeof en!=="string") continue;
+  const fill=t=>t.replace(/\{(\d+)\}/g,(_,d)=>"X"+d+"7");
+  const o=TR(fill(hi)), o2=TR("नहीं हुआ: "+fill(hi)), o3=TR(fill(hi)+" पहले login करें।");   /* o3: संदेश के बाद भी पाठ हो (साँचे के आगे-पीछे दोनों ओर बदले) */
+  if(DEV.test(o)||DEV.test(o2)||DEV.test(o3)) miss.push("server :: "+hi+"  ⇒  "+o+"  |  "+o2+"  |  "+o3);
+  else if(norm(o)!==norm(fill(en))) miss.push("server (नतीजा अनुवाद से अलग) :: "+hi+"  ⇒  "+o+"  ≠  "+fill(en));
+  else if(o2.indexOf(norm(fill(en)))<0) miss.push("server (\"नहीं हुआ: \" के बाद नतीजा अलग) :: "+hi+"  ⇒  "+o2); }
 /* (v1.3) अनुवाद-सूची बनाने का औज़ार: ACS_MISS=<फ़ाइल> पर छूटे टुकड़े (स्रोत :: हिंदी) उस फ़ाइल में */
 if(process.env.ACS_MISS) fs.writeFileSync(process.env.ACS_MISS, miss.join("\n")+"\n");
 if(miss.length){ bad.push("पहुँच-जाँच: "+miss.length+" हिंदी टुकड़े English में नहीं बदले:"); miss.slice(0,Number(process.env.ACS_SHOW||60)).forEach(x=>bad.push("   "+x)); }
@@ -234,7 +258,7 @@ const complete=(ALL_AREAS[LANG]||[]).every(a=>SCOPE.indexOf(a)>-1);
 const out="/* panel_"+LANG+".js · पैनल का "+(MAN.name||LANG)+" पैक v"+VER+" — generator/build_panel_i18n.js से बना, हाथ से न बदलें।\n"
   +"   हिंदी मूल है; यह सिर्फ़ दिखावट बदलता है। हिस्से: "+SCOPE.join(", ")+" · प्रविष्टियाँ "+keys.length+" */\n"
   +"window.ACS_PANEL_PACKS=window.ACS_PANEL_PACKS||{};\n"
-  +"window.ACS_PANEL_PACKS["+JSON.stringify(LANG)+"]="+JSON.stringify({v:VER,lang:LANG,name:MAN.name||LANG,scope:SCOPE,complete:complete,D:SD,G:[...GEOK].filter(k=>SD[k]!==undefined).sort()})+";\n";
+  +"window.ACS_PANEL_PACKS["+JSON.stringify(LANG)+"]="+JSON.stringify({v:VER,lang:LANG,name:MAN.name||LANG,scope:SCOPE,complete:complete,D:SD,G:[...GEOK].filter(k=>SD[k]!==undefined).sort(),T:TP})+";\n";
 const OUT=path.join(ROOT,"assets/i18n/panel_"+LANG+".js");
 if(CHECK){
   const cur=fs.existsSync(OUT)?fs.readFileSync(OUT,"utf8"):"";

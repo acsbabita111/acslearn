@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_vocab_en_check.js v1.3 (15-Nov-2026; v1.1 पैनल-2: पुरानी dash_i18n_en.js न हो तो भी चले; v1.2 पैनल-2: V6-V8 एक चीज़ = एक English नाम; v1.3: English की तरफ़ से भी V9-V11, जाँच lib_vocab_en.js में): English शब्द-सूची का पहरेदार
+   dev_vocab_en_check.js v1.4 (15-Nov-2026; v1.1 पैनल-2: पुरानी dash_i18n_en.js न हो तो भी चले; v1.2 पैनल-2: V6-V8 एक चीज़ = एक English नाम; v1.3: English की तरफ़ से भी V9-V11, जाँच lib_vocab_en.js में; v1.4 पैनल-3: पैक के साँचे (T) भी): English शब्द-सूची का पहरेदार
    नियम का एकमात्र घर: generator/data/vocab_en.json (Founder की हाँ, 15-Nov-2026)।
    यह कुछ नहीं बदलता, सिर्फ़ जाँचता है। कोई जाँच फेल = exit 1।
 
@@ -46,6 +46,7 @@ const pairs = [];
 (function () {
   const w = {}; new Function("window", rd("assets/i18n/panel_en.js"))(w);
   const D = w.ACS_PANEL_PACKS.en.D; for (const k in D) pairs.push(["assets/i18n/panel_en.js", k, D[k]]);
+  (w.ACS_PANEL_PACKS.en.T || []).forEach(t => pairs.push(["assets/i18n/panel_en.js (साँचा)", t[0], t[1]]));   /* (v1.4) server के संदेशों के साँचे */
 })();
 (function () { /* पुराना dashboard-पैक (पैनल-2 से पहले): हो तो उसके "हिंदी":"English" जोड़े भी */
   if (!fs.existsSync(path.join(ROOT, "assets/dash_i18n_en.js"))) return;
@@ -117,5 +118,5 @@ for (const r of V.never_hi) {
 
 fails.forEach(x => console.log(x));
 console.log("\nजाँचें: पास " + pass + " · फेल " + fails.length);
-console.log(fails.length ? "⛔ dev_vocab_en_check रुका" : "🏁 dev_vocab_en_check v1.3 : English शब्द-सूची (उद्यम = Enterprise; एक चीज़ = एक नाम) पास");
+console.log(fails.length ? "⛔ dev_vocab_en_check रुका" : "🏁 dev_vocab_en_check v1.4 : English शब्द-सूची (उद्यम = Enterprise; एक चीज़ = एक नाम) पास");
 process.exit(fails.length ? 1 : 0);

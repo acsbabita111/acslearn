@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v1.0 (15-Nov-2026, पैनल-2): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v1.1 (15-Nov-2026; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश): सब 31 dashboard का English पहरेदार
    असली पन्ने jsdom में, असली assets/dashboard.js (import की जगह नक़ली Firebase), नक़ली data।
    हर dashboard English में खोलकर हर काम-सूची पैनल दबाया जाता है: दिखने वाला कोई भी पाठ,
    attribute, <title> या संदेश-डिब्बा हिंदी में नहीं होना चाहिए।
@@ -197,6 +197,28 @@ if (require.main === module) (async function main() {
       c.dom.window.close();
     } catch (e) { ck(f + " : नाम-जाँच चली", false, String(e && e.stack || e).slice(0, 300)); }
   }
+  /* (v1.1, पैनल-3) server के संदेश: सूची (server_msgs.json) का हर संदेश असली dashboard में, जैसे dashboard दिखाता है
+     (अकेले, "नहीं हुआ: " के बाद, और संदेश-डिब्बे में); {n} की जगह नमूना-मान। फिर हिंदी पर लौटकर मूल वापस। */
+  for (const f of pages.filter(f => ["student", "admin"].indexOf(f.split("/")[1]) > -1)) {
+    try {
+      const SM = JSON.parse(rd("generator/data/panel_i18n/server_msgs.json")).msgs.map(x => x.hi);
+      const fill = t => t.replace(/\{(\d+)\}/g, (_, d) => "X" + d + "7");
+      const c = await openDash(f, "base", "en"), tag = f.split("/")[1];
+      await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c);
+      const box = c.d.createElement("div"); const want = [];
+      SM.forEach((m, i) => { const p = c.d.createElement("p"), t = (i % 2 ? "नहीं हुआ: " : "") + fill(m); want.push(t); p.textContent = t; box.appendChild(p); });
+      c.d.getElementById("appView").appendChild(box); await settle(c); await settle(c);
+      const left = Array.from(box.children).map(p => p.textContent).filter(t => DEV.test(t));
+      ck(tag + " : server के " + SM.length + " संदेश dashboard में English", SM.length > 250 && left.length === 0, left.length + " बचे: " + left.slice(0, 4).join(" ‖ "));
+      c.dialogs.length = 0; SM.forEach(m => c.w.alert("काम पूरा नहीं हुआ: " + fill(m)));
+      const dl = c.dialogs.filter(x => DEV.test(x));
+      ck(tag + " : server के संदेश संदेश-डिब्बे में English (" + c.dialogs.length + ")", c.dialogs.length === SM.length && dl.length === 0, dl.slice(0, 3).join(" ‖ "));
+      click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(c); await settle(c);
+      const back = Array.from(box.children).map(p => p.textContent);
+      ck(tag + " : हिंदी पर लौटने पर server के संदेश मूल हिंदी में", back.length === want.length && back.every((t, i) => t === want[i]), back.filter((t, i) => t !== want[i]).slice(0, 3).join(" ‖ "));
+      c.dom.window.close();
+    } catch (e) { ck(f + " : server-संदेश जाँच चली", false, String(e && e.stack || e).slice(0, 300)); }
+  }
   /* हिंदी: इंजन होने और न होने पर पन्ना अक्षर-अक्षर एक; English से हिंदी पर लौटना = ताज़ा हिंदी */
   for (const f of pages.filter(f => ["student", "center", "admin"].indexOf(f.split("/")[1]) > -1)) {
     try {
@@ -213,6 +235,6 @@ if (require.main === module) (async function main() {
   }
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.0 : सब dashboard English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.1 : सब dashboard English पास");
   process.exit(fail ? 1 : 0);
 })();

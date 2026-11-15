@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /* ================================================================
-   dev_panel_i18n_check.js v1.2 (15-Nov-2026) : पैनल-1 का पहरेदार
+   dev_panel_i18n_check.js v1.3 (15-Nov-2026) : पैनल-1 का पहरेदार
    v1.1 (पैनल-1ख): + रजिस्ट्रेशन गाइड (G) और सूचियों का English क्रम (JS)
    v1.2 (पैनल-2): S3 दायरा अब सब dashboard समेत; पैक-इंजन v1.2 (data-tr-*); fb-विकल्प (नक़ली Firebase);
    L0: भाषा-बटन पर नाम तीनों रूप में (देवनागरी · रोमन · अपनी लिपि)।
+   v1.3 (पैनल-3): S3 दायरे में server के संदेश; पैक में T (साँचे)।
    dashboard का अपना पहरेदार: dev_panel_dash_check.js
    (लॉगिन पन्ना /dashboard/ + रजिस्ट्रेशन /join.html, भाषा-इंजन + English पैक)
    Founder-नियम (15-Nov): पहले पूरा पैनल English, फिर बांग्ला, कन्नड़, मराठी;
@@ -58,7 +59,7 @@ function staticSuite() {
   ck("S2 पैक पढ़ने-योग्य JSON", !!P);
   if (P) {
     const vals = Object.values(P.D);
-    ck("S3 पैक का दायरा login + join + guide + सब dashboard (पैनल-2), पूरा पैनल अभी नहीं (server, canvas, नियम-पत्र बाक़ी)", JSON.stringify(P.scope) === '["login","join","guide","dash-ext","dash-team"]' && P.complete === false, JSON.stringify(P.scope) + " " + P.complete);
+    ck("S3 पैक का दायरा login + join + guide + सब dashboard + server के संदेश (पैनल-3), पूरा पैनल अभी नहीं (canvas, नियम-पत्र बाक़ी)", JSON.stringify(P.scope) === '["login","join","guide","dash-ext","dash-team","server"]' && P.complete === false && Array.isArray(P.T) && P.T.length > 40, JSON.stringify(P.scope) + " " + P.complete);
     ck("S4 पैक के English में हिंदी अक्षर शून्य", vals.every(v => !DEV.test(v)), vals.filter(v => DEV.test(v)).slice(0, 5).join(" | "));
     ck("S5 पैक में em dash (—) और टूटा अक्षर (U+FFFD) शून्य", vals.every(v => v.indexOf("—") < 0 && v.indexOf("�") < 0));
   }
@@ -713,6 +714,6 @@ if (require.main === module) (async function main() {
     if (!only || only === "join") await joinSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.2 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.3 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
   process.exit(fail ? 1 : 0);
 })();
