@@ -209,7 +209,7 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
 
 /* (15-Nov-2026, पैनल-1ख) नियम-कड़ियाँ चुनी भाषा के हिसाब से */
 var RULE_OK = {};
-function ruleVer(h){ var m = /<b>Version: ([^<]+)<\/b>/.exec(h || ''); return m ? m[1] : null; }
+function ruleVer(h){ var m = /<b>Version: ([0-9.]+)/.exec(h || ''); return m ? m[1] : null; }   /* (पैनल-5) सिर्फ़ संख्या: "1.1 (मसौदा)" और "1.1 (draft)" एक ही संस्करण हैं */
 function ruleCheck(lang, file, cb){
   var k = lang + '|' + file, r = RULE_OK[k];
   if(r){ if(r.done) cb(r.ok); else r.cbs.push(cb); return; }

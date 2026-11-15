@@ -424,7 +424,7 @@ function P_RULES_LINK(file, who){
     '<div class="ph">📜 मेरा नियम-पत्र (एग्रीमेंट)</div>' +
     '<div class="pd">' + who + ' के सब नियम — वही जो आपने registration पर स्वीकारे। POSH · POCSO · DPDP का पालन ' +
     'हर हाल में अनिवार्य; किसी शिकायत पर पहले 7-दिन का Show-Cause (अपनी बात रखने का पूरा मौक़ा)।</div>' +
-    '<a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="/' + file + '">📜 पूरा नियम-पत्र पढ़ें</a>' +
+    '<a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="/' + file + '" data-href-en="/en/' + file + '">📜 पूरा नियम-पत्र पढ़ें</a>' +
     '</div>');
 }
 

@@ -1240,6 +1240,8 @@
 
   var rulesLoadedFor = null;
   var rulesShownLang = 'hi';
+  var rulesShownVer = '';   /* (15-Nov-2026, पैनल-5) जो नियम-पत्र सचमुच दिखा, उसके हिंदी मूल की संस्करण-संख्या */
+  function rulesVerNum(h){ var m = /<b>Version: ([0-9.]+)/.exec(h || ''); return m ? m[1] : ''; }
   /* नियम-पत्र का वह संस्करण जिस पर सहमति दर्ज होती है: विद्यार्थी 1.2 (खेप 4 भाग 2), बाक़ी 1.1 */
   function expectedRulesVer(){ return isLearnerRomanOnly() ? '1.2' : '1.1'; }   /* (15-Nov-2026, पैनल-1) जिस भाषा के नियम सचमुच दिखे : वही consent_language में जाता है */
   function maybeLoadRules(){
@@ -1269,17 +1271,19 @@
     if(!file){ rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ इस रोल की rules-फ़ाइल roles.js में दर्ज नहीं है।</div>'; return; }
     /* (15-Nov-2026, पैनल-1) दूसरी भाषा में पहले /<भाषा>/<फ़ाइल>; न हो तो हिंदी मूल (क़ानूनी मूल हिंदी ही) */
     var I18 = window.ACS_PANEL_I18N, ULANG = (I18 && I18.active && I18.lang) ? I18.lang() : 'hi', rulesLang = 'hi';
-    var firstTry = (ULANG !== 'hi')
-      ? fetch(ULANG + '/' + file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ if(!r.ok) throw new Error('no-lang'); return r.text(); }).then(function(h){
-          /* (v1.1, 15-Nov) अनुवाद तभी, जब उसका संस्करण वही हो जिस पर सहमति दर्ज होती है; पुराना अनुवाद = हिंदी मूल */
-          if(h.indexOf('<b>Version: ' + expectedRulesVer() + '</b>') < 0) throw new Error('old-lang-version');
-          rulesLang = ULANG; return h; })
-      : Promise.reject(new Error('hi'));
-    firstTry.catch(function(){ return fetch(file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){
+    /* (पैनल-5, 15-Nov-2026) हिंदी मूल हमेशा लिया जाता है: वही क़ानूनी मूल है और उसी की संस्करण-संख्या सहमति में दर्ज होती है।
+       अनुवाद तभी दिखता है, जब उसकी संस्करण-संख्या हिंदी मूल से मिले (learner में वह दर्ज संस्करण से भी मिले); नहीं तो हिंदी मूल। */
+    var hiP = fetch(file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){
       if(!r.ok) throw new Error('फ़ाइल नहीं मिली: '+file);
       return r.text();
-    }); }).then(function(html){
-      rulesShownLang = rulesLang;
+    });
+    var langP = (ULANG !== 'hi')
+      ? fetch(ULANG + '/' + file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ return r.ok ? r.text() : ''; }).catch(function(){ return ''; })
+      : Promise.resolve('');
+    Promise.all([hiP, langP]).then(function(t){
+      var hiHtml = t[0], lgHtml = t[1], hv = rulesVerNum(hiHtml), html = hiHtml;
+      if(lgHtml && hv && rulesVerNum(lgHtml) === hv && (!isLearnerRomanOnly() || hv === expectedRulesVer())){ html = lgHtml; rulesLang = ULANG; }
+      rulesShownLang = rulesLang; rulesShownVer = hv;
       var parser = new DOMParser();
       var doc = parser.parseFromString(html, 'text/html');
       var idbox = doc.querySelector('.idbox');
@@ -2098,7 +2102,7 @@
     var payload = {
       consent_mode: (document.getElementById('bulkConsentChk')&&document.getElementById('bulkConsentChk').checked)?'bulk':'each',
       consent_language: rulesShownLang,   /* (15-Nov-2026) जिस भाषा के नियम दिखे: English नियम-फ़ाइल = 'en', बाक़ी 'hi' (हिंदी ही क़ानूनी मूल) */
-      consent_rules_version: expectedRulesVer(),   /* विद्यार्थी का नियम-पत्र 1.2 (खेप 4 भाग 2); बाक़ी भूमिकाओं के नियम-पत्र 1.1 */
+      consent_rules_version: (isLearnerRomanOnly() ? expectedRulesVer() : (rulesShownVer || expectedRulesVer())),   /* विद्यार्थी का नियम-पत्र 1.2 (खेप 4 भाग 2); बाक़ी भूमिकाओं के नियम-पत्र 1.1 */
       name_local: isLearnerRomanOnly() ? '' : nameLocal.value, name_roman: nameRoman.value,
       father_name: isLearnerRomanOnly() ? fatherNameRoman.value : '',
       mobile: mobile.value, email: email.value,

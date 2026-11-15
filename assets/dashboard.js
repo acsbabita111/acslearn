@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.17.0 · 15-Nov-2026 (Founder का आदेश + ऑडिट की पकड़): (1) प्रमाणपत्र निकालते समय नाम पूछने का डिब्बा: पिता / माता / अभिभावक में से
+     एक बिंदु और नाम; नाम server में एक ही बार सहेजा जाता है (certGuardianSave) और प्रमाणपत्र पर छपता है (ख़ाली रेखा हटी)।
+     (2) बहुत लंबा नाम किनारे से बाहर जाता था: नाम की हर पंक्ति अब fitRich से (अक्षर छोटे → 2 पंक्तियाँ → लंबा शब्द टुकड़ों में)।
+   v6.16.0 · 15-Nov-2026 (Founder का फ़ैसला): प्रमाणपत्र पर विद्यार्थी के आगे "नाम :" और नीचे "माता / पिता / अभिभावक का नाम : ____" (हिंदी रूप में "पिता ____ / S/o ____" की जगह; English रूप में "Name:" और "Mother / Father / Guardian's name: ____")।
    v6.15.0 · 15-Nov-2026 (पैनल-4ख): सहेजा हुआ data English पैनल में: उपयोगकर्ता का लिखा पाठ (केंद्र/विद्यार्थी का नाम, टिप्पणी, कारण, काम, रिपोर्ट) जैसा है वैसा (US: कभी आधा-अनूदित नहीं);
      कोर्स का सहेजा नाम कोर्स-सूची के English नाम में (CN); करियर टेस्ट के नतीजे के उद्यम/क्षेत्र-नाम English में; परीक्षा के प्रश्न और विकल्प कोर्स की भाषा में, बिना छेड़छाड़।
    v6.14.0 · 15-Nov-2026 (पैनल-4): काग़ज़ भी English में (Founder का फ़ैसला: पैनल English हो, तो सब काग़ज़ सिर्फ़ English; देवनागरी कहीं नहीं):
@@ -123,7 +127,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.15.0";
+const DASH_VER = "v6.17.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -558,6 +562,9 @@ const LAZY = {}; /* team-mode अपनी entries नीचे (team-only block
    अटकना)। साझा state अब यहाँ — दोनों block एक ही घर पढ़ें-लिखें। */
 let CAN_FINAL = false;
 let MYDESIG = "";
+/* (v6.17.0) प्रमाणपत्र पर छपने वाला नाम: रिश्ते के लेबल (विद्यार्थी का अपना चुनाव; "S/o" या "D/o" कभी नहीं)। module के ऊपर, ताकि हर काम को पहले से मिलें */
+const CERT_REL_HI={father:"पिता का नाम :", mother:"माता का नाम :", guardian:"अभिभावक का नाम :"};
+const CERT_REL_EN={father:"Father's name:", mother:"Mother's name:", guardian:"Guardian's name:"};
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
 const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
@@ -1624,7 +1631,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     }catch(e){ bx.innerHTML='<span class="note" style="color:#B71C1C">केंद्र-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
   }
   /* ── (30-Jul, रास्ता-1) 🎓 परीक्षा → 📄 result → 📜 ₹125 प्रमाणपत्र ── */
-  let EXAM_RES={}, CERT_BY={}, CERT_CRS={}, CERT_INFO={};
+  let EXAM_RES={}, CERT_BY={}, CERT_CRS={}, CERT_INFO={}, CERT_GUARD=null;   /* CERT_GUARD (v6.17.0): प्रमाणपत्र पर छपने वाला नाम {rel,name}; server में एक बार सहेजा हुआ */
   /* (v6.9.0, खेप 3-क) प्रमाणपत्र की तिथियाँ: server "2031-11-12" जैसा रूप देता है */
   const CERT_MHI=["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
   const CERT_MEN=["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -1633,7 +1640,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   function certDayEn(s){ const p=String(s||"").split("-"); return p.length===3 ? Number(p[2])+" "+CERT_MEN[Number(p[1])-1]+" "+p[0] : "—"; }
   async function certInfoLoad(){
     CERT_INFO={};
-    try{ const cl=await httpsCallable(functions,"certList")({}); ((cl.data||{}).certs||[]).forEach(function(c){ CERT_INFO[c.certNo]=c; }); }catch(e){}
+    try{ const cl=await httpsCallable(functions,"certList")({}); ((cl.data||{}).certs||[]).forEach(function(c){ CERT_INFO[c.certNo]=c; });
+      const g=(cl.data||{}).guardian; CERT_GUARD=(g && CERT_REL_HI[g.rel] && g.name) ? {rel:g.rel, name:String(g.name)} : null; }catch(e){}
   }
   async function loadExamState(){
     EXAM_RES={}; CERT_BY={}; CERT_CRS={};
@@ -2000,7 +2008,10 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       if(ci.status==="expired"){ alert("इस प्रमाणपत्र की online जाँच की अवधि "+certDayNum(ci.validUntil)+" को पूरी हो चुकी है। 5 साल बढ़ाने के बाद यह दोबारा निकलेगा।"); return; }
       /* (ऑडिट K3A-H03) परीक्षा की तिथि का रिकॉर्ड न मिले, तो जारी होने की तिथि को परीक्षा-तिथि बनाकर नहीं छापते: प्रमाणपत्र रुकता है */
       if(!ci.examOn){ alert("इस प्रमाणपत्र की परीक्षा-तिथि का रिकॉर्ड नहीं मिला, इसलिए यह अभी नहीं निकल सकता। कृपया ACS दफ़्तर को यह नंबर बताइए: "+c0.certNo); return; }
-      certDraw(Object.assign({},c0,{examOn:ci.examOn,issuedOn:ci.issuedOn,validUntil:ci.validUntil})); return; }
+      /* (v6.17.0, Founder का आदेश 15-Nov-2026) प्रमाणपत्र निकालने से पहले: पिता, माता या अभिभावक में से एक का नाम।
+         नाम server में एक ही बार सहेजा जाता है; सहेजा हो तो दोबारा नहीं पूछा जाता। नाम के बिना प्रमाणपत्र नहीं निकलता। */
+      if(!CERT_GUARD){ const g=await certGuardAsk(); if(!g) return; }
+      certDraw(Object.assign({},c0,{examOn:ci.examOn,issuedOn:ci.issuedOn,validUntil:ci.validUntil,guardian:CERT_GUARD})); return; }
     const xb=ev.target.closest("[data-certext]");
     if(xb){ const no=xb.getAttribute("data-certext"), ci=CERT_INFO[no]; if(!ci) return;
       const amt=Math.round(ci.extend.due/100), cr=Math.round((ci.extend.credit||0)/100);
@@ -2162,6 +2173,111 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     ctx.textAlign="center";
     return lines.length;
   }
+  /* (v6.17.0; ऑडिट की पकड़: बहुत लंबा नाम प्रमाणपत्र के किनारे से बाहर जाता था)
+     लेबल + नाम की पंक्ति, जो सुरक्षित चौड़ाई (maxW) से बाहर कभी नहीं जाती। क्रम:
+     (1) नाम के अक्षर छोटे होते हैं (px से min तक), ताकि एक पंक्ति में आए;
+     (2) फिर भी न आए, तो ज़्यादा-से-ज़्यादा 2 पंक्तियाँ;
+     (3) कोई एक शब्द ही सीमा से चौड़ा हो, तो अक्षर और छोटे (floor तक);
+     (4) तब भी नहीं, तो वह शब्द टुकड़ों में टूटता है; 2 पंक्तियों से आगे का हिस्सा नहीं छपता (निशान "…")।
+     segs: [{text,font,color}] · ni: नाम वाला टुकड़ा · mk(px): नाम का font · लौटाता है {n: पंक्तियाँ, px, w: सबसे चौड़ी पंक्ति} */
+  function richMeasure(ctx, lines, maxW){
+    let widest=0, over=false;
+    lines.forEach(function(line){ let t=0; line.forEach(function(it,i){ ctx.font=it.font; t += ctx.measureText(i===line.length-1 ? it.w : it.w+" ").width; }); if(t>widest) widest=t; if(t>maxW+0.5) over=true; });
+    return {lines:lines, w:widest, over:over};
+  }
+  function richLay(ctx, segs, maxW){
+    const words=[]; segs.forEach(function(seg){ String(seg.text).split(" ").forEach(function(w){ if(w!=="") words.push({w:w,font:seg.font,color:seg.color}); }); });
+    const lines=[[]]; let cur=0;
+    words.forEach(function(it){ ctx.font=it.font; const ww=ctx.measureText(it.w+" ").width;
+      if(cur+ww>maxW && lines[lines.length-1].length>0){ lines.push([]); cur=0; }
+      lines[lines.length-1].push(it); cur+=ww; });
+    return richMeasure(ctx, lines, maxW);
+  }
+  function richGraphemes(w){ try{ return Array.from(new Intl.Segmenter(undefined,{granularity:"grapheme"}).segment(w), function(g){ return g.segment; }); }catch(e){ return Array.from(w); } }
+  function richChunk(ctx, font, w, maxW){
+    const parts=richGraphemes(w), out=[]; let cur=""; ctx.font=font;
+    parts.forEach(function(ch){ if(cur && ctx.measureText(cur+ch+" ").width>maxW){ out.push(cur); cur=ch; } else cur+=ch; });
+    if(cur) out.push(cur); return out.join(" ");
+  }
+  function fitRich(ctx, segs, ni, mk, px, min, floor, cx, y, maxW, lh){
+    const S=segs.map(function(q){ return {text:String(q.text), font:q.font, color:q.color}; });
+    const lay=function(p){ S[ni].font=mk(p); return richLay(ctx, S, maxW); };
+    let p=px, L=lay(p);
+    while(p>min && (L.lines.length>1 || L.over)){ p-=2; if(p<min) p=min; L=lay(p); }
+    while(p>floor && (L.lines.length>2 || L.over)){ p-=1; L=lay(p); }
+    if(L.over){ const f=mk(p); S[ni].text=S[ni].text.split(" ").map(function(w){ ctx.font=f; return ctx.measureText(w+" ").width>maxW ? richChunk(ctx,f,w,maxW) : w; }).join(" "); L=lay(p); }
+    if(L.lines.length>2){ const two=[L.lines[0], L.lines[1].slice()], dots={w:"…", font:mk(p), color:S[ni].color};
+      two[1].push(dots);
+      while(richMeasure(ctx, two, maxW).over){ const ln=two[1];
+        if(ln.length>2){ ln.splice(ln.length-2, 1); continue; }
+        const g=richGraphemes(ln[0].w); if(g.length<=1) break; g.pop(); ln[0]={w:g.join(""), font:ln[0].font, color:ln[0].color}; }
+      L=richMeasure(ctx, two, maxW); }
+    L.lines.forEach(function(line,li){
+      let t=0; const adv=line.map(function(it,i){ ctx.font=it.font; const a=ctx.measureText(it.w+" ").width; t += (i===line.length-1) ? ctx.measureText(it.w).width : a; return a; });
+      let sx=cx-t/2; ctx.textAlign="left";
+      line.forEach(function(it,i){ ctx.font=it.font; ctx.fillStyle=it.color; ctx.fillText(it.w, sx, y+li*lh); sx+=adv[i]; });
+    });
+    ctx.textAlign="center";
+    return {n:L.lines.length, px:p, w:L.w};
+  }
+  function certGuardEn(nm){ nm=String(nm||"").trim(); return /[ऀ-ॿ]/.test(nm) ? devToRoman(nm).replace(/[ऀ-ॿ]+/g,"").replace(/\s+/g," ").trim() : nm; }
+  /* नाम की जाँच (server भी यही जाँचता है): हिंदी या English के अक्षर, ख़ाली जगह, बिंदु, ' और - ; 2 से 60 अक्षर */
+  function certGuardNameOk(nm){ return nm.length>=2 && nm.length<=60 && /^[A-Za-zऄ-हक़-ॡॲ-ॿ][A-Za-zऀ-ॣॱ-ॿ .'-]*$/.test(nm) && (nm.match(/[A-Za-zऄ-हक़-ॡॲ-ॿ]/g)||[]).length>=2; }
+  /* पूछने वाला डिब्बा: तीन में से एक बिंदु + नाम → पक्का करना → server में सहेजना → सूचना। लौटाता है {rel,name} या null (रद्द)। */
+  function certGuardAsk(){
+    return new Promise(function(done){
+      const old=document.getElementById("certGuardBox"); if(old) old.remove();
+      const ov=document.createElement("div"); ov.id="certGuardBox"; ov.setAttribute("role","dialog"); ov.setAttribute("aria-modal","true");
+      ov.style.cssText="position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(11,31,58,.62);z-index:99999;display:flex;align-items:center;justify-content:center;padding:12px";
+      const row=function(v,t){ return '<label style="display:flex;gap:12px;align-items:center;padding:9px 10px;border:1.5px solid #cfd8e3;border-radius:10px;margin-top:8px;font-weight:700;cursor:pointer"><input type="radio" name="cgRel" value="'+v+'" style="width:24px;height:24px;min-width:24px;accent-color:#2E7D32"><span>'+t+'</span></label>'; };
+      ov.innerHTML='<div style="background:#fff;border-radius:14px;max-width:470px;width:100%;padding:16px 16px 14px;font-size:18px;line-height:1.7;color:#1a2433;max-height:94vh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,.35)">'
+        +'<div id="cgStep1">'
+        +'<div style="font-weight:800;font-size:20px;color:#0B1F3A">प्रमाणपत्र पर किसका नाम छपे?</div>'
+        +'<div style="font-size:16px;color:#4a5a70">नीचे तीन में से एक चुनिए। फिर उनका नाम लिखिए।</div>'
+        +row("father","पिता का नाम :")+row("mother","माता का नाम :")+row("guardian","अभिभावक का नाम :")
+        +'<input type="text" id="cgName" maxlength="60" autocomplete="off" placeholder="यहाँ नाम लिखिए" style="width:100%;box-sizing:border-box;font:inherit;font-size:19px;padding:11px;border:2px solid #1565C0;border-radius:10px;margin-top:12px">'
+        +'<div style="font-size:16px;color:#4a5a70;margin-top:4px">नाम हिंदी या English के अक्षरों में लिखिए।</div>'
+        +'<div id="cgErr" style="color:#B23A3A;font-size:16px;font-weight:700;min-height:28px"></div>'
+        +'<div style="background:#FFF8E1;border:1.5px solid #F9A825;border-radius:10px;padding:9px 11px;font-size:16px">⚠️ यह नाम server में हमेशा के लिए सहेजा जाएगा और आपके प्रमाणपत्र पर छपेगा। बाद में आप इसे नहीं बदल सकेंगे।</div>'
+        +'<div style="display:flex;gap:10px;margin-top:12px"><button type="button" id="cgCancel" class="lvbtn" style="flex:1;font-size:18px;padding:12px;background:#e6ebf2;color:#0B1F3A">रद्द करें</button><button type="button" id="cgNext" class="lvbtn gold" style="flex:2;font-size:18px;padding:12px">आगे बढ़ें</button></div>'
+        +'</div>'
+        +'<div id="cgStep2" style="display:none">'
+        +'<div style="font-weight:800;font-size:20px;color:#0B1F3A">एक बार फिर देख लीजिए</div>'
+        +'<div style="background:#EAF3EC;border:1.5px solid #2E7D32;border-radius:10px;padding:11px;margin-top:8px;font-size:20px;font-weight:800;overflow-wrap:anywhere"><span id="cgShowRel"></span> <span id="cgShowName" data-i18n-skip></span></div>'
+        +'<div style="font-size:16px;margin-top:8px">वर्तनी ठीक है? सहेजने के बाद यह नाम नहीं बदलेगा। ग़लती रह जाए, तो उसे सिर्फ़ ACS दफ़्तर ठीक कर सकता है।</div>'
+        +'<div id="cgErr2" style="color:#B23A3A;font-size:16px;font-weight:700;min-height:28px"></div>'
+        +'<div style="display:flex;gap:10px;margin-top:6px"><button type="button" id="cgBack" class="lvbtn" style="flex:1;font-size:18px;padding:12px;background:#e6ebf2;color:#0B1F3A">← बदलें</button><button type="button" id="cgSave" class="lvbtn gold" style="flex:2;font-size:18px;padding:12px">हाँ, हमेशा के लिए सहेजें</button></div>'
+        +'</div>'
+        +'<div id="cgStep3" style="display:none">'
+        +'<div style="font-weight:800;font-size:20px;color:#2E7D32" id="cgDoneHead">✅ नाम server में हमेशा के लिए सहेज लिया गया।</div>'
+        +'<div style="background:#EAF3EC;border:1.5px solid #2E7D32;border-radius:10px;padding:11px;margin-top:8px;font-size:20px;font-weight:800;overflow-wrap:anywhere"><span id="cgDoneRel"></span> <span id="cgDoneName" data-i18n-skip></span></div>'
+        +'<div style="font-size:16px;margin-top:8px">अब यही नाम आपके प्रमाणपत्र पर छपेगा।</div>'
+        +'<div style="display:flex;margin-top:12px"><button type="button" id="cgGo" class="lvbtn gold" style="flex:1;font-size:18px;padding:12px">🖨️ प्रमाणपत्र निकालें</button></div>'
+        +'</div></div>';
+      document.body.appendChild(ov);
+      const $=function(id){ return ov.querySelector("#"+id); }, inp=$("cgName");
+      const step=function(n){ [1,2,3].forEach(function(i){ $("cgStep"+i).style.display=(i===n?"":"none"); }); };
+      const end=function(v){ ov.remove(); done(v); };
+      /* रजिस्ट्रेशन में "पिता/माता का नाम" लिखा हो, तो वही पहले से भरा रहता है; रिश्ता विद्यार्थी ख़ुद चुनता है */
+      try{ const fnm=String((EXT_REG&&EXT_REG.father_name)||"").replace(/\s+/g," ").trim(); if(fnm && certGuardNameOk(fnm)) inp.value=fnm; }catch(e){}
+      let pick=null;
+      const read=function(){ const r=ov.querySelector('input[name="cgRel"]:checked'), nm=String(inp.value||"").replace(/\s+/g," ").trim();
+        if(!r){ $("cgErr").textContent="पहले तीन में से एक चुनिए।"; return null; }
+        if(!certGuardNameOk(nm)){ $("cgErr").textContent="नाम सही नहीं है। नाम में सिर्फ़ अक्षर हों (2 से 60), अंक या चिह्न नहीं।"; return null; }
+        $("cgErr").textContent=""; return {rel:r.value, name:nm}; };
+      $("cgCancel").onclick=function(){ end(null); };
+      $("cgNext").onclick=function(){ const v=read(); if(!v) return; pick=v; $("cgShowRel").textContent=CERT_REL_HI[v.rel]; $("cgShowName").textContent=v.name; $("cgErr2").textContent=""; step(2); };
+      $("cgBack").onclick=function(){ step(1); };
+      $("cgSave").onclick=async function(){ if(!pick) return; const b=$("cgSave"); b.disabled=true; $("cgBack").disabled=true; $("cgErr2").textContent="";
+        try{ const r=await httpsCallable(functions,"certGuardianSave")({rel:pick.rel, name:pick.name}), g=(r.data||{}).guardian;
+          if(!g || !CERT_REL_HI[g.rel] || !g.name) throw new Error("server से नाम वापस नहीं मिला।");
+          CERT_GUARD={rel:g.rel, name:String(g.name)};
+          if((r.data||{}).already) $("cgDoneHead").textContent="ℹ️ आपका नाम पहले से सहेजा हुआ है। वही छपेगा।";
+          $("cgDoneRel").textContent=CERT_REL_HI[g.rel]; $("cgDoneName").textContent=g.name; step(3);
+        }catch(e){ $("cgErr2").textContent=String((e&&e.message)||e); b.disabled=false; $("cgBack").disabled=false; } };
+      $("cgGo").onclick=function(){ end(CERT_GUARD); };
+    });
+  }
   function drawSeal(x,cx,cy,r,line1,line2){
     x.save(); x.strokeStyle="#0B1F3A55"; x.lineWidth=2.5; x.setLineDash([5,4]);
     x.beginPath(); x.arc(cx,cy,r,0,7); x.stroke(); x.setLineDash([]);
@@ -2224,16 +2340,21 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     x.font="800 48px "+FF; x.fillStyle="#1565C0";
     x.fillText("Online Course Completion Certificate",CX,y); y+=92;
 
-    /* नाम: मुख्य-फ़ोकस। (v1.1, ऑडिट) पिता/अभिभावक की पंक्ति यहाँ नहीं छपती: रजिस्ट्रेशन में यह नाम लिया ही नहीं जाता,
-       और ख़ाली "S/o ____" हर विद्यार्थी (लड़की पर भी) ग़लत रिश्ता छापता। असली data आए, तभी यह पंक्ति जुड़े। */
+    /* नाम: मुख्य-फ़ोकस। (v1.1, ऑडिट) "S/o ____" हर विद्यार्थी (लड़की पर भी) ग़लत रिश्ता छापता था: हटाया। */
     x.font="700 27px "+FF; x.fillStyle="#0B1F3A";
     x.fillText("This is to certify that",CX,y); y+=82;
-    const nmEn=certNameEn(c.name)||"—"; let ns=60;   /* लंबा नाम: अक्षर छोटे होते हैं, ताकि नाम किनारे से बाहर न जाए */
-    x.font="800 "+ns+"px "+FF; while(ns>34 && x.measureText(nmEn).width>W-240){ ns-=2; x.font="800 "+ns+"px "+FF; }
-    x.fillStyle="#2E7D32"; x.fillText(nmEn,CX,y); y+=18;
-    const uw=Math.max(240, Math.min((W-200)/2, x.measureText(nmEn).width/2+24));   /* रेखा नाम जितनी चौड़ी */
+    /* (v6.17.0) नाम के आगे "Name:"; नीचे वह नाम जो विद्यार्थी ने ख़ुद चुना और server में सहेजा (Father's / Mother's / Guardian's name)।
+       दोनों पंक्तियाँ fitRich से: सुरक्षित चौड़ाई (W-240) से बाहर कभी नहीं; ज़रूरत हो तो 2 पंक्तियाँ। रिश्ता बताने वाला "S/o" या "D/o" कभी नहीं। */
+    const SAFE=W-240, nmEn=certNameEn(c.name)||"—", gd=c.guardian||null;
+    const fN=fitRich(x, [{text:"Name:", font:"700 27px "+FF, color:"#0B1F3A"},{text:nmEn, font:"", color:"#2E7D32"}], 1, function(p){ return "800 "+p+"px "+FF; }, 60, 34, 22, CX, y, SAFE, 56);
+    let extra=(fN.n-1)*56; y+=extra+18;
+    const uw=Math.max(240, Math.min(SAFE/2, fN.w/2+24));   /* रेखा नाम जितनी चौड़ी */
     x.strokeStyle="#2E7D32"; x.lineWidth=3;
-    x.beginPath(); x.moveTo(CX-uw,y); x.lineTo(CX+uw,y); x.stroke(); y+=98;
+    x.beginPath(); x.moveTo(CX-uw,y); x.lineTo(CX+uw,y); x.stroke(); y+=46;
+    if(gd && CERT_REL_EN[gd.rel]){
+      const fG=fitRich(x, [{text:CERT_REL_EN[gd.rel], font:"700 24px "+FF, color:"#0B1F3A"},{text:certGuardEn(gd.name)||"-", font:"", color:"#0B1F3A"}], 1, function(p){ return "800 "+p+"px "+FF; }, 24, 17, 14, CX, y, SAFE, 32);
+      extra+=(fG.n-1)*32; y+=(fG.n-1)*32; }
+    y+=66;
 
     /* प्रमाणीकरण-वाक्य */
     const navy="700 28px "+FF, navyB="800 30px "+FF;
@@ -2246,13 +2367,13 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     ], CX, y, W-260, 48);
     y += (nEn-1)*48 + 78;
     x.font="700 26px "+FF; x.fillStyle="#0B1F3A";
-    x.fillText("We wish him/her a bright future.",CX,y); y+=120;
+    x.fillText("We wish him/her a bright future.",CX,y); y+=106-Math.min(46,extra);   /* नाम 2 पंक्तियों में गया हो, तो उतनी जगह यहाँ से घटती है */
 
     /* प्रमाणपत्र-नंबर */
     x.fillStyle="#0B1F3A"; x.font="800 34px monospace";
     x.fillText(c.certNo,CX,y); y+=36;
     x.font="700 20px "+FF; x.fillStyle="#4a5a70";
-    x.fillText("Certificate No",CX,y); y+=110;
+    x.fillText("Certificate No",CX,y); y+=110-Math.min(40,Math.max(0,extra-46));
 
     /* QR बायीं तरफ़, हस्ताक्षर और मुहर दायीं तरफ़ */
     const rowY=y, leftX=CX-300, rightX=CX+260;
@@ -2306,8 +2427,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   }
   /* चौथा-दौर (31-Jul, Founder — A4-PDF + Founder-लिखा rich-paragraph प्रारूप + पिता-का-नाम + border
      वापस + trademark-जैसा watermark + पूरा-पेज भराव): असली node-canvas+असली-फ़ॉन्ट से कई दौर जाँचा।
-     🟠 पिता/अभिभावक का नाम अभी भी placeholder (________) है — registrations में सिर्फ़ guardian का
-     मोबाइल-नंबर लिया जाता है, नाम कहीं नहीं — server-side नई field चाहिए (Founder को बताया)। */
+     (v6.17.0, 15-Nov-2026) पिता / माता / अभिभावक का नाम अब ख़ाली रेखा नहीं: विद्यार्थी से पूछकर server में एक बार सहेजा जाता है
+     (certGuardAsk, server का certGuardianSave)। रजिस्ट्रेशन का "पिता/माता का नाम" (father_name) डिब्बे में पहले से भरा रहता है। */
   /* पाँचवाँ-दौर — Founder-अनुमोदित अंतिम डिज़ाइन (31-Jul): पोर्ट्रेट A4-PDF, दोनों लोगो कोनों में,
      संस्था-नाम केंद्र में बड़े, प्रमाणपत्र-शीर्षक अकेली-पंक्ति, learner-नाम मुख्य-फ़ोकस (बड़ा/बोल्ड/हरा,
      हिंदी+अंग्रेज़ी दोनों), पिता-नाम placeholder, rich-paragraph प्रमाणीकरण-वाक्य (हिंदी+अंग्रेज़ी),
@@ -2315,8 +2436,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
      3-सूचना, बोल्ड-मोटा स्लोगन "130 भाषा में, गाँव से ग्लोबल साउथ तक!" लंबी रेखा के साथ, मुख्यालय-पता
      सबसे नीचे, चारों कोनों में ACS के 4 ब्रांड-रंग त्रिकोण, केंद्र में बड़ा ट्रेडमार्क-जैसा watermark +
      सघन दोहराया-पैटर्न। पाँच दौर के असली node-canvas+असली-Devanagari-फ़ॉन्ट preview से जाँचा।
-     🟠 पिता/अभिभावक का नाम अभी भी placeholder (________) है — registrations में सिर्फ़ guardian का
-     मोबाइल-नंबर लिया जाता है, नाम कहीं नहीं — server-side नई field चाहिए (Founder को बताया)। */
+     (v6.17.0, 15-Nov-2026) पिता / माता / अभिभावक का नाम अब ख़ाली रेखा नहीं: विद्यार्थी से पूछकर server में एक बार सहेजा जाता है
+     (certGuardAsk, server का certGuardianSave)। रजिस्ट्रेशन का "पिता/माता का नाम" (father_name) डिब्बे में पहले से भरा रहता है। */
   async function certDraw(c){
     const W=1240,H=1754;   /* A4 पोर्ट्रेट @ 150dpi */
     const cv=document.createElement("canvas"); cv.width=W; cv.height=H;
@@ -2395,21 +2516,31 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     /* learner-नाम मुख्य-फ़ोकस — पैराग्राफ़ से अलग, बड़ा, बोल्ड, हरा (Founder: "मेन फोकस मिलना चाहिए") */
     const fn = findCourseName(c.courseId, c.courseName||c.courseId);
     const nameEn = devToRoman(c.name||"");
-    const fatherPh = "________";
 
     x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
     x.fillText("प्रमाणित किया जाता है कि",CX,y); y+=65;
 
-    x.font="800 56px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#2E7D32";
-    x.fillText(c.name||"—",CX,y); y+=10;
+    /* (v6.16.0, Founder का फ़ैसला 15-Nov-2026) विद्यार्थी के आगे "नाम :", और नीचे "माता / पिता / अभिभावक का नाम :"
+       (पहले "पिता ____" और "S/o ____" छपता था, जो लड़की के प्रमाणपत्र पर ग़लत रिश्ता बताता था)। रेखा हाथ से भरने के लिए है:
+       रजिस्ट्रेशन में यह नाम अभी नहीं लिया जाता। दूरियाँ वही, ताकि नीचे का ढाँचा जहाँ था वहीं रहे। */
+    /* (v6.17.0) नीचे वह नाम जो विद्यार्थी ने ख़ुद चुना और server में सहेजा (पिता / माता / अभिभावक)। चारों पंक्तियाँ fitRich से:
+       सुरक्षित चौड़ाई (W-240) से बाहर कभी नहीं; ज़रूरत हो तो 2 पंक्तियाँ। */
+    const dvF="'Noto Sans Devanagari',sans-serif", SAFEH=W-240, gd=c.guardian||null;
+    const fNh=fitRich(x, [{text:"नाम :", font:"700 26px "+dvF, color:"#0B1F3A"},{text:c.name||"—", font:"", color:"#2E7D32"}], 1, function(p){ return "800 "+p+"px "+dvF; }, 56, 32, 22, CX, y, SAFEH, 58);
+    let extra=(fNh.n-1)*58; y+=extra+10;
+    const uwH=Math.max(240, Math.min(SAFEH/2, fNh.w/2+24));   /* रेखा नाम जितनी चौड़ी (छोटे नाम पर पहले जैसी) */
     x.strokeStyle="#2E7D32"; x.lineWidth=3;
-    x.beginPath(); x.moveTo(CX-240,y); x.lineTo(CX+240,y); x.stroke(); y+=44;
-    x.font="800 26px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
-    x.fillText("पिता "+fatherPh,CX,y); y+=32;
-    x.font="italic 800 22px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#2E7D32";
-    x.fillText(nameEn||"—",CX,y); y+=28;   /* (14-Nov-2026) पहले 8 था: "S/o" वाली पंक्ति English नाम के ऊपर चढ़ जाती थी */
-    x.font="italic 700 17px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
-    x.fillText("S/o "+fatherPh,CX,y); y+=34;   /* ऊपर 20 बढ़ाए, यहाँ 20 घटाए: नीचे का पूरा ढाँचा जहाँ था वहीं */
+    x.beginPath(); x.moveTo(CX-uwH,y); x.lineTo(CX+uwH,y); x.stroke(); y+=44;
+    if(gd && CERT_REL_HI[gd.rel]){
+      const f2=fitRich(x, [{text:CERT_REL_HI[gd.rel], font:"800 24px "+dvF, color:"#0B1F3A"},{text:gd.name, font:"", color:"#0B1F3A"}], 1, function(p){ return "800 "+p+"px "+dvF; }, 24, 17, 14, CX, y, SAFEH, 30);
+      extra+=(f2.n-1)*30; y+=(f2.n-1)*30; }
+    y+=32;
+    const f3=fitRich(x, [{text:"Name:", font:"italic 700 17px "+dvF, color:"#4a5a70"},{text:nameEn||"—", font:"", color:"#2E7D32"}], 1, function(p){ return "italic 800 "+p+"px "+dvF; }, 22, 15, 12, CX, y, SAFEH, 26);
+    extra+=(f3.n-1)*26; y+=(f3.n-1)*26+28;
+    if(gd && CERT_REL_EN[gd.rel]){
+      const f4=fitRich(x, [{text:CERT_REL_EN[gd.rel], font:"italic 700 17px "+dvF, color:"#4a5a70"},{text:certGuardEn(gd.name)||"-", font:"", color:"#4a5a70"}], 1, function(p){ return "italic 700 "+p+"px "+dvF; }, 17, 13, 11, CX, y, SAFEH, 22);
+      extra+=(f4.n-1)*22; y+=(f4.n-1)*22; }
+    y+=34;
 
     /* Founder-लिखा rich-paragraph प्रारूप, दोनों भाषा */
     const navy="700 26px 'Noto Sans Devanagari',sans-serif", navyB="800 28px 'Noto Sans Devanagari',sans-serif";
@@ -2435,13 +2566,13 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     x.font="700 24px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
     x.fillText("हम इनके उज्ज्वल भविष्य की कामना करते हैं।",CX,y); y+=40;
     x.font="italic 700 16px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#6b7a90";
-    x.fillText("We wish him/her a bright future.",CX,y); y+=89;
+    x.fillText("We wish him/her a bright future.",CX,y); y+=89-Math.min(40,extra);   /* नाम 2 पंक्तियों में गया हो, तो उतनी जगह यहाँ से घटती है */
 
     /* प्रमाणपत्र-नंबर बड़ा (Founder: "बहुत छोटा है") */
     x.fillStyle="#0B1F3A"; x.font="800 32px monospace";
     x.fillText(c.certNo,CX,y); y+=35;
     x.font="700 19px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#4a5a70";
-    x.fillText("प्रमाणपत्र नं / Certificate No",CX,y); y+=96;
+    x.fillText("प्रमाणपत्र नं / Certificate No",CX,y); y+=96-Math.min(36,Math.max(0,extra-40));
 
     /* QR बायीं तरफ़, सिर्फ़ FFGPMT का हस्ताक्षर+मुहर दायीं तरफ़ ("प्रधान ट्रस्टी, FFGPMT") */
     const rowY=y;

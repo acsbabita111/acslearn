@@ -9,7 +9,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 302,
+ "count": 305,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -327,8 +327,7 @@
    "hi": "login ज़रूरी है",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "login ज़रूरी।",
@@ -413,22 +412,19 @@
    "hi": "roomId व सही kind चाहिए",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "roomId, lang, audioB64 चाहिए",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "sdp ग़लत/बहुत बड़ा",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "seat {0} के गुणक में हो (जैसे {1}, {2} …)",
@@ -698,6 +694,12 @@
    ]
   },
   {
+   "hi": "आपके खाते में अभी कोई प्रमाणपत्र नहीं है।",
+   "in": [
+    "cert_server.js"
+   ]
+  },
+  {
    "hi": "आपातकालीन संपर्क में आवेदक का अपना नंबर नहीं चल सकता",
    "in": [
     "index.js"
@@ -707,15 +709,13 @@
    "hi": "आवाज़ बहुत लंबी है — एक बार में एक-दो वाक्य बोलें",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "आवाज़ समझ नहीं आई: {0}",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "आवेदन नहीं मिला",
@@ -924,7 +924,8 @@
   {
    "hi": "कमरा नहीं मिला",
    "in": [
-    "index.js"
+    "index.js",
+    "vani_bhashini.js"
    ]
   },
   {
@@ -1132,6 +1133,12 @@
    ]
   },
   {
+   "hi": "नाम सही नहीं है। नाम में सिर्फ़ अक्षर हों (2 से 60), अंक या चिह्न नहीं।",
+   "in": [
+    "cert_server.js"
+   ]
+  },
+  {
    "hi": "नामांकन मिला नहीं",
    "in": [
     "index.js"
@@ -1239,6 +1246,12 @@
    ]
   },
   {
+   "hi": "पिता, माता या अभिभावक में से एक चुनिए।",
+   "in": [
+    "cert_server.js"
+   ]
+  },
+  {
    "hi": "प्रगति sync नहीं हुई — {0}",
    "in": [
     "index.js"
@@ -1302,8 +1315,7 @@
    "hi": "फ़ाइल 2MB से बड़ी है",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "फ़ैसला दर्ज नहीं हुआ — {0}",
@@ -1786,8 +1798,7 @@
    "hi": "सिर्फ़ फ़ोटो (jpg/png/webp) या PDF भेज सकते हैं",
    "in": [
     "vani_bhashini.js"
-   ],
-   "from": "office-report"
+   ]
   },
   {
    "hi": "सिर्फ़ स्वीकृत केंद्र/वर्कशॉप — पहले approval पूरा करें",

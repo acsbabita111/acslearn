@@ -56,7 +56,16 @@ ok(!/5 साल का विस्तार: ₹1000"/.test(d), "प्रम�
   var a = d.indexOf("async function certTextEn("), b = d.indexOf("\n  }\n", a), body = a > 0 ? d.slice(a, b).replace(/\/\*[\s\S]*?\*\//g, "") : "";
   ok(body.length > 2500 && !/extension|₹1000|late fee|extend/i.test(body), "English प्रमाणपत्र के चित्र में भी विस्तार की फ़ीस या देर के शुल्क का कोई ज़िक्र नहीं");
   /* (पैनल-4 v1.1, ऑडिट की पकड़) रिश्ते की ख़ाली पंक्ति (हर विद्यार्थी पर "S/o ____") और "Accreditations" शब्द English प्रमाणपत्र पर नहीं */
-  ok(body.length > 2500 && !/S\/o|D\/o|_{3,}|fatherPh/.test(body), "English प्रमाणपत्र पर पिता/रिश्ते की ख़ाली पंक्ति नहीं (असली data आए, तभी जुड़े)");
+  /* (15-Nov-2026, Founder का फ़ैसला) रिश्ता बताने वाली पंक्ति (S/o, D/o, "पिता ____") कहीं नहीं; उसकी जगह बिना-रिश्ते की रेखा, दोनों रूपों में */
+  ok(body.length > 2500 && !/S\/o|D\/o/.test(body) && !/_{4,}/.test(body) && /fitRich\(x, \[\{text:CERT_REL_EN\[gd\.rel\]/.test(body) && /fitRich\(x, \[\{text:"Name:"/.test(body), "English प्रमाणपत्र पर S/o, D/o या ख़ाली रेखा नहीं; नाम और सहेजा हुआ नाम (पिता / माता / अभिभावक) किनारे के भीतर रखने वाले काम (fitRich) से");
+  var cd = d.slice(d.indexOf("async function certDraw(c){"), d.indexOf("/* A4-PDF के रूप में देना")).replace(/\/\*[\s\S]*?\*\//g, "");
+  ok(cd.length > 3000 && !/"S\/o |"पिता "\+/.test(cd) && !/_{4,}|fatherPh/.test(cd) && /fitRich\(x, \[\{text:CERT_REL_HI\[gd\.rel\]/.test(cd) && /fitRich\(x, \[\{text:"नाम :", font:/.test(cd) && (cd.match(/fitRich\(/g) || []).length === 4, "हिंदी प्रमाणपत्र पर भी \"पिता ____\", \"S/o ____\" या ख़ाली रेखा नहीं; \"नाम :\" और सहेजा हुआ नाम (पिता / माता / अभिभावक), चारों पंक्तियाँ fitRich से");
+  /* (15-Nov-2026, Founder का आदेश) प्रमाणपत्र निकालने से पहले नाम पूछना: तीन में से एक बिंदु; नाम server में एक बार सहेजा जाता है */
+  ok(/if\(!CERT_GUARD\)\{ const g=await certGuardAsk\(\); if\(!g\) return; \}\s*certDraw\(Object\.assign\(\{\},c0,\{examOn:ci\.examOn,issuedOn:ci\.issuedOn,validUntil:ci\.validUntil,guardian:CERT_GUARD\}\)\);/.test(d), "प्रमाणपत्र तभी निकलता है जब नाम सहेजा हो: पहले पूछना (certGuardAsk), रद्द हो तो कुछ नहीं; certDraw को वही सहेजा नाम जाता है");
+  var ga = d.indexOf("function certGuardAsk(){"), gb = d.indexOf("\n  }\n", ga), gq = ga > 0 ? d.slice(ga, gb) : "";
+  ok(gq.length > 3000 && (gq.match(/row\("(father|mother|guardian)",/g) || []).join() === 'row("father",,row("mother",,row("guardian",' && /type="radio" name="cgRel"/.test(gq) && (gq.match(/httpsCallable\(functions,"certGuardianSave"\)/g) || []).length === 1 && /CERT_GUARD=\{rel:g\.rel, name:String\(g\.name\)\};/.test(gq) && !/CERT_GUARD=\{rel:pick/.test(gq), "नाम पूछने वाला डिब्बा: पिता, माता, अभिभावक के तीन बिंदु एक ही समूह में; सहेजना सिर्फ़ server के certGuardianSave से; छपने वाला नाम वही जो server ने लौटाया");
+  ok(/हमेशा के लिए सहेजा जाएगा/.test(gq) && /नहीं बदल सकेंगे/.test(gq) && /हमेशा के लिए सहेज लिया गया/.test(gq), "डिब्बे में चेतावनी (हमेशा के लिए सहेजा जाएगा; बाद में नहीं बदलेगा) और सहेजने के बाद की सूचना");
+  ok(!/setDoc|updateDoc|addDoc/.test(gq) && !/certGuardians/.test(d), "browser से यह नाम सीधे नहीं लिखा जाता (certGuardians का नाम dashboard.js में कहीं नहीं)");
   ok(body.length > 2500 && !/accredit/i.test(body) && /x\.fillText\("Institutional Details",CX,y\+8\)/.test(body), "English प्रमाणपत्र पर \"Accreditations\" शब्द नहीं; शीर्षक \"Institutional Details\"");
   ok(/"held on "\+certDayEn\(c\.examOn\)\+", with"/.test(body) && !/issuedOn[^\n]*held on/.test(body) && /"Issued "\+certDayNum\(c\.issuedOn\)\+" · Online verification valid till "\+certDayNum\(c\.validUntil\)\+" \(acslearn\.com\/verify\)"/.test(body), "English प्रमाणपत्र पर भी परीक्षा-तिथि परीक्षा के रिकॉर्ड से, और जारी/मान्य तिथि server से");
 })();
@@ -153,7 +162,7 @@ console.log("3-ङ. विद्यार्थी का नियम-पत्
   });
   ok(bad.length === 0, "English और 13 भाषाओं के नियम-पत्र: संस्करण 1.2, और नियम 6 तथा 7 के नए हिस्से सब रक़मों के साथ" + (bad.length ? " | दोष: " + bad.join(", ") : ""));
   var jn = rd("join.html");
-  ok(/function expectedRulesVer\(\)\{ return isLearnerRomanOnly\(\) \? '1\.2' : '1\.1'; \}/.test(jn) && /consent_rules_version: expectedRulesVer\(\),/.test(jn), "रजिस्ट्रेशन-फ़ॉर्म विद्यार्थी के लिए संस्करण 1.2 भेजता है (बाक़ी भूमिकाओं के लिए 1.1)");
+  ok(/function expectedRulesVer\(\)\{ return isLearnerRomanOnly\(\) \? '1\.2' : '1\.1'; \}/.test(jn) && jn.indexOf("consent_rules_version: (isLearnerRomanOnly() ? expectedRulesVer() : (rulesShownVer || expectedRulesVer())),") > -1 && jn.indexOf("rulesShownLang = rulesLang; rulesShownVer = hv;") > -1, "रजिस्ट्रेशन-फ़ॉर्म विद्यार्थी के लिए संस्करण 1.2 भेजता है (बाक़ी भूमिकाओं के लिए उसी भूमिका के हिंदी नियम-पत्र की संख्या; पैनल-5)");
   /* (v1.1) दोबारा सहमति अनिवार्य: एक साझा परदा, तीन जगह से बुलाया जाता है; server पर भी वही जाँच */
   var rg = rd("assets/rules-gate.js");
   ok(/export function rulesGate\(o\)/.test(rg) && /o\.httpsCallable\(o\.functions, "rulesStatus"\)/.test(rg) && /o\.httpsCallable\(o\.functions, "rulesAccept"\)/.test(rg) && /okb\.disabled = !chk\.checked/.test(rg) && /accept\(\{ version: st\.current, language: readLang \}\)/.test(rg) && /id="rulesGateRetry"/.test(rg), "साझा परदा (assets/rules-gate.js): server से पूछता है; निशान लगाए बिना बटन बंद; सहमति server को जाती है; जवाब न मिले तो भी परदा (दोबारा कोशिश)");
