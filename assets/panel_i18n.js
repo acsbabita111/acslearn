@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.1 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख)
+   panel_i18n.js v1.2 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2)
+   • (v1.2) <span data-tr-en="...">हिंदी</span> : data (कोर्स/भाषा के नाम) का English उसी data से; खाली मान = English में न दिखे।
+   • (v1.2) data-h attribute भी बदलता है; textarea का placeholder भी; एक ही पाठ का अनुवाद याद (MEMO)।
+   • (v1.2) भाषा-पट्टी के हर बटन पर भाषा का नाम तीनों रूप में: देवनागरी · रोमन · अपनी लिपि (Founder-नियम, 15-Nov-2026)।
    Founder-नियम (15-Nov-2026): पहले पूरा पैनल English, फिर बांग्ला, कन्नड़,
    मराठी; उसके बाद ही किसी कोर्स का अनुवाद।
    • 1 इंजन + भाषा-पैक (/assets/i18n/panel_<भाषा>.js, generator से बना)।
@@ -24,13 +27,16 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.1";
+var VER="1.2";
 var LSK="acs_dash_lang";
-/* पैनल की भाषाएँ: [कोड, अपना नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक। */
-var LANGS=[["hi","हिंदी"],["en","English"]];
+/* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
+   (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
+   (जो रूप दूसरे जैसा ही हो, वह दोबारा नहीं)। तीनों नाम साइट के 🌐 बटन की तालिका (acs-universal.js:
+   ACS_LANG_DEVA, ACS_LANG_ROMAN, ACS_LANG_NAMES) से हूबहू; पहरा: dev_lang_switch_check.js। */
+var LANGS=[["hi","हिन्दी","Hindi","हिन्दी"],["en","अंग्रेज़ी","English","English"]];
 var PACK={en:"/assets/i18n/panel_en.js"};
 var DEVC=/[ऀ-ॿ]/;
-var ATTRS=["placeholder","title","aria-label","alt","label"];
+var ATTRS=["placeholder","title","aria-label","alt","label","data-h"];   /* (v1.2) data-h: dashboard में CSS ::before से दिखता है */
 var NAV_SEL=".acs-drawer a,.acs-fmenu a,#acsMenuList a,.acs-nav a";
 
 function known(c){ return c==="hi"||!!PACK[c]; }
@@ -43,6 +49,7 @@ function pick(){
 }
 
 var CUR="hi", D=null, KEYS=[], GEO={}, ACTIVE=false, mo=null, pend=[], raf=false;
+var MEMO={};   /* (v1.2) एक ही पाठ बार-बार आए तो दोबारा न खोजें (कमज़ोर फ़ोन) */
 var ORIG=(typeof WeakMap==="function")?new WeakMap():null;   /* textNode → {o:मूल, t:अनुवाद} */
 var AORIG=(typeof WeakMap==="function")?new WeakMap():null;  /* element → {attr:{o,t}} */
 
@@ -90,8 +97,13 @@ function skipped(el){
   return false;
 }
 function doText(n){
-  var v=n.nodeValue; if(!v||!DEVC.test(v)) return;
-  var nv=tr(v); if(nv===v) return;
+  var v=n.nodeValue, p=n.parentNode, alt;
+  /* (v1.2) data का English: पाठ का अकेला पिता data-tr-<भाषा> रखे, तो वही (खाली हो तो कुछ नहीं दिखता) */
+  if(p&&p.nodeType===1&&p.childNodes.length===1&&p.hasAttribute("data-tr-"+CUR)){
+    alt=p.getAttribute("data-tr-"+CUR); if(alt===v) return;
+    if(ORIG) ORIG.set(n,{o:v,t:alt}); n.nodeValue=alt; return; }
+  if(!v||!DEVC.test(v)) return;
+  var nv=MEMO.hasOwnProperty(v)?MEMO[v]:(MEMO[v]=tr(v)); if(nv===v) return;
   if(ORIG) ORIG.set(n,{o:v,t:nv});
   n.nodeValue=nv;
 }
@@ -99,7 +111,9 @@ function doAttrs(root){
   if(!root.querySelectorAll) return;
   var i,j,a,els,el,v,nv,rec,list=[root];
   els=root.querySelectorAll("*"); for(j=0;j<els.length;j++) list.push(els[j]);
-  for(j=0;j<list.length;j++){ el=list[j]; if(el.nodeType!==1||skipped(el)) continue;
+  for(j=0;j<list.length;j++){ el=list[j]; if(el.nodeType!==1) continue;
+    /* (v1.2) textarea का भीतर का पाठ उपयोगकर्ता का है, पर उसका placeholder/title बदलते हैं */
+    if(el.tagName==="TEXTAREA"?(skipped(el.parentNode)||el.hasAttribute("data-i18n-skip")||el.getAttribute("translate")==="no"):skipped(el)) continue;
     for(i=0;i<ATTRS.length;i++){ a=ATTRS[i]; v=el.getAttribute(a);
       if(v&&DEVC.test(v)){ nv=tr(v); if(nv!==v){
         if(AORIG){ rec=AORIG.get(el)||{}; rec[a]={o:v,t:nv}; AORIG.set(el,rec); }
@@ -224,6 +238,13 @@ function wrapDialogs(){
 function unwait(){ try{ document.documentElement.classList.remove("acs-i18n-wait"); }catch(e){} }
 
 /* भाषा-पट्टी */
+/* बटन का नाम: देवनागरी · रोमन · अपनी लिपि; दोहराव हटाकर (हिन्दी · Hindi, अंग्रेज़ी · English) */
+function names3(L){
+  var out=[], seen={}, k, x, lg=["hi","en",L[0]];
+  for(k=1;k<4;k++){ x=L[k]; if(!x||seen[x.toLowerCase()]) continue; seen[x.toLowerCase()]=1;
+    out.push('<span lang="'+lg[k-1]+'" dir="auto">'+x+'</span>'); }
+  return out.join(' · ');
+}
 function bar(){
   if(!document.body) return;
   var b=document.getElementById("acsPanelLangBar");
@@ -238,7 +259,7 @@ function bar(){
   for(i=0;i<LANGS.length;i++){
     var c=LANGS[i][0], on=(c===CUR);
     h+='<button type="button" data-plang="'+c+'" aria-pressed="'+(on?"true":"false")+'" style="font:inherit;font-size:16px;font-weight:700;padding:6px 14px;border-radius:999px;cursor:pointer;border:2px solid #1565C0;'
-      +(on?'background:#1565C0;color:#fff':'background:#fff;color:#1565C0')+'">'+LANGS[i][1]+'</button>';
+      +(on?'background:#1565C0;color:#fff':'background:#fff;color:#1565C0')+'">'+names3(LANGS[i])+'</button>';
   }
   b.innerHTML=h;
   var bs=b.querySelectorAll("button[data-plang]");
@@ -256,12 +277,12 @@ function load(c, cb){
   (document.head||document.documentElement).appendChild(s);
 }
 function useLang(c, cb){
-  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[];
+  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={};
     try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); emit(); if(cb) cb(true); return; }
   load(c, function(pk){
     if(!pk){ unwait(); bar(); if(cb) cb(false); return; }
     if(ACTIVE&&CUR!==c){ ACTIVE=false; restore(); }
-    CUR=c; D=pk.D; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; });
+    CUR=c; D=pk.D; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; });
     GEO={}; var g=pk.G||[], gi; for(gi=0;gi<g.length;gi++) GEO[g[gi]]=1;
     function go(){ activate(); unwait(); emit(); if(cb) cb(true); }
     if(document.body&&document.readyState!=="loading") go(); else document.addEventListener("DOMContentLoaded",go);

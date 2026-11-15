@@ -30,6 +30,8 @@
      ════════════════════════════════════════════════════════════════ -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/dashboard.css"/>
+<!-- (15-Nov-2026, पैनल-2) पैनल का भाषा-इंजन: हिंदी मूल, ऊपर की पट्टी से English (पता वही) -->
+<script src="/assets/panel_i18n.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -46,6 +48,7 @@
     <button class="btn-out" onclick="doLogout()">बाहर निकलें (Logout)</button>
   </div>
   <div class="tagline"><b>130 भाषा में, गाँव से ग्लोबल साउथ तक!</b></div>
+  <div id="acsPanelLangSlot"></div>
 
   <!-- [T2] hold-पट्टी -->
   <div class="holdbar" id="holdBar"></div>
@@ -86,12 +89,12 @@
           <div class="gtag">📸 मेरा फ़ोटो</div>
           <div class="pwrap">
             <img class="pphoto" id="pPhoto" alt="फ़ोटो" style="display:none"/>
-            <div class="pphoto-fb" id="pPhotoFb">👤</div>
+            <div class="pphoto-fb" id="pPhotoFb" data-i18n-skip>👤</div>
           </div>
         </div>
         <div class="gcol">
           <div class="gtag">🪪 मेरी पहचान</div>
-          <div class="pubname" id="pubName">—</div>
+          <div class="pubname" id="pubName" data-i18n-skip>—</div>
           <div class="pubrow"><b>पद:</b> <span id="pubDesig">—</span></div>
           <div class="pubrow"><b>इलाक़ा:</b> <span id="pubArea">—</span></div>
           <div class="pubrow"><b>गृह जिला:</b> <span id="pubDist">—</span></div>
@@ -116,7 +119,7 @@
       <div class="note" id="photoUpMsg"></div>
 
       <div class="pgrid">
-        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName">—</div></div>
+        <div class="pitem"><div class="k">नाम</div><div class="v" id="pName" data-i18n-skip>—</div></div>
         <div class="pitem"><div class="k">आवेदन-क्रमांक (Reg No)</div><div class="v" id="pReg">—</div></div>
         <div class="pitem"><div class="k">स्तर</div><div class="v" id="pLevel">—</div></div>
         <div class="pitem"><div class="k">कार्य-क्षेत्र</div><div class="v" id="pArea">—</div></div>

@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.13.0 · 15-Nov-2026 (पैनल-2): सब 31 dashboard English में, पैनल के साझा भाषा-इंजन /assets/panel_i18n.js से (पुरानी learner-परत dash_i18n_en.js हटी)।
+     Founder-नियम (15-Nov): भाषा-कार्ड और भाषा-कोर्स के कार्ड पर भाषा का नाम हमेशा देवनागरी + रोमन (+ अपनी लिपि का अक्षर), हर पैनल-भाषा में (LN)।
    v6.12.1 · 14-Nov-2026 (खेप 4 भाग 2 v1.3): दोबारा सहमति का परदा अब साझा फ़ाइल /assets/rules-gate.js से (v6.12.0 में वह इसी फ़ाइल के भीतर था); वह फ़ाइल न लदे तो भी परदा।
    v6.12.0 · 14-Nov-2026 (खेप 4 भाग 2): विद्यार्थी का नियम-पत्र बदला हो, तो dashboard खुलते ही दोबारा सहमति का परदा (Founder का फ़ैसला 2-ब); सहमति server पर दर्ज होती है।
    v6.11.0 · 14-Nov-2026 (खेप 4 भाग 1): कोर्स के प्रमाण पत्र (₹125) के भुगतान से पहले पूछना और बताना कि यह फ़ीस वापस नहीं होती (Founder का फ़ैसला 1-अ)।
@@ -116,7 +118,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.12.1";
+const DASH_VER = "v6.13.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -156,12 +158,8 @@ function pubName(a){
 }
 /* v1.3-(क) की तीन प्रशिक्षु-श्रेणियाँ — approval-द्वार नहीं (login के NO_OTP जैसा दर्ज-स्थिरांक) */
 const NO_GATEWAY_EXT = ["student","jobseeker","entrepreneur"];
-/* v6.7.1 early-load (09-Nov-2026, ऑडिट-सुधार): learner-पेज पहचानते ही English-परत —
-   registration-lookup से पहले, ताकि loading/deny/error अवस्था में भी toggle व English मिले।
-   1 इंजन + strings-pack; वही URL; default हिंदी अटल (localStorage "acs_dash_lang")। */
-if(MODE==="external" && ALLOWED.some(function(r){return NO_GATEWAY_EXT.indexOf(String(r).toLowerCase())>-1;})){
-  try{ import("/assets/dash_i18n_en.js").catch(function(){}); }catch(e){}
-}
+/* (v6.13.0, 15-Nov-2026, पैनल-2) English अब पैनल के साझा भाषा-इंजन /assets/panel_i18n.js से (सब 31 dashboard,
+   पन्ने के <head> में)। पुरानी learner-परत (dash_i18n_en.js) हटी। भाषा वही localStorage "acs_dash_lang"। */
 
 function show(id){
   ["loadView","denyView","appView"].forEach(v=>$(v).classList.add("hidden"));
@@ -190,6 +188,16 @@ function showLoadError(context, e){
   console.error("[ACS guard]", context, e);
 }
 function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+/* (v6.13.0, पैनल-2) data का English रूप: भाषा-इंजन (panel_i18n.js) English में data-tr-en वाला पाठ दिखाता है;
+   हिंदी में कुछ नहीं बदलता। TT = English मालूम हो तो; HIDE = English में न दिखे (जैसे दोहराया Roman नाम);
+   US = उपयोगकर्ता का अपना लिखा (नाम आदि): कभी नहीं बदलता। */
+function TT(hi, en){ en=(en==null)?"":String(en).trim(); return en ? '<span data-tr-en="'+esc(en)+'">'+hi+'</span>' : hi; }
+function HIDE(hi){ return '<span data-tr-en="">'+hi+'</span>'; }
+function US(t){ return '<span data-i18n-skip>'+esc(t)+'</span>'; }
+/* (v6.13.0, Founder-नियम 15-Nov-2026) भाषा के बटन/कार्ड पर भाषा का नाम हमेशा देवनागरी · रोमन · अपनी लिपि में:
+   यह नाम किसी भी पैनल-भाषा में नहीं बदलता (हिंदी नाम English में भी दिखता है)। सिर्फ़ भाषा के नाम के लिए। */
+function LN(t){ return '<span data-i18n-skip data-lname>'+t+'</span>'; }
+function bracketEn(t){ const m=/\[([^\]]+)\]\s*$/.exec(String(t||"")); return m ? m[1].trim() : ""; }
 
 /* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
 /* registration-दस्तावेज़ से DP (Founder-आदेश 19-Jul: व्यक्ति का upload किया
@@ -585,7 +593,7 @@ async function guardTeamRender(user, team, desig){
   /* ── topbar व pill + login-पहचान (v1.6-ङ2 होल बंद) ── */
   setTxt("desigPill", mxLabel(desig) + (isActive ? "" : " (अस्थायी — जाँच में)"));
   const whoName = team.name_local || team.name_roman || team.name || team.fullName || (user.email||"");
-  setTxt("tbWho", "👤 " + whoName + " · " + mxLabel(desig));
+  $("tbWho").innerHTML = "👤 " + US(whoName) + " · " + esc(mxLabel(desig));
   $("tbWho").title = "UID: " + user.uid;
   const homeDist = (team.region && team.region.length ? team.region[0] : (team.district||""));
   const pubArea = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
@@ -802,7 +810,7 @@ function drawApps(){
     const el = document.createElement("div");
     el.className = "app";
     el.innerHTML =
-      '<div class="r1"><span class="nm">'+esc(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
+      '<div class="r1"><span class="nm" data-i18n-skip>'+esc(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
       '<span class="rg">('+esc(a.regNo||a._id)+')</span>'+stChip+
       '<span class="chip lvl">'+esc(lvl)+'</span></div>'+
       '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+esc(area)):'')+(a.email?(' · ✉️ '+esc(a.email)):'')+'</div>'+
@@ -907,7 +915,7 @@ async function loadTeamPanel(myDesig){
       acts += '<div class="msg" id="hmsg-'+m._uid+'"></div>';
     }
     el.innerHTML =
-      '<div class="r1"><span class="nm">'+esc(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
+      '<div class="r1"><span class="nm" data-i18n-skip>'+esc(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
       + '<span class="pill">'+mxLabel(d)+'</span>'+stChip
       + (m.level && String(m.level).toUpperCase()!==mxLabel(d).toUpperCase() ? '<span class="chip lvl">'+esc(String(m.level).toUpperCase())+'</span>':'')+'</div>'
       + (holdRec?'<div class="hres">कारण: '+esc(holdRec.reason||"—")+'</div>':'')
@@ -1135,7 +1143,7 @@ async function guardExternalRender(user, reg){
   setTxt("pArea", area || "—");
   setTxt("pEmail", reg.email || (user.email||"—"));
   setTxt("pPhone", reg.phone || reg.mobile || "—");
-  setTxt("tbWho", "👤 " + whoName + " · " + (reg.regNo||ROLE_LABEL));
+  $("tbWho").innerHTML = "👤 " + US(whoName) + " · " + esc(reg.regNo||ROLE_LABEL);
   $("tbWho").title = "UID: " + user.uid;
   window.ACS_REGNO = reg.regNo || "";   /* (29-Jul K2) badge-मॉड्यूल हेतु regNo साझा-याद */
   const ffD = reg.formFields || {};
@@ -1299,6 +1307,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   function isLangCourse(c){ return /काम की भाषा|Certificate in Spoken/.test(String(c.name_hi||"")); }
   function isLang90(c){ return /Certificate in Spoken/.test(String(c.name_hi||"")); }
   function langShort(c){ /* 10-Sep (Founder-टोक): नए v6.1 नाम-रूप "X बोलने का प्रमाणपत्र कोर्स (…) — स्तर 1+2" पर पुराना तर्क "स्तर 1+2" पकड़ता था — अब पहला हिंदी-हिस्सा, फिर "बोलने" से पहले का नाम (courses/hi के kkbName से एकरूप) */ let n=String(c.name_hi||"").split("·")[0]; if(n.indexOf("प्रमाणपत्र कोर्स")>-1){ n=n.split("बोलने")[0]; if(n.indexOf("—")>-1) n=n.split("—").pop(); } else if(n.indexOf("—")>-1) n=n.split("—")[1]; return n.split("(")[0].replace("बोलने का पूरा कोर्स","").replace("बोलना","").trim(); }
+  function langRoman1(c){ const r=langRoman(c); if(r) return r; const e=String(c.name_en||""); const m=e.match(/Introductory\s+([^(—]+?)\s*(\(|—|$)/)||e.match(/(?:Work|Basic|Spoken)\s+([A-Z][^(:—]+?)\s*(\(|:|—|$)/)||e.match(/Certificate in\s+([^(—]+?)\s*(\(|—|$)/); return m?m[1].trim():""; }
   function langRoman(c){ /* name_en "ACS Certificate in Spoken X (Level…)" → "X" — सादगी-नियम v1.9-क5: देवनागरी (Roman) */ const m=String(c.name_en||"").match(/Spoken\s+([^(]+?)\s*(\(|$)/); return m?m[1].trim():""; }
   function crsCard(c, i){
     const ENR=enrGet(); const joined=!!ENR[c.id];
@@ -1307,13 +1316,13 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const exam=!!((window.COURSE_EXAMS||{})[c.id]);
     const lang=isLang90(c);
     const lname = lang ? langShort(c) : ""; const lrom = lang ? langRoman(c) : "";
-    const title = lang ? (lname+(lrom?" ("+lrom+")":"")+" — पूरा कोर्स") : noSq(c.name_hi||c.name_en||"—");
+    const title = lang ? (TT(lname+(lrom?" ("+lrom+")":""), lrom)+" — पूरा कोर्स") : TT(noSq(c.name_hi||c.name_en||"—"), c.name_en);
     const chips = (exam?'<span class="crschip gold">🎓 प्रमाणपत्र-परीक्षा</span>':'')+
       (lang?'<span class="crschip">CEFR A2 पर आधारित</span>':'<span class="crschip">📴 offline भी</span>');
     const meta = [c.lessons?("📄 "+c.lessons+" पाठ"):"", c.duration?("⏱️ "+noSq(c.duration)):""].filter(Boolean).join(" · ")+
-      (((window.__crsAlso||{})[c.id]||[]).length?'<br>🔗 '+window.__crsAlso[c.id].join(", ")+' — इसी कोर्स के भीतर':"");
+      (((window.__crsAlso||{})[c.id]||[]).length?'<br>🔗 '+window.__crsAlso[c.id].map(function(x){ return TT(x.hi, x.en); }).join(", ")+' — इसी कोर्स के भीतर':"");
     const prog = joined||read ? '<div class="crsprog"><div class="crsbar"><i style="width:'+pc+'%"></i></div><span>'+pc+'% पूरा'+(read?" · "+read+"/"+tot:"")+'</span></div>' : "";
-    return '<div class="crscard v2"><div class="crsban'+(lang?" lang":"")+'" style="background:'+CRS_BAND[i%CRS_BAND.length]+'">'+(lang?('<span class="crsln">'+lname+'</span>'+(lrom?'<span class="crslr">'+lrom+'</span>':"")):(CRS_ICON[c.id]||"📚"))+'</div>'+ /* 10-Sep: भाषा-कार्ड की पट्टी = नाम (झंडा-emoji नहीं — Windows पर अक्षर, 🇮🇳 20 भाषाओं पर एक-सा; learner नाम से पहचाने) */
+    return '<div class="crscard v2"><div class="crsban'+(lang?" lang":"")+'" style="background:'+CRS_BAND[i%CRS_BAND.length]+'">'+(lang?('<span class="crsln">'+LN(lname)+'</span>'+(lrom?'<span class="crslr">'+LN(lrom)+'</span>':"")):(CRS_ICON[c.id]||"📚"))+'</div>'+ /* 10-Sep: भाषा-कार्ड की पट्टी = नाम (झंडा-emoji नहीं — Windows पर अक्षर, 🇮🇳 20 भाषाओं पर एक-सा; learner नाम से पहचाने) */
       '<div class="crsbody"><div class="crschips">'+chips+'</div><div class="crsname">'+title+'</div><div class="crsmeta">'+meta+'</div>'+prog+
       '<div class="crsact"><a class="crsgo" href="'+c.url+'">'+(read?"▶ जारी रखें":"▶ पढ़ें — मुफ़्त")+'</a>'+
       (joined?'<span class="crsstep on crsjoined">✅ जुड़ गया</span>':'<button class="abtn crsjoinbtn" type="button" data-enroll="'+c.id+'">➕ जोड़ें</button>')+
@@ -1334,7 +1343,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   function langGlyph(c){ const m=String(c.url||"").match(/\/bhasha\/([a-z-]+)\//); const slug=m?m[1]:""; if(LG_GLYPH[slug]) return LG_GLYPH[slug]; const n=langShort(c); const a=devAkshara(n); const b=devAkshara(n.slice(a.length)); return (a+(/^[\u0900-\u097F]/.test(b)?b:"")).trim(); /* देवनागरी-भाषाएँ: दो अक्षर — "मग"/"मणि"/"मरा" अलग-अलग दिखें */ }
   const LG_TINT=["#FFF3D1","#FFF8E6","#E4F2E5","#E3ECF9","#EEF6EF","#EAF0F8","#E9ECF2"]; /* 7 गलियारे — gold/green/blue/navy के हल्के रूप */
   function lgGroups(){ const G=(window.KKB_GROUPS||[]); const byId={}; G.forEach(function(g,i){ (g.ids||[]).forEach(function(id){ byId[id]=i; }); });
-    const label=function(g){ return String(g.t||"").split("(")[0].replace("भारतीय भाषाएँ — ","भारतीय: ").trim(); }; return {G:G, byId:byId, label:label}; }
+    const label=function(g){ return TT(String(g.t||"").split("(")[0].replace("भारतीय भाषाएँ — ","भारतीय: ").trim(), String(g.en||"").split("(")[0].replace("Indian languages: ","Indian: ").trim()); }; return {G:G, byId:byId, label:label}; }
   function langCard(c, gi, glabel){
     const ENR=enrGet(); const joined=!!ENR[c.id];
     let read=0; try{ read=cntRead(((JSON.parse(localStorage.getItem("acs_learn_progress")||"{}"))||{}).read||{}, c.url); }catch(e){}
@@ -1344,10 +1353,10 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const gl=langGlyph(c);
     /* 10-Sep (Founder-आदेश): नाम केंद्र में, सुनहरे 3D switch पर, बड़ा — एक नज़र में पहचान; नीचे "कौन-सा प्रमाणपत्र मिलेगा" अनिवार्य (v6.1-क नाम-नियम: X बोलने का प्रमाणपत्र = Certificate in Spoken X; CEFR A2 पर आधारित) */
     return '<article class="lgcard v3" data-g="'+(gi>=0?gi:"x")+'" data-nm="'+(nm+" "+rom).toLowerCase()+'" style="--tint:'+(LG_TINT[gi]||"#F5F7FA")+'">'+
-      '<div class="lgtop"><span class="lgglyph'+(gl.length>3?" long":"")+'" aria-hidden="true">'+gl+'</span>'+(glabel?'<span class="lgcor">'+glabel+'</span>':"")+'</div>'+
-      '<div class="lgswitch"><span class="lgsw-hi">'+nm+'</span>'+(rom?'<span class="lgsw-en">'+rom+'</span>':"")+'</div>'+
+      '<div class="lgtop"><span class="lgglyph'+(gl.length>3?" long":"")+'" aria-hidden="true">'+LN(gl)+'</span>'+(glabel?'<span class="lgcor">'+glabel+'</span>':"")+'</div>'+
+      '<div class="lgswitch"><span class="lgsw-hi">'+LN(nm)+'</span>'+(rom?'<span class="lgsw-en">'+LN(rom)+'</span>':"")+'</div>'+
       '<div class="lgbody">'+
-      '<div class="lgcert"><span class="lgcert-k">पूरा करने पर मिलेगा:</span><span class="lgcert-hi">'+nm+' बोलने का प्रमाणपत्र</span>'+(rom?'<span class="lgcert-en">Certificate in Spoken '+rom+' (CEFR A2 पर आधारित)</span>':"")+'</div>'+
+      '<div class="lgcert"><span class="lgcert-k">पूरा करने पर मिलेगा:</span><span class="lgcert-hi">'+TT(nm+' बोलने का प्रमाणपत्र', rom?('Certificate in Spoken '+rom):"")+'</span>'+(rom?'<span class="lgcert-en">'+HIDE('Certificate in Spoken '+rom+' (CEFR A2 पर आधारित)')+'</span>':"")+'</div>'+
       '<div class="lgmeta">90 दिन में 2,150 वाक्य — असली लिपि, देवनागरी उच्चारण, आवाज़ के साथ</div>'+
       (read?'<div class="lgprog"><div class="bar"><i style="width:'+pc+'%"></i></div>'+pc+'% पढ़ा — '+read+'/'+tot+' पाठ</div>':"")+
       '<a class="lggo" href="'+c.url+'">'+(read?"▶ जारी रखें":"▶ पढ़ें — मुफ़्त")+'</a>'+
@@ -1372,14 +1381,14 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     return '<div class="crssec"><div class="ph">'+title+' <span class="crscount">'+list.length+'</span></div>'+(sub?'<div class="crssub">'+sub+'</div>':"")+
       '<div class="crsrail">'+list.map(crsCard).join("")+'</div></div>';
   }
-  function crsChip(c){ const j=!!enrGet()[c.id]; return '<a class="bhchip'+(j?" on":"")+'" href="'+c.url+'" data-nm="'+langShort(c).toLowerCase()+'">'+(j?"✅ ":"")+langShort(c)+'</a>'; }
+  function crsChip(c){ const j=!!enrGet()[c.id]; return '<a class="bhchip'+(j?" on":"")+'" href="'+c.url+'" data-nm="'+(langShort(c)+" "+langRoman1(c)).toLowerCase()+'">'+(j?"✅ ":"")+TT(langShort(c), langRoman1(c))+'</a>'; }
   function crsDrawMore(){
     const box=$("crsList"); if(!box) return;
     const all=CRS_ALL.map(function(x){return x.c;});
     const byId={}; all.forEach(function(c){ byId[c.id]=c; });
     /* pointer-कोर्स (एक ही url, जैसे LJ011 वेल्डर-सहायक → वेल्डिंग): अलग कार्ड नहीं — मुख्य कार्ड पर "🔗 …भी यहीं" (गिनती-ईमानदारी, 01-Sep Founder-पकड़) */
     const byUrl={}, ALSO={};
-    all.forEach(function(c){ if(!c.url) return; const k=c.url.replace(/index\.html$/,""); if(byUrl[k]){ (ALSO[byUrl[k].id]=ALSO[byUrl[k].id]||[]).push(noSq(c.name_hi||"").split("(")[0].trim()); } else byUrl[k]=c; });
+    all.forEach(function(c){ if(!c.url) return; const k=c.url.replace(/index\.html$/,""); if(byUrl[k]){ (ALSO[byUrl[k].id]=ALSO[byUrl[k].id]||[]).push({ hi: noSq(c.name_hi||"").split("(")[0].trim(), en: String(c.name_en||"").split("(")[0].trim() }); } else byUrl[k]=c; });
     window.__crsAlso=ALSO;
     const skill=all.filter(function(c){ return c.url && !isLangCourse(c) && byUrl[c.url.replace(/index\.html$/,"")]===c; });
     const lang90=all.filter(function(c){ return c.url && isLang90(c); });
@@ -1388,7 +1397,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     G.forEach(function(g,gi){
       const L=g.ids.map(function(id){return byId[id];}).filter(function(c){ return c && c.url && !isLang90(c) && !seen[c.id] && (seen[c.id]=1); });
       if(!L.length) return; nL1+=L.length;
-      langHtml+='<details class="bhgrp"'+(gi===0?" open":"")+'><summary>'+g.e+' '+g.t+' <span class="crscount">'+L.length+'</span></summary><div class="bhchips">'+L.map(crsChip).join("")+'</div></details>';
+      langHtml+='<details class="bhgrp"'+(gi===0?" open":"")+'><summary>'+g.e+' '+TT(g.t, g.en)+' <span class="crscount">'+L.length+'</span></summary><div class="bhchips">'+L.map(crsChip).join("")+'</div></details>';
     });
     /* समूह-बाहर छूटी भाषा (नया कोर्स जिसकी id KKB_GROUPS में अभी नहीं) — छिपे नहीं */
     const orphan=all.filter(function(c){ return c.url && isLangCourse(c) && !isLang90(c) && !seen[c.id]; });
@@ -1492,7 +1501,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
           : '<a class="lvbtn blue" style="text-decoration:none" href="'+esc(m.c.url)+'">▶ जारी रखें</a>';
         h+='<div class="lvtrow">'+
           '<span class="lvc lvc-name"><span class="lvic2">'+(done?'🏆':'📚')+'</span><span class="lvnw">'+
-            '<span class="lvname">'+esc(noSq(m.c.name_hi||m.c.id))+'</span>'+   /* (v5.6.2) rb→noSq: rb k9-IIFE में क़ैद था — scope-होल */
+            '<span class="lvname">'+TT(esc(noSq(m.c.name_hi||m.c.id)), m.c.name_en)+'</span>'+   /* (v5.6.2) rb→noSq: rb k9-IIFE में क़ैद था — scope-होल */
             '<span class="lvsub">📅 '+new Date(m.at).toLocaleDateString("hi-IN")+' · '+m.n+(tot?(' / '+tot):'')+' पाठ · ⏱ '+fmtMinHi(courseTimeSec(m.c.url))+'</span></span></span>'+
           '<span class="lvc lvc-prog" data-h="प्रगति"><span class="lvpc"><b>'+pc+'%</b> पूरा'+(done?' 🏆':'')+'</span>'+
             '<span class="lvbar2'+(done?' done':'')+'"><i style="width:'+Math.max(pc,3)+'%"></i></span></span>'+
@@ -2499,7 +2508,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         h+='<div class="pd" style="border:1px solid #dbe3ee;border-radius:10px;padding:10px;margin:6px 0">'+
            (r.mine?'':'🎁 <b>आपको gift मिला</b> — ')+
            '₹'+Math.round((x.amountPaise||0)/100)+' · नई भूमिका: '+esc(x.newRole||"—")+
-           ' · '+st+' · अवधि: '+till+' तक'+
+           ' · '+st+' · '+TT('अवधि: '+till+' तक', 'valid until '+till)+
            (x.giftedToRegNo?(' · 🎁 gift → '+esc(x.giftedToRegNo)):'')+
            (r.mine&&x.status==="due"&&!x.giftedToRegNo?(' <button class="abtn ok" data-refgift="'+esc(r.id)+'" type="button" style="padding:4px 10px">🎁 इसे gift करें</button>'):'')+
            '</div>';
@@ -2968,7 +2977,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       var d=document.createElement("div"); d.className="k9off";
       d.innerHTML='<div class="t">'+esc(rb(o.courseName))+' '+
         (o.status==="open"?'<span class="chip appr">खुली</span>':'<span class="chip">बंद</span>')+'</div>'+
-        '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+esc(o.startDate)+' से '+esc(o.endDate)+'</div>'+
+        '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+TT(esc(o.startDate)+' से '+esc(o.endDate), esc(o.startDate)+' to '+esc(o.endDate))+'</div>'+
         (o.subjects?'<div class="m">📚 विषय: '+esc(rb(o.subjects))+'</div>':'')+
         seatBar(o.filledCount||0,o.seats)+
         (o.status==="open"?'<button class="abtn" style="background:#B71C1C;margin-top:8px" data-k9close="'+esc(o.courseId)+'">⛔ घोषणा बंद</button>':'');
@@ -3028,34 +3037,34 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(!cat||!sec||!sel||!A) return;
       if(cat._k9) return; cat._k9=true;
       function og(sel,label){ var g=document.createElement("optgroup"); g.label=label; sel.appendChild(g); return g; }
-      function opt(par,val,txt){ var o=document.createElement("option"); o.value=val; o.textContent=txt; par.appendChild(o); }
+      function opt(par,val,txt,en){ var o=document.createElement("option"); o.value=val; o.textContent=txt; if(en) o.setAttribute("data-tr-en", en); par.appendChild(o); }
       function fillCourses(list){
         sel.innerHTML='<option value="">चुनें…</option>';
-        list.forEach(function(c){ opt(sel,c.id,rb(c.name_hi||c.name_en||c.id)); });
+        list.forEach(function(c){ opt(sel,c.id,rb(c.name_hi||c.name_en||c.id),c.name_en); });
         var w=$("ofCourseWrap"); if(w) w.style.display=""; }
       function fillSector(mg){
         sel.innerHTML='<option value="">चुनें…</option>';
         var acs=A.filter(function(c){return String(c.mg)===String(mg) && !c._ac;});
         if(acs.length){ var g1=og(sel,"📚 ACS-कोर्स (पाठ बने/बनेंगे)");
-          acs.forEach(function(c){ opt(g1,c.id,rb(c.name_hi||c.name_en||c.id)); }); }
+          acs.forEach(function(c){ opt(g1,c.id,rb(c.name_hi||c.name_en||c.id),c.name_en); }); }
         var U=(typeof ALL_SECTORS!=="undefined")?ALL_SECTORS:[];
         var uds=U.filter(function(u){return String(u.mg)===String(mg);});
         if(uds.length){ var g2=og(sel,"🏭 उद्यम-सूची ("+uds.length+") — माँग पर कोर्स बनेगा");
-          uds.forEach(function(u){ opt(g2,"UDY-"+u.n,rb(u.name)); }); }
+          uds.forEach(function(u){ opt(g2,"UDY-"+u.n,rb(u.name),bracketEn(u.name)); }); }
         var w=$("ofCourseWrap"); if(w) w.style.display=""; }
       function fillGovt(){
         sel.innerHTML='<option value="">चुनें…</option>';
         var g0=og(sel,"📚 तैयारी-कोर्स");
         A.filter(function(c){return !c._ac && !c._sc && !c.mg;})
-          .forEach(function(c){ opt(g0,c.id,rb(c.name_hi||c.name_en||c.id)); });
+          .forEach(function(c){ opt(g0,c.id,rb(c.name_hi||c.name_en||c.id),c.name_en); });
         var G=(typeof GOVT_JOBS!=="undefined")?GOVT_JOBS:{};
         var g1=og(sel,"🏛️ सरकारी पद — स्थायी ("+((G.permanent||[]).length)+")");
-        (G.permanent||[]).forEach(function(j,i){ opt(g1,"GOV-P"+(i+1),rb(j.name)+" — तैयारी"); });
+        (G.permanent||[]).forEach(function(j,i){ opt(g1,"GOV-P"+(i+1),rb(j.name)+" — तैयारी",bracketEn(j.name)?bracketEn(j.name)+": preparation":""); });
         var g2=og(sel,"📝 सरकारी पद — संविदा ("+((G.contract||[]).length)+")");
-        (G.contract||[]).forEach(function(j,i){ opt(g2,"GOV-C"+(i+1),rb(j.name)+" — तैयारी"); });
+        (G.contract||[]).forEach(function(j,i){ opt(g2,"GOV-C"+(i+1),rb(j.name)+" — तैयारी",bracketEn(j.name)?bracketEn(j.name)+": preparation":""); });
         var g3=og(sel,"🎓 छात्रवृत्ति/प्रवेश-परीक्षा");
         A.filter(function(c){return c._sc;})
-          .forEach(function(c){ opt(g3,c.id,rb(c.name_hi||c.name_en||c.id)); });
+          .forEach(function(c){ opt(g3,c.id,rb(c.name_hi||c.name_en||c.id),c.name_en); });
         var w=$("ofCourseWrap"); if(w) w.style.display=""; }
       var NCERT = window.ACADEMIC_SUBJECTS || {};   /* साझा घर — assets/academic_subjects.js (v2.0, 31-Jul) */
       function subBox(){ return $("ofSubBox"); }
@@ -3266,7 +3275,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         var rows=(C.offerings||[]).map(function(o){
           var full=(o.filledCount||0)>=o.seats;
           return '<div class="k9off"><div class="t">'+esc(rb(o.courseName))+'</div>'+
-            '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+esc(o.startDate)+' से '+esc(o.endDate)+'</div>'+
+            '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+TT(esc(o.startDate)+' से '+esc(o.endDate), esc(o.startDate)+' to '+esc(o.endDate))+'</div>'+
             (o.subjects?'<div class="m">📚 विषय: '+esc(rb(o.subjects))+'</div>':'')+
             seatBar(o.filledCount||0,o.seats)+
             (full?'<span class="chip">seat भर गईं</span>'

@@ -1,4 +1,5 @@
-/* generator/dev_exam_guard.js : v1.1 (13-Nov-2026) : खेप 2 का पहरेदार (सिर्फ़ पढ़ता है)
+/* generator/dev_exam_guard.js : v1.2 (15-Nov-2026) : खेप 2 का पहरेदार (सिर्फ़ पढ़ता है)
+   v1.2 (पैनल-2): English अनुवाद की जाँच अब assets/i18n/panel_en.js में (पुरानी dash_i18n_en.js हटी)।
    v1.1 (ऑडिट K2-H02): पुराने वाक्यों की सूची बड़ी हुई, और एक चौड़ा जाल जुड़ा जो कोर्स के हर मुख्य पेज पर
    "परीक्षा" के पास "मुफ़्त" या "₹0" लिखा मिले तो तभी छोड़ता है जब वहीं बैज की शर्त भी लिखी हो।
    Founder का लॉक्ड नियम: पेज और code एक ही बात कहें। यह यंत्र repo में देखता है कि कोर्स की अंतिम परीक्षा के
@@ -15,7 +16,7 @@ function has(f) { return fs.existsSync(path.join(ROOT, f)); }
 function noComments(s) { return s.replace(/\/\*[\s\S]*?\*\//g, " "); }
 
 console.log("1. नया इंजन और dashboard");
-const eng = rd("assets/exam-session.js"), dash = rd("assets/dashboard.js"), sw = rd("sw.js"), i18n = rd("assets/dash_i18n_en.js");
+const eng = rd("assets/exam-session.js"), dash = rd("assets/dashboard.js"), sw = rd("sw.js"), i18n = rd("assets/i18n/panel_en.js");   /* (पैनल-2) dashboard का English अब पैनल-पैक में */
 ok(/exam-session\.js : v1\.\d/.test(eng) && /window\.ACS_EXAM\s*=/.test(eng), "assets/exam-session.js मौजूद है और ACS_EXAM देता है");
 ok(/if\(SERVER_EXAM_COURSES\[cid\]\)\{ await examOpenNew\(cid\); return; \}/.test(dash) && !/await examStartServer\(cid\)/.test(dash), "\"परीक्षा दें\" बटन नया इंजन खोलता है; पुराना परदा किसी बटन से नहीं खुलता");
 ok(/s\.src = "\/assets\/exam-session\.js"/.test(dash), "dashboard नया इंजन /assets/exam-session.js से लाता है");
@@ -27,7 +28,7 @@ function verNum(s) { var p = String(s || "0").split(".").map(Number); return (p[
 ok(hv === dv && verNum(hv) >= verNum("6.8.0"), "dashboard.js का संस्करण शीर्ष और DASH_VER दोनों में एक है, और v6.8.0 या नया है: " + hv + " / " + dv);
 const swv = Number((sw.match(/CACHE_VERSION = 'v(\d+)'/) || [])[1]);
 ok(swv >= 848, "sw.js का संस्करण v848 या नया है: v" + swv);
-ok(i18n.indexOf('"🎓 ब्योरा / दोबारा दें":"🎓 Details / take again"') >= 0, "English-परत में नए बटन का अनुवाद है");
+ok(i18n.indexOf('"🎓 ब्योरा / दोबारा दें":"🎓 Details / take again"') >= 0, "English पैनल-पैक में नए बटन का अनुवाद है");
 
 console.log("2. हर परीक्षा-बटन नए इंजन पर जाता है");
 const win = {}; vm.runInNewContext(rd("assets/exam_data.js"), { window: win });

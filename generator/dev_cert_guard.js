@@ -1,4 +1,5 @@
-/* generator/dev_cert_guard.js : v1.13 (15-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
+/* generator/dev_cert_guard.js : v1.14 (15-Nov-2026) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
+   v1.14 (पैनल-2): dashboard का English अब assets/i18n/panel_en.js में (पुरानी dash_i18n_en.js हटी); वही वाक्य वहीं जाँचे जाते हैं।
    v1.13 (पैनल-1): रजिस्ट्रेशन का संस्करण अब एक ही जगह (expectedRulesVer) से; नियम-परदा सहमति के साथ भाषा भी भेजता है।
    जाँच का अर्थ वही: विद्यार्थी 1.2, बाक़ी 1.1; सहमति में server को संस्करण जाता है।ें
    जाँचता है कि प्रमाणपत्र के नियम (Founder, 13 और 14-Nov-2026) पेज और code में एक जैसे हैं, और पुराने नियम कहीं नहीं बचे।
@@ -72,7 +73,7 @@ ok(/if\(ci\.status==="expired"\)\{ alert\(/.test(d) && /data-certext=/.test(d), 
 
 console.log("3. पुराने नियम कहीं नहीं बचे");
 var OLD = ["Lifetime valid", "duplicate 500", "verify 3 साल मुफ़्त", "3 साल free", "lifetime valid, 3 साल"];
-var files = ["assets/dashboard.js", "assets/dash_i18n_en.js", "verify/index.html", "refund.html", "courses/hi/welding/wld-626-varkasha-pa-ke-bada-pariksha-ki-raha-dohara-tala.html"];
+var files = ["assets/dashboard.js", "assets/i18n/panel_en.js", "verify/index.html", "refund.html", "courses/hi/welding/wld-626-varkasha-pa-ke-bada-pariksha-ki-raha-dohara-tala.html"];
 ["generator/build_dashboards.js", "generator/data/welding_lessons_data.js", "generator/build_specials.js"].forEach(function (f) { if (has(f)) files.push(f); });
 fs.readdirSync(path.join(ROOT, "dashboard"), { withFileTypes: true }).forEach(function (e) { if (e.isDirectory() && has("dashboard/" + e.name + "/index.html")) files.push("dashboard/" + e.name + "/index.html"); });
 var left = []; files.forEach(function (f) { var s = rd(f); OLD.forEach(function (o) { if (s.indexOf(o) >= 0) left.push(f + " : " + o); }); });
@@ -90,7 +91,7 @@ ok(rd("dashboard/entrepreneur/index.html").indexOf("online जाँच जा�
   ok(bad.length === 0, "(K3A-H09) dashboard में \"1000 रुपये में 5 साल\" वाला हर वाक्य देर के शुल्क का ज़िक्र करता है" + (bad.length ? " | " + bad.join("; ") : ""));
 })();
 ok(!has("generator/build_dashboards.js") || rd("generator/build_dashboards.js").indexOf(NEW) >= 0, "dashboard के यंत्र का स्रोत भी वही कहता है");
-var en = rd("assets/dash_i18n_en.js");
+var en = rd("assets/i18n/panel_en.js");   /* (पैनल-2) dashboard का English अब पैनल-पैक में */
 ok(en.indexOf(NEW) >= 0 && /Online verification runs for 5 years from the issue date; 1000 rupees adds 5 more years \(after the valid-till date a late fee is added\)\./.test(en), "English तालिका में नया वाक्य और उसका English, दोनों हैं");
 
 console.log("3-ख. App Check (ऑडिट K3A-H08)");

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_vocab_en_check.js v1.0 (15-Nov-2026): English शब्द-सूची का पहरेदार
+   dev_vocab_en_check.js v1.3 (15-Nov-2026; v1.1 पैनल-2: पुरानी dash_i18n_en.js न हो तो भी चले; v1.2 पैनल-2: V6-V8 एक चीज़ = एक English नाम; v1.3: English की तरफ़ से भी V9-V11, जाँच lib_vocab_en.js में): English शब्द-सूची का पहरेदार
    नियम का एकमात्र घर: generator/data/vocab_en.json (Founder की हाँ, 15-Nov-2026)।
    यह कुछ नहीं बदलता, सिर्फ़ जाँचता है। कोई जाँच फेल = exit 1।
 
@@ -11,6 +11,10 @@
      V2, V3 : English पन्नों और English शब्द-भंडारों में "950 industries/sectors" या "🌍 Industries" नहीं
      V4 : हिंदी पन्नों में "950 सेक्टर" नहीं
      V5 : 950 उद्यम वाले दोनों पन्नों (हिंदी और English) में कार्ड/खोज/गिनती "सेक्टर/sector" नहीं कहते
+     V6-V8 : एक चीज़ = एक English नाम: अभिरुचि-रिपोर्ट = Career Interest Report, अभिरुचि-परीक्षण = Career Interest Test,
+          उद्योग-प्रशिक्षु = Entrepreneur Learner (हिंदी में जितनी बार, English में कम-से-कम उतनी बार)
+     V9-V11 : English की तरफ़ से: "interest test/report" हर जगह पूरा नाम; "aptitude"/"career test" नहीं;
+          ₹125 वाली छपने-योग्य रिपोर्ट की बात हो, तो "Career Interest Report" ज़रूर
    पन्नों का पाठ: दो बार जाँचा जाता है: कच्ची फ़ाइल (script के भीतर के वाक्य) और HTML tags हटाकर (tags में बँटे वाक्य)।
    ============================================================ */
 "use strict";
@@ -43,7 +47,8 @@ const pairs = [];
   const w = {}; new Function("window", rd("assets/i18n/panel_en.js"))(w);
   const D = w.ACS_PANEL_PACKS.en.D; for (const k in D) pairs.push(["assets/i18n/panel_en.js", k, D[k]]);
 })();
-(function () { /* dashboard-पैक: "हिंदी":"English" जोड़े */
+(function () { /* पुराना dashboard-पैक (पैनल-2 से पहले): हो तो उसके "हिंदी":"English" जोड़े भी */
+  if (!fs.existsSync(path.join(ROOT, "assets/dash_i18n_en.js"))) return;
   const s = rd("assets/dash_i18n_en.js"), re = /"((?:[^"\\]|\\.)*)"\s*:\s*"((?:[^"\\]|\\.)*)"/g; let m;
   while ((m = re.exec(s))) if (/[ऀ-ॿ]/.test(m[1])) pairs.push(["assets/dash_i18n_en.js", m[1], m[2]]);
 })();
@@ -67,6 +72,17 @@ for (const [f, hi, en] of pairs) {
   if (n > a) bad1.push(f + " :: " + hi.slice(0, 70) + "  ⇒  " + en.slice(0, 90));
 }
 ck("V1 'उद्यम' का English 'industry' नहीं (" + pairs.length + " जोड़े जाँचे)", pairs.length > 1000 && bad1.length === 0, bad1.slice(0, 8).join("\n     "));
+
+/* ---- V6-V11: एक चीज़ = एक English नाम (नियम: vocab_en.json का one_name और en_side; जाँच: lib_vocab_en.js) ---- */
+{
+  const LV = require("./lib_vocab_en.js"), by = {};
+  const ids = (V.one_name || []).map(r => r.id).concat(((V.en_side || {}).exact || []).map(r => r.id), ((V.en_side || {}).never || []).map(r => r.id), ((V.en_side || {}).context || []).map(r => r.id));
+  ids.forEach(id => { by[id] = []; });
+  for (const [f, hi, en] of pairs) for (const x of LV.pairViolations(V, hi, en)) (by[x.id] = by[x.id] || []).push(f + " :: " + x.msg + " :: " + hi.slice(0, 70) + "  ⇒  " + en.slice(0, 110));
+  const NAME = { V6: "'अभिरुचि-रिपोर्ट' = Career Interest Report", V7: "'अभिरुचि-परीक्षण / करियर टेस्ट / Aptitude टेस्ट' = Career Interest Test", V8: "'उद्योग-प्रशिक्षु' = Entrepreneur Learner",
+    V9: "English में 'interest test/report' हर जगह पूरा और ठीक नाम", V10: "English में 'aptitude' या 'career test' नहीं", V11: "₹125 वाली छपने-योग्य रिपोर्ट = Career Interest Report (संदर्भ से)" };
+  ids.forEach(id => ck(id + " " + (NAME[id] || "") + " (" + pairs.length + " जोड़े)", ids.length >= 6 && by[id].length === 0, by[id].slice(0, 8).join("\n     ")));
+}
 
 /* ---- V2/V3: English ---- */
 const all = walk("", []);
@@ -101,5 +117,5 @@ for (const r of V.never_hi) {
 
 fails.forEach(x => console.log(x));
 console.log("\nजाँचें: पास " + pass + " · फेल " + fails.length);
-console.log(fails.length ? "⛔ dev_vocab_en_check रुका" : "🏁 dev_vocab_en_check v1.0 : English शब्द-सूची (उद्यम = Enterprise) पास");
+console.log(fails.length ? "⛔ dev_vocab_en_check रुका" : "🏁 dev_vocab_en_check v1.3 : English शब्द-सूची (उद्यम = Enterprise; एक चीज़ = एक नाम) पास");
 process.exit(fails.length ? 1 : 0);

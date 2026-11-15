@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /* ================================================================
-   dev_panel_i18n_check.js v1.1 (15-Nov-2026) : पैनल-1 का पहरेदार
+   dev_panel_i18n_check.js v1.2 (15-Nov-2026) : पैनल-1 का पहरेदार
    v1.1 (पैनल-1ख): + रजिस्ट्रेशन गाइड (G) और सूचियों का English क्रम (JS)
+   v1.2 (पैनल-2): S3 दायरा अब सब dashboard समेत; पैक-इंजन v1.2 (data-tr-*); fb-विकल्प (नक़ली Firebase);
+   L0: भाषा-बटन पर नाम तीनों रूप में (देवनागरी · रोमन · अपनी लिपि)।
+   dashboard का अपना पहरेदार: dev_panel_dash_check.js
    (लॉगिन पन्ना /dashboard/ + रजिस्ट्रेशन /join.html, भाषा-इंजन + English पैक)
    Founder-नियम (15-Nov): पहले पूरा पैनल English, फिर बांग्ला, कन्नड़, मराठी;
    उसके बाद ही किसी कोर्स का अनुवाद। 🏁 के बिना यह काम आगे नहीं जाता।
@@ -55,7 +58,7 @@ function staticSuite() {
   ck("S2 पैक पढ़ने-योग्य JSON", !!P);
   if (P) {
     const vals = Object.values(P.D);
-    ck("S3 पैक का दायरा login + join + guide, पूरा पैनल अभी नहीं", JSON.stringify(P.scope) === '["login","join","guide"]' && P.complete === false, JSON.stringify(P.scope) + " " + P.complete);
+    ck("S3 पैक का दायरा login + join + guide + सब dashboard (पैनल-2), पूरा पैनल अभी नहीं (server, canvas, नियम-पत्र बाक़ी)", JSON.stringify(P.scope) === '["login","join","guide","dash-ext","dash-team"]' && P.complete === false, JSON.stringify(P.scope) + " " + P.complete);
     ck("S4 पैक के English में हिंदी अक्षर शून्य", vals.every(v => !DEV.test(v)), vals.filter(v => DEV.test(v)).slice(0, 5).join(" | "));
     ck("S5 पैक में em dash (—) और टूटा अक्षर (U+FFFD) शून्य", vals.every(v => v.indexOf("—") < 0 && v.indexOf("�") < 0));
   }
@@ -150,6 +153,7 @@ async function openPage(file, opt) {
         getFunctions: () => ({}), httpsCallable: (f, name) => (d => w.__CALL(name, d).then(r => ({ data: r })))
       };
       w.__importGate = () => { if (!w.__RG) w.eval(GATE_CLASSIC); return Promise.resolve(w.__RG); };
+      if (opt.fb) w.__FB = opt.fb(w, ctx);   /* (v1.2) dashboard-robot अपना नक़ली Firebase देता है */
     }
   });
   ctx.dom = dom; ctx.w = dom.window; ctx.d = dom.window.document;
@@ -166,7 +170,7 @@ function click(ctx, el) { el.dispatchEvent(new ctx.w.MouseEvent("click", { bubbl
 function rej(code, message, details) { const e = new Error(message || code || "err"); if (code) e.code = code; if (details) e.details = details; throw e; }
 
 /* दिखने वाला हर पाठ + attribute जिसमें हिंदी बची हो */
-const ATTRS = ["placeholder", "title", "aria-label", "alt", "label"];
+const ATTRS = ["placeholder", "title", "aria-label", "alt", "label", "data-h"];
 function hindiLeaks(ctx, opts) {
   opts = opts || {};
   const d = ctx.d, out = [];
@@ -177,6 +181,7 @@ function hindiLeaks(ctx, opts) {
     if (!DEV.test(n.nodeValue)) continue;
     const p = n.parentElement; if (!p) continue;
     if (p.closest("script,style,noscript,textarea,#acsPanelLangBar,#acsTranslatePanel")) continue;
+    if (p.closest("[data-lname]")) continue;   /* भाषा का नाम (Founder-नियम 15-Nov: भाषा के बटन पर देवनागरी · रोमन · अपनी लिपि, हमेशा) */
     const sk = p.closest("[data-i18n-skip],[translate=no]");
     if (sk && !p.closest("#rulesGate")) {
       if (isHole(sk)) { ctx.holeSeen = true; continue; }
@@ -222,6 +227,8 @@ async function loginSuite() {
   const $ = id => c.d.getElementById(id);
   ck("L0 English सक्रिय, html lang=en, body class en", c.w.ACS_PANEL_I18N.active && c.d.documentElement.getAttribute("lang") === "en" && c.d.body.classList.contains("en") && !c.d.body.classList.contains("hi"));
   ck("L0 भाषा-पट्टी में हिंदी + English, English दबा हुआ", !!c.d.querySelector('#acsPanelLangBar button[data-plang="en"][aria-pressed="true"]') && !!c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]'));
+  { const bt = k => ((c.d.querySelector('#acsPanelLangBar button[data-plang="' + k + '"]') || {}).textContent || "").trim();
+    ck("L0 भाषा-बटन पर नाम तीनों रूप में (Founder-नियम 15-Nov): हिन्दी · Hindi और अंग्रेज़ी · English", bt("hi") === "हिन्दी · Hindi" && bt("en") === "अंग्रेज़ी · English", bt("hi") + " | " + bt("en")); }
   clean(c, "L1 लॉगिन पहला दृश्य (सब चरण, छिपे भी)");
   const tops = MX.cards.filter(x => !x.parent);
   ck("L2 भूमिका-कार्ड गिनती = matrix", c.d.querySelectorAll("#roleGrid .role-card").length === tops.length);
@@ -695,7 +702,7 @@ function firstDiff(a, b, p) {
   return p;
 }
 
-module.exports = { openPage, loginTransform, settle, waitFor, typeIn, pick, click, hindiLeaks, MX, R };
+module.exports = { openPage, loginTransform, settle, waitFor, typeIn, pick, click, hindiLeaks, bodyText, MX, R, GATE_CLASSIC };
 if (require.main === module) (async function main() {
   const t0 = Date.now();
   const only = process.argv[2] || "";
@@ -706,6 +713,6 @@ if (require.main === module) (async function main() {
     if (!only || only === "join") await joinSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.1 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.2 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
   process.exit(fail ? 1 : 0);
 })();

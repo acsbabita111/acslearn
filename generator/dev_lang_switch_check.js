@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_lang_switch_check.js v1.3 (12-Nov-2026) : ऊपर के 🌐 "भाषा" बटन का स्थायी पहरा।
+   dev_lang_switch_check.js v1.4 (15-Nov-2026) : ऊपर के 🌐 "भाषा" बटन का स्थायी पहरा।
    जाँचता है: बटन दबे → पट्टी खुले → सूची में हर live भाषा (अभी 45) → नाम दबे → सही पता खुले।
    v1.1: acs-translate.js की भाषा-पहचान भी (हर भाषा-होम पर अपनी भाषा पहचानी और याद रखी जाए)।
    v1.2: हर बटन में रोमन नाम भी हो (छोटे हरे अक्षर) : Founder का नियम, 12-Nov।
    v1.3: हर बटन की पृष्ठभूमि पर देवनागरी छाया-नाम (हल्का गुलाबी भरा अक्षर) : Founder का नियम, 12-Nov।
+   v1.4 (Founder-नियम, 15-Nov): भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि।
+        इसलिए पैनल की भाषा-पट्टी (assets/panel_i18n.js की LANGS) भी: उसके तीनों नाम इसी तालिका से हूबहू, और बटन पर
+        तीनों छपें (जो रूप दूसरे जैसा हो, वह दोबारा नहीं)।
    तरीक़ा: assets/acs-universal.js का भाषा-सूची वाला हिस्सा नक़ली पेज पर चलाया जाता है;
    "पेज बना है या नहीं" का जवाब repo की असली फ़ाइलों से आता है। browser नहीं चाहिए।
    चलाना: node generator/dev_lang_switch_check.js   (dev_registry_check.js इसे अपने-आप चलाता है)
@@ -101,11 +104,28 @@ function world(pathname) {
     ck("भाषा-पहचान: तालिका न हो तब भी पुरानी भाषाएँ चलें (/te/ = te)", oldp[0] === "te");
     ck("acs-translate.js में 17 भाषाओं वाला पुराना regex नहीं बचा", !/\(hi\|en\|kn\|mr\|bn/.test(T));
   }
+  /* 3ख) पैनल की भाषा-पट्टी (login, रजिस्ट्रेशन, गाइड, सब dashboard): वही तीन नाम, इसी तालिका से */
+  {
+    const PI = fs.readFileSync(path.join(ROOT, "assets/panel_i18n.js"), "utf8");
+    const lm = PI.match(/var LANGS=(\[[^\n]*\]);/);
+    let L = null; try { L = lm && JSON.parse(lm[1]); } catch (e) {}
+    ck("पैनल: LANGS पढ़ी गई", Array.isArray(L) && L.length >= 2);
+    if (L) {
+      const badL = L.filter(x => !(Array.isArray(x) && x.length === 4 && x[1] === DV[x[0]] && x[2] === RN[x[0]] && x[3] === N[x[0]]));
+      ck("पैनल: हर भाषा के तीनों नाम (देवनागरी, रोमन, अपनी लिपि) 🌐 वाली तालिका से हूबहू", badL.length === 0, JSON.stringify(badL));
+      const nm = PI.slice(PI.indexOf("function names3("), PI.indexOf("function bar()"));
+      const cx = { out: null }; vm.createContext(cx); vm.runInContext(nm + "\nout=LANGS_T.map(names3);", Object.assign(cx, { LANGS_T: L }));
+      const want = L.map(x => { const o = [], seen = {}; [x[1], x[2], x[3]].forEach(v => { if (!seen[v.toLowerCase()]) { seen[v.toLowerCase()] = 1; o.push(v); } }); return o; });
+      const got = (cx.out || []).map(h => (h.match(/>([^<]*)<\/span>/g) || []).map(t => t.slice(1, -7)));
+      ck("पैनल: हर बटन पर नाम इसी क्रम में (देवनागरी · रोमन · अपनी लिपि), दोहराव नहीं", JSON.stringify(got) === JSON.stringify(want), JSON.stringify(got) + " ≠ " + JSON.stringify(want));
+      ck("पैनल: हर बटन पर देवनागरी और रोमन दोनों", got.every(g => g.some(t => /[\u0900-\u097F]/.test(t)) && g.some(t => /^[A-Za-z]/.test(t))), JSON.stringify(got));
+    }
+  }
   /* 4) हर होम-पेज में बटन, पट्टी और script मौजूद */
   const miss = all.filter(c => { const h = fs.readFileSync(path.join(ROOT, c === "hi" ? "index.html" : c + "/index.html"), "utf8");
     return !(/onclick="acsLangToggle\(\)"/.test(h) && /id="acsTranslatePanel"/.test(h) && /src="\/assets\/acs-universal\.js"/.test(h)); });
   ck("हर होम-पेज में बटन + पट्टी + script", miss.length === 0, miss.join(","));
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail);
-  console.log(fail ? "⛔ dev_lang_switch_check रुका" : "🏁 dev_lang_switch_check v1.3 : भाषा-बटन पास (" + all.length + " भाषाएँ)");
+  console.log(fail ? "⛔ dev_lang_switch_check रुका" : "🏁 dev_lang_switch_check v1.4 : भाषा-बटन पास (" + all.length + " भाषाएँ + पैनल की भाषा-पट्टी, तीनों नाम)");
   process.exit(fail ? 1 : 0);
 })();

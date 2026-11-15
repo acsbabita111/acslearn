@@ -1,5 +1,5 @@
 {
- "_": "vocab_en.json v1.0 (15-Nov-2026): पूरी साइट की English शब्द-सूची का एकमात्र घर (परत-3). Founder की हाँ: 15-Nov-2026 (ChatGPT का सुझाव, पैनल-1ख ऑडिट). आधार-नियम: Addendum v7.9 का '950 उद्यम' नियम. पहरेदार: generator/dev_vocab_en_check.js और build_panel_i18n.js (English पैक बनाते समय).",
+ "_": "vocab_en.json v1.2 (15-Nov-2026; v1.1 पैनल-2: 'एक चीज़ = एक नाम' नियम V6-V8, ChatGPT ऑडिट की पकड़ से; v1.2: English की तरफ़ से भी पहरा V9-V11, ChatGPT की दूसरी पकड़ से): पूरी साइट की English शब्द-सूची का एकमात्र घर (परत-3). Founder की हाँ: 15-Nov-2026 (ChatGPT का सुझाव, पैनल-1ख ऑडिट). आधार-नियम: Addendum v7.9 का '950 उद्यम' नियम. पहरेदार: generator/dev_vocab_en_check.js और build_panel_i18n.js (English पैक बनाते समय).",
  "canonical": [
   {
    "hi": "उद्यम",
@@ -18,6 +18,21 @@
   {
    "hi": "धंधा",
    "en": "Business"
+  },
+  {
+   "hi": "अभिरुचि-रिपोर्ट",
+   "en": "Career Interest Report",
+   "note": "₹125 वाली छपने-योग्य रिपोर्ट (PDF). यह अलग चीज़ है; 'Career Interest Test' नहीं."
+  },
+  {
+   "hi": "अभिरुचि-परीक्षण / अभिरुचि-परीक्षा / करियर टेस्ट / Aptitude टेस्ट",
+   "en": "Career Interest Test",
+   "note": "टेस्ट ख़ुद (Golden Pass पर मुफ़्त, बिना Pass ₹100 प्रति प्रयास)."
+  },
+  {
+   "hi": "उद्योग-प्रशिक्षु",
+   "en": "Entrepreneur Learner",
+   "note": "भूमिका का नाम (designation_matrix: entrepreneur). भूमिका की English पहचान 'Entrepreneur' है; इसलिए हर जगह एक ही नाम."
   }
  ],
  "menu": {
@@ -59,5 +74,56 @@
   "id": "V5",
   "never_re": "सेक्टर\\s*\\$\\{|Sectors?\\s*\\$\\{|कोई सेक्टर|Sectors?\\s*नहीं|[Ss]earch sector|सेक्टर खोजें|950 Sectors",
   "why": "950 उद्यम वाले पन्ने पर हर कार्ड, खोज और गिनती 'उद्यम' / 'enterprise' कहे, 'सेक्टर' / 'sector' नहीं."
+ },
+ "one_name": [
+  {
+   "id": "V6",
+   "hi_re": "अभिरुचि-रिपोर्ट",
+   "en": "Career Interest Report",
+   "why": "₹125 वाली रिपोर्ट और टेस्ट दो अलग paid चीज़ें हैं; English में नाम बदलने से सेवा का अर्थ बदल जाता है (ChatGPT ऑडिट, पैनल-2 v1.0)."
+  },
+  {
+   "id": "V7",
+   "hi_re": "अभिरुचि-परीक्ष(?:ण|ा)(?:\\s*\\((?:Aptitude|Career Interest) Test\\))?|करियर[ -]टेस्ट|Aptitude[ -]?(?:टेस्ट|Test|जुड़ाव)",
+   "en": "Career Interest Test",
+   "why": "एक टेस्ट, एक English नाम (aptitude test / career test नहीं). हिंदी में 'Aptitude टेस्ट' लिखा हो, तब भी."
+  },
+  {
+   "id": "V8",
+   "hi_re": "उद्योग-प्रशिक्षु",
+   "en": "Entrepreneur Learner",
+   "why": "एक भूमिका, एक English नाम (पहले login में 'Enterprise trainee' और dashboard में 'Entrepreneur Learner' था)."
+  }
+ ],
+ "one_name_how": "हर हिंदी-English जोड़े में: हिंदी में hi_re जितनी बार मिले, English में 'en' (अक्षर-अक्षर, बड़े-छोटे अक्षर समेत) कम-से-कम उतनी बार हो.",
+ "en_side": {
+  "how": "ये नियम हर हिंदी-English जोड़े के English पर चलते हैं, हिंदी में कोई भी शब्द हो (ChatGPT की दूसरी पकड़: हिंदी में सिर्फ़ 'छपने-योग्य रिपोर्ट-PDF' था, इसलिए V6 नहीं चला).",
+  "exact": [
+   {
+    "id": "V9",
+    "find_re": "(?:career\\s+)?interest\\s+(?:test|report)",
+    "allowed": [
+     "Career Interest Test",
+     "Career Interest Report"
+    ],
+    "why": "English में 'interest test' या 'interest report' जहाँ भी आए, पूरा और ठीक यही नाम हो ('Interest Report', 'Career interest test' नहीं)."
+   }
+  ],
+  "never": [
+   {
+    "id": "V10",
+    "re": "\\baptitude\\b|\\bcareer test\\b",
+    "why": "इस सेवा का English नाम सिर्फ़ 'Career Interest Test' है ('aptitude test', 'career test' नहीं)."
+   }
+  ],
+  "context": [
+   {
+    "id": "V11",
+    "hi_re": "छपने-योग्य[^।]{0,14}रिपोर्ट|रिपोर्ट-PDF",
+    "en_re": "(?:₹\\s?125|125 rupees)[\\s\\S]*\\breport\\b|\\breport\\b[\\s\\S]*(?:₹\\s?125|125 rupees)|printable[^.]{0,30}\\breport\\b",
+    "must": "Career Interest Report",
+    "why": "₹125 वाली छपने-योग्य रिपोर्ट की बात हो (हिंदी या English, किसी भी शब्द में), तो English में पूरा नाम 'Career Interest Report' कम-से-कम एक बार हो."
+   }
+  ]
  }
 }

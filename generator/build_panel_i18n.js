@@ -1,7 +1,9 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.2 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.3 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
    v1.1 (पैनल-1ख): दायरे में रजिस्ट्रेशन गाइड (registration-guide.html) और matrix की पद-योग्यताएँ।
    v1.2 (शब्द-सूची): English पैक पर generator/data/vocab_en.json के नियम (उद्यम = Enterprise)। पैक का ढाँचा-संस्करण (VER) वही 1.1।
+   v1.3 (पैनल-2): दायरे में सब 31 dashboard (dash-ext, dash-team) और assets/dashboard.js के literal; "\n" वाले literal
+   पंक्ति-दर-पंक्ति; data-h और data-nav भी; शब्द-सूची का "एक चीज़ = एक English नाम" पहरा (V6-V11, lib_vocab_en.js)।
    उपयोग (repo-root से):  node generator/build_panel_i18n.js en [--check]
    स्रोत (एक चीज़ = एक जगह):
      1. assets/roles.js, assets/designation_matrix.js, assets/geo/countries.js,
@@ -25,7 +27,7 @@ const DEV=/[ऀ-ॿ]/;
 const VER="1.1";
 /* पैक किन हिस्सों को ढकता है (पैनल-खेपों के साथ बढ़ेगा)। सब हिस्से पूरे = complete:true।
    करियर-टेस्ट की नई भाषा का द्वार (lib_apt_langs.js panelGate) इसी पर चलता है। */
-const SCOPE=["login","join","guide"];
+const SCOPE=["login","join","guide","dash-ext","dash-team"];
 const ALL_AREAS={ en:["login","join","guide","dash-ext","dash-team","server","canvas","rules"] };
 /* ये हिंदी टुकड़े पन्ने पर दिखते ही नहीं (सिर्फ़ console या कोड के भीतर) — इसलिए अनुवाद नहीं */
 const SKIP=new Set([
@@ -33,7 +35,7 @@ const SKIP=new Set([
   "verifyRegisterOtp त्रुटि:", "submitRegistration त्रुटि:",
   "ज्ञ", "क्ष", "त्र"   /* नाम को देवनागरी में बदलने वाली अक्षर-तालिका (दिखती नहीं) */
 ]);
-const KEEP_SHORT=new Set(["या","पद","और"]);   /* 2 अक्षर से छोटे जो सचमुच दिखते हैं */
+const KEEP_SHORT=new Set(["या","पद","और","मई","सब"]);   /* 2 अक्षर से छोटे जो सचमुच दिखते हैं */
 
 function readJSON(p){ return JSON.parse(fs.readFileSync(path.join(ROOT,p),"utf8")); }
 function sandbox(files){
@@ -93,12 +95,15 @@ for(const [h,e] of Object.entries(D)){
 }
 /* (v1.2, 15-Nov) English शब्द-सूची (Founder की हाँ, 15-Nov-2026): नियम का घर generator/data/vocab_en.json।
    V1: हिंदी में "उद्यम" हो, तो English में "industry" उतनी ही बार जितनी बार हिंदी में "उद्योग"।
-   V2/V3: English में "950 industries/sectors" या "🌍 Industries" नहीं। (पूरी साइट: dev_vocab_en_check.js) */
+   V2/V3: English में "950 industries/sectors" या "🌍 Industries" नहीं। (पूरी साइट: dev_vocab_en_check.js)
+   V6-V11 (पैनल-2, generator/lib_vocab_en.js): एक चीज़ = एक English नाम (अभिरुचि-रिपोर्ट = Career Interest Report,
+   अभिरुचि-परीक्षण = Career Interest Test, उद्योग-प्रशिक्षु = Entrepreneur Learner); English की तरफ़ से भी (V9-V11)। */
 if(LANG==="en"){ const VOC=JSON.parse(fs.readFileSync(path.join(ROOT,"generator/data/vocab_en.json"),"utf8"));
   const r1=VOC.pair_rules.find(r=>r.id==="V1"), hi1=new RegExp(r1.hi_re), en1=new RegExp(r1.en_count_re,"gi"), al1=new RegExp(r1.hi_allow_re,"g");
   for(const [h,e] of Object.entries(D)){ if(typeof e!=="string") continue;
     if(hi1.test(h)&&(e.match(en1)||[]).length>(h.match(al1)||[]).length) bad.push("शब्द-सूची V1 ('उद्यम' = Enterprise, industry नहीं): "+h+" → "+e);
-    for(const r of VOC.never_en) if(new RegExp(r.re,"i").test(e)) bad.push("शब्द-सूची "+r.id+": "+h+" → "+e); } }
+    for(const r of VOC.never_en) if(new RegExp(r.re,"i").test(e)) bad.push("शब्द-सूची "+r.id+": "+h+" → "+e);
+    for(const x of require("./lib_vocab_en.js").pairViolations(VOC,h,e)) bad.push("शब्द-सूची "+x.id+" ("+x.msg+"): "+h+" → "+e); } }
 
 /* ---------- 4. पहरा (ख): पहुँच-जाँच ---------- */
 function segsMarkup(s){ const out=[]; for(let t of s.split(/<[^>]*>/)){ t=norm(t); if(t&&DEV.test(t)) out.push(t); } return out; }
@@ -114,7 +119,7 @@ function jsStrings(code){
     if(c==="'"||c==='"'||c==="`"){
       let j=i+1, buf="";
       while(j<n&&code[j]!==c){
-        if(code[j]==="\\"){ const x=code[j+1]; buf+=(x==="n"?" ":x); j+=2; continue; }
+        if(code[j]==="\\"){ const x=code[j+1]; buf+=(x==="n"?"\n":x); j+=2; continue; }   /* (v1.3) \n असली नई पंक्ति: संदेश-डिब्बे पंक्ति-दर-पंक्ति बदलते हैं */
         if(c==="`"&&code[j]==="$"&&code[j+1]==="{"){ let dep=1; j+=2; while(j<n&&dep){ if(code[j]==="{")dep++; else if(code[j]==="}")dep--; j++; } buf+=" "; continue; }
         if(c!=="`"&&code[j]==="\n") break;
         buf+=code[j]; j++; }
@@ -135,25 +140,37 @@ function literals(code){
     /* (v1.1) '">📝 पाठ</a>' जैसा टुकड़ा: पिछले टुकड़े में खुले attribute का बचा सिरा हटाओ, वरना पूरा पाठ छूट जाता था */
     r=r.replace(/^["']?\s*>/,"");
     /* HTML-टुकड़ा: placeholder/title/label/aria-label के मान अलग से */
-    let a; const ra=/\b(?:placeholder|title|label|aria-label|alt)="([^"]*)"/g; while((a=ra.exec(r))) if(DEV.test(a[1])) out.push(norm(a[1]));
+    let a; const ra=/\b(?:placeholder|title|label|aria-label|alt|data-h|data-nav)="([^"]*)"/g; while((a=ra.exec(r))) if(DEV.test(a[1])) out.push(norm(a[1]));
     r=r.replace(/\b(?:placeholder|title|label|aria-label|alt|style|id|class|maxlength|inputmode|type|value|data-[a-z-]+)="[^"]*"/g," ");
-    for(const t of segsMarkup(r)) if(!/^["'=>]/.test(t)) out.push(t); }
+    r=r.replace(/^["']?\s*>/,"");   /* (v1.3) attribute हटने के बाद भी बचा सिरा ('" type="button">पाठ') */
+    for(const t of segsMarkup(r)) if(!/^["'=>]/.test(t)) out.push(t);
+    /* (v1.3) कई पंक्तियों वाला संदेश: इंजन alert/confirm को पंक्ति-दर-पंक्ति बदलता है, इसलिए हर पंक्ति भी */
+    if(r.indexOf("\n")>-1) for(const ln of r.split("\n")) for(const t of segsMarkup(ln)) if(!/^["'=>]/.test(t)) out.push(t); }
   return out;
 }
 function htmlSegs(p){
   const s=fs.readFileSync(path.join(ROOT,p),"utf8");
   const scripts=[...s.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
   let body=s.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g," ").replace(/<style\b[^>]*>[\s\S]*?<\/style>/g," ").replace(/<!--[\s\S]*?-->/g," ");
-  const out=[]; let a; const ra=/\b(?:placeholder|title|aria-label|alt|label|content)="([^"]*)"/g;
+  const out=[]; let a; const ra=/\b(?:placeholder|title|aria-label|alt|label|content|data-h|data-nav)="([^"]*)"/g;
   while((a=ra.exec(body))) if(DEV.test(a[1])) out.push(norm(a[1]));
   out.push(...segsMarkup(body.replace(/<[^>]*\bdata-i18n-skip\b[^>]*>[\s\S]*?<\/[^>]+>/g," ")));
   scripts.forEach(sc=>out.push(...literals(sc)));
   return out;
 }
 const AREA_SRC={ login:["dashboard/_LOGIN_TEMPLATE.html"], join:["_JOIN_TEMPLATE.html"], guide:["registration-guide.html"] };
+/* (v1.3, पैनल-2) dashboard: generator से बने सब पन्ने (बाहरी = कार्ड-भूमिकाएँ, बाक़ी टीम) + उनकी साझा JS */
+(function(){ const ext=new Set((MX.cards||[]).map(c=>c.key.replace(/_/g,"-"))); const ext2=[], team=[];
+  const add=f=>{ if(fs.existsSync(path.join(ROOT,f))) (ext.has(f.split("/")[1])?ext2:team).push(f); };
+  for(const d of fs.readdirSync(path.join(ROOT,"dashboard"),{withFileTypes:true})) if(d.isDirectory()){
+    if(d.name==="hq") for(const h of fs.readdirSync(path.join(ROOT,"dashboard/hq"))) team.push("dashboard/hq/"+h+"/index.html");
+    else add("dashboard/"+d.name+"/index.html"); }
+  AREA_SRC["dash-ext"]=ext2.sort(); AREA_SRC["dash-team"]=team.filter(f=>fs.existsSync(path.join(ROOT,f))).sort(); })();
+const DASH_JS=["assets/dashboard.js","assets/vani.js","assets/exam-session.js","assets/academic_subjects.js"];
 const need=new Map();
 function want(t,src){ t=norm(t); if(!t||!DEV.test(t)||SKIP.has(t)) return; if(/^[ऀ-ॿ]{1,2}$/.test(t)&&!KEEP_SHORT.has(t)) return; if(!need.has(t)) need.set(t,src); }
 for(const a of SCOPE) for(const p of AREA_SRC[a]) htmlSegs(p).forEach(t=>want(t,p));
+if(SCOPE.some(a=>/^dash-/.test(a))) for(const f of DASH_JS) literals(fs.readFileSync(path.join(ROOT,f),"utf8")).forEach(t=>want(t,f));
 /* लॉगिन पन्ने पर acs-universal.js भी चलता है (मेनू, footer, नीचे के बटन) : उसकी हर हिंदी पंक्ति भी।
    सिर्फ़ भाषा-सूची की तालिकाएँ (var ACS_LANG_...) छोड़कर: वहाँ भाषाओं के अपने नाम हैं, जो जान-बूझकर वैसे ही रहते हैं। */
 if(SCOPE.indexOf("login")>-1){ const u=fs.readFileSync(path.join(ROOT,"assets/acs-universal.js"),"utf8").split("\n").filter(l=>!/^var ACS_LANG_/.test(l)).join("\n");
@@ -205,6 +222,8 @@ function engineTr(){
 }
 const TR=engineTr(), miss=[];
 for(const [t,src] of need){ const o=TR(t); if(DEV.test(o)) miss.push(src+" :: "+t+"  ⇒  "+o); }
+/* (v1.3) अनुवाद-सूची बनाने का औज़ार: ACS_MISS=<फ़ाइल> पर छूटे टुकड़े (स्रोत :: हिंदी) उस फ़ाइल में */
+if(process.env.ACS_MISS) fs.writeFileSync(process.env.ACS_MISS, miss.join("\n")+"\n");
 if(miss.length){ bad.push("पहुँच-जाँच: "+miss.length+" हिंदी टुकड़े English में नहीं बदले:"); miss.slice(0,Number(process.env.ACS_SHOW||60)).forEach(x=>bad.push("   "+x)); }
 if(bad.length){ bad.forEach(b=>console.log("  ⛔ "+b)); console.log("⛔ कोई फ़ाइल नहीं लिखी गई।"); process.exit(1); }
 
