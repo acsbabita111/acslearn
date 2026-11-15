@@ -794,7 +794,8 @@
   function otpMailLang(){ var I = window.ACS_PANEL_I18N; return (I && I.active && I.lang && I.lang() === 'en') ? 'en' : 'hi'; }
   function callOtpFn(fnName, payload){
     if(!firebaseReady()) return Promise.reject(new Error('Firebase तैयार नहीं है (SDK लोड नहीं हुआ या init विफल)।'));
-    if(fnName === 'requestRegisterOtp' && payload) payload.lang = otpMailLang();
+    /* OTP की माँग में सिर्फ़ email और भाषा जाती है: पासवर्ड, नाम, मोबाइल, जन्मतिथि यहाँ नहीं भेजे जाते (server को यहाँ उनकी ज़रूरत नहीं) */
+    if(fnName === 'requestRegisterOtp') payload = { email: (payload && payload.email) || '', lang: otpMailLang() };
     return firebase.functions().httpsCallable(fnName)(payload).then(function(res){ return res.data; });
   }
 

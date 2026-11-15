@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* ================================================================
    dev_panel_i18n_check.js v1.5 (15-Nov-2026) : पैनल-1 का पहरेदार
+   v1.5 (पैनल-6): रजिस्ट्रेशन की OTP-माँग में सिर्फ़ email और lang जाते हैं (पासवर्ड नहीं)।
    v1.5 (पैनल-6): OTP माँगते समय पैनल की भाषा server को जाती है (lang: "en" या "hi"), ताकि OTP का email उसी भाषा में आए:
    login, दोबारा OTP, पासवर्ड भूले, रजिस्ट्रेशन (L11, LH3, JP)।
    v1.4 (पैनल-5): 26 भूमिकाओं के English नियम-पत्र आ गए: "दर्ज होल" बंद। अब हर भूमिका में नियम English फ़ाइल से,
@@ -545,6 +546,8 @@ async function joinFull(rl, mode, extra) {
   res.payload = sub ? sub.data : null;
   { const q = c.calls.filter(x => x.name === "requestRegisterOtp");
     ck(tag + " : OTP की माँग में lang = " + (EN ? "en" : "hi"), q.length >= 1 && q.every(x => x.data && x.data.lang === (EN ? "en" : "hi")), JSON.stringify(q.map(x => x.data && x.data.lang))); }
+  { const q = c.calls.filter(x => x.name === "requestRegisterOtp");
+    ck(tag + " : OTP की माँग में सिर्फ़ email और lang (पासवर्ड, नाम, मोबाइल, जन्मतिथि नहीं)", q.length >= 1 && q.every(x => x.data && Object.keys(x.data).sort().join() === "email,lang" && x.data.email === "ram@example.com") && JSON.stringify(q).indexOf("abcDEF123") < 0, JSON.stringify(q.map(x => Object.keys(x.data || {})))); }
   ck(tag + " : submitRegistration में lang नहीं जुड़ा (भाषा सिर्फ़ OTP की माँग में जाती है)", !!sub && !("lang" in sub.data));
   noErr(c, tag);
   c.dom.window.close();
