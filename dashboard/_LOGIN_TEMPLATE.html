@@ -426,6 +426,9 @@ const fnClaim  = httpsCallable(functions, "claimSession");
 const fnReqReset = httpsCallable(functions, "requestPasswordResetOtp");
 const fnVerReset = httpsCallable(functions, "verifyPasswordResetOtp");
 
+/* (15-Nov-2026, पैनल-6) OTP का email उसी भाषा में, जिसमें पैनल है: server को भाषा बताई जाती है ("en" या "hi") */
+function otpMailLang(){ const I=window.ACS_PANEL_I18N; return (I&&I.active&&I.lang&&I.lang()==="en")?"en":"hi"; }
+
 const NO_OTP = ["student","jobseeker","entrepreneur"];
 /* ── काम-4 v3.0: routing का एकमात्र स्रोत = designation_matrix (परत-3) ──
    पुराना hardcoded 8-पद TEAM_DASH निरस्त (v1.6-ङ2 होल बंद)।
@@ -558,7 +561,7 @@ window.doLogin = async function(){
     if(NO_OTP.includes(role)){
       await finishLogin(role,email,"a2");
     }else{
-      await fnReqOtp({email});
+      await fnReqOtp({email,lang:otpMailLang()});
       show("c3"); setStep(3); clearOtp(); startOtpTimer(); window.scrollTo(0,0);
     }
   }catch(e){
@@ -591,7 +594,7 @@ window.verifyLoginOtp = async function(){
 };
 window.resendLoginOtp = async function(){
   const email=($("f-email").value||"").trim().toLowerCase();
-  try{ await fnReqOtp({email}); clearOtp(); startOtpTimer(); box("a3","नया OTP भेजा गया।",true); }
+  try{ await fnReqOtp({email,lang:otpMailLang()}); clearOtp(); startOtpTimer(); box("a3","नया OTP भेजा गया।",true); }
   catch(e){ box("a3",(e&&e.message)||"अभी दोबारा नहीं — थोड़ी देर बाद।"); }
 };
 
@@ -626,7 +629,7 @@ window.requestForgotOtp = async function(){
   if(!email||!/^\S+@\S+\.\S+$/.test(email)){ fieldErr("e-fp-email","सही Email डालें।"); return; }
   const btn=$("btnFP1"); btn.disabled=true; const old=btn.textContent; btn.textContent="भेजा जा रहा है…";
   try{
-    await fnReqReset({email});
+    await fnReqReset({email,lang:otpMailLang()});
     box("aFP","अगर यह Email हमारे पास registered है, तो 6-अंकी OTP भेज दिया गया है — अपना Inbox/Spam देखें।",true);
     $("fp-step-email").style.display="none"; $("fp-step-reset").style.display="";
     clearFpOtp(); startFpOtpTimer(); fpCheckPwd();
@@ -638,7 +641,7 @@ window.requestForgotOtp = async function(){
 
 window.resendForgotOtp = async function(){
   const email=($("fp-email").value||"").trim().toLowerCase();
-  try{ await fnReqReset({email}); clearFpOtp(); startFpOtpTimer(); box("aFP","नया OTP भेजा गया।",true); }
+  try{ await fnReqReset({email,lang:otpMailLang()}); clearFpOtp(); startFpOtpTimer(); box("aFP","नया OTP भेजा गया।",true); }
   catch(e){ box("aFP",(e&&e.message)||"अभी दोबारा नहीं — थोड़ी देर बाद।"); }
 };
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /* ================================================================
-   dev_panel_i18n_check.js v1.4 (15-Nov-2026) : पैनल-1 का पहरेदार
+   dev_panel_i18n_check.js v1.5 (15-Nov-2026) : पैनल-1 का पहरेदार
+   v1.5 (पैनल-6): OTP माँगते समय पैनल की भाषा server को जाती है (lang: "en" या "hi"), ताकि OTP का email उसी भाषा में आए:
+   login, दोबारा OTP, पासवर्ड भूले, रजिस्ट्रेशन (L11, LH3, JP)।
    v1.4 (पैनल-5): 26 भूमिकाओं के English नियम-पत्र आ गए: "दर्ज होल" बंद। अब हर भूमिका में नियम English फ़ाइल से,
    consent_language = en, दर्ज संस्करण = हिंदी मूल की संख्या; बासी English फ़ाइल = हिंदी मूल + सूचना (J7, G9)।
    v1.1 (पैनल-1ख): + रजिस्ट्रेशन गाइड (G) और सूचियों का English क्रम (JS)
@@ -315,6 +317,8 @@ async function loginSuite() {
   c.handlers.requestLoginOtp = () => ({ ok: true }); await c.w.resendLoginOtp(); await settle(c); clean(c, "L8 नया OTP भेजा");
   c.handlers.requestLoginOtp = () => { throw {}; }; await c.w.resendLoginOtp(); await settle(c); clean(c, "L8 दोबारा OTP अभी नहीं");
   noErr(c, "L7-L8");
+  { const q = c.calls.filter(x => x.name === "requestLoginOtp");
+    ck("L11 English login: OTP की हर माँग में lang = en (login + 2 बार दोबारा)", q.length === 3 && q.every(x => x.data && x.data.lang === "en" && x.data.email === "a@b.co" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data))); }
   c.dom.window.close();
 
   /* L9 पासवर्ड भूल गए */
@@ -331,6 +335,9 @@ async function loginSuite() {
   c.handlers.verifyPasswordResetOtp = H.verifyPasswordResetOtp; ["p1", "p2", "p3", "p4", "p5", "p6"].forEach((id, i) => { c.d.getElementById(id).value = String(i + 1); });
   await c.w.submitForgotReset(); await settle(c); clean(c, "L9 पासवर्ड बदल गया");
   noErr(c, "L9");
+  c.handlers.requestPasswordResetOtp = H.requestPasswordResetOtp; await c.w.resendForgotOtp(); await settle(c);
+  { const q = c.calls.filter(x => x.name === "requestPasswordResetOtp");
+    ck("L11 English पासवर्ड भूले: OTP की हर माँग में lang = en (पहली + दोबारा)", q.length === 2 && q.every(x => x.data && x.data.lang === "en" && x.data.email === "a@b.co" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data))); }
   /* L10 menu की कड़ियाँ English पन्नों पर */
   const mis = Array.from(c.d.querySelectorAll("#acsMenuList a,#acsFooterMenu a")).filter(a => /mission/.test(a.getAttribute("href")));
   ck("L10 English में menu की कड़ी English पन्ने पर", mis.length > 0 && mis.every(a => a.getAttribute("href") === "/en/mission.html"), mis.map(a => a.getAttribute("href")).join(","));
@@ -341,6 +348,17 @@ async function loginSuite() {
   const hA = await OPEN({}); const hB = await openPage("dashboard/index.html", { transform: noEng, urlPath: "/dashboard/" });
   ck("LH1 हिंदी में इंजन निष्क्रिय, html lang=hi", !hA.w.ACS_PANEL_I18N.active && hA.d.documentElement.getAttribute("lang") === "hi" && hA.d.body.classList.contains("hi"));
   ck("LH2 हिंदी पन्ना हूबहू (इंजन होने न होने से कोई अंतर नहीं)", bodyText(hA) === bodyText(hB) && hA.d.title === hB.d.title);
+  /* LH3 हिंदी में OTP की माँग: lang = hi (इंजन वाला पन्ना और इंजन हटाया पन्ना, दोनों) */
+  for (const [nm, mk] of [["इंजन के साथ", () => OPEN({ handlers: Object.assign({}, H) })], ["इंजन के बिना", () => openPage("dashboard/index.html", { transform: noEng, urlPath: "/dashboard/", handlers: Object.assign({}, H) })]]) {
+    const h = await mk();
+    click(h, h.d.querySelectorAll("#roleGrid .role-card")[tops.findIndex(x => x.key === "counselor")]); h.w.goStep2();
+    h.d.getElementById("f-email").value = "a@b.co"; h.d.getElementById("f-pass").value = "x";
+    await h.w.doLogin(); await sleep(1100); await settle(h); await h.w.resendLoginOtp(); await settle(h);
+    h.w.goForgot(); await settle(h); h.d.getElementById("fp-email").value = "a@b.co"; await h.w.requestForgotOtp(); await sleep(1100); await settle(h);
+    const q = h.calls.filter(x => x.name === "requestLoginOtp" || x.name === "requestPasswordResetOtp");
+    ck("LH3 हिंदी login (" + nm + "): OTP की हर माँग में lang = hi", q.length === 3 && q.every(x => x.data && x.data.lang === "hi"), JSON.stringify(q.map(x => [x.name, x.data])));
+    h.dom.window.close();
+  }
   /* LS भाषा बदलना: English → हिंदी = ताज़ा हिंदी */
   c = await OPEN({ ls: { acs_dash_lang: "en" }, expect: "en" });
   click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(c);
@@ -525,6 +543,9 @@ async function joinFull(rl, mode, extra) {
   }
   const sub = c.calls.filter(x => x.name === "submitRegistration").pop();
   res.payload = sub ? sub.data : null;
+  { const q = c.calls.filter(x => x.name === "requestRegisterOtp");
+    ck(tag + " : OTP की माँग में lang = " + (EN ? "en" : "hi"), q.length >= 1 && q.every(x => x.data && x.data.lang === (EN ? "en" : "hi")), JSON.stringify(q.map(x => x.data && x.data.lang))); }
+  ck(tag + " : submitRegistration में lang नहीं जुड़ा (भाषा सिर्फ़ OTP की माँग में जाती है)", !!sub && !("lang" in sub.data));
   noErr(c, tag);
   c.dom.window.close();
   return res;
@@ -741,6 +762,6 @@ if (require.main === module) (async function main() {
     if (!only || only === "join") await joinSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.4 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.5 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
   process.exit(fail ? 1 : 0);
 })();

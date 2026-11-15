@@ -785,8 +785,11 @@
   function clearOtpError(){ otpErrorBox.style.display='none'; }
 
   function firebaseReady(){ return typeof firebase!=='undefined' && firebase.apps && firebase.apps.length>0 && firebase.functions; }
+  /* (15-Nov-2026, पैनल-6) OTP का email उसी भाषा में, जिसमें पैनल है: server को भाषा बताई जाती है ('en' या 'hi') */
+  function otpMailLang(){ var I = window.ACS_PANEL_I18N; return (I && I.active && I.lang && I.lang() === 'en') ? 'en' : 'hi'; }
   function callOtpFn(fnName, payload){
     if(!firebaseReady()) return Promise.reject(new Error('Firebase तैयार नहीं है (SDK लोड नहीं हुआ या init विफल)।'));
+    if(fnName === 'requestRegisterOtp' && payload) payload.lang = otpMailLang();
     return firebase.functions().httpsCallable(fnName)(payload).then(function(res){ return res.data; });
   }
 
