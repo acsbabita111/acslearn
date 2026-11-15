@@ -1,5 +1,5 @@
 /* ============================================================================
-   /assets/exam-session.js : v1.1 (13-Nov-2026)
+   /assets/exam-session.js : v1.2 (15-Nov-2026; v1.2 पैनल-4ख: प्रश्न/विकल्प भाषा-इंजन से सुरक्षित, विकल्प-अक्षर और कोर्स-नाम English पैनल में English; v1.1 13-Nov-2026)
    कोर्स की अंतिम परीक्षा का फ़ोन-इंजन (खेप 2)। dashboard.js इसे तभी लाता है जब विद्यार्थी "परीक्षा दें" दबाता है।
    Founder के नियम (13-Nov-2026): बैज या ₹100 · दिन में 2 परीक्षाएँ · 3 खंड x 40 प्रश्न · हर खंड 20 से 40 मिनट ·
    खंड 1 और 2 के बाद 1 से 5 मिनट का विराम · हर कोर्स में सबसे अच्छा अंक ही दर्ज · कोर्स के 5 हिस्सों का प्रतिशत, 7 दिन तक।
@@ -73,7 +73,9 @@
     var cb = C && C.onClose, ch = changed; S = null; G = null; changed = false;
     if (cb) { try { cb(ch); } catch (e) {} }
   }
-  function topBar(title, extra) { return "<b>" + esc(title) + "</b>" + (extra || "") + '<button class="xm-x" id="xmClose" type="button">✕ बंद करें</button>'; }
+  /* (15-Nov-2026, पैनल-4ख) कोर्स का नाम: English पैनल में कोर्स-सूची का English नाम (dashboard अपना courseEn देता है) */
+  function cname(t, cid) { var en = ""; try { en = (C && C.courseEn) ? (C.courseEn(cid || C.cid, t) || "") : ""; } catch (e) {} return "<span" + (en ? ' data-tr-en="' + esc(en) + '"' : "") + ">" + esc(t) + "</span>"; }
+  function topBar(title, extra) { return "<b>" + cname(title) + "</b>" + (extra || "") + '<button class="xm-x" id="xmClose" type="button">✕ बंद करें</button>'; }
   function busyCard(t) { frame(topBar(G && G.course ? G.course.name : "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="busy" style="text-align:center">⏳ ' + esc(t) + "</div>"); wireClose(); }
   function errCard(t, retry) {
     frame(topBar(G && G.course ? G.course.name : "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="error"><h2>⚠️ काम पूरा नहीं हुआ</h2><p>' + esc(t) + '</p><div class="xm-nav">' +
@@ -123,7 +125,7 @@
     S = null; busyCard("जाँच हो रही है…");
     C.call("examGate", { courseId: C.cid }).then(function (d) {
       G = d; skew = (d.now || Date.now()) - Date.now();
-      var r = d.rules, q = d.quota || {}, h = '<div class="xm-card" id="xmState" data-st="gate"><h2>🎓 ' + esc(d.course.name) + "</h2>" +
+      var r = d.rules, q = d.quota || {}, h = '<div class="xm-card" id="xmState" data-st="gate"><h2>🎓 ' + cname(d.course.name) + "</h2>" +
         "<p>पास होने के लिए " + d.course.pass + "% चाहिए।</p>" + rulesHtml(r) + "</div>" +
         '<div class="xm-card"><h2>📊 आपका नतीजा</h2>' + bestHtml(d.best) +
         (d.best ? '<p style="font-size:16px">नियम: हर कोर्स में सबसे अच्छा अंक ही दर्ज रहता है। नई परीक्षा का अंक तभी दर्ज होगा जब वह ' + d.best.pct + "% से ज़्यादा हो। कम या बराबर आए, तो " + d.best.pct + "% ही रहेगा।</p>" : "") + "</div>";
@@ -132,7 +134,7 @@
         act = "<h2>⏳ आपकी यह परीक्षा चल रही है</h2><p>अभी खंड " + d.open.set + " चल रहा है। घड़ी चल रही है।</p>" +
           '<div class="xm-nav"><button class="xm-btn green" id="xmResume" type="button">▶ जारी रखें</button><button class="xm-btn line" id="xmAbandon" type="button">❌ परीक्षा छोड़ें</button></div>';
       } else if (d.open) {
-        act = "<h2>⏳ आपकी एक और परीक्षा चल रही है</h2><p>" + esc(d.open.name) + "</p><p>एक समय में एक ही कोर्स-परीक्षा चल सकती है। पहले उसे पूरा कीजिए, या उसे छोड़ दीजिए।</p>" +
+        act = "<h2>⏳ आपकी एक और परीक्षा चल रही है</h2><p>" + cname(d.open.name, d.open.courseId) + "</p><p>एक समय में एक ही कोर्स-परीक्षा चल सकती है। पहले उसे पूरा कीजिए, या उसे छोड़ दीजिए।</p>" +
           '<div class="xm-nav"><button class="xm-btn line" id="xmAbandon" type="button">❌ वह परीक्षा छोड़ें</button></div>';
       } else if (!q.canStart) {
         act = "<h2>🌙 आज की सीमा पूरी</h2><p>आज की " + r.dailyMax + " परीक्षाएँ हो चुकी हैं। अगली परीक्षा कल रात 12 बजे के बाद दे सकेंगे।</p>";
@@ -201,10 +203,10 @@
     var t = String(q.t || ""), mic = /\(\(MIC\)\)/.test(t); t = t.replace(/\s*\(\(MIC\)\)/, "");
     var m = /\(\(AU:([\s\S]*?)\)\)/.exec(t), h;
     if (m) {
-      h = esc(t.replace(m[0], "").replace(/\s+$/, "")) + '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">' +
+      h = "<span data-i18n-skip>" + esc(t.replace(m[0], "").replace(/\s+$/, "")) + '</span><div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">' +
         '<button type="button" class="xm-btn blue" style="flex:0 1 auto;font-size:18px" data-say="' + esc(m[1]) + '">🔊 वाक्य सुनिए</button>' +
         '<button type="button" class="xm-btn line" style="flex:0 1 auto;font-size:18px" data-say="' + esc(m[1]) + '" data-slow="1">🐢 धीरे सुनिए</button></div>';
-    } else h = esc(t);
+    } else h = "<span data-i18n-skip>" + esc(t) + "</span>";   /* (पैनल-4ख) प्रश्न और विकल्प कोर्स की भाषा में: भाषा-इंजन इन्हें नहीं छूता */
     return { html: h, mic: mic || q.mic === 1 };
   }
   function clockText() { var left = S.deadline - now(); return "⏱ बचा समय: " + mmss(left); }
@@ -214,9 +216,9 @@
       '<div class="xm-q">' + qq.html + "</div>";
     if (qq.mic) {
       h += '<div class="xm-mic"><button type="button" class="xm-btn blue" id="xmMic" style="width:100%">🎤 बोलिए</button><div id="xmMicOut" style="margin-top:8px">' +
-        (typeof a === "string" && a ? '✅ फ़ोन ने सुना: <b dir="auto">' + esc(a) + "</b>" : "माइक का बटन दबाकर ज़ोर से और साफ़ बोलिए।") + "</div></div>";
+        (typeof a === "string" && a ? '✅ फ़ोन ने सुना: <b dir="auto" data-i18n-skip>' + esc(a) + "</b>" : "माइक का बटन दबाकर ज़ोर से और साफ़ बोलिए।") + "</div></div>";
     } else {
-      for (var j = 0; j < q.o.length; j++) h += '<button type="button" class="xm-opt' + (a === j ? " sel" : "") + '" data-o="' + j + '"><i>' + OPT[j] + '</i><span dir="auto">' + esc(q.o[j]) + "</span></button>";
+      for (var j = 0; j < q.o.length; j++) h += '<button type="button" class="xm-opt' + (a === j ? " sel" : "") + '" data-o="' + j + '"><i data-tr-en="' + "ABCD".charAt(j) + '">' + OPT[j] + '</i><span dir="auto" data-i18n-skip>' + esc(q.o[j]) + "</span></button>";
     }
     h += '<div class="xm-warn" id="xmMsg"></div><div id="xmSave" style="font-size:16px;min-height:1.6em;margin:6px 0">' + esc(S.note ? NOTE[S.note] : "") + '</div><div class="xm-nav"><button class="xm-btn grey" id="xmPrev" type="button"' + (S.idx === 0 ? " disabled" : "") + ">← पिछला</button>" +
       (last ? '<button class="xm-btn green" id="xmSubmit" type="button">📨 खंड ' + S.set + " जमा करें</button>" : '<button class="xm-btn blue" id="xmNext" type="button">आगे →</button>') + "</div>" +
@@ -261,7 +263,7 @@
     r.onresult = function (ev) {
       var t = ""; try { t = ev.results[0][0].transcript; } catch (e) {}
       if (!S || S.sid !== sidAt || S.set !== setAt) return;
-      if (t && String(t).trim() && S.deadline - now() > 0) { got = true; S.ans[at] = String(t).trim().slice(0, 400); save(); markDirty(); if (S.idx === at && $("xmMicOut")) $("xmMicOut").innerHTML = '✅ फ़ोन ने सुना: <b dir="auto">' + esc(t) + '</b><br><span style="font-size:16px">ठीक नहीं लगा? दोबारा बोल सकते हैं।</span>'; }
+      if (t && String(t).trim() && S.deadline - now() > 0) { got = true; S.ans[at] = String(t).trim().slice(0, 400); save(); markDirty(); if (S.idx === at && $("xmMicOut")) $("xmMicOut").innerHTML = '✅ फ़ोन ने सुना: <b dir="auto" data-i18n-skip>' + esc(t) + '</b><br><span style="font-size:16px">ठीक नहीं लगा? दोबारा बोल सकते हैं।</span>'; }
     };
     r.onerror = function (ev) { if ($("xmMicOut")) $("xmMicOut").innerHTML = '<span style="color:#B71C1C">माइक नहीं चला (' + esc(ev.error || "") + ")। माइक की अनुमति दीजिए, फिर दोबारा दबाइए।</span>"; };
     r.onend = function () { var bb = $("xmMic"); if (bb) { bb.disabled = false; bb.textContent = "🎤 बोलिए"; } if (!got && $("xmMicOut") && !/माइक नहीं चला/.test($("xmMicOut").textContent)) $("xmMicOut").innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया। दोबारा बोलिए।</span>'; };

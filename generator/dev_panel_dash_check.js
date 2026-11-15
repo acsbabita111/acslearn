@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v1.2 (15-Nov-2026; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v1.3 (15-Nov-2026; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -204,6 +204,107 @@ async function dumpHindi(pages, out) {
     res[f] = { text: b.textContent.replace(/\s+/g, " ").trim(), title: c.d.title, dialogs: c.dialogs.slice() }; c.dom.window.close(); }
   fs.writeFileSync(out, JSON.stringify(res));
 }
+/* ════════ (v1.3, पैनल-4ख) सहेजा हुआ हिंदी data ════════
+   असल में खाते का data हिंदी में सहेजा होता है। पुराना नक़ली data English में था, इसलिए यह कमी नहीं दिखती थी।
+   नियम: (1) उपयोगकर्ता का लिखा (नाम, केंद्र का नाम, टिप्पणी, कारण, काम, रिपोर्ट) English पैनल में अक्षर-अक्षर वैसा ही, और हिंदी पैनल जितनी ही बार;
+   (2) बाक़ी सब (कोर्स का सहेजा नाम, उद्यम/क्षेत्र के नाम, जिला) English में; (3) परीक्षा के प्रश्न और विकल्प कोर्स की भाषा में, बिना छेड़छाड़। */
+/* हर पाठ में जान-बूझकर ऐसा शब्द है जो पैक में भी है (केंद्र, शिक्षा, संगीत, माली): बचाव न हो, तो वह शब्द बदल जाएगा और जाँच पकड़ लेगी */
+const HU = { center: "शिव संगीत केंद्र", student: "संगीत माली", task: "केंद्र का दौरा", detail: "केंद्र में शिक्षा की जाँच करनी है", report: "आज केंद्र का काम पूरा हुआ", reason: "केंद्र की फ़ोटो साफ़ नहीं है",
+  feeNote: "केंद्र पर पहली किस्त", subjects: "हिंदी, गणित, शिक्षा", dur: "3 महीने (शिक्षा सत्र)", ret: "केंद्र बंद है", hold: "केंद्र में अनुशासन की कमी", vnote: "केंद्र का पता ग़लत है" };
+const HQ = ["सुरक्षा के लिए हेलमेट क्यों ज़रूरी है?", "सिर की सुरक्षा के लिए", "गाँव का नियम है", "शिक्षा के लिए", "खेल के लिए"];
+function hdataFix(data, info) {
+  const C1 = "कंप्यूटर ऑपरेटर (Computer Operator)", C2 = "डेटा एंट्री ऑपरेटर", C3 = "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का प्रमाणपत्र कोर्स (Certificate in Two-Wheeler Servicing & EV)";
+  const r1 = data.registrations.r1; r1.district = "खगड़िया"; r1.desired_district = "खगड़िया"; r1.formFields = { center_name: HU.center, workshop_name: HU.center };
+  const en = (id, o) => Object.assign({ studentUid: "u1", centerUid: "u1", centerName: HU.center, studentName: HU.student, studentRegNo: "ACS-2026-999999", enrolledAt: TS(2026, 11, 6), createdAt: TS(2026, 11, 6) }, o);
+  data.enrollments = {
+    e1: en("e1", { courseId: "PJ001", courseName: C1, status: "active", feeEntries: [{ receiptNo: "R-0001", amountRupees: 500, at: TS(2026, 11, 7), note: HU.feeNote }] }),
+    e2: en("e2", { courseId: "PJ002", courseName: C2, status: "offered" }),
+    e3: en("e3", { courseId: "PJ002", courseName: C2, status: "requested" }),
+    e4: en("e4", { courseId: "SE022", courseName: C3, status: "returned", returnReason: HU.ret }) };
+  data.offerings = { o1: { centerUid: "u1", courseId: "PJ001", courseName: C1, feeRupees: 5000, seats: 30, filledCount: 3, status: "open", startDate: "2026-12-01", endDate: "2027-03-01", durationText: HU.dur, subjects: HU.subjects, createdAt: TS(2026, 11, 1) } };
+  data.tasks = { t1: { title: HU.task, detail: HU.detail, to: "u1", to_uid: "u1", by: "u2", by_uid: "u2", status: "pending", at: TS(2026, 11, 3), createdAt: TS(2026, 11, 3) } };
+  data.reports = { rp1: { cycle: "daily", text: HU.report, by: "u1", by_uid: "u1", at: TS(2026, 11, 3), createdAt: TS(2026, 11, 3) } };
+  if (data.registrations.r3) { data.registrations.r3.rejection.reason = HU.reason; data.registrations.r3.name_local = HU.student; data.registrations.r3.district = "खगड़िया"; }
+  if (data.teams.u5) { data.teams.u5.name_local = HU.student; data.teams.u5.active = true; data.teams.u5.status = "permanent"; data.teams.u5.hold = { type: "work", reason: HU.hold, by: "u1", at: TS(2026, 11, 4) }; }
+  if (data.teams.u2) data.teams.u2.name_local = HU.student;
+}
+const H_HANDLERS = {
+  listBadgeQueue: () => ({ scope: "founder", items: [{ id: "p9", name: HU.student, regNo: "ACS-2026-555555", role: "teacher", tier: "village", pin: "851201", amountRupees: 300, paidAt: Date.UTC(2026, 10, 9), state: "bihar", district: "खगड़िया", mobile: "9000000001" }] }),
+  listServiceVerifyQueue: () => ({ scope: "founder", items: [{ regNo: "ACS-2026-444444", name: HU.student, role: "center", orgName: HU.center, district: "खगड़िया", state: "bihar", verify: "failed", verifyNote: HU.vnote, status: "provisional" }] }),
+  lookupStudent: () => ({ name: HU.student, regNo: "ACS-2026-999999", minor: false }),
+  lookupCenter: () => ({ name: HU.center, regNo: "ACS-2026-123456", district: "खगड़िया", state: "bihar", offerings: [{ courseId: "PJ002", courseName: "डेटा एंट्री ऑपरेटर", feeRupees: 4000, seats: 20, filledCount: 2, durationText: HU.dur, subjects: HU.subjects, startDate: "2026-12-01", endDate: "2027-03-01" }] }),
+  examGate: () => ({ now: Date.now(), mode: "badge", course: { name: "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का प्रमाणपत्र कोर्स", pass: 60 }, quota: { canStart: true }, best: null, open: null,
+    rules: { perSet: 40, sets: 3, maxSetSec: 2400, minSetSec: 600, pauseMinSec: 60, pauseMaxSec: 300, sessionSec: 9000, dailyMax: 2 } }),
+  examStart: () => ({ now: Date.now(), sid: "s1", set: 1, courseId: "SE022", name: "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का प्रमाणपत्र कोर्स", pass: 60, deadline: Date.now() + 2400000, releaseAt: Date.now() + 600000,
+    questions: [{ t: HQ[0], o: HQ.slice(1) }, { t: "दूसरा प्रश्न: शिक्षा क्या है?", o: ["ज्ञान", "खेल", "काम", "नाम"] }],
+    rules: { perSet: 40, sets: 3, maxSetSec: 2400, minSetSec: 600, pauseMinSec: 60, pauseMaxSec: 300, sessionSec: 9000, dailyMax: 2 } })
+};
+const visText = c => { const b = c.d.body.cloneNode(true); b.querySelectorAll("script,style,noscript,#acsPanelLangBar").forEach(x => x.remove()); return b.textContent; };
+const countOf = (t, v) => t.split(v).length - 1;
+async function openH(file, lang, sc) {
+  const info = pageInfo(file), data = fixture(info, sc || "data"), user = { uid: "u1", email: "ram@example.com" };
+  hdataFix(data, info);
+  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang === "en") ls.acs_dash_lang = "en";
+  const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: lang === "en" ? "en" : undefined,
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS), fb: makeFB(data, user) });
+  await openAll(c); await settle(c);
+  /* खोज वाले बटन: केंद्र खोजना (विद्यार्थी), विद्यार्थी खोजना (केंद्र) */
+  for (const [inp, btn] of [["mcCtrReg", "mcFindBtn"], ["addStuReg", "addStuFind"]]) { const i = c.d.getElementById(inp), b = c.d.getElementById(btn); if (i && b) { i.value = "ACS-2026-123456"; click(c, b); await settle(c); await settle(c); } }
+  await settle(c); return c;
+}
+async function hdataChecks(pages, all) {
+  const UV = Object.keys(HU).map(k => HU[k]).concat([NAME_HI, "सीता देवी"]);
+  const seen = {}; UV.forEach(v => { seen[v] = 0; });
+  const LIST = ["student", "jobseeker", "entrepreneur", "center", "workshop", "teacher", "admin", "founder", "regional", "zonal"];
+  for (const f of pages.filter(f => LIST.indexOf(f.split("/")[1]) > -1)) {
+    const tag = f.split("/")[1] + " [हिंदी data]";
+    try {
+      const e = await openH(f, "en"), h = await openH(f, "hi");
+      UV.forEach(v => { e.userVals.add(v); e.userVals.add(v.trim()[0]); });
+      const L = hindiLeaks(e).filter(x => { let y = x.replace(/^\[skip-ज़ोन\] /, ""); UV.forEach(v => { y = y.split(v).join(""); }); return DEV.test(y); });
+      L.forEach(x => { const k = x.replace(/^\[skip-ज़ोन\] /, ""); INV.set(k, (INV.get(k) || []).concat(tag)); });
+      ck(tag + " : English में हिंदी शून्य (उपयोगकर्ता का अपना लिखा छोड़कर)", L.length === 0, L.length + " जगह: " + L.slice(0, 6).join("  ‖  "));
+      const tE = visText(e), tH = visText(h), bad = [];
+      UV.forEach(v => { const a = countOf(tH, v), b = countOf(tE, v); seen[v] += a; if (a !== b) bad.push(v + " (हिंदी में " + a + " बार, English में " + b + ")"); });
+      ck(tag + " : उपयोगकर्ता का लिखा हर पाठ English में भी उतनी ही बार, अक्षर-अक्षर वैसा", bad.length === 0, bad.slice(0, 5).join(" ‖ "));
+      /* हिंदी पन्ना: इंजन की नई चीज़ों से कुछ न बदले (पुराने live से मिलान खेप के AUDIT में) */
+      const er = e.errors.concat(h.errors); ck(tag + " : JS-त्रुटि शून्य", er.length === 0, er.slice(0, 3).join(" ‖ "));
+      if (f.split("/")[1] === "student") {
+        const body = tE;
+        ck("student [हिंदी data] : कोर्स का सहेजा नाम English में (सूची से), उद्यम और क्षेत्र के नाम English में", /Data Entry Operator/.test(body) && /Computer Operator/.test(body) && /Rice/.test(body) && /🌾 Agriculture/.test(body) && /🏭 Manufacturing/.test(body) && !/धान/.test(body), body.match(/.{0,40}(धान|कृषि|ऑपरेटर).{0,40}/) ? body.match(/.{0,40}(धान|कृषि|ऑपरेटर).{0,40}/)[0] : "");
+        /* परीक्षा: प्रश्न और विकल्प जैसे हैं वैसे; अक्षर A B C D; कोर्स का नाम English */
+        const eb = e.d.querySelector("[data-exam]");
+        if (eb) { click(e, eb); await waitFor(e, () => e.d.getElementById("xmStart"), 4000); await settle(e);
+          const top = (e.d.querySelector(".xm-top") || {}).textContent || "";
+          const st = e.d.getElementById("xmStart"); if (st) { click(e, st); await waitFor(e, () => e.d.querySelector(".xm-q"), 4000); await settle(e); await settle(e); }
+          const q = (e.d.querySelector(".xm-q") || {}).textContent || "", ops = Array.from(e.d.querySelectorAll(".xm-opt span")).map(x => x.textContent), ab = Array.from(e.d.querySelectorAll(".xm-opt i")).map(x => x.textContent).join("");
+          ck("परीक्षा : प्रश्न और विकल्प कोर्स की भाषा में, अक्षर-अक्षर वैसे (भाषा-इंजन नहीं छूता)", q.indexOf(HQ[0]) === 0 && ops.join("|") === HQ.slice(1).join("|"), q.slice(0, 80) + " ‖ " + ops.join("|"));
+          ck("परीक्षा : विकल्प के अक्षर A B C D, और शीर्ष पर कोर्स का English नाम", ab === "ABCD" && /Motorcycle & Two-Wheeler Repair/.test(top) && !DEV.test(top), ab + " ‖ " + top.slice(0, 90));
+          const ov = e.d.querySelector(".xm-top") && e.d.querySelector(".xm-top").parentElement;
+          const lk = hindiLeaks(e).filter(x => { let y = x.replace(/^\[skip-ज़ोन\] /, ""); UV.concat(HQ).forEach(v => { y = y.split(v).join(""); }); return DEV.test(y); });
+          ck("परीक्षा : परीक्षा के पन्ने पर बाक़ी सब English में", !!ov && lk.length === 0, lk.slice(0, 4).join(" ‖ "));
+        } else ck("परीक्षा : परीक्षा का बटन मिला", false, "data-exam नहीं");
+      }
+      if (f.split("/")[1] === "admin") {
+        const op = Array.from(e.d.querySelectorAll("option[data-i18n-user]")).map(x => x.textContent);
+        ck("admin [हिंदी data] : सूची के विकल्प में नाम वैसा ही, पद English में (\"" + HU.student + " — …\")", op.length > 0 && op.every(t => !DEV.test(t.split(HU.student).join("").split("सीता देवी").join(""))) && op.some(t => t.indexOf(HU.student + " — ") === 0), op.slice(0, 3).join(" ‖ "));
+      }
+      e.dom.window.close(); h.dom.window.close();
+    } catch (err) { ck(tag + " : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
+  }
+  const never = Object.keys(seen).filter(v => v !== NAME_HI && v !== "सीता देवी" && seen[v] === 0);
+  if (all) ck("हिंदी data : नक़ली खाते का हर लिखा पाठ सचमुच किसी पन्ने पर दिखा (जाँच खोखली नहीं)", never.length === 0, "कहीं नहीं दिखा: " + never.join(" ‖ "));
+  /* स्थिर: 24 क्षेत्रों के English नाम = करियर टेस्ट वाले; कोर्स-सूची के English नाम में देवनागरी नहीं */
+  { const D = rd("assets/dashboard.js"), a = D.indexOf("const MG_EN = {"), b = D.indexOf("};", a); let T = null; try { T = new Function("return " + D.slice(a + 14, b + 1))(); } catch (e2) {}
+    const src = rd("generator/data/aptitude/en/apt_en_strings.js"), mm = /mg:\s*\{([\s\S]*?)\}/.exec(src); let EN = null; try { EN = new Function("return {" + mm[1] + "}")(); } catch (e3) {}
+    const sb = { window: {} }; new Function("window", rd("assets/mg_names.js"))(sb.window); const MG = sb.window.MG_NAMES || {};
+    const bad = (T && EN) ? Object.keys(MG).filter(k => T[MG[k].n] !== EN[k]) : ["तालिका नहीं पढ़ी गई"];
+    ck("हिंदी data : 24 क्षेत्रों के English नाम (MG_EN) करियर टेस्ट की English तालिका से मिलते हैं", !!T && Object.keys(T).length === 24 && Object.keys(MG).length === 24 && bad.length === 0, bad.join(","));
+    const cd = rd("assets/courses_data.js"), bn = (cd.match(/"name_en": "[^"]*[ऀ-ॿ][^"]*"/g) || []);
+    ck("हिंदी data : कोर्स-सूची के किसी English नाम (name_en) में देवनागरी नहीं", bn.length === 0, bn.slice(0, 3).join(" ‖ "));
+  }
+}
+
 /* ════════ (v1.2, पैनल-4) काग़ज़ों की जाँच ════════ */
 const APT_PREV = JSON.stringify({ prev: { at: Date.UTC(2026, 10, 10), sec: [{ nm: "🌾 कृषि", sc: 4 }], mg: ["🌾 कृषि", "🏭 विनिर्माण"],
   udy: [{ n: 1, nm: "धान/चावल (Rice)", c: "", s: 4.2 }, { n: 116, nm: "स्टील ढाँचा/वेल्डिंग (Steel Structures/Welding)", c: "/courses/hi/welding/", s: 3.1 }] } });
@@ -395,8 +496,9 @@ if (require.main === module) (async function main() {
     } catch (e) { ck(f + " : हिंदी-जाँच चली", false, String(e && e.stack || e).slice(0, 300)); }
   }
   if (!process.env.ACS_ONLY_HI && (!only || /student|center/.test(only))) await docChecks(pages);
+  if (!process.env.ACS_ONLY_HI) await hdataChecks(pages, !only);
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.2 : सब dashboard और काग़ज़ English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.3 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

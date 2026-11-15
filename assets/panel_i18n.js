@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.4 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4)
+   panel_i18n.js v1.5 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख)
+   • (v1.5) data-i18n-user="<उपयोगकर्ता का लिखा>": जहाँ span नहीं बन सकता (जैसे <option> में "नाम — पद"), वहाँ पाठ का वह
+     हिस्सा जैसा है वैसा रहता है और बाक़ी बदलता है (नाम "संगीत माली" कभी "Music Mali" न बने)।
    • (v1.4) data-href-<भाषा> अब बाद में बनी कड़ियों पर भी (पहले सिर्फ़ भाषा चुनते समय की कड़ियों पर): dashboard की
      WhatsApp-कड़ियाँ (पहले से लिखा संदेश) और अभिरुचि-परीक्षण की कड़ी code से बाद में बनती हैं। कोड पहले href (हिंदी)
      लिखे, फिर data-href-<भाषा>; href दोबारा लिखा जाए, तो नया हिंदी पता ही मूल माना जाता है।
@@ -33,7 +35,7 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.4";
+var VER="1.5";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
    (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
@@ -144,7 +146,11 @@ function doText(n){
     alt=p.getAttribute("data-tr-"+CUR); if(alt===v) return;
     if(ORIG) ORIG.set(n,{o:v,t:alt}); n.nodeValue=alt; return; }
   if(!v||!DEVC.test(v)) return;
-  var nv=MEMO.hasOwnProperty(v)?MEMO[v]:(MEMO[v]=tr(v)); if(nv===v) return;
+  /* (v1.5) उपयोगकर्ता का लिखा हिस्सा (data-i18n-user) जैसा है वैसा; उसके आगे-पीछे का पाठ बदलता है */
+  var uv=(p&&p.nodeType===1)?p.getAttribute("data-i18n-user"):null, nv, parts, pi;
+  if(uv&&v.indexOf(uv)>-1){ parts=v.split(uv); for(pi=0;pi<parts.length;pi++) if(DEVC.test(parts[pi])) parts[pi]=tr(parts[pi]); nv=parts.join(uv); }
+  else nv=MEMO.hasOwnProperty(v)?MEMO[v]:(MEMO[v]=tr(v));
+  if(nv===v) return;
   if(ORIG) ORIG.set(n,{o:v,t:nv});
   n.nodeValue=nv;
 }

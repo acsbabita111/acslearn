@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.15.0 · 15-Nov-2026 (पैनल-4ख): सहेजा हुआ data English पैनल में: उपयोगकर्ता का लिखा पाठ (केंद्र/विद्यार्थी का नाम, टिप्पणी, कारण, काम, रिपोर्ट) जैसा है वैसा (US: कभी आधा-अनूदित नहीं);
+     कोर्स का सहेजा नाम कोर्स-सूची के English नाम में (CN); करियर टेस्ट के नतीजे के उद्यम/क्षेत्र-नाम English में; परीक्षा के प्रश्न और विकल्प कोर्स की भाषा में, बिना छेड़छाड़।
    v6.14.0 · 15-Nov-2026 (पैनल-4): काग़ज़ भी English में (Founder का फ़ैसला: पैनल English हो, तो सब काग़ज़ सिर्फ़ English; देवनागरी कहीं नहीं):
      प्रमाणपत्र का चित्र/PDF (certTextEn), परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश, रिपोर्ट की छपाई; अभिरुचि-परीक्षण की कड़ी English पन्ने पर।
      हिंदी पैनल में ये सब जैसे थे वैसे ही। नाम के रोमन रूप में "ऑ/ॉ" (डॉली, ऑस्कर) अब ठीक बदलते हैं।
@@ -121,7 +123,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.14.0";
+const DASH_VER = "v6.15.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -239,6 +241,31 @@ function courseEn(id, nm){
 }
 /* कड़ी जिसका पता भाषा से बदलता है: हिंदी href + data-href-en (भाषा-इंजन English में यही पता लगा देता है) */
 function HREF2(hi, en){ return 'href="'+esc(hi)+'"'+((en && en!==hi)?' data-href-en="'+esc(en)+'"':''); }
+/* (v6.15.0, पैनल-4ख) सहेजा हुआ data जो पन्ने पर दिखता है।
+   CN = कोर्स का सहेजा नाम (नामांकन/घोषणा में हिंदी में सहेजा जाता है): English में कोर्स-सूची का name_en। कोर्स-सूची अभी न आई हो,
+   तो English पैनल में वह मँगाई जाती है और नाम अपने-आप ठीक हो जाते हैं (cnSync)। CNA = वही, <option> के attribute के रूप में। */
+function GE(t){ return '<span>'+esc(t)+'</span>'; }   /* जगह का नाम अपने अलग टुकड़े में: भाषा-इंजन उसे सूची से ठीक-ठीक बदलता है ("खगड़िया / bihar" जैसे जोड़ में नहीं बदल पाता था) */
+function rbx(t){ return String(t==null?"":t).replace(/\[/g,"(").replace(/\]/g,")"); }
+function CN(id, nm, f){ const hi=(f||rbx)(nm), en=courseEn(id, hi); cnWant(); return '<span data-cid="'+esc(id||"")+'"'+(en?' data-tr-en="'+esc(en)+'"':'')+'>'+esc(hi)+'</span>'; }
+function CNA(id, nm){ const en=courseEn(id, rbx(nm)); cnWant(); return ' data-cid="'+esc(id||"")+'"'+(en?' data-tr-en="'+esc(en)+'"':''); }
+function cnLoaded(){ return typeof SELF_EMP_COURSES!=="undefined"; }
+function cnSync(){
+  const P=window.ACS_PANEL_I18N;
+  document.querySelectorAll("[data-cid]").forEach(function(el){
+    const hi=(P&&P.src)?P.src(el):el.textContent, en=courseEn(el.getAttribute("data-cid"), hi);
+    if(en && el.getAttribute("data-tr-en")!==en){ el.setAttribute("data-tr-en",en); el.textContent=hi; }   /* पाठ दोबारा लिखने से भाषा-इंजन नया English लगा देता है */
+  });
+}
+let CN_ASKED=false;
+function cnWant(){ if(CN_ASKED || cnLoaded() || !docEn()) return; CN_ASKED=true; ensureCoursesData(function(){ cnSync(); }); }
+document.addEventListener("acs-panel-lang", function(){ if(!docEn()) return; if(cnLoaded()) cnSync(); else { CN_ASKED=true; ensureCoursesData(function(){ cnSync(); }); } });
+/* करियर टेस्ट के 24 क्षेत्रों के English नाम (स्रोत: generator/data/aptitude/en/apt_en_strings.js; पहरेदार मिलाता है)।
+   नतीजा फ़ोन में "🌾 कृषि" जैसे रूप में सहेजा जाता है (हिंदी में दिया टेस्ट) */
+const MG_EN = {"कृषि":"Agriculture","खनन":"Mining","विनिर्माण":"Manufacturing","निर्माण":"Construction","वस्त्र":"Textiles","स्वास्थ्य":"Health","प्रौद्योगिकी":"Technology","परिवहन":"Transport",
+  "व्यापार":"Trade","सेवाएं":"Services","शिक्षा":"Education","हस्तशिल्प":"Handicrafts","रसायन":"Chemicals","वैश्विक":"Global","भविष्य":"Future","विधिक":"Legal",
+  "सरकार":"Government","डेटा":"Data","रोबोटिक्स":"Robotics","जलवायु":"Climate","धार्मिक":"Religious","खेल":"Sports","डिजिटल वित्त":"Digital Finance","सुरक्षा":"Security"};
+function mgEn(t){ t=String(t||""); const i=t.indexOf(" "), e=(i>0 && !/[\u0900-\u097F]/.test(t.slice(0,i)))?t.slice(0,i+1):"", n=e?t.slice(i+1):t;
+  return Object.prototype.hasOwnProperty.call(MG_EN,n) ? e+MG_EN[n] : ""; }
 
 /* ═══ सार्वजनिक पहचान-कार्ड भरना (v3.2) ═══ */
 /* registration-दस्तावेज़ से DP (Founder-आदेश 19-Jul: व्यक्ति का upload किया
@@ -834,7 +861,7 @@ function drawApps(){
     const docLinks = docChips(docs) || '<span class="note">कोई दस्तावेज़-link नहीं</span>';
     let rejInfo = "";
     if(a.rejection && a.rejection.reason){
-      rejInfo = '<div class="mrow"><b>अस्वीकृति-कारण:</b> '+a.rejection.reason+'</div>'
+      rejInfo = '<div class="mrow"><b>अस्वीकृति-कारण:</b> '+US(a.rejection.reason)+'</div>'
               + '<div class="mrow"><b>सुधार-समय:</b> '+fmtDate(a.rejection.correction_deadline)+' तक (1 सप्ताह — v1.4 नियम)</div>';
     }
     const canAct = CAN_FINAL && (st==="provisional" || st==="rejected");
@@ -959,7 +986,7 @@ async function loadTeamPanel(myDesig){
       '<div class="r1"><span class="nm" data-i18n-skip>'+esc(m.name_local||m.name_roman||m.name||m.email||"—")+'</span>'
       + '<span class="pill">'+mxLabel(d)+'</span>'+stChip
       + (m.level && String(m.level).toUpperCase()!==mxLabel(d).toUpperCase() ? '<span class="chip lvl">'+esc(String(m.level).toUpperCase())+'</span>':'')+'</div>'
-      + (holdRec?'<div class="hres">कारण: '+esc(holdRec.reason||"—")+'</div>':'')
+      + (holdRec?'<div class="hres">कारण: '+US(holdRec.reason||"—")+'</div>':'')
       + acts;
     listEl.appendChild(el);
   });
@@ -981,7 +1008,7 @@ document.addEventListener("click", async (ev)=>{
     if(sel && !sel.options.length){
       sel.innerHTML = TEAM_MEMBERS
         .filter(m=>m._uid!==uid && String(m.designation||"").toLowerCase()!=="founder")
-        .map(m=>'<option value="'+esc(m._uid)+'">'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+        .map(m=>'<option value="'+esc(m._uid)+'" data-i18n-user="'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+'">'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
     }
     bx.classList.toggle("on"); return;
   }
@@ -1021,7 +1048,7 @@ let TEAM_MEMBERS = [];
 function fillMemberSelect(){
   const opts = TEAM_MEMBERS
     .filter(m=>String(m.designation||"").toLowerCase()!=="founder" && !(auth.currentUser && m._uid===auth.currentUser.uid))
-    .map(m=>'<option value="'+esc(m._uid)+'">'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
+    .map(m=>'<option value="'+esc(m._uid)+'" data-i18n-user="'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+'">'+esc(m.name_local||m.name_roman||m.name||m.email||m._uid)+' — '+mxLabel(String(m.designation||"").toLowerCase())+'</option>').join("");
   const sel = $("tMem"); if(sel) sel.innerHTML = opts;
   const lv = $("lvMem"); if(lv) lv.innerHTML = opts; /* v1.4 छँटाई (समकक्ष/एक-ऊपर) server पर — यह सिर्फ़ सूची */
 }
@@ -1043,8 +1070,8 @@ async function loadTasks(){
           + (st==="pending"?'<button class="abtn ok" data-tact="ongoing" data-tid="'+t._id+'">▶️ चालू करें</button>':'')
           + '<button class="abtn ok" data-tact="done" data-tid="'+t._id+'">✅ पूरा</button></div>'
         : '';
-      return '<div class="mem"><div class="r1"><span class="nm">'+esc(t.title||"—")+'</span>'+stChip+'<span class="rg">'+who+'</span></div>'
-        + (t.detail?'<div class="r2">'+esc(t.detail)+'</div>':'')
+      return '<div class="mem"><div class="r1"><span class="nm">'+US(t.title||"—")+'</span>'+stChip+'<span class="rg">'+who+'</span></div>'
+        + (t.detail?'<div class="r2">'+US(t.detail)+'</div>':'')
         + btns + '<div class="msg" id="tmsg-'+t._id+'"></div></div>';
     }).join("");
   }catch(e){ el.textContent="काम-सूची नहीं खुली — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
@@ -1059,7 +1086,7 @@ async function loadReports(){
     el.innerHTML = rows.slice(0,20).map(t=>
       '<div class="mem"><div class="r1"><span class="pill">'+(CYCLE_HI[t.cycle]||t.cycle)+'</span>'
       +'<span class="rg">'+fmtDate(t.at)+' · '+mxLabel(String(t.by_designation||"").toLowerCase())+'</span></div>'
-      +'<div class="r2">'+esc(t.text||"")+'</div></div>').join("");
+      +'<div class="r2">'+US(t.text||"")+'</div></div>').join("");
   }catch(e){ el.textContent="रिपोर्टें नहीं खुलीं — rules v4 deploy जाँचें। ("+(e.code||"")+")"; }
 }
 document.addEventListener("click", async (ev)=>{
@@ -1206,12 +1233,12 @@ async function guardExternalRender(user, reg){
     const s1 = rv.status==="verified"
         ? '<span style="color:#1b4d20;font-weight:700">✅ कदम-1: RM भौतिक-सत्यापन पूरा</span>'
       : rv.status==="failed"
-        ? '<span style="color:#B71C1C;font-weight:700">❌ कदम-1: सत्यापन असफल</span>'+(rv.note?' — '+esc(rv.note)+' (सुधार कर दोबारा तैयार रहें)':'')
+        ? '<span style="color:#B71C1C;font-weight:700">❌ कदम-1: सत्यापन असफल</span>'+(rv.note?' — '+US(rv.note)+' (सुधार कर दोबारा तैयार रहें)':'')
         : '<span style="color:#8a5a00;font-weight:700">⏳ कदम-1: RM भौतिक-सत्यापन बाक़ी</span>';
     let s2='<span class="note">कदम-2: अंतिम मुहर (आपके राज्य के ZM या Founder) — कदम-1 के बाद</span>';
     if(r && r.status==="approved") s2='<span style="color:#1b4d20;font-weight:800">🎉 कदम-2: स्वीकृत — सब काम-अधिकार खुले</span>';
     else if(r && r.status==="rejected"){
-      const rj=(r.rejection&&r.rejection.reason)?(' — '+esc(r.rejection.reason)):'';
+      const rj=(r.rejection&&r.rejection.reason)?(' — '+US(r.rejection.reason)):'';
       s2='<span style="color:#B71C1C;font-weight:700">⚠️ कदम-2: अस्वीकृत'+rj+'</span>';
     }
     return '<div class="pd">'+s1+'</div><div class="pd">'+s2+'</div>';
@@ -1533,8 +1560,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
           if(!ci) ct=dl;
           else { const due=Math.round(ci.extend.due/100), cr=Math.round((ci.extend.credit||0)/100);
             const lbl = cr>0 ? 'बाक़ी ₹'+due+' देकर 5 साल बढ़ाएँ (₹'+cr+' जमा है)' : (ci.status==="expired" ? '₹'+due+' देकर 5 साल बढ़ाएँ' : '5 साल बढ़ाएँ ₹'+due);
-            if(ci.status==="expired") ct='<span class="lvmut">⌛ online जाँच की अवधि '+certDayNum(ci.validUntil)+' को पूरी हुई</span> <button class="lvbtn green" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>';
-            else ct=dl+' <span class="lvmut">मान्य: '+certDayNum(ci.validUntil)+' तक</span> <button class="lvbtn blue" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>'; }
+            if(ci.status==="expired") ct='<span class="lvmut">'+TT('⌛ online जाँच की अवधि '+certDayNum(ci.validUntil)+' को पूरी हुई', '⌛ Online verification period ended on '+certDayNum(ci.validUntil))+'</span> <button class="lvbtn green" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>';
+            else ct=dl+' <span class="lvmut">'+TT('मान्य: '+certDayNum(ci.validUntil)+' तक', 'Valid until '+certDayNum(ci.validUntil))+'</span> <button class="lvbtn blue" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>'; }
         }
         else if(res && res.pass) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
         else ct='<span class="lvmut">—</span>';
@@ -1571,9 +1598,9 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     let ap={}; try{ ap=JSON.parse(localStorage.getItem("acs_apt_sess_v1")||"{}"); }catch(e){}
     const P=ap.prev;
     if(!P||!P.udy||!P.udy.length){ bx.innerHTML='<div class="pd">रिपोर्ट अभी नहीं बनी — 🧭 अभिरुचि-परीक्षण दीजिए, आपके मन के कोर्स यहीं दिखेंगे।</div>'; return; }
-    let h='<div class="pd">⭐ '+P.mg.map(function(m2){return '<span class="chip appr">'+esc(m2)+'</span>';}).join(' ')+'</div>';
+    let h='<div class="pd">⭐ '+P.mg.map(function(m2){return '<span class="chip appr">'+TT(esc(m2), mgEn(m2))+'</span>';}).join(' ')+'</div>';
     P.udy.slice(0,5).forEach(function(u,i){
-      h+='<div class="lrow"><span class="nm">'+(i+1)+'. '+esc(u.nm)+'</span> '+
+      h+='<div class="lrow"><span class="nm">'+(i+1)+'. '+TT(esc(u.nm), parenEn(u.nm))+'</span> '+
         (u.c?'<a class="abtn ok" style="text-decoration:none" href="'+esc(u.c)+'">📚 पढ़ें</a>'
             :'<a class="abtn2" style="text-decoration:none" target="_blank" rel="noopener" '+HREF2('https://wa.me/919431210092?text='+
              encodeURIComponent('मुझे यह कोर्स चाहिए: '+u.nm), 'https://wa.me/919431210092?text='+encodeURIComponent(DE('मुझे यह कोर्स चाहिए: ')+(parenEn(u.nm)||u.nm)))+'>📲 कोर्स माँगें</a>')+'</div>';
@@ -1589,8 +1616,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       let h=''; const ST={requested:"⏳ निवेदन भेजा",offered:"✉️ केंद्र का प्रस्ताव — जवाब दें",active:"✅ पढ़ाई चालू"};
       qs.forEach(function(dd){ const x=dd.data()||{};
         if(!ST[x.status]) return;
-        h+='<div class="lrow"><span class="nm">'+esc(noSq(x.courseName||x.courseId||""))+'</span> '+   /* (v5.6.2) पुराना छिपा rb-होल */
-          '<span class="note">🏫 '+esc(x.centerName||"")+' · '+ST[x.status]+'</span></div>';
+        h+='<div class="lrow"><span class="nm">'+CN(x.courseId, x.courseName||x.courseId||"", noSq)+'</span> '+   /* (v5.6.2) पुराना छिपा rb-होल */
+          '<span class="note">🏫 '+US(x.centerName||"")+' · '+ST[x.status]+'</span></div>';
       });
       bx.innerHTML = h ? (h+'<div class="note">फीस-रसीदें व पूरा ब्योरा — "🏫 मेरा केंद्र" पैनल में।</div>')
         : '<div class="pd">अभी किसी केंद्र में नामांकन नहीं — "🏫 मेरा केंद्र" पैनल से नज़दीकी केंद्र खोजिए।</div>';
@@ -1670,7 +1697,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       var t = ""; try { t = ev.results[0][0].transcript; } catch (e) {}
       got = true; S.micTries[idxAt] = (S.micTries[idxAt] || 0) + 1;
       if (t && String(t).trim()) { S.answers[idxAt] = String(t).trim();
-        if (out) out.innerHTML = '✅ फ़ोन ने सुना: <b dir="auto">' + esc(t) + '</b>' + (S.micTries[idxAt] < 2 ? '<br><span class="note" style="margin:0">ठीक नहीं लगा? एक बार और बोल सकते हैं।</span>' : ''); }
+        if (out) out.innerHTML = '✅ फ़ोन ने सुना: <b dir="auto" data-i18n-skip>' + esc(t) + '</b>' + (S.micTries[idxAt] < 2 ? '<br><span class="note" style="margin:0">ठीक नहीं लगा? एक बार और बोल सकते हैं।</span>' : ''); }
       else if (out) out.innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया — दोबारा बोलिए।</span>';
     };
     r.onerror = function (ev) { S.micTries[idxAt] = (S.micTries[idxAt] || 0); if (out) out.innerHTML = '<span style="color:#B71C1C">माइक-त्रुटि: ' + esc(ev.error || "") + ' — माइक की अनुमति दें, फिर दोबारा।</span>'; };
@@ -1681,15 +1708,15 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     var S = EX_STATE, cur = S && typeof S.answers[S.idx] === "string" ? S.answers[S.idx] : "";
     return '<div style="margin-top:10px;padding:12px;border:2px dashed var(--blue);border-radius:14px;background:#F5F7FA">' +
       '<button type="button" class="crsgo" style="font-size:19px;background:var(--navy)" onclick="__examMic(this)"' + ((S && S.micTries && (S.micTries[S.idx] || 0) >= 2) ? ' disabled' : '') + '>' + ((S && S.micTries && (S.micTries[S.idx] || 0) >= 2) ? '🎤 कोशिश पूरी' : '🎤 बोलिए') + '</button>' +
-      '<div id="exMicOut" style="margin-top:8px;font-size:17px;line-height:1.6">' + (cur ? '✅ फ़ोन ने सुना: <b dir="auto">' + esc(cur) + '</b>' : 'माइक-बटन दबाकर ज़ोर से, साफ़ बोलिए। 2 कोशिश मिलेंगी।') + '</div></div>';
+      '<div id="exMicOut" style="margin-top:8px;font-size:17px;line-height:1.6">' + (cur ? '✅ फ़ोन ने सुना: <b dir="auto" data-i18n-skip>' + esc(cur) + '</b>' : 'माइक-बटन दबाकर ज़ोर से, साफ़ बोलिए। 2 कोशिश मिलेंगी।') + '</div></div>';
   }
   function examQHtml(t) {
     var mic = /\(\(MIC\)\)/.test(t || "");
     t = String(t || "").replace(/\s*\(\(MIC\)\)/, "");
     var m = /\(\(AU:([\s\S]*?)\)\)/.exec(t || "");
-    if (!m) return esc(t) + (mic ? examMicHtml() : "");
+    if (!m) return US(t) + (mic ? examMicHtml() : "");   /* (v6.15.0) प्रश्न कोर्स की भाषा में: भाषा-इंजन इसे नहीं छूता */
     var rest = t.replace(m[0], "").replace(/\s+$/, "");
-    return esc(rest) + '<div style="margin-top:8px"><button type="button" class="crsgo" style="font-size:18px" onclick="__examSay(this)" data-t="' + esc(m[1]) + '">🔊 वाक्य सुनिए</button> <button type="button" class="crsgo" style="font-size:18px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A" onclick="__examSay(this)" data-slow="1" data-t="' + esc(m[1]) + '">🐢 धीरे</button></div>' + (mic ? examMicHtml() : "");
+    return US(rest) + '<div style="margin-top:8px"><button type="button" class="crsgo" style="font-size:18px" onclick="__examSay(this)" data-t="' + esc(m[1]) + '">🔊 वाक्य सुनिए</button> <button type="button" class="crsgo" style="font-size:18px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A" onclick="__examSay(this)" data-slow="1" data-t="' + esc(m[1]) + '">🐢 धीरे</button></div>' + (mic ? examMicHtml() : "");
   }   /* (30-Aug, Founder) Spoken English 120-प्रश्न server-परीक्षा जुड़ी (eng_bank, 2150) */   /* (13-Aug, Founder) मशरूम 120-प्रश्न server-परीक्षा जुड़ी (msh_bank, 3135) */
   let EX_STATE = null;   /* {attemptId,cid,name,total,pass,questions,idx,answers} */
   /* (v6.8.0, खेप 2) कोर्स-परीक्षा का नया इंजन: पहली बार "परीक्षा दें" दबाने पर ही लाया जाता है */
@@ -1702,7 +1729,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     });
     return __examLoad.then(function () {
       const u = auth.currentUser;
-      window.ACS_EXAM.open({ cid: cid, uid: u ? u.uid : "", tts: EXAM_TTS[cid] || "en-IN",
+      window.ACS_EXAM.open({ cid: cid, uid: u ? u.uid : "", tts: EXAM_TTS[cid] || "en-IN", courseEn: courseEn,   /* (v6.15.0) परीक्षा के शीर्ष पर कोर्स का English नाम */
         call: function (name, data) { return httpsCallable(functions, name)(data || {}).then(function (o) { return o.data || {}; }); },
         loadRazorpay: loadRazorpay,
         onClose: function (ch) { if (ch) loadExamState().then(function () { crsMineFill(); }); } });
@@ -1807,7 +1834,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const answered = S.answers.filter(function (a) { return a >= 0 || (typeof a === "string" && a.length > 0); }).length;   /* (02-Sep) बोलो-उत्तर (text) भी भरा */
     const pct = Math.round((S.idx + 1) * 100 / S.total);
     let h = '<div class="examTop"><div class="examTopRow">'+
-      '<div><div class="examName">'+esc(S.name)+'</div><div class="examPassNote">पास होने के लिए '+S.pass+'% चाहिए'+
+      '<div><div class="examName">'+CN(S.cid, S.name, String)+'</div><div class="examPassNote">पास होने के लिए '+S.pass+'% चाहिए'+
         (S.maxAttempts ? ' · यह चांस '+(S.attemptsUsed+1)+'/'+S.maxAttempts : '')+'</div></div>'+
       '<button class="examExitBtn" id="examExitBtn" type="button" aria-label="बंद करें">✕</button>'+
       '</div>'+
@@ -1821,8 +1848,8 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       const sel = S.answers[S.idx] === j;
       h += '<label class="examOptRow'+(sel ? ' sel' : '')+'">'+
         '<input type="radio" name="exq" value="'+j+'"'+(sel ? ' checked' : '')+'>'+
-        '<span class="examOptBadge">'+OPT_LABEL[j]+'</span>'+
-        '<span class="examOptText">'+esc(op)+'</span></label>';
+        '<span class="examOptBadge">'+TT(OPT_LABEL[j], "ABCD".charAt(j))+'</span>'+
+        '<span class="examOptText" data-i18n-skip>'+esc(op)+'</span></label>';
     });
     h += '</div></div>';
     h += '<div class="examMsgBar" id="exMsg"></div>';
@@ -1865,15 +1892,15 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     card.innerHTML = h;
   }
   function examBox(cid,bank){
-    let h='<div class="pd" style="text-align:left"><b>'+esc(bank.name)+'</b> · pass = '+bank.pass+'%</div>';
+    let h='<div class="pd" style="text-align:left"><b>'+CN(cid, bank.name, String)+'</b> · pass = '+bank.pass+'%</div>';
     bank.q.forEach(function(qq,i){
       /* (v5.9) बड़े बैंक (setSize) पर सेट-शीर्षक: 40 का सेट-1/2/3 */
       if(bank.setSize && i%bank.setSize===0){
         var sn=Math.floor(i/bank.setSize)+1, tot=Math.ceil(bank.q.length/bank.setSize);
         h+='<div class="pd" style="background:var(--navy);color:#F5F7FA;font-weight:800;border-radius:12px;text-align:center">📗 सेट-'+sn+' / '+tot+' (प्रश्न '+(i+1)+'–'+Math.min(i+bank.setSize,bank.q.length)+')</div>';
       }
-      h+='<div class="pd" style="text-align:left"><b>'+(i+1)+'.</b> '+esc(qq.t)+'<br>';
-      qq.o.forEach(function(op,j){ h+='<label style="display:block;margin:4px 0"><input type="radio" name="ex_'+i+'" value="'+j+'"> '+esc(op)+'</label>'; });
+      h+='<div class="pd" style="text-align:left"><b>'+(i+1)+'.</b> '+US(qq.t)+'<br>';
+      qq.o.forEach(function(op,j){ h+='<label style="display:block;margin:4px 0"><input type="radio" name="ex_'+i+'" value="'+j+'"> '+US(op)+'</label>'; });
       h+='</div>'; });
     h+='<button class="crsgo" id="exSubmit" data-exid="'+cid+'" type="button">📨 जमा करें</button><div class="note" id="exMsg"></div>';
     return h;
@@ -2953,7 +2980,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         const dt=it.paidAt? (function(){const d=new Date(it.paidAt);return ("0"+d.getDate()).slice(-2)+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+d.getFullYear();})():"—";
         const row=document.createElement("div"); row.className="mem";
         row.innerHTML =
-          '<div class="r1"><span class="nm">'+esc(it.name||"—")+' · '+esc(it.regNo||"—")+'</span></div>'
+          '<div class="r1"><span class="nm">'+US(it.name||"—")+' · '+esc(it.regNo||"—")+'</span></div>'
         + '<div class="r2">भूमिका: '+(ROLE_HI[it.role]||it.role)+' · क्षेत्र: '+(TIER_HI[it.tier]||it.tier||"—")
         + ' (पिन '+esc(it.pin||"—")+') · राशि: ₹'+(it.amountRupees||0)+' · भुगतान: '+dt+'</div>'
         + '<div class="r2">राज्य: '+esc(it.state||"—")+' · वांछित जिला: '+esc(it.district||"—")
@@ -2993,9 +3020,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
                : '<span style="color:#8a5a00;font-weight:700">⏳ सत्यापन बाक़ी</span>';
         const stt=it.status==="rejected"?' · <span style="color:#B71C1C">अस्वीकृत</span>':"";
         h+='<div class="pd" style="border:1px solid #dbe3ee;border-radius:10px;padding:10px;margin:8px 0">'+
-           '<b>'+esc(it.name)+'</b> · '+esc(it.role)+(it.orgName?' · '+esc(it.orgName):'')+
-           '<br>Reg: '+esc(it.regNo)+' · '+esc(it.district||"—")+' / '+esc(it.state||"—")+stt+
-           '<br>'+vf+(it.verifyNote?' — '+esc(it.verifyNote):'')+
+           '<b>'+US(it.name)+'</b> · '+esc(it.role)+(it.orgName?' · '+US(it.orgName):'')+
+           '<br>Reg: '+esc(it.regNo)+' · '+GE(it.district||"—")+' / '+GE(it.state||"—")+stt+
+           '<br>'+vf+(it.verifyNote?' — '+US(it.verifyNote):'')+
            '<div style="margin-top:6px">'+
            (it.verify!=="verified"
              ? '<button class="abtn ok" data-sevaq="ok" data-reg="'+esc(it.regNo)+'">✅ भौतिक-सत्यापन</button> '+
@@ -3141,19 +3168,19 @@ if (MODE==="external" && ALLOWED.length>=1) {
     box.innerHTML="";
     OF_ALL.forEach(function(o){
       var d=document.createElement("div"); d.className="k9off";
-      d.innerHTML='<div class="t">'+esc(rb(o.courseName))+' '+
+      d.innerHTML='<div class="t">'+CN(o.courseId,o.courseName)+' '+
         (o.status==="open"?'<span class="chip appr">खुली</span>':'<span class="chip">बंद</span>')+'</div>'+
-        '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+TT(esc(o.startDate)+' से '+esc(o.endDate), esc(o.startDate)+' to '+esc(o.endDate))+'</div>'+
-        (o.subjects?'<div class="m">📚 विषय: '+esc(rb(o.subjects))+'</div>':'')+
+        '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+US(rb(o.durationText))+' · 📅 '+TT(esc(o.startDate)+' से '+esc(o.endDate), esc(o.startDate)+' to '+esc(o.endDate))+'</div>'+
+        (o.subjects?'<div class="m">📚 विषय: '+US(rb(o.subjects))+'</div>':'')+
         seatBar(o.filledCount||0,o.seats)+
         (o.status==="open"?'<button class="abtn" style="background:#B71C1C;margin-top:8px" data-k9close="'+esc(o.courseId)+'">⛔ घोषणा बंद</button>':'');
       box.appendChild(d);
     });
   }
   function pendRow(e, forInst){
-    var who=forInst ? (esc(rb(e.studentName))+' · '+esc(e.studentRegNo)) : esc(rb(e.centerName));
+    var who=forInst ? (US(rb(e.studentName))+' · '+esc(e.studentRegNo)) : US(rb(e.centerName));
     var g=e.minor?(e.guardianOk?' 🛡️':' <span style="color:#B71C1C">🛡️ Guardian-दस्तावेज़ नहीं</span>'):'';
-    var h='<div class="r1"><span class="nm">'+who+g+'</span> · '+esc(rb(e.courseName))+
+    var h='<div class="r1"><span class="nm">'+who+g+'</span> · '+CN(e.courseId,e.courseName)+
       (e.status==="requested"?' <span class="chip">⏳ निवेदन</span>':' <span class="chip">📩 प्रस्ताव</span>')+'</div>';
     var mine=(e.status==="requested")===forInst; /* फ़ैसला दूसरे पक्ष का: requested→केंद्र · offered→विद्यार्थी */
     if(mine) h+='<button class="abtn ok" data-k9acc="'+esc(e._id)+'">✅ स्वीकारें</button> '+
@@ -3170,7 +3197,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   }
   function feeLines(e){
     var f=e.feeEntries||[]; if(f.length===0) return '<span class="note">कोई फीस-प्रविष्टि नहीं।</span>';
-    return f.map(function(x){ return '🧾 '+esc(x.receiptNo)+' · ₹'+esc(x.amountRupees)+' · '+dt(x.at)+(x.note?' · '+esc(rb(x.note)):''); }).join("<br>");
+    return f.map(function(x){ return '🧾 '+esc(x.receiptNo)+' · ₹'+esc(x.amountRupees)+' · '+dt(x.at)+(x.note?' · '+US(rb(x.note)):''); }).join("<br>");
   }
   function drawActive(more){
     var box=$("enrActiveList"); if(!box) return;
@@ -3181,8 +3208,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     A.slice(from,to).forEach(function(e){
       var d=document.createElement("div"); d.className="lrow";
       var g=e.minor?(e.guardianOk?' 🛡️':''):'';
-      d.innerHTML='<div class="r1"><span class="nm">'+esc(rb(e.studentName))+g+'</span> · '+esc(e.studentRegNo)+'</div>'+
-        '<div class="r2">'+esc(rb(e.courseName))+' · नामांकन: '+dt(e.enrolledAt)+'<br>'+feeLines(e)+'</div>'+
+      d.innerHTML='<div class="r1"><span class="nm">'+US(rb(e.studentName))+g+'</span> · '+esc(e.studentRegNo)+'</div>'+
+        '<div class="r2">'+CN(e.courseId,e.courseName)+' · नामांकन: '+dt(e.enrolledAt)+'<br>'+feeLines(e)+'</div>'+
         '<button class="abtn ok" data-k9fee="'+esc(e._id)+'">💰 फीस-दर्ज</button> '+
         '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" '+HREF2('https://wa.me/?text='+
         encodeURIComponent("ACS रसीद — "+rb(e.studentName)+" ("+e.studentRegNo+") · "+rb(e.courseName)+" · "+feePlain(e)),
@@ -3312,13 +3339,13 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(e.status==="requested"||e.status==="offered") h=pendRow(e,false);
       else if(e.status==="active"){
         var pr=k9Prog(e.courseId);
-        h='<div class="r1"><span class="nm">'+esc(rb(e.courseName))+'</span> <span class="chip ok">✅ active</span></div>'+
-          '<div class="r2">🏫 '+esc(rb(e.centerName))+' · नामांकन-तिथि: '+dt(e.enrolledAt)+
+        h='<div class="r1"><span class="nm">'+CN(e.courseId,e.courseName)+'</span> <span class="chip ok">✅ active</span></div>'+
+          '<div class="r2">🏫 '+US(rb(e.centerName))+' · नामांकन-तिथि: '+dt(e.enrolledAt)+
           (pr!==null?('<br>📈 प्रगति: '+pr+' प्रतिशत'+(pr>=80?' · <span class="chip ok">🎯 परीक्षा के योग्य</span>':'')):'')+
           '<br>'+feeLines(e)+'</div>';
-      } else h='<div class="r1"><span class="nm">'+esc(rb(e.courseName))+'</span> <span class="chip">'+
+      } else h='<div class="r1"><span class="nm">'+CN(e.courseId,e.courseName)+'</span> <span class="chip">'+
           (e.status==="returned"?'❌ लौटाया':'↩ वापस लिया')+'</span></div>'+
-          (e.returnReason?'<div class="r2">कारण: '+esc(rb(e.returnReason))+'</div>':'');
+          (e.returnReason?'<div class="r2">कारण: '+US(rb(e.returnReason))+'</div>':'');
       d.innerHTML=h; box.appendChild(d);
     });
   }
@@ -3352,13 +3379,13 @@ if (MODE==="external" && ALLOWED.length>=1) {
         if(!P||!P.udy||!P.udy.length)
           return '<div class="pd">अभी आपकी कोई रिपोर्ट नहीं बनी — नीचे से टेस्ट दीजिए, रिपोर्ट यहीं दिखेगी।</div>';
         var h='<div class="pd"><b>📊 आपकी रिपोर्ट ('+new Date(P.at).toLocaleDateString("hi-IN")+')</b></div>'+
-          '<div class="pd">⭐ आपका मन इन क्षेत्रों में लगता है: '+P.mg.map(function(m){return '<span class="chip appr">'+esc(m)+'</span>';}).join(' ')+'</div>'+
+          '<div class="pd">⭐ आपका मन इन क्षेत्रों में लगता है: '+P.mg.map(function(m){return '<span class="chip appr">'+TT(esc(m), mgEn(m))+'</span>';}).join(' ')+'</div>'+
           '<div class="pd"><b>🏭 इन कामों में आगे बढ़ सकते हैं:</b></div>';
         P.udy.slice(0,6).forEach(function(u2,i){
           var sLine=(typeof u2.s==="number")
             ? (u2.s>=4?"मन बहुत गहरा लगा — शुरुआत के लिए सबसे अच्छा":(u2.s>=2?"मन अच्छा लगा — सफल होने की अच्छी उम्मीद":"मन लगा — आज़माने लायक़"))
             : "आपकी रुचि यहाँ दिखी";
-          h+='<div class="lrow"><div class="r1"><span class="nm">'+(i+1)+'. '+esc(u2.nm)+'</span></div>'+
+          h+='<div class="lrow"><div class="r1"><span class="nm">'+(i+1)+'. '+TT(esc(u2.nm), parenEn(u2.nm))+'</span></div>'+
             '<div class="r2">💡 '+sLine+' <span class="note">(यह अनुमान है)</span></div>'+
             (u2.c?'<a class="abtn ok" style="text-decoration:none" href="'+esc(u2.c)+'">📚 कोर्स पढ़ें</a> ':'')+
             '<a class="abtn" style="text-decoration:none" target="_blank" rel="noopener" '+HREF2('https://www.youtube.com/results?search_query='+
@@ -3421,8 +3448,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
         var res=await call("lookupStudent",{ regNo:$("addStuReg").value.trim() });
         b.disabled=false; var d=res.data;
         var opts=OF_ALL.filter(function(o){return o.status==="open";})
-          .map(function(o){return '<option value="'+esc(o.courseId)+'">'+esc(rb(o.courseName))+'</option>';}).join("");
-        if(card) card.innerHTML='<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(d.name))+'</span> · '+esc(d.regNo)+
+          .map(function(o){return '<option value="'+esc(o.courseId)+'"'+CNA(o.courseId,o.courseName)+'>'+esc(rb(o.courseName))+'</option>';}).join("");
+        if(card) card.innerHTML='<div class="lrow"><div class="r1"><span class="nm">'+US(rb(d.name))+'</span> · '+esc(d.regNo)+
           (d.minor?' 🛡️ (नाबालिग)':'')+'</div>'+
           (opts?('<select id="addStuCourse">'+opts+'</select> <button class="abtn ok" data-k9off="'+esc(d.regNo)+'">📩 प्रस्ताव भेजें</button>')
                :'<span class="note">पहले ऊपर कोई कोर्स घोषित करें।</span>')+'</div>';
@@ -3441,15 +3468,15 @@ if (MODE==="external" && ALLOWED.length>=1) {
         b.disabled=false; var C=cr.data;
         var rows=(C.offerings||[]).map(function(o){
           var full=(o.filledCount||0)>=o.seats;
-          return '<div class="k9off"><div class="t">'+esc(rb(o.courseName))+'</div>'+
-            '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+esc(rb(o.durationText))+' · 📅 '+TT(esc(o.startDate)+' से '+esc(o.endDate), esc(o.startDate)+' to '+esc(o.endDate))+'</div>'+
-            (o.subjects?'<div class="m">📚 विषय: '+esc(rb(o.subjects))+'</div>':'')+
+          return '<div class="k9off"><div class="t">'+CN(o.courseId,o.courseName)+'</div>'+
+            '<div class="m">💰 ₹'+esc(o.feeRupees)+' · ⏳ '+US(rb(o.durationText))+' · 📅 '+TT(esc(o.startDate)+' से '+esc(o.endDate), esc(o.startDate)+' to '+esc(o.endDate))+'</div>'+
+            (o.subjects?'<div class="m">📚 विषय: '+US(rb(o.subjects))+'</div>':'')+
             seatBar(o.filledCount||0,o.seats)+
             (full?'<span class="chip">seat भर गईं</span>'
                  :'<button class="abtn ok" data-k9req="'+esc(o.courseId)+'" data-ctr="'+esc(C.regNo)+'">✉️ निवेदन भेजें</button>')+'</div>';
         }).join("");
-        if(cc) cc.innerHTML='<div class="lrow"><div class="r1"><span class="nm">'+esc(rb(C.name))+'</span> · '+esc(C.regNo)+
-          '</div><div class="r2">'+esc(rb(C.district||"—"))+' / '+esc(rb(C.state||"—"))+'</div></div>'+
+        if(cc) cc.innerHTML='<div class="lrow"><div class="r1"><span class="nm">'+US(rb(C.name))+'</span> · '+esc(C.regNo)+
+          '</div><div class="r2">'+GE(rb(C.district||"—"))+' / '+GE(rb(C.state||"—"))+'</div></div>'+
           (rows||'<span class="note">इस केंद्र की कोई खुली कोर्स-घोषणा नहीं।</span>');
         return;
       }
@@ -3572,7 +3599,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         var ss=$("idStuSel"); if(ss && ss.options.length<=1){
           EN_ALL.filter(function(e){return e.status==="active";}).forEach(function(e){
             var o=document.createElement("option"); o.value=e._id;
-            o.textContent=rb(e.studentName)+" · "+e.studentRegNo; ss.appendChild(o); });
+            o.textContent=rb(e.studentName)+" · "+e.studentRegNo; o.setAttribute("data-i18n-skip",""); ss.appendChild(o); });
           ss.onchange=function(){
             var e=EN_ALL.find(function(z){return z._id===ss.value;}); if(!e) return;
             $("idName").value=rb(e.studentName); $("idNo").value=e.studentRegNo;

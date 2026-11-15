@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v861'  // 2026-11-15 पैनल-4 (काग़ज़ English में): assets/dashboard.js v6.14.0 (English प्रमाणपत्र, परिचय-पत्र, WhatsApp-संदेश) + assets/panel_i18n.js v1.4 (बाद में बनी कड़ियाँ) + assets/i18n/panel_en.js : cache-first असेट
+const CACHE_VERSION = 'v862'  // 2026-11-15 पैनल-4ख (सहेजा हुआ data English पैनल में): assets/dashboard.js v6.15.0 + assets/panel_i18n.js v1.5 + assets/exam-session.js v1.2 + assets/courses_data.js (37 English नाम) + assets/i18n/panel_en.js : cache-first असेट
+// पिछला 'v861'  // 2026-11-15 पैनल-4 (काग़ज़ English में): assets/dashboard.js v6.14.0 (English प्रमाणपत्र, परिचय-पत्र, WhatsApp-संदेश) + assets/panel_i18n.js v1.4 (बाद में बनी कड़ियाँ) + assets/i18n/panel_en.js : cache-first असेट
 // पिछला 'v860'  // 2026-11-15 पैनल-3 (server के संदेश English में): assets/panel_i18n.js v1.3 (साँचे) + assets/i18n/panel_en.js (server के 302 संदेश) : cache-first असेट
 // पिछला 'v859'  // 2026-11-15 पैनल-2 (सब 31 dashboard English में): assets/panel_i18n.js v1.2 + assets/i18n/panel_en.js + assets/dashboard.js v6.13.0 + assets/exam-session.js + assets/courses_data.js (भाषा-समूहों के English नाम) : cache-first असेट; पुरानी assets/dash_i18n_en.js हटी
 // पिछला 'v855'  // 2026-11-14 खेप 5-ख (करियर टेस्ट कन्नड़ में, /kn/aptitude-test.html): नई कन्नड़ तालिकाएँ (apt_kn.js, apt_session_kn.js, apt_udyam_kn.js) + assets/apt_session_bn.js में दो बांग्ला शब्द-सुधार (cache-first असेट, इसलिए version बढ़ा); इंजन की फ़ाइलें नहीं बदलीं
