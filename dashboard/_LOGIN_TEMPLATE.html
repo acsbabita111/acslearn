@@ -427,7 +427,7 @@ const fnReqReset = httpsCallable(functions, "requestPasswordResetOtp");
 const fnVerReset = httpsCallable(functions, "verifyPasswordResetOtp");
 
 /* (15-Nov-2026, पैनल-6) OTP का email उसी भाषा में, जिसमें पैनल है: server को भाषा बताई जाती है ("en" या "hi") */
-function otpMailLang(){ const I=window.ACS_PANEL_I18N; return (I&&I.active&&I.lang&&I.lang()==="en")?"en":"hi"; }
+function otpMailLang(){ const I=window.ACS_PANEL_I18N; return (I&&I.active&&I.lang&&I.lang()!=="hi")?"en":"hi"; }   /* (16-Nov-2026, Founder का फ़ैसला) जिस भाषा का email अभी नहीं बना, उसमें English; server सिर्फ़ hi और en जानता है */
 
 const NO_OTP = ["student","jobseeker","entrepreneur"];
 /* ── काम-4 v3.0: routing का एकमात्र स्रोत = designation_matrix (परत-3) ──

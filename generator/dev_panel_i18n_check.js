@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /* ================================================================
-   dev_panel_i18n_check.js v1.6 (15-Nov-2026) : पैनल-1 का पहरेदार
+   dev_panel_i18n_check.js v1.7 (16-Nov-2026) : पैनल-1 का पहरेदार
+   v1.7 (कन्नड़ क-1 v1.2, Founder का आदेश 16-Nov-2026): हर ग़ैर-हिंदी भाषा में साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी
+     नियम-पत्र की कड़ी हो: नियम-परदे (L6), रजिस्ट्रेशन के नियम-चरण (J) और गाइड (G8) की जाँचें।
    v1.5 (पैनल-6): रजिस्ट्रेशन की OTP-माँग में सिर्फ़ email और lang जाते हैं (पासवर्ड नहीं)।
    v1.6 (कन्नड़ क-1): openPage का expect अब हर पैनल-भाषा के लिए; रजिस्ट्रेशन के क़दम (joinStep1 ...) बाहर भी मिलते हैं
      (dev_panel_lang_check.js के लिए)। English की जाँचें वही; भाषा-पट्टी में अब तीसरा बटन (कन्नड़) भी है।
@@ -262,7 +264,7 @@ async function loginSuite() {
   const loginP = c.w.doLogin(); await waitFor(c, () => $("rulesGate"), 3000); await settle(c);
   ck("L6 नियम-परदा खुला", !!$("rulesGate"));
   clean(c, "L6 नियम-परदा (English)");
-  ck("L6 परदे में Continue बटन और हिंदी-मूल सूचना", /Continue/.test($("rulesGate").textContent) && /legal original/.test($("rulesGate").textContent));
+  ck("L6 परदे में Continue बटन, क़ानूनी पंक्ति (सिर्फ़ हिंदी नियम-पत्र मान्य) और हिंदी नियम-पत्र की कड़ी", /Continue/.test($("rulesGate").textContent) && /Only the Hindi rules letter is legally valid\./.test($("rulesGate").textContent) && !!$("rulesGateHi") && $("rulesGateHi").getAttribute("href") === "/rules-consent-learner.html" && !DEV.test($("rulesGate").textContent), $("rulesGate").textContent.slice(0, 200));
   await settle(c);
   ck("L6 English परदे की कड़ी English नियम-पत्र पर (/en/rules-consent-learner.html)", $("rulesGateLink").getAttribute("href") === "/en/rules-consent-learner.html" && /English version/.test($("rulesGateLink").textContent),
     $("rulesGateLink").getAttribute("href") + " | " + $("rulesGateLink").textContent);
@@ -524,6 +526,9 @@ async function joinFull(rl, mode, extra) {
     const hiSrc = fs.readFileSync(path.join(ROOT, R.ruleFileFor(rl.key)), "utf8"), nHi = (hiSrc.match(/<div class="rule[^"]*"><input type="checkbox">/g) || []).length;
     if (!ck(tag + " : नियम English फ़ाइल से (/en/...), देवनागरी 0, सूचना नहीं", enRules && !DEV.test(rc.textContent) && !/Hindi text is the legal original/.test(rc.textContent), c.fetched.join(","))) res.hole = true;
     ck(tag + " : English में नियमों की गिनती हिंदी मूल जितनी (" + nHi + ")", nRules === nHi && nHi > 20 || (learner && nRules > 15), nRules + " बनाम " + nHi);
+    /* (v1.7, Founder का आदेश 16-Nov-2026) हर ग़ैर-हिंदी भाषा में: क़ानूनन हिंदी नियम-पत्र ही मान्य है + हिंदी पत्र खोलने और डाउनलोड की कड़ी */
+    { const lg = c.d.getElementById("rulesLegalNote"), as = lg ? Array.from(lg.querySelectorAll("a")) : [], rf = R.ruleFileFor(rl.key);
+      ck(tag + " : नियमों के ऊपर क़ानूनी पंक्ति (English में) + हिंदी नियम-पत्र खोलने और डाउनलोड की कड़ी", !!lg && /Only the Hindi rules letter is legally valid\./.test(lg.textContent) && !DEV.test(lg.textContent) && as.length === 2 && as.every(x => x.getAttribute("href") === rf) && as[0].getAttribute("target") === "_blank" && as[1].getAttribute("download") === rf, lg && lg.textContent); }
   }
   if (!ck(tag + " : सब नियम स्वीकार → चरण-3 खुला", await joinRules(c) && c.d.getElementById("panel3").classList.contains("active"))) { c.dom.window.close(); return res; }
   const ok4 = await joinStep3(c, rl, EN && extra.first);
@@ -693,6 +698,8 @@ async function guideSuite() {
   ck("G8 पहली जाँच में internet-गड़बड़ी: हिंदी मूल + सूचना", a.getAttribute("href") === "/rules-consent-learner.html" && !note(a).hasAttribute("hidden"));
   click(eF, sh()); await settle(eF); click(eF, sh()); await settle(eF); await settle(eF);
   ck("G8 खंड दोबारा खोला: फिर जाँच हुई, अब English नियम-पत्र", ruleA(eF, "student").getAttribute("href") === "/en/rules-consent-learner.html" && note(ruleA(eF, "student")).hasAttribute("hidden"), ruleA(eF, "student").getAttribute("href"));
+  { const lg = note(ruleA(eF, "student")).nextElementSibling, la = lg && lg.querySelector("a");   /* (v1.7) क़ानूनी पंक्ति + हिंदी पत्र की कड़ी */
+    ck("G8 English नियम-कड़ी के साथ क़ानूनी पंक्ति और हिंदी नियम-पत्र की कड़ी", !!lg && lg.classList.contains("ruleLegalNote") && !lg.hasAttribute("hidden") && /Only the Hindi rules letter is legally valid\./.test(lg.textContent) && !DEV.test(lg.textContent) && !!la && la.getAttribute("href") === "/rules-consent-learner.html", lg && lg.textContent); }
   click(eF, th()); await settle(eF); await settle(eF); click(eF, th()); await settle(eF); click(eF, th()); await settle(eF); await settle(eF);
   const tn = eF.fetched.filter(x => x === "/en/rules-consent-teacher.html").length;
   ck("G8 English नियम-पत्र न होना (404) याद रहता है: दोबारा खोलने पर फिर नहीं माँगा", tn === 1 && ruleA(eF, "teacher").getAttribute("href") === "/rules-consent-teacher.html", "माँगा " + tn + " बार");
@@ -769,6 +776,6 @@ if (require.main === module) (async function main() {
     if (!only || only === "join") await joinSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.6 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.7 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
   process.exit(fail ? 1 : 0);
 })();

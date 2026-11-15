@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_lang_check.js v1.0 (15-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
+   dev_panel_lang_check.js v1.2 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
      • दिखने वाले पाठ, attribute, <title> और संदेश-डिब्बों में देवनागरी शून्य;
-     • server को जाने वाला data वही जो हिंदी पन्ने से जाता है (भाषा सिर्फ़ दिखावट है);
+     • server को जाने वाला data वही जो English पन्ने से जाता है (भाषा सिर्फ़ दिखावट है);
      • भाषा बदलकर हिंदी पर लौटना = बिल्कुल ताज़ा हिंदी पन्ना; English और इस भाषा के बीच आना-जाना;
      • भाषा-पट्टी के नीचे उसी भाषा में "AI-मसौदा" की सूचना।
-   दर्ज होल (इस खेप में जान-बूझकर; भाषा की दूसरी खेप में बंद होंगे), जिन्हें यह robot गिनकर दिखाता है, छिपाता नहीं:
-     H1 नियम-पत्र का क़ानूनी हिस्सा हिंदी में (ऊपर उसी भाषा में सूचना); सहमति की भाषा "hi" ही दर्ज होती है।
-     H2 नियम-परदा (नियम-पत्र बदलने पर दोबारा सहमति) हिंदी + English में।
-     H3 काग़ज़ (प्रमाणपत्र, परिचय-पत्र, WhatsApp के पहले से लिखे संदेश, छपाई) और OTP का email हिंदी में: OTP की माँग में lang = "hi"।
+   Founder के आदेश (16-Nov-2026): (1) हिंदी के अलावा किसी भाषा में हिंदी कहीं न दिखे; जो चीज़ इस भाषा में अभी नहीं बनी, वह English में।
+   (2) जो इस भाषा में मौजूद है या बन सकता है, वह इसी भाषा में (English में नहीं): करियर टेस्ट और होम की कड़ी इस भाषा के पन्ने पर, नियम-परदा,
+   WhatsApp के पहले से लिखे संदेश। (3) हर जगह साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी नियम-पत्र की कड़ी हो।
+   यह robot गिनकर दिखाता है कि अभी क्या English में है (इस भाषा के अपने रूप बनने तक):
+     E1 नियम-पत्र English में (ऊपर इसी भाषा में सूचना + क़ानूनी पंक्ति + हिंदी पत्र की कड़ी); सहमति की भाषा "en" दर्ज; गाइड की नियम-कड़ी English पत्र पर।
+     E2 नियम-परदा इसी भाषा में, पर उसकी नियम-पत्र वाली कड़ी English पत्र पर।
+     E3 प्रमाणपत्र ठीक वही जो English पैनल में; OTP की माँग में lang = "en"; जिन मेनू-पन्नों का इस भाषा में रूप नहीं, वे English पर।
+     server को गया रजिस्ट्रेशन का data English पन्ने वाले से अक्षर-अक्षर मिलाया जाता है (server इस भाषा को English रजिस्ट्रेशन की तरह देखता है)।
    चलाना (repo-root से): ACS_JSDOM=<jsdom का पता> node generator/dev_panel_lang_check.js <भाषा-कोड> [static|login|guide|join|dash]
      ACS_ROLES=teacher,student  : रजिस्ट्रेशन की जाँच सिर्फ़ इन भूमिकाओं पर (तेज़ जाँच)
      ACS_INV=<फ़ाइल>            : बचे देवनागरी टुकड़ों की पूरी सूची उस फ़ाइल में
@@ -27,7 +31,7 @@ const { openDash, openAll, NAME_HI, openDoc, openH, certClick, docLinks, decText
 const rd = p => fs.readFileSync(path.join(ROOT, p), "utf8");
 const DEV = /[ऀ-ॿ]/;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-let pass = 0, fail = 0; const t0 = Date.now(), INV = new Map(), HOLES = { H1: 0, H2: 0, H3: 0 };
+let pass = 0, fail = 0; const t0 = Date.now(), INV = new Map(), HOLES = { E1: 0, E2: 0, E3: 0 };
 function ck(name, ok, info) { if (ok) pass++; else { fail++; console.log("❌ " + name + (info ? "\n     " + String(info).slice(0, 900) : "")); } return !!ok; }
 const LS = () => ({ acs_dash_lang: LG });
 function leaks(c, opts) {
@@ -75,6 +79,10 @@ function staticSuite() {
       DJ.indexOf('function panelOther(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()!=="hi"); }catch(e){ return false; } }') > -1
       && DJ.indexOf("function cnWant(){ if(CN_ASKED || cnLoaded() || !panelOther()) return;") > -1
       && DJ.indexOf('document.addEventListener("acs-panel-lang", function(){ if(!panelOther()) return;') > -1); }
+  /* काग़ज़ों के पक्के वाक्य (dashboard.js की DOC_EN तालिका: परिचय-पत्र, WhatsApp के संदेश): हर वाक्य इस भाषा के पैक में, ताकि DT() और ownMsgHref() उसी भाषा में दें */
+  { const DJ = rd("assets/dashboard.js"), a = DJ.indexOf("const DOC_EN = {"), b = DJ.indexOf("};", a); let T = null; try { T = new Function("return " + DJ.slice(a + 15, b + 1))(); } catch (e) {}
+    const bad = T ? Object.keys(T).filter(k => { const v = P.D[k.trim()]; return typeof v !== "string" || DEV.test(v) || !(own(v) || !/\p{L}/u.test(PL.noBrand(v))); }) : ["तालिका नहीं पढ़ी गई"];
+    ck("S12 काग़ज़ों के पक्के वाक्य (DOC_EN, " + (T ? Object.keys(T).length : 0) + ") इस भाषा के पैक में, अपनी लिपि में", !!T && Object.keys(T).length >= 11 && bad.length === 0, bad.slice(0, 4).join(" ‖ ")); }
   /* शब्दकोश-फ़ाइल: चारों खंड, कोई ख़ाली नहीं */
   const J = JSON.parse(rd("generator/data/panel_i18n/" + LG + ".json")), EJ = JSON.parse(rd("generator/data/panel_i18n/en.json"));
   ck("S10 " + LG + ".json: ui और geo और server की कुंजियाँ en.json जितनी ही; data खंड भरा",
@@ -121,15 +129,18 @@ async function loginSuite() {
   for (const code of ["auth/invalid-credential", "auth/too-many-requests", "auth/network-request-failed", "auth/other"]) {
     c.handlers.__signIn = () => rej(code); await c.w.doLogin(); await settle(c); clean(c, "L5 लॉगिन-ग़लती " + code);
   }
-  /* L6 विद्यार्थी: session → नियम-परदा (दर्ज होल H2: हिंदी + English) → सफलता */
+  /* L6 विद्यार्थी: session → नियम-परदा (इसी भाषा में; नियम-पत्र की कड़ी English पत्र पर) → सफलता */
   c.handlers.__signIn = H.__signIn;
   const loginP = c.w.doLogin(); await waitFor(c, () => $("rulesGate"), 3000); await settle(c); await settle(c);
   if (ck("L6 नियम-परदा खुला", !!$("rulesGate"))) {
     const gt = $("rulesGate").textContent;
-    if (ck("L6 (दर्ज होल H2) नियम-परदा हिंदी + English में, कड़ी हिंदी नियम-पत्र पर", DEV.test(gt) && /Continue/.test(gt) && $("rulesGateLink").getAttribute("href") === "/rules-consent-learner.html", $("rulesGateLink").getAttribute("href"))) HOLES.H2++;
+const gh = $("rulesGateHi"), gl = $("rulesGateLink");
+    ck("L6 नियम-परदा इसी भाषा में: देवनागरी शून्य, English का वाक्य नहीं, अपनी लिपि में", !DEV.test(gt) && own(gt) && !/The rules letter has changed|Continue|I have read/.test(gt) && own($("rulesGateOk").textContent) && own(gl.textContent), gt.slice(0, 160));
+    ck("L6 परदे पर क़ानूनी पंक्ति (इसी भाषा में) और हिंदी नियम-पत्र की कड़ी", !!gh && gh.getAttribute("href") === "/rules-consent-learner.html" && own(gh.textContent) && $("rulesGateNote").textContent.indexOf(c.w.ACS_PANEL_I18N.tr("क़ानूनी रूप से हिंदी नियम-पत्र ही मान्य है।")) === 0, gh && (gh.getAttribute("href") + " | " + $("rulesGateNote").textContent));
+    if (ck("L6 (E2) परदे की नियम-पत्र वाली कड़ी English पत्र पर (इस भाषा का पत्र अभी नहीं)", gl.getAttribute("href") === "/en/rules-consent-learner.html" && gl.textContent === c.w.ACS_PANEL_I18N.tr("नियम-पत्र पढ़ें (English में) ↗"), gl.getAttribute("href") + " | " + gl.textContent)) HOLES.E2++;
     $("rulesGateChk").checked = true; $("rulesGateChk").dispatchEvent(new c.w.Event("change")); click(c, $("rulesGateOk")); await loginP; await settle(c);
     const acc = c.calls.filter(x => x.name === "rulesAccept").pop();
-    ck("L6 सहमति के साथ भाषा hi और संस्करण (हिंदी नियम-पत्र ही पढ़ा गया)", !!acc && acc.data.language === "hi" && acc.data.version === "1.2", JSON.stringify(acc && acc.data));
+    ck("L6 सहमति के साथ भाषा en और संस्करण (English नियम-पत्र पढ़ा गया)", !!acc && acc.data.language === "en" && acc.data.version === "1.2", JSON.stringify(acc && acc.data));
     ck("L6 परदा हटा, सफलता-चरण", !$("rulesGate") && $("c5").classList.contains("show"));
     clean(c, "L6 सफलता-चरण");
   }
@@ -153,7 +164,7 @@ async function loginSuite() {
   c.handlers.requestLoginOtp = () => { throw {}; }; await c.w.resendLoginOtp(); await settle(c); clean(c, "L8 दोबारा OTP अभी नहीं");
   noErr(c, "L7-L8");
   { const q = c.calls.filter(x => x.name === "requestLoginOtp");
-    if (ck("L8 (दर्ज होल H3) OTP की माँग में lang = hi (email अभी हिंदी में), और सिर्फ़ email + lang", q.length === 3 && q.every(x => x.data && x.data.lang === "hi" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data)))) HOLES.H3++; }
+    if (ck("L8 (E3) OTP की माँग में lang = en (email English में; server सिर्फ़ hi और en जानता है), और सिर्फ़ email + lang", q.length === 3 && q.every(x => x.data && x.data.lang === "en" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data)))) HOLES.E3++; }
   c.dom.window.close();
   /* L9 पासवर्ड भूल गए */
   c = await OPEN({ ls: LS(), expect: LG, handlers: Object.assign({}, H) });
@@ -169,9 +180,16 @@ async function loginSuite() {
   c.handlers.verifyPasswordResetOtp = H.verifyPasswordResetOtp; ["p1", "p2", "p3", "p4", "p5", "p6"].forEach((id, i) => { c.d.getElementById(id).value = String(i + 1); });
   await c.w.submitForgotReset(); await settle(c); clean(c, "L9 पासवर्ड बदल गया");
   noErr(c, "L9");
-  /* L10 menu की कड़ियाँ: इस भाषा के पन्ने अभी नहीं, इसलिए हिंदी पते ही (English पन्नों पर नहीं भेजते) */
+  /* L10 menu की कड़ियाँ: इस भाषा के पन्ने अभी नहीं, इसलिए English पन्नों पर (हिंदी पर नहीं); हिंदी पर लौटने पर मूल पते */
   const mis = Array.from(c.d.querySelectorAll("#acsMenuList a,#acsFooterMenu a")).filter(a => /mission/.test(a.getAttribute("href")));
-  ck("L10 menu की कड़ी मूल पते पर (English पन्ने पर नहीं)", mis.length > 0 && mis.every(a => !/^\/en\//.test(a.getAttribute("href"))), mis.map(a => a.getAttribute("href")).join(","));
+  if (ck("L10 (E3) menu: जिस पन्ने का इस भाषा में रूप नहीं (मिशन), उसकी कड़ी English पन्ने पर", mis.length > 0 && mis.every(a => /^\/en\//.test(a.getAttribute("href"))), mis.map(a => a.getAttribute("href")).join(","))) HOLES.E3++;
+  const OWNP = (c.w.ACS_PANEL_PACKS[LG] || {}).P || {};
+  const homes = Array.from(c.d.querySelectorAll("#acsMenuList a,#acsFooterMenu a")).filter(a => a.getAttribute("href") === "/" + LG + "/" || a.getAttribute("href") === "/en/" || a.getAttribute("href") === "/");
+  ck("L10 menu: होम की कड़ी इस भाषा के अपने होम पर (" + (OWNP["/en/"] || "पन्ना नहीं") + ")", !OWNP["/en/"] || (homes.length > 0 && homes.every(a => a.getAttribute("href") === OWNP["/en/"])), homes.map(a => a.getAttribute("href")).join(","));
+  { const bad = Object.keys(OWNP).filter(k => !/^\/en\//.test(k) || OWNP[k].indexOf("/" + LG + "/") !== 0 || !fs.existsSync(path.join(ROOT, OWNP[k].replace(/\/$/, "/index.html"))));
+    ck("L10 पैक का \"अपने पन्ने\" खाना: हर पता /en/ से /" + LG + "/ पर, और वह पन्ना repo में मौजूद (" + Object.keys(OWNP).length + ")", bad.length === 0, bad.join(",")); }
+  { click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(c);
+    ck("L10 हिंदी पर लौटने पर menu की कड़ियाँ मूल पते पर", mis.every(a => !/^\/en\//.test(a.getAttribute("href"))) && homes.every(a => a.getAttribute("href") === "/"), mis.concat(homes).map(a => a.getAttribute("href")).join(",")); }
   c.dom.window.close();
   /* LS भाषा बदलना */
   const hA = await OPEN({});
@@ -211,7 +229,13 @@ async function guideSuite() {
   ck("G1 <title> में देवनागरी नहीं", !DEV.test(c.d.title), c.d.title);
   click(c, c.d.querySelector("#acc-student .acc-head")); await settle(c); await settle(c);
   const a = ruleA(c, "student"), note = a && a.nextElementSibling;
-  if (ck("G2 (दर्ज होल H1) विद्यार्थी के नियम: कड़ी हिंदी नियम-पत्र पर, साथ में उसी भाषा में सूचना", !!a && a.getAttribute("href") === "/rules-consent-learner.html" && !!note && !note.hasAttribute("hidden") && own(note.textContent) && !DEV.test(note.textContent), a && (a.getAttribute("href") + " | " + (note && note.textContent)))) HOLES.H1++;
+  await waitFor(c, () => a && a.getAttribute("href") === "/en/rules-consent-learner.html", 3000);
+  if (ck("G2 (E1) विद्यार्थी के नियम: कड़ी English नियम-पत्र पर, \"सिर्फ़ हिंदी में\" वाली सूचना छिपी", !!a && a.getAttribute("href") === "/en/rules-consent-learner.html" && (!note || note.hasAttribute("hidden")), a && (a.getAttribute("href") + " | " + (note && note.hasAttribute("hidden"))))) HOLES.E1++;
+  { const lg = note && note.nextElementSibling, la = lg && lg.querySelector("a");
+    ck("G2 नियम-कड़ी के साथ क़ानूनी पंक्ति (इसी भाषा में) और हिंदी नियम-पत्र की कड़ी", !!lg && lg.classList.contains("ruleLegalNote") && !lg.hasAttribute("hidden") && own(lg.textContent) && !DEV.test(lg.textContent) && !!la && la.getAttribute("href") === "/rules-consent-learner.html", lg && (lg.textContent + " | " + (la && la.getAttribute("href")))); }
+  { const at = ruleA(c, "teacher");   /* यह खंड ऊपर की दौड़ में खुल चुका है */
+    await waitFor(c, () => at && /^\/en\//.test(at.getAttribute("href")), 3000);
+    ck("G2 (E1) शिक्षक के नियम: कड़ी English नियम-पत्र पर", !!at && at.getAttribute("href") === "/en/" + R.ruleFileFor("teacher"), at && at.getAttribute("href")); }
   ck("G2 आवेदन-बटन की कड़ी वही (भाषा रजिस्ट्रेशन में अपने-आप)", c.d.querySelector("#acc-teacher a.applyBtn").getAttribute("href") === "/join.html?role=teacher");
   noErr(c, "G1-G2");
   const hA = await OPEN({});
@@ -222,12 +246,12 @@ async function guideSuite() {
 }
 
 /* ───────────── J: रजिस्ट्रेशन ───────────── */
-const RH = { allowRulesHole: true };
-const HI_NOTE = "ℹ️ इस भूमिका के नियम अभी सिर्फ़ हिंदी में हैं। हिंदी ही क़ानूनी मूल है।";   /* रजिस्ट्रेशन का अपना वाक्य (_JOIN_TEMPLATE.html) */
+const RH = {};   /* नियम अब English फ़ाइल से आते हैं: नियम-खंड में भी देवनागरी शून्य (कोई छूट नहीं) */
+const EN_NOTE = "ℹ️ इस भूमिका के नियम अभी English में दिखाए जा रहे हैं।";   /* रजिस्ट्रेशन का अपना वाक्य (_JOIN_TEMPLATE.html) */
 async function joinFull(rl, mode, extra) {
   extra = extra || {};
-  const T = mode !== "hi";
-  const c = await openPage("join.html", { ls: T ? LS() : {}, expect: mode, handlers: Object.assign({}, HJ) });
+  const T = mode === LG;   /* दूसरी दौड़ (English) सिर्फ़ data मिलाने के लिए है; उसकी अपनी जाँचें English के पहरेदार में हैं */
+  const c = await openPage("join.html", { ls: { acs_dash_lang: mode }, expect: mode, handlers: Object.assign({}, HJ) });
   const tag = "J[" + mode + "] " + rl.key + (extra.minor ? " (नाबालिग)" : "") + (rl.country && rl.country !== "in" ? " (" + rl.country + ")" : "");
   const res = { tag }, $ = id => c.d.getElementById(id);
   if (T && extra.first) { clean(c, "J1 रजिस्ट्रेशन पहला दृश्य (सब चरण)"); ck("J1 <title> में देवनागरी नहीं", !DEV.test(c.d.title), c.d.title); }
@@ -237,12 +261,16 @@ async function joinFull(rl, mode, extra) {
   if (!ck(tag + " : OTP के बाद चरण-2", $("panel2").classList.contains("active"))) { c.dom.window.close(); return res; }
   await joinRole(c, rl);
   if (T) {
-    c.holeSeen = false; clean(c, tag + " : चरण-2 भूमिका + नियम (क़ानूनी हिस्सा छोड़कर)", RH);
+    clean(c, tag + " : चरण-2 भूमिका + नियम (नियम-खंड समेत)", RH);
     const rc = $("rulesContainer"), first = rc.firstElementChild, nRules = rc.querySelectorAll(".rule input[type=checkbox]:not(#bulkConsentChk)").length;
-    const hiSrc = rd(R.ruleFileFor(rl.key)), nHi = (hiSrc.match(/<div class="rule(?:"| [^"]*")[^>]*>\s*<input type="checkbox"/g) || []).length;
-    if (ck(tag + " : (दर्ज होल H1) नियम हिंदी मूल से, सबसे ऊपर उसी भाषा में सूचना; नियमों की गिनती मूल जितनी (" + nHi + ")",
-      c.holeSeen === true && !!first && first.textContent === c.w.ACS_PANEL_I18N.tr(HI_NOTE) && own(first.textContent) && !DEV.test(first.textContent) && nRules === nHi && nHi > 15 && !c.fetched.some(p => p === "/en/" + R.ruleFileFor(rl.key)),
-      (first && first.textContent.slice(0, 120)) + " | नियम " + nRules + "/" + nHi)) HOLES.H1++;
+    const rf = R.ruleFileFor(rl.key), hiSrc = rd(rf), enSrc = rd("en/" + rf), RX = /<div class="rule(?:"| [^"]*")[^>]*>\s*<input type="checkbox"/g;
+    const nHi = (hiSrc.match(RX) || []).length, firstRule = (rc.querySelector(".rule label") || {}).textContent || "", enFirst = (/<div class="rule[^>]*>\s*<input type="checkbox"[^>]*>\s*<span class="no">[^<]*<\/span>\s*<label>([\s\S]*?)<\/label>/.exec(enSrc) || [])[1] || "";
+    const plain = t => t.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+    if (ck(tag + " : (E1) नियम English नियम-पत्र से (पहला नियम हूबहू), सबसे ऊपर उसी भाषा में सूचना; नियमों की गिनती हिंदी मूल जितनी (" + nHi + ")",
+      !!first && first.textContent === c.w.ACS_PANEL_I18N.tr(EN_NOTE) && own(first.textContent) && !DEV.test(first.textContent) && nRules === nHi && nHi > 15 && c.fetched.some(p => p === "/en/" + rf) && enFirst.length > 20 && plain(firstRule) === plain(enFirst) && !DEV.test(rc.textContent),
+      (first && first.textContent.slice(0, 110)) + " | नियम " + nRules + "/" + nHi + " | " + plain(firstRule).slice(0, 60) + " ≟ " + plain(enFirst).slice(0, 60))) HOLES.E1++;
+    { const lg = c.d.getElementById("rulesLegalNote"), as = lg ? Array.from(lg.querySelectorAll("a")) : [];
+      ck(tag + " : नियमों के ऊपर क़ानूनी पंक्ति (इसी भाषा में) + हिंदी नियम-पत्र खोलने और डाउनलोड की कड़ी", !!lg && own(lg.textContent) && !DEV.test(lg.textContent) && lg.textContent.indexOf(c.w.ACS_PANEL_I18N.tr("क़ानूनी रूप से हिंदी नियम-पत्र ही मान्य है।")) > -1 && as.length === 2 && as.every(x => x.getAttribute("href") === rf) && as[0].getAttribute("target") === "_blank" && as[1].getAttribute("download") === rf, lg && (lg.textContent + " | " + as.map(x => x.getAttribute("href")).join(","))); }
   }
   if (!ck(tag + " : सब नियम स्वीकार → चरण-3 खुला", await joinRules(c) && $("panel3").classList.contains("active"))) { c.dom.window.close(); return res; }
   const ok4 = await joinStep3(c, rl, false);
@@ -269,7 +297,7 @@ async function joinFull(rl, mode, extra) {
   if (T && extra.first) { c.handlers.generateAgreementPdf = () => ({ pdfUrl: "", mailNote: "no" }); $("downloadPdfBtn").click(); await settle(c); clean(c, "J PDF बनी, email नहीं गई", RH); }
   const sub = c.calls.filter(x => x.name === "submitRegistration").pop(); res.payload = sub ? sub.data : null;
   const q = c.calls.filter(x => x.name === "requestRegisterOtp");
-  ck(tag + " : OTP की माँग में lang = hi, और सिर्फ़ email + lang", q.length >= 1 && q.every(x => x.data && x.data.lang === "hi" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data)));
+  ck(tag + " : OTP की माँग में lang = en, और सिर्फ़ email + lang", q.length >= 1 && q.every(x => x.data && x.data.lang === "en" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data)));
   noErr(c, tag); c.dom.window.close();
   return res;
 }
@@ -282,10 +310,10 @@ async function joinSuite() {
   let first = true, same = 0;
   for (const run of runs) {
     const a = await joinFull(run.rl, LG, Object.assign({ first }, run.extra)); first = false;
-    const b = await joinFull(run.rl, "hi", run.extra);
+    const b = await joinFull(run.rl, "en", run.extra);
     const tagP = a.tag.replace("J[" + LG + "]", "JP");
-    ck(tagP + " : consent_language = hi (हिंदी नियम-पत्र ही दिखा), दोनों में", !!a.payload && !!b.payload && a.payload.consent_language === "hi" && b.payload.consent_language === "hi", (a.payload || {}).consent_language + " / " + (b.payload || {}).consent_language);
-    if (ck(tagP + " : server को data हिंदी पन्ने जैसा ही (अक्षर-अक्षर)", !!a.payload && JSON.stringify(a.payload) === JSON.stringify(b.payload), firstDiff(a.payload, b.payload))) same++;
+    ck(tagP + " : consent_language = en (English नियम-पत्र ही दिखा), दोनों में", !!a.payload && !!b.payload && a.payload.consent_language === "en" && b.payload.consent_language === "en", (a.payload || {}).consent_language + " / " + (b.payload || {}).consent_language);
+    if (ck(tagP + " : server को data English पन्ने जैसा ही (अक्षर-अक्षर)", !!a.payload && JSON.stringify(a.payload) === JSON.stringify(b.payload), firstDiff(a.payload, b.payload))) same++;
   }
   ck("JP सब भूमिकाओं में data एक-जैसा (" + same + "/" + runs.length + ")", same === runs.length);
   if (!PICK.length) {
@@ -379,18 +407,38 @@ async function dashSuite() {
       e.dom.window.close();
     } catch (err) { ck(f + " : कोर्स-नाम जाँच चली", false, String(err && err.stack || err).slice(0, 300)); }
   }
-  /* (दर्ज होल H3) काग़ज़: इस भाषा के पैनल में प्रमाणपत्र और पहले से लिखे संदेश (WhatsApp आदि) अभी ठीक वही जो हिंदी पैनल में।
-     आधा अनूदित काग़ज़ कभी नहीं: या पूरा हिंदी (अभी), या पूरा इस भाषा में (अगली खेप)। */
+  /* (E3) काग़ज़: इस भाषा के पैनल में प्रमाणपत्र और पहले से लिखे संदेश (WhatsApp आदि) ठीक वही जो English पैनल में; देवनागरी शून्य।
+     आधा अनूदित काग़ज़ कभी नहीं: या पूरा English (अभी), या इस भाषा वाला (अगली खेप)। */
   for (const f of PG.filter(f => f.split("/")[1] === "student")) {
     try {
-      const k = await openDoc(f, LG), h = await openDoc(f, "hi");
+      const k = await openDoc(f, LG), h = await openDoc(f, "en");
       const okK = await certClick(k), okH = await certClick(h);
       const tK = k.canvasText.map(z => z.t), tH = h.canvasText.map(z => z.t);
-      if (ck("D student : (दर्ज होल H3) प्रमाणपत्र इस भाषा के पैनल में ठीक वही जो हिंदी पैनल में (" + tH.length + " पंक्तियाँ), फ़ाइल सहेजी", okK && okH && tH.length > 30 && JSON.stringify(tK) === JSON.stringify(tH) && k.saved[0] === h.saved[0] && !!k.saved[0], "बटन " + okK + "/" + okH + " · पंक्तियाँ " + tK.length + "/" + tH.length + " · " + firstDiff(tK, tH))) HOLES.H3++;
-      const lK = docLinks(k).map(a => decText(a.getAttribute("href"))), lH = docLinks(h).map(a => decText(a.getAttribute("href")));
-      ck("D student : (दर्ज होल H3) पहले से लिखे संदेशों की कड़ियाँ (" + lH.length + ") ठीक वही जो हिंदी पैनल में", lH.length > 0 && JSON.stringify(lK) === JSON.stringify(lH), firstDiff(lK, lH));
+      if (ck("D student : (E3) प्रमाणपत्र इस भाषा के पैनल में ठीक वही जो English पैनल में (" + tH.length + " पंक्तियाँ), देवनागरी शून्य, फ़ाइल सहेजी", okK && okH && tH.length > 30 && JSON.stringify(tK) === JSON.stringify(tH) && !tK.some(t => DEV.test(t)) && k.saved[0] === h.saved[0] && !!k.saved[0], "बटन " + okK + "/" + okH + " · पंक्तियाँ " + tK.length + "/" + tH.length + " · " + firstDiff(tK, tH) + " · " + tK.filter(t => DEV.test(t)).slice(0, 2).join(" | "))) HOLES.E3++;
+      /* पहले से लिखे संदेश (WhatsApp) इसी भाषा में; करियर टेस्ट की कड़ी इसी भाषा के पन्ने पर; बाक़ी कड़ियाँ वही जो English पैनल में */
+      const OWNP = (k.w.ACS_PANEL_PACKS[LG] || {}).P || {}, hk = docLinks(k).map(a => a.getAttribute("href")), hh = docLinks(h).map(a => a.getAttribute("href"));
+      const wa = hk.filter(x => /wa\.me/.test(x)).map(decText), waE = hh.filter(x => /wa\.me/.test(x)).map(decText);
+      ck("D student : WhatsApp के पहले से लिखे संदेश इसी भाषा में (जिनका पक्का वाक्य पैक में है; रिपोर्ट का पाठ और बिना-संदेश की कड़ी English पैनल जैसी), देवनागरी शून्य", wa.length > 0 && wa.length === waE.length && wa.every((t, i) => !DEV.test(t.split(NAME_HI.trim()).join("")) && (own(t) ? t !== waE[i] : t === waE[i])) && wa.filter(own).length >= 2, "इसी भाषा में " + wa.filter(own).length + " / " + wa.length + " · " + wa.filter((t, i) => DEV.test(t.split(NAME_HI.trim()).join("")) || (!own(t) && t !== waE[i])).slice(0, 2).join(" | "));
+      const ap = hk.filter(x => /aptitude-test\.html/.test(x)), want = OWNP["/en/aptitude-test.html"];
+      ck("D student : करियर टेस्ट की कड़ियाँ (" + ap.length + ") इसी भाषा के टेस्ट-पन्ने पर (" + (want || "पन्ना नहीं: English") + "), लौटने का पता साथ", ap.length > 0 && ap.every(x => x.indexOf(want || "/en/aptitude-test.html") === 0) && ap.some(x => /\?back=/.test(x)), ap.join(" , "));
+      const rest = x => x.filter(y => !/wa\.me|aptitude-test\.html/.test(y));
+      ck("D student : बाक़ी काग़ज़-कड़ियाँ ठीक वही जो English पैनल में", JSON.stringify(rest(hk)) === JSON.stringify(rest(hh)), firstDiff(rest(hk), rest(hh)));
+      click(k, k.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(k); await settle(k);
+      { const back = docLinks(k).map(a => a.getAttribute("href")), h0 = await openDoc(f, "hi"), hi0 = docLinks(h0).map(a => a.getAttribute("href")); h0.dom.window.close();
+        ck("D student : हिंदी पर लौटने पर सब काग़ज़-कड़ियाँ हिंदी वाली (सीधे हिंदी में खोले पन्ने जैसी)", JSON.stringify(back) === JSON.stringify(hi0), firstDiff(back, hi0)); }
       noErr(k, "D student काग़ज़"); [k, h].forEach(x => x.dom.window.close());
     } catch (e) { ck(f + " : काग़ज़-जाँच चली", false, String(e && e.stack || e).slice(0, 300)); }
+  }
+  /* (E1) dashboard की नियम-कड़ी: English नियम-पत्र पर (जिन पन्नों में data-href-en है); हिंदी पर लौटने पर हिंदी पत्र पर */
+  for (const f of PG.filter(f => ["teacher", "student", "center"].indexOf(f.split("/")[1]) > -1)) {
+    try {
+      const c = await openDash(f, "base", LG); await openAll(c);
+      const as = Array.from(c.d.querySelectorAll('a[data-href-en*="rules-consent"]'));
+      ck("D " + f.split("/")[1] + " : (E1) नियम-पत्र की कड़ी English पत्र पर (" + as.length + ")", as.length > 0 && as.every(a => a.getAttribute("href") === a.getAttribute("data-href-en") && /^\/en\/rules-consent-/.test(a.getAttribute("href"))), as.map(a => a.getAttribute("href")).join(","));
+      click(c, c.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(c); await settle(c);
+      ck("D " + f.split("/")[1] + " : हिंदी पर लौटने पर नियम-पत्र की कड़ी हिंदी पत्र पर", as.length > 0 && as.every(a => /^\/rules-consent-/.test(a.getAttribute("href"))), as.map(a => a.getAttribute("href")).join(","));
+      c.dom.window.close();
+    } catch (e) { ck(f + " : नियम-कड़ी जाँच चली", false, String(e && e.stack || e).slice(0, 300)); }
   }
   /* उपयोगकर्ता का नाम जिसके शब्द पैक में भी हैं: नाम वैसा ही रहे */
   for (const f of PG.filter(f => ["student", "admin"].indexOf(f.split("/")[1]) > -1)) {
@@ -452,7 +500,7 @@ async function dashSuite() {
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 6).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log("दर्ज होल (जान-बूझकर, अगली खेप में बंद): H1 नियम-पत्र हिंदी में " + HOLES.H1 + " बार देखा · H2 नियम-परदा हिंदी + English " + HOLES.H2 + " · H3 OTP का email हिंदी (lang=hi) " + HOLES.H3);
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.0 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 प्रमाणपत्र, OTP का email, बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.2 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();

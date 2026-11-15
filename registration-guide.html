@@ -158,7 +158,8 @@ table.qual th{ background:#eef3fb; color:var(--navy); font-size:16px; }
      वरना हिंदी मूल, साथ में सूचना। जाँच तभी, जब खंड खोला जाए (कम data)। */
   function ruleA(file, label){
     return '<a class="ruleLink" data-rule-file="' + file + '" href="/' + file + '" target="_blank" rel="noopener">' + label + '</a>'
-      + '<span class="ruleHiNote" style="font-size:16px;color:#556" hidden> (अभी हिंदी में; हिंदी ही क़ानूनी मूल है)</span>';
+      + '<span class="ruleHiNote" style="font-size:16px;color:#556" hidden> (अभी हिंदी में; हिंदी ही क़ानूनी मूल है)</span>'
+      + '<span class="ruleLegalNote" style="display:block;font-size:16px;color:#556" hidden>⚖️ <span>क़ानूनी रूप से हिंदी नियम-पत्र ही मान्य है।</span> <a href="/' + file + '" target="_blank" rel="noopener" style="color:#1565C0;font-weight:700">हिंदी नियम-पत्र खोलें ↗</a></span>';
   }
 
   var LVL_HI = { hq:'प्रधान कार्यालय (HQ)', zm:'राज्य/देश कार्यालय', rm:'क्षेत्रीय कार्यालय' };
@@ -235,12 +236,19 @@ function ruleLinks(scope){
   (scope || document).querySelectorAll('a[data-rule-file]').forEach(function(a){
     var f = a.getAttribute('data-rule-file'), n = a.nextElementSibling;
     if(!(n && n.classList.contains('ruleHiNote'))) n = null;
+    /* (16-Nov-2026, Founder का आदेश) अनुवाद वाला पत्र खुले, तो साथ में: क़ानूनन हिंदी नियम-पत्र ही मान्य है + हिंदी पत्र की कड़ी */
+    var lg = n ? n.nextElementSibling : null; if(!(lg && lg.classList.contains('ruleLegalNote'))) lg = null;
     a.setAttribute('href', '/' + f);
-    ruleNote(n, lang !== 'hi');
+    ruleNote(n, lang !== 'hi'); ruleNote(lg, false);
     if(lang === 'hi' || !(scope && scope.classList && scope.classList.contains('open'))) return;
     ruleCheck(lang, f, function(ok){
-      if(!ok || ruleLang() !== lang) return;
-      a.setAttribute('href', '/' + lang + '/' + f); ruleNote(n, false);
+      if(ruleLang() !== lang) return;
+      if(ok){ a.setAttribute('href', '/' + lang + '/' + f); ruleNote(n, false); ruleNote(lg, true); return; }
+      /* (16-Nov-2026, Founder का फ़ैसला) उस भाषा का नियम-पत्र अभी न बना हो, तो English नियम-पत्र (हिंदी नहीं); वह भी न मिले या बासी हो, तब हिंदी मूल */
+      if(lang !== 'en') ruleCheck('en', f, function(ok2){
+        if(!ok2 || ruleLang() !== lang) return;
+        a.setAttribute('href', '/en/' + f); ruleNote(n, false); ruleNote(lg, true);
+      });
     });
   });
 }

@@ -2097,7 +2097,21 @@
   "🎁 इसे gift करें": "🎁 Gift this",
   "🐢 धीरे सुनिए": "🐢 Listen slowly",
   "मैंने (व Guardian ने, यदि लागू) ऊपर के सभी": "I (and my Guardian, if applicable) have read all",
-  "नियम पढ़े हैं और सभी को स्वीकार किया है।": "rules above and I accept them all."
+  "नियम पढ़े हैं और सभी को स्वीकार किया है।": "rules above and I accept them all.",
+  "📜 नियम-पत्र बदल गया है": "📜 The rules letter has changed",
+  "विद्यार्थी के नियम-पत्र का नया संस्करण लागू है:": "A new version of the learner rules letter is in force:",
+  "फ़ीस और वापसी वाला भाग (नियम 6 और 7) बदला है।": "The part on fees and refunds (rules 6 and 7) has changed.",
+  "नियम-पत्र पढ़ें ↗": "Read the rules letter ↗",
+  "नियम-पत्र पढ़ें (English में) ↗": "Read the rules letter (in English) ↗",
+  "क़ानूनी रूप से हिंदी नियम-पत्र ही मान्य है।": "Only the Hindi rules letter is legally valid.",
+  "हिंदी नियम-पत्र खोलें ↗": "Open the Hindi rules letter ↗",
+  "मैंने नियम-पत्र का यह संस्करण पढ़ लिया है और मैं इससे सहमत हूँ।": "I have read this version of the rules letter and I agree to it.",
+  "सहमति दर्ज नहीं हो पाई। इंटरनेट देखकर दोबारा दबाएँ।": "Could not record your consent. Check the internet and press again.",
+  "📜 नियम-पत्र की स्थिति नहीं जाँची जा सकी": "📜 The rules letter status could not be checked",
+  "इंटरनेट देखकर दोबारा कोशिश करें।": "Check the internet and try again.",
+  "दोबारा कोशिश करें": "Try again",
+  "डाउनलोड करें": "Download",
+  "ℹ️ इस भूमिका के नियम अभी English में दिखाए जा रहे हैं।": "ℹ️ The rules for this role are shown in English for now."
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",

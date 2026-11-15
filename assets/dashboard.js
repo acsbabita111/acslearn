@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.18.1 · 16-Nov-2026 (कन्नड़ क-1 v1.1; Founder का फ़ैसला 16-Nov-2026): जिस भाषा के अपने काग़ज़ अभी नहीं बने, उसके पैनल में काग़ज़
+     (प्रमाणपत्र, रिपोर्ट की छपाई) English में, हिंदी में नहीं: docEn() अब हर ग़ैर-हिंदी पैनल में हाँ कहता है।
+     Founder का दूसरा आदेश (16-Nov-2026): जो उस भाषा में बन सकता है, वह उसी भाषा में: परिचय-पत्र के पक्के वाक्य (DT) और WhatsApp के
+     पहले से लिखे संदेश (ownMsgHref, data-href-<भाषा>) पैनल के पैक से उसी भाषा में। हिंदी और English पैनल में कुछ नहीं बदला।
    v6.18.0 · 15-Nov-2026 (कन्नड़ क-1: पैनल की तीसरी भाषा): कोर्स, परीक्षा और प्रमाणपत्र-सूची के नामों पर English नाम (data-tr-en) अब हर
      ग़ैर-हिंदी पैनल में जुड़ता है (panelOther), सिर्फ़ English में नहीं; जिस भाषा का अपना नाम अभी नहीं, वहाँ इंजन English नाम दिखाता है।
      काग़ज़ (प्रमाणपत्र, परिचय-पत्र, WhatsApp के संदेश, छपाई) का नियम नहीं बदला: English पैनल में English, बाक़ी सब में हिंदी (docEn)।
@@ -130,7 +134,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.18.0";
+const DASH_VER = "v6.18.1";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -212,8 +216,8 @@ function LN(t){ return '<span data-i18n-skip data-lname>'+t+'</span>'; }
 function bracketEn(t){ const m=/\[([^\]]+)\]\s*$/.exec(String(t||"")); return m ? m[1].trim() : ""; }
 /* (v6.14.0, पैनल-4) काग़ज़ की भाषा। प्रमाणपत्र, परिचय-पत्र, WhatsApp का पहले से लिखा संदेश और छपाई DOM में नहीं होते,
    इसलिए भाषा-इंजन इन्हें नहीं बदल सकता। Founder का फ़ैसला (15-Nov-2026): पैनल English हो, तो ये काग़ज़ सिर्फ़ English में।
-   docEn = अभी पैनल English में चल रहा है (पैक आ चुका है); पैक न आए तो पन्ना हिंदी में रहता है, काग़ज़ भी हिंदी में। */
-function docEn(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()==="en"); }catch(e){ return false; } }
+   docEn = अभी पैनल English में, या किसी ऐसी भाषा में चल रहा है जिसके अपने काग़ज़ अभी नहीं बने (पैक आ चुका है); पैक न आए तो पन्ना हिंदी में रहता है, काग़ज़ भी हिंदी में। */
+function docEn(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()!=="hi"); }catch(e){ return false; } }   /* (v6.18.1, Founder का फ़ैसला 16-Nov-2026) हर ग़ैर-हिंदी पैनल में काग़ज़ English में, जब तक उस भाषा के अपने काग़ज़ न बनें */
 /* (v6.18.0, कन्नड़ क-1) पैनल हिंदी के अलावा किसी भी भाषा में चल रहा है। data के नाम (कोर्स) तब English में दिखते हैं (data-tr-en),
    जब तक उस भाषा का अपना नाम data में न हो। काग़ज़ (प्रमाणपत्र, परिचय-पत्र, संदेश) की भाषा इससे नहीं, docEn से तय होती है। */
 function panelOther(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()!=="hi"); }catch(e){ return false; } }
@@ -232,7 +236,34 @@ const DOC_EN = {
   "📅 वैध: जारी-तिथि से 365 दिन": "📅 Valid: 365 days from issue date"
 };
 function DE(hi){ return Object.prototype.hasOwnProperty.call(DOC_EN,hi) ? DOC_EN[hi] : hi; }   /* हमेशा English */
-function DT(hi){ return docEn() ? DE(hi) : hi; }                                                /* पैनल की भाषा में */
+/* पैनल की भाषा में। (v6.18.1) हिंदी और English के अलावा किसी भाषा में: पैनल के पैक से उसी भाषा का वाक्य (काग़ज़ों के ये पक्के वाक्य हर पैक में हैं);
+   पैक में न मिले (देवनागरी बचे), तो English */
+function DT(hi){
+  if(!docEn()) return hi;
+  try{ const P=window.ACS_PANEL_I18N; if(P.lang()!=="en"){ const t=P.tr(hi); if(t && t!==hi && !/[\u0900-\u097F]/.test(t)) return t; } }catch(e){}
+  return DE(hi);
+}
+/* (v6.18.1) पहले से लिखे संदेश (WhatsApp) की कड़ी, पैनल की अपनी भाषा में: English संदेश की शुरुआत का पक्का वाक्य (DOC_EN का मान) उसी भाषा के वाक्य से
+   बदला जाता है; बाक़ी हिस्सा (नाम, संख्या, link) वैसा ही। नतीजा data-href-<भाषा> में; भाषा-इंजन उसे पहले चुनता है, न हो तो English (data-href-en)। */
+function ownMsgHref(en){
+  try{ const P=window.ACS_PANEL_I18N; if(!(P && P.active)) return ""; const L=P.lang(); if(L==="hi"||L==="en") return "";
+    const m=/^(https:\/\/wa\.me\/[^?]*\?text=)(.*)$/.exec(String(en||"")); if(!m) return "";
+    const txt=decodeURIComponent(m[2]); let best="";
+    for(const k in DOC_EN) if(txt.indexOf(DOC_EN[k])===0 && DOC_EN[k].length>best.length) best=k;
+    if(!best) return ""; const t=P.tr(best); if(!t || t===best || /[\u0900-\u097F]/.test(t)) return "";
+    return m[1]+encodeURIComponent(t+txt.slice(DOC_EN[best].length));
+  }catch(e){ return ""; }
+}
+function ownMsgSync(){
+  try{ const P=window.ACS_PANEL_I18N; if(!P) return; const L=P.active?P.lang():"hi";
+    const others=(P.langs||[]).map(function(x){ return x[0]; }).filter(function(c){ return c!=="hi" && c!=="en" && c!==L; });
+    document.querySelectorAll('a[data-href-en*="wa.me"]').forEach(function(a){
+      others.forEach(function(c){ if(a.hasAttribute("data-href-"+c)) a.removeAttribute("data-href-"+c); });   /* भाषा बदली: पिछली भाषा का संदेश हटे (हिंदी पर लौटने पर पन्ना पहले जैसा) */
+      if(L==="hi"||L==="en") return;
+      const h=ownMsgHref(a.getAttribute("data-href-en")); if(h && a.getAttribute("data-href-"+L)!==h) a.setAttribute("data-href-"+L,h); });
+  }catch(e){}
+}
+document.addEventListener("acs-panel-lang", ownMsgSync);
 /* नाम के कोष्ठक का English: "धान/चावल (Rice)" → "Rice" (उद्यम और कोर्स के नाम data में ऐसे ही लिखे हैं) */
 function parenEn(t){
   const m=/[(\[]([^()\[\]]*[A-Za-z][^()\[\]]*)[)\]]/.exec(String(t||"")); if(!m) return "";
@@ -250,7 +281,8 @@ function courseEn(id, nm){
   return /[\u0900-\u097F]/.test(en) ? "" : en;
 }
 /* कड़ी जिसका पता भाषा से बदलता है: हिंदी href + data-href-en (भाषा-इंजन English में यही पता लगा देता है) */
-function HREF2(hi, en){ return 'href="'+esc(hi)+'"'+((en && en!==hi)?' data-href-en="'+esc(en)+'"':''); }
+function HREF2(hi, en){ let own=""; try{ const o=ownMsgHref(en); if(o) own=' data-href-'+window.ACS_PANEL_I18N.lang()+'="'+esc(o)+'"'; }catch(e){}
+  return 'href="'+esc(hi)+'"'+((en && en!==hi)?' data-href-en="'+esc(en)+'"':'')+own; }
 /* (v6.15.0, पैनल-4ख) सहेजा हुआ data जो पन्ने पर दिखता है।
    CN = कोर्स का सहेजा नाम (नामांकन/घोषणा में हिंदी में सहेजा जाता है): English में कोर्स-सूची का name_en। कोर्स-सूची अभी न आई हो,
    तो English पैनल में वह मँगाई जाती है और नाम अपने-आप ठीक हो जाते हैं (cnSync)। CNA = वही, <option> के attribute के रूप में। */
@@ -3296,7 +3328,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       var wa=$("instShareWa");
       if(wa){ wa.href="https://wa.me/?text="+encodeURIComponent("मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: "+((EXT_REG&&EXT_REG.regNo)||"")+" — acslearn.com");
         /* (v6.14.0) पहले हिंदी पता, फिर English पता: भाषा-इंजन इसी क्रम से सही मूल याद रखता है */
-        wa.setAttribute("data-href-en","https://wa.me/?text="+encodeURIComponent(DE("मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: ")+((EXT_REG&&EXT_REG.regNo)||"")+" (acslearn.com)")); }
+        wa.setAttribute("data-href-en","https://wa.me/?text="+encodeURIComponent(DE("मेरे केंद्र से जुड़ने के लिए ACS पर यह ID खोजें: ")+((EXT_REG&&EXT_REG.regNo)||"")+" (acslearn.com)")); ownMsgSync(); }
     }
   }
   function drawOfferings(){

@@ -1,8 +1,12 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.6 · 15-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख, कन्नड़ क-1)
+   panel_i18n.js v1.7 · 16-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख, कन्नड़ क-1)
    • (v1.6) तीसरी भाषा: कन्नड़ (kn)। (1) data का नाम (कोर्स, भाषा, उद्यम): पहले उसी भाषा का (data-tr-<भाषा>); वह न हो तो English
      (data-tr-en), ताकि English के अलावा किसी भाषा में भी देवनागरी न बचे। (2) पैक में "draft" हो (AI-मसौदा, जाँच बाक़ी), तो वह सूचना
      भाषा-पट्टी के ठीक नीचे उसी भाषा में दिखती है। हिंदी और English का व्यवहार वही।
+   • (v1.7, क-1 v1.1) Founder का फ़ैसला (16-Nov-2026): जो चीज़ उस भाषा में अभी नहीं बनी, वह English में दिखे (हिंदी में नहीं)।
+     कड़ी: data-href-<भाषा> न हो तो data-href-en (नियम-पत्र, WhatsApp का संदेश); मेनू की कड़ियाँ हर ग़ैर-हिंदी भाषा में English पन्नों पर।
+     Founder का आदेश (16-Nov-2026, दूसरा): जिस पन्ने का उस भाषा में अपना रूप मौजूद है (जैसे कन्नड़ करियर टेस्ट, कन्नड़ होम), कड़ी उसी पर जाए:
+     पैक का "P" खाना (English पता → अपनी भाषा का पता); own(h) बाहर भी मिलता है। हिंदी और English का व्यवहार वही।
    • (v1.5) data-i18n-user="<उपयोगकर्ता का लिखा>": जहाँ span नहीं बन सकता (जैसे <option> में "नाम — पद"), वहाँ पाठ का वह
      हिस्सा जैसा है वैसा रहता है और बाक़ी बदलता है (नाम "संगीत माली" कभी "Music Mali" न बने)।
    • (v1.4) data-href-<भाषा> अब बाद में बनी कड़ियों पर भी (पहले सिर्फ़ भाषा चुनते समय की कड़ियों पर): dashboard की
@@ -38,7 +42,7 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.6";
+var VER="1.7";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
    (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
@@ -59,7 +63,9 @@ function pick(){
   return "hi";
 }
 
-var CUR="hi", D=null, KEYS=[], GEO={}, ACTIVE=false, mo=null, pend=[], raf=false, DRAFT="";
+var CUR="hi", D=null, KEYS=[], GEO={}, ACTIVE=false, mo=null, pend=[], raf=false, DRAFT="", OWN={};
+/* (v1.7) English पते को इस भाषा के अपने पन्ने पर मोड़ना (पैक का "P": "/en/x" → "/<भाषा>/x"); अपना पन्ना न हो, तो English पता वैसा ही */
+function ownHref(h){ if(!h) return h; var m=/^([^?#]*)(.*)$/.exec(String(h)); return (m&&Object.prototype.hasOwnProperty.call(OWN,m[1]))?OWN[m[1]]+m[2]:h; }
 var MEMO={};   /* (v1.2) एक ही पाठ बार-बार आए तो दोबारा न खोजें (कमज़ोर फ़ोन) */
 var ORIG=(typeof WeakMap==="function")?new WeakMap():null;   /* textNode → {o:मूल, t:अनुवाद} */
 var AORIG=(typeof WeakMap==="function")?new WeakMap():null;  /* element → {attr:{o,t}} */
@@ -222,23 +228,27 @@ function src(el){
 }
 /* English में menu की कड़ियाँ English पन्नों पर (links.js का href_en) */
 var NAVO=(typeof WeakMap==="function")?new WeakMap():null;
+var HSET=(typeof WeakMap==="function")?new WeakMap():null;   /* (v1.7) कड़ी → वह पता जो इंजन ने पिछली बार लगाया */
 function swapNav(on){
   var L=window.ACS_LINKS, as, i, j, a, h, m;
   if(!document.querySelectorAll) return;
   /* (v1.1) किसी भी पन्ने की कड़ी: data-href-<भाषा> (links.js न हो तब भी, जैसे रजिस्ट्रेशन गाइड) */
-  as=document.querySelectorAll("a[data-href-"+(on?CUR:"x-none")+"],a[data-i18n-href]");
+  /* (v1.7) उस भाषा का पता न हो, तो English पता (data-href-en): जिस भाषा का पन्ना या काग़ज़ अभी नहीं बना, वहाँ English (Founder का फ़ैसला 16-Nov-2026) */
+  as=document.querySelectorAll("a[data-href-"+(on?CUR:"x-none")+"],a[data-href-"+(on?"en":"x-none")+"],a[data-i18n-href]");
   for(i=0;i<as.length;i++){ a=as[i];
-    if(on){ h=a.getAttribute("data-href-"+CUR); if(!h) continue; m=a.getAttribute("href")||"";
-      /* (v1.4) मूल पता याद रखना: पहली बार, या जब कोड ने href दोबारा (हिंदी में) लिख दिया हो */
-      if(!a.hasAttribute("data-i18n-href")||m!==h) a.setAttribute("data-i18n-href",m);
-      if(m!==h) a.setAttribute("href",h); }
+    if(on){ h=a.getAttribute("data-href-"+CUR)||ownHref(a.getAttribute("data-href-en")); if(!h) continue; m=a.getAttribute("href")||"";
+      /* (v1.4) मूल पता याद रखना: पहली बार, या जब कोड ने href दोबारा (हिंदी में) लिख दिया हो।
+         (v1.7) जो पता इंजन ने ख़ुद लगाया था (HSET), वह "कोड का नया हिंदी पता" नहीं है: तब मूल वही रहता है
+         (जैसे English पता लगने के बाद उसी भाषा का अपना पता, data-href-<भाषा>, देर से जुड़े) */
+      if(!a.hasAttribute("data-i18n-href")||(m!==h&&!(HSET&&HSET.get(a)===m))) a.setAttribute("data-i18n-href",m);
+      if(m!==h){ a.setAttribute("href",h); if(HSET) HSET.set(a,h); } }
     else if(a.hasAttribute("data-i18n-href")){ a.setAttribute("href",a.getAttribute("data-i18n-href")); a.removeAttribute("data-i18n-href"); } }
   if(!L||!L.menu) return;
   as=document.querySelectorAll(NAV_SEL);
   for(i=0;i<as.length;i++){ a=as[i];
-    if(on){ if(CUR!=="en") continue; h=a.getAttribute("href");
+    if(on){ h=a.getAttribute("href");   /* (v1.7) मेनू की कड़ियाँ हर ग़ैर-हिंदी भाषा में English पन्नों पर (उस भाषा के पन्ने बनने तक) */
       for(j=0;j<L.menu.length;j++){ m=L.menu[j];
-        if(m.href_en&&m.href_en!==m.href&&h===m.href){ if(NAVO&&!NAVO.has(a)) NAVO.set(a,h); a.setAttribute("href",m.href_en); break; } } }
+        if(m.href_en&&m.href_en!==m.href&&h===m.href){ if(NAVO&&!NAVO.has(a)) NAVO.set(a,h); a.setAttribute("href",ownHref(m.href_en)); break; } } }
     else if(NAVO&&NAVO.has(a)){ a.setAttribute("href",NAVO.get(a)); NAVO["delete"](a); } }
 }
 /* (v1.1) सूची का क्रम: दूसरी भाषा में उसी भाषा के अक्षर-क्रम से, हिंदी में मूल क्रम।
@@ -336,12 +346,12 @@ function load(c, cb){
   (document.head||document.documentElement).appendChild(s);
 }
 function useLang(c, cb){
-  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[]; DRAFT="";
+  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[]; DRAFT=""; OWN={};
     try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); emit(); if(cb) cb(true); return; }
   load(c, function(pk){
     if(!pk){ unwait(); bar(); if(cb) cb(false); return; }
     if(ACTIVE&&CUR!==c){ ACTIVE=false; restore(); }
-    CUR=c; D=pk.D; DRAFT=pk.draft||""; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
+    CUR=c; D=pk.D; DRAFT=pk.draft||""; OWN=pk.P||{}; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
     GEO={}; var g=pk.G||[], gi; for(gi=0;gi<g.length;gi++) GEO[g[gi]]=1;
     function go(){ activate(); unwait(); emit(); if(cb) cb(true); }
     if(document.body&&document.readyState!=="loading") go(); else document.addEventListener("DOMContentLoaded",go);
@@ -366,5 +376,5 @@ function boot(){ bar(); if(START!=="hi") useLang(START); }
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
 
 window.ACS_PANEL_I18N={ version:VER, lang:function(){ return CUR; }, langs:LANGS, has:known, set:set, tr:function(t){ return tr(String(t)); },
-  walk:walk, src:src, get active(){ return ACTIVE; } };
+  walk:walk, src:src, own:function(h){ return ACTIVE?ownHref(String(h)):String(h); }, get active(){ return ACTIVE; } };
 })();

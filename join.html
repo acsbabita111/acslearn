@@ -791,7 +791,7 @@
 
   function firebaseReady(){ return typeof firebase!=='undefined' && firebase.apps && firebase.apps.length>0 && firebase.functions; }
   /* (15-Nov-2026, पैनल-6) OTP का email उसी भाषा में, जिसमें पैनल है: server को भाषा बताई जाती है ('en' या 'hi') */
-  function otpMailLang(){ var I = window.ACS_PANEL_I18N; return (I && I.active && I.lang && I.lang() === 'en') ? 'en' : 'hi'; }
+  function otpMailLang(){ var I = window.ACS_PANEL_I18N; return (I && I.active && I.lang && I.lang() !== 'hi') ? 'en' : 'hi'; }   /* (16-Nov-2026, Founder का फ़ैसला) जिस भाषा का email अभी नहीं बना, उसमें English; server सिर्फ़ hi और en जानता है */
   function callOtpFn(fnName, payload){
     if(!firebaseReady()) return Promise.reject(new Error('Firebase तैयार नहीं है (SDK लोड नहीं हुआ या init विफल)।'));
     /* OTP की माँग में सिर्फ़ email और भाषा जाती है: पासवर्ड, नाम, मोबाइल, जन्मतिथि यहाँ नहीं भेजे जाते (server को यहाँ उनकी ज़रूरत नहीं) */
@@ -1284,9 +1284,15 @@
     var langP = (ULANG !== 'hi')
       ? fetch(ULANG + '/' + file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ return r.ok ? r.text() : ''; }).catch(function(){ return ''; })
       : Promise.resolve('');
-    Promise.all([hiP, langP]).then(function(t){
-      var hiHtml = t[0], lgHtml = t[1], hv = rulesVerNum(hiHtml), html = hiHtml;
-      if(lgHtml && hv && rulesVerNum(lgHtml) === hv && (!isLearnerRomanOnly() || hv === expectedRulesVer())){ html = lgHtml; rulesLang = ULANG; }
+    /* (16-Nov-2026, Founder का फ़ैसला) जिस भाषा का नियम-पत्र अभी नहीं बना, उसमें English नियम-पत्र (हिंदी नहीं); English भी न मिले या बासी हो, तब हिंदी मूल */
+    var enP = (ULANG !== 'hi' && ULANG !== 'en')
+      ? fetch('en/' + file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ return r.ok ? r.text() : ''; }).catch(function(){ return ''; })
+      : Promise.resolve('');
+    Promise.all([hiP, langP, enP]).then(function(t){
+      var hiHtml = t[0], lgHtml = t[1], enHtml = t[2], hv = rulesVerNum(hiHtml), html = hiHtml;
+      var verOk = function(h){ return !!(h && hv && rulesVerNum(h) === hv && (!isLearnerRomanOnly() || hv === expectedRulesVer())); };
+      if(verOk(lgHtml)){ html = lgHtml; rulesLang = ULANG; }
+      else if(verOk(enHtml)){ html = enHtml; rulesLang = 'en'; }
       rulesShownLang = rulesLang; rulesShownVer = hv;
       var parser = new DOMParser();
       var doc = parser.parseFromString(html, 'text/html');
@@ -1299,6 +1305,23 @@
         hiNote.style.cssText='background:#FFF8E1;border:1.5px solid #F9A825;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:16px;color:#5a4300';
         hiNote.textContent = 'ℹ️ इस भूमिका के नियम अभी सिर्फ़ हिंदी में हैं। हिंदी ही क़ानूनी मूल है।';
         rulesContainer.appendChild(hiNote);
+      } else if(ULANG !== 'hi' && ULANG !== 'en' && rulesLang === 'en'){
+        var enNote = document.createElement('div');
+        enNote.style.cssText='background:#FFF8E1;border:1.5px solid #F9A825;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:16px;color:#5a4300';
+        enNote.textContent = 'ℹ️ इस भूमिका के नियम अभी English में दिखाए जा रहे हैं।';
+        rulesContainer.appendChild(enNote);
+      }
+      /* (16-Nov-2026, Founder का आदेश) हर ग़ैर-हिंदी भाषा में साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी नियम-पत्र की कड़ी हो (खोलें / डाउनलोड) */
+      if(ULANG !== 'hi' && rulesLang !== 'hi'){
+        var lg = document.createElement('div');
+        lg.id = 'rulesLegalNote';
+        lg.style.cssText='background:#EEF4FB;border:1.5px solid #1565C0;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:16px;color:#0B1F3A;line-height:1.7';
+        var lgT = document.createElement('b'); lgT.textContent = 'क़ानूनी रूप से हिंदी नियम-पत्र ही मान्य है।';
+        var lgA = document.createElement('a'); lgA.href = file; lgA.target = '_blank'; lgA.rel = 'noopener'; lgA.style.cssText='color:#1565C0;font-weight:700'; lgA.textContent = 'हिंदी नियम-पत्र खोलें ↗';
+        var lgD = document.createElement('a'); lgD.href = file; lgD.setAttribute('download', file); lgD.style.cssText='color:#1565C0;font-weight:700'; lgD.textContent = 'डाउनलोड करें';
+        lg.appendChild(document.createTextNode('⚖️ ')); lg.appendChild(lgT); lg.appendChild(document.createElement('br'));
+        lg.appendChild(lgA); lg.appendChild(document.createTextNode(' · ⬇️ ')); lg.appendChild(lgD);
+        rulesContainer.appendChild(lg);
       }
       if(idbox){
         var note = document.createElement('div');

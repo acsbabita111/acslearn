@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.5 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.6 · 16-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   v1.6 (कन्नड़ क-1 v1.2): (1) पैक का "P" खाना: इस भाषा के अपने पन्ने (en/ का जो पन्ना <भाषा>/ में भी है); इंजन कड़ियाँ वहीं मोड़ता है।
+     (2) पहुँच-जाँच में assets/rules-gate.js की GATE_HI तालिका (नियम-परदे के वाक्य: परदा अब पैनल की भाषा में)।
    v1.5 (कन्नड़, खेप क-1): मशीन अब हर पैनल-भाषा के लिए। भाषाओं का घर generator/lib_panel_langs.js (Founder का क्रम; लिपि lib_apt_langs.js से)।
      English के अलावा हर भाषा में: (1) <भाषा>.json का नया खंड "data": data-फ़ाइलों (roles.js, designation_matrix.js, countries.js, links.js)
      के हर हिंदी→English जोड़े का अनुवाद ज़रूरी (English में ये जोड़े data से अपने-आप आते हैं); (2) हर अनुवाद हिंदी मूल से मिलाया जाता है
@@ -237,6 +239,11 @@ if(SCOPE.some(a=>/^dash-/.test(a))) for(const f of DASH_JS) literals(fs.readFile
    सिर्फ़ भाषा-सूची की तालिकाएँ (var ACS_LANG_...) छोड़कर: वहाँ भाषाओं के अपने नाम हैं, जो जान-बूझकर वैसे ही रहते हैं। */
 if(SCOPE.indexOf("login")>-1){ const u=fs.readFileSync(path.join(ROOT,"assets/acs-universal.js"),"utf8").split("\n").filter(l=>!/^var ACS_LANG_/.test(l)).join("\n");
   literals(u).forEach(t=>want(t,"assets/acs-universal.js")); }
+/* (v1.6) नियम-परदा (login और dashboard पर): उसके वाक्य GATE_HI तालिका में हैं और पैनल की भाषा में दिखते हैं */
+if(SCOPE.indexOf("login")>-1){ const g=fs.readFileSync(path.join(ROOT,"assets/rules-gate.js"),"utf8"), gm=/var GATE_HI = \{[\s\S]*?\n\};/.exec(g);
+  if(!gm){ console.log("⛔ assets/rules-gate.js में GATE_HI तालिका नहीं मिली (पहुँच-जाँच)"); process.exit(1); }
+  const gl=literals(gm[0]); if(gl.length<12){ console.log("⛔ GATE_HI से सिर्फ़ "+gl.length+" वाक्य पढ़े गए (पहुँच-जाँच)"); process.exit(1); }
+  gl.forEach(t=>want(t,"assets/rules-gate.js (GATE_HI)")); }
 /* रजिस्ट्रेशन गाइड की पद-तालिका matrix की योग्यता-पंक्तियाँ दिखाती है */
 if(SCOPE.indexOf("guide")>-1) for(const t of (MX.teams||[])) if(t.registrable&&t.qualification) want(t.qualification,"assets/designation_matrix.js (qualification)");
 /* रजिस्ट्रेशन में हर भूमिका की नियम-फ़ाइल का "आपकी जानकारी" डिब्बा (idbox) भी दिखता है : वह फ़ॉर्म का हिस्सा है,
@@ -309,6 +316,18 @@ const complete=(ALL_AREAS[LANG]||ALL_AREAS.en).every(a=>SCOPE.indexOf(a)>-1);
 /* (v1.5) पैक का ढाँचा: English में वही जो पहले था (अक्षर-भर नहीं बदला); दूसरी भाषा में draft_note हो तो "draft" भी */
 const PACKOBJ={v:VER,lang:LANG,name:MAN.name||LANG,scope:SCOPE,complete:complete};
 if(!EN_MODE&&typeof MAN.draft_note==="string"&&MAN.draft_note.trim()){ for(const x of PL.parity(LANG,"मसौदा",MAN.draft_note,MAN.latin_ok||["AI"])) { console.log("⛔ draft_note: "+x); process.exit(1); } PACKOBJ.draft=MAN.draft_note.trim(); }
+/* (v1.6, Founder का आदेश 16-Nov-2026: "कन्नड़ पैनल से कन्नड़ पन्ने पर ही जाना चाहिए") इस भाषा के अपने पन्ने:
+   repo के en/ folder का जो पन्ना <भाषा>/ folder में भी मौजूद है, उसका जोड़ा पैक के "P" खाने में ("/en/x" → "/<भाषा>/x")।
+   इंजन कड़ी का English पता (data-href-en, मेनू का href_en) इसी से अपनी भाषा के पन्ने पर मोड़ता है; जो पन्ना उस भाषा में नहीं, वह English में।
+   पन्ना जुड़े या हटे, तो --check पैक को बासी कहता है। */
+if(!EN_MODE){ const P={};
+  (function walkEn(dir){ for(const e of fs.readdirSync(path.join(ROOT,dir),{withFileTypes:true})){
+    const rel=dir+"/"+e.name; if(e.isDirectory()){ walkEn(rel); continue; }
+    if(!/\.html$/.test(e.name)) continue;
+    const own=LANG+rel.slice(2); if(!fs.existsSync(path.join(ROOT,own))) continue;
+    const u=x=>"/"+x.replace(/(^|\/)index\.html$/,"$1");
+    P[u(rel)]=u(own); } })("en");
+  if(Object.keys(P).length){ const SP={}; Object.keys(P).sort().forEach(k=>SP[k]=P[k]); PACKOBJ.P=SP; } }
 const out="/* panel_"+LANG+".js · पैनल का "+(MAN.name||LANG)+" पैक v"+VER+" — generator/build_panel_i18n.js से बना, हाथ से न बदलें।\n"
   +"   हिंदी मूल है; यह सिर्फ़ दिखावट बदलता है। हिस्से: "+SCOPE.join(", ")+" · प्रविष्टियाँ "+keys.length+" */\n"
   +"window.ACS_PANEL_PACKS=window.ACS_PANEL_PACKS||{};\n"
