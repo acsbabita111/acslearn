@@ -1,6 +1,7 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.1 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.2 · 15-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
    v1.1 (पैनल-1ख): दायरे में रजिस्ट्रेशन गाइड (registration-guide.html) और matrix की पद-योग्यताएँ।
+   v1.2 (शब्द-सूची): English पैक पर generator/data/vocab_en.json के नियम (उद्यम = Enterprise)। पैक का ढाँचा-संस्करण (VER) वही 1.1।
    उपयोग (repo-root से):  node generator/build_panel_i18n.js en [--check]
    स्रोत (एक चीज़ = एक जगह):
      1. assets/roles.js, assets/designation_matrix.js, assets/geo/countries.js,
@@ -9,7 +10,7 @@
      2. generator/data/panel_i18n/<भाषा>.json : हाथ से लिखा शब्दकोश ("ui") और
         भारत के राज्य/जिले ("geo")। यही जीतता है अगर दोनों में एक ही कुंजी हो।
    बनता है: assets/i18n/panel_<भाषा>.js (हाथ से न बदलें)।
-   पहरा (fail-closed): (क) हर मान भरा हो, उसमें देवनागरी, "—" या U+FFFD न हो;
+   पहरा (fail-closed): (क) हर मान भरा हो, उसमें देवनागरी, "—" या U+FFFD न हो; English में शब्द-सूची (vocab_en.json) भी;
    (ख) पहुँच-जाँच: लॉगिन और रजिस्ट्रेशन टेम्पलेट, रजिस्ट्रेशन गाइड (+ पदों की योग्यता), acs-universal.js (भाषा-नाम तालिकाएँ छोड़कर),
    हर नियम-फ़ाइल का "आपकी जानकारी" डिब्बा (idbox),
    roles.js (भूगोल की पुरानी सूची छोड़कर) और matrix के नाम का हर हिंदी टुकड़ा इंजन (assets/panel_i18n.js) से
@@ -90,6 +91,14 @@ for(const [h,e] of Object.entries(D)){
          if(e.indexOf("—")>-1) bad.push("मान में — (em dash): "+h+" → "+e);
          if(e.indexOf("�")>-1||h.indexOf("�")>-1) bad.push("U+FFFD: "+h); }
 }
+/* (v1.2, 15-Nov) English शब्द-सूची (Founder की हाँ, 15-Nov-2026): नियम का घर generator/data/vocab_en.json।
+   V1: हिंदी में "उद्यम" हो, तो English में "industry" उतनी ही बार जितनी बार हिंदी में "उद्योग"।
+   V2/V3: English में "950 industries/sectors" या "🌍 Industries" नहीं। (पूरी साइट: dev_vocab_en_check.js) */
+if(LANG==="en"){ const VOC=JSON.parse(fs.readFileSync(path.join(ROOT,"generator/data/vocab_en.json"),"utf8"));
+  const r1=VOC.pair_rules.find(r=>r.id==="V1"), hi1=new RegExp(r1.hi_re), en1=new RegExp(r1.en_count_re,"gi"), al1=new RegExp(r1.hi_allow_re,"g");
+  for(const [h,e] of Object.entries(D)){ if(typeof e!=="string") continue;
+    if(hi1.test(h)&&(e.match(en1)||[]).length>(h.match(al1)||[]).length) bad.push("शब्द-सूची V1 ('उद्यम' = Enterprise, industry नहीं): "+h+" → "+e);
+    for(const r of VOC.never_en) if(new RegExp(r.re,"i").test(e)) bad.push("शब्द-सूची "+r.id+": "+h+" → "+e); } }
 
 /* ---------- 4. पहरा (ख): पहुँच-जाँच ---------- */
 function segsMarkup(s){ const out=[]; for(let t of s.split(/<[^>]*>/)){ t=norm(t); if(t&&DEV.test(t)) out.push(t); } return out; }

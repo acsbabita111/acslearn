@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="ACS Industries — 950+ enterprises, Self-Employment, Government Jobs, Private Jobs, Local Jobs."/>
+<meta name="description" content="ACS Enterprises: 950+ enterprise opportunities, self-employment, government jobs, private jobs and local jobs."/>
 <meta name="robots" content="index, follow"/>
 <meta name="theme-color" content="#0B1F3A"/>
 <script type="application/ld+json">
@@ -31,7 +31,7 @@
 }
 </script>
 <link rel="canonical" href="https://acslearn.com/en/industries/"/>
-<title>Industries — Applied Computer School</title>
+<title>Enterprises: 950+ Enterprise Opportunities | Applied Computer School</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -207,11 +207,11 @@ img{max-width:100%;display:block}
 <div class="hero">
  <div class="hero-inner">
   <img src="/logo.png" alt="ACS" class="hero-logo"/>
-  <div class="hero-tag">🌍 Industries Hub</div>
+  <div class="hero-tag">🌍 Enterprises Hub</div>
   <h1 class="hero-title" style="margin:0 0 10px">Choose your path,<br/><em>success starts right here.</em></h1>
   <div class="hero-sub">From self-employment to government jobs — every path is here.</div>
   <div class="hero-stats">
-   <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">Sectors</div></div>
+   <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">Enterprises</div></div>
    <div class="hs"><span class="hs-num">1.50 Lakh</span><div class="hs-lbl">Business Ideas</div></div>
    <div class="hs"><span class="hs-num">15</span><div class="hs-lbl">Investment Levels</div></div>
    <div class="hs"><span class="hs-num">₹0</span><div class="hs-lbl">onwards</div></div>
@@ -237,11 +237,11 @@ img{max-width:100%;display:block}
   <div class="sec-sub">Start from Rs.0 → go up to Rs.200 Crore. Choose from 950+ enterprises below.</div>
   <div class="search-wrap">
    <input type="text" class="search-input" id="searchInput"
-    placeholder="🔍 Search sector... e.g. Dairy, Mobile Repair, Bamboo, Tailoring..."
+    placeholder="🔍 Search enterprises... e.g. Dairy, Mobile Repair, Bamboo, Tailoring..."
     oninput="filterSectors()"/>
   </div>
   <div class="filter-row" id="mgFilter"></div>
-  <div class="sector-count" id="sectorCount">All 950 Sectors</div>
+  <div class="sector-count" id="sectorCount">All 950 Enterprises</div>
   <div class="sector-grid" id="sectorGrid"></div>
  </div>
 
@@ -625,15 +625,15 @@ function renderSectors(){
   return ms&&mm;
  });
  document.getElementById('sectorCount').textContent=
-  filtered.length===950?'All 950 Sectors':`${filtered.length} sectors found`;
+  filtered.length===950?'All 950 Enterprises':`${filtered.length} enterprises found`;
  document.getElementById('sectorGrid').innerHTML=filtered.map(s=>`
   <div class="sector-card" onclick="openSector(${s.n},'${s.name.replace(/'/g,"\\'")}')">
-   <div class="s-num">Sectors ${String(s.n).padStart(3,'0')}</div>
+   <div class="s-num">Enterprise ${String(s.n).padStart(3,'0')}</div>
    <div class="s-name">${s.name.replace(/\[/g,'(').replace(/\]/g,')')}</div>
    <div class="s-invest">💰 ${s.invest}</div>
    <div class="s-link">Learn More →</div>
   </div>`).join('')||
-  '<div style="text-align:center;padding:40px;color:var(--gray);grid-column:1/-1">ई Sectors नहीं मिला।</div>';
+  '<div style="text-align:center;padding:40px;color:var(--gray);grid-column:1/-1">No enterprise found.</div>';
 }
 
 window.openSector=function(n,name){

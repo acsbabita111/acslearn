@@ -111,7 +111,7 @@
     <h1 class="hero-title" style="margin:0 0 10px">अपना रास्ता चुनें,<br/><em>सफलता यहीं से शुरू होती है।</em></h1>
     <div class="hero-sub">स्वरोजगार से सरकारी नौकरी तक — हर रास्ता यहाँ मिलेगा।</div>
     <div class="hero-stats">
-      <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">सेक्टर</div></div>
+      <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">उद्यम</div></div>
       <div class="hs"><span class="hs-num">1.50 लाख</span><div class="hs-lbl">बिजनेस आइडिया</div></div>
       <div class="hs"><span class="hs-num">15</span><div class="hs-lbl">निवेश स्तर</div></div>
       <div class="hs"><span class="hs-num">₹0</span><div class="hs-lbl">से शुरुआत</div></div>
@@ -137,7 +137,7 @@
     <div class="sec-sub">₹0 से शुरू → ₹200 करोड़ तक। नीचे 950+ उद्यमों में से अपना चुनें।</div>
     <div class="search-wrap">
       <input type="text" class="search-input" id="searchInput"
-        placeholder="🔍 सेक्टर खोजें... जैसे: डेयरी, मोबाइल, बाँस, सिलाई..."
+        placeholder="🔍 उद्यम खोजें... जैसे: डेयरी, मोबाइल, बाँस, सिलाई..."
         oninput="filterSectors()"/>
     </div>
     <div class="filter-row" id="mgFilter"></div>
@@ -607,14 +607,14 @@ function renderSectors(){
   const BATCH=50; const shown=Math.min(filtered.length, UDY_BATCH*BATCH);
   document.getElementById('sectorGrid').innerHTML=filtered.slice(0,shown).map(s=>`
     <div class="sector-card" onclick="openSector(${s.n},'${s.name.replace(/'/g,"\\'")}')">
-      <div class="s-num">सेक्टर ${String(s.n).padStart(3,'0')}</div>
+      <div class="s-num">उद्यम ${String(s.n).padStart(3,'0')}</div>
       <div class="s-name">${s.name.replace(/\[/g,'(').replace(/\]/g,')')}</div>
       <div class="s-invest">💰 ${s.invest}</div>
       ${s.intro?`<a href="${s.intro}" onclick="event.stopPropagation()" style="display:block;color:var(--blue);font-weight:700;font-size:16px;margin-top:6px;text-decoration:none">📖 पूरी जानकारी पढ़ें →</a>`:''}
       ${s.course?`<a href="${s.course}" onclick="event.stopPropagation()" style="display:block;color:var(--green);font-weight:700;font-size:16px;margin-top:6px;text-decoration:none">📚 मुफ़्त कोर्स पढ़ें →</a>`:''}
       <div class="s-link">विस्तृत जानकारी →</div>
     </div>`).join('')+(shown<filtered.length?`<div style="grid-column:1/-1;text-align:center;padding:8px 0"><button type="button" onclick="UDY_BATCH++;renderSectors()" style="font-family:inherit;font-size:18px;font-weight:800;padding:12px 22px;border-radius:12px;border:2px solid var(--blue);background:#fff;color:var(--blue);cursor:pointer">और देखें ➜ (${shown} / ${filtered.length})</button></div>`:'')||
-    '<div style="text-align:center;padding:40px;color:var(--gray);grid-column:1/-1">कोई सेक्टर नहीं मिला।</div>';
+    '<div style="text-align:center;padding:40px;color:var(--gray);grid-column:1/-1">कोई उद्यम नहीं मिला।</div>';
 }
 
 window.openSector=function(n,name){

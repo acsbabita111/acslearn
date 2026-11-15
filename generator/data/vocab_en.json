@@ -1,0 +1,63 @@
+{
+ "_": "vocab_en.json v1.0 (15-Nov-2026): पूरी साइट की English शब्द-सूची का एकमात्र घर (परत-3). Founder की हाँ: 15-Nov-2026 (ChatGPT का सुझाव, पैनल-1ख ऑडिट). आधार-नियम: Addendum v7.9 का '950 उद्यम' नियम. पहरेदार: generator/dev_vocab_en_check.js और build_panel_i18n.js (English पैक बनाते समय).",
+ "canonical": [
+  {
+   "hi": "उद्यम",
+   "en": "Enterprise",
+   "note": "950 की सूची: 'enterprise opportunities' या 'enterprises'. कभी 'industries' या 'sectors' नहीं (24 सेक्टर अलग चीज़ है). अपवाद: सरकारी पंजीकरण का नाम 'Udyam'."
+  },
+  {
+   "hi": "उद्यमी",
+   "en": "Entrepreneur"
+  },
+  {
+   "hi": "उद्योग",
+   "en": "Industry",
+   "note": "संदर्भ से 'industry' या 'manufacturing unit'. 'Industrial Tour' Constitution का नाम है, वैसा ही रहेगा."
+  },
+  {
+   "hi": "धंधा",
+   "en": "Business"
+  }
+ ],
+ "menu": {
+  "udyam": "Enterprises"
+ },
+ "pair_rules": [
+  {
+   "id": "V1",
+   "hi_re": "उद्यम(?!ी|िता)",
+   "en_count_re": "industr",
+   "hi_allow_re": "उद्योग|औद्योगिक|industr|Industr",
+   "why": "हिंदी में 'उद्यम' हो, तो English में 'industry' उतनी ही बार आ सकता है जितनी बार हिंदी में 'उद्योग' (या 'औद्योगिक', 'Industrial') है."
+  }
+ ],
+ "never_en": [
+  {
+   "id": "V2",
+   "re": "950\\+?\\s*(?:available\\s+)?(?:industr|sector)",
+   "why": "'950 उद्यम' का English कभी 'industries' या 'sectors' नहीं (Addendum v7.9)."
+  },
+  {
+   "id": "V3",
+   "re": "🌍\\s*Industries",
+   "why": "menu का 'उद्यम' English में 'Enterprises' है."
+  }
+ ],
+ "never_hi": [
+  {
+   "id": "V4",
+   "re": "950\\+?\\s*सेक्टर",
+   "why": "'950 उद्यम' को 'सेक्टर' नहीं कहते; सेक्टर 24 हैं (Addendum v7.9)."
+  }
+ ],
+ "hub": {
+  "files": [
+   "udyam/index.html",
+   "en/industries/index.html"
+  ],
+  "id": "V5",
+  "never_re": "सेक्टर\\s*\\$\\{|Sectors?\\s*\\$\\{|कोई सेक्टर|Sectors?\\s*नहीं|[Ss]earch sector|सेक्टर खोजें|950 Sectors",
+  "why": "950 उद्यम वाले पन्ने पर हर कार्ड, खोज और गिनती 'उद्यम' / 'enterprise' कहे, 'सेक्टर' / 'sector' नहीं."
+ }
+}

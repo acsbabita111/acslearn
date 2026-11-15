@@ -16,7 +16,7 @@ const ACS_LINKS = {
     { key: "home",     icon: "🏠", label: "होम",         href: "/", label_en: "Home", href_en: "/en/" },
     { key: "mission",  icon: "🎯", label: "मिशन",        href: "/hi/mission.html", label_en: "Mission", href_en: "/en/mission.html" },
     { key: "salah",    icon: "🧭", label: "सलाह",         href: "/hi/salah.html", label_en: "Counseling", href_en: "/en/counseling.html" },
-    { key: "udyam",    icon: "🌍", label: "उद्यम",        href: "/udyam/", label_en: "Industries", href_en: "/en/industries/" },
+    { key: "udyam",    icon: "🌍", label: "उद्यम",        href: "/udyam/", label_en: "Enterprises", href_en: "/en/industries/" },
     { key: "courses",  icon: "📚", label: "कोर्स",        href: "/courses/hi/", label_en: "Courses", href_en: "/courses/hi/" },
     /* (Founder-आदेश 14-Jul-2026) रजिस्ट्रेशन अब पहले guide-पृष्ठ खोले — 12 भूमिकाएँ,
        दस्तावेज़-सूची, अधिकार-कर्तव्य, टीम-योग्यताएँ; वहीं से form का बटन। menu-नाम वही (10-लॉक)। */

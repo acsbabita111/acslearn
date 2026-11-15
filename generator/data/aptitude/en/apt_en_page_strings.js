@@ -61,7 +61,7 @@ module.exports = {
     ['<a class="acs-mitem" href="/hi/salah.html"><span class="e">🧭</span> सलाह</a>',
      '<a class="acs-mitem" href="/en/counseling.html"><span class="e">🧭</span> Counseling</a>', 1],
     ['<a class="acs-mitem" href="/udyam/"><span class="e">🌍</span> उद्यम</a>',
-     '<a class="acs-mitem" href="/en/industries/"><span class="e">🌍</span> Industries</a>', 1],
+     '<a class="acs-mitem" href="/en/industries/"><span class="e">🌍</span> Enterprises</a>', 1],
     ['<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> कोर्स</a>',
      '<a class="acs-mitem" href="/courses/hi/"><span class="e">📚</span> Courses</a>', 1],
     ['<a class="acs-mitem" href="/registration-guide.html"><span class="e">📝</span> रजिस्ट्रेशन</a>',

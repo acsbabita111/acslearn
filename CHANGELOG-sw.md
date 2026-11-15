@@ -1,6 +1,8 @@
 # CHANGELOG-sw.md — sw.js version-इतिहास
 (13-Sep ऑडिट H7 नियम: नया इतिहास यहाँ दर्ज हो; v705 तक की पुरानी पंक्तियाँ sw.js की शीर्ष-टिप्पणी में हैं — वहाँ से हटाई नहीं गईं।)
 
+v858 (15-Nov-2026): English शब्द-सूची (Founder की हाँ, 15-Nov-2026): उद्यम = Enterprise, उद्यमी = Entrepreneur, उद्योग = Industry, धंधा = Business। menu का "🌍 उद्यम" English में अब "🌍 Enterprises" (पहले "Industries"; पता /en/industries/ वही)। cache-first बदलाव: assets/links.js, assets/acs-translate.js, assets/roles.js (दस्तावेज़ की English पंक्ति में "Udyam" लौटा) और assets/i18n/panel_en.js। network-first पन्ने: en/industries/ और udyam/ (950 उद्यम को "सेक्टर/Sectors" नहीं), en/counseling.html, en/aptitude-test.html (generator से)। नियम का घर: generator/data/vocab_en.json; पहरेदार: generator/dev_vocab_en_check.js।
+
 v857 (15-Nov-2026): पैनल-1ख: English में देशों, राज्यों और जिलों की सूची English के A-Z क्रम में; रजिस्ट्रेशन गाइड (/registration-guide.html) English में। cache-first बदलाव: assets/panel_i18n.js v1.1 (सूची का क्रम चुनी भाषा के अक्षर-क्रम से, हिंदी में मूल क्रम; value नहीं बदलती; किसी भी पन्ने की कड़ी data-href-<भाषा> से बदल सकती है) और assets/i18n/panel_en.js (गाइड के वाक्य जुड़े)। हिंदी पन्ने वैसे ही।
 
 v856 (15-Nov-2026): पैनल-1: लॉगिन (/dashboard/) और रजिस्ट्रेशन (/join.html) English में। cache-first बदलाव: assets/acs-universal.js v2.7 (साइट के 🌐 से चुनी भाषा "acs_dash_lang" में भी; पैनल वाले पन्ने पर भाषा वहीं बदलती है; English पन्नों की Login-कड़ी /dashboard/?lang=en) और assets/rules-gate.js v1.1 (English में नियम-परदा सिर्फ़ English)। नई फ़ाइलें: assets/panel_i18n.js (भाषा-इंजन) और assets/i18n/panel_en.js (English पैक)।
