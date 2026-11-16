@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# generator/build_learner_consent_lang.py v2.2 (परत-4)
+# generator/build_learner_consent_lang.py v2.3 (परत-4)
+# v2.3 (16-Nov-2026, कन्नड़ क-2क): kn जुड़ी। जो भाषा 15 की सूची (L15) में नहीं, उसके पन्ने में वही 15 hreflang + उसका अपना (17 पंक्तियाँ); बाक़ी 13 पन्ने अक्षर-अक्षर वही।
 # v2.2 (14-Nov-2026, खेप 4 भाग 2): संस्करण 1.2; दो नए लंगर R6X (नियम 6 में फ़ीस के नए वाक्य) और R7X (नियम 7 में वापसी के नए वाक्य)।
 # v2.1 (13-Nov-2026): फीस वाली पंक्ति (F_S) का English लंगर नए नियम से मिलाया: Golden Pass में पूरा टेस्ट मुफ़्त, दिन में 2 बार तक।
 # en साँचे (en/rules-consent-learner.html) + data/consent_learner_strings.py से
@@ -23,6 +24,7 @@ FONT={'zh':("Noto+Sans+SC:wght@400;600;700;800","'Noto Sans SC',sans-serif"),
  'ur':("Noto+Nastaliq+Urdu:wght@400;600;700","'Noto Nastaliq Urdu',serif"),
  'bn':("Noto+Sans+Bengali:wght@400;600;700;800","'Noto Sans Bengali',sans-serif"),
  'te':("Noto+Sans+Telugu:wght@400;600;700;800","'Noto Sans Telugu',sans-serif"),
+ 'kn':("Noto+Sans+Kannada:wght@400;600;700;800","'Noto Sans Kannada',sans-serif"),
  'mr':("Noto+Sans+Devanagari:wght@400;600;700;800","'Noto Sans Devanagari',sans-serif")}
 RTL={'ar','ur'}
 # RTL-अलगाव नियम (ऑडिट-2, B1): data-* attributes व JS-strings में HTML <bdi> निषिद्ध —
@@ -111,14 +113,23 @@ def build(code,D,outdir):
     s=EN
     s=s.replace('<html lang="en">','<html lang="%s"%s>'%(code,' dir="rtl"' if code in RTL else ''))
     s=s.replace('https://acslearn.com/en/rules-consent-learner.html','https://acslearn.com/%s/rules-consent-learner.html'%code)
-    m=re.search(r'(<link rel="alternate"[\s\S]*?x-default[^>]*/>)',s); s=s.replace(m.group(1),HREF)
+    m=re.search(r'(<link rel="alternate"[\s\S]*?x-default[^>]*/>)',s)
+    own='' if code in L15 else '<link rel="alternate" hreflang="%s" href="https://acslearn.com/%s/rules-consent-learner.html"/>'%(code,code)
+    s=s.replace(m.group(1),HREF.replace('<link rel="alternate" hreflang="x-default"',own+'<link rel="alternate" hreflang="x-default"') if own else HREF)
     if code in FONT:
         s=s.replace("family=Inter:wght@400;600;700;800","family="+FONT[code][0]+"&family=Inter:wght@400;600;700")
         s=s.replace("font-family:'Inter',sans-serif;","font-family:%s;letter-spacing:0;"%FONT[code][1])
     if code=='ur': s=s.replace('line-height:1.8;','line-height:2.1;')
     if code in RTL: s=s.replace('body{font-family','body{direction:rtl;font-family')
     assert "'" not in D['ALERT'], code+" ALERT में ASCII-apostrophe (JS टूटेगी) — ’ उपयोग करें"
+    if code not in L15:
+        # v2.3: नई भाषा में घर की कड़ी उसी भाषा के घर पर, और हिंदी मूल की कड़ी का नाम उसी भाषा में (पन्ने पर देवनागरी नहीं)।
+        a='<a href="/" style="color:#1565C0;font-weight:700;text-decoration:none">'+K['EX_H']; assert s.count(a)==2, code+' घर की कड़ी'
+        s=s.replace(a,a.replace('href="/"','href="/%s/"'%code))
+        h='🇮🇳 हिंदी</a>'; assert s.count(h)==2 and D.get('X_HI'), code+' हिंदी कड़ी का नाम'
+        s=s.replace(h,'🇮🇳 '+D['X_HI']+'</a>')
     for kname,v in D.items():
+        if kname.startswith('X_'): continue
         k=K[kname]
         n=s.count(k); assert n>=1, code+" MISSING: "+kname+" :: "+k[:60]
         if code in RTL and kname not in JS_SKIP:
@@ -133,10 +144,13 @@ if __name__=='__main__':
         out=build(code,D,os.path.join(OUT,code))
         for probe in ('rules accepted','Final confirmation','Accept all at once','Guardian consent is mandatory','Send OTP','Your details','printable interest report'):
             assert probe not in out, code+' EN-LEAK: '+probe
-        assert out.count('hreflang=')==16, code+' hreflang'
+        assert out.count('hreflang=')==(16 if code in L15 else 17), code+' hreflang'
         assert out.count('Version: 1.0')==0 and re.search(r'1\.1(</bdi>)?</b>',out) is None and re.search(r'1\.2(</bdi>)?</b>',out), code+' version'
         if code in RTL:
             for mm in re.finditer(r'data-[sje]="([^"]*)"',out):
                 assert '<' not in mm.group(1), code+' attr में HTML: '+mm.group(1)[:50]
+        if code not in L15:
+            vis=re.sub(r'<!--[\s\S]*?-->|/\*[\s\S]*?\*/','',out)
+            assert not re.search(r'[\u0900-\u097F]',vis), code+' में देवनागरी बची'
         print(code,'OK',len(out))
-    print('BUILD 13/13 OK')
+    print('BUILD %d/%d OK'%(len(LANGS),len(LANGS)))

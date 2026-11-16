@@ -1,5 +1,6 @@
 /* ============================================================
-   build_sitemap.js v2.4 (परत-4) — sitemap-index + 4 खंड-sitemap
+   build_sitemap.js v2.5 (परत-4) — sitemap-index + 4 खंड-sitemap
+   v2.5 (16-Nov-2026, कन्नड़ क-2क): किसी भी भाषा-घर के भूमिका-नियम-पत्र (/<कोड>/rules-consent-<भूमिका>.html) जुड़ते हैं; अभी कन्नड़ के 26।
    v2.4 (15-Nov-2026, पैनल-5): 26 भूमिकाओं के English नियम-पत्र (/en/rules-consent-<भूमिका>.html) जुड़े।
    v1.1 — स्रोत: (1) assets/udyam_data.js की intro-कड़ियाँ (2) मुख्य सार्वजनिक
    पेज (3) courses/ के सिर्फ़ नई-प्रणाली पेज (पहचान: /assets/acs-universal.js)।
@@ -69,6 +70,8 @@ const main = [
   .concat(["en"].concat(MIRROR).filter(c => fs.existsSync(path.join(ROOT, c, "rules-consent-learner.html"))).map(c => "/" + c + "/rules-consent-learner.html"))
   /* v2.4: बाक़ी 26 भूमिकाओं के English नियम-पत्र (generator/build_rules_consent_en.js से बने), जो फ़ाइल मौजूद हो */
   .concat(fs.readdirSync(path.join(ROOT, "en")).filter(f => /^rules-consent-.*\.html$/.test(f) && f !== "rules-consent-learner.html").sort().map(f => "/en/" + f))
+  /* v2.5 (16-Nov-2026, कन्नड़ क-2क): बाक़ी भाषाओं के 26 भूमिका-नियम-पत्र (generator/build_rules_consent_en.js <कोड> से बने), जो फ़ाइल मौजूद हो */
+  .concat(MIRROR.reduce((a, c) => a.concat(fs.readdirSync(path.join(ROOT, c)).filter(f => /^rules-consent-.*\.html$/.test(f) && f !== "rules-consent-learner.html").sort().map(f => "/" + c + "/" + f)), []))
   /* v2.3: अभिरुचि-परीक्षा के भाषा-पन्ने (हिंदी और English ऊपर पहले से): LIVE-सूची का एकमात्र घर generator/lib_apt_langs.js */
   .concat(require("./lib_apt_langs.js").LIVE.filter(c => c !== "hi" && c !== "en" && fs.existsSync(path.join(ROOT, c, "aptitude-test.html"))).map(c => "/" + c + "/aptitude-test.html"));
 

@@ -2165,7 +2165,7 @@
 
     var payload = {
       consent_mode: (document.getElementById('bulkConsentChk')&&document.getElementById('bulkConsentChk').checked)?'bulk':'each',
-      consent_language: rulesShownLang,   /* (15-Nov-2026) जिस भाषा के नियम दिखे: English नियम-फ़ाइल = 'en', बाक़ी 'hi' (हिंदी ही क़ानूनी मूल) */
+      consent_language: rulesShownLang,   /* जिस भाषा का नियम-पत्र सचमुच दिखा, उसका कोड: 'hi', 'en', या उस भाषा का अपना (16-Nov-2026 से 'kn')। हिंदी ही क़ानूनी मूल है। server: 'hi' या ख़ाली = हिंदी एग्रीमेंट; बाक़ी = English एग्रीमेंट (जब तक उस भाषा का न बने) */
       consent_rules_version: (isLearnerRomanOnly() ? expectedRulesVer() : (rulesShownVer || expectedRulesVer())),   /* विद्यार्थी का नियम-पत्र 1.2 (खेप 4 भाग 2); बाक़ी भूमिकाओं के नियम-पत्र 1.1 */
       name_local: isLearnerRomanOnly() ? '' : nameLocal.value, name_roman: nameRoman.value,
       father_name: isLearnerRomanOnly() ? fatherNameRoman.value : '',

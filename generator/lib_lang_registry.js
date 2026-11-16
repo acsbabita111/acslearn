@@ -118,7 +118,9 @@ function validate(M, opts) {
     if (seen.has(c)) E.push(t + "दोहराव"); seen.add(c);
     const dir = path.join(ROOT, c);
     if (fs.existsSync(dir)) {
-      const extra = fs.readdirSync(dir).filter(f => !LANG_FILES.has(f) && !(f === "aptitude-test.html" && APT_LIVE.has(c)));
+      /* (16-Nov-2026, कन्नड़ क-2क) भाषा-घर में नियम-पत्र का अनुवाद भी रह सकता है: सिर्फ़ वही rules-consent-*.html, जिसका हिंदी मूल repo-रूट पर है */
+      const isRulesLetter = f => /^rules-consent-[a-z-]+\.html$/.test(f) && fs.existsSync(path.join(ROOT, f));
+      const extra = fs.readdirSync(dir).filter(f => !LANG_FILES.has(f) && !isRulesLetter(f) && !(f === "aptitude-test.html" && APT_LIVE.has(c)));
       if (extra.length) E.push(t + "फ़ोल्डर किसी और काम का है (" + extra.slice(0, 3).join(",") + ") — कोड टकराव");
     }
     if (!T || typeof T !== "object") { E.push(t + "प्रविष्टि object नहीं"); continue; }

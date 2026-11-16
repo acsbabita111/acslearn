@@ -111,8 +111,8 @@ var prevJs = noComments(rd("assets/aptitude-test.js"));
 ok(/idsOK\(ST\.ids\) \? ST\.ids/.test(prevJs) && !/i < D\.questions\.length && i < 24/.test(prevJs), "झलक के अंक चुने हुए 24 प्रश्नों (ST.ids) से जुड़ते हैं, \"पहले 24\" से नहीं");
 
 var consent = ["rules-consent-learner.html"].concat(fs.readdirSync(ROOT).filter(function (d) { return /^[a-z]{2,3}$/.test(d) && ex(d + "/rules-consent-learner.html"); }).map(function (d) { return d + "/rules-consent-learner.html"; })), cbad = [];
-consent.forEach(function (f) { if (/असीमित|unlimited|ilimitad|illimit|সীমাহীন|безлимит|tanpa batas|لامحدود|غير محدودة|unbegrenzt|無制限|无限次|अमर्याद|అపరిమిత/.test(rd(f))) cbad.push(f); });
-ok(consent.length === 15 && cbad.length === 0 && /में पूरा टेस्ट मुफ़्त, दिन में 2 बार तक/.test(rd("rules-consent-learner.html")), "learner नियम-पत्र (15 भाषाएँ): Golden Pass में \"असीमित\" नहीं, \"दिन में 2 बार तक\" लिखा है: " + cbad.join(","));
+consent.forEach(function (f) { if (/असीमित|unlimited|ilimitad|illimit|সীমাহীন|безлимит|tanpa batas|لامحدود|غير محدودة|unbegrenzt|無制限|无限次|अमर्याद|అపరిమిత|ಅಪರಿಮಿತ|ಅನಿಯಮಿತ|ಮಿತಿಯಿಲ್ಲ/.test(rd(f))) cbad.push(f); });
+ok(consent.length === 16 && cbad.length === 0 && /ದಿನಕ್ಕೆ 2 ಬಾರಿಯವರೆಗೆ/.test(rd("kn/rules-consent-learner.html")) && /में पूरा टेस्ट मुफ़्त, दिन में 2 बार तक/.test(rd("rules-consent-learner.html")), "learner नियम-पत्र (16 भाषाएँ; 16-Nov-2026 से कन्नड़ भी): Golden Pass में \"असीमित\" नहीं, \"दिन में 2 बार तक\" लिखा है: " + cbad.join(","));
 
 console.log("7. निजता: server को क्या जाता है");
 var payJs = noComments(rd("assets/apt-pay.js"));
