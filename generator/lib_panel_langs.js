@@ -26,7 +26,9 @@ const sym=s=>(s.match(/[₹%→·™©]/g)||[]).sort().join("");
 const BRAND=[["अप्लाइड कंप्यूटर स्कूल","Applied Computer School"],["एसीएस","ACS"]];
 const noBrand=s=>BRAND.reduce((x,b)=>x.split(b[1]).join(" "),String(s));
 /* अनुवाद में दोष हों तो उनकी सूची (ख़ाली सूची = ठीक)। latinOk = वे रोमन शब्द जो अनुवाद में हो सकते हैं, भले हिंदी मूल में न हों */
-function parity(code, hi, tr, latinOk){
+/* (क-3) T = उस भाषा का शब्द-नियम (lib_lang_terms.js; हो तो): हिंदी मूल का रोमन शब्द तालिका में हो, तो अनुवाद में वह अपनी लिपि में
+   जा सकता है; और अनुवाद में छूट-सूची के बाहर कोई English शब्द नहीं रह सकता। */
+function parity(code, hi, tr, latinOk, T){
   const I=info(code), out=[]; if(!I) return ["अनजान भाषा-कोड "+code];
   const h=String(hi), t=String(tr), th=h.trim(), tt=t.trim();
   if(!tt) return ["ख़ाली अनुवाद"];
@@ -38,7 +40,10 @@ function parity(code, hi, tr, latinOk){
   if(sym(h)!==sym(t)) out.push("चिह्न ₹ % → · ™ © अलग");
   const tl=t.toLowerCase(), hl=new Set(lat(h).map(w=>w.toLowerCase())), ok=new Set((latinOk||[]).map(w=>w.toLowerCase()));
   for(const b of BRAND) if(h.indexOf(b[0])>-1){ if(t.indexOf(b[1])<0) out.push("brand का नाम रोमन में नहीं (\""+b[1]+"\" चाहिए)"); else lat(b[1]).forEach(w=>ok.add(w.toLowerCase())); }
-  for(const w of lat(h)) if(tl.indexOf(w.toLowerCase())<0) out.push("रोमन शब्द \""+w+"\" अनुवाद में नहीं");
+  for(const w of lat(h)) if(tl.indexOf(w.toLowerCase())<0){
+    if(T && w.split(/[^A-Za-z]+/).every(function(x){ return !x || x.length<2 || tl.indexOf(x.toLowerCase())>-1 || T.termWords.has(x.toLowerCase()); })) continue;
+    out.push("रोमन शब्द \""+w+"\" अनुवाद में नहीं"); }
+  if(T){ const left=require("./lib_lang_terms.js").scan(t, T, h); if(left.length) out.push("English शब्द अपनी लिपि में नहीं: "+left.join(", ")); }
   if(I.script!=="Latn") for(const w of lat(t)){ const k=w.toLowerCase(); if(!hl.has(k)&&!ok.has(k)&&h.toLowerCase().indexOf(k)<0) out.push("रोमन शब्द \""+w+"\" हिंदी मूल में नहीं (अनुवाद छूटा?)"); }
   const e1=th.slice(-1), e2=tt.slice(-1);
   if(/[:?!,;(\[]/.test(e1)&&e1!==e2) out.push("अंत का चिह्न \""+e1+"\" नहीं");

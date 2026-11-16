@@ -1,4 +1,7 @@
-/* generator/build_rules_consent_en.js v1.1 (परत-4; 16-Nov-2026, कन्नड़ क-2क)
+/* generator/build_rules_consent_en.js v1.2 (परत-4; 16-Nov-2026, कन्नड़ क-3)
+   v1.2: जिस भाषा का शब्द-नियम है (generator/data/panel_i18n/<कोड>_terms.json), उसके पत्र के पाठ में छूट-सूची के बाहर English शब्द नहीं
+     (न मिटे तो पत्र नहीं बनता); सूची के रोमन विकल्प उस भाषा की लिपि में। English के पत्र अक्षर-अक्षर पहले जैसे।
+   --- v1.1 (16-Nov-2026, कन्नड़ क-2क) ---
    v1.1: वही मशीन अब हर पैनल-भाषा के लिए। भाषा-कोड पहला तर्क है (न हो तो en; English का नतीजा अक्षर-अक्षर वही):
      node generator/build_rules_consent_en.js kn            kn/rules-consent-<भूमिका>.html बनाओ
      node generator/build_rules_consent_en.js kn --check    सिर्फ़ जाँचो
@@ -88,6 +91,7 @@ const FILES = fs.readdirSync(ROOT).filter(f => /^rules-consent-.*\.html$/.test(f
 const verNum = h => { const m = /<b>Version: ([0-9.]+)/.exec(h); return m ? m[1] : null; };
 const ruleNos = h => (h.match(/<div class="rule[^"]*"><input type="checkbox"><span class="no">\d+\.<\/span>/g) || []).map(x => /(\d+)\.<\/span>$/.exec(x)[1]).join(",");
 
+const LT = require("./lib_lang_terms.js"), TERMS = (!EN && LT.has(LANG)) ? LT.load(LANG) : null;
 function build(file) {
   const hi = fs.readFileSync(path.join(ROOT, file), "utf8").replace(/\r\n/g, "\n");
   const miss = [];
@@ -138,6 +142,20 @@ function build(file) {
   for (const [nm, re] of [["checkbox", /type="checkbox"/g], ["id=", /\bid="[^"]+"/g], ["<div", /<div\b/g], ["<b>", /<b>/g], ["option value", /<option value="[^"]*"/g]])
     if ((hi.replace(/<!--[\s\S]*?-->/g, "").match(re) || []).join("|") !== (h.replace(note, "").match(re) || []).join("|")) bad.push(nm + " की गिनती/क्रम अलग");
   if (bad.length) return { file, bad };
+  /* (v1.2, क-3) जिस भाषा का शब्द-नियम है: सूची के वे विकल्प जो हिंदी मूल में भी सिर्फ़ रोमन में लिखे हैं ("Data Entry Operator"), उस भाषा की लिपि में;
+     पन्ने के code में ठीक वही नाम (जो चुनने पर दिखता है) भी साथ बदलता है। फिर पूरे पाठ की जाँच: छूट-सूची के बाहर English शब्द नहीं। */
+  if (TERMS) {
+    const swap = {};
+    h = h.replace(/(<option\b[^>]*>)([^<]*)(<\/option>)/g, function (m0, a1, t, z1) {
+      if (!/[A-Za-z]{2}/.test(t) || /[^\x00-\x7F]/.test(t)) return m0;
+      const r = LT.tidy(LT.apply(t, TERMS, null).text, TERMS);
+      if (r === t || LT.scan(r, TERMS, null).length) return m0;
+      swap[t.trim()] = r.trim(); return a1 + r + z1; });
+    Object.keys(swap).forEach(function (k) { h = h.split('"' + k + '"').join('"' + swap[k] + '"'); });
+    const vis = h.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<style[\s\S]*?<\/style>/g, " ").replace(/<!--[\s\S]*?-->/g, " ").replace(/<head[\s\S]*?<\/head>/, " ");
+    const left = LT.scan(vis, TERMS, null);
+    if (left.length) return { file, bad: ["English शब्द अपनी लिपि में नहीं: " + Array.from(new Set(left)).slice(0, 8).join(", ")] };
+  }
   return { file, out: h };
 }
 
@@ -161,4 +179,4 @@ for (const r of outs) {
   if (CHECK) console.log("⛔ बासी या ग़ायब: " + LANG + "/" + r.file); else fs.writeFileSync(p, r.out);
 }
 if (CHECK && stale) { console.log("⛔ " + stale + " " + (EN ? "English" : LANG) + " नियम-पत्र बासी हैं। चलाएँ: node generator/build_rules_consent_en.js" + (EN ? "" : " " + LANG)); process.exit(1); }
-console.log("🏁 build_rules_consent_en v1.1: " + outs.length + " " + (EN ? "English" : LANG) + " नियम-पत्र " + (CHECK ? "ताज़ा हैं" : "(" + stale + " लिखे)") + " · तालिका " + Object.keys(TABLE).length + " इकाइयाँ · देवनागरी 0");
+console.log("🏁 build_rules_consent_en v1.2: " + outs.length + " " + (EN ? "English" : LANG) + " नियम-पत्र " + (CHECK ? "ताज़ा हैं" : "(" + stale + " लिखे)") + " · तालिका " + Object.keys(TABLE).length + " इकाइयाँ · देवनागरी 0");

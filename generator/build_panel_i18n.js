@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.7 · 16-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.8 · 16-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   v1.8 (कन्नड़ क-3; Founder: "कन्नड मे सब कुछ कन्नड मे ही हो"): (1) उस भाषा का शब्द-नियम (<भाषा>_terms.json, lib_lang_terms.js) हो, तो हर अनुवाद
+     उससे जाँचा जाता है: छूट-सूची (brand के नाम, छोटे रूप) के बाहर कोई English शब्द नहीं; हिंदी मूल का रोमन शब्द अनुवाद में अपनी लिपि में जा सकता है।
+     (2) पैक के नए खाने "N" और "NT": data के नाम (कोर्स, भाषा, समूह, उद्यम) उस भाषा में (स्रोत: <भाषा>.json के "names" और "name_tpl")।
+     (3) प्रमाणपत्र के "जारी" वाले साँचे में "online" रोमन में ज़रूरी नहीं रहा। English पैक में कुछ नहीं बदला।
    v1.7 (कन्नड़ क-2क-2): पैक का "C" खाना = उस भाषा के काग़ज़ों के साँचे (प्रमाणपत्र का वाक्य, तिथि, जारी-पंक्ति; करियर रिपोर्ट की जाँच-पंक्ति)।
      स्रोत: <भाषा>.json का "docs" खंड। कुंजियाँ और हर कुंजी के {खाने} नीचे DOC_SPEC में पक्के हैं: कम, ज़्यादा या अलग हों, तो पैक नहीं बनता।
      font का नाम भाषा-रजिस्टर से (lib_lang_registry.js)। "docs" न हो, तो "C" नहीं बनता और उस भाषा के काग़ज़ English में रहते हैं। English पैक में "C" कभी नहीं।
@@ -148,10 +152,12 @@ if(TODO){ const list=[], seen=new Set(), E0=readJSON("generator/data/panel_i18n/
   for(const hi of SRV) if(typeof MSRV[hi]!=="string") list.push({ sec:"server", hi:hi, en:ENSRV[hi]||"" });
   fs.writeFileSync(TODO, JSON.stringify(list,null,1)+"\n"); console.log("📝 --todo: "+list.length+" टुकड़े अभी "+LANG+".json में नहीं → "+TODO); process.exit(0); }
 /* (v1.5) किनारे की ख़ाली जगह English पैक जैसी (हिंदी के टुकड़े जिस तरह जुड़ते हैं, अनुवाद भी वैसे जुड़ें); फिर हिंदी मूल से मिलान */
+/* (v1.8, क-3) उस भाषा का शब्द-नियम (generator/data/panel_i18n/<भाषा>_terms.json) हो, तो हर अनुवाद उससे जाँचा जाता है: छूट-सूची के बाहर English शब्द नहीं */
+const LT=require("./lib_lang_terms.js"), TERMS=(!EN_MODE&&LT.has(LANG))?LT.load(LANG):null;
 if(!EN_MODE){ const LOK=MAN.latin_ok||[];
   const shape=(h,v)=>{ const r=ENREF[h]; if(typeof r!=="string"||typeof v!=="string"||!v.trim()) return v; return (/^\s*/.exec(r)[0])+v.trim()+(/\s*$/.exec(r)[0]); };
   for(const h of Object.keys(D)) D[h]=shape(h,D[h]);
-  for(const [h,e] of Object.entries(D).concat(TP)) if(typeof e==="string"&&e.trim()) for(const x of PL.parity(LANG,h,e,LOK)) bad.push("मिलान ("+x+"): "+h+" → "+e);
+  for(const [h,e] of Object.entries(D).concat(TP)) if(typeof e==="string"&&e.trim()) for(const x of PL.parity(LANG,h,e,LOK,TERMS)) bad.push("मिलान ("+x+"): "+h+" → "+e);
 }
 for(const [h,e] of Object.entries(D).concat(TP)){
   if(!DEV.test(h)) bad.push("कुंजी में देवनागरी नहीं: "+h);
@@ -318,7 +324,7 @@ const SD={}; keys.forEach(k=>SD[k]=D[k]);
 const complete=(ALL_AREAS[LANG]||ALL_AREAS.en).every(a=>SCOPE.indexOf(a)>-1);
 /* (v1.5) पैक का ढाँचा: English में वही जो पहले था (अक्षर-भर नहीं बदला); दूसरी भाषा में draft_note हो तो "draft" भी */
 const PACKOBJ={v:VER,lang:LANG,name:MAN.name||LANG,scope:SCOPE,complete:complete};
-if(!EN_MODE&&typeof MAN.draft_note==="string"&&MAN.draft_note.trim()){ for(const x of PL.parity(LANG,"मसौदा",MAN.draft_note,MAN.latin_ok||["AI"])) { console.log("⛔ draft_note: "+x); process.exit(1); } PACKOBJ.draft=MAN.draft_note.trim(); }
+if(!EN_MODE&&typeof MAN.draft_note==="string"&&MAN.draft_note.trim()){ for(const x of PL.parity(LANG,"मसौदा",MAN.draft_note,MAN.latin_ok||["AI"],TERMS)) { console.log("⛔ draft_note: "+x); process.exit(1); } PACKOBJ.draft=MAN.draft_note.trim(); }
 /* (v1.6, Founder का आदेश 16-Nov-2026: "कन्नड़ पैनल से कन्नड़ पन्ने पर ही जाना चाहिए") इस भाषा के अपने पन्ने:
    repo के en/ folder का जो पन्ना <भाषा>/ folder में भी मौजूद है, उसका जोड़ा पैक के "P" खाने में ("/en/x" → "/<भाषा>/x")।
    इंजन कड़ी का English पता (data-href-en, मेनू का href_en) इसी से अपनी भाषा के पन्ने पर मोड़ता है; जो पन्ना उस भाषा में नहीं, वह English में।
@@ -330,7 +336,7 @@ if(!EN_MODE&&typeof MAN.draft_note==="string"&&MAN.draft_note.trim()){ for(const
 const DOC_SPEC={
   cert_sentence:  [["course","date","pct"], "", true],
   cert_date:      [["d","month","y"], "", false],
-  cert_issued:    [["issued","valid"], "online", true],
+  cert_issued:    [["issued","valid"], "", true],
   cert_details:   [[], "Institutional Details", true],
   report_valid:   [["no","date"], "acslearn.com/verify", true],
   report_expired: [["no","date"], "acslearn.com/verify", true]
@@ -356,6 +362,30 @@ if(!EN_MODE&&MAN.docs){
   if(DB.length){ console.log("⛔ \"docs\" खंड ("+LANG+".json) ठीक नहीं:"); DB.forEach(x=>console.log("   - "+x)); process.exit(1); }
   const C={}; Object.keys(DOC_SPEC).forEach(k=>C[k]=DOCS[k]); C.font=REG2.font; C.gfam=REG2.gfam;
   PACKOBJ.C=C; }
+/* (v1.8, क-3) नाम-तालिका: <भाषा>.json का "names" (English नाम → उस भाषा का नाम) और "name_tpl" (साँचे) → पैक के "N" और "NT"।
+   इंजन data-tr-en वाले नाम (कोर्स, भाषा, समूह, उद्यम) इसी से उस भाषा में दिखाता है। */
+if(EN_MODE&&(MAN.names||MAN.name_tpl)){ console.log("⛔ en.json में \"names\" खंड नहीं होता"); process.exit(1); }
+if(!EN_MODE&&MAN.names){
+  const NB=[], NA=MAN.names, NTP=MAN.name_tpl||[], LI3=PL.info(LANG), APT3=require("./lib_apt_langs.js");
+  const okv=(k,v)=>{ if(typeof v!=="string"||!v.trim()||v!==v.trim()) return NB.push("ख़ाली या किनारे पर जगह: "+k);
+    if(/[\u0900-\u097F]/.test(v)) NB.push("देवनागरी: "+k+" → "+v);
+    if(/[\u2014\u2013\uFFFD]/.test(v)) NB.push("लंबी रेखा या टूटा अक्षर: "+k+" → "+v);
+    for(const ch of v){ const sc=APT3.scriptOf(ch.codePointAt(0)); if(sc&&sc!==LI3.script&&sc!=="Latn"){ NB.push("पराई लिपि ("+sc+"): "+k+" → "+v); break; } }
+    if(TERMS){ const left=LT.scan(v.replace(/\{\d\}/g," "),TERMS,null).filter(w=>!/^[A-Z]{2,}$/.test(w));   /* परीक्षा और संस्था के छोटे रूप (UPSC, SSC) नामों में रोमन में ही */
+      if(left.length) NB.push("English शब्द ("+left.join(", ")+"): "+k+" → "+v); } };
+  if(typeof NA!=="object"||Array.isArray(NA)) NB.push("\"names\" एक तालिका होनी चाहिए");
+  else for(const k of Object.keys(NA)){ if(!k.trim()||/[\u0900-\u097F]/.test(k)) NB.push("कुंजी English नाम होनी चाहिए: "+k); okv(k,NA[k]); }
+  if(!Array.isArray(NTP)) NB.push("\"name_tpl\" एक सूची होनी चाहिए");
+  else NTP.forEach((t,i)=>{ if(!Array.isArray(t)||t.length!==2||typeof t[0]!=="string"||typeof t[1]!=="string") return NB.push("साँचा "+(i+1)+": [English साँचा, अपना साँचा] चाहिए");
+    let re; try{ re=new RegExp(t[0]); }catch(e){ return NB.push("साँचा "+(i+1)+": regex ठीक नहीं"); }
+    const groups=(new RegExp(t[0]+"|")).exec("").length-1, used=(t[1].match(/\{\d\}/g)||[]).map(x=>Number(x[1]));
+    for(let g=1;g<=groups;g++) if(used.filter(x=>x===g).length!==1) NB.push("साँचा "+(i+1)+": {"+g+"} ठीक एक बार चाहिए");
+    if(used.some(x=>x<1||x>groups)) NB.push("साँचा "+(i+1)+": अनजान खाना");
+    okv("साँचा "+(i+1),t[1]); });
+  if(NB.length){ console.log("⛔ \"names\" खंड ("+LANG+".json) ठीक नहीं:"); NB.slice(0,40).forEach(x=>console.log("   - "+x)); process.exit(1); }
+  const SN={}; Object.keys(NA).sort().forEach(k=>SN[k]=NA[k]); PACKOBJ.N=SN; PACKOBJ.NT=NTP; }
+/* (v1.8) शब्द-नियम पैक में भी: इंजन पन्ने पर बचे English शब्द (जो टुकड़े जोड़ने से या पन्ने के अपने English शब्दों से आते हैं) उसी तालिका से बदलता है */
+if(TERMS){ const L={}; Object.keys(TERMS.terms).sort().forEach(k=>L[k]=TERMS.terms[k][0]); PACKOBJ.L=L; PACKOBJ.LK=TERMS.keep.slice().sort(); PACKOBJ.LP=(TERMS.keep_phrases||[]).slice(); PACKOBJ.LS=TERMS.script; }
 if(!EN_MODE){ const P={};
   (function walkEn(dir){ for(const e of fs.readdirSync(path.join(ROOT,dir),{withFileTypes:true})){
     const rel=dir+"/"+e.name; if(e.isDirectory()){ walkEn(rel); continue; }

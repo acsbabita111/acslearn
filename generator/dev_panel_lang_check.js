@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_lang_check.js v1.6 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
+   dev_panel_lang_check.js v1.7 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
      • दिखने वाले पाठ, attribute, <title> और संदेश-डिब्बों में देवनागरी शून्य;
@@ -10,6 +10,10 @@
    Founder के आदेश (16-Nov-2026): (1) हिंदी के अलावा किसी भाषा में हिंदी कहीं न दिखे; जो चीज़ इस भाषा में अभी नहीं बनी, वह English में।
    (2) जो इस भाषा में मौजूद है या बन सकता है, वह इसी भाषा में (English में नहीं): करियर टेस्ट और होम की कड़ी इस भाषा के पन्ने पर, नियम-परदा,
    WhatsApp के पहले से लिखे संदेश। (3) हर जगह साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी नियम-पत्र की कड़ी हो।
+   v1.7 (क-3; Founder: "कन्नड को फूल & फाइनल" · "कन्नड मे सब कुछ कन्नड मे ही हो"): जिस भाषा का शब्द-नियम है (<भाषा>_terms.json),
+     उसमें हर पन्ने पर, हर बटन के बाद: छूट-सूची (brand के नाम, छोटे रूप, पते) के बाहर English शब्द शून्य; नियम-पत्रों के पाठ में भी;
+     कोर्स, भाषा, समूह और उद्यम के नाम उसी भाषा में (पैक की नाम-तालिका); प्रमाणपत्र के वाक्य में कोर्स का नाम उसी भाषा में;
+     देश और राज्य के कूट की जगह नाम।
    v1.6 (क-2ख): OTP की माँग में पैनल अपनी भाषा का कोड भेजता है (पहले "en"; अब server उस भाषा का email भेज सकता है);
      रजिस्ट्रेशन के बाद server PDF न बना पाए, तो उसका संदेश इसी भाषा में।
    v1.5 (क-2क-2): जिस भाषा के पैक में काग़ज़ों के साँचे हैं ("C" खाना), उसमें प्रमाणपत्र उसी भाषा + English में अपेक्षित है (हर पक्की पंक्ति पैक वाली,
@@ -45,14 +49,64 @@ const LF = "rules-consent-learner.html", STALE = t => t.replace("<b>Version: 1.2
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 let pass = 0, fail = 0; const t0 = Date.now(), INV = new Map(), HOLES = { E1: 0, E2: 0, E3: 0, certEn: false };
 function ck(name, ok, info) { if (ok) pass++; else { fail++; console.log("❌ " + name + (info ? "\n     " + String(info).slice(0, 900) : "")); } return !!ok; }
+/* jsdom की एक जानी हुई दौड़: बंद की जा चुकी खिड़की का animation-frame वाला timer कभी-कभी एक बार और चल जाता है और jsdom के अपने code में टूटता है
+   (पन्ने का code उस समय नहीं चलता)। सिर्फ़ ठीक इसी त्रुटि को गिनकर छोड़ा जाता है (गिनती अंत में छपती है); कोई और त्रुटि robot को पहले की तरह रोकती है। */
+let JSDOM_RACE = 0;
+process.on("uncaughtException", function (e) {
+  const st = String(e && e.stack || e);
+  if (e instanceof TypeError && /reading '_location'/.test(st) && /runAnimationFrameCallbacks/.test(st) && /jsdom/.test(st)) { JSDOM_RACE++; return; }
+  console.error(st); process.exit(1);
+});
 const LS = () => ({ acs_dash_lang: LG });
 function leaks(c, opts) {
   const UV = Array.from(c.userVals || []);
   return hindiLeaks(c, opts).filter(x => { let y = x.replace(/^\[skip-ज़ोन\] /, ""); UV.forEach(v => { y = y.split(v).join(""); }); return DEV.test(y); });
 }
+/* (v1.7, क-3; Founder: "कन्नड मे सब कुछ कन्नड मे ही हो। अंग्रेजी कहे को रहेगा।") जिस भाषा का शब्द-नियम है (<भाषा>_terms.json), उसके पन्ने पर
+   छूट-सूची (brand के नाम, छोटे रूप, पते) के बाहर कोई English शब्द नहीं। नहीं गिने जाते: भाषा-पट्टी और भाषा के नाम वाले बटन (Founder का नियम:
+   तीनों नाम), उपयोगकर्ता का लिखा या सहेजा data (नाम, जगह, email), संस्करण की पट्टी, और "(English)" वाला कोष्ठक जो उस भाषा के शब्द के ठीक बाद हो। */
+const LTM = require("./lib_lang_terms.js"), TERMS = LTM.has(LG) ? LTM.load(LG) : null, FIXS = new Set();
+function fixStrings() {
+  if (FIXS.size || !TERMS) return;
+  const walk = x => { if (typeof x === "string") { if (/[A-Za-z]{2}/.test(x) && x.length < 200) FIXS.add(x.trim()); } else if (Array.isArray(x)) x.forEach(walk); else if (x && typeof x === "object" && !(x instanceof Date) && typeof x.toDate !== "function") Object.keys(x).forEach(k => walk(x[k])); };
+  for (const f of pages()) for (const sc of ["base", "data", "docs", "prov"]) { try { walk(P2.fixture(P2.pageInfo(f), sc)); } catch (e) {} }
+  ["Mohan", "Sita Devi", "Ram Kumar", "u1", "undefined to undefined", "undefined", "Bihar", "Khagaria", "boom", "RAJESH KUMAR", "SURESH KUMAR", "Steel Structures/Welding", "Malpa", "Chautham"].forEach(v => FIXS.add(v));   /* आख़िरी: इस robot का गढ़ा उद्यम-नाम (असली सूची में नहीं) */   /* "undefined": इस robot के नक़ली data में ख़ाली छूटा खाना */
+}
+const ATTRS_E = ["placeholder", "title", "aria-label", "alt", "label", "data-h"];
+function latinLeaks(c) {
+  if (!TERMS) return [];
+  let lang = ""; try { lang = c.w.ACS_PANEL_I18N.lang(); } catch (e) {}
+  if (lang !== LG) return [];   /* पन्ना इस भाषा में नहीं चल रहा (जैसे टीम के dashboard: English में): यह जाँच उस पर नहीं */
+  fixStrings();
+  /* उपयोगकर्ता के मान: robot का लिखा, नक़ली data, खानों में अभी भरा पाठ; और जगह की सूचियों (राज्य, जिला) के वे नाम जो data में सिर्फ़ रोमन में हैं
+     (विदेश के राज्य, कुछ राज्यों के जिले): ये गिने जाते हैं (PLACES), ग़लती नहीं माने जाते */
+  const typed = Array.from(c.d.querySelectorAll("input,textarea")).map(x => String(x.value || "").trim()).filter(Boolean);
+  const places = []; c.d.querySelectorAll("#stateSel option,#desiredStateSel option,#desiredDistSel option,#rmDist1 option,#rmDist2 option,#rmDist3 option,select[id^=pinBlock] option").forEach(o => { const t = o.textContent.trim(); if (t && /^[A-Za-z]/.test(t) && !/[^\x00-\x7F]/.test(t)) { places.push(t); PLACES.add(t); } });
+  const UV = Array.from(new Set(Array.from(c.userVals || []).concat(Array.from(FIXS), typed, places))).filter(v => /[A-Za-z]/.test(v) && v.length > 1).sort((a, b) => b.length - a.length);
+  /* पाठ के English शब्द; जो शब्द उपयोगकर्ता के लिखे या सहेजे किसी मान का हिस्सा है (और वह मान इसी पाठ में है), वह नहीं गिना जाता */
+  const scanU = t => { const tt = t.replace(/\s+/g, " ").trim(); if (tt.length > 3 && UV.some(v => v.indexOf(tt) > -1)) return [];   /* पूरा पाठ ही किसी सहेजे मान का टुकड़ा है */
+    return LTM.scan(t, TERMS, null).filter(w => !UV.some(v => v.indexOf(w) > -1 && t.indexOf(v) > -1)); };
+  const SKIP = "script,style,noscript,textarea,#acsPanelLangBar,#acsTranslatePanel,#dashVer,#v-lang,#v-clang,[data-lname],[data-i18n-skip],[translate=no]";   /* #v-lang, #v-clang: वाणी की भाषा-सूचियाँ (हर भाषा अपने नाम में) */
+  const out = [], d = c.d, tw = d.createTreeWalker(d.body, 4); let n;
+  while ((n = tw.nextNode())) {
+    const t = n.nodeValue; if (!/[A-Za-z]{2}/.test(t)) continue;
+    const p = n.parentElement; if (!p || p.closest(SKIP)) continue;
+    const bad = scanU(t); if (bad.length) out.push(bad.join(",") + " ← " + t.replace(/\s+/g, " ").trim().slice(0, 90));
+  }
+  d.querySelectorAll("*").forEach(el => {
+    if (el.closest(SKIP)) return;
+    for (const a of ATTRS_E) { const v = el.getAttribute(a); if (!v || !/[A-Za-z]{2}/.test(v)) continue; const bad = scanU(v); if (bad.length) out.push("@" + a + " " + bad.join(",") + " ← " + v.slice(0, 80)); }
+  });
+  return out;
+}
+const EINV = new Map(), PLACES = new Set();
 function clean(c, where, opts) {
   const L = leaks(c, opts); L.forEach(x => INV.set(x, (INV.get(x) || []).concat(where)));
-  return ck(where + " : देवनागरी शून्य", L.length === 0, L.length + " जगह: " + L.slice(0, 8).join("  ‖  "));
+  const a = ck(where + " : देवनागरी शून्य", L.length === 0, L.length + " जगह: " + L.slice(0, 8).join("  ‖  "));
+  if (!TERMS) return a;
+  const E = latinLeaks(c); E.forEach(x => EINV.set(x, (EINV.get(x) || []).concat(where)));
+  const b = ck(where + " : English शब्द शून्य (छूट-सूची के बाहर)", E.length === 0, E.length + " जगह: " + E.slice(0, 8).join("  ‖  "));
+  return a && b;
 }
 function noErr(c, where) { const e = c.errors.splice(0); return ck(where + " : पन्ने में JS-त्रुटि शून्य", e.length === 0, e.slice(0, 4).join(" ‖ ")); }
 const own = t => { for (let i = 0; i < t.length; i++) { const sc = require("./lib_apt_langs.js").scriptOf(t.codePointAt(i)); if (sc === LI.script) return true; } return false; };
@@ -64,6 +118,19 @@ function staticSuite() {
   const src = rd("assets/i18n/panel_" + LG + ".js"), m = src.match(new RegExp('window\\.ACS_PANEL_PACKS\\["' + LG + '"\\]=(\\{[\\s\\S]*\\});\\s*$'));
   let P = null; try { P = m && JSON.parse(m[1]); } catch (e) {}
   if (!ck("S2 पैक पढ़ने-योग्य JSON, भाषा-कोड सही", !!P && P.lang === LG)) return;
+  if (TERMS) { /* SL (v1.7) शब्द-नियम: नियम-पत्रों के पाठ में और पैक के हर मान में छूट-सूची के बाहर English शब्द नहीं */
+    const badL = [];
+    fs.readdirSync(path.join(ROOT, LG)).filter(f => /^rules-consent-[a-z-]+\.html$/.test(f)).sort().forEach(f => {
+      const h = rd(LG + "/" + f).replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<style[\s\S]*?<\/style>/g, " ").replace(/<!--[\s\S]*?-->/g, " ").replace(/<head[\s\S]*?<\/head>/, " ");
+      const left = LTM.scan(h, TERMS, null); if (left.length) badL.push(f + ": " + Array.from(new Set(left)).slice(0, 6).join(",")); });
+    ck("SL1 इस भाषा के नियम-पत्रों के पाठ में English शब्द शून्य (छूट-सूची के बाहर)", badL.length === 0, badL.slice(0, 5).join(" ‖ "));
+    const badP = []; Object.keys(P.D).forEach(h => { const left = LTM.scan(P.D[h], TERMS, h); if (left.length) badP.push(left.join(",") + " ← " + h.slice(0, 50)); });
+    (P.T || []).forEach(t => { const left = LTM.scan(String(t[1]), TERMS, t[0]); if (left.length) badP.push(left.join(",") + " ← " + String(t[0]).slice(0, 50)); });
+    ck("SL2 पैक के हर मान में English शब्द शून्य (" + Object.keys(P.D).length + " मान)", badP.length === 0, badP.length + ": " + badP.slice(0, 5).join(" ‖ "));
+    ck("SL3 पैक में नाम-तालिका (N), साँचे (NT) और शब्द-तालिका (L, LK, LS) हैं", !!P.N && Object.keys(P.N).length > 900 && Array.isArray(P.NT) && P.NT.length > 5 && !!P.L && Object.keys(P.L).length === Object.keys(TERMS.terms).length && Array.isArray(P.LK) && typeof P.LS === "string", (P.N ? Object.keys(P.N).length : 0) + " नाम");
+    const eng = rd("assets/panel_i18n.js");
+    ck("SL4 इंजन v1.8: नाम-तालिका और शब्द-तालिका पढ़ता है; नाम का रास्ता (name) देता है", /var VER="1\.8"/.test(eng) && /function nameFind\(/.test(eng) && /function latinFix\(/.test(eng) && /name:function\(en\)/.test(eng));
+  }
   { /* SR (v1.4, क-2क) इस भाषा के अपने नियम-पत्र: या तो एक भी नहीं, या सब के सब; हर पत्र ताज़ा, हिंदी मूल के संस्करण का, देवनागरी शून्य, हिंदी मूल की कड़ी के साथ; पैक उन्हें जानता है */
     const HIF = fs.readdirSync(ROOT).filter(f => /^rules-consent-[a-z-]+\.html$/.test(f)).sort(), OWF = HIF.filter(OWNR);
     ck("SR1 इस भाषा के नियम-पत्र: या तो एक भी नहीं, या सब (" + OWF.length + " / " + HIF.length + ")", OWF.length === 0 || OWF.length === HIF.length, HIF.filter(f => !OWNR(f)).slice(0, 5).join(","));
@@ -91,7 +158,7 @@ function staticSuite() {
     "D " + Object.keys(P.D).length + " / " + Object.keys(EP.D).length + " · T " + P.T.length + " / " + EP.T.length + " · G " + P.G.length + " / " + EP.G.length);
   ck("S4 पैक के हर मान में देवनागरी, लंबी रेखा और टूटा अक्षर शून्य", vals.every(v => !DEV.test(v) && !/[\u2014\u2013\uFFFD]/.test(v)), vals.filter(v => DEV.test(v) || /[\u2014\u2013\uFFFD]/.test(v)).slice(0, 5).join(" | "));
   ck("S5 पैक के हर मान में अपनी लिपि (" + LI.script + ") का अक्षर (सिर्फ़ brand का नाम हो तो रोमन ही)", vals.every(v => own(v) || !/\p{L}/u.test(PL.noBrand(v))), vals.filter(v => !own(v) && /\p{L}/u.test(PL.noBrand(v))).slice(0, 8).join(" | "));
-  { const bad = []; for (const [h, v] of Object.entries(P.D).concat(P.T)) for (const x of PL.parity(LG, h, v, ["AI"])) bad.push(x + ": " + h);
+  { const bad = []; for (const [h, v] of Object.entries(P.D).concat(P.T)) for (const x of PL.parity(LG, h, v, ["AI"], TERMS)) bad.push(x + ": " + h);
     ck("S6 हर अनुवाद हिंदी मूल से मिलता है (अंक, {n}, चिह्न, emoji, रोमन शब्द, विराम)", bad.length === 0, bad.length + ": " + bad.slice(0, 5).join(" ‖ ")); }
   { const sp = Object.keys(P.D).filter(h => { const a = EP.D[h], b = P.D[h]; return /^\s*/.exec(a)[0] !== /^\s*/.exec(b)[0] || /\s*$/.exec(a)[0] !== /\s*$/.exec(b)[0]; });
     ck("S7 अनुवाद के आगे-पीछे की ख़ाली जगह English पैक जैसी (टुकड़े उसी तरह जुड़ें)", sp.length === 0, sp.slice(0, 5).join(" | ")); }
@@ -546,11 +613,46 @@ async function runPage(file, sc) {
     ck(tag + " : कार्रवाई-बटन दबाए (" + acts.length + ")", true);
   }
   clean(c, tag + " (" + navs.length + " पैनल)");
+  /* (v1.7) देश और राज्य नाम से दिखें, सहेजे हुए कूट ("in", "bihar") से नहीं: ये सहेजे मान हैं, इसलिए ऊपर की English-शब्द वाली जाँच इन्हें छोड़ देती है; यहाँ अलग से */
+  if (TERMS) { const ge = Array.from(c.d.querySelectorAll("#pArea,#pubArea,#pubState,[data-geo]")).filter(e => /\S/.test(e.textContent)), codes = ge.filter(e => /(^|[^A-Za-z])(in|np|bihar|karnataka|_country)([^A-Za-z]|$)/.test(e.textContent));
+    ck(tag + " : कार्य-क्षेत्र में देश और राज्य नाम से, इसी भाषा में (कूट नहीं; " + ge.length + " जगह)", codes.length === 0 && ge.every(e => own(e.textContent) || !/[A-Za-z]{2}/.test(e.textContent)), codes.concat(ge.filter(e => !own(e.textContent))).slice(0, 3).map(e => (e.id || "data-geo") + ": " + e.textContent.trim().slice(0, 60)).join(" ‖ ")); }
   ck(tag + " : <title> में देवनागरी नहीं", !DEV.test(c.d.title), c.d.title);
   noErr(c, tag); c.dom.window.close();
 }
 async function dashSuite() {
   const PG = pages().filter(f => !process.env.ACS_PAGE || f.indexOf(process.env.ACS_PAGE) > -1);
+  /* (v1.7) नाम-तालिका: कोर्स-सूची का हर नाम, हर भाषा का नाम, समूह और करियर-क्षेत्र के नाम इंजन से इसी भाषा में मिलें (English न बचे) */
+  if (TERMS && !process.env.ACS_PAGE) { try {
+    const c = await openDash("dashboard/student/index.html", "base", LG); await openAll(c);
+    const vm = require("vm"), box = { window: {} }; vm.createContext(box);
+    const lists = vm.runInContext(rd("assets/courses_data.js") + "\n;[].concat(SELF_EMP_COURSES,PRIVATE_JOB_COURSES,ACADEMIC_COURSES,GOVT_SCHOLAR_COURSES,GOVT_JOB_COURSES)", box), G = box.window.KKB_GROUPS || [];
+    const roman = c0 => { const e = String(c0.name_en || ""); let m = e.match(/Spoken\s+([^(]+?)\s*(\(|$)/); if (m) return m[1].trim(); m = e.match(/Introductory\s+([^(\u2014]+?)\s*(\(|\u2014|$)/) || e.match(/(?:Work|Basic|Spoken)\s+([A-Z][^(:\u2014]+?)\s*(\(|:|\u2014|$)/) || e.match(/Certificate in\s+([^(\u2014]+?)\s*(\(|\u2014|$)/); return m ? m[1].trim() : ""; };
+    const want = new Set(); lists.forEach(x => { if (x.name_en) { want.add(x.name_en); want.add(String(x.name_en).split("(")[0].trim()); } });
+    const gid = new Set([].concat.apply([], G.map(g => g.ids || [])));
+    lists.filter(x => gid.has(x.id)).forEach(x => { const r = roman(x); if (r) { want.add(r); want.add("Certificate in Spoken " + r); } });
+    G.forEach(g => { want.add(g.en); want.add(String(g.en || "").split("(")[0].replace("Indian languages: ", "Indian: ").trim()); });
+    const mg = /const MG_EN = (\{[\s\S]*?\});/.exec(rd("assets/dashboard.js")); if (mg) Object.values(JSON.parse(mg[1])).forEach(v => { want.add(v); want.add("\uD83C\uDF3E " + v); });
+    ["Valid until 02-11-2027", "valid until 02-11-2027", "01-11-2026 to 30-11-2026"].forEach(v => want.add(v));
+    const bad = []; want.forEach(x => { if (!x) return; const r = c.w.ACS_PANEL_I18N.name(x); if (r === x || !own(r) || DEV.test(r) || LTM.scan(r, TERMS, null).filter(w => !/^[A-Z]{2,}$/.test(w)).length) bad.push(x + " → " + r); });
+    ck("D नाम-तालिका : कोर्स-सूची, भाषाओं, समूहों और करियर-क्षेत्रों के " + want.size + " नाम इसी भाषा में मिलते हैं (English नहीं बचा)", want.size > 900 && bad.length === 0, bad.length + " नाम: " + bad.slice(0, 6).join(" ‖ "));
+    ck("D नाम-तालिका : अनजान नाम वैसा ही रहता है (आधा अनुवाद नहीं)", c.w.ACS_PANEL_I18N.name("Zzqx Course of Nothing") === "Zzqx Course of Nothing" && c.w.ACS_PANEL_I18N.name("ACS Certificate in Spoken Zzqx") === "ACS Certificate in Spoken Zzqx");
+    /* पैक का पूरा वाक्य इंजन से अक्षर-अक्षर वैसा ही निकलता है (प्रमाणपत्र की दो भाषा वाली पंक्तियों में English आधा नहीं बदलता) */
+    { const src = rd("assets/i18n/panel_" + LG + ".js"), m = src.match(new RegExp('window\\.ACS_PANEL_PACKS\\["' + LG + '"\\]=(\\{[\\s\\S]*\\});\\s*$')), PK = JSON.parse(m[1]), diff = [];
+      Object.keys(PK.D).forEach(h => { const r = c.w.ACS_PANEL_I18N.tr(h); if (r !== PK.D[h]) diff.push(h.slice(0, 40) + " → " + r.slice(0, 60)); });
+      ck("D इंजन : पैक का हर पूरा वाक्य (" + Object.keys(PK.D).length + ") अक्षर-अक्षर पैक जैसा निकलता है", diff.length === 0, diff.length + ": " + diff.slice(0, 4).join(" ‖ "));
+      const sk = (TERMS.skip_keys || []).filter(k => PK.D[k]);
+      ck("D इंजन : प्रमाणपत्र की दो भाषा वाली पंक्तियों (" + sk.length + ") में English हिस्सा वैसा ही (\"Certificate No\", \"Head Office\")", sk.length >= 3 && sk.every(k => c.w.ACS_PANEL_I18N.tr(k) === PK.D[k]) && /Certificate No/.test(c.w.ACS_PANEL_I18N.tr("प्रमाणपत्र नं / Certificate No")) && /Head Office/.test(c.w.ACS_PANEL_I18N.tr(sk.filter(k => /Head Office/.test(k))[0] || "")), sk.map(k => c.w.ACS_PANEL_I18N.tr(k).slice(0, 50)).join(" ‖ ")); }
+    /* पन्ने पर सिर्फ़ Latin में लिखा पाठ: पन्ने का अपना शब्द इसी भाषा में; जिसमें कोई अनजान शब्द भी हो (किसी का भरा नाम, संस्था का नाम), वह जैसा है वैसा */
+    { const mk = t => { const e = c.d.createElement("p"); e.textContent = t; c.d.body.appendChild(e); return e; };
+      const e1 = mk("Manager"), e2 = mk("Rajesh Manager"), e3 = mk("Sharma Computer Centre"), e4 = mk("Applied Computer School"), e5 = c.d.createElement("p"); e5.setAttribute("data-i18n-user", "1"); e5.textContent = "Manager"; c.d.body.appendChild(e5);
+      c.w.ACS_PANEL_I18N.walk(c.d.body);
+      ck("D इंजन : पन्ने का अपना Latin शब्द इसी भाषा में (\"Manager\")", own(e1.textContent) && !/[A-Za-z]/.test(e1.textContent), e1.textContent);
+      ck("D इंजन : जिस Latin पाठ में अनजान शब्द भी हो (किसी का नाम, संस्था का नाम), वह अक्षर-अक्षर वैसा ही रहता है", e2.textContent === "Rajesh Manager" && e3.textContent === "Sharma Computer Centre", e2.textContent + " | " + e3.textContent);
+      ck("D इंजन : brand का नाम और उपयोगकर्ता का भरा पाठ (data-i18n-user) वैसा ही", e4.textContent === "Applied Computer School" && e5.textContent === "Manager", e4.textContent + " | " + e5.textContent);
+      [e1, e2, e3, e4, e5].forEach(e => e.remove()); }
+    c.dom.window.close();
+  } catch (e) { ck("D नाम-तालिका : जाँच चली", false, String(e && e.stack || e).slice(0, 400)); } }
+  if (process.env.ACS_ONLY_ENGINE) PG.length = 0;   /* सिर्फ़ ऊपर वाली इंजन और नाम-तालिका की जाँचें (तेज़; उल्टी जाँच के लिए) */
   for (const f of PG) { try { await runPage(f); } catch (e) { ck(f + " : robot चला", false, String(e && e.stack || e).slice(0, 400)); } }
   const SC = { data: ["student", "jobseeker", "entrepreneur", "center", "teacher", "volunteer", "admin", "founder", "regional", "zonal"], prov: ["teacher", "center", "vendor", "employer", "foreign-agent", "finance-mitra"] };
   for (const sc of Object.keys(SC)) for (const f of PG.filter(f => SC[sc].indexOf(f.split("/")[1]) > -1)) {
@@ -567,8 +669,25 @@ async function dashSuite() {
         const tE = visText(e), tH = visText(h), bad = [];
         UV.forEach(v => { const a = countOf(tH, v), b = countOf(tE, v); if (a !== b) bad.push(v + " (हिंदी में " + a + " बार, " + LG + " में " + b + ")"); });
         ck(tag + " : उपयोगकर्ता का लिखा हर पाठ " + LG + " में भी उतनी ही बार, अक्षर-अक्षर वैसा", bad.length === 0, bad.slice(0, 5).join(" ‖ "));
+        if (TERMS) {
+          /* (v1.7) पहले से लिखे WhatsApp संदेश: इस भाषा वाला रूप हो, तो उसमें English शब्द नहीं (कोर्स का नाम भी इसी भाषा में); उपयोगकर्ता का लिखा छोड़कर */
+          const was = Array.from(e.d.querySelectorAll('a[data-href-' + LG + '^="https://wa.me/"]')), badW = [];
+          was.forEach(a => { let t = ""; try { t = decodeURIComponent(String(a.getAttribute("data-href-" + LG)).replace(/^[^?]*\?text=/, "")); } catch (er) { t = "?"; }
+            let x = " " + t + " "; Array.from(e.userVals).concat(fixStrings(), UV, ["REPORT-BODY-LINE"]).filter(v => v && v.length > 1).sort((p, q) => q.length - p.length).forEach(v => { x = x.split(v).join(" "); });
+            const left = LTM.scan(x, TERMS, null); if (DEV.test(x) || left.length) badW.push(left.join(",") + " ← " + t.slice(0, 70)); });
+          if (was.length) ck(tag + " : पहले से लिखे WhatsApp संदेश (" + was.length + ") इसी भाषा में, English शब्द शून्य (कोर्स का नाम भी)", badW.length === 0, badW.slice(0, 3).join(" ‖ "));
+          /* (v1.7) पहचान-पत्र: विद्यार्थी चुनने पर कोर्स का नाम इसी भाषा में भरता है */
+          const who = e.d.getElementById("idWho"), ss0 = e.d.getElementById("idStuSel");
+          if (who && ss0) { who.value = "student"; who.dispatchEvent(new e.w.Event("change", { bubbles: true })); await settle(e);
+            const ss = e.d.getElementById("idStuSel");
+            if (ss && ss.options.length > 1) { ss.selectedIndex = 1; ss.dispatchEvent(new e.w.Event("change", { bubbles: true })); await settle(e);
+              const rv = (e.d.getElementById("idRole") || {}).value || "";
+              ck(tag + " : पहचान-पत्र में विद्यार्थी के कोर्स का नाम इसी भाषा में", own(rv) && !DEV.test(rv) && !/[A-Za-z]{3}/.test(rv), rv); } else if (f.split("/")[1] === "center") ck(tag + " : पहचान-पत्र की विद्यार्थी-सूची भरी", false, "विकल्प " + (ss ? ss.options.length : 0)); }
+        }
         if (f.split("/")[1] === "student") {
-          ck("D student [हिंदी data] : कोर्स का सहेजा नाम सूची के English नाम से (इस भाषा का नाम अभी नहीं), हिंदी नाम नहीं बचा", /Data Entry Operator/.test(tE) && /Computer Operator/.test(tE) && !/धान/.test(tE), (tE.match(/.{0,40}(धान|कृषि|ऑपरेटर).{0,40}/) || [""])[0]);
+          /* (v1.7) पैक में नाम-तालिका ("N") हो, तो कोर्स का सहेजा नाम इसी भाषा में; न हो, तो सूची के English नाम में */
+          const NMo = x => { try { return e.w.ACS_PANEL_I18N.name(x); } catch (er) { return x; } }, n1 = NMo("Data Entry Operator"), n2 = NMo("Computer Operator");
+          ck("D student [हिंदी data] : कोर्स का सहेजा नाम " + (n1 !== "Data Entry Operator" ? "इसी भाषा में (नाम-तालिका से)" : "सूची के English नाम से") + ", हिंदी नाम नहीं बचा", tE.indexOf(n1) > -1 && tE.indexOf(n2) > -1 && !/धान/.test(tE) && (!TERMS || (own(n1) && own(n2) && !/Data Entry Operator|Computer Operator/.test(tE))), n1 + " | " + (tE.match(/.{0,40}(धान|कृषि|ऑपरेटर|Operator).{0,40}/) || [""])[0]);
           const eb = e.d.querySelector("[data-exam]");
           if (eb) { click(e, eb); await waitFor(e, () => e.d.getElementById("xmStart"), 4000); await settle(e);
             const st = e.d.getElementById("xmStart"); if (st) { click(e, st); await waitFor(e, () => e.d.querySelector(".xm-q"), 4000); await settle(e); await settle(e); }
@@ -587,8 +706,9 @@ async function dashSuite() {
     try {
       const e = await openH(f, LG, undefined, ["pnl-myctr"]);
       const pn = e.d.getElementById("pnl-myctr");
-      await waitFor(e, () => /Data Entry Operator/.test(pn.textContent), 5000); await settle(e);
-      ck("D student : सिर्फ़ \"मेरा केंद्र\" खोलने पर भी सहेजा कोर्स-नाम सूची के English नाम में (कोर्स-सूची अपने-आप मँगाई गई)", /Data Entry Operator/.test(pn.textContent) && !/डेटा एंट्री/.test(pn.textContent), (pn.textContent.match(/.{0,50}(डेटा|Data Entry).{0,50}/) || ["नाम नहीं मिला"])[0]);
+      await waitFor(e, () => { let x = "Data Entry Operator"; try { x = e.w.ACS_PANEL_I18N.name(x); } catch (er) {} return pn.textContent.indexOf(x) > -1; }, 5000); await settle(e);
+      { let nD = "Data Entry Operator"; try { nD = e.w.ACS_PANEL_I18N.name(nD); } catch (er) {}
+        ck("D student : सिर्फ़ \"मेरा केंद्र\" खोलने पर भी सहेजा कोर्स-नाम " + (TERMS ? "इसी भाषा में" : "सूची के English नाम में") + " (कोर्स-सूची अपने-आप मँगाई गई)", pn.textContent.indexOf(nD) > -1 && !/डेटा एंट्री/.test(pn.textContent) && (!TERMS || (own(nD) && !/Data Entry Operator/.test(pn.textContent))), (pn.textContent.match(/.{0,50}(डेटा|Data Entry).{0,50}/) || [nD + " नहीं मिला"])[0]); }
       e.dom.window.close();
     } catch (err) { ck(f + " : कोर्स-नाम जाँच चली", false, String(err && err.stack || err).slice(0, 300)); }
   }
@@ -723,9 +843,12 @@ async function dashSuite() {
     if (!ONLY || ONLY === "join") await joinSuite();
     if (!ONLY || ONLY === "dash") await dashSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
+  if (process.env.ACS_EINV) fs.writeFileSync(process.env.ACS_EINV, Array.from(EINV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 4).join(",") + "\t" + k).sort().join("\n") + "\n");
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 6).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
+  if (JSDOM_RACE) console.log("(जानकारी) jsdom की बंद खिड़की वाली दौड़ " + JSDOM_RACE + " बार हुई और छोड़ी गई (जाँच का औज़ार; पन्ने का code नहीं)");
   console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.6 : पैनल " + LG + " (" + LI.hi + ") पास");
+  if (TERMS) console.log("जगह के नाम जो data में सिर्फ़ रोमन में हैं (विदेश के राज्य, कुछ राज्यों के जिले; हिंदी पैनल में भी रोमन में): " + PLACES.size + " देखे गए");
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.7 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();

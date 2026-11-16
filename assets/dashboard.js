@@ -1,5 +1,10 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.20.0 · 16-Nov-2026 (कन्नड़ क-3; Founder: "कन्नड को फूल & फाइनल" · "कन्नड मे सब कुछ कन्नड मे ही हो"):
+     (1) data के नाम (कोर्स, भाषा) पैनल की भाषा में, जहाँ पैक में नाम-तालिका हो: प्रमाणपत्र के वाक्य में कोर्स का नाम (नीचे की English पंक्ति में
+         English नाम), पहचान-पत्र पर कोर्स का नाम, WhatsApp के पहले से लिखे संदेशों के बाक़ी टुकड़े (nameOwn)।
+     (2) देश और राज्य के कूट ("in · bihar") की जगह उनके नाम ("भारत · बिहार"): प्रोफ़ाइल, सार्वजनिक कार्ड और आवेदन-सूची में (geoPretty; हर भाषा में)।
+     हिंदी और English के प्रमाणपत्र, और बाक़ी सब कुछ, पहले जैसा।
    v6.19.0 · 16-Nov-2026 (कन्नड़ क-2क-2; Founder का फ़ैसला 16-Nov-2026: "कन्नड़ उपयोगकर्ता का प्रमाणपत्र कन्नड़ + English में"):
      जिस भाषा के पैक में काग़ज़ों के साँचे हैं (पैक का "C" खाना), उसके पैनल में प्रमाणपत्र उसी भाषा + English में बनता है (certTextOwn);
      करियर रिपोर्ट के जाँच-नंबर वाली पंक्ति (पन्ने पर, छपाई में और WhatsApp के संदेश में) उसी भाषा में। पैक में "C" न हो, या प्रमाणपत्र का
@@ -138,7 +143,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.19.0";
+const DASH_VER = "v6.20.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -233,6 +238,8 @@ function docOwn(){
     return C; }catch(e){ return null; }
 }
 function docFill(t, o){ return String(t).replace(/\{([a-z]+)\}/g, function(m,k){ return Object.prototype.hasOwnProperty.call(o,k) ? String(o[k]) : m; }); }
+/* (v6.20.0, कन्नड़ क-3) data का नाम (कोर्स, भाषा) पैनल की भाषा में: पैक की नाम-तालिका से (ACS_PANEL_I18N.name); तालिका में न हो, तो वही English नाम */
+function nameOwn(en){ try{ const P=window.ACS_PANEL_I18N; if(en && P && P.active && typeof P.name==="function"){ const t=P.name(String(en)); if(t && !/[\u0900-\u097F]/.test(t)) return t; } }catch(e){} return en; }
 function docTr(hi){ try{ const t=window.ACS_PANEL_I18N.tr(hi); return (t && t!==hi && !/[\u0900-\u097F]/.test(t)) ? t : ""; }catch(e){ return ""; } }
 /* (v6.18.0, कन्नड़ क-1) पैनल हिंदी के अलावा किसी भी भाषा में चल रहा है। data के नाम (कोर्स) तब English में दिखते हैं (data-tr-en),
    जब तक उस भाषा का अपना नाम data में न हो। काग़ज़ (प्रमाणपत्र, परिचय-पत्र, संदेश) की भाषा इससे नहीं, docEn से तय होती है। */
@@ -267,7 +274,11 @@ function ownMsgHref(en){
     const txt=decodeURIComponent(m[2]); let best="";
     for(const k in DOC_EN) if(txt.indexOf(DOC_EN[k])===0 && DOC_EN[k].length>best.length) best=k;
     if(!best) return ""; const t=P.tr(best); if(!t || t===best || /[\u0900-\u097F]/.test(t)) return "";
-    return m[1]+encodeURIComponent(t+txt.slice(DOC_EN[best].length));
+    /* (v6.20.0) संदेश के बाक़ी टुकड़े (" · " से अलग): पक्का वाक्य हो तो उस भाषा में, कोर्स का नाम हो तो नाम-तालिका से; बाक़ी (नाम, संख्या, link) वैसे ही */
+    const rest=txt.slice(DOC_EN[best].length).split(" · ").map(function(seg){
+      for(const k in DOC_EN) if(DOC_EN[k]===seg){ const t2=P.tr(k); return (t2 && t2!==k && !/[\u0900-\u097F]/.test(t2)) ? t2 : seg; }
+      return nameOwn(seg); }).join(" · ");
+    return m[1]+encodeURIComponent(t+rest);
   }catch(e){ return ""; }
 }
 function ownMsgSync(){
@@ -432,6 +443,36 @@ function ensurePhotoDecor(verified, gold){ /* v4.8: gold=true ⇒ Student Golden
         "box-shadow:0 2px 8px rgba(0,0,0,.4);z-index:5";
     } else if(t){ t.remove(); }
   }catch(e){}
+}
+/* (v6.20.0, कन्नड़ क-3) देश और राज्य के कूट ("in", "bihar") की जगह उनके नाम (भारत · बिहार): /assets/geo/ की सूचियों से, ज़रूरत पर ही load।
+   नाम हिंदी में लिखे जाते हैं; भाषा-इंजन उन्हें पैनल की भाषा में दिखाता है। सूची न मिले, तो पहले जैसा कूट ही रहता है। */
+const GEO_WAIT={};
+function geoScript(src, ready, cb){
+  if(ready()) return cb();
+  if(GEO_WAIT[src]){ GEO_WAIT[src].push(cb); return; }
+  GEO_WAIT[src]=[cb];
+  const sc=document.createElement("script"); sc.src=src;
+  sc.onload=sc.onerror=function(){ const L=GEO_WAIT[src]||[]; GEO_WAIT[src]=null; L.forEach(function(f){ try{ f(); }catch(e){} }); };
+  document.head.appendChild(sc);
+}
+function geoNames(cc, st, cb){
+  cc=String(cc||"").toLowerCase(); st=String(st||"");
+  if(!/^[a-z]{2}$/.test(cc)) return;
+  geoScript("/assets/geo/countries.js", function(){ return Array.isArray(window.ACS_GEO_COUNTRIES); }, function(){
+    const C=(window.ACS_GEO_COUNTRIES||[]).find(function(x){ return x.v===cc; }), cn=(C&&C.hi)||"";
+    if(!st) return cb(cn,"");
+    geoScript("/assets/geo/states/"+cc+".js", function(){ return !!((window.ACS_GEO_STATES||{})[cc]); }, function(){
+      const S=((window.ACS_GEO_STATES||{})[cc]||[]).find(function(x){ return x.v===st; }); cb(cn,(S&&S.name)||""); }); });
+}
+function geoPretty(el, cc, st){
+  if(!el || !cc) return;
+  geoNames(cc, st, function(cn, sn){
+    if(!cn && !sn) return;
+    const parts=String(el.textContent||"").split(" · "); let hit=false;
+    for(let i=0;i<parts.length;i++){
+      if(cn && parts[i]===String(cc)){ parts[i]=cn; hit=true; }
+      else if(sn && parts[i]===String(st)){ parts[i]=sn; hit=true; } }
+    if(hit) el.textContent=parts.join(" · "); });
 }
 function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   setTxt("pubName",  name || "—");
@@ -727,12 +768,14 @@ async function guardTeamRender(user, team, desig){
   const homeDist = (team.region && team.region.length ? team.region[0] : (team.district||""));
   const pubArea = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
   fillPubCard(whoName, team.photo_public || team.photoURL || "", mxLabel(desig), pubArea, homeDist, team.state||"");
+  geoPretty($("pubArea"), team.country, team.state); geoPretty($("pubState"), team.country, team.state);
 
   /* ── [T4] प्रोफ़ाइल — teams से ── */
   setTxt("pName", team.name_local || team.name_roman || team.name || team.fullName || "—");
   setTxt("pLevel", (team.level||"—").toUpperCase());
   const area = [team.country, team.state, (team.region&&team.region.join)?team.region.join(", "):team.region].filter(Boolean).join(" · ");
   setTxt("pArea", area || "—");
+  geoPretty($("pArea"), team.country, team.state);
   setTxt("pEmail", team.email || (user.email||"—"));
   setTxt("pPhone", team.phone || team.mobile || "—");
 
@@ -942,13 +985,14 @@ function drawApps(){
       '<div class="r1"><span class="nm" data-i18n-skip>'+esc(a.name_local||a.name_roman||a.name||a.fullName||"—")+'</span>'+
       '<span class="rg">('+esc(a.regNo||a._id)+')</span>'+stChip+
       '<span class="chip lvl">'+esc(lvl)+'</span></div>'+
-      '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 '+esc(area)):'')+(a.email?(' · ✉️ '+esc(a.email)):'')+'</div>'+
+      '<div class="r2">📅 '+fmtDate(a.createdAt)+(area?(' · 📍 <span data-geo="'+esc((a.country||"")+"|"+(a.state||""))+'">'+esc(area)+'</span>'):'')+(a.email?(' · ✉️ '+esc(a.email)):'')+'</div>'+
       '<div class="more"><div class="mrow"><b>Mobile:</b> '+esc(a.phone||a.mobile||"—")+'</div>'+
       '<div class="mrow"><b>दस्तावेज़:</b><br/>'+docLinks+'</div>'+
       rejInfo +
       actHtml + '</div>'+
       '<button class="vbtn">👁️ view</button>';
     el.querySelector(".vbtn").addEventListener("click",()=>{ el.classList.toggle("open"); });
+    el.querySelectorAll("[data-geo]").forEach(function(g){ const cs=String(g.getAttribute("data-geo")||"").split("|"); geoPretty(g, cs[0], cs[1]); });   /* (v6.20.0) कूट की जगह देश और राज्य के नाम */
     box.appendChild(el);
   });
   if(!APP_DONE){
@@ -1270,6 +1314,7 @@ async function guardExternalRender(user, reg){
   setTxt("pLevel", ROLE_LABEL);
   const area = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):reg.rm_districts].filter(Boolean).join(" · ");
   setTxt("pArea", area || "—");
+  geoPretty($("pArea"), reg.country, reg.state);
   setTxt("pEmail", reg.email || (user.email||"—"));
   setTxt("pPhone", reg.phone || reg.mobile || "—");
   $("tbWho").innerHTML = "👤 " + US(whoName) + " · " + esc(reg.regNo||ROLE_LABEL);
@@ -1281,6 +1326,7 @@ async function guardExternalRender(user, reg){
     : (ffD.desired_district || reg.desired_district || reg.district || ffD.district || ffD.pincode_address || ""));
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
   fillPubCard(whoName, reg.photo_public || regDocPhoto(reg), ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
+  geoPretty($("pubArea"), reg.country, reg.state); geoPretty($("pubState"), reg.country, reg.state);
 
   /* दस्तावेज़-chips */
   const docs = reg.documents || reg.docs || {};
@@ -2569,7 +2615,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     /* प्रमाणीकरण-वाक्य: उस भाषा का साँचा ({course}, {date}, {pct}); फिर वही वाक्य English में */
     const navy="700 26px "+FF, navyB="800 28px "+FF, crs=certCourseEn(c), pct=(c.pct!=null?c.pct:"—")+"%";
     const segs=[]; docFill(S.C.cert_sentence,{date:certDayOwn(S,c.examOn)}).split(/(\{course\}|\{pct\})/).forEach(function(t){
-      if(t==="{course}") segs.push({text:crs, font:navyB, color:"#1565C0"});
+      if(t==="{course}") segs.push({text:nameOwn(crs), font:navyB, color:"#1565C0"});   /* (v6.20.0) कोर्स का नाम उस भाषा में (नीचे की English पंक्ति में English नाम) */
       else if(t==="{pct}") segs.push({text:pct, font:navyB, color:"#2E7D32"});
       else if(t.trim()) segs.push({text:t.trim(), font:navy, color:"#0B1F3A"}); });
     const nOwn=wrapRichCentered(x, segs, CX, y, W-260, 44);
@@ -3994,7 +4040,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
           ss.onchange=function(){
             var e=EN_ALL.find(function(z){return z._id===ss.value;}); if(!e) return;
             $("idName").value=rb(e.studentName); $("idNo").value=e.studentRegNo;
-            $("idRole").value=((docEn()&&courseEn(e.courseId,e.courseName))||rb(e.courseName)).slice(0,26); };   /* (v6.14.0) English पैनल में कोर्स का English नाम */
+            $("idRole").value=((docEn()&&nameOwn(courseEn(e.courseId,e.courseName)))||rb(e.courseName)).slice(0,26); };   /* (v6.14.0) English पैनल में कोर्स का English नाम */
         }
       } else w.style.display="none";
     };

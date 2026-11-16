@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.16 (16-Nov-2026; v1.16 कन्नड़ क-2क-2: अपनी भाषा + English वाला प्रमाणपत्र certTextOwn और काग़ज़ों के साँचे; v1.15 पैनल-4: English प्रमाणपत्र certTextEn पर भी validity और परीक्षा-तिथि के नियम) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
+/* generator/dev_cert_guard.js : v1.17 (16-Nov-2026; v1.17 कन्नड़ क-3: प्रमाणपत्र पर कोर्स का नाम पैनल की भाषा में (नाम-तालिका); v1.16 कन्नड़ क-2क-2: अपनी भाषा + English वाला प्रमाणपत्र certTextOwn और काग़ज़ों के साँचे; v1.15 पैनल-4: English प्रमाणपत्र certTextEn पर भी validity और परीक्षा-तिथि के नियम) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
    v1.14 (पैनल-2): dashboard का English अब assets/i18n/panel_en.js में (पुरानी dash_i18n_en.js हटी); वही वाक्य वहीं जाँचे जाते हैं।
    v1.13 (पैनल-1): रजिस्ट्रेशन का संस्करण अब एक ही जगह (expectedRulesVer) से; नियम-परदा सहमति के साथ भाषा भी भेजता है।
    जाँच का अर्थ वही: विद्यार्थी 1.2, बाक़ी 1.1; सहमति में server को संस्करण जाता है।ें
@@ -221,6 +221,19 @@ console.log("3-च. अपनी भाषा + English वाला प्र�
      /if \(rn\) \{ ownSync\(\); document\.addEventListener\("acs-panel-lang", ownSync\); \}/.test(d) &&
      /const w = window\.open\("", "_blank"\), o2 = ownLine\(\);/.test(d) && /esc\(o2 \? \(d\.reportText \|\| ""\) \+ "\\n" \+ o2 : \(docEn\(\) \? fullEn : full\)\)/.test(d),
      "करियर रिपोर्ट की जाँच-पंक्ति पैनल की अपनी भाषा में: पन्ने पर और WhatsApp के संदेश में (ownSync: पहली बार और हर भाषा-बदलाव पर), और छपाई में; साँचे न हों, तो पहले जैसा");
+})();
+console.log("3-छ. प्रमाणपत्र पर कोर्स का नाम पैनल की भाषा में (कन्नड़ क-3; Founder: \"कन्नड मे सब कुछ कन्नड मे ही हो\")");
+(function () {
+  var strip = function (t) { return t.replace(/\/\*[\s\S]*?\*\//g, ""); };
+  var a = d.indexOf("  async function certTextOwn("), b = d.indexOf("\n  }\n", a), body = a > 0 ? strip(d.slice(a, b)) : "";
+  ok(/if\(t==="\{course\}"\) segs\.push\(\{text:nameOwn\(crs\), font:navyB/.test(body), "अपनी भाषा के वाक्य में कोर्स का नाम नाम-तालिका से (nameOwn)");
+  ok(/\{text:"has passed the online examination for", font:eng, color:"#4a5a70"\},\s*\{text:crs, font:engB/.test(body), "नीचे की English पंक्ति में कोर्स का English नाम ही (crs)");
+  ok(/function nameOwn\(en\)\{ try\{ const P=window\.ACS_PANEL_I18N; if\(en && P && P\.active && typeof P\.name==="function"\)\{ const t=P\.name\(String\(en\)\); if\(t && !\/\[\\u0900-\\u097F\]\/\.test\(t\)\) return t; \} \}catch\(e\)\{\} return en; \}/.test(d), "nameOwn: तालिका में नाम न हो, इंजन पुराना हो या नाम में देवनागरी निकले, तो वही English नाम (प्रमाणपत्र कभी ख़ाली या हिंदी नाम से नहीं)");
+  var e = rd("assets/panel_i18n.js");
+  ok(/function nameOwn\(en\)\{ var r; en=String\(en\); if\(!ACTIVE\|\|CUR==="en"\|\|!NM\|\|!en\) return en; r=nameFind\(en,0\); return r===null\?en:r; \}/.test(e), "इंजन: English पैनल और हिंदी में नाम वैसा ही; तालिका में न मिले तो English नाम");
+  ok(/if\(\/\[A-Za-z\]\/\.test\(part\)\)\{ part=nameFind\(part, depth\+1\); if\(part===null\)\{ ok=false; break; \} \}/.test(e), "इंजन: साँचे का कोई हिस्सा तालिका में न हो, तो पूरा नाम English में (आधा अनुवाद नहीं)");
+  var bp = rd("generator/build_panel_i18n.js");
+  ok(/cert_issued:\s+\[\["issued","valid"\], "", true\]/.test(bp), "पैक बनाने वाला: \"जारी\" वाले साँचे में रोमन \"online\" ज़रूरी नहीं (कन्नड़ लिपि में लिखा जा सकता है)");
 })();
 var mm = rd("sw.js").match(/CACHE_VERSION\s*=\s*['"]v(\d+)['"]/);
 ok(mm && Number(mm[1]) >= 853, "service worker v853 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));

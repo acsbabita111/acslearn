@@ -1,5 +1,11 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.7 · 16-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख, कन्नड़ क-1)
+   panel_i18n.js v1.8 · 16-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख, कन्नड़ क-1, कन्नड़ क-3)
+   • (v1.8, कन्नड़ क-3) data के नाम उस भाषा में: पैक की नाम-तालिका "N" (English नाम → उस भाषा का नाम) और साँचे "NT"
+     (जैसे "Certificate in Spoken {भाषा}")। data-tr-en वाला नाम तालिका में मिले, तो वही दिखता है; न मिले, तो पहले जैसा English।
+     नया रास्ता: ACS_PANEL_I18N.name(English नाम) (प्रमाणपत्र जैसे काग़ज़ों के लिए)। English और हिंदी में कुछ नहीं बदला।
+     पाठ में बचे English शब्द: पैक की शब्द-तालिका "L" (English शब्द → उस भाषा का रूप; "LK", "LP" = जो Latin में रहते हैं)। पैक का पूरा वाक्य
+     जैसा है वैसा रहता है; तालिका सिर्फ़ जोड़कर बने पाठ पर और पन्ने के अपने Latin शब्दों पर चलती है। जिस Latin पाठ में कोई अनजान शब्द
+     भी हो (किसी का भरा नाम, संस्था का नाम), वह अक्षर-अक्षर वैसा ही रहता है।
    • (v1.6) तीसरी भाषा: कन्नड़ (kn)। (1) data का नाम (कोर्स, भाषा, उद्यम): पहले उसी भाषा का (data-tr-<भाषा>); वह न हो तो English
      (data-tr-en), ताकि English के अलावा किसी भाषा में भी देवनागरी न बचे। (2) पैक में "draft" हो (AI-मसौदा, जाँच बाक़ी), तो वह सूचना
      भाषा-पट्टी के ठीक नीचे उसी भाषा में दिखती है। हिंदी और English का व्यवहार वही।
@@ -42,7 +48,7 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.7";
+var VER="1.8";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
    (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
@@ -128,12 +134,64 @@ function tplSwap(c, depth){
   }
   return null;
 }
-function tr(t){
+/* (v1.8, कन्नड़ क-3; Founder: "कन्नड मे सब कुछ कन्नड मे ही हो") पाठ में बचे English शब्द उस भाषा की लिपि में।
+   पैक के खाने: L = { english शब्द या वाक्यांश (छोटे अक्षरों में): उस भाषा का रूप }, LK = जो Latin में ही रहते हैं (brand, छोटे रूप), LP = पूरे नाम जो Latin में रहते हैं, LS = उस भाषा की लिपि।
+   नहीं छुआ जाता: पते, email, फ़ाइलों के नाम, ACS-नंबर, {खाने}, और "(English)" वाला कोष्ठक जो उस भाषा के शब्द के ठीक बाद हो।
+   strict = पूरा पाठ Latin का है (हिंदी से अनुवाद होकर नहीं आया): तब बदलाव तभी, जब बदलने के बाद कोई और English शब्द न बचे
+   (बचे, तो वह किसी का नाम या data है: वैसा ही रहता है)। */
+var LX=null, LXRE=null, LKEEP={}, OWNRE=null, LPHR=[];
+function compileL(L, K, S, P){
+  LX=null; LXRE=null; LKEEP={}; OWNRE=null; LPHR=P||[]; if(!L||!S) return;
+  var ks=Object.keys(L).sort(function(a,b){ return b.length-a.length; }), parts=[], i;
+  if(!ks.length) return;
+  for(i=0;i<ks.length;i++) parts.push(ks[i].replace(/[.*+?^${}()|[\]\\\/]/g,"\\$&").replace(/ /g,"[ -]"));
+  try{ OWNRE=new RegExp("["+S+"]"); LXRE=new RegExp("(^|[^A-Za-z0-9_@])("+parts.join("|")+")(?![A-Za-z0-9_@])","gi"); }catch(e){ LXRE=null; return; }
+  LX=L; for(i=0;i<(K||[]).length;i++) LKEEP[K[i]]=1;
+}
+function lshield(t){
+  var out=[], m, k, re;
+  function add(r){ r.lastIndex=0; while((m=r.exec(t))){ if(!m[0].length){ r.lastIndex++; continue; } out.push([m.index,m.index+m[0].length]); } }
+  for(k=0;k<LPHR.length;k++){ var q=-1; while((q=t.indexOf(LPHR[k],q+1))>=0) out.push([q,q+LPHR[k].length]); }   /* पूरे नाम जो Latin में ही रहते हैं (Applied Computer School) */
+  add(/\{[^{}]*\}/g); add(/https?:\/\/[^\s<>"')]+/g); add(/[\w.+-]+@[\w-]+(\.[\w-]+)+/g);
+  add(/(?:[\w-]+\/)*[\w-]+(\.[\w-]+)*\.(com|org|in|html|js|json|pdf|png|jpg)(?![A-Za-z])(\/[^\s<>"',;)]*)?/gi);
+  add(/ACS-[A-Z]{0,3}-?\d{4}-[\dX\u2026.]*/g); add(/\d[\dA-Za-z]*[A-Za-z]/g); add(/\bv\d+(\.\d+)*\b/g); add(/[A-Za-z]+_[A-Za-z_]+/g);
+  re=/\(([^()]*)\)/g;
+  while((m=re.exec(t))){ if(!/[A-Za-z]/.test(m[1])||OWNRE.test(m[1])) continue;
+    k=m.index-1; while(k>=0&&/[\s\u200c\u200d]/.test(t.charAt(k))) k--;
+    if(k>=0&&OWNRE.test(t.charAt(k))) out.push([m.index,m.index+m[0].length]); }
+  return out;
+}
+function inSh(sh, a, b){ for(var i=0;i<sh.length;i++) if(a<sh[i][1]&&b>sh[i][0]) return true; return false; }
+function latinFix(t, strict){
+  if(!LXRE||!/[A-Za-z]{2}/.test(t)) return t;
+  var sh=lshield(t), out="", pos=0, hit=false, m, a, b, k, w, x, sh2;
+  LXRE.lastIndex=0;
+  while((m=LXRE.exec(t))){ a=m.index+m[1].length; b=a+m[2].length;
+    if(inSh(sh,a,b)) continue;
+    k=m[2].toLowerCase().replace(/-/g," "); if(!Object.prototype.hasOwnProperty.call(LX,k)) continue;
+    out+=t.slice(pos,a)+LX[k]; pos=b; hit=true; }
+  if(!hit) return t;
+  out+=t.slice(pos);
+  if(strict){ sh2=lshield(out); w=/[A-Za-z][A-Za-z0-9]*/g;
+    while((x=w.exec(out))){ if(x[0].length<2||inSh(sh2,x.index,x.index+x[0].length)||LKEEP[x[0]]===1||/[a-z][A-Z]/.test(x[0])) continue; return t; } }
+  return out;
+}
+/* पूरा पाठ Latin का: पहले नाम-तालिका में ठीक वही नाम (देश, उदाहरण); नहीं, तो शब्द-तालिका (strict) */
+function latinOwn(v){
+  var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(v);
+  if(NM&&m&&m[2]&&Object.prototype.hasOwnProperty.call(NM,m[2])) return m[1]+NM[m[2]]+m[3];
+  return latinFix(v,true);
+}
+/* पैक में पूरा वाक्य जैसा है वैसा मिले, तो वही (पैक बनाते समय जाँचा हुआ; प्रमाणपत्र की दो भाषा वाली पंक्तियाँ भी ऐसे ही रहती हैं);
+   शब्द-तालिका सिर्फ़ उस पाठ पर, जो टुकड़े जोड़कर बना */
+function tr(t){ var r; if(D&&DEVC.test(t)&&D.hasOwnProperty(t)) return D[t]; EXACT=false; r=tr0(t); return (LXRE&&r!==t&&!EXACT)?latinFix(r,false):r; }
+var EXACT=false;
+function tr0(t){
   if(!D||!DEVC.test(t)) return t;
   if(D.hasOwnProperty(t)) return D[t];
   /* HTML में कई space/नई पंक्ति एक ही दिखती हैं, इसलिए मिलान भी वैसे ही */
   var c=t.replace(/\s+/g," "), m=c.match(/^( ?)([\s\S]*?)( ?)$/), r;
-  if(m&&D.hasOwnProperty(m[2])) return m[1]+D[m[2]]+m[3];
+  if(m&&D.hasOwnProperty(m[2])){ EXACT=true; return m[1]+D[m[2]]+m[3]; }
   if(TPL.length){ r=tplSwap(c, 0); if(r!==null) return r; }
   return fragSwap(c);
 }
@@ -148,14 +206,37 @@ function skipped(el){
   }
   return false;
 }
+/* (v1.8) नाम-तालिका: N = { English नाम: उस भाषा का नाम }, NT = [[English साँचा (regex), उस भाषा का साँचा ({1}, {2})]]।
+   साँचे का जो हिस्सा Latin अक्षरों का है, वह भी तालिका में मिलना चाहिए; न मिले, तो पूरा नाम English में ही रहता है (आधा-आधा नहीं)। */
+var NM=null, NT=[];
+function compileN(a){ var out=[], i; if(!a) return out;
+  for(i=0;i<a.length;i++){ try{ out.push({ re:new RegExp(a[i][0]), own:String(a[i][1]) }); }catch(e){} }
+  return out; }
+function nameFind(en, depth){
+  var i,k,m,o,part,ok;
+  if(!NM) return null;
+  if(Object.prototype.hasOwnProperty.call(NM,en)) return NM[en];
+  if(depth>3) return null;
+  for(i=0;i<NT.length;i++){ m=NT[i].re.exec(en); if(!m) continue;
+    o=NT[i].own; ok=true;
+    for(k=1;k<m.length;k++){ part=m[k];
+      if(/[A-Za-z]/.test(part)){ part=nameFind(part, depth+1); if(part===null){ ok=false; break; } }
+      o=o.split("{"+k+"}").join(part); }
+    if(ok) return o; }
+  return null;
+}
+function nameOwn(en){ var r; en=String(en); if(!ACTIVE||CUR==="en"||!NM||!en) return en; r=nameFind(en,0); return r===null?en:r; }
 function doText(n){
   var v=n.nodeValue, p=n.parentNode, alt;
   /* (v1.2) data का English: पाठ का अकेला पिता data-tr-<भाषा> रखे, तो वही (खाली हो तो कुछ नहीं दिखता) */
   /* (v1.6) उस भाषा का नाम data में न हो, तो English नाम (data-tr-en): किसी भी भाषा में देवनागरी न बचे */
   var ta=(p&&p.nodeType===1&&p.childNodes.length===1)?(p.hasAttribute("data-tr-"+CUR)?"data-tr-"+CUR:(p.hasAttribute("data-tr-en")?"data-tr-en":"")):"";
   if(ta){
-    alt=p.getAttribute(ta); if(alt===v) return;
+    alt=p.getAttribute(ta); if(ta==="data-tr-en"&&NM&&alt) alt=nameOwn(alt); if(alt===v) return;
     if(ORIG) ORIG.set(n,{o:v,t:alt}); n.nodeValue=alt; return; }
+  if(v&&(LXRE||NM)&&!DEVC.test(v)){   /* (v1.8) पूरा पाठ Latin का: सिर्फ़ तब, जब वह पन्ने का अपना शब्द हो (किसी का नाम या data नहीं) */
+    if(p&&p.nodeType===1&&p.hasAttribute("data-i18n-user")) return;
+    alt=latinOwn(v); if(alt!==v){ if(ORIG) ORIG.set(n,{o:v,t:alt}); n.nodeValue=alt; } return; }
   if(!v||!DEVC.test(v)) return;
   /* (v1.5) उपयोगकर्ता का लिखा हिस्सा (data-i18n-user) जैसा है वैसा; उसके आगे-पीछे का पाठ बदलता है */
   var uv=(p&&p.nodeType===1)?p.getAttribute("data-i18n-user"):null, nv, parts, pi;
@@ -173,7 +254,7 @@ function doAttrs(root){
     /* (v1.2) textarea का भीतर का पाठ उपयोगकर्ता का है, पर उसका placeholder/title बदलते हैं */
     if(el.tagName==="TEXTAREA"?(skipped(el.parentNode)||el.hasAttribute("data-i18n-skip")||el.getAttribute("translate")==="no"):skipped(el)) continue;
     for(i=0;i<ATTRS.length;i++){ a=ATTRS[i]; v=el.getAttribute(a);
-      if(v&&DEVC.test(v)){ nv=tr(v); if(nv!==v){
+      if(v&&(DEVC.test(v)||LXRE||NM)){ nv=DEVC.test(v)?tr(v):latinOwn(v); if(nv!==v){
         if(AORIG){ rec=AORIG.get(el)||{}; rec[a]={o:v,t:nv}; AORIG.set(el,rec); }
         el.setAttribute(a,nv); } } }
     if(el.tagName==="INPUT"&&/^(button|submit)$/i.test(el.type||"")&&DEVC.test(el.value||"")){
@@ -346,13 +427,14 @@ function load(c, cb){
   (document.head||document.documentElement).appendChild(s);
 }
 function useLang(c, cb){
-  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[]; DRAFT=""; OWN={};
+  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[]; DRAFT=""; OWN={}; NM=null; NT=[]; compileL(null);
     try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); emit(); if(cb) cb(true); return; }
   load(c, function(pk){
     if(!pk){ unwait(); bar(); if(cb) cb(false); return; }
     if(ACTIVE&&CUR!==c){ ACTIVE=false; restore(); }
     CUR=c; D=pk.D; DRAFT=pk.draft||""; OWN=pk.P||{}; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
     GEO={}; var g=pk.G||[], gi; for(gi=0;gi<g.length;gi++) GEO[g[gi]]=1;
+    NM=pk.N||null; NT=compileN(pk.NT); compileL(pk.L, pk.LK, pk.LS, pk.LP);
     function go(){ activate(); unwait(); emit(); if(cb) cb(true); }
     if(document.body&&document.readyState!=="loading") go(); else document.addEventListener("DOMContentLoaded",go);
   });
@@ -376,5 +458,5 @@ function boot(){ bar(); if(START!=="hi") useLang(START); }
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
 
 window.ACS_PANEL_I18N={ version:VER, lang:function(){ return CUR; }, langs:LANGS, has:known, set:set, tr:function(t){ return tr(String(t)); },
-  walk:walk, src:src, own:function(h){ return ACTIVE?ownHref(String(h)):String(h); }, get active(){ return ACTIVE; } };
+  walk:walk, src:src, own:function(h){ return ACTIVE?ownHref(String(h)):String(h); }, name:function(en){ return nameOwn(en); }, get active(){ return ACTIVE; } };
 })();
