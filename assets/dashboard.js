@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.19.0 · 16-Nov-2026 (कन्नड़ क-2क-2; Founder का फ़ैसला 16-Nov-2026: "कन्नड़ उपयोगकर्ता का प्रमाणपत्र कन्नड़ + English में"):
+     जिस भाषा के पैक में काग़ज़ों के साँचे हैं (पैक का "C" खाना), उसके पैनल में प्रमाणपत्र उसी भाषा + English में बनता है (certTextOwn);
+     करियर रिपोर्ट के जाँच-नंबर वाली पंक्ति (पन्ने पर, छपाई में और WhatsApp के संदेश में) उसी भाषा में। पैक में "C" न हो, या प्रमाणपत्र का
+     कोई वाक्य उस भाषा में न मिले, तो पहले जैसा: सिर्फ़ English। हिंदी और English पैनल में कुछ नहीं बदला।
    v6.18.1 · 16-Nov-2026 (कन्नड़ क-1 v1.1; Founder का फ़ैसला 16-Nov-2026): जिस भाषा के अपने काग़ज़ अभी नहीं बने, उसके पैनल में काग़ज़
      (प्रमाणपत्र, रिपोर्ट की छपाई) English में, हिंदी में नहीं: docEn() अब हर ग़ैर-हिंदी पैनल में हाँ कहता है।
      Founder का दूसरा आदेश (16-Nov-2026): जो उस भाषा में बन सकता है, वह उसी भाषा में: परिचय-पत्र के पक्के वाक्य (DT) और WhatsApp के
@@ -134,7 +138,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.18.1";
+const DASH_VER = "v6.19.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -218,6 +222,18 @@ function bracketEn(t){ const m=/\[([^\]]+)\]\s*$/.exec(String(t||"")); return m 
    इसलिए भाषा-इंजन इन्हें नहीं बदल सकता। Founder का फ़ैसला (15-Nov-2026): पैनल English हो, तो ये काग़ज़ सिर्फ़ English में।
    docEn = अभी पैनल English में, या किसी ऐसी भाषा में चल रहा है जिसके अपने काग़ज़ अभी नहीं बने (पैक आ चुका है); पैक न आए तो पन्ना हिंदी में रहता है, काग़ज़ भी हिंदी में। */
 function docEn(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()!=="hi"); }catch(e){ return false; } }   /* (v6.18.1, Founder का फ़ैसला 16-Nov-2026) हर ग़ैर-हिंदी पैनल में काग़ज़ English में, जब तक उस भाषा के अपने काग़ज़ न बनें */
+/* (v6.19.0, कन्नड़ क-2क-2) उस भाषा के अपने काग़ज़। पैक के "C" खाने में काग़ज़ों के साँचे हैं (generator/data/panel_i18n/<भाषा>.json का "docs";
+   कुंजियाँ और उनके {खाने} generator/build_panel_i18n.js जाँचता है)। docOwn = वह खाना, अगर पैनल हिंदी और English के अलावा किसी भाषा में है
+   और खाना पूरा है; वरना null (तब काग़ज़ पहले जैसे English में)। docFill = साँचे के {खाने} भरना। docTr = पैक से उस भाषा का पक्का वाक्य ("" = नहीं मिला)। */
+const DOC_KEYS=["cert_sentence","cert_date","cert_issued","cert_details","report_valid","report_expired"];
+function docOwn(){
+  try{ const P=window.ACS_PANEL_I18N; if(!(P && P.active)) return null; const L=P.lang(); if(L==="hi"||L==="en") return null;
+    const pk=(window.ACS_PANEL_PACKS||{})[L], C=pk&&pk.C; if(!C) return null;
+    for(const k of DOC_KEYS) if(typeof C[k]!=="string" || !C[k].trim() || /[\u0900-\u097F]/.test(C[k])) return null;
+    return C; }catch(e){ return null; }
+}
+function docFill(t, o){ return String(t).replace(/\{([a-z]+)\}/g, function(m,k){ return Object.prototype.hasOwnProperty.call(o,k) ? String(o[k]) : m; }); }
+function docTr(hi){ try{ const t=window.ACS_PANEL_I18N.tr(hi); return (t && t!==hi && !/[\u0900-\u097F]/.test(t)) ? t : ""; }catch(e){ return ""; } }
 /* (v6.18.0, कन्नड़ क-1) पैनल हिंदी के अलावा किसी भी भाषा में चल रहा है। data के नाम (कोर्स) तब English में दिखते हैं (data-tr-en),
    जब तक उस भाषा का अपना नाम data में न हो। काग़ज़ (प्रमाणपत्र, परिचय-पत्र, संदेश) की भाषा इससे नहीं, docEn से तय होती है। */
 function panelOther(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()!=="hi"); }catch(e){ return false; } }
@@ -2463,6 +2479,194 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     x.font="700 16px "+FF; x.fillStyle="#4a5a70";
     x.fillText("Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201",CX,y);
   }
+  /* ── (v6.19.0, कन्नड़ क-2क-2; Founder का फ़ैसला 16-Nov-2026) अपनी भाषा + English वाला प्रमाणपत्र ──
+     ढाँचा हिंदी + English वाले रूप जैसा: ऊपर उस भाषा की पंक्ति, नीचे छोटी English पंक्ति। फ़र्क़:
+     • brand का नाम रोमन में ही (हर भाषा का नियम); ट्रस्ट का नाम उस भाषा में + English में।
+     • हर पक्का वाक्य पैक से (docTr); वाक्य के साँचे पैक के "C" खाने से (उस भाषा का अपना शब्द-क्रम)। एक भी वाक्य न मिले, तो certOwn null देता है
+       और प्रमाणपत्र पहले जैसा सिर्फ़ English में बनता है: देवनागरी कभी नहीं छपती।
+     • नाम जैसा विद्यार्थी ने लिखा (अपनी लिपि या रोमन); देवनागरी में लिखा हो, तो रोमन रूप। नीचे की English पंक्ति ("Name:") तभी, जब ऊपर का नाम
+       रोमन में न हो और रोमन नाम मालूम हो (वही नाम दो बार नहीं छपता)।
+     • कोर्स का नाम English में (कोर्सों के नाम अभी उस भाषा में नहीं हैं)।
+     • लंबा कोर्स-नाम या 2 पंक्तियों का नाम हो, तो बीच की ख़ाली जगहें अपने-आप घटती हैं (पहले नापकर), ताकि नीचे का पता भीतर की रेखा से बाहर न जाए। */
+  function certOwn(){
+    const C=docOwn(); if(!C) return null;
+    const S={ C:C, brand:docTr("अप्लाइड कंप्यूटर स्कूल™")||"Applied Computer School™", trust:docTr("फ़्रीडम फ़ाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट"),
+      title:docTr("ऑनलाइन कोर्स-पूर्णता प्रमाणपत्र"), certify:docTr("प्रमाणित किया जाता है कि"), name:docTr("नाम :"),
+      wish:docTr("हम इनके उज्ज्वल भविष्य की कामना करते हैं।"), certno:docTr("प्रमाणपत्र नं / Certificate No"), scan:docTr("स्कैन कर सत्यापित करें"),
+      sign:docTr("प्राधिकृत हस्ताक्षर"), trustee:docTr("प्रधान ट्रस्टी, FFGPMT"), slogan:docTr("130 भाषा में, गाँव से ग्लोबल साउथ तक!"),
+      office:docTr("मुख्यालय / Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201"),
+      rel:{ father:docTr(CERT_REL_HI.father), mother:docTr(CERT_REL_HI.mother), guardian:docTr(CERT_REL_HI.guardian) },
+      months:CERT_MHI.map(docTr) };
+    for(const k of ["trust","title","certify","name","wish","certno","scan","sign","trustee","slogan","office"]) if(!S[k]) return null;
+    if(!S.rel.father || !S.rel.mother || !S.rel.guardian || S.months.some(function(m){ return !m; })) return null;
+    const f=String(C.font||"").replace(/[^A-Za-z0-9 ]/g,"");
+    S.ff=(f ? "'Noto Sans Devanagari','"+f+"',sans-serif" : "'Noto Sans Devanagari',sans-serif");   /* रोमन अक्षर वही font जो बाक़ी प्रमाणपत्रों में; उस भाषा के अक्षर उसके अपने font से */
+    S.font=f; S.gfam=/^[A-Za-z0-9+]+$/.test(String(C.gfam||"")) ? String(C.gfam) : "";
+    return S;
+  }
+  function certDayOwn(S, s){ const p=String(s||"").split("-"); return p.length===3 ? docFill(S.C.cert_date,{d:Number(p[2]), month:S.months[Number(p[1])-1]||"", y:p[0]}) : "—"; }
+  /* उस भाषा का font (Google Fonts से, एक बार)। न खुले, तो फ़ोन का अपना font काम करता है: प्रमाणपत्र कभी नहीं रुकता। */
+  let CERT_OWN_FONT="";
+  async function certFontOwn(S){
+    if(!S.font || !S.gfam || !(document.fonts && document.fonts.load)) return;
+    try{
+      if(CERT_OWN_FONT!==S.font){ CERT_OWN_FONT=S.font;
+        const l=document.createElement("link"); l.rel="stylesheet"; l.href="https://fonts.googleapis.com/css2?family="+S.gfam+":wght@700;800&display=swap"; document.head.appendChild(l);
+        await new Promise(function(res){ l.onload=res; l.onerror=res; setTimeout(res,2500); }); }
+      const t=S.title+" "+S.slogan;
+      await Promise.race([Promise.all([document.fonts.load("700 24px '"+S.font+"'", t), document.fonts.load("800 40px '"+S.font+"'", t)]), new Promise(function(res){ setTimeout(res,2500); })]);
+    }catch(e){}
+  }
+  function certNameOwn(nm){ nm=String(nm||"").trim(); return /[ऀ-ॿ]/.test(nm) ? certNameEn(nm) : nm; }
+  /* एक पंक्ति, जो सुरक्षित चौड़ाई से बाहर न जाए: अक्षर छोटे होते हैं (min तक) */
+  function certFitLine(x, text, weight, px, min, FF, maxW){ let p=px; x.font=weight+" "+p+"px "+FF; while(p>min && x.measureText(text).width>maxW){ p-=1; x.font=weight+" "+p+"px "+FF; } return p; }
+  /* k = बीच की ख़ाली जगहों का गुणक (1 = पूरा)। dry = सिर्फ़ नापना (अलग canvas पर; QR नहीं बनता)। लौटाता है {y: पते की पंक्ति, gaps: घटने लायक़ जगहों का जोड़} */
+  async function certTextOwn(x, c, W, S, k, dry){
+    const CX=W/2, FF=S.ff, SAFE=W-240; let gaps=0;
+    const G=function(n){ gaps+=n; return Math.round(n*k); };
+    x.textAlign="center";
+    /* संस्था के नाम: brand रोमन में; ट्रस्ट उस भाषा में, नीचे English में */
+    let y=120;
+    x.font="800 48px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText(S.brand,CX,y); y+=44;
+    x.font="800 28px "+FF; x.fillStyle="#1565C0";
+    x.fillText("&",CX,y); y+=38;
+    x.fillStyle="#0B1F3A"; certFitLine(x, S.trust, "700", 27, 18, FF, W-420);
+    x.fillText(S.trust,CX,y); y+=32;
+    x.font="700 19px "+FF; x.fillStyle="#5a6b80";
+    x.fillText("Freedom Fighter Gangadhar Prasad Memorial Trust (FFGPMTrust)",CX,y); y+=32;
+    x.strokeStyle="#F9A825"; x.lineWidth=4;
+    x.beginPath(); x.moveTo(CX-240,y); x.lineTo(CX+240,y); x.stroke(); y+=34+G(34);
+
+    /* शीर्षक */
+    x.fillStyle="#1565C0"; certFitLine(x, S.title, "800", 46, 30, FF, SAFE);
+    x.fillText(S.title,CX,y); y+=50;
+    x.font="700 24px "+FF; x.fillStyle="#1565C0";
+    x.fillText("Online Course Completion Certificate",CX,y); y+=40+G(40);
+
+    x.font="700 24px "+FF; x.fillStyle="#0B1F3A";
+    x.fillText(S.certify,CX,y); y+=44+G(22);
+
+    /* नाम: मुख्य-फ़ोकस */
+    const gd=c.guardian||null, nmOwn=certNameOwn(c.name)||"—", rn=certNameEn(c.name);
+    const twoNames=/[^\x00-\x7F]/.test(nmOwn) && !!rn && !/[^\x00-\x7F]/.test(rn);   /* ऊपर का नाम अपनी लिपि में है और रोमन नाम मालूम है: तभी नीचे English पंक्तियाँ */
+    const f1=fitRich(x, [{text:S.name, font:"700 26px "+FF, color:"#0B1F3A"},{text:nmOwn, font:"", color:"#2E7D32"}], 1, function(p){ return "800 "+p+"px "+FF; }, 56, 32, 22, CX, y, SAFE, 58);
+    y+=(f1.n-1)*58+12;
+    const uw=Math.max(240, Math.min(SAFE/2, f1.w/2+24));
+    x.strokeStyle="#2E7D32"; x.lineWidth=3;
+    x.beginPath(); x.moveTo(CX-uw,y); x.lineTo(CX+uw,y); x.stroke(); y+=42;
+    if(gd && S.rel[gd.rel]){
+      const f2=fitRich(x, [{text:S.rel[gd.rel], font:"800 24px "+FF, color:"#0B1F3A"},{text:certGuardEn(gd.name)||"-", font:"", color:"#0B1F3A"}], 1, function(p){ return "800 "+p+"px "+FF; }, 24, 17, 14, CX, y, SAFE, 30);
+      y+=(f2.n-1)*30+32; }
+    if(twoNames){
+      const f3=fitRich(x, [{text:"Name:", font:"italic 700 17px "+FF, color:"#4a5a70"},{text:rn, font:"", color:"#2E7D32"}], 1, function(p){ return "italic 800 "+p+"px "+FF; }, 22, 15, 12, CX, y, SAFE, 26);
+      y+=(f3.n-1)*26+26;
+      if(gd && CERT_REL_EN[gd.rel]){
+        const f4=fitRich(x, [{text:CERT_REL_EN[gd.rel], font:"italic 700 17px "+FF, color:"#4a5a70"},{text:certGuardEn(gd.name)||"-", font:"", color:"#4a5a70"}], 1, function(p){ return "italic 700 "+p+"px "+FF; }, 17, 13, 11, CX, y, SAFE, 22);
+        y+=(f4.n-1)*22+22; } }
+    y+=14+G(30);
+
+    /* प्रमाणीकरण-वाक्य: उस भाषा का साँचा ({course}, {date}, {pct}); फिर वही वाक्य English में */
+    const navy="700 26px "+FF, navyB="800 28px "+FF, crs=certCourseEn(c), pct=(c.pct!=null?c.pct:"—")+"%";
+    const segs=[]; docFill(S.C.cert_sentence,{date:certDayOwn(S,c.examOn)}).split(/(\{course\}|\{pct\})/).forEach(function(t){
+      if(t==="{course}") segs.push({text:crs, font:navyB, color:"#1565C0"});
+      else if(t==="{pct}") segs.push({text:pct, font:navyB, color:"#2E7D32"});
+      else if(t.trim()) segs.push({text:t.trim(), font:navy, color:"#0B1F3A"}); });
+    const nOwn=wrapRichCentered(x, segs, CX, y, W-260, 44);
+    y+=(nOwn-1)*44+46;
+    const eng="italic 700 18px "+FF, engB="italic 800 19px "+FF;
+    const nEn=wrapRichCentered(x, [
+      {text:"has passed the online examination for", font:eng, color:"#4a5a70"},
+      {text:crs, font:engB, color:"#1565C0"},
+      {text:"held on "+certDayEn(c.examOn)+", with", font:eng, color:"#4a5a70"},
+      {text:pct, font:engB, color:"#2E7D32"},
+      {text:"marks.", font:eng, color:"#4a5a70"},
+    ], CX, y, W-260, 29);
+    y+=(nEn-1)*29+26+G(24);
+
+    x.fillStyle="#0B1F3A"; certFitLine(x, S.wish, "700", 24, 17, FF, SAFE);
+    x.fillText(S.wish,CX,y); y+=36;
+    x.font="italic 700 16px "+FF; x.fillStyle="#6b7a90";
+    x.fillText("We wish him/her a bright future.",CX,y); y+=44+G(44);
+
+    /* प्रमाणपत्र-नंबर */
+    x.fillStyle="#0B1F3A"; x.font="800 32px monospace";
+    x.fillText(c.certNo,CX,y); y+=34;
+    x.fillStyle="#4a5a70"; certFitLine(x, S.certno, "700", 19, 14, FF, SAFE);
+    x.fillText(S.certno,CX,y); y+=44+G(50);
+
+    /* QR बायीं तरफ़, हस्ताक्षर और मुहर दायीं तरफ़ */
+    const rowY=y, leftX=CX-300, rightX=CX+260;
+    x.strokeStyle="#0B1F3A22"; x.lineWidth=1.5; x.strokeRect(leftX-72,rowY,144,144);
+    if(!dry){
+      try{
+        await loadQR();
+        const verifyUrl = "https://acslearn.com/verify/?cert="+encodeURIComponent(c.certNo||"");
+        const qcv=document.createElement("canvas");
+        new window.QRious({ element:qcv, value:verifyUrl, size:144, background:"#F5F7FA", foreground:"#0B1F3A" });
+        x.drawImage(qcv,leftX-72,rowY,144,144);
+      }catch(e){
+        x.fillStyle="#9aa4b0"; x.font="700 15px "+FF;
+        x.fillText("QR",leftX,rowY+76);
+      }
+    }
+    x.fillStyle="#0B1F3A"; certFitLine(x, S.scan, "700", 16, 12, FF, 300);
+    x.fillText(S.scan,leftX,rowY+172);
+    x.font="italic 700 14px "+FF; x.fillStyle="#6b7a90";
+    x.fillText("Scan to verify",leftX,rowY+192);
+
+    drawSignature(x, rightX, rowY+55, 1.1);
+    x.strokeStyle="#0B1F3A55"; x.lineWidth=1.3;
+    x.beginPath(); x.moveTo(rightX-86,rowY+74); x.lineTo(rightX+86,rowY+74); x.stroke();
+    x.fillStyle="#0B1F3A"; certFitLine(x, S.sign, "700", 17, 12, FF, 300);
+    x.fillText(S.sign,rightX,rowY+98);
+    x.font="italic 700 14px "+FF; x.fillStyle="#6b7a90";
+    x.fillText("Authorized Signatory",rightX,rowY+118);
+    x.fillStyle="#0B1F3A"; certFitLine(x, S.trustee, "800", 20, 13, FF, 320);
+    x.fillText(S.trustee,rightX,rowY+140);
+    x.font="italic 700 13px "+FF; x.fillStyle="#6b7a90";
+    x.fillText("Chief Trustee, FFGPMT",rightX,rowY+158);
+    drawSeal(x, rightX, rowY+13, 36, "FFGPMT", "Digital Seal");
+
+    y=rowY+206+G(34);
+    const nV=wrapRichCentered(x,[{text:docFill(S.C.cert_issued,{issued:certDayNum(c.issuedOn), valid:certDayNum(c.validUntil)}),font:"700 17px "+FF,color:"#0B1F3A"}],CX,y,W-260,23);
+    y+=(nV-1)*23+30;
+    x.font="italic 700 14px "+FF; x.fillStyle="#6b7a90";
+    x.fillText("Issued "+certDayNum(c.issuedOn)+" · Online verification valid till "+certDayNum(c.validUntil)+" (acslearn.com/verify)",CX,y);
+    y+=42+G(28);
+
+    /* संस्था का ब्योरा (English प्रमाणपत्र की तरह "Institutional Details": UDYAM पंजीकरण और Trademark आवेदन मान्यता नहीं हैं) */
+    x.strokeStyle="#0B1F3A18"; x.lineWidth=1.5;
+    x.beginPath(); x.moveTo(90,y-20); x.lineTo(W-90,y-20); x.stroke();
+    x.fillStyle="#4a5a70"; certFitLine(x, S.C.cert_details, "700", 17, 12, FF, SAFE);
+    x.fillText(S.C.cert_details,CX,y+8); y+=50;
+    x.font="700 16px monospace"; x.fillStyle="#5a6b80";
+    x.fillText("ISO 9001:2015  |  UDYAM-BR-17-0000507  |  Trademark App. 6167674",CX,y); y+=42+G(26);
+
+    /* नारा (उस भाषा में) */
+    x.fillStyle="#0B1F3A"; certFitLine(x, S.slogan, "800", 40, 24, FF, W-200);
+    x.lineWidth=1.4; x.strokeStyle="#0B1F3A";
+    x.strokeText(S.slogan,CX,y);
+    x.fillText(S.slogan,CX,y); y+=54;
+    x.strokeStyle="#F9A825"; x.lineWidth=3;
+    x.beginPath(); x.moveTo(90,y); x.lineTo(W-90,y); x.stroke(); y+=38;
+
+    /* मुख्यालय का पता */
+    x.fillStyle="#4a5a70"; certFitLine(x, S.office, "700", 16, 11, FF, W-200);
+    x.fillText(S.office,CX,y);
+    return {y:y, gaps:gaps};
+  }
+  /* पहले अलग canvas पर नापना; पता भीतर की रेखा से बाहर जाता हो, तो ख़ाली जगहें उतनी घटाना (आधे से कम नहीं) */
+  async function certOwnDraw(x, c, W, H, S){
+    await certFontOwn(S);
+    const LIMIT=H-88; let k=1;
+    try{ const m=document.createElement("canvas"); m.width=W; m.height=H;
+      const r=await certTextOwn(m.getContext("2d"), c, W, S, 1, true);
+      if(r.y>LIMIT && r.gaps>0) k=Math.max(0.5, 1-(r.y-LIMIT)/r.gaps);
+      else if(r.y<LIMIT-40 && r.gaps>0) k=Math.min(1.6, 1+(LIMIT-40-r.y)/r.gaps);   /* छोटा कोर्स-नाम: जगहें थोड़ी खुलती हैं, ताकि नीचे ख़ाली पट्टी न रहे */
+    }catch(e){ k=1; }
+    await certTextOwn(x, c, W, S, k, false);
+  }
   /* चौथा-दौर (31-Jul, Founder — A4-PDF + Founder-लिखा rich-paragraph प्रारूप + पिता-का-नाम + border
      वापस + trademark-जैसा watermark + पूरा-पेज भराव): असली node-canvas+असली-फ़ॉन्ट से कई दौर जाँचा।
      (v6.17.0, 15-Nov-2026) पिता / माता / अभिभावक का नाम अब ख़ाली रेखा नहीं: विद्यार्थी से पूछकर server में एक बार सहेजा जाता है
@@ -2527,7 +2731,9 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     if(ffLogo) x.drawImage(ffLogo,W-150-68,87,136,136);
 
     /* (v6.14.0, पैनल-4) पैनल English हो, तो लिखावट सिर्फ़ English में (certTextEn); वरना नीचे का हिंदी + English रूप, जैसा था वैसा */
-    if(docEn()){ await certTextEn(x, c, W); } else {
+    /* (v6.19.0, कन्नड़ क-2क-2) पैनल की भाषा के अपने काग़ज़ बने हों, तो उस भाषा + English में (certOwnDraw) */
+    const OWN=certOwn();
+    if(OWN){ await certOwnDraw(x, c, W, H, OWN); } else if(docEn()){ await certTextEn(x, c, W); } else {
     /* संस्था-नाम केंद्र में — अंग्रेज़ी नाम बड़ा (Founder: "और बड़ा करो") */
     let y=110;
     x.font="800 46px 'Noto Sans Devanagari',sans-serif"; x.fillStyle="#0B1F3A";
@@ -3049,11 +3255,27 @@ if (MODE==="external" && ALLOWED.length>=1) {
         '<button class="abtn ok" id="apt-old-print" style="margin:4px 4px 0 0">🖨️ Print</button> ' +
         '<a class="abtn ok" id="apt-old-wa" target="_blank" rel="noopener" '+HREF2('https://wa.me/?text='+
         encodeURIComponent(full), 'https://wa.me/?text='+encodeURIComponent(fullEn))+' style="display:inline-block;text-decoration:none;margin:4px 0 0">📲 WhatsApp</a>';
+      /* (v6.19.0, कन्नड़ क-2क-2) वही पंक्ति पैनल की अपनी भाषा में, अगर उस भाषा के काग़ज़ों के साँचे बने हैं (docOwn): पन्ने पर (data-tr-<भाषा>),
+         WhatsApp के संदेश में (data-href-<भाषा>) और छपाई में। साँचे न हों, तो पहले जैसा English।
+         ऊपर का पन्ना पहले जैसा ही बनता है; उस भाषा के निशान सिर्फ़ ownSync जोड़ता या हटाता है: पहली बार भी, और भाषा बाद में बदले तब भी (एक ही रास्ता)।
+         निशान बदले, तभी पाठ हिंदी मूल में दोबारा लिखा जाता है, ताकि भाषा-इंजन उसे नए निशान से बदले। हिंदी और English के बीच बदलने पर यहाँ कुछ नहीं छुआ जाता। */
+      const ownLine = function () { const C = rn ? docOwn() : null; return C ? docFill(rn.status === "expired" ? C.report_expired : C.report_valid, { no: rn.reportNo, date: dn(rn.validUntil) }) : ""; };
+      const ownSync = function () { try {
+        const sp = document.querySelector("#apt-old-no > span"), wa = document.getElementById("apt-old-wa"); if (!sp || !wa) return;
+        const oL = ownLine(), oLang = oL ? window.ACS_PANEL_I18N.lang() : "";
+        const had = Array.from(sp.attributes).map(function (x) { return x.name; }).filter(function (n) { return /^data-tr-/.test(n) && n !== "data-tr-en"; });
+        if (had.length === (oL ? 1 : 0) && (!oL || (had[0] === "data-tr-" + oLang && sp.getAttribute(had[0]) === oL))) return;
+        had.forEach(function (n) { sp.removeAttribute(n); });
+        Array.from(wa.attributes).map(function (x) { return x.name; }).filter(function (n) { return /^data-href-/.test(n) && n !== "data-href-en"; }).forEach(function (n) { wa.removeAttribute(n); });
+        if (oL) { sp.setAttribute("data-tr-" + oLang, oL); wa.setAttribute("data-href-" + oLang, "https://wa.me/?text=" + encodeURIComponent((d.reportText || "") + "\n" + oL)); }
+        sp.textContent = noLine;
+      } catch (e9) {} };
       const pb = document.getElementById("apt-old-print");
       if (pb) pb.onclick = () => {
-        const w = window.open("", "_blank");
-        if (w) { w.document.write("<pre style='font-size:16px;white-space:pre-wrap'>"+esc(docEn() ? fullEn : full)+"</pre>"+(qr ? "<img src='"+qr+"' width='160' height='160' alt='QR'>" : "")); w.print(); }
+        const w = window.open("", "_blank"), o2 = ownLine();
+        if (w) { w.document.write("<pre style='font-size:16px;white-space:pre-wrap'>"+esc(o2 ? (d.reportText || "") + "\n" + o2 : (docEn() ? fullEn : full))+"</pre>"+(qr ? "<img src='"+qr+"' width='160' height='160' alt='QR'>" : "")); w.print(); }
       };
+      if (rn) { ownSync(); document.addEventListener("acs-panel-lang", ownSync); }
     } catch(e) { st.textContent = "रिपोर्ट-स्थिति नहीं जाँची जा सकी।"; }
   })();
 })();

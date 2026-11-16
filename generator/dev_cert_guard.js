@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.15 (15-Nov-2026; v1.15 पैनल-4: English प्रमाणपत्र certTextEn पर भी validity और परीक्षा-तिथि के नियम) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
+/* generator/dev_cert_guard.js : v1.16 (16-Nov-2026; v1.16 कन्नड़ क-2क-2: अपनी भाषा + English वाला प्रमाणपत्र certTextOwn और काग़ज़ों के साँचे; v1.15 पैनल-4: English प्रमाणपत्र certTextEn पर भी validity और परीक्षा-तिथि के नियम) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
    v1.14 (पैनल-2): dashboard का English अब assets/i18n/panel_en.js में (पुरानी dash_i18n_en.js हटी); वही वाक्य वहीं जाँचे जाते हैं।
    v1.13 (पैनल-1): रजिस्ट्रेशन का संस्करण अब एक ही जगह (expectedRulesVer) से; नियम-परदा सहमति के साथ भाषा भी भेजता है।
    जाँच का अर्थ वही: विद्यार्थी 1.2, बाक़ी 1.1; सहमति में server को संस्करण जाता है।ें
@@ -177,6 +177,51 @@ console.log("3-ङ. विद्यार्थी का नियम-पत्
 
 console.log("4. server की फ़ाइलें repo में नहीं; service worker");
 ok(!has("functions/cert_server.js") && !has("cert_server.js") && !has("assets/cert_server.js"), "cert_server.js repo में नहीं है (वह सिर्फ़ Firebase पर रहती है)");
+console.log("3-च. अपनी भाषा + English वाला प्रमाणपत्र और काग़ज़ों के साँचे (कन्नड़ क-2क-2; Founder का फ़ैसला 16-Nov-2026)");
+(function () {
+  var DEVR = /[ऀ-ॿ]/, strip = function (t) { return t.replace(/\/\*[\s\S]*?\*\//g, ""); };
+  var a = d.indexOf("  async function certTextOwn("), b = d.indexOf("\n  }\n", a), body = a > 0 ? strip(d.slice(a, b)) : "";
+  ok(body.length > 4000 && !DEVR.test(body), "certTextOwn के कोड में देवनागरी का कोई पक्का वाक्य नहीं (हर वाक्य पैक से आता है)");
+  ok(body.length > 4000 && !/extension|₹1000|late fee|extend|S\/o|D\/o|accredit/i.test(body) && !/_{4,}/.test(body), "इस प्रमाणपत्र पर भी: विस्तार की फ़ीस, देर का शुल्क, S/o, D/o, ख़ाली रेखा या \"Accreditations\" नहीं");
+  ok(/docFill\(S\.C\.cert_issued,\{issued:certDayNum\(c\.issuedOn\), valid:certDayNum\(c\.validUntil\)\}\)/.test(body) && /"Issued "\+certDayNum\(c\.issuedOn\)\+" · Online verification valid till "\+certDayNum\(c\.validUntil\)\+" \(acslearn\.com\/verify\)"/.test(body) &&
+     /certDayOwn\(S,c\.examOn\)/.test(body) && /"held on "\+certDayEn\(c\.examOn\)\+", with"/.test(body), "जारी होने की तिथि, मान्य तिथि और परीक्षा-तिथि: तीनों रिकॉर्ड से, दोनों भाषाओं की पंक्तियों में");
+  ok((body.match(/fitRich\(/g) || []).length === 4 && /\{text:S\.rel\[gd\.rel\]/.test(body) && /\{text:CERT_REL_EN\[gd\.rel\]/.test(body) && /certGuardEn\(gd\.name\)/.test(body), "नाम और सहेजा हुआ नाम (पिता / माता / अभिभावक): चारों पंक्तियाँ किनारे के भीतर रखने वाले काम (fitRich) से; देवनागरी में सहेजा नाम रोमन में");
+  ok(body.length > 4000 && (body.match(/gd\.name/g) || []).length === (body.match(/certGuardEn\(gd\.name\)/g) || []).length && (body.match(/c\.name\b/g) || []).length === (body.match(/certNameOwn\(c\.name\)|certNameEn\(c\.name\)/g) || []).length && /function certNameOwn\(nm\)\{ nm=String\(nm\|\|""\)\.trim\(\); return \/\[ऀ-ॿ\]\/\.test\(nm\) \? certNameEn\(nm\) : nm; \}/.test(d),
+     "नाम कभी सीधे नहीं छपते: विद्यार्थी का नाम certNameOwn या certNameEn से, सहेजा हुआ नाम certGuardEn से (देवनागरी में लिखा नाम रोमन में छपता है)");
+  ok(/const OWN=certOwn\(\);\s*if\(OWN\)\{ await certOwnDraw\(x, c, W, H, OWN\); \} else if\(docEn\(\)\)\{ await certTextEn\(x, c, W\); \} else \{/.test(d), "certDraw: पैनल की भाषा के काग़ज़ बने हों तो वह भाषा + English; वरना English पैनल में English; वरना हिंदी + English (पहले जैसा)");
+  var oa = d.indexOf("  function certOwn(){"), ob = d.indexOf("\n  }\n", oa), own = oa > 0 ? d.slice(oa, ob) : "";
+  ok(own.length > 800 && /const C=docOwn\(\); if\(!C\) return null;/.test(own) && /for\(const k of \["trust","title","certify","name","wish","certno","scan","sign","trustee","slogan","office"\]\) if\(!S\[k\]\) return null;/.test(own) && /S\.months\.some\(function\(m\)\{ return !m; \}\)\) return null;/.test(own),
+     "एक भी पक्का वाक्य उस भाषा में न मिले, तो आधा अनूदित प्रमाणपत्र नहीं बनता (certOwn कुछ नहीं लौटाता; तब सिर्फ़ English)");
+  ok(/function docTr\(hi\)\{ try\{ const t=window\.ACS_PANEL_I18N\.tr\(hi\); return \(t && t!==hi && !\/\[\\u0900-\\u097F\]\/\.test\(t\)\) \? t : ""; \}catch\(e\)\{ return ""; \} \}/.test(d), "docTr: अनुवाद में देवनागरी बचे या अनुवाद न मिले, तो \"\" (वह वाक्य नहीं छपता)");
+  /* साँचों की कुंजियाँ: dashboard.js का DOC_KEYS = पैक-मशीन का DOC_SPEC */
+  var mk = /const DOC_KEYS=(\[[^\]]*\]);/.exec(d), bp = rd("generator/build_panel_i18n.js"), sa = bp.indexOf("const DOC_SPEC={"), sb = bp.indexOf("};", sa);
+  var keys = mk ? JSON.parse(mk[1]) : [], spec = sa > 0 ? (bp.slice(sa, sb).match(/^\s*([a-z_]+):/gm) || []).map(function (x) { return x.replace(/[\s:]/g, ""); }) : [];
+  ok(keys.length === 6 && keys.slice().sort().join() === spec.slice().sort().join(), "काग़ज़ों के साँचों की कुंजियाँ dashboard.js और पैक-मशीन में एक ही हैं (" + keys.length + ")");
+  /* हर पैक: English में "C" नहीं; जिस पैक में "C" है, उसमें सब कुंजियाँ, {खाने} पूरे, देवनागरी शून्य */
+  var dir = "assets/i18n", bad = [], withC = [];
+  fs.readdirSync(path.join(ROOT, dir)).filter(function (f) { return /^panel_[a-z]+\.js$/.test(f); }).forEach(function (f) {
+    var w = {}; new Function("window", rd(dir + "/" + f))(w); var L = f.slice(6, -3), pk = (w.ACS_PANEL_PACKS || {})[L] || {}, C = pk.C;
+    if (L === "en") { if (C) bad.push("English पैक में C है"); return; }
+    if (!C) return; withC.push(L);
+    keys.forEach(function (k) { if (typeof C[k] !== "string" || !C[k].trim() || DEVR.test(C[k])) bad.push(L + "." + k); });
+    if (!/\{course\}/.test(C.cert_sentence || "") || !/\{date\}/.test(C.cert_sentence || "") || !/\{pct\}/.test(C.cert_sentence || "")) bad.push(L + ": वाक्य के {खाने}");
+    if (!/\{issued\}/.test(C.cert_issued || "") || !/\{valid\}/.test(C.cert_issued || "")) bad.push(L + ": जारी-पंक्ति के {खाने}");
+    if (!/\{no\}/.test(C.report_valid || "") || !/\{date\}/.test(C.report_valid || "") || !/\{no\}/.test(C.report_expired || "") || !/\{date\}/.test(C.report_expired || "")) bad.push(L + ": रिपोर्ट-पंक्ति के {खाने}");
+    if (!/^[A-Za-z0-9 ]+$/.test(C.font || "") || !/^[A-Za-z0-9+]+$/.test(C.gfam || "")) bad.push(L + ": font");
+    ["अप्लाइड कंप्यूटर स्कूल™", "फ़्रीडम फ़ाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट", "ऑनलाइन कोर्स-पूर्णता प्रमाणपत्र", "प्रमाणित किया जाता है कि", "नाम :", "पिता का नाम :", "माता का नाम :", "अभिभावक का नाम :", "हम इनके उज्ज्वल भविष्य की कामना करते हैं।", "प्रमाणपत्र नं / Certificate No", "स्कैन कर सत्यापित करें", "प्राधिकृत हस्ताक्षर", "प्रधान ट्रस्टी, FFGPMT", "130 भाषा में, गाँव से ग्लोबल साउथ तक!",
+      "मुख्यालय / Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201", "जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"].forEach(function (h) {
+      var t = (pk.D || {})[h]; if (typeof t !== "string" || !t.trim() || DEVR.test(t)) bad.push(L + ": पैक में \"" + h + "\" का अनुवाद नहीं"); });
+    if ((pk.D || {})["अप्लाइड कंप्यूटर स्कूल™"] !== "Applied Computer School™") bad.push(L + ": brand का नाम रोमन में नहीं");
+  });
+  ok(bad.length === 0, "हर भाषा-पैक: English में साँचे नहीं; जिस पैक में साँचे हैं (" + (withC.join(", ") || "कोई नहीं") + "), उसमें सब कुंजियाँ, {खाने}, font और प्रमाणपत्र के सब पक्के वाक्य; brand रोमन में" + (bad.length ? " :: " + bad.slice(0, 5).join(" | ") : ""));
+  ok(withC.indexOf("kn") > -1, "कन्नड़ पैक में काग़ज़ों के साँचे हैं (Founder का फ़ैसला: कन्नड़ उपयोगकर्ता का प्रमाणपत्र कन्नड़ + English में)");
+  /* करियर रिपोर्ट की जाँच-पंक्ति: पन्ने पर, छपाई में और WhatsApp के संदेश में पैनल की अपनी भाषा में */
+  ok(/const ownLine = function \(\) \{ const C = rn \? docOwn\(\) : null; return C \? docFill\(rn\.status === "expired" \? C\.report_expired : C\.report_valid, \{ no: rn\.reportNo, date: dn\(rn\.validUntil\) \}\) : ""; \};/.test(d) &&
+     /if \(oL\) \{ sp\.setAttribute\("data-tr-" \+ oLang, oL\); wa\.setAttribute\("data-href-" \+ oLang, "https:\/\/wa\.me\/\?text=" \+ encodeURIComponent\(\(d\.reportText \|\| ""\) \+ "\\n" \+ oL\)\); \}/.test(d) &&
+     /if \(rn\) \{ ownSync\(\); document\.addEventListener\("acs-panel-lang", ownSync\); \}/.test(d) &&
+     /const w = window\.open\("", "_blank"\), o2 = ownLine\(\);/.test(d) && /esc\(o2 \? \(d\.reportText \|\| ""\) \+ "\\n" \+ o2 : \(docEn\(\) \? fullEn : full\)\)/.test(d),
+     "करियर रिपोर्ट की जाँच-पंक्ति पैनल की अपनी भाषा में: पन्ने पर और WhatsApp के संदेश में (ownSync: पहली बार और हर भाषा-बदलाव पर), और छपाई में; साँचे न हों, तो पहले जैसा");
+})();
 var mm = rd("sw.js").match(/CACHE_VERSION\s*=\s*['"]v(\d+)['"]/);
 ok(mm && Number(mm[1]) >= 853, "service worker v853 या नया: " + (mm ? "v" + mm[1] : "नहीं मिला"));
 console.log((fail ? "⛔" : "🏁") + " खेप 3-क का पहरेदार: पास " + pass + " · फेल " + fail);

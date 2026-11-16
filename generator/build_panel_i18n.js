@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
-   build_panel_i18n.js v1.6 · 16-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   build_panel_i18n.js v1.7 · 16-Nov-2026 · पैनल-भाषा-पैक का generator (परत-4)
+   v1.7 (कन्नड़ क-2क-2): पैक का "C" खाना = उस भाषा के काग़ज़ों के साँचे (प्रमाणपत्र का वाक्य, तिथि, जारी-पंक्ति; करियर रिपोर्ट की जाँच-पंक्ति)।
+     स्रोत: <भाषा>.json का "docs" खंड। कुंजियाँ और हर कुंजी के {खाने} नीचे DOC_SPEC में पक्के हैं: कम, ज़्यादा या अलग हों, तो पैक नहीं बनता।
+     font का नाम भाषा-रजिस्टर से (lib_lang_registry.js)। "docs" न हो, तो "C" नहीं बनता और उस भाषा के काग़ज़ English में रहते हैं। English पैक में "C" कभी नहीं।
    v1.6 (कन्नड़ क-1 v1.2): (1) पैक का "P" खाना: इस भाषा के अपने पन्ने (en/ का जो पन्ना <भाषा>/ में भी है); इंजन कड़ियाँ वहीं मोड़ता है।
      (2) पहुँच-जाँच में assets/rules-gate.js की GATE_HI तालिका (नियम-परदे के वाक्य: परदा अब पैनल की भाषा में)।
    v1.5 (कन्नड़, खेप क-1): मशीन अब हर पैनल-भाषा के लिए। भाषाओं का घर generator/lib_panel_langs.js (Founder का क्रम; लिपि lib_apt_langs.js से)।
@@ -320,6 +323,39 @@ if(!EN_MODE&&typeof MAN.draft_note==="string"&&MAN.draft_note.trim()){ for(const
    repo के en/ folder का जो पन्ना <भाषा>/ folder में भी मौजूद है, उसका जोड़ा पैक के "P" खाने में ("/en/x" → "/<भाषा>/x")।
    इंजन कड़ी का English पता (data-href-en, मेनू का href_en) इसी से अपनी भाषा के पन्ने पर मोड़ता है; जो पन्ना उस भाषा में नहीं, वह English में।
    पन्ना जुड़े या हटे, तो --check पैक को बासी कहता है। */
+/* (v1.7, कन्नड़ क-2क-2; Founder का फ़ैसला 16-Nov-2026: कन्नड़ उपयोगकर्ता का प्रमाणपत्र कन्नड़ + English में) काग़ज़ों के साँचे: पैक का "C" खाना।
+   ये वाक्य हिंदी के टुकड़ों को जोड़कर नहीं बन सकते (हर भाषा का अपना शब्द-क्रम), इसलिए पूरे साँचे के रूप में लिखे जाते हैं।
+   DOC_SPEC: कुंजी → [ज़रूरी {खाने} (हर एक ठीक एक बार), वह रोमन पाठ जो साँचे में होना ही चाहिए, अपनी लिपि का अक्षर ज़रूरी?]।
+   dashboard.js का DOC_KEYS इसी सूची से मिलना चाहिए (पहरेदार dev_cert_guard.js मिलाता है)। */
+const DOC_SPEC={
+  cert_sentence:  [["course","date","pct"], "", true],
+  cert_date:      [["d","month","y"], "", false],
+  cert_issued:    [["issued","valid"], "online", true],
+  cert_details:   [[], "Institutional Details", true],
+  report_valid:   [["no","date"], "acslearn.com/verify", true],
+  report_expired: [["no","date"], "acslearn.com/verify", true]
+};
+if(EN_MODE&&MAN.docs){ console.log("⛔ en.json में \"docs\" खंड नहीं होता (English के काग़ज़ dashboard.js में पक्के लिखे हैं)"); process.exit(1); }
+if(!EN_MODE&&MAN.docs){
+  const DB=[], DOCS=MAN.docs, LI2=PL.info(LANG), APT2=require("./lib_apt_langs.js");
+  const hasOwn=t=>{ for(const ch of t) if(APT2.scriptOf(ch.codePointAt(0))===LI2.script) return true; return false; };
+  for(const k of Object.keys(DOCS)) if(!DOC_SPEC[k]) DB.push("अनजान कुंजी: "+k);
+  for(const k of Object.keys(DOC_SPEC)){ const t=DOCS[k], [need,must,own]=DOC_SPEC[k];
+    if(typeof t!=="string"||!t.trim()){ DB.push(k+": ख़ाली या ग़ायब"); continue; }
+    if(t!==t.trim()) DB.push(k+": शुरू या अंत में ख़ाली जगह");
+    if(/[\u0900-\u097F]/.test(t)) DB.push(k+": देवनागरी");
+    if(/[\u2014\u2013\uFFFD<>"\\]/.test(t)) DB.push(k+": लंबी रेखा, टूटा अक्षर या < > \" \\");
+    const got=(t.match(/\{[^}]*\}/g)||[]).map(x=>x.slice(1,-1)).sort().join(","), want=need.slice().sort().join(",");
+    if(got!==want) DB.push(k+": {खाने} अलग (चाहिए: "+(want||"कोई नहीं")+"; मिले: "+(got||"कोई नहीं")+")");
+    if(must&&t.indexOf(must)<0) DB.push(k+": \""+must+"\" नहीं");
+    if(own&&LI2.script!=="Latn"&&!hasOwn(t)) DB.push(k+": अपनी लिपि ("+LI2.script+") का अक्षर नहीं");
+    for(const ch of t){ const sc=APT2.scriptOf(ch.codePointAt(0)); if(sc&&sc!==LI2.script&&sc!=="Latn"){ DB.push(k+": पराई लिपि का अक्षर ("+sc+")"); break; } }
+    if(/\d/.test(t.replace(/\{[^}]*\}/g,""))) DB.push(k+": साँचे में अंक (अंक सिर्फ़ {खानों} से आते हैं)"); }
+  const REG2=require("./lib_lang_registry.js").load()[LANG];
+  if(!REG2||!REG2.font||!/^[A-Za-z0-9 ]+$/.test(REG2.font)||!/^[A-Za-z0-9+]+$/.test(REG2.gfam||"")) DB.push("भाषा-रजिस्टर में इस भाषा का font नहीं मिला");
+  if(DB.length){ console.log("⛔ \"docs\" खंड ("+LANG+".json) ठीक नहीं:"); DB.forEach(x=>console.log("   - "+x)); process.exit(1); }
+  const C={}; Object.keys(DOC_SPEC).forEach(k=>C[k]=DOCS[k]); C.font=REG2.font; C.gfam=REG2.gfam;
+  PACKOBJ.C=C; }
 if(!EN_MODE){ const P={};
   (function walkEn(dir){ for(const e of fs.readdirSync(path.join(ROOT,dir),{withFileTypes:true})){
     const rel=dir+"/"+e.name; if(e.isDirectory()){ walkEn(rel); continue; }

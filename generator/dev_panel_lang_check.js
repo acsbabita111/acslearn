@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_lang_check.js v1.4 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
+   dev_panel_lang_check.js v1.5 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
      • दिखने वाले पाठ, attribute, <title> और संदेश-डिब्बों में देवनागरी शून्य;
@@ -10,6 +10,9 @@
    Founder के आदेश (16-Nov-2026): (1) हिंदी के अलावा किसी भाषा में हिंदी कहीं न दिखे; जो चीज़ इस भाषा में अभी नहीं बनी, वह English में।
    (2) जो इस भाषा में मौजूद है या बन सकता है, वह इसी भाषा में (English में नहीं): करियर टेस्ट और होम की कड़ी इस भाषा के पन्ने पर, नियम-परदा,
    WhatsApp के पहले से लिखे संदेश। (3) हर जगह साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी नियम-पत्र की कड़ी हो।
+   v1.5 (क-2क-2): जिस भाषा के पैक में काग़ज़ों के साँचे हैं ("C" खाना), उसमें प्रमाणपत्र उसी भाषा + English में अपेक्षित है (हर पक्की पंक्ति पैक वाली,
+   वाक्य साँचे से भरा, नीचे English पंक्तियाँ, देवनागरी शून्य), और करियर रिपोर्ट की जाँच-पंक्ति पन्ने पर, छपाई में और WhatsApp के संदेश में उसी भाषा में।
+   "C" न हो, तो पहले जैसा: काग़ज़ ठीक वही जो English पैनल में।
    v1.4 (क-2क): जिस भाषा के अपने नियम-पत्र बन गए (repo में <भाषा>/rules-consent-*.html), उसमें हर जगह वही अपेक्षित हैं: रजिस्ट्रेशन में नियम उसी भाषा में
    और सहमति की भाषा उसी का कोड; गाइड, नियम-परदे और dashboard की नियम-कड़ी उसी भाषा के पत्र पर। अपना पत्र न मिले या बासी हो, तब English; वह भी नहीं, तब रुकावट।
    यह robot गिनकर दिखाता है कि अभी क्या English में है (इस भाषा के अपने रूप बनने तक):
@@ -38,7 +41,7 @@ const RLG = f => OWNR(f) ? LG : "en";
 const RMISS = f => (OWNR(f) ? ["/" + LG + "/" + f] : []).concat(["/en/" + f]);   /* अनुवाद वाले सब पत्रों के पते (रुकावट की जाँच में इन्हें ग़ायब या बासी किया जाता है) */
 const LF = "rules-consent-learner.html", STALE = t => t.replace("<b>Version: 1.2</b>", "<b>Version: 1.1</b>");
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-let pass = 0, fail = 0; const t0 = Date.now(), INV = new Map(), HOLES = { E1: 0, E2: 0, E3: 0 };
+let pass = 0, fail = 0; const t0 = Date.now(), INV = new Map(), HOLES = { E1: 0, E2: 0, E3: 0, certEn: false };
 function ck(name, ok, info) { if (ok) pass++; else { fail++; console.log("❌ " + name + (info ? "\n     " + String(info).slice(0, 900) : "")); } return !!ok; }
 const LS = () => ({ acs_dash_lang: LG });
 function leaks(c, opts) {
@@ -578,7 +581,30 @@ async function dashSuite() {
       const k = await openDoc(f, LG), h = await openDoc(f, "en");
       const okK = await certClick(k), okH = await certClick(h);
       const tK = k.canvasText.map(z => z.t), tH = h.canvasText.map(z => z.t);
-      if (ck("D student : (E3) प्रमाणपत्र इस भाषा के पैनल में ठीक वही जो English पैनल में (" + tH.length + " पंक्तियाँ), देवनागरी शून्य, फ़ाइल सहेजी", okK && okH && tH.length > 30 && JSON.stringify(tK) === JSON.stringify(tH) && !tK.some(t => DEV.test(t)) && k.saved[0] === h.saved[0] && !!k.saved[0], "बटन " + okK + "/" + okH + " · पंक्तियाँ " + tK.length + "/" + tH.length + " · " + firstDiff(tK, tH) + " · " + tK.filter(t => DEV.test(t)).slice(0, 2).join(" | "))) HOLES.E3++;
+      const DC = (k.w.ACS_PANEL_PACKS[LG] || {}).C || null, TRK = t => k.w.ACS_PANEL_I18N.tr(t), FILL = (t, o) => t.replace(/\{([a-z]+)\}/g, (m, q) => (q in o) ? o[q] : m);
+      if (DC) {
+        /* (v1.5) इस भाषा + English वाला प्रमाणपत्र। पाठ दो बार लिखा जाता है (पहले नापने के लिए अलग canvas पर, फिर असली पर): दोनों दौर एक-जैसे होने चाहिए */
+        const core = tK.filter(t => t !== "ACS · FFGPMT");   /* पीछे की हल्की छाप (watermark) असली canvas पर एक ही बार लिखी जाती है */
+        const half = core.length / 2, t1 = core.slice(0, half), t2 = core.slice(half), J = " " + t2.join(" ") + " ", cnt = t => t2.filter(z => z === t).length;
+        const fixed = ["ऑनलाइन कोर्स-पूर्णता प्रमाणपत्र", "प्रमाणित किया जाता है कि", "हम इनके उज्ज्वल भविष्य की कामना करते हैं।", "प्रमाणपत्र नं / Certificate No", "स्कैन कर सत्यापित करें", "प्राधिकृत हस्ताक्षर", "प्रधान ट्रस्टी, FFGPMT", "130 भाषा में, गाँव से ग्लोबल साउथ तक!", "फ़्रीडम फ़ाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट", "मुख्यालय / Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201"];
+        const missF = fixed.filter(z => !own(TRK(z)) || cnt(TRK(z)) < 1), enL = ["Applied Computer School™", "Online Course Completion Certificate", "We wish him/her a bright future.", "Scan to verify", "Authorized Signatory", "Chief Trustee, FFGPMT", "ISO 9001:2015  |  UDYAM-BR-17-0000507  |  Trademark App. 6167674", DC.cert_details], missE = enL.filter(z => cnt(z) !== 1);
+        const sent = DC.cert_sentence.split(/\{[a-z]+\}/).map(z => z.trim()).filter(Boolean), missS = sent.filter(z => J.indexOf(" " + z.split(" ")[0] + " ") < 0 && J.indexOf(z.split(" ")[0]) < 0);
+        ck("D student : प्रमाणपत्र इस भाषा + English में (" + half + " पंक्तियाँ): हर पक्की पंक्ति इसी भाषा की, नीचे English पंक्तियाँ, वाक्य साँचे से भरा ({खाना} नहीं बचा), देवनागरी शून्य, फ़ाइल सहेजी",
+          okK && okH && half > 30 && Number.isInteger(half) && JSON.stringify(t1) === JSON.stringify(t2) && !tK.some(t => DEV.test(t)) && !tK.some(t => /[{}]/.test(t)) && missF.length === 0 && missE.length === 0 && missS.length === 0 &&
+          J.indexOf(" has passed the online examination for ") > -1 && t2.filter(own).length >= 20 && k.saved.length === 1 && k.saved[0] === h.saved[0] && !!k.saved[0],
+          "बटन " + okK + "/" + okH + " · पंक्तियाँ " + core.length + " (छाप " + (tK.length - core.length) + ") · दोनों दौर एक-जैसे: " + (JSON.stringify(t1) === JSON.stringify(t2)) + " · पक्की पंक्तियाँ नहीं मिलीं: " + missF.concat(missE, missS).slice(0, 4).join(" | ") + " · " + tK.filter(t => DEV.test(t) || /[{}]/.test(t)).slice(0, 2).join(" | "));
+        const want = [FILL(DC.cert_issued, { issued: "", valid: "" }).split(" ")[0]], dts = t2.filter(z => /^\d{1,2}$/.test(z)).length;
+        ck("D student : प्रमाणपत्र पर परीक्षा की तिथि इसी भाषा के महीने के साथ, और जारी-पंक्ति इसी भाषा में", ["जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"].some(m => own(TRK(m)) && J.indexOf(" " + TRK(m) + " ") > -1) && J.indexOf(want[0]) > -1 && dts >= 1, J.slice(0, 400));
+        ck("D student : English पैनल का प्रमाणपत्र सिर्फ़ English में (इस भाषा का एक भी अक्षर नहीं), पहले जैसा", tH.length > 30 && !tH.some(own) && !tH.some(t => DEV.test(t)) && tH.indexOf("This is to certify that") > -1, tH.filter(own).slice(0, 2).join(" | "));
+        /* करियर रिपोर्ट की जाँच-पंक्ति: पन्ने पर, छपाई में, WhatsApp के संदेश में */
+        const wantNo = FILL(DC.report_valid, { no: "ACS-R-2026-0007", date: "12.11.2031" }), noEl = k.d.getElementById("apt-old-no");
+        ck("D student : रिपोर्ट-नंबर की पंक्ति पन्ने पर इसी भाषा में (साँचे से भरी)", !!noEl && noEl.textContent === wantNo && own(noEl.textContent) && !DEV.test(noEl.textContent), noEl && noEl.textContent);
+        k.printed.length = 0; click(k, k.d.getElementById("apt-old-print")); await settle(k);
+        ck("D student : सहेजी रिपोर्ट की छपाई में वही पंक्ति इसी भाषा में; रिपोर्ट का अपना पाठ जैसा है वैसा", k.printed.length === 1 && k.printed[0].indexOf("REPORT-BODY-LINE\n" + wantNo) > -1 && !DEV.test(k.printed[0]) && k.printed[0].indexOf("Report number") < 0, (k.printed[0] || "").slice(0, 200));
+        const waA = k.d.getElementById("apt-old-wa");
+        ck("D student : रिपोर्ट का WhatsApp संदेश भी इसी भाषा की पंक्ति के साथ", !!waA && decText(waA.getAttribute("href")).indexOf("REPORT-BODY-LINE\n" + wantNo) > -1 && !DEV.test(decText(waA.getAttribute("href"))), waA && decText(waA.getAttribute("href")).slice(0, 200));
+      } else
+      if (ck("D student : (E3) प्रमाणपत्र इस भाषा के पैनल में ठीक वही जो English पैनल में (" + tH.length + " पंक्तियाँ), देवनागरी शून्य, फ़ाइल सहेजी", okK && okH && tH.length > 30 && JSON.stringify(tK) === JSON.stringify(tH) && !tK.some(t => DEV.test(t)) && k.saved[0] === h.saved[0] && !!k.saved[0], "बटन " + okK + "/" + okH + " · पंक्तियाँ " + tK.length + "/" + tH.length + " · " + firstDiff(tK, tH) + " · " + tK.filter(t => DEV.test(t)).slice(0, 2).join(" | "))) { HOLES.E3++; HOLES.certEn = true; }
       /* पहले से लिखे संदेश (WhatsApp) इसी भाषा में; करियर टेस्ट की कड़ी इसी भाषा के पन्ने पर; बाक़ी कड़ियाँ वही जो English पैनल में */
       const OWNP = (k.w.ACS_PANEL_PACKS[LG] || {}).P || {}, hk = docLinks(k).map(a => a.getAttribute("href")), hh = docLinks(h).map(a => a.getAttribute("href"));
       const wa = hk.filter(x => /wa\.me/.test(x)).map(decText), waE = hh.filter(x => /wa\.me/.test(x)).map(decText);
@@ -590,6 +616,23 @@ async function dashSuite() {
       click(k, k.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await settle(k); await settle(k);
       { const back = docLinks(k).map(a => a.getAttribute("href")), h0 = await openDoc(f, "hi"), hi0 = docLinks(h0).map(a => a.getAttribute("href")); h0.dom.window.close();
         ck("D student : हिंदी पर लौटने पर सब काग़ज़-कड़ियाँ हिंदी वाली (सीधे हिंदी में खोले पन्ने जैसी)", JSON.stringify(back) === JSON.stringify(hi0), firstDiff(back, hi0)); }
+      if (DC) { /* (v1.5) हिंदी पर लौटने पर: रिपोर्ट की पंक्ति, छपाई और प्रमाणपत्र फिर हिंदी वाले */
+        const noEl = k.d.getElementById("apt-old-no"); k.printed.length = 0; click(k, k.d.getElementById("apt-old-print")); await settle(k);
+        const okC = await certClick(k), tB = k.canvasText.map(z => z.t);
+        ck("D student : हिंदी पर लौटने पर रिपोर्ट की पंक्ति, छपाई और प्रमाणपत्र फिर हिंदी वाले (इस भाषा का अक्षर नहीं)", !!noEl && /रिपोर्ट नंबर: ACS-R-2026-0007/.test(noEl.textContent) && !own(noEl.textContent) && k.printed.length === 1 && /रिपोर्ट नंबर: ACS-R-2026-0007/.test(k.printed[0]) && !own(k.printed[0]) &&
+          okC && tB.indexOf("प्रमाणित किया जाता है कि") > -1 && !tB.some(own), (noEl && noEl.textContent) + " | " + (k.printed[0] || "").slice(0, 80) + " | " + tB.filter(own).slice(0, 2).join(","));
+        click(k, k.d.querySelector('#acsPanelLangBar button[data-plang="' + LG + '"]')); await waitFor(k, () => k.w.ACS_PANEL_I18N.active && k.w.ACS_PANEL_I18N.lang() === LG, 3000); await settle(k); await settle(k);
+        const noEl2 = k.d.getElementById("apt-old-no");
+        ck("D student : फिर इस भाषा पर: रिपोर्ट की पंक्ति फिर इसी भाषा में", !!noEl2 && own(noEl2.textContent) && !DEV.test(noEl2.textContent), noEl2 && noEl2.textContent);
+        /* server का जवाब देर से आए: तब रिपोर्ट का खाना भाषा चालू होने के बाद बनता है (असली फ़ोन पर यही आम क्रम है)। पंक्ति तब भी इसी भाषा में; अवधि पूरी हो चुकी हो, तो उसी का साँचा */
+        const k2 = await openDoc(f, LG, null, { reportNumber: () => new Promise(r => setTimeout(() => r({ found: true, reportNo: "ACS-R-2026-0007", status: "expired", validUntil: "2031-11-12" }), 900)) });
+        await waitFor(k2, () => k2.d.getElementById("apt-old-no"), 8000); await settle(k2); await settle(k2);
+        const noEl3 = k2.d.getElementById("apt-old-no"), wantX = FILL(DC.report_expired, { no: "ACS-R-2026-0007", date: "12.11.2031" }), wa3 = k2.d.getElementById("apt-old-wa");
+        k2.printed.length = 0; if (k2.d.getElementById("apt-old-print")) click(k2, k2.d.getElementById("apt-old-print")); await settle(k2);
+        ck("D student : server का जवाब देर से आए (भाषा पहले से चालू): रिपोर्ट की पंक्ति तब भी इसी भाषा में (पन्ना, छपाई, WhatsApp); अवधि पूरी हो चुकी हो, तो \"अवधि पूरी\" वाला साँचा",
+          !!noEl3 && noEl3.textContent === wantX && own(wantX) && wantX !== FILL(DC.report_valid, { no: "ACS-R-2026-0007", date: "12.11.2031" }) && !!wa3 && decText(wa3.getAttribute("href")).indexOf("REPORT-BODY-LINE\n" + wantX) > -1 && k2.printed.length === 1 && k2.printed[0].indexOf("REPORT-BODY-LINE\n" + wantX) > -1 && !DEV.test(k2.printed[0]),
+          (noEl3 && noEl3.textContent) + " | " + (k2.printed[0] || "").slice(0, 60));
+        noErr(k2, "D student रिपोर्ट (देर से)"); k2.dom.window.close(); }
       noErr(k, "D student काग़ज़"); [k, h].forEach(x => x.dom.window.close());
     } catch (e) { ck(f + " : काग़ज़-जाँच चली", false, String(e && e.stack || e).slice(0, 300)); }
   }
@@ -664,7 +707,7 @@ async function dashSuite() {
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 6).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 प्रमाणपत्र, OTP का email, बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.4 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "OTP का email, बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.5 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();
