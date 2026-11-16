@@ -2510,6 +2510,7 @@
   "नामांकन मिला नहीं": "Enrollment not found",
   "नियम-पत्र का संस्करण बदल चुका है। पन्ना दोबारा खोलें।": "The version of the rules letter has changed. Open the page again.",
   "नियम-पत्र बदल गया है। आगे बढ़ने से पहले नए नियम-पत्र पर सहमति दें।": "The rules letter has changed. Before going on, agree to the new rules letter.",
+  "नियम-पत्र अभी नहीं खुल पाया, इसलिए एग्रीमेंट PDF अभी नहीं बनी। आपका रजिस्ट्रेशन सुरक्षित है। कुछ देर बाद दोबारा कोशिश करें।": "The rules letter could not be opened just now, so the agreement PDF has not been made yet. Your registration is safe. Please try again after some time.",
   "निरस्त आवेदन approve नहीं हो सकता": "A cancelled application cannot be approved",
   "निवेदन दर्ज नहीं हुआ — {0}": "The request was not recorded: {0}",
   "परीक्षा के लिए सक्रिय बैज या ₹100 का चांस चाहिए।": "An active badge or a ₹100 chance is needed for the exam.",

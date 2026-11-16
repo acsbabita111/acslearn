@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_lang_check.js v1.5 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
+   dev_panel_lang_check.js v1.6 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
      • दिखने वाले पाठ, attribute, <title> और संदेश-डिब्बों में देवनागरी शून्य;
@@ -10,6 +10,8 @@
    Founder के आदेश (16-Nov-2026): (1) हिंदी के अलावा किसी भाषा में हिंदी कहीं न दिखे; जो चीज़ इस भाषा में अभी नहीं बनी, वह English में।
    (2) जो इस भाषा में मौजूद है या बन सकता है, वह इसी भाषा में (English में नहीं): करियर टेस्ट और होम की कड़ी इस भाषा के पन्ने पर, नियम-परदा,
    WhatsApp के पहले से लिखे संदेश। (3) हर जगह साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी नियम-पत्र की कड़ी हो।
+   v1.6 (क-2ख): OTP की माँग में पैनल अपनी भाषा का कोड भेजता है (पहले "en"; अब server उस भाषा का email भेज सकता है);
+     रजिस्ट्रेशन के बाद server PDF न बना पाए, तो उसका संदेश इसी भाषा में।
    v1.5 (क-2क-2): जिस भाषा के पैक में काग़ज़ों के साँचे हैं ("C" खाना), उसमें प्रमाणपत्र उसी भाषा + English में अपेक्षित है (हर पक्की पंक्ति पैक वाली,
    वाक्य साँचे से भरा, नीचे English पंक्तियाँ, देवनागरी शून्य), और करियर रिपोर्ट की जाँच-पंक्ति पन्ने पर, छपाई में और WhatsApp के संदेश में उसी भाषा में।
    "C" न हो, तो पहले जैसा: काग़ज़ ठीक वही जो English पैनल में।
@@ -223,7 +225,8 @@ const gh = $("rulesGateHi"), gl = $("rulesGateLink");
   c.handlers.requestLoginOtp = () => { throw {}; }; await c.w.resendLoginOtp(); await settle(c); clean(c, "L8 दोबारा OTP अभी नहीं");
   noErr(c, "L7-L8");
   { const q = c.calls.filter(x => x.name === "requestLoginOtp");
-    if (ck("L8 (E3) OTP की माँग में lang = en (email English में; server सिर्फ़ hi और en जानता है), और सिर्फ़ email + lang", q.length === 3 && q.every(x => x.data && x.data.lang === "en" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data)))) HOLES.E3++; }
+    /* (v1.6, क-2ख) पैनल अपनी भाषा का कोड भेजता है; server तय करता है: उस भाषा का email बना है तो उसी में, वरना English में */
+    ck("L8 OTP की माँग में lang = " + LG + " (पैनल की भाषा; email की भाषा server तय करता है), और सिर्फ़ email + lang", q.length === 3 && q.every(x => x.data && x.data.lang === LG && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data))); }
   c.dom.window.close();
   /* L9 पासवर्ड भूल गए */
   c = await OPEN({ ls: LS(), expect: LG, handlers: Object.assign({}, H) });
@@ -355,13 +358,28 @@ async function joinFull(rl, mode, extra) {
     c.handlers.submitRegistration = () => rej("failed-precondition", "otpVerificationExpired"); click(c, $("submitBtn")); await settle(c); await settle(c); clean(c, "J OTP-प्रमाण की मियाद निकली", RH);
     c.handlers.submitRegistration = HJ.submitRegistration;
   }
+  /* (v1.6, क-2ख) पहली भूमिका में: रजिस्ट्रेशन के ठीक बाद server PDF न बना पाए (किसी भी भाषा का नियम-पत्र न खुले) */
+  const PDF_MSG = "नियम-पत्र अभी नहीं खुल पाया, इसलिए एग्रीमेंट PDF अभी नहीं बनी। आपका रजिस्ट्रेशन सुरक्षित है। कुछ देर बाद दोबारा कोशिश करें।";
+  if (T && extra.first) c.handlers.generateAgreementPdf = () => rej("unavailable", PDF_MSG);
   click(c, $("submitBtn")); await waitFor(c, () => $("panelSuccess").classList.contains("active")); await settle(c); await settle(c);
   ck(tag + " : submit → सफलता", $("panelSuccess").classList.contains("active"));
+  if (T && extra.first) {
+    const stEl = $("downloadPdfBtn").nextElementSibling, want = c.w.ACS_PANEL_I18N.tr(PDF_MSG), nPdf = () => c.calls.filter(x => x.name === "generateAgreementPdf").length;
+    ck("J PDF नहीं बनी (नियम-पत्र नहीं खुला): रजिस्ट्रेशन फिर भी सफल; server का संदेश इसी भाषा में; बटन चालू", nPdf() === 1 && !!stEl && own(want) && stEl.textContent.indexOf(want) > -1 && !$("downloadPdfBtn").disabled && own($("downloadPdfBtn").textContent), (stEl && stEl.textContent) + " | " + $("downloadPdfBtn").textContent);
+    clean(c, "J PDF नहीं बनी (नियम-पत्र नहीं खुला)", RH);
+    /* server के बाक़ी संदेश भी उसी जगह इसी भाषा में (हर संदेश अपने अलग टुकड़े में है; बीच में जोड़ने पर आधा हिंदी रह जाता था) */
+    let nx = 1;
+    for (const [code, msg] of [["not-found", "registration नहीं मिला"], ["permission-denied", "पहचान नहीं मिली — यह आपका registration नहीं"], ["failed-precondition", "अनजान role: xyz"], ["internal", "PDF-निर्माण में अड़चन: boom"]]) {
+      c.handlers.generateAgreementPdf = () => rej(code, msg); $("downloadPdfBtn").click(); await settle(c); await settle(c); nx++;
+      ck("J PDF नहीं बनी (server का संदेश: " + msg + "): संदेश इसी भाषा में", nPdf() === nx && own(stEl.textContent) && !DEV.test(stEl.textContent), stEl.textContent); }
+    c.handlers.generateAgreementPdf = () => ({ pdfUrl: "", mailNote: "no" }); $("downloadPdfBtn").click(); await settle(c); await settle(c); nx++;
+    ck("J वही बटन दोबारा: server से फिर माँगा गया; PDF बनी, email नहीं गई", nPdf() === nx && stEl.textContent.indexOf(want) < 0 && own(stEl.textContent), stEl.textContent); clean(c, "J PDF बनी, email नहीं गई", RH);
+    c.handlers.generateAgreementPdf = HJ.generateAgreementPdf; $("downloadPdfBtn").click(); await settle(c); await settle(c);
+    ck("J फिर वही बटन: PDF बनी और email गई", nPdf() === nx + 1, String(nPdf())); }
   if (T) clean(c, tag + " : सफलता + PDF", RH);
-  if (T && extra.first) { c.handlers.generateAgreementPdf = () => ({ pdfUrl: "", mailNote: "no" }); $("downloadPdfBtn").click(); await settle(c); clean(c, "J PDF बनी, email नहीं गई", RH); }
   const sub = c.calls.filter(x => x.name === "submitRegistration").pop(); res.payload = sub ? sub.data : null;
   const q = c.calls.filter(x => x.name === "requestRegisterOtp");
-  ck(tag + " : OTP की माँग में lang = en, और सिर्फ़ email + lang", q.length >= 1 && q.every(x => x.data && x.data.lang === "en" && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data)));
+  ck(tag + " : OTP की माँग में lang = " + mode + " (पैनल की भाषा), और सिर्फ़ email + lang", q.length >= 1 && q.every(x => x.data && x.data.lang === mode && Object.keys(x.data).sort().join() === "email,lang"), JSON.stringify(q.map(x => x.data)));
   noErr(c, tag); c.dom.window.close();
   return res;
 }
@@ -707,7 +725,7 @@ async function dashSuite() {
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 6).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "OTP का email, बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.5 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.6 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();

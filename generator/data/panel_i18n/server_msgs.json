@@ -2,6 +2,9 @@
  "_": "server_msgs.json: server (Firebase functions) के वे हिंदी संदेश जो user को दिखते हैं। मशीन-निकासी (generator/extract_server_msgs.js --write); हाथ से न बदलें। {0}, {1} = बदलने वाला हिस्सा। इसमें कोई कोड, चाबी या प्रश्न नहीं है।",
  "files": [
   "addon.js",
+  "agreement_en.js",
+  "agreement_own.js",
+  "agreement_own_kn.js",
   "apt_server.js",
   "cert_server.js",
   "exam_server.js",
@@ -9,7 +12,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 305,
+ "count": 306,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -1140,6 +1143,12 @@
   },
   {
    "hi": "नामांकन मिला नहीं",
+   "in": [
+    "index.js"
+   ]
+  },
+  {
+   "hi": "नियम-पत्र अभी नहीं खुल पाया, इसलिए एग्रीमेंट PDF अभी नहीं बनी। आपका रजिस्ट्रेशन सुरक्षित है। कुछ देर बाद दोबारा कोशिश करें।",
    "in": [
     "index.js"
    ]
