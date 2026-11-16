@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_lang_check.js v1.2 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
+   dev_panel_lang_check.js v1.3 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
      • दिखने वाले पाठ, attribute, <title> और संदेश-डिब्बों में देवनागरी शून्य;
@@ -145,6 +145,20 @@ const gh = $("rulesGateHi"), gl = $("rulesGateLink");
     clean(c, "L6 सफलता-चरण");
   }
   noErr(c, "L1-L6"); c.dom.window.close();
+  /* LGF (v1.3, ऑडिट की शर्त) नियम-परदा: इस भाषा का और English का पत्र न मिले, तो कड़ी हिंदी नियम-पत्र पर; परदे का सारा पाठ इसी भाषा में (हिंदी शून्य, English का वाक्य नहीं) */
+  for (const [tg, o] of [["English पत्र ग़ायब (404)", { missing: ["/en/rules-consent-learner.html"] }], ["English पत्र पुराने संस्करण का", { rewrite: { "/en/rules-consent-learner.html": t => t.replace("<b>Version: 1.2</b>", "<b>Version: 1.1</b>") } }]]) {
+    const g = await OPEN(Object.assign({ ls: LS(), expect: LG, handlers: Object.assign({}, H) }, o)), G = id => g.d.getElementById(id), TR = t => g.w.ACS_PANEL_I18N.tr(t);
+    click(g, g.d.querySelectorAll("#roleGrid .role-card")[0]); g.w.goStep2(); G("f-email").value = "a@b.co"; G("f-pass").value = "x";
+    const lp = g.w.doLogin(); await waitFor(g, () => G("rulesGate"), 3000); await waitFor(g, () => G("rulesGateLink") && G("rulesGateLink").getAttribute("href") === "/rules-consent-learner.html", 3000); await settle(g);
+    const gl = G("rulesGateLink"), gn = G("rulesGateNote"), gt = G("rulesGate") ? G("rulesGate").textContent : "";
+    ck("LGF " + tg + " : कड़ी हिंदी नियम-पत्र पर; कड़ी और सूचना इसी भाषा में", !!gl && gl.getAttribute("href") === "/rules-consent-learner.html" && gl.textContent === TR("नियम-पत्र पढ़ें (हिंदी में) ↗") && own(gl.textContent) && !!gn && gn.textContent === TR("इस नियम-पत्र का अनुवाद अभी तैयार नहीं है। क़ानूनी मूल हिंदी में है।") && own(gn.textContent), gl && (gl.getAttribute("href") + " | " + gl.textContent + " | " + (gn && gn.textContent)));
+    ck("LGF " + tg + " : परदे में देवनागरी शून्य, English का वाक्य नहीं", !DEV.test(gt) && !/not ready yet|legal original|Read the rules letter/.test(gt), gt.slice(0, 200));
+    clean(g, "LGF " + tg + " : परदा");
+    G("rulesGateChk").checked = true; G("rulesGateChk").dispatchEvent(new g.w.Event("change")); click(g, G("rulesGateOk")); await lp; await settle(g);
+    const ac = g.calls.filter(x => x.name === "rulesAccept").pop();
+    ck("LGF " + tg + " : सहमति में भाषा hi दर्ज (जिस पत्र की कड़ी दी गई, वही)", !!ac && ac.data.language === "hi" && ac.data.version === "1.2", JSON.stringify(ac && ac.data));
+    noErr(g, "LGF " + tg); g.dom.window.close();
+  }
   /* L7 session-विफलता */
   c = await OPEN({ ls: LS(), expect: LG, handlers: Object.assign({}, H, { claimSession: () => rej("unavailable") }) });
   click(c, c.d.querySelectorAll("#roleGrid .role-card")[0]); c.w.goStep2(); c.d.getElementById("f-email").value = "a@b.co"; c.d.getElementById("f-pass").value = "x";
@@ -316,7 +330,7 @@ async function joinSuite() {
     if (ck(tagP + " : server को data English पन्ने जैसा ही (अक्षर-अक्षर)", !!a.payload && JSON.stringify(a.payload) === JSON.stringify(b.payload), firstDiff(a.payload, b.payload))) same++;
   }
   ck("JP सब भूमिकाओं में data एक-जैसा (" + same + "/" + runs.length + ")", same === runs.length);
-  if (!PICK.length) {
+  if (!PICK.length || PICK[0] === "-") {   /* ACS_ROLES=- : भूमिका-दौड़ें छोड़कर सिर्फ़ ये अतिरिक्त जाँचें */
     /* पहले से मौजूद आवेदन + OTP की ग़लतियाँ */
     const c = await openPage("join.html", { ls: LS(), expect: LG, handlers: Object.assign({}, HJ, { checkExistingApplication: () => ({ exists: true, status: "provisional", regNo: "ACS-2026-111111", role: "teacher" }) }) });
     await joinStep1(c, {}); const $ = id => c.d.getElementById(id);
@@ -333,6 +347,91 @@ async function joinSuite() {
     typeIn(k, k.d.getElementById("nameRoman"), "RAM KUMAR"); click(k, k.d.querySelector('#acsPanelLangBar button[data-plang="' + LG + '"]')); await waitFor(k, () => k.w.ACS_PANEL_I18N.active); await settle(k);
     ck("JH भाषा बदलने पर भरा हुआ खाना सुरक्षित", k.d.getElementById("nameRoman").value === "RAM KUMAR"); clean(k, "JH हिंदी → " + LG);
     [h, k].forEach(x => x.dom.window.close());
+    /* JF (v1.3, ऑडिट की शर्त 16-Nov-2026) इस भाषा का और English का नियम-पत्र, दोनों न मिलें या बासी हों: हिंदी नियम पन्ने के भीतर नहीं दिखते।
+       इसी भाषा में सूचना + हिंदी नियम-पत्र की अलग कड़ी + "दोबारा कोशिश करें"; सहमति नहीं ली जाती, रजिस्ट्रेशन आगे नहीं बढ़ता। */
+    { const TR = t => k0.w.ACS_PANEL_I18N.tr(t);
+      let bad = true, k0 = null;
+      const blocked = async (c, tag, hiFile) => {
+        const $ = id => c.d.getElementById(id), rc = $("rulesContainer"), bx = $("rulesBlocked"), ha = $("rulesBlockedHi"), T2 = t => c.w.ACS_PANEL_I18N.tr(t);
+        ck(tag + " : नियम पन्ने के भीतर नहीं दिखे (हिंदी भी नहीं, English भी नहीं); सूचना इसी भाषा में", !!bx && rc.children.length === 1 && rc.querySelectorAll(".rule, .rules, .part, .idbox, input").length === 0 && !DEV.test(rc.textContent) && own(bx.textContent) &&
+          bx.textContent.indexOf(T2("⚠️ इस भाषा में और English में नियम-पत्र अभी नहीं खुल सका।")) === 0 && bx.textContent.indexOf(T2("नियम पढ़े बिना रजिस्ट्रेशन आगे नहीं बढ़ता। थोड़ी देर बाद दोबारा कोशिश करें।")) > 0 &&
+          !/could not be opened|Registration cannot go ahead/.test(bx.textContent), rc.textContent.slice(0, 220));
+        ck(tag + " : क़ानूनी पंक्ति (इसी भाषा में) + हिंदी नियम-पत्र की अलग कड़ी (नए tab में)", !!ha && bx.textContent.indexOf(T2("क़ानूनी रूप से हिंदी नियम-पत्र ही मान्य है।")) > 0 && ha.getAttribute("href") === hiFile && ha.getAttribute("target") === "_blank" && ha.textContent === T2("हिंदी नियम-पत्र खोलें ↗") && own(ha.textContent), ha && (ha.getAttribute("href") + " | " + ha.textContent));
+        ck(tag + " : \"दोबारा कोशिश करें\" का बटन इसी भाषा में", !!$("rulesRetryBtn") && $("rulesRetryBtn").textContent === T2("🔄 दोबारा कोशिश करें") && own($("rulesRetryBtn").textContent));
+        ck(tag + " : सहमति बंद: अंतिम पुष्टि और आगे का बटन बंद, गिनती ख़ाली", $("finalChk").disabled && !$("finalChk").checked && $("toStep3Btn").disabled && $("toStep3Btn").className === "big btn-off" && $("rulesCount").textContent === "");
+        const fin = $("finalChk"); fin.checked = true; fin.dispatchEvent(new c.w.Event("change")); click(c, $("toStep3Btn")); await settle(c);
+        ck(tag + " : ज़बरदस्ती दबाने पर भी चरण-3 नहीं खुला, server को कुछ नहीं गया", $("panel2").classList.contains("active") && !$("panel3").classList.contains("active") && !c.calls.some(x => x.name === "submitRegistration"));
+        click(c, $("submitBtn")); await settle(c);
+        const eb = $("submitBtn").nextElementSibling;
+        ck(tag + " : जमा-बटन सीधे दबाने पर भी server को कुछ नहीं गया; कारण इसी भाषा में लिखा आया", !c.calls.some(x => x.name === "submitRegistration") && !!eb && eb.style.display === "block" && eb.textContent === T2("⚠️ नियम पढ़े और स्वीकार किए बिना आवेदन जमा नहीं होता। चरण-2 पर लौटकर नियम स्वीकार करें।") && own(eb.textContent) && !DEV.test(eb.textContent), eb && eb.textContent);
+        clean(c, tag + " : पूरा पन्ना");
+      };
+      /* (क) English नियम-पत्र ग़ायब (404) */
+      k0 = await openPage("join.html", { ls: LS(), expect: LG, handlers: Object.assign({}, HJ), missing: ["/en/rules-consent-counselor.html"] });
+      await joinStep1(k0, {}); await joinOtp(k0); await joinRole(k0, { key: "counselor" }); await settle(k0);
+      ck("JF माँग का क्रम: पहले इस भाषा का पत्र, फिर English का", k0.fetched.indexOf("/" + LG + "/rules-consent-counselor.html") > -1 && k0.fetched.indexOf("/en/rules-consent-counselor.html") > -1);
+      await blocked(k0, "JF English नियम-पत्र ग़ायब (404)", "rules-consent-counselor.html");
+      click(k0, k0.d.getElementById("rulesRetryBtn")); await settle(k0); await settle(k0);
+      ck("JF दोबारा कोशिश, फ़ाइल अब भी नहीं: रुकावट बनी रही, हिंदी नहीं आई", !!k0.d.getElementById("rulesBlocked") && k0.d.querySelectorAll("#rulesContainer .rule").length === 0 && !DEV.test(k0.d.getElementById("rulesContainer").textContent) && k0.fetched.filter(p => p === "/en/rules-consent-counselor.html").length === 2);
+      noErr(k0, "JF (क)"); k0.dom.window.close();
+      /* (ख) English नियम-पत्र बासी; दोबारा कोशिश पर ठीक → English नियम-पत्र, consent_language = en */
+      k0 = await openPage("join.html", { ls: LS(), expect: LG, handlers: Object.assign({}, HJ),
+        rewrite: { "/en/rules-consent-learner.html": t => bad ? t.replace("<b>Version: 1.2</b>", "<b>Version: 1.1</b>") : t } });
+      await joinStep1(k0, {}); await joinOtp(k0); await joinRole(k0, { key: "student" }); await settle(k0);
+      await blocked(k0, "JF English learner-नियम पुराने संस्करण के", "rules-consent-learner.html");
+      bad = false; click(k0, k0.d.getElementById("rulesRetryBtn")); await waitFor(k0, () => k0.d.querySelectorAll("#rulesContainer .rule").length > 15); await settle(k0);
+      ck("JF दोबारा कोशिश (अब फ़ाइल ठीक): English नियम-पत्र दिखा, रुकावट हटी, ऊपर इसी भाषा की सूचना", !k0.d.getElementById("rulesBlocked") && k0.d.querySelectorAll("#rulesContainer .rule").length > 15 && !!k0.d.getElementById("rulesLegalNote") &&
+        k0.d.getElementById("rulesContainer").firstElementChild.textContent === TR(EN_NOTE) && !DEV.test(k0.d.getElementById("rulesContainer").textContent));
+      ck("JF उसके बाद सब नियम स्वीकार → चरण-3", await joinRules(k0) && k0.d.getElementById("panel3").classList.contains("active"));
+      await joinStep3(k0, { key: "student" }, false); click(k0, k0.d.getElementById("toStep4Btn")); await settle(k0);
+      click(k0, k0.d.getElementById("submitBtn")); await waitFor(k0, () => k0.calls.some(x => x.name === "submitRegistration")); await settle(k0);
+      const sp = k0.calls.filter(x => x.name === "submitRegistration").pop();
+      ck("JF तब consent_language = en और संस्करण 1.2 (जो पत्र सचमुच दिखा)", !!sp && sp.data.consent_language === "en" && sp.data.consent_rules_version === "1.2", JSON.stringify(sp && { l: sp.data.consent_language, v: sp.data.consent_rules_version }));
+      noErr(k0, "JF (ख)"); k0.dom.window.close();
+      /* (ग) रुकावट में भाषा हिंदी कर दें: हिंदी नियम सामान्य रूप से; वापस इस भाषा में: फिर रुकावट (हिंदी नहीं) */
+      k0 = await openPage("join.html", { ls: LS(), expect: LG, handlers: Object.assign({}, HJ), missing: ["/en/rules-consent-counselor.html"] });
+      await joinStep1(k0, {}); await joinOtp(k0); await joinRole(k0, { key: "counselor" }); await settle(k0);
+      click(k0, k0.d.querySelector('#acsPanelLangBar button[data-plang="hi"]')); await waitFor(k0, () => k0.d.querySelectorAll("#rulesContainer .rule").length > 20); await settle(k0);
+      ck("JF रुकावट से हिंदी पर: हिंदी नियम सामान्य रूप से दिखे", !k0.d.getElementById("rulesBlocked") && k0.d.querySelectorAll("#rulesContainer .rule").length > 20);
+      click(k0, k0.d.querySelector('#acsPanelLangBar button[data-plang="' + LG + '"]')); await waitFor(k0, () => !!k0.d.getElementById("rulesBlocked")); await settle(k0); await settle(k0);
+      ck("JF वापस " + LG + " पर: फिर रुकावट, हिंदी नियम हट गए", !!k0.d.getElementById("rulesBlocked") && k0.d.querySelectorAll("#rulesContainer .rule").length === 0 && !DEV.test(k0.d.getElementById("rulesContainer").textContent));
+      clean(k0, "JF वापस " + LG + " पर : पूरा पन्ना");
+      noErr(k0, "JF (ग)"); k0.dom.window.close();
+      /* (घ) एक भूमिका के नियम स्वीकार कर चुके हों, फिर ऐसी भूमिका चुनें जिसका पत्र नहीं खुलता: पुरानी सहमति साथ नहीं आती */
+      k0 = await openPage("join.html", { ls: LS(), expect: LG, handlers: Object.assign({}, HJ), missing: ["/en/rules-consent-counselor.html"] });
+      await joinStep1(k0, {}); await joinOtp(k0); await joinRole(k0, { key: "student" }); await waitFor(k0, () => k0.d.querySelectorAll("#rulesContainer .rule").length > 15); await settle(k0);
+      { const $ = id => k0.d.getElementById(id), bulk = $("bulkConsentChk");
+        if (bulk) { bulk.checked = true; bulk.dispatchEvent(new k0.w.Event("change")); } else k0.d.querySelectorAll("#rulesContainer .rule input[type=checkbox]").forEach(b => { b.checked = true; b.dispatchEvent(new k0.w.Event("change")); });
+        await settle(k0); if (!$("finalChk").checked) { $("finalChk").checked = true; $("finalChk").dispatchEvent(new k0.w.Event("change")); } await settle(k0);
+        ck("JF (घ) पहली भूमिका के नियम स्वीकार: आगे का बटन खुला", $("finalChk").checked && !$("toStep3Btn").disabled);
+        await joinRole(k0, { key: "counselor" }); await waitFor(k0, () => !!$("rulesBlocked")); await settle(k0);
+        ck("JF (घ) अब दूसरी भूमिका, जिसका पत्र नहीं खुलता: रुकावट; पुरानी सहमति हटी (अंतिम पुष्टि और आगे का बटन बंद)", !!$("rulesBlocked") && k0.d.querySelectorAll("#rulesContainer .rule").length === 0 && $("finalChk").disabled && !$("finalChk").checked && $("toStep3Btn").disabled && $("toStep3Btn").className === "big btn-off" && !DEV.test($("rulesContainer").textContent));
+        click(k0, $("toStep3Btn")); await settle(k0);
+        ck("JF (घ) चरण-3 नहीं खुला", $("panel2").classList.contains("active") && !$("panel3").classList.contains("active")); }
+      noErr(k0, "JF (घ)"); k0.dom.window.close();
+    }
+    /* JL (v1.3) चरण-2 पर भाषा बदलना: हिंदी में लोड हुए नियम इस भाषा के पैनल में पन्ने के भीतर नहीं रहते (English पत्र से दोबारा लोड, टिक हटते हैं) */
+    { const k9 = await openPage("join.html", { handlers: Object.assign({}, HJ) }), $ = id => k9.d.getElementById(id), RC = () => $("rulesContainer");
+      const BTN = l => k9.d.querySelector('#acsPanelLangBar button[data-plang="' + l + '"]');
+      await joinStep1(k9, {}); await joinOtp(k9); await joinRole(k9, { key: "counselor" }); await waitFor(k9, () => RC().querySelectorAll(".rule").length > 20); await settle(k9);
+      const nHi = RC().querySelectorAll(".rule input[type=checkbox]:not(#bulkConsentChk)").length;
+      RC().querySelectorAll(".rule input[type=checkbox]").forEach(b => { b.checked = true; b.dispatchEvent(new k9.w.Event("change")); }); await settle(k9);
+      ck("JL हिंदी में नियम लोड हुए और टिक लगे", DEV.test(RC().textContent) && nHi > 20 && !$("finalChk").disabled);
+      click(k9, BTN(LG)); await waitFor(k9, () => !!$("rulesLegalNote")); await settle(k9); await settle(k9);
+      ck("JL हिंदी → " + LG + " (चरण-2 पर): हिंदी नियम हटे; English पत्र से दोबारा लोड, ऊपर इसी भाषा की सूचना; गिनती वही", !DEV.test(RC().textContent) && RC().firstElementChild.textContent === k9.w.ACS_PANEL_I18N.tr(EN_NOTE) &&
+        RC().querySelectorAll(".rule input[type=checkbox]:not(#bulkConsentChk)").length === nHi && k9.fetched.indexOf("/en/rules-consent-counselor.html") > -1, RC().textContent.slice(0, 160));
+      ck("JL दोबारा लोड पर टिक हटे: अंतिम पुष्टि और आगे का बटन बंद", Array.from(RC().querySelectorAll(".rule input[type=checkbox]")).every(b => !b.checked) && $("finalChk").disabled && !$("finalChk").checked && $("toStep3Btn").disabled);
+      clean(k9, "JL हिंदी → " + LG + " के बाद पूरा पन्ना", RH);
+      ck("JL नियम स्वीकार → चरण-3", await joinRules(k9) && $("panel3").classList.contains("active"));
+      click(k9, BTN("hi")); await waitFor(k9, () => !k9.w.ACS_PANEL_I18N.active); await settle(k9);
+      ck("JL चरण-3 पर भाषा हिंदी की: चरण-2 के नियम नहीं छुए गए (सहमति दर्ज रही)", $("finalChk").checked && !!$("rulesLegalNote") && $("panel3").classList.contains("active"));
+      click(k9, BTN(LG)); await waitFor(k9, () => k9.w.ACS_PANEL_I18N.active && k9.w.ACS_PANEL_I18N.lang() === LG); await settle(k9);
+      click(k9, $("back2Btn")); await settle(k9); await settle(k9);
+      ck("JL वापस " + LG + ", फिर चरण-2 पर लौटे: वही English नियम (दोबारा लोड नहीं; सहमति बनी रही)", $("finalChk").checked && !!$("rulesLegalNote") && !DEV.test(RC().textContent) && !$("toStep3Btn").disabled);
+      click(k9, BTN("hi")); await waitFor(k9, () => !$("rulesLegalNote") && RC().querySelectorAll(".rule").length > 20); await settle(k9);
+      ck("JL चरण-2 पर भाषा हिंदी की: नियम हिंदी में दोबारा लोड, सहमति दोबारा चाहिए", DEV.test(RC().querySelector(".rules").textContent) && $("finalChk").disabled && !$("finalChk").checked && $("toStep3Btn").disabled);
+      noErr(k9, "JL"); k9.dom.window.close();
+    }
   }
 }
 
@@ -501,6 +600,6 @@ async function dashSuite() {
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 6).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
   console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 प्रमाणपत्र, OTP का email, बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.2 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.3 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();

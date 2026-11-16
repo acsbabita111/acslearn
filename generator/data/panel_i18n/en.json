@@ -350,7 +350,6 @@
   "— स्वतः तय।": ": set automatically.",
   "ℹ️ आपका पुराना आवेदन इसी Registration No पर अद्यतन (update) हुआ है।": "ℹ️ Your earlier application has been updated under the same Registration No.",
   "ℹ️ आपका फ़ॉर्म पहले से सफलतापूर्वक दर्ज है।": "ℹ️ Your form is already registered successfully.",
-  "ℹ️ इस भूमिका के नियम अभी सिर्फ़ हिंदी में हैं। हिंदी ही क़ानूनी मूल है।": "ℹ️ The rules of this role are only in Hindi for now. The Hindi text is the legal original.",
   "ℹ️ इस रोल में एक और चयन है — नीचे सबसे ऊपर मिलेगा, ज़रूरत अनुसार बदलें।": "ℹ️ This role has one more choice. You will find it at the top below. Change it if needed.",
   "← पिछला — नियम फिर पढ़ें": "← Back: read the rules again",
   "← पिछला — फ़ॉर्म में बदलाव": "← Back: change the form",
@@ -2111,7 +2110,12 @@
   "इंटरनेट देखकर दोबारा कोशिश करें।": "Check the internet and try again.",
   "दोबारा कोशिश करें": "Try again",
   "डाउनलोड करें": "Download",
-  "ℹ️ इस भूमिका के नियम अभी English में दिखाए जा रहे हैं।": "ℹ️ The rules for this role are shown in English for now."
+  "ℹ️ इस भूमिका के नियम अभी English में दिखाए जा रहे हैं।": "ℹ️ The rules for this role are shown in English for now.",
+  "⚠️ इस भाषा में और English में नियम-पत्र अभी नहीं खुल सका।": "⚠️ The rules letter could not be opened in this language or in English just now.",
+  "नियम पढ़े बिना रजिस्ट्रेशन आगे नहीं बढ़ता। थोड़ी देर बाद दोबारा कोशिश करें।": "Registration cannot go ahead without reading the rules. Please try again after a little while.",
+  "नियम-पत्र पढ़ें (हिंदी में) ↗": "Read the rules letter (in Hindi) ↗",
+  "इस नियम-पत्र का अनुवाद अभी तैयार नहीं है। क़ानूनी मूल हिंदी में है।": "The translation of this rules letter is not ready yet. The legal original is in Hindi.",
+  "⚠️ नियम पढ़े और स्वीकार किए बिना आवेदन जमा नहीं होता। चरण-2 पर लौटकर नियम स्वीकार करें।": "⚠️ The application cannot be submitted without reading and accepting the rules. Go back to step 2 and accept the rules."
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",

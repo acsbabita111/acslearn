@@ -1,4 +1,6 @@
-/* /assets/rules-gate.js : v1.3 (16-Nov-2026)
+/* /assets/rules-gate.js : v1.4 (16-Nov-2026)
+   v1.4 (कन्नड़ क-1 v1.3, ऑडिट की शर्त): अनुवाद न मिलने की हालत में कड़ी हिंदी नियम-पत्र पर जाती है (परदे के भीतर हिंदी नियम कभी नहीं दिखते);
+   उस हालत की दोनों पंक्तियाँ अब पैनल की भाषा में (GATE_HI के rdHi, noTr), English में नहीं।
    v1.3 (कन्नड़ क-1 v1.2, Founder के आदेश 16-Nov-2026): (1) पैनल (login, dashboard) हिंदी और English के अलावा किसी भाषा में हो, तो परदा
      उसी भाषा में (GATE_HI के वाक्य पैनल के पैक से; कोई वाक्य पैक में न मिले, तो पूरा परदा English में): हिंदी कहीं नहीं।
      नियम-पत्र की कड़ी: उस भाषा का पत्र हो तो वही, वरना English पत्र (दोनों में वही संस्करण-जाँच)।
@@ -37,7 +39,9 @@ var GATE_HI = {
   err: "सहमति दर्ज नहीं हो पाई। इंटरनेट देखकर दोबारा दबाएँ।",
   fh: "📜 नियम-पत्र की स्थिति नहीं जाँची जा सकी",
   fp: "इंटरनेट देखकर दोबारा कोशिश करें।",
-  retry: "दोबारा कोशिश करें"
+  retry: "दोबारा कोशिश करें",
+  rdHi: "नियम-पत्र पढ़ें (हिंदी में) ↗",
+  noTr: "इस नियम-पत्र का अनुवाद अभी तैयार नहीं है। क़ानूनी मूल हिंदी में है।"
 };
 /* पैनल की भाषा हिंदी और English के अलावा हो, तो उस भाषा के वाक्य; एक भी वाक्य पैक में न मिले (देवनागरी बचे), तो null (तब English परदा) */
 function gateOwn() {
@@ -111,8 +115,9 @@ export function rulesGate(o) {
           /* English नियम-पत्र तभी, जब वह मिले और उसका संस्करण यही हो; वरना हिंदी मूल (बिना internet के कड़ी जैसी है वैसी रहती है) */
           var toHindi = function () {
             var a = document.getElementById("rulesGateLink"), n = document.getElementById("rulesGateNote"); if (!a) return;
-            a.href = "/rules-consent-learner.html"; a.textContent = "Read the rules letter (in Hindi) ↗";
-            if (n) n.textContent = "The English version of this rules letter is not ready yet. The Hindi text is the legal original.";
+            /* अनुवाद न मिले: हिंदी नियम-पत्र परदे के भीतर नहीं दिखता; सिर्फ़ उसकी कड़ी, सूचना पैनल की भाषा में */
+            a.href = "/rules-consent-learner.html"; a.textContent = KO ? KO.rdHi : "Read the rules letter (in Hindi) ↗";
+            if (n) n.textContent = KO ? KO.noTr : "The English version of this rules letter is not ready yet. The Hindi text is the legal original.";
             readLang = "hi";
           };
           var fresh = function (path) {   /* वह पत्र मौजूद है और उसका संस्करण यही है? */

@@ -992,6 +992,7 @@
       tab.classList.toggle('done', i<n);
     }
     window.scrollTo({top:0,behavior:'smooth'});
+    if(n===2 && typeof rulesLangSync==='function') rulesLangSync();   /* (क-1 v1.3) चरण-2 पर लौटे और भाषा बदल चुकी हो: नियम उसी भाषा के हिसाब से */
     /* (27-Jul, Founder बिंदु-1): step-1 का भरा नाम आगे के steps में दुबारा न भरना पड़े —
        वही खाने पहले-से-भरे + locked-grey दिखें; बदलना हो तो ← से step-1 पर। */
     try{
@@ -1243,6 +1244,8 @@
   distTyped.addEventListener('input', maybeLoadRules);
 
   var rulesLoadedFor = null;
+  var rulesLoadedLang = 'hi';   /* (क-1 v1.3) नियम किस पैनल-भाषा के लिए लोड हुए */
+  var rulesLoadSeq = 0;         /* (क-1 v1.3) देर से आया पुराना उत्तर नए को न ढके */
   var rulesShownLang = 'hi';
   var rulesShownVer = '';   /* (15-Nov-2026, पैनल-5) जो नियम-पत्र सचमुच दिखा, उसके हिंदी मूल की संस्करण-संख्या */
   function rulesVerNum(h){ var m = /<b>Version: ([0-9.]+)/.exec(h || ''); return m ? m[1] : ''; }
@@ -1252,6 +1255,16 @@
     if(officeComplete()){ loadRulesFor(roleSel.value); }
     else { rulesCard.style.display='none'; }
   }
+  /* (क-1 v1.3, 16-Nov-2026) पैनल की भाषा बदले और चरण-2 खुला हो (या उस पर लौटें), तो नियम नई भाषा के हिसाब से दोबारा लोड होते हैं।
+     कारण: हिंदी में लोड हुए नियम किसी दूसरी भाषा के पैनल में पन्ने के भीतर न रह जाएँ; और रुकावट का डिब्बा हिंदी पर लौटते ही हट जाए।
+     दोबारा लोड होने पर टिक हटते हैं, यानी सहमति उसी पत्र पर दर्ज होती है जो सामने है। आगे के चरण में हों, तो दर्ज सहमति वैसी ही रहती है। */
+  function rulesPanelLang(){ var I = window.ACS_PANEL_I18N; return (I && I.active && I.lang) ? I.lang() : 'hi'; }
+  function rulesLangSync(){
+    if(!document.getElementById('panel2').classList.contains('active')) return;
+    if(rulesLoadedFor && rulesLoadedLang === rulesPanelLang()) return;
+    rulesLoadedFor = null; maybeLoadRules();
+  }
+  document.addEventListener('acs-panel-lang', rulesLangSync);
 
   /* ═══════════════ नियम — असली फ़ाइल से fetch करके इसी पेज में जोड़ना ═══════════════ */
   var rulesContainer=document.getElementById('rulesContainer');
@@ -1261,6 +1274,7 @@
   function loadRulesFor(role){
     if(rulesLoadedFor===role){ rulesCard.style.display='block'; return; }
     rulesLoadedFor = role;
+    var loadSeq = ++rulesLoadSeq;
     rulesCard.style.display='block';
     /* पिछले role की injected-script से finalChk/toStep3Btn पर जुड़े पुराने listener हमेशा के लिए हटाना —
        clone बनाकर बदलना (clone किसी भी JS-listener को साथ नहीं लाता, सिर्फ़ HTML/attribute) */
@@ -1273,8 +1287,9 @@
     rulesContainer.innerHTML = '<div class="rulesLoadMsg">📜 नियम लोड हो रहे हैं…</div>';
     var file = R.ruleFileFor(role);
     if(!file){ rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ इस रोल की rules-फ़ाइल roles.js में दर्ज नहीं है।</div>'; return; }
-    /* (15-Nov-2026, पैनल-1) दूसरी भाषा में पहले /<भाषा>/<फ़ाइल>; न हो तो हिंदी मूल (क़ानूनी मूल हिंदी ही) */
+    /* (15-Nov-2026, पैनल-1; 16-Nov-2026 क-1 v1.3) दूसरी भाषा में पहले /<भाषा>/<फ़ाइल>, फिर English का पत्र। दोनों न मिलें या बासी हों, तो हिंदी नियम पन्ने के भीतर नहीं दिखते (नीचे rulesBlocked): सूचना + हिंदी नियम-पत्र की अलग कड़ी। हिंदी क़ानूनी मूल है। */
     var I18 = window.ACS_PANEL_I18N, ULANG = (I18 && I18.active && I18.lang) ? I18.lang() : 'hi', rulesLang = 'hi';
+    rulesLoadedLang = ULANG;
     /* (पैनल-5, 15-Nov-2026) हिंदी मूल हमेशा लिया जाता है: वही क़ानूनी मूल है और उसी की संस्करण-संख्या सहमति में दर्ज होती है।
        अनुवाद तभी दिखता है, जब उसकी संस्करण-संख्या हिंदी मूल से मिले (learner में वह दर्ज संस्करण से भी मिले); नहीं तो हिंदी मूल। */
     var hiP = fetch(file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){
@@ -1289,6 +1304,7 @@
       ? fetch('en/' + file + '?v=' + Date.now(), { cache: 'no-store' }).then(function(r){ return r.ok ? r.text() : ''; }).catch(function(){ return ''; })
       : Promise.resolve('');
     Promise.all([hiP, langP, enP]).then(function(t){
+      if(loadSeq !== rulesLoadSeq) return;
       var hiHtml = t[0], lgHtml = t[1], enHtml = t[2], hv = rulesVerNum(hiHtml), html = hiHtml;
       var verOk = function(h){ return !!(h && hv && rulesVerNum(h) === hv && (!isLearnerRomanOnly() || hv === expectedRulesVer())); };
       if(verOk(lgHtml)){ html = lgHtml; rulesLang = ULANG; }
@@ -1301,10 +1317,28 @@
       var srcScript = doc.querySelector('script');
       rulesContainer.innerHTML = '';
       if(ULANG !== 'hi' && rulesLang === 'hi'){
-        var hiNote = document.createElement('div');
-        hiNote.style.cssText='background:#FFF8E1;border:1.5px solid #F9A825;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:16px;color:#5a4300';
-        hiNote.textContent = 'ℹ️ इस भूमिका के नियम अभी सिर्फ़ हिंदी में हैं। हिंदी ही क़ानूनी मूल है।';
-        rulesContainer.appendChild(hiNote);
+        /* (16-Nov-2026, Founder का आदेश + ऑडिट की शर्त) ग़ैर-हिंदी पैनल में हिंदी नियम पन्ने के भीतर कभी नहीं दिखते। उस भाषा का और English का
+           नियम-पत्र, दोनों न मिलें या बासी हों, तो: उसी भाषा में सूचना + हिंदी नियम-पत्र (क़ानूनी मूल) की अलग कड़ी + "दोबारा कोशिश करें"।
+           नियम दिखे ही नहीं, इसलिए सहमति नहीं ली जाती और रजिस्ट्रेशन यहाँ से आगे नहीं बढ़ता। */
+        rulesShownLang = ''; rulesShownVer = '';
+        rulesLoadedFor = null;   /* ताकि "दोबारा कोशिश" और भाषा बदलना, दोनों फिर से लोड करें */
+        var blk = document.createElement('div'); blk.id = 'rulesBlocked';
+        blk.style.cssText='background:#FFF8E1;border:1.5px solid #F9A825;border-radius:9px;padding:12px;margin-bottom:10px;font-size:17px;color:#5a4300;line-height:1.7';
+        var b1 = document.createElement('b'); b1.textContent = '⚠️ इस भाषा में और English में नियम-पत्र अभी नहीं खुल सका।';
+        var b2 = document.createElement('div'); b2.textContent = 'नियम पढ़े बिना रजिस्ट्रेशन आगे नहीं बढ़ता। थोड़ी देर बाद दोबारा कोशिश करें।';
+        var b3 = document.createElement('div'); b3.style.cssText='margin-top:6px';
+        var b3t = document.createElement('span'); b3t.textContent = 'क़ानूनी रूप से हिंदी नियम-पत्र ही मान्य है।';
+        var b3a = document.createElement('a'); b3a.id = 'rulesBlockedHi'; b3a.href = file; b3a.target = '_blank'; b3a.rel = 'noopener'; b3a.style.cssText='color:#1565C0;font-weight:700'; b3a.textContent = 'हिंदी नियम-पत्र खोलें ↗';
+        b3.appendChild(document.createTextNode('⚖️ ')); b3.appendChild(b3t); b3.appendChild(document.createTextNode(' ')); b3.appendChild(b3a);
+        var b4 = document.createElement('button'); b4.type = 'button'; b4.id = 'rulesRetryBtn';
+        b4.style.cssText='margin-top:10px;font-size:18px;padding:10px 16px;border-radius:10px;border:2px solid #1565C0;background:#1565C0;color:#fff;cursor:pointer';
+        b4.textContent = '🔄 दोबारा कोशिश करें';
+        b4.addEventListener('click', function(){ rulesLoadedFor = null; loadRulesFor(role); });
+        blk.appendChild(b1); blk.appendChild(b2); blk.appendChild(b3); blk.appendChild(b4);
+        rulesContainer.appendChild(blk);
+        rulesCountEl.textContent = '';
+        finalChk.checked = false; finalChk.disabled = true; toStep3Btn.className = 'big btn-off'; toStep3Btn.disabled = true;
+        return;
       } else if(ULANG !== 'hi' && ULANG !== 'en' && rulesLang === 'en'){
         var enNote = document.createElement('div');
         enNote.style.cssText='background:#FFF8E1;border:1.5px solid #F9A825;border-radius:9px;padding:10px 12px;margin-bottom:10px;font-size:16px;color:#5a4300';
@@ -1350,6 +1384,8 @@
       }
       wireRuleCheckboxes();
     }).catch(function(err){
+      if(loadSeq !== rulesLoadSeq) return;
+      rulesLoadedFor = null;
       rulesContainer.innerHTML = '<div class="rulesLoadMsg" style="color:#B23A3A">⚠️ नियम लोड नहीं हो सके ('+err.message+')। कृपया सुनिश्चित करें कि '+file+' इसी फ़ोल्डर में मौजूद है।</div>';
     });
   }
@@ -2105,6 +2141,12 @@
   document.getElementById('submitBtn').addEventListener('click', function(){
     submitErrorBox.style.display = 'none';
     reOtpBox.style.display = 'none';
+    /* (क-1 v1.3) पहरा: जो नियम-पत्र दिखा ही नहीं या जिस पर अंतिम पुष्टि नहीं, उसके बिना आवेदन server को नहीं जाता */
+    if(!rulesShownLang || !finalChk.checked){
+      submitErrorBox.textContent = '⚠️ नियम पढ़े और स्वीकार किए बिना आवेदन जमा नहीं होता। चरण-2 पर लौटकर नियम स्वीकार करें।';
+      submitErrorBox.style.display = 'block';
+      return;
+    }
 
     /* (10-Jul-2026, form-logic) cross-check — भेजने से पहले browser पर ही पकड़:
        आपातकालीन संपर्क व Guardian-नंबर में आवेदक का अपना नंबर नहीं चल सकता। */
