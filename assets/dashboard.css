@@ -451,4 +451,9 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .k1mA.on{background:#B71C1C;border-color:#B71C1C;color:#fff}
 .k1mL.on{background:var(--gold);border-color:var(--gold);color:var(--navy)}
 .k1ar{padding:8px 0;border-bottom:1px solid #eef2f6}
+/* (18-Nov-2026, K-4b) काम व अंक: अंक और टिप्पणी के खाने */
+.k1wf{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px;font-size:17px}
+.k1wf input{font-size:17px;padding:8px 10px;border:1.5px solid #9aa9bd;border-radius:9px}
+.k1wm{width:84px}
+.k1wr{flex:1 1 180px;min-width:0}
 .k1c{display:inline-block;font-size:16px;padding:3px 8px;margin:4px 4px 0 0;border:1px solid #cfd8e3;border-radius:8px;background:#fff}

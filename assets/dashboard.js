@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.25.0 · 18-Nov-2026 (कक्षा-परत K-4b: काम व अंक; server: class_server.js v1.6): k1-block में "काम व अंक"।
+     शिक्षक और उस्ताद: काम दें, हर विद्यार्थी का नतीजा और अंक लिखें। केंद्र और वर्कशॉप: देखें। विद्यार्थी: अपना काम और अंक।
    v6.24.0 · 18-Nov-2026 (कक्षा-परत K-3b: हाज़िरी; server: class_server.js v1.5): k1-block में हाज़िरी।
      शिक्षक और उस्ताद ("मेरी कक्षाएँ"): आज या पिछले 3 दिन की हाज़िरी लगाएँ या सुधारें। केंद्र और वर्कशॉप ("कक्षा व बैच"): हाज़िरी देखें।
      विद्यार्थी ("मेरा केंद्र"): अपनी हाज़िरी। Founder के देखने के मोड में तीनों सूचियाँ पढ़ी जाती हैं (VIEW_READ)।
@@ -166,7 +168,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -184,7 +186,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.24.0";
+const DASH_VER = "v6.25.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4282,6 +4284,66 @@ if (MODE==="external" && ALLOWED.length>=1) {
       S("छुट्टी")+' <b>'+m.leave+'</b> · <b>'+pc(m.pct)+'</b></div><div class="r2">'+
       (m.last||[]).map(function(x){ return '<span class="k1c">'+dd(x.date).slice(0,5)+' '+(IC[x.mark]||"")+'</span>'; }).join(" ")+'</div>';
   }
+  /* ───────── (K-4b · 18-Nov-2026) काम व अंक ─────────
+     शिक्षक/उस्ताद: काम दे (नाम, ब्योरा, आख़िरी तारीख़, पूरे अंक) और हर विद्यार्थी का नतीजा लिखे (जमा + अंक, नहीं किया, दोबारा)।
+     केंद्र/वर्कशॉप: सिर्फ़ देखे। विद्यार्थी: सिर्फ़ अपना (mcClass में)। कक्षा offline है: यहाँ कुछ upload नहीं होता। server: class_server.js v1.6 */
+  var WK={}, MYWORK=null, WS={ S:"जमा", N:"नहीं किया", R:"दोबारा" }, WC={ S:"k1mP", N:"k1mA", R:"k1mL" };
+  async function wkLoad(id){ var old=WK[id]||{}; WK[id]={ data:(await call("listWork",{ classId:id })).data||{}, form:null, open:old.open||null, edits:old.edits||{} }; }
+  function wkKeep(id){
+    var k=WK[id]; if(!k) return;
+    if(k.form){ var a=$("k1WTitle"), b=$("k1WDet"), c=$("k1WDue"), d=$("k1WMax"); if(a) k.form.title=a.value; if(b) k.form.details=b.value; if(c) k.form.due=c.value; if(d) k.form.max=d.value; }
+    document.querySelectorAll('.k1wm[data-id="'+id+'"]').forEach(function(x){ var e=k.edits[x.getAttribute("data-r")]; if(e) e.marks=x.value; });
+    document.querySelectorAll('.k1wr[data-id="'+id+'"]').forEach(function(x){ var e=k.edits[x.getAttribute("data-r")]; if(e) e.remark=x.value; });
+  }
+  function wkHtml(id, side){
+    var k=WK[id]; if(!k) return "";
+    var d=k.data, I=' data-id="'+esc(id)+'"', L=d.students||[], works=d.works||[], can=(side==="teacher"&&d.canMark), nm={};
+    L.forEach(function(x){ nm[x.regNo]=x.name; });
+    var h='<div class="k1att"><div class="r2"><b>'+S("📝 काम व अंक")+'</b> · '+S("दिए गए काम:")+' <b>'+works.length+'</b></div>';
+    if(can){
+      if(k.form) h+='<div class="k9grid" style="margin-top:8px"><div class="k9f" style="grid-column:1/-1"><label>काम का नाम</label><input id="k1WTitle" type="text" maxlength="100" value="'+esc(k.form.title||"")+'"></div>'+
+        '<div class="k9f" style="grid-column:1/-1"><label>ब्योरा (चाहें तो)</label><input id="k1WDet" type="text" maxlength="500" value="'+esc(k.form.details||"")+'"></div>'+
+        '<div class="k9f"><label>आख़िरी तारीख़</label><input id="k1WDue" type="date" value="'+esc(k.form.due||"")+'"></div>'+
+        '<div class="k9f"><label>पूरे अंक (1 से 100)</label><input id="k1WMax" type="number" min="1" max="100" value="'+esc(k.form.max||"")+'"></div>'+
+        '<div class="k9full">'+btn("wksave","✔ काम दें",I,"ok")+btn("wkcancel","✖ बंद करें",I)+'</div></div>';
+      else h+='<div>'+btn("wknew","➕ नया काम दें",I)+'</div>';
+    }
+    if(!works.length) h+='<div class="r2">'+S("अभी कोई काम नहीं दिया गया।")+'</div>';
+    works.forEach(function(w){
+      var W=' data-w="'+esc(w.workId)+'"', c=w.counts||{};
+      h+='<div class="k1ar"><div class="r2"><b>'+US(rb(w.title))+'</b></div>'+(w.details?'<div class="r2">'+US(rb(w.details))+'</div>':'')+
+        '<div class="r2">'+S("आख़िरी तारीख़:")+' <b>'+dd(w.dueDate)+'</b> · '+S("पूरे अंक:")+' <b>'+w.maxMarks+'</b></div>'+
+        '<div class="r2">'+S("जमा")+' <b>'+(c.S||0)+'</b> · '+S("नहीं किया")+' <b>'+(c.N||0)+'</b> · '+S("दोबारा")+' <b>'+(c.R||0)+'</b> · '+S("बाक़ी")+' <b>'+(c.open||0)+'</b></div>';
+      if(can){
+        var on=(k.open===w.workId), none=!((c.S||0)+(c.N||0)+(c.R||0));
+        h+='<div>'+btn("wkopen", on?"✖ अंक बंद करें":"✏️ अंक लिखें", I+W)+(none?red("wkdel","🗑 काम हटाएँ",I+W):'')+'</div>';
+        if(on){
+          (w.results||[]).forEach(function(r,i){ var e=k.edits[r.regNo]||{};
+            h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(nm[r.regNo]||""))+' · '+esc(r.regNo)+'</div><div>'+["S","N","R"].map(function(v){
+              return '<button type="button" class="k1m '+WC[v]+(e.status===v?' on':'')+'" data-k1="wkst"'+I+' data-r="'+esc(r.regNo)+'" data-v="'+v+'">'+WS[v]+'</button>'; }).join(" ")+'</div>'+
+              '<div class="k1wf">'+(e.status==="S"?'<label>'+S("अंक")+' <input type="number" class="k1wm" min="0" max="'+w.maxMarks+'"'+I+' data-r="'+esc(r.regNo)+'" value="'+esc(e.marks==null?"":e.marks)+'"> / '+w.maxMarks+'</label>':'')+
+              '<input type="text" class="k1wr" maxlength="200" placeholder="टिप्पणी (चाहें तो)"'+I+' data-r="'+esc(r.regNo)+'" value="'+esc(e.remark||"")+'"></div></div>'; });
+          h+='<div>'+btn("wkmark","✔ अंक सहेजें",I+W,"ok")+'</div>';
+        }
+      }
+      h+='</div>';
+    });
+    if(L.length){ h+='<div class="r2" style="margin-top:10px"><b>'+S("अब तक के अंक:")+'</b></div>';
+      L.forEach(function(x,i){ h+='<div class="r2">'+(i+1)+'. '+US(rb(x.name))+' · '+esc(x.regNo)+'<br>'+S("अंक")+' <b>'+x.got+' / '+x.full+'</b> · <b>'+pc(x.pct)+'</b>'+
+        (x.again?' · '+S("दोबारा")+' <b>'+x.again+'</b>':'')+'</div>'; }); }
+    return h+'</div>';
+  }
+  /* विद्यार्थी का अपना काम और अंक: एक कोर्स */
+  function myWorkHtml(offeringId){
+    if(!MYWORK) return "";
+    var m=null; MYWORK.forEach(function(x){ if(x.offeringId===offeringId) m=x; }); if(!m||!(m.works||[]).length) return "";
+    var h='<div class="r2">📝 '+S("काम व अंक:")+' <b>'+m.got+' / '+m.full+'</b> · <b>'+pc(m.pct)+'</b></div>';
+    m.works.forEach(function(w){
+      var st = w.status==="S" ? '✅ '+S("जमा")+' · <b>'+w.marks+' / '+w.maxMarks+'</b>' : w.status==="N" ? '❌ '+S("नहीं किया") : w.status==="R" ? '🔁 '+S("दोबारा करना है") : '⏳ '+S("बाक़ी");
+      h+='<div class="k1ar"><div class="r2"><b>'+US(rb(w.title))+'</b> · '+S("आख़िरी तारीख़:")+' '+dd(w.dueDate)+'</div>'+(w.details?'<div class="r2">'+US(rb(w.details))+'</div>':'')+
+        '<div class="r2">'+st+'</div>'+(w.remark?'<div class="r2">'+S("शिक्षक की टिप्पणी:")+' '+US(rb(w.remark))+'</div>':'')+'</div>'; });
+    return h;
+  }
   /* एक कक्षा की पंक्ति: side = "center" (केंद्र देख रहा है) या "teacher" */
   function clsRow(c, side){
     var id=' data-id="'+esc(c.classId)+'"', live=(c.status==="active"||c.status==="notice");
@@ -4308,17 +4370,17 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
     if(side==="teacher"){
       if(c.status==="offered") h+=btn("acc","✅ स्वीकारें",id,"ok")+red("dec","❌ मना करें",id);
-      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id)+btn("att","📋 हाज़िरी",id);
+      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id)+btn("att","📋 हाज़िरी",id)+btn("wk","📝 काम व अंक",id);
       if(c.status==="active") h+=btn("notice","📤 15 दिन की सूचना दें",id);
       if(c.status==="notice") h+=btn("unnotice","↩ सूचना वापस लें",id);
       if(live) h+=red("leave","🚪 बिना सूचना अभी छोड़ें",id);
     } else {
-      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id)+btn("att","📋 हाज़िरी देखें",id);
+      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id)+btn("att","📋 हाज़िरी देखें",id)+btn("wk","📝 काम व अंक देखें",id);
       h+=btn("time","🕒 समय बदलें",id)+red("end", c.status==="offered"?"↩ प्रस्ताव वापस लें":"↩ कक्षा वापस लें", id+' data-st="'+esc(c.status)+'"');
       if(live&&!ab) h+=red("abrep","🚩 शिक्षक बिना सूचना आना बंद कर चुका है",id);
       if(FORM&&FORM.mode==="time"&&FORM.id===c.classId) h+=formHtml();
     }
-    return h+'<div>'+rosHtml(c.classId)+'</div>'+attHtml(c.classId, side)+'</div>';
+    return h+'<div>'+rosHtml(c.classId)+'</div>'+attHtml(c.classId, side)+wkHtml(c.classId, side)+'</div>';
   }
 
   /* ───────── केंद्र/वर्कशॉप: pnl-class ───────── */
@@ -4375,7 +4437,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       h+='<div class="app k1row"><div class="r1"><span class="nm">'+CN(e.courseId,e.courseName)+'</span><span>🏫 '+US(rb(e.centerName))+'</span>'+
         (e.batchNo?'<span>'+S("बैच")+' '+e.batchNo+'</span>':'')+'</div><div class="r2">'+
         (e.teacher ? S(e.teacher.teacherRole==="ustad"?"उस्ताद:":"शिक्षक:")+' '+US(rb(e.teacher.teacherName))+' · '+when(e.teacher)
-                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div>'+myAttHtml(e.offeringId)+'</div>'; });
+                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div>'+myAttHtml(e.offeringId)+myWorkHtml(e.offeringId)+'</div>'; });
     box.innerHTML=h;
   }
   async function reload(){ var r=await call("listMyClasses",{}); CL=r.data||{}; drawInst(); drawMine(); drawStudent(); }
@@ -4387,7 +4449,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(typeof oldMyCtr==="function") await oldMyCtr();
     if($("mcClass")){ try{ await reload(); }catch(e){ /* कक्षा की जानकारी न आए, तो नामांकन-सूची वैसी ही रहे */ }
       /* (K-3b) अपनी हाज़िरी: न आए (पुराना server), तो कक्षा की पंक्ति वैसी ही रहे */
-      if(CL && (CL.asStudent||[]).length){ try{ MYATT=((await call("myAttendance",{})).data||{}).items||null; drawStudent(); }catch(e){ MYATT=null; } } }
+      if(CL && (CL.asStudent||[]).length){ try{ MYATT=((await call("myAttendance",{})).data||{}).items||null; drawStudent(); }catch(e){ MYATT=null; }
+        /* (K-4b) अपना काम और अंक: न आए, तो बाक़ी पंक्ति वैसी ही रहे */
+        try{ MYWORK=((await call("myWork",{})).data||{}).items||null; drawStudent(); }catch(e){ MYWORK=null; } } }
   };
 
   /* ───────── ACS (Founder, Admin): pnl-abandon ───────── */
@@ -4413,6 +4477,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var b=ev.target&&ev.target.closest?ev.target.closest("[data-k1]"):null; if(!b) return;
     var act=b.getAttribute("data-k1"), id=b.getAttribute("data-id")||"", cid=b.getAttribute("data-cid")||"", why;
     try{
+      Object.keys(WK).forEach(wkKeep);   /* (K-4b) कोई भी बटन पर्दा दोबारा बनाए, उससे पहले लिखे हुए अंक और फ़ॉर्म याद रख लो */
       if(act==="cancel"){ FORM=null; drawInst(); return; }
       if(act==="give"){ FORM={ mode:"give", cid:cid, b:Number(b.getAttribute("data-b")), days:[] }; drawInst(); return; }
       if(act==="time"){
@@ -4437,6 +4502,34 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(act==="bset"){
         var sel=document.querySelector('select[data-k1sel="'+cid+'"]');
         await call("setBatches",{ courseId:cid, batches:Number(sel&&sel.value) }); await reload(); say(true,"✔ बैच तय हो गए।"); return; }
+      if(act==="wk"){
+        if(WK[id]){ delete WK[id]; } else { await wkLoad(id); }
+        drawInst(); drawMine(); return; }
+      if(act.indexOf("wk")===0){
+        var K0=WK[id], wid=b.getAttribute("data-w")||""; if(!K0) return; wkKeep(id);
+        if(act==="wknew"){ var t7=""; try{ t7=new Date(Date.parse(K0.data.today+"T00:00:00Z")+7*86400000).toISOString().slice(0,10); }catch(e){}
+          K0.form={ title:"", details:"", due:t7, max:"10" }; drawMine(); return; }
+        if(act==="wkcancel"){ K0.form=null; drawMine(); return; }
+        if(act==="wksave"){
+          if(!String(K0.form.title||"").trim()){ b.disabled=false; say(false,"काम का नाम लिखें।"); return; }
+          await call("setWork",{ classId:id, title:K0.form.title, details:K0.form.details, dueDate:K0.form.due, maxMarks:Number(K0.form.max) });
+          await wkLoad(id); drawMine(); say(true,"✔ काम दे दिया गया।"); return; }
+        if(act==="wkdel"){
+          if(!confirm("यह काम हटाएँ?")) return;
+          await call("removeWork",{ classId:id, workId:wid }); if(K0.open===wid){ K0.open=null; K0.edits={}; } await wkLoad(id); drawMine(); say(true,"🗑 काम हटा दिया गया।"); return; }
+        if(act==="wkopen"){
+          if(K0.open===wid){ K0.open=null; K0.edits={}; } else { K0.open=wid; K0.edits={};
+            (K0.data.works||[]).forEach(function(w){ if(w.workId===wid) (w.results||[]).forEach(function(r){ K0.edits[r.regNo]={ status:r.status||"", marks:r.marks, remark:r.remark||"" }; }); }); }
+          drawMine(); return; }
+        if(act==="wkst"){ var e0=K0.edits[b.getAttribute("data-r")]; if(e0){ e0.status=b.getAttribute("data-v"); if(e0.status!=="S") e0.marks=null; } drawMine(); return; }
+        if(act==="wkmark"){
+          var res={}, bad0=false; Object.keys(K0.edits).forEach(function(r){ var e=K0.edits[r]; if(!e.status) return;
+            if(e.status==="S" && (e.marks===""||e.marks===null||e.marks===undefined)) bad0=true;
+            res[r]={ status:e.status, marks:e.status==="S"?Number(e.marks):null, remark:e.remark||"" }; });
+          if(bad0){ b.disabled=false; say(false,"जमा वाले हर विद्यार्थी के अंक लिखें।"); return; }
+          if(!Object.keys(res).length){ b.disabled=false; say(false,"कम से कम एक विद्यार्थी का नतीजा चुनें।"); return; }
+          await call("markWork",{ classId:id, workId:wid, results:res }); K0.open=null; K0.edits={}; await wkLoad(id); drawMine(); say(true,"✔ अंक सहेज लिए गए।"); return; }
+        return; }
       if(act==="att"){
         if(ATT[id]){ delete ATT[id]; } else { await attLoad(id); }
         drawInst(); drawMine(); return; }
