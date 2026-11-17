@@ -2324,7 +2324,17 @@
   "🗑 काम हटा दिया गया।": "🗑 The work was removed.",
   "🗑 काम हटाएँ": "🗑 Remove the work",
   "पूरे अंक:": "Full marks:",
-  "बाक़ी": "pending"
+  "बाक़ी": "pending",
+  "अभी कोई सूचना नहीं।": "No notice yet.",
+  "कुल सूचनाएँ:": "Total notices:",
+  "पूरे बैच के लिए सूचना लिखें": "Write a notice for the whole batch",
+  "यह सूचना पूरे बैच को भेजें? भेजने के बाद यह बदली या हटाई नहीं जा सकती।": "Send this notice to the whole batch? After sending it cannot be changed or removed.",
+  "सूचना पूरे बैच को दिखती है। भेजने के बाद वह बदली या हटाई नहीं जा सकती।": "The notice is shown to the whole batch. After sending it cannot be changed or removed.",
+  "सूचना लिखें।": "Write the notice.",
+  "सूचनाएँ:": "Notices:",
+  "📣 सूचना भेज दी गई।": "📣 The notice was sent.",
+  "📣 सूचना भेजें": "📣 Send the notice",
+  "📣 सूचना-पट": "📣 Notice board"
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",
@@ -2934,6 +2944,9 @@
   "यह काम चालू कक्षा में ही होता है": "This can be done only in a running class",
   "यह काम मिला नहीं": "This work was not found",
   "यह काम सिर्फ़ इस कक्षा का शिक्षक कर सकता है": "Only the teacher of this class can do this",
-  "हर विद्यार्थी का नतीजा चुनें: जमा, नहीं किया, या दोबारा": "Choose every student's result: Submitted, Not done, or Again"
+  "हर विद्यार्थी का नतीजा चुनें: जमा, नहीं किया, या दोबारा": "Choose every student's result: Submitted, Not done, or Again",
+  "एक दिन में एक कक्षा को {0} से ज़्यादा सूचनाएँ नहीं भेजी जा सकतीं": "No more than {0} notices can be sent to one class in a day",
+  "सूचना चालू कक्षा में ही भेजी जा सकती है": "A notice can be sent only in a running class",
+  "सूचना लिखना ज़रूरी": "Writing the notice is required"
  }
 }

@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.26.0 · 18-Nov-2026 (कक्षा-परत K-5b: प्रगति और सूचना-पट; server: class_server.js v1.7): k1-block में "प्रगति" (हाज़िरी और अंक एक जगह;
+     शिक्षक और केंद्र) और "सूचना-पट" (शिक्षक या केंद्र पूरे बैच को सूचना भेजे; विद्यार्थी "मेरा केंद्र" में पढ़े)।
    v6.25.0 · 18-Nov-2026 (कक्षा-परत K-4b: काम व अंक; server: class_server.js v1.6): k1-block में "काम व अंक"।
      शिक्षक और उस्ताद: काम दें, हर विद्यार्थी का नतीजा और अंक लिखें। केंद्र और वर्कशॉप: देखें। विद्यार्थी: अपना काम और अंक।
    v6.24.0 · 18-Nov-2026 (कक्षा-परत K-3b: हाज़िरी; server: class_server.js v1.5): k1-block में हाज़िरी।
@@ -168,7 +170,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -186,7 +188,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.25.0";
+const DASH_VER = "v6.26.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4344,6 +4346,38 @@ if (MODE==="external" && ALLOWED.length>=1) {
         '<div class="r2">'+st+'</div>'+(w.remark?'<div class="r2">'+S("शिक्षक की टिप्पणी:")+' '+US(rb(w.remark))+'</div>':'')+'</div>'; });
     return h;
   }
+  /* ───────── (K-5b · 18-Nov-2026) प्रगति और सूचना-पट ─────────
+     प्रगति: हर विद्यार्थी की हाज़िरी और अंक एक जगह (शिक्षक और केंद्र दोनों के लिए; server के दो पुराने काम, नया कुछ नहीं)।
+     सूचना-पट: शिक्षक या केंद्र पूरे बैच के लिए छोटी सूचना लिखे; विद्यार्थी पढ़े। एक-तरफ़ा; भेजने के बाद न बदले, न हटे। server: class_server.js v1.7 */
+  var PG={}, NT={}, MYNT=null, RL={ teacher:"शिक्षक", ustad:"उस्ताद", center:"केंद्र", workshop:"वर्कशॉप" };
+  async function pgLoad(id){ var a=(await call("listAttendance",{ classId:id })).data||{}, w=(await call("listWork",{ classId:id })).data||{}; PG[id]={ att:a, wk:w }; }
+  function pgHtml(id){
+    var p=PG[id]; if(!p) return "";
+    var W={}; (p.wk.students||[]).forEach(function(x){ W[x.regNo]=x; });
+    var L=p.att.students||[], h='<div class="k1att"><div class="r2"><b>'+S("📊 प्रगति")+'</b> · '+S("हाज़िरी के कुल दिन:")+' <b>'+(p.att.daysHeld||0)+'</b> · '+S("दिए गए काम:")+' <b>'+((p.wk.works||[]).length)+'</b></div>';
+    if(!L.length) return h+'<div class="r2">'+S("इस बैच में अभी कोई विद्यार्थी नहीं।")+'</div></div>';
+    L.forEach(function(x,i){ var w=W[x.regNo]||{ got:0, full:0, pct:null };
+      h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(x.name))+' · '+esc(x.regNo)+'</div><div class="r2">'+S("हाज़िरी:")+' <b>'+x.present+' / '+(x.present+x.absent)+'</b> · <b>'+pc(x.pct)+'</b></div>'+
+        '<div class="r2">'+S("काम व अंक:")+' <b>'+w.got+' / '+w.full+'</b> · <b>'+pc(w.pct)+'</b></div></div>'; });
+    return h+'</div>';
+  }
+  async function ntLoad(id){ var old=NT[id]||{}; NT[id]={ data:(await call("listNotices",{ classId:id })).data||{}, text:old.text||"" }; }
+  function ntKeep(id){ var k=NT[id], x=document.querySelector('.k1nt[data-id="'+id+'"]'); if(k&&x) k.text=x.value; }
+  function ntLine(x){ return '<div class="k1ar"><div class="r2">'+dms(x.atMs)+' · <b>'+S(RL[x.byRole]||"शिक्षक")+'</b></div><div class="r2">'+US(rb(x.text))+'</div></div>'; }
+  function ntHtml(id){
+    var k=NT[id]; if(!k) return "";
+    var d=k.data, I=' data-id="'+esc(id)+'"', L=d.notices||[];
+    var h='<div class="k1att"><div class="r2"><b>'+S("📣 सूचना-पट")+'</b> · '+S("कुल सूचनाएँ:")+' <b>'+(d.total||0)+'</b></div>';
+    if(d.canPost) h+='<div class="r2">'+S("सूचना पूरे बैच को दिखती है। भेजने के बाद वह बदली या हटाई नहीं जा सकती।")+'</div>'+
+      '<div class="k1wf"><input type="text" class="k1nt k1wr" maxlength="300" placeholder="पूरे बैच के लिए सूचना लिखें"'+I+' value="'+esc(k.text||"")+'"></div><div>'+btn("ntsend","📣 सूचना भेजें",I,"ok")+'</div>';
+    if(!L.length) h+='<div class="r2">'+S("अभी कोई सूचना नहीं।")+'</div>';
+    return h+L.map(ntLine).join("")+'</div>';
+  }
+  function myNtHtml(offeringId){
+    if(!MYNT) return "";
+    var m=null; MYNT.forEach(function(x){ if(x.offeringId===offeringId) m=x; }); if(!m||!(m.notices||[]).length) return "";
+    return '<div class="r2">📣 '+S("सूचनाएँ:")+'</div>'+m.notices.slice(0,5).map(ntLine).join("");
+  }
   /* एक कक्षा की पंक्ति: side = "center" (केंद्र देख रहा है) या "teacher" */
   function clsRow(c, side){
     var id=' data-id="'+esc(c.classId)+'"', live=(c.status==="active"||c.status==="notice");
@@ -4370,17 +4404,17 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
     if(side==="teacher"){
       if(c.status==="offered") h+=btn("acc","✅ स्वीकारें",id,"ok")+red("dec","❌ मना करें",id);
-      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id)+btn("att","📋 हाज़िरी",id)+btn("wk","📝 काम व अंक",id);
+      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id)+btn("att","📋 हाज़िरी",id)+btn("wk","📝 काम व अंक",id)+btn("pg","📊 प्रगति",id)+btn("nt","📣 सूचना-पट",id);
       if(c.status==="active") h+=btn("notice","📤 15 दिन की सूचना दें",id);
       if(c.status==="notice") h+=btn("unnotice","↩ सूचना वापस लें",id);
       if(live) h+=red("leave","🚪 बिना सूचना अभी छोड़ें",id);
     } else {
-      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id)+btn("att","📋 हाज़िरी देखें",id)+btn("wk","📝 काम व अंक देखें",id);
+      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id)+btn("att","📋 हाज़िरी देखें",id)+btn("wk","📝 काम व अंक देखें",id)+btn("pg","📊 प्रगति",id)+btn("nt","📣 सूचना-पट",id);
       h+=btn("time","🕒 समय बदलें",id)+red("end", c.status==="offered"?"↩ प्रस्ताव वापस लें":"↩ कक्षा वापस लें", id+' data-st="'+esc(c.status)+'"');
       if(live&&!ab) h+=red("abrep","🚩 शिक्षक बिना सूचना आना बंद कर चुका है",id);
       if(FORM&&FORM.mode==="time"&&FORM.id===c.classId) h+=formHtml();
     }
-    return h+'<div>'+rosHtml(c.classId)+'</div>'+attHtml(c.classId, side)+wkHtml(c.classId, side)+'</div>';
+    return h+'<div>'+rosHtml(c.classId)+'</div>'+attHtml(c.classId, side)+wkHtml(c.classId, side)+pgHtml(c.classId)+ntHtml(c.classId)+'</div>';
   }
 
   /* ───────── केंद्र/वर्कशॉप: pnl-class ───────── */
@@ -4437,7 +4471,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       h+='<div class="app k1row"><div class="r1"><span class="nm">'+CN(e.courseId,e.courseName)+'</span><span>🏫 '+US(rb(e.centerName))+'</span>'+
         (e.batchNo?'<span>'+S("बैच")+' '+e.batchNo+'</span>':'')+'</div><div class="r2">'+
         (e.teacher ? S(e.teacher.teacherRole==="ustad"?"उस्ताद:":"शिक्षक:")+' '+US(rb(e.teacher.teacherName))+' · '+when(e.teacher)
-                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div>'+myAttHtml(e.offeringId)+myWorkHtml(e.offeringId)+'</div>'; });
+                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div>'+myNtHtml(e.offeringId)+myAttHtml(e.offeringId)+myWorkHtml(e.offeringId)+'</div>'; });
     box.innerHTML=h;
   }
   async function reload(){ var r=await call("listMyClasses",{}); CL=r.data||{}; drawInst(); drawMine(); drawStudent(); }
@@ -4451,7 +4485,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
       /* (K-3b) अपनी हाज़िरी: न आए (पुराना server), तो कक्षा की पंक्ति वैसी ही रहे */
       if(CL && (CL.asStudent||[]).length){ try{ MYATT=((await call("myAttendance",{})).data||{}).items||null; drawStudent(); }catch(e){ MYATT=null; }
         /* (K-4b) अपना काम और अंक: न आए, तो बाक़ी पंक्ति वैसी ही रहे */
-        try{ MYWORK=((await call("myWork",{})).data||{}).items||null; drawStudent(); }catch(e){ MYWORK=null; } } }
+        try{ MYWORK=((await call("myWork",{})).data||{}).items||null; drawStudent(); }catch(e){ MYWORK=null; }
+        /* (K-5b) अपने बैच की सूचनाएँ */
+        try{ MYNT=((await call("myNotices",{})).data||{}).items||null; drawStudent(); }catch(e){ MYNT=null; } } }
   };
 
   /* ───────── ACS (Founder, Admin): pnl-abandon ───────── */
@@ -4477,6 +4513,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var b=ev.target&&ev.target.closest?ev.target.closest("[data-k1]"):null; if(!b) return;
     var act=b.getAttribute("data-k1"), id=b.getAttribute("data-id")||"", cid=b.getAttribute("data-cid")||"", why;
     try{
+      Object.keys(NT).forEach(ntKeep);
       Object.keys(WK).forEach(wkKeep);   /* (K-4b) कोई भी बटन पर्दा दोबारा बनाए, उससे पहले लिखे हुए अंक और फ़ॉर्म याद रख लो */
       if(act==="cancel"){ FORM=null; drawInst(); return; }
       if(act==="give"){ FORM={ mode:"give", cid:cid, b:Number(b.getAttribute("data-b")), days:[] }; drawInst(); return; }
@@ -4502,6 +4539,17 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(act==="bset"){
         var sel=document.querySelector('select[data-k1sel="'+cid+'"]');
         await call("setBatches",{ courseId:cid, batches:Number(sel&&sel.value) }); await reload(); say(true,"✔ बैच तय हो गए।"); return; }
+      if(act==="pg"){
+        if(PG[id]){ delete PG[id]; } else { await pgLoad(id); }
+        drawInst(); drawMine(); return; }
+      if(act==="nt"){
+        if(NT[id]){ delete NT[id]; } else { await ntLoad(id); }
+        drawInst(); drawMine(); return; }
+      if(act==="ntsend"){
+        var N0=NT[id]; if(!N0) return;
+        if(!String(N0.text||"").trim()){ b.disabled=false; say(false,"सूचना लिखें।"); return; }
+        if(!confirm("यह सूचना पूरे बैच को भेजें? भेजने के बाद यह बदली या हटाई नहीं जा सकती।")) return;
+        await call("postNotice",{ classId:id, text:N0.text }); N0.text=""; await ntLoad(id); drawInst(); drawMine(); say(true,"📣 सूचना भेज दी गई।"); return; }
       if(act==="wk"){
         if(WK[id]){ delete WK[id]; } else { await wkLoad(id); }
         drawInst(); drawMine(); return; }

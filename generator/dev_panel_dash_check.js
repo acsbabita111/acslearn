@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v2.2 (18-Nov-2026; v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v2.3 (18-Nov-2026; v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -285,6 +285,10 @@ const K1_HANDLERS = {
   myWork: () => ({ items: [{ offeringId: "u1_PJ001", courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", centerName: HU.center, got: 15, full: 30, done: 1, missed: 1, again: 1, pct: 50,
       works: [{ title: HU.task, details: HU.detail, dueDate: "2026-11-25", maxMarks: 10, status: "", marks: null, remark: "" }, { title: HU.report, details: "", dueDate: "2026-11-15", maxMarks: 20, status: "S", marks: 15, remark: HU.vnote },
         { title: HU.ret, details: "", dueDate: "2026-11-10", maxMarks: 10, status: "N", marks: null, remark: "" }, { title: HU.hold, details: "", dueDate: "2026-11-08", maxMarks: 10, status: "R", marks: null, remark: "" }] }] }),
+  /* (v2.3, K-5b) सूचना-पट */
+  listNotices: d => ({ cls: K1C((d && d.classId) || "k1", "active"), canPost: true, total: 2, notices: [{ text: HU.ret, byRole: "center", byName: HU.center, atMs: Date.UTC(2026, 10, 17, 6) }, { text: HU.task, byRole: "teacher", byName: HU.student, atMs: Date.UTC(2026, 10, 15, 6) }] }),
+  postNotice: () => ({ ok: true, noticeId: "n9" }),
+  myNotices: () => ({ items: [{ offeringId: "u1_PJ001", courseId: "PJ001", notices: [{ text: HU.ret, byRole: "center", byName: HU.center, atMs: Date.UTC(2026, 10, 17, 6) }, { text: HU.task, byRole: "teacher", byName: HU.student, atMs: Date.UTC(2026, 10, 15, 6) }] }] }),
   listAbandonCases: () => ({ items: [{ classId: "k5", courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", batchNo: 1, centerName: HU.center, centerRegNo: "ACS-CE-2026-123456",
     teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", teacherRole: "teacher", reason: HU.hold, reply: HU.ret, reportedAtMs: Date.UTC(2026, 10, 10), repliedAtMs: Date.UTC(2026, 10, 12) }] })
 };
@@ -314,7 +318,7 @@ async function openH(file, lang, sc, navOnly) {   /* navOnly (v1.7): सिर�
   /* खोज वाले बटन: केंद्र खोजना (विद्यार्थी), विद्यार्थी खोजना (केंद्र) */
   for (const [inp, btn] of [["mcCtrReg", "mcFindBtn"], ["addStuReg", "addStuFind"]]) { const i = c.d.getElementById(inp), b = c.d.getElementById(btn); if (i && b) { i.value = "ACS-2026-123456"; click(c, b); await settle(c); await settle(c); } }
   /* (v1.8, कक्षा-परत K-1b) विद्यार्थी-सूची खोलना, बैच सौंपने का फ़ॉर्म खोलना, शिक्षक खोजना, समय बदलने का फ़ॉर्म खोलना */
-  for (const sel of ['[data-k1="ros"]', '[data-k1="give"]', '[data-k1="att"]', '[data-k1="attall"]', '[data-k1="wk"]', '[data-k1="wknew"]', '[data-k1="wkopen"][data-w="w1"]']) { const b = c.d.querySelector(sel); if (b) { click(c, b); await settle(c); await settle(c); } }   /* (v2.1) हाज़िरी भी खोलो; (v2.2) काम व अंक भी */
+  for (const sel of ['[data-k1="ros"]', '[data-k1="give"]', '[data-k1="att"]', '[data-k1="attall"]', '[data-k1="wk"]', '[data-k1="wknew"]', '[data-k1="wkopen"][data-w="w1"]', '[data-k1="pg"]', '[data-k1="nt"]']) { const b = c.d.querySelector(sel); if (b) { click(c, b); await settle(c); await settle(c); } }   /* (v2.1) हाज़िरी भी खोलो; (v2.2) काम व अंक भी */
   { const i = c.d.getElementById("k1Reg"), b = c.d.querySelector('[data-k1="find"]'); if (i && b) { i.value = "ACS-TE-2026-222222"; click(c, b); await settle(c); await settle(c); } }
   await settle(c); return c;
 }
@@ -407,6 +411,23 @@ async function k1Checks(pages) {
   if (pg("student")) { const c = await openH(pg("student"), "hi", "base", ["pnl-myctr"]), t = txt(c, "mcClass");
     ck("K4 विद्यार्थी: अपना काम, अंक और शिक्षक की टिप्पणी", /काम व अंक:\s*15 \/ 30/.test(t) && /50%/.test(t) && /जमा\s*·\s*15 \/ 20/.test(t) && /नहीं किया/.test(t) && /दोबारा करना है/.test(t) && /बाक़ी/.test(t) && t.indexOf(HU.vnote) > -1, t.slice(0, 400));
     ck("K4 विद्यार्थी: कोई बटन नहीं, कोई खाना नहीं", !c.d.querySelector("#mcClass button") && !c.d.querySelector("#mcClass input")); c.dom.window.close(); }
+  /* (v2.3, K-5b) प्रगति और सूचना-पट */
+  for (const who of ["teacher", "center"]) if (pg(who)) { const box = who === "teacher" ? "myClsList" : "clsList", msg = who === "teacher" ? "myClsMsg" : "clsMsg";
+    const c = await openH(pg(who), "hi", "base", [who === "teacher" ? "pnl-myclass" : "pnl-class"]), q = sel => c.d.querySelector(sel), T = () => txt(c, box);
+    click(c, q('[data-k1="pg"][data-id="k1"]')); await settle(c); await settle(c);
+    ck("K5 " + who + ": प्रगति में हर विद्यार्थी की हाज़िरी और अंक एक जगह", /📊 प्रगति/.test(T()) && /हाज़िरी:\s*2 \/ 3\s*·\s*67%/.test(T()) && /काम व अंक:\s*15 \/ 20\s*·\s*75%/.test(T()) && /हाज़िरी के कुल दिन:\s*3/.test(T()) && !/9\d{9}|@/.test(T()), T().slice(-300));
+    click(c, q('[data-k1="pg"][data-id="k1"]')); await settle(c);
+    click(c, q('[data-k1="nt"][data-id="k1"]')); await settle(c); await settle(c);
+    ck("K5 " + who + ": सूचना-पट में सूचनाएँ, लिखने वाले की भूमिका के साथ", /कुल सूचनाएँ:\s*2/.test(T()) && T().indexOf(HU.ret) > -1 && T().indexOf(HU.task) > -1 && /केंद्र/.test(q(".k1att").textContent) && /शिक्षक/.test(q(".k1att").textContent) && !!q(".k1nt"));
+    click(c, q('[data-k1="ntsend"]')); await settle(c);
+    ck("K5 " + who + ": ख़ाली सूचना server को नहीं जाती", !c.calls.some(x => x.name === "postNotice") && /सूचना लिखें/.test(txt(c, msg)));
+    q(".k1nt").value = "कल कक्षा नहीं होगी"; c.confirmAnswer = false; click(c, q('[data-k1="ntsend"]')); await settle(c);
+    ck("K5 " + who + ": भेजने से पहले पुष्टि; \"नहीं\" पर कुछ नहीं जाता और लिखा हुआ बचा रहता है", !c.calls.some(x => x.name === "postNotice") && c.dialogs.some(x => /बदली या हटाई नहीं जा सकती/.test(x)) && (q(".k1nt") || {}).value === "कल कक्षा नहीं होगी");
+    c.confirmAnswer = true; click(c, q('[data-k1="ntsend"]')); await settle(c); await settle(c);
+    const pn = c.calls.filter(x => x.name === "postNotice").pop();
+    ck("K5 " + who + ": सूचना server को सही खानों में जाती है", !!pn && pn.data.classId === "k1" && pn.data.text === "कल कक्षा नहीं होगी" && /सूचना भेज दी गई/.test(txt(c, msg)) && (q(".k1nt") || {}).value === "", JSON.stringify(pn && pn.data)); c.dom.window.close(); }
+  if (pg("student")) { const c = await openH(pg("student"), "hi", "base", ["pnl-myctr"]), t = txt(c, "mcClass");
+    ck("K5 विद्यार्थी: अपने बैच की सूचनाएँ दिखती हैं, लिखने का खाना नहीं", /सूचनाएँ:/.test(t) && t.indexOf(HU.ret) > -1 && t.indexOf(HU.task) > -1 && !c.d.querySelector("#mcClass input") && !c.d.querySelector("#mcClass button"), t.slice(0, 300)); c.dom.window.close(); }
   /* (v1.9, K-2b) शिकायत वाला रास्ता */
   const ans = (c, v) => { c.w.prompt = m => { c.dialogs.push(String(m)); return v; }; };
   if (pg("center")) { const c = await openH(pg("center"), "hi"), t = txt(c, "clsList");
@@ -476,14 +497,14 @@ async function openNazar(file, lang, query, opt) {
   const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang;
   const KV = f => (d => Object.assign(f(d), d && d.viewAs !== undefined && !opt.oldServer ? { viewed: true } : {}));
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), query: query || "", ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, { listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork) }), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, { listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
   c.userVals.add(NAME_HI); c.userVals.add(NAME_HI.trim()[0]); c.userVals.add("सीता देवी"); Object.keys(HU).forEach(k => c.userVals.add(HU[k]));   /* उपयोगकर्ता का लिखा हर पाठ */
   await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden") || !c.d.getElementById("denyView").classList.contains("hidden"), 6000);
   await settle(c); await settle(c);
   if (!opt.noOpen && !c.d.getElementById("appView").classList.contains("hidden")) { await openAll(c); await settle(c); }
   return c;
 }
-const NZ_OK = { claimSession: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
+const NZ_OK = { claimSession: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
 async function nazarChecks(pages) {
   const has = (c, sel) => !!c.d.querySelector(sel), txt = (c, id) => { const e = c.d.getElementById(id); return e ? e.textContent : ""; };
   const shown = (c, id) => { const e = c.d.getElementById(id); return !!e && !e.classList.contains("hidden"); };
@@ -915,6 +936,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.2 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.3 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();
