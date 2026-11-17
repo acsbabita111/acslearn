@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.28.0 · 18-Nov-2026 (design D-2: विद्यार्थी का "मेरा केंद्र": कक्षा नए कार्ड में, सूचनाएँ, हाज़िरी और काम मुड़ने वाले हिस्सों में)
    v6.27.0 · 18-Nov-2026 (design D-1: कक्षा-कार्ड का नया रूप (पाँच खाने, एक बार में एक; बटन के चार दर्जे; ख़तरे वाले काम "और विकल्प" के भीतर) और "मेरा रूप" (रंग, बटन का आकार, काम-सूची से छिपाना, ऊपर की पट्टी; पसंद इसी फ़ोन में))
    v6.26.0 · 18-Nov-2026 (कक्षा-परत K-5b: प्रगति और सूचना-पट; server: class_server.js v1.7): k1-block में "प्रगति" (हाज़िरी और अंक एक जगह;
      शिक्षक और केंद्र) और "सूचना-पट" (शिक्षक या केंद्र पूरे बैच को सूचना भेजे; विद्यार्थी "मेरा केंद्र" में पढ़े)।
@@ -189,7 +190,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.27.0";
+const DASH_VER = "v6.28.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4472,13 +4473,14 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(!L.length) h+='<div class="r2">'+S("अभी कोई सूचना नहीं।")+'</div>';
     return h+L.map(ntLine).join("")+'</div>';
   }
+  function acc(ico, label, extra, body, open){ if(!body) return ""; return '<details class="k1acc'+(open?' k1accn':'')+'"'+(open?' open':'')+'><summary><span class="ai">'+ico+'</span>'+S(label)+(extra||'')+'</summary><div class="k1accb">'+body+'</div></details>'; }
   function myNtHtml(offeringId){
     if(!MYNT) return "";
     var m=null; MYNT.forEach(function(x){ if(x.offeringId===offeringId) m=x; }); if(!m||!(m.notices||[]).length) return "";
     return '<div class="r2">📣 '+S("सूचनाएँ:")+'</div>'+m.notices.slice(0,5).map(ntLine).join("");
   }
   /* एक कक्षा की पंक्ति: side = "center" (केंद्र देख रहा है) या "teacher" */
-  /* (design D-1 नमूना) कक्षा-कार्ड: माथा, ध्यान वाली पट्टी, पाँच खाने (tab), फिर दूसरे दर्जे के काम; लाल काम "और विकल्प" के भीतर */
+  /* (design D-1) कक्षा-कार्ड: माथा, ध्यान वाली पट्टी, पाँच खाने (tab), फिर दूसरे दर्जे के काम; लाल काम "और विकल्प" के भीतर */
   function bar(p){ if(p===null||p===undefined||isNaN(p)) return ''; var v=Math.max(0,Math.min(100,Math.round(p))); return '<div class="k1bar'+(v<50?' lo':(v<75?' mid':''))+'"><i style="width:'+v+'%"></i></div>'; }
   function tab(act, ico, label, id, on){ return '<button class="k1tab'+(on?' on':'')+'" data-k1="'+act+'"'+id+' aria-pressed="'+(on?'true':'false')+'"><span class="ti">'+ico+'</span><span class="tl">'+S(label)+'</span></button>'; }
   function obtn(act, label, extra){ return '<button class="abtn k1b ol" data-k1="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
@@ -4580,10 +4582,19 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var L=CL.asStudent||[]; if(!L.length){ box.innerHTML=""; return; }
     var h='<div class="pd" style="margin-top:14px"><b>'+S("🧑‍🏫 मेरी कक्षा:")+'</b></div>';
     L.forEach(function(e){
-      h+='<div class="app k1row"><div class="r1"><span class="nm">'+CN(e.courseId,e.courseName)+'</span><span>🏫 '+US(rb(e.centerName))+'</span>'+
-        (e.batchNo?'<span>'+S("बैच")+' '+e.batchNo+'</span>':'')+'</div><div class="r2">'+
-        (e.teacher ? S(e.teacher.teacherRole==="ustad"?"उस्ताद:":"शिक्षक:")+' '+US(rb(e.teacher.teacherName))+' · '+when(e.teacher)
-                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div>'+myNtHtml(e.offeringId)+myAttHtml(e.offeringId)+myWorkHtml(e.offeringId)+'</div>'; });
+      var t=e.teacher, O=e.offeringId, ma=null, mw=null, mn=null;
+      (MYATT||[]).forEach(function(x){ if(x.offeringId===O) ma=x; }); (MYWORK||[]).forEach(function(x){ if(x.offeringId===O) mw=x; }); (MYNT||[]).forEach(function(x){ if(x.offeringId===O) mn=x; });
+      h+='<div class="app k1row k1card '+(t?'st-active':(e.batchNo?'st-offered':''))+'"><div class="k1h"><div class="k1ti">'+CN(e.courseId,e.courseName)+'</div><div class="k1sub">'+
+        (e.batchNo?'<span class="k1bt">'+S("बैच")+' '+e.batchNo+'</span>':'')+'</div></div>'+
+        '<div class="k1meta"><span class="mi">🏫</span><span>'+US(rb(e.centerName))+'</span></div>';
+      if(t) h+='<div class="k1meta"><span class="mi">🧑‍🏫</span><span>'+S(t.teacherRole==="ustad"?"उस्ताद:":"शिक्षक:")+' '+US(rb(t.teacherName))+'</span></div>'+
+        '<div class="k1meta"><span class="mi">🗓️</span><span>'+(t.days||[]).map(function(d){ return S(DAYS[d]||""); }).join(", ")+'</span></div>'+
+        '<div class="k1meta"><span class="mi">🕓</span><span>'+esc(t.from)+' - '+esc(t.to)+'</span></div>';
+      else h+='<div class="k1call"><div class="ct">'+S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।")+'</div></div>';
+      /* (design D-2) तीन हिस्से मुड़ने वाले: सूचनाएँ खुली, हाज़िरी और काम के माथे पर प्रतिशत की पट्टी */
+      h+=acc("📣","सूचनाएँ", mn&&(mn.notices||[]).length?' · <b>'+mn.notices.length+'</b>':'', myNtHtml(O), true)+
+         acc("📋","हाज़िरी", ma&&ma.days?' · <b>'+pc(ma.pct)+'</b>'+bar(ma.pct):'', myAttHtml(O), false)+
+         acc("📝","काम व अंक", mw&&(mw.works||[]).length?' · <b>'+mw.got+' / '+mw.full+'</b> · <b>'+pc(mw.pct)+'</b>'+bar(mw.pct):'', myWorkHtml(O), false)+'</div>'; });
     box.innerHTML=h;
   }
   async function reload(){ var r=await call("listMyClasses",{}); CL=r.data||{}; drawInst(); drawMine(); drawStudent(); }

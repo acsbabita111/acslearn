@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v2.4 (18-Nov-2026; v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v2.5 (18-Nov-2026; v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -537,6 +537,18 @@ async function roopChecks(pages) {
     click(c, q('[data-k1="pg"][data-id="k1"]')); await settle(c); await settle(c);
     ck("D1 केंद्र: प्रगति में प्रतिशत की पट्टी", c.d.querySelectorAll(".k1bar i").length >= 3 && /width:\s*67%/.test(q(".k1bar i").getAttribute("style")));
     c.dom.window.close(); }
+  /* (v2.5, design D-2) विद्यार्थी का "मेरा केंद्र" */
+  if (pg("student")) { const c = await openH(pg("student"), "hi", "base", ["pnl-myctr"]), q = sel => c.d.querySelector(sel), qa = sel => c.d.querySelectorAll(sel);
+    const card = q("#mcClass .k1card"), ac = card ? card.querySelectorAll("details.k1acc") : [];
+    ck("D2 विद्यार्थी: कक्षा कार्ड में; सूचनाएँ खुली, हाज़िरी और काम मुड़े हुए", !!card && ac.length === 3 && ac[0].open && !ac[1].open && !ac[2].open && card.classList.contains("st-active"));
+    ck("D2 विद्यार्थी: हाज़िरी और काम के माथे पर प्रतिशत और पट्टी", /67%/.test(ac[1].querySelector("summary").textContent) && !!ac[1].querySelector("summary .k1bar i") && /15 \/ 30/.test(ac[2].querySelector("summary").textContent) && !!ac[2].querySelector("summary .k1bar i"));
+    ck("D2 विद्यार्थी: शिक्षक, दिन और समय अलग-अलग पंक्ति में", card.querySelectorAll(".k1meta").length === 4 && /संगीत माली/.test(card.textContent) && /16:00 - 17:30/.test(card.textContent));
+    ck("D2 विद्यार्थी: बिना शिक्षक वाले बैच और इंतज़ार पर साफ़ पट्टी", qa("#mcClass .k1card .k1call").length === 2 && /अभी तय नहीं हुए/.test(q("#mcClass").textContent) && /इंतज़ार में हैं/.test(q("#mcClass").textContent));
+    ck("D2 विद्यार्थी: जुड़ने का तरीक़ा मुड़ा हुआ; \"अगले दौर\" वाली बासी पंक्ति नहीं", !!q("#pnl-myctr details.k1rules") && !q("#pnl-myctr .soon") && !/अगले दौर/.test(q("#pnl-myctr").textContent) && /Guardian-निशान/.test(q("#pnl-myctr details.k1rules").textContent));
+    ck("D2 नामांकन की पंक्तियाँ और खोज का बटन", qa("#mcList .lrow").length >= 3 && !!q("#mcFindBtn"));
+    c.dom.window.close(); }
+  { const css = fs.readFileSync(path.join(ROOT, "assets/dashboard.css"), "utf8");
+    ck("D2 बिना रंग-class वाला बटन अब फीका नहीं (मूल रंग नीला)", /\.abtn\{[^}]*background:var\(--blue\)/.test(css) && /\.lrow\{/.test(css) && /\.chip\.ok\{/.test(css)); }
   /* मेरा रूप */
   if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "base", ["pnl-roop"]), q = sel => c.d.querySelector(sel), qa = sel => c.d.querySelectorAll(sel);
     const st = c.d.documentElement.style, home = c.w.ACS_DASH.home, saved = () => { try { return JSON.parse(c.w.localStorage.getItem("acs_roop_v1") || "{}").u1 || {}; } catch (e) { return {}; } };
@@ -1025,6 +1037,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.4 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.5 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

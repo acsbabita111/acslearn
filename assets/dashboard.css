@@ -86,13 +86,14 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .app .r1{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .app .nm{font-size:18px;font-weight:800;color:var(--navy)}
 .app .rg{font-size:16px;font-weight:700;color:var(--gray)}
-.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800}
+.chip{display:inline-block;border-radius:999px;padding:3px 12px;font-size:16px;font-weight:800;background:var(--offwhite);color:var(--navy);border:1px solid var(--border)}
+.chip.ok{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
 .chip.prov{background:#FFF6DD;color:#8a6d00;border:1px solid var(--gold)}
 .chip.appr{background:#E8F5E9;color:var(--green);border:1px solid var(--green)}
 .chip.canc{background:#FBE9E7;color:#B71C1C;border:1px solid #B71C1C}
 .chip.rej{background:#FFF3E0;color:#B71C1C;border:1px solid #F9A825}
 .acts{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
-.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff}
+.abtn{border:none;border-radius:9px;padding:10px 18px;font-size:17px;font-weight:800;cursor:pointer;color:#fff;background:var(--blue)}   /* (design D-2) बिना रंग-class वाला बटन भी नीला: पहले वह फीका दिखता था */
 .abtn.ok{background:var(--green)} .abtn.no{background:#B71C1C}
 .abtn:disabled{opacity:.55;cursor:wait}
 .rejbox{display:none;margin-top:8px;width:100%}
@@ -542,3 +543,22 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .rb{display:flex;flex-wrap:wrap;gap:8px}
 .rlk{display:inline-flex;align-items:center;min-height:48px;padding:0 6px;font-size:16px;font-weight:700;color:var(--gray)}
 .rswb:focus-visible,.rsg:focus-visible,.rtg:focus-visible,.rpin:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* ═══ (design D-2 · 18-Nov-2026) विद्यार्थी का "मेरा केंद्र": नामांकन की पंक्तियाँ कार्ड में, खोज का खाना बड़ा, कक्षा-कार्ड के मुड़ने वाले हिस्से ═══ */
+.lrow{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(11,31,58,.06)}
+.lrow .r1{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:17px}
+.lrow .nm{font-size:18px;font-weight:800;color:var(--navy)}
+.lrow .r2{font-size:17px;color:var(--text);margin-top:6px;line-height:1.7}
+.lrow .abtn{margin:10px 8px 0 0}
+.pd>input[type="text"]{font-family:inherit;font-size:18px;min-height:48px;padding:9px 12px;border:1.5px solid #9aa9bd;border-radius:12px;width:min(100%,300px);margin:8px 8px 8px 0;vertical-align:middle;color:var(--text);background:#fff}
+.pd>input[type="text"]:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(249,168,37,.22)}
+.k1acc{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:var(--offwhite)}
+.k1acc summary{position:relative;min-height:48px;padding:11px 44px 11px 12px;font-size:17px;font-weight:800;color:var(--navy);cursor:pointer;list-style:none}
+.k1acc summary::-webkit-details-marker{display:none}
+.k1acc summary::after{content:"▾";position:absolute;right:14px;top:10px;font-size:20px;color:var(--gray)}
+.k1acc[open] summary::after{content:"▴"}
+.k1acc[open] summary{border-bottom:1px solid var(--border)}
+.k1acc summary .ai{display:inline-block;width:30px}
+.k1acc summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.k1accb{padding:4px 12px 12px;background:#fff;border-radius:0 0 12px 12px}
+.k1accn .k1accb>.r2:first-child{display:none}   /* सूचनाओं का माथा ऊपर की पंक्ति में पहले से है */

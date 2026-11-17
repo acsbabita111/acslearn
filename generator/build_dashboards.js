@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.10 · 18-Nov-2026 (design D-2) : "मेरा केंद्र" (विद्यार्थी, नौकरी-इच्छुक, उद्यमी): जुड़ने का तरीक़ा एक पंक्ति में मुड़ा; "अगले दौर" वाली बासी पंक्ति हटी (काम, परीक्षा और प्रमाणपत्र अब बने हुए हैं)।
    v2.9 · 18-Nov-2026 (design D-1) : P_INST_CLASS और P_TCH_CLASS के नियम एक पंक्ति में मुड़े (details.k1rules)। टेम्पलेट: हर घर में पैनल "मेरा रूप" (pnl-roop), ऊपर का बटन "रूप बदलें" और ऊपर की पट्टी (roopBar)।
    v2.8 · 18-Nov-2026 (K-4b, काम व अंक) : P_INST_CLASS और P_TCH_CLASS में "काम व अंक" का एक-एक वाक्य।
    v2.7 · 18-Nov-2026 (K-3b, हाज़िरी) : P_INST_CLASS और P_TCH_CLASS में हाज़िरी का एक-एक वाक्य (केंद्र, वर्कशॉप, शिक्षक, उस्ताद)।
@@ -154,8 +155,11 @@ const P_COURSES = (
 const P_MYCTR = (
     '<div class="pcard panel" id="pnl-myctr" data-nav="🏫 मेरा केंद्र" style="grid-column:1/-1">' +
     '<div class="ph">🏫 मेरा केंद्र — offline पढ़ाई</div>' +
+    '<details class="k1rules"><summary>ℹ️ केंद्र से जुड़ने का तरीक़ा देखें</summary>' +
     '<div class="pd">केंद्र/वर्कशॉप की ACS-ID लिखें (उनके बोर्ड/पर्चे पर मिलेगी) — नाम देखकर पुष्टि करें, ' +
     'घोषित कोर्स seat-भराई सहित दिखेंगे, फिर निवेदन भेजें। केंद्र की हाँ पर नामांकन active।</div>' +
+    '<div class="pd">नाबालिग (10-18) पर 🛡️ Guardian-निशान registration की दर्ज सहमति से अपने-आप लगता है।</div>' +
+    '</details>' +
     '<div class="pd"><input id="mcCtrReg" type="text" placeholder="ACS-CE-2026-XXXXXX"> ' +
     '<button class="abtn" id="mcFindBtn">🔎 केंद्र खोजें</button></div>' +
     '<div id="mcCtrCard"></div>' +
@@ -163,8 +167,6 @@ const P_MYCTR = (
     '<div id="mcList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<div id="mcClass"></div>' +
     '<div id="mcMsg" class="msg"></div>' +
-    '<div class="pd">नाबालिग (10-18) पर 🛡️ Guardian-निशान registration की दर्ज सहमति से अपने-आप लगता है।</div>' +
-    '<span class="soon">असाइनमेंट · परीक्षा · प्रमाण पत्र — अगले दौर (काम-10/11) में</span>' +
     '</div>');
 
 const P_EXAMS = (
