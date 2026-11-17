@@ -1,4 +1,12 @@
-/* generator/build_rules_consent_en.js v1.2 (परत-4; 16-Nov-2026, कन्नड़ क-3)
+/* generator/build_rules_consent_en.js v1.3 (परत-4; 17-Nov-2026, बांग्ला ब-2)
+   v1.3: "।" और "॥" उन लिपियों का अपना पूर्ण-विराम भी हैं जिन्हें lib_panel_langs.js का dandaOwn बताता है (बांग्ला, असमिया, ओड़िया, गुरुमुखी)।
+     ऐसी भाषा के अनुवाद और बने पत्र में "देवनागरी बची?" की जाँच सिर्फ़ देवनागरी अक्षर, मात्रा और अंक देखती है (PL.devRe)। हिंदी मूल की पहचान पहले जैसी।
+     English के पत्र अक्षर-अक्षर पहले जैसे।
+     जिस भाषा का शब्द-नियम है (कन्नड़, बांग्ला), उसके पत्र में दो बचे हुए English टुकड़े अब उसी भाषा में (असली browser की जाँच ने पकड़े):
+     (क) नाम के खाने का नमूना "e.g. RAJESH KUMAR": "e.g." की जगह तालिका के meta.eg का शब्द (नाम रोमन में ही, क्योंकि खाना रोमन नाम माँगता है);
+     (ख) सूची का जो विकल्प हिंदी मूल में "Roman Name (देवनागरी)" है, उसका रोमन नाम पन्ने के code में भी लिखा है और चुनने पर नियम में दिखता है
+         (Content Creator का पत्र): वहाँ अब उसी भाषा के विकल्प का नाम। साथ में जाँच: placeholder, title, alt में छूट-सूची के बाहर English शब्द नहीं।
+   --- v1.2 (16-Nov-2026, कन्नड़ क-3) ---
    v1.2: जिस भाषा का शब्द-नियम है (generator/data/panel_i18n/<कोड>_terms.json), उसके पत्र के पाठ में छूट-सूची के बाहर English शब्द नहीं
      (न मिटे तो पत्र नहीं बनता); सूची के रोमन विकल्प उस भाषा की लिपि में। English के पत्र अक्षर-अक्षर पहले जैसे।
    --- v1.1 (16-Nov-2026, कन्नड़ क-2क) ---
@@ -37,6 +45,8 @@ if (!EN && (!LI || LI.script === "Deva" || LI.script === "Latn")) { console.log(
 const REG = EN ? null : require("./lib_lang_registry.js").load()[LANG];
 if (!EN && (!REG || !REG.font || !/^[A-Za-z0-9+]+$/.test(REG.gfam || ""))) { console.log("⛔ भाषा-कोड " + LANG + ": भाषा-रजिस्टर में font नहीं मिला।"); process.exit(1); }
 const DEV = /[ऀ-ॿ]/;
+/* DEVT: अनुवाद की ओर की जाँच (तालिका का अनुवाद, meta की सूचना, बना पत्र)। DEV: हिंदी मूल की इकाई पहचानने के लिए (कभी नहीं बदलता)। */
+const DEVT = EN ? DEV : PL.devRe(LANG);
 const sha = s => crypto.createHash("sha256").update(s.replace(/\r\n/g, "\n"), "utf8").digest("hex");
 const norm = s => s.replace(/\s+/g, " ").trim();
 
@@ -48,7 +58,7 @@ if (!EN) {
   /* सूचना के तीनों टुकड़े भरे हों: कड़ी का पाठ ख़ाली हो, तो हिंदी मूल की कड़ी दिखेगी ही नहीं (Founder का आदेश 16-Nov-2026: हर भाषा में हिंदी नियम-पत्र की कड़ी) */
   for (const f of ["note_a", "note_link", "note_b"]) { const t = META[f];
     if (!t.trim()) { console.log("⛔ तालिका के meta में " + f + " ख़ाली है"); process.exit(1); }
-    if (DEV.test(t) || /[\u2014\u2013\uFFFD<>"]/.test(t)) { console.log("⛔ तालिका के meta." + f + " में देवनागरी, लंबी रेखा, टूटा अक्षर या < > \" है"); process.exit(1); } }
+    if (DEVT.test(t) || /[\u2014\u2013\uFFFD<>"]/.test(t)) { console.log("⛔ तालिका के meta." + f + " में देवनागरी, लंबी रेखा, टूटा अक्षर या < > \" है"); process.exit(1); } }
   for (const f of ["note_a", "note_link"]) { let own = false; for (let i = 0; i < META[f].length; i++) if (APT.scriptOf(META[f].codePointAt(i)) === LI.script) { own = true; break; }
     if (!own) { console.log("⛔ तालिका के meta." + f + " में अपनी लिपि (" + LI.script + ") का अक्षर नहीं"); process.exit(1); } }
   /* English तालिका ही हिंदी इकाइयों की पक्की सूची है: दूसरी भाषा की तालिका में ठीक वही इकाइयाँ हों */
@@ -57,7 +67,7 @@ if (!EN) {
 }
 /* दूसरी भाषा के अनुवाद का पहरा (अर्थ नहीं; वे भूलें जो मशीन पकड़ सकती है) */
 function langBad(r, t) {
-  if (DEV.test(t)) return "देवनागरी";
+  if (DEVT.test(t)) return "देवनागरी";
   if (t !== t.trim() || /[\n\t]/.test(t)) return "किनारे की ख़ाली जगह या पंक्ति-टूट";
   if (t.indexOf("�") > -1) return "टूटा अक्षर";
   let own = false;
@@ -75,7 +85,7 @@ for (const r0 of (EN ? RAW : RAW.units)) {
   if (typeof r.en !== "string" || !r.en) { console.log("⛔ तालिका: अनुवाद ख़ाली: " + r.hi.slice(0, 60)); process.exit(1); }
   const k = r.k + "\u0001" + r.hi;
   if (TABLE[k] !== undefined) { console.log("⛔ तालिका में दोहरी इकाई: " + r.hi.slice(0, 60)); process.exit(1); }
-  if (DEV.test(r.en)) { console.log("⛔ तालिका के " + (EN ? "English" : "अनुवाद") + " में देवनागरी: " + r.en.slice(0, 60)); process.exit(1); }
+  if (DEVT.test(r.en)) { console.log("⛔ तालिका के " + (EN ? "English" : "अनुवाद") + " में देवनागरी: " + r.en.slice(0, 60)); process.exit(1); }
   if (!EN) { const lb = langBad(r, r.en); if (lb) { console.log("⛔ तालिका (" + LANG + "): " + lb + ": " + r.en.slice(0, 80)); process.exit(1); } }
   /* अर्थ का मशीन-पहरा: हर इकाई में संख्याएँ (रक़म, दिन, प्रतिशत, नियम-क्रमांक) और चिह्न हिंदी जितने ही */
   const nums = x => (x.replace(/<[^>]+>/g, " ").match(/\d+(?:[.,]\d+)*/g) || []).map(y => y.replace(/,/g, "")).sort().join(" ");
@@ -92,6 +102,11 @@ const verNum = h => { const m = /<b>Version: ([0-9.]+)/.exec(h); return m ? m[1]
 const ruleNos = h => (h.match(/<div class="rule[^"]*"><input type="checkbox"><span class="no">\d+\.<\/span>/g) || []).map(x => /(\d+)\.<\/span>$/.exec(x)[1]).join(",");
 
 const LT = require("./lib_lang_terms.js"), TERMS = (!EN && LT.has(LANG)) ? LT.load(LANG) : null;
+if (TERMS) {   /* (v1.3) meta.eg: "e.g." का इस भाषा का शब्द (नाम के खाने के नमूने के लिए) */
+  const t = META.eg; let own = false;
+  if (typeof t === "string") for (let i = 0; i < t.length; i++) if (APT.scriptOf(t.codePointAt(i)) === LI.script) { own = true; break; }
+  if (typeof t !== "string" || !own || t !== t.trim() || DEVT.test(t) || /[\u2014\u2013\uFFFD<>"]/.test(t)) { console.log("⛔ तालिका के meta.eg में इस भाषा का शब्द चाहिए (\"e.g.\" की जगह; अपनी लिपि में, बिना देवनागरी, लंबी रेखा, < > \")"); process.exit(1); }
+}
 function build(file) {
   const hi = fs.readFileSync(path.join(ROOT, file), "utf8").replace(/\r\n/g, "\n");
   const miss = [];
@@ -136,7 +151,7 @@ function build(file) {
   one("<head>", "<head>\n<!-- generated: generator/build_rules_consent_en.js " + (EN ? "v1.0" : "v1.1") + " | " + (EN ? "" : "lang: " + LANG + " | ") + "source: /" + file + " | source-sha256: " + sha(hi) + " | do not edit by hand -->");
   /* जाँचें */
   const bad = [];
-  if (DEV.test(h)) bad.push("देवनागरी बची: " + (h.match(/[^\n]{0,40}[ऀ-ॿ][^\n]{0,40}/) || [""])[0]);
+  if (DEVT.test(h)) bad.push("देवनागरी बची: " + (h.match(new RegExp("[^\\n]{0,40}" + DEVT.source + "[^\\n]{0,40}")) || [""])[0]);
   if (!verNum(hi) || verNum(hi) !== verNum(h)) bad.push("संस्करण नहीं मिला/अलग: " + verNum(hi) + " बनाम " + verNum(h));
   if (!ruleNos(hi) || ruleNos(hi) !== ruleNos(h)) bad.push("नियमों के क्रमांक अलग");
   for (const [nm, re] of [["checkbox", /type="checkbox"/g], ["id=", /\bid="[^"]+"/g], ["<div", /<div\b/g], ["<b>", /<b>/g], ["option value", /<option value="[^"]*"/g]])
@@ -152,6 +167,23 @@ function build(file) {
       if (r === t || LT.scan(r, TERMS, null).length) return m0;
       swap[t.trim()] = r.trim(); return a1 + r + z1; });
     Object.keys(swap).forEach(function (k) { h = h.split('"' + k + '"').join('"' + swap[k] + '"'); });
+    /* (v1.3 ख) हिंदी मूल का विकल्प "Roman Name (देवनागरी)": वही रोमन नाम पन्ने के code में भी है (चुनने पर नियम में दिखता है) → इस भाषा के विकल्प का नाम (कोष्ठक के बिना) */
+    const OPT = /<option value="([^"]*)"[^>]*>([^<]*)<\/option>/g, oHi = Array.from(hi.replace(/<!--[\s\S]*?-->/g, "").matchAll(OPT)), oNew = Array.from(h.matchAll(OPT));
+    if (oHi.length !== oNew.length) return { file, bad: ["सूची के विकल्पों की गिनती हिंदी मूल से अलग"] };
+    for (let i = 0; i < oHi.length; i++) {
+      const m = /^([\x20-\x7E]*[A-Za-z][\x20-\x7E]*?) \([^()]*[ऀ-ॿ][^()]*\)$/.exec(oHi[i][2].trim()); if (!m) continue;
+      const head = m[1], own = oNew[i][2].trim().replace(/\s*\([^()]*\)$/, "").replace(/&amp;/g, "&");
+      if (oNew[i][1] !== oHi[i][1] || !own || /[\\"]/.test(own)) return { file, bad: ["सूची का विकल्प हिंदी मूल से मेल नहीं खाता: " + head] };
+      h = h.split('"' + head + '"').join('"' + own + '"');
+      if (LT.scan(own, TERMS, null).length) return { file, bad: ["सूची के विकल्प के नाम में English शब्द: " + own] };
+    }
+    /* (v1.3 क) नाम के खाने का नमूना: "e.g." की जगह इस भाषा का शब्द; फिर सब छिपे पाठ (placeholder, title, alt) की जाँच */
+    h = h.replace(/placeholder="e\.g\. ([\x20-\x7E]*)"/g, function (m0, rest) { return 'placeholder="' + META.eg + " " + rest + '"'; });
+    const aLeft = [];
+    h.slice(h.indexOf("<body")).replace(/\b(placeholder|title|alt)="([^"]*)"/g, function (m0, a, v) {
+      if (v.indexOf(META.eg + " ") === 0 && /^[A-Z][A-Z ]*$/.test(v.slice(META.eg.length + 1))) return m0;   /* नमूने का नाम बड़े रोमन अक्षरों में: खाना यही माँगता है */
+      if (LT.scan(v, TERMS, null).length) aLeft.push(a + '="' + v.slice(0, 40) + '"'); return m0; });
+    if (aLeft.length) return { file, bad: ["छिपे पाठ में English शब्द: " + Array.from(new Set(aLeft)).slice(0, 5).join(", ")] };
     const vis = h.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<style[\s\S]*?<\/style>/g, " ").replace(/<!--[\s\S]*?-->/g, " ").replace(/<head[\s\S]*?<\/head>/, " ");
     const left = LT.scan(vis, TERMS, null);
     if (left.length) return { file, bad: ["English शब्द अपनी लिपि में नहीं: " + Array.from(new Set(left)).slice(0, 8).join(", ")] };
@@ -179,4 +211,4 @@ for (const r of outs) {
   if (CHECK) console.log("⛔ बासी या ग़ायब: " + LANG + "/" + r.file); else fs.writeFileSync(p, r.out);
 }
 if (CHECK && stale) { console.log("⛔ " + stale + " " + (EN ? "English" : LANG) + " नियम-पत्र बासी हैं। चलाएँ: node generator/build_rules_consent_en.js" + (EN ? "" : " " + LANG)); process.exit(1); }
-console.log("🏁 build_rules_consent_en v1.2: " + outs.length + " " + (EN ? "English" : LANG) + " नियम-पत्र " + (CHECK ? "ताज़ा हैं" : "(" + stale + " लिखे)") + " · तालिका " + Object.keys(TABLE).length + " इकाइयाँ · देवनागरी 0");
+console.log("🏁 build_rules_consent_en v1.3: " + outs.length + " " + (EN ? "English" : LANG) + " नियम-पत्र " + (CHECK ? "ताज़ा हैं" : "(" + stale + " लिखे)") + " · तालिका " + Object.keys(TABLE).length + " इकाइयाँ · देवनागरी 0");

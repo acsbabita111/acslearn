@@ -68,16 +68,16 @@
   <div class="idbox">
     <h3>👤 ನಿಮ್ಮ ವಿವರಗಳು</h3>
     <div class="idrow"><label>ಹೆಸರು: ನಿಮ್ಮ ಸ್ವಂತ ಭಾಷೆಯಲ್ಲಿ</label><input type="text" placeholder="ಉದಾ. ರಾಜೇಶ್ ಕುಮಾರ್"></div>
-    <div class="idrow"><label>ಹೆಸರು (Name): ರೋಮನ್ ದೊಡ್ಡಕ್ಷರ ಅಕ್ಷರಗಳಲ್ಲಿ (ಡೇಟಾಬೇಸ್‌ಗಾಗಿ)</label><input type="text" id="nameRoman" placeholder="e.g. RAJESH KUMAR"></div>
+    <div class="idrow"><label>ಹೆಸರು (Name): ರೋಮನ್ ದೊಡ್ಡಕ್ಷರ ಅಕ್ಷರಗಳಲ್ಲಿ (ಡೇಟಾಬೇಸ್‌ಗಾಗಿ)</label><input type="text" id="nameRoman" placeholder="ಉದಾ: RAJESH KUMAR"></div>
     <div class="idrow"><label>ಹುದ್ದೆ (Designation)</label>
       <select id="desigSel">
         <option value="script">AI ಸ್ಕ್ರಿಪ್ಟ್ ರೈಟರ್ (AI ಚಿತ್ರಕಥೆ ಬರಹಗಾರ)</option>
         <option value="prompt">AI ಪ್ರಾಂಪ್ಟ್ ಆರ್ಟಿಸ್ಟ್ (AI ಪ್ರಾಂಪ್ಟ್ ಕಲಾವಿದ)</option>
         <option value="animator">AI ವೀಡಿಯೊ ಅನಿಮೇಟರ್ (AI ಅನಿಮೇಷನ್ ಕಲಾವಿದ)</option>
         <option value="voice">AI ಧ್ವನಿ ಆರ್ಟಿಸ್ಟ್ (AI ಧ್ವನಿ ಕಲಾವಿದ)</option>
-        <option value="editor">ವೀಡಿಯೊ ವೀಡಿಯೊ ಸಂಪಾದಕ</option>
-        <option value="thumbnail">ಥಂಬ್‌ನೇಲ್ &amp; ಪೋಸ್ಟರ್ ಥಂಬ್‌ನೇಲ್ ಮತ್ತು ಪೋಸ್ಟರ್ ವಿನ್ಯಾಸಕ</option>
-        <option value="publisher">ಕಂಟೆಂಟ್ ಪ್ರಕಾಶಕ (ಕಂಟೆಂಟ್ ಪ್ರಕಾಶಕ)</option>
+        <option value="editor">ವೀಡಿಯೊ ಸಂಪಾದಕ</option>
+        <option value="thumbnail">ಥಂಬ್‌ನೇಲ್ ಮತ್ತು ಪೋಸ್ಟರ್ ವಿನ್ಯಾಸಕ</option>
+        <option value="publisher">ಕಂಟೆಂಟ್ ಪ್ರಕಾಶಕ</option>
       </select>
     </div>
   </div>
@@ -186,8 +186,8 @@
     publisher: "ಕಂಟೆಂಟ್ ಪ್ರಕಾಶಕ: ಸಿದ್ಧ ಕಂಟೆಂಟ್ ಅನ್ನು ಸರಿಯಾದ ಸಮಯಕ್ಕೆ, ಸರಿಯಾದ ಜಾಗದಲ್ಲಿ ಪ್ರಕಟಿಸುವುದು/ಅಪ್‌ಲೋಡ್ ಮಾಡುವುದು."
   };
   var DESIG_LABEL = {
-    script:"AI Script Writer", prompt:"AI Prompt Artist", animator:"AI Video Animator", voice:"AI Voice Artist",
-    editor:"Video Editor", thumbnail:"Thumbnail & Poster Designer", publisher:"Content Publisher"
+    script:"AI ಸ್ಕ್ರಿಪ್ಟ್ ರೈಟರ್", prompt:"AI ಪ್ರಾಂಪ್ಟ್ ಆರ್ಟಿಸ್ಟ್", animator:"AI ವೀಡಿಯೊ ಅನಿಮೇಟರ್", voice:"AI ಧ್ವನಿ ಆರ್ಟಿಸ್ಟ್",
+    editor:"ವೀಡಿಯೊ ಸಂಪಾದಕ", thumbnail:"ಥಂಬ್‌ನೇಲ್ ಮತ್ತು ಪೋಸ್ಟರ್ ವಿನ್ಯಾಸಕ", publisher:"ಕಂಟೆಂಟ್ ಪ್ರಕಾಶಕ"
   };
   var desigSel = document.getElementById('desigSel');
   function updateText(){

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_lang_check.js v1.8 (17-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
+   dev_panel_lang_check.js v1.9 (17-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
      • दिखने वाले पाठ, attribute, <title> और संदेश-डिब्बों में देवनागरी शून्य;
@@ -10,6 +10,11 @@
    Founder के आदेश (16-Nov-2026): (1) हिंदी के अलावा किसी भाषा में हिंदी कहीं न दिखे; जो चीज़ इस भाषा में अभी नहीं बनी, वह English में।
    (2) जो इस भाषा में मौजूद है या बन सकता है, वह इसी भाषा में (English में नहीं): करियर टेस्ट और होम की कड़ी इस भाषा के पन्ने पर, नियम-परदा,
    WhatsApp के पहले से लिखे संदेश। (3) हर जगह साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी नियम-पत्र की कड़ी हो।
+   v1.9 (बांग्ला ब-2क): रजिस्ट्रेशन में, नियम के भीतर दिखने वाला पद का नाम (#ruleDesig) इसी भाषा में हो (Content Creator के पत्र में वह English में आता था;
+     "सहेजे मान" वाली छूट के कारण पुरानी जाँच उसे नहीं गिनती थी)। और
+   v1.9 (बांग्ला ब-2क; ऑडिट की शर्त: "English नियम-पत्र की अस्थायी छूट ब-2 में खत्म हो"): SR9: जिस भाषा के सब नियम-पत्र बन चुके हैं,
+     उसके पैनल में सामान्य रास्ते पर English नियम-पत्र एक बार भी न दिखे (E1 = 0 और E2 = 0)। v1.8 की छूट अब सिर्फ़ उस भाषा में काम आती है
+     जिसके भूमिका-पत्र अभी बने नहीं, और जान-बूझकर की गई "पत्र नहीं खुला" वाली जाँचों में।
    v1.8 (बांग्ला ब-1): (1) "।" जिन लिपियों का अपना पूर्ण-विराम है (बांग्ला ...), उनमें वह "देवनागरी बची" नहीं गिना जाता (lib_panel_langs.js: devRe);
      पैक में "dn" का निशान lib से मेल खाए, और इंजन v1.9 उसे पढ़े। (2) SR1: तीसरी मान्य हालत: सिर्फ़ विद्यार्थी का नियम-पत्र उस भाषा में
      (वह करियर टेस्ट के साथ पहले से बना होता है); बाक़ी 26 भूमिकाओं के पत्र तब तक English (गिनती E1 में छपती है)।
@@ -405,6 +410,8 @@ async function joinFull(rl, mode, extra) {
     const rf = R.ruleFileFor(rl.key), hiSrc = rd(rf), enSrc = rd(RLG(rf) + "/" + rf), RX = /<div class="rule(?:"| [^"]*")[^>]*>\s*<input type="checkbox"/g;
     const nHi = (hiSrc.match(RX) || []).length, firstRule = (rc.querySelector(".rule label") || {}).textContent || "", enFirst = (/<div class="rule[^>]*>\s*<input type="checkbox"[^>]*>\s*<span class="no">[^<]*<\/span>\s*<label>([\s\S]*?)<\/label>/.exec(enSrc) || [])[1] || "";
     const plain = t => t.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+    /* (v1.9) नियम के भीतर दिखने वाला पद का नाम (#ruleDesig; पत्र का अपना code उसे भरता है) इसी भाषा में हो: यहाँ "सहेजे मान" वाली छूट नहीं लगती */
+    { const rd9 = rc.querySelector("#ruleDesig"); if (rd9 && OWNR(rf)) ck(tag + " : नियम में दिखा पद का नाम इसी भाषा में (#ruleDesig)", own(rd9.textContent) && !DEV.test(rd9.textContent) && (!TERMS || !LTM.scan(rd9.textContent, TERMS, null).length), rd9.textContent); }
     if (OWNR(rf)) ck(tag + " : नियम इसी भाषा के नियम-पत्र से (पहला नियम हूबहू, हर नियम अपनी लिपि में); \"English में दिखाए जा रहे हैं\" वाली सूचना नहीं; नियमों की गिनती हिंदी मूल जितनी (" + nHi + ")",
       !!first && first.id === "rulesLegalNote" && rc.textContent.indexOf(c.w.ACS_PANEL_I18N.tr(EN_NOTE)) < 0 && nRules === nHi && nHi > 15 && c.fetched.some(p => p === "/" + LG + "/" + rf) && enFirst.length > 20 && plain(firstRule) === plain(enFirst) && !DEV.test(rc.textContent) &&
       Array.from(rc.querySelectorAll(".rule label")).every(l => own(l.textContent)),
@@ -852,12 +859,15 @@ async function dashSuite() {
     if (!ONLY || ONLY === "join") await joinSuite();
     if (!ONLY || ONLY === "dash") await dashSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
+  /* (v1.9, बांग्ला ब-2क) सब नियम-पत्र इस भाषा में बन चुके हों, तो सामान्य रास्ते पर English नियम-पत्र एक बार भी नहीं दिखना चाहिए */
+  { const HIFA = fs.readdirSync(ROOT).filter(f => /^rules-consent-[a-z-]+\.html$/.test(f));
+    if (HIFA.length && HIFA.every(OWNR)) ck("SR9 सब नियम-पत्र इस भाषा में बने हैं: सामान्य रास्ते पर English नियम-पत्र एक बार भी नहीं दिखा (E1 = 0, E2 = 0)", HOLES.E1 === 0 && HOLES.E2 === 0, "E1 " + HOLES.E1 + " · E2 " + HOLES.E2); }
   if (process.env.ACS_EINV) fs.writeFileSync(process.env.ACS_EINV, Array.from(EINV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 4).join(",") + "\t" + k).sort().join("\n") + "\n");
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).slice(0, 6).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
   if (JSDOM_RACE) console.log("(जानकारी) jsdom की बंद खिड़की वाली दौड़ " + JSDOM_RACE + " बार हुई और छोड़ी गई (जाँच का औज़ार; पन्ने का code नहीं)");
   console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
   if (TERMS) console.log("जगह के नाम जो data में सिर्फ़ रोमन में हैं (विदेश के राज्य, कुछ राज्यों के जिले; हिंदी पैनल में भी रोमन में): " + PLACES.size + " देखे गए");
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.8 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.9 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();
