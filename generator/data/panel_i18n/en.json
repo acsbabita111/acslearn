@@ -743,7 +743,6 @@
   "पढ़ाई का हिसाब यहाँ दिखेगा…": "Your learning record will show here…",
   "📖 पढ़ना जारी रखें": "📖 Continue reading",
   "📝 परीक्षा व प्रमाण पत्र (छोटा नक़्शा)": "📝 Exams & Certificates (quick map)",
-  "रास्ता: मुफ़्त कोर्स पढ़ो → टेस्ट-2 (workshop-प्रवेश, qualifying) → workshop-प्रशिक्षण → पहली कमाई → उस्ताद-प्रमाणीकरण + HQ की online परीक्षा — दोनों ताले खुलें तभी प्रशिक्षण-पूर्णता का प्रमाण पत्र। workshop में भाग न लें तो आवेदन से online कोर्स-पूर्णता प्रमाण पत्र (उस पर लिखा होगा: \"इन्होंने अभी तक प्रैक्टिकल नहीं किया है\")।": "The path: read the free course → Test-2 (workshop entry, qualifying) → workshop training → first earning → Ustad certification + the HQ online exam: only when both locks open do you get the Training-Completion Certificate. If you skip the workshop, you may apply for the online Course-Completion Certificate (which will say: \"This person has not yet done the practical\").",
   "हर प्रमाण पत्र पर unique number व QR — दुनिया में कहीं से verify। online जाँच जारी होने से 5 साल तक; 1000 रुपये में 5 साल और (मान्य तिथि के बाद देर का शुल्क अलग से)।": "Every certificate carries a unique number and QR: verify from anywhere in the world. Online verification for 5 years from the issue date; 5 more years for 1000 rupees (plus a late fee after the valid-till date).",
   "💳 मेरे भुगतान": "💳 My Payments",
   "paid सिर्फ़ ये 5 सेवाएँ: छपने-योग्य अभिरुचि-रिपोर्ट · offline प्रशिक्षण · workshop apprenticeship · counselor सलाह · विदेश-एजेंट connection। बाक़ी सब — पढ़ना, जुड़ना, देखना — हमेशा मुफ़्त।": "Only these 5 services are paid: printable Career Interest Report · offline training · workshop apprenticeship · counselor advice · foreign-agent connection. Everything else (learning, joining, browsing) is always free.",
@@ -790,8 +789,6 @@
   "दोनों ताले खुलें तभी": "only when both locks open",
   "प्रशिक्षण-पूर्णता का प्रमाण पत्र।": "the Training-Completion Certificate.",
   "टेस्ट-3 (मोड-ब) — online कोर्स-पूर्णता:": "Test-3 (Mode-B): online course completion:",
-  "workshop में भाग न लेने पर, आपके आवेदन से, online ज्ञान के पूर्ण मूल्यांकन के बाद — प्रमाण पत्र पर साफ़ लिखा होगा: \"इन्होंने अभी तक प्रैक्टिकल नहीं किया है।\"": "If you do not join a workshop, you can apply for a full assessment of your online knowledge. After it, the certificate will clearly say: \"This person has not yet done the practical.\"",
-  "परीक्षा-इंजन अगले दौर में — तब यहीं से टेस्ट देंगे": "The exam engine comes in a later round: you will take tests right here",
   "📸 पहली-कमाई का सबूत (मोड-अ का हिस्सा)": "📸 Proof of first earning (part of Mode-A)",
   "यहाँ आप अपने किए काम का फोटो या वीडियो भेजेंगे (हर फ़ाइल अधिकतम 2MB)। उस्ताद इसे देखकर हुनर-प्रमाणीकरण देंगे — यह प्रमाण पत्र के दो तालों में से पहला ताला है।": "Here you will send a photo or video of your work (each file max 2MB). The Ustad will review it and certify your skill: this is the first of the certificate’s two locks.",
   "📤 सबूत भेजें": "📤 Send proof",
@@ -2208,7 +2205,10 @@
   "क्या आप सचमुच अभी छोड़ना चाहते हैं?": "Do you really want to leave now?",
   "🚪 कक्षा छोड़ दी गई।": "🚪 The class was left.",
   "📝 आवेदन दर्ज हुआ।": "📝 The application is recorded.",
-  "बिना 15 दिन की सूचना कक्षा छोड़ने पर इस कक्षा की पूरी फ़ीस रुकेगी और आपको नई कक्षा नहीं मिलेगी। क्या आप सचमुच अभी छोड़ना चाहते हैं?": "If you leave the class without 15 days of notice, the whole fee of this class will be held and you will not get a new class. Do you really want to leave now?"
+  "बिना 15 दिन की सूचना कक्षा छोड़ने पर इस कक्षा की पूरी फ़ीस रुकेगी और आपको नई कक्षा नहीं मिलेगी। क्या आप सचमुच अभी छोड़ना चाहते हैं?": "If you leave the class without 15 days of notice, the whole fee of this class will be held and you will not get a new class. Do you really want to leave now?",
+  "रास्ता: मुफ़्त कोर्स पढ़ो → टेस्ट-2 (workshop-प्रवेश, qualifying) → workshop-प्रशिक्षण → पहली कमाई → उस्ताद-प्रमाणीकरण + HQ की online परीक्षा: दोनों ताले खुलें तभी प्रशिक्षण-पूर्णता का प्रमाण पत्र। workshop में भाग न लें तो online परीक्षा पास करके online कोर्स-पूर्णता का प्रमाण पत्र।": "The path: read the free course → Test-2 (workshop entry, qualifying) → workshop training → first earning → Ustad certification + the HQ online exam: only when both locks open do you get the Training-Completion Certificate. If you skip the workshop, you get the online Course-Completion Certificate by passing the online exam.",
+  "workshop में भाग न लेने पर, online ज्ञान के पूरे मूल्यांकन के बाद online कोर्स-पूर्णता का प्रमाण पत्र मिलता है।": "If you do not join a workshop, you get the online Course-Completion Certificate after a full assessment of your online knowledge.",
+  "कोर्स की online परीक्षा \"मेरे कोर्स\" पैनल से दी जाती है: कोर्स के आगे \"परीक्षा दें\" दबाएँ।": "The online exam of a course is taken from the \"My Courses\" panel: press \"Take the exam\" next to the course."
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",
