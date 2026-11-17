@@ -1,5 +1,8 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.4 · 17-Nov-2026 (कक्षा-परत K-1b; Founder के नियम 17-Nov) : P_INST_CLASS (केंद्र, वर्कशॉप: "कक्षा व बैच"),
+          P_TCH_CLASS (शिक्षक, उस्ताद: "मेरी कक्षाएँ"), P_MYCTR में mcClass (विद्यार्थी को शिक्षक और समय),
+          P_INST_ENROLL में seat का नियम घर के हिसाब से (केंद्र: 30 के गुणक; वर्कशॉप: 5 से 10)।
    v2.3 · 20-Jul-2026 (काम-12) — P_APTITUDE जीवित: मरा बटन → असली कड़ी
           (/aptitude-test.html); निरस्त फीस-पाठ (30-दिन छतरी/एक-बार-submit/
           30 प्रतिशत) हटाकर Jio-नियम v3.7 का पाठ; तीनों प्रशिक्षु-घर।
@@ -153,6 +156,7 @@ const P_MYCTR = (
     '<div id="mcCtrCard"></div>' +
     '<div class="pd" style="margin-top:14px"><b>मेरे नामांकन:</b> निवेदन · प्रस्ताव · active — सब यहीं।</div>' +
     '<div id="mcList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="mcClass"></div>' +
     '<div id="mcMsg" class="msg"></div>' +
     '<div class="pd">नाबालिग (10-18) पर 🛡️ Guardian-निशान registration की दर्ज सहमति से अपने-आप लगता है।</div>' +
     '<span class="soon">असाइनमेंट · परीक्षा · प्रमाण पत्र — अगले दौर (काम-10/11) में</span>' +
@@ -496,6 +500,7 @@ const P_UST_MENTOR = (
    rules-consent-center/workshop की समान पंक्तियाँ (badge पर उम्र-fee नहीं)। */
 
 function P_INST_ENROLL(who){
+  var ws = (who === "शागिर्द");   /* (K-1b · 17-Nov-2026) वर्कशॉप: seat 5 से 10 (Founder का नियम); केंद्र: 30 के गुणक */
   /* (काम-9अ · 28-Jul-2026) असली नामांकन-इंजन — Founder बिंदु 11-13:
      घोषणा (फीस+अवधि+seat-गुणक+तिथियाँ) · दो-दरवाज़ा सहमति-चक्र · seat-graph ·
      फीस-record (record-मात्र) · ACS-ID साझा। इंजन: dashboard.js का k9-block। */
@@ -503,8 +508,9 @@ function P_INST_ENROLL(who){
     '<div class="pcard panel" id="pnl-enroll" data-nav="🎓 Enrollment व Analytics" style="grid-column:1/-1">' +
     '<div class="ph">🎓 Enrollment — नामांकन-खाता</div>' +
     '<div class="pd"><b>📚 कोर्स-घोषणा:</b> कोर्स के साथ फीस · समय-सीमा · seat · प्रारंभ-तिथि · अंतिम-तिथि — ' +
-    'पाँचों एक साथ ज़रूरी। बिना घोषित कोर्स के कोई नामांकन नहीं। seat ' +
-    'नियम से गुणक में (केंद्र 30 · वर्कशॉप 10)।</div>' +
+    'पाँचों एक साथ ज़रूरी। बिना घोषित कोर्स के कोई नामांकन नहीं।</div>' +
+    '<div class="pd">' + (ws ? 'वर्कशॉप में seat 5 से 10 के बीच लिखें। सब खुले कोर्स मिलाकर भी 10 से ज़्यादा seat नहीं।'
+                             : 'केंद्र में seat 30 के गुणक में लिखें (30, 60, 90)।') + '</div>' +
     '<div class="k9grid">' +
     '<div class="k9f"><label>खंड</label><select id="ofCatSel"><option value="">चुनें…</option>' +
     '<option value="ac">📖 एकेडमिक (कक्षा 6-12)</option>' +
@@ -517,7 +523,7 @@ function P_INST_ENROLL(who){
     '<div class="k9full" id="ofSubBox" style="display:none"></div>' +
     '<div class="k9f"><label>फीस (₹)</label><input id="ofFee" type="number" min="0" placeholder="जैसे 5000"></div>' +
     '<div class="k9f"><label>समय-सीमा</label><input id="ofDur" type="text" placeholder="जैसे: 9 माह"></div>' +
-    '<div class="k9f"><label>seat</label><input id="ofSeats" type="number" placeholder="30 के गुणक में"></div>' +
+    '<div class="k9f"><label>seat</label><input id="ofSeats" type="number" placeholder="' + (ws ? '5 से 10' : '30 के गुणक में') + '"></div>' +
     '<div class="k9f"><label>प्रारंभ-तिथि</label><input id="ofStart" type="date"></div>' +
     '<div class="k9f"><label>अंतिम-तिथि (अपने-आप)</label><input id="ofEnd" type="date" readonly title="समय-सीमा + प्रारंभ-तिथि से अपने-आप"></div>' +
     '<div class="k9f"><label>&nbsp;</label><button class="abtn ok" id="ofDeclare" style="width:100%">📣 घोषित करें</button></div>' +
@@ -540,6 +546,37 @@ function P_INST_ENROLL(who){
     '<a class="abtn" id="instShareWa" target="_blank" rel="noopener" style="text-decoration:none">📲 WhatsApp</a></div>' +
     '<div class="pd">यह ID बोर्ड/पर्चे पर लिखें — ' + who + ' इसी से आपको खोजकर निवेदन भेजेगा।</div>' +
     '<span class="soon">प्रगति-दृश्य · 80 प्रतिशत-गेट · परीक्षा — अगले दौर (काम-10/11) में</span>' +
+    '</div>');
+}
+
+/* (K-1b · 17-Nov-2026) 🧑‍🏫 कक्षा व बैच: केंद्र/वर्कशॉप बैच तय करे और हर बैच शिक्षक/उस्ताद को सौंपे।
+   Founder के नियम (17-Nov): एक बैच में 30 तक · वर्कशॉप में कुल 10 · दोनों की हाँ · 15 दिन की सूचना।
+   इंजन: dashboard.js का k1-block; server: class_server.js v1.2। */
+function P_INST_CLASS(kind){
+  var ws = (kind === "workshop");
+  return (
+    '<div class="pcard panel" id="pnl-class" data-nav="🧑‍🏫 कक्षा व बैच" style="grid-column:1/-1">' +
+    '<div class="ph">🧑‍🏫 कक्षा व बैच</div>' +
+    '<div class="pd">' + (ws ? 'वर्कशॉप में कुल 10 शागिर्द, एक बैच और एक उस्ताद।'
+                             : 'एक बैच में 30 से ज़्यादा विद्यार्थी नहीं। बैच की संख्या आप तय करते हैं।') + '</div>' +
+    '<div class="pd">' + (ws ? 'बैच उस्ताद को सौंपें। उस्ताद की हाँ के बाद ही कक्षा चालू होती है।'
+                             : 'हर बैच एक शिक्षक को सौंपें। शिक्षक की हाँ के बाद ही कक्षा चालू होती है।') + '</div>' +
+    '<div id="clsList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="clsMsg" class="msg"></div>' +
+    '<div class="pd">जिसे बैच सौंपा जाता है, उसे सिर्फ़ नाम और ACS-ID दिखती है। फ़ोन, पता और फ़ीस नहीं दिखती।</div>' +
+    '</div>');
+}
+function P_TCH_CLASS(kind){
+  var us = (kind === "ustad");
+  return (
+    '<div class="pcard panel" id="pnl-myclass" data-nav="🧑‍🏫 मेरी कक्षाएँ" style="grid-column:1/-1">' +
+    '<div class="ph">🧑‍🏫 मेरी कक्षाएँ</div>' +
+    '<div class="pd">' + (us ? 'वर्कशॉप आपको बैच सौंपती है। आपकी हाँ के बाद ही कक्षा चालू होती है।'
+                             : 'केंद्र आपको बैच सौंपता है। आपकी हाँ के बाद ही कक्षा चालू होती है।') + '</div>' +
+    '<div class="pd"><b>कक्षा छोड़नी हो:</b> 15 दिन पहले यहीं से सूचना दें। बिना सूचना छोड़ने पर उस कक्षा की फ़ीस रुकती है और नई कक्षा मिलना बंद हो जाता है।</div>' +
+    '<div id="myClsStand"></div>' +
+    '<div id="myClsList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="myClsMsg" class="msg"></div>' +
     '</div>');
 }
 
@@ -1050,7 +1087,7 @@ const P_TCH_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function teacherPanels(){
-  return P_TCH_CONTENT + P_IND_SAFE + P_TCH_EARN + P_TCH_LIVE + P_TU_BADGE + P_PROMO
+  return P_TCH_CONTENT + P_TCH_CLASS("teacher") + P_IND_SAFE + P_TCH_EARN + P_TCH_LIVE + P_TU_BADGE + P_PROMO
        + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_LEDGER + P_HELP;
 }
 /* उस्ताद कमाई-गणित (Founder 18-Jul-2026): 90 सीधी-सिखाई · 7 recording-content ·
@@ -1065,15 +1102,15 @@ const P_UST_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function ustadPanels(){
-  return P_UST_CERTIFY + P_IND_SAFE + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_PROMO
+  return P_UST_CERTIFY + P_TCH_CLASS("ustad") + P_IND_SAFE + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_PROMO
        + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_LEDGER + P_HELP;
 }
 function centerPanels(){
-  return P_INST_ENROLL("पढ़ने वाले (students)") + P_IDCARD + P_CTR_TEAM + P_CTR_SAFE + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
+  return P_INST_ENROLL("पढ़ने वाले (students)") + P_INST_CLASS("center") + P_IDCARD + P_CTR_TEAM + P_CTR_SAFE + P_INST_EARN + P_INST_OFFER + P_CTR_CERT
        + P_INST_VERIFY("") + P_INST_BADGE + P_PROMO + P_RULES_LINK("rules-consent-center.html","केंद्र (Center)") + P_LEDGER + P_HELP;
 }
 function workshopPanels(){
-  return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_IDCARD + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
+  return P_WS_TRAIN + P_INST_ENROLL("शागिर्द") + P_INST_CLASS("workshop") + P_IDCARD + P_WS_USTAD + P_WS_SAFE + P_INST_EARN + P_INST_OFFER
        + P_WS_CERT
        + P_INST_VERIFY(" साथ में यह प्रमाण भी कि workshop कम-से-कम 3 साल से चल रहा है।")
        + P_INST_BADGE + P_PROMO + P_RULES_LINK("rules-consent-workshop.html","वर्कशॉप (Workshop)") + P_LEDGER + P_HELP;

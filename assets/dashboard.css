@@ -425,3 +425,9 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
   font-display:swap;
   unicode-range:U+11080-110CF;
 }
+
+/* (K-1b · 17-Nov-2026) कक्षा-परत के पर्दे (dashboard.js का k1-block): हर कक्षा एक अलग डिब्बा; बटन साफ़ रंग में */
+.k1row{margin:10px 0}
+.k1row .r1{row-gap:4px}
+.abtn.k1b{margin:8px 6px 0 0}
+.abtn.k1n{background:var(--blue)}

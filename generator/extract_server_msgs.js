@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   extract_server_msgs.js v1.1 (15-Nov-2026, पैनल-3): server के वे हिंदी संदेश निकालना जो user को दिखते हैं।
+   extract_server_msgs.js v1.2 (17-Nov-2026; v1.2 कक्षा-परत K-1b: bad("code", <संदेश>) भी पढ़ा जाता है; v1.1 15-Nov-2026, पैनल-3): server के वे हिंदी संदेश निकालना जो user को दिखते हैं।
    server की फ़ाइलें (functions\*.js) GitHub पर नहीं होतीं। इसलिए उनके संदेशों की सूची repo में अलग रखी जाती है:
      generator/data/panel_i18n/server_msgs.json   (सिर्फ़ संदेश; कोई कोड, कोई चाबी, कोई प्रश्न नहीं)
    English पैक का यंत्र (build_panel_i18n.js) इसी सूची से जाँचता है कि हर संदेश का English है।
@@ -8,7 +8,7 @@
      require("./...") से बुलाती है (और वे आगे जिन्हें बुलाएँ)। folder की बाक़ी फ़ाइलें (पुरानी backup प्रतियाँ,
      आज़माइश की फ़ाइलें) नहीं पढ़ी जातीं। प्रश्न-भंडार (*_bank.js) कभी नहीं पढ़ा जाता, बुलाया गया हो तब भी।
      (v1.0 folder की हर .js पढ़ता था: backup की पुरानी पंक्तियाँ गिन लेता था और भंडार-फ़ाइलें भी खोलता था।)
-   क्या निकलता है: new HttpsError("...", <संदेश>) · { msg: <संदेश> } · { refundNote: <संदेश> } · errors.push(<संदेश>)
+   क्या निकलता है: new HttpsError("...", <संदेश>) · bad("...", <संदेश>) · { msg: <संदेश> } · { refundNote: <संदेश> } · errors.push(<संदेश>)
    संदेश में जो हिस्सा बदलता है (संख्या, नाम, कारण), वह {0}, {1} ... बन जाता है।
    उपयोग:
      node generator/extract_server_msgs.js <functions folder>            : सूची छापता है (JSON)
@@ -115,6 +115,8 @@ function extract(dir) {
     const spots = []; let m;
     const reA = /\bHttpsError\(/g; while ((m = reA.exec(code))) { const a = readExpr(code, m.index + m[0].length, true); if (code[a.end] === ",") spots.push(readExpr(code, a.end + 1, true).text); }
     const reB = /\b(?:msg|refundNote)\s*:/g; while ((m = reB.exec(code))) spots.push(readExpr(code, m.index + m[0].length, true).text);
+    /* (v1.2, 17-Nov-2026) class_server.js अपने संदेश bad("code", <संदेश>, "KEY") से बनाती है (भीतर वही HttpsError) */
+    const reD = /\bbad\(/g; while ((m = reD.exec(code))) { const a = readExpr(code, m.index + m[0].length, true); if (code[a.end] === ",") spots.push(readExpr(code, a.end + 1, true).text); }
     const reC = /\berrors\.push\(/g; while ((m = reC.exec(code))) spots.push(readExpr(code, m.index + m[0].length, true).text);
     const put = t => { if (!t || !DEV.test(t)) return; if (!map.has(t)) map.set(t, new Set()); map.get(t).add(f); };
     /* संदेश के भीतर कोष्ठक में चुना जाने वाला शब्द (जैसे (st === "requested" ? "निवेदन" : "प्रस्ताव")) भी user को दिखता है:

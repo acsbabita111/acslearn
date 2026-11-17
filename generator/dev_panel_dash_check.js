@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v1.7 (15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v1.8 (17-Nov-2026; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -240,6 +240,28 @@ function hdataFix(data, info) {
   if (data.teams.u5) { data.teams.u5.name_local = HU.student; data.teams.u5.active = true; data.teams.u5.status = "permanent"; data.teams.u5.hold = { type: "work", reason: HU.hold, by: "u1", at: TS(2026, 11, 4) }; }
   if (data.teams.u2) data.teams.u2.name_local = HU.student;
 }
+/* (v1.8, कक्षा-परत K-1b) class_server.js के नक़ली जवाब: हर हालत की एक कक्षा (प्रस्ताव, चालू, सूचना पर, बिना सूचना छोड़ी), सुझाया हुआ नया समय,
+   इंतज़ार वाले विद्यार्थी, रोकी हुई फ़ीस, रोक लगा खाता। नाम और कारण हिंदी में (उपयोगकर्ता का लिखा): वे सिर्फ़ data-i18n-skip ज़ोन में दिख सकते हैं। */
+const K1C = (id, st, extra) => Object.assign({ classId: id, offeringId: "u1_PJ001", batchNo: 1, courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)",
+  centerName: HU.center, centerRegNo: "ACS-CE-2026-123456", centerRole: "center", teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", teacherRole: "teacher",
+  days: [1, 3, 5], from: "16:00", to: "17:30", status: st, cap: 30, lastDayMs: st === "notice" ? Date.UTC(2026, 11, 2) : null, noticeReason: st === "notice" ? HU.reason : "", pendingSched: null }, extra || {});
+const K1_HANDLERS = {
+  listMyClasses: () => ({
+    asCenter: [{ courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", status: "open", seats: 60, students: 31, cap: 30, maxBatches: 4, waiting: 1,
+      batches: [{ batchNo: 1, size: 30, classes: [K1C("k1", "active", { pendingSched: { days: [0, 6], from: "07:00", to: "08:00" } }), K1C("k2", "notice")] },
+                { batchNo: 2, size: 0, classes: [K1C("k3", "offered", { batchNo: 2 })] }, { batchNo: 3, size: 0, classes: [] }],
+      heldFees: [{ classId: "k9", batchNo: 2, teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", leftAtMs: Date.UTC(2026, 10, 10) }] }],
+    asTeacher: [K1C("k3", "offered"), K1C("k1", "active", { pendingSched: { days: [0, 6], from: "07:00", to: "08:00" } }), K1C("k2", "notice"), K1C("k9", "left_no_notice", { feeHold: true })],
+    asStudent: [{ offeringId: "u1_PJ001", courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", centerName: HU.center, batchNo: 1,
+        teacher: { teacherName: HU.student, teacherRole: "teacher", days: [1, 3, 5], from: "16:00", to: "17:30" } },
+      { offeringId: "u1_PJ002", courseId: "PJ002", courseName: "डेटा एंट्री ऑपरेटर", centerName: HU.center, batchNo: 2, teacher: null },
+      { offeringId: "u1_PJ003", courseId: "PJ002", courseName: "डेटा एंट्री ऑपरेटर", centerName: HU.center, batchNo: null, teacher: null }],
+    standing: { strikes: 1, lifetime: false, blocked: true, applied: false, blockedUntilMs: null } }),
+  classRoster: () => ({ cls: K1C("k1", "active"), total: 2, cap: 30, waiting: 1, students: [
+    { regNo: "ACS-ST-2026-111111", name: HU.student, role: "student", minor: true, guardianOk: false, joinedMs: Date.UTC(2026, 10, 6) },
+    { regNo: "ACS-ST-2026-111112", name: "सीता देवी", role: "student", minor: false, guardianOk: null, joinedMs: Date.UTC(2026, 10, 7) }] }),
+  lookupTeacher: () => ({ regNo: "ACS-TE-2026-222222", name: HU.student, role: "teacher", blocked: false, blockedForLife: false })
+};
 const H_HANDLERS = {
   listBadgeQueue: () => ({ scope: "founder", items: [{ id: "p9", name: HU.student, regNo: "ACS-2026-555555", role: "teacher", tier: "village", pin: "851201", amountRupees: 300, paidAt: Date.UTC(2026, 10, 9), state: "bihar", district: "खगड़िया", mobile: "9000000001" }] }),
   listServiceVerifyQueue: () => ({ scope: "founder", items: [{ regNo: "ACS-2026-444444", name: HU.student, role: "center", orgName: HU.center, district: "खगड़िया", state: "bihar", verify: "failed", verifyNote: HU.vnote, status: "provisional" }] }),
@@ -258,14 +280,60 @@ async function openH(file, lang, sc, navOnly) {   /* navOnly (v1.7): सिर�
   hdataFix(data, info);
   const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang && lang !== "hi") ls.acs_dash_lang = lang;
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS), fb: makeFB(data, user) });
   if (navOnly) { await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c);
     for (const id of navOnly) { const b = c.d.querySelector('#sideNav .si[data-go="' + id + '"]'); if (b) { click(c, b); await settle(c); await settle(c); } }
     await settle(c); return c; }
   await openAll(c); await settle(c);
   /* खोज वाले बटन: केंद्र खोजना (विद्यार्थी), विद्यार्थी खोजना (केंद्र) */
   for (const [inp, btn] of [["mcCtrReg", "mcFindBtn"], ["addStuReg", "addStuFind"]]) { const i = c.d.getElementById(inp), b = c.d.getElementById(btn); if (i && b) { i.value = "ACS-2026-123456"; click(c, b); await settle(c); await settle(c); } }
+  /* (v1.8, कक्षा-परत K-1b) विद्यार्थी-सूची खोलना, बैच सौंपने का फ़ॉर्म खोलना, शिक्षक खोजना, समय बदलने का फ़ॉर्म खोलना */
+  for (const sel of ['[data-k1="ros"]', '[data-k1="give"]']) { const b = c.d.querySelector(sel); if (b) { click(c, b); await settle(c); await settle(c); } }
+  { const i = c.d.getElementById("k1Reg"), b = c.d.querySelector('[data-k1="find"]'); if (i && b) { i.value = "ACS-TE-2026-222222"; click(c, b); await settle(c); await settle(c); } }
   await settle(c); return c;
+}
+/* (v1.8, कक्षा-परत K-1b) पर्दों की अपनी जाँच: केंद्र, शिक्षक और विद्यार्थी के घर में कक्षा-परत सचमुच दिखती और चलती है */
+async function k1Checks(pages) {
+  const has = (c, sel) => !!c.d.querySelector(sel), txt = (c, id) => { const e = c.d.getElementById(id); return e ? e.textContent : ""; };
+  const pg = n => pages.find(f => f.split("/")[1] === n);
+  if (pg("center")) { const c = await openH(pg("center"), "hi"), t = txt(c, "clsList");
+    ck("K1 केंद्र: बैच, इंतज़ार और बैच-चुनाव दिखते हैं", /कुल विद्यार्थी:\s*31/.test(t) && /इंतज़ार में:\s*1/.test(t) && has(c, 'select[data-k1sel="PJ001"]') && has(c, '[data-k1="bset"]'), t.slice(0, 200));
+    ck("K1 केंद्र: ख़ाली बैच पर सौंपने का बटन, भरे बैच पर नहीं", c.d.querySelectorAll('[data-k1="give"]').length === 1 && c.d.querySelector('[data-k1="give"]').getAttribute("data-b") === "3");
+    ck("K1 केंद्र: सौंपने का फ़ॉर्म खुला, खोजा हुआ नाम दिखा", has(c, "#k1Reg") && c.d.querySelectorAll(".k1day").length === 7 && has(c, "#k1From") && /बैच सौंपा जा सकता है/.test(txt(c, "k1Who")));
+    ck("K1 केंद्र: विद्यार्थी-सूची में नाम और ACS-ID, संपर्क नहीं", /ACS-ST-2026-111111/.test(t) && /Guardian-दस्तावेज़ नहीं/.test(t) && !/9\d{9}|@/.test(t));
+    ck("K1 केंद्र: रोकी हुई फ़ीस और माफ़ी का बटन", /इस कक्षा की फ़ीस रोकें/.test(t) && has(c, '[data-k1="forgive"][data-id="k9"]'));
+    ck("K1 केंद्र: सूचना का कारण और आख़िरी दिन", /कक्षा का आख़िरी दिन:/.test(t) && t.indexOf(HU.reason) > -1);
+    ck("K1 केंद्र: समय बदलने और कक्षा वापस लेने के बटन", has(c, '[data-k1="time"][data-id="k1"]') && has(c, '[data-k1="end"][data-st="offered"]') && has(c, '[data-k1="end"][data-st="active"]'));
+    const tb = c.d.querySelector('[data-k1="time"][data-id="k1"]'); click(c, tb); await settle(c); await settle(c);
+    ck("K1 केंद्र: समय का फ़ॉर्म चालू समय से भरा खुलता है", (c.d.getElementById("k1From") || {}).value === "16:00" && c.d.querySelectorAll(".k1day:checked").length === 3 && !has(c, "#k1Reg"));
+    const sb = c.d.querySelector('[data-k1="send"]'); click(c, sb); await settle(c); await settle(c);
+    const sc = c.calls.filter(x => x.name === "setClassSchedule").pop();
+    ck("K1 केंद्र: नया समय server को सही खानों में जाता है", !!sc && sc.data.classId === "k1" && sc.data.from === "16:00" && sc.data.to === "17:30" && sc.data.days.join() === "1,3,5", JSON.stringify(sc && sc.data)); }
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi"), t = txt(c, "myClsList"), s = txt(c, "myClsStand");
+    ck("K1 शिक्षक: प्रस्ताव पर हाँ और ना", has(c, '[data-k1="acc"][data-id="k3"]') && has(c, '[data-k1="dec"][data-id="k3"]'));
+    ck("K1 शिक्षक: चालू कक्षा पर सूची, सूचना और छोड़ने के बटन", has(c, '[data-k1="ros"][data-id="k1"]') && has(c, '[data-k1="notice"][data-id="k1"]') && has(c, '[data-k1="leave"][data-id="k1"]') && !has(c, '[data-k1="notice"][data-id="k2"]'));
+    ck("K1 शिक्षक: सूचना वापस लेने का बटन सिर्फ़ सूचना वाली कक्षा पर", has(c, '[data-k1="unnotice"][data-id="k2"]') && !has(c, '[data-k1="unnotice"][data-id="k1"]'));
+    ck("K1 शिक्षक: सुझाए हुए समय पर मंज़ूर और नामंज़ूर", has(c, '[data-k1="sy"][data-id="k1"]') && has(c, '[data-k1="sn"][data-id="k1"]') && /नया समय सुझाया गया है:/.test(t));
+    ck("K1 शिक्षक: बिना सूचना छोड़ी कक्षा पर फ़ीस-रोक दिखती है, बटन नहीं", /इसकी फ़ीस रोकी गई है/.test(t) && !has(c, '[data-id="k9"]'));
+    ck("K1 शिक्षक: रोक की सूचना और दोबारा आवेदन का बटन", /नई कक्षा मिलना बंद है/.test(s) && has(c, '[data-k1="apply"]'));
+    ck("K1 शिक्षक: केंद्र को दिखने वाला कारण और बटन यहाँ नहीं", !has(c, '[data-k1="forgive"]') && !has(c, '[data-k1="give"]') && !has(c, '[data-k1="time"]'));
+    const nb = c.d.querySelector('[data-k1="acc"][data-id="k3"]'); click(c, nb); await settle(c); await settle(c);
+    const rc = c.calls.filter(x => x.name === "respondClass").pop();
+    ck("K1 शिक्षक: हाँ server को जाती है", !!rc && rc.data.classId === "k3" && rc.data.accept === true); }
+  if (pg("student")) { const c = await openH(pg("student"), "hi"), t = txt(c, "mcClass");
+    ck("K1 विद्यार्थी: शिक्षक का नाम, बैच और समय", /मेरी कक्षा:/.test(t) && /शिक्षक:/.test(t) && t.indexOf(HU.student) > -1 && /16:00 - 17:30/.test(t) && /सोमवार/.test(t), t.slice(0, 200));
+    ck("K1 विद्यार्थी: शिक्षक तय न हो, या इंतज़ार में हो, तो साफ़ वाक्य", /शिक्षक अभी तय नहीं हुए/.test(t) && /अभी आप इंतज़ार में हैं/.test(t));
+    ck("K1 विद्यार्थी: कोई बटन नहीं, कोई ACS-ID नहीं", !c.d.querySelector("#mcClass [data-k1]") && !/ACS-TE-/.test(t)); }
+  if (pg("workshop")) { const c = await openH(pg("workshop"), "hi");
+    ck("K1 वर्कशॉप: seat का संकेत 5 से 10", (c.d.getElementById("ofSeats") || { placeholder: "" }).placeholder === "5 से 10" && /कुल 10 शागिर्द/.test(c.d.getElementById("pnl-class").textContent)); }
+  if (pg("center")) { const c = await openH(pg("center"), "hi", "base", ["pnl-enroll"]);
+    c.handlers.listMyClasses = () => ({});   /* server का जवाब ख़ाली */
+    click(c, c.d.querySelector('#sideNav .si[data-go="pnl-class"]')); await settle(c); await settle(c);
+    ck("K1 केंद्र (server का जवाब ख़ाली): साफ़ वाक्य, टूटन नहीं", /अभी कोई घोषित कोर्स नहीं/.test(txt(c, "clsList")), txt(c, "clsList").slice(0, 120));
+    c.handlers.listMyClasses = () => { const e = new Error("यह कक्षा मिली नहीं"); throw e; };
+    click(c, c.d.querySelector('#sideNav .si[data-go="pnl-myid"]') || c.d.querySelector('#sideNav .si')); await settle(c);
+    click(c, c.d.querySelector('#sideNav .si[data-go="pnl-class"]')); await settle(c); await settle(c);
+    ck("K1 केंद्र (server की त्रुटि): कारण दिखता है", /नहीं खुला: यह कक्षा मिली नहीं/.test(txt(c, "clsList")), txt(c, "clsList").slice(0, 120)); }
 }
 async function hdataChecks(pages, all) {
   const UV = Object.keys(HU).map(k => HU[k]).concat([NAME_HI, "सीता देवी"]);
@@ -616,9 +684,10 @@ if (require.main === module) (async function main() {
   }
   if (!process.env.ACS_ONLY_HI && (!only || /student|center/.test(only))) await docChecks(pages);
   if (!process.env.ACS_ONLY_HI) await hdataChecks(pages, !only);
+  await k1Checks(pages);   /* (v1.8) कक्षा-परत के पर्दे */
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.7 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.8 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

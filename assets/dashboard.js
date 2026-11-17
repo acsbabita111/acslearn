@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.21.0 · 17-Nov-2026 (कक्षा-परत K-1b; Founder के नियम 17-Nov): नया k1-block (फ़ाइल के अंत में): केंद्र/वर्कशॉप का पैनल
+     "कक्षा व बैच" (बैच तय करना, बैच सौंपना, समय सुझाना, विद्यार्थी-सूची, माफ़ी), शिक्षक/उस्ताद का पैनल "मेरी कक्षाएँ"
+     (हाँ/ना, विद्यार्थी-सूची, 15 दिन की सूचना, रोक और दोबारा आवेदन), और विद्यार्थी के "मेरा केंद्र" में शिक्षक का नाम और समय।
+     server: class_server.js v1.2 के 13 functions। पुराना कोई block नहीं बदला।
    v6.20.1 · 17-Nov-2026 (बांग्ला ब-1): "अनुवाद मिला या नहीं" की छह जाँचों (काग़ज़ों के साँचे, नाम, पक्के वाक्य, WhatsApp के संदेश) में "।" और "॥"
      अब "देवनागरी बची" नहीं गिने जाते: ये बांग्ला, असमिया, ओड़िया और पंजाबी का अपना पूर्ण-विराम भी हैं। देवनागरी का हर अक्षर पहले की तरह
      गिना जाता है; हिंदी, English और कन्नड़ में बर्ताव वही।
@@ -4057,3 +4061,218 @@ if (MODE==="external" && ALLOWED.length>=1) {
       var m=$("idMsg"); if(m){m.className="msg err";m.textContent="कार्ड नहीं बना: "+((e&&e.message)||e);} } };
   };
 })(); /* k9-block end */
+
+/* ═══════════════════════════════════════════════════════════════
+   (K-1b · 17-Nov-2026) k1-block: कक्षा-परत के पर्दे (server: class_server.js v1.2)।
+   केंद्र/वर्कशॉप: pnl-class (बैच तय करना, बैच सौंपना, समय, माफ़ी) ·
+   शिक्षक/उस्ताद: pnl-myclass (हाँ/ना, विद्यार्थी-सूची, 15 दिन की सूचना, रोक) ·
+   विद्यार्थी: pnl-myctr के भीतर mcClass (शिक्षक का नाम और समय)।
+   data सिर्फ़ server-callables से; browser कुछ सीधे नहीं पढ़ता, कुछ नहीं लिखता।
+   हर हिंदी टुकड़ा अपने अलग <span> में: भाषा-इंजन उसे पूरा मिलाकर बदलता है।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  function call(name, data){ return httpsCallable(functions, name)(data); }
+  function S(t){ return '<span>'+t+'</span>'; }
+  function rb(t){ return String(t==null?"":t).replace(/\[/g,"(").replace(/\]/g,")"); }
+  function dms(m){ try{ return m ? new Date(m).toLocaleDateString("hi-IN") : "—"; }catch(e){ return "—"; } }
+  var DAYS=["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+  function when(c){
+    return (c.days||[]).map(function(d){ return S(DAYS[d]||""); }).join(", ")+' · '+
+      esc(c.from)+' - '+esc(c.to); }   /* समय का जोड़ा हर भाषा में एक-सा (16:00 - 17:30): कोई शब्द नहीं, तो अनुवाद भी नहीं चाहिए */
+  function isInst(){ return !!(EXT_REG && (EXT_REG.role==="center"||EXT_REG.role==="workshop")); }
+  function isWs(){ return !!(EXT_REG && EXT_REG.role==="workshop"); }
+  function chip(c){
+    if(c.status==="offered") return ' <span class="chip prov">📩 प्रस्ताव</span>';
+    if(c.status==="notice")  return ' <span class="chip rej">⏳ सूचना पर</span>';
+    if(c.status==="active")  return ' <span class="chip appr">✅ चालू</span>';
+    return ''; }
+  function btn(act, label, extra, cls){ return '<button class="abtn k1b '+(cls||'k1n')+'" data-k1="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function red(act, label, extra){ return '<button class="abtn k1b no" data-k1="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  var CL=null, FORM=null, ROS={};
+  function say(ok,t){ var m=$("clsMsg")||$("myClsMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
+
+  /* दिन और समय का छोटा फ़ॉर्म: बैच सौंपते समय (give) और समय बदलते समय (time) */
+  function formHtml(){
+    var give=FORM.mode==="give", h='<div class="k9grid" style="margin-top:10px">';
+    if(give) h+='<div class="k9f"><label>'+(isWs()?'उस्ताद की ACS-ID':'शिक्षक की ACS-ID')+'</label>'+
+      '<input id="k1Reg" type="text" placeholder="'+(isWs()?'ACS-US-2026-XXXXXX':'ACS-TE-2026-XXXXXX')+'" value="'+esc(FORM.reg||"")+'"></div>'+
+      '<div class="k9f"><label>&nbsp;</label>'+btn("find","🔎 खोजें")+'</div>'+
+      '<div class="k9full" id="k1Who">'+(FORM.who||"")+'</div>';
+    h+='<div class="k9full"><b>'+S("कक्षा के दिन:")+'</b><br>';
+    DAYS.forEach(function(n,i){ h+='<label style="display:inline-block;margin:4px 12px 4px 0;font-size:17px">'+
+      '<input type="checkbox" class="k1day" value="'+i+'"'+((FORM.days||[]).indexOf(i)>-1?' checked':'')+'> '+S(n)+'</label>'; });
+    h+='</div><div class="k9f"><label>शुरू होने का समय</label><input id="k1From" type="time" value="'+esc(FORM.from||"")+'"></div>'+
+      '<div class="k9f"><label>ख़त्म होने का समय</label><input id="k1To" type="time" value="'+esc(FORM.to||"")+'"></div>'+
+      '<div class="k9f"><label>&nbsp;</label>'+btn("send", give?"📩 प्रस्ताव भेजें":"🕒 नया समय भेजें", "", "ok")+btn("cancel","✖ बंद करें")+'</div></div>';
+    return h;
+  }
+  function keepForm(){
+    if(!FORM) return;
+    var r=$("k1Reg"); if(r) FORM.reg=r.value.trim();
+    var f=$("k1From"), t=$("k1To"); if(f) FORM.from=f.value; if(t) FORM.to=t.value;
+    var d=[]; document.querySelectorAll(".k1day:checked").forEach(function(x){ d.push(Number(x.value)); }); FORM.days=d;
+  }
+  function rosHtml(id){
+    var r=ROS[id]; if(!r) return "";
+    var h='<div class="r2" style="margin-top:8px">'+S("कुल विद्यार्थी:")+' <b>'+r.total+'</b>'+(r.waiting?' · '+S("इंतज़ार में:")+' <b>'+r.waiting+'</b>':'')+'</div>';
+    if(!r.students.length) h+='<div class="r2">'+S("इस बैच में अभी कोई विद्यार्थी नहीं।")+'</div>';
+    r.students.forEach(function(s,i){
+      h+='<div class="r2">'+(i+1)+'. '+US(rb(s.name))+' · '+esc(s.regNo)+
+        (s.minor?(s.guardianOk?' 🛡️':' <span style="color:#B71C1C">🛡️ Guardian-दस्तावेज़ नहीं</span>'):'')+'</div>'; });
+    return h;
+  }
+  /* एक कक्षा की पंक्ति: side = "center" (केंद्र देख रहा है) या "teacher" */
+  function clsRow(c, side){
+    var id=' data-id="'+esc(c.classId)+'"', live=(c.status==="active"||c.status==="notice");
+    var h='<div class="app k1row"><div class="r1"><span class="nm">'+
+      (side==="center" ? US(rb(c.teacherName))+'</span><span>'+esc(c.teacherRegNo)+'</span>'
+                       : CN(c.courseId,c.courseName)+'</span><span>'+S("बैच")+' '+c.batchNo+'</span>')+chip(c)+'</div>'+
+      '<div class="r2">'+(side==="teacher"?'🏫 '+US(rb(c.centerName))+' · ':'')+when(c)+'</div>';
+    if(c.status==="notice") h+='<div class="r2">'+S("कक्षा का आख़िरी दिन:")+' <b>'+dms(c.lastDayMs)+'</b>'+
+      (side==="center"&&c.noticeReason?' · '+S("कारण:")+' '+US(rb(c.noticeReason)):'')+'</div>';
+    if(c.pendingSched){ h+='<div class="r2">'+S("🕒 नया समय सुझाया गया है:")+' '+when(c.pendingSched)+'</div>';
+      if(side==="teacher") h+='<div>'+btn("sy","✅ नया समय मंज़ूर",id,"ok")+red("sn","❌ नया समय नामंज़ूर",id)+'</div>';
+      else h+='<div class="r2">'+S("हाँ का इंतज़ार है।")+'</div>'; }
+    if(c.status==="left_no_notice"){
+      h+='<div class="r2" style="color:#B71C1C">'+S("⚠️ यह कक्षा बिना सूचना छोड़ी गई। इसकी फ़ीस रोकी गई है।")+'</div></div>'; return h; }
+    if(side==="teacher"){
+      if(c.status==="offered") h+=btn("acc","✅ स्वीकारें",id,"ok")+red("dec","❌ मना करें",id);
+      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id);
+      if(c.status==="active") h+=btn("notice","📤 15 दिन की सूचना दें",id);
+      if(c.status==="notice") h+=btn("unnotice","↩ सूचना वापस लें",id);
+      if(live) h+=red("leave","🚪 बिना सूचना अभी छोड़ें",id);
+    } else {
+      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id);
+      h+=btn("time","🕒 समय बदलें",id)+red("end", c.status==="offered"?"↩ प्रस्ताव वापस लें":"↩ कक्षा वापस लें", id+' data-st="'+esc(c.status)+'"');
+      if(FORM&&FORM.mode==="time"&&FORM.id===c.classId) h+=formHtml();
+    }
+    return h+'<div>'+rosHtml(c.classId)+'</div></div>';
+  }
+
+  /* ───────── केंद्र/वर्कशॉप: pnl-class ───────── */
+  function drawInst(){
+    var box=$("clsList"); if(!box||!CL) return;
+    var L=CL.asCenter||[];
+    if(!L.length){ box.innerHTML='<span class="note">अभी कोई घोषित कोर्स नहीं। पहले "Enrollment" पैनल से कोर्स घोषित करें।</span>'; return; }
+    var h="";
+    L.forEach(function(o){
+      var cid=' data-cid="'+esc(o.courseId)+'"';
+      h+='<div class="k9off"><div class="t">'+CN(o.courseId,o.courseName)+' '+
+        (o.status==="open"?'<span class="chip appr">खुली</span>':'<span class="chip">बंद</span>')+'</div>'+
+        '<div class="m">👥 '+S("कुल विद्यार्थी:")+' <b>'+o.students+'</b> · '+S("बैच:")+' <b>'+o.batches.length+'</b>'+
+        (o.waiting?' · ⏳ '+S("इंतज़ार में:")+' <b>'+o.waiting+'</b>':'')+'</div>';
+      if(o.waiting) h+='<div class="m" style="color:#B71C1C">'+S(isWs()?"वर्कशॉप में 10 से ज़्यादा शागिर्द नहीं बैठ सकते। बाक़ी इंतज़ार में रहेंगे।"
+        :"एक बैच में 30 से ज़्यादा नहीं बैठ सकते। इंतज़ार वालों के लिए बैच बढ़ाएँ।")+'</div>';
+      if(o.maxBatches>1){ h+='<div class="m">'+S("बैच की संख्या:")+' <select data-k1sel="'+esc(o.courseId)+'" style="font-size:17px;padding:6px 8px">';
+        for(var n=1;n<=o.maxBatches;n++) h+='<option value="'+n+'"'+(n===o.batches.length?' selected':'')+'>'+n+'</option>';
+        h+='</select> '+btn("bset","✔ बैच तय करें",cid)+'</div>'; }
+      o.batches.forEach(function(b){
+        var busy=b.classes.some(function(c){ return c.status!=="notice"; });
+        h+='<div class="m" style="margin-top:12px"><b>'+S("बैच")+' '+b.batchNo+'</b> · '+S("विद्यार्थी:")+' <b>'+b.size+'</b></div>';
+        b.classes.forEach(function(c){ h+=clsRow(c,"center"); });
+        if(!busy){ h+=btn("give", isWs()?"🧑‍🏫 यह बैच उस्ताद को सौंपें":"🧑‍🏫 यह बैच शिक्षक को सौंपें", cid+' data-b="'+b.batchNo+'"');
+          if(FORM&&FORM.mode==="give"&&FORM.cid===o.courseId&&FORM.b===b.batchNo) h+=formHtml(); }
+      });
+      (o.heldFees||[]).forEach(function(x){
+        h+='<div class="app k1row"><div class="r1"><span class="nm">'+US(rb(x.teacherName))+'</span><span>'+esc(x.teacherRegNo)+'</span><span>'+S("बैच")+' '+x.batchNo+'</span></div>'+
+          '<div class="r2" style="color:#B71C1C">'+S("⚠️ इन्होंने बिना सूचना कक्षा छोड़ी। इस कक्षा की फ़ीस रोकें।")+'</div>'+
+          btn("forgive","🤝 माफ़ करें (रोक हटाएँ)",' data-id="'+esc(x.classId)+'"')+'</div>'; });
+      h+='</div>';
+    });
+    box.innerHTML=h;
+  }
+  /* ───────── शिक्षक/उस्ताद: pnl-myclass ───────── */
+  function drawMine(){
+    var box=$("myClsList"), sb=$("myClsStand"); if(!box||!CL) return;
+    var st=CL.standing||{}, s="";
+    if(st.lifetime) s='<div class="note" style="color:#B71C1C">'+S("⛔ दो बार बिना सूचना कक्षा छोड़ी गई। अब नई कक्षा हमेशा के लिए बंद है।")+'</div>';
+    else if(st.blocked&&st.applied) s='<div class="note">'+S("⏳ आपका आवेदन दर्ज है। नई कक्षा इस तारीख़ के बाद मिल सकती है:")+' <b>'+dms(st.blockedUntilMs)+'</b></div>';
+    else if(st.blocked) s='<div class="note" style="color:#B71C1C">'+S("⛔ बिना सूचना कक्षा छोड़ने से नई कक्षा मिलना बंद है। दोबारा आवेदन के 6 महीने बाद नई कक्षा मिल सकती है।")+'</div>'+
+      btn("apply","📝 दोबारा आवेदन करें");
+    if(sb) sb.innerHTML=s;
+    var L=CL.asTeacher||[];
+    if(!L.length){ box.innerHTML='<span class="note">अभी कोई कक्षा नहीं। कोई बैच सौंपा जाएगा, तो यहीं दिखेगा।</span>'; return; }
+    box.innerHTML=L.map(function(c){ return clsRow(c,"teacher"); }).join("");
+  }
+  /* ───────── विद्यार्थी: pnl-myctr के भीतर ───────── */
+  function drawStudent(){
+    var box=$("mcClass"); if(!box||!CL) return;
+    var L=CL.asStudent||[]; if(!L.length){ box.innerHTML=""; return; }
+    var h='<div class="pd" style="margin-top:14px"><b>'+S("🧑‍🏫 मेरी कक्षा:")+'</b></div>';
+    L.forEach(function(e){
+      h+='<div class="app k1row"><div class="r1"><span class="nm">'+CN(e.courseId,e.courseName)+'</span><span>🏫 '+US(rb(e.centerName))+'</span>'+
+        (e.batchNo?'<span>'+S("बैच")+' '+e.batchNo+'</span>':'')+'</div><div class="r2">'+
+        (e.teacher ? S(e.teacher.teacherRole==="ustad"?"उस्ताद:":"शिक्षक:")+' '+US(rb(e.teacher.teacherName))+' · '+when(e.teacher)
+                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div></div>'; });
+    box.innerHTML=h;
+  }
+  async function reload(){ var r=await call("listMyClasses",{}); CL=r.data||{}; drawInst(); drawMine(); drawStudent(); }
+  function failTo(id){ return function(e){ var b=$(id); if(b) b.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }; }
+  LAZY["pnl-class"]=async function(){ if(!isInst()) return; try{ await reload(); }catch(e){ failTo("clsList")(e); } };
+  LAZY["pnl-myclass"]=async function(){ try{ await reload(); }catch(e){ failTo("myClsList")(e); } };
+  var oldMyCtr=LAZY["pnl-myctr"];
+  LAZY["pnl-myctr"]=async function(){
+    if(typeof oldMyCtr==="function") await oldMyCtr();
+    if($("mcClass")){ try{ await reload(); }catch(e){ /* कक्षा की जानकारी न आए, तो नामांकन-सूची वैसी ही रहे */ } }
+  };
+
+  document.addEventListener("click", async function(ev){
+    var b=ev.target&&ev.target.closest?ev.target.closest("[data-k1]"):null; if(!b) return;
+    var act=b.getAttribute("data-k1"), id=b.getAttribute("data-id")||"", cid=b.getAttribute("data-cid")||"", why;
+    try{
+      if(act==="cancel"){ FORM=null; drawInst(); return; }
+      if(act==="give"){ FORM={ mode:"give", cid:cid, b:Number(b.getAttribute("data-b")), days:[] }; drawInst(); return; }
+      if(act==="time"){
+        var cur=null; ((CL&&CL.asCenter)||[]).forEach(function(o){ o.batches.forEach(function(x){ x.classes.forEach(function(c){ if(c.classId===id) cur=c; }); }); });
+        FORM={ mode:"time", id:id, days:cur?(cur.days||[]).slice():[], from:cur?cur.from:"", to:cur?cur.to:"" }; drawInst(); return; }
+      if(act==="find"){
+        keepForm(); if(!FORM.reg){ say(false,"ACS-ID लिखें।"); return; }
+        var lk=(await call("lookupTeacher",{ regNo:FORM.reg })).data;
+        FORM.who='<span class="nm">'+US(rb(lk.name))+'</span> · '+esc(lk.regNo)+' '+
+          (lk.blockedForLife||lk.blocked ? '<span class="chip canc">⛔ इन्हें अभी नई कक्षा नहीं दी जा सकती</span>'
+                                         : '<span class="chip appr">✅ बैच सौंपा जा सकता है</span>');
+        drawInst(); return;
+      }
+      if(act==="send"){
+        keepForm(); b.disabled=true;
+        if(FORM.mode==="give"){
+          await call("assignClassTeacher",{ courseId:FORM.cid, batchNo:FORM.b, teacherRegNo:FORM.reg, days:FORM.days, from:FORM.from, to:FORM.to });
+          FORM=null; await reload(); say(true,"📩 प्रस्ताव भेजा गया। हाँ का इंतज़ार है।"); return; }
+        var sm=(await call("setClassSchedule",{ classId:FORM.id, days:FORM.days, from:FORM.from, to:FORM.to })).data;
+        FORM=null; await reload(); say(true, sm.mode==="changed"?"🕒 समय बदल गया।":"🕒 नया समय सुझाया गया। हाँ का इंतज़ार है।"); return;
+      }
+      if(act==="bset"){
+        var sel=document.querySelector('select[data-k1sel="'+cid+'"]');
+        await call("setBatches",{ courseId:cid, batches:Number(sel&&sel.value) }); await reload(); say(true,"✔ बैच तय हो गए।"); return; }
+      if(act==="ros"){
+        if(ROS[id]){ delete ROS[id]; } else { ROS[id]=(await call("classRoster",{ classId:id })).data; }
+        drawInst(); drawMine(); return; }
+      if(act==="end"){
+        if(b.getAttribute("data-st")==="offered"){ if(!confirm("यह प्रस्ताव वापस लें?")) return; why=""; }
+        else { why=prompt("कक्षा वापस लेने का कारण लिखें (ज़रूरी):"); if(!why) return; }
+        await call("endClass",{ classId:id, reason:why }); await reload(); say(true,"↩ कक्षा वापस ले ली गई।"); return; }
+      if(act==="forgive"){
+        why=prompt("माफ़ी का कारण लिखें (ज़रूरी):"); if(!why) return;
+        await call("forgiveLeave",{ classId:id, reason:why }); await reload(); say(true,"🤝 माफ़ी दर्ज हुई। रोक हट गई।"); return; }
+      if(act==="acc"){ await call("respondClass",{ classId:id, accept:true }); await reload(); say(true,"✅ कक्षा चालू हो गई।"); return; }
+      if(act==="dec"){
+        if(!confirm("यह प्रस्ताव मना करें?")) return;
+        await call("respondClass",{ classId:id, accept:false }); await reload(); say(true,"❌ प्रस्ताव मना कर दिया गया।"); return; }
+      if(act==="sy"||act==="sn"){
+        await call("respondSchedule",{ classId:id, accept:act==="sy" }); await reload();
+        say(true, act==="sy"?"🕒 नया समय लागू हो गया।":"🕒 पुराना समय ही रहेगा।"); return; }
+      if(act==="notice"){
+        why=prompt("कक्षा छोड़ने का कारण लिखें (ज़रूरी):"); if(!why) return;
+        await call("giveNotice",{ classId:id, reason:why }); await reload(); say(true,"📤 सूचना दर्ज हुई। 15 दिन तक कक्षा चलती रहेगी।"); return; }
+      if(act==="unnotice"){ await call("cancelNotice",{ classId:id }); await reload(); say(true,"↩ सूचना वापस ले ली गई।"); return; }
+      if(act==="leave"){
+        if(!confirm("बिना 15 दिन की सूचना कक्षा छोड़ने पर इस कक्षा की पूरी फ़ीस रुकेगी और आपको नई कक्षा नहीं मिलेगी।\nक्या आप सचमुच अभी छोड़ना चाहते हैं?")) return;
+        why=prompt("कक्षा छोड़ने का कारण लिखें (ज़रूरी):"); if(!why) return;
+        await call("endClass",{ classId:id, confirm:true, reason:why }); await reload(); say(true,"🚪 कक्षा छोड़ दी गई।"); return; }
+      if(act==="apply"){ await call("applyAfterBlock",{}); await reload(); say(true,"📝 आवेदन दर्ज हुआ।"); return; }
+    }catch(e){
+      b.disabled=false;
+      say(false,"नहीं हुआ: "+((e&&e.message)||e));
+    }
+  });
+})(); /* k1-block end */
