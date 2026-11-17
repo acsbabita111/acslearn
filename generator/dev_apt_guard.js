@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/dev_apt_guard.js : v1.9 (14-Nov-2026, खेप 5-ग संस्करण 1.1; v1.8 14-Nov-2026, खेप 5-ग; v1.7 14-Nov-2026, खेप 5-क; v1.6 13-Nov-2026) · पहरेदार जाँच-यंत्र
+   generator/dev_apt_guard.js : v1.10 (17-Nov-2026, कन्नड़ क-4: करियर-पन्ने पर उत्पाद का नाम उस भाषा की लिपि में भी मान्य, तालिका के META.requiredOwn से; और द्वार के बटन का नाम भाषा की तालिका से, एक नई जाँच; v1.9 14-Nov-2026, खेप 5-ग संस्करण 1.1; v1.8 14-Nov-2026, खेप 5-ग; v1.7 14-Nov-2026, खेप 5-क; v1.6 13-Nov-2026) · पहरेदार जाँच-यंत्र
    v1.9: देवनागरी में लिखी जाने वाली भाषा (मराठी) के लिए तीन जाँचें और: (1) उद्यम-नामों में हिंदी का रिसाव 0; (2) झलक की तालिका में हिंदी का रिसाव 0;
      (3) हिंदी-पहचान के नियम के नमूने: तय हिंदी शब्द, "हिंदी जैसे" शब्द और शब्द-मूल पकड़े जाते हैं, और मराठी के अपने शब्द नहीं पकड़े जाते
      (ताकि रजिस्टर की सूची चुपचाप ख़ाली या ढीली न हो सके)।
@@ -48,6 +48,10 @@ ok(!/apt_sets|D\.pool\b|loadTopShards|pickSpread/.test(code), "इंजन म�
 ok(/PAYAPI\(\)\.start\(/.test(code) && /PAYAPI\(\)\.next\(/.test(code) && /PAYAPI\(\)\.finish\(/.test(code), "इंजन तीनों server-काम बुलाता है (शुरू, अगला खंड, पूरी)");
 ok(/"aptGate"/.test(pay) && /"aptStart"/.test(pay) && /"aptNext"/.test(pay) && /"aptFinish"/.test(pay), "भुगतान-पुल में चारों server-काम जुड़े हैं");
 ok(!/"saveAptitudeResult"|"latestAptitudeResult"|saveResult\s*\(/.test(noComments(pay)) && !/saveResult|latestResult/.test(code), "बिना ₹125 के नतीजा server पर भेजने का कोई रास्ता नहीं");
+/* v1.10 (कन्नड़ क-4): द्वार के बटन का नाम भाषा की वाक्यांश-तालिका से आता है। जिस भाषा की तालिका में "login" है, उसकी फ़ाइल में वही नाम "@login" पर है। */
+var loginBad = [], loginLangs = fs.readdirSync(path.join(ROOT, "generator", "data", "aptitude")).filter(function (d) { return ex("generator/data/aptitude/" + d + "/strings.js") && typeof require(path.join(ROOT, "generator", "data", "aptitude", d, "strings.js")).login === "string"; });
+loginLangs.forEach(function (d) { var nm = require(path.join(ROOT, "generator", "data", "aptitude", d, "strings.js")).login; if (!ex("assets/apt_session_" + d + ".js") || rd("assets/apt_session_" + d + ".js").indexOf('"@login":' + JSON.stringify(nm)) < 0) loginBad.push(d); });
+ok(code.indexOf("((SX && SX['@login']) || 'Login / Dashboard')") >= 0 && code.split("Login / Dashboard").length - 1 === 1 && loginLangs.indexOf("kn") >= 0 && loginBad.length === 0, "द्वार का \"Login / Dashboard\" बटन भाषा की तालिका से नाम लेता है; तालिका में नाम वाली भाषाएँ: " + loginLangs.join(",") + " · दोष " + loginBad.join(","));
 ok(/minSetSec:\s*600\b/.test(code) && /maxSetSec:\s*2400\b/.test(code) && /pauseMinSec:\s*60\b/.test(code) && /pauseMaxSec:\s*300\b/.test(code), "इंजन के अंक: खंड 10 से 40 मिनट, विराम 1 से 5 मिनट");
 ok(/अधिकतम 40 मिनट और कम से कम 10 मिनट/.test(eng) && /1 से 5 मिनट का विराम/.test(eng) && /एक दिन में कुल 2 परीक्षाएँ/.test(eng), "पन्ने पर दिखने वाला पाठ उन्हीं अंकों से मेल खाता है");
 ok(!/acs_apt_gate_v1/.test(code) && !/acs_apt_gate_v1/.test(noComments(pay)), "फ़ोन का पुराना निशान अब ताला नहीं है");
@@ -97,7 +101,9 @@ langDirs.forEach(function (d) {
   if (!fs.existsSync(src)) { stale.push(d + ":तालिका नहीं"); return; }
   var S = require(src), T = S.T || S.EN, pg = rd(d + "/career.html");
   if (!T || !/2/.test(T[100]) || !/3 × 40/.test(T[89]) || /(^|\D)90(\D|$)/.test(T[89]) || !/2/.test(T[222]) || T.length !== 261) { stale.push(d + ":तालिका पुरानी"); return; }
-  if (pg.indexOf("Golden Pass") < 0) stale.push(d + ":पेज");
+  /* v1.10: जिस भाषा का पन्ना उत्पाद का नाम अपनी लिपि में लिखता है (तालिका का META.requiredOwn; Founder का आदेश 16-Nov-2026, कन्नड़), वहाँ वही रूप देखा जाता है */
+  var gp = (S.META && S.META.requiredOwn && S.META.requiredOwn["ACS GOLDEN PASS"]) ? String(S.META.requiredOwn["ACS GOLDEN PASS"]).replace(/^ACS\s+/, "") : "Golden Pass";
+  if (!gp || pg.indexOf(gp) < 0) stale.push(d + ":पेज");
 });
 ok(langDirs.length === 44 && stale.length === 0, "44 भाषाओं के करियर-पेज और उनकी तालिकाएँ नए नियम पर: " + langDirs.length + " पेज, दोष " + stale.join(","));
 ok(/पहले और दूसरे खंड के बाद 1 से 5 मिनट का विराम/.test(eng) && !/5 साल/.test(noComments(eng)), "टेस्ट-पेज का पाठ: विराम सिर्फ़ पहले और दूसरे खंड के बाद; \"5 साल\" का दावा नहीं (वह खेप 3 में आएगा)");

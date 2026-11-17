@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/build_apt_lang.js : v2.0.1 (14-Nov-2026, खेप 5-ख: एक संकेत-संदेश सुधरा; v2.0 14-Nov-2026; v1.0 12-Nov-2026) · परत-4
+   generator/build_apt_lang.js : v2.1 (17-Nov-2026, कन्नड़ क-4: द्वार के बटन का नाम उसी भाषा में, "@login"; v2.0.1 14-Nov-2026, खेप 5-ख: एक संकेत-संदेश सुधरा; v2.0 14-Nov-2026; v1.0 12-Nov-2026) · परत-4
    काम: एक नई भाषा के करियर टेस्ट का repo-हिस्सा बनाना (हिंदी और English को छोड़कर बाक़ी 28 भाषाओं के लिए एक ही यंत्र)।
    चलाना: node generator/build_apt_lang.js <भाषा-कोड> [--check]
      --check = कुछ नहीं लिखता; देखता है कि repo की फ़ाइलें वही हैं जो यह यंत्र आज बनाएगा (ताज़गी-जाँच)।
@@ -170,6 +170,9 @@ if (S && S.lang !== code) bad("स्रोत", "strings.js में lang \"" 
   /* पता एक जगह से: इंजन (apt-session.js v2.11) यहीं से पढ़ता है कि इस भाषा के उद्यम-नाम कहाँ रखे हैं।
      (v2.0: "@sets" हटा; प्रश्न अब server से आते हैं, repo की किसी फ़ाइल से नहीं।) */
   map["@udyam"] = "/assets/apt_udyam_" + code + ".js";
+  /* v2.1 (कन्नड़ क-4): द्वार के "Login / Dashboard" बटन का नाम इस भाषा में (तालिका का ऊपरी खाना "login")। यह खाना वैकल्पिक है:
+     न हो, तो "@login" लिखा ही नहीं जाता और इंजन पहले जैसा "Login / Dashboard" दिखाता है (उस भाषा की फ़ाइल बाइट-बाइट वही रहती है)। */
+  if (typeof S.login === "string" && S.login) { var lf = DEVA ? null : LANGS.scriptFail(code, S.login); if (lf) bad(st, "login: " + lf); else if (/[<>"&]/.test(S.login)) bad(st, "login में HTML का चिह्न नहीं चलेगा"); else map["@login"] = S.login; }
   outs["assets/apt_session_" + code + ".js"] = "/* /assets/apt_session_" + code + ".js : पूरी परीक्षा के इंजन के वाक्यांश, " + INFO.hi + " (generator-निर्मित: build_apt_lang.js v2.0)\n" +
     "   स्रोत: generator/data/aptitude/" + code + "/strings.js · मूल भाषा: हिंदी · हाथ से न बदलें */\n" +
     "window.APT_SX=window.APT_SX||{};window.APT_SX." + code + "=" + JSON.stringify(map) + ";\n";
@@ -246,7 +249,7 @@ if (S && S.lang !== code) bad("स्रोत", "strings.js में lang \"" 
 })();
 
 /* ================= नतीजा ================= */
-console.log("build_apt_lang v2.0 : " + code + " (" + INFO.hi + ") · " + notes.join(" · ") + " · दोष " + fails.length);
+console.log("build_apt_lang v2.1 : " + code + " (" + INFO.hi + ") · " + notes.join(" · ") + " · दोष " + fails.length);
 if (fails.length) { fails.slice(0, 40).forEach(function (f) { console.log("  ⛔ " + f); }); if (fails.length > 40) console.log("  … और " + (fails.length - 40)); console.log("⛔ कोई फ़ाइल नहीं लिखी गई।"); process.exit(1); }
 var files = Object.keys(outs).sort();
 if (CHECK_ONLY) {

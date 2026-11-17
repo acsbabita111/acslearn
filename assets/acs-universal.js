@@ -1,5 +1,5 @@
 /* ============================================================
-   acs-universal.js v2.7 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम + देवनागरी छाया-नाम)
+   acs-universal.js v2.8 (17-Nov-2026: भाषा-घर के पन्नों पर मेन्यू के नाम उसी भाषा में, links.js के "labels" से; पहली भाषा कन्नड़) · v2.7 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम + देवनागरी छाया-नाम)
    v2.7 (15-Nov, पैनल-1): 🌐 से चुनी भाषा "acs_dash_lang" में भी लिखी जाती है (लॉगिन/रजिस्ट्रेशन उसी भाषा में खुलें)।
    जिस पन्ने पर पैनल का भाषा-इंजन (ACS_PANEL_I18N) है और वह भाषा उसमें है, वहाँ पन्ना छोड़कर नहीं जाते: वहीं भाषा बदलती है।
    English पन्नों पर "Login / Dashboard" कड़ी /dashboard/?lang=en पर जाती है।
@@ -16,6 +16,9 @@ function acsUniversalInit(){
   var seg0 = ((location.pathname||"").split("/")[1]||"");
   var lang = seg0==="en" ? "en" : (ACS_LANG_HOMES[seg0] ? "mirror" : "hi");
   /* mirror-mode: पेज का baked अनुवाद ही सच — यह script उस पाठ को कभी न लिखे */
+  /* v2.8 (17-Nov-2026): जिस भाषा-घर की पंक्ति links.js के "labels" में है (अभी कन्नड़), वहाँ मेन्यू, नीचे का मेन्यू, नीति की
+     कड़ियाँ और बटनों के नाम उसी भाषा में; बाक़ी भाषा-घरों पर पहले जैसा English। */
+  var OWNL = (lang==="mirror" && L.labels && L.labels[seg0]) || null;
 
   var STR = {
     hi:{ btnLang:"भाषा", btnMenu:"मेन्यू", drawer:"मेन्यू", orig:"मूल भाषा: हिंदी",
@@ -76,10 +79,11 @@ function acsUniversalInit(){
     var dlEmpty = !dl || dl.children.length === 0;
     var fmEmpty = !fm || fm.children.length === 0;
     items.forEach(function(m){
-      var label = m.text || m.label;
-      if(dl && dlEmpty){ var a=document.createElement("a"); a.href=m.href;
+      var label = (OWNL && m.key && OWNL[m.key]) || m.text || m.label;
+      var href = (OWNL && m.key==="home") ? "/"+seg0+"/" : m.href;
+      if(dl && dlEmpty){ var a=document.createElement("a"); a.href=href;
         a.innerHTML='<span class="e">'+m.icon+'</span>'+label; a.onclick=window.acsCloseMenu; dl.appendChild(a); }
-      if(fm && fmEmpty){ var b=document.createElement("a"); b.href=m.href;
+      if(fm && fmEmpty){ var b=document.createElement("a"); b.href=href;
         b.innerHTML="<span>"+m.icon+"</span>"+label; fm.appendChild(b); }
     });
     /* legal-पंक्ति (काम-11-पूर्व, 19-Jul-2026): Razorpay-अनुपालन — refund/privacy/terms हर पेज के footer से */
@@ -87,11 +91,20 @@ function acsUniversalInit(){
       lgl.style.cssText="margin-top:10px;font-size:16px;line-height:1.8";
       lgl.innerHTML = (lang==="hi")
         ? '<a href="/refund.html">💳 रिफंड (Refund) नीति</a> · <a href="/privacy.html">🔒 निजता (Privacy) नीति</a> · <a href="/terms.html">📜 नियम व शर्तें (Terms)</a>'
+        : (OWNL && OWNL.refund && OWNL.privacy && OWNL.terms)
+        ? '<a href="/refund.html">💳 '+OWNL.refund+'</a> · <a href="/privacy.html">🔒 '+OWNL.privacy+'</a> · <a href="/terms.html">📜 '+OWNL.terms+'</a>'
         : '<a href="/refund.html">💳 Refund Policy</a> · <a href="/privacy.html">🔒 Privacy Policy</a> · <a href="/terms.html">📜 Terms</a>';
       fm.parentNode.insertBefore(lgl, fm.nextSibling); }
     var lg2=document.getElementById("acsLogin");
     if(lg2){ lg2.href=(login.href||"/dashboard/")+(lang==="en"?"?lang=en":"");
       if(lang!=="mirror"){ lg2.innerHTML='<span class="e">'+(login.icon||"🔑")+'</span> '+((login.label&&(login.label[lang]||login.label.hi))||"Login / Dashboard"); } }
+    /* v2.8: पन्ने में पहले से लिखे English नाम (पढ़ने वाली मशीन के लिए) भी उसी भाषा में */
+    if(OWNL){
+      [["Menu","menu"],["Close","close"],["Footer menu","footer"],["Contact on WhatsApp","wa"]].forEach(function(p){
+        if(!OWNL[p[1]]) return; var q=document.querySelectorAll('[aria-label="'+p[0]+'"]'), i;
+        for(i=0;i<q.length;i++) q[i].setAttribute("aria-label", OWNL[p[1]]); });
+      if(OWNL.logo){ var im=document.querySelectorAll('img[alt="ACS logo"]'), j; for(j=0;j<im.length;j++) im[j].setAttribute("alt", OWNL.logo); }
+    }
   }catch(e){}
 }
 /* नीचे-load होने वाली scripts (links/config) चलने के बाद ही init —
@@ -318,12 +331,16 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       var bTop = document.createElement("button");
       bTop.type="button"; bTop.className="udy-fbtn"; bTop.textContent="⬆";
       var fbHi=((document.documentElement.getAttribute("lang")||"hi").indexOf("hi")===0);
-      bTop.setAttribute("aria-label", fbHi?"पेज के ऊपर जाएँ":"Back to top");
-      bTop.title = fbHi?"पेज के ऊपर जाएँ":"Back to top";
+      /* v2.8: भाषा-घर के पन्ने पर, जिसकी पंक्ति links.js के "labels" में है, दोनों बटनों के नाम उसी भाषा में */
+      var fbSeg=((location.pathname||"").split("/")[1]||""), fbOwn=null;
+      try{ fbOwn=(ACS_LANG_HOMES[fbSeg] && window.ACS_LINKS && window.ACS_LINKS.labels && window.ACS_LINKS.labels[fbSeg]) || null; }catch(e){ fbOwn=null; }
+      var fbTop = fbHi?"पेज के ऊपर जाएँ":((fbOwn&&fbOwn.top)||"Back to top"), fbBack = fbHi?"पीछे जाएँ":((fbOwn&&fbOwn.back)||"Go back");
+      bTop.setAttribute("aria-label", fbTop);
+      bTop.title = fbTop;
       bTop.onclick=function(){ try{window.scrollTo({top:0,behavior:"smooth"});}catch(e){window.scrollTo(0,0);} };
       var bBack = document.createElement("a");
       bBack.className="udy-fbtn"; bBack.textContent="←";
-      bBack.href = isUdyam ? "/udyam/" : "/"; bBack.setAttribute("aria-label", fbHi?"पीछे जाएँ":"Go back"); bBack.title = fbHi?"पीछे जाएँ":"Go back";
+      bBack.href = isUdyam ? "/udyam/" : (fbOwn ? "/"+fbSeg+"/" : "/"); bBack.setAttribute("aria-label", fbBack); bBack.title = fbBack;
       bBack.onclick=function(ev){ if(history.length>1){ ev.preventDefault(); history.back(); } };
       fw.appendChild(bTop); if(!isHome) fw.appendChild(bBack);
       document.body.appendChild(fw);

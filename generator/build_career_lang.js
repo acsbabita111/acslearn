@@ -1,4 +1,7 @@
-/* build_career_lang.js v1.5 (13-Nov-2026)
+/* build_career_lang.js v1.6 (17-Nov-2026, Kannada batch K-4; v1.5 13-Nov-2026)
+   v1.6: META.requiredOwn (optional): for a language whose page writes the product words in its own script
+   (Founder order of 16-Nov-2026 for Kannada), the two required product phrases are checked in that form.
+   A language without META.requiredOwn is checked exactly as before, and its page comes out byte-identical.
    v1.5: certificate-image swap is optional (the sample-report section left the page until khep-3).
    v1.4 (09-Nov-2026):
    v1.4: SVG-safe RTL wrapping (bidi isolates inside <svg>, <bdi> elsewhere).
@@ -215,6 +218,7 @@ if (META.scriptRe) {
   else bad('forbidden present: ' + w);
 });
 ['ACS GOLDEN PASS', 'RIASEC', '18,943', 'Golden Pass Included', 'Applied Computer School']
+ .map(w => (META.requiredOwn && META.requiredOwn[w]) || w)   /* v1.6: a language that writes the product words in its own script names its own form here */
  .concat(META.required).forEach(w => {
   if (out.indexOf(w) !== -1) ok('required present: ' + w.slice(0, 40));
   else bad('required missing: ' + w.slice(0, 40));
