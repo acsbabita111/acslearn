@@ -562,3 +562,10 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .k1acc summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .k1accb{padding:4px 12px 12px;background:#fff;border-radius:0 0 12px 12px}
 .k1accn .k1accb>.r2:first-child{display:none}   /* सूचनाओं का माथा ऊपर की पंक्ति में पहले से है */
+
+/* ═══ (design D-3 · 18-Nov-2026) केंद्र का "Enrollment": हिस्सों के माथे, कड़ी वाले बटन, चुनने के खाने, दिन के खाने ═══ */
+.pd.k9h{margin-top:22px;padding-top:14px;border-top:1px solid var(--border);color:var(--text)}
+.pd.k9h>b:first-child{font-size:18px;color:var(--navy)}
+a.abtn:not(.hidden){display:inline-block;text-decoration:none;text-align:center}
+#addStuCourse,.lrow select{font-family:inherit;font-size:17px;min-height:48px;padding:8px 10px;border:1.5px solid #9aa9bd;border-radius:12px;max-width:100%;background:#fff;color:var(--text);margin:8px 8px 0 0}
+.k1day{width:22px;height:22px;vertical-align:middle;margin-right:4px;accent-color:var(--blue)}

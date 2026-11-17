@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.29.0 · 18-Nov-2026 (design D-3: फ़ॉर्म का "बंद करें" बटन रेखा वाला)
    v6.28.0 · 18-Nov-2026 (design D-2: विद्यार्थी का "मेरा केंद्र": कक्षा नए कार्ड में, सूचनाएँ, हाज़िरी और काम मुड़ने वाले हिस्सों में)
    v6.27.0 · 18-Nov-2026 (design D-1: कक्षा-कार्ड का नया रूप (पाँच खाने, एक बार में एक; बटन के चार दर्जे; ख़तरे वाले काम "और विकल्प" के भीतर) और "मेरा रूप" (रंग, बटन का आकार, काम-सूची से छिपाना, ऊपर की पट्टी; पसंद इसी फ़ोन में))
    v6.26.0 · 18-Nov-2026 (कक्षा-परत K-5b: प्रगति और सूचना-पट; server: class_server.js v1.7): k1-block में "प्रगति" (हाज़िरी और अंक एक जगह;
@@ -190,7 +191,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.28.0";
+const DASH_VER = "v6.29.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4325,7 +4326,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       '<input type="checkbox" class="k1day" value="'+i+'"'+((FORM.days||[]).indexOf(i)>-1?' checked':'')+'> '+S(n)+'</label>'; });
     h+='</div><div class="k9f"><label>शुरू होने का समय</label><input id="k1From" type="time" value="'+esc(FORM.from||"")+'"></div>'+
       '<div class="k9f"><label>ख़त्म होने का समय</label><input id="k1To" type="time" value="'+esc(FORM.to||"")+'"></div>'+
-      '<div class="k9f"><label>&nbsp;</label>'+btn("send", give?"📩 प्रस्ताव भेजें":"🕒 नया समय भेजें", "", "ok")+btn("cancel","✖ बंद करें")+'</div></div>';
+      '<div class="k9f"><label>&nbsp;</label>'+btn("send", give?"📩 प्रस्ताव भेजें":"🕒 नया समय भेजें", "", "ok")+obtn("cancel","✖ बंद करें")+'</div></div>';
     return h;
   }
   function keepForm(){

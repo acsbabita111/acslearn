@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.11 · 18-Nov-2026 (design D-3) : "Enrollment" (केंद्र, वर्कशॉप): घोषणा के नियम एक पंक्ति में मुड़े; हर हिस्से का माथा अलग (k9h); "अगले दौर" वाली बासी पंक्ति हटी (प्रगति और परीक्षा अब बने हुए हैं)।
    v2.10 · 18-Nov-2026 (design D-2) : "मेरा केंद्र" (विद्यार्थी, नौकरी-इच्छुक, उद्यमी): जुड़ने का तरीक़ा एक पंक्ति में मुड़ा; "अगले दौर" वाली बासी पंक्ति हटी (काम, परीक्षा और प्रमाणपत्र अब बने हुए हैं)।
    v2.9 · 18-Nov-2026 (design D-1) : P_INST_CLASS और P_TCH_CLASS के नियम एक पंक्ति में मुड़े (details.k1rules)। टेम्पलेट: हर घर में पैनल "मेरा रूप" (pnl-roop), ऊपर का बटन "रूप बदलें" और ऊपर की पट्टी (roopBar)।
    v2.8 · 18-Nov-2026 (K-4b, काम व अंक) : P_INST_CLASS और P_TCH_CLASS में "काम व अंक" का एक-एक वाक्य।
@@ -515,10 +516,12 @@ function P_INST_ENROLL(who){
   return (
     '<div class="pcard panel" id="pnl-enroll" data-nav="🎓 Enrollment व Analytics" style="grid-column:1/-1">' +
     '<div class="ph">🎓 Enrollment — नामांकन-खाता</div>' +
+    '<details class="k1rules"><summary>ℹ️ कोर्स घोषित करने के नियम देखें</summary>' +
     '<div class="pd"><b>📚 कोर्स-घोषणा:</b> कोर्स के साथ फीस · समय-सीमा · seat · प्रारंभ-तिथि · अंतिम-तिथि — ' +
     'पाँचों एक साथ ज़रूरी। बिना घोषित कोर्स के कोई नामांकन नहीं।</div>' +
     '<div class="pd">' + (ws ? 'वर्कशॉप में seat 5 से 10 के बीच लिखें। सब खुले कोर्स मिलाकर भी 10 से ज़्यादा seat नहीं।'
                              : 'केंद्र में seat 30 के गुणक में लिखें (30, 60, 90)।') + '</div>' +
+    '</details>' +
     '<div class="k9grid">' +
     '<div class="k9f"><label>खंड</label><select id="ofCatSel"><option value="">चुनें…</option>' +
     '<option value="ac">📖 एकेडमिक (कक्षा 6-12)</option>' +
@@ -537,23 +540,22 @@ function P_INST_ENROLL(who){
     '<div class="k9f"><label>&nbsp;</label><button class="abtn ok" id="ofDeclare" style="width:100%">📣 घोषित करें</button></div>' +
     '</div>' +
     '<div id="ofMsg" class="msg"></div>' +
-    '<div class="pd"><b>मेरी घोषणाएँ (seat-भराई सहित):</b></div>' +
+    '<div class="pd k9h"><b>मेरी घोषणाएँ (seat-भराई सहित):</b></div>' +
     '<div id="ofList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
-    '<div class="pd" style="margin-top:14px"><b>➕ ' + who + ' जोड़ो (सामने बैठा हो):</b> ACS-ID लिखें → नाम देखकर ' +
+    '<div class="pd k9h"><b>➕ ' + who + ' जोड़ो (सामने बैठा हो):</b> ACS-ID लिखें → नाम देखकर ' +
     'पुष्टि → प्रस्ताव जाएगा → उसकी हाँ पर नामांकन active। सीधा active कभी नहीं — दोनों की सहमति ज़रूरी।</div>' +
     '<div class="pd"><input id="addStuReg" type="text" placeholder="ACS-ST-2026-XXXXXX"> ' +
     '<button class="abtn" id="addStuFind">🔎 खोजें</button></div>' +
     '<div id="addStuCard"></div>' +
-    '<div class="pd" style="margin-top:14px"><b>⏳ निवेदन व प्रस्ताव (फ़ैसला यहीं):</b></div>' +
+    '<div class="pd k9h"><b>⏳ निवेदन व प्रस्ताव (फ़ैसला यहीं):</b></div>' +
     '<div id="enrPendList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
-    '<div class="pd" style="margin-top:14px"><b>📋 active सूची — फीस-दर्ज व रसीद यहीं:</b></div>' +
+    '<div class="pd k9h"><b>📋 active सूची — फीस-दर्ज व रसीद यहीं:</b></div>' +
     '<div id="enrActiveList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<div id="enrMsg" class="msg"></div>' +
-    '<div class="pd" style="margin-top:14px"><b>🔗 मेरी ACS-ID साझा करें:</b> <b id="instShareId">—</b> ' +
+    '<div class="pd k9h"><b>🔗 मेरी ACS-ID साझा करें:</b> <b id="instShareId">—</b> ' +
     '<button class="abtn" id="instShareCopy">📋 copy</button> ' +
     '<a class="abtn" id="instShareWa" target="_blank" rel="noopener" style="text-decoration:none">📲 WhatsApp</a></div>' +
     '<div class="pd">यह ID बोर्ड/पर्चे पर लिखें — ' + who + ' इसी से आपको खोजकर निवेदन भेजेगा।</div>' +
-    '<span class="soon">प्रगति-दृश्य · 80 प्रतिशत-गेट · परीक्षा — अगले दौर (काम-10/11) में</span>' +
     '</div>');
 }
 
