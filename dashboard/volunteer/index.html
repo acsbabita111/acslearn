@@ -46,6 +46,7 @@
     <div class="sp"></div>
     <div class="tbwho" id="tbWho"></div>
     <button class="btn-out side-toggle" onclick="toggleSide()">☰ काम-सूची</button>
+    <button class="btn-out" id="tbRoop" onclick="openRoop()" style="display:none">🎨 रूप बदलें</button>
     <button class="btn-out" onclick="doLogout()">बाहर निकलें (Logout)</button>
   </div>
   <div class="tagline"><b>130 भाषा में, गाँव से ग्लोबल साउथ तक!</b></div>
@@ -78,6 +79,8 @@
     <div class="sideveil" id="sideVeil" onclick="toggleSide()"></div>
     <nav class="side" id="sideNav" aria-label="काम-सूची"></nav>
     <div class="content">
+    <!-- (design D-1) "मेरा रूप" से चुने हुए बटन: ऊपर की पट्टी। कुछ न चुना हो, तो नहीं दिखती -->
+    <div class="roopbar" id="roopBar"></div>
 
     <!-- [T4] प्रोफ़ाइल -->
     <div class="card panel" id="pnl-profile" data-nav="👤 मेरी प्रोफ़ाइल">
@@ -219,6 +222,17 @@
     <div class="grid">
       <div class="pcard panel" id="pnl-vani" data-nav="📱 वाणी" style="grid-column:1/-1">
         <p style="color:#607D8B">वाणी लोड हो रही है…</p>
+      </div>
+    </div>
+
+    <!-- (design D-1) मेरा रूप: हर dashboard में (team+external दोनों; mode-कटाई से बाहर) -->
+    <div class="grid">
+      <div class="pcard panel" id="pnl-roop" data-nav="🎨 मेरा रूप" style="grid-column:1/-1">
+        <div class="ph">🎨 मेरा रूप</div>
+        <div class="pd">यहाँ आप अपने पैनल का रंग, बटन और काम-सूची अपने हिसाब से रखें।</div>
+        <div class="pd">आपकी पसंद इसी फ़ोन या computer में याद रहती है। दूसरे फ़ोन पर दोबारा चुननी होगी।</div>
+        <div id="roopBox"></div>
+        <div id="roopMsg" class="msg"></div>
       </div>
     </div>
 

@@ -46,6 +46,7 @@
     <div class="sp"></div>
     <div class="tbwho" id="tbWho"></div>
     <button class="btn-out side-toggle" onclick="toggleSide()">☰ काम-सूची</button>
+    <button class="btn-out" id="tbRoop" onclick="openRoop()" style="display:none">🎨 रूप बदलें</button>
     <button class="btn-out" onclick="doLogout()">बाहर निकलें (Logout)</button>
   </div>
   <div class="tagline"><b>130 भाषा में, गाँव से ग्लोबल साउथ तक!</b></div>
@@ -78,6 +79,8 @@
     <div class="sideveil" id="sideVeil" onclick="toggleSide()"></div>
     <nav class="side" id="sideNav" aria-label="काम-सूची"></nav>
     <div class="content">
+    <!-- (design D-1) "मेरा रूप" से चुने हुए बटन: ऊपर की पट्टी। कुछ न चुना हो, तो नहीं दिखती -->
+    <div class="roopbar" id="roopBar"></div>
 
     <!-- [T4] प्रोफ़ाइल -->
     <div class="card panel" id="pnl-profile" data-nav="👤 मेरी प्रोफ़ाइल">
@@ -153,6 +156,17 @@
         <p style="color:#607D8B">वाणी लोड हो रही है…</p>
       </div>
       <div class="pcard panel" id="pnl-rules" data-nav="📜 नियम, सहायता, शिकायत" style="grid-column:1/-1"><div class="ph">📜 मेरा नियम-पत्र (एग्रीमेंट)</div><div class="pd">विद्यार्थी (Student) के सब नियम — वही जो आपने registration पर स्वीकारे। POSH · POCSO · DPDP का पालन हर हाल में अनिवार्य; किसी शिकायत पर पहले 7-दिन का Show-Cause (अपनी बात रखने का पूरा मौक़ा)।</div><a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="/rules-consent-learner.html" data-href-en="/en/rules-consent-learner.html">📜 पूरा नियम-पत्र पढ़ें</a><div class="pmergesep"></div><div class="pcard pmerged" id="pnl-help" style="grid-column:1/-1"><div class="ph">🆘 सहायता व शिकायत</div><div class="pd">कोई दिक़्क़त, सवाल या शिकायत हो — सीधे लिखें। शिकायत की स्वतंत्र सुनवाई ACS की Trust Policy का हिस्सा है।</div><a class="abtn ok" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="https://wa.me/919431210092">💬 WhatsApp पर लिखें</a> <a class="abtn ok" style="background:var(--blue);display:inline-block;text-decoration:none" href="mailto:info@ffgpmt.org">✉️ Email भेजें</a></div></div>
+    </div>
+
+    <!-- (design D-1) मेरा रूप: हर dashboard में (team+external दोनों; mode-कटाई से बाहर) -->
+    <div class="grid">
+      <div class="pcard panel" id="pnl-roop" data-nav="🎨 मेरा रूप" style="grid-column:1/-1">
+        <div class="ph">🎨 मेरा रूप</div>
+        <div class="pd">यहाँ आप अपने पैनल का रंग, बटन और काम-सूची अपने हिसाब से रखें।</div>
+        <div class="pd">आपकी पसंद इसी फ़ोन या computer में याद रहती है। दूसरे फ़ोन पर दोबारा चुननी होगी।</div>
+        <div id="roopBox"></div>
+        <div id="roopMsg" class="msg"></div>
+      </div>
     </div>
 
     </div>

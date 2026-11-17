@@ -52,7 +52,9 @@ const doc = {
   querySelectorAll:(sel)=> (sel===".panel" ? CUR_PANELS : []),
   addEventListener:()=>{},
   createElement:(tag)=>{ const e=makeEl("_"+tag+Math.random()); e._tag=tag; return e; },
-  body: makeEl("_body")
+  body: makeEl("_body"),
+  /* (design D-1) "मेरा रूप" रंग और आकार <html> के CSS-variable में रखता है */
+  documentElement: { style: { setProperty:()=>{}, removeProperty:()=>{}, getPropertyValue:()=>"" } }
 };
 
 function freshSandbox(cfg, fakes){

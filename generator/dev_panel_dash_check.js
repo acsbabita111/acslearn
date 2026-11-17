@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v2.3 (18-Nov-2026; v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v2.4 (18-Nov-2026; v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -305,10 +305,10 @@ const H_HANDLERS = {
 };
 const visText = c => { const b = c.d.body.cloneNode(true); b.querySelectorAll("script,style,noscript,#acsPanelLangBar").forEach(x => x.remove()); return b.textContent; };
 const countOf = (t, v) => t.split(v).length - 1;
-async function openH(file, lang, sc, navOnly) {   /* navOnly (v1.7): सिर्फ़ ये पैनल खोलो (id की सूची); न हो तो सब */
+async function openH(file, lang, sc, navOnly, moreLs) {   /* navOnly (v1.7): सिर्फ़ ये पैनल खोलो (id की सूची); न हो तो सब */
   const info = pageInfo(file), data = fixture(info, sc || "data"), user = { uid: "u1", email: "ram@example.com" };
   hdataFix(data, info);
-  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang && lang !== "hi") ls.acs_dash_lang = lang;
+  const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, moreLs || {});
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: (lang && lang !== "hi") ? lang : undefined,
     handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS), fb: makeFB(data, user) });
   if (navOnly) { await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c);
@@ -318,7 +318,15 @@ async function openH(file, lang, sc, navOnly) {   /* navOnly (v1.7): सिर�
   /* खोज वाले बटन: केंद्र खोजना (विद्यार्थी), विद्यार्थी खोजना (केंद्र) */
   for (const [inp, btn] of [["mcCtrReg", "mcFindBtn"], ["addStuReg", "addStuFind"]]) { const i = c.d.getElementById(inp), b = c.d.getElementById(btn); if (i && b) { i.value = "ACS-2026-123456"; click(c, b); await settle(c); await settle(c); } }
   /* (v1.8, कक्षा-परत K-1b) विद्यार्थी-सूची खोलना, बैच सौंपने का फ़ॉर्म खोलना, शिक्षक खोजना, समय बदलने का फ़ॉर्म खोलना */
-  for (const sel of ['[data-k1="ros"]', '[data-k1="give"]', '[data-k1="att"]', '[data-k1="attall"]', '[data-k1="wk"]', '[data-k1="wknew"]', '[data-k1="wkopen"][data-w="w1"]', '[data-k1="pg"]', '[data-k1="nt"]']) { const b = c.d.querySelector(sel); if (b) { click(c, b); await settle(c); await settle(c); } }   /* (v2.1) हाज़िरी भी खोलो; (v2.2) काम व अंक भी */
+  /* (v2.4, design D-1) कक्षा के पाँच खाने अब एक बार में एक ही खुलते हैं। हर खाना खोलकर उसकी निष्क्रिय प्रति #k1Snap में रखते हैं,
+     ताकि पूरे पन्ने की भाषा-जाँच हर खाने को देखे। आख़िर में विद्यार्थी-सूची खुली रहती है। */
+  { const snap = () => { let h = c.d.getElementById("k1Snap"); if (!h) { h = c.d.createElement("div"); h.id = "k1Snap"; c.d.body.appendChild(h); }
+      c.d.querySelectorAll(".k1card .k1att, .k1card .k1pane").forEach(n => { const k = n.cloneNode(true); k.removeAttribute("class");
+        k.querySelectorAll("*").forEach(x => { x.removeAttribute("data-k1"); x.removeAttribute("id"); x.removeAttribute("class"); }); h.appendChild(k); }); };
+    for (const sel of ['[data-k1="give"]', '[data-k1="att"]', '[data-k1="attall"]', '[data-k1="wk"]', '[data-k1="wknew"]', '[data-k1="wkopen"][data-w="w1"]', '[data-k1="pg"]', '[data-k1="nt"]', '[data-k1="ros"]']) {
+      const b = c.d.querySelector(sel); if (!b) continue;
+      if (/"(wk|pg|nt|ros)"\]$/.test(sel)) snap();
+      click(c, b); await settle(c); await settle(c); } }
   { const i = c.d.getElementById("k1Reg"), b = c.d.querySelector('[data-k1="find"]'); if (i && b) { i.value = "ACS-TE-2026-222222"; click(c, b); await settle(c); await settle(c); } }
   await settle(c); return c;
 }
@@ -494,7 +502,7 @@ function nazarData(info, founder) {
 async function openNazar(file, lang, query, opt) {
   opt = opt || {};
   const info = pageInfo(file), data = nazarData(info, opt.founder !== false), user = { uid: "u1", email: "founder@example.com" };
-  const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang;
+  const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, opt.ls || {});
   const KV = f => (d => Object.assign(f(d), d && d.viewAs !== undefined && !opt.oldServer ? { viewed: true } : {}));
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), query: query || "", ls, expect: (lang && lang !== "hi") ? lang : undefined,
     handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, { listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
@@ -503,6 +511,86 @@ async function openNazar(file, lang, query, opt) {
   await settle(c); await settle(c);
   if (!opt.noOpen && !c.d.getElementById("appView").classList.contains("hidden")) { await openAll(c); await settle(c); }
   return c;
+}
+/* (v2.4, design D-1) नया रूप: कक्षा-कार्ड के पाँच खाने (एक बार में एक), ख़तरे वाले काम "और विकल्प" के भीतर, नियम मुड़े हुए;
+   और "मेरा रूप": रंग, बटन का आकार, काम-सूची से छिपाना, ऊपर की पट्टी; पसंद इसी फ़ोन में; देखने के मोड में कुछ नहीं बदलता। */
+async function roopChecks(pages) {
+  const pg = n => pages.find(f => f === "dashboard/" + n + "/index.html");
+  const bad = pages.filter(f => { const h = fs.readFileSync(path.join(ROOT, f), "utf8"); return !(/id="pnl-roop"/.test(h) && /id="tbRoop"/.test(h) && /id="roopBar"/.test(h) && /id="roopBox"/.test(h)); });
+  ck("D1 हर घर में \"मेरा रूप\" पैनल, ऊपर का बटन और ऊपर की पट्टी", pages.length >= 31 && bad.length === 0, bad.join(" "));
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "base", ["pnl-myclass"]), q = sel => c.d.querySelector(sel), qa = sel => c.d.querySelectorAll(sel);
+    ck("D1 शिक्षक: चालू कक्षा पर पाँच खाने, प्रस्ताव पर नहीं", qa('.k1tab[data-id="k1"]').length === 5 && qa('.k1tab[data-id="k3"]').length === 0 && qa(".k1tab.on").length === 0);
+    ck("D1 शिक्षक: पैनल के नियम मुड़े हुए हैं", !!q("#pnl-myclass details.k1rules") && !q("#pnl-myclass details.k1rules").open && /15 दिन पहले/.test(q("#pnl-myclass details.k1rules").textContent));
+    ck("D1 शिक्षक: छोड़ने का लाल काम \"और विकल्प\" के भीतर, सूचना का काम बाहर", !!q('[data-k1="leave"][data-id="k1"]').closest("details.k1more") && !q('[data-k1="notice"][data-id="k1"]').closest("details") && q('[data-k1="leave"][data-id="k1"]').classList.contains("dg"));
+    click(c, q('[data-k1="att"][data-id="k1"]')); await settle(c); await settle(c);
+    click(c, q('[data-k1="attall"]')); await settle(c);
+    ck("D1 शिक्षक: हाज़िरी का खाना खुला और चुना हुआ दिखा", qa(".k1att").length === 1 && qa(".k1tab.on").length === 1 && q(".k1tab.on").getAttribute("data-k1") === "att" && qa(".k1mP.on").length === 2);
+    click(c, q('[data-k1="wk"][data-id="k1"]')); await settle(c); await settle(c);
+    ck("D1 शिक्षक: दूसरा खाना खोलने पर पहला बंद (एक बार में एक)", qa(".k1att").length === 1 && q(".k1tab.on").getAttribute("data-k1") === "wk" && !q(".k1m.k1mP") && !!q('[data-k1="wknew"]'));
+    click(c, q('[data-k1="att"][data-id="k1"]')); await settle(c); await settle(c);
+    ck("D1 शिक्षक: खाना बदलकर लौटने पर लगाई हुई हाज़िरी याद रही", qa(".k1mP.on").length === 2 && q(".k1tab.on").getAttribute("data-k1") === "att");
+    click(c, q('[data-k1="att"][data-id="k1"]')); await settle(c);
+    ck("D1 शिक्षक: वही खाना दोबारा दबाने पर बंद", !q(".k1att") && qa(".k1tab.on").length === 0);
+    c.dom.window.close(); }
+  if (pg("center")) { const c = await openH(pg("center"), "hi", "base", ["pnl-class"]), q = sel => c.d.querySelector(sel);
+    ck("D1 केंद्र: नियम मुड़े हुए; वापस लेने और शिकायत के काम \"और विकल्प\" के भीतर", !!q("#pnl-class details.k1rules") && !!q('[data-k1="end"][data-id="k1"]').closest("details.k1more") && !!q('[data-k1="abrep"]').closest("details.k1more") && !q('[data-k1="time"][data-id="k1"]').closest("details"));
+    click(c, q('[data-k1="pg"][data-id="k1"]')); await settle(c); await settle(c);
+    ck("D1 केंद्र: प्रगति में प्रतिशत की पट्टी", c.d.querySelectorAll(".k1bar i").length >= 3 && /width:\s*67%/.test(q(".k1bar i").getAttribute("style")));
+    c.dom.window.close(); }
+  /* मेरा रूप */
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "base", ["pnl-roop"]), q = sel => c.d.querySelector(sel), qa = sel => c.d.querySelectorAll(sel);
+    const st = c.d.documentElement.style, home = c.w.ACS_DASH.home, saved = () => { try { return JSON.parse(c.w.localStorage.getItem("acs_roop_v1") || "{}").u1 || {}; } catch (e) { return {}; } };
+    const msg = () => (c.d.getElementById("roopMsg") || {}).textContent || "", tap = async sel => { click(c, q(sel)); await settle(c); };
+    ck("R1 मेरा रूप: ऊपर का बटन दिखा, काम-सूची में पंक्ति, पैनल खुला", q("#tbRoop").style.display !== "none" && !!q('#sideNav .si[data-go="pnl-roop"]') && q("#pnl-roop").classList.contains("on") && qa('[data-roop="pc"]').length === 6 && qa('[data-roop="bc"]').length === 7 && qa('[data-roop="bz"]').length === 3 && !!q('[data-roop="reset"]'));
+    ck("R1 मेरा रूप: शुरू में मूल रूप (कुछ बदला नहीं)", !st.getPropertyValue("--blue") && !st.getPropertyValue("--navy") && !st.getPropertyValue("--bfs") && !q("#roopBar").classList.contains("on") && !qa("#sideNav .si.rhide").length);
+    await tap('[data-roop="bc"][data-v="g"]');
+    ck("R2 बटन का रंग: तुरंत बदला, इसी फ़ोन में सहेजा गया", st.getPropertyValue("--blue") === "#2E7D32" && saved().bc === "g" && /सहेज ली गई/.test(msg()) && q('[data-roop="bc"][data-v="g"]').classList.contains("on"));
+    await tap('[data-roop="pc"][data-v="p"]');
+    ck("R3 पैनल का रंग: माथे का रंग बदला", st.getPropertyValue("--navy") === "#2A1B4D" && st.getPropertyValue("--hd2") === "#5E35B1" && saved().pc === "p");
+    await tap('[data-roop="bz"][data-v="l"]');
+    ck("R4 बटन का आकार: बड़ा", st.getPropertyValue("--bfs") === "21px" && st.getPropertyValue("--bh") === "56px" && saved().bz === "l");
+    ck("R5 प्रोफ़ाइल, मेरा रूप, सहायता और नियम-पत्र छिपाए नहीं जा सकते", !q('[data-roop="hide"][data-v="pnl-profile"]') && !q('[data-roop="hide"][data-v="pnl-roop"]') && !q('[data-roop="hide"][data-v="pnl-help"]') && !q('[data-roop="hide"][data-v="pnl-rules"]') && qa(".rlk").length >= 3, String(qa(".rlk").length));
+    await tap('[data-roop="hide"][data-v="pnl-myclass"]');
+    ck("R5 पैनल छिपाना: काम-सूची से गया, बटन पर \"छिपा है\"", q('#sideNav .si[data-go="pnl-myclass"]').classList.contains("rhide") && /छिपा है/.test(q('[data-roop="hide"][data-v="pnl-myclass"]').textContent) && (saved().hide || {})[home].join() === "pnl-myclass");
+    await tap('[data-roop="hide"][data-v="pnl-myclass"]');
+    ck("R5 पैनल दोबारा दिखाना", !q('#sideNav .si[data-go="pnl-myclass"]').classList.contains("rhide") && (saved().hide || {})[home].length === 0);
+    await tap('[data-roop="pin"][data-v="pnl-myclass"]');
+    ck("R6 ऊपर की पट्टी: बटन जुड़ा, नाम वही", q("#roopBar").classList.contains("on") && qa("#roopBar .rpin").length === 1 && /मेरी कक्षाएँ/.test(q("#roopBar .rpin").textContent));
+    click(c, q("#roopBar .rpin")); await settle(c); await settle(c);
+    ck("R6 ऊपर की पट्टी का बटन उसी पैनल पर ले गया", q("#pnl-myclass").classList.contains("on") && !q("#pnl-roop").classList.contains("on"));
+    click(c, q("#tbRoop")); await settle(c);
+    ck("R6 ऊपर का \"रूप बदलें\" बटन पैनल खोलता है", q("#pnl-roop").classList.contains("on"));
+    const rest = Array.from(qa('[data-roop="pin"]')).map(b => b.getAttribute("data-v")).filter(v => v !== "pnl-myclass");
+    for (const v of rest.slice(0, 5)) await tap('[data-roop="pin"][data-v="' + v + '"]');
+    ck("R7 ऊपर की पट्टी में 6 बटन तक", qa("#roopBar .rpin").length === 6, String(qa("#roopBar .rpin").length));
+    if (rest.length > 5) { await tap('[data-roop="pin"][data-v="' + rest[5] + '"]');
+      ck("R7 सातवाँ बटन नहीं जुड़ता, साफ़ संदेश", qa("#roopBar .rpin").length === 6 && /6 से ज़्यादा/.test(msg())); }
+    c.confirmAnswer = false; await tap('[data-roop="reset"]');
+    ck("R8 \"पहले जैसा\" पर पहले पूछा जाता है; ना कहने पर कुछ नहीं बदला", st.getPropertyValue("--blue") === "#2E7D32" && c.dialogs.some(m => /पहले जैसा रूप करें/.test(m)));
+    c.confirmAnswer = true; await tap('[data-roop="reset"]');
+    ck("R8 \"पहले जैसा\": रंग, आकार, पट्टी सब मूल", !st.getPropertyValue("--blue") && !st.getPropertyValue("--navy") && !st.getPropertyValue("--hd2") && !st.getPropertyValue("--bfs") && !q("#roopBar").classList.contains("on") && !saved().bc && /पहले जैसा हो गया/.test(msg()));
+    ck("R मेरा रूप: कोई त्रुटि नहीं", c.errors.length === 0, c.errors.join(" | "));
+    c.dom.window.close(); }
+  if (pg("teacher")) { const home = "/dashboard/teacher/";
+    const pre = { acs_roop_v1: JSON.stringify({ u1: { pc: "t", bc: "o", bz: "s", hide: { [home]: ["pnl-myclass", "pnl-profile"] }, pins: { [home]: ["pnl-roop", "pnl-nahi"] } }, u2: { bc: "m" } }) };
+    const c = await openH(pg("teacher"), "hi", "base", ["pnl-profile"], pre), st = c.d.documentElement.style, q = sel => c.d.querySelector(sel);
+    ck("R9 सहेजी हुई पसंद खुलते ही लागू (अपने खाते की ही)", c.w.ACS_DASH.home === home && st.getPropertyValue("--blue") === "#BF360C" && st.getPropertyValue("--navy") === "#06343A" && st.getPropertyValue("--bfs") === "16px", String(c.w.ACS_DASH.home));
+    ck("R9 छिपा पैनल छिपा रहा; प्रोफ़ाइल कभी नहीं छिपती; जो पैनल है ही नहीं, उसका बटन नहीं बना", q('#sideNav .si[data-go="pnl-myclass"]').classList.contains("rhide") && !q('#sideNav .si[data-go="pnl-profile"]').classList.contains("rhide") && c.d.querySelectorAll("#roopBar .rpin").length === 1);
+    c.dom.window.close();
+    const d = await openH(pg("teacher"), "hi", "base", ["pnl-profile"], { acs_roop_v1: "{टूटा" });
+    ck("R9 टूटा हुआ सहेजा data पन्ना नहीं रोकता", !d.d.getElementById("appView").classList.contains("hidden") && d.errors.length === 0 && !d.d.documentElement.style.getPropertyValue("--blue"), d.errors.join(" | "));
+    d.dom.window.close(); }
+  if (pg("teacher")) { const pre = { acs_roop_v1: JSON.stringify({ u1: { bc: "m", bz: "l" } }) };
+    const c = await openNazar(pg("teacher"), "hi", "", { noOpen: true, ls: pre }), q = sel => c.d.querySelector(sel), st = c.d.documentElement.style;
+    click(c, q('#sideNav .si[data-go="pnl-roop"]')); await settle(c); await settle(c);
+    ck("R10 देखने का मोड: Founder की अपनी पसंद लागू नहीं, घर का मूल रूप", !!q("#nazarBar") && !st.getPropertyValue("--blue") && !st.getPropertyValue("--bfs") && /मूल रूप दिखता है/.test(q("#roopBox").textContent));
+    click(c, q('[data-roop="bc"][data-v="g"]')); await settle(c);
+    ck("R10 देखने का मोड: रूप नहीं बदलता, कुछ सहेजा नहीं जाता", !st.getPropertyValue("--blue") && /देखने के मोड में यह काम नहीं होता/.test(q("#roopMsg").textContent) && JSON.parse(c.w.localStorage.getItem("acs_roop_v1")).u1.bc === "m");
+    c.dom.window.close(); }
+  if (pg("founder")) { const c = await openH(pg("founder"), "hi", "base", ["pnl-roop"]), q = sel => c.d.querySelector(sel);
+    ck("R11 टीम का घर: \"मेरा रूप\" काम-सूची में, रंग की सूची पूरी", !!q('#sideNav .si[data-go="pnl-roop"]') && c.d.querySelectorAll('[data-roop="bc"]').length === 7);
+    click(c, q('[data-roop="bc"][data-v="p"]')); await settle(c);
+    ck("R11 टीम का घर: बटन का रंग बदला", c.d.documentElement.style.getPropertyValue("--blue") === "#5E35B1"); c.dom.window.close(); }
 }
 const NZ_OK = { claimSession: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
 async function nazarChecks(pages) {
@@ -867,7 +955,7 @@ async function docChecks(pages) {
     e.dom.window.close(); h.dom.window.close();
   } catch (err) { ck("काग़ज़ (केंद्र) : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
 }
-module.exports = { openNazar, nazarChecks, k1Checks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
+module.exports = { openNazar, nazarChecks, k1Checks, roopChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
 if (require.main === module) (async function main() {
   const only = process.argv[2] || "";
   const listPages = () => fs.readdirSync(path.join(ROOT, "dashboard"), { withFileTypes: true }).filter(e => e.isDirectory())
@@ -933,9 +1021,10 @@ if (require.main === module) (async function main() {
   if (!process.env.ACS_ONLY_HI) await hdataChecks(pages, !only);
   await k1Checks(pages);   /* (v1.8) कक्षा-परत के पर्दे */
   await nazarChecks(pages);   /* (v2.0) Founder का देखने वाला मोड */
+  await roopChecks(pages);   /* (v2.4) नया रूप (design D-1) और "मेरा रूप" */
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.3 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.4 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

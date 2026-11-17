@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.27.0 · 18-Nov-2026 (design D-1: कक्षा-कार्ड का नया रूप (पाँच खाने, एक बार में एक; बटन के चार दर्जे; ख़तरे वाले काम "और विकल्प" के भीतर) और "मेरा रूप" (रंग, बटन का आकार, काम-सूची से छिपाना, ऊपर की पट्टी; पसंद इसी फ़ोन में))
    v6.26.0 · 18-Nov-2026 (कक्षा-परत K-5b: प्रगति और सूचना-पट; server: class_server.js v1.7): k1-block में "प्रगति" (हाज़िरी और अंक एक जगह;
      शिक्षक और केंद्र) और "सूचना-पट" (शिक्षक या केंद्र पूरे बैच को सूचना भेजे; विद्यार्थी "मेरा केंद्र" में पढ़े)।
    v6.25.0 · 18-Nov-2026 (कक्षा-परत K-4b: काम व अंक; server: class_server.js v1.6): k1-block में "काम व अंक"।
@@ -188,7 +189,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.26.0";
+const DASH_VER = "v6.27.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -717,7 +718,7 @@ function initNav(boot){
   const nav=$("sideNav"); nav.innerHTML="";
   document.querySelectorAll(".panel").forEach(p=>{
     /* वाणी सार्वभौम — किसी भी boot में कभी न छँटे */
-    if(p.id!=="pnl-vani"){
+    if(p.id!=="pnl-vani" && p.id!=="pnl-roop"){
       if(boot==="ext" && TEAM_PANEL_IDS.indexOf(p.id)>-1) return;
       if(boot==="team" && p.id!=="pnl-profile" && TEAM_PANEL_IDS.indexOf(p.id)===-1) return;
     }
@@ -727,6 +728,7 @@ function initNav(boot){
     b.addEventListener("click",()=>navGo(p.id));
     nav.appendChild(b);
   });
+  roopBoot();
   navGo("pnl-profile");
 }
 function navGo(id){
@@ -737,6 +739,92 @@ function navGo(id){
   const fn=LAZY[id]; if(typeof fn==="function") fn();
   (MERGED_LAZY[id]||[]).forEach(x=>{ const g=LAZY[x]; if(typeof g==="function") g(); });
 }
+
+/* ═══ (design D-1 · 18-Nov-2026) "मेरा रूप": हर उपयोगकर्ता अपना पैनल अपने हिसाब से रखे ═══
+   पैनल का रंग, बटन का रंग और आकार, काम-सूची में क्या दिखे, ऊपर की पट्टी के बटन।
+   पसंद इसी फ़ोन या computer में (localStorage) रहती है: server पर कुछ नहीं जाता।
+   रंग चुनी हुई सूची से ही: हर रंग पर सफ़ेद अक्षर साफ़ पढ़े जाते हैं (जाँचा हुआ)।
+   देखने के मोड में घर का मूल रूप ही दिखता है और कुछ सहेजा नहीं जाता। */
+const ROOP_KEY="acs_roop_v1", ROOP_MAXPIN=6;
+const ROOP_PC=[ {k:"",n:"नीला",a:"#0B1F3A",b:"#1565C0"}, {k:"g",n:"हरा",a:"#0F3B22",b:"#2E7D32"}, {k:"p",n:"बैंगनी",a:"#2A1B4D",b:"#5E35B1"},
+  {k:"m",n:"गहरा लाल",a:"#4A1220",b:"#AD1457"}, {k:"t",n:"समुद्री हरा",a:"#06343A",b:"#00796B"}, {k:"s",n:"स्लेटी",a:"#1F2A33",b:"#455A64"} ];
+const ROOP_BC=[ {k:"",n:"नीला",c:"#1565C0"}, {k:"g",n:"हरा",c:"#2E7D32"}, {k:"p",n:"बैंगनी",c:"#5E35B1"}, {k:"m",n:"गहरा लाल",c:"#AD1457"},
+  {k:"t",n:"समुद्री हरा",c:"#00796B"}, {k:"o",n:"नारंगी",c:"#BF360C"}, {k:"s",n:"स्लेटी",c:"#455A64"} ];
+const ROOP_BZ=[ {k:"s",n:"छोटा",f:"16px",h:"44px"}, {k:"",n:"सामान्य",f:"18px",h:"48px"}, {k:"l",n:"बड़ा",f:"21px",h:"56px"} ];
+const ROOP_LOCK={ "pnl-profile":1, "pnl-roop":1, "pnl-help":1, "pnl-rules":1 };   /* ये पैनल काम-सूची से कभी नहीं छिपते */
+const ROOP_HOME=(window.ACS_DASH&&window.ACS_DASH.home)||location.pathname;
+let ROOP_UID="";
+function roopAll(){ try{ const a=JSON.parse(localStorage.getItem(ROOP_KEY)||"{}"); return (a&&typeof a==="object")?a:{}; }catch(e){ return {}; } }
+function roopGet(){
+  const a=(!VIEW&&ROOP_UID&&roopAll()[ROOP_UID])||{}, L=x=>Array.isArray(x)?x.filter(y=>typeof y==="string"):[];
+  return { pc:String(a.pc||""), bc:String(a.bc||""), bz:String(a.bz||""), hide:L(a.hide&&a.hide[ROOP_HOME]), pins:L(a.pins&&a.pins[ROOP_HOME]) };
+}
+function roopSave(r){
+  if(VIEW||!ROOP_UID) return false;
+  try{ const all=roopAll(), a=all[ROOP_UID]||{};
+    a.pc=r.pc; a.bc=r.bc; a.bz=r.bz; a.hide=a.hide||{}; a.pins=a.pins||{}; a.hide[ROOP_HOME]=r.hide; a.pins[ROOP_HOME]=r.pins;
+    all[ROOP_UID]=a; localStorage.setItem(ROOP_KEY, JSON.stringify(all)); return true;
+  }catch(e){ return false; }
+}
+function roopNavIds(){ return Array.prototype.map.call(document.querySelectorAll("#sideNav .si"), b=>b.getAttribute("data-go")); }
+function roopLabel(id){ const p=document.getElementById(id); return (p&&p.getAttribute("data-nav"))||id; }
+function roopApply(){
+  const r=roopGet(), st=document.documentElement.style, pick=(L,k)=>L.filter(x=>x.k===k)[0]||L.filter(x=>x.k==="")[0];
+  const pc=pick(ROOP_PC,r.pc), bc=pick(ROOP_BC,r.bc), bz=pick(ROOP_BZ,r.bz);
+  if(pc.k){ st.setProperty("--navy",pc.a); st.setProperty("--hd2",pc.b); } else { st.removeProperty("--navy"); st.removeProperty("--hd2"); }
+  if(bc.k) st.setProperty("--blue",bc.c); else st.removeProperty("--blue");
+  if(bz.k){ st.setProperty("--bfs",bz.f); st.setProperty("--bh",bz.h); } else { st.removeProperty("--bfs"); st.removeProperty("--bh"); }
+  document.querySelectorAll("#sideNav .si").forEach(b=>{ const id=b.getAttribute("data-go"); b.classList.toggle("rhide", r.hide.indexOf(id)>-1 && !ROOP_LOCK[id]); });
+  const bar=$("roopBar"), ids=roopNavIds();
+  if(bar){ bar.innerHTML="";
+    r.pins.filter(id=>ids.indexOf(id)>-1).slice(0,ROOP_MAXPIN).forEach(id=>{
+      const t=document.createElement("button"); t.type="button"; t.className="rpin"; t.textContent=roopLabel(id);
+      t.addEventListener("click",()=>navGo(id)); bar.appendChild(t); });
+    bar.classList.toggle("on", bar.children.length>0); }
+}
+function roopSay(ok,t){ const m=$("roopMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
+function roopDraw(){
+  const box=$("roopBox"); if(!box) return;
+  const r=roopGet(), ids=roopNavIds();
+  const sw=(kind,L,cur)=>'<div class="rsw">'+L.map(x=>'<button type="button" class="rswb'+(x.k===cur?' on':'')+'" data-roop="'+kind+'" data-v="'+x.k+'" aria-pressed="'+(x.k===cur)+'">'+
+    '<i style="background:'+(x.c||('linear-gradient(135deg,'+x.a+','+x.b+')'))+'"></i><span>'+x.n+'</span></button>').join("")+'</div>';
+  let h=VIEW?'<div class="note">देखने के मोड में रूप नहीं बदला जाता। यहाँ घर का मूल रूप दिखता है।</div>':'';
+  h+='<div class="rsec"><div class="rh">1. पैनल का रंग</div>'+sw("pc",ROOP_PC,r.pc)+'</div>'+
+     '<div class="rsec"><div class="rh">2. बटन का रंग</div>'+sw("bc",ROOP_BC,r.bc)+'</div>'+
+     '<div class="rsec"><div class="rh">3. बटन का आकार</div><div class="rseg">'+ROOP_BZ.map(x=>'<button type="button" class="rsg'+(x.k===r.bz?' on':'')+'" data-roop="bz" data-v="'+x.k+'" aria-pressed="'+(x.k===r.bz)+'">'+x.n+'</button>').join("")+'</div>'+
+     '<div class="rtry"><button type="button" class="abtn k1n">नमूना बटन</button></div></div>'+
+     '<div class="rsec"><div class="rh">4. काम-सूची और ऊपर की पट्टी</div>'+
+     '<div class="pd">जो पैनल आप नहीं चलाते, उसे काम-सूची से छिपा दें।</div><div class="pd">जो पैनल रोज़ चलाते हैं, उसका बटन ऊपर की पट्टी में जोड़ लें (ज़्यादा से ज़्यादा 6)।</div>';
+  ids.forEach(id=>{ const hid=r.hide.indexOf(id)>-1&&!ROOP_LOCK[id], pin=r.pins.indexOf(id)>-1;
+    h+='<div class="rrow"><div class="rn">'+esc(roopLabel(id))+'</div><div class="rb">'+
+      (ROOP_LOCK[id]?'<span class="rlk">🔒 हमेशा दिखता है</span>'
+        :'<button type="button" class="rtg'+(hid?'':' on')+'" data-roop="hide" data-v="'+id+'" aria-pressed="'+(!hid)+'">'+(hid?'🚫 छिपा है':'👁 दिखता है')+'</button>')+
+      '<button type="button" class="rtg'+(pin?' on':'')+'" data-roop="pin" data-v="'+id+'" aria-pressed="'+pin+'">'+(pin?'📌 ऊपर है':'➕ ऊपर जोड़ें')+'</button></div></div>'; });
+  h+='</div><div class="rsec"><button type="button" class="abtn ol" data-roop="reset">↩ सब पहले जैसा करें</button></div>';
+  box.innerHTML=h;
+}
+function roopBoot(){
+  ROOP_UID=(auth.currentUser&&auth.currentUser["uid"])||"";
+  const tb=$("tbRoop"); if(tb) tb.style.display="";
+  LAZY["pnl-roop"]=roopDraw;
+  roopApply();
+}
+window.openRoop=function(){ if(document.querySelector("#sideNav .si")) navGo("pnl-roop"); };
+document.addEventListener("click", function(ev){
+  const b=ev.target&&ev.target.closest&&ev.target.closest("[data-roop]"); if(!b) return;
+  if(VIEW){ roopSay(false,"देखने के मोड में यह काम नहीं होता"); return; }
+  const kind=b.getAttribute("data-roop"), v=b.getAttribute("data-v")||"", r=roopGet();
+  if(kind==="pc"||kind==="bc"||kind==="bz") r[kind]=v;
+  else if(kind==="hide"){ if(ROOP_LOCK[v]) return; const i=r.hide.indexOf(v); if(i>-1) r.hide.splice(i,1); else r.hide.push(v); }
+  else if(kind==="pin"){ const j=r.pins.indexOf(v);
+    if(j>-1) r.pins.splice(j,1);
+    else { const live=roopNavIds(); r.pins=r.pins.filter(x=>live.indexOf(x)>-1);
+      if(r.pins.length>=ROOP_MAXPIN){ roopSay(false,"ऊपर की पट्टी में 6 से ज़्यादा बटन नहीं जुड़ते।"); return; } r.pins.push(v); } }
+  else if(kind==="reset"){ if(!confirm("आपकी सब पसंद हटाकर पहले जैसा रूप करें?")) return; r.pc=""; r.bc=""; r.bz=""; r.hide=[]; r.pins=[]; }
+  else return;
+  if(!roopSave(r)){ roopSay(false,"यह पसंद इस फ़ोन में सहेजी नहीं जा सकी।"); return; }
+  roopApply(); roopDraw(); roopSay(true, kind==="reset"?"↩ रूप पहले जैसा हो गया।":"✔ आपकी पसंद सहेज ली गई।");
+});
 
 /* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
 onAuthStateChanged(auth, async (user)=>{
@@ -4211,6 +4299,17 @@ if (MODE==="external" && ALLOWED.length>=1) {
   function btn(act, label, extra, cls){ return '<button class="abtn k1b '+(cls||'k1n')+'" data-k1="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
   function red(act, label, extra){ return '<button class="abtn k1b no" data-k1="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
   var CL=null, FORM=null, ROS={};
+  /* (design D-1) कक्षा के पाँच खाने: एक बार में एक ही खुलता है। हाज़िरी और काम में लिखी हुई बात खाना बदलने पर भी याद रहती है। */
+  var TAB={};
+  async function tabGo(id, act){
+    if(TAB[id]===act){ delete TAB[id]; return; }
+    if(act==="ros") ROS[id]=(await call("classRoster",{ classId:id })).data;
+    else if(act==="att"){ if(!ATT[id]) await attLoad(id); }
+    else if(act==="wk"){ if(!WK[id]) await wkLoad(id); }
+    else if(act==="pg") await pgLoad(id);
+    else if(act==="nt") await ntLoad(id);
+    TAB[id]=act;
+  }
   function say(ok,t){ var m=$("clsMsg")||$("myClsMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
 
   /* दिन और समय का छोटा फ़ॉर्म: बैच सौंपते समय (give) और समय बदलते समय (time) */
@@ -4264,9 +4363,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
       h+='<div class="r2">'+S("किस दिन की हाज़िरी:")+'</div><div>'+attDays(d).map(function(x){
         return '<button type="button" class="k1d'+(x===a.date?' on':'')+'" data-k1="attday"'+I+' data-d="'+x+'">'+dd(x)+'</button>'; }).join(" ")+'</div>'+
         '<div class="r2">'+S(a.saved?"इस दिन की हाज़िरी लग चुकी है। नीचे से सुधार सकते हैं।":"इस दिन की हाज़िरी अभी नहीं लगी।")+'</div>'+
-        '<div>'+btn("attall","✅ सब उपस्थित",I)+'</div>';
+        '<div>'+obtn("attall","✅ सब उपस्थित",I)+'</div>';
       L.forEach(function(s,i){
-        h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(s.name))+' · '+esc(s.regNo)+'</div><div>'+["P","A","L"].map(function(v){
+        h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(s.name))+' · '+esc(s.regNo)+'</div><div class="k1seg">'+["P","A","L"].map(function(v){
           return '<button type="button" class="k1m k1m'+v+(a.marks[s.regNo]===v?' on':'')+'" data-k1="attm"'+I+' data-r="'+esc(s.regNo)+'" data-v="'+v+'">'+AM[v]+'</button>'; }).join(" ")+'</div></div>'; });
       h+='<div>'+btn("attsave","✔ हाज़िरी सहेजें",I,"ok")+'</div>';
     }
@@ -4321,7 +4420,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         h+='<div>'+btn("wkopen", on?"✖ अंक बंद करें":"✏️ अंक लिखें", I+W)+(none?red("wkdel","🗑 काम हटाएँ",I+W):'')+'</div>';
         if(on){
           (w.results||[]).forEach(function(r,i){ var e=k.edits[r.regNo]||{};
-            h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(nm[r.regNo]||""))+' · '+esc(r.regNo)+'</div><div>'+["S","N","R"].map(function(v){
+            h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(nm[r.regNo]||""))+' · '+esc(r.regNo)+'</div><div class="k1seg">'+["S","N","R"].map(function(v){
               return '<button type="button" class="k1m '+WC[v]+(e.status===v?' on':'')+'" data-k1="wkst"'+I+' data-r="'+esc(r.regNo)+'" data-v="'+v+'">'+WS[v]+'</button>'; }).join(" ")+'</div>'+
               '<div class="k1wf">'+(e.status==="S"?'<label>'+S("अंक")+' <input type="number" class="k1wm" min="0" max="'+w.maxMarks+'"'+I+' data-r="'+esc(r.regNo)+'" value="'+esc(e.marks==null?"":e.marks)+'"> / '+w.maxMarks+'</label>':'')+
               '<input type="text" class="k1wr" maxlength="200" placeholder="टिप्पणी (चाहें तो)"'+I+' data-r="'+esc(r.regNo)+'" value="'+esc(e.remark||"")+'"></div></div>'; });
@@ -4357,8 +4456,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var L=p.att.students||[], h='<div class="k1att"><div class="r2"><b>'+S("📊 प्रगति")+'</b> · '+S("हाज़िरी के कुल दिन:")+' <b>'+(p.att.daysHeld||0)+'</b> · '+S("दिए गए काम:")+' <b>'+((p.wk.works||[]).length)+'</b></div>';
     if(!L.length) return h+'<div class="r2">'+S("इस बैच में अभी कोई विद्यार्थी नहीं।")+'</div></div>';
     L.forEach(function(x,i){ var w=W[x.regNo]||{ got:0, full:0, pct:null };
-      h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(x.name))+' · '+esc(x.regNo)+'</div><div class="r2">'+S("हाज़िरी:")+' <b>'+x.present+' / '+(x.present+x.absent)+'</b> · <b>'+pc(x.pct)+'</b></div>'+
-        '<div class="r2">'+S("काम व अंक:")+' <b>'+w.got+' / '+w.full+'</b> · <b>'+pc(w.pct)+'</b></div></div>'; });
+      h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(x.name))+' · '+esc(x.regNo)+'</div><div class="r2">'+S("हाज़िरी:")+' <b>'+x.present+' / '+(x.present+x.absent)+'</b> · <b>'+pc(x.pct)+'</b></div>'+bar(x.pct)+
+        '<div class="r2">'+S("काम व अंक:")+' <b>'+w.got+' / '+w.full+'</b> · <b>'+pc(w.pct)+'</b></div>'+bar(w.pct)+'</div>'; });
     return h+'</div>';
   }
   async function ntLoad(id){ var old=NT[id]||{}; NT[id]={ data:(await call("listNotices",{ classId:id })).data||{}, text:old.text||"" }; }
@@ -4379,42 +4478,55 @@ if (MODE==="external" && ALLOWED.length>=1) {
     return '<div class="r2">📣 '+S("सूचनाएँ:")+'</div>'+m.notices.slice(0,5).map(ntLine).join("");
   }
   /* एक कक्षा की पंक्ति: side = "center" (केंद्र देख रहा है) या "teacher" */
+  /* (design D-1 नमूना) कक्षा-कार्ड: माथा, ध्यान वाली पट्टी, पाँच खाने (tab), फिर दूसरे दर्जे के काम; लाल काम "और विकल्प" के भीतर */
+  function bar(p){ if(p===null||p===undefined||isNaN(p)) return ''; var v=Math.max(0,Math.min(100,Math.round(p))); return '<div class="k1bar'+(v<50?' lo':(v<75?' mid':''))+'"><i style="width:'+v+'%"></i></div>'; }
+  function tab(act, ico, label, id, on){ return '<button class="k1tab'+(on?' on':'')+'" data-k1="'+act+'"'+id+' aria-pressed="'+(on?'true':'false')+'"><span class="ti">'+ico+'</span><span class="tl">'+S(label)+'</span></button>'; }
+  function obtn(act, label, extra){ return '<button class="abtn k1b ol" data-k1="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function dbtn(act, label, extra){ return '<button class="abtn k1b ol dg" data-k1="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
   function clsRow(c, side){
-    var id=' data-id="'+esc(c.classId)+'"', live=(c.status==="active"||c.status==="notice");
-    var h='<div class="app k1row"><div class="r1"><span class="nm">'+
-      (side==="center" ? US(rb(c.teacherName))+'</span><span>'+esc(c.teacherRegNo)+'</span>'
-                       : CN(c.courseId,c.courseName)+'</span><span>'+S("बैच")+' '+c.batchNo+'</span>')+chip(c)+'</div>'+
-      '<div class="r2">'+(side==="teacher"?'🏫 '+US(rb(c.centerName))+' · ':'')+when(c)+'</div>';
-    if(c.status==="notice") h+='<div class="r2">'+S("कक्षा का आख़िरी दिन:")+' <b>'+dms(c.lastDayMs)+'</b>'+
-      (side==="center"&&c.noticeReason?' · '+S("कारण:")+' '+US(rb(c.noticeReason)):'')+'</div>';
-    if(c.pendingSched){ h+='<div class="r2">'+S("🕒 नया समय सुझाया गया है:")+' '+when(c.pendingSched)+'</div>';
-      if(side==="teacher") h+='<div>'+btn("sy","✅ नया समय मंज़ूर",id,"ok")+red("sn","❌ नया समय नामंज़ूर",id)+'</div>';
-      else h+='<div class="r2">'+S("हाँ का इंतज़ार है।")+'</div>'; }
+    var id=' data-id="'+esc(c.classId)+'"', live=(c.status==="active"||c.status==="notice"), K=c.classId;
+    var h='<div class="app k1row k1card st-'+esc(c.status)+'"><div class="k1h"><div class="k1ti">'+
+      (side==="center" ? US(rb(c.teacherName)) : CN(c.courseId,c.courseName))+'</div><div class="k1sub">'+
+      (side==="center" ? '<span class="k1bt">'+esc(c.teacherRegNo)+'</span>' : '<span class="k1bt">'+S("बैच")+' '+c.batchNo+'</span>')+chip(c)+'</div></div>'+
+      (side==="teacher"?'<div class="k1meta"><span class="mi">🏫</span><span>'+US(rb(c.centerName))+'</span></div>':'')+
+      '<div class="k1meta"><span class="mi">🗓️</span><span>'+(c.days||[]).map(function(d){ return S(DAYS[d]||""); }).join(", ")+'</span></div>'+
+      '<div class="k1meta"><span class="mi">🕓</span><span>'+esc(c.from)+' - '+esc(c.to)+'</span></div>';
+    if(c.status==="notice") h+='<div class="k1meta"><span class="mi">⏳</span><span>'+S("कक्षा का आख़िरी दिन:")+' <b>'+dms(c.lastDayMs)+'</b>'+
+      (side==="center"&&c.noticeReason?' · '+S("कारण:")+' '+US(rb(c.noticeReason)):'')+'</span></div>';
+    if(c.pendingSched){ h+='<div class="k1call"><div class="ct">'+S("🕒 नया समय सुझाया गया है:")+' <b>'+when(c.pendingSched)+'</b></div>';
+      if(side==="teacher") h+='<div class="k1two">'+btn("sy","✅ मंज़ूर",id,"ok")+dbtn("sn","❌ नामंज़ूर",id)+'</div>';
+      else h+='<div class="cs">'+S("हाँ का इंतज़ार है।")+'</div>';
+      h+='</div>'; }
     if(c.status==="left_no_notice"){
-      h+='<div class="r2" style="color:#B71C1C">'+S("⚠️ यह कक्षा बिना सूचना छोड़ी गई। इसकी फ़ीस रोकी गई है।")+'</div></div>'; return h; }
-    /* (K-2b) "शिक्षक बिना सूचना आना बंद कर चुका है" वाली शिकायत: दोनों पक्षों को दिखती है */
+      h+='<div class="k1call rd"><div class="ct">'+S("⚠️ यह कक्षा बिना सूचना छोड़ी गई। इसकी फ़ीस रोकी गई है।")+'</div></div></div>'; return h; }
     var ab=c.abandon, late=!!ab&&Date.now()>ab.replyByMs;
     if(ab){
-      h+='<div class="r2" style="color:#B71C1C">🚩 '+S(side==="center"?"आपकी शिकायत दर्ज है:":"केंद्र ने शिकायत की है कि आप बिना सूचना आना बंद कर चुके हैं:")+' '+US(rb(ab.reason))+'</div>';
-      if(ab.status==="replied") h+='<div class="r2">'+S(side==="center"?"शिक्षक का जवाब:":"आपका जवाब:")+' '+US(rb(ab.reply))+'</div><div class="r2">'+S("अब फ़ैसला ACS करेगा।")+'</div>';
-      else if(!late) h+='<div class="r2">'+S("जवाब देने की आख़िरी तारीख़:")+' <b>'+dms(ab.replyByMs)+'</b></div>';
-      else h+='<div class="r2">'+S("7 दिन में जवाब नहीं आया।")+'</div>';
+      h+='<div class="k1call rd"><div class="ct">🚩 '+S(side==="center"?"आपकी शिकायत दर्ज है:":"केंद्र ने शिकायत की है कि आप बिना सूचना आना बंद कर चुके हैं:")+' '+US(rb(ab.reason))+'</div>';
+      if(ab.status==="replied") h+='<div class="cs">'+S(side==="center"?"शिक्षक का जवाब:":"आपका जवाब:")+' '+US(rb(ab.reply))+'</div><div class="cs">'+S("अब फ़ैसला ACS करेगा।")+'</div>';
+      else if(!late) h+='<div class="cs">'+S("जवाब देने की आख़िरी तारीख़:")+' <b>'+dms(ab.replyByMs)+'</b></div>';
+      else h+='<div class="cs">'+S("7 दिन में जवाब नहीं आया।")+'</div>';
       if(side==="teacher"&&ab.status==="open"&&!late) h+='<div>'+btn("abreply","✍️ शिकायत का जवाब दें",id,"ok")+'</div>';
-      if(side==="center") h+='<div>'+(ab.status==="open"&&late?red("abconfirm","⚖️ निशान लगाएँ (फ़ीस रोकें)",id):'')+btn("abwd","↩ शिकायत वापस लें",id)+'</div>';
+      if(side==="center") h+='<div>'+(ab.status==="open"&&late?red("abconfirm","⚖️ निशान लगाएँ (फ़ीस रोकें)",id):'')+obtn("abwd","↩ शिकायत वापस लें",id)+'</div>';
+      h+='</div>';
     }
+    if(side==="teacher"&&c.status==="offered") h+='<div class="k1two">'+btn("acc","✅ स्वीकारें",id,"ok")+dbtn("dec","❌ मना करें",id)+'</div>';
+    var T=live?TAB[K]:"";
+    if(live) h+='<div class="k1tabs">'+tab("ros","👥","विद्यार्थी",id,T==="ros")+tab("att","📋","हाज़िरी",id,T==="att")+tab("wk","📝","काम व अंक",id,T==="wk")+tab("pg","📊","प्रगति",id,T==="pg")+tab("nt","📣","सूचना-पट",id,T==="nt")+'</div>';
+    if(T==="ros") h+='<div class="k1pane">'+rosHtml(K)+'</div>';
+    else if(T==="att") h+=attHtml(K, side); else if(T==="wk") h+=wkHtml(K, side); else if(T==="pg") h+=pgHtml(K); else if(T==="nt") h+=ntHtml(K);
+    var foot="", more="";
     if(side==="teacher"){
-      if(c.status==="offered") h+=btn("acc","✅ स्वीकारें",id,"ok")+red("dec","❌ मना करें",id);
-      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id)+btn("att","📋 हाज़िरी",id)+btn("wk","📝 काम व अंक",id)+btn("pg","📊 प्रगति",id)+btn("nt","📣 सूचना-पट",id);
-      if(c.status==="active") h+=btn("notice","📤 15 दिन की सूचना दें",id);
-      if(c.status==="notice") h+=btn("unnotice","↩ सूचना वापस लें",id);
-      if(live) h+=red("leave","🚪 बिना सूचना अभी छोड़ें",id);
+      if(c.status==="active") foot+=obtn("notice","📤 15 दिन की सूचना दें",id);
+      if(c.status==="notice") foot+=obtn("unnotice","↩ सूचना वापस लें",id);
+      if(live) more+=dbtn("leave","🚪 बिना सूचना अभी छोड़ें",id);
     } else {
-      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id)+btn("att","📋 हाज़िरी देखें",id)+btn("wk","📝 काम व अंक देखें",id)+btn("pg","📊 प्रगति",id)+btn("nt","📣 सूचना-पट",id);
-      h+=btn("time","🕒 समय बदलें",id)+red("end", c.status==="offered"?"↩ प्रस्ताव वापस लें":"↩ कक्षा वापस लें", id+' data-st="'+esc(c.status)+'"');
-      if(live&&!ab) h+=red("abrep","🚩 शिक्षक बिना सूचना आना बंद कर चुका है",id);
-      if(FORM&&FORM.mode==="time"&&FORM.id===c.classId) h+=formHtml();
+      foot+=obtn("time","🕒 समय बदलें",id);
+      more+=dbtn("end", c.status==="offered"?"↩ प्रस्ताव वापस लें":"↩ कक्षा वापस लें", id+' data-st="'+esc(c.status)+'"');
+      if(live&&!ab) more+=dbtn("abrep","🚩 शिक्षक बिना सूचना आना बंद कर चुका है",id);
     }
-    return h+'<div>'+rosHtml(c.classId)+'</div>'+attHtml(c.classId, side)+wkHtml(c.classId, side)+pgHtml(c.classId)+ntHtml(c.classId)+'</div>';
+    if(foot||more) h+='<div class="k1foot">'+foot+(more?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+more+'</div></details>':'')+'</div>';
+    if(side!=="teacher"&&FORM&&FORM.mode==="time"&&FORM.id===c.classId) h+=formHtml();
+    return h+'</div>';
   }
 
   /* ───────── केंद्र/वर्कशॉप: pnl-class ───────── */
@@ -4455,8 +4567,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var st=CL.standing||{}, s="";
     if(st.lifetime) s='<div class="note" style="color:#B71C1C">'+S("⛔ दो बार बिना सूचना कक्षा छोड़ी गई। अब नई कक्षा हमेशा के लिए बंद है।")+'</div>';
     else if(st.blocked&&st.applied) s='<div class="note">'+S("⏳ आपका आवेदन दर्ज है। नई कक्षा इस तारीख़ के बाद मिल सकती है:")+' <b>'+dms(st.blockedUntilMs)+'</b></div>';
-    else if(st.blocked) s='<div class="note" style="color:#B71C1C">'+S("⛔ बिना सूचना कक्षा छोड़ने से नई कक्षा मिलना बंद है। दोबारा आवेदन के 6 महीने बाद नई कक्षा मिल सकती है।")+'</div>'+
-      btn("apply","📝 दोबारा आवेदन करें");
+    else if(st.blocked) s='<div class="k1call rd"><div class="ct">'+S("⛔ बिना सूचना कक्षा छोड़ने से नई कक्षा मिलना बंद है। दोबारा आवेदन के 6 महीने बाद नई कक्षा मिल सकती है।")+'</div><div>'+
+      btn("apply","📝 दोबारा आवेदन करें")+'</div></div>';
     if(sb) sb.innerHTML=s;
     var L=CL.asTeacher||[];
     if(!L.length){ box.innerHTML='<span class="note">अभी कोई कक्षा नहीं। कोई बैच सौंपा जाएगा, तो यहीं दिखेगा।</span>'; return; }
@@ -4539,20 +4651,12 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(act==="bset"){
         var sel=document.querySelector('select[data-k1sel="'+cid+'"]');
         await call("setBatches",{ courseId:cid, batches:Number(sel&&sel.value) }); await reload(); say(true,"✔ बैच तय हो गए।"); return; }
-      if(act==="pg"){
-        if(PG[id]){ delete PG[id]; } else { await pgLoad(id); }
-        drawInst(); drawMine(); return; }
-      if(act==="nt"){
-        if(NT[id]){ delete NT[id]; } else { await ntLoad(id); }
-        drawInst(); drawMine(); return; }
+      if(act==="pg"||act==="nt"||act==="wk"||act==="att"||act==="ros"){ await tabGo(id, act); drawInst(); drawMine(); return; }
       if(act==="ntsend"){
         var N0=NT[id]; if(!N0) return;
         if(!String(N0.text||"").trim()){ b.disabled=false; say(false,"सूचना लिखें।"); return; }
         if(!confirm("यह सूचना पूरे बैच को भेजें? भेजने के बाद यह बदली या हटाई नहीं जा सकती।")) return;
         await call("postNotice",{ classId:id, text:N0.text }); N0.text=""; await ntLoad(id); drawInst(); drawMine(); say(true,"📣 सूचना भेज दी गई।"); return; }
-      if(act==="wk"){
-        if(WK[id]){ delete WK[id]; } else { await wkLoad(id); }
-        drawInst(); drawMine(); return; }
       if(act.indexOf("wk")===0){
         var K0=WK[id], wid=b.getAttribute("data-w")||""; if(!K0) return; wkKeep(id);
         if(act==="wknew"){ var t7=""; try{ t7=new Date(Date.parse(K0.data.today+"T00:00:00Z")+7*86400000).toISOString().slice(0,10); }catch(e){}
@@ -4578,9 +4682,6 @@ if (MODE==="external" && ALLOWED.length>=1) {
           if(!Object.keys(res).length){ b.disabled=false; say(false,"कम से कम एक विद्यार्थी का नतीजा चुनें।"); return; }
           await call("markWork",{ classId:id, workId:wid, results:res }); K0.open=null; K0.edits={}; await wkLoad(id); drawMine(); say(true,"✔ अंक सहेज लिए गए।"); return; }
         return; }
-      if(act==="att"){
-        if(ATT[id]){ delete ATT[id]; } else { await attLoad(id); }
-        drawInst(); drawMine(); return; }
       if(act==="attday"){ await attLoad(id, b.getAttribute("data-d")); drawMine(); return; }
       if(act==="attm"){ if(ATT[id]){ ATT[id].marks[b.getAttribute("data-r")]=b.getAttribute("data-v"); drawMine(); } return; }
       if(act==="attall"){ if(ATT[id]){ (ATT[id].data.students||[]).forEach(function(x){ ATT[id].marks[x.regNo]="P"; }); drawMine(); } return; }
@@ -4589,9 +4690,6 @@ if (MODE==="external" && ALLOWED.length>=1) {
         if((A0.data.students||[]).some(function(x){ return !A0.marks[x.regNo]; })){ b.disabled=false; say(false,"हर विद्यार्थी की हाज़िरी लगाएँ, फिर सहेजें।"); return; }
         var ar=(await call("markAttendance",{ classId:id, date:A0.date, marks:A0.marks })).data||{};
         await attLoad(id, A0.date); drawMine(); say(true, ar.corrected?"✔ हाज़िरी सुधार दी गई।":"✔ हाज़िरी सहेज ली गई।"); return; }
-      if(act==="ros"){
-        if(ROS[id]){ delete ROS[id]; } else { ROS[id]=(await call("classRoster",{ classId:id })).data; }
-        drawInst(); drawMine(); return; }
       if(act==="end"){
         if(b.getAttribute("data-st")==="offered"){ if(!confirm("यह प्रस्ताव वापस लें?")) return; why=""; }
         else { why=prompt("कक्षा वापस लेने का कारण लिखें (ज़रूरी):"); if(!why) return; }
